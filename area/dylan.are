@@ -11,9 +11,7 @@ End
 #9101
 harpy гарпия~
 @eng the screaming, filthy harpy@rus ~~грязная~~ ~~гарпия~~~
-@eng The screaming, filthy harpy claws madly at your face!
-@rus Кричащая, грязная гарпия (harpy) бешено царапает твое лицо!
-~
+@eng The screaming, filthy harpy claws madly at your face!@rus Кричащая, грязная гарпия (harpy) бешено царапает твое лицо!~
 @eng The harpy looks at you with blood in her eyes.  Her entire body is
 caked in filth and grime and she stinks to high heaven.  Her razor-
 sharp talons flex as she considers you for her dinner.
@@ -31,9 +29,7 @@ stand stand female 1525
 #9102
 harpy leader гарпия лидер~
 @eng the screaming harpy leader@rus ~~предводительница~~ гарпий~
-@eng The screaming harpy leader tries to scratch your eyes out!
-@rus Предводительница (leader) грязных кричащих гарпий пытается выцарапать тебе глаза.
-~
+@eng The screaming harpy leader tries to scratch your eyes out!@rus Предводительница (leader) грязных кричащих гарпий пытается выцарапать тебе глаза.~
 @eng The harpy leader looks at you and grins menacingly.  She stretches
 her wings and you see insects crawling around them.  Her hair is
 matted and greasy and you are sickened by the stench that pervades
@@ -52,9 +48,7 @@ stand stand female 2125
 #9103
 elemental air воздушный элементал~
 @eng the ghostly air elemental@rus ~~воздушный~~ ~~элементал~~~
-@eng The ghostly air elemental.
-@rus Призрачный воздушный элементал (air elemental).
-~
+@eng The ghostly air elemental.@rus Призрачный воздушный элементал (air elemental).~
 @eng The air elemental is hard to see.  You know that it is there
 because objects behind it seem to waver and are slightly blurred.
 @rus Воздушного элементала трудно заметить. Ты знаешь, что он здесь только по тому,
@@ -70,9 +64,7 @@ stand stand male 50
 #9104
 efreeti mysterious таинственный ифрит~
 @eng the mysterious efreeti@rus ~~таинственный~~ ~~ифрит~~~
-@eng The mysterious efreeti grins in delight at its new prey.
-@rus Таинственный ифрит (efreeti) смотрит с радостью на свою новую добычу.
-~
+@eng The mysterious efreeti grins in delight at its new prey.@rus Таинственный ифрит (efreeti) смотрит с радостью на свою новую добычу.~
 @eng The efreeti towers menacingly over you.  It is dressed in the
 finest ghostly silks and a headdress with an elaborate brooch.
 @rus Ифрит угрожающе возвышается над тобой. Он одет в прекрасные призрачные шелка
@@ -88,9 +80,7 @@ stand stand male 2500
 #9105
 roc рух птица~
 @eng the gigantic roc@rus ~~гигантская~~ ~~птица~~ Рух~
-@eng The gigantic roc.
-@rus Гигантская птица Рух (roc) сидит прямо перед тобой.
-~
+@eng The gigantic roc.@rus Гигантская птица Рух (roc) сидит прямо перед тобой.~
 @eng This bird has a wingspan that stretches several spear-lengths.  It
 moves surprisingly fast for something of its size.
 @rus Эта птица имеет размах крыльев в несколько длин копья. И движется она 
@@ -106,9 +96,7 @@ stand stand female 0
 #9106
 roc рух птица~
 @eng the gigantic roc@rus ~~гигантская~~ ~~птица~~ Рух~
-@eng The gigantic roc stares menacingly at you.
-@rus Гигантская птица Рух (roc) сидит прямо перед тобой.
-~
+@eng The gigantic roc stares menacingly at you.@rus Гигантская птица Рух (roc) сидит прямо перед тобой.~
 @eng This bird has a wingspan that stretches several spear-lengths.  It
 moves surprisingly fast for something of its size.
 @rus Эта птица имеет размах крыльев в несколько длин копья. И движется она неожиданно
@@ -124,9 +112,7 @@ stand stand male 2000
 #9107
 wicked witch злая ведьма~
 @eng the ugly, wicked witch@rus ~~злая~~ ~~ведьма~~~
-@eng The ugly, wicked witch cackles maniacally.
-@rus Безобразная злая ведьма (wicked witch) безумно хихикает.
-~
+@eng The ugly, wicked witch cackles maniacally.@rus Безобразная злая ведьма (wicked witch) безумно хихикает.~
 @eng The witch has jet black hair and sickly green skin.  She is covered
 with warts and boils.  Her nails are long and sharp and look like
 they would be quite painful.  Her eyes pierce your very soul.

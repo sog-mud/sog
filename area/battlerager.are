@@ -13,9 +13,7 @@ End
 #95400
 Powerman~
 @eng the Powerman@rus Богатырь~
-@eng The Powerman of martial arts is here.
-@rus Мастер (Powerman) боевых искусств стоит здесь.
-~
+@eng The Powerman of martial arts is here.@rus Мастер (Powerman) боевых искусств стоит здесь.~
 @eng This old giant warrior has spent all his time on martial arts. He 
 never believed the power of magic. He never used potions, wands or 
 staffs. Even he had never used a magical item. Those shows how he
@@ -43,9 +41,7 @@ r charm 999
 #95401
 Gordall~
 @eng Gordall@rus Гордалл~
-@eng Gordall the weaponsmith is here to sell his fine works.
-@rus Оружейник Гордалл (Gordall) продает здесь великолепное оружие.
-~
+@eng Gordall the weaponsmith is here to sell his fine works.@rus Оружейник Гордалл (Gordall) продает здесь великолепное оружие.~
 @eng After spending all his years as a weaponsmaster, Gordall sells his
 proficiencies on his weapons.
 @rus Проработав всю свою жизнь оружейных дел мастером, Гордалл продает сделанное им оружие.
@@ -65,9 +61,7 @@ r charm 999
 #95402
 wiseman~
 @eng A Wiseman@rus Мудрец~
-@eng A wiseman is here taking care of the young battleragers.
-@rus Мудрец (Wiseman) стоит здесь и заботится о юных членах клана.
-~
+@eng A wiseman is here taking care of the young battleragers.@rus Мудрец (Wiseman) стоит здесь и заботится о юных членах клана.~
 @eng Although he never attempted to learn magic, the wiseman can heal
 haters of magic by his beneficial herbs. If you need help just 
 	say 'aid me wiseman'
@@ -101,8 +95,7 @@ r sound 999
 #95403
 urukhay troll~
 @eng Urukhay@rus Урукхай~
-Огромная фигура (troll) с окровавленным топором приветствует тебя.
-~
+Огромная фигура (troll) с окровавленным топором приветствует тебя.~
 Перед тобой стоит здоровенный зеленый тролль. Его красные глаза не мигая
 смотрят на тебя.
 ~
@@ -125,8 +118,7 @@ r charm 999
 #95404
 rock~
 rock~
-A small rock lies here.
-~
+A small rock lies here.~
 ~
 human~
 B I Tc C ABDFL 0 0
@@ -158,8 +150,7 @@ r sound 999
 #95405
 rock~
 rock~
-A small rock lies here.
-~
+A small rock lies here.~
 ~
 human~
 B I Tc C ABCDF 0 0

@@ -11,8 +11,7 @@ End
 #9301
 poor mudder~
 a poor mudder~
-A poor mudder, lost in this place.
-~
+A poor mudder, lost in this place.~
 You will become him if you are not careful.
 ~
 human~
@@ -25,8 +24,7 @@ stand stand male 5
 #9302
 star~
 a beautiful star~
-A beautiful white star smiles at you.
-~
+A beautiful white star smiles at you.~
 You can't tell what the star looks like, she is too bright!
 ~
 human~
@@ -39,8 +37,7 @@ stand stand female 25
 #9303
 nebula young~
 a young nebula~
-A young nebula, waiting to become a star.
-~
+A young nebula, waiting to become a star.~
 It hasn't got a definite shape, it is just a cloud of mist.
 ~
 human~
@@ -53,8 +50,7 @@ stand stand female 50
 #9304
 comet speedy~
 a speedy comet~
-A speedy comet is waiting to crush your head in.
-~
+A speedy comet is waiting to crush your head in.~
 You see the offspring of Halley's comet, here just to wipe everything out.
 ~
 human~
@@ -67,8 +63,7 @@ stand stand male 75
 #9305
 red supergiant~
 a red supergiant~
-An enormous, red supergiant is forced to protect the galaxy.
-~
+An enormous, red supergiant is forced to protect the galaxy.~
 You notice the giant is not as tough as his name sounds ...
 Still he can be very powerful.
 ~
@@ -82,8 +77,7 @@ sleep sleep male 100
 #9306
 white dwarf~
 a white dwarf~
-A tiny white dwarf is trying to sneak away from duty. 
-~
+A tiny white dwarf is trying to sneak away from duty. ~
 Like the red giant, he is also appointed to stand guard for the galaxy.
 But somehow he manages to escape.  Though tiny, it can take a lot of hits!
 ~
@@ -97,8 +91,7 @@ stand stand male 100
 #9307
 horsehead nebula~
 a horsehead nebula~
-A huge nebula is here, resembling a horsehead.
-~
+A huge nebula is here, resembling a horsehead.~
 You can only make out its shape from the darkness.  He was cursed to stay in
 here and his face may never be seen by anyone again.
 ~
@@ -112,8 +105,7 @@ sit sit male 300
 #9308
 andromeda~
 poor Andromeda~
-The poor Andromeda is chained to the wall, suffering ...
-~
+The poor Andromeda is chained to the wall, suffering ...~
 She was once a princess of beauty.  However, her beauty has led to a Goddess's
 jealousy and she has to suffer here endlessly until Perseus comes.
 ~
@@ -127,8 +119,7 @@ stand stand female 375
 #9309
 hercules~
 the mighty Hercules~
-The Mighty Hercules is working hard on his extra Labours for the Gods.
-~
+The Mighty Hercules is working hard on his extra Labours for the Gods.~
 He has been put to do the Ten Labours -- ten impossible tasks, by Hera, the
 queen goddess, who disliked him.  But he finished them all and at the end was
 granted immortality. He is a very brave and strong fighter.
@@ -143,8 +134,7 @@ stand stand male 375
 #9310
 pegasus~
 the wild Pegasus~
-The wild pegasus is grazing peacefully.
-~
+The wild pegasus is grazing peacefully.~
 It is the legendary horse with wings on its back.
 ~
 human~
@@ -157,8 +147,7 @@ stand stand none 250
 #9311
 orion~
 Orion the hunter~
-Orion is still hunting for Scorpio.
-~
+Orion is still hunting for Scorpio.~
 He is the legendary hunter who almost defeated Taurus the bull, but got
 killed by Scorpio.  The gods put them both up as constellations but one
 appears on one side of the sky and the other the other side so they will
@@ -174,8 +163,7 @@ stand stand male 375
 #9312
 pleiades~
 the Pleiades~
-The Pleiades are here, weeping for the loss of their sisters.
-~
+The Pleiades are here, weeping for the loss of their sisters.~
 These are the seven sisters of the Myths, and as for why they are here, no
 one knows; even the Gods themselves have forgotten.
 ~
@@ -189,8 +177,7 @@ stand stand female 150
 #9313
 draco head~
 the Head of Draco~
-The gigantic Head of Draco lurks out from beneath and prepares to roast you.
-~
+The gigantic Head of Draco lurks out from beneath and prepares to roast you.~
 This evil-looking head is even larger than a giant.  He is the last guardian 
 before entering the inner galaxy.  His neck is flexing in a random fashion so 
 hitting the head is certainly not easy.
@@ -205,8 +192,7 @@ stand stand none 750
 #9314
 draco baby~
 a baby draco~
-A baby draco is crawling on the Draco's body.
-~
+A baby draco is crawling on the Draco's body.~
 You see a tiny creature which looks like a dragon except that its body
 resembles a snake.  Gosh, is this a draco, you wonder, is this the thing
 we are on now?
@@ -221,8 +207,7 @@ stand stand none 200
 #9315
 aries~
 Aries~
-Aries is sitting here, welcoming you.
-~
+Aries is sitting here, welcoming you.~
 You see a white goat here, the first guardian of the Zodiac,
 also the ruler of Spring. He looks as if he is expecting you.
 ~
@@ -236,8 +221,7 @@ sit sit male 500
 #9316
 taurus~
 Taurus~
-Taurus wants to leave, but has been forced to stay as a guardian here.
-~
+Taurus wants to leave, but has been forced to stay as a guardian here.~
 You see a wild-looking bull with a bad temper.  He is well-built and looks like 
 he can fight well ... indeed he has fought with Orion before and survived.
 ~
@@ -251,8 +235,7 @@ stand stand male 500
 #9317
 gemini~
 Gemini~
-Gemini is looking for his brother; have you seen him?
-~
+Gemini is looking for his brother; have you seen him?~
 As soon as you see him you know that he is the most perfect man you have seen.
 You can't find any imperfections on him.
 ~
@@ -266,8 +249,7 @@ stand stand male 500
 #9318
 gemini~
 Gemini~
-Gemini is hiding from his brother, grinning evilly at you.
-~
+Gemini is hiding from his brother, grinning evilly at you.~
 As soon as you see him you see the most imperfect man you have ever seen.
 How can there be such a contrast?  You wonder ...
 ~
@@ -281,8 +263,7 @@ stand stand male 250
 #9319
 cancer~
 Cancer~
-Cancer the crab is here, hoarding the treasure away from you.
-~
+Cancer the crab is here, hoarding the treasure away from you.~
 You see a gigantic crab (YES, it is bigger than you!) with a crushed shell.
 Legend is that he was crushed by Hercules when he was sent by Hera to kill him.
 So Hera made Cancer a constellation for his work. 
@@ -297,8 +278,7 @@ stand stand male 600
 #9320
 leo~
 Leo~
-Leo the lion is roaring at you, ready for a strike!
-~
+Leo the lion is roaring at you, ready for a strike!~
 His metallic skin means that he could be the one which was killed by Hercules
 during his first Labour.  His skin is so weapon-proof that Hercules had to use
 his bare hands to tear the lion into two from its mouth!
@@ -313,8 +293,7 @@ stand stand male 500
 #9321
 virgo~
 Virgo~
-Virgo is sitting here, winking at you suggestively ... you are alarmed!
-~
+Virgo is sitting here, winking at you suggestively ... you are alarmed!~
 From what you have seen, you now realize that legends are legends, and Virgo
 may not be the maid of chastity and purity at all!  But still she looks
 gorgeous and is waiting for your first move, whatever it is ...
@@ -329,8 +308,7 @@ sit sit female 500
 #9322
 libra~
 Libra~
-Libra, the fair and just, is staring at you, weighing up the sins of your past.
-~
+Libra, the fair and just, is staring at you, weighing up the sins of your past.~
 He is a wise old man and can see people's thoughts through their eyes....
 Now all he can see from you is greed and bloodshed.
 ~
@@ -344,8 +322,7 @@ stand stand male 500
 #9323
 scorpio~
 Scorpio~
-Scorpio is moving his tail towards you, waiting to put an end to some mortals.
-~
+Scorpio is moving his tail towards you, waiting to put an end to some mortals.~
 Ever since he killed Orion in the myths, he has been punished by having 
 Sagittarius' arrow aimed at his heart forever.
 ~
@@ -359,8 +336,7 @@ stand stand male 500
 #9324
 sagittarius~
 Sagittarius~
-Sagittarius the centaur is waiting to let go of his well aimed arrow ...
-~
+Sagittarius the centaur is waiting to let go of his well aimed arrow ...~
 He is a centaur and a well trained archer. No one can escape his arrows.
 ~
 human~
@@ -373,8 +349,7 @@ stand stand male 500
 #9325
 capricorn~
 Capricorn~
-Capricorn is here, feeling bored ... he wants a fight!
-~
+Capricorn is here, feeling bored ... he wants a fight!~
 You see a mean-looking ram here.  He used to be a fierce fighter in the ancient
 war but now the gods have decided to put him here, to live out the rest of his 
 days in peace.
@@ -389,8 +364,7 @@ stand stand male 500
 #9326
 aquarius~
 Aquarius~
-The beautiful Aquarius is standing here, holding THE vessel.
-~
+The beautiful Aquarius is standing here, holding THE vessel.~
 The pretty Water Bearer is smiling at you, you think you'd better give her a 
 hand with holding the vessel. 
 ~
@@ -404,8 +378,7 @@ stand stand female 500
 #9327
 pisces mermaid~
 Pisces the mermaid~
-Pisces the mermaid is sitting here, waiting for your help.
-~
+Pisces the mermaid is sitting here, waiting for your help.~
 She has been forced to serve her husband, who had been cursed to turn into a
 fish and she deserves your pity.
 ~
@@ -419,8 +392,7 @@ sit sit female 500
 #9328
 pisces fish~
 Pisces the fish~
-Pisces the fish, is jealous of your approach...
-~
+Pisces the fish, is jealous of your approach...~
 He was once a very handsome man but now has turned into an ugly big fish.
 So he becomes jealous of any living thing which is more handsome than him.
 ~
@@ -434,8 +406,7 @@ stand stand male 500
 #9329
 bear ursa major~
 Ursa Major the bear~
-Ursa Major the bear is the last defense against any intruders.
-~
+Ursa Major the bear is the last defense against any intruders.~
 The Huge Bear which resides in the northern skies is here. 
 You think you'd better turn back.  At least you have got a chance of survival.
 ~
@@ -451,8 +422,7 @@ r cold -33
 #9330
 cassiopeia queen~
 Cassiopeia the Queen~
-Cassiopeia, the queen of the Universe, is sitting on her throne.
-~
+Cassiopeia, the queen of the Universe, is sitting on her throne.~
 She is the Queen of Dignity; facing her you feel all your dignity has gone.
 ~
 human~
@@ -465,8 +435,7 @@ sit sit female 600
 #9331
 cepheus king~
 Cepheus the King~
-Cepheus, the king of the Universe, is sitting on his throne.
-~
+Cepheus, the king of the Universe, is sitting on his throne.~
 He is the King of Might as well as of the Universe. You suddenly feel very
 weak and useless in front of him.
 ~
@@ -480,8 +449,7 @@ sit sit male 600
 #9332
 polaris polar star~
 Polaris, the polar star~
-Polaris, the polar star, who commands the whole Universe, stands before you!
-~
+Polaris, the polar star, who commands the whole Universe, stands before you!~
 He is the Master of the Universe, (NOT He-Man!), the most powerful!  
 Even the King and the Queen obey him.  As you look at him you notice he is 
 actually a STAR, with dazzling bright light ... maybe you shouldn't have come

@@ -11,8 +11,7 @@ End
 #5200
 beholder~
 The mighty beholder~
-You meet a beholder's deadly gaze!
-~
+You meet a beholder's deadly gaze!~
 It has a large central eye that projects an anti-magic ray and ten
 eyestalks atop the round body which can do anything from charm you
 to disintegrate you.  Beholders are not known for their personality.
@@ -42,9 +41,7 @@ r sound 999
 #5201
 lamia beast ламия чудовище~
 @eng the lamia@rus ламия~
-@eng A strange lamia stands here waiting for her next meal.
-@rus Ламия (lamia) бродит здесь в поисках кого бы съесть.
-~
+@eng A strange lamia stands here waiting for her next meal.@rus Ламия (lamia) бродит здесь в поисках кого бы съесть.~
 @eng This is a creature with the upper torso of a beautiful woman, but the lower
 body of a four-legged beast.  She licks her lips as she looks at you greedily.
 @rus Верхняя часть ламии -- прекрасная женщина, нижняя -- четырехлапое
@@ -60,9 +57,7 @@ stand stand female 50
 #5202
 mimic chest подражатель сундук~
 @eng The mimic@rus подражатель~
-@eng A strong chest lies in one corner of the room.
-@rus Прочный сундук (chest) стоит в одном из углов.
-~
+@eng A strong chest lies in one corner of the room.@rus Прочный сундук (chest) стоит в одном из углов.~
 @eng A strong, wooden chest bound with iron straps and a heavy pad-lock on the
 front.
 @rus Прочный сундук, окованный железом, с большим тяжелым замком.
@@ -78,9 +73,7 @@ g @eng none@rus male~
 #5203
 mimic boulder подражатель валун~
 @eng The mimic@rus подражатель~
-@eng Two skeletons lie crushed under a large boulder.
-@rus Два скелета лежат, придавленные огромным валуном (boulder).
-~
+@eng Two skeletons lie crushed under a large boulder.@rus Два скелета лежат, придавленные огромным валуном (boulder).~
 ~
 human~
 BCFGH 0 0 G 0 -10 0
@@ -93,8 +86,7 @@ g @eng none@rus male~
 #5204
 mimic floor~
 The mimic~
-The stone floor of this house has been ripped apart.
-~
+The stone floor of this house has been ripped apart.~
 ~
 human~
 BCFGH 0 0 G 0 -140 0
@@ -106,9 +98,7 @@ stand stand none 0
 #5205
 mimic pottery подражатель глиняный горшок черепки~
 @eng The mimic@rus подражатель~
-@eng Some broken shards of pottery lie strewn about the floor.
-@rus Глиняные черепки (pottery) рассыпаны по всему полу.
-~
+@eng Some broken shards of pottery lie strewn about the floor.@rus Глиняные черепки (pottery) рассыпаны по всему полу.~
 ~
 human~
 BCFGH 0 0 G 0 200 0
@@ -121,9 +111,7 @@ g @eng none@rus male~
 #5206
 mimic planks подражатель доски~
 @eng The mimic@rus подражатель~
-@eng A few wooden planks lie stacked on a low shelf.
-@rus Несколько деревянных досок (plank) сложены на нижней полке.
-~
+@eng A few wooden planks lie stacked on a low shelf.@rus Несколько деревянных досок (plank) сложены на нижней полке.~
 ~
 human~
 BCFGH 0 0 G 0 0 0
@@ -136,9 +124,7 @@ g @eng none@rus male~
 #5207
 lizard horned рогатая ящерица~
 @eng the horned lizard@rus ~~рогатая~~ ~~ящерица~~~
-@eng A small horned lizard flicks his tongue and slithers away.
-@rus Маленькая рогатая ящерица (lizard) ускользнула прочь.
-~
+@eng A small horned lizard flicks his tongue and slithers away.@rus Маленькая рогатая ящерица (lizard) ускользнула прочь.~
 @eng A cute little lizard, that is, if you like reptiles!
 @rus Милая маленькая ящерица, если тебе нравятся земноводные, конечно.
 ~
@@ -155,9 +141,7 @@ r poison -33
 #5208
 golem stone каменный голем~
 @eng the stone golem@rus ~~каменный~~ ~~голем~~~
-@eng In the corner you see a large, stone golem faithfully standing watch.
-@rus Каменный голем (golem) стоит, обозревая окрестности.
-~
+@eng In the corner you see a large, stone golem faithfully standing watch.@rus Каменный голем (golem) стоит, обозревая окрестности.~
 @eng It is a big chunk of rock that has been magically formed into a giant
 stone creature. He stands here still guarding the city.
 @rus Большая скала, магией превращенная в гигантское каменное создание.
@@ -615,9 +599,13 @@ Z 0 5201
 S
 #5201
 @eng Main Street@rus Главный Проспект~
-This was once a magnificent street, but now is in total ruin. The
+@eng This was once a magnificent street, but now is in total ruin. The
 streets are barren and windswept and the silence is unending.  A dark alley
 leads north and south.  Howls and screams echo through the deserted city.
+@rus Когда-то это была прекрасная улица, которая, к сожалению, сейчас
+в руинах. Темные аллеи ответвляются от нее на юг и на север. Вздохи
+и крики проносятся над пустынными улицами разрушенного забытого го-
+рода.
 ~
 0 0 city
 D0
@@ -1928,9 +1916,13 @@ Z 0 5235
 S
 #5256
 @eng A trail at the end of the dwarf forest@rus Тропа на опушке карликового леса~
-The trail ends here, with short, dry stumps of trees all around you.
+@eng The trail ends here, with short, dry stumps of trees all around you.
 To the west, you can see the ruins of a huge city.  Something about it gives
 you an uneasy feeling.  To the east is your way back to home and safety.
+@rus Здесь тропинка заканчивается, и твоему взгляду открываются развалины
+огромного города, совсем недалего отсюда. Почему-то ты себя не очень
+уютно чувствуешь, смотря на них. Здесь же, на опушке, тебя окружает
+довольно много сухих пней, можно присесть и передохнуть.
 ~
 0 0 field
 D1
@@ -1950,9 +1942,12 @@ Z 0 5200
 S
 #5257
 @eng A trail at the end of the dwarf forest@rus Тропа на опушке карликового леса~
-A side trail here leads from the dwarf forest.  It is definitely drier
+@eng A side trail here leads from the dwarf forest.  It is definitely drier
 and hotter here.  The trail continues to the west, and to the east, you see
 the intersection.
+@rus Совсем рядом на западе ты видишь, как пересекается несколько тропинок,
+предоставляя богатый выбор для путника, куда направиться. А здесь, одна
+из тех троп ведет прочь из карликового леса.
 ~
 0 0 field
 D1

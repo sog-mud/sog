@@ -13,27 +13,65 @@ End
 @eng {DShades of Gray{x is based on Anatolia MUD -- see {CHELP ANATOLIA{x.
 
                      Original idea, concept and coding:
-        fjoe                                    (fjoe@@iclub.nsu.ru)
-        Alexander Morokhovets            [{cEros{x] (efdi@@iclub.nsu.ru)
+        Max Khon                         [{cTyan{x] (fjoe@@iclub.nsu.ru)
+        Constantin Svintsoff           [{cNergal{x] (kostik@@iclub.nsu.ru)
         Alexey Neyman                  [{cArborn{x] (avn@@org.chem.msu.su)
 
                      Web page design:
-        Denis Petrakov                         (den@@oapmg.sscc.ru)
+        Denis Petrakov                          (den@@oapmg.sscc.ru)
  
                     Partial message translation:
         Alexander Morokhovets                   (efdi@@iclub.nsu.ru)
-@rus {DShades of Gray{x составлен на основе MUDа Anatolia -- смотри {CHELP ANATOLIA{x.
+        Max Khon                         [{cTyan{x] (fjoe@@iclub.nsu.ru)
+        Tatyana Novikova                [{cArwen{x] (tatyana@@iclub.nsu.ru)
+        Kirill Rodionov                         (kir@@iclub.nsu.ru)
 
-                 Первоначальная идея, концепция и кодирование:
-        fjoe                                    (fjoe@@iclub.nsu.ru{x)
-        Константин Свинцов             [{cNergal{x] (kostik@@iclub.nsu.ru{x)
-        Алексей Нейман                 [{cArborn{x] (avn@@org.chem.msu.su{x)
+                    Help translation:
+        Alexey Neyman                  [{cArborn{x] (avn@@org.chem.msu.su)
+        Andrey Eliseev                 [{cRondor{x] (eliseev@@inorg.chem.msu.ru)
  
-                             Дизайн Web-страницы:
-        Денис Петраков                          (den@@oapmg.sscc.ru{x)
+                     Area translation:
+        Alexey Neyman                  [{cArborn{x] (avn@@org.chem.msu.su)
+        Constantin Svintsoff           [{cNergal{x] (kostik@@iclub.nsu.ru)
+        Kirill Rodionov                         (kir@@iclub.nsu.ru)
+        Tatyana Novikova                [{cArwen{x] (tatyana@@iclub.nsu.ru)
+        Rinat Hamidov                   [{cStark{x] (rony@@dzs.nnn.tstu.ru)
+        Viktor Gluhov                    [{cKami{x] (mibus@@mail.ru)
+        Igor Olekhnovitch              [{cAgrael{x]
+        Alex Pchelintsev                        (glabrezu@@mail.ru)
+        Artie Konin                  [{cTenobaal{x] (asp.jesby.tstu.ru)
+        Vitaly Suharev                 [{cVulfer{x] (suharev2000@@mailru.com)
+@rus {DShades of Gray{x составлен на основе MUDа Anatolia -- смотри {CHELP ANATOLIA{x.
  
-                              Перевод сообщений:
-        Александр Мороховец                     (efdi@@iclub.nsu.ru)
+                   Первоначальная идея, концепция и кодирование:
+          Максим Хон                     [{cTyan{x]   (fjoe@@iclub.nsu.ru)
+          Константин Свинцов             [{cNergal{x] (kostik@@iclub.nsu.ru)
+          Алексей Нейман                 [{cArborn{x] (avn@@org.chem.msu.su)
+ 
+                               Дизайн Web-страницы:
+          Денис Петраков                          (den@@oapmg.sscc.ru)
+ 
+                                Перевод сообщений:
+          Александр Мороховец                     (efdi@@iclub.nsu.ru)
+          Татьяна Новикова               [{cArwen{x]  (tatyana@@iclub.nsu.ru)
+          Максим Хон                     [{cTyan{x]   (fjoe@@iclub.nsu.ru)
+          Кирилл Родионов                         (kir@@iclub.nsu.ru)
+ 
+                           Перевод помощи:
+          Алексей Нейман                 [{cArborn{x] (avn@@org.chem.msu.su)
+          Андрей Елисеев                 [{cRondor{x] (eliseev@@inorg.chem.msu.su)
+ 
+                             Перевод арий:
+          Ринат Хамидов                  [{cStark{x]  (rony@@dzs.nnn.tstu.ru)
+          Алексей Нейман                 [{cArborn{x] (avn@@org.chem.msu.su)
+          Кирилл Родионов                         (kir@@iclub.nsu.ru)
+          Виктор Глухов                  [{cKami{x]   (mibus@@mail.ru)
+          Игорь Олехнович                [{cAgrael{x]
+          Татьяна Новикова               [{cArwen{x]  (tatyana@@iclub.nsu.ru)
+          Артем Конин                    [{cTenobaal{x] (asp.jesby.tstu.ru)
+          Александр Пчелинцев                     (glabrezu@@mail.ru)
+          Сухарев Виталий                [{cVulfer{x]
+          Константин Свинцов             [{cNergal{x] (kostik@@iclub.nsu.ru)
 ~
 -1 DIKU~
 @eng .                    Original game idea, concept, and design:
@@ -47,7 +85,7 @@ End
 
 Developed at: DIKU -- The Department of Computer Science
                       at the University of Copenhagen.
-@rus                 Первоначальная игровая идея, концепция, и дизайн:
+@rus .                Первоначальная игровая идея, концепция, и дизайн:
   
            Katja Nyboe               [{cSuperwoman{x] (katz@@freja.diku.dk)
            Tom Madsen              [{cStormbringer{x] (noop@@freja.diku.dk)
@@ -194,7 +232,7 @@ Example:  {cPROMPT <%hhp %mm %vmv>{x
 || {xlock unlock open close pick    {g|    {xbug idea typo                      {g||
 || {xinventory equipment look       {g|    {xgossip say shout tell yell         {g||
 || {xeat drink fill compare         {g|    {xemote pose                         {g||
-|| {xlist buy sell value repair     {g|    {xnotes pray worth raffect affect    {g||
+|| {xlist buy sell value repair     {g|    {xnotes implore worth raffect affect {g||
 ||________________________________|_______________________________________||
 || {YCOMBAT                         {g|    {YOTHER                              {g||
 || {xkill flee kick rescue disarm   {g|    {x! save quit demand request         {g||
@@ -218,7 +256,7 @@ Example:  {cPROMPT <%hhp %mm %vmv>{x
 || {xlock unlock open close pick    {g|    {xbug idea typo                      {g||
 || {xinventory equipment look       {g|    {xgossip say shout tell yell         {g||
 || {xeat drink fill compare         {g|    {xemote pose                         {g||
-|| {xlist buy sell value repair     {g|    {xnotes pray worth raffect affect    {g||
+|| {xlist buy sell value repair     {g|    {xnotes implore worth raffect affect {g||
 ||________________________________|_______________________________________||
 || {YБОЙ                            {g|    {YОСТАЛЬНОЕ                          {g||
 || {xkill flee kick rescue disarm   {g|    {x! save quit demand request         {g||
@@ -229,7 +267,7 @@ Example:  {cPROMPT <%hhp %mm %vmv>{x
                 на любую команду, умение или заклинание.
 Для выбора из нескольких тем введите {CHELP n.<topic>{x, например: HELP 1.DEATH
     А также {CHELP DAMAGE, DEATH, EXPERIENCE, COLOR, TICK, WIZLIST, QUESTS{x
-                              {CFLAGS, TOGGLE{x
+                               {CFLAGS, TOGGLE{x
 ~
 0 DEATH~
 @eng When your character dies, you are reincarnated back at the Altar of temple in
@@ -445,7 +483,7 @@ Anyway, immortals may ask you to choose another name if they consider
 your name inappropriate.
 If your name fits above restrictions, type Y. Otherwise choose another
 name. Last decision depend upon Immortals of Shades of Gray.
-@rus                            {cВыбор имени.{x
+@rus .                           {cВыбор имени.{x
 
 Для создания ролевой атмосферы в этом мире, ты должен выбрать имя согласно 
 указанным ниже правилам:
@@ -5028,7 +5066,7 @@ REMEMBER   [victim]                FORGET
 CALL       [vnum] [victim] [target1] [target2]
 ~
 0 'CLAN SHALAFI' SHALAFI~
-@eng   ... and the time has come when High council of mages decided that no  longer 
+@eng .  ... and the time has come when High council of mages decided that no  longer 
 disorder  shall  be tolerated.  Mages  slayed  each other, loosing  secrets of 
 ancient art of magic. Council summoned all powerful mages.
   

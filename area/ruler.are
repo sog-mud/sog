@@ -13,9 +13,7 @@ End
 #95100
 enforcer guard~
 @eng the enforcer@rus ~~блюститель~~ порядка~
-@eng The enforcer is waiting here protecting the enterance.
-@rus Блюститель порядка (enforcer) охраняет вход.
-~
+@eng The enforcer is waiting here protecting the enterance.@rus Блюститель порядка (enforcer) охраняет вход.~
 @eng He is trained specially to guard and serve the Ruler Council. Due to the
 decades of devotion and training, he is almost perfect at many skills.
 @rus Он несет свою службу, охраняя клан Ruler от вторжения. За десятилетия 
@@ -36,9 +34,7 @@ r charm 999
 #95101
 healer cabal ruler~
 ~~лекарь~~~
-@eng The healer with his white robe heals and protects his Rulers.
-@rus Лекарь в белом халате (healer) лечит и защищает членов своего клана.
-~
+@eng The healer with his white robe heals and protects his Rulers.@rus Лекарь в белом халате (healer) лечит и защищает членов своего клана.~
 @eng He is an old, wise cleric serving the Ruler Council, and praying his
 gods for the balance on Shades of Gray.
 @rus Старый, умудренный жизнью клерик служит делу Закона и молит богов о порядке
@@ -132,12 +128,12 @@ g @rus none~
 #ROOMS
 #95100
 @eng The Enterance@rus Вход в клан Ruler~
-@eng   You are in a large hallyway. The walls are decorated with beautiful
+@eng .  You are in a large hallyway. The walls are decorated with beautiful
 carvings, bright armors and ceramonial shields. On the ceiling you read
 "In the guiding of the rulers, there is not a problem not to be solved."
 The floor is very clean. The floor is made up of marbles, shine with the
 light of the sun coming from the windows.
-@rus   Ты стоишь в огромном коридоре. Искусная резьба вьется по стенам, украшенным
+@rus .  Ты стоишь в огромном коридоре. Искусная резьба вьется по стенам, украшенным
 церемониальными щитами и броней. На потолке ты видишь надпись, "Здесь, в этом
 клане, можно решить любые проблемы." Мраморный пол сверкает чистотой, отражая
 яркий солнечный свет из окон.
@@ -162,7 +158,7 @@ S
 on the walls or floor. A golden carved figures are on the ceiling. To the
 north you see the room of laws. To the eat you see the resting room for
 the rulers. And to the west you see the chapel.
-@rus   Каждый  уголок этой комнаты безупречно чист, ты даже можешь видеть свое 
+@rus .  Каждый  уголок этой комнаты безупречно чист, ты даже можешь видеть свое 
 отражение в стенах и полу. Украшенная золотом лепнина украшает потолок. На
 север (north) ты видишь комнату Закона,  на востоке (east) - комнату отдыха,
 на западе (west) - небольшую часовню.
@@ -199,7 +195,7 @@ S
 the Shades of Gray and young rulers study the laws. There is a
 bookstand put in front of the east wall of the room. The written form of
 laws are written in a book that stands inside of the bookstand.
-@rus   В этой комнате Старейшины клана  Ruler обсуждают и  принимают  законы, а 
+@rus .  В этой комнате Старейшины клана  Ruler обсуждают и  принимают  законы, а 
 молодежь  учит их.  У восточной стены  стоит  книжный шкаф.  В шкафу стоит 
 Кодекс - в нем записаны все законы.
 ~
@@ -217,7 +213,7 @@ S
 of laws to heal and to pray to their gods. There is no windows inside the
 the chapel. The chapel is lighted by the hundrets of candles placed on the
 each side of the room. The mystical air freshens your mind.
-@rus   Ты вошел в часовню клана. Это место для тех защитников закона, кто был 
+@rus .  Ты вошел в часовню клана. Это место для тех защитников закона, кто был 
 ранен в бою, для тех кто хочет говорить с богами. В часовне нет окон - но
 тем не менее, тут светло как днем. Сотни свечей на стенах дают мягкий свет.
 Мистический воздух просветляет твой разум.
@@ -235,7 +231,7 @@ S
 @eng You are in the resting room of the Rulers. There is a silk sofa in the
 room for the rulers to sit, rest and relax. Since they study hard to rule
 the Shades of Gray, you think that they need such kind of rooms.
-@rus   В этой комнате члены клана отдыхают. Обитый шелком диван приглашает сесть, 
+@rus .  В этой комнате члены клана отдыхают. Обитый шелком диван приглашает сесть, 
 отдохнуть и расслабиться. Нелегко управлять этим миром - поэтому такая комната
 просто необходима тем, кто стал на сторону Закона.
 ~

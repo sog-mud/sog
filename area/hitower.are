@@ -11,8 +11,7 @@ End
 #1300
 shadow guardian~
 a shadow guardian~
-A shadow guardian screams a challenge and attacks.
-~
+A shadow guardian screams a challenge and attacks.~
 It seems to be made of nothing more than darkness ...
 ~
 human~
@@ -25,8 +24,7 @@ stand stand none 5
 #1301
 adventurer~
 a lost adventurer~
-An emaciated adventurer is here looking lost and hopeless.
-~
+An emaciated adventurer is here looking lost and hopeless.~
 He looks haggard and sickly; no doubt he's been lost here for quite some time.
 ~
 human~
@@ -39,8 +37,7 @@ sit stand male 14
 #1302
 edgar~
 Edgar~
-Edgar the Human Swordpupil
-~
+Edgar the Human Swordpupil~
 Edgar says 'pardon me, can you tell me where to buy cups?'
 You see before you, one of Midgaard's finest fighting elite, the mighty
 bunny slayer himself, Edgar the Horrible!
@@ -55,8 +52,7 @@ stand stand male 1
 #1303
 diamond golem~
 the golem~
-A huge diamond golem is standing guard here.
-~
+A huge diamond golem is standing guard here.~
 It looks quite strong.
 ~
 golem~
@@ -86,8 +82,7 @@ r sound 50
 #1304
 mage young~
 a mage~
-A young mage wanders about, oblivious to all.
-~
+A young mage wanders about, oblivious to all.~
 He seems to be contemplating life, love and the mysteries of the universe.
 Then again, he may just have a headache.
 ~
@@ -101,8 +96,7 @@ stand stand male 21
 #1305
 strick bartender~
 Strick the bartender~
-Strick is here levitating drinks to his customers.
-~
+Strick is here levitating drinks to his customers.~
 He looks rather harmless, but then again so does a sleeping dragon.
 ~
 human~
@@ -115,8 +109,7 @@ stand stand male 100
 #1306
 tatorious wizard~
 Tatorious~
-Tatorious the wizard is here counting his earnings.
-~
+Tatorious the wizard is here counting his earnings.~
 Tatorious winks at you mischievously.
 ~
 human~
@@ -129,8 +122,7 @@ stand stand male 250
 #1307
 ezmerelda cook~
 Ezmerelda~
-Ezmerelda the cook is here stirring a large pot of something.
-~
+Ezmerelda the cook is here stirring a large pot of something.~
 ~
 human~
 BGR 0 0 0 A -500 0
@@ -142,8 +134,7 @@ stand stand female 54
 #1308
 assistant mage~
 The cook's assistant~
-The cook's assistant is here assisting the cook.
-~
+The cook's assistant is here assisting the cook.~
 ~
 human~
 BGHR 0 0 0 A -200 0
@@ -155,8 +146,7 @@ stand stand male 5
 #1309
 prisoner~
 The prisoner~
-A prisoner is chained to the wall here.
-~
+A prisoner is chained to the wall here.~
 Though his clothes are all in rags, you can see that at one time they must
 have been fine garments. A metal muzzle has been fitted over the poor
 wretch's mouth, whether to keep him from screaming, or to silence his spell
@@ -173,8 +163,7 @@ stand stand male 0
 #1310
 jailor mage~
 the Jailor~
-The Jailor is here enjoying a comfortable nap.
-~
+The Jailor is here enjoying a comfortable nap.~
 He looks rather dirty.
 ~
 human~
@@ -187,8 +176,7 @@ sleep sleep male 66
 #1311
 broom~
 a broom~
-A straw broom is here leaning against the wall.
-~
+A straw broom is here leaning against the wall.~
 The broom screams 'Take that you lout!'
 ~
 human~
@@ -201,8 +189,7 @@ stand stand none 0
 #1312
 lesser guardian hands~
 a pair of disembodied hands~
-A pair of disembodied hands floats in the air here.
-~
+A pair of disembodied hands floats in the air here.~
 The hands twitch with anticipation of strangling someone.
 ~
 human~
@@ -215,8 +202,7 @@ stand stand none 0
 #1313
 guardian greater eyes~
 a pair of disembodied eyes~
-A pair of disembodied eyes floats here glaring at you.
-~
+A pair of disembodied eyes floats here glaring at you.~
 The eyes smolder with hatred.
 ~
 human~
@@ -229,8 +215,7 @@ stand stand none 0
 #1314
 mage visitor~
 the mage~
-A visiting mage is here snoring away in peaceful slumber.
-~
+A visiting mage is here snoring away in peaceful slumber.~
 He looks quite sleepy.
 ~
 human~
@@ -243,8 +228,7 @@ sleep sleep male 36
 #1315
 apprentice young~
 a young apprentice magic user~
-A young apprentice magic user is here doing magical studies.
-~
+A young apprentice magic user is here doing magical studies.~
 She looks quite intent on her studies.
 ~
 human~
@@ -257,8 +241,7 @@ sit sit female 18
 #1316
 apprentice young~
 a young apprentice~
-A young apprentice is here mumbling words of magic to himself.
-~
+A young apprentice is here mumbling words of magic to himself.~
 He looks to be oblivious to all but the spell he is memorizing.
 ~
 human~
@@ -271,8 +254,7 @@ stand stand male 24
 #1317
 apprentice young~
 a young apprentice~
-A young apprentice is sleeping here.
-~
+A young apprentice is sleeping here.~
 He seems to be dreaming.
 ~
 human~
@@ -285,8 +267,7 @@ sleep sleep male 10
 #1318
 apprentice young~
 A young apprentice~
-A young apprentice is here teasing a cornered kitten.
-~
+A young apprentice is here teasing a cornered kitten.~
 He looks like a mischievous youth.
 ~
 human~
@@ -299,8 +280,7 @@ stand stand male 19
 #1319
 kitten~
 a small kitten~
-A small kitten is here meowing in terror.
-~
+A small kitten is here meowing in terror.~
 The little ball of fur looks very unhappy.  Singed fur and a few minor burns
 mark its mottled coat.
 ~
@@ -314,8 +294,7 @@ stand stand female 0
 #1320
 student~
 a student~
-A student of spells is here looking quite bored
-~
+A student of spells is here looking quite bored~
 The student yawns.
 ~
 human~
@@ -328,8 +307,7 @@ sit sit male 13
 #1321
 instructor teacher mage~
 an instructor of magic~
-The instructor screams at your interruption and attacks you.
-~
+The instructor screams at your interruption and attacks you.~
 He looks quite angry at your interruption.
 ~
 human~
@@ -342,8 +320,7 @@ stand stand male 44
 #1322
 student~
 a student of spells~
-A student of spells is here trying to master invisibility.
-~
+A student of spells is here trying to master invisibility.~
 He blinks in and out of existence, trying to master the spell.
 ~
 human~
@@ -356,8 +333,7 @@ stand stand male 9
 #1323
 teacher mage~
 a spell teacher~
-A spell teacher screams at your interruption and attacks.
-~
+A spell teacher screams at your interruption and attacks.~
 ~
 human~
 BFGR 0 0 A A 300 0
@@ -369,8 +345,7 @@ stand stand male 62
 #1324
 student~
 a student of spells~
-A student of spells has fallen asleep at her desk here.
-~
+A student of spells has fallen asleep at her desk here.~
 She looks to have collapsed from sheer boredom.
 ~
 human~
@@ -383,8 +358,7 @@ sleep sleep female 28
 #1325
 wizard speaker mage~
 a wizard~
-An old wizard is here making a speech
-~
+An old wizard is here making a speech~
 ~
 human~
 BGHR 0 0 0 A 400 0
@@ -396,8 +370,7 @@ stand stand male 123
 #1326
 mage young~
 a young mage~
-A young mage is here learning hand to hand combat.
-~
+A young mage is here learning hand to hand combat.~
 ~
 human~
 BGHR 0 0 0 A 300 0
@@ -409,8 +382,7 @@ stand stand male 34
 #1327
 mistress battle~
 the battle mistress~
-The battle mistress is here teaching the fine uses of a dagger.
-~
+The battle mistress is here teaching the fine uses of a dagger.~
 She looks quite rugged. In fact, she more resembles a warrior than a magic
 user.
 ~
@@ -424,8 +396,7 @@ stand stand female 160
 #1328
 mage teacher~
 a spell teacher~
-A spell teacher is here relaxing.
-~
+A spell teacher is here relaxing.~
 ~
 human~
 BGR 0 0 0 A 200 0
@@ -437,8 +408,7 @@ rest rest male 50
 #1329
 wizard~
 an aged wizard~
-An aged wizard is sleeping here.
-~
+An aged wizard is sleeping here.~
 ~
 human~
 BFGHR 0 0 0 A 350 0
@@ -450,8 +420,7 @@ sleep sleep male 78
 #1330
 scribe mage~
 a scribe~
-A scribe is here working on some manuscripts.
-~
+A scribe is here working on some manuscripts.~
 ~
 human~
 BCGHR 0 0 0 A 400 0
@@ -463,8 +432,7 @@ stand stand male 15
 #1331
 scribe mage~
 a scribe~
-A scribe is here working diligently on some translations.
-~
+A scribe is here working diligently on some translations.~
 She's quite cute.  Too bad her only interest seems to be the words of
 lore she is translating.
 ~
@@ -478,8 +446,7 @@ stand stand female 34
 #1332
 master scribe~
 the master scribe~
-The master scribe is here looking a little upset
-~
+The master scribe is here looking a little upset~
 He seems to be so old, his skin has become nothing but a giant wrinkle.
 The master scribe screams 'How dare you interrupt my important work???'
 ~
@@ -493,8 +460,7 @@ stand stand male 281
 #1333
 assistant scribe~
 the scribe's assistant~
-The scribe's assistant is here folding parchments.
-~
+The scribe's assistant is here folding parchments.~
 ~
 human~
 BFGHR 0 0 0 A 100 0
@@ -506,8 +472,7 @@ stand stand male 52
 #1334
 master enchanter mage~
 the Enchanter~
-The Enchanter is here placing a dweomer upon well made sword.
-~
+The Enchanter is here placing a dweomer upon well made sword.~
 ~
 human~
 BGJRe D 0 0 A 0 0
@@ -520,8 +485,7 @@ r charm 999
 #1335
 sword dancing~
 a dancing sword~
-A well crafted sword lies on the work table here.
-~
+A well crafted sword lies on the work table here.~
 It looks quite sharp.
 ~
 human~
@@ -534,8 +498,7 @@ stand stand none 0
 #1336
 alchemist~
 the Mad Alchemist~
-The Mad Alchemist babbles something incomprehensible and attacks.
-~
+The Mad Alchemist babbles something incomprehensible and attacks.~
 He looks like he's been quaffing too many potions. His eyes dart around
 wildly, and he starts to drool.
 The Mad Alchemist throws back his head and cackles with insane glee!
@@ -550,8 +513,7 @@ stand stand male 117
 #1337
 master summoner~
 the master summoner~
-The master summoner is here holding gateways open to other planes.
-~
+The master summoner is here holding gateways open to other planes.~
 ~
 human~
 BGHR D 0 0 A -200 0
@@ -581,8 +543,7 @@ r sound 69
 #1338
 master charmer~
 the master charmer~
-The master charmer utters the words, 'uuuzzldctz'.
-~
+The master charmer utters the words, 'uuuzzldctz'.~
 The master charmer sizes you up, always looking for a new pet.
 ~
 human~
@@ -612,8 +573,7 @@ r sound 999
 #1339
 golem wooden~
 a wooden golem~
-A wooden golem stands a silent vigil here, guarding the stairs.
-~
+A wooden golem stands a silent vigil here, guarding the stairs.~
 He looks flammable.
 ~
 golem~
@@ -643,8 +603,7 @@ r sound 50
 #1340
 master binder~
 the master spell binder~
-The master spell binder is here re-charging a blackened wand.
-~
+The master spell binder is here re-charging a blackened wand.~
 The master spell binder snarls at you and attacks.
 ~
 human~
@@ -657,8 +616,7 @@ stand stand male 115
 #1341
 master maker~
 the golem maker~
-The golem maker is here chiseling some stone.
-~
+The golem maker is here chiseling some stone.~
 ~
 human~
 BFGR 0 0 0 A 300 0
@@ -670,8 +628,7 @@ stand stand male 133
 #1342
 golem granite~
 a granite golem~
-A granite golem stands here waiting to do its master's bidding.
-~
+A granite golem stands here waiting to do its master's bidding.~
 It looks like a statue, until you see it shamble towards you.
 ~
 golem~
@@ -701,8 +658,7 @@ r sound 50
 #1343
 golem bronze~
 a bronze golem~
-A bronze golem stands here shining in the light.
-~
+A bronze golem stands here shining in the light.~
 He looks rather dim witted.
 ~
 golem~
@@ -732,8 +688,7 @@ r sound 50
 #1344
 golem flesh~
 a flesh golem~
-A flesh golem stands guard here
-~
+A flesh golem stands guard here~
 It looks to be made of a potpourri of different body parts; some don't even
 resemble anything human.
 ~
@@ -764,8 +719,7 @@ r sound 50
 #1345
 golem cloth~
 a cloth golem~
-A cloth golem wanders around here.
-~
+A cloth golem wanders around here.~
 It looks like a bunch of old rags, quite surprising it can actually walk.
 ~
 golem~
@@ -795,8 +749,7 @@ r sound 50
 #1346
 golem adamantite~
 an adamantite golem~
-An adamantite golem stands here looking very dangerous.
-~
+An adamantite golem stands here looking very dangerous.~
 It seems to be forged of dark metal.  It looks strong and durable,
 but somewhat un-intelligent.
 ~
@@ -827,8 +780,7 @@ r sound 50
 #1347
 golem clay~
 a clay golem~
-A clay golem stands guard here.
-~
+A clay golem stands guard here.~
 ~
 golem~
 BCFG 0 0 0 A 200 0
@@ -857,8 +809,7 @@ r sound 50
 #1348
 master illusionist mage~
 the master of illusions~
-An enormous multi-colored three-headed dragon growls at you.
-~
+An enormous multi-colored three-headed dragon growls at you.~
 The image of an ugly dragon flickers slightly, and where the dragon was
 now stands a small harmless looking old man.
 ~
@@ -886,8 +837,7 @@ r sound 999
 #1349
 necromancer master~
 the Necromancer~
-The Necromancer is here raising undead servants
-~
+The Necromancer is here raising undead servants~
 Attired all in black, the Necromancer is tall and gangly, but still quite
 an imposing figure.  A dark cowl shrouds most of his face, but two blazing
 embers which serve as eyes can be seen through the shadow.
@@ -903,8 +853,7 @@ stand stand male 584
 #1350
 skeleton undead~
 an animated skeleton~
-An animated skeleton screams silently and attacks.
-~
+An animated skeleton screams silently and attacks.~
 It feels no pain, and hacks at you ruthlessly.
 ~
 human~
@@ -918,8 +867,7 @@ r bash -50
 #1351
 undead giant~
 an undead giant~
-An undead giant lumbers towards you.
-~
+An undead giant lumbers towards you.~
 ~
 human~
 BCFG 0 0 0 AH -500 0
@@ -931,8 +879,7 @@ stand stand none 0
 #1352
 witch hag~
 an ugly witch~
-An ugly witch is here scrying out secrets.
-~
+An ugly witch is here scrying out secrets.~
 She has no face at all, just blank skin, rather disturbing.  From about where
 her mouth should be, comes a disgusting giggling sound that makes your skin
 crawl with revulsion.
@@ -947,8 +894,7 @@ stand stand female 107
 #1353
 librarian mage~
 the Librarian~
-The Librarian has fallen asleep at his desk here.
-~
+The Librarian has fallen asleep at his desk here.~
 He looks like a rather peaceful old man.
 ~
 human~
@@ -961,8 +907,7 @@ sleep sleep male 64
 #1354
 apprentice~
 the master's apprentice~
-The master's apprentice leaps to halt your passage.
-~
+The master's apprentice leaps to halt your passage.~
 A powerful wizard in his own right, the apprentice of the master of balance
 has given up his station in the mage guild hierarchy in order to serve the
 great master in hopes of gleaning secrets one could never hope to uncover
@@ -978,8 +923,7 @@ stand stand male 336
 #1355
 cat grey familiar~
 a grey cat~
-A grey cat is lounging lazily here.
-~
+A grey cat is lounging lazily here.~
 The grey cat cocks an ear towards you, sensing your scrutiny, then purrs
 contentedly.  It looks rather harmless, until you notice its very large claws.
 ~
@@ -993,8 +937,7 @@ stand stand female 0
 #1356
 master guildmaster grey~
 the master of Neutrality~
-The master of Neutrality stands here contemplating the balance of the universe.
-~
+The master of Neutrality stands here contemplating the balance of the universe.~
 He looks quite peaceful.
 ~
 human~
@@ -1007,8 +950,7 @@ stand stand male 767
 #1357
 apprentice black~
 a black robed apprentice~
-A black robed apprentice jumps from the shadows and attacks.
-~
+A black robed apprentice jumps from the shadows and attacks.~
 She bears a wicked looking scar down the side of her face, though once she
 must have been beautiful, now the scar combined with what seems to be a
 permanent scowl make her looks quite fearsome.
@@ -1023,8 +965,7 @@ stand stand female 693
 #1358
 cat black familiar~
 a black cat~
-A black cat with its fur up hisses at you.
-~
+A black cat with its fur up hisses at you.~
 It looks both mean and dangerous.  Petting seems to be completely out of
 the question.
 ~
@@ -1038,8 +979,7 @@ stand stand none 0
 #1359
 master guildmaster black~
 the master of the black robes~
-The master of the black robes is here plotting vile deeds.
-~
+The master of the black robes is here plotting vile deeds.~
 The master glares at you.
 ~
 human~
@@ -1052,8 +992,7 @@ stand stand male 1105
 #1360
 apprentice white~
 a white robed apprentice~
-A white robed apprentice screams at your desecration of goodness.
-~
+A white robed apprentice screams at your desecration of goodness.~
 He looks like a fanatic.
 The apprentice screams 'Thou art unworthy of this honor!'
 ~
@@ -1067,8 +1006,7 @@ stand stand male 370
 #1361
 cat white familiar~
 a white cat~
-A white cat is here preening its fur.
-~
+A white cat is here preening its fur.~
 It seems to be nothing more than a large ball of fluff with claws.
 ~
 cat~
@@ -1081,8 +1019,7 @@ stand stand none 0
 #1362
 master guildmaster white~
 The master of goodness~
-The master of goodness is here frowning at your intrusion.
-~
+The master of goodness is here frowning at your intrusion.~
 He looks like a self-righteous bastard.
 ~
 human~
@@ -1095,9 +1032,7 @@ stand stand male 1095
 #1363
 cat calico familiar кошка~
 @eng A calico cat@rus ~~Черепаховая~~ ~~кошка~~~
-@eng A large calico cat is here.
-@rus Большая черепаховая кошка (calico) сидит на задних лапках.
-~
+@eng A large calico cat is here.@rus Большая черепаховая кошка (calico) сидит на задних лапках.~
 @eng It looks incredibly large for a cat, no doubt a giant of its species.
 A beautiful jewel encrusted collar about its neck is its only adornment.
 ~
@@ -1111,8 +1046,7 @@ stand stand female 0
 #1364
 guildmaster grand mistress~
 The Grand Mistress~
-The Grand Mistress of Magic is sitting here.
-~
+The Grand Mistress of Magic is sitting here.~
 She looks quite comfortable on her emerald throne. Amazingly young and
 pretty for one of such stature in the guild, no doubt she has kept her
 youthful appearance through the use of strong magics.
@@ -1129,8 +1063,7 @@ r charm 999
 #1365
 wizard~
 a wizard~
-A wandering wizard is here mumbling to himself.
-~
+A wandering wizard is here mumbling to himself.~
 ~
 human~
 CGR 0 0 G A 350 0

@@ -11,8 +11,7 @@ End
 #18001
 town guard~
 the town guard~
-A strong town guard is here, protecting the gates.
-~
+A strong town guard is here, protecting the gates.~
 You see a very large man wearing heavy armour. He looks as though he could 
 crush you without a second thought. Aside from his mean and deadly build, 
 he greets you a good day and wishes you on your way.
@@ -35,8 +34,7 @@ r charm 999
 #18002
 ally cat~
 a poor ally cat~
-A very hungry ally cat is here.
-~
+A very hungry ally cat is here.~
 You see a dirty little cat walking across your path. The poor animal has no 
 home and must seartch through the garbage for bit of supper. You feel sorry 
 for the little fella.
@@ -55,8 +53,7 @@ r charm 999
 #18003
 bongo player drummer~
 the bongo drummer~
-A wild bongo drummer is here, moving with his rythme.
-~
+A wild bongo drummer is here, moving with his rythme.~
 Beating his drums as best he can, this bongo player really grooves.
 ~
 giant~
@@ -77,8 +74,7 @@ r charm 999
 #18004
 guitar player band~
 the guitar player of the band~
-You see a tall wooden guitar player of this little band.
-~
+You see a tall wooden guitar player of this little band.~
 Wailing away in tune with the bongo and the windpipe, this wooden guitar player
 can really rock! He plays a familliar tune as the people pass by, keeping 
 a little music in the background.
@@ -101,8 +97,7 @@ r charm 999
 #18005
 pipe pipeplayer player~
 the windpipe player of the band~
-You see the windpipe player, making magical tunes.
-~
+You see the windpipe player, making magical tunes.~
 Along with her friends she manages to keep up to the wild beat. Such an odd 
 combination; wooden guitar, bongo and windpipe! But their music is so 
 wonderful! You hope it never ends.
@@ -125,8 +120,7 @@ r charm 999
 #18006
 armourer shop shopkeeper~
 the armourer~
-The smart looking armourer is here, selling his latest fasions.
-~
+The smart looking armourer is here, selling his latest fasions.~
 Making a last minute change on the store rack in the back, he
 runs to you as you walk in, asking if you need any help. If
 you're in need of armour here is the place to shop!
@@ -159,8 +153,7 @@ r sound 999
 #18007
 shop shopkeeper pet girl~
 the young pet-shop girl~
-The stout little pet-shop girl is here, offering her latest pet.
-~
+The stout little pet-shop girl is here, offering her latest pet.~
 All dressed in pink and blue, with he brown hair done up in a braide, she 
 offers you a variety of animals to chose from.  Several look pretty costly, 
 but these animals are basically for show and probably not for combat. Well, 
@@ -193,8 +186,7 @@ r sound 999
 #18008
 grocer~
 the meat grocer~
-A short little man is here, wiping his hands on his shirt.
-~
+A short little man is here, wiping his hands on his shirt.~
 "How my I help 'ye?" Said he, "our chicken is fresh of the farms
 t'day and y'can't beat th'lamb, fresh s'a cool mornin' breeze, if
 'ya catch 'me drift?" Quite an interesting first impression.
@@ -221,8 +213,7 @@ r charm 999
 #18009
 grocer~
 the produce grocer~
-You see a tall lean man, selling his veggies.
-~
+You see a tall lean man, selling his veggies.~
 A huge smile on his face as you walk into his store. This man
 seems to be selling quite an amount of produce. Perhaps you will
 buy some and help keep his business running?
@@ -248,8 +239,7 @@ r charm 999
 #18010
 weaponsmith weapon shopkeeper~
 the weaponsmith~
-A strong young man is here, forging weapons.
-~
+A strong young man is here, forging weapons.~
 *CLANG* *CLANG* Is the melodic sounds that echos through this room. Hot sulfer 
 floats through the air and burns at your nostrils. A huge fire pit is here, 
 used for melting the metal. In the back you see several black anvils, used for 
@@ -278,8 +268,7 @@ r charm 999
 #18011
 magic library shopkeeper~
 the librarian~
-You see a young mage, tending the library and sorting the books.
-~
+You see a young mage, tending the library and sorting the books.~
 About 5'6" tall, this short man wabbles about the room, up and down the steps 
 sorting the books. This is no ordinary library but one that contains magical 
 books and books of lore. Perhaps you should widen your magical knowledge.
@@ -305,8 +294,7 @@ r charm 999
 #18012
 shopkeeper designer~
 the designer~
-A tall female designer is here, sorting the latest fashions.
-~
+A tall female designer is here, sorting the latest fashions.~
 Standing tall in her long red dress, the store attendent of the Fire-Red 
 Dragon is here, willing to help you find the right clothes. Many cloaks and 
 leather garnets are here, quite the selection. To have the latest in fashion 
@@ -333,8 +321,7 @@ r charm 999
 #18013
 bartender pub owner~
 the bartender~
-A stout bartender is here, serving fresh ale.
-~
+A stout bartender is here, serving fresh ale.~
 "What'll ya have my friend? A fresh brewed beer or perhaps a whisky 
 on the rocks? What'll it be?" The room seems filled with people who whish 
 to have a good time; and get drunk.
@@ -360,8 +347,7 @@ r charm 999
 #18014
 waiter~
 a kind waiter~
-A well dressed waiter is here, waiting for your order.
-~
+A well dressed waiter is here, waiting for your order.~
 "What shall it be? A wonderful Australian Red, or perhaps a perfectly aged 
 Charrdonay? May I suggest the soup of the day, a wonderful mixture of fried 
 cod and crab, our cook really did out-do himself this time!" This place seems 
@@ -385,8 +371,7 @@ r charm 999
 #18015
 innkeeper~
 the inn keeper~
-The middle-aged Inn keeper is here, greeting you a good night.
-~
+The middle-aged Inn keeper is here, greeting you a good night.~
 "Shall I book you a room? No? Well then perhaps I could offer you
 some sleeping pills? It is hard when the festivities are about to
 get some good sleep. Please let me know if there is anything I
@@ -410,8 +395,7 @@ r charm 999
 #18016
 florist~
 the florist~
-A young florist is here, puting together a flower arrangement.
-~
+A young florist is here, puting together a flower arrangement.~
 "La-la-Ti-do..." The young florist is singing gently as she puts together 
 flower arrangements. Perhaps she has something for that special "someone" 
 in your life?
@@ -434,8 +418,7 @@ r charm 999
 #18017
 town sheriff~
 the town sheriff~
-Working hard at his desk, the town sheriff doesn't seem to see you.
-~
+Working hard at his desk, the town sheriff doesn't seem to see you.~
 Wearing a blue hat with a feather in it, the town sheriff seems to be busy as 
 ever. It would be a real shame to disturb him, even though his cells are full, 
 I am sure he could find room for one more unwanted tourist.
@@ -458,8 +441,7 @@ r charm 999
 #18018
 jail guard~
 the jail guard~
-A jail guard is here, sleeping in his chair.
-~
+A jail guard is here, sleeping in his chair.~
 ZZZzzzz....ZZZzzzz....ZZZzzzz....ZZZzzzz....ZZZzzzz....
 ~
 giant~
@@ -480,8 +462,7 @@ r charm 999
 #18020
 prisoner~
 a stinky prisoner~
-Locked behind steel bars, you see a stinky prisoner.
-~
+Locked behind steel bars, you see a stinky prisoner.~
 *sniff*? Whats that smell? It smells like a.. a... dead rat! Oh!
 Its the new prisoner! He got arrested for stinking the peace.
 ~
@@ -504,8 +485,7 @@ r charm 999
 #18021
 chocolate shopkeeper~
 the chocolate shopkeeper~
-A tall lean man is here, selling the latest chocolate.
-~
+A tall lean man is here, selling the latest chocolate.~
 Yummm...Smell that chocolate! There are so many different flavors! Will you be 
 able to try them all? The man behind the counter seems to know his chocolates 
 very well. Perhaps he could show you some of the most popular.
@@ -528,8 +508,7 @@ r charm 999
 #18022
 icecream vendor shopkeeper~
 the icecreams vendor~
-A short, stubby young man is here, selling icecream.
-~
+A short, stubby young man is here, selling icecream.~
 Butter Scotch Ripple...Berry-Blue Zoo...Raven Red...Chocolate
 Mint...Strawberry Swirl...Which will you have? So many to chose
 form, but I'll bet that they are all superb!
@@ -552,8 +531,7 @@ r charm 999
 #18023
 apiarist lady shopkeeper~
 the apiarist~
-A tall young lady is here, selling honey.
-~
+A tall young lady is here, selling honey.~
 Ahh..The sweet tasted of a honey-bee's honey. What would you do without it? 
 There are several different varieties to chose from. You really should 
 try 'em all!
@@ -576,8 +554,7 @@ r charm 999
 #18024
 baker shopkeeper~
 the baker~
-The baker is here, selling his freshly baked bread.
-~
+The baker is here, selling his freshly baked bread.~
 *Snnnniiiiiiffff* Ahhhh... The lovely smell of fresh baked bread and cookies. 
 You simply love the smell of this room, and all you can think of is Bread! 
 Cookies! Pies!!! Try them all, the man looks willing to do business with you!
@@ -600,8 +577,7 @@ r charm 999
 #18025
 zanrich shopkeeper~
 Zanrich the Shopkeeper~
-Zanrich is here, selling his grade "A" containers.
-~
+Zanrich is here, selling his grade "A" containers.~
 The tall young lad is here, selling his special containers. He was rated number
 1 in all the lands, for his speical containers and their capability.
 ~
@@ -623,8 +599,7 @@ r charm 999
 #18026
 master wands shopkeeper wizard~
 the wand making wizard~
-The wand making wizard is here, selling his special wands.
-~
+The wand making wizard is here, selling his special wands.~
 All cloaked in black this wizard wishes to sell you his special
 wands. Magically tuned to perfection. They would be mighty handy.
 ~
@@ -646,8 +621,7 @@ r charm 999
 #18027
 knight templar~
 the knight templar~
-A strong knight templar is here, patroling the streets.
-~
+A strong knight templar is here, patroling the streets.~
 All clad in armor this guy looks quite deadly. Would want to mess with him.
 ~
 giant~
@@ -668,8 +642,7 @@ r charm 999
 #18028
 titan citizen~
 a titan citizen~
-A citizen of The Valley of The Titans is here.
-~
+A citizen of The Valley of The Titans is here.~
 Tall and strong, a citizen of The Valley of The Titans greets
 you, welcoming you to his city.
 ~
@@ -691,8 +664,7 @@ r charm 999
 #18029
 cook maid chef~
 the house chef~
-The house chef is here, cooking up a meal.
-~
+The house chef is here, cooking up a meal.~
 "Falalala..Yadedadooo.." signs the house chef merily as she cooks
 away. *SSSsssssssnnnnnniiiiiifffffff!* It sure does smell nice!
 ~
@@ -714,8 +686,7 @@ r charm 999
 #18030
 serf~
 the serf~
-A untidy serf is here, running back and forth.
-~
+A untidy serf is here, running back and forth.~
 To busy to talk. To busy to listen. This serf is WAY to busy to
 care. He is running back and forth, carrying out orders.
 ~
@@ -737,8 +708,7 @@ r charm 999
 #18031
 grubby beggar~
 a grubby beggar~
-A grubby beggar is here, asking for a coin or two.
-~
+A grubby beggar is here, asking for a coin or two.~
 Sitting on a pile of garbage which he calls "his", this grubby
 beggar asks for some coins. He sure does look poor.
 ~
@@ -760,8 +730,7 @@ r charm 999
 #18032
 patrol guard~
 a patrol guard~
-A strong patrol guard is here, keeping the peace.
-~
+A strong patrol guard is here, keeping the peace.~
 Very tall and very strong, this patrol guard looks as though he
 does his job quite well.
 ~
@@ -783,8 +752,7 @@ r charm 999
 #18033
 villager~
 a happy villager~
-A happy villager is here, dancing to the music.
-~
+A happy villager is here, dancing to the music.~
 If I were you, I wouldn't talk to this fella. He's to busy
 dancing to the music.
 ~
@@ -806,8 +774,7 @@ r charm 999
 #18034
 tournament guard~
 the tournament guard~
-A tournament guard is here, conducting the practice.
-~
+A tournament guard is here, conducting the practice.~
 To busy keeping the warriors fighting with the magical monster,
 he doesn't have any time to speak to you.
 ~
@@ -829,8 +796,7 @@ r charm 999
 #18035
 tournament warrior~
 a tournament warrior~
-The tournament warrior is here, practicing his skills.
-~
+The tournament warrior is here, practicing his skills.~
 *SLICE* *BASH* *BLAM* He looks to be just a tad too busy to socialize.
 ~
 giant~
@@ -851,8 +817,7 @@ r charm 999
 #18036
 tournament anti-paladin~
 a tournament anti-paladin~
-A tournamen mage is here, perfecting her spells.
-~
+A tournamen mage is here, perfecting her spells.~
 A tournament anti-paladin utters the words 'Algetharb'! She is far to busy 
 perfecting her spells to speak with you. Maybe later.
 ~
@@ -874,8 +839,7 @@ r charm 999
 #18037
 tournament cleric~
 a tournament cleric~
-A tournament cleric is here, perfecting her attack skills.
-~
+A tournament cleric is here, perfecting her attack skills.~
 She's very busy using her magical talents to speak with you. Remember, she is 
 fighting real mobs, deadly mobs. You'd hate to get her killed!
 ~
@@ -897,8 +861,7 @@ r charm 999
 #18038
 tournament ranger~
 a tournament ranger~
-A tournament ranger is here, stealing money from his foe.
-~
+A tournament ranger is here, stealing money from his foe.~
 Better not talk to this rascal, he may kick your ass!
 ~
 giant~
@@ -919,8 +882,7 @@ r charm 999
 #18039
 dragon baby evil~
 an evil baby dragon~
-A baby dragon is here, snarling and growling.
-~
+A baby dragon is here, snarling and growling.~
 As you gaze upon the flesh of this young baby dragon, you realize that he is 
 very muscular.  A dark brown hide seems to suck the light out of the air. As he
 sees you, he lets out a deep his; revealing his deadly yellow fangs.  Spreading
@@ -945,8 +907,7 @@ r charm 999
 #18040
 evil tree~
 a gloomy evil tree~
-A gloomy evil tree is here, standing tall above you.
-~
+A gloomy evil tree is here, standing tall above you.~
 As you gaze up to the should-be sky, you notice a deadly tree looming up above 
 you. Your first though is that it is a figment of your imagination, that trees 
 can't hurt you. Then, all of a sudden, its branches move, against the wind. You
@@ -971,8 +932,7 @@ r disease 33
 #18041
 deadly rain cloud~
 a deadly rain cloud~
-Flying through the air is a deadly rain cloud.
-~
+Flying through the air is a deadly rain cloud.~
 Flying madly through the air is a deadly rain cloud, spreading acid rain over 
 the world. It would be a good idea not to go near this...thing.
 ~
@@ -993,8 +953,7 @@ r light -50
 #18042
 demon fire~
 a demon of fire~
-A demon of fire is here, setting the trees ablaze.
-~
+A demon of fire is here, setting the trees ablaze.~
 You notice a deadly warmth about you. A strange heat, unreal, unhuman. Then, 
 blazing in a blue fire is a Great Demon of Fire! You wonder if you should flee 
 or fight. Such a demon is very deadly and will surely burn you to a crisp. 
@@ -1018,8 +977,7 @@ r mental 83
 #18043
 demon water~
 a demon of water~
-A demon of water is here, drowning a near by victim.
-~
+A demon of water is here, drowning a near by victim.~
 In a near-by pool you notice one of the deadly demons, the demon of fire.  
 Something deep in your heart tells you to stay away from him.
 ~
@@ -1041,8 +999,7 @@ r mental 50
 #18044
 demon air~
 a demon of air~
-A demon of air is here, creating storms.
-~
+A demon of air is here, creating storms.~
 In a blazing whirlwind, a demon of air is here, creating deadly
 storms. This is another of those deadly demons, another to avoid.
 ~
@@ -1071,8 +1028,7 @@ r sound -50
 #18045
 demon earth~
 a demon of earth~
-A demon of earth is here, uprooting trees.
-~
+A demon of earth is here, uprooting trees.~
 A deep rumble is felt through the ground as the demons of the earth come 
 crashing out into daylight! Creating deadly earthquakes where ever it may go, 
 the demons of earth a destroying all in sight!
@@ -1096,8 +1052,7 @@ r charm 33
 #18046
 demon wood~
 a demon of wood~
-A demon of wood is here, creating evil trees.
-~
+A demon of wood is here, creating evil trees.~
 Standing tall and proud among the trees, the demon of wood is here, creating 
 havoc. Having control over all wooden things, this demon isn't one to mess 
 with.
@@ -1120,8 +1075,7 @@ r light 999
 #18047
 demon stone~
 a demon of stone~
-An evil demon of stone is here.
-~
+An evil demon of stone is here.~
 A 20 foot demon made fully of stone is here. He brings fear into
 your heart, pain into your soul. This tough beast seems unstopable.
 ~
@@ -1151,8 +1105,7 @@ r sound 999
 #18048
 titan guard royal~
 a Royal Titan guard~
-A Royal Titan guard is here.
-~
+A Royal Titan guard is here.~
 Tall and strong, this Royal Titan guard patrols the castle walls.
 ~
 giant~
@@ -1173,8 +1126,7 @@ r charm 999
 #18049
 boy titan~
 a small boy titan~
-A small boy titan is here, plaing with some rocks.
-~
+A small boy titan is here, plaing with some rocks.~
 This little boy is amusing himself witha few rocks.
 ~
 giant~
@@ -1195,8 +1147,7 @@ r charm 999
 #18050
 titan girl~
 a titan girl~
-A small titan girl is here, playing with her doll.
-~
+A small titan girl is here, playing with her doll.~
 She seems to be enjoying playing outside with her little doll. She is a very 
 pretty little girl, all dressed in pink. She looks like some of the other 
 children at the park. Perhaps all titan children look the same.
@@ -1219,8 +1170,7 @@ r charm 999
 #18051
 sleep sleeping guard~
 a sleeping patrol guard~
-A patrol guard is sleeping here.
-~
+A patrol guard is sleeping here.~
 Zzzzzzz....Zzzzzzzz.....Zzzzzzzzz....
 *SSSSSHHHHHhhhhhhhhh.......!* He is sleeping and you'd hate to disturb him!
 ~
@@ -1242,8 +1192,7 @@ r charm 999
 #18052
 first advisor~
 the first advisor~
-The first advisor is here, offering her help.
-~
+The first advisor is here, offering her help.~
 She seems to be in deep conversation with the queen, it would be
 foolish to disturb her.
 ~
@@ -1264,8 +1213,7 @@ r charm 999
 #18053
 keeper deadly pet owner shopkeeper~
 the keeper of the deadly beasts~
-The Keeper of the Deadly Beasts is here, selling is animals!
-~
+The Keeper of the Deadly Beasts is here, selling is animals!~
 He is a very clean man, with deep black eyes, the build of a warrior and the 
 face of a mage. He seems to be selling the best battle animals in the world. 
 Perhaps he could interest you in some of his beasts?
@@ -1288,8 +1236,7 @@ r charm 999
 #18054
 cougar black pet~
 the Visious Black Cougar~
-A black cougar is here, protecting its master.
-~
+A black cougar is here, protecting its master.~
 Very large and very deadly, you would NOT want to mess with this black cougar!
 ~
 cat~
@@ -1307,8 +1254,7 @@ r negative 999
 #18055
 kraken pet~
 the Deadly Kraken~
-A very deadly Kraken is here protecting its owner.
-~
+A very deadly Kraken is here protecting its owner.~
 VERY very big and tough, this kraken looks to be the most fearsome thing you 
 have ever seen!
 ~
@@ -1330,8 +1276,7 @@ r charm -33
 #18056
 bird sylph pet~
 the Magical Sylph~
-A Magical Sylph is here, aiding her master in battle.
-~
+A Magical Sylph is here, aiding her master in battle.~
 A small but beautiful creature, this sylph seems to be a weak fighter. 
 Despite her size, she is one of the most rare and deadly creatures in all of
 Shades of Gray.  
@@ -1355,8 +1300,7 @@ r charm -33
 #18057
 spider monkey pet~
 a Spider Monkey~
-A cute spider monkey is here, resting on its masters' shoulder.
-~
+A cute spider monkey is here, resting on its masters' shoulder.~
 A small but cute little spider monkey is here, aiding its master
 in their times of need.
 ~
@@ -1375,8 +1319,7 @@ r holy 33
 #18058
 tame lion pet~
 a tame lion~
-A tame lion is here, following his master about.
-~
+A tame lion is here, following his master about.~
 A cute little male lion is here, following his master about,
 always ready for combat.
 ~
@@ -1401,8 +1344,7 @@ r sound -50
 #18059
 wolf pet~
 a large black wolf~
-A large black wolf is here, guarding his master.
-~
+A large black wolf is here, guarding his master.~
 A fearsome black wolf is here, protecting his master.
 ~
 dog~
@@ -1423,8 +1365,7 @@ r holy 33
 #18060
 java pet~
 a Fearsome Java Beast~
-A fearsome Java Beast is here, protecting her master.
-~
+A fearsome Java Beast is here, protecting her master.~
 A large and deadly Java Beast is here, protecting her master with
 its magical flames.
 ~
@@ -1446,8 +1387,7 @@ r charm -33
 #18061
 king dractax titan~
 the King Dractax~
-The King Dractax of The Titans is here.
-~
+The King Dractax of The Titans is here.~
 A tall and proud king is here, planning the future of his kingdom.
 ~
 giant~
@@ -1467,8 +1407,7 @@ r charm 999
 #18062
 queen crystal titan~
 the Queen Crystal~
-The Queen Crystal of The Titans is here.
-~
+The Queen Crystal of The Titans is here.~
 A tall and proud queen is here, planning the future of her kingdom.
 ~
 giant~
@@ -1488,8 +1427,7 @@ r charm 999
 #18063
 assassin~
 an assassin~
-An assassin is here, stalking the king and queen.
-~
+An assassin is here, stalking the king and queen.~
 All clad in black, you find this stealthy assassin hiding in the secret 
 passage-way behind the throne. Obviously, someone in the kingdom wants the 
 king and queen destroyed. Why is beyon all knowledge.
@@ -1512,8 +1450,7 @@ r charm 999
 #18064
 rat~
 a small rat~
-An ugly small rat is here.
-~
+An ugly small rat is here.~
 An ugly rat is here, chewing on the carpet.
 ~
 giant~
@@ -1534,8 +1471,7 @@ r charm 999
 #18065
 peasant~
 a happy peasant~
-A happy peasant is here, enjoying the sunny day.
-~
+A happy peasant is here, enjoying the sunny day.~
 She seems to be quite busy, yet manages to have the time to enjoy
 the calm breeze and bright warm sunshine.
 ~
@@ -1557,8 +1493,7 @@ r charm 999
 #18066
 warrior cleric guildmaster~
 the guildmaster~
-The warrior and cleric guildmaster stands here.
-~
+The warrior and cleric guildmaster stands here.~
 An old man peering through ancient tomes rests here.
 ~
 giant~
@@ -1576,8 +1511,7 @@ r charm 999
 #18067
 cleric guildstudent~
 the guildstudent~
-A cleric guildstudent stands here, learning his skills.
-~
+A cleric guildstudent stands here, learning his skills.~
 An young man wrapped in purple, long-flowing robes meditates here.
 ~
 giant~
@@ -1595,8 +1529,7 @@ r charm 999
 #18068
 warrior guildstudent student~
 the guildstudent~
-A warrior guildstudent stands here, learning the art of combat.
-~
+A warrior guildstudent stands here, learning the art of combat.~
 A smaller man dressed in nothing but a tunic stands here waiting
 to fight mighty foes.
 ~
@@ -1615,8 +1548,7 @@ r charm 999
 #18069
 anti-paladin ranger guildmaster~
 the guildmaster~
-The anti-paladin and ranger guildmaster stands here.
-~
+The anti-paladin and ranger guildmaster stands here.~
 A small elf dressed in black rests in the corner. As you enter he grabs 
 a knife an throws it at you. It lands the wall next to your left ear. 
 "We will now begin," is all he says.
@@ -1636,8 +1568,7 @@ r charm 999
 #18070
 anti-paladin guildguard~
 the guildguard~
-The Guard for the Guild of Anti-Paladins stand here.
-~
+The Guard for the Guild of Anti-Paladins stand here.~
 This man looks like a mage/warrior, i wouldn't mess with him.
 ~
 giant~
@@ -1654,8 +1585,7 @@ r mental 50
 #18071
 cleric guildguard~
 the guildguard~
-The Guard for the Guild of Clerics stands here.
-~
+The Guard for the Guild of Clerics stands here.~
 This man looks like a master cleric. I wouldn't mess with him.
 ~
 giant~
@@ -1672,8 +1602,7 @@ r mental 50
 #18072
 warrior guildguard~
 the guildguard~
-The Guard for the Guild of Warriors stands here.
-~
+The Guard for the Guild of Warriors stands here.~
 The man looks like Apollo's cousin, I wouldn't mess with him.
 ~
 giant~
@@ -1690,8 +1619,7 @@ r mental 50
 #18073
 ranger guildguard~
 the guildguard~
-The Guard for the Guild of rangers stands here.
-~
+The Guard for the Guild of rangers stands here.~
 You see a ranger dressed all in black, he quickly stands as you enter and 
 steps to bar your way. You notice his hands resting on two sheafs.
 ~
@@ -1709,8 +1637,7 @@ r mental 50
 #18074
 servant boy~
 a servant boy~
-A servant boy is here running errands.
-~
+A servant boy is here running errands.~
 You see a small boy running around the halls of the palace.
 ~
 giant~
@@ -1727,8 +1654,7 @@ r mental 50
 #18075
 tourist~
 a tourist~
-A tourist stands here looking lost.
-~
+A tourist stands here looking lost.~
 You see a small round dwarven man, gazing at all the sites. He's looking at 
 a small tavelling map that he seems to be holding upside down.
 ~
@@ -1746,8 +1672,7 @@ r mental 50
 #18076
 store helper aid~
 the store aid~
-The store helper is here, aiding the shopkeeper.
-~
+The store helper is here, aiding the shopkeeper.~
 A common possition for teenaged titans in this village. You'll be
 seeing several store aid's in stores allover the village!
 ~
@@ -1766,8 +1691,7 @@ r charm 33
 #18077
 worker leather~
 the leather worker~
-The leather worker is here, working on some new clothes.
-~
+The leather worker is here, working on some new clothes.~
 A beautiful young women is here, sewing leather together to make the newest 
 clothes around. She seems quite busy and you would hate to bug her.
 ~
@@ -1786,8 +1710,7 @@ r charm 33
 #18078
 blacksmith~
 a hard working blacksmith~
-A hard working blacksmith is here, creating new swords.
-~
+A hard working blacksmith is here, creating new swords.~
 He is all hot and sweaty from working over the great fires. He is
 forging many new weapons to sell in his store.
 ~
@@ -1806,8 +1729,7 @@ r charm 33
 #18079
 lieutenant commander~
 the Titan Lieutenant Commander~
-The Lieutenant Commander of the Titan Army is here.
-~
+The Lieutenant Commander of the Titan Army is here.~
 He is a strong looking man, working hard at the defense of the city. He seems 
 to be creating a defense plan, if the city is ever attacked. You better not 
 disturb him.
@@ -1839,8 +1761,7 @@ r sound -50
 #18080
 soldier~
 a Titan Soldier~
-A Soldier of The Titan Army is here, sharpening his swords.
-~
+A Soldier of The Titan Army is here, sharpening his swords.~
 He is a strong looking man, working hard at making his sword sharp for combat. 
 He seems to just be waiting around for his next order.
 ~
@@ -1859,8 +1780,7 @@ r charm 33
 #18087
 armourer~
 a hard working armourer~
-A hard working armourer is here, creating new armor.
-~
+A hard working armourer is here, creating new armor.~
 He is busy working on putting together he newest steal to his
 finest armor. Perhaps he has something in your size.
 ~
@@ -1879,8 +1799,7 @@ r charm 33
 #18090
 hydra pet~
 the Deadly Hydra~
-A large and deadly Hydra is here.
-~
+A large and deadly Hydra is here.~
 A large deadly Hydra is here and will do anything to protect her master.
 ~
 dragon~
@@ -1901,8 +1820,7 @@ r charm -33
 #18097
 court aritist~
 the court aritist~
-The court aritist is here, consulting with the Queen.
-~
+The court aritist is here, consulting with the Queen.~
 The court aritist is here, giving his bit of advice to the queen. You wouldn't 
 want toget on this guys bad side, for he can draw a spell on you and your 
 friends!
@@ -1926,8 +1844,7 @@ r charm 999
 #18098
 apothecary~
 the apothecary~
-The fine young apothecary is here, selling her potions.
-~
+The fine young apothecary is here, selling her potions.~
 Standing tall behind her desk, she offers her help. You notice a huge selection
 in potions and pills, you wonder which you shall by. You know right away that 
 anything type of cure you would need, here is where you'd get it.
@@ -1950,8 +1867,7 @@ r charm 999
 #18099
 villager happy~
 a happy villager~
-A happy villager is here, enjoying the festivals!
-~
+A happy villager is here, enjoying the festivals!~
 You see a well dressed villager walking by, singing in tune with the beat 
 of  the bongo drums. He has many items in his hands; proof of his shopping. 
 You are glad that this town is such a happy place... lets just hope it doesn't 
@@ -1975,8 +1891,7 @@ r charm 999
 #18100
 Questor~
 @eng Questor@rus Квестор~
-Questor is here, waiting to dispense some quest.
-~
+Questor is here, waiting to dispense some quest.~
 Questor, towers over you.  He's over 20 feet tall, every inch of it
 muscle.  He knows all the zones of realms of Shades of Gray.  It would be a
 Bad Thing to commit a crime in his presence.  
@@ -2008,8 +1923,7 @@ r sound 33
 #18101
 healer~
 the healer~
-A healer is here, selling spells.
-~
+A healer is here, selling spells.~
 Although retired from adventuring, the healer still lends a hand.
 Type 'heal' to see a listing of spells.
 ~

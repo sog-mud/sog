@@ -11,9 +11,7 @@ End
 #2800
 guardian beast сторожевой зверь~
 @eng the guardian beast@rus ~~сторожевой~~ ~~зверь~~~
-@eng A guardian beast stares at you and snarls in rage.
-@rus Огромный зверь (beast) злобно рычит на тебя.
-~
+@eng A guardian beast stares at you and snarls in rage.@rus Огромный зверь (beast) злобно рычит на тебя.~
 @eng Jet black fur covers this beast.  You stare at his two huge red eyes.  You can
 count at least 50 teeth on this monster.  You can't tell whether it is blood or
 saliva dripping from the beast's jaw.  The guardian beast snarls again.
@@ -31,9 +29,7 @@ stand stand male 0
 #2801
 young troll молодой тролль~
 @eng the young troll@rus ~~молодой~~ ~~тролль~~~
-@eng A young troll is sitting down, chewing on a bone.
-@rus Молодой тролль (troll) сидит тут и жует кость.
-~
+@eng A young troll is sitting down, chewing on a bone.@rus Молодой тролль (troll) сидит тут и жует кость.~
 @eng He is a tall, wiry, furry humanoid.
 Your eyes lock with his.  He smiles, puts down his bone, and reaches for one
 of yours!!
@@ -56,9 +52,7 @@ r charm -30
 #2802
 medium troll тролль~
 @eng the medium troll@rus тролль~
-@eng A troll is grooming his pet, a guardian beast.
-@rus Тролль (troll) занят воспитанием сторожевого зверя.
-~
+@eng A troll is grooming his pet, a guardian beast.@rus Тролль (troll) занят воспитанием сторожевого зверя.~
 @eng He is a tall, lean, furry humanoid.
 He is busy licking the ticks off of his beast.
 His eyes dart toward you, as he realizes you are one third his size.
@@ -75,9 +69,7 @@ stand stand male 75
 #2803
 baby troll тролленок~
 @eng a baby troll@rus тролленок~
-@eng A baby troll is playing Doctor with a cadaver.
-@rus Тролленок (baby troll) играет чьим-то трупом.
-~
+@eng A baby troll is playing Doctor with a cadaver.@rus Тролленок (baby troll) играет чьим-то трупом.~
 @eng He is a large, chubby, furry humanoid.
 He is trying to stuff an arm in a hole in the wall.
 He notices you and gargles "WANNA JOIN?".
@@ -93,9 +85,7 @@ sit stand male 12
 #2804
 giant troll~
 @eng the giant troll@rus ~~громадный~~ ~~тролль~~~
-@eng A giant troll is lying on a pile of carnage, pleasing his mistress.
-@rus Огромный тролль ублажает свою хозяйку на куче кровавых останков.
-~
+@eng A giant troll is lying on a pile of carnage, pleasing his mistress.@rus Огромный тролль ублажает свою хозяйку на куче кровавых останков.~
 @eng He is a gigantic, muscular, furry humanoid.
 He gasps as he notices your intrusion.
 You gasp as you realize you have intruded upon his acts of passion!
@@ -118,9 +108,7 @@ r charm -30
 #2805
 large troll female троллиха~
 @eng the large female troll@rus ~~огромная~~ ~~троллиха~~~
-@eng A large female troll is lying on the pile of carnage, blissfully writhing.
-@rus Огромная троллиха корчится в блаженных конвульсиях на куче кровавых останков.
-~
+@eng A large female troll is lying on the pile of carnage, blissfully writhing.@rus Огромная троллиха корчится в блаженных конвульсиях на куче кровавых останков.~
 @eng She is a huge, grotesque, furry humanoid.
 She moans in passion but gasps as she notices you.
 Her smiles turn into snarls as she screams at you!
@@ -143,9 +131,7 @@ r charm -30
 #2806
 fat worm жирный червяк~
 @eng a fat worm@rus ~~жирный~~ ~~червяк~~~
-@eng A fat worm scurries around, looking for food.
-@rus Жирный червяк (worm) суетится в поисках пищи.
-~
+@eng A fat worm scurries around, looking for food.@rus Жирный червяк (worm) суетится в поисках пищи.~
 @eng It is thick and long.  You can't find a head on this thing.
 It moves quickly, from corpse to corpse.
 @rus Нечто длинное, толстое и безголовое быстро передвигается между трупами.
@@ -160,9 +146,7 @@ stand stand male 0
 #2807
 roving beast зверь~
 @eng the roving beast@rus ~~блуждающий~~ ~~зверь~~~
-@eng A roving beast is searching for prey.
-@rus Зверь (beast) бродит тут в поисках добычи.
-~
+@eng A roving beast is searching for prey.@rus Зверь (beast) бродит тут в поисках добычи.~
 @eng Jet black fur covers this beast.
 You stare at his two huge red eyes.  You can count at least 50 teeth on this
 beast.  You can't tell whether it is blood or saliva dripping from the beast's
@@ -182,9 +166,7 @@ g @eng male@rus male~
 #2808
 medium troll~
 @eng the medium troll@rus тролль~
-@eng A troll is wandering around, attending to his duties.
-@rus Вокруг тебя бродит тролль (troll), занятый каким-то делом.
-~
+@eng A troll is wandering around, attending to his duties.@rus Вокруг тебя бродит тролль (troll), занятый каким-то делом.~
 @eng He is a tall, lean, furry humanoid.
 He notices you, and is satisfied to find what he is looking for.
 He advances toward you.

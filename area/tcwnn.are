@@ -11,8 +11,7 @@ End
 #31000
 Gath healer~
 Gath the Healer~
-Gath, High Priest and Healer of Anon, greets you politely.
-~
+Gath, High Priest and Healer of Anon, greets you politely.~
 "Greetings, Fair Adventurer. How may I help thee? If thou art but a youngster
 I shall aid thee with my magic for free, but if thou art a veteran, then thou
 wilst have to pay... To see how I may help thee, type HEAL, which will also
@@ -29,8 +28,7 @@ r charm 999
 #31001
 dryad guildmaster~
 the Dryad Guildmaster~
-The Dryad Guildmaster stands here, patiently watching you.
-~
+The Dryad Guildmaster stands here, patiently watching you.~
 "Welcome, my child, to the Guild of the Dryads. Should you wish to 
 practice a skill or spell that is within my area of expertise, simply 
 type PRAC <skillname>. Typing PRAC without an argument will display what 
@@ -46,8 +44,7 @@ stand stand male 1000
 #31002
 jolob smith blacksmith~
 Jolob the Blacksmith~
-Jolob the Blacksmith grunts a greeting as you enter.
-~
+Jolob the Blacksmith grunts a greeting as you enter.~
 "Well, how can I help ye? If its repairs ye're after, then hand o'er the
 item that be damaged. If not, then I'm afeared there ain't 
 nuthin' I can help ye with".
@@ -63,8 +60,7 @@ r charm 999
 #31003
 armorer~
 the Armorer~
-The Armorer offers to show you some of his wares.
-~
+The Armorer offers to show you some of his wares.~
 "Welcome to my place of business, adventurer. Got something you're after?
 Just type BUY <Item>. If you want to know WHAT you can buy (usually a wise
 move) tpye LIST. If you're just after a specific type of item, say a shield,
@@ -84,8 +80,7 @@ r charm 999
 #31004
 weaponsmith smith~
 the Weaponsmith~
-The Weaponsmith eyes you curiously.
-~
+The Weaponsmith eyes you curiously.~
 "Greetings stranger, or have we met before? Never mind. Either way, to
 see what I have for sale, type LIST. if you want to buy an item you see
 there, type BUY <item> (simple, huh?). If you want me to buy something off
@@ -103,8 +98,7 @@ r charm 999
 #31005
 mercenary master~
 the Mercenary Master~
-The Mercenary Master grunts as you enter.
-~
+The Mercenary Master grunts as you enter.~
 "Want a Mercenary? Then type LIST to see what I sell, then type BUY <name>
 to hire 'im. That's it. Now pay up or get out".
 ~
@@ -118,8 +112,7 @@ stand stand male 1000
 #31006
 mage~
 the Mage~
-The Mage smiles sweetly and asks how she may be of service.
-~
+The Mage smiles sweetly and asks how she may be of service.~
 "To see what you can buy here," she begins sweetly,"type LIST. If you
 see something you'd like, type BUY <item>. If you have something you
 think I may like to buy, type SELL <item>. Alternatively I can give you
@@ -136,8 +129,7 @@ r charm 999
 #31007
 mitzak sage~
 Mitzak the Sage~
-Mitzak the Sage waves at you feebly as you enter his home.
-~
+Mitzak the Sage waves at you feebly as you enter his home.~
 "Hullo. Come to ID some equipment have you? Well, the process is quite
 simple really. Even dwarves can understand it... hmmph... yes now where was
 I? Ah yes... the process... hmmm... well, simply type GIVE <item> mitzak,
@@ -155,8 +147,7 @@ r charm 999
 #31008
 pet owner~
 the Pet Shop Owner~
-The Pet Shop Owner smiles politely and waits for your request.
-~
+The Pet Shop Owner smiles politely and waits for your request.~
 "Greetings. You wish to buy a pet? Well, to see what I have in stock, type
 LIST. Be sure to note the Level of the items that interest you, as you can
 not buy a pet of higher level than yourself. When you see one that you want
@@ -174,8 +165,7 @@ r charm 999
 #31009
 elven elf guildmaster~
 the Elven Guildmaster~
-The Elven Guildmaster welcomes you to his office.
-~
+The Elven Guildmaster welcomes you to his office.~
 "Welcome, friend, to the Guild of the Elves. Should you wish to practice
 a skill or spell that is within my area of expertise, simply type PRAC
 <skillname>. Typing PRAC without an argument will display what skills or
@@ -193,8 +183,7 @@ r charm -33
 #31010
 grocer~
 the Grocer~
-The Grocer smiles and welcomes you to her store.
-~
+The Grocer smiles and welcomes you to her store.~
 "To see what you can buy here," she begins sweetly,"type LIST. If you
 see something you'd like, type BUY <item>. If you have something you
 think I may like to buy, type SELL <item>. Alternatively I can give you
@@ -211,8 +200,7 @@ r charm 999
 #31011
 dwarf baker~
 the Baker~
-The Baker, a rough-looking dwarf, demands your business.
-~
+The Baker, a rough-looking dwarf, demands your business.~
 "Bread? Course I got bread, STUPID! Thats why it's called a BAKERY. I also
 got pies, rolls an' sandwiches. If ya want an exact list, then type LIST.
 If ya wanna buy something, then type BUY <item>. If ya think ya got sumptin'
@@ -228,8 +216,7 @@ stand stand male 1000
 #31012
 bartender~
 the Bartender~
-The Bartender grins smugly as he cleans a glass.
-~
+The Bartender grins smugly as he cleans a glass.~
 "Want a drink, friend? Of COURSE you do. Especially if you're one of them
 spellflinging types. To see whats on tap, type LIST. If you see something
 you fancy, well, then type BUY <item>. OK?"
@@ -244,8 +231,7 @@ stand stand male 1000
 #31013
 dwarven dwarf guildmaster~
 the Dwarven Guildmaster~
-The Dwarven Guildmaster stares at you grimly.
-~
+The Dwarven Guildmaster stares at you grimly.~
 "You want to train to fight? Good. You want to train to kill? Better. To
 see if I can help you, type PRAC, and that will list what I can teach you 
 currently. If you see something you want to learn, type PRAC <skill>. Then
@@ -264,8 +250,7 @@ r disease -25
 #31014
 kender guildmaster~
 the Kender Guildmaster~
-The Kender Guildmaster grins impishly at you.
-~
+The Kender Guildmaster grins impishly at you.~
 "Sooooo... How can I help you? You want to learn how to STEAL???? How
 insulting! Are you insinuating that I am a- a THIEF??? Listen, Kenders
 do NOT STEAL! We BORROW... Now with that out of the way, type PRAC to see
@@ -281,8 +266,7 @@ stand stand male 1000
 #31015
 dryad waiter~
 a Dryad Waiter~
-A Dryad Waiter is here serving drinks.
-~
+A Dryad Waiter is here serving drinks.~
 A prominent employee of the Guild.
 Honest, Reliable and Courteous (yeah right).
 ~
@@ -296,8 +280,7 @@ stand stand male 1000
 #31016
 elf waiter~
 an Elven Waiter~
-An Elven Waiter is here serving drinks.
-~
+An Elven Waiter is here serving drinks.~
 A prominent employee of the Guild.
 Honest, Reliable and Courteous (yeah right).
 ~
@@ -313,8 +296,7 @@ r charm -33
 #31017
 Dwarven waiter~
 a Dwarven Waiter~
-A Dwarven Waiter is here serving drinks.
-~
+A Dwarven Waiter is here serving drinks.~
 A prominent employee of the Guild.
 Honest, Reliable and Courteous (yeah right).
 ~
@@ -331,8 +313,7 @@ r disease -25
 #31018
 greasy bartender~
 a Greasy Bartender~
-A Greasy Bartender is here serving drinks.
-~
+A Greasy Bartender is here serving drinks.~
 A prominent employee of the Guild.
 Honest, Reliable and Courteous (yeah right).
 ~
@@ -346,8 +327,7 @@ stand stand male 1000
 #31019
 mouse~
 the mouse~
-A small field mouse.
-~
+A small field mouse.~
 The mouse looks like a cute, little, fierce fighter.
 ~
 rabbit~
@@ -360,8 +340,7 @@ stand stand none 0
 #31020
 badger~
 the badger~
-A loyal, vicious badger growls at you.
-~
+A loyal, vicious badger growls at you.~
 The badger looks like a fierce fighter.
 ~
 rabbit~
@@ -374,8 +353,7 @@ stand stand none 0
 #31021
 eagle~
 the eagle~
-A large, quick, loyal eagle is here.
-~
+A large, quick, loyal eagle is here.~
 The eagle looks like a fierce fighter.
 ~
 song bird~
@@ -388,8 +366,7 @@ stand stand either 0
 #31022
 grizzly bear~
 the grizzly bear~
-A large, loyal grizzly bear is here.
-~
+A large, loyal grizzly bear is here.~
 The grizzly bear looks like a strong, fierce fighter.
 ~
 bear~
@@ -404,8 +381,7 @@ r cold -33
 #31023
 elephant~
 the elephant~
-A HUGE Bull Elephant stomps its feet and lowers its head to charge.
-~
+A HUGE Bull Elephant stomps its feet and lowers its head to charge.~
 The elephant is a BAD ASS.
 ~
 human~
@@ -418,8 +394,7 @@ stand stand either 1000
 #31024
 cuervo headsman~
 Cuervo the headsman~
-Cuervo the Headsman stands here eyeing you cautiously.
-~
+Cuervo the Headsman stands here eyeing you cautiously.~
 Cuervo has lopped more heads off with his trusty guillotine then you EVER
 will with your weapons.
 ~
@@ -433,9 +408,8 @@ stand stand male 1000
 #31025
 aod dealer~
 Aod the dealer~
-Aod the dealer stands in the shadows here.
-~
-..........................................................................
+Aod the dealer stands in the shadows here.~
+.........................................................................
 
 AOD apparently practices safe sex...
 ~
@@ -449,8 +423,7 @@ stand stand male 1000
 #31026
 illithid guildmaster~
 the Illithid Guildmaster~
-The Illithid Guildmaster greets you telepathically.
-~
+The Illithid Guildmaster greets you telepathically.~
 "Greetings," intones the Guildmaster, his thoughts ringing in your head."You
 wish to train in my arts? Very well. Type PRAC to see what you can learn
 from me, then PRAC <skill> to learn any skill that you desire. Say... you
@@ -466,8 +439,7 @@ stand stand male 1000
 #31027
 human guildmaster~
 the Human Guildmaster~
-The Human Guildmaster bows before you.
-~
+The Human Guildmaster bows before you.~
 "Welcome, honorable student, to the most honorable Guild of the Humans. If
 you wish to learn here, type PRAC to see what I may teach you. If you see
 a skill you'd like to learn, type PRAC <skill> to learn it. Practice well,
@@ -484,8 +456,7 @@ stand stand male 1000
 #31028
 avian guildmaster~
 the Avian Guildmaster~
-The Avian Guildmaster sqwaks loudly and welcomes you to her nest.
-~
+The Avian Guildmaster sqwaks loudly and welcomes you to her nest.~
 "*>SCREECH<* You wish to learn Avian skills? Type PRAC to see what I can
 teach you, and if there is something I can teach you that you wish to learn,
 type PRAC <skill>. *>SQWAAK<*"
@@ -500,8 +471,7 @@ stand stand female 1000
 #31029
 illithid waiter~
 an Illithid Waiter~
-An Illithid Waiter is here serving drinks.
-~
+An Illithid Waiter is here serving drinks.~
 A prominent employee of the Guild.
 Honest, Reliable and Courteous (yeah right).
 ~
@@ -516,8 +486,7 @@ r charm 999
 #31030
 human waiter~
 a Human Waiter~
-A Human Waiter is here serving drinks.
-~
+A Human Waiter is here serving drinks.~
 A prominent employee of the Guild.
 Honest, Reliable and Courteous (yeah right).
 ~
@@ -531,8 +500,7 @@ stand stand male 1000
 #31031
 avian waitress~
 an Avian Waitress~
-An Avian Waitress is here serving drinks.
-~
+An Avian Waitress is here serving drinks.~
 A prominent employee of the Guild.
 Honest, Reliable and Courteous (yeah right).
 ~
@@ -546,8 +514,7 @@ stand stand female 1000
 #31032
 castellan~
 the Castellan of Anon~
-The Castellan of Anon politely welcomes you to his city.
-~
+The Castellan of Anon politely welcomes you to his city.~
 The Castellan is a tall, lean man of middle years with graying hair and 
 a sinewy frame. He is always polite and helpful, but is more than prepared
 to do what it takes to defend his city. A veteran of more than twenty years
@@ -563,8 +530,7 @@ stand stand male 1000
 #31033
 citizen~
 a citizen~
-A citizen of Anon passes by you.
-~
+A citizen of Anon passes by you.~
 Anon is not a huge city in terms of population, but there are a fair number
 of residents, such as this fellow.
 ~
@@ -578,8 +544,7 @@ stand stand male 1000
 #31034
 citizen~
 a citizen~
-A citizen of Anon passes by you.
-~
+A citizen of Anon passes by you.~
 Anon is not a huge city in terms of population, but there are a fair number
 of residents, such as this lady.
 ~
@@ -593,8 +558,7 @@ stand stand female 1000
 #31035
 child~
 a child~
-A child frolics in the street here.
-~
+A child frolics in the street here.~
 There are not that many children in Anon, so those that are present are
 treasured by the locals. However, this endearment certainly isn't shared by
 visitors, who find the spoiled brats insufferable.
@@ -609,8 +573,7 @@ stand stand male 1000
 #31036
 janitor~
 the janitor~
-A janitor is walking around, cleaning up.
-~
+A janitor is walking around, cleaning up.~
 "Grumble grumble... you don't think I got anything better to do than pick up
 YOUR crap? Grumble grumble... and these BLOODSTAINS! *SIGH*"
 ~
@@ -624,8 +587,7 @@ stand stand male 1000
 #31037
 footpad~
 a footpad~
-A footpad stalks around looking for an easy victim.
-~
+A footpad stalks around looking for an easy victim.~
 The footpad skulks about, looking for someone to conk over the head.
 ~
 human~
@@ -638,8 +600,7 @@ stand stand male 1000
 #31038
 drunk~
 a drunk~
-A singing, happy drunk.
-~
+A singing, happy drunk.~
 A drunk who seems to be too happy, and to carry too much money. He mumbles something unintelligible and stumbles away.
 ~
 human~
@@ -652,8 +613,7 @@ stand stand male 1000
 #31039
 beggar~
 a beggar~
-A beggar is here, well... begging.
-~
+A beggar is here, well... begging.~
 "Hey mista! Spare a veteran a dime?"
 ~
 human~
@@ -666,8 +626,7 @@ stand stand male 1000
 #31040
 thief~
 a thief~
-A thief adroitly cuts the strings of another fat merchant's purse.
-~
+A thief adroitly cuts the strings of another fat merchant's purse.~
 This clever fellow has robbed dozens of unsuspecting visitors to Anon.
 ~
 human~
@@ -680,8 +639,7 @@ stand stand male 1000
 #31041
 fido~
 a beastly fido~
-The beastly fido is here looking for food.
-~
+The beastly fido is here looking for food.~
 The beastly fido is foaming at the mouth. You smell the aroma of his latest kill.
 ~
 fido~
@@ -708,8 +666,7 @@ r sound 50
 #31042
 rat~
 a huge sewer rat~
-A huge sewer rat that probably WOULDN'T taste like pumpkin pie.
-~
+A huge sewer rat that probably WOULDN'T taste like pumpkin pie.~
 Rats! Eeyew! They come up out of the sewer and steal the children of Anon.
 Good.
 ~
@@ -723,8 +680,7 @@ stand stand none 1000
 #31043
 cat~
 a cat~
-A stray cat rummages through some trash here.
-~
+A stray cat rummages through some trash here.~
 The cat suddenly emerges, triumphant, with a half-eaten steak, and runs off.
 ~
 cat~
@@ -737,8 +693,7 @@ stand stand female 0
 #31044
 guard~
 a City Guard~
-A Member of the City Guard warns you to stay out of trouble.
-~
+A Member of the City Guard warns you to stay out of trouble.~
 This fellow is a member of one of the best Law Enforcement Agencies on the
 continent. Dedicated, loyal, efficient, he is the epitome of Truth, Justice
 and the Anon Way :).
@@ -753,8 +708,7 @@ stand stand male 1000
 #31045
 guard~
 a City Guard~
-A Member of the City Guard warns you to stay out of trouble.
-~
+A Member of the City Guard warns you to stay out of trouble.~
 This lady is a member of one of the best Law Enforcement Agencies on the
 continent. Dedicated, loyal, efficient, she is the epitome of Truth, Justice
 and the Anon Way :).
@@ -769,8 +723,7 @@ stand stand female 1000
 #31046
 guard~
 a City Guard~
-A Member of the City Guard stands rigidly at attention here.
-~
+A Member of the City Guard stands rigidly at attention here.~
 This fellow is a member of one of the best Law Enforcement Agencies on the
 continent. Dedicated, loyal, efficient, he is the epitome of Truth, Justice
 and the Anon Way :).
@@ -785,8 +738,7 @@ stand stand male 1000
 #31047
 hobbit merc1~
 Hobbit Mercenary~
-A Hobbit Mercenary scowls menacingly at you.
-~
+A Hobbit Mercenary scowls menacingly at you.~
 This Merc looks big and tough. Better be careful.
 ~
 human~
@@ -799,8 +751,7 @@ stand stand male 1000
 #31048
 elven elf merc2~
 Elven Mercenary~
-An Elven Mercenary scowls menacingly at you.
-~
+An Elven Mercenary scowls menacingly at you.~
 This Merc looks big and tough. Better be careful.
 ~
 elf~
@@ -815,8 +766,7 @@ r charm -33
 #31049
 dwarf dwarven merc3~
 Dwarven Mercenary~
-A Dwarven Mercenary scowls menacingly at you.
-~
+A Dwarven Mercenary scowls menacingly at you.~
 This Merc looks big and tough. Better be careful.
 ~
 dwarf~
@@ -832,8 +782,7 @@ r disease -25
 #31050
 troll trollish merc4~
 Trollish Mercenary~
-A Trollish Mercenary scowls menacingly at you.
-~
+A Trollish Mercenary scowls menacingly at you.~
 This Merc looks big and tough. Better be careful.
 ~
 human~
@@ -846,8 +795,7 @@ stand stand male 1000
 #31051
 giant merc5~
 Hill Giant Mercenary~
-A Hill Giant Mercenary scowls menacingly at you.
-~
+A Hill Giant Mercenary scowls menacingly at you.~
 This Merc looks big and tough. Better be careful.
 ~
 giant~
@@ -864,8 +812,7 @@ r mental 50
 #31052
 half-dragon dragon merc6~
 Half-Dragon Mercenary~
-A Half-Dragon Mercenary scowls menacingly at you.
-~
+A Half-Dragon Mercenary scowls menacingly at you.~
 This Merc looks big and tough. Better be careful.
 ~
 dragon~
@@ -883,8 +830,7 @@ r charm -33
 #31053
 salvatore~
 Salvatore~
-Salvatore says, in a broad Scottish accent, "What yer havin'?"
-~
+Salvatore says, in a broad Scottish accent, "What yer havin'?"~
 Salvatore is a broad man of Mediterranean descent in his middle years. He
 goes on to tell you that you can have anything you want, as long as it's
 deep-fried. That includes the pizza...
@@ -900,8 +846,7 @@ r charm 999
 #31054
 guard~
 a City Guard~
-A Member of the City Guard stands rigidly at attention here.
-~
+A Member of the City Guard stands rigidly at attention here.~
 This fellow is a member of one of the best Law Enforcement Agencies on the
 continent. Dedicated, loyal, efficient, he is the epitome of Truth, Justice
 and the Anon Way :).
@@ -916,8 +861,7 @@ stand stand male 1000
 #31055
 tracey owner co-owner~
 the co-owner Tracey~
-Tracey, Trace to her friends, waits to take your order.
-~
+Tracey, Trace to her friends, waits to take your order.~
 Tracey is a cheerful, hard-working restauranteur who built this business
 up from scratch. It serves the best Cafe-style food on all of Anon, which
 isn't saying much as it is the ONLY place that serves Cafe-style food in
@@ -933,8 +877,7 @@ stand stand female 1000
 #31056
 mengrabbazoah darkling guildmaster scholar~
 Mengrabbazoah~
-Mengrabbazoah, Darkling Scholar, is here to train you.
-~
+Mengrabbazoah, Darkling Scholar, is here to train you.~
 Mengrabbazoah is an old and wise Darkling, the most powerful of his kind
 currently living outside the city of Tentchenanwhan, far beneath the surface
 of Anon.
@@ -949,8 +892,7 @@ stand stand male 1000
 #31057
 thaumaturgist alix~
 Alix the Thaumaturgist~
-Alix the Thaumaturgist is here to help rid you of unwanted items.
-~
+Alix the Thaumaturgist is here to help rid you of unwanted items.~
 Alix smiles and asks you to tell him the name of the item you wish to be 
 rid of.
 ~
@@ -964,8 +906,7 @@ stand stand male 1000
 #31058
 clea artificer~
 Clea the Artificer~
-Clea the Artificer is ready to recharge your magic items.
-~
+Clea the Artificer is ready to recharge your magic items.~
 Clea smiles languidly and asks you to hand over the stave that needs 
 recharging, chuckling at her deliberate innuendo as she does.
 ~
@@ -979,8 +920,7 @@ stand stand female 1000
 #31059
 xanafax book seller~
 Xanafax~
-Xanafax, the ancient scholar and purveyor of ancient tomes, is here.
-~
+Xanafax, the ancient scholar and purveyor of ancient tomes, is here.~
 Xanafax is a dealer in rare and ancient books detailing the geography,
 history, social structure and legends of the many races of Anon. He is more
 than willing to sell you a book.
@@ -995,8 +935,7 @@ stand stand male 1000
 #31060
 locksmith dwart~
 Dwart~
-Dwart the locksmith busily carves another key.
-~
+Dwart the locksmith busily carves another key.~
 Dwart makes locks and keys, and he makes them well. For a Dwarf he is 
 surprisingly dextrous. He also purchases keys off of players. Try selling 
 him one!
@@ -1011,8 +950,7 @@ stand stand male 1000
 #31061
 thom enhancer~
 Thom the Enhancer~
-Thom the Enhancer stands ready to help you enhance.
-~
+Thom the Enhancer stands ready to help you enhance.~
 Thom will assist you in enhancing your stats. Simply type enhance <stat> 
 to do so. Type HELP ENHANCE for assistance.
 ~
@@ -1026,8 +964,7 @@ stand stand male 1000
 #31062
 pharlas merchant~
 Pharlas~
-The merchant Pharlas stands here, wringing his hands in abject worry.
-~
+The merchant Pharlas stands here, wringing his hands in abject worry.~
 Pharlas is a stout, well-dressed merchant in his mid-fifties. He is currently
 extremely agitated because a swamp spirit has stolen his gem. Perhaps you 
 can retrieve it for him?

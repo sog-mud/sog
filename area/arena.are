@@ -12,8 +12,7 @@ End
 #35301
 shopkeeper~
 The shopkeeper~
-The shopkeeper is here, selling tickets.
-~
+The shopkeeper is here, selling tickets.~
 You see a huge man wearing white clothes. He looks quiet strong. 
 ~
 human~
@@ -43,8 +42,7 @@ r sound 999
 #35302
 guard arena~
 the arena guard~
-Huge man stands here, guarding the entrance.
-~
+Huge man stands here, guarding the entrance.~
 ~
 giant~
 BGRT 0 HV 0 0 0 0

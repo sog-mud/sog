@@ -9,13 +9,15 @@ End
 
 #MOBILES
 #2400
-Copper Dragon~
-The Copper Dragon~
-The Copper Dragon of Time stands before you.
-~
-A majestic Dragon stands before you in all its glory.  The gleam from its 
+Copper Dragon Медный Дракон~
+@eng The Copper Dragon@rus ~~Медный~~ ~~Дракон~~~
+@eng The Copper Dragon of Time stands before you.@rus Медный Дракон Времени (Copper Dragon) стоит перед тобой.~
+@eng A majestic Dragon stands before you in all its glory.  The gleam from its 
 copper scales seems to stop time.  The Dragon does not seem happy that you are 
 here. It ATTACKS.
+@rus Величественный Дракон стоит перед тобой во всей своей славе.
+Кажется, что свет от его медных чешуек замедляет время. Дракон,
+однако, совсем не рад, что ты здесь. Он АТАКУЕТ.
 ~
 copper dragon~
 BFGHJTZ 0 H 0 AB 350 0
@@ -30,12 +32,14 @@ r cold -50
 r acid -33
 r charm 999
 #2401
-White Dragon~
-The White Dragon~
-The White Dragon of Ice stands before you.
-~
-A intimidating Dragon stands before you.  The icy glare blinds you long enough
+White Dragon Ледяной Дракон~
+@eng The White Dragon@rus ~~Ледяной~~ ~~Дракон~~~
+@eng The White Dragon of Ice stands before you.@rus Белый Ледяной Дракон (White Dragon) стоит перед тобой.~
+@eng A intimidating Dragon stands before you.  The icy glare blinds you long enough
 for the Ice Dragon to devour you.
+@rus Устрашающего вида Дракон стоит перед тобой. Сверкающий ледяной блеск
+ослепляет... Прежде, чем ты сможешь видеть снова, Ледяной Дракон тебя
+успеет сожрать..
 ~
 white dragon~
 BFGHJT 0 J 0 AB -350 0
@@ -49,12 +53,13 @@ r pierce 50
 r cold -33
 r charm 999
 #2402
-Pixie~
-A Pixie~
-A Pixie flits about the room.
-~
-This winged creature is the epitome of mischief. He loves to pick on travelers,
+Pixie Сильф~
+@eng A Pixie@rus сильф~
+@eng A Pixie flits about the room.@rus Сильф (Pixie) носится вокруг.~
+@eng This winged creature is the epitome of mischief. He loves to pick on travelers,
 and guess what....   It's your turn :).
+@rus Это крылатое создание -- воплощенное озорство. Он любит подшучивать над
+путешественниками, и -- угадай, что... Теперь твоя очередь :).
 ~
 elf~
 FGHJ 0 0 0 0 -360 0
@@ -69,12 +74,13 @@ r slash -50
 r negative 10
 r charm 999
 #2403
-Time Dragon Spirit~
-The Spirit of the Time Dragon~
-The translucent Spirit of the Dragon stares at you through uncaring eyes.
-~
-The Spirit of the Time Dragon guards the hoard gathered by the copper dragons 
+Time Dragon Spirit Дух Дракона Времени~
+@eng The Spirit of the Time Dragon@rus ~~Дух~~ Дракона Времени~
+@eng The translucent Spirit of the Dragon stares at you through uncaring eyes.@rus Полупрозрачный Дух Дракона (Time Dragon Spirit) смотрит на тебя внимательными глазами.~
+@eng The Spirit of the Time Dragon guards the hoard gathered by the copper dragons 
 who have stood sentinel over this spot. The Spirit lunges for your SOUL!!!!!!!
+@rus Дух Дракона Времени охраняет сокровища, собранные теми медными драконами,
+которые охраняли это место. Он нападает на твою душу!!!!
 ~
 dragon~
 BFGJT 0 HU 0 AB 0 0
@@ -89,12 +95,13 @@ r fire -33
 r cold 50
 r charm 999
 #2404
-Ice Dragon Spirit~
-The Spirit of the Ice Dragon~
-The shimmering Spirit of the Dragon freezes you in your steps.
-~
-The Spirit of the Ice Dragon Stands over the hoard of the previous white dragon
+Ice Dragon Spirit Дух Ледяного Дракона~
+@eng The Spirit of the Ice Dragon@rus ~~Дух~~ Ледяного Дракона~
+@eng The shimmering Spirit of the Dragon freezes you in your steps.@rus Мерцающий Дух Дракона (Ice Dragon Spirit) замораживает тебя.~
+@eng The Spirit of the Ice Dragon Stands over the hoard of the previous white dragon
 guardians. The Spirit attempts to leech you life blood from your body.
+@rus Дух Ледяного Дракона поставлен охранять сокровища предыдущих белых
+драконов. Дух пытается высосать живую кровь из твоего тела.
 ~
 dragon~
 BFGJT 0 HU 0 AB 0 0
@@ -109,13 +116,15 @@ r fire -33
 r cold 50
 r charm 999
 #2405
-Pixie King~
-The Pixie King~
-The Pixie King looks at you with a merry glint in his eyes and nods.
-~
-The Pixe King is slightly bigger than other pixies.  He is really cool.
+Pixie King Король Сильфов~
+@eng The Pixie King@rus ~~король~~ сильфов~
+@eng The Pixie King looks at you with a merry glint in his eyes and nods.@rus Король сильфов (Pixie King) смотрит на тебя с блеском веселья в глазах и кивает.~
+@eng The Pixe King is slightly bigger than other pixies.  He is really cool.
 The King loves to frolic and play, especially with new friends.
 He asks you "Will you be my friend?".
+@rus Король сильфов немного больше по размерам, чем другие сильфы.
+Он совершенно спокоен. Король любит шалить и играть, особенно
+с новыми друзьями. Он спрашивает тебя:" Ты будешь моим другом?"
 ~
 elf~
 BFGJ 0 0 0 AB 1000 0
@@ -130,13 +139,16 @@ r slash -50
 r negative 10
 r charm 999
 #2406
-gate keeper gatekeeper~
-The GateKeeper~
-The GateKeeper appears to look right through you as he stands at his post.
-~
-The GateKeeper is a grim staunch figure.  He looks as if he has been
+gate keeper gatekeeper Привратник~
+@eng The GateKeeper@rus привратник~
+@eng The GateKeeper appears to look right through you as he stands at his post.@rus [Появляется привратник (gatekeeper), чтобы посмотреть на тебя.~
+@eng The GateKeeper is a grim staunch figure.  He looks as if he has been
 carrying a large burden for some time.  You feel sorry for him, but
 he does have the key that you need to continue on through the cave.
+@rus Привратник -- одинокая зловещая фигура. Он смотрит на тебя в течении
+некоторого времени, причем так, как-будто ты ему не нравишься. Тебе
+становится жалко его, но у него ключ, который нужен, чтобы пройти че-
+рез пещеру.
 ~
 elf~
 BFGJT 0 0 0 AB 0 0
@@ -151,16 +163,23 @@ r slash -50
 r negative 10
 r charm 999
 #2407
-eternity dragon~
-The Eternity Dragon~
-The Eternity Dragon stands before you, 
-it pays you no heed as it stays its everlasting vigil.
-~
-The Eternity Dragon is by far the largest dragon you have ever seen or heard 
+eternity dragon Дракон Вечности~
+@eng The Eternity Dragon@rus ~~Дракон~~ Вечности~
+@eng The Eternity Dragon stands before you, 
+it pays you no heed as it stays its everlasting vigil.@rus Дракон Вечности (Eternity Dragon) cтоит перед тобой, он не обращает на тебя никакого внимания.~
+@eng The Eternity Dragon is by far the largest dragon you have ever seen or heard 
 of. Its body easily stretching 300 feet from nose to tail.  This entire cavern,
 which seems to span the distance of about three levels of this mountain, is
 completely filled by the dragon.  At the time it seems peaceful, but you
 can tell that attacking it would be the dumbest, and last thing you ever did.
+@rus Дракон Вечности -- самый большой дракон, которого ты когда-либо
+$gn{видел} или про которого $gn{слышал}. Его тело легко растягивается
+на 300 футов от носа до хвоста. Пещера, которая, кажется, занимает
+пространство приблизительно трех уровней этой горы, полностью занята
+драконом. В то же время он кажется мирным, но ты не можешь сказать,
+драконом. В то же время он кажется мирным, но ты можешь сказать, что
+атаковать его было бы глупо, и это последнее дело, на которое ты ког-
+да-либо $gn{решился}.
 ~
 dragon~
 T 0 HU A AB 0 0
@@ -175,13 +194,15 @@ r fire -33
 r cold 50
 r charm -33
 #2408
-pixie guard~
-A Pixie Guard~
-The Pixie Guard stands here, prepared to loose his life for the king.
-~
-The Pixie Guard doesn't really do much to inspire fear in your heart, but you
+pixie guard Сильф Стражник~
+@eng A Pixie Guard@rus ~~сильф~~-~~стражник~~~
+@eng The Pixie Guard stands here, prepared to loose his life for the king.@rus Сильф-стражник (Pixie Guard), готовый отдать жизнь за короля, стоит здесь.~
+@eng The Pixie Guard doesn't really do much to inspire fear in your heart, but you
 suppose that if pressed, he could fight quite visciously compared to most
 Pixies.
+@rus Не очень-то страшно он и выглядит. Но почему-то кажется, что
+этот малыш в состоянии дать сдачи не хуже, чем это сделали бы
+множество сильфов.
 ~
 elf~
 BGT 0 0 0 0 1000 2405
@@ -196,14 +217,17 @@ r slash -50
 r negative 10
 r charm -33
 #2409
-mage pixie master~
-The Master Pixie Mage~
-The Master Pixie Mage is here ruffling through the King's belongings.
-~
-The Master Pixie Mage does not look like any of the other Pixies you have
+mage pixie master Главный Сильф-Маг~
+@eng The Master Pixie Mage@rus ~~Главный~~ ~~Сильф~~-~~Маг~~~
+@eng The Master Pixie Mage is here ruffling through the King's belongings.@rus Главный Сильф-Маг (Master Pixie Mage) ворошит здесь королевские вещи.~
+@eng The Master Pixie Mage does not look like any of the other Pixies you have
 encountered.  His glow has taken on a pale green color, and he is staring
 at you maliciously.  The Staff he carries seems familiar, but you are not
 sure from where you remember it.
+@rus Неужели это существо в зеленом ореоле тоже сильф? С какой злобой он
+смотрит на тебя! Осмотрись, не $gn{прервал} ли ты какой-то магический
+ритуал? Любопытно, почему Посох, который он носит, кажется таким
+знакомым?
 ~
 elf~
 CGHR 0 J 0 A -500 0
@@ -218,13 +242,15 @@ r slash -50
 r negative 10
 r charm -33
 #2410
-pixie guard~
-A Pixie Guard~
-The Pixie Guard stands here, prepared to loose her life for the king.
-~
-The Pixie Guard doesn't really do much to inspire fear in your heart, but you
+pixie guard Сильфийка Стражница~
+@eng A Pixie Guard@rus ~~сильфийка~~-~~стражница~~~
+@eng The Pixie Guard stands here, prepared to loose her life for the king.@rus Сильфийка Стражница (Pixie Guard), готовая отдать жизнь за короля, стоит здесь.~
+@eng The Pixie Guard doesn't really do much to inspire fear in your heart, but you
 suppose that if pressed, she could fight quite visciously compared to most
 Pixies.
+@rus Не очень-то страшно она и выглядит. Но почему-то кажется, что эта
+малышка в состоянии дать сдачи не хуже, чем это сделали бы множество
+сильфов.
 ~
 elf~
 BGT 0 0 0 0 1000 2405
@@ -251,12 +277,13 @@ r harm -50
 r charm -33
 r sound -50
 #2411
-Pixie~
-A Pixie~
-A Pixie flits about the room.
-~
-This winged creature is the epitome of mischief. He loves to pick on 
+Pixie Сильф~
+@eng A Pixie@rus сильф~
+@eng A Pixie flits about the room.@rus Сильф (Pixie) носится вокруг.~
+@eng This winged creature is the epitome of mischief. He loves to pick on 
 travelers, and guess what.... It's your turn :).
+@rus Это крылатое создание -- воплощенное озорство. Он любит подшучивать над
+путешественниками, и -- угадай, что... Теперь твоя очередь :)
 ~
 elf~
 HS 0 0 B AL -500 0
@@ -271,13 +298,15 @@ r slash -50
 r negative 10
 r charm -33
 #2412
-Keeper~
-A Keeper~
-A Keeper is waiting and guarding the leader of dragons.
-~
-He is a well-trained guard. He was trained with the knights of
+Keeper Хранитель~
+@eng A Keeper@rus хранитель~
+@eng A Keeper is waiting and guarding the leader of dragons.@rus Хранитель (Keeper) прислуживает здесь и охраняет повелителя драконов.~
+@eng He is a well-trained guard. He was trained with the knights of
 Shades of Gray for many years and in working for three years in
 Midgaard he retired. And found this job.
+@rus Это хорошо обученный охранник. Он обучался с рыцарями Shades of Gray
+много лет и, проработав в течение трех лет в Мидгаарде, ушел в отставку.
+И нашел эту работу.
 ~
 human~
 BHS 0 J G AHL -500 2402
@@ -293,11 +322,11 @@ r bash -50
 r pierce -50
 r slash -50
 #2413
-Fireflash~
-Fireflash~
-The over lord of dragons is here, resting.
-~
-He is, the old dragon, resting and getting off tired of years.
+Fireflash Повелитель Драконов~
+@eng Fireflash@rus ~~Повелитель~~ Драконов~
+@eng The over lord of dragons is here, resting.@rus Здесь отдыхает Верховный Повелитель Драконов (Fireflash).~
+@eng He is, the old dragon, resting and getting off tired of years.
+@rus Здесь отдыхает старый дракон, спасаясь от многолетней усталости.
 ~
 gold dragon~
 HS 0 0 G AL 1000 2402
@@ -316,12 +345,13 @@ r fire -33
 r poison -33
 r charm -33
 #2414
-Pixie~
-A Pixie~
-A small Pixie flits about the room.
-~
-This winged creature is the epitome of mischief. He loves to pick on travelers,
+Pixie Сильф~
+@eng A Pixie@rus сильф~
+@eng A small Pixie flits about the room.@rus Маленький Сильф (Pixie) носится по комнате.~
+@eng This winged creature is the epitome of mischief. He loves to pick on travelers,
 and guess what....   It's your turn :).
+@rus Это крылатое создание -- воплощенное озорство. Он любит подшучивать над
+путешественниками, и -- угадай, что... Теперь твоя очередь :)
 ~
 elf~
 FGHJ 0 0 0 0 -360 0
@@ -339,9 +369,9 @@ r charm 999
 
 #OBJECTS
 #2400
-sword~
-a tiny sword~
-A petite sword of dragons lies here on the ground, you almost didn't see it.~
+sword меч~
+@eng a tiny sword@rus ~~крошечный~~ ~~меч~~~
+@eng A petite sword of dragons lies here on the ground, you almost didn't see it.@rus Миниатюрный меч драконов (sword) лежит на земле. Ты почти не видишь его.~
 steel~
 weapon AGL 0 AN
 sword 4 8 'slice' 0
@@ -349,83 +379,93 @@ sword 4 8 'slice' 0
 a '' to_object 36 -1 30 14 0
 a '' to_object 36 -1 2 19 0
 E
-pixie~
-This elegant sword appears to have served its previous owner very well, but
+pixie sword меч~
+@eng This elegant sword appears to have served its previous owner very well, but
 you aren't sure how well a weapon this small would serve you.
+@rus Этот изящный меч явно неплохо служил своему предыдущему владельцу,
+но... не кажется ли тебе, что ты уже слишком $gn{вырос}, чтобы играть
+в игрушки?
 ~
-g @rus none~
+g @rus male~
 #2401
-white dragon claw key~
-a small white key shaped like a claw~
-A small white claw is sitting here, lost.~
+key white dragon claw ключ в виде когтя белого дракона~
+@eng a small white key shaped like a claw@rus ~~маленький~~ ~~белый~~ ~~ключ~~, формой ~~похожий~~ на коготь~
+@eng A small white claw is sitting here, lost.@rus Потерянный маленький белый коготь (key) лежит здесь.~
 steel~
 key M 0 AO
 0 0 0 0 0
 18 10 0 G
 E
-key claw white dragon~
-This key appears to have been fashioned from the claw of a dragon.  You are
+key claw white dragon ключ коготь дракона~
+@eng This key appears to have been fashioned from the claw of a dragon.  You are
 glad you weren't the locksmith assigned to getting the materials.
+@rus Этот ключ, кажется, сделан из когтя дракона. Ты $gn{рад}, что собирать
+материалы для изготовления ключей не твоя профессия.
 ~
-g @rus none~
+g @rus male~
 #2402
-door key~
-a door key~
-There is a door key sitting here.~
+key door дверной ключ~
+@eng a door key@rus ~~дверной~~ ~~ключ~~~
+@eng There is a door key sitting here.@rus Дверной ключ (key) лежит здесь.~
 steel~
 key M 0 AO
 0 0 0 0 0
 0 10 0 G
 E
-key door~
-This is a small nondescript key, with nothing special about it.
-bronze~
-g @rus none~
+key door дверной ключ~
+@eng This is a small nondescript key, with nothing special about it.
+@rus Это -- маленький, всеми забытый ключ.
+~
+g @rus male~
 #2403
-gate keeper key~
-the gatekeeper's key~
-A large bronze key sits upon the ground, covered with dust.~
+key gate keeper ключ привратника~
+@eng the gatekeeper's key@rus ~~ключ~~ привратника~
+@eng A large bronze key sits upon the ground, covered with dust.@rus Большой бронзовый ключ (key), покрытый пылью, лежит на земле.~
 silver~
 key M 0 AO
 0 0 0 0 0
 25 10 0 G
 E
-gate keeper key~
-This is the key to the gate.  It belongs to the gatekeeper, and he is probably
+gate keeper key ключ привратника~
+@eng This is the key to the gate.  It belongs to the gatekeeper, and he is probably
 looking for it.
+@rus Это ключ к воротам. Он принадлежит привратнику, и привратник, возможно,
+ищет его.
 ~
-g @rus none~
+g @rus male~
 #2404
-copper dragon claw key~
-a small copper key shaped like a claw~
-A small copper claw lies here, abonded by everyone~
+key copper dragon claw ключ в виде когтя медного дракона~
+@eng a small copper key shaped like a claw@rus ~~маленький~~ ~~медный~~ ~~ключ~~, формой ~~похожий~~ на коготь~
+@eng A small copper claw lies here, abonded by everyone@rus Забытый всеми, маленький медный коготь (key) лежит здесь~
 bone~
 key M 0 AO
 0 0 0 0 0
 19 10 0 G
 E
-copper dragon claw key~
-This key appears to have been fashioned from a dragon's claw.  It is quite
+copper dragon claw key ключ коготь~
+@eng This key appears to have been fashioned from a dragon's claw.  It is quite
 large.
+@rus Этот ключ, кажется, сделан из когтя дракона. Он довольно большой.
 ~
-g @rus none~
+g @rus male~
 #2405
-pixie king key~
-a very small key~
-The key to the Pixie King's bedroom is here, it is almost impossible find.~
+key pixie king ключ короля сильфов~
+@eng a very small key@rus очень ~~маленький~~ ~~ключ~~~
+@eng The key to the Pixie King's bedroom is here, it is almost impossible find.@rus Это ключ (key) от опочивальни Короля Сильфов, его почти не видно.~
 steel~
 key M 0 AO
 0 0 0 0 0
 22 10 0 G
 E
-pixie king key~
-This is a very small key, you cannot imagine what door this would go to.
+pixie king key ключ короля~
+@eng This is a very small key, you cannot imagine what door this would go to.
+@rus Это очень маленький ключ. Невозможно представить, к какой двери он подошел бы.
 ~
-g @rus none~
+g @rus male~
 #2406
-white pendant dragon scale~
-a white dragon scale pendant~
-Upon the ground lies a solid white pendant, it issues forth an aura of cold.~
+pendant white dragon scale белый брелок из чешуи дракона~
+@eng a white dragon scale pendant@rus ~~белый~~ ~~брелок~~ из чешуи дракона~
+@eng Upon the ground lies a solid white pendant, it issues forth an aura of cold.@rus На земле лежит белый брелок (pendant), он испускает ауру холода.~
 silver~
 armor AGI 0 AC
 18 18 18 9 0
@@ -434,16 +474,20 @@ a '' to_object 40 -1 -5 20 0
 a '' to_object 40 -1 5 18 0
 a '' to_object 40 -1 1 19 0
 E
-white pendant dragon scale~
-This pendant appears to be very ancient.  It is solid white, with a blue 
+white pendant dragon scale брелок чешуя белый~
+@eng This pendant appears to be very ancient.  It is solid white, with a blue 
 diamond set in the center.  You feel chilled whenever it touches open flesh.
+@rus Этот брелок, кажется, очень древний. Он полностью белый, с множеством
+синих бриллиантов в центре. Ты чувствуешь озноб всякий раз, когда он касается
+незащищенной плоти.
 ~
-g @rus none~
+g @rus male~
 #2407
-copper pendant dragon scale~
-a copper dragon scale pendant~
-Upon the ground lies a solid copper pendant, as you reach for it, time seems
-to slow.~
+pendant copper dragon scale медный брелок из чешуи дракона~
+@eng a copper dragon scale pendant@rus ~~медный~~ ~~брелок~~ из чешуи дракона~
+@eng Upon the ground lies a solid copper pendant, as you reach for it, time seems
+to slow.@rus На земле лежит медный брелок (pendant). Как только ты тянешься к
+нему, кажется, что время замедляется.~
 bone~
 armor AGI 0 AC
 18 18 18 9 0
@@ -452,17 +496,19 @@ a '' to_object 40 -1 -6 20 0
 a '' to_object 40 -1 5 18 0
 a '' to_object 40 -1 2 19 0
 E
-copper pendant dragon scale~
-The pendant you now own appears to be very new, in fact it looks freshly
+copper pendant dragon scale медный брелок~
+@eng The pendant you now own appears to be very new, in fact it looks freshly
 forged. It is solid copper, white a streak of gold shaped like an hourglass
 in the center.  When you look back up, hours have passed.
+@rus Брелок, которым ты теперь обладаешь, кажется, очень новый, в самом деле, он
+выглядит недавно сделанным. Он полностью медный, с белой полоской золота,
+имеющей вид песочных часов, в центре. 
 ~
-g @rus none~
+g @rus male~
 #2408
-pixie wings~
-a pair of pixie wings~
-A pair of translucent wings lie upon the ground, their is an eerie glow about
-them.~
+wings крылья сильфа pixie~
+@eng a pair of pixie wings@rus ~~пара~~ крыльев сильфа~
+@eng A pair of translucent wings lie upon the ground, their is an eerie glow about them.@rus Пара полупрозрачных крыльев (pixie wings) лежит на земле. Они окружены мрачным свечением.~
 flame~
 light AG 0 A
 0 0 -1 0 0
@@ -471,30 +517,33 @@ a '' to_object 48 -1 100 12 0
 a '' to_object 48 -1 125 13 0
 a '' to_object 48 -1 125 14 0
 E
-pixie wings~
-Just what they are called.  You feel sorry for the pixie who used to own these.
+pixie wings пара крылья~
+@eng Just what they are called.  You feel sorry for the pixie who used to own these.
+@rus Тебе жалко сильфа, который пользовался ими.
 ~
-g @rus none~
+g @rus female~
 #2409
-pendant eternity~
-the pendant of eternity~
-A small pendant is here on the ground, you almost ignore it, til it calls out 
-your name.~
+pendant eternity брелок вечности~
+@eng the pendant of eternity@rus ~~брелок~~ вечности~
+@eng A small pendant is here on the ground, you almost ignore it, til it calls out 
+your name.@rus Маленький брелок (pendant) находится на земле. Ты почти не замечаешь его до тех пор, пока он не называет твое имя.~
 energy~
 armor AFGI 0 AC
 20 20 20 9 0
 51 1 31970 G
 a '' to_affects 51 -1 -60 17 U
 E
-pendant eternity~
-As you stare at the pendant, you begin to feel as if you are being sucked in.
+pendant eternity брелок~
+@eng As you stare at the pendant, you begin to feel as if you are being sucked in.
 It is all you can do to look away.
+@rus Как только ты смотришь на брелок, ты начинаешь чувствовать себя так, как будто
+тебя что-то поглощает. Все, что ты можешь сделать -- это отвести взгляд.
 ~
-g @rus none~
+g @rus male~
 #2410
-white dragon scale breast plate~
-a white dragonscale breast plate~
-A shimmering white breast plate lies here, it is cold to the touch.~
+plate white dragon scale breast белый нагрудник из чешуи дракона~
+@eng a white dragonscale breast plate@rus ~~белый~~ ~~нагрудник~~ из чешуи дракона~
+@eng A shimmering white breast plate lies here, it is cold to the touch.@rus Мерцающий белый нагрудник (plate) лежит здесь, он холодит, когда ты к нему прикасаешься.~
 steel~
 armor GJ 0 AD
 16 16 16 7 0
@@ -502,15 +551,17 @@ armor GJ 0 AD
 a '' to_object 40 -1 5 9 0
 a '' to_object 40 -1 -10 24 0
 E
-white dragon scale breast plate~
-This is a very quickly strewn together breast plate.  It looks like it was
+white dragon scale breast plate нагрудник~
+@eng This is a very quickly strewn together breast plate.  It looks like it was
 fashioned from the breast of a real dragon, minutes after it was slain.
+@rus Это -- нагрудник. Он выглядит так, как будто был сделан из груди
+настоящего дракона после того, как тот был убит.
 ~
-g @rus none~
+g @rus male~
 #2411
-copper dragon scale breast plate~
-a copper dragonscale breast plate~
-An elegant copper breast plate lies here, it looks very new.~
+plate copper dragon scale breast медный нагрудник из чешуи дракона~
+@eng a copper dragonscale breast plate@rus ~~медный~~ ~~нагрудник~~ из чешуи дракона~
+@eng An elegant copper breast plate lies here, it looks very new.@rus Здесь лежит изящный медный нагрудник (plate), он выглядит очень новым.~
 bone~
 armor GK 0 AD
 18 18 18 8 0
@@ -519,39 +570,44 @@ a '' to_object 40 -1 -10 17 0
 a '' to_object 40 -1 5 18 0
 a '' to_object 40 -1 2 9 0
 E
-copper dragon scale breast plate~
-This is a very hastely strewn together breast plate.  It looks like it was
+copper dragon scale breast plate нагрудник~
+@eng This is a very hastely strewn together breast plate.  It looks like it was
 made from the breast of a real dragon, minutes after it was slain.
+@rus Это -- нагрудник. Он выглядит так, как будто был сделан из груди
+настоящего дракона, после того, как тот был убит.
 ~
-g @rus none~
+g @rus male~
 #2412
-corpse~
-a corpse~
-A corpse is lying on the ground, mangled beyond recognition.~
+corpse труп~
+@eng a corpse@rus труп~
+@eng A corpse is lying on the ground, mangled beyond recognition.@rus Лежащий на земле труп (corpse), изуродован до неузнаваемости.~
 meat~
 furniture 0 0 0
 0 0 0 0 0
 0 0 0 G
 E
-corpse ground~
-This corpse appears to be that of an adventurer who wasn't as lucky as you.
+corpse ground труп~
+@eng This corpse appears to be that of an adventurer who wasn't as lucky as you.
 Looking around, you can't see anything that could have destroyed his body
 this badly, but then again, you probably wouldn't want to.
+@rus Вот лежит некий искатель приключений... не столь удачливый, как ты.
+И вроде бы ничего страшного в окрестности... Интересно, кто его так...
+Тебе ДЕЙСТВИТЕЛЬНО хочется узнать?
 ~
-g @rus none~
+g @rus male~
 #2413
-spray paint can~
-a can of spraypaint~
-A can of spraypaint is sitting here.~
+can spray paint пульверизатор с краской~
+@eng a can of spraypaint@rus ~~пульверизатор~~ с краской~
+@eng A can of spraypaint is sitting here.@rus Пульверизатор с краской (spray paint can) лежит здесь.~
 metal~
 weapon 0 0 AN
 exotic 1 1 'pierce' 0
 1 1 1 G
-g @rus none~
+g @rus male~
 #2414
-pixie stick~
-a Pixie Stick~
-A Pixie Stick lies here on the ground, it looks tasty.~
+stick сильфийский посох pixie~
+@eng a Pixie Stick@rus ~~сильфийский~~ ~~посох~~~
+@eng A Pixie Stick lies here on the ground, it looks tasty.@rus Изящный сильфийский посох (stick) лежит на земле.~
 crystal~
 weapon AL 0 AN
 mace 5 7 'pound' D
@@ -559,14 +615,17 @@ mace 5 7 'pound' D
 a '' to_object 35 -1 3 19 0
 a '' to_object 35 -1 3 18 0
 E
-pixie stick~
-This is a Pixie Stick.  While you may be used to eating these "sugar sticks",
-the Pixies use them, quite well, as weapons.~
-g @rus none~
+pixie stick посох~
+@eng This is a Pixie Stick.  While you may be used to eating these "sugar sticks",
+the Pixies use them, quite well, as weapons.
+@rus Это -- посох сильфа? Больше похоже на леденец... ты, может, это и ешь, а вот
+Сильфы используют их как оружие.
+~
+g @rus male~
 #2415
-pixie plate breast~
-a Pixie breast plate~
-There is a very small piece of metal lying here.~
+plate breast сильфийский нагрудник pixie~
+@eng a Pixie breast plate@rus ~~сильфийский~~ ~~нагрудник~~~
+@eng There is a very small piece of metal lying here.@rus Вы видите очень маленький кусок металла (plate), лежащий здесь.~
 steel~
 armor A 0 AD
 15 15 15 7 0
@@ -574,14 +633,16 @@ armor A 0 AD
 a '' to_object 37 -1 -7 17 0
 a '' to_object 37 -1 -1 1 0
 E
-plate pixie breast~
-This is a piece of Pixie armor.  It looks very well crafted, but has an odd
-aura about it.~
-g @rus none~
+plate pixie breast нагрудник~
+@eng This is a piece of Pixie armor.  It looks very well crafted, but has an odd
+aura about it.
+@rus Это фрагмент сильфийского нагрудника. Он выглядит очень хорошо обработанным,
+но окружен необычной аурой.~
+g @rus male~
 #2416
-pixie greaves~
-a pair of Pixie greaves~
-A pair of very small metallic pants lie here.~
+greaves сильфийские поножи pixie~
+@eng a pair of Pixie greaves@rus ~~пара~~ Сильфийских поножей~
+@eng A pair of very small metallic pants lie here.@rus Пара очень маленьких металлических поножей (greaves) лежит здесь.~
 steel~
 armor AG 0 AF
 15 15 15 7 0
@@ -589,14 +650,15 @@ armor AG 0 AF
 a '' to_object 32 -1 4 3 0
 a '' to_object 32 -1 -1 5 0
 E
-pixie greaves~
-These are VERY small pants....although they do seem fairly stretchy.....
+pixie greaves сильфийские поножи~
+@eng These are VERY small pants....although they do seem fairly stretchy.....
+@rus Это очень маленькие поножи....хотя они кажутся довольно эластичными.....
 ~
-g @rus none~
+g @rus female~
 #2417
-pixie arm plates~
-a pair of Pixie armplates~
-A pair of small metal sleeves lie here, glowing.~
+arm plates нарукавники сильфа pixie~
+@eng a pair of Pixie armplates@rus ~~пара~~ Сильфийских нарукавников~
+@eng A pair of small metal sleeves lie here, glowing.@rus Пара маленьких пылающих металлических нарукавников (armplates) лежит здесь.~
 steel~
 armor AG 0 AI
 16 16 16 7 0
@@ -605,14 +667,17 @@ a '' to_object 35 -1 2 19 0
 a '' to_object 35 -1 3 2 0
 a '' to_object 35 -1 -30 17 0
 E
-pixie arm plates~
-These arm plates would be a tad bit to small for you.....IF YOU WERE A
-FREAKING SMURF!!!!~
-g @rus none~
+pixie arm plates нарукавники сильфа~
+@eng These arm plates would be a tad bit to small for you.....IF YOU WERE A
+FREAKING SMURF!!!!
+@rus Эти нарукавники были бы немного малы Вам .....ЕСЛИ ВЫ БЫЛИ
+КАПРИЗНЫМ СМУРФОМ!!!! :-)
+~
+g @rus female~
 #2418
-wisp dragon fire~
-a wisp of DragonFyre~
-There is a nice flame sitting here.~
+wisp dragon fire факел из огня дракона~
+@eng a wisp of DragonFyre@rus ~~факел~~ из огня дракона~
+@eng There is a nice flame sitting here.@rus Здесь лежит прекрасный факел (wisp).~
 flame~
 light AL 0 A
 0 0 -1 0 0
@@ -620,14 +685,16 @@ light AL 0 A
 a '' to_object 38 -1 3 18 0
 a '' to_object 38 -1 3 19 0
 E
-flame wisp dragon fyre fire~
-You aren't quite sure how it is, but the DragonFyre is existing without its
-dragon.~
-g @rus none~
+flame wisp dragon fyre fire факел из огня дракона~
+@eng You aren't quite sure how it is, but the DragonFyre is existing without its
+dragon.
+@rus Непонятно как, но Огонь Дракона существует сам по себе, без Дракона.
+~
+g @rus male~
 #2419
-helm dragon~
-a white dragon scale helm~
-A white dragon scale helm with a plume of dragon mane lies here.~
+dragon шлем дракона helm~
+@eng a white dragon scale helm@rus ~~белый~~ ~~шлем~~ из чешуи дракона~
+@eng A white dragon scale helm with a plume of dragon mane lies here.@rus Здесь лежит белый шлем (helm) из чешуи дракона с плюмажем из гривы дракона.~
 steel~
 armor AGJ 0 AE
 16 16 16 8 0
@@ -637,13 +704,16 @@ a '' to_object 38 -1 -1 2 0
 a '' to_object 38 -1 3 1 0
 E
 helm dragon~
-This helm appears to have been created from the scales of a freshly dead dragon.
-The plume is made from the mane of said dragon.~
-g @rus none~
+@eng This helm appears to have been created from the scales of a freshly dead dragon.
+The plume is made from the mane of said dragon.
+@rus Этот шлем, кажется, был сделан из чешуек недавно убитого дракона. Плюмаж
+сделан из гривы этого же дракона.
+~
+g @rus male~
 #2420
-helm dragon~
-a copper dragon scale helm~
-A copper helm made from the scales of a dragon is here.~
+dragon шлем дракона helm~
+@eng a copper dragon scale helm@rus ~~медный~~ ~~шлем~~ из чешуи дракона~
+@eng A copper helm made from the scales of a dragon is here.@rus Здесь лежит медный шлем (helm), сделанный из чешуек дракона.~
 bone~
 armor AGK 0 AE
 16 16 16 9 0
@@ -653,15 +723,17 @@ a '' to_object 38 -1 -1 2 0
 a '' to_object 38 -1 2 5 0
 E
 helm dragon~
-This helm appears to be made from the scales of a recently dead dragon.
+@eng This helm appears to be made from the scales of a recently dead dragon.
 The plume appears to be made from the plume of said dragon.  It has a
 copper sheen to it.
+@rus Этот шлем, кажется, был сделан из чешуек недавно убитого дракона. Плюмаж
+сделан из гривы того же дракона. Он, к тому же, отливает медью.
 ~
-g @rus none~
+g @rus male~
 #2421
-staff magius~
-the Staff of the Magius~
-A gnarled wooden shaft lies here, pulsing slightly.~
+staff magius посох мага~
+@eng the Staff of the Magius@rus ~~посох~~ Мага~
+@eng A gnarled wooden shaft lies here, pulsing slightly.@rus Сучковатый деревянный посох (staff) лежит здесь, слегка пульсируя.~
 wood~
 weapon ABCFGHM 0 AN
 staff 5 11 'pound' 0
@@ -672,192 +744,202 @@ a '' to_object 52 -1 6 18 0
 a '' to_object 52 -1 -50 13 0
 E
 staff magius~
-This is the Staff of the Magius.  Rumored to bring untold mystical 
+@eng This is the Staff of the Magius.  Rumored to bring untold mystical 
 power to the one who owns it, it is also rumored to completely destroy 
 the person physically.
+@rus Это -- Посох Мага. По слухам, он приносит невыразимую мистическую мощь тому,
+кто обладает им, также, по слухам, полностью разрушает человека физически.
 ~
-g @rus none~
+g @rus male~
 #2422
-dagger~
-a Pixie dagger~
-A petite dagger lies here on the ground, you almost didn't see it.~
+dagger кинжал~
+@eng a Pixie dagger@rus ~~сильфийский~~ ~~кинжал~~~
+@eng A petite dagger lies here on the ground, you almost didn't see it.@rus Миниатюрный кинжал (dagger) лежит здесь на земле. Вы почти не видите его.~
 steel~
 weapon AGL 0 AN
 dagger 4 8 'stab' 0
 33 5 647 G
 a '' to_object 33 -1 20 14 0
 a '' to_object 33 -1 4 19 0
-g @rus none~
+g @rus male~
 #2423
-diamond gem~
-a large diamond~
-A large diamond catches and reflects the lighting.~
+diamond gem бриллиант~
+@eng a large diamond@rus ~~большой~~ ~~бриллиант~~~
+@eng A large diamond catches and reflects the lighting.@rus Большой бриллиант (diamond) улавливает и отражает свет.~
 gem~
 gem 0 D AO
 0 0 0 0 0
 0 1 25000 P
-g @rus none~
+g @rus male~
 #2424
-red ruby gem~
-a red ruby~
-A beautiful, bloody red ruby is here.~
+ruby gem красный рубин red~
+@eng a red ruby@rus ~~красный~~ ~~рубин~~~
+@eng A beautiful, bloody red ruby is here.@rus Здесь лежит красивый, кроваво-красный рубин (ruby).~
 gem~
 gem 0 D AO
 0 0 0 0 0
 0 1 22000 P
-g @rus none~
+g @rus male~
 #2425
-flaming quartz gem~
-a flaming quartz~
-A large piece of flaming quartz lies on the ground.~
+quartz gem пылающий кварц flaming~
+@eng a flaming quartz@rus ~~пылающий~~ ~~кварц~~~
+@eng A large piece of flaming quartz lies on the ground.@rus Большой кусок пылающего кварца (quartz) лежит на земле.~
 gem~
 gem A D AO
 0 0 0 0 0
 0 1 19000 P
-g @rus none~
+g @rus male~
 #2426
-bar platinum~
-a bar of platinum~
-A bar of platinum has been left here.~
+platinum брусок платины bar~
+@eng a bar of platinum@rus ~~брусок~~ платины~
+@eng A bar of platinum has been left here.@rus Брусок платины (bar) был оставлен здесь.~
 platinum~
 treasure A D AO
 0 0 0 0 0
 0 500 12000 P
-g @rus none~
+g @rus male~
 #2427
-piece duranium~
-a piece of duranium~
-A piece of duranium is here.~
+duranium кусок дюрания piece~
+@eng a piece of duranium@rus ~~кусок~~ дюрания~
+@eng A piece of duranium is here.@rus Здесь лежит кусок (piece) дюрания.~
 gem~
 gem A D AO
 0 0 0 0 0
 0 1 300 P
-g @rus none~
+g @rus male~
 #2428
-piece neutronium~
-a piece of neutronium~
-A piece of neutronium is here.~
+neutronium кусок нейтрониума piece~
+@eng a piece of neutronium@rus ~~кусок~~ нейтрониума~
+@eng A piece of neutronium is here.@rus Кусок (piece) нейтрониума лежит здесь.~
 gem~
 gem A D AO
 0 0 0 0 0
 0 1 500 P
-g @rus none~
+g @rus male~
 #2429
-black pearl~
-a black pearl~
-A black pearl lies here on the ground.~
+black черная жемчужина pearl~
+@eng a black pearl@rus ~~черная~~ ~~жемчужина~~~
+@eng A black pearl lies here on the ground.@rus Черная жемчужина (pearl) лежит на земле.~
 gem~
 gem A D AO
 0 0 0 0 0
 0 1 5000 P
-g @rus none~
+g @rus female~
 #2430
-blue pearl~
-a blue pearl~
-A blue pearl lies here on the ground.~
+pearl голубая жемчужина blue~
+@eng a blue pearl@rus ~~голубая~~ ~~жемчужина~~~
+@eng A blue pearl lies here on the ground.@rus Голубая жемчужина (pearl) лежит на земле.~
 gem~
 gem A D AO
 0 0 0 0 0
 0 1 5000 P
-g @rus none~
+g @rus female~
 #2431
-scarlet ribbon~
-scarlet ribbon~
-A scarlet ribbon is lying here, it is hot to touch.~
+ribbon алая лента scarlet~
+@eng scarlet ribbon@rus ~~алая~~ ~~лента~~~
+@eng A scarlet ribbon is lying here, it is hot to touch.@rus Алая лента (ribbon), лежащая здесь, обжигает при прикосновении.~
 flame~
 armor AG 0 AQ
 18 18 18 7 0
 45 20 4717 G
 a '' to_object 45 -1 -30 17 0
-g @rus none~
+g @rus female~
 #2432
-rabbit's foot magic~
-rabbit's foot~
-Magic rabbit's foot is floating here.~
+foot magic магическая кроличья лапка rabbit's~
+@eng rabbit's foot@rus ~~кроличья~~ ~~лапка~~~
+@eng Magic rabbit's foot is floating here.@rus Магическая кроличья лапка (foot) летает вокруг Вас.~
 meat~
 armor AG 0 AQ
 11 11 11 5 0
 33 20 617 G
 a '' to_object 33 -1 -20 17 0
-g @rus none~
+g @rus female~
 #2433
-pixie shield~
-a Pixie shield~
-Very small shield lies here on the ground.~
+shield сильфийский щит pixie~
+@eng a Pixie shield@rus ~~сильфийский~~ ~~щит~~~
+@eng Very small shield lies here on the ground.@rus Очень маленький щит (shield) лежит на земле.~
 steel~
 armor A 0 AJ
 10 10 10 6 0
 30 30 981 G
-g @rus none~
+g @rus male~
 #2434
-old dragon captain key~
-a small white finger~
-A small white finger is left here, lost.~
+key old dragon captain ключ старого капитана драконов~
+@eng a small white finger@rus ~~маленький~~ ~~белый~~ ~~палец~~~
+@eng A small white finger is left here, lost.@rus Маленький белый палец (key) оставлен здесь. Он давно потерян.~
 steel~
 key M 0 AO
 0 0 0 0 0
 18 10 0 G
-g @rus none~
+g @rus male~
 #2435
-key~
-an old seal~
-A small, engraved treasure seal is here.~
+key ключ пломба seal~
+@eng an old seal@rus ~~старая~~ ~~пломба~~~
+@eng A small, engraved treasure seal is here.@rus Здесь лежит маленькая, гравированная пломба (seal) от сокровищницы.~
 stone~
 key 0 0 A
 BCDE 0 0 0 0
 0 20 0 P
-g @rus none~
+g @rus female~
 #2436
-box~
-box~
-A old, trashed box is here.~
+box коробка~
+@eng box@rus коробка~
+@eng A old, trashed box is here.@rus Здесь лежит старая, захламленная коробка (box).~
 wood~
 container 0 0 0
 100 ACD 2435 100 100
 0 0 0 P
-g @rus none~
+g @rus female~
 #2437
-paper papers~
-abridged papers~
-A unknown old part of a book is here.~
+paper papers документы~
+@eng abridged papers@rus документы~
+@eng A unknown old part of a book is here.@rus Здесь лежит неизвестная часть (papers) старой книги.~
 paper~
 map 0 0 A
 A 0 0 0 0
 0 10 500 P
 E
-paper papers~
-.
-	This is a part from the story of old retired dragon, FireFlash. He
+paper papers документы бумага~
+@eng This is a part from the story of old retired dragon, FireFlash. He
 liked comfort all the times but he had never been able to rest for a while.
 Now he retired and needs something that will comfort him. And  that is an
 eastern rug used by Turkish woman.
-
+@rus Это -- часть из истории старого, ушедшего в отставку, дракона,
+Огненная Вспышка, Повелителя Драконов. Он всегда любил комфорт, но никогда не
+был способен отдохнуть какое-то время. Теперь он ушел в отставку и нуждается
+в чем-нибудь, что успокоит его. И это -- Восточный ковер.
 ~
-g @rus none~
+g @rus plural~
 #2438
-xxx~
-an old key carved on 'xxx'~
-A small unknown key that resulted in old treasures, is here.~
+key ключ xxx~
+@eng an old key carved on 'xxx'@rus ~~старый~~ ключ~~, с вырезанными на нем 'xxx'~
+@eng A small unknown key that resulted in old treasures, is here.@rus Здесь лежит маленький неизвестный ключ (key), который подойдет к старым
+сокровищам.~
 stone~
 key 0 0 A
 BCDE 0 0 0 0
 0 20 0 P
-g @rus none~
+g @rus male~
 #0
 
 #ROOMS
 #2400
-An Ancient Path through the dense forest~
-This path appears to be very old, and well travelled. It amazes you that you
+@eng An Ancient Path through the dense forest@rus Древний Путь через густой лес~
+@eng This path appears to be very old, and well travelled. It amazes you that you
 have never noticed it was here before.  That is until you look back and
 realize that the clay road is completely invisible to you from here.  To the
 east, the path continues.  It appears that the western opening you entered
 through is now impassible.  You are here whether you like it or not....
      There is a small (Glowing) (Humming) tablet.
+@rus Этот путь выглядит весьма старым и проторенным. Как ты не $gn{замечал}
+его здесь раньше? Ты, размышляя над этим, оглядываешься назад и ...
+Куда подевалась дорога, по которой ты $gn{пришел}? Дорога продолжается на
+вос ток. Западное направление, похоже, теперь недоступно.
+  (Пылает) (Гудит) Дощечка с надписью... может, там написано, где выход?
 ~
 0 C forest
 E
-tablet small~
+tablet small табличка дощечка~
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 +                                                                    +
 +   This area has been groked, strongly modified, debugged (?:)      +
@@ -867,14 +949,16 @@ tablet small~
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ~
 D1
-An Ancient Path through the dense forest
+@eng An Ancient Path through the dense forest.
+@rus Древний Путь через густой лес.
 ~
 ~
 ~
 ~
 Z 0 2401
 D5
-The ancient path
+@eng The ancient path.
+@rus Древний Путь.
 ~
 ~
 ~
@@ -882,23 +966,30 @@ The ancient path
 Z -1 332
 S
 #2401
-An Ancient Path through the dense forest~
-The path is becoming more and more difficult to traverse now, as the
+@eng An Ancient Path through the dense forest@rus Древний Путь через густой лес~
+@eng The path is becoming more and more difficult to traverse now, as the
 trees seem to reach out to strangle you.  You feel like you are utterly
 alone, and, if not for the mountain you can now see in the distance, would
 probably just recall to Midgaard.  But then again, who ever said that
 adventuring was easy?  
+@rus Пробираться становится все труднее и труднее, деревья снаружи,
+кажется, хотят задушить тебя. Ты чувствуешь себя абсолютно одино-
+$gn{ким}... Если бы не виднеющаяся вдалеке гора, ты бы, пожалуй, пере-
+$gn{несся} обратно в Мидгаард. Но с другой стороны, кто вообще когда-
+либо говорил, что путешествовать легко?
 ~
 0 0 forest
 D1
-End of the Ancient Path
+@eng End of the Ancient Path.
+@rus Окончание Древнего Пути.
 ~
 ~
 ~
 ~
 Z 0 2402
 D3
-An Ancient Path through the dense forest
+@eng An Ancient Path through the dense forest.
+@rus Древний Путь через густой лес.
 ~
 ~
 ~
@@ -906,22 +997,30 @@ An Ancient Path through the dense forest
 Z 0 2400
 S
 #2402
-The End of the Ancient Path~
-You finally burst free from the grasp of the wood, only to find yourself at
+@eng The End of the Ancient Path@rus Окончание Древнего Пути~
+@eng You finally burst free from the grasp of the wood, only to find yourself at
 the foot of a path.  The path leads north, to the mountain which has, until
 now been your only beacon.  Now that you can better see the ominous mountain
 looming before you,  you begin to rethink the idea of recalling to Midgaard.
+@rus Ты, наконец-то, $gn{вырвался} из лесного плена, и для чего? -- чтобы
+обнаружить, что проторенный путь кончился. Дорога ведет на север,
+к горе, которая до сих пор была твоим единственным маяком. Впрочем,
+когда ты теперь можешь лучше видетьзловещую гору, неясно вырисовы-
+вающуюся перед тобой, ты $gn{начинаешь} заново обдумывать идею о возвра-
+щении в Мидгаард.
 ~
 0 0 forest
 D0
-Path to the Mountain
+@eng Path to the Mountain.
+@rus Дорога к Горе.
 ~
 ~
 ~
 ~
 Z 0 2403
 D3
-An Ancient Path through the dense forest
+@eng An Ancient Path through the dense forest.
+@rus Древний Путь через густой лес.
 ~
 ~
 ~
@@ -929,22 +1028,28 @@ An Ancient Path through the dense forest
 Z 0 2401
 S
 #2403
-Path to the Mountain~
-You are on a small nondescript path leading northward to the mountain.
+@eng Path to the Mountain@rus Дорога к Горе~
+@eng You are on a small nondescript path leading northward to the mountain.
 The closer you get to the mountain, the worse you feel about the whole thing.
 You begin to remember hearing old stories about a hidden mountain, which
 was, for some unknown reason, named DragonSpyre.
+@rus Ты идешь по маленькой, всеми забытой дороге, ведущей на север, к
+горе. Чем ближе ты подходишь к ней, тем хуже ты себя чувствуешь. Ты
+начинаешь вспоминать старые сказки о скрытой горе, которая была по
+какой-то неизвестной причине названа Пиком Драконов.
 ~
 0 0 forest
 D0
-Path to the Mountain
+@eng Path to the Mountain.
+@rus Дорога к Горе.
 ~
 ~
 ~
 ~
 Z 0 2404
 D2
-End of the Anicient Path
+@eng End of the Anicient Path.
+@rus Окончание Древнего Пути.
 ~
 ~
 ~
@@ -952,23 +1057,30 @@ End of the Anicient Path
 Z 0 2402
 S
 #2404
-Path to the Mountain~
-You are on a small nondescript path leading northward to the mountain.
+@eng Path to the Mountain@rus Дорога к Горе~
+@eng You are on a small nondescript path leading northward to the mountain.
 The closer you get to the mountain, the worse you feel about the whole thing.
 The deep stench of dragon is wafting through the air now, and you are starting
 to feel the first tinges of dragon fear stir within you.  Maybe you should go
 back while you still have that option.
+@rus Ты идешь по маленькой, всеми забытой дороге, ведущей на север, к
+горе. Чем ближе ты подходишь к ней, тем хуже ты себя чувствуешь. 
+Теперь в воздухе ощущается мерзкое зловоние дракона, и ты чувству-
+ешь, как в тебе пробуждаются первые признаки драконобоязни. Может,
+назад, пока еще можно вернуться?
 ~
 0 0 forest
 D0
-At the foot of the Mountain
+@eng At the foot of the Mountain.
+@rus У подножия Горы.
 ~
 ~
 ~
 ~
 Z 0 2405
 D2
-Path to the Mountain
+@eng Path to the Mountain.
+@rus Дорога к Горе.
 ~
 ~
 ~
@@ -976,22 +1088,28 @@ Path to the Mountain
 Z 0 2403
 S
 #2405
-At the foot of the Mountain~
-You have reached the foot of the great mountain.  Here, the dragon stench
+@eng At the foot of the Mountain@rus У подножия Горы~
+@eng You have reached the foot of the great mountain.  Here, the dragon stench
 is almost strong enough to disable you.  The only way you are able to stand it
 is by ripping of a piece of cloth, and covering your mouth and nose with it as
 you walk.  Far above you, you see what must be the entrance to the cave.
+@rus Ты $gn{достиг} подножия огромной горы. Тут зловоние дракона настолько
+сильно, что его достаточно, чтобы ты $gn{отключился}. Единственый способ
+выдержать это -- оторвать кусок одежды, и закрыть рот и нос на время
+путешествия. Высоко наверху ты видишь что-то похожее на вход в пещеру.
 ~
 0 0 forest
 D2
-Path to the Mountain
+@eng Path to the Mountain.
+@rus Дорога к Горе.
 ~
 ~
 ~
 ~
 Z 0 2404
 D4
-Climbing the Mountain
+@eng Climbing the Mountain.
+@rus Подъем на Гору.
 ~
 ~
 ~
@@ -999,23 +1117,31 @@ Climbing the Mountain
 Z 0 2406
 S
 #2406
-Climbing the Mountain~
-Now that you have something to somthing to concentrate upon, scaling the
+@eng Climbing the Mountain@rus Подъем на Гору~
+@eng Now that you have something to somthing to concentrate upon, scaling the
 mountain, you are actually able to think more clearly.  You have encountered
 dragons before, and vanquished them, why should these be any different.
 This thought continues rolling through your mind, but as you reach the next
 level of the cliff, it does little to ease your fear.
+@rus Теперь, когда ты $gn{нашел} что-то, на чем можно сконцентрироваться,
+взбираясь на гору, твой разум действительно прояснился. Что ты Дра-
+нов никогда раньше не $gn{видел}. $gn{Видел} и даже $gn{побеждал} их, так поче-
+му бы теперь быть по-другому? Эта мысль продолжает витать в твоем
+сознании, но, когда ты достигаешь следующего уступа, этого слишком
+мало, чтобы ослабить страх.
 ~
 0 0 mountain
 D4
-Climbing the Mountain
+@eng Climbing the Mountain.
+@rus Подъем на Гору.
 ~
 ~
 ~
 ~
 Z 0 2407
 D5
-At the foot of the Mountain
+@eng At the foot of the Mountain.
+@rus У подножия Горы.
 ~
 ~
 ~
@@ -1023,23 +1149,30 @@ At the foot of the Mountain
 Z 0 2405
 S
 #2407
-Climbing the Mountain~
-You are now close enough to the entrance to hear the sounds from within.
+@eng Climbing the Mountain@rus Подъем на Гору~
+@eng You are now close enough to the entrance to hear the sounds from within.
 The first thing you are aware of is that the mountain itself seems to breathe.
 In and out goes its breath, constantly in and out.  You suddenly hear footsteps
 approaching from all around you, and brace for combat.  It takes you a few
 moments to realize that the sound was your heart beating.
+@rus Теперь ты достаточно близко к пещере, чтобы слышать звуки, доносящиеся
+изнутри. Первая мысль, которая тебе приходит в голову -- кажется, сама 
+гора дышит... Внезапно ты слышишь шаги, приближающиеся со всех сторон, и
+готовишься защищаться. Лишь через какое-то время ты осознаешь, что этими
+звуками было биение твоего сердца.
 ~
 0 0 mountain
 D4
-The ledge on the Mountain
+@eng The ledge on the Mountain.
+@rus Уступ Горы.
 ~
 ~
 ~
 ~
 Z 0 2408
 D5
-Climbing the Mountain
+@eng Climbing the Mountain.
+@rus Подъем на Гору.
 ~
 ~
 ~
@@ -1047,22 +1180,29 @@ Climbing the Mountain
 Z 0 2406
 S
 #2408
-The ledge on the Mountain~
-You have reached a small ledge about one fourth of the way up the mountain.
+@eng The ledge on the Mountain@rus Уступ Горы~
+@eng You have reached a small ledge about one fourth of the way up the mountain.
 To the east is the entrance to what seems to be a small cave.  The only hint
 as to the size of the cave are the screams that are echoing from within it,
 which seem to last an eternity.
+@rus Пройдя где-то четверть дороги до вершины, ты $gn{достиг} небольшого
+уступа. На востоке -- вход в то, что, кажется, является маленькой
+пещерой. Что касается размера пещеры, то единственное предположе-
+ние о нем -- это эхо криков, раздающихся изнутри, которое кажется
+вечным. Твои зубы начинают выстукивать популярный мотивчик! :-)
 ~
 0 0 mountain
 D1
-Entrance to the Cave
+@eng Entrance to the Cave.
+@rus Вход в Пещеру.
 ~
 ~
 ~
 ~
 Z 0 2409
 D5
-Climbing the Mountain
+@eng Climbing the Mountain.
+@rus Подъем на Гору.
 ~
 ~
 ~
@@ -1070,23 +1210,31 @@ Climbing the Mountain
 Z 0 2407
 S
 #2409
-Entrance to the Cave~
-Once inside the cave you feel completely lost to the outside world.  All
+@eng Entrance to the Cave@rus Вход в Пещеру~
+@eng Once inside the cave you feel completely lost to the outside world.  All
 around you are horrific sounds of death and fear.  The walls are all stained
 with many differing shades of red or brown, with a few frost particles
 glittering on one of the walls.  Even with the cloth, the smell of the dragons
 is almost unbearable.
+@rus Войдя внутрь пещеры, ты $gn{почувствовал} себя полностью $gn{оторванным}
+от внешнего мира. Все вокруг наполнено звуками страха и смерти,
+приводящими в ужас. Стены покрыты множеством пятен различных от-
+тенков красного или коричневого, несколько частиц льда сверкают
+на одной из стен. Даже в повязке запах драконов становится почти
+непереносимым.
 ~
 0 D inside
 D1
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
 ~
 Z 0 2410
 D3
-A ledge on the Mountain
+@eng A ledge on the Mountain.
+@rus Уступ Горы.
 ~
 ~
 ~
@@ -1094,22 +1242,27 @@ A ledge on the Mountain
 Z 0 2408
 S
 #2410
-Walking through DragonSpyre~
-Within the realm of the DragonSpyres, everything seems different.  The walls
+@eng Walking through DragonSpyre@rus Скитания по Пику Драконов~
+@eng Within the realm of the DragonSpyres, everything seems different.  The walls
 appear to reach out towards you, while the floor and ceiling struggle to crush
 the life from you.  The further you proceed into the Mountain, the more you
 wish you hadn't come here in the first place.
+@rus В пределах Пика Драконов все кажется другим. Кажется, что стены тянутся
+к тебе, а пол и потолок борются за то, чтобы выдавить из тебя жизнь. Чем
+дальше ты продолжаешь идти внутрь горы, тем больше жалеешь, что $gn{пришел} сюда.
 ~
 0 D inside
 D1
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
 ~
 Z 0 2411
 D3
-Entrance to the Cave
+@eng Entrance to the Cave.
+@rus Вход в Пещеру.
 ~
 ~
 ~
@@ -1117,22 +1270,27 @@ Entrance to the Cave
 Z 0 2409
 S
 #2411
-Walking through DragonSpyre~
-Within the realm of the DragonSpyres, everything seems different.  The walls
+@eng Walking through DragonSpyre@rus Скитания по Пику Драконов~
+@eng Within the realm of the DragonSpyres, everything seems different.  The walls
 appear to reach out towards you, while the floor and ceiling struggle to crush
 the life from you.  The further you proceed into the Mountain, the more you
 wish you hadn't come here in the first place.
+@rus В пределах Пика Драконов все кажется другим. Кажется, что стены тянутся
+к тебе, а пол и потолок борются за то, чтобы выдавить из тебя жизнь. Чем
+дальше ты продолжаешь идти внутрь горы, тем больше жалеешь, что $gn{пришел} сюда.
 ~
 0 D inside
 D1
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
 ~
 Z 0 2412
 D3
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
@@ -1140,22 +1298,27 @@ Walking through DragonSpyre
 Z 0 2410
 S
 #2412
-Walking through DragonSpyre~
-Within the realm of the DragonSpyres, everything seems different.  The wall
+@eng Walking through DragonSpyre@rus Скитания по Пику Драконов~
+@eng Within the realm of the DragonSpyres, everything seems different.  The walls
 appear to reach out towards you, while the floor and ceiling struggle to crush
 the life from you.  The further you proceed into the Mountain, the more you
 wish you hadn't come here in the first place.
+@rus В пределах Пика Драконов все кажется другим. Кажется, что стены тянутся
+к тебе, а пол и потолок борются за то, чтобы выдавить из тебя жизнь. Чем
+дальше ты продолжаешь идти внутрь горы, тем больше жалеешь, что $gn{пришел} сюда.
 ~
 0 D inside
 D1
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
 ~
 Z 0 2413
 D3
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
@@ -1163,22 +1326,27 @@ Walking through DragonSpyre
 Z 0 2411
 S
 #2413
-Walking through DragonSpyre~
-Within the realm of the DragonSpyres, everything seems different.  The walls
+@eng Walking through DragonSpyre@rus Скитания по Пику Драконов~
+@eng Within the realm of the DragonSpyres, everything seems different.  The walls
 appear to reach out towards you, while the floor and ceiling struggle to crush
 the life from you.  The further you proceed into the Mountain, the more you
 wish you hadn't come here in the first place.
+@rus В пределах Пика Драконов все кажется другим. Кажется, что стены тянутся
+к тебе, а пол и потолок борются за то, чтобы выдавить из тебя жизнь. Чем
+дальше ты продолжаешь идти внутрь горы, тем больше жалеешь, что $gn{пришел} сюда.
 ~
 0 D inside
 D1
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
 ~
 Z 0 2414
 D3
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
@@ -1186,22 +1354,27 @@ Walking through DragonSpyre
 Z 0 2412
 S
 #2414
-Walking through DragonSpyre~
-Within the realm of the DragonSpyres, everything seems different.  The walls
+@eng Walking through DragonSpyre@rus Скитания по Пику Драконов~
+@eng Within the realm of the DragonSpyres, everything seems different.  The walls
 appear to reach out towards you, while the floor and ceiling struggle to crush
 the life from you.  The further you proceed into the Mountain, the more you
 wish you hadn't come here in the first place.
+@rus В пределах Пика Драконов все кажется другим. Кажется, что стены тянутся
+к тебе, а пол и потолок борются за то, чтобы выдавить из тебя жизнь. Чем
+дальше ты продолжаешь идти внутрь горы, тем больше жалеешь, что $gn{пришел} сюда.
 ~
 0 D inside
 D1
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
 ~
 Z 0 2415
 D3
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
@@ -1209,29 +1382,35 @@ Walking through DragonSpyre
 Z 0 2413
 S
 #2415
-Walking through DragonSpyre~
-Within the realm of the DragonSpyres, everything seems different.  The walls
+@eng Walking through DragonSpyre@rus Скитания по Пику Драконов~
+@eng Within the realm of the DragonSpyres, everything seems different.  The walls
 appear to reach out towards you, while the floor and ceiling struggle to crush
 the life from you.  The further you proceed into the Mountain, the more you
 wish you hadn't come here in the first place.
+@rus В пределах Пика Драконов все кажется другим. Кажется, что стены тянутся
+к тебе, а пол и потолок борются за то, чтобы выдавить из тебя жизнь. Чем
+дальше ты продолжаешь идти внутрь горы, тем больше жалеешь, что $gn{пришел} сюда.
 ~
 0 D inside
 D0
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
 ~
 Z 0 2416
 D2
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
 ~
 Z 0 2419
 D3
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
@@ -1239,22 +1418,27 @@ Walking through DragonSpyre
 Z 0 2414
 S
 #2416
-Walking through DragonSpyre~
-Within the realm of the DragonSpyres, everything seems different.  The walls
+@eng Walking through DragonSpyre@rus Скитания по Пику Драконов~
+@eng Within the realm of the DragonSpyres, everything seems different.  The walls
 appear to reach out towards you, while the floor and ceiling struggle to crush
 the life from you.  The further you proceed into the Mountain, the more you
 wish you hadn't come here in the first place.
+@rus В пределах Пика Драконов все кажется другим. Кажется, что стены тянутся
+к тебе, а пол и потолок борются за то, чтобы выдавить из тебя жизнь. Чем
+дальше ты продолжаешь идти внутрь горы, тем больше жалеешь, что $gn{пришел} сюда.
 ~
 0 D inside
 D0
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
 ~
 Z 0 2417
 D2
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
@@ -1262,22 +1446,27 @@ Walking through DragonSpyre
 Z 0 2415
 S
 #2417
-Walking through DragonSpyre~
-Within the realm of the DragonSpyres, everything seems different.  The walls
+@eng Walking through DragonSpyre@rus Скитания по Пику Драконов~
+@eng Within the realm of the DragonSpyres, everything seems different.  The walls
 appear to reach out towards you, while the floor and ceiling struggle to crush
 the life from you.  The further you proceed into the Mountain, the more you
 wish you hadn't come here in the first place.
+@rus В пределах Пика Драконов все кажется другим. Кажется, что стены тянутся
+к тебе, а пол и потолок борются за то, чтобы выдавить из тебя жизнь. Чем
+дальше ты продолжаешь идти внутрь горы, тем больше жалеешь, что $gn{пришел} сюда.
 ~
 0 D inside
 D0
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
 ~
 Z 0 2418
 D2
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
@@ -1285,22 +1474,27 @@ Walking through DragonSpyre
 Z 0 2416
 S
 #2418
-Walking through DragonSpyre~
-Within the realm of the DragonSpyres, everything seems different.  The walls
+@eng Walking through DragonSpyre@rus Скитания по Пику Драконов~
+@eng Within the realm of the DragonSpyres, everything seems different.  The walls
 appear to reach out towards you, while the floor and ceiling struggle to crush
 the life from you.  The further you proceed into the Mountain, the more you
 wish you hadn't come here in the first place.
+@rus В пределах Пика Драконов все кажется другим. Кажется, что стены тянутся
+к тебе, а пол и потолок борются за то, чтобы выдавить из тебя жизнь. Чем
+дальше ты продолжаешь идти внутрь горы, тем больше жалеешь, что $gn{пришел} сюда.
 ~
 0 D inside
 D0
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
 ~
 Z 0 2439
 D2
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
@@ -1308,22 +1502,27 @@ Walking through DragonSpyre
 Z 0 2417
 S
 #2419
-Walking through DragonSpyre~
-Within the realm of the DragonSpyres, everything seems different.  The walls
+@eng Walking through DragonSpyre@rus Скитания по Пику Драконов~
+@eng Within the realm of the DragonSpyres, everything seems different.  The walls
 appear to reach out towards you, while the floor and ceiling struggle to crush
 the life from you.  The further you proceed into the Mountain, the more you
 wish you hadn't come here in the first place.
+@rus В пределах Пика Драконов все кажется другим. Кажется, что стены тянутся
+к тебе, а пол и потолок борются за то, чтобы выдавить из тебя жизнь. Чем
+дальше ты продолжаешь идти внутрь горы, тем больше жалеешь, что $gn{пришел} сюда.
 ~
 0 D inside
 D0
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
 ~
 Z 0 2415
 D1
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
@@ -1331,22 +1530,27 @@ Walking through DragonSpyre
 Z 0 2420
 S
 #2420
-Walking through DragonSpyre~
-Within the realm of the DragonSpyres, everything seems different.  The walls
+@eng Walking through DragonSpyre@rus Скитания по Пику Драконов~
+@eng Within the realm of the DragonSpyres, everything seems different.  The walls
 appear to reach out towards you, while the floor and ceiling struggle to crush
 the life from you.  The further you proceed into the Mountain, the more you
 wish you hadn't come here in the first place.
+@rus В пределах Пика Драконов все кажется другим. Кажется, что стены тянутся
+к тебе, а пол и потолок борются за то, чтобы выдавить из тебя жизнь. Чем
+дальше ты продолжаешь идти внутрь горы, тем больше жалеешь, что $gn{пришел} сюда.
 ~
 0 D inside
 D1
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
 ~
 Z 0 2421
 D3
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
@@ -1354,22 +1558,27 @@ Walking through DragonSpyre
 Z 0 2419
 S
 #2421
-Walking through DragonSpyre~
-Within the realm of the DragonSpyres, everything seems different.  The walls
+@eng Walking through DragonSpyre@rus Скитания по Пику Драконов~
+@eng Within the realm of the DragonSpyres, everything seems different.  The walls
 appear to reach out towards you, while the floor and ceiling struggle to crush
 the life from you.  The further you proceed into the Mountain, the more you
 wish you hadn't come here in the first place.
+@rus В пределах Пика Драконов все кажется другим. Кажется, что стены тянутся
+к тебе, а пол и потолок борются за то, чтобы выдавить из тебя жизнь. Чем
+дальше ты продолжаешь идти внутрь горы, тем больше жалеешь, что $gn{пришел} сюда.
 ~
 0 D inside
 D1
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
 ~
 Z 0 2422
 D3
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
@@ -1377,22 +1586,28 @@ Walking through DragonSpyre
 Z 0 2420
 S
 #2422
-Walking through DragonSpyre~
-You are beginning to feel very unnerved.  Since you have been walking through
+@eng Walking through DragonSpyre@rus Скитания по Пику Драконов~
+@eng You are beginning to feel very unnerved.  Since you have been walking through
 DragonSpyre, the screams had been slowly dying off, and now they are no more.
 Normally the lack of death cries would be a welcome change, only now they
 have been replaced by a very eerie silence.  You don't like this one bit.
+@rus Ты начинаешь нервничать. С тех пор, как ты $gn{вошел} в Пик Драконов,
+крики медленно замерли, и теперь их больше нет. Обычно отсутствие
+предсмертных криков было бы приятным изменением, но когда их смени-
+ла зловещая тишина...  Тебе это не нравится, совсем не нравится...
 ~
 0 D inside
 D0
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
 ~
 Z 0 2423
 D3
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
@@ -1400,22 +1615,28 @@ Walking through DragonSpyre
 Z 0 2421
 S
 #2423
-Walking through DragonSpyre~
-This cave is really starting to get on your nerves.  With each new step, you
+@eng Walking through DragonSpyre@rus Скитания по Пику Драконов~
+@eng This cave is really starting to get on your nerves.  With each new step, you
 hear what sounds like giggling coming from all sides, goading you onward.
 Daring you to learn the secrets that DragonSpyre has held for the past three
 hundred years.  "They are only dragons."
+@rus Эта пещера сведет тебя с ума! С каждым новым шагом ты слышишь
+исходящие со всех сторон похожие на хихиканье звуки, подгоняющие
+тебя узнать секреты, которые Пик Драконов сохранил за прошедшие
+три сотни лет. "Они всего лишь драконы" -- уговариваешь ты себя.
 ~
 0 D inside
 D0
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
 ~
 Z 0 2424
 D2
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
@@ -1423,22 +1644,29 @@ Walking through DragonSpyre
 Z 0 2422
 S
 #2424
-Walking through DragonSpyre~
-This cave is really starting to get on your nerves.  With each new step, you
+@eng Walking through DragonSpyre@rus Скитания по Пику Драконов~
+@eng This cave is really starting to get on your nerves.  With each new step, you
 hear what sounds like giggling coming from all sides, goading you onward.
 Daring you to learn the secrets that DragonSpyre has held for the past three
 hundred years.  "They are only dragons."  To the north, the path forks.
+@rus Эта пещера сведет тебя с ума! С каждым новым шагом ты слышишь
+исходящие со всех сторон похожие на хихиканье звуки, подгоняющие
+тебя узнать секреты, которые Пик Драконов сохранил за прошедшие
+три сотни лет. "Они всего лишь драконы" -- уговариваешь ты себя.
+На севере видна развилка.
 ~
 0 D inside
 D0
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
 ~
 Z 0 2425
 D2
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
@@ -1446,29 +1674,37 @@ Walking through DragonSpyre
 Z 0 2423
 S
 #2425
-Walking through DragonSpyre~
-You have reached a fork in the path through DragonSpyre.  You can't be sure
+@eng Walking through DragonSpyre@rus Скитания по Пику Драконов~
+@eng You have reached a fork in the path through DragonSpyre.  You can't be sure
 which way you should go, but the odd scraching sound to the east makes
 you want to go west.  The giggling that has been following you around has
 now become a full blown laugh.   "They are ONLY dragons."
+@rus Ты $gn{достиг} развилки дороги, идущей по Пику Драконов. Ты не 
+можешь выбрать, куда же дальше идти, но странный царапающий
+звук на востоке "убеждает" тебя пойти на запад. Хихиканье, 
+которое тебя преследовало, теперь переходит в издевательский
+смех. "Они ВСЕГО ЛИШЬ драконы".
 ~
 0 D inside
 D1
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
 ~
 Z 0 2428
 D2
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
 ~
 Z 0 2424
 D3
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
@@ -1476,22 +1712,28 @@ Walking through DragonSpyre
 Z 0 2426
 S
 #2426
-Walking through DragonSpyre~
-The walls are blank and featureless, solid rock that has not been touched
+@eng Walking through DragonSpyre@rus Скитания по Пику Драконов~
+@eng The walls are blank and featureless, solid rock that has not been touched
 for unknown centuries.  The floor is scuffed and scraped from thousands
 of claws passing over it.  The ceiling is out of sight, the cave is obviously
 made for something well beyond human size.  "They are only dragons."
+@rus Стены вокруг тебя -- непробиваемая скала. Пол истерт и исцарапан
+тысячами когтей, проходивших по нему. Потолка вообще не видно... Да,
+эта пещера не для людей сделана... для кого-то много большего! "Они
+всего лишь драконы".
 ~
 0 D inside
 D1
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
 ~
 Z 0 2425
 D3
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
@@ -1499,23 +1741,30 @@ Walking through DragonSpyre
 Z 0 2427
 S
 #2427
-Walking through DragonSpyre~
-The walls are blank and featureless, solid rock that has not been touched
+@eng Walking through DragonSpyre@rus Скитания по Пику Драконов~
+@eng The walls are blank and featureless, solid rock that has not been touched
 for unknown centuries.  The floor is scuffed and scraped from thousands
 of claws passing over it.  The ceiling is out of sight, the cave is obviously
 made for something well beyond human size.  To the west is a small crevice
 that you could just barely squeeze through.  "They are only dragons."
+@rus Стены вокруг тебя -- непробиваемая скала. Пол истерт и исцарапан
+тысячами когтей, проходивших по нему. Потолка вообще не видно... Да,
+эта пещера не для людей сделана... для кого-то много большего! На
+западе ты замечаешь маленькую расщелину, через которую едва можно
+протиснуться. "Они всего лишь драконы", -- повторяешь ты.
 ~
 0 D inside
 D1
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
 ~
 Z 0 2426
 D3
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
@@ -1523,22 +1772,28 @@ Walking through DragonSpyre
 Z 0 2417
 S
 #2428
-Walking through DragonSpyre~
-The walls are blank and featureless, solid rock that has not been touched
+@eng Walking through DragonSpyre@rus Скитания по Пику Драконов~
+@eng The walls are blank and featureless, solid rock that has not been touched
 for unknown centuries.  The floor is scuffed and scraped from thousands
 of claws passing over it.  The ceiling is out of sight, the cave is obviously
-made for something well beyond human size.  "They are only dragons?"
+made for something well beyond human size.  "They are only dragons."
+@rus Стены вокруг тебя -- непробиваемая скала. Пол истерт и исцарапан
+тысячами когтей, проходивших по нему. Потолка вообще не видно... Да,
+эта пещера не для людей сделана... для кого-то много большего! "Они
+всего лишь драконы?"
 ~
 0 D inside
 D1
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
 ~
 Z 0 2429
 D3
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
@@ -1546,22 +1801,28 @@ Walking through DragonSpyre
 Z 0 2425
 S
 #2429
-Walking through DragonSpyre~
-The walls are blank and featureless, solid rock that has not been touched
+@eng Walking through DragonSpyre@rus Скитания по Пику Драконов~
+@eng The walls are blank and featureless, solid rock that has not been touched
 for unknown centuries.  The floor is scuffed and scraped from thousands
 of claws passing over it.  The ceiling is out of sight, the cave is obviously
-made for something well beyond human size.  "They are only dragons?"
+made for something well beyond human size.  "They are only dragons."
+@rus Стены вокруг тебя -- непробиваемая скала. Пол истерт и исцарапан
+тысячами когтей, проходивших по нему. Потолка вообще не видно... Да,
+эта пещера не для людей сделана... для кого-то много большего! "Они
+всего лишь драконы?"
 ~
 0 D inside
 D1
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
 ~
 Z 0 2430
 D3
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
@@ -1569,30 +1830,37 @@ Walking through DragonSpyre
 Z 0 2428
 S
 #2430
-Walking through DragonSpyre~
-The walls are blank and featureless, solid rock that has not been touched
+@eng Walking through DragonSpyre@rus Скитания по Пику Драконов~
+@eng The walls are blank and featureless, solid rock that has not been touched
 for unknown centuries.  The floor is scuffed and scraped from thousands
 of claws passing over it.  The ceiling is out of sight, the cave is obviously
 made for something well beyond human size.  To the north you can hear a
 low rumbling sound.  "They are only DRAGONS!"
+@rus Стены вокруг тебя -- непробиваемая скала. Пол истерт и исцарапан
+тысячами когтей, проходивших по нему. Потолка вообще не видно... Да,
+эта пещера не для людей сделана... для кого-то много большего! С се-
+вера доносится низкий грохочущий звук. "Они всего лишь ДРАКОНЫ!"
 ~
 0 D inside
 D0
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
 ~
 Z 0 2431
 D1
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
 ~
 Z 0 2433
 D3
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
@@ -1600,23 +1868,29 @@ Walking through DragonSpyre
 Z 0 2429
 S
 #2431
-Walking through DragonSpyre~
-The walls are blank and featureless, solid rock that has not been touched
+@eng Walking through DragonSpyre@rus Скитания по Пику Драконов~
+@eng The walls are blank and featureless, solid rock that has not been touched
 for unknown centuries.  The floor is scuffed and scraped from thousands
 of claws passing over it.  The ceiling is out of sight, the cave is obviously
 made for something well beyond human size.  To the north you can hear a
 low rumbling sound.  "They are only DRAGONS!"
+@rus Стены вокруг тебя -- непробиваемая скала. Пол истерт и исцарапан
+тысячами когтей, проходивших по нему. Потолка вообще не видно... Да,
+эта пещера не для людей сделана... для кого-то много большего! С се-
+вера доносится низкий грохочущий звук. "Они всего лишь ДРАКОНЫ!"
 ~
 0 D inside
 D0
-The Lair of the White Dragon
+@eng The Lair of the White Dragon.
+@rus Логово Ледяного Дракона.
 ~
 ~
 ~
 ~
 Z 0 2432
 D2
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
@@ -1624,23 +1898,31 @@ Walking through DragonSpyre
 Z 0 2430
 S
 #2432
-The Lair of the White Dragon~
-You have managed, through luck(?), to find the lair of the white dragon.  It
+@eng The Lair of the White Dragon@rus Логово Ледяного Дракона~
+@eng You have managed, through luck(?), to find the lair of the white dragon.  It
 stands before you, glaring at you with its pale blue eyes.  All around, the
 walls are coated with a thick layer of ice.  You slip several times before
 gaining your balance enough to face the fearsome beast.  Will you fight it,
 or flee?  "It is JUST a dragon."
+@rus Тебе посчастливилось (???) найти логово Ледяного Дракона. Вот он,
+стоит перед тобой, впиваясь в тебя взглядом своих бледно-голубых при-
+кидывая, $gn{каков} ты на вкус. Все вокруг покрыто толстым слоем льда. Ты
+некоторое время скользишь перед тем, как восстановить равновесие, но
+успеваешь хорошо рассмотреть внушающего страх зверя. Будем нападать,
+или лучше убежать сразу? "Это ВСЕГО ЛИШЬ дракон..."
 ~
 0 D inside
 D1
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
-wall~
-the wall~
-~
+wall стена~
+@eng the wall@rus стена~
+@rus female~
 ABCFZ 2401 2444
 D2
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
@@ -1648,21 +1930,26 @@ Walking through DragonSpyre
 Z 0 2431
 S
 #2433
-Walking through DragonSpyre~
-The ground is damp here, and the air is so thick that it is almost hard to
+@eng Walking through DragonSpyre@rus Скитания по Пику Драконов~
+@eng The ground is damp here, and the air is so thick that it is almost hard to
 breathe.  It still is not to late to go back.  Far ahead, you think you can see
 what looks like a large door.  "They are only dragons."
+@rus Земля и воздух пропитаны сыростью и вонью так, что ты еле дышишь.
+Может, лучше вернуться? Нет? Тогда вон, далеко впереди, видно нечто,
+напоминающее большую дверь. "Они всего лишь драконы."
 ~
 0 D inside
 D1
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
 ~
 Z 0 2434
 D3
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
@@ -1670,22 +1957,28 @@ Walking through DragonSpyre
 Z 0 2430
 S
 #2434
-Walking through DragonSpyre~
-The ground is damp here, and the air is so thick that it is almost hard to
+@eng Walking through DragonSpyre@rus Скитания по Пику Драконов~
+@eng The ground is damp here, and the air is so thick that it is almost hard to
 breathe.  It still is not to late to go back.  Now that you are closer to the
 wall, you are sure that there is a door ahead and on the far eastern wall.
 "They are only dragons.  I have killed many dragons before!"
+@rus Земля и воздух пропитаны сыростью и вонью так, что ты еле дышишь.
+Может, лучше вернуться? Нет? Теперь, когда стена ближе, ты определен-
+но видишь дверь впереди и далеко на востоке. "Они всего лишь драконы.
+Я $gn{убил} уже много драконов!"
 ~
 0 D inside
 D1
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
 ~
 Z 0 2435
 D3
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
@@ -1693,22 +1986,28 @@ Walking through DragonSpyre
 Z 0 2433
 S
 #2435
-Walking through DragonSpyre~
-The ground is damp here, and the air is so thick that it is almost hard to
+@eng Walking through DragonSpyre@rus Скитания по Пику Драконов~
+@eng The ground is damp here, and the air is so thick that it is almost hard to
 breathe.  It still is not to late to go back.  Now that you are closer to the
 wall, you are sure that there is a door ahead and on the far eastern wall.
 "They are only dragons.  I have killed many dragons before!"
+@rus Земля и воздух пропитаны сыростью и вонью так, что ты еле дышишь.
+Может, лучше вернуться? Нет? Теперь, когда стена ближе, ты определен-
+но видишь дверь впереди и далеко на востоке. "Они всего лишь драконы.
+Я $gn{убил} уже много драконов!"
 ~
 0 D inside
 D1
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
 ~
 Z 0 2436
 D3
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
@@ -1716,22 +2015,28 @@ Walking through DragonSpyre
 Z 0 2434
 S
 #2436
-Walking through DragonSpyre~
-The ground is damp here, and the air is so thick that it is almost hard to
+@eng Walking through DragonSpyre@rus Скитания по Пику Драконов~
+@eng The ground is damp here, and the air is so thick that it is almost hard to
 breathe.  It still is not to late to go back.  Now that you are closer to the
 wall, you are sure that there is a door ahead and on the far eastern wall.
 "They are only dragons.  I have killed many dragons before!"
+@rus Земля и воздух пропитаны сыростью и вонью так, что ты еле дышишь.
+Может, лучше вернуться? Нет? Теперь, когда стена ближе, ты определен-
+но видишь дверь впереди и далеко на востоке. "Они всего лишь драконы.
+Я $gn{убил} уже много драконов!"
 ~
 0 D inside
 D1
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
 ~
 Z 0 2437
 D3
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
@@ -1739,21 +2044,26 @@ Walking through DragonSpyre
 Z 0 2435
 S
 #2437
-Walking through DragonSpyre~
-The ground is damp here, and the air is so thick that it is almost hard to
+@eng Walking through DragonSpyre@rus Скитания по Пику Драконов~
+@eng The ground is damp here, and the air is so thick that it is almost hard to
 breathe.  It still is not to late to go back.  On the eastern wall is a large
 oaken door.  "Surely i can kill a dragon."
+@rus Земля и воздух пропитаны сыростью и вонью так, что ты еле дышишь.
+Может, лучше вернуться? Нет? В восточной стене ты видишь большую ду-
+бовую дверь. "Я точно могу убить дракона."
 ~
 0 D inside
 D1
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
-door oaken~
-~
-~
+door oaken дубовая дверь~
+@eng the oaken door@rus ~~дубовая~~ ~~дверь~~~
+@rus female~
 ABCFZ 2402 2438
 D3
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
@@ -1761,38 +2071,48 @@ Walking through DragonSpyre
 Z 0 2436
 S
 #2438
-Walking through DragonSpyre~
-The ground is damp here, and the air is so thick that it is almost hard to
+@eng Walking through DragonSpyre@rus Скитания по Пику Драконов~
+@eng The ground is damp here, and the air is so thick that it is almost hard to
 breathe.  It still is not to late to go back.  On the western wall is a large
 oaken door. "Dragons aren't THAT scary."
+@rus Земля и воздух пропитаны сыростью и вонью так, что ты еле дышишь.
+Может, лучше вернуться? Нет? В западной стене ты видишь большую ду-
+бовую дверь. "Драконы не ТАКИЕ страшные..."
 ~
 0 D inside
 D3
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
-door oaken~
-~
-~
+door oaken дубовая дверь~
+@eng the oaken door@rus ~~дубовая~~ ~~дверь~~~
+@rus female~
 ABCFZ 2402 2437
 S
 #2439
-Walking through DragonSpyre~
-Within the realm of DragonSpyre, everything seems different.  The wall
+@eng Walking through DragonSpyre@rus Скитания по Пику Драконов~
+@eng Within the realm of DragonSpyre, everything seems different.  The wall
 appear to reach out towards you, while the floor and ceiling struggle to crush
 the life from you.  The further you proceed into the Mountain, the more you
 wish you hadn't come here in the first place.  You can hear the sound of
 running water somewhere to the north.
+@rus В пределах Пика Драконов все кажется другим. Кажется, что стены тянутся
+к тебе, а пол и потолок борются за то, чтобы выдавить из тебя жизнь. Чем
+дальше ты продолжаешь идти внутрь горы, тем больше жалеешь, что пришла сюда.
+Откуда-то с севера доносится звук бегущей воды.
 ~
 0 0 inside
 D0
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
 ~
 Z 0 2440
 D2
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
@@ -1800,23 +2120,29 @@ Walking through DragonSpyre
 Z 0 2418
 S
 #2440
-Walking through DragonSpyre~
-Within the realm of DragonSpyre, everything seems different.  The walls
+@eng Walking through DragonSpyre@rus Скитания по Пику Драконов~
+@eng Within the realm of DragonSpyre, everything seems different.  The walls
 appear to reach out towards you, while the floor and ceiling struggle to crush
 the life from you.  The further you proceed into the Mountain, the more you
 wish you hadn't come here in the first place. To the north, the sound of
 water flowing is quite loud.
+@rus . В пределах Пика Драконов все кажется другим. Кажется, что стены тянутся
+к тебе, а пол и потолок борются за то, чтобы выдавить из тебя жизнь. Чем
+дальше ты продолжаешь идти внутрь горы, тем больше жалеешь, что пришла сюда.
+Звук текущей воды на севере стал заметно громче.
 ~
 0 0 inside
 D0
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
 ~
 Z 0 2441
 D2
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
@@ -1824,37 +2150,46 @@ Walking through DragonSpyre
 Z 0 2439
 S
 #2441
-Walking through DragonSpyre~
-Within the realm of DragonSpyre, everything seems different.  The walls
+@eng Walking through DragonSpyre@rus Скитания по Пику Драконов~
+@eng Within the realm of DragonSpyre, everything seems different.  The walls
 appear to reach out towards you, while the floor and ceiling struggle to crush
 the life from you.  The further you proceed into the Mountain, the more you
 wish you hadn't come here in the first place. To the east, there is room that
 is continually being flushed with boiling acid from one of the higher levels.
+@rus В пределах Пика Драконов все кажется другим. Кажется, что стены тянутся
+к тебе, а пол и потолок борются за то, чтобы выдавить из тебя жизнь. Чем
+дальше ты продолжаешь идти внутрь горы, тем больше жалеешь, что пришла сюда.
+Комната на востоке ежеминутно заполняется кипящей кислотой откуда-то с вер-
+хних уровней.
 ~
 0 0 inside
 D0
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
-door~
+door дверь~
 ~
 ~
 ABCFZ 2402 2443
 D1
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
 ~
 Z 0 2442
 D2
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
 ~
 Z 0 2440
 D3
-The retired dragons office.
+@eng The retired dragons office.
+@rus Клуб отставных драконов.
 ~
 ~
 ~
@@ -1862,72 +2197,92 @@ The retired dragons office.
 Z -1 2500
 S
 #2442
-Walking through DragonSpyre~
-You should read room descriptions more often.
+@eng Walking through DragonSpyre@rus Скитания по Пику Драконов~
+@eng You should read room descriptions more often.
 The acid cascades over your body, and burns the skin from the muscle,
 then the muscle from the bone.  You have never experienced this much
 pain in your entire life.
+@rus Надо бы почаще читать описания, а?
+  Кислотные каскады стекают по твоему телу, сжигая кожу до мускулов,
+а затем и мускулы до костей. Такой боли ты никогда в жизни не испыты- 
+$gn{вал}.
 ~
 0 ACDJ inside
 S
 #2443
-Walking through DragonSpyre~
-You are at the end of the tunnel.  You feel like there should be another door
+@eng Walking through DragonSpyre@rus Скитания по Пику Драконов~
+@eng You are at the end of the tunnel.  You feel like there should be another door
 around here somewhere... This area eminates a feeling of dread, but you aren't
 afraid of a little challenge, now are you?  Just remember the fame and fortune
 you will gain!
+@rus Вот и конец туннеля. Наверняка тут есть еще дверь...  Местность жуткая,
+но ты ведь не боишься небольшой битвы? Только подумай , сколько славы и 
+богатства она тебе принесет!
 ~
 0 0 inside
 D2
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
-door~
+door дверь~
 ~
 ~
 ABCFZ 2402 2441
 S
 #2444
-Walking through DragonSpyre~
-You have made it passed the white dragon, the first of your challenges.
+@eng Walking through DragonSpyre@rus Скитания по Пику Драконов~
+@eng You have made it passed the white dragon, the first of your challenges.
 Now, you are entitled to his treasure...if you can find it.
 The hallway here is colder than the rest of the cave.  You assume that the
 white dragon made frequent passes through here to make sure his gold
 was still intact.  You begin to hope that it wasn't a baby....
+@rus Ты $gn{прошел} через Ледяного Дракона, первого из твоих противников. Теперь
+тебе достанутся его сокровища... если ты их найдешь :-). Коридор здесь
+холоднее, чем остальная часть пещеры. Наверно, дракон часто проходил тут,
+проверяя, на месте ли его золото. Ты лихорадочно обшариваешь все закоулки.
 ~
 0 0 inside
 D1
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
 ~
 Z 0 2445
 D3
-Lair of the White Dragon
+@eng Lair of the White Dragon.
+@rus Логово Ледяного Дракона.
 ~
-wall~
-the wall~
-~
+wall стена~
+@eng the wall@rus стена~
+@rus female~
 ABCFZ 2401 2432
 S
 #2445
-Walking through DragonSpyre~
-You have made it passed the white dragon, the first of your challenges.
+@eng Walking through DragonSpyre@rus Скитания по Пику Драконов~
+@eng You have made it passed the white dragon, the first of your challenges.
 Now, you are entitled to his treasure...if you can find it.
 The hallway here is colder than the rest of the cave.  You assume that the
 white dragon made frequent passes through here to make sure his gold
 was still intact.  You begin to hope that it wasn't a baby....
+@rus Ты $gn{прошел} через Ледяного Дракона, первого из твоих противников. Теперь
+тебе достанутся его сокровища... если ты их найдешь :-). Коридор здесь
+холоднее, чем остальная часть пещеры. Наверно, дракон часто проходил тут,
+проверяя, на месте ли его золото. Ты лихорадочно обшариваешь все закоулки.
 ~
 0 0 inside
 D1
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
 ~
 Z 0 2446
 D3
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
@@ -1935,23 +2290,29 @@ Walking through DragonSpyre
 Z 0 2444
 S
 #2446
-Walking through DragonSpyre~
-You have made it passed the white dragon, the first of your challenges.
+@eng Walking through DragonSpyre@rus Скитания по Пику Драконов~
+@eng You have made it passed the white dragon, the first of your challenges.
 Now, you are entitled to his treasure...if you can find it.
 The hallway here is colder than the rest of the cave.  You assume that the
 white dragon made frequent passes through here to make sure his gold
 was still intact.  You begin to hope that it wasn't a baby....
+@rus Ты $gn{прошел} через Ледяного Дракона, первого из твоих противников. Теперь
+тебе достанутся его сокровища... если ты их найдешь :-). Коридор здесь
+холоднее, чем остальная часть пещеры. Наверно, дракон часто проходил тут,
+проверяя, на месте ли его золото. Ты лихорадочно обшариваешь все закоулки.
 ~
 0 0 inside
 D1
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
 ~
 Z 0 2447
 D3
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
@@ -1959,30 +2320,37 @@ Walking through DragonSpyre
 Z 0 2445
 S
 #2447
-Walking through DragonSpyre~
-You have made it passed the white dragon, the first of your challenges.
+@eng Walking through DragonSpyre@rus Скитания по Пику Драконов~
+@eng You have made it passed the white dragon, the first of your challenges.
 Now, you are entitled to his treasure...if you can find it.
 The hallway here is colder than the rest of the cave.  You assume that the
 white dragon made frequent passes through here to make sure his gold
 was still intact.  You begin to hope that it wasn't a baby....
+@rus Ты $gn{прошел} через Ледяного Дракона, первого из твоих противников. Теперь
+тебе достанутся его сокровища... если ты их найдешь :-). Коридор здесь
+холоднее, чем остальная часть пещеры. Наверно, дракон часто проходил тут,
+проверяя, на месте ли его золото. Ты лихорадочно обшариваешь все закоулки.
 ~
 0 0 inside
 D0
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
 ~
 AFZ 0 2448
 D1
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
 ~
 Z 0 2451
 D3
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
@@ -1990,23 +2358,29 @@ Walking through DragonSpyre
 Z 0 2446
 S
 #2448
-Walking through DragonSpyre~
-You have made it passed the white dragon, the first of your challenges.
+@eng Walking through DragonSpyre@rus Скитания по Пику Драконов~
+@eng You have made it passed the white dragon, the first of your challenges.
 Now, you are entitled to his treasure...if you can find it.
 The hallway here is colder than the rest of the cave.  You assume that the
 white dragon made frequent passes through here to make sure his gold
 was still intact.  You begin to hope that it wasn't a baby....
+@rus Вы прошли через Ледяного Дракона, первого из Ваших противников. Теперь Вам
+достанутся его сокровища... если Вы их найете :-). Коридор здесь холоднее,
+чем остальная часть пещеры. Наверно, дракон часто проходил здесь, проверяя,
+на месте ли его золото. Вы лихорадочно обшариваете все закоулки....
 ~
 0 0 inside
 D0
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
 ~
 AFZ 0 2449
 D2
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
@@ -2014,23 +2388,29 @@ Walking through DragonSpyre
 Z 0 2447
 S
 #2449
-Walking through DragonSpyre~
-You have made it passed the white dragon, the first of your challenges.
+@eng Walking through DragonSpyre@rus Скитания по Пику Драконов~
+@eng You have made it passed the white dragon, the first of your challenges.
 Now, you are entitled to his treasure...if you can find it.
 The hallway here is colder than the rest of the cave.  You assume that the
 white dragon made frequent passes through here to make sure his gold
 was still intact.  You begin to hope that it wasn't a baby....
+@rus Вы прошли через Ледяного Дракона, первого из Ваших противников. Теперь Вам
+достанутся его сокровища... если Вы их найете :-). Коридор здесь холоднее,
+чем остальная часть пещеры. Наверно, дракон часто проходил здесь, проверяя,
+на месте ли его золото. Вы лихорадочно обшариваете все закоулки....
 ~
 0 0 inside
 D1
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
-door~
+door дверь~
 ~
 ~
 ABCFZ 2401 2450
 D2
-Treasure Room
+@eng Treasure Room.
+@rus Сокровищница.
 ~
 ~
 ~
@@ -2038,40 +2418,51 @@ Treasure Room
 Z 0 2448
 S
 #2450
-Treasure Room~
-All alround the horde of the white dragon glimmers.  It appears that he
+@eng Treasure Room@rus Сокровищница~
+@eng All alround the horde of the white dragon glimmers.  It appears that he
 hass been collecting for quite some time.  There are little bits of everything
 here, from broken swords, to the leg bone of a dracolich.  The main thing
 that catches your eye is the large pile of gold resting all around the room.
 You are about to claim it as your own, when you are struck from behind...
+@rus Все здесь окружено мерцанием Драконов Льда. Похоже, собиралось не год и не два.
+Тут есть все, от поломанных мечей до берцовой кости драколича. Основное, что
+притягивает Ваш взгляд -- груды золота, разбросанные по полу. Вы уже
+приготовились объявить это все своим, но помешал чей-то удар в спину...
 ~
 0 0 inside
 D3
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
-door~
+door дверь~
 ~
 ~
 ABCFZ 2401 2449
 S
 #2451
-Walking through DragonSpyre~
-You have made it past the white dragon, the first of your challenges.
-Now,  you are entitled to his treasure...if you can find it.
-The hallway here is colder than the rest of the cave.  You assume that
-the white dragon made frequent passes through here to make sure his
-gold was intact.  You begin to hope that it wasn't a baby....
+@eng Walking through DragonSpyre@rus Скитания по Пику Драконов~
+@eng You have made it passed the white dragon, the first of your challenges.
+Now, you are entitled to his treasure...if you can find it.
+The hallway here is colder than the rest of the cave.  You assume that the
+white dragon made frequent passes through here to make sure his gold
+was still intact.  You begin to hope that it wasn't a baby....
+@rus Ты $gn{прошел} через Ледяного Дракона, первого из твоих противников. Теперь
+тебе достанутся его сокровища... если ты их найдешь :-). Коридор здесь
+холоднее, чем остальная часть пещеры. Наверно, дракон часто проходил тут,
+проверяя, на месте ли его золото. Ты лихорадочно обшариваешь все закоулки.
 ~
 0 0 inside
 D1
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
 ~
 Z 0 2452
 D3
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
@@ -2079,23 +2470,29 @@ Walking through DragonSpyre
 Z 0 2447
 S
 #2452
-Walking through DragonSpyre~
-You have made it past the white dragon, the first of your challenges.
-Now,  you are entitled to his treasure...if you can find it.
-The hallway here is colder than the rest of the cave.  You assume that
-the white dragon made frequent passes through here to make sure his
-gold was intact.  You begin to hope that it wasn't a baby....
+@eng Walking through DragonSpyre@rus Скитания по Пику Драконов~
+@eng You have made it passed the white dragon, the first of your challenges.
+Now, you are entitled to his treasure...if you can find it.
+The hallway here is colder than the rest of the cave.  You assume that the
+white dragon made frequent passes through here to make sure his gold
+was still intact.  You begin to hope that it wasn't a baby....
+@rus Ты $gn{прошел} через Ледяного Дракона, первого из твоих противников. Теперь
+тебе достанутся его сокровища... если ты их найдешь :-). Коридор здесь
+холоднее, чем остальная часть пещеры. Наверно, дракон часто проходил тут,
+проверяя, на месте ли его золото. Ты лихорадочно обшариваешь все закоулки.
 ~
 0 0 inside
 D1
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
 ~
 Z 0 2453
 D3
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
@@ -2103,23 +2500,29 @@ Walking through DragonSpyre
 Z 0 2451
 S
 #2453
-Walking through DragonSpyre~
-You have made it past the white dragon, the first of your challenges.
-Now,  you are entitled to his treasure...if you can find it.
-The hallway here is colder than the rest of the cave.  You assume that
-the white dragon made frequent passes through here to make sure his
-gold was intact.  You begin to hope that it wasn't a baby....
+@eng Walking through DragonSpyre@rus Скитания по Пику Драконов~
+@eng You have made it passed the white dragon, the first of your challenges.
+Now, you are entitled to his treasure...if you can find it.
+The hallway here is colder than the rest of the cave.  You assume that the
+white dragon made frequent passes through here to make sure his gold
+was still intact.  You begin to hope that it wasn't a baby....
+@rus Ты $gn{прошел} через Ледяного Дракона, первого из твоих противников. Теперь
+тебе достанутся его сокровища... если ты их найдешь :-). Коридор здесь
+холоднее, чем остальная часть пещеры. Наверно, дракон часто проходил тут,
+проверяя, на месте ли его золото. Ты лихорадочно обшариваешь все закоулки.
 ~
 0 0 inside
 D1
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
 ~
 Z 0 2454
 D3
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
@@ -2127,23 +2530,29 @@ Walking through DragonSpyre
 Z 0 2452
 S
 #2454
-Walking through DragonSpyre~
-You have made it past the white dragon, the first of your challenges.
-Now,  you are entitled to his treasure...if you can find it.
-The hallway here is colder than the rest of the cave.  You assume that
-the white dragon made frequent passes through here to make sure his
-gold was intact.  You begin to hope that it wasn't a baby....
+@eng Walking through DragonSpyre@rus Скитания по Пику Драконов~
+@eng You have made it passed the white dragon, the first of your challenges.
+Now, you are entitled to his treasure...if you can find it.
+The hallway here is colder than the rest of the cave.  You assume that the
+white dragon made frequent passes through here to make sure his gold
+was still intact.  You begin to hope that it wasn't a baby....
+@rus Ты $gn{прошел} через Ледяного Дракона, первого из твоих противников. Теперь
+тебе достанутся его сокровища... если ты их найдешь :-). Коридор здесь
+холоднее, чем остальная часть пещеры. Наверно, дракон часто проходил тут,
+проверяя, на месте ли его золото. Ты лихорадочно обшариваешь все закоулки.
 ~
 0 0 inside
 D1
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
 ~
 Z 0 2455
 D3
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
@@ -2151,23 +2560,29 @@ Walking through DragonSpyre
 Z 0 2453
 S
 #2455
-Walking through DragonSpyre~
-You have made it past the white dragon, the first of your challenges.
-Now,  you are entitled to his treasure...if you can find it.
-The hallway here is colder than the rest of the cave.  You assume that
-the white dragon made frequent passes through here to make sure his
-gold was intact.  You begin to hope that it wasn't a baby....
+@eng Walking through DragonSpyre@rus Скитания по Пику Драконов~
+@eng You have made it passed the white dragon, the first of your challenges.
+Now, you are entitled to his treasure...if you can find it.
+The hallway here is colder than the rest of the cave.  You assume that the
+white dragon made frequent passes through here to make sure his gold
+was still intact.  You begin to hope that it wasn't a baby....
+@rus Ты $gn{прошел} через Ледяного Дракона, первого из твоих противников. Теперь
+тебе достанутся его сокровища... если ты их найдешь :-). Коридор здесь
+холоднее, чем остальная часть пещеры. Наверно, дракон часто проходил тут,
+проверяя, на месте ли его золото. Ты лихорадочно обшариваешь все закоулки.
 ~
 0 0 inside
 D2
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
 ~
 Z 0 2456
 D3
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
@@ -2175,23 +2590,29 @@ Walking through DragonSpyre
 Z 0 2454
 S
 #2456
-Walking through DragonSpyre~
-The hallway here is a radical change from where you just where.  Here,
+@eng Walking through DragonSpyre@rus Скитания по Пику Драконов~
+@eng The hallway here is a radical change from where you just where.  Here,
 the walls look much more undeveloped than the last hallway you were in.
 It feels like time itself is slowing down.  The hallway looks like it goes on
 for all eternity, but at the sluggish pace you are moving, eternity might
 not be that long of a distance.
+@rus Здесь коридор радикально изменяется. Тебе кажется, что само время
+замедляет свой ход. тены выглядят более мрачными, чем в том коридоре,
+который ты $gn{покинул} последним. Коридор, похоже, тянется вечность...
+хотя, потихоньку-полегоньку эту вечность можно пройти.
 ~
 0 0 mountain
 D0
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
 ~
 AFZ 0 2455
 D2
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
@@ -2199,23 +2620,29 @@ Walking through DragonSpyre
 Z 0 2457
 S
 #2457
-Walking through DragonSpyre~
-The hallway here is a radical change from where you just where.  Here,
+@eng Walking through DragonSpyre@rus Скитания по Пику Драконов~
+@eng The hallway here is a radical change from where you just where.  Here,
 the walls look much more undeveloped than the last hallway you were in.
 It feels like time itself is slowing down.  The hallway looks like it goes on
 for all eternity, but at the sluggish pace you are moving, eternity might
 not be that long of a distance.
+@rus Здесь коридор радикально изменяется. Тебе кажется, что само время
+замедляет свой ход. тены выглядят более мрачными, чем в том коридоре,
+который ты $gn{покинул} последним. Коридор, похоже, тянется вечность...
+хотя, потихоньку-полегоньку эту вечность можно пройти.
 ~
 0 0 mountain
 D0
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
 ~
 AFZ 0 2456
 D2
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
@@ -2223,23 +2650,29 @@ Walking through DragonSpyre
 Z 0 2458
 S
 #2458
-Walking through DragonSpyre~
-The hallway here is a radical change from where you just where.  Here,
+@eng Walking through DragonSpyre@rus Скитания по Пику Драконов~
+@eng The hallway here is a radical change from where you just where.  Here,
 the walls look much more undeveloped than the last hallway you were in.
 It feels like time itself is slowing down.  The hallway looks like it goes on
 for all eternity, but at the sluggish pace you are moving, eternity might
 not be that long of a distance.
+@rus Здесь коридор радикально изменяется. Тебе кажется, что само время
+замедляет свой ход. тены выглядят более мрачными, чем в том коридоре,
+который ты $gn{покинул} последним. Коридор, похоже, тянется вечность...
+хотя, потихоньку-полегоньку эту вечность можно пройти.
 ~
 0 0 mountain
 D0
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
 ~
 AFZ 0 2457
 D3
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
@@ -2247,23 +2680,29 @@ Walking through DragonSpyre
 Z 0 2459
 S
 #2459
-Walking through DragonSpyre~
-The hallway here is a radical change from where you just where.  Here,
+@eng Walking through DragonSpyre@rus Скитания по Пику Драконов~
+@eng The hallway here is a radical change from where you just where.  Here,
 the walls look much more undeveloped than the last hallway you were in.
 It feels like time itself is slowing down.  The hallway looks like it goes on
 for all eternity, but at the sluggish pace you are moving, eternity might
 not be that long of a distance.
+@rus Здесь коридор радикально изменяется. Тебе кажется, что само время
+замедляет свой ход. тены выглядят более мрачными, чем в том коридоре,
+который ты $gn{покинул} последним. Коридор, похоже, тянется вечность...
+хотя, потихоньку-полегоньку эту вечность можно пройти.
 ~
 0 0 mountain
 D1
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
 ~
 Z 0 2458
 D3
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
@@ -2271,23 +2710,29 @@ Walking through DragonSpyre
 Z 0 2460
 S
 #2460
-Walking through DragonSpyre~
-The hallway here is a radical change from where you just where.  Here,
+@eng Walking through DragonSpyre@rus Скитания по Пику Драконов~
+@eng The hallway here is a radical change from where you just where.  Here,
 the walls look much more undeveloped than the last hallway you were in.
 It feels like time itself is slowing down.  The hallway looks like it goes on
 for all eternity, but at the sluggish pace you are moving, eternity might
 not be that long of a distance.
+@rus Здесь коридор радикально изменяется. Тебе кажется, что само время
+замедляет свой ход. тены выглядят более мрачными, чем в том коридоре,
+который ты $gn{покинул} последним. Коридор, похоже, тянется вечность...
+хотя, потихоньку-полегоньку эту вечность можно пройти.
 ~
 0 0 mountain
 D1
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
 ~
 Z 0 2459
 D3
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
@@ -2295,23 +2740,29 @@ Walking through DragonSpyre
 Z 0 2461
 S
 #2461
-Walking through DragonSpyre~
-The hallway here is a radical change from where you just where.  Here,
+@eng Walking through DragonSpyre@rus Скитания по Пику Драконов~
+@eng The hallway here is a radical change from where you just where.  Here,
 the walls look much more undeveloped than the last hallway you were in.
 It feels like time itself is slowing down.  The hallway looks like it goes on
 for all eternity, but at the sluggish pace you are moving, eternity might
 not be that long of a distance.
+@rus Здесь коридор радикально изменяется. Тебе кажется, что само время
+замедляет свой ход. тены выглядят более мрачными, чем в том коридоре,
+который ты $gn{покинул} последним. Коридор, похоже, тянется вечность...
+хотя, потихоньку-полегоньку эту вечность можно пройти.
 ~
 0 0 mountain
 D1
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
 ~
 Z 0 2460
 D2
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
@@ -2319,23 +2770,29 @@ Walking through DragonSpyre
 Z 0 2462
 S
 #2462
-Walking through DragonSpyre~
-The hallway here is a radical change from where you just where.  Here,
+@eng Walking through DragonSpyre@rus Скитания по Пику Драконов~
+@eng The hallway here is a radical change from where you just where.  Here,
 the walls look much more undeveloped than the last hallway you were in.
 It feels like time itself is slowing down.  The hallway looks like it goes on
 for all eternity, but at the sluggish pace you are moving, eternity might
 not be that long of a distance.
+@rus Здесь коридор радикально изменяется. Тебе кажется, что само время
+замедляет свой ход. тены выглядят более мрачными, чем в том коридоре,
+который ты $gn{покинул} последним. Коридор, похоже, тянется вечность...
+хотя, потихоньку-полегоньку эту вечность можно пройти.
 ~
 0 0 mountain
 D0
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
 ~
 AFZ 0 2461
 D2
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
@@ -2343,23 +2800,29 @@ Walking through DragonSpyre
 Z 0 2463
 S
 #2463
-Walking through DragonSpyre~
-The hallway here is a radcial change from where you just where.  Here,
+@eng Walking through DragonSpyre@rus Скитания по Пику Драконов~
+@eng The hallway here is a radical change from where you just where.  Here,
 the walls look much more undeveloped than the last hallway you were in.
 It feels like time itself is slowing down.  The hallway looks like it goes on
 for all eternity, but at the sluggish pace you are moving, eternity might
 not be that long of a distance.
+@rus Здесь коридор радикально изменяется. Тебе кажется, что само время
+замедляет свой ход. тены выглядят более мрачными, чем в том коридоре,
+который ты $gn{покинул} последним. Коридор, похоже, тянется вечность...
+хотя, потихоньку-полегоньку эту вечность можно пройти.
 ~
 0 0 mountain
 D0
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
 ~
 AFZ 0 2462
 D1
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
@@ -2367,23 +2830,29 @@ Walking through DragonSpyre
 Z 0 2464
 S
 #2464
-Walking through DragonSpyre~
-The hallway here is a radical change from where you just where.  Here,
+@eng Walking through DragonSpyre@rus Скитания по Пику Драконов~
+@eng The hallway here is a radical change from where you just where.  Here,
 the walls look much more undeveloped than the last hallway you were in.
 It feels like time itself is slowing down.  The hallway looks like it goes on
 for all eternity, but at the sluggish pace you are moving, eternity might
 not be that long of a distance.
+@rus Здесь коридор радикально изменяется. Тебе кажется, что само время
+замедляет свой ход. тены выглядят более мрачными, чем в том коридоре,
+который ты $gn{покинул} последним. Коридор, похоже, тянется вечность...
+хотя, потихоньку-полегоньку эту вечность можно пройти.
 ~
 0 0 mountain
 D1
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
 ~
 Z 0 2465
 D3
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
@@ -2391,23 +2860,29 @@ Walking through DragonSpyre
 Z 0 2463
 S
 #2465
-Walking through DragonSpyre~
-The hallway here is a radical change from where you just where.  Here,
+@eng Walking through DragonSpyre@rus Скитания по Пику Драконов~
+@eng The hallway here is a radical change from where you just where.  Here,
 the walls look much more undeveloped than the last hallway you were in.
 It feels like time itself is slowing down.  The hallway looks like it goes on
 for all eternity, but at the sluggish pace you are moving, eternity might
 not be that long of a distance.
+@rus Здесь коридор радикально изменяется. Тебе кажется, что само время
+замедляет свой ход. тены выглядят более мрачными, чем в том коридоре,
+который ты $gn{покинул} последним. Коридор, похоже, тянется вечность...
+хотя, потихоньку-полегоньку эту вечность можно пройти.
 ~
 0 0 mountain
 D2
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
-wall~
-the wall~
-~
+wall стена~
+@eng the wall@rus стена~
+@rus female~
 ABCFZ 2403 2466
 D3
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
@@ -2415,23 +2890,29 @@ Walking through DragonSpyre
 Z 0 2464
 S
 #2466
-Walking through DragonSpyre~
-The hallway here is a radical change from where you just where.  Here,
+@eng Walking through DragonSpyre@rus Скитания по Пику Драконов~
+@eng The hallway here is a radical change from where you just where.  Here,
 the walls look much more undeveloped than the last hallway you were in.
 It feels like time itself is slowing down.  The hallway looks like it goes on
 for all eternity, but at the sluggish pace you are moving, eternity might
 not be that long of a distance.
+@rus Здесь коридор радикально изменяется. Тебе кажется, что само время
+замедляет свой ход. тены выглядят более мрачными, чем в том коридоре,
+который ты $gn{покинул} последним. Коридор, похоже, тянется вечность...
+хотя, потихоньку-полегоньку эту вечность можно пройти.
 ~
 0 0 mountain
 D0
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
-wall~
-the wall~
-~
+wall стена~
+@eng the wall@rus стена~
+@rus female~
 ABCFZ 2403 2465
 D2
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
@@ -2439,23 +2920,29 @@ Walking through DragonSpyre
 Z 0 2467
 S
 #2467
-Walking through DragonSpyre~
-The hallway here is a radical change from where you just where.  Here,
+@eng Walking through DragonSpyre@rus Скитания по Пику Драконов~
+@eng The hallway here is a radical change from where you just where.  Here,
 the walls look much more undeveloped than the last hallway you were in.
 It feels like time itself is slowing down.  The hallway looks like it goes on
 for all eternity, but at the sluggish pace you are moving, eternity might
 not be that long of a distance.
+@rus Здесь коридор радикально изменяется. Тебе кажется, что само время
+замедляет свой ход. тены выглядят более мрачными, чем в том коридоре,
+который ты $gn{покинул} последним. Коридор, похоже, тянется вечность...
+хотя, потихоньку-полегоньку эту вечность можно пройти.
 ~
 0 0 mountain
 D0
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
 ~
 Z 0 2466
 D2
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
@@ -2463,23 +2950,29 @@ Walking through DragonSpyre
 Z 0 2468
 S
 #2468
-Walking through DragonSpyre~
-The hallway here is a radical change from where you just where.  Here,
+@eng Walking through DragonSpyre@rus Скитания по Пику Драконов~
+@eng The hallway here is a radical change from where you just where.  Here,
 the walls look much more undeveloped than the last hallway you were in.
 It feels like time itself is slowing down.  The hallway looks like it goes on
 for all eternity, but at the sluggish pace you are moving, eternity might
 not be that long of a distance.
+@rus Здесь коридор радикально изменяется. Тебе кажется, что само время
+замедляет свой ход. тены выглядят более мрачными, чем в том коридоре,
+который ты $gn{покинул} последним. Коридор, похоже, тянется вечность...
+хотя, потихоньку-полегоньку эту вечность можно пройти.
 ~
 0 0 mountain
 D0
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
 ~
 Z 0 2467
 D2
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
@@ -2487,23 +2980,29 @@ Walking through DragonSpyre
 Z 0 2469
 S
 #2469
-Walking through DragonSpyre~
-The hallway here is a radical change from where you just where.  Here,
+@eng Walking through DragonSpyre@rus Скитания по Пику Драконов~
+@eng The hallway here is a radical change from where you just where.  Here,
 the walls look much more undeveloped than the last hallway you were in.
 It feels like time itself is slowing down.  The hallway looks like it goes on
 for all eternity, but at the sluggish pace you are moving, eternity might
 not be that long of a distance.
+@rus Здесь коридор радикально изменяется. Тебе кажется, что само время
+замедляет свой ход. тены выглядят более мрачными, чем в том коридоре,
+который ты $gn{покинул} последним. Коридор, похоже, тянется вечность...
+хотя, потихоньку-полегоньку эту вечность можно пройти.
 ~
 0 0 mountain
 D0
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
 ~
 Z 0 2468
 D2
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
@@ -2511,54 +3010,68 @@ Walking through DragonSpyre
 Z 0 2470
 S
 #2470
-Walking through DragonSpyre~
-The hallway here is a radical change from where you just where.  Here,
+@eng Walking through DragonSpyre@rus Скитания по Пику Драконов~
+@eng The hallway here is a radical change from where you just where.  Here,
 the walls look much more undeveloped than the last hallway you were in.
 It feels like time itself is slowing down.  The hallway looks like it goes on
 for all eternity, but at the sluggish pace you are moving, eternity might
 not be that long of a distance.  To the west is a large gate.
+@rus Здесь коридор радикально изменяется. Тебе кажется, что само время
+замедляет свой ход. тены выглядят более мрачными, чем в том коридоре,
+который ты покинул последним. Коридор, похоже, тянется вечность...
+хотя, потихоньку-полегоньку эту вечность можно пройти. На западе ты
+видишь большие ворота.
 ~
 0 0 mountain
 D0
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
 ~
 Z 0 2469
 D1
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
 ~
 Z 0 2471
 D3
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
-gate~
-the gate~
-~
+gate ворота~
+@eng the gate@rus ворота~
+@rus plural~
 ABCFZ 2404 2474
 S
 #2471
-Walking through DragonSpyre~
-The hallway here is a radical change from where you just where.  Here,
+@eng Walking through DragonSpyre@rus Скитания по Пику Драконов~
+@eng The hallway here is a radical change from where you just where.  Here,
 the walls look much more undeveloped than the last hallway you were in.
 It feels like time itself is slowing down.  The hallway looks like it goes on
 for all eternity, but at the sluggish pace you are moving, eternity might
 not be that long of a distance.
+@rus Здесь коридор радикально изменяется. Тебе кажется, что само время
+замедляет свой ход. тены выглядят более мрачными, чем в том коридоре,
+который ты $gn{покинул} последним. Коридор, похоже, тянется вечность...
+хотя, потихоньку-полегоньку эту вечность можно пройти.
 ~
 0 0 mountain
 D1
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
 ~
 Z 0 2472
 D3
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
@@ -2566,23 +3079,29 @@ Walking through DragonSpyre
 Z 0 2470
 S
 #2472
-Walking through DragonSpyre~
-The hallway here is a radical change from where you just where.  Here,
+@eng Walking through DragonSpyre@rus Скитания по Пику Драконов~
+@eng The hallway here is a radical change from where you just where.  Here,
 the walls look much more undeveloped than the last hallway you were in.
 It feels like time itself is slowing down.  The hallway looks like it goes on
 for all eternity, but at the sluggish pace you are moving, eternity might
 not be that long of a distance.
+@rus Здесь коридор радикально изменяется. Тебе кажется, что само время
+замедляет свой ход. тены выглядят более мрачными, чем в том коридоре,
+который ты $gn{покинул} последним. Коридор, похоже, тянется вечность...
+хотя, потихоньку-полегоньку эту вечность можно пройти.
 ~
 0 0 mountain
 D1
-Lair of the Copper Dragon
+@eng Lair of the Copper Dragon.
+@rus Логово Медного Дракона.
 ~
 ~
 ~
 ~
 Z 0 2473
 D3
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
@@ -2590,16 +3109,22 @@ Walking through DragonSpyre
 Z 0 2471
 S
 #2473
-Lair of the Copper Dragon~
-Within the bounds of this room, time has seemed to stop.  There is no
+@eng Lair of the Copper Dragon@rus Логово Медного Дракона~
+@eng Within the bounds of this room, time has seemed to stop.  There is no
 movement, save for the large mass at the back of the room.  Out of the
 corner of you eye, you manage to catch a glimpse of a droplet of water
 "falling" from a stalagtite...it appears to have been in the same position
 for the past century.  You have no chance to move before the Dragon strikes.
+@rus Кажется, что внутри этой комнаты время остановилось. Здесь ничто не
+двигается, кроме большой массы в задней части комнаты. Боковым зрением
+ты мельком видишь  капельку воды, "падающую" со сталактита... кажется,
+что в этом положении она находится уже не один век. И ты не можешь ше-
+вельнуться перед тем, как ударит Дракон.
 ~
 0 0 mountain
 D3
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
@@ -2607,23 +3132,29 @@ Walking through DragonSpyre
 Z 0 2472
 S
 #2474
-Walking through DragonSpyre~
-The hallway here is a radical change from where you just where.  Here,
+@eng Walking through DragonSpyre@rus Скитания по Пику Драконов~
+@eng The hallway here is a radical change from where you just where.  Here,
 the walls look much more undeveloped than the last hallway you were in.
 It feels like time itself is slowing down.  The hallway looks like it goes on
 for all eternity, but at the sluggish pace you are moving, eternity might
-not be that long of a distance.  To the east is a large gate.
+not be that long of a distance.
+@rus Здесь коридор радикально изменяется. Тебе кажется, что само время
+замедляет свой ход. тены выглядят более мрачными, чем в том коридоре,
+который ты $gn{покинул} последним. Коридор, похоже, тянется вечность...
+хотя, потихоньку-полегоньку эту вечность можно пройти.
 ~
 0 0 mountain
 D1
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
-gate~
-the gate~
-~
+gate ворота~
+@eng the gate@rus ворота~
+@rus plural~
 ABCFZ 0 2470
 D3
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
@@ -2631,23 +3162,29 @@ Walking through DragonSpyre
 Z 0 2475
 S
 #2475
-Walking through DragonSpyre~
-The hallway here is a radical change from where you just where.  Here,
+@eng Walking through DragonSpyre@rus Скитания по Пику Драконов~
+@eng The hallway here is a radical change from where you just where.  Here,
 the walls look much more undeveloped than the last hallway you were in.
 It feels like time itself is slowing down.  The hallway looks like it goes on
 for all eternity, but at the sluggish pace you are moving, eternity might
 not be that long of a distance.
+@rus Здесь коридор радикально изменяется. Тебе кажется, что само время
+замедляет свой ход. тены выглядят более мрачными, чем в том коридоре,
+который ты $gn{покинул} последним. Коридор, похоже, тянется вечность...
+хотя, потихоньку-полегоньку эту вечность можно пройти.
 ~
 0 0 mountain
 D1
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
 ~
 Z 0 2474
 D3
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
@@ -2655,30 +3192,37 @@ Walking through DragonSpyre
 Z 0 2476
 S
 #2476
-Walking through DragonSpyre~
-The hallway here is a radical change from where you just where.  Here,
+@eng Walking through DragonSpyre@rus Скитания по Пику Драконов~
+@eng The hallway here is a radical change from where you just where.  Here,
 the walls look much more undeveloped than the last hallway you were in.
 It feels like time itself is slowing down.  The hallway looks like it goes on
 for all eternity, but at the sluggish pace you are moving, eternity might
 not be that long of a distance.
+@rus Здесь коридор радикально изменяется. Тебе кажется, что само время
+замедляет свой ход. тены выглядят более мрачными, чем в том коридоре,
+который ты $gn{покинул} последним. Коридор, похоже, тянется вечность...
+хотя, потихоньку-полегоньку эту вечность можно пройти.
 ~
 0 0 mountain
 D1
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
 ~
 Z 0 2475
 D2
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
 ~
 Z 0 2477
 D3
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
@@ -2686,69 +3230,90 @@ Walking through DragonSpyre
 Z 0 2479
 S
 #2477
-Walking through DragonSpyre~
-The hallway here is a radical change from where you just where.  Here,
+@eng Walking through DragonSpyre@rus Скитания по Пику Драконов~
+@eng The hallway here is a radical change from where you just where.  Here,
 the walls look much more undeveloped than the last hallway you were in.
 It feels like time itself is slowing down.  The hallway looks like it goes on
 for all eternity, but at the sluggish pace you are moving, eternity might
 not be that long of a distance.
+@rus Здесь коридор радикально изменяется. Тебе кажется, что само время
+замедляет свой ход. тены выглядят более мрачными, чем в том коридоре,
+который ты $gn{покинул} последним. Коридор, похоже, тянется вечность...
+хотя, потихоньку-полегоньку эту вечность можно пройти.
 ~
 0 0 mountain
 D0
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
 ~
 Z 0 2476
 D2
-Treasure Room
+@eng Treasure Room.
+@rus Сокровищница.
 ~
-door~
+door дверь~
 ~
 ~
 ABCFZ 2404 2478
 S
 #2478
-Treasure Room~
-All about you are the untold fortunes of many generations of families.
-Nothing here seems to be touched by age, it is all in perfect condition.        It has remained as it was many years ago when it was taken.  Although the       Dragon and the original families considered these items "treasure", you
+@eng Treasure Room@rus Сокровищница~
+@eng All about you are the untold fortunes of many generations of families.
+Nothing here seems to be touched by age, it is all in perfect condition.        
+It has remained as it was many years ago when it was taken.  Although the
+Dragon and the original families considered these items "treasure", you
 manage to find little of value beside a pile of gold coins you collect.
+@rus Здесь хранятся богатства многих поколений. Как ни странно, время не
+коснулось их, все прекрасно сохранилось. Это все осталось от того, что
+было собрано много лет назад. Хотя Драконы первых семейств считали эти
+вещи "сокровищем", ты без успеха пытаешься найти что-нибудь ценное, 
+кроме золотых монет, которые ты $gn{собрал} в первую очередь.
 ~
 0 0 mountain
 D0
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
-door~
+door дверь~
 ~
 ~
 ABCFZ 2404 2477
 D2
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
-door~
+door дверь~
 ~
 ~
 AFZ 2404 2483
 S
 #2479
-Walking through DragonSpyre~
-The hallway here is a radical change from where you just where.  Here,
+@eng Walking through DragonSpyre@rus Скитания по Пику Драконов~
+@eng The hallway here is a radical change from where you just where.  Here,
 the walls look much more undeveloped than the last hallway you were in.
 It feels like time itself is slowing down.  The hallway looks like it goes on
 for all eternity, but at the sluggish pace you are moving, eternity might
 not be that long of a distance.
+@rus Здесь коридор радикально изменяется. Тебе кажется, что само время
+замедляет свой ход. тены выглядят более мрачными, чем в том коридоре,
+который ты $gn{покинул} последним. Коридор, похоже, тянется вечность...
+хотя, потихоньку-полегоньку эту вечность можно пройти.
 ~
 0 0 mountain
 D1
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
 ~
 Z 0 2476
 D3
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
@@ -2756,23 +3321,29 @@ Walking through DragonSpyre
 Z 0 2480
 S
 #2480
-Walking through DragonSpyre~
-The hallway here is a radical change from where you just where.  Here,
+@eng Walking through DragonSpyre@rus Скитания по Пику Драконов~
+@eng The hallway here is a radical change from where you just where.  Here,
 the walls look much more undeveloped than the last hallway you were in.
 It feels like time itself is slowing down.  The hallway looks like it goes on
 for all eternity, but at the sluggish pace you are moving, eternity might
 not be that long of a distance.
+@rus Здесь коридор радикально изменяется. Тебе кажется, что само время
+замедляет свой ход. тены выглядят более мрачными, чем в том коридоре,
+который ты $gn{покинул} последним. Коридор, похоже, тянется вечность...
+хотя, потихоньку-полегоньку эту вечность можно пройти.
 ~
 0 0 mountain
 D1
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
 ~
 Z 0 2479
 D3
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
@@ -2780,23 +3351,29 @@ Walking through DragonSpyre
 Z 0 2481
 S
 #2481
-Walking through DragonSpyre~
-The hallway here is a radical change from where you just where.  Here,
+@eng Walking through DragonSpyre@rus Скитания по Пику Драконов~
+@eng The hallway here is a radical change from where you just where.  Here,
 the walls look much more undeveloped than the last hallway you were in.
 It feels like time itself is slowing down.  The hallway looks like it goes on
 for all eternity, but at the sluggish pace you are moving, eternity might
 not be that long of a distance.
+@rus Здесь коридор радикально изменяется. Тебе кажется, что само время
+замедляет свой ход. тены выглядят более мрачными, чем в том коридоре,
+который ты $gn{покинул} последним. Коридор, похоже, тянется вечность...
+хотя, потихоньку-полегоньку эту вечность можно пройти.
 ~
 0 0 mountain
 D1
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
 ~
 Z 0 2480
 D2
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
@@ -2804,16 +3381,22 @@ Walking through DragonSpyre
 Z 0 2482
 S
 #2482
-Walking through DragonSpyre~
-The hallway here is a radical change from where you just where.  Here,
+@eng Walking through DragonSpyre@rus Скитания по Пику Драконов~
+@eng The hallway here is a radical change from where you just where.  Here,
 the walls look much more undeveloped than the last hallway you were in.
 It feels like time itself is slowing down.  The hallway looks like it goes o
 for all eternity, but at the sluggish pace you are moving, eternity might
 not be that long of a distance.  You have reached a dead end.
+@rus Здесь коридор радикально изменяется. Тебе кажется, что само время
+замедляет свой ход. тены выглядят более мрачными, чем в том коридоре,
+который ты покинула последним. Коридор, похоже, тянется вечность...
+хотя, потихоньку-полегоньку эту вечность можно пройти. Хмм... кажется,
+это тупик.
 ~
 0 0 mountain
 D0
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
@@ -2821,23 +3404,29 @@ Walking through DragonSpyre
 Z 0 2481
 S
 #2483
-Walking through DragonSpyre~
-The hallway here is a radical change from where you just where.  Here,
+@eng Walking through DragonSpyre@rus Скитания по Пику Драконов~
+@eng The hallway here is a radical change from where you just where.  Here,
 the walls look much more undeveloped than the last hallway you were in.
 It feels like time itself is slowing down.  The hallway looks like it goes on
 for all eternity, but at the sluggish pace you are moving, eternity might
 not be that long of a distance.
+@rus Здесь коридор радикально изменяется. Тебе кажется, что само время
+замедляет свой ход. тены выглядят более мрачными, чем в том коридоре,
+который ты $gn{покинул} последним. Коридор, похоже, тянется вечность...
+хотя, потихоньку-полегоньку эту вечность можно пройти.
 ~
 0 0 mountain
 D0
-Treasure Room
+@eng Treasure Room.
+@rus Сокровищница.
 ~
-door~
+door дверь~
 ~
 ~
 ABCFZ 2404 2478
 D2
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
@@ -2845,23 +3434,29 @@ Walking through DragonSpyre
 AFZ 2404 2484
 S
 #2484
-Walking through DragonSpyre~
-The hallway here is a radical change from where you just where.  Here,
+@eng Walking through DragonSpyre@rus Скитания по Пику Драконов~
+@eng The hallway here is a radical change from where you just where.  Here,
 the walls look much more undeveloped than the last hallway you were in.
 It feels like time itself is slowing down.  The hallway looks like it goes on
 for all eternity, but at the sluggish pace you are moving, eternity might
 not be that long of a distance.
+@rus Здесь коридор радикально изменяется. Тебе кажется, что само время
+замедляет свой ход. тены выглядят более мрачными, чем в том коридоре,
+который ты $gn{покинул} последним. Коридор, похоже, тянется вечность...
+хотя, потихоньку-полегоньку эту вечность можно пройти.
 ~
 0 0 mountain
 D0
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
 ~
 Z 0 2483
 D2
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
@@ -2869,37 +3464,45 @@ Walking through DragonSpyre
 Z 0 2485
 S
 #2485
-Walking through DragonSpyre~
-The hallway here is a radical change from where you just where.  Here,
+@eng Walking through DragonSpyre@rus Скитания по Пику Драконов~
+@eng The hallway here is a radical change from where you just where.  Here,
 the walls look much more undeveloped than the last hallway you were in.
 It feels like time itself is slowing down.  The hallway looks like it goes on
 for all eternity, but at the sluggish pace you are moving, eternity might
 not be that long of a distance.
+@rus Здесь коридор радикально изменяется. Тебе кажется, что само время
+замедляет свой ход. тены выглядят более мрачными, чем в том коридоре,
+который ты $gn{покинул} последним. Коридор, похоже, тянется вечность...
+хотя, потихоньку-полегоньку эту вечность можно пройти.
 ~
 0 0 mountain
 D0
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
 ~
 Z 0 2484
 D1
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
 ~
 Z 0 2491
 D2
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
 ~
 Z 0 2495
 D3
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
@@ -2907,23 +3510,29 @@ Walking through DragonSpyre
 Z 0 2486
 S
 #2486
-Walking through DragonSpyre~
-The hallway here is a radical change from where you just where.  Here,
-the walls look much more undeveloped than the last hallway you were i.
+@eng Walking through DragonSpyre@rus Скитания по Пику Драконов~
+@eng The hallway here is a radical change from where you just where.  Here,
+the walls look much more undeveloped than the last hallway you were in.
 It feels like time itself is slowing down.  The hallway looks like it goes on
 for all eternity, but at the sluggish pace you are moving, eternity might
 not be that long of a distance.
+@rus Здесь коридор радикально изменяется. Тебе кажется, что само время
+замедляет свой ход. тены выглядят более мрачными, чем в том коридоре,
+который ты $gn{покинул} последним. Коридор, похоже, тянется вечность...
+хотя, потихоньку-полегоньку эту вечность можно пройти.
 ~
 0 0 mountain
 D1
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
 ~
 Z 0 2485
 D3
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
@@ -2931,23 +3540,29 @@ Walking through DragonSpyre
 Z 0 2487
 S
 #2487
-Walking through DragonSpyre~
-The hallway here is a radical change from where you just where.  Here,
+@eng Walking through DragonSpyre@rus Скитания по Пику Драконов~
+@eng The hallway here is a radical change from where you just where.  Here,
 the walls look much more undeveloped than the last hallway you were in.
 It feels like time itself is slowing down.  The hallway looks like it goes on
 for all eternity, but at the sluggish pace you are moving, eternity might
 not be that long of a distance.
+@rus Здесь коридор радикально изменяется. Тебе кажется, что само время
+замедляет свой ход. тены выглядят более мрачными, чем в том коридоре,
+который ты $gn{покинул} последним. Коридор, похоже, тянется вечность...
+хотя, потихоньку-полегоньку эту вечность можно пройти.
 ~
 0 0 mountain
 D1
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
 ~
 Z 0 2486
 D3
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
@@ -2955,23 +3570,29 @@ Walking through DragonSpyre
 Z 0 2488
 S
 #2488
-Walking through DragonSpyre~
-The hallway here is a radical change from where you just where.  Here,
+@eng Walking through DragonSpyre@rus Скитания по Пику Драконов~
+@eng The hallway here is a radical change from where you just where.  Here,
 the walls look much more undeveloped than the last hallway you were in.
 It feels like time itself is slowing down.  The hallway looks like it goes on
 for all eternity, but at the sluggish pace you are moving, eternity might
 not be that long of a distance.
+@rus Здесь коридор радикально изменяется. Тебе кажется, что само время
+замедляет свой ход. тены выглядят более мрачными, чем в том коридоре,
+который ты $gn{покинул} последним. Коридор, похоже, тянется вечность...
+хотя, потихоньку-полегоньку эту вечность можно пройти.
 ~
 0 0 mountain
 D1
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
 ~
 Z 0 2487
 D3
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
@@ -2979,63 +3600,79 @@ Walking through DragonSpyre
 Z 0 2489
 S
 #2489
-Walking through DragonSpyre~
-The hallway here is a radical change from where you just where.  Here,
+@eng Walking through DragonSpyre@rus Скитания по Пику Драконов~
+@eng The hallway here is a radical change from where you just where.  Here,
 the walls look much more undeveloped than the last hallway you were in.
 It feels like time itself is slowing down.  The hallway looks like it goes on
 for all eternity, but at the sluggish pace you are moving, eternity might
 not be that long of a distance.
+@rus Здесь коридор радикально изменяется. Тебе кажется, что само время
+замедляет свой ход. тены выглядят более мрачными, чем в том коридоре,
+который ты $gn{покинул} последним. Коридор, похоже, тянется вечность...
+хотя, потихоньку-полегоньку эту вечность можно пройти.
 ~
 0 0 mountain
 D1
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
 ~
 Z 0 2488
 D3
-Pixie King's Bedroom
+@eng Pixie King's Bedroom.
+@rus Опочивальня Короля Сильфов.
 ~
-door~
-~
-~
+door дверь~
+@rus дверь~
+@eng none@rus female~
 ABCFZ 2405 2490
 S
 #2490
-Pixie King's Bedroom~
-You have entered into the private quarters of the Pixie King.
+@eng Pixie King's Bedroom@rus Опочивальня Короля Сильфов~
+@eng You have entered into the private quarters of the Pixie King.
 You can just imagine a horde of guards walking in on you,
 but luckily they never do.  Even so, you better make your
 stay here a short one.
+@rus Ты $gn{забрался} в личные владения Короля Сильфов. Ты прямо видишь
+толпу охранников, преследующих тебя... нет, это пока лишь воображение.
+Тем не менее, не стоит здесь задерживаться.
 ~
 0 0 mountain
 D1
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
-door~
-~
-~
+door дверь~
+@rus дверь~
+@rus female~
 ABCFZ 2405 2489
 S
 #2491
-Walking through DragonSpyre~
-The hallway here is a radical change from where you just where.  Here,
+@eng Walking through DragonSpyre@rus Скитания по Пику Драконов~
+@eng The hallway here is a radical change from where you just where.  Here,
 the walls look much more undeveloped than the last hallway you were in.
 It feels like time itself is slowing down.  The hallway looks like it goes on
 for all eternity, but at the sluggish pace you are moving, eternity might
 not be that long of a distance.
+@rus Здесь коридор радикально изменяется. Тебе кажется, что само время
+замедляет свой ход. тены выглядят более мрачными, чем в том коридоре,
+который ты $gn{покинул} последним. Коридор, похоже, тянется вечность...
+хотя, потихоньку-полегоньку эту вечность можно пройти.
 ~
 0 0 mountain
 D1
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
 ~
 Z 0 2492
 D3
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
@@ -3043,23 +3680,29 @@ Walking through DragonSpyre
 Z 0 2485
 S
 #2492
-Walking through DragonSpyre~
-The hallway here is a radical change from where you just where.  Here,
+@eng Walking through DragonSpyre@rus Скитания по Пику Драконов~
+@eng The hallway here is a radical change from where you just where.  Here,
 the walls look much more undeveloped than the last hallway you were in.
 It feels like time itself is slowing down.  The hallway looks like it goes on
 for all eternity, but at the sluggish pace you are moving, eternity might
 not be that long of a distance.
+@rus Здесь коридор радикально изменяется. Тебе кажется, что само время
+замедляет свой ход. тены выглядят более мрачными, чем в том коридоре,
+который ты $gn{покинул} последним. Коридор, похоже, тянется вечность...
+хотя, потихоньку-полегоньку эту вечность можно пройти.
 ~
 0 0 mountain
 D1
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
 ~
 Z 0 2493
 D3
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
@@ -3067,23 +3710,29 @@ Walking through DragonSpyre
 Z 0 2491
 S
 #2493
-Walking through DragonSpyre~
-The hallway here is a radical change from where you just where.  Here,
+@eng Walking through DragonSpyre@rus Скитания по Пику Драконов~
+@eng The hallway here is a radical change from where you just where.  Here,
 the walls look much more undeveloped than the last hallway you were in.
 It feels like time itself is slowing down.  The hallway looks like it goes on
 for all eternity, but at the sluggish pace you are moving, eternity might
 not be that long of a distance.
+@rus Здесь коридор радикально изменяется. Тебе кажется, что само время
+замедляет свой ход. тены выглядят более мрачными, чем в том коридоре,
+который ты $gn{покинул} последним. Коридор, похоже, тянется вечность...
+хотя, потихоньку-полегоньку эту вечность можно пройти.
 ~
 0 0 mountain
 D1
-Throne room of the Pixie King
+@eng Throne room of the Pixie King.
+@rus Троннный Зал Короля Сильфов.
 ~
-door~
+door дверь~
 ~
 ~
 ABZ -1 2494
 D3
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
@@ -3091,40 +3740,50 @@ Walking through DragonSpyre
 Z 0 2492
 S
 #2494
-Throne room of the Pixie King~
-The throne room is remarkably well kempt considering the anarchy
+@eng Throne room of the Pixie King@rus Троннный Зал Короля Сильфов~
+@eng The throne room is remarkably well kempt considering the anarchy
 of the Pixie hierarchy.  The power of the time dragon does not seem
 to affect this room in the least bit.  There is a humongous throne
 sitting at the far end of the room.  There appears to be a Pixie
 engulfed in it.
+@rus Несмотря на анархию в иерархии Сильфов, о тронном зале великолепно заботятся.
+Сила Дракона Времени не ощущается здесь. В дальнем углу стоит величественный
+трон. Кажется, какой-то Сильф заснул на нем.
 ~
 0 0 mountain
 D3
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
-door~
+door дверь~
 ~
 ~
 ABFZ -1 2493
 S
 #2495
-Walking through DragonSpyre~
-The hallway here is a radical change from where you just where.  Here,
+@eng Walking through DragonSpyre@rus Скитания по Пику Драконов~
+@eng The hallway here is a radical change from where you just where.  Here,
 the walls look much more undeveloped than the last hallway you were in.
 It feels like time itself is slowing down.  The hallway looks like it goes on
 for all eternity, but at the sluggish pace you are moving, eternity might
 not be that long of a distance.
+@rus Здесь коридор радикально изменяется. Тебе кажется, что само время
+замедляет свой ход. тены выглядят более мрачными, чем в том коридоре,
+который ты $gn{покинул} последним. Коридор, похоже, тянется вечность...
+хотя, потихоньку-полегоньку эту вечность можно пройти.
 ~
 0 0 mountain
 D0
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
 ~
 Z 0 2485
 D2
-Approaching the end of the Hallway
+@eng Approaching the end of the Hallway.
+@rus Приближаясь к концу Коридора.
 ~
 ~
 ~
@@ -3132,23 +3791,29 @@ Approaching the end of the Hallway
 Z 0 2496
 S
 #2496
-Approaching the end of the Hallway~
-The hallway here is a radical change from where you just where.  Here,
+@eng Approaching the end of the Hallway@rus Приближаясь у концу коридора~
+@eng The hallway here is a radical change from where you just where.  Here,
 the walls look much more undeveloped than the last hallway you were in.
 It feels like time itself is slowing down.  The hallway looks like it goes on
 for all eternity, but at the sluggish pace you are moving, eternity might
 not be that long of a distance.
+@rus Здесь коридор радикально изменяется. Тебе кажется, что само время
+замедляет свой ход. тены выглядят более мрачными, чем в том коридоре,
+который ты $gn{покинул} последним. Коридор, похоже, тянется вечность...
+хотя, потихоньку-полегоньку эту вечность можно пройти.
 ~
 0 0 mountain
 D0
-Walking through DragonSpyre
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
 ~
 Z 0 2495
 D2
-Approaching the end of the Hallway
+@eng Approaching the end of the Hallway.
+@rus Приближаясь к концу Коридора.
 ~
 ~
 ~
@@ -3156,23 +3821,29 @@ Approaching the end of the Hallway
 Z 0 2497
 S
 #2497
-Approaching the end of the Hallway~
-The hallway here is a radical change from where you just where.  Here,
+@eng Approaching the end of the Hallway@rus Приближаясь у концу коридора~
+@eng The hallway here is a radical change from where you just where.  Here,
 the walls look much more undeveloped than the last hallway you were in.
 It feels like time itself is slowing down.  The hallway looks like it goes on
 for all eternity, but at the sluggish pace you are moving, eternity might
 not be that long of a distance.
+@rus Здесь коридор радикально изменяется. Тебе кажется, что само время
+замедляет свой ход. тены выглядят более мрачными, чем в том коридоре,
+который ты $gn{покинул} последним. Коридор, похоже, тянется вечность...
+хотя, потихоньку-полегоньку эту вечность можно пройти.
 ~
 0 0 mountain
 D0
-Approaching the end of the Hallway
+@eng Approaching the end of the Hallway.
+@rus Приближаясь к концу Коридора.
 ~
 ~
 ~
 ~
 Z 0 2496
 D2
-Approaching the end of the Hallway
+@eng Approaching the end of the Hallway.
+@rus Приближаясь к концу Коридора.
 ~
 ~
 ~
@@ -3180,23 +3851,29 @@ Approaching the end of the Hallway
 Z 0 2498
 S
 #2498
-Approaching the end of the Hallway~
-The hallway here is a radical change from where you just where.  Here,
+@eng Approaching the end of the Hallway@rus Приближаясь у концу коридора~
+@eng The hallway here is a radical change from where you just where.  Here,
 the walls look much more undeveloped than the last hallway you were in.
 It feels like time itself is slowing down.  The hallway looks like it goes on
 for all eternity, but at the sluggish pace you are moving, eternity might
 not be that long of a distance.
+@rus Здесь коридор радикально изменяется. Тебе кажется, что само время
+замедляет свой ход. тены выглядят более мрачными, чем в том коридоре,
+который ты $gn{покинул} последним. Коридор, похоже, тянется вечность...
+хотя, потихоньку-полегоньку эту вечность можно пройти.
 ~
 0 0 mountain
 D0
-Approaching the end of the Hallway
+@eng Approaching the end of the Hallway.
+@rus Приближаясь к концу коридора.
 ~
 ~
 ~
 ~
 Z 0 2497
 D2
-The end of the Hallway
+@eng The end of the Hallway.
+@rus Конец Коридора.
 ~
 ~
 ~
@@ -3204,22 +3881,27 @@ The end of the Hallway
 Z 0 2499
 S
 #2499
-The End of the Hallway~
-You have come to the end of the hallway.  As you enter the room,
+@eng The End of the Hallway@rus Конец Коридора~
+@eng You have come to the end of the hallway.  As you enter the room,
 you hear a slight rumbling coming from the eastern wall.  You look,
 and see that the wall has opened to reveal a safe passage to the
 beginning of the cavern.  There is also an exit to the north.
+@rus Ты $gn{достиг} конца коридора. Войдя в комнату, ты $gn{услышал} грохот
+с восточной стороны. Оказалось, что стена раскрылась, освободив
+безопасный проход к началу пещеры.
 ~
 0 0 mountain
 D0
-Approaching the end of the Hallway
+@eng Approaching the end of the Hallway.
+@rus Приближаясь к концу Коридора.
 ~
 ~
 ~
 ~
 Z 0 2498
 D1
-The Beginning of the Cavern
+@eng The Beginning of the Cavern.
+@rus Начало Пещеры.
 ~
 ~
 ~
@@ -3227,22 +3909,26 @@ The Beginning of the Cavern
 Z 0 2408
 S
 #2500
-Before the office of retired dragon~
-You should read room descriptions more often.
+@eng Before the office of retired dragon@rus Перед клубом отставных драконов~
+@eng You should read room descriptions more often.
 The acid cascades over your body, and burns the skin from the muscle,
 then the muscle from the bone.  You have never experienced this much
 pain in your entire life.
+@rus Кислотные каскады стекают по твоему телу, сжигая кожу до мускулов,
+а затем и мускулы до костей. Такой боли ты никогда не $gn{испытывал}.
 ~
 0 ACD inside
 D0
-old dragon's office
+@eng Old dragon's office.
+@rus Клуб отставных драконов.
 ~
-door~
-~
-~
+door дверь~
+@eng the door@rus дверь~
+@rus female~
 ABCFGZ 2434 2501
 D1
-dragonspyre.
+@eng Walking through DragonSpyre.
+@rus Скитания по Пику Драконов.
 ~
 ~
 ~
@@ -3250,19 +3936,22 @@ dragonspyre.
 Z -1 2441
 S
 #2501
-Before the office of retired dragon~
-You should read room descriptions more often.
+@eng Before the office of retired dragon@rus Перед клубом отставных драконов~
+@eng You should read room descriptions more often.
 The acid cascades over your body, and burns the skin from the muscle,
 then the muscle from the bone.  You have never experienced this much
 pain in your entire life.
+@rus Кислотные каскады стекают по твоему телу, сжигая кожу до мускулов,
+а затем и мускулы до костей. Такой боли ты никогда не $gn{испытывал}.
 ~
 0 ACDJ inside
 D2
-old dragon's office
+@eng Old dragon's office.
+@rus Клуб отставных драконов.
 ~
-door~
-~
-~
+door дверь~
+@eng дверь@rus дверь~
+@rus female~
 Z -1 2500
 S
 #0

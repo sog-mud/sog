@@ -11,8 +11,7 @@ End
 #5501
 citizen~
 the citizen~
-There is a citizen of Ofcol here glaring at you ... stranger!
-~
+There is a citizen of Ofcol here glaring at you ... stranger!~
 He seems like a nice person with no interest in harming you or others.
 He wears normal, light clothing and has an anonymous face.
 ~
@@ -26,8 +25,7 @@ stand stand male 10
 #5502
 citizen~
 the citizen~
-There is a citizen of Ofcol here glaring at you ... stranger!
-~
+There is a citizen of Ofcol here glaring at you ... stranger!~
 She seems like a nice person with no interest in harming you or others.
 She wears a minimum of clothing and has big ... eyes.
 ~
@@ -41,8 +39,7 @@ stand stand female 5
 #5503
 luxan shopkeeper~
 Luxan~
-Luxan the Shopkeeper is here, eager to sell you anything.
-~
+Luxan the Shopkeeper is here, eager to sell you anything.~
 Luxan is dressed in a strange jacket.
 He looks like a mean trader from the outskirts of Midgaard.
 His life is seems to be totally occupied with trading.
@@ -58,8 +55,7 @@ stand stand male 400
 #5504
 keeper innkeeper~
 the Innkeeper~
-An Innkeeper is here waiting for your order.
-~
+An Innkeeper is here waiting for your order.~
 The Innkeeper looks skilled in brewing different beers and mixing the
 wierdest drinks known. He also looks very big.
 ~

@@ -11,9 +11,7 @@ End
 #1000
 dragon fairy~
 @eng A fairy dragon@rus ~~сказочный~~ ~~дракончик~~~
-@eng A fairy dragon is fluttering around here looking for something to do...
-@rus Маленький дракончик (dragon) порхает вокруг.
-~
+@eng A fairy dragon is fluttering around here looking for something to do...@rus Маленький дракончик (dragon) порхает вокруг.~
 @eng It's a cute little multi-colored dragon...about 2 foot long.
 It gracefully dances around your head.
 @rus Милый маленький разноцветный дракончик. Всего около двух футов в длину.
@@ -29,9 +27,7 @@ stand stand male 1
 #1001
 griffin гриффин~
 @eng A griffin@rus Гриффин~
-@eng A large black winged griffin swoops into an attack.
-@rus Большой черный гриффин (griffin) устремился к тебе.
-~
+@eng A large black winged griffin swoops into an attack.@rus Большой черный гриффин (griffin) устремился к тебе.~
 @eng Golden maned and black all over.  It's quite a beautiful creature if not
 for the fact it is hungry and is attacking you!
 @rus Полностью черное существо с яркой золотой гривой. Он действительно 
@@ -68,7 +64,7 @@ g @rus female~
 @eng You are flying!
 Currently you are about 40 meters above the ground north of the city.
 It seems like you can see forever!
-@rus   Ты летишь!  Внизу, метрах в сорока, виднеется северная окраина города.
+@rus .  Ты летишь!  Внизу, метрах в сорока, виднеется северная окраина города.
 Никогда ты не забудешь этого божественного ощущения полета.
 ~
 0 0 air
@@ -102,7 +98,7 @@ S
 @eng You are flying!
 Currently you are about 20 meters above the inside wall of West Midgaard.
 It seems like you can see forever!
-@rus   Ты летишь!  Внизу, метрах в двадцати, виден западный Мидгаард.
+@rus .  Ты летишь!  Внизу, метрах в двадцати, виден западный Мидгаард.
 Никогда ты не забудешь этого божественного ощущения полета.
 ~
 0 0 air

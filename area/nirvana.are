@@ -11,8 +11,7 @@ End
 #9000
 tridrone~
 the tridrone~
-A tridrone is here doing a menial task.
-~
+A tridrone is here doing a menial task.~
 You see what appears to be a 3 sided pyramid with spidery arms and legs.
 ~
 modron~
@@ -33,8 +32,7 @@ r charm -100
 #9001
 quadrone~
 the quadrone~
-A quadrone is here watching for trespassers.
-~
+A quadrone is here watching for trespassers.~
 A cubic creature, with spiny arms and legs.
 ~
 modron~
@@ -55,8 +53,7 @@ r charm -100
 #9002
 pentadrone~
 the pentadrone~
-The pentadrone is here policing the area.
-~
+The pentadrone is here policing the area.~
 A five-armed creature which resembles a starfish on thin stilt-like legs.
 ~
 modron~
@@ -77,8 +74,7 @@ r charm -100
 #9003
 decaton~
 the decaton~
-A decaton is here overseeing the other modrons.
-~
+A decaton is here overseeing the other modrons.~
 The decaton is a large, ten-tentacled sphere on stumpy legs.
 ~
 modron~
@@ -99,8 +95,7 @@ r charm -100
 #9004
 nonaton~
 the nonaton~
-A nonaton is here preserving law and order.
-~
+A nonaton is here preserving law and order.~
 A cylidrical modron with 9 tentacles and stubby legs.
 ~
 modron~
@@ -122,8 +117,7 @@ r charm -100
 #9005
 octon~
 the octon~
-An octon is here governing his ward of responsilbility.
-~
+An octon is here governing his ward of responsilbility.~
 The octon has a collar at shoulder level with 8 tentacled arms growing out of
 it.
 ~
@@ -146,8 +140,7 @@ r charm -100
 #9006
 septon~
 the septon~
-A septon is here preserving order.
-~
+A septon is here preserving order.~
 The septon appears as a human with a large bald head. It has a shoulder collar
 with 7 tentacles coming from it.
 ~
@@ -169,8 +162,7 @@ r charm -100
 #9007
 hexton~
 the hexton~
-A hexton is here watching over his armies.
-~
+A hexton is here watching over his armies.~
 A hexton appears as a humanoid with 6 arms: 2 large human arms with 6 fingers,
 and 4 tentacles below tipped with sharp claws.
 ~
@@ -198,8 +190,7 @@ r sound 33
 #9008
 quinton~
 the quinton~
-A quinton is here keeping records.
-~
+A quinton is here keeping records.~
 Quintons look like tall, stocky humanoids with 4 flexible arms jutting from the
 shoulders.  A prehensile tail serves as the creature's 5th arm, and they have
 fan-like wings attached to their shoulders.
@@ -222,8 +213,7 @@ r charm -100
 #9009
 tertian~
 the tertian~
-A tertian is here administering the law.
-~
+A tertian is here administering the law.~
 Tertians look very human, save for their 12 foot size, the horns jutting from
 the sides of their bald heads, and the long prehensile tail ending in a mace-
 like ball.
@@ -252,8 +242,7 @@ r sound 33
 #9010
 secundus~
 secundus~
-A Secundus, one of the Viceroys of Nirvana, is here.
-~
+A Secundus, one of the Viceroys of Nirvana, is here.~
 The secundi is an incredibly thin, tall humanoids with long, narrow faces
 and deepset eyes. It radiates intense power.
 ~
@@ -281,8 +270,7 @@ r sound 33
 #9011
 Primus~
 Primus~
-Primus, ruler of the Plane of Nirvana, forms out of an energy pool.
-~
+Primus, ruler of the Plane of Nirvana, forms out of an energy pool.~
 Primus is a huge being who rises out of the energy pool and glares at you with
 violet eyes. His right hand is wreathed in darkness, his left in light, and
 he looks very displeased to see you.

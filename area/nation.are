@@ -11,8 +11,7 @@ End
 #9901
 villager~
 the Villager~
-A villager in a small boat floats here.
-~
+A villager in a small boat floats here.~
 This villager is dressed in a robe and sandals.
 His hair is close cropped and he appears to be
 staring into the distance. He is facing westward.
@@ -29,8 +28,7 @@ stand stand male 10
 #9902
 dwarf eyeless~
 the Eyeless Dwarf~
-An Eyeless Dwarf bumps into you then ATTACKS!
-~
+An Eyeless Dwarf bumps into you then ATTACKS!~
 This Dwarf has been horribly mutilated.
 ~
 dwarf~
@@ -46,8 +44,7 @@ r disease -25
 #9903
 elf deranged~
 the Deranged Elf~
-A deranged Elf looks at you, then attacks with a scream!
-~
+A deranged Elf looks at you, then attacks with a scream!~
 This elf is a young adult.  Obviously driven mad by
 his capture and torture.
 ~
@@ -63,8 +60,7 @@ r charm -33
 #9904
 confused human youth~
 the Confused Human~
-A confused human youth attacks you!
-~
+A confused human youth attacks you!~
 This youngster is walking around in a daze.
 ~
 human~
@@ -77,8 +73,7 @@ stand stand male 10
 #9905
 goblin child~
 the Goblin child~
-A Goblin child skitters about you.
-~
+A Goblin child skitters about you.~
 This goblin is green like all of the others.
 It's hair is mussed, it smells, and has little
 to no clothes on.
@@ -106,8 +101,7 @@ r sound 50
 #9906
 male goblin~
 the Male Goblin~
-A large male goblin looks at you and shouts for a guard
-~
+A large male goblin looks at you and shouts for a guard~
 This goblin is nearly naked.  He is wearing little
 more than a loincloth, a few worthless bangles, and
 some painted symbols on his chest.  They look like
@@ -136,8 +130,7 @@ r sound 50
 #9907
 goblin female~
 the Female Goblin~
-The female Goblin appears to be scared of you.
-~
+The female Goblin appears to be scared of you.~
 She is very short..only 3 1/2 feet tall.  Long oily
 black hair and a green complexion completes the image.
 ~
@@ -164,8 +157,7 @@ r sound 50
 #9908
 goblin guard ~
 the Goblin Guard~
-The Goblin Guard measures you.
-~
+The Goblin Guard measures you.~
 The guard is lightly armed.  He relies
 upon his claws and fangs to do his work.
 ~
@@ -192,8 +184,7 @@ r sound 50
 #9909
 goblin shaman~
 the Goblin Shaman~
-The Goblin Shaman is chanting.
-~
+The Goblin Shaman is chanting.~
 The Goblin Shaman is naked and completely
 covered in symbols from his religion.
 He doesn't notice your intense stare.
@@ -221,8 +212,7 @@ r sound 50
 #9910
 warrior goblin~
 the Goblin Warrior~
-The Goblin Warrior looks for help before he attacks.
-~
+The Goblin Warrior looks for help before he attacks.~
 This warrior is without armor or weapons.  He also is 
 covered in blue circles with dots in the center.
 ~

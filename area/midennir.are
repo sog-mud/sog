@@ -11,9 +11,7 @@ End
 #3500
 wyvern виверна~
 @eng the wyvern@rus виверна~
-@eng A monstrous wyvern slowly circles just above your head.
-@rus Чудовищная виверна медленно кружит над твоей головой.
-~
+@eng A monstrous wyvern slowly circles just above your head.@rus Чудовищная виверна медленно кружит над твоей головой.~
 @eng This huge winged creature looks really menacing.  You are happy it doesn't
 APPEAR to be very hungry ... yet.
 @rus Это огромное крылатое создание выглядит достаточно угрожающе.
@@ -31,9 +29,7 @@ r light 50
 #3501
 goblin mountain горный гоблин~
 @eng the goblin@rus гоблин~
-@eng A mountain goblin is wandering about, mumbling to himself.
-@rus Горный гоблин (goblin) блуждает вокруг, бурча себе под нос.
-~
+@eng A mountain goblin is wandering about, mumbling to himself.@rus Горный гоблин (goblin) блуждает вокруг, бурча себе под нос.~
 @eng You see before you a small and twisted creature with knotted muscles.
 @rus Ты видишь перед собой мелкое корявое существо с узловатыми мускулами.
 Мама никогда не учила его чистить зубы...
@@ -61,9 +57,7 @@ r sound 50
 #3502
 boy small маленький мальчик~
 @eng the small boy@rus мальчик~
-@eng A small boy sits here, licking his wounds.
-@rus Маленький мальчик (small boy) сидит здесь, перевязывая свои раны.
-~
+@eng A small boy sits here, licking his wounds.@rus Маленький мальчик (small boy) сидит здесь, перевязывая свои раны.~
 @eng The poor boy has numerous cuts and scratches, but appears to be all right.
 He is apparently the only survivor of the ambush.
 @rus Бедный мальчик весь в ссадинах и легких ранах,
@@ -93,9 +87,7 @@ r sound -50
 #3503
 innkeeper владелец гостиницы~
 @eng the Innkeeper@rus владелец~
-@eng The Innkeeper stands here, cleaning glasses.
-@rus Владелец гостиницы (innkeeper) стоит здесь, тоскливо протирая очки.
-~
+@eng The Innkeeper stands here, cleaning glasses.@rus Владелец гостиницы (innkeeper) стоит здесь, тоскливо протирая очки.~
 @eng The Innkeeper now spends most of his days waiting for customers, while the
 nights are spent watching out for goblins.  His inn is no longer the happy
 place that is used to be in days past.
@@ -131,9 +123,7 @@ r sound 33
 #3504
 bard бродячий певец~
 @eng the bard@rus бард~
-@eng A sullen bard is here, drinking away his problems.
-@rus Угрюмый бард (bard) пытается утопить в выпивке свои проблемы.
-~
+@eng A sullen bard is here, drinking away his problems.@rus Угрюмый бард (bard) пытается утопить в выпивке свои проблемы.~
 @eng You can smell the alcohol on his breath from across the room.  This poor bard
 has been sitting here quite a while, drinking himself into oblivion.
 @rus Ты чувствуешь запах алкогольного перегара на расстоянии пары метров...
@@ -150,9 +140,7 @@ sit sit male 260
 #3505
 horseman dark темный всадник~
 @eng the dark horseman@rus ~~темный~~ ~~всадник~~~
-@eng A dark horseman is here, mounted on his black steed.
-@rus Темный всадник (horseman) как влитой сидит на своем черном коне.
-~
+@eng A dark horseman is here, mounted on his black steed.@rus Темный всадник (horseman) как влитой сидит на своем черном коне.~
 @eng The man is obviously an outlaw, and has no qualms about slashing you into
 little bits.
 @rus Этот человек очевидно вне закона и не задумываясь нападет
@@ -168,9 +156,7 @@ stand stand male 400
 #3506
 goblin lieutenant гоблин-лейтенант~
 @eng the goblin lieutenant@rus ~~лейтенант~~~
-@eng A goblin lieutenant stands here, attempting to get his men in order.
-@rus Гоблин-лейтенант (lieutinant) стоит здесь, пытаясь отдавать своим людям приказы.
-~
+@eng A goblin lieutenant stands here, attempting to get his men in order.@rus Гоблин-лейтенант (lieutinant) стоит здесь, пытаясь отдавать своим людям приказы.~
 @eng The goblin lieutenant is rather angry, and looking for one of his men to
 beat up upon, but maybe you will do just fine ...
 @rus Он достаточно сердит, и ищет одного из подчиненных, чтобы наказать его.
@@ -199,9 +185,7 @@ r sound 50
 #3507
 goblin leader лидер гоблинов~
 @eng the goblin leader@rus ~~лидер~~ гоблинов~
-@eng The goblin leader surveys the room.
-@rus Лидер гоблинов (leader) осматривает местность.
-~
+@eng The goblin leader surveys the room.@rus Лидер гоблинов (leader) осматривает местность.~
 @eng The leader doesn't look too happy that you have found him here.  He grabs
 for his shortsword and lunges for your neck.
 @rus Лидер гоблинов не выглядит счастливым от того что попал в твою компанию...
@@ -429,11 +413,11 @@ S
 land. The road leads east into the peace and quiet - and dangers - of the
 forest; and to the west it becomes the main street of the town; surrounded by
 a confusion of shops, bars, and market places.
-@rus Вы стоите в предместьях большого города Мидгаарда.
-О, великий город! Центр мира! Пуп вселенной! И столица этой земли.
-Дорога на востоке ведет в лес - тихий, но временами полный опасностей,
-а на западе превращается в одну из главных улиц города,
-поражающую воображение обилием магазинов, баров и базарчиков.
+@rus Вы стоите в предместьях большого города Мидгаарда.  О, великий город! 
+Центр мира!  Пуп вселенной!  И столица этой земли.  Дорога на востоке ведет
+в лес - тихий, но временами полный опасностей, а на западе превращается в
+одну из главных улиц города, поражающую воображение обилием магазинов, баров
+и базарчиков.  
 ~
 0 C city
 D1
@@ -1931,7 +1915,7 @@ S
 @eng The path comes to an abrupt end here, as the trees close around you and
 make any further exploration impossible.  Fresh tracks cover the ground, and
 end right here.  The horsemen must be nearby.
-@rus 
+@rus .
 ~
 0 0 forest
 D1

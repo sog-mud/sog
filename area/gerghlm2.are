@@ -12,9 +12,7 @@ End
 #7500
 squirrel little белка белочка~
 @eng a little squirrel@rus ~~маленькая~~ ~~белочка~~~
-@eng A little squirrel is here, munching happily on nuts.
-@rus Маленькая веселая белочка (squirrel) грызет орешки.
-~
+@eng A little squirrel is here, munching happily on nuts.@rus Маленькая веселая белочка (squirrel) грызет орешки.~
 @eng He is a Small squirrel, and he is SOO cute!
 @rus Ты смотришь на небольшую и очень милую белочку!
 ~
@@ -28,9 +26,7 @@ stand stand female 0
 #7501
 chipmunk tiny бурундук крошка~
 @eng a tiny chipmunk@rus ~~крошка~~ ~~бурундук~~~
-@eng A tiny chipmunk is here, searching through rocks for a nut he has lost..
-@rus Крошка-бурундук (chipmunk) роется среди камней в поисках потерянного орешка..
-~
+@eng A tiny chipmunk is here, searching through rocks for a nut he has lost..@rus Крошка-бурундук (chipmunk) роется среди камней в поисках потерянного орешка..~
 @eng He is about 2 1/2 inches high, and weighs about 7 ounces.
 He's got sharp teeth though....
 @rus Этот бурундучок высотой примерно 2,5 дюйма и весит около семи унций.
@@ -46,9 +42,7 @@ stand stand male 0
 #7502
 snake змейка green small зеленая~
 @eng a small green snake@rus ~~маленькая~~ ~~зеленая~~ ~~змейка~~~
-@eng A small green snake is here, sliding through the grass.
-@rus Небольшая зеленая змейка (snake) скользит в траве.
-~
+@eng A small green snake is here, sliding through the grass.@rus Небольшая зеленая змейка (snake) скользит в траве.~
 @eng His scales remind you of green mirrors.  There is something
 pretty about them though.
 @rus Ее чешуйки похожи на маленькие изумрудные зеркала. Они
@@ -66,9 +60,7 @@ r poison -33
 #7503
 swallow ласточка bird small птичка птица~
 @eng a swallow@rus ласточка~
-@eng A small bird is here, on closer examination, you see that it is a swallow.
-@rus Ты видишь маленькую птичку (bird), очень похожую на ласточку.
-~
+@eng A small bird is here, on closer examination, you see that it is a swallow.@rus Ты видишь маленькую птичку (bird), очень похожую на ласточку.~
 @eng It's a swallow, what do you EXPECT to see???
 @rus Это обычная ласточка... а что ты $gn{ОЖИДАЛ} увидеть???
 ~
@@ -82,9 +74,7 @@ stand stand female 0
 #7504
 swallow small bird африканская птичка птица african ласточка~
 @eng an African Swallow@rus ~~Африканская~~ ~~Ласточка~~~
-@eng An African Swallow is here....
-@rus Ты видишь Африканскую Ласточку (Swallow)...
-~
+@eng An African Swallow is here....@rus Ты видишь Африканскую Ласточку (Swallow)...~
 @eng An African Swallow is here.... Carrying a cocanut..... :)
 @rus Это Африканская Ласточка... Она несет кокосовый орех... :)
 ~
@@ -98,9 +88,7 @@ stand stand female 0
 #7505
 raccoon енот brown black черный коричневый~
 @eng a brown and black raccoon@rus ~~коричнево-черный~~ ~~енот~~~
-@eng A brown and black raccoon is here, rummageing through the undergrowth.
-@rus Коричнево-черный енот (raccoon) продирается через подлесок.
-~
+@eng A brown and black raccoon is here, rummageing through the undergrowth.@rus Коричнево-черный енот (raccoon) продирается через подлесок.~
 @eng He is very clean, must be from all those baths he gives his food...
 @rus Он выглядит очень чисто и опрятно...
 ~
@@ -122,9 +110,7 @@ r light 15
 #7506
 groundhog ground боров hog~
 @eng a ground-hog@rus боров~
-@eng A ground-hog is here.  Digging holes.
-@rus Огромный боров (hog) роет норы в земле.
-~
+@eng A ground-hog is here.  Digging holes.@rus Огромный боров (hog) роет норы в земле.~
 @eng He is doing.. Well... Well, whatever ground-hogs DO, of course!
 @rus Он занимается тем, что... В общем тем, что делают все боровы!
 ~
@@ -138,9 +124,7 @@ stand stand male 0
 #7507
 mouse fieldmouse small полевка field мышь~
 @eng a field mouse@rus полевка~
-@eng A field mouse is here, being very small...
-@rus Ты видишь крошечную мышку-полевку (mouse).
-~
+@eng A field mouse is here, being very small...@rus Ты видишь крошечную мышку-полевку (mouse).~
 @eng He's small, and it is hard to see him clearly...
 @rus Она настолько мала, что ее очень сложно разглядеть подробно...
 ~
@@ -156,9 +140,7 @@ r charm -33
 #7508
 squirrel летучая летяга flying белка~
 @eng a flying squirrel@rus ~~белка~~-~~летяга~~~
-@eng A flying squirrel is here, glideing about.
-@rus Белка-летяга (squirell) скользит среди ветвей.
-~
+@eng A flying squirrel is here, glideing about.@rus Белка-летяга (squirell) скользит среди ветвей.~
 @eng He's small, furry, and brown.  Makes you wish you could step on him-except
 he's flying, and you're not.  We should fix this...
 @rus Она маленькая, пушистая и коричневая. Ее вид рождает в тебе желание
@@ -175,9 +157,7 @@ stand stand female 0
 #7509
 lover влюбленный starryeyed юноша starry eyed~
 @eng a starry eyed lover@rus ~~влюбленный~~ ~~юноша~~~
-@eng A starry eyed lover is here, taking his stroll through the park.
-@rus Влюбленный юноша (lover) прогуливается по парку.
-~
+@eng A starry eyed lover is here, taking his stroll through the park.@rus Влюбленный юноша (lover) прогуливается по парку.~
 @eng He is tall, and very handsome.  You feel that the object of his affections
 must be feeling very good.
 @rus Он высок и очень красив. Ты понимаешь, что объект его романтической
@@ -193,9 +173,7 @@ stand stand male 350
 #7510
 lover влюбленная starryeyed девушка starry eyed~
 @eng a starry eyed lover@rus ~~влюбленная~~ ~~девушка~~~
-@eng A starry eyed lover is here, smileing and talking to herself happily.
-@rus Влюбленная девушка (lover) мечтательно улыбается и что-то шепчет про себя.
-~
+@eng A starry eyed lover is here, smileing and talking to herself happily.@rus Влюбленная девушка (lover) мечтательно улыбается и что-то шепчет про себя.~
 @eng She is young, beautiful, smart--- Kinda makes you jealous of the guy who
 has nabbed her..
 @rus Она молода, прекрасна, умна. Похоже, ты начинаешь ее ревновать!
@@ -210,9 +188,7 @@ stand stand female 60
 #7511
 helper young торговца травами herbalist помощник~
 @eng a herbalists helper@rus ~~помощник~~ торговца травами~
-@eng A helper of the herbalist is here.
-@rus Ты видишь молодого помощника торговца травами (helper).
-~
+@eng A helper of the herbalist is here.@rus Ты видишь молодого помощника торговца травами (helper).~
 @eng He is collecting herbs for use in his training, and his mentors work.
 @rus Он собирает различные травы для наставника и для своего дальнейшего
 обучения.
@@ -227,9 +203,7 @@ stand stand male 90
 #7512
 snake водяная water змейка~
 @eng water snake@rus ~~водяная~~ ~~змейка~~~
-@eng A water snake is swimming (or is it sliding?) here.
-@rus Водяная змейка (snake) плывет (или скользит?) по воде.
-~
+@eng A water snake is swimming (or is it sliding?) here.@rus Водяная змейка (snake) плывет (или скользит?) по воде.~
 @eng He has green scales,  almost like his cousin in the Park.
 @rus Зеленые чешуйки делают эту змейку похожей на свою родственницу из Парка. 
 ~
@@ -245,9 +219,7 @@ r poison -33
 #7513
 fish рыбка pointy teeth small маленькая~
 @eng a small fish with pointy teeth@rus ~~маленькая~~ ~~зубастая~~ ~~рыбка~~~
-@eng A small fish with pointy teeth is here,  swimming along peacefully.
-@rus Маленькая зубастая рыбка (fish) мирно плавает вокруг.
-~
+@eng A small fish with pointy teeth is here,  swimming along peacefully.@rus Маленькая зубастая рыбка (fish) мирно плавает вокруг.~
 @eng He has many small sharp pointy teeth in his mouth.
 @rus У нее во рту много маленьких, но острых игловидных зубов.
 ~
@@ -261,9 +233,7 @@ stand stand female 0
 #7514
 fish рыбка pointy medium teeth небольшая~
 @eng a medium fish will pointy teeth@rus ~~небольшая~~ ~~зубастая~~ ~~рыбка~~~
-@eng A medium fish with pointy teeth is here,  swimming along peacefully.
-@rus Небольшая зубастая рыбка (fish) мирно проплывает около тебя.
-~
+@eng A medium fish with pointy teeth is here,  swimming along peacefully.@rus Небольшая зубастая рыбка (fish) мирно проплывает около тебя.~
 @eng He has many medium sharp pointy teeth in his mouth.
 @rus У нее во рту много небольших, но острых игловидных зубов.
 ~
@@ -277,9 +247,7 @@ stand stand female 0
 #7515
 fish рыба pointy teeth large большая~
 @eng a large fish with pointy teeth@rus ~~большая~~ ~~зубастая~~ ~~рыбина~~~
-@eng A LARGE fish with pointy teeth is here, swimming along peacefully.
-@rus БОЛЬШАЯ зубастая рыбина (fish) мирно плывет куда-то.
-~
+@eng A LARGE fish with pointy teeth is here, swimming along peacefully.@rus БОЛЬШАЯ зубастая рыбина (fish) мирно плывет куда-то.~
 @eng He has MANY, MANY,  sharp pointy teeth of the medium type....
 @rus У нее МНОГО, ОЧЕНЬ МНОГО острых зубов... Она вызывает у тебя страх,
 а то, что вызывает страх, должно быть уничтожено, верно?
@@ -294,9 +262,7 @@ stand stand female 0
 #7516
 goldfish рыбка small happy золотая~
 @eng a goldfish@rus ~~золотая~~ ~~рыбка~~~
-@eng A happy goldfish is here,  being happy.
-@rus Маленькая золотая рыбка (goldfish) плавает со довольным видом.
-~
+@eng A happy goldfish is here,  being happy.@rus Маленькая золотая рыбка (goldfish) плавает со довольным видом.~
 @eng Aw, the little fella must have been dumped here, all alone, to care for
 himself.  You should help him...
 @rus Ах, эта маленькая подруга, должно быть, оставлена всеми в полном
@@ -312,9 +278,7 @@ stand stand female 0
 #7517
 guppy гуппи small happy рыбка~
 @eng a guppy@rus ~~рыбка~~ гуппи~
-@eng A happy guppy is here, being, well you know, HAPPY!
-@rus Ты видишь маленькоую рыбку гуппи (guppy), счастливую до неприличия!
-~
+@eng A happy guppy is here, being, well you know, HAPPY!@rus Ты видишь маленькоую рыбку гуппи (guppy), счастливую до неприличия!~
 @eng He is almost as cute as the goldfish.  You should help him too.
 @rus Она почти так же мила, как и золотая рыбка. Ты $gn{должен} помочь
 и ей тоже.
@@ -329,9 +293,7 @@ stand stand female 134
 #7518
 fish рыба teeth blunted~
 @eng a fish with blunted teeth@rus ~~рыба~~ с тупыми зубами~
-@eng A fish with BLUNTED teeth is here, gumming some weeds.
-@rus Рыба с ТУПЫМИ зубами (fish) жует какие-то неаппетитные водоросли.
-~
+@eng A fish with BLUNTED teeth is here, gumming some weeds.@rus Рыба с ТУПЫМИ зубами (fish) жует какие-то неаппетитные водоросли.~
 @eng This is getting silly, first small fish with pointy teeth, then medium ones,
 and the LARGE ones,  AND NOW!  BLUNTED TEETHED ONES!
 It's enough to make you sick....
@@ -349,9 +311,7 @@ stand stand female 0
 #7519
 bugbear бука ugly урод~
 @eng a bugbear@rus бука~
-@eng An UGLY bugbear is here, plotting who knows what.
-@rus Уродливый бука (bugbear) замышляет что-то отвратительное.
-~
+@eng An UGLY bugbear is here, plotting who knows what.@rus Уродливый бука (bugbear) замышляет что-то отвратительное.~
 @eng He looks evil, and mean.  You wonder what he is planning to do down here..
 @rus На вид он очень злой и подлый. Интересно, какие грязные мыслишки
 копошатся у него в голове...
@@ -368,9 +328,7 @@ r cold -33
 #7520
 worm червь cleaner large уборщик~
 @eng a cleaner worm@rus ~~червь~~-~~уборщик~~~
-@eng A LARGE Cleaner Worm is here!
-@rus Ты видишь ОГРОМНОГО червя (worm), убирающего мусор.
-~
+@eng A LARGE Cleaner Worm is here!@rus Ты видишь ОГРОМНОГО червя (worm), убирающего мусор.~
 @eng Now you know why these tunnels are so clean.
 @rus Теперь-то ты понимаешь, почему эти туннели выглядят так чисто.
 ~
@@ -386,9 +344,7 @@ r poison -33
 #7521
 citizen житель man~
 @eng a citizen of Gerighelm@rus ~~житель~~ Геригхельма~
-@eng A citizen of the fine city or Gerighelm is here, going to and from his errands
-@rus Житель (citizen) славного города Геригхельма идет по своим делам.
-~
+@eng A citizen of the fine city or Gerighelm is here, going to and from his errands@rus Житель (citizen) славного города Геригхельма идет по своим делам.~
 @eng The citizen of Gerighelm looks happy, and contented.
 @rus Житель Геригхельма выглядит счастливым и довольным жизнью.
 ~
@@ -403,9 +359,7 @@ stand stand male 120
 citizen жительница woman~
 @eng a citizen of Gerighelm@rus ~~жительница~~ Геригхельма~
 @eng A citizen of the fine city of Gerighelm is here, haggling over prices in the
-market.
-@rus Жительница Геригхельма (citizen) оживленно торгуется с продавцами.
-~
+market.@rus Жительница Геригхельма (citizen) оживленно торгуется с продавцами.~
 @eng She looks very worn from all this haggling.  But she is happy nonetheless.
 @rus Похоже что она уже порядком подустала от такой войны за каждую монетку.
 Тем не менее, она тоже счастлива, как и все в этом проклятом городе!
@@ -420,9 +374,7 @@ stand stand female 140
 #7523
 troubadour трубадур bard~
 @eng a troubadour@rus трубадур~
-@eng A troubadour is here, singing for his supper.
-@rus Трубадур (troubadour) пением зарабатывает себе на пропитание.
-~
+@eng A troubadour is here, singing for his supper.@rus Трубадур (troubadour) пением зарабатывает себе на пропитание.~
 @eng His voice is clear and strong.  It makes you want to join in the song
 (and buy him dinner...)
 @rus У него чистый и сильный голос. Тебе так и хочется спеть вместе с ним
@@ -438,9 +390,7 @@ stand stand male 200
 #7524
 biddy старуха old~
 @eng an old biddy@rus старуха~
-@eng An old biddy is here, cussing out the children...
-@rus Дряхлая старуха (biddy) громко ругается на детей...
-~
+@eng An old biddy is here, cussing out the children...@rus Дряхлая старуха (biddy) громко ругается на детей...~
 @eng She is wrinkled and bent.  She is also loud.....
 @rus Она сгорблена и покрыта морщинами. И еще она создает много шума...
 ~
@@ -468,9 +418,7 @@ r sound -50
 #7525
 coot старик old~
 @eng an old coot@rus старик~
-@eng An old coot is here, talking his face off.
-@rus Старик (coot) болтает без перерыва.
-~
+@eng An old coot is here, talking his face off.@rus Старик (coot) болтает без перерыва.~
 @eng He is telling everyone in earshot how he defeated the red dragon and then
 stayed to play with the kings wife.....
 @rus Он громко рассказывает всем и каждому о том, как он победил красного
@@ -500,9 +448,7 @@ r sound -50
 #7526
 child ребенок little boy мальчик~
 @eng a little boy@rus ~~маленький~~ ~~мальчик~~~
-@eng A little boy is here, playing with his marbles.
-@rus Маленький мальчик (child) играет со своими мраморными шариками.
-~
+@eng A little boy is here, playing with his marbles.@rus Маленький мальчик (child) играет со своими мраморными шариками.~
 @eng He has a nice bag of marbles.  Some are red, some are blue, some are green
 with a curlycue.....
 @rus У него целый мешочек с разноцветными мраморными шариками. Некоторые красные,
@@ -532,9 +478,7 @@ r sound -50
 #7527
 child ребенок little girl девочка~
 @eng a little girl@rus ~~маленькая~~ ~~девочка~~~
-@eng A little girl is here, talking to her doll.
-@rus Маленькая девочка (child) разговаривает со своей куклой.
-~
+@eng A little girl is here, talking to her doll.@rus Маленькая девочка (child) разговаривает со своей куклой.~
 @eng She is telling her doll The Facts Of Life....
 @rus Она рассказывает своей кукле Сказку про Доброго Здреню.
 ~
@@ -562,9 +506,7 @@ r sound -50
 #7528
 junior стражник guard молодой~
 @eng a junior guard@rus ~~молодой~~ ~~стражник~~~
-@eng A junior guard of Gerighelm is here, trying to look brave and in control.
-@rus Молодой стражник (guard) Геригхельма напускает на себя бывалый вид.
-~
+@eng A junior guard of Gerighelm is here, trying to look brave and in control.@rus Молодой стражник (guard) Геригхельма напускает на себя бывалый вид.~
 @eng Hmm.  This is the new idea that the duke of Gerighelm has. It keeps youth
 Off The Streets...
 @rus Хмм. Должно быть, это новая идея герцога Геригхельма. Ну что ж... По крайней
@@ -594,9 +536,7 @@ r sound -50
 #7529
 young девушка woman молодая~
 @eng a young woman@rus ~~молодая~~ ~~девушка~~~
-@eng A young woman is here, flirting with passerbys.
-@rus Красивая молодая девушка (woman) флиртует с прохожими.
-~
+@eng A young woman is here, flirting with passerbys.@rus Красивая молодая девушка (woman) флиртует с прохожими.~
 @eng She is about 16. And VERY attractive.
 @rus На вид ей около 16 лет. И она ОЧЕНЬ привлекательна.
 ~
@@ -624,9 +564,7 @@ r sound -50
 #7530
 cityguard стражник guard gerighelm геригхельма~
 @eng a Gerighelm cityguard@rus ~~стражник~~ Геригхельма~
-@eng A Gerighelm cityguard is here, protecting the innocent.
-@rus Стражник Геригхельма (cityguard) готов вступиться за беззащитных.
-~
+@eng A Gerighelm cityguard is here, protecting the innocent.@rus Стражник Геригхельма (cityguard) готов вступиться за беззащитных.~
 @eng He is large and strong.  You are glad that he's a Good Guy....
 @rus Он очень большой и сильный. И ты $gn{рад}, что он на стороне Добра...
 ~
@@ -654,9 +592,7 @@ r sound -50
 #7531
 cityguard стражник guard gerighelm геригхельма~
 @eng a Gerighelm cityguard@rus ~~стражник~~ Геригхельма~
-@eng A Gerighelm cityguard is here, protecting the innocent.
-@rus Стражник Геригхельма (cityguard) следит за соблюдением законов.
-~
+@eng A Gerighelm cityguard is here, protecting the innocent.@rus Стражник Геригхельма (cityguard) следит за соблюдением законов.~
 @eng He is large and strong.  You are glad that he's a Good Guy....
 @rus Он очень большой и сильный. И ты $gn{рад}, что он на стороне Добра...
 ~
@@ -684,9 +620,7 @@ r sound -50
 #7532
 cityguard стражник guard gerighelm геригхельма~
 @eng a Gerighelm cityguard@rus ~~стражник~~ Геригхельма~
-@eng A Gerighelm cityguard is here, protecting the innocent.
-@rus Стражник Геригхельма (cityguard) помогает незаслуженно обиженным.
-~
+@eng A Gerighelm cityguard is here, protecting the innocent.@rus Стражник Геригхельма (cityguard) помогает незаслуженно обиженным.~
 @eng He is large and strong.  You are glad that he's a Good Guy....
 @rus Он очень большой и сильный. И ты $gn{рад}, что он на стороне Добра...
 ~
@@ -714,9 +648,7 @@ r sound -50
 #7533
 ale-conner дегустатор ale conner~
 @eng the ale-conner@rus дегустатор~
-@eng The Ale-Conner is here, recovering from his inspections...
-@rus Дегустатор (ale-conner) отдыхает после тяжелого рабочего дня.
-~
+@eng The Ale-Conner is here, recovering from his inspections...@rus Дегустатор (ale-conner) отдыхает после тяжелого рабочего дня.~
 @eng His job is to inspect the wine, cider, and beer of the town.
 He does his job well.....
 @rus Его работа заключается в дегустации вина, сидра и пива в тавернах
@@ -746,10 +678,8 @@ r sound -50
 #7534
 defender защитник gerighelm геригхельма~
 @eng a Defender of Gerighelm@rus ~~защитник~~ Геригхельма~
-@eng A Defender of Gerighelm is here, on leave.
-@rus Защитник Геригхельма (defender) наслаждается заслуженным отдыхом.
-~
-@eng  He is worn and tired (WHOA! Army training must be HARD!).
+@eng A Defender of Gerighelm is here, on leave.@rus Защитник Геригхельма (defender) наслаждается заслуженным отдыхом.~
+@eng . He is worn and tired (WHOA! Army training must be HARD!).
 @rus Он выглядит очень утомленным. Армейские тренировки измотают любого...
 ~
 human~
@@ -776,9 +706,7 @@ r sound -50
 #7535
 defender защитник gerighelm геригхельма~
 @eng a Defender of Gerighelm@rus ~~защитник~~ Геригхельма~
-@eng A Defender of Gerighelm is here, on patrol.
-@rus Защитник Геригхельма (defender) патрулирует улицы.
-~
+@eng A Defender of Gerighelm is here, on patrol.@rus Защитник Геригхельма (defender) патрулирует улицы.~
 @eng He is worn, and tired.  But he still stays at his job!
 @rus Он выглядит очень утомленным. Но, тем не менее, он стойко несет
 свою службу!
@@ -807,9 +735,7 @@ r sound -50
 #7536
 palace стражник guard страж дворца~
 @eng a palace guard@rus ~~страж~~ дворца~
-@eng A palace guard is here, standing tall.
-@rus Высокий страж дворца (palace) стоит здесь.
-~
+@eng A palace guard is here, standing tall.@rus Высокий страж дворца (palace) стоит здесь.~
 @eng He looks happy with life-- As he is in the best position to enjoy it..
 @rus Похоже, он доволен жизнью - поскольку находится в наилучшем положении,
 чтобы наслаждаться ею...
@@ -838,9 +764,7 @@ r sound -50
 #7537
 palace стражник guard страж дворца~
 @eng a palace guard@rus ~~страж~~ дворца~
-@eng A palace guard is here, standing tall.
-@rus Высокий страж дворца (palace) охраняет покои герцога.
-~
+@eng A palace guard is here, standing tall.@rus Высокий страж дворца (palace) охраняет покои герцога.~
 @eng He looks happy with life-- As he is in the best position to enjoy it..
 @rus Похоже, он доволен жизнью - поскольку находится в наилучшем положении,
 чтобы наслаждаться ею...
@@ -869,9 +793,7 @@ r sound -50
 #7538
 cook повар~
 @eng the cook@rus повар~
-@eng The Cook is here, dreaming up new recipes.
-@rus Повар (Cook) придумывает рецепты новых гурманских блюд.
-~
+@eng The Cook is here, dreaming up new recipes.@rus Повар (Cook) придумывает рецепты новых гурманских блюд.~
 @eng He looks like one of his creampuffs.  To bad he doesn't know how to diet...
 @rus Он выглядит в точности как его кремовые пирожные. Видимо, он не знает, что
 такое диета...
@@ -900,9 +822,7 @@ r sound -50
 #7539
 palace маг mage придворный~
 @eng the palace mage@rus ~~придворный~~ ~~маг~~~
-@eng The palace Mage is here, practicing his spells.
-@rus Придворный Маг (Mage) практикует новые заклинания.
-~
+@eng The palace Mage is here, practicing his spells.@rus Придворный Маг (Mage) практикует новые заклинания.~
 @eng He is the standard wizard:  Old, decrepit, exceedingly powerful...
 @rus Это типичный волшебник: старый, ветхий, чрезвычайно могущественный...
 ~
@@ -918,9 +838,7 @@ r charm 999
 #7540
 palace священник priest придворный~
 @eng the palace priest@rus ~~придворный~~ ~~священник~~~
-@eng The Priest of this palace is here, praying devotedly to his God.
-@rus Придворный священник (priest) сосредоточенно молится своему Богу.
-~
+@eng The Priest of this palace is here, praying devotedly to his God.@rus Придворный священник (priest) сосредоточенно молится своему Богу.~
 @eng He is the standard priest:  Old, fatherly looking, REAL powerful...
 @rus Это типичный священник: старый, с отеческим взглядом, ДЕЙСТВИТЕЛЬНО
 могущественный...
@@ -936,9 +854,7 @@ r bash -50
 #7550
 head начальник guard стражи~
 @eng the head of the guard@rus ~~начальник~~ стражи~
-@eng The head of the guard is here--GOD He's HUGE!
-@rus Начальник стражи (head) тут - Бог мой! Он ОГРОМЕН!
-~
+@eng The head of the guard is here--GOD He's HUGE!@rus Начальник стражи (head) тут - Бог мой! Он ОГРОМЕН!~
 @eng He's HUGE!!!!
 @rus Он ОГРОМЕН! Просто ЗВЕРЮГА!
 ~
@@ -966,9 +882,7 @@ r sound -50
 #7551
 palace садовник gardener придворный~
 @eng the palace gardener@rus ~~придворный~~ ~~садовник~~~
-@eng The palace gardener is here, calmly uprooting some weeds.
-@rus Придворный садовник (gardener) неторопливо выпалывает сорняки.
-~
+@eng The palace gardener is here, calmly uprooting some weeds.@rus Придворный садовник (gardener) неторопливо выпалывает сорняки.~
 @eng He is grabbing weeds like there is no tomorrow...
 @rus Он так старательно вырывает сорняки, как будто они его личные враги.
 ~
@@ -996,9 +910,7 @@ r sound -50
 #7552
 bodyguard телохранитель body guard~
 @eng a bodyguard@rus телохранитель~
-@eng A bodyguard is here, guarding the Duke.
-@rus Телохранитель (bodyguard) охраняет Герцога.
-~
+@eng A bodyguard is here, guarding the Duke.@rus Телохранитель (bodyguard) охраняет Герцога.~
 ~
 human~
 GT 0 0 0 0 1000 0
@@ -1024,9 +936,7 @@ r sound -50
 #7553
 bodyguard телохранитель body guard~
 @eng a bodyguard@rus телохранитель~
-@eng A bodyguard is here, guarding his Duke.
-@rus Телохранитель (bodyguard) охраняет своего Герцога.
-~
+@eng A bodyguard is here, guarding his Duke.@rus Телохранитель (bodyguard) охраняет своего Герцога.~
 @eng He looks like he will give his life for his Duke.
 @rus Он готов без раздумий отдать жизнь за своего Герцога.
 ~
@@ -1054,9 +964,7 @@ r sound -50
 #7554
 duke герцог gerighelm геригхельма~
 @eng the Duke of Gerighelm@rus ~~Герцог~~ Геригхельма~
-@eng The Duke of Gerighelm is here, watching over his proud lands.
-@rus Герцог Геригхельма (Duke) наблюдает за жизнью в своей цветущей земле.
-~
+@eng The Duke of Gerighelm is here, watching over his proud lands.@rus Герцог Геригхельма (Duke) наблюдает за жизнью в своей цветущей земле.~
 @eng He looks worn, but happy.
 @rus Он выглядит немного устало, но, похоже, доволен своими поддаными.
 ~
@@ -1072,9 +980,7 @@ r charm 999
 #7555
 duchess герцогиня gerighelm геригхельма~
 @eng the Duchess of Gerighelm@rus ~~Герцогиня~~ Геригхельма~
-@eng The Duchess of Gerighelm is here, pondering dinner parties and the like.
-@rus Графиня Геригхельма (Duchess) обдумывает детали предстоящего обеда.
-~
+@eng The Duchess of Gerighelm is here, pondering dinner parties and the like.@rus Графиня Геригхельма (Duchess) обдумывает детали предстоящего обеда.~
 @eng She is a VERY social person...
 @rus Графиня - ОЧЕНЬ общительная женщина...
 ~
@@ -1090,9 +996,7 @@ r charm 999
 #7590
 servant слуга~
 @eng a servant@rus слуга~
-@eng A servant of the duke is here serving.
-@rus Слуга герцога (servant) выполняет свою работу.
-~
+@eng A servant of the duke is here serving.@rus Слуга герцога (servant) выполняет свою работу.~
 @eng He looks at you and says, what are you doing here?
 @rus Посмотрев на тебя, он интересуется, а что ты, собственно, тут делаешь?
 ~
@@ -1120,9 +1024,7 @@ r sound -50
 #7591
 cutpurse воришка~
 @eng a cutpurse@rus воришка~
-@eng A cutpurse is here, attempting to hide.
-@rus Мелкий воришка пытается спрятаться.
-~
+@eng A cutpurse is here, attempting to hide.@rus Мелкий воришка пытается спрятаться.~
 @eng Well, COUNT your money!
 @rus Таак, кажется пришла пора ПЕРЕСЧИТАТЬ свои деньги...
 Надеюсь, ты помнишь, сколько их у тебя БЫЛО...
@@ -1137,9 +1039,7 @@ stand stand either 200
 #7592
 baker пекарь~
 @eng a baker@rus пекарь~
-@eng The baker of Gerighelm is here, selling things.
-@rus Пекарь Геригхельма (baker) продает свои вкусно пахнущие изделия.
-~
+@eng The baker of Gerighelm is here, selling things.@rus Пекарь Геригхельма (baker) продает свои вкусно пахнущие изделия.~
 @eng He looks like a friendly old man who likes to bake.
 @rus Это дружелюбный пожилой мужчина, любящий что-нибудь (или кого-нибудь) испечь.
 ~
@@ -1170,9 +1070,7 @@ r sound 999
 #7593
 blacksmith кузнец vendy~
 @eng the blacksmith Vendy@rus ~~кузнец~~ Vendy~
-@eng The blacksmith Vendy is here, pounding on an anvil and selling things.
-@rus Кузнец Vendy (blacksmith) отрывается от работы чтобы показать тебе свой товар.
-~
+@eng The blacksmith Vendy is here, pounding on an anvil and selling things.@rus Кузнец Vendy (blacksmith) отрывается от работы чтобы показать тебе свой товар.~
 @eng The way she is pounding her anvil makes you want to be on his good side.
 The main reason, is that I doubt the anvil can take much more of her pounding.
 @rus Посмотрев, как она бьет молотом по своей наковальне, ты понимаешь, что лучше
@@ -1206,9 +1104,7 @@ r sound 999
 #7594
 mage маг~
 @eng the mage@rus маг~
-@eng The Mage is here, selling things.
-@rus Маг (mage) продает различные магические вещи.
-~
+@eng The Mage is here, selling things.@rus Маг (mage) продает различные магические вещи.~
 @eng He is a powerful old coot....
 @rus Это могущественный старик... что еще ты хочешь узнать?
 ~
@@ -1239,9 +1135,7 @@ r sound 999
 #7595
 pawn shop runner~
 @eng the pawn shop owner@rus ~~владелец~~ ломбарда~
-@eng The Pawn Shop owner is here selling and buying things.
-@rus Владелец ломбарда (pawn) покупает и продает всякие вещи.
-~
+@eng The Pawn Shop owner is here selling and buying things.@rus Владелец ломбарда (pawn) покупает и продает всякие вещи.~
 @eng He looks almost like the pawn...
 @rus Выглядит он как-то странно :)
 ~
@@ -1272,9 +1166,7 @@ r sound 999
 #7597
 merchant купец~
 @eng the merchant@rus купец~
-@eng The merchant is here, selling his wares.
-@rus Купец (merchant) продает свои товары.
-~
+@eng The merchant is here, selling his wares.@rus Купец (merchant) продает свои товары.~
 @eng HE'S A MERCHANT!
 @rus ЭТО ПРОСТО КУПЕЦ!
 ~
@@ -1305,9 +1197,7 @@ r sound 999
 #7604
 herbalist торговей травами~
 @eng the herbalist@rus ~~торговец~~ травами~
-@eng The Herbalist is here, selling herbs.
-@rus Торговец травами (herbalist) продает травы на любой вкус.
-~
+@eng The Herbalist is here, selling herbs.@rus Торговец травами (herbalist) продает травы на любой вкус.~
 @eng She looks like she is happy with her lot in life.
 @rus Она выглядит полностью довольной своей ролью в жизни.
 ~
@@ -1338,9 +1228,7 @@ r sound 999
 #7609
 animal дрессировщик man~
 @eng the animal man@rus ~~дрессировщик~~ животных~
-@eng The Animal Man is here, selling pets.
-@rus Дрессировщик (animal) торгует животными.
-~
+@eng The Animal Man is here, selling pets.@rus Дрессировщик (animal) торгует животными.~
 @eng He is covered in his stock..
 @rus Он занят созерцанием своих животных..
 ~
@@ -1368,9 +1256,7 @@ r sound 999
 #7610
 witch ведьма hag~
 @eng the old witch@rus ~~старая~~ ~~ведьма~~~
-@eng The old Witch is here, selling things.
-@rus Старая ведьма (witch) продает что-то.
-~
+@eng The old Witch is here, selling things.@rus Старая ведьма (witch) продает что-то.~
 @eng She is old, and ugly- very good witch material...
 @rus Она старая и уродливая - вот уж действительно ведьма!!!
 ~
@@ -1401,9 +1287,7 @@ r sound 999
 #7698
 hawk ястреб~
 @eng a hawk@rus ястреб~
-@eng A hawk is here, loyal to it's owner.
-@rus Верный своему хозяину ястреб (hawk) кружится над тобой.
-~
+@eng A hawk is here, loyal to it's owner.@rus Верный своему хозяину ястреб (hawk) кружится над тобой.~
 @eng The hawk glares at you.
 @rus Ястреб впивается в тебя взглядом.
 ~
@@ -1417,9 +1301,7 @@ stand stand male 10
 #7699
 death смерть~
 @eng the Death@rus Смерть~
-@eng Death is here waiting for you.
-@rus Смерть (Death) ждет тебя.
-~
+@eng Death is here waiting for you.@rus Смерть (Death) ждет тебя.~
 @eng It is strong, impertubable looking creature. It notice that you look at its, 
 and it says: 'Have a nice day'. Hm?... Death is your only way, probably...
 @rus Это сильное, невозмутимо выглядящее существо. Вот оно перехватывает твой
@@ -2151,9 +2033,9 @@ magic бутылка bottle air магическая воздуха~
 @eng The Magic bottle of Air@rus ~~Магическая~~ ~~бутылка~~ Воздуха~
 @eng A bottle is here,  collecting dust.@rus Магическая бутылка (bottle) пылится тут.~
 glass~
-boat A 0 A
+boat A 0 AO
 0 0 0 0 0
-3 1 300 P
+1 1 600 P
 E
 bottle magic air~
 @eng It has written on the side:
@@ -7123,6 +7005,7 @@ M 0 7604 1 7574 1	* the herbalist (Herbalist Shop)
 G 0 7507 0		*	the herbalist: a bunch of red herbs
 G 0 7508 0		*	the herbalist: a bunch of green herbs
 M 0 7594 1 7576 1	* the mage (Magic Shop)
+G 0 7597 0		*	the mage: The Magic bottle of Air
 G 0 7517 0		*	the mage: a bag of marbles
 P 0 7602 5 0 1	* a bag of marbles: a yellow marble
 P 0 7601 5 0 1	* a bag of marbles: a blue marble

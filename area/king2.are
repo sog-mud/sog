@@ -11,8 +11,7 @@ End
 #15201
 king welmar~
 King Welmar~
-The wise King Welmar sits here in his throne.
-~
+The wise King Welmar sits here in his throne.~
 In his later middle-age, with his beard starting to grey, King Welmar
 is still very powerfully built, and wouldn't take kindly to an attack.
 Despite that, you know he is well-loved throughout the land, and has
@@ -31,8 +30,7 @@ r slash -50
 #15202
 ghost horrible~
 the horrible ghost~
-You hear a frightening wail, and see a horrible Ghost approaching.
-~
+You hear a frightening wail, and see a horrible Ghost approaching.~
 The Ghost is almost translucent, and looks really SCARY!
 ~
 modron~
@@ -56,8 +54,7 @@ r charm -100
 #15203
 jim guard royal~
 Jim the Royal guard~
-Jim the Royal guard is here on duty.
-~
+Jim the Royal guard is here on duty.~
 As all members of the Guard, Jim wears the chain mail required of
 them as uniform. He seems very well trained, and moves like an
 experienced fighter.
@@ -72,8 +69,7 @@ stand stand male 5500
 #15204
 brian guard royal~
 Brian~
-Brian the Royal guard is here, training with the Master.
-~
+Brian the Royal guard is here, training with the Master.~
 human~
 unique~
 BG 0 0 0 0 800 0
@@ -85,8 +81,7 @@ stand stand male 5600
 #15205
 mick guard royal~
 Mick~
-Mick the Royal guard is here, training with the Master.
-~
+Mick the Royal guard is here, training with the Master.~
 As all members of the Guard, Mick wears the chain mail required of
 them as uniform. He seems very well trained, and moves like an
 experienced fighter.
@@ -101,8 +96,7 @@ stand stand male 5700
 #15206
 matt guard royal~
 Matt the Royal guard~
-Matt the Royal guard is here on duty.
-~
+Matt the Royal guard is here on duty.~
 As all members of the Guard, Matt wears the chain mail required of
 them as uniform. He seems very well trained, and moves like an
 experienced fighter.
@@ -117,8 +111,7 @@ stand stand male 5800
 #15207
 jochem guard royal~
 Jochem the Royal guard~
-Jochem the Royal guard sits here, off duty.
-~
+Jochem the Royal guard sits here, off duty.~
 As all members of the Guard, Jochem wears the chain mail required of
 them as uniform. He seems very well trained, and moves like a fighter
 who has seen more than one battle, and longs to see the next!
@@ -133,8 +126,7 @@ stand stand male 5900
 #15208
 anne guard royal~
 Anne the Royal guard~
-Anne the Royal guard is here on duty.
-~
+Anne the Royal guard is here on duty.~
 As all members of the Guard, Anne wears the chain mail required of
 them as uniform. She seems very well trained, and moves like a fighter
 who has seen more than one battle, and longs to see the next!
@@ -149,8 +141,7 @@ stand stand female 6000
 #15209
 andrew guard royal~
 Andrew the Royal guard~
-Andrew the Royal guard is here on duty.
-~
+Andrew the Royal guard is here on duty.~
 As all members of the Guard, Andrew wears the chain mail required of
 them as uniform. He seems very well trained, and moves like a fighter
 who has seen more than one battle, and longs to see the next!
@@ -165,8 +156,7 @@ stand stand male 6000
 #15210
 bertram bert guard royal~
 Bertram the Royal guard~
-Bertram the Royal guard is here on duty.
-~
+Bertram the Royal guard is here on duty.~
 As all members of the Guard, Bertram wears the chain mail required of
 them as uniform. He seems very well trained, and carries his scars
 with pride. This guy seems tough...
@@ -181,8 +171,7 @@ stand stand male 5500
 #15211
 jeanette guard royal~
 Jeanette the Royal guard~
-Jeanette the Royal guard is here on duty.
-~
+Jeanette the Royal guard is here on duty.~
 As all members of the Guard, Jeanette wears the chain mail required of
 them as uniform. She seems very well trained, and carries her scars
 with pride. This girl could be nasty if she wanted to...
@@ -197,8 +186,7 @@ stand stand female 5400
 #15212
 peter captain guard royal~
 Peter, the Captain of the Royal guard~
-Peter, the Captain of the Royal guard, walks around inspecting.
-~
+Peter, the Captain of the Royal guard, walks around inspecting.~
 As all members of the Guard, Peter wears the chain mail required of
 them as uniform. Even though all the other guards seem well trained,
 you realise none of them would stand a chance against this man in a
@@ -217,8 +205,7 @@ stand stand male 9700
 #15213
 master trainingmaster~
 the Training Master~
-The Training Master is here, supervising.
-~
+The Training Master is here, supervising.~
 Aged, but experienced, the Training Master is skilled in the use
 of virtually every weapon type invented by Man.
 ~
@@ -232,8 +219,7 @@ stand stand male 10000
 #15214
 herald royal~
 the Royal Herald~
-The Royal Herald is standing here.
-~
+The Royal Herald is standing here.~
 This is a young, powerfully built man, whose primary function
 is to make Royal Announcements.
 ~
@@ -247,8 +233,7 @@ stand stand male 3000
 #15215
 ergan murderer~
 Ergan the Murderer~
-Slumped in a corner you see Ergan, the Murderer of Townsbridge.
-~
+Slumped in a corner you see Ergan, the Murderer of Townsbridge.~
 You remember a time almost a decade ago, when the news of the day
 was how this man had slaughtered the entire population of the little
 village of Townsbridge. He was imprisoned, and here he is: a shadow
@@ -269,8 +254,7 @@ r mental 50
 #15216
 butler james~
 James the Butler~
-James the Butler is standing here, looking pompous.
-~
+James the Butler is standing here, looking pompous.~
 The typical perfect butler: upper middle age, a bit bald and with
 an impressive belly.
 ~
@@ -284,8 +268,7 @@ stand stand male 5300
 #15217
 woman cleaning~
 the Cleaning Woman~
-There is a Cleaning Woman here, trying not be noticed.
-~
+There is a Cleaning Woman here, trying not be noticed.~
 Although she has a menial job, she seems to like it.
 ~
 elf~
@@ -303,8 +286,7 @@ r charm -33
 #15218
 cockroach roach~
 the Cockroach~
-A large Cockroach is crawling by the wall.
-~
+A large Cockroach is crawling by the wall.~
 Very large indeed, and they say cockroaches are hard to kill...
 ~
 centipede~
@@ -321,8 +303,7 @@ r cold -33
 #15219
 astrologer~
 the Astrologer~
-The Astrologer is sitting here, studying a book.
-~
+The Astrologer is sitting here, studying a book.~
 lizard~
 unique~
 BR 0 0 0 0 900 0
@@ -351,8 +332,7 @@ r sound -50
 #15220
 tim guard lifeguard~
 Tim, the King's Lifeguard~
-Tim, the King's Lifeguard, is standing here.
-~
+Tim, the King's Lifeguard, is standing here.~
 This guy looks just like his twin, Tom. There seems to be no
 doubt that he is completely prepared to give his life
 for the King, if necessary.
@@ -367,8 +347,7 @@ stand stand male 10000
 #15221
 tom guard lifeguard~
 Tom, the King's Lifeguard~
-Tom, the King's Lifeguard, is standing here.
-~
+Tom, the King's Lifeguard, is standing here.~
 This guy looks just like his twin, Tim. There seems to be no
 doubt that he is completely prepared to give his life
 for the King, if necessary.
@@ -383,8 +362,7 @@ stand stand male 10000
 #15222
 chef cook~
 the Chef~
-The Chef is here, shouting orders to the other cooks.
-~
+The Chef is here, shouting orders to the other cooks.~
 It seems he has been tasting his own food a bit too enthusiastically.
 He is, in other words, a bit fat.
 ~
@@ -412,8 +390,7 @@ r sound -50
 #15223
 cook~
 the Cook~
-There is a Cook here, making himself busy with a pot.
-~
+There is a Cook here, making himself busy with a pot.~
 A junior cook, eager to do the Chef's bidding.
 ~
 human~
@@ -440,8 +417,7 @@ r sound -50
 #15224
 david guard~
 David~
-David, a big, mean-looking man, stands here, guarding the door.
-~
+David, a big, mean-looking man, stands here, guarding the door.~
 He really is big, and you get the feeling he wouldn't take kindly
 to an attempt to get past him.
 ~
@@ -455,8 +431,7 @@ stand stand male 3600
 #15225
 dick guard~
 Dick~
-Dick, a big, mean-looking man, stands here, guarding the door.
-~
+Dick, a big, mean-looking man, stands here, guarding the door.~
 He really is big, and you get the feeling he wouldn't take kindly
 to an attempt to get past him.
 ~
@@ -470,8 +445,7 @@ stand stand male 3600
 #15226
 jerry guard royal~
 Jerry the Royal guard~
-Jerry the Royal guard is here off duty, playing dice.
-~
+Jerry the Royal guard is here off duty, playing dice.~
 As all members of the Guard, Jerry wears the chain mail required of
 them as uniform. He seems very well trained, and moves like an
 experienced fighter.
@@ -486,8 +460,7 @@ stand stand male 6700
 #15227
 michael guard royal~
 Michael the Royal guard~
-Michael the Royal guard is here off duty, playing dice.
-~
+Michael the Royal guard is here off duty, playing dice.~
 As all members of the Guard, Michael wears the chain mail required of
 them as uniform. He seems very well trained, and moves like an
 experienced fighter.
@@ -502,8 +475,7 @@ stand stand male 6200
 #15228
 hans guard royal~
 Hans the Royal guard~
-Hans the Royal guard is here on duty.
-~
+Hans the Royal guard is here on duty.~
 As all members of the Guard, Hans wears the chain mail required of
 them as uniform. He seems very well trained, and moves like a fighter
 who has seen more than one battle, and longs to see the next!
@@ -518,8 +490,7 @@ stand stand male 6400
 #15229
 boris guard royal~
 Boris the Royal guard~
-Boris the Royal guard is here on duty.
-~
+Boris the Royal guard is here on duty.~
 As all members of the Guard, Boris wears the chain mail required of
 them as uniform. He seems very well trained, and carries his scars
 with pride. This guy seems tough...
@@ -534,8 +505,7 @@ stand stand male 6100
 #15230
 executioner~
 the Executioner~
-Executioner is here on duty.
-~
+Executioner is here on duty.~
 Big. Very big. Not stupid like Hassan but dagerous like one.
 ~
 giant~

@@ -11,8 +11,7 @@ End
 #31200
 east wall guard~
 an east wall guard~
-An east wall guard patrols the battlements, ever alert for approaching enemies.
-~
+An east wall guard patrols the battlements, ever alert for approaching enemies.~
 These dedicated guards are among the elite of the guards of the city,
 selected for their dedication, endurance and keen eyesight. They remain
 eternally vigilant, not wishing for their city to fall under the domination
@@ -28,8 +27,7 @@ stand stand male 200
 #31201
 south wall guard~
 a south wall guard~
-A south wall guard patrols the battlements, ever alert for approaching enemies.
-~
+A south wall guard patrols the battlements, ever alert for approaching enemies.~
 These dedicated guards are among the elite of the guards of the city,
 selected for their dedication, endurance and keen eyesight. They remain
 eternally vigilant, not wishing for their city to fall under the domination
@@ -45,8 +43,7 @@ stand stand male 200
 #31202
 north wall guard~
 a north wall guard~
-A north wall guard patrols the battlements, ever alert for approaching enemies.
-~
+A north wall guard patrols the battlements, ever alert for approaching enemies.~
 These dedicated guards are among the elite of the guards of the city,
 selected for their dedication, endurance and keen eyesight. They remain
 eternally vigilant, not wishing for their city to fall under the domination
@@ -62,8 +59,7 @@ stand stand male 200
 #31203
 west wall guard~
 an west wall guard~
-An west wall guard patrols the battlements, ever alert for approaching enemies.
-~
+An west wall guard patrols the battlements, ever alert for approaching enemies.~
 These dedicated guards are among the elite of the guards of the city,
 selected for their dedication, endurance and keen eyesight. They remain
 eternally vigilant, not wishing for their city to fall under the domination
@@ -79,8 +75,7 @@ stand stand male 200
 #31204
 guard captain east wall~
 the east wall guard captain~
-The east wall guard captain stares grimly at you.
-~
+The east wall guard captain stares grimly at you.~
 This stern fellow is in charge of the guards on this wall, and has no time
 for idle chit-chat with civilians. Or silly adventurers either. Scars on his
 face and the cold look in his eye bespeak of a man who definitely knows how
@@ -96,8 +91,7 @@ stand stand male 200
 #31205
 guard captain south wall~
 the south wall guard captain~
-The south wall guard captain stares grimly at you.
-~
+The south wall guard captain stares grimly at you.~
 This stern fellow is in charge of the guards on this wall, and has no time
 for idle chit-chat with civilians. Or silly adventurers either. Scars on his
 face and the cold look in his eye bespeak of a man who definitely knows how
@@ -113,8 +107,7 @@ stand stand male 200
 #31206
 guard captain north wall~
 the north wall guard captain~
-The north wall guard captain stares grimly at you.
-~
+The north wall guard captain stares grimly at you.~
 This stern fellow is in charge of the guards on this wall, and has no time
 for idle chit-chat with civilians. Or silly adventurers either. Scars on his
 face and the cold look in his eye bespeak of a man who definitely knows how
@@ -130,8 +123,7 @@ stand stand male 200
 #31207
 guard captain west wall~
 the west wall guard captain~
-The west wall guard captain stares grimly at you.
-~
+The west wall guard captain stares grimly at you.~
 This stern fellow is in charge of the guards on this wall, and has no time
 for idle chit-chat with civilians. Or silly adventurers either. Scars on his
 face and the cold look in his eye bespeak of a man who definitely knows how
@@ -147,8 +139,7 @@ stand stand male 200
 #31208
 knight~
 a knight~
-A well-armored knight strolls the battlements.
-~
+A well-armored knight strolls the battlements.~
 The knights of Anon are a well-respected and renowned order that has been
 in existence for 15 generations. However constant wars and incursions of
 chaos have severely depleted their numbers, and now very few remain.
@@ -163,8 +154,7 @@ stand stand male 200
 #31209
 battle mage~
 an elven battle mage~
-An elven battle mage stands ready.
-~
+An elven battle mage stands ready.~
 While Elves are not by nature particularly interested in war or soldiering,
 there are, as in all races, "black sheep" who feel the call to arms as
 keenly as any Dwarven or Human mercenary. These few become mercenaries or
@@ -183,8 +173,7 @@ r charm -33
 #31210
 marshal~
 the marshal~
-The marshal of the guards marches back and forth, inspecting his men.
-~
+The marshal of the guards marches back and forth, inspecting his men.~
 This ancient veteran is clad in an immaculate uniform that sports more
 medals than it does material. He marches proudly along, constantly on
 duty, ever eager to make sure order is maintained on HIS walls.
@@ -199,8 +188,7 @@ stand stand male 200
 #31211
 crossbowman~
 a crossbowman~
-A crossbowman patrols here, alert for invaders.
-~
+A crossbowman patrols here, alert for invaders.~
 The crossbowmen of the city of Anon are renowned for their marksmanship
 across the land. Only the very best can ever hope to join their elite
 ranks.
@@ -215,8 +203,7 @@ stand stand male 200
 #31212
 smith~
 the guard smith~
-The wall guard smith grunts at you.
-~
+The wall guard smith grunts at you.~
 This doughty dwarf spends all his time repairing damaged equipment. He isn't
 one for much conversation.
 ~
@@ -233,8 +220,7 @@ r disease -25
 #31213
 spectre~
 a vile spectre~
-A vile spectre lunges at you.
-~
+A vile spectre lunges at you.~
 This is the evil soul of a vile sergeant-at-arms who imprisoned the young
 girl here who eventually slew him, dying herself in the process. He has been
 condemned to remain here for eternity in punishment for his sins.
@@ -249,8 +235,7 @@ stand stand none 200
 #31214
 ghost~
 a ghost~
-A nearly-insubstantial ghost flits silently about.
-~
+A nearly-insubstantial ghost flits silently about.~
 This is the tormented soul of an innocent peasant girl, captured and dragged
 here by a wicked guard intent on marrying her. She slew him while trying to
 escape, but died herself in the process, slipping in his blood and breaking
@@ -266,8 +251,7 @@ stand stand none 200
 #31215
 priestess~
 a priestess of Lenny~
-A priestess of Lenny is here tending to the sick.
-~
+A priestess of Lenny is here tending to the sick.~
 This kind woman cures the injuries and ailments of the city guards. She
 smiles at you as you enter, and bids you state your injuries so she can
 heal them.
@@ -282,8 +266,7 @@ stand stand female 200
 #31216
 worker~
 a burly worker~
-A burly worker shoves a heavy barrel onto a scow.
-~
+A burly worker shoves a heavy barrel onto a scow.~
 These burly fellows would be a tough foe in a barroom brawl. They have more
 tattoos than skin, it seems, and more hair than the average Kodiak grizzly.
 ~
@@ -297,8 +280,7 @@ stand stand male 200
 #31217
 sailor~
 a sailor~
-A crusty old sailor swigs from his bottle of rum.
-~
+A crusty old sailor swigs from his bottle of rum.~
 This disreputable-looking fellow is a crew member from one of the scows. He
 is simply waiting till its time to go.
 ~
@@ -312,8 +294,7 @@ stand stand male 200
 #31218
 dock master~
 the dock master~
-The dock master is here checking cargo inventories.
-~
+The dock master is here checking cargo inventories.~
 He is far too busy to speak to you.
 ~
 human~

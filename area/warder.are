@@ -12,9 +12,7 @@ End
 #96000
 biomass mass~
 biomass~
-@eng Something like biomass is here.
-@rus Нечто похожее на биомассу стоит здесь
-~
+@eng Something like biomass is here.@rus Нечто похожее на биомассу стоит здесь~
 You understand that you can't describe that
 It looks realy strange. You never see that.
 ~
@@ -44,8 +42,7 @@ r sound 999
 #96001
 ancient owl~
 the ancient owl~
-The ancient owl sits here
-~
+The ancient owl sits here~
 ~
 unique~
 BQVW H HV 0 ABH 0 0

@@ -11,9 +11,7 @@ End
 #22101
 lizard king~
 lizard king~
-@eng The Lizard King stands here.
-@rus Король ящериц, притворившись статуей, купается в лучах солнца.
-~
+@eng The Lizard King stands here.@rus Король ящериц, притворившись статуей, купается в лучах солнца.~
 ~
 lizard~
 BTe 0 H 0 ABL 0 0
@@ -31,8 +29,7 @@ r charm 999
 #22102
 gray lizard~
 gray lizard~
-Gray lizard stands here.
-~
+Gray lizard stands here.~
 ~
 lizard~
 0 0 0 0 A 0 0
@@ -46,8 +43,7 @@ r poison -33
 #22103
 small lizard~
 small lizard~
-Small gray lizard stands here.
-~
+Small gray lizard stands here.~
 ~
 lizard~
 0 0 0 0 0 0 0
@@ -61,8 +57,7 @@ r poison -33
 #22104
 grand lizard~
 grand lizard~
-The grand lizard stands here.
-~
+The grand lizard stands here.~
 ~
 lizard~
 T 0 0 0 A 0 0
@@ -76,8 +71,7 @@ r poison -33
 #22105
 serpent~
 serpent~
-Huge serpent is here.
-~
+Huge serpent is here.~
 ~
 snake~
 0 0 0 0 A 0 0
@@ -91,8 +85,7 @@ r poison -33
 #22106
 snake~
 snake~
-Huge snake is here.
-~
+Huge snake is here.~
 ~
 snake~
 0 0 0 0 A 0 0
@@ -106,8 +99,7 @@ r poison -33
 #22107
 dog~
 dog~
-A dog wanna bite you.
-~
+A dog wanna bite you.~
 ~
 dog~
 0 0 0 0 0 0 0
@@ -119,8 +111,7 @@ stand stand none 0
 #22108
 lion~
 the lion~
-The very proud lion stands here.
-~
+The very proud lion stands here.~
 ~
 lion~
 0 0 0 0 0 0 0
@@ -135,8 +126,7 @@ r slash -33
 #22109
 lizard priest~
 lizard priest~
-The lizard priest is praying here
-~
+The lizard priest is praying here~
 ~
 lizard~
 BQ 0 H 0 A 0 0
@@ -150,8 +140,7 @@ r poison -33
 #22110
 ~
 lizard monk~
-The lizard monk is here or maybe not.
-~
+The lizard monk is here or maybe not.~
 ~
 lizard~
 T 0 0 0 0 0 0
@@ -168,8 +157,7 @@ r poison -33
 #22111
 archbishop~
 archbishop~
-The figure in mist of gods flying here
-~
+The figure in mist of gods flying here~
 ~
 human~
 Q 0 HNT A AB 0 0
@@ -182,8 +170,7 @@ F for AHMV
 #22112
 knocker~
 knocker~
-The lizard try to break the earth here.
-~
+The lizard try to break the earth here.~
 ~
 lizard~
 B 0 0 0 0 0 0
@@ -197,8 +184,7 @@ r poison -33
 #22113
 arena master~
 master of arena~
-The huge man help everyone to die stands here.
-~
+The huge man help everyone to die stands here.~
 ~
 human~
 T 0 0 0 0 0 0
@@ -213,8 +199,7 @@ r slash 33
 #22114
 rattlesnake~
 rattlesnake~
-The huge rattlesnake is here.
-~
+The huge rattlesnake is here.~
 ~
 snake~
 0 0 0 0 0 0 0
@@ -228,8 +213,7 @@ r poison -33
 #22115
 cobra~
 cobra~
-Horrible cobra gonna bite you.
-~
+Horrible cobra gonna bite you.~
 ~
 snake~
 0 0 0 0 0 0 0
@@ -243,8 +227,7 @@ r poison -33
 #22116
 gladiator~
 gladiator~
-Man ready to fight with you.
-~
+Man ready to fight with you.~
 ~
 human~
 T 0 0 0 0 0 0
@@ -256,8 +239,7 @@ stand stand none 0
 #22117
 lizard high~
 high lizard~
-Strong lizard look at someone else , not you.
-~
+Strong lizard look at someone else , not you.~
 ~
 lizard~
 T 0 0 0 A 0 0
@@ -271,8 +253,7 @@ r poison -33
 #22118
 lizard guard~
 lizard guard~
-Large lizard is protecting the palace.
-~
+Large lizard is protecting the palace.~
 ~
 lizard~
 GTW 0 0 0 A 0 0
@@ -286,8 +267,7 @@ r poison -33
 #22119
 bodyguard~
 bodyguard~
-Strong lizard who ready to die for the king.
-~
+Strong lizard who ready to die for the king.~
 ~
 lizard~
 BTe 0 H 0 AB 0 0
@@ -305,8 +285,7 @@ r charm 999
 #22120
 shaman~
 shaman~
-Strange figure slowly dancing around you.
-~
+Strange figure slowly dancing around you.~
 ~
 human~
 Q 0 HNOV 0 AB 0 0
@@ -323,8 +302,7 @@ r cold 33
 #22121
 mercenary~
 mercenary~
-Strong man stands here.
-~
+Strong man stands here.~
 ~
 human~
 T 0 J 0 0 0 0
@@ -336,8 +314,7 @@ stand stand none 10000
 #22122
 fat ko~
 fat ko~
-Very fat lizard sells his cookies.
-~
+Very fat lizard sells his cookies.~
 ~
 lizard~
 BEVe 0 H 0 AB 0 0
@@ -351,8 +328,7 @@ r poison -33
 #22123
 sa~
 sa-long-tingue~
-Lizard with very long tingue says,'Maybe buy something?' 
-~
+Lizard with very long tingue says,'Maybe buy something?' ~
 ~
 lizard~
 0 0 H 0 AB 0 0
@@ -366,8 +342,7 @@ r poison -33
 #22124
 vi~
 Vi-heavy-hand~
-Large lizard with heavy looking hand is here.
-~
+Large lizard with heavy looking hand is here.~
 ~
 lizard~
 0 0 H 0 AB 0 0
@@ -381,8 +356,7 @@ r poison -33
 #22125
 zo~
 zo-eagle-eye~
-Busy looking lizard is here.
-~
+Busy looking lizard is here.~
 ~
 lizard~
 0 0 H 0 AB 0 0
@@ -396,8 +370,7 @@ r poison -33
 #22126
 la~
 la addict~
-Lizard looks like addict is here.
-~
+Lizard looks like addict is here.~
 ~
 lizard~
 0 0 H 0 AB 0 0
@@ -411,8 +384,7 @@ r poison -33
 #22127
 de~
 de alchemist~
-Lizard alchemist stands here.
-~
+Lizard alchemist stands here.~
 ~
 lizard~
 0 0 H 0 AB 0 0
@@ -426,8 +398,7 @@ r poison -33
 #22128
 mu~
 mu-wand-making-lizard~
-Wand making lizard stands here.
-~
+Wand making lizard stands here.~
 ~
 lizard~
 0 0 H 0 AB 0 0
@@ -441,8 +412,7 @@ r poison -33
 #22129
 slim se~
 slim~
-Very slim bartender stands here.
-~
+Very slim bartender stands here.~
 ~
 lizard~
 0 0 H 0 AB 0 0
@@ -456,8 +426,7 @@ r poison -33
 #22130
 fat tourist~
 fat tourist~
-Very fat tourist is searching someting to make picture.
-~
+Very fat tourist is searching someting to make picture.~
 ~
 human~
 0 0 0 0 0 0 0
@@ -469,8 +438,7 @@ stand stand none 0
 #22131
 female tourist~
 female tourist~
-Woman searching for fine picture.
-~
+Woman searching for fine picture.~
 ~
 human~
 0 0 J 0 0 0 0
@@ -482,8 +450,7 @@ stand stand none 10000
 #22132
 child tourist~
 child tourist~
-Child is laughting here.
-~
+Child is laughting here.~
 ~
 human~
 0 0 0 0 0 0 0
@@ -496,8 +463,7 @@ F for AHMV
 #22133
 halfdead lizard~
 halfdead lizard~
-You see lizard,it is going die here.
-~
+You see lizard,it is going die here.~
 ~
 lizard~
 0 0 0 0 0 0 0
@@ -511,8 +477,7 @@ r poison -33
 #22134
 halfdead snake~
 halfdead snake~
-You see snake,it is going die here.
-~
+You see snake,it is going die here.~
 ~
 snake~
 0 0 0 0 0 0 0
@@ -526,8 +491,7 @@ r poison -33
 #22135
 lizard green~
 green lizard~
-Green lizard stands here.
-~
+Green lizard stands here.~
 ~
 lizard~
 0 0 0 0 A 0 0
@@ -541,8 +505,7 @@ r poison -33
 #22136
 small lizard~
 small lizard~
-Small green lizard stands here.
-~
+Small green lizard stands here.~
 ~
 lizard~
 0 0 0 0 0 0 0
@@ -556,8 +519,7 @@ r poison -33
 #22137
 bird~
 bird~
-Small bird is flying here.
-~
+Small bird is flying here.~
 ~
 song bird~
 0 0 0 0 0 0 0
@@ -569,8 +531,7 @@ stand stand none 0
 #22138
 butterfly~
 butterfly~
-Small butterfly is flying here.
-~
+Small butterfly is flying here.~
 ~
 song bird~
 0 0 0 0 0 0 0
@@ -582,8 +543,7 @@ stand stand none 0
 #22139
 outlaw~
 outlaw~
-Horrible man jump form the shadows.
-~
+Horrible man jump form the shadows.~
 ~
 human~
 BFS 0 0 0 B 0 0
@@ -595,8 +555,7 @@ stand stand none 100000
 #22140
 bandit~
 bandit~
-figure from shadow try to cleave you.
-~
+figure from shadow try to cleave you.~
 ~
 human~
 BFS 0 0 0 0 0 0
@@ -608,8 +567,7 @@ stand stand none 0
 #22141
 minister's daughter~
 minister's daughter~
-Stripped young waman stands here.
-~
+Stripped young waman stands here.~
 ~
 human~
 0 0 0 0 0 0 0
@@ -622,8 +580,7 @@ F for AHMV
 #22142
 assassin~
 assassin~
-figure in black silently attack you.
-~
+figure in black silently attack you.~
 ~
 human~
 BFS 0 0 0 0 0 0

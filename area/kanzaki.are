@@ -14,9 +14,7 @@ End
 #47000
 statue warrior~
 @eng The statue@rus Статуя~
-@eng Statue of the warrior clan in silvery armor stands here.
-@rus Статуя воина, одетого в серебристые доспехи, стоит здесь.
-~
+@eng Statue of the warrior clan in silvery armor stands here.@rus Статуя воина, одетого в серебристые доспехи, стоит здесь.~
 @eng An imposing figure clad in a suit of mithril armor is almost
 12 feet tall.  It appears mighty and indestructible.  A huge
 two-handed sword looks not more than just a fragile stick in   
@@ -61,9 +59,7 @@ r sound 83
 #47100
 duck утка~
 @eng a duck@rus ~~утка~~~
-@eng A duck is here, quacking loudly.
-@rus Утка (duck) путается у тебя под ногами, громко крякая.
-~
+@eng A duck is here, quacking loudly.@rus Утка (duck) путается у тебя под ногами, громко крякая.~
 @eng A medium sized duck is crossing the road right
 before you and quacking loudly at everyone.
 @rus Средних размеров утка решает пересечь дорогу
@@ -81,9 +77,7 @@ g @eng neutral@rus female~
 #47101
 утенок small duck~
 @eng a small duck@rus ~~утенок~~~
-@eng A small duck is looking for its mother.
-@rus Утенок (duck) вертит головой в разные стороны, разыскивая утку.
-~
+@eng A small duck is looking for its mother.@rus Утенок (duck) вертит головой в разные стороны, разыскивая утку.~
 @eng It is cute and quiet enough, and too young
 to be served anyway.
 @rus Покрытый с ног до головы желтым пухом, он весьма
@@ -101,9 +95,7 @@ g @eng neutral@rus male~
 #47102
 snake змея змейка~
 @eng a small snake@rus ~~маленькая~~ ~~змейка~~~
-@eng A snake slithers silently in the grass.
-@rus Небольшая змея (snake) бесшумно скользит в траве.
-~
+@eng A snake slithers silently in the grass.@rus Небольшая змея (snake) бесшумно скользит в траве.~
 @eng It looks harmless but you'd better not check
 if it's venomous or not.
 @rus Она выглядит совсем безобидной, но все же не стоит проверять,
@@ -122,9 +114,7 @@ r poison -33
 #47103
 grasshopper кузнечик~
 @eng a grasshopper@rus ~~кузнечик~~~
-@eng A tiny grasshopper is hiding in the grass.
-@rus Крохотный кузнечик (grasshopper) притаился в траве.
-~
+@eng A tiny grasshopper is hiding in the grass.@rus Крохотный кузнечик (grasshopper) притаился в траве.~
 @eng Very small and fragile, it jumps away as you approach.
 @rus Очень маленький и хрупкий, он сигает в сторону едва
 ты подходишь ближе.
@@ -140,9 +130,7 @@ g @eng neutral@rus male~
 #47104
 small bird птичка маленькая~
 @eng a bird@rus ~~птичка~~~
-@eng A small bird is searching the grass for insects.
-@rus Какая-то птичка (bird) выискивает в траве букашек.
-~
+@eng A small bird is searching the grass for insects.@rus Какая-то птичка (bird) выискивает в траве букашек.~
 @eng It probably got tired from flying and singing
 and decided to catch some bug for a meal.
 @rus Наверное, она устала щебетать и решила подкрепиться
@@ -159,9 +147,7 @@ g @eng neutral@rus female~
 #47105
 ученик юноша young man apprentice~
 @eng apprentice@rus ~~ученик~~~
-@eng A young apprentice is performing complex motions here.
-@rus Молодой человек (man) отрабатывает здесь различные упражнения.
-~
+@eng A young apprentice is performing complex motions here.@rus Молодой человек (man) отрабатывает здесь различные упражнения.~
 @eng He follows every instruction given by his teacher, performing
 various motions some of which imitate combat moves.
 @rus Сосредоточенно глядя перед собой, он совершает сложные
@@ -182,9 +168,7 @@ r disease 33
 #47106
 teacher учитель пожилой человек man наставник~
 @eng the old teacher@rus ~~пожилой~~ ~~наставник~~~
-@eng An old man is here, watching his apprentice.
-@rus Пожилой мужчина (man) стоит здесь, наблюдая за своим учеником.
-~
+@eng An old man is here, watching his apprentice.@rus Пожилой мужчина (man) стоит здесь, наблюдая за своим учеником.~
 @eng His hair is grey and face is wrinkled, but he managed
 to save the amazing grace of movements and love for life,
 as if there weren't all those years behind him.
@@ -210,9 +194,7 @@ r charm 33
 #47107
 deer олень young молодой~
 @eng a young deer@rus ~~молодой~~ ~~олень~~~
-@eng A young deer is here, feeding on the grass.
-@rus Молодой олень (deer) стоит здесь, пощипывая траву.
-~
+@eng A young deer is here, feeding on the grass.@rus Молодой олень (deer) стоит здесь, пощипывая траву.~
 @eng Its body is covered with short brown, velvet-like fur, and
 not very long, but strikingly beautiful horns and regal
 bearing deserve your excitement.
@@ -240,9 +222,7 @@ r charm 33
 #47108
 макака обезьяна лохматая ape shaggy~
 @eng a shaggy ape@rus ~~лохматая~~ ~~макака~~~
-@eng A shaggy ape murmurs something to itself discontentedly.
-@rus Лохматая обезьяна (ape) что-то недовольно бурчит себе под нос.
-~
+@eng A shaggy ape murmurs something to itself discontentedly.@rus Лохматая обезьяна (ape) что-то недовольно бурчит себе под нос.~
 @eng This 'thing' is all covered with thick grey wool, except
 its face and the opposite body part.. Black eyes gleam
 angrily in your direction, while arms search the ground
@@ -267,10 +247,8 @@ r charm 33
 #47109
 demon one eyed four одноглазый четырехрукий демон armed когти claws~
 @eng one-eyed and four-armed demon@rus ~~одноглазый~~ ~~четырехрукий~~ ~~демон~~~
-@eng An unnatural wail shatters the silence as clawed hands reach out to tear you apart.
-@rus Неестественный вой пронзает тишину и когтистые лапы тянутся разорвать тебя на части.
-~
-@eng    An enormous body with overgrown bulging muscles, covered with
+@eng An unnatural wail shatters the silence as clawed hands reach out to tear you apart.@rus Неестественный вой пронзает тишину и когтистые лапы тянутся разорвать тебя на части.~
+@eng .   An enormous body with overgrown bulging muscles, covered with
 black skin, is based on two short, but strong legs, spreading two
 pairs of long and mighty arms, each ending with awful deadly ta-
 lons, capable of rending creatures much larger than you apart.
@@ -282,7 +260,7 @@ filled with hatred, tries to burn you to ashes.
    You don't know neither who had imprisoned the demon, nor what
 for, but it seems to be done long ago... and the prisoner is very
 angered by the centuries spent here.
-@rus    Огромное, покрытое черной кожей, из-под которой выпирают гипер-
+@rus .   Огромное, покрытое черной кожей, из-под которой выпирают гипер-
 трофированные мышцы, тело покоится на двух коротких, но толстых и
 мощных ногах, ощетинившись двумя парами длинных и сильных рук, каж-
 дая из которых заканчивается ужасными когтями, способными, кажется,
@@ -315,10 +293,8 @@ r charm 999
 #47110
 dragon storn дракон синий blue~
 @eng the great Blue Dragon@rus ~~Великий~~ ~~синий~~ ~~дракон~~~
-@eng A huge dragon is lying all around you.
-@rus Огромный дракон (dragon) разлегся вокруг и смотрит на тебя немигающими глазами.
-~
-@eng   The great blue dragon, also known as storm dragon is a very
+@eng A huge dragon is lying all around you.@rus Огромный дракон (dragon) разлегся вокруг и смотрит на тебя немигающими глазами.~
+@eng .  The great blue dragon, also known as storm dragon is a very
 ancient being, and just as wise. One of the legends says that
 long ago, he was equal to the gods and had the power over winds,
 storms and lightnings. You can't say for sure whether it's true
@@ -329,7 +305,7 @@ fears about his aggresiveness. Settled at his own territory with
 comfort and moved his long body covered with blue scales to the
 sun, he watches you calmly and you can't read any thoughts behind
 this unblinking gaze.
-@rus   Великий синий дракон, также известный как Дракон бурь - существо очень
+@rus .  Великий синий дракон, также известный как Дракон бурь - существо очень
 древнее, и столь же мудрое. Одна из легенд гласит, что когда-то он был
 равен богам и ему были подвластны ветры, грозы и молнии. Насколько это
 соответствует истине - неизвестно, но величественность дракона ты можешь
@@ -363,9 +339,7 @@ r charm 999
 #47111
 saki саки хозяин owner~
 @eng Saki@rus Саки~
-@eng The owner of this pub smiles and offers you his drinks.
-@rus Хозяин забегаловки (owner) улыбается тебе, предлагая присесть.
-~
+@eng The owner of this pub smiles and offers you his drinks.@rus Хозяин забегаловки (owner) улыбается тебе, предлагая присесть.~
 @eng He had already lived enough and now found himself
 a business that lets him beguile days, talking to
 visitors and supplying them with drinks.
@@ -401,9 +375,7 @@ r sound 33
 #47112
 visitor посетитель человек мужчина human man~
 @eng a visitor@rus ~~посетитель~~~
-@eng A middle-aged man is talking to his neighbor.
-@rus Средних лет мужчина (man) разговаривает о чем-то со своим соседом.
-~
+@eng A middle-aged man is talking to his neighbor.@rus Средних лет мужчина (man) разговаривает о чем-то со своим соседом.~
 @eng He is wearing working clothes, it looks like
 he came here to rest and talk for a while,
 before going back to the fields.
@@ -424,9 +396,7 @@ r disease 33
 #47113
 shopkeeper продавец парень guy salesman~
 @eng the salesman@rus ~~продавец~~~
-@eng A young guy offers you to buy his goods.
-@rus Молодой парень (guy) предлагает тебе купить что-нибудь.
-~
+@eng A young guy offers you to buy his goods.@rus Молодой парень (guy) предлагает тебе купить что-нибудь.~
 @eng This young man is the blacksmith's son. He is
 built really well for his age - obviously, his
 father often finds him other businesses, besides
@@ -451,9 +421,7 @@ r charm 999
 #47114
 blacksmith man кузнец~
 @eng blacksmith@rus ~~кузнец~~~
-@eng A blacksmith is here, hammering a chunk of iron.
-@rus Кузнец (blacksmith) стоит у наковальни, занятый своим делом.
-~
+@eng A blacksmith is here, hammering a chunk of iron.@rus Кузнец (blacksmith) стоит у наковальни, занятый своим делом.~
 @eng This man appears very strong and broad in shoulders,
 standing higher than anyone else you have seen in this
 village. Right now he is busy forging another tool,
@@ -478,9 +446,7 @@ r mental 33
 #47115
 servant слуга парень~
 @eng a servant boy@rus ~~слуга~~~
-@eng A servant boy hurries past you.
-@rus Юноша (servant boy) торопится выполнить поручение хозяина.
-~
+@eng A servant boy hurries past you.@rus Юноша (servant boy) торопится выполнить поручение хозяина.~
 @eng Obviously, he is a son of some local peasant taken
 into this house as a servant. He looks quick enough
 to carry out his masters' instructions and this job
@@ -500,9 +466,7 @@ F for HM
 #47116
 servant girl служанка~
 @eng a servant girl@rus ~~служанка~~~
-@eng A servant girl is busy cleaning the house up.
-@rus Девушка из прислуги (servant girl) занята тем, что наводит чистоту.
-~
+@eng A servant girl is busy cleaning the house up.@rus Девушка из прислуги (servant girl) занята тем, что наводит чистоту.~
 @eng She is a daughter of some local villager. Quite young
 and beautiful, she seems happy with her job. Her duties
 mostly consist of cleaning up and carrying out other
@@ -523,9 +487,7 @@ F for HM
 #47117
 cook woman повар женщина~
 @eng the cook@rus ~~повариха~~~
-@eng An elderly woman fusses around the oven, cooking something.
-@rus Немолодая женнщина (woman) суетится у очага, готовя пищую
-~
+@eng An elderly woman fusses around the oven, cooking something.@rus Немолодая женнщина (woman) суетится у очага, готовя пищую~
 @eng She has her post for ages already and became almost
 a member of the family. Other servants treat her with
 respect and help whenever she needs it.
@@ -544,9 +506,7 @@ F for HM
 #47118
 Miyu Мию девушка girl~
 @eng Miyu@rus Мию~
-@eng A beautiful girl is sitting on tatamis, thinking of something.
-@rus Красивая девушка (girl) сидит на татами, о чем-то задумавшись.
-~
+@eng A beautiful girl is sitting on tatamis, thinking of something.@rus Красивая девушка (girl) сидит на татами, о чем-то задумавшись.~
 @eng Her face is trikingly beautiful and radiates genuine
 freshness and fascination of youth. She smiles affably
 as sees you and goes back to her unburdensome concerns.
@@ -568,9 +528,7 @@ r mental 33
 #47119
 man Saburo kanzaki мужчина Сабуро~
 @eng Saburo@rus Сабуро~
-@eng A finely dressed man glances at you, questioning look on his face.
-@rus Хорошо одетый мужчина (man) вопросительно смотрит на тебя.
-~
+@eng A finely dressed man glances at you, questioning look on his face.@rus Хорошо одетый мужчина (man) вопросительно смотрит на тебя.~
 @eng This is the master of this house and village, Saburo. He
 is quite rich but doesn't tend to luxury, paying more at-
 tention to the prosperity of his people. Temple to the east
@@ -607,9 +565,7 @@ r sound 33
 #47120
 Mori Мори woman женщина~
 @eng Mori@rus Мори~
-@eng A middle-aged woman looks at you, slightly amazed.
-@rus Средних лет женщина (woman) удивленно смотрит на тебя.
-~
+@eng A middle-aged woman looks at you, slightly amazed.@rus Средних лет женщина (woman) удивленно смотрит на тебя.~
 @rus На ее лице лежит печать зрелой красоты, а движения исполнены
 степенности. Она давно привыкла и к мужнину богатству, и к
 необходимости подчиняться ему; ни то, ни другое не вызывает
@@ -628,9 +584,7 @@ stand stand female 15000
 #47121
 boy village мальчик~
 @eng a village boy@rus ~~деревенский~~ ~~мальчик~~~
-@eng A boy runs around carelessly, glancing at you with mischief.
-@rus Мальчик (boy) беззаботно бегает вокруг, озорно поглядывая в твою сторону.
-~
+@eng A boy runs around carelessly, glancing at you with mischief.@rus Мальчик (boy) беззаботно бегает вокруг, озорно поглядывая в твою сторону.~
 @eng An usual boy, you catch yourself envying him and his happy
 age.. He got everything he needs : a lot of time and anergy
 to spend this time having fun. Right now he seems to be
@@ -651,9 +605,7 @@ F for H
 #47122
 girl village девочка~
 @eng a village girl@rus ~~деревенская~~ ~~девчушка~~~
-@eng A small girl stares at you contemplatively, ignoring everything else.
-@rus Маленькая девочка (girl) в задумчивости расматривает тебя, забыв обо всем остальном.
-~
+@eng A small girl stares at you contemplatively, ignoring everything else.@rus Маленькая девочка (girl) в задумчивости расматривает тебя, забыв обо всем остальном.~
 @eng Somewhat shaggy and a little stained with something, she
 nethertheless is pretty.. maybe even due to that. Holding
 her favourite doll in hands, she stares at you dreamily,
@@ -677,9 +629,7 @@ F for H
 #47123
 peasant крестьянин~
 @eng a peasant@rus ~~крестьянин~~~
-@eng A peasant is here, farming his lot.
-@rus Крестьянин (peasant) занят работой на своей делянке.
-~
+@eng A peasant is here, farming his lot.@rus Крестьянин (peasant) занят работой на своей делянке.~
 @eng An ordinary peasant, one of many.. right now he's busy
 farming his lot. If there won't be a bad harvest, his
 family will be well fed, and there even will be some
@@ -699,9 +649,7 @@ F for H
 #47124
 villager old man старик~
 @eng an old villager@rus ~~старик~~~
-@eng An old man is sitting here, dying of boredom.
-@rus Старик (old man) сидит тут, не зная чем заняться.
-~
+@eng An old man is sitting here, dying of boredom.@rus Старик (old man) сидит тут, не зная чем заняться.~
 @eng He is too old for farming or any other work.. Although
 no one blames anything on him and relatives don't have
 any problems letting him spend these days in leisure,
@@ -724,9 +672,7 @@ F for H
 #47125
 peasant крестьянин~
 @eng a peasant@rus ~~крестьянин~~~
-@eng A peasant is heading towards rice fields.
-@rus Крестьянин (peasant) неспеша идет в сторону полей.
-~
+@eng A peasant is heading towards rice fields.@rus Крестьянин (peasant) неспеша идет в сторону полей.~
 @eng Probably, he went home to eat or rest, or check if
 all kids and old men are fine. He looks rested now,
 and obviously is in a quite good mood.
@@ -745,9 +691,7 @@ F for H
 #47126
 peasant крестьянин~
 @eng a peasant@rus ~~крестьянин~~~
-@eng A peasant stands here, knee-deep in warm water.
-@rus Крестьянин (peasant) стоит тут, по колено в теплой воде.
-~
+@eng A peasant stands here, knee-deep in warm water.@rus Крестьянин (peasant) стоит тут, по колено в теплой воде.~
 @eng This is one of the local peasants that work on their daimyo's
 rice fields in exchange for the houses and land given by him.
 He doesn't seem too tired, although sun burns hard and sometimes
@@ -768,9 +712,7 @@ F for H
 #47127
 peasant woman крестьянка~
 @eng a peasant@rus ~~крестьянка~~~
-@eng A woman scurries around with a large basket.
-@rus Крестьянка (woman) ходит туда-сюда с большой корзиной в руках.
-~
+@eng A woman scurries around with a large basket.@rus Крестьянка (woman) ходит туда-сюда с большой корзиной в руках.~
 @eng She carries a large basket, bringing various items
 to other peasants and sometimes climbing into the water.
 @rus Эта женщина занята тем, что снует туда-сюда с корзиной,
@@ -787,9 +729,7 @@ F for H
 #47128
 creature serpentine тварь змееподобная~
 @eng a serpent-like creature@rus ~~змееподобная~~ ~~тварь~~~
-@eng A huge serpentine creature lies coiled on the floor.
-@rus Огромная змееподобная тварь (creature) свернулась кольцами на дне.
-~
+@eng A huge serpentine creature lies coiled on the floor.@rus Огромная змееподобная тварь (creature) свернулась кольцами на дне.~
 @eng This ..thing looks rather like a dragon than a fish.. although
 it doesn't have any wings, and you never heard of any dragons
 living underwater.. you notice a pair of strong fins at its
@@ -814,9 +754,7 @@ r cold 50
 #47129
 guard temple храмовый страж~
 @eng temple guard@rus ~~храмовый~~ ~~страж~~~
-@eng Strong and trained man stands here, guarding the peace.
-@rus Сильный и тренированный стражник (guard) стоит здесь, охраняя покой.
-~
+@eng Strong and trained man stands here, guarding the peace.@rus Сильный и тренированный стражник (guard) стоит здесь, охраняя покой.~
 @eng He is one of the monks, specially trained to be guards or
 soldiers - they are also known as Sohei. He looks more than
 a worthy opponent to you, but, at the same time, doesn't
@@ -844,9 +782,7 @@ r charm 999
 #47130
 captain temple guard начальник страж man человек~
 @eng captain of the guard@rus ~~начальник~~ ~~стражи~~~
-@eng A tall man clad in battle armor watches you attentively.
-@rus Высокий человек (man) в боевых доспехах внимательно смотрит на тебя.
-~
+@eng A tall man clad in battle armor watches you attentively.@rus Высокий человек (man) в боевых доспехах внимательно смотрит на тебя.~
 @eng This is the captain of temple guard, an elderly samurai,
 whose fame has reached places far outside the village.
 He has deserved this honorary post by loyal service to
@@ -876,9 +812,7 @@ r charm 999
 #47131
 priest high man священник человек Такеда Takeda~
 @eng the priest Takeda@rus ~~священник~~ ~~Такеда~~~
-@eng A man clad in white watches people around with virtuous smile.
-@rus Человек (man) в белых одеждах смотрит на тебя с доброжелательной полуулыбкой.
-~
+@eng A man clad in white watches people around with virtuous smile.@rus Человек (man) в белых одеждах смотрит на тебя с доброжелательной полуулыбкой.~
 @eng He is very old but at the same time not infirm.
 Looking into his eyes you see an infinite will
 to help everyone who needs it. It is rumored,
@@ -902,9 +836,7 @@ r charm 999
 #47132
 figure silent Tori фигура безмолвная Тори человек human assassin~
 @eng a darkly clad assassin@rus ~~убийца~~ в черном~
-@eng A silent black figure is lurking in the darkness.
-@rus Безмолвная фигура (figure) в черном затаилась в темноте.
-~
+@eng A silent black figure is lurking in the darkness.@rus Безмолвная фигура (figure) в черном затаилась в темноте.~
 @eng This is Tori, the hired assassin.. well he doesn't only steal,
 he can do literally anything if paid enough. You got no clue
 what his goal here may be, besides the treasures of the temple,
@@ -937,9 +869,7 @@ r charm 999
 #47133
 man Тоширо человек Toshiro monk монах~
 @eng brother Toshiro@rus ~~брат~~ Тоширо~
-@eng A muscular man stands here, denying the outsiders to enter the garden.
-@rus Мускулистый человек (man) стоит здесь, охраняя сад от посторонних.
-~
+@eng A muscular man stands here, denying the outsiders to enter the garden.@rus Мускулистый человек (man) стоит здесь, охраняя сад от посторонних.~
 @eng This is brother Toshiro, the best warrior among temple's
 priests and the best priest among fighters. His duty is
 to guard this sacred garden and he will not leave his post
@@ -986,9 +916,7 @@ r sound 33
 #47151
 worshipper человек молящийся посетитель~
 @eng a worshipper@rus ~~молящийся~~ ~~человек~~~
-@eng One of worshippers is sitting here, repeating mantras endlessly.
-@rus Один из посетителей храма (worshipper) сидит тут, непрерывно повторяя мантры.
-~
+@eng One of worshippers is sitting here, repeating mantras endlessly.@rus Один из посетителей храма (worshipper) сидит тут, непрерывно повторяя мантры.~
 @eng This is one of the local villagers who has
 come to the temple for a purpose barely un-
 derstandable to a foreigner like you. He
@@ -2228,7 +2156,7 @@ a '' to_object 43 -1 2 2 0
 a '' to_object 43 -1 2 1 0
 E
 sword ancient ivory меч древний~
-@eng   Considerably light and extremely well balanced, this
+@eng .  Considerably light and extremely well balanced, this
 weapon is the best one you've ever seen. Made in tradi-
 tional oriental style, the sword has a slightly curved,
 single-edged blade and a long hilt of finest ivory with
@@ -2797,11 +2725,11 @@ Z 0 47104
 S
 #47106
 @eng Village pub@rus Забегаловка~
-@eng   Small village pub under a tent. You see several sake cups on the
+@eng .  Small village pub under a tent. You see several sake cups on the
 counter, smiling bartender behind it is ready to fill them. Some vi-
 sitors are discussing something quite energetically while having a
 drink.
-@rus   Небольшой деревенский кабачок под навесом. На стойке стоят несколько
+@rus .  Небольшой деревенский кабачок под навесом. На стойке стоят несколько
 чашечек для сакэ, улыбающийся старичок позади всегда готов их наполнить.
 Местные завсегдатаи что-то оживленно обсуждают за столиком.
 ~
@@ -2815,11 +2743,11 @@ Z 0 47105
 S
 #47107
 @eng The village shop@rus Деревенский магазинчик~
-@eng   You are in a small village shop. Shining metal surrounds you, there are
+@eng .  You are in a small village shop. Shining metal surrounds you, there are
 armors and weapons mixed with hoes and shovels. Smiling owner is busy ad-
 ding his next product to the others. Judging from sounds that come from be-
 hind the door, you consider the forge is there.
-@rus   Ты $gn{попал} в небольшой деревенский магазинчик. На стенах развешаны     
+@rus .  Ты $gn{попал} в небольшой деревенский магазинчик. На стенах развешаны     
 вперемежку доспехи, оружие, мотыги и еще много всякой всячины. Улыб-
 чивый хозяин прилаживает очередное свое произведение среди остальных.
 Судя по звукам, исходящим из-за двери, за ней находится кузница.
@@ -3306,10 +3234,10 @@ Z 0 47125
 S
 #47129
 @eng The forge@rus Кузница~
-@eng   Although this room is quite large, air here is very stuffy. Jingle
+@eng .  Although this room is quite large, air here is very stuffy. Jingle
 of metal breaks into your ears and rhythmical moves of the man behind
 the anvil leave an impression of some strange dance.
-@rus   Несмотря на то, что помещение это довольно просторно, здесь очень душно.
+@rus .  Несмотря на то, что помещение это довольно просторно, здесь очень душно.
 Звон металла наполняет воздух, а размеренные движения человека за наковаль-
 ней создают впечатление какого-то странного танца.
 ~

@@ -11,10 +11,8 @@ End
 #MOBILES
 #12000
 оберон oberon king~
-@eng Oberon@rus ~~Оберон~~~
-@eng Oberon, King of the Seelie Court, stands here watching over his realm.
-@rus Оберон (Oberon), повелитель всего Светлого, стоит, задумчиво обозревая свои владения.
-~
+@eng Oberon@rus Оберон~
+@eng Oberon, King of the Seelie Court, stands here watching over his realm.@rus Оберон (Oberon), повелитель всего Светлого, стоит, задумчиво обозревая свои владения.~
 @eng Oberon appears as a tall, regal man with shoulder length, light blonde 
 hair, eyes of forest green and golden skin.  His every feature 
 exemplefies what it is to be nobility.  He is the embodyment of the 
@@ -40,9 +38,7 @@ r charm 999
 #12001
 titania queen титания королева~
 @eng Queen Titania@rus ~~королева~~ ~~Титания~~~
-@eng Queen Titania of the Seelie Court is here dancing with her fairy maids.
-@rus Королева Титания (Titania) танцует и играет со своими друзьями фейри.
-~
+@eng Queen Titania of the Seelie Court is here dancing with her fairy maids.@rus Королева Титания (Titania) танцует и играет со своими друзьями фейри.~
 @eng The Queen of the Seelie is a tall, fair-skinned, perfectly perportioned 
 woman.  She radiates a soft golden glow, her laughter is like the 
 sparkling of water off of a stream and her smile is the dazzling radiance 
@@ -74,9 +70,7 @@ r sound 33
 #12002
 puck пак~
 @eng Puck@rus Пак~
-@eng The Puck lurks here dreaming up yet another scheme.
-@rus Пак (Puck) притаился здесь, замышляя новую пакость.
-~
+@eng The Puck lurks here dreaming up yet another scheme.@rus Пак (Puck) притаился здесь, замышляя новую пакость.~
 @eng A jester for both the Courts, a master of trickery and deceit and 
 laughter and joy, Puck is a dangerous one indeed.
 @rus Придворный шут, мастер розыгрышей и интриг, всегда что-то затевающий.
@@ -105,9 +99,7 @@ r sound 33
 #12003
 thomas томас master~
 @eng True Thomas@rus Томас~
-@eng The poet master of the Seelie Court stands here.
-@rus Томас (Thomas), придворный поэт, стоит здесь.
-~
+@eng The poet master of the Seelie Court stands here.@rus Томас (Thomas), придворный поэт, стоит здесь.~
 @eng Thomas is an old Fae but he retains the power of his position still.  His 
 voice is clear and strong and his mind is much quicker than yours.
 @rus Томас -- один из старейших жителей королевства, он помнит все, что 
@@ -137,9 +129,7 @@ r sound 33
 #12004
 king gwyn nudd король гвин надд~
 @eng Gwyn ap Nudd@rus Гвин-ап-~~Надд~~~
-@eng Gwyn ap Nudd, soverign of the Unseelie Court stands before you.
-@rus Гвин-ап-Надд (Gwyn ap Nudd), повелитель зимы и теней, возвышается на тобой.
-~
+@eng Gwyn ap Nudd, soverign of the Unseelie Court stands before you.@rus Гвин-ап-Надд (Gwyn ap Nudd), повелитель зимы и теней, возвышается на тобой.~
 @eng The King of night, the dead, winter and ice, Gwyn ap Nudd is the 
 complete opposite of his brother Oberon.  His hair is raven black, his 
 skin a pale white, his eyes an ice blue.  His stare fills your soul with 
@@ -168,9 +158,7 @@ r charm 999
 #12005
 morrigan queen морриган~
 @eng The Morrigan@rus Морриган~
-@eng The terrible Morrigan waits here ready to devour you.
-@rus Ужасная Морриган (Morrigan) только и ждет возможности уничтожить тебя.
-~
+@eng The terrible Morrigan waits here ready to devour you.@rus Ужасная Морриган (Morrigan) только и ждет возможности уничтожить тебя.~
 @eng The Morrigan is the Queen of the Unseelie and the most destructive of all
 the Fae.  She is the most feared of all the creatures of the night, for
 while the Puck may be harmfull the Morrigan is deadly.
@@ -192,9 +180,7 @@ r charm 999
 #12006
 sidhe noble сид~
 @eng a sidhe noble@rus ~~величественный~~ ~~сид~~~
-@eng A sidhe noble is here surveying his lands.
-@rus Величественный сид (sidhe) стоит здесь, обозревая свои земли.
-~
+@eng A sidhe noble is here surveying his lands.@rus Величественный сид (sidhe) стоит здесь, обозревая свои земли.~
 @eng This sidhe, like all others of his kind, is a study in perfection.  He 
 radiates strength, beauty, and nobility.
 @rus Этот величавый сид ничем не отличается от других.  Он полон чувства
@@ -214,9 +200,7 @@ r charm -33
 #12007
 sidhe noble сид~
 @eng a sidhe noble@rus ~~величественный~~ ~~сид~~~
-@eng A sidhe noble is here surveying his lands.
-@rus Величественный сид (sidhe) стоит здесь, обозревая свои земли.
-~
+@eng A sidhe noble is here surveying his lands.@rus Величественный сид (sidhe) стоит здесь, обозревая свои земли.~
 @eng This sidhe, like all others of his kind, is a study in perfection.  He 
 radiates strength, beauty, and nobility.
 @rus Этот величавый сид ничем не отличается от других.  Он полон чувства
@@ -236,9 +220,7 @@ r charm -33
 #12008
 sidhe noble сид~
 @eng a sidhe noble@rus ~~величественный~~ ~~сид~~~
-@eng A sidhe noble is here surveying his lands.
-@rus Величественный сид (sidhe) стоит здесь, обозревая свои земли.
-~
+@eng A sidhe noble is here surveying his lands.@rus Величественный сид (sidhe) стоит здесь, обозревая свои земли.~
 @eng This sidhe, like all others of his kind, is a study in perfection.  He 
 radiates strength, beauty, and nobility.
 @rus Этот величавый сид ничем не отличается от других.  Он полон чувства
@@ -258,9 +240,7 @@ r charm -33
 #12009
 sidhe noble сид~
 @eng a sidhe noble@rus ~~величественный~~ ~~сид~~~
-@eng A sidhe noble is here surveying his lands.
-@rus Величественный сид (sidhe) стоит здесь, обозревая свои земли.
-~
+@eng A sidhe noble is here surveying his lands.@rus Величественный сид (sidhe) стоит здесь, обозревая свои земли.~
 @eng This sidhe, like all others of his kind, is a study in perfection.  He 
 radiates strength, beauty, and nobility.
 @rus Этот величавый сид ничем не отличается от других.  Он полон чувства
@@ -280,9 +260,7 @@ r charm -33
 #12010
 sidhe guard сид-охранник~
 @eng a sidhe guard@rus ~~сид-охранник~~~
-@eng A sidhe guard captain stands here guarding his homeland.
-@rus Сид-охранник (guard) стоит здесь, охраняя свою родную землю.
-~
+@eng A sidhe guard captain stands here guarding his homeland.@rus Сид-охранник (guard) стоит здесь, охраняя свою родную землю.~
 @eng This captain leads his men with all the charisma and natural born 
 leadership that graces all of the sidhe.
 @rus Этот капитан правит своими людьми железной рукой и его отличает необычная
@@ -302,9 +280,7 @@ r charm -33
 #12011
 guard сид-охранник sidhe~
 @eng a sidhe guard@rus ~~сид-охранник~~~
-@eng A sidhe guard captain stands here protecting what is his.
-@rus Статный сид (guard) стоит здесь, обещая защиту.
-~
+@eng A sidhe guard captain stands here protecting what is his.@rus Статный сид (guard) стоит здесь, обещая защиту.~
 @eng This captain leads his men with a cunning and skill that is immpossible 
 not to admire.
 @rus Капитан. Он руководит своими людьми железной рукой, постоянно заставляя
@@ -326,9 +302,7 @@ r charm -33
 #12012
 sidhe knight рыцарь сид~
 @eng a noble sidhe knight@rus ~~благородный~~ ~~рыцарь~~-~~сид~~~
-@eng A noble sidhe knight of the Seelie court is here on a quest.
-@rus Благородный сид-рыцарь (sidhe) выполняет свое задание.
-~
+@eng A noble sidhe knight of the Seelie court is here on a quest.@rus Благородный сид-рыцарь (sidhe) выполняет свое задание.~
 @eng This knight is the epitome of chivalry.  The embodyment of honor, 
 loyalty, courage and skill in battle.
 @rus Этот сид -- олицитворение рыцарства. Соединение чести, лояльности, 
@@ -348,9 +322,7 @@ r charm -33
 #12013
 sidhe knight рыцарь сид~
 @eng a noble sidhe knight@rus ~~благородный~~ ~~сид~~-~~рыцарь~~~
-@eng A noble sidhe knight of the Seelie court is here on a quest.
-@rus Благородный сид-рыцарь (sidhe) выполняет свое задание.
-~
+@eng A noble sidhe knight of the Seelie court is here on a quest.@rus Благородный сид-рыцарь (sidhe) выполняет свое задание.~
 @eng This knight is the epitome of chivalry.  The embodyment of honor,
 loyalty, courage and skill in battle.
 @rus Этот сид -- олицитворение рыцарства. Соединение чести, лояльности, 
@@ -371,9 +343,7 @@ r charm -33
 #12014
 sidhe knight сид рыцарь~
 @eng a noble sidhe knight@rus ~~благородный~~ ~~сид~~-~~рыцарь~~~
-@eng A noble sidhe knight of the Unseelie court is here on a quest.
-@rus Благородный сид-рыцарь (sidhe) выполняет свое задание.
-~
+@eng A noble sidhe knight of the Unseelie court is here on a quest.@rus Благородный сид-рыцарь (sidhe) выполняет свое задание.~
 @eng This knight is the epitome of chivalry.  The embodyment of power and 
 skill in battle.
 @rus Этот сид -- олицитворение рыцарства. Соединение чести, лояльности, 
@@ -394,9 +364,7 @@ r charm -33
 #12015
 sidhe knight сид рыцарь~
 @eng a noble sidhe knight@rus ~~благородный~~ ~~сид~~-~~рыцарь~~~
-@eng A noble sidhe knight of the Unseelie court is here on a quest.
-@rus Благородный сид-рыцарь (sidhe) выполняет свое задание.
-~
+@eng A noble sidhe knight of the Unseelie court is here on a quest.@rus Благородный сид-рыцарь (sidhe) выполняет свое задание.~
 @eng This knight is the epitome of chivalry.  The embodyment of power and 
 skill in battle.
 @rus Этот сид -- олицитворение рыцарства. Соединение чести, лояльности, 
@@ -417,9 +385,7 @@ r charm -33
 #12016
 sidhe knight сид рыцарь~
 @eng a noble sidhe knight@rus ~~благородный~~ ~~сид~~-~~рыцарь~~~
-@eng A noble sidhe knight stands here looking bored.
-@rus Благородный сид-рыцарь (sidhe) выполняет свое задание.
-~
+@eng A noble sidhe knight stands here looking bored.@rus Благородный сид-рыцарь (sidhe) выполняет свое задание.~
 @eng This knight is the epitome of chivalry.  The embodyment of honor,
 loyalty, courage and skill in battle.
 @rus Этот сид -- олицитворение рыцарства. Соединение чести, лояльности, 
@@ -440,9 +406,7 @@ r charm -33
 #12017
 sidhe knight сид рыцарь~
 @eng a noble sidhe knight@rus ~~благородный~~ ~~сид~~-~~рыцарь~~~
-@eng A sidhe knight is here embroiled within the affairs of the court.
-@rus Благородный сид-рыцарь (sidhe) выполняет свое задание.
-~
+@eng A sidhe knight is here embroiled within the affairs of the court.@rus Благородный сид-рыцарь (sidhe) выполняет свое задание.~
 @eng This knight is the epitome of chivalry.  The embodyment of power and 
 skill in battle.
 @rus Этот сид -- олицитворение рыцарства. Соединение чести, лояльности, 
@@ -463,9 +427,7 @@ r charm -33
 #12018
 sidhe knight сид рыцарь~
 @eng a noble sidhe knight@rus ~~благородный~~ ~~сид~~-~~рыцарь~~~
-@eng A noble sidhe knight is attempting to win the favor of a beautiful patron.
-@rus Благородный сид-рыцарь (sidhe) выполняет свое задание.
-~
+@eng A noble sidhe knight is attempting to win the favor of a beautiful patron.@rus Благородный сид-рыцарь (sidhe) выполняет свое задание.~
 @eng This knight is the epitome of chivalry.  The embodyment of power and 
 skill in battle. 
 @rus Этот сид -- олицитворение рыцарства. Соединение чести, лояльности, 
@@ -486,9 +448,7 @@ r charm -33
 #12019
 troll guard тролль охранник~
 @eng a troll guard@rus ~~тролль~~-~~охранник~~~
-@eng A stoic troll guard stands here watching you.
-@rus Могучий тролль-охранник (guard) внимательно наблюдает за тобой.
-~
+@eng A stoic troll guard stands here watching you.@rus Могучий тролль-охранник (guard) внимательно наблюдает за тобой.~
 @eng This troll stands about 9 feet tall and looks as if he was made of 
 stone.  Once the rulers of Arcadia trolls such as this one now serve the 
 sidhe as faithfull warriors.
@@ -512,9 +472,7 @@ r charm 999
 #12020
 troll guard тролль охранник~
 @eng a troll guard@rus ~~тролль~~-~~охранник~~~
-@eng A stoic troll guard stands here watching you.
-@rus Могучий тролль-охранник (guard) внимательно наблюдает за тобой.
-~
+@eng A stoic troll guard stands here watching you.@rus Могучий тролль-охранник (guard) внимательно наблюдает за тобой.~
 @eng This troll stands about 9 feet tall and looks as if he was made of
 stone.  Once the rulers of Arcadia trolls such as this one now serve the
 sidhe as faithfull warriors.
@@ -540,9 +498,7 @@ r charm 999
 #12021
 pooka jester шут~
 @eng a pooka jester@rus шут~
-@eng A pooka jester is here making you look foolish.
-@rus Шут (jester) пытается выставить тебя дураком.
-~
+@eng A pooka jester is here making you look foolish.@rus Шут (jester) пытается выставить тебя дураком.~
 @eng Dressed in a garishly bright, multi-colored, clashing, frilly lace 
 jump-suit, it hurts just to look at him.  This pooka is a master of making 
 people laugh.  You don't even mind when he throws the pie in your face. 
@@ -563,9 +519,7 @@ r charm 33
 #12022
 pooka jester шут~
 @eng a pooka jester@rus шут~
-@eng A pooka jester is here planning your fall.
-@rus Шут (jester) пытается выставить тебя дураком.
-~
+@eng A pooka jester is here planning your fall.@rus Шут (jester) пытается выставить тебя дураком.~
 @eng Dressed in a garishly bright, multi-colored, clashing, frilly lace
 jump-suit, it hurts just to look at him.  This pooka is a master of making
 fun of people.  You don't ever realy know if his jokes are truly just for 
@@ -587,9 +541,7 @@ r charm 33
 #12023
 satyr drinker drunk сатир~
 @eng a satyr drinker@rus ~~пьяница~~-~~сатир~~~
-@eng A satyr is sitting here with a bottle on one side and a woman on the other.
-@rus Сатир (satyp) сидит здесь, прижимая к себе с одной стороны бутылку, а с другой женщину.
-~
+@eng A satyr is sitting here with a bottle on one side and a woman on the other.@rus Сатир (satyp) сидит здесь, прижимая к себе с одной стороны бутылку, а с другой женщину.~
 @eng Half-man, half-goat satyrs are the party animals of the Fae.  Renowned 
 for their great stamina they can drink more than almost any other being.
 @rus Полу-человек, полу-козел, сатир один из спутников фейри. Его огромная
@@ -618,9 +570,7 @@ r sound 33
 #12024
 satyr piper сатир~
 @eng a satyr piper@rus ~~сатир~~, ~~играющий~~ на свирели~
-@eng A satyr piper is here playing a lively dancing jig.
-@rus Сатир (satyr) играет на свирели зажигательную мелодию.
-~
+@eng A satyr piper is here playing a lively dancing jig.@rus Сатир (satyr) играет на свирели зажигательную мелодию.~
 @eng The piper seems to be almost lost in the music issuing from his pipes.  
 As you listen you too are drawn into the music.....
 @rus Он растворен в своей мелодии. И слушая ее ты тоже растворяешься в мире
@@ -649,9 +599,7 @@ r sound 33
 #12025
 satyr singer сатир~
 @eng a satyr singer@rus ~~поющий~~ ~~сатир~~~
-@eng A satyr is here singing of his lost love.
-@rus Сатир (satyr) поет песню о потерянной любви.
-~
+@eng A satyr is here singing of his lost love.@rus Сатир (satyr) поет песню о потерянной любви.~
 @eng The singer is a satyr, half goat, half human.
 @rus Сатир, полу-человек, полу-козел.
 ~
@@ -669,9 +617,7 @@ r charm 999
 #12026
 satyr lusty сатир~
 @eng a lusty satyr@rus ~~мужественный~~ ~~сатир~~~
-@eng A satyr is here chasing after a young nymph.
-@rus Мужественный сатир (satyr) бегает за приглянувшейся ему нимфой.
-~
+@eng A satyr is here chasing after a young nymph.@rus Мужественный сатир (satyr) бегает за приглянувшейся ему нимфой.~
 @eng This satyr seems totaly obsessed with catching the beautiful woodland 
 nymph.  You can tell by the look in his eyes that it would be a BAD idea 
 to get in his way.
@@ -693,9 +639,7 @@ r charm 33
 #12027
 boggan craftsman shoe maker боггард-мастеровой~
 @eng a boggan craftsman@rus ~~боггард~~-~~мастеровой~~~
-@eng A boggan craftsman is here working on a project.
-@rus Боггард (boggan) что-то с увлечением мастерит.
-~
+@eng A boggan craftsman is here working on a project.@rus Боггард (boggan) что-то с увлечением мастерит.~
 @eng This little craftsman is dressed in a dark jerkin with bright red pants 
 and a dark brown cap.  He holds in his hands what will be a finely 
 wrought item when he is finished.
@@ -726,10 +670,8 @@ r charm 33
 r sound 33
 #12028
 boggan smith боггард кузнец~
-@eng a boggan smith@rus боггард-кузнец~
-@eng A boggan smith is here making fine armor.
-@rus Боггард-кузнец (boggan) занят изготовлением превосходного вооружения.
-~
+@eng a boggan smith@rus ~~боггард~~-~~кузнец~~~
+@eng A boggan smith is here making fine armor.@rus Боггард-кузнец (boggan) занят изготовлением превосходного вооружения.~
 @eng This little smith is dressed in a dark leather apron  with bright red pants.
 He is working on a dark, rough-looking piece of armor.
 @rus Этот маленький кузнец одет в темный кожаный фартук. И занят он 
@@ -758,10 +700,8 @@ r charm 33
 r sound 33
 #12029
 eshu adventurer эшу путешественник~
-@eng an adventurous eshu@rus эшу-путешественник~
-@eng An adventurous eshu is wandering around searching for excitement.
-@rus Эшу-путешественник (eshu) оглядывается вокруг в поисках новых впечатлений.
-~
+@eng an adventurous eshu@rus эшу-~~путешественник~~~
+@eng An adventurous eshu is wandering around searching for excitement.@rus Эшу-путешественник (eshu) оглядывается вокруг в поисках новых впечатлений.~
 @eng This tall, dark, man-shaped creature is almost completely covered in 
 bright purple, flowing robes with a winding turban hiding his face.
 @rus Высокое, темное, человеко-подобное существо, одетое в пурпурное
@@ -790,9 +730,7 @@ r sound 33
 #12030
 eshu storyteller эшу~
 @eng an eshu@rus эшу~
-@eng An eshu sits here telling tales of his myriad adventures.
-@rus Эшу (eshu) сидит здесь, рассказывая забавные истории.
-~
+@eng An eshu sits here telling tales of his myriad adventures.@rus Эшу (eshu) сидит здесь, рассказывая забавные истории.~
 @eng This dark-skinned man in flowing purple robes is either telling the most
 outrageous lies you have ever heard or he is one hell of a lot more 
 experienced than you will ever be.
@@ -811,9 +749,7 @@ r holy -50
 #12031
 eshu drinker drunk эшу~
 @eng a drunken eshu@rus ~~пьяный~~ эшу~
-@eng An eshu is sitting here working on his sixth pint of ale.
-@rus Эшу (eshu) сидит тут, допивая шестую пинту эля.
-~
+@eng An eshu is sitting here working on his sixth pint of ale.@rus Эшу (eshu) сидит тут, допивая шестую пинту эля.~
 @eng This guy could put some bartender's children through college.
 @rus Этот человек мог бы послужить школой для детей бармена.
 ~
@@ -828,9 +764,7 @@ r holy -50
 #12032
 savage redcap thug дикарь~
 @eng a savage redcap@rus ~~дикарь~~ в красной кепке~
-@eng A redcap jumps out of a hole and starts chewing on your leg.
-@rus Дикарь (savage) выскочил из ниоткуда и начал кусать тебя за ноги.
-~
+@eng A redcap jumps out of a hole and starts chewing on your leg.@rus Дикарь (savage) выскочил из ниоткуда и начал кусать тебя за ноги.~
 @eng This nasty little creature is a blood-stained mouth with sharp-clawed 
 appendages dressed in a brown tunic with a blood red hat.
 @rus Мерзкое маленькое существо в коричневой тунике и кроваво-красной кепке.
@@ -849,9 +783,7 @@ r disease 33
 #12033
 murderer redcap мародер~
 @eng a murderous redcap@rus мародер~
-@eng A murderous redcap attacks from behind.
-@rus Мародер (murderer) напал на тебя сзади.
-~
+@eng A murderous redcap attacks from behind.@rus Мародер (murderer) напал на тебя сзади.~
 @eng This redcap is a killing machine.  All sharp teeth, claws, and talons.
 @rus Машина для убийства, острые зубы, ногти, когти.
 ~
@@ -869,9 +801,7 @@ r disease 33
 #12034
 sluagh watcher слуг сторож~
 @eng a sluagh watcher@rus ~~слуг~~-~~сторож~~~
-@eng A sluagh stands here watching all from the shadows.
-@rus Слуг (sluagh) наблюдает за тобой из тени.
-~
+@eng A sluagh stands here watching all from the shadows.@rus Слуг (sluagh) наблюдает за тобой из тени.~
 @eng While not ugly this dark creature bears no resemblance to the other fae you 
 have seen. Even the Unseelie don't rival the natural repulsion you feel towards
 this creature.
@@ -893,9 +823,7 @@ r light -50
 #12035
 sluagh guardian слуг охранник~
 @eng a sluagh guardian@rus ~~слуг~~-~~охранник~~~
-@eng A sluagh guardian sees you and moves to protect it's home.
-@rus Слуг-охранник (sluagh guardian) наблюдает за твоими действиями.
-~
+@eng A sluagh guardian sees you and moves to protect it's home.@rus Слуг-охранник (sluagh guardian) наблюдает за твоими действиями.~
 @eng This dark fae is not willing to let you in on it's secrets, you had best 
 leave now.
 @rus Темный фейри, ему не нравится, что ты пытаешься проникнуть в его секреты.
@@ -916,9 +844,7 @@ r light -50
 #12036
 pixie пикси~
 @eng a pixie@rus пикси~
-@eng A small pixie is here looking for a few sylphs.
-@rus Маленький пикси (pixie) бродит вокруг в поисках сильфид.
-~
+@eng A small pixie is here looking for a few sylphs.@rus Маленький пикси (pixie) бродит вокруг в поисках сильфид.~
 @eng He looks like a little elf about 3 inches tall with small insect wings.
 @rus Он выглядит как маленький эльф, ростом всего 3 дюйма с маленькими
 полупрозрачными крылышками.  
@@ -935,10 +861,8 @@ r pierce 33
 r slash 33
 #12037
 sprite эльф~
-@eng a sprite@rus ~~эльф~~~
-@eng A small sprite notices you and decides to have some fun.
-@rus Маленький эльф (sprite) заметил тебя и решил немного развлечься.
-~
+@eng a sprite@rus эльф~
+@eng A small sprite notices you and decides to have some fun.@rus Маленький эльф (sprite) заметил тебя и решил немного развлечься.~
 @eng This sprite looks like a little man with butterfly wings and a mishcevous 
 smile on his face.
 @rus Этот маленький эльф похож на маленького человечка только с крыльями как у
@@ -957,10 +881,8 @@ r slash 33
 r holy -50
 #12038
 sylph сильфида~
-@eng a sylph@rus ~~сильфида~~~
-@eng A lovely, gossamer winged sylph floats upon the wind.
-@rus Прекрасная, словно сотканная из невидимой паутины сильфида (sylph) парит в воздухе.
-~
+@eng a sylph@rus сильфида~
+@eng A lovely, gossamer winged sylph floats upon the wind.@rus Прекрасная, словно сотканная из невидимой паутины сильфида (sylph) парит в воздухе.~
 @eng This beautiful and elusive creature is like the wind itself.  Her grace 
 and form amaze and beguile you.
 @rus Прекрасное и неуловимое создание, напоминающее ветер. Ее грация и красота
@@ -979,9 +901,7 @@ r disease 33
 #12039
 nymph нимфа~
 @eng a beautiful nymph@rus ~~прекрасная~~ ~~нимфа~~~
-@eng A beautiful nymph plays in the water.
-@rus Прекрасная нимфа (nymph) играется в воде.
-~
+@eng A beautiful nymph plays in the water.@rus Прекрасная нимфа (nymph) играется в воде.~
 @eng A scantily clad nymph stands here half in the water.
 @rus Прекрасная нимфа, очень скудно одетая. Можно сказать, что одежда
 совсем ничего не скрывает. 
@@ -999,9 +919,7 @@ r charm -33
 #12040
 dryad дриада~
 @eng a playful dryad@rus ~~игривая~~ ~~дриада~~~
-@eng A playful dryad runs among the trees.
-@rus Очаровательная дриада (dryad) резвится среди деревьев.
-~
+@eng A playful dryad runs among the trees.@rus Очаровательная дриада (dryad) резвится среди деревьев.~
 @eng This beautiful brown skinned maiden with dark eyes, clothed in a few 
 leaves runs among the trees darting in and out of sight.
 @rus Красивая молодая девушка с золотистой кожей и темными глазами, одетая в
@@ -1020,10 +938,8 @@ r holy -50
 r charm -33
 #12041
 mermaid русалка~
-@eng an exotic mermaid@rus ~~русалка~~~
-@eng An exotic mermaid swims quickly away from you.
-@rus Молодая русалка (mermaid) плавает неподалеку от тебя.
-~
+@eng an exotic mermaid@rus русалка~
+@eng An exotic mermaid swims quickly away from you.@rus Молодая русалка (mermaid) плавает неподалеку от тебя.~
 @eng This aquatic beauty has a well formed upper human half and a strong 
 finned tail.
 @rus У нее верхняя половина как у человека и сильный хвост с переливающейся 
@@ -1040,10 +956,8 @@ r lightning -50
 r holy -50
 #12042
 merman водяной~
-@eng an strange merman@rus ~~водяной~~~
-@eng An strange merman swims quickly around you.
-@rus Водяной (merman) плавает около тебя.
-~
+@eng an strange merman@rus водяной~
+@eng An strange merman swims quickly around you.@rus Водяной (merman) плавает около тебя.~
 @eng This aquatic creature has a well formed upper human half and a strong
 finned tail.
 @rus Верхняя половина этого морского создания как у человека. Но у него еще 
@@ -1061,9 +975,7 @@ r holy -50
 #12043
 flower fae фейри~
 @eng a flower faery@rus ~~цветочный~~ фейри~
-@eng A beautiful flower grows here.
-@rus Прекрасный цветок (flower) растет здесь.
-~
+@eng A beautiful flower grows here.@rus Прекрасный цветок (flower) растет здесь.~
 @eng Something seems quite strange about this flower.  It almost seems to be 
 alive.
 @rus Что-то странное с этим цветком. Такое чувство, что на самом деле он живой.
@@ -1084,9 +996,7 @@ r charm 999
 #12044
 acorn fae фейри~
 @eng an acorn faery@rus ~~желудевый~~ фейри~
-@eng A small acorn lies here.
-@rus Маленький желудь (acorn) лежит здесь.
-~
+@eng A small acorn lies here.@rus Маленький желудь (acorn) лежит здесь.~
 @eng Looks like an ordinary acorn...only it keeps moving.....
 @rus Желудь как желудь. Только вот он почему-то двигается...
 ~
@@ -1106,9 +1016,7 @@ r charm 999
 #12045
 boy charmer мальчик~
 @eng A little boy@rus ~~маленький~~ ~~мальчик~~~
-@eng A little boy with a set of small pipes.
-@rus Маленький мальчик (boy) со свирелью сидит на камне.
-~
+@eng A little boy with a set of small pipes.@rus Маленький мальчик (boy) со свирелью сидит на камне.~
 @eng This little boy has seemingly charmed several forest creatures with his 
 strange music.  He holds a small set of glowing pipes in his hands.
 @rus Этот маленький мальчик своей странной музыкой очаровал окружающих его
@@ -1130,9 +1038,7 @@ r charm 999
 #12046
 cusidhe pet кусид~
 @eng A CuSidhe@rus КуСид~
-@eng A large white hound with blood red ears.
-@rus Большая белая гончая (CuSidhe) с налитыми кровью глазами.
-~
+@eng A large white hound with blood red ears.@rus Большая белая гончая (CuSidhe) с налитыми кровью глазами.~
 @eng This hound is strangely quiet and well behaved, it's eyes contain a 
 measure of intelligence rarely seen in a normal animal.
 @rus Эта гончая необычно спокойна и очень хорошо воспитанна, в ее глазах виден
@@ -1149,9 +1055,7 @@ r holy -50
 #12047
 bosidhe pet босид~
 @eng A BoSidhe@rus ~~БоСид~~~
-@eng A large white bull with blood red horns.
-@rus Большой белый бык (BoSidhe) с рогами кроваво-красного цвета.
-~
+@eng A large white bull with blood red horns.@rus Большой белый бык (BoSidhe) с рогами кроваво-красного цвета.~
 @eng This large bull is pure white with red horns.  Its eyes hold an 
 intelligence that is not common in one of it's species.
 @rus Большой бык чистейшего белого цвета с красными рогами. В его глазах виден
@@ -1165,11 +1069,9 @@ CDILN
 stand stand male 0
 BHMV ABCDEFGHIJKQV huge unknown
 #12048
-catsidhe pet котасид~
+catsidhe pet котасид кошка~
 @eng A CatSidhe@rus КотаСид~
-@eng A large white cat with red ears.
-@rus Большая белая кошка (CatSidhe) с красными глазами.
-~
+@eng A large white cat with red ears.@rus Большая белая кошка (CatSidhe) с красными глазами.~
 @eng This cat is all white with red ears.  In it's eyes you can see 
 inteligence.
 @rus Полностью белая кошка с красными глазами, в которых светится интеллект.
@@ -1183,10 +1085,8 @@ stand stand female 0
 0 0 medium unknown
 #12049
 bransidhe pet брансид~
-@eng A BranSidhe@rus ~~БранСид~~~
-@eng A giant, black, raven like bird.
-@rus Гигантское черное создание (BranSidhe), похожее на ворона.
-~
+@eng A BranSidhe@rus БранСид~
+@eng A giant, black, raven like bird.@rus Гигантское черное создание (BranSidhe), похожее на ворона.~
 @eng This Sidhe bird is the messenger that travels between the world of the 
 living and the dead, both Seelie and Unseelie.  It looks like a raven 
 only its the size of a small child.
@@ -1267,7 +1167,7 @@ a '' to_object 16 -1 3 18 0
 g @eng neutral@rus male~
 #12006
 boots grey ботинки~
-@eng A pair of grey boots@rus ~~пара~~ ~~серых~~ ~~ботинок~~~
+@eng A pair of grey boots@rus ~~пара~~ серых ботинок~
 @eng A pair boots made of some grey material you haven't seen before.@rus Пара ботинок (boots), сделанных из серого, невиданного тобой ранее материала.~
 leather~
 armor G 0 AG
@@ -1456,7 +1356,7 @@ container A 0 0
 g @eng none@rus female~
 #12024
 forge горн~
-@eng A HUGE stone forge@rus ~~Огромный~~ ~~кузнечный~~ ~~горн~~~
+@eng A HUGE stone forge@rus ~~огромный~~ ~~кузнечный~~ ~~горн~~~
 @eng A HUGE stone forge is built into the mountain wall.@rus Огромный кузнечный горн (forge) встроен в стену.~
 stone~
 container 0 0 0
@@ -1812,8 +1712,8 @@ a '' to_object 38 -1 4 3 0
 g @rus none~
 #12054
 gown платье~
-@eng An embroidered gown@rus ~~платье~~, украшенное вышивкой~
-@eng A finely embroidered court gown.@rus Платье (gown) с искуснейшей вышивкой достойное лишь Королевы.~
+@eng An embroidered gown@rus ~~платье~~, ~~украшенное~~ вышивкой~
+@eng A finely embroidered court gown.@rus Ты видишь платье с искуснейшей вышивкой, достойное лишь Королевы.~
 unknown~
 armor G 0 AK
 28 29 29 22 0
@@ -1846,7 +1746,7 @@ a '' to_object 43 -1 2 4 0
 g @rus none~
 #12057
 cloak shadows пелерина~
-@eng The cloak of shadows@rus ~~пелерина~~, сотканная из теней~
+@eng The cloak of shadows@rus ~~пелерина~~, ~~сотканная~~ из теней~
 @eng A cloak made of shifting formless shadows.@rus Перелина (cloak) сделана из самой настоящей бесформенной тьмы.~
 unknown~
 armor CG 0 AC

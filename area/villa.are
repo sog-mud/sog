@@ -12,8 +12,7 @@ End
 #24100
 shaman~
 the village shaman~
-The village shaman tends to the weak and infirm here.
-~
+The village shaman tends to the weak and infirm here.~
 The shaman is a well respected and devoted healer and mystic. He spends his
 time curing the ailments of the inhabitants of this village, or those of any
 strangers that may pass by.
@@ -28,8 +27,7 @@ stand stand male 1000
 #24101
 flint knapper flint-knapper~
 the village flint-knapper~
-The village flint-knapper is here repairing crude tools.
-~
+The village flint-knapper is here repairing crude tools.~
 While the knapper's primary job is to craft tools for the village, such is
 his skill that he may also be able to repair your equipment. Contact with
 merchants from more advanced civilisations to the south have made him
@@ -46,8 +44,7 @@ stand stand male 1000
 #24102
 trader~
 a swarthy southern trader~
-A swarthy southern trader is here hawking his wares.
-~
+A swarthy southern trader is here hawking his wares.~
 This fellow is possessed of much darker skin and eyes than his current
 neighbors, hailing as he does from the island kingdoms far to the south. He
 has brought with him a variety of bronze arms and armor, as well as the 
@@ -63,8 +60,7 @@ stand stand male 1000
 #24103
 merc~
 a mercenary~
-A tough mercenary offers to hire out his men to you.
-~
+A tough mercenary offers to hire out his men to you.~
 Type list to see what he has to offer.
 ~
 human~
@@ -77,8 +73,7 @@ stand stand male 1000
 #24104
 witchdoctor~
 the village witchdoctor~
-The village witchdoctor is here selling a variety of potions and brews.
-~
+The village witchdoctor is here selling a variety of potions and brews.~
 This young woman, one of the chief's many daughters, has travelled far and 
 wide, and gathered a variety of exotic herbs and roots that she blends into 
 marvellous potions. They taste even worse than they smell...
@@ -93,8 +88,7 @@ stand stand female 1000
 #24105
 wise woman~
 the village wise woman~
-The village wise woman cracks a toothless grin as you enter.
-~
+The village wise woman cracks a toothless grin as you enter.~
 Age may have taken what beauty this crone once possessed, but it hasn't 
 robbed her of her wits. She is more knowledgable in the properties of items
 than anyone else in the known world (which, admittedly, doesn't cover very
@@ -111,8 +105,7 @@ stand stand female 1000
 #24106
 beastmaster~
 the village beastmaster~
-The village beastmaster is here wrestling with a large bear.
-~
+The village beastmaster is here wrestling with a large bear.~
 When he has the time, this impossibly huge man will gladly sell you a pet
 that he has domesticated, though from the look of it you may have doubts
 in his ability to exact obedience. That bear sure doesn't look tame...
@@ -127,8 +120,7 @@ stand stand male 1000
 #24107
 trader northerner~
 a northern trader~
-A grizzled northerner offers to sell you some supplies.
-~
+A grizzled northerner offers to sell you some supplies.~
 This stout hunter spends six months of the year trapping for fur, and the rest 
 of the year fashioning and selling basic equipment.
 ~
@@ -142,8 +134,7 @@ stand stand male 1000
 #24108
 daughter woman girl~
 a daughter of the tribe~
-A daughter of the tribe is here selling food.
-~
+A daughter of the tribe is here selling food.~
 The crop was good this year, and the villagers have sufficient to sell to
 travellers and other villagers.
 ~
@@ -157,8 +148,7 @@ stand stand female 1000
 #24109
 brewer~
 the village brewer~
-The village brewer is handing out samples of his sacred drink.
-~
+The village brewer is handing out samples of his sacred drink.~
 The art of brewing is held sacred by the northern tribes, and the brewers
 are considered holy men. In accordance with their beliefs, the brewers hand
 out samples of their sacred draught to all who pass by, and while there is
@@ -175,8 +165,7 @@ stand stand male 1000
 #24110
 hedgehog~
 the hedgehog~
-A hedgehog, well, does nothing at you.
-~
+A hedgehog, well, does nothing at you.~
 The hedgehog looks like a cute, little, fierce fighter.
 ~
 unique~
@@ -189,8 +178,7 @@ stand stand none 1000
 #24111
 otter~
 the otter~
-A loyal, sleek growls at you.
-~
+A loyal, sleek growls at you.~
 The otter looks like a fierce fighter.
 ~
 unique~
@@ -203,8 +191,7 @@ stand stand either 1000
 #24112
 hawk~
 the hawk~
-A fierce but loyal hawk is here.
-~
+A fierce but loyal hawk is here.~
 The hawk looks like a fierce fighter.
 ~
 song bird~
@@ -217,8 +204,7 @@ stand stand either 1000
 #24113
 grizzly bear~
 the grizzly bear~
-A large, loyal grizzly bear is here.
-~
+A large, loyal grizzly bear is here.~
 The grizzly bear looks like a strong, fierce fighter.
 ~
 bear~
@@ -233,8 +219,7 @@ r cold -33
 #24114
 aurochs~
 the aurochs~
-A HUGE Aurochs stomps its feet and lowers its head to charge.
-~
+A HUGE Aurochs stomps its feet and lowers its head to charge.~
 The aurochs is a BAD ASS.
 ~
 unique~
@@ -247,8 +232,7 @@ stand stand none 1000
 #24115
 village champion~
 the village champion~
-The village champion flexes his mighty thews and grins at you.
-~
+The village champion flexes his mighty thews and grins at you.~
 The village champion once tore the head off a rabid Mastodon with his thumbs.
 Imagine what he could do to you...
 ~
@@ -262,8 +246,7 @@ F 0 medium unknown
 #24116
 merchant~
 a hook-nosed merchant~
-A hook-nosed merchant from the desert kingdoms rubs his hands together.
-~
+A hook-nosed merchant from the desert kingdoms rubs his hands together.~
 This fellow may not speak your language well, but the language he does know
 very well makes conversation suddenly become much simpler- MONEY.
 ~
@@ -277,8 +260,7 @@ stand stand male 1000
 #24117
 chieftain~
 the village chieftain~
-The village chieftain welcomes you to her village.
-~
+The village chieftain welcomes you to her village.~
 This strapping giant of a woman has flaming red hair and biceps bigger than
 your thighs. She has ruled this village wisely for many years, through lean 
 times and times of plenty, and her people have the utmost faith in her
@@ -296,8 +278,7 @@ stand stand female 1000
 #24118
 villager~
 a villager~
-A fur-clad villager hurries by.
-~
+A fur-clad villager hurries by.~
 The villagers are a hardy lot, toughened by their environment and their
 rugged lifestyle, and you marvel at their good condition as they pass.
 ~
@@ -311,8 +292,7 @@ stand stand male 1000
 #24119
 villager~
 a villager~
-A fur-clad villager hurries by.
-~
+A fur-clad villager hurries by.~
 The villagers are a hardy lot, toughened by their environment and their
 rugged lifestyle, and you marvel at their good condition as they pass.
 ~
@@ -326,8 +306,7 @@ stand stand female 1000
 #24120
 child~
 a child~
-A child engages in rough horse play with other village children.
-~
+A child engages in rough horse play with other village children.~
 The children of the village are a rough and tumble lot, used to working hard
 and playing harder.
 ~
@@ -341,8 +320,7 @@ stand stand male 1000
 #24121
 idiot~
 the village idiot~
-The village idiot gawks at you.
-~
+The village idiot gawks at you.~
 When he was young, this poor fellow had his skull staved in by a horse kick.
 ~
 human~
@@ -355,8 +333,7 @@ stand stand male 1000
 #24122
 drunk~
 a village drunk~
-A village drunk.
-~
+A village drunk.~
 This fellow has evidently made many generous donations to the village brewer.
 ~
 human~
@@ -369,8 +346,7 @@ stand stand male 1000
 #24123
 beggar~
 a beggar~
-A beggar sits in the dirt asking for donations.
-~
+A beggar sits in the dirt asking for donations.~
 The inhabitants of this village are a tough lot, but not ungenerous, and it
 is likely that this fellow will have a roof over his head soon, provided by
 one of the more prosperous villagers.
@@ -385,8 +361,7 @@ stand stand male 1000
 #24124
 thief~
 a thief~
-A thief adroitly cuts the strings of another fat merchant's purse.
-~
+A thief adroitly cuts the strings of another fat merchant's purse.~
 This unsavory fellow preys on the rich foreign merchants from the south.
 ~
 human~
@@ -399,8 +374,7 @@ stand stand male 1000
 #24125
 wolf~
 a scrawny wolf~
-A scrawny wolf is here looking for food.
-~
+A scrawny wolf is here looking for food.~
 This wolf has strayed in from the wild, driven by hunger. The villagers are
 quick to repel such unwelcome wildlife, and it is only a matter of time
 before the militia run it off.
@@ -415,8 +389,7 @@ stand stand either 1000
 #24126
 rat~
 a rat~
-A black rat.
-~
+A black rat.~
 These mangy black rodents came with the merchants from the south, hidden
 amongst their goods, and have quickly become a nuisance, being scavengers
 and carriers of disease.
@@ -431,8 +404,7 @@ stand stand none 1000
 #24127
 dog~
 a dog~
-A stray dog whines piteously at you.
-~
+A stray dog whines piteously at you.~
 This mongrel is the unwanted offspring of some hunter's sled dogs, left to 
 fend for itself here in the village.
 ~
@@ -460,8 +432,7 @@ r sound 50
 #24128
 militia member~
 a member of the village militia~
-A member of the village militia eyes you suspiciously.
-~
+A member of the village militia eyes you suspiciously.~
 Like most civilizations of the time, the northern villagers have no organised
 standing military or police force. However, the recent influx of foreigners
 and bandits has necessitated the introduction of a militia to keep the peace.
@@ -476,8 +447,7 @@ stand stand male 1000
 #24129
 militia member~
 a member of the village militia~
-A member of the village militia eyes you suspiciously.
-~
+A member of the village militia eyes you suspiciously.~
 Like most civilizations of the time, the northern villagers have no organised
 standing military or police force. However, the recent influx of foreigners
 and bandits has necessitated the introduction of a militia to keep the peace.
@@ -492,8 +462,7 @@ stand stand male 1000
 #24130
 militia member~
 a member of the village militia~
-A member of the village militia hefts a large club and eyes you suspiciously.
-~
+A member of the village militia hefts a large club and eyes you suspiciously.~
 Like most civilizations of the time, the northern villagers have no organised
 standing military or police force. However, the recent influx of foreigners
 and bandits has necessitated the introduction of a militia to keep the peace.
@@ -508,8 +477,7 @@ stand stand male 1000
 #24131
 minoan merc merc1~
 minoan mercenary~
-A Minoan mercenary scowls menacingly at you.
-~
+A Minoan mercenary scowls menacingly at you.~
 This Merc looks big and tough. Better be careful.
 ~
 human~
@@ -522,8 +490,7 @@ stand stand female 1000
 #24132
 assyrian merc merc2~
 Assyrian mercenary~
-An Assyrian Mercenary scowls menacingly at you.
-~
+An Assyrian Mercenary scowls menacingly at you.~
 This Merc looks big and tough. Better be careful.
 ~
 human~
@@ -536,8 +503,7 @@ stand stand male 1000
 #24133
 egyptian merc merc3~
 Egyptian mercenary~
-An Egyptian mercenary scowls menacingly at you.
-~
+An Egyptian mercenary scowls menacingly at you.~
 This Merc looks big and tough. Better be careful.
 ~
 human~
@@ -550,8 +516,7 @@ stand stand male 1000
 #24134
 trojan merc merc4~
 Trojan mercenary~
-A Trojan mercenary scowls menacingly at you.
-~
+A Trojan mercenary scowls menacingly at you.~
 This Merc looks big and tough. Better be careful.
 ~
 human~
@@ -564,8 +529,7 @@ stand stand male 1000
 #24135
 nubian merc merc5~
 nubian Mercenary~
-A Nubian mercenary scowls menacingly at you.
-~
+A Nubian mercenary scowls menacingly at you.~
 This Merc looks big and tough. Better be careful.
 ~
 human~
@@ -578,8 +542,7 @@ stand stand male 1000
 #24136
 mycenaean merc merc6~
 Mycenaean mercenary~
-A Mycenaean mercenary scowls menacingly at you.
-~
+A Mycenaean mercenary scowls menacingly at you.~
 This Merc looks big and tough. Better be careful.
 ~
 human~

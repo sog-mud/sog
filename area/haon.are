@@ -12,9 +12,7 @@ End
 #6000
 john lumberjack джон дровосек~
 @eng John the Lumberjack@rus ~~дровосек~~ Джон~
-@eng John the Lumberjack is here, looking for some trees to chop down.
-@rus Дровосек Джон (John) оглядывается вокруг, выбирая какое девево срубить.
-~
+@eng John the Lumberjack is here, looking for some trees to chop down.@rus Дровосек Джон (John) оглядывается вокруг, выбирая какое девево срубить.~
 @eng He is six feet tall and looks quite strong, muscles bulging under his heavy,
 chequered shirt.  His features are worn with hard work and his expression is
 one of a peaceful man leading a simple life.
@@ -33,9 +31,7 @@ stand stand male 2
 #6002
 bear медведь~
 @eng the brown bear@rus ~~бурый~~ ~~медведь~~~
-@eng A big, brown, angry-looking bear is here.
-@rus Большой бурый проголодавшийся медведь (bear).
-~
+@eng A big, brown, angry-looking bear is here.@rus Большой бурый проголодавшийся медведь (bear).~
 @eng The bear is a big, brown, furry animal with very large claws and very sharp
 teeth.
 @rus Большое бурое мохнатое животное с большими когтями и очень острыми
@@ -54,9 +50,7 @@ r cold -33
 #6003
 rabbit заяц~
 @eng the ferocious rabbit@rus ~~дикий~~ ~~заяц~~~
-@eng A ferocious rabbit is here, glaring hungrily at you.
-@rus Дикий заяц (rabbit) глядит на тебя голодными глазами.
-~
+@eng A ferocious rabbit is here, glaring hungrily at you.@rus Дикий заяц (rabbit) глядит на тебя голодными глазами.~
 @eng A small, furry creature with long ears and big feet.
 @rus Маленькое мохнатое существо с длинными ушами и большими ногами.
 ~
@@ -71,9 +65,7 @@ g @eng none@rus male~
 #6004
 deer олень~
 @eng the fallow deer@rus ~~молодой~~ ~~олень~~~
-@eng A fallow deer is grazing peacefully here.
-@rus Молодой олень (deer) мирно щиплет траву.
-~
+@eng A fallow deer is grazing peacefully here.@rus Молодой олень (deer) мирно щиплет траву.~
 @eng She is a graceful creature on long, slender legs, and with large, brown eyes
 looking back at you with an air of watchful interest.
 @rus Грациозное создание с длинными тонкими ногами, с большими 
@@ -90,9 +82,7 @@ g @eng neutral@rus male~
 #6005
 fox лисица~
 @eng the brown fox@rus ~~рыжая~~ ~~лисица~~~
-@eng A brown fox is here, looking for some rabbits to chew up.
-@rus Рыжая лисица (fox) оглядывается в поисках кролика на завтрак.
-~
+@eng A brown fox is here, looking for some rabbits to chew up.@rus Рыжая лисица (fox) оглядывается в поисках кролика на завтрак.~
 @eng It is a large fox with beautiful, red-brown fur and a long, thick brush.
 @rus Большая лисица с рыжим прекрасным мехом и длинным толстым хвостом.
 ~
@@ -107,9 +97,7 @@ g @eng none@rus female~
 #6100
 warg vicious волчище оборотень волк варг~
 @eng the vicious warg@rus ~~злобный~~ ~~варг~~~
-@eng A vicious warg is here, snarling angrily at you.
-@rus Злобный варг (warg) рычит на тебя.
-~
+@eng A vicious warg is here, snarling angrily at you.@rus Злобный варг (warg) рычит на тебя.~
 @eng It is an exceptionally large wolf with thick, black fur.  Saliva is dripping
 quickly from its long, white fangs.  It looks quite dangerous and very angry.
 @rus Особенно большой волк с толстой черной шерстью. С его острых зубов
@@ -126,9 +114,7 @@ stand stand none 0
 #6101
 warg ferocious волчище варг оборотень~
 @eng the ferocious warg@rus ~~свирепый~~ ~~варг~~~
-@eng A ferocious warg is here, snarling angrily at you.
-@rus Свирепый варг (warg) рычит на тебя.
-~
+@eng A ferocious warg is here, snarling angrily at you.@rus Свирепый варг (warg) рычит на тебя.~
 @eng It is an exceptionally large wolf with thick, black fur.  Saliva is dripping
 quickly from its long, white fangs.  It looks quite dangerous and very angry.
 @rus Особенно большой волк с толстой черной шерстью. С его острых зубов
@@ -146,9 +132,7 @@ g @eng none@rus male~
 #6102
 wolf grey серый волк~
 @eng the large, grey wolf@rus ~~большой~~ ~~серый~~ ~~волк~~~
-@eng A large, grey wolf is here, glaring hungrily at you.
-@rus Ты видишь сверкающие глаза большого серого волка (wolf).
-~
+@eng A large, grey wolf is here, glaring hungrily at you.@rus Ты видишь сверкающие глаза большого серого волка (wolf).~
 @eng The large, grey wolf eyes you with interest while licking its lips.
 @rus Его глаза горят огнем, а алый язык лениво свисает из пасти.
 ~
@@ -163,9 +147,7 @@ g @eng none@rus male~
 #6103
 wolf black волк черный~
 @eng the large, black wolf@rus ~~большой~~ ~~черный~~ ~~волк~~~
-@eng A large, black wolf is here, glaring hungrily at you.
-@rus Ты видишь сверкающие глаза большого черного волка (wolf).
-~
+@eng A large, black wolf is here, glaring hungrily at you.@rus Ты видишь сверкающие глаза большого черного волка (wolf).~
 @eng The large, black wolf eyes you with interest while licking its lips.
 @rus Его глаза горят огнем, а алый язык лениво свисает из пасти.
 ~
@@ -180,9 +162,7 @@ g @eng none@rus male~
 #6112
 dragon green дракон~
 @eng the huge, green dragon@rus ~~огромный~~ ~~зеленый~~ ~~дракон~~~
-@eng A huge green dragon is here, its narrow yellow eyes glowing with rage.
-@rus Большой зеленый дракон (dragon), его узкие желтые глаза налиты яростью.
-~
+@eng A huge green dragon is here, its narrow yellow eyes glowing with rage.@rus Большой зеленый дракон (dragon), его узкие желтые глаза налиты яростью.~
 @eng This enormous winged serpent has dark green scales covering most of its
 colossal body.  Numerous holes in its heavy wings tell of many fights as does
 the nicks in the horns on its head.  It smells as disgusting as only dragons
@@ -209,9 +189,7 @@ r charm -33
 #6115
 shargugh brownie шаргах брауни~
 @eng Shargugh@rus Шаргах~
-@eng Shargugh the Forest Brownie is here, grinning broadly at you.
-@rus Шаргах (Shargugh), лесной брауни открыто смеется на тобой.
-~
+@eng Shargugh the Forest Brownie is here, grinning broadly at you.@rus Шаргах (Shargugh), лесной брауни открыто смеется на тобой.~
 @eng This little fellow is only three foot tall with wild matted brown hair and long
 tangled brown beard.  He wears ragged brown and green clothing and looks as if
 he is having great fun.
@@ -229,9 +207,7 @@ stand stand male 50
 #6116
 elder druid старец друид~
 @eng the elder druid@rus ~~старец~~ ~~друид~~~
-@eng The elder druid is here ... he looks very upset at your presence in his home.
-@rus Старец (elder) друид... он выглядит расстроеным твоим вторжением в его дом.
-~
+@eng The elder druid is here ... he looks very upset at your presence in his home.@rus Старец (elder) друид... он выглядит расстроеным твоим вторжением в его дом.~
 @eng The druid looks quite old.  You would think him venerable, but you know
 he would be a tough foe.
 @rus Он выглядит очень старым. Но он может быть очень стойким противником.
@@ -246,9 +222,7 @@ stand stand male 250
 #6117
 guildmaster master учитель~
 @eng the guildmaster@rus учитель~
-@eng Your guildmaster is standing here.
-@rus Учитель (guildmaster) стоит здесь.
-~
+@eng Your guildmaster is standing here.@rus Учитель (guildmaster) стоит здесь.~
 @eng He is an old, but strong looking ranger.  Some leaves and dry branches 
 still hang over his clothes from last camouflage.
 @rus Старый, но все еще сильный рейнжер. На его одежде еще 

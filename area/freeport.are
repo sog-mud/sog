@@ -11,9 +11,7 @@ End
 #29201
 lizard ящерица blue-tongued голубая~
 @eng the blue-tongued lizard@rus ~~голубая~~ ~~ящерица~~~
-@eng A blue-tongued lizard hisses at you.
-@rus Голубая ящерица (lizard) шипит на тебя.
-~
+@eng A blue-tongued lizard hisses at you.@rus Голубая ящерица (lizard) шипит на тебя.~
 @eng The blue-tongued lizard measures some 18" from head to tail,
 is very quick, and has sharp pointy teeth.
 @rus Эта ящерица длиной примерно 18 дюймов от головы до кончика хвоста.
@@ -31,9 +29,7 @@ r poison -33
 #29202
 lizard ящерица red-tongued красная~
 @eng the red-tongued lizard@rus ~~красная~~ ~~ящерица~~~
-@eng A red-tongued lizard hisses at you.
-@rus Красная ящерица (lizard) шипит на тебя.
-~
+@eng A red-tongued lizard hisses at you.@rus Красная ящерица (lizard) шипит на тебя.~
 @eng The red-tongued lizard measures some 18" from head to tail,
 is very quick, and has sharp pointy teeth.
 @rus Эта ящерица длиной примерно 18 дюймов от головы до кончика хвоста.
@@ -51,9 +47,7 @@ r poison -33
 #29203
 lizard ящерица green-tongued зеленая~
 @eng the green-tongued lizard@rus ~~зеленая~~ ~~ящерица~~~
-@eng A green-tongued lizard hisses at you.
-@rus Зеленая ящерица (lizard) шипит на тебя.
-~
+@eng A green-tongued lizard hisses at you.@rus Зеленая ящерица (lizard) шипит на тебя.~
 @eng The green-tongued lizard measures some 18" from head to tail,
 is very quick, and has sharp pointy teeth.
 @rus Эта ящерица длиной примерно 18 дюймов от головы до кончика хвоста.
@@ -71,9 +65,7 @@ r poison -33
 #29204
 watchman сторож man человек old старый sailor моряк~
 @eng the watchman of Widow's Cape@rus ~~сторож~~ Вдовьего Мыса~
-@eng An old sailor is here tending the watchfire.
-@rus Старый моряк (watchman) следит за сигнальными огнями маяка.
-~
+@eng An old sailor is here tending the watchfire.@rus Старый моряк (watchman) следит за сигнальными огнями маяка.~
 @eng You strike up a conversation with the watchman. He tells you that
 he has noticed several craft entering and leaving Freeport harbor
 at night, but when he reported it, nobody seemed to care.
@@ -91,9 +83,7 @@ stand stand male 100
 #29205
 fisherman рыбак man рыболов~
 @eng the fisherman@rus рыболов~
-@eng A fisherman with a long cane pole angles here.
-@rus Рыболов (fisherman) с длинной тростниковой удочкой ловит тут рыбу.
-~
+@eng A fisherman with a long cane pole angles here.@rus Рыболов (fisherman) с длинной тростниковой удочкой ловит тут рыбу.~
 @eng You strike up a conversation with the fisherman. He tells you that
 you really should try the blue-tongued lizards which hide in the
 jetty rocks.
@@ -110,9 +100,7 @@ stand stand male 10
 #29206
 longshoreman грузчик worker рабочий dock портовый man~
 @eng the longshoreman@rus ~~портовый~~ ~~грузчик~~~
-@eng A dock worker is here lifting a heavy crate.
-@rus Портовый грузчик (longshoreman) ворочает тяжелый ящик.
-~
+@eng A dock worker is here lifting a heavy crate.@rus Портовый грузчик (longshoreman) ворочает тяжелый ящик.~
 @eng The dockworker is dressed in loose-fitting cotton clothing and uses
 a rope to lift the heavy crate.
 @rus Портовый грузчик, одетый в свободную одежду из хлопка, использует веревку,
@@ -128,9 +116,7 @@ stand stand male 10
 #29207
 harbormaster таможенник man~
 @eng the harbormaster@rus таможенник~
-@eng The harbormaster is here asking you what you have to declare.
-@rus Таможенник (harbormaster) приказывает тебе продекларировать свой груз.
-~
+@eng The harbormaster is here asking you what you have to declare.@rus Таможенник (harbormaster) приказывает тебе продекларировать свой груз.~
 @eng The harbormaster is an old hand at this, and doesn't put up with
 any crap from you. Give him his list or go to the brig.
 @rus Этот таможенник собаку съел в своем  деле и не даст себя обмануть. Лучше
@@ -147,9 +133,7 @@ stand stand male 300
 #29208
 citizen горожанин freeport свободной гавани~
 @eng the citizen of Freeport@rus горожанин~
-@eng A citizen of Freeport walks along, whistling a sailing song.
-@rus Горожанин (citizen) проходит мимо, насвистывая морскую песенку.
-~
+@eng A citizen of Freeport walks along, whistling a sailing song.@rus Горожанин (citizen) проходит мимо, насвистывая морскую песенку.~
 @eng The citizen is dressed in light cotton clothing and sandals.
 @rus Горожанин одет в легкую хлопчатобумажную одежду и сандалии.
 ~
@@ -163,9 +147,7 @@ stand stand male 15
 #29209
 child ребенок laughing смеющийся~
 @eng the laughing child@rus ~~смеющийся~~ ~~ребенок~~~
-@eng A small child is laughing and playing a game here.
-@rus Маленький ребенок (child), смеясь, играет неподалеку.
-~
+@eng A small child is laughing and playing a game here.@rus Маленький ребенок (child), смеясь, играет неподалеку.~
 @eng The child is dressed in a white cotton shirt.
 @rus Ребенок одет в белую хлопчатобумажную рубашку.
 ~
@@ -180,9 +162,7 @@ stand stand female 1
 wife жена sailor's моряка~
 @eng the sailor's wife@rus ~~жена~~ моряка~
 @eng A sailor's wife asks you to keep her company while her
-husband is away at sea.
-@rus Жена моряка (wife) просит тебя составить ей компанию, пока мужа нет.
-~
+husband is away at sea.@rus Жена моряка (wife) просит тебя составить ей компанию, пока мужа нет.~
 @eng The sailor's wife is dressed in a simple cotton dress,
 and has hair bleached blond by the sun and the sea.
 @rus Жена моряка одета в простую хлопчатобумажную одежду. Ее волосы
@@ -198,9 +178,7 @@ stand stand female 3
 #29211
 shipbuilder корабел master мастер~
 @eng the master shipbuilder@rus ~~мастер~~ ~~корабел~~~
-@eng The master shipbuilder is here, working on a new prototype.
-@rus Мастер корабел (shipbuilder) работает над новым прототипом судна.
-~
+@eng The master shipbuilder is here, working on a new prototype.@rus Мастер корабел (shipbuilder) работает над новым прототипом судна.~
 @eng After introducing yourself and the usual small talk, you 
 find out from the master shipbuilder that he has been recently
 commissioned to build 3 triremes, boats which offer little 
@@ -220,9 +198,7 @@ stand stand male 8000
 #29212
 apprentice ученик shipbuilder корабела~
 @eng the apprentice shipbuilder@rus ~~ученик~~ корабела~
-@eng An apprentice shipbuilder is here applying pitch to a seam.
-@rus Ученик корабела (apprentice) тщательно проклеивает швы.
-~
+@eng An apprentice shipbuilder is here applying pitch to a seam.@rus Ученик корабела (apprentice) тщательно проклеивает швы.~
 @eng The apprentice shipbuilder is a young boy dressed in a dirty
 grey smock.
 @rus Ученик корабела - это молодой мальчик, одетый в грязную серую блузу.
@@ -237,9 +213,7 @@ stand stand male 18
 #29213
 overseer смотритель warehouse склада~
 @eng the warehouse overseer@rus ~~смотритель~~ склада~
-@eng The warehouse overseer is here, yelling at a longshoreman.
-@rus Смотритель склада (overseer) кричит на грузчика.
-~
+@eng The warehouse overseer is here, yelling at a longshoreman.@rus Смотритель склада (overseer) кричит на грузчика.~
 @eng The warehouse overseer complains about the shoddy record keeping
 of his employees. Why just this last month the records show 60 missing
 crates bound for destinations around the world.
@@ -257,9 +231,7 @@ stand stand male 340
 #29214
 patrolman патрульный harbor портовый~
 @eng the harbor patrolman@rus ~~портовый~~ ~~патрульный~~~
-@eng The harbor patrol is here, so you better behave.
-@rus Ведите себя прилично в присутствии патрульного (patrolman).
-~
+@eng The harbor patrol is here, so you better behave.@rus Ведите себя прилично в присутствии патрульного (patrolman).~
 @eng The harbor patrolman is dressed in light armor. He is well armed
 though, and looks like he is in no mood for your crap.
 @rus Портовый патрульный носит легкие доспехи. Однако, он достаточно
@@ -275,9 +247,7 @@ stand stand male 100
 #29215
 teamster возчик~
 @eng the teamster@rus возчик~
-@eng A teamster is here, taking a wagonload of cargo to the wharf.
-@rus Возчик (teamster) подгоняет тележку с грузом к пристани.
-~
+@eng A teamster is here, taking a wagonload of cargo to the wharf.@rus Возчик (teamster) подгоняет тележку с грузом к пристани.~
 @eng The teamster drives his single mule with a long whip and foul language.
 @rus Возчик управляет своим единственным мулом с помощью длинного кнута и
 грязной ругани.
@@ -292,9 +262,7 @@ stand stand male 70
 #29216
 lefty трактирщик лефти~
 @eng Lefty, owner of the Sunken Pirate@rus ~~Трактирщик~~ Лефти~
-@eng Lefty, owner of the Sunken Pirate, dispenses food and drink here.
-@rus Лефти (Lefty), владелец "Пирата-Утопленника", продает еду и выпивку.
-~
+@eng Lefty, owner of the Sunken Pirate, dispenses food and drink here.@rus Лефти (Lefty), владелец "Пирата-Утопленника", продает еду и выпивку.~
 @eng When you ask about the recent gossip, Lefty tells you that he heard
 a shady looking bunch talking about how Oglethorpe the master merchant
 had sold out Freeport to the pirates.
@@ -311,9 +279,7 @@ stand stand male 10000
 #29217
 anwar владелец анвар~
 @eng Anwar, proprietor of the Emporium@rus Анвар~
-@eng Anwar is here offering exotic goods for your inspection.
-@rus Анвар (Anwar) предлагает тебе широкий выбор экзотических товаров.
-~
+@eng Anwar is here offering exotic goods for your inspection.@rus Анвар (Anwar) предлагает тебе широкий выбор экзотических товаров.~
 @eng You flip Anwar a gold coin. He holds out his hand for more. You give
 him 50 gold. He tells you that he has access to some goods which are
 very cheap in which you might be interested. When you scoff at his
@@ -335,9 +301,7 @@ r charm -33
 #29218
 raedner dwarf гном dwarven кузнец smith рэднер~
 @eng Raedner the dwarven smith@rus ~~кузнец~~ ~~Рэднер~~~
-@eng A dwarven smith hammers on a suit of plate armor here.
-@rus Гном-кузнец (Raedner) создает новый комплект доспехов.
-~
+@eng A dwarven smith hammers on a suit of plate armor here.@rus Гном-кузнец (Raedner) создает новый комплект доспехов.~
 @eng Raedner gladly accepts a pull from your ale skin. As he wipes his brow,
 he begins a story about how he thinks the last election was rigged, since
 nobody he had talked to voted for Mayor Friendly. He offers to repair your
@@ -373,9 +337,7 @@ r sound 33
 #29219
 samantha ведьма~
 @eng Samantha, witch of the Mystic Eye@rus ~~ведьма~~ ~~Саманта~~~
-@eng Samantha, witch of the Mystic Eye displays her ample goods for you.
-@rus Саманта (Samantha), хозяйка "Мистического Глаза" показывает свои товары.
-~
+@eng Samantha, witch of the Mystic Eye displays her ample goods for you.@rus Саманта (Samantha), хозяйка "Мистического Глаза" показывает свои товары.~
 @eng Samantha bats her eyes at you with no shame at all. She propositions you
 for some indecent activity. You accept to pump her for more information.
 She lets slip that Lord Mourning was seen recently in her shop. She offers
@@ -397,9 +359,7 @@ stand stand female 15000
 #29220
 apprentice ученик merchant купца~
 @eng the apprentice merchant@rus ~~ученик~~ купца~
-@eng An apprentice merchant tries to interest you in a trip to Dunkeldorf.
-@rus Ученик купца (apprentice) пытается навязать тебе поездку в Дункельдорф.
-~
+@eng An apprentice merchant tries to interest you in a trip to Dunkeldorf.@rus Ученик купца (apprentice) пытается навязать тебе поездку в Дункельдорф.~
 @eng The apprentice is trying to fill his docket for the evening's tide. He
 wears a simple yellow smock.
 @rus Ученик пытается заполнить квитанцию об уплате таможенной пошлины. Он носит
@@ -415,9 +375,7 @@ stand stand male 300
 #29221
 ceres церес merchant купец~
 @eng Ceres, merchant of the 3rd chair@rus ~~купец~~ ~~Керес~~~
-@eng Ceres, master merchant of the 3rd chair greets you with a warm smile.
-@rus Керес (Ceres), старший купец третьего кресла, приветствует тебя улыбкой.
-~
+@eng Ceres, master merchant of the 3rd chair greets you with a warm smile.@rus Керес (Ceres), старший купец третьего кресла, приветствует тебя улыбкой.~
 @eng You strike up a conversation with Ceres. He tells you that he was recently
 threatened by Oglethorpe (1st chair) when he brought up the subject of
 missing records of the guild.
@@ -435,9 +393,7 @@ stand stand male 1000
 #29222
 elken элкин banker банкир~
 @eng Elken, banker of Freeport@rus ~~банкир~~ ~~Элкин~~~
-@eng Elken, banker of Freeport awaits your next deposit.
-@rus Элкин (Elken), банкир Свободной Гавани, ждет твоего следующего вклада.
-~
+@eng Elken, banker of Freeport awaits your next deposit.@rus Элкин (Elken), банкир Свободной Гавани, ждет твоего следующего вклада.~
 @eng Elken seems to squirm and shift when you begin gentle inquiries into
 the strange happenings of Freeport. He excuses himself and goes to
 talk to a teller, who in turn leaves the bank in a hurry.
@@ -455,9 +411,7 @@ stand stand male 1000
 #29224
 cadet кадет young молодой~
 @eng the young cadet@rus ~~молодой~~ ~~кадет~~~
-@eng A young cadet stops to offer you assistance.
-@rus Молодой кадет (cadet) останавливается и предлагает тебе свою помощь.
-~
+@eng A young cadet stops to offer you assistance.@rus Молодой кадет (cadet) останавливается и предлагает тебе свою помощь.~
 @eng You strike up a conversation, and he tells you of the rigors of the
 Naval academy. He relays a funny story of how during last summers
 sailors games he took his girl off to a secret tunnel from Freeport
@@ -479,9 +433,7 @@ stand stand male 10
 #29225
 whitecap уайткэп old старый salt моряк адмирал~
 @eng Whitecap, 8th Admiral of Freeport@rus ~~адмирал~~ ~~Уайткэп~~~
-@eng An old salt sits here smoking his pipe.
-@rus Старый моряк (salt) неподвижно сидит здесь, потягивая трубку.
-~
+@eng An old salt sits here smoking his pipe.@rus Старый моряк (salt) неподвижно сидит здесь, потягивая трубку.~
 @eng You offer Whitecap some honey gold pipe tobacco. He smiles, kicks back,
 and lights up his pipe. An hour later, you are much wiser in the ways of the
 sea. He also tells you of how recently he has grown concerned for the
@@ -504,9 +456,7 @@ stand stand male 500
 #29226
 mayor мэр friendly френдли~
 @eng Mayor Friendly@rus ~~мэр~~ ~~Френдли~~~
-@eng Mayor Friendly greets you with a smile and a handshake.
-@rus Мэр Френдли (Friendly) приветствует тебя улыбкой и рукопожатием.
-~
+@eng Mayor Friendly greets you with a smile and a handshake.@rus Мэр Френдли (Friendly) приветствует тебя улыбкой и рукопожатием.~
 @eng When you begin to subtly inquire about the strange happenings in Freeport
 Mayor Friendly gets nervous and clams up. You notice that he keeps looking
 at a white marble statue.
@@ -525,9 +475,7 @@ stand stand male 6000
 #29227
 midge мидж innkeeper владелица гостиницы~
 @eng Midge, the innkeeper of the Crew's Quarters@rus Мидж~
-@eng Midge, the innkeeper of the Crew's Quarters offers you a wholesome meal.
-@rus Мидж (Midge), владелица гостиницы "Веселый Кубрик", угощает тебя обедом.
-~
+@eng Midge, the innkeeper of the Crew's Quarters offers you a wholesome meal.@rus Мидж (Midge), владелица гостиницы "Веселый Кубрик", угощает тебя обедом.~
 @eng Midge sits down with you as you have the meal, as her business right now
 has been slow. She tells you that her business has steadily declined for
 the last 6 years. Recently her business picked up again. In fact, she 
@@ -548,9 +496,7 @@ stand stand female 9000
 #29228
 sailor моряк scruffy потрепанный pirate пират~
 @eng the scruffy pirate@rus ~~потрепанный~~ ~~моряк~~~
-@eng A scruffy sailor labors here to unload crates.
-@rus Потрепанный моряк (sailor) трудится тут, без устали разгружая ящики.
-~
+@eng A scruffy sailor labors here to unload crates.@rus Потрепанный моряк (sailor) трудится тут, без устали разгружая ящики.~
 @eng The sailor reeks of rum and the sea.
 @rus От моряка несет ромом и морем.
 ~
@@ -564,9 +510,7 @@ stand stand male 45
 #29229
 guard стражник stoic стоический pirate пират~
 @eng the pirate guard@rus ~~пират~~-~~стражник~~~
-@eng A stoic guard stands here, barring the way.
-@rus Стоический стражник (guard) нагло преграждает тебе дорогу.
-~
+@eng A stoic guard stands here, barring the way.@rus Стоический стражник (guard) нагло преграждает тебе дорогу.~
 @eng The guard is heavily armed and moves with military 
 precision.
 @rus Стражник отлично вооружен и отличается военной точностью движений.
@@ -581,9 +525,7 @@ stand stand male 150
 #29230
 blacksail блэксэйл admiral адмирал~
 @eng Admiral Blacksail@rus ~~адмирал~~ ~~Блэксэйл~~~
-@eng Admiral Blacksail is here, shivering from his addiction to devil weed.
-@rus Адмирал Блэксэйл (Blacksail) трясется из-за своей наркотической зависимости.
-~
+@eng Admiral Blacksail is here, shivering from his addiction to devil weed.@rus Адмирал Блэксэйл (Blacksail) трясется из-за своей наркотической зависимости.~
 @eng You confront Blacksail with his villainy. He begs for your mercy. He
 claims Mourning forced him into his present addiction, and threatens
 to cut him off from all devil weed unless he complies with his every
@@ -603,9 +545,7 @@ stand stand male 250
 #29231
 oglethorpe оглторп master старший merchant купец~
 @eng Oglethorpe, 1st Master Merchant of Freeport@rus Оглторп~
-@eng Oglethorpe, the 1st Master Merchant of Freeport, startles at your presence!
-@rus Оглторп (Oglethorpe), Старшина Купцов, удивленно смотрит на тебя.
-~
+@eng Oglethorpe, the 1st Master Merchant of Freeport, startles at your presence!@rus Оглторп (Oglethorpe), Старшина Купцов, удивленно смотрит на тебя.~
 @eng Oglethorpe, when faced with your accusations proudly admits to skimming
 off profits from his information scandal and ties to the pirate lords.
 He laughs at your puny attempts to frighten him, and vows your slow, cold
@@ -627,9 +567,7 @@ stand stand male 1500
 #29232
 mourning моурнинг lord лорд~
 @eng Lord Mourning@rus ~~лорд~~ ~~Моурнинг~~~
-@eng Lord Mourning, the secret 6th Pirate Lord laughs at you!
-@rus Лорд Моурнинг (Mourning), 6-й король пиратов, смеется тебе в лицо.
-~
+@eng Lord Mourning, the secret 6th Pirate Lord laughs at you!@rus Лорд Моурнинг (Mourning), 6-й король пиратов, смеется тебе в лицо.~
 @eng Bah! Who are you to threaten me? I was sinking navies when you were a mere
 strapling on your mother's teat! I will destroy you! And if not me, then
 someone else, for every one of us you kill, 2 more sprout up to take my
@@ -651,9 +589,7 @@ stand stand male 500
 #29233
 sailor моряк drunken пьяный~
 @eng the drunken sailor@rus ~~пьяный~~ ~~моряк~~~
-@eng A drunken sailor staggers here.
-@rus Пьяный моряк (sailor) бредет, покачиваясь из стороны в сторону.
-~
+@eng A drunken sailor staggers here.@rus Пьяный моряк (sailor) бредет, покачиваясь из стороны в сторону.~
 @eng The drunken sailor has been a long time away at sea, and this is his
 first day back in port. His wandering drunk shows on his clothing. Here
 a stain from the red wine he had this morning. There is the gravy from
@@ -757,7 +693,7 @@ g @rus female~
 #29210
 trident трезубец~
 @eng a trident@rus трезубец~
-@eng A trident has been left here.@rus  Трезубец (trident) брошен кем-то на землю.~
+@eng A trident has been left here.@rus . Трезубец (trident) брошен кем-то на землю.~
 wood~
 weapon G 0 AN
 polearm 5 5 'none' 0

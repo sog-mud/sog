@@ -11,8 +11,7 @@ End
 #21000
 alice алиса~
 @eng Alice@rus Алиса~
-Alice raises her eyebrows and says "Curiouser and curiouser!"
-~
+Alice raises her eyebrows and says "Curiouser and curiouser!"~
 In her amazement she has completely forgotten proper English. As if the
 inrecdible sights of Wonderland weren't enough, now she has encountered you,
 a strange being clad in dozens of different types of armor with no regard for
@@ -31,8 +30,7 @@ M greet 21000 100~
 #21001
 white rabbit~
 a white rabbit~
-A smartly dressed white rabbit scurries by, muttering to himself.
-~
+A smartly dressed white rabbit scurries by, muttering to himself.~
 "I'm late! I'm late!" he seems to be saying, which is impossible as rabbits
 don't talk. Or do they? He was certainly very well dressed for a rabbit, or
 for anyone for that matter. Perhaps you'd fancy acquiring some of his
@@ -60,8 +58,7 @@ r charm 33
 #21002
 mouse~
 a mouse~
-A mouse is struggling to keep afloat here.
-~
+A mouse is struggling to keep afloat here.~
 The mouse is swimming, with some difficulty, to the edge of this pool of
 water. He looks startled upon seeing you approach, and cautiously demands
 to know whether you are a cat.
@@ -84,8 +81,7 @@ M act 21025 leaves.~
 #21003
 duck~
 a duck~
-A duck waddles about, looking very confused.
-~
+A duck waddles about, looking very confused.~
 Like you, this creature found itself suddenly submerged in a pool of Alice's
 tears. Although being a duck, it isn't half as worried.
 ~
@@ -107,8 +103,7 @@ M act 21026 leaves.~
 #21004
 dodo~
 a dodo~
-A dodo is busy arranging some sort of foot race.
-~
+A dodo is busy arranging some sort of foot race.~
 He is in fact arranging a caucus-race, to help everyone get dry. It seems to
 consist of everyone gathering about in a circular shape ("the exact shape doesn't
 matter") and running about until they are quite dry.
@@ -132,8 +127,7 @@ M act 21027 leaves.~
 #21005
 lory~
 a lory~
-A lory is busily racing about to dry off.
-~
+A lory is busily racing about to dry off.~
 The lory is feeling rather sulky, as it feels that as the oldest present
 (though it will NOT reveal its age) it knows best and should be in charge.
 ~
@@ -157,8 +151,7 @@ M act 21028 leaves.~
 #21006
 eaglet~
 an eaglet~
-An eaglet screeches and stretches its soaking wet wings.
-~
+An eaglet screeches and stretches its soaking wet wings.~
 The eaglet is growing impatient with the talk- all the long words he doesn't
 know the meaning of, and doubtless nor do any of the others present.
 ~
@@ -180,8 +173,7 @@ M act 21029 leaves.~
 #21007
 magpie~
 an elderly magpie~
-An elderly magpie complains about the cold.
-~
+An elderly magpie complains about the cold.~
 This magpie is quite frail and is concerned the chill from being wet will
 cause her to become ill.
 ~
@@ -203,8 +195,7 @@ M act 21030 leaves.~
 #21008
 owl~
 an owl~
-An owl prepares to join in the caucus race.
-~
+An owl prepares to join in the caucus race.~
 This owl is quite young and not very wise as yet, so it is deferring to the
 wisdom of the older birds and engaging in the decidedly silly caucus race.
 ~
@@ -219,8 +210,7 @@ M greet 21013 100~
 #21009
 old crab~
 an old crab~
-An old crab is lecturing her daughter about losing her temper.
-~
+An old crab is lecturing her daughter about losing her temper.~
 This elderly crab is enough to try the patience of an oyster!
 ~
 human~
@@ -234,8 +224,7 @@ M greet 21015 100~
 #21010
 young crab~
 a young crab~
-A young crab is telling her mother to hold her tongue.
-~
+A young crab is telling her mother to hold her tongue.~
 This youthful crustacean is sick of her mother's constant lecturing.
 ~
 human~
@@ -249,8 +238,7 @@ M greet 21014 100~
 #21011
 bill lizard~
 Bill the lizard~
-Bill the lizard is standing here, waiting to be lowered down the chimney.
-~
+Bill the lizard is standing here, waiting to be lowered down the chimney.~
 He doesn't look as if he is too keen to be doing this, but he's been given
 no choice.
 ~
@@ -269,8 +257,7 @@ r poison -33
 #21012
 guinea pig~
 a guinea pig~
-A guinea pig stands here holding a length of rope.
-~
+A guinea pig stands here holding a length of rope.~
 He and his fellow are preparing to lower poor Bill down the chimney to see
 what it is inside that is causing such a clamour.
 ~
@@ -286,8 +273,7 @@ M act 21020 looks at you.~
 #21013
 puppy~
 a puppy dog~
-A puppy dog looks at you with large round eyes.
-~
+A puppy dog looks at you with large round eyes.~
 This little pup has been abandoned here. He looks like he'd LOVE to have
 someone to play with.
 ~
@@ -310,8 +296,7 @@ M act 21023 leaves.~
 #21014
 caterpillar~
 the caterpillar~
-The caterpiller puffs on its hookah and says languidly "Who are YOU?"
-~
+The caterpiller puffs on its hookah and says languidly "Who are YOU?"~
 The caterpillar stands and stretches himself to his full height of three
 inches and patiently awaits an answer. He is an infuriating conversationalist.
 ~
@@ -334,8 +319,7 @@ M act 21033 leaves.~
 #21015
 pigeon~
 a pigeon~
-A pigeon spies you and screams "Serpent!"
-~
+A pigeon spies you and screams "Serpent!"~
 The paranoid bird has mistaken you for a dreaded serpent, whom she fears
 and detests because they steal her eggs. Too bad she's unlikely to live
 long enough to explain her actions...
@@ -359,8 +343,7 @@ M act 21036 leaves.~
 #21016
 fish footman~
 a fish-footman~
-A fish-footman is here bearing an invitation.
-~
+A fish-footman is here bearing an invitation.~
 This fellow is smartly clad in livery and powdered wig, though you find it
 quite disconcerting how he looks at the sky rather than looking you in the
 eyes when he speaks. Then again, its not like he can help it.
@@ -379,8 +362,7 @@ r cold 50
 #21017
 frog footman~
 a frog-footman~
-A frog-footman is accompanying the fish-footman.
-~
+A frog-footman is accompanying the fish-footman.~
 The frog is as neatly dressed as his aquatic companion, save that his
 appearance is rendered by far more civil by the fact that he can look
 straight ahead.
@@ -396,8 +378,7 @@ M act 21039 tells you~
 #21018
 duchess~
 the Duchess~
-The Duchess sits here nursing her baby.
-~
+The Duchess sits here nursing her baby.~
 She is a hefty woman with an inordinately large head, upon which rests a
 baby's cradle. The occupant of the cradle is in her lap. She seems quite
 short-tempered and irritable.
@@ -415,8 +396,7 @@ M act 21041 tells you~
 #21019
 pig baby~
 the Duchess' baby~
-The Duchess' baby oinks and squeals. Oinks?
-~
+The Duchess' baby oinks and squeals. Oinks?~
 The baby appears to be quite porcine in manner and appearance. Every now and
 then it is struck by a plate hurled by the cook, and it squeals anew, the
 dirge interrupted only by periodic sneezing due to all the pepper in the air.
@@ -432,8 +412,7 @@ M greet 21042 100~
 #21020
 cook~
 the cook~
-The cook is preparing some sort of soup, which seems to require a LOT of pepper.
-~
+The cook is preparing some sort of soup, which seems to require a LOT of pepper.~
 The cook also seems immune to the sneeze-inducing effects of her ingredient.
 From time to time she hurls a piece of crockery at the other occupants of the
 room, though it doesn't seem to bother most of them in the least!
@@ -457,8 +436,7 @@ M act 21045 leaves.~
 #21021
 cheshire cat~
 a Cheshire Cat~
-A Cheshire Cat smirks at you.
-~
+A Cheshire Cat smirks at you.~
 Smirking and grinning seem to be the only expressions this feline is
 capable of. You weren't aware that cats could grin; then again, you've never
 met a Cheshire Cat before. It has an irritating habit of making parts of
@@ -485,8 +463,7 @@ M act 21049 leaves.~
 #21022
 mad hatter~
 the Mad Hatter~
-The Mad Hatter engages you in conversation.
-~
+The Mad Hatter engages you in conversation.~
 Everything this insane man says is nonsense, though you do find it rather
 amusing. He tells you of the time he had to sing at a concert given by
 the Queen, where he performed "Twinkle, twinkle, little bat"-
@@ -520,8 +497,7 @@ M act 21054 leaves.~
 #21023
 march hare~
 the March Hare~
-The March Hare, who went insane last March, explains "It's always tea-time!"
-~
+The March Hare, who went insane last March, explains "It's always tea-time!"~
 Since they decided to freeze time at Six O'clock to save the Hatter's head,
 it has always been tea-time, with no time to wash up. So they alternate
 seats and serving sets. The Hare wants you to tell them a story now.
@@ -544,8 +520,7 @@ M act 21054 leaves.~
 #21024
 dormouse~
 the Dormouse~
-The Dormouse snores loudly, and is pinched by its companions.
-~
+The Dormouse snores loudly, and is pinched by its companions.~
 The Dormouse seems to be asleep, but it still manages to inject comments into
 the conversation when it fancies. It decides to tell you a story, involving
 sisters, treacle and treacle wells. It really doesn't make much sense, but
@@ -563,8 +538,7 @@ M random 21056 5~
 #21027
 gardener heart five card~
 a gardener~
-A gardener who resembles a playing card is busily painting a rose bush.
-~
+A gardener who resembles a playing card is busily painting a rose bush.~
 This fellow (who is the five of hearts) is busy trying to paint the white
 roses red before the Queen arrives.
 ~
@@ -584,8 +558,7 @@ M greet 21059 100~
 #21028
 gardener heart seven card~
 a gardener~
-A gardener who resembles a playing card quickly bows upon seeing you.
-~
+A gardener who resembles a playing card quickly bows upon seeing you.~
 This fellow (who is the seven of hearts) is busy trying to paint the white
 roses red before the Queen arrives.
 ~
@@ -602,8 +575,7 @@ M act 21058 tells you~
 #21029
 gardener heart two card~
 a gardener~
-A gardener who resembles a playing card is squabbling with his friends.
-~
+A gardener who resembles a playing card is squabbling with his friends.~
 This fellow (who is the two of hearts) is busy trying to paint the white
 roses red before the Queen arrives.
 ~
@@ -626,8 +598,7 @@ M act 21062 leaves.~
 #21030
 soldier club card~
 a soldier~
-A soldier, who is actually a playing card in the suit of clubs, marches by.
-~
+A soldier, who is actually a playing card in the suit of clubs, marches by.~
 These stern cards are sworn to protect and obey the Queen.
 ~
 human~
@@ -642,8 +613,7 @@ M act 21064 looks at you.~
 #21031
 courtier diamond card~
 a courtier~
-A flat, oblong courtier, ornamented with diamonds, strolls by.
-~
+A flat, oblong courtier, ornamented with diamonds, strolls by.~
 These noble cards accompany the Queen everywhere.
 ~
 human~
@@ -665,8 +635,7 @@ M act 21067 leaves.~
 #21032
 child card hearts~
 a child of the Queen~
-A tiny card bearing hearts upon it scurries about like a child.
-~
+A tiny card bearing hearts upon it scurries about like a child.~
 These small tykes are the children of the Queen.
 ~
 human~
@@ -680,8 +649,7 @@ M greet 21068 100~
 #21033
 king hearts~
 the King of Hearts~
-The King of Hearts strolls proudly past.
-~
+The King of Hearts strolls proudly past.~
 The King is here to play croquet with the court. Although he is King, he
 defers to his overbearing wife in most matters. He strngly resembles the
 Kings you see on playing cards.
@@ -705,8 +673,7 @@ M act 21071 leaves.~
 #21034
 queen hearts~
 @eng the Queen of Hearts@rus ~~Червовая~~ ~~Королева~~~
-The Queen of Hearts screams "Off with their heads!"
-~
+The Queen of Hearts screams "Off with their heads!"~
 The Queen is an imposing aggressive woman who solves every problem by
 demanding that the heads of the causes of them be lopped off. No-one's head
 ever actually DOES get lopped off, but that doesn't deter her.
@@ -732,8 +699,7 @@ M act 21075 tells you~
 #21035
 knave hearts~
 the Knave of Hearts~
-The Knave of Hearts smiles and nods a lot.
-~
+The Knave of Hearts smiles and nods a lot.~
 The Knave isn't the brightest of cards by a long shot. He is however a
 notorious thief, his biggest crime to date being the theft of the Queen's
 tarts.
@@ -751,8 +717,7 @@ M act 21077 tells you ~
 #21036
 flamingo~
 a flamingo~
-A flamingo is fleeing across the croquet lawn.
-~
+A flamingo is fleeing across the croquet lawn.~
 This poor bird is attempting to avoid being used by the many players as a
 croquet mallet.
 ~
@@ -767,8 +732,7 @@ M greet 21078 100~
 #21037
 hedgehog~
 a hedgehog~
-A hedgehog jumps up and scampers off after being hit by a flamingo.
-~
+A hedgehog jumps up and scampers off after being hit by a flamingo.~
 The croquet players are using these unassuming creatures as balls in their
 bizarre version of the clasic game of nobility.
 ~
@@ -782,8 +746,7 @@ stand stand male 0
 #21038
 executioner~
 the executioner~
-The executioner is wandering about muttering about disembodied heads.
-~
+The executioner is wandering about muttering about disembodied heads.~
 This fellow is perhaps at the same time both the busiest and the least-busy
 of the Queen's staff. For while he is constantly being ordered to decapitate
 hundreds of people, he never actually carries out the task. He is currently
@@ -809,8 +772,7 @@ M act 21081 leaves.~
 #21039
 mock turtle~
 the Mock Turtle~
-The Mock Turtle is here weeping constantly.
-~
+The Mock Turtle is here weeping constantly.~
 The Mock Turtle is the thing Mock Turtle soup is made from. He is attempting
 to tell you his tale, but he is weeping so much you doubt he'll ever get a
 word out. The Turtle has the head of a pig, the shell of a turtle and the
@@ -827,8 +789,7 @@ M greet 21083 100~
 #21040
 gryphon~
 a Gryphon~
-A Gryphon is lying here, sound asleep.
-~
+A Gryphon is lying here, sound asleep.~
 This fantastic beast is a friendly sort, despite his appearance. He
 attended the same school as the Mock Turtle, studying things such as Reeling
 and Writhing, the three branches of Arithmetic- Ambition, Distraction,
@@ -849,8 +810,7 @@ M death 21088 100~
 #21041
 juror~
 a juror~
-A juror is busily scribbling on a slate.
-~
+A juror is busily scribbling on a slate.~
 This chap is one of the jury who judges the cases in the court here. Of
 course, justice in Wonderland is a very erratic process, much like everything
 else in this strange place.
@@ -867,8 +827,7 @@ M act 21090 tells you~
 #21042
 court officer~
 a court officer~
-A court officer stands ready to suppress rowdy members of the public.
-~
+A court officer stands ready to suppress rowdy members of the public.~
 "Suppressing" takes the form of placing the offender in a large hessian sack
 and sitting on them...
 ~

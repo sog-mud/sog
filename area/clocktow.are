@@ -11,9 +11,7 @@ End
 #4900
 bell колокол~
 @eng The Bell@rus Колокол~
-@eng The Bell hangs here making some grunting noises.
-@rus Колокол (bell) висит здесь, гудя и вздыхая.
-~
+@eng The Bell hangs here making some grunting noises.@rus Колокол (bell) висит здесь, гудя и вздыхая.~
 @eng As you look at the Bell, you feel blinded by it's
 shining. Big and tall, it sounds very impressively
 and you mearly able to stay close to it.
@@ -36,9 +34,7 @@ r sound 999
 #4901
 mechanic watch maker часовщик~
 @eng Mechanic@rus Часовщик~
-@eng A watch-maker works here, repairing something.
-@rus Часовой мастер (mechanic) копается тут, что-то подкручивая.
-~
+@eng A watch-maker works here, repairing something.@rus Часовой мастер (mechanic) копается тут, что-то подкручивая.~
 @eng Mechanic is clad in grey oiled robe. With a wise look
 in his eyes he stares deep into the clock-work and
 seemingly does not pay any attention at you.
@@ -59,9 +55,7 @@ r mental 999
 #4902
 watchman clock tower смотритель~
 @eng Watchman@rus ~~Смотритель~~ Башни~
-@eng The clock-tower watchman sits here, resting.
-@rus Смотритель Башни (watchman) сидит тут, отдыхая.
-~
+@eng The clock-tower watchman sits here, resting.@rus Смотритель Башни (watchman) сидит тут, отдыхая.~
 @eng Just a watchman. He looks rather tired and asleep.
 Probably he did not paid enough and so aloows you
 to enter the Clock Tower.
@@ -89,9 +83,7 @@ r charm 999
 #4903
 pendulum маятник~
 @eng Pendulum@rus Маятник~
-@eng The Pendulum looms hither and thither.
-@rus Маятник (pendulum) качается туда-сюда.
-~
+@eng The Pendulum looms hither and thither.@rus Маятник (pendulum) качается туда-сюда.~
 @eng You see a strange massive ball on a stick. It moves
 with a strong regularity in order not to leave the
 City without explicit time.
@@ -125,9 +117,7 @@ r sound 33
 #4904
 hand long big стрелка~
 @eng Long Hand@rus ~~Большая~~ ~~Стрелка~~~
-@eng A Long Hand shows you right time.
-@rus Большая стрелка (hand) показывает тебе правильное время.
-~
+@eng A Long Hand shows you right time.@rus Большая стрелка (hand) показывает тебе правильное время.~
 @eng A big long arrow points at the edge of the clock face.
 @rus Длинная стрелка указывает на край циферблата.
 ~
@@ -141,9 +131,7 @@ AZc B medium unknown
 #4905
 hand short small стрелка~
 @eng Short Hand@rus ~~Маленькая~~ ~~Стрелка~~~
-@eng A Short Hand shows you right time.
-@rus Малая стрелка (hand) показывает тебе верное время.
-~
+@eng A Short Hand shows you right time.@rus Малая стрелка (hand) показывает тебе верное время.~
 @eng A small short arrow points at the edge of the clock face.
 @rus Маленькая стрелка указывает на край циферблата.
 ~
@@ -157,9 +145,7 @@ AZc B medium unknown
 #4906
 weather cock флюгер wearthercock~
 @eng Wearthercock@rus Флюгер~
-@eng A wearthercock shows the direction that wind blows.
-@rus Петушок (wearthercock) указывает направление ветра.
-~
+@eng A wearthercock shows the direction that wind blows.@rus Петушок (wearthercock) указывает направление ветра.~
 @eng You see a cock made of brass. It rotates about the
 top of the spire each time the wind blows.
 @rus Перед тобой петушок, сделанный из латуни. Он вращается
@@ -179,9 +165,7 @@ r energy 33
 chimney sweep трубочист~
 @eng Chimney-sweep@rus Трубочист~
 @eng A chimney-sweep sits at the tile singing for his
-girl-friend.
-@rus Веселый трубочист (chimney) сидит на крыше и поет серенады.
-~
+girl-friend.@rus Веселый трубочист (chimney) сидит на крыше и поет серенады.~
 @eng Clad all in black, he seems anyway to be a very good
 and kind. He sings son about his lovely friend. He
 scatters some bread bits around him for pigeons.
@@ -201,9 +185,7 @@ r holy 999
 #4908
 one clock один~
 @eng One o'clock@rus ~~Один~~ ~~Час~~~
-@eng One o'clock stands here on a clock face.
-@rus Цифра Один (one) стоит на циферблате.
-~
+@eng One o'clock stands here on a clock face.@rus Цифра Один (one) стоит на циферблате.~
 @eng You see a strong warrior with the number <1> engraved
 on his armour.
 @rus Ты видишь могучего воина с цифрой <1>, выгравированной
@@ -219,9 +201,7 @@ AM ABCDEF medium unknown
 #4909
 two clock два~
 @eng Two o'clock@rus ~~Два~~ ~~Часа~~~
-@eng Two o'clock stands here on a clock face.
-@rus Цифра Два (two) стоит на циферблате.
-~
+@eng Two o'clock stands here on a clock face.@rus Цифра Два (two) стоит на циферблате.~
 @eng You see a strong warrior with the number <2> engraved
 on his armour.
 @rus Ты видишь могучего воина с цифрой <2>, выгравированной
@@ -237,9 +217,7 @@ AM ABCDEF medium unknown
 #4910
 three clock три~
 @eng Three o'clock@rus ~~Три~~ ~~Часа~~~
-@eng Three o'clock stands here on a clock face.
-@rus Цифра Три (three) стоит на циферблате.
-~
+@eng Three o'clock stands here on a clock face.@rus Цифра Три (three) стоит на циферблате.~
 @eng You see a strong warrior with the number <3> engraved
 on his armour.
 @rus Ты видишь могучего воина с цифрой <3>, выгравированной
@@ -255,9 +233,7 @@ AM ABCDEF medium unknown
 #4911
 four clock четыре~
 @eng Four o'clock@rus ~~Четыре~~ ~~Часа~~~
-@eng Four o'clock stands here on a clock face.
-@rus Цифра Четыре (four) стоит на циферблате.
-~
+@eng Four o'clock stands here on a clock face.@rus Цифра Четыре (four) стоит на циферблате.~
 @eng You see a strong warrior with the number <4> engraved
 on his armour.
 @rus Ты видишь могучего воина с цифрой <4>, выгравированной
@@ -273,9 +249,7 @@ AM ABCDEF medium unknown
 #4912
 five clock пять~
 @eng Five o'clock@rus ~~Пять~~ ~~Часов~~~
-@eng Five o'clock stands here on a clock face.
-@rus Цифра Пять (five) стоит на циферблате.
-~
+@eng Five o'clock stands here on a clock face.@rus Цифра Пять (five) стоит на циферблате.~
 @eng You see a strong warrior with the number <5> engraved
 on his armour.
 @rus Ты видишь могучего воина с цифрой <5>, выгравированной
@@ -291,9 +265,7 @@ AM ABCDEF medium unknown
 #4913
 six clock шесть~
 @eng Six o'clock@rus ~~Шесть~~ ~~Часов~~~
-@eng Six o'clock stands here on a clock face.
-@rus Цифра Шесть (six) стоит на циферблате.
-~
+@eng Six o'clock stands here on a clock face.@rus Цифра Шесть (six) стоит на циферблате.~
 @eng You see a strong warrior with the number <6> engraved
 on his armour.
 @rus Ты видишь могучего воина с цифрой <6>, выгравированной
@@ -309,9 +281,7 @@ AM ABCDEF medium unknown
 #4914
 seven clock семь~
 @eng Seven o'clock@rus ~~Семь~~ ~~Часов~~~
-@eng Seven o'clock stands here on a clock face.
-@rus Цифра Семь (seven) стоит на циферблате.
-~
+@eng Seven o'clock stands here on a clock face.@rus Цифра Семь (seven) стоит на циферблате.~
 @eng You see a strong warrior with the number <7> engraved
 on his armour.
 @rus Ты видишь могучего воина с цифрой <7>, выгравированной
@@ -327,9 +297,7 @@ AM ABCDEF medium unknown
 #4915
 eight clock восемь~
 @eng Eight o'clock@rus ~~Восемь~~ ~~Часов~~~
-@eng Eight o'clock stands here on a clock face.
-@rus Цифра Восемь (eight) стоит на циферблате.
-~
+@eng Eight o'clock stands here on a clock face.@rus Цифра Восемь (eight) стоит на циферблате.~
 @eng You see a strong warrior with the number <8> engraved
 on his armour.
 @rus Ты видишь могучего воина с цифрой <8>, выгравированной
@@ -345,9 +313,7 @@ AM ABCDEF medium unknown
 #4916
 nine clock девять~
 @eng Nine o'clock@rus ~~Девять~~ ~~Часов~~~
-@eng Nine o'clock stands here on a clock face.
-@rus Цифра Девять (nine) стоит на циферблате.
-~
+@eng Nine o'clock stands here on a clock face.@rus Цифра Девять (nine) стоит на циферблате.~
 @eng You see a strong warrior with the number <9> engraved
 on his armour.
 @rus Ты видишь могучего воина с цифрой <9>, выгравированной
@@ -363,9 +329,7 @@ AM ABCDEF medium unknown
 #4917
 ten clock десять~
 @eng Ten o'clock@rus ~~Десять~~ ~~Часов~~~
-@eng Ten o'clock stands here on a clock face.
-@rus Цифра Десять (ten) стоит на циферблате.
-~
+@eng Ten o'clock stands here on a clock face.@rus Цифра Десять (ten) стоит на циферблате.~
 @eng You see a strong warrior with the number <10> engraved
 on his armour.
 @rus Ты видишь могучего воина с цифрой <10>, выгравированной
@@ -381,9 +345,7 @@ AM ABCDEF medium unknown
 #4918
 eleven clock одиннадцать~
 @eng Eleven o'clock@rus ~~Одиннадцать~~ ~~Часов~~~
-@eng Eleven o'clock stands here on a clock face.
-@rus Цифра Одиннадцать (eleven) стоит на циферблате.
-~
+@eng Eleven o'clock stands here on a clock face.@rus Цифра Одиннадцать (eleven) стоит на циферблате.~
 @eng You see a strong warrior with the number <11> engraved
 on his armour.
 @rus Ты видишь могучего воина с цифрой <11>, выгравированной
@@ -399,9 +361,7 @@ AM ABCDEF medium unknown
 #4919
 twelve clock двенадцать~
 @eng Twelve o'clock@rus ~~Двенадцать~~ ~~Часов~~~
-@eng Twelve o'clock stands here on a clock face.
-@rus Цифра Двенадцать (twelve) стоит на циферблате.
-~
+@eng Twelve o'clock stands here on a clock face.@rus Цифра Двенадцать (twelve) стоит на циферблате.~
 @eng You see a strong warrior with the number <12> engraved
 on his armour.
 @rus Ты видишь могучего воина с цифрой <12>, выгравированной
@@ -417,9 +377,7 @@ AM ABCDEF medium unknown
 #4920
 gear шестеренка large~
 @eng Large gear@rus ~~Большая~~ ~~шестеренка~~~
-@eng Large gear is here moving slowly.
-@rus Большая шестеренка (gear) медленно крутится здесь.
-~
+@eng Large gear is here moving slowly.@rus Большая шестеренка (gear) медленно крутится здесь.~
 @eng You see a round piece of metal spinning connected
 with the others.
 @rus Круглая железка вращается вместе с другими, 
@@ -435,9 +393,7 @@ AM ADEF large unknown
 #4921
 gear шестеренка medium~
 @eng Medium gear@rus ~~Средняя~~ ~~шестеренка~~~
-@eng Medium gear is here.
-@rus Средняя шестеренка (gear) крутится здесь.
-~
+@eng Medium gear is here.@rus Средняя шестеренка (gear) крутится здесь.~
 @eng You see a round piece of metal spinning connected
 with the others.
 
@@ -454,9 +410,7 @@ AM ABCDEF medium unknown
 #4922
 small gear шестеренка~
 @eng Small gear@rus ~~Маленькая~~ ~~шестеренка~~~
-@eng Small gear is here moving quickly.
-@rus Маленькая шестеренка (gear) быстро крутится здесь.
-~
+@eng Small gear is here moving quickly.@rus Маленькая шестеренка (gear) быстро крутится здесь.~
 @eng You see a round piece of metal spinning connected
 with the others.
 @rus Круглая железка вращается вместе с другими,
@@ -472,9 +426,7 @@ AM ABCDEF small unknown
 #4923
 tiny gear шестеренка~
 @eng Tiny gear@rus ~~Крошечная~~ ~~шестеренка~~~
-@eng Tiny gear moves here very fast.
-@rus Крошечная шестеренка (gear) стремительно крутится здесь.
-~
+@eng Tiny gear moves here very fast.@rus Крошечная шестеренка (gear) стремительно крутится здесь.~
 @eng You see a round piece of metal spinning connected
 with the others.
 
@@ -491,9 +443,7 @@ AM ABCDEF tiny unknown
 #4924
 pigeon tower голубь~
 @eng tower pigeon@rus голубь~
-@eng A pigeon is here searching for food.
-@rus Голубь (pigeon) роется здесь в поисках пищи.
-~
+@eng A pigeon is here searching for food.@rus Голубь (pigeon) роется здесь в поисках пищи.~
 @eng A beautiful pigeon walks on the roof, cooing and
 pecking bits of bread scattered by the chimney-
 sweep.
@@ -511,9 +461,7 @@ r holy 999
 #4925
 ghost terrifying привидение~
 @eng terrifying ghost@rus ~~ужасное~~ ~~привидение~~~
-@eng A strange figure looks like a ghost.
-@rus Странная фигура выглядит, словно привидение (ghost) ...
-~
+@eng A strange figure looks like a ghost.@rus Странная фигура выглядит, словно привидение (ghost) ...~
 @eng What do you want to see? This is GHOST!!!
 @rus А что ты хотел увидеть? Это же ПРИВИДЕНИЕ!!!
 ~
@@ -534,9 +482,7 @@ r disease -100
 #4926
 bat angry мышь~
 @eng angry bat@rus ~~летучая~~ ~~мышь~~~
-@eng A very angry bat is flying here.
-@rus Очень злая летучая мышь (bat) летает здесь.
-~
+@eng A very angry bat is flying here.@rus Очень злая летучая мышь (bat) летает здесь.~
 ~
 bat~
 FGT 0 0 0 A -1000 0
@@ -549,9 +495,7 @@ r light 50
 #4927
 rat wimpy крыса~
 @eng wimpy rat@rus ~~трусливая~~ ~~крыса~~~
-@eng A big rat looks at you.
-@rus Большая жирная крыса (rat) смотрит на тебя.
-~
+@eng A big rat looks at you.@rus Большая жирная крыса (rat) смотрит на тебя.~
 ~
 bat~
 FGHT 0 0 0 B -1000 0
@@ -565,9 +509,7 @@ r light 50
 #4928
 spider small паук~
 @eng small spider@rus ~~маленький~~ ~~паук~~~
-@eng A small spider is trying to get out from your way.
-@rus Маленький паучок (spider) пытается убраться с твоей дороги.
-~
+@eng A small spider is trying to get out from your way.@rus Маленький паучок (spider) пытается убраться с твоей дороги.~
 ~
 centipede~
 GHR 0 0 0 0 0 0
@@ -582,9 +524,7 @@ r cold -33
 #4929
 spider huge паук~
 @eng HUGE spider@rus ~~здоровенный~~ ~~паук~~~
-@eng A huge spider attacks you!
-@rus Здоровенный паук (spider) бросается на тебя!
-~
+@eng A huge spider attacks you!@rus Здоровенный паук (spider) бросается на тебя!~
 ~
 centipede~
 FGHR 0 0 0 0 -1000 0
@@ -599,8 +539,7 @@ r cold -33
 #4930
 hand long big~
 Long Hand~
-A Long Hand shows you right time.
-~
+A Long Hand shows you right time.~
 A big long arrow points at the edge of the clock face.
 ~
 unique~
@@ -613,8 +552,7 @@ AZc B medium unknown
 #4931
 hand short small~
 Short Hand~
-A Short Hand shows you right time.
-~
+A Short Hand shows you right time.~
 A small short arrow points at the edge of the clock face.
 ~
 unique~
@@ -627,8 +565,7 @@ AZc B medium unknown
 #4932
 hand long big~
 Long Hand~
-A Long Hand shows you right time.
-~
+A Long Hand shows you right time.~
 A big long arrow points at the edge of the clock face.
 ~
 unique~
@@ -641,8 +578,7 @@ AZc B medium unknown
 #4933
 hand short small~
 Short Hand~
-A Short Hand shows you right time.
-~
+A Short Hand shows you right time.~
 A small short arrow points at the edge of the clock face.
 ~
 unique~
@@ -655,8 +591,7 @@ AZc B medium unknown
 #4934
 hand long big~
 Long Hand~
-A Long Hand shows you right time.
-~
+A Long Hand shows you right time.~
 A big long arrow points at the edge of the clock face.
 ~
 unique~
@@ -669,8 +604,7 @@ AZc B medium unknown
 #4935
 hand short small~
 Short Hand~
-A Short Hand shows you right time.
-~
+A Short Hand shows you right time.~
 A small short arrow points at the edge of the clock face.
 ~
 unique~

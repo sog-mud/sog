@@ -12,9 +12,7 @@ End
 #37000
 janitor дворничиха~
 @eng the janitor@rus дворничиха~
-@eng A janitor is walking around, cleaning up.
-@rus Дворничиха (janitor) ходит вокруг тебя, подметая мусор.
-~
+@eng A janitor is walking around, cleaning up.@rus Дворничиха (janitor) ходит вокруг тебя, подметая мусор.~
 ~
 human~
 GH 0 0 0 0 900 0
@@ -41,9 +39,7 @@ r sound -50
 #37001
 cityguard guard стражница~
 @eng the cityguard@rus стражница~
-@eng A cityguard stands here.
-@rus Стражница (cityguard) стоит здесь.
-~
+@eng A cityguard stands here.@rus Стражница (cityguard) стоит здесь.~
 @eng A big, strong, helpful, trustworthy guard.
 @rus Большая, сильная, заслуживающая доверия, всегда готовая помочь стражница.
 ~
@@ -72,9 +68,7 @@ r sound 33
 #37002
 rabbit крольчиха~
 @eng the rabbit@rus крольчиха~
-@eng A rabbit is bouncing around here.
-@rus Крольчиха (rabbit) скачет по окрестностям.
-~
+@eng A rabbit is bouncing around here.@rus Крольчиха (rabbit) скачет по окрестностям.~
 @eng The rabbit smiles at you, completely harmless!
 @rus Крольчиха тебе улыбнулась, она полностью в твоей власти.
 Она жует морковку.
@@ -90,9 +84,7 @@ V 3709
 #37003
 lizard ящерка~
 @eng the lizard@rus ящерка~
-@eng A lizard slithers up to you.
-@rus Ящерка (lizard) скользнула к тебе.
-~
+@eng A lizard slithers up to you.@rus Ящерка (lizard) скользнула к тебе.~
 @eng It smiles at you, and tries to eat your leg.
 @rus Она тебе улыбнулась и укусила за ногу в попытке съесть ее. БОЛЬНО!!!
 (вот редиска)
@@ -110,9 +102,7 @@ r poison -33
 #37004
 pig свинья~
 @eng the pig@rus свинья~
-@eng A pig tries to run you over.
-@rus Свинья (pig) грозно хрюкает на тебя.
-~
+@eng A pig tries to run you over.@rus Свинья (pig) грозно хрюкает на тебя.~
 @eng It grunts at you.
 @rus Она тебя обхрюкала.
 ~
@@ -127,9 +117,7 @@ V 3711
 #37005
 fox лиса~
 @eng the fox@rus лиса~
-@eng A fox is here staring at you.
-@rus Лиса (fox)... пялит на тебя глазенки.
-~
+@eng A fox is here staring at you.@rus Лиса (fox)... пялит на тебя глазенки.~
 @eng It's fur might be worth money.
 @rus Ага... ее мех, наверное, стоит хороших денег!
 ~
@@ -144,9 +132,7 @@ V 3712
 #37006
 bear медведица~
 @eng the bear@rus медведица~
-@eng A bear is here growling at you.
-@rus Медведица (bear) тут, она ищет своего медвежонка.
-~
+@eng A bear is here growling at you.@rus Медведица (bear) тут, она ищет своего медвежонка.~
 @eng The bear must be bigger than you!  It wants to rip your head off.
 @rus Медведица намного больше тебя. Не ты ли убил ее медвежонка?
 ~
@@ -163,9 +149,7 @@ r cold -33
 #37007
 wolf волчица~
 @eng the wolf@rus волчица~
-@eng A wolf is here snarling at you.
-@rus Волчица (wolf) тут, она рычит на тебя.
-~
+@eng A wolf is here snarling at you.@rus Волчица (wolf) тут, она рычит на тебя.~
 @eng The wolf doesn't want to be bothered.
 @rus Волчица не желает чтобы ее беспокоили.
 ~
@@ -180,9 +164,7 @@ V 3716
 #37008
 horn-seeker охотница~
 @eng horn-seeker@rus ~~охотница~~ за Рогом~
-@eng Horn-seeker stand here.
-@rus Охотница за Рогом (horn-seeker) стоит здесь.
-~
+@eng Horn-seeker stand here.@rus Охотница за Рогом (horn-seeker) стоит здесь.~
 @rus Чудно одетая женщина стоит напротив вас. На ее одежде осела пыль
 множества дорог. В глазах ее фанатичный блеск. Уже много лет она там, где
 войны, схватки, перевороты, бунты. Единственная цель ее жизни - найти Рог Валир.
@@ -198,6 +180,22 @@ stand stand either 20000
 F for H
 r bash 33
 r cold 33
+#37010
+citizen жительница~
+@eng the citizen@rus ~~городская~~ ~~жительница~~~
+@rus Местная жительница (citizen) спешит по делам.~
+@rus Эта женщина явно поставила перед собой какую-то цель.
+Во всяком случае, выражение лица у нее уж очень сосре-
+доточенное. Она тебя совсем не замечает.
+~
+human~
+HW 0 0 0 0 0 0
+15 4 3d10+215 5d5+215 2d5+2 'punch'
+-2 -2 -2 2
+HIU
+stand stand either 10
+0 0 medium unknown
+F for AHMV
 #0
 
 #SPECIALS

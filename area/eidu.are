@@ -12,9 +12,7 @@ End
 #44000
 samurai~
 @eng Samurai@rus Самурай~
-@eng A big samurai stands here. Seems like he doesn't see you.
-@rus Здоровенный самурай безучастно смотрит в одну точку. Его взгляд проходит мимо тебя как-будто не замечая.
-~
+@eng A big samurai stands here. Seems like he doesn't see you.@rus Здоровенный самурай безучастно смотрит в одну точку. Его взгляд проходит мимо тебя как-будто не замечая.~
 ~
 human~
 Z 0 H 0 ABDF 1000 0
@@ -36,9 +34,7 @@ M speech 44000 hi~
 #44001
 sam~
 @eng sam@rus sam~
-@eng sam
-@rus sam
-~
+@eng sam@rus sam~
 ~
 human~
 Z 0 0 0 0 1000 0

@@ -11,8 +11,7 @@ End
 #16001
 enforcer eye~
 The enforcer eye~
-A large eye watches all your moves
-~
+A large eye watches all your moves~
 These eyes are all over the Under dark, they make sure all the rules are
 obeyed.  They are just that, huge eyes that float above the ground.  The  
 eye has a dark brown shell, with a huge pupil that never seems to blink.
@@ -27,8 +26,7 @@ stand stand none 0
 #16002
 floating eye~
 The floating eye~
-A floating eye drifts in and out of the shadows
-~
+A floating eye drifts in and out of the shadows~
 The eye flies at about your head level watching everything that happens. 
 These eyes have been known to steal from people and to play "jokes" on
 others.  The eye's pupil is a very dark grey and you can't tell where it is
@@ -44,8 +42,7 @@ stand stand none 0
 #16003
 prisoner~
 The prisoner~
-A prisoner stares at you from the back of the cell
-~
+A prisoner stares at you from the back of the cell~
 You look at this prisoner disgusted, how could anyone be put in a jail in
 this city?  This fellow must have committed the ultimate in crimes.  He
 stares at you and does nothing else.  It looks as if he has lost the will to
@@ -61,8 +58,7 @@ stand stand male 0
 #16004
 great enforcer eye~
 The great enforcing eye~
-A huge eye floats in the air here, ready to punish all
-~
+A huge eye floats in the air here, ready to punish all~
 This eye is the right hand of the Beholder who is in charge of the
 enforcers.  The shell of this eye is brown and crusty, almost like scales. 
 The pupil of this eye is a very deep red.  Looking at it makes you slightly
@@ -78,8 +74,7 @@ stand stand none 0
 #16005
 beholder eye~
 The huge beholder~
-A huge beholder watches over the other enforcers
-~
+A huge beholder watches over the other enforcers~
 A globular body greets your curious gaze.  This beholder is the head of the
 enforcers of the Underdark.  The enforcers keep a tenuous peace, keeping
 prolonged fights from occurring but allowing stealing and assassinations. 
@@ -111,8 +106,7 @@ r sound -33
 #16006
 beholder~
 The beholder~
-A beholder of incredible size floats here scheming against the world       
-~
+A beholder of incredible size floats here scheming against the world       ~
 A huge spherical body floats in the air here.  Ontop of the sphere reside 10
 moving eyestalks.  A huge eye is in the centre of the sphere.  This huge eye
 seems to disrupt your casting abilities.  This beholder lives in this city and
@@ -142,8 +136,7 @@ r sound -33
 #16007
 svirfneblin deep gnome~
 The svirfneblin~
-A brownish grey gnome watches you warily
-~
+A brownish grey gnome watches you warily~
 Before you stands a svirfneblin, a deep gnome.  Much like a regular gnome
 the only real difference is the fact that this gnome's skin is a brownish grey
 and he is going slightly bald.
@@ -161,8 +154,7 @@ r disease -20
 #16008
 drow trader~
 The drow trader~
-A drow trader goes about his business
-~
+A drow trader goes about his business~
 A black-skinned and pale-haired elf stands before you heading somewhere
 with a purpose to sell his goods.  Although he looks skinny he looks very
 deadly and quick.
@@ -180,8 +172,7 @@ r charm -33
 #16009
 dwarf duergar~
 The duergar~
-A dark dwarf wanders about
-~
+A dark dwarf wanders about~
 Before you stands an emaciated, evil-visaged dwarf.  His skin is dark grey. 
 He wears clothing that is a dark grey, he seems to blend into his
 surroundings.
@@ -199,8 +190,7 @@ r disease -25
 #16010
 necromancer mage~
 The necromancer~
-A necromancer dressed in flowing dark robes
-~
+A necromancer dressed in flowing dark robes~
 You turn your gaze on a necromancer who seems to have power flowing
 through every one of her movements.  Her visage is gaunt and strained, it
 seems as if at every moment she is concentrating on a spell of some sort. ~
@@ -217,8 +207,7 @@ r charm -33
 #16011
 behir~
 The behir~
-A behir stands here waiting for orders from it's master
-~
+A behir stands here waiting for orders from it's master~
 Before you stands a snake-like reptilian monster with a dozen legs that
 must allow it to move with considerable speed, you recall that you once
 heard stories of these creatures climbing walls.  The head is more
@@ -237,8 +226,7 @@ r poison 999
 #16012
 fighter~
 The fighter~
-A very evil looking fighter chats with his companions
-~
+A very evil looking fighter chats with his companions~
 This fighter looks like a bounty hunter who has had some luck.  Your mind
 goes wild imagining the many possibilities of why he is in the Under Dark,
 perhaps there is some creature that has had a reward placed on it's head,
@@ -255,8 +243,7 @@ stand stand male 0
 #16013
 high priest~
 A high priest of Xevior~
-A priest of Xevior stands with his fellow group members
-~
+A priest of Xevior stands with his fellow group members~
 Before you stands a cleric of Xevior.  He is tall and lanky, he seems to
 shimmer in and out of existence much like a mirage.  He bears the design
 of Xevior on his forehead.
@@ -271,8 +258,7 @@ stand stand male 0
 #16014
 lizard man~
 The lizard man~
-A reptilian man stands in the shadows off to the side
-~
+A reptilian man stands in the shadows off to the side~
 A figure of muscular build who looks vaguely human.  He is covered in
 little scales and seems to be light green in colour.  He stares at you as you
 look at him.  Ready for any move you may make on him.
@@ -289,8 +275,7 @@ r poison -33
 #16015
 purple worm~
 The purple worm~
-A purple worm bursts from the ground before you
-~
+A purple worm bursts from the ground before you~
 Before you lies a worm of incredible size and power.  The worm is about
 40 feet long and is purple in colour.  The worm has huge teeth which it
 uses to slowly crush it's prey if they are unlucky enough not to be
@@ -306,8 +291,7 @@ stand stand none 0
 #16016
 purple worm huge~
 The huge purple worm~
-A huge purple worm erupts from the earth before you
-~
+A huge purple worm erupts from the earth before you~
 This worm is almost 60 feet long and 13 feet in diameter.  It is a very dark
 purple and has teeth about 4 inches long each.  The mouth is so large that
 it looks like a small cavern.  You can only see the front of the worm since
@@ -322,8 +306,7 @@ stand stand none 0
 #16017
 underling beholder~
 The beholder's underling~
-An underling of the beholder carries out it's malicious plans
-~
+An underling of the beholder carries out it's malicious plans~
 Before you stands a human who takes orders from the beholder.  His life
 goal is to serve the beholder.  He is dressed in green and black.  On his
 hands he wears a pair of gauntlets that bear the beholders symbol, an eye
@@ -339,8 +322,7 @@ stand stand none 0
 #16018
 beholder legionnaire~
 The beholder legionnaire~
-A robed legionnaire bearing the emblem of the beholder stands alert
-~
+A robed legionnaire bearing the emblem of the beholder stands alert~
 You see before you a robed figure who looks vaguely human.  You've
 heard stories that the beholder's forces weren't human now you know they
 aren't, you look closer to see just what type of humanoid he is.  Then he
@@ -357,8 +339,7 @@ stand stand male 0
 #16019
 beholder attendant~
 The supreme attendant~
-A robed attendant seems mildly annoyed with your intrusion
-~
+A robed attendant seems mildly annoyed with your intrusion~
 This figure is robed and looks almost human.  Then you notice his eyes,
 they glow green in this light.  His gaze challenges you to either attack or
 leave him in peace.  He holds himself with confidence and you realise it
@@ -374,8 +355,7 @@ stand stand male 0
 #16020
 grell brain~
 The grell~
-A large ugly floating brain with a beak wants to be fed
-~
+A large ugly floating brain with a beak wants to be fed~
 The appearance of this dreadful creature is fearsome indeed: a body like a
 giant exposed brain approximately five feet in diameter and with a frontal
 beak, below which trail ten six foot long tentacles hang.  The body of the
@@ -392,8 +372,7 @@ r lightning -100
 #16021
 barkeep bartender~
 The Barkeep~
-The barkeep stands here ready to help you if you can pay
-~
+The barkeep stands here ready to help you if you can pay~
 You are looking at the barkeep of the gemstone.  This is his establishment,
 and you get the feeling if you do anything destructive or stupid he will
 make you pay.
@@ -408,8 +387,7 @@ stand stand male 0
 #16022
 patron duergar~
 The duergar patron~
-A duergar sits here drinking ale while staring at you
-~
+A duergar sits here drinking ale while staring at you~
 This duergar stares right back at you as you check him over.  He would
 stand about four feet tall at max you figure.  Built like an ox this guy could
 easily pick you up.  You figure he frequents the Gemstone since he just
@@ -428,8 +406,7 @@ r disease -25
 #16023
 patron drow~
 The drow patron~
-A drow sits here quietly minding his own business
-~
+A drow sits here quietly minding his own business~
 The drow doesn't seem to be looking at anything at all.  His dark skin
 blends in with the murky lighting.  The drow looks quick and deadly. ~
 dark-elf~
@@ -445,8 +422,7 @@ r charm -33
 #16024
 patron human~
 The human patron~
-A human is sitting here very drunk and very loud
-~
+A human is sitting here very drunk and very loud~
 This drunk is a slob, he has no life.  You can tell that he is fat and out of
 shape, the only thing going for him is the fact that he looks strong.  He has
 a gut that hangs out right over his belt, and a few scars on his face
@@ -461,8 +437,7 @@ stand stand male 0
 #16025
 adventurer caris~
 Caris~
-Caris the experienced adventurer sits here watching you
-~
+Caris the experienced adventurer sits here watching you~
 Caris looks to be a well seasoned adventurer, he has much equipment that
 he has taken care of.  Caris is human and has dark brown hair, he is quite
 good looking.  His eyes are green and seem to hold the key to power in
@@ -478,8 +453,7 @@ stand stand male 0
 #16026
 adventurer antryg~
 Antryg~
-Antryg sits here sipping on his beer
-~
+Antryg sits here sipping on his beer~
 Antryg is dressed in long robes that cover up his body.  You can't tell how
 built he is, but you do know he looks very deadly and dangerous ~
 human~
@@ -492,8 +466,7 @@ stand stand male 0
 #16027
 gremlin form~
 The gremlin~
-A small dark form jeers at you from the shadows
-~
+A small dark form jeers at you from the shadows~
 You are looking at a small ugly creature.  It is staring right at you, with
 beady yellow eyes.  It's skin is a dark greenish colour and looks to be
 slimy.  This little fellow has nasty little teeth and questing hands that pick
@@ -509,8 +482,7 @@ stand stand none 0
 #16028
 creature slime~
 The slime creature~
-A weird shape made of slime flows along the wall
-~
+A weird shape made of slime flows along the wall~
 The slime is green and oozes slowly down the wall onto the floor.  You
 look closely and notice with a start that it seems to be alive.  The slime is
 slowly eating it's way through the wall and floor.
@@ -525,8 +497,7 @@ stand stand none 0
 #16029
 huge rat~
 The huge rat~
-A huge rat about five feet long stares right at you
-~
+A huge rat about five feet long stares right at you~
 This is an incredibly huge rat, you have never seen anything comparable
 on the surface.  The rat has green eyes that seem to shimmer with hatred. 
 The rat's fur is black and brown and very dirty.
@@ -541,8 +512,7 @@ stand stand none 0
 #16030
 jinxkin humanoid~
 The jinxkin~
-A small dirty humanoid form peers down at you from the rafters
-~
+A small dirty humanoid form peers down at you from the rafters~
 Before you stands what looks like a diminutive human wearing baggy
 clothing and an ill-fitting leather helmet.  You realise right away, this is
 one of the "little people" who cause trouble.  You then notice this jinxkin
@@ -558,8 +528,7 @@ stand stand none 0
 #16031
 jermlaine human form~
 The jermlaine~
-A short human form watches you from the shadows
-~
+A short human form watches you from the shadows~
 You see a small ugly human form.  It is wearing baggy clothing and an ill-
 fitting leather helmet.  The jermlaine is close enough to notice that the
 clothing isn't actually clothing but it is folds of skin and the helmet is just
@@ -576,8 +545,7 @@ stand stand none 0
 #16032
 bodak humanoid~
 The bodak~
-A grey skinned demonic humanoid sits on the throne waiting for you
-~
+A grey skinned demonic humanoid sits on the throne waiting for you~
 Before you stands a bodak, rarely seen on this plane.  The bodak you
 figure was summoned by a mage and quickly defeated him.  The bodak
 has dark grey, pearly skin.  It's muscular body has no hair, and the head is
@@ -594,8 +562,7 @@ stand stand none 0
 #16033
 mage~
 The mage~
-The sucked corpse of a once powerful mage rises to attack
-~
+The sucked corpse of a once powerful mage rises to attack~
 This mage once summoned a bodak, his greatest achievement.  The mage
 then found out just how little his own power was.  The bodak sucked his
 life away and left him as this husk, skin that clings to the bones.  The mage
@@ -610,8 +577,7 @@ stand stand male 0
 #16034
 iron golem~
 The iron golem~
-A huge iron statue of a human stands to the side
-~
+A huge iron statue of a human stands to the side~
 This looks to be an iron statue of a human.  The statue stands a good
 fifteen feet tall.  In fact it almost looks as if it can move.  You then glance
 at it's eyes and notice with a shock that they are watching you. ~
@@ -642,8 +608,7 @@ r sound 50
 #16035
 stone golem~
 The stone golem~
-A large stone statue stands waiting next to the wall
-~
+A large stone statue stands waiting next to the wall~
 This is a large stone statue of a man.  The statue stands ten feet tall and
 looks powerful enough to rip off your head without straining.  The statue
 looks as if it is watching you.
@@ -675,8 +640,7 @@ r sound 50
 #16036
 human warlord itreres~
 Itreres~
-A huge man rests here watching you as your barge into his room
-~
+A huge man rests here watching you as your barge into his room~
 This is Itreres, a guest of the bodak.  He comes here hoping to forge an
 alliance with one of the most powerful figures in the underdark.  Itreres is
 a bear of a man, he ripples with muscles.  He has scars all over his arms
@@ -692,8 +656,7 @@ stand stand male 0
 #16037
 imp~
 The imp~
-A small imp is here spying for the bodak
-~
+A small imp is here spying for the bodak~
 This is a small imp who has become the familiar of the bodak.  He is the
 eyes and ears of the bodak, if the bodak so desires.
 ~
@@ -707,8 +670,7 @@ stand stand male 0
 #16038
 minor demon babau~
 The babau~
-A dark twisted form a demon is ready to devour you
-~
+A dark twisted form a demon is ready to devour you~
 Before you stands a demon of incredible horror.  The demon has a
 horn-like growth that projects from the back of the skull.  The demon is
 tall and appears much as a skeleton in form-fitting black leather.  Its
@@ -729,8 +691,7 @@ r poison -100
 #16039
 servant~
 The servant~
-A servant stands off to the side ready to serve his master
-~
+A servant stands off to the side ready to serve his master~
 This is a servant.  He is ready to serve whomever his current master is.~
 human~
 BG 0 0 0 H 0 0
@@ -742,8 +703,7 @@ stand stand male 0
 #16040
 gibbering mouther lump~
 The gibbering mouther~
-A lump of earthy material lies in the corner
-~
+A lump of earthy material lies in the corner~
 The so called lump is in fact a gibbering mouther.  The gibbering mouther
 is an amoeboid-like form of life, composed of all mouths and eyes.  The
 thing looks like a large blob that has eyes and mouths all over it, the blob
@@ -759,8 +719,7 @@ stand stand none 0
 #16041
 worker female~
 The worker of the night~
-A luscious female offers her services to you
-~
+A luscious female offers her services to you~
 You behold a beautiful girl who is yours to command.. for a price.  You
 realise if you touch the goods her "boss" will be mighty upset. ~
 human~
@@ -773,8 +732,7 @@ stand stand female 0
 #16042
 maid woman~
 A maid of passion~
-A truly beautiful woman offers to serve your every desire
-~
+A truly beautiful woman offers to serve your every desire~
 This woman is dressed in what you think is a maid's costume.  She is very
 beautiful and her shape awakens your desire.  She looks disappointed
 when she realises that you haven't paid for her services and ignores you
@@ -790,8 +748,7 @@ stand stand female 0
 #16043
 granter man~
 A granter of pleasure~
-A very handsome man stands ready to grant you anything you want
-~
+A very handsome man stands ready to grant you anything you want~
 This man is truly amazing.  He is muscular and well built.  Everything
 about him is perfect.  He looks you over and licks his lips indicating he's
 ready when you have paid up.
@@ -806,8 +763,7 @@ stand stand male 0
 #16044
 noble customer~
 A preferred customer~
-A slobbering man of noble birth has obviously been here before
-~
+A slobbering man of noble birth has obviously been here before~
 This a noble who has a bit too much time on his hands.  He has spent quite
 a fortune in this establishment.  He is a little overweight and his belly
 spills over his pants.
@@ -822,8 +778,7 @@ stand stand male 0
 #16045
 man pimp~
 The pimp~
-A man sits behind the desk waiting for you to pay for the services
-~
+A man sits behind the desk waiting for you to pay for the services~
 This the pimp of the girls and guys of this establishment.  He wears
 expensive jewellery and has a few gold teeth.  He seems nice enough here
 but you realise that he must be a terror to his underlings. ~
@@ -837,8 +792,7 @@ stand stand male 0
 #16046
 halfling patron~
 The halfling patron~
-A halfling sits here drinking ale watching the crowd carefully
-~
+A halfling sits here drinking ale watching the crowd carefully~
 This halfling is just like any other, short and diminutive.  The only
 difference being this halfling looks to be very dangerous.  He seems to
 have the confidence that one could only find if he had been brought up on
@@ -854,8 +808,7 @@ stand stand male 0
 #16047
 half-orc patron~
 The half-orc~
-A half-orc sits here leering at all who pass
-~
+A half-orc sits here leering at all who pass~
 This half-orc is extremely built with many scars over it's ugly visage.  The
 half-orc has a huge nose and it's teeth are yellow and fang like.  The
 half-orc is guzzling down the ale looking for trouble.
@@ -878,8 +831,7 @@ r light 15
 #16048
 gnome svirfnebli patron~
 The svirfneblin patron~
-A deep gnome sits here watching his back
-~
+A deep gnome sits here watching his back~
 This deep gnome sits at the table watching for suckers to prey upon.  His
 skin is grey and his eyes are also grey.  He looks to be very dangerous. ~
 svirfnebli~
@@ -895,8 +847,7 @@ r disease -20
 #16049
 inn keeper~
 The inn keeper~
-The inn keeper stands ready behind the bar for your order
-~
+The inn keeper stands ready behind the bar for your order~
 The inn keeper is huge and looks to be very very deadly should you not
 pay up for food eaten.  Apart from that the inn keeper is a very kind person
 who listens patiently to the stories of the adventurers that pass through
@@ -912,8 +863,7 @@ stand stand male 0
 #16050
 duergar limbeck adventurer~
 Limbeck~
-A duergar adventurer sits here telling his heroic tales to those around
-~
+A duergar adventurer sits here telling his heroic tales to those around~
 Before you sits a duergar of impressive build.  From the mutterings around
 you know his name is Limbeck, a hero down here.  He has reputedly killed
 a purple worm single handed.
@@ -931,8 +881,7 @@ r disease -25
 #16051
 gnome Geg~
 Geg~
-A deep gnome adventurer is resting on the bed
-~
+A deep gnome adventurer is resting on the bed~
 This deep gnome goes by the name Geg, which you overheard while
 walking through the inn.  He is one of the heroes of this city, and for that
 reason many people are after his life.
@@ -950,8 +899,7 @@ r disease -20
 #16052
 drow drevlin warrior~
 Drevlin~
-A drow warrior sits here watching you carefully
-~
+A drow warrior sits here watching you carefully~
 This is Drevlin, one of the drow's most powerful warrior.  He once
 defeated the drow weapon's master without a weapon.  He is very ruthless
 and quick.  His dark skin and pointed ears makes him look like a demon. ~
@@ -968,8 +916,7 @@ r charm -33
 #16053
 half-orc~
 Jarre~
-A half-orc of incredible size growls a challenge at you
-~
+A half-orc of incredible size growls a challenge at you~
 This half-orc goes by the name Jarre.  He is huge and very very ugly.  He is
 the champion of this facility, although the inn keeper doesn't allow him to
 fight inside the inn, Jarre has crushed many an opponents skull just outside
@@ -993,8 +940,7 @@ r light 15
 #16054
 serving wench~
 The serving wench~
-A serving wench hurries from table to table fulfilling orders
-~
+A serving wench hurries from table to table fulfilling orders~
 Tired and exhausted, this girl is not that pretty to look at.  You wonder
 what she would be like if hadn't been worked to the bone for about three
 years now.  Her hair you figure hasn't been washed for a few days now,
@@ -1010,8 +956,7 @@ stand stand female 0
 #16055
 slave dealer~
 The Slave Dealer~
-The slave dealer stands ready to sell you slaves
-~
+The slave dealer stands ready to sell you slaves~
 The slave dealer is huge and looks mighty mean.  He patiently waits for
 you to decide on which slave you wish to buy.
 ~
@@ -1025,8 +970,7 @@ stand stand male 0
 #16056
 slave trader~
 The slave trader~
-A slave trader wonders if you are a perspective buyer
-~
+A slave trader wonders if you are a perspective buyer~
 The slave trader deals in slaves.  This trader is obviously very wealthy
 sporting much jewellery that he has garnished from this prosperous
 trading.
@@ -1041,8 +985,7 @@ stand stand male 0
 #16057
 merchant slave buyer~
 A slaver buyer~
-A merchant looks ready to buy all the slaves he sees.
-~
+A merchant looks ready to buy all the slaves he sees.~
 The mecrchant has a cruel look in his eye, he looks like the type of
 master that any slave would dread.
 ~
@@ -1056,8 +999,7 @@ stand stand male 0
 #16058
 orc slave~
 The orc slave~
-An orc slave stands here waiting for orders.
-~
+An orc slave stands here waiting for orders.~
 The orc slave looks none to pleased about being a slave.
 ~
 orc~
@@ -1078,8 +1020,7 @@ r light 15
 #16059
 goblin slave~
 The goblin slave~
-A goblin slave waits for his orders.
-~
+A goblin slave waits for his orders.~
 The goblin slave watches you with distrust and hatred.
 ~
 goblin~
@@ -1105,8 +1046,7 @@ r sound 50
 #16060
 male human slave~
 A male human slave~
-A male human slave waits for his orders.
-~
+A male human slave waits for his orders.~
 A male human slave stands before you with his back rigid, his spirit hasn't
 been broken... yet.
 ~
@@ -1120,8 +1060,7 @@ stand stand male 0
 #16061
 female human slave~
 the female human slave~
-A female human slave waits for her orders.
-~
+A female human slave waits for her orders.~
 A female human slave stands before you watching you carefully. ~
 human~
 BC 0 0 0 H 0 0
@@ -1133,8 +1072,7 @@ stand stand male 0
 #16062
 kobold slave~
 The kobold~
-A small kobold stands ready.
-~
+A small kobold stands ready.~
 A small kobold looks like a strong fierce fighter.
 ~
 kobold~
@@ -1160,8 +1098,7 @@ r sound 50
 #16063
 elf slave~
 The elven slave~
-An elven slave stands ready for orders.
-~
+An elven slave stands ready for orders.~
 The elven slave looks as if he would defend his master, if he had to. ~
 elf~
 BC 0 0 0 0 0 0
@@ -1175,8 +1112,7 @@ r charm -33
 #16064
 dwarf slave~
 The dwarven slave~
-A dwarven slave stands ready for his orders.
-~
+A dwarven slave stands ready for his orders.~
 The dwarven slave looks outright rebellious, but you realise he would fight
 if ordered to.
 ~
@@ -1193,8 +1129,7 @@ r disease -25
 #16065
 bar tender~
 The Bar Tender~
-A large man stands behind the counter ready to take your order
-~
+A large man stands behind the counter ready to take your order~
 Before you stands a large man who has seen everything in his life.  He is a
 retired adventurer and can defeat any mortal who would be idiotic enough
 to attack him.
@@ -1209,8 +1144,7 @@ stand stand male 0
 #16066
 drow adventurer~
 Prax~
-A drow adventurer sits with his party watching you.
-~
+A drow adventurer sits with his party watching you.~
 This adventurer's name is well known in this establishment, he goes by the
 name Prax.  He is an accomplished mage, and seems to breathe magic. ~
 dark-elf~
@@ -1226,8 +1160,7 @@ r charm -33
 #16067
 drow warrior~
 Thespan~
-A drow warrior watches you keenly while sipping his ale
-~
+A drow warrior watches you keenly while sipping his ale~
 This drow is a very strong warrior.  He has never been defeated in his
 entire career.  He goes by the name Thespan.
 ~
@@ -1244,8 +1177,7 @@ r charm -33
 #16068
 drow thief~
 Endolar~
-A drow thief sits at the table with his companions watching you
-~
+A drow thief sits at the table with his companions watching you~
 This drow is not to be trusted, he has a well earned reputation of being
 able to steal anything off of anyone.  Maybe you should check your gold. ~
 dark-elf~
@@ -1261,8 +1193,7 @@ r charm -33
 #16069
 gnome mage~
 Snaromba~
-A deep gnome mage sits quietly watching you with disinterest
-~
+A deep gnome mage sits quietly watching you with disinterest~
 This gnome has just begun to build herself a reputation.  She is has just on
 the threshold of becoming powerful, no easy feat in the Underdark.  She is
 clearly very intelligent and cunning.
@@ -1280,8 +1211,7 @@ r disease -20
 #16070
 gnome thief~
 Anmictes~
-A deep gnome thief sits back guzzling ale and chats with his companions
-~
+A deep gnome thief sits back guzzling ale and chats with his companions~
 This gnome is a part of this adventuring group that is just on the verge of
 becoming a powerful force in the Underdark, given a few more years and
 they will be a force to be reckoned with.  Knowing this one of the city's
@@ -1300,8 +1230,7 @@ r disease -20
 #16071
 duergar warrior~
 Emba~
-A duergar warrior drains his ale with his fellows
-~
+A duergar warrior drains his ale with his fellows~
 This warrior's name is Emba. Although this group is a strange sight in the
 Underdark due to their different races they work well together.  You
 wonder if this group is an indication that the under world races may be
@@ -1321,8 +1250,7 @@ r disease -25
 #16072
 drow thief~
 Shillikif~
-A drow thief sits with his companions and watches you
-~
+A drow thief sits with his companions and watches you~
 This drow thief has just begun to give himself a name in the Underdark. 
 From the conversations around you, you figure his name is Shillikif.  This
 group has reputedly found a way into the githzerai keep from the
@@ -1341,8 +1269,7 @@ r charm -33
 #16073
 drow Yie'Stei~
 Yie'Stei~
-Yie'Stei the watchful mage waits for you to buy something
-~
+Yie'Stei the watchful mage waits for you to buy something~
 Yie'Stei is a drow mage of some repute, he's been able to maintain this
 shop even while others have tried to take it from him.  He has a very
 profitable business going.
@@ -1360,8 +1287,7 @@ r charm -33
 #16074
 drow zae'tres~
 Zae'tres~
-Zae'tres watches you, waiting for you to buy something
-~
+Zae'tres watches you, waiting for you to buy something~
 Zae'tres is a drow merchant who has a booming trade here in the
 Underdark.  When the town was first established he quickly realised that
 there would be a profitable trade in selling arms, especially drow arms to
@@ -1380,8 +1306,7 @@ r charm -33
 #16075
 duergar Raesarnt~
 Raesarnt~
-Raesarnt the duergar armourer waits patiently on you
-~
+Raesarnt the duergar armourer waits patiently on you~
 Raesarnt is a duergar who is now making a bundle in dealing with armour
 and selling it at a ridiculous price.  Raesarnt is a stocky little fellow who
 obviously has been through a lot in his life.  He walks with a quiet
@@ -1400,8 +1325,7 @@ r disease -25
 #16076
 satori human~
 Satori~
-Satori the jeweller waits to buy what you have to offer her
-~
+Satori the jeweller waits to buy what you have to offer her~
 Satori is one of the few female merchants of the Underdark.  It is
 rumoured that she killed all her rivals by murdering them while they slept. 
 She is a beautiful lady who always gets her way.
@@ -1416,8 +1340,7 @@ stand stand female 0
 #16077
 jiestis~
 Jiestis~
-Jiestis watches you to see that you steal nothing and pay for all
-~
+Jiestis watches you to see that you steal nothing and pay for all~
 Jiestis is a svirfneblin, a deep gnome.  He sells many varieties of roots and
 mushrooms to those of the Underdark.  It is rumoured that some of his
 food has healing properties.  Jiestis is a small figure who is easy to
@@ -1437,8 +1360,7 @@ r disease -20
 #16078
 svirfneblin gnome~
 The svirfneblin~
-A svirfneblin looks at you with hatred and mistrust
-~
+A svirfneblin looks at you with hatred and mistrust~
 This svirfneblin or deep gnome has taken sanctuary in the embassy.  By
 the way he is acting you figure he is running from something.  He is
 dressed is dark grey clothing and stands a good five feet tall.
@@ -1456,8 +1378,7 @@ r disease -20
 #16079
 svirfneblin dignitary~
 The svirfneblin dignitary~
-A svirfneblin dignitary looks up surprised by your entry
-~
+A svirfneblin dignitary looks up surprised by your entry~
 This is a svirfneblin dignitary who is using the embassy as a place of rest. 
 He has just been rather shaken up by his visit to the drow city and has
 come here to find comfort in the safe walls of this building.  He is dressed
@@ -1475,8 +1396,7 @@ r disease -20
 #16080
 svirfneblin caretaker~
 The caretaker~
-The caretaker of the embassy watches you with mistrust
-~
+The caretaker of the embassy watches you with mistrust~
 This is the caretaker of the embassy.  It is his duty to make sure that the
 building is kept clean and open all year round.  He was once a powerful
 figure in his homeland, but he fell out of favour and was sent here.  He
@@ -1495,8 +1415,7 @@ r disease -20
 #16081
 footpad~
 The footpad~
-A footpad slinks through the shadows
-~
+A footpad slinks through the shadows~
 This is one of the younger thieves of the guild.  He has considerable
 experience, like all the thieves in the Underdark.  Although he has plenty
 of experience his skills aren't refined like those of his superiors. ~
@@ -1513,8 +1432,7 @@ r charm -33
 #16082
 cutpurse~
 The cutpurse~
-A cutpurse moves silently through the shadows
-~
+A cutpurse moves silently through the shadows~
 This thief has begun his climb to the top.  He has just begun to prove
 himself to the guild, by working the streets he is looking for that perfect
 steal or kill.
@@ -1532,8 +1450,7 @@ r charm -33
 #16083
 filcher~
 The filcher~
-A filcher walks silently along the street
-~
+A filcher walks silently along the street~
 This figure is a thief of minor repute.  He's been in the city for awhile now
 and knows who to pick on.  He is lean but covered in muscles, with many
 scars from countless fights.
@@ -1551,8 +1468,7 @@ r charm -33
 #16084
 rogue~
 The rogue~
-A rogue disappears amongst the shadows
-~
+A rogue disappears amongst the shadows~
 This thief is on the threshold of becoming a high ranking member of the
 guild.  He only has to make his name even and bigger, and thus he is
 willing to take greater risks.
@@ -1570,8 +1486,7 @@ r charm -33
 #16085
 sharper~
 The sharper~
-A sharper guards the entrance to the guild
-~
+A sharper guards the entrance to the guild~
 This thief has finally made it into the guild itself.  Although just a guard,
 he is proud to be in the guild's main building.  He will defend the guild
 with his life.
@@ -1589,8 +1504,7 @@ r charm -33
 #16086
 magsman thief~
 The magsman~
-A thief rests in the comfort of the guild
-~
+A thief rests in the comfort of the guild~
 This thief is dressed richly and has lots of money.  He is very confident in
 his ability to both kill and steal.  He lives in the guild where the head thief
 can watch him.
@@ -1608,8 +1522,7 @@ r charm -33
 #16087
 master thief~
 The master thief~
-A master thief sits here watching you carefully
-~
+A master thief sits here watching you carefully~
 This thief is one of the most powerful figures of the guild.  He is dressed in
 silk and has many items of jewellery.  The thief movements are as fluid as
 water, he seems to flow rather than move.
@@ -1627,8 +1540,7 @@ r charm -33
 #16088
 head thief~
 The head thief~
-The head thief stares at you daring you to challenge him
-~
+The head thief stares at you daring you to challenge him~
 This is the head of the guild.  He isn't that tall nor impressive in size.  But
 he has a quiet certainty about him, all his movements are precise and
 calculated.  The thief has a cunning that made him the head of this guild,
@@ -1646,8 +1558,7 @@ r charm -33
 #16089
 mage~
 Meliadus~
-The guild's mage is resting here
-~
+The guild's mage is resting here~
 This is the thieve's guild main mage.  He is the only one who power
 anywhere near that of the head's.  Meliadus is dressed in a long flowing
 robe and lights the room with a rob shaped like a hand holding an orb. ~
@@ -1664,8 +1575,7 @@ r charm -33
 #16090
 trainer~
 The trainer~
-The trainer of the thieve's guild stands here
-~
+The trainer of the thieve's guild stands here~
 This is the trainer of the thieve's guild.  He is the one that helps the thieves
 increase in ability and skill.  He is also the only member of the guild who
 is stronger than the leader.
@@ -1683,8 +1593,7 @@ r charm -33
 #16091
 bravo assassin~
 The bravo~
-A bravo flits from shadow to shadow, ready to strike
-~
+A bravo flits from shadow to shadow, ready to strike~
 Before you stands a human of extreme danger, he is an assassin.  He is
 dressed in black.  He is very skilled at the art of hitting the critical spot,
 so watch your back.
@@ -1717,8 +1626,7 @@ r charm -33
 #16093
 thug assassin~
 The thug~
-A thug looks at you looking to kill you
-~
+A thug looks at you looking to kill you~
 This assassin is very dangerous, he is built and strong.  He flits in and out
 of the shadows.  As an assassin he has the capability of nailing you with a
 critical hit, watch your back and don't hang around. ~
@@ -1732,8 +1640,7 @@ stand stand male 0
 #16094
 killer assassin~
 The killer~
-A killer steps in and out of the shadows
-~
+A killer steps in and out of the shadows~
 Before you stands a killer of extreme power and might, although if you can
 survive the first hit, you may be able to kill him.  Do not be deceived by
 the match up, his strike is deadly.
@@ -1748,8 +1655,7 @@ stand stand male 0
 #16095
 assassin~
 The assassin~
-An assassin dressed in black appears from the shadows
-~
+An assassin dressed in black appears from the shadows~
 This assassin is very dangerous.  There are very few creatures out there
 who match up with the power of the assassin.  Should you take the time to
 read all of this, I caution you to move right away.
@@ -1764,8 +1670,7 @@ stand stand male 0
 #16096
 expert assassin~
 The expert assassin~
-An expert assassin watches you calmly, ready to strike
-~
+An expert assassin watches you calmly, ready to strike~
 This assassin has become extremely powerful and dangerous.  The
 assassin is sheathed completely in black.  Wearing a mask you can not tell
 what this assassin really looks like.
@@ -1780,8 +1685,7 @@ stand stand male 0
 #16097
 senior assassin~
 The senior assassin~
-An assassin of extreme beauty and power waits for the perfect moment
-~
+An assassin of extreme beauty and power waits for the perfect moment~
 This assassin is ready to kill you if need be.  His list of victims is way too
 long to write out.  One of the most powerful assassins of the land, he can
 take out almost foe.
@@ -1796,8 +1700,7 @@ stand stand male 0
 #16098
 prime assassin~
 The prime assassin~
-An assassin of exceptional power waits calmly to kill you
-~
+An assassin of exceptional power waits calmly to kill you~
 This is one of the most powerful assassins in the realm.  His power goes
 beyond just fighting, he is versed in the art of death.  He has practised
 many long hours to learn how to hit the critical spot.
@@ -1812,8 +1715,7 @@ stand stand male 0
 #16099
 guildmaster assassin~
 The guildmaster~
-An assassin of awesome repute stands here debating to kill you
-~
+An assassin of awesome repute stands here debating to kill you~
 This is the most powerful assassin in the realm, he has the ability to kill
 any mortal.  His price is extremely high, but he has never failed. ~
 human~
@@ -1826,8 +1728,7 @@ stand stand male 0
 #16100
 assassin trainer~
 The trainer~
-The assassin's trainer stands here ready to help you progress 
-~
+The assassin's trainer stands here ready to help you progress ~
 This is a figure of extreme power.  He can defeat anything that walks the
 land and is mortal.
 ~
@@ -1841,8 +1742,7 @@ stand stand male 0
 #16101
 darken beast~
 The darken beast~
-A disfigured cross between a large bat and a weasel screams at you
-~
+A disfigured cross between a large bat and a weasel screams at you~
 This is creature is about five feet tall with wings that spread out ten feet
 wide.  The wings are membrane and you can see the sickly green blood
 pulsating through them.  The beast's eyes are a dirty reddish colour and the
@@ -1859,8 +1759,7 @@ r light 50
 #16102
 skyzorr'n~
 The skyzorr'n~
-A skyzorr'n wanders about
-~
+A skyzorr'n wanders about~
 A skyzorr'n is a race of insectoid beings.  The skyzorr'n looks rather like a
 large bipedal ant.  Its head is rather small but with two large compound
 eyes and fair-sized mandibles.  No ears, as such, are present, but there are
@@ -1879,8 +1778,7 @@ stand stand male 0
 #16103
 dretch demon~
 The dretch~
-A dretch preforms the tasks Eurandus asks of it
-~
+A dretch preforms the tasks Eurandus asks of it~
 Before you stands a creature with a round, rubbery body and thin, spindly
 arms and legs.  It has a small head set squarely on it's shoulders.  The hair
 is sparse and bristly, the ears are lopped and they stick out.  The eyes are
@@ -1897,8 +1795,7 @@ stand stand none 0
 #16104
 platinum golem statue~
 The platinum golem~
-A huge statue made of platinum watches you as if it were alive
-~
+A huge statue made of platinum watches you as if it were alive~
 This is a huge golem, but not like any you have seen before.  This golem is
 made out of platinum and it looks to be very strong.  You wouldn't want to
 end up in a battle with a foe like this if you were weak. ~
@@ -1929,8 +1826,7 @@ r sound 50
 #16105
 duergar merchant~
 Gulthac~
-A powerful duergar merchant is here to buy weird creatures
-~
+A powerful duergar merchant is here to buy weird creatures~
 This is Gulthac who has a booming trade dealing with all sorts of
 grotesque creatures, like the ones that Eurandus creates.  He is a powerful
 warrior and is rarely beaten in a fight.
@@ -1948,8 +1844,7 @@ r disease -25
 #16106
 mage eurandus~
 Eurandus~
-Eurandus stands before you in all his might...
-~
+Eurandus stands before you in all his might...~
 Before you stand a figure who is very impressive.  He looks to be as strong
 as the stronger fighter and as quick as any thief.  He has jet black hair
 which he holds back in braids.  He is very handsome, but his eyes give
@@ -1965,8 +1860,7 @@ stand stand male 0
 #16107
 keeper~
 The Keeper~
-The Keeper stands here watching over his wards
-~
+The Keeper stands here watching over his wards~
 This man seems as if he comes from the earth, his visage seems to be
 carved from the very stones of the underdark.  His gaze pierces through the
 darkness between you and him and penetrates into your mind.  You can
@@ -1982,8 +1876,7 @@ stand stand male 0
 #16108
 xaren~
 The xaren~
-A xaren blends into the surrounding rock making it very hard to see
-~
+A xaren blends into the surrounding rock making it very hard to see~
 The xaren is a relative of the xorn.  The creature before you has three legs
 and three appendages which serve as arms.  Each of the appendages has
 three large claws on them.  On the top of the creature, where the head
@@ -2001,8 +1894,7 @@ stand stand none 0
 #16109
 cloaker cloak~
 The cloaker~
-A cloak rises off the floor and stares at you with two glowing eyes
-~
+A cloak rises off the floor and stares at you with two glowing eyes~
 This is a cloaker, a shadow-dwelling, unearthly creature.  A cloaker
 resembles a large semicircular cloak or blanket with two claw-like
 appendages at the tips and a long, mace-like tail.  Black eyespots cover its
@@ -2020,8 +1912,7 @@ stand stand none 0
 #16110
 human fighter~
 Lord Rygar~
-A human fighter sits at a table minding his own business
-~
+A human fighter sits at a table minding his own business~
 Before you sits Lord Rygar, a fighter of some repute.  People have said
 that he once killed a wyrm single handed.  He is a brute of a man, with
 muscles rippling all over his body.  He sports a long black beard and his
@@ -2037,8 +1928,7 @@ stand stand male 0
 #16111
 half-orc thief~
 Orak~
-A half-orc sits with a human discussing terms for a job
-~
+A half-orc sits with a human discussing terms for a job~
 This is Orak, a half-orc thief.  A member of the thieves guild, he operates
 freely.  Orak has a great name, although slow at times his remarkable
 dexterity and intelligence has helped him become one of the leading
@@ -2062,8 +1952,7 @@ r light 15
 #16112
 drow mage~
 Sabrakarn~
-A drow mage lies on the bed meditating
-~
+A drow mage lies on the bed meditating~
 This is Sabrakarn a drow mage.  He has become a powerful force in the
 politics of his homeland.  He is here to learn new destructive spells so he
 can become the most feared drow in the land
@@ -2081,8 +1970,7 @@ r charm -33
 #16113
 svirfneblin fighter~
 Hangharid~
-A svirfneblin fighter rests on the bed
-~
+A svirfneblin fighter rests on the bed~
 This is Hangharid, a svirfneblin fighter.  He has vanquished many foes and
 all his enemies fear him.  Even though he is a gnome, he has strength that
 rivals that of an ogre.
@@ -2100,8 +1988,7 @@ r disease -20
 #16114
 drow cleric~
 Sifrim~
-A drow cleric sits cross legged on the ground
-~
+A drow cleric sits cross legged on the ground~
 Sifrim is one of the few powerful drow clerics.  He is dressed all in black
 and stares at your with glowing eyes.  A dangerous fellow by far. ~
 dark-elf~
@@ -2117,8 +2004,7 @@ r charm -33
 #16115
 duergar fighter~
 Wismarel~
-A duergar fighter polishes his sword
-~
+A duergar fighter polishes his sword~
 This is Wismarel, a duergar fighter.  Wismarel is here to find his fortune
 and hopes to find many powerful magical items.
 ~
@@ -2135,8 +2021,7 @@ r disease -25
 #16116
 human mage~
 Methuen~
-A human mage opens his eyes as you barge into his room
-~
+A human mage opens his eyes as you barge into his room~
 This is Methuen, a mage.  Methuen has come to the Underdark in search
 of magical items to enhance his considerable magical prowess. ~
 human~
@@ -2149,8 +2034,7 @@ stand stand male 0
 #16117
 human fighter~
 Cedrena~
-A human fighter lies on her bed deep in thought
-~
+A human fighter lies on her bed deep in thought~
 This is Cedrena, a fighter.  She seeks items of power and might to enhance
 her fighting abilities.  She is also seeking the fabled purple worms of the
 Underdark.
@@ -2165,8 +2049,7 @@ stand stand female 0
 #16118
 inn keep~
 The inn keep~
-The inn keep stands ready to take your order
-~
+The inn keep stands ready to take your order~
 This is the inn keep of the Traveller's Den.  He makes sure everyone gets
 what they want and provides soft beds for those who wish to stay here. ~
 human~
@@ -2179,8 +2062,7 @@ stand stand male 0
 #16119
 clan member~
 The demon clan member~
-A member of the demon clan watches you warily
-~
+A member of the demon clan watches you warily~
 Before you stands a human who is dressed in black and red.  He has
 dedicated his life to serving the demons of the abyss.  His eyes glow with
 fanatical desire to be one with the demons.
@@ -2195,8 +2077,7 @@ stand stand male 0
 #16120
 demon clan mage~
 A demon clan mage~
-A clan mage walks about lost in thought
-~
+A clan mage walks about lost in thought~
 This is one of the clan mages, he is dressed in flowing red and black robes. 
 He is also wearing red and black bracers.
 ~
@@ -2210,8 +2091,7 @@ stand stand male 0
 #16121
 demon clan fighter~
 A demon clan fighter~
-A fighter dressed in black and red platemail watches you
-~
+A fighter dressed in black and red platemail watches you~
 Before you stands an impressive fighter who is sheathed completely in
 black and red platemail.  He wields a glowing blade that seems to be
 possessed by an evil force.
@@ -2226,8 +2106,7 @@ stand stand male 0
 #16122
 demon summoner~
 The demon summoner~
-A summoner stands here chanting to bring a demon to this plane
-~
+A summoner stands here chanting to bring a demon to this plane~
 This mage is dressed in a flowing black and red robe.  His eyes glow with
 the power that is coursing through his body as he attempts to bring demons
 to this plane of existence.
@@ -2242,8 +2121,7 @@ stand stand male 0
 #16123
 cambion~
 The cambion~
-A cambion stands off to the side watching carefully
-~
+A cambion stands off to the side watching carefully~
 Before you stands a cross between a demon and a human.  His build is
 stocky and strong.  He has scaly skin and fangs.  Small fangs protrude
 from his head.
@@ -2262,8 +2140,7 @@ r poison -100
 #16124
 noble cambion~
 A noble cambion~
-A cambion dressed richly stares right at you
-~
+A cambion dressed richly stares right at you~
 Before you stands a noble cambion.  These happen when a human female
 mates with a demon lord.  He looks very human, just the glowing red eyes
 and dark skin give him away.  He opens his mouth and you notice small
@@ -2283,8 +2160,7 @@ r poison -100
 #16125
 clan head~
 Irmugar~
-The head of the clan stands here devising a plan to rule the world
-~
+The head of the clan stands here devising a plan to rule the world~
 This is Irmugar the clan leader.  He got to this position by killing the
 former leader and conspiring with many of the demon lords.  With their
 support he took control of the clan and now is attempting to open
@@ -2300,8 +2176,7 @@ stand stand male 0
 #16126
 demon hezrou~
 The hezrou~
-A large demon springs at you
-~
+A large demon springs at you~
 Before you stands an ugly demon.  His skin is dark green with splashes of
 red.  His eyes glow green in the light.  His skin is smooth and shimmers in
 the light.  He stands about six feet tall and four feet across.  Down his back
@@ -2320,8 +2195,7 @@ r poison -100
 #16127
 eye of fear and flame~
 An eye of fear and flame~
-A weird hooded human stares at your a large glowing red eye
-~
+A weird hooded human stares at your a large glowing red eye~
 The eye of fear and flame is a hooded man-sized figure.  You can't see the
 face since the interior of the hood is an opaque black screen.  You can
 sense an aura of pure evil emanating from this creature.
@@ -2336,8 +2210,7 @@ stand stand male 0
 #16128
 revenant~
 The revenant~
-A revenant wanders the street searching for revenge
-~
+A revenant wanders the street searching for revenge~
 This humanoid figure presents a pale, corpse-like appearance, with pallid
 skin drawn tightly over hollow cheekbones; its flesh is unusually cold and
 clammy.  Its eyes - sunken in the face - are dull and heavy lidded. ~
@@ -2351,8 +2224,7 @@ stand stand male 0
 #16129
 eye killer~
 The eye killer~
-An eye killer rests in the shadows
-~
+An eye killer rests in the shadows~
 This creature has a bat-like upper torso on the body of a large snake.  Its
 stunted wings cannot support flight.  The upper part of its body is a dark
 grey-green while the lower part is a medium green flecked with dull

@@ -12,9 +12,7 @@ End
 #3700
 acolyte cleric служитель~
 @eng the acolyte of Zump@rus ~~служитель~~ Зуки~
-@eng An acolyte of Zump welcomes you to mud school.
-@rus Служитель (acolyte) Зуки приглашает тебя в МУД школу.
-~
+@eng An acolyte of Zump welcomes you to mud school.@rus Служитель (acolyte) Зуки приглашает тебя в МУД школу.~
 @eng He's big and bad.  Don't mess with him.
 @rus Он большой и вредный. Не доставляй ему неприятностей!
 Он произносит: танцы-шманцы-обжиманцы-фантики-бантики-лимпопо!
@@ -47,9 +45,7 @@ r sound 999
 #3701
 blob пузырь~
 @eng the blob@rus пузырь~
-@eng The blob is here, waiting to eat you up.
-@rus Пузырь (blob) тут, он ждет тебя, чтобы съесть!
-~
+@eng The blob is here, waiting to eat you up.@rus Пузырь (blob) тут, он ждет тебя, чтобы съесть!~
 @eng He is big, he is bad.  You don't want to fight him when he isn't chained up.
 Perhaps now would be a good time to flee from him!!!  If you don't flee, you
 would really suffer the consequences.
@@ -84,9 +80,7 @@ r sound 33
 #3702
 monster монстрик~
 @eng the monster@rus монстрик~
-@eng There is a monster leashed here.
-@rus Монстрик (monster) тут сидит на привязи.
-~
+@eng There is a monster leashed here.@rus Монстрик (monster) тут сидит на привязи.~
 @eng He looks mean, but you feel comfortable that you can kill him, especially since
 he is leashed up, and you are not.
 @rus Он выглядит недоброжелательно, но ты чувствуешь, что сможешь его убить хотя бы
@@ -116,9 +110,7 @@ r sound 50
 #3703
 monster wimpy монстр трусливый~
 @eng the wimpy monster@rus ~~трусливый~~ ~~монстр~~~
-@eng There is a wimpy monster leashed here.
-@rus А тут привязан трусливый монстр (monster).
-~
+@eng There is a wimpy monster leashed here.@rus А тут привязан трусливый монстр (monster).~
 @eng He looks wimpy.  You feel comfortable that you can kill him, especially since
 he is leashed up, and you are not.
 @rus Он трусливо смотрит на тебя. Ты чувствуешь, что сможешь его убить, так как он
@@ -148,9 +140,7 @@ r sound 50
 #3704
 monster aggressive агрессивный монстр~
 @eng the aggressive monster@rus ~~агрессивный~~ ~~монстр~~~
-@eng There is an aggressive monster leashed here.
-@rus Агрессивный монстр (monster) привязан тут.
-~
+@eng There is an aggressive monster leashed here.@rus Агрессивный монстр (monster) привязан тут.~
 @eng He looks mean, but you feel comfortable that you can kill him, especially since
 he is leashed up, and you are not.
 @rus Он выглядит недоброжелательно, но ты чувствуешь, что сможешь его убить хотя бы
@@ -180,9 +170,7 @@ r sound 50
 #3705
 monster wimpy aggressive монстр~
 @eng the wimpy aggressive monster@rus трусливо ~~нападающий~~ ~~монстр~~~
-@eng There is a wimpy aggressive monster leashed here.
-@rus Трусливо нападающий монстр (monster) привязан тут.
-~
+@eng There is a wimpy aggressive monster leashed here.@rus Трусливо нападающий монстр (monster) привязан тут.~
 @eng He looks mean, but you feel comfortable that you can kill him, especially since
 he is leashed up, and you are not.
 @rus Он выглядит недоброжелательно, но ты чувствуешь, что сможешь его убить хотя бы
@@ -212,9 +200,7 @@ r sound 50
 #3706
 big creature создание~
 @eng the big creature@rus ~~большое~~ ~~создание~~~
-@eng There is a big creature hulking over your form.
-@rus Большое создание (creature) неуклюже надвигается на тебя.
-~
+@eng There is a big creature hulking over your form.@rus Большое создание (creature) неуклюже надвигается на тебя.~
 @eng He looks mean, and you just might have a small problem killing him, but he
 looks like a great prize!!!
 @rus Он выглядит недоброжелательно, и у тебя могут возникнуть проблемы в схватке
@@ -244,9 +230,7 @@ r sound 50
 #3707
 adept cleric последователь~
 @eng the adept of Satin@rus ~~приспешник~~ Аландера~
-@eng An adept of the mighty goddess Satin is here, contemplating your progress.
-@rus Последователь (adept) могучей богини Сатин стоит тут, созерцая твой прогресс.
-~
+@eng An adept of the mighty goddess Satin is here, contemplating your progress.@rus Последователь (adept) могучей богини Сатин стоит тут, созерцая твой прогресс.~
 @eng He is big and bad.  Don't mess with him.
 @rus Он большой и вредный. Не заигрывай с ним! Гы гы гы.
 Он что-то ворчит себе под нос, если прислушаться, то можно различить слова:
@@ -279,9 +263,7 @@ r sound 999
 #3708
 adept приспешник~
 @eng the adept of Alander@rus ~~приспешник~~ Аландера~
-@eng An adept of Alander is here, smiling at you.
-@rus Приспешник (adept) Аландера тут, он тебе улыбается.
-~
+@eng An adept of Alander is here, smiling at you.@rus Приспешник (adept) Аландера тут, он тебе улыбается.~
 @eng He is big and bad.  Don't mess with him.
 @rus Он большой и вредный. Не приставай к нему!
 ~
@@ -312,9 +294,7 @@ r sound 999
 #3709
 rabbit кролик~
 @eng the rabbit@rus кролик~
-@eng A rabbit is bouncing around here.
-@rus Кролик (rabbit) скачет по окрестностям.
-~
+@eng A rabbit is bouncing around here.@rus Кролик (rabbit) скачет по окрестностям.~
 @eng The rabbit smiles at you, completely harmless!
 @rus Кролик тебе улыбнулся, он полностью в твоей власти.
 Он жует морковку.
@@ -330,9 +310,7 @@ V 37002
 #3710
 lizard~
 @eng the lizard@rus ящер~
-@eng A lizard slithers up to you.
-@rus Ящер (lizard) скользнул к тебе.
-~
+@eng A lizard slithers up to you.@rus Ящер (lizard) скользнул к тебе.~
 @eng It smiles at you, and tries to eat your leg.
 @rus Он тебе улыбнулся и укусил за ногу в попытке съесть ее. БОЛЬНО!!! (вот гад)
 ~
@@ -349,9 +327,7 @@ r poison -33
 #3711
 boar кабан~
 @eng the boar@rus кабан~
-@eng A boar tries to run you over.
-@rus Кабан (boar) попытается тебя затоптать.
-~
+@eng A boar tries to run you over.@rus Кабан (boar) попытается тебя затоптать.~
 @eng It grunts at you.
 @rus Он тебя обхрюкал.
 ~
@@ -366,9 +342,7 @@ V 37004
 #3712
 fox лис~
 @eng the fox@rus лис~
-@eng A fox is here staring at you.
-@rus Лис (fox) пялит на тебя свои глупые глазенки.
-~
+@eng A fox is here staring at you.@rus Лис (fox) пялит на тебя свои глупые глазенки.~
 @eng It's fur might be worth money.
 @rus Ага... его мех, наверное, стоит хороших денег!
 ~
@@ -383,9 +357,7 @@ V 37005
 #3713
 snail улитка~
 @eng the snail@rus улитка~
-@eng A snail is trying to get out of your way.
-@rus Улитка (snail) тут пытается убраться с твоего пути.
-~
+@eng A snail is trying to get out of your way.@rus Улитка (snail) тут пытается убраться с твоего пути.~
 @eng You don't see much but slime about it.
 @rus Фи... одна слизь кругом.
 ~
@@ -399,9 +371,7 @@ AGQc AFHM tiny unknown
 #3714
 beast скотина~
 @eng the beast@rus скотина~
-@eng A beast tries to feed off of you.
-@rus Скотина (beast) пытается сделать из тебя комбикорма.
-~
+@eng A beast tries to feed off of you.@rus Скотина (beast) пытается сделать из тебя комбикорма.~
 @eng It looks mean.  You'd better run.
 @rus У! Она выглядит недоброжелательно. Лучше убежа-а-а-ть!
 ~
@@ -429,9 +399,7 @@ r sound 50
 #3715
 bear медведь~
 @eng the bear@rus медведь~
-@eng A bear is here growling at you.
-@rus Медведь (bear) тут, он ворчит на тебя.
-~
+@eng A bear is here growling at you.@rus Медведь (bear) тут, он ворчит на тебя.~
 @eng The bear must be bigger than you!  It wants to rip your head off.
 @rus Медведь наверное больше чем ты! Он хочет оторвать тебе голову. А ты хочешь этого?
 ~
@@ -448,9 +416,7 @@ r cold -33
 #3716
 wolf волк~
 @eng the wolf@rus волк~
-@eng A wolf is here snarling at you.
-@rus Волк (wolf) тут, он рычит на тебя.
-~
+@eng A wolf is here snarling at you.@rus Волк (wolf) тут, он рычит на тебя.~
 @eng The wolf doesn't want to be bothered.
 @rus Волк не желает чтобы его беспокоили.
 ~
@@ -465,9 +431,7 @@ V 37007
 #3717
 adept cleric идущий~
 @eng the adept of Selene@rus ~~идущий~~ путем Селены~
-@eng An adept of Selene is here, grinning and selling you things.
-@rus Идущий (adept) путем Селены тут, скалит зубы и продает тебе шмотки.
-~
+@eng An adept of Selene is here, grinning and selling you things.@rus Идущий (adept) путем Селены тут, скалит зубы и продает тебе шмотки.~
 @eng He is big and bad.  Don't mess with him.
 @rus Он большой и вредный. Смотри... допрыгаешься.
 ~
@@ -498,9 +462,7 @@ r sound 999
 #3718
 adept cleric адепт~
 @eng the adept of Furey@rus ~~адепт~~ Фьюри~
-@eng An adept of Furey is here, training young students.
-@rus Адепт (adept) Фьюри стоит тут, он тренирует студентов.
-~
+@eng An adept of Furey is here, training young students.@rus Адепт (adept) Фьюри стоит тут, он тренирует студентов.~
 @eng He is big and bad.  Don't mess with him.
 @rus Он большой и вредный. Отстань от него!
 ~
@@ -531,9 +493,7 @@ r sound 999
 #3719
 priest cleric жрец~
 @eng the priest of Circe@rus ~~жрец~~ Циркля~
-@eng The priest of Circe is ready to help you practice.
-@rus Жрец (priest) Циркля готов помочь тебе попрактиковаться.
-~
+@eng The priest of Circe is ready to help you practice.@rus Жрец (priest) Циркля готов помочь тебе попрактиковаться.~
 @eng He is big and bad.  Don't mess with him.
 @rus Он большой и вредный. Отстань от него!
 ~
@@ -564,9 +524,7 @@ r sound 999
 #3720
 diploma beast тварь~
 @eng the diploma beast@rus ~~отвратительная~~ ~~тварь~~~
-@eng The hideous diploma beast is here, holding your graduation present!
-@rus Отвратительная тварь (beast) сидит тут, у нее твой диплом!
-~
+@eng The hideous diploma beast is here, holding your graduation present!@rus Отвратительная тварь (beast) сидит тут, у нее твой диплом!~
 @eng This horrible creature is your final test for mud school.  Kill him, and the
 diploma is yours.
 @rus Это ужасное создание - твой последний выпускной экзамен из школы.

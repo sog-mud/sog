@@ -11,9 +11,7 @@ End
 #3600
 henry gardener садовник генри~
 @eng Henry the Gardener@rus ~~садовник~~ Генри~
-@eng Henry the Gardener is sitting here, looking drunk.
-@rus Здесь сидит садовник Генри (Henry). На вид - пьян.
-~
+@eng Henry the Gardener is sitting here, looking drunk.@rus Здесь сидит садовник Генри (Henry). На вид - пьян.~
 @eng He is a tall but bulky man in his late fifties.  His features are worn with
 decades of hard work and his somewhat crouched expression is one of deep
 sorrow and depression.  He is haunted by a memory of a lost paradise.
@@ -32,9 +30,7 @@ sit sit male 2
 #3601
 zombie зомби~
 @eng the rotting zombie@rus ~~гниющий~~ зомби~
-@eng A rotting zombie is staggering towards you with outstretched hands.
-@rus Гниющий зомби (zombie) движется к вам, раскинув руки и спотыкаясь.
-~
+@eng A rotting zombie is staggering towards you with outstretched hands.@rus Гниющий зомби (zombie) движется к вам, раскинув руки и спотыкаясь.~
 @eng Maggots crawl all over its decaying body.
 @rus Черви ползают по всему его телу.
 ~
@@ -48,9 +44,7 @@ stand stand male 2
 #3602
 ghoul гуль~
 @eng the ghastly ghoul@rus ~~отвратительный~~ ~~гуль~~~
-@eng A ghastly ghoul is here.
-@rus Здесь есть отвратительный гуль (ghoul).
-~
+@eng A ghastly ghoul is here.@rus Здесь есть отвратительный гуль (ghoul).~
 @eng It is a walking corpse with long fangs and long, sharp nails that most of
 resemble claws.  Its eyes are a dark yellow colour and glare hungrily at you.
 @rus Это ходячий труп с длинными клыками и длинными острыми ногтями,
@@ -67,9 +61,7 @@ stand stand male 5
 #3603
 skeleton скелет~
 @eng a dusty skeleton@rus ~~пыльный~~ ~~скелет~~~
-@eng A dusty skeleton lies here.
-@rus Здесь лежит пыльный скелет (skeleton).
-~
+@eng A dusty skeleton lies here.@rus Здесь лежит пыльный скелет (skeleton).~
 @eng The dusty bones are almost brown.  It must have been buried for a very long
 time.
 @rus Пыльные кости стали уже почти коричневыми.  Должно быть, он очень давно
@@ -86,9 +78,7 @@ r bash -50
 #3604
 skeleton скелет~
 @eng a dusty skeleton@rus ~~пыльный~~ ~~скелет~~~
-@eng A dusty skeleton lies here.
-@rus Здесь лежит пыльный скелет (skeleton).
-~
+@eng A dusty skeleton lies here.@rus Здесь лежит пыльный скелет (skeleton).~
 @eng The dusty bones are almost brown.  It must have been buried for a very long
 time.
 @rus Пыльные кости стали уже почти коричневыми.  Должно быть, он очень давно
@@ -105,9 +95,7 @@ r bash -50
 #3605
 zombie зомби~
 @eng the rotting zombie@rus ~~гниющий~~ зомби~
-@eng A rotting zombie is staggering towards you with outstretched hands.
-@rus Гниющий зомби (zombie) движется к вам, раскинув руки и спотыкаясь.
-~
+@eng A rotting zombie is staggering towards you with outstretched hands.@rus Гниющий зомби (zombie) движется к вам, раскинув руки и спотыкаясь.~
 @eng Maggots crawl all over its decaying body.
 @rus Черви ползают по всему его телу.
 ~

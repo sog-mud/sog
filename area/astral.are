@@ -12,8 +12,7 @@ End
 #7700
 astral guardian~
 The Astral Guardian~
-A grey figure guards the entrance to the astral plane.
-~
+A grey figure guards the entrance to the astral plane.~
 You see a slate grey vaguely humanoid shape, devoid of any true features.
 It stands before you with arms folded, seemingly uninterested in you.
 ~
@@ -27,8 +26,7 @@ stand stand none 5000
 #7701
 nightmare~
 A pitch-black nightmare~
-A nightmare is here, kicking at you with its flaming hooves.
-~
+A nightmare is here, kicking at you with its flaming hooves.~
 The nightmare is a wholly evil being, sent out by the rulers of the lower
 planes to torment mortals.  It vaguely resembles a horse, with a hide blacker
 than the darkest night, and hooves that burn with unholy fires.
@@ -43,8 +41,7 @@ stand stand none 300
 #7702
 night hag~
 An evil night hag~
-A night hag reaches out to steal your soul.
-~
+A night hag reaches out to steal your soul.~
 You see a shadowy creature with long talons and an evil grin, whose sole
 purpose is to hunt down and slay mortals in order to obtain souls for her foul
 master to torment.
@@ -59,8 +56,7 @@ stand stand female 625
 #7703
 stalker invisible~
 An invisible stalker~
-You see a wavy distortion in the air.
-~
+You see a wavy distortion in the air.~
 You see only a wavy distortion in the air.  You reach out to touch it, and
 feel nothing, not even the slightest of motions.
 ~
@@ -74,8 +70,7 @@ stand stand none 50
 #7704
 soulless one~
 A poor soulless being~
-The soulless one wanders mindlessly.
-~
+The soulless one wanders mindlessly.~
 This unfortunate being has had its very soul torn from its body.  It now roams
 mindlessly, unaware of its surroundings.
 ~
@@ -89,8 +84,7 @@ stand stand none 12
 #7705
 githyanki hunter~
 A githyanki hunter~
-A githyanki hunter searches for signs of the githzerai.
-~
+A githyanki hunter searches for signs of the githzerai.~
 You see a leathery-skinned humanoid creature that stands almost as tall as a
 normal man.  Like all githyanki, his teeth are fanged and his eyes hollow
 and sunken.
@@ -107,8 +101,7 @@ r holy 15
 #7706
 githyanki warrior~
 A githyanki warrior~
-You see a humanoid figure clad in splinted armor.
-~
+You see a humanoid figure clad in splinted armor.~
 You see a leathery-skinned humanoid creature that stands as tall as a normal
 man.  Like all githyanki, his teeth are fanged and his eyes hollow and sunken.
 He is clad in ornately designed splinted armor, and wields a sword that
@@ -126,8 +119,7 @@ r holy 15
 #7707
 githyanki guardian~
 A githyanki guardian~
-A humanoid figure clad in splinted armor blocks your way.
-~
+A humanoid figure clad in splinted armor blocks your way.~
 You see a leathery-skinned humanoid creature that stands as tall as a normal
 man.  Like all githyanki, his teeth are fanged and his eyes hollow and sunken.
 He is clad in ornately designed splinted armor, and wields a sword that
@@ -145,8 +137,7 @@ r holy 15
 #7708
 githyanki knight~
 A githyanki knight~
-A tall figure armored in black observes you quietly.
-~
+A tall figure armored in black observes you quietly.~
 You see a leathery-skinned humanoid creature that stands a full foot taller
 than a normal man.  His features are obscured by a suit of ornately designed
 splinted armor -- you only hear the hissing of his breath and the scraping
@@ -164,8 +155,7 @@ r holy 15
 #7709
 githyanki protector~
 A githyanki protector~
-A black knight of the githyanki protects his queen.
-~
+A black knight of the githyanki protects his queen.~
 You see a leathery-skinned humanoid creature that stands a full foot taller
 than a normal man.  His features are obscured by a suit of ornately designed
 splinted armor -- you only hear the hissing of his breath and the scraping
@@ -183,8 +173,7 @@ r holy 15
 #7710
 githyanki gish~
 An evil gish~
-A small githyanki laughs at you through fanged teeth.
-~
+A small githyanki laughs at you through fanged teeth.~
 You see a leathery-skinned humanoid creature that stands nearly as tall as a
 normal man.  Like all githyanki, his teeth are fanged and his eyes hollow and
 sunken.  The gish are well-versed in the arcane arts, unlike the normal gith
@@ -202,8 +191,7 @@ r holy 15
 #7711
 githyanki gish~
 An evil gish~
-A gish laughs as flame leaps from his hands towards your face.
-~
+A gish laughs as flame leaps from his hands towards your face.~
 You see a leathery-skinned humanoid creature that stands nearly as tall as a
 normal man.  Like all githyanki, his teeth are fanged and his eyes hollow and
 sunken.  The gish are well-versed in the arcane arts, unlike the normal gith
@@ -221,8 +209,7 @@ r holy 15
 #7712
 githyanki warlock~
 A warlock of the Gith~
-A humanoid figure stands here, holding a silvery sword.
-~
+A humanoid figure stands here, holding a silvery sword.~
 You see a leathery-skinned creature, clad all in black and bearing a silvery-
 colored sword.  Like all githyanki, his teeth are fanged and his eyes hollow
 and sunken.  As you turn to flee, you feel the impact of a fireball against
@@ -240,8 +227,7 @@ r holy 15
 #7713
 githyanki lich queen~
 The lich-queen~
-The evil lich-queen of the Gith reaches out to destroy you.
-~
+The evil lich-queen of the Gith reaches out to destroy you.~
 The lich-queen of the githyanki was once human, but no longer.  Her skin has
 completely shrunken around her skull, held together solely by the force of
 unholy magic and the powers of this plane of existence.  The cold glare of her
@@ -268,8 +254,7 @@ r charm -100
 lord gith~
 Lord Gith~
 Lord Gith suddenly forms from a cloud of blackness.
-He stares right through you with deadly, cold eyes.
-~
+He stares right through you with deadly, cold eyes.~
 Lord Gith is the dead savior of the githyanki people, the warrior who led them
 to freedom from their former enslavers, the mind flayers.  He has been dead
 for centuries and stands before you now due to an unholy alliance with powers
@@ -293,8 +278,7 @@ r light 50
 #7715
 ghost~
 An insubstantial ghost~
-A ghost wanders here, intent on destroying all life.
-~
+A ghost wanders here, intent on destroying all life.~
 The ghost makes no sound.  It is a shadowy shell of its former self, cursed
 now to roam forever without rest.  The mind of this creature has been twisted
 and destroyed in this torment, and it now envys and intends to destroy all the
@@ -317,8 +301,7 @@ r disease -100
 #7716
 githzerai prisoner~
 An imprisoned githzerai~
-A githzerai plots his escape plan.
-~
+A githzerai plots his escape plan.~
 You see a conniving humanoid, a descendant of a race of humans once enslaved
 by the mindflayers and related to the githyanki.  Unfortunately, the two races
 are bitter enemies, and this one happened to get caught.  He intends to escape.
@@ -333,8 +316,7 @@ stand stand male 0
 #7717
 mindflayer prisoner~
 A tortured mindflayer prisoner~
-A mindflayer lies here, scarred from the torture inflicted by the Gith.
-~
+A mindflayer lies here, scarred from the torture inflicted by the Gith.~
 You see a formerly tall humanoid creature, with four tentacles hanging from the
 middle of its head.  It is hunched over, bent and scarred from torture inflicted
 by the githyanki.  It cringes as you approach.
@@ -349,8 +331,7 @@ stand stand none 0
 #7718
 dragon red slave~
 The enslaved red dragon~
-A giant red dragon is chained here, his breath heating the furnace.
-~
+A giant red dragon is chained here, his breath heating the furnace.~
 The mighty scaled beast has been magically bound and subdued by the residents
 of the keep.  Nevertheless, he is still an impressive sight, some twenty feet
 in length with an even more massive wingspan.  He watches you, smoke drifting
@@ -370,8 +351,7 @@ r charm -33
 #7719
 fire furnace flame~
 A massive blast of fire~
-The fires of the furnace burn away at your skin!
-~
+The fires of the furnace burn away at your skin!~
 The fire feeds on your skin like a living being, licking out at your hair.
 ~
 unique~

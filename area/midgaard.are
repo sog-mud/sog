@@ -12,9 +12,7 @@ End
 #3000
 wizard волшебник~
 @eng the wizard@rus волшебник~
-@eng A wizard walks around behind the counter, talking to himself.
-@rus Волшебник (wizard) ходит вокруг прилавка и разговаривает сам с собой.
-~
+@eng A wizard walks around behind the counter, talking to himself.@rus Волшебник (wizard) ходит вокруг прилавка и разговаривает сам с собой.~
 @eng The wizard looks old and senile, and yet he looks like a very powerful
 wizard. He is equipped with fine clothing, and is wearing many fine
 rings and bracelets.
@@ -48,9 +46,7 @@ r sound 999
 #3001
 baker~
 @eng the baker@rus пекарь~
-@eng The baker looks at you calmly, wiping flour from his face with one hand.
-@rus Пекарь (baker) спокойно смотрит на вас, вытирая лицо рукой.
-~
+@eng The baker looks at you calmly, wiping flour from his face with one hand.@rus Пекарь (baker) спокойно смотрит на вас, вытирая лицо рукой.~
 @eng A fat, nice looking baker. But you can see that he has many scars on his
 body.
 @rus Все тело пекаря покрывают шрамы, но несмотря на это он выглядит счастливым.
@@ -83,9 +79,7 @@ r sound 33
 #3002
 grocer бакалейщик~
 @eng the grocer@rus бакалейщик~
-@eng A grocer stands at the counter, with a slightly impatient look on his face.
-@rus Бакалейщик (grocer) стоит за прилавком.
-~
+@eng A grocer stands at the counter, with a slightly impatient look on his face.@rus Бакалейщик (grocer) стоит за прилавком.~
 @eng A tall grocer, who moves two 200 pounds bag of flour around on his shoulders.
 @rus Этот высокий бакалейщик двигает по полу два 200 футовых мешка.
 ~
@@ -116,9 +110,7 @@ r sound 33
 #3003
 weaponsmith~
 @eng the weaponsmith@rus оружейник~
-@eng A weaponsmith.
-@rus Оружейник (weaponsmith) стоит здесь.
-~
+@eng A weaponsmith.@rus Оружейник (weaponsmith) стоит здесь.~
 @eng A young weaponsmith, who still has lots to learn.
 @rus Молодой оружейник, который забросил учебу.
 ~
@@ -150,8 +142,7 @@ r sound 33
 #3004
 armourer armorer~
 the armourer~
-An armourer stands here.
-~
+An armourer stands here.~
 An old but very strong armourer, he has made more armours in his
 lifetime than you have ever seen.
 ~
@@ -183,9 +174,7 @@ r sound 33
 #3005
 thief вор~
 @eng the thief@rus вор~
-@eng A thief, all dressed in black.
-@rus Вор (thief), одетый в черные одежды, стоит здесь.
-~
+@eng A thief, all dressed in black.@rus Вор (thief), одетый в черные одежды, стоит здесь.~
 @eng Well COUNT your money!
 @rus Пересчитайте свои денежки!
 ~
@@ -199,9 +188,7 @@ stand stand either 100
 #3006
 captain капитан~
 @eng the captain@rus капитан~
-@eng A retired captain stands here, selling boats.
-@rus Уйдя на пенсию, капитан (captain) продает здесь лодки.
-~
+@eng A retired captain stands here, selling boats.@rus Уйдя на пенсию, капитан (captain) продает здесь лодки.~
 @eng This captain has killed more sharks than you have eaten peas.
 @rus Этот капитан убил больше акул, чем вы съели гороха.
 ~
@@ -232,9 +219,7 @@ r sound 33
 #3007
 sailor моряк~
 @eng the sailor@rus моряк~
-@eng A sailor stands here, waiting to train you.
-@rus Моряк (sailor) стоит тут, готовый помочь тебе в тренировках.
-~
+@eng A sailor stands here, waiting to train you.@rus Моряк (sailor) стоит тут, готовый помочь тебе в тренировках.~
 @eng He looks like a strong, fit sailor.
 @rus Этот здоровяк в прекрасной форме!
 ~
@@ -265,9 +250,7 @@ r sound 33
 #3008
 boy мальчик~
 @eng the pet shop boy@rus ~~продавец~~ животных~
-@eng A pet shop boy is here, humming gently.
-@rus Тихий продавец животных (boy) стоит здесь.
-~
+@eng A pet shop boy is here, humming gently.@rus Тихий продавец животных (boy) стоит здесь.~
 @eng He is young and close-cropped and looks quite happy.
 @rus Он молод и очень счастлив.
 ~
@@ -298,9 +281,7 @@ r sound 33
 #3009
 jeweller ювелир~
 @eng the jeweller@rus ювелир~
-@eng The jeweller is standing behind the desk.
-@rus Ювелир (jeweller) стоит за прилавком.
-~
+@eng The jeweller is standing behind the desk.@rus Ювелир (jeweller) стоит за прилавком.~
 @eng He is fat and has a content although watchful look on his face.
 @rus Он жирный и довольный, но наблюдает за своим товаром очень бдительно.
 ~
@@ -331,9 +312,7 @@ r sound 33
 #3010
 leather worker скорняк~
 @eng the leather worker@rus скорняк~
-@eng The leather worker is sitting by the table, sewing a leather cap.
-@rus Скорняк (leather worker) сидит за столом и шьет шапку.
-~
+@eng The leather worker is sitting by the table, sewing a leather cap.@rus Скорняк (leather worker) сидит за столом и шьет шапку.~
 @eng She looks as an honest, hard-working artisan who only just earns enough to
 keep herself going.
 @rus Скорняк выглядит как весьма уважаемый ремесленник, но, похоже, он едва
@@ -366,9 +345,7 @@ r sound 33
 #3011
 Questor квестор~
 @eng Questor@rus квестор~
-@eng Questor is here, waiting to dispense some quest.
-@rus Квестор (questor) готов дать тебе задание.
-~
+@eng Questor is here, waiting to dispense some quest.@rus Квестор (questor) готов дать тебе задание.~
 @eng Questor towers over you. He's over 20 feet tall, every inch of it muscle. 
 He knows all the zones of Shades of Gray. It would be a BAD THING to
 commit a crime in his presence. 
@@ -403,9 +380,7 @@ r sound 33
 #3012
 healer лекарь~
 @eng the healer@rus ~~лекарь~~~
-@eng A healer is here, selling spells.
-@rus Лекарь (healer) с удовольствием поможет тебе за небольшое вознаграждение.
-~
+@eng A healer is here, selling spells.@rus Лекарь (healer) с удовольствием поможет тебе за небольшое вознаграждение.~
 @eng Although retired from adventuring, the healer still lends a hand.
 Type 'heal' to see a listing of spells.
 @rus Он уже давно на пенсии, но всегда рад помочь (не бесплатно, конечно)
@@ -439,9 +414,7 @@ r sound 999
 #3013
 janitor дворничиха~
 @eng the janitor@rus дворничиха~
-@eng A janitor is walking around, cleaning up.
-@rus Дворничиха (janitor) ходит кругами, подметая мусор.
-~
+@eng A janitor is walking around, cleaning up.@rus Дворничиха (janitor) ходит кругами, подметая мусор.~
 ~
 human~
 GH 0 0 0 0 900 0
@@ -467,9 +440,7 @@ r sound -50
 #3020
 guildmaster master наставница~
 @eng the guildmaster@rus наставница~
-@eng Your guildmaster is standing here.
-@rus Твоя наставница (guildmaster) стоит тут.
-~
+@eng Your guildmaster is standing here.@rus Твоя наставница (guildmaster) стоит тут.~
 @eng Even though your guildmaster looks old and tired, you can clearly see the
 vast amount of knowledge she possesses. She is wearing fine magic clothing,
 and you notice that she is surrounded by a blue shimmering aura.
@@ -504,9 +475,7 @@ r sound 33
 #3021
 guildmaster master наставник~
 @eng the guildmaster@rus наставник~
-@eng Your guildmaster is standing here.
-@rus Твой наставник (guildmaster) ждет тебя.
-~
+@eng Your guildmaster is standing here.@rus Твой наставник (guildmaster) ждет тебя.~
 @eng You are in no doubt that this guildmaster is truly close to your god; he has
 a peaceful, loving look. You notice that he is surrounded by a white aura.
 @rus Глядя на него, тебе не приходит в голову усомниться в том, что твой
@@ -540,9 +509,7 @@ r sound 33
 #3022
 guildmaster master наставник~
 @eng the guildmaster@rus наставник~
-@eng A hidden form reaches across, and takes your purse.
-@rus Кто-то внезапно возник позади тебя и стащил твой кошелек.
-~
+@eng A hidden form reaches across, and takes your purse.@rus Кто-то внезапно возник позади тебя и стащил твой кошелек.~
 @eng You realize that whenever your guildmaster moves, you fail to notice it:
 the way of the true thief.  She is dressed in poor clothing, having
 the appearance of an ordinary citizen.
@@ -559,9 +526,7 @@ stand stand male 0
 #3023
 guildmaster master наставник~
 @eng the guildmaster@rus наставник~
-@eng Your guildmaster is standing here.
-@rus Твой наставник (guildmaster) ждет тебя.
-~
+@eng Your guildmaster is standing here.@rus Твой наставник (guildmaster) ждет тебя.~
 @eng This is your master. A short, strong dwarf with bulging muscles. Several
 scars across his body prove that he was using arms before you were born.
 He has a calm look on his face.
@@ -596,9 +561,7 @@ r sound 33
 #3024
 sorcerer колдун~
 @eng the sorcerer@rus колдун~
-@eng A sorcerer is guarding the entrance.
-@rus Колдун (sorcerer) охраняет вход.
-~
+@eng A sorcerer is guarding the entrance.@rus Колдун (sorcerer) охраняет вход.~
 @eng He is an experienced mage who has specialized in the field of Combat Magic.
 He is here to guard the Mage's Guild and his superior knowledge of offensive
 as well as defensive spells make him a deadly opponent.
@@ -633,9 +596,7 @@ r sound 33
 #3025
 templar тамплиер~
 @eng the knight templar@rus Тамплиер~
-@eng A knight templar is guarding the entrance.
-@rus Рыцарь Ордена Храма (templar) охраняет вход.
-~
+@eng A knight templar is guarding the entrance.@rus Рыцарь Ордена Храма (templar) охраняет вход.~
 @eng He is a specially trained warrior belonging to the military order of the Faith.
 His duty is to protect the faithful from persecution and infidel attacks and
 his religious devotion combined with his superior skill makes him a deadly
@@ -672,9 +633,7 @@ r sound 33
 #3026
 assassin убийца~
 @eng the assassin@rus убийца~
-@eng An assassin is guarding the entrance.
-@rus Наемный убийца (assassin) охраняет вход.
-~
+@eng An assassin is guarding the entrance.@rus Наемный убийца (assassin) охраняет вход.~
 @eng He is a thief who has specialized in killing others as effectively as possible,
 using all sorts of weapons.  His superior knowledge of how and where to use
 them combined with his extraordinary stealth makes him a deadly opponent.
@@ -710,9 +669,7 @@ r sound 33
 #3027
 knight рыцарь~
 @eng the knight@rus рыцарь~
-@eng A knight is guarding the entrance.
-@rus Рыцарь (knight) охраняет вход.
-~
+@eng A knight is guarding the entrance.@rus Рыцарь (knight) охраняет вход.~
 @eng He is an expert warrior who has attained knighthood through countless
 chivalrous deeds.  His duty is to protect the Guild of Swordsmen and his
 extreme skill combined with his experience in warfare makes him a deadly
@@ -748,9 +705,7 @@ r sound 33
 #3040
 bartender бармен~
 @eng the bartender@rus бармен~
-@eng A bartender watches you calmly, while he skillfully mixes a drink.
-@rus Бармен (bartender) равнодушно смотрит на тебя, смешивая напитки.
-~
+@eng A bartender watches you calmly, while he skillfully mixes a drink.@rus Бармен (bartender) равнодушно смотрит на тебя, смешивая напитки.~
 @eng A tired looking Bartender who hates trouble in his bar.
 @rus Устало выглядящий бармен ненавидит разборки в своем заведении.
 ~
@@ -781,8 +736,7 @@ r sound 33
 #3041
 waiter~
 the waiter~
-A waiter is going around from one place to another.
-~
+A waiter is going around from one place to another.~
 A tired looking waiter.
 ~
 human~
@@ -812,9 +766,7 @@ r sound 33
 #3042
 waiter официант~
 @eng the waiter@rus официант~
-@eng A waiter offers you some drink.
-@rus Официант (waiter) предлагает тебе освежиться.
-~
+@eng A waiter offers you some drink.@rus Официант (waiter) предлагает тебе освежиться.~
 @eng A man who in his young days was a famous sorcerer but now leads a quiet,
 peaceful life as a waiter.
 @rus Человек, в молодые годы бывший известным волшебником, теперь ведет
@@ -847,9 +799,7 @@ r sound 33
 #3043
 waiter официант~
 @eng the waiter@rus официант~
-@eng A waiter looks at you while you call him.
-@rus Официант (waiter) ждет, когда ты его подзовешь.
-~
+@eng A waiter looks at you while you call him.@rus Официант (waiter) ждет, когда ты его подзовешь.~
 @eng A waiter who seems to have reached contact with God.
 @rus Официант похож на человека, на которого снизошло Откровение богов.
 ~
@@ -880,9 +830,7 @@ r sound 33
 #3044
 waiter официант~
 @eng the waiter@rus официант~
-@eng A waiter offers you some drink.
-@rus Официант (waiter) предлагает тебе опохмелиться.
-~
+@eng A waiter offers you some drink.@rus Официант (waiter) предлагает тебе опохмелиться.~
 @eng A waiter who knows where all his customers keep their money.
 @rus Официант прекрасно знает, где ты держишь свои деньги.
 ~
@@ -913,9 +861,7 @@ r sound 33
 #3045
 waiter официант~
 @eng the waiter@rus официант~
-@eng A waiter offers you some drink.
-@rus Официант (waiter) предлагает тебе напитки.
-~
+@eng A waiter offers you some drink.@rus Официант (waiter) предлагает тебе напитки.~
 @eng A waiter easily could kill you, and still carry quite a few firebreathers.
 @rus А ведь ему не составит труда разобраться с тобой!
 ~
@@ -946,9 +892,7 @@ r sound 33
 #3046
 filthy филси~
 @eng Filthy@rus Филси~
-@eng Filthy is standing here, eager to serve you a special drink.
-@rus Филси (Filthy) стоит тут, готовый подать тебе фирменный напиток.
-~
+@eng Filthy is standing here, eager to serve you a special drink.@rus Филси (Filthy) стоит тут, готовый подать тебе фирменный напиток.~
 @eng Filthy looks real, ehm, dirty. He likes to keep his costumers happy,
 but do not mess with him or else he'll get upset.
 @rus Филси выглядит слегка... хм... грязноватым. Он заботится о завсягдатаях
@@ -982,9 +926,7 @@ r sound 33
 #3060
 cityguard guard стражник~
 @eng the cityguard@rus стражник~
-@eng A cityguard stands here.
-@rus Стражник (cityguard) стоит тут.
-~
+@eng A cityguard stands here.@rus Стражник (cityguard) стоит тут.~
 @eng A big, strong, helpful, trustworthy guard.
 @rus Большой, сильный, заслуживающий доверия, всегда готовый тебе помочь 
 стражник.
@@ -1014,9 +956,7 @@ r sound 33
 #3061
 janitor дворник~
 @eng the janitor@rus дворник~
-@eng A janitor is walking around, cleaning up.
-@rus Дворник (janitor) ходит вокруг тебя, подметая мусор.
-~
+@eng A janitor is walking around, cleaning up.@rus Дворник (janitor) ходит вокруг тебя, подметая мусор.~
 ~
 human~
 GH 0 0 0 0 900 0
@@ -1044,9 +984,7 @@ r sound -50
 #3062
 fido dog собака зверюга~
 @eng the beastly fido@rus ~~противная~~ ~~зверюга~~~
-@eng A beastly fido is here.
-@rus Противная зверюга (fido) роется в отбросах в поисках пищи.
-~
+@eng A beastly fido is here.@rus Противная зверюга (fido) роется в отбросах в поисках пищи.~
 @eng Fido is a small dog that has a foul smell and pieces of rotted meat hanging
 around its teeth.
 @rus Собака жутко воняет. На зубах у нее застряли куски недожеванного мяса.
@@ -1075,9 +1013,7 @@ r sound 50
 #3063
 vagabond бродяга~
 @eng the vagabond@rus бродяга~
-@eng A vagabond is here, looking for victims.
-@rus Бродяга (vagabond) ищет жертву.
-~
+@eng A vagabond is here, looking for victims.@rus Бродяга (vagabond) ищет жертву.~
 @eng He looks pretty mean.
 @rus Он очень подло выглядит.
 ~
@@ -1106,9 +1042,7 @@ r sound -50
 #3064
 drunk пьяница~
 @eng the drunk@rus пьяница~
-@eng A singing, happy drunk wanders around, singing about Moria.
-@rus Счастливый пьяница (drunk) бродит здесь, напевая песни.
-~
+@eng A singing, happy drunk wanders around, singing about Moria.@rus Счастливый пьяница (drunk) бродит здесь, напевая песни.~
 @eng A drunk who seems to be too happy, and to carry too much money.
 @rus Он очень счастлив и у него много денег.
 ~
@@ -1136,9 +1070,7 @@ r sound -50
 #3065
 beggar попрошайка~
 @eng the beggar@rus попрошайка~
-@eng A beggar is here, asking for a few coins.
-@rus Попрошайка (beggar) сидит здесь, выпрашивая милостыню.
-~
+@eng A beggar is here, asking for a few coins.@rus Попрошайка (beggar) сидит здесь, выпрашивая милостыню.~
 @eng The beggar looks like she is fed up with life.
 @rus Попрошайка малость ободрана...
 ~
@@ -1169,9 +1101,7 @@ r sound -50
 #3066
 cat кот~
 @eng an alley cat@rus ~~уличный~~ ~~кот~~~
-@eng An alley cat hisses at you.
-@rus Уличный кот (cat) шипит на тебя.
-~
+@eng An alley cat hisses at you.@rus Уличный кот (cat) шипит на тебя.~
 @eng The alley cat is half starved and more than a little feral.
 @rus Бедное создание голодает и совсем одичало.
 ~
@@ -1199,9 +1129,7 @@ r sound -50
 #3067
 cityguard guard стражник~
 @eng the cityguard@rus стражник~
-@eng A cityguard is here, guarding the gate.
-@rus Стражник (cityguard) охраняет ворота.
-~
+@eng A cityguard is here, guarding the gate.@rus Стражник (cityguard) охраняет ворота.~
 @eng A big, strong, helpful, trustworthy guard.
 @rus Большой, сильный, заслуживающий доверия стражник.
 ~
@@ -1229,9 +1157,7 @@ r sound 33
 #3068
 cityguard guard стражник~
 @eng the cityguard@rus стражник~
-@eng A cityguard is here, guarding the gate.
-@rus Стражник (cityguard) охраняет ворота.
-~
+@eng A cityguard is here, guarding the gate.@rus Стражник (cityguard) охраняет ворота.~
 @eng A big, strong, helpful, trustworthy guard.
 @rus Большой, сильный, заслуживающий доверия стражник.
 ~
@@ -1259,9 +1185,7 @@ r sound 33
 #3069
 cityguard guard стражник~
 @eng the cityguard@rus стражник~
-@eng A cityguard is here, guarding the mayor.
-@rus Стражник (cityguard) охраняет мэра.
-~
+@eng A cityguard is here, guarding the mayor.@rus Стражник (cityguard) охраняет мэра.~
 @eng A big, strong, helpful, trustworthy guard.
 @rus Большой, крепкий, внушающий доверие стражник.
 ~
@@ -1289,9 +1213,7 @@ r sound 33
 #3070
 shopkeeper old man аптекарь~
 @eng An old man@rus ~~старый~~ ~~аптекарь~~~
-@eng An old man eyes you greedily.
-@rus Старый аптекарь (shopkeeper) жадно оглядывает тебя.
-~
+@eng An old man eyes you greedily.@rus Старый аптекарь (shopkeeper) жадно оглядывает тебя.~
 @eng He looks very dangerous.  I wouldn't try to rob him.
 @rus Он выглядит довольно опасным. Я бы не $gn{стал} у него воровать...
 ~
@@ -1323,9 +1245,7 @@ r sound 33
 #3071
 cityguard guard стражник~
 @eng the cityguard@rus стражник~
-@eng A cityguard is here, guarding the gate alertly.
-@rus Стражник (cityguard) охраняет ворота.
-~
+@eng A cityguard is here, guarding the gate alertly.@rus Стражник (cityguard) охраняет ворота.~
 @eng A big, strong, helpful, trustworthy guard.
 @rus Большой, сильный, заслуживающий доверия стражник.
 ~
@@ -1353,9 +1273,7 @@ r sound 33
 #3072
 cityguard guard стражник~
 @eng the cityguard@rus стражник~
-@eng A cityguard is here, guarding the gate.  He is half asleep.
-@rus Стражник (cityguard) охраняет ворота. Он почти заснул на посту.
-~
+@eng A cityguard is here, guarding the gate.  He is half asleep.@rus Стражник (cityguard) охраняет ворота. Он почти заснул на посту.~
 @eng A big, strong, helpful, trustworthy guard.
 @rus Большой, сильный, заслуживающий доверия стражник.
 ~
@@ -1383,9 +1301,7 @@ r sound 33
 #3090
 kitten cat pet котенок~
 @eng the kitten@rus котенок~
-@eng A small loyal kitten is here.
-@rus Маленький послушный котенок (kitten) здесь.
-~
+@eng A small loyal kitten is here.@rus Маленький послушный котенок (kitten) здесь.~
 @eng The kitten looks like a cute, little, fierce fighter.
 @rus Котенок выглядит хитрым, маленьким и свирепым.
 ~
@@ -1413,9 +1329,7 @@ r sound 33
 #3091
 puppy dog pet щенок~
 @eng the puppy@rus щенок~
-@eng A small loyal puppy is here.
-@rus Маленький послушный щенок (puppy) здесь.
-~
+@eng A small loyal puppy is here.@rus Маленький послушный щенок (puppy) здесь.~
 @eng The puppy looks like a cute, little, fierce fighter.
 @rus Щенок выглядит хитрым, маленьким и свирепым.
 ~
@@ -1443,9 +1357,7 @@ r sound 33
 #3092
 beagle dog pet гончая~
 @eng the beagle@rus гончая~
-@eng A small, quick, loyal beagle is here.
-@rus Маленькая быстрая гончая (beagle) здесь.
-~
+@eng A small, quick, loyal beagle is here.@rus Маленькая быстрая гончая (beagle) здесь.~
 @eng The beagle looks like a fierce fighter.
 @rus Гончая выглядит бесстрашно.
 ~
@@ -1473,9 +1385,7 @@ r sound 33
 #3093
 rottweiler dog pet ротвейлер~
 @eng the rottweiler@rus ротвейлер~
-@eng A large, loyal rottweiler is here.
-@rus Большой верный ротвейлер (rottweiler) здесь.
-~
+@eng A large, loyal rottweiler is here.@rus Большой верный ротвейлер (rottweiler) здесь.~
 @eng The rottweiler looks like a strong, fierce fighter.
 @rus Ротвейлер похож на сильного, храброго бойца.
 ~
@@ -1503,9 +1413,7 @@ r sound 33
 #3094
 wolf pet волк~
 @eng the wolf@rus волк~
-@eng A large, trained wolf is here.
-@rus Большой, хорошо обученый волк (wolf) здесь.
-~
+@eng A large, trained wolf is here.@rus Большой, хорошо обученый волк (wolf) здесь.~
 @eng The wolf looks like a strong, fearless fighter.
 @rus Волк похож на сильного, храброго бойца.
 ~
@@ -1533,8 +1441,7 @@ r sound 33
 #3095
 eagle bird pet~
 the eagle~
-A loyal eagle circles overhead.
-~
+A loyal eagle circles overhead.~
 The eagle looks like a strong fierce fighter.
 ~
 song bird~
@@ -1561,8 +1468,7 @@ r sound 33
 #3096
 lion pet~
 the lion~
-A large, faithful lion is here.
-~
+A large, faithful lion is here.~
 The great lion looks very fierce.
 ~
 cat~
@@ -1589,8 +1495,7 @@ r sound 33
 #3097
 tiger pet~
 the tiger~
-A great, loyal tiger is here.
-~
+A great, loyal tiger is here.~
 The large, striped tiger looks like a savage fighter.
 ~
 cat~
@@ -1617,9 +1522,7 @@ r sound 33
 #3100
 maid служанка~
 @eng the maid@rus служанка~
-@eng The maid is waiting for your order.
-@rus Служанка (maid) ждет твоего заказа.
-~
+@eng The maid is waiting for your order.@rus Служанка (maid) ждет твоего заказа.~
 @eng She is very beautiful with golden hair, and deep blue eyes. A good reason
 for coming here more often.
 @rus Она прекрасна!.. Золотистые волосы, томные взгляд голубых глаз - все за то,
@@ -1652,9 +1555,7 @@ r sound 33
 #3120
 sexton могильщик~
 @eng the sexton@rus могильщик~
-@eng A sexton is sitting here, drinking hot tea.
-@rus Могильщик (sexton) сидит тут и пьет горячий чай.
-~
+@eng A sexton is sitting here, drinking hot tea.@rus Могильщик (sexton) сидит тут и пьет горячий чай.~
 @eng The sexton looks like he is relaxing after another grave-digging job.
 @rus Могильщик отдыхает после изнурительной работы.
 ~
@@ -1682,9 +1583,7 @@ r sound -50
 #3121
 swan лебедь~
 @eng the swan@rus лебедь~
-@eng A swan is swimming around in the pond.
-@rus Лебедь (swan) величественно плывет к берегу.
-~
+@eng A swan is swimming around in the pond.@rus Лебедь (swan) величественно плывет к берегу.~
 @eng The white swan is very elegant.
 @rus Белая, очень элегантная птица.
 ~
@@ -1712,9 +1611,7 @@ r sound -50
 #3122
 duckling утенок~
 @eng the duckling@rus утенок~
-@eng A duckling is swimming around in the pond.
-@rus Утенок (duckling) весело перебирает лапками, плывя через пруд.
-~
+@eng A duckling is swimming around in the pond.@rus Утенок (duckling) весело перебирает лапками, плывя через пруд.~
 @eng The duckling is adorable, it looks most of all like a tiny furball.
 @rus Просто прелесть! Выглядит как маленький пушистый комочек.
 ~
@@ -1742,9 +1639,7 @@ r sound -50
 #3123
 sparrow воробей~
 @eng the sparrow@rus воробей~
-@eng A sparrow is flapping around on the ground.
-@rus Воробей (sparrow) скачет по земле.
-~
+@eng A sparrow is flapping around on the ground.@rus Воробей (sparrow) скачет по земле.~
 @eng The sparrow looks like it is enjoying life.
 @rus Воробей вовсю наслаждается жизнью.
 ~
@@ -1772,9 +1667,7 @@ r sound -50
 #3124
 duck утка~
 @eng the duck@rus утка~
-@eng A duck is here, quacking happily.
-@rus Утка (duck) крякает жизнерадостно.
-~
+@eng A duck is here, quacking happily.@rus Утка (duck) крякает жизнерадостно.~
 @eng The duck is quite fat.  It looks like it is enjoying life.
 @rus Довольно жирная птица. И вовсю наслаждается жизнью, пока ее не съели.
 ~
@@ -1802,9 +1695,7 @@ r sound -50
 #3140
 captain капитан~
 @eng the captain@rus капитан~
-@eng The captain of the guard is looking very upset.
-@rus Капитан гвардии (captain) выглядит раздраженным.
-~
+@eng The captain of the guard is looking very upset.@rus Капитан гвардии (captain) выглядит раздраженным.~
 @eng A big, strong, angry captain.
 @rus Большой, сильный и злой капитан.
 ~
@@ -1832,9 +1723,7 @@ r sound 33
 #3141
 cityguard guard стражник~
 @eng the cityguard@rus стражник~
-@eng A cityguard stands here, looking very upset.
-@rus Стражник (cityguard) стоит тут, глядя раздраженно.
-~
+@eng A cityguard stands here, looking very upset.@rus Стражник (cityguard) стоит тут, глядя раздраженно.~
 @eng A big, strong, angry guard.
 @rus Большой, сильный, злобный стражник.
 ~
@@ -1862,9 +1751,7 @@ r sound 33
 #3142
 secretary секретарь секретарша~
 @eng the secretary@rus секретарша~
-@eng A secretary is sitting at the desk.
-@rus Секретарша (secretary) сидит за столом.
-~
+@eng A secretary is sitting at the desk.@rus Секретарша (secretary) сидит за столом.~
 @eng She looks very busy.
 The Secretary says 'Sorry, but the Mayor is extremely busy today'.
 The Secretary says 'Please sit down and have a seat in the meantime'.
@@ -1882,9 +1769,7 @@ sit sit female 100
 #3143
 mayor мэр~
 @eng the mayor@rus мэр~
-@eng The mayor is here.  He shakes your hand.
-@rus Мэр (mayor) пожимает вам руку.
-~
+@eng The mayor is here.  He shakes your hand.@rus Мэр (mayor) пожимает вам руку.~
 @eng He is a stocky, middle-aged man with thin, grey hair.
 @rus Коренастый мужчина средних лет с редкими серыми волосами.
 ~
@@ -1915,9 +1800,7 @@ r sound 33
 #3144
 crier плакальщик~
 @eng the town crier@rus ~~городской~~ ~~плакальщик~~~
-@eng The town crier is here, weeping quietly.
-@rus Городской плакальщик (crier) тихо подвывает здесь.
-~
+@eng The town crier is here, weeping quietly.@rus Городской плакальщик (crier) тихо подвывает здесь.~
 @eng He is very good at his job - completely dissolved in tears.
 @rus Он хорошо выполняет свою работу - полностью залит слезами.
 ~
@@ -1945,9 +1828,7 @@ r sound -50
 #3150
 esme waitress эсме~
 @eng Esme@rus Эсме~
-@eng Esme the waitress hums to herself and wonders what you'd like to order.
-@rus Официантка Эсме (Esme) спрашивает, что ты желаешь заказать.
-~
+@eng Esme the waitress hums to herself and wonders what you'd like to order.@rus Официантка Эсме (Esme) спрашивает, что ты желаешь заказать.~
 @eng Esme brushes a lock of dark hair away from her wire-rimmed glasess and
 smiles warmly at you.
 @rus Эсме убирает выбившуюся прядь волос со своих очков и тепло тебе улюбается.
@@ -1979,9 +1860,7 @@ r sound 33
 #3160
 Melancholy меланхолик~
 @eng Melancholy@rus Меланхолик~
-@eng Melancholy is here, digging through a pile of scrolls, papers, and maps.
-@rus Меланхолик (Melancholy) копается в груде свитков, бумаг и карт.
-~
+@eng Melancholy is here, digging through a pile of scrolls, papers, and maps.@rus Меланхолик (Melancholy) копается в груде свитков, бумаг и карт.~
 @eng Ragged brown hair frames a ghostly, pale face.  Puffy eyelids surround two
 sky blue, haunting eyes.  An old, brown robe is wrapped around her frail 
 frame.  She looks up from her pile of papers and maps and looks inquiringly
@@ -2018,9 +1897,7 @@ r sound 33
 #3161
 lister green tree snake листер~
 @eng Lister@rus Листер~
-@eng A green tree snake is sitting here on a pile of books.
-@rus Зеленая древесная змейка (lister) сидит на груде книг.
-~
+@eng A green tree snake is sitting here on a pile of books.@rus Зеленая древесная змейка (lister) сидит на груде книг.~
 @eng This is Melancholy's pet tree snake, Lister.  Something seems odd about his 
 jaw, almost as if he were smiling at you.  He's quite friendly, but don't
 get him drunk.
@@ -2041,9 +1918,7 @@ r poison -33
 #3162
 otho money changer moneychanger меняла~
 @eng Otho the Changer@rus Ото-~~меняла~~~
-@eng Otho the Money Changer sits behind his desk, waiting for your coins.
-@rus Ростовщик Ото (otho) сидит за столом в ожидании твоих денег.
-~
+@eng Otho the Money Changer sits behind his desk, waiting for your coins.@rus Ростовщик Ото (otho) сидит за столом в ожидании твоих денег.~
 @eng Try to handle the command IDENTIFY!...
 	Try to change money!....(give some silver, get some gold)
 
@@ -2083,9 +1958,7 @@ r sound 33
 #3163
 thief вор~
 @eng the thief@rus вор~
-@eng A thief, all dressed in black.
-@rus Вор (thief), одетый в черные одежды, стоит здесь.
-~
+@eng A thief, all dressed in black.@rus Вор (thief), одетый в черные одежды, стоит здесь.~
 @eng Well COUNT your money!
 @rus Пересчитайте ваши денежки!
 ~
@@ -2099,9 +1972,7 @@ stand stand either 100
 #3164
 butcher shopkeeper~
 @eng the butcher@rus мясник~
-@eng The butcher is here dressing a side of beef.
-@rus Мясник (butcher), одетый в белый передник, стоит здесь.
-~
+@eng The butcher is here dressing a side of beef.@rus Мясник (butcher), одетый в белый передник, стоит здесь.~
 @eng This brawny man wears a large white apron to catch all the spatters while
 he cuts the beef.
 @rus Мускулистый мужчина, одетый в белый передник, разделывает мясо.
@@ -2133,9 +2004,7 @@ r sound 33
 #3165
 novice boy помощник~
 @eng the novice boy@rus помощник~
-@eng Novice of weaponsmith is here.
-@rus Помощник (novice) оружейника стоит здесь.
-~
+@eng Novice of weaponsmith is here.@rus Помощник (novice) оружейника стоит здесь.~
 @eng He is a small boy with short black hair. His bright eyes are watching 
 his master, weaponsmith. Here, he takes care of the bulky work, bringing 
 or carrying away what is needed and what is not.
@@ -2154,9 +2023,7 @@ r charm 999
 #3166
 healer nacya нася~
 @eng Nacya@rus Нася~
-@eng The healer Nacya welcomes you to her temple.
-@rus Лекарь (healer) Нася приглашает тебя в храм.
-~
+@eng The healer Nacya welcomes you to her temple.@rus Лекарь (healer) Нася приглашает тебя в храм.~
 @eng She surely is one of the most beautiful human you have ever seen in your 
 life.  Her deep brown eyes, invite you to the peaceful world of goods.  
 Her white robes represend the purity of her soul.  She is standing behind 
@@ -2192,9 +2059,7 @@ r sound 999
 #3167
 guildmaster master наставник~
 @eng the guildmaster@rus наставник~
-@eng A knight watches your moves carefully.
-@rus Рыцарь (guildmaster) внимательно за тобой наблюдает.
-~
+@eng A knight watches your moves carefully.@rus Рыцарь (guildmaster) внимательно за тобой наблюдает.~
 @eng The guild master is a tall well build man.  You can easily see that he is 
 charismatic.  He is still wearing his bright body armor, even at a very 
 safe place like this. He has a long, two-handed sword next to him.
@@ -2229,9 +2094,7 @@ r sound 33
 #3168
 guildmaster master наставник~
 @eng the guildmaster@rus наставник~
-@eng You notice an assassin behind you as you turn around!
-@rus Обернувшись, ты видишь позади себя убийцу (guildmaster).
-~
+@eng You notice an assassin behind you as you turn around!@rus Обернувшись, ты видишь позади себя убийцу (guildmaster).~
 @eng The guild master is a tall well build man.  He wears a dark cloth all 
 over his body,  and carries strange equipment tied on his belt.  
 @rus Твой наставник - высокий, хорошо сложенный мужчина. Он одет в черные
@@ -2264,9 +2127,7 @@ r sound 33
 #3169
 guildmaster master наставник~
 @eng the guildmaster@rus наставник~
-@eng A dark caped man grabs his sword, for your unexpected existance.
-@rus Мужчина (guildmaster), одетый в темные одежды, неожиданно обезоруживает тебя!
-~
+@eng A dark caped man grabs his sword, for your unexpected existance.@rus Мужчина (guildmaster), одетый в темные одежды, неожиданно обезоруживает тебя!~
 @eng He is a dark-elf with evil looking eyes. As you look in his eyes, you 
 think they are glowing red.  His black cloak covers almost all of his 
 face. Even he's an elf, he has a strong build, tall body. He looks 
@@ -2303,9 +2164,7 @@ r sound 33
 #3170
 guildmaster master наставница~
 @eng the guildmaster@rus наставница~
-@eng Your guildmaster is standing here.
-@rus Твоя наставница (guildmaster) ждет тебя.
-~
+@eng Your guildmaster is standing here.@rus Твоя наставница (guildmaster) ждет тебя.~
 @eng Even though your guildmaster looks old and tired, you can clearly see the
 vast amount of knowledge she possesses. She is wearing fine magic clothing,
 and you notice that she is surrounded by a blue shimmering aura.
@@ -2340,9 +2199,7 @@ r sound 33
 #3171
 guildmaster master наставник~
 @eng the guildmaster@rus наставник~
-@eng A well-dressed Samurai watches your moves carefully.
-@rus Хорошо одетый Самурай (guildmaster) внимательно следит за тобой.
-~
+@eng A well-dressed Samurai watches your moves carefully.@rus Хорошо одетый Самурай (guildmaster) внимательно следит за тобой.~
 @eng The guild master is a short well build man.  You can easily say he is 
 charismatic.  He is still wearing his old body armor, even at a very 
 safe place like this. 
@@ -2377,8 +2234,7 @@ r sound 33
 #3172
 templeman~
 the templeman~
-The templeman is here, looking something in old books.
-~
+The templeman is here, looking something in old books.~
 Although very handsome, the templeman serves for IMMORTALS and GODS.
 help 'religion' to see a listing of religions available.
 ~
@@ -7151,7 +7007,7 @@ S
 @eng You are by two small towers that have been built into the city wall and
 connected with a footbridge across the heavy wooden gate.  Main Street leads
 east and Wall Road leads both north and south from here.
-@rus  Ты стоишь между двумя башнями, которые построены в городской стене и 
+@rus . Ты стоишь между двумя башнями, которые построены в городской стене и 
 соединены мостиком поверх тяжелых деревянных ворот. Главная улица уходит на
 восток (east), а дорога вдоль городской стены - на север (north) и юг (south).
 ~
@@ -7687,7 +7543,7 @@ S
 connected with a footbridge across the heavy wooden gate.  To the west you
 can see the edge of a big forest. A small dusty trail leads north along the
 wall.
-@rus  Ты стоишь между двумя башнями, которые построены в городской стене и 
+@rus . Ты стоишь между двумя башнями, которые построены в городской стене и 
 соединены мостиком поверх тяжелых деревянных ворот. На западе (west) видна 
 опушка большого леса. Узкая пыльная тропинка уходит на север (north) вдоль
 стены.
@@ -7745,7 +7601,7 @@ S
 connected with a footbridge across the heavy wooden gate.  To the east the
 plains stretch out in the distance. To the north a small dusty trail follow
 the city wall.
-@rus  Ты стоишь между двумя башнями, которые построены в городской стене и 
+@rus . Ты стоишь между двумя башнями, которые построены в городской стене и 
 соединены мостиком поверх тяжелых деревянных ворот. На востоке(east) видны 
 равнины раскинувшиеся вдали. Узкая пыльная тропинка уходит на север(north)
 вдоль стены.
@@ -7937,6 +7793,12 @@ D3
 ~
 ~
 Z -1 3060
+D5
+~
+~
+~
+~
+Z 0 7009
 S
 #3062
 @eng Underground Chamber@rus Подземная комната~
@@ -8129,10 +7991,10 @@ marble blocks, and most of the walls are decorated with silk curtains.
 The very high ceiling is covered with every color of crystals. To the 
 east, large stairs lead down to the temple square, and altar chamber is 
 noticeable to south east.
-@rus Храм, в котором ты оказался, сооружен из серо-зеленых мраморных блоков, и
-почти все стены украшены шелковыми пологами. Высокие своды покрыты кристаллами
-всех цветов. К востоку (east) на площадь спускается мраморная лестница, а альков
-с алтарем виднеется на юго-востоке (south-east).
+@rus Храм, в котором ты $gn{оказался}, сооружен из серо-зеленых мраморных блоков,
+и почти все стены украшены шелковыми пологами. Высокие своды покрыты крис-
+таллами всех цветов. К востоку на площадь спускается мраморная лестница,
+а альков с алтарем виднеется на юго-востоке.
 ~
 0 DS inside
 D1
@@ -8157,9 +8019,9 @@ S
 directions, stairs lead up, at south to the priestess's chamber, and at 
 west to the temple chamber. This square connect to the park road, at the 
 north.
-@rus Ты стоишь посреди большой Храмовой площади. В двух направлениях ведут ступени:
-на юг (south) - в комнату жрицы, а на запад (west) - в храмовый придел. К северу
-(north) площадь выходит на Парковую аллею.
+@rus Ты стоишь посреди большой Храмовой площади. В двух направлениях ведут
+ступени: на юг -- в комнату жрицы,  и на запад -- в храмовый придел. К
+северу площадь выходит на Парковую аллею.
 ~
 0 S city
 D0
@@ -11400,12 +11262,8 @@ E 0 3353 0 5		*	the cityguard<on the body>: a standard issue vest
 E 0 3355 0 4		*	the cityguard<on the face>: a standard issue cloak
 O 0 3135 0 3005	* a fountain (The Temple Square)
 O 0 9 0 3005	* Christmas tree (The Temple Square)
-P 0 15029 0 0 1	* Christmas tree: teddy bear
-P 0 15029 0 0 1	* Christmas tree: teddy bear
-P 0 15029 0 0 1	* Christmas tree: teddy bear
-P 0 15027 0 0 1	* Christmas tree: HUGE elephant
-P 0 15027 0 0 1	* Christmas tree: HUGE elephant
-P 0 15027 0 0 1	* Christmas tree: HUGE elephant
+P 0 15027 100 0 3	* Christmas tree: HUGE elephant
+P 0 15029 100 0 3	* Christmas tree: teddy bear
 M 0 3061 5 3006 5	* the janitor (Entrance to the Grunting Boar Inn)
 M 0 3040 1 3007 1	* the bartender (The Grunting Boar)
 G 0 3000 0		*	the bartender: a barrel of beer

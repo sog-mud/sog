@@ -11,9 +11,7 @@ End
 #10001
 gar long tail гар~
 @eng a long-tailed gar@rus ~~длиннохвостый~~ ~~гар~~~
-@eng A long-tailed Gar stalks you deep in the woods.
-@rus Длиннохвостый гар (gar) подкрадывается к тебе из-за деревьев.
-~
+@eng A long-tailed Gar stalks you deep in the woods.@rus Длиннохвостый гар (gar) подкрадывается к тебе из-за деревьев.~
 @eng You see a giant flesh-eating beast that hunts by the sense of
 smell. Your blood must be sweet because it has spotted you and is
 running in your direction. YOU'D BETTER ACT FAST!
@@ -41,9 +39,7 @@ r charm 999
 #10002
 gar long tail гар~
 @eng a long-tailed gar@rus ~~длиннохвостый~~ ~~гар~~~
-@eng A long-tailed Gar stalks you deep in the woods.
-@rus Длиннохвостый гар (gar) подкрадывается к тебе из-за деревьев.
-~
+@eng A long-tailed Gar stalks you deep in the woods.@rus Длиннохвостый гар (gar) подкрадывается к тебе из-за деревьев.~
 @eng You see a giant flesh-eating beast that hunts by the sense of
 smell. Your blood must be sweet because it has spotted you and is
 running in your direction. YOU'D BETTER ACT FAST!
@@ -71,9 +67,7 @@ r charm 999
 #10003
 gar long tail гар длиннохвостый~
 @eng a long-tailed gar@rus ~~длиннохвостый~~ ~~гар~~~
-@eng A long-tailed Gar stalks you deep in the woods. 
-@rus Длиннохвостый гар (gar) подкрадывается к тебе из-за деревьев.
-~
+@eng A long-tailed Gar stalks you deep in the woods. @rus Длиннохвостый гар (gar) подкрадывается к тебе из-за деревьев.~
 @eng You see a giant flesh-eating beast that hunts by the sense of
 smell. Your blood must be sweet because it has spotted you and is
 running in your direction. YOU'D BETTER ACT FAST!
@@ -101,9 +95,7 @@ r charm 999
 #10004
 fly blood муха кровавая~
 @eng a blood fly@rus ~~кровавая~~ ~~муха~~~
-@eng A little annoying insect is waiting to suck your blood.
-@rus Маленькое надоедливое насекомое (fly) кружит вокруг тебя, пытаясь ужалить.
-~
+@eng A little annoying insect is waiting to suck your blood.@rus Маленькое надоедливое насекомое (fly) кружит вокруг тебя, пытаясь ужалить.~
 @eng You see a deformed little bug that has giant teeth waiting to
 penetrate your skin.
 @rus Бесформенный маленький жучок с острыми зубками, жаждущий твоей теплой крови.
@@ -123,9 +115,7 @@ r negative -50
 #10005
 assassin квод наемник quad~
 @eng a quad assassin@rus ~~наемник~~ из квода~
-@eng A member of the quad assassins is here.
-@rus Наемник (assasin), один из квода, стоит перед тобой, не давая пройти.
-~
+@eng A member of the quad assassins is here.@rus Наемник (assasin), один из квода, стоит перед тобой, не давая пройти.~
 @eng You see a dangerous man wearing heavy armor and weapons. He seems
 to be an assassin-type man with one thought in mind. KILL KILL
 KILL!
@@ -146,9 +136,7 @@ r charm 33
 #10006
 assassin квод наемник quad~
 @eng a quad assassin@rus ~~наемник~~ из квода~
-@eng A member off the quad assassins is here.
-@rus Наемник (assasin), один из квода, стоит перед тобой, не давая пройти.
-~
+@eng A member off the quad assassins is here.@rus Наемник (assasin), один из квода, стоит перед тобой, не давая пройти.~
 @eng Toy see a dangerous man wearing heavy armor and weapons. He seems
 to be an assassin-type man with one thought in mind. KILL KILL
 KILL!
@@ -169,9 +157,7 @@ r charm 33
 #10007
 lady девушка молодая young~
 @eng a young lady@rus ~~молодая~~ ~~девушка~~~
-@eng There is a nice young lady picking flowers from her garden.
-@rus Прелестная молодая девушка (lady) гуляет здесь, собирая цветы.
-~
+@eng There is a nice young lady picking flowers from her garden.@rus Прелестная молодая девушка (lady) гуляет здесь, собирая цветы.~
 @eng You see a young lady picking flowers from her garden.
 @rus Ты видишь милое юное создание с обаятельной улыбкой. Она спокойно
 выбирает цветы для букета, не обращая на тебя ни малейшего внимания.
@@ -187,9 +173,7 @@ r cold 999
 #10008
 fisherman man рыбак мужчина~
 @eng a fisherman@rus рыбак~
-@eng You see a clam fisherman waiting for his catch of the day.
-@rus Задумчивый рыбак (fisherman) спокойно занимается своим обычным делом.
-~
+@eng You see a clam fisherman waiting for his catch of the day.@rus Задумчивый рыбак (fisherman) спокойно занимается своим обычным делом.~
 @eng He is a tall man who seems to enjoy fishing. It looks like he
 would like to catch some fish to take home.
 @rus Высокий хорошо сложенный мужчина, искренне наслаждающийся своим делом. Он 
@@ -206,9 +190,7 @@ r cold 999
 #10009
 boy мальчик маленький little~
 @eng a little boy@rus ~~маленький~~ ~~мальчик~~~
-@eng There is a little boy playing in the sand.
-@rus Маленький мальчик (boy) играется в песке.
-~
+@eng There is a little boy playing in the sand.@rus Маленький мальчик (boy) играется в песке.~
 @eng You see a little boy building sand-castles in the sand. The sand
 is perfect for his castles and you feel like you want to join
 him.
@@ -227,9 +209,7 @@ r cold 999
 #10010
 hound гончая сердца heart~
 @eng a heart hound@rus ~~гончая~~ сердца~
-@eng There is a deadly heart hound drooling all over himself.
-@rus Гончая сердца (hound) осматривается вокруг.
-~
+@eng There is a deadly heart hound drooling all over himself.@rus Гончая сердца (hound) осматривается вокруг.~
 @eng This is on of the most deadly beast whom have escaped from the
 boundary. You better watch out, you know not what type of powers
 he has at his use. This beast is very deadly. They call them
@@ -250,9 +230,7 @@ stand stand female 300
 #10011
 speaker оратор~
 @eng a speaker@rus оратор~
-@eng There is a speaker giving a speech to the crowd of listeners.
-@rus Оратор (speaker) собрал вокруг себя кружок единомышленников.
-~
+@eng There is a speaker giving a speech to the crowd of listeners.@rus Оратор (speaker) собрал вокруг себя кружок единомышленников.~
 @eng He is a tall man who appears to have a great athority over the
 villagers. He is giving a great speach about fire and the deadly
 losses of it. He is wearing white pants and shirt. He doesn't
@@ -274,9 +252,7 @@ stand stand male 300
 #10012
 villager селянин счастливый happy~
 @eng a happy villager@rus ~~счастливый~~ ~~селянин~~~
-@eng There is a really happy villager here.
-@rus Селянин (villager) улыбается, глядя в твою сторону.
-~
+@eng There is a really happy villager here.@rus Селянин (villager) улыбается, глядя в твою сторону.~
 @eng As you pass by this villager he says "Hello" and gives you a big
 kiss. you beging to wonder if he is drunk or just plain out of
 his mind! 
@@ -294,9 +270,7 @@ stand stand male 300
 #10013
 healer доктор~
 @eng a healer@rus доктор~
-@eng The town healer is here.
-@rus Городской доктор (healer) задремал в ожидании посетителей.
-~
+@eng The town healer is here.@rus Городской доктор (healer) задремал в ожидании посетителей.~
 @eng She is a tall women who seems to enjoy healing people. She has
 beautiful long hair and is wearing a white dress that reaches
 down to the floor. Her head is held up high and she has a nice
@@ -321,9 +295,7 @@ r charm 999
 #10014
 warden страж границы boundary~
 @eng a boundary warden@rus ~~страж~~ границы~
-@eng A strong, powerful boundary warden is here.
-@rus Мрачный страж (warden) занят своим нелегким делом.
-~
+@eng A strong, powerful boundary warden is here.@rus Мрачный страж (warden) занят своим нелегким делом.~
 @eng You see one of the toughest, strongest, and tallest man you have
 ever seen. He is about 7'6 inches and is 8 times your wieght. He
 is clad with weapons and armor and looks prepared for battle. It
@@ -356,9 +328,7 @@ r sound -50
 #10015
 thief воришка~
 @eng a thief@rus воришка~
-@eng A small thief is here trying to steal your money.
-@rus Маленький воришка (thief) пытается срезать у тебя кошелек.
-~
+@eng A small thief is here trying to steal your money.@rus Маленький воришка (thief) пытается срезать у тебя кошелек.~
 @eng You see a little thief that is all dressed in black ready to
 steal your money when your not looking. He is wearing black pants
 and boots and is barely noticable in the shadows of the
@@ -377,9 +347,7 @@ stand stand male 300
 #10016
 beggar попрошайка~
 @eng a beggar@rus попрошайка~
-@eng There is a ugly little beggar asking for your money here.
-@rus Оборванный уличный попрошайка (beggar) дергает тебя за рукав, выпрашивая пару монет.
-~
+@eng There is a ugly little beggar asking for your money here.@rus Оборванный уличный попрошайка (beggar) дергает тебя за рукав, выпрашивая пару монет.~
 @eng *sigh* If there aren't thieves steeling your money there are
 beggars asking for it. You feel sorry for the poor little fellow.
 It is a shame that it will be soon winter and that he has no
@@ -399,9 +367,7 @@ r charm 999
 #10017
 woman женщина эди bone~
 @eng The Bone Woman@rus Эди~
-@eng A interesting woman is here fooling around with some bones.
-@rus Странная женщина (woman) стоит неподалеку от тебя.
-~
+@eng A interesting woman is here fooling around with some bones.@rus Странная женщина (woman) стоит неподалеку от тебя.~
 @eng This womans' eyes are very white. You wonder if she can see you.
 When you enter the room she welcomes you and asks you to stay for
 a visit. There is a bone necklace around her neck. When you see
@@ -427,9 +393,7 @@ r mental 999
 #10018
 gripper хватало~
 @eng a nasty gripper@rus хватало~
-@eng There is a nasty, little gripper waiting to attack you.
-@rus Хватало (gripper) поджидает удобного момента, чтобы напасть на тебя.
-~
+@eng There is a nasty, little gripper waiting to attack you.@rus Хватало (gripper) поджидает удобного момента, чтобы напасть на тебя.~
 @eng You see an armor covered gripper with sharp long teeth.  He looks
 really hungry so if I were you I would keep away from this beast.
 He is a deadly under ground beast that will fix himself upon you
@@ -454,9 +418,7 @@ r mental 999
 #10019
 shadow thing тень странная~
 @eng the scary shadow thing@rus ~~странная~~ ~~тень~~~
-@eng Here is a real SCaRy Shadow THinG that is ready to kill you.
-@rus Странная тень (shadow) уже приготовилась напасть на тебя.
-~
+@eng Here is a real SCaRy Shadow THinG that is ready to kill you.@rus Странная тень (shadow) уже приготовилась напасть на тебя.~
 @eng This is a very scary ghost that will kill you with one touch. He
 was sent by Panis Rahl, Darkens father in that last war. He is
 very dangerous so I would keep my distance if I were you.
@@ -479,9 +441,7 @@ r mental 999
 #10020
 king призрачный король spirit~
 @eng the spirit king@rus ~~призрачный~~ ~~король~~~
-@eng Here stands the great spirit king, blocking you passage.
-@rus Призрак (spirit) загородил тебе дорогу.
-~
+@eng Here stands the great spirit king, blocking you passage.@rus Призрак (spirit) загородил тебе дорогу.~
 @eng This ghostly king has increadable powers and will not allow you
 to pass. He must have been sent by Darken Rahl himself. You
 should go back the other way, since this king will not allow you
@@ -505,9 +465,7 @@ r mental 999
 #10021
 dragon дракон красный скарлет scarlet great red~
 @eng Scarlet@rus Скарлет~
-@eng You see a giant dragon that Darken Rahl uses to fly around.
-@rus Большой красный дракон (dragon) лежит в стороне от дороги.
-~
+@eng You see a giant dragon that Darken Rahl uses to fly around.@rus Большой красный дракон (dragon) лежит в стороне от дороги.~
 @eng This great dragon has massive talons and giant wings. It would be
 bad to get on its evil side for it is far, far bigger then other
 dragons. The dragon is clad in heavy scales that cover every
@@ -533,9 +491,7 @@ r charm -33
 #10022
 shadow people призрак~
 @eng an evil shadow person@rus призрак~
-@eng An evil shadow person is here.
-@rus Призрак (shadow) смотрит на тебя, ожидая твоих действий.
-~
+@eng An evil shadow person is here.@rus Призрак (shadow) смотрит на тебя, ожидая твоих действий.~
 @eng You see a dark form that has no features. He is sent by Darken
 Rahl to stop you. Beware, his touch is poison. 
 @rus Темная фигура с размытыми очертаниями, излучающая могильный холод.
@@ -554,9 +510,7 @@ r mental 999
 #10023
 tender бармен человечек толстый маленький bar~
 @eng the bar tender@rus бармен~
-@eng A fat little bar tender is here serving drinks.
-@rus Толстый маленький человечек (bar tender) суетится вокруг.
-~
+@eng A fat little bar tender is here serving drinks.@rus Толстый маленький человечек (bar tender) суетится вокруг.~
 @eng He is a short guy with a long beard. He seems quite stupid
 though, his shoes are on the wrong feet. He is wearing torn pants
 and looks to be quite poor, yet he runs this bar.
@@ -577,9 +531,7 @@ r mental 999
 #10024
 drunken villager сельский пьяница~
 @eng a drunken villager@rus ~~сельский~~ ~~пьяница~~~
-@eng There is a drunken villager here, drinking beer.
-@rus Сельский пьяница (villager) потягивает свой эль.
-~
+@eng There is a drunken villager here, drinking beer.@rus Сельский пьяница (villager) потягивает свой эль.~
 @eng He is a short guy with ale stains on his shirt. He makes you want
 to vomit.
 @rus Коротышка в забрызганной элем рубахе. Тебе становиться противно при одном
@@ -598,9 +550,7 @@ r mental 999
 #10025
 thief воришка маленький dark~
 @eng a little thief@rus ~~маленький~~ ~~воришка~~~
-@eng There is a thief looking for something to steal here.
-@rus Воришка (thief) оглядывается вокруг с поисках чего-нибудь, что плохо лежит.
-~
+@eng There is a thief looking for something to steal here.@rus Воришка (thief) оглядывается вокруг с поисках чего-нибудь, что плохо лежит.~
 @eng He is a darkly clad thief with a wicked intent. He rests in the
 darkness of the night waiting to prance upon a poor soul like
 you.
@@ -621,9 +571,7 @@ r mental 999
 #10026
 snake желтая змейка~
 @eng a yellow snake@rus ~~желтая~~ ~~змейка~~~
-@eng There is a little yellow snake swimming in the pool of water.
-@rus Маленькая желтая змейка (snake) направляется в твою сторону.
-~
+@eng There is a little yellow snake swimming in the pool of water.@rus Маленькая желтая змейка (snake) направляется в твою сторону.~
 @eng He is a tiny snake that is hardly visible to the naked eye. He
 swims through the waters up to you. You better get away fast
 before he attacks you and your body is never be found again.
@@ -643,9 +591,7 @@ r mental 999
 #10027
 beast порождение подземного underworld~
 @eng an underworld beast@rus ~~порождение~~ подземного мира~
-@eng There is a underworld beast, looking lost here.
-@rus Порождение подземного мира (beast) предстало перед тобой.
-~
+@eng There is a underworld beast, looking lost here.@rus Порождение подземного мира (beast) предстало перед тобой.~
 @eng He has no features at all. Just a plain puff of smoke striking
 people dead as they walk by.
 @rus Какое-то странное создание, о котором нельзя сказать ничего определенного.
@@ -663,9 +609,7 @@ r mental 999
 #10028
 cat dopey котенок маленький одурманенный~
 @eng a dopey little cat@rus ~~маленький~~ ~~одурманенный~~ ~~котенок~~~
-@eng There is a small, dopey cat looking for a place to sleep here.
-@rus Маленький котенок (cat) ищет себе местечко, чтобы поспать.
-~
+@eng There is a small, dopey cat looking for a place to sleep here.@rus Маленький котенок (cat) ищет себе местечко, чтобы поспать.~
 @eng This cat is looking through the trash trying to find a simple
 meal to eat, a place to sleep and a place to keep dry. You feel
 sorry for the little fellow but there isn't anything you can do.
@@ -685,9 +629,7 @@ r mental 999
 #10029
 sith морд-сит сит mord~
 @eng Mord-Sith@rus Морд-Сит~
-@eng Here sands the dreadful Mord-Sith waiting to take you as her pet.
-@rus Морд-Сит (Mord-Sith) ждет момента, когда сможет подчинить тебя своей воле.
-~
+@eng Here sands the dreadful Mord-Sith waiting to take you as her pet.@rus Морд-Сит (Mord-Sith) ждет момента, когда сможет подчинить тебя своей воле.~
 @eng This Mord-Sith does not seem to be afraid of you. She has an item
 about her neck that is gleaming in a white aura. This creature is
 very frightening. You better leave quick.
@@ -708,9 +650,7 @@ r mental 999
 #10030
 devoter последователь~
 @eng a devoter of Darken Rahl@rus ~~последователь~~ Даркена Рала~
-@eng Here is a devoter chanting something that makes little sense.
-@rus Последователь Даркена Рала (devoter) настороженно глядит на тебя.
-~
+@eng Here is a devoter chanting something that makes little sense.@rus Последователь Даркена Рала (devoter) настороженно глядит на тебя.~
 @eng This devoter is chanting words about Darken Rahl. He seems to
 belive thatt Darken Rahl is good and not evil. Better stay away
 from this person also.
@@ -730,16 +670,14 @@ r mental 999
 #10031
 rahl рал даркен darken~
 @eng The Evil Darken Rahl@rus Даркен ~~Рал~~~
-@eng Standing before you is your worst nightmare, Darken Rahl.
-@rus Сам Даркен Рал (Rahl) стоит перед тобой.
-~
+@eng Standing before you is your worst nightmare, Darken Rahl.@rus Сам Даркен Рал (Rahl) стоит перед тобой.~
 @eng You have come all this way and finally you meet up with Darken
 Rahl. This is the moment you have been waiting for all your life!
 You'd best get it over with soon for he seems ready to take over
 the world.
-@rus Ты достиг конца своего пути и увидел его -- великого Даркен Рала, повелителя
+@rus Ты $gn{достиг} конца своего пути и $gn{увидел} его -- великого Даркен Рала, повелителя
 мира живых и мира мертвых. Настал, наконец, тот самый момент, которого ты
-ждал всю свою жизнь.
+$gn{ждал} всю свою жизнь.
 ~
 human~
 BCGT 0 J 0 AHM -1000 0
@@ -755,9 +693,7 @@ r mental 999
 #10032
 gar tail гар short короткохвостый~
 @eng a short-tailed gar@rus ~~короткохвостый~~ ~~гар~~~
-@eng A short-tailed gar stalks you deep in the woods.
-@rus Короткохвостый гар (gar) подкрадывается к тебе из-за деревьев.
-~
+@eng A short-tailed gar stalks you deep in the woods.@rus Короткохвостый гар (gar) подкрадывается к тебе из-за деревьев.~
 @eng You see a giant flesh-eating beast that hunts by the sense of
 smell. Your blood must be sweet because it has spotted you and is
 running in your direction. YOU'D BETTER ACT FAST!
@@ -784,9 +720,7 @@ r charm 999
 #10033
 mord sith морд-сит denna денна woman женщина~
 @eng Denna@rus Денна~
-@eng Here sands the dreadful Mord-Sith waiting to take you as her pet.
-@rus Женщина (woman), в забрызганном кровью платье, глядит в твою сторону.
-~
+@eng Here sands the dreadful Mord-Sith waiting to take you as her pet.@rus Женщина (woman), в забрызганном кровью платье, глядит в твою сторону.~
 @eng This Mord-Sith does not seem to be afraid of you. She has an item
 about her neck that is gleaming in a white aura. This creature is
 very frightening. You better leave quick.

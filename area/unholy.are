@@ -11,8 +11,7 @@ End
 #30800
 evil monk~
 an evil monk~
-A robed monk snarls in hatred when he sees you!
-~
+A robed monk snarls in hatred when he sees you!~
 The fanatic monks of the Unholy Abbey despise all other people, especially
 intruders in their sanctum! And you can rest assured they will do their
 utmost to eject you!
@@ -30,8 +29,7 @@ r charm 33
 #30801
 clay golem~
 a clay golem~
-A statue fashioned from clay stands motionless here.
-~
+A statue fashioned from clay stands motionless here.~
 This statue isn't very well-fashioned, and isn't very attractive. You wonder
 why even the unholy monks would use such art in their abbey. Shrug.
 ~
@@ -62,8 +60,7 @@ r sound 50
 #30802
 monk master~
 a master~
-A monk clad in black robes with silver edging sneers contemptously at you.
-~
+A monk clad in black robes with silver edging sneers contemptously at you.~
 The master monks are the teachers and supervisors of the monks of the abbey,
 and answer only to the abbot himself. They are if anything more diabolical
 than their demented pupils, and twice as deadly.
@@ -81,8 +78,7 @@ r charm 33
 #30803
 necromancer~
 a necromancer~
-A frail old man clad in purple robes casts evil incantations here.
-~
+A frail old man clad in purple robes casts evil incantations here.~
 The abbey employs several necromancers to create their legions of undead,
 with which they one day intend to conquer the kingdom of Malathar. They are
 horrid, twisted, decrepit old men, who have incredible magical powers.
@@ -97,8 +93,7 @@ stand stand male 0
 #30804
 abbot~
 the abbot~
-The unholy abbot screams vile curses at you and attacks!
-~
+The unholy abbot screams vile curses at you and attacks!~
 The abbot is a vile, despicable old tyrant who rules his damned abbey with
 an iron fist and a lust for conquest and death bordering on the maniacal.
 He may be a shrivelled old man, but he is still immensely powerful.
@@ -116,8 +111,7 @@ r charm 33
 #30805
 wight~
 a wight~
-A leering wight leaps to attack you.
-~
+A leering wight leaps to attack you.~
 The necromancers of the abbey have animated the remains of Knights of
 Malathar slain by the monks and transformed them into horrid wights, and
 additionally infusing them with a manic desire to slay everyone they behold.
@@ -132,8 +126,7 @@ stand stand none 0
 #30806
 bone devil~
 a bone devil~
-A devil that seems to be naught but bones and gristle leers at you.
-~
+A devil that seems to be naught but bones and gristle leers at you.~
 The monks frequently summon devils to aid them in their evil schemes, and
 their favorite is the bone devil, who only demands seven virgins rather than
 the many scores other devils demand.
@@ -148,8 +141,7 @@ stand stand none 0
 #30807
 elven virgin~
 an elven virgin~
-A scraming, naked young elven maiden is chained to the altar.
-~
+A scraming, naked young elven maiden is chained to the altar.~
 The monks capture and sacrifice female elven virgins to summon devils from
 the Hells. This one has gone quite insane from the pain and shock of capture
 and subsequent subjection to the cruel rituals of the monks.
@@ -166,8 +158,7 @@ r charm -33
 #30808
 dwarven dwarf slave~
 a dwarven slave~
-A dwarf pounds away at a pile of rocks here.
-~
+A dwarf pounds away at a pile of rocks here.~
 The monks may be powerful warriors but they are no engineers, so they capture
 dwarves from the north and use them in this capacity, to expand and strengthen
 their abbey.
@@ -185,8 +176,7 @@ r disease -25
 #30809
 ogre slavemaster master~
 an ogre slavemaster~
-A huge, scarred ogre cracks his whip at you and orders to to surrender.
-~
+A huge, scarred ogre cracks his whip at you and orders to to surrender.~
 This overconfident brute is one of many employed by the monks to keep their
 slaves in line. He rashly expects you to just lie down and die for him. Hmmm.
 ~
@@ -200,8 +190,7 @@ stand stand male 0
 #30810
 paladin~
 a paladin~
-A paladin shakes his head and struggles to regain consciousness.
-~
+A paladin shakes his head and struggles to regain consciousness.~
 This hapless fellow was captured by the old Dragon Clan many centuries ago
 and imprisoned here. The new clan has not dared to disturb him, for they
 know of his power.
@@ -217,8 +206,7 @@ r holy 999
 #30811
 black dragon~
 a black dragon~
-(Sleeping) A massive black dragon is curled up on the floor here.
-~
+(Sleeping) A massive black dragon is curled up on the floor here.~
 They aren't called the dragon clan for nothing, pal.
 ~
 black dragon~
@@ -235,8 +223,7 @@ r charm -33
 #30812
 old elf~
 an old elf~
-An old elf sits upon the rock here.
-~
+An old elf sits upon the rock here.~
 This old elf, one Felthesres by name, is one of the bards of Malathar who has
 vowed to remain here and await the return of the Paladin Grimafax from his
 missions. He has been waiting several centuries, and will be waiting for
@@ -254,8 +241,7 @@ r charm -33
 #30813
 bone golem~
 a bone golem~
-A bone golem tirelessly works the bellows here.
-~
+A bone golem tirelessly works the bellows here.~
 This creature was created to keep the dragon noises continually echoing
 from the cavern entrance. It will not attack, but it will move to defend
 itself.
@@ -287,8 +273,7 @@ r sound 50
 #30814
 wyvern~
 a wyvern~
-A massive wyvern is hovering just above you.
-~
+A massive wyvern is hovering just above you.~
 This wyvern is a scout for the monks of the abbey, you surmise. Then again
 it could be a perfectly normal wyvern that just happens to be wearing a
 massive green amulet with "dragon clan" written on it...
@@ -303,8 +288,7 @@ stand stand male 0
 #30815
 pit beast~
 a pit beast~
-A pit beast lunges at you!
-~
+A pit beast lunges at you!~
 These savage mutant hounds are horrors feared the world over. Only the monks
 have managed to tame these beasts, much to the displeasure of civilized
 folk everywhere.

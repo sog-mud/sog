@@ -11,8 +11,7 @@ End
 #13400
 lich guardian~
 Guardian Lich~
-The Guardian Lich steps out of the shadows and attacks!
-~
+The Guardian Lich steps out of the shadows and attacks!~
 The Guardian lich looks like a decaying corpse, with small glowing points of
 light for eyes.
 ~
@@ -29,8 +28,7 @@ r sound 33
 #13401
 vampire assistant~
 the vampire lab assistant~
-A lab assistant turns toward you and bares his fangs!
-~
+A lab assistant turns toward you and bares his fangs!~
 This lab assistant was chosen from amongst the undead for both his knowledge
 of magic, and his rather nasty disposition.  He revels in creating loathesome,
 twisted, warped creatures to serve Ciquala.
@@ -48,8 +46,7 @@ r sound 33
 #13402
 creature nightmare~
 a warped creature from a nightmare~
-A warped creature as if from a nightmare is here.
-~
+A warped creature as if from a nightmare is here.~
 This creature may resemble some kind of serpent, but some parts of it are
 covered with scales, and others with hair.  It's head has 1 large bulbous eye,
 much like that of an insect.  Long talons reach out for you to shred you alive.
@@ -67,8 +64,7 @@ r sound 33
 #13403
 creature docile~
 a docile creature~
-A docile creature stands here, probably from an experiment that failed.
-~
+A docile creature stands here, probably from an experiment that failed.~
 The creature would probably not hurt a fly.  Actually, it is unaware of its own
 existence.
 ~
@@ -88,8 +84,7 @@ r charm 999
 #13404
 black pudding crate~
 the black pudding~
-A crate stands here.
-~
+A crate stands here.~
 As you examine this crate, a black tarlike substance seeps between the boards
 slowly eating the wood away.  It is a black pudding!
 ~
@@ -106,8 +101,7 @@ r charm 999
 #13405
 gigantic automaton~
 a gigantic automaton~
-A gigantic automaton blocks your way.
-~
+A gigantic automaton blocks your way.~
 This gigantic construct is made of a metallic substance that you do not
 recognize.  He stands about 8' tall, brushing the ceiling.
 ~
@@ -124,8 +118,7 @@ r charm 999
 #13406
 undead guardian~
 the undead guardian~
-An undead guardian screams at you and attacks!
-~
+An undead guardian screams at you and attacks!~
 This creature is a hovering dark shape.  It does not seem to have a body so
 to speak.  As it approaches you, a harsh chill makes you shiver.
 ~
@@ -160,8 +153,7 @@ r sound 33
 #13408
 vampire servant~
 a vampire servant~
-A vampire servant to Ciquala is here, hungering for your blood.
-~
+A vampire servant to Ciquala is here, hungering for your blood.~
 This vampire looks very pale and thin.  Ciquala has not been allowing him
 enough time at night to feed properly.  He is VERY happy that you walked in
 on him.
@@ -178,8 +170,7 @@ r charm 999
 #13409
 human automaton~
 the human automaton~
-A mindless automaton that used to be human is standing here.
-~
+A mindless automaton that used to be human is standing here.~
 This mindless lump of flesh used to be human.  It's flesh has been converted
 to a dull grey substance.  The automaton is very strong, and will be a fierce
 opponent.
@@ -196,8 +187,7 @@ r charm 999
 #13410
 human automaton~
 the human automaton~
-A mindless automaton that used to be human is standing here.
-~
+A mindless automaton that used to be human is standing here.~
 This mindless lump of flesh used to be human.  It's flesh has been converted
 to a dull grey substance.  The automaton is very strong, and will be a fierce
 opponent.
@@ -214,8 +204,7 @@ r charm 999
 #13411
 human automaton~
 the human automaton~
-A mindless automaton that used to be human is standing here.
-~
+A mindless automaton that used to be human is standing here.~
 This mindless lump of flesh used to be human.  It's flesh has been converted
 to a dull grey substance.  The automaton is very strong, and will be a fierce
 opponent.
@@ -232,8 +221,7 @@ r charm 999
 #13412
 human automaton~
 the human automaton~
-A mindless automaton that used to be human is standing here.
-~
+A mindless automaton that used to be human is standing here.~
 This mindless lump of flesh used to be human.  It's flesh has been converted
 to a dull grey substance.  The automaton is very strong, and will be a fierce
 opponent.
@@ -250,8 +238,7 @@ r charm 999
 #13413
 torturer lich~
 the torturer lich~
-A blackened creature stands here, ready to cause you excruciating pain.
-~
+A blackened creature stands here, ready to cause you excruciating pain.~
 You'd better not look to close, he may charm you.
 ~
 human~
@@ -266,8 +253,7 @@ r charm 999
 #13414
 undead dragon~
 Ciquala's Undead Dragon~
-Ciquala's undead pet dragon is here, snacking on a fresh corpse.
-~
+Ciquala's undead pet dragon is here, snacking on a fresh corpse.~
 This skeletal dragon is an ancient red dragon preserved through arcane magic.
 ~
 dragon~
@@ -287,8 +273,7 @@ r charm 999
 Ciquala lich~
 the lich Ciquala~
 A powerful, evil looking lich stands here, Ciquala, 
-the oldest of all the undead.
-~
+the oldest of all the undead.~
 Ciquala still looks majestic after all these thousands of years.  But you can
 see the menace in her eye as she looks at you, and prepares her first spell.
 ~
@@ -305,8 +290,7 @@ r sound 33
 #13416
 lich~
 Lich~
-The Lich wonders what you are doing in its crypt.
-~
+The Lich wonders what you are doing in its crypt.~
 The Lich looks like a decaying corpse, with small glowing points of
 light for eyes.
 ~
@@ -323,8 +307,7 @@ r charm 999
 vampire~
 vampire~
 The vampire is very hungry.  
-With you here, he won't even have to go out hunting for fresh blood tonight.
-~
+With you here, he won't even have to go out hunting for fresh blood tonight.~
 The vampire looks incredibly strong.  He is wearing musty clothes, and has
 large fangs that seem to grow longer as he looks back at you.
 ~
@@ -340,8 +323,7 @@ r charm 999
 #13418
 vampire assistant~
 the vampire lab assistant~
-A lab assistant turns toward you and bares her fangs!
-~
+A lab assistant turns toward you and bares her fangs!~
 This lab assistant was chosen from amongst the undead for both his knowledge
 of magic, and his rather nasty disposition.  She revels in creating loathesome,
 twisted, warped creatures to serve Ciquala.

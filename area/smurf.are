@@ -11,9 +11,7 @@ End
 #101
 smurf смурф~
 @eng a smurf@rus смурф~
-@eng A smurf is singing and walking along.
-@rus Смурф (smurf) ходит туда сюда, напевая песенку.
-~
+@eng A smurf is singing and walking along.@rus Смурф (smurf) ходит туда сюда, напевая песенку.~
 @eng A cute little blue smurf with a white hat and white boots.  You have a sudden
 urge to crush him.
 @rus Милый маленький смурф в белой кепке и белых ботинках. Ты неожиданно
@@ -29,9 +27,7 @@ stand stand male 1
 #102
 smurf смурф~
 @eng a smurf@rus смурф~
-@eng A smurf is here, picking berries.
-@rus Смурф (smurf) собирает здесь ягоды.
-~
+@eng A smurf is here, picking berries.@rus Смурф (smurf) собирает здесь ягоды.~
 @eng A small smurf is quietly picking berries.  He seems to hardly notice you.
 @rus Маленький смурф спокойно собирает ягоды. Он не обращает на тебя ни
 малейшего внимания.
@@ -46,9 +42,7 @@ stand stand male 1
 #103
 brainy smurf смурф~
 @eng Brainy Smurf@rus ~~мозговитый~~ ~~смурф~~~
-@eng Brainy Smurf is here, mumbling something to himself.
-@rus Мозговитый смурф (smurf) бормочет себе под нос непонятно что.
-~
+@eng Brainy Smurf is here, mumbling something to himself.@rus Мозговитый смурф (smurf) бормочет себе под нос непонятно что.~
 @eng Brainy Smurf has on his usual glasses.  Brainy Smurf isn't liked much by the
 other smurfs.  They fear his knowledge.  Knowledge is power!
 @rus Как обычно, этот смурф в очках. Он не похож на своих собратьев.
@@ -64,8 +58,7 @@ stand stand male 1
 #104
 handy smurf~
 Handy Smurf~
-Handy Smurf is building something here.
-~
+Handy Smurf is building something here.~
 Handy is always building something.  He never takes a break.  Why don't you
 give him a break, like all of his bones.
 ~
@@ -79,9 +72,7 @@ stand stand male 1
 #105
 sleepy smurf смурф~
 @eng Sleepy Smurf@rus ~~смурф~~ ~~Соня~~~
-@eng Sleepy Smurf is sleep walking here.
-@rus Смурф (smurf). Он спит на ходу.
-~
+@eng Sleepy Smurf is sleep walking here.@rus Смурф (smurf). Он спит на ходу.~
 @eng Sleepy never gets enough sleep.  You would think he goes to college.  I wonder
 if he has ever stayed up a whole night without sleeping.
 @rus Этот соня всегда невыспавшийся. 
@@ -96,8 +87,7 @@ stand stand male 1
 #106
 hefty smurf~
 Hefty Smurf~
-Hefty Smurf is lifting weights here.
-~
+Hefty Smurf is lifting weights here.~
 Hefty is a total health nut.  He lifts weights, eats right, and exercises all
 the time.  Won't do him much good when he's DEAD.
 ~
@@ -111,8 +101,7 @@ stand stand male 1
 #107
 grumpy smurf~
 Grumpy Smurf~
-Grumpy Smurf is here, swearing.
-~
+Grumpy Smurf is here, swearing.~
 Grumpy has never been happy in his whole life.  So why don't you just end it?
 ~
 human~
@@ -125,8 +114,7 @@ stand stand male 1
 #108
 jokey smurf~
 Jokey Smurf~
-Jokey Smurf is here, holding a present.
-~
+Jokey Smurf is here, holding a present.~
 Jokey loves to give people presents.  Too bad the present explodes when opened.
 Oh well, to each his own.
 ~
@@ -140,9 +128,7 @@ stand stand male 1
 #109
 smurfette смурфетта~
 @eng Smurfette@rus Смурфетта~
-@eng Smurfette is here, looking beautiful.
-@rus Смурфетта (Smurfette). Она прекрасно выглядит.
-~
+@eng Smurfette is here, looking beautiful.@rus Смурфетта (Smurfette). Она прекрасно выглядит.~
 @eng Smurfette is the cutest little smurf you've ever seen.  If only she were your
 size.  I wonder how much she charges the other smurfs.
 @rus Она самый милый маленький смурф из всех виденных тобой. Если бы она была
@@ -158,8 +144,7 @@ stand stand female 1
 #110
 papa smurf~
 Papa Smurf~
-Papa Smurf is practicing magic here.
-~
+Papa Smurf is practicing magic here.~
 Yep, its Papa Smurf all right.  Red hat and boots and the funny little white
 beard.  Papa Smurf treats his fellow smurfs with dignity and respect.  That
 is why Papa Smurf is so popular among the ladies.
@@ -174,8 +159,7 @@ stand stand male 2
 #111
 gargamel~
 Gargamel~
-Gargamel is here, cursing out the smurfs.
-~
+Gargamel is here, cursing out the smurfs.~
 Gargamel has never done anything right in his life.  He has caught smurfs
 before but always lets them escape.  He brings true meaning to the word moron.
 ~
@@ -189,8 +173,7 @@ stand stand male 2
 #112
 azreal cat~
 Azreal~
-Azreal is here, licking himself.
-~
+Azreal is here, licking himself.~
 Gargamel's worthless cat.  He is just about as dumb as Gargamel.  He should
 just grab a smurf in his teeth and chew away.
 ~

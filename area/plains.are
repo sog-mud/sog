@@ -12,9 +12,7 @@ End
 #300
 druid Aruncus друид аранкус~
 @eng Aruncus the Druid@rus ~~друид~~ ~~Аранкус~~~
-@eng Aruncus the Druid is walking around here, searching for herbs.
-@rus Друид (druid) Аранкус бродит вокруг, собирая травы.
-~
+@eng Aruncus the Druid is walking around here, searching for herbs.@rus Друид (druid) Аранкус бродит вокруг, собирая травы.~
 @eng Aruncus is a tall, skinny druid with a face marked by nature.
 He seems to be in peace with himself and his surroundings.
 @rus Аранкус -- высокий, худой человек. Он живет в мире с собой и
@@ -30,9 +28,7 @@ stand stand male 25
 #301
 hermit sorbus отшельник сорбус~
 @eng Sorbus the Hermit@rus ~~отшельник~~ Сорбус~
-@eng Sorbus the Hermit is sitting here, roasting a rabbit.
-@rus Отшельник (hermit) готовит жаркое из зайца.
-~
+@eng Sorbus the Hermit is sitting here, roasting a rabbit.@rus Отшельник (hermit) готовит жаркое из зайца.~
 @eng Sorbus bares the marks of a long, hard life in solitude.
 He is dressed in simple clothing.
 @rus Он одет в очень простую одежду, на весь его облик наложила
@@ -48,8 +44,7 @@ sit sit male 0
 #303
 citizen~
 the citizen~
-There is a citizen of Ofcol here glaring at you ... stranger!
-~
+There is a citizen of Ofcol here glaring at you ... stranger!~
 He seems like a nice person with no interest in harming you or others.
 He wears normal, light clothing and has an anonymous face.
 ~
@@ -63,8 +58,7 @@ stand stand male 10
 #304
 citizen~
 the citizen~
-There is a citizen of Ofcol here glaring at you ... stranger!
-~
+There is a citizen of Ofcol here glaring at you ... stranger!~
 She seems like a nice person with no interest in harming you or others.
 She wears a minimum of clothing and has big ... eyes.
 ~
@@ -78,9 +72,7 @@ stand stand female 5
 #305
 Shudde-M'ell червь worm шуде-м'елл~
 @eng Shudde-M'ell@rus Шуде-М'елл~
-@eng Shudde-M'ell the Giant worm of G'harne is guarding his treasure.
-@rus Шуде-М'елл (Shudde-M'ell), гигантский червь, охраняет сокровище Г'Арне.
-~
+@eng Shudde-M'ell the Giant worm of G'harne is guarding his treasure.@rus Шуде-М'елл (Shudde-M'ell), гигантский червь, охраняет сокровище Г'Арне.~
 @eng Shudde-M'ell is about 15 ft long and is surrounded by an evil stench,
 The worm is the protector of the treasure of G'harne and has been so
 for as long anyone can remember.
@@ -98,8 +90,7 @@ stand stand male 683
 #306
 luxan shopkeeper~
 Luxan~
-Luxan the Shopkeeper is here, eager to sell you anything.
-~
+Luxan the Shopkeeper is here, eager to sell you anything.~
 Luxan is dressed in a strange jacket.
 He looks like a mean trader from the outskirts of Midgaard.
 His life is seems to be totally occupied with trading.
@@ -115,8 +106,7 @@ stand stand male 400
 #308
 keeper innkeeper~
 the Innkeeper~
-An Innkeeper is here waiting for your order.
-~
+An Innkeeper is here waiting for your order.~
 The Innkeeper looks skilled in brewing different beers and mixing the
 wierdest drinks known. He also looks very big.
 ~
@@ -130,9 +120,7 @@ stand stand male 5
 #309
 rabbit зайчик~
 @eng the cute rabbit@rus ~~очаровательный~~ ~~зайчик~~~
-@eng A cute rabbit is here.
-@rus Очаровательный зайчик (rabbit) резвится в траве.
-~
+@eng A cute rabbit is here.@rus Очаровательный зайчик (rabbit) резвится в траве.~
 @eng It is a small, furry creature with long ears and big feet.
 @rus Маленькое мохнатое создание с длинными ушами и большими
 ступнями.
@@ -148,8 +136,7 @@ g @eng none@rus male~
 #350
 dragon pet~
 the pet dragon~
-Ravan's pet dragon is bouncing around here flapping her cute wings.
-~
+Ravan's pet dragon is bouncing around here flapping her cute wings.~
 Ravan's pet dragon is about 3 ft. tall with small pointy teeth.
 The small wings are eagerly trying to lift her from the ground,
 but so far they haven't succeeded.

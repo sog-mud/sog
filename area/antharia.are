@@ -11,8 +11,7 @@ End
 #12300
 Antharian Peace Guard~
 an Antharian Peace Guard~
-An Antharian Peace guard is watching you here.
-~
+An Antharian Peace guard is watching you here.~
 A tall Antharian is standing before you.  You have no doubt that this
 being can keep the peace...his presence is enough in itself.
 ~
@@ -37,11 +36,11 @@ r light 33
 r harm 33
 r charm 33
 r sound 33
+a 'water breathing' unknown 25 -1 0 0 0
 #12302
 Suretin~
 Suretin~
-Suretin, a healer-priest of Anthar, is here.
-~
+Suretin, a healer-priest of Anthar, is here.~
 You see an older Antharian, not too old, just old enough to command
 your respect.  He is here healing people in the name of Anthar, the
 god of the Antharians.
@@ -53,11 +52,11 @@ Q 0 0 0 0 1000 0
 EFK
 stand stand male 1000
 0 0 medium unknown
+a 'water breathing' unknown 35 -1 0 0 0
 #12303
 Sucker fish~
 a sucker fish~
-A sucker fish is here keeping the streets clean.
-~
+A sucker fish is here keeping the streets clean.~
 These sucker fish have been trained and domesticated to roam the
 streets of Antharia and keep them clean.  They seem to like it and the
 Antharians seem to like it.  All in all, these fish are pretty
@@ -70,11 +69,11 @@ CG 0 0 0 0 0 0
 0
 stand stand none 1000
 0 0 medium unknown
+a 'water breathing' unknown 10 -1 0 0 0
 #12309
 Antharian citizen~
 an Antharian citizen~
-An Antharian citizen is standing here.
-~
+An Antharian citizen is standing here.~
 All Antharians share a standard trait: curiosity.  Instead of being
 frightened of you, a foreigner, the Antharian will study you --
 looking at every detail.  
@@ -88,11 +87,11 @@ G 0 0 0 0 0 0
 0
 stand stand male 1000
 0 0 medium unknown
+a 'water breathing' unknown 15 -1 0 0 0
 #12310
 Antharian citizen~
 an Antharian citizen~
-An Antharian citizen is standing here.
-~
+An Antharian citizen is standing here.~
 All Antharians share a standard trait: curiosity.  Instead of
 being frightened of you, a foriegner, the Antharian will study you --
 looking at every detail.
@@ -106,11 +105,11 @@ G 0 0 0 0 0 0
 0
 stand stand female 1000
 0 0 medium unknown
+a 'water breathing' unknown 16 -1 0 0 0
 #12314
 Antharian child~
 an Antharian child~
-An Antharian child is playing here.
-~
+An Antharian child is playing here.~
 Like children of any race, these Antharian children's sole interest
 right now in life is play.  PLAY PLAY PLAY!   They try to drag you
 into the fray to play with them.
@@ -122,11 +121,11 @@ G 0 0 0 0 0 0
 0
 stand stand male 1000
 0 0 medium unknown
+a 'water breathing' unknown 9 -1 0 0 0
 #12315
 Antharian child~
 an Antharian child~
-An Antharian child is playing here.
-~
+An Antharian child is playing here.~
 Like children of any race, the sole interest in these children's
 mind right now is play.  PLAY PLAY PLAY!  They try to drag you into
 their games.
@@ -138,11 +137,11 @@ human~
 0
 stand stand female 1000
 0 0 medium unknown
+a 'water breathing' unknown 9 -1 0 0 0
 #12318
 Antharian Knight~
 an Antharian Knight~
-An Antharian knight is here.
-~
+An Antharian knight is here.~
 These Antharians are impressive.  The only information that
 non-Antharians have of the knights are that they are very good, and
 very mysterious.   It is said that they are knighted in a very intense
@@ -155,11 +154,11 @@ human~
 CDEFIJK
 stand stand male 1000
 0 0 medium unknown
+a 'water breathing' unknown 42 -1 0 0 0
 #12323
 High Guard~
 High Guard of Antharia~
-A High Guard of Antharia is here.
-~
+A High Guard of Antharia is here.~
 Having been promoted to High Guard, these guards are even more
 powerful and impressive than the Peace Guards.  These guards are here
 to make sure that law and order is maintained, and so it shall.
@@ -171,11 +170,11 @@ G 0 0 0 A 250 0
 CDEFIJK
 stand stand male 1000
 0 0 medium unknown
+a 'water breathing' unknown 32 -1 0 0 0
 #12340
 Zaertses~
 Zaertses~
-Zaertses is here trying to sell you an old Antharian relic.
-~
+Zaertses is here trying to sell you an old Antharian relic.~
 Zaertses spends most of his life trying to collect and restore old and
 powerful Antharian relics.  Of these, he will sell some, and keep the
 others for himself.  He also donates some relics to the Antharian
@@ -189,11 +188,11 @@ Be 0 0 0 0 400 0
 CEFIJK
 stand stand male 1000
 0 0 medium unknown
+a 'water breathing' unknown 70 -1 0 0 0
 #12341
 Irghum~
 Irghum~
-Irghum is here fixing fine Antharian foods.
-~
+Irghum is here fixing fine Antharian foods.~
 You see a smiling Antharian, whose sole purpose in life is to make and
 sell Antharian food.  He is highly respected, as producing good food
 in this underwater world is not easy.
@@ -205,11 +204,11 @@ Be 0 0 0 0 500 0
 CDEFIJK
 stand stand male 1000
 0 0 medium unknown
+a 'water breathing' unknown 70 -1 0 0 0
 #12344
 Ertuvia~
 Ertuvia~
-Ertuvia is here, a master of the Antharian weapons of war.
-~
+Ertuvia is here, a master of the Antharian weapons of war.~
 You see a tall, strong Antharian, with a presence that even seems
 heavy compared to the other Antharians.  In this society, weaponsmiths
 are artists of war, and he looks like he could paint a very clear
@@ -222,11 +221,11 @@ BT 0 0 0 0 800 0
 CDEFIK
 stand stand male 1000
 0 0 medium unknown
+a 'water breathing' unknown 32 -1 0 0 0
 #12345
 Heaustf~
 Heaustf~
-Heaustf, the maker of fine Antharian armor, is here.
-~
+Heaustf, the maker of fine Antharian armor, is here.~
 Here stands an Antharian who seems to know more than you could ever
 dream.  In Antharian society, the art of making fine armor has been
 passed from generation to generation.  The secret is well kept, and
@@ -239,11 +238,11 @@ BTe 0 0 0 0 500 0
 CDEFIJK
 stand stand male 1000
 0 0 medium unknown
+a 'water breathing' unknown 70 -1 0 0 0
 #12348
 Cyrtpea~
 Cyrtpea~
-Cyrtpea, sorceress of Antharia, is here staring into your soul.
-~
+Cyrtpea, sorceress of Antharia, is here staring into your soul.~
 Cyrtpea is one of the few Antharians that still have any knowledge of
 Antharian magic.  Most of their magic was lost in the Great
 Transformation, and Cyrtpea and her colleages work hard to recover as
@@ -256,11 +255,11 @@ BUe 0 N 0 0 400 0
 CDEFIJK
 stand stand female 1000
 0 0 medium unknown
+a 'water breathing' unknown 65 -1 0 0 0
 #12360
 Human Representative~
 a human representative~
-A human representative is standing here.
-~
+A human representative is standing here.~
 A young human is here looking at you.  She is the representative
 from the human race here in Antharia.
 ~
@@ -271,11 +270,11 @@ B 0 0 0 0 0 0
 CEFIJ
 stand stand female 1000
 0 0 medium unknown
+a 'water breathing' unknown 40 -1 0 0 0
 #12361
 Druidic Representative~
 a druidic representative~
-A representative from the druids is standing here.
-~
+A representative from the druids is standing here.~
 A young druid is here looking at you.   He is the representative
 from the druids here in Antharia.
 ~
@@ -286,11 +285,11 @@ B 0 0 0 0 0 0
 CEFIJK
 stand stand male 1000
 0 0 medium unknown
+a 'water breathing' unknown 40 -1 0 0 0
 #12362
 Kender Representative~
 a kender representative~
-A kender representative is standing here.
-~
+A kender representative is standing here.~
 A young Kender is standing here looking at you.  She is the
 representative from the Kender race here in Antharia.
 ~
@@ -301,11 +300,11 @@ BO 0 0 0 0 0 0
 CEFIJK
 stand stand female 1000
 0 0 medium unknown
+a 'water breathing' unknown 40 -1 0 0 0
 #12363
 Antharian Representative~
 an antharian representative~
-An atharian beaurocrat is standing here.
-~
+An atharian beaurocrat is standing here.~
 A young Antharian is standing here looking for you.  He is the
 representative from the Antharian government here to answer questions
 from visitors.
@@ -317,11 +316,11 @@ B 0 0 0 0 0 0
 CEFIJKQ
 stand stand male 1000
 0 0 medium unknown
+a 'water breathing' unknown 40 -1 0 0 0
 #12364
 Elven Representative~
 an elven representative~
-An elven representative is standing here.
-~
+An elven representative is standing here.~
 A young elf is here looking at you.  She is the representative from
 the elven race here in Antharia.
 ~
@@ -334,11 +333,11 @@ stand stand female 1000
 0 0 medium unknown
 r negative 10
 r charm -33
+a 'water breathing' unknown 40 -1 0 0 0
 #12365
 Dwarven Representative~
 a dwarven representative~
-A dwarven representative is standing here.
-~
+A dwarven representative is standing here.~
 A young Dwarf is here looking at you.  He is the representative
 from the Dwarven race here in Antharia.
 ~
@@ -352,11 +351,11 @@ stand stand male 1000
 r bash -7
 r poison -25
 r disease -25
+a 'water breathing' unknown 40 -1 0 0 0
 #12370
 illithid Representative~
 an illithid representative~
-An illithid representative is standing here.
-~
+An illithid representative is standing here.~
 A young Illithid is standing here looking at you.  She is the
 representative from the Illithid race here in Antharia.
 ~
@@ -367,11 +366,11 @@ B 0 0 0 0 0 0
 CEFIJK
 stand stand female 1000
 0 0 medium unknown
+a 'water breathing' unknown 40 -1 0 0 0
 #12371
 avian Representative~
 an avian representative~
-An avian representative is standing here.
-~
+An avian representative is standing here.~
 A young avian is standing here looking at you.  She is the
 representative from the avian race here in Antharia.
 ~
@@ -382,6 +381,7 @@ BY 0 0 0 0 0 0
 CEFIJK
 stand stand female 1000
 0 0 medium unknown
+a 'water breathing' unknown 40 -1 0 0 0
 #0
 
 #OBJECTS

@@ -11,8 +11,7 @@ End
 #32700
 Jher~
 Jher~
-Jher looks into your eyes, and freezes you with his stare.
-~
+Jher looks into your eyes, and freezes you with his stare.~
 You feel incredibly overwhelmed by the power in this evil man's eyes.
 ~
 human~
@@ -25,8 +24,7 @@ stand stand male 0
 #32701
 warg young~
 a young warg~
-A young warg notices you and grins evilly.
-~
+A young warg notices you and grins evilly.~
 He has been waiting for you to practice his newly learned skill of thievery.
 ~
 unique~
@@ -39,8 +37,7 @@ stand stand male 0
 #32702
 knanath~
 Knanath~
-Knanath, Jher's pet, bares his fangs as he lunges at your throat.
-~
+Knanath, Jher's pet, bares his fangs as he lunges at your throat.~
 If Knanath hasn't ripped your throat out by now, he must not be hungry.
 ~
 fido~
@@ -67,8 +64,7 @@ r sound 50
 #32703
 adult mother warg~
 warg mother~
-An adult warg stands here surrounded by small warg children.
-~
+An adult warg stands here surrounded by small warg children.~
 Stay away from her children or she will protect them more viciously than you 
 could imagine.
 ~
@@ -82,8 +78,7 @@ stand stand female 0
 #32704
 warg father~
 warg father~
-A large warg stands here looking for anything to attack for fun.
-~
+A large warg stands here looking for anything to attack for fun.~
 Don't mess with this beast, he will kill you before you can scream.
 ~
 unique~
@@ -96,8 +91,7 @@ stand stand male 0
 #32705
 young hungry warg~
 the young hungry warg~
-A young warg huddles under the light of the torch and sucks on a bone.
-~
+A young warg huddles under the light of the torch and sucks on a bone.~
 He looks at you and licks his chops.  Obviously he would rather suck on you.
 ~
 unique~
@@ -110,8 +104,7 @@ stand stand male 0
 #32706
 snake~
 the snake~
-A snake senses your fear with his tongue as he wraps himself around your legs.
-~
+A snake senses your fear with his tongue as he wraps himself around your legs.~
 You see venom dripping off its fangs.
 ~
 snake~
@@ -126,8 +119,7 @@ r poison 999
 #32707
 beorn~
 Beorn~
-A huge black bear is hidden in the shadows.
-~
+A huge black bear is hidden in the shadows.~
 Beorn looks at you and says 'will you help me kill Jher?'
 ~
 bear~
@@ -142,8 +134,7 @@ r cold -33
 #32708
 bat~
 the bat~
-A bat swoops down at your face.
-~
+A bat swoops down at your face.~
 You can see his black eyes, and hear his sonic screech as he judges the 
 distance between it and you.
 ~
@@ -157,8 +148,7 @@ stand stand none 0
 #32709
 Htrag warg breeder~
 Htrag~
-Htrag is here tending to the newly born warg litter.
-~
+Htrag is here tending to the newly born warg litter.~
 Htrag looks back at you and flashes his fangs because he knows what he and 
 these new pups will feast on.
 ~
@@ -172,8 +162,7 @@ stand stand male 0
 #32710
 female warg breeder~
 the female warg~
-A female warg shies against the far wall of the cage.
-~
+A female warg shies against the far wall of the cage.~
 She growls at you and screams for help.
 ~
 unique~
@@ -186,8 +175,7 @@ stand stand female 0
 #32711
 male warg breeder~
 the male warg~
-The male breeder warg jumps to rip your throat out.
-~
+The male breeder warg jumps to rip your throat out.~
 You see a creature with huge fangs dripping drool.  He is covered in matted 
 brown hair and his eyes glow.
 ~
@@ -201,8 +189,7 @@ stand stand male 0
 #32712
 Sapth slave~
 Sapth~
-Sapth, Jher's slave, looks to you for help.
-~
+Sapth, Jher's slave, looks to you for help.~
 His eyes are pleading for someone to free him from Jher's bondage.
 ~
 human~
@@ -215,8 +202,7 @@ stand stand male 0
 #32713
 left huge warg guard~
 the guard~
-A huge warg stands to the left of the door guarding whatever is inside.
-~
+A huge warg stands to the left of the door guarding whatever is inside.~
 Obviously a warrior, this beast was bred to fight and kill.
 ~
 unique~
@@ -229,8 +215,7 @@ stand stand male 0
 #32714
 right huge warg guard~
 the guard~
-A huge warg stands to the right of the door guarding whatever is inside.
-~
+A huge warg stands to the right of the door guarding whatever is inside.~
 Obviously a warrior, this beast was bred to fight and kill.
 ~
 unique~
@@ -243,8 +228,7 @@ stand stand male 0
 #32715
 shaanh~
 Shaanh~
-Shaanh, Jher's love slave, cowers in the corner.
-~
+Shaanh, Jher's love slave, cowers in the corner.~
 She is wearing close to nothing and she has marks and slashes all over her 
 body from some unthinkable torture.
 ~
@@ -258,8 +242,7 @@ stand stand female 0
 #32716
 fish hideous one-eyed~
 the hideous one-eyed fish~
-A hideous creature with one blind eye and a huge mouth swims between your legs.
-~
+A hideous creature with one blind eye and a huge mouth swims between your legs.~
 The fish is disgusting.  It has one clouded eye, but it can sense you're there 
 because of your distinct smell.
 ~
@@ -273,8 +256,7 @@ stand stand none 0
 #32717
 statue~
 A small statue~
-You almost miss a small statue.
-~
+You almost miss a small statue.~
 You see a little strange statue.. Hmmm... and how can it help you get out of here ?
 But.... if you have some spare gold.... 
 ~
@@ -300,10 +282,15 @@ r holy 999
 r energy 999
 r mental 999
 r disease 999
+r drowning 999
 r light 999
+r other 999
 r harm 999
 r charm 999
 r sound 999
+r iron 999
+r wood 999
+r silver 999
 #0
 
 #OBJECTS
@@ -962,12 +949,12 @@ Z -1 32724
 S
 #32724
 The Secret Room~
-When you finally make it to this room, you are incredibly exhausted.  
-You sit down to rest on an old trunk.  As you sit, you brush aside some dust 
-on the trunk.  The shine from your light off the golden chest is blinding.  As 
-you try to open it, you realize in disappointment that it is locked.  
-However 
-if you look around, you may find something hidden that will open it.
+When you finally make it to this room, you are incredibly exhausted.  You
+sit down to rest on an old trunk.  As you sit, you brush aside some dust on
+the trunk.  The shine from your light off the golden chest is blinding.  As
+you try to open it, you realize in disappointment that it is locked. 
+However if you look around, you may find something hidden that will open it.
+
 ~
 0 ACDN forest
 S
@@ -1021,8 +1008,6 @@ E 0 32712 0 15		*	Shaanh<on the right wrist>: a diamond bracelet
 O 0 32711 0 32724	* the golden chest (The Secret Room)
 O 0 32714 0 32724	* a glowing zapath necklace (The Secret Room)
 O 0 32715 0 32724	* a gold coin (The Secret Room)
-M 0 32717 1 32724 1	* A small statue (The Secret Room)
-M 0 32717 0 32724 0	* A small statue (The Secret Room)
 M 0 32717 1 32724 1	* A small statue (The Secret Room)
 S
 

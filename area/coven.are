@@ -11,8 +11,7 @@ End
 #29120
 beast ravening~
 The ravening beast~
-A ravening beast is here, hunting for your blood!
-~
+A ravening beast is here, hunting for your blood!~
 The ravening beast stands about 1' tall at the shoulder, and measures 
 10' from nose to tail. It resembles a monitor lizard, only its furry, 
 has a dog like snout, perky ears, and 6 legs, and has many more long 
@@ -30,8 +29,7 @@ r poison 33
 #29121
 hag gelda~
 The hag Gelda~
-An old hag is here predicting dire consequences for you.
-~
+An old hag is here predicting dire consequences for you.~
 The hag is dressed in rags, has long tangled matted gray hair, and is 
 very old. The hag tells you 'I see you enter a fire and fight a great 
 battle with a minion of hell, and you die horribly!' . With that the 
@@ -60,8 +58,7 @@ r sound 33
 #29122
 guard woodsman~
 The woodsman guard~
-A woodsman guard is here, manning his post.
-~
+A woodsman guard is here, manning his post.~
 The guard has a large war axe, a heavy hide cloak, and a longbow. He 
 blends in with the surrounding terrain from years of experience. He 
 tells you 'Beware of the Murkmire, because just recently the town of 
@@ -79,8 +76,7 @@ stand stand male 2000
 #29123
 lumberjack~
 The lumberjack~
-A lumberjack is here, smelling of sap and sweat.
-~
+A lumberjack is here, smelling of sap and sweat.~
 The lumberjack is a tall human, equipped with rugged clothing and 
 carrying a lumber axe. He sees you and asks 'Have you come from the 
 forest? You have? Is it safe again in the forest?
@@ -95,8 +91,7 @@ stand stand male 1500
 #29124
 al grocer~
 Al the grocer~
-A grocer is here, ready to fill your order.
-~
+A grocer is here, ready to fill your order.~
 Al is 5'10", fat, and balding. His nose twitches at the thought of 
 selling you stuff. You get to talking with him, and find out that he is 
 a very frightened man. Mainly he fears that whatever attacked in the 
@@ -113,8 +108,7 @@ stand stand male 1600
 #29125
 mark miller~
 Mark the miller of Dunkeldorf~
-The miller of Dunkeldorf stands here, covered in sawdust.
-~
+The miller of Dunkeldorf stands here, covered in sawdust.~
 Mark the miller is a thick stocky, hairy man. He carries himself with 
 great confidence and precision. You talk with him for a while, and he 
 tells you that he has had a dream of you visiting a strange white 
@@ -131,8 +125,7 @@ stand stand male 1700
 #29126
 hans smith village~
 Hans the smith of Dunkeldorf~
-The smith of Dunkeldorf is here, fanning the fires of his furnace.
-~
+The smith of Dunkeldorf is here, fanning the fires of his furnace.~
 Hans is a very strong human, almost as strong as they run. He is in his 
 late 40's and has jet black hair and a beard. You get to talking with 
 Hans, and the conversation turns to iron. Hans tells you that he used 
@@ -149,8 +142,7 @@ stand stand male 1900
 #29127
 fritz innkeeper~
 Fritz the innkeeper of the Dunkeldorf inn~
-The innkeeper is here, taking orders and singing in a clear tenor.
-~
+The innkeeper is here, taking orders and singing in a clear tenor.~
 Fritz the innkeeper is a short human, standing a mere 5' tall. He makes 
 up for it with a high energy level and animated conversation. Fritz 
 tells you a sad tale about his mad sister Gelda running off into the 
@@ -166,8 +158,7 @@ stand stand male 1800
 #29128
 libby trader halfling~
 Libby the halfling trader~
-A halfling trader is here, with news and song from the shire.
-~
+A halfling trader is here, with news and song from the shire.~
 Libby is a wee little guy, with a plump rounded figure, and a huge 
 satchel full of curiosities. He sings for you a song of life in the 
 shire, and of longbottom leaf.
@@ -182,8 +173,7 @@ stand stand male 1600
 #29129
 snake rock~
 The giant rock snake~
-A giant gray scaled snake is here, hissing at you!
-~
+A giant gray scaled snake is here, hissing at you!~
 The rock snake is some 20' long and 1' in diameter, enough muscle to 
 crush an ox. Its rounded head gives it away as a non poisonous 
 constrictor.
@@ -201,8 +191,7 @@ r poison 999
 guardian temple white being~
 The guardian of the white temple~
 A being in white robes and glowing with a bright white light stands 
-here!
-~
+here!~
 The guardian of the white temple appears human, as your eyes adjust to 
 the light emanating from him. He tells you the following tale:
 
@@ -230,8 +219,7 @@ stand stand male 2300
 #29131
 witch woman~
 The witch~
-A woman in an ink black robe is here, speaking in a hissing tongue.
-~
+A woman in an ink black robe is here, speaking in a hissing tongue.~
 The witch looks harried and driven. Her eyes dance wildly, and she 
 cackles at you with an insane glee.
 ~
@@ -259,8 +247,7 @@ r sound 33
 #29132
 warlock man~
 The warlock~
-A man in an ink black robe is here, chanting in a hissing tongue.
-~
+A man in an ink black robe is here, chanting in a hissing tongue.~
 The warlock looks harried and driven. His eyes dart wildly, and he 
 cackles with an insane glee.
 ~
@@ -289,8 +276,7 @@ r sound 33
 leader coven~
 The coven leader~
 A man in a blood red robe is here, glaring at you and howling for your 
-blood!
-~
+blood!~
 The coven leader looks harried and driven. His eyes dart wildly, and he 
 cackles with an insane glee.
 ~
@@ -318,8 +304,7 @@ r sound 33
 #29134
 beast hell flaming~
 The flaming beast from hell~
-A minion of hell is here, sputtering flame from its foul rod!
-~
+A minion of hell is here, sputtering flame from its foul rod!~
 The minion of hell is manlike, and flaming. It has horns and a horribly 
 disfigured face. Its skin is beet red, and his fingers and toes end in 
 terrible talons. It looks at you, and with a fiery laughter, it says: 

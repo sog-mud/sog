@@ -11,8 +11,7 @@ End
 #10401
 Guardian guard~
 the Guardian of Hell~
-A Guardian of Hell stands here, keeping you the Hell out.
-~
+A Guardian of Hell stands here, keeping you the Hell out.~
 The guardian is a stone devil, a hideous creation from the dark laboratories
 of Hell.  Its black eyes stare into your soul with a hunger that makes you
 shiver.  The guardian stands motionless before you.  Its rough grey skin
@@ -28,8 +27,7 @@ stand stand none 5000
 #10402
 pile coins~
 the pile of gold coins~
-A pile of gold coins lies on the ground.
-~
+A pile of gold coins lies on the ground.~
 A large sparkly pile of gold coins.
 ~
 human~
@@ -42,8 +40,7 @@ stand stand none 5000
 #10403
 male dee demon~
 the male Dee~
-The male demon Dee lies on the bed, waiting to please you.
-~
+The male demon Dee lies on the bed, waiting to please you.~
 This is the most handsome male you have ever seen.  The well-defined
 muscles on his naked body make your mouth water.
 ~
@@ -57,8 +54,7 @@ stand stand male 5000
 #10404
 female dee demon~
 the female Dee~
-The female demon Dee lies on the bed, waiting to please you.
-~
+The female demon Dee lies on the bed, waiting to please you.~
 This is the most beautiful female you have ever seen. The curves of her
 naked body make you sweat and babble uncontrollably.
 ~
@@ -72,8 +68,7 @@ stand stand female 5000
 #10405
 bar gold~
 the gold bar~
-A shiny gold bar lies on the ground.
-~
+A shiny gold bar lies on the ground.~
 This gold bar must be worth bucks!
 ~
 human~
@@ -86,8 +81,7 @@ stand stand none 5000
 #10406
 chicken pot pie~
 a scrumptious chicken pot pie~
-A yummy looking chicken pot pie is here.
-~
+A yummy looking chicken pot pie is here.~
 You see a golden-crusted pot pie filled with chicken and vegetables.
 ~
 human~
@@ -100,8 +94,7 @@ stand stand none 5000
 #10407
 beef pot pie~
 a yummy beef pot pie~
-A yummy looking beef pot pie is here.
-~
+A yummy looking beef pot pie is here.~
 You see a golden-crusted pot pie filled with beef and vegetables.
 ~
 human~
@@ -114,8 +107,7 @@ stand stand none 5000
 #10408
 vegetable pot pie~
 a yummy vegetable pot pie~
-A yummy looking vegetable pot pie is here.
-~
+A yummy looking vegetable pot pie is here.~
 You see a golden-crusted pot pie filled with vegetables.
 ~
 human~
@@ -128,8 +120,7 @@ stand stand none 5000
 #10409
 damned soul~
 a damned soul~
-A damned soul wanders aimlessly here.
-~
+A damned soul wanders aimlessly here.~
 You see the faint silhouette of a person. Looking closely at it, you can barely 
 make out features that would identify it as the person it was in life.
 ~
@@ -143,8 +134,7 @@ stand stand none 5000
 #10410
 tortured soul~
 a tortured soul~
-A tortured soul screams out in pain.
-~
+A tortured soul screams out in pain.~
 You see a unrecognizable person going through unheard-of and
 indescribable torture. It screams out at you in pain and terror.
 ~
@@ -158,8 +148,7 @@ stand stand none 5000
 #10411
 half-eaten person~
 the half-eaten person~
-A half-eaten person lies here, writhing in agony.
-~
+A half-eaten person lies here, writhing in agony.~
 This poor soul looks as if he has been chewed on and spit out.  He writhes
 He is in agony and terror as he gasps frantically for Death to answer his
 desperate plea...
@@ -174,8 +163,7 @@ stand stand none 5000
 #10412
 living wall~
 the living wall~
-A wall stands here. Its surface seems to move and come to life...
-~
+A wall stands here. Its surface seems to move and come to life...~
 The wall consists of greying and sinewy flesh - faces, hands,
 broken bones, feet, and toes jutting from the surface. You hear low moans
 of horror, pain, and sorrow issuing from within.
@@ -190,8 +178,7 @@ stand stand none 5000
 #10413
 skeletal warrior~
 skeletal warrior~
-A skeletal warrior wanders the planes of Hell.
-~
+A skeletal warrior wanders the planes of Hell.~
 Rotting flesh and gore drop from the bones of this creature.
 Its decaying eyes stare at you intently as it sees only your
 delicious and juicy brain.
@@ -207,8 +194,7 @@ r bash -50
 #10414
 bloody severed arm~
 bloody severed arm~
-A bloody severed arm lies here.
-~
+A bloody severed arm lies here.~
 The bloody arm of some poor, luckless individual.  The stench of the
 gore-covered limb makes you want to retch.
 ~
@@ -222,8 +208,7 @@ stand stand none 5000
 #10415
 bloody severed foot~
 bloody severed foot~
-A bloody severed foot lies here.
-~
+A bloody severed foot lies here.~
 This bloody foot definitely wasn't a lucky one.
 ~
 human~
@@ -236,8 +221,7 @@ stand stand none 5000
 #10416
 bloody severed nose~
 bloody severed nose~
-A bloody severed nose lies here.
-~
+A bloody severed nose lies here.~
 I wonder how the person that lost this smells...Hopefully not as bad as
 this nose does...
 ~
@@ -251,8 +235,7 @@ stand stand none 5000
 #10417
 blood~
 the blood from the fountain~
-The blood in the fountain gurgles merrily.
-~
+The blood in the fountain gurgles merrily.~
 You see gallons and gallons of thick red blood gurgling in the fountain.
 ~
 human~
@@ -265,8 +248,7 @@ stand stand none 5000
 #10418
 Lost soul~
 the lost soul~
-A lost soul stands here looking lost.
-~
+A lost soul stands here looking lost.~
 This soul is definitely clueless to as where he is. He holds a ticket
 that reads #14349023402342039840293481234900049.
 ~
@@ -280,8 +262,7 @@ stand stand none 5000
 #10419
 crispy critter~
 the crispy critter~
-A crispy critter is here, being burned to death.
-~
+A crispy critter is here, being burned to death.~
 This was once a person.  Now it is only a charred and smoking hulk that
 is being burned for eternity.  It screams out as the flames lick at its
 body and devour its flesh...
@@ -296,8 +277,7 @@ stand stand none 5000
 #10420
 pile bones skeleton~
 pile of bones~
-A decaying pile of bones lies on the ground.
-~
+A decaying pile of bones lies on the ground.~
 Stringy bits of flesh blow gently in the breeze. The bones rattle as you walk
 by them.
 ~
@@ -312,8 +292,7 @@ r bash -50
 #10421
 manes sub-demon~
 the manes~
-A manes wanders the planes of Hell, looking for something to kill.
-~
+A manes wanders the planes of Hell, looking for something to kill.~
 A gruesome sub-demon who used to be mortal, this is a semi-intelligent
 creature who attacks, with nails and teeth, anyone it encounters.  It is
 often fed upon by demon lords and princes.  Its green-and-red blotched
@@ -330,8 +309,7 @@ stand stand none 5000
 #10422
 prisoner raiden~
 the prisoner Raiden~
-The prisoner of Hell, Raiden sits here for eternity.
-~
+The prisoner of Hell, Raiden sits here for eternity.~
 This is a sad individual. He smells strongly of the rotten food that has been
 thrown at him. He sits here chained to the wall, banished to Hell forever by
 the gods.
@@ -346,8 +324,7 @@ stand stand male 5000
 #10423
 prisoner hell~
 a prisoner in Hell~
-A sad looking individual sits here, awaiting torture.
-~
+A sad looking individual sits here, awaiting torture.~
 She is sad-looking, indeed:  cuts and scrapes all over her.  Many scars
 and burns cover her face and arms.  The appalling condition of her once-lovely
 breasts makes you avert your eyes.
@@ -362,8 +339,7 @@ stand stand female 5000
 #10424
 prisoner hell~
 a prisoner in Hell~
-A sad looking individual sits here ,awaiting torture.
-~
+A sad looking individual sits here ,awaiting torture.~
 He is sad-looking, indeed:  cuts and scrapes all over him.  Many scars
 and burns cover his face and arms.  One of his arms is broken at the
 elbow and hangs limply by his side.
@@ -378,8 +354,7 @@ stand stand male 5000
 #10425
 demonguard demon guard~
 demonguard~
-A demonguard patrols the planes of Hell.
-~
+A demonguard patrols the planes of Hell.~
 This very large demon stands before you, licking his daggerlike teeth.
 Yellow spittle runs down the scales of his blackened skin.
 ~
@@ -393,8 +368,7 @@ stand stand none 5000
 #10426
 burning fool~
 the burning fool~
-A burning fool is here, crisping away.
-~
+A burning fool is here, crisping away.~
 You can barely make out anything on it. All you can make out are the flames 
 of Hell consuming it, and the smell of burning flesh.
 ~
@@ -408,8 +382,7 @@ stand stand none 5000
 #10427
 construction worker male~
 male construction worker~
-A construction worker is here, welding pipework.
-~
+A construction worker is here, welding pipework.~
 He is the typical construction worker:  T-shirt, jeans, yellow hard hat.
 As you look closer at the hard hat, you notice that it says:
              '4th DEMONsion Construction Co.'
@@ -424,8 +397,7 @@ stand stand male 5000
 #10428
 construction worker female~
 the female construction worker~
-A construction worker, is here working riviting framework.
-~
+A construction worker, is here working riviting framework.~
 She is the typical construction worker:  T-shirt, jeans, yellow hard hat.
 As you look closer at the hard hat, you notice that it says:
              '4th DEMONsion Construction Co.'
@@ -440,8 +412,7 @@ stand stand female 5000
 #10430
 fire devil~
 the fire devil~
-A fire devil stands here with a box of matches, lighting up poor souls.
-~
+A fire devil stands here with a box of matches, lighting up poor souls.~
 It is an indescribably grotesque creature.  Its pale, green-yellow skin
 erupts with blisters and puss.  As you look at it, it smiles at you with
 sharp, blood-covered teeth.  This is definitely a face only a mother could
@@ -457,8 +428,7 @@ stand stand male 5000
 #10431
 wall fire~
 the wall of fire~
-A wall of fire is here, creeping slowly across the room.
-~
+A wall of fire is here, creeping slowly across the room.~
 It is simply a large, door-sized wall of fire.  It slowly inches across the
 room, burning everything in its path, including the poor souls that are chained
 to the various posts around the room.
@@ -473,8 +443,7 @@ stand stand none 5000
 #10432
 hell hound~
 the hell hound~
-A hell hound runs freely through the halls of hell.
-~
+A hell hound runs freely through the halls of hell.~
 This freak of a canine is rusty red to red-brown in color. Its eyes glow a
 ghastly red. Its sooty black teeth and tongue are covered with green spittle
 that runs down its dung covered coat.
@@ -489,8 +458,7 @@ stand stand none 5000
 #10433
 frozen body~
 the frozen body~
-A frozen body lies on the ground.
-~
+A frozen body lies on the ground.~
 As you look at the corpse, you recoil when you see that its eyes still
 move.  They stare intently from its bluish face, as if pleading for your
 help.
@@ -505,8 +473,7 @@ stand stand none 5000
 #10434
 ice devil~
 the ice devil~
-A Greater Ice Devil stands here, cheerfully freezing souls.
-~
+A Greater Ice Devil stands here, cheerfully freezing souls.~
 This devil is a mix of bug, bird, humanoid, and who knows what else.
 Its multi-faceted eyes stare everywhere. It goes about its business of 
 slowly and painfully freezing the damned souls, quickly thawing them
@@ -523,8 +490,7 @@ stand stand none 5000
 #10435
 trapped soul ice~
 the trapped soul~
-A soul trapped under the ice gasps desperately for air.
-~
+A soul trapped under the ice gasps desperately for air.~
 This poor soul has been incased in ice, almost as though it were caught
 under an iceflow.  It will desperately gasp for air for a few minutes,
 then will seem to die briefly.  Always, it is restored and begins thrashing
@@ -540,8 +506,7 @@ stand stand none 5000
 #10436
 half frozen body~
 the half frozen body~
-A half frozen body hangs on a meat hook.
-~
+A half frozen body hangs on a meat hook.~
 A large meat hook is imbedded deep within the back of the corpse. You
 see small white maggots eating away at the body. The flesh seems to
 move and wriggle with a life of its own...
@@ -556,8 +521,7 @@ stand stand none 5000
 #10437
 killer penguin~
 the killer penguin~
-A small penguin waddles around on the ice.
-~
+A small penguin waddles around on the ice.~
 What a cute little penguin!  Wait, why is it looking at you that way? 
 HEY!  Penguins don't have teeth!  
 ~
@@ -571,8 +535,7 @@ stand stand none 5000
 #10438
 I-scream worker~
 the I-scream worker~
-An I-scream worker runs from machine to machine.
-~
+An I-scream worker runs from machine to machine.~
 It moves about so frantically that you can't really get a chance to look at it.
 It runs about screaming, 'I SCREAM, YOU SCREAM!
 
@@ -589,8 +552,7 @@ stand stand none 5000
 #10439
 Ice Screamer~
 the Ice Screamer~
-An Ice Screamer is yelling into empty cartons.
-~
+An Ice Screamer is yelling into empty cartons.~
 He is dressed in a white jumpsuit with the words,
 
 'Eye Spleen I Screamery'
@@ -607,8 +569,7 @@ stand stand none 5000
 #10440
 Construction Foreman Demonic~
 the Demonic Foreman~
-A Demonic Foreman sits here, looking at blueprints.
-~
+A Demonic Foreman sits here, looking at blueprints.~
 This huge demon has somehow managed to fit himself into
 a oversized, orange jumpsuit. The words,
 
@@ -626,8 +587,7 @@ stand stand male 5000
 #10441
 Secretary of Hell~
 Secretary of Hell~
-The Secretary of Hell sits here, watching the phones ring.
-~
+The Secretary of Hell sits here, watching the phones ring.~
 This very sexy secretary seems to be just sitting here amusing herself
 by watching the little lights on the telephone blink. She is oblivious
 to your presence and seems fascinated by the phones.
@@ -642,8 +602,7 @@ stand stand female 5000
 #10442
 office worker hell~
 office worker from Hell~
-An office worker from Hell is looking for a boss to piss off.
-~
+An office worker from Hell is looking for a boss to piss off.~
 Just looking at him makes your blood boil. 
 AAAAAAAAAAaaaaaaaaaaaarrrrrrrrgggggghhhhh!!!!!!!!!!!
 ~
@@ -657,8 +616,7 @@ stand stand none 5000
 #10443
 records worker~
 records worker~
-A records worker is here, filing bad reports.
-~
+A records worker is here, filing bad reports.~
 You see a rather plain-looking office personel here, filing paperwork on
 someone.
 ~
@@ -672,8 +630,7 @@ stand stand none 5000
 #10444
 santa claus~
 Santa Claus~
-Santa Claus is here, checking on who has been naughty...
-~
+Santa Claus is here, checking on who has been naughty...~
 It's a jolly old man, with red cheeks and a roly-poly belly and a laugh
 as jolly as you can get. Must be Santa Claus!
 ~
@@ -687,8 +644,7 @@ stand stand male 5000
 #10445
 high priest ell~
 High Priest of Hell~
-The High Priest of Hell is here, eating 'I Scream'.
-~
+The High Priest of Hell is here, eating 'I Scream'.~
 The dark, black robes hide most of his features, but you can nearly make
 out his emaciated face beneath the hood.
 ~
@@ -702,8 +658,7 @@ stand stand male 5000
 #10446
 bowl blood~
 a bowl of blood~
-A bowl of blood sits on the altar.
-~
+A bowl of blood sits on the altar.~
 It is a wooden bowl filled with blood and bits of flesh.
 ~
 human~
@@ -716,8 +671,7 @@ stand stand none 5000
 #10447
 jury member~
 jury member~
-A jury member sits here with a "Guilty" sign, waiting for the trial to begin.
-~
+A jury member sits here with a "Guilty" sign, waiting for the trial to begin.~
 It seems to be a lesser demon disguised as mortal. Fair trial?  Not likely.
 ~
 human~
@@ -730,8 +684,7 @@ stand stand none 5000
 #10448
 Judge Whopper~
 Judge Whopper~
-Judge Whopper sits here, trying to think of a painful sentence.
-~
+Judge Whopper sits here, trying to think of a painful sentence.~
 This is the High Judge of Hell. He has never found anyone innocent
 and is notorious for his painful and harsh punishments.
 ~
@@ -745,8 +698,7 @@ stand stand none 5000
 #10449
 lawyer hell~
 Lawyer from Hell~
-The Lawyer from Hell sits here, playing games on his laptop computer.
-~
+The Lawyer from Hell sits here, playing games on his laptop computer.~
 Slimy, sleezy, and with very sharp teeth... A lawyer all right...
 ~
 human~
@@ -759,8 +711,7 @@ stand stand none 5000
 #10450
 complaints officer~
 Complaints Officer~
-The Complaints Officer is here, watching her favorite soap opera.
-~
+The Complaints Officer is here, watching her favorite soap opera.~
 She seems not to notice you, but is absorbed in her favorite soap,
 'As The Hell Burns'
 
@@ -775,8 +726,7 @@ stand stand female 5000
 #10451
 bastard hiramoto~
 bastard hiramoto~
-The Bastard Hiramoto stands here, trying to learn Kung Fu from a book.
-~
+The Bastard Hiramoto stands here, trying to learn Kung Fu from a book.~
 He looks at you and says, 'I think my Kung Fu is no good'
 and then goes back to practicing.
 
@@ -792,8 +742,7 @@ stand stand male 5000
 #10452
 maintenance worker~
 maintenance worker~
-A maintenance worker is here, fixing stuff.
-~
+A maintenance worker is here, fixing stuff.~
 He is in a yellow jumpsuit with a large nuclear-warning symbol on the back.
 ~
 human~
@@ -806,8 +755,7 @@ stand stand none 5000
 #10453
 weeds~
 weeds~
-A weed is growing out of the cement.
-~
+A weed is growing out of the cement.~
 You see a nasty yellow-and-purple weed.
 ~
 human~
@@ -820,8 +768,7 @@ stand stand none 5000
 #10454
 stanley~
 Stanley~
-Stanley stands here, waiting to sell you one of his wonderful figurines. 
-~
+Stanley stands here, waiting to sell you one of his wonderful figurines. ~
 He is a crafty old fart who looks about 1000 years old, but his figurines
 are pretty well-known.  He was rumored to have disappeared around Solace 100
 years ago.
@@ -836,8 +783,7 @@ stand stand male 5000
 #10455
 half eaten horse carcass~
 horse carcass~
-A half-eaten horse carcass is here being digested. 
-~
+A half-eaten horse carcass is here being digested. ~
 This is what used to be a horse.  Hmm, maybe - it's hard to tell.  Half
 of it has been digested already.
 ~
@@ -851,8 +797,7 @@ stand stand none 5000
 #10456
 stomach dragon~
 stomach dragon~
-A stomach dragon is here, digesting Big Mouth's food.
-~
+A stomach dragon is here, digesting Big Mouth's food.~
 A large, brown-and-green, slime-covered reptile, its function seems to be
 to move to each food item and barf acid all over it.
 ~
@@ -866,8 +811,7 @@ stand stand none 5000
 #10457
 rancid turkey leg~
 rancid turkey leg~
-A rancid turkey leg sits in a pool of slime.
-~
+A rancid turkey leg sits in a pool of slime.~
 It's one of those really nasty pieces of food in the refrigerator that
 disappears, and you wonder if it just walked away....
 ~
@@ -881,8 +825,7 @@ stand stand none 5000
 #10458
 reactor specialist~
 reactor specialist~
-A reactor specialist sits here, checking on the reactor core.
-~
+A reactor specialist sits here, checking on the reactor core.~
 He is dressed in a black jumpsuit with a large nuclear-warning symbol on
 the back.
 ~
@@ -896,8 +839,7 @@ stand stand male 5000
 #10459
 reactor worker~
 reactor worker~
-A reactor worker sits here, monitoring various screens.
-~
+A reactor worker sits here, monitoring various screens.~
 He is dressed in a black jumpsuit with a large lighting bolt symbol on
 the back.
 ~
@@ -911,8 +853,7 @@ stand stand male 5000
 #10460
 homer simpson~
 Homer Simpson~
-Homer Simpson sits here, eating donuts.
-~
+Homer Simpson sits here, eating donuts.~
 A balding fat man with jelly stains on his uniform.
 
 He suddenly spills his coffee and shouts out, 'DOH!'
@@ -930,8 +871,7 @@ stand stand male 5000
 #10461
 devil's food cake~
 devil's food cake~
-A nice slice of devil's food cake is here, waiting to be eaten.
-~
+A nice slice of devil's food cake is here, waiting to be eaten.~
 Mmmmmm...Don't you just want to take a bite?
 ~
 human~
@@ -944,8 +884,7 @@ stand stand none 5000
 #10462
 mad cook~
 mad cook~
-A mad cook is here, cooking up a storm.
-~
+A mad cook is here, cooking up a storm.~
 He spots you and screams, 'Git awa froom mi food!  I'll kill you!'
 ~
 human~
@@ -958,8 +897,7 @@ stand stand male 5000
 #10463
 frantic lady~
 frantic lady~
-A frantic lady is here, looking in vain for a sale and tearing her hair out.
-~
+A frantic lady is here, looking in vain for a sale and tearing her hair out.~
 ~
 human~
 G 0 V 0 H -600 0
@@ -971,8 +909,7 @@ stand stand female 5000
 #10464
 nuclear technician~
 nuclear technician~
-A nuclear technician is here, fiddling with his rad suit.
-~
+A nuclear technician is here, fiddling with his rad suit.~
 ~
 human~
 B 0 0 0 ABH -800 0
@@ -984,8 +921,7 @@ stand stand male 5000
 #10465
 stray proton~
 stray proton~
-A stray proton is here, whizzing about.
-~
+A stray proton is here, whizzing about.~
 ~
 human~
 B 0 0 0 ABH -800 0
@@ -997,8 +933,7 @@ stand stand none 5000
 #10466
 radiation~
 radiation~
-The radiation in the room does unknown things to you.
-~
+The radiation in the room does unknown things to you.~
 ~
 human~
 B 0 0 0 ABH -800 0
@@ -1010,8 +945,7 @@ stand stand none 5000
 #10467
 chief engineer hell~
 the Chief Engineer of Hell~
-The Chief Engineer of Hell is here, playing with the panic button.
-~
+The Chief Engineer of Hell is here, playing with the panic button.~
 He kinda reminds you of an old Bart Simpson.  He seems to be enjoying
 the panic button at the moment, chuckling happily as workers on the
 reactor floor below frantically check dials and gauges, while lights
@@ -1027,8 +961,7 @@ stand stand male 5000
 #10468
 Greater Fire Demon~
 the Greater Fire Demon~
-A Greater Fire Demon stands here, laughing at each scream he hears..
-~
+A Greater Fire Demon stands here, laughing at each scream he hears..~
 This large, black-scaled demon laughs merrily as he watches poor souls
 scream out in pain. He pokes and picks at the flesh of the damned who
 were unlucky enough to be tortured close to him.  His black-taloned
@@ -1045,8 +978,7 @@ stand stand none 5000
 #10469
 frozen side beef~
 side of frozen beef~
-A frozen side of beef hangs on a hook.
-~
+A frozen side of beef hangs on a hook.~
 This enormous carcass looks as if it came from a small dragon or a very
 large cow.
 ~
@@ -1060,8 +992,7 @@ stand stand none 5000
 #10470
 guard dog~
 guard dog~
-A guard dog sits here, guarding the break room.
-~
+A guard dog sits here, guarding the break room.~
 A vicious-looking pit bull / demon-dog mix is here, slobbering on the donuts.
 ~
 human~
@@ -1074,8 +1005,7 @@ stand stand none 5000
 #10471
 juicy steak~
 juicy steak~
-A mouth-watering, juicy steak is here, steaming.
-~
+A mouth-watering, juicy steak is here, steaming.~
 Mmmmmmm.....Steak....Mmmmmm...You feel your mouth start to water.
 ~
 human~

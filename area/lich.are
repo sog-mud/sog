@@ -11,9 +11,7 @@ End
 #29350
 Death Knight рыцарь смерти~
 @eng A Death Knight@rus ~~Рыцарь~~ Смерти~
-@eng An undead, skeletal knight guards this room.
-@rus Скелетоподобный воин (knight) охраняет это место.
-~
+@eng An undead, skeletal knight guards this room.@rus Скелетоподобный воин (knight) охраняет это место.~
 @eng Death Knights are a powerful enemy.  Turned undead by powerful
 necromancy, they were the most renown knights of their day.  
 @rus Рыцарь смерти - достойный противник. Когда-то прославленный рыцарь,
@@ -34,9 +32,7 @@ r disease -100
 #29351
 inquisitor инквизитор~
 @eng The Inquisitor@rus инквизитор~
-@eng The Inquisitor is here preparing various torture devices.
-@rus Инквизитор (Inquisitor) готовит пыточные приспособления здесь.
-~
+@eng The Inquisitor is here preparing various torture devices.@rus Инквизитор (Inquisitor) готовит пыточные приспособления здесь.~
 @eng This evil creature looks like a zombie but acts much more sinister.  It
 uses its magical abilities to keep its victims alive while it's torturing
 them.  
@@ -62,9 +58,7 @@ r charm -100
 #29352
 demon minor младший демон~
 @eng A Minor Demon@rus ~~Младший~~ ~~Демон~~~
-@eng A minor demon stands here surrounded in flames.
-@rus Младший Демон (demon) стоит тут, окруженный пламенем.
-~
+@eng A minor demon stands here surrounded in flames.@rus Младший Демон (demon) стоит тут, окруженный пламенем.~
 @eng An aggresive looking demon stands here in the brazier's flames.  It
 appears to have been summoned and is quite angry about it.  The long claws
 and fangs it uses as weapons make you consider running as fast as posible.  
@@ -89,9 +83,7 @@ r disease 33
 #29353
 demon major старший демон~
 @eng A Major Demon@rus ~~Старший~~ ~~Демон~~~
-@eng A Major Demon floats here in the flames.
-@rus Старший демон (demon) парит здесь, объятый пламенем.
-~
+@eng A Major Demon floats here in the flames.@rus Старший демон (demon) парит здесь, объятый пламенем.~
 @eng A large wicked looking demon floats here in the fire.  He has wings, a
 tail, claws, fangs, he is everything you have pictured a demon would be. 
 His black scaled skin gleams in the firelight The burning flames in his eyes
@@ -128,9 +120,7 @@ r sound -50
 #29354
 lich lord myzelak лич мизелак~
 @eng Myzelak the Lich Lord@rus ~~Лич~~ ~~Мизелак~~~
-@eng Myzelak the Lich Lord stands here by his throne.
-@rus Лич Мизелак (Myzelak) стоит подле своего трона.
-~
+@eng Myzelak the Lich Lord stands here by his throne.@rus Лич Мизелак (Myzelak) стоит подле своего трона.~
 @eng Evil incarnate, Myzelak spent years of his life perfecting his magical
 abilities to grant him life after death.  The result of his work stands
 before you, a rotting representation of what the wizard used to be.  Myzelak
@@ -167,9 +157,7 @@ r sound 33
 #29355
 dracolich mount dragon драколич~
 @eng The Dracolich@rus ~~Драколич~~~
-@eng Myzelak's ancient dracolich mount.
-@rus Драколич (dracolich) Мизелака возвышается над тобой.
-~
+@eng Myzelak's ancient dracolich mount.@rus Драколич (dracolich) Мизелака возвышается над тобой.~
 @eng Myzelak's Dracolich mount towers above you.  Fiery red lights gleam in
 its hollow eye sockets as it growls at you.  The undead dragon is monstrous,
 perhaps you should run now, before you're dead.  ;> 
@@ -200,9 +188,7 @@ r charm -100
 #29356
 elite death knight элитный рыцарь смерти~
 @eng An Elite Death Knight@rus ~~Элитный~~ ~~Рыцарь~~ Смерти~
-@eng An Elite Death Knight laughs an unholy cackle and attacks.
-@rus Элитный Рыцарь смерти (death knight) атакует тебя с громким хохотом.
-~
+@eng An Elite Death Knight laughs an unholy cackle and attacks.@rus Элитный Рыцарь смерти (death knight) атакует тебя с громким хохотом.~
 @eng A huge skeletal figure confronts you.  He wields an old longsword covered
 in runes and carries a large black shield that can only be a dragon's scale.
 He looks very much like the Death Knights you encountered earlier except he
@@ -485,12 +471,12 @@ furniture 0 B A
 1 5000 0 P
 E
 cross~
-@eng                            R.I.P.
+@eng .                           R.I.P.
  Gods! Helps to unfortunate soul of King Leorik, buries here.
     Gods! Please, send Deliverer at this suffered place.
  Wanderer. Remember, only your powerful expirience and great
 knowledge rescues you at the paths in these land. Abbat RYZEN.
-@rus                               R.I.P.
+@rus .                              R.I.P.
    Господи! Смилуйся над грешным королем Леориком упокоенным здесь.
 Господи! Пошли Освободителя земле этой, исстрадавшейся за грехи наши.
                   Путник. С опаской входи в земли эти.
@@ -819,7 +805,7 @@ appears to be back into the library to the east.
 @rus Сотни свитков и испещренных пометками книг занимают практически
 все место. Несколько масляных ламп производят необходимый свет,
 позволяя тебе увидеть большой стол напротив входа и шкаф в южной
-стене. Единственный выход отсюда - тот, через который ты вошел.
+стене. Единственный выход отсюда - тот, через который ты $gn{вошел}.
 ~
 0 D inside
 D1

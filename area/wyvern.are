@@ -11,8 +11,7 @@ End
 #1601
 killer frog~
 a killer frog~
-A killer frog rises up out of the water.
-~
+A killer frog rises up out of the water.~
 The killer frog looks ravenous.
 ~
 human~
@@ -25,8 +24,7 @@ stand stand none 1
 #1602
 stone gargoyle~
 the stone gargoyle~
-A stone gargoyle looms over you.
-~
+A stone gargoyle looms over you.~
 As you look, the figure seems to shift and move ...
 ~
 human~
@@ -39,8 +37,7 @@ stand stand male 20
 #1603
 angry gargoyle~
 an angry gargoyle~
-An angry gargoyle glares at you.
-~
+An angry gargoyle glares at you.~
 He looks ready to attack!
 ~
 human~
@@ -53,8 +50,7 @@ stand stand male 25
 #1604
 elite gargoyle~
 the elite gargoyle~
-An elite gargoyle guards this room against intrusion.
-~
+An elite gargoyle guards this room against intrusion.~
 He snarls at you and says LEAVE OR DIE!
 ~
 human~
@@ -67,8 +63,7 @@ stand stand male 40
 #1605
 gargoyle shaman~
 the gargoyle shaman~
-The gargoyle shaman is here, preparing to do battle.
-~
+The gargoyle shaman is here, preparing to do battle.~
 She says 'I can SEE you! I have been waiting ...'.
 ~
 human~
@@ -81,8 +76,7 @@ stand stand female 150
 #1606
 carnivorous plant~
 a carnivorous plant~
-Amidst the jungle here, a huge Carnivorous plant reaches out to grab you!
-~
+Amidst the jungle here, a huge Carnivorous plant reaches out to grab you!~
 The plant looks something like a Venus fly-trap, only MUCH larger.
 ~
 human~
@@ -95,8 +89,7 @@ stand stand none 0
 #1607
 gruesome ogre~
 a gruesome ogre~
-A huge, gruesome ogre is sprawled here, gnawing some strange meat.
-~
+A huge, gruesome ogre is sprawled here, gnawing some strange meat.~
 It thinks that perhaps you would make a better meal.
 ~
 human~
@@ -109,8 +102,7 @@ sit stand none 60
 #1608
 shadow~
 a shadow~
-A dark shadow moves about the room.
-~
+A dark shadow moves about the room.~
 The Shadow is vaguely humanoid. Two glowing pinpoints look at you.
 ~
 human~
@@ -123,8 +115,7 @@ stand stand none 45
 #1609
 evil wight~
 an evil wight~
-An evil wight lurks in the shadows!
-~
+An evil wight lurks in the shadows!~
 He glares at you savagely and charges!
 ~
 human~
@@ -137,8 +128,7 @@ stand stand male 110
 #1610
 burly minotaur~
 A burly minotaur~
-A burly minotaur watches you solemnly.
-~
+A burly minotaur watches you solemnly.~
 This powerful creature wonders whether to kill you or not ...
 ~
 human~
@@ -151,8 +141,7 @@ stand stand male 75
 #1612
 savage minotaur~
 the savage minotaur~
-A bloodthirsty minotaur slowly counts his loot
-~
+A bloodthirsty minotaur slowly counts his loot~
 He looks up at you and screams 'SO! Coming to steal my hoard!'
 ~
 human~
@@ -165,8 +154,7 @@ stand stand male 0
 #1613
 minotaur captain~
 the captain~
-Sitting here in this room is the Minotaur Captain.
-~
+Sitting here in this room is the Minotaur Captain.~
 He looks at you, and a sinister grin slowly spreads on his face ...
 ~
 human~
@@ -179,8 +167,7 @@ stand stand male 0
 #1614
 black pudding~
 the black pudding~
-A huge black pudding fills the center of the room!!
-~
+A huge black pudding fills the center of the room!!~
 It is a huge black blob that oozes about the room. Its heading toward YOU!
 ~
 human~
@@ -193,8 +180,7 @@ stand stand none 0
 #1615
 lesser golem~
 a lesser golem~
-A lesser Golem stands guarding the entrance.
-~
+A lesser Golem stands guarding the entrance.~
 The golem appears to be made of some kind of clay, enchanted to come to life!
 ~
 golem~
@@ -224,8 +210,7 @@ r sound 50
 #1616
 ancient wyvern~
 the ancient wyvern~
-An enormous, ancient wyvern stares down at your tiny form...
-~
+An enormous, ancient wyvern stares down at your tiny form...~
 It thunders loudly 'I must protect my Master's wealth!'
 ~
 human~
@@ -238,8 +223,7 @@ stand rest male 0
 #1617
 spectre~
 the spectre~
-A spectre has begun to materialize in front of you!
-~
+A spectre has begun to materialize in front of you!~
 Terror fills your heart as you view this master of the undead.
 ~
 human~
@@ -252,8 +236,7 @@ stand stand male 0
 #1702
 trapper~
 a trapper~
-A trapper stands here, bartering his pelts.
-~
+A trapper stands here, bartering his pelts.~
 The trapper is clad mostly in the fur of various animals he's caught.
 ~
 human~
@@ -266,8 +249,7 @@ stand stand male 6
 #1704
 hunter~
 a hunter~
-A hunter rests in here, carrying a fresh kill.
-~
+A hunter rests in here, carrying a fresh kill.~
 The hunter is rugged and sturdy from his occupation.
 ~
 human~
@@ -280,8 +262,7 @@ rest stand male 6
 #1706
 ranger~
 a ranger~
-A grim ranger reclines at a table.
-~
+A grim ranger reclines at a table.~
 The years of wanderings have left the ranger hardened and strong.
 ~
 human~
@@ -294,8 +275,7 @@ rest stand male 0
 #1707
 ranger leader~
 a ranger leader~
-A leader of the Rangers is watching you solemnly.
-~
+A leader of the Rangers is watching you solemnly.~
 This individual has quite a reputation at the local trading posts!
 ~
 human~
@@ -308,8 +288,7 @@ stand stand male 0
 #1708
 ranger lord~
 the Lord of the Rangers~
-The Lord of the Rangers catches your eye.
-~
+The Lord of the Rangers catches your eye.~
 ~
 human~
 BC 0 0 0 A 400 0
@@ -321,8 +300,7 @@ stand stand male 0
 #1710
 male centaur~
 a centaur~
-A male centaur wanders about this area.
-~
+A male centaur wanders about this area.~
 The centaur has the upper torso of a man and lower body of a horse.
 ~
 human~
@@ -335,8 +313,7 @@ stand stand male 6
 #1711
 female centaur~
 a centaur~
-A female centaur wanders about this area.
-~
+A female centaur wanders about this area.~
 The centaur has the upper torso of a woman and lower body of a horse.
 ~
 human~
@@ -349,8 +326,7 @@ stand stand female 5
 #1712
 old centaur~
 an old centaur~
-An old centaur is resting in a corner.
-~
+An old centaur is resting in a corner.~
 This centaur has lived a full life.
 ~
 human~
@@ -363,8 +339,7 @@ rest rest male 5
 #1714
 centaur elder~
 an elder centaur~
-One of the centaur elders is here, watching you.
-~
+One of the centaur elders is here, watching you.~
 The elders act as counselors and advisors to the chief.
 ~
 human~
@@ -377,8 +352,7 @@ stand stand male 0
 #1715
 centaur guard~
 a centaur guard~
-A strong centaur is standing guard here.
-~
+A strong centaur is standing guard here.~
 He appears to be blocking entrance to the next room.
 ~
 human~
@@ -391,8 +365,7 @@ stand stand male 0
 #1716
 centaur chief~
 the centaur chief~
-The chief of the centaur villagers reclines here.
-~
+The chief of the centaur villagers reclines here.~
 He has been the leader of this tribe for many years, and has acquired much
 wisdom.
 ~
@@ -406,8 +379,7 @@ rest stand male 0
 #1720
 displacer beast~
 a displacer beast~
-A displacer beast is grazing nearby.
-~
+A displacer beast is grazing nearby.~
 As you watch this strange creature, its position seems to flicker and shift.
 ~
 human~
@@ -1191,10 +1163,10 @@ Z 0 1635
 S
 #1637
 The Elegant Hall~
-You are in what was once a elegant hall, although everything is moldering now.
-The rotted remains of a plush carpet covers the floor, while several moldy
-tapestries adorn the each side of the hall.  There are door north and south,
-and openings east and west.
+You are in what was once a elegant hall, although everything is moldering
+now.  The rotted remains of a plush carpet covers the floor, while several
+moldy tapestries adorn the each side of the hall.  There are door north and
+south, and openings east and west.  
 ~
 0 AD inside
 D0

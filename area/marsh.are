@@ -11,9 +11,7 @@ End
 #8301
 troll тролль~
 @eng a swamp troll@rus ~~болотный~~ ~~тролль~~~
-@eng A swamp troll charges towards you.
-@rus Болотный тролль (troll) злобно уставился на тебя.
-~
+@eng A swamp troll charges towards you.@rus Болотный тролль (troll) злобно уставился на тебя.~
 @eng This huge behemoth towers to a height of 15 feet.  He sneers at you 
 as he approaches and raises two black taloned claws to strike you.
 @rus Он похож на бегемота высотой 15 футов. Увидев тебя он не торопясь
@@ -36,9 +34,7 @@ r charm -30
 #8302
 troll тролль~
 @eng a green troll@rus ~~зеленый~~ ~~тролль~~~
-@eng A green troll attempts to get a hold on you.
-@rus Зеленый тролль (troll) пытается задержать тебя.
-~
+@eng A green troll attempts to get a hold on you.@rus Зеленый тролль (troll) пытается задержать тебя.~
 @eng This big troll towers several feet over you.  He has a large spear
 which he seems to ply with utmost prowess.  He jabs his spear at you
 and cackles with glee.
@@ -63,9 +59,7 @@ r charm -30
 #8303
 ogre людоед~
 @eng an ogre@rus людоед~
-@eng An ogre stands here getting ready to beat in your face.
-@rus Людоед (ogre) приближается, готовясь вмазать тебе по физиономии.
-~
+@eng An ogre stands here getting ready to beat in your face.@rus Людоед (ogre) приближается, готовясь вмазать тебе по физиономии.~
 @eng This mean bastard looks like he could tear you limb from limb.
 @rus Этот ублюдок готов разорвать тебя пополам.
 ~
@@ -79,9 +73,7 @@ stand stand male 500
 #8304
 thing тварь~
 @eng the Swamp Thing@rus ~~болотная~~ ~~тварь~~~
-@eng The Swamp Thing shambles about here.  It seems hungry.
-@rus Болотная Тварь (Swamp Thing) рыскает по кочкам. Она выглядит ГОЛОДНОЙ.
-~
+@eng The Swamp Thing shambles about here.  It seems hungry.@rus Болотная Тварь (Swamp Thing) рыскает по кочкам. Она выглядит ГОЛОДНОЙ.~
 @eng The Swamp Thing has huge fists, which look like they could pound you flat.
 @rus Однако! У этой штуки огромные кулаки... Ее соперника будет проще
 закрасить, чем отскрести...
@@ -96,9 +88,7 @@ stand rest none 1250
 #8305
 gnoll упырь~
 @eng a gnoll@rus упырь~
-@eng There is a mean looking gnoll here.
-@rus Жирный упырь (gnoll) пялится на тебя.
-~
+@eng There is a mean looking gnoll here.@rus Жирный упырь (gnoll) пялится на тебя.~
 @eng The Gnoll seems annoyed at your presence.
 @rus Жирный. Очень жирный.
 Этож какие надо было зубы иметь, чтоб ТАКУЮ задницу отожрать?!!!
@@ -114,9 +104,7 @@ stand stand male 1250
 #8306
 beast зверь~
 @eng a huge hairy beast@rus ~~большой~~ ~~волосатый~~ ~~зверь~~~
-@eng A huge hairy beast shambles towards you with death in his eyes.
-@rus Большой волосатый зверь (beast) выпрыгнул навстречу. В его глазах смерть.
-~
+@eng A huge hairy beast shambles towards you with death in his eyes.@rus Большой волосатый зверь (beast) выпрыгнул навстречу. В его глазах смерть.~
 @eng This huge beast stands about 20 feet in height and has huge green clawed
 appendages. 
 @rus Это огромное волосатое существо футов 20 в длину с длинными зелеными когтями. 
@@ -131,9 +119,7 @@ stand stand male 500
 #8307
 beast зверь~
 @eng a rather small beast@rus ~~небольшой~~ ~~зверь~~~
-@eng A rather small beast cringes in terror as it notices you.
-@rus Небольшой зверь (beast) съеживается в ужасе при виде тебя.
-~
+@eng A rather small beast cringes in terror as it notices you.@rus Небольшой зверь (beast) съеживается в ужасе при виде тебя.~
 @eng This rather small beast looks like you could take it out with a single
 sword blow.
 @rus Зверушка выглядит так, словно даже твой пинок может вышибить из нее дух.
@@ -148,9 +134,7 @@ stand stand male 25
 #8308
 will-o-wisp Уилл Уилл-оу-Висп will~
 @eng the Will-O-Wisp@rus Уилл-оу-Висп~
-@eng A Will-O-Wisp darts hear and there, making fun of you.
-@rus Уилл-оу-Висп (Will) носится вокруг тебя. Он явно насмехается.
-~
+@eng A Will-O-Wisp darts hear and there, making fun of you.@rus Уилл-оу-Висп (Will) носится вокруг тебя. Он явно насмехается.~
 @eng This strange little creature seems very hard to keep your eyes on.
 You stare as hard as you can at the glowing ball of floating light and
 are just able to notice a small pair of glowing eyes.
@@ -168,9 +152,7 @@ stand stand male 150
 #8309
 snake anaconda змея анаконда~
 @eng the monstrous snake@rus ~~чудовищная~~ ~~змея~~~
-@eng A monstrous snake slithers towards you, thinking 'breakfast'.
-@rus Чудовищная анаконда (snake) смотрит на тебя размышляя о завтраке.
-~
+@eng A monstrous snake slithers towards you, thinking 'breakfast'.@rus Чудовищная анаконда (snake) смотрит на тебя размышляя о завтраке.~
 @eng This 10 meter anaconda looks rather hungry.
 @rus Это десятиметровая анаконда. Очень голодная...
 ~
@@ -186,9 +168,7 @@ r poison -33
 #8310
 python snake змея питон~
 @eng a large snake@rus питон~
-@eng A rather large python rests in a coil here.
-@rus Большой питон (python) свернулся кольцами и шипит на тебя.
-~
+@eng A rather large python rests in a coil here.@rus Большой питон (python) свернулся кольцами и шипит на тебя.~
 @eng It's the largest Amazon python you have ever seen.
 @rus Это самый большой из всех питонов которые тебе попадались.
 ~
@@ -205,9 +185,7 @@ r poison -33
 #8312
 hag ведьма~
 @eng the Marsh Hag@rus ~~болотная~~ ~~ведьма~~~
-@eng A Marsh Hag is here.
-@rus Болотная Ведьма (Hag) мерзко захихикала.
-~
+@eng A Marsh Hag is here.@rus Болотная Ведьма (Hag) мерзко захихикала.~
 @eng Yech!  She manages to make even Smurfette look attractive.  That's ok,
 because she thinks you stink too, and she's about to do something about it.
 @rus Фууу!!! ЫЫЫАГ!!! Даже помойная куча смотрится привлекательней!
@@ -225,10 +203,8 @@ stand stand female 50
 #8313
 slaad смерть~
 @eng a Death Slaad@rus ~~старуха~~ ~~Смерть~~~
-@eng A Death Slaad is standing here distraught.  He seems lost.
-@rus Старуха с косой (Death Slaad) стоит посреди болота. Кажется костлявая 
-потерялась...
-~
+@eng A Death Slaad is standing here distraught.  He seems lost.@rus Старуха с косой (Death Slaad) стоит посреди болота. Кажется костлявая 
+потерялась...~
 @eng This dark apparition stands a meager 13 feet in height.  Even in the dim
 swamp light, the blade of his scythe gleams.
 @rus Темный призрак выше 13 футов. Даже в полутьме видно как блестит ее коса.
@@ -244,9 +220,7 @@ g @eng male@rus female~
 #8314
 wolf волчица~
 @eng a marsh wolf@rus ~~болотная~~ ~~волчица~~~
-@eng A marsh wolf sniffs the ground has followed your scent.
-@rus Болотная волчица (wolf) обнюхивает твои следы.
-~
+@eng A marsh wolf sniffs the ground has followed your scent.@rus Болотная волчица (wolf) обнюхивает твои следы.~
 @eng This wolf looks plump.  She probably ate a friend or two of yours who came
 into the marsh.
 @rus Это довольно пухлая волчица...
@@ -262,9 +236,7 @@ stand stand female 0
 #8318
 mound shambling куст мутант~
 @eng a shambling mound@rus куст~
-@eng A heap of garbage shambles towards you.
-@rus Куст мутант (mound) кидается на тебя.
-~
+@eng A heap of garbage shambles towards you.@rus Куст мутант (mound) кидается на тебя.~
 @eng This grotesque pile of plant matter fills you with utmost horror.
 @rus Гротескная мешанина ветвей и гнилой листвы наполняет тебя ужасом.
 ~
@@ -278,9 +250,7 @@ stand stand male 0
 #8319
 shaman orc орк шаман~
 @eng the orc shaman@rus шаман~
-@eng An orc shaman stands before you holding a staff and wearing robes.
-@rus Орк-шаман (orc shaman) встает хватая посох и накидывая мантию.
-~
+@eng An orc shaman stands before you holding a staff and wearing robes.@rus Орк-шаман (orc shaman) встает хватая посох и накидывая мантию.~
 @eng This old orc has an array of bones stuck in his hair and strange symbols
 painted on his face and hands.
 @rus У этого старого орка не все дома...
@@ -297,9 +267,7 @@ stand stand male 17
 #8320
 giant гигант~
 @eng a marsh giant@rus ~~болотный~~ ~~гигант~~~
-@eng A marsh giant stomps towards you.
-@rus Болотный Гигант (giant) топает к тебе.
-~
+@eng A marsh giant stomps towards you.@rus Болотный Гигант (giant) топает к тебе.~
 @eng This huge monster of a man has green gnarly teeth and a BIG stick.
 @rus К этого монстра зеленые гнилые зубы и БОЛЬШАЯ дубина.
 ~
@@ -317,9 +285,7 @@ r mental 50
 #8321
 gargoyle гаргуль~
 @eng a gargoyle@rus гаргуль~
-@eng A large gargoyle lands next to you, baring his fangs at you.
-@rus Большой гаргуль (gargoyle) обнажил клыки оскалившись на тебя.
-~
+@eng A large gargoyle lands next to you, baring his fangs at you.@rus Большой гаргуль (gargoyle) обнажил клыки оскалившись на тебя.~
 @eng This creepy fellow looks like he could use you as a meal.
 @rus Этот жуткий товарищ мог бы использовать тебя в пищу.
 ~

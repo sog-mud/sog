@@ -11,9 +11,7 @@ End
 #22002
 ghost wandering привидение блуждающее~
 @eng A Wandering Ghost@rus ~~блуждающее~~ ~~привидение~~~
-@eng A ghost wanders about, stuck in the realms between life and death
-@rus Привидение (ghost) блуждает тут, потерявшись где-то на полпути в загробный мир.
-~
+@eng A ghost wanders about, stuck in the realms between life and death@rus Привидение (ghost) блуждает тут, потерявшись где-то на полпути в загробный мир.~
 @eng A shadow of its formal self, the ghost appears as it did in life, with
 the shape of a human body but an astral look to it.  It is a soul which can
 not rest until destroyed and sent into the heavens.  
@@ -39,9 +37,7 @@ r disease -100
 #22003
 wraith wicked зловещий призрак~
 @eng a Wicked Wraith@rus ~~зловещий~~ ~~призрак~~~
-@eng A wicked looking wraith stares at you, chilling your soul
-@rus Призрак (wraith) недобро уставился на тебя, заставляя дрожать.
-~
+@eng A wicked looking wraith stares at you, chilling your soul@rus Призрак (wraith) недобро уставился на тебя, заставляя дрожать.~
 @eng The wraith floats slowly towards you, searching for a new soul to consume.  
 @rus Он медленно приближается, собираясь поступить с твоей душой так же,
 как и со всеми остальными - сожрать.
@@ -64,9 +60,7 @@ r disease -100
 #22004
 ghastly spectre призрак мертвенно бледный~
 @eng a spectre@rus ~~призрак~~~
-@eng A ghastly spectre lurks nearby in the shadows.
-@rus Бледный, словно сама смерть, призрак (spectre) затаился среди теней.
-~
+@eng A ghastly spectre lurks nearby in the shadows.@rus Бледный, словно сама смерть, призрак (spectre) затаился среди теней.~
 @eng This long dead spirit is now an evil creation that longs for your blood.  
 @rus Он мертв уже давно и наверное, по-своему сошел с ума, желая
 теперь лишь одной вещи - крови живых.
@@ -90,9 +84,7 @@ r charm -100
 #22005
 ghoul гуль~
 @eng a ghoul@rus ~~гуль~~~
-@eng A ghoul stands here chewing on an old bone.
-@rus Гуль (ghoul) стоит здесь, обгладывая чью-то кость.
-~
+@eng A ghoul stands here chewing on an old bone.@rus Гуль (ghoul) стоит здесь, обгладывая чью-то кость.~
 @eng A disgusting undead creature that resembles a zombie, though much more
 ferocious.  It carries around an old arm bone that it chews on constantly,
 tearing the last remnants of flesh from it for food.  
@@ -116,9 +108,7 @@ r charm -100
 #22006
 demon lemure lowest демон лемур~
 @eng a lemure@rus ~~лемур~~~
-@eng A lowly demon wanders slugishly forward.
-@rus Демон (demon) медленно бредет куда-то, безразличный ко всему.
-~
+@eng A lowly demon wanders slugishly forward.@rus Демон (demon) медленно бредет куда-то, безразличный ко всему.~
 @eng A Lemure trudges slowly forward.  Its morphous form not allowing it to
 move any faster than at a slow walk.  
 @rus Это лемур, еще одна разновидность демонов. Он слишком тучен, чтобы
@@ -139,9 +129,7 @@ r holy -50
 #22007
 nupperibo demon obese нупперибо демон тучный~
 @eng a nupperibo@rus нупперибо~
-@eng An obese demon wandering around aimlessly.
-@rus Очень тучный демон (demon) бесцельно слоняется здесь.
-~
+@eng An obese demon wandering around aimlessly.@rus Очень тучный демон (demon) бесцельно слоняется здесь.~
 @eng The next step up from lemures in the demon hierarchy, the nupperibos are
 disgusting.  It's huge, obese form is disgusting, rolls of fat cover its
 entire body.
@@ -164,9 +152,7 @@ r holy -50
 #22008
 spinagon demon спинагон демон~
 @eng a Spinagon@rus ~~спинагон~~~
-@eng An imp-like demon flys towards you on leathery wings
-@rus Похожий на большого бесенка демон (demon) летит к тебе на своих кожистых крыльях.
-~
+@eng An imp-like demon flys towards you on leathery wings@rus Похожий на большого бесенка демон (demon) летит к тебе на своих кожистых крыльях.~
 @eng The Spinagon looks much like a large imp.  It's large leathery wings keep
 it aflight as it wields its monstrous spear, a blade that is sure to keep
 even the hardiest of warriors at bay.  
@@ -190,9 +176,7 @@ r holy -50
 #22009
 ghoul lord повелитель гулей~
 @eng the ghoul lord@rus ~~повелитель~~ гулей~
-@eng The ghoul lord stands here, ready to tear you apart.
-@rus Повелитель гулей (ghoul lord) стоит здесь, готовый разорвать тебя на части.
-~
+@eng The ghoul lord stands here, ready to tear you apart.@rus Повелитель гулей (ghoul lord) стоит здесь, готовый разорвать тебя на части.~
 @eng Much like a normal ghoul but about two feet taller, the ghoul lord is a
 monstrous sight.  His long snake-like tongue licks scaly lips as it looks at
 you.  
@@ -217,9 +201,7 @@ r charm -100
 #22010
 dragon deep black черный подземный дракон~
 @eng A Deep Dragon@rus ~~подземный~~ ~~дракон~~~
-@eng A black deep dragon is napping here
-@rus Черный подземный дракон (dragon) дремлет здесь.
-~
+@eng A black deep dragon is napping here@rus Черный подземный дракон (dragon) дремлет здесь.~
 @eng With gleeming scales and razor sharp claws, the Deep Dragon is a mighty
 opponent.  He must have been out hunting because he looks awfully tired now,
 well at least you get the first attack before he kills you.  
@@ -242,9 +224,7 @@ r acid 33
 #22011
 beast undead тварь неживая~
 @eng an Undead Beast@rus ~~неживая~~ ~~тварь~~~
-@eng A mounstrous undead beast is here searching for dinner
-@rus Ужасная тварь (undead beast) ищет, что бы сожрать.
-~
+@eng A mounstrous undead beast is here searching for dinner@rus Ужасная тварь (undead beast) ищет, что бы сожрать.~
 @eng A large undead beast stands here.  Multiple bones stick through its rough
 hide, creating spear like points.  Its skin has decayed away, leaving the
 ribs and organs exposed.  ICK!  
@@ -264,9 +244,7 @@ r holy -50
 #22012
 cleric holy священник~
 @eng a Holy Cleric@rus ~~священник~~~
-@eng A cleric is here searching for his lost companions.
-@rus Священник (cleric) разыскивает здесь своих потерявшихся товарищей.
-~
+@eng A cleric is here searching for his lost companions.@rus Священник (cleric) разыскивает здесь своих потерявшихся товарищей.~
 @eng A cleric of the ancient legend, Ryzen.  He appears to be lost in the
 caverns.  From what he tells you he and his companions became seperated
 during a battle with undead.  
@@ -284,9 +262,7 @@ stand stand male 500
 #22013
 knight рыцарь~
 @eng A Well Armed Knight@rus ~~вооруженный~~ ~~рыцарь~~~
-@eng A knight in beautiful armor stands here looking lost
-@rus Одетый в дивные доспехи рыцарь (knight) растерянно глядит по сторонам.
-~
+@eng A knight in beautiful armor stands here looking lost@rus Одетый в дивные доспехи рыцарь (knight) растерянно глядит по сторонам.~
 @eng This young man wears the plate and sword of a grand knight.  A large blue
 dragon is emblazoned on his plate and he wields his silver long sword with
 ease.  
@@ -304,9 +280,7 @@ stand stand male 500
 #22014
 halfling thief воришка хоббит~
 @eng A Halfling Thief@rus ~~кожаные~~ ~~ножны~~ для кинжала ~
-@eng A halfling thief peers around, looking for something to steal
-@rus Хоббит (halfling) глядит по сторонам, высматривая, что бы спереть.
-~
+@eng A halfling thief peers around, looking for something to steal@rus Хоббит (halfling) глядит по сторонам, высматривая, что бы спереть.~
 @eng Lost from his adventuring companions this little trouble maker is now
 just running around looking for things to slip into his purses.  
 @rus Отбившийся от своих товарищей, но не слишком этим расстроенный, он
@@ -322,9 +296,7 @@ AHMV ABCDEFGHIJK small unknown
 #22015
 powerful enchantress могущественная волшебница~
 @eng A Powerful Enchantress@rus ~~могущественная~~ ~~волшебница~~~
-@eng A powerful enchantress walks about searching for her comrades
-@rus Могущественная волшебница (enchantress) разыскивает здесь своих товарищей.
-~
+@eng A powerful enchantress walks about searching for her comrades@rus Могущественная волшебница (enchantress) разыскивает здесь своих товарищей.~
 @eng A beautiful enchantress wanders around looking for her comrades who were
 lost after a fight.  She seems to be quite confident in here magic and she
 wears a gorgeous ring on her finger.  
@@ -1078,7 +1050,7 @@ Darkness, eternal darkness, for just a second you would love to see the
 light of day again and get out of thse cramped tunnels.  
 @rus Непроглядная темнота и монотонные каменные стены потихоньку
 сводят тебя с ума. Время от времени ты ловишь себя на том, что
-разговариваешь, а точнее что-то невнятно бормочешь самому себе.
+разговариваешь, а точнее что-то невнятно бормочешь $gn{самому} себе.
 Чувство обреченности исподволь овладевает тобой и ты уже не
 надеешься куда-нибудь выйти.
 ~
@@ -1188,7 +1160,7 @@ tunnels.  A low growl is emitted from a room to the east, its inhabitant
 must not be happy.  
 @rus Еще один поворот, ничуть не отличающийся от предыдущих..
 Впрочем, нет - с востока доносится чье-то злобное рычание,
-там ты точно еще не был и не уверен, хочешь ли пойти и
+там ты точно еще не $gn{был} и не $gn{уверен}, хочешь ли пойти и
 посмотреть на того, кто там живет.
 ~
 0 AD inside
@@ -1577,7 +1549,7 @@ prefered the darkness over this.
 @rus Звук становится еще громче - теперь у тебя уже не осталось сомнений
 в том, что впереди - река. Какое-то призрачное свечение исходит от стен
 и пола, но ты не испытываешь облегчения при виде его и думаешь, что
-скорей предпочел бы вернуться в темноту.
+скорей $gn{предпочел} бы вернуться в темноту.
 ~
 0 D inside
 D2

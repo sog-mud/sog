@@ -12,8 +12,7 @@ End
 #3
 supermob~
 supermob~
-Supermob is here.
-~
+Supermob is here.~
 You see nothing.
 ~
 human~
@@ -28,8 +27,7 @@ I 100
 #10
 shadow %s~
 the shadow of %s~
-%s's shadow is here.
-~
+%s's shadow is here.~
 This dark form seems like it wants to get back at %s for keeping it
 below them for so long....better not get in its way!
 ~
@@ -49,8 +47,7 @@ r holy -50
 #11
 special guard~
 the guard~
-A special guard stands here, red with anger!
-~
+A special guard stands here, red with anger!~
 Angry, very angry.
 ~
 human~
@@ -65,8 +62,7 @@ r charm 33
 #12
 bear~
 a bear~
-A strong looking bear is here.
-~
+A strong looking bear is here.~
 You see nothing special about it.
 ~
 bear~
@@ -81,8 +77,7 @@ r cold -33
 #13
 fiery red demon~
 a fiery demon~
-A red, fiery demon is looking around very angry.
-~
+A red, fiery demon is looking around very angry.~
 A big red demon, you feel like it is flaming.
 ~
 unique~
@@ -95,8 +90,7 @@ stand stand male 0
 #14
 nightwalker~
 A Nightwalker~
-A Nightwalker from the shadows lurks around.
-~
+A Nightwalker from the shadows lurks around.~
 This is a Nightwalker summoned from the shadows. Bloody eyes seem glowing.
 This creature has a horible look.
 ~
@@ -114,8 +108,7 @@ r charm 33
 #15
 stalker guard~
 the stalker~
-A Stalker stands here, red with anger!
-~
+A Stalker stands here, red with anger!~
 Angry, very angry.
 ~
 storm giant~
@@ -137,9 +130,7 @@ r charm 33
 #16
 squire оруженосец~
 @eng the squire@rus оруженосец~
-@eng A squire is stands here, with a smile in his face.
-@rus Оруженосец (squire) стоит здесь с глупой улыбкой на лице.
-~
+@eng A squire is stands here, with a smile in his face.@rus Оруженосец (squire) стоит здесь с глупой улыбкой на лице.~
 @eng This noble squire is serving his apprenticeship in the ways of honor
 and chivalry under his master.
 @rus Юноша благородного происхождения. Он совершенствует свои воинские
@@ -158,9 +149,7 @@ r charm 33
 #17
 mirror~
 the mirror~
-@eng %s%s is here.
-@rus %s%s здесь.
-~
+@eng %s%s is here.@rus %s%s здесь.~
 You see nothing special about it.
 ~
 human~
@@ -179,8 +168,7 @@ r holy -50
 #18
 undead~
 the undead body of %s~
-The undead body of %s slowly staggers around.
-~
+The undead body of %s slowly staggers around.~
 You see nothing special about it.
 ~
 undead~
@@ -199,8 +187,7 @@ r light 50
 #19
 lion~
 a lion~
-A honoured looking lion is here.
-~
+A honoured looking lion is here.~
 You see nothing special about it.
 ~
 lion~
@@ -216,8 +203,7 @@ r slash -33
 #20
 wolf~
 a wolf~
-A wolf is here, looking very angrily.
-~
+A wolf is here, looking very angrily.~
 You see nothing special about it.
 ~
 wolf~
@@ -230,8 +216,7 @@ stand stand male 0
 #21
 golem голем flesh~
 a flesh golem~
-A flesh golem is here.
-~
+A flesh golem is here.~
 The golem appears to be made of flesh.
 ~
 golem~
@@ -261,8 +246,7 @@ r sound 50
 #22
 golem stone голем~
 @eng a stone golem@rus ~~каменный~~ ~~голем~~~
-A stone golem stands ready to rend its master's enemies apart.
-~
+A stone golem stands ready to rend its master's enemies apart.~
 This is a large stone statue of a man. The statue stands eight feet tall
 and looks powerful enough to rip off your head without straining.
 ~
@@ -293,8 +277,7 @@ r sound 50
 #23
 golem iron~
 @eng iron golem@rus ~~железный~~ ~~голем~~~
-A huge iron statue of a man stands here.
-~
+A huge iron statue of a man stands here.~
 This looks to be an iron statue of a human.  The statue stands a good
 fifteen feet tall.  In fact it almost looks as if it can move.  You then glance
 at it's eyes and notice with a shock that they are watching you. 
@@ -326,8 +309,7 @@ r sound 50
 #24
 golem adamantite~
 @eng an adamantite golem@rus ~~адамантитовый~~ ~~голем~~~
-An adamantite golem stands here looking very dangerous.
-~
+An adamantite golem stands here looking very dangerous.~
 It seems to be forged of dark metal.  It looks strong and durable,
 but somewhat un-intelligent.
 ~
@@ -358,8 +340,7 @@ r sound 50
 #25
 lion~
 a lion~
-A honoured looking lion is here.
-~
+A honoured looking lion is here.~
 You see nothing special about it.
 ~
 lion~
@@ -375,8 +356,7 @@ r slash -33
 #26
 shadow~
 a summoned shadow~
-A dark summoned shadow is here.
-~
+A dark summoned shadow is here.~
 You see nothingness.
 ~
 lion~
@@ -393,9 +373,7 @@ r negative 999
 #27
 cocoon~
 @eng cocoon@rus ~~кокон~~~
-@eng Half-burrowed cocoon can be spotted here.
-@rus Полузарытый в землю кокон едва виден здесь.
-~
+@eng Half-burrowed cocoon can be spotted here.@rus Полузарытый в землю кокон едва виден здесь.~
 @eng One more creation of black magic. What the hell will hatch out of
 this?
 @rus Еще одно порождение черной магии. Какая гадость вылупится из этого?
@@ -421,9 +399,7 @@ r sound 33
 #28
 bone dragon lich~
 @eng bone dragon@rus ~~костяной~~ ~~дракон~~~
-@eng Huge undead dragon unfurls his wings.
-@rus Огромный дракон (dragon) разворачивает крылья.
-~
+@eng Huge undead dragon unfurls his wings.@rus Огромный дракон (dragon) разворачивает крылья.~
 @eng This huge creature walks with a deadly grace. But a smell... It smells
 really BAD!
 @rus Походку этого огромного дракона можно назвать грациозной, но запах...
@@ -447,9 +423,7 @@ r charm -100
 #30
 cat black кошка кот~
 @eng a large black cat@rus большая черная кошка~
-@eng You see a large black cat here.
-@rus Здесь бродит большая черная кошка.
-~
+@eng You see a large black cat here.@rus Здесь бродит большая черная кошка.~
 ~
 cat~
 ADIJ 0 S G 0 0 0
@@ -464,9 +438,7 @@ r charm 999
 #31
 black familiar crow ворон~
 @eng a large black crow@rus большой черный ворон~
-@eng You see a large black crow here.
-@rus Огромный черный ворон здесь.
-~
+@eng You see a large black crow here.@rus Огромный черный ворон здесь.~
 ~
 song bird~
 ADIJ 0 S 0 0 0 0
@@ -481,8 +453,7 @@ r charm 999
 #50
 junkseller junk seller~
 Junkseller~
-A HUGE dragon is here, selling junk.
-~
+A HUGE dragon is here, selling junk.~
 This mighty dragon wants to sell some junk to you.
 ~
 dragon~

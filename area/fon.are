@@ -13,8 +13,7 @@ End
 #22451
 tiny guard~
 tiny guard~
-A tiny forest guard stand here , protecting forest.
-~
+A tiny forest guard stand here , protecting forest.~
 Before you stand tiny human wearing green camouflaged clothes.He protect
 animals and forest from hunters,woodcutters and destroers.
 He nods you and say:"Welcome to the Forest of Nowhere brave adventurer."
@@ -29,8 +28,7 @@ stand stand male 50
 #22452
 tiny guard~
 tiny guard~
-A tiny forest guard stand here , protecting forest.
-~
+A tiny forest guard stand here , protecting forest.~
 Before you stand tiny human wearing green camouflaged clothes.He protect
 animals and forest from hunters,woodcutters and destroers.
 He nods you and say:"Welcome to the Forest of Nowhere brave adventurer."
@@ -45,8 +43,7 @@ stand stand male 50
 #22453
 bullroarer hobbit~
 Bullroarer the Hobbit~
-A hobbit standing here,selling goods.
-~
+A hobbit standing here,selling goods.~
 Before you stand a Bullroarer the Hobbit.He is strudy hobbit who is
 renowned for his unusial strenght and vigor.Now he is selling some goods,
 wich he find in his travels.
@@ -63,8 +60,7 @@ r charm 999
 #22454
 bloody beast~
 bloody beast~
-A red-skinned beast growls on you.
-~
+A red-skinned beast growls on you.~
 You see a tiny red-skinned beast look like thing from the Hell.It have 
 nearly six 'feets' ,screaming with strange voice but not prepare attack
 you.Probably in his language that scream is 'Greatings'.
@@ -83,8 +79,7 @@ r light -50
 #22455
 bloody beast~
 bloody beast~
-A red-skinned beast growls on you.
-~
+A red-skinned beast growls on you.~
 You see a tiny red-skinned beast look like thing from the Hell.It have 
 nearly six 'feets' ,screaming with strange voice but not prepare attack
 you.Probably in his language that scream is 'Greatings'.
@@ -103,8 +98,7 @@ r light -50
 #22456
 guard small~
 small guard~
-A small forest guard stand here , watching carefully.
-~
+A small forest guard stand here , watching carefully.~
 Before you stand small human wearing green armor.He protect trees and
 animals from forest destroers.He nods you and say:"Welcome to the Forest
 of Nowhere brave adventurer.You find here peace and safety."
@@ -119,8 +113,7 @@ stand stand male 100
 #22457
 guard small~
 small guard~
-A small forest guard stand here , watching carefully.
-~
+A small forest guard stand here , watching carefully.~
 Before you stand small human wearing green armor.He protect trees and
 animals from forest destroers.He nods you and say:"Welcome to the Forest
 of Nowhere brave adventurer.You find here peace and safety."
@@ -135,8 +128,7 @@ stand stand male 100
 #22458
 icky thing white~
 white Icky Thing~
-A small icky thing moons on you.
-~
+A small icky thing moons on you.~
 It is a sort of pile of slime one legs  with rudimentary intelligence with evil cunning.
 That strange creature hugers for you food.It moving chaotically and moons
 on intruders.Its smell is very strong and voice of its moons are very unlike.
@@ -154,8 +146,7 @@ r light -50
 #22459
 icky thing blubbering~
 blubbering Icky Thing~
-A small icky thing moons on you.
-~
+A small icky thing moons on you.~
 It is a sort of pile of slime one legs  with rudimentary intelligence with evil cunning.
 That strange creature hugers for you food.It moving chaotically and moons
 on intruders.Its smell is very strong and voice of its moons are very unlike.
@@ -173,8 +164,7 @@ r light -50
 #22460
 guard medium~
 medium guard~
-A medium forest guard stand here,guarding.
-~
+A medium forest guard stand here,guarding.~
 Before you stand medium-sized human wearing green armor.He guard forest and
 hus native creatures and punish enemies of this forest.
 He nods you and say :"Welcome to the Forest of Nowhere brave adventurer".
@@ -192,8 +182,7 @@ r holy 33
 #22461
 guard medium~
 medium guard~
-A medium forest guard stand here,guarding.
-~
+A medium forest guard stand here,guarding.~
 Before you stand medium-sized human wearing green armor.He guard forest and
 hus native creatures and punish enemies of this forest.
 He nods you and say :"Welcome to the Forest of Nowhere brave adventurer".
@@ -211,8 +200,7 @@ r holy 33
 #22462
 clear naga~
 Clear naga~
-A strange clear naga flyig here , dances in the air.
-~
+A strange clear naga flyig here , dances in the air.~
 A wraithly snakelike form with the torso of beautiful woman,the most 
 powerful of it's kind.On its back you can seel a wings and his eyes have hyp
 nothical power.It dance in the air and sing strange songs try to hypnotize you.
@@ -230,8 +218,7 @@ r light -50
 #22463
 naga spirit~
 spirit naga~
-A strange clear naga flyig here , dances in the air.
-~
+A strange clear naga flyig here , dances in the air.~
 A wraithly snakelike form with the torso of beautiful woman,the most 
 powerful of it's kind.On its back you can seel a wings and his eyes have hyp
 nothical power.It dance in the air and sing strange songs try hypnotize you.
@@ -251,8 +238,7 @@ r light -50
 #22464
 naga spirit queen~
 Queen of Nagas~
-A mighty naga flying here ,prepare for battle.
-~
+A mighty naga flying here ,prepare for battle.~
 A wraithly snakelike form with the torso of beautiful woman,the most 
 powerful of it's kind.On its back you can seel a wings and his eyes have hyp
 nothical power.It dance in the air and sing strange songs try hypnotize you.
@@ -284,8 +270,7 @@ r sound 33
 #22465
 tellias ranger guard~
 Tellias~
-Tellias Ranger Guard of FoN stands here.
-~
+Tellias Ranger Guard of FoN stands here.~
 Before you stand a tall man in light mithril chainmailand green cape.
 His black hair,blue piercing eyes and musculed arms are a testimony to
 his fighting prowess and physical fitness.In his hands you see ancient
@@ -304,8 +289,7 @@ r charm 999
 #22466
 mifner captain burner~
 Mifner~
-Mifner Captain of forest burners stands here.
-~
+Mifner Captain of forest burners stands here.~
 Before you stand a giant man in black and red armor.In his breastpate
 you see a sign : white skull surrounded red fire.He is look like brigand
 and in his red eyes you see a flame of evilness and hate of all forest
@@ -325,8 +309,7 @@ r charm 999
 #22467
 large forest guard~
 large guard~
-A large forest guard prepares for fight with burners.
-~
+A large forest guard prepares for fight with burners.~
 A young man dressed in superb leather armour and green stands here,
 longbow strapped comfortably over his back and a longsword by his
 side. He has dark black hair, and has features which are both kind
@@ -347,8 +330,7 @@ r charm 999
 #22468
 giant guard~
 giant guard~
-A giant forest guard stand here ,prepates for battle with destroers.
-~
+A giant forest guard stand here ,prepates for battle with destroers.~
 This massive guard wearing green clothes flexing his muscules in preparation
 for upcoming battle to punish burners destroeres and his darkfriends.
 ~
@@ -366,8 +348,7 @@ r sound -50
 #22469
 forest burner man~
 forest burner~
-A tall man stand here burn forest.
-~
+A tall man stand here burn forest.~
 A man with red armor stand here.In his arms you see a box of matches 
 and you see that hi wants to burn this beautiful forest.You can attack
 or help him but you think kill him is hard doing.
@@ -386,8 +367,7 @@ r charm 40
 #22470
 name man destroer~
 forest destroer~
-A tall man stand here , prepare to destroy forest.
-~
+A tall man stand here , prepare to destroy forest.~
 This massive man wearing black armor flexing his muscules in preparation
 for destroy forest by twin-bladed black axe which you see in his hands.
 ~
@@ -405,8 +385,7 @@ r sound -50
 #22471
 giant cracken~
 Giant cracken~
-A giant cracken swimming here , attack itruders.
-~
+A giant cracken swimming here , attack itruders.~
 Its very strange being.It protected by large brown scales from attack.
 Its blood red eyes looks on you search you defensiveless place.
 Strange aura surrounds its - aura of pain and blood and doing a sound
@@ -429,8 +408,7 @@ r mental 30
 #22472
 human sergeant~
 human sergeant~
-A human sergeant stand here , watch to intruders.
-~
+A human sergeant stand here , watch to intruders.~
 Before you stand a tall man wearing jewel encrusted clothes.In his shoulder
 you can see a sergeant sign.He have a blue eyes and short black hair, his 
 arms lies on jewel-encrusted hilt of his sword , but you see that a place
@@ -452,8 +430,7 @@ r cold 20
 #22473
 troll small rumpelsteelskin~
 rumpelsteelskin~
-A small black troll standing here defend his home.
-~
+A small black troll standing here defend his home.~
 Before you stand a small black troll with huge peace of metal.
 He looks on you, licks his mouth and say: "Ye brimme a food?"
 ~

@@ -12,9 +12,7 @@ End
 #8100
 spectre призрак~
 @eng a spectre@rus призрак~
-@eng A Spectre screams at you and attacks!
-@rus Призрак (spectre) с криком бросился к тебе.
-~
+@eng A Spectre screams at you and attacks!@rus Призрак (spectre) с криком бросился к тебе.~
 @eng The spirit of some former minion of this place, this foul Undead creature
 will do its best you meet the same fate as all previous intruders in this
 fell domain- DEATH.
@@ -40,9 +38,7 @@ r light 50
 #8101
 wraith дух~
 @eng a wraith@rus дух~
-@eng A Wraith strides  silently toward you, death in its glowing red eyes.
-@rus Дух (wraith) медленно и неслышно приближается к тебе.
-~
+@eng A Wraith strides  silently toward you, death in its glowing red eyes.@rus Дух (wraith) медленно и неслышно приближается к тебе.~
 @eng The spirit of some former minion of this place, this foul Undead creature
 will do its best you meet the same fate as all previous intruders in this
 fell domain- DEATH.
@@ -68,9 +64,7 @@ r light 50
 #8102
 wight~
 @eng a wight@rus ~~призрачная~~ ~~фигура~~~
-@eng A ghastly wight, still clad in the armor it wore in life, strikes at you.
-@rus Призрачная фигура (wight), все еще одетая в то, что носила при жизни, ударила тебя.
-~
+@eng A ghastly wight, still clad in the armor it wore in life, strikes at you.@rus Призрачная фигура (wight), все еще одетая в то, что носила при жизни, ударила тебя.~
 @eng The spirit of some former minion of this place, this foul Undead creature
 will do its best you meet the same fate as all previous intruders in this
 fell domain- DEATH.
@@ -96,9 +90,7 @@ r light 50
 #8103
 ghost привидение призрак~
 @eng a ghost@rus призрак~
-@eng The ghost of some long-dead adventurer howls maniacally at you.
-@rus Призрак (ghost) давно уже умершего путешественника, завывая, направляется к тебе.
-~
+@eng The ghost of some long-dead adventurer howls maniacally at you.@rus Призрак (ghost) давно уже умершего путешественника, завывая, направляется к тебе.~
 @eng The spirit of some former minion of this place, this foul Undead creature
 will do its best you meet the same fate as all previous intruders in this
 fell domain- DEATH.
@@ -124,9 +116,7 @@ r light 50
 #8104
 vampire вампир~
 @eng a vampire@rus вампир~
-@eng An evil vampire rises from the sarcophagus, bares its fangs and attacks!
-@rus Вампир (vampire) вылез из саркофага, обнажил зубы и напал на тебя.
-~
+@eng An evil vampire rises from the sarcophagus, bares its fangs and attacks!@rus Вампир (vampire) вылез из саркофага, обнажил зубы и напал на тебя.~
 @eng The Evil Baron and his two brothers were vampires imprisoned here by Xanan
 centuries ago, who had not the power to slay them utterly, and now thanks
 to your disturbance they have risen again!
@@ -153,9 +143,7 @@ r charm -100
 #8105
 lich лич~
 @eng a lich@rus лич~
-@eng An insane Lich cackles hideously and unleashes a volley of spells.
-@rus Безумный лич (lich), отвратительно захихикав, пробормотал заклинание.
-~
+@eng An insane Lich cackles hideously and unleashes a volley of spells.@rus Безумный лич (lich), отвратительно захихикав, пробормотал заклинание.~
 @eng This powerful Undead is actually Xantharus' former master, whom he betrayed
 and slew. But he underestimated his master's power, and now he as returned
 as a Lich, seeking revenge!
@@ -185,9 +173,7 @@ r sound 33
 #8106
 demon демон~
 @eng a lesser demon@rus ~~малый~~ ~~демон~~~
-@eng A Lesser Demon slobbers, drolls and cackles insanely!
-@rus Малый демон (demon) паясничает, пускает слюни и хохочет как безумный.
-~
+@eng A Lesser Demon slobbers, drolls and cackles insanely!@rus Малый демон (demon) паясничает, пускает слюни и хохочет как безумный.~
 @eng This grotesque is a minion of the lower planes drawn here by the intense
 concentration of negative material energy.
 @rus Это уродливое существо -- одно из низших созданий, очутившееся здесь
@@ -210,9 +196,7 @@ r light 50
 #8107
 revenant spirit призрак~
 @eng a revenant@rus призрак~
-@eng The spirit of a mortal horribly wronged has returned as a Revenant.
-@rus Дух смертного, несправедливо осужденного, вернулся в виде призрака (revenant).
-~
+@eng The spirit of a mortal horribly wronged has returned as a Revenant.@rus Дух смертного, несправедливо осужденного, вернулся в виде призрака (revenant).~
 @eng This poor soul was once a powerful, good priest of Soleil who was betrayed
 by agents of the evil Gomez and tortured and slain by them. His spirit has
 returned here, seeking out the long-dead fellows who slew him. He will 
@@ -240,9 +224,7 @@ r light 50
 #8108
 spirit haunt дух призрак привидение~
 @eng a haunt@rus дух~
-@eng The spirit of an adventurer slain here long ago is now bound here as a Haunt.
-@rus Дух (haunt) путника, убитого здесь, неприкаянно бродит вокруг.
-~
+@eng The spirit of an adventurer slain here long ago is now bound here as a Haunt.@rus Дух (haunt) путника, убитого здесь, неприкаянно бродит вокруг.~
 @eng This spirit was once a powerful warrior who, on a wager, entered Ghost Town.
 He was quickly slain by the inhabitants, but such was his distress at his
 death, his spirit remained behind to haunt the area where he met his end.
@@ -268,9 +250,7 @@ r light 50
 #8109
 crypt thing создание~
 @eng a crypt thing@rus ~~могильное~~ ~~создание~~~
-@eng A Crypt Thing cackles evilly and taunts you.
-@rus Могильное создание (thing) злобно насмехается над тобой.
-~
+@eng A Crypt Thing cackles evilly and taunts you.@rus Могильное создание (thing) злобно насмехается над тобой.~
 @eng This fell creature will not attack you, despite its evil- it will merely
 taunt you, though it will not hesitate to defend itself.
 @rus Это ужастное создание не собирается на тебя нападать. Не смотря на
@@ -292,9 +272,7 @@ r light 50
 #8110
 greater demon демон~
 @eng a greater demon@rus ~~большой~~ ~~демон~~~
-@eng A Greater demon spews forth fire and gas!
-@rus Большой демон (demon) возник из дыма и огня.
-~
+@eng A Greater demon spews forth fire and gas!@rus Большой демон (demon) возник из дыма и огня.~
 @eng This grotesque is a minion of the lower planes drawn here by the intense
 concentration of negative material energy.
 @rus Это уродливое существо -- одно из низших созданий, очутившееся здесь
@@ -316,9 +294,7 @@ r light 50
 #8111
 dragon undead призрак~
 @eng an undead dragon@rus ~~дракон~~-~~призрак~~~
-@eng An Undead Dragon belches forth poisonous fumes!
-@rus Дракон-призрак (dragon) выдохнул облако ядовитого газа.
-~
+@eng An Undead Dragon belches forth poisonous fumes!@rus Дракон-призрак (dragon) выдохнул облако ядовитого газа.~
 @eng This foul Dracolich is the undead spirit of a dragon that served Xantharus
 so well in life that he animated it to continue serving him after its
 death.
@@ -342,9 +318,7 @@ r light 50
 #8112
 monster нежить undead~
 @eng an undead monster@rus нежить~
-@eng An undead monster shambles forth and attacks!
-@rus Нежить (monster) шаркающей походкой направилась к тебе.
-~
+@eng An undead monster shambles forth and attacks!@rus Нежить (monster) шаркающей походкой направилась к тебе.~
 @eng The spirit of some former minion of this place, this foul Undead creature
 will do its best you meet the same fate as all previous intruders in this
 fell domain- DEATH.
@@ -370,9 +344,7 @@ r light 50
 #8113
 rat крыса giant~
 @eng a giant rat@rus ~~гигантская~~ ~~крыса~~~
-@eng A GIANT Rat savagely charges you!
-@rus Гиганская крыса (rat) вцепилась тебе в ногу.
-~
+@eng A GIANT Rat savagely charges you!@rus Гиганская крыса (rat) вцепилась тебе в ногу.~
 @eng When I say GIANT, I am talking ten feet high...
 @rus Существо аж десяти футов ростом с горящими красными глазами.
 ~
@@ -386,9 +358,7 @@ stand stand none 5000
 #8114
 spider паук giant~
 @eng a giant spider@rus ~~гигантский~~ ~~паук~~~
-@eng A GIANT Spider drops down on you!
-@rus Гигантский паук (spider) упал сверху на тебя.
-~
+@eng A GIANT Spider drops down on you!@rus Гигантский паук (spider) упал сверху на тебя.~
 @eng When I say GIANT, I am talking ten feet high...
 @rus Мохнатое чудище 10-ти футов ростов. Ужас.
 ~
@@ -404,9 +374,7 @@ r poison -50
 #8115
 lurker above притаившийся призрак~
 @eng a lurker above@rus ~~притаившийся~~ ~~призрак~~~
-@eng A Lurker Above seeks to enfold and suffocate you!
-@rus Притаившись, призрак (lurker) ждет момента, чтобы обнять и задушить жертву.
-~
+@eng A Lurker Above seeks to enfold and suffocate you!@rus Притаившись, призрак (lurker) ждет момента, чтобы обнять и задушить жертву.~
 @eng This foul abberration feeds on any and all that enter its lair- even the
 corporeal undead avoid it...
 @rus Это мерзкое создание питается всем, что попадает в его логово. Даже
@@ -423,9 +391,7 @@ g @eng none@rus male~
 #8116
 succubus woman суккуб~
 @eng a succubus@rus суккуб~
-@eng A beautiful female smiles charmingly at you, revealing sharp fangs...
-@rus Прекрасная женщина (woman) очаровательно улыбается тебе, показывая острые зубы...
-~
+@eng A beautiful female smiles charmingly at you, revealing sharp fangs...@rus Прекрасная женщина (woman) очаровательно улыбается тебе, показывая острые зубы...~
 @eng OUCH! Its a Succubus. She will charm you, then waste you. FIGHT!
 @rus Ой! Да это же суккуб. Она сначала очарует, а потом высосет из тебя все
 соки и поможет умереть. С ней нужно говорить только на языке грубой силы.
@@ -444,9 +410,7 @@ r poison -100
 #8117
 necromancer xantharus ксантарус некромансер~
 @eng Xantharus@rus Ксантарус~
-@eng A timid-looking Necromancer begs to be freed.
-@rus Дрожащий некромансер (necromancer) мечтает выбраться отсюда.
-~
+@eng A timid-looking Necromancer begs to be freed.@rus Дрожащий некромансер (necromancer) мечтает выбраться отсюда.~
 @eng This pathetic wretch is none other than Xantharus, the evil mage that brought
 the Undead to this town, destroying it, before losing control of them. He
 has fled here, in the hopes that they won't find him before he finds a way
@@ -468,9 +432,7 @@ g @eng none@rus male~
 #8118
 corpse rotting разлагающийся труп~
 @eng a rotting corpse@rus ~~разлагающийся~~ ~~труп~~~
-@eng A Rotting Corpse staggers clumsily toward you.
-@rus Разлагающийся труп (corpse) медленно, пошатываясь, движется к тебе.
-~
+@eng A Rotting Corpse staggers clumsily toward you.@rus Разлагающийся труп (corpse) медленно, пошатываясь, движется к тебе.~
 @eng This thing and its fellows are what remains of the citizens of this once-
 fine town, reduced to a horrid state of undeath. Slaying them would be the
 best thing you could do for them...
@@ -494,9 +456,7 @@ r light 50
 #8119
 master нечисти повелитель~
 @eng the master@rus ~~повелитель~~ нечисти~
-@eng The Master surveys his domain and laughs evilly.
-@rus Повелитель (master) нечисти оглядывает свою вотчину и злобно усмехается.
-~
+@eng The Master surveys his domain and laughs evilly.@rus Повелитель (master) нечисти оглядывает свою вотчину и злобно усмехается.~
 @eng Little is known of this mysterious stranger who came here and took control
 after the weak Xantharus lost control of his creations. He is a powerful,
 diabolically evil mage, and will not hesitate to destroy you.
@@ -514,9 +474,7 @@ stand stand none 5300
 #8120
 mound холм shambling~
 @eng a shambling mound@rus ~~могильный~~ ~~холм~~~
-@eng A Shambling Mound... well... shambles toward you.
-@rus Странно. Могильный холм (mound) приближается к тебе, издавая шаркающие звуки.
-~
+@eng A Shambling Mound... well... shambles toward you.@rus Странно. Могильный холм (mound) приближается к тебе, издавая шаркающие звуки.~
 @eng RUN! A twelve-foot high pile of garbage is attacking you!
 @rus ААА! Бежать, скорее бежать. Огромная куча мусора и каких-то частей тела
 двадцати футов в высоту напала на тебя.
@@ -531,9 +489,7 @@ stand stand none 5200
 #8121
 kampflut кампфлут~
 @eng a kampflut@rus ~~кампфлут~~~
-@eng A Kampflut attacks!
-@rus Кампфлут (kampflut) напал на тебя!
-~
+@eng A Kampflut attacks!@rus Кампфлут (kampflut) напал на тебя!~
 @eng This hideous, animated tree resembles an ancient oak with tentacle-like
 branches and a huge toothed maw. Despite its nasty demeanour, it is not
 evil- it is simply hungry.
@@ -557,9 +513,7 @@ r light 50
 #8122
 black pudding пудинг~
 @eng a black pudding@rus ~~черный~~ ~~пудинг~~~
-@eng A Black Pudding slowly rolls toward you.
-@rus Черный пудинг (pudding) медленно ползет вслед за тобой.
-~
+@eng A Black Pudding slowly rolls toward you.@rus Черный пудинг (pudding) медленно ползет вслед за тобой.~
 @eng This huge black blob will dissolve weapons and armor it gets the chance,
 then it will devour you!
 @rus Этот большой черный пузырь растворит и одежду и оружие, а потом доберется
@@ -581,9 +535,7 @@ r light 50
 #8123
 green slime слизь~
 @eng green slime@rus ~~зеленая~~ ~~слизь~~~
-@eng A patch of Green Slime drips on you, burning your skin!
-@rus Кусок зеленой слизи (slime) капнул на тебя и обжег.
-~
+@eng A patch of Green Slime drips on you, burning your skin!@rus Кусок зеленой слизи (slime) капнул на тебя и обжег.~
 @eng Green Slime can dissolve even metal, so imagine what it would do to your
 skin...
 @rus Эта слизь может прожечь даже металл, что уж тут говорить о твоей коже.
@@ -604,9 +556,7 @@ r light 50
 #8124
 ooze gray лужа~
 @eng a gray ooze@rus ~~лужа~~ грязи~
-@eng A pile of gray liquid oozes toward you.
-@rus Лужа серой жидкой грязи (ooze) медленно движется в твоем направлении.
-~
+@eng A pile of gray liquid oozes toward you.@rus Лужа серой жидкой грязи (ooze) медленно движется в твоем направлении.~
 @eng "Oh," I hear you say. "How threatening". Well, just you wait!
 @rus О! Мне послышалось ты сказал "Ой как страшно"... Ты только подожди...
 ~
@@ -626,9 +576,7 @@ r light 50
 #8125
 animated tree дерево~
 @eng an animated tree@rus ~~мертвое~~ ~~дерево~~~
-@eng An Animated Tree bashes you with its branches.
-@rus Полусгнившее дерево (tree) сильно ударило тебя своими ветвями.
-~
+@eng An Animated Tree bashes you with its branches.@rus Полусгнившее дерево (tree) сильно ударило тебя своими ветвями.~
 @eng This tree is bad and evil- it is an anti-treant :)
 @rus Это дерево насквозь пропитано злом и порчей.
 ~
@@ -648,9 +596,7 @@ r light 50
 #8126
 tree spirit дух~
 @eng a tree spirit@rus ~~Дух~~ дерева~
-@eng A Tree Spirit offers you shelter in this place of evil.
-@rus Дух дерева (spirit) предоставляет тебе возможность укрыться от витающего вокруг зла.
-~
+@eng A Tree Spirit offers you shelter in this place of evil.@rus Дух дерева (spirit) предоставляет тебе возможность укрыться от витающего вокруг зла.~
 @eng This spirit is the only good creature in this place. She can guard you
 while you rest, and perhaps heal your wounds if you pay her enough...
 @rus Этот дух единственное доброе существо здесь. Он будет охранять тебя пока
@@ -671,9 +617,7 @@ r fire 50
 #8127
 death knight призрак рацарь~
 @eng a death knight@rus ~~призрак~~ рыцаря~
-@eng A Death Knight salutes you then attacks!
-@rus Призрак рыцаря (knight), отсалютовав, напал на тебя.
-~
+@eng A Death Knight salutes you then attacks!@rus Призрак рыцаря (knight), отсалютовав, напал на тебя.~
 @eng This is the spirit of a Paladin corrupted by the evil of the Master, doomed
 to an eternity as an undead servant. Clad in ornate, ancient armor and 
 wielding a shiny silver sword, he would look as he did in life save for his
@@ -698,9 +642,7 @@ r disease -100
 #8128
 nightmare кошмар~
 @eng a nightmare@rus кошмар~
-@eng A Nightmare, loyal steed of the denizens of the Lower Planes, rests here.
-@rus Кошмар (nightmare), верный спутник порождений мрака, отдыхает здесь.
-~
+@eng A Nightmare, loyal steed of the denizens of the Lower Planes, rests here.@rus Кошмар (nightmare), верный спутник порождений мрака, отдыхает здесь.~
 @eng This black, winged equine hell-steed waits patiently for its master to finish 
 its business here before bearing it to its next destination.
 @rus Черное, крылатое существо, ожидает, когда его хозяин окончит свои дела
@@ -722,9 +664,7 @@ r light 50
 #8129
 retriever собака~
 @eng a retriever@rus ~~охотничья~~ ~~собака~~~
-@eng A retriever rears on four of its legs and strikes.
-@rus Охотничья собака (retriever) бросилась к тебе.
-~
+@eng A retriever rears on four of its legs and strikes.@rus Охотничья собака (retriever) бросилась к тебе.~
 @eng This demon resembles a huge dog with razor sharp blades for legs
 and glowing gems for eyes.
 @rus Этот демон похож на огромную собаку с острыми когтями похожими на
@@ -747,9 +687,7 @@ r light 50
 #8130
 cambion scout соглядатай~
 @eng a cambion scout@rus соглядатай~
-@eng A Cambion Scout eyes you cautiously.
-@rus Соглядатай (scout) внимательно за тобой наблюдает.
-~
+@eng A Cambion Scout eyes you cautiously.@rus Соглядатай (scout) внимательно за тобой наблюдает.~
 @eng This half-man, half-demon creature is a scout for Orcus, Prince of the 
 Undead. He is here on a covert mission, and thus will avoid trouble if at
 all possible. He is attempting to ascertain the degree of power of the
@@ -774,9 +712,7 @@ r poison -100
 #8131
 orcus оркус~
 @eng Orcus@rus Оркус~
-@eng Orcus, Prince of the Undead, glowers menacingly at you.
-@rus Оркус (Orcus) сердито глядит на тебя.
-~
+@eng Orcus, Prince of the Undead, glowers menacingly at you.@rus Оркус (Orcus) сердито глядит на тебя.~
 @eng Whoa. You are standing before Orcus. He resembles a bloated man twenty
 feet tall with a bull's nose and eyes, and goat's horns and hooves. He
 grips a rod with a goat's head in one hoof, and glares suspiciously at you.
@@ -797,9 +733,7 @@ stand stand none 5000
 #8132
 weird ужас water~
 @eng a water weird@rus ~~водяной~~ ~~ужас~~~
-@eng A Water Weird lunges at you!
-@rus Водяной ужас (weird) стремительно бросился на тебя.
-~
+@eng A Water Weird lunges at you!@rus Водяной ужас (weird) стремительно бросился на тебя.~
 @eng This watery snake resides in the well.
 @rus Водяной змей, обитающий в колодце.
 ~
@@ -815,9 +749,7 @@ r poison -33
 #8133
 spider giant паук~
 @eng a giant spider@rus ~~гигантский~~ ~~паук~~~
-@eng A GIANT Spider drops down on you!
-@rus Гигантский паук (spider) свалился на тебя сверху.
-~
+@eng A GIANT Spider drops down on you!@rus Гигантский паук (spider) свалился на тебя сверху.~
 @eng When I say GIANT, I am talking ten feet high...
 @rus Когда я говорил гигантский, я имел ввиду 10 футов высотой...
 ~
@@ -834,9 +766,7 @@ r poison -50
 #8134
 baron vampire вампир барон~
 @eng a baron vampire@rus ~~барон~~-~~вампир~~~
-@eng The Baron vampire rises from the sarcophagus, bares its fangs and attacks!
-@rus Барон-вампир (baron) вылез из саркофага, обнажил зубы и напал на тебя.
-~
+@eng The Baron vampire rises from the sarcophagus, bares its fangs and attacks!@rus Барон-вампир (baron) вылез из саркофага, обнажил зубы и напал на тебя.~
 @eng The Evil Baron and his two brothers were vampires imprisoned here by Xanan
 centuries ago, who had not the power to slay them utterly, and now thanks
 to your disturbance they have risen again!
@@ -1123,7 +1053,7 @@ sign знак~
                        Population : 0
 
 
-@rus             Добро пожаловать в город призраков.
+@rus .            Добро пожаловать в город призраков.
 
 Население: 0.
 ~
@@ -3932,9 +3862,9 @@ E 0 8110 0 17		*	the master<held in the hands>: a Power Gem
 G 0 8120 0		*	the master: a key
 M 0 8116 1 8153 1	* a succubus (A Bedroom)
 O 0 8115 0 8153	* a jar (A Bedroom)
-P 0 8116 0 0 1	* a jar: some poison
+P 0 8116 10 0 1	* a jar: some poison
 O 0 8106 0 8153	* a chest (A Bedroom)
-P 0 8105 0 0 1	* a chest: a treasure hoard
+P 0 8105 10 0 1	* a chest: a treasure hoard
 M 0 8105 1 8154 1	* a lich (A Bedroom)
 E 0 8101 0 9		*	a lich<on the hands>: the Hand of Vecna
 E 0 8102 0 6		*	a lich<over the head>: the Eye of Vecna

@@ -12,9 +12,7 @@ End
 #901
 zeus god зевс~
 @eng Zeus@rus Зевс~
-@eng Zeus sits here on a throne.
-@rus Зевс (Zeus) Олимпийский восседает на троне.
-~
+@eng Zeus sits here on a throne.@rus Зевс (Zeus) Олимпийский восседает на троне.~
 @eng You see before you the greatest of the Olympians.  It seems as if he could
 destroy you with a thought.  Every glance penetrates deep into your soul.
 You now know what true fear is.
@@ -36,10 +34,9 @@ r lightning 999
 r holy 50
 r charm 999
 #902
-prometheus~
-Prometheus~
-Prometheus is here, playing with a match.
-~
+prometheus прометей~
+@eng Prometheus@rus Прометей~
+Prometheus is here, playing with a match.~
 This mortal risked the wrath of Zeus to give the gift of fire to humans.  He
 looks up at you and smiles.
 ~
@@ -52,10 +49,9 @@ stand stand male 2000
 0 0 medium unknown
 r charm 999
 #903
-hermes~
-Hermes~
-Hermes is busy, delivering a message.
-~
+hermes гермес~
+@eng Hermes@rus Гермес~
+Hermes is busy, delivering a message.~
 This is the messenger of the Gods.  He wears a winged helm and boots, and
 darts from place to place.  He looks very busy, and it seems as if he doesn't
 even notice your presence.
@@ -72,8 +68,7 @@ r charm 999
 #904
 poseidon~
 Poseidon~
-Poseidon is dining here.
-~
+Poseidon is dining here.~
 He is the brother of Zeus himself, chosen to rule the seas.  He must be
 visiting Mount Olympus.  He nods at you and motions for you to enter and
 have a seat.
@@ -88,13 +83,16 @@ sit stand male 5000
 r acid 66
 r charm 999
 #905
-apollo~
-Apollo~
-Apollo is here, playing a tune.
-~
-This jovial God is strumming on a lyre.  He smiles at you and asks you to
+apollo аполлон~
+@eng Apollo@rus Аполлон~
+@eng Apollo is here, playing a tune.@rus Аполлон (Apollo) играет прекрасную мелодию.~
+@eng This jovial God is strumming on a lyre.  He smiles at you and asks you to
 join him.  You notice a dangerous looking bow by his side, however, and think
 that he knows more than music.
+@rus Этот веселый общительный бог играет на лире. Но у него за спиной
+ты замечаешь грозно выглядящий лук.  Ясно,  что он знает кое-что
+помимо музыки. Аполлон улыбнулся и пригласил тебя присоединиться
+к нему.
 ~
 human~
 BCEJ 0 HNT A AB 1000 0
@@ -107,8 +105,7 @@ r charm 999
 #906
 ares~
 Ares~
-Ares is here, kicking your ass.
-~
+Ares is here, kicking your ass.~
 The God of War is here, studying some maps.  He scowls at you as you enter
 and says 'I am very busy.  What do you want?'
 ~
@@ -124,12 +121,14 @@ r pierce 33
 r slash 33
 r charm 999
 #907
-athena~
-Athena~
-Athena is relaxing here.
-~
-Zeus' favorite daughter is sitting on a couch eating grapes.  She smiles at
+athena афина~
+@eng Athena@rus Афина~
+@eng Athena is relaxing here.@rus Сама Афина (Athena) отдыхает здесь.~
+@eng Zeus' favorite daughter is sitting on a couch eating grapes.  She smiles at
 you and invites you to join her.
+@rus Любимая дочь Зевса. Она возлежит на кушетке, лакомясь
+виноградом. Афина улыбнулась тебе и пригласила присо-
+единиться.
 ~
 human~
 BCEJ 0 HNT A AB 1000 0
@@ -141,8 +140,7 @@ stand stand female 3000
 #908
 hephaestus smith гефест~
 Hephaestus~
-Hephaestus the Smith is here, crafting a fine weapon.
-~
+Hephaestus the Smith is here, crafting a fine weapon.~
 This God is the only one who is not physically perfect.  He is lame and very
 ugly.  You get the impression that he is kind, however, and would go out of his
 way to help you.  He is attended by three golden maidens.
@@ -158,8 +156,7 @@ r charm 999
 #909
 handmaid golden~
 A Golden Maiden~
-A Handmaid of gold is here, assisting the smith.
-~
+A Handmaid of gold is here, assisting the smith.~
 As you gaze upon this creation, you realize that she is made from solid
 gold.  She seems to be very lifelike as she assists the smith in his work.
 ~
@@ -173,8 +170,7 @@ stand stand female 50
 #910
 soldier~
 A Soldier~
-A soldier is here, assisting Ares.
-~
+A soldier is here, assisting Ares.~
 This man is waiting on Ares.  Although he does not look very strong, you
 realize that Ares would not have any weaklings working for him.
 ~
@@ -186,12 +182,13 @@ EFNU
 stand stand male 250
 0 0 medium unknown
 #911
-musician apprentice~
-an apprentice musician~
-A musician is here, learning from Apollo.
-~
-This man has mastered his first profession, and is now studying music from the
+musician apprentice музыкант~
+@eng an apprentice musician@rus ~~начинающий~~ ~~музыкант~~~
+@eng A musician is here, learning from Apollo.@rus Начинающий музыкант (musician) слушает лиру Аполлона.~
+@eng This man has mastered his first profession, and is now studying music from the
 immortal Apollo.
+@rus Этот человек полностью овладел своей первой профессией, потому
+теперь он здесь изучает музыку под руководством самого Аполлона.
 ~
 human~
 BC 0 HT A AB 1000 0
@@ -201,10 +198,9 @@ EFNU
 stand stand male 125
 0 0 medium unknown
 #912
-boy serving servant~
-A serving boy~
-A servant is here, feeding Athena her grapes.
-~
+boy serving servant мальчик~
+@eng A serving boy@rus мальчик~
+@eng A servant is here, feeding Athena her grapes.@rus Мальчик, прислуживает Афине, поднося ей виноград.~
 This boy is truly lucky to be able to serve Athena herself.
 ~
 human~
@@ -217,8 +213,7 @@ stand stand male 25
 #913
 hound dog war~
 A hound of war~
-A large hound snarls at you.
-~
+A large hound snarls at you.~
 This great beast can barely be called a dog.  It has been bred to cause fear
 on the battle field, and you have no doubt that it does its job well.
 ~
@@ -232,8 +227,7 @@ stand stand none 0
 #914
 Odin~
 Odin~
-Odin is resting here.
-~
+Odin is resting here.~
 As you gaze at Odin, you realize how insignificant you truly are.  He towers
 over you, and is so intent on his activities that he barely recognizes your
 presence.
@@ -249,8 +243,7 @@ r charm 999
 #915
 grocer greengrocer julius~
 Julius the Green Grocer~
-Julius the Green Grocer stands here.
-~
+Julius the Green Grocer stands here.~
 This jovial man has devoted his life to selling fruit and other foods to the
 inhabitants of this city.  Although he may seem like a wimp, it would be wise
 not to underestimate him.  He smiles warmly at you and shows you his selection
@@ -267,8 +260,7 @@ r charm 999
 #916
 alchemist~
 the Alchemist~
-The ancient, wizened Alchemist stands here.
-~
+The ancient, wizened Alchemist stands here.~
 Skilled in all manner of magic, as well as the ancient art of alchemy, he
 stands ready to supply the citizens here (but not you) with all manner of
 arcane supplies.
@@ -284,8 +276,7 @@ r charm 999
 #917
 clive~
 Clive the Weapons Master~
-Clive the Weapons Master is practicing with his bow and axe.
-~
+Clive the Weapons Master is practicing with his bow and axe.~
 Clive looks VERY big and VERY tough.  All those years in the army must have
 paid off.
 ~
@@ -299,8 +290,7 @@ stand stand male 2000
 #918
 armourer samuel~
 Samuel the Armourer~
-Samuel the Armourer glares at you.
-~
+Samuel the Armourer glares at you.~
 Samuel looks just like Clive the Weapons Master: VERY big and VERY tough.
 He doesn't like what you've been doing in his city.
 ~
@@ -312,10 +302,9 @@ EFNU
 stand stand male 500
 0 0 medium unknown
 #919
-ra sun god~
-Ra the Sun God~
-Ra the Egyptian Sun God is resting here.
-~
+ra sun god ра бог солнце~
+@eng Ra the Sun God@rus Ра, ~~бог~~ солнца~
+@eng Ra the Egyptian Sun God is resting here.@rus Ра (Ra), египетский бог солнца, отдыхает здесь.~
 Ra is very bright!  It hurts your eyes to look at him, so you can tell little
 about his appearance.  What you can tell, however, suggests that he is no one
 to be trifled with.
@@ -333,8 +322,7 @@ r charm 999
 #920
 chimera химера~
 @eng a chimera@rus химера~
-A chimera prowls the cell.
-~
+A chimera prowls the cell.~
 This bizarre creature has three heads - one of a goat, one of a lion, and one
 of a dragon.  It growls at you as you enter the cell, then suddenly attacks!
 ~
@@ -347,12 +335,13 @@ stand stand male 50
 0 0 medium unknown
 g @eng male@rus female~
 #921
-hera~
-Hera~
-Hera is here.
-~
-Hera, the wife of Zeus is here.  She smiles at you as you enter and invites you
+hera гера~
+@eng Hera@rus Гера~
+@eng Hera is here.@rus Гера (Hera) с интересом глядит на тебя.~
+@eng Hera, the wife of Zeus is here.  She smiles at you as you enter and invites you
 to rest and sit for a while.
+@rus Гера, супруга Зевса. Она улыбнулась, когда ты $gn{вошел},
+и предложила тебе присесть и отдохнуть.
 ~
 human~
 BCQ 0 HNT A AB 1000 0
@@ -365,8 +354,7 @@ r charm 999
 #922
 roc~
 a roc~
-A roc is here.
-~
+A roc is here.~
 This is a giant bird.  It looks at you quizzically, then makes a noise and
 looks away.
 ~
@@ -378,10 +366,9 @@ EFNU
 stand stand none 250
 0 0 medium unknown
 #923
-citizen resident~
+citizen resident житель~
 A citizen~
-A citizen of this town is strolling down the street here.
-~
+A citizen of this town is strolling down the street here.~
 He looks happy and carefree.  He smiles and tips his hat to you.
 ~
 human~
@@ -392,12 +379,14 @@ EFJNU
 stand stand male 3
 0 0 medium unknown
 #924
-pegasus horse~
-a pegasus~
-A large horse with wings is here.
-~
-This horse is snow white with large wings.  Although it doesn't look very
+pegasus horse пегас конь~
+@eng a pegasus@rus пегас~
+@eng A large horse with wings is here.@rus Ты видишь коня (pegasus) с огромными крыльями.~
+@eng This horse is snow white with large wings.  Although it doesn't look very
 threatening, it seems as though it would be dangerous if provoked.
+@rus Снежно-белый конь с большими красивыми крыльями. Он не
+выглядит угрожающим, но ты инкстинктивно чувствуешь, что
+он может быть опасен, если его спровоцировать.
 ~
 human~
 CZ 0 NT A AB 0 0
@@ -406,11 +395,11 @@ CZ 0 NT A AB 0 0
 EFNU
 stand stand none 40
 0 0 medium unknown
+g @eng none@rus male~
 #925
-cook~
-A Cook~
-A cook is here, hard at work.
-~
+cook повар~
+@eng A Cook@rus повар~
+@eng A cook is here, hard at work.@rus Повар (cook) полностью поглощен своим занятием.~
 This man looks as is he has been spending WAY too much time in the kitchen.
 ~
 human~
@@ -423,8 +412,7 @@ stand stand male 5
 #926
 jailer~
 The Jailer~
-The jailer is here, watching for intruders.
-~
+The jailer is here, watching for intruders.~
 He looks as though he has spent a lot of time underground, guarding the
 prisoners.
 ~
@@ -515,26 +503,26 @@ spear 7 7 'pierce' FK
 a '' to_object 45 -1 2 4 0
 g @rus male~
 #907
-bow silver~
-a silver bow~
-A silver bow.~
+bow silver лук~
+@eng a silver bow@rus ~~серебряный~~ ~~лук~~~
+@eng A silver bow.@rus Серебряный лук (bow) светится неземным светом.~
 silver~
 weapon FGK 0 AN
 bow 6 7 'pierce' F
 45 150 10300 P
 a '' to_object 45 -1 1 19 0
 a '' to_object 45 -1 1 18 0
-g @rus none~
+g @rus male~
 #908
-gauntlets flaming~
-flaming gauntlets~
-A pair of metal gauntlets flame here.~
+gauntlets flaming рукавицы~
+@eng flaming gauntlets@rus ~~светящиеся~~ ~~рукавицы~~~
+@eng A pair of metal gauntlets flame here.@rus Светящиеся металические рукавицы (gauntlets) лежат здесь.~
 steel~
 armor G 0 AH
 7 7 7 4 0
 45 60 2900 P
 a '' to_object 45 -1 25 13 0
-g @rus none~
+g @rus plural~
 #909
 ambrosia амброзия vial potion~
 @eng ambrosia@rus амброзия~
@@ -545,9 +533,9 @@ potion FG 0 A
 11 10 1130 P
 g @rus female~
 #910
-necklace glowing~
-a glowing necklace~
-A necklace with an inner glow lies here.~
+necklace glowing ожерелье~
+@eng a glowing necklace@rus ~~сверкающее~~ ~~ожерелье~~~
+@eng A necklace with an inner glow lies here.@rus Ты видишь ожерелье (necklace), сияющее неземным светом.~
 amethyst~
 jewelry FGK 0 AC
 0 0 0 0 0
@@ -557,7 +545,7 @@ g @rus none~
 #911
 ring sapphire кольцо~
 @eng a sapphire ring@rus ~~сапфировое~~ ~~кольцо~~~
-A sapphire ring lies here.~
+@eng A sapphire ring lies here.@rus Ты видишь сияющее сапфировое кольцо (ring).~
 sapphire~
 jewelry FGK 0 AB
 0 0 0 0 0
@@ -566,9 +554,9 @@ a '' to_object 35 -1 3 19 0
 a '' to_object 35 -1 2 4 0
 g @rus none~
 #912
-shield glowing~
-a brightly glowing shield~
-A shield lies here, filling the room with its aura.~
+shield glowing щит~
+@eng a brightly glowing shield@rus ярко-~~сверкающий~~ ~~щит~~~
+@eng A shield lies here, filling the room with its aura.@rus Ты видишь щит (shield), наполняющий все пространство вокруг ярким светом.~
 silver~
 armor FGK 0 AJ
 25 25 23 18 0
@@ -579,16 +567,16 @@ a '' to_affects 45 -1 4 18 0
 a '' to_affects 45 -1 4 19 0
 a '' to_affects 45 -1 30 13 0
 a '' to_object 45 -1 1 4 0
-g @rus none~
+g @rus male~
 #913
-axe notched~
-a notched axe~
-A notched axe.~
+axe notched топор~
+@eng a notched axe@rus ~~зазубренный~~ ~~топор~~~
+@eng A notched axe.@rus Ты видишь звзубренный топор (axe).~
 iron~
 weapon FGK 0 AN
 axe 4 10 'slice' 0
 35 120 3600 P
-g @rus none~
+g @rus male~
 #914
 grapes гроздь виноград~
 @eng a bunch of grapes@rus ~~гроздь~~ винограда~
@@ -599,23 +587,23 @@ DE DE 0 0 0
 1 10 100 P
 g @rus female~
 #915
-fan~
-a fan made of peacock feathers~
-A fan made of peacock feathers.~
+fan опахало~
+@eng a fan made of peacock feathers@rus ~~опахало~~ из павлиньих перьев~
+@eng A fan made of peacock feathers.@rus Ты видишь красивое опахало (fan), сделанное из павлиньих перьев.~
 fur~
 trash 0 0 A
 0 0 0 0 0
 0 10 0 P
 g @rus none~
 #916
-lute~
-a lute~
-A lute.~
+lute лютня~
+@eng a lute@rus лютня~
+@eng A lute.@rus Умело сделанная лютня (lute) предстала твоему взгляду.~
 unknown~
 trash 0 0 A
 0 0 0 0 0
 0 10 0 P
-g @rus none~
+g @rus female~
 #917
 nugget gold самородок~
 @eng a gold nugget@rus ~~золотой~~ ~~самородок~~~
@@ -662,9 +650,9 @@ pill 0 0 A
 6 10 530 P
 g @rus none~
 #922
-amulet~
-the Amulet of Ra~
-A sun shaped medallion is lying here.~
+amulet амулет~
+@eng the Amulet of Ra@rus ~~амулет~~ Ра~
+@eng A sun shaped medallion is lying here.@rus Амулет (amulet) в форме солнца оставлен здесь.~
 crystal~
 jewelry FGK 0 AC
 0 0 0 0 0
@@ -672,11 +660,11 @@ jewelry FGK 0 AC
 a '' to_affects 45 -1 -10 20 0
 a '' to_resist 45 -1 15 10 0
 a '' to_resist 45 -1 15 3 0
-g @rus none~
+g @rus male~
 #923
-sun sword~
-the Sword of the Sun~
-A beautiful sword with the rising sun etched on the pommel is lying here.~
+sword sun меч ра~
+@eng the Sword of the Sun@rus ~~меч~~ Ра~
+@eng A beautiful sword with the rising sun etched on the pommel is lying here.@rus Ты видишь прекрасный меч (sword) с изображением восходящего солнца на рукояти.~
 unknown~
 weapon FGK 0 AN
 sword 8 8 'slash' 0
@@ -684,11 +672,11 @@ sword 8 8 'slash' 0
 a '' to_object 45 -1 8 19 0
 a '' to_object 45 -1 6 18 0
 a '' to_object 45 -1 3 6 0
-g @rus none~
+g @rus male~
 #924
-robe blue~
-a blue robe~
-A deep blue robe is on the ground here.~
+robe blue одежды~
+@eng a blue robe@rus ~~синие~~ ~~одежды~~~
+@eng A deep blue robe is on the ground here.@rus Ты видишь лежащие на земле одежды (robe) глубокого синего цвета.~
 unknown~
 armor FGK 0 AK
 12 12 11 6 0
@@ -697,11 +685,11 @@ a '' to_affects 45 -1 3 20 0
 a '' to_affects 45 -1 4 24 0
 a '' to_affects 45 -1 7 23 0
 a '' to_affects 45 -1 30 12 0
-g @rus none~
+g @rus plural~
 #925
-hat~
-a wide brimmed hat~
-A hat is lying here.~
+hat шляпа~
+@eng a wide brimmed hat@rus ~~широкополая~~ ~~шляпа~~~
+@eng A hat is lying here.@rus Ты видишь широкополую шляпу (hat).~
 cloth~
 armor FGK 0 AE
 16 16 14 9 0
@@ -711,7 +699,7 @@ a '' to_resist 45 -1 5 4 0
 a '' to_resist 45 -1 5 10 0
 a '' to_resist 45 -1 5 11 0
 a '' to_affects 45 -1 15 13 0
-g @rus none~
+g @rus female~
 #926
 nectar нектар~
 @eng nectar@rus нектар~
@@ -722,24 +710,24 @@ potion 0 0 A
 12 10 810 P
 g @rus none~
 #927
-key cell~
-a Cell key~
-A key has been left here.~
+key cell ключ~
+@eng a Cell key@rus ~~ключ~~ от камеры~
+@eng A key has been left here.@rus Ты видишь оставленный здесь ключ (key).~
 ivory~
 key 0 0 A
 0 0 0 0 0
 0 10 0 P
 g @rus none~
 #928
-map olympus secret~
-a secret map of Olympus~
-A rolled up map is here.~
+map olympus secret карта олимп~
+@eng a secret map of Olympus@rus ~~секретная~~ ~~карта~~ Олимпа~
+@eng A rolled up map is here.@rus Свернутая в трубку карта (map) лежит здесь.~
 paper~
 map 0 0 A
 A 0 0 0 0
 0 10 500 P
 E
-map olympus secret~
+map olympus secret карта олимп~
 .
                               The Secret Map Of
                                *****OLYMPUS*****
@@ -784,15 +772,26 @@ map olympus secret~
                             /
                       Mountain
 ~
-g @rus none~
+g @rus female~
+#929
+portal портал окно~
+@eng portal@rus портал~
+@eng The portal is here.@rus Сияющее окно (portal) в пространстве, ведущее в неизвестность...~
+magic~
+portal AG B 0
+0 0 E 0 0
+0 0 0 P
+g @eng none@rus male~
 #0
 
 #ROOMS
 #901
 @eng Mountain@rus В горах~
-You are climbing a large mountain which towers over Ofcol.  The path
+@eng You are climbing a large mountain which towers over Ofcol.  The path
 continues up the mountain, but part of it is gone.  There is no way to
 continue by land.
+@rus Ты находишься в горах, расположенных на севере от Офкола. Можно
+попытаться подняться выше в горы, но дорога будет нелегкой.
 ~
 0 0 mountain
 D2
@@ -810,8 +809,11 @@ Z -1 902
 S
 #902
 @eng Mountain@rus В горах~
-You are making your way up the mountain.  The rigorous climb has left you
+@eng You are making your way up the mountain.  The rigorous climb has left you
 tired, and you are ready to take a break.
+@rus Да, путешествие по горам -- это тебе не прогулка по парковой дорожке.
+Ты чувствуешь себя полностью $gn{выдохшимся}, наверное, стоит сделать привал
+и отдохнуть хоть чуток.
 ~
 0 0 air
 D4
@@ -829,9 +831,12 @@ Z -1 901
 S
 #903
 @eng Mountain@rus В горах~
-You have finally reached the top of the mountain.  The air here is so thin
+@eng You have finally reached the top of the mountain.  The air here is so thin
 that you must gasp for breath.  To the north, you see what seems to be the
 entrance to a city.
+@rus Ты находишься на одной из вершин горного хребта, расположенного на
+севере от Офкола. Здесь трудно дышать, потому что воздух достаточно
+сильно разряжен, но это и неудивительно. На севере ты видишь город.
 ~
 0 0 air
 D0
@@ -868,7 +873,7 @@ D2
 Z -1 903
 S
 #905
-Zeus Street~
+@eng Zeus Street@rus Проспект Зевса~
 You are walking down a huge street.  You notice that there are not many
 people in this town.  On a corner, you see a sign marked 'Zeus Street'.
 To the west, you see a small store.
@@ -895,7 +900,7 @@ D3
 Z -1 924
 S
 #906
-Zeus Street~
+@eng Zeus Street@rus Проспект Зевса~
 You are walking down what appears to be the main street of this city.
 You see large residences to the east and west, while the street continues
 to the north and south.
@@ -928,9 +933,11 @@ D3
 Z -1 926
 S
 #907
-Zeus Street~
-You are on the main street of this town, called Zeus street. There is some
+@eng Zeus Street@rus Проспект Зевса~
+@eng You are on the main street of this town, called Zeus street. There is some
 sort of store to the west.
+@rus Ты идешь по центральной улице, проспекту Зевса. На западе ты
+видишь магазин.
 ~
 0 0 city
 D0
@@ -953,9 +960,11 @@ D3
 Z -1 927
 S
 #908
-Zeus Street~
-You are still on the main thoroughfare of this town.  To the north, you see
+@eng Zeus Street@rus Проспект Зевса~
+@eng You are still on the main thoroughfare of this town.  To the north, you see
 a large castle.  To the east there is a smaller road.
+@rus Ты идешь по широкой дороге, пересекающей город с юга на север.
+На севере виден большой замок, а на восток ответвляется улица.
 ~
 0 0 city
 D0
@@ -978,10 +987,13 @@ D2
 Z -1 907
 S
 #909
-Castle Entryway~
-You are in the entryway of a large castle.  It is very beautiful, with
+@eng Castle Entryway@rus Вход в замок~
+@eng You are in the entryway of a large castle.  It is very beautiful, with
 large paintings and a lovely carpet.  You hear jovial laughter to the north,
 while smaller corridors branch off to the east and west.
+@rus Ты стоишь в холле большого замка. Он очень красив, стены украшены
+гобеленами, полы застелены прекрасными коврами. С севера доносится
+веселый смех, на восток и на запад ответвляются коридоры.
 ~
 0 D city
 D0
@@ -1010,10 +1022,15 @@ D3
 Z -1 911
 S
 #910
-Throne Room~
-You stop dead in your tracks as you enter this room.  Before you is Zeus,
+@eng Throne Room@rus Тронная зала~
+@eng You stop dead in your tracks as you enter this room.  Before you is Zeus,
 in all his glory, sitting on a huge golden throne.  You had thought him to be 
 just a myth, but here he is ... you wonder who else lives in this castle.
+@rus Ты буквально $gn{окаменел}, едва войдя в эту комнату. Перед
+тобой во всем своем великолепии и могуществе на массивном
+золотом троне сидит Зевс.  До этого момента он всегда был 
+для тебя лишь мифом,  но теперь... Интересно, кого же еще
+предстоит тебе встретить в этом великолепном замке.
 ~
 0 D city
 E
@@ -1043,8 +1060,10 @@ ABZ -1 918
 S
 #911
 @eng Western Wing@rus Западное крыло~
-You are in the western wing of the castle.  You see the entrance to the
+@eng You are in the western wing of the castle.  You see the entrance to the
 east, while this hallway continues to the west.
+@rus Ты идешь по западному крылу замка. На востоке ты видишь холл,
+а коридор продолжается на запад.
 ~
 0 D city
 D1
@@ -1062,8 +1081,10 @@ Z -1 912
 S
 #912
 @eng Western Wing@rus Западное крыло~
-You are in the western wing of the castle.  The hallway continues to the
+@eng You are in the western wing of the castle.  The hallway continues to the
 north, while there are private rooms to the west and south.
+@rus Ты идешь по западному крылу замка. Коридор ведет на север и на
+восток. На юге и западе находятся частные помещения.
 ~
 0 D city
 D0
@@ -1093,8 +1114,10 @@ Z -1 929
 S
 #913
 @eng Western Wing@rus Западное крыло~
-You are in the western wing of the castle.  This hallway continues to the
+@eng You are in the western wing of the castle.  This hallway continues to the
 south, and you hear pots and pans rattling to the north.
+@rus Ты идешь по западному крылу замка. Коридор ведет на юг, а с
+севера доносится позвякивание кастрюль, сковород и горшков.
 ~
 0 D city
 D0
@@ -1112,8 +1135,12 @@ Z -1 912
 S
 #914
 @eng Kitchen@rus Кухня~
-You have entered the kitchen of this castle, and it is a hotbed of
+@eng You have entered the kitchen of this castle, and it is a hotbed of
 activity.  Servants are bustling about, preparing food for the Gods themselves.
+@rus Ты $gn{вошел} в замковою кухню. Все здесь заняты своим делом.
+Множество поварят снуют туда сюда, выполняя указания старших
+поваров. Каждый вносит свой вклад в приготовления обеда для
+богов.
 ~
 0 D city
 D2
@@ -1125,8 +1152,10 @@ Z -1 913
 S
 #915
 @eng Eastern Wing@rus Восточное крыло~
-You are in the eastern wing of the castle.  The hall continues to the
+@eng You are in the eastern wing of the castle.  The hall continues to the
 east, while the entrance is back to the west.
+@rus Ты идешь по восточному крылу замка. На западе ты видишь холл,
+а коридор продолжается на восток.
 ~
 0 D city
 D1
@@ -1144,8 +1173,10 @@ Z -1 909
 S
 #916
 @eng Eastern Wing@rus Восточное крыло~
-You are in the eastern wing of the castle.  The hall turns to the north
+@eng You are in the eastern wing of the castle.  The hall turns to the north
 here, while there are private rooms to the east and the south.
+@rus Ты идешь по восточному крылу замка. Коридор ведет на север и
+на восток. На юге и на востоке находятся частные апартаменты.
 ~
 0 D city
 D0
@@ -1175,8 +1206,10 @@ Z -1 915
 S
 #917
 @eng Eastern Wing@rus Восточное крыло~
-You are in the eastern wing of the castle.  You hear animals to the north,
+@eng You are in the eastern wing of the castle.  You hear animals to the north,
 while the hallway continues to the south.
+@rus Ты находишься в восточном крыле замка. Коридор ведет на юг, а
+на севере, судя по звукам, можно встретить представителей фауны.
 ~
 0 D city
 D0
@@ -1193,7 +1226,7 @@ D2
 Z -1 916
 S
 #918
-Dungeon~
+@eng Dungeon@rus Темница~
 You are in Zeus's Dungeon.  You wonder what creatures are so terrible that
 even mighty Zeus fears them enough to imprison them.
 ~
@@ -1212,7 +1245,7 @@ the trapdoor~
 Z -1 910
 S
 #919
-Dungeon~
+@eng Dungeon@rus Темница~
 You are in Zeus's Dungeon.  There are cells to the north, west, and east. 
 From the east and west, you hear guttural noises.  From the north, nothing ...
 ~
@@ -1243,8 +1276,9 @@ D3
 ABCFZ 927 921
 S
 #920
-Cell~
-You are in a small, cramped, dirty cell.  It is a horrid place.
+@eng Cell@rus Камера~
+@eng You are in a small, cramped, dirty cell.  It is a horrid place.
+@rus Маленькая тесная темная грязная камера. Ужасное место.
 ~
 0 AD city
 D2
@@ -1255,8 +1289,9 @@ D2
 ABCFZ 927 919
 S
 #921
-Cell~
-You are in a small, cramped, dirty cell.  It is a horrid place.
+@eng Cell@rus Камера~
+@eng You are in a small, cramped, dirty cell.  It is a horrid place.
+@rus Маленькая тесная темная грязная камера. Ужасное место.
 ~
 0 AD city
 D1
@@ -1267,8 +1302,9 @@ D1
 ABCFZ 927 919
 S
 #922
-Cell~
-You are in a small, cramped, dirty cell.  It is a horrid place.
+@eng Cell@rus Камера~
+@eng You are in a small, cramped, dirty cell.  It is a horrid place.
+@rus Маленькая тесная темная грязная камера. Ужасное место.
 ~
 0 AD city
 D3
@@ -1279,9 +1315,12 @@ D3
 ABCFZ 927 919
 S
 #923
-Stairway~
-You have come to a large stairway leading up.  To the south, you see the
+@eng Stairway@rus Лестница~
+@eng You have come to a large stairway leading up.  To the south, you see the
 throne room of Zeus. To the down you see a dark sea.
+@rus Ты стоишь около широкой лестницы, ведущей наверх. На юге
+виден тронный зал, в котором вершит правосудие Зевс. Снизу
+доносится шум моря.
 ~
 0 D city
 D2
@@ -1317,7 +1356,7 @@ D1
 Z -1 905
 S
 #925
-Residence~
+@eng Residence@rus Резиденция~
 You are in the residence of one of the inhabitants of this town.  She
 looks vaguely familiar, but you can't place her name ...
 ~
@@ -1356,9 +1395,11 @@ D1
 Z -1 907
 S
 #928
-Ares Street~
-You are on a smaller road which branches off from the main street.  On a
+@eng Ares Street@rus Улица Ареса~
+@eng You are on a smaller road which branches off from the main street.  On a
 sign, you notice that the name of this road is Ares Street.
+@rus Ты идешь по небольшой улице, ответвляющейся в сторону от проспекта.
+На знаке написано ее название -- улица Ареса.
 ~
 0 D city
 D1
@@ -1375,10 +1416,13 @@ D3
 Z -1 908
 S
 #929
-Guest Quarters~
-You have entered private quarters which are reserved for visitors to the
+@eng Guest Quarters@rus Гостевые апартаменты~
+@eng You have entered private quarters which are reserved for visitors to the
 castle.  You nearly faint as you recognize the occupant of this chamber as Odin
 himself, patron God of Midgaard.  He must be visiting Zeus.
+@rus Ты $gn{вошел} в апартаменты, отведенные для гостей замка.
+В присутствующем здесь ты узнаешь Одина,  покровителя
+Мидгаарда. Видимо, он здесь в гостях у Зевса.
 ~
 0 D city
 D1
@@ -1389,9 +1433,11 @@ D1
 Z -1 912
 S
 #930
-Storage Room~
-You are in a storage room of the castle.  There isn't much here, just a
+@eng Storage Room@rus Кладовая~
+@eng You are in a storage room of the castle.  There isn't much here, just a
 few boxes filled with old junk.
+@rus Эту комнату, видимо, используют в качестве складских помещений.
+Но здесь немного вещей, лишь несколько коробок, наполненных ветошью.
 ~
 0 D city
 D0
@@ -1402,10 +1448,13 @@ D0
 Z -1 912
 S
 #931
-Guest Quarters~
-You have entered a room reserved for visitors to this castle.  You are
+@eng Guest Quarters@rus Гостевые апартаменты~
+@eng You have entered a room reserved for visitors to this castle.  You are
 amazed as you recognize the occupant - Ra, the Egyptian Sun God.  He must be
 visiting Zeus.
+@rus Эти апартаменты отведены для гостей замка. Ты узнаешь в живущем
+в этих комнатах Ра -- египетского бога солнца. Видимо, он здесь в
+гостях у Зевса.
 ~
 0 D city
 D3
@@ -1416,9 +1465,11 @@ D3
 Z -1 916
 S
 #932
-Storage Room~
-You are in a storage room of the castle.  There isn't much here, just a lot
+@eng Storage Room@rus Кладовая~
+@eng You are in a storage room of the castle.  There isn't much here, just a lot
 of dust.
+@rus Эту комнату, видимо, используют в качестве складских помещений.
+Но, тем не менее, здесь практически ничего нет, кроме пыли, конечно.
 ~
 0 D city
 D0
@@ -1429,7 +1480,7 @@ D0
 Z -1 916
 S
 #933
-Stable~
+@eng Stable@rus Конюшня~
 You are in the stable of the castle.  Rather than the horses which you
 expected to find, it is filled with a wide variety of creatures which you
 thought were mythical.  Obviously, you were wrong.
@@ -1443,10 +1494,13 @@ D2
 Z -1 917
 S
 #934
-Ares Street~
-You have reached the end of Ares Street.  To the south you see an armoury,
+@eng Ares Street@rus Улица Ареса~
+@eng You have reached the end of Ares Street.  To the south you see an armoury,
 while there is a weapons shop to the east.  To the north, you hear the sounds
 of a blacksmith.
+@rus Ты находишься в конце улицы Ареса. С севера доносятся звуки ударов
+молота о наковальню, на востоке расположилась оружейная лавка, а на 
+юге -- арсенал.
 ~
 0 D city
 D0
@@ -1475,7 +1529,7 @@ D3
 Z -1 928
 S
 #935
-Armoury~
+@eng Armoury@rus Арсенал~
 This small store is almost empty.  It seems as if there is not much here,
 but the shopkeeper doesn't want to do business with you anyways.
 ~
@@ -1488,7 +1542,7 @@ D0
 Z -1 934
 S
 #936
-Weapon Shop~
+@eng Weapon Shop@rus Оружейная лавка~
 You have entered a small store with a modest selection of weapons.  You
 get the feeling that there is not a very wide selection here, but the
 shopkeeper doesn't want to do business with you anyways.
@@ -1543,7 +1597,7 @@ D1
 Z -1 937
 S
 #939
-Second Floor~
+@eng Second Floor@rus Второй этаж~
 You are on the second floor of this castle.  You are numb from your
 discoveries on the first floor, and wonder what secrets the upper floor of this
 castle holds.  Hallways extend in all directions, and you see a small, closed 
@@ -1577,9 +1631,9 @@ Z -1 942
 D4
 You see a sign on the hatch.  It reads 'Private Property. No trespassing!'
 ~
-hatch~
-the hatch~
-~
+hatch дверца~
+@eng the hatch@rus дверца~
+@rus female~
 ABZ -1 948
 D5
 ~
@@ -1589,7 +1643,7 @@ D5
 Z -1 923
 S
 #940
-Northern Hall~
+@eng Northern Hall@rus Северная зала~
 You are in the northern hallway.  There is a private room to the north,
 and the stairs leading down are to the south.
 ~
@@ -1608,7 +1662,7 @@ D2
 Z -1 939
 S
 #941
-Southern Hall~
+@eng Southern Hall@rus Южная зала~
 You are in the southern hallway.  There is a private room to the south,
 and the stairs leading down are to the north.
 ~
@@ -1627,7 +1681,7 @@ D2
 Z -1 944
 S
 #942
-Western Hall~
+@eng Western Hall@rus Западная зала~
 You are in the western hallway.  There is a private room to the west, and
 the stairs leading down are to the east.
 ~
@@ -1646,7 +1700,7 @@ D3
 Z -1 945
 S
 #943
-Eastern Hall~
+@eng Eastern Hall@rus Восточная зала~
 You are in the eastern hallway.  There is a private room to the east, and
 the stairs leading down are to the west.
 ~
@@ -1665,8 +1719,10 @@ D3
 Z -1 939
 S
 #944
-Bed Room~
-You are in the bed room of a God!  This one seems to be empty.
+@eng Bed Room@rus Спальные апартаменты~
+@eng You are in the bed room of a God!  This one seems to be empty.
+@rus Ты находишься там, где отдыхают и набираются сил великие боги.
+Однако эти аппартаменты, по-видимому, не используются.
 ~
 0 D city
 D0
@@ -1677,8 +1733,9 @@ D0
 Z -1 941
 S
 #945
-Bed Room~
-You are in the bed room of a God!
+@eng Bed Room@rus Спальные апартаменты~
+@eng You are in the bed room of a God!
+@rus Ты находишься там, где отдыхают и набираются сил великие боги.
 ~
 0 D city
 D1
@@ -1689,8 +1746,9 @@ D1
 Z -1 942
 S
 #946
-Bed Room~
-You are in the bed room of a God!
+@eng Bed Room@rus Спальные апартаменты~
+@eng You are in the bed room of a God!
+@rus Ты находишься там, где отдыхают и набираются сил великие боги.
 ~
 0 D city
 D3
@@ -1701,8 +1759,9 @@ D3
 Z -1 943
 S
 #947
-Bed Room~
-You are in the bed room of a God!
+@eng Bed Room@rus Спальные апартаменты~
+@eng You are in the bed room of a God!
+@rus Ты находишься там, где отдыхают и набираются сил великие боги.
 ~
 0 D city
 D2
@@ -1715,8 +1774,7 @@ S
 #948
 Hall of Gods~
 You have entered the most sacred of places, the hall of true Gods.  If you
-are a mortal, it would probably be a good idea to leave NOW!  Exits leave in
-all directions.
+are a mortal, it would probably be a good idea to leave NOW!
 ~
 0 D city
 D0
@@ -1727,14 +1785,16 @@ D0
 Z -1 951
 D5
 ~
-hatch~
-the hatch~
-~
+hatch дверца~
+@eng the hatch@rus дверца~
+@rus female~
 Z -1 939
 S
 #951
-The Portal~
-A sign reads: Beware of the unexpected and don't expect too much.
+@eng The Portal@rus Около портала~
+@eng A sign reads: Beware of the unexpected and don't expect too much.
+@rus Надпись около портала гласит:
+    'Опасайся неожиданностей и не будь слишком $gn{самоуверен}.'
 ~
 0 D city
 D2
@@ -1866,6 +1926,7 @@ E 0 904 0 8		*	Hermes<on the feet>: a pair of winged sandals
 E 0 902 0 6		*	Hermes<over the head>: a Winged Helmet
 G 0 926 0		*	Hermes: nectar
 G 0 909 0		*	Hermes: ambrosia
+O 0 929 0 951	* portal (The Portal)
 M 0 913 5 954 5	* A hound of war (The Believer)
 M 0 913 5 954 5	* A hound of war (The Believer)
 M 0 913 5 954 5	* A hound of war (The Believer)

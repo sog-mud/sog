@@ -13,9 +13,7 @@ End
 #95700
 guardian keeper hunter~
 @eng the guardian@rus страж~
-@eng The guardian of Hunter Palace is here, serving his cabal.
-@rus Страж (guardian) дворца охотников стоит здесь, охраняя клан от вторжения.
-~
+@eng The guardian of Hunter Palace is here, serving his cabal.@rus Страж (guardian) дворца охотников стоит здесь, охраняя клан от вторжения.~
 @eng After joining so many safaris, the guardian know implements what he
 learned as guarding this palace for very very much amounts of gold. 
 @rus Поучаствовав во многих охотах, страж охраняет это место от вторжения
@@ -46,9 +44,7 @@ r sound -33
 #95701
 cleric neutral cabal hunter~
 @eng the cleric@rus лекарь~
-@eng The true neutral cleric is healing his brothers.
-@rus Настоящий нейтральный лекарь (cleric) лечит здесь своих братьев.
-~
+@eng The true neutral cleric is healing his brothers.@rus Настоящий нейтральный лекарь (cleric) лечит здесь своих братьев.~
 @eng After paying much, this wise cleric delivers his spells to hunters in
 order that hunters can serve Shades of Gray. Remember that if you
 lost your eyed sword than say to him that 'trouble'.
@@ -83,9 +79,7 @@ r sound 999
 #95702
 guardian keeper hunter~
 @eng the guardian@rus страж~
-@eng The guardian of Hunter Palace is here, serving his cabal.
-@rus Страж (guardian) дворца охотников стоит здесь, охраняя клан от вторжения.
-~
+@eng The guardian of Hunter Palace is here, serving his cabal.@rus Страж (guardian) дворца охотников стоит здесь, охраняя клан от вторжения.~
 @eng After joining so many safaris, the guardian know implements what he
 learned as guarding this palace for very very much amounts of gold. 
 @rus Поучаствовав во многих охотах, страж охраняет это место от вторжения

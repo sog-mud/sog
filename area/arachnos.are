@@ -11,8 +11,7 @@ End
 #6301
 spider young~
 the young spider~
-The young spider is ballooning by you.
-~
+The young spider is ballooning by you.~
 He looks freshly hatched and sprightly.  His young fangs are just
 growing in as of late.
 ~
@@ -26,8 +25,7 @@ stand stand female 5
 #6302
 dragon Yevaud~
 Yevaud~
-Yevaud the Usurper of Midgaard is here, grinning evilly at you.
-~
+Yevaud the Usurper of Midgaard is here, grinning evilly at you.~
 Old, scaly, but still with a lot of bite in him left.
 ~
 dragon~
@@ -45,8 +43,7 @@ r charm -33
 #6303
 spider wolf~
 the Wolf Spider~
-The Wolf Spider is here, licking its bloody fangs.
-~
+The Wolf Spider is here, licking its bloody fangs.~
 The Wolf Spider is hairy, very hairy.
 ~
 human~
@@ -59,8 +56,7 @@ stand stand female 62
 #6304
 orc~
 the orc~
-The orc is stuck in the web and he can't get out.
-~
+The orc is stuck in the web and he can't get out.~
 You notice an evil look in his eyes.
 ~
 orc~
@@ -82,8 +78,7 @@ r light 15
 wasp queen~
 the Queen Wasp~
 The Queen Wasp is here, thinking that you would make a tasty offering
-to her master.
-~
+to her master.~
 You notice a glazed look in her eyes.
 ~
 human~
@@ -96,8 +91,7 @@ stand stand female 75
 #6306
 spider drone~
 the drone spider~
-The drone spider walks around doing her master's bidding.
-~
+The drone spider walks around doing her master's bidding.~
 An ordinary drone spider.
 ~
 human~
@@ -110,8 +104,7 @@ stand stand male 10
 #6307
 spider ethereal~
 the ethereal spider~
-The ethereal spider strides here, traveling to different worlds.
-~
+The ethereal spider strides here, traveling to different worlds.~
 She winks in and out.
 ~
 human~
@@ -124,8 +117,7 @@ stand stand female 62
 #6308
 slave human~
 the slave of Arachnos~
-The slave works here relentlessly.
-~
+The slave works here relentlessly.~
 The slave does not mind you, but will fight like a warrior if attacked.
 ~
 human~
@@ -138,8 +130,7 @@ stand stand male 25
 #6309
 quasit~
 the quasit~
-The quasit blinks in and out, grinning at you.
-~
+The quasit blinks in and out, grinning at you.~
 Demoniac in nature, but more mischievous.  He twiddles his thumbs
 and creates a magical treasure!
 ~
@@ -153,8 +144,7 @@ stand stand male 50
 #6310
 spider bird~
 the Bird Spider~
-The Bird Spider snaps its powerful jaws.
-~
+The Bird Spider snaps its powerful jaws.~
 The Bird Spider has very powerful jaws.
 ~
 human~
@@ -167,8 +157,7 @@ stand stand female 87
 #6311
 hermit~
 the Hermit~
-The Hermit sits here and warns, "Go back before it's too late!"
-~
+The Hermit sits here and warns, "Go back before it's too late!"~
 A dishevelled veteran warrior in disguise is what he is, but he
 means well.
 ~
@@ -182,8 +171,7 @@ stand stand male 37
 #6312
 donjonkeeper~
 the Donjonkeeper~
-The Donjonkeeper eyes you and wonders how pure your soul is.
-~
+The Donjonkeeper eyes you and wonders how pure your soul is.~
 He delves deeper into you as you stare at him.
 ~
 human~
@@ -196,8 +184,7 @@ stand stand male 300
 #6313
 guardian~
 The guardian~
-The guardian is obviously not doing his job.
-~
+The guardian is obviously not doing his job.~
 He looks like a lazy bum who sleeps half the time.
 ~
 human~
@@ -210,8 +197,7 @@ sleep sleep male 80
 #6314
 spider empress arachnos~
 Arachnos~
-Arachnos the Empress of Spiders welcomes you with an evil smile.
-~
+Arachnos the Empress of Spiders welcomes you with an evil smile.~
 She is a very attractive spider with an ornate gown.  She tempts you
 into being one of her many slaves.  She does not possess the venomous
 fangs of normal spiders, but then, as you realize, she does not need
@@ -227,8 +213,7 @@ stand stand female 500
 #6315
 ki-rin~
 the Ki-Rin~
-The Ki-Rin smiles good-naturedly to you.
-~
+The Ki-Rin smiles good-naturedly to you.~
 She is the last bastion of good in this realm.  Her mission is to
 someday free the slaves of the Empress.
 ~
@@ -242,8 +227,7 @@ stand stand female 750
 #6316
 dragon wormkin young~
 the young dragon wormkin~
-A wormkin with no teeth plays here.
-~
+A wormkin with no teeth plays here.~
 Rather small, you almost feel sad in killing it.
 ~
 dragon~
@@ -261,8 +245,7 @@ r charm -33
 #6317
 dragon wormkin medium~
 the medium dragon wormkin~
-A wormkin that has grown a bit stares at you inquisitively.
-~
+A wormkin that has grown a bit stares at you inquisitively.~
 A medium-sized dragon--seems it hasn't killed anything yet by itself.
 ~
 dragon~
@@ -280,8 +263,7 @@ r charm -33
 #6318
 spider poisonous~
 the huge, poisonous spider~
-A huge, poisonous spider is here.
-~
+A huge, poisonous spider is here.~
 This disgusting creature is at the size of a human crawling on all four.  It
 has eight hairy legs that gives it a tremendous speed on almost any surface and
 sharp poisonous fangs to paralyze or kill its prey.
@@ -296,8 +278,7 @@ stand stand none 0
 #6319
 queen spider~
 the Queen Spider~
-The huge, bulky Queen Spider is here.
-~
+The huge, bulky Queen Spider is here.~
 This disgusting creature is at the size of a small elephant.  It has eight
 huge, hairy legs that would give it a tremendous speed on almost any surface
 if it wasn't so immensely fat.  Its large, bulbous eyes stare back at you.

@@ -11,8 +11,7 @@ End
 #19001
 mirror guard guardian~
 the mirror guardian~
-A mirror guardian stands here.
-~
+A mirror guardian stands here.~
 The guard's white beard and wrinkled skin prove him to be older than the 
 average city guard. The post he holds is most likely a ceremonial one,
 assigned to aged and honored soldiers, rather than fresh new warriors; it seems
@@ -30,8 +29,7 @@ stand stand male 10
 #19002
 pale withered knight~
 a withered knight~
-A pale, withered knight looks up in surprise as you enter.
-~
+A pale, withered knight looks up in surprise as you enter.~
 The knight moves slowly and vaguely with empty eyes gazing out of a white
 wrinkled face; however, you can still see strong muscles below the tattered
 hauberk he wears.  As he sees you, his gray, papery mouth opens, and his
@@ -47,8 +45,7 @@ stand stand male 0
 #19003
 king loranhir man~
 King Loranhir~
-King Loranhir sits quietly on his throne, gazing into emptiness. 
-~
+King Loranhir sits quietly on his throne, gazing into emptiness. ~
 Loranhir is the king of the Mirror Realm; he caused the realm to be divided
 after the battles over his creations, the sword Taliesin and the Sunrise 
 Shield. He was the best craftsman in the land, and was known for his 
@@ -70,8 +67,7 @@ stand stand male 0
 #19004
 caerlin bard~
 Caerlin~
-Caerlin the Bard strums on his harp as he asks for donations. 
-~
+Caerlin the Bard strums on his harp as he asks for donations. ~
 Caerlin's delicate bard's amulet reveals him as a master of the harp, as well
 as a kind soul: he strolls around the village asking for donations, using the
 money to help the poor and the sick....and lending a hand to the giver as well.
@@ -86,8 +82,7 @@ stand stand male 0
 #19005
 commoner mirror citizen man~
 the young man~
-A good citizen of the Mirror Realm strolls by you.
-~
+A good citizen of the Mirror Realm strolls by you.~
 The commoner seems content with his life; fortunately for him, he was on
 the side of good when the land he lived in was divided.  He seems peaceful
 and pleasant; though he eyes your weapon and armor with a concerned look,
@@ -103,8 +98,7 @@ stand stand male 0
 #19006
 citizen mirror commoner woman~
 the woman~
-A citizen of the Mirror Realm strolls by you.
-~
+A citizen of the Mirror Realm strolls by you.~
 The citizen of the Mirror Realm looks reasonably content with her life;
 fortunately for her, she was on the side of good when the land she lived
 in was divided.  She seems friendly; though she eyes your armor and weapon
@@ -121,8 +115,7 @@ stand stand female 0
 #19007
 unicorne silver horse~
 the unicorne~
-A silver unicorne wanders about, quietly grazing on grass.
-~
+A silver unicorne wanders about, quietly grazing on grass.~
 Instead of being normal and white, this unicorne's coat is silvery, shining 
 faintly as the light strikes it.  The horn itself is even more distinctive--
 it appears to be golden, and tipped with something that looks like a diamond.
@@ -137,8 +130,7 @@ stand stand none 0
 #19008
 watchman~
 a watchman~
-The watchman stands here, enforcing the law of the realm.
-~
+The watchman stands here, enforcing the law of the realm.~
 The watchman's brown robe blends him in perfectly with the rock face; it is
 almost impossible to distinguish him from the mountain, since he stands 
 completely still with the hood of his robe pulled far over his head.
@@ -153,8 +145,7 @@ stand stand male 0
 #19009
 watchman~
 a watchman~
-The watchman stands here, eyeing you carefully.
-~
+The watchman stands here, eyeing you carefully.~
 The watchman's brown robe completely envelops him; only the faint glimmer of
 his eyes shines through the dark shadows inside the robe's hood.
 ~
@@ -168,8 +159,7 @@ stand stand male 0
 #19010
 watchman~
 a watchman~
-The watchman stands here, eyeing you carefully.
-~
+The watchman stands here, eyeing you carefully.~
 The watchman's brown robe completely envelops him; only the faint glimmer of
 his eyes shines through the dark shadows inside the robe's hood.
 ~
@@ -183,8 +173,7 @@ stand stand male 0
 #19011
 bear zbear~
 Bear-de-bear~
-(Cuteness) Dee big byoo bear hulks and yerks in the corner, wrinkling and folding at ebry motion.
-~
+(Cuteness) Dee big byoo bear hulks and yerks in the corner, wrinkling and folding at ebry motion.~
 Bear-de-bear seems to be an armness, legness, neckness blob of material
 with drawn-on features and a sishy guvuhvin which erases the aura of
 evilness in his shadowy form.  sort of.  Only his face can be seen, as
@@ -203,8 +192,7 @@ r cold -33
 #19012
 knight withered~
 a withered knight~
-A pale, withered knight looks up in surprise as you enter.
-~
+A pale, withered knight looks up in surprise as you enter.~
 The knight moves slowly and vaguely, with empty eyes gazing out of a white
 wrinkled face; however, you can still see strong muscles below the tattered
 hauberk he wears.  As he sees you, his gray papery mouth opens, and his eyes
@@ -220,8 +208,7 @@ stand stand male 0
 #19013
 grey mare horse skeleton~
 the Grey Mare~
-The bleached, gray skeleton of a horse laughs soundlessly as it trots by.
-~
+The bleached, gray skeleton of a horse laughs soundlessly as it trots by.~
 The Grey Mare's fleshless skull seems to laugh at you as it inspects you 
 carefully; as it approaches, it lowers its head, pointing its bone horn
 directly at your chest.
@@ -236,8 +223,7 @@ stand stand none 0
 #19014
 bride woman~
 the bride~
-A young woman stands here, taking her vows of marriage.
-~
+A young woman stands here, taking her vows of marriage.~
 The girl's green eyes sparkle almost mischeviously as she peeks out from 
 underneath her veil; she catches her fiance's eye and winks at him, giggling
 silently as he blushes and smiles.
@@ -252,8 +238,7 @@ stand stand female 0
 #19015
 groom man~
 the groom~
-A young man stands here, taking his vows of marriage.
-~
+A young man stands here, taking his vows of marriage.~
 The groom shivers faintly with nervousness as he gets ready to marry his bride;
 he's rigid with anticipation.  As his wife-to-be turns and winks at him,
 he relaxes, blushing faintly and smiling at her.
@@ -268,8 +253,7 @@ stand stand male 0
 #19016
 red lord scarlet~
 the Red Lord~
-A Lord of the Light stands here clothed in bright red robes.
-~
+A Lord of the Light stands here clothed in bright red robes.~
 The Red Lord's deep green eyes shine brightly as he looks about his land, and soft breezes swirl his long black hair and his heavy scarlet cape.  As he turns
 towards you, you catch a glimpse of his face: thin, well-worn laugh lines
 intersect with thick, brownish scars.
@@ -284,8 +268,7 @@ stand stand male 0
 #19017
 orange lord~
 the Orange Lord~
-A Lord of the Light stands here, clothed in deep orange robes.
-~
+A Lord of the Light stands here, clothed in deep orange robes.~
 The Orange Lord's dazzling red hair perfectly matches his long, flowing cape--
 from a distance, it almost seems as though he wears a hooded robe.  His long
 hair almost hides his thin, pale face; in any case, it casts a dark shadow
@@ -302,8 +285,7 @@ stand stand male 0
 #19018
 yellow lord~
 the Yellow Lord~
-A Lord of the Light stands here, clothed in bright yellow robes.
-~
+A Lord of the Light stands here, clothed in bright yellow robes.~
 The Yellow Lord's light blond hair falls in waves down the back of her blazing
 yellow robe, and her bright blue eyes sparkle in the bright sunlight.  Though 
 her face has a certain beauty, it has an air of sternness as well, enhanced by
@@ -319,8 +301,7 @@ stand stand male 0
 #19019
 green lord~
 the Green Lord~
-A Lord of the Light stands here, clothed in dark green robes.
-~
+A Lord of the Light stands here, clothed in dark green robes.~
 A thick, brown beard covers the Green Lord's face, almost hiding his cheerful
 smile and his golden brown eyes.  He moves slowly about this part of the Mirror
 Realm, constantly shifting his gaze as he enjoys the land's beauty and watches
@@ -336,8 +317,7 @@ stand stand male 0
 #19020
 blue lord~
 the Blue Lord~
-A Lord of the Light stands here, clothed in light blue robes.
-~
+A Lord of the Light stands here, clothed in light blue robes.~
 The Blue Lord's eyes are as bright as his robe, and twinkle faintly in the 
 bright sunlight. As you pass by, he raises his weapon--possibly in salute, 
 possibly in challenge--catching the light and the blue of his robe in the
@@ -353,8 +333,7 @@ stand stand male 0
 #19021
 violet lord~
 the Violet Lord~
-A Lord of the Light stands here, clothed in dark violet robes.
-~
+A Lord of the Light stands here, clothed in dark violet robes.~
 The Violet Lord wears his robe close about his body: he hides his face in the
 shadows cast by its loose hood, and even keeps his hands hidden somewhere
 in its folds.  At his side, his clear crystal sword looks almost dark as it
@@ -370,8 +349,7 @@ stand stand male 0
 #19022
 gardner gardener lady~
 the gardener~
-A gardener kneels on the ground, tending to the plants.
-~
+A gardener kneels on the ground, tending to the plants.~
 An old lady bends over her plants, clearing away the moss and dead leaves.
 ~
 human~
@@ -384,8 +362,7 @@ stand stand female 0
 #19023
 priest brother thomas~
 Brother Thomas~
-Brother Thomas stands here giving his blessings.
-~
+Brother Thomas stands here giving his blessings.~
 A cheerful, red-faced priest stands here, preparing to marry whoever needs to
 be married; he is Father Franklin's assistant, and has taken over most of the
 religious duties in the town.
@@ -400,8 +377,7 @@ stand stand male 0
 #19024
 wizard standard~
 a standard issue wizard~
-A standard issue wizard putters about his shop, mixing potions and enchanting staffs.
-~
+A standard issue wizard putters about his shop, mixing potions and enchanting staffs.~
 Long white beard, check; cloak and cap covered with stars and moons, check;
 spectacles, check; benevolent smile, check, clueless, forgetful attitude, 
 check.  The wizard giggles as you look at him, and holds up his "Wizard 
@@ -417,8 +393,7 @@ stand stand male 0
 #19025
 pool man~
 the pool player~
-A pool player stands here practicing his game.
-~
+A pool player stands here practicing his game.~
 A citizen of the Mirror Realm strolls around the pool table, casually sinking
 rack after rack; he smiles as you enter, then turns back to his game.
 ~
@@ -432,8 +407,7 @@ stand stand male 0
 #19026
 lauraine barkeep~
 Lauraine the barkeep~
-Lauraine paces behind the bar, waiting for your order.
-~
+Lauraine paces behind the bar, waiting for your order.~
 Lauraine is a cheerful, middle-aged woman wearing a plain white apron and a 
 white lace cap; she gently dusts the edge of the bar, waiting for a customer.
 ~
@@ -447,8 +421,7 @@ stand stand female 0
 #19027
 waiter~
 the waiter~
-A waiter hustles about the room taking orders and delivering food.
-~
+A waiter hustles about the room taking orders and delivering food.~
 Sweat pours down the waiter's bald head as he dashes from table to table, 
 trying to keep track of all the checks, the food, and the special orders.
 ~
@@ -462,8 +435,7 @@ stand stand male 0
 #19028
 master karate dunn~
 Master Dunn~
-Master Dunn is here, quietly reviewing his katas.
-~
+Master Dunn is here, quietly reviewing his katas.~
 Master Dunn is a middle-aged martial arts practitioner who has mastered both
 mind and body. His movements are graceful yet strong; his arms flow smoothly
 through the blocks and attacks, but stop powerfully as each move ends.  He 
@@ -480,8 +452,7 @@ stand stand male 0
 #19029
 proprietor shopkeeper man~
 the proprietor~
-The proprietor of the Travellers' Shop stands here, dusting off his stock.
-~
+The proprietor of the Travellers' Shop stands here, dusting off his stock.~
 The proprietor is a thin, tired old man; the adventurers' business isn't doing
 so well right now, what with the land being completely closed off and all.
 ~
@@ -495,8 +466,7 @@ stand stand male 0
 #19030
 truxton librarian~
 Mrs. Truxton the Librarian~
-Mrs. Truxton is here, checking overdue notices.
-~
+Mrs. Truxton is here, checking overdue notices.~
 Mrs. Truxton bends over a stack of books, organizing them for reshelving.  She
 peers down at you, trying to judge whether or not you're one of her customers
 with overdue books....her glare chills you to the bone.  Hope you returned 
@@ -512,8 +482,7 @@ stand stand male 0
 #19031
 father franklin~
 Father Franklin~
-Father Franklin stands here, smiling gently at you.
-~
+Father Franklin stands here, smiling gently at you.~
 Father Franklin had to take over a number of duties when his parish was split
 in two: aside from being the priest, he became teacher, doctor, and leader of 
 the inhabitants of the good side of the realm.  The other ordained priest
@@ -530,8 +499,7 @@ stand stand male 0
 #19032
 dark lord white~
 the White Lord~
-A Lord of the Dark stands here, clothed in ice-white robes.
-~
+A Lord of the Dark stands here, clothed in ice-white robes.~
 The White Lord's face is hidden within the shadows of his cold white robes;
 still, thee is a cruel, chilling air about him that seems to pulsate from 
 the Signs of the Dark on the sigil around his neck and on the hilt of his
@@ -547,8 +515,7 @@ stand stand male 0
 #19033
 lord dark black~
 the Black Lord~
-A Lord of the Dark stands here, clothed in jet-black robes.
-~
+A Lord of the Dark stands here, clothed in jet-black robes.~
 You can only see the Black Lord's glowing eyes within the shadows of his 
 dark robes; his cold blue eyes transfix you as they slowly pass over your
 figure.
@@ -563,8 +530,7 @@ stand stand male 0
 #19034
 storn assassin~
 Storn the assassin~
-Storn the Assassin is here, practicing his backstab.
-~
+Storn the Assassin is here, practicing his backstab.~
 Storn's body is slim yet strong, and he hardly makes a sound as he attacks his
 target with a faint smile on his face.  You see a few knife slashes across his
 cheeks and arms; you also see that many of those slashes have long healed,
@@ -580,8 +546,7 @@ stand stand male 0
 #19035
 wizard standard evil~
 a standard issue wizard~
-The wizard behind the counter snickers softly at you.
-~
+The wizard behind the counter snickers softly at you.~
 Long white beard, check; cap and cloak covered with stars and moons, check;
 spectacles, check; evil grin, check; otherworldly air, check.  The wizard 
 smirks as you look at him, and taps his "Wizard's Finishing School" diploma.
@@ -596,8 +561,7 @@ stand stand male 0
 #19036
 gardener gardner lady~
 the gardener~
-The gardener stands here, hacking away at the tangles of vines.
-~
+The gardener stands here, hacking away at the tangles of vines.~
 The gardener grins evilly at you as she decapitates a dead rose bush.
 ~
 human~
@@ -610,8 +574,7 @@ stand stand female 0
 #19037
 kid boy child~
 the young boy~
-A young boy tries to climb the tree, trying to grab the high, thick branches.
-~
+A young boy tries to climb the tree, trying to grab the high, thick branches.~
 The young child's knees are green and scraped from all the tree climbing and
 running; still, he looks healthy and strong.
 ~
@@ -625,8 +588,7 @@ stand stand male 0
 #19038
 fisherman man~
 the fisherman~
-A fisherman floats here in his dinghy, trying to add to his catch.
-~
+A fisherman floats here in his dinghy, trying to add to his catch.~
 The fisherman glances up at you as you approach, motioning you to be quiet
 so that you don't disturb the fish.
 ~
@@ -640,8 +602,7 @@ stand stand male 0
 #19039
 deer buck~
 The buck~
-A deer stands here rubbing his antlers against a tree.
-~
+A deer stands here rubbing his antlers against a tree.~
 The young male deer is trying to shake last year's antlers off his head, 
 butting hard against the nearest tree.  His big brown eyes gaze at you fearfully
 as you approach; still, he's an big, big animal, and those antlers look sharp,
@@ -657,8 +618,7 @@ stand stand male 0
 #19040
 something~
 something~
-Something swirls about the mists.
-~
+Something swirls about the mists.~
 You can't tell anything about whatever this might be...the mists are just too
 thick.
 ~
@@ -672,8 +632,7 @@ stand stand none 0
 #19041
 mass red ants~
 the mass of red ants~
-A huge mass of red ants mills frantically around the tree trunk.
-~
+A huge mass of red ants mills frantically around the tree trunk.~
 Thousands of ants have clumped together here to form a basketball-sized mass;
 your skin prickles faintly as you watch the creepy creatures climb all over 
 each other in their search for food.
@@ -688,8 +647,7 @@ stand stand none 0
 #19042
 man card shark~
 the card shark~
-The card shark stands here, waiting for a sucker.
-~
+The card shark stands here, waiting for a sucker.~
 The card shark is a greasy, scruffy man with ragged, moth-eaten clothes;
 apparently, the cheating business isn't doing too well here.  The shark's eyes
 light up as you enter, however, and he motions you over to play a game.
@@ -704,8 +662,7 @@ stand stand male 0
 #19043
 hepzibah bartender~
 Hepzibah the Barkeep~
-A haggard, toothless woman stands here tending the bar.
-~
+A haggard, toothless woman stands here tending the bar.~
 Hepzibah has been worn almost to the bone by the hard work of maintaining a 
 bar on the dark side of the realm; heavy lines crease her face, and her cheeks
 are deeply hollowed from a combination of exhaustion and toothlessness.  She
@@ -722,8 +679,7 @@ stand stand female 0
 #19044
 carvallo undertaker~
 Carvallo~
-Carvallo stands here, operating his "disposal" business.
-~
+Carvallo stands here, operating his "disposal" business.~
 Carvallo offers "quick and easy disposal" of just about anything you might want
 to get rid of rather quickly--or at least anything that no one else will touch
 (and he does mean ANYTHING).  Whatever you've got, he'll buy it...(and most 
@@ -739,8 +695,7 @@ stand stand male 0
 #19045
 citizen man commoner~
 the young man~
-A citizen of the Mirror Realm shuffles along the dark road.
-~
+A citizen of the Mirror Realm shuffles along the dark road.~
 The young man walks with his eyes lowered to the ground, and does not even
 blink as he nears you.  His face is gaunt with fatigue and pain, and his
 steps are short and uncertain, as if he has no real idea where he intends to 
@@ -756,8 +711,7 @@ stand stand male 0
 #19046
 commoner citizen woman~
 the woman~
-A middle-aged woman shuffles past you, pulling her shawl tight around her head.
-~
+A middle-aged woman shuffles past you, pulling her shawl tight around her head.~
 The woman's white hair spills out from behind her moth-eaten gray shawl; she
 locks her eyes on the ground before her, not even blinking as she approaches
 you.
@@ -772,8 +726,7 @@ stand stand female 0
 #19047
 fox grey~
 the grey fox~
-A grey fox emerges from the brush, growling angrily at you.
-~
+A grey fox emerges from the brush, growling angrily at you.~
 Drool and gore drip from the fox's mouth as he bares his teeth at you; his
 eyes are filled with animal rage.
 
@@ -789,8 +742,7 @@ stand stand none 0
 #19048
 moose~
 the moose~
-A moose stands here, nibbling at the tree branches.
-~
+A moose stands here, nibbling at the tree branches.~
 Moose are *weird*.  The animal has the antlers of a deer, except thicker; the
 body of an antelope, the muzzle of a horse, and the fur of some kind of dog.
 Strangely, the moose isn't a mythical creature, but is quite real, all 1200 
@@ -807,8 +759,7 @@ stand stand none 0
 #19049
 bear~
 the bear~
-A bear stands here.  You have disturbed him.
-~
+A bear stands here.  You have disturbed him.~
 It's a big black bear....sharp claws, big teeth, the works.
 
 And it's coming right at you.
@@ -825,8 +776,7 @@ r cold -33
 #19050
 waiter~
 the waiter~
-A waiter slouches against the wall waiting to serve you stew.
-~
+A waiter slouches against the wall waiting to serve you stew.~
 With a sigh, the waiter leans heavily against the wall, running his hands 
 through his greasy hair.  He picks up a plate of stew, suddenly sneezes
 on it, then tosses the plate back on the table.
@@ -841,8 +791,7 @@ stand stand male 0
 #19051
 urchin boy~
 the young urchin~
-A young urchin shuffles about, ignoring the fruit that hangs from the trees.
-~
+A young urchin shuffles about, ignoring the fruit that hangs from the trees.~
 Swamp mire and mud cover the boy's face, and smelly seaweed hangs from his 
 shoulders; apparently the boy had decided that a swim in the swamp would do him
 some good.  He refuses to raise his head, or even lift his feet off the ground;
@@ -858,8 +807,7 @@ stand stand male 0
 #19052
 lady woman slut whore night~
 the lady of ill repute~
-A lady of ill repute lounges against a pole, eyeing you coyly.
-~
+A lady of ill repute lounges against a pole, eyeing you coyly.~
 This fine-looking young lady is rather scantily dressed, clad only in a tight
 bodice and a short skirt.  As you look at her, she winks at you, and 
 beckons you closer.
@@ -876,8 +824,7 @@ stand stand male 0
 #19053
 pimp man master~
 the greasy man~
-A greasy-looking man stands here, keeping watch over the lady of ill repute.
-~
+A greasy-looking man stands here, keeping watch over the lady of ill repute.~
 This greasy young man appears to have some control over the young lady, almost
 as if she was somehow bound to him.  Though he doesn't seem attracted to her,
 he still eyes her carefully, seeming to watch her every move.
@@ -892,8 +839,7 @@ stand stand male 0
 #19054
 thief hidden~
 the wily little thief (hidden somewhere in the shadows)~
-The shadows shift faintly.
-~
+The shadows shift faintly.~
 You see only a shifty black mass.
 ~
 human~
@@ -906,8 +852,7 @@ stand stand male 0
 #19055
 red master~
 the Red Master~
-The Red Master rises from his throne as you enter.
-~
+The Red Master rises from his throne as you enter.~
 The Red Master's cloak completely covers his face and body; even his hands and
 feet are hidden somewhere inside its folds.
 ~
@@ -921,8 +866,7 @@ stand stand male 0
 #19056
 amber master~
 the Amber Master~
-The Amber Master rises from his throne as you appear in the room.
-~
+The Amber Master rises from his throne as you appear in the room.~
 The Amber Master's cloak completely covers his face and body; even his hands
 and feet are hidden somewhere inside its folds.
 ~
@@ -936,8 +880,7 @@ stand stand male 0
 #19057
 green master~
 the Green Master~
-The Green Master rises from his throne as you appear in the room.
-~
+The Green Master rises from his throne as you appear in the room.~
 The Green Master's cloak completely covers his face and body; even his hands
 and feet are hidden somewhere inside its folds.
 ~
@@ -951,8 +894,7 @@ stand stand male 0
 #19058
 blue master~
 the Blue Master~
-The Blue Master rises from his throne as you appear in the room.
-~
+The Blue Master rises from his throne as you appear in the room.~
 The Blue Master's cloak completely covers his face and body; even his hands 
 and feet are hidden somewhere inside its folds.
 ~
@@ -966,8 +908,7 @@ stand stand male 0
 #19059
 violet master~
 the Violet Master~
-The Violet Master rises from his throne as you appear in the room.
-~
+The Violet Master rises from his throne as you appear in the room.~
 The Violet Master's cloak completely covers his hands and face; even his hands
 and feet are hidden somewhere inside its folds.
 ~
@@ -981,8 +922,7 @@ stand stand male 0
 #19060
 yellow master~
 the Yellow Master~
-The Yellow Master rises from his throne as you enter.
-~
+The Yellow Master rises from his throne as you enter.~
 The Yellow Master's cloak completely covers his face and body; even his hands
 and feet are hidden somewhere in its folds.
 ~
@@ -997,8 +937,7 @@ stand stand male 0
 light figure being lord master~
 the Master of Light~
 (Golden Aura) A figure of pure light rises from a sparkling throne.
- 
-~
+ ~
 The figure before you seems to be made entirely of rainbow light: the sparkling
 wall behind it shines through its patterned, dazzling multicolored body, and
 the thousands of rainbow rays seem to pass right through it without any effect
@@ -1016,8 +955,7 @@ stand stand none 0
 #19062
 phoenix bird~
 the Phoenix~
-An incredible bird sits in its nest, flapping its enormous wings.
-~
+An incredible bird sits in its nest, flapping its enormous wings.~
 A huge, majestic bird sits before you, with a noble air to its face--and a wild
 look in its eyes.  The Phoenix's plumage glitters brightly, with reddish-purple
 feathers intertwined with a few golden ones; its silvery beak glistens in the
@@ -1033,8 +971,7 @@ stand stand none 0
 #19063
 mandeep beekeeper bee keeper~
 Mandeep the Beekeeper~
-Mandeep the Beekeeper strolls about his house, puffing smoke at his bees.
-~
+Mandeep the Beekeeper strolls about his house, puffing smoke at his bees.~
 Mandeep smiles cheerfully as he inspects his bees, making sure they're all
 quite happy in their glass-enclosed hives.  The smoke he puffs at them from
 a small metal can keeps them calm--calm enough to pick up and inspect at close
@@ -1050,8 +987,7 @@ stand stand male 0
 #19064
 white master~
 the White Master~
-The White Master stands quietly at the northern end of the room.
-~
+The White Master stands quietly at the northern end of the room.~
 The White Master's cloak completely covers him; not even his hands and feet
 can be seen.
 ~
@@ -1065,8 +1001,7 @@ stand stand male 0
 #19065
 white master~
 the White Master~
-The White Master stands quietly at the northern end of the room.
-~
+The White Master stands quietly at the northern end of the room.~
 The White Master's cloak completely covers him; not even his face and hands
 can be seen.
 ~
@@ -1080,8 +1015,7 @@ stand stand male 0
 #19066
 black master~
 the Black Master~
-The Black Master stands quietly at the northern end of the room.
-~
+The Black Master stands quietly at the northern end of the room.~
 The Black Master's cloak completely covers his body; not even his face   
 and hands are visible.
 ~
@@ -1095,8 +1029,7 @@ stand stand male 0
 #19067
 black master~
 the Black Master~
-The Black Master stands quietly at the northern end of the room.
-~
+The Black Master stands quietly at the northern end of the room.~
 The Black Master's cloak completely covers his body; not even his face 
 and hands can be seen.
 ~
@@ -1110,8 +1043,7 @@ stand stand male 0
 #19068
 jerry garcia~
 Jerry Garcia~
-Jerry Garcia hovers in the center of this room healing the sick.
-~
+Jerry Garcia hovers in the center of this room healing the sick.~
 Jerry Garcia...famous musician, artist, demigod rock-and-roller of the '60's
 through the '90's....has returned from the dead to heal your wounds.
 ~
@@ -1125,8 +1057,7 @@ stand stand male 0
 #19069
 mr teece~
 Mr. Teece~
-Mr. Teece sits here playing on his banjo.
-~
+Mr. Teece sits here playing on his banjo.~
 Mr. Teece's deep black skin contrasts sharply with his white hair; he appears
 to be immeasurably old.  He strums on his banjo as you approach, and invites
 you to have a seat and listen.

@@ -11,8 +11,7 @@ End
 #400
 ameoba~
 ameoba~
-An ameoba stands here, looking for newbies.
-~
+An ameoba stands here, looking for newbies.~
 Basicly it's a clear sack filled with jelly and colorful floating things.
 ~
 human~
@@ -25,8 +24,7 @@ stand stand either 15
 #401
 man gorilla~
 A gorilla~
-A gorilla stands here with a sign around its neck greeting you.
-~
+A gorilla stands here with a sign around its neck greeting you.~
 The gorilla, hey wait! Thats a man dressed in a gorilla outfit. It's a fake!
 The sign around his neck says 'Come see the gorilla display!'
 ~
@@ -40,8 +38,7 @@ stand stand male 45
 #402
 pubic lice~
 A pubic lice~
-Egads, they have gone too far! A pubic lice stands here!
-~
+Egads, they have gone too far! A pubic lice stands here!~
 The most heinous thing you could probably think of is standing in front 
 of you: A six foot tall pubic lice.  Crabs anyone?
 ~
@@ -55,8 +52,7 @@ stand stand female 25
 #403
 john shopkeeper~
 John the shopkeeper~
-John the shopkeeper stands here at his part time job.
-~
+John the shopkeeper stands here at his part time job.~
 John the shopkeeper is obviously not happy.  And who would be at this job?
 ~
 human~
@@ -70,8 +66,7 @@ r charm 999
 #404
 shark~
 a shark~
-A shark swims here looking for food.
-~
+A shark swims here looking for food.~
 How hungry do you think a shark could possibly be?  You poke its nose to 
 piss it off.  Boy does he look angry now!
 ~
@@ -87,8 +82,7 @@ r disease 33
 #405
 jellyfish man war man-o-war~
 A Man-of-war~
-A big gelatinous mass of man-of-war floats here.
-~
+A big gelatinous mass of man-of-war floats here.~
 This is prehaps the ugliest jellyfish you've ever seen.  Its just a big 
 blob with tenticles.  It doesn't even have pretty colors in it.  Just a 
 ugly gray color.
@@ -104,8 +98,7 @@ r poison 999
 #406
 child~
 a child~
-A child stands here, amazed by all the neat animals.
-~
+A child stands here, amazed by all the neat animals.~
 The child is obviously too young to realise that this is prehaps one of 
 the stupidest exhibits his little brain could comprehend.
 ~
@@ -119,8 +112,7 @@ stand stand male 110
 #407
 teacher~
 Your teacher~
-Your teacher stands here looking for you!
-~
+Your teacher stands here looking for you!~
 Thank God she doesn't see you!  But if you keep looking at her she may!
 ~
 troll~
@@ -139,8 +131,7 @@ r charm 999
 #408
 gorilla~
 A gorilla~
-A gorilla is playing with its own feces.
-~
+A gorilla is playing with its own feces.~
 This gorilla is really foul.  Its making mud pies out of its own feces 
 and throwing it at visitors. Duck! one just missed you!
 ~
@@ -156,8 +147,7 @@ r cold -33
 #409
 janitor~
 A janitor~
-A jantior stands here, cleaning up gorilla poop.
-~
+A jantior stands here, cleaning up gorilla poop.~
 You feel so sorry fort his poor man who has been subjected to cleaning up 
 after the gorillas for the rest of his life.
 ~
@@ -171,8 +161,7 @@ stand stand either 110
 #410
 emu~
 an emu~
-The most beloved of chordates, an emu stands here.
-~
+The most beloved of chordates, an emu stands here.~
 Oh wow! An emu..this brings back such memories of your pet emu that you 
 had when you were a wee bit smaller than you are now.  And when he died, 
 well your mom made some of the tasties meat stew you've ever had to cheer 

@@ -12,8 +12,7 @@ End
 #32000
 Gatekeeper~
 the gatekeeper~
-The gatekeeper is here snoozing on the job.
-~
+The gatekeeper is here snoozing on the job.~
 The gatekeeper is underpayed overweight and not too bright. He snores very  
 loudly and occasionally rubs his chin. Well better kill him now I guess.
 ~
@@ -27,8 +26,7 @@ stand stand male 100
 #32001
 rat~
 the rat~
-The rat sits on its haunches here, thinking about its next meal.
-~
+The rat sits on its haunches here, thinking about its next meal.~
 The rat looks as if it hasn't eaten in days....it contemplates eating YOU!
 ~
 unique~
@@ -41,8 +39,7 @@ stand stand male 100
 #32002
 Prison Guard~
 the Prison Guard~
-The Prison Guard stands here keeping an eye out for unruly behavior.
-~
+The Prison Guard stands here keeping an eye out for unruly behavior.~
 The Guard is a highly trained specialist in torture and hand to hand
 combat.  Selectively chosen from the ranks of cityguards he is the best of  
 the elite.
@@ -57,8 +54,7 @@ stand stand male 100
 #32003
 Prison Worker~
 the Prison Worker~
-The Prison Worker is here working as little as possible.
-~
+The Prison Worker is here working as little as possible.~
 The Prison Worker looks almost exactly like a janitor you have seen in  
 Midgaard!
 ~
@@ -72,8 +68,7 @@ stand stand male 100
 #32004
 Cell Guard~
 the Cell Guard~
-The Cell Guard stands here, he is staring icily at you.
-~
+The Cell Guard stands here, he is staring icily at you.~
 The Cell Guard is one tough dude, outfitted to keep anything prisoner in.
 And for that matter anyone not wanted out! He is about 7'8'' and towers
 above  you.
@@ -88,8 +83,7 @@ stand stand male 100
 #32005
 prisoner~
 the prisoner~
-The prisoner stands here, his will broken.
-~
+The prisoner stands here, his will broken.~
 The prisoner has been doing hard time for a while. He has the haggard look
 of an inmate with nothing to lose.
 ~
@@ -103,8 +97,7 @@ stand stand male 100
 #32006
 cockroach~
 the cockroach~
-The huge black cockroach skitters about.
-~
+The huge black cockroach skitters about.~
 The huge black cockroach looks as if it must eat alot of food to support that hu
 ge body. It is at least 2 feet long. Do you have some bug spray?
 ~
@@ -118,8 +111,7 @@ stand stand none 100
 #32007
 flunky~
 a flunky~
-A flunky skulks about waiting for some orders.
-~
+A flunky skulks about waiting for some orders.~
 The flunky is the lowest ranking scum of the prison. He is a shame to all. kinda
  makes ya want to put him out of his misery.
 ~
@@ -133,8 +125,7 @@ stand stand male 100
 #32008
 Stoned Guard~
 the stoned guard~
-The mob stands here, completely clueless.
-~
+The mob stands here, completely clueless.~
 The guard looks as if he has had a little too much to smoke after work today. He
  must have eyes but all you can see are slits with puffy bloodshot teary......we
 ll you get the idea.
@@ -149,8 +140,7 @@ stand stand male 100
 #32009
 gangster~
 the gangster~
-The gangster is here yelling orders to his flunkies.
-~
+The gangster is here yelling orders to his flunkies.~
 Sadly the gangster was caught not paying taxes to the mayor.
 ~
 human~
@@ -163,8 +153,7 @@ stand stand male 100
 #32010
 Brad Warden~
 Brad the Warden~
-Brad the Warden is here contemplating the death and execution of another prisoner.
-~
+Brad the Warden is here contemplating the death and execution of another prisoner.~
 Brad the Warden looks like the all Midgaard guy. Voted most likely to
 succeed  by his class on the Campus he was turned down at job after job.  
 Finally he found one he can really get into, the torture and murder of the
@@ -181,8 +170,7 @@ stand stand male 100
 #32011
 Trixie~
 Trixie the secretary~
-Trixie sits here dreaming about Brad the Warden.
-~
+Trixie sits here dreaming about Brad the Warden.~
 She looks like your average, everyday, dumb, closed minded secretary.Great
 body.  No mind. And a great set of.....paper clips.
 ~
@@ -196,8 +184,7 @@ FIJK 0 medium unknown
 #32012
 Steve maintenance man~
 Steve the maintenance man~
-Steve the maintenance man is here doing a whole lot of nothing.
-~
+Steve the maintenance man is here doing a whole lot of nothing.~
 Steve is a career maintenance man. He likes to put new pinups on the wall,
 he likes to order supplies from Terry and he HATES to work. All of which
 is quite  evident. in this room
@@ -212,8 +199,7 @@ stand stand male 100
 #32013
 Butch helper~
 Butch the helper~
-Butch the helper is here doing all of Steve's work.
-~
+Butch the helper is here doing all of Steve's work.~
 Butch is a young lad with all the enthusiasm that ignorance can provide.
 He works long and hard to keep this prison in working order.
 ~
@@ -227,8 +213,7 @@ stand stand male 100
 #32014
 Wendy Cook~
 Wendy the Cook~
-Wendy stands here dreaming up a beautiful meal for all the inmates.
-~
+Wendy stands here dreaming up a beautiful meal for all the inmates.~
 Wendy is a gorgeous young lady with flowing long auburn hair wrapped into
 a loose hairnet. She brings her light and salvation to work with
 her everyday..   Her son Jacob.
@@ -243,8 +228,7 @@ stand stand female 100
 #32015
 Steam Monster~
 A steam monster~
-A swirl of mist is wafting about here.
-~
+A swirl of mist is wafting about here.~
 The Steam Monster is glittering although there is no light. It swirls about and 
 about almost charming you in the process......
 ~
@@ -258,8 +242,7 @@ stand stand none 100
 #32016
 Larry armsmaster~
 Larry the armsmaster~
-Larry the armsmaster is here, wanting to sell you some armor.
-~
+Larry the armsmaster is here, wanting to sell you some armor.~
 Larry is not the best paid person in here so he supplements his income with a li
 ttle on the side buying and selling.
 ~
@@ -276,8 +259,7 @@ r slash 33
 #32017
 Thomas weaponmaster~
 Thomas the weaponmaster~
-Thomas the weaponmaster is here selling his goods.
-~
+Thomas the weaponmaster is here selling his goods.~
 Thomas the weaponmaster is an old cell guard who has become an expert at all the 
 weapons at his diposal. The next step in his career was to become the weaponsmas
 ter. Unfortunately he has to resort to selling arms to pay the rent.
@@ -295,8 +277,7 @@ r slash 33
 #32018
 slice bologna~
 (processed aura) a slice of bologna~
-[processed aura] a slice of bologna is here mouldering.
-~
+[processed aura] a slice of bologna is here mouldering.~
 You look at the slice of bologna and it curls itself into a tube and
 skitters away.
 ~
@@ -310,8 +291,7 @@ stand stand male 100
 #32019
 Muslim Cleric~
 The Muslim Cleric~
-A muslim cleric is here, giving you peace and a sense of well being.
-~
+A muslim cleric is here, giving you peace and a sense of well being.~
 The Muslim Cleric is from a different reality that has been thrust into
 this time and place. He makes do with the clothes on his back and the
 hope that more and more worthy people like you will come and visit.
@@ -340,8 +320,7 @@ r sound 33
 #32020
 towel boy~
 the towel boy~
-The towel boy stands here with his back to the wall.
-~
+The towel boy stands here with his back to the wall.~
 What an awful job the boy has, he has to watch these people drudge in and
 out of the shower all day long. But he keeps a few handy items on hand.
 ~
@@ -355,8 +334,7 @@ stand stand male 100
 #32021
 Executioner~
 The Executioner~
-The Executioner stands here waiting to kill.
-~
+The Executioner stands here waiting to kill.~
 An ageless demon with no face and no soul.....he is feared by all but he
 is  really just a lonely lost being. All he really wants is a friend for  
 eternity.
@@ -374,8 +352,7 @@ r slash 10
 #32022
 Thing~
 The Black thing~
-A black thing is here.
-~
+A black thing is here.~
 You stare at the center of the black mass but all you can see is a rainbow
 of colors swirling from the outside to the inside....swirling...swirling....
 ~
@@ -389,8 +366,7 @@ stand stand none 100
 #32023
 Mnemoth~
 A huge Bronze Dragon~
-A huge bronze Dragon is snoozing here with one eye open looking at you!
-~
+A huge bronze Dragon is snoozing here with one eye open looking at you!~
 Since you are a lesser being than Mnemoth you cannot comprehend what you see here.
 ~
 dragon~
@@ -408,8 +384,7 @@ r charm -33
 #32024
 Terry ~
 Terry the salesman~
-Terry the salesman is here pitching a product.
-~
+Terry the salesman is here pitching a product.~
 Terry is a young guy who works for Environmental Chemical Corporation. He sells 
 Chemicals to Steve in the prison maintenance. He also likes to stroll the
 grounds and flirt with Wendy his wife.

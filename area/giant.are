@@ -11,9 +11,7 @@ End
 #13000
 giant guard гигант охранник~
 @eng a giant guard@rus ~~охранник~~ ~~гигант~~~
-@eng A giant guard glances around, looking to stop trouble.
-@rus Гигант охранник оглядывается по сторонам, готовый исполнить свой долг.
-~
+@eng A giant guard glances around, looking to stop trouble.@rus Гигант охранник оглядывается по сторонам, готовый исполнить свой долг.~
 @eng Standing around 12 feet tall, this giant seems to keep things safe in the 
 castle. I wouldn't mess with him.
 @rus Ростом 12 футов, этот гигант похоже поставлен здесь для охраны вещей и 
@@ -33,9 +31,7 @@ r mental 50
 #13001
 giant thiulor spy гигант тиулор шпион~
 @eng Thiulor the Spy@rus ~~местный~~ ~~шпион~~ ~~Тиулор~~~
-@eng A strange giant peers at you while sneaking through the castle.
-@rus На тебя пялится крадущийся по замку странный гигант.
-~
+@eng A strange giant peers at you while sneaking through the castle.@rus На тебя пялится крадущийся по замку странный гигант.~
 Strange indeed, this giant seems to be adept at what was thought impossible
 of the giants. Stealth and Guile. He is a spy for the Lord of the Giants, 
 spying on the guards and making sure they are loyal to the Lord.
@@ -55,8 +51,7 @@ r mental 50
 #13002
 giant lord~
 the Lord of the Giants~
-The Lord of the Giants raises his arms and screams at your intrusion!
-~
+The Lord of the Giants raises his arms and screams at your intrusion!~
 The Lord of the Giants is definately someone not to be messed with. Standing
 15 feet tall, his muscles ripple and stretch all over his body, ready to 
 defend his castle. You notice a dark look in his eyes as he hungers for
@@ -76,9 +71,7 @@ r mental 50
 #13003
 giant mistress Shannon гигант госпожа шаннон~
 @eng Shannon, the Battle Mistress@rus ~~воительница~~ Шаннон~
-@eng Screaming at your entrance, Shannon readies her weapon and attacks!
-@rus Пронзительно вскрикнув при твоем появлении, Шаннон (Shannon) вскинула оружие и напала!
-~
+@eng Screaming at your entrance, Shannon readies her weapon and attacks!@rus Пронзительно вскрикнув при твоем появлении, Шаннон (Shannon) вскинула оружие и напала!~
 @eng She is the epitomy of battle. Hair tossed about and muscles like that of
 no other female giant you have ever seen, she seems to posses both power
 and control to level anyone who challenges her.
@@ -101,8 +94,7 @@ r mental 50
 #13004
 giant cleric Iupsil гигант священник иупсил~
 @eng Iupsil, the Master Cleric@rus ~~Иупсил~~, ~~главный~~ ~~церковник~~~
-Uttering a prayer, the Master Cleric turns to you with a smile.
-~
+Uttering a prayer, the Master Cleric turns to you with a smile.~
 This giants seems to be at peace with his surroundings. Praying to his god
 when he is in trouble and using his magics to keep the castle in good health,
 he seems just the person who you would want as a friend. (And his size makes
@@ -123,8 +115,7 @@ r charm 999
 #13005
 human captain guard~
 the Captain of the Castle Guard~
-The Captain of the Castle Guard stands here, barking orders.
-~
+The Captain of the Castle Guard stands here, barking orders.~
 Strangest thing you've seen yet. The Captain of the Guards seems to be a 
 human. Standing about 6 feet tall, he hardly compares to the guards around
 him. His muscles have been hardened over the years of training with the 
@@ -141,8 +132,7 @@ stand stand male 590
 #13006
 elf gardener servant~
 the elven servant~
-An elven servant walks around, tending the castle garden.
-~
+An elven servant walks around, tending the castle garden.~
 He smiles when he sees you, hoping that you'll add variety to his life. He
 tells you that he never gets out of the castle to visit his homeland and
 longs to pay off his debt to the Lord.
@@ -159,8 +149,7 @@ r charm -33
 #13007
 male giant гигант мужчина~
 @eng the male giant@rus ~~гигант~~ ~~мужчина~~~
-A male giant is standing here, admiring the castle.
-~
+A male giant is standing here, admiring the castle.~
 He looks in admiration of everything he sees. The wealth of the giants here
 makes him proud to be a part of the race.
 ~
@@ -178,8 +167,7 @@ r mental 50
 #13008
 dying gnome~
 the dying gnome~
-A dying gnome is lying here, spitting up blood.
-~
+A dying gnome is lying here, spitting up blood.~
 He has committed an act against the giants and is paying the price. He 
 spits up blood and coughs, trying to say something to you. All that you
 can make out is '..was.. framed'. He then goes into another coughing fit.
@@ -197,8 +185,7 @@ r disease -20
 #13009
 weeping elf~
 the weeping elf~
-A weeping elf is chained to the wall here, struggling to break free.
-~
+A weeping elf is chained to the wall here, struggling to break free.~
 She has gotten herself into trouble and is now in the dungeon of the giants.
 Her hair matted with blood and swet makes her hardly seem as fair as elven
 women usually are. She says she doesn't even know what she has been charged
@@ -216,8 +203,7 @@ r charm -33
 #13010
 weeping elf~
 the weeping elf~
-A weeping elf sits in the corner of her cell, sobbing.
-~
+A weeping elf sits in the corner of her cell, sobbing.~
 She has gotten herself into trouble and is now in the dungeon of the giants.
 Her hair matted with blood and swet makes her hardly seem as fair as elven
 women usually are. She says she doesn't even know what she has been charged
@@ -235,8 +221,7 @@ r charm -33
 #13011
 librarian~
 the librarian~
-A giant librarian sits here, nose in a book.
-~
+A giant librarian sits here, nose in a book.~
 He lives his life exactly how he wants. With books, LOTS of books. He met
 the lord once when the lord was in search of a certain forbidden piece of
 literature. After bargaining with the Lord he obtained the statis of 'Castle
@@ -256,8 +241,7 @@ r mental 50
 #13012
 human torturer~
 the torturer~
-A human stands here with a grin, delivering pain and misery.
-~
+A human stands here with a grin, delivering pain and misery.~
 Having been a friend of the Lord's since their youth, this human seems to
 share in the Lord's desire for pain and destruction. Burning elves live or
 beating a gnome to death, he cares not. It is merely part of his well-paid
@@ -274,8 +258,7 @@ r holy -50
 #13013
 screaming elf~
 the screaming elf~
-An elf is chained to the floor here, screaming in agony at the torture.
-~
+An elf is chained to the floor here, screaming in agony at the torture.~
 He hardly represents royalty in a huddle mass on the floor. He was once a 
 prince and was captured in a war against the giants. He now spends his days
 and nights screaming from the torture, until his body finally gives up. He 

@@ -11,8 +11,7 @@ End
 #10201
 captain guard~
 Captain of the Guard~
-The Captain of the Guard is here.
-~
+The Captain of the Guard is here.~
 The Captain of the Guard is an older but very powerful man. His obsidian
 armor seems to glow faintly. The crest of the town of Solace is displayed
 with pride on his chestplate. The gold crest of two coins seems to match
@@ -28,8 +27,7 @@ stand stand male 1000
 #10202
 lieutenant commander~
 Lieutenant Commander~
-The Lieutenant Commander is here.
-~
+The Lieutenant Commander is here.~
 The Lieutenant seems like a happy fellow. Although he seems to have
 the brain of a 7 year old. His steel armor is covered with finger paint.
 Dispite his mental problems he is quite a challenge. If you would like
@@ -46,8 +44,7 @@ stand stand male 1000
 #10203
 Sergeant Arms~
 Sergeant at Arms~
-The Sergeant at Arms is here polishing his hammer.
-~
+The Sergeant at Arms is here polishing his hammer.~
 This is the tough and burly Sergeant at Arms. He wears the red armor of 
 war. He is a middle age man with graying hair that pokes out from under
 his helmet. He is always waiting for a fight.
@@ -62,8 +59,7 @@ stand stand male 1000
 #10204
 townguard guard~
 Townguard~
-A townguard stands here.
-~
+A townguard stands here.~
 A big strong townguard of Solace.
 
 ~
@@ -77,8 +73,7 @@ stand stand male 1000
 #10205
 townguard guard agg~
 Townguard~
-A townguard stands here.
-~
+A townguard stands here.~
 A big strong townguard of Solace.
 
 ~
@@ -92,8 +87,7 @@ stand stand male 1000
 #10206
 citizen solace~
 Citizen of Solace~
-A citizen of Solace stands here.
-~
+A citizen of Solace stands here.~
 He is one of the wealthy citizens of Solace.
 ~
 human~
@@ -106,8 +100,7 @@ stand stand male 1000
 #10207
 woman~
 woman~
-a woman is here.
-~
+a woman is here.~
 She is a beautiful woman.
 ~
 human~
@@ -120,8 +113,7 @@ stand stand female 1000
 #10208
 matt brewmaster~
 Matt the brewmaster~
-Matt the brewmaster is here looking for something to drink.
-~
+Matt the brewmaster is here looking for something to drink.~
 ~
 human~
 e 0 H 0 0 800 0
@@ -133,8 +125,7 @@ stand stand male 1000
 #10209
 Mcbaker~
 the Mcbaker~
-The Mcbaker looks at you calmly, wiping flour from his face with one hand.
-~
+The Mcbaker looks at you calmly, wiping flour from his face with one hand.~
 A fat, nice looking baker. But you can see that he has many scars on his
 body.
 ~
@@ -148,8 +139,7 @@ stand stand male 1000
 #10210
 cookie's helper~
 Cookie's Helper~
-Cookie's Helper is here offering you a free cookie sample.
-~
+Cookie's Helper is here offering you a free cookie sample.~
 A young neighborhood girl helps out cookie when she is not around.
 ~
 human~
@@ -162,8 +152,7 @@ stand stand female 1000
 #10211
 marilyn~
 Marilyn~
-Marilyn is here selling birds.
-~
+Marilyn is here selling birds.~
 She is a very pretty and loves her birds. Her black hair hangs behind her
 tied in a pony tail.
 ~
@@ -177,8 +166,7 @@ stand stand female 1000
 #10212
 ghost jander~
 Ghost of Jander~
-The Ghost of Jander is here.
-~
+The Ghost of Jander is here.~
 The ghost of Jander is as he was in life. A rather large man with flaming
 red hair. His clothes seems dirty and tattered. His bushy beard obscures
 his stone face.
@@ -193,8 +181,7 @@ stand stand male 1000
 #10213
 ghost waiter~
 ghost of waiter~
-a ghost of a waiter is here waiting to serve you.
-~
+a ghost of a waiter is here waiting to serve you.~
 This is the ghost of a long dead waiter. Probably one of the many that 
 Jander killed for spilling a drink or something.
 ~
@@ -208,8 +195,7 @@ stand stand male 1000
 #10214
 ghost barkeep~
 ghost of a barkeeper~
-a ghost of a barkeeper is here waiting an eternity to take your order.
-~
+a ghost of a barkeeper is here waiting an eternity to take your order.~
 This is probably another of Jander's victims. Probably got caught with
 his hand in the cash or something.
 ~
@@ -223,8 +209,7 @@ stand stand female 1000
 #10215
 townguard guard~
 Townguard~
-A townguard is on patrol.
-~
+A townguard is on patrol.~
 A big strong townguard of Solace.
 
 ~
@@ -238,8 +223,7 @@ stand stand male 1000
 #10216
 field rat~
 field rat~
-a field rat is here looking for food.
-~
+a field rat is here looking for food.~
 A dirty nasty field rat . Obviously  looking for food in the town.
 ~
 unique~
@@ -252,8 +236,7 @@ stand stand none 1000
 #10217
 town clerk~
 Town Clerk~
-the Town Clerk is here impatiently waiting for you to pay taxes.
-~
+the Town Clerk is here impatiently waiting for you to pay taxes.~
 a stringy rat like individual. He beams at you through his spectacles
 as if he can see the money in your pockets.
 ~
@@ -267,8 +250,7 @@ stand stand male 1000
 #10218
 treasury guards~
 Treasury Guards~
-the Treasury Guards are here guarding the town's money.
-~
+the Treasury Guards are here guarding the town's money.~
 These are like the biggest and meanest men you've every seen.
 They look more like trolls or ogres than men.
 ~
@@ -282,8 +264,7 @@ stand stand male 1000
 #10219
 Jhen~
 Jhen the farmer~
-Jhen the farmer is here.
-~
+Jhen the farmer is here.~
 a rather tall man who works hard for his money.
 ~
 human~
@@ -296,8 +277,7 @@ stand stand male 1000
 #10220
 Krista~
 Krista the fruit peddler~
-Krista the fruit peddler is here.
-~
+Krista the fruit peddler is here.~
 a pretty woman who works hard for her money. Travelling every year
 to the market to sell her fruits.
 ~
@@ -311,8 +291,7 @@ stand stand female 1000
 #10221
 Janni~
 Janni~
-Janni is here.
-~
+Janni is here.~
 Janni has spent his whole life making trinkets for people to enjoy.
 ~
 human~
@@ -325,8 +304,7 @@ stand stand male 1000
 #10222
 Nisi~
 Nisi the grocer~
-Nisi is here.
-~
+Nisi is here.~
 Nisi is a very interesting person. It shows in the wares she sells
 ~
 human~
@@ -339,8 +317,7 @@ stand stand male 1000
 #10223
 Molin~
 Molin the brewer~
-Molin the brewer is here.
-~
+Molin the brewer is here.~
 Molin is a grey old man with hair down to his toes.
 ~
 human~
@@ -353,8 +330,7 @@ stand stand male 1000
 #10224
 Rashan~
 Rashan the farmer~
-Rashan the farmer is here.
-~
+Rashan the farmer is here.~
 Rashan is a middle aged man who grows his rutabagas by candlelight.
 ~
 human~
@@ -367,8 +343,7 @@ stand stand male 1000
 #10225
 Lexie~
 Lexie~
-Lexie is here.
-~
+Lexie is here.~
 Lexie is an accomplish diver. But he seems to have problems keeping 
 students.
 ~
@@ -382,8 +357,7 @@ stand stand male 1000
 #10226
 Croben~
 Croben~
-Croben is here.
-~
+Croben is here.~
 Croben is a young man who learned the art of container making from his
 grandfather.
 ~
@@ -397,8 +371,7 @@ stand stand male 1000
 #10227
 otik sandath bartender~
 Otik Sandath~
-Otik sandath is here tending the bar
-~
+Otik sandath is here tending the bar~
 Otik is an older man with a gift for cooking. 
 
 Otik whispers, "A magical staff! I bet it was forged by demons from the
@@ -414,8 +387,7 @@ stand stand male 1000
 #10228
 tika barmaid~
 Tika the barmaid~
-Tika the barmaid is here delivering drinks and food.
-~
+Tika the barmaid is here delivering drinks and food.~
 Curly auburn hair tumbles around Tika's lightly freckled face. Her striking
 green eyes match her low-cut blouse. She is a brash young barmaid who
 looks older than her 19 years. Rough living has hardened her and she
@@ -431,8 +403,7 @@ stand stand female 1000
 #10229
 thief cloaked figure~
 Thief~
-a cloaked figure sits here.
-~
+a cloaked figure sits here.~
 A thin, cloaked figure sits alone at a table near the door, an untouched
 glass of ale before him.
 ~
@@ -446,8 +417,7 @@ stand stand male 1000
 #10230
 old man~
 old man~
-an old man is here.
-~
+an old man is here.~
 he looks like an old man....go figure..
 ~
 human~
@@ -460,8 +430,7 @@ stand stand male 1000
 #10231
 boy~
 boy~
-a small boy is here.
-~
+a small boy is here.~
 he is a small boy lost in his own daydreams.
 
 boy says, "I saw the white stag up near Prayers Eye Peak just a few days
@@ -478,8 +447,7 @@ stand stand male 1000
 #10232
 brat boy~
 bratty boy~
-a brat is here.
-~
+a brat is here.~
 he looks like a pain in the ass.
 ~
 human~
@@ -492,8 +460,7 @@ stand stand male 1000
 #10233
 Mage~
 mage~
-a mage is here.
-~
+a mage is here.~
 He is the typical adventurer. He looks as if he has travelled far.
 ~
 human~
@@ -506,8 +473,7 @@ stand stand male 1000
 #10234
 Thief~
 Thief~
-a thief is here.
-~
+a thief is here.~
 He is the typical adventurer. He looks as if he has travelled far.
 ~
 human~
@@ -520,8 +486,7 @@ stand stand male 1000
 #10235
 Warrior~
 Warrior~
-a warrior is here.
-~
+a warrior is here.~
 He is the typical adventurer. He looks as if he has travelled far.
 ~
 human~
@@ -534,8 +499,7 @@ stand stand male 1000
 #10236
 Cleric~
 Cleric~
-a cleric is here.
-~
+a cleric is here.~
 He is the typical adventurer. He looks as if he has travelled far.
 ~
 human~
@@ -548,8 +512,7 @@ stand stand male 1000
 #10237
 ghost gambler~
 Ghost of gambler~
-a ghost of a gambler is floating here looking for something to bet on.
-~
+a ghost of a gambler is floating here looking for something to bet on.~
 Even in death this sad spirit is looking to gamble.
 ~
 human~
@@ -562,8 +525,7 @@ stand stand none 1000
 #10238
 child~
 child~
-a child is here eating bugs off the ground.
-~
+a child is here eating bugs off the ground.~
 ~
 human~
 0 0 0 0 0 800 0
@@ -575,8 +537,7 @@ stand stand male 1000
 #10239
 rat~
 rat~
-there is a large rat here.
-~
+there is a large rat here.~
 ~
 unique~
 CG 0 0 B 0 -100 0
@@ -588,8 +549,7 @@ stand stand none 1000
 #10240
 bat~
 bat~
-there is a large bat here.
-~
+there is a large bat here.~
 ~
 bat~
 BF 0 0 0 A 100 0
@@ -602,8 +562,7 @@ r light 50
 #10241
 old lady~
 old lady~
-there is an old lady here.
-~
+there is an old lady here.~
 ~
 human~
 CG 0 0 0 0 100 0
@@ -615,8 +574,7 @@ stand stand male 1000
 #10242
 tired adventurer~
 tired adventurer~
-there is a tired adventurer resting here.
-~
+there is a tired adventurer resting here.~
 ~
 human~
 B 0 0 0 0 100 0
@@ -628,8 +586,7 @@ stand stand male 1000
 #10243
 Magnus wizard~
 Magnus wizard~
-Magnus the wizard is resting here from his long journeys.
-~
+Magnus the wizard is resting here from his long journeys.~
 ~
 human~
 BR 0 0 0 0 100 0
@@ -641,8 +598,7 @@ stand stand male 1000
 #10244
 Lord doom warrior~
 Lord Doom~
-Lord Doom is resting here from his long journeys.
-~
+Lord Doom is resting here from his long journeys.~
 ~
 human~
 BT 0 0 0 0 100 0
@@ -654,8 +610,7 @@ stand stand male 1000
 #10245
 foreign trade representative~
 Foreign Trade Representative~
-A foreign trade representative is waiting here to meet with the Captain of the Guard.
-~
+A foreign trade representative is waiting here to meet with the Captain of the Guard.~
 ~
 human~
 B 0 0 0 0 100 0
@@ -667,8 +622,7 @@ stand stand male 1000
 #10246
 bodyguard~
 bodyguard~
-There is a bodyguard here.
-~
+There is a bodyguard here.~
 ~
 human~
 BT 0 0 0 0 100 0
@@ -680,8 +634,7 @@ stand stand male 1000
 #10247
 Secretary captain~
 Secretary~
-The Captain of the Guard's Secretary is here.
-~
+The Captain of the Guard's Secretary is here.~
 She looks very busy.
 The Secretary says 'Sorry, but the Captain is extremely busy today'.
 The Secretary says 'Please sit down and have a seat in the meantime'.
@@ -696,8 +649,7 @@ stand stand female 1000
 #10248
 Secretary Lieutenant ~
 Secretary~
-The Lieutenant Commander's Secretary is here.
-~
+The Lieutenant Commander's Secretary is here.~
 She looks very busy.
 The Secretary says 'Sorry, but the Lieutenant is extremely busy today'.
 The Secretary says 'Please sit down and have a seat in the meantime'.
@@ -712,8 +664,7 @@ stand stand female 1000
 #10249
 Secretary Sergeant ~
 Secretary~
-The Sergeant at Arm's Secretary is here.
-~
+The Sergeant at Arm's Secretary is here.~
 She looks very busy.
 The Secretary says 'Sorry, but the Sergeant is extremely busy today'.
 The Secretary says 'Please sit down and have a seat in the meantime'.
@@ -728,8 +679,7 @@ stand stand female 1000
 #10250
 Macaw~
 the macaw~
-A large macaw is here.
-~
+A large macaw is here.~
 The macaw looks like a strong, fearless fighter. It is a beautiful bird.
 ~
 song bird~
@@ -742,8 +692,7 @@ stand stand either 0
 #10251
 Raven~
 the raven~
-A large, black raven is here.
-~
+A large, black raven is here.~
 The raven looks like a strong, fearless fighter.
 ~
 human~
@@ -756,8 +705,7 @@ stand stand none 1000
 #10252
 hunting hawk~
 the hunting hawk~
-A large, hunting hawk is here.
-~
+A large, hunting hawk is here.~
 The hawk looks like a strong, fearless fighter. It has been trained for
 hunting game.
 ~
@@ -771,8 +719,7 @@ stand stand either 0
 #10253
 Battle falcon~
 the battle falcon~
-A giant, falcon is here.
-~
+A giant, falcon is here.~
 The battle falcon looks like a strong, fearless fighter. This giant breed has
 been trained especially for combat.
 ~

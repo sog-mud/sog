@@ -11,8 +11,7 @@ End
 #17011
 pirate guard~
 the pirate guard~
-A grubby sailor armed with a cutlass growls at you!
-~
+A grubby sailor armed with a cutlass growls at you!~
 The pirate guard is clothed in rags, and smells badly.
 ~
 human~
@@ -25,8 +24,7 @@ stand stand male 1000
 #17012
 shipwright pirate~
 the shipwright~
-A shipwright is here, repairing a trireme.
-~
+A shipwright is here, repairing a trireme.~
 The shipwright is stripped to the waist, and is sweating profusely.
 ~
 human~
@@ -39,8 +37,7 @@ stand stand male 1000
 #17013
 savage jungle~
 the jungle savage~
-A jungle savage is here, thinking about cannibalism.
-~
+A jungle savage is here, thinking about cannibalism.~
 The jungle savage is clad in a thong and wields a crude spear.
 ~
 human~
@@ -53,8 +50,7 @@ stand stand male 1000
 #17014
 chieftain chief savage~
 Chief Unga-Bunga~
-A savage chieftain is here dressed in a cape of bird feathers!
-~
+A savage chieftain is here dressed in a cape of bird feathers!~
 Chief Unga-bunga is a strong man, having consumed many monkey 
 brains over his long life. He like the rest of his subjects, is
 scantily clad.
@@ -69,8 +65,7 @@ stand stand male 1000
 #17015
 pirate sleeping~
 the sleepy pirate~
-A pirate is here, sleeping off another wild drunk.
-~
+A pirate is here, sleeping off another wild drunk.~
 The pirate stinks with the smell of his own vomit.
 ~
 human~
@@ -83,8 +78,7 @@ stand stand male 1000
 #17016
 pirate drunken~
 the drunken pirate~
-A drunken pirate staggers toward you.
-~
+A drunken pirate staggers toward you.~
 The pirate smells of rum, and is dressed in rags.
 ~
 human~
@@ -97,8 +91,7 @@ stand stand male 1000
 #17017
 princess smallbody woman~
 Princess Smallbody~
-A woman dressed in rags and smelling of sewage claims royal lineage.
-~
+A woman dressed in rags and smelling of sewage claims royal lineage.~
 Princess Smallbody is in sad sad shape. Her father wrote her off as
 damaged goods when this band of pirates captured her, and so her ransom
 was never paid. One-eye in his anger cast the princess in this prison
@@ -114,8 +107,7 @@ stand stand female 1000
 #17018
 navigator man~
 the navigator~
-A man is here sighting his sextant on the sun.
-~
+A man is here sighting his sextant on the sun.~
 The navigator is dressed in silken clothing. He was a prize from one
 of One-eye's raids, and has served his lord well. He hopes one day 
 that he can make a break for it on a raid.
@@ -130,8 +122,7 @@ stand stand male 1000
 #17019
 one-eye man pirate lord~
 One-eye, the pirate lord~
-The pirate lord of this isle booms a 'Kill them' at you!
-~
+The pirate lord of this isle booms a 'Kill them' at you!~
 One-eye is a man of medium build and grey sideburns. He is well dressed
 and wears the proverbial patch over one eye. However, he uses this patch
 as a prop to make himself appear rougher than he actually is. His skin
@@ -147,8 +138,7 @@ stand stand male 1000
 #17020
 maiden bond~
 a bond maiden~
-A maiden dressed in rags is here, servicing the whims of her master.
-~
+A maiden dressed in rags is here, servicing the whims of her master.~
 The bond maiden is tied to the throne, and looks broken. You look into her
 eyes and see a little hope remains, hope that one day she will be rescued
 or her ransom paid.
@@ -163,8 +153,7 @@ stand stand female 1000
 #17021
 kracken~
 the kracken~
-A giant black tentacled creature churns the water here.
-~
+A giant black tentacled creature churns the water here.~
 The kracken has been trained by the Redbeard to expect food with the 
 arrival of a boat. He usually tosses the kracken a huge load of fish
 and the beast lets him pass. Others, however, are ignorant of this
@@ -180,8 +169,7 @@ stand stand female 1000
 #17022
 guard dock~
 the dock guard~
-A burly man is here guarding the docks.
-~
+A burly man is here guarding the docks.~
 The dock guard is dressed in light leather armor and coif, and appears
 to be alert and well rested.
 ~
@@ -195,8 +183,7 @@ stand stand male 1000
 #17023
 snake black~
 the black snake~
-A black snake is here, hiding in the sand.
-~
+A black snake is here, hiding in the sand.~
 The black snake is some 10' long, and has broad, iron hard scales.
 ~
 snake~
@@ -211,8 +198,7 @@ r poison 999
 #17024
 crab black~
 the black crab~
-A black crab is here, eating a dead fish.
-~
+A black crab is here, eating a dead fish.~
 The black crab measures 2' from tip to tip, and has serrated pinchers.
 Its eyestalks rise some 3' off the ground, orienting and peering in your
 direction.
@@ -227,8 +213,7 @@ stand stand none 1000
 #17025
 worm lava~
 the lava worm~
-A small rivulet of molten lava runs here.
-~
+A small rivulet of molten lava runs here.~
 The lava worm is a creature of magic, having been created
 by Pele to seek out the gems of the earth and bring them
 to him. He forged the worm from metal and magic. The worm appears
@@ -245,8 +230,7 @@ stand stand none 1000
 #17026
 lizard lava~
 the lava lizard~
-A man-sized fire-red lizard is here basking on a rock.
-~
+A man-sized fire-red lizard is here basking on a rock.~
 The lava lizard frequents the lava flows, as they are a 
 place where the lizard can gather warmth for its dives deep
 underwater. The lizard has the coloration it does to blend
@@ -266,8 +250,7 @@ r poison -33
 #17027
 pirate snarling~
 the snarling pirate~
-A snarling pirate is here, ready to pillage your corpse.
-~
+A snarling pirate is here, ready to pillage your corpse.~
 The snarling pirate wears at best leather protective clothing
 and appears to be shaved and well groomed.
 ~
@@ -281,8 +264,7 @@ stand stand male 1000
 #17028
 redbeard pirate~
 Redbeard~
-A tall, angular man with a red beard (well groomed) is here.
-~
+A tall, angular man with a red beard (well groomed) is here.~
 Redbeard has prospered on fire island through his wits and organization.
 He holds his men to a higher standard then the rest of the pirate scum
 which sails the seas. He has a funny looking eyepiece.
@@ -297,8 +279,7 @@ stand stand male 1000
 #17029
 lalila elf prince~
 Lalila, the Elven Prince~
-A pale, malnourished elf is here, begging for food.
-~
+A pale, malnourished elf is here, begging for food.~
 Lalila thanks you for his rescue. In exchange for his life he tells you
 of a place called hell reef, where you can hear the ghostly siren, is 
 where he was shipwrecked and he lost his flaming belt. He was using the belt 
@@ -316,8 +297,7 @@ r charm -33
 #17030
 pele god fire~
 Pele, god of fire~
-A towering otherworldly figure stands here, immersed in fire.
-~
+A towering otherworldly figure stands here, immersed in fire.~
 Pele is the fire god, and calls this lonely spot his home. He has
 little interest in the affairs of men, dwarves, elves, etc. He 
 stands some 20' tall, and is made entirely of flame.
@@ -333,8 +313,7 @@ r fire 999
 #17031
 mizzenmast pirate lord~
 Mizzenmast~
-A short, squat, balding pirate is reclining here in a hammock.
-~
+A short, squat, balding pirate is reclining here in a hammock.~
 Mizzenmast, the 3rd Pirate Lord is a firm believer in non-
 exertion, and the economy of effort. Sooner or later it will wash
 ashore is his motto. He is in his late 40's, on the downward slide
@@ -351,8 +330,7 @@ stand stand male 1000
 #17032
 shifty trader man~
 Shifty the trader~
-A man in shackles lies here in agony.
-~
+A man in shackles lies here in agony.~
 Shifty has once again ticked off his lord Mizzenmast, who in turn has
 shackled him here in the storage area to impress upon him the importance
 of fealty. Shifty is weak from hunger, and his soiled finery speaks for
@@ -368,8 +346,7 @@ stand stand male 1000
 #17033
 pirate bandy legged~
 the bandy legged pirate~
-A bandy legged pirate staggers on his sea legs.
-~
+A bandy legged pirate staggers on his sea legs.~
 The pirate is unbalanced due to his long journeys at sea. He is clad in
 cloth jerkin and leggings, and swings his cutlass with years of experience.
 ~
@@ -383,8 +360,7 @@ stand stand male 1000
 #17034
 stiggs cabin boy~
 Stiggs, the cabin boy~
-A young boy is here, rushing about on some kind of errand.
-~
+A young boy is here, rushing about on some kind of errand.~
 Stiggs was waylaid in a coastal city by Mizzenmast's crew. He has been
 brainwashed over time that the pirate's life is the best life there is.
 Right now Stiggs is in a hurry to prepare shark stew for his Lords snack.
@@ -399,8 +375,7 @@ stand stand male 1000
 #17035
 shark tiger~
 the tiger shark~
-A shark with strange broad stripes is snacking on your leg.
-~
+A shark with strange broad stripes is snacking on your leg.~
 The tiger shark is thick and squatish in appearance. You think its jaws 
 would make a fine trophy.
 ~
@@ -414,8 +389,7 @@ stand stand none 1000
 #17036
 shark white great~
 the great white shark~
-A 20' long shark is cruising here to the theme from Jaws.
-~
+A 20' long shark is cruising here to the theme from Jaws.~
 Yes, our good old buddy the great white has scented your foul trail of
 Ofcol in the water, and found it pleasing enough to pursue across the
 great expanse of water.
@@ -430,8 +404,7 @@ stand stand none 1000
 #17037
 shark mako~
 the mako shark~
-A slender, fast swimming shark swims for your leg!
-~
+A slender, fast swimming shark swims for your leg!~
 The mako shark, when you come down to it, makes a fine meal. Please feel
 free to sample its lovingly prepared body parts after the combat. No, 
 you should drink white wine with Mako.
@@ -446,8 +419,7 @@ stand stand none 1000
 #17038
 shark hammerhead~
 the hammerhead shark~
-Hey look at the weird head on that shark!
-~
+Hey look at the weird head on that shark!~
 The hammerhead shark is swimming slowly along at a great depth, oblivious
 to your presence.
 ~
@@ -461,8 +433,7 @@ stand stand none 1000
 #17039
 shark blue~
 the blue shark~
-A torpedo shaped shark cruises along here.
-~
+A torpedo shaped shark cruises along here.~
 The blue shark having just had a fine dinner of mortal body parts, is out
 for its leisurely evening swim. Maybe if you throw fresh blood in the water
 you can get its attention.
@@ -477,8 +448,7 @@ stand stand none 1000
 #17040
 clam giant~
 Did I say coral? I meant clam~
-A huge white hunk of coral rests on the bottom.
-~
+A huge white hunk of coral rests on the bottom.~
 The giant clam is closed and content at the bottom of this warm tropical
 sea. I wonder what's inside?
 ~
@@ -496,8 +466,7 @@ r mental 50
 #17041
 hawkwoman hawk woman~
 the hawkwoman~
-A woman with giant gray wings soars here.
-~
+A woman with giant gray wings soars here.~
 The hawkwoman, like all of her kind wears a beaked helm, chain leggings
 and is naked from the waist up. Yes, she is well endowed. She wields 
 the talons of the hawkpeople, gloves with spikes protruding from the 
@@ -513,8 +482,7 @@ stand stand female 0
 #17042
 hawkman hawk man~
 the hawkman~
-A hawkman dives at you for the attack!
-~
+A hawkman dives at you for the attack!~
 The hawkman, like all of his kind wears a beaked helm, chain leggings,
 and is naked from the waist up. He wears the talons of the hawkpeople,
 a glove fitted with spikes on the fingers. Huge grey wings grow from his
@@ -530,8 +498,7 @@ stand stand male 0
 #17043
 hawklord hawk lord man~
 the hawklord~
-A hawkman in golden armor soars calmly over the land.
-~
+A hawkman in golden armor soars calmly over the land.~
 The hawklord, when you greet him, eyes you carefully. Then slowly, but 
 with increasing vigor he starts a tale of how his people were driven
 from their land by Lord Vulture. He warns you of the terrible Terra-kan,
@@ -547,8 +514,7 @@ stand stand male 0
 #17044
 terra-kan bird terra kan~
 the terra-kan~
-A man sized wingless bird hunts here.
-~
+A man sized wingless bird hunts here.~
 The terra-kan has black plumage, a huge hooked beak, and two terrible 
 talons. It moves by bounding in great leaps from place to place, often
 landing on its unsuspecting prey's back. Its squawk begins as a low warble
@@ -564,8 +530,7 @@ stand stand none 0
 #17045
 pirate gambling~
 the gambling pirate~
-A pirate is here, tossing his fate with dice.
-~
+A pirate is here, tossing his fate with dice.~
 The pirate is playing a game involving 3 dice called 'bones' in which
 the highest total wins, with the variant that 2 of a kind forfeits your
 roll, and 3 of a kind gets a bonus roll added. He is so involved in the
@@ -581,8 +546,7 @@ stand stand male 1000
 #17046
 mate first pirate~
 the first mate~
-A pirate in the tattered remains of a uniform, glares at your intrusion.
-~
+A pirate in the tattered remains of a uniform, glares at your intrusion.~
 The first mate once was an officer in the navy of Freeport, who in his 
 later years took to skimming from the war fund. One day justice caught 
 up with him and he was captured and shipped back to port. However, on the 
@@ -600,8 +564,7 @@ stand stand male 1000
 #17047
 pirate elite~
 the elite pirate~
-A well-armed, sharply uniformed pirate is here, guarding the hall.
-~
+A well-armed, sharply uniformed pirate is here, guarding the hall.~
 The elite pirate is dressed in a black uniform with polished silver
 buttons and buckles. He wields a military saber with a precision you have
 seldom seen.
@@ -616,8 +579,7 @@ stand stand male 1000
 #17048
 alindra slave woman~
 Alindra of Dunkeldorf~
-A beautiful human woman reclines in silk here.
-~
+A beautiful human woman reclines in silk here.~
 Alindra of Dunkeldorf is at the ripe age of23. She tells you a sad tale of  
 how she was captured by Lord Vulture on her trip to Freeport. What is even
 more sad is that Alindra over her years of captivity has fallen in love
@@ -633,8 +595,7 @@ stand stand female 1000
 #17049
 mutton chef pirate~
 Mutton the chef~
-A greasy, fat, hairy-backed pirate is here cooking up the daily swill.
-~
+A greasy, fat, hairy-backed pirate is here cooking up the daily swill.~
 Mutton has simple tastes in life. Leftovers and more leftovers, and 
 licking the stirring spoon. He doesn't say much, because he is too busy
 drooling into the stew. He does seem to be unusually sweaty though.
@@ -649,8 +610,7 @@ stand stand male 1000
 #17050
 vulture lord~
 Lord Vulture~
-A giant, black skinned man glares at you with coal black eyes.
-~
+A giant, black skinned man glares at you with coal black eyes.~
 Lord Vulture is a master criminal, with a calculating evil that makes
 your skin crawl. He is dressed in black silk, which nicely sets off
 his closely trimmed black beard and mustache. On each of his fingers
@@ -668,8 +628,7 @@ stand stand male 1000
 #17051
 orca~
 the orca~
-An orca is here, hunting the along the break in the ice.
-~
+An orca is here, hunting the along the break in the ice.~
 The orca is large, black, and white, and is not a nice little fishy
 like Free Willy.
 ~
@@ -683,8 +642,7 @@ stand stand female 1000
 #17052
 roc great northern bird~
 the great northern roc~
-A hawklike bird with a 50' wingspan soars here.
-~
+A hawklike bird with a 50' wingspan soars here.~
 The great northern roc, unlike its brethren, isn't enchanted 
 with an unnatural sanctuary spell. Its plumage matches the
 landscape, making it look like a snow hill when it lands.
@@ -699,8 +657,7 @@ stand stand male 0
 #17053
 pack howling wolf~
 the howling wolf pack~
-A howling, ravening pack of white furred wolves hunts here.
-~
+A howling, ravening pack of white furred wolves hunts here.~
 The wolves dine on seals and caribou normally, but you will 
 do in a pinch.
 ~
@@ -714,8 +671,7 @@ stand stand none 0
 #17054
 bear cave~
 the towering cave bear~
-A mound of pelts is stacked here.
-~
+A mound of pelts is stacked here.~
 The cave bear rears up and stands on its hind legs snarling.
 It is an impressive specimen. It is here, hibernating. Maybe
 you should let it sleep.
@@ -732,8 +688,7 @@ r cold -33
 #17066
 pirate~
 the pirate in fur skins~
-`Yo Ho Ho' cries a pirate in fur skins as he sees you.
-~
+`Yo Ho Ho' cries a pirate in fur skins as he sees you.~
 The pirate is well armed and dangerous. 
 ~
 human~
@@ -746,8 +701,7 @@ stand stand none 1000
 #17067
 guard pirate~
 the lurking guard~
-A pirate guard lurks in the shadows here.
-~
+A pirate guard lurks in the shadows here.~
 The guard is lean, alert, hardened, and itching for
 a fight.
 ~
@@ -761,8 +715,7 @@ stand stand none 1000
 #17068
 pirate~
 the helmsman~
-A pirate wise in the ways of the sea studies you.
-~
+A pirate wise in the ways of the sea studies you.~
 The helmsman is the best there is. He has successfully
 navigated the narrow ice channels around the iceberg
 innumerable times.
@@ -777,8 +730,7 @@ stand stand male 1000
 #17069
 cutter pirate~
 Cutter, the 5th Pirate Lord~
-A pirate bearing the cold of winter studies his charts here.
-~
+A pirate bearing the cold of winter studies his charts here.~
 Cutter looks up from his charts and says, `Ah, at last we 
 meet. I was told by an envoy of One-eye to expect you.
 I don't suppose you would consider just taking the gold 
@@ -796,8 +748,7 @@ stand stand male 1000
 #17070
 prisoner~
 the frozen captive~
-A prisoner shivers in the cold here.
-~
+A prisoner shivers in the cold here.~
 The frozen captive is so gratified by your kindness that
 she tells you a story. ` A long time ago, Lok started this
 area, and had major writers block. Well, Simba sort of 
@@ -5191,8 +5142,8 @@ M 0 17027 3 17219 1	* the snarling pirate (The Barracks)
 E 0 17023 0 16		*	the snarling pirate<wielded>: a cutlass
 M 0 17029 1 17220 1	* Lalila, the Elven Prince (A Dark Cave)
 O 0 17026 0 17220	* a huge bronze chest (A Dark Cave)
-P 0 17030 0 0 1	* a huge bronze chest: the pirate's hoard
-P 0 17029 0 0 1	* a huge bronze chest: Ettin's blood
+P 0 17029 10 0 1	* a huge bronze chest: Ettin's blood
+P 0 17030 10 0 1	* a huge bronze chest: the pirate's hoard
 M 0 17037 2 17222 1	* the mako shark (On the Seas Surrounding an Atoll)
 M 0 17039 2 17224 1	* the blue shark (On the Seas Surrounding an Atoll)
 M 0 17035 1 17229 1	* the tiger shark (On the Seas Surrounding an Atoll)

@@ -13,9 +13,7 @@ End
 #95500
 adept healer~
 @eng a Healer@rus Адепт~
-@eng An adept and healer of the Lords of Chaos is here.
-@rus Адепт и лекарь (adept) лордов Хаоса стоит здесь.
-~
+@eng An adept and healer of the Lords of Chaos is here.@rus Адепт и лекарь (adept) лордов Хаоса стоит здесь.~
 @eng He is an old, wise cleric blessing his old friends of Lords of Chaos
 Realms to break law. He belives that the more powerful you are the longer
 you live.
@@ -50,9 +48,7 @@ r sound 999
 #95501
 ivan guardian chaos~
 @eng Ivan the guardian of Chaos Realms@rus Иван~
-@eng Ivan, the guardian of Chaos Realms, is guarding the enterance.
-@rus Страж Хаоса Иван (Ivan) охраняет вход.
-~
+@eng Ivan, the guardian of Chaos Realms, is guarding the enterance.@rus Страж Хаоса Иван (Ivan) охраняет вход.~
 @eng Ivan is wearing a complete set of dark armor and he is standing as a steel
 wall in front of the chaos realms.
 @rus Иван одет в черные доспехи и преграждает вход в королевства Хаоса словно

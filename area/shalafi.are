@@ -13,9 +13,7 @@ End
 #95300
 Seneschal~
 @eng The Seneschal@rus Сенешаль~
-@eng The Seneschal of magic is here.
-@rus Сенешаль (Seneschal) магии стоит тут.
-~
+@eng The Seneschal of magic is here.@rus Сенешаль (Seneschal) магии стоит тут.~
 @eng A ghostly figure floats above you, ready to unleash magical death on all
 that are against his lords. The creature is formed entirely of flames and
 some other magical materials. 
@@ -51,9 +49,7 @@ r sound 33
 #95301
 healer adept cabal shalafi~
 @eng an adept@rus Адепт~
-@eng An adept and healer of the Arcane Arts is here.
-@rus Адепт и лекарь (adept) искусств Аркана стоит здесь.
-~
+@eng An adept and healer of the Arcane Arts is here.@rus Адепт и лекарь (adept) искусств Аркана стоит здесь.~
 @eng He is an old, wise cleric blessing his old friends of the Maters of Five
 Magic to destroy all undisciplined heros at Shades of Gray.  He has beatiful
 long white hair and is wearing a white dress that reaches down to the floor.
@@ -90,8 +86,7 @@ r sound 999
 #95302
 fiery red demon~
 a fiery demon~
-A red, fiery demon is looking around very angry.
-~
+A red, fiery demon is looking around very angry.~
 An aggressive looking fiery demon stands in the flame. It is quite angry
 to have been summoned. The demon has fiery flaming red skin, two heads,
 red scales, sharp teeth, 2 arms with long razorlike claws and two muscular
@@ -110,9 +105,7 @@ r fire 999
 #95303
 vampire old старый вампир~
 @eng old vampire@rus ~~старый~~ ~~вампир~~~
-@eng Old vampire helps his brothers.
-@rus Старый вампир (vampire) всегда готов помочь своим братьям.
-~
+@eng Old vampire helps his brothers.@rus Старый вампир (vampire) всегда готов помочь своим братьям.~
 ~
 undead~
 BGO 0 R 0 0 -1000 0
@@ -131,9 +124,7 @@ r light 50
 #95304
 prisoner узник~
 @eng prisoner@rus узник~
-@eng Prisoner is ready to die.
-@rus Узник (prisoner) ждет своей участи.
-~
+@eng Prisoner is ready to die.@rus Узник (prisoner) ждет своей участи.~
 @rus Его бьет дрожь, с которой он не может совладать. Он закован в цепи, сломлен
 и безумен. Безумие и жажда смерти заставляют его бросаться на всех он видет.
 ~

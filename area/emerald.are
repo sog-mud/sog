@@ -12,8 +12,7 @@ End
 #201
 Dryad~
 a dryad~
-A dryad peers at you inquisitively from behind her tree.
-~
+A dryad peers at you inquisitively from behind her tree.~
 With her slim fingers she holds her tree protectively as she looks at
 you, her brown eyes full of innocence and curiosity.  As you approach
 her she looks startled and disappears into the tree, only to appear on
@@ -34,8 +33,7 @@ r charm 999
 #202
 Nymph~
 a nymph~
-A nymph looks coyly at you, then winks mischeviously and dances away.
-~
+A nymph looks coyly at you, then winks mischeviously and dances away.~
 Her long hair is wet, as if just splashed with the waters of a crystal
 brook or stream.  Her movements are full of grace and wild abandon as
 she dances along the forest path.  You hear laughter like the sound of
@@ -55,8 +53,7 @@ r charm 999
 #203
 Pixie~
 a pixie~
-A small pixie stands here laughing cheerfully.
-~
+A small pixie stands here laughing cheerfully.~
 A small, knee high little pixie looks really engrossed with the
 activities of the Pixie-Brownie Bonanza. Not believed to exist by
 most of the normal folk of Thera, he is clad in soft green leathers
@@ -77,8 +74,7 @@ r charm 999
 #204
 Sprite~
 a sprite~
-There is a sprite here about to pelt you with an acorn.
-~
+There is a sprite here about to pelt you with an acorn.~
 The sprite darts about the trees nimbly.  He is the brownie's cousin,
 and equally playful.  He is dressed in a brown jerkin and you see that
 its pockets are filled with acorns and nuts.
@@ -96,8 +92,7 @@ r charm 999
 #205
 Brownie~
 a brownie~
-There is a cheerful brownie here chatting merrily away.
-~
+There is a cheerful brownie here chatting merrily away.~
 This brownie seems totally oblivious to your presence, and she seems
 quite happy to continue chatting merrily to her friends. Slightly
 shorter than pixies, the brownies have a reputation of wit and
@@ -118,8 +113,7 @@ r charm 999
 #206
 Ranger~
 a ranger~
-A ranger stands here, inspecting the ground.
-~
+A ranger stands here, inspecting the ground.~
 A young man dressed in superb leather armour and green stands here,
 longbow strapped comfortably over his back and a longsword by his
 side. He has dark black hair, and has features which are both kind
@@ -141,8 +135,7 @@ r charm 999
 #207
 Spriggan Iachimo~
 the Spriggan~
-Iachimo the Dour Spriggan hides behind a tree grinning maliciously.
-~
+Iachimo the Dour Spriggan hides behind a tree grinning maliciously.~
 Iachimo is a spiteful prankster who often annoys the residents of the
 Emerald Forest.  He sets fires at the roots of trees, poisons the
 streams and bites the pixies and brownies.  He doesn't have a good
@@ -161,8 +154,7 @@ r holy -50
 #208
 Gremlin~
 a gremlin~
-A disgusting little gremlin grins at you.
-~
+A disgusting little gremlin grins at you.~
 This is a disgusting little gremlin, with long crooked ears, a slimy
 green sticky body and a grin so wide you feel like tossing a few
 stones into it. It hops around making irritating noises, and looks
@@ -182,8 +174,7 @@ r charm 999
 #209
 Fiendish Donkey~
 a fiendish donkey~
-There is a fiendish donkey munching on marshweeds here.
-~
+There is a fiendish donkey munching on marshweeds here.~
 The fiendish donkey looks sallow-skinned and mean-spirited. Most of
 them eventually end up roasted, toasted or flambed on some demon lord's
 banquet table.  This one looks set to give you a good kick if you won't
@@ -201,8 +192,7 @@ r charm 999
 #210
 Devil's Huntsman~
 the Devil's Huntsman~
-The Devil's Huntsman looms out of the mists.
-~
+The Devil's Huntsman looms out of the mists.~
 The Devil's Huntsman serves the witches and their master.  He wears a
 rotting cape about his body and draws his weapon slowly.  He has been
 preparing for the Great Hunt and in a low voice he intones your name.
@@ -219,8 +209,7 @@ r charm 999
 #211
 Pumpkin man~
 the pumpkin man~
-A pumpkin man crawls out of a slime pool and dances towards you.
-~
+A pumpkin man crawls out of a slime pool and dances towards you.~
 A gangling creature, made of sticks, bones, rags, dead weeds and a
 large squashed pumpkin has some how been animated by evil sorcery.
 It holds its boney hands out-stretched and seems to be asking you
@@ -238,8 +227,7 @@ r charm 999
 #212
 Ranger Guildmaster Elesar~
 the Ancient Ranger Guildmaster~
-The ranger guildmaster stands here, practicing with his staff.
-~
+The ranger guildmaster stands here, practicing with his staff.~
 This ranger outpost, hidden within the Emerald Forest is a loosely
 kept secret among rangers. Few folk with want to traverse the magical
 wood in search of it save the wood-keepers themselves. This ranger,
@@ -274,8 +262,7 @@ r sound 999
 #213
 Ranger Lord~
 the Ancient Ranger Lord~
-A silver haired ranger sits here making arrows.
-~
+A silver haired ranger sits here making arrows.~
 A tall middle-aged man wearing a combination of light mithril chain
 and leather armour sits in a chair here. His jet black hair, piercing
 eyes and muscled arms are a testimony to his fighting prowess and
@@ -309,8 +296,7 @@ r sound 33
 #214
 Ranger Bear~
 the ancient ranger bear~
-A twelve foot bear stands here scratching his crotch.
-~
+A twelve foot bear stands here scratching his crotch.~
 Smokey smiles affably at you as he beckons you over to buy his wares.
 ~
 unique~
@@ -325,8 +311,7 @@ r poison 999
 #215
 Grand Pooh-Ba~
 the Grand Pooh-Ba~
-The Grand Pooh-Ba stands here in coloured robes looking busy.
-~
+The Grand Pooh-Ba stands here in coloured robes looking busy.~
 The Pixie-Brownie Bonanza is usually hosted and chaired by at least
 one individual formally known as "The Chairman of the Great Feast
 and Festival" but is usually referred to as the 'Grand Pooh-Ba' by
@@ -349,8 +334,7 @@ r charm 999
 #216
 Witch Aude~
 Aude~
-Aude the witch is murmering soft curses to herself.
-~
+Aude the witch is murmering soft curses to herself.~
 Her shimmering long hair, the colour of corn-silk shimmers as it catches
 the sparks from the fire. Aude looks at you with moistened lips and half
 closed eyes issuing an invitation you somehow cannot resist.
@@ -368,8 +352,7 @@ r charm 999
 #217
 Witch Gertrude~
 Gertrude~
-Gertrude stands here giving you a killing gaze.
-~
+Gertrude stands here giving you a killing gaze.~
 This battered old soul has wandered far and long from her coven Dulritch.
 The years have not been good to her, her eyes filled with weary hatred,
 her mottled cheeks and her gnarled skin testify to her long suffering and
@@ -388,8 +371,7 @@ r charm 999
 #218
 Witch Hela~
 Hela~
-Hela is here hissing and snarling at you.
-~
+Hela is here hissing and snarling at you.~
 Hela, the witch-goddess of the Nether realms has left her reign to join
 Gertrude. Born in a half-living, half-dead state, she harnesses the power
 of the undeed to destroy you!
@@ -407,8 +389,7 @@ r charm 999
 #219
 Jim Young~
 Young Jim~
-Young Jim sits here with a four leaf clover looking wistful.
-~
+Young Jim sits here with a four leaf clover looking wistful.~
 This young boy is Jim Surehand, son of Harry Surehand, the village
 blacksmith. Most people call him Young Jim, a nicknamed befitting
 his looks and his age. Holding a four leaf clover in his hand, he
@@ -443,8 +424,7 @@ r sound -50
 #220
 Farmer~
 Happy Farmer~
-A happy farmer is whistling happily away.
-~
+A happy farmer is whistling happily away.~
 One of the inhabitants of the small vale village, this man looks
 quite content with his lot in life, for he's found the golden secret
 to happiness.. Work. Most of the men folk of the village are either
@@ -478,8 +458,7 @@ r sound -50
 #221
 HotBlood bully~
 Young HotBlood~
-A rusty-haired village bully swaggers around threatening everyone in sight.
-~
+A rusty-haired village bully swaggers around threatening everyone in sight.~
 This young straw-chewing punk spits and clenches his fist at you. Better
 SCRAM! He looks around for Maddie, the local beauty.
 ~
@@ -510,8 +489,7 @@ r sound -50
 #222
 Maddie Beauty~
 Maddie the local beauty~
-Maddie is here running away from the village bullies.
-~
+Maddie is here running away from the village bullies.~
 Maddie looks at you with desperate eyes imploring your assistance against
 her ruffian suitors.
 ~
@@ -539,8 +517,7 @@ r sound -50
 #223
 Sheeka shopkeeper~
 Sheeka Trilquill~
-Sheeka Trilquill the pixie flower keeper is selling his wares.
-~
+Sheeka Trilquill the pixie flower keeper is selling his wares.~
 Sheeka the pixie is one of the rare few of his hidden folk who have
 taken a somwhat business approach to life. He stands behind a small
 table with vases and jars and bottles filled with flowers blooming
@@ -560,8 +537,7 @@ r charm 999
 #224
 goodwife wife~
 a good wife~
-A village goodwife stands here holding a basket of fruit.
-~
+A village goodwife stands here holding a basket of fruit.~
 This plump woman looks like a typical wife of a farmer of peasant,
 and doesn't seem to be the selfish or suspicious sort but the friendly,
 "Come in and have some cookies" sort. Probably due to the fact that
@@ -596,8 +572,7 @@ r sound -50
 #225
 Idiot~
 the village idiot~
-The village idiot is here singing to the wind.
-~
+The village idiot is here singing to the wind.~
 This poor unfortunate fool has been left to wander around the village.
 His brains are addled and he seems quite oblivious to your presence.
 He is singing a song over and over again and you catch its words...
@@ -641,8 +616,7 @@ r sound -50
 #226
 Knight Crusader~
 a Knight~
-A battle-worn looking knight sits here in quiet contemplation.
-~
+A battle-worn looking knight sits here in quiet contemplation.~
 This Holy Knight looks battle weary and tired, and seems intent on
 praying. He is dressed in the battle mail of the Crusader knights,
 which looks somewhat battered but in otherwise good kept condition.
@@ -662,8 +636,7 @@ r charm 999
 #227
 Sylph~
 a Sylph~
-A poor sylph crying in pain is shackled to the Altar.
-~
+A poor sylph crying in pain is shackled to the Altar.~
 Her fairy wings lie in tatters and her wrists have been bled.  This
 mountain nymph was captured by the witches' servants and is chained
 here waiting to be sacrificed.  You see that she has been whipped
@@ -682,8 +655,7 @@ r charm 999
 #228
 Irin girl elfin maid elf-maid~
 Irin~
-A strikingly beautiful girl sits here alone on the rocks.
-~
+A strikingly beautiful girl sits here alone on the rocks.~
 Irin is humming softly to herself.  She is dressed in a forest-green
 tunic and soft leather pants, a yew bow slung across her back.  She
 seems lost in her own world, her long black hair framing a face that
@@ -703,8 +675,7 @@ r charm 999
 #229
 cat~
 the marmalade cat~
-A large marmalade cat purrs contentedly atop a large book.
-~
+A large marmalade cat purrs contentedly atop a large book.~
 This large lazy tabby opens one sleepy eye at you and then turns away
 as it you aren't there at all.  It yawns delicately and swishes its
 tail from side to side.  A sudden crackle of orange electricity runs
@@ -721,8 +692,7 @@ r charm 999
 #230
 Kortho Wordgiver~
 Kortho~
-Kortho the Wordgiver is here.  Is he going to give you... a word ?
-~
+Kortho the Wordgiver is here.  Is he going to give you... a word ?~
 Kortho is a paunchy dwarf dressed in a frown-gray robe.  He spends
 his entire life giving out a word to everyone he meets.  Unfortuantely
 he seems abit tight-lipped at the moment.  You're probably going to
@@ -739,8 +709,7 @@ r charm 999
 #231
 Knight Sorrow~
 Sir Sorrow~
-Sir Sorrow the sad knight stares into the sky.
-~
+Sir Sorrow the sad knight stares into the sky.~
 Before you is the famed knight of the Order of the Bleeding Hearts,
 Sir Sorrow. Famed fighters and honourable men, they have one nagging
 trait.. all of them seem full of sorrow and sadness all year round.
@@ -759,8 +728,7 @@ A ABCDEF medium unknown
 #232
 priest YunFeiYang~
 Yun Fei Yang~
-A tanned, white-haired priest sits cross-legged here, in deep meditation.
-~
+A tanned, white-haired priest sits cross-legged here, in deep meditation.~
 As you approach the sullen bearded priest in close scrutiny, you can't
 help but feel a glow of mystical energy that permeates around his body. As
 if sensing your presence, he breaks out of his trance and begin faint chants
@@ -789,8 +757,7 @@ r charm 999
 Farmer Griff man~
 farmer~
 A scrawny old man dressed in bermudas and an apron over his "Griff Can Cook"
-t-shirt stands here.
-~
+t-shirt stands here.~
 Farmer Griff smiles and says "You musn't leave without trying my
  'Char Siew Bao' ".
 ~
@@ -806,8 +773,7 @@ r charm 999
 #234
 HellHound dog~
 a hellHound~
-A hellhound prowls here, slavering for your soul.
-~
+A hellhound prowls here, slavering for your soul.~
 The hellhound is a monstrous black dog with feral eyes and a sharply
 fanged maw.  It snarls viciously and circles you slowly, seeming to
 consider you with an evil intelligence.
@@ -824,8 +790,7 @@ r charm 999
 #235
 boogum~
 the mountain boogum~
-The mountain boogum jumps out and gets set to bite you.
-~
+The mountain boogum jumps out and gets set to bite you.~
 You seem to have interrupted the boogum's meal and he is not pleased.
 He looks like a dirty-furred dwarf with overly long hands and a mouth
 filled with sharp little teeth.
@@ -841,8 +806,7 @@ r charm 999
 #236
 apparition priest~
 an Apparition~
-A gaunt apparition in priests' robes turns sadly towards the lake.
-~
+A gaunt apparition in priests' robes turns sadly towards the lake.~
 This must be the ghost of Brother Alandro, the priest of Saint
 Sebastian's abbey who succumbed to his vanity and challenged the
 witches.  His strength proved less than his faith in himself and his
@@ -875,8 +839,7 @@ r sound 999
 #237
 Demon-Elf girl~
 Demon-Elf~
-Cutting runes into the bark of a tree is a wild-looking elfin girl.
-~
+Cutting runes into the bark of a tree is a wild-looking elfin girl.~
 She is a lithe creature with impish features, dressed in flamoyantly
 colored rags.  Her braided hair seems a mass of green serpents, but
 perhaps it's simply its wildness turning in the wind.  She looks at
@@ -895,8 +858,7 @@ r charm 999
 #238
 imbessar king~
 Imbessar~
-Imbessar the Bandit King prepares for his last duel.
-~
+Imbessar the Bandit King prepares for his last duel.~
 Imbessar is a brutish giant of man. Years ago he stole the Dead Star
 Circlet from the temple of Yog-Sothoth at Nag'Yrn, and has since
 crossed three worlds fleeing the vengeance of the dead god's acolytes.
@@ -928,8 +890,7 @@ r sound 33
 #239
 Marisa enchantress~
 Marisa~
-The Enchantress of Yrn seeks out her ancient nemesis.
-~
+The Enchantress of Yrn seeks out her ancient nemesis.~
 Marisa of Nag'Yrn is the chosen of Yog-Sothoth. She wears a samite
 gown of the purest white, her long flame-red hair tied up in an
 elaborate top-knot. A wretched look of cruelty crosses her young
@@ -960,8 +921,7 @@ r sound 33
 #240
 Ranger~
 a lady ranger~
-A beautiful lady is talking to some animals here.
-~
+A beautiful lady is talking to some animals here.~
 This woman seems (quite impossibly) to be having a conversation with
 the animals of the forest! Two blue jays, a squirrel and two rabbits
 are chittering and chattering and her smiles, laughter and responding
@@ -984,8 +944,7 @@ r charm 999
 #241
 Pixie~
 a pixie~
-A small pixie stands here laughing cheerfully.
-~
+A small pixie stands here laughing cheerfully.~
 A small, knee high little pixie looks really engrossed with the
 activities of the Pixie-Brownie Bonanza. Not believed to exist by
 most of the normal folk of Thera, he is clad in soft green leathers
@@ -1006,8 +965,7 @@ r charm 999
 #242
 Pixie~
 a pixie~
-A small pixie stands here laughing cheerfully.
-~
+A small pixie stands here laughing cheerfully.~
 A small, knee high little pixie looks really engrossed with the
 activities of the Pixie-Brownie Bonanza. Not believed to exist by
 most of the normal folk of Thera, he is clad in soft green leathers
@@ -1028,8 +986,7 @@ r charm 999
 #243
 Pixie~
 a pixie~
-A small pixie stands here laughing cheerfully.
-~
+A small pixie stands here laughing cheerfully.~
 A small, knee high little pixie looks really engrossed with the
 activities of the Pixie-Brownie Bonanza. Not believed to exist by
 most of the normal folk of Thera, he is clad in soft green leathers
@@ -1050,8 +1007,7 @@ r charm 999
 #244
 Pixie~
 a pixie~
-A small pixie stands here laughing cheerfully.
-~
+A small pixie stands here laughing cheerfully.~
 A small, knee high little pixie looks really engrossed with the
 activities of the Pixie-Brownie Bonanza. Not believed to exist by
 most of the normal folk of Thera, he is clad in soft green leathers
@@ -1072,8 +1028,7 @@ r charm 999
 #245
 Brownie~
 a brownie~
-There is a cheerful brownie here chatting merrily away.
-~
+There is a cheerful brownie here chatting merrily away.~
 This brownie seems totally oblivious to your presence, and she seems
 quite happy to continue chatting merrily to her friends. Slightly
 shorter than pixies, the brownies have a reputation of wit and
@@ -1094,8 +1049,7 @@ r charm 999
 #246
 Brownie~
 a brownie~
-There is a cheerful brownie here chatting merrily away.
-~
+There is a cheerful brownie here chatting merrily away.~
 This brownie seems totally oblivious to your presence, and she seems
 quite happy to continue chatting merrily to her friends. Slightly
 shorter than pixies, the brownies have a reputation of wit and
@@ -1116,8 +1070,7 @@ r charm 999
 #247
 Brownie~
 a brownie~
-There is a cheerful brownie here chatting merrily away.
-~
+There is a cheerful brownie here chatting merrily away.~
 This brownie seems totally oblivious to your presence, and she seems
 quite happy to continue chatting merrily to her friends. Slightly
 shorter than pixies, the brownies have a reputation of wit and
@@ -1138,8 +1091,7 @@ r charm 999
 #248
 Brownie~
 a brownie~
-There is a cheerful brownie here chatting merrily away.
-~
+There is a cheerful brownie here chatting merrily away.~
 This brownie seems totally oblivious to your presence, and she seems
 quite happy to continue chatting merrily to her friends. Slightly
 shorter than pixies, the brownies have a reputation of wit and
@@ -1160,8 +1112,7 @@ r charm 999
 #249
 Brownie~
 a brownie~
-There is a cheerful brownie here chatting merrily away.
-~
+There is a cheerful brownie here chatting merrily away.~
 This brownie seems totally oblivious to your presence, and she seems
 quite happy to continue chatting merrily to her friends. Slightly
 shorter than pixies, the brownies have a reputation of wit and
@@ -1182,8 +1133,7 @@ r charm 999
 #250
 Sprite~
 a sprite~
-There is a sprite here about to pelt you with an acorn.
-~
+There is a sprite here about to pelt you with an acorn.~
 The sprite darts about the trees nimbly.  He is the brownie's cousin,
 and equally playful.  He is dressed in a brown jerkin and you see that
 its pockets are filled with acorns and nuts.
@@ -1201,8 +1151,7 @@ r charm 999
 #251
 Sprite~
 a sprite~
-There is a sprite here about to pelt you with an acorn.
-~
+There is a sprite here about to pelt you with an acorn.~
 The sprite darts about the trees nimbly.  He is the brownie's cousin,
 and equally playful.  He is dressed in a brown jerkin and you see that
 its pockets are filled with acorns and nuts.
@@ -1220,8 +1169,7 @@ r charm 999
 #252
 Sprite~
 a sprite~
-There is a sprite here about to pelt you with an acorn.
-~
+There is a sprite here about to pelt you with an acorn.~
 The sprite darts about the trees nimbly.  He is the brownie's cousin,
 and equally playful.  He is dressed in a brown jerkin and you see that
 its pockets are filled with acorns and nuts.
@@ -1239,8 +1187,7 @@ r charm 999
 #253
 Sprite~
 a sprite~
-There is a sprite here about to pelt you with an acorn.
-~
+There is a sprite here about to pelt you with an acorn.~
 The sprite darts about the trees nimbly.  He is the brownie's cousin,
 and equally playful.  He is dressed in a brown jerkin and you see that
 its pockets are filled with acorns and nuts.
@@ -1258,8 +1205,7 @@ r charm 999
 #254
 Dryad~
 a dryad~
-A dryad peers at you inquisitively from behind her tree.
-~
+A dryad peers at you inquisitively from behind her tree.~
 With her slim fingers she holds her tree protectively as she looks at
 you, her brown eyes full of innocence and curiosity.  As you approach
 her she looks startled and disappears into the tree, only to appear on
@@ -1280,8 +1226,7 @@ r charm 999
 #255
 Dryad~
 a dryad~
-A dryad peers at you inquisitively from behind her tree.
-~
+A dryad peers at you inquisitively from behind her tree.~
 With her slim fingers she holds her tree protectively as she looks at
 you, her brown eyes full of innocence and curiosity.  As you approach
 her she looks startled and disappears into the tree, only to appear on
@@ -1302,8 +1247,7 @@ r charm 999
 #256
 Dryad~
 a dryad~
-A dryad peers at you inquisitively from behind her tree.
-~
+A dryad peers at you inquisitively from behind her tree.~
 With her slim fingers she holds her tree protectively as she looks at
 you, her brown eyes full of innocence and curiosity.  As you approach
 her she looks startled and disappears into the tree, only to appear on
@@ -1324,8 +1268,7 @@ r charm 999
 #257
 Dryad~
 a dryad~
-A dryad peers at you inquisitively from behind her tree.
-~
+A dryad peers at you inquisitively from behind her tree.~
 With her slim fingers she holds her tree protectively as she looks at
 you, her brown eyes full of innocence and curiosity.  As you approach
 her she looks startled and disappears into the tree, only to appear on
@@ -1346,8 +1289,7 @@ r charm 999
 #258
 Nymph~
 a nymph~
-A nymph looks coyly at you, then winks mischeviously and dances away.
-~
+A nymph looks coyly at you, then winks mischeviously and dances away.~
 Her long hair is wet, as if just splashed with the waters of a crystal
 brook or stream.  Her movements are full of grace and wild abandon as
 she dances along the forest path.  You hear laughter like the sound of
@@ -1367,8 +1309,7 @@ r charm 999
 #259
 Nymph~
 a nymph~
-A nymph looks coyly at you, then winks mischeviously and dances away.
-~
+A nymph looks coyly at you, then winks mischeviously and dances away.~
 Her long hair is wet, as if just splashed with the waters of a crystal
 brook or stream.  Her movements are full of grace and wild abandon as
 she dances along the forest path.  You hear laughter like the sound of
@@ -1388,8 +1329,7 @@ r charm 999
 #260
 Nymph~
 a nymph~
-A nymph looks coyly at you, then winks mischeviously and dances away.
-~
+A nymph looks coyly at you, then winks mischeviously and dances away.~
 Her long hair is wet, as if just splashed with the waters of a crystal
 brook or stream.  Her movements are full of grace and wild abandon as
 she dances along the forest path.  You hear laughter like the sound of
@@ -1409,8 +1349,7 @@ r charm 999
 #261
 Nymph~
 a nymph~
-A nymph looks coyly at you, then winks mischeviously and dances away.
-~
+A nymph looks coyly at you, then winks mischeviously and dances away.~
 Her long hair is wet, as if just splashed with the waters of a crystal
 brook or stream.  Her movements are full of grace and wild abandon as
 she dances along the forest path.  You hear laughter like the sound of
@@ -1430,8 +1369,7 @@ r charm 999
 #262
 Ranger~
 a lady ranger~
-A beautiful lady is talking to some animals here.
-~
+A beautiful lady is talking to some animals here.~
 This woman seems (quite impossibly) to be having a conversation with
 the animals of the forest! Two blue jays, a squirrel and two rabbits
 are chittering and chattering and her smiles, laughter and responding
@@ -1454,8 +1392,7 @@ r charm 999
 #263
 Ranger~
 a lady ranger~
-A beautiful lady is talking to some animals here.
-~
+A beautiful lady is talking to some animals here.~
 This woman seems (quite impossibly) to be having a conversation with
 the animals of the forest! Two blue jays, a squirrel and two rabbits
 are chittering and chattering and her smiles, laughter and responding
@@ -1478,8 +1415,7 @@ r charm 999
 #264
 Ranger~
 a ranger~
-A ranger stands here, inspecting the ground.
-~
+A ranger stands here, inspecting the ground.~
 A young man dressed in superb leather armour and green stands here,
 longbow strapped comfortably over his back and a longsword by his
 side. He has dark black hair, and has features which are both kind
@@ -1501,8 +1437,7 @@ r charm 999
 #265
 Ranger~
 a ranger~
-A ranger stands here, inspecting the ground.
-~
+A ranger stands here, inspecting the ground.~
 A young man dressed in superb leather armour and green stands here,
 longbow strapped comfortably over his back and a longsword by his
 side. He has dark black hair, and has features which are both kind
@@ -1524,8 +1459,7 @@ r charm 999
 #266
 Ranger~
 a ranger~
-A ranger stands here, inspecting the ground.
-~
+A ranger stands here, inspecting the ground.~
 A young man dressed in superb leather armour and green stands here,
 longbow strapped comfortably over his back and a longsword by his
 side. He has dark black hair, and has features which are both kind
@@ -1547,8 +1481,7 @@ r charm 999
 #267
 Ranger~
 a ranger~
-A ranger stands here, inspecting the ground.
-~
+A ranger stands here, inspecting the ground.~
 A young man dressed in superb leather armour and green stands here,
 longbow strapped comfortably over his back and a longsword by his
 side. He has dark black hair, and has features which are both kind
@@ -1570,8 +1503,7 @@ r charm 999
 #268
 Gremlin~
 a gremlin~
-A disgusting little gremlin grins at you.
-~
+A disgusting little gremlin grins at you.~
 This is a disgusting little gremlin, with long crooked ears, a slimy
 green sticky body and a grin so wide you feel like tossing a few
 stones into it. It hops around making irritating noises, and looks
@@ -1591,8 +1523,7 @@ r charm 999
 #269
 Gremlin~
 a gremlin~
-A disgusting little gremlin grins at you.
-~
+A disgusting little gremlin grins at you.~
 This is a disgusting little gremlin, with long crooked ears, a slimy
 green sticky body and a grin so wide you feel like tossing a few
 stones into it. It hops around making irritating noises, and looks
@@ -1612,8 +1543,7 @@ r charm 999
 #270
 Gremlin~
 a gremlin~
-A disgusting little gremlin grins at you.
-~
+A disgusting little gremlin grins at you.~
 This is a disgusting little gremlin, with long crooked ears, a slimy
 green sticky body and a grin so wide you feel like tossing a few
 stones into it. It hops around making irritating noises, and looks
@@ -1633,8 +1563,7 @@ r charm 999
 #271
 Gremlin~
 a gremlin~
-A disgusting little gremlin grins at you.
-~
+A disgusting little gremlin grins at you.~
 This is a disgusting little gremlin, with long crooked ears, a slimy
 green sticky body and a grin so wide you feel like tossing a few
 stones into it. It hops around making irritating noises, and looks
@@ -1654,8 +1583,7 @@ r charm 999
 #272
 Pumpkin man~
 the pumpkin man~
-A pumpkin man crawls out of a slime pool and dances towards you.
-~
+A pumpkin man crawls out of a slime pool and dances towards you.~
 A gangling creature, made of sticks, bones, rags, dead weeds and a
 large squashed pumpkin has some how been animated by evil sorcery.
 It holds its boney hands out-stretched and seems to be asking you
@@ -1673,8 +1601,7 @@ r charm 999
 #273
 Pumpkin man~
 the pumpkin man~
-A pumpkin man crawls out of a slime pool and dances towards you.
-~
+A pumpkin man crawls out of a slime pool and dances towards you.~
 A gangling creature, made of sticks, bones, rags, dead weeds and a
 large squashed pumpkin has some how been animated by evil sorcery.
 It holds its boney hands out-stretched and seems to be asking you
@@ -1692,8 +1619,7 @@ r charm 999
 #274
 Pumpkin man~
 the pumpkin man~
-A pumpkin man crawls out of a slime pool and dances towards you.
-~
+A pumpkin man crawls out of a slime pool and dances towards you.~
 A gangling creature, made of sticks, bones, rags, dead weeds and a
 large squashed pumpkin has some how been animated by evil sorcery.
 It holds its boney hands out-stretched and seems to be asking you
@@ -1711,8 +1637,7 @@ r charm 999
 #275
 Pumpkin man~
 the pumpkin man~
-A pumpkin man crawls out of a slime pool and dances towards you.
-~
+A pumpkin man crawls out of a slime pool and dances towards you.~
 A gangling creature, made of sticks, bones, rags, dead weeds and a
 large squashed pumpkin has some how been animated by evil sorcery.
 It holds its boney hands out-stretched and seems to be asking you
@@ -1730,8 +1655,7 @@ r charm 999
 #276
 Fiendish Donkey~
 a fiendish donkey~
-There is a fiendish donkey munching on marshweeds here.
-~
+There is a fiendish donkey munching on marshweeds here.~
 The fiendish donkey looks sallow-skinned and mean-spirited. Most of
 them eventually end up roasted, toasted or flambed on some demon lord's
 banquet table.  This one looks set to give you a good kick if you won't
@@ -1749,8 +1673,7 @@ r charm 999
 #277
 Fiendish Donkey~
 a fiendish donkey~
-There is a fiendish donkey munching on marshweeds here.
-~
+There is a fiendish donkey munching on marshweeds here.~
 The fiendish donkey looks sallow-skinned and mean-spirited. Most of
 them eventually end up roasted, toasted or flambed on some demon lord's
 banquet table.  This one looks set to give you a good kick if you won't
@@ -1768,8 +1691,7 @@ r charm 999
 #278
 Fiendish Donkey~
 a fiendish donkey~
-There is a fiendish donkey munching on marshweeds here.
-~
+There is a fiendish donkey munching on marshweeds here.~
 The fiendish donkey looks sallow-skinned and mean-spirited. Most of
 them eventually end up roasted, toasted or flambed on some demon lord's
 banquet table.  This one looks set to give you a good kick if you won't
@@ -1787,8 +1709,7 @@ r charm 999
 #279
 Fiendish Donkey~
 a fiendish donkey~
-There is a fiendish donkey munching on marshweeds here.
-~
+There is a fiendish donkey munching on marshweeds here.~
 The fiendish donkey looks sallow-skinned and mean-spirited. Most of
 them eventually end up roasted, toasted or flambed on some demon lord's
 banquet table.  This one looks set to give you a good kick if you won't
@@ -1806,8 +1727,7 @@ r charm 999
 #280
 HellHound dog~
 a hellHound~
-A hellhound prowls here, slavering for your soul.
-~
+A hellhound prowls here, slavering for your soul.~
 The hellhound is a monstrous black dog with feral eyes and a sharply
 fanged maw.  It snarls viciously and circles you slowly, seeming to
 consider you with an evil intelligence.
@@ -1824,8 +1744,7 @@ r charm 999
 #281
 HellHound dog~
 a hellHound~
-A hellhound prowls here, slavering for your soul.
-~
+A hellhound prowls here, slavering for your soul.~
 The hellhound is a monstrous black dog with feral eyes and a sharply
 fanged maw.  It snarls viciously and circles you slowly, seeming to
 consider you with an evil intelligence.
@@ -1842,8 +1761,7 @@ r charm 999
 #282
 HellHound dog~
 a hellHound~
-A hellhound prowls here, slavering for your soul.
-~
+A hellhound prowls here, slavering for your soul.~
 The hellhound is a monstrous black dog with feral eyes and a sharply
 fanged maw.  It snarls viciously and circles you slowly, seeming to
 consider you with an evil intelligence.
@@ -1860,8 +1778,7 @@ r charm 999
 #283
 Devil's Huntsman~
 the Devil's Huntsman~
-The Devil's Huntsman looms out of the mists.
-~
+The Devil's Huntsman looms out of the mists.~
 The Devil's Huntsman serves the witches and their master.  He wears a
 rotting cape about his body and draws his weapon slowly.  He has been
 preparing for the Great Hunt and in a low voice he intones your name.
@@ -1878,8 +1795,7 @@ r charm 999
 #284
 Devil's Huntsman~
 the Devil's Huntsman~
-The Devil's Huntsman looms out of the mists.
-~
+The Devil's Huntsman looms out of the mists.~
 The Devil's Huntsman serves the witches and their master.  He wears a
 rotting cape about his body and draws his weapon slowly.  He has been
 preparing for the Great Hunt and in a low voice he intones your name.
@@ -1896,8 +1812,7 @@ r charm 999
 #285
 Devil's Huntsman~
 the Devil's Huntsman~
-The Devil's Huntsman looms out of the mists.
-~
+The Devil's Huntsman looms out of the mists.~
 The Devil's Huntsman serves the witches and their master.  He wears a
 rotting cape about his body and draws his weapon slowly.  He has been
 preparing for the Great Hunt and in a low voice he intones your name.
@@ -1914,8 +1829,7 @@ r charm 999
 #286
 Devil's Huntsman~
 the Devil's Huntsman~
-The Devil's Huntsman looms out of the mists.
-~
+The Devil's Huntsman looms out of the mists.~
 The Devil's Huntsman serves the witches and their master.  He wears a
 rotting cape about his body and draws his weapon slowly.  He has been
 preparing for the Great Hunt and in a low voice he intones your name.
@@ -1932,8 +1846,7 @@ r charm 999
 #287
 Nymph~
 a nymph~
-There is a nymph here frolicking in the stream.
-~
+There is a nymph here frolicking in the stream.~
 The fair-haired nymph spots you and smiles invitingly.  A hint of mischief
 sparkles in her bright eyes.  Her supple body glistens with splashes of
 water as her laughter rings gaily through the forest.  A tunic wrapped
@@ -1952,8 +1865,7 @@ r charm 999
 #288
 Ranger~
 a ranger~
-A ranger stands here, inspecting the ground.
-~
+A ranger stands here, inspecting the ground.~
 A young man dressed in superb leather armour and green stands here,
 longbow strapped comfortably over his back and a longsword by his
 side. He has dark black hair, and has features which are both kind
@@ -1975,8 +1887,7 @@ r charm 999
 #289
 Ranger~
 a ranger~
-A ranger stands here, inspecting the ground.
-~
+A ranger stands here, inspecting the ground.~
 A young man dressed in superb leather armour and green stands here,
 longbow strapped comfortably over his back and a longsword by his
 side. He has dark black hair, and has features which are both kind
@@ -1998,8 +1909,7 @@ r charm 999
 #290
 Ranger~
 a ranger~
-A ranger stands here, inspecting the ground.
-~
+A ranger stands here, inspecting the ground.~
 A young man dressed in superb leather armour and green stands here,
 longbow strapped comfortably over his back and a longsword by his
 side. He has dark black hair, and has features which are both kind
@@ -2021,8 +1931,7 @@ r charm 999
 #291
 Devil Lieutenant~
 the Devil Lieutenant~
-The Devil Lieutenant sounds a carrion call and unleashes his magic upon you!
-~
+The Devil Lieutenant sounds a carrion call and unleashes his magic upon you!~
 The Devil Lieutenant is a tall black-robed figure with piercing eyes and
 hooked claws at his fingers and toes.  His scarred bestial face split wide
 at the snout to reveal a yellowish mass of crocked teeth.  Once a resident
@@ -2042,8 +1951,7 @@ r charm 999
 #299
 healer woodskeeper~
 priest~
-A man in white robe stands here, praying.
-~
+A man in white robe stands here, praying.~
 A man in long white robe kneels in prayer. He does not seem to notice you,
 but he turns to you and tells you in an unusually low voice, "May the God's
 bless be with you. Ask me for healing. With power of my God, I can heal
@@ -3610,7 +3518,7 @@ trees.  There is nothing for you to do but follow the trail that twists
 up towards the broken, snow-covered heights of the mountain range.
 An old stone tablet with inscriptions stands beside a bush in the
 corner.
-@rus   Ты стоишь на окутанной туманом тропинке, которая бежит вокруг горы. Земля
+@rus .  Ты стоишь на окутанной туманом тропинке, которая бежит вокруг горы. Земля
 мокра и грязна от тающего снега, и путь к Миден'ниру исчезает среди деревьев и
 тумана. У тебя нет выбора, кроме как идти по этой тропе к покрытым снегом 
 вершинам этой горной гряды. Старый каменный знак (tablet) стоит за кустом.
@@ -3656,7 +3564,7 @@ in these woods, an oppressive lifelessness that makes you want to
 leave them immediately.  The trail stretches through these haunted
 woods up the side of the mountain and down through the fog to the
 foothills of the range.
-@rus   Земля в этом сосновом лесу покрыта плотным слоем снега. Обгоревшие бревна
+@rus .  Земля в этом сосновом лесу покрыта плотным слоем снега. Обгоревшие бревна
 двух хижин лежат в нескольких десятках метров от тропинки. Тишина и безжиз-
 ненность этого места нервируют тебя, и тебе хочется покинуть этот лес как можно
 быстрее. Тропинка ведет вверх, к вершине, и вниз, к покрытой густым туманом 
@@ -3823,7 +3731,7 @@ pulses low and vibrant.  A shy nymph peeks inquisitively at you from
 behind a tree before disappearing with a titter.  An old but sturdy
 signpost stands beside a crossing in the paths, which lead in every
 direction.
-@rus   Среди этих царственных дубов, странное чувство магии витает в воздухе.
+@rus .  Среди этих царственных дубов, странное чувство магии витает в воздухе.
 Застенчивая нимфа подглядывает за тобой из-за дерева. Заметив, что она
 обнаружена, нимфа исчезает, звонко рассмеявшись. Старый, но сделанный на века
 указатель (signpost) стоит на перекрестке путей, ведущих на все стороны света.
@@ -3916,7 +3824,7 @@ to the Vale of Clover, a small valley at the foot of the mountains.
 Looking down the road, you see a small village nestled beside a bend
 in the stream.  Tall heather blows in the wind and you see some cows
 grazing idly nearby.  The road east runs down into a wooded dell.
-@rus   Ты идешь по старой тропинке, стелящейся по берегу кристально чистого
+@rus .  Ты идешь по старой тропинке, стелящейся по берегу кристально чистого
 ручейка. Дорога ведет тебя к Долине Клевера, небольшой долине у подножия
 гор. Смотря вперед, ты замечаешь маленькую деревушку, стоящую у изгиба
 ручья. Ветер колышет высокий вереск, поодаль несколько коров неторопливо
@@ -3988,7 +3896,7 @@ receive the attentions of their suitors.  Scattered trees and trimmed
 hedges provide the green with shadynooks and pivate arbors.  The
 hillock continues north, while the path west will take you back to the
 village.
-@rus     Склоны холма занимает великолепный луг. Похоже, жители Клеверякино
+@rus .    Склоны холма занимает великолепный луг. Похоже, жители Клеверякино
 часто ходят сюда на пикник. Послушав хрипловатое мужское пение, 
 сопровождаемое звонким девичьим хохотом, ты понимаешь, что здесь местные
 красавицы получают знаки внимания от своих ухажеров. Деревья и кусты,

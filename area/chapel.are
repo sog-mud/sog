@@ -11,8 +11,7 @@ End
 #3400
 skeleton bony~
 the bony skeleton~
-A bony skeleton is here.
-~
+A bony skeleton is here.~
 Brown bones with tufts of clothing still hanging from them.  This
 skeleton looks very mindless but still dangerous ...
 ~
@@ -27,8 +26,7 @@ r bash -50
 #3401
 undead zombie~
 the undead zombie~
-An undead zombie sits here munching on something ...
-~
+An undead zombie sits here munching on something ...~
 His body is totally white and slowly rotting away.  Each Zombie looks
 quite different from the next because they were, of course, once alive and
 human.
@@ -43,8 +41,7 @@ stand stand male 2
 #3402
 undead ghoul~
 The ghoul~
-A ghoul is here staring at you hungrily.
-~
+A ghoul is here staring at you hungrily.~
 The ghoul no longer resembles the adventurer he once was.  Nonetheless
 he looks like he hasn't forgot his fighting skills.
 ~
@@ -58,8 +55,7 @@ stand stand male 7
 #3403
 undead wraith~
 The wraith~
-You spot a wraith advancing towards you from the shadows.
-~
+You spot a wraith advancing towards you from the shadows.~
 The wraith no longer has a material form.  He is wearing a tattered
 black robe which hides all but the darkness of his face and the glimmer
 in his eyes.
@@ -74,8 +70,7 @@ stand stand male 50
 #3404
 undead guardian vampire~
 The guardian vampire~
-A vampire is here hiding his face from your light source.
-~
+A vampire is here hiding his face from your light source.~
 The guardian vampire looks quite EVIL.  Just by looking at him the hair on your
 arms raises. He looks mighty tough to be just a minor minion.
 ~
@@ -89,8 +84,7 @@ stand stand male 750
 #3405
 priest~
 the priest~
-A priest of God stands here solemnly speaking words of praise.
-~
+A priest of God stands here solemnly speaking words of praise.~
 Obviously a goodly man, you feel closer to God just by gazing upon this man.
 Dressed in white, fine white hair, and a soft slightly wrinkled face ...
 this man has a sacred beauty.  You see a halo around his head.
@@ -105,8 +99,7 @@ stand stand male 20
 #3406
 Mi-Go Fungi~
 the Mi-Go~
-A Mi-Go is crawling here.
-~
+A Mi-Go is crawling here.~
 Mi-Go, the Fungi from Yuggoth ... it is a pinkish being about five feet long;
 with a crustaceous body bearing a vast pair of membranous wings and several
 sets of articulate limbs, body a sort of convoluted ellipsoid, covered with
@@ -123,9 +116,8 @@ stand stand none 32
 #3407
 nightgaunt~
 The nightgaunt~
-A nightgaunt is standing here
-~
-.... shocking and uncouth black thing with smooth, oily, skin, unpleasant horns
+A nightgaunt is standing here~
+... shocking and uncouth black thing with smooth, oily, skin, unpleasant horns
 that curve inward toward each other, bat wings whose beating make no sound,
 ugly prehensile paws, and a barbed tail that lashes disquietingly.  And worst
 of all, it makes absolutely no sound or speech and smiles not at all because
@@ -141,8 +133,7 @@ stand stand none 7
 #3408
 hunting horror~
 The hunting horror~
-The hunting horror is here in wait of an unwary traveler.
-~
+The hunting horror is here in wait of an unwary traveler.~
 Serving Nyarlathotep and Roch'tar, these beings are hunting for victims.
 They resemble enormous ropy black serpents or worms possessing bat-like or
 umbrella-like wings.  Their forms continually shift and change, twitching
@@ -159,8 +150,7 @@ stand stand none 100
 #3409
 weeds~
 some cave weeds~
-Some weeds are creeping across the floor.
-~
+Some weeds are creeping across the floor.~
 Just some unpleasant looking vine-like growths ...
 ~
 human~
@@ -173,8 +163,7 @@ stand stand none 4
 #3410
 snapper joe~
 Snapper Joe~
-Snapper Joe is standing here leering at you chillingly.
-~
+Snapper Joe is standing here leering at you chillingly.~
 What an ugly fiend! He is about 6'6'' and has mostly greenish skin with
 bright red hair. Half his face is burnt off and he has a perpetual smile.
 He is called up from his service in hell in order to aid the Undying One.
@@ -189,8 +178,7 @@ stand stand male 111
 #3411
 X-ist eater~
 The X-ist flesh eater~
-An X-ist flesh eater is sitting here munching on some coffin remains
-~
+An X-ist flesh eater is sitting here munching on some coffin remains~
 A large hairy monstrous beast, the only LIVE thing you have seen down here.
 It stands approximately 8 feet tall and hunches over to fit in this
 small room.  It has a pair of tremendous claws that it uses to rip and tear.
@@ -207,8 +195,7 @@ stand stand male 78
 #3412
 spirit ghost king crotus~
 the spirit of King Crotus~
-The spirit of King Crotus is floating lazily above the floor.
-~
+The spirit of King Crotus is floating lazily above the floor.~
 Floating above the ground here and looking a bit dead, he whispers
 softly into the air:
     The forces of evil have unlocked my spirit as
@@ -226,8 +213,7 @@ stand stand male 2
 #3413
 rock slug~
 the rock slug~
-A rock slug is slowly creeping along, leaving a slime trail behind it.
-~
+A rock slug is slowly creeping along, leaving a slime trail behind it.~
 It is a large brownish slug.  Got any salt?  Didn't think so ...
 ~
 human~
@@ -240,8 +226,7 @@ stand stand none 0
 #3414
 etcher~
 The mad etcher~
-The mad etcher is sitting here babbling to himself and working on the wall.
-~
+The mad etcher is sitting here babbling to himself and working on the wall.~
 Quite insane, the mad etcher has been here for two decades.  His hair is
 white; he babbles nonsense to himself; a layer of dust covers his out-of-date
 clothing; and he seems to be working on the same portion of the wall near
@@ -262,8 +247,7 @@ sit sit male 2
 #3415
 wife ghost specter~
 The spectral etcher's wife~
-The spectral wife of the etcher is very faintly floating here.
-~
+The spectral wife of the etcher is very faintly floating here.~
 You can barely make her out ... though it almost makes you vomit.
 She is missing half her head.  The remaining half is smashed in horribly like
 she took a nasty fall.  Her one damaged eye hangs on its own.  She smiles
@@ -280,8 +264,7 @@ stand stand female 6
 #3416
 body~
 The half-decomposed body~
-A half-decomposed body is lying in the corner here.
-~
+A half-decomposed body is lying in the corner here.~
 YUK! It's ugly, disgusting ... it smells ... it also moves a bit!
 ~
 human~

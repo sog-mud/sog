@@ -11,9 +11,7 @@ End
 #24301
 guardian охранник кентавр~
 @eng a centaur guardian@rus ~~кентавр~~-~~охранник~~~
-@eng A large guardian centuar is here tending the dying foliage.
-@rus Большой кентавр-охранник (guardian) скачет по лесу.
-~
+@eng A large guardian centuar is here tending the dying foliage.@rus Большой кентавр-охранник (guardian) скачет по лесу.~
 @eng This centaur is busy repairing the damage inflicted by the anti-rangers and
 their creatures of the night.
 @rus Этот кентавр занят восстановлением леса после нашествия темных ренджеров
@@ -33,9 +31,7 @@ r slash -33
 #24302
 ranger ренджер кентавр~
 @eng centaur ranger@rus ~~кентавр~~-~~ренджер~~~
-@eng A centaur ranger prepares itself for the fight against the anti-rangers.
-@rus Кентавр-ренджер (ranger) готовится к сражению с Темными Ренджерами.
-~
+@eng A centaur ranger prepares itself for the fight against the anti-rangers.@rus Кентавр-ренджер (ranger) готовится к сражению с Темными Ренджерами.~
 @eng This massive centaur is flexing it's muscles in preperation for the upcoming
 battle to drive back the anti-rangers and their darkfriends.
 @rus Этот мощный кентавр разминает мускулы, готовясь к сражению против Темных Ренджеров и их друзей.
@@ -53,9 +49,7 @@ r slash -33
 #24303
 captain капитан кентавр~
 @eng a centaur captain@rus ~~капитан~~ кентавров~
-@eng A centaur captain is here overseeing the preperations of the centaurs.
-@rus Капитан кентавров (capitan) наблюдает за приготовлениями к битве.
-~
+@eng A centaur captain is here overseeing the preperations of the centaurs.@rus Капитан кентавров (capitan) наблюдает за приготовлениями к битве.~
 @eng This massive centaur is flexing it's muscles in preperation for the upcoming
 battle to drive back the anti-rangers and their darkfriends.
 @rus Этот мощный кентавр разминает мускулы, готовясь к сражению против Темных
@@ -76,9 +70,7 @@ r slash -33
 #24304
 leader centaur лидер кентавр~
 @eng the Centaur Leader@rus ~~Лидер~~ кентавров~
-@eng A huge centaur gazes down at you in suspicion.
-@rus Перед тобой Лидер кентавров (leader).
-~
+@eng A huge centaur gazes down at you in suspicion.@rus Перед тобой Лидер кентавров (leader).~
 @eng This massive centaur is flexing it's muscles in preperation for the upcoming
 battle to drive back the anti-rangers and their darkfriends.
 @rus Этот мощный кентавр разминает мускулы, готовясь к сражению против Темных
@@ -97,9 +89,7 @@ r slash -33
 #24305
 anti-ranger anti ренджер~
 @eng an anti-ranger@rus ~~Темный~~ ~~Ренджер~~~
-@eng An anti-ranger is here preparing to destroy the forest.
-@rus Темный Ренджер (anti-ranger) готовиться уничтожить лес.
-~
+@eng An anti-ranger is here preparing to destroy the forest.@rus Темный Ренджер (anti-ranger) готовиться уничтожить лес.~
 @eng Mean and pure evil, this ranger has fallen under the influence of the darkness.
 Rather than live and nuture the forest he has turned on it and now seeks only
 to destroy.
@@ -115,9 +105,7 @@ stand stand male 400
 #24306
 naga нага~
 @eng a greater Forest naga@rus ~~лесная~~ ~~нага~~~
-@eng A greater forest naga is here grinding it's way through the foliage.
-@rus Лесная нага (naga) проламывается через завалы в лесу.
-~
+@eng A greater forest naga is here grinding it's way through the foliage.@rus Лесная нага (naga) проламывается через завалы в лесу.~
 @eng This creature is one of the dark legion from the Abyss, a demonic Naga that
 preys upon mortal flesh. It has the body of a huge serpent, but the face of
 an old man. This particular naga has been adpated for the forests, but it
@@ -149,9 +137,7 @@ r sound 33
 #24307
 rimlarker juggernaut stone римлакер~
 @eng Rimlarker@rus ~~Римлакер~~~
-@eng A huge juggernaut of stone is slowly crushing trees with it's body.
-@rus Огромный каменный мамонт (Rimlarker) проламывается сквозь чащу.
-~
+@eng A huge juggernaut of stone is slowly crushing trees with it's body.@rus Огромный каменный мамонт (Rimlarker) проламывается сквозь чащу.~
 @eng This thing is HUGE. It's all stone and it seems to be intent on crushing as
 much of the forest as it can.
 @rus Он ОГРОМЕН! Он весь из камня и выглядит способным уничтожить весь этот лес.
@@ -171,9 +157,7 @@ r mental 50
 #24308
 tree медагар medagar~
 @eng Medagar@rus Медагар~
-@eng A huge tree is here making some horrible hissing sounds.
-@rus Гигантское дерево (tree) издает ужастные звуки.
-~
+@eng A huge tree is here making some horrible hissing sounds.@rus Гигантское дерево (tree) издает ужастные звуки.~
 @eng This is the greater demon Medagar, one of the Abyss's nature demons. Wherever
 there is destruction of nature It will try to be there to feed off the death
 and destruction.
@@ -190,9 +174,7 @@ stand stand male 0
 #24309
 Belqark vines белгарк~
 @eng Belqark@rus Белгарк~
-@eng A seething mass of vines lies on the ground.
-@rus Нечто, похожее на большой оживший куст (vines) находится здесь.
-~
+@eng A seething mass of vines lies on the ground.@rus Нечто, похожее на большой оживший куст (vines) находится здесь.~
 @eng This is one of the demons of nature, sent to observe the death of this forest.
 It's mortal form is that of a mass of vines with a life of their own.
 @rus При более близком рассмотрении ты видишь вовсе не куст. Перед тобой еще  
@@ -211,9 +193,7 @@ r slash 33
 #24310
 elemental Metagar earth~
 @eng Metagar@rus ~~Метагар~~~
-@eng A huge earth elemental is here smashing the forest.
-@rus Огромный земляной элементал (Metagar) давит лес.
-~
+@eng A huge earth elemental is here smashing the forest.@rus Огромный земляной элементал (Metagar) давит лес.~
 @eng This elemental is a mockey of true elementals. In realist it is the demon
 Metagar's mortal form as it seeks to destroy nature wherever it finds it.
 @rus Этот элементал является воплощением великого демона Метагара на земле.
@@ -234,9 +214,7 @@ r mental 50
 #24311
 Lethrak naga летрак~
 @eng Lethrak@rus ~~Летрак~~~
-@eng A massive naga is here surveying the dying forest.
-@rus Огромная Нага (Летрак) осматривает лес.
-~
+@eng A massive naga is here surveying the dying forest.@rus Огромная Нага (Летрак) осматривает лес.~
 @eng Lethrak, Lord of the Forest Nagas, has come to oversee the final stages of
 the forest's death. For this demon the sight of nature being corrupted and
 ruined is the most satisfying thing imaginable.
@@ -259,9 +237,7 @@ r charm -33
 #24312
 scout centaur кентавр~
 @eng a centaur scout@rus ~~кентавр~~-~~разведчик~~~
-@eng A centaur scout is here walking the dying forest.
-@rus Кентавр-разведчик (scout) крадется по лесу.
-~
+@eng A centaur scout is here walking the dying forest.@rus Кентавр-разведчик (scout) крадется по лесу.~
 @eng This scout is wandering the forest in search of the evil that is destroying
 it.
 @rus Кентавр-разведчик осматривает лес в поисках созданий Тьмы, которые 
@@ -280,9 +256,7 @@ r slash -33
 #24313
 dryad дриада~
 @eng a dryad@rus ~~лесная~~ ~~дриада~~~
-@eng A beautiful dryad looks upon the dying forest in despair.
-@rus Лесная дриада (dryad) с грустью смотрит на погибающий лес.
-~
+@eng A beautiful dryad looks upon the dying forest in despair.@rus Лесная дриада (dryad) с грустью смотрит на погибающий лес.~
 @eng This beautiful dryad can do nothing but watch in horror as the
 powerful evil creatures slowly ravage her home.
 @rus Эта лесная фея ничего не может сделать, она смотрит с ужасом на уничтожение леса
@@ -297,9 +271,7 @@ stand stand female 0
 #24314
 centaur кентавр~
 @eng a centaur@rus ~~кентавр~~~
-@eng A centaur is here tending to the forest.
-@rus Кентавр (centaur) скачет по лесу, спасаясь от армии Тьмы.
-~
+@eng A centaur is here tending to the forest.@rus Кентавр (centaur) скачет по лесу, спасаясь от армии Тьмы.~
 @eng This is one of the lowly centaurs who helps maintain the forest. With
 the invasion of the evil creatures it's job has become far more involved.
 @rus Это одно из созданий, ухаживающих за лесом. К сожалению с приходом Демонов 
@@ -318,9 +290,7 @@ r slash -33
 #24315
 stalker dark хищник~
 @eng a dark stalker@rus ~~хищник~~~
-@eng A grotesque dark stalker is walking here.
-@rus Хищное создание (stalker) бродит здесь.
-~
+@eng A grotesque dark stalker is walking here.@rus Хищное создание (stalker) бродит здесь.~
 @eng One of the more hideous creatures to have fallen upon this forest.
 The stalker resembles a giant with deformed limbs and razor sharp
 teeth.
@@ -337,9 +307,7 @@ stand stand none 0
 #24316
 troll marauder тролль~
 @eng a marauder troll@rus ~~тролль~~ ~~разбойник~~~
-@eng A massive marauder troll turns angered eyes upon you.
-@rus Массивный тролль (troll) смотрит на тебя красными глазами.
-~
+@eng A massive marauder troll turns angered eyes upon you.@rus Массивный тролль (troll) смотрит на тебя красными глазами.~
 @eng This is one of the more corrupted and dark forms of trollkin. Right
 now it seeks food...
 @rus Это существо явно из самой неприятной расы - Тролль. Очень злое и агрессивное 

@@ -13,8 +13,7 @@ End
 #15000
 avatar avatara~
 Avatar of abrazak~
-Avatar of abrazak is here.
-~
+Avatar of abrazak is here.~
 @eng You see a huge man. He looks very strong and wise. You'd better never mess with him.
 ~
 aarakocra~
@@ -42,9 +41,7 @@ r sound 999
 #15001
 prisoner karabas~
 @eng the prisoner@rus узник~
-@eng Another prisoner is here.
-@rus Другой узник сидит с тобой и не дает тебе скучать...
-~
+@eng Another prisoner is here.@rus Другой узник сидит с тобой и не дает тебе скучать...~
 @rus Он большой и толстый. лучше не ссорься с ним.
 ~
 human~
@@ -64,9 +61,7 @@ r charm 999
 #15002
 cockroach~
 @eng cockroach@rus таракан~
-@eng A little cockroach is crawling here.
-@rus Маленький таракан ползает тут.
-~
+@eng A little cockroach is crawling here.@rus Маленький таракан ползает тут.~
 @rus Вполне обычный рыжий таракан.
 ~
 song bird~
@@ -84,9 +79,7 @@ r charm 999
 #15003
 rat~
 @eng a rat@rus крыса~
-@eng An evil rat is here.
-@rus Злобная крыса тут, она хочет покусать тебя.
-~
+@eng An evil rat is here.@rus Злобная крыса тут, она хочет покусать тебя.~
 @rus Маленькая злобная крыса с острыми зубами.
 ~
 human~
@@ -101,9 +94,7 @@ r charm 999
 #15005
 kitten cat кошечка karapupa~
 @eng little furry kitten@rus ~~маленькая~~ ~~пушистая~~ ~~кошечка~~~
-@eng Beautiful furry kitten sits here.
-@rus Очаровательная пушистая кошечка (kitten) сидит здесь, зажав в лапах странную палку.
-~
+@eng Beautiful furry kitten sits here.@rus Очаровательная пушистая кошечка (kitten) сидит здесь, зажав в лапах странную палку.~
 @eng Furry kitten with big beautiful eyes.
 @rus Маленькое пушистое существо глядит на тебя большими влажными глазами.
 ~
@@ -134,9 +125,7 @@ r sound 999
 #15010
 devil~
 @eng {DDevil{x@rus {DЧерт{x~
-@eng {DDevil{x
-@rus {DЧерт{x
-~
+@eng {DDevil{x@rus {DЧерт{x~
 ~
 pig~
 GJRTe 0 JVac 0 ABKLM -1000 0
@@ -165,16 +154,14 @@ r sound 999
 #15015
 белочка серая squirrel~
 @eng gray squirrel@rus ~~серая~~ ~~белочка~~~
-@eng A small squirell is sitting here.
-@rus Маленькая серая белочка (squirell) скачет вокруг своей любимой хозяйки.
-~
+@eng A small squirell is sitting here.@rus Маленькая серая белочка (squirell) скачет вокруг своей любимой хозяйки.~
 @eng A small gray squirrel.
 @rus Маленький серый зверек с большими влажными глазами и очень пушистым 
 хвостом.
 ~
 unique~
 BIJ E HTVc ABCDFG BCD 1000 0
-10 1000 10d10+500 10d10+500 15d15+500 'bite'
+80 1000 10d10+500 10d10+500 15d15+500 'wrath'
 0 0 0 0
 ACDEFGHIJKNO
 stand stand female 50
@@ -196,12 +183,11 @@ r light 999
 r harm 999
 r charm 999
 r sound 999
+a 'water breathing' unknown 80 -1 0 0 0
 #15016
 старая сосна pine~
 @eng pine@rus ~~старая~~ ~~сосна~~~
-@eng A pine is here.
-@rus Старая сосна (pine) раскинула во все стороны свои ветви.
-~
+@eng A pine is here.@rus Старая сосна (pine) раскинула во все стороны свои ветви.~
 @eng A very old tree.
 @rus Старое кряжистое дерево, много повидавшее на своем веку.
 ~
@@ -216,9 +202,7 @@ F for AHMV
 #15050
 sidhe knight рыцарь сид~
 @eng a noble sidhe knight@rus ~~благородный~~ ~~рыцарь~~-~~сид~~~
-@eng A noble sidhe knight of the Seelie court is here on a quest.
-@rus Благородный сид-рыцарь (sidhe) выполняет свое задание.
-~
+@eng A noble sidhe knight of the Seelie court is here on a quest.@rus Благородный сид-рыцарь (sidhe) выполняет свое задание.~
 @eng This knight is the epitome of chivalry.  The embodyment of honor, 
 loyalty, courage and skill in battle.
 @rus Этот сид -- олицитворение рыцарства. Соединение чести, лояльности, 
@@ -733,7 +717,7 @@ S
 @eng You are flying!
 Currently you are about 40 meters above the ground north of the city.
 It seems like you can see forever!
-@rus   Ты летишь!  Внизу, метрах в сорока, виднеется северная окраина города.
+@rus .  Ты летишь!  Внизу, метрах в сорока, виднеется северная окраина города.
 Никогда ты не забудешь этого божественного ощущения полета.
 ~
 0 CJNX inside

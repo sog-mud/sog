@@ -13,9 +13,7 @@ End
 #95600
 keeper guardian invader~
 @eng the invader guardian@rus ~~страж~~ инвайдеров~
-@eng The invader guardian is here, serving his cabal.
-@rus Страж инвайдеров стоит здесь (guardian), защищая свою кабалу.
-~
+@eng The invader guardian is here, serving his cabal.@rus Страж инвайдеров стоит здесь (guardian), защищая свою кабалу.~
 @eng This strong serves as the guardian of the Invader Cabal. His mission is
 to destroy anyone who dares to penatrate into the chamber.
 @rus Это страж {DКабалы Инвайдеров{x.  Его задача - уничтожить любого, кто
@@ -51,9 +49,7 @@ r sound 33
 #95601
 cleric cabal invader~
 @eng the evil cleric@rus ~~жрец~~ Зла~
-@eng The dark cleric is healing and refreshing his invader brothers.
-@rus Темный монах (cleric) стоит у входа, готовый помочь своим братьям.
-~
+@eng The dark cleric is healing and refreshing his invader brothers.@rus Темный монах (cleric) стоит у входа, готовый помочь своим братьям.~
 @eng This cleric is one most powerful clerics in this realms. He saw all the
 lands being raided. In spite of his old age, he stills serves for his
 cabal. In his way, now he's using his powers to heal and refresh his cabal
@@ -93,9 +89,7 @@ r sound 999
 #95602
 bruks vampire~
 @eng bruks@rus ~~брукса~~~
-@eng Very small and old bruks giggles here.
-@rus Маленькая сморщенная брукса (bruks) хихикает в сторонке.
-~
+@eng Very small and old bruks giggles here.@rus Маленькая сморщенная брукса (bruks) хихикает в сторонке.~
 ~
 undead~
 BJ 0 0 C 0 -1000 0
@@ -154,9 +148,7 @@ r sound 999
 #95604
 slave~
 @eng slave woman@rus ~~рабыня~~~
-@eng A small, very dirty woman crying here.
-@rus Маленькая, грязная девушка плачет здесь.
-~
+@eng A small, very dirty woman crying here.@rus Маленькая, грязная девушка плачет здесь.~
 ~
 human~
 0 0 0 0 0 1000 0
@@ -185,9 +177,7 @@ r sound -50
 #95605
 swamp beast~
 @eng beast@rus ~~тварь~~~
-@eng Ugly swamp beast grins at you.
-@rus Противная болотная тварь злобно ухмыляется тебе.
-~
+@eng Ugly swamp beast grins at you.@rus Противная болотная тварь злобно ухмыляется тебе.~
 ~
 undead~
 COc 0 CJc 0 0 -1000 0
@@ -217,9 +207,7 @@ r sound 999
 #95606
 shadow watcher~
 @eng Shadow@rus ~~Тень~~~
-@eng Huge Shadow lies around.
-@rus Огромная тень окружает тебя.
-~
+@eng Huge Shadow lies around.@rus Огромная тень окружает тебя.~
 ~
 undead~
 BOc F 0 C D -1000 0
@@ -410,7 +398,7 @@ S
 races, with no sign of a wall for support. You look up and see the same
 nothingness as you do downward. What awaits you at the bottom? Will you
 ever reach it?
-@rus   Ты провалился в яму, кажущуюся бездонной.  Двигаясь во тьме, ты не можешь
+@rus .  Ты провалился в яму, кажущуюся бездонной.  Двигаясь во тьме, ты не можешь
 найти ничего, что могло бы помочь выкарабкаться.  Не видя другого выхода ты
 продолжаешь спускаться вниз.  Что ждет тебя на дне?  Кто знает?
 ~
@@ -430,7 +418,7 @@ S
 races, with no sign of a wall for support. You look up and see the same
 nothingness as you do downward. What awaits you at the bottom? Will you
 ever reach it?
-@rus   Ты провалился в яму, кажущуюся бездонной.  Двигаясь во тьме, ты не можешь
+@rus .  Ты провалился в яму, кажущуюся бездонной.  Двигаясь во тьме, ты не можешь
 найти ничего, что могло бы помочь выкарабкаться.  Не видя другого выхода ты
 продолжаешь спускаться вниз.  Что ждет тебя на дне?  Кто знает?
 ~
@@ -450,7 +438,7 @@ S
 races, with no sign of a wall for support. You look up and see the same
 nothingness as you do downward. What awaits you at the bottom? Will you
 ever reach it?
-@rus   Ты провалился в яму, кажущуюся бездонной.  Двигаясь во тьме, ты не можешь
+@rus .  Ты провалился в яму, кажущуюся бездонной.  Двигаясь во тьме, ты не можешь
 найти ничего, что могло бы помочь выкарабкаться.  Не видя другого выхода ты
 продолжаешь спускаться вниз.  Что ждет тебя на дне?  Кто знает?
 ~
@@ -471,7 +459,7 @@ races, with no sign of a wall for support. You look up and see the same
 nothingness as you do downward. What awaits you at the bottom? Will you
 ever reach it? Desperately you pray for deliverence- you dont know if you
 have been heard.
-@rus  Ты провалился в яму, кажущуюся бездонной.  Двигаясь во тьме, ты не
+@rus . Ты провалился в яму, кажущуюся бездонной.  Двигаясь во тьме, ты не
 можешь найти ничего, что могло бы помочь выкарабкаться.  Не видя другого
 выхода ты продолжаешь спускаться вниз.  ЧТО ждет тебя на дне?  Ты отчаянно
 молишь об освобождении - безнадежно.  Кто услышит тебя?  

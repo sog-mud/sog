@@ -13,10 +13,8 @@ End
 #34101
 Ranger~
 @eng Novice ranger@rus ~~Новичок~~ ~~рэйнджер~~~
-@eng A ranger here cries on pain
-@rus Рэйнджер здесь и громко вопит.
-~
-@eng  
+@eng A ranger here cries on pain@rus Рэйнджер здесь и громко вопит.~
+@eng . 
 You see a man who polished his bow. He had a hazel eyes, straight brown hair and an average complexion. Green elven boots on his legs. Suddenly ranger cries on pain. You don't understand what is it. Ranger lift his arm and you see a big splinter in his finger. He take off a splinter and his face turn green as well as his clothes. Ranger smiles happily.
 @rus Вы видите странного человека, который полирует свой лук.
 У него карие глаза и каштановые волосы.
@@ -38,9 +36,7 @@ r charm -20
 #34102
 novice warrior~
 @eng Novice Warrior@rus ~~Новичок~~-~~Воин~~~
-@eng Novice Warrior here knokced loud
-@rus Новичок-Воин громко стучит 
-~
+@eng Novice Warrior here knokced loud@rus Новичок-Воин громко стучит ~
 @eng A young man dressed in superb leather armour and green stands here,
  
 he knocked on his shield by his sword. suddenly he droped shield and shield hit him on his left foot. He mutter some exorcism and you see a tears in his eyes. But he smile at you.
@@ -70,10 +66,8 @@ r charm -50
 #34103
 baby dragon~
 @eng Baby dragon@rus ~~Детеныш~~ дракона~
-@eng Baby dragon here call his mother
-@rus Детеныш дракона зовет свою маму.
-~
-@eng  
+@eng Baby dragon here call his mother@rus Детеныш дракона зовет свою маму.~
+@eng . 
 You see a small dragon wich crying and call his mother
 Dragon scratches your boot, close eyes and purring. @@
  
@@ -96,9 +90,7 @@ r charm -33
 #34104
 guard water elemental~
 @eng Guardian of Verges@rus ~~Хранитель~~ Грани~
-@eng The Fluid Guardian of Verges stay here
-@rus Хранитель грани смотрит на тебя
-~
+@eng The Fluid Guardian of Verges stay here@rus Хранитель грани смотрит на тебя~
 @eng You see a transparent humanoid in sparkling silver plate. You look in his face but on face     onli one big eye and on fore head is one big ear.  You srugged and go away. Strnge people live in Verges.
  
  
@@ -120,9 +112,7 @@ r cold -58
 #34105
 mage novice~
 @eng Novice Mage@rus ~~Новичок~~ ~~Маг~~~
-@eng Novice mage here casts magic missile
-@rus Новичок Маг колдует магическую стрелку
-~
+@eng Novice mage here casts magic missile@rus Новичок Маг колдует магическую стрелку~
 @eng You see a thin man, who casts a magic missile. But missile turn and began flee around him. He yell 'Flee, who may' and flee away.
 @rus Жутко худой человек рядом с тобой читает на заклятье магической стрелки.
 Она вылетает и начинает кружить вокруг него. Он громко кричит "Спасайся кто может" и убегает.
@@ -137,9 +127,7 @@ stand stand male 1105
 #34106
 giant forecaster~
 @eng Forecaster@rus ~~Синоптик~~~
-@eng Forecaster here looking in the sky
-@rus Синоптик глядит в безоблачное небо
-~
+@eng Forecaster here looking in the sky@rus Синоптик глядит в безоблачное небо~
 @eng Here stand a strange giant with umbrella. He look in the clear sky and mutter 'It seems rain starts'.
 @rus Странный гигант с зонтиком стоит здесь, глядит в небо, и бормочет себе под нос: "Кажеться дождь собирается".
 ~
@@ -160,9 +148,7 @@ r mental 30
 #34107
 novice paladin~
 @eng Novice paladin@rus ~~Новичок~~-~~Паладин~~~
-@eng Novice paladin points you and curses
-@rus Новичок-Паладин проклинает тебяя
-~
+@eng Novice paladin points you and curses@rus Новичок-Паладин проклинает тебяя~
 @eng You looked on thin man with book in his hand. And you say : 'Hay, wanna eating'. 'Of course'- sad the man. You and novice paladin sits and eat some pizza. But after the dinner paladin sad : 'You don't clean my shoes',and curse you. You are thinking : 'how need eat that soil shoes.
 ~
 half-elf~
@@ -178,9 +164,7 @@ r charm 999
 #34108
 girl tiny child~
 @eng child@rus ~~девочка~~~
-@eng tiny girl here maked a sand pie
-@rus Священник (Bishop) в светлой мантии стоит рядом с тобой.
-~
+@eng tiny girl here maked a sand pie@rus Священник (Bishop) в светлой мантии стоит рядом с тобой.~
 @eng The White Bishop seems willing to help you in any possible so that he can
 attain a higher spirituality.
 @rus Священник хочет помочь тебе в твоих мирских делах своим советом и молитвой.
@@ -195,9 +179,7 @@ sit sit male 590
 #34109
 woman pretty nice~
 @eng pretty woman@rus ~~Красотка~~~
-@eng A nice woman stands here, smiling to you.
-@rus Красотка стоит здесь и улыбается тебе!
-~
+@eng A nice woman stands here, smiling to you.@rus Красотка стоит здесь и улыбается тебе!~
 @eng A pretty, nice, lovely young woman.
 No, no, no! She isn't a whore as you might think!
 @rus Красивая, прелестная, девушка  игриво смотрит на тебя.
@@ -242,7 +224,7 @@ g @rus none~
 #34101
 @eng Entrance to Verges@rus Кромка Грани~
 @eng You stay on the great cliff. In front of view you see the beneficial valley of Five Verges. Small path go to north. It is entrance to valley.
-@rus  Вы стоите на огромной Скале. Откуда открывается вид на благословенную долину Пяти граней.На север уходит узенькая тропка. Это вход в долину.
+@rus . Вы стоите на огромной Скале. Откуда открывается вид на благословенную долину Пяти граней.На север уходит узенькая тропка. Это вход в долину.
 ~
 0 0 mountain
 D0

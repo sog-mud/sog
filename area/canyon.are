@@ -10,12 +10,11 @@ End
 
 #MOBILES
 #9201
-mountain climber mountainclimber rus альпинист~
+climber mountainclimber альпинист~
 @eng the mountain climber@rus альпинист~
-@eng A mountain climber is making the same trek that you are.
-@rus Альпинист (climber) идет той же дорогой что и ты.
-~
-He wants to see what's on the other side of the mountain too.
+@eng A mountain climber is making the same trek that you are.@rus Альпинист (climber) идет той же дорогой, что и ты.~
+@eng He wants to see what's on the other side of the mountain too.
+@rus Он хочет увидеть, что находится по ту сторону горы.
 ~
 human~
 CGT 0 0 0 0 500 0
@@ -28,12 +27,11 @@ r fire 33
 r cold 33
 r lightning 33
 #9202
-cyclops~
+cyclops циклоп~
 @eng the cyclops@rus циклоп~
-@eng A hungry cyclops snarls at you!
-@rus Голодный циклоп (cyclops) поглядывает на тебя !
-~
-He looks like he's about to have dinner (maybe it's you?).
+@eng A hungry cyclops snarls at you!@rus Голодный циклоп (cyclops) рычит на тебя!~
+@eng He looks like he's about to have dinner (maybe it's you?).
+@rus Похоже, он не прочь пообедать.. (не тобой ли?)
 ~
 giant~
 BFJQT 0 0 0 AB -700 0
@@ -60,12 +58,11 @@ r harm 33
 r charm 999
 r sound 33
 #9203
-tiny elemental крохотный элементал~
-@eng a tiny elemental@rus крохотный элементал~
-@eng A tiny elemental form wanders about.
-@rus Крохотный элементал (tiny) слоняется поблизости.
-~
-Rather small for an elemental form, looks like a reject.
+elemental tiny крохотный элементаль~
+@eng a tiny elemental@rus ~~крохотный~~ ~~элементаль~~~
+@eng A tiny elemental form wanders about.@rus Крохотный элементаль (elemental) слоняется поблизости.~
+@eng Rather small for an elemental form, looks like a reject.
+@rus Мелкая форма элементаля, больше похожая на брак.
 ~
 human~
 G 0 0 0 0 0 0
@@ -74,12 +71,14 @@ G 0 0 0 0 0 0
 EFNU
 stand stand none 0
 0 0 medium unknown
+g @eng none@rus male~
 #9204
-elemental guardian~
-@eng the elemental guardian@rus Элементал-охранник этих мест~
-The elemental guardian of the canyon.
-~
-You can't tell which kind of elemental it is, maybe it's a bit o' all of them?
+elemental guardian элементаль охранник~
+@eng the elemental guardian@rus ~~элементаль~~-~~охранник~~~
+@eng The elemental guardian of the canyon.@rus Элементаль (elemental) охраняет каньон.~
+@eng You can't tell which kind of elemental it is, maybe it's a bit o' all of them?
+@rus Непонятно к какому роду элементалей он относится, пожалуй, он собрал
+в себе черты всех разновидностей.
 ~
 human~
 B 0 0 0 0 0 0
@@ -88,13 +87,13 @@ B 0 0 0 0 0 0
 EFNU
 stand stand none 500
 0 0 medium unknown
+g @eng none@rus male~
 #9205
-small elemental~
-@eng a small elemental@rus маленький элементал~
-@eng A small, rather non-descript elemental.
-@rus Маленький элементал.
-~
-A small elemental, a resident of the canyon.
+elemental small маленький элементаль~
+@eng a small elemental@rus ~~маленький~~ ~~элементаль~~~
+@eng A small, rather non-descript elemental.@rus Совсем маленький элементаль (elemental).~
+@eng A small elemental, a resident of the canyon.
+@rus Маленький элементаль, один из элементалей, населяющих каньон.
 ~
 human~
 BG 0 0 0 H 0 0
@@ -103,13 +102,13 @@ BG 0 0 0 H 0 0
 EFNU
 stand stand none 12
 0 0 medium unknown
+g @eng none@rus male~
 #9206
-medium elemental~
-@eng a medium elemental@rus средний элементал~
-@eng A medium-sized elemental.
-@rus Элементал средних размеров.
-~
-A medium elemental, a resident of the canyon.
+elemental medium средний элементаль~
+@eng a medium elemental@rus ~~средний~~ ~~элементаль~~~
+@eng A medium-sized elemental.@rus Ты видишь элементаля (elemental) среднего размера.~
+@eng A medium elemental, a resident of the canyon.
+@rus Элементаль средних размеров -- один из элементалей, населяющих каньон.
 ~
 human~
 BG 0 0 0 H 10 0
@@ -118,13 +117,13 @@ BG 0 0 0 H 10 0
 EFNU
 stand stand none 37
 0 0 medium unknown
+g @eng none@rus male~
 #9207
-large elemental~
-@eng a large elemental@rus большой элементал~
-@eng A large elemental.
-@rus Большой элементал.
+elemental large большой элементаль~
+@eng a large elemental@rus ~~большой~~ ~~элементаль~~~
+@eng A large elemental.@rus Большой элементаль (elemental) находится здесь.~
+@eng A large elemental, a resident of the canyon.@rus Большой элементаль -- один из обитателей каньона.
 ~
-A large elemental, a resident of the canyon.~
 human~
 BG 0 0 0 0 20 0
 15 0 3d9+208 7d9+100 2d6+3 'none'
@@ -132,15 +131,17 @@ BG 0 0 0 0 20 0
 EFNU
 stand stand none 100
 0 0 medium unknown
+g @eng none@rus male~
 #9208
-earth elemental ruler~
-@eng the Earth Ruler@rus Повелитель Земли~
-@eng The Ruler of the earth elementals.
-@rus Повелитель элементалов Земли.
-~
-He looks as old as the earth itself.  He seems to know all the 
+earth elemental ruler повелитель соплощение земля~
+@eng the Earth Ruler@rus ~~повелитель~~ стихии Земли~
+@eng The Ruler of the earth elementals.@rus Ты видишь живое воплощение стихии Земли (Earth).~
+@eng He looks as old as the earth itself.  He seems to know all the 
 secrets and knowledge of the Earth.  You can't really tell where 
 he begins and the rock wall ends.
+@rus Он так же стар, как и сама земля. Он знает все секреты и тайны
+этой стихии. Непонятно, где еще тело елементаля, а где уже начи-
+нается скала.
 ~
 human~
 BJQe D H 0 H 0 0
@@ -149,14 +150,14 @@ BJQe D H 0 H 0 0
 EIKU
 stand stand none 5000
 0 0 medium unknown
+g @eng none@rus male~
 r charm 999
 #9209
-fire elemental ruler~
-@eng the Fire Ruler@rus Повелитель Огня~
-@eng The Ruler of the fire elementals.
-@rus Повелитель элементалов Огня.
-~
-As you look at him he seems to blend in with the fire in his throne.
+fire elemental ruler повелитель воплощение огонь~
+@eng the Fire Ruler@rus ~~повелитель~~ стихии Огня~
+@eng The Ruler of the fire elementals.@rus Ты видишь живое вопложение стихии Огня (Fire).~
+@eng As you look at him he seems to blend in with the fire in his throne.
+@rus Ты видишь фигуру, окруженную языками пламени, восседающую на троне.
 ~
 human~
 BJe D H 0 0 0 0
@@ -165,13 +166,14 @@ BJe D H 0 0 0 0
 EFNU
 stand stand none 5000
 0 0 medium unknown
+g @eng none@rus male~
 r charm 999
 #9210
-air elemental ruler~
-The Air Ruler~
-The Ruler of the air elementals.
-~
-As you peer at him you seem to be looking at the sky itself.
+air elemental ruler повелитель воплощение воздух~
+@eng The Air Ruler@rus ~~повелитель~~ стихии Воздуха~
+@eng The Ruler of the air elementals.@rus Ты видишь живое воплощение стихии Воздуха (Air).~
+@eng As you peer at him you seem to be looking at the sky itself.
+@rus Смотря на него, ты словно смотришь на само небо.
 ~
 human~
 BJe D H 0 0 0 0
@@ -180,14 +182,16 @@ BJe D H 0 0 0 0
 EFNU
 stand stand none 5000
 0 0 medium unknown
+g @eng none@rus male~
 r charm 999
 #9211
-lightning elemental ruler~
-The Lightning Ruler~
-The Ruler of the lightning elementals.
-~
-As you examine him there is a blinding flash of light and a deafening boom!
+lightning elemental ruler повелитель молний~
+@eng The Lightning Ruler@rus ~~повелитель~~ молний~
+@eng The Ruler of the lightning elementals.@rus Ты видишь повелителя молний (lightning).~
+@eng As you examine him there is a blinding flash of light and a deafening boom!
 You rub your eyes and look and the ruler is there grinning at you.
+@rus Ослепительная вспышка света и оглушающе громкий хлопок! Придя в
+себя ты видишь ухмыляющегося элементаля -- повелителя молний.
 ~
 human~
 BJe D H 0 0 0 0
@@ -196,14 +200,17 @@ BJe D H 0 0 0 0
 EFNU
 stand stand none 5000
 0 0 medium unknown
+g @eng none@rus male~
 r charm 999
 #9212
-water elemental ruler~
-The Water Ruler~
-The Ruler of the water elementals.
-~
-As you look at him he changes to mist, which swirls around you.  Just
+water elemental ruler повелитель воплощение вода~
+@eng The Water Ruler@rus ~~повелитель~~ стихии Воды~
+@eng The Ruler of the water elementals.@rus Ты видишь живое воплощение стихии Воды (Water).~
+@eng As you look at him he changes to mist, which swirls around you.  Just
 as you get scared, it reforms in elemental form.
+@rus Прямо на твоих глазах элементаль превращается в облако из
+мельчайших капелек, обтекающее тебя, а затем возвращается
+обратно к форме элементаля.
 ~
 water fowl~
 BJe D H 0 0 0 0
@@ -212,13 +219,14 @@ BJe D H 0 0 0 0
 EFNR
 stand stand none 0
 0 0 medium unknown
+g @eng none@rus male~
 r charm 999
 #9214
-water puddle elemental~
-a puddle~
-A small puddle of water elemental.
-~
-It trickles along the ground and gets your feet wet.
+puddle elemental water водяная лужица элементаль~
+@eng a puddle@rus лужица~
+@eng A small puddle of water elemental.@rus Ты видишь водного элементаля, имеющего форму маленькой лужицы.~
+@eng It trickles along the ground and gets your feet wet.
+@rus Элементаль переливается около твоих ног, уже намоченных им.
 ~
 water fowl~
 G 0 0 0 0 0 0
@@ -227,12 +235,13 @@ G 0 0 0 0 0 0
 EFNR
 stand stand none 0
 0 0 medium unknown
+g @eng none@rus female~
 #9215
-fire flame elemental~
-a flame~
-A small flickering flame elemental.
-~
-It smolders along the grass aimlessly.
+flame elemental fire огонек огненный элементаль~
+@eng a flame@rus ~~мерцающий~~ ~~огонек~~~
+@eng A small flickering flame elemental.@rus Элементаль, имеющий форму мерцающего огонька (flame) освещает окрестности.~
+@eng It smolders along the grass aimlessly.
+@rus Ты видишь прямо на земле мерцающий огонек.
 ~
 human~
 G 0 0 0 0 0 0
@@ -241,12 +250,13 @@ G 0 0 0 0 0 0
 EFNU
 stand stand none 7
 0 0 medium unknown
+g @eng none@rus male~
 #9216
-snowflake snow flake ice elemental~
-a small snowflake~
-A frozen snowflake water elemental.
-~
-It looks a little blue.
+snowflake flake ice elemental снежинка ледяной элементаль~
+@eng a small snowflake@rus ~~маленькая~~ ~~снежинка~~~
+@eng A frozen snowflake water elemental.@rus Сверкающая снежинка (snowflake) кружится вокруг.~
+@eng It looks a little blue.
+@rus Маленькая бело-голубая снежинка.
 ~
 human~
 G 0 0 0 H 520 0
@@ -255,12 +265,13 @@ G 0 0 0 H 520 0
 EFNU
 stand stand none 0
 0 0 medium unknown
+g @eng none@rus female~
 #9217
-pebble rock earth stone elemental~
-a small rock~
-A small rock.
-~
-It seems to be a small living pebble!
+rock earth stone elemental каменный элементаль скала камень булыжник~
+@eng a small rock@rus ~~небольшой~~ ~~булыжник~~~
+@eng A small rock.@rus Небольшой булыжник (rock) лежит на земле.~
+@eng It seems to be a small living pebble!
+@rus В самом деле, это живой камень.
 ~
 human~
 G 0 0 0 H 0 0
@@ -269,12 +280,13 @@ G 0 0 0 H 0 0
 EFNU
 stand stand none 4
 0 0 medium unknown
+g @eng none@rus male~
 #9218
-spark lightning energy elemental~
-a small spark~
-A small spark of electricity fizzles here.
-~
-Zipping from place to place at the speed of light is tough work.
+spark lightning energy elemental искра элементаль~
+@eng a small spark@rus искра~
+@eng A small spark of electricity fizzles here.@rus Электрическая искра (spark) тихо шипит.~
+@eng Zipping from place to place at the speed of light is tough work.
+@rus Должно быть, нелегко носится с места на место со скоростью света.
 ~
 human~
 G 0 0 0 0 0 0
@@ -283,12 +295,14 @@ G 0 0 0 0 0 0
 EFNU
 stand stand none 7
 0 0 medium unknown
+g @eng none@rus female~
 #9219
-acid blob elemental~
-a small blob of acid~
-A small blob of acid aimlessly eats away at the stone.
-~
-The magical blob of acid is a cross between lightning and water.
+blob elemental acid капля кислоты элементаль капелька~
+@eng a small blob of acid@rus ~~капля~~ кислоты~
+@eng A small blob of acid aimlessly eats away at the stone.@rus Капелька (blob) кислоты разъедает камень.~
+@eng The magical blob of acid is a cross between lightning and water.
+@rus Эта волшебная капля кислоты то, что получается при скрещивании 
+стихии воды с молнией.
 ~
 human~
 G 0 0 0 0 0 0
@@ -297,12 +311,13 @@ G 0 0 0 0 0 0
 EFNU
 stand stand none 50
 0 0 medium unknown
+g @eng none@rus female~
 #9220
-lava elemental~
-a lava beast~
-A lava beast spews from place to place.
-~
-The magical lava beast is a cross between fire and earth.
+lava elemental лава элементаль~
+@eng a lava beast@rus элементаль~
+@eng A lava beast spews from place to place.@rus Элементаль, представляющий собой расплавленную лаву (lava), перетекает с места на место.~
+@eng The magical lava beast is a cross between fire and earth.
+@rus В этом элементале скрестились стихии земли и огня.
 ~
 human~
 G 0 0 0 H 0 0
@@ -311,12 +326,14 @@ G 0 0 0 H 0 0
 EFNU
 stand stand none 15
 0 0 medium unknown
+g @eng none@rus male~
 #9221
-mud elemental~
-a mud monster~
-A mud monster slops around.
-~
-The magical mud monster is a cross between water and earth.
+mud elemental грязевой элементаль~
+@eng a mud monster@rus ~~грязевой~~ ~~элементаль~~~
+@eng A mud monster slops around.@rus Грязевой элементаль (elemental) удобно расположился здесь.~
+@eng The magical mud monster is a cross between water and earth.
+@rus Этот грязевой элементаль -- вопложение двух стихий в одном существе,
+стихий Земли и Воды.
 ~
 human~
 G 0 0 0 H 0 0
@@ -325,12 +342,13 @@ G 0 0 0 H 0 0
 EFNU
 stand stand none 20
 0 0 medium unknown
+g @eng none@rus male~
 #9222
-mist elemental~
-an elemental mist~
-The air is magically misty here.
-~
-The magical mist is a cross between water and air.
+mist elemental туман элементаль~
+@eng an elemental mist@rus ~~туманный~~ ~~элементаль~~~
+@eng The air is magically misty here.@rus Облако тумана (mist) искрится и переливается цветами радуги.~
+@eng The magical mist is a cross between water and air.
+@rus Этот красивый элементаль -- порождение стихий Воздуха и Воды.
 ~
 human~
 G 0 0 0 0 0 0
@@ -339,12 +357,13 @@ G 0 0 0 0 0 0
 EFNU
 stand stand none 15
 0 0 medium unknown
+g @eng none@rus male~
 #9223
-particle elemental~
-a particle~
-A sub-atomic particle is too small for you to see.
-~
-The magical manifestation of energy.
+particle elemental частица элементаль~
+@eng a particle@rus частица~
+@eng A sub-atomic particle is too small for you to see.@rus Мельчайшая частица (particle) столь мала, что ее не разглядишь.~
+@eng The magical manifestation of energy.
+@rus Живое воплощение энергии.
 ~
 human~
 G 0 0 0 H 0 0
@@ -353,12 +372,14 @@ G 0 0 0 H 0 0
 EFNU
 stand stand none 0
 0 0 medium unknown
+g @eng none@rus female~
 #9224
-dust elemental~
-a dust cloud~
-A dust cloud blowing by makes you sneeze.
-~
-The magical dust cloud is a cross between air and earth.
+dust elemental пыльный элементаль пыльное облако~
+@eng a dust cloud@rus ~~пыльное~~ ~~облако~~~
+@eng A dust cloud blowing by makes you sneeze.@rus Плотное пыльное (dust) облако окутало тебя, заставив чихнуть.~
+@eng The magical dust cloud is a cross between air and earth.
+@rus Это пыльное облако тоже является элементалем, это порожление стихий
+Земли и Воздуха.
 ~
 human~
 GS 0 0 0 ABH 0 0
@@ -368,11 +389,11 @@ BEFJNU
 stand stand none 5
 0 0 medium unknown
 #9225
-eddie elemental~
-an eddie~
-A small eddie current swirls junk around here.
-~
-The magical eddie current is a manifestation of an air elemental.
+eddie elemental вихрь элементаль~
+@eng an eddie@rus вихрь~
+@eng A small eddie current swirls junk around here.@rus Маленький вихрь (eddie) кружится вокруг тебя.~
+@eng The magical eddie current is a manifestation of an air elemental.
+@rus Вихрь кружащийся вокруг тебя -- это воздушный элементаль.
 ~
 human~
 GS 0 0 0 AB 0 0
@@ -381,11 +402,11 @@ GS 0 0 0 AB 0 0
 BEFJNU
 stand stand none 1
 0 0 medium unknown
+g @eng none@rus male~
 #9226
 blue flame~
 the Blue Flame~
-The Blue Flame burns mysteriously here.
-~
+The Blue Flame burns mysteriously here.~
 As you look you see what seems to be a face and almost a 
 humanoid figure somehow trapped in the fire.
 ~
@@ -399,8 +420,7 @@ stand stand none 1250
 #9227
 magneto~
 the Magneto~
-The Magneto considers zapping you for the heck of it.
-~
+The Magneto considers zapping you for the heck of it.~
 A humanoid figure seems to be trapped in the field of the Magneto.
 ~
 human~
@@ -413,8 +433,7 @@ stand stand none 500
 #9228
 ice bandit~
 the Ice Bandit~
-The Ice Bandit strikes cold fear in your heart.
-~
+The Ice Bandit strikes cold fear in your heart.~
 A humanoid figure encased in ice but still apparently alive.
 ~
 human~
@@ -427,8 +446,7 @@ stand stand none 1500
 #9229
 rock monster~
 the Rock Monster~
-The Rock Monster considers you in stoney silence.
-~
+The Rock Monster considers you in stoney silence.~
 A humanoid figure trapped in stone seems alive.
 ~
 human~
@@ -441,8 +459,7 @@ stand stand none 950
 #9230
 hurricane~
 the Hurricane~
-A Hurricane rages across the sky.
-~
+A Hurricane rages across the sky.~
 A humanoid figure is trapped in the rushing wind.
 ~
 human~
@@ -455,8 +472,7 @@ stand stand none 2054
 #9231
 magician~
 an elemental magician~
-An elemental magician seeks magical stones for a spell.
-~
+An elemental magician seeks magical stones for a spell.~
 The elemental magician has come here in search of the fabled
 Stone of Surrender which can be used to render opponents senseless.
 ~
@@ -470,8 +486,7 @@ stand stand none 400
 #9232
 rainbow warrior~
 a rainbow warrior~
-A warrior of the Rainbow Cult swears his loyalty.
-~
+A warrior of the Rainbow Cult swears his loyalty.~
 The Rainbow Cult has received special powers for their service to 
 the elemental forces.
 ~
@@ -485,8 +500,7 @@ stand stand none 400
 #9233
 illusionist~
 an illusionist~
-The illusionist seeks the aid of the elemental forces.
-~
+The illusionist seeks the aid of the elemental forces.~
 He seeks their aid for a powerful new spell of deception.
 <wielded>            The Sword of Illusions
 ~
@@ -500,8 +514,7 @@ stand stand none 95
 #9234
 alchemist~
 an alchemist~
-An alchemist wanders by in search of magical herbs.
-~
+An alchemist wanders by in search of magical herbs.~
 Rare herbs are rumored to grow only in the canyon.
 ~
 human~
@@ -514,8 +527,7 @@ stand stand none 95
 #9235
 baby rainbow dragon~
 a baby rainbow dragon~
-A baby rainbow dragon plays among the elements here.
-~
+A baby rainbow dragon plays among the elements here.~
 It's only a baby by dragon standards.
 ~
 human~
@@ -528,8 +540,7 @@ stand stand none 500
 #9236
 imp~
 a little imp~
-A little imp runs along being annoying.
-~
+A little imp runs along being annoying.~
 The little bugger steals stuff and is generally obnoxious.
 ~
 human~
@@ -540,10 +551,9 @@ EFNU
 stand stand none 0
 0 0 medium unknown
 #9237
-HUGE elemental~
+HUGE elemental огромный элементаль~
 a HUGE elemental~
-A HUGE elemental form stands here.
-~
+A HUGE elemental form stands here.~
 HUGE, need i say more?
 ~
 human~
@@ -553,11 +563,11 @@ BG 0 0 0 0 30 0
 EFNU
 stand stand none 500
 0 0 medium unknown
+g @eng none@rus male~
 #9238
 vendor~
 the elixir vendor~
-A vendor is willing to sell you elixirs.
-~
+A vendor is willing to sell you elixirs.~
 I WOULD NOT suggest you attack me ...!
 ~
 human~
@@ -587,8 +597,7 @@ r sound 999
 #9239
 the magician~
 The Combat Magician~
-A Magician seeks magical stones for some powerfull combat spells.
-~
+A Magician seeks magical stones for some powerfull combat spells.~
 The elemental magician has come here in search of the fabled
 Stone of Surrender which can be used to render opponents senseless.
 ~
@@ -1054,7 +1063,7 @@ river flowing through the canyon.  Also to the east you spy a cave entrance
 leading into the canyon wall.  The path descends to the north to another
 overlook.
 @rus Ты стоишь, обозревая весь каньон. Знак на входе гласит:
-              ВПЕРЕДИ - КАНЬОН ЭЛЕМЕНТАЛОВ.
+              ВПЕРЕДИ - КАНЬОН СТИХИЙ.
 Огонь вспыхивает в западной части. Небо чисто и прозрачно в
 северо-восточной части. И отсюда видны вспышки электрических
 искр на северо-западе. На востоке ты видишь могучую, судя по
@@ -1098,7 +1107,7 @@ D5
 Z -1 9207
 S
 #9207
-@eng Entrance to Elemental Canyon@rus Вход в Каньон элементалов~
+@eng Entrance to Elemental Canyon@rus Начало каньона~
 @eng You are awed by the sounds and sights of great powers at works here.
 Elemental servants bustle back and forth doing the biddings of the elemental
 rulers.  You see a sort of cross roads to the north, and you can climb up to
@@ -1663,10 +1672,15 @@ D3
 Z -1 9225
 S
 #9227
-@eng Earth Chamber@rus Палата земли~
-This is the abode of the Earth Ruler.  He decides about earthquakes,
+@eng Earth Chamber@rus Сердце стихии Земли~
+@eng This is the abode of the Earth Ruler.  He decides about earthquakes,
 landslides, and avalanches.  The Earth Ruler sits upon a huge marble throne
 carved into the wall.
+@rus Едва войдя сюда, ты $gn{оказался} пред повелителем и персонификацией
+стихии Земли. Лавины, землетрясения, движение земной коры -- все
+это определяется его желаниями и настроением. Сам повелитель вос-
+седает на массивном мраморном троне, выдолбленном прямо в скале и
+из скалы.
 ~
 0 AD forest
 E
@@ -2348,9 +2362,9 @@ M 0 9236 15 9202 15	* a little imp (A Mountain Path)
 M 0 9201 3 9203 3	* the mountain climber (Mountainside Tombs)
 M 0 9238 1 9203 1	* the elixir vendor (Mountainside Tombs)
 G 0 9231 0		*	the elixir vendor: anti-cyclops elixir
-M 0 9202 0 9204 0	* the cyclops (A Blind Curve on the Mountain Path.)
-E 0 9213 0 10		*	the cyclops<on the arms>: a platinum arm band
+M 0 9202 1 9204 1	* the cyclops (A Blind Curve on the Mountain Path.)
 E 0 9214 0 7		*	the cyclops<on the legs>: some platinum leg bands
+E 0 9213 0 10		*	the cyclops<on the arms>: a platinum arm band
 M 0 9205 12 9207 12	* a small elemental (Entrance to Elemental Canyon)
 M 0 9236 15 9207 15	* a little imp (Entrance to Elemental Canyon)
 M 0 9203 15 9208 15	* a tiny elemental (The Floor of the Canyon)

@@ -13,9 +13,7 @@ End
 #30001
 orc guard охранник орк~
 @eng orc guard@rus ~~орк~~ ~~стражник~~~
-@eng Orc'ish guard staying here.
-@rus Орк-охранник стоит тут.
-~
+@eng Orc'ish guard staying here.@rus Орк-охранник стоит тут.~
 ~
 orc~
 BT 0 0 0 AB -1000 0
@@ -37,9 +35,7 @@ r charm 999
 #30002
 orc capitan капитан орк~
 @eng orc capitan@rus ~~капитан~~ орков~
-@eng Capitan of Orc'ish guards stand here.
-@rus Капитан стражи орков стоит тут.
-~
+@eng Capitan of Orc'ish guards stand here.@rus Капитан стражи орков стоит тут.~
 ~
 orc~
 BT 0 c BG AB -1000 0
@@ -60,9 +56,7 @@ r charm 999
 #30003
 rat крыса~
 @eng rat@rus ~~крыса~~~
-@eng Small rat dig in the corner.
-@rus Маленькая крыса (rat) копается в уголке.
-~
+@eng Small rat dig in the corner.@rus Маленькая крыса (rat) копается в уголке.~
 ~
 unique~
 BF 0 0 0 B 0 0
@@ -74,9 +68,7 @@ AGV ADFKU medium unknown
 #30004
 orc shaman шаман орк~
 @eng shaman@rus шаман~
-@eng Great Shaman of Orc Nation stay here.
-@rus Великий Шаман Орков стоит тут.
-~
+@eng Great Shaman of Orc Nation stay here.@rus Великий Шаман Орков стоит тут.~
 @eng You see a small orc with big red eyes. He read his spellbook and think about new spell.
 @rus Ты видишь маленького орка с горящими красными глазами. Он читает свою магическую
 книгу и думает о том как создать какое-нибудь новое заклинание.
@@ -108,9 +100,7 @@ r sound 33
 #30005
 orc leader предводитель орков~
 @eng leader@rus лидер~
-@eng Great Leader of Orc Nation stay here.
-@rus Великий Лидер Орков стоит тут.
-~
+@eng Great Leader of Orc Nation stay here.@rus Великий Лидер Орков стоит тут.~
 @eng You see a orc with huge club in his hands. He grins evilly and prepare to smash your head.
 He say:"If you will try to run away, you can stay alive. if not...ready to die?" 
 ~
@@ -489,7 +479,7 @@ S
 @eng End Of the Dark Tunnel@rus Конец Темного Туннеля~
 @eng Now you stay in the end of dark tunnel. There is a exit from tunnels
 in front of you. You can heard quite voices of the GateKeepers.
-@rus  Сейчас ты стоишь в конце темного туннеля. Впереди тебя выход из системы
+@rus . Сейчас ты стоишь в конце темного туннеля. Впереди тебя выход из системы
 туннелей Мордора. Впереди слышны негромкие голоса Привратников.
 ~
 0 0 inside

@@ -11,8 +11,7 @@ End
 #7000
 mud monster mudmonster~
 the horrifying mudmonster~
-A horrifying mudmonster is slowly evolving from the mud ...
-~
+A horrifying mudmonster is slowly evolving from the mud ...~
 It sure looks like something out of a horror movie. It strongly resembles
 a huge figure made up from mud alone, and it sure looks like it had human 
 flesh for breakfast and is strongly intent on having the same for dinner.
@@ -27,8 +26,7 @@ rest rest none 5
 #7001
 bat~
 the small bat~
-The small fierce-looking bat is hanging from the ceiling.
-~
+The small fierce-looking bat is hanging from the ceiling.~
 You have never in your entire life seen such a mean looking small creature,
 though it looks rather peaceful, hanging there. The thought of arousing this
 cruel creature doesn't seem appealing.
@@ -44,8 +42,7 @@ r light 50
 #7002
 rat~
 the great sewer rat~
-The huge hungry-looking sewer rat sits here.
-~
+The huge hungry-looking sewer rat sits here.~
 ~
 human~
 F 0 0 0 H -1000 0
@@ -57,8 +54,7 @@ stand stand male 2
 #7003
 spider~
 the small spider~
-The small hairy spider.
-~
+The small hairy spider.~
 ~
 human~
 F 0 0 G H -700 0
@@ -70,8 +66,7 @@ stand stand male 0
 #7004
 beetle~
 the giant earth beetle~
-The giant mean-looking earth beetle crawls towards you.
-~
+The giant mean-looking earth beetle crawls towards you.~
 ~
 human~
 0 0 0 0 H -300 0
@@ -83,8 +78,7 @@ stand stand male 5
 #7005
 maggot~
 the maggot~
-The giant maggot crawls toward you.
-~
+The giant maggot crawls toward you.~
 ~
 human~
 0 0 0 0 H 300 0
@@ -96,8 +90,7 @@ stand stand male 0
 #7006
 snake~
 the slithering snake~
-The snake slithers towards you.
-~
+The snake slithers towards you.~
 ~
 snake~
 F 0 0 0 H -500 0
@@ -111,8 +104,7 @@ r poison -33
 #7007
 wanderer~
 the evil wanderer~
-The evil wanderer stares at you.
-~
+The evil wanderer stares at you.~
 The evil wanderer is very thin.  He is dressed in a grey cloak.
 ~
 human~
@@ -125,8 +117,7 @@ stand stand male 15
 #7008
 homonculus homo~
 the homonculus~
-The homonculus is here, looking at you with an evil look.
-~
+The homonculus is here, looking at you with an evil look.~
 The Homonculus appears in a man-like form, about 18'' tall, it has a
 greenish, reptilian skin, leathery wings, and a bat-like mouth, with
 teeth gleaming yellow.
@@ -141,8 +132,7 @@ stand stand none 25
 #7010
 chreffn~
 the evil chreffn~
-The chreffn are crawling here, looking around with their yellow eyes.
-~
+The chreffn are crawling here, looking around with their yellow eyes.~
 The head and torso of a chreffn is copper-covered, with yellow,
 glowing eyes. The lower body is in an orange shading.
 ~
@@ -156,8 +146,7 @@ stand stand none 75
 #7011
 morkoth~
 the shadowy morkoth~
-The morkoth is standing here, waiting for someone to KILL!
-~
+The morkoth is standing here, waiting for someone to KILL!~
 It's a five feet tall, shadow monster. The shape of this creature lies
 somewhere between a human and a rat. It breaths very heavily, while staring
 at you with such a glint in the eyes that reminds you of immense hunger.
@@ -172,8 +161,7 @@ stand stand none 0
 #7013
 mud monster mudmonster~
 the horrifying mudmonster~
-A horrifying mudmonster is slowly evolving from the mud ...
-~
+A horrifying mudmonster is slowly evolving from the mud ...~
 It sure looks like something out of a horror movie. It strongly resembles
 a huge figure made up from mud alone, and it sure looks like it had human 
 flesh for breakfast and is strongly intent on having the same for dinner.
@@ -188,8 +176,7 @@ rest rest none 50
 #7040
 red dragon~
 the red dragon~
-The red fierce-looking dragon stares at you angrily.
-~
+The red fierce-looking dragon stares at you angrily.~
 The red dragon stares at you, angrily, as it wakes when you
 arrives.  It says 'Oh, human YOU woke me up ... Hsss', while
 it moves closer.  'Can one NEVER sleep in peace ... Hsss'.
@@ -209,8 +196,7 @@ r charm -33
 #7041
 sea hag~
 the sea hag~
-The sea hag is swimming around here.
-~
+The sea hag is swimming around here.~
 The sea hag is so ghastly looking that you feel the deepest fear.
 Big yellow eyes and sharp teeth.  Its ears are very big,
 and it has small sharp horns.  It hates beauty.
@@ -225,8 +211,7 @@ stand stand female 0
 #7042
 guardian naga~
 the guardian naga~
-The guardian naga looks kindly at you.
-~
+The guardian naga looks kindly at you.~
 The naga are a snake-liked creature. She is covered in green-gold
 scale with silvery triangles along her back. Her eyes are golden.
 She notice that you look at her, and she says: 'Watch out. This way
@@ -242,8 +227,7 @@ stand stand female 5
 #7043
 basilisk~
 the scaled basilisk~
-The scaled basilisk crawls towards you slowly.
-~
+The scaled basilisk crawls towards you slowly.~
 The basilisk is a reptilian monster. It has eight legs, and a strong
 toothy jaws. It is dull brown with yellowish underbelly. It's eyes are
 glowing pale green.
@@ -258,8 +242,7 @@ stand stand male 17
 #7044
 lemure blob~
 the lemure blob~
-The lemure blob slithers terribly precisely towards you for an attack!
-~
+The lemure blob slithers terribly precisely towards you for an attack!~
 This looks like a vaguely human blob. Big black yellow eyes, and a
 mouth going a little bit out from the face. The lemure does not look
 interested in you at all, but anyway it attacks. It looks like it's
@@ -275,8 +258,7 @@ stand stand none 0
 #7045
 jones cruncher ettin~
 Jones~
-Jones 'Cruncher' the ettin is standing here glaring at you.
-~
+Jones 'Cruncher' the ettin is standing here glaring at you.~
 At the first sight you thought Jones was an orc, but when it came
 closer you saw his second head. He wears an animal skin dress,
 filthy and moth eaten. Jones really stinks...
@@ -291,8 +273,7 @@ rest rest male 3
 #7046
 herald mouse killer ettin~
 Herald~
-Herald 'Mouse-Killer' the ettin is standing here looking confused at you.
-~
+Herald 'Mouse-Killer' the ettin is standing here looking confused at you.~
 When you look at Herald, you feel pity. His dress are really poor,
 and the one of his heads hangs down. At the rope around his stomach
 hangs dead mouses and rats. He does not smell good.
@@ -307,8 +288,7 @@ rest rest male 2
 #7200
 master mind mindflayer~
 the master mindflayer~
-The master mindflayer is here, looking at you with an evil look.
-~
+The master mindflayer is here, looking at you with an evil look.~
 It's a seven foot tall humanoid dressed in a purple cloak, and swinging a
 black and purple rod above its head as if it was going to attack you any
 moment now. In the middle of its head are four tentacles with sharp points.
@@ -323,8 +303,7 @@ stand stand none 50
 #7201
 senior mind mindflayer~
 the senior mindflayer~
-The senior mindflayer walks around here, looking for something useful.
-~
+The senior mindflayer walks around here, looking for something useful.~
 This is a horrifying monster indeed, 6'6" high. Dressed in purple and black,
 and carrying a large mace in its hand. In the center of its head are four large
 tentacles with very sharp points.
@@ -339,8 +318,7 @@ stand stand none 20
 #7202
 junior mind mindflayer~
 the junior mindflayer~
-The junior mindflayer is here, watching you carefully from the corner.
-~
+The junior mindflayer is here, watching you carefully from the corner.~
 This mindflayer is six foot high. It has a small mace in its belt, and is
 dressed in purple and black cloth. It has four small tentacles in the 
 center of its head.
@@ -355,8 +333,7 @@ stand stand none 10
 #7203
 wererat rat were~
 the ugly wererat~
-An ugly wererat is here, looking at you with a strange flick in his eyes.
-~
+An ugly wererat is here, looking at you with a strange flick in his eyes.~
 The wererat is about four foot tall. It looks very much like rat, except
 that it is standing.
 ~
@@ -370,8 +347,7 @@ stand stand none 2
 #7204
 rat gigantic~
 the gigantic rat~
-There is a gigantic rat here, looking at you with a hungry look.
-~
+There is a gigantic rat here, looking at you with a hungry look.~
 The gigantic rat is about ten foot long from head to tail and has claws
 the size of your head looking very nasty.
 ~

@@ -11,9 +11,7 @@ End
 #1801
 unicorn white единорог белый~
 @eng a white unicorn@rus белый единорог~
-@eng A white unicorn regards you warily.
-@rus Белый единорог осторожно приветствует тебя.
-~
+@eng A white unicorn regards you warily.@rus Белый единорог осторожно приветствует тебя.~
 This beautiful creature is the whitest of whites, its eyes sparkling like
 sapphires, its spiral horn and cloven hooves of a shiny silver. Graceful,
 it resembles a horse, but it has the beard of a goat. Tufts of hair on its
@@ -33,8 +31,7 @@ r disease 33
 #1802
 unicorn white~
 a white unicorn~
-A white unicorn regards you warily.
-~
+A white unicorn regards you warily.~
 This beautiful creature is the whitest of whites, its eyes sparkling like
 sapphires, its spiral horn and cloven hooves of a shiny silver. Graceful,
 it resembles a horse, but it has the beard of a goat. Tufts of hair on its
@@ -54,8 +51,7 @@ r disease 33
 #1803
 panther black~
 a black panther~
-A huge black panther is here contemplating its thoughts.
-~
+A huge black panther is here contemplating its thoughts.~
 It's huge, very huge, and it has long gleaming sharp fangs. Its eyes shine
 with a red glow. Claws half a foot long protract and retract. Its tail
 twitches menacingly.
@@ -73,8 +69,7 @@ r mental 33
 #1804
 bard girl singer~
 a young girl with a lovely voice~
-A young girl sits on the swing, strums her harp, and sings sweetly.
-~
+A young girl sits on the swing, strums her harp, and sings sweetly.~
 Long black hair and emerald green eyes catch your attention when you look at
 this singing beauty. She sits upon the swing and plays the harp easily, as
 though it were a part of her. Her voice is beautiful, the most beautiful
@@ -100,8 +95,7 @@ r sound 999
 #1805
 unicorn silver~
 the silver unicorn~
-The silver unicorn stands here, ready to pierce you with his horn.
-~
+The silver unicorn stands here, ready to pierce you with his horn.~
 This magnificent animal has a spiral horn of some crystal, and his cloven
 hooves are made of crystal as well. Wings folded at his side prepare to un-
 fold and lift him beyond your reach. His obsidian eyes regard you with great
@@ -120,8 +114,7 @@ r disease 33
 #1806
 unicorn gold~
 the golden unicorn~
-The golden unicorn stands here, ready to pierce you with his horn.
-~
+The golden unicorn stands here, ready to pierce you with his horn.~
 This magnificent animal has a spiral horn of emerald, and his cloven
 hooves are of emerald as well. Wings folded at his side prepare to un-
 fold and lift him beyond your reach. His beryl eyes regard you with great
@@ -140,8 +133,7 @@ r disease 33
 #1807
 unicorn platinum~
 the platinum unicorn~
-The platinum unicorn stands here, ready to pierce you with his horn.
-~
+The platinum unicorn stands here, ready to pierce you with his horn.~
 This magnificent animal has a spiral horn of sapphire, and his cloven
 hooves seem made of sapphire as well. Wings folded at his side prepare
 to unfold and lift him beyond your reach. His ruby eyes regard you with
@@ -160,8 +152,7 @@ r disease 33
 #1808
 unicorn copper~
 the copper unicorn~
-The copper unicorn stands here, ready to pierce you with his horn.
-~
+The copper unicorn stands here, ready to pierce you with his horn.~
 This magnificent animal has a spiral horn of ebony, and his cloven hooves
 are of ebony as well. Wings folded at his side prepare to unfold and lift
 him beyond your reach. His emerald eyes regard you with great distrust;
@@ -180,8 +171,7 @@ r disease 33
 #1809
 unicorn chromatic~
 the chromatic unicorn~
-The chromatic unicorn stands here, ready to pierce you with his horn.
-~
+The chromatic unicorn stands here, ready to pierce you with his horn.~
 This magnificent animal has a spiral horn of light refracted into the
 rainbow colors, and his cloven hooves are made of the same refracted light.
 Wings folded at his side prepare to unfold and lift him beyond your reach.
@@ -200,8 +190,7 @@ r disease 33
 #1810
 unicorn brass~
 the brass unicorn~
-The brass unicorn stands here, ready to pierce you with his horn.
-~
+The brass unicorn stands here, ready to pierce you with his horn.~
 This magnificent animal has a spiral horn of topaz, and his cloven hooves are
 topaz as well. Wings folded at his side prepare to unfold and lift him beyond
 your reach. His obsidian eyes regard you with great distrust; you are
@@ -220,8 +209,7 @@ r disease 33
 #1811
 mushroom mush shroom~
 a mushroom as tall as a giant's knee~
-A mushroom as tall as a giant's knee is here.
-~
+A mushroom as tall as a giant's knee is here.~
 It is taller than any mushroom you've ever seen in your life. Brown with
 greenish polka-dots, and having spores the color of oak leaves late in
 autumn, the thing looks as though it would feed a crowd.
@@ -250,8 +238,7 @@ r sound 50
 #1812
 shadow dragon~
 a shadow dragon~
-A shadow dragon sucks in a deep breath and prepares to blast you.
-~
+A shadow dragon sucks in a deep breath and prepares to blast you.~
 Ethereal in form, and yet solid, this serpentine monster is dark green in
 color with multicolored eyes, like two rainbow gems staring at you. His
 bat-like wings prepare to flap hot air at you.
@@ -271,8 +258,7 @@ r charm -33
 #1813
 red witch~
 the red witch~
-The red witch is here, stirring a bubbling cauldron.
-~
+The red witch is here, stirring a bubbling cauldron.~
 She has scraggly grey hair, a face that badly needs beauty cream (but even
 so, it seems too little too late), and a nose that has been broken one time
 too many. Her robe is red with golden embroidery. On her head is a pointed
@@ -292,8 +278,7 @@ r holy -50
 #1814
 orange witch~
 the orange witch~
-The orange witch is here, waving a magic wand.
-~
+The orange witch is here, waving a magic wand.~
 She has hair of black streaked with grey, a face that appears to have gotten
 too close to a dragon's claws while they were still attached to the dragon,
 and eyes as black as midnight. Her robe is orange with embroidery done in
@@ -313,8 +298,7 @@ r holy -50
 #1815
 yellow witch~
 the yellow witch~
-The yellow witch is here, mumbling a spell.
-~
+The yellow witch is here, mumbling a spell.~
 Her hair is blonde, a golden yellow blonde, and her face is young and
 without wrinkles. Her eyes regard you with curiosity, curiosity of the
 order of what kind of animal she can turn you into. Her robe is yellow
@@ -335,8 +319,7 @@ r holy -50
 #1816
 green witch~
 the green witch~
-The green witch looks up and frowns at you.
-~
+The green witch looks up and frowns at you.~
 Her hair is cinereal and unkempt, her face beginning to wrinkle, and her
 eyes flash with evil intent. Her robe is plain, the solid green broken by
 a rope tied around her waist.
@@ -354,8 +337,7 @@ r holy -50
 #1817
 blue witch~
 the blue witch~
-The blue witch glares at you. How dare you interrupt her spellcasting!
-~
+The blue witch glares at you. How dare you interrupt her spellcasting!~
 Red haired and green eyed, this young magic user wears a light blue robe
 with silver embroidery.
 ~
@@ -372,8 +354,7 @@ r holy -50
 #1818
 indigo witch~
 the indigo witch~
-The indigo witch recites a spell from a spellbook.
-~
+The indigo witch recites a spell from a spellbook.~
 With dark brown hair and sapphire blue eyes, the indigo witch looks more
 like a cute girl who has learned magic than a witch, and yet she is a
 very powerful user of magic, and of evil magic at that. Her robe of indigo
@@ -393,8 +374,7 @@ r holy -50
 #1819
 violet witch~
 the violet witch~
-The violet witch gives you a sultry smile.
-~
+The violet witch gives you a sultry smile.~
 Her hair is platinum blonde, her eyes blue... ah, who are you kidding,
 looking at her smooth fair face when there's so much to stare at below
 her neck? Her violet robe is way too tight for her. Indeed, it's sprung
@@ -415,8 +395,7 @@ r holy -50
 #1820
 red warlock~
 the red warlock~
-The red warlock is here, brandishing an oaken staff.
-~
+The red warlock is here, brandishing an oaken staff.~
 He stares at you with malevolence, his red robe glowing an evil red as
 he calls forth the powers of magic to harm you.
 ~
@@ -433,8 +412,7 @@ r holy -50
 #1821
 orange warlock~
 the orange warlock~
-The orange warlock is here, waving a silver wand.
-~
+The orange warlock is here, waving a silver wand.~
 He has long unkempt white hair, a wrinkled face, and grey eyes. His robe
 is orange with yellow, almost golden stars sprinkled throughout.
 ~
@@ -451,8 +429,7 @@ r holy -50
 #1822
 yellow warlock~
 the yellow warlock~
-The yellow warlock is here, reciting a scroll.
-~
+The yellow warlock is here, reciting a scroll.~
 His hair is raven-black, his eyes blue as a deep tarn, and his skin
 smooth, with just the hint of a beard starting to grow. His yellow
 robe is unadorned with symbols or decoration, and his cap is equally
@@ -471,8 +448,7 @@ r holy -50
 #1823
 green warlock~
 the green warlock~
-The green warlock looks up from his grimoire and grins evilly at you.
-~
+The green warlock looks up from his grimoire and grins evilly at you.~
 His orangy-red hair clashes with his green robe, and even worse, he is
 wearing orange shoes. The man obviously spends more time with his magic
 than learning the aesthetics of fashion.
@@ -490,8 +466,7 @@ r holy -50
 #1824
 blue warlock~
 the blue warlock~
-The blue warlock glares at you. How dare you interrupt his spellcasting!
-~
+The blue warlock glares at you. How dare you interrupt his spellcasting!~
 Grey haired and wrinkled, this old warlock is not very friendly. His blue
 robe is embroidered with black thread, and you sense an aura of evilness
 about him that you have seen nowhere else... this one is truly evil!
@@ -509,8 +484,7 @@ r holy -50
 #1825
 indigo warlock~
 the indigo warlock~
-The indigo warlock recites a spell from a spellbook.
-~
+The indigo warlock recites a spell from a spellbook.~
 This warlock appears to have been around nearly forever. His face is so
 wrinkled you can hardly see his eyes, nevermind what color they are. His
 hair is sparse and white, more of his head shows than hair. His indigo robe
@@ -531,8 +505,7 @@ r holy -50
 #1826
 violet warlock~
 the violet warlock~
-The violet warlock leers at you, undressing you with his eyes.
-~
+The violet warlock leers at you, undressing you with his eyes.~
 If it weren't for the crooked leer on his face, this fellow might be
 handsome. His eyes spark with a red light, and he exudes evil and
 sliminess. His violet robe is plain, solid violet, except for a few
@@ -553,8 +526,7 @@ r holy -50
 #1827
 shopkeeper ranger~
 the ranger shopkeeper~
-The ranger shopkeeper is here, waiting to sell you something useful.
-~
+The ranger shopkeeper is here, waiting to sell you something useful.~
 Wearing camouflage green, the ranger shopkeeper is as ready for life in
 the wilds as he is for keeping shop here at the Ranger Station.
 ~
@@ -586,8 +558,7 @@ r sound 33
 guildmaster ranger~
 the ranger guildmaster~
 The ranger guildmaster is waiting to teach you skills of forest
-survival.
-~
+survival.~
 He is tall and tanned from spending many hours outside. Wearing typical
 camouflage clothing, he looks ready for a foray into the wilds beyond the
 Ranger Station.
@@ -619,8 +590,7 @@ r sound 33
 #1829
 unicorn black ebony~
 the ebony unicorn~
-The ebony unicorn stands here, ready to pierce you with his ivory horn.
-~
+The ebony unicorn stands here, ready to pierce you with his ivory horn.~
 This magnificent animal has a spiral horn of ivory, and his cloven hooves
 are ivory as well. Wings folded at his side prepare to unfold and lift him
 beyond your reach. His obsidian eyes regard you with great distrust; you are
@@ -639,8 +609,7 @@ r disease 33
 #1830
 grey squirrel~
 a grey squirrel~
-A grey squirrel scampers away as you approach.
-~
+A grey squirrel scampers away as you approach.~
 It stops at the far side of the room and regards you with eyes that seem
 almost intelligent. Head cocked to one side, it appears to be thinking
 deeply what you might be. Its grey fur looks soft and luxurious, and its
@@ -662,8 +631,7 @@ r light 33
 #1831
 butterfly~
 a tiny butterfly~
-A tiny blue and gold butterfly flits from plant to plant.
-~
+A tiny blue and gold butterfly flits from plant to plant.~
 This tiny insect is beautiful. Gold trim on blue wings, with golden 'eyes'
 on the larger wing sections, it flitters and flutters from flower to
 flower, visiting the leafier plants also.
@@ -679,8 +647,7 @@ r energy -50
 #1832
 cardinal red bird~
 a small cardinal~
-A small cardinal checks the ground for food.
-~
+A small cardinal checks the ground for food.~
 Brilliant red with a black face and red bill, the cardinal whistles
 cheerily and looks for food on the ground. You remember your wildlife
 class before you entered your guild, where you learned that this bird
@@ -698,8 +665,7 @@ r energy -50
 #1833
 bluebird blue bird~
 a bluebird~
-A small bird of vivid blue with a red breast sings softly.
-~
+A small bird of vivid blue with a red breast sings softly.~
 Its wings are long, tail short. It has a deep blue hood, its upper parts
 equally blue, with a rusty red breast and a white crescent mark across its
 upper back.
@@ -716,8 +682,7 @@ r energy -50
 #1834
 blue thrush bluebird bird~
 a blue bird~
-A blue bird sings in the pine tree.
-~
+A blue bird sings in the pine tree.~
 This bird is almost entirely blue. Turquoise blue hood and back, with light
 blue breast and white belly, it prefers to perch in the pine tree unless it
 drops down to the ground to catch insects.
@@ -734,8 +699,7 @@ r energy -50
 #1835
 yellow bird gold finch goldfinch~
 a goldfinch~
-A bright yellow bird sings nearby.
-~
+A bright yellow bird sings nearby.~
 Bright yellow with a black cap, white rump, and white edges on its black
 wings and tail, this goldfinch is quite a pretty little bird.
 ~
@@ -751,8 +715,7 @@ r energy -50
 #1836
 vireo red-eyed bird~
 a red-eyed vireo~
-A red-eyed vireo fiercely guards its nest.
-~
+A red-eyed vireo fiercely guards its nest.~
 Greenish above and white below, with a grey crown and white eyebrow stripe,
 this bird's red eyes gaze piercingly at you. If you even think about looking
 at its nest, it will attack with a vengeance.
@@ -770,8 +733,7 @@ r energy -50
 #1837
 humming bird hummingbird~
 a tiny hummingbird~
-A tiny hummingbird hovers over a flower.
-~
+A tiny hummingbird hovers over a flower.~
 Metallic green above with a gorget of white with purple-violet rays, this
 tiny bird will rise up out of sight and then swoop down on you if it thinks
 you are disturbing its feeding flowers.
@@ -789,8 +751,7 @@ r energy -50
 #1838
 black warlock~
 the black warlock~
-The black warlock brews another bubbly potion.
-~
+The black warlock brews another bubbly potion.~
 He looks back at you with mild disinterest, for you are below his station
 and therefore do not truly deserve any attention. If this dark warlock
 thought you worthy of attention, it would probably be of a negative sort.
@@ -810,8 +771,7 @@ r holy -50
 #1839
 bunny rabbit~
 a small white bunny~
-A small white bunny hops across your path.
-~
+A small white bunny hops across your path.~
 It is small and soft and furry and cute, with long ears. Its fur is a
 lovely white, and it has a cute little cotton-tail.
 ~
@@ -830,8 +790,7 @@ r lightning -50
 #1840
 fallow deer small~
 a fallow deer~
-A fallow deer nibbles on the leaves of a bush.
-~
+A fallow deer nibbles on the leaves of a bush.~
 It is small and brown with dark grey spots and a white tail.
 ~
 rabbit~
@@ -850,8 +809,7 @@ r energy 33
 #1899
 ranger healer~
 ranger healer~
-Old wrinkled man offers healing services.
-~
+Old wrinkled man offers healing services.~
 Tanned wrinkled man looks around proudly. His collection of healing herbs
 can heal almost everything. Retired from his rangership, he now offers his
 herbs to heal your wounds and diseases. Type "HEAL" to get the list.

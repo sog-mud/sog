@@ -11,8 +11,7 @@ End
 #5735
 sentry orc~
 an Orc sentry~
-An Orc sentry has fallen asleep at his post here.
-~
+An Orc sentry has fallen asleep at his post here.~
 This vile creature has been assigned to prevent unwanted visitors, but innate
 laziness combined with generous servings of Orcish Ale have rendered him
 quite ineffective at even this simple task.
@@ -38,8 +37,7 @@ r charm 999
 #5736
 orc~
 a sleeping Orc~
-An off-duty Orc sleeps here.
-~
+An off-duty Orc sleeps here.~
 This vile creature has been assigned to prevent unwanted visitors, but innate
 laziness combined with generous servings of Orcish Ale have rendered him
 quite ineffective at even this simple task.
@@ -65,8 +63,7 @@ r charm 999
 #5737
 snake~
 a small snake~
-A small snake hisses and strikes!
-~
+A small snake hisses and strikes!~
 This serpent has been placed here by the occupant of this room to guard the
 box it is coiled about, and although it is quite small, its bite can be 
 lethal!
@@ -86,8 +83,7 @@ r charm 999
 #5738
 orc~
 a drunken Orc~
-A drunken Orc breaks off in mid-song and lunges at you!
-~
+A drunken Orc breaks off in mid-song and lunges at you!~
 This foul drunk is quite possibly the worst singer you have ever heard in 
 your life! And he smells even worse than he sings! Fortunately he is not a
 very effective combatant, as the alcohol he has imbibed has dulled his 
@@ -114,8 +110,7 @@ r charm 999
 #5739
 orc chieftain~
 an Orcish chieftain~
-An Orcish chieftain snarls and cracks his whip at you angrily.
-~
+An Orcish chieftain snarls and cracks his whip at you angrily.~
 This evil chieftain was busy whipping his hapless servant when you entered,
 and he is glad for a more challenging foe. He is the leader of the Orcs in
 this area, and as such will be a tough foe.
@@ -141,8 +136,7 @@ r charm 999
 #5740
 orc servant~
 an orcish servant~
-An Orcish servant moans piteously as his master beats him.
-~
+An Orcish servant moans piteously as his master beats him.~
 This pathetic whelp was been flogged by his demanding master as you entered,
 but despite this he still leaps up to defend the chieftain against you. Best
 to slay the ungrateful little wretch.
@@ -168,8 +162,7 @@ r charm 999
 #5741
 orc~
 an eating Orc~
-An Orc busily slurps up his rat stew.
-~
+An Orc busily slurps up his rat stew.~
 This Orc is so busy eating that he doesn't even notice you enter. You could
 easily leap in and have a hack before he was even prepared. However, he does
 have several companions...
@@ -195,8 +188,7 @@ r charm 999
 #5742
 prisoner~
 A deranged prisoner~
-A wild-eyed man lunges insanely at you!
-~
+A wild-eyed man lunges insanely at you!~
 Ack! Watch out! He's going to...Oh. You realize, as the deranged figure
 suddenly collapses sobbing at your feet that this man is not aggressive or
 seeking to attack you but was simply overjoyed at beign released. He is
@@ -212,8 +204,7 @@ stand stand male 10
 #5743
 goblin torturer~
 a Goblin torturer~
-A Goblin torturer is angry that his victim has suddenly died.
-~
+A Goblin torturer is angry that his victim has suddenly died.~
 This sadistic creature was busy torturing a captured Dwarf when you entered,
 and the Dwarf died moments later. The creature is angered, and blames you 
 for the Dwarf's premature death!
@@ -241,8 +232,7 @@ r sound 50
 #5744
 cyclops iron~
 an iron Cyclops~
-A Huge iron Cyclops with a single huge gem serving as an eye towers over you.
-~
+A Huge iron Cyclops with a single huge gem serving as an eye towers over you.~
 This specially made Iron Golem is extremely tough and powerful. Although not
 aggressive, it will certainly attack if you seek to take its gem.
 ~
@@ -260,8 +250,7 @@ r mental 50
 #5745
 barbarian~
 an insane Barbarian~
-An insane Barbarian leaps out and attacks you!
-~
+An insane Barbarian leaps out and attacks you!~
 This demented berserker has been trapped in this dungeon for days and is
 taking out his frustrations on you! Towering over you at six feet tall and
 weighing in at 280 lbs, he is certainly a force to be reckoned with.
@@ -280,8 +269,7 @@ r mental 50
 #5746
 old man~
 an old man~
-An old man clad in a dirty nightrobe welcomes you to his shop.
-~
+An old man clad in a dirty nightrobe welcomes you to his shop.~
 "Oh my, a visitor! We don't get much of them these days...". Despite his
 appearance, this elderly gentleman is more than capable of taking care of 
 himself. He can sell you lighting equipment for the journey ahead.
@@ -296,8 +284,7 @@ stand stand male 500
 #5747
 old man wererat~
 an old man who is a Wererat~
-An old man standing here gradually transforms into a wererat!
-~
+An old man standing here gradually transforms into a wererat!~
 This seemingly harmless old coot is actually a powerful lycanthrope, who 
 will not hesitate to kill you if you threaten him.
 ~
@@ -312,8 +299,7 @@ r mental -50
 #5748
 neanderthal caveman man~
 A lumbering Neanderthal~
-A primitive Neanderthal swings his stone club at your head!
-~
+A primitive Neanderthal swings his stone club at your head!~
 This dim-witted cave man is possessed of only the most primitive instincts,
 but has a blow like a sledgehammer and a hide like a stone wall, so fight 
 well!
@@ -329,8 +315,7 @@ r charm 999
 #5749
 bat giant~
 a giant Bat~
-A giant Bat swoops down to attack you.
-~
+A giant Bat swoops down to attack you.~
 This bat is almost as big as you are, and with its huge black wings and long,
 pointy fangs dripping potent venom, it is quite a formidable sight. Better 
 be careful with this one.
@@ -347,8 +332,7 @@ r charm 999
 #5750
 spider giant~
 a giant Spider~
-A loathsome spider the size of a small pony scuttles towards you.
-~
+A loathsome spider the size of a small pony scuttles towards you.~
 You are not sure which scares you the most about this horrible arachnid-
 The way its 2 feet long furry legs scuttle on the rock as it races at you,
 the way its beady eyes stare evilly at you as is approaches, or the way the
@@ -365,8 +349,7 @@ r charm 999
 #5751
 ogre~
 an Ogre~
-An Ogre lumbers about here.
-~
+An Ogre lumbers about here.~
 This huge dullard is so big and so dense that he doesn't seem to have even
 registered your presence. You could easily sneak past and escape his lair
 should you so wish...
@@ -387,8 +370,7 @@ r charm -30
 #5752
 troll~
 a Troll~
-A Troll with very long, powerful arms lopes toward you.
-~
+A Troll with very long, powerful arms lopes toward you.~
 This ugly monster is only 5 feet tall, but its arms are also nearly five
 feet long, and end with wicked, sharp claws that could cut stone. Yellow
 mucous drips from the fevered beast's slavering maw, and you shudder to
@@ -410,8 +392,7 @@ r charm -30
 #5753
 rat giant~
 a giant Rat~
-A Rat the size of an Alsatian leaps at you!
-~
+A Rat the size of an Alsatian leaps at you!~
 This huge rodent has long, pointed teeth that are discolored with dried 
 blood. It lashes at you with its sharp claws and seeks to clamp its fangs
 around your neck!
@@ -427,8 +408,7 @@ r charm 33
 #5754
 giant~
 a burly Giant~
-A burly Giant hurls a leg of lamb at you before attacking!
-~
+A burly Giant hurls a leg of lamb at you before attacking!~
 You have disturbed this big fellow's evening repast, and he is not happy 
 about it.
 ~
@@ -447,8 +427,7 @@ r charm 999
 #5755
 piranha~
 a vicious Piranha~
-A vicious Piranha sinks its teeth into your leg!
-~
+A vicious Piranha sinks its teeth into your leg!~
 You scream in pain as this savage little fish tears out a chunk of flesh.
 It moves almsot too fast for you to catch it in the water, but eventually
 returns for another bite, which gives you a chance to attack it.
@@ -464,8 +443,7 @@ r mental -50
 #5756
 sandworm giant~
 a giant Sandworm~
-A giant Sandworm rears up out of the sand and attacks!
-~
+A giant Sandworm rears up out of the sand and attacks!~
 This big fellow makes sea serpents of old look tiny. His circular maw is
 lined with rows and rows of teeth, all ready to bite into you!.
 ~
@@ -479,8 +457,7 @@ stand stand male 10
 #5757
 skeleton~
 a Skeleton worker~
-A Skeleton worker busily helps assemble a boat.
-~
+A Skeleton worker busily helps assemble a boat.~
 This undead servant of the Warlock is far too busy engaging in its set tasks
 to pay any mind to you. It will, however, act to defend itself if assaulted,
 as will its many comrades.
@@ -495,8 +472,7 @@ stand stand male 10
 #5758
 wight~
 a Wight~
-A Wight, a fell undead servant of the Warlock, grins evilly at you.
-~
+A Wight, a fell undead servant of the Warlock, grins evilly at you.~
 This foul creature is not exceptionally strong or tough, but it has many
 special abilities which make it more than a match for the average adventurer,
 including its long, sharp, poisoned fangs and claws, its resistance to 
@@ -514,8 +490,7 @@ r charm 999
 #5759
 zombie~
 a Zombie~
-The physical form of a slain adventurer has been re-animated as a Zombie.
-~
+The physical form of a slain adventurer has been re-animated as a Zombie.~
 This poor fellow was once an eager young treasure-and-glory-seeker like 
 yourself, who fell foul of the Warlock's minions, and has been damned to a
 perpetual undead existence.
@@ -530,8 +505,7 @@ stand stand male 30
 #5760
 dog~
 a Guard Dog~
-A savage Guard Dog barks to alert its master of your intrusion!
-~
+A savage Guard Dog barks to alert its master of your intrusion!~
 Despite appearances, this Dog will not attack unless provoked. If it does, 
 you may find that it is not like msot other Dogs, in that it is very tough 
 and has certain abilities that may catch you by surprise...
@@ -546,8 +520,7 @@ stand stand male 0
 #5761
 werewolf man~
 a Werewolf~
-The man before you transforms into a Werewolf as you watch!
-~
+The man before you transforms into a Werewolf as you watch!~
 This dour old man is the chief ship-builder for the Warlock, and despite his
 unfortunate curse (Lycanthropy), he is not a bad guy, and will only attack if
 you initiate hostilities by attacking him or his dog.
@@ -564,8 +537,7 @@ r charm 999
 #5762
 ghoul~
 a Ghoul~
-Hidden among the corpses is a sadistic Ghoul!
-~
+Hidden among the corpses is a sadistic Ghoul!~
 This decaying corpse-like undead slashes at you with its filthy fingernails,
 attempting to slay and devour you!
 ~
@@ -580,8 +552,7 @@ r charm 999
 #5763
 vampire~
 an evil Vampire~
-An evil Vampire attempts to drink your blood!
-~
+An evil Vampire attempts to drink your blood!~
 Rising from its coffin like Bela Lugosi in Dracula, the Vampire floats
 towards you, attempting to make eye contact with you, so that it can charm
 you and then feat upon you at its leisure.
@@ -598,8 +569,7 @@ r charm 999
 #5764
 dwarf~
 a Dwarf~
-A Dwarven gambler offers you a seat in his game.
-~
+A Dwarven gambler offers you a seat in his game.~
 This amiable fellow is leaning back in his chair at a table with three other
 Dwarfs playing Five Card Stud. He draws deeply on a long pipe, exhaling some
 noxious smoke, and invites you to join in.
@@ -619,8 +589,7 @@ r charm 999
 #5765
 minotaur~
 a mighty Minotaur~
-A mighty Minotaur threatens to tear you apart with his bare hands!
-~
+A mighty Minotaur threatens to tear you apart with his bare hands!~
 This Minotaur is quite insane and, lost in his delirium, he provokes all who
 enter into battling with him. Although unarmed and unarmored, he is still a
 potentially dangerous foe.
@@ -636,8 +605,7 @@ r charm 999
 #5766
 dragon~
 an enormous Red Dragon~
-An enormous Red Dragon belches forth fire and smoke at you!
-~
+An enormous Red Dragon belches forth fire and smoke at you!~
 You are Dead. This Dragon can tear apart whole armies of Orcs, and eats
 adventurers like you for breakfast. His huge, yellow, heavy-lidded eyes
 glare balefully at you as he swings his massive claws at your head!
@@ -668,8 +636,7 @@ r charm 999
 #5767
 warlock~
 the Warlock of Firetop Mountain~
-The Warlock of Firetop Mountain stands proudly before you.
-~
+The Warlock of Firetop Mountain stands proudly before you.~
 The Warlock has taken the form of a well-built young man, clad in robes of
 Velvet and Gold. Sparks fly from his gloved hands as he stares grimly at you,
 waiting for you to move. Already, you know you are in for a heck of a fight...
@@ -686,8 +653,7 @@ r charm 999
 #5768
 hand~
 a hand~
-An animated Hand strikes at you!
-~
+An animated Hand strikes at you!~
 This hand rises up from the floor and begins to beat you!
 ~
 human~
@@ -700,8 +666,7 @@ stand stand either 0
 #5769
 crocodile croc~
 a crocodile~
-An angry crocodile lurches at your boat!
-~
+An angry crocodile lurches at your boat!~
 This huge reptile is hideous and mean, and it looks eager to bury its many
 pointed teeth in your body!
 ~
@@ -715,8 +680,7 @@ stand stand either 0
 #5770
 gas beast~
 a gas beast~
-A gas beast wraps itself around you and attempts to smother you!
-~
+A gas beast wraps itself around you and attempts to smother you!~
 This horrid creature is little more than a gas cloud with a will of its own,
 and as such is very hard to kill.
 ~

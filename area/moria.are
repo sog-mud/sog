@@ -11,9 +11,7 @@ End
 #4000
 python snake питон толстый~
 @eng the huge python@rus ~~толстый~~ ~~питон~~~
-@eng The huge python rears its head and hisses at you.
-@rus Толстый питон (huge pythton) поворачивает голову к тебе и угрожающе шипит.
-~
+@eng The huge python rears its head and hisses at you.@rus Толстый питон (huge pythton) поворачивает голову к тебе и угрожающе шипит.~
 @eng It sways back and forth contemplating whether or not to eat you.
 @rus Он раскачивается вперед-назад, рассматривая тебя и раздумывая - съесть тебя
 сейчас или оставить на потом?
@@ -31,9 +29,7 @@ r poison -33
 #4001
 garter snake змейка садовая~
 @eng the garter snake@rus ~~садовая~~ ~~змейка~~~
-@eng A small green garter snake slithers along the floor.
-@rus Маленькая зеленая садовая змейка (garter snake) извивается на полу.
-~
+@eng A small green garter snake slithers along the floor.@rus Маленькая зеленая садовая змейка (garter snake) извивается на полу.~
 @eng It looks harmless enough.  Or is it?
 @rus Она выглядит достаточно безопасной. Или нет...?
 ~
@@ -50,9 +46,7 @@ r poison -33
 #4002
 centipede сороконожка~
 @eng the centipede@rus сороконожка~
-@eng A small centipede here is looking for vegetation.
-@rus Маленькая сороконожка (centipede) ищет что-нибудь растительное на пропитание.
-~
+@eng A small centipede here is looking for vegetation.@rus Маленькая сороконожка (centipede) ищет что-нибудь растительное на пропитание.~
 @eng It looks completely harmless but who knows for sure?
 @rus Она выглядит абсолютно безопасной, но кто знает наверняка?
 ~
@@ -70,9 +64,7 @@ r cold -33
 #4003
 kobold кобольд~
 @eng the kobold@rus кобольд~
-@eng An ugly kobold mumbles something under its breath.
-@rus Уродливый кобольд (kobold) невнятно что-то бормочет.
-~
+@eng An ugly kobold mumbles something under its breath.@rus Уродливый кобольд (kobold) невнятно что-то бормочет.~
 @eng It looks ugly enough to scare its own mother.
 @rus Он выглядит достаточно уродливым, чтобы испугать его собственную мать.
 ~
@@ -99,9 +91,7 @@ r sound 50
 #4004
 orc орк~
 @eng the orc@rus орк~
-@eng This orc is frothing around the mouth.  Better stay away.
-@rus Из пасти орка (orc) исходит тяжелое зловоние. От него лучше держаться подальше.
-~
+@eng This orc is frothing around the mouth.  Better stay away.@rus Из пасти орка (orc) исходит тяжелое зловоние. От него лучше держаться подальше.~
 @eng You notice a slight tinge of madness in his eyes.
 @rus В его глазах заметен оттенок безумия. Осторожно! Вдруг это заразно?
 ~
@@ -132,9 +122,7 @@ r sound 33
 #4005
 large orc большой орк~
 @eng the large orc@rus ~~большой~~ ~~орк~~~
-@eng This large orc is looking for someone small to pick on.
-@rus Большой орк (large orc) ищет кого-нибудь маленького, чтобы придраться к нему.
-~
+@eng This large orc is looking for someone small to pick on.@rus Большой орк (large orc) ищет кого-нибудь маленького, чтобы придраться к нему.~
 @eng The orc says, "Whatcha look'n at?"
 @rus Орк говорит: "Чего уставился?"
 ~
@@ -156,9 +144,7 @@ r light 15
 #4050
 warrior воин высокий~
 @eng the warrior@rus ~~высокий~~ ~~воин~~~
-@eng This tall warrior has more scars than even you!
-@rus Высокий воин (warrior) имеет большее количество шрамов чем ты можешь счесть!
-~
+@eng This tall warrior has more scars than even you!@rus Высокий воин (warrior) имеет большее количество шрамов чем ты можешь счесть!~
 @eng He's surely a strong, brainless fighter.  Like you.
 @rus Он сильный, но глупый боец. Похож на тебя.
 ~
@@ -172,9 +158,7 @@ stand stand male 300
 #4051
 warrior старый воин~
 @eng the warrior@rus ~~старый~~ ~~воин~~~
-@eng This veteran warrior is old enough to be your father.
-@rus Этот старый воин (warrior) достаточно стар, чтобы быть твоим отцом.
-~
+@eng This veteran warrior is old enough to be your father.@rus Этот старый воин (warrior) достаточно стар, чтобы быть твоим отцом.~
 @eng He seems to know his way with weapons.  And he wants
 to show you what he can do!
 @rus Он, кажется, знает толк в оружии. И он хочет показать тебе, что он умеет!
@@ -203,9 +187,7 @@ r sound -50
 #4052
 hobgoblin хобгоблин~
 @eng the hobgoblin@rus хоб~~гоблин~~~
-@eng A small beat-up hobgoblin cringes in the corner.
-@rus Маленький забитый хобгоблин (hobgoblin) съежился в углу.
-~
+@eng A small beat-up hobgoblin cringes in the corner.@rus Маленький забитый хобгоблин (hobgoblin) съежился в углу.~
 @eng Looking into the eyes of this poor soul makes you feel
 sad as you see the terror and fear in its eyes.  Why
 don't you put it out of its misery?
@@ -236,9 +218,7 @@ r sound -50
 #4053
 snake змея~
 @eng the snake@rus змея~
-@eng A sickly brown snake watches you with caution.
-@rus Тощая коричневая змея (snake) флегматично наблюдает за тобой.
-~
+@eng A sickly brown snake watches you with caution.@rus Тощая коричневая змея (snake) флегматично наблюдает за тобой.~
 @eng A closer look reveals a hungry demeanor.  Don't get too close!
 @rus Более пристальный взгляд на змею говорит тебе, что змея голодна! Не подходи
 слишком близко!
@@ -258,9 +238,7 @@ r poison -33
 #4054
 centipede многоножка~
 @eng the centipede@rus многоножка~
-@eng A white centipede crawls along the cave floors randomly.
-@rus Белая многоножка (centipede) беспорядочно ползает по полу пещеры.
-~
+@eng A white centipede crawls along the cave floors randomly.@rus Белая многоножка (centipede) беспорядочно ползает по полу пещеры.~
 @eng The centipede doesn't really seem to notice you.
 @rus Многоножка, кажется, действительно не замечает тебя.
 ~
@@ -278,10 +256,8 @@ r cold -33
 #4055
 hobgoblin большой хобгоблин~
 @eng the large hobgoblin@rus ~~большой~~ хоб~~гоблин~~~
-@eng A large hobgoblin is here wondering if he should tear you apart.
-@rus Большой хобгоблин (large hobgoblin) раздумывает, глядя на тебя - не тебя
-ли он порвал недавно?
-~
+@eng A large hobgoblin is here wondering if he should tear you apart.@rus Большой хобгоблин (large hobgoblin) раздумывает, глядя на тебя - не тебя
+ли он порвал недавно?~
 @eng Red, bloodshot eyes and drool dripping from its mouth makes you
 wonder just how far away you should be.
 @rus Красные,  налитые кровью глаза и слюни, капающие из его рта заставляют тебя
@@ -311,9 +287,7 @@ r sound 33
 #4056
 orc орк~
 @eng the orc@rus орк~
-@eng An orc is here, looking for something (or perhaps someone) to eat.
-@rus Орк (orc) рыщет здесь в поисках чего-то (или кого-то) съестного.
-~
+@eng An orc is here, looking for something (or perhaps someone) to eat.@rus Орк (orc) рыщет здесь в поисках чего-то (или кого-то) съестного.~
 @eng As you already know, orcs have quite a ravenous appetite.  
 Care to be dinner?
 @rus Ты,  наверное,  в  курсе  орочьего  аппетита.  Не  хочешь  поучаствовать? В
@@ -337,9 +311,7 @@ r light 15
 #4057
 lion mountain горный лев~
 @eng the mountain lion@rus ~~горный~~ ~~лев~~~
-@eng A mountain lion bears its teeth at the sight of more food.
-@rus Горный лев (mountain lion) оскалился при виде такого количества продовольствия.
-~
+@eng A mountain lion bears its teeth at the sight of more food.@rus Горный лев (mountain lion) оскалился при виде такого количества продовольствия.~
 @eng Huge claws and big teeth make quite a fearsome opponent for
 the weary.  Are you next?
 @rus Огромные  когти  и  острые  зубы,  покрытые  густой шерстью... Внушительный
@@ -357,9 +329,7 @@ r bash 33
 #4058
 giant hill гигант холмов~
 @eng the hill giant@rus ~~гигант~~ с холмов~
-@eng A hill giant is here tossing rocks around.  Marbles perhaps?
-@rus Гигант c холмов (hill giant) расшвыривает камни. Похоже, мрамор...
-~
+@eng A hill giant is here tossing rocks around.  Marbles perhaps?@rus Гигант c холмов (hill giant) расшвыривает камни. Похоже, мрамор...~
 @eng The hill giant looks like he's about 9 feet tall. By his actions you
 come to the conclusion that he's not very intelligent.  A perfect
 playmate for you.
@@ -385,10 +355,8 @@ r mental 50
 mage Маг~
 @eng the Mage@rus маг~
 @eng A small intelligent looking mage is standing here. It looks like he
-knows his way with magic. 
-@rus Здесь  стоит маленький, симпатично выглядящий волшебник (Mage). Его вещи 
-говорят о том, что с магией он знаком хорошо.
-~
+knows his way with magic. @rus Здесь  стоит маленький, симпатично выглядящий волшебник (Mage). Его вещи 
+говорят о том, что с магией он знаком хорошо.~
 @eng This guy can ace the SAT with his frontal lobe tied behind his back.
 @rus У него просто обалденная пластика! Он может коснуться лбом своих пяток!
 ~
@@ -416,9 +384,7 @@ r sound 33
 #4101
 troll тролль~
 @eng the troll@rus тролль~
-@eng This large mean-looking troll wants to take a closer look at you.
-@rus Большой озадаченный тролль (troll) хочет рассмотреть тебя поближе.
-~
+@eng This large mean-looking troll wants to take a closer look at you.@rus Большой озадаченный тролль (troll) хочет рассмотреть тебя поближе.~
 @eng Whilst you look at this troll, you realize he is trying to
 figure just how tender you are.
 @rus Пока ты рассматриваешь тролля, он пытается скопировать твою фигуру.
@@ -439,9 +405,7 @@ r charm -30
 #4102
 guardian snake сторожевая змея~
 @eng the guardian snake@rus ~~сторожевая~~ ~~змея~~~
-@eng A large green snake is guardian for something.
-@rus Большая зеленая змея (guardian snake) сторожит тут что-то.
-~
+@eng A large green snake is guardian for something.@rus Большая зеленая змея (guardian snake) сторожит тут что-то.~
 @eng You take a closer look at this large snake while it tries to
 bite your head off!
 @rus Пока  ты  пытаешься  рассмотреть  ее  поближе,  большая  зеленая  змея явно
@@ -461,9 +425,7 @@ r poison -33
 #4103
 thief вор~
 @eng the thief@rus вор~
-@eng A thief, all dressed in black.
-@rus Вор (thief), одетый во все черное.
-~
+@eng A thief, all dressed in black.@rus Вор (thief), одетый во все черное.~
 @eng Well COUNT your money!
 @rus ВНИМАТЕЛЬНО пересчитай свои деньги!
 ~
@@ -477,9 +439,7 @@ stand stand male 100
 #4104
 orc орк~
 @eng the orc@rus орк~
-@eng An ugly orc is standing here waiting for someone to practice on.
-@rus Уродливый орк (orc) торчит тут, ждет кого-нибудь, чтобы попрактиковаться...
-~
+@eng An ugly orc is standing here waiting for someone to practice on.@rus Уродливый орк (orc) торчит тут, ждет кого-нибудь, чтобы попрактиковаться...~
 @eng Yrkk..  He belches in your face!
 @rus Блееее..  Он отрыгивает тебе в лицо! Он явно ищет повод для драки!
 ~
@@ -501,10 +461,8 @@ r light 15
 #4105
 centipede сороконожка~
 @eng a centipede@rus сороконожка~
-@eng A small harmless centipede is here looking for some vegetation to eat.
-@rus Маленькая  безобидная  многоножка (centipede)  ищет  здесь какую-нибудь
-растительность, чтобы поесть.
-~
+@eng A small harmless centipede is here looking for some vegetation to eat.@rus Маленькая  безобидная  многоножка (centipede)  ищет  здесь какую-нибудь
+растительность, чтобы поесть.~
 @eng It doesn't seem to pay any attention towards you.  You are probably
 not important.
 @rus Она, похоже, не уделяет тебе внимания. Видимо ты для нее не существуешь.
@@ -522,9 +480,7 @@ r cold -33
 #4106
 warrior воин~
 @eng the Warrior@rus воин~
-@eng A human warrior grins an evil grin in your face.
-@rus Воин-человек (warrior) усмехается тебе злой усмешкой.
-~
+@eng A human warrior grins an evil grin in your face.@rus Воин-человек (warrior) усмехается тебе злой усмешкой.~
 @eng He doesn't look friendly at all...  He is no Mr. Rogers!
 @rus Он явно недружественен... И совсем не похож на кролика.
 ~
@@ -538,9 +494,7 @@ stand stand male 300
 #4107
 kobold green кобольд зеленый~
 @eng the green kobold@rus ~~зеленый~~ ~~кобольд~~~
-@eng A green kobold hobbles along the cave walls puking periodically.
-@rus Зеленый кобольд (green kobold) хромает по пещере, периодически (фу!) пукая.
-~
+@eng A green kobold hobbles along the cave walls puking periodically.@rus Зеленый кобольд (green kobold) хромает по пещере, периодически (фу!) пукая.~
 @eng It looks a little sick.  Something he ate maybe?
 @rus Он выглядит приболевшим. Наверное, съел чего-то...
 ~
@@ -567,9 +521,7 @@ r sound 50
 #4150
 bat blue синяя летучая мышь~
 @eng the blue bat@rus ~~синяя~~ ~~летучая~~ ~~мышь~~~
-@eng A blue bat flies in circles while electrical charges arc here and there.
-@rus Синяя летучая мышь (blue bat) появляется то тут, то там, возникая в рое искр.
-~
+@eng A blue bat flies in circles while electrical charges arc here and there.@rus Синяя летучая мышь (blue bat) появляется то тут, то там, возникая в рое искр.~
 @eng Bzzzt.  Zap.  Crackle.  Speak about static electricity!
 @rus Бзззз. Взмах. Потрескивание. Что там говорили о статическом электричестве?
 ~
@@ -586,9 +538,7 @@ r light 50
 #4151
 bat red красная летучая мышь~
 @eng the red bat@rus ~~красная~~ ~~летучая~~ ~~мышь~~~
-@eng A red bat hangs upside down from the ceiling, glowing.
-@rus Красная летучая мышь (red bat), светясь, свешивается с потолка.
-~
+@eng A red bat hangs upside down from the ceiling, glowing.@rus Красная летучая мышь (red bat), светясь, свешивается с потолка.~
 @eng You can definitely feel some heat from this thing.  A fever perhaps?
 @rus Ты  определенно чувствуешь  тепло,  исходящее от ее тела. Может быть, у нее
 лихорадка?
@@ -607,10 +557,8 @@ r light 50
 #4152
 bat green зеленая летучая мышь~
 @eng the green bat@rus ~~зеленая~~ ~~летучая~~ ~~мышь~~~
-@eng A green bat flies from wall to wall leaving an awful smell.
-@rus Зеленая  летучая мышь (green bat) мечется от стенки к стенке, оставляя за
-собой ужасный запах.
-~
+@eng A green bat flies from wall to wall leaving an awful smell.@rus Зеленая  летучая мышь (green bat) мечется от стенки к стенке, оставляя за
+собой ужасный запах.~
 @eng Whew!  What a stinker!
 @rus Фу! Ну и воняет...!
 ~
@@ -627,10 +575,8 @@ r light 50
 #4153
 bat white белая летучая мышь~
 @eng the white bat@rus ~~белая~~ ~~летучая~~ ~~мышь~~~
-@eng A white bat rests on the ceiling.  You wonder where the cold is coming from.
-@rus Белая летучая мышь (white bat) висит на потолке. Невольно возникает
-вопрос - откуда идет такой холод?
-~
+@eng A white bat rests on the ceiling.  You wonder where the cold is coming from.@rus Белая летучая мышь (white bat) висит на потолке. Невольно возникает
+вопрос - откуда идет такой холод?~
 @eng Brrr!  You almost can't distinguish this bat from an ice cube.
 @rus Брр! Эта мышь похожа на кусок льда. Очень похожа.
 ~
@@ -648,9 +594,7 @@ r light 50
 #4154
 bat black черная летучая мышь~
 @eng the black bat@rus ~~черная~~ ~~летучая~~ ~~мышь~~~
-@eng A black bat flies from wall to wall leaving something hissing behind.
-@rus Тут летает черная летучая мышь (black bat), издавая какой-то странный звук.
-~
+@eng A black bat flies from wall to wall leaving something hissing behind.@rus Тут летает черная летучая мышь (black bat), издавая какой-то странный звук.~
 @eng Amazing!  This bat is grooming itself with acid!
 @rus Потрясающе! Эта мышь поливает сама себя кислотой...
 ~
@@ -667,9 +611,7 @@ r light 50
 #4155
 thief вор~
 @eng the thief@rus вор~
-@eng A sneaky thief appears and disappears within the shadows.
-@rus Трусливый вор (thief) появляется и исчезает среди теней.
-~
+@eng A sneaky thief appears and disappears within the shadows.@rus Трусливый вор (thief) появляется и исчезает среди теней.~
 @eng He definitely knows what he's doing.  Trust him.
 @rus Он определенно знает то, что он делает. Доверься ему.
 ~
@@ -683,9 +625,7 @@ stand stand male 500
 #4156
 troll троль~
 @eng the troll@rus тролль~
-@eng A large ugly troll is here mumbling something.
-@rus Большой уродливый тролль (troll) бормочет тут что-то себе под нос.
-~
+@eng A large ugly troll is here mumbling something.@rus Большой уродливый тролль (troll) бормочет тут что-то себе под нос.~
 @eng He looks quite mean.  Don't mess with him.
 @rus Он выглядит непримечательно. Но с ним лучше не связываться.
 ~
@@ -715,9 +655,7 @@ r sound -50
 #4157
 mage маг~
 @eng the Mage@rus маг~
-@eng A small man is here researching magical incantations.
-@rus Маленький человечек (mage) исследует здесь волшебные заклинания.
-~
+@eng A small man is here researching magical incantations.@rus Маленький человечек (mage) исследует здесь волшебные заклинания.~
 @eng His little head is buried into his magic books.  He'd be very
 angry should you bother his studies.
 @rus Он  с  головой  зарылся  в волшебные книги. Да, если его побеспокоить... Он
@@ -747,9 +685,7 @@ r sound 33
 #4158
 snake змея~
 @eng the snake@rus змея~
-@eng A brown snake hisses at you.
-@rus Коричневая змея (snake) шипит на тебя.
-~
+@eng A brown snake hisses at you.@rus Коричневая змея (snake) шипит на тебя.~
 @eng Sickly brown as it is, you know what it really wants is you
 for dinner.
 @rus Ты  понимаешь, что единственное, чего хочет эта тощая коричневая змея - это
@@ -769,9 +705,7 @@ r poison -33
 #4159
 troll small троль маленький~
 @eng the small troll@rus ~~маленький~~ ~~тролль~~~
-@eng A 'small' troll is here happily dancing.  Trala-la-la.  La-la.
-@rus "Маленький" тролль (small troll) весело танцует тут. Тра-ля-ля, тра-ля-ля...
-~
+@eng A 'small' troll is here happily dancing.  Trala-la-la.  La-la.@rus "Маленький" тролль (small troll) весело танцует тут. Тра-ля-ля, тра-ля-ля...~
 @eng He is so happy, you are disgusted.  Kill him now!
 @rus Он настолько счастлив, что ты чувствуешь отвращение! Убей его!
 ~
@@ -791,9 +725,7 @@ r charm -30
 #4160
 orc орк~
 @eng the orc@rus орк~
-@eng A large orc growls in your face.
-@rus Большой орк (orc) рычит тебе в лицо.
-~
+@eng A large orc growls in your face.@rus Большой орк (orc) рычит тебе в лицо.~
 @eng He is just looking for a fight isn't he?
 @rus Он явно ищет с кем бы подраться.
 ~
@@ -1296,7 +1228,7 @@ S
 @eng You are on a dusty trail following the outside wall of Midgaard.
 To the east the wall towers over you and to the west you see the
 forest of Haon-Dor. The trail leads north and south along the wall. 
-@rus 
+@rus .
 ~
 0 0 field
 D0
@@ -3909,7 +3841,7 @@ S
 @eng In the water@rus В воде~
 @eng You are standing in water, the tunnel continues both to the
 north and south.
-@rus 
+@rus .
 ~
 0 AD swim
 D0

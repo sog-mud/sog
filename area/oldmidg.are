@@ -11,8 +11,7 @@ End
 #5300
 baby beholder дитя бехолдера~
 @eng the baby beholder@rus ~~дитя~~ бехолдера~
-You meet a baby beholder's cute gaze!
-~
+You meet a baby beholder's cute gaze!~
 @eng It has a large central eye that blinks like a guppy and eyestalks atop the 
 round body which can charm you with its cuteness.  Baby beholders are known for
 their playful personality.  Hmmm....  It looks like the baby is teething!
@@ -28,9 +27,7 @@ stand stand none 1000
 #5301
 lamia pet ламия~
 @eng the pet lamia@rus ~~домашняя~~ ~~ламия~~~
-@eng A pet lamia stands here waiting for her next command.
-@rus Здесь стоит домашняя ламия (lamia), ждущая приказов от хозяина.
-~
+@eng A pet lamia stands here waiting for her next command.@rus Здесь стоит домашняя ламия (lamia), ждущая приказов от хозяина.~
 @eng This is a creature with the upper torso of a beautiful woman, but the lower
 body of a four-legged beast.
 @rus Ты видишь перед собой странное существо - четвероногое тело животного с
@@ -46,8 +43,7 @@ stand stand female 2
 #5302
 citizen man~
 @eng a citizen of Thalos@rus ~~домашняя~~ ~~ламия~~~
-A citizen of Thalos is here, conversing with everyone.
-~
+A citizen of Thalos is here, conversing with everyone.~
 He smiles at you, almost as if he knows you.  He is so friendly, you have no
 choice but to reciprocate.
 ~
@@ -61,8 +57,7 @@ stand stand male 5
 #5303
 guard imperial cityguard~
 an imperial cityguard~
-An imperial cityguard is here, keeping the peace of Thalos.
-~
+An imperial cityguard is here, keeping the peace of Thalos.~
 He is dressed in plate, and he looks quite formidable.  At the moment, though,
 he is just giggling with a kid running about.
 ~
@@ -76,8 +71,7 @@ stand stand male 75
 #5304
 citizen woman female~
 a female citizen of Thalos~
-A female citizen of Thalos is here, showing off her new dress.
-~
+A female citizen of Thalos is here, showing off her new dress.~
 She is beautiful, dressed in a sundress that sparkles with gems sown in.  She
 smiles at you, and your heart flutters at the thought that you have her
 attention, if only for a moment.
@@ -93,8 +87,7 @@ stand stand female 5
 gordon defender~
 Gordon the Brave~
 Gordon the Brave, the Defender of Thalos, is here, looking at no
-one but you, the only stranger in town.
-~
+one but you, the only stranger in town.~
 Gordon is dressed in full mithril plate, and he looks indestructible.  He eyes
 you suspiciously not only because you are a stranger, but because you are an
 ARMED stranger.  Better not do any funny stuff in his presence.
@@ -109,8 +102,7 @@ stand stand male 500
 #5306
 priest~
 the fanatic priest~
-A fanatic priest is here, foretelling the destruction of Thalos.
-~
+A fanatic priest is here, foretelling the destruction of Thalos.~
 The priest must have lost his mind.  He keeps saying that one day, evil will
 prevail and take over Thalos and bring the whole city down.  Obviously, no one
 listens to this fool.  The priest's right fist is covered in golden silk,
@@ -126,8 +118,7 @@ stand stand male 5
 #5307
 priest~
 the priest of Thalos~
-The priest of Thalos tells you of the glories of this city.
-~
+The priest of Thalos tells you of the glories of this city.~
 He stands here gloriously telling of Thalos's history, how it is now referred by
 the world as 'The City of Peace'.  He is very happy to be the high priest here.
 ~
@@ -141,8 +132,7 @@ stand stand male 5
 #5308
 golem stone~
 the stone golem~
-In the corner you see a large, stone golem faithfully standing watch.
-~
+In the corner you see a large, stone golem faithfully standing watch.~
 It is a big chunk of rock that has been magically formed into a giant
 stone creature.  It stands here guarding the city.
 ~
@@ -173,8 +163,7 @@ r sound 50
 #5309
 mayor~
 the mayor of Thalos~
-The mayor of Thalos is sitting here, doing his paperwork.
-~
+The mayor of Thalos is sitting here, doing his paperwork.~
 He looks very busy, but he takes the time to say, 'Hi!  Welcome to Thalos!'
 He looks very proud of his work.
 ~
@@ -188,8 +177,7 @@ stand stand female 50
 #5310
 dan barkeep~
 Dan the Barkeep~
-Dan the Barkeep stands by the counter wiping a glass.
-~
+Dan the Barkeep stands by the counter wiping a glass.~
 He looks at you, and says, 'What's your poison, stranger?'
 ~
 human~
@@ -202,8 +190,7 @@ stand stand male 50
 #5311
 george butcher~
 George the Butcher~
-George the Butcher is here whacking away at a side of beef.
-~
+George the Butcher is here whacking away at a side of beef.~
 Looking down at you with blood splattered all over his face and apron,
 he asks, 'How much you want?'
 ~
@@ -217,8 +204,7 @@ stand stand male 50
 #5312
 farmer betty~
 Farmer Betty~
-Farmer Betty looks at you sweetly offering you some apples.
-~
+Farmer Betty looks at you sweetly offering you some apples.~
 She smiles at you meekly.
 ~
 human~
@@ -231,8 +217,7 @@ stand stand female 50
 #5313
 thaellor dwarf~
 Thaellor the dwarf~
-Thaellor is here selling his metal wares.
-~
+Thaellor is here selling his metal wares.~
 Thaellor sweats rivers and complains about the heat as he pounds the
 metal into items of defense and destruction.
 ~
@@ -246,8 +231,7 @@ stand stand female 50
 #5314
 ben smith~
 Ben the Smith~
-Ben the Smith sells metal odds and ends to anyone interested.
-~
+Ben the Smith sells metal odds and ends to anyone interested.~
 Ben tries to pawn his various wares to you.
 ~
 human~
@@ -260,8 +244,7 @@ stand stand male 50
 #5315
 librarian~
 the librarian~
-The librarian is here shelving books away neatly.
-~
+The librarian is here shelving books away neatly.~
 The librarian looks busy and whispers, 'Shhh!'
 ~
 human~
@@ -274,8 +257,7 @@ stand stand female 0
 #5316
 scholar boy~
 a young scholar~
-A young scholar studies quietly in the corner.
-~
+A young scholar studies quietly in the corner.~
 This young scholar is studying to be a priest.
 ~
 human~
@@ -288,8 +270,7 @@ stand stand male 0
 #5317
 wizard~
 an old wizard~
-An old wizard sits quietly at the counter waiting for a sale.
-~
+An old wizard sits quietly at the counter waiting for a sale.~
 This old wizard almost looks like he is about to fall over and sleep.
 ~
 human~
@@ -302,8 +283,7 @@ stand stand male 50
 #5318
 masseuse woman~
 a beautiful masseuse~
-A beautiful woman is here offering you a massage.
-~
+A beautiful woman is here offering you a massage.~
 She is beautiful, dressed in a sundress that sparkles with gems sown in.  She
 smiles at you, and your heart flutters at the thought that you have her
 attention, and you jump to her offer for a massage.
@@ -318,8 +298,7 @@ stand stand female 2
 #5319
 bather man~
 a man~
-A man is here bathing.
-~
+A man is here bathing.~
 He smiles at you, almost as if he knows you.  He is so friendly, you have no
 choice but to reciprocate and join him and the others in the soothing pool.
 ~
@@ -333,8 +312,7 @@ stand stand male 0
 #5320
 guard imperial cityguard~
 An imperial cityguard~
-An imperial cityguard overseeing patrols in the city.
-~
+An imperial cityguard overseeing patrols in the city.~
 He is dressed in plate, and he looks quite formidable.  At the moment,
 he is looking at a map of Thalos aside his fellow co-workers keeping
 track of each city patrol.
@@ -349,8 +327,7 @@ stand stand male 75
 #5321
 guard cityguard~
 an imperial cityguard~
-An imperial cityguard guards the Grand Gate.
-~
+An imperial cityguard guards the Grand Gate.~
 He is dressed in plate, and he looks quite formidable.  At the moment,
 he is watching the children play with amusement.
 ~
@@ -364,8 +341,7 @@ stand stand male 75
 #5322
 doe~
 a doe~
-A doe munches on grass.
-~
+A doe munches on grass.~
 This peaceful creature looks at you with big dark eyes.  Her nose twitches as
 she sniffs at you, but she goes back to chewing some grass.
 ~
@@ -379,8 +355,7 @@ stand stand female 0
 #5323
 deer~
 a deer~
-A deer stares back at you.
-~
+A deer stares back at you.~
 The deer looks angered at your intrusion.  He butts his head against you, 
 albeit ineffectively.
 ~
@@ -394,8 +369,7 @@ stand stand male 0
 #5324
 stag deer~
 a stag~
-A large deer stag protects his territory.
-~
+A large deer stag protects his territory.~
 He eyes you with contained anger.  You'd better leave him alone!
 ~
 human~
@@ -408,8 +382,7 @@ stand stand male 0
 #5325
 bunny rabbit~
 a small bunny~
-A small bunny pokes from bush to bush.
-~
+A small bunny pokes from bush to bush.~
 This bunny looks so adorable, you wished you had one just like this!
 ~
 human~
@@ -422,8 +395,7 @@ stand stand none 0
 #5326
 snake~
 a harmless snake~
-A small snake slithers between the grass.
-~
+A small snake slithers between the grass.~
 Upon careful inspection, you are sure it is NOT a cobra!
 ~
 snake~
@@ -438,8 +410,7 @@ r poison -33
 #5327
 druid~
 a druid~
-A druid is here in meditation.
-~
+A druid is here in meditation.~
 He doesn't like you bothering him, but is too polite to ask you to leave.
 ~
 human~
@@ -452,8 +423,7 @@ stand stand male 2
 #5328
 druidess~
 a druidess~
-A druidess peers at you.
-~
+A druidess peers at you.~
 She wonders why you are staring at her, and how you got in here.
 ~
 human~
@@ -466,8 +436,7 @@ stand stand female 2
 #5329
 musician bard~
 bard of Thalos~
-A bard sings of the glory of Thalos.
-~
+A bard sings of the glory of Thalos.~
 This musical fellow plays a happy song with his fellow comrades.
 ~
 human~
@@ -480,8 +449,7 @@ stand stand male 5
 #5330
 musician bard~
 bard of Thalos~
-This bard merrily skips along singing of the glory of Thalos.
-~
+This bard merrily skips along singing of the glory of Thalos.~
 This musical fellow wanders the world singing of the glory of Thalos.
 ~
 human~
@@ -494,8 +462,7 @@ stand stand male 7
 #5331
 cityguard guard~
 the cityguard~
-A cityguard stands here.
-~
+A cityguard stands here.~
 A big, strong, helpful, trustworthy guard.
 ~
 human~
@@ -508,8 +475,7 @@ stand stand male 25
 #5332
 janitor~
 the janitor~
-A janitor is walking around, cleaning up.
-~
+A janitor is walking around, cleaning up.~
 ~
 human~
 0 0 0 0 0 900 0
@@ -521,8 +487,7 @@ stand stand male 1
 #5333
 fido dog~
 the beastly fido~
-Beastly Fido is here.
-~
+Beastly Fido is here.~
 Fido is a small dog that has a foul smell and pieces of rotted meat hanging
 around his teeth.
 ~
@@ -550,8 +515,7 @@ r sound 50
 #5334
 cityguard guard~
 the cityguard~
-A cityguard is here, guarding the gate.
-~
+A cityguard is here, guarding the gate.~
 A big, strong, helpful, trustworthy guard.
 ~
 human~
@@ -564,8 +528,7 @@ stand stand male 25
 #5335
 wizard~
 the wizard~
-A wizard walks around behind the counter, talking to himself.
-~
+A wizard walks around behind the counter, talking to himself.~
 The wizard looks old and senile, and yet he looks like a very powerful
 wizard. He is equipped with fine clothing, and is wearing many fine
 rings and bracelets.
@@ -597,8 +560,7 @@ r sound 999
 #5336
 baker~
 the baker~
-The baker looks at you calmly, wiping flour from his face with one hand.
-~
+The baker looks at you calmly, wiping flour from his face with one hand.~
 A fat, nice looking baker. But you can see that he has many scars on his
 body.
 ~
@@ -629,8 +591,7 @@ r sound 33
 #5337
 grocer~
 the grocer~
-A grocer stands at the counter, with a slightly impatient look on his face.
-~
+A grocer stands at the counter, with a slightly impatient look on his face.~
 A tall grocer, who moves two 200 pounds bag of flour around on his shoulders.
 ~
 human~
@@ -660,8 +621,7 @@ r sound 33
 #5338
 weaponsmith~
 the weaponsmith~
-A weaponsmith.
-~
+A weaponsmith.~
 A young weaponsmith, who still has lots to learn.
 ~
 human~
@@ -692,8 +652,7 @@ r sound 33
 #5339
 armourer armorer~
 the armourer~
-An armourer stands here.
-~
+An armourer stands here.~
 An old but very strong armourer, he has made more armours in his
 lifetime than you have ever seen.
 ~
@@ -725,8 +684,7 @@ r sound 33
 #5340
 jeweller~
 the jeweller~
-The jeweller is standing behind the desk.
-~
+The jeweller is standing behind the desk.~
 He is fat and has a content although watchful look on his face.
 ~
 human~
@@ -756,8 +714,7 @@ r sound 33
 #5341
 Questor~
 @eng Questor@rus Квестор~
-Questor is here, waiting to dispense some quest.
-~
+Questor is here, waiting to dispense some quest.~
 Questor,  towers over you.  He's over 20 feet tall, every inch of it muscle. 
 He knows all the zones of Shades of Gray. It would be a Bad Thing
 to commit a crime in his presence. 
@@ -789,8 +746,7 @@ r sound 33
 #5342
 healer~
 the healer~
-A healer is here, selling spells.
-~
+A healer is here, selling spells.~
 Although retired from adventuring, the healer still lends a hand.
 Type 'heal' to see a listing of spells.
 ~
@@ -821,8 +777,7 @@ r sound 999
 #5343
 guildmaster master~
 the guildmaster~
-Your guildmaster is standing here.
-~
+Your guildmaster is standing here.~
 Even though your guildmaster looks old and tired, you can clearly see the
 vast amount of knowledge she possesses. She is wearing fine magic clothing,
 and you notice that she is surrounded by a blue shimmering aura.
@@ -854,8 +809,7 @@ r sound 33
 #5344
 guildmaster master~
 the guildmaster~
-Your guildmaster is standing here.
-~
+Your guildmaster is standing here.~
 You are in no doubt that this guildmaster is truly close to your god; he has
 a peaceful, loving look. You notice that he is surrounded by a white aura.
 ~
@@ -886,8 +840,7 @@ r sound 33
 #5345
 templeman~
 the templeman~
-The templeman is here, looking something in old books.
-~
+The templeman is here, looking something in old books.~
 Although very handsome , the templeman serves for IMMORTALS and GODS.
 help 'religion' to see a listing of religions available.
 ~
@@ -918,8 +871,7 @@ r sound 999
 #5346
 junkseller junk seller~
 Junkseller~
-Junk Seller is here, selling junk.
-~
+Junk Seller is here, selling junk.~
 This huge dragon wants to sell some junk to you.
 ~
 dragon~
@@ -938,9 +890,7 @@ r charm -33
 #5499
 guard janitor vampire~
 janitor~
-@eng Huge ugly man grins to you.
-@rus Огромный отвратительный человек злобно ухмыляется тебе. 
-~
+@eng Huge ugly man grins to you.@rus Огромный отвратительный человек злобно ухмыляется тебе. ~
 @eng Big nasty vampire-like creature strolls the streets, looking for its victims.
 He seems to be a guard in this city. But whom does he consider invaders of
 this god-cursed city? Maybe YOU?
@@ -1429,7 +1379,7 @@ map old~
 *****************************************************************************
  
  
-@rus  
+@rus . 
                             Старый Мидгаард    
 *****************************************************************************
                      Комната жреца

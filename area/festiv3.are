@@ -12,9 +12,7 @@ End
 #36300
 grandfather old man дедушка~
 @eng Grandfather@rus Дедушка~
-@eng You see a powerful old man standing here.
-@rus Ты видишь могучего старика (grandfather), стоящего тут.
-~
+@eng You see a powerful old man standing here.@rus Ты видишь могучего старика (grandfather), стоящего тут.~
 @eng You gaze upon a majestic old man with grey hair and long beard
 lowered on his cape. He looks like a person who has passed through
 lots of trials and known the reality of life.
@@ -49,9 +47,7 @@ r charm 999
 #36301
 bowman man green лучник~
 @eng green bowman@rus ~~Зеленый~~ ~~лучник~~~
-@eng A tall man stands here shooting arrows.
-@rus Высокий лучник (bowman) выпускает стрелы одна за одной.
-~
+@eng A tall man stands here shooting arrows.@rus Высокий лучник (bowman) выпускает стрелы одна за одной.~
 @eng A tall man dressed all in green stands here. A red plume flows above 
 his hat. He looks at you then scans to the north, preparing an arrow
 to shoot. His longbow sounds sharply and you think that better to 
@@ -77,9 +73,7 @@ r charm 999
 #36302
 man acute eye индеец~
 @eng Acute Eye@rus ~~Зоркий~~ ~~Глаз~~~
-@eng A sneaky red-skinned man throws axes northward.
-@rus Ловкий индеец (acute) метает топоры в цель.
-~
+@eng A sneaky red-skinned man throws axes northward.@rus Ловкий индеец (acute) метает топоры в цель.~
 @eng This man seems to be very strong. His eyes glows red and you realize
 that you'll never be such a person like he. You are to fall on your
 knees and to bow before him.
@@ -101,9 +95,7 @@ r sound 999
 #36303
 tumbu yumbu black man негр~
 @eng Tumbu-Yumbu@rus Тумбу-Юмбу~
-@eng A man with black hair stands here.
-@rus Черноволосый мужчина (tumbu) улыбается тебе.
-~
+@eng A man with black hair stands here.@rus Черноволосый мужчина (tumbu) улыбается тебе.~
 @eng "Such a pity that you forget your bag! Your would be able to gather
 some memories about my life." - says Tumbu-Yumbu and smiles at you.
 @rus "Какая жалость, что ты не захватил с собой большую сумку! Ты
@@ -122,9 +114,7 @@ r cold -50
 #36304
 lee huang wang black man китаец~
 @eng Lee Huang Wang@rus Ли Хуань ~~Ван~~~
-@eng A man dressed in black screams and attacks!
-@rus Некто (lee), облаченный в черные доспехи, вскрикивает и нападает.
-~
+@eng A man dressed in black screams and attacks!@rus Некто (lee), облаченный в черные доспехи, вскрикивает и нападает.~
 @eng You are lucky! Fortunatly, he attacks not you but a target at the 
 northern edge of the lawn. His dark clothes shine brightly for being
 polished.
@@ -146,9 +136,7 @@ r mental 33
 #36305
 veteran old warrior ветеран~
 @eng Old Veteran@rus ~~старик~~ ~~ветеран~~~
-@eng An old man is drinking ale here. He is half asleep.
-@rus Старик (veteran) пьет эль. Он выглядит полусонным.
-~
+@eng An old man is drinking ale here. He is half asleep.@rus Старик (veteran) пьет эль. Он выглядит полусонным.~
 @eng An old veteran, who surely took a part in all the battles you've
 ever heard, sits here, forgotten by his relatives as well as all
 others. All the money he had he spent on whiskey and ale. Even
@@ -178,9 +166,7 @@ r sound -50
 #36306
 monk fat монах~
 @eng Monk@rus Монах~
-@eng A very fat monk is here, drinking ale from the enormous barrel.
-@rus Очень упитанный монах (monk) хлещет эль из бочки.
-~
+@eng A very fat monk is here, drinking ale from the enormous barrel.@rus Очень упитанный монах (monk) хлещет эль из бочки.~
 @eng Just a monk. Dressed in just a simple brown robe. But the barrel
 he holds contains more then 100 litres! You wonder, if he needs
 your help?
@@ -213,9 +199,7 @@ r sound 33
 #36307
 boy little son banker сын~
 @eng Banker's son@rus ~~сын~~ банкира~
-@eng A little boy sits here playing with his toy.
-@rus Маленький мальчик (boy) сидит здесь, играя в игрушки.
-~
+@eng A little boy sits here playing with his toy.@rus Маленький мальчик (boy) сидит здесь, играя в игрушки.~
 @eng A boy your see wears simple trousers and a shirt. He sits at
 this darkened room and barely cry. All that he may do is to 
 play with something that looks like a toy, as far as you can 
@@ -236,9 +220,7 @@ r pierce -50
 #36308
 boy son mayor little сын~
 @eng Mayor's son@rus ~~сын~~ Мэра~
-@eng A little boy is here, burning a shrub.
-@rus Маленький мальчик (boy) пытается поджечь куст.
-~
+@eng A little boy is here, burning a shrub.@rus Маленький мальчик (boy) пытается поджечь куст.~
 @eng That little boy is very-well dressed. You recognize him as a son
 of the Mayor of the town. Sun-glasses he wears look very fashious
 and shoes are very expensive. He sits between shrubs and tries to
@@ -263,9 +245,7 @@ r fire 33
 #36309
 woman wife mayor жена~
 @eng Mayor's Wife@rus ~~жена~~ Мэра~
-@eng A nervous woman screams loudly as you trespass her room.
-@rus Нервная женщина (woman) громко кричит при твоем появлении.
-~
+@eng A nervous woman screams loudly as you trespass her room.@rus Нервная женщина (woman) громко кричит при твоем появлении.~
 @eng Mayor's wife looks very nervous. Probably you'd better go away 
 while she has not summoned guards by her cry! She wears a 
 festival suit and a powdered wig.
@@ -283,9 +263,7 @@ stand stand female 5000
 #36310
 man mayor fat мэр~
 @eng Mayor@rus Мэр~
-@eng A fat man stands here with a big smile on his face.
-@rus Грузный мужчина (man) средних лет улыбается тебе.
-~
+@eng A fat man stands here with a big smile on his face.@rus Грузный мужчина (man) средних лет улыбается тебе.~
 @eng A low and very fatty man walks about the fountain. He wears a 
 festival suit as do other inhabitants of the town. There is a 
 big hat on his head gets your attention.
@@ -304,9 +282,7 @@ r charm 999
 #36311
 clerk клерк~
 @eng Clerk@rus клерк~
-@eng A tired clerk sits here.
-@rus Усталый клерк (clerk) сидит здесь.
-~
+@eng A tired clerk sits here.@rus Усталый клерк (clerk) сидит здесь.~
 @eng A clerk looks very tired. Shurely he worked all the week past
 but today he yet has to do a lot of deal. He scribes something
 on the piece of paper and you want to leave him alone in order
@@ -326,9 +302,7 @@ sit sit male 1235
 #36312
 archivarius old man архивариус~
 @eng Archivarius@rus архивариус~
-@eng An old man looks at you.
-@rus Старик (archivarius) смотрит на тебя.
-~
+@eng An old man looks at you.@rus Старик (archivarius) смотрит на тебя.~
 @eng An old man covered in dark gray clothes sits at the table. He 
 scribes something on the piece of paper. He rises up his eyes 
 and looks at your over.
@@ -346,9 +320,7 @@ sit sit male 9856
 #36313
 rodent ugly rat грызун~
 @eng Rodent@rus грызун~
-@eng A large ugly rat sits in the corner.
-@rus Большая противная крыса (rodent) сидит в углу.
-~
+@eng A large ugly rat sits in the corner.@rus Большая противная крыса (rodent) сидит в углу.~
 ~
 bat~
 FGH 0 0 0 0 -100 0
@@ -362,9 +334,7 @@ r light 50
 #36314
 spider dust small паук~
 @eng Spider@rus паучок~
-@eng A small spider sits here collecting dust.
-@rus Маленький паучок (spider) сидит, сибирая пыль.
-~
+@eng A small spider sits here collecting dust.@rus Маленький паучок (spider) сидит, сибирая пыль.~
 @eng A small spider sits on his web. His dusty web holds remains of
 some insects.
 @rus Маленький паучок сидит в пыльной паутине, полной останков
@@ -384,9 +354,7 @@ r cold -33
 #36315
 librarian old библиотекарь man~
 @eng Librarian@rus Библиотекарь~
-@eng An old man sits at the bureau.
-@rus Старичок (librarian) сидит за конторкой.
-~
+@eng An old man sits at the bureau.@rus Старичок (librarian) сидит за конторкой.~
 @eng This old man seems not to be happy about your intrusion. But he asks
 you what you need and offers to look books at the shelf behind him.
 @rus Библиотекарь не особенно доволен твоим вторжением, нарушившим
@@ -403,9 +371,7 @@ sit sit male 10895
 #36316
 warrior competition воин~
 @eng warrior on competition@rus ~~соревнующийся~~ ~~воин~~~
-@eng A warrior wants to compete with you.
-@rus Воин (warrior) хочет сразиться с тобой.
-~
+@eng A warrior wants to compete with you.@rus Воин (warrior) хочет сразиться с тобой.~
 @eng You see a strong man, clad in tournament clothes and wielding a 
 tournament weapon. He ask you for challenge.
 @rus Ты видишь могучего воина, облаченного в турнирные доспехи
@@ -421,9 +387,7 @@ stand stand male 10000
 #36317
 hooligan young man хулиган~
 @eng hooligan@rus хулиган~
-@eng A young man looks like hooligan.
-@rus Подросток хулиганской наружности (hooligan) тусуется здесь.
-~
+@eng A young man looks like hooligan.@rus Подросток хулиганской наружности (hooligan) тусуется здесь.~
 @eng A youngster stands before you grinning happily. He looks like
 he was fighting with all cats all over the countryside, so he
 wounded.
@@ -440,9 +404,7 @@ stand stand male 0
 #36318
 figure training mob strange манекен~
 @eng training mob@rus манекен~
-@eng You see a strange figure standing there.
-@rus Ты видишь странную фигуру (figure), стоящую здесь.
-~
+@eng You see a strange figure standing there.@rus Ты видишь странную фигуру (figure), стоящую здесь.~
 @eng A training mob stands here waiting for you to fight!
 @rus Манекен ждет, когда ты нанесешь первый удар.
 ~
@@ -473,9 +435,7 @@ r sound 999
 #36319
 hedgehog ezhik ежик~
 @eng hedgehog@rus ежик~
-@eng A wise little hedgehog hurries by his own business.
-@rus Мудрый маленький ежик (hedgehog) торопится по своим делам.
-~
+@eng A wise little hedgehog hurries by his own business.@rus Мудрый маленький ежик (hedgehog) торопится по своим делам.~
 @eng A hedgehog carries an apple to his cave. He looks at you
 angrilly.
 @rus Ежик несет яблоко в свою норку и зло оглядывается на тебя - 
@@ -499,9 +459,7 @@ r charm -100
 #36320
 boy small мальчик~
 @eng a small boy@rus ~~маленький~~ ~~мальчик~~~
-@eng A small boy plays here.
-@rus Маленький мальчик (boy) играет здесь.
-~
+@eng A small boy plays here.@rus Маленький мальчик (boy) играет здесь.~
 ~
 human~
 GH 0 0 0 0 500 0
@@ -513,9 +471,7 @@ stand stand male 0
 #36321
 girl small девочка~
 @eng a small girl@rus ~~маленькая~~ ~~девочка~~~
-@eng A small girl plays here.
-@rus Скромная маленькая девочка (girl) играет здесь.
-~
+@eng A small girl plays here.@rus Скромная маленькая девочка (girl) играет здесь.~
 ~
 human~
 GH 0 0 0 0 300 0
@@ -527,9 +483,7 @@ stand stand female 0
 #36322
 citizen male житель~
 @eng a citizen@rus житель~
-@eng A citizen celebrates a festival.
-@rus Житель городка (citizen) радуется празднику.
-~
+@eng A citizen celebrates a festival.@rus Житель городка (citizen) радуется празднику.~
 @eng A male citizen of the Festival Town beckons you to take a part 
 in the celebration.
 @rus Житель городка приглашает тебя принять участие в фестивале.
@@ -544,9 +498,7 @@ stand stand male 300
 #36323
 citizen female жительница~
 @eng citizen@rus житель~
-@eng A citizen celebrates a festival.
-@rus Жительница городка (citizen) радуется празднику.
-~
+@eng A citizen celebrates a festival.@rus Жительница городка (citizen) радуется празднику.~
 @eng A female citizen of the Festival Town beckons you to take a part 
 in the celebration.
 @rus Жительница городка приглашает тебя принять участие в фестивале.
@@ -561,9 +513,7 @@ stand stand female 500
 #36324
 clown клоун~
 @eng clown@rus клоун~
-@eng A clown walks by on stilts.
-@rus Клоун (clown) ходит на ходулях.
-~
+@eng A clown walks by on stilts.@rus Клоун (clown) ходит на ходулях.~
 @eng A funny clown shows you his painted face, removes his big red
 nose, then sets it back and falls down laughing.
 @rus Забавный клоун корчит тебе смешные рожицы, снимает свой большой
@@ -579,9 +529,7 @@ stand stand male 2500
 #36325
 juggler фокусник~
 @eng juggler@rus фокусник~
-@eng A juggler trys to get your attention.
-@rus Фокусник (juggler) пытается привлечь твое внимание.
-~
+@eng A juggler trys to get your attention.@rus Фокусник (juggler) пытается привлечь твое внимание.~
 @eng A man who pretends to be a mage shows your his skills. He get money
 from your pocket and money suddenly disappear!
 @rus Человек, выдающий себя за мага, показывает тебе свои фокусы. Он
@@ -597,9 +545,7 @@ stand stand male 3500
 #36326
 vendor разносчик~
 @eng vendor@rus разносчик~
-@eng A vendor is here selling goods.
-@rus Разносчик (vendor) предлагает свои товары.
-~
+@eng A vendor is here selling goods.@rus Разносчик (vendor) предлагает свои товары.~
 ~
 human~
 GJT 0 0 0 0 0 0
@@ -628,9 +574,7 @@ r sound 999
 #36327
 guard gate стражник~
 @eng Gate guard@rus стражник~
-@eng A gate guard smiles at you happily.
-@rus Стражник (guard) улыбается тебе и приглашает в город.
-~
+@eng A gate guard smiles at you happily.@rus Стражник (guard) улыбается тебе и приглашает в город.~
 ~
 human~
 GTY 0 HTU 0 AB 500 0
@@ -642,9 +586,7 @@ stand stand male 2450
 #36328
 thief hidden figure воришка~
 @eng hidden figure@rus ~~ловкий~~ ~~воришка~~~
-@eng A hidden figure is here doing something.
-@rus Ловкий воришка (thief) что-то здесь делает.
-~
+@eng A hidden figure is here doing something.@rus Ловкий воришка (thief) что-то здесь делает.~
 @eng A dark robe is flying in the air and you suddenly catch an
 angry look out from it.
 @rus Темное одеяние словно бы парит в воздухе, и ты замечаешь
@@ -660,9 +602,7 @@ S 0 medium unknown
 #36329
 pickpocket thief карманник~
 @eng pickpocket@rus карманник~
-@eng A thief here trys to look like a good citizen.
-@rus Вор-карманник (pickpocket) пытается прикинуться добропорядочным жителем.
-~
+@eng A thief here trys to look like a good citizen.@rus Вор-карманник (pickpocket) пытается прикинуться добропорядочным жителем.~
 ~
 human~
 GHS 0 0 BG B -100 0
@@ -674,9 +614,7 @@ stand stand male 2300
 #36330
 bat мышь~
 @eng bat@rus ~~летучая~~ ~~мышь~~~
-@eng A HUGE bat attacks you!
-@rus ЗДОРОВЕННАЯ летучая мышь (bat) набрасывается на тебя!
-~
+@eng A HUGE bat attacks you!@rus ЗДОРОВЕННАЯ летучая мышь (bat) набрасывается на тебя!~
 @eng Wow! Don't you have time to look at this beast? Run away! Run aw..
 @rus Как? Ты думаешь, у тебя есть время разглядывать эту тварь? Скорее
 убегай! Скоре...
@@ -692,9 +630,7 @@ r light 50
 #36331
 cat black кот~
 @eng black cat@rus ~~черный~~ ~~кот~~~
-@eng A black form screams and attacks.
-@rus Черный клубок (cat) атакует тебя с душераздирающим воплем!
-~
+@eng A black form screams and attacks.@rus Черный клубок (cat) атакует тебя с душераздирающим воплем!~
 @eng A black lightning hits your head! You have been blinded!
 @rus Черная молния бьет тебя по голове! Ты ничего не видишь!
 ~
@@ -708,9 +644,7 @@ stand stand male 0
 #36332
 mage white law маг~
 @eng White Law@rus ~~белый~~ ~~маг~~ Закона~
-@eng A powerful mage stands here casting spells
-@rus Могущественный маг (mage) стоит тут, творя заклинания.
-~
+@eng A powerful mage stands here casting spells@rus Могущественный маг (mage) стоит тут, творя заклинания.~
 @eng A powerful mage clad in white stands here.
 @rus Могущественный маг в белых одеждах стоит перед тобой.
 ~
@@ -724,9 +658,7 @@ sit sit male 20000
 #36333
 mage white neutral маг~
 @eng White Neutrality@rus ~~белый~~ ~~маг~~ Равновесия~
-@eng A see a mage here watching you.
-@rus Могущественный маг (mage) стоит тут, творя заклинания.
-~
+@eng A see a mage here watching you.@rus Могущественный маг (mage) стоит тут, творя заклинания.~
 @eng A powerful mage clad in white stands here.
 @rus Могущественный маг в белых одеждах стоит перед тобой.
 ~
@@ -740,9 +672,7 @@ sit sit male 23000
 #36334
 mage white chaos маг~
 @eng White Chaos@rus ~~белый~~ ~~маг~~ Хаоса~
-@eng A white mage seems to be very chaotic.
-@rus Могущественный маг (mage) стоит тут, творя заклинания.
-~
+@eng A white mage seems to be very chaotic.@rus Могущественный маг (mage) стоит тут, творя заклинания.~
 @eng A powerful mage clad in white stands here.
 @rus Могущественный маг в белых одеждах стоит перед тобой.
 ~
@@ -756,9 +686,7 @@ sit sit male 15000
 #36335
 mage grey law маг~
 @eng Grey Law@rus ~~серый~~ ~~маг~~ Закона~
-@eng A mage stands here casting spells.
-@rus Могущественный маг (mage) стоит тут, творя заклинания.
-~
+@eng A mage stands here casting spells.@rus Могущественный маг (mage) стоит тут, творя заклинания.~
 @eng A powerful mage clad in grey stands here.
 @rus Могущественный маг в серых одеждах стоит перед тобой.
 ~
@@ -772,9 +700,7 @@ sit sit male 14000
 #36336
 mage grey neutral маг~
 @eng True Neutrality@rus ~~серый~~ ~~маг~~ Равновесия~
-@eng A mage clad in gray stands here.
-@rus Могущественный маг (mage) стоит тут, творя заклинания.
-~
+@eng A mage clad in gray stands here.@rus Могущественный маг (mage) стоит тут, творя заклинания.~
 @eng A powerful mage clad in grey stands here.
 @rus Могущественный маг в серых одеждах стоит перед тобой.
 ~
@@ -788,9 +714,7 @@ sit sit male 50000
 #36337
 mage grey chaos маг~
 @eng Grey Chaos@rus ~~серый~~ ~~маг~~ Хаоса~
-@eng An undescript mass of grey clothes rises from the ground.
-@rus Могущественный маг (mage) стоит тут, творя заклинания.
-~
+@eng An undescript mass of grey clothes rises from the ground.@rus Могущественный маг (mage) стоит тут, творя заклинания.~
 @eng A powerful mage clad in grey stands here.
 @rus Могущественный маг в серых одеждах стоит перед тобой.
 ~
@@ -804,9 +728,7 @@ sit sit male 10000
 #36338
 mage dark law маг~
 @eng Dark Law@rus ~~темный~~ ~~маг~~ Закона~
-@eng A dark clad figure stands here.
-@rus Могущественный маг (mage) стоит тут, творя заклинания.
-~
+@eng A dark clad figure stands here.@rus Могущественный маг (mage) стоит тут, творя заклинания.~
 @eng A powerful mage clad in black stands here.
 @rus Могущественный маг в черных одеждах стоит перед тобой.
 ~
@@ -820,9 +742,7 @@ sit sit male 14000
 #36339
 mage dark neutral маг~
 @eng Dark Neutrality@rus ~~темный~~ ~~маг~~ Равновесия~
-@eng A dark mage stands here casting his spells.
-@rus Могущественный маг (mage) стоит тут, творя заклинания.
-~
+@eng A dark mage stands here casting his spells.@rus Могущественный маг (mage) стоит тут, творя заклинания.~
 @eng A powerful mage clad in black stands here.
 @rus Могущественный маг в черных одеждах стоит перед тобой.
 ~
@@ -836,9 +756,7 @@ sit sit male 5090
 #36340
 mage dark chaos маг~
 @eng Dark Chaos@rus ~~темный~~ ~~маг~~ Хаоса~
-@eng A powerful mage stands here.
-@rus Могущественный маг (mage) стоит тут, творя заклинания.
-~
+@eng A powerful mage stands here.@rus Могущественный маг (mage) стоит тут, творя заклинания.~
 @eng A powerful mage clad in black stands here.
 @rus Могущественный маг в черных одеждах стоит перед тобой.
 ~
@@ -852,9 +770,7 @@ sit sit male 3500
 #36341
 mage earthquaker маг~
 @eng Earthquaker@rus ~~Сотрясатель~~ Земли~
-@eng A mage stands here causing earthquake.
-@rus Могущественный чародей (mage) устраивает землетрясение.
-~
+@eng A mage stands here causing earthquake.@rus Могущественный чародей (mage) устраивает землетрясение.~
 @eng A powerful mage clad in brown stands here.
 @rus Могущественный чародей устраивает землетрясение.
 ~
@@ -868,9 +784,7 @@ sit stand male 4500
 #36342
 mage wimpy маг~
 @eng wimpy mage@rus ~~трусливый~~ ~~колдун~~~
-@eng A mage stands here.
-@rus Колдун (mage) оглядывается по сторонам.
-~
+@eng A mage stands here.@rus Колдун (mage) оглядывается по сторонам.~
 @eng A wimpy mage tries to cast spell but cannot...
 @rus Колдун пытается сплести простенькое заклинание.
 ~
@@ -884,9 +798,7 @@ stand stand male 1300
 #36343
 gekko dragon геккон~
 @eng gekko@rus геккон~
-@eng You see a little dragon crossing the desert.
-@rus Маленький зеленый дракончик (dragon) пересекает пустошь.
-~
+@eng You see a little dragon crossing the desert.@rus Маленький зеленый дракончик (dragon) пересекает пустошь.~
 @eng A little gragon looks like a brown-green lightning with
 a short tail.
 @rus Маленький дракончик выглядит как зелено-бурая молния с коротким
@@ -902,9 +814,7 @@ Z 0 small unknown
 #36344
 servant слуга~
 @eng servant@rus слуга~
-@eng A servant hurries by serving.
-@rus Слуга (servant) торопится по своим делам.
-~
+@eng A servant hurries by serving.@rus Слуга (servant) торопится по своим делам.~
 ~
 human~
 GHT 0 0 0 0 0 0
@@ -916,9 +826,7 @@ stand stand male 600
 #36345
 vendor разносчик~
 @eng vendor@rus разносчик~
-@eng A vendor is here selling goods.
-@rus Разносчик (vendor) предлагает тебе свои товары.
-~
+@eng A vendor is here selling goods.@rus Разносчик (vendor) предлагает тебе свои товары.~
 ~
 human~
 GJT 0 0 0 0 0 0
@@ -947,9 +855,7 @@ r sound 999
 #36346
 vendor разносчик~
 @eng vendor@rus разносчик~
-@eng A vendor is here selling goods.
-@rus Разносчик (vendor) предлагает тебе свои товары.
-~
+@eng A vendor is here selling goods.@rus Разносчик (vendor) предлагает тебе свои товары.~
 ~
 human~
 GJT 0 0 0 0 0 0
@@ -978,9 +884,7 @@ r sound 999
 #36347
 vendor разносчик~
 @eng vendor@rus разносчик~
-@eng A vendor is here selling goods.
-@rus Разносчик (vendor) предлагает тебе свои товары.
-~
+@eng A vendor is here selling goods.@rus Разносчик (vendor) предлагает тебе свои товары.~
 ~
 human~
 GJT 0 0 0 0 0 0
@@ -1009,9 +913,7 @@ r sound 999
 #36348
 vendor разносчик~
 @eng vendor@rus разносчик~
-@eng A vendor is here selling goods.
-@rus Разносчик (vendor) предлагает тебе свои товары.
-~
+@eng A vendor is here selling goods.@rus Разносчик (vendor) предлагает тебе свои товары.~
 ~
 human~
 BGJT 0 0 0 0 0 0
@@ -1040,9 +942,7 @@ r sound 999
 #36349
 target мишень~
 @eng target@rus мишень~
-@eng {R[TARGET]{x You see a target standing here.
-@rus {R[ЦЕЛЬ]{x Ты видишь стоящую здесь мишень.
-~
+@eng {R[TARGET]{x You see a target standing here.@rus {R[ЦЕЛЬ]{x Ты видишь стоящую здесь мишень.~
 @eng White and black strips surround the apple painted in the middle
 of the wooden shield.
 @rus Черные и белые полосы окружают нарисованное в центре деревянного
@@ -1072,9 +972,7 @@ r sound 999
 #36350
 bird пичуга~
 @eng tiny bird@rus пичуга~
-@eng A tiny bird flies here.
-@rus Пичуга (bird) перелетает с места на место.
-~
+@eng A tiny bird flies here.@rus Пичуга (bird) перелетает с места на место.~
 ~
 bat~
 CGHW 0 0 G 0 0 0
@@ -1087,9 +985,7 @@ r light 50
 #36351
 centipede многоножка~
 @eng centipede@rus многоножка~
-@eng A centipede is here, searching for food.
-@rus Многоножка (centipede) занята добыванием пищи.
-~
+@eng A centipede is here, searching for food.@rus Многоножка (centipede) занята добыванием пищи.~
 ~
 centipede~
 GH 0 0 0 0 0 0
@@ -1104,9 +1000,7 @@ r cold -33
 #36352
 snake small змейка~
 @eng small snake@rus змейка~
-@eng You see a small snake sleathing along the floor.
-@rus Маленькая змейка (snake) скользит по полу.
-~
+@eng You see a small snake sleathing along the floor.@rus Маленькая змейка (snake) скользит по полу.~
 ~
 lizard~
 GH 0 0 G B 0 0
@@ -1120,9 +1014,7 @@ r poison -33
 #36353
 insect small мошка~
 @eng small insect@rus ~~маленькая~~ ~~мошка~~~
-@eng A small insect drops on you.
-@rus Маленькое насекомое (insect) свалилось тебе за шиворот.
-~
+@eng A small insect drops on you.@rus Маленькое насекомое (insect) свалилось тебе за шиворот.~
 ~
 centipede~
 FGHT 0 T 0 0 0 0
@@ -1150,9 +1042,7 @@ r sound -50
 #36354
 salamander mother dragon саламандра~
 @eng mother of salamanders@rus ~~хозяйка~~ подземелья~
-@eng A fire dragon looks like a salamander.
-@rus Огненный дракон очень похож на легендарную саламандру (salamander).
-~
+@eng A fire dragon looks like a salamander.@rus Огненный дракон очень похож на легендарную саламандру (salamander).~
 ~
 dragon~
 CGR 0 HRVc G A 0 0
@@ -1172,9 +1062,7 @@ r charm -33
 #36355
 paladin паладин~
 @eng Paladin@rus Паладин~
-@eng Paladin stands here smiling at you.
-@rus Паладин (paladin) стоит здесь с улыбкой на лице.
-~
+@eng Paladin stands here smiling at you.@rus Паладин (paladin) стоит здесь с улыбкой на лице.~
 @eng Grand Paladin offers you some armor and weapons.
 @rus Суровый паладин предлагает тебе доспехи и оружие.
 ~
@@ -1205,9 +1093,7 @@ r sound 999
 #36356
 ranger охотник~
 @eng Ranger@rus Охотник~
-@eng Ranger stands here smiling at you.
-@rus Охотник (ranger) приветствует тебя.
-~
+@eng Ranger stands here smiling at you.@rus Охотник (ranger) приветствует тебя.~
 ~
 human~
 BGJTY 0 0 0 0 0 0
@@ -1236,9 +1122,7 @@ r sound 999
 #36357
 samurai самурай~
 @eng Samurai@rus Самурай~
-@eng Samurai stands here smiling at you.
-@rus Самурай (samurai) смотрит на тебя подозрительно.
-~
+@eng Samurai stands here smiling at you.@rus Самурай (samurai) смотрит на тебя подозрительно.~
 ~
 human~
 BGJTY 0 0 0 0 0 0
@@ -1267,9 +1151,7 @@ r sound 999
 #36358
 warrior воин~
 @eng Warrior@rus Воин~
-@eng Warrior stands here smiling at you.
-@rus Воин (warrior) стоит тут, улыбаясь.
-~
+@eng Warrior stands here smiling at you.@rus Воин (warrior) стоит тут, улыбаясь.~
 @eng Warrior offers you some armor and weapons.
 @rus Воин предлагает тебе купить доспехи и оружие.
 ~
@@ -1300,9 +1182,7 @@ r sound 999
 #36359
 witch ведьма~
 @eng Witch@rus Ведьма~
-@eng Witch stands here smiling at you.
-@rus Ведьма (witch) предлагает тебе купить что-нибудь колдовское.
-~
+@eng Witch stands here smiling at you.@rus Ведьма (witch) предлагает тебе купить что-нибудь колдовское.~
 ~
 human~
 GJTY 0 0 0 0 0 0
@@ -1331,9 +1211,7 @@ r sound 999
 #36360
 vampire вампир~
 @eng Vampire@rus Вампир~
-@eng Vampire stands here grinning at you.
-@rus Вампир (vampire) злобно ухмыляется тебе.
-~
+@eng Vampire stands here grinning at you.@rus Вампир (vampire) злобно ухмыляется тебе.~
 @eng Vampire grins at you evilly and offers you flasks of
 red liquid.
 @rus Вампир предлагает тебе пузырьки с какой-то красной жидкостью...
@@ -1365,9 +1243,7 @@ r sound 999
 #36361
 cleric монах~
 @eng Cleric@rus Монах~
-@eng Cleric stands here smiling at you.
-@rus Монах (cleric) приветливо улыбается тебе.
-~
+@eng Cleric stands here smiling at you.@rus Монах (cleric) приветливо улыбается тебе.~
 @eng Cleric offers you some amulets.
 @rus Монах предлагает тебе священные амулеты.
 ~
@@ -1398,9 +1274,7 @@ r sound 999
 #36362
 mage чародей~
 @eng Mage@rus Чародей~
-@eng Mage stands here smiling at you.
-@rus Чародей (mage) улыбается тебе.
-~
+@eng Mage stands here smiling at you.@rus Чародей (mage) улыбается тебе.~
 @eng Mage offers you some ingridients.
 @rus Чародей предлагает тебе ингредиенты для колдовских снадобий.
 ~
@@ -1431,9 +1305,7 @@ r sound 999
 #36363
 boy small мальчик~
 @eng a  small boy@rus ~~маленький~~ ~~мальчик~~~
-@eng A small boy plays in the fountain.
-@rus Малыш (boy) играет в фонтане.
-~
+@eng A small boy plays in the fountain.@rus Малыш (boy) играет в фонтане.~
 @eng A boy who seems to be one of the town children plays naked
 in the water bowl.
 @rus Мальчонка играет в чаше бассейна.
@@ -1448,9 +1320,7 @@ sit sit male 0
 #36364
 girl small девочка~
 @eng a small girl@rus ~~маленькая~~ ~~девочка~~~
-@eng A small girl plays in the fountain.
-@rus Девчушка (girl) играет в фонтане.
-~
+@eng A small girl plays in the fountain.@rus Девчушка (girl) играет в фонтане.~
 @eng A girl who seems to be one of the town children plays naked
 in the water bowl.
 @rus Маленькая девочка играет в чаше бассейна.
@@ -1465,8 +1335,7 @@ sit sit female 0
 #36365
 test mob frag~
 Frag the Test mob~
-Some frag is here, sulking in the corner.
-~
+Some frag is here, sulking in the corner.~
 ~
 human~
 0 0 0 0 0 0 0
@@ -3664,7 +3533,7 @@ prisms, wood carvings, metal sculptures, and clothing of
 all sorts. Others are jammed with carts and stands selling
 food and drink.
 
-@rus  Вокруг лужайки идет аллея, заполненная торговыми рядами,
+@rus . Вокруг лужайки идет аллея, заполненная торговыми рядами,
 где продаются изделия художников и ремесленников:
 стеклянные призмы, деревянные поделки, металлические
 скульптуры и одежда всевозможных фасонов. Повсюду стоят
@@ -3912,7 +3781,7 @@ prisms, wood carvings, metal sculptures, and clothing of
 all sorts. Others are jammed with carts and stands selling
 food and drink.
 
-@rus  Вокруг лужайки идет аллея, заполненная торговыми рядами,
+@rus . Вокруг лужайки идет аллея, заполненная торговыми рядами,
 где продаются изделия художников и ремесленников:
 стеклянные призмы, деревянные поделки, металлические
 скульптуры и одежда всевозможных фасонов. Повсюду стоят
@@ -4036,7 +3905,7 @@ prisms, wood carvings, metal sculptures, and clothing of
 all sorts. Others are jammed with carts and stands selling
 food and drink.
 
-@rus  Вокруг лужайки идет аллея, заполненная торговыми рядами,
+@rus . Вокруг лужайки идет аллея, заполненная торговыми рядами,
 где продаются изделия художников и ремесленников:
 стеклянные призмы, деревянные поделки, металлические
 скульптуры и одежда всевозможных фасонов. Повсюду стоят
@@ -7410,7 +7279,7 @@ are on the sides of the street. Some of them are closed, other
 opened and you can catch some shadows inside. Probably, all the
 inhabitants celebrate the Festival. You here some noises from
 the northern part of the town.
-@rus  Ты идешь вдоль Главной улицы. Ярко раскрашенные дома
+@rus . Ты идешь вдоль Главной улицы. Ярко раскрашенные дома
 стоят по обоим сторонам улицы. Некоторые из них заперты,
 другие открыты, и ты  замечаешь  подозрительные тени внутри.
 Вероятно, все обитатели дома ушли на фестиваль. Ты слышишь

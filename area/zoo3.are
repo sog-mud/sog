@@ -11,9 +11,7 @@ End
 #8200
 giles гилс shopkeeper~
 @eng Giles@rus Гилс~
-@eng Giles the shopkeeper sits with his feet up on the counter.
-@rus Гилс (Giles) - продавец сидит здесь, задрав ноги на прилавок.
-~
+@eng Giles the shopkeeper sits with his feet up on the counter.@rus Гилс (Giles) - продавец сидит здесь, задрав ноги на прилавок.~
 @eng Giles sits here most of the time serving things to the visitors of the zoo. 
 His lazy streak prevents him from doing any other job and besides the pay's 
 good here.
@@ -31,9 +29,7 @@ stand stand male 100
 #8201
 man zookeeper zoo keeper хранитель мужчина~
 @eng the zookeeper@rus хранитель~
-@eng A man sits behind the desk here.
-@rus За столом сидит мужчина (man).
-~
+@eng A man sits behind the desk here.@rus За столом сидит мужчина (man).~
 @eng This is the zookeeper of the world famous midgaard zoo. He is in charge of 
 the upkeep of all the animals and the running of the zoo in general. He has 
 slicked backgraesy hair and a long curly moustache. From the good state of 
@@ -53,9 +49,7 @@ stand stand male 100
 #8202
 giant leech пиявка~
 @eng a giant leech@rus Пиявка~
-@eng A giant leech sticks to your arm.
-@rus Гигантская пиявка (leech) присосалась к твоей руке.
-~
+@eng A giant leech sticks to your arm.@rus Гигантская пиявка (leech) присосалась к твоей руке.~
 @eng A little browny black leech.
 @rus Небольшая черно-коричневая пиявка.
 ~
@@ -72,9 +66,7 @@ r charm 999
 #8203
 tiger тигр~
 @eng the tiger@rus тигр~
-@eng A tiger stands here ready to pounce.
-@rus Перед тобой стоит тигр (tiger), готовый к броску.
-~
+@eng A tiger stands here ready to pounce.@rus Перед тобой стоит тигр (tiger), готовый к броску.~
 @eng cat@rus Кошка. Большая полосатая кошка. Он выглядит зло и голодно - это
 все, что ты успеваешь рассмотреть.
 ~
@@ -89,9 +81,7 @@ r charm 999
 #8204
 dolphin дельфин~
 @eng a dolphin@rus дельфин~
-@eng A dolphin swims happily here.
-@rus Серый дельфин (dolphin) плещется перед тобой.
-~
+@eng A dolphin swims happily here.@rus Серый дельфин (dolphin) плещется перед тобой.~
 @eng water fowl@rus Большое, умное животное, которое отличается необыкновенно добрым
 характером и никогда не нападет первым.
 ~
@@ -105,9 +95,7 @@ stand stand female 0
 #8205
 unicorn единорог~
 @eng the unicorn@rus Единорог~
-@eng A unicorn stands here.
-@rus Серебряно-белый единорог (unicorn) нетерпеливо роет копытом землю.
-~
+@eng A unicorn stands here.@rus Серебряно-белый единорог (unicorn) нетерпеливо роет копытом землю.~
 @eng fox@rus Перед тобой стоит животное неописуемой красоты. На первый взгляд,
 оно похоже на белую, седую лошадь, но, приглядевшись, ты замечаешь
 длинный, сияющий рог. Этот рог и поставил это прекрасное животное
@@ -124,9 +112,7 @@ stand stand male 0
 #8206
 crocodile крокодил~
 @eng a crocodile@rus крокодил~
-@eng A crocodile floats just below the surface of the water.
-@rus Крокодил (crocodile) плавает, лишь едва погрузившись в воду.
-~
+@eng A crocodile floats just below the surface of the water.@rus Крокодил (crocodile) плавает, лишь едва погрузившись в воду.~
 @eng A big green scaly creature with very large teeth. You better hope that it has 
 been fed laterly.
 @rus Большая зеленая рептилия с такими здоровыми зубами, что тебе
@@ -145,9 +131,7 @@ r charm 999
 #8207
 bear медведь~
 @eng the bear@rus медведь~
-@eng A large bear growls louly as it advances.
-@rus Огромный медведь (bear) рычит на тебя на всякий случай.
-~
+@eng A large bear growls louly as it advances.@rus Огромный медведь (bear) рычит на тебя на всякий случай.~
 @eng This bear is one of the largest you have ever seen. The thought of what its 
 huge claws can do to your face makes you shudder     
 @rus Это самый большой медведь из всех, кого вы когда-либо видели.
@@ -167,9 +151,7 @@ r charm 999
 #8208
 baby dragon lizard huge 8ft дракончик~
 @eng the baby dragon@rus ~~малыш~~-~~дракончик~~~
-@eng A huge 8ft long lizard sits here.
-@rus Маленький дракон играет с пламенем, вырывающимся у него изо рта.
-~
+@eng A huge 8ft long lizard sits here.@rus Маленький дракон играет с пламенем, вырывающимся у него изо рта.~
 @eng This lizard looks like a scaled down version of a dragon. As you look at him 
 he burps and a cloud of smoke comes outa of his mouth.
 @rus Перед вами детеныш настоящего дракона. В его глазах легко прочитать
@@ -193,9 +175,7 @@ r charm -33
 #8209
 elephant слон~
 @eng the elephant@rus слон~
-@eng A elephant stands here.
-@rus Перед тобой стоит большой серый слон (elephant).
-~
+@eng A elephant stands here.@rus Перед тобой стоит большой серый слон (elephant).~
 @eng A gray elephant with big ears.
 @rus Серый слон с большими ушами и деревоподобными ногами. Ничего 
 особенного.
@@ -215,9 +195,7 @@ r charm -33
 #8210
 gorilla горилла~
 @eng the gorilla@rus горилла~
-@eng A gorilla stands here.
-@rus Перед вами прыгает и ухает горилла (gorilla).
-~
+@eng A gorilla stands here.@rus Перед вами прыгает и ухает горилла (gorilla).~
 @eng A large hairy gorilla.
 @rus Большая, сильная, волосатая горилла.
 ~
@@ -232,9 +210,7 @@ r charm 999
 #8211
 assistant woman девушка zoo young~
 @eng the zoo assistant@rus ~~работница~~ зоопарка~
-@eng A young woman is here preparing food here.
-@rus Красивая девушка (woman) готовит здесь еду для обитателей зоопарка.
-~
+@eng A young woman is here preparing food here.@rus Красивая девушка (woman) готовит здесь еду для обитателей зоопарка.~
 @eng human@rus Одного взгляда на эту красавицу достаточно, чтобы у тебя перехватило 
 дыхание и ты $gn{понял}, что боги создавали ее по своему образу 
 и подобию. Тебе также кажется, что такая красота не должна погибать 
@@ -251,9 +227,7 @@ W 1
 #8230
 pig свинья~
 @eng a pig@rus свинья~
-@eng A pig is here, wallowing in mud.
-@rus Свинья (pig) здесь, купается в грязи.
-~
+@eng A pig is here, wallowing in mud.@rus Свинья (pig) здесь, купается в грязи.~
 @eng This is a small pink pig. Nothing more, Nothing less.
 @rus Вопреки общему мнению, свиньи -- очень чистоплотные животные.
 Да, они купаются в грязи, но это единственный способ избавится
@@ -269,9 +243,7 @@ stand stand female 0
 #8231
 small bird птаха~
 @eng a small bird@rus птаха~
-@eng A small bird flies around here.
-@rus Маленькая пташка (bird) порхает вокруг тебя.
-~
+@eng A small bird flies around here.@rus Маленькая пташка (bird) порхает вокруг тебя.~
 @eng The little birdy flies merily around in the sky twerping and whistling.
 @rus Маленькая птичка, которая радостно летает по свету, беззаботно 
 насвистывая.
@@ -286,9 +258,7 @@ stand stand female 0
 #8232
 baby goat козленок~
 @eng a baby goat@rus козленок~
-@eng A small baby goat chews a piece of grass here.
-@rus Маленький козленок (baby) жует травку.
-~
+@eng A small baby goat chews a piece of grass here.@rus Маленький козленок (baby) жует травку.~
 @eng fox@rus Это маленькое неопытное существо целиком зависит от своих
 родителей, стоящих рядом. Несмотря на это, в его глазах еще нет
 того тупого выражения, которое отличает его племя.
@@ -303,9 +273,7 @@ stand stand male 0
 #8233
 mother goat коза~
 @eng a mother goat@rus коза~
-@eng A medium sized goat stands here chewing.
-@rus Среднего размера коза (goat) стоит здесь и жует траву.
-~
+@eng A medium sized goat stands here chewing.@rus Среднего размера коза (goat) стоит здесь и жует траву.~
 @eng The goat has a large round belly. As you stand looking at the goat it 
 wanders over and stats chewing at your clothes.
 @rus У козы большие круглые глаза. Пока вы рассматриваете ее, она
@@ -321,9 +289,7 @@ stand stand female 0
 #8234
 father goat козел~
 @eng a father goat@rus козел~
-@eng A large goat stands here.
-@rus Здоровый козел (goat) вылупился на тебя.
-~
+@eng A large goat stands here.@rus Здоровый козел (goat) вылупился на тебя.~
 @eng The large goat stands in front of you and stares right into your eyes. His 
 large horns look as if they could do a nasty bit of damage.
 @rus Здоровый козел стоит перед тобой, нагнув голову и готовый к атаке.
@@ -339,9 +305,7 @@ stand stand female 0
 #8235
 donkey ослик sad sorry~
 @eng a donkey@rus ослик~
-@eng A sad sorry looking donkey is here.
-@rus Виновато выглядящий ослик (donkey) может вызвать только жалость.
-~
+@eng A sad sorry looking donkey is here.@rus Виновато выглядящий ослик (donkey) может вызвать только жалость.~
 @eng The donkey looks sad and miserable. Its eyes have sleep in the corners and 
 its right ears has a chunk missing from it.
 @rus Ослик выглядит очень виновато, его глаза слезяться, а из 
@@ -357,9 +321,7 @@ stand stand male 0
 #8236
 old horse кляча~
 @eng an old horse@rus кляча~
-@eng An old horse stands here. 
-@rus Старая кляча (horse) стоит здесь.
-~
+@eng An old horse stands here. @rus Старая кляча (horse) стоит здесь.~
 @eng The horse looked as if it was once a war horse. It is big and muscular and 
 can proberly still do a lot of damage despite being retired.
 @rus Эта кобыла выглядит так, как будто ее не кормили уже очень долго,
@@ -389,9 +351,7 @@ r sound 33
 #8237
 parrot harvey попугай~
 @eng Harvey the parrot@rus попугай~
-@eng Harvey the green parrot sits on a perch here.
-@rus Попугай Харви (parrot) сидит на жердочке.
-~
+@eng Harvey the green parrot sits on a perch here.@rus Попугай Харви (parrot) сидит на жердочке.~
 @eng This green parrot is sitting on its perch. It watches your every move. Below 
 the parrot, fixed to its perch is a name plaque. The plaque reads 'Harvey the 
 talking parrot, please mind your fingers'.
@@ -737,7 +697,7 @@ S
 @eng Crossroads in the Zoo@rus Перекресток~
 @eng You are standing in the middle of a crossroads. Paths lead off to the 
 north, east, south and west.
-@rus  Вы стоите на середине перекрестка четырех тропинок, которые ведут
+@rus . Вы стоите на середине перекрестка четырех тропинок, которые ведут
 на север, юг, восток и запад.
 ~
 0 0 city

@@ -11,9 +11,7 @@ End
 #4400
 ticket clerk билетер~
 @eng the Ticket Clerk@rus Билетер~
-@eng The Ticket Clerk extends his hand for your money.
-@rus Билетер (ticket clerk) просит вас купить билет.
-~
+@eng The Ticket Clerk extends his hand for your money.@rus Билетер (ticket clerk) просит вас купить билет.~
 @eng The ticket clerk is bored, but is not so bored that he really wants to talk 
 to you.  So are you going to buy a ticket or what????
 @rus Билетер выглядит уставшим, но не на столько, чтоб не поговорить с тобой ...
@@ -29,9 +27,7 @@ stand stand male 9216
 #4401
 child small малыш~
 @eng a small child@rus малыш~
-@eng A small child waits in line for the Big Top.
-@rus Этот малыш (child) стоит в очереди, ожидая веселья и игр.
-~
+@eng A small child waits in line for the Big Top.@rus Этот малыш (child) стоит в очереди, ожидая веселья и игр.~
 @eng He is standing in line, whining and complaining that his feet hurt.  Why 
 don't you put him out of your misery?
 @rus Он стоит в очереди, крича и сетуя на то, что ему наступили на ногу ...
@@ -47,9 +43,7 @@ stand stand male 102
 #4402
 dad father man папа~
 @eng the child's father@rus Папа~
-@eng The child's father is here.
-@rus Злобный отец (dad) печется о своем сыне.
-~
+@eng The child's father is here.@rus Злобный отец (dad) печется о своем сыне.~
 @eng The child's father seems irked that you have been pushing past the others 
 in line.
 @rus Кажется, что он очень зол на то, что ты расталкиваешь всех вокруг.
@@ -64,9 +58,7 @@ stand stand male 324
 #4403
 woman mother mom мамаша~
 @eng the child's mother@rus ~~заботливая~~ ~~мамаша~~~
-@eng The child's mother stands here, patiently waiting in line.
-@rus Заботливая мамаша (mother) держит за руку своего малыша.
-~
+@eng The child's mother stands here, patiently waiting in line.@rus Заботливая мамаша (mother) держит за руку своего малыша.~
 @eng The mother is tired of taking care of her son, and wishes she was in a bubble
 bath at home right now.
 @rus Уставшая от забот и солнцепека, она мечтает принять ванну с солью или выпить
@@ -82,9 +74,7 @@ stand stand female 108
 #4404
 bobby boy бобби~
 @eng little Bobby@rus ~~маленький~~ ~~Бобби~~~
-@eng Little Bobby is lost, and is looking for his mommy.
-@rus Маленький Бобби (bobby), кажется потерялся и ищет маму.
-~
+@eng Little Bobby is lost, and is looking for his mommy.@rus Маленький Бобби (bobby), кажется потерялся и ищет маму.~
 @eng Bobby is scared, he should never have ran off to look at the Bearded Lady.
 Besides being lost, he is now psychologically scarred.
 @rus Бобби напуган, ему не следовало убегать, чтобы посмотреть на Медвежью Леди.
@@ -99,9 +89,7 @@ stand stand male 44
 #4405
 mother woman мама~
 @eng Bobby's mother@rus ~~мама~~ Бобби~
-@eng Bobby's mother is here, frantically calling out her son's name.
-@rus Мама Бобби (mother) зовет своего сына, но не может его найти.
-~
+@eng Bobby's mother is here, frantically calling out her son's name.@rus Мама Бобби (mother) зовет своего сына, но не может его найти.~
 @eng Bobby's mother is looking quite worried.  If you see Bobby, you will tell her,
 won't you?
 @rus Мама Бобби взволнована. Если вы видели ее сына, вы ведь скажете ей ?
@@ -116,9 +104,7 @@ stand stand female 108
 #4406
 lady bearded бородачка~
 @eng the Bearded Lady@rus Бородачка~
-@eng The Bearded Lady is here.
-@rus Дама с бородой (lady) пугает детишек.
-~
+@eng The Bearded Lady is here.@rus Дама с бородой (lady) пугает детишек.~
 @eng The Bearded Lady is kind of scary looking.  She looks at you with lust in her
 eyes.   RUN!!!!
 @rus Бородатая дама выглядит жутковато. Она пронзает тебя своим взглядом. БЕГИ !!!
@@ -133,9 +119,7 @@ stand stand female 378
 #4407
 Illusionist mage фокусник~
 @eng the Illusionist@rus фокусник~
-@eng The Illusionist is here, doing tricks to amaze the crowd.
-@rus Фокусник (illusionist) показывает свои трюки, веселя публику.
-~
+@eng The Illusionist is here, doing tricks to amaze the crowd.@rus Фокусник (illusionist) показывает свои трюки, веселя публику.~
 @eng He puts on quite a show.  If you couldn't see the wires on half of his 
 creations, you might actually be amazed.
 @rus Он явно новечок в своем деле ... Хотя, если бы не было видно, что у него под 
@@ -153,9 +137,7 @@ r charm -33
 #4408
 midget карлик~
 @eng the Midget@rus карлик~
-@eng A Midget is here, doing acrobatics to amuse the crowd.
-@rus Карлик (midget), проделывает акробатические трюки.
-~
+@eng A Midget is here, doing acrobatics to amuse the crowd.@rus Карлик (midget), проделывает акробатические трюки.~
 The Midget acts very silly, but you see a cunning gleam in his eye.  This is 
 one to watch out for.
 ~
@@ -172,9 +154,7 @@ r disease -25
 #4409
 Ivan strongman man strong иван~
 @eng Ivan@rus Иван~
-@eng Ivan the Strongman poses for the crowd.
-@rus Силач Иван (Ivan) демонстрирует свои мускулы перед публикой.
-~
+@eng Ivan the Strongman poses for the crowd.@rus Силач Иван (Ivan) демонстрирует свои мускулы перед публикой.~
 @eng Ivan really is an impressive figure of a man.  You will want to think twice
 before tangling with him.
 @rus У него действительно убедительная фигура. Ты подумаешь пару раз перед тем как
@@ -194,9 +174,7 @@ r mental 50
 #4410
 swallower мечеглотатель~
 @eng the Sword Swallower@rus Мечеглотатель~
-@eng The Sword Swallower is in the act of swallowing an entire bastard sword.
-@rus Мечеглотатель (swallower) глотает мечи, шпаги и кинжалы всем на забаву.
-~
+@eng The Sword Swallower is in the act of swallowing an entire bastard sword.@rus Мечеглотатель (swallower) глотает мечи, шпаги и кинжалы всем на забаву.~
 @eng This guy has eaten more swords than you have even seen.  He probably knows how
 to use his sword as well.
 @rus Этот парень съел мечей гораздо больше, чем ты видил. Возможно он так же 
@@ -212,9 +190,7 @@ stand stand male 9
 #4411
 member audience зритель~
 @eng a member of the audience@rus зритель~
-@eng A member of the audience goes "Ooooh!   Ahhhhh!" 
-@rus Восторженный зритель (member) громко кричит:" Браво !!!"
-~
+@eng A member of the audience goes "Ooooh!   Ahhhhh!" @rus Восторженный зритель (member) громко кричит:" Браво !!!"~
 @eng This person is so interested in the show, he doesn't even realize you are here.
 @rus Этот человек так увлечен происходящим, что не обращает на твой
 пристальный взгляд никакого внимания.
@@ -229,9 +205,7 @@ stand stand male 10
 #4412
 clown red клоун~
 @eng a red-nosed clown@rus клоун~
-@eng A red-nosed clown is ready to throw a pie in your face.
-@rus Красноносый клоун (clown) готов запустить торт в твое лицо.
-~
+@eng A red-nosed clown is ready to throw a pie in your face.@rus Красноносый клоун (clown) готов запустить торт в твое лицо.~
 @eng The clown is laughing and throwing pies, and generally being a nuisance.  
 He turns towards you with a pie.  DUCK!
 @rus Клоун смеется, кидается тортами и жутко раздражает тебя. Что за придурок !?
@@ -246,9 +220,7 @@ stand stand male 20
 #4413
 clown big клоун~
 @eng a clown with big shoes@rus клоун~
-@eng A clown with big shoes is trying to get into a small car.
-@rus Клоун (Clown) в большуших ботинках пытается перепрыгнуть через голову.
-~
+@eng A clown with big shoes is trying to get into a small car.@rus Клоун (Clown) в большуших ботинках пытается перепрыгнуть через голову.~
 @eng The clown is trying to fit his shoes into the carriage.  It will be a tight 
 fit.
 @rus Клоун пытается одеть свои ботинуи так, чтоб они пришлись ему в пору ...
@@ -267,9 +239,7 @@ r disease -25
 #4414
 clown big клоун гигант~
 @eng a big clown@rus ~~клоун~~-~~гигант~~~
-@eng A big clown is getting ready to throw confetti at you.
-@rus Клоун-гигант (clown) готов стрельнуть в тебя хлопушкой.
-~
+@eng A big clown is getting ready to throw confetti at you.@rus Клоун-гигант (clown) готов стрельнуть в тебя хлопушкой.~
 @eng The big clown has a bucket full of confetti.  Or is it water?  Better stay 
 away from him until you know.
 @rus Большой клоун вооружен хлопушками с конфети !!! Лучше не попадаться ему 
@@ -289,8 +259,7 @@ r mental 50
 #4415
 ringmaster master~
 the Ringmaster~
-The Ringmaster is introducing the next act.
-~
+The Ringmaster is introducing the next act.~
 The Ringmaster is dressed in a red coat, and is wearing a big black top hat.
 He was probably hired because he has a voice you could hear over a roaring 
 dragon (which, incidently, is the next act).
@@ -307,8 +276,7 @@ r charm -33
 #4416
 thrower~
 the knife thrower~
-The knife thrower is getting ready to throw 4 knifes at his assistant.
-~
+The knife thrower is getting ready to throw 4 knifes at his assistant.~
 He is getting ready to put on a blind fold.  He has spent years of practice, 
 and is completely confident in his skills.  He also has a handkerchief he keeps
 wiping his face with.  You here him mumble, 'maybe I shouldn't have stopped 
@@ -324,8 +292,7 @@ stand stand male 150
 #4417
 assistant~
 the knife thrower's assistant~
-The knife thrower's assistant is asleep against the target.
-~
+The knife thrower's assistant is asleep against the target.~
 The assistant dreams a drugged sleep.  It seems she thought she would be 
 helping with the animals, until a slight mishap last night during the knife
 throwers rehearsal last night.  She did wonder why the dashing knife thrower
@@ -341,8 +308,7 @@ sleep sleep female 11
 #4418
 tamer~
 the lion tamer~
-The lion tamer is putting his head in a lion's mouth.
-~
+The lion tamer is putting his head in a lion's mouth.~
 He is a dashing man, who seems at home with the deadly beasts.  He controls 
 the animals with whip and force of mind.
 ~
@@ -356,8 +322,7 @@ stand stand male 560
 #4419
 lion~
 a ferocious Lion~
-A ferocious Lion leaps from his stand to attack you!
-~
+A ferocious Lion leaps from his stand to attack you!~
 This is the King of the Beasts, and you understand why as he tears a chunk of 
 flesh from your body!
 ~
@@ -373,8 +338,7 @@ r cold -33
 #4420
 walker tightrope~
 a tightrope walker~
-A tightrope walker balances on the wire.
-~
+A tightrope walker balances on the wire.~
 The only way past him seems to be to push him off.  You wouldn't do that,
 would you?  
 ~
@@ -388,9 +352,7 @@ stand stand male 135
 #4421
 keeper ветеринар~
 @eng an animal keeper@rus ветеринар~
-@eng An animal keeper is here, taking care of the animals.
-@rus Ветеринар (animal keeper) осматривает больное животное.
-~
+@eng An animal keeper is here, taking care of the animals.@rus Ветеринар (animal keeper) осматривает больное животное.~
 @eng She loves her work, and takes good care of the animals, despite the cheap 
 supplies bought for them by the Circus Owner.
 @rus Она любит свою работу и хорошо заботится о больных животных, пичкая их 
@@ -406,9 +368,7 @@ stand stand female 540
 #4422
 elephant слон~
 @eng an elephant@rus слон~
-@eng An elephant nudges you with his trunk, asking for peanuts.
-@rus Цирковой слон (elepant) тянет свой хобот желая орешков.
-~
+@eng An elephant nudges you with his trunk, asking for peanuts.@rus Цирковой слон (elepant) тянет свой хобот желая орешков.~
 @eng This is a gigantic animal!  But he seems pretty docile.  Good thing.  You 
 probably would not want to get him angry.
 @rus Большое ! Очень большое животное, но довольно забавное. Хотя ... Наверное не
@@ -424,8 +384,7 @@ stand stand male 990
 #4423
 bear~
 a trained bear~
-The trained bear hasn't been fed in a week.  Look out!
-~
+The trained bear hasn't been fed in a week.  Look out!~
 The bear hasn't been fed for a long time.  The Circus Owner figures he can
 save a lot of money buy feeding the bear on unwary adventurers like yourself.
 ~
@@ -441,8 +400,7 @@ r cold -33
 #4424
 horse~
 a horse~
-A trained horse is here, prancing in anticipation.
-~
+A trained horse is here, prancing in anticipation.~
 The horse has been trained by the bare back rider.  These are magnificent 
 animals, although they look like they could use more food.  More evidence 
 of the cheapness of the Circus Owner.
@@ -457,9 +415,7 @@ stand stand none 300
 #4425
 unicorn horse white лошадь~
 @eng a poor horse@rus лошадь~
-@eng A poor white horse is here, about to have a horn implanted in it's head.
-@rus Бедная лошадь (horse) болезнено фыркает.
-~
+@eng A poor white horse is here, about to have a horn implanted in it's head.@rus Бедная лошадь (horse) болезнено фыркает.~
 @eng This poor animal had the unfortunate luck of being white.  Just what the 
 Circus Owner was looking for.
 @rus Это бедное животное виновато в том, что родилось белым ... Как раз то, что
@@ -475,8 +431,7 @@ stand stand none 66
 #4426
 owner~
 the Circus Owner~
-The greedy Circus owner is about to cut into the poor horse.
-~
+The greedy Circus owner is about to cut into the poor horse.~
 This man has no scruples.  When the Owner got the thought of putting a horn on
 a regular horse and passing it off as a Unicorn, he almost wet his pants with
 delight.  This man is in trouble if the ASPCA ever finds out, but until then,
@@ -495,8 +450,7 @@ r charm -33
 #4427
 vendor~
 the cotton candy vendor~
-The cotton candy vendor waits to take your money.
-~
+The cotton candy vendor waits to take your money.~
 He is wearing a colorful pair of overalls and a bright painter's cap.  He
 makes cotton candy in a big tub, where all the kids can watch him.
 ~
@@ -510,8 +464,7 @@ stand stand male 80000
 #4428
 Illusionist mage~
 the Illusionist~
-The Illusionist is here, doing tricks to amaze the crowd.
-~
+The Illusionist is here, doing tricks to amaze the crowd.~
 He puts on quite a show.  If you couldn't see the wires on half of his 
 creations, you might actually be amazed.
 ~
@@ -527,8 +480,7 @@ r charm -33
 #4429
 dog guard~
 a guard dog~
-A guard dog growls at you, then attacks.
-~
+A guard dog growls at you, then attacks.~
 He looks like he has been purposely abused to keep him mean.  Maybe if you 
 gave him a pie, he would be your friend?
 ~
@@ -542,8 +494,7 @@ stand stand male 0
 #4430
 burly worker~
 a burly worker~
-A burly worker coming to the aid of the Circus Owner.
-~
+A burly worker coming to the aid of the Circus Owner.~
 The burly worker has sweat dripping off of every inch of his body.
 ~
 human~
@@ -556,8 +507,7 @@ stand stand male 800
 #4450
 chef~
 Binky's chef~
-Binky's chef stands here, ready to carve the turkey.
-~
+Binky's chef stands here, ready to carve the turkey.~
 ~
 human~
 B 0 0 0 0 0 0
@@ -569,8 +519,7 @@ stand stand none 3200
 #4451
 midget thief~
 the Midget~
-A Midget is here, stealing money from the crowd.
-~
+A Midget is here, stealing money from the crowd.~
 The Midget is very good at his trade, and makes quit a bit of money buy picking
 pockets of the unwary. 
 ~

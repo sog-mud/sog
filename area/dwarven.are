@@ -11,9 +11,7 @@ End
 #6500
 dwarf guard стражник гном~
 @eng the dwarven guard@rus ~~гном~~-~~стражник~~~
-@eng A dwarven guard is here.
-@rus Гном-стражник (guard) стоит здесь.
-~
+@eng A dwarven guard is here.@rus Гном-стражник (guard) стоит здесь.~
 @eng The guard looks very tough and mean.
 @rus Он выглядит крутым и недобрым.
 ~
@@ -30,9 +28,7 @@ r disease -25
 #6501
 dwarf worker miner гном забойщик~
 @eng the dwarven worker@rus ~~гном~~-~~забойщик~~~
-@eng A dwarven mining worker is here.
-@rus Гном-забойщик (mining worker) отдыхает от работы.
-~
+@eng A dwarven mining worker is here.@rus Гном-забойщик (mining worker) отдыхает от работы.~
 @eng He is very dirty, and looks extremely over-worked.
 @rus Он очень грязный и кажется ужасно усталым.
 ~
@@ -49,9 +45,7 @@ r disease -25
 #6502
 wraith призрак~
 @eng the wraith@rus призрак~
-@eng A wraith is awaiting your first move here.
-@rus Черный призрак (wraith) ждет твоего первого движения.
-~
+@eng A wraith is awaiting your first move here.@rus Черный призрак (wraith) ждет твоего первого движения.~
 @eng A black, almost transparent wraith.
 @rus Черный, но почти прозрачный призрак.
 ~
@@ -65,9 +59,7 @@ stand stand male 2500
 #6503
 storekeeper продавец~
 @eng the storekeeper@rus продавец~
-@eng There is the Hide & Tooth storekeeper standing here, waiting patiently.
-@rus Продавец (storekeeper) магазина 'Шкура и Зуб' стоит здесь и терпеливо ждет клиентов.
-~
+@eng There is the Hide & Tooth storekeeper standing here, waiting patiently.@rus Продавец (storekeeper) магазина 'Шкура и Зуб' стоит здесь и терпеливо ждет клиентов.~
 @eng The storekeeper is very rotund, but looks like a sharp guy.
 @rus Продавец весьма упитан, но выглядит совсем неглупым.
 ~
@@ -81,9 +73,7 @@ stand stand male 5000
 #6504
 baker пекарь~
 @eng the baker@rus пекарь~
-@eng Granite Head, the baker, is waiting for a customer here.
-@rus Каменный Лоб, пекарь (baker), ждет клиентов.
-~
+@eng Granite Head, the baker, is waiting for a customer here.@rus Каменный Лоб, пекарь (baker), ждет клиентов.~
 @eng Granite Head is covered with flour and grains.
 @rus Каменный Лоб весь покрыт мукой и зернами.
 ~
@@ -97,9 +87,7 @@ stand stand male 50
 #6505
 lizard ящерица~
 @eng the giant lizard@rus ~~гигантская~~ ~~ящерица~~~
-@eng A giant lizard is here.
-@rus Гигантская ящерица (lizard) немигая смотрит на тебя.
-~
+@eng A giant lizard is here.@rus Гигантская ящерица (lizard) немигая смотрит на тебя.~
 This scaly creature looks like it is well adapted to it's underground
 habitat.  He looks very powerful.
 ~
@@ -116,9 +104,7 @@ r poison -33
 #6506
 giant великан~
 @eng the giant@rus великан~
-@eng A giant is here.
-@rus Великан (giant) возвышается над тобой.
-~
+@eng A giant is here.@rus Великан (giant) возвышается над тобой.~
 @eng The giant is about 8 feet tall, with arms of steel, and looks very strong.
 @rus Ростом великан около 8 футов, руки у него стальные, и на вид он
 очень силен.
@@ -137,9 +123,7 @@ r mental 50
 #6507
 miner dwarf гном шахтер~
 @eng the dwarven miner@rus ~~гном~~-~~шахтер~~~
-@eng A dwarven miner is here.
-@rus Прямо перед собой ты видишь гнома, работающего в шахтах (miner).
-~
+@eng A dwarven miner is here.@rus Прямо перед собой ты видишь гнома, работающего в шахтах (miner).~
 @eng The mineworker is very tired, and very dirty, and he has bulging muscles.
 @rus Шахтер очень устал, он очень грязный, а его мускулы так и играют.
 ~
@@ -156,9 +140,7 @@ r disease -25
 #6508
 leader бригадир шахтер~
 @eng the dwarven mine leader@rus ~~бригадир~~ шахтеров~
-@eng A dwarven mine leader is here.
-@rus Бригадир (leader) шахтеров стоит совсем рядом с тобой.
-~
+@eng A dwarven mine leader is here.@rus Бригадир (leader) шахтеров стоит совсем рядом с тобой.~
 @eng The mine leader is very big and very strong.
 @rus Бригадир шахтеров очень большой и очень сильный.
 ~
@@ -175,9 +157,7 @@ r disease -25
 #6509
 doctor dwarf лекарь~
 @eng the dwarven doctor@rus ~~гном~~-~~лекарь~~~
-@eng The dwarven doctor is here.
-@rus Гном-лекарь (doctor) занят своими пациентами.
-~
+@eng The dwarven doctor is here.@rus Гном-лекарь (doctor) занят своими пациентами.~
 @eng He is a very skilled surgeon, with hands of steel.
 @rus Он весьма искусный хирург, и руки у него словно из стали.
 ~
@@ -194,9 +174,7 @@ r disease -25
 #6510
 peon dwarf гном пеон~
 @eng the dwarven peon@rus ~~гном~~-~~пеон~~~
-@eng A dwarven peon is awaiting help here.
-@rus Гном-пеон (peon) дожидается помощи врача.
-~
+@eng A dwarven peon is awaiting help here.@rus Гном-пеон (peon) дожидается помощи врача.~
 @eng Peon looks played out.
 @rus Он выглядит измученным.
 ~
@@ -213,9 +191,7 @@ r disease -25
 #6511
 dwarf гном~
 @eng the dwarf@rus гном~
-@eng A grinning dwarf is here.
-@rus Ухмыляющийся гном (dwarf) стоит у тебя на дороге.
-~
+@eng A grinning dwarf is here.@rus Ухмыляющийся гном (dwarf) стоит у тебя на дороге.~
 ~
 dwarf~
 B 0 0 0 0 500 0
@@ -230,9 +206,7 @@ r disease -25
 #6512
 son dwarf сын гном~
 @eng the unwanted son@rus ~~нежеланный~~ ~~сын~~~
-@eng An unwanted son is here.  You feel sorry for the guy.
-@rus Около тебя стоит нелюбимый сын (son). Тебе очень жаль парня.
-~
+@eng An unwanted son is here.  You feel sorry for the guy.@rus Около тебя стоит нелюбимый сын (son). Тебе очень жаль парня.~
 ~
 dwarf~
 G 0 0 0 0 250 0
@@ -247,9 +221,7 @@ r disease -25
 #6513
 daughter dwarf дочка гном~
 @eng the unwanted daughter@rus ~~нежеланная~~ ~~дочка~~~
-@eng An unwanted daughter is here.  You feel sorry for her.
-@rus Нелюбимая дочка (daughter) прогуливается здесь. Вам очень жаль девушку.
-~
+@eng An unwanted daughter is here.  You feel sorry for her.@rus Нелюбимая дочка (daughter) прогуливается здесь. Вам очень жаль девушку.~
 ~
 dwarf~
 G 0 0 0 0 250 0
@@ -264,9 +236,7 @@ r disease -25
 #6514
 guard dwarf охранник казармы~
 @eng the barracks guard@rus ~~охранник~~ казармы~
-@eng A barrack guard is here.
-@rus Охранник (guard) казармы всегда на посту.
-~
+@eng A barrack guard is here.@rus Охранник (guard) казармы всегда на посту.~
 ~
 dwarf~
 B 0 0 0 0 100 0
@@ -281,9 +251,7 @@ r disease -25
 #6515
 man мужчина~
 @eng the man in waiting@rus ~~ожидающий~~ ~~мужчина~~~
-@eng A man in waiting is here.  He looks nervous and unsure of himself.
-@rus Мужчина (man) чего-то ждет. 
-~
+@eng A man in waiting is here.  He looks nervous and unsure of himself.@rus Мужчина (man) чего-то ждет. ~
 @eng He looks nervous and unsure of himself.
 @rus Он выглядит нервным и неуверенным в себе.
 ~
@@ -297,9 +265,7 @@ stand stand male 348
 #6516
 mazekeeper хранитель лабиринт~
 @eng the mazekeeper@rus ~~хранитель~~ лабиринта~
-@eng A mazekeeper is here.
-@rus Хранитель лабиринта (mazekeeper) занят каким-то своим делом.
-~
+@eng A mazekeeper is here.@rus Хранитель лабиринта (mazekeeper) занят каким-то своим делом.~
 @eng He looks VERY tough.
 @rus Он выглядит ОЧЕНЬ крутым.
 ~
@@ -313,9 +279,7 @@ stand stand male 4000
 #6517
 snake змея~
 @eng the giant snake@rus ~~гигантская~~ ~~змея~~~
-@eng There is a giant snake here.
-@rus Гигантская змея (snake) угрожающе шипит на тебя.
-~
+@eng There is a giant snake here.@rus Гигантская змея (snake) угрожающе шипит на тебя.~
 ~
 snake~
 BF 0 0 0 H -1000 0
@@ -330,9 +294,7 @@ r poison -33
 #6518
 seller dwarf гном забойщик~
 @eng the dwarven worker@rus ~~гном~~-~~забойщик~~~
-@eng A dwarven mining worker is here.
-@rus Гном-забойщик (mining worker) отдыхает от работы.
-~
+@eng A dwarven mining worker is here.@rus Гном-забойщик (mining worker) отдыхает от работы.~
 @eng He is very dirty, and looks extremely over-worked. But unlike the others 
 this one seems to be waiting for someone
 @rus Он очень грязный и кажется ужасно усталым. Но, в отличие от прочих,

@@ -11,8 +11,7 @@ End
 #2101
 troll gang member~
 a troll gang member~
-A member of the Trolls wanders about here.
-~
+A member of the Trolls wanders about here.~
 He's lived a life of violence ever since he was little.
 ~
 human~
@@ -25,8 +24,7 @@ stand stand male 10
 #2102
 ogre gang member~
 an ogre gang member~
-A member of the Ogres wanders about here.
-~
+A member of the Ogres wanders about here.~
 He wants to rid the world of every last Troll gang member.
 ~
 human~
@@ -39,8 +37,7 @@ stand stand male 10
 #2103
 gang leader troll~
 the Troll gang leader~
-The gang leader is not pleased you found his hideout!
-~
+The gang leader is not pleased you found his hideout!~
 He's risen to be leader through brute force and cunning leadership, you'd
 guess mostly brute force from the size of his muscles.
 ~
@@ -55,8 +52,7 @@ r bash 33
 #2104
 bruiser troll~
 a bruiser~
-A big, mean bruiser is looking for limbs to break.
-~
+A big, mean bruiser is looking for limbs to break.~
 He's 6'6" 245 pounds and enough muscle to bash your head in. How like a Troll.
 ~
 human~
@@ -83,8 +79,7 @@ r sound 33
 #2105
 gang doll~
 a doll~
-A gang doll looks naughty and nice.
-~
+A gang doll looks naughty and nice.~
 She's a beauty (ok in RELATIVE terms) but you better not touch!
 ~
 human~
@@ -97,8 +92,7 @@ stand stand female 50
 #2106
 patrolman patrol man~
 a patrolman~
-A patrolman is trying to keep the peace.
-~
+A patrolman is trying to keep the peace.~
 He'd rather be at the local pub then out here with these nasty kids.
 ~
 human~
@@ -111,8 +105,7 @@ stand stand male 350
 #2107
 vandal ogre~
 a vandal~
-A vandal is spray painting pro-gang slogans on the wall here.
-~
+A vandal is spray painting pro-gang slogans on the wall here.~
 He has a wary eye and a fine hand for art.
 ~
 human~
@@ -125,8 +118,7 @@ stand stand male 25
 #2108
 dog pit bull pitbull~
 a pitbull~
-A vicious pitbull is foaming at the mouth in rabid anticipation.
-~
+A vicious pitbull is foaming at the mouth in rabid anticipation.~
 You get a nice close look at him while he's tearing at your throat.
 His fangs are blood-stained from hearty meals of ... steak?!
 ~
@@ -140,8 +132,7 @@ stand stand male 0
 #2109
 punk troll~
 a punk~
-A punk is here, carving his initials into a wall.
-~
+A punk is here, carving his initials into a wall.~
 He's a sterling example of rehabilitation at work.  Not nice.
 ~
 human~
@@ -154,8 +145,7 @@ stand stand male 25
 #2110
 gang leader ogre~
 the Ogre gang leader~
-The Ogre gang leader snaps out his stiletto. "Care to dance?"
-~
+The Ogre gang leader snaps out his stiletto. "Care to dance?"~
 He's smaller, but undoubtably smarter, than the Troll's leader. 
 ~
 human~
@@ -169,8 +159,7 @@ r slash 33
 #2111
 thug~
 a thug~
-An ugly, scarred thug is here, looking for dogs to kick.
-~
+An ugly, scarred thug is here, looking for dogs to kick.~
 The thug isn't quite as big as the Troll's bruisers, but you can tell he loves
 breaking heads for the Ogres.
 ~

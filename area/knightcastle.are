@@ -13,9 +13,7 @@ End
 #95200
 knight healer cabal священник~
 @eng A healer@rus Священник~
-@eng The healer of the Knights' is here to heal you.
-@rus Священник (healer) благославляет тебя на подвиги.
-~
+@eng The healer of the Knights' is here to heal you.@rus Священник (healer) благославляет тебя на подвиги.~
 @eng After retiring long fights, he chose to heal his mates against evils
 with his long experienced wise years.
 @rus Устав от войн и прочей мирской суеты, он удалился в тихое
@@ -50,9 +48,7 @@ r sound 999
 #95201
 knight protector guard дворецкий~
 @eng the protector@rus дворецкий~
-@eng Protector, the knight, is guarding the enterance.
-@rus Дворецкий (protector) встречает тебя у входа в Замок.
-~
+@eng Protector, the knight, is guarding the enterance.@rus Дворецкий (protector) встречает тебя у входа в Замок.~
 @eng Although his old age, he is still good enough in all martial arts. His
 bright body armor is shining upon you.
 @rus Несмотря на свой почтенный возраст, дворецкий все еще достаточно
@@ -72,9 +68,7 @@ r charm 999
 #95202
 knight mount keeper конюх~
 @eng the stable keeper@rus конюх~
-@eng The stable keeper is selling horses.
-@rus Конюх (keeper) ухаживает за животными.
-~
+@eng The stable keeper is selling horses.@rus Конюх (keeper) ухаживает за животными.~
 @eng Although his old age, he is still good enough in all martial arts. His
 bright body armor is shining upon you.
 @rus Несмотря на свои годы, конюх еще помнит, как в молодости не только
@@ -93,9 +87,7 @@ r charm 999
 #95203
 donkey ослик grey mount~
 @eng the grey donkey@rus ~~серый~~ ~~ослик~~~
-@eng A grey donkey is standing here.
-@rus Серый ослик (donkey) стоит здесь.
-~
+@eng A grey donkey is standing here.@rus Серый ослик (donkey) стоит здесь.~
 @eng It is saddled with light tack, and has long slender limbs for speed.
 @rus Смирный серый ослик оседлан и подкован. Тщательно расчесанная
 грива развевается на ветру, начищенные пряжки сбруи блестят в лучах
@@ -112,9 +104,7 @@ r charm 999
 #95204
 horse mount конь white~
 @eng the white horse@rus ~~белогривый~~ ~~конь~~~
-@eng A white horse is standing here.
-@rus Ослепительно-белый конь (horse) стоит здесь.
-~
+@eng A white horse is standing here.@rus Ослепительно-белый конь (horse) стоит здесь.~
 @eng It is saddled with light tack, and has long slender limbs for speed.
 @rus Крепкий боевой конь гарцует перед тобой. Сияние его снежно-
 белой гривы ослепляет тебя.
@@ -130,9 +120,7 @@ r charm 999
 #95205
 unicorn единорог mount~
 @eng the unicorn@rus единорог~
-@eng A white unicorn is standing here.
-@rus Белый единорог (unicorn) стоит здесь.
-~
+@eng A white unicorn is standing here.@rus Белый единорог (unicorn) стоит здесь.~
 @eng It is saddled with light tack, and has long slender limbs for speed.
 @rus Белый единорог рад помочь своему всаднику добраться куда
 угодно в этом мире! Его перевитый рог сверкает на свету.
@@ -161,9 +149,7 @@ r sound 33
 #95206
 pegasus mount пегас~
 @eng the pegasus@rus пегас~
-@eng A pegasus is flying here.
-@rus Пегас (pegasus) лениво помахивает крыльями.
-~
+@eng A pegasus is flying here.@rus Пегас (pegasus) лениво помахивает крыльями.~
 @eng A beautiful white horse with pretty hooves, gracefully curved
 neck, trembling snuffers and big white wings. The Pegasus squints
 at you suspiciuosely and sighs saddly.
@@ -196,9 +182,7 @@ r sound 33
 #95207
 dragon golden дракон mount~
 @eng the golden dragon@rus ~~золотой~~ ~~дракон~~~
-@eng A golden dragon is flying here.
-@rus Золотой дракон (dragon) парит здесь.
-~
+@eng A golden dragon is flying here.@rus Золотой дракон (dragon) парит здесь.~
 @eng A huge golden mount with strong muscles, hard membranes of
 powerful wings and a tail, gleeming with gemstones. You are
 submerged in the infinite wisdom of it's eyes, disabled

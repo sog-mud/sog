@@ -11,8 +11,7 @@ End
 #14700
 lord krothgar~
 the Lord Krothgar~
-The Lord Krothgar glares balefully at you.
-~
+The Lord Krothgar glares balefully at you.~
 Krothgar, standing at over eight feet tall and clad in full spiked black
 plate mail, is an imposing... man. It is said his fists have the power to
 rend the very earth asunder if he is angered. It is small wonder the dark
@@ -42,8 +41,7 @@ r sound 33
 #14701
 death knight~
 a death knight~
-A death knight gazes evilly at you.
-~
+A death knight gazes evilly at you.~
 This fellow and his comrades are servants of the demon lord Marmandes, and
 will take only his orders, despite the fact that Krothgar could probably
 crush him (and definitely them) with little effort. Krothgar tolerates their
@@ -65,8 +63,7 @@ r charm 999
 #14702
 iron golem~
 an iron golem~
-An iron golem stands ready to rend his master's enemies apart.
-~
+An iron golem stands ready to rend his master's enemies apart.~
 This soulless automaton was created by Krothgar's fell scientist-mages to
 serve him as a bodyguard (for appearance's sake only- he scarcely has need
 of one) and an executioner. It will kill on a command.
@@ -98,8 +95,7 @@ r sound 50
 #14703
 marmandes demon prince~
 the demon prince Marmandes~
-The demon prince Marmandes watches you curiously.
-~
+The demon prince Marmandes watches you curiously.~
 Marmandes has been sent here by his evil masters to observe and aid their
 servant Krothgar, and as such he will prefer to avoid direct combat, being
 greatly weaker on this plane than on his native, and being eager to see how
@@ -118,8 +114,7 @@ r holy -50
 #14704
 axtraxes arch mage~
 axtraxes~
-A vile arch mage screams at your intrusion and attacks!
-~
+A vile arch mage screams at your intrusion and attacks!~
 This foul-tempered, evil man is Krothgar's magical assistant and adviser,
 and in charge of the dark lord's impressive force of mages. He is infuriated
 at your untimely interruption and reacts aggressively.
@@ -151,8 +146,7 @@ r sound 33
 #14705
 high priest~
 an evil high priest~
-An evil high priest is angered by your sacrilege!
-~
+An evil high priest is angered by your sacrilege!~
 You have interrupted this foul priest of unspeakable gods during a very
 critical ceremony! He is extremely angry, and so will his worshippers be...
 He is a total fanatic and will battle to the death.
@@ -167,8 +161,7 @@ stand stand male 1000
 #14706
 elite guard~
 an elite guard~
-An elite guard attempts to prevent you proceeding further.
-~
+An elite guard attempts to prevent you proceeding further.~
 This fellow is clad in full body spiked black plate mail just like his lord,
 and carries a HUGE spiked morning star, which he swings casually like it was
 but a wooden stick. He cries out upon spotting you, and prepares for combat.
@@ -183,8 +176,7 @@ stand stand male 1000
 #14707
 destrier~
 a destrier~
-A destrier, mount of some evil knight, snorts angrily at you.
-~
+A destrier, mount of some evil knight, snorts angrily at you.~
 This mammoth horse must weigh double any other equine steed you have ever
 seen. Its jet black coat seems to glow with an inner evil, and you gasp in
 astonishment at the satanic gleam in its dark red eyes.
@@ -199,8 +191,7 @@ stand stand none 1000
 #14708
 evil priest~
 an evil priest~
-An evil priest screams in fanatical fury!
-~
+An evil priest screams in fanatical fury!~
 This foul creature is one of the evil priests of the dark lord, and he is
 keen to send your soul to him!
 ~
@@ -214,8 +205,7 @@ stand stand male 1000
 #14709
 scientist mage~
 an evil scientist mage~
-An evil scientist mage roars in fury as you spoil his experiment!
-~
+An evil scientist mage roars in fury as you spoil his experiment!~
 You have burst in at a very inappropriate time, and spoiled years of work.
 Good ;)
 
@@ -245,8 +235,7 @@ r sound 33
 #14710
 blackguard guard~
 a member of the blackguard~
-A member of the blackguard charges toward you.
-~
+A member of the blackguard charges toward you.~
 This guard is a meber of the blackguard, the fanatical warriors who make up
 the bulk of Lord Krothgar's evil army.
 ~
@@ -260,9 +249,7 @@ stand stand male 1000
 #14711
 dragon red красный дракон~
 @eng a red dragon@rus ~~красный~~ ~~дракон~~~
-@eng A red dragon prepares to incinerate you.
-@rus Красный дракон (dragon) собирается сжечь тебя своим дыханием.
-~
+@eng A red dragon prepares to incinerate you.@rus Красный дракон (dragon) собирается сжечь тебя своим дыханием.~
 @eng This dragon is one of Krothgar's five favorites, and is loyal to its master.
 Huge teeth protrude from a mouth capable of spewing forth destructive matter
 and baleful eyes gleam dangerously from above this maw directly at you. You
@@ -286,8 +273,7 @@ r charm -33
 #14712
 black dragon~
 a black dragon~
-A black dragon prepares to incinerate you.
-~
+A black dragon prepares to incinerate you.~
 This dragon is one of Krothgar's five favorites, and is loyal to its master.
 Huge teeth protrude from a mouth capable of spewing forth destructive matter
 and baleful eyes gleam dangerously from above this maw directly at you. You
@@ -307,8 +293,7 @@ r charm -33
 #14713
 white dragon~
 a white dragon~
-A white dragon prepares to incinerate you.
-~
+A white dragon prepares to incinerate you.~
 This dragon is one of Krothgar's five favorites, and is loyal to its master.
 Huge teeth protrude from a mouth capable of spewing forth destructive matter
 and baleful eyes gleam dangerously from above this maw directly at you. You
@@ -328,8 +313,7 @@ r charm -33
 #14714
 blue dragon~
 a blue dragon~
-A blue dragon prepares to incinerate you.
-~
+A blue dragon prepares to incinerate you.~
 This dragon is one of Krothgar's five favorites, and is loyal to its master.
 Huge teeth protrude from a mouth capable of spewing forth destructive matter
 and baleful eyes gleam dangerously from above this maw directly at you. You
@@ -349,8 +333,7 @@ r charm -33
 #14715
 green dragon~
 a green dragon~
-A green dragon prepares to incinerate you.
-~
+A green dragon prepares to incinerate you.~
 This dragon is one of Krothgar's five favorites, and is loyal to its master.
 Huge teeth protrude from a mouth capable of spewing forth destructive matter
 and baleful eyes gleam dangerously from above this maw directly at you. You
@@ -370,8 +353,7 @@ r charm -33
 #14716
 fire elemental~
 a fire elemental~
-A fire elemental burns everything in sight.
-~
+A fire elemental burns everything in sight.~
 This magically-summoned being serves the mages of the tower- sometimes.
 ~
 unique~
@@ -385,8 +367,7 @@ r fire 999
 #14717
 efreeti~
 an efreeti~
-An efreeti hovers above an iron flask here.
-~
+An efreeti hovers above an iron flask here.~
 This being, summoned from the Elemental Plane of Fire by the flask on the
 floor, is not happy, for the power of the flask has been exhausted and he
 has no way of returning home. He reacted by slaying first the summoner, and
@@ -403,8 +384,7 @@ r fire 999
 #14718
 shedu~
 a shedu~
-A shedu sits in a corner of this room.
-~
+A shedu sits in a corner of this room.~
 This unfortunate creature was captured by agents of Krothgar, who brought it
 here to amuse him. He occasionally spends time torturing it, but has grown
 bored and will slay it soon.
@@ -419,8 +399,7 @@ stand stand male 1000
 #14719
 illithid~
 an evil illithid~
-An evil illithid eyes your cranium off.
-~
+An evil illithid eyes your cranium off.~
 This foul mind flayer wants brains, and since Krothgar's followers aren't the
 brightest of creatures it is near starvation. You are a nice surprise...
 ~
@@ -434,8 +413,7 @@ stand stand none 1000
 #14720
 slave~
 a wretched slave~
-A wretched slave awaits sacrifice.
-~
+A wretched slave awaits sacrifice.~
 This pathetic wretch has lost all hope. Squatting naked and shivering in the
 corner of the cell he gibbers insanely and begs for mercy.
 ~
@@ -449,8 +427,7 @@ stand stand male 1000
 #14721
 slave~
 a wretched slave~
-A female slave will soon "service" Krothgar's legions.
-~
+A female slave will soon "service" Krothgar's legions.~
 This pathetic wretch has lost all hope. Squatting naked and shivering in the
 corner of the cell she gibbers insanely and begs for mercy.
 ~
@@ -464,8 +441,7 @@ stand stand female 1000
 #14722
 mutant~
 a mutant~
-A hideous mutant drools and screams insanely.
-~
+A hideous mutant drools and screams insanely.~
 These unnatural beings are foul products of the insane experiments of the
 scientist mages upon captured slaves in an attempt to create the perfect
 fighting race, an experiment finally realised in Korgthar's elite guard.
@@ -481,8 +457,7 @@ stand stand none 1000
 #14723
 hydra~
 a twelve-headed hydra~
-A 12 headed hydra roars at you.
-~
+A 12 headed hydra roars at you.~
 This mighty creature has allied with Krothgar in exchange for a steady diet
 of humans and elves. It will fight ferociously to defend the home of its
 meal ticket.
@@ -499,8 +474,7 @@ r charm -33
 #14724
 quasit~
 a quasit~
-A quasit squeaks aggressively at you.
-~
+A quasit squeaks aggressively at you.~
 This angry creature is the familiar of some mage or another. It is angered
 at being seen.
 ~
@@ -514,8 +488,7 @@ stand stand none 1000
 #14725
 succubus~
 a succubus~
-A succubus smiles seductively at you.
-~
+A succubus smiles seductively at you.~
 This lustful demoness is the current concubine of Korgthar, though her
 appetite is insatiable and she is always on the lookout for new prey... err
 ... lovers.
@@ -530,8 +503,7 @@ stand stand female 1000
 #14726
 earth elemental~
 an earth elemental~
-An earth elemental smashes everything in sight.
-~
+An earth elemental smashes everything in sight.~
 This magically-summoned being serves the mages of the tower- sometimes.
 ~
 unique~
@@ -544,8 +516,7 @@ stand stand none 1000
 #14727
 water elemental~
 a water elemental~
-A water elemental inundates everything in sight.
-~
+A water elemental inundates everything in sight.~
 This magically-summoned being serves the mages of the tower- sometimes.
 ~
 unique~
@@ -559,8 +530,7 @@ r cold 999
 #14728
 air elemental~
 an air elemental~
-An air elemental blows over everything in sight.
-~
+An air elemental blows over everything in sight.~
 This magically-summoned being serves the mages of the tower- sometimes.
 ~
 unique~
@@ -573,8 +543,7 @@ stand stand none 1000
 #14729
 hell hound hellhound~
 a hellhound~
-A hellhound lopes toward you.
-~
+A hellhound lopes toward you.~
 Breathing fire and reeking of brimstone, this unholy red-hued hound is indeed
 a terrible sight to behold.
 ~
@@ -588,8 +557,7 @@ stand stand none 1000
 #14730
 fire giant~
 a fire giant~
-A fire giant waves his sword menacingly at you.
-~
+A fire giant waves his sword menacingly at you.~
 These fellows are guardians of the massive volcano known as Mount Doom, upon
 which rests the inpregnable fortress of their master, Lord Krothgar. They
 fight fearlessly to defend it.
@@ -621,8 +589,7 @@ r sound -50
 #14731
 frost giant~
 a frost giant~
-A frost giant glares icily at you.
-~
+A frost giant glares icily at you.~
 These emissaries are here to form an alliance with the forces of Mount Doom.
 They do not take kindly to intrusions.
 ~
@@ -643,8 +610,7 @@ r mental 30
 #14732
 hill giant~
 a hill giant~
-A hill giant grunts at you.
-~
+A hill giant grunts at you.~
 These fellows are guardians of the lands surrounding the massive volcano
 known as Mount Doom, upon which rests the inpregnable fortress of their
 master, Lord Krothgar. They fight fearlessly to defend it.
@@ -663,8 +629,7 @@ r mental 50
 #14733
 ~
 a cloud giant~
-A cloud giant laughs mercilessly at you. Hmph.
-~
+A cloud giant laughs mercilessly at you. Hmph.~
 These emissaries are here to form an alliance with the forces of Mount Doom.
 They do not take kindly to intrusions.
 ~
@@ -682,8 +647,7 @@ r mental 50
 #14734
 ogre~
 an ogre servant~
-An ogre servant serves the giant soldiers.
-~
+An ogre servant serves the giant soldiers.~
 This fellow may seem huge to you, but by giant standards he's a veritable
 runt, as they never cease to point out to him as he makes his way about,
 serving food and drinks in between kicks to the head.
@@ -698,8 +662,7 @@ stand stand male 1000
 #14735
 ogre mage~
 an ogre mage~
-An ogre mage glares suspicously at you.
-~
+An ogre mage glares suspicously at you.~
 These eastern cousins of the ogres and giants of the west have been invited
 here to form an alliance with the troops of Krothgar. They are deeply
 suspicious of the arrangement, however, and view all comers with the same
@@ -715,8 +678,7 @@ stand stand male 1000
 #14736
 troll~
 a troll~
-A troll foot soldier yawns loudly.
-~
+A troll foot soldier yawns loudly.~
 These grotesques were bred for combat, not sentry duty, and the boredom is
 almost killing them. They don't even notice your presence.
 ~
@@ -730,8 +692,7 @@ stand stand male 1000
 #14737
 ettin~
 an ettin~
-An ettin turns both its heads to stare at you.
-~
+An ettin turns both its heads to stare at you.~
 This two-headed giant is a guard of the more important inhabitants of the
 fortress. He takes his duties very seriously.
 ~
@@ -749,8 +710,7 @@ r mental 50
 #14738
 chief assassin~
 the chief assassin~
-The chief assassin smiles as she draws her swords.
-~
+The chief assassin smiles as she draws her swords.~
 This beauty is actually the lethal head of Krothgar's elite assassins, who
 have achieved more for his cause than a dozen armies. She asks for no quarter,
 and nor does she give any herself.
@@ -765,8 +725,7 @@ stand stand female 1000
 #14739
 assassin~
 an assassin~
-An assassin prepares for combat.
-~
+An assassin prepares for combat.~
 This woman is a member of Krothgar's assassin company, and has slain more
 men and women than any one hundred of his regular soldiers.
 ~
@@ -780,8 +739,7 @@ stand stand female 1000
 #14740
 drow ambassador~
 a drow ambassador~
-A drow ambassador snarls at you.
-~
+A drow ambassador snarls at you.~
 This priestess is here to secure an alliance between her people and Krothgar's
 forces. She is not happy about your intrusion into this matter.
 ~
@@ -795,8 +753,7 @@ stand stand female 1000
 #14741
 warg~
 a warg~
-A hairy warg patrols for trespassers here.
-~
+A hairy warg patrols for trespassers here.~
 This beast is a servant of the hill giants who patrol the plains of Doom.
 ~
 human~
@@ -809,8 +766,7 @@ stand stand male 1000
 #14742
 ghoul~
 a bloodthirsty ghoul~
-A bloodthirsty ghoul slavers uncontrollably.
-~
+A bloodthirsty ghoul slavers uncontrollably.~
 This hideous undead wants to feast on your flesh!
 ~
 unique~
@@ -823,8 +779,7 @@ stand stand none 1000
 #14743
 vampire~
 a vampire~
-A vampire smiles at you...
-~
+A vampire smiles at you...~
 This vamp is treacherous and deadly. You can see why Krothgar likes having
 her around...
 ~
@@ -838,8 +793,7 @@ stand stand female 1000
 #14744
 lich~
 an ancient lich~
-An ancient lich awakens from his slumber and looks around.
-~
+An ancient lich awakens from his slumber and looks around.~
 Even the mages of Krothgar know not of the existence of this secret tomb.
 Buried within is the old lord of the Fortress, who was imprisoned in here
 by the forces of Good ages ago. And now you have woken him up. Way to go
@@ -855,8 +809,7 @@ stand stand none 1000
 #14745
 stone golem~
 a stone golem~
-A stone golem stands ready to rend his master's enemies apart.
-~
+A stone golem stands ready to rend his master's enemies apart.~
 This soulless automaton was created by Krothgar's fell evil priests to
 serve him as a bodyguard (for appearance's sake only- he scarcely has need
 of one) and an executioner. It will kill on a command.
@@ -888,8 +841,7 @@ r sound 50
 #14746
 keeper~
 The keeper of the mutant pit~
-The Keeper of the Mutant Pit snarls angrily at you.
-~
+The Keeper of the Mutant Pit snarls angrily at you.~
 ~
 unique~
 BFG 0 N 0 H -1000 0
@@ -901,8 +853,7 @@ stand stand none 1000
 #14747
 naga princess~
 a naga princess~
-A princess of the Naga glares haughtily at you.
-~
+A princess of the Naga glares haughtily at you.~
 This snake with a woman's head seems unimpressed by your intrusion, but
 she refrains from attacking, hoping that the guards of the castle will see
 to you so she doesn't have to expend energy fighting.

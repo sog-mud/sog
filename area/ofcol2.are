@@ -11,8 +11,7 @@ End
 #600
 cityguard guard~
 the Ofcol cityguard~
-An Ofcol cityguard is standing here, making sure there is no trouble.
-~
+An Ofcol cityguard is standing here, making sure there is no trouble.~
 This guard is surely a trained and skilled fighter.  He is fully armed and
 armored, and he uses his equipment with a practiced precision.  Luckily for 
 you, this guard will only use his deadly skills for the good of the citizens of
@@ -28,8 +27,7 @@ stand stand male 5
 #601
 marshall diana~
 Marshall Diana~
-Diana, the Marshall of Ofcol, stands here proudly.
-~
+Diana, the Marshall of Ofcol, stands here proudly.~
 Diana is a beautiful, powerfully built woman.  She wears platinum armor for
 three reasons.  The first is to show she is strong enough to withstand the
 weight.  The second is to show her rank of office.  The third is that platinum
@@ -47,8 +45,7 @@ r charm 999
 #602
 derrick captain guard cityguard~
 Captain Derrick~
-Derrick, Captain of the Guard, is here disciplining his guards.
-~
+Derrick, Captain of the Guard, is here disciplining his guards.~
 Derrick is a very big man.  He has acquired this station, not by brains or
 charm, but by brute strength.  He had fought in three orc wars and is a
 descendent of a surviving cityguard of old Thalos.  He believes that everything
@@ -64,8 +61,7 @@ stand stand male 250
 #603
 jacklyn captain guard cityguard~
 Captain Jacklyn~
-Jacklyn, Captain of the Citadel Guard, is here raising morale.
-~
+Jacklyn, Captain of the Citadel Guard, is here raising morale.~
 Jacklyn is pale and wiry, but then, so are most other witches.  The fact that
 Jacklyn is a mage and a warrior makes her the perfect captain of the citadel
 guards.  Jacklyn is very beautiful, but whether it is due to her pale softness
@@ -82,8 +78,7 @@ stand stand female 250
 #604
 jim blacksmith~
 Jim the Blacksmith~
-Jim the Blacksmith is here, selling his latest works of metal.
-~
+Jim the Blacksmith is here, selling his latest works of metal.~
 Jim is big and brawny, just like what you'd expect of a blacksmith.  He is
 smiling a very big smile, as he looks at your coins.  You wonder if he likes
 the metals or the value of the coins.
@@ -98,8 +93,7 @@ stand stand male 750
 #605
 sam~
 Sam~
-Sam is here, selling his leather works.
-~
+Sam is here, selling his leather works.~
 Sam is a middle-aged workman.  He looks tired, but never too tired to get that
 last sale from you.  He grins at you slightly.
 ~
@@ -113,8 +107,7 @@ stand stand male 250
 #606
 madam tracy~
 Madam Tracy~
-Madam Tracy is here, selling and buying little treasures.
-~
+Madam Tracy is here, selling and buying little treasures.~
 Madam Tracy is a bit old, but not to the point of senility.  Besides, she knows
 the hard ways of this world and is ready for it.  She spends her time at the
 shop, trading little things (for a wee bit of profit).
@@ -129,8 +122,7 @@ stand stand female 450
 #607
 marty~
 Marty~
-Marty the meat store owner is here, selling you his choice meats.
-~
+Marty the meat store owner is here, selling you his choice meats.~
 Marty is a big man.  He used to hunt the animals he sells, but now he lets his
 son, Jim, raise and slaughter the animals for him.  Marty still knows how to
 kill, though.
@@ -145,8 +137,7 @@ stand stand male 50
 #608
 elizabeth farmer~
 Farmer Elizabeth~
-Farmer Elizabeth is here, selling the latest crop.
-~
+Farmer Elizabeth is here, selling the latest crop.~
 Elizabeth is a very happy woman.  She can't believe the nice weather here in
 Ofcol, and the great vegetables this land produces is unbelievable to her too.
 Farmer Elizabeth smiles at you nicely, but you bet she is doing that just to
@@ -162,8 +153,7 @@ stand stand female 250
 #609
 granny jenkins~
 Granny Jenkins~
-Granny Jenkins is here, running the still.
-~
+Granny Jenkins is here, running the still.~
 Granny Jenkins is a feeble woman, but she knows her brew.  She might be very
 old, but she is still in charge of the still.  She cackles lightly at herself
 every time she tastes her whiskey, which is quite often!
@@ -179,8 +169,7 @@ stand stand female 5
 #610
 jack~
 Jack~
-Jack is here slaughtering away at the animals.
-~
+Jack is here slaughtering away at the animals.~
 Jack is the son of Marty, and you can see the family resemblance (especially in
 their shared affinity for slaughtering animals.)  Jack leers at you as you
 enter.  "Came by to watch, eh?", he asks.
@@ -195,8 +184,7 @@ stand stand male 5
 #611
 Sarah farmer~
 Farmer Sara~
-Farmer Sara is here, milking the cows.
-~
+Farmer Sara is here, milking the cows.~
 Farmer Sara is all covered with bits of straw and grime, but underneath all
 that, she doesn't look that bad.  She smiles at you demurely, and goes back to
 her work.
@@ -211,8 +199,7 @@ stand stand female 5
 #612
 chicken hen~
 a hen~
-A hen is here, squawking at your intrusion.
-~
+A hen is here, squawking at your intrusion.~
 The hen has yellow feathers and small wings.  It looks like a chicken, if
 you've ever seen one.
 ~
@@ -226,8 +213,7 @@ stand stand female 0
 #613
 cow~
 the cow~
-A cow is here, munching on grass.
-~
+A cow is here, munching on grass.~
 The cow is here happily grazing.  It moos at you and goes back to grazing.
 ~
 human~
@@ -240,8 +226,7 @@ stand stand none 0
 #614
 cow~
 the cow~
-A cow is here, waiting to be milked.
-~
+A cow is here, waiting to be milked.~
 The cow is just standing here.  She moos at you and otherwise ignores you.
 ~
 human~
@@ -254,8 +239,7 @@ stand stand female 0
 #615
 horse young~
 the young horse~
-A young horse is here, grazing.
-~
+A young horse is here, grazing.~
 The horse whinnies at you, then runs around you a few times, then just goes
 back to grazing.
 ~
@@ -269,8 +253,7 @@ stand stand none 0
 #616
 pig~
 the pig~
-A pig is playing here, getting itself and you dirty.
-~
+A pig is playing here, getting itself and you dirty.~
 The pig looks dirty.  It snorts and sniffs at you, then goes back to its slop.
 ~
 pig~
@@ -283,8 +266,7 @@ stand stand none 0
 #617
 citizen man~
 the citizen~
-A citizen is here, smiling at you.
-~
+A citizen is here, smiling at you.~
 The citizen smiles at you.  He is having a great day, and he wishes the same
 for you.  He looks at you strangely, though, wondering why you are so armed and
 armored.
@@ -299,8 +281,7 @@ stand stand male 5
 #618
 citizen woman~
 the citizen~
-A citizen is here, smiling at you.
-~
+A citizen is here, smiling at you.~
 The citizen smiles at you.  She is having a great day, and she wishes the same
 for you.  She looks at you strangely, though, wondering why you are so armed
 and armored.
@@ -315,8 +296,7 @@ stand stand female 5
 #619
 child boy~
 the boy~
-A boy is here, playing tag and other kids' games.
-~
+A boy is here, playing tag and other kids' games.~
 The little boy looks up at you and says, 'Hi.  Can I have a piece of candy?'
 He then smiles and runs away, remembering his game.
 ~
@@ -330,8 +310,7 @@ stand stand male 0
 #620
 child girl~
 the girl~
-A girl is here, playing jump jacks and other kids' games.
-~
+A girl is here, playing jump jacks and other kids' games.~
 The little girl looks up at you and says, 'Hi.  Can I have a pretty little
 coin?'  She then smiles and runs away, remembering her game.
 ~
@@ -345,8 +324,7 @@ stand stand female 0
 #621
 maid woman~
 the maid~
-A maid is here, cleaning the house and preparing the next meal.
-~
+A maid is here, cleaning the house and preparing the next meal.~
 The maid startles at your presence.  'You are ruining my floors!  Wait till
 Master and Mistress come back.  You will get me in trouble!  Shoo!', she says.
 She hits you with her broom.
@@ -361,8 +339,7 @@ stand stand female 2
 #622
 Nyles~
 Nyles the Bartender~
-Nyles the Bartender is here, ready to serve you up a good brew.
-~
+Nyles the Bartender is here, ready to serve you up a good brew.~
 Nyles is a hefty guy, who looks like he's waiting for the next bar fight to
 join in.  He keeps an eye on you and his glasses, making sure you don't steal
 any.
@@ -377,8 +354,7 @@ stand stand male 50
 #623
 cityguard guard~
 the Ofcol cityguard~
-An Ofcol cityguard is posted here to guard the gate.
-~
+An Ofcol cityguard is posted here to guard the gate.~
 This guard is surely a trained and skilled fighter.  He is fully armed and
 armored, and he uses his equipment with a practiced precision.  Luckily for 
 you, this guard will only use his deadly skills for the good of the citizens of
@@ -394,8 +370,7 @@ stand stand male 50
 #624
 bard~
 a bard~
-A bard is here, singing of the glories of Ofcol.
-~
+A bard is here, singing of the glories of Ofcol.~
 After years of traveling around the world, this bard has decided to stay in the
 peaceful city of Ofcol, and to sing of its unmatched glories.  He smiles at
 you, hinting toward a tip from you in ever a subtle way.
@@ -410,8 +385,7 @@ stand stand male 50
 #625
 servant~
 a servant~
-A servant is here, carrying the duties of the Keeper of the Golden Citadel.
-~
+A servant is here, carrying the duties of the Keeper of the Golden Citadel.~
 The servant smiles good-naturedly at you, then goes on his duties.
 ~
 human~
@@ -424,8 +398,7 @@ stand stand male 5
 #626
 squire~
 a squire~
-A squire is here, scurrying from duty to duty.
-~
+A squire is here, scurrying from duty to duty.~
 This young man smiles at you, but is too busy to chat.
 ~
 human~
@@ -438,8 +411,7 @@ stand stand male 5
 #627
 page~
 a page~
-A page is here, sending a message to his knight.
-~
+A page is here, sending a message to his knight.~
 The page smiles for you, asking if he can do you a favor too.
 ~
 human~
@@ -453,8 +425,7 @@ stand stand male 5
 priestess~
 the Priestess of Ofcol~
 The Priestess of Ofcol is here, blessing you 
-with her beatific smile.
-~
+with her beatific smile.~
 The Priestess of Ofcol is an old woman, perfectly at peace with herself and 
 with the world.  She devotes all her time to help teach you the ways of her
 god, Bahamut.  The dragon symbol around her neck looks almost alive.
@@ -487,8 +458,7 @@ r sound 999
 chaplain Jerrold~
 Chaplain Jerrold~
 Jerrold, the chaplain of this Citadel, is here 
-directing the activities of the people around here.
-~
+directing the activities of the people around here.~
 He smiles at you, with the enthusiasm of a little kid.  "What're you doing just
 STANDING here, young man?  Go help that other squire there!", he yells.  He
 turns to you and with a consipatory tone, whispers, "Kids!"
@@ -503,8 +473,7 @@ stand stand male 50
 #630
 dragonlord lord dragon~
 a Dragonlord~
-A knight wearing the scales of a dragon stands here.
-~
+A knight wearing the scales of a dragon stands here.~
 This person looks almost like a dragon itself.  His golden scales gleam with
 power.  He smiles at you with a vicious grin.  You're happy that he doesn't
 look upset at your presence. 
@@ -520,8 +489,7 @@ stand stand male 50
 dragon gold~
 The Ancient Gold Dragon~
 An old dragon shimmering with the colors of this 
-cavern peers at you sleepily.
-~
+cavern peers at you sleepily.~
 This dragon's head is taller than you.  He is annoyed at your disturbance, but
 realizing that you're no danger to him, he ignores you.  He waves to one of
 his attendants to escort you away.
@@ -541,8 +509,7 @@ r charm -33
 #632
 attendant~
 an attendant of the dragon~
-A person robed in gold is attending to the Keeper of the Citadel.
-~
+A person robed in gold is attending to the Keeper of the Citadel.~
 This elder servant to the Gold Dragon is very loyal to him, willing to risk
 his life for his liege.
 ~
@@ -557,8 +524,7 @@ stand stand male 250
 dragonknight knight dragon~
 a Dragonknight~
 A person dressed in the scales of a gold dragon 
-stands here, guarding the Golden Citadel.
-~
+stands here, guarding the Golden Citadel.~
 This person looks like a dragon itself.  His golden scales gleam with power.
 He smiles at you, showing very sharp teeth.
 ~
@@ -572,8 +538,7 @@ stand stand male 250
 #634
 cityguard guard~
 the Ofcol cityguard~
-An Ofcol cityguard is posted here to guard the gate.
-~
+An Ofcol cityguard is posted here to guard the gate.~
 This guard is surely a trained and skilled fighter.  He is fully armed and
 armored, and he uses his equipment with a practiced precision.  Luckily for 
 you, this guard will only use his deadly skills for the good of the citizens of
@@ -589,8 +554,7 @@ stand stand male 50
 #635
 old man~
 the Old Man~
-An Old man is standing here, informing you.
-~
+An Old man is standing here, informing you.~
 He is very old. But he still waits for the enterance.
 ~
 human~
@@ -1370,7 +1334,7 @@ g @rus none~
 the bottles of it on the floor make your mouth water and your mind swirl.  You
 also see a very large still.  So THIS is why there are so many grain fields!
 The exit is to the east.
-@rus  Ты попал к Гренни в самогонную.  Пьянящий аромат виски да куча полных
+@rus . Ты попал к Гренни в самогонную.  Пьянящий аромат виски да куча полных
 бутылок на полу кружат тебе голову и сушат горло, кроме того здесь стоит
 огромный перегонный аппарат.  Теперь ты понимаешь зачем ему столько полей. 
 Выход отсюда на востоке (east).  
@@ -1389,7 +1353,7 @@ S
 @eng You are in the big intersection between Raff Way and Impy Way.  Crowds 
 of people walk past you as they go on their daily tasks.  Raff Way continues
 east and west, and Impy Way runs north and south.
-@rus  Ты находишься на большом перекрестке между чертовой дорогой (Impy Way),
+@rus . Ты находишься на большом перекрестке между чертовой дорогой (Impy Way),
 которая тянется с севера (north) на юг (south) и улицей красных фонарей
 (Raff Way), пролегающей с запада (west) на восток (east).  
 Здесь многолюдно, каждый спешит куда-то по делам.
@@ -1428,7 +1392,7 @@ S
 @eng Impy Way@rus Чертова дорога~
 @eng You are on Impy Way.  You can see a leather shop east and a blacksmith
 west.  To the north you see a big intersection, and Impy Way continues south.
-@rus  Ты находишься на чертовой дороге (Impy Way). Магазин кожаных 
+@rus . Ты находишься на чертовой дороге (Impy Way). Магазин кожаных 
 изделий (Leather Shop) находится на востоке (east), а кузница (Blacksmith)
 на западе (west). К северу (north) отсюда виден большой перекресток
 (Big Interseption), чертова дорога тянется на юг (south).
@@ -1503,7 +1467,7 @@ S
 @eng You are on Impy Way.  To the east is a meat store, and to the west is a
 pawn shop.  Impy Way continues north and south.  People are rushing around you
 to go to these stores.
-@rus  Ты на чертовой дороге.  К востоку (east) от тебя стоит мясной павильон
+@rus . Ты на чертовой дороге.  К востоку (east) от тебя стоит мясной павильон
 (Meat store), а к западу (west) - ломбард (Pawn shop).  Улица тянется на
 север (north) и на юг (south).  Многие из горожан, окружающих тебя, спешат
 попасть в эти магазины.  
@@ -1577,7 +1541,7 @@ S
 @eng You are on Impy Way.  To the east is Farmer's Market, and to the west is
 Nyles' House of Ale.  Impy Way runs north and ends south of here.  You can hear
 the sound of housewives gossiping at the market.
-@rus  Ты на чертовой дороге (Impy Way).  К востоку (east) от тебя стоит
+@rus . Ты на чертовой дороге (Impy Way).  К востоку (east) от тебя стоит
 Фермерский рынок (Farmers Market), а к западу (west) пивная Нила (Nyles'
 House of Ale).  Улица тянется с севера (north) и заканчивается на юге
 (south).  По всей улице слышен гвалт торговок с рынка.  
@@ -1684,7 +1648,7 @@ S
 taller than you are.  You remember that the end of Impy Way is east of here, 
 and you think you see a building to the north.  The field continues south and 
 west.
-@rus  Ты находишься на кукурузном поле.  Ты плохо видишь окрестности через
+@rus . Ты находишься на кукурузном поле.  Ты плохо видишь окрестности через
 кукурузные стебли, которые намного выше тебя.  Ты все еще помнишь, что к
 востоку (east) отсюда - окраина чертовой дороги (Impy Way) и думаешь, что
 видишь какое-то строение к северу (north) отсюда.  Поле простирается на
@@ -1725,7 +1689,7 @@ S
 @eng You are among fruit trees in a field.  You see many apple and orange 
 trees.  You can make out the corn fields north and some vegetable patches west.
 The sight of the fruit makes your mouth water.
-@rus  Ты прогуливаешься по фруктовому саду.  Вокруг тебя куча деревьев с
+@rus . Ты прогуливаешься по фруктовому саду.  Вокруг тебя куча деревьев с
 обворожительными яблоками и апельсинами на ветках - попробовать не
 хочется?  Можешь прогуляться по кукурузному полю на севере (north) или по
 овощным плантациям на западе (west) если, конечно, хочешь.  
@@ -1751,7 +1715,7 @@ S
 @eng You are among the vegetable fields.  You see many cabbage and lettuce
 patches, along with tomato bushes and potato plants.  To the east are some
 fruit trees, and north are some wheat fields.
-@rus  Ты гуляешь по овощной плантации.  Вокруг много грядок с капустой и
+@rus . Ты гуляешь по овощной плантации.  Вокруг много грядок с капустой и
 салатом вперемешку с помидорами и картофелем.  Фруктовый сад к востоку
 (east), а пшеничное поле к северу (north) отсюда.  
 ~
@@ -1777,7 +1741,7 @@ S
 cool shadow from the tall stalks and scarecrow lulls you to sleep and dream
 of a little girl and little dog from a faraway place.  To the east are the corn
 stalks, and south of you are the vegetable patches.
-@rus  Ты шагаешь вдоль кромки пшеничного поля.  Тишина и благодать этого места
+@rus . Ты шагаешь вдоль кромки пшеничного поля.  Тишина и благодать этого места
 навевает воспоминания о твоих лучших мечтах.  Тебе не хочется уходить
 отсюда, но это насущная необходимость.  К востоку (east) от тебя кукурузное
 поле, к югу (south) же - овощная плантация.  
@@ -1803,7 +1767,7 @@ S
 @eng You are in the storage shed.  Bales of wheat, corn and hay are piled
 against the wall, and some vegetables are in carts.  You see a small door
 to the west.  The main exit is south.
-@rus  Вы попали в сарай.  Повсюду кукуруза, пшеница да сено, застоженные в
+@rus . Вы попали в сарай.  Повсюду кукуруза, пшеница да сено, застоженные в
 маленькие копешки, и немного овощей, хранящихся в тележках.  Приглядевшись,
 Вы видите маленькую дверцу в западной (west) стене сарая.  Главный вход с
 юга (south).  
@@ -1829,7 +1793,7 @@ S
 @eng You are in the slaughterhouse, where all the animals are slaughtered so
 that they can be sold or their skins be tanned.  The scream of dying animals
 makes your stomach churn.  The exit is to the west.
-@rus  Ты попал на зверобойню, где предсмертный рев животных режет твои нежные
+@rus . Ты попал на зверобойню, где предсмертный рев животных режет твои нежные
 уши. Выход из этого рая для некромантов на западе (west).  
 ~
 0 DS inside
@@ -1986,7 +1950,7 @@ S
 @eng You are on Impy Way.  East and west of you are big houses.  Impy Way
 continues north and reaches a big intersection south.  Children are running to
 from home to home.
-@rus  Ты на чертовой дороге (Impy Way).  К востоку (east) и западу (west) от
+@rus . Ты на чертовой дороге (Impy Way).  К востоку (east) и западу (west) от
 вас стоят огромные дома, меж которыми снуют детишки.  Улица продолжается на
 север (north) и проходит через большой перекресток (Big Imterseption) на
 юге (south).  
@@ -2152,7 +2116,7 @@ S
 @eng You are on Impy Way.  East and west of you are big houses.  Impy Way
 continues north and reaches a big intersection south.  Children are running to
 from home to home.
-@rus  Ты на чертовой дороге (Impy Way).  К востоку (east) и западу (west) от
+@rus . Ты на чертовой дороге (Impy Way).  К востоку (east) и западу (west) от
 вас стоят огромные дома, меж которыми снуют прохожие, спешащие по своим
 делам насущным.  Улица продолжается на север (north) и проходит через
 большой перекресток (Big Imterseption) на юге (south).  
@@ -2930,7 +2894,7 @@ S
 @eng You are on a dirt road.  To the east is a large building with a bad smell
 emanating from it.  To the west is the end of Impy Way, and this road continues
 south.
-@rus  Ты попал на грязную дорогу.  Внимательно осмотревшись, ты замечаешь
+@rus . Ты попал на грязную дорогу.  Внимательно осмотревшись, ты замечаешь
 большое строение к востоку (east) от себя, откуда несет каким-то смрадом.  К
 западу (west) от тебя окраина чертовой дороги (Impy Way) а эта дорога
 продолжается на юг (south).  

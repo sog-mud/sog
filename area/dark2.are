@@ -11,8 +11,7 @@ End
 #14501
 monkey big~
 the BIG monkey~
-A BIG monkey looks at you with interest.
-~
+A BIG monkey looks at you with interest.~
 This BIG monkey must weigh at least 200 pounds. It is covered with black
 fur and has the ugliest teeth you have ever seen.
 ~
@@ -40,8 +39,7 @@ r sound -50
 #14502
 merchant elf elven~
 the Elven Merchant~
-An Elven merchant checks his wares.
-~
+An Elven merchant checks his wares.~
 This Elf does not appear to be very prosperous. His violet eyes look you
 over as he tries to decide if you are a client or a salesman.
 ~
@@ -57,8 +55,7 @@ r charm -33
 #14503
 merchant dwarven~
 the Dwarven Merchant~
-The Dwarven Merchant greets you, "Welcome!"
-~
+The Dwarven Merchant greets you, "Welcome!"~
 This merchant has the Eye of the Tiger. "Welcome my friend," he says.
 ~
 dwarf~
@@ -74,8 +71,7 @@ r disease -25
 #14504
 merchant halfdwarf~
 the Halfdwarf Merchant~
-The Halfdwarf Merchant looks at you.
-~
+The Halfdwarf Merchant looks at you.~
 This man is only four feet tall but has a powerful body.  His arms reach
 almost to his calves.
 ~
@@ -103,8 +99,7 @@ r sound -50
 #14505
 merchant human~
 the Human Merchant~
-A large Human Merchant stands ready to sell you.
-~
+A large Human Merchant stands ready to sell you.~
 Many of the merchants you have seen throughout your life resemble this man.
 ~
 human~
@@ -131,8 +126,7 @@ r sound -50
 #14506
 adventurer madboy~
 Madboy the Adventurer~
-Madboy the Adventurer sneers at you.
-~
+Madboy the Adventurer sneers at you.~
 This adventurer is a largish, oafish, boy with the largest ego you've ever
 seen.  His ego is writing checks his character will never be able to cash.
 ~
@@ -160,8 +154,7 @@ r sound -50
 #14507
 soldier bearded~
 the Bearded Soldier~
-The Bearded Soldier stand alert.
-~
+The Bearded Soldier stand alert.~
 This soldier has an alert look about him.  With his pointed beard and
 sharp sword the security he provides comes mostly from his presence.
 ~
@@ -189,8 +182,7 @@ r sound 33
 #14508
 soldier alert~
 the Alert Soldier~
-The Alert Soldier glares at you suspiciously.
-~
+The Alert Soldier glares at you suspiciously.~
 This soldier greets you with a bared blade. I don't think you'll be
 sneaking up on him.
 ~
@@ -218,8 +210,7 @@ r sound 33
 #14509
 soldier sleepy~
 the Sleepy Soldier~
-This Sleepy Soldier doesn't see you.
-~
+This Sleepy Soldier doesn't see you.~
 Without looking in his eye you have no idea how tough he would be.
 ~
 human~
@@ -246,8 +237,7 @@ r sound 33
 #14510
 Watcher~
 the Watcher~
-The Watcher is looking for evil.
-~
+The Watcher is looking for evil.~
 This female Watcher is one of those cultist who protect the rest of the
 world from those they determine are evil.
 ~
@@ -275,8 +265,7 @@ r sound 33
 #14511
 pig fat~
 the fat pig~
-A fat pig is rooting around for food.
-~
+A fat pig is rooting around for food.~
 This fat pig is very hungry. He eats just about ANYTHING.
 ~
 pig~
@@ -289,8 +278,7 @@ B V medium unknown
 #14512
 dog~
 the dog~
-A dog sits here wagging it's tail.
-~
+A dog sits here wagging it's tail.~
 The dog looks back at you.  After a few moments it sits up..
 puts a cigar in it's mouth, lights it, and asks, "So..what's up bub?"
 ~
@@ -318,8 +306,7 @@ r sound 33
 #14513
 chicken~
 the chicken~
-A scrawny chicken is scratching for something.
-~
+A scrawny chicken is scratching for something.~
 This chicken is so skinny it WOULDN'T provide enough meat for a soup.
         ************ IT ESCAPE FROM KFC BAR !!! *************
 ~
@@ -348,8 +335,7 @@ r sound 999
 #14514
 human man~
 the Human Man~
-A Human Man goes about his business.
-~
+A Human Man goes about his business.~
 This guy looks like an advertisement for a wilderness clothing company.
 From his buckskins to his fur cap he fits the part.
 ~
@@ -377,8 +363,7 @@ r sound -50
 #14515
 woman human~
 the Human Woman~
-A Human Woman walks by.
-~
+A Human Woman walks by.~
 She appears to be distracted by some inner thought. Although she seems
 to be in good health, her eyes are puffy and red.
 ~
@@ -406,8 +391,7 @@ r sound -50
 #14516
 man elven~
 the Elven Man~
-An Elven Man is here, looking for something.
-~
+An Elven Man is here, looking for something.~
 The Elven Man looks at you intently before continuing on his way.
 ~
 elf~
@@ -422,8 +406,7 @@ r charm -33
 #14517
 woman elven~
 the Elven Woman~
-A beautiful Elven Woman paces back and forth before you.
-~
+A beautiful Elven Woman paces back and forth before you.~
 Looking into her eyes causes you great fear.
 ~
 elf~
@@ -438,8 +421,7 @@ r charm -33
 #14518
 woman dwarven~
 the Dwarven Woman~
-The Dwarven Woman is smacking her fist in her hand.
-~
+The Dwarven Woman is smacking her fist in her hand.~
 Stand back!  She's about to blow!!!
 ~
 unique~
@@ -454,8 +436,7 @@ r disease 33
 #14519
 man dwarven~
 the Dwarven Man~
-A large Dwarven Man walks by you.
-~
+A large Dwarven Man walks by you.~
 He looks back at you, then dismisses you as unimportant.
 ~
 unique~
@@ -470,8 +451,7 @@ r disease 33
 #14520
 warrior goblin~
 the Goblin Warrior~
-The Goblin Warrior raises his hand to strike you.
-~
+The Goblin Warrior raises his hand to strike you.~
 This goblin must be a shock troop.  He is HUGE. Standing 6' tall and weighing
 about 250 pounds his bite will be worse than you would think. He is lightly
 armed and armored, doesn't wear boots, and has claws and talons with which

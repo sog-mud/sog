@@ -11,8 +11,7 @@ End
 #2900
 hollyphant~
 a Hollyphant~
-A Hollyphant is delivering a message here.
-~
+A Hollyphant is delivering a message here.~
 It looks like a large, winged, furry elephant.  It emits an aura of goodness.
 ~
 dragon~
@@ -30,8 +29,7 @@ r charm -33
 #2901
 planetar~
 a planetar~
-A planetar is here watching out for his masters interest.
-~
+A planetar is here watching out for his masters interest.~
 Humanoid in appearance, the planetar has wings and is
 hairless.  He is on a mission from his deity.
 ~
@@ -45,8 +43,7 @@ stand stand either 4500
 #2902
 shedu~
 a Shedu~
-A Shedu is here fighting evil.
-~
+A Shedu is here fighting evil.~
 Half man, half beast.  The Shedu is out looking for evil anywhere it may be 
 and it will hunt down until death is the result.
 ~
@@ -60,8 +57,7 @@ stand stand either 500
 #2903
 dretch demon~
 a dretch~
-A dretch is here slobbering on you.
-~
+A dretch is here slobbering on you.~
 A pathetic, slobbering thing.  The dretch is constantly picked on by its more 
 powerful, demon brothers.
 ~
@@ -77,8 +73,7 @@ r cold -33
 #2904
 chasme fly demon~
 a chasme~
-A chasme is flying around here.
-~
+A chasme is flying around here.~
 The chasme or fly demon is half-human and half-fly.  They dont like anyone, 
 not even other demons.
 ~
@@ -106,8 +101,7 @@ r sound -50
 #2905
 babau ebony~
 a babau~
-A babau is standing here looking for food.
-~
+A babau is standing here looking for food.~
 The babau or one-horned horror is a demon of considerable fright. He appears
 a skeleton with a black leather jumpsuit on.  He is constantly searching
 for flesh to eat.
@@ -122,8 +116,7 @@ stand stand either 1400
 #2906
 yagnodemon demon~
 a yagnodemon~
-A yagnodemon is here flexing his giant-sized arm.
-~
+A yagnodemon is here flexing his giant-sized arm.~
 The yagnodemon has one man-sized and one giant-sized arm. With the giant-sized 
 arm it can wield huge weapons.  He is not in a good mood right now.
 ~
@@ -137,8 +130,7 @@ stand stand either 2900
 #2907
 kostchtchie demon kost~
 Kostchtchie~
-Kostchtchie is here resting on his journey of evil.
-~
+Kostchtchie is here resting on his journey of evil.~
 Kostchtchie a powerful demon lord is here.  Obviously derived from giant stock, 
 he is very powerful.  And he does not like to be interrupted.
 ~
@@ -153,8 +145,7 @@ r charm 999
 #2908
 nabassu demon~
 a nabassu~
-A nabassu is here looking to upgrade his status.
-~
+A nabassu is here looking to upgrade his status.~
 A tall, thin demon, the nabassu are very bat-like in appearance.  
 He seems to have an intense interest in you.
 ~
@@ -171,8 +162,7 @@ r slash -50
 #2909
 dragon cloud~
 a cloud dragon~
-A cloud dragon is here wanting to be left alone.
-~
+A cloud dragon is here wanting to be left alone.~
 This dragon is as large as a red dragon, but does not like to get involved 
 in the struggle between good and evil.  It wants to be left alone.
 ~
@@ -191,8 +181,7 @@ r charm -33
 #2910
 solar~
 a solar~
-A solar is here contemplating the fight against evil.
-~
+A solar is here contemplating the fight against evil.~
 A beautiful being, the solar is totally dedicated to the continuation 
 of the good beings.
 ~
@@ -206,8 +195,7 @@ stand stand either 8000
 #2911
 wemic~
 a wemic~
-A wemic is hunting here.
-~
+A wemic is hunting here.~
 Part man, part lion, and part horse; the wemic is a creature 
 not to be taken lightly.
 ~
@@ -223,8 +211,7 @@ r cold -33
 #2912
 frost giant~
 a frost giant~
-A frost giant is here looking for treasure.
-~
+A frost giant is here looking for treasure.~
 Large members of the giant family, the frost giants are ravenous collectors 
 of treasure.  They dont like to share this treasure with anyone.
 ~
@@ -243,8 +230,7 @@ r charm 999
 #2913
 gorgimera~
 a gorgimera~
-A gorgimera is here flexing its wings.
-~
+A gorgimera is here flexing its wings.~
 This three-headed monster is waiting to rip the head off of its latest victim
 to add to its collection.  Watch out for that breath attack.
 ~
@@ -263,8 +249,7 @@ r charm 999
 #2914
 ratatosk~
 Ratatosk~
-Ratatosk is here delivering the Gods messages.
-~
+Ratatosk is here delivering the Gods messages.~
 You see a giant squirrel carrying greetings and tidings from the various 
 deities residing in these realms.  He does not want to be delayed in his task.
 ~

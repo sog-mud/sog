@@ -13,9 +13,7 @@ End
 GuildMaster Master наставник мастер~
 @eng the Guildmaster@rus наставник~
 @eng Your Guildmaster stands here, patiently waiting to 
-teach you.
-@rus Ваш наставник (guildmaster) терпеливо ждет Вас здесь, чтобы учить.
-~
+teach you.@rus Ваш наставник (guildmaster) терпеливо ждет Вас здесь, чтобы учить.~
 @eng G'hirjil D'Umordin regards you, reading your soul.  At  his  side is
 his most prized weapon, a scythe of  great  power,  and  his hands are
 ready to grab it in a flash.  He wears a long dark robe, and daring to 
@@ -53,9 +51,7 @@ r sound 999
 GuildMaster Master наставник мастер~
 @eng the Guildmaster@rus наставник~
 @eng Your Guildmaster stands here, patiently waiting to 
-teach you.
-@rus Ваш наставник (guildmaster) терпеливо ожидает Вас для следующего урока.
-~
+teach you.@rus Ваш наставник (guildmaster) терпеливо ожидает Вас для следующего урока.~
 @eng He wears a colorful tunic and patchwork leggings.  In  his  hands is
 his most prized possession, a harp  of gold,  whose strings sparkle in
 the torchlight.
@@ -91,8 +87,7 @@ r sound 999
 GuildMaster наставник~
 the Guildmaster~
 Your Guildmaster stands here, glowing with energies
-he is channeling from the floor upon which he stands.
-~
+he is channeling from the floor upon which he stands.~
 You feel a tingling as the Guildmaster summons 
 forth a Vortex of Mystical Power. His robe sparks 
 with flashing lights as he pulls in more and more 
@@ -126,8 +121,7 @@ r sound 999
 GuildMaster Master WeaponsMaster Weapons~
 the WeaponsMaster~
 Your Guildmaster, the Master of Weapons, stands here, 
-patiently waiting to teach you.
-~
+patiently waiting to teach you.~
 Tordril Thedrilson wears light but strong armor. 
 On his head is a jeweled helm, a gift from an
 elven queen. At his side is his most prized weapon,
@@ -161,8 +155,7 @@ r sound 999
 #40105
 GuildMaster Master~
 the Guildmaster~
-Your Guildmaster stands here, morphing constantly.
-~
+Your Guildmaster stands here, morphing constantly.~
 He changes shape so often, you don't really know
 what he'll be next, or if you're even looking at
 him. Once in a while he looks like something
@@ -197,8 +190,7 @@ r sound 999
 GuildMaster Master~
 the Guildmaster~
 Your Guildmaster stands here, scowling at the thought
-of Paladins roaming the world.
-~
+of Paladins roaming the world.~
 Your Guildmaster stands here, patiently waiting to 
 teach you the dark arts and skills needed to combat
 those cleric-warriors known as Paladins, whose sole
@@ -235,8 +227,7 @@ r sound 999
 GuildMaster Master Paladin~
 the Guildmaster~
 Your Guildmaster stands here, patiently waiting to 
-teach you.
-~
+teach you.~
 The Guildmaster stands here, patiently waiting to 
 teach you spells and skills tried and tested against
 those who would bring darkness upon the world. So 
@@ -272,8 +263,7 @@ r sound 999
 #40108
 GuildMaster Master~
 the Guildmaster~
-Your Guildmaster stands here quietly praying. 
-~
+Your Guildmaster stands here quietly praying. ~
 The Guildmaster quietly prays to his god that 
 you will learn much and please the powers that 
 be. He wears clerical robes, and on his head is
@@ -307,8 +297,7 @@ r sound 999
 #40109
 GuildMaster Master~
 the Guildmaster~
-Your Guildmaster hovers here.
-~
+Your Guildmaster hovers here.~
 The Guildmaster hovers here, patiently waiting to 
 teach you something new in the black arts. You look 
 at him and see that he is nearly entirely cloaked
@@ -344,8 +333,7 @@ r sound 999
 GuildMaster~
 the Guildmaster~
 Your Guildmaster sits with his back against the
-wall.
-~
+wall.~
 The Guildmaster has learned the wisdom of keeping
 the wall to his back, for it prevents a backstab.
 He regards you with shifty eyes, one hand absently
@@ -380,8 +368,7 @@ r sound 999
 #40111
 GuildMaster~
 the Guildmaster~
-Your Guildmaster adjusts the settings on the telescope.
-~
+Your Guildmaster adjusts the settings on the telescope.~
 The GuildMaster wears a dark blue robe with silver
 moons and stars. Partially covering his grey hair
 is a small matching cap. Peeking out from many pockets
@@ -416,8 +403,7 @@ r sound 999
 GuildMaster~
 the Guildmaster~
 Your Guildmaster stands here, patiently waiting to 
-teach you.
-~
+teach you.~
 The Guildmaster stands here, patiently waiting to 
 teach you something new. At his side is his most 
 prized weapon, and his hands are ready to grab it 
@@ -450,8 +436,7 @@ r sound 999
 #40113
 Bank President Banker~
 the President of the Bank~
-The President of the Bank hopes you will deposit more gold.
-~
+The President of the Bank hopes you will deposit more gold.~
 Wearing conservative clothing, the President of the Bank is
 here to see that the tellers treat the bank customers with
 courtesy (and also that they do not embe401le). He is a grey-
@@ -484,8 +469,7 @@ r sound 999
 #40114
 cityguard guard captain~
 the Captain of the City Guard~
-The Captain of the City Guard sits at his cluttered desk.
-~
+The Captain of the City Guard sits at his cluttered desk.~
 Wearing the uniform of a captain of the City Guard, he 
 looks up from his work and wonders what crime you wish
 to report.
@@ -504,8 +488,7 @@ r charm -33
 #40115
 cityguard guard~
 the Cityguard~
-The Cityguard stands ready to defend the lawful.
-~
+The Cityguard stands ready to defend the lawful.~
 He looks watchful and alert. Better be careful.
 ~
 elf~
@@ -522,8 +505,7 @@ r charm -33
 #40116
 cityguard guard patroller~
 the Cityguard Patroller~
-The Cityguard Patroller searches for criminals.
-~
+The Cityguard Patroller searches for criminals.~
 He looks watchful and alert, his eyes icy, his
 demeanor no-nonsense. 
 ~
@@ -541,8 +523,7 @@ r charm -33
 #40117
 cityguard gate guard gateguard~
 the Gate Guard~
-The Gate Guard stands watch against invaders.
-~
+The Gate Guard stands watch against invaders.~
 He watches the gate and those who enter and leave
 the city, hoping to stop troublemakers before they
 get too far into the city.
@@ -561,8 +542,7 @@ r charm -33
 #40118
 lieutenant cityguard guard~
 the Lieutenant of the Cityguard~
-The Lieutenant of the Cityguard stands here looking bored.
-~
+The Lieutenant of the Cityguard stands here looking bored.~
 He looks like he hasn't been in a good fight in a long time.
 Want to make his day?
 ~
@@ -580,8 +560,7 @@ r charm -33
 #40119
 tavernkeeper barkeep blane~
 Blane the Tavernkeeper~
-Blane the Tavernkeeper prepares his special drinks.
-~
+Blane the Tavernkeeper prepares his special drinks.~
 He has a lean and hungry look, unexpected for one who works with
 food and drink all day and all night, but Blane prepares drinks,
 he has a cook who prepares the meals, and he is careful of his
@@ -607,8 +586,7 @@ r charm -33
 #40120
 Ilse barmaid maid~
 Ilse the Barmaid~
-Ilse the Barmaid balances a tray of foaming beer mugs.
-~
+Ilse the Barmaid balances a tray of foaming beer mugs.~
 This shapely lass has been a barmaid for as long as anyone can
 remember. Her welcome smile and low cut blouse make her a favorite
 among the patrons of the tavern. Her blonde hair is braided and 
@@ -627,8 +605,7 @@ r charm -33
 #40121
 Sam harpsichordist player~
 Sam the harpsichord player~
-Sam is sitting at the harpsichord waiting for your request.
-~
+Sam is sitting at the harpsichord waiting for your request.~
 An overweight human who has obviously spent more time sitting
 at harpsichords in bars than exercising his muscles out on
 adventures, Sam plays the instrument like a dream. His black
@@ -647,8 +624,7 @@ r sound 33
 #40122
 Laslow gambler~
 Laslow the gambler~
-Laslow the gambler deals out the cards.
-~
+Laslow the gambler deals out the cards.~
 Tall, thin, pale, this man looks as though he hasn't seen much
 sunlight. Indeed, look at his wrists, and you could swear he
 has spent much time shackled in a prison cell. His clothes are
@@ -668,8 +644,7 @@ r charm -33
 #40123
 Frenschi gambler~
 Frenschi the gambler~
-Frenschi the gambler counts his winnings.
-~
+Frenschi the gambler counts his winnings.~
 Frenschi has a short moustache and bushy eyebrows. His
 pale skin reflects an aversion to sunlight. His brown
 eyes dart here and there as he keeps track of everyone
@@ -688,8 +663,7 @@ r holy 33
 #40124
 Jeaves~
 Jeaves the seller of servants~
-Jeaves is here waiting to sell you a servant.
-~
+Jeaves is here waiting to sell you a servant.~
 He is dressed neatly and formally, and has an air of 
 superiority and wisdom about him.
 ~
@@ -705,8 +679,7 @@ r charm 999
 #40125
 kitten cat pet~
 the kitten~
-A small loyal kitten with grey and black stripes is here.
-~
+A small loyal kitten with grey and black stripes is here.~
 The kitten looks like a cute, little, fierce fighter.
 ~
 cat~
@@ -721,8 +694,7 @@ r mental 33
 #40126
 puppy dog pet~
 the puppy~
-A small loyal puppy with big brown eyes is here.
-~
+A small loyal puppy with big brown eyes is here.~
 The puppy looks like a cute, little, fierce fighter.
 ~
 dog~
@@ -749,8 +721,7 @@ r sound 33
 #40127
 doberman dog pet~
 the doberman~
-A large, loyal doberman is here.
-~
+A large, loyal doberman is here.~
 The doberman looks like a strong, fierce, tenacious fighter.
 ~
 dog~
@@ -777,8 +748,7 @@ r sound 33
 #40128
 falcon bird pet~
 the falcon~
-A loyal falcon circles overhead.
-~
+A loyal falcon circles overhead.~
 The falcon looks like a strong, fierce fighter.
 ~
 song bird~
@@ -805,8 +775,7 @@ r sound 33
 #40129
 human mercenary~
 the human mercenary~
-A mercenary stands here waiting for a job.
-~
+A mercenary stands here waiting for a job.~
 You see an assassin down on his luck looking to be freelanced out.
 ~
 human~
@@ -819,8 +788,7 @@ stand stand male 5
 #40130
 dwarven mercenary~
 the dwarven mercenary~
-A dwarf stands here waiting to serve his master.
-~
+A dwarf stands here waiting to serve his master.~
 You see a warrior who thinks nothing of selling his services.
 ~
 dwarf~
@@ -836,8 +804,7 @@ r disease -25
 #40131
 giant mercenary~
 the giant mercenary~
-A giant stands by awaiting his master's command.
-~
+A giant stands by awaiting his master's command.~
 You see a giant who will be loyal to his master... for a price.
 ~
 giant~
@@ -854,8 +821,7 @@ r mental 50
 #40132
 Thedril Saphorson mayor~
 Thedril Saphorson, Mayor of Elvenhame~
-Thedril Saphorson, Mayor of Elvenhame, is here.
-~
+Thedril Saphorson, Mayor of Elvenhame, is here.~
 He has been Mayor of Elvenhame nearly forever, or so most of the
 citizens will tell you. You can tell he doesn't spend much time
 sitting at his desk in City Hall, for he's much too lean and
@@ -879,8 +845,7 @@ r charm -33
 #40133
 kitten cat~
 the little kitten~
-A tan kitten with blue eyes is here.
-~
+A tan kitten with blue eyes is here.~
 The kitten's ears are tipped with dark brown, as is
 its nose. Its tail is entirely dark brown. It looks
 soft and cuddly.
@@ -897,8 +862,7 @@ r mental 33
 #40134
 alley cat alleycat~
 the scrawny alleycat~
-A scrawny alleycat searches for food.
-~
+A scrawny alleycat searches for food.~
 It looks as though it hasn't eaten in days, and its
 fur has lost that lustre you find on the fur of loved
 pets. Plaintively it mews, hoping you have something 
@@ -916,8 +880,7 @@ r mental 33
 #40135
 drunk man~
 the drunk~
-The drunk wobbles as he walks.
-~
+The drunk wobbles as he walks.~
 He has liquor on his breath and bloodshot eyes.
 ~
 human~
@@ -934,8 +897,7 @@ r holy 33
 shopkeeper man Kal'ille~
 Kal'ille M'Gorn~
 Kal'ille M'Gorn, the shopkeeper, waits for you to make up 
-your mind.
-~
+your mind.~
 He wipes the counter, dusts the shelves of goods, and
 whistles a happy tune. Whenever you're ready, buy
 something. He'll gladly stop cleaning to take your
@@ -956,8 +918,7 @@ r charm -33
 #40137
 citizen man~
 a citizen~
-An elvish citizen is here, wondering what you are looking at.
-~
+An elvish citizen is here, wondering what you are looking at.~
 Wearing a green robe, this citizen appears to be one of the
 many magic users who lives in the city. He does not much like
 being stared at, and considers weaving a spell to keep you from
@@ -981,8 +942,7 @@ r charm -33
 #40138
 citizen woman~
 a citizen~
-An elvish citizen is here, showing off her new robe.
-~
+An elvish citizen is here, showing off her new robe.~
 She is very proud of the purple cloth and golden belt
 and thinks it goes good with her eyes.
 ~
@@ -1003,8 +963,7 @@ r charm -33
 #40139
 elf child~
 the elf child~
-The elf child is here, playing with a toy.
-~
+The elf child is here, playing with a toy.~
 The child is too busy playing to pay 
 attention to you. 
 ~
@@ -1025,8 +984,7 @@ r charm -33
 #40140
 citizen man~
 a citizen~
-A drow citizen is here, wondering what you are looking at.
-~
+A drow citizen is here, wondering what you are looking at.~
 Wearing a red robe, this citizen appears to be one of the
 many magic users who lives in the city. He does not much like
 being stared at, and considers weaving a spell to keep you from
@@ -1049,8 +1007,7 @@ r charm -33
 #40141
 citizen woman~
 a citizen~
-A drow citizen is here, showing off her new whip.
-~
+A drow citizen is here, showing off her new whip.~
 She is very proud of the snake-headed whip and can't wait
 to see what kind of damage it does.
 ~
@@ -1071,8 +1028,7 @@ r charm -33
 #40142
 drow child~
 the drow child~
-The drow child is here, playing with a toy.
-~
+The drow child is here, playing with a toy.~
 The child is too busy playing to pay 
 attention to you. 
 ~
@@ -1093,8 +1049,7 @@ r charm -33
 #40143
 citizen man~
 a citizen~
-A grey-elven citizen is here, wondering what you are looking at.
-~
+A grey-elven citizen is here, wondering what you are looking at.~
 Wearing a blue robe, this citizen appears to be one of the
 many magic users who lives in the city. He does not much like
 being stared at, and considers weaving a spell to keep you from
@@ -1118,8 +1073,7 @@ r charm -33
 #40144
 citizen woman~
 a citizen~
-A grey-elven citizen is here, showing off her new robe.
-~
+A grey-elven citizen is here, showing off her new robe.~
 She is very proud of the blue velvet robe and silver belt
 and thinks it goes good with her eyes.
 ~
@@ -1140,8 +1094,7 @@ r charm -33
 #40145
 grey-elven elf child~
 the grey-elven child~
-The grey-elven child is here, playing with a toy.
-~
+The grey-elven child is here, playing with a toy.~
 The child is too busy playing to pay 
 attention to you. 
 ~
@@ -1162,8 +1115,7 @@ r charm -33
 #40146
 butcher~
 De'Lyron P'Gille the butcher~
-De'Lyron P'Gille the butcher is here waiting for your order.
-~
+De'Lyron P'Gille the butcher is here waiting for your order.~
 He wields a mean meat cleaver, and the clean cut of his meat
 is proof enough he knows how to use it.
 ~
@@ -1194,8 +1146,7 @@ r sound 999
 #40147
 Nech'lir blacksmith~
 Nech'lir the blacksmith~
-Nech'lir the blacksmith hammers the finishing touches on a vest.
-~
+Nech'lir the blacksmith hammers the finishing touches on a vest.~
 This mighty drow is more muscular than most because of his calling
 in life. The forge is his friend, the hammer an extension of his
 arm. He appreciates fine armor and fine workmanship.
@@ -1227,8 +1178,7 @@ r sound 999
 #40148
 Sarn'otha jeweller~
 Sarn'otha Vent'Mir the jeweller~
-Sarn'otha Vent'Mir, the jeweller, stands behind the counter.
-~
+Sarn'otha Vent'Mir, the jeweller, stands behind the counter.~
 The jeweller looks older than old, unusual for one of the drowish
 race. Her black skin is wrinkled, her white hair without the lively
 lustre seen on most drow manes. She wears a light blue tunic, dark
@@ -1265,8 +1215,7 @@ r sound 999
 Gethnir'Rah weaponssmith~
 Gethnir'Rah F'nith the weaponsmith~
 Gethnir'Rah F'nith, the weaponsmith, beats upon the metal of a 
-newly formed blade.
-~
+newly formed blade.~
 The weaponsmith has bulging muscles and his skin glistens with
 sweat. Unusual for an elf, but this one is dedicated to the
 making of weapons and blades. His skin is ruddy from exposure
@@ -1303,8 +1252,7 @@ r sound 999
 #40150
 healer adept~
 The Healer Adept~
-The Healer Adept is here.
-~
+The Healer Adept is here.~
 You see a grey-elven maiden with long reddish-brown hair tied
 back with ribbons of every rainbow color. Her long robe shimmers.
 She serves the Goddess of Magic by uttering magic spells which
@@ -1337,8 +1285,7 @@ r sound 999
 #40151
 necromancer shopkeeper Xaixara~
 The Necromancer-Alchemist~
-The Necromancer-Alchemist is here brewing another potion.
-~
+The Necromancer-Alchemist is here brewing another potion.~
 You see a dark-elven maiden with long brown hair streaked
 with gold. Unlike most drow, she has light skin and looks
 more like a grey-elf or a light-elf. Her lavender eyes

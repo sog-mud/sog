@@ -11,9 +11,7 @@ End
 #2300
 knight ethereal dark рыцарь~
 @eng the Dark Ethereal Knight@rus ~~эфирный~~ ~~рыцарь~~~
-@eng A dark ethereal knight hovers over the bloody clearing.
-@rus Темный эфемерный рыцарь (knight) парит над остатками битвы.
-~
+@eng A dark ethereal knight hovers over the bloody clearing.@rus Темный эфемерный рыцарь (knight) парит над остатками битвы.~
 @eng The ethereal knight is clad in shadowy black armor. It appears as though he
 was involved in the carnage that occurred here. His soul is trapped here, as
 he waits for release.
@@ -31,9 +29,7 @@ stand stand male 1250
 #2301
 treant tree дерево~
 @eng the Old Treant@rus старое Дерево~
-@eng A huge, gnarled tree stands here, battered by age and nature.
-@rus Огромное дерево (tree) с крючковатыми ветвями стоит здесь.
-~
+@eng A huge, gnarled tree stands here, battered by age and nature.@rus Огромное дерево (tree) с крючковатыми ветвями стоит здесь.~
 @eng The old tree looks as though the wind has battered and torn at it for years.
 Very few leaves remain. Its limbs are crooked and gnarled. It moans as the 
 wind pushes it back and forth.
@@ -52,9 +48,7 @@ stand stand none 250
 #2302
 dweller cave creature тварь~
 @eng the Cave Dweller@rus ~~пещерная~~ ~~тварь~~~
-@eng A slimy, gross creature is here munching on a corpse.
-@rus Скользкая, волосатая тварь (creature) обгладывает труп.
-~
+@eng A slimy, gross creature is here munching on a corpse.@rus Скользкая, волосатая тварь (creature) обгладывает труп.~
 @eng The cave dweller looks like a mixture of several disgusting monsters. It has
 a bird's beak, huge white eyes, a furry body, and long clawed hands and feet.
 It sees you and snarls.
@@ -72,9 +66,7 @@ stand stand none 125
 #2303
 toad rock жаба~
 @eng the Rock Toad@rus ~~каменная~~ ~~жаба~~~
-@eng A rather large rock toad sits here, croaking loudly.
-@rus Большая каменная жаба (toad) сидит здесь, громко квакая.
-~
+@eng A rather large rock toad sits here, croaking loudly.@rus Большая каменная жаба (toad) сидит здесь, громко квакая.~
 @eng A grey toad. Its about the size of a cow. Small horns grow all over its body.
 @rus Серая жаба. Размером похожа на корову. Маленькие рожки покрывают
 все ее тело.
@@ -89,9 +81,7 @@ sit sit female 127
 #2304
 weeping willow tree дерево ива~
 @eng the Weeping Willow@rus ~~плакучая~~ ~~ива~~~
-@eng A large willow tree stands here, weeping.
-@rus Огромная ива (willow) склонилась в печали.
-~
+@eng A large willow tree stands here, weeping.@rus Огромная ива (willow) склонилась в печали.~
 @eng The weeping willow has long thins branches. These branches seem to droop in
 anguish and dismay. You hear a faint sound of crying.
 @rus У этого дерева длинные тонкие ветви, бессильно свисающие в печали и
@@ -107,9 +97,7 @@ stand stand female 1000
 #2305
 mist mistling элементаль~
 @eng the Mistling@rus ~~туманная~~ ~~элементаль~~~
-@eng A mistling emerges from the mist surrounding you.
-@rus Клубящийся клок тумана окружает тебя.
-~
+@eng A mistling emerges from the mist surrounding you.@rus Клубящийся клок тумана окружает тебя.~
 @eng It looks like a thin wisp of mist that has gained substance and size.
 @rus Он похож на тоненькую частичку тумана, которая обрела форму и суть.
 ~
@@ -123,9 +111,7 @@ stand stand none 50
 #2306
 swamp wraith призрак~
 @eng the Swamp Wraith@rus ~~Болотный~~ ~~призрак~~~
-@eng A swamp wraith emerges from the mist here.
-@rus Болотный призрак выплывает из тумана.
-~
+@eng A swamp wraith emerges from the mist here.@rus Болотный призрак выплывает из тумана.~
 @eng The swamp wraith is made of mist and is in the image of a great warrior. He
 appears to emerge from the mist. You feel the cold radiating from his form as
 he nears you.
@@ -143,8 +129,7 @@ stand stand male 1250
 #2307
 ogre villager~
 the Ogre Villager~
-The ogre villager is here, going about its chores.
-~
+The ogre villager is here, going about its chores.~
 You see a pitifully overworked ogre. It is dressed in rags and shuffles along
 with its head hung low. It sees you and cringes in mortal terror.
 ~
@@ -158,8 +143,7 @@ stand stand none 10
 #2308
 warrior ogre~
 the Ogre Warrior~
-The ogre warrior stands here, growling fiercely.
-~
+The ogre warrior stands here, growling fiercely.~
 The ogre warrior is dressed in thick fur armor. He looks quite large and
 formidable.
 ~
@@ -173,8 +157,7 @@ stand stand male 250
 #2309
 guard ogre~
 the Ogre Guard~
-The ogre guard is here manning his post faithfully.
-~
+The ogre guard is here manning his post faithfully.~
 The ogre guard stands here manning his post. It appears as though he would
 fight to the death before abandoning his post.
 ~
@@ -188,9 +171,7 @@ stand stand male 500
 #2310
 shaman ogre шаман~
 @eng The Ogre Shaman@rus ~~огр~~-~~шаман~~~
-@eng The ogre shaman is here chanting arcane words and waving his arms.
-@rus Огр-шаман бормочет нечестивые слова и машет своими руками.
-~
+@eng The ogre shaman is here chanting arcane words and waving his arms.@rus Огр-шаман бормочет нечестивые слова и машет своими руками.~
 @eng The ogre shaman is draped in thick fur cloaks and pelts. He has all types of
 charms and holy symbols draped about him. He looks at you and snarls.
 @rus Огр-шаман облачен в тонкие плащ и штаны. У него есть все символы
@@ -207,9 +188,7 @@ stand stand male 2500
 #2311
 chief chieftain ogre шеф~
 @eng the Ogre Chieftain@rus Огр-шеф~
-@eng The ogre chieftain is here, observing his subjects.
-@rus Огр-шеф (chief) занимается здесь своими делами.
-~
+@eng The ogre chieftain is here, observing his subjects.@rus Огр-шеф (chief) занимается здесь своими делами.~
 @eng This is the biggest ogre you have ever seen. He is heavily equipped and looks
 quite formidable. He towers high above you and growls menacingly.
 @rus Это -- громаднейший огр из всех, каких ты только видывал.
@@ -226,8 +205,7 @@ stand stand male 2500
 #2312
 barbarian~
 the Plains Barbarian~
-A plains barbarian is here, clad in heavy furs.
-~
+A plains barbarian is here, clad in heavy furs.~
 The plains barbarian is clad in heavy furs. He seems used to the chilling cold
 and icy wastes.
 ~
@@ -241,8 +219,7 @@ stand stand male 250
 #2313
 yeti white~
 the White Yeti~
-The white yeti crouches here snarling.
-~
+The white yeti crouches here snarling.~
 The white yeti looks like a huge white snow ape. Its long arms end in long
 curved talons and its mouth is full of sharp teeth.
 ~
@@ -257,8 +234,7 @@ stand stand none 50
 worm ice iceworm~
 the Ice Worm~
 A huge ice worm burrows through the ice and snow here. It rears up and
-attacks!
-~
+attacks!~
 The huge worm is almost 50 feet long. Its huge gaping mouth spews ice and snow
 as it charges directly at you.
 ~
@@ -272,8 +248,7 @@ stand stand none 175
 #2315
 citizen minotaur~
 the Minotaur Citizen~
-A minotaur citizen is here, hurrying through the icy streets.
-~
+A minotaur citizen is here, hurrying through the icy streets.~
 You see a rather ragged and cold minotaur. It appears to be looking for a warm
 place to seek refuge from the cold.
 ~
@@ -287,8 +262,7 @@ stand stand none 500
 #2316
 guard minotaur~
 the Minotaur Guard~
-A minotaur guard catches you trespassing and attacks!
-~
+A minotaur guard catches you trespassing and attacks!~
 The minotaur is clad in heavy furs. Beneath these furs, you see the gleam of
 his armor.
 ~
@@ -302,8 +276,7 @@ stand stand male 1250
 #2317
 warrior minotaur~
 the Minotaur Warrior~
-A minotaur warrior is here looking for intruders.
-~
+A minotaur warrior is here looking for intruders.~
 You see a huge minotaur that is dressed in thick furs and armor. He has black
 fur and red eyes. He looks quite capable of protecting the city.
 ~
@@ -317,8 +290,7 @@ stand stand male 1250
 #2318
 minotaur gatekeeper~
 the Minotaur Gatekeeper~
-A minotaur is here guarding the Keep of Mahn-Tor.
-~
+A minotaur is here guarding the Keep of Mahn-Tor.~
 The minotaur stands rigidly before the gates of the keep. It looks quite
 miserable standing in the driven snow and ice.
 ~
@@ -332,8 +304,7 @@ stand stand none 1250
 #2319
 minotaur high guard~
 the High Minotaur Guard~
-The minotaur high guard is here guarding the Keep.
-~
+The minotaur high guard is here guarding the Keep.~
 The high guard is dressed in blue plate armour. He looks quite dangerous and
 skilled.
 ~
@@ -347,8 +318,7 @@ stand stand male 2250
 #2320
 minotaur royal guard~
 the Royal Minotaur Guard~
-The royal minotaur guard considers you an intruder and attacks!
-~
+The royal minotaur guard considers you an intruder and attacks!~
 The royal guard is quite huge. He is dressed in heavy red armor and wields a
 huge glaive. He looks quite capable of protecting the keep.
 ~
@@ -362,8 +332,7 @@ stand stand male 2500
 #2321
 guard minotaur elite~
 the Elite Minotaur Guard~
-The elite minotaur guard sees you and attacks!
-~
+The elite minotaur guard sees you and attacks!~
 This minotaur wields a huge morningstar and is clad in heavy crimson plate and
 furs.
 ~
@@ -377,9 +346,7 @@ stand stand male 3750
 #2322
 girl haremgirl harem slave девушка~
 @eng the Harem Girl@rus ~~девушка~~~
-@eng A harem girl cowers here in fear.
-@rus Гаремная девушка (girl) испугана и пытается спрятаться.
-~
+@eng A harem girl cowers here in fear.@rus Гаремная девушка (girl) испугана и пытается спрятаться.~
 @eng She looks quite attractive. Her low cut gown reveals why she was chosen to be
 in the harem.
 @rus Она выглядит довольно привлекательно. Глядя на ее неприкрытые
@@ -395,8 +362,7 @@ stand stand female 0
 #2323
 butler minotaur~
 the Minotaur Butler~
-A minotaur butler stands here rigidly, awaiting orders.
-~
+A minotaur butler stands here rigidly, awaiting orders.~
 He looks quite regal and refined to be a minotaur.
 ~
 human~
@@ -409,8 +375,7 @@ stand stand male 250
 #2324
 keeper minotaur ring-keeper~
 the Minotaur Ring-Keeper~
-The minotaur ring-keeper stands guarding his post.
-~
+The minotaur ring-keeper stands guarding his post.~
 The ring-keeper is a huge minotaur. You notice a huge ring of multicolored
 keys hanging from his belt. He wears huge, spiked brass knuckles.
 ~
@@ -424,8 +389,7 @@ stand stand male 2500
 #2325
 gorak minotaur warrior master~
 Gorak~
-Gorak, the Minotaur Master Warrior, is here practicing his skills.
-~
+Gorak, the Minotaur Master Warrior, is here practicing his skills.~
 Gorak is HUGE. His bulging muscles are confined beneath heavy armor. He is the
 master of the warrior guild of Mahn-Tor.
 ~
@@ -439,8 +403,7 @@ stand stand male 5000
 #2326
 darkoth minotaur anti-paladin master~
 Darkoth~
-Darkoth, the minotaur anti-paladin, stands here grinning wickedly.
-~
+Darkoth, the minotaur anti-paladin, stands here grinning wickedly.~
 Darkoth is a living incarnation of evil. He radiates a dark aura, and a cold
 chill runs down your spine. He is the master of the Mahn-Tor anti-paladins.
 ~
@@ -454,8 +417,7 @@ stand stand male 5000
 #2327
 tyrgoth minotaur paladin master~
 Tyrgoth~
-Tyrgoth, the minotaur paladin, is here worshipping silently.
-~
+Tyrgoth, the minotaur paladin, is here worshipping silently.~
 Tyrgoth is the minotaur incarnation of good. You feel safe and at ease in his
 presence. He is the leader of the Mahn-Tor paladins.
 ~
@@ -469,8 +431,7 @@ stand stand male 5000
 #2328
 amyrok minotaur mage master~
 Amyrok~
-Amyrok, the minotaur archmage, is here chanting arcane spells.
-~
+Amyrok, the minotaur archmage, is here chanting arcane spells.~
 Amyrok is a small minotaur. He is clad in loose robes and emits an aura of
 power. He appears quite dangerous, despite his size. He is the leader of the
 mages of Mahn-Tor.
@@ -485,8 +446,7 @@ stand stand male 5000
 #2329
 sumaron minotaur cleric master~
 Sumaron~
-Sumaron, master cleric of Mahn-Tor, is here looking holy.
-~
+Sumaron, master cleric of Mahn-Tor, is here looking holy.~
 Sumaron is clad in white glowing robes. He is goodness incarnate. He is the
 master of all the clerics of Mahn-Tor.
 ~
@@ -500,8 +460,7 @@ stand stand male 5000
 #2330
 nasturn minotaur druid master~
 Nasturn~
-Nasturn, the minotaur druid, is here studying the arts of nature.
-~
+Nasturn, the minotaur druid, is here studying the arts of nature.~
 Nasturn is quite a natural looking minotaur. He is dressed in leather and
 wears no metal of any type. He looks at you and smiles.
 ~
@@ -515,8 +474,7 @@ stand stand male 5000
 #2331
 belrak minotaur ranger master~
 Belrak~
-Belrak, the minotaur ranger, looks unhappy about having visitors.
-~
+Belrak, the minotaur ranger, looks unhappy about having visitors.~
 Belrak is clad in green and brown leather. He looks quite agile and thin, when
 compared to the normal minotaur. He looks at you with a slight smirk.
 ~
@@ -530,8 +488,7 @@ stand stand male 5000
 #2332
 dorgar minotaur thief master~
 Dorgar~
-Dorgar, the minotaur thief, is here hiding in the shadows.
-~
+Dorgar, the minotaur thief, is here hiding in the shadows.~
 Dorgar is clad all in black. He is tall and slender, unlike most minotaurs. He
 appears to be quite a skilled thief.
 ~
@@ -545,9 +502,7 @@ stand stand male 5000
 #2333
 mahn-tor minotaur grand master ман-тор~
 @eng Mahn-Tor@rus Ман-тор~
-@eng Mahn-Tor, the minotaur grand master, is here looking down at you.
-@rus Ман-тор (Mahn-Tor), великий мастер минотавров смотрит на тебя свысока.
-~
+@eng Mahn-Tor, the minotaur grand master, is here looking down at you.@rus Ман-тор (Mahn-Tor), великий мастер минотавров смотрит на тебя свысока.~
 @eng Mahn-Tor towers above you. He is simply huge. Mahn-Tor is clad in the best of
 armor and robes. He wields the largest axe you have ever seen. You can see why
 Mahn-Tor is the leader of the minotaurs. He is awe-inspiring.

@@ -11,8 +11,7 @@ End
 #8800
 sylvan elf scout~
 a sylvan elf scout~
-A Sylvan Elf scout is offended at your intrusion!
-~
+A Sylvan Elf scout is offended at your intrusion!~
 The Sylvan Elves are a good people, but centuries of subjection to the
 violences and prejudices of other races have made them wary and very
 hostile toward outsiders. However, if you're tough enough, perhaps he'll
@@ -35,8 +34,7 @@ r charm 999
 #8801
 sylvan elf warrior~
 a sylvan elf warrior~
-A Sylvan Elf warrior lunges at you with his sword!
-~
+A Sylvan Elf warrior lunges at you with his sword!~
 The Sylvan Elves are a good people, but centuries of subjection to the
 violences and prejudices of other races have made them wary and very
 hostile toward outsiders. However, if you're tough enough, perhaps he'll
@@ -57,8 +55,7 @@ r charm 999
 #8802
 orc scout~
 an orc scout~
-An Orcish scout screams and attacks!
-~
+An Orcish scout screams and attacks!~
 These foul creatures have been sent in advance by Orcish forces to scout
 out the defenses of Mirkwood. So far, their attempts have resulted only
 in their own demise, but eventually the Elves will be worn down by the
@@ -91,8 +88,7 @@ r sound -50
 #8803
 orc warrior~
 an orc warrior~
-An Orcish warrior screams and attacks!
-~
+An Orcish warrior screams and attacks!~
 These fell minions of Sauron have been sent in an attempt to subjugate
 Mirkwood. So far, their attempts have resulted only in their own demise,
 but eventually the Elves will be worn down by the sheer weight of numbers 
@@ -125,8 +121,7 @@ r sound -50
 #8804
 guard~
 a wood elf guard~
-A Wood Elf guard angrily accosts you.
-~
+A Wood Elf guard angrily accosts you.~
 This angry guard is incensed at your trespass in the hall of his king, and
 will attempt to forcibly eject you.
 ~
@@ -145,8 +140,7 @@ r charm 999
 #8805
 chief guard~
 the chief of the guard~
-A Wood Elf chief of the guard lunges at you with his sword!
-~
+A Wood Elf chief of the guard lunges at you with his sword!~
 The Wood Elves are a good people, but centuries of subjection to the
 violences and prejudices of other races have made them wary and very
 hostile toward outsiders. However, if you're tough enough, perhaps he'll
@@ -176,8 +170,7 @@ r sound 33
 #8806
 galion butler~
 Galion the butler~
-A Wood Elf butler glares at you accusingly.
-~
+A Wood Elf butler glares at you accusingly.~
 Galion has a tremenous fondness for Dorwinion Wine, and he is now well and
 truly inebriated. However that does not mean he won't react to your intrusion.
 ~
@@ -193,8 +186,7 @@ r charm 999
 #8807
 thranduil king~
 Thranduil, king of the Wood Elves~
-Thranduil, King of the Wood Elves, eyes you suspiciously.
-~
+Thranduil, King of the Wood Elves, eyes you suspiciously.~
 While not immune to the prejudices of his brethren, Thranduil is a trifle
 wiser (and more civilized) and he will not attack without provocation.
 ~
@@ -213,8 +205,7 @@ r charm -33
 #8808
 wood elf male~
 a male wood elf~
-A male Wood Elf glares angrily at you.
-~
+A male Wood Elf glares angrily at you.~
 This person won't attack you like the guards will, but that doesn't mean
 he likes you any more than they do...
 ~
@@ -230,8 +221,7 @@ r charm -33
 #8809
 wood elf female~
 a female wood elf~
-A female Wood Elf glares angrily at you.
-~
+A female Wood Elf glares angrily at you.~
 This person won't attack you like the guards will, but that doesn't mean
 ahe likes you any more than they do...
 ~
@@ -247,8 +237,7 @@ r charm -33
 #8810
 turnkey elf~
 the turnkey~
-The turnkey sleeps here.
-~
+The turnkey sleeps here.~
 This surly fellow is almost always passed out from copious alcohol consumption.
 ~
 elf~
@@ -263,8 +252,7 @@ r charm -33
 #8811
 thorin oakenshield~
 Thorin Oakenshield~
-Thorin Oakenshield politely bows before you.
-~
+Thorin Oakenshield politely bows before you.~
 This Dwarf is descended from noble blood. He and his fellows were waylaid
 by the Wood Elves while journeying to avenge their brethren against the
 dragon Smaug.

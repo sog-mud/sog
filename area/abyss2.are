@@ -12,9 +12,7 @@ End
 demi lich demi-lich полулич лич~
 @eng The Demi-Lich@rus ~~полулич~~~
 @eng The Demi-Lich leaps from his throne as you enter the room, his evil
-eyes fixed dead upon you!
-@rus Полулич (Demi-lich) вскакивает со своего трона, не сводя с тебя горящих глаз.
-~
+eyes fixed dead upon you!@rus Полулич (Demi-lich) вскакивает со своего трона, не сводя с тебя горящих глаз.~
 @eng The Demi-Lich is, perhaps, the single most powerful undead creature known
 to exist.  Greatly resembling a wight or mummy, and being gaunt and skeletal
 in form. It is, nevertheless a being of forboding might. Its eye sockets are 
@@ -49,9 +47,7 @@ r charm -100
 #25001
 keftab ancient кефтаб древний~
 @eng Keftab, the Ancient One@rus ~~Кефтаб~~ ~~Древний~~~
-@eng Keftab, the Ancient One stands here, calmly searching ceaslessly.
-@rus Кефтаб Древний (Keftab) беспрестанно что-то ищет с пугающим, нечеловеческим спокойствием.
-~
+@eng Keftab, the Ancient One stands here, calmly searching ceaslessly.@rus Кефтаб Древний (Keftab) беспрестанно что-то ищет с пугающим, нечеловеческим спокойствием.~
 @eng A writhing, quivering mass of horrific, unspeakable flesh-like material, this
 ancient one stares coldly about through its many multifacted eyes, viscious, 
 vile smelling liquid seeps through its flesh in many places, originating from 
@@ -92,9 +88,7 @@ r sound -50
 #25002
 death crimson красная смерть~
 @eng A Crimson Death@rus ~~Красная~~ ~~Смерть~~~
-@eng A crimson death materializes from a dense patch of red mist.
-@rus Красная Смерть (Crimson Death) появляется перед тобой из сгустившегося тумана.
-~
+@eng A crimson death materializes from a dense patch of red mist.@rus Красная Смерть (Crimson Death) появляется перед тобой из сгустившегося тумана.~
 @eng Its skeletal form is garbed in a robe of crimson, the blood of its many
 victims stain the robe. Its skeletal figure resembles that of the angel of
 death. Its eyes glow with a furious fire to kill.
@@ -117,9 +111,7 @@ r charm 999
 #25003
 demon mist демон тумана~
 @eng A Mist Daemon@rus ~~Демон~~ тумана~
-@eng A mist daemon stands here, in a cloud of grey mist.
-@rus Демон (demon) стоит здесь, окруженный серой дымкой.
-~
+@eng A mist daemon stands here, in a cloud of grey mist.@rus Демон (demon) стоит здесь, окруженный серой дымкой.~
 @eng A large demon like creature hovers abover you, in a cloud of grey mist.
 Its winged form stares down at you in utter hatred.
 @rus Большое демоноподобное создание парит в воздухе перед тобой,
@@ -137,9 +129,7 @@ r charm 999
 #25004
 black slayer черный убийца~
 @eng a Black Slayer@rus ~~Черный~~ ~~Убийца~~~
-@eng A huge, shadowy figure materializes from the shadows around you.
-@rus Огромная фигура (slayer) возникает прямо из окружающих тебя теней.
-~
+@eng A huge, shadowy figure materializes from the shadows around you.@rus Огромная фигура (slayer) возникает прямо из окружающих тебя теней.~
 @eng The black slayer is a shadowy figure, about 7 feet in height. Garbed in
 a heavey, black cloak, in his right hand, he wields a wicked dagger.
 @rus Ростом свыше семи футов, он одет в тяжелый черный плащ
@@ -168,9 +158,7 @@ r sound 33
 #25005
 lost soul потерянная душа~
 @eng a Lost Soul@rus ~~потерянная~~ ~~душа~~~
-@eng A ghostly apparition floats here, staring at you in utter hatred.
-@rus Призрак (lost soul) парит в воздухе перд тобой, всем видом выражая ненависть.
-~
+@eng A ghostly apparition floats here, staring at you in utter hatred.@rus Призрак (lost soul) парит в воздухе перд тобой, всем видом выражая ненависть.~
 The lost soul is a ghostly apparition, seeking revenge on the living.
 ~
 ghost~
@@ -199,9 +187,7 @@ r sound 33
 #25006
 storm giant гигант~
 @eng a Storm Giant@rus ~~гигант~~~
-@eng A storm giant stands here, angered by your presence.
-@rus Разгневанный твоим присутствием гигант (giant) стоит здесь.
-~
+@eng A storm giant stands here, angered by your presence.@rus Разгневанный твоим присутствием гигант (giant) стоит здесь.~
 @eng This huge creature is approximatly 18 feet tall, He grasps a huge bolt
 of lightning it his right hand.... He doesnt look happy to see you.
 @rus Возвышаясь на добрых 6 метров, он сжимает в руке
@@ -224,9 +210,7 @@ r mental 30
 #25007
 white gold manticore золотая мантикора~
 @eng a White Gold Manticore@rus ~~золотая~~ ~~мантикора~~~
-@eng A statuesque manticore stands here, crafted entirely of white gold.
-@rus Сделанная целиком из белого золота статуя мантикоры (manticore) стоит тут.
-~
+@eng A statuesque manticore stands here, crafted entirely of white gold.@rus Сделанная целиком из белого золота статуя мантикоры (manticore) стоит тут.~
 @eng The statue is beautifully crafted, the whole statue is formed 
 entirely of white gold. Its eyes seem to watch your every move.. 
 they almost appear is if they were alive.
@@ -248,9 +232,7 @@ r lightning 40
 #25008
 flaming efreet огненный ифрит~
 @eng an Efreet@rus ~~ифрит~~~
-@eng A huge flaming figure stands here, with a glint of evil in his eyes.
-@rus Огромная огненная фигура (efreet) стоит здесь, недобро поблескивая глазами.
-~
+@eng A huge flaming figure stands here, with a glint of evil in his eyes.@rus Огромная огненная фигура (efreet) стоит здесь, недобро поблескивая глазами.~
 @eng The creature is formed entirely of flames. The creature gives off an
 intense heat.
 @rus Он состоит целиком из огня и ты чувствуешь исходящий от него жар.
@@ -271,9 +253,7 @@ r charm 999
 #25009
 hydra гидра~
 @eng the Hydra@rus ~~гидра~~~
-@eng A huge eight headed hydra is sleeping here
-@rus Огромная восьмиглавая гидра (hydra) спит тут.
-~
+@eng A huge eight headed hydra is sleeping here@rus Огромная восьмиглавая гидра (hydra) спит тут.~
 @eng The huge, scaled creature  has eight heads... each capable of breathing
 a dangerous stream of fire.
 @rus Огромная чешуйчатая тварь с восемью огнедышащими головами.
@@ -291,9 +271,7 @@ r charm 999
 #25010
 kraken кракен~
 @eng the kraken@rus ~~кракен~~~
-@eng A large squid-like creature erupts from the waters beneath you!
-@rus Огромная тварь (kraken) всплывает из пучины.
-~
+@eng A large squid-like creature erupts from the waters beneath you!@rus Огромная тварь (kraken) всплывает из пучины.~
 @eng This large creature is a close relative of the squid but a much larger
 size. its huge tentacles grasp something... though you can not make out
 what the object is.
@@ -323,9 +301,7 @@ r sound 33
 #25011
 treant tree дерево~
 @eng the Treant@rus ~~ожившее~~ ~~дерево~~~
-@eng A large tree-like creature reaches out for you with its many limbs.
-@rus Большая древообразная тварь (treant) тянется к тебе множеством конечностей.
-~
+@eng A large tree-like creature reaches out for you with its many limbs.@rus Большая древообразная тварь (treant) тянется к тебе множеством конечностей.~
 @eng It is a rather large creature resembling a tree. At the base of the trunk
 is a large opening that looks very much like a mouth.
 @rus Это было бы еще больше похоже на дерево, если бы не имело
@@ -359,9 +335,7 @@ r sound 999
 githyanki гитьянки~
 @eng a Githyanki@rus гитьянки~
 @eng A disgusting creature of etheral nature stands here, its body completely
-wraped in bandages..
-@rus Безобразное и грязное существо (githyanki) стоит здесь, замотанное в лохмотья.
-~
+wraped in bandages..@rus Безобразное и грязное существо (githyanki) стоит здесь, замотанное в лохмотья.~
 @eng This man sized creature has bandages wrapped all about its body. Its eyes
 glow with a brilliant red fire, in its right hand he grasps a an extremely
 sharp blade of magical nature.
@@ -383,9 +357,7 @@ r holy 15
 kalas калас~
 @eng Kalas@rus ~~Калас~~~
 @eng Kalas, the guardian and knight of the castle stands here preparing himself for
-battle.
-@rus Калас (Kalas), защитник этого замка готовится к бою.
-~
+battle.@rus Калас (Kalas), защитник этого замка готовится к бою.~
 @eng He is a large, muscular man of undead nature. He is clad in rather magical
 looking suit of armor, his sword burning fiercly.
 @rus Он высок и мускулист, одет в магические доспехи и меч
@@ -406,9 +378,7 @@ r charm 999
 #25014
 death knight рыцарь смерти~
 @eng the Death knight@rus ~~рыцарь~~ смерти~
-@eng The death knight stands here, preparing to do you in.
-@rus Рыцарь смерти (death knight) стоит здесь, собираясь убить тебя.
-~
+@eng The death knight stands here, preparing to do you in.@rus Рыцарь смерти (death knight) стоит здесь, собираясь убить тебя.~
 @eng This creature is the result of a powerful mage animating the dead remains
 of a once mighty warrior. Its eyes are fixed coldly upon you, unsheathing
 its sword, he charges for battle.
@@ -435,9 +405,7 @@ r charm 999
 #25015
 Neo Otyugh нео отью~
 @eng the Neo-Otyugh@rus Нео-отью~
-@eng A large, disgusting, vile creature stands here, smelling putrid.
-@rus Огромная мерзкая тварь (otyugh) стоит тут, распространяя запах гнили.
-~
+@eng A large, disgusting, vile creature stands here, smelling putrid.@rus Огромная мерзкая тварь (otyugh) стоит тут, распространяя запах гнили.~
 @eng This creature is covered with slime like substance, many tentacles protrude
 from its disgusting body.
 @rus Оно покрыто какой-то слизью и имеет кучу щупалец.
@@ -456,9 +424,7 @@ r charm 999
 #25016
 shadow демон теней demon~
 @eng a Shadow Demon@rus ~~демон~~ теней~
-@eng A shadowy figure stands here, looking you over with greed.
-@rus Фигура, сотканная из теней (demon) жадно смотрит на тебя.
-~
+@eng A shadowy figure stands here, looking you over with greed.@rus Фигура, сотканная из теней (demon) жадно смотрит на тебя.~
 @eng This creature has almost no form, it looks like some sort of shadow with wings.
 @rus Это просто тень с крыльями, которая легко может менять
 свои очертания.
@@ -479,9 +445,7 @@ r sound -50
 #25017
 gatekeeper gate keeper хранитель врат~
 @eng the Gatekeeper@rus ~~хранитель~~ Врат~
-@eng A huge warrior stands here guarding the portal beyond.
-@rus Огромный воин (gatekeeper) охраняет Врата, находящиеся за его спиной.
-~
+@eng A huge warrior stands here guarding the portal beyond.@rus Огромный воин (gatekeeper) охраняет Врата, находящиеся за его спиной.~
 @eng He is a huge man, his strong, muscular body stands about 8 feet tall.
 He guards the portal beyond him angrily.
 @rus Ростом в восемь футов и мускулистый, он способен помешать
@@ -502,9 +466,7 @@ r charm 999
 #25018
 elemental water prince принц элементалей воды~
 @eng The Water Prince@rus ~~принц~~ водных элементалей~
-@eng The prince of water elementals flows here
-@rus Принц (prince) водных элементалей течет здесь.
-~
+@eng The prince of water elementals flows here@rus Принц (prince) водных элементалей течет здесь.~
 @eng He looks like a giant wave about to swoop down upon you.
 @rus Огромная волна, кажется, вот-вот поглотит тебя.
 ~
@@ -525,9 +487,7 @@ r cold -33
 #25019
 earth elemental king король элементалей земли~
 @eng The Earth King@rus ~~король~~ земных элементалей~
-@eng The King of earth elementals stands here.. cower fool!
-@rus Король элементалей земли (king) стоит здесь... преклонись!
-~
+@eng The King of earth elementals stands here.. cower fool!@rus Король элементалей земли (king) стоит здесь... преклонись!~
 @eng It looks vaguely man-shaped.
 @rus Он слегка похож на человека.
 ~
@@ -546,9 +506,7 @@ r slash -33
 #25020
 air elemental lord повелитель элементалей воздуха~
 @eng The Lord of Air@rus ~~повелитель~~ элементалей воздуха~
-@eng A huge tornado is squeezed into this impossibly small space.
-@rus Огромный смерч (air) невообразимым образом умещается в таком маленьком пространстве.
-~
+@eng A huge tornado is squeezed into this impossibly small space.@rus Огромный смерч (air) невообразимым образом умещается в таком маленьком пространстве.~
 @eng It looks sentinent.
 @rus Его даже можно потрогать. 
 ~
@@ -567,9 +525,7 @@ r slash -33
 #25021
 fire elemental sultan султан элементалей огня~
 @eng The Sultan of Fire@rus ~~султан~~ огня~
-@eng The Sultan of fire Elementals stands before you, you feel crisp.
-@rus Султан огненных элементалей (sultan) стоит здесь.
-~
+@eng The Sultan of fire Elementals stands before you, you feel crisp.@rus Султан огненных элементалей (sultan) стоит здесь.~
 @eng It looks vaguely man-shaped.
 @rus Он немного похож на человека.
 ~
@@ -590,9 +546,7 @@ r cold 50
 #25030
 demon vrock демон врок~
 @eng A vrock@rus ~~Врок~~~
-@eng A Vrock stands here
-@rus Врок (vrock) стоит тут.
-~
+@eng A Vrock stands here@rus Врок (vrock) стоит тут.~
 @eng It is a vulture/human creature. Extremely ugly, and nasty.
 @rus Врок похож одновременно на человека и стервятника.
 Отвратительная и страшная комбинация.
@@ -624,9 +578,7 @@ r sound 33
 #25031
 demon hezrou демон хезроу~
 @eng A hezrou@rus Хезроу~
-@eng A demon Hezrou stands here.
-@rus Демон-Хезроу стоит тут.
-~
+@eng A demon Hezrou stands here.@rus Демон-Хезроу (demon) стоит тут.~
 @eng Not unlike A large toad/man
 @rus Гибрид человека и жабы.
 ~
@@ -648,9 +600,7 @@ r charm 999
 #25032
 demon glabrezu демон глабрезу~
 @eng A glabrezu@rus Глабрезу~
-@eng A demon Glabrezu stands here.
-@rus Глабрезу стоит тут.
-~
+@eng A demon Glabrezu stands here.@rus Глабрезу стоит тут.~
 @eng I forget what this one looks like.
 @rus Похож на толстого и тупого турка.
 ~
@@ -669,9 +619,7 @@ r charm 999
 #25033
 demon nalfeshnee нэльфешни~
 @eng Nalfeshnee@rus Нэльфешни~
-@eng Nalfeshnee stands here
-@rus Нэльфешни стоит тут.
-~
+@eng Nalfeshnee stands here@rus Нэльфешни стоит тут.~
 @eng This one is big and mean looking.
 @rus Большой и злой.
 ~
@@ -690,9 +638,7 @@ r charm 999
 #25034
 demon marilith марилит~
 @eng Marilith@rus Марилит~
-@eng Marilith slithers here
-@rus Марилит (Marilith) ползет по полу тут.
-~
+@eng Marilith slithers here@rus Марилит (Marilith) ползет по полу тут.~
 @eng A woman with 6 arms and a snake's tail
 @rus Шестирукая женщина со змеиным хвостом.
 ~
@@ -710,9 +656,7 @@ r poison -100
 #25035
 demon balor балор~
 @eng Balor@rus Балор~
-@eng Balor stands here, surrounded by electrical fire
-@rus Балор (Balor) стоит тут, весь в огне.
-~
+@eng Balor stands here, surrounded by electrical fire@rus Балор (Balor) стоит тут, весь в огне.~
 @eng He is very large, and looks rather deadly
 @rus Большой и злой.
 ~
@@ -734,9 +678,7 @@ r charm 50
 #25036
 gatekeeper gate keeper хранитель врат~
 @eng the Gatekeeper@rus ~~Хранитель~~ врат~
-@eng A huge warrior stands here guarding the portal beyond.
-@rus Огромный воин (gatekeeper) стоит здесь, охраняя портал позади.
-~
+@eng A huge warrior stands here guarding the portal beyond.@rus Огромный воин (gatekeeper) стоит здесь, охраняя портал позади.~
 @eng He is a huge man, his strong, muscular body stands about 8 feet tall.
 He guards the portal beyond him angrily.
 @rus Высокий, сильный и злой.
@@ -1215,7 +1157,7 @@ feeling of deja-vu.
 @rus Каменистые склоны обступают тебя со всех сторон. Чудовищно
 искривленные, задавленные камнем деревья, кажется, смотрят на
 тебя, пытаясь рассказать о чем-то. Глядя на эту безрадостную
-картину, ты пытаешься вспомнить, где мог ее видеть раньше.
+картину, ты пытаешься вспомнить, где $gn{мог} ее видеть раньше.
 ~
 0 0 mountain
 D0
@@ -1437,7 +1379,7 @@ S
 filling the cavern. You are overpowered by the feeling of
 death and despair. Through the mist you can just barely make
 out what looks like a door to the west.
-@rus Странный туман окружает тебя, как только ты вошел сюда. Чувство
+@rus Странный туман окружает тебя, как только ты $gn{вошел} сюда. Чувство
 беспредельного отчаяния и царящей над всем смерти охватывает тебя.
 Если хорошенько приглядеться, можно увидеть дверь в стене, веду-
 щую дальше на запад.
@@ -1496,7 +1438,7 @@ suddenly you realize you have stumbled upon there source.
 @rus Войдя, ты сразу же замечаешь большой предмет черного цвета,
 находящийся посреди комнаты. Поразглядывав его со всех сто-
 рон, ты решаешь, что больше всего он напоминает окно. Похоже,
-ты нашел источник тех звуков, которые слышал по пути - и море,
+ты $gn{нашел} источник тех звуков, которые слышал по пути - и море,
 и берег похоже, находятся по ту сторону этого "окна".
 ~
 0 ADN forest
@@ -1539,7 +1481,7 @@ S
 @eng As you step through the window, you are instantly transported
 to find yourself here. Just to the north is what appears to be
 the shore of a lareg ocean.
-@rus Ты вошел в портал и $gn{оказался} в совершенно незнакомом
+@rus Ты $gn{вошел} в портал и $gn{оказался} в совершенно незнакомом
 месте. В нескольких десятках шагов перед тобой находится
 тот самый океанский берег.
 ~
@@ -1727,12 +1669,12 @@ some time. As you continue down the path a large, twisted tree
 blocks the northern path. After taking a closer look you are
 able to make out what appears to be a flat clear land to the south.
 @rus По всей видимости, этой дорогой очень давно никто не пользовался.
-Ты идешь, согреваемый мыслью о том, что ты - первый, ступивший на
+Ты идешь, $gn{согреваемый} мыслью о том, что ты - $gn{первый}, $gn{ступивший} на
 эту тропу за последнии бог знает сколько лет и совершенно неожи-
 данно упираешься в большое, скрученное штопором дерево, перегора-
 живающее путь так, что пройти дальше попросту невозможно. Ты на-
-чинаешь вглядываться в переплетения ветвей в поисках обходной
-дороги и замечаешь открытое пространство неподалеку на юге.
+чинаешь вглядываться в переплетения ветвей в поисках обходной до-
+роги и замечаешь открытое пространство неподалеку на юге.
 ~
 0 AN hills
 D1
@@ -2537,7 +2479,7 @@ S
 lies in the center of the room. The room is decorated with many marble
 columns, in the far corner you can make out a shimering portal........
 through which you can see a path along a vast mountain range.
-@rus Ты вошел в сокровищницу лича, и большая куча драгоценностей
+@rus Ты $gn{вошел} в сокровищницу лича, и большая куча драгоценностей
 вперемежку с золотыми монетами посредине комнаты подверждает
 ее название. Два ряда мраморных колонн подпирают своды, а нап-
 ротив тебя находится сияющий портал, сквозь который видна пет-
@@ -2558,7 +2500,7 @@ S
 of gargoyles and other strange creatures line each side of the hall
  a little farther down the hall, you can make our a huge set of double
 doors, you hear a strange sound to the east.
-@rus Пройдя чуть к востоку от входа, ты оказался со всех сторон
+@rus Пройдя чуть к востоку от входа, ты $gn{оказался} со всех сторон
 окружен горгулиями и другими каменными статуями, рядами стоя-
 щими у стен. Чуть дальше на восток видны огромные двустворчатые
 двери, из-за которых доносится странный звук.

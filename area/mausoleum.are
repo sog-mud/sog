@@ -11,9 +11,7 @@ End
 #4600
 zombie disgusting rotting зомби гниющий~
 @eng a disgusting, rotting Zombie@rus ~~отвратительный~~, ~~гниющий~~ зомби~
-@eng A horribly disgusting zombie is here, looking to devour the living.
-@rus Отвратительный зомби (zombie) ищет, кого бы сожрать.
-~
+@eng A horribly disgusting zombie is here, looking to devour the living.@rus Отвратительный зомби (zombie) ищет, кого бы сожрать.~
 @eng You can't tell if this was once a man or a woman, or even what race it
 once was.... Just that it is horribly decayed, and appears to be
 missing a few chunks of flesh, like something else had been eating off
@@ -45,9 +43,7 @@ r charm -100
 #4601
 zombie зомби~
 @eng the Ju-ju zombie@rus зомби~
-@eng A pale, withered man stands here, staring at you with an immense hatred.
-@rus Бледный, иссохший человек (zombie) смотрит на тебя с невыразимой ненавистью.
-~
+@eng A pale, withered man stands here, staring at you with an immense hatred.@rus Бледный, иссохший человек (zombie) смотрит на тебя с невыразимой ненавистью.~
 @eng This greyish skinned creature was once probably a powerful adventurer, such
 as yourself, before it was slain and reanimated for some dark and powerful
 creature. Upon closer examination, you notice that the thing before you
@@ -77,9 +73,7 @@ r charm -100
 #4602
 young vampire юный вампир~
 @eng a young vampire@rus ~~юный~~ ~~вампир~~~
-@eng A young vampire stands here, looking for something to kill.
-@rus Юный вампир (vampire) высматривает, кого бы убить.
-~
+@eng A young vampire stands here, looking for something to kill.@rus Юный вампир (vampire) высматривает, кого бы убить.~
 @eng This young lady looks quite famished and pale.
 @rus Эта ...девушка выглядит очень бледной и изголодавшейся.
 ~
@@ -101,9 +95,7 @@ r charm -100
 #4603
 Kharzandra wizardress vampire кхарзандра волшебница~
 @eng Kharzandra, the Dark-elf Vampire@rus ~~Кхарзандра~~~
-@eng A dark-skinned wizardress stands here, raising the dead.
-@rus Темнокожая волшебница (wizardress) поднимает здесь все новых и новых зомби.
-~
+@eng A dark-skinned wizardress stands here, raising the dead.@rus Темнокожая волшебница (wizardress) поднимает здесь все новых и новых зомби.~
 @eng Fear grips you upon looking at this frail, young looking creature, when you
 realize what it truly is... a Dark-elf enchantress which has become a
 creature of the undead.
@@ -132,9 +124,7 @@ r charm -100
 #4604
 vampire shadar lunn вампир шадар лунн man мужчина~
 @eng the Vampire, Shadar Lunn@rus ~~вампир~~ Шадар ~~Лунн~~~
-@eng A large, stout man stands here clad in darkened armor.
-@rus Высокий и крепкий мужчина (man) стоит здесь, одетый в темные доспехи.
-~
+@eng A large, stout man stands here clad in darkened armor.@rus Высокий и крепкий мужчина (man) стоит здесь, одетый в темные доспехи.~
 @eng This large man is clad in high darkened armor, and was probably once
 a lieutenant in the Arkham guard... or else, he just knows good armor
 when he sees it.
@@ -160,9 +150,7 @@ r charm -100
 #4605
 ghoul creature гуль существо~
 @eng a hungry ghoul@rus ~~голодный~~ ~~гуль~~~
-@eng A horrible creature is here, feeding off of a decaying corpse.
-@rus Ужасное существо (creature) не торопясь объедает разлагающийся труп.
-~
+@eng A horrible creature is here, feeding off of a decaying corpse.@rus Ужасное существо (creature) не торопясь объедает разлагающийся труп.~
 @eng This disgusting, withered humanoid creature greedily devours a decayed
 corpse in earnest, but drops it upon noticing the fresh meat that just
 walked into the room.
@@ -186,9 +174,7 @@ r charm -100
 #4606
 mastiff hound адский пес hell~
 @eng the hell hound@rus ~~адский~~ ~~пес~~~
-@eng A large mastiff stands here guarding something.
-@rus Огромный пес (hound) что-то охраняет здесь.
-~
+@eng A large mastiff stands here guarding something.@rus Огромный пес (hound) что-то охраняет здесь.~
 ~
 dog~
 BFJ 0 JV ABG ABH -1000 0
@@ -206,9 +192,7 @@ r charm 33
 #4608
 bat vampire мышь летучая~
 @eng the vampire bat@rus ~~летучая~~ ~~мышь~~~
-@eng A pitch-black bat flaps its wings beneath the ceiling.
-@rus Черная летучая мышь (bat) хлопает крыльями где-то под потолком.
-~
+@eng A pitch-black bat flaps its wings beneath the ceiling.@rus Черная летучая мышь (bat) хлопает крыльями где-то под потолком.~
 @eng A horrible little face looks at you and bares its teeth. Ugh!
 You don't like it.
 @rus Сморщенная мордочка поворачивается в твою сторону и оскаливает зубы,
@@ -227,9 +211,7 @@ r light -50
 #4609
 demon familiar демон~
 @eng the demon familiar@rus ~~демон~~~
-@eng A small demon is here, hovering in mid-air.
-@rus Маленький демон (demon) парит в полуметре от землию
-~
+@eng A small demon is here, hovering in mid-air.@rus Маленький демон (demon) парит в полуметре от землию~
 @eng This little guy looks very familar... you know it would be a bad thing to
 mess with it.
 @rus Где-то ты этого парня уже видел.. вот только вспомнить бы где.
@@ -249,9 +231,7 @@ r charm 999
 #4610
 dracolich драколич огромный~
 @eng the great Dracolich@rus ~~огромный~~ ~~драколич~~~
-@eng A huge skeletal form raises from shadows.
-@rus Огромный скелет (dracolich) поднимается из теней.
-~
+@eng A huge skeletal form raises from shadows.@rus Огромный скелет (dracolich) поднимается из теней.~
 @eng Horrible skeletal form look at you and green evilly.
 @rus При виде тебя на его морде появляется жуткое подобие ухмылки.
 ~
@@ -277,9 +257,7 @@ r charm 999
 #4611
 priest vampire вампир священник~
 @eng the dark priest vampire@rus ~~священник~~-~~вампир~~~
-@eng A dark-robed man stands here, praying to his unholy god.
-@rus Одетый в черное человек (priest) стоит здесь, молясь своему нечистому божеству.
-~
+@eng A dark-robed man stands here, praying to his unholy god.@rus Одетый в черное человек (priest) стоит здесь, молясь своему нечистому божеству.~
 @eng This dark-priest wears the sign of Lloth about his neck, and is seeming
 disturbed by your intrusion during his meditation.
 @rus Он носит знак Ллос на шее и, похоже, очень недоволен твоим
@@ -304,9 +282,7 @@ r charm -100
 #4612
 dark spectre темный призрак~
 @eng the dark spectre@rus ~~темный~~ ~~призрак~~~
-@eng A dark spectre is here, feeding off your lifeforce.
-@rus Практически невидимый в темноте призрак (spectre) вытягивает из тебя жизненные силы.
-~
+@eng A dark spectre is here, feeding off your lifeforce.@rus Практически невидимый в темноте призрак (spectre) вытягивает из тебя жизненные силы.~
 @eng You can see right through this creature, except for the dark patch surrounding
 it's red, glowing eyes... it looks pissed off that you're still alive.
 @rus Он почти прозрачен, за исключением черного облака вокруг горящих
@@ -864,7 +840,7 @@ S
 with a ravenous appetite. Maybe it would be a good idea to find the way
 back outside now...
 A door leads back out to the south.
-@rus   Полусгнившие трупы свалены в кучу и местами кем-то обглоданы...
+@rus .  Полусгнившие трупы свалены в кучу и местами кем-то обглоданы...
 Дверь в южной стене ведет назад, и ты думаешь, не пора ли покинуть
 это место.. пока здешние обитатели не нашли тебя сами.
 ~
@@ -885,7 +861,7 @@ behind you and realize that you have indeed made a mistake.
 the main area of the mausoleum.
  Corpses litter the ground, obviously being dragged here for some vile
 purpose. You have an urge to leave this place now.
-@rus   Ты стоишь на входе в проклятый мавзолей. Крысы и тараканы, во мно-
+@rus .  Ты стоишь на входе в проклятый мавзолей. Крысы и тараканы, во мно-
 жестве расплодившиеся при таком обилии гниющей плоти, разегаются во
 все стороны из-под твоих ног. Дверь позади громко захлопывается, зас-
 тавляя тебя сожалеть о решении войти. Множество трупов, принесенных

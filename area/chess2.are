@@ -11,9 +11,7 @@ End
 #4200
 pawn черная пешка black~
 @eng the Pawn of the Black Court@rus ~~Черная~~ ~~пешка~~~
-@eng You see a pawn standing here waiting for orders.
-@rus Черная пешка (Pawn) стоит здесь, ожидая указаний свыше. 
-~
+@eng You see a pawn standing here waiting for orders.@rus Черная пешка (Pawn) стоит здесь, ожидая указаний свыше. ~
 @eng The Black Pawn looks quite like a small knight without his powerful steed.
 His armor is shiny and black. He stands ready to give his life for the Crown.
 @rus Черная Пешка выглядит совсем как маленький рыцать, только без его
@@ -33,9 +31,7 @@ M random 4200 20~
 #4201
 pawn white белая пешка~
 @eng the Pawn of the White Court@rus ~~Белая~~ ~~пешка~~~
-@eng You see a pawn standing here waiting for orders.
-@rus Белая пешка (Pawn) стоит здесь, ожидая указаний свыше.
-~
+@eng You see a pawn standing here waiting for orders.@rus Белая пешка (Pawn) стоит здесь, ожидая указаний свыше.~
 @eng The White Pawn looks quite like a small knight without his powerful steed.
 His armor is spotless and white. He stands ready to give his life for the 
 Crown.
@@ -53,9 +49,7 @@ stand stand female 55
 #4202
 rook castle черная ладья башня black~
 @eng the Black Rook@rus ~~Черная~~ ~~Ладья~~~
-@eng In the corner you see a large, black, stone castle on wheels.
-@rus Ты видишь большую, черную башню (Rook) на колесах.
-~
+@eng In the corner you see a large, black, stone castle on wheels.@rus Ты видишь большую, черную башню (Rook) на колесах.~
 @eng The Black Rook is a very large man-made tomb on wheels.  Just
 from the looks of it, it will probably be YOUR tomb.
 @rus Эта башня почему-то очень похожа на какой-то надгробный памятник. Может
@@ -72,9 +66,7 @@ M random 4200 20~
 #4203
 rook castle белая ладья башня white~
 @eng the White Rook@rus ~~Белая~~ ~~Ладья~~~
-@eng In the corner you see a large, white, stone castle on wheels.
-@rus Перед тобой возвышается большая, сделанная из белого камня башня на колесах (Rook).
-~
+@eng In the corner you see a large, white, stone castle on wheels.@rus Перед тобой возвышается большая, сделанная из белого камня башня на колесах (Rook).~
 @eng The White Rook is a very large man-made tomb on wheels.  Just
 from the looks of it, it will probably be YOUR tomb.
 @rus Эта башня почему-то очень похожа на какой-то надгробный памятник. Может
@@ -90,9 +82,7 @@ stand stand female 470
 #4204
 knight черный рыцарь black~
 @eng the Black Knight@rus ~~Черный~~ ~~Рыцарь~~~
-@eng Here stands a magnificent knight of the dark realm.
-@rus Могучий рыцарь (Knight) темного королевства стоит рядом с тобой.
-~
+@eng Here stands a magnificent knight of the dark realm.@rus Могучий рыцарь (Knight) темного королевства стоит рядом с тобой.~
 @eng The Black Knight is here, riding his ebony black war horse.  His eyes
 flash behind his visor in vengence.
 @rus Перед тобой на лошади цвета черного дерева восседает могучий всадник с
@@ -109,9 +99,7 @@ M random 4200 20~
 #4205
 knight белый рыцарь white~
 @eng the White Knight@rus ~~Белый~~ ~~Рыцарь~~~
-@eng Here stands a magnificent knight of the light realm.
-@rus Перед тобой стоит Белый Рыцарь (Knight) -- защитник светлого королевства.
-~
+@eng Here stands a magnificent knight of the light realm.@rus Перед тобой стоит Белый Рыцарь (Knight) -- защитник светлого королевства.~
 @eng The White Knight is here, riding his ivory white war horse.  His eyes
 gleam behind his visor in joy.
 @rus Над тобой возвышается могучий всадник, сидящий на боевом коне цвета слоновой
@@ -127,9 +115,7 @@ stand stand male 256
 #4206
 bishop priest черный священник епископ black~
 @eng the Black Bishop@rus ~~Черный~~ ~~Епископ~~~
-@eng A dark priest stands here.
-@rus Священник (Bishop) в черной мантии стоит рядом с тобой.
-~
+@eng A dark priest stands here.@rus Священник (Bishop) в черной мантии стоит рядом с тобой.~
 @eng The Black Bishop seems willing to help you straight into your grave so
 he can bless you properly.
 @rus Человек в черном одеянии с мрачным огнем в глазах. Он с удовольствием
@@ -146,9 +132,7 @@ M random 4200 20~
 #4207
 bishop white priest белый епископ священник~
 @eng the White Bishop@rus ~~Белый~~ ~~Епископ~~~
-@eng A light priest stands here.
-@rus Священник (Bishop) в светлой мантии стоит рядом с тобой.
-~
+@eng A light priest stands here.@rus Священник (Bishop) в светлой мантии стоит рядом с тобой.~
 @eng The White Bishop seems willing to help you in any possible so that he can
 attain a higher spirituality.
 @rus Священник хочет помочь тебе в твоих мирских делах своим советом и молитвой.
@@ -163,9 +147,7 @@ stand stand male 590
 #4208
 queen черная королева black~
 @eng the Black Queen@rus ~~Черная~~ ~~Королева~~~
-@eng The Black Queen stands here.
-@rus Черная Королева (Queen) стоит перед тобой.
-~
+@eng The Black Queen stands here.@rus Черная Королева (Queen) стоит перед тобой.~
 @eng The Black Queen is a strikingly beautiful woman with pale skin and a mass of
 dark hair that crowns her head like a black cloud.  If looks could kill, you
 would already be dead.
@@ -183,9 +165,7 @@ M random 4200 20~
 #4209
 queen white белая королева~
 @eng the White Queen@rus ~~Белая~~ ~~Королева~~~
-@eng The White Queen stands here.
-@rus Белая Королева (Queen) стоит перед тобой.
-~
+@eng The White Queen stands here.@rus Белая Королева (Queen) стоит перед тобой.~
 @eng The White Queen is a stunningly beautiful woman with dark skin and a mass
 of light hair that frames her head like the sun.  This is surely love at
 first sight for you.
@@ -203,9 +183,7 @@ stand stand female 854
 #4210
 king черный король black~
 @eng the Black King@rus ~~Черный~~ ~~Король~~~
-@eng The Black King stands here.
-@rus Фигура Черного Короля (King) возвышается перед тобой.
-~
+@eng The Black King stands here.@rus Фигура Черного Короля (King) возвышается перед тобой.~
 @eng The Black King is a menacing figure.  You can easily understand why he
 is the king and you are not.
 @rus Мрачная, угрожающего вида фигура. При взгляде на него сразу ясно, почему он
@@ -222,9 +200,7 @@ M random 4200 21~
 #4211
 king white белый король~
 @eng the White King@rus ~~Белый~~ ~~Король~~~
-@eng The White King stands here.
-@rus Перед тобой стоит статный Белый Король (King).
-~
+@eng The White King stands here.@rus Перед тобой стоит статный Белый Король (King).~
 @eng The White King is a stately figure.  You can easily understand why he
 is the king and you are not.
 @rus Статная фигура Белого Короля возвышается перед тобой. При взгляде на него
@@ -240,9 +216,7 @@ stand stand male 988
 #4212
 caliph omar ghost призрак омар халиф~
 @eng the Ghost of Caliph Omar@rus ~~призрак~~ халифа Омара~
-@eng The Ghost of Caliph Omar is floating here.
-@rus Призрак халифа Омара (ghost) висит в воздухе перед тобой. 
-~
+@eng The Ghost of Caliph Omar is floating here.@rus Призрак халифа Омара (ghost) висит в воздухе перед тобой. ~
 @eng Caliph Omar was person who sanctions chess for islamic people. 
 His ghost is here small, and looks like made from smoke.
 @rus Халиф Омар был тем человеком, который впервые показал людям игру в шахматы.
