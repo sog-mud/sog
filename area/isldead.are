@@ -23,12 +23,19 @@ keeps some mighty weapon, which was used centures ago by divine beings.
 But beware: the Gods don't like persons who dare to enter..."
 ~
 unique~
-ABRe DFHTt 0 0
+ABRel DFHTt 0 0
 40 30 10d20+2000 100d2+700 7d7+40 'crush'
 -30 -30 -30 -25
-FKMO ABQ HILMP 0
+FKMO 0 0 0
 stand stand female 0
 AV ABCDEFPQ giant unknown
+r fire 33
+r cold 33
+r negative 33
+r mental 33
+r disease 100
+r poison 33
+r charm 100
 #22301
 green glutton ghost~
 Green Glutton Ghost~
@@ -55,12 +62,27 @@ A legion of evil undead druj animating the skeleton of a once mighty
 sorcerer. His power is devastating in the underworld. Flee his wrath.
 ~
 unique~
-AFOT DFUcm -1000 0
+AFOTl DFUcm -1000 0
 45 40 100d10+5000 100d2+300 10d7+50 'blast'
 -40 -40 -40 -40
-AFJKP ABILMQ CD HN
+AFJKP 0 0 0
 stand stand male 100
 BIV ABCHU huge unknown
+r bash 33
+r pierce 33
+r slash 33
+r cold 100
+r lightning 33
+r acid 33
+r negative 100
+r energy 33
+r mental 33
+r sound 33
+r disease 100
+r poison 100
+r charm 100
+r harm 33
+r light 33
 #22303
 shade warrior ghost~
 the Shade~
@@ -73,9 +95,18 @@ unique~
 ABFOT DFTUm -1000 0
 42 30 10d50+2000 1d1+100 8d7+30 'drain'
 -30 -30 -30 -30
-FGK LMQ DI HN
+FGK 0 0 0
 stand stand none 10
 IV 0 medium unknown
+r bash 33
+r pierce 33
+r slash 33
+r fire -50
+r cold 33
+r holy -50
+r negative 100
+r disease 100
+r poison 100
 #22304
 daemon faegwath~
 Faegwath the Undead Sorceror~
@@ -88,9 +119,17 @@ unique~
 ABFGORh DFTUcu 0 0
 47 35 100d40+3000 100d5+1000 10d7+30 'blast'
 -30 -30 -30 -30
-AFGK BLMQ I HNS
+AFGK 0 0 0
 stand stand none 20000
 BIZc ABCDEFGHU large unknown
+r fire -50
+r cold 33
+r holy -50
+r negative 100
+r disease 100
+r poison 100
+r charm 100
+r light -50
 #22305
 guard chu-gun iron statue~
 Chu-gun the Guard of Pa-Ra-Voz~
@@ -103,10 +142,21 @@ golem~
 ABFT DFVcm 0 0
 45 40 100d50+5000 0d0+0 10d6+60 'thwack'
 -50 -50 -50 -50
-EFK 0 HIK 0
+EFK 0 0 0
 stand stand none 10000
 0 0 huge unknown
-F vul C
+r fire 0
+r cold 0
+r lightning 0
+r acid 0
+r holy 0
+r negative 0
+r energy 0
+r mental 0
+r sound 0
+r charm 0
+r harm 0
+r light 0
 #22306
 ringwraith adunaphel~
 Adunaphel the Quiet~
@@ -121,9 +171,10 @@ lich~
 ABFORTVe DFTm -1000 0
 47 50 100d5+4000 100d2+1000 20d5+50 'blast'
 -50 -50 -50 -50
-K 0 0 S
+K 0 0 0
 stand stand female 20000
 0 0 large unknown
+r holy 0
 #22307
 uvatha ringwraith~
 Uvatha the Horseman~
@@ -138,9 +189,10 @@ lich~
 ABFORTVe DFTm -1000 0
 47 50 100d5+4000 100d2+1000 20d5+50 'blast'
 -50 -50 -50 -50
-K 0 0 S
+K 0 0 0
 stand stand male 20000
 0 0 large unknown
+r holy 0
 #22308
 alhorahil ringwraith~
 Alhorahil the Blind~
@@ -156,9 +208,10 @@ lich~
 ABFORTVe DFTm -1000 0
 47 0 100d5+4000 100d2+1000 20d5+50 'blast'
 -50 -50 -50 -50
-K 0 0 S
+K 0 0 0
 stand stand male 20000
 0 0 large unknown
+r holy 0
 #22309
 ren ringwraith~
 Ren the Unclean~
@@ -174,9 +227,10 @@ lich~
 ABFORTVe DFTm -1000 0
 49 55 100d5+4500 100d2+1000 20d6+40 'drain'
 -55 -55 -55 -55
-K 0 0 S
+K 0 0 0
 stand stand male 22000
 0 0 large unknown
+r holy 0
 #22310
 indur ringwraith~
 Ji Indur Dawndeath~
@@ -191,9 +245,10 @@ lich~
 ABFORTVe DFTm -1000 0
 49 55 100d5+4500 100d2+1000 20d6+40 'blast'
 -55 -55 -55 -55
-K 0 0 S
+K 0 0 0
 stand stand male 21000
 0 0 large unknown
+r holy 0
 #22311
 dwar ringwraith~
 Dwar, Dog Lord of Waw~
@@ -209,9 +264,10 @@ lich~
 ABFORTVe DFTm -1000 0
 49 55 100d5+4500 100d2+1000 20d6+40 'blast'
 -55 -55 -55 -55
-K 0 0 S
+K 0 0 0
 stand stand male 21000
 0 0 large unknown
+r holy 0
 #22312
 hoarmurath ringwraith~
 Hoarmurath of Dir~
@@ -226,9 +282,10 @@ lich~
 ABFORTVe DFTm -1000 0
 51 60 100d5+4800 100d2+1000 20d7+40 'blast'
 -60 -60 -60 -60
-K 0 0 S
+K 0 0 0
 stand stand male 22000
 0 0 large unknown
+r holy 0
 #22313
 khamul ringwraith~
 Khamul the Easterling~
@@ -244,9 +301,10 @@ lich~
 ABFORTVe DFTm -1000 0
 51 60 100d6+4800 100d2+1000 20d7+40 'blast'
 -60 -60 -60 -60
-K 0 0 S
+K 0 0 0
 stand stand male 22000
 0 0 large unknown
+r holy 0
 #22314
 murazor ringwraith~
 Murazor, the Witch-King of Angmar~
@@ -277,12 +335,28 @@ of small eyes on stalks which surround the air around you with piercing
 shrieking so you can't get closer.
 ~
 unique~
-ABCGR DFTZmu -1000 0
+ABCGRl DFTZmu -1000 0
 63 60 100d7+6400 100d5+3000 20d3+50 'sting'
 -60 -60 -60 -60
-AFGK ABLMQR CD N
+AFGK 0 0 0
 stand stand none 10000
 BIVc AEKU large unknown
+r bash 33
+r pierce 33
+r slash 33
+r fire 33
+r cold 33
+r lightning 33
+r acid 33
+r negative 100
+r energy 33
+r mental 33
+r sound 33
+r disease 100
+r poison 100
+r charm 100
+r harm 33
+r light 33
 #22316
 tselakus ghost~
 Tselakus, the Dreadlord~
@@ -297,9 +371,20 @@ ghost~
 ABCFGT DFmu -1000 0
 63 60 200d10+7000 100d3+1000 20d4+60 'peck'
 -50 -50 -50 -50
-AFK 0 C 0
+AFK 0 0 0
 stand stand none 15000
 0 0 huge unknown
+r fire 33
+r cold 33
+r lightning 33
+r acid 33
+r holy 0
+r energy 33
+r mental 33
+r sound 33
+r charm 33
+r harm 33
+r light 33
 #22317
 muar demon barlog~
 Muar, the Balrog~
@@ -310,12 +395,22 @@ is capable to send you there with one blow.  Its muscular form looks
 extremely powerful next to your own frail body.
 ~
 unique~
-ABCFGT DFTmu -1000 0
+ABCFGTl DFTmu -1000 0
 64 60 200d10+6500 200d2+1000 30d3+40 'blast'
 -55 -55 -55 -55
-AFGK ABHLMQ FGKO EI
+AFGK 0 0 0
 stand stand male 20000
 ABV ABCDEFGHQW huge unknown
+r bash -50
+r pierce 33
+r slash 33
+r fire 100
+r acid 33
+r negative 100
+r energy 33
+r disease 100
+r poison 100
+r charm 100
 #22318
 gothmog balrog demon~
 Gothmog, the High Captain of Balrogs~
@@ -326,12 +421,24 @@ that smoulder red. The dungeon floor where he stands is scorched by the heat of
 his body.
 ~
 unique~
-ACT DFPTUVbcm -1000 0
+ACTkl DFPTUVbcm -1000 0
 65 60 100d10+15000 100d5+3000 20d7+50 'blast'
 -65 -65 -65 -65
-ACEFGIKMOP ABEFHLMPQU JKST I
+ACEFGIKMOP 0 0 0
 stand stand male 30000
 ABV ABCDEFPU gargantuan unknown
+r bash 100
+r pierce 100
+r fire 100
+r lightning 33
+r acid 33
+r negative 100
+r mental 100
+r sound 33
+r disease 100
+r poison 100
+r charm 100
+r light 33
 #22319
 lich vecna skelet~
 Vecna, the Emperor Lich~
@@ -344,9 +451,10 @@ lich~
 ABCFOR DFTmu -1000 0
 63 60 100d10+4500 100d2+3000 30d3+40 'crush'
 -50 -50 -50 -50
-AK 0 0 S
+AK 0 0 0
 stand stand female 20000
 0 0 medium unknown
+r holy 0
 #22320
 demon uriel~
 Uriel, Demon of Fire~
@@ -357,12 +465,21 @@ Those who stood against him before are but a memory, cremated by his mastery of
 the elemental fire.
 ~
 unique~
-ABCFR DFTmu -1000 0
+ABCFRl DFTmu -1000 0
 63 60 200d10+6500 100d2+4000 30d3+60 'thwack'
 -60 -60 -60 -60
-AFGK ABGHLMQ EPT IN
+AFGK 0 0 0
 stand stand male 10000
 BV ABCDEF small unknown
+r bash 33
+r slash 100
+r fire 100
+r negative 100
+r mental 33
+r sound 33
+r disease 100
+r poison 100
+r charm 100
 #22321
 baphoment minotaur lord~
 Baphomet the Minotaur Lord~
@@ -377,9 +494,13 @@ minotaur~
 ABCF DFTm -1000 0
 60 50 200d10+15000 1d1+700 60d1+70 'grep'
 -70 -70 -70 -30
-AKZ 0 DI H
+AKZ 0 0 0
 stand stand male 20000
 0 ABCDEF huge unknown
+r bash 33
+r pierce 33
+r slash 33
+r cold 33
 #22322
 dread ghost~
 the Dread~
@@ -393,10 +514,14 @@ ghost~
 ACFRT DFm -1000 0
 55 50 100d5+3000 1d1+500 10d5+30 'bite'
 -45 -45 -45 -45
-FKP F EI 0
+FKP 0 0 0
 stand stand none 0
 0 0 medium unknown
-F res D
+r bash 0
+r pierce 100
+r slash 0
+r cold 33
+r holy 0
 #22323
 nightwing demon~
 Nightwing~
@@ -411,9 +536,12 @@ death knight~
 ACFT DFTm -1000 0
 57 50 100d6+3500 1d1+300 10d6+30 'digestion'
 -50 -50 -50 -50
-AFGP GI F S
+AFGP 0 0 0
 stand stand none 0
 0 0 large unknown
+r slash 100
+r cold 100
+r holy 0
 #22324
 black reaver demon~
 the Balck River~
@@ -426,9 +554,15 @@ lich~
 ACFORT DFTm -1000 0
 59 55 100d7+4000 100d1+1000 10d7+30 'wrath'
 -50 -50 -50 -50
-GK BGILMQ DF NS
+GK 0 0 0
 stand stand none 0
 0 0 large unknown
+r bash 0
+r pierce 0
+r slash 100
+r cold 100
+r holy 0
+r charm 100
 #22325
 colbran demon~
 the Colbran~
@@ -441,9 +575,15 @@ unique~
 ACFR DFTm -1000 0
 53 50 100d4+2500 100d2+1000 6d10+25 'beating'
 -45 -45 -45 -45
-FGK BIJLMQ D NO
+FGK 0 0 0
 stand stand none 0
 ABV ABCE medium unknown
+r cold 100
+r lightning 100
+r negative 100
+r disease 100
+r poison 100
+r charm 100
 #22326
 the gelatinous cube demon~
 the Gelatinous cube~
@@ -457,9 +597,16 @@ unique~
 ACFR DFTm -1000 0
 57 45 100d5+3300 100d3+1000 10d5+40 'grep'
 -50 -50 -50 -50
-AFGK BEKLMQ DI HN
+AFGK 0 0 0
 stand stand none 0
 ABV ABCDE large unknown
+r bash 100
+r cold 33
+r acid 100
+r negative 100
+r disease 100
+r poison 100
+r charm 100
 #22327
 guard fire drake dragon itangast~
 Itangast, the Fire Drake~
@@ -473,14 +620,21 @@ dragon~
 ABCTU DFHm 0 0
 60 50 100d9+6000 100d1+1000 20d5+30 'sting'
 -60 -60 -60 -60
-AGK BEHLMQ FGI 0
+AGK 0 0 0
 stand stand male 0
 0 0 gargantuan unknown
-F res BEH
-F vul FI
 M give 22300 22352~
 M grall 22301 100~
 M bribe 22302 10000~
+r bash 100
+r pierce 0
+r slash 33
+r fire 100
+r cold 0
+r negative 100
+r disease 100
+r poison 100
+r charm 100
 #22328
 lord evil tiamat dragon~
 Tiamat, Celestial Dragon of Evil~
@@ -495,9 +649,17 @@ dragon~
 AFT DFZm -1000 0
 65 50 100d5+20000 200d2+5000 20d4+50 'wrath'
 -60 -60 -60 -60
-0 LMQ 0 0
+0 0 0 0
 stand stand female 100000
 0 0 gargantuan unknown
+r bash 0
+r pierce 0
+r fire 0
+r cold 0
+r negative 100
+r disease 100
+r poison 100
+r charm 0
 #22399
 as~
 as~

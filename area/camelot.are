@@ -248,9 +248,26 @@ human~
 ABCH CDEHJNT 750 0
 40 0 15d10+1850 5d5+1000 4d8+13 'wrath'
 -13 -13 -13 3
-EFHNU C D 0
+EFHNU 0 0 0
 stand stand male 1000
 0 0 medium unknown
+r bash 33
+r pierce 33
+r slash 33
+r fire 100
+r cold 100
+r lightning 100
+r acid 100
+r holy 100
+r negative 100
+r energy 100
+r mental 100
+r sound 100
+r disease 100
+r poison 100
+r charm 100
+r harm 100
+r light 100
 #17314
 morgan mage моргана фей маг волшебница~
 @eng Morgan Le Fey@rus ~~Моргана~~ ле Фей~
@@ -315,9 +332,13 @@ human~
 ABFH DFJPQ -1000 0
 24 0 5d10+500 5d5+1000 2d10+6 'claw'
 -6 -6 -6 4
-FMU J HIJK FI
+FMU 0 0 0
 stand stand none 1000
 Zc LPQUVX huge unknown
+r pierce -50
+r fire 33
+r lightning 100
+r acid 33
 #17317
 tristram тристрам рыцарь~
 @eng Sir Tristram of Lyoness@rus ~~Сэр~~ ~~Тристрам~~~
@@ -707,9 +728,14 @@ unique~
 ABKe CDEFJKu -1000 0
 52 0 50d10+7750 5d5+5000 10d10+22 'charge'
 -22 -22 -22 0
-ACEFIJNOU 0 HIJK F
+ACEFIJNOU 0 0 0
 stand stand none 1000
 AHMVZc ABCDEFGHIJKLPQUVX medium unknown
+r pierce -50
+r fire 33
+r cold 33
+r lightning 33
+r acid 33
 #17338
 jack iron железный джек~
 @eng Iron Jack@rus ~~Железный~~ ~~Джек~~~
@@ -1193,9 +1219,11 @@ human~
 AGTY N 400 0
 30 8 50d10+1400 5d5+100 9d4+12 'slash'
 0 0 0 0
-CEFKO 0 HI 0
+CEFKO 0 0 0
 stand stand male 2000
 0 0 medium unknown
+r fire 33
+r cold 33
 #17366
 ghost small привидение маленькое~
 @eng small ghost@rus ~~маленькое~~ ~~привидение~~~
@@ -1204,13 +1232,27 @@ ghost small привидение маленькое~
 ~
 ~
 ghost~
-AGUY BDFJQZe 0 0
+AGUYl BDFJQZe 0 0
 1 0 5d5+1 1d1+10 1d1+1 ''
 0 0 0 0
-0 ABCDHNP 0 0
+0 0 0 0
 stand stand none 0
 0 0 medium unknown
-F imm M
+r bash 100
+r pierce 100
+r slash 100
+r fire 100
+r cold 100
+r lightning 100
+r acid 100
+r holy 33
+r negative 33
+r energy 100
+r mental 100
+r sound 100
+r charm 100
+r harm 100
+r light 100
 #0
 
 #OBJECTS

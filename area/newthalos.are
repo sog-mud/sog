@@ -15,12 +15,29 @@ Your guildmaster stands here.
 An old man peering through ancient tomes rests here.
 ~
 human~
-ABJKRVb DF 0 0
+ABJKRVbl DF 0 0
 40 10 1d1+30000 1d1+499 5d8+5 'pierce'
 -15 -15 -15 -15
-FHN ABCD 0 0
+FHN 0 0 0
 stand stand male 15000
 0 0 medium unknown
+r bash 100
+r pierce 100
+r slash 100
+r fire 100
+r cold 100
+r lightning 100
+r acid 100
+r holy 100
+r negative 100
+r energy 100
+r mental 100
+r sound 100
+r disease 100
+r poison 100
+r charm 100
+r harm 100
+r light 100
 #9501
 cleric guildmaster~
 the guildmaster~
@@ -29,12 +46,29 @@ Your guildmaster stands here.
 An older man wrapped in purple, long-flowing robes meditates here.
 ~
 human~
-ABJKQVb DFH 250 0
+ABJKQVbl DFH 250 0
 40 10 1d1+30000 1d1+499 6d7+8 'bite'
 -15 -15 -15 -15
-EFGIK ABCD 0 0
+EFGIK 0 0 0
 stand stand male 15000
 0 0 medium unknown
+r bash 100
+r pierce 100
+r slash 100
+r fire 100
+r cold 100
+r lightning 100
+r acid 100
+r holy 100
+r negative 100
+r energy 100
+r mental 100
+r sound 100
+r disease 100
+r poison 100
+r charm 100
+r harm 100
+r light 100
 #9502
 warrior guildmaster~
 the guildmaster~
@@ -43,12 +77,29 @@ Your guildmaster stands here.
 A smaller man dressed in nothing but a tunic stands here waiting to train you.
 ~
 human~
-ABJKTVbe DF 0 0
+ABJKTVbel DF 0 0
 40 20 1d1+30000 1d1+99 2d4+30 'digestion'
 -15 -15 -15 -15
-ACEFHIK ABCD 0 0
+ACEFHIK 0 0 0
 stand stand male 15000
 0 0 medium unknown
+r bash 100
+r pierce 100
+r slash 100
+r fire 100
+r cold 100
+r lightning 100
+r acid 100
+r holy 100
+r negative 100
+r energy 100
+r mental 100
+r sound 100
+r disease 100
+r poison 100
+r charm 100
+r harm 100
+r light 100
 #9503
 thief guildmaster~
 the guildmaster~
@@ -59,12 +110,29 @@ a knife an throws it at you. It lands the wall next to your left ear. We
 will now begin, is all he says.
 ~
 elf~
-ABJKTVb DF -100 0
+ABJKTVbl DF -100 0
 40 15 1d1+30000 1d1+99 1d4+10 'digestion'
 -15 -15 -15 -15
-BEFHJKN ABCD 0 0
+BEFHJKN 0 0 0
 stand stand male 35000
 0 0 medium unknown
+r bash 100
+r pierce 100
+r slash 100
+r fire 100
+r cold 100
+r lightning 100
+r acid 100
+r holy 100
+r negative 100
+r energy 100
+r mental 100
+r sound 100
+r disease 100
+r poison 100
+r charm 100
+r harm 100
+r light 100
 #9504
 receptionist~
 the receptionist~
@@ -190,12 +258,29 @@ parts of the world. He welcomes you warmly and offers to show you a pair
 of priceless parrots.
 ~
 human~
-AB D 800 0
+ABl D 800 0
 23 0 5d10+650 11d9+100 3d6+6 'none'
 -6 -6 -6 6
-EFNU ABCD 0 0
+EFNU 0 0 0
 stand stand male 505
 0 0 medium unknown
+r bash 100
+r pierce 100
+r slash 100
+r fire 100
+r cold 100
+r lightning 100
+r acid 100
+r holy 100
+r negative 100
+r energy 100
+r mental 100
+r sound 100
+r disease 100
+r poison 100
+r charm 100
+r harm 100
+r light 100
 #9513
 ahkeem tailor~
 Ahkeem the tailor~
@@ -1363,12 +1448,29 @@ Although retired from adventuring, the healer still lends a hand.
 Type 'heal' to see a listing of spells.
 ~
 human~
-ABQVaef DFH 1000 0
+ABQVaefl DFH 1000 0
 120 10 1d1+26999 1d1+999 2d4+30 'divine'
 -45 -45 -45 -45
-FHIK ABC D 0
+FHIK 0 0 0
 stand stand male 5000
 0 0 medium unknown
+r bash 33
+r pierce 33
+r slash 33
+r fire 100
+r cold 100
+r lightning 100
+r acid 100
+r holy 100
+r negative 100
+r energy 100
+r mental 100
+r sound 100
+r disease 100
+r poison 100
+r charm 100
+r harm 100
+r light 100
 #9594
 samurai weaponsmaster~
 The Samurai Weaponsmaster~
@@ -1379,12 +1481,29 @@ in years. He is still wearing his old body armor, even at a very safe place
 like this.
 ~
 human~
-ABKRVe DEFZ 1000 0
+ABKRVel DEFZ 1000 0
 96 100 1d1+29099 1d1+3999 43d48+64 'slash'
 -100 -100 -100 -60
-FG ABD C 0
+FG 0 0 0
 stand stand male 0
 0 0 medium unknown
+r bash 100
+r pierce 100
+r slash 100
+r fire 33
+r cold 33
+r lightning 33
+r acid 33
+r holy 33
+r negative 33
+r energy 33
+r mental 33
+r sound 33
+r disease 33
+r poison 33
+r charm 100
+r harm 33
+r light 33
 #0
 
 #OBJECTS

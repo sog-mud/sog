@@ -22,12 +22,19 @@ running in your direction. YOU'D BETTER ACT FAST!
 это место, не привлекая к себе лишнего внимания.
 ~
 dragon~
-ABFT Vb -1000 0
+ABFTl Vb -1000 0
 60 0 50d10+6750 10d10+4000 8d6+28 'acbite'
 -30 -30 -30 0
-BCDEFIKMN AB IJKO HQY
+BCDEFIKMN 0 0 0
 stand stand male 300
 c L huge unknown
+r fire 0
+r cold 0
+r lightning 33
+r acid 33
+r energy 33
+r disease -50
+r charm 100
 #10002
 gar long tail гар~
 @eng a long-tailed gar@rus ~~длиннохвостый~~ ~~гар~~~
@@ -43,12 +50,19 @@ running in your direction. YOU'D BETTER ACT FAST!
 это место, не привлекая к себе лишнего внимания.
 ~
 dragon~
-ABFT Vb -1000 0
+ABFTl Vb -1000 0
 46 0 25d10+3250 10d10+3000 6d6+16 'acbite'
 -16 -16 -16 4
-BCDEFIKMN AB IJKO HQY
+BCDEFIKMN 0 0 0
 stand stand male 300
 c L huge unknown
+r fire 0
+r cold 0
+r lightning 33
+r acid 33
+r energy 33
+r disease -50
+r charm 100
 #10003
 gar long tail гар длиннохвостый~
 @eng a long-tailed gar@rus ~~длиннохвостый~~ ~~гар~~~
@@ -64,12 +78,19 @@ running in your direction. YOU'D BETTER ACT FAST!
 это место, не привлекая к себе лишнего внимания.
 ~
 dragon~
-ABFT Vb -947 0
+ABFTl Vb -947 0
 46 0 25d10+3250 10d10+3000 6d6+16 'acbite'
 -16 -16 -16 4
-BCDEFIKMN AB IJKO HQY
+BCDEFIKMN 0 0 0
 stand stand male 300
 c L huge unknown
+r fire 0
+r cold 0
+r lightning 33
+r acid 33
+r energy 33
+r disease -50
+r charm 100
 #10004
 fly blood муха кровавая~
 @eng a blood fly@rus ~~кровавая~~ ~~муха~~~
@@ -84,9 +105,14 @@ unique~
 ABT BGJTVb -200 0
 40 0 25d10+1850 10d10+3000 4d8+13 'shbite'
 -13 -13 -13 5
-BCEFKO EJL J KM
+BCEFKO 0 0 0
 stand stand female 300
 0 0 tiny unknown
+r bash 100
+r lightning 100
+r acid -50
+r negative -50
+r poison 100
 #10005
 assassin квод наемник quad~
 @eng a quad assassin@rus ~~наемник~~ из квода~
@@ -100,12 +126,16 @@ KILL!
 в чьих пустых глазах светится лишь жажда убийства и крови.
 ~
 human~
-ABT Vb -1000 0
+ABTl Vb -1000 0
 55 0 50d10+5500 10d10+3000 10d4+23 'wrath'
 -25 -25 -25 0
-BCDEFGHIKNUV AH BL J
+BCDEFGHIKNUV 0 0 0
 stand stand male 300
 0 0 large unknown
+r fire 100
+r lightning -50
+r poison 33
+r charm 33
 #10006
 assassin квод наемник quad~
 @eng a quad assassin@rus ~~наемник~~ из квода~
@@ -119,12 +149,16 @@ KILL!
 в чьих пустых глазах светится лишь жажда убийства и крови.
 ~
 human~
-ABT Vb -1000 0
+ABTl Vb -1000 0
 56 0 50d10+6000 10d10+3000 10d4+24 'wrath'
 -25 -25 -25 0
-BCDEFGHIKNUV AH BL J
+BCDEFGHIKNUV 0 0 0
 stand stand male 300
 0 0 large unknown
+r fire 100
+r lightning -50
+r poison 33
+r charm 33
 #10007
 lady девушка молодая young~
 @eng a young lady@rus ~~молодая~~ ~~девушка~~~
@@ -136,12 +170,13 @@ lady девушка молодая young~
 выбирает цветы для букета, не обращая на тебя ни малейшего внимания.
 ~
 human~
-ABT Nb 850 0
+ABTl Nb 850 0
 46 0 25d10+3250 10d10+3000 6d6+16 'slap'
 -16 -16 -16 4
-BCDEFGHIK AI 0 0
+BCDEFGHIK 0 0 0
 stand stand female 300
 0 0 medium unknown
+r cold 100
 #10008
 fisherman man рыбак мужчина~
 @eng a fisherman@rus рыбак~
@@ -154,12 +189,13 @@ would like to catch some fish to take home.
 неспеша складывает улов в корзину, чтобы потом отнести его домой.
 ~
 human~
-ABT Nb 1000 0
+ABTl Nb 1000 0
 50 0 25d10+4250 10d10+3000 5d8+19 'slap'
 -20 -20 -20 0
-BCDEFGHIK AI 0 0
+BCDEFGHIK 0 0 0
 stand stand male 300
 0 0 medium unknown
+r cold 100
 #10009
 boy мальчик маленький little~
 @eng a little boy@rus ~~маленький~~ ~~мальчик~~~
@@ -174,12 +210,13 @@ him.
 хочется присоединиться к нему.
 ~
 human~
-ABT Nb 1000 0
+ABTl Nb 1000 0
 50 0 25d10+4250 10d10+3000 5d8+19 'punch'
 -20 -20 -20 0
-BCDEFGHIK AI 0 0
+BCDEFGHIK 0 0 0
 stand stand male 300
 0 0 small unknown
+r cold 100
 #10010
 hound гончая сердца heart~
 @eng a heart hound@rus ~~гончая~~ сердца~
@@ -221,10 +258,10 @@ want to get on your way.
 о вреде, наносимом пожарами и о людях, ежегодно погибающих в них.
 ~
 human~
-AFGT UVZb 1000 0
+AFGTl UVZb 1000 0
 60 0 50d10+6750 10d10+4000 8d6+28 'smash'
 -30 -30 -30 0
-BCDEFGHIKNO A 0 0
+BCDEFGHIKNO 0 0 0
 stand stand male 300
 0 0 medium unknown
 #10012
@@ -241,10 +278,10 @@ his mind!
 что тебя посетила мысль о том, уж не пьян ли он и все ли с ним в порядке.
 ~
 human~
-AFGT UVZb 1000 0
+AFGTl UVZb 1000 0
 60 0 50d10+6750 10d10+4000 8d6+28 'smash'
 -30 -30 -30 0
-BCDEFGHIKN A 0 0
+BCDEFGHIKN 0 0 0
 stand stand male 300
 0 0 medium unknown
 #10013
@@ -262,12 +299,18 @@ smile on her face.
 и ты начинаешь улыбаться вместе с ней.
 ~
 human~
-ABQ FH 1000 0
+ABQl FH 1000 0
 106 0 1d1+29000 1d1+11039 4d50+80 'slap'
 -99 -99 -99 -40
-KN ABINS BPQR 0
+KN 0 0 0
 stand stand female 0
 0 0 medium unknown
+r cold 100
+r holy 100
+r mental 33
+r disease 33
+r charm 100
+r light 100
 #10014
 warden страж границы boundary~
 @eng a boundary warden@rus ~~страж~~ границы~
@@ -283,12 +326,26 @@ is a good thing that he has a friendly character.
 обычный человек, добрый и дружелюбный.
 ~
 human~
-AGT DFHJUVb 1000 0
+AGTl DFHJUVb 1000 0
 70 0 50d10+9750 10d10+4000 8d10+40 'acbite'
 -40 -40 -40 -10
-BCDEFGHIJKN ABE BH C
+BCDEFGHIJKN 0 0 0
 stand stand male 300
 0 0 large unknown
+r bash 100
+r cold -50
+r lightning -50
+r acid -50
+r holy -50
+r negative -50
+r energy -50
+r mental -50
+r sound -50
+r disease -50
+r poison -50
+r charm 33
+r harm -50
+r light -50
 #10015
 thief воришка~
 @eng a thief@rus воришка~
@@ -325,12 +382,13 @@ place to live. OH WELL, life goes on.
 такого дойти? До чего же все-таки может человек докатиться.
 ~
 human~
-ABCH DVb 100 0
+ABCHl DVb 100 0
 46 0 25d10+3250 10d10+3000 6d6+10 'blast'
 -16 -16 -16 4
-BCDEFGHIJKN AB 0 0
+BCDEFGHIJKN 0 0 0
 stand stand male 300
 0 0 medium unknown
+r charm 100
 #10017
 woman женщина эди bone~
 @eng The Bone Woman@rus Эди~
@@ -351,9 +409,14 @@ human~
 ABR CDEFJTV 1000 0
 109 0 1d1+29999 1d1+9382 5d50+90 'magic'
 -93 -93 -90 -43
-CDEFIKN IP E JK
+CDEFIKN 0 0 0
 stand stand female 11300
 0 0 medium unknown
+r bash 33
+r cold 100
+r lightning -50
+r acid -50
+r mental 100
 #10018
 gripper хватало~
 @eng a nasty gripper@rus хватало~
@@ -374,9 +437,13 @@ human~
 ACGT JV -986 0
 92 0 50d10+19500 10d10+5200 15d10+62 'blast'
 -62 -62 -62 -29
-CDEFIKN IP E J
+CDEFIKN 0 0 0
 stand stand none 300
 0 0 medium unknown
+r bash 33
+r cold 100
+r lightning -50
+r mental 100
 #10019
 shadow thing тень странная~
 @eng the scary shadow thing@rus ~~странная~~ ~~тень~~~
@@ -394,9 +461,14 @@ human~
 ABCGT JV -1000 0
 99 0 50d10+29000 10d10+3029 4d50+80 'wrath'
 -69 -69 -69 -30
-CDEFIKN IP F JK
+CDEFIKN 0 0 0
 stand stand female 300
 0 0 medium unknown
+r pierce 33
+r cold 100
+r lightning -50
+r acid -50
+r mental 100
 #10020
 king призрачный король spirit~
 @eng the spirit king@rus ~~призрачный~~ ~~король~~~
@@ -416,9 +488,13 @@ human~
 ABCGT JVu -1000 0
 119 0 50d10+29000 10d10+10203 20d15+100 'wrath'
 -77 -77 -70 -40
-CDEFIKN IP 0 JK
+CDEFIKN 0 0 0
 stand stand male 300
 0 0 medium unknown
+r cold 100
+r lightning -50
+r acid -50
+r mental 100
 #10021
 dragon дракон красный скарлет scarlet great red~
 @eng Scarlet@rus Скарлет~
@@ -438,9 +514,11 @@ dragon~
 ABCGT Gu -1000 0
 119 0 50d10+29000 10d10+10203 20d15+100 'wrath'
 -77 -77 -70 -40
-BCEFIKN IP IJK JK
+BCEFIKN 0 0 0
 stand stand female 300
 c L giant unknown
+r cold 33
+r mental 100
 #10022
 shadow people призрак~
 @eng an evil shadow person@rus призрак~
@@ -455,9 +533,13 @@ human~
 ACGT GJ -1000 0
 110 0 50d10+28000 10d10+10203 20d15+95 'wrath'
 -77 -77 -70 -40
-CDFIKN IP 0 JK
+CDFIKN 0 0 0
 stand stand male 300
 0 0 medium unknown
+r cold 100
+r lightning -50
+r acid -50
+r mental 100
 #10023
 tender бармен человечек толстый маленький bar~
 @eng the bar tender@rus бармен~
@@ -474,9 +556,13 @@ human~
 ABCGTe GJ 1000 0
 50 0 25d10+4250 10d10+3000 5d8+19 'wrath'
 -20 -20 -20 0
-BCDEFIN IP 0 JK
+BCDEFIN 0 0 0
 stand stand male 300
 0 0 medium unknown
+r cold 100
+r lightning -50
+r acid -50
+r mental 100
 #10024
 drunken villager сельский пьяница~
 @eng a drunken villager@rus ~~сельский~~ ~~пьяница~~~
@@ -492,9 +578,12 @@ human~
 ABCGT GJ 102 0
 50 0 25d10+4250 10d10+3000 5d8+19 'wrath'
 -20 -20 -20 0
-CDEFIKN IP 0 K
+CDEFIKN 0 0 0
 stand stand male 300
 0 0 medium unknown
+r cold 100
+r acid -50
+r mental 100
 #10025
 thief воришка маленький dark~
 @eng a little thief@rus ~~маленький~~ ~~воришка~~~
@@ -510,9 +599,14 @@ human~
 ACGT GJ -1000 0
 60 0 50d10+6750 10d10+4000 8d6+28 'bite'
 -30 -30 -30 0
-CDEFKN IP D 0
+CDEFKN 0 0 0
 stand stand male 300
 0 0 medium unknown
+r bash 33
+r pierce 33
+r slash 33
+r cold 100
+r mental 100
 #10026
 snake желтая змейка~
 @eng a yellow snake@rus ~~желтая~~ ~~змейка~~~
@@ -530,9 +624,11 @@ unique~
 ABCGT GJ -1000 0
 30 0 6d12+853 1d1+100 4d6+8 'bite'
 -9 -9 -9 2
-CDEFIKN IP 0 0
+CDEFIKN 0 0 0
 stand stand female 300
 0 0 small unknown
+r cold 100
+r mental 100
 #10027
 beast порождение подземного underworld~
 @eng an underworld beast@rus ~~порождение~~ подземного мира~
@@ -548,9 +644,11 @@ unique~
 ACGT GJ -1000 0
 69 0 50d10+9500 10d10+1000 7d11+39 'bite'
 -40 -40 -40 -10
-CDEFIKN IP 0 0
+CDEFIKN 0 0 0
 stand stand none 300
 0 0 large unknown
+r cold 100
+r mental 100
 #10028
 cat dopey котенок маленький одурманенный~
 @eng a dopey little cat@rus ~~маленький~~ ~~одурманенный~~ ~~котенок~~~
@@ -567,9 +665,12 @@ unique~
 ACGT GJ 1000 0
 11 0 1d1+130 1d1+100 1d10+2 'bite'
 1 1 1 9
-CDEFIKN IJP 0 0
+CDEFIKN 0 0 0
 stand stand male 300
 0 0 small unknown
+r cold 100
+r lightning 100
+r mental 100
 #10029
 sith морд-сит сит mord~
 @eng Mord-Sith@rus Морд-Сит~
@@ -587,9 +688,12 @@ human~
 ABCGT GJ -1000 0
 120 0 50d10+28000 10d10+10203 20d15+95 'wrath'
 -77 -77 -70 -40
-CDEFIKN IP I M
+CDEFIKN 0 0 0
 stand stand female 300
 0 0 large unknown
+r cold 100
+r negative -50
+r mental 100
 #10030
 devoter последователь~
 @eng a devoter of Darken Rahl@rus ~~последователь~~ Даркена Рала~
@@ -607,9 +711,11 @@ human~
 ABCGT GJ -1000 0
 110 0 50d10+28000 10d10+10203 20d15+95 'wrath'
 -77 -77 -70 -40
-BCDEFIKN IP 0 0
+BCDEFIKN 0 0 0
 stand stand male 300
 0 0 medium unknown
+r cold 100
+r mental 100
 #10031
 rahl рал даркен darken~
 @eng The Evil Darken Rahl@rus Даркен ~~Рал~~~
@@ -628,9 +734,13 @@ human~
 ABCGT DGJu -1000 0
 125 0 50d10+28000 10d10+10203 20d15+95 'wrath'
 -77 -77 -70 -40
-BCDEFIJKNO LP N K
+BCDEFIJKNO 0 0 0
 stand stand male 300
 0 0 large unknown
+r acid -50
+r holy 33
+r mental 100
+r poison 100
 #10032
 gar tail гар short короткохвостый~
 @eng a short-tailed gar@rus ~~короткохвостый~~ ~~гар~~~
@@ -645,12 +755,19 @@ running in your direction. YOU'D BETTER ACT FAST!
 и кровожаднее своего длиннохвостого сородича.
 ~
 dragon~
-ABFT Vbu -1000 0
+ABFTl Vbu -1000 0
 70 0 50d10+5000 10d10+4000 8d6+28 'acbite'
 -30 -30 -30 0
-BCDEFIKMN AB IJKO HQY
+BCDEFIKMN 0 0 0
 stand stand male 350
 c L giant unknown
+r fire 0
+r cold 0
+r lightning 33
+r acid 33
+r energy 33
+r disease -50
+r charm 100
 #10033
 mord sith морд-сит denna денна woman женщина~
 @eng Denna@rus Денна~
@@ -668,9 +785,12 @@ human~
 ABCGT GJV -1000 0
 120 0 50d10+30000 10d10+10203 20d15+95 'wrath'
 -77 -77 -70 -40
-CDEFIKN IP I M
+CDEFIKN 0 0 0
 stand stand female 300
 0 0 large unknown
+r cold 100
+r negative -50
+r mental 100
 #0
 
 #OBJECTS

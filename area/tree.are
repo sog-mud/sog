@@ -78,9 +78,23 @@ human~
 ACG DF -900 2904
 20 0 3d9+308 199d1+1 3d4+4 'pound'
 -4 -4 -4 2
-CDEFIKN 0 0 C
+CDEFIKN 0 0 0
 stand stand either 2000
 0 0 medium unknown
+r fire -50
+r cold -50
+r lightning -50
+r acid -50
+r holy -50
+r negative -50
+r energy -50
+r mental -50
+r sound -50
+r disease -50
+r poison -50
+r charm -50
+r harm -50
+r light -50
 #2905
 babau ebony~
 a babau~
@@ -121,12 +135,13 @@ Kostchtchie a powerful demon lord is here.  Obviously derived from giant stock,
 he is very powerful.  And he does not like to be interrupted.
 ~
 human~
-ABEFG DFu -1000 2907
+ABEFGl DFu -1000 2907
 40 0 15d10+1800 399d1+1 4d8+11 'chill'
 -13 -13 -13 4
-FI AB 0 0
+FI 0 0 0
 stand stand either 6900
 0 0 medium unknown
+r charm 100
 #2908
 nabassu demon~
 a nabassu~
@@ -139,9 +154,12 @@ human~
 ACG D -950 2908
 15 0 2d10+190 149d1+1 1d10+3 'slap'
 -1 -1 -1 2
-FI 0 0 D
+FI 0 0 0
 stand stand either 1120
 0 0 medium unknown
+r bash -50
+r pierce -50
+r slash -50
 #2909
 dragon cloud~
 a cloud dragon~
@@ -196,12 +214,13 @@ Large members of the giant family, the frost giants are ravenous collectors
 of treasure.  They dont like to share this treasure with anyone.
 ~
 giant~
-ABFG DF -300 2912
+ABFGl DF -300 2912
 25 0 5d10+550 249d1+1 2d10+7 'grep'
 -7 -7 -7 6
-FJKN AB 0 0
+FJKN 0 0 0
 stand stand male 3400
 0 0 large unknown
+r charm 100
 #2913
 gorgimera~
 a gorgimera~
@@ -211,12 +230,13 @@ This three-headed monster is waiting to rip the head off of its latest victim
 to add to its collection.  Watch out for that breath attack.
 ~
 dragon~
-ABFG D -750 2913
+ABFGl D -750 2913
 20 0 3d9+300 199d1+1 2d8+2 'claw'
 -4 -4 -4 7
-FIKN AB 0 0
+FIKN 0 0 0
 stand stand either 2500
 0 0 large unknown
+r charm 100
 #2914
 ratatosk~
 Ratatosk~

@@ -105,9 +105,10 @@ human~
 ACF J -290 0
 11 0 2d8+134 5d9+100 1d10+2 'none'
 1 1 1 8
-EFNU 0 0 E
+EFNU 0 0 0
 stand stand male 55
 0 0 medium unknown
+r bash -50
 #2008
 templar~
 a templar~

@@ -21,11 +21,25 @@ unique~
 ABJKTVbef DFUVclmt 0 0
 50 25 2d1+5000 1d1+99 5d6+50 'none'
 -10 -10 -10 -10
-ACEFIK C 0 0
+ACEFIK 0 0 0
 stand stand none 0
 0 0 giant unknown
 M grall 96000 100~
 M exall 96001 3~
+r fire 100
+r cold 100
+r lightning 100
+r acid 100
+r holy 100
+r negative 100
+r energy 100
+r mental 100
+r sound 100
+r disease 100
+r poison 100
+r charm 100
+r harm 100
+r light 100
 #96001
 ancient owl~
 the ancient owl~
@@ -36,9 +50,23 @@ unique~
 ABQVWa DFHJVZ 0 0
 92 70 1d100+18000 1d300+900 15d30+40 'divine'
 -90 -90 -90 -90
-CEFNU C 0 0
+CEFNU 0 0 0
 stand stand female 0
 AHM 0 medium unknown
+r fire 100
+r cold 100
+r lightning 100
+r acid 100
+r holy 100
+r negative 100
+r energy 100
+r mental 100
+r sound 100
+r disease 100
+r poison 100
+r charm 100
+r harm 100
+r light 100
 #0
 
 #OBJECTS

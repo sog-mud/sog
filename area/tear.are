@@ -16,12 +16,15 @@ Avatar~
 ~
 ~
 elf~
-AGR DFNOVZaclmtu -1000 0
+AGRl DFNOVZaclmtu -1000 0
 91 100 1d1+50000 1d1+40000 1d1+200 'bite'
 -30 -30 -30 -30
-ACDEFHJKO ABLQ 0 0
+ACDEFHJKO 0 0 0
 stand stand male 0
 I 0 large unknown
+r disease 100
+r poison 100
+r charm 100
 #110001
 Beacon~
 Beacon~
@@ -29,14 +32,29 @@ Beacon is walking around
 ~
 ~
 human~
-ABGO JPTVcu -1000 0
+ABGOk JPTVcu -1000 0
 150 250 1d1+25000 1d1+15000 1d1+350 'bite'
 0 0 0 0
-0 BDEFGHIJKLMNOPQRTUXYZ 0 0
+0 0 0 0
 stand stand female 0
 B UV small unknown
 M act 110999 says 'go home'~
 M act 110998 says 'жрать хочу'~
+r bash 100
+r pierce 100
+r slash 100
+r fire 100
+r cold 100
+r lightning 100
+r acid 100
+r holy 100
+r negative 100
+r energy 100
+r mental 100
+r sound 100
+r disease 100
+r poison 100
+r charm 100
 #110178
 cityguard head~
 ~
@@ -60,9 +78,10 @@ human~
 AB 0 0 0
 50 60 3d5+2000 3d4+1000 3d4+50 'slap'
 -24 -24 -24 -7
-K 0 H 0
+K 0 0 0
 stand stand female 0
 0 0 medium unknown
+r fire 33
 #110183
 innkeeper трактирщик~
 @eng innkeeper@rus трактирщик~
@@ -71,12 +90,13 @@ innkeeper трактирщик~
 ~
 ~
 human~
-AB HNO 0 0
+ABl HNO 0 0
 50 100 1d1+10000 1d6+1000 2d6+50 'slap'
 -27 -27 -27 -9
-CEFHK AB 0 0
+CEFHK 0 0 0
 stand stand male 0
 0 0 large unknown
+r charm 100
 #110185
 Lanfear Mierin Forsaken ланфир~
 @eng Lanfear@rus Ланфир~
@@ -85,12 +105,26 @@ Lanfear Mierin Forsaken ланфир~
 ~
 ~
 human~
-ABGRVe BCDEFGOUVZclmopst -1000 0
+ABGRVekl BCDEFGOUVZclmopst -1000 0
 80 300 1d1+1 8d10+100000 5d15+120 'magic'
 -50 -50 -50 -50
-AEF ABMUY CEIJP N
+AEF 0 0 0
 stand stand female 0
 0 0 medium unknown
+r bash 33
+r fire 33
+r cold 33
+r lightning 33
+r acid 33
+r negative 100
+r energy 33
+r mental 33
+r sound 33
+r disease 33
+r poison 33
+r charm 100
+r harm 33
+r light 33
 #110186
 catcher thiefcatcher ловец воров~
 @eng thiefcatcher@rus ~~ловец~~ воров~
@@ -102,13 +136,16 @@ catcher thiefcatcher ловец воров~
 время оградишь себя от посягательств шпаны.
 ~
 human~
-AHT FV 1000 0
+AHTk FV 1000 0
 40 100 4d7+2000 1d1+500 7d10+70 'punch'
 -18 -18 -18 -4
-CEFIJKNS U D 0
+CEFIJKNS 0 0 0
 stand stand male 0
 0 0 medium unknown
 M bribe 110017 1000~
+r bash 33
+r pierce 33
+r slash 33
 #110187
 thief hide вор~
 @eng tears thief@rus ~~тирский~~ ~~вор~~~
@@ -119,10 +156,10 @@ thief hide вор~
 человек. Рядом с ним не разевай рта.
 ~
 human~
-AHS DFPQVclm -1000 0
+AHSl DFPQVclm -1000 0
 40 200 5d9+1500 1d1+100 6d12+60 'punch'
 -18 -18 -18 -4
-BEFIJKNU AB D 0
+BEFIJKNU 0 0 0
 stand stand either 0
 0 0 medium unknown
 M act 110012 goes to sleep.~
@@ -130,6 +167,10 @@ M delay 110014 100~
 M random 110015 10~
 M random 110013 20~
 M fight 110016 50~
+r bash 33
+r pierce 33
+r slash 33
+r charm 100
 #110188
 ugly fido~
 @eng Ugly fido@rus Вшивая собаченка~
@@ -157,10 +198,10 @@ cityguard head captain старшина стражников~
 приходящие ныне в город. Не спорь с ним. Заплати и проходи дальше.
 ~
 human~
-ABCGTbce DEFHNOVZlmt 1000 0
+ABCGTbcekl DEFHNOVZlmt 1000 0
 50 100 1d1+5000 1d1+1000 5d12+100 'pound'
 -24 -24 -24 -7
-ACDEFHIJKLOT ABU D 0
+ACDEFHIJKLOT 0 0 0
 stand stand male 0
 0 0 medium unknown
 M greet 110005 100~
@@ -169,6 +210,10 @@ M bribe 110007 10000~
 M exall 110008 1 3~
 M random 110010 15~
 M random 110011 15~
+r bash 33
+r pierce 33
+r slash 33
+r charm 100
 #110190
 cityguard~
 @eng Tear cityguard@rus Тирский стражник~
@@ -183,11 +228,15 @@ human~
 ABCTWYc EHNOVZ 700 0
 45 100 4d7+2500 1d1+800 5d10+90 'pound'
 -21 -21 -21 -5
-CDEFIJKNOT 0 BEFG 0
+CDEFIJKNOT 0 0 0
 stand stand male 100
 0 0 medium unknown
 M fight 110002 50~
 M act 110004 *^ \*\*\*\*\* Range 1 \*\*\*\*\*~
+r bash 33
+r pierce 33
+r slash 33
+r charm 33
 #110191
 mule~
 @eng mule@rus мул~
@@ -215,9 +264,13 @@ human~
 ABCHU NOc 0 0
 40 80 5d20+2000 1d1+700 5d12+70 'pound'
 -18 -18 -18 -4
-DEFKO 0 ABEIL 0
+DEFKO 0 0 0
 stand stand male 5000
 0 0 medium unknown
+r bash 33
+r cold 33
+r poison 33
+r charm 33
 #110193
 horn-seeker охотник~
 @eng horn-seeker@rus ~~охотник~~ за Рогом~
@@ -231,12 +284,14 @@ human~
 AHT EFHNV 500 0
 40 100 3d12+2000 1d1+700 2d7+80 'none'
 -18 -18 -18 -4
-CDEFHIJKLNQ 0 AEI 0
+CDEFHIJKLNQ 0 0 0
 stand stand either 20000
 0 0 medium unknown
 F for H
 M speech 110013 Ho-ho..~
 V 37008
+r bash 33
+r cold 33
 #110194
 traveller путешественник~
 @eng traveller@rus путешественник~
@@ -266,11 +321,14 @@ human~
 ACT JNb 200 0
 35 20 6d12+1500 1d1+500 2d12+20 'slap'
 -12 -12 -12 -1
-FIJNQ 0 IJT 0
+FIJNQ 0 0 0
 stand stand male 100
 0 0 medium unknown
 F for H
 M fight 110001 50~
+r cold 33
+r lightning 33
+r sound 33
 #110196
 peasant крестьянин~
 @eng peasant@rus крестьянин~
@@ -285,9 +343,10 @@ human~
 ACHT N 200 0
 35 0 6d12+1500 1d1+500 2d12+20 'pound'
 -15 -15 -15 -2
-CFIJQ 0 TX 0
+CFIJQ 0 0 0
 stand stand male 100
 0 0 medium unknown
+r sound 33
 #110197
 Sand snake~
 @eng sand snake@rus ~~песчаная~~ ~~змея~~~
@@ -301,10 +360,25 @@ snake~
 ABF DFHJPQVZacelmt -200 0
 40 80 2d4+1200 1d1+500 2d5+75 'bite'
 -18 -18 -18 -4
-ADFHMN 0 ABCFGK 0
+ADFHMN 0 0 0
 stand stand female 0
 0 0 large unknown
-F res L
+r pierce 33
+r slash 33
+r fire 33
+r cold 0
+r lightning 33
+r acid 33
+r holy 33
+r negative 33
+r energy 33
+r mental 33
+r sound 33
+r disease 33
+r poison 0
+r charm 33
+r harm 33
+r light 33
 #110198
 snake~
 @eng snake@rus змея~
@@ -368,9 +442,22 @@ armor PU AL
 50 10 100 P
 F A 26 10 Z
 S 'summon' 100 A
-F R 8 10 F
-F R 18 50 G
-F R 19 50 D
+A
+28 33
+A
+8 10
+A
+29 33
+A
+18 50
+A
+27 33
+A
+28 33
+A
+29 33
+A
+19 50
 g none~
 #110004
 jukebox~
@@ -456,9 +543,18 @@ silver~
 light AGY AE
 0 0 1000 0 0
 80 20 0 P
-F R 6 5 B
-F R 4 5 O
-F I 12 200 P
+A
+41 33
+A
+6 5
+A
+36 33
+A
+4 5
+A
+37 100
+A
+12 200
 g none~
 #110165
 White dress~
@@ -471,7 +567,10 @@ clothing AGHP AD
 A
 6 5
 F A 3 10 P
-F I 24 -100 E
+A
+27 100
+A
+24 -100
 g none~
 #110166
 brand unholy~
@@ -481,7 +580,12 @@ energy~
 armor BCEFGMTUYZ AR
 50 50 50 50 0
 0 5 1000 P
-F R 0 0 D
+A
+27 33
+A
+28 33
+A
+29 33
 F A 0 0 Z
 A
 18 10
@@ -489,8 +593,14 @@ A
 19 10
 A
 12 1000
-F R 3 5 M
-F V 17 -200 N
+A
+35 33
+A
+3 5
+A
+34 -50
+A
+17 -200
 g none~
 #110167
 swordbreaker~
@@ -565,7 +675,8 @@ armor A AB
 50 200 30000 P
 A
 24 -20
-F R 0 0 E
+A
+27 33
 g male~
 #110175
 sword fear меч~
@@ -675,7 +786,8 @@ silk~
 clothing 0 AK
 0 0 0 0 0
 40 10 500 P
-F R 0 0 B
+A
+41 33
 g male~
 #110186
 cuirass кираса~
@@ -820,7 +932,12 @@ cuendillar~
 treasure AGHNTYZa AO
 0 0 0 0 0
 75 100 0 P
-F V 0 0 D
+A
+27 -50
+A
+28 -50
+A
+29 -50
 S 'spell craft' 100 A
 A
 12 5000

@@ -369,9 +369,23 @@ human~
 AG 0 0 0
 11 0 2d8+134 109d1+1 1d10+2 'punch'
 1 1 1 8
-EKN 0 0 C
+EKN 0 0 0
 stand stand female 280
 0 0 medium unknown
+r fire -50
+r cold -50
+r lightning -50
+r acid -50
+r holy -50
+r negative -50
+r energy -50
+r mental -50
+r sound -50
+r disease -50
+r poison -50
+r charm -50
+r harm -50
+r light -50
 #7525
 coot old~
 an old coot~
@@ -384,9 +398,23 @@ human~
 AG 0 0 7525
 13 0 2d10+170 129d1+1 2d5+3 'punch'
 -1 -1 -1 8
-EKN 0 0 C
+EKN 0 0 0
 stand stand male 360
 0 0 medium unknown
+r fire -50
+r cold -50
+r lightning -50
+r acid -50
+r holy -50
+r negative -50
+r energy -50
+r mental -50
+r sound -50
+r disease -50
+r poison -50
+r charm -50
+r harm -50
+r light -50
 #7526
 child little boy~
 a little boy~
@@ -399,9 +427,23 @@ human~
 AG 0 0 0
 4 0 2d7+46 39d1+1 1d5+1 'punch'
 6 6 6 9
-EKN 0 0 C
+EKN 0 0 0
 stand stand male 100
 0 0 small unknown
+r fire -50
+r cold -50
+r lightning -50
+r acid -50
+r holy -50
+r negative -50
+r energy -50
+r mental -50
+r sound -50
+r disease -50
+r poison -50
+r charm -50
+r harm -50
+r light -50
 #7527
 child little girl~
 a little girl~
@@ -413,9 +455,23 @@ human~
 AG 0 0 0
 4 0 2d7+46 39d1+1 1d5+1 'punch'
 6 6 6 9
-EKN 0 0 C
+EKN 0 0 0
 stand stand female 100
 0 0 small unknown
+r fire -50
+r cold -50
+r lightning -50
+r acid -50
+r holy -50
+r negative -50
+r energy -50
+r mental -50
+r sound -50
+r disease -50
+r poison -50
+r charm -50
+r harm -50
+r light -50
 #7528
 junior guard~
 a junior guard~
@@ -428,9 +484,23 @@ human~
 AGT 0 1000 7528
 15 0 3d9+208 149d1+1 2d6+3 'scratch'
 -2 -2 -2 7
-CDEKLT 0 0 C
+CDEKLT 0 0 0
 stand stand male 600
 0 0 medium unknown
+r fire -50
+r cold -50
+r lightning -50
+r acid -50
+r holy -50
+r negative -50
+r energy -50
+r mental -50
+r sound -50
+r disease -50
+r poison -50
+r charm -50
+r harm -50
+r light -50
 #7529
 young woman~
 a young woman~
@@ -442,9 +512,23 @@ human~
 AGT 0 1000 0
 14 0 2d10+190 139d1+1 1d12+3 'punch'
 -1 -1 -1 8
-CDEKL 0 0 C
+CDEKL 0 0 0
 stand stand male 520
 0 0 medium unknown
+r fire -50
+r cold -50
+r lightning -50
+r acid -50
+r holy -50
+r negative -50
+r energy -50
+r mental -50
+r sound -50
+r disease -50
+r poison -50
+r charm -50
+r harm -50
+r light -50
 #7530
 cityguard guard gerighelm~
 a Gerighelm cityguard~
@@ -456,9 +540,23 @@ human~
 AGT 0 1000 7530
 15 0 3d9+208 149d1+1 2d6+3 'punch'
 -2 -2 -2 7
-CDEKLT 0 0 C
+CDEKLT 0 0 0
 stand stand male 600
 0 0 medium unknown
+r fire -50
+r cold -50
+r lightning -50
+r acid -50
+r holy -50
+r negative -50
+r energy -50
+r mental -50
+r sound -50
+r disease -50
+r poison -50
+r charm -50
+r harm -50
+r light -50
 #7531
 cityguard guard gerighelm~
 a Gerighelm cityguard~
@@ -470,9 +568,23 @@ human~
 AGT 0 1000 7530
 16 0 3d9+233 159d1+1 2d6+4 'punch'
 -2 -2 -2 7
-CDEKLT 0 0 C
+CDEKLT 0 0 0
 stand stand male 680
 0 0 medium unknown
+r fire -50
+r cold -50
+r lightning -50
+r acid -50
+r holy -50
+r negative -50
+r energy -50
+r mental -50
+r sound -50
+r disease -50
+r poison -50
+r charm -50
+r harm -50
+r light -50
 #7532
 cityguard guard gerighelm~
 a Gerighelm cityguard~
@@ -484,9 +596,23 @@ human~
 AGT 0 1000 7530
 17 0 3d9+258 169d1+1 3d4+4 'punch'
 -3 -3 -3 7
-CDEKLT 0 0 C
+CDEKLT 0 0 0
 stand stand male 740
 0 0 medium unknown
+r fire -50
+r cold -50
+r lightning -50
+r acid -50
+r holy -50
+r negative -50
+r energy -50
+r mental -50
+r sound -50
+r disease -50
+r poison -50
+r charm -50
+r harm -50
+r light -50
 #7533
 ale-conner ale conner~
 the ale-conner~
@@ -499,9 +625,23 @@ human~
 AG 0 0 0
 17 0 3d9+258 169d1+1 3d4+4 'punch'
 -3 -3 -3 7
-CDEKLT 0 0 C
+CDEKLT 0 0 0
 stand stand male 740
 0 0 medium unknown
+r fire -50
+r cold -50
+r lightning -50
+r acid -50
+r holy -50
+r negative -50
+r energy -50
+r mental -50
+r sound -50
+r disease -50
+r poison -50
+r charm -50
+r harm -50
+r light -50
 #7534
 defender gerighelm~
 a Defender of Gerighelm~
@@ -513,9 +653,23 @@ human~
 AGT 0 1000 7534
 19 0 3d9+308 189d1+1 2d7+5 'punch'
 -4 -4 -4 7
-CDEKLT 0 0 C
+CDEKLT 0 0 0
 stand stand male 920
 0 0 medium unknown
+r fire -50
+r cold -50
+r lightning -50
+r acid -50
+r holy -50
+r negative -50
+r energy -50
+r mental -50
+r sound -50
+r disease -50
+r poison -50
+r charm -50
+r harm -50
+r light -50
 #7535
 defender gerighelm~
 a Defender of Gerighelm~
@@ -527,9 +681,23 @@ human~
 AGT 0 1000 7534
 20 0 3d9+333 199d1+1 2d8+5 'punch'
 -4 -4 -4 7
-CDEKLT 0 0 C
+CDEKLT 0 0 0
 stand stand male 1000
 0 0 medium unknown
+r fire -50
+r cold -50
+r lightning -50
+r acid -50
+r holy -50
+r negative -50
+r energy -50
+r mental -50
+r sound -50
+r disease -50
+r poison -50
+r charm -50
+r harm -50
+r light -50
 #7536
 palace guard~
 a palace guard~
@@ -541,9 +709,23 @@ human~
 AGT 0 1000 7536
 20 0 3d9+333 199d1+1 2d8+5 'punch'
 -4 -4 -4 7
-CDEKLT 0 0 C
+CDEKLT 0 0 0
 stand stand male 1000
 0 0 medium unknown
+r fire -50
+r cold -50
+r lightning -50
+r acid -50
+r holy -50
+r negative -50
+r energy -50
+r mental -50
+r sound -50
+r disease -50
+r poison -50
+r charm -50
+r harm -50
+r light -50
 #7537
 palace guard~
 a palace guard~
@@ -555,9 +737,23 @@ human~
 AGT 0 1000 7536
 21 0 4d10+360 209d1+1 4d4+5 'punch'
 -5 -5 -5 7
-CDEKLT 0 0 C
+CDEKLT 0 0 0
 stand stand male 1300
 0 0 medium unknown
+r fire -50
+r cold -50
+r lightning -50
+r acid -50
+r holy -50
+r negative -50
+r energy -50
+r mental -50
+r sound -50
+r disease -50
+r poison -50
+r charm -50
+r harm -50
+r light -50
 #7538
 cook~
 the cook~
@@ -569,9 +765,23 @@ human~
 AGT J 1000 0
 22 0 5d10+400 219d1+1 4d4+6 'punch'
 -5 -5 -5 7
-CDEKL 0 0 C
+CDEKL 0 0 0
 stand stand male 1600
 0 0 medium unknown
+r fire -50
+r cold -50
+r lightning -50
+r acid -50
+r holy -50
+r negative -50
+r energy -50
+r mental -50
+r sound -50
+r disease -50
+r poison -50
+r charm -50
+r harm -50
+r light -50
 #7539
 palace mage~
 the palace mage~
@@ -583,9 +793,11 @@ human~
 AGHR B 1000 0
 23 0 5d10+450 229d1+1 3d6+6 'punch'
 -6 -6 -6 6
-N B 0 E
+N 0 0 0
 stand stand male 2000
 0 0 medium unknown
+r bash -50
+r charm 100
 #7540
 palace priest~
 the palace priest~
@@ -597,9 +809,10 @@ human~
 ABGR BH 1000 0
 23 0 5d10+450 229d1+1 3d6+6 'punch'
 -6 -6 -6 6
-EFK 0 0 E
+EFK 0 0 0
 stand stand male 2000
 0 0 medium unknown
+r bash -50
 #7550
 head guard~
 the head of the guard~
@@ -611,9 +824,23 @@ human~
 AGT 0 1000 7550
 23 0 5d10+450 229d1+1 3d6+6 'punch'
 -6 -6 -6 6
-CDEKLT 0 0 C
+CDEKLT 0 0 0
 stand stand male 2000
 0 0 medium unknown
+r fire -50
+r cold -50
+r lightning -50
+r acid -50
+r holy -50
+r negative -50
+r energy -50
+r mental -50
+r sound -50
+r disease -50
+r poison -50
+r charm -50
+r harm -50
+r light -50
 #7551
 palace gardener~
 the palace gardener~
@@ -625,9 +852,23 @@ human~
 AGT 0 1000 0
 23 0 5d10+450 229d1+1 3d6+6 'punch'
 -6 -6 -6 6
-CDEKL 0 0 C
+CDEKL 0 0 0
 stand stand male 2000
 0 0 medium unknown
+r fire -50
+r cold -50
+r lightning -50
+r acid -50
+r holy -50
+r negative -50
+r energy -50
+r mental -50
+r sound -50
+r disease -50
+r poison -50
+r charm -50
+r harm -50
+r light -50
 #7552
 bodyguard body guard~
 a bodyguard~
@@ -639,9 +880,23 @@ human~
 AGT 0 1000 0
 24 0 5d10+500 239d1+1 2d10+6 'punch'
 -6 -6 -6 6
-CDEKLT 0 0 C
+CDEKLT 0 0 0
 stand stand male 2200
 0 0 medium unknown
+r fire -50
+r cold -50
+r lightning -50
+r acid -50
+r holy -50
+r negative -50
+r energy -50
+r mental -50
+r sound -50
+r disease -50
+r poison -50
+r charm -50
+r harm -50
+r light -50
 #7553
 bodyguard body guard~
 a bodyguard~
@@ -653,9 +908,23 @@ human~
 AGT 0 1000 0
 25 0 5d10+550 249d1+1 2d10+7 'punch'
 -7 -7 -7 6
-CDEKLT 0 0 C
+CDEKLT 0 0 0
 stand stand male 2500
 0 0 medium unknown
+r fire -50
+r cold -50
+r lightning -50
+r acid -50
+r holy -50
+r negative -50
+r energy -50
+r mental -50
+r sound -50
+r disease -50
+r poison -50
+r charm -50
+r harm -50
+r light -50
 #7554
 duke gerighelm~
 the Duke of Gerighelm~
@@ -664,12 +933,14 @@ The Duke of Gerighelm is here, watching over his proud lands.
 He looks worn, but happy.
 ~
 human~
-ABGRT 0 1000 7550
+ABGRTl 0 1000 7550
 30 0 6d12+853 299d1+1 4d6+8 'punch'
 -9 -9 -9 6
-CDEFJKLNU AB 0 E
+CDEFJKLNU 0 0 0
 stand stand male 4000
 0 0 medium unknown
+r bash -50
+r charm 100
 #7555
 duchess gerighelm~
 the Duchess of Gerighelm~
@@ -678,12 +949,14 @@ The Duchess of Gerighelm is here, pondering dinner parties and the like.
 She is a VERY social person...
 ~
 human~
-ABGR 0 1000 0
+ABGRl 0 1000 0
 25 0 5d10+550 249d1+1 2d10+7 'punch'
 -7 -7 -7 6
-FKN AB 0 E
+FKN 0 0 0
 stand stand female 2500
 0 0 medium unknown
+r bash -50
+r charm 100
 #7590
 servant~
 a servant~
@@ -695,9 +968,23 @@ human~
 AG 0 1000 0
 20 0 3d9+333 199d1+1 2d8+5 'punch'
 -4 -4 -4 7
-CDEKL 0 0 C
+CDEKL 0 0 0
 stand stand male 1000
 0 0 medium unknown
+r fire -50
+r cold -50
+r lightning -50
+r acid -50
+r holy -50
+r negative -50
+r energy -50
+r mental -50
+r sound -50
+r disease -50
+r poison -50
+r charm -50
+r harm -50
+r light -50
 #7591
 cutpurse~
 a cutpurse~
@@ -720,12 +1007,29 @@ The baker of Gerighelm is here, selling things.
 He looks like a friendly old man who likes to bake.
 ~
 human~
-ABVe 0 900 0
+ABVel 0 900 0
 50 0 1d1+2999 1d1+199 1d9+30 'beating'
 -25 -25 -25 -25
-CDF ABCD 0 0
+CDF 0 0 0
 stand stand male 100000
 0 0 medium unknown
+r bash 100
+r pierce 100
+r slash 100
+r fire 100
+r cold 100
+r lightning 100
+r acid 100
+r holy 100
+r negative 100
+r energy 100
+r mental 100
+r sound 100
+r disease 100
+r poison 100
+r charm 100
+r harm 100
+r light 100
 #7593
 blacksmith vendy~
 the blacksmith Vendy~
@@ -735,12 +1039,29 @@ The way she is pounding her anvil makes you want to be on his good side.
 The main reason, is that I doubt the anvil can take much more of her pounding.
 ~
 human~
-ABTVe 0 900 0
+ABTVel 0 900 0
 50 10 1d1+2999 1d1+199 1d8+52 'punch'
 -25 -25 -25 -25
-CEIK ABCD 0 0
+CEIK 0 0 0
 stand stand female 250000
 0 0 medium unknown
+r bash 100
+r pierce 100
+r slash 100
+r fire 100
+r cold 100
+r lightning 100
+r acid 100
+r holy 100
+r negative 100
+r energy 100
+r mental 100
+r sound 100
+r disease 100
+r poison 100
+r charm 100
+r harm 100
+r light 100
 #7594
 mage~
 the mage~
@@ -749,12 +1070,29 @@ The Mage is here, selling things.
 He is a powerful old coot....
 ~
 human~
-ABVe D 900 0
+ABVel D 900 0
 50 0 1d1+2999 1d1+999 1d8+42 'magic'
 -15 -15 -15 -15
-AF ABCD 0 0
+AF 0 0 0
 stand stand male 150000
 0 0 medium unknown
+r bash 100
+r pierce 100
+r slash 100
+r fire 100
+r cold 100
+r lightning 100
+r acid 100
+r holy 100
+r negative 100
+r energy 100
+r mental 100
+r sound 100
+r disease 100
+r poison 100
+r charm 100
+r harm 100
+r light 100
 #7595
 pawn shop runner~
 the pawn shop owner~
@@ -763,12 +1101,29 @@ The Pawn Shop owner is here selling and buying things.
 He looks almost like the pawn...
 ~
 human~
-ABVe 0 900 0
+ABVel 0 900 0
 50 0 1d1+2999 1d1+199 1d8+32 'beating'
 -15 -15 -15 -15
-EFJ ABCD 0 0
+EFJ 0 0 0
 stand stand male 130000
 0 0 medium unknown
+r bash 100
+r pierce 100
+r slash 100
+r fire 100
+r cold 100
+r lightning 100
+r acid 100
+r holy 100
+r negative 100
+r energy 100
+r mental 100
+r sound 100
+r disease 100
+r poison 100
+r charm 100
+r harm 100
+r light 100
 #7597
 merchant~
 the merchant~
@@ -777,12 +1132,29 @@ The merchant is here, selling his wares.
 HE'S A MERCHANT!
 ~
 human~
-AVe 0 900 0
+AVel 0 900 0
 40 0 1d1+1999 1d1+99 1d8+30 'beating'
 -15 -15 -15 -15
-EFJ ABCD 0 0
+EFJ 0 0 0
 stand stand male 80000
 0 0 medium unknown
+r bash 100
+r pierce 100
+r slash 100
+r fire 100
+r cold 100
+r lightning 100
+r acid 100
+r holy 100
+r negative 100
+r energy 100
+r mental 100
+r sound 100
+r disease 100
+r poison 100
+r charm 100
+r harm 100
+r light 100
 #7604
 herbalist~
 the herbalist~
@@ -791,12 +1163,29 @@ The Herbalist is here, selling herbs.
 She looks like she is happy with her lot in life.
 ~
 human~
-ABVe 0 900 0
+ABVel 0 900 0
 30 0 1d1+999 1d1+99 1d8+20 'beating'
 -15 -15 -15 -15
-EFJ ABCD 0 0
+EFJ 0 0 0
 stand stand female 150000
 0 0 medium unknown
+r bash 100
+r pierce 100
+r slash 100
+r fire 100
+r cold 100
+r lightning 100
+r acid 100
+r holy 100
+r negative 100
+r energy 100
+r mental 100
+r sound 100
+r disease 100
+r poison 100
+r charm 100
+r harm 100
+r light 100
 #7609
 animal man~
 the animal man~
@@ -805,12 +1194,26 @@ The Animal Man is here, selling pets.
 He is covered in his stock..
 ~
 human~
-ABV 0 900 0
+ABVl 0 900 0
 40 0 1d1+1999 1d1+99 1d8+40 'punch'
 -15 -15 -15 -15
-0 ABC 0 0
+0 0 0 0
 stand stand male 9000
 0 0 medium unknown
+r fire 100
+r cold 100
+r lightning 100
+r acid 100
+r holy 100
+r negative 100
+r energy 100
+r mental 100
+r sound 100
+r disease 100
+r poison 100
+r charm 100
+r harm 100
+r light 100
 #7610
 witch hag~
 the old witch~
@@ -819,12 +1222,29 @@ The old Witch is here, selling things.
 She is old, and ugly- very good witch material...
 ~
 human~
-ABVe D 900 7006
+ABVel D 900 7006
 40 0 1d1+1999 1d1+999 1d8+32 'magic'
 -15 -15 -15 -15
-AF ABCD 0 0
+AF 0 0 0
 stand stand male 20000
 0 0 medium unknown
+r bash 100
+r pierce 100
+r slash 100
+r fire 100
+r cold 100
+r lightning 100
+r acid 100
+r holy 100
+r negative 100
+r energy 100
+r mental 100
+r sound 100
+r disease 100
+r poison 100
+r charm 100
+r harm 100
+r light 100
 #7698
 hawk~
 a hawk~
@@ -851,9 +1271,23 @@ human~
 ABGIT CDF 100 0
 60 0 50d10+9500 599d1+1 8d6+28 'slap'
 -30 -30 -30 0
-A 0 0 C
+A 0 0 0
 stand stand either 0
 0 0 medium unknown
+r fire -50
+r cold -50
+r lightning -50
+r acid -50
+r holy -50
+r negative -50
+r energy -50
+r mental -50
+r sound -50
+r disease -50
+r poison -50
+r charm -50
+r harm -50
+r light -50
 #0
 
 #OBJECTS

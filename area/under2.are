@@ -188,9 +188,10 @@ snake~
 AB DJ -100 0
 38 0 10d10+1600 5d5+1000 5d6+12 'bite'
 -13 -13 -13 3
-EF L 0 0
+EF 0 0 0
 stand stand none 0
 0 0 medium unknown
+r poison 100
 #16012
 fighter~
 The fighter~
@@ -2076,9 +2077,10 @@ snake~
 ABG J -700 0
 24 0 5d10+500 5d5+1000 2d10+6 'charge'
 -6 -6 -6 4
-EF L 0 0
+EF 0 0 0
 stand stand none 0
 0 0 medium unknown
+r poison 100
 #0
 
 #OBJECTS

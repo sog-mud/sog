@@ -20,12 +20,29 @@ acolyte cleric служитель~
 К чему бы это????
 ~
 human~
-ABGQTV CH 1000 0
+ABGQTVl CH 1000 0
 30 10 1d1+999 1d1+999 2d4+30 'beating'
 -15 -15 -15 -15
-ACEFHIKN ABCD 0 0
+ACEFHIKN 0 0 0
 stand stand male 0
 0 0 medium unknown
+r bash 100
+r pierce 100
+r slash 100
+r fire 100
+r cold 100
+r lightning 100
+r acid 100
+r holy 100
+r negative 100
+r energy 100
+r mental 100
+r sound 100
+r disease 100
+r poison 100
+r charm 100
+r harm 100
+r light 100
 #3701
 blob пузырь~
 @eng the blob@rus пузырь~
@@ -40,12 +57,29 @@ would really suffer the consequences.
 убежишь, то, вероятно, пострадаешь от него.
 ~
 unique~
-ABGe C 0 0
+ABGel C 0 0
 5 -5 1d1+49 1d1+99 1d1+0 'digestion'
 -15 -15 -15 -15
-AN AB CD 0
+AN 0 0 0
 stand stand male 0
 BSc 0 large unknown
+r bash 33
+r pierce 33
+r slash 33
+r fire 33
+r cold 33
+r lightning 33
+r acid 33
+r holy 33
+r negative 33
+r energy 33
+r mental 33
+r sound 33
+r disease 33
+r poison 33
+r charm 100
+r harm 33
+r light 33
 #3702
 monster монстрик~
 @eng the monster@rus монстрик~
@@ -148,12 +182,29 @@ adept cleric последователь~
 ...чтоб его... Бабкина на мыло... @@#$%^#@@$$&*!!!
 ~
 human~
-ABGQTV CH 1000 0
+ABGQTVl CH 1000 0
 30 10 1d1+999 1d1+999 2d4+30 'beating'
 -15 -15 -15 -15
-ACEFHIKN ABCD 0 0
+ACEFHIKN 0 0 0
 stand stand male 0
 0 0 medium unknown
+r bash 100
+r pierce 100
+r slash 100
+r fire 100
+r cold 100
+r lightning 100
+r acid 100
+r holy 100
+r negative 100
+r energy 100
+r mental 100
+r sound 100
+r disease 100
+r poison 100
+r charm 100
+r harm 100
+r light 100
 #3708
 adept приспешник~
 @eng the adept of Alander@rus ~~приспешник~~ Аландера~
@@ -164,12 +215,29 @@ adept приспешник~
 @rus Он большой и вредный. Не приставай к нему!
 ~
 human~
-ABGQTV CH 1000 0
+ABGQTVl CH 1000 0
 30 10 1d1+999 1d1+999 2d4+30 'beating'
 -15 -15 -15 -15
-ACEFHIKN ABCD 0 0
+ACEFHIKN 0 0 0
 stand stand male 0
 0 0 medium unknown
+r bash 100
+r pierce 100
+r slash 100
+r fire 100
+r cold 100
+r lightning 100
+r acid 100
+r holy 100
+r negative 100
+r energy 100
+r mental 100
+r sound 100
+r disease 100
+r poison 100
+r charm 100
+r harm 100
+r light 100
 #3709
 rabbit кролик~
 @eng the rabbit@rus кролик~
@@ -268,9 +336,11 @@ school monster~
 AFT JZ 0 0
 5 1 5d5+55 1d1+99 1d6+3 'bite'
 5 5 5 8
-EKM 0 HI 0
+EKM 0 0 0
 stand stand female 50
 0 0 large unknown
+r fire 0
+r cold 0
 #3715
 bear медведь~
 @eng the bear@rus медведь~
@@ -315,12 +385,29 @@ adept cleric идущий~
 @rus Он большой и вредный. Смотри... допрыгаешься.
 ~
 human~
-ABCQTVe CH 1000 0
+ABCQTVel CH 1000 0
 30 10 1d1+999 1d1+999 2d4+30 'beating'
 -15 -15 -15 -15
-ACEFHIKN ABCD 0 0
+ACEFHIKN 0 0 0
 stand stand male 0
 0 0 medium unknown
+r bash 100
+r pierce 100
+r slash 100
+r fire 100
+r cold 100
+r lightning 100
+r acid 100
+r holy 100
+r negative 100
+r energy 100
+r mental 100
+r sound 100
+r disease 100
+r poison 100
+r charm 100
+r harm 100
+r light 100
 #3718
 adept cleric адепт~
 @eng the adept of Furey@rus ~~адепт~~ Фьюри~
@@ -331,12 +418,29 @@ adept cleric адепт~
 @rus Он большой и вредный. Отстань от него!
 ~
 human~
-ABCJQTV CH 1000 0
+ABCJQTVl CH 1000 0
 30 10 1d1+999 1d1+999 2d4+30 'beating'
 -15 -15 -15 -15
-ACEFHIKN ABCD 0 0
+ACEFHIKN 0 0 0
 stand stand male 0
 0 0 medium unknown
+r bash 100
+r pierce 100
+r slash 100
+r fire 100
+r cold 100
+r lightning 100
+r acid 100
+r holy 100
+r negative 100
+r energy 100
+r mental 100
+r sound 100
+r disease 100
+r poison 100
+r charm 100
+r harm 100
+r light 100
 #3719
 priest cleric жрец~
 @eng the priest of Circe@rus ~~жрец~~ Циркля~
@@ -347,12 +451,29 @@ priest cleric жрец~
 @rus Он большой и вредный. Отстань от него!
 ~
 human~
-ABCKQTV CH 1000 0
+ABCKQTVl CH 1000 0
 30 10 1d1+999 1d1+999 2d4+30 'beating'
 -15 -15 -15 -15
-ACEFHIKN ABCD 0 0
+ACEFHIKN 0 0 0
 stand stand male 0
 0 0 medium unknown
+r bash 100
+r pierce 100
+r slash 100
+r fire 100
+r cold 100
+r lightning 100
+r acid 100
+r holy 100
+r negative 100
+r energy 100
+r mental 100
+r sound 100
+r disease 100
+r poison 100
+r charm 100
+r harm 100
+r light 100
 #3720
 diploma beast тварь~
 @eng the diploma beast@rus ~~отвратительная~~ ~~тварь~~~

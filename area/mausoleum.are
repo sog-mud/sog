@@ -20,12 +20,17 @@ of it.
 to make its kill.
 ~
 unique~
-AFGO DFJZ -1000 0
+AFGOl DFJZ -1000 0
 31 7 20d5+1100 1d1+300 5d5+10 'bite'
 0 0 0 0
-CDEFK A BM HNSY
+CDEFK 0 0 0
 stand stand none 50
 ABDIc ABCDEF medium unknown
+r fire -50
+r holy -50
+r negative 33
+r charm 33
+r light -50
 #4601
 zombie~
 the Juju zombie~
@@ -41,9 +46,13 @@ unique~
 ABFGHO DFJZ -1000 0
 36 10 20d10+1700 1d1+400 9d3+15 'claw'
 -5 -5 -5 -5
-DEFKN 0 BM HSY
+DEFKN 0 0 0
 stand stand none 1500
 ABIc ABCDEF medium unknown
+r fire -50
+r negative 33
+r charm 33
+r light -50
 #4602
 young vampire~
 a young vampire~
@@ -52,12 +61,20 @@ A young vampire stands here, looking for something to kill.
 This young lady looks quite famished and pale.
 ~
 unique~
-AFO DFJUZ -1000 0
+AFOl DFJUZ -1000 0
 37 15 100d5+2000 0d0+100 7d4+20 'magic'
 -5 -5 -5 -5
-DEFIKNV A BIM FHNOSXY
+DEFIKNV 0 0 0
 stand stand none 10000
 ABCDHIKMc ABCDEFGHIJKV medium unknown
+r pierce -50
+r fire -50
+r cold 33
+r holy -50
+r negative 33
+r energy -50
+r charm 33
+r light -50
 #4603
 Kharzandra wizardress vampire~
 Kharzandra, the Dark-elf Vampire~
@@ -70,12 +87,18 @@ She looks a bit hungry after having a full day of reanimating corpses,
 perhaps you will be her dinner?
 ~
 elf~
-ABFO DFUZu -1000 0
+ABFOl DFUZu -1000 0
 56 30 100d5+6500 100d4+600 7d5+40 'magic'
 -10 -10 -10 -10
-EFIK AI IM FHNSY
+EFIK 0 0 0
 stand stand none 17000
 BCDIc 0 medium unknown
+r pierce -50
+r fire -50
+r cold 100
+r holy -50
+r negative 33
+r light -50
 #4604
 vampire shadar lunn~
 the Vampire, Shadar Lunn~
@@ -86,12 +109,19 @@ a lieutenant in the Arkham guard... or else, he just knows good armor
 when he sees it.
 ~
 unique~
-ABFO DFJUZu -1000 0
+ABFOl DFJUZu -1000 0
 59 50 200d5+8300 100d3+2000 10d5+30 'slash'
 -40 -40 -40 -30
-AEFIKV AB BIM FHNSXY
+AEFIKV 0 0 0
 stand stand none 20000
 ABCDHIKMc ABCDEFGHIJKV medium unknown
+r pierce -50
+r fire -50
+r cold 33
+r holy -50
+r negative 33
+r charm 100
+r light -50
 #4605
 ghoul creature~
 a hungry ghoul~
@@ -102,12 +132,17 @@ corpse in earnest, but drops it upon noticing the fresh meat that just
 walked into the room.
 ~
 unique~
-AFGO DFJT -1000 0
+AFGOl DFJT -1000 0
 33 10 100d3+1200 0d0+300 5d6+10 'chill'
 -2 -2 -2 -2
-CEFKN A BM HNSY
+CEFKN 0 0 0
 stand stand none 200
 ABCDIc ABCDEFPU medium unknown
+r fire -50
+r holy -50
+r negative 33
+r charm 33
+r light -50
 #4606
 mastiff hound~
 the hell hound~
@@ -115,12 +150,17 @@ A large mastiff stands here guarding something.
 ~
 ~
 dog~
-AFT BDFJPQZu -1000 0
+AFTl BDFJPQZu -1000 0
 45 30 10d50+2000 1d1+200 8d3+23 'acbite'
 -1 -1 -1 -1
-ADEF A BHM IN
+ADEF 0 0 0
 stand stand none 1
 C B medium unknown
+r fire 33
+r cold -50
+r holy -50
+r negative 33
+r charm 33
 #4608
 bat vampire~
 the vampire bat~
@@ -133,9 +173,11 @@ unique~
 AFGH FJPTc -700 0
 20 10 20d10+600 1d1+199 7d5+10 'bite'
 1 1 1 1
-FHQ L 0 S
+FHQ 0 0 0
 stand stand none 200
 BIV ADFPV medium unknown
+r poison 100
+r light -50
 #4609
 demon familiar~
 the demon familiar~
@@ -145,12 +187,16 @@ This little guy looks very familar... you know it would be a bad thing to
 mess with it.
 ~
 unique~
-ABFGT DFJUZ -1000 0
+ABFGTl DFJUZ -1000 0
 42 15 20d10+3100 1d1+400 7d6+25 'drain'
 -15 -15 -15 -15
-DEFIJK ABH 0 IN
+DEFIJK 0 0 0
 stand stand none 5000
 ACDG 0 medium unknown
+r fire 100
+r cold -50
+r holy -50
+r charm 100
 #4610
 dracolich~
 the great Dracolich~
@@ -159,12 +205,13 @@ A huge skeletal form raises from shadows.
 Horrible skeletal form look at you and green evilly.
 ~
 unique~
-ABFGT DFJZu -1000 0
+ABFGTl DFJZu -1000 0
 60 20 10d100+3500 1d1+400 7d8+40 'claw'
 -30 -30 -30 -30
-EFKN AB 0 0
+EFKN 0 0 0
 stand stand none 50000
 BCDI 0 medium unknown
+r charm 100
 #4611
 priest vampire~
 the dark priest vampire~
@@ -174,12 +221,13 @@ This dark-priest wears the sign of Loki about his neck, and is seeming
 disturbed by your intrusion during his meditation.
 ~
 unique~
-AGLQ DFJUZ -1000 0
+AGLQl DFJUZ -1000 0
 46 20 100d3+3500 1d1+500 6d8+25 'divine'
 -20 -20 -20 -20
-AFIK AB 0 0
+AFIK 0 0 0
 stand stand none 5000
 CGI 0 medium unknown
+r charm 100
 #4612
 dark spectre~
 the dark spectre~
@@ -189,12 +237,29 @@ You can see right through this creature, except for the dark patch surrounding
 it's red, glowing eyes... it looks pissed off that you're still alive.
 ~
 unique~
-ABFT BDFJQTUu -1000 0
+ABFTl BDFJQTUu -1000 0
 55 10 100d3+2500 1d1+500 5d8+25 'bite'
 -15 -15 -15 -10
-FK ABCD 0 H
+FK 0 0 0
 stand stand none 0
 ACK 0 medium unknown
+r bash 100
+r pierce 100
+r slash 100
+r fire 33
+r cold 100
+r lightning 100
+r acid 100
+r holy 100
+r negative 100
+r energy 100
+r mental 100
+r sound 100
+r disease 100
+r poison 100
+r charm 100
+r harm 100
+r light 100
 #0
 
 #OBJECTS

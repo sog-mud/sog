@@ -20,9 +20,13 @@ human~
 AG BJTU -200 0
 25 0 5d10+550 1d50+100 2d10+7 'wrath'
 -7 -7 -7 0
-EFU 0 D N
+EFU 0 0 0
 stand stand none 0
 I 0 medium unknown
+r bash 33
+r pierce 33
+r slash 33
+r holy -50
 #22003
 wraith wicked~
 a Wicked Wraith~
@@ -34,9 +38,10 @@ human~
 AGO JU -1000 0
 34 0 9d80+1200 34d10+100 4d7+10 'claw'
 -11 -10 -11 5
-CEFH 0 0 NY
+CEFH 0 0 0
 stand stand none 0
 I 0 medium unknown
+r holy -50
 #22004
 ghastly spectre~
 a spectre~
@@ -48,9 +53,10 @@ human~
 AGO JU -800 0
 32 0 5d10+1000 2d20+1000 6d4+9 'slash'
 -10 -10 -10 4
-CDFH 0 0 NYZ
+CDFH 0 0 0
 stand stand none 0
 I 0 medium unknown
+r holy -50
 #22005
 ghoul~
 a ghoul~
@@ -64,9 +70,10 @@ human~
 AGO J -950 0
 36 0 5d25+1400 36d10+100 3d10+11 'claw'
 -12 -12 -12 3
-CDHK 0 0 N
+CDHK 0 0 0
 stand stand none 500
 I 0 medium unknown
+r holy -50
 #22006
 demon lemure lowest~
 a lemure~
@@ -79,9 +86,10 @@ human~
 AGO J -600 0
 25 0 5d10+550 1d50+100 2d10+7 'charge'
 0 0 0 0
-CDF 0 0 NZ
+CDF 0 0 0
 stand stand none 0
 I 0 medium unknown
+r holy -50
 #22007
 nupperibo demon obese~
 a nupperibo~
@@ -95,9 +103,10 @@ human~
 AGO J -700 0
 27 0 5d10+650 27d10+100 5d4+7 'charge'
 -8 -8 -8 6
-CDF 0 0 NZ
+CDF 0 0 0
 stand stand none 0
 I 0 large unknown
+r holy -50
 #22008
 spinagon demon~
 a Spinagon~
@@ -111,9 +120,10 @@ human~
 AGO JT -1000 0
 33 0 5d20+1200 39d10+1100 6d4+10 'none'
 -11 -11 -11 5
-DEFIKN 0 0 N
+DEFIKN 0 0 0
 stand stand none 500
 I 0 medium unknown
+r holy -50
 #22009
 ghoul lord~
 the ghoul lord~
@@ -127,9 +137,10 @@ human~
 ABO J -1000 0
 42 0 5d50+2250 42d10+4400 3d12+14 'blast'
 -14 -14 -14 0
-CDEFHK 0 0 NZ
+CDEFHK 0 0 0
 stand stand male 800
 I 0 large unknown
+r holy -50
 #22010
 dragon deep black~
 A Deep Dragon~
@@ -143,9 +154,12 @@ dragon~
 ABG 0 -800 0
 45 0 10d100+3000 45d10+4100 8d4+16 'claw'
 -15 -15 -15 -1
-CDEKM 0 IJK 0
+CDEKM 0 0 0
 sleep stand male 20000
 c L medium unknown
+r cold 0
+r lightning 33
+r acid 33
 #22011
 beast undead~
 an Undead Beast~
@@ -159,9 +173,10 @@ unique~
 ABFGO JZ -900 0
 38 0 9d50+1600 38d10+4100 5d6+12 'bite'
 -13 -13 -13 3
-CDEF 0 0 NY
+CDEF 0 0 0
 stand stand none 500
 AGIV ACDEFJKQV large unknown
+r holy -50
 #22012
 cleric holy~
 a Holy Cleric~
@@ -206,7 +221,7 @@ unique~
 AGS J -400 0
 29 0 6d12+778 29d10+1100 4d6+8 'pierce'
 -9 -9 -9 4
-FJNS 0 0 Z
+FJNS 0 0 0
 stand stand male 1200
 AHMV ABCDEFGHIJK small unknown
 #22015
@@ -222,9 +237,23 @@ human~
 AGR Ju -600 0
 31 0 10d10+928 50d10+2200 4d6+9 'pierce'
 0 0 0 0
-FNS 0 C 0
+FNS 0 0 0
 stand stand female 1000
 0 0 medium unknown
+r fire 33
+r cold 33
+r lightning 33
+r acid 33
+r holy 33
+r negative 33
+r energy 33
+r mental 33
+r sound 33
+r disease 33
+r poison 33
+r charm 33
+r harm 33
+r light 33
 #0
 
 #OBJECTS

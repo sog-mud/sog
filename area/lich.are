@@ -23,9 +23,13 @@ undead~
 AFGO c -1000 0
 20 0 7d45+300 25d10+100 4d5+10 'magic'
 -2 -2 -2 4
-CDEIKU P IJ H
+CDEIKU 0 0 0
 stand stand none 800
 0 ABCDEFGHIJK medium unknown
+r fire -50
+r cold 33
+r lightning 33
+r mental 100
 #29351
 torturer inquisitor ~
 @eng The Inquisitor@rus ~~Инквизитор~~~
@@ -45,9 +49,11 @@ zombie~
 ABOQ cu -1000 0
 30 0 10d61+616 30d10+100 5d6+15 'magic'
 -9 -9 -9 0
-CN Q P HN
+CN 0 0 0
 stand stand none 800
 0 ABCDEFGHIJK medium unknown
+r fire 33
+r holy 33
 #29352
 demon minor~
 @eng A Minor Demon@rus ~~Младший~~ ~~Демон~~~
@@ -67,9 +73,15 @@ human~
 ABT T -1000 0
 30 30 10d61+1600 45d10+100 5d8+19 'magic'
 -9 -9 -9 0
-CDFHK H LPQ IN
+CDFHK 0 0 0
 stand stand male 800
 C 0 medium unknown
+r fire 100
+r cold -50
+r holy -50
+r mental 33
+r disease 33
+r poison 33
 #29353
 demon major~
 @eng A Major Demon@rus ~~Старший~~ ~~Демон~~~
@@ -91,9 +103,21 @@ dragon~
 ABOT 0 -1000 0
 45 45 10d150+1000 45d10+950 11d5+35 'magic'
 -18 -18 -18 -4
-ACFKM HLQ DIJK CN
+ACFKM 0 0 0
 stand stand none 800
 Cc L large unknown
+r pierce 0
+r slash 33
+r holy -50
+r negative -50
+r energy -50
+r mental -50
+r sound -50
+r disease 33
+r poison 33
+r charm 0
+r harm -50
+r light -50
 #29354
 lich lord myzelak~
 @eng Myzelak the Lich Lord@rus ~~Мизелак~~~
@@ -114,9 +138,18 @@ lich~
 ABOQR Ju -1000 0
 55 55 15d300+2000 45d10+1950 9d11+45 'magic'
 -24 -24 -24 -7
-IJN 0 C 0
+IJN 0 0 0
 stand stand none 800
 0 ABCDEFGHIJK medium unknown
+r fire 33
+r acid 33
+r holy 0
+r energy 33
+r mental 33
+r sound 33
+r charm 33
+r harm 33
+r light 33
 #29355
 dracolich mount dragon~
 @eng The Dracolich@rus ~~Драколич~~~
@@ -136,11 +169,12 @@ dracolich~
 ABOT 0 -1000 0
 40 40 10d150+1500 45d10+1950 8d6+28 'magic'
 -15 -15 -15 -2
-CDFMO 0 K N
+CDFMO 0 0 0
 stand stand none 800
 c ALPQUVX giant unknown
-F res H
-F vul I
+r fire 0
+r acid 33
+r holy -50
 #29356
 elite death knight~
 @eng An Elite Death Knight@rus ~~Элитный~~ ~~Рыцарь~~ Смерти~
@@ -161,10 +195,12 @@ zombie~
 ABFOT Z -900 0
 50 50 10d169+1000 45d10+2950 8d10+40 'magic'
 -24 -24 -24 -7
-CDFIKO 0 CDH JN
+CDFIKO 0 0 0
 stand stand none 800
 0 ABCDEFGHIJK large unknown
-F vul D
+r bash 0
+r pierce 0
+r slash 0
 #0
 
 #OBJECTS

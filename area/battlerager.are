@@ -22,15 +22,19 @@ hates magic.
 @rus Этот гигантский воин потратил всю свою жизнь на военные искусства. Он не верит в силу магии. Он никогда не использует жезлы, посохи и другие магические предметы. Он очень сильно ненавидит магию.
 ~
 giant~
-ABJKTVbef DFlmt 0 0
+ABJKTVbefl DFlmt 0 0
 92 70 2d500+25000 1d1+3999 10d40+90 'slash'
 -90 -90 -90 -70
-ACEFIK AB D 0
+ACEFIK 0 0 0
 stand stand male 0
 0 0 giant unknown
 M grall 95400 100~
 M exall 95401 3~
 C Battleragers
+r bash 33
+r pierce 33
+r slash 33
+r charm 100
 #95401
 Gordall~
 @eng Gordall@rus Гордалл~
@@ -42,12 +46,17 @@ proficiencies on his weapons.
 @rus Проработав всю свою жизнь оружейных дел мастером, Гордалл продает сделанное им оружие.
 ~
 human~
-ABTVe DFHVe 800 0
+ABTVel DFHVe 800 0
 80 30 3d300+17000 1d1+2000 15d30+80 'pound'
 -80 -80 -80 -60
-CDEFIJKN AB D P
+CDEFIJKN 0 0 0
 stand stand male 0
 0 0 medium unknown
+r bash 33
+r pierce 33
+r slash 33
+r mental -50
+r charm 100
 #95402
 wiseman~
 @eng A Wiseman@rus Мудрец~
@@ -60,13 +69,30 @@ haters of magic by his beneficial herbs. If you need help just
 @rus Хотя мудрец никогда и не изучал магию, он может вылечить ненавидящих ее при помощи лечебных трав. Если вым нужна помощь, скажите "Вылечи меня мудрец".
 ~
 human~
-ABQVae DFH 1000 0
+ABQVael DFH 1000 0
 90 0 1d1+16999 1d1+999 20d30+40 'divine'
 -95 -95 -95 -65
-FHIK ABC D 0
+FHIK 0 0 0
 stand stand male 5000
 0 0 medium unknown
 C Battleragers
+r bash 33
+r pierce 33
+r slash 33
+r fire 100
+r cold 100
+r lightning 100
+r acid 100
+r holy 100
+r negative 100
+r energy 100
+r mental 100
+r sound 100
+r disease 100
+r poison 100
+r charm 100
+r harm 100
+r light 100
 #95403
 urukhay troll~
 @eng Urukhay@rus Урукхай~
@@ -76,14 +102,18 @@ urukhay troll~
 смотрят на тебя.
 ~
 troll~
-ABJKTbdef CDEFGTVlmt -1000 0
+ABJKTbdefl CDEFGTVlmt -1000 0
 92 100 2d500+25000 1d1+2999 10d40+100 'crush'
 -70 -70 -70 -70
-ACEFJK AB D 0
+ACEFJK 0 0 0
 stand stand male 0
 0 0 large unknown
 M grall 95402 100~
 C Battleragers
+r bash 33
+r pierce 33
+r slash 33
+r charm 100
 #95404
 rock~
 rock~
@@ -94,12 +124,29 @@ human~
 ABf DEFTcglt 0 0
 200 -1000 1d1+29999 10d10+4000 100d100+1000 'none'
 -1000 -1000 -1000 -1000
-0 CD 0 0
+0 0 0 0
 stand stand none 0
 0 0 medium unknown
 F for AHMV
 M exall 95403 2~
 I 1000
+r bash 100
+r pierce 100
+r slash 100
+r fire 100
+r cold 100
+r lightning 100
+r acid 100
+r holy 100
+r negative 100
+r energy 100
+r mental 100
+r sound 100
+r disease 100
+r poison 100
+r charm 100
+r harm 100
+r light 100
 #95405
 rock~
 rock~
@@ -110,12 +157,29 @@ human~
 ABf DFTcglmt 0 0
 200 -1000 1d1+29999 10d10+4000 0d0+0 'none'
 -1000 -1000 -1000 -1000
-0 CD 0 0
+0 0 0 0
 stand stand none 0
 0 0 medium unknown
 F for AHMV
 M exall 95404 0~
 I 1000
+r bash 100
+r pierce 100
+r slash 100
+r fire 100
+r cold 100
+r lightning 100
+r acid 100
+r holy 100
+r negative 100
+r energy 100
+r mental 100
+r sound 100
+r disease 100
+r poison 100
+r charm 100
+r harm 100
+r light 100
 #0
 
 #OBJECTS

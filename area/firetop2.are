@@ -17,12 +17,15 @@ laziness combined with generous servings of Orcish Ale have rendered him
 quite ineffective at even this simple task.
 ~
 orc~
-ABCFG R -400 5701
+ABCFGl R -400 5701
 11 0 2d8+134 109d1+1 1d10+2 'slice'
 1 1 1 8
-CFI AB K P
+CFI 0 0 0
 stand stand male 20
 0 0 medium unknown
+r acid 33
+r mental -50
+r charm 100
 #5736
 orc~
 a sleeping Orc~
@@ -33,12 +36,15 @@ laziness combined with generous servings of Orcish Ale have rendered him
 quite ineffective at even this simple task.
 ~
 orc~
-ABCFG R -400 5701
+ABCFGl R -400 5701
 11 0 2d8+134 109d1+1 1d10+2 'slice'
 1 1 1 8
-CFI AB K P
+CFI 0 0 0
 sleep sleep male 20
 0 0 medium unknown
+r acid 33
+r mental -50
+r charm 100
 #5737
 snake~
 a small snake~
@@ -49,12 +55,15 @@ box it is coiled about, and although it is quite small, its bite can be
 lethal!
 ~
 snake~
-ABFG J 0 0
+ABFGl J 0 0
 10 0 2d7+121 99d1+1 2d4+2 'claw'
 1 1 1 8
-CFI AB K P
+CFI 0 0 0
 stand stand either 20
 0 0 medium unknown
+r acid 33
+r mental -50
+r charm 100
 #5738
 orc~
 a drunken Orc~
@@ -66,12 +75,15 @@ very effective combatant, as the alcohol he has imbibed has dulled his
 senses.
 ~
 orc~
-ABCFG M -400 5701
+ABCFGl M -400 5701
 10 0 2d7+121 99d1+1 2d4+2 'slice'
 1 1 1 8
-CFI AB K P
+CFI 0 0 0
 stand stand either 20
 0 0 medium unknown
+r acid 33
+r mental -50
+r charm 100
 #5739
 orc chieftain~
 an Orcish chieftain~
@@ -82,12 +94,15 @@ and he is glad for a more challenging foe. He is the leader of the Orcs in
 this area, and as such will be a tough foe.
 ~
 orc~
-ABCFG u -400 5701
+ABCFGl u -400 5701
 12 0 2d10+150 119d1+1 1d10+2 'slice'
 0 0 0 8
-CFI AB K P
+CFI 0 0 0
 stand stand male 100
 0 0 medium unknown
+r acid 33
+r mental -50
+r charm 100
 #5740
 orc servant~
 an orcish servant~
@@ -98,12 +113,15 @@ but despite this he still leaps up to defend the chieftain against you. Best
 to slay the ungrateful little wretch.
 ~
 orc~
-ABCFH 0 0 5701
+ABCFHl 0 0 5701
 10 0 2d7+121 99d1+1 2d4+2 'slice'
 1 1 1 8
-CFI AB K P
+CFI 0 0 0
 stand stand male 20
 0 0 medium unknown
+r acid 33
+r mental -50
+r charm 100
 #5741
 orc~
 an eating Orc~
@@ -114,12 +132,15 @@ easily leap in and have a hack before he was even prepared. However, he does
 have several companions...
 ~
 orc~
-ABCG 0 -400 5701
+ABCGl 0 -400 5701
 11 0 2d8+134 109d1+1 1d10+2 'slice'
 1 1 1 8
-CFI AB K P
+CFI 0 0 0
 stand stand male 20
 0 0 medium unknown
+r acid 33
+r mental -50
+r charm 100
 #5742
 prisoner~
 A deranged prisoner~
@@ -131,10 +152,10 @@ seeking to attack you but was simply overjoyed at beign released. He is
 quite harmless, but very filthy.
 ~
 human~
-ABCH JX 0 0
+ABCHl JX 0 0
 8 0 2d7+96 79d1+1 1d7+2 'pierce'
 3 3 3 9
-IR A 0 Y
+IR 0 0 0
 stand stand male 10
 0 0 medium unknown
 #5743
@@ -147,10 +168,10 @@ and the Dwarf died moments later. The creature is angered, and blames you
 for the Dwarf's premature death!
 ~
 goblin~
-ABCFG 0 -600 0
+ABCFGl 0 -600 0
 10 0 2d7+121 99d1+1 2d4+2 'smash'
 1 1 1 8
-IR A 0 Y
+IR 0 0 0
 stand stand male 10
 0 0 medium unknown
 #5744
@@ -162,10 +183,10 @@ This specially made Iron Golem is extremely tough and powerful. Although not
 aggressive, it will certainly attack if you seek to take its gem.
 ~
 giant~
-ABG DHJNO 0 0
+ABGl DHJNO 0 0
 15 0 3d9+208 149d1+1 2d6+3 'bite'
 -2 -2 -2 7
-IR A 0 Y
+IR 0 0 0
 stand stand male 10
 0 0 huge unknown
 #5745
@@ -178,10 +199,10 @@ taking out his frustrations on you! Towering over you at six feet tall and
 weighing in at 280 lbs, he is certainly a force to be reckoned with.
 ~
 giant~
-ABFG JNO 0 0
+ABFGl JNO 0 0
 12 0 2d10+150 119d1+1 1d10+3 'crush'
 0 0 0 8
-IR A 0 Y
+IR 0 0 0
 stand stand male 10
 0 0 huge unknown
 #5746
@@ -209,12 +230,13 @@ This seemingly harmless old coot is actually a powerful lycanthrope, who
 will not hesitate to kill you if you threaten him.
 ~
 human~
-ABCG DFHJNO 0 0
+ABCGl DFHJNO 0 0
 13 0 2d10+170 129d1+1 2d5+3 'punch'
 -1 -1 -1 8
-IR A 0 P
+IR 0 0 0
 stand stand male 20
 0 0 medium unknown
+r mental -50
 #5748
 neanderthal caveman man~
 A lumbering Neanderthal~
@@ -225,12 +247,13 @@ but has a blow like a sledgehammer and a hide like a stone wall, so fight
 well!
 ~
 human~
-ABCFG EFJNO 0 0
+ABCFGl EFJNO 0 0
 12 0 2d10+150 119d1+1 1d10+3 'pound'
 0 0 0 8
-IR AB 0 0
+IR 0 0 0
 stand stand male 0
 0 0 medium unknown
+r charm 100
 #5749
 bat giant~
 a giant Bat~
@@ -241,12 +264,13 @@ pointy fangs dripping potent venom, it is quite a formidable sight. Better
 be careful with this one.
 ~
 bat~
-ABCFG DJNO -400 0
+ABCFGl DJNO -400 0
 11 0 2d8+134 109d1+1 1d10+2 'beating'
 1 1 1 8
-IR AB 0 0
+IR 0 0 0
 stand stand either 0
 0 0 medium unknown
+r charm 100
 #5750
 spider giant~
 a giant Spider~
@@ -258,12 +282,13 @@ the way its beady eyes stare evilly at you as is approaches, or the way the
 venom dripping from its maw burns into the stone as it falls...
 ~
 human~
-ABFG DJ -400 0
+ABFGl DJ -400 0
 12 0 2d10+150 119d1+1 1d10+3 'beating'
 0 0 0 8
-IR AB 0 0
+IR 0 0 0
 stand stand male 0
 0 0 medium unknown
+r charm 100
 #5751
 ogre~
 an Ogre~
@@ -310,9 +335,10 @@ human~
 ABFG DJ -400 0
 10 0 2d7+121 99d1+1 2d4+2 'smash'
 1 1 1 8
-0 0 AB 0
+0 0 0 0
 stand stand male 30
 0 0 medium unknown
+r charm 33
 #5754
 giant~
 a burly Giant~
@@ -322,12 +348,13 @@ You have disturbed this big fellow's evening repast, and he is not happy
 about it.
 ~
 giant~
-ABFG JNO 0 0
+ABFGl JNO 0 0
 15 0 3d9+208 149d1+1 2d6+3 'crush'
 -2 -2 -2 7
-IR AB 0 0
+IR 0 0 0
 stand stand male 0
 0 0 medium unknown
+r charm 100
 #5755
 piranha~
 a vicious Piranha~
@@ -341,9 +368,10 @@ human~
 ABFG J 0 0
 10 0 2d7+121 99d1+1 2d4+2 'beating'
 1 1 1 8
-IR 0 0 P
+IR 0 0 0
 stand stand either 30
 0 0 medium unknown
+r mental -50
 #5756
 sandworm giant~
 a giant Sandworm~
@@ -386,12 +414,14 @@ including its long, sharp, poisoned fangs and claws, its resistance to
 physical blows, and its nauseating stench.
 ~
 human~
-ABCFGO DJNOu -1000 0
+ABCFGOl DJNOu -1000 0
 14 0 2d10+190 139d1+1 1d12+3 'slap'
 -1 -1 -1 8
-IR AB 0 K
+IR 0 0 0
 stand stand male 100
 0 0 medium unknown
+r acid -50
+r charm 100
 #5759
 zombie~
 a Zombie~
@@ -402,10 +432,10 @@ yourself, who fell foul of the Warlock's minions, and has been damned to a
 perpetual undead existence.
 ~
 human~
-ABFG J 0 0
+ABFGl J 0 0
 11 0 2d8+134 109d1+1 1d10+2 'blast'
 1 1 1 8
-R A 0 0
+R 0 0 0
 stand stand male 30
 0 0 medium unknown
 #5760
@@ -434,12 +464,14 @@ unfortunate curse (Lycanthropy), he is not a bad guy, and will only attack if
 you initiate hostilities by attacking him or his dog.
 ~
 human~
-ABG HJNOR 0 0
+ABGl HJNOR 0 0
 13 0 2d1+170 129d1+1 2d5+3 'slice'
 -1 -1 -1 8
-I AB 0 P
+I 0 0 0
 stand stand male 50
 0 0 medium unknown
+r mental -50
+r charm 100
 #5762
 ghoul~
 a Ghoul~
@@ -449,12 +481,13 @@ This decaying corpse-like undead slashes at you with its filthy fingernails,
 attempting to slay and devour you!
 ~
 human~
-ABFG DJNO -500 0
+ABFGl DJNO -500 0
 13 0 2d10+170 129d1+1 2d5+3 'blast'
 -1 -1 -1 8
-I AB 0 0
+I 0 0 0
 stand stand male 10
 0 0 medium unknown
+r charm 100
 #5763
 vampire~
 an evil Vampire~
@@ -465,12 +498,14 @@ towards you, attempting to make eye contact with you, so that it can charm
 you and then feat upon you at its leisure.
 ~
 human~
-ABCFGO DFJTu -1000 0
+ABCFGOl DFJTu -1000 0
 17 0 3d9+258 169d1+1 3d4+4 'smash'
 -3 -3 -3 7
-IR AB K 0
+IR 0 0 0
 stand stand male 200
 0 0 medium unknown
+r acid 33
+r charm 100
 #5764
 dwarf~
 a Dwarf~
@@ -481,12 +516,14 @@ Dwarfs playing Five Card Stud. He draws deeply on a long pipe, exhaling some
 noxious smoke, and invites you to join in.
 ~
 dwarf~
-ABCG 0 400 0
+ABCGl 0 400 0
 12 0 2d10+150 119d1+1 1d10+3 'bite'
 0 0 0 8
-0 AB P 0
+0 0 0 0
 stand stand male 40
 0 0 medium unknown
+r mental 33
+r charm 100
 #5765
 minotaur~
 a mighty Minotaur~
@@ -497,12 +534,13 @@ enter into battling with him. Although unarmed and unarmored, he is still a
 potentially dangerous foe.
 ~
 human~
-ABFG J -400 0
+ABFGl J -400 0
 14 0 2d10+190 139d1+1 1d12+3 'bite'
 -1 -1 -1 8
-R AB 0 0
+R 0 0 0
 stand stand male 40
 0 0 medium unknown
+r charm 100
 #5766
 dragon~
 an enormous Red Dragon~
@@ -523,12 +561,14 @@ You have been KILLED!!!
 BATTLE UPDATE : adventurer killed by an enormous red dragon.
 ~
 dragon~
-ABCFG CDEFNOu -1000 0
+ABCFGl CDEFNOu -1000 0
 20 0 4d10+360 199d1+1 2d8+5 'beating'
 -4 -4 -4 7
-R AB 0 K
+R 0 0 0
 stand stand male 500
 0 0 medium unknown
+r acid -50
+r charm 100
 #5767
 warlock~
 the Warlock of Firetop Mountain~
@@ -539,12 +579,14 @@ Velvet and Gold. Sparks fly from his gloved hands as he stares grimly at you,
 waiting for you to move. Already, you know you are in for a heck of a fight...
 ~
 human~
-ABCGR CDEFJNOUu -1000 0
+ABCGRl CDEFJNOUu -1000 0
 23 0 5d10+450 229d1+1 3d6+6 'pierce'
 -6 -6 -6 6
-R AB 0 K
+R 0 0 0
 stand stand male 800
 0 0 medium unknown
+r acid -50
+r charm 100
 #5768
 hand~
 a hand~

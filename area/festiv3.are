@@ -22,15 +22,21 @@ lots of trials and known the reality of life.
 фунт лиха.
 ~
 ghost~
-ATf BDFU 0 0
+ATfl BDFU 0 0
 110 0 100d40+30000 100d10+15000 19d16+80 'wrath'
 -80 -80 -80 -70
-DEHKO ABJP HIK 0
+DEHKO 0 0 0
 stand stand male 0
 0 0 medium unknown
 F act O
 M death 36301 100~
 M fight 36300 40~
+r fire 33
+r cold 33
+r lightning 100
+r acid 33
+r mental 100
+r charm 100
 #36301
 bowman man green лучник~
 @eng green bowman@rus ~~Зеленый~~ ~~лучник~~~
@@ -48,12 +54,17 @@ stay away of the pass he is shooting.
 в цель, и ты стараешься уйти с линии огня.
 ~
 human~
-AGT FNPZ 1000 0
+AGTl FNPZ 1000 0
 91 0 101d20+30000 85d10+1000 13d10+70 'punch'
 -60 -60 -60 -58
-EFHIJKLNQY ABIX LQ G
+EFHIJKLNQY 0 0 0
 sit stand male 5000
 0 0 medium unknown
+r slash -50
+r cold 100
+r disease 33
+r poison 33
+r charm 100
 #36302
 man acute eye индеец~
 @eng Acute Eye@rus ~~Зоркий~~ ~~Глаз~~~
@@ -72,9 +83,12 @@ human~
 AGT JPVc 0 0
 90 0 91d20+22000 82d10+1000 11d11+60 'punch'
 -55 -55 -55 -53
-AEFHIJKN T H I
+AEFHIJKN 0 0 0
 sit stand male 10000
 0 0 medium unknown
+r fire 33
+r cold -50
+r sound 100
 #36303
 tumbu yumbu black man негр~
 @eng Tumbu-Yumbu@rus Тумбу-Юмбу~
@@ -91,9 +105,11 @@ human~
 AGT DOVZ -100 0
 85 0 95d18+16000 82d10+1000 11d11+60 'thrust'
 -50 -50 -50 -49
-CFHIKN 0 H I
+CFHIKN 0 0 0
 sit stand male 3000
 0 0 medium unknown
+r fire 33
+r cold -50
 #36304
 lee huang wang black man китаец~
 @eng Lee Huang Wang@rus Ли Хуань ~~Ван~~~
@@ -111,9 +127,13 @@ human~
 AGT Oa -300 0
 90 0 95d20+23000 85d10+1000 11d11+70 'pound'
 -60 -65 -65 -55
-ADEFIJK 0 IP HN
+ADEFIJK 0 0 0
 sit stand male 10000
 0 0 medium unknown
+r fire -50
+r cold 33
+r holy -50
+r mental 33
 #36305
 veteran old warrior ветеран~
 @eng Old Veteran@rus ~~старик~~ ~~ветеран~~~
@@ -134,9 +154,18 @@ human~
 AGT FTVac 100 0
 95 0 101d20+30000 82d10+1000 12d10+65 'charge'
 -60 -50 -60 -70
-ADEFHIKLN B DIKLQX EHT
+ADEFHIKLN 0 0 0
 sit rest male 100
 0 0 medium unknown
+r pierce 33
+r slash 33
+r fire -50
+r cold 33
+r acid 33
+r sound -50
+r disease 33
+r poison 33
+r charm 100
 #36306
 monk fat монах~
 @eng Monk@rus Монах~
@@ -151,12 +180,27 @@ your help?
 своими размерами! Ты думаешь, а не помочь ли ему с этим делом?
 ~
 human~
-AGQ DENTU 1000 0
+AGQl DENTU 1000 0
 90 0 90d20+17000 85d10+10000 20d6+50 'pound'
 -58 -65 -55 -55
-CEIKNQ ABN CLMPQ FX
+CEIKNQ 0 0 0
 stand stand male 10000
 0 0 medium unknown
+r pierce -50
+r fire 33
+r cold 33
+r lightning 33
+r acid 33
+r holy 100
+r negative 33
+r energy 33
+r mental 33
+r sound 33
+r disease 33
+r poison 33
+r charm 100
+r harm 33
+r light 33
 #36307
 boy little son banker сын~
 @eng Banker's son@rus ~~сын~~ банкира~
@@ -175,9 +219,11 @@ human~
 AGH U 0 0
 10 0 3d22+100 10d10+100 2d5+10 'punch'
 -10 -10 -10 -5
-FJ 0 E F
+FJ 0 0 0
 sit sit male 100
 0 0 small unknown
+r bash 33
+r pierce -50
 #36308
 boy son mayor little сын~
 @eng Mayor's son@rus ~~сын~~ Мэра~
@@ -199,9 +245,12 @@ human~
 AGH U 0 0
 5 0 1d17+42 5d10+100 2d3+5 'thwack'
 -10 -10 -10 -3
-FH 0 EH F
+FH 0 0 0
 stand stand male 20
 0 0 small unknown
+r bash 33
+r pierce -50
+r fire 33
 #36309
 woman wife mayor жена~
 @eng Mayor's Wife@rus ~~жена~~ Мэра~
@@ -236,12 +285,13 @@ big hat on his head gets your attention.
 привлекает твое внимание.
 ~
 human~
-AEGT DFHNOU 0 0
+AEGTl DFHNOU 0 0
 75 0 50d20+11000 75d10+9000 9d11+45 'punch'
 -50 -50 -50 -30
-CEFIKN AB 0 0
+CEFIKN 0 0 0
 stand stand male 20000
 0 0 medium unknown
+r charm 100
 #36311
 clerk клерк~
 @eng Clerk@rus клерк~
@@ -295,9 +345,10 @@ bat~
 AFGH 0 -100 0
 10 0 3d22+100 10d10+100 2d5+5 'bite'
 -10 -10 -10 0
-0 0 0 H
+0 0 0 0
 sit sit female 0
 P 0 small unknown
+r fire -50
 #36314
 spider dust small паук~
 @eng Spider@rus паучок~
@@ -313,9 +364,11 @@ centipede~
 AFGH 0 0 0
 10 0 3d22+100 10d10+100 2d3+3 'bite'
 -10 -10 -5 -1
-FH 0 E H
+FH 0 0 0
 sit sit male 0
 P BD small unknown
+r bash 0
+r fire -50
 #36315
 librarian old библиотекарь man~
 @eng Librarian@rus Библиотекарь~
@@ -382,12 +435,29 @@ figure training mob strange манекен~
 @rus Манекен ждет, когда ты нанесешь первый удар.
 ~
 human~
-ABGIT DFHc 0 0
+ABGITl DFHc 0 0
 50 0 80d40+10000 50d10+1000 1d1+1 'cleave'
 -50 -50 -50 -40
-AEFJK ABCHIJKLMNOPQRST D 0
+AEFJK 0 0 0
 stand stand male 0
 B 0 medium unknown
+r bash 33
+r pierce 33
+r slash 33
+r fire 100
+r cold 100
+r lightning 100
+r acid 100
+r holy 100
+r negative 100
+r energy 100
+r mental 100
+r sound 100
+r disease 100
+r poison 100
+r charm 100
+r harm 100
+r light 100
 #36319
 hedgehog ezhik ежик~
 @eng hedgehog@rus ежик~
@@ -400,10 +470,10 @@ angrilly.
 а вдруг отнимешь?
 ~
 modron~
-ACGHe PZ 0 0
+ACGHel PZ 0 0
 5 0 2d8+40 5d10+100 2d5+5 'pierce'
 -10 -20 -10 -5
-FNd A 0 0
+FNd 0 0 0
 stand stand male 0
 AG DEF small unknown
 #36320
@@ -512,12 +582,29 @@ vendor разносчик~
 ~
 ~
 human~
-AGT 0 0 0
+AGTl 0 0 0
 50 0 80d40+12000 50d10+1000 8d8+36 'punch'
 -20 -30 -30 -30
-EJ ABCDEFGHIJKLMNOPQRSTXYZ 0 0
+EJ 0 0 0
 stand stand male 100000
 0 0 medium unknown
+r bash 100
+r pierce 100
+r slash 100
+r fire 100
+r cold 100
+r lightning 100
+r acid 100
+r holy 100
+r negative 100
+r energy 100
+r mental 100
+r sound 100
+r disease 100
+r poison 100
+r charm 100
+r harm 100
+r light 100
 #36327
 guard gate стражник~
 @eng Gate guard@rus стражник~
@@ -813,12 +900,29 @@ vendor разносчик~
 ~
 ~
 human~
-AGT 0 0 0
+AGTl 0 0 0
 50 0 80d40+12000 50d10+1000 8d8+36 'punch'
 -20 -30 -30 -30
-EJ ABCDEFGHIJKLMNOPQRSTXYZ 0 0
+EJ 0 0 0
 stand stand male 100000
 0 0 medium unknown
+r bash 100
+r pierce 100
+r slash 100
+r fire 100
+r cold 100
+r lightning 100
+r acid 100
+r holy 100
+r negative 100
+r energy 100
+r mental 100
+r sound 100
+r disease 100
+r poison 100
+r charm 100
+r harm 100
+r light 100
 #36346
 vendor разносчик~
 @eng vendor@rus разносчик~
@@ -827,12 +931,29 @@ vendor разносчик~
 ~
 ~
 human~
-AGT 0 0 0
+AGTl 0 0 0
 50 0 80d40+12000 50d10+1000 8d8+36 'punch'
 -20 -30 -30 -30
-EJ ABCDEFGHIJKLMNOPQRSTXYZ 0 0
+EJ 0 0 0
 stand stand male 100000
 0 0 medium unknown
+r bash 100
+r pierce 100
+r slash 100
+r fire 100
+r cold 100
+r lightning 100
+r acid 100
+r holy 100
+r negative 100
+r energy 100
+r mental 100
+r sound 100
+r disease 100
+r poison 100
+r charm 100
+r harm 100
+r light 100
 #36347
 vendor разносчик~
 @eng vendor@rus разносчик~
@@ -841,12 +962,29 @@ vendor разносчик~
 ~
 ~
 human~
-AGT 0 0 0
+AGTl 0 0 0
 50 0 80d40+12000 50d10+1000 8d8+36 'punch'
 -20 -30 -30 -30
-EJ ABCDEFGHIJKLMNOPQRSTXYZ 0 0
+EJ 0 0 0
 stand stand male 100000
 0 0 medium unknown
+r bash 100
+r pierce 100
+r slash 100
+r fire 100
+r cold 100
+r lightning 100
+r acid 100
+r holy 100
+r negative 100
+r energy 100
+r mental 100
+r sound 100
+r disease 100
+r poison 100
+r charm 100
+r harm 100
+r light 100
 #36348
 vendor разносчик~
 @eng vendor@rus разносчик~
@@ -855,12 +993,29 @@ vendor разносчик~
 ~
 ~
 human~
-ABGT 0 0 0
+ABGTl 0 0 0
 50 0 80d40+12000 50d10+1000 8d8+36 'punch'
 -20 -30 -30 -30
-EJ ABCDEFGHIJKLMNOPQRSTXYZ 0 0
+EJ 0 0 0
 stand stand male 100000
 0 0 medium unknown
+r bash 100
+r pierce 100
+r slash 100
+r fire 100
+r cold 100
+r lightning 100
+r acid 100
+r holy 100
+r negative 100
+r energy 100
+r mental 100
+r sound 100
+r disease 100
+r poison 100
+r charm 100
+r harm 100
+r light 100
 #36349
 target мишень~
 @eng target@rus мишень~
@@ -873,12 +1028,26 @@ of the wooden shield.
 щита яблоко.
 ~
 unique~
-ABGHI 0 0 0
+ABGHIl 0 0 0
 70 0 70d30+25000 70d10+1000 1d1+1 'pound'
 -50 -50 -50 -45
-EFIJK ABCHIJKLMNOPQRST 0 X
+EFIJK 0 0 0
 stand stand none 0
 M 0 large unknown
+r fire 100
+r cold 100
+r lightning 100
+r acid 100
+r holy 100
+r negative 100
+r energy 100
+r mental 100
+r sound 100
+r disease 100
+r poison 100
+r charm 100
+r harm 100
+r light 100
 #36350
 bird пичуга~
 @eng tiny bird@rus пичуга~
@@ -932,9 +1101,23 @@ centipede~
 AFGHT T 0 0
 6 0 10d10+100 6d10+100 6d2+6 'bite'
 -6 -5 -6 -2
-FHNd 0 0 CH
+FHNd 0 0 0
 stand stand female 0
 c DEF tiny unknown
+r fire -50
+r cold 0
+r lightning -50
+r acid -50
+r holy -50
+r negative -50
+r energy -50
+r mental -50
+r sound -50
+r disease -50
+r poison -50
+r charm -50
+r harm -50
+r light -50
 #36354
 salamander mother dragon саламандра~
 @eng mother of salamanders@rus ~~хозяйка~~ подземелья~
@@ -946,9 +1129,13 @@ dragon~
 ACGR DHPRVc 0 0
 30 0 20d80+2500 30d10+1000 7d5+20 'frbite'
 -30 -20 -30 -30
-FHI HX KOS 0
+FHI 0 0 0
 sleep sleep female 5000
 0 B large unknown
+r fire 100
+r acid 33
+r energy 33
+r light 33
 #36355
 paladin паладин~
 @eng Paladin@rus Паладин~
@@ -959,12 +1146,29 @@ paladin паладин~
 @rus Суровый паладин предлагает тебе доспехи и оружие.
 ~
 human~
-ABGTY 0 0 0
+ABGTYl 0 0 0
 50 0 80d40+12000 50d10+1000 8d8+36 'punch'
 -20 -30 -30 -30
-EJ ABCDEFGHIJKLMNOPQRSTXYZ 0 0
+EJ 0 0 0
 stand stand male 100000
 0 0 medium unknown
+r bash 100
+r pierce 100
+r slash 100
+r fire 100
+r cold 100
+r lightning 100
+r acid 100
+r holy 100
+r negative 100
+r energy 100
+r mental 100
+r sound 100
+r disease 100
+r poison 100
+r charm 100
+r harm 100
+r light 100
 #36356
 ranger охотник~
 @eng Ranger@rus Охотник~
@@ -973,12 +1177,29 @@ ranger охотник~
 ~
 ~
 human~
-ABGTY 0 0 0
+ABGTYl 0 0 0
 50 0 80d40+12000 50d10+1000 8d8+36 'punch'
 -20 -30 -30 -30
-EJ ABCDEFGHIJKLMNOPQRSTXYZ 0 0
+EJ 0 0 0
 sit sit male 100000
 0 0 medium unknown
+r bash 100
+r pierce 100
+r slash 100
+r fire 100
+r cold 100
+r lightning 100
+r acid 100
+r holy 100
+r negative 100
+r energy 100
+r mental 100
+r sound 100
+r disease 100
+r poison 100
+r charm 100
+r harm 100
+r light 100
 #36357
 samurai самурай~
 @eng Samurai@rus Самурай~
@@ -987,12 +1208,29 @@ samurai самурай~
 ~
 ~
 human~
-ABGTY 0 0 0
+ABGTYl 0 0 0
 50 0 80d40+12000 50d10+1000 8d8+36 'punch'
 -20 -30 -30 -30
-EJ ABCDEFGHIJKLMNOPQRSTXYZ 0 0
+EJ 0 0 0
 sit sit male 100000
 0 0 medium unknown
+r bash 100
+r pierce 100
+r slash 100
+r fire 100
+r cold 100
+r lightning 100
+r acid 100
+r holy 100
+r negative 100
+r energy 100
+r mental 100
+r sound 100
+r disease 100
+r poison 100
+r charm 100
+r harm 100
+r light 100
 #36358
 warrior воин~
 @eng Warrior@rus Воин~
@@ -1003,12 +1241,29 @@ warrior воин~
 @rus Воин предлагает тебе купить доспехи и оружие.
 ~
 human~
-ABGTY 0 0 0
+ABGTYl 0 0 0
 50 0 80d40+12000 50d10+1000 8d8+36 'punch'
 -20 -30 -30 -30
-EJ ABCDEFGHIJKLMNOPQRSTXYZ 0 0
+EJ 0 0 0
 sit sit male 100000
 0 0 medium unknown
+r bash 100
+r pierce 100
+r slash 100
+r fire 100
+r cold 100
+r lightning 100
+r acid 100
+r holy 100
+r negative 100
+r energy 100
+r mental 100
+r sound 100
+r disease 100
+r poison 100
+r charm 100
+r harm 100
+r light 100
 #36359
 witch ведьма~
 @eng Witch@rus Ведьма~
@@ -1017,12 +1272,29 @@ witch ведьма~
 ~
 ~
 human~
-AGTY 0 0 0
+AGTYl 0 0 0
 50 0 80d40+12000 50d10+1000 8d8+36 'punch'
 -20 -30 -30 -30
-EJ ABCDEFGHIJKLMNOPQRSTXYZ 0 0
+EJ 0 0 0
 sit sit male 100000
 0 0 medium unknown
+r bash 100
+r pierce 100
+r slash 100
+r fire 100
+r cold 100
+r lightning 100
+r acid 100
+r holy 100
+r negative 100
+r energy 100
+r mental 100
+r sound 100
+r disease 100
+r poison 100
+r charm 100
+r harm 100
+r light 100
 #36360
 vampire вампир~
 @eng Vampire@rus Вампир~
@@ -1034,12 +1306,29 @@ red liquid.
 @rus Вампир предлагает тебе пузырьки с какой-то красной жидкостью...
 ~
 human~
-ABGTY 0 0 0
+ABGTYl 0 0 0
 50 0 80d40+12000 50d10+1000 8d8+36 'punch'
 -20 -30 -30 -30
-EJ ABCDEFGHIJKLMNOPQRSTXYZ 0 0
+EJ 0 0 0
 sit sit male 100000
 0 0 medium unknown
+r bash 100
+r pierce 100
+r slash 100
+r fire 100
+r cold 100
+r lightning 100
+r acid 100
+r holy 100
+r negative 100
+r energy 100
+r mental 100
+r sound 100
+r disease 100
+r poison 100
+r charm 100
+r harm 100
+r light 100
 #36361
 cleric монах~
 @eng Cleric@rus Монах~
@@ -1050,12 +1339,29 @@ cleric монах~
 @rus Монах предлагает тебе священные амулеты.
 ~
 human~
-ABGTY 0 0 0
+ABGTYl 0 0 0
 50 0 80d40+12000 50d10+1000 8d8+36 'punch'
 -20 -30 -30 -30
-EJ ABCDEFGHIJKLMNOPQRSTXYZ 0 0
+EJ 0 0 0
 sit sit male 100000
 0 0 medium unknown
+r bash 100
+r pierce 100
+r slash 100
+r fire 100
+r cold 100
+r lightning 100
+r acid 100
+r holy 100
+r negative 100
+r energy 100
+r mental 100
+r sound 100
+r disease 100
+r poison 100
+r charm 100
+r harm 100
+r light 100
 #36362
 mage чародей~
 @eng Mage@rus Чародей~
@@ -1066,12 +1372,29 @@ mage чародей~
 @rus Чародей предлагает тебе ингредиенты для колдовских снадобий.
 ~
 human~
-ABGTY 0 0 0
+ABGTYl 0 0 0
 50 0 80d40+12000 50d10+1000 8d8+36 'punch'
 -20 -30 -30 -30
-EJ ABCDEFGHIJKLMNOPQRSTXYZ 0 0
+EJ 0 0 0
 stand stand male 100000
 0 0 medium unknown
+r bash 100
+r pierce 100
+r slash 100
+r fire 100
+r cold 100
+r lightning 100
+r acid 100
+r holy 100
+r negative 100
+r energy 100
+r mental 100
+r sound 100
+r disease 100
+r poison 100
+r charm 100
+r harm 100
+r light 100
 #36363
 boy small мальчик~
 @eng a  small boy@rus ~~маленький~~ ~~мальчик~~~
@@ -1116,11 +1439,12 @@ human~
 A 0 0 0
 83 0 1d1+10 0d0+0 0d0+0 'peck'
 0 0 0 0
-0 E 0 0
+0 0 0 0
 stand stand none 0
 0 0 medium unknown
 F for AHMV
 M fight 36302 100~
+r bash 100
 #0
 
 #OBJECTS

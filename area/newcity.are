@@ -18,12 +18,14 @@ Ranger ludvig man людвиг человечек~
 свете.
 ~
 human~
-ACRXe 0 1000 0
+ACRXekl 0 1000 0
 39 20 2d1+1700 1d1+99 6d6+35 'punch'
 -10 -10 -10 -10
-CFHJNO ABQU 0 0
+CFHJNO 0 0 0
 stand stand male 100
 0 ABCDEFGHIJK medium unknown
+r disease 100
+r charm 100
 #33402
 wanderer странник~
 @eng wanderer@rus странник~

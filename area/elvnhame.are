@@ -25,12 +25,29 @@ look closely at him, you see that he is a lichdrow.
 осмелев, чтобы рассмотреть его поближе, Вы видите, что он - леший.
 ~
 elf~
-ABGRV u -900 0
+ABGRVl u -900 0
 30 0 50d10+9500 8d6+28 8d6+28 'none'
 -30 -30 -30 -30
-E ABCD 0 0
+E 0 0 0
 stand stand male 3400
 0 0 medium unknown
+r bash 100
+r pierce 100
+r slash 100
+r fire 100
+r cold 100
+r lightning 100
+r acid 100
+r holy 100
+r negative 100
+r energy 100
+r mental 100
+r sound 100
+r disease 100
+r poison 100
+r charm 100
+r harm 100
+r light 100
 #40102
 GuildMaster Master наставник мастер~
 @eng the Guildmaster@rus наставник~
@@ -46,12 +63,29 @@ the torchlight.
 неровном свете факелов.
 ~
 elf~
-ABGV H 900 0
+ABGVl H 900 0
 30 0 50d10+9500 8d6+28 8d6+28 'none'
 -30 -30 -30 -30
-E ABCD 0 0
+E 0 0 0
 stand stand male 3400
 0 0 medium unknown
+r bash 100
+r pierce 100
+r slash 100
+r fire 100
+r cold 100
+r lightning 100
+r acid 100
+r holy 100
+r negative 100
+r energy 100
+r mental 100
+r sound 100
+r disease 100
+r poison 100
+r charm 100
+r harm 100
+r light 100
 #40103
 GuildMaster наставник~
 the Guildmaster~
@@ -64,12 +98,29 @@ with flashing lights as he pulls in more and more
 energy from the world around him.
 ~
 elf~
-ABGRV u -900 0
+ABGRVl u -900 0
 30 0 50d10+9500 8d6+28 8d6+28 'none'
 -30 -30 -30 -30
-E ABCD 0 0
+E 0 0 0
 stand stand male 3400
 0 0 medium unknown
+r bash 100
+r pierce 100
+r slash 100
+r fire 100
+r cold 100
+r lightning 100
+r acid 100
+r holy 100
+r negative 100
+r energy 100
+r mental 100
+r sound 100
+r disease 100
+r poison 100
+r charm 100
+r harm 100
+r light 100
 #40104
 GuildMaster Master WeaponsMaster Weapons~
 the WeaponsMaster~
@@ -83,12 +134,29 @@ an enchanted broadsword with a jeweled hilt. He
 stands ready to grab it in a flash.
 ~
 elf~
-ABGTV H 0 0
+ABGTVl H 0 0
 30 0 50d10+9500 8d6+28 8d6+28 'none'
 -30 -30 -30 -30
-E ABCD 0 0
+E 0 0 0
 stand stand male 3400
 0 0 medium unknown
+r bash 100
+r pierce 100
+r slash 100
+r fire 100
+r cold 100
+r lightning 100
+r acid 100
+r holy 100
+r negative 100
+r energy 100
+r mental 100
+r sound 100
+r disease 100
+r poison 100
+r charm 100
+r harm 100
+r light 100
 #40105
 GuildMaster Master~
 the Guildmaster~
@@ -101,12 +169,29 @@ recognizable, an elf, or a drow, or a giant, or a
 wererat...
 ~
 elf~
-ABGRV H 0 0
+ABGRVl H 0 0
 30 0 50d10+9500 8d6+28 8d6+28 'none'
 -30 -30 -30 -30
-E ABCD 0 0
+E 0 0 0
 stand stand male 3400
 0 0 medium unknown
+r bash 100
+r pierce 100
+r slash 100
+r fire 100
+r cold 100
+r lightning 100
+r acid 100
+r holy 100
+r negative 100
+r energy 100
+r mental 100
+r sound 100
+r disease 100
+r poison 100
+r charm 100
+r harm 100
+r light 100
 #40106
 GuildMaster Master~
 the Guildmaster~
@@ -122,12 +207,29 @@ bloodstained in a few places, and his huge axe is
 within ready reach.
 ~
 elf~
-ABGQV u -1000 0
+ABGQVl u -1000 0
 30 0 50d10+9500 8d6+28 8d6+28 'none'
 -30 -30 -30 -30
-E ABCD 0 0
+E 0 0 0
 stand stand male 3400
 0 0 medium unknown
+r bash 100
+r pierce 100
+r slash 100
+r fire 100
+r cold 100
+r lightning 100
+r acid 100
+r holy 100
+r negative 100
+r energy 100
+r mental 100
+r sound 100
+r disease 100
+r poison 100
+r charm 100
+r harm 100
+r light 100
 #40107
 GuildMaster Master Paladin~
 the Guildmaster~
@@ -143,12 +245,29 @@ magical runes of power, its hilt sparkling with
 diamonds and rubies.
 ~
 elf~
-ABGQV H 1000 0
+ABGQVl H 1000 0
 30 0 50d10+9500 8d6+28 8d6+28 'none'
 -30 -30 -30 -30
-E ABCD 0 0
+E 0 0 0
 stand stand male 3400
 0 0 medium unknown
+r bash 100
+r pierce 100
+r slash 100
+r fire 100
+r cold 100
+r lightning 100
+r acid 100
+r holy 100
+r negative 100
+r energy 100
+r mental 100
+r sound 100
+r disease 100
+r poison 100
+r charm 100
+r harm 100
+r light 100
 #40108
 GuildMaster Master~
 the Guildmaster~
@@ -161,12 +280,29 @@ a mitre. The beatific look on his face tells you
 at once that he is at one with his god.
 ~
 elf~
-ABGQV H 0 0
+ABGQVl H 0 0
 30 0 50d10+9500 8d6+28 8d6+28 'none'
 -30 -30 -30 -30
-E ABCD 0 0
+E 0 0 0
 stand stand male 3400
 0 0 medium unknown
+r bash 100
+r pierce 100
+r slash 100
+r fire 100
+r cold 100
+r lightning 100
+r acid 100
+r holy 100
+r negative 100
+r energy 100
+r mental 100
+r sound 100
+r disease 100
+r poison 100
+r charm 100
+r harm 100
+r light 100
 #40109
 GuildMaster Master~
 the Guildmaster~
@@ -180,12 +316,29 @@ of the dreaded lichdrow. You will learn... yes, you
 will learn...
 ~
 elf~
-ABGRV u -1000 0
+ABGRVl u -1000 0
 30 0 50d10+9500 8d6+28 8d6+28 'none'
 -30 -30 -30 -30
-E ABCD 0 0
+E 0 0 0
 sit sit male 3400
 0 0 medium unknown
+r bash 100
+r pierce 100
+r slash 100
+r fire 100
+r cold 100
+r lightning 100
+r acid 100
+r holy 100
+r negative 100
+r energy 100
+r mental 100
+r sound 100
+r disease 100
+r poison 100
+r charm 100
+r harm 100
+r light 100
 #40110
 GuildMaster~
 the Guildmaster~
@@ -200,12 +353,29 @@ where in his guild. His clothing is fashionable but
 not gaudy. 
 ~
 elf~
-ABGV u -900 0
+ABGVl u -900 0
 30 0 50d10+9500 8d6+28 8d6+28 'none'
 -30 -30 -30 -30
-E ABCD 0 0
+E 0 0 0
 stand stand male 3400
 0 0 medium unknown
+r bash 100
+r pierce 100
+r slash 100
+r fire 100
+r cold 100
+r lightning 100
+r acid 100
+r holy 100
+r negative 100
+r energy 100
+r mental 100
+r sound 100
+r disease 100
+r poison 100
+r charm 100
+r harm 100
+r light 100
 #40111
 GuildMaster~
 the Guildmaster~
@@ -218,12 +388,29 @@ in his robe are scrolls and a compass. A small telescope
 also threatens to fall out of one of his pockets.
 ~
 elf~
-ABGRV H 0 0
+ABGRVl H 0 0
 30 0 50d10+9500 8d6+28 8d6+28 'none'
 -30 -30 -30 -30
-E ABCD 0 0
+E 0 0 0
 stand stand male 3400
 0 0 medium unknown
+r bash 100
+r pierce 100
+r slash 100
+r fire 100
+r cold 100
+r lightning 100
+r acid 100
+r holy 100
+r negative 100
+r energy 100
+r mental 100
+r sound 100
+r disease 100
+r poison 100
+r charm 100
+r harm 100
+r light 100
 #40112
 GuildMaster~
 the Guildmaster~
@@ -236,12 +423,29 @@ prized weapon, and his hands are ready to grab it
 in a flash. 
 ~
 elf~
-ABGV u -900 0
+ABGVl u -900 0
 30 0 50d10+9500 8d6+28 8d6+28 'none'
 -30 -30 -30 -30
-E ABCD 0 0
+E 0 0 0
 stand stand male 3400
 0 0 medium unknown
+r bash 100
+r pierce 100
+r slash 100
+r fire 100
+r cold 100
+r lightning 100
+r acid 100
+r holy 100
+r negative 100
+r energy 100
+r mental 100
+r sound 100
+r disease 100
+r poison 100
+r charm 100
+r harm 100
+r light 100
 #40113
 Bank President Banker~
 the President of the Bank~
@@ -253,12 +457,29 @@ courtesy (and also that they do not embe401le). He is a grey-
 elf, welcoming all to the bank.
 ~
 elf~
-ABGTV Hc 0 0
+ABGTVl Hc 0 0
 50 0 50d10+4500 8d6+28 5d8+19 'none'
 -30 -30 -30 -30
-CDEFHIJKN ABCD 0 0
+CDEFHIJKN 0 0 0
 stand stand male 5000
 0 0 medium unknown
+r bash 100
+r pierce 100
+r slash 100
+r fire 100
+r cold 100
+r lightning 100
+r acid 100
+r holy 100
+r negative 100
+r energy 100
+r mental 100
+r sound 100
+r disease 100
+r poison 100
+r charm 100
+r harm 100
+r light 100
 #40114
 cityguard guard captain~
 the Captain of the City Guard~
@@ -272,9 +493,11 @@ elf~
 ABGTV 0 0 0
 40 0 15d10+1850 1d1+400 4d8+13 'none'
 -13 -13 -13 -13
-EFHIJKT 0 EG 0
+EFHIJKT 0 0 0
 sit sit male 500
 0 0 medium unknown
+r bash 33
+r slash 33
 #40115
 cityguard guard~
 the Cityguard~
@@ -286,9 +509,11 @@ elf~
 AGTV 0 0 0
 30 0 6d12+853 1d1+400 4d6+8 'none'
 -9 -9 -9 -9
-CFT 0 EG 0
+CFT 0 0 0
 stand stand male 200
 0 0 medium unknown
+r bash 33
+r slash 33
 #40116
 cityguard guard patroller~
 the Cityguard Patroller~
@@ -301,9 +526,11 @@ elf~
 AGTV 0 0 0
 30 0 6d12+853 1d1+400 4d6+8 'none'
 -9 -9 -9 -9
-CFT 0 EG 0
+CFT 0 0 0
 stand stand male 200
 0 0 medium unknown
+r bash 33
+r slash 33
 #40117
 cityguard gate guard gateguard~
 the Gate Guard~
@@ -317,9 +544,11 @@ elf~
 AGTV 0 0 0
 30 0 6d12+853 1d1+400 4d6+8 'none'
 -9 -9 -9 -9
-CFT 0 EG 0
+CFT 0 0 0
 stand stand male 200
 0 0 medium unknown
+r bash 33
+r slash 33
 #40118
 lieutenant cityguard guard~
 the Lieutenant of the Cityguard~
@@ -332,9 +561,11 @@ elf~
 AGTV 0 0 0
 35 0 10d10+1300 1d1+400 4d7+11 'none'
 -11 -11 -11 -11
-CFT 0 EG 0
+CFT 0 0 0
 stand stand male 200
 0 0 medium unknown
+r bash 33
+r slash 33
 #40119
 tavernkeeper barkeep blane~
 Blane the Tavernkeeper~
@@ -354,9 +585,12 @@ elf~
 ABGHKTV H 0 0
 35 0 10d10+1300 1d1+400 4d7+11 'none'
 -11 -11 -11 -11
-BCEFHIJN 0 FIJ 0
+BCEFHIJN 0 0 0
 stand stand male 1200
 0 0 medium unknown
+r pierce 33
+r cold 33
+r lightning 33
 #40120
 Ilse barmaid maid~
 Ilse the Barmaid~
@@ -371,9 +605,10 @@ elf~
 ABGV 0 0 0
 20 0 3d9+333 1d1+400 2d8+5 'none'
 -4 -4 -4 -4
-IJN 0 P 0
+IJN 0 0 0
 stand stand female 1000
 0 0 medium unknown
+r mental 33
 #40121
 Sam harpsichordist player~
 Sam the harpsichord player~
@@ -390,9 +625,10 @@ human~
 ABGV 0 0 0
 10 0 2d7+121 1d1+200 1d8+1 'none'
 1 1 1 1
-FHIJN 0 T 0
+FHIJN 0 0 0
 sit sit male 200
 0 0 medium unknown
+r sound 33
 #40122
 Laslow gambler~
 Laslow the gambler~
@@ -407,9 +643,12 @@ elf~
 ABG 0 600 0
 12 0 2d10+150 1d1+200 1d10+3 'none'
 0 0 0 0
-IJN 0 LN M
+IJN 0 0 0
 sit sit male 155
 0 0 medium unknown
+r holy 33
+r negative -50
+r poison 33
 #40123
 Frenschi gambler~
 Frenschi the gambler~
@@ -424,9 +663,12 @@ human~
 ABG 0 600 0
 12 0 2d10+150 1d1+200 1d10+3 'none'
 0 0 0 0
-IJN 0 LN M
+IJN 0 0 0
 sit sit male 155
 0 0 medium unknown
+r holy 33
+r negative -50
+r poison 33
 #40124
 Jeaves~
 Jeaves the seller of servants~
@@ -436,12 +678,13 @@ He is dressed neatly and formally, and has an air of
 superiority and wisdom about him.
 ~
 elf~
-ABGV 0 900 0
+ABGVl 0 900 0
 40 0 15d10+1850 1d1+400 4d8+13 'none'
 -13 -13 -13 -13
-BCEFHIJN AB 0 0
+BCEFHIJN 0 0 0
 sit sit male 1400
 0 0 medium unknown
+r charm 100
 #40125
 kitten cat pet~
 the kitten~
@@ -453,9 +696,11 @@ cat~
 ABU 0 400 0
 1 2 2d6+11 1d1+99 1d4+0 'scratch'
 8 8 8 10
-U 0 P H
+U 0 0 0
 stand stand either 1
 0 0 tiny unknown
+r fire -50
+r mental 33
 #40126
 puppy dog pet~
 the puppy~
@@ -467,9 +712,23 @@ dog~
 ABJU F 400 0
 3 2 4d6+25 1d1+99 1d6+0 'bite'
 7 7 7 10
-N 0 C 0
+N 0 0 0
 stand stand either 0
 0 Q small unknown
+r fire 33
+r cold 33
+r lightning 33
+r acid 33
+r holy 33
+r negative 33
+r energy 33
+r mental 33
+r sound 33
+r disease 33
+r poison 33
+r charm 33
+r harm 33
+r light 33
 #40127
 doberman dog pet~
 the doberman~
@@ -481,9 +740,23 @@ dog~
 ABJU F 400 0
 7 3 6d10+60 1d1+149 2d4+1 'bite'
 4 4 4 8
-CDL 0 C 0
+CDL 0 0 0
 stand stand either 0
 0 0 medium unknown
+r fire 33
+r cold 33
+r lightning 33
+r acid 33
+r holy 33
+r negative 33
+r energy 33
+r mental 33
+r sound 33
+r disease 33
+r poison 33
+r charm 33
+r harm 33
+r light 33
 #40128
 falcon bird pet~
 the falcon~
@@ -495,9 +768,23 @@ song bird~
 ABIJU FZ 0 0
 12 3 6d10+130 1d1+99 2d5+3 'claw'
 0 0 0 8
-N 0 C 0
+N 0 0 0
 stand stand either 0
 0 U small unknown
+r fire 33
+r cold 33
+r lightning 33
+r acid 33
+r holy 33
+r negative 33
+r energy 33
+r mental 33
+r sound 33
+r disease 33
+r poison 33
+r charm 33
+r harm 33
+r light 33
 #40129
 human mercenary~
 the human mercenary~
@@ -557,9 +844,13 @@ elf~
 AGHT 0 0 0
 48 2 15d10+1850 1d1+400 4d8+13 'punch'
 -13 -13 -13 -14
-CDEFIJKNS 0 MNO Q
+CDEFIJKNS 0 0 0
 stand stand male 1999
 0 0 medium unknown
+r holy 33
+r negative 33
+r energy 33
+r disease -50
 #40133
 kitten cat~
 the little kitten~
@@ -573,9 +864,11 @@ cat~
 AU 0 200 0
 3 2 2d6+51 1d1+99 1d6+0 'scratch'
 5 5 5 2
-U 0 P H
+U 0 0 0
 stand stand either 2
 0 0 tiny unknown
+r fire -50
+r mental 33
 #40134
 alley cat alleycat~
 the scrawny alleycat~
@@ -590,9 +883,11 @@ cat~
 AU 0 200 0
 6 2 2d7+80 1d1+99 1d7+1 'scratch'
 4 4 4 4
-U 0 P H
+U 0 0 0
 stand stand either 5
 0 0 small unknown
+r fire -50
+r mental 33
 #40135
 drunk man~
 the drunk~
@@ -604,9 +899,12 @@ human~
 AG 0 -100 0
 12 0 2d10+150 1d1+200 1d10+3 'none'
 0 0 0 0
-IJN 0 LN M
+IJN 0 0 0
 stand stand male 90
 0 0 medium unknown
+r holy 33
+r negative -50
+r poison 33
 #40136
 shopkeeper man Kal'ille~
 Kal'ille M'Gorn~
@@ -622,9 +920,13 @@ elf~
 AGHTV 0 0 0
 48 2 15d10+1850 1d1+400 4d8+13 'punch'
 -13 -13 -13 -14
-CDEFIJKNS 0 MNO Q
+CDEFIJKNS 0 0 0
 stand stand male 2400
 0 0 medium unknown
+r holy 33
+r negative 33
+r energy 33
+r disease -50
 #40137
 citizen man~
 a citizen~
@@ -640,9 +942,14 @@ elf~
 AGHR O 500 0
 13 0 2d10+150 1d1+400 2d4+2 'magic'
 -1 -1 -1 -3
-FU 0 OP EFG
+FU 0 0 0
 stand stand male 100
 0 0 medium unknown
+r bash -50
+r pierce -50
+r slash -50
+r energy 33
+r mental 33
 #40138
 citizen woman~
 a citizen~
@@ -655,9 +962,14 @@ elf~
 AGHR O 500 0
 13 0 2d10+150 1d1+400 2d4+2 'magic'
 -1 -1 -1 -3
-U 0 OP EFG
+U 0 0 0
 stand stand female 75
 0 0 medium unknown
+r bash -50
+r pierce -50
+r slash -50
+r energy 33
+r mental 33
 #40139
 elf child~
 the elf child~
@@ -670,9 +982,14 @@ elf~
 AGH O 500 0
 4 0 2d7+46 1d1+400 1d5+1 'none'
 6 6 6 0
-U 0 OP EFG
+U 0 0 0
 stand stand either 3
 0 0 medium unknown
+r bash -50
+r pierce -50
+r slash -50
+r energy 33
+r mental 33
 #40140
 citizen man~
 a citizen~
@@ -687,9 +1004,14 @@ elf~
 AGHR O -500 0
 13 0 2d10+150 1d1+400 2d4+2 'magic'
 -1 -1 -1 -3
-U 0 OP EFG
+U 0 0 0
 stand stand male 100
 0 0 medium unknown
+r bash -50
+r pierce -50
+r slash -50
+r energy 33
+r mental 33
 #40141
 citizen woman~
 a citizen~
@@ -702,9 +1024,14 @@ elf~
 AGHR O -500 0
 13 0 2d10+150 1d1+400 2d4+10 'magic'
 -1 -1 -1 -3
-U 0 OP EFG
+U 0 0 0
 stand stand female 175
 0 0 medium unknown
+r bash -50
+r pierce -50
+r slash -50
+r energy 33
+r mental 33
 #40142
 drow child~
 the drow child~
@@ -717,9 +1044,14 @@ elf~
 AGH O -500 0
 4 0 2d7+46 1d1+400 1d5+1 'none'
 6 6 6 0
-U 0 OP EFG
+U 0 0 0
 stand stand either 3
 0 0 medium unknown
+r bash -50
+r pierce -50
+r slash -50
+r energy 33
+r mental 33
 #40143
 citizen man~
 a citizen~
@@ -735,9 +1067,14 @@ elf~
 AGHR O 0 0
 13 0 2d10+150 1d1+400 2d4+2 'magic'
 -1 -1 -1 -3
-U 0 OP EFG
+U 0 0 0
 stand stand male 140
 0 0 medium unknown
+r bash -50
+r pierce -50
+r slash -50
+r energy 33
+r mental 33
 #40144
 citizen woman~
 a citizen~
@@ -750,9 +1087,14 @@ elf~
 AGHR O 0 0
 13 0 2d10+150 1d1+400 2d4+2 'magic'
 -1 -1 -1 -3
-U 0 OP EFG
+U 0 0 0
 stand stand female 125
 0 0 medium unknown
+r bash -50
+r pierce -50
+r slash -50
+r energy 33
+r mental 33
 #40145
 grey-elven elf child~
 the grey-elven child~
@@ -765,9 +1107,14 @@ elf~
 AGH O 0 0
 4 0 2d7+46 1d1+400 1d5+3 'none'
 6 6 6 0
-U 0 OP EFG
+U 0 0 0
 stand stand either 3
 0 0 medium unknown
+r bash -50
+r pierce -50
+r slash -50
+r energy 33
+r mental 33
 #40146
 butcher~
 De'Lyron P'Gille the butcher~
@@ -777,12 +1124,29 @@ He wields a mean meat cleaver, and the clean cut of his meat
 is proof enough he knows how to use it.
 ~
 elf~
-ABGV 0 -900 0
+ABGVl 0 -900 0
 40 0 15d10+1850 1d1+400 4d8+13 'cleave'
 -13 -13 -13 -13
-BCEFHIJN ABCD 0 0
+BCEFHIJN 0 0 0
 stand stand male 2000
 0 0 medium unknown
+r bash 100
+r pierce 100
+r slash 100
+r fire 100
+r cold 100
+r lightning 100
+r acid 100
+r holy 100
+r negative 100
+r energy 100
+r mental 100
+r sound 100
+r disease 100
+r poison 100
+r charm 100
+r harm 100
+r light 100
 #40147
 Nech'lir blacksmith~
 Nech'lir the blacksmith~
@@ -793,12 +1157,29 @@ in life. The forge is his friend, the hammer an extension of his
 arm. He appreciates fine armor and fine workmanship.
 ~
 elf~
-ABGV 0 -900 0
+ABGVl 0 -900 0
 40 0 15d10+1850 1d1+400 4d8+13 'pound'
 -13 -13 -13 -13
-CDEFHIJKN ABCD 0 0
+CDEFHIJKN 0 0 0
 stand stand male 2000
 0 0 medium unknown
+r bash 100
+r pierce 100
+r slash 100
+r fire 100
+r cold 100
+r lightning 100
+r acid 100
+r holy 100
+r negative 100
+r energy 100
+r mental 100
+r sound 100
+r disease 100
+r poison 100
+r charm 100
+r harm 100
+r light 100
 #40148
 Sarn'otha jeweller~
 Sarn'otha Vent'Mir the jeweller~
@@ -813,12 +1194,29 @@ notices you are at the counter and looks up, hoping you will buy
 something from her.
 ~
 elf~
-ABGV 0 -900 0
+ABGVl 0 -900 0
 40 0 15d10+1850 1d1+400 4d8+13 'pound'
 -13 -13 -13 -13
-CDEFHIJKN ABCD 0 0
+CDEFHIJKN 0 0 0
 stand stand female 2000
 0 0 medium unknown
+r bash 100
+r pierce 100
+r slash 100
+r fire 100
+r cold 100
+r lightning 100
+r acid 100
+r holy 100
+r negative 100
+r energy 100
+r mental 100
+r sound 100
+r disease 100
+r poison 100
+r charm 100
+r harm 100
+r light 100
 #40149
 Gethnir'Rah weaponssmith~
 Gethnir'Rah F'nith the weaponsmith~
@@ -835,12 +1233,29 @@ you absently and wonders if he should return to his work or
 sell you something.
 ~
 elf~
-ABGV 0 900 0
+ABGVl 0 900 0
 40 0 15d10+2050 1d1+400 4d8+13 'pound'
 -13 -13 -13 -13
-CDEFHIJKN ABCD 0 0
+CDEFHIJKN 0 0 0
 stand stand male 2000
 0 0 medium unknown
+r bash 100
+r pierce 100
+r slash 100
+r fire 100
+r cold 100
+r lightning 100
+r acid 100
+r holy 100
+r negative 100
+r energy 100
+r mental 100
+r sound 100
+r disease 100
+r poison 100
+r charm 100
+r harm 100
+r light 100
 #40150
 healer adept~
 The Healer Adept~
@@ -852,12 +1267,29 @@ She serves the Goddess of Magic by uttering magic spells which
 heal and help others.
 ~
 elf~
-ABGQVaf DFH 0 0
+ABGQVafl DFH 0 0
 55 0 50d10+4500 1d1+400 5d8+14 'divine'
 -20 -20 -20 -20
-AFH ABCD 0 0
+AFH 0 0 0
 stand stand female 5000
 0 0 medium unknown
+r bash 100
+r pierce 100
+r slash 100
+r fire 100
+r cold 100
+r lightning 100
+r acid 100
+r holy 100
+r negative 100
+r energy 100
+r mental 100
+r sound 100
+r disease 100
+r poison 100
+r charm 100
+r harm 100
+r light 100
 #40151
 necromancer shopkeeper Xaixara~
 The Necromancer-Alchemist~
@@ -878,12 +1310,29 @@ see of her is illusion, covering the fact that she is a
 lichdrow.
 ~
 elf~
-ABGKRV DNUZcu -1000 0
+ABGKRVl DNUZcu -1000 0
 51 0 50d10+4500 1d1+400 5d8+14 'acbite'
 -40 -40 -40 -40
-AFHK ABCD 0 0
+AFHK 0 0 0
 stand stand female 10000
 0 0 medium unknown
+r bash 100
+r pierce 100
+r slash 100
+r fire 100
+r cold 100
+r lightning 100
+r acid 100
+r holy 100
+r negative 100
+r energy 100
+r mental 100
+r sound 100
+r disease 100
+r poison 100
+r charm 100
+r harm 100
+r light 100
 #0
 
 #OBJECTS
