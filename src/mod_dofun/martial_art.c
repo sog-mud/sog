@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.134 1999-12-02 10:54:07 kostik Exp $
+ * $Id: martial_art.c,v 1.135 1999-12-03 06:01:34 kostik Exp $
  */
 
 /***************************************************************************
@@ -59,7 +59,7 @@ DECLARE_DO_FUN(do_dismount	);
 static inline bool	check_yell	(CHAR_DATA *ch, CHAR_DATA *victim,
 					 bool fighting);
 
-bool check_close_contact(CHAR_DATA *ch, CHAR_DATA *victim)
+static bool check_close_contact(CHAR_DATA *ch, CHAR_DATA *victim)
 {	
 	OBJ_DATA *v_weapon;
 	OBJ_DATA *v_weapon2;
@@ -101,6 +101,37 @@ bool check_close_contact(CHAR_DATA *ch, CHAR_DATA *victim)
 		check_improve(victim, "close combat", TRUE, 2);
 	}
 	return FALSE;
+}
+
+static void check_downstrike(CHAR_DATA *victim)
+{
+	CHAR_DATA *ch;
+	OBJ_DATA  *weapon;
+	int chance;
+
+	if (IS_EXTRACTED(victim) || !(victim->in_room)) 
+		return;
+
+	for (ch = victim->in_room->people; ch; ch = ch->next_in_room) {
+		if (ch->fighting != victim 
+		|| !((weapon = get_eq_char(ch, WEAR_WIELD))
+		&& WEAPON_IS(weapon, WEAPON_DAGGER))
+		|| !(chance = get_skill(ch, "downstrike")))
+			continue;
+
+		chance += get_curr_stat(ch, STAT_DEX);
+		chance -= get_curr_stat(victim, STAT_DEX);
+
+		chance /= 3;
+		if (number_percent() < chance) {
+			act("You reach $N with your dagger as $E falls to the" 
+				" ground.", ch, NULL, victim, TO_CHAR);
+			one_hit(ch, victim, "downstrike", WEAR_WIELD);
+			check_improve(ch, "downstrike", TRUE, 5);
+			if (IS_EXTRACTED(victim))
+				return;
+		}
+	}
 }
 
 bool distance_check(CHAR_DATA *ch, CHAR_DATA *victim) 
@@ -522,6 +553,80 @@ void do_cut(CHAR_DATA *ch, const char *argument)
 		yell(victim, ch, "Help! $i is attacking me!");
 }
 
+void do_whirl(CHAR_DATA *ch, const char *argument) 
+{
+	CHAR_DATA *victim;
+	int chance;
+	OBJ_DATA *weapon;
+	OBJ_DATA *second_weap;
+	bool attack;
+	char arg[MAX_INPUT_LENGTH];
+
+	if (!(chance = get_skill(ch, "whirl"))) {
+		char_puts("Huh?\n", ch);
+		return;
+	}
+
+	weapon = get_eq_char(ch, WEAR_WIELD);
+	second_weap = get_eq_char(ch, WEAR_SECOND_WIELD);
+
+	if (!weapon) {
+		act("You need a weapon to do that.", ch, NULL, NULL, TO_CHAR);
+		return;
+	}
+
+	if (!WEAPON_IS(weapon, WEAPON_AXE) 
+	&& (!second_weap || !WEAPON_IS(second_weap, WEAPON_AXE))) {
+		act("You need a axe to do that.", ch, NULL, NULL, TO_CHAR);
+		return;
+	}
+
+	one_argument(argument, arg, sizeof(arg));
+
+	if (arg[0] == '\0') {
+		victim = ch->fighting;
+		if (victim == NULL) {
+			char_puts("But you aren't fighting anyone!\n", ch);
+			return;
+		}
+	}
+	else 
+		victim = get_char_room(ch, arg);
+
+	if (!victim || victim->in_room != ch->in_room) {
+		WAIT_STATE(ch, MISSING_TARGET_DELAY);
+		char_puts("They aren't here.\n", ch);
+		return;
+	}
+
+	if (victim == ch) {
+		act("You can't do that to yourself.",
+			ch, NULL, NULL, TO_CHAR);
+		return;
+	}
+
+	WAIT_STATE(ch, skill_beats("whirl"));
+
+	if (is_safe(ch, victim)) 
+		return;
+
+	attack = (victim != ch->fighting) && (victim->fighting != ch);
+	
+	if ((number_percent() > chance) || distance_check(ch, victim)) {
+		damage(ch, victim, 0, "whirl", DAM_BASH, DAMF_SHOW); 
+		check_improve(ch, "whirl", FALSE, 3);
+	} else {
+		int wear_loc;
+		wear_loc = WEAPON_IS(weapon, WEAPON_AXE)? WEAR_WIELD : WEAR_SECOND_WIELD;
+
+		one_hit(ch, victim, "whirl", wear_loc);
+		check_improve(ch, "whirl", TRUE, 3);
+	}
+
+	if (attack) 
+		yell(victim, ch, "Help! $i is attacking me!");
+}
+
 void do_feint(CHAR_DATA *ch, const char *argument) 
 {
 	CHAR_DATA *victim;
@@ -911,6 +1016,7 @@ void do_bash(CHAR_DATA *ch, const char *argument)
 		damage_bash = (ch->damroll / 2) +
 			      number_range(4, 4 + 4* ch->size + chance/10);
 		damage(ch, victim, damage_bash, "bash", DAM_BASH, DAMF_SHOW);
+		check_downstrike(victim);
 	} else {
 		damage(ch, victim, 0, "bash", DAM_BASH, DAMF_SHOW);
 		act_puts("You fall flat on your face!",
@@ -922,6 +1028,7 @@ void do_bash(CHAR_DATA *ch, const char *argument)
 		check_improve(ch, "bash", FALSE, 1);
 		ch->position = POS_RESTING;
 		WAIT_STATE(ch, skill_beats("bash") * 3/2); 
+		check_downstrike(ch);
 	}
 
 	if (attack)
@@ -1120,6 +1227,7 @@ void do_trip(CHAR_DATA *ch, const char *argument)
 			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		WAIT_STATE(ch, beats);
 		act("$n trips over $s own feet!", ch, NULL, NULL, TO_ROOM);
+		check_downstrike(ch);
 		return;
 	}
 
@@ -1177,10 +1285,12 @@ void do_trip(CHAR_DATA *ch, const char *argument)
 		victim->position = POS_RESTING;
 		damage(ch, victim, number_range(2, 2 + 2*victim->size),
 		       "trip", DAM_BASH, DAMF_SHOW);
+		check_downstrike(victim);
 	} else {
 		damage(ch, victim, 0, "trip", DAM_BASH, DAMF_SHOW);
 		WAIT_STATE(ch, beats * 2 / 3);
 		check_improve(ch, "trip", FALSE, 1);
+		check_downstrike(ch);
 	}
 
 	if (attack)
@@ -2266,6 +2376,7 @@ void do_throw(CHAR_DATA *ch, const char *argument)
 		(LEVEL(ch) + get_curr_stat(ch, STAT_STR)) * free_hands(ch), 
 	       "throw", DAM_BASH, DAMF_SHOW);
 		check_improve(ch, "throw", TRUE, 1);
+		check_downstrike(victim);
 	}
 	else {
 		act("You fail to grab your opponent.",
@@ -3621,6 +3732,7 @@ void do_tail(CHAR_DATA *ch, const char *argument)
 		damage_tail = ch->damroll + 
 			(2 * number_range(4,4 + 10* ch->size + chance/10));
 		damage(ch, victim, damage_tail, "tail", DAM_BASH, DAMF_SHOW);
+		check_downstrike(victim);
 	} else {
 		damage(ch, victim, 0, "tail", DAM_BASH, DAMF_SHOW);
 		act("You lost your position and fall down!",
@@ -3631,7 +3743,8 @@ void do_tail(CHAR_DATA *ch, const char *argument)
 		    ch, NULL, victim, TO_VICT);
 		check_improve(ch, "tail", FALSE, 1);
 		ch->position = POS_RESTING;
-		WAIT_STATE(ch, skill_beats("tail") * 3 / 2); 
+		WAIT_STATE(ch, skill_beats("tail") * 3 / 2);
+		check_downstrike(ch);
 	}
 	if (attack)
 		yell(victim, ch, "Help! $lu{$i} tried to hit me with his tail!");
@@ -3942,6 +4055,7 @@ void do_crush(CHAR_DATA *ch, const char *argument)
 		damage_crush = (ch->damroll / 2) +
 				number_range(4, 4 + 4*ch->size + chance/10);
 		damage(ch, victim, damage_crush, "crush", DAM_BASH, DAMF_SHOW);
+		check_downstrike(victim);
 	} else {
 		damage(ch, victim, 0, "crush", DAM_BASH, DAMF_SHOW);
 		act_puts("You fall flat on your face!",
@@ -3952,6 +4066,7 @@ void do_crush(CHAR_DATA *ch, const char *argument)
 		    ch, NULL, victim, TO_VICT);
 		ch->position = POS_RESTING;
 		WAIT_STATE(ch, skill_beats("crush") * 3 / 2); 
+		check_downstrike(ch);
 	}
 }
 

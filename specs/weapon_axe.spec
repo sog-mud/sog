@@ -36,6 +36,15 @@ Max 100
 End
 
 #SKILL
+Skill 'whirl'
+Level 23
+Rating 1
+Min 1
+Adept 75
+Max 100
+End
+
+#SKILL
 Skill 'axe'
 Level 1
 Rating 1

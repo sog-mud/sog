@@ -27,6 +27,15 @@ Max 100
 End
 
 #SKILL
+Skill 'downstrike'
+Level 17
+Rating 2
+Min 1
+Adept 75
+Max 100
+End
+
+#SKILL
 Skill 'dagger'
 Level 1
 Rating 1

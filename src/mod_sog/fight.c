@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.225 1999-12-02 10:54:10 kostik Exp $
+ * $Id: fight.c,v 1.226 1999-12-03 06:01:35 kostik Exp $
  */
 
 /***************************************************************************
@@ -912,6 +912,10 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 			dam = (LEVEL(ch)/13 + 1) * dam + LEVEL(ch);
 		else if (IS_SKILL(dt, "twist"))
 			dam = dam * 3 / 2;
+		else if (IS_SKILL(dt, "downstrike"))
+			dam = dam * 5 / 4;
+		else if (IS_SKILL(dt, "whirl"))
+			dam *= 2;
 		else if (IS_SKILL(dt, "charge"))
 			dam = (LEVEL(ch)/12 + 1) * dam + LEVEL(ch);
 		else if (IS_SKILL(dt, "cleave") && wield != NULL) {
