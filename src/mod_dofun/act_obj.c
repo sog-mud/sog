@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.165.2.2 1999-11-27 11:06:26 fjoe Exp $
+ * $Id: act_obj.c,v 1.165.2.3 1999-12-02 13:32:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3806,7 +3806,7 @@ void do_auction(CHAR_DATA *ch, const char *argument)
 		}
 	}
 
-	if (IS_IMMORTAL(ch) && !str_cmp(arg1, "stop"))
+	if (IS_IMMORTAL(ch) && !str_cmp(arg1, "stop")) {
 		if (auction.item == NULL) {
 			char_puts("There is no auction going on "
 				  "you can stop.\n",ch);
@@ -3836,6 +3836,7 @@ void do_auction(CHAR_DATA *ch, const char *argument)
 			}
 	    		return;
 		}
+	}
 
 	if (!str_cmp(arg1, "bet")) {
 	        int newbet;

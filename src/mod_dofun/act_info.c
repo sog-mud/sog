@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.271.2.2 1999-11-27 11:06:24 fjoe Exp $
+ * $Id: act_info.c,v 1.271.2.3 1999-12-02 13:32:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -659,27 +659,27 @@ void do_look(CHAR_DATA *ch, const char *argument)
 		if (can_see_obj(ch, obj)) {
 			/* player can see object */
 			ed = ed_lookup(arg3, obj->ed);
-			if (ed != NULL)
+			if (ed != NULL) {
 				if (++count == number) {
 					act_puts(mlstr_cval(&ed->description, ch),
 						 ch, NULL, NULL,
 						 TO_CHAR | ACT_NOLF, POS_DEAD);
 					return;
-				}
-				else
+				} else
 					continue;
+			}
 
 			ed = ed_lookup(arg3, obj->pObjIndex->ed);
 
-			if (ed != NULL)
+			if (ed != NULL) {
 				if (++count == number) {
 					act_puts(mlstr_cval(&ed->description, ch),
 						 ch, NULL, NULL,
 						 TO_CHAR | ACT_NOLF, POS_DEAD);
 					return;
-				}
-				else
+				} else
 					continue;
+			}
 
 			if (is_name(arg3, obj->name))
 				if (++count == number) {
@@ -1378,13 +1378,14 @@ void do_compare(CHAR_DATA *ch, const char *argument)
 		}
 	}
 
-	if (cmsg == NULL)
+	if (cmsg == NULL) {
 		if (value1 == value2)
 			cmsg = "$p and $P look about the same.";
 		else if (value1  > value2)
 			cmsg = "$p looks better than $P.";
 		else
 			cmsg = "$p looks worse than $P.";
+	}
 
 	act(cmsg, ch, obj1, obj2, TO_CHAR);
 }

@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.200.2.4 1999-11-27 11:06:31 fjoe Exp $
+ * $Id: comm.c,v 1.200.2.5 1999-12-02 13:32:31 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1577,11 +1577,12 @@ void write_to_buffer(DESCRIPTOR_DATA *d, const char *txt, size_t len)
 
 		c = d->codepage->to[(unsigned char) *txt++];
 		d->out_buf.buf[d->out_buf.top] = c;
-		if (c == IAC)
+		if (c == IAC) {
 			if (noiac)
 				d->out_buf.buf[d->out_buf.top] = IAC_REPL;
 			else 
 				d->out_buf.buf[++d->out_buf.top] = IAC;
+		}
 		d->out_buf.top++;
 	}
 }

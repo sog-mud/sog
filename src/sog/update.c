@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.157.2.3 1999-11-27 08:24:36 fjoe Exp $
+ * $Id: update.c,v 1.157.2.4 1999-12-02 13:32:30 fjoe Exp $
  */
 
 /***************************************************************************
@@ -170,14 +170,25 @@ void advance(CHAR_DATA *victim, int level)
 	 */
 	if (level <= victim->level) {
 		int temp_prac;
+		int delta;
 
 		char_puts("**** OOOOHHHHHHHHHH  NNNNOOOO ****\n", victim);
 		temp_prac = PC(victim)->practice;
 		victim->level = 1;
 		PC(victim)->exp	= base_exp(victim);
-		SET_HIT(victim, 20);
-		SET_MANA(victim, 100);
-		SET_MOVE(victim, 100);
+
+		delta = 20 - victim->perm_hit;
+		victim->perm_hit += delta;
+		victim->max_hit += delta;
+
+		delta = 100 - victim->perm_mana;
+		victim->perm_mana += delta;
+		victim->max_mana += delta;
+
+		delta = 100 - victim->perm_move;
+		victim->perm_move += delta;
+		victim->max_move += delta;
+
 		advance_level(victim);
 		PC(victim)->practice= temp_prac;
 	} else 
@@ -1669,7 +1680,7 @@ void update_one_obj(OBJ_DATA *obj)
 			break;
 	}
 
-	if (obj->carried_by)
+	if (obj->carried_by) {
 		if (IS_NPC(obj->carried_by) 
 		&&  obj->carried_by->pMobIndex->pShop != NULL)
 			obj->carried_by->silver += obj->cost/5;
@@ -1679,6 +1690,7 @@ void update_one_obj(OBJ_DATA *obj)
 				act(message, obj->carried_by, obj, NULL,
 				    TO_ROOM);
 		}
+	}
 
 	if (obj->in_room && (rch = obj->in_room->people)
 	&&  !IS_SET(obj->pObjIndex->extra_flags, ITEM_PIT))
@@ -2061,16 +2073,19 @@ void check_reboot(void)
 	case 5:
 	case 10:
 	case 15:
-		for (d = descriptor_list; d != NULL; d = d->next) 
-			if (d->character != NULL)
-				if (rebooter || !IS_IMMORTAL(d->character))
+		for (d = descriptor_list; d != NULL; d = d->next) {
+			if (d->character != NULL) {
+				if (rebooter || !IS_IMMORTAL(d->character)) {
 					char_printf(d->character, 
 						    "{*{W*****{R rEBOOT IN {W%d{R MIN. {W*****{x\n",
 					    	    reboot_counter);
-				else
+				} else {
 					char_printf(d->character, 
 						    "{*{W*****{R AUTOMAGIC rEBOOT IN {W%d{R MIN. {W*****{x\n",
 					    	    reboot_counter);
+				}
+			}
+		}
 
 		/* FALLTHRU */
 	default: 

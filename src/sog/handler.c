@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.182.2.8 1999-11-28 12:56:14 fjoe Exp $
+ * $Id: handler.c,v 1.182.2.9 1999-12-02 13:32:28 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1197,7 +1197,7 @@ void char_to_room(CHAR_DATA *ch, ROOM_INDEX_DATA *pRoomIndex)
 		break;
 	}
 
-	if (pRoomIndex->affected)
+	if (pRoomIndex->affected) {
 		if (IS_IMMORTAL(ch))
 			dofun("raffects", ch, str_empty);
 		else {
@@ -1205,6 +1205,7 @@ void char_to_room(CHAR_DATA *ch, ROOM_INDEX_DATA *pRoomIndex)
 			if (IS_EXTRACTED(ch))
 				return;
 		}
+	}
 
 	if (ch->desc != NULL
 	&&  (olced = OLCED(ch)) != NULL
@@ -1494,11 +1495,12 @@ void obj_to_room(OBJ_DATA *obj, ROOM_INDEX_DATA *pRoomIndex)
 	obj->carried_by		= NULL;
 	obj->in_obj		= NULL;
 
-	if (IS_WATER(pRoomIndex))
+	if (IS_WATER(pRoomIndex)) {
 		if (may_float(obj))
 			obj->water_float = -1;
 		else
 			obj->water_float = floating_time(obj);
+	}
 }
 
 /*
