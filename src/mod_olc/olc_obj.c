@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_obj.c,v 1.33 1999-02-19 15:22:24 fjoe Exp $
+ * $Id: olc_obj.c,v 1.34 1999-02-19 18:49:38 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -70,6 +70,7 @@ DECLARE_OLC_FUN(objed_level		);
 DECLARE_OLC_FUN(objed_condition		);
 DECLARE_OLC_FUN(objed_clan		);
 DECLARE_OLC_FUN(objed_clone		);
+DECLARE_OLC_FUN(objed_gender		);
 
 DECLARE_VALIDATE_FUN(validate_condition);
 
@@ -109,6 +110,7 @@ OLC_CMD_DATA olc_cmds_obj[] =
 	{ "condition",	objed_condition,	validate_condition	},
 	{ "clan",	objed_clan					},
 	{ "clone",	objed_clone					},
+	{ "gender",	objed_gender,		gender_table		},
 
 	{ "version",	show_version					},
 	{ "commands",	show_commands					},
@@ -889,6 +891,13 @@ OLC_FUN(objed_clone)
 	}
 
 	return TRUE;
+}
+
+OLC_FUN(objed_gender)
+{
+	OBJ_INDEX_DATA *pObj;
+	EDIT_OBJ(ch, pObj);
+	return olced_flag32(ch, argument, objed_gender, &pObj->gender);
 }
 
 void show_obj_values(BUFFER *output, OBJ_INDEX_DATA *pObj)

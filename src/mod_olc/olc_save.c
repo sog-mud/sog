@@ -1,5 +1,5 @@
 /*
- * $Id: olc_save.c,v 1.58 1999-02-18 15:13:14 fjoe Exp $
+ * $Id: olc_save.c,v 1.59 1999-02-19 18:49:38 fjoe Exp $
  */
 
 /**************************************************************************
@@ -390,6 +390,7 @@ void save_object(FILE *fp, OBJ_INDEX_DATA *pObjIndex)
 
     if (pObjIndex->clan)
 		fwrite_string(fp, "C", clan_name(pObjIndex->clan));
+    fprintf(fp, "G %s\n", flag_string(gender_table, pObjIndex->gender));
 }
 
 /*****************************************************************************

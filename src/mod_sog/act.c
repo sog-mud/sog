@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act.c,v 1.10 1999-02-19 09:48:05 fjoe Exp $
+ * $Id: act.c,v 1.11 1999-02-19 18:49:05 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -482,6 +482,14 @@ static void act_raw(CHAR_DATA *ch, CHAR_DATA *to,
 
 					case 't':
 						tstack[sp].arg = to->sex;
+						break;
+
+					case 'p':
+						tstack[sp].arg = obj1->pIndexData->gender;
+						break;
+
+					case 'P':
+						tstack[sp].arg = obj2->pIndexData->gender;
 						break;
 
 					default:
