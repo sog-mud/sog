@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.38 1999-02-11 16:40:30 fjoe Exp $
+ * $Id: recycle.c,v 1.39 1999-02-15 13:26:39 fjoe Exp $
  */
 
 /***************************************************************************
@@ -189,7 +189,6 @@ void free_obj(OBJ_DATA *obj)
 	obj->next = free_obj_list;
 	free_obj_list = obj;
 
-	obj_count--;
 	obj_free_count++;
 }
 
@@ -284,7 +283,6 @@ void free_char(CHAR_DATA *ch)
 	ch->next = free_char_list;
 	free_char_list = ch;
 
-	mob_count--;
 	mob_free_count++;
 }
 
