@@ -2,7 +2,7 @@
 #define _MERC_H_
 
 /*
- * $Id: merc.h,v 1.46 1998-07-10 10:39:40 fjoe Exp $
+ * $Id: merc.h,v 1.47 1998-07-11 20:55:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -91,11 +91,12 @@ typedef struct  mprog_list		MPROG_LIST;
 typedef struct  mprog_code		MPROG_CODE;
 typedef struct	qtrouble_data		QTROUBLE_DATA;
 typedef struct	mlstring		mlstring;
+typedef struct	hometown_data		HOMETOWN_DATA;
 
 /*
  * Function types.
  */
-typedef void DO_FUN	(CHAR_DATA *ch, char *argument);
+typedef void DO_FUN	(CHAR_DATA *ch, const char *argument);
 typedef bool SPEC_FUN	(CHAR_DATA *ch);
 typedef void SPELL_FUN	(int sn, int level, CHAR_DATA *ch, void *vo,
 				int target);
@@ -110,10 +111,12 @@ typedef void SPELL_FUN	(int sn, int level, CHAR_DATA *ch, void *vo,
 /*
  * String and memory management parameters.
  */
-#define MAX_KEY_HASH		 1024
-#define MAX_STRING_LENGTH	 4608
-#define MAX_INPUT_LENGTH	  256
-#define PAGELEN 		   22
+#define MAX_KEY_HASH		1024
+#define MAX_STRING_LENGTH	4608
+#define MAX_PROMPT_LENGTH	60
+#define MAX_TITLE_LENGTH	45
+#define MAX_INPUT_LENGTH	256
+#define PAGELEN 		22
 
 /*
  * Game parameters.
@@ -138,8 +141,8 @@ typedef void SPELL_FUN	(int sn, int level, CHAR_DATA *ch, void *vo,
 #define PULSE_VIOLENCE		  (2 *  PULSE_PER_SECOND)
 
 #else
-#define PULSE_PER_SECOND	    4
 #define PULSE_PER_SCD		    4
+#define PULSE_PER_SECOND	    4
 #define PULSE_VIOLENCE		  (3 * PULSE_PER_SECOND)
 
 #endif
@@ -154,7 +157,7 @@ typedef void SPELL_FUN	(int sn, int level, CHAR_DATA *ch, void *vo,
 #define PULSE_RAFFECT		  (3 * PULSE_MOBILE)
 #define PULSE_AREA		  (110 * PULSE_PER_SECOND) /* 97 saniye */
 #define FIGHT_DELAY_TIME	  (20 * PULSE_PER_SECOND)
-#define PULSE_AUCTION		  (20 * PULSE_PER_SECOND) /* 10 seconds */
+#define PULSE_AUCTION		  (20 * PULSE_PER_SECOND) /* 20 seconds */
 
 #define IMPLEMENTOR		MAX_LEVEL
 #define CREATOR 		(MAX_LEVEL - 1)
@@ -1156,7 +1159,7 @@ enum {
 #define OBJ_VNUM_DISC		     23
 #define OBJ_VNUM_PORTAL 	     25
 #define OBJ_VNUM_ROSE		   1001
-#define OBJ_VNUM_PIT		   3010
+#define OBJ_VNUM_PIT			3010
 
 #define OBJ_VNUM_SCHOOL_MACE	   3700
 #define OBJ_VNUM_SCHOOL_DAGGER	   3701
@@ -1641,6 +1644,22 @@ enum {
 #define IS_BLINK_ON(ch) (IS_SET((ch)->act , PLR_BLINK))
 #define CANT_GAIN_EXP(ch) (IS_SET((ch)->act , PLR_NOEXP))
 
+/*
+#define IS_PUMPED(ch) ((ch)->last_fight_time != -1 && \
+		       current_time - (ch)->last_fight_time < FIGHT_DELAY_TIME)
+*/
+#define IS_PUMPED(ch) (ch->pumped)
+#define SET_FIGHT_TIME(ch)					\
+	{							\
+		(ch)->last_fight_time = current_time;		\
+		(ch)->pumped = TRUE;				\
+	}
+#define RESET_FIGHT_TIME(ch)					\
+	{							\
+		(ch)->last_fight_time = -1;			\
+		(ch)->pumped = FALSE;				\
+	}
+
 /* RT comm flags -- may be used on both mobs and chars */
 #define COMM_QUIET		(A)
 #define COMM_DEAF		(B)
@@ -1735,8 +1754,8 @@ struct	mob_index_data
 	int			killed;
 	char *			player_name;
 	char *			short_descr;
-	char *			long_descr;
-	char *			description;
+	mlstring *		long_descr;
+	mlstring *		description;
 	int			act;
 	int			affected_by;
 	int			detection;
@@ -1779,6 +1798,7 @@ struct	char_data
 	CHAR_DATA * 		reply;
 	CHAR_DATA * 		last_fought;
 	time_t			last_fight_time;
+	bool			pumped;
 	time_t			last_death_time;
 	CHAR_DATA * 		pet;
 	CHAR_DATA *		mprog_target;
@@ -1800,8 +1820,8 @@ struct	char_data
 	int			id;
 	int			version;
 	char *			short_descr;
-	char *			long_descr;
-	char *			description;
+	mlstring *		long_descr;
+	mlstring *		description;
 	char *			prompt;
 	char *			prefix;
 	int			group;
@@ -1921,7 +1941,6 @@ struct	pc_data
 	QTROUBLE_DATA *		qtrouble;
 	ROOM_INDEX_DATA *	questroom;	/* quest */
 	int			race;	/* orginal race for polymorph */
-	int			adr_stops_shown;
 	int			pc_killed;	/* how many PC's killed by character */
 };
 
@@ -2846,7 +2865,7 @@ int	get_max_train	(CHAR_DATA *ch, int stat);
 int	get_max_train2	(CHAR_DATA *ch, int stat);
 int	can_carry_n	(CHAR_DATA *ch);
 int	can_carry_w	(CHAR_DATA *ch);
-bool	is_name 	(char *str, char *namelist);
+bool	is_name 	(const char *str, const char *namelist);
 bool	is_name_imm	(char *str, char *namelist);
 void	affect_to_char	(CHAR_DATA *ch, AFFECT_DATA *paf);
 void	affect_to_obj	(OBJ_DATA *obj, AFFECT_DATA *paf);
@@ -2879,17 +2898,17 @@ void	extract_obj_1	(OBJ_DATA *obj, bool count);
 void	extract_char	(CHAR_DATA *ch, bool fPull);
 void	extract_char_nocount	(CHAR_DATA *ch, bool fPull);
 void	extract_char_org	(CHAR_DATA *ch, bool fPull, bool Count);
-CHAR_DATA *	get_char_room	(CHAR_DATA *ch, char *argument);
-CHAR_DATA *	get_char_room2	(CHAR_DATA *ch, ROOM_INDEX_DATA *room,char *argument, int *number);
-CHAR_DATA *	get_char_world	(CHAR_DATA *ch, char *argument);
-CHAR_DATA *	get_char_area	(CHAR_DATA *ch, char *argument);
+CHAR_DATA *	get_char_room	(CHAR_DATA *ch, const char *argument);
+CHAR_DATA *	get_char_room2	(CHAR_DATA *ch, ROOM_INDEX_DATA *room,const char *argument, int *number);
+CHAR_DATA *	get_char_world	(CHAR_DATA *ch, const char *argument);
+CHAR_DATA *	get_char_area	(CHAR_DATA *ch, const char *argument);
 OD *	get_obj_type	(OBJ_INDEX_DATA *pObjIndexData);
-OD *	get_obj_list	(CHAR_DATA *ch, char *argument,
+OD *	get_obj_list	(CHAR_DATA *ch, const char *argument,
 			    OBJ_DATA *list);
-OD *	get_obj_carry	(CHAR_DATA *ch, char *argument);
-OD *	get_obj_wear	(CHAR_DATA *ch, char *argument);
-OD *	get_obj_here	(CHAR_DATA *ch, char *argument);
-OD *	get_obj_world	(CHAR_DATA *ch, char *argument);
+OD *	get_obj_carry	(CHAR_DATA *ch, const char *argument);
+OD *	get_obj_wear	(CHAR_DATA *ch, const char *argument);
+OD *	get_obj_here	(CHAR_DATA *ch, const char *argument);
+OD *	get_obj_world	(CHAR_DATA *ch, const char *argument);
 OD *	create_money	(int gold, int silver);
 int	get_obj_number	(OBJ_DATA *obj);
 int	get_obj_realnumber	(OBJ_DATA *obj);
@@ -2930,25 +2949,26 @@ int	count_charmed	(CHAR_DATA *ch);
 void	add_mind	(CHAR_DATA *ch, char *str);
 void	remove_mind	(CHAR_DATA *ch, char *str);
 void	back_home	(CHAR_DATA *ch);
-CHAR_DATA*	find_char	(CHAR_DATA *ch, char *argument, int door, int range);
-CHAR_DATA*	get_char_spell	(CHAR_DATA *ch, char *argument, int *door, int range);
+CHAR_DATA*	find_char	(CHAR_DATA *ch, const char *argument, int door, int range);
+CHAR_DATA*	get_char_spell	(CHAR_DATA *ch, const char *argument, int *door, int range);
 void	path_to_track	(CHAR_DATA *ch, CHAR_DATA *victim, int door);
 bool	in_PK(CHAR_DATA *ch, CHAR_DATA *victim);
 bool	can_gate(CHAR_DATA *ch, CHAR_DATA *victim);
+bool	obj_is_pit(OBJ_DATA *obj);
 
 /* interp.c */
-void	interpret	(CHAR_DATA *ch, char *argument);
-void	interpret_raw	(CHAR_DATA *ch, char *argument, bool is_order);
-bool	is_number	(char *arg);
-int	number_argument (char *argument, char *arg);
-int	mult_argument	(char *argument, char *arg);
-char *	one_argument	(char *argument, char *arg_first);
+void	interpret	(CHAR_DATA *ch, const char *argument);
+void	interpret_raw	(CHAR_DATA *ch, const char *argument, bool is_order);
+bool	is_number	(const char *argument);
+int	number_argument (const char *argument, char *arg);
+int	mult_argument	(const char *argument, char *arg);
+const char *	one_argument	(const char *argument, char *arg_first);
 char* PERS(CHAR_DATA *ch, CHAR_DATA *looker);
 
 
 /* save.c */
 void	save_char_obj	(CHAR_DATA *ch);
-bool	load_char_obj	(DESCRIPTOR_DATA *d, char *name);
+bool	load_char_obj	(DESCRIPTOR_DATA *d, const char *name);
 
 /* skills.c */
 int	exp_to_level	(CHAR_DATA *ch, int points);

@@ -2,9 +2,11 @@
 #define _UTIL_H_
 
 /*
- * $Id: util.h,v 1.1 1998-06-12 14:26:00 fjoe Exp $
+ * $Id: util.h,v 1.2 1998-07-11 20:55:17 fjoe Exp $
  */
 
-void doprintf(void (*fn)(CHAR_DATA*, char*), CHAR_DATA*, const char* fmt, ...);
+void doprintf(DO_FUN*, CHAR_DATA*, const char *fmt, ...);
+char* strnzcpy(char *dest, const char *src, size_t);
+char* strnzcat(char *dest, const char *src, size_t);
 
 #endif

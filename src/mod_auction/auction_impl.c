@@ -1,5 +1,5 @@
 /*
- * $Id: auction_impl.c,v 1.6 1998-07-11 11:34:41 efdi Exp $
+ * $Id: auction_impl.c,v 1.7 1998-07-11 20:55:09 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -262,7 +262,7 @@ void auction_update (void)
 } 
 
 
-void do_auction(CHAR_DATA *ch, char *argument)
+void do_auction(CHAR_DATA *ch, const char *argument)
 {
 	int tax;
 	OBJ_DATA *obj;

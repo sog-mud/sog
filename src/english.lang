@@ -1,5 +1,5 @@
 #
-# $Id: english.lang,v 1.64 1998-07-10 16:41:19 efdi Exp $
+# $Id: english.lang,v 1.65 1998-07-11 20:55:10 fjoe Exp $
 #
 
 NOTHING		"Nothing.\n\r"
@@ -500,7 +500,7 @@ N_BITES_YOU	"$n bites you!"
 DO_I_KNOW_YOU	"The cityguard says '{GDo i know you?{x'"
 DONT_REMEMBER_YOU	"The cityguard says '{GI don't remember you. Go away!{x'"
 OK_MY_DEAR	"The cityguard says '{GOk, my dear. I have just remembered{x.'"
-CALMING_DOWN	"You're slowly calming down.\n\r"
+YOU_SETTLE_DOWN	"You settle down.\n\r"
 COMM_N_SAYS	"$n says '{G$t{x'"
 COMM_YOU_SAY	"You say '{G$T{x'"
 QUEST_INFO_LOCATION	"That location is in general area of {W%s{x for {W%s{x.\n\r"
@@ -551,7 +551,7 @@ N_SNARLS_YOU	"$N snarls and attacks you!"
 N_SNARLS_N		"$N snarls and attacks $n!"
 YOU_SNARL_N	"You snarl and attack $n!"
 FIGHTING_YOU	"YOU!"
-REBOOT_IN	"{*{W*****{R REBOOT IN {W%d{R MIN. {W*****{x\n\r",
+REBOOT_IN	"{*{W*****{R rEBOOT IN {W%d{R MIN. {W*****{x\n\r",
 AUTOREBOOT_IN    "{*{W*****{R AUTOMATIC REBOOT IN {W%d{R MIN. {W*****{x\n\r",
 P_STRIKES_YOU	"$p strikes you!"
 YOU_P_STRIKES_N	"Your $p strikes $N!"
@@ -654,10 +654,7 @@ CANT_CHANGE_TITLE	"You can't change your title.\n\r"
 CHANGE_TITLE_TO_WHAT	"Change your title to what?\n\r"
 ILLEGAL_CHARACTER_TITLE	"Illegal characters in title.\n\r"
 NO_LINES_TO_REMOVE		"No lines left to remove.\n\r"
-YOUR_DESC_IS		"Your description is:\n\r"
-DESC_CLEARED		"Description cleared.\n\r"
-DESC_TOO_LONG		"Description too long.\n\r"
-BR_NONE_BR			"(None).\n\r"
+YOUR_DESC_IS		"Your description is:\n\r%s\n\rUse 'desc edit' to edit your description.\n\r"
 REPORT_I_HAVE	"$n says '{GI have {c%d/%d{z hp {c%d/%d{z mana {c%d/%d{z mv.{x'"
 REPORT_I_HAVE_TO_CH  "You say '{GI have {c%d/%d{z hp {c%d/%d{z mana {c%d/%d{z mv.{x'"
 YOU_SCAN_S		"You scan %s.\n\r"

@@ -1,5 +1,5 @@
 /*
- * $Id: db2.c,v 1.15 1998-07-10 15:17:38 fjoe Exp $
+ * $Id: db2.c,v 1.16 1998-07-11 20:55:10 fjoe Exp $
  */
 
 /***************************************************************************
@@ -54,6 +54,7 @@
 #include "log.h"
 #include "obj_prog.h"
 #include "tables.h"
+#include "mlstring.h"
 
 
 /* values for db2.c */
@@ -239,8 +240,8 @@ void load_mobiles(FILE *fp)
 	newmobs++;
         pMobIndex->player_name          = fread_string(fp);
         pMobIndex->short_descr          = fread_string(fp);
-        pMobIndex->long_descr           = fread_string(fp);
-        pMobIndex->description          = fread_string(fp);
+        pMobIndex->long_descr           = mlstr_fread(fp);
+        pMobIndex->description          = mlstr_fread(fp);
 	pMobIndex->race		 	= race_lookup(fread_string(fp));
  
         pMobIndex->act                  = fread_flags(fp) | ACT_NPC

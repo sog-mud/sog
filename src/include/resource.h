@@ -2,7 +2,7 @@
 #define _RESOURCE_H_
 
 /*
- * $Id: resource.h,v 1.84 1998-07-10 16:41:36 efdi Exp $
+ * $Id: resource.h,v 1.85 1998-07-11 20:55:15 fjoe Exp $
  */
 
 #define msg(msgid, ch) vmsg(msgid, ch, ch)
@@ -504,7 +504,7 @@ enum {
 	DO_I_KNOW_YOU,
 	DONT_REMEMBER_YOU,
 	OK_MY_DEAR,
-	CALMING_DOWN,
+	YOU_SETTLE_DOWN,
 	COMM_N_SAYS,
 	COMM_YOU_SAY,
 	QUEST_INFO_LOCATION,
@@ -658,9 +658,6 @@ enum {
 	ILLEGAL_CHARACTER_TITLE,
 	NO_LINES_TO_REMOVE,
 	YOUR_DESC_IS,
-	DESC_CLEARED,
-	DESC_TOO_LONG,
-	BR_NONE_BR,
 	REPORT_I_HAVE,
 	REPORT_I_HAVE_TO_CH,
 	YOU_SCAN_S,
@@ -845,7 +842,6 @@ enum {
 	YOU_FEEL_DRUNK,
 	YOUR_THIRST_QUENCHED,
 	UNWORTHY_CANT_HOLD,
-	CAN_PUT_ONLY_ARROWS,
 };
 
 #endif

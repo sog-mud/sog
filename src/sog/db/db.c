@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.38 1998-07-10 10:39:39 fjoe Exp $
+ * $Id: db.c,v 1.39 1998-07-11 20:55:10 fjoe Exp $
  */
 
 /***************************************************************************
@@ -911,11 +911,8 @@ void load_old_mob(FILE *fp)
 		pMobIndex->new_format	  = FALSE;
 		pMobIndex->player_name	  = fread_string(fp);
 		pMobIndex->short_descr	  = fread_string(fp);
-		pMobIndex->long_descr	  = fread_string(fp);
-		pMobIndex->description	  = fread_string(fp);
-
-		pMobIndex->long_descr[0]  = UPPER(pMobIndex->long_descr[0]);
-		pMobIndex->description[0] = UPPER(pMobIndex->description[0]);
+		pMobIndex->long_descr	  = mlstr_fread(fp);
+		pMobIndex->description	  = mlstr_fread(fp);
 
 		pMobIndex->act		  = fread_flags(fp) | ACT_NPC;
 		pMobIndex->affected_by	  = fread_flags(fp);
@@ -1374,8 +1371,8 @@ void load_rooms(FILE *fp)
 		pRoomIndex->history     = NULL;
 		pRoomIndex->area	= area_last;
 		pRoomIndex->vnum	= vnum;
-		pRoomIndex->name	= fread_mlstring(fp);
-		pRoomIndex->description	= fread_mlstring(fp);
+		pRoomIndex->name	= mlstr_fread(fp);
+		pRoomIndex->description	= mlstr_fread(fp);
 		/* Area number */	  fread_number(fp);
 		pRoomIndex->room_flags	= fread_flags(fp);
  
@@ -1418,7 +1415,7 @@ void load_rooms(FILE *fp)
 				}
 	
 				pexit			= alloc_perm(sizeof(*pexit));
-				pexit->description	= fread_mlstring(fp);
+				pexit->description	= mlstr_fread(fp);
 				pexit->keyword		= fread_string(fp);
 				pexit->exit_info	= 0;
 				pexit->rs_flags		= 0;	/* OLC */
@@ -2635,8 +2632,8 @@ CHAR_DATA *create_mobile(MOB_INDEX_DATA *pMobIndex)
 
 	mob->name	= str_dup(pMobIndex->player_name);    /* OLC */
 	mob->short_descr= str_dup(pMobIndex->short_descr);    /* OLC */
-	mob->long_descr	= str_dup(pMobIndex->long_descr);     /* OLC */
-	mob->description= str_dup(pMobIndex->description);    /* OLC */
+	mob->long_descr	= mlstr_dup(pMobIndex->long_descr);     /* OLC */
+	mob->description= mlstr_dup(pMobIndex->description);    /* OLC */
 	mob->id		= get_mob_id();
 	mob->spec_fun	= pMobIndex->spec_fun;
 	mob->prompt	= NULL;
@@ -2912,8 +2909,8 @@ void clone_mobile(CHAR_DATA *parent, CHAR_DATA *clone)
 	clone->name 	= str_dup(parent->name);
 	clone->version	= parent->version;
 	clone->short_descr	= str_dup(parent->short_descr);
-	clone->long_descr	= str_dup(parent->long_descr);
-	clone->description	= str_dup(parent->description);
+	clone->long_descr	= mlstr_dup(parent->long_descr);
+	clone->description	= mlstr_dup(parent->description);
 	clone->group	= parent->group;
 	clone->sex		= parent->sex;
 	clone->class	= parent->class;
@@ -3223,33 +3220,31 @@ void clear_char(CHAR_DATA *ch)
 	static CHAR_DATA ch_zero;
 	int i;
 
-	*ch				= ch_zero;
-	ch->name			= &str_empty[0];
+	*ch			= ch_zero;
+	ch->name		= &str_empty[0];
 	ch->short_descr		= &str_empty[0];
-	ch->long_descr		= &str_empty[0];
-	ch->description		= &str_empty[0];
-	ch->prompt                  = &str_empty[0];
-	ch->logon			= current_time;
-	ch->lines			= PAGELEN;
+	ch->long_descr		= mlstr_new();
+	ch->description		= mlstr_new();
+	ch->prompt              = &str_empty[0];
+	ch->logon		= current_time;
+	ch->lines		= PAGELEN;
 	for (i = 0; i < 4; i++)
-		ch->armor[i]		= 100;
+		ch->armor[i]	= 100;
 	ch->position		= POS_STANDING;
 	ch->hit			= 20;
-	ch->max_hit			= 20;
-	ch->mana			= 100;
+	ch->max_hit		= 20;
+	ch->mana		= 100;
 	ch->max_mana		= 100;
-	ch->move			= 100;
+	ch->move		= 100;
 	ch->max_move		= 100;
-	ch->last_fought             = NULL;
-	ch->last_fight_time         = -1;
-	ch->last_death_time         = -1;
+	ch->last_fought         = NULL;
+	RESET_FIGHT_TIME(ch);
+	ch->last_death_time     = -1;
 	ch->on			= NULL;
-	for (i = 0; i < MAX_STATS; i ++)
-	{
+	for (i = 0; i < MAX_STATS; i ++) {
 		ch->perm_stat[i] = 13; 
 		ch->mod_stat[i] = 0;
 	}
-	return;
 }
 
 /*
@@ -3909,6 +3904,30 @@ char *str_dup(const char *str)
 }
 
 
+char *str_add(const char *str,...)
+{
+	va_list ap;
+	size_t len;
+	char *p;
+	char *str_new;
+
+	/* calculate length of sum */
+	va_start(ap, str);
+	len = strlen(str);
+	while ((p = va_arg(ap, char*)) != NULL)
+		len += strlen(p);
+	va_end(ap);
+
+	/* cat them */
+	str_new = alloc_mem(len + 1);
+	strcpy(str_new, str);
+	va_start(ap, str);
+	while ((p = va_arg(ap, char*)) != NULL)
+		strcat(str_new, p);
+	va_end(ap);
+
+	return str_new;
+}
 
 /*
  * Free a string.
@@ -3928,15 +3947,16 @@ void free_string(char *pstr)
 
 
 /*
- * str_printf -- like sprintf, but for str_ implementation
+ * str_printf -- like sprintf, but prints into string.
+ *		 the format is string itself
  */
-void str_printf(char** pstr, const char* fmt, ...)
+void str_printf(char** pstr,...)
 {
 	va_list ap;
 	char buf[MAX_STRING_LENGTH];
 
-	va_start(ap, fmt);
-	vsnprintf(buf, sizeof(buf), fmt, ap);
+	va_start(ap, pstr);
+	vsnprintf(buf, sizeof(buf), *pstr, ap);
 	va_end(ap);
 
 	if (*pstr != NULL)
@@ -3944,7 +3964,7 @@ void str_printf(char** pstr, const char* fmt, ...)
         *pstr = str_dup(buf);
 }
 
-void do_areas(CHAR_DATA *ch, char *argument)
+void do_areas(CHAR_DATA *ch, const char *argument)
 {
 	AREA_DATA *pArea1;
 	AREA_DATA *pArea2;
@@ -3990,7 +4010,7 @@ void do_areas(CHAR_DATA *ch, char *argument)
 
 
 
-void do_memory(CHAR_DATA *ch, char *argument)
+void do_memory(CHAR_DATA *ch, const char *argument)
 {
 	char_printf(ch, "Affects %5d\n\r", top_affect  );
 	char_printf(ch, "Areas   %5d\n\r", top_area    );
@@ -4014,7 +4034,7 @@ void do_memory(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-void do_dump(CHAR_DATA *ch, char *argument)
+void do_dump(CHAR_DATA *ch, const char *argument)
 {
 	int count,count2,num_pcs,aff_count;
 	CHAR_DATA *fch;
@@ -4484,7 +4504,7 @@ char *capitalize(const char *str)
 /*
  * Append a string to a file.
  */
-void append_file(CHAR_DATA *ch, char *file, char *str)
+void append_file(CHAR_DATA *ch, const char *file, const char *str)
 {
 	FILE *fp;
 

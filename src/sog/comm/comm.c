@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.66 1998-07-10 13:08:01 efdi Exp $
+ * $Id: comm.c,v 1.67 1998-07-11 20:55:09 fjoe Exp $
  */
 
 /***************************************************************************
@@ -356,25 +356,25 @@ bool		    MOBtrigger = TRUE;  /* act() switch                 */
 /*
  * OS-dependent local functions.
  */
-void	game_loop_unix		args((int control));
-int	init_socket		args((int port));
-void	init_descriptor		args((int control));
-bool	read_from_descriptor	args((DESCRIPTOR_DATA *d));
-bool	write_to_descriptor	args((int desc, char *txt, int length));
+void	game_loop_unix		(int control);
+int	init_socket		(int port);
+void	init_descriptor		(int control);
+bool	read_from_descriptor	(DESCRIPTOR_DATA *d);
+bool	write_to_descriptor	(int desc, char *txt, int length);
 
 /*
  * Other local functions (OS-independent).
  */
-bool	check_parse_name	args((char *name));
-bool	check_reconnect		args((DESCRIPTOR_DATA *d, char *name,
-				    bool fConn));
-bool	check_playing		args((DESCRIPTOR_DATA *d, char *name));
-int	main			args((int argc, char **argv));
-void	nanny			args((DESCRIPTOR_DATA *d, char *argument));
-bool	process_output		args((DESCRIPTOR_DATA *d, bool fPrompt));
-void	read_from_buffer	args((DESCRIPTOR_DATA *d));
-void	stop_idling		args((CHAR_DATA *ch));
-void    bust_a_prompt           args((CHAR_DATA *ch));
+bool	check_parse_name	(const char *name);
+bool	check_reconnect		(DESCRIPTOR_DATA *d, const char *name,
+				 bool fConn);
+bool	check_playing		(DESCRIPTOR_DATA *d, char *name);
+int	main			(int argc, char **argv);
+void	nanny			(DESCRIPTOR_DATA *d, const char *argument);
+bool	process_output		(DESCRIPTOR_DATA *d, bool fPrompt);
+void	read_from_buffer	(DESCRIPTOR_DATA *d);
+void	stop_idling		(CHAR_DATA *ch);
+void    bust_a_prompt           (CHAR_DATA *ch);
 void	exit_function();
 int 	log_area_popularity(void);
 
@@ -629,9 +629,9 @@ void game_loop_unix(int control)
 		d->fcommand	= TRUE;
 		stop_idling(d->character);
 
-		if (d->showstr_point)
+		if (d->showstr_point != NULL)
 		    show_string(d,d->incomm);
-		else if (d->pString)
+		else if (d->pString != NULL)
 			string_add(d->character, d->incomm);
 		else if (d->connected == CON_PLAYING) {
 			if (!run_olc_editor(d))
@@ -1367,7 +1367,7 @@ void bust_a_prompt(CHAR_DATA *ch)
 				      IS_SET(ch->act,PLR_HOLYLIGHT)) ||
 				     (check_blind_raw(ch) &&
 				      !room_is_dark(ch))) ?
-				     ml_string(ch, ch->in_room->name) :
+				     mlstr_val(ch, ch->in_room->name) :
 				     "darkness";
 			else
 				i = " ";
@@ -1558,7 +1558,7 @@ void add_race_skills(CHAR_DATA* ch, int race)
 /*
  * Deal with sockets that haven't logged in yet.
  */
-void nanny(DESCRIPTOR_DATA *d, char *argument)
+void nanny(DESCRIPTOR_DATA *d, const char *argument)
 {
 	DESCRIPTOR_DATA *d_old, *d_next;
 	char buf[MAX_STRING_LENGTH];
@@ -1610,15 +1610,12 @@ void nanny(DESCRIPTOR_DATA *d, char *argument)
 	}
 
 	case CON_GET_NAME:
-	if (argument[0] == '\0')
-	{
+	if (argument[0] == '\0') {
 	    close_socket(d);
 	    return;
 	}
 
-	argument[0] = UPPER(argument[0]);
-	if (!check_parse_name(argument))
-	{
+	if (!check_parse_name(argument)) {
 	    write_to_buffer(d, "Illegal name, try another.\n\rName: ", 0);
 	    return;
 	}
@@ -2340,8 +2337,9 @@ sprintf(buf,"Str:%s  Int:%s  Wis:%s  Dex:%s  Con:%s Cha:%s \n\r Accept (Y/N)? ",
 
 
 
-	if (ch->level == 0)
-	{
+	if (ch->level == 0) {
+		char title[MAX_TITLE_LENGTH];
+
 	    ch->level	= 1;
 	    ch->exp     = base_exp(ch,ch->pcdata->points);
 	    ch->hit	= ch->max_hit;
@@ -2351,11 +2349,12 @@ sprintf(buf,"Str:%s  Int:%s  Wis:%s  Dex:%s  Con:%s Cha:%s \n\r Accept (Y/N)? ",
 	    ch->practice += 5;
 	    ch->pcdata->death = 0;
 
-	    set_title(ch, "the %s",
+		snprintf(title, sizeof(title), "the %s",
 			title_table [ch->class] [ch->level]
 			[ch->sex == SEX_FEMALE ? 1 : 0]);
+		set_title(ch, title);
 
-	    do_outfit(ch,"");
+	    do_outfit(ch, "");
 
 	    obj_to_char(create_object(get_obj_index(OBJ_VNUM_MAP),0),ch);
 	    obj_to_char(create_object(get_obj_index(OBJ_VNUM_NMAP1),0),ch);
@@ -2464,9 +2463,9 @@ sprintf(buf,"Str:%s  Int:%s  Wis:%s  Dex:%s  Con:%s Cha:%s \n\r Accept (Y/N)? ",
 /*
  * Parse a name for acceptability.
  */
-bool check_parse_name(char *name)
+bool check_parse_name(const char *name)
 {
-	char *pc;
+	const char *pc;
 	bool fIll,adjcaps = FALSE,cleancaps = FALSE;
  	int total_caps = 0;
 
@@ -2549,7 +2548,7 @@ bool check_parse_name(char *name)
 /*
  * Look for link-dead player to reconnect.
  */
-bool check_reconnect(DESCRIPTOR_DATA *d, char *name, bool fConn)
+bool check_reconnect(DESCRIPTOR_DATA *d, const char *name, bool fConn)
 {
 	CHAR_DATA *ch;
 

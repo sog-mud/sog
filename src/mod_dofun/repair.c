@@ -1,5 +1,5 @@
 /*
- * $Id: repair.c,v 1.1 1998-07-04 11:28:20 fjoe Exp $
+ * $Id: repair.c,v 1.2 1998-07-11 20:55:15 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -159,7 +159,7 @@ void check_weapon_destroy(CHAR_DATA *ch, CHAR_DATA *victim,bool second)
 }
 
 
-void do_repair(CHAR_DATA *ch, char *argument)
+void do_repair(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *mob;
 	char arg[MAX_INPUT_LENGTH];
@@ -229,7 +229,7 @@ void do_repair(CHAR_DATA *ch, char *argument)
 	obj->condition = 100;
 }
 
-void do_estimate(CHAR_DATA *ch, char *argument)
+void do_estimate(CHAR_DATA *ch, const char *argument)
 {
 	OBJ_DATA *obj;
 	CHAR_DATA *mob; 
@@ -284,7 +284,7 @@ void do_estimate(CHAR_DATA *ch, char *argument)
 	doprintf(do_say, mob, "It will cost %d to fix that item", cost);
 }
 
-void do_restring(CHAR_DATA *ch, char *argument)
+void do_restring(CHAR_DATA *ch, const char *argument)
 {
 	char arg  [MAX_INPUT_LENGTH];
 	char arg1 [MAX_INPUT_LENGTH];
@@ -304,10 +304,10 @@ void do_restring(CHAR_DATA *ch, char *argument)
 	    return;
 	}
 
-	smash_tilde(argument);
 	argument = one_argument(argument, arg);
 	argument = one_argument(argument, arg1);
 	strcpy(arg2, argument);
+	smash_tilde(arg2);
 
 	if (arg[0] == '\0' || arg1[0] == '\0' || arg2[0] == '\0')
 	{
@@ -317,9 +317,8 @@ void do_restring(CHAR_DATA *ch, char *argument)
 		return;
 	}
 
-	if ((obj = (get_obj_carry(ch, arg))) == NULL)
-	{
-		send_to_char("The Stringer says '`sYou don't have that item``.'\n\r", ch);
+	if ((obj = (get_obj_carry(ch, arg))) == NULL) {
+		do_say(mob, "You don't have that item.");
 		return;
 	}
 
@@ -573,7 +572,7 @@ void check_weapon_destroyed(CHAR_DATA *ch, CHAR_DATA *victim,bool second)
 }
 
 
-void do_smithing(CHAR_DATA *ch, char *argument)
+void do_smithing(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	OBJ_DATA *obj;

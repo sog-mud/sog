@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.64 1998-07-08 09:57:13 fjoe Exp $
+ * $Id: act_move.c,v 1.65 1998-07-11 20:55:08 fjoe Exp $
  */
 
 /***************************************************************************
@@ -235,11 +235,9 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 	if (!IS_NPC(ch)) {
 		int move;
 		int i;
-		bool bloody = (ch->last_fight_time != -1 &&
-			current_time - ch->last_fight_time < FIGHT_DELAY_TIME);
 
 		if ((i = guild_check(ch, to_room)) > 0) {
-			if (bloody) {
+			if (IS_PUMPED(ch)) {
 				char_nputs(YOU_FEEL_TOO_BLOODY, ch);
 				return;
 			}
@@ -249,7 +247,7 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 			return;
 		}
 
-		if (ch->level < LEVEL_IMMORTAL && bloody
+		if (ch->level < LEVEL_IMMORTAL && IS_PUMPED(ch)
 		&&  IS_SET(to_room->room_flags, ROOM_SAFE)) {
 			char_nputs(YOU_FEEL_TOO_BLOODY, ch);
 			return;
@@ -468,42 +466,42 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 
 
 
-void do_north(CHAR_DATA *ch, char *argument)
+void do_north(CHAR_DATA *ch, const char *argument)
 {
 	move_char(ch, DIR_NORTH, FALSE);
 }
 
 
 
-void do_east(CHAR_DATA *ch, char *argument)
+void do_east(CHAR_DATA *ch, const char *argument)
 {
 	move_char(ch, DIR_EAST, FALSE);
 }
 
 
 
-void do_south(CHAR_DATA *ch, char *argument)
+void do_south(CHAR_DATA *ch, const char *argument)
 {
 	move_char(ch, DIR_SOUTH, FALSE);
 }
 
 
 
-void do_west(CHAR_DATA *ch, char *argument)
+void do_west(CHAR_DATA *ch, const char *argument)
 {
 	move_char(ch, DIR_WEST, FALSE);
 }
 
 
 
-void do_up(CHAR_DATA *ch, char *argument)
+void do_up(CHAR_DATA *ch, const char *argument)
 {
 	move_char(ch, DIR_UP, FALSE);
 }
 
 
 
-void do_down(CHAR_DATA *ch, char *argument)
+void do_down(CHAR_DATA *ch, const char *argument)
 {
 	move_char(ch, DIR_DOWN, FALSE);
 }
@@ -572,7 +570,7 @@ int find_door(CHAR_DATA *ch, char *arg)
 void scan_list           args((ROOM_INDEX_DATA *scan_room, CHAR_DATA *ch,
 		                         int depth, int door));
 
-void do_scan2(CHAR_DATA *ch, char *argument)
+void do_scan2(CHAR_DATA *ch, const char *argument)
 {
 	extern char *const dir_name[];
 	EXIT_DATA *pExit;
@@ -615,7 +613,7 @@ void scan_list(ROOM_INDEX_DATA *scan_room, CHAR_DATA *ch,
 	return;
 }
 
-void do_open(CHAR_DATA *ch, char *argument)
+void do_open(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	OBJ_DATA *obj;
@@ -706,7 +704,7 @@ void do_open(CHAR_DATA *ch, char *argument)
 
 
 
-void do_close(CHAR_DATA *ch, char *argument)
+void do_close(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	OBJ_DATA *obj;
@@ -825,7 +823,7 @@ bool has_key_ground(CHAR_DATA *ch, int key)
 
 
 
-void do_lock(CHAR_DATA *ch, char *argument)
+void do_lock(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	OBJ_DATA *obj;
@@ -939,7 +937,7 @@ void do_lock(CHAR_DATA *ch, char *argument)
 
 
 
-void do_unlock(CHAR_DATA *ch, char *argument)
+void do_unlock(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	OBJ_DATA *obj;
@@ -1045,7 +1043,7 @@ void do_unlock(CHAR_DATA *ch, char *argument)
 
 
 
-void do_pick(CHAR_DATA *ch, char *argument)
+void do_pick(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *gch;
@@ -1170,7 +1168,7 @@ void do_pick(CHAR_DATA *ch, char *argument)
 
 
 
-void do_stand(CHAR_DATA *ch, char *argument)
+void do_stand(CHAR_DATA *ch, const char *argument)
 {
 	OBJ_DATA *obj = NULL;
 
@@ -1283,7 +1281,7 @@ void do_stand(CHAR_DATA *ch, char *argument)
 
 
 
-void do_rest(CHAR_DATA *ch, char *argument)
+void do_rest(CHAR_DATA *ch, const char *argument)
 {
 	OBJ_DATA *obj = NULL;
 
@@ -1444,7 +1442,7 @@ void do_rest(CHAR_DATA *ch, char *argument)
 }
 
 
-void do_sit (CHAR_DATA *ch, char *argument)
+void do_sit (CHAR_DATA *ch, const char *argument)
 {
 	OBJ_DATA *obj = NULL;
 
@@ -1597,7 +1595,7 @@ void do_sit (CHAR_DATA *ch, char *argument)
 }
 
 
-void do_sleep(CHAR_DATA *ch, char *argument)
+void do_sleep(CHAR_DATA *ch, const char *argument)
 {
 	OBJ_DATA *obj = NULL;
 
@@ -1691,7 +1689,7 @@ void do_sleep(CHAR_DATA *ch, char *argument)
 }
 
 
-void do_wake(CHAR_DATA *ch, char *argument)
+void do_wake(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
@@ -1723,7 +1721,7 @@ void do_wake(CHAR_DATA *ch, char *argument)
 
 
 
-void do_sneak(CHAR_DATA *ch, char *argument)
+void do_sneak(CHAR_DATA *ch, const char *argument)
 {
 	AFFECT_DATA af;
 
@@ -1759,7 +1757,7 @@ void do_sneak(CHAR_DATA *ch, char *argument)
 
 
 
-void do_hide(CHAR_DATA *ch, char *argument)
+void do_hide(CHAR_DATA *ch, const char *argument)
 {
 	int forest;
 
@@ -1796,7 +1794,7 @@ void do_hide(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-void do_camouflage(CHAR_DATA *ch, char *argument)
+void do_camouflage(CHAR_DATA *ch, const char *argument)
 {
 	int chance;
 
@@ -1851,7 +1849,7 @@ void do_camouflage(CHAR_DATA *ch, char *argument)
 /*
  * Contributed by Alander
  */
-void do_visible(CHAR_DATA *ch, char *argument)
+void do_visible(CHAR_DATA *ch, const char *argument)
 {
 	if (IS_SET(ch->affected_by, AFF_HIDE)) {
 		char_nputs(YOU_STEP_OUT_SHADOWS, ch);
@@ -1898,7 +1896,7 @@ void do_visible(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-void do_recall(CHAR_DATA *ch, char *argument)
+void do_recall(CHAR_DATA *ch, const char *argument)
 {
 	ROOM_INDEX_DATA *location;
 	int point;
@@ -1917,8 +1915,7 @@ void do_recall(CHAR_DATA *ch, char *argument)
 		return;
 	}
 
-	if (ch->desc != NULL && current_time - ch->last_fight_time
-		< FIGHT_DELAY_TIME) {
+	if (ch->desc != NULL && IS_PUMPED(ch)) {
 		char_nputs(TOO_PUMPED_TO_PRAY, ch);
 		return;
 	}
@@ -1993,7 +1990,7 @@ void do_recall(CHAR_DATA *ch, char *argument)
 }
 
 
-void do_train(CHAR_DATA *ch, char *argument)
+void do_train(CHAR_DATA *ch, const char *argument)
 {
 	char buf[MAX_STRING_LENGTH];
 	CHAR_DATA *mob;
@@ -2177,7 +2174,7 @@ void do_train(CHAR_DATA *ch, char *argument)
 
 
 
-void do_track(CHAR_DATA *ch, char *argument)
+void do_track(CHAR_DATA *ch, const char *argument)
 {
   ROOM_HISTORY_DATA *rh;
   EXIT_DATA *pexit;
@@ -2225,7 +2222,7 @@ void do_track(CHAR_DATA *ch, char *argument)
 }
 
 
-void do_vampire(CHAR_DATA *ch, char *argument)
+void do_vampire(CHAR_DATA *ch, const char *argument)
 {
 	AFFECT_DATA af;
 	int level, duration;
@@ -2327,7 +2324,7 @@ void do_vampire(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-void do_vbite(CHAR_DATA *ch, char *argument)
+void do_vbite(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
@@ -2411,7 +2408,7 @@ void do_vbite(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-void do_bash_door(CHAR_DATA *ch, char *argument)
+void do_bash_door(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *gch;
@@ -2544,7 +2541,7 @@ void do_bash_door(CHAR_DATA *ch, char *argument)
 
 }
 
-void do_blink(CHAR_DATA *ch, char *argument)
+void do_blink(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 
@@ -2578,7 +2575,7 @@ void do_blink(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-void do_vanish(CHAR_DATA *ch, char *argument)
+void do_vanish(CHAR_DATA *ch, const char *argument)
 {
 	ROOM_INDEX_DATA *pRoomIndex;
 
@@ -2645,7 +2642,7 @@ void do_vanish(CHAR_DATA *ch, char *argument)
   return;
 }
 
-void do_detect_sneak(CHAR_DATA *ch, char *argument) 
+void do_detect_sneak(CHAR_DATA *ch, const char *argument) 
 {
 	AFFECT_DATA af;
 
@@ -2666,7 +2663,7 @@ void do_detect_sneak(CHAR_DATA *ch, char *argument)
 }
 
 
-void do_fade(CHAR_DATA *ch, char *argument)
+void do_fade(CHAR_DATA *ch, const char *argument)
 {
 	if (ch_skill_nok(ch,gsn_fade)) return;
 
@@ -2690,7 +2687,7 @@ void do_fade(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-void do_vtouch(CHAR_DATA *ch, char *argument)
+void do_vtouch(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *victim;
 	AFFECT_DATA af;
@@ -2728,8 +2725,8 @@ void do_vtouch(CHAR_DATA *ch, char *argument)
 	if (is_safe(ch,victim))
 		return;
 
-	victim->last_fight_time = current_time;
-	ch->last_fight_time = current_time;
+	SET_FIGHT_TIME(victim);
+	SET_FIGHT_TIME(ch);
 
 	WAIT_STATE(ch,skill_table[gsn_vampiric_touch].beats);
 
@@ -2760,7 +2757,7 @@ void do_vtouch(CHAR_DATA *ch, char *argument)
 	}
 }
 
-void do_fly(CHAR_DATA *ch, char *argument)
+void do_fly(CHAR_DATA *ch, const char *argument)
 {
   char arg[MAX_INPUT_LENGTH];
 
@@ -2813,7 +2810,7 @@ void do_fly(CHAR_DATA *ch, char *argument)
 }
 		 
 
-void do_push(CHAR_DATA *ch, char *argument)
+void do_push(CHAR_DATA *ch, const char *argument)
 {
 	char arg1 [MAX_INPUT_LENGTH];
 	char arg2 [MAX_INPUT_LENGTH];
@@ -2960,7 +2957,7 @@ if ((door = find_exit(ch, arg2)) >= 0)
 }
 
 
-void do_crecall(CHAR_DATA *ch, char *argument)
+void do_crecall(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *victim;
 	ROOM_INDEX_DATA *location;
@@ -2977,8 +2974,7 @@ void do_crecall(CHAR_DATA *ch, char *argument)
 		char_nputs(CANT_PRAY_NOW, ch);
 	}
 
-	if (ch->desc != NULL && current_time - ch->last_fight_time
-		< FIGHT_DELAY_TIME) {
+	if (ch->desc != NULL && IS_PUMPED(ch)) {
 		char_nputs(TOO_PUMPED_TO_PRAY, ch);
 		return;
 	}
@@ -3040,7 +3036,7 @@ void do_crecall(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-void do_escape(CHAR_DATA *ch, char *argument)
+void do_escape(CHAR_DATA *ch, const char *argument)
 {
 	ROOM_INDEX_DATA *was_in;
 	ROOM_INDEX_DATA *now_in;
@@ -3133,7 +3129,7 @@ void do_escape(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-void do_layhands(CHAR_DATA *ch, char *argument)
+void do_layhands(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *victim;
 	AFFECT_DATA af;
@@ -3240,7 +3236,7 @@ int mount_success (CHAR_DATA *ch, CHAR_DATA *mount, int canattack)
 /*
  * It is not finished yet to implement all.
  */
-void do_mount(CHAR_DATA *ch, char *argument)
+void do_mount(CHAR_DATA *ch, const char *argument)
 {
   char arg[MAX_INPUT_LENGTH];
   struct char_data *mount;
@@ -3322,7 +3318,7 @@ void do_mount(CHAR_DATA *ch, char *argument)
   REMOVE_BIT(ch->affected_by, AFF_IMP_INVIS);
 }
 
-void do_dismount(CHAR_DATA *ch, char *argument)
+void do_dismount(CHAR_DATA *ch, const char *argument)
 {
   struct char_data *mount;
 
@@ -3493,7 +3489,7 @@ int send_arrow(CHAR_DATA *ch, CHAR_DATA *victim,OBJ_DATA *arrow,
 }
 		
 
-void do_shoot(CHAR_DATA *ch, char *argument)
+void do_shoot(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *victim;
 	OBJ_DATA *wield;
@@ -3642,7 +3638,7 @@ char *find_way(CHAR_DATA *ch,ROOM_INDEX_DATA *rstart, ROOM_INDEX_DATA *rend)
  }
 }	
 
-void do_human(CHAR_DATA *ch, char *argument)
+void do_human(CHAR_DATA *ch, const char *argument)
 {
 	if (ch->class != CLASS_VAMPIRE)
 	{
@@ -3663,7 +3659,7 @@ void do_human(CHAR_DATA *ch, char *argument)
 }
 
 
-void do_throw_spear(CHAR_DATA *ch, char *argument)
+void do_throw_spear(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *victim;
 	OBJ_DATA *spear;
@@ -3813,7 +3809,7 @@ ROOM_INDEX_DATA  *get_random_room(CHAR_DATA *ch)
 }
 
 /* RT Enter portals */
-void do_enter(CHAR_DATA *ch, char *argument)
+void do_enter(CHAR_DATA *ch, const char *argument)
 {    
 	ROOM_INDEX_DATA *location; 
 	ROOM_INDEX_DATA *old_room;
@@ -3970,7 +3966,7 @@ void do_enter(CHAR_DATA *ch, char *argument)
 		mp_greet_trigger(ch);
 }
 
-void do_settraps(CHAR_DATA *ch, char *argument)
+void do_settraps(CHAR_DATA *ch, const char *argument)
 {
 	int chance;
 
@@ -4019,8 +4015,7 @@ void do_settraps(CHAR_DATA *ch, char *argument)
 	  af2.type      = gsn_settraps;
 	  af2.level	    = ch->level;
 	
-	  if (ch->last_fight_time != -1 && !IS_IMMORTAL(ch) &&
-	    	(current_time - ch->last_fight_time)<FIGHT_DELAY_TIME) 
+	  if (!IS_IMMORTAL(ch) && IS_PUMPED(ch))
 	     af2.duration  = 1;
 	  else af2.duration = ch->level / 10;
 

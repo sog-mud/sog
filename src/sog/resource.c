@@ -1,5 +1,5 @@
 /*
- * $Id: resource.c,v 1.26 1998-07-10 10:39:42 fjoe Exp $
+ * $Id: resource.c,v 1.27 1998-07-11 20:55:15 fjoe Exp $
  */
 
 #include <limits.h>
@@ -83,7 +83,7 @@ int lang_lookup(const char *name)
 	return -1;
 }
 
-void do_lang(CHAR_DATA *ch, char *argument)
+void do_lang(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_STRING_LENGTH];
 	int lang;

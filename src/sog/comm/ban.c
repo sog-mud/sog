@@ -1,5 +1,5 @@
 /*
- * $Id: ban.c,v 1.8 1998-07-03 15:18:40 fjoe Exp $
+ * $Id: ban.c,v 1.9 1998-07-11 20:55:09 fjoe Exp $
  */
 
 /***************************************************************************
@@ -156,7 +156,7 @@ bool check_ban(char *site,int type)
 }
 
 
-void ban_site(CHAR_DATA *ch, char *argument, bool fPerm)
+void ban_site(CHAR_DATA *ch, const char *argument, bool fPerm)
 {
     char arg1[MAX_INPUT_LENGTH], arg2[MAX_INPUT_LENGTH];
     char *name;
@@ -282,17 +282,17 @@ void ban_site(CHAR_DATA *ch, char *argument, bool fPerm)
     return;
 }
 
-void do_ban(CHAR_DATA *ch, char *argument)
+void do_ban(CHAR_DATA *ch, const char *argument)
 {
     ban_site(ch,argument,FALSE);
 }
 
-void do_permban(CHAR_DATA *ch, char *argument)
+void do_permban(CHAR_DATA *ch, const char *argument)
 {
     ban_site(ch,argument,TRUE);
 }
 
-void do_allow( CHAR_DATA *ch, char *argument )                        
+void do_allow( CHAR_DATA *ch, const char *argument )                        
 {
     char arg[MAX_INPUT_LENGTH];
     BAN_DATA *prev;

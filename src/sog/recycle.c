@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.10 1998-07-09 12:01:37 fjoe Exp $
+ * $Id: recycle.c,v 1.11 1998-07-11 20:55:15 fjoe Exp $
  */
 
 /***************************************************************************
@@ -53,6 +53,7 @@
 #include "log.h"
 #include "lookup.h"
 #include "buffer.h"
+#include "mlstring.h"
 
 /* stuff for recyling notes */
 NOTE_DATA *note_free;
@@ -301,8 +302,8 @@ CHAR_DATA *new_char (void)
     VALIDATE(ch);
     ch->name                    = &str_empty[0];
     ch->short_descr             = &str_empty[0];
-    ch->long_descr              = &str_empty[0];
-    ch->description             = &str_empty[0];
+    ch->long_descr              = mlstr_new();
+    ch->description             = mlstr_new();
     ch->prompt                  = &str_empty[0];
     ch->prefix			= &str_empty[0];
     ch->logon                   = current_time;
@@ -364,8 +365,8 @@ void free_char (CHAR_DATA *ch)
 
     free_string(ch->name);
     free_string(ch->short_descr);
-    free_string(ch->long_descr);
-    free_string(ch->description);
+    mlstr_free(ch->long_descr);
+    mlstr_free(ch->description);
     free_string(ch->prompt);
     free_string(ch->prefix);
     free_string(ch->material);

@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.21 1998-07-08 09:57:14 fjoe Exp $
+ * $Id: spellfun2.c,v 1.22 1998-07-11 20:55:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -60,6 +60,7 @@
 #include "util.h"
 #include "log.h"
 #include "act_move.h"
+#include "mlstring.h"
 
 DECLARE_DO_FUN(do_scan2);
 /* command procedures needed */
@@ -69,12 +70,12 @@ DECLARE_DO_FUN(do_say		);
 DECLARE_DO_FUN(do_murder	);
 DECLARE_DO_FUN(do_kill		);
 int	find_door	args((CHAR_DATA *ch, char *arg));
-int	check_exit	args((char *argument));
+int	check_exit	args((const char *argument));
 
-extern char *target_name;
+extern const char *target_name;
 
 
-ROOM_INDEX_DATA * check_place(CHAR_DATA *ch, char *argument) 
+ROOM_INDEX_DATA * check_place(CHAR_DATA *ch, const char *argument) 
 {
  EXIT_DATA *pExit;
  ROOM_INDEX_DATA *dest_room;
@@ -1768,21 +1769,21 @@ void spell_shadowlife(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	shadow->gold = 0;
 
 	name		= IS_NPC(victim) ? victim->short_descr : victim->name;
-	str_printf(&shadow->short_descr, shadow->short_descr, name);
-	str_printf(&shadow->long_descr, shadow->long_descr, name);
-	str_printf(&shadow->description, shadow->description, name);
+	str_printf(&shadow->short_descr, name);
+	mlstr_printf(shadow->long_descr, name);
+	mlstr_printf(shadow->description, name);
 	
 	char_to_room(shadow,ch->in_room);
 
 	do_murder(shadow, victim->name);
 
-	af.where		= TO_AFFECTS;
-	af.type               = sn;
-	af.level              = level; 
-	af.duration           = 24;
-	af.bitvector          = 0;
-	af.modifier           = 0;
-	af.location           = APPLY_NONE;
+	af.where	= TO_AFFECTS;
+	af.type         = sn;
+	af.level        = level; 
+	af.duration     = 24;
+	af.bitvector    = 0;
+	af.modifier     = 0;
+	af.location     = APPLY_NONE;
 	affect_to_char(ch, &af);  
 
 }  
@@ -2064,9 +2065,9 @@ void spell_squire(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	squire->armor[3] = interpolate(squire->level,100,0);
 	squire->gold = 0;
 
-	str_printf(&squire->short_descr, squire->short_descr, ch->name);
-	str_printf(&squire->long_descr, squire->long_descr, ch->name);
-	str_printf(&squire->description, squire->description, ch->name);
+	str_printf(&squire->short_descr, ch->name);
+	mlstr_printf(squire->long_descr, ch->name);
+	mlstr_printf(squire->description, ch->name);
 	
 	squire->damage[DICE_NUMBER] = number_range(level/20, level/15);   
 	squire->damage[DICE_TYPE] = number_range(level/4, level/3);
@@ -2811,7 +2812,7 @@ void spell_animate_dead(int sn,int level, CHAR_DATA *ch, void *vo,int target)
 		undead->master = ch;
 		undead->leader = ch;
 
-		str_printf(&undead->name, "%s body undead", obj->name);
+		str_printf(&undead->name, obj->name);
 
 		p = obj->short_descr;
 		if (!str_prefix("The corpse of ", p))
@@ -2820,9 +2821,8 @@ void spell_animate_dead(int sn,int level, CHAR_DATA *ch, void *vo,int target)
 		if (!str_prefix("The undead body of ", p))
 			p += strlen("The undead body of ");
 
-		str_printf(&undead->short_descr, "The undead body of %s", p);
-		str_printf(&undead->long_descr,
-		   "The undead body of %s slowly staggers around.\n\r", p);
+		str_printf(&undead->short_descr, p);
+		mlstr_printf(undead->long_descr, p);
 
 		for (obj2 = obj->contains; obj2; obj2 = next) {
 			next = obj2->next_content;
@@ -3265,12 +3265,11 @@ void spell_eyed_sword (int sn, int level, CHAR_DATA *ch, void *vo , int target)
 	eyed->pit = hometown_table[ch->hometown].pit[i];
 	eyed->level = ch->level;
 
-	str_printf(&eyed->short_descr, eyed->short_descr, ch->name);
-	str_printf(&eyed->description, eyed->description, ch->name);
+	str_printf(&eyed->short_descr, ch->name);
+	str_printf(&eyed->description, ch->name);
 
 	eyed->extra_descr = new_extra_descr();
-	str_printf(&eyed->extra_descr->description,
-		   eyed->pIndexData->extra_descr->description, ch->name);
+	str_printf(&eyed->extra_descr->description, ch->name);
 	eyed->extra_descr->keyword = 
 			str_dup(eyed->pIndexData->extra_descr->keyword);
 	eyed->extra_descr->next = NULL;
@@ -3436,13 +3435,12 @@ void spell_magic_jar(int sn, int level, CHAR_DATA *ch, void *vo , int target)
 	fire->pit = hometown_table[ch->hometown].pit[i];
 	fire->level = ch->level;
 
-	str_printf(&fire->name, fire->name, victim->name);
-	str_printf(&fire->short_descr, fire->short_descr, victim->name);
-	str_printf(&fire->description, fire->description, victim->name);
+	str_printf(&fire->name, victim->name);
+	str_printf(&fire->short_descr, victim->name);
+	str_printf(&fire->description, victim->name);
 
 	fire->extra_descr = new_extra_descr();
-	str_printf(&fire->extra_descr->description,
-		   fire->pIndexData->extra_descr->description, victim->name);
+	str_printf(&fire->extra_descr->description, victim->name);
 	fire->extra_descr->keyword = 
 			str_dup(fire->pIndexData->extra_descr->keyword);
 	fire->extra_descr->next = NULL;
@@ -3709,12 +3707,11 @@ void spell_fire_shield (int sn, int level, CHAR_DATA *ch, void *vo , int target)
 	fire->pit = hometown_table[ch->hometown].pit[i];
 	fire->level = ch->level;
 
-	str_printf(&fire->short_descr, fire->short_descr, arg);
-	str_printf(&fire->description, fire->description, arg);
+	str_printf(&fire->short_descr, arg);
+	str_printf(&fire->description, arg);
 
 	fire->extra_descr = new_extra_descr();
-	str_printf(&fire->extra_descr->description,
-		   fire->pIndexData->extra_descr->description, arg);
+	str_printf(&fire->extra_descr->description, arg);
 	fire->extra_descr->keyword = 
 			str_dup(fire->pIndexData->extra_descr->keyword);
 	fire->extra_descr->next = NULL;

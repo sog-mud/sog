@@ -2,7 +2,7 @@
 #define _INTERP_H_
 
 /*
- * $Id: interp.h,v 1.9 1998-06-28 04:47:15 fjoe Exp $
+ * $Id: interp.h,v 1.10 1998-07-11 20:55:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -77,7 +77,7 @@ struct	cmd_type
 /* the command table itself */
 extern	const	struct	cmd_type	cmd_table	[];
 
-void	substitute_alias (DESCRIPTOR_DATA *d, char *input);
+void	substitute_alias (DESCRIPTOR_DATA *d, const char *input);
 
 /*
  * Command functions.
@@ -283,6 +283,7 @@ DECLARE_DO_FUN(	do_qui		);
 DECLARE_DO_FUN( do_quiet	);
 DECLARE_DO_FUN(	do_quit		);
 DECLARE_DO_FUN( do_raffects	);
+DECLARE_DO_FUN( do_rating	);
 DECLARE_DO_FUN( do_read		);
 DECLARE_DO_FUN(	do_reboo	);
 DECLARE_DO_FUN(	do_reboot	);

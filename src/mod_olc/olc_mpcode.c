@@ -1,5 +1,5 @@
 /*
- * $Id: olc_mpcode.c,v 1.2 1998-07-03 15:18:46 fjoe Exp $
+ * $Id: olc_mpcode.c,v 1.3 1998-07-11 20:55:14 fjoe Exp $
  */
 
 /* The following code is based on ILAB OLC by Jason Dinkel */
@@ -19,7 +19,7 @@
 #include "string_edit.h"
 #include "buffer.h"
 
-#define MPEDIT(fun)           bool fun(CHAR_DATA *ch, char*argument)
+#define MPEDIT(fun)           bool fun(CHAR_DATA *ch, const char *argument)
 
 
 const struct olc_cmd_type mpedit_table[] =
@@ -36,7 +36,7 @@ const struct olc_cmd_type mpedit_table[] =
 	{	NULL,		0		}
 };
 
-void mpedit(CHAR_DATA *ch, char *argument)
+void mpedit(CHAR_DATA *ch, const char *argument)
 {
     MPROG_CODE *pMcode;
     char arg[MAX_INPUT_LENGTH];
@@ -44,9 +44,9 @@ void mpedit(CHAR_DATA *ch, char *argument)
     int cmd;
     AREA_DATA *ad;
 
-    smash_tilde(argument);
     strcpy(arg, argument);
-    argument = one_argument(argument, command);
+    smash_tilde(arg);
+    argument = one_argument(arg, command);
 
     EDIT_MPCODE(ch, pMcode);
 
@@ -96,7 +96,7 @@ void mpedit(CHAR_DATA *ch, char *argument)
     return;
 }
 
-void do_mpedit(CHAR_DATA *ch, char *argument)
+void do_mpedit(CHAR_DATA *ch, const char *argument)
 {
     MPROG_CODE *pMcode;
     char command[MAX_INPUT_LENGTH];
@@ -146,10 +146,8 @@ void do_mpedit(CHAR_DATA *ch, char *argument)
 	return;
     }
 
-    send_to_char("Sintaxis : mpedit [vnum]\n\r", ch);
-    send_to_char("           mpedit create [vnum]\n\r", ch);
-
-    return;
+    send_to_char("Syntax : mpedit [vnum]\n\r", ch);
+    send_to_char("         mpedit create [vnum]\n\r", ch);
 }
 
 MPEDIT (mpedit_create)

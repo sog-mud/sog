@@ -1,5 +1,5 @@
 /*
- * $Id: flags.c,v 1.5 1998-07-03 15:18:41 fjoe Exp $
+ * $Id: flags.c,v 1.6 1998-07-11 20:55:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -52,7 +52,7 @@
 
 int flag_lookup args( ( const char *name, const struct flag_type *flag_table) );
 
-void do_flag(CHAR_DATA *ch, char *argument)
+void do_flag(CHAR_DATA *ch, const char *argument)
 {
     char arg1[MAX_INPUT_LENGTH],arg2[MAX_INPUT_LENGTH],arg3[MAX_INPUT_LENGTH];
     char word[MAX_INPUT_LENGTH];

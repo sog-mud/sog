@@ -1,5 +1,5 @@
 /*
- * $Id: mob_prog.c,v 1.19 1998-07-04 08:54:13 fjoe Exp $
+ * $Id: mob_prog.c,v 1.20 1998-07-11 20:55:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -383,7 +383,7 @@ bool get_obj_vnum_room(CHAR_DATA *ch, int vnum)
  *
  *----------------------------------------------------------------------
  */
-int cmd_eval(int vnum, char *line, int check,
+int cmd_eval(int vnum, const char *line, int check,
 	CHAR_DATA *mob, CHAR_DATA *ch, 
 	const void *arg1, const void *arg2, CHAR_DATA *rch)
 {
@@ -393,7 +393,8 @@ int cmd_eval(int vnum, char *line, int check,
     OBJ_DATA *obj2 = (OBJ_DATA  *) arg2;
     OBJ_DATA  *lval_obj = NULL;
 
-    char *original, buf[MAX_INPUT_LENGTH], code;
+    const char *original;
+    char buf[MAX_INPUT_LENGTH], code;
     int lval = 0, oper = 0, rval = -1;
 
     original = line;
@@ -895,7 +896,7 @@ void program_flow(
 	CHAR_DATA *mob, CHAR_DATA *ch, const void *arg1, const void *arg2)
 {
     CHAR_DATA *rch = NULL;
-    char *code, *line;
+    const char *code, *line;
     char buf[MAX_STRING_LENGTH];
     char control[MAX_INPUT_LENGTH], data[MAX_STRING_LENGTH];
 
@@ -1107,7 +1108,7 @@ bail_out:
  * phrase.
  */
 void mp_act_trigger(
-	char *argument, CHAR_DATA *mob, CHAR_DATA *ch, 
+	const char *argument, CHAR_DATA *mob, CHAR_DATA *ch, 
 	const void *arg1, const void *arg2, int type)
 {
     MPROG_LIST *prg;
@@ -1207,8 +1208,8 @@ bool mp_exit_trigger(CHAR_DATA *ch, int dir)
 
 void mp_give_trigger(CHAR_DATA *mob, CHAR_DATA *ch, OBJ_DATA *obj)
 {
-
-    char        buf[MAX_INPUT_LENGTH], *p;
+    char buf[MAX_INPUT_LENGTH];
+    const char	*p;
     MPROG_LIST  *prg;
 
     for (prg = mob->pIndexData->mprogs; prg; prg = prg->next)

@@ -1,5 +1,5 @@
 /*
- * $Id: olc_save.c,v 1.7 1998-07-10 10:39:42 fjoe Exp $
+ * $Id: olc_save.c,v 1.8 1998-07-11 20:55:14 fjoe Exp $
  */
 
 /**************************************************************************
@@ -162,8 +162,8 @@ void save_mobile(FILE *fp, MOB_INDEX_DATA *pMobIndex)
     fprintf(fp, "#%d\n",	pMobIndex->vnum);
     fprintf(fp, "%s~\n",	pMobIndex->player_name);
     fprintf(fp, "%s~\n",	pMobIndex->short_descr);
-    fprintf(fp, "%s~\n",	fix_string(pMobIndex->long_descr));
-    fprintf(fp, "%s~\n",	fix_string(pMobIndex->description));
+    mlstr_fwrite(fp,		pMobIndex->long_descr);
+    mlstr_fwrite(fp,		pMobIndex->description);
     fprintf(fp, "%s~\n",	race_table[race].name);
     fprintf(fp, "%s ",		fwrite_flag(pMobIndex->act &
 					    ~race_table[pMobIndex->race].act,
@@ -510,8 +510,8 @@ void save_rooms(FILE *fp, AREA_DATA *pArea)
     		char buf[MAX_STRING_LENGTH];
 
                 fprintf(fp, "#%d\n",	pRoomIndex->vnum);
-		fwrite_mlstring(fp,	pRoomIndex->name);
-		fwrite_mlstring(fp,	pRoomIndex->description);
+		mlstr_fwrite(fp,	pRoomIndex->name);
+		mlstr_fwrite(fp,	pRoomIndex->description);
 		fprintf(fp, "0 ");
                 fprintf(fp, "%s ",	fwrite_flag(pRoomIndex->room_flags,
 						    buf));
@@ -565,7 +565,7 @@ void save_rooms(FILE *fp, AREA_DATA *pArea)
 			    locks = 4;
 
                         fprintf(fp, "D%d\n",      pExit->orig_door);
-			fwrite_mlstring(fp,	pExit->description);
+			mlstr_fwrite(fp,	pExit->description);
                         fprintf(fp, "%s~\n",      pExit->keyword);
                         fprintf(fp, "%d %d %d\n", locks,
                                                    pExit->key,
@@ -658,7 +658,7 @@ void save_door_resets(FILE *fp, AREA_DATA *pArea)
 				pRoomIndex->vnum,
 				pExit->orig_door,
 				IS_SET(pExit->rs_flags, EX_LOCKED) ? 2 : 1,
-				ml_estring(pRoomIndex->name),
+				mlstr_mval(pRoomIndex->name),
 				dir_name[pExit->orig_door],
 				IS_SET(pExit->rs_flags, EX_LOCKED) ?
 					"closed and locked" : "closed");
@@ -719,7 +719,7 @@ void save_resets(FILE *fp, AREA_DATA *pArea)
                 pReset->arg3,
 		pReset->arg4,
                 pLastMob->short_descr,
-                ml_estring(pRoom->name));
+                mlstr_mval(pRoom->name));
             break;
 
 	case 'O':
@@ -729,7 +729,7 @@ void save_resets(FILE *fp, AREA_DATA *pArea)
 	        pReset->arg1,
                 pReset->arg3,
                 capitalize(pLastObj->short_descr),
-                ml_estring(pRoom->name));
+                mlstr_mval(pRoom->name));
             break;
 
 	case 'P':
@@ -769,7 +769,7 @@ void save_resets(FILE *fp, AREA_DATA *pArea)
 	    fprintf(fp, "R 0 %d %d\t* %s: randomize\n", 
 	        pReset->arg1,
                 pReset->arg2,
-                ml_estring(pRoom->name));
+                mlstr_mval(pRoom->name));
             break;
             }
 #else
@@ -1050,7 +1050,7 @@ void save_area(AREA_DATA *pArea)
  Purpose:	Entry point for saving area data.
  Called by:	interpreter(interp.c)
  ****************************************************************************/
-void do_asave(CHAR_DATA *ch, char *argument)
+void do_asave(CHAR_DATA *ch, const char *argument)
 {
     char arg1 [MAX_INPUT_LENGTH];
     AREA_DATA *pArea;
@@ -1076,8 +1076,8 @@ void do_asave(CHAR_DATA *ch, char *argument)
 	return;
     } */
 
-    smash_tilde(argument);
     strcpy(arg1, argument);
+    smash_tilde(arg1);
 
     if (arg1[0] == '\0')
     {

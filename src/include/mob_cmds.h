@@ -2,7 +2,7 @@
 #define _MOB_CMDS_H_
 
 /*
- * $Id: mob_cmds.h,v 1.2 1998-06-29 06:48:30 fjoe Exp $
+ * $Id: mob_cmds.h,v 1.3 1998-07-11 20:55:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -47,7 +47,7 @@ struct	mob_cmd_type
     DO_FUN *		do_fun;
 };
 
-void	mob_interpret	(CHAR_DATA *ch, char *argument);
+void	mob_interpret	(CHAR_DATA *ch, const char *argument);
 
 /* the command table itself */
 extern	const	struct	mob_cmd_type	mob_cmd_table	[];

@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.38 1998-07-09 12:01:36 fjoe Exp $
+ * $Id: interp.c,v 1.39 1998-07-11 20:55:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -46,6 +46,7 @@
 #include <string.h>
 #include <time.h>
 #include <ctype.h>
+
 #include "merc.h"
 #include "interp.h"
 #include "act_wiz.h"
@@ -58,7 +59,7 @@
 
 #undef IMMORTALS_LOGS
 
-bool	check_social	args( ( CHAR_DATA *ch, char *command,char *argument ) );
+bool	check_social	args((CHAR_DATA *ch, char *command,const char *argument));
 
 
 /*
@@ -493,7 +494,7 @@ const	struct	cmd_type	cmd_table	[] =
 };
 
 
-void interpret(CHAR_DATA *ch, char *argument)
+void interpret(CHAR_DATA *ch, const char *argument)
 {
 	interpret_raw(ch, argument, FALSE);
 }
@@ -502,7 +503,7 @@ void interpret(CHAR_DATA *ch, char *argument)
  * The main entry point for executing commands.
  * Can be recursively called from 'at', 'order', 'force'.
  */
-void interpret_raw(CHAR_DATA *ch, char *argument, bool is_order)
+void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 {
 	char command[MAX_INPUT_LENGTH];
 	char logline[MAX_INPUT_LENGTH];
@@ -517,7 +518,6 @@ void interpret_raw(CHAR_DATA *ch, char *argument, bool is_order)
 	/*
 	 * Strip leading spaces.
 	 */
-	smash_tilde(argument);
 	while (isspace(*argument))
 		argument++;
 	if (argument[0] == '\0')
@@ -583,14 +583,14 @@ void interpret_raw(CHAR_DATA *ch, char *argument, bool is_order)
 			return;
 		}
 
-		if ( IS_AFFECTED(ch,AFF_STUN) 
+		if (IS_AFFECTED(ch,AFF_STUN) 
 		&& !(cmd_table[cmd].extra & CMD_KEEP_HIDE)) {
 			char_nputs(TOO_STUNNED, ch);
 			return;
 		}
 
 		/* Come out of hiding for most commands */
-		if ( IS_AFFECTED(ch, AFF_HIDE) && !IS_NPC(ch)
+		if (IS_AFFECTED(ch, AFF_HIDE) && !IS_NPC(ch)
 		&& !(cmd_table[cmd].extra & CMD_KEEP_HIDE)) {
 			REMOVE_BIT(ch->affected_by, AFF_HIDE);
 			char_nputs(YOU_STEP_OUT_SHADOWS, ch);
@@ -632,8 +632,8 @@ void interpret_raw(CHAR_DATA *ch, char *argument, bool is_order)
 
 	if (((!IS_NPC(ch) && IS_SET(ch->act, PLR_LOG))
 	||   fLogAll
-	||   cmd_table[cmd].log == LOG_ALWAYS ) && logline[0] != '\0' 
-	&&   logline[0] != '\n' ) {
+	||   cmd_table[cmd].log == LOG_ALWAYS) && logline[0] != '\0' 
+	&&   logline[0] != '\n') {
 		log_printf("Log %s: %s", ch->name, logline);
 		wiznet_printf(ch, NULL, WIZ_SECURE, 0, get_trust(ch),
 				"Log %s: %s", ch->name, logline);
@@ -697,7 +697,6 @@ void interpret_raw(CHAR_DATA *ch, char *argument, bool is_order)
 	/*
 	 * Dispatch the command.
 	 */
-	smash_percent(argument);
 	(*cmd_table[cmd].do_fun) (ch, argument);
 
 	tail_chain();
@@ -705,7 +704,7 @@ void interpret_raw(CHAR_DATA *ch, char *argument, bool is_order)
 
 
 
-bool check_social( CHAR_DATA *ch, char *command, char *argument )
+bool check_social(CHAR_DATA *ch, char *command, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
@@ -716,7 +715,7 @@ bool check_social( CHAR_DATA *ch, char *command, char *argument )
 
 	for (cmd = 0; social_table[cmd].name[0] != '\0'; cmd++) {
 		if (command[0] == social_table[cmd].name[0]
-		&&  !str_prefix( command, social_table[cmd].name)) {
+		&&  !str_prefix(command, social_table[cmd].name)) {
 			found = TRUE;
 			break;
 		}
@@ -844,94 +843,81 @@ bool check_social( CHAR_DATA *ch, char *command, char *argument )
 /*
  * Return true if an argument is completely numeric.
  */
-bool is_number ( char *arg )
+bool is_number(const char *argument)
 {
+	if (*argument == '\0')
+    		return FALSE;
  
-    if ( *arg == '\0' )
-        return FALSE;
+	if (*argument == '+' || *argument == '-')
+    		argument++;
  
-    if ( *arg == '+' || *arg == '-' )
-        arg++;
+	for (; *argument != '\0'; argument++) {
+    		if (!isdigit(*argument))
+        		return FALSE;
+	}
  
-    for ( ; *arg != '\0'; arg++ )
-    {
-        if ( !isdigit( *arg ) )
-            return FALSE;
-    }
- 
-    return TRUE;
+	return TRUE;
 }
 
 
+static int x_argument(const char *argument, char *arg, char c)
+{
+	char *p;
+	char *q;
+	int number;
+    
+	p = strchr(argument, c);
+	if (p == NULL) {
+		strcpy(arg, argument);
+		return 1;
+	}
+
+	number = strtod(argument, &q);
+
+	/*
+	 * if c == '.' q will point to next character after p
+	 * otherwise q will point to p
+	 */
+	if (number < 0 || (q != p && (c == '.' && q != p+1)))
+		number = 0;
+	strcpy(arg, p+1);
+	return number;
+}
 
 /*
  * Given a string like 14.foo, return 14 and 'foo'
  */
-int number_argument( char *argument, char *arg )
+int number_argument(const char *argument, char *arg)
 {
-    char *pdot;
-    int number;
-    
-    for ( pdot = argument; *pdot != '\0'; pdot++ )
-    {
-	if ( *pdot == '.' )
-	{
-	    *pdot = '\0';
-	    number = atoi( argument );
-	    *pdot = '.';
-	    strcpy( arg, pdot+1 );
-	    return number;
-	}
-    }
-
-    strcpy( arg, argument );
-    return 1;
+	return x_argument(argument, arg, '.');
 }
 
 /* 
  * Given a string like 14*foo, return 14 and 'foo'
-*/
-int mult_argument(char *argument, char *arg)
+ */
+int mult_argument(const char *argument, char *arg)
 {
-    char *pdot;
-    int number;
-
-    for ( pdot = argument; *pdot != '\0'; pdot++ )
-    {
-        if ( *pdot == '*' )
-        {
-            *pdot = '\0';
-            number = atoi( argument );
-            *pdot = '*';
-            strcpy( arg, pdot+1 );
-            return number;
-        }
-    }
- 
-    strcpy( arg, argument );
-    return 1;
+	return x_argument(argument, arg, '*');
 }
-
-
 
 /*
  * Pick off one argument from a string and return the rest.
  * Understands quotes.
  */
-char *one_argument( char *argument, char *arg_first )
+const char *one_argument(const char *argument, char *arg_first)
 {
     char cEnd;
 
-    while ( isspace(*argument) )
+    while (isspace(*argument))
 	argument++;
 
     cEnd = ' ';
-    if ( *argument == '\'' || *argument == '"' )
+    if (*argument == '\'' || *argument == '"')
 	cEnd = *argument++;
 
-    while ( *argument != '\0' )
+    while (*argument != '\0')
     {
-	if ( *argument == cEnd )
+	if (*argument == cEnd)
 	{
 	    argument++;
 	    break;
@@ -942,7 +928,7 @@ char *one_argument( char *argument, char *arg_first )
     }
     *arg_first = '\0';
 
-    while ( isspace(*argument) )
+    while (isspace(*argument))
 	argument++;
 
     return argument;
@@ -951,58 +937,58 @@ char *one_argument( char *argument, char *arg_first )
 /*
  * Contributed by Alander.
  */
-void do_commands( CHAR_DATA *ch, char *argument )
+void do_commands(CHAR_DATA *ch, const char *argument)
 {
     char buf[MAX_STRING_LENGTH];
     int cmd;
     int col;
  
     col = 0;
-    for ( cmd = 0; cmd_table[cmd].name[0] != '\0'; cmd++ )
+    for (cmd = 0; cmd_table[cmd].name[0] != '\0'; cmd++)
     {
-        if ( cmd_table[cmd].level <  LEVEL_HERO
-        &&   cmd_table[cmd].level <= get_trust( ch ) 
+        if (cmd_table[cmd].level <  LEVEL_HERO
+        &&   cmd_table[cmd].level <= get_trust(ch) 
 	&&   cmd_table[cmd].show)
 	{
-	    sprintf( buf, "%-12s", cmd_table[cmd].name );
-	    send_to_char( buf, ch );
-	    if ( ++col % 6 == 0 )
-		send_to_char( "\n\r", ch );
+	    sprintf(buf, "%-12s", cmd_table[cmd].name);
+	    send_to_char(buf, ch);
+	    if (++col % 6 == 0)
+		send_to_char("\n\r", ch);
 	}
     }
  
-    if ( col % 6 != 0 )
-	send_to_char( "\n\r", ch );
+    if (col % 6 != 0)
+	send_to_char("\n\r", ch);
     return;
 }
 
-void do_wizhelp( CHAR_DATA *ch, char *argument )
+void do_wizhelp(CHAR_DATA *ch, const char *argument)
 {
     char buf[MAX_STRING_LENGTH];
     int cmd;
     int col;
  
     col = 0;
-    for ( cmd = 0; cmd_table[cmd].name[0] != '\0'; cmd++ )
+    for (cmd = 0; cmd_table[cmd].name[0] != '\0'; cmd++)
     {
-        if ( cmd_table[cmd].level >= LEVEL_HERO
-        &&   cmd_table[cmd].level <= get_trust( ch ) 
+        if (cmd_table[cmd].level >= LEVEL_HERO
+        &&   cmd_table[cmd].level <= get_trust(ch) 
         &&   cmd_table[cmd].show)
 	{
-	    sprintf( buf, "%-12s", cmd_table[cmd].name );
-	    send_to_char( buf, ch );
-	    if ( ++col % 6 == 0 )
-		send_to_char( "\n\r", ch );
+	    sprintf(buf, "%-12s", cmd_table[cmd].name);
+	    send_to_char(buf, ch);
+	    if (++col % 6 == 0)
+		send_to_char("\n\r", ch);
 	}
     }
  
-    if ( col % 6 != 0 )
-	send_to_char( "\n\r", ch );
+    if (col % 6 != 0)
+	send_to_char("\n\r", ch);
     return;
 }
 
 
-void do_reture( CHAR_DATA *ch, char *argument)
+void do_reture(CHAR_DATA *ch, const char *argument)
 {
   char_nputs(OK, ch);
   return;
@@ -1011,11 +997,11 @@ void do_reture( CHAR_DATA *ch, char *argument)
 /*********** alias.c **************/
 
 /* does aliasing and other fun stuff */
-void substitute_alias(DESCRIPTOR_DATA *d, char *argument)
+void substitute_alias(DESCRIPTOR_DATA *d, const char *argument)
 {
     CHAR_DATA *ch;
     char buf[MAX_STRING_LENGTH],prefix[MAX_INPUT_LENGTH],name[MAX_INPUT_LENGTH];
-    char *point;
+    const char *point;
     int alias;
 
     ch = d->original ? d->original : d->character;
@@ -1067,19 +1053,17 @@ void substitute_alias(DESCRIPTOR_DATA *d, char *argument)
     interpret(d->character, buf);
 }
 
-void do_alia(CHAR_DATA *ch, char *argument)
+void do_alia(CHAR_DATA *ch, const char *argument)
 {
     send_to_char("I'm sorry, alias must be entered in full.\n\r",ch);
     return;
 }
 
-void do_alias(CHAR_DATA *ch, char *argument)
+void do_alias(CHAR_DATA *ch, const char *argument)
 {
     CHAR_DATA *rch;
     char arg[MAX_INPUT_LENGTH],buf[MAX_STRING_LENGTH];
     int pos;
-
-    smash_tilde( argument );
 
     if (ch->desc == NULL)
 	rch = ch;
@@ -1094,7 +1078,6 @@ void do_alias(CHAR_DATA *ch, char *argument)
 
     if (arg[0] == '\0')
     {
-
 	if (rch->pcdata->alias[0] == NULL)
 	{
 	    send_to_char("You have no aliases defined.\n\r",ch);
@@ -1108,9 +1091,8 @@ void do_alias(CHAR_DATA *ch, char *argument)
 	    ||	rch->pcdata->alias_sub[pos] == NULL)
 		break;
 
-	    sprintf(buf,"    %s:  %s\n\r",rch->pcdata->alias[pos],
+	    char_printf(ch,"    %s:  %s\n\r",rch->pcdata->alias[pos],
 		    rch->pcdata->alias_sub[pos]);
-	    send_to_char(buf,ch);
 	}
 	return;
     }
@@ -1157,8 +1139,8 @@ void do_alias(CHAR_DATA *ch, char *argument)
 	{
 	    free_string(rch->pcdata->alias_sub[pos]);
 	    rch->pcdata->alias_sub[pos] = str_dup(argument);
-	    sprintf(buf,"%s is now realiased to '%s'.\n\r",arg,argument);
-	    send_to_char(buf,ch);
+	    smash_tilde(rch->pcdata->alias_sub[pos]);
+	    char_printf(ch,"%s is now realiased to '%s'.\n\r",arg,argument);
 	    return;
 	}
      }
@@ -1172,12 +1154,12 @@ void do_alias(CHAR_DATA *ch, char *argument)
      /* make a new alias */
      rch->pcdata->alias[pos]		= str_dup(arg);
      rch->pcdata->alias_sub[pos]	= str_dup(argument);
-     sprintf(buf,"%s is now aliased to '%s'.\n\r",arg,argument);
-     send_to_char(buf,ch);
+     smash_tilde(rch->pcdata->alias_sub[pos]);
+     char_printf(ch,"%s is now aliased to '%s'.\n\r",arg,argument);
 }
 
 
-void do_unalias(CHAR_DATA *ch, char *argument)
+void do_unalias(CHAR_DATA *ch, const char *argument)
 {
     CHAR_DATA *rch;
     char arg[MAX_INPUT_LENGTH];

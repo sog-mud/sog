@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.35 1998-07-10 13:03:26 fjoe Exp $
+ * $Id: act_wiz.c,v 1.36 1998-07-11 20:55:09 fjoe Exp $
  */
 
 /***************************************************************************
@@ -101,7 +101,7 @@ void reboot_anatolia(void);
 extern int rebooter;
 
 
-void do_clan_scan(CHAR_DATA *ch, char *argument)
+void do_clan_scan(CHAR_DATA *ch, const char *argument)
 {
 	int i;
 
@@ -116,7 +116,7 @@ void do_clan_scan(CHAR_DATA *ch, char *argument)
 			char *p;
 
 			p = clan_table[i].obj_ptr->in_room != NULL ?
-			    ml_string(ch, clan_table[i].obj_ptr->in_room->name):
+			    mlstr_val(ch, clan_table[i].obj_ptr->in_room->name):
 			    "(NULL)";
 			char_printf(ch, "now_in_room: %s", p);
 		}
@@ -124,7 +124,7 @@ void do_clan_scan(CHAR_DATA *ch, char *argument)
 	}
 }
 
-void do_objlist(CHAR_DATA *ch, char *argument)
+void do_objlist(CHAR_DATA *ch, const char *argument)
 {
 FILE *fp;
 OBJ_DATA *obj;
@@ -295,7 +295,7 @@ AFFECT_DATA *paf;
 	 return;
 }
 
-void do_limited(CHAR_DATA *ch, char *argument)
+void do_limited(CHAR_DATA *ch, const char *argument)
 {
 
 	extern int top_obj_index;
@@ -330,7 +330,7 @@ void do_limited(CHAR_DATA *ch, char *argument)
 			char_printf(ch, "Carried by %-30s\n\r", obj->carried_by->name);
 		      else if (obj->in_room != NULL) 
 			char_printf(ch, "At %-20s [%d]\n\r",
-				ml_string(ch, obj->in_room->name),
+				mlstr_val(ch, obj->in_room->name),
 				obj->in_room->vnum);
 		      else if (obj->in_obj != NULL) 
 			char_printf(ch, "In %-20s [%d] \n\r", obj->in_obj->short_descr, obj->in_obj->pIndexData->vnum);
@@ -359,7 +359,7 @@ void do_limited(CHAR_DATA *ch, char *argument)
 
 }
 
-void do_wiznet(CHAR_DATA *ch, char *argument)
+void do_wiznet(CHAR_DATA *ch, const char *argument)
 {
 	int flag;
 
@@ -444,7 +444,7 @@ void wiznet_printf(CHAR_DATA *ch, OBJ_DATA *obj,
 	va_end(ap); 
 }
 
-void do_tick(CHAR_DATA *ch, char *argument)
+void do_tick(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	
@@ -481,7 +481,7 @@ void do_tick(CHAR_DATA *ch, char *argument)
 }
 
 /* equips a character */
-void do_outfit (CHAR_DATA *ch, char *argument)
+void do_outfit (CHAR_DATA *ch, const char *argument)
 {
 	OBJ_DATA *obj;
 	int sn,vnum;
@@ -540,7 +540,7 @@ void do_outfit (CHAR_DATA *ch, char *argument)
 
 	 
 /* RT nochannels command, for those spammers */
-void do_nochannels(CHAR_DATA *ch, char *argument)
+void do_nochannels(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
@@ -588,7 +588,7 @@ void do_nochannels(CHAR_DATA *ch, char *argument)
 }
 
 
-void do_smote(CHAR_DATA *ch, char *argument)
+void do_smote(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *vch;
 	char *letter,*name;
@@ -681,63 +681,57 @@ void do_smote(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-void do_bamfin(CHAR_DATA *ch, char *argument)
+void do_bamfin(CHAR_DATA *ch, const char *argument)
 {
-	if (!IS_NPC(ch))
-	{
-		smash_tilde(argument);
-
-		if (argument[0] == '\0')
-		{
-		    char_printf(ch,"Your poofin is %s\n\r",ch->pcdata->bamfin);
-		    return;
+	if (!IS_NPC(ch)) {
+		if (argument[0] == '\0') {
+			char_printf(ch, "Your poofin is %s\n\r",
+				    ch->pcdata->bamfin);
+			return;
 		}
 
-		if (strstr(argument,ch->name) == NULL)
-		{
-		    char_puts("You must include your name.\n\r",ch);
-		    return;
+		if (strstr(argument, ch->name) == NULL) {
+			char_puts("You must include your name.\n\r",ch);
+			return;
 		}
 		     
 		free_string(ch->pcdata->bamfin);
 		ch->pcdata->bamfin = str_dup(argument);
+		smash_tilde(ch->pcdata->bamfin);
 
-	    char_printf(ch,"Your poofin is now %s\n\r",ch->pcdata->bamfin);
+		char_printf(ch, "Your poofin is now %s\n\r",
+			    ch->pcdata->bamfin);
 	}
-	return;
 }
 
 
 
-void do_bamfout(CHAR_DATA *ch, char *argument)
+void do_bamfout(CHAR_DATA *ch, const char *argument)
 {
-	if (!IS_NPC(ch))
-	{
-	    smash_tilde(argument);
+	if (!IS_NPC(ch)) {
+		if (argument[0] == '\0') {
+			char_printf(ch, "Your poofout is %s\n\r",
+				    ch->pcdata->bamfout);
+			return;
+		}
 	
-	    if (argument[0] == '\0')
-	    {
-	        char_printf(ch,"Your poofout is %s\n\r",ch->pcdata->bamfout);
-	        return;
-	    }
+		if (strstr(argument,ch->name) == NULL) {
+			char_puts("You must include your name.\n\r", ch);
+			return;
+		}
 	
-	    if (strstr(argument,ch->name) == NULL)
-	    {
-	        char_puts("You must include your name.\n\r",ch);
-	        return;
-	    }
+		free_string(ch->pcdata->bamfout);
+		ch->pcdata->bamfout = str_dup(argument);
+		smash_tilde(ch->pcdata->bamfout);
 	
-	    free_string(ch->pcdata->bamfout);
-	    ch->pcdata->bamfout = str_dup(argument);
-	
-	    char_printf(ch,"Your poofout is now %s\n\r",ch->pcdata->bamfout);
+		char_printf(ch, "Your poofout is now %s\n\r",
+			    ch->pcdata->bamfout);
 	}
-	return;
 }
 
 
 
-void do_deny(CHAR_DATA *ch, char *argument)
+void do_deny(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
@@ -781,7 +775,7 @@ void do_deny(CHAR_DATA *ch, char *argument)
 
 
 
-void do_disconnect(CHAR_DATA *ch, char *argument)
+void do_disconnect(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	DESCRIPTOR_DATA *d;
@@ -838,7 +832,7 @@ void do_disconnect(CHAR_DATA *ch, char *argument)
 }
 
 
-void do_echo(CHAR_DATA *ch, char *argument)
+void do_echo(CHAR_DATA *ch, const char *argument)
 {
 	DESCRIPTOR_DATA *d;
 	
@@ -864,7 +858,7 @@ void do_echo(CHAR_DATA *ch, char *argument)
 
 
 
-void do_recho(CHAR_DATA *ch, char *argument)
+void do_recho(CHAR_DATA *ch, const char *argument)
 {
 	DESCRIPTOR_DATA *d;
 	
@@ -890,7 +884,7 @@ void do_recho(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-void do_zecho(CHAR_DATA *ch, char *argument)
+void do_zecho(CHAR_DATA *ch, const char *argument)
 {
 	DESCRIPTOR_DATA *d;
 
@@ -914,7 +908,7 @@ void do_zecho(CHAR_DATA *ch, char *argument)
 	}
 }
 
-void do_pecho(CHAR_DATA *ch, char *argument)
+void do_pecho(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
@@ -944,18 +938,18 @@ void do_pecho(CHAR_DATA *ch, char *argument)
 }
 
 
-ROOM_INDEX_DATA *find_location(CHAR_DATA *ch, char *arg)
+ROOM_INDEX_DATA *find_location(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *victim;
 	OBJ_DATA *obj;
 
-	if (is_number(arg))
-		return get_room_index(atoi(arg));
+	if (is_number(argument))
+		return get_room_index(atoi(argument));
 
-	if ((victim = get_char_world(ch, arg)) != NULL)
+	if ((victim = get_char_world(ch, argument)) != NULL)
 		return victim->in_room;
 
-	if ((obj = get_obj_world(ch, arg)) != NULL)
+	if ((obj = get_obj_world(ch, argument)) != NULL)
 		return obj->in_room;
 
 	return NULL;
@@ -963,7 +957,7 @@ ROOM_INDEX_DATA *find_location(CHAR_DATA *ch, char *arg)
 
 
 
-void do_transfer(CHAR_DATA *ch, char *argument)
+void do_transfer(CHAR_DATA *ch, const char *argument)
 {
 	char arg1[MAX_INPUT_LENGTH];
 	char arg2[MAX_INPUT_LENGTH];
@@ -1036,7 +1030,7 @@ void do_transfer(CHAR_DATA *ch, char *argument)
 
 
 
-void do_at(CHAR_DATA *ch, char *argument)
+void do_at(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	ROOM_INDEX_DATA *location;
@@ -1092,7 +1086,7 @@ void do_at(CHAR_DATA *ch, char *argument)
 
 
 
-void do_goto(CHAR_DATA *ch, char *argument)
+void do_goto(CHAR_DATA *ch, const char *argument)
 {
 	ROOM_INDEX_DATA *location;
 	CHAR_DATA *rch;
@@ -1154,7 +1148,7 @@ void do_goto(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-void do_violate(CHAR_DATA *ch, char *argument)
+void do_violate(CHAR_DATA *ch, const char *argument)
 {
 	ROOM_INDEX_DATA *location;
 	CHAR_DATA *rch;
@@ -1212,10 +1206,10 @@ void do_violate(CHAR_DATA *ch, char *argument)
 
 /* RT to replace the 3 stat commands */
 
-void do_stat (CHAR_DATA *ch, char *argument)
+void do_stat (CHAR_DATA *ch, const char *argument)
 {
 	 char arg[MAX_INPUT_LENGTH];
-	 char *string;
+	 const char *string;
 	 OBJ_DATA *obj;
 	 ROOM_INDEX_DATA *location;
 	 CHAR_DATA *victim;
@@ -1269,7 +1263,7 @@ void do_stat (CHAR_DATA *ch, char *argument)
 }
 
 
-void do_rstat(CHAR_DATA *ch, char *argument)
+void do_rstat(CHAR_DATA *ch, const char *argument)
 {
 	char buf[MAX_STRING_LENGTH];
 	char arg[MAX_INPUT_LENGTH];
@@ -1304,7 +1298,7 @@ void do_rstat(CHAR_DATA *ch, char *argument)
 		buf_printf(output, "Roomflags %s\n\r", 
 			   flag_room_name(ch->in_room->room_flags));
 
-	mlstring_buf(output, "Name: ", location->name);
+	mlstr_buf(output, "Name: ", location->name);
 	buf_printf(output, "Area: '%s'\n\rOwner: '%s'\n\r",
 		   location->area->name,
 		   location->owner);
@@ -1320,7 +1314,7 @@ void do_rstat(CHAR_DATA *ch, char *argument)
 	buf_printf(output, "Room flags: [%s].\n\r",
 		   flag_string(room_flags, location->room_flags));
 	buf_add(output, "Description:\n\r");
-	mlstring_buf(output, "", location->description);
+	mlstr_buf(output, "", location->description);
 
 	if (location->extra_descr != NULL) {
 		EXTRA_DESCR_DATA *ed;
@@ -1362,7 +1356,7 @@ void do_rstat(CHAR_DATA *ch, char *argument)
 		    		pexit->key,
 		    		pexit->exit_info,
 		    		pexit->keyword);
-			mlstring_buf(output, "Description: ",
+			mlstr_buf(output, "Description: ",
 				     pexit->description);
 		}
 	}
@@ -1376,7 +1370,7 @@ void do_rstat(CHAR_DATA *ch, char *argument)
 
 
 
-void do_ostat(CHAR_DATA *ch, char *argument)
+void do_ostat(CHAR_DATA *ch, const char *argument)
 {
 	int i;
 	BUFFER *output;
@@ -1695,12 +1689,13 @@ void do_ostat(CHAR_DATA *ch, char *argument)
 
 
 
-void do_mstat(CHAR_DATA *ch, char *argument)
+void do_mstat(CHAR_DATA *ch, const char *argument)
 {
 	char buf[MAX_STRING_LENGTH];
 	char arg[MAX_INPUT_LENGTH];
 	AFFECT_DATA *paf;
 	CHAR_DATA *victim;
+	BUFFER *output;
 
 	one_argument(argument, arg);
 
@@ -1714,24 +1709,24 @@ void do_mstat(CHAR_DATA *ch, char *argument)
 		return;
 	}
 
-	char_printf(ch, "Name: [%s] Reset Zone: %s\n\r", victim->name,
+	output = buf_new(0);
+
+	buf_printf(output, "Name: [%s] Reset Zone: %s\n\r", victim->name,
 		(IS_NPC(victim) &&victim->zone) ? victim->zone->name : "?");
 
-	char_printf(ch, 
+	buf_printf(output, 
 		"Vnum: %d  Format: %s  Race: %s(%s)  Group: %d  Sex: %s  Room: %d\n\r",
 		IS_NPC(victim) ? victim->pIndexData->vnum : 0,
 		IS_NPC(victim) ? victim->pIndexData->new_format ? "new" : "old" : "pc",
 		race_table[RACE(victim)].name,race_table[ORG_RACE(victim)].name,
 		IS_NPC(victim) ? victim->group : 0, sex_flags[victim->sex].name,
-		victim->in_room == NULL    ?        0 : victim->in_room->vnum
-		);
+		victim->in_room == NULL    ?        0 : victim->in_room->vnum);
 
 	if (IS_NPC(victim))
-		char_printf(ch,"Count: %d  Killed: %d  ---  Status: %d\n\r",
+		buf_printf(output,"Count: %d  Killed: %d  ---  Status: %d\n\r",
 		    victim->pIndexData->count,victim->pIndexData->killed, victim->status);
 
-	char_printf(ch, 
-"Str: %d(%d)  Int: %d(%d)  Wis: %d(%d)  Dex: %d(%d)  Con: %d(%d) Cha: %d(%d)\n\r",
+	buf_printf(output, "Str: %d(%d)  Int: %d(%d)  Wis: %d(%d)  Dex: %d(%d)  Con: %d(%d) Cha: %d(%d)\n\r",
 		victim->perm_stat[STAT_STR],
 		get_curr_stat(victim,STAT_STR),
 		victim->perm_stat[STAT_INT],
@@ -1746,56 +1741,56 @@ void do_mstat(CHAR_DATA *ch, char *argument)
 		get_curr_stat(victim,STAT_CHA));
 
 
-	char_printf(ch, "Hp: %d/%d  Mana: %d/%d  Move: %d/%d  Practices: %d\n\r",
+	buf_printf(output, "Hp: %d/%d  Mana: %d/%d  Move: %d/%d  Practices: %d\n\r",
 		victim->hit,         victim->max_hit,
 		victim->mana,        victim->max_mana,
 		victim->move,        victim->max_move,
 		IS_NPC(ch) ? 0 : victim->practice);
 		
-	char_printf(ch,"It belives the religion of %s.\n\r",
+	buf_printf(output,"It belives the religion of %s.\n\r",
 		IS_NPC(victim) ? "Chronos" : religion_table[victim->religion].leader);
 
 	if (IS_NPC(victim))
-	  sprintf(buf, "%d", victim->alignment);
+		sprintf(buf, "%d", victim->alignment);
 	else  {
-	  sprintf(buf, "%s%s", 
-		victim->ethos==1?"Law-":
-		victim->ethos==2?"Neut-":
-		victim->ethos==3?"Cha-":"none-",
-		IS_GOOD(victim)?"Good":
-		IS_NEUTRAL(victim)?"Neut":
-		IS_EVIL(victim)?"Evil":"Other");
+		sprintf(buf, "%s%s", 
+			victim->ethos==1 ? "Law-":
+			victim->ethos==2 ? "Neut-":
+			victim->ethos==3 ? "Cha-": "none-",
+			IS_GOOD(victim)		? "Good" :
+			IS_NEUTRAL(victim)	? "Neut" :
+			IS_EVIL(victim)		? "Evil" : "Other");
 	}
 
-	char_printf(ch,
+	buf_printf(output,
 		"Lv: %d  Class: %s  Align: %s  Gold: %ld  Silver: %ld  Exp: %d\n\r",
 		victim->level,       
 		IS_NPC(victim) ? "mobile" : class_table[victim->class].name,            
 		buf,
 		victim->gold, victim->silver, victim->exp);
 
-	char_printf(ch,"Armor: pierce: %d  bash: %d  slash: %d  magic: %d\n\r",
+	buf_printf(output,"Armor: pierce: %d  bash: %d  slash: %d  magic: %d\n\r",
 		    GET_AC(victim,AC_PIERCE), GET_AC(victim,AC_BASH),
 		    GET_AC(victim,AC_SLASH),  GET_AC(victim,AC_EXOTIC));
 
-	char_printf(ch, 
+	buf_printf(output, 
 		"Hit: %d  Dam: %d  Saves: %d  Size: %s  Position: %s  Wimpy: %d\n\r",
 		GET_HITROLL(victim), GET_DAMROLL(victim), victim->saving_throw,
 		size_table[victim->size].name, position_table[victim->position].name,
 		victim->wimpy);
 
 	if (IS_NPC(victim) && victim->pIndexData->new_format)
-		char_printf(ch, "Damage: %dd%d  Message:  %s\n\r",
+		buf_printf(output, "Damage: %dd%d  Message:  %s\n\r",
 		    victim->damage[DICE_NUMBER],victim->damage[DICE_TYPE],
 		    attack_table[victim->dam_type].noun);
 
-	char_printf(ch, "Fighting: %s Deaths: %d Carry number: %d  Carry weight: %ld\n\r",
+	buf_printf(output, "Fighting: %s Deaths: %d Carry number: %d  Carry weight: %ld\n\r",
 		victim->fighting ? victim->fighting->name : "(none)" ,
 		IS_NPC(victim) ? 0 : victim->pcdata->death,
 		victim->carry_number, get_carry_weight(victim) / 10);
 
 	if (!IS_NPC(victim)) {
-		char_printf(ch,
+		buf_printf(output,
 "Thirst: %d  Hunger: %d  Full: %d  Drunk: %d Bloodlust: %d Desire: %d\n\r",
 		    victim->pcdata->condition[COND_THIRST],
 		    victim->pcdata->condition[COND_HUNGER],
@@ -1803,7 +1798,7 @@ void do_mstat(CHAR_DATA *ch, char *argument)
 		    victim->pcdata->condition[COND_DRUNK],
 		    victim->pcdata->condition[COND_BLOODLUST],
 		    victim->pcdata->condition[COND_DESIRE]);
-		char_printf(ch, 
+		buf_printf(output, 
 		    "Age: %d  Played: %d  Last Level: %d  Timer: %d\n\r",
 		    get_age(victim), 
 		    (int) (victim->played + current_time - victim->logon) / 3600, 
@@ -1811,53 +1806,53 @@ void do_mstat(CHAR_DATA *ch, char *argument)
 		    victim->timer);
 	}
 
-	char_printf(ch, "Act: %s\n\r",act_bit_name(victim->act));
+	buf_printf(output, "Act: %s\n\r",act_bit_name(victim->act));
 	
 	if (victim->comm)
-		char_printf(ch, "Comm: %s\n\r",comm_bit_name(victim->comm));
+		buf_printf(output, "Comm: %s\n\r",comm_bit_name(victim->comm));
 
 	if (IS_NPC(victim) && victim->off_flags)
-		char_printf(ch, "Offense: %s\n\r",off_bit_name(victim->off_flags));
+		buf_printf(output, "Offense: %s\n\r",off_bit_name(victim->off_flags));
 
 	if (victim->imm_flags)
-		char_printf(ch, "Immune: %s\n\r",imm_bit_name(victim->imm_flags));
+		buf_printf(output, "Immune: %s\n\r",imm_bit_name(victim->imm_flags));
 	
 	if (victim->res_flags)
-		char_printf(ch, "Resist: %s\n\r", imm_bit_name(victim->res_flags));
+		buf_printf(output, "Resist: %s\n\r", imm_bit_name(victim->res_flags));
 
 	if (victim->vuln_flags)
-		char_printf(ch, "Vulnerable: %s\n\r", imm_bit_name(victim->vuln_flags));
+		buf_printf(output, "Vulnerable: %s\n\r", imm_bit_name(victim->vuln_flags));
 
 	if (victim->detection)
-		char_printf(ch, "Detection: %s\n\r", 
+		buf_printf(output, "Detection: %s\n\r", 
 		(victim->detection) ? detect_bit_name(victim->detection) : "(none)");
 
-	char_printf(ch, "Form: %s\n\r", form_bit_name(victim->form));
-	char_printf(ch, "Parts: %s\n\r", part_bit_name(victim->parts));
+	buf_printf(output, "Form: %s\n\r", form_bit_name(victim->form));
+	buf_printf(output, "Parts: %s\n\r", part_bit_name(victim->parts));
 
 	if (victim->affected_by)
-		char_printf(ch, "Affected by %s\n\r", 
+		buf_printf(output, "Affected by %s\n\r", 
 		    affect_bit_name(victim->affected_by));
 
-	char_printf(ch, "Master: %s  Leader: %s  Pet: %s\n\r",
+	buf_printf(output, "Master: %s  Leader: %s  Pet: %s\n\r",
 		victim->master      ? victim->master->name   : "(none)",
 		victim->leader      ? victim->leader->name   : "(none)",
 		victim->pet 	    ? victim->pet->name	     : "(none)");
 
 	/* OLC */
 	if (!IS_NPC(victim))
-		char_printf(ch, "Security: %d.\n\r", victim->pcdata->security);
+		buf_printf(output, "Security: %d.\n\r", victim->pcdata->security);
 
-	char_printf(ch, "Short description: %s\n\rLong  description: %s",
-		victim->short_descr,
-		victim->long_descr[0] != '\0' ? victim->long_descr : "(none)\n\r");
+	buf_printf(output, "Short description: %s\n\r", victim->short_descr);
+	if (IS_NPC(victim))
+		mlstr_buf(output, "Long description: ", victim->long_descr);
 
 	if (IS_NPC(victim) && victim->spec_fun != 0)
-		char_printf(ch, "Mobile has special procedure %s.\n\r",
+		buf_printf(output, "Mobile has special procedure %s.\n\r",
 			spec_name(victim->spec_fun));
 
 	for (paf = victim->affected; paf != NULL; paf = paf->next)
-		char_printf(ch,
+		buf_printf(output,
 		    "Spell: '%s' modifies %s by %d for %d hours with bits %s, level %d.\n\r",
 		    skill_table[(int) paf->type].name,
 		    affect_loc_name(paf->location),
@@ -1867,65 +1862,63 @@ void do_mstat(CHAR_DATA *ch, char *argument)
 		    paf->level
 		   );
 
-	if (!(IS_NPC(victim)))
-	   {
-		if (IS_ON_QUEST(victim))
-		{
-		 char_printf(ch,"Questgiver: %d QuestPnts: %d	Questnext: %d\n\r",
+	if (!IS_NPC(victim)) {
+		if (IS_ON_QUEST(victim)) {
+		 buf_printf(output,"Questgiver: %d QuestPnts: %d	Questnext: %d\n\r",
 			victim->pcdata->questgiver,victim->pcdata->questpoints,
 			victim->pcdata->questtime < 0 ? -victim->pcdata->questtime : 0);
-		 char_printf(ch,"QuestCntDown: %d	QuestObj: %d	Questmob: %d\n\r",
+		 buf_printf(output,"QuestCntDown: %d	QuestObj: %d	Questmob: %d\n\r",
 			victim->pcdata->questtime > 0 ? victim->pcdata->questtime : 0,
 			victim->pcdata->questobj, victim->pcdata->questmob);
 		}
 		if  (!IS_ON_QUEST(victim))
-		 char_printf(ch,"QuestPnts: %d	Questnext: %d    NOT QUESTING\n\r",
+		 buf_printf(output,"QuestPnts: %d	Questnext: %d    NOT QUESTING\n\r",
 			victim->pcdata->questpoints,
 			victim->pcdata->questtime < 0 ? -victim->pcdata->questtime : 0);
 	   }	
 
-	char_printf(ch, "Last fought: %10s  Last fight time: %s", 
+	buf_printf(output, "Last fought: %10s  Last fight time: %s  Pumped: %d", 
 		victim->last_fought!=NULL?victim->last_fought->name:"none", 
-		ctime(&(victim->last_fight_time))    );
-	char_printf(ch, "In_mind: [%s]\n\r", 
+		ctime(&(victim->last_fight_time)),
+		victim->pumped);
+	buf_printf(output, "In_mind: [%s]\n\r", 
 			victim->in_mind != NULL ? victim->in_mind : "none");
-	return;
+
+	char_puts(buf_string(output), ch);
+	buf_free(output);
 }
 
-void do_vnum(CHAR_DATA *ch, char *argument)
+void do_vnum(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
-	char *string;
+	const char *string;
 
-	string = one_argument(argument,arg);
+	string = one_argument(argument, arg);
 	
-	if (arg[0] == '\0')
-	{
+	if (arg[0] == '\0') {
 		char_puts("Syntax:\n\r",ch);
 		char_puts("  vnum obj <name>\n\r",ch);
 		char_puts("  vnum mob <name>\n\r",ch);
 		return;
 	}
 
-	if (!str_cmp(arg,"obj"))
-	{
-		do_ofind(ch,string);
+	if (!str_cmp(arg, "obj")) {
+		do_ofind(ch, string);
 		return;
 	}
 
-	if (!str_cmp(arg,"mob") || !str_cmp(arg,"char"))
-	{ 
-		do_mfind(ch,string);
+	if (!str_cmp(arg, "mob") || !str_cmp(arg, "char")) { 
+		do_mfind(ch, string);
 		return;
 	}
 
 	/* do both */
-	do_mfind(ch,argument);
-	do_ofind(ch,argument);
+	do_mfind(ch, argument);
+	do_ofind(ch, argument);
 }
 
 
-void do_mfind(CHAR_DATA *ch, char *argument)
+void do_mfind(CHAR_DATA *ch, const char *argument)
 {
 	extern int top_mob_index;
 	char arg[MAX_INPUT_LENGTH];
@@ -1974,7 +1967,7 @@ void do_mfind(CHAR_DATA *ch, char *argument)
 
 
 
-void do_ofind(CHAR_DATA *ch, char *argument)
+void do_ofind(CHAR_DATA *ch, const char *argument)
 {
 	extern int top_obj_index;
 	char arg[MAX_INPUT_LENGTH];
@@ -2022,7 +2015,7 @@ void do_ofind(CHAR_DATA *ch, char *argument)
 }
 
 
-void do_owhere(CHAR_DATA *ch, char *argument)
+void do_owhere(CHAR_DATA *ch, const char *argument)
 {
 	BUFFER *buffer = NULL;
 	OBJ_DATA *obj;
@@ -2059,7 +2052,7 @@ void do_owhere(CHAR_DATA *ch, char *argument)
 		     &&  can_see_room(ch, in_obj->in_room))
 	        	buf_printf(buffer, "%3d) %s is in %s [Room %d]\n\r",
 	        		number, obj->short_descr,
-				ml_string(ch, in_obj->in_room->name), 
+				mlstr_val(ch, in_obj->in_room->name), 
 				in_obj->in_room->vnum);
 		else
 			buf_printf(buffer, "%3d) %s is somewhere\n\r",number, obj->short_descr);
@@ -2077,7 +2070,7 @@ void do_owhere(CHAR_DATA *ch, char *argument)
 }
 
 
-void do_mwhere(CHAR_DATA *ch, char *argument)
+void do_mwhere(CHAR_DATA *ch, const char *argument)
 {
 	BUFFER *buffer;
 	CHAR_DATA *victim;
@@ -2100,12 +2093,12 @@ void do_mwhere(CHAR_DATA *ch, char *argument)
 			if (d->original != NULL)
 			    buf_printf(buffer,"%3d) %s (in the body of %s) is in %s [%d]\n\r",
 				count, d->original->name,victim->short_descr,
-				ml_string(ch, victim->in_room->name),
+				mlstr_val(ch, victim->in_room->name),
 				victim->in_room->vnum);
 			else
 			    buf_printf(buffer,"%3d) %s is in %s [%d]\n\r",
 				count, victim->name,
-				ml_string(ch, victim->in_room->name),
+				mlstr_val(ch, victim->in_room->name),
 				victim->in_room->vnum);
 		    }
 		}
@@ -2129,7 +2122,7 @@ void do_mwhere(CHAR_DATA *ch, char *argument)
 			IS_NPC(victim) ? victim->pIndexData->vnum : 0,
 			IS_NPC(victim) ? victim->short_descr : victim->name,
 			victim->in_room->vnum,
-			ml_string(ch, victim->in_room->name));
+			mlstr_val(ch, victim->in_room->name));
 		}
 	}
 
@@ -2143,7 +2136,7 @@ void do_mwhere(CHAR_DATA *ch, char *argument)
 
 
 
-void do_reboo(CHAR_DATA *ch, char *argument)
+void do_reboo(CHAR_DATA *ch, const char *argument)
 {
 	char_puts("If you want to REBOOT, spell it out.\n\r", ch);
 	return;
@@ -2151,7 +2144,7 @@ void do_reboo(CHAR_DATA *ch, char *argument)
 
 
 
-void do_shutdow(CHAR_DATA *ch, char *argument)
+void do_shutdow(CHAR_DATA *ch, const char *argument)
 {
 	char_puts("If you want to SHUTDOWN, spell it out.\n\r", ch);
 	return;
@@ -2159,7 +2152,7 @@ void do_shutdow(CHAR_DATA *ch, char *argument)
 
 
 
-void do_shutdown(CHAR_DATA *ch, char *argument)
+void do_shutdown(CHAR_DATA *ch, const char *argument)
 {
 	char buf[MAX_STRING_LENGTH];
 	extern bool merc_down;
@@ -2182,7 +2175,7 @@ void do_shutdown(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-void do_protect(CHAR_DATA *ch, char *argument)
+void do_protect(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *victim;
 
@@ -2213,7 +2206,7 @@ void do_protect(CHAR_DATA *ch, char *argument)
 	
 
 
-void do_snoop(CHAR_DATA *ch, char *argument)
+void do_snoop(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	DESCRIPTOR_DATA *d;
@@ -2294,7 +2287,7 @@ void do_snoop(CHAR_DATA *ch, char *argument)
 
 
 
-void do_switch(CHAR_DATA *ch, char *argument)
+void do_switch(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
@@ -2365,7 +2358,7 @@ void do_switch(CHAR_DATA *ch, char *argument)
 
 
 
-void do_return(CHAR_DATA *ch, char *argument)
+void do_return(CHAR_DATA *ch, const char *argument)
 {
 	if (ch->desc == NULL)
 		return;
@@ -2426,10 +2419,10 @@ void recursive_clone(CHAR_DATA *ch, OBJ_DATA *obj, OBJ_DATA *clone)
 }
 
 /* command that is similar to load */
-void do_clone(CHAR_DATA *ch, char *argument)
+void do_clone(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
-	char *rest;
+	const char *rest;
 	CHAR_DATA *mob;
 	OBJ_DATA  *obj;
 
@@ -2544,7 +2537,7 @@ void do_clone(CHAR_DATA *ch, char *argument)
 
 /* RT to replace the two load commands */
 
-void do_load(CHAR_DATA *ch, char *argument)
+void do_load(CHAR_DATA *ch, const char *argument)
 {
 	 char arg[MAX_INPUT_LENGTH];
 
@@ -2574,7 +2567,7 @@ void do_load(CHAR_DATA *ch, char *argument)
 }
 
 
-void do_mload(CHAR_DATA *ch, char *argument)
+void do_mload(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	MOB_INDEX_DATA *pMobIndex;
@@ -2605,7 +2598,7 @@ void do_mload(CHAR_DATA *ch, char *argument)
 
 
 
-void do_oload(CHAR_DATA *ch, char *argument)
+void do_oload(CHAR_DATA *ch, const char *argument)
 {
 	char arg1[MAX_INPUT_LENGTH] ,arg2[MAX_INPUT_LENGTH];
 	OBJ_INDEX_DATA *pObjIndex;
@@ -2657,7 +2650,7 @@ void do_oload(CHAR_DATA *ch, char *argument)
 
 
 
-void do_purge(CHAR_DATA *ch, char *argument)
+void do_purge(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
@@ -2732,7 +2725,7 @@ void do_purge(CHAR_DATA *ch, char *argument)
 }
 
 
-void do_trust(CHAR_DATA *ch, char *argument)
+void do_trust(CHAR_DATA *ch, const char *argument)
 {
 	char arg1[MAX_INPUT_LENGTH];
 	char arg2[MAX_INPUT_LENGTH];
@@ -2772,7 +2765,7 @@ void do_trust(CHAR_DATA *ch, char *argument)
 
 
 
-void do_restore(CHAR_DATA *ch, char *argument)
+void do_restore(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
@@ -2859,7 +2852,7 @@ void do_restore(CHAR_DATA *ch, char *argument)
 }
 
 		
-void do_freeze(CHAR_DATA *ch, char *argument)
+void do_freeze(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH],buf[MAX_STRING_LENGTH];
 	CHAR_DATA *victim;
@@ -2914,7 +2907,7 @@ void do_freeze(CHAR_DATA *ch, char *argument)
 
 
 
-void do_log(CHAR_DATA *ch, char *argument)
+void do_log(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
@@ -2973,7 +2966,7 @@ void do_log(CHAR_DATA *ch, char *argument)
 
 
 
-void do_noemote(CHAR_DATA *ch, char *argument)
+void do_noemote(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH],buf[MAX_STRING_LENGTH];
 	CHAR_DATA *victim;
@@ -3021,7 +3014,7 @@ void do_noemote(CHAR_DATA *ch, char *argument)
 
 
 
-void do_noshout(CHAR_DATA *ch, char *argument)
+void do_noshout(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH],buf[MAX_STRING_LENGTH];
 	CHAR_DATA *victim;
@@ -3074,7 +3067,7 @@ void do_noshout(CHAR_DATA *ch, char *argument)
 
 
 
-void do_notell(CHAR_DATA *ch, char *argument)
+void do_notell(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH],buf[MAX_STRING_LENGTH];
 	CHAR_DATA *victim;
@@ -3121,7 +3114,7 @@ void do_notell(CHAR_DATA *ch, char *argument)
 
 
 
-void do_peace(CHAR_DATA *ch, char *argument)
+void do_peace(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *rch;
 
@@ -3137,7 +3130,7 @@ void do_peace(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-void do_wizlock(CHAR_DATA *ch, char *argument)
+void do_wizlock(CHAR_DATA *ch, const char *argument)
 {
 	extern bool wizlock;
 	wizlock = !wizlock;
@@ -3158,7 +3151,7 @@ void do_wizlock(CHAR_DATA *ch, char *argument)
 
 /* RT anti-newbie code */
 
-void do_newlock(CHAR_DATA *ch, char *argument)
+void do_newlock(CHAR_DATA *ch, const char *argument)
 {
 	extern bool newlock;
 	newlock = !newlock;
@@ -3178,7 +3171,7 @@ void do_newlock(CHAR_DATA *ch, char *argument)
 }
 
 
-void do_slookup(CHAR_DATA *ch, char *argument)
+void do_slookup(CHAR_DATA *ch, const char *argument)
 {
 	char buf[MAX_STRING_LENGTH];
 	char arg[MAX_INPUT_LENGTH];
@@ -3220,7 +3213,7 @@ void do_slookup(CHAR_DATA *ch, char *argument)
 
 /* RT set replaces sset, mset, oset, and rset */
 
-void do_set(CHAR_DATA *ch, char *argument)
+void do_set(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 
@@ -3265,7 +3258,7 @@ void do_set(CHAR_DATA *ch, char *argument)
 }
 
 
-void do_sset(CHAR_DATA *ch, char *argument)
+void do_sset(CHAR_DATA *ch, const char *argument)
 {
 	char arg1 [MAX_INPUT_LENGTH];
 	char arg2 [MAX_INPUT_LENGTH];
@@ -3345,7 +3338,7 @@ void do_sset(CHAR_DATA *ch, char *argument)
 }
 
 
-void do_string(CHAR_DATA *ch, char *argument)
+void do_string(CHAR_DATA *ch, const char *argument)
 {
 	char type [MAX_INPUT_LENGTH];
 	char arg1 [MAX_INPUT_LENGTH];
@@ -3354,14 +3347,14 @@ void do_string(CHAR_DATA *ch, char *argument)
 	CHAR_DATA *victim;
 	OBJ_DATA *obj;
 
-	smash_tilde(argument);
 	argument = one_argument(argument, type);
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
 	strcpy(arg3, argument);
+	smash_tilde(arg3);
 
-	if (type[0] == '\0' || arg1[0] == '\0' || arg2[0] == '\0' || arg3[0] == '\0')
-	{
+	if (type[0] == '\0' || arg1[0] == '\0'
+	||  arg2[0] == '\0' || arg3[0] == '\0') {
 		char_puts("Syntax:\n\r",ch);
 		char_puts("  string char <name> <field> <string>\n\r",ch);
 		char_puts("    fields: name short long desc title spec\n\r",ch);
@@ -3370,12 +3363,10 @@ void do_string(CHAR_DATA *ch, char *argument)
 		return;
 	}
 	
-	if (!str_prefix(type,"character") || !str_prefix(type,"mobile"))
-	{
-		if ((victim = get_char_world(ch, arg1)) == NULL)
-		{
-		    char_puts("They aren't here.\n\r", ch);
-		    return;
+	if (!str_prefix(type, "character") || !str_prefix(type, "mobile")) {
+		if ((victim = get_char_world(ch, arg1)) == NULL) {
+			char_puts("They aren't here.\n\r", ch);
+			return;
 		}
 
 		/* clear zone for mobs */
@@ -3383,122 +3374,106 @@ void do_string(CHAR_DATA *ch, char *argument)
 
 		/* string something */
 
-	 	if (!str_prefix(arg2, "name"))
-		{
-		    if (!IS_NPC(victim))
-		    {
-		    	char_puts("Not on PC's.\n\r", ch);
-		    	return;
-		    }
-		    free_string(victim->name);
-		    victim->name = str_dup(arg3);
-		    return;
+	 	if (!str_prefix(arg2, "name")) {
+			if (!IS_NPC(victim)) {
+				char_puts("Not on PC's.\n\r", ch);
+				return;
+			}
+			free_string(victim->name);
+			victim->name = str_dup(arg3);
+			return;
 		}
 		
-		if (!str_prefix(arg2, "description"))
-		{
-		    free_string(victim->description);
-		    victim->description = str_dup(arg3);
-		    return;
+		if (!str_prefix(arg2, "short")) {
+			free_string(victim->short_descr);
+			victim->short_descr = str_dup(arg3);
+			return;
 		}
 
-		if (!str_prefix(arg2, "short"))
-		{
-		    free_string(victim->short_descr);
-		    victim->short_descr = str_dup(arg3);
-		    return;
+		if (!str_prefix(arg2, "desc")) {
+			char_puts("Sorry, this option is temporarily "
+				  "disabled\n\r", ch);
+			return;
 		}
 
-		if (!str_prefix(arg2, "long"))
-		{
-		    free_string(victim->long_descr);
-		    strcat(arg3,"\n\r");
-		    victim->long_descr = str_dup(arg3);
-		    return;
+		if (!str_prefix(arg2, "long")) {
+			if (!IS_NPC(victim)) {
+				char_puts("Not on PC's.\n\r", ch);
+				return;
+			}
+			mlstr_change_desc(victim->long_descr, arg3);
+			return;
 		}
 
-		if (!str_prefix(arg2, "title"))
-		{
-		    if (IS_NPC(victim))
-		    {
-		    	char_puts("Not on NPC's.\n\r", ch);
-		    	return;
-		    }
+		if (!str_prefix(arg2, "title")) {
+			if (IS_NPC(victim)) {
+				char_puts("Not on NPC's.\n\r", ch);
+				return;
+			}
 
-		    set_title(victim, arg3);
-		    return;
+			set_title(victim, arg3);
+			return;
 		}
 
-		if (!str_prefix(arg2, "spec"))
-		{
-		    if (!IS_NPC(victim))
-		    {
-		    	char_puts("Not on PC's.\n\r", ch);
-		    	return;
-		    }
+		if (!str_prefix(arg2, "spec")) {
+			if (!IS_NPC(victim)) {
+				char_puts("Not on PC's.\n\r", ch);
+				return;
+			}
 
-		    if ((victim->spec_fun = spec_lookup(arg3)) == 0)
-		    {
-		    	char_puts("No such spec fun.\n\r", ch);
-		    	return;
-		    }
+			if ((victim->spec_fun = spec_lookup(arg3)) == 0) {
+				char_puts("No such spec fun.\n\r", ch);
+				return;
+			}
 
-		    return;
+			return;
 		}
 	}
 	
-	if (!str_prefix(type,"object"))
-	{
+	if (!str_prefix(type,"object")) {
 		/* string an obj */
 		
-	 	if ((obj = get_obj_world(ch, arg1)) == NULL)
-		{
-		    char_puts("Nothing like that in heaven or earth.\n\r", ch);
-		    return;
+	 	if ((obj = get_obj_world(ch, arg1)) == NULL) {
+			char_puts("Nothing like that in heaven or earth.\n\r",
+				  ch);
+			return;
 		}
 		
-	    if (!str_prefix(arg2, "name"))
-		{
-		    free_string(obj->name);
-		    obj->name = str_dup(arg3);
-		    return;
+		if (!str_prefix(arg2, "name")) {
+			free_string(obj->name);
+			obj->name = str_dup(arg3);
+			return;
 		}
 
-		if (!str_prefix(arg2, "short"))
-		{
-		    free_string(obj->short_descr);
-		    obj->short_descr = str_dup(arg3);
-		    return;
+		if (!str_prefix(arg2, "short")) {
+			free_string(obj->short_descr);
+			obj->short_descr = str_dup(arg3);
+			return;
 		}
 
-		if (!str_prefix(arg2, "long"))
-		{
-		    free_string(obj->description);
-		    obj->description = str_dup(arg3);
-		    return;
+		if (!str_prefix(arg2, "long")) {
+			free_string(obj->description);
+			obj->description = str_dup(arg3);
+			return;
 		}
 
-		if (!str_prefix(arg2, "ed") || !str_prefix(arg2, "extended"))
-		{
-		    EXTRA_DESCR_DATA *ed;
+		if (!str_prefix(arg2, "ed") || !str_prefix(arg2, "extended")) {
+			EXTRA_DESCR_DATA *ed;
 
-		    argument = one_argument(argument, arg3);
-		    if (argument == NULL)
-		    {
-		    	char_puts("Syntax: oset <object> ed <keyword> <string>\n\r",
-			    ch);
-		    	return;
-		    }
+			argument = one_argument(argument, arg3);
+			if (argument == NULL) {
+				char_puts("Syntax: oset <object> ed <keyword> <string>\n\r",
+				ch);
+				return;
+			}
 
-		    strcat(argument,"\n\r");
 
-		    ed = new_extra_descr();
-
-		    ed->keyword		= str_dup(arg3    );
-		    ed->description	= str_dup(argument);
-		    ed->next		= obj->extra_descr;
-		    obj->extra_descr	= ed;
-		    return;
+			ed = new_extra_descr();
+			ed->keyword		= str_dup(arg3    );
+			ed->description	= str_add(argument, "\n\r", NULL);
+			ed->next		= obj->extra_descr;
+			obj->extra_descr	= ed;
+			return;
 		}
 	}
 	
@@ -3508,22 +3483,19 @@ void do_string(CHAR_DATA *ch, char *argument)
 }
 
 
-
-void do_oset(CHAR_DATA *ch, char *argument)
+void do_oset(CHAR_DATA *ch, const char *argument)
 {
-	char arg1 [MAX_INPUT_LENGTH];
-	char arg2 [MAX_INPUT_LENGTH];
-	char arg3 [MAX_INPUT_LENGTH];
+	char arg1[MAX_INPUT_LENGTH];
+	char arg2[MAX_INPUT_LENGTH];
+	char arg3[MAX_STRING_LENGTH];
 	OBJ_DATA *obj;
 	int value;
 
-	smash_tilde(argument);
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
-	strcpy(arg3, argument);
+		   one_argument(argument, arg3);
 
-	if (arg1[0] == '\0' || arg2[0] == '\0' || arg3[0] == '\0')
-	{
+	if (arg1[0] == '\0' || arg2[0] == '\0' || arg3[0] == '\0') {
 		char_puts("Syntax:\n\r",ch);
 		char_puts("  set obj <object> <field> <value>\n\r",ch);
 		char_puts("  Field being one of:\n\r",				ch);
@@ -3532,82 +3504,67 @@ void do_oset(CHAR_DATA *ch, char *argument)
 		return;
 	}
 
-	if ((obj = get_obj_world(ch, arg1)) == NULL)
-	{
+	if ((obj = get_obj_world(ch, arg1)) == NULL) {
 		char_puts("Nothing like that in heaven or earth.\n\r", ch);
 		return;
 	}
 
-	/*
-	 * Snarf the value (which need not be numeric).
-	 */
 	value = atoi(arg3);
 
 	/*
 	 * Set something.
 	 */
-	if (!str_cmp(arg2, "value0") || !str_cmp(arg2, "v0"))
-	{
+	if (!str_cmp(arg2, "value0") || !str_cmp(arg2, "v0")) {
 		obj->value[0] = UMIN(50,value);
 		return;
 	}
 
-	if (!str_cmp(arg2, "value1") || !str_cmp(arg2, "v1"))
-	{
+	if (!str_cmp(arg2, "value1") || !str_cmp(arg2, "v1")) {
 		obj->value[1] = value;
 		return;
 	}
 
-	if (!str_cmp(arg2, "value2") || !str_cmp(arg2, "v2"))
-	{
+	if (!str_cmp(arg2, "value2") || !str_cmp(arg2, "v2")) {
 		obj->value[2] = value;
 		return;
 	}
 
-	if (!str_cmp(arg2, "value3") || !str_cmp(arg2, "v3"))
-	{
+	if (!str_cmp(arg2, "value3") || !str_cmp(arg2, "v3")) {
 		obj->value[3] = value;
 		return;
 	}
 
-	if (!str_cmp(arg2, "value4") || !str_cmp(arg2, "v4"))
-	{
+	if (!str_cmp(arg2, "value4") || !str_cmp(arg2, "v4")) {
 		obj->value[4] = value;
 		return;
 	}
 
-	if (!str_prefix(arg2, "extra"))
-	{
+	if (!str_prefix(arg2, "extra")) {
 		obj->extra_flags = value;
 		return;
 	}
 
-	if (!str_prefix(arg2, "wear"))
-	{
+	if (!str_prefix(arg2, "wear")) {
 		obj->wear_flags = value;
 		return;
 	}
 
-	if (!str_prefix(arg2, "level"))
-	{
+	if (!str_prefix(arg2, "level")) {
 		obj->level = value;
 		return;
 	}
 		
-	if (!str_prefix(arg2, "weight"))
-	{
+	if (!str_prefix(arg2, "weight")) {
 		obj->weight = value;
 		return;
 	}
 
-	if (!str_prefix(arg2, "cost"))
-	{
+	if (!str_prefix(arg2, "cost")) {
 		obj->cost = value;
 		return;
 	}
 
-	if (!str_prefix(arg2, "timer"))
-	{
+	if (!str_prefix(arg2, "timer")) {
 		obj->timer = value;
 		return;
 	}
@@ -3621,7 +3578,7 @@ void do_oset(CHAR_DATA *ch, char *argument)
 
 
 
-void do_rset(CHAR_DATA *ch, char *argument)
+void do_rset(CHAR_DATA *ch, const char *argument)
 {
 	char arg1 [MAX_INPUT_LENGTH];
 	char arg2 [MAX_INPUT_LENGTH];
@@ -3629,13 +3586,11 @@ void do_rset(CHAR_DATA *ch, char *argument)
 	ROOM_INDEX_DATA *location;
 	int value;
 
-	smash_tilde(argument);
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
-	strcpy(arg3, argument);
+		   one_argument(argument, arg3);
 
-	if (arg1[0] == '\0' || arg2[0] == '\0' || arg3[0] == '\0')
-	{
+	if (arg1[0] == '\0' || arg2[0] == '\0' || arg3[0] == '\0') {
 		char_puts("Syntax:\n\r",ch);
 		char_puts("  set room <location> <field> <value>\n\r",ch);
 		char_puts("  Field being one of:\n\r",			ch);
@@ -3660,8 +3615,7 @@ void do_rset(CHAR_DATA *ch, char *argument)
 	/*
 	 * Snarf the value.
 	 */
-	if (!is_number(arg3))
-	{
+	if (!is_number(arg3)) {
 		char_puts("Value must be numeric.\n\r", ch);
 		return;
 	}
@@ -3691,7 +3645,7 @@ void do_rset(CHAR_DATA *ch, char *argument)
 
 
 
-void do_sockets(CHAR_DATA *ch, char *argument)
+void do_sockets(CHAR_DATA *ch, const char *argument)
 {
 	char buf[2 * MAX_STRING_LENGTH];
 	char buf2[MAX_STRING_LENGTH];
@@ -3736,7 +3690,7 @@ void do_sockets(CHAR_DATA *ch, char *argument)
 /*
  * Thanks to Grodyn for pointing out bugs in this function.
  */
-void do_force(CHAR_DATA *ch, char *argument)
+void do_force(CHAR_DATA *ch, const char *argument)
 {
 	char buf[MAX_STRING_LENGTH];
 	char arg[MAX_INPUT_LENGTH];
@@ -3876,7 +3830,7 @@ void do_force(CHAR_DATA *ch, char *argument)
 /*
  * New routines by Dionysos.
  */
-void do_invis(CHAR_DATA *ch, char *argument)
+void do_invis(CHAR_DATA *ch, const char *argument)
 {
 	int level;
 	char arg[MAX_STRING_LENGTH];
@@ -3921,7 +3875,7 @@ void do_invis(CHAR_DATA *ch, char *argument)
 }
 
 
-void do_incognito(CHAR_DATA *ch, char *argument)
+void do_incognito(CHAR_DATA *ch, const char *argument)
 {
 	int level;
 	char arg[MAX_STRING_LENGTH];
@@ -3967,7 +3921,7 @@ void do_incognito(CHAR_DATA *ch, char *argument)
 
 
 
-void do_holylight(CHAR_DATA *ch, char *argument)
+void do_holylight(CHAR_DATA *ch, const char *argument)
 {
 	if (IS_NPC(ch))
 		return;
@@ -3988,13 +3942,13 @@ void do_holylight(CHAR_DATA *ch, char *argument)
 
 /* prefix command: it will put the string typed on each line typed */
 
-void do_prefi (CHAR_DATA *ch, char *argument)
+void do_prefi (CHAR_DATA *ch, const char *argument)
 {
 	char_puts("You cannot abbreviate the prefix command.\r\n",ch);
 	return;
 }
 
-void do_prefix (CHAR_DATA *ch, char *argument)
+void do_prefix (CHAR_DATA *ch, const char *argument)
 {
 	char buf[MAX_INPUT_LENGTH];
 
@@ -4026,7 +3980,7 @@ void do_prefix (CHAR_DATA *ch, char *argument)
 }
 
 
-void do_advance(CHAR_DATA *ch, char *argument)
+void do_advance(CHAR_DATA *ch, const char *argument)
 {
 	char arg1[MAX_INPUT_LENGTH];
 	char arg2[MAX_INPUT_LENGTH];
@@ -4120,28 +4074,26 @@ void do_advance(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-void do_mset(CHAR_DATA *ch, char *argument)
+void do_mset(CHAR_DATA *ch, const char *argument)
 {
 	char arg1 [MAX_INPUT_LENGTH];
 	char arg2 [MAX_INPUT_LENGTH];
 	char arg3 [MAX_INPUT_LENGTH];
-	char buf[100];
 	CHAR_DATA *victim;
 	int value,sn;
 
-	smash_tilde(argument);
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
-	strcpy(arg3, argument);
+		   one_argument(argument, arg3);
 
-	if (arg1[0] == '\0' || arg2[0] == '\0' || arg3[0] == '\0')
-	{
+	if (arg1[0] == '\0' || arg2[0] == '\0' || arg3[0] == '\0') {
 		char_puts("Syntax:\n\r",ch);
 		char_puts("  set char <name> <field> <value>\n\r",ch); 
 		char_puts("  Field being one of:\n\r",			ch);
 		char_puts("    str int wis dex con cha sex class level\n\r",ch);
 		char_puts("    race gold hp mana move practice align\n\r",	ch);
 		char_puts("    train thirst drunk full hometown ethos\n\r",	ch);
+		char_puts("    pumped\n\r", ch);
 
 /*** Added By KIO ***/
 		char_puts("    questp questt relig bloodlust desire security\n\r",	ch);
@@ -4149,8 +4101,7 @@ void do_mset(CHAR_DATA *ch, char *argument)
 		return;
 	}
 
-	if ((victim = get_char_world(ch, arg1)) == NULL)
-	{
+	if ((victim = get_char_world(ch, arg1)) == NULL) {
 		char_puts("They aren't here.\n\r", ch);
 		return;
 	}
@@ -4163,18 +4114,23 @@ void do_mset(CHAR_DATA *ch, char *argument)
 	/*
 	 * Set something.
 	 */
-	if (!str_cmp(arg2, "str"))
-	{
+	if (!str_cmp(arg2, "str")) {
 		if (value < 3 || value > get_max_train(victim,STAT_STR))
 		{
-		    sprintf(buf,
+		    char_printf(ch,
 			"Strength range is 3 to %d\n\r.",
 			get_max_train(victim,STAT_STR));
-		    char_puts(buf,ch);
 		    return;
 		}
 
 		victim->perm_stat[STAT_STR] = value;
+		return;
+	}
+
+	if (!str_cmp(arg2, "pumped")) {
+		if (value < 0)
+			return;
+		victim->pumped = value != 0;
 		return;
 	}
 
@@ -4621,7 +4577,7 @@ void do_mset(CHAR_DATA *ch, char *argument)
 }
 
 
-void do_desocket(CHAR_DATA *ch, char *argument)
+void do_desocket(CHAR_DATA *ch, const char *argument)
 {
 	DESCRIPTOR_DATA *d;
 	int socket;
@@ -4672,7 +4628,7 @@ void do_desocket(CHAR_DATA *ch, char *argument)
 	}
 }
 
-void do_smite(CHAR_DATA *ch, char *argument)
+void do_smite(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *victim;
 
@@ -4710,7 +4666,7 @@ void do_smite(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-void do_popularity(CHAR_DATA *ch, char *argument)
+void do_popularity(CHAR_DATA *ch, const char *argument)
 {
 	BUFFER *output;
 	AREA_DATA *area;
@@ -4731,7 +4687,7 @@ void do_popularity(CHAR_DATA *ch, char *argument)
 	buf_free(output);
 }
 
-void do_ititle(CHAR_DATA *ch, char *argument)
+void do_ititle(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
@@ -4752,16 +4708,11 @@ void do_ititle(CHAR_DATA *ch, char *argument)
 	if (IS_NPC(ch))
 		return;
 
-	if (argument[0] == '\0')
-	{
+	if (argument[0] == '\0') {
 		char_puts("Change the title to what?\n\r", ch);
 		return;
 	}
 
-	if (strlen(argument) > 45)
-		argument[45] = '\0';
-
-	smash_tilde(argument);
 	set_title(victim, argument);
 	char_puts("Ok.\n\r", ch);
 }
@@ -4772,103 +4723,94 @@ void do_ititle(CHAR_DATA *ch, char *argument)
 
 bool check_parse_name (char* name);  
 
-void do_rename (CHAR_DATA* ch, char* argument)
+void do_rename (CHAR_DATA* ch, const char *argument)
 {
-		char old_name[MAX_INPUT_LENGTH], 
-		     new_name[MAX_INPUT_LENGTH],
-		     strsave [MAX_INPUT_LENGTH];
+	char old_name[MAX_INPUT_LENGTH], 
+	     new_name[MAX_INPUT_LENGTH],
+	     strsave [MAX_INPUT_LENGTH];
 
-		CHAR_DATA* victim;
-		FILE* file;
+	CHAR_DATA* victim;
+	FILE* file;
 		
-		argument = one_argument(argument, old_name); 
-		one_argument (argument, new_name);
+	argument = one_argument(argument, old_name); 
+	one_argument (argument, new_name);
 		
-		if (!old_name[0])
-		{
-			char_puts ("Rename who?\n\r",ch);
-			return;
-		}
+	if (!old_name[0]) {
+		char_puts ("Rename who?\n\r",ch);
+		return;
+	}
 		
-		victim = get_char_world (ch, old_name);
+	victim = get_char_world (ch, old_name);
 		
-		if (!victim)
-		{
-			char_puts ("There is no such a person online.\n\r",ch);
-			return;
-		}
+	if (!victim) {
+		char_puts ("There is no such a person online.\n\r",ch);
+		return;
+	}
 		
-		if (IS_NPC(victim)) {   
-			char_puts ("You cannot use Rename on NPCs.\n\r",ch);
-			return;
-		}
+	if (IS_NPC(victim)) {   
+		char_puts ("You cannot use Rename on NPCs.\n\r",ch);
+		return;
+	}
 
-		if ((victim != ch) && (get_trust (victim) >= get_trust (ch))) {
-			char_puts ("You failed.\n\r",ch);
-			return;
-		}
+	if ((victim != ch) && (get_trust (victim) >= get_trust (ch))) {
+		char_puts ("You failed.\n\r",ch);
+		return;
+	}
 		
-		if (!victim->desc || (victim->desc->connected != CON_PLAYING))
-		{
-			char_puts ("This player has lost his link or is inside a pager or the like.\n\r",ch);
-			return;
-		}
+	if (!victim->desc || (victim->desc->connected != CON_PLAYING)) {
+		char_puts ("This player has lost his link or is inside a pager or the like.\n\r",ch);
+		return;
+	}
 
-		if (!new_name[0])
-		{
-			char_puts ("Rename to what new name?\n\r",ch);
-			return;
-		}
+	if (!new_name[0]) {
+		char_puts ("Rename to what new name?\n\r",ch);
+		return;
+	}
 		
 /*
-		if (victim->clan)
-		{
-		 char_puts ("This player is member of a clan, remove him from there first.\n\r",ch);
-		 return;
-		}
+	if (victim->clan) {
+		char_puts ("This player is member of a clan, remove him from there first.\n\r",ch);
+		return;
+	}
 */
 
-		new_name[0] = UPPER(new_name[0]);
-		if (!check_parse_name(new_name))
-		{
-			char_puts ("The new name is illegal.\n\r",ch);
-			return;
-		}
+	new_name[0] = UPPER(new_name[0]);
+	if (!check_parse_name(new_name)) {
+		char_puts ("The new name is illegal.\n\r",ch);
+		return;
+	}
 
-	    sprintf(strsave, "%s%s", PLAYER_DIR, capitalize(new_name)); 
+	sprintf(strsave, "%s%s", PLAYER_DIR, capitalize(new_name)); 
 
-		fclose (fpReserve); 
-		file = fopen (strsave, "r"); 
-		if (file)
-		{
-			char_puts ("A player with that name already exists!\n\r",ch);
-			fclose (file);
+	fclose (fpReserve); 
+	file = fopen (strsave, "r"); 
+	if (file) {
+		char_puts ("A player with that name already exists!\n\r",ch);
+		fclose (file);
 		fpReserve = fopen(NULL_FILE, "r"); 
-			return;		
-		}
-	 	fpReserve = fopen(NULL_FILE, "r");  
+		return;		
+	}
+	fpReserve = fopen(NULL_FILE, "r");  
 
 		/* Check .gz file ! */
-	    sprintf(strsave, "%s%s.gz", PLAYER_DIR, capitalize(new_name));
+	sprintf(strsave, "%s%s.gz", PLAYER_DIR, capitalize(new_name));
 
-		fclose (fpReserve); 
-		file = fopen (strsave, "r"); 
-		if (file)
-		{
-			char_puts ("A player with that name already exists in a compressed file!\n\r",ch);
-			fclose (file);
+	fclose (fpReserve); 
+	file = fopen (strsave, "r"); 
+	if (file) {
+		char_puts ("A player with that name already exists in a compressed file!\n\r",ch);
+		fclose (file);
 		fpReserve = fopen(NULL_FILE, "r"); 
-			return;		
-		}
-	 	fpReserve = fopen(NULL_FILE, "r");  
+		return;		
+	}
+	fpReserve = fopen(NULL_FILE, "r");  
 
-		if (get_char_world(ch,new_name)) 
-		{
-			char_puts ("A player with the name you specified already exists!\n\r",ch);
-			return;
-		}
+	if (get_char_world(ch, new_name)) {
+		char_puts ("A player with the name you specified already exists!\n\r",ch);
+		return;
+	}
 
-		sprintf(strsave, "%s%s", PLAYER_DIR, capitalize(victim->name));
+	sprintf(strsave, "%s%s", PLAYER_DIR, capitalize(victim->name));
 
 /*
  * NOTE: Players who are level 1 do NOT get saved under a new name 
@@ -4885,7 +4827,7 @@ void do_rename (CHAR_DATA* ch, char* argument)
 				
 } 
 
-void do_notitle(CHAR_DATA *ch, char *argument)
+void do_notitle(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
@@ -4913,7 +4855,7 @@ void do_notitle(CHAR_DATA *ch, char *argument)
 }
 	   
 
-void do_noaffect(CHAR_DATA *ch, char * argument)
+void do_noaffect(CHAR_DATA *ch, const char *argument)
 {
 	AFFECT_DATA *paf,*paf_next;
 	char arg[MAX_INPUT_LENGTH];
@@ -4924,31 +4866,27 @@ void do_noaffect(CHAR_DATA *ch, char * argument)
 
 	argument = one_argument(argument,arg);
 
-
 	if ((victim = get_char_world(ch ,arg)) == NULL) {
 		char_puts("He is not currently playing.\n\r", ch);
 		return;
 	}
 	 
 	
-		for (paf = victim->affected; paf != NULL; paf = paf_next)
-		{
-		    paf_next	= paf->next;
-		    if (paf->duration >= 0)
-		    {
-	          if (paf->type > 0 && skill_table[paf->type].msg_off)
-			    {
-				char_puts(skill_table[paf->type].msg_off, victim);
+	for (paf = victim->affected; paf != NULL; paf = paf_next) {
+		paf_next = paf->next;
+		if (paf->duration >= 0) {
+	        	if (paf->type > 0 && skill_table[paf->type].msg_off) {
+				char_puts(skill_table[paf->type].msg_off,
+					  victim);
 				char_puts("\n\r", victim);
-			    }
+			}
 		  
 			affect_remove(victim, paf);
-		    }
 		}
-
+	}
 }
 
-void do_affrooms(CHAR_DATA *ch, char *argument)
+void do_affrooms(CHAR_DATA *ch, const char *argument)
 {
 	ROOM_INDEX_DATA *room;
 	ROOM_INDEX_DATA *room_next;
@@ -4961,11 +4899,11 @@ void do_affrooms(CHAR_DATA *ch, char *argument)
 		room_next = room->aff_next;
 		count++;
 		char_printf(ch, "%d) [Vnum : %5d] %s\n\r",
-			count, room->vnum , ml_string(ch, room->name));
+			count, room->vnum , mlstr_val(ch, room->name));
 	}
 }
 
-void do_find(CHAR_DATA *ch, char *argument)
+void do_find(CHAR_DATA *ch, const char *argument)
 {
 	char* path;
 	ROOM_INDEX_DATA *location;
@@ -4988,7 +4926,7 @@ void do_find(CHAR_DATA *ch, char *argument)
 }
 
 
-void do_reboot(CHAR_DATA *ch, char *argument)
+void do_reboot(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 

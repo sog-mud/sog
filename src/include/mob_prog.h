@@ -2,12 +2,12 @@
 #define _MOB_PROG_H_
 
 /*
- * $Id: mob_prog.h,v 1.1 1998-06-28 04:47:15 fjoe Exp $
+ * $Id: mob_prog.h,v 1.2 1998-07-11 20:55:13 fjoe Exp $
  */
 
 void	program_flow	(int vnum, char *source, CHAR_DATA *mob, CHAR_DATA *ch,
 				const void *arg1, const void *arg2);
-void	mp_act_trigger	(char *argument, CHAR_DATA *mob, CHAR_DATA *ch,
+void	mp_act_trigger	(const char *argument, CHAR_DATA *mob, CHAR_DATA *ch,
 				const void *arg1, const void *arg2, int type);
 bool	mp_percent_trigger (CHAR_DATA *mob, CHAR_DATA *ch, 				
 				const void *arg1, const void *arg2, int type);

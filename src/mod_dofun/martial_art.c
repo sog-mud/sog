@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.16 1998-07-07 10:31:02 fjoe Exp $
+ * $Id: martial_art.c,v 1.17 1998-07-11 20:55:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -151,7 +151,7 @@ act_puts("$N wields his second weapon as first!",  ch, NULL, victim,
 	return;
 }
 
-void do_berserk(CHAR_DATA *ch, char *argument)
+void do_berserk(CHAR_DATA *ch, const char *argument)
 {
 	int chance, hp_percent;
 
@@ -232,7 +232,7 @@ void do_berserk(CHAR_DATA *ch, char *argument)
 	}
 }
 
-void do_bash(CHAR_DATA *ch, char *argument)
+void do_bash(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
@@ -387,7 +387,7 @@ void do_bash(CHAR_DATA *ch, char *argument)
 	}
 }
 
-void do_dirt(CHAR_DATA *ch, char *argument)
+void do_dirt(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
@@ -529,7 +529,7 @@ void do_dirt(CHAR_DATA *ch, char *argument)
 	
 }
 
-void do_trip(CHAR_DATA *ch, char *argument)
+void do_trip(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
@@ -664,7 +664,7 @@ void do_trip(CHAR_DATA *ch, char *argument)
 
 
 
-void do_backstab(CHAR_DATA *ch, char *argument)
+void do_backstab(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
@@ -782,7 +782,7 @@ void do_backstab(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-void do_cleave(CHAR_DATA *ch, char *argument)
+void do_cleave(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
@@ -866,7 +866,7 @@ void do_cleave(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-void do_ambush(CHAR_DATA *ch, char *argument)
+void do_ambush(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
@@ -940,7 +940,7 @@ void do_ambush(CHAR_DATA *ch, char *argument)
 
 
 
-void do_rescue(CHAR_DATA *ch, char *argument)
+void do_rescue(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
@@ -1012,7 +1012,7 @@ void do_rescue(CHAR_DATA *ch, char *argument)
 
 
 
-void do_kick(CHAR_DATA *ch, char *argument)
+void do_kick(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *victim;
 	int kick_dam;
@@ -1062,7 +1062,7 @@ void do_kick(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-void do_circle(CHAR_DATA *ch, char *argument)
+void do_circle(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *victim;
 	CHAR_DATA *person;
@@ -1125,7 +1125,7 @@ void do_circle(CHAR_DATA *ch, char *argument)
 
 
 
-void do_disarm(CHAR_DATA *ch, char *argument)
+void do_disarm(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *victim;
 	OBJ_DATA *obj;
@@ -1227,7 +1227,7 @@ void do_disarm(CHAR_DATA *ch, char *argument)
 
 
 
-void do_nerve(CHAR_DATA *ch, char *argument)
+void do_nerve(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *victim;
 	char arg[MAX_INPUT_LENGTH];
@@ -1346,7 +1346,7 @@ void do_endure(CHAR_DATA *ch, char *arg)
 	check_improve(ch,gsn_endure,TRUE,1);
 }
  
-void do_tame(CHAR_DATA *ch, char *argument)
+void do_tame(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *victim;
 	char arg[MAX_INPUT_LENGTH];
@@ -1406,7 +1406,7 @@ void do_tame(CHAR_DATA *ch, char *argument)
 	}
 }
 
-void do_assassinate(CHAR_DATA *ch, char *argument)
+void do_assassinate(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
@@ -1516,7 +1516,7 @@ void do_assassinate(CHAR_DATA *ch, char *argument)
 }
 
 
-void do_caltrops(CHAR_DATA *ch, char *argument)
+void do_caltrops(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *victim = ch->fighting;
 
@@ -1588,7 +1588,7 @@ void do_caltrops(CHAR_DATA *ch, char *argument)
 }
 
 
-void do_throw(CHAR_DATA *ch, char *argument)
+void do_throw(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *victim;
 	char arg[MAX_INPUT_LENGTH];
@@ -1698,7 +1698,7 @@ act_puts("$n fails to throw $N.",ch,NULL,victim,TO_NOTVICT,
 	return;
 }
 
-void do_strangle(CHAR_DATA *ch, char *argument)
+void do_strangle(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *victim;
 	AFFECT_DATA af;
@@ -1739,8 +1739,8 @@ void do_strangle(CHAR_DATA *ch, char *argument)
 	if (is_safe(ch,victim))
 		return;
 
-	victim->last_fight_time = current_time;
-	ch->last_fight_time = current_time;
+	SET_FIGHT_TIME(victim);
+	SET_FIGHT_TIME(ch);
 
 	WAIT_STATE(ch,skill_table[gsn_strangle].beats);
 
@@ -1780,7 +1780,7 @@ void do_strangle(CHAR_DATA *ch, char *argument)
 	}
 }
 
-void do_blackjack(CHAR_DATA *ch, char *argument)
+void do_blackjack(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *victim;
 	AFFECT_DATA af;
@@ -1824,8 +1824,9 @@ void do_blackjack(CHAR_DATA *ch, char *argument)
 
 	if (is_safe(ch,victim))
 		return;
-	victim->last_fight_time = current_time;
-	ch->last_fight_time = current_time;
+
+	SET_FIGHT_TIME(victim);
+	SET_FIGHT_TIME(ch);
 
 	WAIT_STATE(ch,skill_table[gsn_blackjack].beats);
 
@@ -1875,7 +1876,7 @@ void do_blackjack(CHAR_DATA *ch, char *argument)
 
 
 
-void do_bloodthirst(CHAR_DATA *ch, char *argument)
+void do_bloodthirst(CHAR_DATA *ch, const char *argument)
 {
 	int chance, hp_percent;
 
@@ -1945,7 +1946,7 @@ void do_bloodthirst(CHAR_DATA *ch, char *argument)
 }
 
 
-void do_spellbane(CHAR_DATA *ch, char *argument)
+void do_spellbane(CHAR_DATA *ch, const char *argument)
 {
 	AFFECT_DATA af;
 
@@ -1979,7 +1980,7 @@ void do_spellbane(CHAR_DATA *ch, char *argument)
  
 }
 
-void do_resistance(CHAR_DATA *ch, char *argument)
+void do_resistance(CHAR_DATA *ch, const char *argument)
 {
 	if (!SKILL_OK(ch, gsn_resistance)) 
 		return;
@@ -2030,7 +2031,7 @@ void do_resistance(CHAR_DATA *ch, char *argument)
 
 }
 
-void do_trophy(CHAR_DATA *ch, char *argument)
+void do_trophy(CHAR_DATA *ch, const char *argument)
 {
 	int trophy_vnum;
 	OBJ_DATA *trophy;
@@ -2125,10 +2126,8 @@ void do_trophy(CHAR_DATA *ch, char *argument)
 					       level);
 			trophy->timer = ch->level * 2;
 
-			str_printf(&trophy->short_descr,
-				   trophy->short_descr, part->from);
-			str_printf(&trophy->description,
-				   trophy->description, part->from);
+			str_printf(&trophy->short_descr, part->from);
+			str_printf(&trophy->description, part->from);
 
 			trophy->cost  = 0;
 			trophy->level = ch->level;
@@ -2181,7 +2180,7 @@ void do_trophy(CHAR_DATA *ch, char *argument)
 }
 	
 
-void do_truesight(CHAR_DATA *ch, char *argument)
+void do_truesight(CHAR_DATA *ch, const char *argument)
 {
 	if (ch_skill_nok(ch,gsn_truesight))
 	return;
@@ -2247,7 +2246,7 @@ void do_truesight(CHAR_DATA *ch, char *argument)
 
 }
 
-void do_warcry(CHAR_DATA *ch, char *argument)
+void do_warcry(CHAR_DATA *ch, const char *argument)
 {
 	AFFECT_DATA af;
 	
@@ -2297,7 +2296,7 @@ void do_warcry(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-void do_guard(CHAR_DATA *ch, char *argument)
+void do_guard(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
@@ -2434,7 +2433,7 @@ CHAR_DATA *check_guard(CHAR_DATA *ch, CHAR_DATA *mob)
 }
 
 
-void do_explode(CHAR_DATA *ch, char *argument)
+void do_explode(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *victim = ch->fighting;
 	CHAR_DATA *vch, *vch_next;
@@ -2525,7 +2524,7 @@ void do_explode(CHAR_DATA *ch, char *argument)
 
 
 
-void do_target (CHAR_DATA *ch, char *argument)
+void do_target (CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *victim;
 
@@ -2589,7 +2588,7 @@ send_to_char("You tried, but you couldn't. But for honour try again!.\n\r",ch);
 }
 
 
-void do_tiger(CHAR_DATA *ch, char *argument)
+void do_tiger(CHAR_DATA *ch, const char *argument)
 {
 	int chance, hp_percent;
 
@@ -2685,7 +2684,7 @@ void do_tiger(CHAR_DATA *ch, char *argument)
 	}
 }
 
-void do_hara(CHAR_DATA *ch, char *argument)
+void do_hara(CHAR_DATA *ch, const char *argument)
 {
 	int chance;
 	AFFECT_DATA  af;
@@ -2855,7 +2854,7 @@ int critical_strike(CHAR_DATA *ch, CHAR_DATA *victim,   int dam)
 	return dam;
 }  
 
-void do_shield(CHAR_DATA *ch, char *argument)
+void do_shield(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *victim;
 	int chance,ch_weapon,vict_shield;
@@ -2939,7 +2938,7 @@ void do_shield(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-void do_weapon(CHAR_DATA *ch, char *argument)
+void do_weapon(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *victim;
 	OBJ_DATA *wield,*axe;
@@ -3024,7 +3023,7 @@ void do_weapon(CHAR_DATA *ch, char *argument)
 }
 
 
-void do_tail(CHAR_DATA *ch, char *argument)
+void do_tail(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
@@ -3184,7 +3183,7 @@ act_puts("$n's tail seems to slide around $N.",ch,NULL,victim,
 	}
 }
 
-void do_concentrate(CHAR_DATA *ch, char *argument)
+void do_concentrate(CHAR_DATA *ch, const char *argument)
 {
 	int chance;
 
@@ -3262,7 +3261,7 @@ void do_concentrate(CHAR_DATA *ch, char *argument)
 }
 
 
-void do_bandage(CHAR_DATA *ch, char *argument)
+void do_bandage(CHAR_DATA *ch, const char *argument)
 {
 	int heal;
 
@@ -3322,7 +3321,7 @@ void do_bandage(CHAR_DATA *ch, char *argument)
 }
 
 
-void do_katana(CHAR_DATA *ch, char *argument)
+void do_katana(CHAR_DATA *ch, const char *argument)
 {
 	OBJ_DATA *katana;
 	AFFECT_DATA af;
@@ -3406,9 +3405,7 @@ void do_katana(CHAR_DATA *ch, char *argument)
 		katana->value[2] = ch->level / 10;
 
 		katana->extra_descr = new_extra_descr();
-		str_printf(&katana->extra_descr->description,
-			   katana->pIndexData->extra_descr->description,
-			   ch->name);
+		str_printf(&katana->extra_descr->description, ch->name);
 		katana->extra_descr->keyword =
 			str_dup(katana->pIndexData->extra_descr->keyword);
 		katana->extra_descr->next = NULL;
@@ -3431,7 +3428,7 @@ void do_katana(CHAR_DATA *ch, char *argument)
 }
 	
 
-void do_crush(CHAR_DATA *ch, char *argument)
+void do_crush(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *victim;
 	int chance=100, wait=0;
@@ -3538,7 +3535,7 @@ act_puts("$n's crush seems to slide around $N.",ch,NULL,victim,
 }
 
 
-void do_sense(CHAR_DATA *ch, char *argument)
+void do_sense(CHAR_DATA *ch, const char *argument)
 {
 	if (IS_NPC(ch) ||
 			ch->level < skill_table[gsn_sense_life].skill_level[ch->class]) 
@@ -3591,7 +3588,7 @@ void do_sense(CHAR_DATA *ch, char *argument)
 }
 
 
-void do_poison_smoke(CHAR_DATA *ch, char *argument) 
+void do_poison_smoke(CHAR_DATA *ch, const char *argument) 
 {
 	CHAR_DATA *tmp_vict;
 
@@ -3643,7 +3640,7 @@ void do_poison_smoke(CHAR_DATA *ch, char *argument)
 	
 }
 
-void do_blindness_dust(CHAR_DATA *ch, char *argument)
+void do_blindness_dust(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *tmp_vict;
 

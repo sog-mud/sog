@@ -1,5 +1,5 @@
 /*
- * $Id: mem.c,v 1.3 1998-07-10 10:39:40 fjoe Exp $
+ * $Id: mem.c,v 1.4 1998-07-11 20:55:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -163,7 +163,7 @@ EXIT_DATA *new_exit( void )
     pExit->exit_info    =   0;
     pExit->key          =   0;
     pExit->keyword      =   &str_empty[0];
-    pExit->description  =   &mlstr_empty;
+    pExit->description  =   mlstr_new();
     pExit->rs_flags     =   0;
 
     return pExit;
@@ -174,7 +174,7 @@ EXIT_DATA *new_exit( void )
 void free_exit( EXIT_DATA *pExit )
 {
     free_string(pExit->keyword);
-    free_mlstring(pExit->description);
+    mlstr_free(pExit->description);
 
     pExit->next         =   exit_free;
     exit_free           =   pExit;
@@ -207,8 +207,8 @@ ROOM_INDEX_DATA *new_room_index( void )
     for ( door=0; door < MAX_DIR; door++ )
         pRoom->exit[door]   =   NULL;
 
-    pRoom->name             =   &mlstr_empty;
-    pRoom->description      =   &mlstr_empty;
+    pRoom->name             =   mlstr_new();
+    pRoom->description      =   mlstr_new();
     pRoom->owner	    =	&str_empty[0];
     pRoom->vnum             =   0;
     pRoom->room_flags       =   0;
@@ -229,8 +229,8 @@ void free_room_index( ROOM_INDEX_DATA *pRoom )
     EXTRA_DESCR_DATA *pExtra;
     RESET_DATA *pReset;
 
-    free_mlstring(pRoom->name);
-    free_mlstring( pRoom->description );
+    mlstr_free(pRoom->name);
+    mlstr_free( pRoom->description );
     free_string( pRoom->owner );
 
     for ( door = 0; door < MAX_DIR; door++ )
@@ -388,8 +388,8 @@ MOB_INDEX_DATA *new_mob_index( void )
     pMob->area          =   NULL;
     pMob->player_name   =   str_dup( "no name" );
     pMob->short_descr   =   str_dup( "(no short description)" );
-    pMob->long_descr    =   str_dup( "(no long description)\n\r" );
-    pMob->description   =   &str_empty[0];
+    pMob->long_descr    =   mlstr_new();
+    pMob->description   =   mlstr_new();
     pMob->vnum          =   0;
     pMob->count         =   0;
     pMob->killed        =   0;
@@ -436,11 +436,11 @@ void free_mob_index( MOB_INDEX_DATA *pMob )
 {
     free_string( pMob->player_name );
     free_string( pMob->short_descr );
-    free_string( pMob->long_descr );
-    free_string( pMob->description );
-    free_mprog( pMob->mprogs );
+    mlstr_free(pMob->long_descr);
+    mlstr_free(pMob->description);
+    free_mprog(pMob->mprogs);
 
-    free_shop( pMob->pShop );
+    free_shop(pMob->pShop);
 
     pMob->next              = mob_index_free;
     mob_index_free          = pMob;

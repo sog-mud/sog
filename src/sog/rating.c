@@ -1,5 +1,5 @@
 /*
- * $Id: rating.c,v 1.5 1998-06-18 05:19:15 fjoe Exp $
+ * $Id: rating.c,v 1.6 1998-07-11 20:55:15 fjoe Exp $
  */
 
 #include <sys/time.h>
@@ -66,7 +66,7 @@ rating_data_cmp(const void *a, const void *b)
 		- ((struct rating_data*) a)->pc_killed;
 }
 
-void do_rating(CHAR_DATA *ch, char *argument)
+void do_rating(CHAR_DATA *ch, const char *argument)
 {
 	int i;
 

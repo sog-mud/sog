@@ -1,5 +1,5 @@
 /*
- * $Id: note.c,v 1.11 1998-07-03 15:18:43 fjoe Exp $
+ * $Id: note.c,v 1.12 1998-07-11 20:55:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -54,6 +54,7 @@
 #include "log.h"
 #include "resource.h"
 #include "buffer.h"
+#include "string_edit.h"
 
 /* globals from db.c for load_notes */
 extern  int     _filbuf         args((FILE *));
@@ -62,7 +63,7 @@ extern char                    strArea[MAX_INPUT_LENGTH];
 
 /* local procedures */
 void load_thread(char *name, NOTE_DATA **list, int type, time_t free_time);
-void parse_note(CHAR_DATA *ch, char *argument, int type);
+void parse_note(CHAR_DATA *ch, const char *argument, int type);
 bool hide_note(CHAR_DATA *ch, NOTE_DATA *pnote);
 
 NOTE_DATA *note_list;
@@ -83,7 +84,7 @@ int count_spool(CHAR_DATA *ch, NOTE_DATA *spool)
     return count;
 }
 
-void do_unread(CHAR_DATA *ch, char *argument)
+void do_unread(CHAR_DATA *ch, const char *argument)
 {
     int count;
     bool found = FALSE;
@@ -126,27 +127,27 @@ void do_unread(CHAR_DATA *ch, char *argument)
 	send_to_char("You have no unread notes.\n\r",ch);
 }
 
-void do_note(CHAR_DATA *ch,char *argument)
+void do_note(CHAR_DATA *ch,const char *argument)
 {
     parse_note(ch,argument,NOTE_NOTE);
 }
 
-void do_idea(CHAR_DATA *ch,char *argument)
+void do_idea(CHAR_DATA *ch,const char *argument)
 {
     parse_note(ch,argument,NOTE_IDEA);
 }
 
-void do_penalty(CHAR_DATA *ch,char *argument)
+void do_penalty(CHAR_DATA *ch,const char *argument)
 {
     parse_note(ch,argument,NOTE_PENALTY);
 }
 
-void do_news(CHAR_DATA *ch,char *argument)
+void do_news(CHAR_DATA *ch,const char *argument)
 {
     parse_note(ch,argument,NOTE_NEWS);
 }
 
-void do_changes(CHAR_DATA *ch,char *argument)
+void do_changes(CHAR_DATA *ch,const char *argument)
 {
     parse_note(ch,argument,NOTE_CHANGES);
 }
@@ -397,7 +398,7 @@ void note_remove(CHAR_DATA *ch, NOTE_DATA *pnote, bool delete)
     char to_one[MAX_INPUT_LENGTH];
     NOTE_DATA *prev;
     NOTE_DATA **list;
-    char *to_list;
+    const char *to_list;
 
     if (!delete)
     {
@@ -544,9 +545,8 @@ void update_read(CHAR_DATA *ch, NOTE_DATA *pnote)
     }
 }
 
-void parse_note(CHAR_DATA *ch, char *argument, int type)
+void parse_note(CHAR_DATA *ch, const char *argument, int type)
 {
-    BUFFER *buffer;
     char arg[MAX_INPUT_LENGTH];
     NOTE_DATA *pnote;
     NOTE_DATA **list;
@@ -584,7 +584,6 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
     }
 
     argument = one_argument(argument, arg);
-    smash_tilde(argument);
 
     if (arg[0] == '\0' || !str_prefix(arg, "read"))
     {
@@ -645,13 +644,25 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
                     pnote->to_list
                    );
                 page_to_char(pnote->text, ch);
-/*		update_read(ch,pnote); */
                 return;
             }
         }
  
 	char_printf(ch,"There aren't that many %s.\n\r",list_name);
         return;
+    }
+
+    if (!str_prefix(arg, "edit")) {
+	note_attach(ch,type);
+	if (ch->pnote->type != type)
+	{
+	    send_to_char(
+		"You already have a different note in progress.\n\r",ch);
+	    return;
+	}
+
+	string_append(ch, &ch->pnote->text);
+	return;
     }
 
     if (!str_prefix(arg, "list"))
@@ -740,75 +751,6 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
     ||  (type == NOTE_CHANGES && !IS_TRUSTED(ch,CREATOR)))
     {
 	char_printf(ch,"You aren't high enough level to write %s.",list_name);
-	return;
-    }
-
-    if (!str_cmp(arg, "+"))
-    {
-	note_attach(ch,type);
-	if (ch->pnote->type != type)
-	{
-	    send_to_char(
-		"You already have a different note in progress.\n\r",ch);
-	    return;
-	}
- 	buffer = buf_new(0);
-
-	if (strlen(ch->pnote->text)+strlen(argument) >= 4096)
-	{
-	    send_to_char("Note too long.\n\r", ch);
-	    return;
-	}
-
-	buf_add(buffer,ch->pnote->text);
-	buf_add(buffer,argument);
-	buf_add(buffer,"\n\r");
-	free_string(ch->pnote->text);
-	ch->pnote->text = str_dup(buf_string(buffer));
-	buf_free(buffer);
-	char_nputs(OK, ch);
-	return;
-    }
-
-    if (!str_cmp(arg,"-"))
-    {
- 	int len;
-	bool found = FALSE;
-	char buf[MAX_STRING_LENGTH];
-
-	note_attach(ch,type);
-        if (ch->pnote->type != type) {
-            send_to_char(
-                "You already have a different note in progress.\n\r",ch);
-            return;
-        }
-
-	if (ch->pnote->text == NULL || ch->pnote->text[0] == '\0') {
-	    send_to_char("No lines left to remove.\n\r",ch);
-	    return;
-	}
-
-	strcpy(buf,ch->pnote->text);
-
-	for (len = strlen(buf); len > 0; len--) {
-	    if (buf[len] == '\r') {
-		if (!found) {
-		    /* back it up */
-		    if (len > 0)
-			len--;
-		    found = TRUE;
-		} else {
-		    /* found the second one */
-		    buf[len + 1] = '\0';
-		    free_string(ch->pnote->text);
-		    ch->pnote->text = str_dup(buf);
-		    return;
-		}
-	    }
-	}
-	buf[0] = '\0';
-	free_string(ch->pnote->text);
-	ch->pnote->text = str_dup(buf);
 	return;
     }
 

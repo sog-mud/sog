@@ -2,7 +2,7 @@
 #define _COMM_H_
 
 /*
- * $Id: comm.h,v 1.7 1998-07-10 13:08:01 efdi Exp $
+ * $Id: comm.h,v 1.8 1998-07-11 20:55:10 fjoe Exp $
  */
 
 #define MAX_ON_FILE	"max_on.txt"
@@ -14,6 +14,7 @@ void	write_to_buffer	(DESCRIPTOR_DATA *d, const char *txt, int length);
 #define send_to_char(txt, ch) char_puts(txt, ch)
 void	char_puts(const char *txt, CHAR_DATA *ch);
 #define char_nputs(msgid, ch) char_puts(msg(msgid, ch), ch)
+#define char_mlputs(m, ch) char_puts(mlstr_val(ch, m), ch)
 void	char_printf(CHAR_DATA *ch, const char *format, ...);
 void	char_nprintf(CHAR_DATA *ch, int msgid, ...);
 

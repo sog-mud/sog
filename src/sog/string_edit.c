@@ -1,5 +1,5 @@
 /*
- * $Id: string_edit.c,v 1.3 1998-07-04 08:54:13 fjoe Exp $
+ * $Id: string_edit.c,v 1.4 1998-07-11 20:55:16 fjoe Exp $
  */
 
 /***************************************************************************
@@ -122,14 +122,13 @@ char * string_replace(char * orig, char * old, char * new)
  Purpose:	Interpreter for string editing.
  Called by:	game_loop_xxxx(comm.c).
  ****************************************************************************/
-void string_add(CHAR_DATA *ch, char *argument)
+void string_add(CHAR_DATA *ch, const char *argument)
 {
     char buf[MAX_STRING_LENGTH];
 
     /*
      * Thanks to James Seng
      */
-    smash_tilde(argument);
 
     if (*argument == '.')
     {
@@ -141,7 +140,9 @@ void string_add(CHAR_DATA *ch, char *argument)
         argument = one_argument(argument, arg1);
         argument = first_arg(argument, arg2, FALSE);
 	strcpy(tmparg3, argument);
+	smash_tilde(tmparg3);
         argument = first_arg(argument, arg3, FALSE);
+	smash_tilde(arg3);
 
         if (!str_cmp(arg1, ".c"))
         {
@@ -153,8 +154,8 @@ void string_add(CHAR_DATA *ch, char *argument)
 
         if (!str_cmp(arg1, ".s"))
         {
-            send_to_char("String so far:\n\r", ch);
-            send_to_char(numlineas(*ch->desc->pString), ch);
+            char_printf(ch, "String so far:\n\r%s",
+            		*ch->desc->pString);
             return;
         }
 
@@ -167,6 +168,7 @@ void string_add(CHAR_DATA *ch, char *argument)
                 return;
             }
 
+	    smash_tilde(arg3);
             *ch->desc->pString =
                 string_replace(*ch->desc->pString, arg2, arg3);
             char_printf(ch, "'%s' replaced with '%s'.\n\r", arg2, arg3);
@@ -183,14 +185,14 @@ void string_add(CHAR_DATA *ch, char *argument)
 	if (!str_cmp(arg1, ".ld"))
 	{
 		*ch->desc->pString = string_linedel(*ch->desc->pString, atoi(arg2));
-		send_to_char("Linea borrada.\n\r", ch);
+		send_to_char("Line deleted.\n\r", ch);
 		return;
 	}
 
 	if (!str_cmp(arg1, ".li"))
 	{
 		*ch->desc->pString = string_lineadd(*ch->desc->pString, tmparg3, atoi(arg2));
-		send_to_char("Linea insertada.\n\r", ch);
+		send_to_char("Line inserted.\n\r", ch);
 		return;
 	}
 
@@ -198,7 +200,7 @@ void string_add(CHAR_DATA *ch, char *argument)
 	{
 		*ch->desc->pString = string_linedel(*ch->desc->pString, atoi(arg2));
 		*ch->desc->pString = string_lineadd(*ch->desc->pString, tmparg3, atoi(arg2));
-		send_to_char("Linea reemplazada.\n\r", ch);
+		send_to_char("Line replaced.\n\r", ch);
 		return;
 	}
 
@@ -211,9 +213,9 @@ void string_add(CHAR_DATA *ch, char *argument)
             send_to_char(".s               - show string so far  \n\r", ch);
             send_to_char(".f               - (word wrap) string  \n\r", ch);
             send_to_char(".c               - clear string so far \n\r", ch);
-            send_to_char(".ld <num>        - borra linea numero <num>\n\r", ch);
-            send_to_char(".li <num> <str>  - anade <str> en linea <num>\n\r", ch);
-	    send_to_char(".lr <num> <str>  - reemplaza linea <num> por <str>\n\r", ch);
+            send_to_char(".ld <num>        - delete line #num\n\r", ch);
+            send_to_char(".li <num> <str>  - insert <str> before line #num\n\r", ch);
+	    send_to_char(".lr <num> <str>  - replace line #num with <str>\n\r", ch);
             send_to_char("@                - end string          \n\r", ch);
             return;
         }
@@ -267,13 +269,12 @@ void string_add(CHAR_DATA *ch, char *argument)
      * Ensure no tilde's inside string.
      * --------------------------------
      */
-    smash_tilde(argument);
 
     strcat(buf, argument);
     strcat(buf, "\n\r");
     free_string(*ch->desc->pString);
+    smash_tilde(buf);
     *ch->desc->pString = str_dup(buf);
-    return;
 }
 
 
@@ -450,7 +451,7 @@ char *format_string(char *oldstring /*, bool fSpace */)
  		percentages.
  Called by:	string_add(string.c)
  ****************************************************************************/
-char *first_arg(char *argument, char *arg_first, bool fCase)
+const char *first_arg(const char *argument, char *arg_first, bool fCase)
 {
     char cEnd;
 

@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.25 1998-07-10 13:03:26 fjoe Exp $
+ * $Id: spellfun.c,v 1.26 1998-07-11 20:55:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -283,9 +283,9 @@ int allowed_other(CHAR_DATA *ch, int sn)
 /*
  * The kludgy global is for spells who want more stuff from command line.
  */
-char *target_name;
+const char *target_name;
 
-void do_cast(CHAR_DATA *ch, char *argument)
+void do_cast(CHAR_DATA *ch, const char *argument)
 {
 	char arg1[MAX_INPUT_LENGTH];
 	char arg2[MAX_INPUT_LENGTH];
@@ -1729,16 +1729,10 @@ void spell_create_rose(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 		return;
 	}
 	rose = create_object(get_obj_index(OBJ_VNUM_ROSE), 0);
-	str_printf(&rose->short_descr,
-		   rose->pIndexData->short_descr,
-		   target_name);
-	str_printf(&rose->description,
-		   rose->pIndexData->description,
-		   target_name);
+	str_printf(&rose->short_descr, target_name);
+	str_printf(&rose->description, target_name);
 	rose->extra_descr = new_extra_descr();
-	str_printf(&rose->extra_descr->description,
-		   rose->pIndexData->extra_descr->description,
-		   target_name);
+	str_printf(&rose->extra_descr->description, target_name);
 	rose->extra_descr->keyword =                            
 		str_dup(rose->pIndexData->extra_descr->keyword);
 	rose->extra_descr->next = NULL;                         
@@ -1784,12 +1778,12 @@ void spell_create_water(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	if (water > 0) {
 		obj->value[2] = LIQ_WATER;
 		obj->value[1] += water;
+/* XXX
 		if (!is_name("water", obj->name))
 			str_printf(&obj->name, "%s water", obj->name);
+*/
 		act("$p is filled.", ch, obj, NULL, TO_CHAR);
 	}
-
-	return;
 }
 
 
@@ -3974,13 +3968,13 @@ void spell_locate_object(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 		{
 		    if (IS_IMMORTAL(ch) && in_obj->in_room != NULL)
 			buf_printf(buffer, "One is in %s [Room %d]\n\r",
-				ml_string(ch, in_obj->in_room->name),
+				mlstr_val(ch, in_obj->in_room->name),
 				in_obj->in_room->vnum);
 		    else
 			buf_printf(buffer, "One is in %s\n\r",
 			    in_obj->in_room == NULL ?
 			    "somewhere" :
-			    ml_string(ch, in_obj->in_room->name));
+			    mlstr_val(ch, in_obj->in_room->name));
 		}
 
 		if (number >= max_found)
@@ -4889,9 +4883,7 @@ void spell_word_of_recall(int sn, int level, CHAR_DATA *ch,void *vo,int target)
 		return;
 	}
 
-	if (victim->desc != NULL && 
-		(current_time - victim->last_fight_time) < FIGHT_DELAY_TIME)
-	  {
+	if (victim->desc != NULL && IS_PUMPED(victim)) {
 		send_to_char("You are too pumped to pray now.\n\r",victim);
 		return;
 	  }
@@ -5212,13 +5204,13 @@ void spell_find_object(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 		else {
 			if (IS_IMMORTAL(ch) && in_obj->in_room != NULL)
 				buf_printf(buffer, "One is in %s [Room %d]\n\r",
-					ml_string(ch, in_obj->in_room->name),
+					mlstr_val(ch, in_obj->in_room->name),
 					in_obj->in_room->vnum);
 			else
 				buf_printf(buffer, "One is in %s\n\r",
 					in_obj->in_room == NULL ?
 					"somewhere" :
-					ml_string(ch, in_obj->in_room->name));
+					mlstr_val(ch, in_obj->in_room->name));
 		}
 
 		if (number >= max_found)

@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.33 1998-07-08 09:57:13 fjoe Exp $
+ * $Id: handler.c,v 1.34 1998-07-11 20:55:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -911,36 +911,34 @@ int can_carry_w(CHAR_DATA *ch)
  * See if a string is one of the names of an object.
  */
 
-bool is_name(char *str, char *namelist)
+bool is_name(const char *str, const char *namelist)
 {
 	char name[MAX_INPUT_LENGTH], part[MAX_INPUT_LENGTH];
-	char *list, *string;
+	const char *list, *string;
 	
 	if (!namelist)
 		return FALSE;
 
 	string = str;
 	/* we need ALL parts of string to match part of namelist */
-	for (; ;)  /* start parsing string */
-	{
+	for (; ;) { /* start parsing string */
 		str = one_argument(str,part);
 
 		if (part[0] == '\0')
-		    return TRUE;
+			return TRUE;
 
 		/* check to see if this is part of namelist */
 		list = namelist;
-		for (; ;)  /* start parsing namelist */
-		{
-		    list = one_argument(list,name);
-		    if (name[0] == '\0')  /* this name was not found */
-			return FALSE;
+		for (; ;) { /* start parsing namelist */
+			list = one_argument(list,name);
+			if (name[0] == '\0')  /* this name was not found */
+				return FALSE;
 
-		    if (!str_prefix(string,name))
-			return TRUE; /* full pattern match */
+			if (!str_prefix(string,name))
+				return TRUE; /* full pattern match */
 
-		    if (!str_prefix(part,name))
-			break;
+			if (!str_prefix(part,name))
+				break;
 		}
 	}
 }
@@ -2032,17 +2030,21 @@ void obj_to_room(OBJ_DATA *obj, ROOM_INDEX_DATA *pRoomIndex)
  */
 void obj_to_obj(OBJ_DATA *obj, OBJ_DATA *obj_to)
 {
+	if (obj == obj_to) {
+		log_printf("obj_to_obj: obj == obj_to (vnum %d)",
+			   obj->pIndexData->vnum);
+		return;
+	}
 
-	obj->next_content		= obj_to->contains;
-	obj_to->contains		= obj;
-	obj->in_obj			= obj_to;
+	obj->next_content	= obj_to->contains;
+	obj_to->contains	= obj;
+	obj->in_obj		= obj_to;
 	obj->in_room		= NULL;
 	obj->carried_by		= NULL;
-	if (obj_to->pIndexData->vnum == OBJ_VNUM_PIT)
-	    obj->cost = 0; 
+	if (obj_is_pit(obj_to))
+		obj->cost = 0; 
 
-	for (; obj_to != NULL; obj_to = obj_to->in_obj)
-	{
+	for (; obj_to != NULL; obj_to = obj_to->in_obj) {
 		if (obj_to->carried_by != NULL)
 		{
 /*	    obj_to->carried_by->carry_number += get_obj_number(obj); */
@@ -2050,8 +2052,6 @@ void obj_to_obj(OBJ_DATA *obj, OBJ_DATA *obj_to)
 			* WEIGHT_MULT(obj_to) / 100;
 		}
 	}
-
-	return;
 }
 
 
@@ -2332,7 +2332,7 @@ void extract_char_org(CHAR_DATA *ch, bool fPull, bool Count)
 /*
  * Find a char in the room.
  */
-CHAR_DATA *get_char_room(CHAR_DATA *ch, char *argument)
+CHAR_DATA *get_char_room(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *rch;
@@ -2372,7 +2372,7 @@ CHAR_DATA *get_char_room(CHAR_DATA *ch, char *argument)
  * Find a char in the room.
  * Chronos uses in act_move.c
  */
-CHAR_DATA *get_char_room2(CHAR_DATA *ch, ROOM_INDEX_DATA *room, char *argument, int *number)
+CHAR_DATA *get_char_room2(CHAR_DATA *ch, ROOM_INDEX_DATA *room, const char *argument, int *number)
 {
 	CHAR_DATA *rch;
 	int count;
@@ -2399,7 +2399,7 @@ CHAR_DATA *get_char_room2(CHAR_DATA *ch, ROOM_INDEX_DATA *room, char *argument, 
 		    return rch;
 	}
 
-	*number -= count;
+	number -= count;
 	return NULL;
 }
 
@@ -2407,7 +2407,7 @@ CHAR_DATA *get_char_room2(CHAR_DATA *ch, ROOM_INDEX_DATA *room, char *argument, 
 /*
  * Find a char in the world.
  */
-CHAR_DATA *get_char_world(CHAR_DATA *ch, char *argument)
+CHAR_DATA *get_char_world(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *wch;
@@ -2455,7 +2455,7 @@ OBJ_DATA *get_obj_type(OBJ_INDEX_DATA *pObjIndex)
 /*
  * Find an obj in a list.
  */
-OBJ_DATA *get_obj_list(CHAR_DATA *ch, char *argument, OBJ_DATA *list)
+OBJ_DATA *get_obj_list(CHAR_DATA *ch, const char *argument, OBJ_DATA *list)
 {
 	char arg[MAX_INPUT_LENGTH];
 	OBJ_DATA *obj;
@@ -2481,7 +2481,7 @@ OBJ_DATA *get_obj_list(CHAR_DATA *ch, char *argument, OBJ_DATA *list)
 /*
  * Find an obj in player's inventory.
  */
-OBJ_DATA *get_obj_carry(CHAR_DATA *ch, char *argument)
+OBJ_DATA *get_obj_carry(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	OBJ_DATA *obj;
@@ -2509,7 +2509,7 @@ OBJ_DATA *get_obj_carry(CHAR_DATA *ch, char *argument)
 /*
  * Find an obj in player's equipment.
  */
-OBJ_DATA *get_obj_wear(CHAR_DATA *ch, char *argument)
+OBJ_DATA *get_obj_wear(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	OBJ_DATA *obj;
@@ -2537,7 +2537,7 @@ OBJ_DATA *get_obj_wear(CHAR_DATA *ch, char *argument)
 /*
  * Find an obj in the room or in inventory.
  */
-OBJ_DATA *get_obj_here(CHAR_DATA *ch, char *argument)
+OBJ_DATA *get_obj_here(CHAR_DATA *ch, const char *argument)
 {
 	OBJ_DATA *obj;
 
@@ -2559,7 +2559,7 @@ OBJ_DATA *get_obj_here(CHAR_DATA *ch, char *argument)
 /*
  * Find an obj in the world.
  */
-OBJ_DATA *get_obj_world(CHAR_DATA *ch, char *argument)
+OBJ_DATA *get_obj_world(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	OBJ_DATA *obj;
@@ -2637,7 +2637,7 @@ OBJ_DATA *create_money(int gold, int silver)
 	else if (silver == 0)
 	{
 	    obj = create_object(get_obj_index(OBJ_VNUM_GOLD_SOME), 0);
-		str_printf(&obj->short_descr, obj->short_descr, gold);
+		str_printf(&obj->short_descr, gold);
 	    obj->value[1]           = gold;
 	    obj->cost               = gold;
 		obj->weight		= gold/5;
@@ -2645,7 +2645,7 @@ OBJ_DATA *create_money(int gold, int silver)
 	else if (gold == 0)
 	{
 	    obj = create_object(get_obj_index(OBJ_VNUM_SILVER_SOME), 0);
-		str_printf(&obj->short_descr, obj->short_descr, silver);
+		str_printf(&obj->short_descr, silver);
 	    obj->value[0]           = silver;
 	    obj->cost               = silver;
 		obj->weight		= silver/20;
@@ -3225,7 +3225,7 @@ void remove_mind(CHAR_DATA *ch, char *str)
 	char buf[MAX_STRING_LENGTH];
 	char buff[MAX_STRING_LENGTH];
 	char arg[MAX_INPUT_LENGTH];
-	char *mind = ch->in_mind;
+	const char *mind = ch->in_mind;
 
 	if (!IS_NPC(ch) || ch->in_room == NULL 
 	||  mind == NULL || !is_name(str, mind)) return;
@@ -3292,7 +3292,7 @@ void back_home(CHAR_DATA *ch)
 }
 
 
-CHAR_DATA * find_char(CHAR_DATA *ch, char *argument,int door, int range) 
+CHAR_DATA * find_char(CHAR_DATA *ch, const char *argument,int door, int range) 
 {
  EXIT_DATA *pExit,*bExit;
  ROOM_INDEX_DATA *dest_room,*back_room;
@@ -3351,7 +3351,7 @@ int check_exit(char *arg)
 /*
  * Find a char for spell usage.
  */
-CHAR_DATA *get_char_spell(CHAR_DATA *ch, char *argument, int *door, int range)
+CHAR_DATA *get_char_spell(CHAR_DATA *ch, const char *argument, int *door, int range)
 {
  char buf[MAX_INPUT_LENGTH];
  int i;
@@ -3373,8 +3373,9 @@ void path_to_track(CHAR_DATA *ch, CHAR_DATA *victim, int door)
   int opdoor;
   int range = 0;
 
-  ch->last_fight_time = current_time;
-  if (!IS_NPC(victim)) victim->last_fight_time = current_time;
+	SET_FIGHT_TIME(ch);
+  	if (!IS_NPC(victim))
+		SET_FIGHT_TIME(victim);
 
   if (IS_NPC(victim) && victim->position != POS_DEAD)
    {
@@ -3508,3 +3509,17 @@ char *raffect_bit_name(int vector)
 	return flag_names(raff_flags, vector);
 }
 
+bool obj_is_pit(OBJ_DATA *obj)
+{
+	HOMETOWN_DATA *h;
+
+	for (h = hometown_table; h->name != NULL; h++) {
+		int i;
+
+		for (i = 0; i < 3; i++)
+			if (obj->pIndexData->vnum == h->pit[i])
+				return TRUE;
+	}
+
+	return FALSE;
+}

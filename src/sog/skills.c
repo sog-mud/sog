@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.10 1998-07-04 11:28:20 fjoe Exp $
+ * $Id: skills.c,v 1.11 1998-07-11 20:55:16 fjoe Exp $
  */
 
 /***************************************************************************
@@ -59,7 +59,7 @@ DECLARE_DO_FUN(do_help		);
 DECLARE_DO_FUN(do_say		);
 
 /* used to converter of prac and train */
-void do_gain(CHAR_DATA *ch, char *argument)
+void do_gain(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *trainer;
@@ -130,7 +130,7 @@ void do_gain(CHAR_DATA *ch, char *argument)
 
 /* RT spells and skills show the players spells (or skills) */
 
-void do_spells(CHAR_DATA *ch, char *argument)
+void do_spells(CHAR_DATA *ch, const char *argument)
 {
 	char spell_list[LEVEL_HERO][MAX_STRING_LENGTH];
 	char spell_columns[LEVEL_HERO];
@@ -194,7 +194,7 @@ void do_spells(CHAR_DATA *ch, char *argument)
 	page_to_char(output, ch);
 }
 
-void do_skills(CHAR_DATA *ch, char *argument)
+void do_skills(CHAR_DATA *ch, const char *argument)
 {
 	char skill_list[LEVEL_HERO][MAX_STRING_LENGTH];
 	char skill_columns[LEVEL_HERO];
@@ -365,7 +365,7 @@ void group_add(CHAR_DATA *ch)
 }
 
 
-void do_slist(CHAR_DATA *ch, char *argument)
+void do_slist(CHAR_DATA *ch, const char *argument)
 {
 	char skill_list[LEVEL_HERO][MAX_STRING_LENGTH];
 	char skill_columns[LEVEL_HERO];
@@ -449,7 +449,7 @@ int group_lookup (const char *name)
 	return -1;
 } 
 
-void do_glist(CHAR_DATA *ch , char *argument)
+void do_glist(CHAR_DATA *ch , const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	char buf[MAX_STRING_LENGTH];
@@ -487,7 +487,7 @@ void do_glist(CHAR_DATA *ch , char *argument)
 
 }
 
-void do_slook(CHAR_DATA *ch, char *argument)
+void do_slook(CHAR_DATA *ch, const char *argument)
 {
 	int sn;
 	char arg[MAX_INPUT_LENGTH];
@@ -510,7 +510,7 @@ void do_slook(CHAR_DATA *ch, char *argument)
 
 #define PC_PRACTICER	123
 
-void do_learn(CHAR_DATA *ch, char *argument)
+void do_learn(CHAR_DATA *ch, const char *argument)
 {
 	char buf[MAX_STRING_LENGTH];
 	char arg[MAX_INPUT_LENGTH];
@@ -618,7 +618,7 @@ void do_learn(CHAR_DATA *ch, char *argument)
 }
 
 
-void do_teach(CHAR_DATA *ch, char *argument)
+void do_teach(CHAR_DATA *ch, const char *argument)
 {
 	if (IS_NPC(ch) || ch->level != LEVEL_HERO)
 	{

@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.47 1998-07-08 09:57:13 fjoe Exp $
+ * $Id: fight.c,v 1.48 1998-07-11 20:55:10 fjoe Exp $
  */
 
 /***************************************************************************
@@ -87,7 +87,7 @@ DECLARE_DO_FUN(do_tail		);
 DECLARE_DO_FUN(do_crush 	);
 DECLARE_DO_FUN(do_dismount	);
 
-extern void do_visible(CHAR_DATA *ch, char *argument);
+extern void do_visible(CHAR_DATA *ch, const char *argument);
 
 /*
  * Local functions.
@@ -160,9 +160,7 @@ void violence_update(void)
 		if (!IS_NPC(victim))
 		  ch->last_fought = victim;
 
-
-		ch->last_fight_time = current_time;
-
+		SET_FIGHT_TIME(ch);
 
 		for (obj = ch->carrying;obj != NULL; obj = obj_next) {
 			obj_next = obj->next_content;
@@ -928,11 +926,8 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt ,bool secondary)
 	sercount = number_percent();
 	if (dt==gsn_backstab || dt==gsn_vampiric_bite)
 		sercount += 40;
-	if (ch->last_fight_time != -1 && !IS_IMMORTAL(ch) &&
-		(current_time - ch->last_fight_time)<FIGHT_DELAY_TIME)
-	  {
+	if (!IS_IMMORTAL(ch) && IS_PUMPED(ch))
 		sercount += 10;
-	  }
 	sercount *= 2;
 	if (victim->fighting == NULL && !IS_NPC(victim) &&
 		 !is_safe_nomessage(victim, ch) && !is_safe_nomessage(ch,victim) &&
@@ -1175,12 +1170,12 @@ void delete_player(CHAR_DATA *victim, char* msg)
 		     "and leave the earth realm.\n\r", victim);
 	act("$n is dead, and will not rise again.\n\r",
 	    victim, NULL, NULL, TO_ROOM);
-	victim->last_fight_time = -1;
 	victim->hit = 1;
 	victim->position = POS_STANDING;
 	snprintf(strsave, sizeof(strsave),
 		 "%s%s", PLAYER_DIR, capitalize(victim->name));
 	wiznet_printf(victim, NULL, 0, 0, 0, "$N is deleted due to %s.", msg);
+	RESET_FIGHT_TIME(victim);
 	do_quit_count(victim, "");
 	unlink(strsave);
 }
@@ -1575,10 +1570,7 @@ bool is_safe_nomessage(CHAR_DATA *ch, CHAR_DATA *victim)
 
 
 	/* link dead players whose adrenalin is not gushing are safe */
-	if (!IS_NPC(victim)
-	&&  (victim->last_fight_time == -1 ||
-	     current_time - victim->last_fight_time > FIGHT_DELAY_TIME)
-	&&  victim->desc == NULL)
+	if (!IS_NPC(victim) && !IS_PUMPED(victim) && victim->desc == NULL)
 		return TRUE;
 
 	/* newly death staff */
@@ -1951,8 +1943,7 @@ void make_corpse(CHAR_DATA *ch)
 		corpse->altar = hometown_table[ch->hometown].altar[i];
 		corpse->pit = hometown_table[ch->hometown].pit[i];
 
-		if (ch->gold > 0 || ch->silver > 0)
-		{
+		if (ch->gold > 0 || ch->silver > 0) {
 		    obj_to_obj(create_money(ch->gold, ch->silver), corpse);
 		    ch->gold = 0;
 		    ch->silver = 0;
@@ -1962,8 +1953,8 @@ void make_corpse(CHAR_DATA *ch)
 
 	corpse->level = ch->level;
 
-	str_printf(&corpse->short_descr, corpse->short_descr, name);
-	str_printf(&corpse->description, corpse->description, name);
+	str_printf(&corpse->short_descr, name);
+	str_printf(&corpse->description, name);
 
 	for (obj = ch->carrying; obj != NULL; obj = obj_next)
 	{
@@ -2137,7 +2128,7 @@ void raw_kill_org(CHAR_DATA *ch, CHAR_DATA *victim, int part)
 
 	quest_handle_death(ch, victim);
 
-	victim->last_fight_time = -1;
+	RESET_FIGHT_TIME(victim);
 	victim->last_death_time = current_time;
 
 	tattoo = get_eq_char(victim, WEAR_TATTOO);
@@ -2616,7 +2607,7 @@ void dam_message(CHAR_DATA *ch, CHAR_DATA *victim,int dam,int dt,bool immune ,in
 }
 
 
-void do_kill(CHAR_DATA *ch, char *argument)
+void do_kill(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
@@ -2703,7 +2694,7 @@ void do_kill(CHAR_DATA *ch, char *argument)
 
 
 
-void do_murde(CHAR_DATA *ch, char *argument)
+void do_murde(CHAR_DATA *ch, const char *argument)
 {
 	send_to_char("If you want to MURDER, spell it out.\n\r", ch);
 	return;
@@ -2711,7 +2702,7 @@ void do_murde(CHAR_DATA *ch, char *argument)
 
 
 
-void do_murder(CHAR_DATA *ch, char *argument)
+void do_murder(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
@@ -2792,7 +2783,7 @@ void do_murder(CHAR_DATA *ch, char *argument)
 }
 
 
-void do_flee(CHAR_DATA *ch, char *argument)
+void do_flee(CHAR_DATA *ch, const char *argument)
 {
 	ROOM_INDEX_DATA *was_in;
 	ROOM_INDEX_DATA *now_in;
@@ -2865,7 +2856,7 @@ void do_flee(CHAR_DATA *ch, char *argument)
 
 
 
-void do_sla(CHAR_DATA *ch, char *argument)
+void do_sla(CHAR_DATA *ch, const char *argument)
 {
 	send_to_char("If you want to SLAY, spell it out.\n\r", ch);
 	return;
@@ -2873,7 +2864,7 @@ void do_sla(CHAR_DATA *ch, char *argument)
 
 
 
-void do_slay(CHAR_DATA *ch, char *argument)
+void do_slay(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *victim;
 	char arg[MAX_INPUT_LENGTH];
@@ -2946,7 +2937,7 @@ bool check_obj_dodge(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *obj, int bonus)
 
 
 
-void do_dishonor(CHAR_DATA *ch, char *argument)
+void do_dishonor(CHAR_DATA *ch, const char *argument)
 {
 	ROOM_INDEX_DATA *was_in;
 	ROOM_INDEX_DATA *now_in;
@@ -3028,7 +3019,7 @@ void do_dishonor(CHAR_DATA *ch, char *argument)
 }
 
 
-void do_surrender(CHAR_DATA *ch, char *argument)
+void do_surrender(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *mob;
 	if ((mob = ch->fighting) == NULL) {

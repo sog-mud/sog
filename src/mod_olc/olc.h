@@ -2,7 +2,7 @@
 #define _OLC_H_
 
 /*
- * $Id: olc.h,v 1.3 1998-07-03 15:18:46 fjoe Exp $
+ * $Id: olc.h,v 1.4 1998-07-11 20:55:14 fjoe Exp $
  */
 
 /***************************************************************************
@@ -48,7 +48,7 @@ char	*olc_ed_vnum	(CHAR_DATA *ch);
 /*
  * New typedefs.
  */
-typedef	bool OLC_FUN		(CHAR_DATA *ch, char *argument);
+typedef	bool OLC_FUN		(CHAR_DATA *ch, const char *argument);
 #define DECLARE_OLC_FUN(fun)	OLC_FUN    fun
 
 /*
@@ -66,11 +66,11 @@ typedef	bool OLC_FUN		(CHAR_DATA *ch, char *argument);
 /*
  * Interpreter Prototypes
  */
-void    aedit           (CHAR_DATA *ch, char *argument);
-void    redit           (CHAR_DATA *ch, char *argument);
-void    medit           (CHAR_DATA *ch, char *argument);
-void    oedit           (CHAR_DATA *ch, char *argument);
-void	mpedit		(CHAR_DATA *ch, char *argument);
+void    aedit           (CHAR_DATA *ch, const char *argument);
+void    redit           (CHAR_DATA *ch, const char *argument);
+void    medit           (CHAR_DATA *ch, const char *argument);
+void    oedit           (CHAR_DATA *ch, const char *argument);
+void	mpedit		(CHAR_DATA *ch, const char *argument);
 
 
 /*
@@ -108,7 +108,7 @@ struct	editor_cmd_type
 AREA_DATA *get_vnum_area	(int vnum);
 AREA_DATA *get_area_data	(int vnum);
 int flag_value			(const struct flag_type *flag_table,
-				         char *argument);
+				         const char *argument);
 char *flag_string		(const struct flag_type *flag_table,
 				         int bits);
 void add_reset			(ROOM_INDEX_DATA *room, 
@@ -139,10 +139,10 @@ DECLARE_DO_FUN(do_mpedit	);
 /*
  * General Functions
  */
-bool show_commands		(CHAR_DATA *ch, char *argument);
-bool show_help			(CHAR_DATA *ch, char *argument);
+bool show_commands		(CHAR_DATA *ch, const char *argument);
+bool show_help			(CHAR_DATA *ch, const char *argument);
 bool edit_done			(CHAR_DATA *ch);
-bool show_version		(CHAR_DATA *ch, char *argument);
+bool show_version		(CHAR_DATA *ch, const char *argument);
 
 
 

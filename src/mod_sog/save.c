@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.34 1998-07-09 12:01:37 fjoe Exp $
+ * $Id: save.c,v 1.35 1998-07-11 20:55:15 fjoe Exp $
  */
 
 /***************************************************************************
@@ -65,6 +65,7 @@
 #include "quest.h"
 #include "util.h"
 #include "log.h"
+#include "mlstring.h"
 
 extern int _filbuf args((FILE *));
 
@@ -171,10 +172,8 @@ fwrite_char(CHAR_DATA * ch, FILE * fp)
 
 	if (ch->short_descr[0] != '\0')
 		fprintf(fp, "ShD  %s~\n", ch->short_descr);
-	if (ch->long_descr[0] != '\0')
-		fprintf(fp, "LnD  %s~\n", ch->long_descr);
-	if (ch->description[0] != '\0')
-		fprintf(fp, "Desc %s~\n", ch->description);
+	if (!IS_NULLSTR(mlstr_mval(ch->description)))
+		fprintf(fp, "Desc %s~\n", mlstr_mval(ch->description));
 	if (ch->prompt != NULL || !str_cmp(ch->prompt, DEFAULT_PROMPT))
 		fprintf(fp, "Prom %s~\n", ch->prompt);
 	fprintf(fp, "Race %s~\n", pc_race_table[ORG_RACE(ch)].name);
@@ -373,10 +372,8 @@ fwrite_pet(CHAR_DATA * pet, FILE * fp)
 	fprintf(fp, "Clan %d\n", pet->clan);
 	if (pet->short_descr != pet->pIndexData->short_descr)
 		fprintf(fp, "ShD  %s~\n", pet->short_descr);
-	if (pet->long_descr != pet->pIndexData->long_descr)
-		fprintf(fp, "LnD  %s~\n", pet->long_descr);
-	if (pet->description != pet->pIndexData->description)
-		fprintf(fp, "Desc %s~\n", pet->description);
+	if (!IS_NULLSTR(mlstr_mval(pet->description)))
+		fprintf(fp, "Desc %s~\n", mlstr_mval(pet->description));
 	if (RACE(pet) != pet->pIndexData->race)	/* serdar ORG_RACE */
 		fprintf(fp, "Race %s~\n", race_table[ORG_RACE(pet)].name);
 	fprintf(fp, "Sex  %d\n", pet->sex);
@@ -576,12 +573,13 @@ fwrite_obj(CHAR_DATA * ch, OBJ_DATA * obj, FILE * fp, int iNest)
 }
 
 
-void            add_race_skills(CHAR_DATA * ch, int race);
+void add_race_skills(CHAR_DATA * ch, int race);
+
 /*
  * Load a char and inventory into a new ch structure.
  */
 bool 
-load_char_obj(DESCRIPTOR_DATA * d, char *name)
+load_char_obj(DESCRIPTOR_DATA * d, const char *name)
 {
 	char            strsave[PATH_MAX];
 	CHAR_DATA      *ch;
@@ -633,7 +631,6 @@ load_char_obj(DESCRIPTOR_DATA * d, char *name)
 	ch->pcdata->condition[COND_BLOODLUST] = 48;
 	ch->pcdata->condition[COND_DESIRE] = 48;
 	ch->pcdata->security		= 0;	/* OLC */
-	ch->pcdata->adr_stops_shown = 1;
 
 	ch->pcdata->pc_killed = 0;
 	ch->lang = 0;
@@ -967,8 +964,7 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 		case 'D':
 			KEY("Damroll", ch->damroll, fread_number(fp));
 			KEY("Dam", ch->damroll, fread_number(fp));
-			KEY("Description", ch->description, fread_string(fp));
-			KEY("Desc", ch->description, fread_string(fp));
+			KEY("Desc", ch->description, mlstr_fread(fp));
 			KEY("Dead", ch->pcdata->death, fread_number(fp));
 			KEY("Detect", ch->detection, fread_flags(fp));
 			break;
@@ -1053,8 +1049,6 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 			KEY("Lev", ch->level, fread_number(fp));
 			KEY("Levl", ch->level, fread_number(fp));
 			KEY("LogO", lastlogoff, fread_number(fp));
-			KEY("LongDescr", ch->long_descr, fread_string(fp));
-			KEY("LnD", ch->long_descr, fread_string(fp));
 			KEY("Lang", ch->lang, fread_number(fp));
 			break;
 
@@ -1341,7 +1335,7 @@ fread_pet(CHAR_DATA * ch, FILE * fp)
 
 		case 'D':
 			KEY("Dam", pet->damroll, fread_number(fp));
-			KEY("Desc", pet->description, fread_string(fp));
+			KEY("Desc", pet->description, mlstr_fread(fp));
 			KEY("Detect", pet->detection, fread_flags(fp));
 			break;
 
@@ -1389,7 +1383,6 @@ fread_pet(CHAR_DATA * ch, FILE * fp)
 
 		case 'L':
 			KEY("Levl", pet->level, fread_number(fp));
-			KEY("LnD", pet->long_descr, fread_string(fp));
 			KEY("LogO", lastlogoff, fread_number(fp));
 			break;
 

@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.58 1998-07-09 13:41:32 fjoe Exp $
+ * $Id: act_comm.c,v 1.59 1998-07-11 20:55:07 fjoe Exp $
  */
 
 /***************************************************************************
@@ -69,11 +69,11 @@
 DECLARE_DO_FUN(do_quit	);
 DECLARE_DO_FUN(do_quit_count);
 
-void do_quit_org	args((CHAR_DATA *ch, char *argument, bool Count));
-bool proper_order	args((CHAR_DATA *ch, char *argument));
-char *translate(CHAR_DATA *ch, CHAR_DATA *victim, char *argument);
+void do_quit_org	args((CHAR_DATA *ch, const char *argument, bool Count));
+bool proper_order	args((CHAR_DATA *ch, const char *argument));
+char *translate(CHAR_DATA *ch, CHAR_DATA *victim, const char *argument);
 
-void do_music(CHAR_DATA *ch, char *argument)
+void do_music(CHAR_DATA *ch, const char *argument)
 {
 	DESCRIPTOR_DATA *d;
 	char buf[MAX_INPUT_LENGTH];
@@ -119,7 +119,7 @@ void do_music(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-void do_gossip(CHAR_DATA *ch, char *argument)
+void do_gossip(CHAR_DATA *ch, const char *argument)
 {
 	DESCRIPTOR_DATA *d;
 	char buf[MAX_INPUT_LENGTH];
@@ -168,13 +168,13 @@ void do_gossip(CHAR_DATA *ch, char *argument)
 
 /* RT code to delete yourself */
 
-void do_delet(CHAR_DATA *ch, char *argument)
+void do_delet(CHAR_DATA *ch, const char *argument)
 {
 	send_to_char("You must type the full command to delete yourself.\n\r",
 		     ch);
 }
 
-void do_delete(CHAR_DATA *ch, char *argument)
+void do_delete(CHAR_DATA *ch, const char *argument)
 {
 	char strsave[MAX_INPUT_LENGTH];
 
@@ -190,7 +190,7 @@ void do_delete(CHAR_DATA *ch, char *argument)
 
 		snprintf(strsave, sizeof(strsave), "%s%s", PLAYER_DIR, capitalize(ch->name));
 		wiznet("$N turns $Mself into line noise.",ch,NULL,0,0,0);
-		ch->last_fight_time = -1;
+		RESET_FIGHT_TIME(ch);
 		do_quit_count(ch,"");
 		unlink(strsave);
 		return;
@@ -212,7 +212,7 @@ void do_delete(CHAR_DATA *ch, char *argument)
 
 /* RT code to display channel status */
 
-void do_channels(CHAR_DATA *ch, char *argument)
+void do_channels(CHAR_DATA *ch, const char *argument)
 {
 	/* lists all channels and their status */
 	send_to_char("   channel     status\n\r",ch);
@@ -277,22 +277,23 @@ void do_channels(CHAR_DATA *ch, char *argument)
 		 send_to_char("You cannot show emotions.\n\r",ch);
 }
 
-void garble(char *garbled, char *speech)
+void garble(char *garbled, const char *speech)
 {
 	static char not_garbled[] = "?!()[]{},.:;'\" ";
+
 	for (; *speech; speech++, garbled++) {
 		if (strchr(not_garbled, *speech))
-		 *garbled = *speech;
+			*garbled = *speech;
 		else
-		 *garbled = number_range(' ', 254);
+			*garbled = number_range(' ', 254);
 	}
- *garbled = '\0';
+	*garbled = '\0';
 }
 
 
 /* RT deaf blocks out all shouts */
 
-void do_deaf(CHAR_DATA *ch, char *argument)
+void do_deaf(CHAR_DATA *ch, const char *argument)
 {
 	
 	if (IS_SET(ch->comm,COMM_DEAF))
@@ -309,7 +310,7 @@ void do_deaf(CHAR_DATA *ch, char *argument)
 
 /* RT quiet blocks out all communication */
 
-void do_quiet (CHAR_DATA *ch, char * argument)
+void do_quiet(CHAR_DATA *ch, const char *argument)
 {
 	if (IS_SET(ch->comm,COMM_QUIET)) {
 		 send_to_char("Quiet mode removed.\n\r",ch);
@@ -321,7 +322,7 @@ void do_quiet (CHAR_DATA *ch, char * argument)
 	}
 }
 
-void do_replay (CHAR_DATA *ch, char *argument)
+void do_replay (CHAR_DATA *ch, const char *argument)
 {
 	if (IS_NPC(ch)) {
 		send_to_char("You can't replay.\n\r",ch);
@@ -332,7 +333,7 @@ void do_replay (CHAR_DATA *ch, char *argument)
 	buf_clear(ch->pcdata->buffer);
 }
 
-void do_immtalk(CHAR_DATA *ch, char *argument)
+void do_immtalk(CHAR_DATA *ch, const char *argument)
 {
 	DESCRIPTOR_DATA *d;
 
@@ -362,7 +363,7 @@ void do_immtalk(CHAR_DATA *ch, char *argument)
 
 
 
-void do_say(CHAR_DATA *ch, char *argument)
+void do_say(CHAR_DATA *ch, const char *argument)
 {
 	OBJ_DATA *char_obj;
 	OBJ_DATA *char_obj_next;
@@ -421,7 +422,7 @@ void do_say(CHAR_DATA *ch, char *argument)
 
 
 
-void do_shout(CHAR_DATA *ch, char *argument)
+void do_shout(CHAR_DATA *ch, const char *argument)
 {
 	DESCRIPTOR_DATA *d;
 	char buf[MAX_INPUT_LENGTH];
@@ -467,7 +468,7 @@ void do_shout(CHAR_DATA *ch, char *argument)
 }
 
 
-void do_tell_raw(CHAR_DATA *ch, CHAR_DATA *victim, char *msg)
+void do_tell_raw(CHAR_DATA *ch, CHAR_DATA *victim, const char *msg)
 {
 	char buf[MAX_STRING_LENGTH];
 
@@ -528,7 +529,7 @@ void do_tell_raw(CHAR_DATA *ch, CHAR_DATA *victim, char *msg)
 }
 
 
-void do_tell(CHAR_DATA *ch, char *argument)
+void do_tell(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 
@@ -542,12 +543,12 @@ void do_tell(CHAR_DATA *ch, char *argument)
 }
 
 
-void do_reply(CHAR_DATA *ch, char *argument)
+void do_reply(CHAR_DATA *ch, const char *argument)
 {
 	do_tell_raw(ch, ch->reply, argument);
 }
 
-void do_yell(CHAR_DATA *ch, char *argument)
+void do_yell(CHAR_DATA *ch, const char *argument)
 {
 	DESCRIPTOR_DATA *d;
 	char buf[MAX_INPUT_LENGTH];
@@ -585,7 +586,7 @@ void do_yell(CHAR_DATA *ch, char *argument)
 }
 
 
-void do_emote(CHAR_DATA *ch, char *argument)
+void do_emote(CHAR_DATA *ch, const char *argument)
 {
 	char buf[MAX_INPUT_LENGTH];
 
@@ -611,7 +612,7 @@ void do_emote(CHAR_DATA *ch, char *argument)
 }
 
 
-void do_pmote(CHAR_DATA *ch, char *argument)
+void do_pmote(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *vch;
 	char *letter,*name;
@@ -921,7 +922,7 @@ const	struct	pose_table_type	pose_table	[]	=
 
 
 
-void do_pose(CHAR_DATA *ch, char *argument)
+void do_pose(CHAR_DATA *ch, const char *argument)
 {
 	int level;
 	int pose;
@@ -940,47 +941,47 @@ void do_pose(CHAR_DATA *ch, char *argument)
 
 
 
-void do_bug(CHAR_DATA *ch, char *argument)
+void do_bug(CHAR_DATA *ch, const char *argument)
 {
 	append_file(ch, BUG_FILE, argument);
 	send_to_char("Bug logged.\n\r", ch);
 	return;
 }
 
-void do_typo(CHAR_DATA *ch, char *argument)
+void do_typo(CHAR_DATA *ch, const char *argument)
 {
 	append_file(ch, TYPO_FILE, argument);
 	send_to_char("Typo logged.\n\r", ch);
 	return;
 }
 
-void do_rent(CHAR_DATA *ch, char *argument)
+void do_rent(CHAR_DATA *ch, const char *argument)
 {
 	send_to_char("There is no rent here.  Just save and quit.\n\r", ch);
 	return;
 }
 
 
-void do_qui(CHAR_DATA *ch, char *argument)
+void do_qui(CHAR_DATA *ch, const char *argument)
 {
 	send_to_char("If you want to QUIT, you have to spell it out.\n\r", ch);
 	return;
 }
 
 
-void do_quit(CHAR_DATA *ch, char *argument)
+void do_quit(CHAR_DATA *ch, const char *argument)
 {
 	do_quit_org(ch, argument, FALSE);
 	return;
 }
 
-void do_quit_count(CHAR_DATA *ch, char *argument)
+void do_quit_count(CHAR_DATA *ch, const char *argument)
 {
 	do_quit_org(ch, argument, TRUE);
 	return;
 }
 
-void do_quit_org(CHAR_DATA *ch, char *argument, bool Count)
+void do_quit_org(CHAR_DATA *ch, const char *argument, bool Count)
 {
 	DESCRIPTOR_DATA *d, *d_next;
 	CHAR_DATA *vch;
@@ -1000,9 +1001,8 @@ void do_quit_org(CHAR_DATA *ch, char *argument, bool Count)
 		return;
 	}
 
-	if (ch->last_fight_time != -1 && !IS_IMMORTAL(ch)
-	&&  (current_time - ch->last_fight_time) < FIGHT_DELAY_TIME) {
-		send_to_char("Your adrenalin is gushing! You can't quit yet.\n\r",ch);
+	if (!IS_IMMORTAL(ch) && IS_PUMPED(ch)) {
+		send_to_char("Your adrenalin is gushing! You can't quit yet.\n\r", ch);
 		return;
 	}
 
@@ -1114,7 +1114,7 @@ void do_quit_org(CHAR_DATA *ch, char *argument, bool Count)
 
 
 
-void do_save(CHAR_DATA *ch, char *argument)
+void do_save(CHAR_DATA *ch, const char *argument)
 {
 	if (IS_NPC(ch))
 	return;
@@ -1128,7 +1128,7 @@ void do_save(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-void do_follow(CHAR_DATA *ch, char *argument)
+void do_follow(CHAR_DATA *ch, const char *argument)
 {
 /* RT changed to allow unlimited following and follow the NOFOLLOW rules */
 	char arg[MAX_INPUT_LENGTH];
@@ -1261,7 +1261,7 @@ void die_follower(CHAR_DATA *ch)
 }
 
 
-void do_order(CHAR_DATA *ch, char *argument)
+void do_order(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH],arg2[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
@@ -1335,7 +1335,7 @@ void do_order(CHAR_DATA *ch, char *argument)
 }
 
 
-bool proper_order(CHAR_DATA *ch, char *argument)
+bool proper_order(CHAR_DATA *ch, const char *argument)
 {
 	char command[MAX_INPUT_LENGTH];
 	bool found;
@@ -1412,7 +1412,7 @@ CHAR_DATA* leader_lookup(CHAR_DATA* ch)
 
 
 
-void do_group(CHAR_DATA *ch, char *argument)
+void do_group(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
@@ -1543,7 +1543,7 @@ void do_group(CHAR_DATA *ch, char *argument)
 /*
  * 'Split' originally by Gnort, God of Chaos.
  */
-void do_split(CHAR_DATA *ch, char *argument)
+void do_split(CHAR_DATA *ch, const char *argument)
 {
 	char buf[MAX_STRING_LENGTH];
 	char arg1[MAX_INPUT_LENGTH],arg2[MAX_INPUT_LENGTH];
@@ -1649,7 +1649,7 @@ void do_split(CHAR_DATA *ch, char *argument)
 
 
 
-void do_gtell(CHAR_DATA *ch, char *argument)
+void do_gtell(CHAR_DATA *ch, const char *argument)
 {
 	char buf[MAX_STRING_LENGTH];
 	CHAR_DATA *gch;
@@ -1696,7 +1696,7 @@ void do_gtell(CHAR_DATA *ch, char *argument)
 
 
 
-void do_cb(CHAR_DATA *ch, char *argument)
+void do_cb(CHAR_DATA *ch, const char *argument)
 {
 	DESCRIPTOR_DATA *d;
 	char buf[MAX_STRING_LENGTH];
@@ -1727,7 +1727,7 @@ void do_cb(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-void do_pray(CHAR_DATA *ch, char *argument)
+void do_pray(CHAR_DATA *ch, const char *argument)
 {
 	DESCRIPTOR_DATA *d;
 
@@ -1771,7 +1771,7 @@ char char_lang_lookup(char c)
  * ch says
  * victim hears 
  */
-char *translate(CHAR_DATA *ch, CHAR_DATA *victim, char *argument)
+char *translate(CHAR_DATA *ch, CHAR_DATA *victim, const char *argument)
 {
 	static char trans[MAX_STRING_LENGTH];
 	char buf[MAX_STRING_LENGTH];
@@ -1804,7 +1804,7 @@ char *translate(CHAR_DATA *ch, CHAR_DATA *victim, char *argument)
 }
 
 
-void do_speak(CHAR_DATA *ch, char *argument)
+void do_speak(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	int language;
@@ -1836,7 +1836,7 @@ void do_speak(CHAR_DATA *ch, char *argument)
 	char_printf(ch,"Now you speak %s.\n\r",slang_table[ch->slang].name);
 }
 
-void do_noiac(CHAR_DATA *ch, char *arg)
+void do_noiac(CHAR_DATA *ch, const char *argument)
 {
 	if (IS_SET(ch->comm, COMM_NOIAC)) {
 		REMOVE_BIT(ch->comm, COMM_NOIAC);
@@ -1848,7 +1848,7 @@ void do_noiac(CHAR_DATA *ch, char *arg)
 	}
 }
 
-void do_notelnet(CHAR_DATA *ch, char *arg)
+void do_notelnet(CHAR_DATA *ch, const char *arg)
 {
 	if (IS_SET(ch->comm, COMM_NOTELNET)) {
 		REMOVE_BIT(ch->comm, COMM_NOTELNET);

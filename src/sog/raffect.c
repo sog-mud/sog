@@ -1,5 +1,5 @@
 /*
- * $Id: raffect.c,v 1.1 1998-07-03 15:18:46 fjoe Exp $
+ * $Id: raffect.c,v 1.2 1998-07-11 20:55:15 fjoe Exp $
  */
 
 #include <sys/time.h>
@@ -271,18 +271,16 @@ void affect_join_room(ROOM_INDEX_DATA *room, AFFECT_DATA *paf)
 
 bool is_safe_rspell_nom(int level, CHAR_DATA *victim)
 {
-  /* ghosts are safe */
-  if (!IS_NPC(victim) && IS_SET(victim->act, PLR_GHOST))
-	return TRUE;
+	/* ghosts are safe */
+	if (!IS_NPC(victim) && IS_SET(victim->act, PLR_GHOST))
+		return TRUE;
  
-  /* link dead players who do not have rushing adrenalin are safe */
-  if (!IS_NPC(victim) && ((victim->last_fight_time == -1) || 
-		((current_time - victim->last_fight_time) > FIGHT_DELAY_TIME)) && 
-		victim->desc == NULL) 
-	return TRUE;
+	/* link dead players who do not have rushing adrenalin are safe */
+	if (!IS_NPC(victim) && !IS_PUMPED(victim) && victim->desc == NULL) 
+		return TRUE;
 
-  if  (victim->level < 5  && !IS_NPC(victim))
-	return TRUE;
+	if (victim->level < 5 && !IS_NPC(victim))
+		return TRUE;
 
   if (!IS_NPC(victim) &&
 	  (victim->last_death_time != -1 && current_time - 	victim->last_death_time < 600))
@@ -411,7 +409,7 @@ void raffect_back_char(ROOM_INDEX_DATA *room, CHAR_DATA *ch)
 }
 
 
-void do_raffects(CHAR_DATA *ch, char *argument)
+void do_raffects(CHAR_DATA *ch, const char *argument)
 {
 	AFFECT_DATA *paf, *paf_last = NULL;
 

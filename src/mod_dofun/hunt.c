@@ -1,5 +1,5 @@
 /*
- * $Id: hunt.c,v 1.1 1998-07-04 11:28:20 fjoe Exp $
+ * $Id: hunt.c,v 1.2 1998-07-11 20:55:11 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -82,7 +82,7 @@ void init_world(ROOM_INDEX_DATA *room_db[])
   bzero((char *)room_db,sizeof(ROOM_INDEX_DATA *)*WORLD_SIZE);
 }
 
-CHAR_DATA *get_char_area(CHAR_DATA *ch, char *argument)
+CHAR_DATA *get_char_area(CHAR_DATA *ch, const char *argument)
 {
    char arg[MAX_INPUT_LENGTH];
    CHAR_DATA *ach;
@@ -447,7 +447,7 @@ int find_path(int in_room_vnum, int out_room_vnum, CHAR_DATA *ch,
 
 
 
-void do_hunt(CHAR_DATA *ch, char *argument)
+void do_hunt(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_STRING_LENGTH];
 	CHAR_DATA *victim;

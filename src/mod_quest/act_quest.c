@@ -1,5 +1,5 @@
 /*
- * $Id: act_quest.c,v 1.46 1998-07-10 15:17:38 fjoe Exp $
+ * $Id: act_quest.c,v 1.47 1998-07-11 20:55:14 fjoe Exp $
  */
 
 /***************************************************************************
@@ -216,7 +216,7 @@ QCMD_DATA qcmd_table[] = {
 /*
  * The main quest function
  */
-void do_quest(CHAR_DATA *ch, char *argument)
+void do_quest(CHAR_DATA *ch, const char *argument)
 {
 	char cmd[MAX_INPUT_LENGTH];
 	char arg[MAX_INPUT_LENGTH];
@@ -312,15 +312,13 @@ void quest_update(void)
 		if (IS_NPC(ch)) 
 			continue;
 		if (ch->pcdata->questtime < 0) {
-
-			if (!++ch->pcdata->questtime) {
+			if (++ch->pcdata->questtime == 0) {
 				char_nputs(QUEST_YOU_MAY_NOW_QUEST_AGAIN, ch);
 				return;
 			}
 		} else if (IS_ON_QUEST(ch)) {
-			if (!--ch->pcdata->questtime) {
+			if (--ch->pcdata->questtime == 0) {
 				char_nputs(QUEST_RUN_OUT_TIME, ch);
-				char_nputs(QUEST_YOU_MAY_NOW_QUEST_AGAIN, ch);
 				quest_cancel(ch);
 				ch->pcdata->questtime = -number_range(5, 10);
 			} else if (ch->pcdata->questtime < 6) {
@@ -437,7 +435,7 @@ static void quest_info(CHAR_DATA *ch, char* arg)
 			if (ch->pcdata->questroom)
 				char_nprintf(ch, QUEST_INFO_LOCATION,
 					ch->pcdata->questroom->area->name, 
-					ml_string(ch, ch->pcdata->questroom->name));
+					mlstr_val(ch, ch->pcdata->questroom->name));
 		}
 		else 
 			char_nputs(QUEST_ARENT_ON_QUEST, ch);
@@ -454,7 +452,7 @@ static void quest_info(CHAR_DATA *ch, char* arg)
 			if (ch->pcdata->questroom)
 				char_nprintf(ch, QUEST_INFO_LOCATION,
 					ch->pcdata->questroom->area->name, 
-					ml_string(ch, ch->pcdata->questroom->name));
+					mlstr_val(ch, ch->pcdata->questroom->name));
 		} else 
 			char_nputs(QUEST_ARENT_ON_QUEST, ch);
 		return;
@@ -642,12 +640,10 @@ static void quest_request(CHAR_DATA *ch, char *arg)
 		eyed->pit = hometown_table[ch->hometown].pit[i];
 		eyed->level = ch->level;
 
-		str_printf(&eyed->description, eyed->description, ch->name);
+		str_printf(&eyed->description, ch->name);
 
 		eyed->extra_descr = new_extra_descr();
-		str_printf(&eyed->extra_descr->description,
-			   eyed->pIndexData->extra_descr->description,
-			   ch->name);
+		str_printf(&eyed->extra_descr->description, ch->name);
 		eyed->extra_descr->keyword =
 				str_dup(eyed->pIndexData->extra_descr->keyword);
 		eyed->extra_descr->next = NULL;
@@ -681,7 +677,7 @@ static void quest_request(CHAR_DATA *ch, char *arg)
 
 		quest_tell(ch, questor, msg(QUEST_SEEK_S_OUT, ch),
 			   victim->short_descr,
-			   ml_string(ch, victim->in_room->name));
+			   mlstr_val(ch, victim->in_room->name));
 
 		ch->pcdata->questmob = victim->pIndexData->vnum;
 		victim->hunter = ch;
@@ -694,7 +690,7 @@ static void quest_request(CHAR_DATA *ch, char *arg)
 	 */
 	quest_tell(ch, questor, msg(QUEST_LOCATION_IS_IN_AREA, ch),
 		   victim->in_room->area->name,
-		   ml_string(ch, victim->in_room->name));
+		   mlstr_val(ch, victim->in_room->name));
 
 	ch->pcdata->questgiver = questor->pIndexData->vnum;
 	ch->pcdata->questtime = number_range(15, 30);
@@ -878,7 +874,6 @@ static bool quest_give_item(CHAR_DATA *ch, CHAR_DATA *questor,
 	obj = create_object(get_obj_index(item_vnum), ch->level);
 
 	str_printf(&obj->short_descr,
-		   obj->short_descr,
 		   IS_GOOD(ch) ?	"holy" :
 		   IS_NEUTRAL(ch) ?	"blue-green" : 
 					"evil", 

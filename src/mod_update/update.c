@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.39 1998-07-08 09:57:14 fjoe Exp $
+ * $Id: update.c,v 1.40 1998-07-11 20:55:16 fjoe Exp $
  */
 
 /***************************************************************************
@@ -130,8 +130,12 @@ void advance_level(CHAR_DATA *ch)
 				  (int) (current_time - ch->logon)) / 3600;
 
 	p = title_table[ch->class][ch->level-1][ch->sex == SEX_FEMALE ? 1 : 0];
-	if (strstr(ch->pcdata->title, p) || CANT_CHANGE_TITLE(ch))
-		set_title(ch, "the %s", p);
+	if (strstr(ch->pcdata->title, p) || CANT_CHANGE_TITLE(ch)) {
+		char title[MAX_TITLE_LENGTH];
+
+		snprintf(title, sizeof(title), "the %s", p);
+		set_title(ch, title);
+	}
 
 	add_hp = (con_app[get_curr_stat(ch,STAT_CON)].hitp +
 		  number_range(1,5)) - 3;
@@ -574,20 +578,23 @@ void mobile_update(void)
 
 	/* Examine all mobs. */
 	for (ch = char_list; ch != NULL; ch = ch_next) {
+		bool bust_prompt = FALSE;
+
 		ch_next = ch->next;
 		if (ch->position == POS_FIGHTING)
-			ch->last_fight_time = current_time;
+			SET_FIGHT_TIME(ch);
 
-		/* show adrenalin stops gushing status */
-		if (!IS_NPC(ch))
-			if (current_time - ch->last_fight_time 
-					< FIGHT_DELAY_TIME)
-				ch->pcdata->adr_stops_shown = 0;
-			else if (!ch->pcdata->adr_stops_shown) {
-				ch->pcdata->adr_stops_shown = 1;
-				send_to_char(msg(CALMING_DOWN, ch),
-						 ch);
-			}
+		/* update pumped state */
+		if (ch->last_fight_time != -1
+		&&  current_time - ch->last_fight_time >= FIGHT_DELAY_TIME
+		&&  ch->pumped) {
+			ch->pumped = FALSE;
+			if (!IS_NPC(ch) && ch->desc != NULL
+			&&  ch->desc->pString == NULL 
+			&&  (ch->last_death_time == -1 ||
+			     ch->last_death_time < ch->last_fight_time))
+				char_nputs(YOU_SETTLE_DOWN, ch);
+		}
 
 		if (IS_AFFECTED(ch, AFF_REGENERATION) && ch->in_room != NULL) {
 			ch->hit = UMIN(ch->hit + ch->level / 10, ch->max_hit);
@@ -595,7 +602,7 @@ void mobile_update(void)
 				ch->hit = UMIN(ch->hit + ch->level / 10,
 					       ch->max_hit);
 			if (ch->hit != ch->max_hit)
-				send_to_char("",ch);
+				bust_prompt = TRUE;
 		}
 
 		if (IS_AFFECTED(ch, AFF_CORRUPTION) && ch->in_room != NULL) {
@@ -603,9 +610,13 @@ void mobile_update(void)
 			if (ch->hit < 1) 
 				damage(ch, ch, 1, gsn_witch_curse,
 				       DAM_NONE, FALSE);
-			else
-				send_to_char("",ch);
+			bust_prompt = TRUE;
 		}
+
+		if (!IS_NPC(ch) && bust_prompt
+		&&  ch->desc != NULL && ch->desc->pString == NULL
+		&&  ch->desc->showstr_point == NULL)
+			char_puts("", ch);
 
 		if (!IS_NPC(ch)
 		||  ch->in_room == NULL
@@ -1064,6 +1075,10 @@ void char_update(void)
 	        	ch_quit = ch;
 
 		if (ch->position >= POS_STUNNED) {
+			int old_hit = ch->hit;
+			int old_mana = ch->mana;
+			int old_move = ch->move;
+
 			/* check to see if we need to go home */
 			if (IS_NPC(ch) && ch->zone != NULL 
 			&& ch->zone != ch->in_room->area && ch->desc == NULL 
@@ -1096,6 +1111,12 @@ void char_update(void)
 				ch->move += move_gain(ch);
 			else
 				ch->move = ch->max_move;
+
+			if (ch->desc != NULL && ch->desc->pString == NULL
+			&&  ch->desc->showstr_point == NULL
+			&&  (old_hit != ch->hit || old_mana != ch->mana ||
+			     old_move != ch->move))
+				char_puts("", ch);
 		}
 
 		if (ch->position == POS_STUNNED)
@@ -1297,10 +1318,6 @@ void char_update(void)
 			damage(ch, ch, 1, TYPE_UNDEFINED, DAM_NONE, FALSE);
 		else if (ch->position == POS_MORTAL)
 			damage(ch, ch, 1, TYPE_UNDEFINED, DAM_NONE, FALSE);
-
-		/* bust a prompt */
-		send_to_char("", ch);
-
 	} /* global for */
 
 	/*
@@ -1531,7 +1548,7 @@ void obj_update(void)
 	else if (obj->in_room != NULL
 	&&      (rch = obj->in_room->people) != NULL)
 	{
-	    if (! (obj->in_obj && obj->in_obj->pIndexData->vnum == OBJ_VNUM_PIT
+	    if (!(obj->in_obj && obj_is_pit(obj->in_obj)
 	           && !CAN_WEAR(obj->in_obj,ITEM_TAKE)))
 	    {
 	    	act(message, rch, obj, NULL, TO_ROOM);
@@ -1540,8 +1557,7 @@ void obj_update(void)
 	}
 
 	    pit_count = ++pit_count % 120; /* more or less an hour */
-	    if (obj->pIndexData->vnum == OBJ_VNUM_PIT &&
-	        pit_count == 121) {
+	    if (obj_is_pit(obj) && pit_count == 121) {
 	      for (t_obj = obj->contains; t_obj != NULL; t_obj = next_obj) {
 	        next_obj = t_obj->next_content;
 	        obj_from_obj(t_obj);

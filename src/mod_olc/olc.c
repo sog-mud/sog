@@ -1,5 +1,5 @@
 /*
- * $Id: olc.c,v 1.4 1998-07-10 10:39:40 fjoe Exp $
+ * $Id: olc.c,v 1.5 1998-07-11 20:55:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -175,7 +175,7 @@ void show_olc_cmds(CHAR_DATA *ch, const struct olc_cmd_type *olc_table)
  Purpose:	Display all olc commands.
  Called by:	olc interpreters.
  ****************************************************************************/
-bool show_commands(CHAR_DATA *ch, char *argument)
+bool show_commands(CHAR_DATA *ch, const char *argument)
 {
     switch (ch->desc->editor)
     {
@@ -405,7 +405,7 @@ bool edit_done(CHAR_DATA *ch)
 
 
 /* Area Interpreter, called by do_aedit. */
-void aedit(CHAR_DATA *ch, char *argument)
+void aedit(CHAR_DATA *ch, const char *argument)
 {
     AREA_DATA *pArea;
     char command[MAX_INPUT_LENGTH];
@@ -414,9 +414,9 @@ void aedit(CHAR_DATA *ch, char *argument)
     int  value;
 
     EDIT_AREA(ch, pArea);
-    smash_tilde(argument);
     strcpy(arg, argument);
-    argument = one_argument(argument, command);
+    smash_tilde(arg);
+    argument = one_argument(arg, command);
 
     if (!IS_BUILDER(ch, pArea))
     {
@@ -468,7 +468,7 @@ void aedit(CHAR_DATA *ch, char *argument)
 
 
 /* Room Interpreter, called by do_redit. */
-void redit(CHAR_DATA *ch, char *argument)
+void redit(CHAR_DATA *ch, const char *argument)
 {
     AREA_DATA *pArea;
     ROOM_INDEX_DATA *pRoom;
@@ -479,9 +479,9 @@ void redit(CHAR_DATA *ch, char *argument)
     EDIT_ROOM(ch, pRoom);
     pArea = pRoom->area;
 
-    smash_tilde(argument);
     strcpy(arg, argument);
-    argument = one_argument(argument, command);
+    smash_tilde(arg);
+    argument = one_argument(arg, command);
 
     if (!IS_BUILDER(ch, pArea))
     {
@@ -525,7 +525,7 @@ void redit(CHAR_DATA *ch, char *argument)
 
 
 /* Object Interpreter, called by do_oedit. */
-void oedit(CHAR_DATA *ch, char *argument)
+void oedit(CHAR_DATA *ch, const char *argument)
 {
     AREA_DATA *pArea;
     OBJ_INDEX_DATA *pObj;
@@ -533,9 +533,9 @@ void oedit(CHAR_DATA *ch, char *argument)
     char command[MAX_INPUT_LENGTH];
     int  cmd;
 
-    smash_tilde(argument);
     strcpy(arg, argument);
-    argument = one_argument(argument, command);
+    smash_tilde(arg);
+    argument = one_argument(arg, command);
 
     EDIT_OBJ(ch, pObj);
     pArea = pObj->area;
@@ -582,7 +582,7 @@ void oedit(CHAR_DATA *ch, char *argument)
 
 
 /* Mobile Interpreter, called by do_medit. */
-void medit(CHAR_DATA *ch, char *argument)
+void medit(CHAR_DATA *ch, const char *argument)
 {
     AREA_DATA *pArea;
     MOB_INDEX_DATA *pMob;
@@ -590,9 +590,9 @@ void medit(CHAR_DATA *ch, char *argument)
     char arg[MAX_STRING_LENGTH];
     int  cmd;
 
-    smash_tilde(argument);
     strcpy(arg, argument);
-    argument = one_argument(argument, command);
+    smash_tilde(arg);
+    argument = one_argument(arg, command);
 
     EDIT_MOB(ch, pMob);
     pArea = pMob->area;
@@ -654,7 +654,7 @@ const struct editor_cmd_type editor_table[] =
 
 
 /* Entry point for all editors. */
-void do_olc(CHAR_DATA *ch, char *argument)
+void do_olc(CHAR_DATA *ch, const char *argument)
 {
     char command[MAX_INPUT_LENGTH];
     int  cmd;
@@ -688,7 +688,7 @@ void do_olc(CHAR_DATA *ch, char *argument)
 
 
 /* Entry point for editing area_data. */
-void do_aedit(CHAR_DATA *ch, char *argument)
+void do_aedit(CHAR_DATA *ch, const char *argument)
 {
     AREA_DATA *pArea;
     int value;
@@ -738,7 +738,7 @@ void do_aedit(CHAR_DATA *ch, char *argument)
 
 
 /* Entry point for editing room_index_data. */
-void do_redit(CHAR_DATA *ch, char *argument)
+void do_redit(CHAR_DATA *ch, const char *argument)
 {
     ROOM_INDEX_DATA *pRoom;
     char arg1[MAX_STRING_LENGTH];
@@ -817,7 +817,7 @@ void do_redit(CHAR_DATA *ch, char *argument)
 
 
 /* Entry point for editing obj_index_data. */
-void do_oedit(CHAR_DATA *ch, char *argument)
+void do_oedit(CHAR_DATA *ch, const char *argument)
 {
     OBJ_INDEX_DATA *pObj;
     AREA_DATA *pArea;
@@ -889,7 +889,7 @@ void do_oedit(CHAR_DATA *ch, char *argument)
 
 
 /* Entry point for editing mob_index_data. */
-void do_medit(CHAR_DATA *ch, char *argument)
+void do_medit(CHAR_DATA *ch, const char *argument)
 {
     MOB_INDEX_DATA *pMob;
     AREA_DATA *pArea;
@@ -1008,7 +1008,7 @@ void display_resets(CHAR_DATA *ch)
             buf_printf(buf, "M[%5d] %-13.13s in room             R[%5d] %2d-%2d %-15.15s\n\r",
                        pReset->arg1, pMob->short_descr, pReset->arg3,
                        pReset->arg2, pReset->arg4,
-			ml_string(ch, pRoomIndex->name));
+			mlstr_val(ch, pRoomIndex->name));
 
 	    /*
 	     * Check for pet shop.
@@ -1042,7 +1042,7 @@ void display_resets(CHAR_DATA *ch)
             buf_printf(buf, "O[%5d] %-13.13s in room             "
                           "R[%5d]       %-15.15s\n\r",
                           pReset->arg1, pObj->short_descr,
-                          pReset->arg3, ml_string(ch, pRoomIndex->name));
+                          pReset->arg3, mlstr_val(ch, pRoomIndex->name));
 
 	    break;
 
@@ -1118,7 +1118,7 @@ void display_resets(CHAR_DATA *ch)
 	    buf_printf(buf, "R[%5d] %s door of %-19.19s reset to %s\n\r",
 		pReset->arg1,
 		capitalize(dir_name[ pReset->arg2 ]),
-		ml_string(ch, pRoomIndex->name),
+		mlstr_val(ch, pRoomIndex->name),
 		flag_string(door_resets, pReset->arg3));
 
 	    break;
@@ -1133,7 +1133,7 @@ void display_resets(CHAR_DATA *ch)
 	    }
 
 	    buf_printf(buf, "R[%5d] Exits are randomized in %s\n\r",
-		pReset->arg1, ml_string(ch, pRoomIndex->name));
+		pReset->arg1, mlstr_val(ch, pRoomIndex->name));
 
 	    break;
 	}
@@ -1189,7 +1189,7 @@ void add_reset(ROOM_INDEX_DATA *room, RESET_DATA *pReset, int index)
 
 
 
-void do_resets(CHAR_DATA *ch, char *argument)
+void do_resets(CHAR_DATA *ch, const char *argument)
 {
     char arg1[MAX_INPUT_LENGTH];
     char arg2[MAX_INPUT_LENGTH];
@@ -1432,7 +1432,7 @@ void do_resets(CHAR_DATA *ch, char *argument)
  Purpose:	Normal command to list areas and display area information.
  Called by:	interpreter(interp.c)
  ****************************************************************************/
-void do_alist(CHAR_DATA *ch, char *argument)
+void do_alist(CHAR_DATA *ch, const char *argument)
 {
     char buf    [ MAX_STRING_LENGTH ];
     char result [ MAX_STRING_LENGTH*2 ];	/* May need tweaking. */

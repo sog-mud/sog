@@ -1,5 +1,5 @@
 /*
- * $Id: healer.c,v 1.6 1998-07-03 15:18:41 fjoe Exp $
+ * $Id: healer.c,v 1.7 1998-07-11 20:55:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -53,7 +53,7 @@
 
 DECLARE_DO_FUN(	do_say	);
 
-void do_heal(CHAR_DATA *ch, char *argument)
+void do_heal(CHAR_DATA *ch, const char *argument)
 {
     CHAR_DATA *mob;
     char arg[MAX_INPUT_LENGTH];

@@ -1,5 +1,5 @@
 /*
- * $Id: olc_act.c,v 1.5 1998-07-10 10:39:40 fjoe Exp $
+ * $Id: olc_act.c,v 1.6 1998-07-11 20:55:14 fjoe Exp $
  */
 
 /***************************************************************************
@@ -40,10 +40,10 @@
 char * mprog_type_to_name (int type);
 
 /* Return TRUE if area changed, FALSE if not. */
-#define REDIT(fun)		bool fun(CHAR_DATA *ch, char *argument)
-#define OEDIT(fun)		bool fun(CHAR_DATA *ch, char *argument)
-#define MEDIT(fun)		bool fun(CHAR_DATA *ch, char *argument)
-#define AEDIT(fun)		bool fun(CHAR_DATA *ch, char *argument)
+#define REDIT(fun)		bool fun(CHAR_DATA *ch, const char *argument)
+#define OEDIT(fun)		bool fun(CHAR_DATA *ch, const char *argument)
+#define MEDIT(fun)		bool fun(CHAR_DATA *ch, const char *argument)
+#define AEDIT(fun)		bool fun(CHAR_DATA *ch, const char *argument)
 
 
 
@@ -56,7 +56,7 @@ struct olc_help_type
 
 
 
-bool show_version(CHAR_DATA *ch, char *argument)
+bool show_version(CHAR_DATA *ch, const char *argument)
 {
 	send_to_char(VERSION, ch);
 	send_to_char("\n\r", ch);
@@ -222,7 +222,7 @@ void show_spec_cmds(CHAR_DATA *ch)
  Purpose:	Displays help for many tables used in OLC.
  Called by:	olc interpreters.
  ****************************************************************************/
-bool show_help(CHAR_DATA *ch, char *argument)
+bool show_help(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	char spell[MAX_INPUT_LENGTH];
@@ -322,7 +322,7 @@ REDIT(redit_rlist)
 			found = TRUE;
 			buf_printf(buffer, "[%5d] %-17.16s",
 				vnum,
-				capitalize(ml_string(ch, pRoomIndex->name)));
+				capitalize(mlstr_val(ch, pRoomIndex->name)));
 			if (++col % 3 == 0)
 				buf_add(buffer, "\n\r");
 		}
@@ -1010,8 +1010,8 @@ REDIT(redit_show)
 	output = buf_new(0);
 	
 	buf_add(output, "Description:\n\r");
-	mlstring_buf(output, "", pRoom->description);
-	mlstring_buf(output, "Name:       ", pRoom->name);
+	mlstr_buf(output, "", pRoom->description);
+	mlstr_buf(output, "Name:       ", pRoom->name);
 	buf_printf(output, "Area:       [%5d] %s\n\r",
 		   pRoom->area->vnum, pRoom->area->name);
 	buf_printf(output, "Vnum:       [%5d]\n\rSector:     [%s]\n\r",
@@ -1078,7 +1078,7 @@ REDIT(redit_show)
 		if ((pexit = pRoom->exit[door]) != NULL) {
 			char word[MAX_INPUT_LENGTH];
 			char reset_state[MAX_STRING_LENGTH];
-			char *state;
+			const char *state;
 			int i, length;
 
 			buf_printf(output, "-%-5s to [%5d] Key: [%5d] ",
@@ -1114,7 +1114,7 @@ REDIT(redit_show)
 			if (!IS_NULLSTR(pexit->keyword))
 				buf_printf(output, "Kwds: [%s]\n\r",
 					   pexit->keyword);
-			mlstring_buf(output, "", pexit->description);
+			mlstr_buf(output, "", pexit->description);
 		}
 	}
 
@@ -1127,7 +1127,7 @@ REDIT(redit_show)
 
 
 /* Local function. */
-bool change_exit(CHAR_DATA *ch, char *argument, int door)
+bool change_exit(CHAR_DATA *ch, const char *argument, int door)
 {
 	ROOM_INDEX_DATA *pRoom;
 	char command[MAX_INPUT_LENGTH];
@@ -1403,7 +1403,7 @@ bool change_exit(CHAR_DATA *ch, char *argument, int door)
 			    pRoom->exit[door] = new_exit();
 			} */
 
-		if (!mlstring_append(ch, pRoom->exit[door]->description, arg)) {
+		if (!mlstr_append(ch, pRoom->exit[door]->description, arg)) {
 			send_to_char("Syntax:  [direction] desc lang\n\r", ch);
 			return FALSE;
 		}
@@ -1669,7 +1669,7 @@ REDIT(redit_name)
 
 	EDIT_ROOM(ch, pRoom);
 
-	if (!mlstring_change(pRoom->name, argument)) {
+	if (!mlstr_change(pRoom->name, argument)) {
 		send_to_char("Syntax: name lang name\n\r", ch);
 		return FALSE;
 	}
@@ -1686,7 +1686,7 @@ REDIT(redit_desc)
 
 	EDIT_ROOM(ch, pRoom);
 
-	if (!mlstring_append(ch, pRoom->description, argument)) {
+	if (!mlstr_append(ch, pRoom->description, argument)) {
 		send_to_char("Syntax: desc lang\n\r", ch);
 		return FALSE;
 	}
@@ -1745,7 +1745,7 @@ REDIT(redit_format)
 
 	EDIT_ROOM(ch, pRoom);
 
-	format_mlstring(pRoom->description);
+	mlstr_format(pRoom->description);
 
 	send_to_char("String formatted.\n\r", ch);
 	return TRUE;
@@ -2240,7 +2240,7 @@ void show_obj_values(CHAR_DATA *ch, OBJ_INDEX_DATA *obj)
 
 
 
-bool set_obj_values(CHAR_DATA *ch, OBJ_INDEX_DATA *pObj, int value_num, char *argument)
+bool set_obj_values(CHAR_DATA *ch, OBJ_INDEX_DATA *pObj, int value_num, const char *argument)
 {
 	switch(pObj->item_type)
 	{
@@ -2890,7 +2890,7 @@ OEDIT(oedit_long)
 
 
 
-bool set_value(CHAR_DATA *ch, OBJ_INDEX_DATA *pObj, char *argument, int value)
+bool set_value(CHAR_DATA *ch, OBJ_INDEX_DATA *pObj, const char *argument, int value)
 {
 	if (argument[0] == '\0')
 	{
@@ -2911,7 +2911,7 @@ bool set_value(CHAR_DATA *ch, OBJ_INDEX_DATA *pObj, char *argument, int value)
  Purpose:	Finds the object and sets its value.
  Called by:	The four valueX functions below. (now five -- Hugin)
  ****************************************************************************/
-bool oedit_values(CHAR_DATA *ch, char *argument, int value)
+bool oedit_values(CHAR_DATA *ch, const char *argument, int value)
 {
 	OBJ_INDEX_DATA *pObj;
 
@@ -3365,155 +3365,149 @@ MEDIT(medit_show)
 {
 	MOB_INDEX_DATA *pMob;
 	MPROG_LIST *list;
+	BUFFER *buf;
 
 	EDIT_MOB(ch, pMob);
 
-	char_printf(ch, "Name:        [%s]\n\rArea:        [%5d] %s\n\r",
+	buf = buf_new(0);
+
+	buf_printf(buf, "Name:        [%s]\n\rArea:        [%5d] %s\n\r",
 		pMob->player_name,
 		!pMob->area ? -1        : pMob->area->vnum,
 		!pMob->area ? "No Area" : pMob->area->name);
 
-	char_printf(ch, "Act:         [%s]\n\r",
+	buf_printf(buf, "Act:         [%s]\n\r",
 		flag_string(act_flags, pMob->act));
 
-	char_printf(ch, "Vnum:        [%5d] Sex:   [%s]   Race: [%s]\n\r",
+	buf_printf(buf, "Vnum:        [%5d] Sex:   [%s]   Race: [%s]\n\r",
 		pMob->vnum,
-		pMob->sex == SEX_MALE    ? "male   " :
-		pMob->sex == SEX_FEMALE  ? "female " : 
-		pMob->sex == SEX_EITHER  ? "random " : "neutral",
+		flag_string(sex_flags, pMob->sex),
 		race_table[pMob->race].name);
 
-	char_printf(ch,
-			  "Level:       [%2d]    Align: [%4d]      Hitroll: [%2d] Dam Type:    [%s]\n\r",
+	buf_printf(buf, "Level:       [%2d]    Align: [%4d]      Hitroll: [%2d] Dam Type:    [%s]\n\r",
 		pMob->level,	pMob->alignment,
 		pMob->hitroll,	attack_table[pMob->dam_type].name);
 
 	if (pMob->group)
-		char_printf(ch, "Group:       [%5d]\n\r", pMob->group);
+		buf_printf(buf, "Group:       [%5d]\n\r", pMob->group);
 
-	char_printf(ch, "Hit dice:    [%2dd%-3d+%4d] ",
+	buf_printf(buf, "Hit dice:    [%2dd%-3d+%4d] ",
 			 pMob->hit[DICE_NUMBER],
 			 pMob->hit[DICE_TYPE],
 			 pMob->hit[DICE_BONUS]);
 
-	char_printf(ch, "Damage dice: [%2dd%-3d+%4d] ",
+	buf_printf(buf, "Damage dice: [%2dd%-3d+%4d] ",
 			 pMob->damage[DICE_NUMBER],
 			 pMob->damage[DICE_TYPE],
 			 pMob->damage[DICE_BONUS]);
 
-	char_printf(ch, "Mana dice:   [%2dd%-3d+%4d]\n\r",
+	buf_printf(buf, "Mana dice:   [%2dd%-3d+%4d]\n\r",
 			 pMob->mana[DICE_NUMBER],
 			 pMob->mana[DICE_TYPE],
 			 pMob->mana[DICE_BONUS]);
 
 /* ROM values end */
 
-	char_printf(ch, "Affected by: [%s]\n\r",
+	buf_printf(buf, "Affected by: [%s]\n\r",
 		flag_string(affect_flags, pMob->affected_by));
-	char_printf(ch, "Can detect: [%s]\n\r",
+	buf_printf(buf, "Can detect: [%s]\n\r",
 		flag_string(detect_flags, pMob->detection));
 
 /* ROM values: */
 
-	char_printf(ch, "Armor:       [pierce: %d  bash: %d  slash: %d  magic: %d]\n\r",
+	buf_printf(buf, "Armor:       [pierce: %d  bash: %d  slash: %d  magic: %d]\n\r",
 		pMob->ac[AC_PIERCE], pMob->ac[AC_BASH],
 		pMob->ac[AC_SLASH], pMob->ac[AC_EXOTIC]);
 
-	char_printf(ch, "Form:        [%s]\n\r",
+	buf_printf(buf, "Form:        [%s]\n\r",
 		flag_string(form_flags, pMob->form));
 
-	char_printf(ch, "Parts:       [%s]\n\r",
+	buf_printf(buf, "Parts:       [%s]\n\r",
 		flag_string(part_flags, pMob->parts));
 
-	char_printf(ch, "Imm:         [%s]\n\r",
+	buf_printf(buf, "Imm:         [%s]\n\r",
 		flag_string(imm_flags, pMob->imm_flags));
 
-	char_printf(ch, "Res:         [%s]\n\r",
+	buf_printf(buf, "Res:         [%s]\n\r",
 		flag_string(res_flags, pMob->res_flags));
 
-	char_printf(ch, "Vuln:        [%s]\n\r",
+	buf_printf(buf, "Vuln:        [%s]\n\r",
 		flag_string(vuln_flags, pMob->vuln_flags));
 
-	char_printf(ch, "Off:         [%s]\n\r",
+	buf_printf(buf, "Off:         [%s]\n\r",
 		flag_string(off_flags,  pMob->off_flags));
 
-	char_printf(ch, "Size:        [%s]\n\r",
+	buf_printf(buf, "Size:        [%s]\n\r",
 		flag_string(size_flags, pMob->size));
 
-	char_printf(ch, "Material:    [%s]\n\r",
+	buf_printf(buf, "Material:    [%s]\n\r",
 		 pMob->material);
 
-	char_printf(ch, "Start pos.   [%s]\n\r",
+	buf_printf(buf, "Start pos.   [%s]\n\r",
 		flag_string(position_flags, pMob->start_pos));
 
-	char_printf(ch, "Default pos  [%s]\n\r",
+	buf_printf(buf, "Default pos  [%s]\n\r",
 		flag_string(position_flags, pMob->default_pos));
 
-	char_printf(ch, "Wealth:      [%5d]\n\r", pMob->wealth);
+	buf_printf(buf, "Wealth:      [%5d]\n\r", pMob->wealth);
 
 /* ROM values end */
 
 	if (pMob->spec_fun)
-		char_printf(ch, "Spec fun:    [%s]\n\r",  spec_name(pMob->spec_fun));
+		buf_printf(buf, "Spec fun:    [%s]\n\r",  spec_name(pMob->spec_fun));
 	if (pMob->practicer)
-		char_printf(ch, "Practicer:   [%s]\n\r",
+		buf_printf(buf, "Practicer:   [%s]\n\r",
 			flag_string(skill_groups, pMob->practicer));
 
-	char_printf(ch, "Short descr: %s\n\rLong descr:\n\r%s",
-		pMob->short_descr,
-		pMob->long_descr);
+	buf_printf(buf, "Short descr: %s\n\r", pMob->short_descr);
+	mlstr_buf(buf, "Long descr: ", pMob->long_descr);
+	mlstr_buf(buf, "Description: ", pMob->description);
 
-	char_printf(ch, "Description:\n\r%s", pMob->description);
-
-	if (pMob->pShop)
-	{
+	if (pMob->pShop) {
 		SHOP_DATA *pShop;
 		int iTrade;
 
 		pShop = pMob->pShop;
 
-		char_printf(ch,
-		  "Shop data for [%5d]:\n\r"
-		  "  Markup for purchaser: %d%%\n\r"
-		  "  Markdown for seller:  %d%%\n\r",
+		buf_printf(buf, "Shop data for [%5d]:\n\r"
+				"  Markup for purchaser: %d%%\n\r"
+				"  Markdown for seller:  %d%%\n\r",
 			pShop->keeper, pShop->profit_buy, pShop->profit_sell);
-		char_printf(ch, "  Hours: %d to %d.\n\r",
+		buf_printf(buf, "  Hours: %d to %d.\n\r",
 			pShop->open_hour, pShop->close_hour);
 
-		for (iTrade = 0; iTrade < MAX_TRADE; iTrade++)
-		{
-			if (pShop->buy_type[iTrade] != 0)
-			{
+		for (iTrade = 0; iTrade < MAX_TRADE; iTrade++) {
+			if (pShop->buy_type[iTrade] != 0) {
 			if (iTrade == 0) {
-			    send_to_char("  Number Trades Type\n\r", ch);
-			    send_to_char("  ------ -----------\n\r", ch);
+				buf_add(buf, "  Number Trades Type\n\r");
+				buf_add(buf, "  ------ -----------\n\r");
 			}
-			char_printf(ch, "  [%4d] %s\n\r", iTrade,
-			    flag_string(type_flags, pShop->buy_type[iTrade]));
+			buf_printf(buf, "  [%4d] %s\n\r", iTrade,
+				flag_string(type_flags, pShop->buy_type[iTrade]));
 			}
 		}
 	}
 
-	if (pMob->mprogs)
-	{
+	if (pMob->mprogs) {
 		int cnt;
 
-		char_printf(ch, "\n\rMOBPrograms for [%5d]:\n\r", pMob->vnum);
+		buf_printf(buf, "\n\rMOBPrograms for [%5d]:\n\r", pMob->vnum);
 
-		for (cnt=0, list=pMob->mprogs; list; list=list->next)
-		{
-			if (cnt ==0)
-			{
-			send_to_char (" Number Vnum Trigger Phrase\n\r", ch);
-			send_to_char (" ------ ---- ------- ------\n\r", ch);
+		for (cnt=0, list=pMob->mprogs; list; list=list->next) {
+			if (cnt ==0) {
+				buf_add(buf, " Number Vnum Trigger Phrase\n\r");
+				buf_add(buf, " ------ ---- ------- ------\n\r");
 			}
 
-			char_printf(ch, "[%5d] %4d %7s %s\n\r", cnt,
+			buf_printf(buf, "[%5d] %4d %7s %s\n\r", cnt,
 			list->vnum,mprog_type_to_name(list->trig_type),
 			list->trig_phrase);
 			cnt++;
 		}
 	}
+
+	char_puts(buf_string(buf), ch);
+	buf_free(buf);
 
 	return FALSE;
 }
@@ -3555,15 +3549,15 @@ MEDIT(medit_create)
 	}
 
 	pMob			= new_mob_index();
-	pMob->vnum			= value;
-	pMob->area			= pArea;
+	pMob->vnum		= value;
+	pMob->area		= pArea;
 		 
 	if (value > top_vnum_mob)
 		top_vnum_mob = value;        
 
-	pMob->act			= ACT_NPC;
+	pMob->act		= ACT_NPC;
 	iHash			= value % MAX_KEY_HASH;
-	pMob->next			= mob_index_hash[iHash];
+	pMob->next		= mob_index_hash[iHash];
 	mob_index_hash[iHash]	= pMob;
 	ch->desc->pEdit		= (void *)pMob;
 
@@ -3670,13 +3664,12 @@ MEDIT(medit_desc)
 
 	EDIT_MOB(ch, pMob);
 
-	if (argument[0] == '\0')
-	{
-		string_append(ch, &pMob->description);
+	if (argument[0] != '\0') {
+		mlstr_append(ch, pMob->description, argument);
 		return TRUE;
 	}
 
-	send_to_char("Syntax:  desc    - line edit\n\r", ch);
+	send_to_char("Syntax:  desc lang\n\r", ch);
 	return FALSE;
 }
 
@@ -3689,16 +3682,10 @@ MEDIT(medit_long)
 
 	EDIT_MOB(ch, pMob);
 
-	if (argument[0] == '\0')
-	{
-		send_to_char("Syntax:  long [string]\n\r", ch);
+	if (!mlstr_change_desc(pMob->long_descr, argument)) {
+		send_to_char("Syntax: long lang [string]\n\r", ch);
 		return FALSE;
 	}
-
-	free_string(pMob->long_descr);
-	strcat(argument, "\n\r");
-	pMob->long_descr = str_dup(argument);
-	pMob->long_descr[0] = UPPER(pMob->long_descr[0] );
 
 	send_to_char("Long description set.\n\r", ch);
 	return TRUE;
@@ -4264,151 +4251,59 @@ MEDIT(medit_size)
 	return FALSE;
 }
 
-MEDIT(medit_hitdice)
+static bool medit_dice(CHAR_DATA *ch, const char *argument,
+		       const char *name, int *dice)
 {
-	static char syntax[] = "Syntax:  hitdice <number> d <type> + <bonus>\n\r";
-	char *num, *type, *bonus, *cp;
-	MOB_INDEX_DATA *pMob;
-
-	EDIT_MOB(ch, pMob);
+	static char syntax[] = "Syntax: %s <number>d<type>+<bonus>\n\r";
+	int num, type, bonus;
+	char* p;
 
 	if (argument[0] == '\0')
-	{
-		send_to_char(syntax, ch);
-		return FALSE;
-	}
+		goto bail_out;
+	
+	num = strtod(argument, &p);
+	if (num < 1 || *p != 'd')
+		goto bail_out;
 
-	num = cp = argument;
+	type = strtod(p+1, &p);
+	if (type < 1 || *p != '+')
+		goto bail_out;
+	
+	bonus = strtod(p+1, &p);
+	if (bonus < 0 || *p != '\0')
+		goto bail_out;
 
-	while (isdigit(*cp)) ++cp;
-	while (*cp != '\0' && !isdigit(*cp))  *(cp++) = '\0';
+	dice[DICE_NUMBER] = num;
+	dice[DICE_TYPE]   = type;
+	dice[DICE_BONUS]  = bonus;
 
-	type = cp;
-
-	while (isdigit(*cp)) ++cp;
-	while (*cp != '\0' && !isdigit(*cp)) *(cp++) = '\0';
-
-	bonus = cp;
-
-	while (isdigit(*cp)) ++cp;
-	if (*cp != '\0') *cp = '\0';
-
-	if ((!is_number(num  ) || atoi(num  ) < 1)
-	||   (!is_number(type ) || atoi(type ) < 1) 
-	||   (!is_number(bonus) || atoi(bonus) < 0))
-	{
-		send_to_char(syntax, ch);
-		return FALSE;
-	}
-
-	pMob->hit[DICE_NUMBER] = atoi(num  );
-	pMob->hit[DICE_TYPE]   = atoi(type );
-	pMob->hit[DICE_BONUS]  = atoi(bonus);
-
-	send_to_char("Hitdice set.\n\r", ch);
+	char_printf(ch, "%s set to %dd%d+%d.\n\r", name, num, type, bonus);
 	return TRUE;
+
+bail_out:
+	char_printf(ch, syntax, name);
+	return FALSE;
+}
+
+MEDIT(medit_hitdice)
+{
+	MOB_INDEX_DATA *pMob;
+	EDIT_MOB(ch, pMob);
+	return medit_dice(ch, argument, "hitdice", pMob->hit);
 }
 
 MEDIT(medit_manadice)
 {
-	static char syntax[] = "Syntax:  manadice <number> d <type> + <bonus>\n\r";
-	char *num, *type, *bonus, *cp;
 	MOB_INDEX_DATA *pMob;
-
 	EDIT_MOB(ch, pMob);
-
-	if (argument[0] == '\0')
-	{
-		send_to_char(syntax, ch);
-		return FALSE;
-	}
-
-	num = cp = argument;
-
-	while (isdigit(*cp)) ++cp;
-	while (*cp != '\0' && !isdigit(*cp))  *(cp++) = '\0';
-
-	type = cp;
-
-	while (isdigit(*cp)) ++cp;
-	while (*cp != '\0' && !isdigit(*cp)) *(cp++) = '\0';
-
-	bonus = cp;
-
-	while (isdigit(*cp)) ++cp;
-	if (*cp != '\0') *cp = '\0';
-
-	if (!(is_number(num) && is_number(type) && is_number(bonus)))
-	{
-		send_to_char(syntax, ch);
-		return FALSE;
-	}
-
-	if ((!is_number(num  ) || atoi(num  ) < 1)
-	||   (!is_number(type ) || atoi(type ) < 1) 
-	||   (!is_number(bonus) || atoi(bonus) < 0))
-	{
-		send_to_char(syntax, ch);
-		return FALSE;
-	}
-
-	pMob->mana[DICE_NUMBER] = atoi(num  );
-	pMob->mana[DICE_TYPE]   = atoi(type );
-	pMob->mana[DICE_BONUS]  = atoi(bonus);
-
-	send_to_char("Manadice set.\n\r", ch);
-	return TRUE;
+	return medit_dice(ch, argument, "manadice", pMob->mana);
 }
 
 MEDIT(medit_damdice)
 {
-	static char syntax[] = "Syntax:  damdice <number> d <type> + <bonus>\n\r";
-	char *num, *type, *bonus, *cp;
 	MOB_INDEX_DATA *pMob;
-
 	EDIT_MOB(ch, pMob);
-
-	if (argument[0] == '\0')
-	{
-		send_to_char(syntax, ch);
-		return FALSE;
-	}
-
-	num = cp = argument;
-
-	while (isdigit(*cp)) ++cp;
-	while (*cp != '\0' && !isdigit(*cp))  *(cp++) = '\0';
-
-	type = cp;
-
-	while (isdigit(*cp)) ++cp;
-	while (*cp != '\0' && !isdigit(*cp)) *(cp++) = '\0';
-
-	bonus = cp;
-
-	while (isdigit(*cp)) ++cp;
-	if (*cp != '\0') *cp = '\0';
-
-	if (!(is_number(num) && is_number(type) && is_number(bonus)))
-	{
-		send_to_char(syntax, ch);
-		return FALSE;
-	}
-
-	if ((!is_number(num  ) || atoi(num  ) < 1)
-	||   (!is_number(type ) || atoi(type ) < 1) 
-	||   (!is_number(bonus) || atoi(bonus) < 0))
-	{
-		send_to_char(syntax, ch);
-		return FALSE;
-	}
-
-	pMob->damage[DICE_NUMBER] = atoi(num  );
-	pMob->damage[DICE_TYPE]   = atoi(type );
-	pMob->damage[DICE_BONUS]  = atoi(bonus);
-
-	send_to_char("Damdice set.\n\r", ch);
-	return TRUE;
+	return medit_dice(ch, argument, "damdice", pMob->damage);
 }
 
 

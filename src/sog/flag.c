@@ -1,5 +1,5 @@
 /*
- * $Id: flag.c,v 1.3 1998-07-09 13:41:32 fjoe Exp $
+ * $Id: flag.c,v 1.4 1998-07-11 20:55:09 fjoe Exp $
  */
 
 /***************************************************************************
@@ -111,7 +111,7 @@ bool is_stat( const struct flag_type *flag_table )
  Purpose:	Returns the value of the flags entered.  Multi-flags accepted.
  Called by:	olc.c and olc_act.c.
  ****************************************************************************/
-int flag_value( const struct flag_type *flag_table, char *argument)
+int flag_value( const struct flag_type *flag_table, const char *argument)
 {
     char word[MAX_INPUT_LENGTH];
     int  bit;
