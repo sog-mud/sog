@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.265 2000-03-21 13:43:56 fjoe Exp $
+ * $Id: fight.c,v 1.266 2000-03-22 06:13:39 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1491,6 +1491,9 @@ is_safe_raw(CHAR_DATA *ch, CHAR_DATA *victim)
 		if (ch != victim
 		&&  !IS_NPC(ch)
 		&&  IS_SET(PC(ch)->plr_flags, PLR_GHOST))
+			return TRUE;
+
+		if (IS_SET(PC(victim)->plr_flags, PLR_FREEZE))
 			return TRUE;
 
 		cln = victim->in_room->area->clan;
