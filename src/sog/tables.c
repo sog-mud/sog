@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.68 1999-06-17 08:37:04 fjoe Exp $
+ * $Id: tables.c,v 1.69 1999-06-17 12:41:14 avn Exp $
  */
 
 /***************************************************************************
@@ -955,16 +955,9 @@ flag_t raffect_flags[] =
 {
 	{ "",			TABLE_BITVAL			},
 
-	{ "shocking",		RAFF_SHOCKING,		TRUE	},
-	{ "lshield",		RAFF_LSHIELD,		TRUE	},
-	{ "thief_trap",		RAFF_THIEF_TRAP,	TRUE	},
 	{ "randomizer",		RAFF_RANDOMIZER,	TRUE	},
 	{ "espirit",		RAFF_ESPIRIT,		TRUE	},
 	{ "curse",		RAFF_CURSE,		TRUE	},
-	{ "poison",		RAFF_POISON,		TRUE	},
-	{ "sleep",		RAFF_SLEEP,		TRUE	},
-	{ "plague",		RAFF_PLAGUE,		TRUE	},
-	{ "slow",		RAFF_SLOW,		TRUE	},
 
 	{ NULL }
 };

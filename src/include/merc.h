@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.203 1999-06-17 08:37:04 fjoe Exp $
+ * $Id: merc.h,v 1.204 1999-06-17 12:41:14 avn Exp $
  */
 
 /***************************************************************************
@@ -726,16 +726,9 @@ where_t *where_lookup(flag32_t where);
 /*
  * *AFF* bits for rooms
  */
-#define RAFF_SHOCKING		(A)
-#define RAFF_LSHIELD		(B)
-#define RAFF_THIEF_TRAP		(C)
-#define RAFF_RANDOMIZER		(D)
-#define RAFF_ESPIRIT		(E)
-#define RAFF_CURSE		(K)
-#define RAFF_POISON 		(M)
-#define RAFF_SLEEP		(R)
-#define RAFF_PLAGUE 		(X)
-#define RAFF_SLOW		(dd)
+#define RAFF_RANDOMIZER		(A)
+#define RAFF_ESPIRIT		(B)
+#define RAFF_CURSE		(C)
 
 /*
  * EVENTs for room affects

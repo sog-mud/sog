@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.177 1999-06-17 05:46:37 fjoe Exp $
+ * $Id: act_move.c,v 1.178 1999-06-17 12:41:09 avn Exp $
  */
 
 /***************************************************************************
@@ -3847,7 +3847,7 @@ void do_settraps(CHAR_DATA *ch, const char *argument)
 	  af.duration  = ch->level / 40;
 	  af.location  = APPLY_NONE;
 	  af.modifier  = 0;
-	  af.bitvector = RAFF_THIEF_TRAP;
+	  af.bitvector = 0;
 	  af.owner     = ch;
 	  af.event     = EVENT_ENTER;
 	  af.event_fun = get_event_fun(gsn_settraps, EVENT_ENTER);

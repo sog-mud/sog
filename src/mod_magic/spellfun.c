@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.165 1999-06-17 05:46:40 fjoe Exp $
+ * $Id: spellfun.c,v 1.166 1999-06-17 12:41:11 avn Exp $
  */
 
 /***************************************************************************
@@ -4913,7 +4913,7 @@ void spell_lightning_shield(int sn, int level, CHAR_DATA *ch, void *vo, int targ
 	af.duration  = level / 40;
 	af.location  = APPLY_NONE;
 	af.modifier  = 0;
-	af.bitvector = RAFF_LSHIELD;
+	af.bitvector = 0;
 	af.owner     = ch;
 	af.event     = EVENT_ENTER;
 	af.event_fun = get_event_fun(sn, EVENT_ENTER);
@@ -4961,7 +4961,7 @@ void spell_shocking_trap(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	af.duration  = level / 40;
 	af.location  = APPLY_NONE;
 	af.modifier  = 0;
-	af.bitvector = RAFF_SHOCKING;
+	af.bitvector = 0;
 	af.owner     = ch;
 	af.event     = EVENT_ENTER;
 	af.event_fun = get_event_fun(sn, EVENT_ENTER);

@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.114 1999-06-16 11:10:01 fjoe Exp $
+ * $Id: spellfun2.c,v 1.115 1999-06-17 12:41:12 avn Exp $
  */
 
 /***************************************************************************
@@ -4365,35 +4365,37 @@ void spell_sanctify_lands(int sn, int level, CHAR_DATA *ch, void *vo, int target
 	  return;
 	}
 
-	if (IS_RAFFECTED(ch->in_room,RAFF_CURSE))
+	if (is_affected_room(ch->in_room, gsn_cursed_lands))
 	{
-	 affect_strip_room(ch->in_room,gsn_cursed_lands);
-	 char_puts("The curse of the land wears off.\n",ch);
-	 act("The curse of the land wears off.\n",ch,NULL,NULL,TO_ROOM);
+	 affect_strip_room(ch->in_room, gsn_cursed_lands);
+	 char_puts("The curse of the land wears off.\n", ch);
+	 act("The curse of the land wears off.\n", ch, NULL, NULL, TO_ROOM);
 	}
-	if (IS_RAFFECTED(ch->in_room,RAFF_POISON))
+	if (is_affected_room(ch->in_room, gsn_deadly_venom))
 	{
-	 affect_strip_room(ch->in_room,gsn_deadly_venom);
-	 char_puts("The land seems more healthy.\n",ch);
-	 act("The land seems more healthy.\n",ch,NULL,NULL,TO_ROOM);
+	 affect_strip_room(ch->in_room, gsn_deadly_venom);
+	 char_puts("The land seems more healthy.\n", ch);
+	 act("The land seems more healthy.\n", ch, NULL, NULL, TO_ROOM);
 	}
-	if (IS_RAFFECTED(ch->in_room,RAFF_SLEEP))
+	if (is_affected_room(ch->in_room, gsn_mysterious_dream))
 	{
-	 char_puts("The land wake up from mysterious dream.\n",ch);
-	 act("The land wake up from mysterious dream.\n",ch,NULL,NULL,TO_ROOM);
-	 affect_strip_room(ch->in_room,gsn_mysterious_dream);
+	 char_puts("The land wake up from mysterious dream.\n", ch);
+	 act("The land wake up from mysterious dream.\n",
+			ch, NULL, NULL, TO_ROOM);
+	 affect_strip_room(ch->in_room, gsn_mysterious_dream);
 	}
-	if (IS_RAFFECTED(ch->in_room,RAFF_PLAGUE))
+	if (is_affected_room(ch->in_room, gsn_black_death))
 	{
-	 char_puts("The disease of the land has been treated.\n",ch);
-	 act("The disease of the land has been treated.\n",ch,NULL,NULL,TO_ROOM);
-	 affect_strip_room(ch->in_room,gsn_black_death);
+	 char_puts("The disease of the land has been treated.\n", ch);
+	 act("The disease of the land has been treated.\n",
+			 ch, NULL, NULL, TO_ROOM);
+	 affect_strip_room(ch->in_room, gsn_black_death);
 	}
-	if (IS_RAFFECTED(ch->in_room,RAFF_SLOW))
+	if (is_affected_room(ch->in_room, gsn_lethargic_mist))
 	{
-	 char_puts("The lethargic mist dissolves.\n",ch);
-	 act("The lethargic mist dissolves.\n",ch,NULL,NULL,TO_ROOM);
-	 affect_strip_room(ch->in_room,gsn_lethargic_mist);
+	 char_puts("The lethargic mist dissolves.\n", ch);
+	 act("The lethargic mist dissolves.\n", ch, NULL, NULL, TO_ROOM);
+	 affect_strip_room(ch->in_room, gsn_lethargic_mist);
 	}
 	return;
 }
@@ -4420,7 +4422,7 @@ void spell_deadly_venom(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	af.duration  = level / 15;
 	af.location  = APPLY_NONE;
 	af.modifier  = 0;
-	af.bitvector = RAFF_POISON;
+	af.bitvector = 0;
 	af.owner     = ch;
 	af.event     = EVENT_UPDATE;
 	af.event_fun = get_event_fun(sn, EVENT_UPDATE);
@@ -4484,7 +4486,7 @@ void spell_lethargic_mist(int sn, int level, CHAR_DATA *ch, void *vo, int target
 	af.duration  = level / 15;
 	af.location  = APPLY_NONE;
 	af.modifier  = 0;
-	af.bitvector = RAFF_SLOW;
+	af.bitvector = 0;
 	af.owner     = ch;
 	af.event     = EVENT_UPDATE;
 	af.event_fun = get_event_fun(sn, EVENT_UPDATE);
@@ -4521,7 +4523,7 @@ void spell_black_death(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	af.duration  = level / 15;
 	af.location  = APPLY_NONE;
 	af.modifier  = 0;
-	af.bitvector = RAFF_PLAGUE;
+	af.bitvector = 0;
 	af.owner     = ch;
 	af.event     = EVENT_UPDATE;
 	af.event_fun = get_event_fun(sn, EVENT_UPDATE);
@@ -4553,7 +4555,7 @@ void spell_mysterious_dream(int sn, int level, CHAR_DATA *ch, void *vo, int targ
 	af.duration  = level / 15;
 	af.location  = APPLY_NONE;
 	af.modifier  = 0;
-	af.bitvector = RAFF_SLEEP;
+	af.bitvector = 0;
 	af.owner     = ch;
 	af.event     = EVENT_UPDATE;
 	af.event_fun = get_event_fun(sn, EVENT_UPDATE);
