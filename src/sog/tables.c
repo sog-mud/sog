@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.8 1998-09-29 09:22:12 fjoe Exp $
+ * $Id: tables.c,v 1.9 1998-10-02 04:48:27 fjoe Exp $
  */
 
 /***************************************************************************
@@ -909,6 +909,9 @@ FLAG align_names[] =
 FLAG lang_flags[] =
 {
 	{ "hidden",		LANG_HIDDEN,		TRUE	},
+	{ "genders_changed",	LANG_GENDERS_CHANGED,	FALSE	},
+	{ "cases_changed",	LANG_CASES_CHANGED,	FALSE	},
+	{ "changed",		LANG_CHANGED,		FALSE	},
 	{ NULL }
 };
 

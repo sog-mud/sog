@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.135 1998-09-29 01:06:36 fjoe Exp $
+ * $Id: act_info.c,v 1.136 1998-10-02 04:48:23 fjoe Exp $
  */
 
 /***************************************************************************
@@ -725,19 +725,16 @@ void do_clear(CHAR_DATA *ch, const char *argument)
 }
 
 /* changes your scroll */
-void do_scroll(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_scroll)
 {
 	char arg[MAX_INPUT_LENGTH];
 	int lines;
 
-	one_argument(argument,arg);
+	one_argument(argument, arg);
 
 	if (arg[0] == '\0') {
-		if (ch->lines == 0)
-			char_puts("You do not page long messages.\n\r", ch);
-		else
-			char_printf(ch, "You currently display %d lines per "
-					"page.\n\r", ch->lines + 2);
+		char_printf(ch, "You currently display %d lines per "
+				"page.\n\r", ch->lines + 2);
 		return;
 	}
 
@@ -747,14 +744,9 @@ void do_scroll(CHAR_DATA *ch, const char *argument)
 	}
 
 	lines = atoi(arg);
-	if (lines == 0) {
-		char_puts("Paging disabled.\n\r",ch);
-		ch->lines = 0;
-		return;
-	}
-
-	if (lines < 10 || lines > 100) {
-		char_puts("You must provide a reasonable number.\n\r",ch);
+	if (lines < SCROLL_MIN || lines > SCROLL_MAX) {
+		char_printf(ch, "Valid scroll range is %d..%d.\n\r",
+			    SCROLL_MIN, SCROLL_MAX);
 		return;
 	}
 
@@ -3430,8 +3422,8 @@ void do_practice(CHAR_DATA *ch, const char *argument)
 
 		output = buf_new(0);
 
-		for (i = 0; i < ch->pcdata->learned->nused; i++) {
-			ps = VARR_GET(ch->pcdata->learned, i);
+		for (i = 0; i < ch->pcdata->learned.nused; i++) {
+			ps = VARR_GET(&ch->pcdata->learned, i);
 
 			if (ps->percent == 0
 			||  (sk = skill_lookup(ps->sn)) == NULL
@@ -3468,7 +3460,7 @@ void do_practice(CHAR_DATA *ch, const char *argument)
 
 	one_argument(argument, arg);
 
-	if ((ps = skill_vlookup(ch->pcdata->learned, arg)) == NULL
+	if ((ps = skill_vlookup(&ch->pcdata->learned, arg)) == NULL
 	||  ps->percent == 0
 	||  skill_level(ch, sn = ps->sn) > ch->level) {
 		char_puts("You can't practice that.\n\r", ch);
@@ -3477,7 +3469,7 @@ void do_practice(CHAR_DATA *ch, const char *argument)
 
 	if (sn == gsn_vampire) {
 		char_puts("You can't practice that, only available "
-			     "at questor.\n\r", ch);
+			  "at questor.\n\r", ch);
 		return;
 	}
 

@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.89 1998-09-29 01:06:36 fjoe Exp $
+ * $Id: act_comm.c,v 1.90 1998-10-02 04:48:23 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1877,7 +1877,7 @@ DO_FUN(do_lang)
 	int lang;
 	LANG_DATA *l;
 
-	if (langs->nused == 0) {
+	if (langs.nused == 0) {
 		char_puts("No languages defined.\n\r", ch);
 		return;
 	}
@@ -1885,11 +1885,11 @@ DO_FUN(do_lang)
 	argument = one_argument(argument, arg);
 
 	if (*arg == '\0') {
-		l = varr_get(langs, ch->lang);
+		l = varr_get(&langs, ch->lang);
 		if (l == NULL) {
 			log_printf("do_lang: %s: lang == %d\n",
 				   ch->name, ch->lang);
-			l = VARR_GET(langs, ch->lang = 0);
+			l = VARR_GET(&langs, ch->lang = 0);
 		}
 		char_printf(ch, "Interface language is '%s'.\n\r", l->name);
 		return;
@@ -1898,8 +1898,8 @@ DO_FUN(do_lang)
 	lang = lang_lookup(arg);
 	if (lang < 0) {
 		char_puts("Usage: lang [ ", ch);
-		for (lang = 0; lang < langs->nused; lang++) {
-			l = VARR_GET(langs, lang);
+		for (lang = 0; lang < langs.nused; lang++) {
+			l = VARR_GET(&langs, lang);
 			if (IS_SET(l->flags, LANG_HIDDEN))
 				continue;
 			char_printf(ch, "%s%s",

@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.55 1998-09-24 14:07:40 fjoe Exp $
+ * $Id: spellfun.c,v 1.56 1998-10-02 04:48:25 fjoe Exp $
  */
 
 /***************************************************************************
@@ -114,7 +114,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		chance = get_skill(ch, sn);
 	}
 	else {
-		if ((ps = skill_vlookup(ch->pcdata->learned, arg1))
+		if ((ps = skill_vlookup(&ch->pcdata->learned, arg1))
 		&&  skill_level(ch, sn = ps->sn) <= ch->level)
 			chance = ps->percent;
 	}

@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.42 1998-09-29 01:06:39 fjoe Exp $
+ * $Id: spellfun2.c,v 1.43 1998-10-02 04:48:26 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1171,8 +1171,8 @@ void spell_amnesia(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	if (IS_NPC(victim))
 		return;
 
-	for (i = 0; i < ch->pcdata->learned->nused; i++) {
-		PC_SKILL *ps = VARR_GET(ch->pcdata->learned, i);
+	for (i = 0; i < ch->pcdata->learned.nused; i++) {
+		PC_SKILL *ps = VARR_GET(&ch->pcdata->learned, i);
 		ps->percent /= 2;
 	}
 

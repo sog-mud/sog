@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.72 1998-09-29 01:06:37 fjoe Exp $
+ * $Id: act_obj.c,v 1.73 1998-10-02 04:48:24 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3016,7 +3016,7 @@ void do_lore(CHAR_DATA * ch, const char *argument)
 	value3 = obj->value[3];
 	value4 = obj->value[4];
 
-	max_skill = skills->nused;
+	max_skill = skills.nused;
 
 	switch (obj->item_type) {
 	case ITEM_SCROLL:
@@ -3433,7 +3433,7 @@ void do_second_wield(CHAR_DATA * ch, const char *argument)
 		return;
 	}
 	wear_lev = get_wear_level(ch, obj);
-	if (ch->level < wear_lev) {
+	if (wear_lev < obj->level) {
 		char_printf(ch, "You must be level %d to use this object.\n\r",
 			    wear_lev);
 		act("$n tries to use $p, but is too inexperienced.",

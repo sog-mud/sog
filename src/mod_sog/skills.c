@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.28 1998-09-29 01:06:40 fjoe Exp $
+ * $Id: skills.c,v 1.29 1998-10-02 04:48:27 fjoe Exp $
  */
 
 /***************************************************************************
@@ -50,7 +50,7 @@
 
 #include "resource.h"
 
-varr * skills;
+varr skills = { sizeof(SKILL_DATA), 8 };
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_help		);
@@ -151,8 +151,8 @@ void do_spells(CHAR_DATA *ch, const char *argument)
 		spell_list[lev][0] = '\0';
 	}
 	
-	for (i = 0; i < ch->pcdata->learned->nused; i++) {
-		PC_SKILL *ps = VARR_GET(ch->pcdata->learned, i);
+	for (i = 0; i < ch->pcdata->learned.nused; i++) {
+		PC_SKILL *ps = VARR_GET(&ch->pcdata->learned, i);
 		SKILL_DATA *sk;
 
 		if (ps->percent == 0
@@ -213,8 +213,8 @@ void do_skills(CHAR_DATA *ch, const char *argument)
 		skill_list[lev][0] = '\0';
 	}
 	
-	for (i = 0; i < ch->pcdata->learned->nused; i++) {
-		PC_SKILL *ps = VARR_GET(ch->pcdata->learned, i);
+	for (i = 0; i < ch->pcdata->learned.nused; i++) {
+		PC_SKILL *ps = VARR_GET(&ch->pcdata->learned, i);
 		SKILL_DATA *sk;
 
 		if (ps->percent == 0
@@ -246,7 +246,7 @@ void do_skills(CHAR_DATA *ch, const char *argument)
 	/* return results */
 	
 	if (!found) {
-		char_puts("You know no skills->\n\r",ch);
+		char_puts("You know no skills.\n\r",ch);
 		return;
 	}
 	
@@ -346,10 +346,10 @@ void set_skill_raw(CHAR_DATA *ch, int sn, int percent, bool replace)
 			ps->percent = percent;
 		return;
 	}
-	ps = varr_enew(ch->pcdata->learned);
+	ps = varr_enew(&ch->pcdata->learned);
 	ps->sn = sn;
 	ps->percent = percent;
-	varr_qsort(ch->pcdata->learned, cmpint);
+	varr_qsort(&ch->pcdata->learned, cmpint);
 }
 
 /* use for adding/updating all skills available for that ch  */
@@ -364,8 +364,8 @@ void update_skills(CHAR_DATA *ch)
 		return;
 
 /* add class skills */
-	for (i = 0; i < cl->skills->nused; i++) {
-		CLASS_SKILL *cs = VARR_GET(cl->skills, i);
+	for (i = 0; i < cl->skills.nused; i++) {
+		CLASS_SKILL *cs = VARR_GET(&cl->skills, i);
 		set_skill_raw(ch, cs->sn, 1, FALSE);
 	}
 
@@ -379,15 +379,15 @@ void update_skills(CHAR_DATA *ch)
 
 /* add clan skills */
 	if ((clan = clan_lookup(ch->clan))) {
-		for (i = 0; i < clan->skills->nused; i++) {
-			CLAN_SKILL *cs = VARR_GET(clan->skills, i);
+		for (i = 0; i < clan->skills.nused; i++) {
+			CLAN_SKILL *cs = VARR_GET(&clan->skills, i);
 			set_skill_raw(ch, cs->sn, 1, FALSE);
 		}
 	}
 
 /* remove not matched skills */
-	for (i = 0; i < ch->pcdata->learned->nused; i++) {
-		PC_SKILL *ps = VARR_GET(ch->pcdata->learned, i);
+	for (i = 0; i < ch->pcdata->learned.nused; i++) {
+		PC_SKILL *ps = VARR_GET(&ch->pcdata->learned, i);
 		if (skill_level(ch, ps->sn) > MAX_LEVEL)
 			ps->percent = 0;
 	}
@@ -426,8 +426,8 @@ void do_glist(CHAR_DATA *ch , const char *argument)
 	char_printf(ch, "Now listing group '%s':\n\r",
 		    flag_string(skill_groups, group));
 
-	for (sn = 0; sn < skills->nused; sn++) {
-		SKILL_DATA *sk = VARR_GET(skills, sn);
+	for (sn = 0; sn < skills.nused; sn++) {
+		SKILL_DATA *sk = VARR_GET(&skills, sn);
 		if (group == sk->group) {
 			char_printf(ch, "%c%-18s",
 				    pc_skill_lookup(ch, sn) ? '*' : ' ',
@@ -455,7 +455,7 @@ void do_slook(CHAR_DATA *ch, const char *argument)
 
 	if (!IS_NPC(ch)) {
 		PC_SKILL *ps;
-		if ((ps = skill_vlookup(ch->pcdata->learned, arg)))
+		if ((ps = skill_vlookup(&ch->pcdata->learned, arg)))
 			sn = ps->sn;
 	}
 
@@ -503,7 +503,7 @@ void do_learn(CHAR_DATA *ch, const char *argument)
 
 	argument = one_argument(argument,arg);
 
-	if ((ps = skill_vlookup(ch->pcdata->learned, arg)) == NULL
+	if ((ps = skill_vlookup(&ch->pcdata->learned, arg)) == NULL
 	||  ps->percent == 0
 	||  skill_level(ch, sn = ps->sn) > ch->level) {
 		char_puts("You can't learn that.\n\r", ch);
@@ -578,12 +578,12 @@ void do_teach(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 	ch->status = PC_PRACTICER;
-	char_puts("Now, you can teach youngsters your 100% skills->\n\r",ch);
+	char_puts("Now, you can teach youngsters your 100% skills.\n\r",ch);
 }
 
 char *skill_name(int sn)
 {
-	SKILL_DATA *sk = varr_get(skills, sn);
+	SKILL_DATA *sk = varr_get(&skills, sn);
 	if (sk)
 		return sk->name;
 	return "none";
@@ -690,7 +690,7 @@ int sn_lookup(const char *name)
 	if (IS_NULLSTR(name))
 		return -1;
 
-	for (sn = 0; sn < skills->nused; sn++)
+	for (sn = 0; sn < skills.nused; sn++)
 		if (LOWER(name[0]) == LOWER(SKILL(sn)->name[0])
 		&&  !str_prefix(name, SKILL(sn)->name))
 			return sn;
@@ -705,8 +705,8 @@ int char_sn_lookup(CHAR_DATA *ch, const char *name)
 	if (IS_NULLSTR(name) || IS_NPC(ch))
 		return -1;
 
-	for (i = 0; i < ch->pcdata->learned->nused; i++) {
-		PC_SKILL *ps = VARR_GET(ch->pcdata->learned, i);
+	for (i = 0; i < ch->pcdata->learned.nused; i++) {
+		PC_SKILL *ps = VARR_GET(&ch->pcdata->learned, i);
 		SKILL_DATA *skill;
 
 		if (ps->percent == 0

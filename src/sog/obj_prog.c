@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.c,v 1.32 1998-09-24 06:37:48 kostik Exp $
+ * $Id: obj_prog.c,v 1.33 1998-10-02 04:48:26 fjoe Exp $
  */
 
 /***************************************************************************
@@ -589,7 +589,7 @@ int fight_prog_tattoo_apollon(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 	if (get_eq_char(ch, WEAR_TATTOO) != obj)
 		return 0;
 
-	switch(number_bits(6)) {
+	switch(number_bits(4)) {
 	case 0:
 	case 1:
 		char_puts("The tattoo on your shoulder glows {Cblue{x.\n\r", ch);
@@ -611,7 +611,7 @@ int fight_prog_tattoo_zeus(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 	if (get_eq_char(ch, WEAR_TATTOO) != obj)
 		return 0;
 
-	switch(number_bits(6)) {
+	switch(number_bits(4)) {
 	case 0:
 	case 1:
 	case 2:
@@ -637,7 +637,7 @@ int fight_prog_tattoo_siebele(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 	if (get_eq_char(ch, WEAR_TATTOO) != obj)
 		return 0;
 
-	switch(number_bits(6)) {
+	switch(number_bits(4)) {
 	case 0:
 		char_puts("The tattoo on your shoulder glows {Cblue{x.\n\r", ch);
 		obj_cast_spell(gsn_cure_serious, ch->level, ch, ch, obj);
@@ -656,7 +656,7 @@ int fight_prog_tattoo_ahrumazda(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 	if (get_eq_char(ch, WEAR_TATTOO) != obj)
 		return 0;
 
-	switch(number_bits(6)) {
+	switch(number_bits(4)) {
 	case 0:
 		char_puts("The tattoo on your shoulder glows {Cblue{x.\n\r", ch);
 		obj_cast_spell(gsn_cure_serious, ch->level, ch, ch, obj); 
@@ -674,7 +674,7 @@ int fight_prog_tattoo_hephaestus(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 	if (get_eq_char(ch, WEAR_TATTOO) != obj)
 		return 0;
 
-	switch(number_bits(6)) {
+	switch(number_bits(4)) {
 	case 0:
 	case 1:
 		char_puts("The tattoo on your shoulder glows {Cblue{x.\n\r", ch);
@@ -694,7 +694,7 @@ int fight_prog_tattoo_ehrumen(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 	if (get_eq_char(ch, WEAR_TATTOO) != obj)
 		return 0;
 
-	switch(number_bits(6)) {
+	switch(number_bits(4)) {
 	case 0:
 		char_puts("The tattoo on your shoulder glows {Cblue{x.\n\r", ch);
 		obj_cast_spell(gsn_cure_light,
@@ -718,7 +718,7 @@ int fight_prog_tattoo_venus(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 	if (get_eq_char(ch, WEAR_TATTOO) != obj)
 		return 0;
 
-	switch(number_bits(7)) {
+	switch(number_bits(4)) {
 	case 0:
 	case 1:
 	case 2:
@@ -744,7 +744,7 @@ int fight_prog_tattoo_ares(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 	if (get_eq_char(ch, WEAR_TATTOO) != obj)
 		return 0;
 
-	switch(number_bits(5)) {
+	switch(number_bits(4)) {
 	case 0:
 		char_puts("The tattoo on your shoulder glows {Cblue{x.\n\r", ch);
 		obj_cast_spell(gsn_dragon_strength, ch->level, ch, ch, obj);
@@ -764,7 +764,7 @@ int fight_prog_tattoo_odin(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 	if (get_eq_char(ch, WEAR_TATTOO) != obj)
 		return 0;
 
-	switch(number_bits(5)) {
+	switch(number_bits(4)) {
 	case 0:
 		char_puts("The tattoo on your shoulder glows {Cblue{x.\n\r", ch);
 		obj_cast_spell(gsn_cure_critical, ch->level, ch, ch, obj);
@@ -783,7 +783,7 @@ int fight_prog_tattoo_phobos(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 	if (get_eq_char(ch, WEAR_TATTOO) != obj)
 		return 0;
 
-	switch(number_bits(6)) {
+	switch(number_bits(4)) {
 	case 0:
 		char_puts("The tattoo on your shoulder glows {Cblue{x.\n\r", ch);
 		obj_cast_spell(gsn_cure_serious, ch->level, ch, ch, obj);
@@ -802,7 +802,7 @@ int fight_prog_tattoo_mars(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 	if (get_eq_char(ch, WEAR_TATTOO) != obj)
 		return 0;
 
-	switch(number_bits(7)) {
+	switch(number_bits(4)) {
 	case 0:
 		char_puts("The tattoo on your shoulder glows {Rred{x.\n\r", ch);
 		obj_cast_spell(gsn_blindness, ch->level, ch, ch->fighting, obj);
@@ -898,7 +898,7 @@ int fight_prog_tattoo_hera(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 	if (get_eq_char(ch, WEAR_TATTOO) != obj)
 		return 0;
 
-	switch(number_bits(5)) {
+	switch(number_bits(4)) {
 	case 0:
 		char_puts("The tattoo on your shoulder glows {Rred{x.\n\r", ch);
 		obj_cast_spell(gsn_plague, ch->level, ch, ch->fighting, obj);
@@ -925,7 +925,7 @@ int fight_prog_tattoo_deimos(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 	if (get_eq_char(ch, WEAR_TATTOO) != obj)
 		return 0;
 
-	switch(number_bits(6)) {
+	switch(number_bits(4)) {
 	case 0:
 	case 1:
 		char_puts("The tattoo on your shoulder glows {Cblue{x.\n\r", ch);

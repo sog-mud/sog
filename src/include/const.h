@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: const.h,v 1.4 1998-09-29 01:06:38 fjoe Exp $
+ * $Id: const.h,v 1.5 1998-10-02 04:48:25 fjoe Exp $
  */
 
 #ifndef _CONST_H_
@@ -88,6 +88,8 @@
 #define MAX_PROMPT_LENGTH	60
 #define MAX_TITLE_LENGTH	45
 #define PAGELEN 		22
+#define SCROLL_MIN		16
+#define SCROLL_MAX		192
 
 /*
  * Game parameters.

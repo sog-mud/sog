@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.95 1998-09-29 01:06:36 fjoe Exp $
+ * $Id: act_move.c,v 1.96 1998-10-02 04:48:24 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3691,9 +3691,9 @@ void do_thumbling(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (is_name(arg, "attack"))
+	if (!str_prefix(arg, "attack"))
 		attack = TRUE;
-	else if (is_name(arg, "defense"))
+	else if (!str_prefix(arg, "defense"))
 		attack = FALSE;
 	else {
 		char_puts("Aglebargle, glip-glop?\n\r", ch);

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: skills.h,v 1.3 1998-09-19 11:13:24 fjoe Exp $
+ * $Id: skills.h,v 1.4 1998-10-02 04:48:27 fjoe Exp $
  */
 
 #ifndef _SKILLS_H_
@@ -53,10 +53,10 @@ struct skill_data {
 	sflag_t		group;			/* skill group */
 };
 
-extern varr * skills;
+extern varr skills;
 
-#define SKILL(sn)		((SKILL_DATA*) VARR_GET(skills, sn))
-#define skill_lookup(sn)	((SKILL_DATA*) varr_get(skills, sn))
+#define SKILL(sn)		((SKILL_DATA*) VARR_GET(&skills, sn))
+#define skill_lookup(sn)	((SKILL_DATA*) varr_get(&skills, sn))
 
 char *	skill_name	(int sn);
 int	sn_lookup	(const char *name);

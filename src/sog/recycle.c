@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.23 1998-09-19 10:38:59 fjoe Exp $
+ * $Id: recycle.c,v 1.24 1998-10-02 04:48:27 fjoe Exp $
  */
 
 /***************************************************************************
@@ -310,7 +310,8 @@ PC_DATA *new_pcdata(void)
 	PC_DATA *pcdata;
 	pcdata = calloc(1, sizeof(*pcdata));
 	pcdata->buffer = buf_new(0);
-	pcdata->learned = varr_new(sizeof(PC_SKILL), 8);
+	pcdata->learned.nsize = sizeof(PC_SKILL);
+	pcdata->learned.nstep = 8;
 	pcdata->pwd = str_empty;
 	pcdata->bamfin = str_empty;
 	pcdata->bamfout = str_empty;
@@ -323,13 +324,13 @@ void free_pcdata(PC_DATA *pcdata)
 {
 	int alias;
 
+	varr_free(&pcdata->learned);
 	free_string(pcdata->pwd);
 	free_string(pcdata->bamfin);
 	free_string(pcdata->bamfout);
 	free_string(pcdata->title);
 	free_string(pcdata->twitlist);
 	buf_free(pcdata->buffer);
-	varr_free(pcdata->learned);
     
 	for (alias = 0; alias < MAX_ALIAS; alias++) {
 		free_string(pcdata->alias[alias]);

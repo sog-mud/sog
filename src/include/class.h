@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: class.h,v 1.4 1998-09-17 15:51:18 fjoe Exp $
+ * $Id: class.h,v 1.5 1998-10-02 04:48:25 fjoe Exp $
  */
 
 #ifndef _CLASS_H_
@@ -54,9 +54,9 @@ struct class_data {
 	int	points;			/* cost in exp */
 	int	stats[MAX_STATS];	/* stat modifiers */
 	int	align;			/* alignment restrictions */
-	varr *	skills;			/* varr of class skills */
+	varr	skills;			/* varr of class skills */
 	char *	titles[MAX_LEVEL+1][2];	/* titles for each levels and sexes */
-	varr *	poses;			/* varr of class poses */
+	varr	poses;			/* varr of class poses */
 };
 
 struct pose_data {
@@ -67,18 +67,20 @@ struct pose_data {
 /* class flags */
 #define CLASS_MAGIC	(A)	/* gain additional mana/level */
 
-extern varr * classes;
+extern varr classes;
 
-#define CLASS(i)		((CLASS_DATA*) VARR_GET(classes, i))
-#define class_lookup(i)		((CLASS_DATA*) varr_get(classes, i))
+#define CLASS(i)		((CLASS_DATA*) VARR_GET(&classes, i))
+#define class_lookup(i)		((CLASS_DATA*) varr_get(&classes, i))
 #define class_skill_lookup(class, sn) \
-	((CLASS_SKILL*) varr_bsearch(class->skills, &sn, cmpint))
+	((CLASS_SKILL*) varr_bsearch(&class->skills, &sn, cmpint))
 
-char *	class_name(int);
-char *	class_who_name(int);
+CLASS_DATA *	class_new(void);
+void		class_free(CLASS_DATA*);
+char *		class_name(int);
+char *		class_who_name(int);
 
-int	cln_lookup(const char *name);
-char *	title_lookup(CHAR_DATA *ch);
+int		cln_lookup(const char *name);
+char *		title_lookup(CHAR_DATA *ch);
 
 #endif
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: clan.h,v 1.2 1998-09-17 15:51:18 fjoe Exp $
+ * $Id: clan.h,v 1.3 1998-10-02 04:48:25 fjoe Exp $
  */
 
 #ifndef _CLAN_H_
@@ -61,7 +61,7 @@ struct clan_data
 	mlstring *	msg_prays;	/* what to print in clanrecall */
 	mlstring *	msg_vanishes;
 
-	varr *		skills;		/* clan skills */
+	varr		skills;		/* clan skills */
 
 	flag_t		flags;		/* clan flags */
 
@@ -73,13 +73,15 @@ struct clan_data
 #define CLAN_HIDDEN	(A)		/* clan will not appear in who */
 #define CLAN_CHANGED	(Z)
 
+CLAN_DATA *	clan_new	(void);
+void		clan_free	(CLAN_DATA*);
 int		cn_lookup	(const char* name);
 const char*	clan_name	(int cn);
 
-extern varr *	clans;
+extern varr	clans;
 
-#define CLAN(cn)		((CLAN_DATA*) VARR_GET(clans, cn))
-#define clan_lookup(cn)		((CLAN_DATA*) varr_get(clans, cn))
+#define CLAN(cn)		((CLAN_DATA*) VARR_GET(&clans, cn))
+#define clan_lookup(cn)		((CLAN_DATA*) varr_get(&clans, cn))
 
 struct clan_skill {
 	int	sn;
@@ -87,6 +89,6 @@ struct clan_skill {
 };
 
 #define clan_skill_lookup(clan, sn) \
-	((CLAN_SKILL*) varr_bsearch(clan->skills, &sn, cmpint))
+	((CLAN_SKILL*) varr_bsearch(&clan->skills, &sn, cmpint))
 
 #endif

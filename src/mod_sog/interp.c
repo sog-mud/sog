@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.73 1998-09-29 01:06:38 fjoe Exp $
+ * $Id: interp.c,v 1.74 1998-10-02 04:48:25 fjoe Exp $
  */
 
 /***************************************************************************
@@ -480,7 +480,6 @@ const	struct	cmd_type	cmd_table	[] =
     { "create",		do_create,	POS_DEAD,   IM,  LOG_ALWAYS, 1, CMD_KEEP_HIDE | CMD_GHOST },
     { "asave",          do_asave,	POS_DEAD,   IM,  LOG_ALWAYS, 1, CMD_KEEP_HIDE | CMD_GHOST },
     { "alist",		do_alist,	POS_DEAD,   IM,  LOG_NEVER, 1, CMD_KEEP_HIDE | CMD_GHOST },
-    { "clist",		do_clist,	POS_DEAD,   IM,  LOG_NEVER, 1, CMD_KEEP_HIDE | CMD_GHOST },
     { "resets",		do_resets,	POS_DEAD,   IM,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_GHOST },
 
     /*

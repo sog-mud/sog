@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: clan.c,v 1.18 1998-09-29 01:06:38 fjoe Exp $
+ * $Id: clan.c,v 1.19 1998-10-02 04:48:25 fjoe Exp $
  */
 
 #include <sys/time.h>
@@ -34,7 +34,23 @@
 #include "merc.h"
 #include "interp.h"
 
-varr *clans;
+varr clans = { sizeof(CLAN_DATA), 4 };
+
+CLAN_DATA *clan_new(void)
+{
+	CLAN_DATA *clan;
+
+	clan = varr_enew(&clans);
+	clan->skills.nsize = sizeof(CLAN_SKILL);
+	clan->skills.nstep = 4;
+
+	return clan;
+}
+
+void clan_free(CLAN_DATA *clan)
+{
+	varr_free(&clan->skills);
+}
 
 int cn_lookup(const char *name)
 {
@@ -43,7 +59,7 @@ int cn_lookup(const char *name)
 	if (IS_NULLSTR(name))
 		return -1;
 
-	for (cn = 0; cn < clans->nused; cn++)
+	for (cn = 0; cn < clans.nused; cn++)
 		if (!str_cmp(name, CLAN(cn)->name))
 			return cn;
 

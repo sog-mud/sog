@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.84 1998-09-29 01:06:39 fjoe Exp $
+ * $Id: merc.h,v 1.85 1998-10-02 04:48:26 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1407,7 +1407,7 @@ struct pc_data
 	sflag_t			true_sex;
 	int 			last_level;
 	int			condition	[MAX_COND];
-	varr *			learned;	/* varr of ints (percentage) */
+	varr			learned;
 	int			points;
 	char *			alias[MAX_ALIAS];
 	char *			alias_sub[MAX_ALIAS];
@@ -1437,7 +1437,7 @@ struct pc_skill {
 };
 
 #define pc_skill_lookup(ch, sn) \
-	((PC_SKILL*) varr_bsearch(ch->pcdata->learned, &sn, cmpint))
+	((PC_SKILL*) varr_bsearch(&ch->pcdata->learned, &sn, cmpint))
 
 /*
  * Liquids.
@@ -1942,9 +1942,10 @@ int	get_max_train2	(CHAR_DATA *ch, int stat);
 int	can_carry_n	(CHAR_DATA *ch);
 int	can_carry_w	(CHAR_DATA *ch);
 bool	is_name 	(const char *str, const char *namelist);
+bool	is_name_raw	(const char *str, const char *namelist,
+			 int (*cmpfun)(const char*, const char*));
 void	name_toggle	(CHAR_DATA *ch, const char *name,
 			 const char *editor_name, char **namelist);
-bool	is_name_imm	(char *str, char *namelist);
 void	affect_to_char	(CHAR_DATA *ch, AFFECT_DATA *paf);
 void	affect_to_obj	(OBJ_DATA *obj, AFFECT_DATA *paf);
 void	affect_remove	(CHAR_DATA *ch, AFFECT_DATA *paf);

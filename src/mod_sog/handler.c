@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.61 1998-09-29 01:06:38 fjoe Exp $
+ * $Id: handler.c,v 1.62 1998-10-02 04:48:25 fjoe Exp $
  */
 
 /***************************************************************************
@@ -600,7 +600,8 @@ int can_carry_w(CHAR_DATA *ch)
 /*
  * See if a string is one of the names of an object.
  */
-bool is_name(const char *str, const char *namelist)
+bool is_name_raw(const char *str, const char *namelist,
+		 int (*cmpfun)(const char*, const char*))
 {
 	char name[MAX_INPUT_LENGTH], part[MAX_INPUT_LENGTH];
 	const char *list, *string;
@@ -622,17 +623,22 @@ bool is_name(const char *str, const char *namelist)
 		/* check to see if this is part of namelist */
 		list = namelist;
 		for (; ;) { /* start parsing namelist */
-			list = one_argument(list,name);
+			list = one_argument(list, name);
 			if (name[0] == '\0')  /* this name was not found */
 				return FALSE;
 
-			if (!str_prefix(string, name))
+			if (!cmpfun(string, name))
 				return TRUE; /* full pattern match */
 
-			if (!str_prefix(part,name))
+			if (!cmpfun(part, name))
 				break;
 		}
 	}
+}
+
+bool is_name(const char *str, const char *namelist)
+{
+	return is_name_raw(str, namelist, str_prefix);
 }
 
 void cat_name(char *buf, const char *name, size_t len)

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mlstring.c,v 1.19 1998-09-29 01:06:39 fjoe Exp $
+ * $Id: mlstring.c,v 1.20 1998-10-02 04:48:26 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -91,8 +91,8 @@ mlstring *mlstr_fread(FILE *fp)
 		return res;
 	}
 
-	res->u.lstr = calloc(1, sizeof(char*) * langs->nused);
-	res->nlang = langs->nused;
+	res->u.lstr = calloc(1, sizeof(char*) * langs.nused);
+	res->nlang = langs.nused;
 
 	s = p+1;
 	while (*s) {
@@ -153,14 +153,14 @@ void mlstr_fwrite(FILE *fp, const char* name, const mlstring *ml)
 		return;
 	}
 
-	for (lang = 0; lang < ml->nlang && lang < langs->nused; lang++) {
+	for (lang = 0; lang < ml->nlang && lang < langs.nused; lang++) {
 		char* p = ml->u.lstr[lang];
 		LANG_DATA *l;
 
 		if (IS_NULLSTR(p))
 			continue;
 
-		l = VARR_GET(langs, lang);
+		l = VARR_GET(&langs, lang);
 		fprintf(fp, "@%s %s", l->name, fix_mlstring(p));
 	}
 	fputs("~\n", fp);
@@ -240,7 +240,7 @@ char * mlstr_val(const mlstring *ml, int lang)
 	if (ml->nlang == 0)
 		return ml->u.str;
 
-	if ((l = varr_get(langs, lang)) == NULL)
+	if ((l = varr_get(&langs, lang)) == NULL)
 		return str_empty;
 
 	if (lang >= ml->nlang || lang < 0)
@@ -308,8 +308,8 @@ char** mlstr_convert(mlstring **mlp, int newlang)
 	/* convert to language-dependent */
 	if ((*mlp)->nlang == 0) {
 		old = (*mlp)->u.str;
-		(*mlp)->nlang = langs->nused;
-		(*mlp)->u.lstr = calloc(1, sizeof(char*) * langs->nused);
+		(*mlp)->nlang = langs.nused;
+		(*mlp)->u.lstr = calloc(1, sizeof(char*) * langs.nused);
 		(*mlp)->u.lstr[0] = old;
 	}
 	return ((*mlp)->u.lstr)+newlang;
@@ -397,13 +397,13 @@ void mlstr_dump(BUFFER *buf, const char *name, const mlstring *ml)
 		return;
 	}
 
-	if (langs->nused == 0)
+	if (langs.nused == 0)
 		return;
 
-	l = VARR_GET(langs, 0);
+	l = VARR_GET(&langs, 0);
 	buf_printf(buf, FORMAT, name, l->name, ml->u.lstr[0]);
 
-	if (langs->nused < 1)
+	if (langs.nused < 1)
 		return;
 
 	namelen = strlen(name);
@@ -411,8 +411,8 @@ void mlstr_dump(BUFFER *buf, const char *name, const mlstring *ml)
 	memset(space, ' ', namelen);
 	space[namelen] = '\0';
 
-	for (lang = 1; lang < ml->nlang && lang < langs->nused; lang++) {
-		l = VARR_GET(langs, lang);
+	for (lang = 1; lang < ml->nlang && lang < langs.nused; lang++) {
+		l = VARR_GET(&langs, lang);
 		buf_printf(buf, FORMAT,
 			   space, l->name, ml->u.lstr[lang]);
 	}

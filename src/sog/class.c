@@ -23,14 +23,33 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: class.c,v 1.2 1998-09-17 15:51:18 fjoe Exp $
+ * $Id: class.c,v 1.3 1998-10-02 04:48:25 fjoe Exp $
  */
 
 #include <stdio.h>
 
 #include "merc.h"
 
-varr *	classes;
+varr	classes = { sizeof(CLASS_DATA), 4 };
+
+CLASS_DATA *class_new(void)
+{
+	CLASS_DATA *class;
+
+	class = varr_enew(&classes);
+	class->skills.nsize = sizeof(CLASS_SKILL);
+	class->skills.nstep = 8;
+	class->poses.nsize = sizeof(POSE_DATA);
+	class->poses.nstep = 4;
+
+	return class;
+}
+
+void class_free(CLASS_DATA *class)
+{
+	varr_free(&class->skills);
+	varr_free(&class->poses);
+}
 
 /*
  * guild_check - == 0 - the room is not a guild
@@ -42,7 +61,7 @@ int guild_check(CHAR_DATA *ch, ROOM_INDEX_DATA *room)
 	int class = -1;
 	int iClass, iGuild;
 
-	for (iClass = 0; iClass < classes->nused; iClass++) {
+	for (iClass = 0; iClass < classes.nused; iClass++) {
 		CLASS_DATA *cl = CLASS(iClass);
 		for (iGuild = 0; iGuild < cl->guild->nused; iGuild++) {
 		    	if (room->vnum == *(int*) VARR_GET(cl->guild, iGuild)) {
@@ -85,7 +104,7 @@ int cln_lookup(const char *name)
 {
 	int num;
  
-	for (num = 0; num < classes->nused; num++) {
+	for (num = 0; num < classes.nused; num++) {
 		if (LOWER(name[0]) == LOWER(CLASS(num)->name[0])
 		&&  !str_prefix(name, (CLASS(num)->name)))
 			return num;

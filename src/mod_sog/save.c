@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.61 1998-09-29 01:06:40 fjoe Exp $
+ * $Id: save.c,v 1.62 1998-10-02 04:48:27 fjoe Exp $
  */
 
 /***************************************************************************
@@ -300,8 +300,8 @@ fwrite_char(CHAR_DATA * ch, FILE * fp, bool reboot)
 				ch->pcdata->alias_sub[pos]);
 		}
 
-		for (i = 0; i < ch->pcdata->learned->nused; i++) {
-			PC_SKILL *ps = VARR_GET(ch->pcdata->learned, i);
+		for (i = 0; i < ch->pcdata->learned.nused; i++) {
+			PC_SKILL *ps = VARR_GET(&ch->pcdata->learned, i);
 
 			if (ps->percent == 0)
 				continue;
@@ -850,6 +850,8 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 							/ 100);
 				}
 				ch->played = ch->pcdata->played;
+				if (ch->lines < SCROLL_MIN-2)
+					ch->lines = SCROLL_MAX-2;
 				return;
 			}
 			KEY("Exp", ch->exp, fread_number(fp));
@@ -1040,7 +1042,6 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 			fread_to_eol(fp);
 		}
 	}
-	return;
 }
 
 /* load a pet from the forgotten reaches */

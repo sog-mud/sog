@@ -23,19 +23,20 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: varr.h,v 1.3 1998-09-20 17:01:03 fjoe Exp $
+ * $Id: varr.h,v 1.4 1998-10-02 04:48:27 fjoe Exp $
  */
 
 #ifndef _VARR_H_
 #define _VARR_H_
 
 struct varr {
-	void *p;
 	size_t nsize;		/* size of elem */
+	size_t nstep;		/* allocation step */
+
+	void *p;
 
 	size_t nused;		/* elems used */
 	size_t nalloc;		/* elems allocated */
-	size_t nstep;		/* allocation step */
 };
 
 varr *	varr_new	(size_t nsize, size_t nstep);

@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.66 1998-09-29 01:06:37 fjoe Exp $
+ * $Id: act_wiz.c,v 1.67 1998-10-02 04:48:25 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2682,7 +2682,7 @@ void do_sset(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (fAll)
-		for (sn = 0; sn < skills->nused; sn++)
+		for (sn = 0; sn < skills.nused; sn++)
 			set_skill(victim, sn, 100);
 	else
 		set_skill(victim, sn, value);
@@ -3622,7 +3622,7 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 			output = buf_new(0);
 
 			buf_add(output, "Possible classes are: ");
-	    		for (cl = 0; cl < classes->nused; cl++) {
+	    		for (cl = 0; cl < classes.nused; cl++) {
 	        		if (cl > 0)
 	                		buf_add(output, " ");
 	        		buf_add(output, CLASS(cl)->name);
