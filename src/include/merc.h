@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.384 2001-12-15 13:47:47 matrim Exp $
+ * $Id: merc.h,v 1.385 2002-01-04 16:57:25 matrim Exp $
  */
 
 /***************************************************************************
@@ -1125,12 +1125,9 @@ struct wiznet_type
 #define PLR_NOEXP		(L)
 #define PLR_AUTOLOOK		(M)
 #define PLR_HOLYLIGHT		(N)
-#define PLR_CANLOOT		(P)
 #define PLR_NOSUMMON		(Q)
 #define PLR_NOFOLLOW		(R)
-#define PLR_NOCANCEL		(S)
 #define PLR_GHOST		(T)
-#define PLR_PERMIT		(U)
 #define PLR_LOG			(W)
 #define PLR_FREEZE		(Y)
 #define PLR_PUMPED		(Z)	/* adrenalin is gushing */
@@ -1220,9 +1217,7 @@ enum {
 #define CHAN_NOWIZ		(B)
 #define CHAN_NOAUCTION		(C)
 #define CHAN_NOGOSSIP		(D)
-#define CHAN_NOQUESTION		(E)
 #define CHAN_NOMUSIC		(F)
-#define CHAN_NOQUOTE		(G)
 #define CHAN_NOCLAN		(H)
 #define CHAN_NOSHOUT		(I)
 

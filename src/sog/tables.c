@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.184 2001-12-10 21:50:40 fjoe Exp $
+ * $Id: tables.c,v 1.185 2002-01-04 16:57:27 matrim Exp $
  */
 
 /***************************************************************************
@@ -149,10 +149,8 @@ flaginfo_t plr_flags[] =
 	{ "autosplit",		PLR_AUTOSPLIT,		FALSE	},
 	{ "bought_pet",		PLR_BOUGHT_PET,		FALSE	},
 	{ "holylight",		PLR_HOLYLIGHT,		FALSE	},
-	{ "can_loot",		PLR_CANLOOT,		FALSE	},
 	{ "nosummon",		PLR_NOSUMMON,		FALSE	},
 	{ "nofollow",		PLR_NOFOLLOW,		FALSE	},
-	{ "permit",		PLR_PERMIT,		TRUE	},
 	{ "log",		PLR_LOG,		FALSE	},
 	{ "freeze",		PLR_FREEZE,		FALSE	},
 	{ "ghost",		PLR_GHOST,		FALSE	},
@@ -360,10 +358,8 @@ flaginfo_t chan_flags[] =
 	{ "nochannels",		CHAN_NOCHANNELS,	FALSE	},
 	{ "nowiz",		CHAN_NOWIZ,		TRUE	},
 	{ "nogossip",		CHAN_NOGOSSIP,		TRUE	},
-	{ "noquestion",		CHAN_NOQUESTION,	TRUE	},
 	{ "noauction",		CHAN_NOAUCTION,		TRUE	},
 	{ "nomusic",		CHAN_NOMUSIC,		TRUE	},
-	{ "noquote",		CHAN_NOQUOTE,		TRUE	},
 	{ "noclan",		CHAN_NOCLAN,		TRUE	},
 	{ "noshout",		CHAN_NOSHOUT,		FALSE	},
 

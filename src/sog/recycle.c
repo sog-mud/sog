@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.144 2002-01-04 15:10:03 fjoe Exp $
+ * $Id: recycle.c,v 1.145 2002-01-04 16:57:26 matrim Exp $
  */
 
 /***************************************************************************
@@ -682,7 +682,7 @@ char_new(MOB_INDEX_DATA *pMobIndex)
 		pc->condition[COND_DESIRE] = 48;
 		pc->race = str_dup("human");
 		pc->clan_status = CLAN_COMMONER;
-		pc->plr_flags = PLR_NOSUMMON | PLR_NOCANCEL;
+		pc->plr_flags = PLR_NOSUMMON;
 		pc->www_show_flags = WSHOW_RACE | WSHOW_SEX | WSHOW_TITLE;
 		pc->bank_s = 0;
 		pc->bank_g = 0;
