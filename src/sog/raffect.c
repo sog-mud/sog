@@ -1,5 +1,5 @@
 /*
- * $Id: raffect.c,v 1.14 1998-10-06 13:18:30 fjoe Exp $
+ * $Id: raffect.c,v 1.15 1998-10-23 09:22:24 fjoe Exp $
  */
 
 /***************************************************************************
@@ -123,7 +123,7 @@ void affect_to_room(ROOM_INDEX_DATA *room, AFFECT_DATA *paf)
 	 room->aff_next = NULL;
 	}
 
-	paf_new = new_affect();
+	paf_new = aff_new();
 
 	*paf_new		= *paf;
 	paf_new->next	= room->affected;
@@ -229,7 +229,7 @@ void affect_remove_room(ROOM_INDEX_DATA *room, AFFECT_DATA *paf)
 
 	 }
 
-	free_affect(paf);
+	aff_free(paf);
 
 	affect_check_room(room,where,vector);
 	return;

@@ -1,5 +1,5 @@
 /*
- * $Id: note.c,v 1.32 1998-10-20 19:57:41 fjoe Exp $
+ * $Id: note.c,v 1.33 1998-10-23 09:22:24 fjoe Exp $
  */
 
 /***************************************************************************
@@ -75,6 +75,9 @@ struct note_data
 };
 
 /* local procedures */
+NOTE_DATA *	new_note	(void);
+void		free_note	(NOTE_DATA *note);
+
 void load_thread(char *name, NOTE_DATA **list, int type, time_t free_time);
 void parse_note(CHAR_DATA *ch, const char *argument, int type);
 bool hide_note(CHAR_DATA *ch, NOTE_DATA *pnote);

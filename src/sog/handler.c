@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.79 1998-10-22 08:48:12 fjoe Exp $
+ * $Id: handler.c,v 1.80 1998-10-23 09:22:23 fjoe Exp $
  */
 
 /***************************************************************************
@@ -706,7 +706,7 @@ void affect_enchant(OBJ_DATA *obj)
 	    for (paf = obj->pIndexData->affected;
 	         paf != NULL; paf = paf->next)
 	    {
-		    af_new = new_affect();
+		    af_new = aff_new();
 
 	        af_new->next = obj->affected;
 	        obj->affected = af_new;
@@ -932,7 +932,7 @@ void affect_to_char(CHAR_DATA *ch, AFFECT_DATA *paf)
 {
 	AFFECT_DATA *paf_new;
 
-	paf_new = new_affect();
+	paf_new = aff_new();
 
 	*paf_new		= *paf;
 	paf_new->next	= ch->affected;
@@ -947,7 +947,7 @@ void affect_to_obj(OBJ_DATA *obj, AFFECT_DATA *paf)
 {
 	AFFECT_DATA *paf_new;
 
-	paf_new = new_affect();
+	paf_new = aff_new();
 	*paf_new	= *paf;
 	paf_new->next	= obj->affected;
 	obj->affected	= paf_new;
@@ -1002,7 +1002,7 @@ void affect_remove(CHAR_DATA *ch, AFFECT_DATA *paf)
 		}
 	}
 
-	free_affect(paf);
+	aff_free(paf);
 	affect_check(ch, where, vector);
 }
 
@@ -1053,7 +1053,7 @@ void affect_remove_obj(OBJ_DATA *obj, AFFECT_DATA *paf)
 	    }
 	}
 
-	free_affect(paf);
+	aff_free(paf);
 
 	if (obj->carried_by != NULL && obj->wear_loc != -1)
 		affect_check(obj->carried_by,where,vector);

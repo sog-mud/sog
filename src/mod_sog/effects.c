@@ -1,5 +1,5 @@
 /*
- * $Id: effects.c,v 1.10 1998-10-09 13:42:37 fjoe Exp $
+ * $Id: effects.c,v 1.11 1998-10-23 09:22:23 fjoe Exp $
  */
 
 /***************************************************************************
@@ -160,7 +160,7 @@ void acid_effect(void *vo, int level, int dam, int target)
             if (!af_found)
             /* needs a new affect */
             {
-		paf = new_affect();
+		paf = aff_new();
  
                 paf->type       = -1;
                 paf->level      = level;
@@ -771,7 +771,7 @@ void sand_effect(void *vo, int level, int dam, int target)
             if (!af_found)
             /* needs a new affect */
             {
-		paf = new_affect();
+		paf = aff_new();
  
                 paf->type       = -1;
                 paf->level      = level;

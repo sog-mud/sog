@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.104 1998-10-21 05:00:29 fjoe Exp $
+ * $Id: merc.h,v 1.105 1998-10-23 09:22:24 fjoe Exp $
  */
 
 /***************************************************************************
@@ -65,7 +65,6 @@
 #include "log.h"
 #include "util.h"
 #include "lookup.h"
-#include "recycle.h"
 #include "string_edit.h"
 
 #include "class.h"
@@ -2038,8 +2037,8 @@ EXIT_DATA	*new_exit		(void);
 void		free_exit		(EXIT_DATA *pExit);
 ROOM_INDEX_DATA *new_room_index		(void);
 void		free_room_index		(ROOM_INDEX_DATA *pRoom);
-AFFECT_DATA	*new_affect		(void);
-void		free_affect		(AFFECT_DATA* pAf);
+AFFECT_DATA	*aff_new		(void);
+void		aff_free		(AFFECT_DATA* pAf);
 SHOP_DATA	*new_shop		(void);
 void		free_shop		(SHOP_DATA *pShop);
 OBJ_INDEX_DATA	*new_obj_index		(void);
@@ -2059,6 +2058,40 @@ MPCODE *	mpcode_new		(void);
 void		mpcode_add		(MPCODE *mpcode);
 MPCODE *	mpcode_lookup		(int vnum);
 void		mpcode_free		(MPCODE *mpcode);
+
+/* extra descr recycling */
+ED_DATA	*ed_new		(void);
+ED_DATA *ed_new2	(const ED_DATA *ed, const char* name);
+ED_DATA *ed_dup		(const ED_DATA *ed);
+void	ed_fread	(FILE *fp, ED_DATA **edp);
+void	ed_fwrite	(FILE *fp, ED_DATA *ed);
+void	ed_free		(ED_DATA *ed);
+
+/* affect recycling */
+AFFECT_DATA *	aff_new	(void);
+AFFECT_DATA *	aff_dup	(const AFFECT_DATA *af);
+void		aff_free(AFFECT_DATA *af);
+
+/* object recycling */
+OBJ_DATA *	new_obj	(void);
+void		free_obj(OBJ_DATA *obj);
+
+/* character recyling */
+CHAR_DATA *	new_char	(void);
+void		free_char	(CHAR_DATA *ch);
+PC_DATA	*	new_pcdata	(void);
+void		free_pcdata	(PC_DATA *pcdata);
+
+/* mob id and memory procedures */
+long 	get_pc_id	(void);
+long	get_mob_id	(void);
+
+HELP_DATA *	help_new	(void);
+void		help_add	(AREA_DATA*, HELP_DATA*);
+HELP_DATA *	help_lookup	(int num, const char *keyword);
+void		help_show	(CHAR_DATA *ch, BUFFER *output,
+				 const char *keyword);
+void		help_free	(HELP_DATA*);
 
 void		boot_db		(void);
 CHAR_DATA *	create_mob	(MOB_INDEX_DATA *pMobIndex);

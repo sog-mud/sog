@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.77 1998-10-20 19:57:42 fjoe Exp $
+ * $Id: save.c,v 1.78 1998-10-23 09:22:24 fjoe Exp $
  */
 
 /***************************************************************************
@@ -255,7 +255,7 @@ fwrite_char(CHAR_DATA * ch, FILE * fp, bool reboot)
 		if (ch->pcdata->bank_g)
 			fprintf(fp, "Bankg %d\n", ch->pcdata->bank_g);
 		if (ch->pcdata->security)
-			fprintf(fp, "Sec  %d\n", ch->pcdata->security);
+			fprintf(fp, "Sec %d\n", ch->pcdata->security);
 		fwrite_string(fp, "Pass", ch->pcdata->pwd);
 		fwrite_string(fp, "Bin", ch->pcdata->bamfin);
 		fwrite_string(fp, "Bout", ch->pcdata->bamfout);
@@ -687,7 +687,7 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 			if (!str_cmp(word, "AffD")) {
 				AFFECT_DATA    *paf;
 				int             sn;
-				paf = new_affect();
+				paf = aff_new();
 
 				sn = sn_lookup(fread_word(fp));
 				if (sn < 0)
@@ -708,7 +708,7 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 			if (!str_cmp(word, "Affc")) {
 				AFFECT_DATA    *paf;
 				int             sn;
-				paf = new_affect();
+				paf = aff_new();
 
 				sn = sn_lookup(fread_word(fp));
 				if (sn < 0)
@@ -1063,7 +1063,7 @@ fread_pet(CHAR_DATA * ch, FILE * fp)
 			if (!str_cmp(word, "AffD")) {
 				AFFECT_DATA    *paf;
 				int             sn;
-				paf = new_affect();
+				paf = aff_new();
 
 				sn = sn_lookup(fread_word(fp));
 				if (sn < 0)
@@ -1084,7 +1084,7 @@ fread_pet(CHAR_DATA * ch, FILE * fp)
 			if (!str_cmp(word, "Affc")) {
 				AFFECT_DATA    *paf;
 				int             sn;
-				paf = new_affect();
+				paf = aff_new();
 
 				sn = sn_lookup(fread_word(fp));
 				if (sn < 0)
@@ -1264,7 +1264,7 @@ fread_obj(CHAR_DATA * ch, FILE * fp)
 			if (!str_cmp(word, "AffD")) {
 				AFFECT_DATA    *paf;
 				int             sn;
-				paf = new_affect();
+				paf = aff_new();
 
 				sn = sn_lookup(fread_word(fp));
 				if (sn < 0)
@@ -1285,7 +1285,7 @@ fread_obj(CHAR_DATA * ch, FILE * fp)
 			if (!str_cmp(word, "Affc")) {
 				AFFECT_DATA    *paf;
 				int             sn;
-				paf = new_affect();
+				paf = aff_new();
 
 				sn = sn_lookup(fread_word(fp));
 				if (sn < 0)

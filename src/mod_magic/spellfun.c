@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.73 1998-10-22 08:48:12 fjoe Exp $
+ * $Id: spellfun.c,v 1.74 1998-10-23 09:22:23 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2233,7 +2233,7 @@ void spell_enchant_armor(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 		for (paf = obj->affected; paf != NULL; paf = paf_next)
 		{
 		    paf_next = paf->next;
-		    free_affect(paf);
+		    aff_free(paf);
 		}
 		obj->affected = NULL;
 
@@ -2254,7 +2254,7 @@ void spell_enchant_armor(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 
 		for (paf = obj->pIndexData->affected; paf != NULL; paf = paf->next) 
 		{
-		    af_new = new_affect();
+		    af_new = aff_new();
 		
 		    af_new->next = obj->affected;
 		    obj->affected = af_new;
@@ -2305,7 +2305,7 @@ void spell_enchant_armor(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	}
 	else /* add a new affect */
 	{
- 	paf = new_affect();
+ 	paf = aff_new();
 
 		paf->where	= TO_OBJECT;
 		paf->type	= sn;
@@ -2420,7 +2420,7 @@ void spell_enchant_weapon(int sn,int level,CHAR_DATA *ch, void *vo,int target)
 		for (paf = obj->affected; paf != NULL; paf = paf_next)
 		{
 		    paf_next = paf->next; 
-		    free_affect(paf);
+		    aff_free(paf);
 		}
 		obj->affected = NULL;
 
@@ -2441,7 +2441,7 @@ void spell_enchant_weapon(int sn,int level,CHAR_DATA *ch, void *vo,int target)
 
 		for (paf = obj->pIndexData->affected; paf != NULL; paf = paf->next) 
 		{
-		    af_new = new_affect();
+		    af_new = aff_new();
 		
 		    af_new->next = obj->affected;
 		    obj->affected = af_new;
@@ -2494,7 +2494,7 @@ void spell_enchant_weapon(int sn,int level,CHAR_DATA *ch, void *vo,int target)
 	}
 	else /* add a new affect */
 	{
-		paf = new_affect();
+		paf = aff_new();
 
 		paf->where	= TO_OBJECT;
 		paf->type	= sn;
@@ -2523,7 +2523,7 @@ void spell_enchant_weapon(int sn,int level,CHAR_DATA *ch, void *vo,int target)
 	}
 	else /* add a new affect */
 	{
-	    paf = new_affect();
+	    paf = aff_new();
  
 	    paf->type       = sn;
 	    paf->level      = level;

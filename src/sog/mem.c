@@ -1,5 +1,5 @@
 /*
- * $Id: mem.c,v 1.21 1998-10-16 13:24:58 fjoe Exp $
+ * $Id: mem.c,v 1.22 1998-10-23 09:22:24 fjoe Exp $
  */
 
 /***************************************************************************
@@ -34,7 +34,7 @@ extern          int                     top_room;
 extern		int			top_mprog_index;
 
 void	ed_free		(ED_DATA *pExtra);
-void	free_affect	(AFFECT_DATA *af);
+void	aff_free	(AFFECT_DATA *af);
 
 RESET_DATA *new_reset_data(void)
 {
@@ -222,7 +222,7 @@ void free_obj_index(OBJ_INDEX_DATA *pObj)
 	mlstr_free(pObj->description);
 
 	for (pAf = pObj->affected; pAf; pAf = pAf->next)
-		free_affect(pAf);
+		aff_free(pAf);
 
 	for (pExtra = pObj->ed; pExtra; pExtra = pExtra->next)
 		ed_free(pExtra);

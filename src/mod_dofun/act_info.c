@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.150 1998-10-21 10:12:33 fjoe Exp $
+ * $Id: act_info.c,v 1.151 1998-10-23 09:22:22 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1149,8 +1149,7 @@ void do_look(CHAR_DATA *ch, const char *argument)
 		else
 			char_puts("{x", ch);
 		
-		if ((IS_IMMORTAL(ch) && (IS_NPC(ch) ||
-					 IS_SET(ch->act, PLR_HOLYLIGHT)))
+		if (IS_IMMORTAL(ch)
 		||  IS_BUILDER(ch, ch->in_room->area))
 			char_printf(ch, " [Room %d]",ch->in_room->vnum);
 
@@ -1405,7 +1404,7 @@ void do_exits(CHAR_DATA *ch, const char *argument)
 
 	if (fAuto)
 		char_puts("{C[Exits:", ch);
-	else if (IS_IMMORTAL(ch))
+	else if (IS_IMMORTAL(ch) || IS_BUILDER(ch, ch->in_room->area))
 		char_printf(ch, "Obvious exits from room %d:\n\r",
 			    ch->in_room->vnum);
 	else
@@ -1448,7 +1447,8 @@ void do_exits(CHAR_DATA *ch, const char *argument)
 					    MSG("Too dark to tell", ch->lang) :
 					    mlstr_cval(pexit->u1.to_room->name,
 							ch));
-				if (IS_IMMORTAL(ch))
+				if (IS_IMMORTAL(ch)
+				||  IS_BUILDER(ch, pexit->u1.to_room->area))
 					char_printf(ch, " (room %d)",
 						    pexit->u1.to_room->vnum);
 				char_puts("\n\r", ch);

@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.33 1998-10-22 08:48:13 fjoe Exp $
+ * $Id: recycle.c,v 1.34 1998-10-23 09:22:24 fjoe Exp $
  */
 
 /***************************************************************************
@@ -61,13 +61,20 @@ ED_DATA *ed_new(void)
 	return ed;
 }
 
-ED_DATA * ed_new2(const ED_DATA *ed, const char* name)
+ED_DATA *ed_new2(const ED_DATA *ed, const char* name)
 {
 	ED_DATA *ed2		= ed_new();
 	ed2->keyword		= str_dup(ed->keyword);
 	ed2->description	= mlstr_printf(ed->description, name);
-	ed2->next		= NULL;
 	return ed2;
+}
+
+ED_DATA *ed_dup(const ED_DATA *ed)
+{
+	ED_DATA *ned = ed_new();
+	ned->keyword		= str_dup(ed->keyword);
+	ned->description	= mlstr_dup(ed->description);
+	return ned;
 }
 
 void ed_free(ED_DATA *ed)
@@ -83,9 +90,7 @@ void ed_free(ED_DATA *ed)
 
 void ed_fread(FILE *fp, ED_DATA **edp)
 {
-	ED_DATA *ed;
-
-	ed		= ed_new();
+	ED_DATA *ed	= ed_new();
 	ed->keyword	= fread_string(fp);
 	ed->description	= mlstr_fread(fp);
 	SLIST_ADD(ED_DATA, *edp, ed);
@@ -97,12 +102,25 @@ void ed_fwrite(FILE *fp, ED_DATA *ed)
 	mlstr_fwrite(fp, NULL, ed->description);
 }
 
-AFFECT_DATA *new_affect(void)
+AFFECT_DATA *aff_new(void)
 {
 	return calloc(1, sizeof(AFFECT_DATA));
 }
 
-void free_affect(AFFECT_DATA *af)
+AFFECT_DATA *aff_dup(const AFFECT_DATA *paf)
+{
+	AFFECT_DATA *naf = aff_new();
+	naf->where	= paf->where;
+	naf->type	= paf->type;
+	naf->level	= paf->level;
+	naf->duration	= paf->duration;
+	naf->location	= paf->location;
+	naf->modifier	= paf->modifier;
+	naf->bitvector	= paf->bitvector;
+	return naf;
+}
+
+void aff_free(AFFECT_DATA *af)
 {
 	free(af);
 }
@@ -137,7 +155,7 @@ void free_obj(OBJ_DATA *obj)
 
 	for (paf = obj->affected; paf; paf = paf_next) {
 		paf_next = paf->next;
-		free_affect(paf);
+		aff_free(paf);
     	}
 
 	for (ed = obj->ed; ed != NULL; ed = ed_next ) {
@@ -188,6 +206,8 @@ CHAR_DATA *new_char (void)
 		ch->perm_stat[i] = 13;
 	return ch;
 }
+
+extern int mobile_count;
 
 void free_char(CHAR_DATA *ch)
 {
