@@ -59,6 +59,7 @@ CEJS 0 HNT AG AB 1000 0
 BEFJNU
 stand stand male 2500
 0 0 medium unknown
+r charm 100
 #904
 poseidon~
 Poseidon~
@@ -110,6 +111,7 @@ EFNU
 stand stand male 2500
 0 0 medium unknown
 r charm 100
+r weapon 33
 #907
 athena афина~
 @eng Athena@rus Афина~
@@ -142,6 +144,7 @@ BCEJ 0 HNT A AB 1000 0
 EFNU
 stand stand male 3000
 0 0 medium unknown
+r charm 100
 #909
 handmaid golden~
 A Golden Maiden~
@@ -228,6 +231,7 @@ BCJ 0 HNT A AB 1000 0
 EFNU
 stand stand male 5000
 0 0 medium unknown
+r charm 100
 #915
 grocer greengrocer julius~
 Julius the Green Grocer~
@@ -244,6 +248,7 @@ BCJe 0 HNT A AB 1000 0
 EFNU
 stand stand male 500
 0 0 medium unknown
+r charm 100
 #916
 alchemist~
 the Alchemist~
@@ -259,6 +264,7 @@ BCEJ 0 HNT A AB 1000 0
 EFNU
 stand stand male 500
 0 0 medium unknown
+r charm 100
 #917
 clive~
 Clive the Weapons Master~

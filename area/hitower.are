@@ -518,6 +518,7 @@ BR D 0 0 AN -400 0
 FU
 stand stand male 233
 0 0 medium unknown
+r charm 100
 #1339
 golem wooden~
 a wooden golem~

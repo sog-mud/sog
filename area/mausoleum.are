@@ -189,6 +189,11 @@ Q
 stand stand none 200
 BI V medium unknown
 g @eng none@rus female~
+r poison 100
+r negative 50
+r holy -50
+r disease 100
+r silver -50
 #4609
 demon familiar демон~
 @eng the demon familiar@rus ~~демон~~~

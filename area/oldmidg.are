@@ -507,6 +507,8 @@ BJVe 0 H 0 A 900 0
 AF
 stand stand male 15000
 0 0 medium unknown
+r weapon 33
+r magic 100
 #5336
 baker~
 the baker~
@@ -515,12 +517,15 @@ A fat, nice looking baker. But you can see that he has many scars on his
 body.
 ~
 human~
-BJVe 0 H 0 0 900 0
+BJe 0 H 0 0 900 0
 60 10 20d10+18800 1d1+999 3d8+25 'beating'
 -55 -55 -55 -35
 CDF
 stand stand male 500
 0 0 medium unknown
+r charm 100
+r weapon 33
+r magic 33
 #5337
 grocer~
 the grocer~
@@ -534,6 +539,9 @@ BJVe 0 H 0 0 900 0
 EFJ
 stand stand male 1300
 0 0 medium unknown
+r charm 100
+r weapon 33
+r magic 33
 #5338
 weaponsmith~
 the weaponsmith~
@@ -547,6 +555,9 @@ BJTVe 0 H 0 0 900 0
 CEIK
 stand stand male 25000
 0 0 medium unknown
+r charm 100
+r weapon 33
+r magic 33
 #5339
 armourer armorer~
 the armourer~
@@ -561,6 +572,9 @@ BJVe 0 0 0 0 900 0
 CEFJKN
 stand stand male 25000
 0 0 medium unknown
+r charm 100
+r weapon 33
+r magic 33
 #5340
 jeweller~
 the jeweller~
@@ -574,6 +588,9 @@ BJVe 0 HV 0 0 900 0
 AF
 stand stand male 58000
 0 0 huge unknown
+r charm 100
+r weapon 33
+r magic 33
 #5341
 Questor~
 @eng Questor@rus Квестор~
@@ -589,6 +606,9 @@ GJTVe E V 0 ABHK 1000 3000
 ACDEFHIKLNOT
 stand stand male 0
 0 0 huge unknown
+r charm 100
+r weapon 33
+r magic 33
 #5342
 healer~
 the healer~
@@ -603,6 +623,8 @@ ABDEJQVe FGHI H 0 AB 1000 0
 FHIK
 stand stand male 5000
 0 0 huge unknown
+r weapon 33
+r magic 100
 #5343
 guildmaster master~
 the guildmaster~
@@ -618,6 +640,9 @@ BJRVe D 0 0 ABL -1000 0
 FG
 stand stand female 0
 0 0 medium unknown
+r charm 100
+r weapon 33
+r magic 33
 #5344
 guildmaster master~
 the guildmaster~
@@ -632,6 +657,9 @@ BJQVe D 0 0 ABKL -1000 0
 EFHIK
 stand stand male 0
 0 0 medium unknown
+r charm 100
+r weapon 100
+r magic 33
 #5345
 templeman~
 the templeman~
@@ -646,6 +674,8 @@ BJQVe 0 H 0 AB 1000 0
 FHIK
 stand stand male 5000
 0 0 huge unknown
+r weapon 33
+r magic 100
 #5346
 junkseller junk seller~
 Junkseller~

@@ -141,25 +141,6 @@ human~
 stand stand female 0
 0 0 medium unknown
 F for AHMV
-#15050
-sidhe knight рыцарь сид~
-@eng a noble sidhe knight@rus ~~благородный~~ ~~рыцарь~~-~~сид~~~
-@eng A noble sidhe knight of the Seelie court is here on a quest.@rus Благородный сид-рыцарь (sidhe) выполняет свое задание.~
-@eng This knight is the epitome of chivalry.  The embodyment of honor, 
-loyalty, courage and skill in battle.
-@rus Этот сид -- олицетворение рыцарства. Соединение чести, лояльности, 
-храбрости, мужества, отваги и умения драться.
-~
-elf~
-GT 0 0 0 M 1000 0
-36 0 5d20+1250 1d20+200 2d5+25 'slash'
--9 -9 -9 -5
-CDEFIKLS
-stand stand male 500
-0 0 medium unknown
-f affects hitroll 50 0
-f resists energy 100 0
-f skills 'swimming' 100 0
 #0
 
 #OBJECTS
