@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.81 1999-12-16 10:19:25 fjoe Exp $
+ * $Id: db_area.c,v 1.82 1999-12-17 10:39:03 fjoe Exp $
  */
 
 /***************************************************************************
@@ -209,8 +209,17 @@ set_percent_resistances(flag_t imm, flag_t res, flag_t vul, int16_t resist[])
 
 DBINIT_FUN(init_area)
 {
-	if (DBDATA_VALID(dbdata))
-		area_current = NULL;
+	if (DBDATA_VALID(dbdata)) {
+		if (area_current != NULL) {
+			if (IS_SET(area_current->area_flags, AREA_TAGGED)) {
+				log("UNTAGGED: %s", area_current->file_name);
+				REMOVE_BIT(area_current->area_flags,
+					   AREA_TAGGED);
+				TOUCH_AREA(area_current);
+			}
+			area_current = NULL;
+		}
+	}
 }
 
 /*
