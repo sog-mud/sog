@@ -1454,8 +1454,8 @@ Type 'heal' to see a listing of spells.
 ~
 human~
 ABQVae DFH 1000 0
-40 0 1d1+999 1d1+999 2d4+30 divine
--15 -15 -15 -15
+80 10 1d1+26999 1d1+999 2d4+30 divine
+-45 -45 -45 -45
 FHIK ABC D 0
 stand stand male 5000
 0 0 medium unknown
@@ -7138,7 +7138,6 @@ M 0 9581 1 9604 1	* the high priest (Chamber of the High Priest)
 M 0 9544 20 9607 2	* the vulture (The Craftsman's Guild)
 M 0 9542 22 9608 2	* the wandering prophet (Inside the Temple)
 M 0 9542 22 9609 2	* the wandering prophet (Inside the Temple)
-O 0 3010 0 9609		* The donation pit (Inside the Temple)
 M 0 9592 1 9609 0	* the bodyguard (Inside the Temple)
 M 0 9592 14 9611 1	* the bodyguard (The Museum of the Greater Gods)
 M 0 9524 1 9611 1	* the statue of Nightshade (The Museum of the Greater Gods)
@@ -7323,6 +7322,8 @@ O 0 9598 0 9750		* The daemon claw (Igor's Secret Chamber)
 M 0 9591 1 9799 1	* the Ixitxachitl (Lair of the Ixitxachitl)
 G 0 9602 0		*	A beautiful white pearl
 M 0 9594 1 9800 1	* The Samurai Weaponsmaster (The weaponsmaster's room)
+M 0 9593 1 9605 1	*
+O 0 3010 0 9605		* 
 S
 
 
