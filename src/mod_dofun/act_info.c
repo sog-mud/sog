@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.305 1999-12-16 05:34:28 fjoe Exp $
+ * $Id: act_info.c,v 1.306 1999-12-16 07:06:52 fjoe Exp $
  */
 
 /***************************************************************************
@@ -766,11 +766,11 @@ void do_look(CHAR_DATA *ch, const char *argument)
 	&&  pexit->keyword[0] != '\0'
 	&&  pexit->keyword[0] != ' ') {
 		if (IS_SET(pexit->exit_info, EX_CLOSED)) {
-			act_puts("$v is closed.",
+			act_puts("$d is closed.",
 				 ch, &pexit->short_descr, NULL,
 				 TO_CHAR, POS_DEAD);
 		} else if (IS_SET(pexit->exit_info, EX_ISDOOR)) {
-			act_puts("$v is open.",
+			act_puts("$d is open.",
 				 ch, &pexit->short_descr,
 				 NULL, TO_CHAR, POS_DEAD);
 		}

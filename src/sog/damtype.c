@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: damtype.c,v 1.5 1999-12-16 05:34:36 fjoe Exp $
+ * $Id: damtype.c,v 1.6 1999-12-16 07:06:55 fjoe Exp $
  */
 
 #include <string.h>
@@ -95,7 +95,7 @@ damtype_noun(const char *dn)
 	if (d != NULL)
 		return &d->dam_noun;
 	else
-		return NULL;
+		return glob_lookup("hit");
 }
 
 int

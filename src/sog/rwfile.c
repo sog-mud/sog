@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: rwfile.c,v 1.6 1999-12-14 11:08:12 sog Exp $
+ * $Id: rwfile.c,v 1.7 1999-12-16 07:06:56 fjoe Exp $
  */
 
 static char str_end[] = "End";
@@ -32,6 +32,7 @@ int line_number;
 
 #include <ctype.h>
 #include <limits.h>
+#include <stdarg.h>
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -40,7 +41,10 @@ int line_number;
 #include "const.h"
 #include "rfile.h"
 #include "log.h"
+#include "varr.h"
+#include "hash.h"
 #include "str.h"
+#include "mlstring.h"
 #include "flag.h"
 #include "db.h"
 #include "util.h"

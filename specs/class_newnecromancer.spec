@@ -319,15 +319,6 @@ Max 100
 End
 
 #SKILL
-Skill 'magic resistance'
-Level 69
-Rating 1
-Min 1
-Adept 75
-Max 100
-End
-
-#SKILL
 Skill 'magic missile'
 Level 2
 Rating 1

@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.79 1999-12-16 05:34:38 fjoe Exp $
+ * $Id: db_area.c,v 1.80 1999-12-16 07:06:57 fjoe Exp $
  */
 
 /***************************************************************************
@@ -620,10 +620,6 @@ DBLOAD_FUN(load_rooms)
 
 					one_argument(pexit->keyword,
 						     buf, sizeof(buf));
-					if (buf[0] == '\0') {
-						strnzcpy(buf, sizeof(buf),
-							 "door");
-					}
 
 					if ((m = msg_lookup(buf)) != NULL
 					&&  str_cmp(buf, "north")
@@ -647,7 +643,7 @@ DBLOAD_FUN(load_rooms)
 							free_string(*p);
 							*p = str_dup(flag_string(gender_table, m->gender));
 						}
-					} else {
+					} else if (buf[0] != '\0') {
 						snprintf(buf2, sizeof(buf2),
 							 "the %s", buf);
 						mlstr_init(&pexit->short_descr.ml, buf2);

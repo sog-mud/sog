@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.240 1999-12-16 05:34:36 fjoe Exp $
+ * $Id: fight.c,v 1.241 1999-12-16 07:06:55 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2787,14 +2787,8 @@ void dam_message(CHAR_DATA *ch, CHAR_DATA *victim, int dam,
 	} else {
 		if (IS_SET(dam_flags, DAMF_HIT))
 			dam_noun = damtype_noun(dt);
-		else {
-			skill_t *sk = skill_lookup(dt);
-			if ((sk = skill_lookup(dt)) != NULL)
-				dam_noun = &sk->noun_damage;
-		}
-
-		if (dam_noun == NULL)
-			dam_noun = damtype_noun("hit");
+		else
+			dam_noun = skill_noun(dt);
 
 		if (immune) {
 			if (ch == victim) {

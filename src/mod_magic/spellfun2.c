@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.157 1999-12-16 05:34:39 fjoe Exp $
+ * $Id: spellfun2.c,v 1.158 1999-12-16 07:06:57 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3594,7 +3594,6 @@ void spell_knock(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	int chance=0;
 	int door;
 	EXIT_DATA *pexit;
-	const int rev_dir[] = { 2, 3, 0, 1, 5, 4 };
 
 	target_name = one_argument(target_name, arg, sizeof(arg));
  
@@ -3627,16 +3626,16 @@ void spell_knock(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	}
 
 	if (IS_SET(pexit->exit_info, EX_NOPASS)) {
-		act("A mystical shield protects $v.",
+		act("A mystical shield protects $d.",
 		    ch, &pexit->short_descr, NULL, TO_CHAR);
 		return;
 	}
 
 	chance = level / 5 + get_curr_stat(ch, STAT_INT) + get_skill(ch,sn) / 5;
 
-	act("You knock $v, and try to open it.",
+	act("You knock $d, and try to open it.",
 	    ch, &pexit->short_descr, NULL, TO_CHAR);
-	act("$n knocks $v, and tries to open it.",
+	act("$n knocks $d, and tries to open it.",
 	    ch, &pexit->short_descr, NULL, TO_ROOM);
 
 	if (room_dark(ch->in_room))
@@ -3649,9 +3648,9 @@ void spell_knock(const char *sn, int level, CHAR_DATA *ch, void *vo)
 
 		REMOVE_BIT(pexit->exit_info, EX_LOCKED | EX_CLOSED);
 		REMOVE_BIT(pexit->exit_info, EX_CLOSED);
-		act("$n knocks $v and opens the lock.",
+		act("$n knocks $d and opens the lock.",
 		    ch, &pexit->short_descr, NULL, TO_ROOM);
-		act_puts("You successed to open $v.",
+		act_puts("You successed to open $d.",
 		         ch, &pexit->short_descr, NULL, TO_CHAR, POS_DEAD);
 
 		/* open the other side */
@@ -3659,13 +3658,13 @@ void spell_knock(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		&&  (pexit_rev = to_room->exit[rev_dir[door]]) != NULL
 		&&  pexit_rev->to_room.r == ch->in_room) {
 			REMOVE_BIT(pexit_rev->exit_info, EX_CLOSED | EX_LOCKED);
-			act("$v opens.", to_room->people,
+			act("$d opens.", to_room->people,
 			    &pexit_rev->short_descr, NULL, TO_ROOM);
 		}
 	} else {
-		act("You couldn't knock $v.",
+		act("You couldn't knock $d.",
 		    ch, &pexit->short_descr, NULL, TO_CHAR);
-		act("$n failed to knock $v.",
+		act("$n failed to knock $d.",
 		    ch, &pexit->short_descr, NULL, TO_ROOM);
 	}
 }

@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.217 1999-12-16 05:34:37 fjoe Exp $
+ * $Id: handler.c,v 1.218 1999-12-16 07:06:55 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3057,9 +3057,9 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 	}
 
 	if (ch->size > pexit->size) {
-		act_puts("$v is too narrow for you to pass.",
+		act_puts("$d is too narrow for you to pass.",
 			ch, &pexit->short_descr, NULL, TO_CHAR, POS_DEAD);
-		act("$n tries to leave through $v, but almost stucks there.",
+		act("$n tries to leave through $d, but almost stucks there.",
 		    ch, &pexit->short_descr, NULL, TO_ROOM);
 		return FALSE;
 	}
@@ -3083,13 +3083,13 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 	&&  !IS_TRUSTED(ch, LEVEL_IMMORTAL)) {
 		if (IS_AFFECTED(ch, AFF_PASS_DOOR)
 		&&  IS_SET(pexit->exit_info, EX_NOPASS)) {
-  			act_puts("You failed to pass through $v.",
+  			act_puts("You failed to pass through $d.",
 				 ch, &pexit->short_descr, NULL,
 				 TO_CHAR, POS_DEAD);
-			act("$n tries to pass through $v, but $e fails.",
+			act("$n tries to pass through $d, but $e fails.",
 			    ch, &pexit->short_descr, NULL, TO_ROOM);
 		} else {
-			act_puts("$v is closed.",
+			act_puts("$d is closed.",
 				 ch, &pexit->short_descr, NULL,
 				 TO_CHAR, POS_DEAD);
 		}

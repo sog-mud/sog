@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.96 1999-12-16 05:34:38 fjoe Exp $
+ * $Id: skills.c,v 1.97 1999-12-16 07:06:56 fjoe Exp $
  */
 
 /***************************************************************************
@@ -424,6 +424,18 @@ int skill_mana(CHAR_DATA *ch, const char *sn)
 		return sk->min_mana;
 
 	return UMAX(sk->min_mana, 100 / (2 + UMAX(ch->level - skill_level(ch, sn), 0)));
+}
+
+gmlstr_t *
+skill_noun(const char *sn)
+{
+	skill_t *sk;
+	STRKEY_CHECK(&skills, sn, "skill_noun");
+	sk = skill_lookup(sn);
+	if (sk != NULL)
+		return &sk->noun_damage;
+	else
+		return glob_lookup("hit");
 }
 
 /*

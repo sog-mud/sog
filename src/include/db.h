@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db.h,v 1.63 1999-12-15 08:14:14 fjoe Exp $
+ * $Id: db.h,v 1.64 1999-12-16 07:06:54 fjoe Exp $
  */
 
 #ifndef _DB_H_
@@ -131,8 +131,8 @@ extern int fBootDb;
 
 extern int changed_flags;
 
-int	xgetc	(rfile_t *fp);
-void	xungetc	(rfile_t *fp);
+extern hash_t glob_gmlstr;	/* gmlstr_t globals */
+#define	glob_lookup(gn)	((gmlstr_t *) strkey_lookup(&glob_gmlstr, (gn)))
 
 void	vnum_check	(AREA_DATA *area, int vnum);
 

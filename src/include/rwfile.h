@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: rwfile.h,v 1.5 1999-12-11 15:31:10 fjoe Exp $
+ * $Id: rwfile.h,v 1.6 1999-12-16 07:06:54 fjoe Exp $
  */
 
 #ifndef _RFILE_H_
@@ -65,6 +65,9 @@ extern char _token[MAX_STRING_LENGTH];
 #endif /* USE_MMAP */
 
 extern int	line_number;
+
+int		xgetc		(rfile_t *fp);
+void		xungetc		(rfile_t *fp);
 
 void		fread_word	(rfile_t *fp);
 void		fread_keyword	(rfile_t *fp);

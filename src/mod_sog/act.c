@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act.c,v 1.48 1999-12-16 05:34:38 fjoe Exp $
+ * $Id: act.c,v 1.49 1999-12-16 07:06:56 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -34,6 +34,7 @@
 #include "mob_prog.h"
 #include "lang.h"
 #include "memalloc.h"
+#include "db.h"
 
 /*
  * char/mob short/long formatting
@@ -279,6 +280,14 @@ act_format_obj(OBJ_DATA *obj, CHAR_DATA *to, int to_lang, int act_flags)
 	return fix_short(descr);
 }
 
+static gmlstr_t *
+act_format_door(gmlstr_t *gml)
+{
+	if (mlstr_null(&gml->ml))
+		gml = glob_lookup("the door");
+	return gml;
+}
+
 #define CHECK_STRING(p)						\
 	if (p == NULL) {					\
 		log("act_buf: format '%s', NULL string arg",	\
@@ -295,16 +304,16 @@ act_format_obj(OBJ_DATA *obj, CHAR_DATA *to, int to_lang, int act_flags)
 		break;						\
 	}
 
-#define CHECK_MLSTR(ml)							\
-	if (!mlstr_valid(ml)) {						\
+#define CHECK_GMLSTR(gml)						\
+	if (gml == NULL || !mlstr_valid(&(gml)->ml)) {			\
 		log("act_buf: format '%s', invalid mlstring arg",	\
 		    format);						\
 		i = NULL;						\
 		break;							\
 	}
 
-#define CHECK_MLSTR2(ml)						\
-	if (!mlstr_valid(ml)) { 					\
+#define CHECK_GMLSTR2(gml)						\
+	if (gml == NULL || !mlstr_valid(&(gml)->gender)) { 		\
 		log("act_buf: format '%s', invalid mlstring arg",	\
 		    format);						\
 		sp--;							\
@@ -358,10 +367,10 @@ act_format_obj(OBJ_DATA *obj, CHAR_DATA *to, int to_lang, int act_flags)
 				    ACT_FLAGS(flags));			\
 	}
 
-#define MLTEXT_ARG(mltext, flags)					\
+#define GMLTEXT_ARG(gml, flags)						\
 	{								\
-		CHECK_MLSTR(mltext);					\
-		i = act_format_mltext(mltext, ch, to, opt->to_lang,	\
+		CHECK_GMLSTR(gml);					\
+		i = act_format_mltext(&(gml)->ml, ch, to, opt->to_lang,	\
 				      ACT_FLAGS(flags));		\
 	}
 
@@ -379,7 +388,7 @@ act_format_obj(OBJ_DATA *obj, CHAR_DATA *to, int to_lang, int act_flags)
  * $B
  * $c - $cn{...} - case number ``n''
  * $C
- * $d
+ * $d - door_name(arg1)
  * $D
  * $e - he_she(ch)
  * $E - he_she(vch)
@@ -465,6 +474,7 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 {
 	char 		tmp	[MAX_STRING_LENGTH];
 	char		tmp2	[MAX_STRING_LENGTH];
+	gmlstr_t	*gml;
 
 	char *		point = buf;
 	const char *	s;
@@ -577,14 +587,20 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 				TEXT_ARG(arg3, opt->act_flags & ~ACT_STRANS);
 				break;
 
+			case 'd':
+				gml = act_format_door(GML1);
+				GMLTEXT_ARG(gml,
+					    opt->act_flags & ~ACT_STRANS);
+				break;
+
 			case 'v':
-				MLTEXT_ARG(&GML1->ml,
-					   opt->act_flags & ~ACT_STRANS);
+				GMLTEXT_ARG(GML1,
+					    opt->act_flags & ~ACT_STRANS);
 				break;
 
 			case 'V':
-				MLTEXT_ARG(&GML3->ml,
-					   opt->act_flags & ~ACT_STRANS);
+				GMLTEXT_ARG(GML3,
+					    opt->act_flags & ~ACT_STRANS);
 				break;
 
 /* room arguments */
@@ -769,13 +785,19 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 							msg_gender(arg3);
 						break;
 
+					case 'd':
+						gml = act_format_door(GML1);
+						CHECK_GMLSTR2(gml);
+						tstack[sp].arg = GET_SEX(&gml->gender, opt->to_lang);
+						break;
+
 					case 'v':
-						CHECK_MLSTR2(&GML1->gender);
+						CHECK_GMLSTR2(GML1);
 						tstack[sp].arg = GET_SEX(&GML1->gender, opt->to_lang);
 						break;
 
 					case 'V':
-						CHECK_MLSTR2(&GML3->gender);
+						CHECK_GMLSTR2(GML3);
 						tstack[sp].arg = GET_SEX(&GML3->gender, opt->to_lang);
 						break;
 

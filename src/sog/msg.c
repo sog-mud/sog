@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: msg.c,v 1.21 1999-12-15 15:35:43 fjoe Exp $
+ * $Id: msg.c,v 1.22 1999-12-16 07:06:56 fjoe Exp $
  */
 
 #if	defined (LINUX) || defined (WIN32)
@@ -39,6 +39,7 @@
 
 #include "mlstring.h"
 #include "varr.h"
+#include "hash.h"
 #include "db.h"
 #include "msg.h"
 #include "str.h"

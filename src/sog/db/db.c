@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.197 1999-12-15 15:35:45 fjoe Exp $
+ * $Id: db.c,v 1.198 1999-12-16 07:06:57 fjoe Exp $
  */
 
 /***************************************************************************
@@ -143,6 +143,7 @@ const char DAMTYPE_CONF		[] = "damtype.conf";	/* damtypes */
 const char MATERIALS_CONF	[] = "materials.conf";	/* materials */
 const char LIQUIDS_CONF		[] = "liquids.conf";	/* liquids */
 const char CC_EXPR_CONF		[] = "cc_expr.conf";	/* cc_exprs */
+const char GLOB_GMLSTR_FILE	[] = "glob_gmlstr";	/* global gmlstrs */
 
 const char AREA_LIST		[] = "area.lst";	/* list of areas */
 const char LANG_LIST		[] = "lang.lst";	/* list of languages */
@@ -223,6 +224,7 @@ const int rev_dir[] =
 bool	fBootDb;
 char	filename[PATH_MAX];
 int	changed_flags;		/* changed object flags for OLC */
+hash_t	glob_gmlstr;
 
 /*
  * Local booting procedures.
@@ -234,6 +236,17 @@ void	fix_resets	(void);
 void    check_mob_progs	(void);
 
 void	reset_area	(AREA_DATA * pArea);
+
+DECLARE_DBLOAD_FUN(load_glob_gmlstr);
+DECLARE_DBINIT_FUN(init_glob_gmlstr);
+
+DBFUN dbfun_glob_gmlstr[] =
+{
+	{ "GLOB",	load_glob_gmlstr	},
+	{ NULL }
+};
+
+DBDATA db_glob_gmlstr = { dbfun_glob_gmlstr, init_glob_gmlstr };
 
 void dbdata_init(DBDATA *dbdata)
 {
@@ -442,6 +455,7 @@ void boot_db(void)
 	reboot_counter = 1440;	/* 24 hours */
 
 	db_load_list(&db_langs, LANG_PATH, LANG_LIST);
+	db_load_file(&db_glob_gmlstr, ETC_PATH, GLOB_GMLSTR_FILE);
 	db_load_file(&db_cmd, ETC_PATH, CMD_CONF);
 	db_load_file(&db_msg, ETC_PATH, MSGDB_CONF);
 	db_load_file(&db_socials, ETC_PATH, SOCIALS_CONF);
@@ -2015,3 +2029,55 @@ void db_error(const char* fn, const char* fmt,...)
 	log("%s: %s", fn, buf);
 }
 
+DBINIT_FUN(init_glob_gmlstr)
+{
+	if (!DBDATA_VALID(dbdata)) {
+		hash_init(&glob_gmlstr, STRKEY_HASH_SIZE, sizeof(gmlstr_t),
+			  (varr_e_init_t) gmlstr_init,
+			  (varr_e_destroy_t) gmlstr_destroy);
+		glob_gmlstr.k_hash = strkey_hash;
+		glob_gmlstr.ke_cmp = strkey_mlstruct_cmp;
+		glob_gmlstr.e_cpy = (hash_e_cpy_t) gmlstr_cpy;
+	}
+}
+
+DBLOAD_FUN(load_glob_gmlstr)
+{
+	gmlstr_t gml;
+
+	gmlstr_init(&gml);
+	mlstr_fread(fp, &gml.ml);
+	if (mlstr_null(&gml.ml)) {
+		gmlstr_destroy(&gml);
+		db_error("load_glob_gmlstr", "null gmlstr");
+		fread_to_end(fp);
+		return;
+	}
+
+	for (;;) {
+		bool fMatch = FALSE;
+
+		fread_keyword(fp);
+		switch (rfile_tokfl(fp)) {
+		case 'E':
+			if (IS_TOKEN(fp, "End")) {
+				if (hash_insert(&glob_gmlstr, gmlstr_mval(&gml), &gml) == NULL) {
+					db_error("load_gmlstr",
+						 "duplicate gmlstr");
+				} 
+				gmlstr_destroy(&gml);
+				return;
+			}
+			break;
+		case 'G':
+			MLSKEY("gender", gml.gender);
+			break;
+		}
+
+		if (!fMatch) {
+			db_error("load_glob_gmlstr", "%s: Unknown keyword",
+				 rfile_tok(fp));
+			fread_to_eol(fp);
+		}
+	}
+}
