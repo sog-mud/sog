@@ -1,6 +1,6 @@
 #AREADATA
 Name Shalafi~
-VNUMs 95300 95309
+VNUMs 95300 95320
 Credits Asena~
 Security 9
 LevelRange 90 100
@@ -68,6 +68,37 @@ AB JZ -1000 0
 FHI H 0 0
 stand stand male 0
 0 0 medium unknown
+#95303
+vampire old старый вампир~
+@rus ~~старый~~ ~~вампир~~~
+@eng Old vampire helps his brothers.
+@rus Старый вампир (vampire) всегда готов помочь своим братьям.
+~
+~
+undead~
+BGO PTaltu -1000 0
+92 30 2d500+25000 1d1+3999 10d25+90 bite
+-79 -79 -79 -40
+CDFR 0 0 0
+stand stand male 0
+0 0 huge unknown
+M bribe 95301 5000~
+#95304
+prisoner узник~
+@eng prisoner@rus узник~
+@eng Prisoner is ready to die.
+@rus Узник (prisoner) ждет своей участи.
+~
+~
+human~
+ABG 0 1000 0
+10 0 2d5+50 0d0+0 1d1+5 pound
+-1 -1 -1 0
+U 0 0 0
+stand stand male 0
+0 0 medium unknown
+F for AHMV
+F par ABCDEFGHIJK
 #0
 
 #OBJECTS
@@ -311,6 +342,24 @@ D2
 ~
 Z 0 1480
 S
+#95310
+@eng Dark Dungeon@rus Темное подземелье~
+~
+0 AK inside
+D2
+~
+~
+Z 0 95311
+S
+#95311
+@eng Dark Dungeon@rus Темное подземелье~
+~
+0 AK inside
+D0
+~
+~
+Z 0 95310
+S
 #0
 
 #SPECIALS
@@ -327,6 +376,7 @@ M 0 95300 1 95306 1	* The Seneschal (The Mystical Path)
 E 0 95302 0 17		*	a spider shaped key: held in the hands
 O 0 95303 0 95307	* Magical White Portal (The Mystical Room)
 O 0 95304 0 95308	* Magical Black Portal (The Mystical Room)
+M 0 95303 1 95310 1	*  (Dark Dungeon)
 S
 
 #MOBPROGS
@@ -355,6 +405,15 @@ end
 endif
 clan We are attacked by $n !
 mob attack $n
+~
+#95301
+mob mload 95304
+mob mload 95304
+mob mload 95304
+mob mload 95304
+mob mload 95304
+mob junk gold
+mob vforce 95304 murder $n
 ~
 #0
 

@@ -318,6 +318,12 @@ It's dark to tell anything.
 ~
 ~
 Z -1 95607
+D5
+@eng A large slab with dark brand shaped huge skull lies in corner.
+@rus На одной из плит в углу зала виднеется темное клеймо в виде огромного черепа.
+~
+secret~
+ABDFGIZ 95602 95610
 S
 #95608
 @eng The Pentagram@rus Пентаграмма~
@@ -377,10 +383,10 @@ Z 0 95611
 D4
 ~
 ~
-Z 0 95612
+ABDFGIZ 0 95612
 S
 #95611
-@eng Dark Tunnel~
+@eng Dark tunnel@rus Темный туннель~
 ~
 0 0 inside
 D0
@@ -411,6 +417,8 @@ S
 #RESETS
 D 0 95600 5 1	* The Well: door to the down: closed
 D 0 95601 4 1	* Bottom of the Well: door to the up: closed
+D 0 95607 5 1	* Shadowy chambers: door to the down: closed
+D 0 95610 4 1	* Vampires Lair: door to the up: closed
 M 0 95600 1 95607 1	* the invader guardian (Shadowy chambers)
 E 0 95602 0 17		*	darkish jaw of a skull: held in the hands
 M 0 95601 1 95608 1	* the evil cleric (The Pentagram)
@@ -451,7 +459,7 @@ clan We are attacked by $n
 mob attack $n
 ~
 #95601
-gtransfer $n 95610
+mob gtransfer $n 95610
 ~
 #0
 
