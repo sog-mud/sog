@@ -11,7 +11,10 @@ You need pmake to build SoG under Linux
 just copy it into any directory in your $PATH.
 
 To run mud server
- - use ../bin/autorun for production use
+ - use ../bin/sog.sh for production use
+   if you are running mud under FreeBSD you can put ../bin/rc.sog.sh
+   to /usr/local/etc/rc.d/sog.sh to start mud automagically when booting the
+   system
  - use ./startup for debugging
 
 /fjoe
