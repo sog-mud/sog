@@ -1,5 +1,5 @@
 /*
- * $Id: prayers.c,v 1.41 2002-11-28 21:40:23 fjoe Exp $
+ * $Id: prayers.c,v 1.42 2002-12-03 14:29:34 tatyana Exp $
  */
 
 /***************************************************************************
@@ -2003,7 +2003,7 @@ SPELL_FUN(prayer_bless_weapon, sn, level, ch, vo)
 
 	if (IS_WEAPON_STAT(obj, WEAPON_VAMPIRIC)
 	||  IS_WEAPON_STAT(obj, WEAPON_VORPAL)
-	||  IS_OBJ_STAT(obj, ITEM_BLESS)) {
+	||  IS_OBJ_STAT(obj, ITEM_ANTI_GOOD)) {
 		act("You can't seem to bless $p.", ch, obj, NULL, TO_CHAR);
 		return;
 	}

@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.218 2002-11-23 15:27:30 fjoe Exp $
+ * $Id: martial_art.c,v 1.219 2002-12-03 14:29:20 tatyana Exp $
  */
 
 /***************************************************************************
@@ -1091,13 +1091,15 @@ disarm(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *obj)
 	act_puts("You disarm $N!", ch,NULL, victim, TO_CHAR, POS_FIGHTING);
 	act_puts("$n disarms $N!", ch, NULL, victim, TO_NOTVICT, POS_FIGHTING);
 
-	if (IS_OBJ_STAT(obj, ITEM_NODROP) || IS_OBJ_STAT(obj,ITEM_INVENTORY))
+	if (IS_OBJ_STAT(obj, ITEM_NODROP)
+	||  IS_OBJ_STAT(obj, ITEM_INVENTORY)
+	||  IS_SET(victim->in_room->room_flags, ROOM_BATTLE_ARENA))
 		obj_to_char(obj, victim);
 	else {
 		obj_to_room(obj, victim->in_room);
 		if (IS_NPC(victim)
 		&&  victim->wait == 0
-		&&  can_see_obj(victim,obj))
+		&&  can_see_obj(victim, obj))
 			get_obj(victim, obj, NULL, NULL);
 	}
 }
