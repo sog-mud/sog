@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.c,v 1.30 1998-09-22 18:07:17 fjoe Exp $
+ * $Id: obj_prog.c,v 1.31 1998-09-23 05:18:26 fjoe Exp $
  */
 
 /***************************************************************************
@@ -250,7 +250,6 @@ OPROG_DATA oprog_table[] = {
 	{ NULL }
 };
 
-
 int optype_lookup(const char *name)
 {
 	int i;
@@ -261,7 +260,6 @@ int optype_lookup(const char *name)
 	return -1;
 }
 
-
 int oprog_call(int optype, OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 {
 	if (obj->pIndexData->oprogs
@@ -269,7 +267,6 @@ int oprog_call(int optype, OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 		return (obj->pIndexData->oprogs[optype])(obj, ch, arg);
 	return 0;
 }
-
 
 OPROG_DATA *oprog_lookup(const char *name)
 {
@@ -281,7 +278,6 @@ OPROG_DATA *oprog_lookup(const char *name)
 	return NULL;
 }
 
-
 char *oprog_name_lookup(OPROG_FUN *fn)
 {
 	OPROG_DATA *p;
@@ -292,7 +288,6 @@ char *oprog_name_lookup(OPROG_FUN *fn)
 
 	return p->name;
 }
-
 
 void oprog_set(OBJ_INDEX_DATA *pObjIndex,const char *progtype, const char *name)
 {
@@ -314,11 +309,10 @@ void oprog_set(OBJ_INDEX_DATA *pObjIndex,const char *progtype, const char *name)
 	}
 
 	if (pObjIndex->oprogs == NULL)
-		pObjIndex->oprogs = malloc(sizeof(*pObjIndex->oprogs) *
-					   OPROG_MAX);
+		pObjIndex->oprogs = calloc(1, sizeof(*pObjIndex->oprogs) *
+					      OPROG_MAX);
 	pObjIndex->oprogs[opindex] = oprog->fn;
 }
-
 
 int wear_prog_excalibur(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 {

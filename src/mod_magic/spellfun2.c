@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.40 1998-09-22 18:07:15 fjoe Exp $
+ * $Id: spellfun2.c,v 1.41 1998-09-23 05:18:25 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2497,7 +2497,7 @@ void spell_scream(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	int dam=0,hp_dam,dice_dam;
 	int hpch;
 
-	act("$n screames with a disturbing NOISE!.",ch,NULL,NULL,TO_ROOM);
+	act("$n screams with a disturbing NOISE!.",ch,NULL,NULL,TO_ROOM);
 	act("You scream with a powerful sound.",ch,NULL,NULL,TO_CHAR);
 
 	hpch = UMAX(10, ch->hit);

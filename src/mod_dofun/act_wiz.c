@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.62 1998-09-22 18:07:14 fjoe Exp $
+ * $Id: act_wiz.c,v 1.63 1998-09-23 05:18:25 fjoe Exp $
  */
 
 /***************************************************************************
@@ -314,8 +314,8 @@ void do_outfit (CHAR_DATA *ch, const char *argument)
 	CLASS_DATA *cl = class_lookup(ch->class);
 	int sn,vnum;
 
-	if ((ch->level > 5 || IS_NPC(ch) || cl == NULL)
-	&&  !IS_IMMORTAL(ch)) {
+	if ((ch->level > 5 && !IS_IMMORTAL(ch))
+	||  IS_NPC(ch) || cl == NULL) {
 		char_puts("Find it yourself!\n\r",ch);
 		return;
 	}
