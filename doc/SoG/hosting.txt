@@ -1,5 +1,5 @@
 #
-# $Id: hosting.txt,v 1.4 2002-01-25 08:01:30 fjoe Exp $
+# $Id: hosting.txt,v 1.5 2002-01-25 08:49:41 fjoe Exp $
 #
 
 Common server setup
@@ -60,14 +60,14 @@ Mud server setup
 
 2) Add an ability to switch to user `sog' for all users in group `sog' (sudo)
 
-Sample `%ETCDIR%/sudoers' file:
+Sample `%ETCDIR%/sudoers' file (use /bin/su for Linux):
 
 --- cut here ---
 # User alias specification
 User_Alias SOG=%sog
 
 # Cmnd alias specification
-Cmnd_Alias SUSOG=/bin/su - sog,/bin/su sog
+Cmnd_Alias SUSOG=/usr/bin/su - sog,/usr/bin/su sog
 
 # User privilege specification
 SOG	ALL=NOPASSWD:SUSOG
