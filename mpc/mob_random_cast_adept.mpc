@@ -1,11 +1,10 @@
 /*
- * $Id: mob_random_cast_adept.mpc,v 1.1 2001-09-15 16:27:49 fjoe Exp $
+ * $Id: mob_random_cast_adept.mpc,v 1.2 2001-09-16 18:39:12 fjoe Exp $
  */
 
 char victim;
 foreach (victim, char_in_room(char_room($n))) {
-        if (victim != $n
-        &&  can_see($n, victim)
+        if (can_see($n, victim)
         &&  number_bits(1) == 0
         &&  !is_npc(victim)
         &&  char_level(victim) < LEVEL_PK)
