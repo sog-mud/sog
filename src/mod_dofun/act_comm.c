@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.39 1998-06-07 20:36:29 efdi Exp $
+ * $Id: act_comm.c,v 1.40 1998-06-10 07:41:44 efdi Exp $
  */
 
 /***************************************************************************
@@ -74,8 +74,10 @@ void do_music(CHAR_DATA *ch, char *argument)
 	char buf[MAX_INPUT_LENGTH];
 	char trans[MAX_STRING_LENGTH];
 
-	if (argument[0] == '\0')
-	{
+	if (IS_NPC(ch))
+		return;
+
+	if (argument[0] == '\0') {
 		/* send_to_char("Music what?.\n\r",ch);
 		   return;
 		*/
@@ -116,6 +118,9 @@ void do_gossip(CHAR_DATA *ch, char *argument)
 	DESCRIPTOR_DATA *d;
 	char buf[MAX_INPUT_LENGTH];
 	char trans[MAX_STRING_LENGTH];
+
+	if (IS_NPC(ch))
+		return;
 
 	if (argument[0] == '\0')
 	{
@@ -448,8 +453,10 @@ void do_shout(CHAR_DATA *ch, char *argument)
 	char buf[MAX_INPUT_LENGTH];
 	char trans[MAX_STRING_LENGTH];
 
-	if (argument[0] == '\0')
-	{
+	if (IS_NPC(ch))
+		return;
+
+	if (argument[0] == '\0') {
 		 send_to_char("Shout what?.\n\r",ch);
 		 return;
 	}
