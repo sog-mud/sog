@@ -15,7 +15,7 @@ demon~
 @rus {mПеред тобой плавает в воздухе странный сгусток энергии.{x
 ~
 @eng {x
-@rus ~
+~
 human~
 ABGQe DFHVZc 0 0
 95 300 1d1+25000 10d10+200 10d10+3000 none
@@ -33,7 +33,7 @@ small demongirl~
 @rus МаленькаЯ скромненькаЯ демоница
 ~
 @eng {x
-@rus ~
+~
 human~
 AG DFHTXZclt 0 0
 1 300 100d100+300 100d100+300 10d10+100 none
@@ -50,7 +50,7 @@ Armourer~
 @eng Drunk armourer is lying here.
 @rus Бухой мужик пытается привстать и продать тебе чего-нибудь.
 ~
-@eng @rus {x
+@rus {x
 ~
 human~
 ABGe FHVct 0 0
@@ -87,7 +87,7 @@ bookseller~
 @rus Хитрый старичок пытаетсЯ всучить тебе какие то бумажки.
 ~
 @eng {x
-@rus ~
+~
 human~
 ABGe DFHVclt 0 0
 95 300 100d100+10000 100d100+1000 100d10+1000 none
@@ -103,7 +103,7 @@ weaponsmith~
 @eng A man smile at you and continue sharpen a sword.
 @rus Веселый парень подмигивает тебе, доставая из кармана ножик.
 ~
-@eng @rus {x
+@rus {x
 ~
 human~
 ABGe FHVclt 0 0
@@ -120,7 +120,7 @@ wizard~
 @eng A wizard with flaming staff is here.
 @rus Старик с большой белой бородой и безумными глазами сейчас тебе что то продаст.
 ~
-@eng @rus {x
+@rus {x
 ~
 human~
 ABGRe DFHVclt 0 0
@@ -154,7 +154,7 @@ grocer~
 @eng A grocer is here.
 @rus Мужик с наглой, рыжей мордой задумчиво смотрит на тебя.
 ~
-@eng @rus {x
+@rus {x
 ~
 human~
 ABGe DFHVlt 0 0
@@ -552,10 +552,6 @@ D1
 ~
 ~
 Z 0 36111
-D2
-~
-~
-Z 0 36101
 D3
 ~
 ~
@@ -674,6 +670,10 @@ S
 @rus Ну и местечко.
 ~
 0 0 inside
+D2
+~
+~
+Z 0 36100
 D3
 ~
 ~
@@ -927,7 +927,7 @@ Z 0 36128
 S
 #36130
 @eng {rLake of flame{x@rus {rОгненое озеро{x~
-@eng @rus {x
+@rus {x
 ~
 0 AN inside
 D0
@@ -949,7 +949,7 @@ Z 0 36131
 S
 #36131
 @eng {rLake of flame{x@rus {rОгненое озеро{x~
-@eng @rus {x
+@rus {x
 ~
 0 AN inside
 D0
@@ -967,7 +967,7 @@ Z 0 36130
 S
 #36132
 @eng {rLake of flame{x@rus {rОгненое озеро{x~
-@eng @rus {x
+@rus {x
 ~
 0 AN inside
 D0
@@ -989,7 +989,7 @@ Z 0 36133
 S
 #36133
 @eng {rLake of flame{x@rus {rОгненое озеро{x~
-@eng @rus {x
+@rus {x
 ~
 0 AN inside
 D0
@@ -1011,7 +1011,7 @@ Z 0 36132
 S
 #36134
 @eng {rLake of flame{x@rus {rОгненое озеро{x~
-@eng @rus {x
+@rus {x
 ~
 0 AN inside
 D0
@@ -1033,7 +1033,7 @@ Z 0 36135
 S
 #36135
 @eng {rLake of flame{x@rus {rОгненое озеро{x~
-@eng @rus {x
+@rus {x
 ~
 0 AN inside
 D0
@@ -1055,7 +1055,7 @@ Z 0 36134
 S
 #36136
 @eng {rLake of flame{x@rus {rОгненое озеро{x~
-@eng @rus {x
+@rus {x
 ~
 0 AN inside
 D0
@@ -1077,7 +1077,7 @@ Z 0 36137
 S
 #36137
 @eng {rLake of flame{x@rus {rОгненое озеро{x~
-@eng @rus {x
+@rus {x
 ~
 0 AN inside
 D0
@@ -1099,7 +1099,7 @@ Z 0 36136
 S
 #36138
 @eng {rLake of flame{x@rus {rОгненое озеро{x~
-@eng @rus {x
+@rus {x
 ~
 0 AN inside
 D0
@@ -1121,7 +1121,7 @@ Z 0 36139
 S
 #36139
 @eng {rLake of flame{x@rus {rОгненое озеро{x~
-@eng @rus {x
+@rus {x
 ~
 0 AN inside
 D0
@@ -1143,7 +1143,7 @@ Z 0 36138
 S
 #36140
 @eng {rLake of flame{x@rus {rОгненое озеро{x~
-@eng @rus {x
+@rus {x
 ~
 0 AN inside
 D0
@@ -1165,7 +1165,7 @@ Z 0 36141
 S
 #36141
 @eng {rLake of flame{x@rus {rОгненое озеро{x~
-@eng @rus {x
+@rus {x
 ~
 0 AN inside
 D0
@@ -1187,7 +1187,7 @@ Z 0 36140
 S
 #36142
 @eng {rLake of flame{x@rus {rОгненое озеро{x~
-@eng @rus {x
+@rus {x
 ~
 0 AN inside
 D0
@@ -1209,7 +1209,7 @@ Z 0 36143
 S
 #36143
 @eng {rLake of flame{x@rus {rОгненое озеро{x~
-@eng @rus {x
+@rus {x
 ~
 0 AN inside
 D0
@@ -1231,7 +1231,7 @@ Z 0 36142
 S
 #36144
 @eng {rLake of flame{x@rus {rОгненое озеро{x~
-@eng @rus {x
+@rus {x
 ~
 0 AN inside
 D0
@@ -1253,7 +1253,7 @@ Z 0 36145
 S
 #36145
 @eng {rLake of flame{x@rus {rОгненое озеро{x~
-@eng @rus {x
+@rus {x
 ~
 0 AN inside
 D0
@@ -1275,7 +1275,7 @@ Z 0 36144
 S
 #36146
 @eng {rLake of flame{x@rus {rОгненое озеро{x~
-@eng @rus {x
+@rus {x
 ~
 0 AN inside
 D0
@@ -1297,7 +1297,7 @@ Z 0 36147
 S
 #36147
 @eng {rLake of flame{x@rus {rОгненое озеро{x~
-@eng @rus {x
+@rus {x
 ~
 0 AN inside
 D0
@@ -1319,7 +1319,7 @@ Z 0 36146
 S
 #36148
 @eng {rLake of flame{x@rus {rОгненое озеро{x~
-@eng @rus {x
+@rus {x
 ~
 0 AN inside
 D0
@@ -1341,7 +1341,7 @@ Z 0 36149
 S
 #36149
 @eng {rLake of flame{x@rus {rОгненое озеро{x~
-@eng @rus {x
+@rus {x
 ~
 0 AN inside
 D0
@@ -1363,7 +1363,7 @@ Z 0 36148
 S
 #36150
 @eng {rLake of flame{x@rus {rОгненое озеро{x~
-@eng @rus {x
+@rus {x
 ~
 0 AN inside
 D0
@@ -1385,7 +1385,7 @@ Z 0 36146
 S
 #36151
 @eng Island@rus Остров~
-@eng @rus {x
+@rus {x
 ~
 0 N inside
 D0

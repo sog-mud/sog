@@ -227,6 +227,11 @@ bow $n
 say Welcome, $n!
 end
 endif
+if ischarm $n
+say Charmies are not allowed here!
+mob transfer $n 33000
+end
+end if
 if isghost $n
 mob transfer $n 33000
 end

@@ -7,6 +7,96 @@ Security 5
 LevelRange 0 0
 End
 
+#MOBILES
+#45000
+healer~
+@eng Chaos'es Sight@rus Взор Хаоса~
+@eng Chaos'es Sight
+@rus Безразмерные красные глаза смотрят на тебя из темноты.
+~
+@eng null
+@rus null
+~
+human~
+ABGae DFlmst 0 0
+100 0 1d1+100000000 0d0+0 1d1+10000000 pound
+0 0 0 0
+0 AB 0 0
+stand stand none 0
+0 0 medium unknown
+F for AHMV
+F par ABCDEFGHIJK
+#45001
+Creation~
+@eng Creation@rus Созидатель~
+@eng Creation
+@rus Грозный старик создает из пустоты фрагменты грациозных миров.
+~
+@eng null
+@rus Высокий грозный старик, с глазами, излучающими обжигающий свет, несущий 
+радость,
+Стоит здесь. Все его помыслы направлены на то, чтобы сложить из мельчайших
+фрагментов, созданных из ничего, огромный мир, дарующий вселенной наслаждение.  
+Среди этих фрагментов можно увидеть свое прошлое и грядущее, если смотреть 
+достаточно внимательно.   
+~
+human~
+ABGTe CDFHJNOVZal 0 0
+91 100 1d1+25000 1d1+4000 1d1+200 pound
+0 0 0 0
+ACDEIJKLO AB 0 0
+stand stand none 0
+0 0 medium unknown
+M grall 45000 100~
+C Entropy~
+#45002
+Destruction~
+@eng Destruction@rus Разрушительница~
+@eng Destruction
+@rus Дева , в глазах которой вечность , обращает их в прах .
+~
+@eng null
+@rus Воительница, одетая в абсолютно черные одежды, стремится разрушить этот мир.
+Все, что успел создать ее антипод, она превращает в прах одним движением своего 
+черного топора - олицетворения пустоты и разрушения. Рассыпаясь на мельчайшие
+куски, сказочные миры не умирают, а, перемешиваясь, образуют первозданный хаос. 
+~
+human~
+ABGTe CDFHJNOVZal 0 0
+91 100 1d1+25000 1d1+4000 1d1+200 pound
+0 0 0 0
+ACDEIJKLO AB 0 0
+stand stand female 0
+0 0 medium unknown
+F for AHMV
+F par ABCDEFGHIJK
+M grall 45000 100~
+C Entropy~
+#45005
+Entrophy~
+@eng Entrophy@rus Изменчивая Энтропия~
+@eng Entrophy
+@rus Олицетворение Хаоса приподнимает завесу над тайнами энтропии.
+~
+@eng null
+@rus Энтропия - женщина постоянно меняющая облик.
+Быв секунду назад неотразимой красавицей ,  
+сейчас она уже седая старуха.   
+И лишь сам Хаос ведает , кем она станет в следующий миг :
+невинным ребенком или властительной воительницей. 
+~
+human~
+AGKUe 0 0 0
+100 200 1d1+10000000 0d0+0 1d1+10000000 pound
+0 0 0 0
+0 AB 0 0
+stand stand female 0
+0 0 medium unknown
+F for AHMV
+F par ABCDEFGHIJK
+C Entropy~
+#0
+
 #ROOMS
 #45000
 @eng Ancient Chaos.@rus Первобытный Хаос.~
@@ -22,7 +112,7 @@ End
 D0
 ~
 ~
-Z 0 45001
+Z 0 45004
 D2
 ~
 ~
@@ -44,7 +134,7 @@ Z 0 45003
 D2
 ~
 ~
-Z 0 45000
+Z 0 45004
 D4
 ~
 ~
@@ -76,6 +166,67 @@ D2
 ~
 Z 0 45001
 S
+#45004
+@eng Temple of Ancient Chaos@rus Храм древнего хаоса~
+@eng null
+@rus Ты находишься в необьятном зале, заполненном мельчайшими обломками прекрасных  
+миров. В центре зала бушуют две изначальные стихии, принявшие человеческий      
+облик
+- Созидание и Разрушение. Создавая миры из звездной пыли, и обращая их в прах, 
+они дают начало жизни в самом устойчивом ее проявлении - Хаосу. 
+~
+0 N inside
+D0
+~
+~
+Z 0 45001
+D2
+~
+~
+Z 0 45000
+S
 #0
+
+#SPECIALS
+M 45001 spec_breath_lightning	* Creation
+M 45002 spec_breath_lightning	* Destruction
+S
+
+#RESETS
+M 0 45005 1 45002 1	* Entrophy (Rest of the Chaos.)
+M 0 45000 1 45003 1	* Chaos'es Sight (Undimensional Chaos.)
+M 0 45001 1 45004 1	* Creation (Temple of Ancient Chaos)
+M 0 45002 1 45004 1	* Destruction (Temple of Ancient Chaos)
+S
+
+#MOBPROGS
+#45000
+if isimmort $n
+tip $n
+end
+end if
+if clan $n chaos
+say Welcome
+end 
+end if
+if isghost $n 
+say Ghosts are not allowed here
+mob transfer $n 45000
+end
+end if
+if ischarm $n
+say Charmies are not allowed here
+mob transfer $n 45000
+end
+end if
+clan We are attacked by $n
+yell Die $n!
+mob kill $n
+~
+#0
+
+#PRACTICERS
+M 45005 clan	* Entrophy
+S
 
 #$

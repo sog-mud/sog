@@ -27,6 +27,58 @@ M random 15000 1~
 M bribe 15000 1~
 M speech 15001 shadow~
 M speech 15002 demon~
+#15001
+prisoner~
+@eng The prisoner@rus Узник~
+@eng Another prisoner is here.
+@rus Другой узник сидит с тобой и не дает тебе скучать...
+~
+@rus Он большой и толстый. лучше не ссорься с ним.
+~
+human~
+A HV 0 0
+200 0 10d10+25000 0d0+0 10d10+1000 none
+-66 -66 -66 -66
+0 AB 0 0
+stand stand male 0
+0 0 huge unknown
+F for AHMV
+F par ABCDEFGHIJK
+M act 15004 is dead!!~
+M delay 15003 100~
+M random 15005 5~
+M bribe 15005 1~
+#15002
+cockroach~
+@eng Cockroach@rus Таракан~
+@eng A little cockroach is crawling here.
+@rus Маленький таракан ползает тут.
+~
+@rus Вполне обычный рыжий таракан.
+~
+song bird~
+A 0 1000 0
+1 0 1d1+1 0d0+0 1d1+1 bite
+0 0 0 0
+0 B 0 0
+stand stand either 0
+0 0 small unknown
+F aff T
+#15003
+rat~
+@eng Rat@rus Крыса~
+@eng An evil rat is here.
+@rus Злобная крыса тут, она хочет покусать тебя.
+~
+@rus Маленькая злобная крыса с острыми зубами.
+~
+human~
+A Z 0 0
+0 0 1d1+1 0d0+0 1d1+1 bite
+0 0 0 0
+FH B 0 S
+stand stand either 0
+G 0 small unknown
 #15010
 devil~
 @eng {DDevil{x@rus {DЧерт{x~
@@ -96,6 +148,14 @@ unknown~
 drink AGHIOTYZa AOP
 -1 100 'beer' 0 0
 0 0 0 P
+#15005
+fountain~
+@eng Fountain with milk@rus Фонтан с молоком~
+@eng Fountain with milk is here.@rus Тут зачем-то еще и фонтан с молоком.~
+unknown~
+fountain 0 0
+0 0 'milk' 0 0
+0 0 0 P
 #15010
 eng kosa~
 {DScythe{x~
@@ -152,9 +212,25 @@ unknown~
 furniture RYa AP
 AC EIJKN HK CFG CFG
 0 0 0 P
+#15040
+chair~
+ancient chair~
+The ancient chair is here.~
+unknown~
+furniture FGRTYa AP
+A FHJKPQ H BCEH BCEH
+0 0 0 P
+#15041
+chair~
+ancient chair~
+The ancient chair is here.~
+unknown~
+furniture FGRTYa AP
+A HJKMPTUX H CEFGHI CEFGHI
+0 0 0 P
 #15100
 cheburator~
-@eng a dwarven golden ring@rus ~
+@eng a dwarven golden ring~
 ~
 unknown~
 armor HOTY B
@@ -215,9 +291,18 @@ S
 ~
 0 C inside
 S
+#15002
+@eng Cell@rus Камера~
+@eng You are in jail.
+@rus Ты попал в теплую и хорошо освещенную камеру. Здесь чисто, а из пола 
+даже бьет небольшой фонтан с вкусным молоком. Тем не менее, здесь до одури 
+скучно.
+~
+0 CDNSTX inside
+S
 #15010
 @eng {DThe room of Death{x@rus {DКомната Смерти{x~
-@eng @rus  
+@rus  
 ~
 0 CNX inside
 S
@@ -232,6 +317,10 @@ S
 M 0 15000 1 15000 1	* Avatar of abrazak (Abrazak's Office)
 M 0 15000 1 15000 1	* Avatar of abrazak (Abrazak's Office)
 O 0 15002 0 15000	* a fountain (Abrazak's Office)
+O 0 15005 0 15002	* Fountain with milk (Cell)
+M 0 15001 1 15002 1	* The prisoner (Cell)
+M 0 15002 1 15002 1	* Cockroach (Cell)
+M 0 15003 1 15002 1	* Rat (Cell)
 M 0 15010 1 15010 1	* {DDevil{x ({DThe room of Death{x)
 S
 
@@ -266,6 +355,45 @@ mob cast 'shadowlife' $n
 ~
 #15002
 mob cast 'demon summon'
+~
+#15003
+say ЩАс щас...
+mob transfer $q 15002
+say Ну вот. так просто ты от меня не избавишься.
+~
+#15004
+say Умер :(
+mob remember $n
+mob delay 1
+~
+#15005
+if rand 50
+babble
+end
+endif
+if rand 50 
+say $r, have you ever been here?
+end
+endif
+if rand 50 
+yawn
+end
+endif
+if rand 50
+smile cockroach
+endif
+if rand 50 
+burp
+end
+endif
+if rand 50
+cough
+end
+endif
+if rand 50 
+flex $r
+end
+endif
 ~
 #15100
 ~

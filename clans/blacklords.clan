@@ -1,6 +1,11 @@
 #CLAN
 Name BlackLords~
 Filename blacklords.clan~
+Skill 'mortal strike' 63
+Skill 'resistance' 12
+Skill 'deathblow' 20
+Skill 'hunt' 13
+Skill 'world find' 63
 End
 
 #$

@@ -2264,7 +2264,7 @@ cannot realize a vampire in nights. It is only written "An uggly creature".
 Powerful mage. But powerful in necromantic spells. 
 
 ~
--1 HOMETOWN HOMETOWNS~
+-2 HOMETOWN HOMETOWNS~
 You can pick one of six cities as your hometown: New Thalos and Midgaard are
 all alignments. Ofcol is neutral only. Your hometown is where you will 
 recall to and is where the pit is to which your corpse will decay. 
@@ -2280,7 +2280,7 @@ and only obeying them when you just happen to obey the laws, then you are
 chaotic.  Ethos can only be set once.
 
 ~
-0 'NEWBIE INFO' NEWBIE~
+-2 'NEWBIE INFO' NEWBIE~
 Ah! Another mortal, seeking adventure.  You should go through mudschool 
 first, to gain experience to face the trials outside.  Be sure to practice 
 a weapon in the guild room, or your stay with us shall be very short  indeed.
@@ -3684,7 +3684,7 @@ Syntax: ed add keyword lang
         ed format keyword
 ~
 0 'CLAN Scum' Scum~
-@eng @rus Страх и гордыня, ненависть и лицемерие, подлость и жадность - вот та сила,
+@rus Страх и гордыня, ненависть и лицемерие, подлость и жадность - вот та сила,
 которая движет этот мир, и которую издревле и на любом языке называли 
 нечистой... НЕЧИСТЬ..Проказливая и злопамятная, она как хирург Смерти
 раз за разом вскрывает гнойник, именуемый всеми душой, и Великая Тень
@@ -3738,8 +3738,8 @@ Dark Elf  Warlock     Woland
 0 'protection negative'~
 Characters affected by 'protection negative' are immune to negative attack, for example 'energy drain', 'hand of undead', 'corruption'
 ~
-0 'CLAN CHAOS' CHAOS~
-@eng @rus Основные положения и цели :
+0 'CLAN ENTROPY' ENTROPY~
+@rus Основные положения и цели :
  
 1. Закон, запрет, правило, обычай, либо любой другой устоявшийся свод правил,
 обязывающий человека ему непрекословно следовать - ограничение свободы 
@@ -3790,7 +3790,7 @@ Affects mana by 150.
 Affects hp by 200.
 ~
 0 CLAN Black Lords~
-@eng @rus Насилие, грабежи, убийства, черное могущество поглотило этот мир, дыхание смерти
+@rus Насилие, грабежи, убийства, черное могущество поглотило этот мир, дыхание смерти
 отравило лучшее в нем, адская нечисть хлынула повсюду, сметая на своем пути
 добро, честь, справедливость, воцарился мрак на земле. Ни осталось ничего, что
 могло бы остановить зло. Космическое равновесие нарушилось, под угрозой 

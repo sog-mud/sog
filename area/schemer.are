@@ -86,8 +86,4 @@ Z 0 36202
 S
 #0
 
-#RESETS
-M 0 36200 1 36202 1	* {YDragon healer.{x ({WHallway{z)
-S
-
 #$
