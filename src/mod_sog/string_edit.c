@@ -1,5 +1,5 @@
 /*
- * $Id: string_edit.c,v 1.11 1998-08-17 18:47:08 fjoe Exp $
+ * $Id: string_edit.c,v 1.12 1998-08-18 18:05:40 fjoe Exp $
  */
 
 /***************************************************************************
@@ -121,7 +121,7 @@ char * string_replace(char * orig, char * old, char * new)
  ****************************************************************************/
 void string_add(CHAR_DATA *ch, const char *argument)
 {
-    char buf[MAX_STRING_LENGTH];
+	char *p;
 
     /*
      * Thanks to James Seng
@@ -217,7 +217,7 @@ void string_add(CHAR_DATA *ch, const char *argument)
             return;
         }
 
-        send_to_char("SEdit:  Invalid comma command.\n\r", ch);
+        send_to_char("SEdit: Invalid command.\n\r", ch);
         return;
     }
 
@@ -227,13 +227,14 @@ void string_add(CHAR_DATA *ch, const char *argument)
         return;
     }
 
-    strcpy(buf, *ch->desc->pString);
+	if (*argument == '.')
+		argument++;
 
     /*
      * Truncate strings to MAX_STRING_LENGTH.
      * --------------------------------------
      */
-    if (strlen(buf) + strlen(argument) >= (MAX_STRING_LENGTH - 4))
+    if (strlen(*ch->desc->pString)+strlen(argument) >= (MAX_STRING_LENGTH - 4))
     {
         send_to_char("String too long, last line skipped.\n\r", ch);
 
@@ -247,11 +248,11 @@ void string_add(CHAR_DATA *ch, const char *argument)
      * --------------------------------
      */
 
-    strcat(buf, argument);
-    strcat(buf, "\n\r");
-    free_string(*ch->desc->pString);
-    smash_tilde(buf);
-    *ch->desc->pString = str_dup(buf);
+	p = *ch->desc->pString;
+	*ch->desc->pString = str_add(*ch->desc->pString, argument,
+				     "\n\r", NULL);
+	smash_tilde(*ch->desc->pString);
+	free_string(p);
 }
 
 

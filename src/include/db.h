@@ -2,7 +2,7 @@
 #define _DB_H_
 
 /*
- * $Id: db.h,v 1.19 1998-08-17 18:47:05 fjoe Exp $
+ * $Id: db.h,v 1.20 1998-08-18 18:05:39 fjoe Exp $
  */
 
 /***************************************************************************
@@ -152,6 +152,29 @@ void convert_object(OBJ_INDEX_DATA *pObjIndex);            /* OLC ROM */
 		}							\
 		(item)->next = NULL;					\
 	}
+
+#define KEY(literal, field, value)			\
+		if (!str_cmp(word, literal)) {		\
+			field  = value;			\
+			fMatch = TRUE;			\
+			break;				\
+		}
+
+#define SKEY(string, field)				\
+		if (!str_cmp(word, string)) {		\
+			free_string(field);		\
+			field = fread_string(fp);	\
+			fMatch = TRUE;			\
+			break;				\
+		}
+
+#define MLSKEY(string, field)				\
+		if (!str_cmp(word, string)) {		\
+			mlstr_free(field);		\
+			field = mlstr_fread(fp);	\
+			fMatch = TRUE;			\
+			break;				\
+		}
 
 char * fix_string(const char *);
 

@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.59 1998-08-18 17:18:21 fjoe Exp $
+ * $Id: db.c,v 1.60 1998-08-18 18:05:39 fjoe Exp $
  */
 
 /***************************************************************************
@@ -626,40 +626,6 @@ void load_area(FILE *fp)
 
 	top_area++;
 }
-
-
-/*
- * OLC
- * Use these macros to load any new area formats that you choose to
- * support on your MUD.  See the load_areadata format below for
- * a short example.
- */
-#if defined(KEY)
-#undef KEY
-#endif
-
-#define KEY(literal, field, value)			\
-		if (!str_cmp(word, literal)) {		\
-			field  = value;			\
-			fMatch = TRUE;			\
-			break;				\
-		}
-
-#define SKEY(string, field)				\
-		if (!str_cmp(word, string)) {		\
-			free_string(field);		\
-			field = fread_string(fp);	\
-			fMatch = TRUE;			\
-			break;				\
-		}
-
-#define MLSKEY(string, field)				\
-		if (!str_cmp(word, string)) {		\
-			mlstr_free(field);		\
-			field = mlstr_fread(fp);	\
-			fMatch = TRUE;			\
-			break;				\
-		}
 
 
 

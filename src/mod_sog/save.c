@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.48 1998-08-17 18:47:08 fjoe Exp $
+ * $Id: save.c,v 1.49 1998-08-18 18:05:39 fjoe Exp $
  */
 
 /***************************************************************************
@@ -719,18 +719,6 @@ load_char_obj(DESCRIPTOR_DATA * d, const char *name)
 /*
  * Read in a char.
  */
-
-#if defined(KEY)
-#undef KEY
-#endif
-
-#define KEY(literal, field, value)		\
-	if (str_cmp(word, literal) == 0) { 	\
-		field  = value;			\
-		fMatch = TRUE;			\
-		break;				\
-	}
-
 void 
 fread_char(CHAR_DATA * ch, FILE * fp)
 {
@@ -859,12 +847,12 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 			break;
 
 		case 'B':
-			KEY("Bamfin", ch->pcdata->bamfin, fread_string(fp));
+			SKEY("Bamfin", ch->pcdata->bamfin);
 			KEY("Banks", ch->pcdata->bank_s, fread_number(fp));
 			KEY("Bankg", ch->pcdata->bank_g, fread_number(fp));
-			KEY("Bamfout", ch->pcdata->bamfout, fread_string(fp));
-			KEY("Bin", ch->pcdata->bamfin, fread_string(fp));
-			KEY("Bout", ch->pcdata->bamfout, fread_string(fp));
+			SKEY("Bamfout", ch->pcdata->bamfout);
+			SKEY("Bin", ch->pcdata->bamfin);
+			SKEY("Bout", ch->pcdata->bamfout);
 			break;
 
 		case 'C':
@@ -918,7 +906,7 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 		case 'D':
 			KEY("Damroll", ch->damroll, fread_number(fp));
 			KEY("Dam", ch->damroll, fread_number(fp));
-			KEY("Desc", ch->description, mlstr_fread(fp));
+			MLSKEY("Desc", ch->description);
 			KEY("Dead", ch->pcdata->death, fread_number(fp));
 			KEY("Detect", ch->detection, fread_flags(fp));
 			break;
@@ -1007,7 +995,7 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 			break;
 
 		case 'N':
-			KEY("Name", ch->name, fread_string(fp));
+			SKEY("Name", ch->name);
 			KEY("Note", ch->pcdata->last_note, fread_number(fp));
 			if (!str_cmp(word, "Not")) {
 				ch->pcdata->last_note = fread_number(fp);
@@ -1021,8 +1009,8 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 			break;
 
 		case 'P':
-			KEY("Password", ch->pcdata->pwd, fread_string(fp));
-			KEY("Pass", ch->pcdata->pwd, fread_string(fp));
+			SKEY("Password", ch->pcdata->pwd);
+			SKEY("Pass", ch->pcdata->pwd);
 			KEY("PC_Killed", ch->pcdata->pc_killed, fread_number(fp));
 			KEY("Played", ch->pcdata->played, fread_number(fp));
 			KEY("Plyd", ch->pcdata->played, fread_number(fp));
@@ -1032,8 +1020,8 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 			KEY("Pos", ch->position, fread_number(fp));
 			KEY("Practice", ch->practice, fread_number(fp));
 			KEY("Prac", ch->practice, fread_number(fp));
-			KEY("Prompt", ch->prompt, fread_string(fp));
-			KEY("Prom", ch->prompt, fread_string(fp));
+			SKEY("Prompt", ch->prompt);
+			SKEY("Prom", ch->prompt);
 			break;
 
 		case 'Q':
@@ -1094,9 +1082,10 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 		case 'R':
 			KEY("Relig", ch->religion, fread_number(fp));
 
-/*		KEY("Race",        ch->race,  race_lookup(fread_string(fp))); */
 			if (!str_cmp(word, "Race")) {
-				RACE(ch) = race_lookup(fread_string(fp));
+				char *race = fread_string(fp);
+				RACE(ch) = race_lookup(race);
+				free_string(race);
 				ORG_RACE(ch) = RACE(ch);
 				fMatch = TRUE;
 				break;
@@ -1115,8 +1104,8 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 			KEY("Save", ch->saving_throw, fread_number(fp));
 			KEY("Scro", ch->lines, fread_number(fp));
 			KEY("Sex", ch->sex, fread_number(fp));
-			KEY("ShortDescr", ch->short_descr, mlstr_fread(fp));
-			KEY("ShD", ch->short_descr, mlstr_fread(fp));
+			MLSKEY("ShortDescr", ch->short_descr);
+			MLSKEY("ShD", ch->short_descr);
 			KEY("Sec", ch->pcdata->security, fread_number(fp));
 			KEY("Silv", ch->silver, fread_number(fp));
 
@@ -1299,7 +1288,7 @@ fread_pet(CHAR_DATA * ch, FILE * fp)
 
 		case 'D':
 			KEY("Dam", pet->damroll, fread_number(fp));
-			KEY("Desc", pet->description, mlstr_fread(fp));
+			MLSKEY("Desc", pet->description);
 			KEY("Detect", pet->detection, fread_flags(fp));
 			break;
 
@@ -1346,13 +1335,13 @@ fread_pet(CHAR_DATA * ch, FILE * fp)
 			break;
 
 		case 'L':
-			KEY("LnD",  pet->description, mlstr_fread(fp));
+			MLSKEY("LnD",  pet->description);
 			KEY("Levl", pet->level, fread_number(fp));
 			KEY("LogO", lastlogoff, fread_number(fp));
 			break;
 
 		case 'N':
-			KEY("Name", pet->name, fread_string(fp));
+			SKEY("Name", pet->name);
 			break;
 
 		case 'P':
@@ -1361,7 +1350,9 @@ fread_pet(CHAR_DATA * ch, FILE * fp)
 
 		case 'R':
 			if (!str_cmp(word, "Race")) {
-				RACE(pet) = race_lookup(fread_string(fp));
+				char *race = fread_string(fp);
+				RACE(pet) = race_lookup(race);
+				free_string(race);
 				ORG_RACE(pet) = RACE(pet);
 				fMatch = TRUE;
 				break;
@@ -1371,7 +1362,7 @@ fread_pet(CHAR_DATA * ch, FILE * fp)
 		case 'S':
 			KEY("Save", pet->saving_throw, fread_number(fp));
 			KEY("Sex", pet->sex, fread_number(fp));
-			KEY("ShD", pet->short_descr, mlstr_fread(fp));
+			MLSKEY("ShD", pet->short_descr);
 			KEY("Silv", pet->silver, fread_number(fp));
 			break;
 
@@ -1490,8 +1481,8 @@ fread_obj(CHAR_DATA * ch, FILE * fp)
 			break;
 
 		case 'D':
-			KEY("Description", obj->description, mlstr_fread(fp));
-			KEY("Desc", obj->description, mlstr_fread(fp));
+			MLSKEY("Description", obj->description);
+			MLSKEY("Desc", obj->description);
 			break;
 
 		case 'E':
@@ -1562,7 +1553,7 @@ fread_obj(CHAR_DATA * ch, FILE * fp)
 			break;
 
 		case 'N':
-			KEY("Name", obj->name, fread_string(fp));
+			SKEY("Name", obj->name);
 
 			if (!str_cmp(word, "Nest")) {
 				iNest = fread_number(fp);
@@ -1590,8 +1581,8 @@ fread_obj(CHAR_DATA * ch, FILE * fp)
 			break;
 
 		case 'S':
-			KEY("ShortDescr", obj->short_descr, mlstr_fread(fp));
-			KEY("ShD", obj->short_descr, mlstr_fread(fp));
+			MLSKEY("ShortDescr", obj->short_descr);
+			MLSKEY("ShD", obj->short_descr);
 
 			if (!str_cmp(word, "Spell")) {
 				int             iValue;
