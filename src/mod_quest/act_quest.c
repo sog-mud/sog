@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_quest.c,v 1.122 1999-09-14 17:42:40 avn Exp $
+ * $Id: act_quest.c,v 1.123 1999-09-15 11:15:51 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -178,8 +178,11 @@ void do_quest(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 		
-	char_puts("QUEST COMMANDS: points info time request complete list buy trouble.\n", ch);
-	char_puts("For more information, type: help quests.\n", ch);
+	char_puts("QUEST COMMANDS:", ch);
+	for (qcmd = qcmd_table; qcmd->name != NULL; qcmd++) {
+		char_printf(ch, " %s", qcmd->name);
+	}
+	char_puts("\nFor more information, type: help quests.\n", ch);
 }
 
 static inline void chquest_status(CHAR_DATA *ch)

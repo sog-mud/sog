@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.183 1999-09-14 03:10:51 avn Exp $
+ * $Id: act_wiz.c,v 1.184 1999-09-15 11:15:49 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2506,11 +2506,12 @@ void do_sset(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (fAll)
-		for (sn = 0; sn < skills.nused; sn++)
-			set_skill(victim, sn, 100);
-	else
+	if (fAll) {
+		for (sn = 0; sn < skills.nused; sn++) 
+			set_skill(victim, sn, value);
+	} else
 		set_skill(victim, sn, value);
+	update_skills(victim);
 	char_puts("Ok.\n", ch);
 }
 

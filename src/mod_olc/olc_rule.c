@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_rule.c,v 1.14 1999-09-08 10:40:06 fjoe Exp $
+ * $Id: olc_rule.c,v 1.15 1999-09-15 11:15:51 fjoe Exp $
  */
 
 #include "olc.h"
@@ -528,6 +528,13 @@ static void rcl_save_expl(CHAR_DATA *ch, lang_t *l, rulecl_t *rcl)
 	if (!IS_SET(rcl->rcl_flags, RULES_EXPL_CHANGED))
 		return;
 
+	if (IS_NULLSTR(rcl->file_expl)) {
+		wizlog("rcl_save_expl: lang %s, rcl %s: NULL file name",
+			l->name, flag_string(rulecl_names, rcl->rulecl));
+		REMOVE_BIT(rcl->rcl_flags, RULES_EXPL_CHANGED);
+		return;
+	}
+
 	if ((fp = olc_fopen(LANG_PATH, rcl->file_expl, ch, -1)) == NULL)
 		return;
 
@@ -547,7 +554,7 @@ static void rcl_save_expl(CHAR_DATA *ch, lang_t *l, rulecl_t *rcl)
 		       "(lang '%s', rules type '%s').",
 		   LANG_PATH, PATH_SEPARATOR, rcl->file_expl,
 		   l->name, flag_string(rulecl_names, rcl->rulecl));
-	rcl->rcl_flags &= ~RULES_EXPL_CHANGED;
+	REMOVE_BIT(rcl->rcl_flags, RULES_EXPL_CHANGED);
 }
 
 static void rcl_save_impl(CHAR_DATA *ch, lang_t *l, rulecl_t *rcl)
@@ -557,6 +564,13 @@ static void rcl_save_impl(CHAR_DATA *ch, lang_t *l, rulecl_t *rcl)
 
 	if (!IS_SET(rcl->rcl_flags, RULES_IMPL_CHANGED))
 		return;
+
+	if (IS_NULLSTR(rcl->file_expl)) {
+		wizlog("rcl_save_impl: lang %s, rcl %s: NULL file name",
+			l->name, flag_string(rulecl_names, rcl->rulecl));
+		REMOVE_BIT(rcl->rcl_flags, RULES_IMPL_CHANGED);
+		return;
+	}
 
 	if ((fp = olc_fopen(LANG_PATH, rcl->file_impl, ch, -1)) == NULL)
 		return;
@@ -573,6 +587,6 @@ static void rcl_save_impl(CHAR_DATA *ch, lang_t *l, rulecl_t *rcl)
 		       "(lang '%s', rules type '%s').",
 		   LANG_PATH, PATH_SEPARATOR, rcl->file_impl,
 		   l->name, flag_string(rulecl_names, rcl->rulecl));
-	rcl->rcl_flags &= ~RULES_IMPL_CHANGED;
+	REMOVE_BIT(rcl->rcl_flags, RULES_IMPL_CHANGED);
 }
 
