@@ -1,5 +1,5 @@
 /*
- * $Id: prayers.c,v 1.47 2003-04-18 20:28:36 tatyana Exp $
+ * $Id: prayers.c,v 1.48 2003-04-23 15:57:40 tatyana Exp $
  */
 
 /***************************************************************************
@@ -146,6 +146,7 @@ DECLARE_SPELL_FUN(prayer_fire_sphere);
 DECLARE_SPELL_FUN(prayer_sunburst);
 DECLARE_SPELL_FUN(prayer_cone_of_cold);
 DECLARE_SPELL_FUN(prayer_power_word_fear);
+DECLARE_SPELL_FUN(prayer_windwall);
 
 static void
 hold(CHAR_DATA *ch, CHAR_DATA *victim, int duration, int dex_modifier, int
@@ -3082,6 +3083,7 @@ SPELL_FUN(prayer_sunburst, sn, level, ch, vo)
 	act("Sun light bursts $N eyes. $gN{He} is blind!",
 	    ch, NULL, victim, TO_NOTVICT);
 }
+
 static void *
 cone_of_cold_cb(void *vo, va_list ap)
 {
@@ -3091,17 +3093,14 @@ cone_of_cold_cb(void *vo, va_list ap)
 	int level = va_arg(ap, int);
 	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
 	int *pdam;
-	int movedam;
 
 	if (is_safe_spell(ch, vch, TRUE))
 		return NULL;
 
 	pdam = va_arg(ap, int *);
-	movedam = va_arg(ap, int);
 
 	if (saves_spell(level, vch, DAM_COLD))
 		*pdam /= 2;
-	vch->move -= UMIN(vch->move, movedam);
 	damage(ch, vch, *pdam, sn, DAM_F_SHOW);
 	return NULL;
 }
@@ -3235,4 +3234,64 @@ SPELL_FUN(prayer_power_word_fear, sn, level, ch, vo)
 	if (bad_fail)
 		WAIT_STATE(ch, 3 * get_pulse("violence"));
 
+}
+
+static void *
+windwall_cb(void *vo, va_list ap)
+{
+	CHAR_DATA *vch = (CHAR_DATA *) vo;
+
+	const char *sn = va_arg(ap, const char *);
+	int level = va_arg(ap, int);
+	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
+	int *pdam;
+	AFFECT_DATA *paf;
+
+	if (is_safe_spell(ch, vch, TRUE))
+		return NULL;
+
+	pdam = va_arg(ap, int *);
+
+	if (number_bits(1) == 0
+	&&  !saves_spell(level, vch, DAM_AIR)) {
+		act("$n appears blinded by the debris.",
+		    vch, NULL, NULL, TO_ROOM);
+
+		paf = aff_new(TO_AFFECTS, sn);
+		paf->level	= level;
+		paf->duration	= 1;
+		INT(paf->location)= APPLY_HITROLL;
+		paf->modifier	= -3;
+		paf->bitvector	= AFF_BLIND;
+
+		affect_join(vch, paf);
+		aff_free(paf);
+	}
+
+	damage(ch, vch, *pdam, sn, DAM_F_SHOW);
+
+	if (!IS_AFFECTED(vch, AFF_FLYING))
+		return NULL;
+
+	if (saves_spell(level, vch, DAM_AIR))
+		return NULL;
+
+	act("$n is thrown wildly to the ground by the air blast!",
+	    vch, NULL, NULL, TO_ROOM);
+	act_char("You are thrown down by the air blast!", vch);
+	REMOVE_BIT(vch->affected_by, AFF_FLYING);
+
+	return NULL;
+}
+
+SPELL_FUN(prayer_windwall, sn, level, ch, vo)
+{
+	int dam = calc_spell_damage(ch, level, sn);
+
+	act_char("You raise a violent wall of wind to strike your foes.", ch);
+	act("$n raises a violent wall of wind, sending debri flying!",
+	    ch, NULL, NULL, TO_ROOM);
+
+	vo_foreach(ch->in_room, &iter_char_room, windwall_cb,
+		   sn, level, ch, &dam, number_range(level, 2 * level));
 }
