@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.164 1999-04-19 14:09:11 fjoe Exp $
+ * $Id: fight.c,v 1.165 1999-04-24 11:08:19 kostik Exp $
  */
 
 /***************************************************************************
@@ -1260,9 +1260,12 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim,
 	/*
 	 * Damage modifiers.
 	 */
-	if (IS_AFFECTED(victim, AFF_SANCTUARY|AFF_BLACK_SHROUD)
+	if (IS_AFFECTED(victim, AFF_SANCTUARY)
 	&&  !((dt == gsn_cleave) && (number_percent() < 50)))
 		dam /= 2;
+
+	if (IS_AFFECTED(victim, AFF_BLACK_SHROUD)) 
+		dam = (4*dam)/7;
 
 	if (IS_AFFECTED(victim, AFF_PROTECT_EVIL) && IS_EVIL(ch))
 		dam -= dam / 4;
