@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.204 1999-11-26 08:25:11 kostik Exp $
+ * $Id: handler.c,v 1.205 1999-11-27 06:05:50 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2212,36 +2212,6 @@ void format_obj_affects(BUFFER *output, AFFECT_DATA *paf, int flags)
 			buf_add(output, ".\n");
 		}
 	}
-}
-
-int get_wear_level(CHAR_DATA *ch, OBJ_DATA *obj)
-{
-	int wear_level = ch->level;
-	class_t *cl;
-
-	if ((cl = class_lookup(ch->class)) == NULL)
-		return wear_level;
-
-	switch (obj->pObjIndex->item_type) {
-	case ITEM_POTION:
-	case ITEM_PILL:
-	case ITEM_WAND:
-	case ITEM_STAFF:
-	case ITEM_SCROLL:
-		return wear_level;
-	}
-
-	if (!IS_SET(obj->pObjIndex->extra_flags, ITEM_QUEST)
-	&&  (obj->pObjIndex->limit < 0 || obj->pObjIndex->limit > 1))
-		wear_level += pk_range(wear_level);
-
-	if (IS_SET(cl->class_flags, CLASS_MAGIC)) {
-		if (obj->pObjIndex->item_type == ITEM_ARMOR)
-			wear_level += 3;
-	}
-	else if (obj->pObjIndex->item_type == ITEM_WEAPON)
-		wear_level += 3;
-	return wear_level;
 }
 
 /*

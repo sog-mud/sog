@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.288 1999-11-26 12:00:40 kostik Exp $
+ * $Id: act_info.c,v 1.289 1999-11-27 06:05:46 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3168,20 +3168,10 @@ skill_knowledge_alias(CHAR_DATA *ch, pc_skill_t *pc_sk, spec_skill_t *spec_sk)
 	return knowledge;
 }
 		
-/* RT spells and skills show the players spells (or skills) */
-void do_prayers(CHAR_DATA *ch, const char *argument)
+static void
+spell_list(flag32_t type, CHAR_DATA *ch, const char *argument)
 {
-	spell_list(ST_PRAYER, ch, argument);
-}
-
-void do_spells(CHAR_DATA *ch, const char *argument) 
-{
-	spell_list(ST_SPELL, ch, argument);
-}
-
-void spell_list(flag32_t type, CHAR_DATA *ch, const char *argument)
-{
-	BUFFER *spell_list[LEVEL_IMMORTAL+1];
+	BUFFER *list[LEVEL_IMMORTAL+1];
 	int lev;
 	int i;
 	bool found = FALSE;
@@ -3193,7 +3183,7 @@ void spell_list(flag32_t type, CHAR_DATA *ch, const char *argument)
 	
 	/* initialize data */
 	for (lev = 0; lev <= LEVEL_IMMORTAL; lev++)
-		spell_list[lev] = NULL;
+		list[lev] = NULL;
 	
 	for (i = 0; i < PC(ch)->learned.nused; i++) {
 		pc_skill_t *pc_sk = VARR_GET(&PC(ch)->learned, i);
@@ -3216,12 +3206,12 @@ void spell_list(flag32_t type, CHAR_DATA *ch, const char *argument)
 			 "%-19s [%-11s] %4d mana",
 			 pc_sk->sn, knowledge, skill_mana(ch, pc_sk->sn));
 			
-		if (spell_list[lev] == NULL) {
-			spell_list[lev] = buf_new(-1);
-			buf_printf(spell_list[lev],
+		if (list[lev] == NULL) {
+			list[lev] = buf_new(-1);
+			buf_printf(list[lev],
 				   "\nLevel %2d: %s", lev, buf);
 		} else
-			buf_printf(spell_list[lev], "\n          %s", buf);
+			buf_printf(list[lev], "\n          %s", buf);
 	}
 
 	/* return results */
@@ -3239,13 +3229,24 @@ void spell_list(flag32_t type, CHAR_DATA *ch, const char *argument)
 	
 	output = buf_new(-1);
 	for (lev = 0; lev <= UMIN(ch->level, LEVEL_IMMORTAL); lev++)
-		if (spell_list[lev] != NULL) {
-			buf_add(output, buf_string(spell_list[lev]));
-			buf_free(spell_list[lev]);
+		if (list[lev] != NULL) {
+			buf_add(output, buf_string(list[lev]));
+			buf_free(list[lev]);
 		}
 	buf_add(output, "\n");
 	page_to_char(buf_string(output), ch);
 	buf_free(output);
+}
+
+/* RT spells and skills show the players spells (or skills) */
+void do_prayers(CHAR_DATA *ch, const char *argument)
+{
+	spell_list(ST_PRAYER, ch, argument);
+}
+
+void do_spells(CHAR_DATA *ch, const char *argument) 
+{
+	spell_list(ST_SPELL, ch, argument);
 }
 
 void do_skills(CHAR_DATA *ch, const char *argument)

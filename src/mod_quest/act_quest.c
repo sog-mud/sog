@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_quest.c,v 1.127 1999-11-23 12:14:29 fjoe Exp $
+ * $Id: act_quest.c,v 1.128 1999-11-27 06:05:48 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -901,16 +901,8 @@ static bool quest_give_item(CHAR_DATA *ch, CHAR_DATA *questor,
 	}
 
 	reward = create_obj(pObjIndex, 0);
-	if (get_wear_level(ch, reward) < reward->level) {
-		QUESTOR_TELLS_YOU(questor, ch);
-		act_puts("    $p is too powerful for you.",
-			 questor, reward, ch, TO_VICT, POS_DEAD);
-		extract_obj(reward, 0);
-		return FALSE;
-	}
 
 	/* update quest trouble data */
-
 	if (qt && count_max) {
 		OBJ_DATA *obj;
 		OBJ_DATA *obj_next;

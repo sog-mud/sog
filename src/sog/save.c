@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.138 1999-11-25 12:26:25 fjoe Exp $
+ * $Id: save.c,v 1.139 1999-11-27 06:05:52 fjoe Exp $
  */
 
 /***************************************************************************
@@ -457,19 +457,6 @@ fwrite_obj(CHAR_DATA * ch, OBJ_DATA * obj, FILE * fp, int iNest)
 	 */
 	if (obj->next_content != NULL)
 		fwrite_obj(ch, obj->next_content, fp, iNest);
-
-	/*
-	 * Castrate storage characters.
-	 */
-	if (!IS_IMMORTAL(ch)) {
-		if ((get_wear_level(ch, obj) < obj->level &&
-		     obj->pObjIndex->item_type != ITEM_CONTAINER)
-		||  (IS_SET(obj->pObjIndex->extra_flags, ITEM_QUEST) &&
-		     ch->level < obj->pObjIndex->level)) {
-			extract_obj(obj, XO_F_NORECURSE);
-			return;
-		}
-	}
 
 /* do not save named quest rewards if ch is not owner */
 	if (!IS_IMMORTAL(ch)

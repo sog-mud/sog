@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.257 1999-11-25 12:26:24 fjoe Exp $
+ * $Id: merc.h,v 1.258 1999-11-27 06:05:49 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1980,8 +1980,6 @@ void	transfer_char(CHAR_DATA *ch, CHAR_DATA *vch,
 void	look_at(CHAR_DATA *ch, ROOM_INDEX_DATA *room);
 
 void	recall(CHAR_DATA *ch, ROOM_INDEX_DATA *room);
-
-int	get_wear_level(CHAR_DATA *ch, OBJ_DATA *obj);
 
 bool	saves_spell	(int level, CHAR_DATA *victim, int dam_class);
 bool	check_dispel	(int dis_level, CHAR_DATA *victim, const char *sn);

@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.176 1999-11-23 12:14:27 fjoe Exp $
+ * $Id: act_obj.c,v 1.177 1999-11-27 06:05:47 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2895,7 +2895,6 @@ void do_enchant(CHAR_DATA * ch, const char *argument)
 {
 	OBJ_DATA *	obj;
 	int		chance;
-	int		wear_level;
 
 	if ((chance = get_skill(ch, "enchant sword")) == 0) {
 		char_puts("Huh?\n", ch);
@@ -2913,14 +2912,14 @@ void do_enchant(CHAR_DATA * ch, const char *argument)
 		return;
 	}
 
-	wear_level = get_wear_level(ch, obj);
-	if (wear_level < obj->level) {
+	if (ch->level < obj->level) {
 		char_printf(ch, "You must be level %d to be able to enchant this object.\n",
-			    obj->level - wear_level + ch->level);
+			    obj->level);
 		act("$n tries to enchant $p, but is too inexperienced.",
 		    ch, obj, NULL, TO_ROOM);
 		return;
 	}
+
 	if (ch->mana < 100) {
 		char_puts("You don't have enough mana.\n", ch);
 		return;
