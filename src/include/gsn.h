@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: gsn.h,v 1.18 1999-05-12 18:54:50 avn Exp $
+ * $Id: gsn.h,v 1.19 1999-05-14 20:09:07 avn Exp $
  */
 
 #ifndef _GSN_H_
@@ -243,5 +243,7 @@ extern int gsn_doppelganger;
 extern int gsn_mirror;
 extern int gsn_hand_block;
 extern int gsn_knife;
+
+extern int gsn_qtarget;
 
 #endif

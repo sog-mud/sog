@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: gsn.c,v 1.19 1999-05-12 18:54:50 avn Exp $
+ * $Id: gsn.c,v 1.20 1999-05-14 20:09:07 avn Exp $
  */
 
 #include <stdio.h>
@@ -242,6 +242,9 @@ int gsn_doppelganger;
 int gsn_mirror;
 int gsn_knife;
 
+/* special gsns */
+int gsn_qtarget;
+
 namedp_t gsn_table[] =
 {
 	{ "gsn_backstab",		&gsn_backstab			},
@@ -445,6 +448,7 @@ namedp_t gsn_table[] =
 	{ "gsn_mirror",			&gsn_mirror			},
 	{ "gsn_hand_block",		&gsn_hand_block			},
 	{ "gsn_knife",			&gsn_knife			},
+	{ "gsn_qtarget",		&gsn_qtarget			},
 	{ NULL }
 };
 

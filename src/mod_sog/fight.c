@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.165 1999-04-24 11:08:19 kostik Exp $
+ * $Id: fight.c,v 1.166 1999-05-14 20:09:05 avn Exp $
  */
 
 /***************************************************************************
@@ -1513,6 +1513,28 @@ bool is_safe_nomessage(CHAR_DATA *ch, CHAR_DATA *victim)
 	&&  IS_AFFECTED(victim, AFF_CHARM)
 	&&  victim->master)
 		return is_safe_nomessage(ch, victim->master);
+
+	if (IS_NPC(victim)
+	&& IS_AFFECTED(victim, AFF_QUESTTARGET)) {
+		AFFECT_DATA *paf;
+
+		for (paf = victim->affected; paf; paf = paf->next)
+			if (paf->type == gsn_qtarget
+			&& (ch->level > paf->modifier
+			    || ch->level < paf->level))
+				return TRUE;
+	}
+
+	if (IS_NPC(ch)
+	&& IS_AFFECTED(ch, AFF_QUESTTARGET)) {
+		AFFECT_DATA *paf;
+
+		for (paf = ch->affected; paf; paf = paf->next)
+			if (paf->type == gsn_qtarget
+			&& (victim->level < paf->modifier
+			   || victim->level < paf->level))
+				return TRUE;
+	}
 
 	if ((mount = RIDDEN(victim)))
 		return is_safe_nomessage(ch, mount);

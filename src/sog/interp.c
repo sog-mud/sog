@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.135 1999-05-12 18:54:42 avn Exp $
+ * $Id: interp.c,v 1.136 1999-05-14 20:09:05 avn Exp $
  */
 
 /***************************************************************************
@@ -453,6 +453,7 @@ cmd_t cmd_table[] =
     { "prefi",		do_prefi,	POS_DEAD,	IM,  LOG_NORMAL, CMD_HIDDEN },
     { "prefix",		do_prefix,	POS_DEAD,	IM,  LOG_NORMAL	},
     { "objlist",	do_objlist,	POS_DEAD,	ML,  LOG_NORMAL	},
+    { "qtarget",	do_qtarget,	POS_RESTING,	IM,  LOG_NORMAL },
 
     { "settraps",	do_settraps,	POS_STANDING,	 0,  LOG_NORMAL	},
     { "slook",		do_slook,	POS_SLEEPING,	 0,  LOG_NORMAL, CMD_KEEP_HIDE },

@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.142 1999-05-12 18:54:40 avn Exp $
+ * $Id: act_wiz.c,v 1.143 1999-05-14 20:09:05 avn Exp $
  */
 
 /***************************************************************************
@@ -4594,5 +4594,36 @@ DO_FUN(do_enable)
 		REMOVE_BIT(cmd->flags, CMD_DISABLED);
 		char_printf(ch, "%s: command enabled.\n", cmd->name);
 	}
+}
+
+DO_FUN(do_qtarget)
+{
+	int low, high;
+	char arg[MAX_INPUT_LENGTH];
+	AFFECT_DATA af;
+	CHAR_DATA *vch;
+
+	argument = one_argument(argument, arg, sizeof(arg));
+	low = atoi(arg);
+	argument = one_argument(argument, arg, sizeof(arg));
+	high = atoi(arg);
+	if ((vch = get_char_room(ch, argument)) == NULL) {
+		char_puts("They are not here.\n", ch);
+		return;
+	}
+
+	if (!IS_NPC(vch)) {
+		char_puts("Not on PC's.\n", ch);
+		return;
+	}
+
+	af.where	= TO_AFFECTS;
+	af.type		= gsn_qtarget;
+	af.level	= low;
+	af.duration	= -1;
+	af.modifier	= high;
+	af.bitvector	= AFF_QUESTTARGET;
+	af.location	= APPLY_NONE;
+	affect_to_char(vch, &af);
 }
 

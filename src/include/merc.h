@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.182 1999-05-12 18:54:48 avn Exp $
+ * $Id: merc.h,v 1.183 1999-05-14 20:09:06 avn Exp $
  */
 
 /***************************************************************************
@@ -696,6 +696,7 @@ where_t *where_lookup(flag32_t where);
 #define AFF_DETECT_LIFE		(ss)
 #define AFF_ACUTE_VISION	(tt)
 #define AFF_BLACK_SHROUD	(uu)
+#define AFF_QUESTTARGET		(vv)
 
 /*
  * *AFF* bits for rooms

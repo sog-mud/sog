@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.144 1999-05-12 18:54:43 avn Exp $
+ * $Id: spellfun.c,v 1.145 1999-05-14 20:09:06 avn Exp $
  */
 
 /***************************************************************************
@@ -52,8 +52,6 @@
 DECLARE_DO_FUN(do_yell		);
 DECLARE_DO_FUN(do_look		);
 DECLARE_DO_FUN(do_stand		);
-
-extern int gsn_anathema;
 
 /*
  * for casting different rooms 
@@ -481,14 +479,6 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 
 		if (!IS_NPC(ch) && get_curr_stat(ch, STAT_INT) > 21)
 			slevel += get_curr_stat(ch,STAT_INT) - 21;
-
-		if (IS_AFFECTED(ch, AFF_CURSE)) {
-			AFFECT_DATA* paf;
-			for (paf = ch->affected; paf; paf = paf->next) 
-				if (paf->type == gsn_anathema
-				&& paf->location == APPLY_LEVEL)
-					slevel += paf->modifier * 3;
-		}
 
 		if (slevel < 1)
 			slevel = 1;
@@ -1712,16 +1702,12 @@ void spell_anathema(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 {
 	AFFECT_DATA af;
 	CHAR_DATA* victim = (CHAR_DATA*) vo;
-	int strength = 0;
+	int strength;
 
-	if (IS_GOOD(victim))
-		strength = IS_EVIL(ch) ? 2 : (IS_GOOD(ch) ? 0 : 1);
-	else if (IS_EVIL(victim))
-		strength = IS_GOOD(ch) ? 2 : (IS_EVIL(ch) ? 0 : 1);
-	else 
-		strength = (IS_GOOD(ch) || IS_EVIL(ch)) ? 1:0;
 
-	if (!strength) {
+	strength = (ch->alignment - victim->alignment) / 200 * level / 30;
+	if (strength < 0) strength = -strength;
+	if (strength < 7) {
 		act_puts("Oh, no. Your god seems to like $N.",
 			 ch, NULL, victim, TO_CHAR, POS_DEAD);
 		return;
@@ -1733,7 +1719,7 @@ void spell_anathema(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 		return;
 	}
 
-	level += (strength - 1) * 3;
+	level += strength / 6;
 
 	if (saves_spell(level, victim, DAM_HOLY)) {
 		char_puts("You failed.\n", ch);
@@ -1745,18 +1731,25 @@ void spell_anathema(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	af.level 	= level;
 	af.duration	= (8 + level/10);
 	af.location	= APPLY_HITROLL;
-	af.modifier	= - level/5 * strength;
+	af.modifier	= -strength;
 	af.bitvector	= AFF_CURSE;
 
 	affect_to_char(victim, &af);
 	
 	af.location	= APPLY_SAVING_SPELL;
-	af.modifier	= level/5 * strength;
+	af.modifier	= strength;
 
 	affect_to_char(victim, &af);
 
 	af.location	= APPLY_LEVEL;
+	af.modifier	= -strength / 7;
+
+	affect_to_char(victim, &af);
+
+	af.where	= TO_SKILLS;
+	af.location	= APPLY_NONE;
 	af.modifier	= -strength;
+	af.bitvector	= SK_AFF_ALL;
 
 	affect_to_char(victim, &af);
 	

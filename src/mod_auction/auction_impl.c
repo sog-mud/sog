@@ -1,5 +1,5 @@
 /*
- * $Id: auction_impl.c,v 1.28 1999-02-23 22:06:43 fjoe Exp $
+ * $Id: auction_impl.c,v 1.29 1999-05-14 20:09:05 avn Exp $
  */
 
 #include <stdio.h>
@@ -260,6 +260,7 @@ void auction_update (void)
         }
 } 
 
+#define get_name(s)	(s)?((s)->name):("noone")
 
 void do_auction(CHAR_DATA *ch, const char *argument)
 {
@@ -289,6 +290,10 @@ void do_auction(CHAR_DATA *ch, const char *argument)
 	if (arg1[0] == '\0')
 		if (auction.item != NULL) {
 			/* show item data here */
+			if (IS_IMMORTAL(ch))
+				char_printf(ch, "Sold by: %s   Last bet by: %s\n",
+					get_name(auction.seller),
+					get_name(auction.buyer));
 			if (auction.bet > 0)
 				char_printf(ch, "Current bet on this item is "
 						"%d gold.\n",auction.bet);
