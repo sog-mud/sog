@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.311 2004-01-26 23:21:45 sg Exp $
+ * $Id: spellfun.c,v 1.312 2004-02-04 22:02:22 sg Exp $
  */
 
 /***************************************************************************
@@ -2773,7 +2773,7 @@ SPELL_FUN(spell_astral_walk, sn, level, ch, vo)
 	if (pet && !IS_AFFECTED(pet, AFF_SLEEP)) {
 		if (pet->position != POS_STANDING)
 			dofun("stand", pet, str_empty);
-		astral_walk(ch, victim);
+		astral_walk(pet, victim);
 	}
 }
 
