@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.182.2.34 2000-11-12 19:21:45 fjoe Exp $
+ * $Id: handler.c,v 1.182.2.35 2000-12-05 09:32:38 avn Exp $
  */
 
 /***************************************************************************
@@ -3825,7 +3825,7 @@ void stop_follower(CHAR_DATA *ch)
 
 /*
  * nuke pet
- * ch is assumed to be !IS_NPC
+ * ch is assumed to be !IS_NPC and placed in room (after char_to_room)
  */
 void nuke_pets(CHAR_DATA *ch)
 {    
@@ -3833,8 +3833,7 @@ void nuke_pets(CHAR_DATA *ch)
 
 	if ((pet = PC(ch)->pet) != NULL) {
 		stop_follower(pet);
-		if (pet->in_room)
-			act("$n slowly fades away.", pet, NULL, NULL, TO_ROOM);
+		act("$n slowly fades away.", pet, NULL, NULL, TO_ROOM);
 		extract_char(pet, 0);
 		PC(ch)->pet = NULL;
 	}

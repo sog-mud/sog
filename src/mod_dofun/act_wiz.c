@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.186.2.22 2000-11-17 12:49:33 avn Exp $
+ * $Id: act_wiz.c,v 1.186.2.23 2000-12-05 09:32:37 avn Exp $
  */
 
 /***************************************************************************
@@ -4222,7 +4222,7 @@ void do_wizpass(CHAR_DATA *ch, const char *argument)
 	}
 			  
 	argument = one_argument(argument, arg, sizeof(arg));
-		   one_argument(argument, arg2, sizeof(arg2));
+		   first_arg(argument, arg2, sizeof(arg2), FALSE);
 
 	if ((victim = get_char_world(ch, arg)) == NULL) {
 		if ((victim = char_load(arg, LOAD_F_NOCREATE)) == NULL) {
