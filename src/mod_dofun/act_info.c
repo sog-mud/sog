@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.205 1999-02-19 16:13:25 fjoe Exp $
+ * $Id: act_info.c,v 1.206 1999-02-19 18:48:52 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3720,13 +3720,15 @@ void do_control(CHAR_DATA *ch, const char *argument)
 void do_make_arrow(CHAR_DATA *ch, const char *argument)
 {
 	OBJ_DATA *arrow;
-	AFFECT_DATA af, saf;
+	AFFECT_DATA af;
 	OBJ_INDEX_DATA *pObjIndex;
-	int count, color, mana, wait;
+	int count, mana, wait;
 	char arg[MAX_INPUT_LENGTH];
-	char *str = "wooden";
 	int chance;
+	int color_chance = 100;
+	int vnum = -1;
 	int sn;
+	int color = -1;
 
 	if (IS_NPC(ch))
 		return;
@@ -3747,45 +3749,41 @@ void do_make_arrow(CHAR_DATA *ch, const char *argument)
 	mana = SKILL(sn)->min_mana;
 	wait = SKILL(sn)->beats;
 
-	color = -1;
 	argument = one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0')
-		color = 0;
+		vnum = OBJ_VNUM_WOODEN_ARROW;
 	else if (!str_prefix(arg, "green")) {
 		color = sn_lookup("green arrow");
-		saf.bitvector	= WEAPON_POISON;
-		str = "green";
+		vnum = OBJ_VNUM_GREEN_ARROW;
 	}
 	else if (!str_prefix(arg, "red")) {
 		color = sn_lookup("red arrow");
-		saf.bitvector	= WEAPON_FLAMING;
-		str = "red";
+		vnum = OBJ_VNUM_RED_ARROW;
 	}
 	else if (!str_prefix(arg, "white")) {
 		color = sn_lookup("white arrow");
-		saf.bitvector	= WEAPON_FROST;
-		str = "white";
+		vnum = OBJ_VNUM_WHITE_ARROW;
 	}
 	else if (!str_prefix(arg, "blue")) {
 		color = sn_lookup("blue arrow");
-		saf.bitvector	= WEAPON_SHOCKING;
-		str = "blue";
+		vnum = OBJ_VNUM_BLUE_ARROW;
 	}
 
-	if (color < 0) {
+	if (vnum < 0) {
 		char_puts("You don't know how to make "
-			     "that kind of arrow.\n", ch);
+			  "that kind of arrow.\n", ch);
 		return;
 	}
 
-	if (color) {
+	if (color > 0) {
+		color_chance = get_skill(ch, color);
 		mana += SKILL(color)->min_mana;
 		wait += SKILL(color)->beats;
 	}
 
 	if (ch->mana < mana) {
 		char_puts("You don't have enough energy "
-			     "to make that kind of arrows.\n", ch);
+			  "to make that kind of arrows.\n", ch);
 		return;
 	}
 
@@ -3794,28 +3792,22 @@ void do_make_arrow(CHAR_DATA *ch, const char *argument)
 
 	char_puts("You start to make arrows!\n",ch);
 	act("$n starts to make arrows!", ch, NULL, NULL, TO_ROOM);
-	pObjIndex = get_obj_index(OBJ_VNUM_RANGER_ARROW);
+	pObjIndex = get_obj_index(vnum);
 	for(count = 0; count < ch->level / 5; count++) {
-		if (number_percent() > chance) {
+		if (number_percent() > chance * color_chance / 100) {
 			char_puts("You failed to make the arrow, "
-				     "and broke it.\n", ch);
+				  "and broke it.\n", ch);
 			check_improve(ch, sn, FALSE, 3);
-			if (color)
+			if (color > 0)
 				check_improve(ch, color, FALSE, 3);
 			continue;
 		}
 
 		check_improve(ch, sn, TRUE, 3);
-		if (color)
+		if (color > 0)
 			check_improve(ch, color, TRUE, 3);
 
 		arrow = create_obj(pObjIndex, 0);
-		free_string(arrow->name);
-		arrow->name = str_printf(pObjIndex->name, str);
-		mlstr_free(arrow->short_descr);
-		arrow->short_descr = mlstr_printf(pObjIndex->short_descr, str);
-		mlstr_free(arrow->description);
-		arrow->description = mlstr_printf(pObjIndex->description, str);
 
 		arrow->level = ch->level;
 		arrow->value[1] = 4 + ch->level / 10;
@@ -3839,20 +3831,9 @@ void do_make_arrow(CHAR_DATA *ch, const char *argument)
 		af.bitvector	= 0;
 		affect_to_obj(arrow, &af);
 
-		if (color) {
-			saf.where	 = TO_WEAPON;
-			saf.type	 = color;
-			saf.level	 = ch->level;
-			saf.duration	 = -1;
-			saf.location	 = 0;
-			saf.modifier	 = 0;
-			affect_to_obj(arrow, &saf);
-		}
-
 		obj_to_char(arrow, ch);
 		act_puts("You successfully make $p.",
 			 ch, arrow, NULL, TO_CHAR, POS_DEAD);
-		arrow = NULL;
 	}
 }
 

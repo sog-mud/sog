@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.155 1999-02-19 13:43:25 kostik Exp $
+ * $Id: merc.h,v 1.156 1999-02-19 18:48:52 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1477,6 +1477,7 @@ struct obj_index_data
 	int 			limit;
 	OPROG_FUN **		oprogs;
 	int			clan;
+	flag32_t		gender;
 };
 
 /*

@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.45 1999-02-19 09:48:04 fjoe Exp $
+ * $Id: tables.c,v 1.46 1999-02-19 18:48:53 fjoe Exp $
  */
 
 /***************************************************************************
@@ -386,6 +386,17 @@ FLAG sex_table[] =
 	{ "female",		SEX_FEMALE,		TRUE	},
 	{ "either",		SEX_EITHER,		TRUE	},
 	{ "random",		SEX_EITHER,		TRUE    },
+	{ "neutral",		SEX_NEUTRAL,		TRUE	},
+	{ NULL	}
+};
+
+FLAG gender_table[] =
+{
+	{ "",			TABLE_INTVAL			},
+
+	{ "none",		SEX_NEUTRAL,		TRUE	},
+	{ "male",		SEX_MALE,		TRUE	},
+	{ "female",		SEX_FEMALE,		TRUE	},
 	{ "neutral",		SEX_NEUTRAL,		TRUE	},
 	{ NULL	}
 };
