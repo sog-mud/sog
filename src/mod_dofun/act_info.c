@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.271.2.61 2002-08-30 07:41:16 tatyana Exp $
+ * $Id: act_info.c,v 1.271.2.62 2002-08-30 13:26:44 tatyana Exp $
  */
 
 /***************************************************************************
@@ -5094,13 +5094,13 @@ void do_finger(CHAR_DATA *ch, const char *argument)
 
 	if (IS_NPC(victim)) {
 		act("You can't get any info about $N.",
-		    ch, NULL, victim, TO_CHAR);
+		    ch, NULL, victim, TO_CHAR | ACT_NOCANSEE);
 		return;
 	}
 
 	if (IS_IMMORTAL(victim) && !IS_IMMORTAL(ch)) {
 		act("You can't get any info about $N.",
-		    ch, NULL, victim, TO_CHAR);
+		    ch, NULL, victim, TO_CHAR | ACT_NOCANSEE);
 		return;
 	}
 
@@ -5163,7 +5163,7 @@ void do_finger(CHAR_DATA *ch, const char *argument)
 				   PC(victim)->ll_host,
 				   PC(victim)->ll_ip);
 		} else {
-			buf_printf(output, " {COn since  :{x %sfrom %s (%s)\n",
+			buf_printf(output, " {COn since  :{x %s from %s (%s)\n",
 				   strtime(PC(victim)->ll_time),
 				   PC(victim)->ll_host,
 				   PC(victim)->ll_ip);
