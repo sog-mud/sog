@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.202.2.58 2002-01-23 13:55:58 avn Exp $
+ * $Id: fight.c,v 1.202.2.59 2002-02-07 11:53:11 tatyana Exp $
  */
 
 /***************************************************************************
@@ -2679,10 +2679,12 @@ void dam_message(CHAR_DATA *ch, CHAR_DATA *victim,
 	const char *msg_vict = NULL;
 	const char *msg_notvict;
 	const char *attack = str_empty;
+	int flags = 0;
 
 	if (dam == 0) {
 		vs = "miss";
 		vp = "misses";
+		flags = ACT_VERBOSE;
 	}
 	else if (dam <= 4) {
 		vs = "{cscratch{x";
@@ -2882,17 +2884,17 @@ void dam_message(CHAR_DATA *ch, CHAR_DATA *victim,
 	}	
 	if (ch == victim) {
 		act_puts3(msg_notvict, ch, vp, NULL, attack,
-			  TO_ROOM, POS_DEAD);
+			  TO_ROOM | flags, POS_DEAD);
 		act_puts3(msg_char, ch, vs, NULL, attack,
-			  TO_CHAR, POS_DEAD);
+			  TO_CHAR | flags, POS_DEAD);
 	}
 	else {
 		act_puts3(msg_notvict, ch, vp, victim, attack,
-			  TO_NOTVICT, POS_DEAD);
+			  TO_NOTVICT | flags, POS_DEAD);
 		act_puts3(msg_char, ch, vs, victim, attack,
-			  TO_CHAR, POS_DEAD);
+			  TO_CHAR | flags, POS_DEAD);
 		act_puts3(msg_vict, ch, vp, victim, attack,
-			  TO_VICT, POS_DEAD);
+			  TO_VICT | flags, POS_DEAD);
 	}
 }
 
