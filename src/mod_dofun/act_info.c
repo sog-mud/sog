@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.271.2.52 2002-01-31 19:27:59 tatyana Exp $
+ * $Id: act_info.c,v 1.271.2.53 2002-02-07 15:40:41 tatyana Exp $
  */
 
 /***************************************************************************
@@ -1462,6 +1462,9 @@ void do_where(CHAR_DATA *ch, const char *argument)
 			&&  (!fPKonly || in_PK(ch, victim))
 			&&  victim->in_room != NULL
 			&&  victim->in_room->area == ch->in_room->area
+			&&  (!is_affected(victim, gsn_stealth) ||
+			     (is_affected(victim, gsn_stealth)
+			      && (IS_IMMORTAL(ch) || ch == victim)))
 			&&  can_see(ch, victim)) {
 				CHAR_DATA *doppel;
 				found = TRUE;
@@ -1489,6 +1492,9 @@ void do_where(CHAR_DATA *ch, const char *argument)
 			if (victim->in_room
 			&&  victim->in_room->area == ch->in_room->area
 			&&  can_see(ch, victim)
+			&&  (!is_affected(victim, gsn_stealth) ||
+			     (is_affected(victim, gsn_stealth)
+			      && (IS_IMMORTAL(ch) || ch == victim)))
 			&&  is_name(arg, victim->name)) {
 				found = TRUE;
 				char_printf(ch, "%-28s %s\n",

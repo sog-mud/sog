@@ -1267,6 +1267,15 @@ trash HMTZ AS
 0 0 0 0 0
 1 0 0 P
 G none
+#77
+poncho chameleon~
+chameleon poncho~
+You see something strange.~
+unknown~
+armor 0 AK
+0 0 0 0 0
+0 0 0 P
+G none
 #79
 golden staff посох~
 @eng a golden staff@rus ~~золотистый~~ посох~
@@ -1735,6 +1744,8 @@ O 71 wear_prog wear_prog_enforcer_shield	* `Enforcer's Buckler'
 O 72 wear_prog wear_prog_enforcer_shield	* `Enforcer's Great Shield'
 O 73 wear_prog wear_prog_enforcer_shield	* `Enforcer's Kite Shield'
 O 74 wear_prog wear_prog_enforcer_shield	* `Enforcer's Tower Shield'
+O 77 wear_prog wear_prog_chameleon_poncho	* `chameleon poncho'
+O 77 remove_prog remove_prog_chameleon_poncho	* `chameleon poncho'
 O 80 fight_prog fight_prog_golden_weapon	* `a golden dagger'
 O 80 death_prog death_prog_golden_weapon	* `a golden dagger'
 O 81 fight_prog fight_prog_golden_weapon	* `a golden mace'

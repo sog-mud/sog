@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.114.2.23 2001-12-20 16:31:23 tatyana Exp $
+ * $Id: martial_art.c,v 1.114.2.24 2002-02-07 15:40:41 tatyana Exp $
  */
 
 /***************************************************************************
@@ -3758,6 +3758,89 @@ void do_surrender(CHAR_DATA *ch, const char *argument)
 		act("$N seems to ignore your cowardly act!",
 		    ch, NULL, mob, TO_CHAR);
 		multi_hit(mob, ch, TYPE_UNDEFINED);
+	}
+}
+
+#define OBJ_VNUM_CHAMELEON_PONCHO	77
+
+void
+do_poncho(CHAR_DATA *ch, const char *argument)
+{
+	OBJ_DATA *poncho;
+	AFFECT_DATA af;
+	OBJ_DATA *corpse;
+	char arg[MAX_INPUT_LENGTH];
+	int chance;
+
+	if ((chance = get_skill(ch, gsn_chameleon_poncho)) == 0) {
+		char_puts("Huh?\n", ch);
+		return;
+	}
+
+	if (is_affected(ch, gsn_chameleon_poncho)) {
+		char_puts("But you've already got one poncho!\n", ch);
+		return;
+	}
+
+	one_argument(argument, arg, sizeof(arg));
+	if (arg[0] == '\0') {
+		char_puts("Make a poncho from what?\n", ch);
+		return;
+	}
+
+	if ((corpse = get_obj_here(ch, arg)) == NULL) {
+		char_puts("You do not see any corpse here.\n", ch);
+		return;
+	}
+
+	if (number_percent() > chance * 2 / 3) {
+		char_puts("You failed and destroyed it.\n", ch);
+		extract_obj(corpse, 0);
+		return;
+	}
+
+	WAIT_STATE(ch, SKILL(gsn_chameleon_poncho)->beats);
+
+	if (corpse->pObjIndex->vnum != OBJ_VNUM_CORPSE_PC
+	&&  corpse->pObjIndex->vnum != OBJ_VNUM_CORPSE_NPC) {
+		char_puts("Your need a corpse for making poncho.\n", ch);
+		return;
+	}
+
+	if (!IS_NPC(ch) && number_percent() < chance) {
+		af.where	= TO_AFFECTS;
+		af.type		= gsn_chameleon_poncho;
+		af.level	= ch->level;
+		af.duration	= ch->level/2;
+		af.modifier	= 0;
+		af.bitvector	= 0;
+
+		af.location	= 0;
+		affect_to_char(ch, &af);
+
+		poncho = create_obj(get_obj_index(OBJ_VNUM_CHAMELEON_PONCHO), 0);
+		if (poncho == NULL)
+			return;
+
+		poncho->level = ch->level;
+		poncho->timer = ch->level * 2;
+		mlstr_cpy(&poncho->owner, &ch->short_descr);
+		poncho->cost  = 0;
+
+		obj_to_char(poncho, ch);
+		check_improve(ch, gsn_chameleon_poncho, TRUE, 1);
+
+		act("You make a poncho from $p!",
+		    ch, corpse, NULL, TO_CHAR);
+		act("$n makes a poncho from $p!",
+		    ch, corpse, NULL, TO_ROOM);
+
+		extract_obj(corpse, 0);
+			return;
+	} else {
+		char_puts("You destroyed it.\n", ch);
+		extract_obj(corpse, 0);
+		check_improve(ch, gsn_chameleon_poncho, FALSE, 1);
 	}
 }
 

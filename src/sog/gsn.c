@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: gsn.c,v 1.32.2.14 2001-12-12 18:42:23 tatyana Exp $
+ * $Id: gsn.c,v 1.32.2.15 2002-02-07 15:40:43 tatyana Exp $
  */
 
 #include <stdio.h>
@@ -258,6 +258,8 @@ int gsn_golden_aura;
 int gsn_shadow_cloak;
 int gsn_shield_of_law;
 int gsn_prismatic_sphere;
+int gsn_chameleon_poncho;
+int gsn_stealth;
 
 /* special gsns */
 int gsn_qtarget;
@@ -483,6 +485,8 @@ namedp_t gsn_table[] =
 	{ "gsn_shadow_cloak",		&gsn_shadow_cloak		},
 	{ "gsn_shield_of_law",		&gsn_shield_of_law		},
 	{ "gsn_prismatic_sphere",	&gsn_prismatic_sphere		},
+	{ "gsn_chameleon_poncho",	&gsn_chameleon_poncho		},
+	{ "gsn_stealth",		&gsn_stealth			},
 	{ NULL }
 };
 

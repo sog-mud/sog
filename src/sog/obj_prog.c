@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.c,v 1.66.2.18 2002-01-15 20:50:25 tatyana Exp $
+ * $Id: obj_prog.c,v 1.66.2.19 2002-02-07 15:40:43 tatyana Exp $
  */
 
 /***************************************************************************
@@ -158,6 +158,9 @@ DECLARE_OPROG(wear_prog_amulet_strangulation);
 DECLARE_OPROG(wear_prog_rainbow_amulet);
 DECLARE_OPROG(fight_prog_rainbow_amulet);
 
+DECLARE_OPROG(wear_prog_chameleon_poncho);
+DECLARE_OPROG(remove_prog_chameleon_poncho);
+
 char* optype_table[] = {
 	"wear_prog",
 	"remove_prog",
@@ -262,6 +265,8 @@ OPROG_DATA oprog_table[] = {
 	{ "wear_prog_amulet_strangulation", wear_prog_amulet_strangulation },
 	{ "wear_prog_rainbow_amulet", wear_prog_rainbow_amulet },
 	{ "fight_prog_rainbow_amulet", fight_prog_rainbow_amulet },
+	{ "wear_prog_chameleon_poncho", wear_prog_chameleon_poncho },
+	{ "remove_prog_chameleon_poncho", remove_prog_chameleon_poncho },
 	{ NULL }
 };
 
@@ -1901,6 +1906,42 @@ fight_prog_rainbow_amulet(OBJ_DATA *amulet, CHAR_DATA *ch, const void *arg)
 		    ch, NULL, NULL, TO_ROOM);
 		spellfun_call("heal", level, ch, ch);
 		return 0;
+	}
+	return 0;
+}
+
+int
+wear_prog_chameleon_poncho(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
+{
+	AFFECT_DATA af;
+
+	if (!IS_OWNER(ch, obj)) {
+		act("You are not owner of this $p.", ch, obj, NULL, TO_CHAR);
+		return 0;
+	}
+
+	if (!is_affected(ch, gsn_stealth)) {
+		char_puts("As you wear chameleon poncho you melt into "
+			  "background.\n", ch);
+
+		af.where	= TO_AFFECTS;
+		af.type		= gsn_stealth;
+		af.duration	= obj->timer;
+		af.level	= LEVEL(ch);
+		af.bitvector	= 0;
+		af.location	= 0;
+		affect_to_char(ch, &af);
+	}
+	return 0;
+}
+
+int
+remove_prog_chameleon_poncho(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
+{
+	if (is_affected(ch, gsn_stealth)) {
+		affect_strip(ch, gsn_stealth);
+		char_puts("As you remove chameleon poncho you became "
+			  "noticeable.\n", ch);
 	}
 	return 0;
 }
