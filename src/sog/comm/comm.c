@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.153 1999-02-27 10:23:32 fjoe Exp $
+ * $Id: comm.c,v 1.154 1999-03-01 14:03:38 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1380,7 +1380,9 @@ void write_to_buffer(DESCRIPTOR_DATA *d, const char *txt, uint length)
 	/*
 	 * Initial \n\r if needed.
 	 */
-	if (d->outtop == 0 && !d->fcommand) {
+	if (d->outtop == 0
+	&&  !d->fcommand
+	&&  (!d->character || !IS_SET(d->character->comm, COMM_TELNET_GA))) {
 		d->outbuf[0]	= '\n';
 		d->outbuf[1]	= '\r';
 		d->outtop	= 2;
