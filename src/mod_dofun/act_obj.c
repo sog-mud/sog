@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.170 1999-10-20 04:13:46 avn Exp $
+ * $Id: act_obj.c,v 1.171 1999-10-21 12:51:46 fjoe Exp $
  */
 
 /***************************************************************************
@@ -209,6 +209,7 @@ void do_put(CHAR_DATA * ch, const char *argument)
 	OBJ_DATA *	obj_next;
 	OBJ_DATA *	objc;
 	int		count;
+	clan_t *	clan;
 
 	argument = one_argument(argument, arg1, sizeof(arg1));
 	argument = one_argument(argument, arg2, sizeof(arg2));
@@ -237,11 +238,15 @@ void do_put(CHAR_DATA * ch, const char *argument)
 		return;
 	}
 
+	/*
+	 * clan members can put item into clan altar even if it is closed
+	 * check that obj is clan item is done in put_obj
+	 */
 	if (IS_SET(INT_VAL(container->value[1]), CONT_CLOSED) 
-	    && (!ch->clan 
-	       || clan_lookup(ch->clan)->altar_ptr!=container)) {
-		act_puts("The $d is closed.",
-			 ch, NULL, container->name, TO_CHAR, POS_DEAD);
+	&&  ((clan = clan_lookup(ch->clan)) == NULL ||
+	     clan->altar_ptr != container)) {
+		act_puts("$P is closed.",
+			 ch, NULL, container, TO_CHAR, POS_DEAD);
 		return;
 	}
 
@@ -285,8 +290,7 @@ void do_put(CHAR_DATA * ch, const char *argument)
 			count++;
 
 		put_obj(ch, container, obj, &count);
-	}
-	else {
+	} else {
 		if (!IS_NPC(ch) && IS_AFFECTED(ch, AFF_CHARM)) {
 			do_say(ch, "Nah, I won't do that.");
 			return;
@@ -3540,6 +3544,19 @@ static bool put_obj(CHAR_DATA *ch, OBJ_DATA *container,
 		    OBJ_DATA *obj, int* count)
 {
 	OBJ_DATA *	objc;
+	clan_t *clan;
+
+	/*
+	 * clan members can put item into clan altar even if it is closed
+	 * check that container is clan altar is done in do_put
+	 */
+	if (IS_SET(INT_VAL(container->value[1]), CONT_CLOSED) 
+	&&  ((clan = clan_lookup(ch->clan)) == NULL ||
+	     clan->obj_ptr != obj)) {
+		act_puts("$P is closed.",
+			 ch, NULL, container, TO_CHAR, POS_DEAD);
+		return FALSE;
+	}
 
 	if (IS_SET(INT_VAL(container->value[1]), CONT_QUIVER)
 	&&  (obj->pObjIndex->item_type != ITEM_WEAPON ||

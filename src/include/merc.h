@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.241 1999-10-20 04:34:58 avn Exp $
+ * $Id: merc.h,v 1.242 1999-10-21 12:51:53 fjoe Exp $
  */
 
 /***************************************************************************
@@ -74,6 +74,7 @@
 #include "mlstring.h"
 #include "varr.h"
 #include "hash.h"
+#include "strkey_hash.h"
 #include "flag.h"
 #include "cmd.h"
 
@@ -1218,7 +1219,7 @@ struct mob_index_data
 	flag32_t		size;
 	const char *		material;
 	flag32_t		practicer;
-	int			clan;
+	const char *		clan;
 	int			invis_level;	/* mobinvis level */
 	int			incog_level;	/* mobincog level */
 };
@@ -1289,7 +1290,7 @@ struct char_data
 	flag32_t		sex;
 	const char *		class;
 	const char *		race;
-	int			clan;
+	const char *		clan;
 	int			ethos;
 	int			level;
 	int			wait;
@@ -1407,7 +1408,7 @@ struct pc_data
 	int			pc_killed;
 
 	int			clan_status;
-	int			petition;
+	const char *		petition;
 
 	int			plevels;	/* penalty levels */
 
@@ -1506,7 +1507,6 @@ struct obj_index_data
 	vo_t 			value[5];
 	int 			limit;
 	OPROG_FUN **		oprogs;
-	int			clan;
 	flag32_t		gender;
 };
 
@@ -1606,7 +1606,7 @@ struct area_data
 	int		min_vnum;
 	int		max_vnum;
 	bool		empty;
-	int		clan;
+	const char *	clan;
 	const char *	builders;	/* name list of builders	*/
 	int		vnum;		/* area vnum			*/
 	flag32_t	area_flags;
@@ -1639,7 +1639,6 @@ struct room_index_data
 	RESET_DATA *		reset_last;	/* OLC */
 	mlstring		name;
 	mlstring		description;
-	int 			clan;
 	int			vnum;
 	flag32_t		room_flags;
 	int			light;
@@ -2204,7 +2203,7 @@ void	area_update	(void);
 void	room_update	(void);
 void	track_update	(void);
 void	obj_update	(void);
-void	clan_item_update(void);
+void *	clan_item_update_cb(void *p, void *d);
 void	weather_update	(void);
 
 flag32_t wiznet_lookup	(const char *name);

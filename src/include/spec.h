@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: spec.h,v 1.1 1999-10-06 09:56:00 fjoe Exp $
+ * $Id: spec.h,v 1.2 1999-10-21 12:51:54 fjoe Exp $
  */
 
 #ifndef _SPEC_H_
@@ -65,7 +65,7 @@ void spec_destroy(spec_t *spec);
 void spec_skill_init(spec_skill_t *spec_sk);
 
 /* fast spec lookup by precise name */
-#define spec_lookup(spn)	((spec_t*) hash_lookup(&specs, (spn)))
+#define spec_lookup(spn)	((spec_t*) strkey_lookup(&specs, (spn)))
 
 void spec_stats		(CHAR_DATA *ch, spec_skill_t *spec_sk);
 

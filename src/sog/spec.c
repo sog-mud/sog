@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: spec.c,v 1.3 1999-10-17 08:55:50 fjoe Exp $
+ * $Id: spec.c,v 1.4 1999-10-21 12:52:05 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -58,7 +58,7 @@ spec_init(spec_t *spec)
 
 	varr_init(&spec->spec_skills, sizeof(spec_skill_t), 4);
 	spec->spec_skills.e_init = (varr_e_init_t) spec_skill_init;
-	spec->spec_skills.e_destroy = name_destroy;
+	spec->spec_skills.e_destroy = strkey_destroy;
 }
 
 /*
@@ -132,7 +132,7 @@ add_skills_cb(void *p, void *d)
 
 	spec_t *spec = spec_lookup(spn);
 	if (spec == NULL) {
-#ifdef NAME_STRICT_CHECKS
+#ifdef STRKEY_STRICT_CHECKS
 		wizlog("update_skills: %s: %s: unknown spec", u->ch->name, spn);
 #endif
 		return NULL;
@@ -220,7 +220,7 @@ spec_stats_cb(void *p, void *d)
 /* lookup spec */
 	spec = spec_lookup(spn);
 	if (spec == NULL) {
-#ifdef NAME_STRICT_CHECKS
+#ifdef STRKEY_STRICT_CHECKS
 		wizlog("spec_stats: %s: unknown spec", spn);
 #endif
 		return NULL;
@@ -261,7 +261,7 @@ void spec_stats(CHAR_DATA *ch, spec_skill_t *spec_sk)
 
 /* noone can use ill-defined skills */
 	if ((sk = skill_lookup(spec_sk->sn)) == NULL) {
-#ifdef NAME_STRICT_CHECKS
+#ifdef STRKEY_STRICT_CHECKS
 		bug("spec_stats: %s: unknown skill", spec_sk->sn);
 #endif
 		goto bailout;
@@ -279,7 +279,7 @@ void spec_stats(CHAR_DATA *ch, spec_skill_t *spec_sk)
 /* check skill affects */
 	for (paf = ch->affected; paf; paf = paf->next)
 		if (paf->where == TO_SKILLS
-		&&  SKILL_IS(paf->location.s, spec_sk->sn))
+		&&  IS_SKILL(paf->location.s, spec_sk->sn))
 			spec_sk->level = 1;
 
 bailout:
@@ -310,7 +310,7 @@ bool spec_add(CHAR_DATA *ch, const char *spn)
 	if (IS_NULLSTR(spn))
 		return FALSE;
 
-	NAME_CHECK(&specs, spn, "spec_add");
+	STRKEY_CHECK(&specs, spn, "spec_add");
 
 	pspn = varr_bsearch(&PC(ch)->specs, &spn, cmpstr);
 	if (pspn)
@@ -329,7 +329,7 @@ bool spec_del(CHAR_DATA *ch, const char *spn)
 	if (IS_NULLSTR(spn))
 		return FALSE;
 
-	NAME_CHECK(&specs, spn, "spec_add");
+	STRKEY_CHECK(&specs, spn, "spec_add");
 
 	pspn = varr_bsearch(&PC(ch)->specs, &spn, cmpstr);
 	if (pspn == NULL)
@@ -417,10 +417,7 @@ void spec_update(CHAR_DATA *ch)
 	u.ch = ch;
 	u.r = race_lookup(ch->race);
 	u.cl = class_lookup(ch->class);
-	if (ch->clan)
-		u.clan = clan_lookup(ch->clan);
-	else
-		u.clan = NULL;
+	u.clan = clan_lookup(ch->clan);
 	u.flags = 0;
 	varr_foreach(&PC(ch)->specs, spec_update_cb, &u);
 

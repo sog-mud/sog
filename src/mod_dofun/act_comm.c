@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.188 1999-10-06 09:55:41 fjoe Exp $
+ * $Id: act_comm.c,v 1.189 1999-10-21 12:51:40 fjoe Exp $
  */
 
 /***************************************************************************
@@ -584,14 +584,8 @@ void do_clan(CHAR_DATA *ch, const char *argument)
 {
 	clan_t *clan;
 
-	if (!ch->clan) {
+	if ((clan = clan_lookup(ch->clan)) == NULL) {
 		char_puts("You are not in a clan.\n", ch);
-		return;
-	}
-
-	clan = clan_lookup(ch->clan);
-	if (clan == NULL) {
-		char_puts("Your clan is closed.\n", ch);
 		return;
 	}
 
@@ -1266,7 +1260,7 @@ void do_trust(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (!str_cmp(arg, "clan")) {
-		if (ch->clan == 0) {
+		if (IS_NULLSTR(ch->clan)) {
 			char_puts("You are not in clan.\n", ch);
 			return;
 		};
@@ -1382,7 +1376,7 @@ void do_mark(CHAR_DATA *ch, const char *argument)
 	OBJ_DATA *mark;
 	clan_t *clan = NULL;
 
-	if ((ch->clan == 0) || ((clan = clan_lookup(ch->clan)) == NULL)) {
+	if ((clan = clan_lookup(ch->clan)) == NULL) {
 		char_puts("You are not in clan.\n", ch);
 		return;
 	}
@@ -1410,7 +1404,6 @@ void do_petitio(CHAR_DATA *ch, const char *argument)
 void do_petition(CHAR_DATA *ch, const char *argument)
 {
 	bool accept;
-	int cln = 0;
 	clan_t *clan = NULL;
 	char arg1[MAX_STRING_LENGTH];
 	OBJ_DATA *mark;
@@ -1423,32 +1416,32 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 	pc = PC(ch);
 
 	if (IS_NULLSTR(arg1)) {
-		if (IS_IMMORTAL(ch)
-		||  (ch->clan && (pc->clan_status == CLAN_LEADER ||
-				  pc->clan_status == CLAN_SECOND))) {
+		if (pc->clan_status == CLAN_LEADER
+		||  pc->clan_status == CLAN_SECOND) {
 			char_printf(ch,
 				    "Usage: petition %s<accept | reject> "
 				    "<char name>\n",
 				    IS_IMMORTAL(ch) ? "<clan name> " : str_empty);
-		}
-		if (IS_IMMORTAL(ch) || !ch->clan)
+		} else if (IS_NULLSTR(ch->clan))
 			char_puts("Usage: petition <clan name>\n", ch);
 		return;
 	}
 
+	/*
+	 * immortals should specify clan explicitly
+	 */
 	if (IS_IMMORTAL(ch)) {
-		cln = cln_lookup(arg1);
-		if (cln <= 0) {
+		if ((clan = clan_search(arg1)) == NULL) {
 			char_printf(ch, "%s: unknown clan\n", arg1);
 			do_petition(ch, str_empty);
 			return;
 		}
+
 		argument = one_argument(argument, arg1, sizeof(arg1));
 		if (IS_NULLSTR(arg1)) {
 			do_petition(ch, str_empty);
 			return;
 		}
-		clan = CLAN(cln);
 	}
 
 	if ((accept = !str_prefix(arg1, "accept"))
@@ -1459,26 +1452,23 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 		bool loaded = FALSE;
 		bool changed;
 
-		if (!IS_IMMORTAL(ch)) {
-			if (ch->clan == 0
-			||  (clan = clan_lookup(ch->clan)) == NULL) {
-				do_petition(ch, str_empty);
-				return;
-			}
-			cln = ch->clan;
-		}
-
-		argument = one_argument(argument, arg2, sizeof(arg2));
-		if (IS_NULLSTR(arg2)) {
-			do_petition(ch, str_empty);
-			return;
-		}
-
 		if (pc->clan_status != CLAN_LEADER
 		&&  pc->clan_status != CLAN_SECOND
 		&&  !IS_IMMORTAL(ch)) {
 			char_puts("You don't have enough power to "
 				  "accept/reject petitions.\n", ch);
+			return;
+		}
+
+		if (clan == NULL
+		&&  (clan = clan_lookup(ch->clan)) == NULL) {
+			do_petition(ch, str_empty);
+			return;
+		}
+
+		argument = one_argument(argument, arg2, sizeof(arg2));
+		if (IS_NULLSTR(arg2)) {
+			do_petition(ch, str_empty);
 			return;
 		}
 
@@ -1495,14 +1485,18 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 		vpc = PC(victim);
 
 		if (accept) {
-			if (vpc->petition != cln) {
+			if (!IS_CLAN(vpc->petition, clan->name)) {
 				char_puts("They didn't petition.\n", ch);
 				goto cleanup;
 			}
 
-			victim->clan = cln;
+			free_string(vpc->petition);
+			vpc->petition = str_empty;
+
+			free_string(victim->clan);
+			victim->clan = str_dup(clan->name);
+
 			vpc->clan_status = CLAN_COMMONER;
-			vpc->petition = CLAN_NONE;
 			spec_update(victim);
 
 			name_add(&clan->member_list, victim->name, NULL, NULL);
@@ -1526,7 +1520,7 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 		}
 
 /* handle 'petition reject' */
-		if (victim->clan == cln) {
+		if (IS_CLAN(victim->clan, clan->name)) {
 			if (vpc->clan_status == CLAN_LEADER
 			&&  !IS_IMMORTAL(ch)) {
 				char_puts("You don't have enough power "
@@ -1537,7 +1531,10 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 			clan_update_lists(clan, victim, TRUE);
 			clan_save(clan);
 
-			victim->clan = CLAN_NONE;
+			free_string(victim->clan);
+			victim->clan = str_empty;
+
+			vpc->clan_status = CLAN_COMMONER;
 			REMOVE_BIT(vpc->trust, TRUST_CLAN);
 			spec_update(victim);
 
@@ -1555,8 +1552,9 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 			goto cleanup;
 		}
 
-		if (vpc->petition == cln) {
-			vpc->petition = CLAN_NONE;
+		if (IS_CLAN(vpc->petition, clan->name)) {
+			free_string(vpc->petition);
+			vpc->petition = str_empty;
 			char_puts("Petition was rejected.\n", ch);
 			if (!loaded)
 				act("Your petition to $t was rejected.",
@@ -1598,41 +1596,47 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (IS_IMMORTAL(ch)
-	||  (ch->clan && (pc->clan_status == CLAN_LEADER ||
-			  pc->clan_status == CLAN_SECOND))) {
+	||  pc->clan_status == CLAN_LEADER
+	||  pc->clan_status == CLAN_SECOND) {
+		/*
+		 * list characters petitioned to clan
+		 */
+
 		DESCRIPTOR_DATA *d;
 		bool found = FALSE;
 
-		if (IS_IMMORTAL(ch)) {
-			if ((cln = cln_lookup(arg1)) <= 0) {
-				char_puts("No such clan.\n", ch);
-				return;
-			}
+		if (clan == NULL
+		&&  (clan = clan_lookup(ch->clan)) == NULL) {
+			do_petition(ch, str_empty);
+			return;
 		}
-		else
-			cln = ch->clan;
-			
+
 		for (d = descriptor_list; d; d = d->next) {
 			CHAR_DATA *vch = d->original ? d->original :
 						       d->character;
 
 			if (!vch
-			||  vch->clan
-			||  PC(vch)->petition != cln)
+			||  !IS_NULLSTR(vch->clan)
+			||  !IS_CLAN(PC(vch)->petition, clan->name))
 				continue;
 
 			if (!found) {
 				found = TRUE;
-				char_puts("List of players petitioned to "
-					  "your clan:\n", ch);
+				char_printf(ch, "List of players petitioned to %s", clan->name);
 			}
 			char_printf(ch, "%s\n", vch->name);
 		}
 
-		if (!found) 
-			char_puts("Noone has petitioned to your clan.\n", ch);
+		if (!found) {
+			char_printf(ch, "Noone has petitioned to %s.\n",
+				    clan->name);
+		}
 		return;
 	}
+
+	/*
+	 * send petition to clan
+	 */
 
 	if (ch->level < LEVEL_PK) {
 		act("You are not ready to join clans.",
@@ -1640,17 +1644,18 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if ((cln = cln_lookup(arg1)) <= 0) {
+	if ((clan = clan_search(arg1)) == 0) {
 		char_puts("No such clan.\n", ch);
 		return;
 	}
 
-	if (ch->clan) {
+	if (!IS_NULLSTR(ch->clan)) {
 		char_puts("You cannot leave your clan this way.\n", ch);
 		return;
 	}
 
-	pc->petition = cln;
+	free_string(pc->petition);
+	pc->petition = str_qdup(clan->name);
 	char_puts("Petition sent.\n", ch);
 }
 
@@ -1687,8 +1692,8 @@ void do_promote(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (victim->clan == 0 || (clan = clan_lookup(victim->clan)) == NULL
-	||  (victim->clan != ch->clan && !IS_IMMORTAL(ch))) {
+	if ((clan = clan_lookup(victim->clan)) == NULL
+	||  (!IS_CLAN(victim->clan, ch->clan) && !IS_IMMORTAL(ch))) {
 		char_puts("They are not an a clan.\n", ch);
 		return;
 	}

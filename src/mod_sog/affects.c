@@ -1,5 +1,5 @@
 /*
- * $Id: affects.c,v 1.4 1999-10-18 18:08:06 avn Exp $
+ * $Id: affects.c,v 1.5 1999-10-21 12:51:59 fjoe Exp $
  */
 
 /***************************************************************************
@@ -261,10 +261,10 @@ void affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd)
 /* find an affect in an affect list */
 AFFECT_DATA  *affect_find(AFFECT_DATA *paf, const char *sn)
 {
-	NAME_CHECK(&skills, sn, "affect_find");
+	STRKEY_CHECK(&skills, sn, "affect_find");
 
 	for (; paf != NULL; paf = paf->next) {
-		if (SKILL_IS(paf->type, sn))
+		if (IS_SKILL(paf->type, sn))
 			return paf;
 	}
 
@@ -323,7 +323,7 @@ void affect_to_char(CHAR_DATA *ch, AFFECT_DATA *paf)
 {
 	AFFECT_DATA *paf_new = aff_dup(paf);
 
-	NAME_CHECK(&skills, paf->type, "affect_to_char");
+	STRKEY_CHECK(&skills, paf->type, "affect_to_char");
 
 	paf_new->next = ch->affected;
 	ch->affected = paf_new;
@@ -335,7 +335,7 @@ void affect_to_obj(OBJ_DATA *obj, AFFECT_DATA *paf)
 {
 	AFFECT_DATA *paf_new = aff_dup(paf);
 
-	NAME_CHECK(&skills, paf->type, "affect_to_obj");
+	STRKEY_CHECK(&skills, paf->type, "affect_to_obj");
 
 	paf_new->next	= obj->affected;
 	obj->affected	= paf_new;
@@ -455,12 +455,12 @@ void affect_strip(CHAR_DATA *ch, const char *sn)
 	AFFECT_DATA *paf;
 	AFFECT_DATA *paf_next;
 
-	NAME_CHECK(&skills, sn, "affect_strip");
+	STRKEY_CHECK(&skills, sn, "affect_strip");
 
 	for (paf = ch->affected; paf; paf = paf_next) {
 		paf_next = paf->next;
 
-		if (!SKILL_IS(paf->type, sn))
+		if (!IS_SKILL(paf->type, sn))
 			continue;
 
 		affect_remove(ch, paf);
@@ -527,7 +527,7 @@ void affect_join(CHAR_DATA *ch, AFFECT_DATA *paf)
 
 	found = FALSE;
 	for (paf_old = ch->affected; paf_old != NULL; paf_old = paf_old->next) {
-		if (SKILL_IS(paf_old->type, paf->type)
+		if (IS_SKILL(paf_old->type, paf->type)
 		&&  paf_old->where == paf->where) {
 			paf->level = (paf->level += paf_old->level) / 2;
 			paf->duration += paf_old->duration;
@@ -716,7 +716,7 @@ void affect_strip_room(ROOM_INDEX_DATA *room, const char *sn)
 
 	for (paf = room->affected; paf != NULL; paf = paf_next) {
 		paf_next = paf->next;
-		if (SKILL_IS(paf->type, sn))
+		if (IS_SKILL(paf->type, sn))
 			affect_remove_room(room, paf);
 	}
 }
@@ -729,7 +729,7 @@ bool is_affected_room(ROOM_INDEX_DATA *room, const char *sn)
 	AFFECT_DATA *paf;
 
 	for (paf = room->affected; paf != NULL; paf = paf->next) {
-		if (SKILL_IS(paf->type, sn))
+		if (IS_SKILL(paf->type, sn))
 			return TRUE;
 	}
 
@@ -856,7 +856,7 @@ void show_affects(CHAR_DATA *ch, BUFFER *output)
 
 void fwrite_affect(AFFECT_DATA *paf, FILE *fp)
 {
-	if (SKILL_IS(paf->type, "doppelganger"))
+	if (IS_SKILL(paf->type, "doppelganger"))
 		return;
 
 	switch (paf->where) {
@@ -879,14 +879,14 @@ AFFECT_DATA *fread_affect(FILE *fp)
 {
 	AFFECT_DATA *paf = aff_new();
 
-	paf->type = fread_name(fp, &skills, "fread_affect");
+	paf->type = fread_strkey(fp, &skills, "fread_affect");
 	paf->where = fread_number(fp);
 	paf->level = fread_number(fp);
 	paf->duration = fread_number(fp);
 	paf->modifier = fread_number(fp);
 	switch (paf->where) {
 	case TO_SKILLS:
-		paf->location = fread_name(fp, &skills, "fread_affect");
+		paf->location = fread_strkey(fp, &skills, "fread_affect");
 		break;
 	default:
 		INT_VAL(paf->location) = fread_number(fp);

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: hash.h,v 1.3 1999-10-20 11:10:38 fjoe Exp $
+ * $Id: hash.h,v 1.4 1999-10-21 12:51:53 fjoe Exp $
  */
 
 #ifndef _HASH_H_
@@ -57,42 +57,5 @@ void *	hash_replace(hash_t*, const void *k, const void *e);
 bool	hash_isempty(hash_t*);
 void *	hash_random_item(hash_t *h);
 void *	hash_foreach(hash_t *h, void *(*cb)(void *p, void *d), void *d);
-void	hash_print_names(hash_t *h, BUFFER *buf);
-
-/*
- * generic functions and defines for hashing structs with
- * `const char *name' as first struct member
- */
-#define NAME_HASH_SIZE 256
-
-void		name_init(void *);
-void		name_destroy(void*);
-
-int		name_hash(const void *k, size_t hsize);
-int		name_struct_cmp(const void *k, const void *e);
-const char *	fread_name(FILE *fp, hash_t *h, const char *id);
-
-/*
- * search elem by name prefix
- */
-void *		name_search_cb(void *p, void *d);
-void *		name_search(hash_t *h, const char *name);
-
-/*
- * generate filename based on `name'
- */
-char *		name_filename(const char *name);
-
-#define NAME_STRICT_CHECKS
-#if defined(NAME_STRICT_CHECKS)
-#define NAME_CHECK(h, name, id)						\
-	do {								\
-		if (!IS_NULLSTR(name)					\
-		&&  hash_lookup(h, (name)) == NULL) 			\
-			wizlog("%s: unknown name '%s'", id, name);	\
-	} while (0);
-#else
-#define NAME_CHECK(h, name, id)
-#endif
 
 #endif

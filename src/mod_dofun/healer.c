@@ -1,5 +1,5 @@
 /*
- * $Id: healer.c,v 1.33 1999-10-06 09:55:54 fjoe Exp $
+ * $Id: healer.c,v 1.34 1999-10-21 12:51:51 fjoe Exp $
  */
 
 /*-
@@ -70,11 +70,13 @@ heal_t heal_table[] =
 
 int get_heal_cost(heal_t *h, CHAR_DATA *mob, CHAR_DATA *ch)
 {
-    int price;
+	int price;
 
-    price = (h->price > 0)?(h->price):(-h->price);
-    if (ch->clan && ch->clan == mob->clan) price /= 2;
-    return price;
+	price = abs(h->price);
+	if (!IS_NULLSTR(ch->clan)
+	&&  IS_CLAN(ch->clan, mob->clan))
+		price /= 2;
+	return price;
 }
 
 void do_heal(CHAR_DATA *ch, const char *argument)
@@ -86,8 +88,9 @@ void do_heal(CHAR_DATA *ch, const char *argument)
 
     /* check for healer */
 	for (mob = ch->in_room->people; mob; mob = mob->next_in_room)
-		if (IS_NPC(mob) && IS_SET(mob->pMobIndex->act, ACT_HEALER)
-		&&  (!mob->clan || mob->clan == ch->clan))
+		if (IS_NPC(mob)
+		&&  IS_SET(mob->pMobIndex->act, ACT_HEALER)
+		&&  (IS_NULLSTR(mob->clan) || IS_CLAN(mob->clan, ch->clan)))
 		 	break;
  
     if (mob == NULL) {

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: class.h,v 1.20 1999-10-17 08:55:43 fjoe Exp $
+ * $Id: class.h,v 1.21 1999-10-21 12:51:53 fjoe Exp $
  */
 
 #ifndef _CLASS_H_
@@ -48,7 +48,6 @@ struct class_t {
 	flag32_t	restrict_align;		/* alignment restrictions */
 	flag32_t	restrict_sex;		/* sex restrictions */
 	flag32_t	restrict_ethos;		/* ethos restrictions */
-	const char *	titles[MAX_LEVEL+1][2];	/* titles */
 	varr		poses;			/* varr of class poses */
 	int		death_limit;		/* death limit */
 	const char *	skill_spec;		/* skills spec for this class */
@@ -66,17 +65,16 @@ struct pose_t {
 
 extern hash_t classes;
 
-#define class_lookup(cn)	((class_t*) hash_lookup(&classes, (cn)))
-#define class_search(cn)	((class_t*) name_search(&classes, (cn)))
+#define class_lookup(cn)	((class_t*) strkey_lookup(&classes, (cn)))
+#define class_search(cn)	((class_t*) strkey_search(&classes, (cn)))
 
-#define IS_CLASS(cl1, cl2)	(!str_cmp(cl1, cl2))
+#define IS_CLASS(cl1, cl2)	(!str_cmp((cl1), (cl2)))
 
 void	class_init	(class_t *cl);
 class_t *class_cpy	(class_t *dst, class_t *src);
 void	class_destroy	(class_t *cl);
 
 const char *	class_who_name(CHAR_DATA *ch);
-const char *	title_lookup(CHAR_DATA *ch);
 bool		can_flee(CHAR_DATA *ch);
 
 #endif

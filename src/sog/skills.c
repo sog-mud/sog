@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.78 1999-10-19 14:44:58 kostik Exp $
+ * $Id: skills.c,v 1.79 1999-10-21 12:52:05 fjoe Exp $
  */
 
 /***************************************************************************
@@ -162,7 +162,7 @@ void _set_skill(CHAR_DATA *ch, const char *sn, int percent, bool replace)
 	if (IS_NULLSTR(sn))
 		return;
 
-	NAME_CHECK(&skills, sn, "_set_skill");
+	STRKEY_CHECK(&skills, sn, "_set_skill");
 
 	if ((pc_sk = pc_skill_lookup(ch, sn))) {
 		if (replace || pc_sk->percent < percent)
@@ -221,7 +221,7 @@ int get_skill(CHAR_DATA *ch, const char *sn)
 	for (paf = ch->affected; paf; paf = paf->next) {
 		if (paf->where != TO_SKILLS
 		||  (!IS_SET(paf->bitvector, SK_AFF_ALL) &&
-		     SKILL_IS(paf->type, sn))
+		     IS_SKILL(paf->type, sn))
 		||  (IS_SET(paf->bitvector, SK_AFF_NOTCLAN &&
 		     IS_SET(sk->skill_flags, SKILL_CLAN))))
 			continue;
@@ -241,7 +241,7 @@ void *skill_vsearch(varr *v, const char *psn)
 {
 	if (IS_NULLSTR(psn))
 		return NULL;
-	return varr_foreach(v, name_search_cb, (void*) psn);
+	return varr_foreach(v, strkey_search_cb, (void*) psn);
 }
 
 /* for returning weapon information */
@@ -368,7 +368,7 @@ int skill_beats(const char *sn)
 	skill_t *sk;
 
 	if ((sk = skill_lookup(sn)) == NULL) {
-#ifdef NAME_STRICT_CHECKS
+#ifdef STRKEY_STRICT_CHECKS
 		bug("skill_beats: %s: unknown skill", sn);
 #endif
 		return 0;
@@ -384,7 +384,7 @@ int skill_mana(CHAR_DATA *ch, const char *sn)
 	skill_t *sk;
 
 	if ((sk = skill_lookup(sn)) == NULL) {
-#ifdef NAME_STRICT_CHECKS
+#ifdef STRKEY_STRICT_CHECKS
 		bug("skill_mana: %s: unknown skill", sn);
 #endif
 		return 0;
@@ -637,7 +637,7 @@ mob_skill_init(void)
 	mob_skill_t *mob_skill;
 
 	for (mob_skill = mob_skill_tab; mob_skill->sn; mob_skill++) {
-		NAME_CHECK(&skills, mob_skill->sn, "mob_skill_init");
+		STRKEY_CHECK(&skills, mob_skill->sn, "mob_skill_init");
 		mob_skill_count++;
 	}
 	qsort(mob_skill_tab, mob_skill_count, sizeof(mob_skill_t), cmpstr);

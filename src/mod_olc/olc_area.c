@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_area.c,v 1.52 1999-10-17 08:55:44 fjoe Exp $
+ * $Id: olc_area.c,v 1.53 1999-10-21 12:51:55 fjoe Exp $
  */
 
 #include "olc.h"
@@ -84,7 +84,7 @@ olc_cmd_t olc_cmds_area[] =
 	{ "credits",	areaed_credits					},
 	{ "minlevel",	areaed_minlevel					},
 	{ "maxlevel",	areaed_maxlevel					},
-	{ "clan",	areaed_clan					},
+	{ "clan",	areaed_clan,	NULL,		&clans		},
 
 	{ "commands",	show_commands					},
 	{ "version",	show_version					},
@@ -231,7 +231,7 @@ OLC_FUN(areaed_show)
 	char_printf(ch, "Levels:   [%d-%d]\n",
 		    pArea->min_level, pArea->max_level);
 	if (pArea->clan)
-		char_printf(ch, "Clan:     [%s]\n", clan_name(pArea->clan));
+		char_printf(ch, "Clan:     [%s]\n", pArea->clan);
 	char_printf(ch, "Age:      [%d]\n",	pArea->age);
 	char_printf(ch, "Players:  [%d]\n", pArea->nplayer);
 	char_printf(ch, "Security: [%d]\n", pArea->security);
@@ -390,7 +390,7 @@ OLC_FUN(areaed_clan)
 {
 	AREA_DATA *pArea;
 	EDIT_AREA(ch, pArea);
-	return olced_clan(ch, argument, cmd, &pArea->clan);
+	return olced_foreign_strkey(ch, argument, cmd, &pArea->clan);
 }
 
 /* Validators */
@@ -458,6 +458,44 @@ static void move_mob(MOB_INDEX_DATA *mob, AREA_DATA *pArea, int delta);
 static void move_obj(OBJ_INDEX_DATA *obj, AREA_DATA *pArea, int delta);
 static void move_room(ROOM_INDEX_DATA *room, AREA_DATA *pArea, int delta);
 
+typedef struct _move_clan_t {
+	AREA_DATA *pArea;
+	int delta;
+	bool touched;
+} _move_clan_t;
+
+static void *
+move_clan_cb(void *p, void *d)
+{
+	clan_t *clan = (clan_t *) p;
+	_move_clan_t *mc = (_move_clan_t *) d;
+
+	AREA_DATA *pArea = mc->pArea;
+	int delta = mc->delta;
+	bool touched = FALSE;
+
+	MOVE(clan->altar_vnum);
+	MOVE(clan->recall_vnum);
+	MOVE(clan->obj_vnum);
+	MOVE(clan->mark_vnum);
+
+	if (touched) {
+		touch_clan(clan);
+		mc->touched = TRUE;
+	}
+	return NULL;
+}
+
+static void *
+move_print_clan_cb(void *p, void *d)
+{
+	clan_t *clan = (clan_t *) p;
+
+	if (IS_SET(clan->clan_flags, CLAN_CHANGED))
+		char_printf(d, "- %s\n", clan->name);
+	return NULL;
+}
+
 VALIDATE_FUN(validate_move)
 {
 	int i;
@@ -466,7 +504,7 @@ VALIDATE_FUN(validate_move)
 	bool touched;
 	AREA_DATA *pArea;
 	MPCODE *mpc;
-	clan_t *clan;
+	_move_clan_t mc;
 	EDIT_AREA(ch, pArea);
 
 	if (PC(ch)->security < SECURITY_AREA_CREATE) {
@@ -493,27 +531,13 @@ VALIDATE_FUN(validate_move)
 /* everything is ok -- change vnums of all rooms, objs, mobs in area */
 
 /* fix clan recall, item and altar vnums */
-	touched = FALSE;
-	for (i = 0; i < clans.nused; i++) {
-		bool touched2 = touched;
-		touched = FALSE;
-		clan = CLAN(i);
-		MOVE(clan->altar_vnum);
-		MOVE(clan->recall_vnum);
-		MOVE(clan->obj_vnum);
-		MOVE(clan->mark_vnum);
-		if (touched)
-			touch_clan(clan);
-		else
-			touched = touched2;
-	}
-	if (touched) {
+	mc.pArea = pArea;
+	mc.delta = delta;
+	mc.touched = FALSE;
+	hash_foreach(&clans, move_clan_cb, &mc);
+	if ((touched = mc.touched)) {
 		char_puts("AreaEd: Changed clans:\n", ch);
-		for (i = 0; i < clans.nused; i++) {
-			clan = CLAN(i);
-			if (IS_SET(clan->clan_flags, CLAN_CHANGED))
-				char_printf(ch, "- %s\n", clan->name);
-		}
+		hash_foreach(&clans, move_print_clan_cb, ch);
 	}
 
 /* XXX fix mprogs */
@@ -896,8 +920,7 @@ static void save_mobile(FILE *fp, MOB_INDEX_DATA *pMobIndex)
 			fix_string(mptrig->phrase));
 	}
 
-	if (pMobIndex->clan)
-		fwrite_string(fp, "C", clan_name(pMobIndex->clan));
+	fwrite_word(fp, "C", pMobIndex->clan);
 	if (pMobIndex->invis_level)
 		fprintf(fp, "W %d\n", pMobIndex->invis_level);
 	if (pMobIndex->incog_level)
@@ -1006,8 +1029,6 @@ static void save_object(FILE *fp, OBJ_INDEX_DATA *pObjIndex)
 	for (pEd = pObjIndex->ed; pEd; pEd = pEd->next)
 		ed_fwrite(fp, pEd);
 
-	if (pObjIndex->clan)
-		fwrite_string(fp, "C", clan_name(pObjIndex->clan));
 	fprintf(fp, "G %s\n", flag_string(gender_table, pObjIndex->gender));
 }
 
@@ -1104,9 +1125,6 @@ static void save_room(FILE *fp, ROOM_INDEX_DATA *pRoomIndex)
 		fprintf (fp, "M %d H %d\n", pRoomIndex->mana_rate,
 					    pRoomIndex->heal_rate);
 		 			     
-	if (pRoomIndex->clan)
-		fwrite_string(fp, "C", clan_name(pRoomIndex->clan));
-
 	fprintf(fp, "S\n");
 }
 
@@ -1509,8 +1527,7 @@ static void save_area(CHAR_DATA *ch, AREA_DATA *pArea)
 	flags = pArea->area_flags & ~AREA_CHANGED;
 	if (flags)
 		fwrite_string(fp, "Flags", flag_string(area_flags, flags));
-	if (pArea->clan)
-		fwrite_string(fp, "Clan", clan_name(pArea->clan));
+	fwrite_word(fp, "Clan", pArea->clan);
 	fprintf(fp, "End\n\n");
 
 	if (pArea->min_vnum && pArea->max_vnum) {

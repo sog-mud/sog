@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.162 1999-10-19 14:45:01 kostik Exp $
+ * $Id: update.c,v 1.163 1999-10-21 12:52:05 fjoe Exp $
  */
 
 /***************************************************************************
@@ -63,7 +63,6 @@ void	weather_update	(void);
 void	char_update	(void);
 void	obj_update	(void);
 void	aggr_update	(void);
-void 	clan_item_update(void);
 int	potion_cure_level	(OBJ_DATA *potion);
 int	potion_arm_level	(OBJ_DATA *potion);
 bool	is_potion		(OBJ_DATA *potion, const char *sn);
@@ -102,7 +101,6 @@ void advance_level(CHAR_DATA *ch)
 		return;
 	}
 
-	set_title(ch, title_lookup(ch));
 	update_skills(ch);
 
 	if (PC(ch)->plevels > 0) {
@@ -863,13 +861,13 @@ int i;
   cl = 0;
   for (i=1;i<5;i++)
   {
-	if (SKILL_IS(potion->value[i].s, "cure critical"))
+	if (IS_SKILL(potion->value[i].s, "cure critical"))
 	  cl += 3;
-	if (SKILL_IS(potion->value[i].s, "cure light"))
+	if (IS_SKILL(potion->value[i].s, "cure light"))
 	  cl += 1;
-	if (SKILL_IS(potion->value[i].s, "cure serious"))
+	if (IS_SKILL(potion->value[i].s, "cure serious"))
 	  cl += 2;
-	if (SKILL_IS(potion->value[i].s, "heal"))
+	if (IS_SKILL(potion->value[i].s, "heal"))
 	  cl += 4;
   }
   return(cl);
@@ -881,15 +879,15 @@ int i;
   al = 0;
   for (i=1;i<5;i++)
   {
-	if (SKILL_IS(potion->value[i].s, "armor"))
+	if (IS_SKILL(potion->value[i].s, "armor"))
 	  al += 1;
-	if (SKILL_IS(potion->value[i].s, "shield"))
+	if (IS_SKILL(potion->value[i].s, "shield"))
 	  al += 1;
-	if (SKILL_IS(potion->value[i].s, "stone skin"))
+	if (IS_SKILL(potion->value[i].s, "stone skin"))
 	  al += 2;
-	if (SKILL_IS(potion->value[i].s, "sanctuary"))
+	if (IS_SKILL(potion->value[i].s, "sanctuary"))
 	  al += 4;
-	if (SKILL_IS(potion->value[i].s, "protection"))
+	if (IS_SKILL(potion->value[i].s, "protection"))
 	  al += 3;
   }
   return(al);
@@ -899,7 +897,7 @@ bool is_potion(OBJ_DATA *potion, const char *sn)
 {
 	int i;
 	for (i = 0; i < 5; i++) {
-		if (SKILL_IS(potion->value[i].s, sn))
+		if (IS_SKILL(potion->value[i].s, sn))
 			return TRUE;
 	}
 	return FALSE;
@@ -1811,7 +1809,8 @@ void update_handler(void)
 		char_update();
 		quest_update(); 
 		obj_update();
-		if (time_info.hour == 0) clan_item_update();
+		if (time_info.hour == 0)
+			hash_foreach(&clans, clan_item_update_cb, NULL);
 		check_reboot();
 
 		/* room counting */
@@ -2021,49 +2020,50 @@ void track_update(void)
 	}
 }
 
-void clan_item_update(void)
-{	
-	int i;
+static void *
+put_back_cb(void *p, void *d)
+{
+	clan_t *clan = (clan_t *) p;
+	OBJ_DATA *obj = (OBJ_DATA *) d;
 
-	for (i = 0; i < clans.nused; i++) {
-		OBJ_DATA *obj;
-		clan_t *clan = CLAN(i);
+	if (obj->in_room->vnum == clan->altar_vnum)
+		return p;
 
-		if (clan->obj_ptr == NULL) 
-			continue;
-
-		for (obj = clan->obj_ptr; obj->in_obj; obj = obj->in_obj)
-			;
-
-		/*
-		 * do not move clan items which are in altars
-		 */
-		if (obj->in_room) {
-			int j;
-			bool put_back = TRUE;
-
-			for (j = 0; j < clans.nused; j++) {
-				if (obj->in_room->vnum == CLAN(j)->altar_vnum) {
-					put_back = FALSE;
-					break;
-				}
-			}
-
-			if (!put_back)
-				continue;
-		}
-
-		if (clan->obj_ptr->in_obj)
-			obj_from_obj(clan->obj_ptr);
-		if (clan->obj_ptr->carried_by)
-			obj_from_char(clan->obj_ptr);
-		if (clan->obj_ptr->in_room)
-			obj_from_room(clan->obj_ptr);
-
-		if (clan->altar_ptr) 
-			obj_to_obj(clan->obj_ptr, clan->altar_ptr);
-		else 
-			bug("clan_item_update: no altar_ptr for clan %d", i);
-	}
+	return NULL;
 }
 
+void *
+clan_item_update_cb(void *p, void *d)
+{
+	clan_t *clan = (clan_t *) p;
+
+	OBJ_DATA *obj;
+
+	if (clan->obj_ptr == NULL) 
+		return NULL;
+
+	if (clan->altar_ptr == NULL) {
+		bug("clan_item_update_cb: clan %s: no altar_ptr", clan->name);
+		return NULL;
+	}
+
+	for (obj = clan->obj_ptr; obj->in_obj; obj = obj->in_obj)
+		;
+
+	/*
+	 * do not move clan items which are in altars
+	 */
+	if (obj->in_room
+	&&  hash_foreach(&clans, put_back_cb, obj) != NULL)
+		return NULL;
+
+	if (clan->obj_ptr->in_obj)
+		obj_from_obj(clan->obj_ptr);
+	if (clan->obj_ptr->carried_by)
+		obj_from_char(clan->obj_ptr);
+	if (clan->obj_ptr->in_room)
+		obj_from_room(clan->obj_ptr);
+
+	obj_to_obj(clan->obj_ptr, clan->altar_ptr);
+	return NULL;
+}

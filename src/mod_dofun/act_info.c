@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.277 1999-10-20 04:13:44 avn Exp $
+ * $Id: act_info.c,v 1.278 1999-10-21 12:51:42 fjoe Exp $
  */
 
 /***************************************************************************
@@ -478,6 +478,7 @@ static void do_look_in(CHAR_DATA* ch, const char *argument)
 {
 	OBJ_DATA *obj;
 	liquid_t *lq;
+	clan_t *clan;
 
 	if ((obj = get_obj_here(ch, argument)) == NULL) {
 		char_puts("You don't see that here.\n", ch);
@@ -514,8 +515,8 @@ static void do_look_in(CHAR_DATA* ch, const char *argument)
 	case ITEM_CORPSE_NPC:
 	case ITEM_CORPSE_PC:
 		if (IS_SET(INT_VAL(obj->value[1]), CONT_CLOSED) 
-		&&  (!ch->clan ||
-		     clan_lookup(ch->clan)->altar_ptr != obj)) {
+		&&  ((clan = clan_lookup(ch->clan)) == NULL ||
+		      clan->altar_ptr != obj)) {
 			act("It is closed.", ch, obj, NULL, TO_CHAR);
 			break;
 		}
@@ -1066,7 +1067,7 @@ void do_who(CHAR_DATA *ch, const char *argument)
 	for (;;) {
 		race_t *r;
 		class_t *cl;
-		int i;
+		clan_t *clan;
 		char arg[MAX_INPUT_LENGTH];
 
 		argument = one_argument(argument, arg, sizeof(arg));
@@ -1094,9 +1095,9 @@ void do_who(CHAR_DATA *ch, const char *argument)
 		}
 
 
-		if ((i = cln_lookup(arg)) > 0
-		 && IS_IMMORTAL(ch)) {
-			name_add(&clan_names, CLAN(i)->name, NULL, NULL);
+		if ((clan = clan_search(arg)) != NULL
+		&&  IS_IMMORTAL(ch)) {
+			name_add(&clan_names, clan->name, NULL, NULL);
 			SET_BIT(flags, WHO_F_RCLAN);
 			continue;
 		}
@@ -1110,10 +1111,9 @@ void do_who(CHAR_DATA *ch, const char *argument)
 		if (!str_cmp(arg, "clan")) {
 			if (IS_IMMORTAL(ch))
 				SET_BIT(flags, WHO_F_CLAN);
-			else if (ch->clan) {
+			else if (!IS_NULLSTR(ch->clan)) {
 				SET_BIT(flags, WHO_F_RCLAN);
-				i = ch->clan;
-				name_add(&clan_names, CLAN(i)->name, NULL,NULL);
+				name_add(&clan_names, ch->clan, NULL,NULL);
 			}
 			continue;
 		}
@@ -1121,13 +1121,15 @@ void do_who(CHAR_DATA *ch, const char *argument)
 		if (!IS_IMMORTAL(ch))
 			continue;
 
-		if ((cl = class_search(arg)) != 0) {
+		if ((cl = class_search(arg)) != NULL) {
 			name_add(&class_names, cl->name, NULL, NULL);
 			SET_BIT(flags, WHO_F_RCLASS);
 			continue;
 		}
 
 		if ((p = strchr(arg, '-'))) {
+			int i;
+
 			*p++ = '\0';
 			if (arg[0]) {
 				if ((i = flag_value(ethos_table, arg)))
@@ -1185,7 +1187,7 @@ void do_who(CHAR_DATA *ch, const char *argument)
 		if (wch->level < iLevelLower || wch->level > iLevelUpper
 		||  (IS_SET(flags, WHO_F_IMM) && wch->level < LEVEL_IMMORTAL)
 		||  (IS_SET(flags, WHO_F_PK) && !in_PK(ch, wch))
-		||  (IS_SET(flags, WHO_F_CLAN) && !wch->clan)
+		||  (IS_SET(flags, WHO_F_CLAN) && IS_NULLSTR(wch->clan))
 		||  (ralign && ((RALIGN(wch) & ralign) == 0))
 		||  (rethos && ((wch->ethos & rethos) == 0)))
 			continue;
@@ -1197,8 +1199,7 @@ void do_who(CHAR_DATA *ch, const char *argument)
 		}
 
 		if (IS_SET(flags, WHO_F_RCLAN)) {
-			if (!wch->clan
-			||  (clan = clan_lookup(wch->clan)) == NULL
+			if ((clan = clan_lookup(wch->clan)) == NULL
 			||  !is_name(clan->name, clan_names))
 				continue;
 		}
@@ -2904,7 +2905,7 @@ void do_practice(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (SKILL_IS(pc_sk->sn, "vampire")) {
+	if (IS_SKILL(pc_sk->sn, "vampire")) {
 		char_puts("You can't practice that, only available "
 			  "at questor.\n", ch);
 		return;
@@ -2918,7 +2919,7 @@ void do_practice(CHAR_DATA *ch, const char *argument)
 		found = TRUE;
 
 		if (IS_SET(sk->skill_flags, SKILL_CLAN)) {
-			if (ch->clan == mob->clan)
+			if (!IS_CLAN(ch->clan, mob->clan))
 				break;
 			continue;
 		}
@@ -3005,7 +3006,7 @@ void do_learn(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (SKILL_IS(pc_sk->sn, "vampire")) {
+	if (IS_SKILL(pc_sk->sn, "vampire")) {
 		char_puts("You can't practice that, only available "
 			  "at questor.\n", ch);
 		return;
@@ -4619,18 +4620,14 @@ void do_clanlist(CHAR_DATA *ch, const char *argument)
 	argument = one_argument(argument, arg1, sizeof(arg1));
 		   one_argument(argument, arg2, sizeof(arg2));
 
-	if (IS_IMMORTAL(ch) && arg2[0]) {
-		int cln;
-
-		if ((cln = cln_lookup(arg2)) < 0) {
+	if (IS_IMMORTAL(ch) && arg2[0] != '\0') {
+		if ((clan = clan_search(arg2)) == NULL) {
 			char_printf(ch, "%s: no such clan.\n", arg2);
 			return;
 		}
-		clan = CLAN(cln);
 	}
 
-	if (!clan
-	&&  (!ch->clan || (clan = clan_lookup(ch->clan)) == NULL)) {
+	if (!clan && (clan = clan_lookup(ch->clan)) == NULL) {
 		char_puts("You are not in a clan.\n", ch);
 		return;
 	}
@@ -4653,24 +4650,33 @@ void do_clanlist(CHAR_DATA *ch, const char *argument)
 	do_clanlist(ch, str_empty);
 }
 
+static void *
+item_cb(void *p, void *d)
+{
+	clan_t *clan = (clan_t *) p;
+	ROOM_INDEX_DATA *in_room = (ROOM_INDEX_DATA *) d;
+
+	if (in_room->vnum == clan->altar_vnum)
+		return p;
+
+	return NULL;
+}
+
 void do_item(CHAR_DATA* ch, const char* argument)
 {
 	clan_t* clan = NULL;
 	OBJ_DATA* in_obj;
-	int cln;
 	char arg[MAX_STRING_LENGTH];
 
 	one_argument(argument, arg, sizeof(arg));
-	if (IS_IMMORTAL(ch) && arg[0]) {
-		if ((cln = cln_lookup(arg)) < 0) {
+	if (IS_IMMORTAL(ch) && arg[0] != '\0') {
+		if ((clan = clan_search(arg)) == NULL) {
 			char_printf(ch, "%s: no such clan.\n", arg);
 			return;
 		}
-		clan = CLAN(cln);
 	}
 
-	if (!clan
-	&&  (!ch->clan || (clan = clan_lookup(ch->clan)) == NULL)) {
+	if (!clan && (clan = clan_lookup(ch->clan)) == NULL) {
 		char_puts("You are not in clan, you should not worry about your clan item.\n", ch);
 		return;
 	}
@@ -4688,19 +4694,16 @@ void do_item(CHAR_DATA* ch, const char* argument)
 			  ch, clan->obj_ptr, in_obj->carried_by,
 			  in_obj->carried_by->in_room,
 			  TO_CHAR, POS_DEAD);
-	}
-	else if (in_obj->in_room) {
+	} else if (in_obj->in_room) {
 		act_puts3("$p is in $R.",
 			  ch, clan->obj_ptr, NULL, in_obj->in_room,
 			  TO_CHAR, POS_DEAD);
-		for (cln = 0; cln < clans.nused; cln++) 
-			if (in_obj->in_room->vnum == CLAN(cln)->altar_vnum) {
-				act_puts("It is altar of $t.",
-					 ch, CLAN(cln)->name, NULL,
-					 TO_CHAR, POS_DEAD);
-			}
-	}
-	else 
+		clan = hash_foreach(&clans, item_cb, in_obj->in_room);
+		if (clan) {
+			act_puts("It is altar of $t.",
+				 ch, clan->name, NULL, TO_CHAR, POS_DEAD);
+		}
+	} else 
 		act_puts("$p is somewhere.",
 			 ch, clan->obj_ptr, NULL, TO_CHAR, POS_DEAD);
 }

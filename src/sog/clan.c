@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: clan.c,v 1.49 1999-10-06 09:56:04 fjoe Exp $
+ * $Id: clan.c,v 1.50 1999-10-21 12:51:59 fjoe Exp $
  */
 
 #include <sys/time.h>
@@ -39,47 +39,57 @@
 
 #include "merc.h"
 
-varr clans = { sizeof(clan_t), 4 };
+hash_t clans;
 
-clan_t *clan_new(void)
+void
+clan_init(clan_t *clan)
 {
-	clan_t *clan;
-	clan = varr_enew(&clans);
+	clan->name = str_empty;
+	clan->recall_vnum = 0;
 	clan->skill_spec = str_empty;
-	return clan;
+	clan->clan_flags = 0;
+	clan->altar_vnum = 0;
+	clan->obj_vnum = 0;
+	clan->mark_vnum = 0;
+	clan->obj_ptr = NULL;
+	clan->altar_ptr = NULL;
+	clan->leader_list = str_empty;
+	clan->member_list = str_empty;
+	clan->second_list = str_empty;
 }
 
-void clan_free(clan_t *clan)
+clan_t *
+clan_cpy(clan_t *dst, clan_t *src)
 {
+	dst->name = str_qdup(src->name);
+	dst->recall_vnum = src->recall_vnum;
+	dst->skill_spec = str_qdup(src->skill_spec);
+	dst->clan_flags = src->clan_flags;
+	dst->altar_vnum = src->altar_vnum;
+	dst->obj_vnum = src->obj_vnum;
+	dst->mark_vnum = src->mark_vnum;
+	dst->obj_ptr = src->obj_ptr;
+	dst->altar_ptr = src->altar_ptr;
+	dst->leader_list = str_qdup(src->leader_list);
+	dst->member_list = str_qdup(src->member_list);
+	dst->second_list = str_qdup(src->second_list);
+	return dst;
+}
+
+void
+clan_destroy(clan_t *clan)
+{
+	free_string(clan->name);
 	free_string(clan->skill_spec);
+	free_string(clan->leader_list);
+	free_string(clan->member_list);
+	free_string(clan->second_list);
 }
 
 void clan_save(clan_t *clan)
 {
 	SET_BIT(clan->clan_flags, CLAN_CHANGED);
 	dofun("asave", NULL, "clans");
-}
-
-int cln_lookup(const char *name)
-{
-	int cln;
-
-	if (IS_NULLSTR(name))
-		return -1;
-
-	for (cln = 0; cln < clans.nused; cln++)
-		if (!str_prefix(name, CLAN(cln)->name))
-			return cln;
-
-	return -1;
-}
-
-const char *clan_name(int cln)
-{
-	clan_t *clan = clan_lookup(cln);
-	if (clan)
-		return clan->name;
-	return "None";
 }
 
 /*
@@ -107,14 +117,24 @@ void clan_update_lists(clan_t *clan, CHAR_DATA *victim, bool memb)
 		name_delete(&clan->member_list, victim->name, NULL, NULL);
 }
 
-bool clan_item_ok(int cln)
+static void *
+item_ok_cb(void *p, void *d)
+{
+	clan_t *clan = (clan_t *) p;
+
+	if (*(int *) d == clan->altar_vnum)
+		return p;
+	return NULL;
+}
+
+bool clan_item_ok(const char *cln)
 {
 	clan_t* clan;
 	OBJ_DATA* obj;
 	int room_in;
-	int i;
 
-	if (!(clan = clan_lookup(cln)) || !(clan->obj_ptr)) 
+	if ((clan = clan_lookup(cln)) == NULL
+	||  clan->obj_ptr == NULL) 
 		return TRUE;
 
 	for (obj = clan->obj_ptr; obj->in_obj != NULL; obj = obj->in_obj)
@@ -128,8 +148,8 @@ bool clan_item_ok(int cln)
 	if (room_in == clan->altar_vnum)
 		return TRUE;
 
-	for (i = 0; i < clans.nused; i++)
-		if (room_in == clan_lookup(i)->altar_vnum)
-			return FALSE;
+	if (hash_foreach(&clans, item_ok_cb, &room_in) != NULL)
+		return FALSE;
+
 	return TRUE;
 }

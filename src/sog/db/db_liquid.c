@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_liquid.c,v 1.1 1999-10-20 05:49:54 avn Exp $
+ * $Id: db_liquid.c,v 1.2 1999-10-21 12:52:09 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -47,11 +47,11 @@ DBDATA db_liquids = { dbfun_liquids, init_liquids };
 DBINIT_FUN(init_liquids)
 {
 	if (DBDATA_VALID(dbdata)) {
-		hash_init(&liquids, NAME_HASH_SIZE, sizeof(liquid_t),
+		hash_init(&liquids, STRKEY_HASH_SIZE, sizeof(liquid_t),
 			  (varr_e_init_t) liquid_init,
 			  (varr_e_destroy_t) liquid_destroy);
-		liquids.k_hash = name_hash;
-		liquids.ke_cmp = name_struct_cmp;
+		liquids.k_hash = strkey_hash;
+		liquids.ke_cmp = strkey_struct_cmp;
 		liquids.e_cpy = (hash_e_cpy_t) liquid_cpy;
 	}
 }

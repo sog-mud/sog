@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: skills.h,v 1.20 1999-10-19 14:44:56 kostik Exp $
+ * $Id: skills.h,v 1.21 1999-10-21 12:51:54 fjoe Exp $
  */
 
 #ifndef _SKILLS_H_
@@ -83,7 +83,7 @@ struct event_fun_t {
 extern hash_t skills;
 
 #define HAS_SKILL(ch, sn)	(skill_level(ch, sn) < LEVEL_IMMORTAL)
-#define SKILL_IS(sn1, sn2)	(!str_cmp(sn1, sn2))
+#define IS_SKILL(sn1, sn2)	(!str_cmp((sn1), (sn2)))
 
 void mob_skill_init(void);
 
@@ -101,8 +101,8 @@ void		check_events		(CHAR_DATA *ch, AFFECT_DATA *list,
  */
 
 /* fast skill lookup by precise name */
-#define skill_lookup(sn)	((skill_t*) hash_lookup(&skills, (sn)))
-#define skill_search(sn)	((skill_t*) name_search(&skills, (sn)))
+#define skill_lookup(sn)	((skill_t*) strkey_lookup(&skills, (sn)))
+#define skill_search(sn)	((skill_t*) strkey_search(&skills, (sn)))
 
 /* lookup skill by prefix in skill list */
 void *		skill_vsearch	(varr *v, const char *sn);

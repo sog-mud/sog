@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_spec.c,v 1.2 1999-10-17 08:55:53 fjoe Exp $
+ * $Id: db_spec.c,v 1.3 1999-10-21 12:52:09 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -51,11 +51,11 @@ DBINIT_FUN(init_specs)
 	if (DBDATA_VALID(dbdata))
 		db_set_arg(dbdata, "SKILL", NULL);
 	else {
-		hash_init(&specs, NAME_HASH_SIZE, sizeof(spec_t),
+		hash_init(&specs, STRKEY_HASH_SIZE, sizeof(spec_t),
 			  (varr_e_init_t) spec_init,
 			  (varr_e_destroy_t) spec_destroy);
-		specs.k_hash = name_hash;
-		specs.ke_cmp = name_struct_cmp;
+		specs.k_hash = strkey_hash;
+		specs.ke_cmp = strkey_struct_cmp;
 		specs.e_cpy = (hash_e_cpy_t) spec_cpy;
 	}
 }
@@ -146,7 +146,7 @@ DBLOAD_FUN(load_spec_skill)
 			break;
 		case 'S':
 			SKEY("Skill", spec_sk->sn,
-			     fread_name(fp, &skills, "load_spec_skill"));
+			     fread_strkey(fp, &skills, "load_spec_skill"));
 			break;
 		}
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: clan.h,v 1.19 1999-10-06 09:55:57 fjoe Exp $
+ * $Id: clan.h,v 1.20 1999-10-21 12:51:52 fjoe Exp $
  */
 
 #ifndef _CLAN_H_
@@ -46,7 +46,6 @@
 struct clan_t
 {
 	const char *	name;		/* clan name */
-	const char *	file_name;	/* file name */
 
 	int	 	recall_vnum;	/* recall room vnum */
 	const char *	skill_spec;	/* skill spec for this clan */
@@ -67,16 +66,18 @@ struct clan_t
 #define CLAN_HIDDEN	(A)		/* clan will not appear in who */
 #define CLAN_CHANGED	(Z)
 
-clan_t *	clan_new	(void);		/* allocate new clan data */
-void		clan_free	(clan_t*);	/* free clan data */
-int		cln_lookup	(const char* name); /* clan number lookup */
-const char*	clan_name	(int cln);	/* clan name lookup */
-bool		clan_item_ok	(int cln);	/* check clan item */
+void	clan_init(clan_t *);
+clan_t *clan_cpy(clan_t *dst, clan_t *src);
+void	clan_destroy(clan_t *);
 
-extern varr	clans;
+extern hash_t clans;
 
-#define CLAN(cln)		((clan_t*) VARR_GET(&clans, cln))
-#define clan_lookup(cln)	((clan_t*) varr_get(&clans, cln))
+#define clan_lookup(cln)	((clan_t*) strkey_lookup(&clans, (cln)))
+#define clan_search(cln)	((clan_t*) strkey_search(&clans, (cln)))
+
+#define IS_CLAN(cln1, cln2)	(!str_cmp((cln1), (cln2)))
+
+bool	clan_item_ok	(const char *cln);	/* check clan item */
 
 /*
  * clan lists utils

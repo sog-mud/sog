@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.190 1999-10-20 04:13:49 avn Exp $
+ * $Id: act_wiz.c,v 1.191 1999-10-21 12:51:48 fjoe Exp $
  */
 
 /***************************************************************************
@@ -296,7 +296,7 @@ void do_tick(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (!str_prefix(arg, "clan")) {
-		clan_item_update();
+		hash_foreach(&clans, clan_item_update_cb, NULL);
 		char_puts("Clan item location updated.\n", ch);
 		return;
 	}
@@ -3339,7 +3339,7 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 		if ((cl = class_search(arg3)) == NULL) {
 			BUFFER *output = buf_new(-1);
 			buf_add(output, "Possible classes are: ");
-			hash_print_names(&classes, output);
+			strkey_printall(&classes, output);
 			send_to_char(buf_string(output), ch);
 			buf_free(output);
 			return;
@@ -3630,45 +3630,6 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (!str_prefix(arg2, "clan")) {
-		int cn;
-
-		if (IS_NPC(victim)) {
-			char_puts("Not on NPC.\n", ch);
-			return;
-		}
-
-		if ((cn = cln_lookup(arg3)) < 0) {
-			char_puts("Incorrect clan name.\n", ch);
-			return;
-		}
-
-		if (cn != victim->clan) {
-			clan_t *clan;
-
-			if (victim->clan
-			&&  (clan = clan_lookup(victim->clan))) {
-				clan_update_lists(clan, victim, TRUE);
-				clan_save(clan);
-			}
-
-			victim->clan = cn;
-			PC(victim)->clan_status = CLAN_COMMONER;
-
-			if (cn) {
-				clan = CLAN(cn);
-				name_add(&clan->member_list, victim->name,
-					 NULL, NULL);
-				clan_save(clan);
-			}
-
-			spec_update(victim);
-		}
-
-		char_puts("Ok.\n", ch);
-		return;
-	}
-
 	/*
 	 * Generate usage message.
 	 */
@@ -3844,7 +3805,7 @@ void do_rename(CHAR_DATA* ch, const char *argument)
 			return;		
 		}
 
-		if (victim->clan && (clan = clan_lookup(victim->clan))) {
+		if ((clan = clan_lookup(victim->clan))) {
 			bool touched = FALSE;
 
 			if (name_delete(&clan->member_list, victim->name,

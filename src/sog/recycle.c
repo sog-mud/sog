@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.68 1999-10-20 05:49:49 avn Exp $
+ * $Id: recycle.c,v 1.69 1999-10-21 12:52:04 fjoe Exp $
  */
 
 /***************************************************************************
@@ -299,11 +299,11 @@ CHAR_DATA *char_new(MOB_INDEX_DATA *pMobIndex)
 
 		varr_init(&pc->learned, sizeof(pc_skill_t), 8);
 		pc->learned.e_init = (varr_e_init_t) pc_skill_init;
-		pc->learned.e_destroy = name_destroy;
+		pc->learned.e_destroy = strkey_destroy;
 
 		varr_init(&pc->specs, sizeof(pc_skill_t), 2);
-		pc->specs.e_destroy = name_init;
-		pc->specs.e_destroy = name_destroy;
+		pc->specs.e_init = strkey_init;
+		pc->specs.e_destroy = strkey_destroy;
 
 		pc->pwd = str_empty;
 		pc->bamfin = str_empty;
@@ -352,6 +352,8 @@ void char_free(CHAR_DATA *ch)
 		varr_destroy(&pc->specs);
 		varr_destroy(&pc->learned);
 
+		free_string(pc->race);
+		free_string(pc->petition);
 		free_string(pc->pwd);
 		free_string(pc->bamfin);
 		free_string(pc->bamfout);
@@ -383,6 +385,15 @@ void char_free(CHAR_DATA *ch)
 	mlstr_destroy(&ch->short_descr);
 	mlstr_destroy(&ch->long_descr);
 	mlstr_destroy(&ch->description);
+
+	free_string(ch->race);
+	ch->race = str_empty;
+
+	free_string(ch->class);
+	ch->class = str_empty;
+
+	free_string(ch->clan);
+	ch->clan = str_empty;
 
 	free_string(ch->material);
 	ch->material = NULL;
@@ -683,6 +694,8 @@ void free_mob_index(MOB_INDEX_DATA *pMob)
 	free_string(pMob->name);
 	free_string(pMob->material);
 	free_string(pMob->damtype);
+	free_string(pMob->clan);
+	free_string(pMob->race);
 	mlstr_destroy(&pMob->short_descr);
 	mlstr_destroy(&pMob->long_descr);
 	mlstr_destroy(&pMob->description);
@@ -942,7 +955,7 @@ void fread_objval(flag32_t item_type, vo_t *v, FILE *fp)
 		INT_VAL(v[0]) = flag_value(weapon_class, fread_word(fp));
 		INT_VAL(v[1]) = fread_number(fp);
 		INT_VAL(v[2]) = fread_number(fp);
-		STR_VAL_ASSIGN(v[3], fread_name(fp, &damtypes, "fread_obj_val"));
+		STR_VAL_ASSIGN(v[3], fread_strkey(fp, &damtypes, "fread_obj_val"));
 		INT_VAL(v[4]) = fread_flags(fp);
 		break;
 
@@ -951,7 +964,7 @@ void fread_objval(flag32_t item_type, vo_t *v, FILE *fp)
 		INT_VAL(v[0]) = fread_number(fp);
 		INT_VAL(v[1]) = fread_number(fp);
 		INT_VAL(v[2]) = fread_number(fp);
-		STR_VAL_ASSIGN(v[3], fread_name(fp, &skills, "fread_obj_val"));
+		STR_VAL_ASSIGN(v[3], fread_strkey(fp, &skills, "fread_obj_val"));
 		INT_VAL(v[4]) = fread_number(fp);
 		break;
 
@@ -960,7 +973,7 @@ void fread_objval(flag32_t item_type, vo_t *v, FILE *fp)
 	case ITEM_SCROLL:
 		INT_VAL(v[0]) = fread_number(fp);
 		for (i = 1; i < 5; i++)
-			STR_VAL_ASSIGN(v[i], fread_name(fp, &skills, "fread_obj_val"));
+			STR_VAL_ASSIGN(v[i], fread_strkey(fp, &skills, "fread_obj_val"));
 		break;
 	}
 }

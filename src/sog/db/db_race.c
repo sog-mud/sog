@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_race.c,v 1.11 1999-10-17 08:55:53 fjoe Exp $
+ * $Id: db_race.c,v 1.12 1999-10-21 12:52:09 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -50,11 +50,11 @@ DBINIT_FUN(init_race)
 	if (DBDATA_VALID(dbdata))
 		db_set_arg(dbdata, "PCRACE", NULL);
 	else {
-		hash_init(&races, NAME_HASH_SIZE, sizeof(race_t),
+		hash_init(&races, STRKEY_HASH_SIZE, sizeof(race_t),
 			  (varr_e_init_t) race_init,
 			  (varr_e_destroy_t) race_destroy);
-		races.k_hash = name_hash;
-		races.ke_cmp = name_struct_cmp;
+		races.k_hash = strkey_hash;
+		races.ke_cmp = strkey_struct_cmp;
 		races.e_cpy = (hash_e_cpy_t) race_cpy;
 	}
 }
@@ -194,7 +194,7 @@ DBLOAD_FUN(load_pcrace)
 			KEY("Size", pcr->size, fread_fword(size_table, fp));
 			KEY("Slang", pcr->slang, fread_fword(slang_table, fp));
 			SKEY("SkillSpec", pcr->skill_spec,
-			     fread_name(fp, &specs, "load_pcrace"));
+			     fread_strkey(fp, &specs, "load_pcrace"));
 			if (!str_cmp(word, "ShortName")) {
 				const char *p = fread_string(fp);
 				strnzcpy(pcr->who_name, sizeof(pcr->who_name),

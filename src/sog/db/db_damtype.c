@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_damtype.c,v 1.1 1999-10-06 09:56:15 fjoe Exp $
+ * $Id: db_damtype.c,v 1.2 1999-10-21 12:52:09 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -46,12 +46,12 @@ DBDATA db_damtype = { dbfun_damtype, init_damtype };
 
 DBINIT_FUN(init_damtype)
 {
-	if (DBDATA_VALID(dbdata)) {
-		hash_init(&damtypes, NAME_HASH_SIZE, sizeof(damtype_t),
+	if (!DBDATA_VALID(dbdata)) {
+		hash_init(&damtypes, STRKEY_HASH_SIZE, sizeof(damtype_t),
 			  (varr_e_init_t) damtype_init,
 			  (varr_e_destroy_t) damtype_destroy);
-		damtypes.k_hash = name_hash;
-		damtypes.ke_cmp = name_struct_cmp;
+		damtypes.k_hash = strkey_hash;
+		damtypes.ke_cmp = strkey_struct_cmp;
 		damtypes.e_cpy = (hash_e_cpy_t) damtype_cpy;
 	}
 }

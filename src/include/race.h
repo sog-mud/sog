@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: race.h,v 1.13 1999-10-17 08:55:44 fjoe Exp $
+ * $Id: race.h,v 1.14 1999-10-21 12:51:54 fjoe Exp $
  */
 
 #ifndef _RACE_H_
@@ -74,12 +74,12 @@ struct rclass_t {
 
 extern hash_t races;
 
-#define race_lookup(rn)	((race_t*) hash_lookup(&races, (rn)))
-#define race_search(rn) ((race_t*) name_search(&races, (rn)))
+#define race_lookup(rn)	((race_t*) strkey_lookup(&races, (rn)))
+#define race_search(rn) ((race_t*) strkey_search(&races, (rn)))
 #define rclass_lookup(r, cn) \
 	((rclass_t*) varr_bsearch(&r->race_pcdata->classes, &cn, cmpstr))
 
-#define IS_RACE(r1, r2)		(!str_cmp(r1, r2))
+#define IS_RACE(r1, r2)		(!str_cmp((r1), (r2)))
 
 void	race_init	(race_t *r);
 race_t *race_cpy	(race_t *dst, race_t *src);

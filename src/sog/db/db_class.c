@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_class.c,v 1.22 1999-10-17 08:55:53 fjoe Exp $
+ * $Id: db_class.c,v 1.23 1999-10-21 12:52:09 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -51,11 +51,11 @@ DBINIT_FUN(init_class)
 	if (DBDATA_VALID(dbdata))
 		db_set_arg(dbdata, "POSE", NULL);
 	else {
-		hash_init(&classes, NAME_HASH_SIZE, sizeof(class_t),
+		hash_init(&classes, STRKEY_HASH_SIZE, sizeof(class_t),
 			  (varr_e_init_t) class_init,
 			  (varr_e_destroy_t) class_destroy);
-		classes.k_hash = name_hash;
-		classes.ke_cmp = name_struct_cmp;
+		classes.k_hash = strkey_hash;
+		classes.ke_cmp = strkey_struct_cmp;
 		classes.e_cpy = (hash_e_cpy_t) class_cpy;
 	}
 }
@@ -134,7 +134,7 @@ DBLOAD_FUN(load_class)
 			KEY("SchoolWeapon", class.weapon,
 			    fread_number(fp));
 			SKEY("SkillSpec", class.skill_spec,
-			     fread_name(fp, &specs, "load_class"));
+			     fread_strkey(fp, &specs, "load_class"));
 			if (!str_cmp(word, "ShortName")) {
 				const char *p = fread_string(fp);
 				strnzcpy(class.who_name,
@@ -151,24 +151,6 @@ DBLOAD_FUN(load_class)
 		case 'T':
 			KEY("Thac0_00", class.thac0_00, fread_number(fp));
 			KEY("Thac0_32", class.thac0_32, fread_number(fp));
-			if (!str_cmp(word, "Title")) {
-				int level;
-				int sex;
-
-				level = fread_number(fp);
-				if (level < 0 || level > MAX_LEVEL) {
-					db_error("load_class",
-						 "invalid level %d", level);
-					continue;
-				}
-				sex = fread_fword(sex_table, fp);
-				if (sex != SEX_MALE && sex != SEX_FEMALE) {
-					db_error("load_class", "invalid sex");
-					continue;
-				}
-				class.titles[level][sex-1] = fread_string(fp);
-				fMatch = TRUE;
-			}
 			break;
 		}
 

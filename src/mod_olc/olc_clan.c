@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_clan.c,v 1.34 1999-10-19 19:22:56 avn Exp $
+ * $Id: olc_clan.c,v 1.35 1999-10-21 12:51:56 fjoe Exp $
  */
 
 #include "olc.h"
@@ -37,8 +37,6 @@ DECLARE_OLC_FUN(claned_touch		);
 DECLARE_OLC_FUN(claned_show		);
 DECLARE_OLC_FUN(claned_list		);
 
-DECLARE_OLC_FUN(claned_name		);
-DECLARE_OLC_FUN(claned_filename		);
 DECLARE_OLC_FUN(claned_recall		);
 DECLARE_OLC_FUN(claned_flags		);
 DECLARE_OLC_FUN(claned_item		);
@@ -47,7 +45,8 @@ DECLARE_OLC_FUN(claned_altar		);
 DECLARE_OLC_FUN(claned_plist		);
 DECLARE_OLC_FUN(claned_skillspec	);
 
-static DECLARE_VALIDATE_FUN(validate_clan_name);
+/* also should move clan's plists */
+olced_strkey_t strkey_clans = { &clans, CLANS_PATH };
 
 olc_cmd_t olc_cmds_clan[] =
 {
@@ -58,8 +57,7 @@ olc_cmd_t olc_cmds_clan[] =
 	{ "show",	claned_show					},
 	{ "list",	claned_list					},
 
-	{ "name",	claned_name,	validate_clan_name	 	},
-	{ "filename",	claned_filename,validate_filename		},
+	{ "name",	olced_strkey,	NULL,		&strkey_clans 	},
 	{ "recall",	claned_recall,	validate_room_vnum		},
 	{ "flags",	claned_flags,	NULL,		clan_flags	},
 	{ "item",	claned_item					},
@@ -72,12 +70,16 @@ olc_cmd_t olc_cmds_clan[] =
 	{ NULL }
 };
 
-static void save_clan(CHAR_DATA *ch, clan_t *clan);
+typedef struct _save_clan_t {
+	CHAR_DATA *ch;
+	bool found;
+} _save_clan_t;
+static void *save_clan_cb(void *p, void *d);
 
 OLC_FUN(claned_create)
 {
-	int cln;
-	clan_t *clan;
+	clan_t clan;
+	clan_t *cl;
 	char arg[MAX_STRING_LENGTH];
 
 	if (PC(ch)->security < SECURITY_CLAN) {
@@ -92,26 +94,31 @@ OLC_FUN(claned_create)
 		return FALSE;
 	}
 
-	if ((cln = cln_lookup(arg)) >= 0) {
-		char_printf(ch, "ClanEd: %s: already exists.\n",
-			    CLAN(cln)->name);
+	/*
+	 * olced_busy check is not needed since hash_insert
+	 * adds new elements to the end of varr
+	 */
+
+	clan_init(&clan);
+	clan.name = str_dup(arg);
+	cl = hash_insert(&clans, &clan, clan.name);
+	clan_destroy(&clan);
+
+	if (cl == NULL) {
+		char_printf(ch, "ClanEd: %s: already exists.\n", arg);
 		return FALSE;
 	}
 
-	clan		= clan_new();
-	clan->name	= str_dup(arg);
-	clan->file_name	= str_printf("clan%02d.clan", clans.nused-1);
-
-	ch->desc->pEdit	= (void *)clan;
+	ch->desc->pEdit	= cl;
 	OLCED(ch)	= olced_lookup(ED_CLAN);
-	touch_clan(clan);
-	char_puts("Clan created.\n",ch);
+	touch_clan(cl);
+	char_puts("Clan created.\n", ch);
 	return FALSE;
 }
 
 OLC_FUN(claned_edit)
 {
-	int cln;
+	clan_t *clan;
 	char arg[MAX_STRING_LENGTH];
 
 	if (PC(ch)->security < SECURITY_CLAN) {
@@ -125,40 +132,25 @@ OLC_FUN(claned_edit)
 		return FALSE;
 	}
 
-	if ((cln = cln_lookup(arg)) < 0) {
+	if ((clan = clan_search(arg)) == NULL) {
 		char_printf(ch, "ClanEd: %s: No such clan.\n", arg);
 		return FALSE;
 	}
 
-	ch->desc->pEdit	= CLAN(cln);
+	ch->desc->pEdit	= clan;
 	OLCED(ch)	= olced_lookup(ED_CLAN);
 	return FALSE;
 }
 
 OLC_FUN(claned_save)
 {
-	int i;
-	FILE *fp;
-	bool found = FALSE;
-
-	fp = olc_fopen(CLANS_PATH, CLAN_LIST, ch, SECURITY_CLAN);
-	if (fp == NULL)
-		return FALSE;
+	_save_clan_t sc;
 
 	olc_printf(ch, "Saved clans:");
-
-	for (i = 0; i < clans.nused; i++) {
-		fprintf(fp, "%s\n", CLAN(i)->file_name);
-		if (IS_SET(CLAN(i)->clan_flags, CLAN_CHANGED)) {
-			save_clan(ch, CLAN(i));
-			found = TRUE;
-		}
-	}
-
-	fprintf(fp, "$\n");
-	fclose(fp);
-
-	if (!found)
+	sc.ch = ch;
+	sc.found = FALSE;
+	hash_foreach(&clans, save_clan_cb, &sc);
+	if (!sc.found)
 		olc_printf(ch, "    None.");
 	return FALSE;
 }
@@ -173,7 +165,6 @@ OLC_FUN(claned_touch)
 OLC_FUN(claned_show)
 {
 	char arg[MAX_STRING_LENGTH];
-	int i;
 	BUFFER *output;
 	clan_t *clan;
 
@@ -185,21 +176,15 @@ OLC_FUN(claned_show)
 			dofun("help", ch, "'OLC ASHOW'");
 			return FALSE;
 		}
-	}
-	else {
-		if ((i = cln_lookup(arg)) < 0) {
-			char_printf(ch, "ClanEd: %s: No such clan.\n", arg);
-			return FALSE;
-		}
-		clan = CLAN(i);
+	} else if ((clan = clan_search(arg)) == NULL) {
+		char_printf(ch, "ClanEd: %s: No such clan.\n", arg);
+		return FALSE;
 	}
 
 	output = buf_new(-1);
 	buf_printf(output,
-		   "Name:        [%s]\n"
-		   "Filename:    [%s]\n",
-		   clan->name,
-		   clan->file_name);
+		   "Name:        [%s]\n",
+		   clan->name);
 	if (!IS_NULLSTR(clan->skill_spec))
 		buf_printf(output, "SkillSpec:   [%s]\n", clan->skill_spec);
 	if (clan->clan_flags)
@@ -226,25 +211,12 @@ OLC_FUN(claned_show)
 
 OLC_FUN(claned_list)
 {
-	int i;
-
-	for (i = 0; i < clans.nused; i++)
-		char_printf(ch, "[%d] %s\n", i, CLAN(i)->name);
+	BUFFER *out = buf_new(-1);
+	buf_add(out, "List of defined clans:\n");
+	strkey_printall(&clans, out);
+	page_to_char(buf_string(out), ch);
+	buf_free(out);
 	return FALSE;
-}
-
-OLC_FUN(claned_name)
-{
-	clan_t *clan;
-	EDIT_CLAN(ch, clan);
-	return olced_str(ch, argument, cmd, &clan->name);
-}
-
-OLC_FUN(claned_filename)
-{
-	clan_t *clan;
-	EDIT_CLAN(ch, clan);
-	return olced_str(ch, argument, cmd, &clan->file_name);
 }
 
 OLC_FUN(claned_recall)
@@ -347,30 +319,22 @@ bool touch_clan(clan_t *clan)
 	return FALSE;
 }
 
-static VALIDATE_FUN(validate_clan_name)
+static void *
+save_clan_cb(void *p, void *d)
 {
-	int i;
-	clan_t *clan;
-	EDIT_CLAN(ch, clan);
-
-	for (i = 0; i < clans.nused; i++)
-		if (CLAN(i) != clan
-		&&  !str_cmp(CLAN(i)->name, arg)) {
-			char_printf(ch, "ClanEd: %s: duplicate clan name.\n",
-				    arg);
-			return FALSE;
-		}
-
-	return TRUE;
-}
-
-static void save_clan(CHAR_DATA *ch, clan_t *clan)
-{
+	clan_t *clan = (clan_t *) p;
+	_save_clan_t *sc = (_save_clan_t *) d;
+	
 	FILE *fp;
+	char buf[PATH_MAX];
 
-/* save clan data */
-	if ((fp = olc_fopen(CLANS_PATH, clan->file_name, ch, -1)) == NULL)
-		return;
+	if (!IS_SET(clan->clan_flags, CLAN_CHANGED))
+		return NULL;
+
+	snprintf(buf, sizeof(buf), "%s.%s",
+		 strkey_filename(clan->name), CLAN_EXT);
+	if ((fp = olc_fopen(CLANS_PATH, buf, sc->ch, -1)) == NULL)
+		return NULL;
 		
 	fprintf(fp, "#CLAN\n");
 
@@ -396,8 +360,8 @@ static void save_clan(CHAR_DATA *ch, clan_t *clan)
 	fclose(fp);
 
 /* save plists */
-	if ((fp = olc_fopen(PLISTS_PATH, clan->file_name, ch, -1)) == NULL)
-		return;
+	if ((fp = olc_fopen(PLISTS_PATH, buf, sc->ch, -1)) == NULL)
+		return NULL;
 
 	fprintf(fp, "#PLISTS\n");
 
@@ -409,6 +373,8 @@ static void save_clan(CHAR_DATA *ch, clan_t *clan)
 		    "#$\n");
 	fclose(fp);
 
-	olc_printf(ch, "    %s (%s)", clan->name, clan->file_name);
+	olc_printf(sc->ch, "    %s (%s)", clan->name, buf);
+	sc->found = TRUE;
+	return NULL;
 }
 

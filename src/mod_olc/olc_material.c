@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_material.c,v 1.5 1999-10-20 05:49:45 avn Exp $
+ * $Id: olc_material.c,v 1.6 1999-10-21 12:51:56 fjoe Exp $
  */
 
 #include "olc.h"
@@ -204,7 +204,7 @@ OLC_FUN(mated_list)
 	BUFFER	*buffer;
 
 	buffer = buf_new(-1);
-	hash_print_names(&materials, buffer);
+	strkey_printall(&materials, buffer);
 	page_to_char(buf_string(buffer), ch);
 	buf_free(buffer);
 	return FALSE;

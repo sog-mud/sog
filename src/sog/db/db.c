@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.175 1999-10-20 11:10:44 fjoe Exp $
+ * $Id: db.c,v 1.176 1999-10-21 12:52:07 fjoe Exp $
  */
 
 /***************************************************************************
@@ -107,16 +107,18 @@ const char PLAYER_PATH		[] = "player";
 const char GODS_PATH		[] = "gods";
 const char NOTES_PATH		[] = "notes";
 const char ETC_PATH		[] = "etc";
-const char RACES_PATH		[] = "races";
-const char CLASSES_PATH		[] = "classes";
-const char CLANS_PATH		[] = "clans";
 const char AREA_PATH		[] = "area";
 const char LANG_PATH		[] = "lang";
 const char MODULES_PATH		[] = "modules";
+
+const char CLASSES_PATH		[] = "classes";
+const char CLANS_PATH		[] = "clans";
+const char RACES_PATH		[] = "races";
 const char SPEC_PATH		[] = "specs";
 
 const char RACE_EXT		[] = "race";
 const char CLASS_EXT		[] = "class";
+const char CLAN_EXT		[] = "clan";
 const char SPEC_EXT		[] = "spec";
 
 #if defined (WIN32)
@@ -814,6 +816,19 @@ void area_update(void)
 	}
 }
 
+static void *
+clan_item_cb(void *p, void *d)
+{
+	clan_t *clan = (clan_t *) p;
+	OBJ_INDEX_DATA *pObjIndex = (OBJ_INDEX_DATA *) d;
+
+	if (clan->obj_ptr == NULL
+	||  pObjIndex->vnum != clan->obj_vnum)
+		return NULL;
+
+	return p;
+}
+
 /*
  * OLC
  * Reset one room.  Called by reset_area and olc.
@@ -859,8 +874,7 @@ void reset_room(ROOM_INDEX_DATA *pRoom, int flags)
         OBJ_INDEX_DATA  *pObjToIndex;
         ROOM_INDEX_DATA *pRoomIndex;
 	int count,limit=0;
-	int cln;
-	clan_t* clan=NULL;
+	clan_t* clan;
         EXIT_DATA *pExit;
         int d0;
         int d1;
@@ -993,10 +1007,8 @@ void reset_room(ROOM_INDEX_DATA *pRoom, int flags)
 		        break;
 		      }
 	    if (IS_SET(pObjIndex->extra_flags, ITEM_CLAN)) {
-		for (cln = 0; cln < clans.nused; cln++) 
-			if(pObjIndex->vnum == clan_lookup(cln)->obj_vnum)
-				clan = clan_lookup(cln);
-		if (clan != NULL && clan->obj_ptr == NULL) {
+		clan = hash_foreach(&clans, clan_item_cb, pObjIndex);
+		if (clan != NULL) {
 			pObj = create_obj(pObjIndex, 0);
 			clan->obj_ptr = pObj;
 			clan->altar_ptr = LastObj;
@@ -1181,7 +1193,8 @@ CHAR_DATA *create_mob(MOB_INDEX_DATA *pMobIndex)
 	mob->form		= pMobIndex->form;
 	mob->parts		= pMobIndex->parts;
 	mob->size		= pMobIndex->size;
-	mob->clan		= pMobIndex->clan;
+	free_string(mob->clan);
+	mob->clan		= str_qdup(pMobIndex->clan);
 	mob->invis_level	= pMobIndex->invis_level;
 	mob->incog_level	= pMobIndex->incog_level;
 	mob->material		= str_qdup(pMobIndex->material);
@@ -1381,7 +1394,8 @@ void clone_mob(CHAR_DATA *parent, CHAR_DATA *clone)
 	clone->material		= str_qdup(parent->material);
 	clone->damtype		= str_qdup(parent->damtype);
 	clone->hunting		= NULL;
-	clone->clan		= parent->clan;
+	free_string(clone->clan);
+	clone->clan	= str_qdup(parent->clan);
 	NPC(clone)->dam	= NPC(parent)->dam;
 
 
@@ -2433,20 +2447,5 @@ flag64_t fread_fstring(const flag_t *table, FILE *fp)
 
 	free_string(s);
 	return val;
-}
-
-int fread_clan(FILE *fp)
-{
-	int cln;
-	const char *name;
-
-	name = fread_string(fp);
-	cln = cln_lookup(name);
-	if (cln < 0) {
-		db_error("fread_clan", "%s: unknown clan", name);
-		cln = 0;
-	}
-	free_string(name);
-	return cln;
 }
 

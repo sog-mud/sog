@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_material.c,v 1.2 1999-10-20 05:49:54 avn Exp $
+ * $Id: db_material.c,v 1.3 1999-10-21 12:52:09 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -46,12 +46,12 @@ DBDATA db_materials = { dbfun_materials, init_materials };
 
 DBINIT_FUN(init_materials)
 {
-	if (DBDATA_VALID(dbdata)) {
-		hash_init(&materials, NAME_HASH_SIZE, sizeof(material_t),
+	if (!DBDATA_VALID(dbdata)) {
+		hash_init(&materials, STRKEY_HASH_SIZE, sizeof(material_t),
 			  (varr_e_init_t) material_init,
 			  (varr_e_destroy_t) material_destroy);
-		materials.k_hash = name_hash;
-		materials.ke_cmp = name_struct_cmp;
+		materials.k_hash = strkey_hash;
+		materials.ke_cmp = strkey_struct_cmp;
 		materials.e_cpy = (hash_e_cpy_t) material_cpy;
 	}
 }

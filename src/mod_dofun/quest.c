@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: quest.c,v 1.125 1999-10-17 08:55:42 fjoe Exp $
+ * $Id: quest.c,v 1.126 1999-10-21 12:51:51 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -71,7 +71,6 @@ static bool quest_give_item(CHAR_DATA *ch, CHAR_DATA *questor,
 			    int item_vnum, int count_max);
 
 static bool buy_gold(CHAR_DATA *ch, CHAR_DATA *questor);
-static bool buy_prac(CHAR_DATA *ch, CHAR_DATA *questor);
 static bool buy_tattoo(CHAR_DATA *ch, CHAR_DATA *questor);
 static bool buy_death(CHAR_DATA *ch, CHAR_DATA *questor);
 static bool buy_katana(CHAR_DATA *ch, CHAR_DATA *questor);
@@ -97,9 +96,6 @@ qitem_t qitem_table[] = {
 
 	{ "50,000 gold pieces",		 500, NULL,
 	   0, buy_gold						},
-
-	{ "60 practices",		 500, NULL,
-	   0, buy_prac						},
 
 	{ "tattoo of your religion",	 200, NULL,
 	   0, buy_tattoo					},
@@ -707,7 +703,6 @@ static void quest_complete(CHAR_DATA *ch, char *arg)
 
 	int gold_reward = 0;
 	int qp_reward = 0;
-	int prac_reward = 0;
 
 	if ((questor = questor_lookup(ch)) == NULL)
 		return;
@@ -732,7 +727,7 @@ static void quest_complete(CHAR_DATA *ch, char *arg)
 		return;
 	}
 
-	if (PC(ch)->questobj > 0)
+	if (PC(ch)->questobj > 0) {
 		for (obj = ch->carrying; obj; obj = obj_next) {
 			obj_next = obj->next_content;
 
@@ -744,8 +739,6 @@ static void quest_complete(CHAR_DATA *ch, char *arg)
 				    ch, obj, questor, TO_ROOM);
 				extract_obj(obj, 0);
 
-				if (chance(15))
-					prac_reward = number_range(1, 6);
 				qp_reward = number_range(20, 40);
 				gold_reward = 35 + number_range(ch->level, 2*ch->level);
 
@@ -753,9 +746,7 @@ static void quest_complete(CHAR_DATA *ch, char *arg)
 				break;
 			}
 		}
-	else if (PC(ch)->questmob == -1) {
-		if (chance(2))
-			prac_reward = number_range(1, 6);
+	} else if (PC(ch)->questmob == -1) {
 		qp_reward = number_range(15, 35);
 		gold_reward = dice(ch->level/10 + 1, 30);
 		gold_reward = URANGE(0, gold_reward, 20*ch->level);
@@ -781,13 +772,6 @@ static void quest_complete(CHAR_DATA *ch, char *arg)
 		  questor, (const void*) qp_reward,
 		  ch, (const void*) gold_reward,
 		  TO_VICT, POS_DEAD);
-
-	if (prac_reward) {
-		PC(ch)->practice += prac_reward;
-		act_puts("    You gain {W$j{x $qj{practices}!",
-			 questor, (const void*) prac_reward, ch,
-			 TO_VICT, POS_DEAD);
-	}
 
 	quest_cancel(ch);
 	PC(ch)->questtime = -number_range(8, 12);
@@ -995,15 +979,6 @@ static bool buy_gold(CHAR_DATA *ch, CHAR_DATA *questor)
 	PC(ch)->bank_g += 50000;
 	act("$N gives 50,000 gold pieces to $n.", ch, NULL, questor, TO_ROOM);
 	act("$N transfers 50,000 gold pieces to your bank account.",ch, NULL, questor, TO_CHAR);
-	return TRUE;
-}
-
-static bool buy_prac(CHAR_DATA *ch, CHAR_DATA *questor)
-{
-	PC(ch)->practice += 60;
-	act("$N gives 60 practices to $n.", ch, NULL, questor, TO_ROOM);
-	act_puts("$N gives you 60 practices.",
-		 ch, NULL, questor, TO_CHAR, POS_DEAD);
 	return TRUE;
 }
 

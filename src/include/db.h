@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db.h,v 1.54 1999-10-20 11:10:37 fjoe Exp $
+ * $Id: db.h,v 1.55 1999-10-21 12:51:53 fjoe Exp $
  */
 
 #ifndef _DB_H_
@@ -141,7 +141,6 @@ flag64_t	fread_fword	(const flag_t *table, FILE *fp);
 void		fwrite_ival	(FILE *fp, const flag_t *table,
 				 const char *name, int);
 flag64_t	fread_fstring	(const flag_t *table, FILE *fp);
-int		fread_clan	(FILE *fp);
 
 void		fwrite_string	(FILE *fp, const char *name, const char *str);
 void		fwrite_word	(FILE *fp, const char *name, const char *w);
@@ -223,17 +222,18 @@ extern const char PLAYER_PATH	[];
 extern const char GODS_PATH	[];
 extern const char NOTES_PATH	[];
 extern const char ETC_PATH	[];
-extern const char CLANS_PATH	[];
 extern const char AREA_PATH	[];
 extern const char LANG_PATH	[];
-extern const char PLISTS_PATH	[];
 extern const char MODULES_PATH	[];
 
 extern const char CLASSES_PATH	[];
+extern const char CLANS_PATH	[];
+extern const char PLISTS_PATH	[];
 extern const char RACES_PATH	[];
 extern const char SPEC_PATH	[];
 
 extern const char CLASS_EXT	[];
+extern const char CLAN_EXT	[];
 extern const char RACE_EXT	[];
 extern const char SPEC_EXT	[];
 
@@ -252,8 +252,6 @@ extern const char MATERIALS_CONF[];
 extern const char LIQUIDS_CONF	[];
 
 extern const char AREA_LIST	[];
-extern const char CLAN_LIST	[];
-extern const char CLASS_LIST	[];
 extern const char LANG_LIST	[];
 
 extern const char NOTE_FILE	[];

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_mob.c,v 1.45 1999-10-17 08:55:45 fjoe Exp $
+ * $Id: olc_mob.c,v 1.46 1999-10-21 12:51:56 fjoe Exp $
  */
 
 #include "olc.h"
@@ -123,7 +123,7 @@ olc_cmd_t olc_cmds_mob[] =
 	{ "hitroll",	mobed_hitroll					},
 	{ "damtype",	mobed_damtype					},
 	{ "group",	mobed_group					},
-	{ "clan",	mobed_clan					},
+	{ "clan",	mobed_clan,	NULL,		&clans		},
 	{ "trigadd",	mobed_trigadd					},
 	{ "trigdel",	mobed_trigdel					},
 	{ "clone",	mobed_clone					},
@@ -233,7 +233,6 @@ OLC_FUN(mobed_show)
 	AREA_DATA	*pArea;
 	MPTRIG *mptrig;
 	BUFFER *buf;
-	clan_t *clan;
 
 	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
@@ -266,8 +265,8 @@ OLC_FUN(mobed_show)
 		flag_string(sex_table, pMob->sex),
 		pMob->race);
 
-	if (pMob->clan && (clan = clan_lookup(pMob->clan))) 
-		buf_printf(buf, "Clan:        [%s]\n", clan->name);
+	if (!IS_NULLSTR(pMob->clan))
+		buf_printf(buf, "Clan:        [%s]\n", pMob->clan);
 
 	buf_printf(buf, "Level:       [%2d]    Align: [%4d]      Hitroll: [%2d] Dam Type:    [%s]\n",
 		pMob->level,	pMob->alignment,
@@ -502,7 +501,7 @@ OLC_FUN(mobed_damtype)
 
 	if (!str_cmp(arg, "?")) {
 		BUFFER *output = buf_new(-1);
-		hash_print_names(&damtypes, output);
+		strkey_printall(&damtypes, output);
 		page_to_char(buf_string(output), ch);
 		buf_free(output);
 		return FALSE;
@@ -922,7 +921,7 @@ OLC_FUN(mobed_race)
 	if (argument[0] == '?') {
 		BUFFER *buf = buf_new(-1);
 		buf_add(buf, "Available races are:\n");
-		hash_print_names(&races, buf);
+		strkey_printall(&races, buf);
 		page_to_char(buf_string(buf), ch);
 		buf_free(buf);
 		return FALSE;
@@ -1020,7 +1019,7 @@ OLC_FUN(mobed_clan)
 {
 	MOB_INDEX_DATA *pMob;
 	EDIT_MOB(ch, pMob);
-	return olced_clan(ch, argument, cmd, &pMob->clan);
+	return olced_foreign_strkey(ch, argument, cmd, &pMob->clan);
 }
 
 OLC_FUN(mobed_trigadd)
@@ -1170,7 +1169,8 @@ OLC_FUN(mobed_clone)
 	pMob->parts		= pFrom->parts;
 	pMob->size		= pFrom->size;
 	pMob->practicer		= pFrom->practicer;
-	pMob->clan		= pFrom->clan;
+	free_string(pMob->clan);
+	pMob->clan		= str_qdup(pFrom->clan);
 	pMob->invis_level	= pFrom->invis_level;
 	pMob->incog_level	= pFrom->incog_level;
 	pMob->fvnum		= pFrom->fvnum;

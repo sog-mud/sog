@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_class.c,v 1.8 1999-10-20 11:10:39 fjoe Exp $
+ * $Id: olc_class.c,v 1.9 1999-10-21 12:51:56 fjoe Exp $
  */
 
 #include "olc.h"
@@ -39,7 +39,6 @@ DECLARE_OLC_FUN(classed_show		);
 DECLARE_OLC_FUN(classed_list		);
 
 DECLARE_OLC_FUN(classed_whoname		);
-DECLARE_OLC_FUN(classed_titles		);
 DECLARE_OLC_FUN(classed_primary		);
 DECLARE_OLC_FUN(classed_weapon		);
 DECLARE_OLC_FUN(classed_thac00		);
@@ -87,7 +86,6 @@ olc_cmd_t olc_cmds_class[] =
 	{ "ethos",	classed_ethos,		NULL,	ethos_table	},
 	{ "sex",	classed_sex,		NULL,	sex_table	},
 	{ "stats",	classed_stats					},
-	{ "titles",	classed_titles					},
 	{ "poses",	classed_poses					},
 	{ "skillspec",	classed_skillspec,	validate_skill_spec	},
 	{ "guilds",	classed_guilds					},
@@ -132,7 +130,7 @@ OLC_FUN(classed_create)
 	class_destroy(&class);
 
 	if (cl == NULL) {
-		char_printf(ch, "ClassEd: %s: already exists.\n", cl->name);
+		char_printf(ch, "ClassEd: %s: already exists.\n", arg);
 		return FALSE;
 	}
 
@@ -260,7 +258,7 @@ OLC_FUN(classed_show)
 OLC_FUN(classed_list)
 {
 	BUFFER *buffer = buf_new(-1);
-	hash_print_names(&classes, buffer);
+	strkey_printall(&classes, buffer);
 	page_to_char(buf_string(buffer), ch);
 	buf_free(buffer);
 	return FALSE;
@@ -280,51 +278,6 @@ OLC_FUN(classed_whoname)
 	}
 	free_string(str);
 	return FALSE;
-}
-
-OLC_FUN(classed_titles)
-{
-	class_t *class;
-	char arg[MAX_INPUT_LENGTH];
-	int lev;
-	char *endptr;
-	const flag_t *sex;
-
-	EDIT_CLASS(ch, class);
-
-	if (argument[0] == '\0') {
-		int i;
-		BUFFER	*buffer;
-
-		buffer = buf_new(-1);
-		for (i = 0; i < MAX_LEVEL + 1; i++)
-			buf_printf(buffer, "[%3d] %-30.29s %-30.29s\n",
-				   i, class->titles[i][0], class->titles[i][1]);
-		page_to_char(buf_string(buffer), ch);
-		buf_free(buffer);
-		return FALSE;
-	}
-	argument = one_argument(argument, arg, sizeof(arg));
-	if (*arg == '\0') {
-		char_puts("Syntax: titles level <male|female> title\n", ch);
-		return FALSE;
-	}
-	lev = strtol(arg, &endptr, 0);
-	if (*arg == '\0' || *endptr != '\0' || lev < 0 || lev > MAX_LEVEL) {
-		char_puts("Syntax: titles level <male|female> title\n", ch);
-		return FALSE;
-	}
-	argument = one_argument(argument, arg, sizeof(arg));
-	if ((sex = flag_lookup(sex_table, arg)) == NULL
-	|| (sex->bit != SEX_MALE && sex->bit != SEX_FEMALE)) {
-		char_puts("Syntax: titles level <male|female> title\n", ch);
-		return FALSE;
-	}
-	if (class->titles[lev][sex->bit - SEX_MALE])
-		free_string(class->titles[lev][sex->bit - SEX_MALE]);
-	class->titles[lev][sex->bit - SEX_MALE] = str_dup(argument);
-	char_puts("Ok.\n", ch);
-	return TRUE;
 }
 
 OLC_FUN(classed_primary		)
@@ -683,7 +636,7 @@ save_class_cb(void *p, void *d)
 	FILE *fp;
 	char buf[PATH_MAX];
 
-	snprintf(buf, sizeof(buf), "%s.%s", name_filename(cl->name), CLASS_EXT);
+	snprintf(buf, sizeof(buf), "%s.%s", strkey_filename(cl->name), CLASS_EXT);
 	if ((fp = olc_fopen(CLASSES_PATH, buf, sc->ch, -1)) == NULL)
 		return NULL;
 
@@ -722,12 +675,6 @@ save_class_cb(void *p, void *d)
 			flag_string(ethos_table, cl->restrict_ethos));
 	if (cl->death_limit != -1)
 		fprintf(fp, "DeathLimit %d\n", cl->death_limit);
-	for (i = 0; i < MAX_LEVEL + 1; i++) {
-		fprintf(fp, "Title %d male %s~\n",
-			i, PROC_STR(cl->titles[i][0]));
-		fprintf(fp, "Title %d female %s~\n",
-			i, PROC_STR(cl->titles[i][1]));
-	}
 	fprintf(fp, "End\n\n");
 
 	for (i = 0; i < cl->poses.nused; i++) {

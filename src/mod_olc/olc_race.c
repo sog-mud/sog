@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_race.c,v 1.13 1999-10-20 11:10:39 fjoe Exp $
+ * $Id: olc_race.c,v 1.14 1999-10-21 12:51:58 fjoe Exp $
  */
 
 #include "olc.h"
@@ -155,7 +155,7 @@ OLC_FUN(raceed_create)
 	race_destroy(&race);
 
 	if (r == NULL) {
-		char_printf(ch, "RaceEd: %s: already exists.\n", r->name);
+		char_printf(ch, "RaceEd: %s: already exists.\n", arg);
 		return FALSE;
 	}
 
@@ -340,7 +340,7 @@ OLC_FUN(raceed_show)
 OLC_FUN(raceed_list)
 {
 	BUFFER	*buffer = buf_new(-1);
-	hash_print_names(&races, buffer);
+	strkey_printall(&races, buffer);
 	page_to_char(buf_string(buffer), ch);
 	buf_free(buffer);
 	return FALSE;
@@ -789,7 +789,7 @@ save_race_cb(void *p, void *d)
 	if (!IS_SET(r->race_flags, RACE_CHANGED))
 		return NULL;
 
-	snprintf(buf, sizeof(buf), "%s.%s", name_filename(r->name), RACE_EXT);
+	snprintf(buf, sizeof(buf), "%s.%s", strkey_filename(r->name), RACE_EXT);
 	fp = olc_fopen(RACES_PATH, buf, sr->ch, SECURITY_RACE);
 	if (fp == NULL)
 		return NULL;

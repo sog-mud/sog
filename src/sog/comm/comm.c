@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.202 1999-10-17 08:55:51 fjoe Exp $
+ * $Id: comm.c,v 1.203 1999-10-21 12:52:06 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2386,7 +2386,6 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 			PC(ch)->death	= 0;
 
 			spec_update(ch);
-			set_title(ch, title_lookup(ch));
 
 			dofun("outfit", ch, str_empty);
 
@@ -2409,8 +2408,8 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 
 			if (ch->in_room
 			&&  (room_is_private(ch->in_room) ||
-			     (ch->in_room->area->clan &&
-			      ch->in_room->area->clan != ch->clan)))
+			     (!IS_NULLSTR(ch->in_room->area->clan) &&
+			      !IS_CLAN(ch->in_room->area->clan, ch->clan))))
 				ch->in_room = NULL;
 
 			if (ch->in_room) 

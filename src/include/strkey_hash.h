@@ -1,5 +1,5 @@
 /*-
- * Copyright (c) 1998 fjoe <fjoe@iclub.nsu.ru>
+ * Copyright (c) 1999 fjoe <fjoe@iclub.nsu.ru>
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -23,76 +23,46 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: race.c,v 1.8 1999-10-21 12:52:04 fjoe Exp $
+ * $Id: strkey_hash.h,v 1.1 1999-10-21 12:51:54 fjoe Exp $
  */
 
-#include <stdio.h>
-#include <stdlib.h>
-
-#include "merc.h"
-
-hash_t races;
-
-void
-race_init(race_t *r)
-{
-	r->name = str_empty;
-	r->act = 0;
-	r->aff = 0;
-	r->off = 0;
-	r->imm = 0;
-	r->res = 0;
-	r->vuln = 0;
-	r->form = 0;
-	r->parts = 0;
-	r->race_flags = 0;
-	r->race_pcdata = NULL;
-}
+#ifndef _STRKEY_HASH_H_
+#define _STRKEY_HASH_H_
 
 /*
- * r->race_pcdata is not copied intentionally
+ * generic functions and defines for hashing structs with
+ * `const char *name' as first struct member
  */
-race_t *
-race_cpy(race_t *dst, race_t *src)
-{
-	dst->name = str_qdup(src->name);
-	dst->act = src->act;
-	dst->aff = src->aff;
-	dst->off = src->off;
-	dst->imm = src->imm;
-	dst->res = src->res;
-	dst->vuln = src->vuln;
-	dst->form = src->form;
-	dst->race_flags = src->race_flags;
-	return dst;
-}
+#define STRKEY_HASH_SIZE 256
 
-void
-race_destroy(race_t *r)
-{
-	free_string(r->name);
-	if (r->race_pcdata)
-		pcrace_free(r->race_pcdata);
-}
+void		strkey_init(void *);
+void		strkey_destroy(void*);
 
-pcrace_t *
-pcrace_new(void)
-{
-	pcrace_t *pcr;
-	pcr = calloc(1, sizeof(*pcr));
-	pcr->skill_spec = str_empty;
-	varr_init(&pcr->classes, sizeof(rclass_t), 4);
-	pcr->classes.e_init = strkey_init;
-	pcr->classes.e_destroy = strkey_destroy;
-	return pcr;
-}
+int		strkey_hash(const void *k, size_t hsize);
+int		strkey_struct_cmp(const void *k, const void *e);
 
-void
-pcrace_free(pcrace_t *pcr)
-{
-	varr_destroy(&pcr->classes);
-	free_string(pcr->skill_spec);
-	free_string(pcr->bonus_skills);
-	free(pcr);
-}
+void *		strkey_lookup(hash_t *h, const char *name);
 
+/*
+ * search elem by name prefix
+ */
+void *		strkey_search_cb(void *p, void *d);
+void *		strkey_search(hash_t *h, const char *name);
+
+const char *	fread_strkey(FILE *fp, hash_t *h, const char *id);
+void		strkey_printall(hash_t *h, BUFFER *buf);
+char *		strkey_filename(const char *name);
+
+#define STRKEY_STRICT_CHECKS
+#if defined(STRKEY_STRICT_CHECKS)
+#define STRKEY_CHECK(h, key, id)					\
+	do {								\
+		if (!IS_NULLSTR(key)					\
+		&&  hash_lookup(h, (key)) == NULL) 			\
+			wizlog("%s: unknown string key '%s'", id, key);	\
+	} while (0);
+#else
+#define STRKEY_CHECK(h, key, id)
+#endif
+
+#endif

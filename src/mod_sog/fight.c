@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.210 1999-10-20 11:10:41 fjoe Exp $
+ * $Id: fight.c,v 1.211 1999-10-21 12:52:00 fjoe Exp $
  */
 
 /***************************************************************************
@@ -366,14 +366,14 @@ void multi_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt)
 		one_hit(ch, victim, dt, WEAR_WIELD);
 
 	if (ch->fighting != victim
-	||  SKILL_IS(dt, "backstab")
-	||  SKILL_IS(dt, "cleave")
-	||  SKILL_IS(dt, "ambush")
-	||  SKILL_IS(dt, "dual backstab")
-	||  SKILL_IS(dt, "circle")
-	||  SKILL_IS(dt, "assassinate")
-	||  SKILL_IS(dt, "vampiric bite")
-	||  SKILL_IS(dt, "knife"))
+	||  IS_SKILL(dt, "backstab")
+	||  IS_SKILL(dt, "cleave")
+	||  IS_SKILL(dt, "ambush")
+	||  IS_SKILL(dt, "dual backstab")
+	||  IS_SKILL(dt, "circle")
+	||  IS_SKILL(dt, "assassinate")
+	||  IS_SKILL(dt, "vampiric bite")
+	||  IS_SKILL(dt, "knife"))
 		return;
 
 	secondary_hit(ch, victim, dt);
@@ -506,14 +506,14 @@ void mob_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt)
 		one_hit(ch, victim, dt, WEAR_WIELD);
 
 	if (ch->fighting != victim
-	||  SKILL_IS(dt, "backstab")
-	||  SKILL_IS(dt, "cleave")
-	||  SKILL_IS(dt, "ambush")
-	||  SKILL_IS(dt, "dual backstab")
-	||  SKILL_IS(dt, "circle")
-	||  SKILL_IS(dt, "assassinate")
-	||  SKILL_IS(dt, "vampiric bite")
-	||  SKILL_IS(dt, "knife"))
+	||  IS_SKILL(dt, "backstab")
+	||  IS_SKILL(dt, "cleave")
+	||  IS_SKILL(dt, "ambush")
+	||  IS_SKILL(dt, "dual backstab")
+	||  IS_SKILL(dt, "circle")
+	||  IS_SKILL(dt, "assassinate")
+	||  IS_SKILL(dt, "vampiric bite")
+	||  IS_SKILL(dt, "knife"))
 		return;
 
 	if (number_percent() < get_skill(ch, "second attack") / 2) {
@@ -692,17 +692,17 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 	thac0 -= GET_HITROLL(ch) * sk / 100;
 	thac0 += 5 * (100 - sk) / 100;
 
-	if (SKILL_IS(dt, "backstab"))
+	if (IS_SKILL(dt, "backstab"))
 		thac0 -= 10 * (100 - get_skill(ch, "backstab"));
-	else if (SKILL_IS(dt, "dual_backstab"))
+	else if (IS_SKILL(dt, "dual_backstab"))
 		thac0 -= 10 * (100 - get_skill(ch, "dual backstab"));
-	else if (SKILL_IS(dt, "cleave"))
+	else if (IS_SKILL(dt, "cleave"))
 		thac0 -= 10 * (100 - get_skill(ch, "cleave"));
-	else if (SKILL_IS(dt, "ambush"))
+	else if (IS_SKILL(dt, "ambush"))
 		thac0 -= 10 * (100 - get_skill(ch, "ambush"));
-	else if (SKILL_IS(dt, "vampiric bite"))
+	else if (IS_SKILL(dt, "vampiric bite"))
 		thac0 -= 10 * (100 - get_skill(ch, "vampiric bite"));
-	else if (SKILL_IS(dt, "charge"))
+	else if (IS_SKILL(dt, "charge"))
 		thac0 -= 10 * (100 - get_skill(ch, "charge"));
 
 	switch(dam_class) {
@@ -818,7 +818,7 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 		dam += dam * diceroll * sk2 / 10000;
 	}
 
-	if (SKILL_IS(weapon_sn, "sword")
+	if (IS_SKILL(weapon_sn, "sword")
 	&&  (sk2 = get_skill(ch, "mastering sword"))
 	&&  number_percent() <= sk2) {
 		OBJ_DATA *katana;
@@ -860,8 +860,8 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 		dam = dam * 3 / 2;
 
 	sercount = number_percent();
-	if (SKILL_IS(dt, "backstab")
-	||  SKILL_IS(dt, "vampiric bite"))
+	if (IS_SKILL(dt, "backstab")
+	||  IS_SKILL(dt, "vampiric bite"))
 		sercount += 40;
 	if (!IS_IMMORTAL(ch) && IS_PUMPED(ch))
 		sercount += 10;
@@ -871,7 +871,7 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 	&&  !is_safe_nomessage(ch,victim)
 	&&  (victim->position == POS_SITTING ||
 	     victim->position == POS_STANDING)
-	&&  !SKILL_IS(dt, "assassinate")
+	&&  !IS_SKILL(dt, "assassinate")
 	&&  (sercount <= get_skill(victim, "counter"))) {
 		counter = TRUE;
 		check_improve(victim, "counter", TRUE, 1);
@@ -886,19 +886,19 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 	else if (!victim->fighting)
 		check_improve(victim, "counter", FALSE, 1);
 
-	if (SKILL_IS(dt, "backstab") && (IS_NPC(ch) || wield))
+	if (IS_SKILL(dt, "backstab") && (IS_NPC(ch) || wield))
 		dam = LEVEL(ch) / 11 * dam + LEVEL(ch);
-	else if (SKILL_IS(dt, "dual backstab") && (IS_NPC(ch) || wield))
+	else if (IS_SKILL(dt, "dual backstab") && (IS_NPC(ch) || wield))
 		dam = LEVEL(ch) / 14 * dam + LEVEL(ch);
-	else if (SKILL_IS(dt, "circle"))
+	else if (IS_SKILL(dt, "circle"))
 		dam = (LEVEL(ch)/40 + 1) * dam + LEVEL(ch);
-	else if (SKILL_IS(dt, "knife"))
+	else if (IS_SKILL(dt, "knife"))
 		dam = (LEVEL(ch)/28 + 1) * dam + LEVEL(ch);
-	else if (SKILL_IS(dt, "vampiric bite"))
+	else if (IS_SKILL(dt, "vampiric bite"))
 		dam = (LEVEL(ch)/13 + 1) * dam + LEVEL(ch);
-	else if (SKILL_IS(dt, "charge"))
+	else if (IS_SKILL(dt, "charge"))
 		dam = LEVEL(ch)/12 * dam + LEVEL(ch);
-	else if (SKILL_IS(dt, "cleave") && wield != NULL) {
+	else if (IS_SKILL(dt, "cleave") && wield != NULL) {
 		if (number_percent() <
 				(URANGE(4, 5 + LEVEL(ch) - LEVEL(victim), 10)
 				+ (WEAPON_IS(wield, WEAPON_AXE)) ? 2 : 0 +
@@ -920,7 +920,7 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 			dam = (dam * 2 + ch->level);
 	}
 
-	if (SKILL_IS(dt, "assassinate")) {
+	if (IS_SKILL(dt, "assassinate")) {
 		if (number_percent() <=
 				URANGE(10, 20+(LEVEL(ch) - LEVEL(victim))*2, 50)
 		&& !counter && !IS_IMMORTAL(victim)) {
@@ -944,17 +944,17 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 
 	dam += GET_DAMROLL(ch) * UMIN(100, sk) / 100;
 
-	if (SKILL_IS(dt, "ambush"))
+	if (IS_SKILL(dt, "ambush"))
 		dam *= UMAX(3, LEVEL(ch)/12);
 
 	if ((sk2 = get_skill(ch, "deathblow")) > 1
-	&&  !SKILL_IS(dt, "backstab")
-	&&  !SKILL_IS(dt, "dual backstab")
-	&&  !SKILL_IS(dt, "cleave")
-	&&  !SKILL_IS(dt, "assassinate")
-	&&  !SKILL_IS(dt, "ambush")
-	&&  !SKILL_IS(dt, "vampiric bite")
-	&&  !SKILL_IS(dt, "knife")) {
+	&&  !IS_SKILL(dt, "backstab")
+	&&  !IS_SKILL(dt, "dual backstab")
+	&&  !IS_SKILL(dt, "cleave")
+	&&  !IS_SKILL(dt, "assassinate")
+	&&  !IS_SKILL(dt, "ambush")
+	&&  !IS_SKILL(dt, "vampiric bite")
+	&&  !IS_SKILL(dt, "knife")) {
 		if (number_percent() <  (sk2/8)) {
 			act("You deliver a blow of deadly force!",
 			    ch, NULL, NULL, TO_CHAR);
@@ -1276,7 +1276,7 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim,
 	 * Damage modifiers.
 	 */
 	if (IS_AFFECTED(victim, AFF_SANCTUARY)
-	&&  !(SKILL_IS(dt, "cleave") && (number_percent() < 50)))
+	&&  !(IS_SKILL(dt, "cleave") && (number_percent() < 50)))
 		dam /= 2;
 
 	if (IS_AFFECTED(victim, AFF_BLACK_SHROUD)) 
@@ -1467,7 +1467,7 @@ is_safe_raw(CHAR_DATA *ch, CHAR_DATA *victim)
 	 * extracted NPCs are safe too
 	 */
 	if (!IS_NPC(victim)) {
-		int clan;
+		const char *cln;
 
 		/* ghost cannot attack !IS_NPC */
 		if (ch != victim
@@ -1475,18 +1475,17 @@ is_safe_raw(CHAR_DATA *ch, CHAR_DATA *victim)
 		&&  IS_SET(PC(ch)->plr_flags, PLR_GHOST))
 			return TRUE;
 
+		cln = victim->in_room->area->clan;
 		/* clan defenders can attack anyone in their clan */
-		if (victim->in_room
-		&&  (clan = victim->in_room->area->clan)
-		&&  victim->clan != clan
-		&&  ch->clan == clan)
+		if (!IS_NULLSTR(cln)
+		&&  !IS_CLAN(victim->clan, cln)
+		&&  IS_CLAN(ch->clan, cln))
 			return FALSE;
 
 		/* otherwise ghosts are safe */
 		if (IS_SET(PC(victim)->plr_flags, PLR_GHOST))
 			return TRUE;
-	}
-	else if (IS_EXTRACTED(victim))
+	} else if (IS_EXTRACTED(victim))
 		return TRUE;
 
 	if (victim->fighting == ch
@@ -1495,8 +1494,8 @@ is_safe_raw(CHAR_DATA *ch, CHAR_DATA *victim)
 		return FALSE;
 
 	/* handle ROOM_PEACE flags */
-	if ((victim->in_room && IS_SET(victim->in_room->room_flags, ROOM_PEACE))
-	||  (ch->in_room && IS_SET(ch->in_room->room_flags, ROOM_PEACE)))
+	if (IS_SET(victim->in_room->room_flags, ROOM_PEACE)
+	||  IS_SET(ch->in_room->room_flags, ROOM_PEACE))
 		return TRUE;
 
 	/* link dead players whose adrenalin is not gushing are safe */
@@ -1533,7 +1532,7 @@ bool is_safe_nomessage(CHAR_DATA *ch, CHAR_DATA *victim)
 		AFFECT_DATA *paf;
 
 		for (paf = victim->affected; paf; paf = paf->next)
-			if (SKILL_IS(paf->type, "qtarget")
+			if (IS_SKILL(paf->type, "qtarget")
 			&&  (ch->level > paf->modifier ||
 			     ch->level < paf->level))
 				return TRUE;
@@ -1544,7 +1543,7 @@ bool is_safe_nomessage(CHAR_DATA *ch, CHAR_DATA *victim)
 		AFFECT_DATA *paf;
 
 		for (paf = ch->affected; paf; paf = paf->next)
-			if (SKILL_IS(paf->type, "qtarget")
+			if (IS_SKILL(paf->type, "qtarget")
 			&&  (victim->level < paf->modifier ||
 			     victim->level < paf->level))
 				return TRUE;

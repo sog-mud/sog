@@ -1,5 +1,5 @@
 /*
- * $Id: olc.h,v 1.50 1999-10-20 05:49:44 avn Exp $
+ * $Id: olc.h,v 1.51 1999-10-21 12:51:55 fjoe Exp $
  */
 
 /***************************************************************************
@@ -140,6 +140,8 @@ bool olced_number	(CHAR_DATA *ch, const char *argument,
 			 olc_cmd_t *cmd, int*);
 bool olced_name		(CHAR_DATA *ch, const char *argument,
 			 olc_cmd_t *cmd, const char **pStr);
+bool olced_foreign_strkey(CHAR_DATA *ch, const char *argument,
+			 olc_cmd_t *cmd, const char **pStr);
 bool olced_str		(CHAR_DATA *ch, const char *argument,
 			 olc_cmd_t *cmd, const char **pStr);
 bool olced_str_text	(CHAR_DATA *ch, const char *argument,
@@ -158,8 +160,6 @@ bool olced_flag32	(CHAR_DATA *ch, const char* argument,
 			 olc_cmd_t *cmd, flag32_t*);
 bool olced_dice		(CHAR_DATA *ch, const char *argument,
 			 olc_cmd_t *cmd, int *dice);
-bool olced_clan		(CHAR_DATA *ch, const char *argument,
-			 olc_cmd_t *cmd, int *clan);
 bool olced_rulecl	(CHAR_DATA *ch, const char *argument,
 			 olc_cmd_t *cmd, lang_t *l);
 bool olced_vform_add	(CHAR_DATA *ch, const char *argument,

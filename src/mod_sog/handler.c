@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.189 1999-10-20 05:49:46 avn Exp $
+ * $Id: handler.c,v 1.190 1999-10-21 12:52:01 fjoe Exp $
  */
 
 /***************************************************************************
@@ -352,7 +352,7 @@ void char_to_room(CHAR_DATA *ch, ROOM_INDEX_DATA *pRoomIndex)
 	    
 	    for (af = ch->affected; af != NULL; af = af->next)
 	    {
-	        if (SKILL_IS(af->type, "plague"))
+	        if (IS_SKILL(af->type, "plague"))
 	            break;
 	    }
 	    
@@ -584,7 +584,7 @@ void strip_obj_affects(CHAR_DATA *ch, OBJ_DATA *obj, AFFECT_DATA *paf)
 		} else {
 		        for (lpaf = ch->affected; lpaf; lpaf = lpaf_next) {
 				lpaf_next = lpaf->next;
-				if ((SKILL_IS(lpaf->type, paf->type))
+				if ((IS_SKILL(lpaf->type, paf->type))
 				&&  (lpaf->level == paf->level)
 				&&  (INT_VAL(lpaf->location) ==
 				     INT_VAL(paf->location))) {
@@ -2358,7 +2358,6 @@ bool pc_name_ok(const char *name)
 	const unsigned char *pc;
 	bool fIll,adjcaps = FALSE,cleancaps = FALSE;
  	int total_caps = 0;
-	int i;
 
 	/*
 	 * Reserved words.
@@ -2424,11 +2423,8 @@ bool pc_name_ok(const char *name)
 		}
 	}
 
-	for (i = 0; i < clans.nused; i++) {
-		class_t *clan = VARR_GET(&clans, i);
-		if (!str_cmp(name, clan->name))
-			return FALSE;
-	}
+	if (clan_lookup(name) != NULL)
+		return FALSE;
 
 	return TRUE;
 }
@@ -2616,6 +2612,19 @@ void yell(CHAR_DATA *victim, CHAR_DATA* ch, const char* text)
 	act_yell(victim, text, ch, "$n yells in panic '{M$t{x'");
 }
 
+static void *
+drop_objs_cb(void *p, void *d)
+{
+	clan_t *clan = (clan_t *) p;
+
+	if (d == clan->obj_ptr) {
+		obj_to_room(d, get_room_index(clan->altar_vnum));
+		return p;
+	}
+
+	return NULL;
+}
+
 static void drop_objs(CHAR_DATA *ch, OBJ_DATA *obj_list)
 {
 	OBJ_DATA *obj, *obj_next;
@@ -2624,7 +2633,6 @@ static void drop_objs(CHAR_DATA *ch, OBJ_DATA *obj_list)
 	 * drop ITEM_QUIT_DROP/ITEM_CHQUEST/ITEM_CLAN items
 	 */
 	for (obj = obj_list; obj != NULL; obj = obj_next) {
-		int cn;
 		obj_next = obj->next_content;
 
 		if (obj->contains)
@@ -2651,13 +2659,8 @@ static void drop_objs(CHAR_DATA *ch, OBJ_DATA *obj_list)
 			continue;
 		}
 
-		for (cn = 0; cn < clans.nused; cn++) {
-			if (obj == CLAN(cn)->obj_ptr) {
-				obj_to_room(obj,
-					get_room_index(CLAN(cn)->altar_vnum));
-				continue;
-			}
-		}
+		if (hash_foreach(&clans, drop_objs_cb, obj) != NULL)
+			continue;
 		extract_obj(obj, 0);
 	}
 }
@@ -2726,8 +2729,8 @@ void quit_char(CHAR_DATA *ch, int flags)
 			return;
 		}
 
-		if (ch->in_room->area->clan
-		&&  ch->in_room->area->clan != ch->clan) {
+		if (!IS_NULLSTR(ch->in_room->area->clan)
+		&&  !IS_CLAN(ch->in_room->area->clan, ch->clan)) {
 			char_puts("You can't quit here.\n", ch);
 			return;
 		}
@@ -2992,10 +2995,9 @@ void do_who_raw(CHAR_DATA* ch, CHAR_DATA *wch, BUFFER* output)
 	}
 	buf_add(output, "] ");
 
-	if (wch->clan
-	&&  (clan = clan_lookup(wch->clan))
+	if ((clan = clan_lookup(wch->clan)) != NULL
 	&&  (!IS_SET(clan->clan_flags, CLAN_HIDDEN) ||
-	     (ch && (wch->clan == ch->clan || IS_IMMORTAL(ch)))))
+	     (ch && (IS_CLAN(wch->clan, ch->clan) || IS_IMMORTAL(ch)))))
 		buf_printf(output, "[{c%s{x] ", clan->name);
 
 	if (IS_SET(wch->comm, COMM_AFK))
@@ -4291,7 +4293,7 @@ bool make_eq_damage(CHAR_DATA *ch, CHAR_DATA *victim,
 	if (IS_WEAPON_STAT(wield, WEAPON_SHARP))
 		chance += 10;
 
-	if (SKILL_IS(sn, "axe"))
+	if (IS_SKILL(sn, "axe"))
 		chance += 10;
 
 	if (IS_OBJ_STAT(destroy, ITEM_BLESS))

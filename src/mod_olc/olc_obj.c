@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_obj.c,v 1.59 1999-10-20 05:49:45 avn Exp $
+ * $Id: olc_obj.c,v 1.60 1999-10-21 12:51:57 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -65,7 +65,6 @@ DECLARE_OLC_FUN(objed_affect		);
 DECLARE_OLC_FUN(objed_material		);
 DECLARE_OLC_FUN(objed_level		);
 DECLARE_OLC_FUN(objed_condition		);
-DECLARE_OLC_FUN(objed_clan		);
 DECLARE_OLC_FUN(objed_clone		);
 DECLARE_OLC_FUN(objed_gender		);
 
@@ -103,10 +102,9 @@ olc_cmd_t olc_cmds_obj[] =
 	{ "extra",	objed_extra,	NULL,		extra_flags	},
 	{ "wear",	objed_wear,	NULL,		wear_flags	},
 	{ "type",	objed_type,	NULL,		item_types	},
-	{ "material",	objed_material 					},
+	{ "material",	objed_material, NULL,		&materials	},
 	{ "level",	objed_level					},
 	{ "condition",	objed_condition,validate_condition		},
-	{ "clan",	objed_clan					},
 	{ "clone",	objed_clone					},
 	{ "gender",	objed_gender,	NULL,		gender_table	},
 
@@ -216,7 +214,6 @@ OLC_FUN(objed_show)
 	AFFECT_DATA *paf;
 	int cnt;
 	BUFFER *output;
-	clan_t *clan;
 
 	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
@@ -249,9 +246,6 @@ OLC_FUN(objed_show)
 		pObj->vnum,
 		flag_string(gender_table, pObj->gender),
 		flag_string(item_types, pObj->item_type));
-
-	if (pObj->clan && (clan = clan_lookup(pObj->clan))) 
-		buf_printf(output, "Clan        : [%s]\n", clan->name);
 
 	if (pObj->limit != -1)
 		buf_printf(output, "Limit:       [%5d]\n", pObj->limit);
@@ -844,15 +838,8 @@ OLC_FUN(objed_type)
 OLC_FUN(objed_material)
 {
 	OBJ_INDEX_DATA *pObj;
-	material_t *mat;
 	EDIT_OBJ(ch, pObj);
-
-	if (!(mat = material_search(argument))) {
-		char_puts("ObjEd: Unknown material.\n", ch);
-		return FALSE;
-	}
-	char_printf(ch, "ObjEd: %s: material ok.\n", mat->name);
-	return olced_str(ch, mat->name, cmd, &pObj->material);
+	return olced_foreign_strkey(ch, argument, cmd, &pObj->material);
 }
 
 OLC_FUN(objed_level)
@@ -867,13 +854,6 @@ OLC_FUN(objed_condition)
 	OBJ_INDEX_DATA *pObj;
 	EDIT_OBJ(ch, pObj);
 	return olced_number(ch, argument, cmd, &pObj->condition);
-}
-
-OLC_FUN(objed_clan)
-{
-	OBJ_INDEX_DATA *pObj;
-	EDIT_OBJ(ch, pObj);
-	return olced_clan(ch, argument, cmd, &pObj->clan);
 }
 
 OLC_FUN(objed_clone)
@@ -917,7 +897,6 @@ OLC_FUN(objed_clone)
 	pObj->weight		= pFrom->weight;
 	pObj->cost		= pFrom->cost;
 	pObj->limit		= pFrom->limit;
-	pObj->clan		= pFrom->clan;
 	objval_cpy(pFrom->item_type, pObj->value, pFrom->value);
 
 /* copy affects */
@@ -1262,7 +1241,7 @@ int set_obj_values(BUFFER *output, OBJ_INDEX_DATA *pObj,
 		case 3:
 			if (!str_cmp(argument, "?")
 			||  (d = damtype_lookup(argument)) == NULL) {
-				hash_print_names(&damtypes, output);
+				strkey_printall(&damtypes, output);
 				return 2;
 			}
 			buf_add(output, "WEAPON TYPE SET.\n\n");
@@ -1402,7 +1381,7 @@ int set_obj_values(BUFFER *output, OBJ_INDEX_DATA *pObj,
 		case 2:
 			if (!str_cmp(argument, "?")
 			|| liquid_search(argument) == NULL) {
-				hash_print_names(&liquids, output);
+				strkey_printall(&liquids, output);
 				return 2;
 			}
 			buf_add(output, "LIQUID TYPE SET.\n\n");
@@ -1430,7 +1409,7 @@ int set_obj_values(BUFFER *output, OBJ_INDEX_DATA *pObj,
 		case 2:
 			if (!str_cmp(argument, "?")
 			|| liquid_search(argument) == NULL) {
-				hash_print_names(&liquids, output);
+				strkey_printall(&liquids, output);
 				return 2;
 			}
 			buf_add(output, "LIQUID TYPE SET.\n\n");

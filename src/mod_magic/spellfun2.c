@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.142 1999-10-17 08:55:54 fjoe Exp $
+ * $Id: spellfun2.c,v 1.143 1999-10-21 12:52:09 fjoe Exp $
  */
 
 /***************************************************************************
@@ -358,16 +358,14 @@ void spell_mana_transfer(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 
-	if (victim == ch)
-	{
+	if (victim == ch) {
 	  char_puts("You would implode if you tried to transfer mana to yourself.\n",ch);
 	  return;
 	}
 
-	if (ch->clan != victim->clan)
-	{
-	  char_puts("You may only cast this spell on fellow clan members.\n",ch);
-	  return;
+	if (!IS_CLAN(ch->clan, victim->clan)) {
+		char_puts("You may only cast this spell on your clannies.\n",ch);
+		return;
 	}
 
 	if (ch->hit < 50)
@@ -818,11 +816,10 @@ void spell_shadow_cloak(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA af;
 
-	if (ch->clan != victim->clan)
-	  {
-	char_puts("You may only use this spell on fellow clan members.\n",ch);
-	return;
-	  }
+	if (!IS_CLAN(ch->clan, victim->clan)) {
+		char_puts("You may only cast this spell on your clannies.\n",ch);
+		return;
+	}
 
 	if (is_affected(victim, sn))
 	{
@@ -1298,7 +1295,8 @@ void spell_stalker(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		 AFF_DETECT_GOOD | AFF_DARK_VISION | AFF_IMP_INVIS);
 	
 	NPC(stalker)->target = victim;
-	stalker->clan   = ch->clan;
+	free_string(stalker->clan);
+	stalker->clan   = str_qdup(ch->clan);
 	char_puts("An invisible stalker arrives to stalk you!\n",victim);
 	act("An invisible stalker arrives to stalk $n!",victim,NULL,NULL,TO_ROOM);
 	char_puts("An invisible stalker has been sent.\n", ch);
@@ -5682,7 +5680,7 @@ int damage_to_all_in_room(const char *sn, int level, CHAR_DATA *ch,
         CHAR_DATA *vch, *vch_next;
 	int dam, v_counter;
 
-	if (SKILL_IS(sn, "death ripple")) {
+	if (IS_SKILL(sn, "death ripple")) {
 		dam = dice(level,9);
 	} else {
 		dam = dice(level,14);

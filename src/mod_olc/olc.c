@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.77 1999-10-20 11:10:38 fjoe Exp $
+ * $Id: olc.c,v 1.78 1999-10-21 12:51:54 fjoe Exp $
  */
 
 /***************************************************************************
@@ -282,8 +282,8 @@ OLC_FUN(olced_strkey)
 	}
 
 	if (o->path) {
-		d2rename(o->path, name_filename(*(const char**) p),
-			 o->path, name_filename(*(const char**) q));
+		d2rename(o->path, strkey_filename(*(const char**) p),
+			 o->path, strkey_filename(*(const char**) q));
 	}
 
 	hash_delete(o->h, p);
@@ -344,6 +344,47 @@ bool olced_name(CHAR_DATA *ch, const char *argument,
 	}
 
 	return changed;
+}
+
+bool olced_foreign_strkey(CHAR_DATA *ch, const char *argument,
+			  olc_cmd_t *cmd, const char **pStr)
+{
+	hash_t *h;
+	void *p;
+
+	if (IS_NULLSTR(argument)) {
+		char_printf(ch, "Syntax: %s <name>\n"
+				"Use '%s ?' for list of valid %ss.\n"
+				"Use '%s none' to reset %s.\n",
+			    cmd->name, cmd->name, cmd->name,
+			    cmd->name, cmd->name);
+		return FALSE;
+	}
+
+	if (!str_cmp(argument, "none")) {
+		free_string(*pStr);
+		*pStr = str_empty;
+		return TRUE;
+	}
+
+	h = cmd->arg1;
+	if (!str_cmp(argument, "?")) {
+		BUFFER *out = buf_new(-1);
+		buf_printf(out, "Valid %ss are:\n", cmd->name);
+		strkey_printall(h, out);
+		page_to_char(buf_string(out), ch);
+		buf_free(out);
+		return FALSE;
+	}
+
+	if ((p = strkey_search(h, argument)) == NULL) {
+		char_printf(ch, "'%s': unknown %s.\n", argument, cmd->name);
+		return FALSE;
+	}
+
+	free_string(*pStr);
+	*pStr = str_qdup(*(const char**) p);
+	return TRUE;
 }
 
 bool olced_str(CHAR_DATA *ch, const char *argument,
@@ -686,33 +727,6 @@ bail_out:
 	return FALSE;
 }
 
-bool olced_clan(CHAR_DATA *ch, const char *argument,
-		olc_cmd_t *cmd, int *vnum)
-{
-	int cln;
-
-	if (IS_NULLSTR(argument)) {
-		char_printf(ch, "Syntax: %s clan\n"
-				"Use 'clan ?' for list of valid clans.\n"
-				"Use 'clan none' to reset clan.\n",
-			    cmd->name);
-		return FALSE;
-	}
-
-	if (!str_cmp(argument, "none")) {
-		*vnum = 0;
-		return TRUE;
-	}
-
-	if ((cln = cln_lookup(argument)) < 0) {
-		char_printf(ch, "'%s': unknown clan.\n", argument);
-		return FALSE;
-	}
-
-	*vnum = cln;
-	return TRUE;
-}
-
 bool olced_rulecl(CHAR_DATA *ch, const char *argument,
 		  olc_cmd_t *cmd, lang_t *l)
 {
@@ -822,7 +836,7 @@ VALIDATE_FUN(validate_room_vnum)
 VALIDATE_FUN(validate_skill_spec)
 {
 	const char *spn = (const char *) arg;
-	NAME_CHECK(&specs, spn, OLCED(ch)->name); 
+	STRKEY_CHECK(&specs, spn, OLCED(ch)->name); 
 	return TRUE;
 }
 

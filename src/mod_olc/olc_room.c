@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.61 1999-10-20 11:10:40 fjoe Exp $
+ * $Id: olc_room.c,v 1.62 1999-10-21 12:51:58 fjoe Exp $
  */
 
 #include "olc.h"
@@ -52,7 +52,6 @@ DECLARE_OLC_FUN(roomed_mreset		);
 DECLARE_OLC_FUN(roomed_oreset		);
 DECLARE_OLC_FUN(roomed_heal		);
 DECLARE_OLC_FUN(roomed_mana		);
-DECLARE_OLC_FUN(roomed_clan		);
 DECLARE_OLC_FUN(roomed_room		);
 DECLARE_OLC_FUN(roomed_sector		);
 DECLARE_OLC_FUN(roomed_reset		);
@@ -74,7 +73,6 @@ olc_cmd_t olc_cmds_room[] =
 	{ "name",	roomed_name					},
 	{ "heal",	roomed_heal					},
 	{ "mana",	roomed_mana					},
-	{ "clan",	roomed_clan					},
 	{ "clone",	roomed_clone					},
 
 	{ "north",	roomed_north					},
@@ -183,7 +181,6 @@ OLC_FUN(roomed_show)
 	CHAR_DATA	*rch;
 	int		door;
 	bool		fcnt;
-	clan_t	*clan;
 	
 	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
@@ -210,9 +207,6 @@ OLC_FUN(roomed_show)
 		   pRoom->area->vnum, pRoom->area->name);
 	buf_printf(output, "Vnum:       [%5d]\nSector:     [%s]\n",
 		   pRoom->vnum, flag_string(sector_types, pRoom->sector_type));
-
-	if (pRoom->clan && (clan = clan_lookup(pRoom->clan))) 
-		buf_printf(output, "Clan      : [%s]\n", clan->name);
 
 	buf_printf(output, "Room flags: [%s]\n",
 		   flag_string(room_flags, pRoom->room_flags));
@@ -421,13 +415,6 @@ OLC_FUN(roomed_mana)
 	return olced_number(ch, argument, cmd, &pRoom->mana_rate);
 }       
 
-OLC_FUN(roomed_clan)
-{
-	ROOM_INDEX_DATA *pRoom;
-	EDIT_ROOM(ch, pRoom);
-	return olced_clan(ch, argument, cmd, &pRoom->clan);
-}
-	  
 #define MAX_MOB	1		/* Default maximum number for resetting mobs */
 
 OLC_FUN(roomed_mreset)
@@ -786,7 +773,6 @@ OLC_FUN(roomed_clone)
 		room->sector_type = proto->sector_type;
 		room->heal_rate = proto->heal_rate;
 		room->mana_rate = proto->mana_rate;
-		room->clan = proto->clan;
 	}
 
 	return TRUE;

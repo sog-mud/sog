@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.63 1999-10-20 11:10:47 fjoe Exp $
+ * $Id: db_area.c,v 1.64 1999-10-21 12:52:08 fjoe Exp $
  */
 
 /***************************************************************************
@@ -170,7 +170,8 @@ DBLOAD_FUN(load_areadata)
 			SKEY("Builders", pArea->builders, fread_string(fp));
 			break;
 		case 'C':
-			KEY("Clan", pArea->clan, fread_clan(fp));
+			KEY("Clan", pArea->clan,
+			    fread_strkey(fp, &clans, "load_areadata"));
 			SKEY("Credits", pArea->credits, fread_string(fp));
 			break;
 		case 'E':
@@ -834,23 +835,13 @@ DBLOAD_FUN(load_rooms)
 				}
 	
 				pRoomIndex->exit[door] = pexit;
-			}
-			else if (letter == 'E') 
+			} else if (letter == 'E') 
 				ed_fread(fp, &pRoomIndex->ed);
 			else if (letter == 'O') {
 				db_error("load rooms", "owner present");
 				return;
 
-			}
-			else if (letter == 'C') {
-				if (pRoomIndex->clan) {
-					db_error("load_rooms",
-						 "duplicate clan.");
-					return;
-				}
-				pRoomIndex->clan = fread_clan(fp);
-			}
-			else {
+			} else {
 				db_error("load_rooms",
 					 "vnum %d has flag '%c' (not 'DES').",
 					 vnum, letter);
@@ -1056,7 +1047,7 @@ DBLOAD_FUN(load_mobiles)
         mlstr_fread(fp, &pMobIndex->description);
 	free_string(pMobIndex->race);
 	pMobIndex->race		 	= fread_string(fp);
-	NAME_CHECK(&races, pMobIndex->race, "load_mob");
+	STRKEY_CHECK(&races, pMobIndex->race, "load_mob");
 	r = race_lookup(pMobIndex->race);
 
         pMobIndex->act                  = fread_flags(fp) | ACT_NPC |
@@ -1093,7 +1084,7 @@ DBLOAD_FUN(load_mobiles)
 					  fread_letter(fp);
 	pMobIndex->damage[DICE_BONUS]	= fread_number(fp);
 	pMobIndex->damtype		=
-			fread_name(fp, &damtypes, "load_mobiles");
+			fread_strkey(fp, &damtypes, "load_mobiles");
 
 	/* read armor class */
 	pMobIndex->ac[AC_PIERCE]	= fread_number(fp) * 10;
@@ -1138,11 +1129,11 @@ DBLOAD_FUN(load_mobiles)
 		    SET_BIT(pMobIndex->affected_by, vector);
 	    }
 	    else if (letter == 'C') {
-		if (pMobIndex->clan) {
+		if (!IS_NULLSTR(pMobIndex->clan)) {
 		    db_error("load_mobiles", "duplicate clan.");
 		    return;
 		}
-		pMobIndex->clan = fread_clan(fp);
+		pMobIndex->clan = fread_strkey(fp, &clans, "load_mobiles");
 	    }
 	    else if (letter == 'W') 
 		pMobIndex->invis_level = fread_number(fp);
@@ -1323,12 +1314,6 @@ DBLOAD_FUN(load_objects)
                 paf->modifier           = fread_number(fp);
                 paf->bitvector          = 0;
 		SLIST_ADD(AFFECT_DATA, pObjIndex->affected, paf);
-            } else if (letter == 'C') {
-		if (pObjIndex->clan) {
-		    db_error("load_objects", "duplicate clan.");
-		    return;
-		}
-		pObjIndex->clan = fread_clan(fp);
 	    } else if (letter == 'G') {
 		pObjIndex->gender = fread_fword(gender_table, fp);
 	    } else if (letter == 'S') {
@@ -1338,7 +1323,7 @@ DBLOAD_FUN(load_objects)
 		paf->type = str_empty;
 		paf->level = pObjIndex->level;
 		paf->duration = -1;
-		paf->location = fread_name(fp, &skills, "load_objects");
+		paf->location = fread_strkey(fp, &skills, "load_objects");
                 paf->modifier = fread_number(fp);
                 paf->bitvector = fread_flags(fp);
 		SLIST_ADD(AFFECT_DATA, pObjIndex->affected, paf);

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: class.c,v 1.19 1999-10-17 08:55:46 fjoe Exp $
+ * $Id: class.c,v 1.20 1999-10-21 12:51:59 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -58,9 +58,6 @@ class_init(class_t *cl)
 
 	for (i = 0; i < MAX_STAT; i++)
 		cl->stats[i] = 0;
-
-	for (i = 0; i < MAX_LEVEL+1; i++)
-		cl->titles[i][0] = cl->titles[i][1] = str_empty;
 }
 
 /*
@@ -92,27 +89,15 @@ class_cpy(class_t *dst, class_t *src)
 	for (i = 0; i < MAX_STAT; i++)
 		dst->stats[i] = src->stats[i];
 
-	for (i = 0; i < MAX_LEVEL+1; i++) {
-		dst->titles[i][0] = str_qdup(src->titles[i][0]);
-		dst->titles[i][1] = str_qdup(src->titles[i][1]);
-	}
-
 	return dst;
 }
 
 void
 class_destroy(class_t *cl)
 {
-	int i;
-
 	free_string(cl->skill_spec);
 	varr_destroy(&cl->poses);
 	varr_destroy(&cl->guilds);
-
-	for (i = 0; i < MAX_LEVEL+1; i++) {
-		free_string(cl->titles[i][0]);
-		free_string(cl->titles[i][1]);
-	}
 }
 
 typedef struct _guild_ok_t {
@@ -208,17 +193,6 @@ int get_max_train(CHAR_DATA *ch, int stat)
 
 /* ORG_RACE && RACE serdar*/
 	return UMIN(25, 20 + r->race_pcdata->stats[stat] + cl->stats[stat]);
-}
-
-const char *title_lookup(CHAR_DATA *ch)
-{
-	class_t *cl;
-
-	if ((cl = class_lookup(ch->class)) == NULL
-	||  (ch->level < 0 || ch->level > MAX_LEVEL))
-		return str_empty;
-
-	return cl->titles[ch->level][URANGE(1, ch->sex, 2)-1];
 }
 
 bool can_flee(CHAR_DATA *ch)

@@ -1,5 +1,5 @@
 #
-# $Id: Makefile,v 1.15 1999-10-20 05:49:46 avn Exp $
+# $Id: Makefile,v 1.16 1999-10-21 12:51:59 fjoe Exp $
 #
 
 MODULE_NAME = sog
@@ -19,8 +19,8 @@ CFILES = auction.c affect.c buffer.c chquest.c clan.c class.c cmd.c\
 	 memalloc.c mlstring.c mob_cmds.c mob_prog.c module.c msg.c\
 	 namelist.c note.c obj_prog.c quest.c race.c\
 	 rating.c recycle.c religion.c save.c skills.c\
-	 socials.c spec.c special.c str.c string_edit.c tables.c update.c\
-	 util.c varr.c\
+	 socials.c spec.c special.c str.c string_edit.c strkey_hash.c\
+	 tables.c update.c util.c varr.c\
 	 $(COMM_CFILES) $(DB_CFILES) $(COMPAT_CFILES)
 
 .include "../Makefile.osdep"

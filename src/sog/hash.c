@@ -23,23 +23,15 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: hash.c,v 1.3 1999-10-20 11:10:44 fjoe Exp $
+ * $Id: hash.c,v 1.4 1999-10-21 12:52:03 fjoe Exp $
  */
 
-#include <ctype.h>
-#include <limits.h>
 #include <stdlib.h>
-#include <string.h>
-#include <stdio.h>
 
 #include "const.h"
 #include "typedef.h"
 #include "varr.h"
 #include "hash.h"
-#include "buffer.h"
-#include "str.h"
-#include "db.h"
-#include "log.h"
 
 /*
  * hash_add flags
@@ -57,7 +49,7 @@ hash_init(hash_t *h, size_t hsize, size_t nsize,
 	int i;
 
 	h->hsize = hsize;
-	h->v = calloc(hsize, sizeof(varr));
+	h->v = malloc(hsize * sizeof(varr));
 
 	for (i = 0; i < hsize; i++) {
 		varr_init(h->v + i, nsize, 1);
@@ -161,105 +153,6 @@ void *hash_foreach(hash_t *h, void *(*cb)(void *p, void *d), void *d)
 	}
 
 	return NULL;
-}
-
-typedef struct _bufout_t _bufout_t;
-struct _bufout_t {
-	BUFFER *buf;
-	int col;
-};
-
-static void *
-print_name_cb(void *p, void *d)
-{
-	_bufout_t *_b = (_bufout_t*) d;
-
-	if (++_b->col % 4 == 0)
-		buf_add(_b->buf, "\n");
-	buf_printf(_b->buf, "%-19.18s", *(const char**) p);
-	return NULL;
-}
-
-void hash_print_names(hash_t *h, BUFFER *buf)
-{
-	_bufout_t _b = { buf, 0 };
-	hash_foreach(h, print_name_cb, &_b);
-	if (_b.col % 4)
-		buf_add(buf, "\n");
-}
-
-void name_init(void *p)
-{
-	*(const char **) p = str_empty;
-}
-
-void name_destroy(void *p)
-{
-	free_string(*(const char **) p);
-}
-
-int name_hash(const void *k, size_t hsize)
-{
-	return hashistr((const char*) k, 32, hsize);
-}
-
-int name_struct_cmp(const void *k, const void *e)
-{
-	return str_cmp((const char*) k, *(const char**) e);
-}
-
-const char *fread_name(FILE *fp, hash_t *h, const char *id)
-{
-	const char *name = str_dup(fread_word(fp));
-	NAME_CHECK(h, name, id);
-	return name;
-}
-
-void *
-name_search_cb(void *p, void *d)
-{
-	if (!str_prefix((const char *) d, *(const char **) p))
-		return p;
-	return NULL;
-}
-
-/*
- * skill_search -- lookup skill by prefix
- */
-void *
-name_search(hash_t *h, const char *name)
-{
-	if (IS_NULLSTR(name))
-		return NULL;
-	return hash_foreach(h, name_search_cb, (void*) name);
-}
-
-char *
-name_filename(const char *name)
-{
-	static char buf[2][MAX_STRING_LENGTH];
-	static int ind = 0;
-	char *p;
-
-	if (IS_NULLSTR(name))
-		return str_empty;
-
-	ind = (ind + 1) % 2;
-	for (p = buf[ind]; *name && p-buf[ind] < sizeof(buf[0])-1; p++, name++) {
-		switch (*name) {
-		case ' ':
-		case '\t':
-			*p = '_';
-			break;
-
-		default:
-			*p = LOWER(*name);
-			break;
-		}
-	}
-
-	*p = '\0';
-	return buf[ind];
 }
 
 /*-------------------------------------------------------------------

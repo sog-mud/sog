@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_skill.c,v 1.13 1999-10-12 13:56:27 avn Exp $
+ * $Id: db_skill.c,v 1.14 1999-10-21 12:52:09 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -46,12 +46,12 @@ DBDATA db_skills = { dbfun_skills, init_skills };
 
 DBINIT_FUN(init_skills)
 {
-	if (DBDATA_VALID(dbdata)) {
-		hash_init(&skills, NAME_HASH_SIZE, sizeof(skill_t),
+	if (!DBDATA_VALID(dbdata)) {
+		hash_init(&skills, STRKEY_HASH_SIZE, sizeof(skill_t),
 			  (varr_e_init_t) skill_init,
 			  (varr_e_destroy_t) skill_destroy);
-		skills.k_hash = name_hash;
-		skills.ke_cmp = name_struct_cmp;
+		skills.k_hash = strkey_hash;
+		skills.ke_cmp = strkey_struct_cmp;
 		skills.e_cpy = (hash_e_cpy_t) skill_cpy;
 	}
 }

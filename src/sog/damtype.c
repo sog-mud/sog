@@ -23,21 +23,14 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: damtype.c,v 1.1 1999-10-06 09:56:04 fjoe Exp $
+ * $Id: damtype.c,v 1.2 1999-10-21 12:51:59 fjoe Exp $
  */
 
 #include <string.h>
 #include <stdio.h>
 #include <limits.h>
-#include "typedef.h"
-#include "const.h"
-#include "str.h"
-#include "buffer.h"
-#include "varr.h"
-#include "hash.h"
-#include "damtype.h"
+#include "merc.h"
 #include "db.h"
-#include "log.h"
 
 hash_t damtypes;
 
@@ -96,7 +89,7 @@ const char *
 damtype_noun(const char *dn)
 {
 	damtype_t *d;
-	NAME_CHECK(&damtypes, dn, "damtype_noun");
+	STRKEY_CHECK(&damtypes, dn, "damtype_noun");
 	d = damtype_lookup(dn);
 	if (d != NULL)
 		return d->dam_noun;
@@ -108,7 +101,7 @@ int
 damtype_class(const char *dn)
 {
 	damtype_t *d;
-	NAME_CHECK(&damtypes, dn, "damtype_noun");
+	STRKEY_CHECK(&damtypes, dn, "damtype_noun");
 	d = damtype_lookup(dn);
 	if (d != NULL)
 		return d->dam_class;
