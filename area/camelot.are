@@ -10,8 +10,8 @@ End
 #17301
 knight рыцарь познания renown~
 @eng the knight of renown@rus ~~прославленный~~ ~~рыцарь~~~
-@eng 
-@rus A knight of renown slaps you with his gauntlet and challenges you!
+@eng A knight of renown slaps you with his gauntlet and challenges you!
+@rus Прославленный рыцарь вызывает тебя на бой!
 ~
 @eng The knight of renown is mounted on a warhorse, uses a lance, and you can 
 see his morningstar on his horse. His colors fly from a banner carried by 
@@ -303,7 +303,7 @@ The Questing Beast dodges your attack.
 You sure are BLEEDING!
 The Questing Beast is in perfect health.
 @rus Чудище калечит тебя когтями!
-Чудище ОБЕЗОРУЖИВАЕТ тебЯ - твое оружие вылетает из рук!
+Чудище ОБЕЗОРУЖИВАЕТ тебя - твое оружие вылетает из рук!
 Чудище РАЗРЫВАЕТ ТЕБЯ НА ЧАСТИ!
 Чудище калечит тебя когтями!
 Чудище уклоняется от твоей атаки.
@@ -2546,7 +2546,7 @@ S
 black silhoettes of the towering oaks crowd your limited vision. You squint 
 at the dirty trail which leads north and south and notice horsesign.
 @rus Ты путешествуешь в туманном лесном районе. Высокие черные силуэты высоких
-дубов закрывают от тебЯ и без того ограниченное поле обзора. Ты опускаешь
+дубов закрывают от тебя и без того ограниченное поле обзора. Ты опускаешь
 взгляд на следы, которые ведут на север и юг, и обращаешь внимание на
 многочисленные следы подков.
 ~
@@ -2923,7 +2923,7 @@ You can either climb down the bridge into the chasm or head to the
 green field to the east.
 @rus Ты стоишь на краю глубокой пропасти. Мост поперек нее был перерезан 
 какими-то злоумышленниками и теперь висит одним концом вниз, в пропасть. 
-Ты можешь спуститьсЯ вниз в пропасть или идти к полю на восток.
+Ты можешь спуститься вниз в пропасть или идти к полю на восток.
 ~
 0 0 mountain
 D1
@@ -3007,7 +3007,7 @@ snap in the fresh breeze from the proud towers of Camelot. You can either
 head east to Camelot or west to the chasm.
 @rus Ты стоишь под открытым небом на зеленом поле возле Камелота. Сам
 Камелот находится наверху холма за полем. Флаги и знамена трепещут на 
-свежем бризе на гордых башнЯх Камелота. Ты можешь идти на восток к
+свежем бризе на гордых башнях Камелота. Ты можешь идти на восток к
 Камелоту, или к западу к пропасти.
 ~
 0 0 field
@@ -4602,7 +4602,7 @@ glowing red lettering which blinks over and over the message "LOOK AT ME"
 привлекает Ваше внимание огромная пульсирующая голубым светом
 пентаграмма на полу в дальней части комнаты, в углах которой горит
 и шумит волнами синее пламя. На стене рядом ты видишь {MТАБЛИЧКУ{x,
-котораЯ светится красным светом.
+которая светится красным светом.
 ~
 0 0 inside
 E

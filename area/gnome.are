@@ -1621,11 +1621,11 @@ D2
 Z -1 1553
 S
 #1553
-@eng A Damp Hallway@rus ГрЯзный темный туннель~
+@eng A Damp Hallway@rus Грязный темный туннель~
 @eng You are wandering in a dark, damp, twisting hallway.  The temperature
 seems to be greater here, as well as your fear.
-@rus Ты бродишь в темном, грЯзном, извилистом туннеле. Здесь почему-то
-жарче, чем везде. Тебе становитсЯ страшно.
+@rus Ты бродишь в темном, грязном, извилистом туннеле. Здесь почему-то
+жарче, чем везде. Тебе становится страшно.
 ~
 0 ADN field
 D0
@@ -1638,11 +1638,11 @@ D1
 Z -1 1554
 S
 #1554
-@eng A Damp Hallway@rus ГрЯзный темный туннель~
+@eng A Damp Hallway@rus Грязный темный туннель~
 @eng You are wandering in a dark, damp, twisting hallway.  The temperature
 seems to be greater here, as well as your fear.
-@rus Ты бродишь в темном, грЯзном, извилистом туннеле. Здесь почему-то
-жарче, чем везде. Тебе становитсЯ страшно.
+@rus Ты бродишь в темном, грязном, извилистом туннеле. Здесь почему-то
+жарче, чем везде. Тебе становится страшно.
 ~
 0 ADN field
 D0
@@ -2253,9 +2253,8 @@ S
 and many broken dishes scattered around the room.  You almost slip on a
 rotten piece of meat, but catch yourself just in time.
 @rus Ты стоишь в столовой хобгоблинов. Здесь имеется несколько грубых
-деревянных обеденных столов и стульев. Настолах лежат недоеденные куски
+деревянных обеденных столов и стульев. На столах лежат недоеденные куски
 мяса.
-lr 2 деревЯнных обеденных столов и стульев. На столах лежат недоеденные куски
 ~
 0 D field
 D0

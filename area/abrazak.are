@@ -253,6 +253,10 @@ R race
 order allow_deny
 allow lich~
 end
+R class
+order allow_deny
+allow warrior~
+end
 #15010
 scythe~
 @eng {DScythe{x@rus {DКоса{x~

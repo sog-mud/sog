@@ -479,6 +479,25 @@ stand stand male 10000
 F res BEH
 F vul FI
 M give 22300 22352~
+M grall 22301 100~
+#22328
+lord evil~
+the Evil Lord~
+The essence of evil stays here.
+~
+A huge figure in a black clothes stays in front of you. You have very strange
+feeling. It is looking like a great master of evil. Suddenly you remember the
+history that your grandfather told you many years ago. You see a Lord of the 
+Darkness. He was  imprisoned in his fortress by the Gods. And now you find him.
+~
+human~
+AFT DFTVm -1000 0
+65 50 100d5+20000 200d2+5000 20d4+50 'wrath'
+0 0 0 0
+ACDFGIKP LMQ C N
+stand stand random 100000
+0 ABCDEFH gargantuan unknown
+F for HM
 #22399
 as~
 as~
@@ -3516,11 +3535,11 @@ M 22318 spec_special_guard	* Gothmog, the High Captain of Balrogs
 M 22319 spec_cast_mage	* Vecna, the Emperor Lich
 M 22320 spec_breath_fire	* Uriel, Demon of Fire
 M 22322 spec_cast_mage	* the Dread
-M 22323 spec_patrolman	* Nightwing
 M 22324 spec_cast_mage	* the Balck River
 M 22325 spec_cast_mage	* the Colbran
 M 22326 spec_cast_mage	* the Gelatinous cube
 M 22327 spec_breath_fire	* Itangast, the Fire Drake
+M 22328 spec_cast_mage	* the Evil Lord
 S
 
 #RESETS
@@ -3787,9 +3806,30 @@ say But you should be carefull. There are no exit from there.
 mob gtransfer $n 22404
 ~
 #22301
-say You want to pass?  Ok, I allow you to pass.
-mob echo Itangast teleports you.
-mob transfer 22404
+if people == 1
+, looks at you.
+else
+if people == 2
+, looks at you.
+else
+if people == 3
+, looks at you.
+else 
+if people == 4
+, looks at you.
+else 
+if people == 5
+, looks at you.
+else
+if people == 6
+else
+say You want to rob this Treasure Keep so you must DIE.
+yell INTRUDERS! INTRUDERS! INTRUDERS!
+, utters some words
+mob echo Some dark figure appeares in a mist.
+mob mload 22328
+say Speak with my Master!
+endif
 ~
 #0
 

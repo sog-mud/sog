@@ -72,10 +72,10 @@ stand stand none 125
 toad rock жаба~
 @eng the Rock Toad@rus ~~каменная~~ ~~жаба~~~
 @eng A rather large rock toad sits here, croaking loudly.
-@rus БольшаЯ каменнаЯ жаба (toad) сидит здесь, громко квакаЯ.
+@rus Большая каменная жаба (toad) сидит здесь, громко квакая.
 ~
 @eng A grey toad. Its about the size of a cow. Small horns grow all over its body.
-@rus СераЯ жаба. Размером похожа на корову. Маленькие рожки покрывают
+@rus Серая жаба. Размером похожа на корову. Маленькие рожки покрывают
 все ее тело.
 ~
 human~
@@ -207,7 +207,7 @@ stand stand male 2500
 chief chieftain ogre шеф~
 @eng the Ogre Chieftain@rus Огр-шеф~
 @eng The ogre chieftain is here, observing his subjects.
-@rus Огр-шеф (chief) занимаетсЯ здесь своими делами.
+@rus Огр-шеф (chief) занимается здесь своими делами.
 ~
 @eng This is the biggest ogre you have ever seen. He is heavily equipped and looks
 quite formidable. He towers high above you and growls menacingly.
@@ -377,7 +377,7 @@ stand stand male 3750
 girl haremgirl harem slave девушка~
 @eng the Harem Girl@rus ~~девушка~~~
 @eng A harem girl cowers here in fear.
-@rus ГаремнаЯ девушка (girl) испугана и пытается спрятаться.
+@rus Гаремная девушка (girl) испугана и пытается спрятаться.
 ~
 @eng She looks quite attractive. Her low cut gown reveals why she was chosen to be
 in the harem.
@@ -545,7 +545,7 @@ stand stand male 5000
 mahn-tor minotaur grand master ман-тор~
 @eng Mahn-Tor@rus Ман-тор~
 @eng Mahn-Tor, the minotaur grand master, is here looking down at you.
-@rus Ман-тор (Mahn-Tor), великий мастер минотавров смотрит на тебЯ свысока.
+@rus Ман-тор (Mahn-Tor), великий мастер минотавров смотрит на тебя свысока.
 ~
 @eng Mahn-Tor towers above you. He is simply huge. Mahn-Tor is clad in the best of
 armor and robes. He wields the largest axe you have ever seen. You can see why
@@ -1919,7 +1919,7 @@ hills. Smoother ground is to the east, but the path seems to lead into a dark
 forest in that direction.
 @rus Здесь тропа очень камениста и ведет в гору под крутым углом, такой
 большой наклон заставляет тебя часто скользить и падать. На юге
-тропа ведет еще дальше в холмы, а на севере землЯ более пологаЯ.
+тропа ведет еще дальше в холмы, а на севере земля более пологая.
 Однако тропа ведет в темный лес в этом направлении.
 ~
 0 0 hills
@@ -1943,7 +1943,7 @@ S
 small boulders bounce and fall down below you. Looking to the east and west,
 you see more stable ground. The hillside itself goes on higher to the south
 and it drops away to the north.
-@rus Ты карабкаешьсЯ по камениcтому склону холма. При малейшем неосторожном
+@rus Ты карабкаешься по камениcтому склону холма. При малейшем неосторожном
 движение множество пыли и камней вокруг тебя срывается вниз. На
 востоке и на западе ты видишь более ровную землю, сам холм
 продолжается на юг, а на севере -- обрыв.
@@ -1998,7 +1998,7 @@ climb down.
 @rus Ты стоишь на краю плоскогорья. Взглянув вниз, ты видишь темный лес.
 Он наполнен смертью и разложением, даже сюда ветер доносит запах.
 Отсюда ты можешь пойти на юг и дальше лезть на плоскогорье или
-спуститьсЯ по дорожке на западе.
+спуститься по дорожке на западе.
 ~
 0 0 hills
 D2
@@ -2043,8 +2043,8 @@ through its old feeble branches. The hills themselves lead in all directions.
 @rus Ты входишь в большой круг из булыжников. Окруженный этими гигантами,
 маленький росточек пробивается наружу. В центре этого скопления стоит
 огромное дерево. Похоже, что оно немало натерпелось от сил природы:
-на его скрюченных ветвЯх не осталось ни одного листика, a ветер
- раскачиваЯ его, вызывает хруст и скрип. Все выходы отсюда ведут в холмы.
+на его скрюченных ветвях не осталось ни одного листика, a ветер
+ раскачивая его, вызывает хруст и скрип. Все выходы отсюда ведут в холмы.
  
 ~
 0 0 hills
@@ -2190,12 +2190,12 @@ blows hard across the rocks here and they have been worn smooth with time.
 Looking around, you notice that you can safely climb down towards the shore.
 The hills themselves stretch towards the north. The rough summit you stand
 upon leads west along the shoreline.
-@rus Ты стоишь на каменистом уступе и рассматриваешь раскинувшеесЯ перед
+@rus Ты стоишь на каменистом уступе и рассматриваешь раскинувшееся перед
 тобой побережье. Морской ветер дует здесь очень сильно и его работа
-хорошо видна: камни вокруг гладкие и обтесанные. ПриглЯдевшись,
+хорошо видна: камни вокруг гладкие и обтесанные. Приглядевшись,
 ты замечаешь что можешь безопасно спуститься вниз, к побережью.
 Сами холмы продолжаются на север, а уступ, на котором ты стоишь, 
-ведет на запад вдоль побережьЯ.
+ведет на запад вдоль побережья.
 ~
 0 0 hills
 D0
@@ -2218,7 +2218,7 @@ see a rocky shore. To the southeast, you see a small altar of some sorts that
 glows with an eerie blue light. It is possible to climb up into the hills here.
 @rus Ты находишься у подножия скалистых холмов. Вглядываясь на юг и на
 восток ты видишь скалистое побережье. На юго-востоке ты замечаешь
-некое подобие алтарЯ, сиЯющего Ярко-синим светом. Отсюда возможно
+некое подобие алтаря, сияющего ярко-синим светом. Отсюда возможно
 взобраться на холмы.
 ~
 0 0 field
@@ -3854,8 +3854,8 @@ S
 fill the room. The lighting is dim, but the room is very warm. You can hear
 music playing quietly from somewhere. Beaded doorways lead north and east.
 @rus Эта комната, похоже, является гаремом хранителя. Огромные подушки
-и кровати заполнЯют комнату. Свет неЯркий, но в комнате очень тепло.
-Откуда-то доноситсЯ тихаЯ музыка. Дверные проемы есть на севере
+и кровати заполняют комнату. Свет неяркий, но в комнате очень тепло.
+Откуда-то доносится тихая музыка. Дверные проемы есть на севере
 и на востоке.
 ~
 0 D inside

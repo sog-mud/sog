@@ -85,7 +85,7 @@ stand stand male 7000
 anti-ranger anti ренджер~
 @eng an anti-ranger@rus ~~Темный~~ ~~Ренджер~~~
 @eng An anti-ranger is here preparing to destroy the forest.
-@rus Темный Ренджер (anti-ranger) готовитьсЯ уничтожить лес.
+@rus Темный Ренджер (anti-ranger) готовиться уничтожить лес.
 ~
 @eng Mean and pure evil, this ranger has fallen under the influence of the darkness.
 Rather than live and nuture the forest he has turned on it and now seeks only
@@ -309,7 +309,7 @@ stand stand either 0
 #24300
 armguards armguard перчатки centaur arm~
 @eng a pair of centaur armguards@rus ~~перчатки~~ кентавра~
-@eng A set of centaur armguards have been left here.@rus Пара перчаток (armguards) из поселениЯ кентавров лежит здесь.~
+@eng A set of centaur armguards have been left here.@rus Пара перчаток (armguards) из поселения кентавров лежит здесь.~
 steel~
 armor K AI
 7 5 6 0 0
@@ -322,7 +322,7 @@ g plural~
 #24301
 bracer браслет стальной centaur steel~
 @eng a steel centaur bracer@rus ~~стальной~~ ~~браслет~~~
-@eng A steel bracer have been left here.@rus Стальной браслет (bracer) из поселениЯ кентавров забыли здесь.~
+@eng A steel bracer have been left here.@rus Стальной браслет (bracer) из поселения кентавров забыли здесь.~
 steel~
 armor 0 AM
 5 4 5 0 0

@@ -95,7 +95,7 @@ hear only says and emotes.
 Синтаксис: {cquiet{x
 
 Переключатель deaf выключает получение сообщений(tell). Тем не менее, ты можешь
-использовать команду reply (смотри {CHELP REPLY{x) длЯ ответа человеку с которым
+использовать команду reply (смотри {CHELP REPLY{x) для ответа человеку с которым
 ты общался до набора этой команды. Однако данная команда не отменяет обращений
 богов к тебе. 
  
@@ -925,7 +925,7 @@ PMOTE действует аналогично EMOTE, но будет заменять имена персонажа на 'you'.
 
 POSE выдает случайное сообщение, зависящее от вашего класса и уровня.
 ~
-'immortal' 'WIZ SMOTE' SMOTE~
+immortal 'WIZ SMOTE' SMOTE~
 @eng Syntax: smote <action>
 
 Smote works exactly like pmote, except you must place your name somewhere in
@@ -963,7 +963,7 @@ WEAR возьмет предмет из твоего инвентаря и начнет использовать его как
 
 WEAR ALL попробует HOLD, WEAR, or WIELD каждую подходящую вещь в вещмешке.;
 
-Тебе может не удастьсЯ HOLD, WEAR, or WIELD вещь если она либо не подходит тебе
+Тебе может не удасться HOLD, WEAR, or WIELD вещь если она либо не подходит тебе
 по характеру (align), либо слишком тяжела для тебя, либо ты еще недостаточно
 опытен для ее использования.
 
@@ -1598,7 +1598,7 @@ BUY покупает объект у хозяина магазина:
 использоваться в комбинации (пример buy 2*2.shield).
  
 LIST показывает список объектов выставленных на продажу.
-LIST <имЯ> показывает только объекты с указанным именем.
+LIST <имя> показывает только объекты с указанным именем.
  
 SELL продает объект хозяину магазина.
 VALUE показывает возможную цену объекта.
@@ -1840,8 +1840,8 @@ SPLIT делит указанное количество денег между членами твоей группы, находящимися
 в одной комнате с тобой. Делить или не делить добычу после боя - решать тебе.
  
 Примеры:
-{csplit 30{x        --> разделить 30 серебрЯных монет
-{csplit 20 50{x     --> разделить 20 серебрЯных и 50 золотых монет
+{csplit 30{x        --> разделить 30 серебряных монет
+{csplit 20 50{x     --> разделить 20 серебряных и 50 золотых монет
 {csplit  0 10{x     --> разделить 10 золотых монет
  
 Смотри также {CHELP AUTOSPLIT{x
@@ -2018,7 +2018,7 @@ TRAIN увеличивает один из твоих атрибутов. В начале игры, твой персонаж полу-
  
 Смотри также {CHELP STATS{x
 ~
-'immortal' 'WIZ ADVANCE' ADVANCE~
+immortal 'WIZ ADVANCE' ADVANCE~
 @eng Syntax: {cadvance{x <character> <level>
 
 ADVANCE sets a character's level to the specified value.  It is the
@@ -2049,7 +2049,7 @@ Questionable spells are : 'word of recall', 'cancellation', 'slow',
 Сонительные заклинания: 'word of recall', 'cancellation', 'slow',
 'remove curse'
 ~
-'immortal' 'WIZ REBOOT' REBOOT 'WIZ SHUTDOWN' SHUTDOWN~
+immortal 'WIZ REBOOT' REBOOT 'WIZ SHUTDOWN' SHUTDOWN~
 @eng Syntax: {creboot status{x
 Syntax: {creboot{x <number>
 Syntax: {creboot now{x
@@ -2076,7 +2076,7 @@ REBOOT STATUS показывает текущее состояние перезагрузки. REBOOT NOW перезагру-
 используется для установки статуса shutdown. Если shutdown активен, то после
 перезагрузки МУД не стартует автоматически.
 ~
-'immortal' 'WIZ WIZLOCK' WIZLOCK 'WIZ NEWLOCK' NEWLOCK~
+immortal 'WIZ WIZLOCK' WIZLOCK 'WIZ NEWLOCK' NEWLOCK~
 @eng Syntax: {cwizlock{x
 Syntax: {cnewlock{x
  
@@ -2092,14 +2092,14 @@ typically used for preventing a spammer from returning.
 возобновляет разорванное соединение. NEWLOCK запрещает генерацию новых персо-
 нажей.
 ~
-'immortal' 'WIZ DENY' DENY~
+immortal 'WIZ DENY' DENY~
 Syntax: deny <name>
 
 Deny locks a character out of a game permanently, rendering their character
 name unusable.  It may only be removed by editing the file, for this reason
 freeze is usually preferred.
 ~
-'immortal' 'WIZ DISCONNECT' DISCONNECT~
+immortal 'WIZ DISCONNECT' DISCONNECT~
 @eng Syntax: {cdisconnect{x <name>
 Syntax: {cdisconnect{x <number>
 
@@ -2122,7 +2122,7 @@ DISCONNECT с числовым аргументом служит для закрытия соединения еще не полнос-
  
 Смотри также {CHELP SOCKETS{x
 ~
-'immortal' 'WIZ FREEZE' FREEZE~
+immortal 'WIZ FREEZE' FREEZE~
 @eng Syntax: {cfreeze{x <char>
  
 FREEZE prevents characters from issuing any commands save for PRAY, DELETE and
@@ -2131,7 +2131,7 @@ QUIT.
  
 FREEZE запрещает персонажу ввод любых команд, кроме PRAY, QUIT и DELETE.
 ~
-'immortal' 'WIZ FORCE' FORCE~
+immortal 'WIZ FORCE' FORCE~
 @eng Syntax: {cforce{x <character> <command>
 Syntax: {cforce all{x <command>
 Syntax: {cforce players{x <command>
@@ -2151,7 +2151,7 @@ FORCE принуждает персонажа исполнить указанную команду. FORCE ALL делает то же
 FORCE GODS со всеми богами ниже тебя по уровню.
 Конечно, нельзя заставить выполнить команды DELETE или MOB.
 ~
-'immortal' 'WIZ SOCKETS' SOCKETS~
+immortal 'WIZ SOCKETS' SOCKETS~
 @eng Syntax: {csockets{x
 Syntax: {csockets{x <name>
  
@@ -2165,13 +2165,13 @@ into an orc).
 Синтаксис: {csockets{x <имя>
  
 SOCKETS показывает всех пользователей, подключенных к серверу, включая тех,
-кто в этот момент нахохдитсЯ в процессе подключения.
+кто в этот момент находится в процессе подключения.
  
 Вместе с аргументом SOCKETS показывает сервер, с которого вошел персонаж. Это
 может также быть использовано для определения "переключившихся" богов. Напри-
 мер, SOCKETS ORC покажет имя того, кто переключился в орка.
 ~
-'immortal' 'WIZ LOAD' LOAD~
+immortal 'WIZ LOAD' LOAD~
 @eng Syntax: {cload mob{x <vnum>
 Syntax: {cload obj{x <vnum>
 
@@ -2190,7 +2190,7 @@ put in the room.  Mobiles are always put into the same room as the god.
 мешок (inventory), если этот обьект можно переносить, или в ту же комнату в про-
 тивном случае. Монстры всегда помещаются в комнату, в которой ты стоишь.
 ~
-'immortal' 'WIZ SET' SET~
+immortal 'WIZ SET' SET~
 @eng Syntax: {cset mob{x   <mobile> <field> <value>
 Syntax: {cset obj{x   <object> <field> <value>
 Syntax: {cset room{x  <vnum>   <field> <value>
@@ -2234,7 +2234,7 @@ value0 value1 value2 value3 value4 owner level cost timer
 Для {cSET ROOM{x:
 flags sector
 ~
-'immortal' 'WIZ STRING' STRING~
+immortal 'WIZ STRING' STRING~
 @eng {cSyntax{x: string obj <object> <field> <string>
 {cSyntax{x: string mob <mobile> <field> <string>
  
@@ -2257,7 +2257,7 @@ Some fields are multi-lingual. Then you should specify language, i.e.
 требуемый язык, например:
     {cstring obj sword short rus меч-кладенец{x
 ~
-'immortal' 'WIZ NOCHANNEL' NOCHANNEL 'WIZ NOEMOTE' NOEMOTE{\'WIZ NOTELL' NOTELL~
+immortal 'WIZ NOCHANNEL' NOCHANNEL 'WIZ NOEMOTE' NOEMOTE{\'WIZ NOTELL' NOTELL~
 @eng Syntax: {cnochannel{x <character>
 Syntax: {cnoemote{x <character>
 Syntax: {cnotell{x <character>
@@ -2281,7 +2281,7 @@ gossip, pray)
  
 Снятие наказания осуществляется этими же командами.
 ~
-'immortal' 'WIZ PURGE' PURGE~
+immortal 'WIZ PURGE' PURGE~
 @eng Syntax: {cpurge{x
 Syntax: {cpurge{x <character>
  
@@ -2301,7 +2301,7 @@ ACT_NOPURGE flag. PC's and mobiles can be purged if called by name, however.
 PURGE без аргументов не затрагивает игроков, а также монстров и обьекты с флагом
 ACT_NOPURGE. Тем не менее, монстры и игроки могут быть удалены указанием имени.
 ~
-'immortal' 'WIZ RESTORE' RESTORE~
+immortal 'WIZ RESTORE' RESTORE~
 @eng Syntax: {crestore{x <character>
 Syntax: {crestore room{x
 Syntax: {crestore all{x
@@ -2325,7 +2325,7 @@ RESTORE ROOM (или RESTORE без аргументов) делает то же самое для всех персона-
 только богам 99-го и 100-го уровней. RESTORE не стоит использовать слишком
 часто, если стоит использовать вообще.
 ~
-'immortal' 'WIZ SLAY' SLAY~
+immortal 'WIZ SLAY' SLAY~
 @eng Syntax: {cslay{x <character>
 
 Slay kills a character in cold blood, no saving throw.  Best not to use this
@@ -2335,7 +2335,7 @@ command on players if you enjoy being a god.
 SLAY хладнокровно убивает указанную цель. Лучше не использовать эту команду на
 игроках, если, конечно, ты хочешь оставаться богом.
 ~
-'immortal' 'WIZ TRANSFER' TRANSFER~
+immortal 'WIZ TRANSFER' TRANSFER~
 @eng Syntax: {ctransfer{x <character> [location]
 Syntax: {ctransfer all{x [location]
  
@@ -2351,7 +2351,7 @@ TRANSFER перемещает указанного персонажа или всех персонажей в указанную ком-
 никогда не должен использоваться, так как сотня игроков, влетающих в одну ком-
 нату даст ужасные последствия для медленных соединений.
 ~
-'immortal' 'WIZ AT' AT~
+immortal 'WIZ AT' AT~
 @eng Syntax: {cat{x <location> <command>
 
 At executes the given command (which may have arguments) at the given
@@ -2369,7 +2369,7 @@ AT выполняет указанную команду в указанной комнате. Комната может быть задана
 AT работает, временно перемещая тебя в указанную комнату, выполняя команду и
 возвращая тебя назад (если команда не изменила твое местоположение).
 ~
-'immortal' 'WIZ ECHO' ECHO 'WIZ PECHO' PECHO 'WIZ ZECHO' ZECHO 'WIZ GECHO' GECHO >~
+immortal 'WIZ ECHO' ECHO 'WIZ PECHO' PECHO 'WIZ ZECHO' ZECHO 'WIZ GECHO' GECHO >~
 @eng Syntax: {cpecho{x <character> <message>
 Syntax: {cecho{x <message>
 Syntax: {czecho{x <message>
@@ -2394,7 +2394,7 @@ ZECHO посылает сообщение всем игрокам в одной с тобой зоне, GECHO посылает
 сообщением, и поэтому не могут быть обмануты.
 '>' является синонимом для GECHO.
 ~
-'immortal' 'WIZ GOTO' GOTO~
+immortal 'WIZ GOTO' GOTO~
 @eng Syntax: {cgoto{x <location>
 
 Goto takes you to a location.  The location may be specified as a vnum,
@@ -2404,7 +2404,7 @@ as the name of a mobile, or as the name of an object.
 GOTO перемещает тебя в указанную комнату. Комната может быть задана номером,
 именем монстра или именем обьекта.
 ~
-'immortal' 'WIZ HOLYLIGHT' HOLYLIGHT~
+immortal 'WIZ HOLYLIGHT' HOLYLIGHT~
 @eng Syntax: {cholylight{x
 
 Holylight is a toggle that allows you to see (almost) every character and
@@ -2415,7 +2415,7 @@ easily.  Without holy light, you can see what mortal players see.
 HOLYLIGHT - это переключатель, позволяющий тебе видеть почти всех персонажей
 в игре. Без HOLYLIGHT ты будешь видеть то же, что и смертные.
 ~
-'immortal' 'WIZ INCOGNITO' INCOGNITO~
+immortal 'WIZ INCOGNITO' INCOGNITO~
 @eng Syntax: {cincognito{x <level>
 
 Toggling your incognito status will hide your presence from people outside the
@@ -2429,7 +2429,7 @@ you regarless of location.
 ментом, тогда персонажи выше указанного уровня будут видеть тебя вне зависи-
 мости от твоего положения.
 ~
-'immortal' 'WIZ MEMORY' MEMORY~
+immortal 'WIZ MEMORY' MEMORY~
 @eng Syntax: {cmemory{x
 
 This command reports size of your MUD.
@@ -2437,7 +2437,7 @@ This command reports size of your MUD.
  
 Эта команда сообщает размер твоего мира (количество монстров, обьектов и т.д.)
 ~
-'immortal' 'WIZ VNUM' VNUM~
+immortal 'WIZ VNUM' VNUM~
 @eng Syntax: {cvnum{x     <name>
 Syntax: {cvnum obj{x <name>
 Syntax: {cvnum mob{x <name>
@@ -2451,7 +2451,7 @@ very useful for loading.
  
 VNUM определяет виртуальные номера для указанного моба или обьекта.
 ~
-'immortal' 'WIZ STAT' STAT~
+immortal 'WIZ STAT' STAT~
 @eng Syntax: {cstat{x      <name>
 Syntax: {cstat mob{x  <name>
 Syntax: {cstat mp{x   <name>
@@ -2484,7 +2484,7 @@ STAT MP выводит информацию об выполении программы монстром. STAT MSG без аргу-
 мента выводит распределении сообщений по хеш-таблице, при задании аргумента
 выведет все сообщения с таким хеш-номером.
 ~
-'immortal' 'WIZ MWHERE' MWHERE 'WIZ OWHERE' OWHERE~
+immortal 'WIZ MWHERE' MWHERE 'WIZ OWHERE' OWHERE~
 @eng Syntax: {cmwhere{x <name>
 Syntax: {cmwhere{x <vnum>
 Syntax: {cowhere{x <name>
@@ -2500,7 +2500,7 @@ OWHERE shows you locations of all objects with specified name or vnum.
 MWHERE покажет тебе расположение всех монстров с указанным именем или номером.
 OWHERE покажет тебе расположение всех обьектов с указанным именем или номером.
 ~
-'immortal' 'WIZ PEACE' PEACE~
+immortal 'WIZ PEACE' PEACE~
 @eng Syntax: {cpeace{x
 
 Peace causes all characters in a room to stop fighting. It also strips the
@@ -2510,7 +2510,7 @@ AGGRESSIVE bit from mobiles.
 PEACE заставляет всех персонажей в комнате прекратить бой. Также снимает бит
 AGGRESSIVE с монстров.
 ~
-'immortal' 'WIZ POOFIN' POOFIN 'WIZ POOFOUT' POOFOUT~
+immortal 'WIZ POOFIN' POOFIN 'WIZ POOFOUT' POOFOUT~
 @eng Syntax: {cpoofin{x <message>
 Syntax: {cpoofout{x <message>
 
@@ -2531,7 +2531,7 @@ POOFOUT соответственно. В это сообщение необходимо включить твое имя.
  
 Смотри также {CHELP GOTO{x
 ~
-'immortal' 'WIZ PROTECT' PROTECT~
+immortal 'WIZ PROTECT' PROTECT~
 @eng Syntax: {cprotect{x <character>
 
 Protect is used to protect a character from unwanted snooping.  Removing 
@@ -2541,7 +2541,7 @@ protected status from a character WILL be seen by that character.
 PROTECT используется для защиты персонажей от нежелательного подсматривания.
 О снятии режима PROTECT будет сообщено персонажу.
 ~
-'immortal' 'WIZ LOG' LOG~
+immortal 'WIZ LOG' LOG~
 @eng Syntax: {clog{x <character>
 Syntax: {clog all{x
  
@@ -2559,7 +2559,7 @@ FREEZE, это является опцией игрока. Некоторые команды (PASSWORD) зашишены
 от записи в лог. Наоборот, некоторые команды (особенно команды богов (всегда 
 записываются в лог-файл.
 ~
-'immortal' 'WIZ SWITCH' SWITCH 'WIZ RETURN' RETURN~
+immortal 'WIZ SWITCH' SWITCH 'WIZ RETURN' RETURN~
 @eng Syntax: {cswitch{x <character>
 Syntax: {creturn{x
 
@@ -2578,7 +2578,7 @@ SWITCH переключает тебя в тело другого пероснажа (у которого не должно быть
  
 RETURN возвращает тебя в твое родное тело.
 ~
-'immortal' 'WIZ IMMTALK' IMMTALK :~
+immortal 'WIZ IMMTALK' IMMTALK :~
 @eng Syntax: {cimmtalk{x <message>
  
 IMMTALK sends a message to all immortals. ':' is a synonym for IMMTALK.
@@ -2589,7 +2589,7 @@ IMMTALK посылает сообщение всем бессмертным. ':' является синонимом этой
 команды. Использование этой команды без аргумента включает и выключает
 этот канал общения.
 ~
-'immortal' WIZNET~
+immortal WIZNET~
 @eng Syntax: {cwiznet{x
 Syntax: {cwiznet on{x
 Syntax: {cwiznet off{x
@@ -2662,7 +2662,7 @@ WIZNET <параметр> определяет, информацию о каких сообщениях ты будешь получать.
 {colc{x       : сообщать о изменениях через OLC
 {cwizlog{x    : получать копию сообщений, идущих в лог-файл
 ~
-'immortal' 'WIZ WIZHELP' WIZHELP~
+immortal 'WIZ WIZHELP' WIZHELP~
 @eng Syntax: {cwizhelp{x
 
 Wizhelp provides a list of all the immortal commands.
@@ -2704,7 +2704,7 @@ BENEDICTION is stronger version of BLESS.
 Синтаксис: {ccast 'bless'{x <обьект>
 Синтаксис: {ccast 'benediction'{x <персонаж>
  
-BLESS улучшает вероЯтность нанесениЯ ударов и защиту от магии указанного
+BLESS улучшает вероятность нанесения ударов и защиту от магии указанного
 персонажа. Его можно также использовать на предметах - чтобы благословить
 их. Например, такое оружие более эффективно против демонов и прочей нечисти.
  
@@ -5068,7 +5068,7 @@ bers of the Order will track him down, until that renegade dies.
 0 CLANS~
 See also: {CHELP PHILOSOPHY{x and {CHELP CLAN <clan name>{x
 ~
-'immortal' 'WIZ GRANT' GRANT~
+immortal 'WIZ GRANT' GRANT~
 @eng Syntax: {cgrant{x <player> <command(s)>
 Syntax: {cgrant{x <player> {call{x
 Syntax: {cgrant{x <player> {cnone{x
@@ -5224,7 +5224,7 @@ Syntax: plist [member | second | leader] [name]
 'plist xxx' will show current clan xxx list.
  
 ~
-'immortal' 'WIZ CHQUEST' CHQUEST~
+immortal 'WIZ CHQUEST' CHQUEST~
 @eng Syntax: {cchquest status{x
 Syntax: {cchquest restart{x
 Syntax: {cchquest start{x <vnum>
@@ -5495,7 +5495,7 @@ Thanks to ...
 * Players who use russian codepages, see '{CHELP RUSSIAN{x'.
 * Check out our homepage at {Chttp://iclub.nsu.ru/mud/{x.
 ~
-'immortal' __IMOTD~
+immortal __IMOTD~
 @eng Welcome Immortal!
  
 You are responsible for following the laws of immortal behavior. These can
@@ -5515,7 +5515,7 @@ be found by typing {CHELP LAWS{x or {CHELP COMMANDMENTS{x.
  {G*{x {CHELP JOBS{x расскажет тебе об обязанностях богов
  {G*{x Игрокам можно менять плохие имена при помощи команды RENAME
 ~
-'immortal' JOBS~
+immortal JOBS~
 This is a partial list of what a god of any given level should be doing. It is
 not complete yet.
 
@@ -5544,7 +5544,7 @@ to help make the mud run more smoothly, power trips are strictly verbotten.
 
 Not fulfilling the roles of your office can result in demotion or deletion.
 ~
-'immortal' COMMANDMENTS~
+immortal COMMANDMENTS~
 .
                    The Rules of Shades of Gray
  
@@ -5623,7 +5623,7 @@ this conversion.
 GAIN CONVERT превращает 10 практик в одно тренировочное занятие, GAIN REVERT
 делает обратное превращение.
 ~
-'immortal' 'WIZ CLONE' CLONE~
+immortal 'WIZ CLONE' CLONE~
 @eng Syntax: {cclone obj{x <name>
 Syntax: {cclone mob{x <name>
 Syntax: {cclone{x <name>
@@ -5789,7 +5789,7 @@ of available languages.
 Эта команда используется для переключения языка выводимых тебе сообщений.
 Список доступных языков можно получить по команде 'LANG HELP'.
 ~
-'immortal' 'WIZ BAN' BAN~
+immortal 'WIZ BAN' BAN~
 @eng Syntax: {cban add{x <num> {callow{x <who> <mask>
 Syntax: {cban add{x <num> {cdeny{x <who> <mask>
 Syntax: {cban delete{x <num>
@@ -6329,7 +6329,7 @@ or her hands.
 0 'MASTERING HAND'~
 This automatic skill allows ninjas to fight more efficiently then unarmed.
 ~
-'immortal' 'WIZ MODULES' MODULES~
+immortal 'WIZ MODULES' MODULES~
 @eng Syntax: {cmodules reload{x <name>
 Syntax: {cmodules list{x
  
@@ -6417,7 +6417,7 @@ You can encounter items with following flags:
 Action of certain spells or skills depends on mobile or object properties.
 Looking at the flags can help guessing.
 ~
-'immortal' 'WIZ WIZINVIS' WIZINVIS~
+immortal 'WIZ WIZINVIS' WIZINVIS~
 @eng Syntax: {cwizinvis{x <level>
  
 Wizinvis takes a level argument, and will make you invisible to all players
@@ -6429,7 +6429,7 @@ no argument is given.
 чей уровень ниже чем указанный уровень невидимости. По умолчанию эта команда
 устанавливает 46-й уровень невидимости, если не задан аргумент.
 ~
-'immortal' 'WIZ OBJLIST' OBJLIST~
+immortal 'WIZ OBJLIST' OBJLIST~
 @eng Syntax: {cobjlist{x
  
 Dumps to a file list of all objects having affects.
@@ -6437,7 +6437,7 @@ Dumps to a file list of all objects having affects.
  
 Выводит в файл список всех обьектов, имеющих аффекты.
 ~
-'immortal' 'WIZ LIMITED' LIMITED~
+immortal 'WIZ LIMITED' LIMITED~
 @eng Syntax: {climited{x
 Syntax: {climited{x <vnum>
  
@@ -6449,7 +6449,7 @@ Given a vnum, it searches the world for it.
 Без аргументов эта команда выведет список всех limited вещей.
 При указании vnum команда попытается найти этот обьект в игре.
 ~
-'immortal' 'WIZ TICK' TICK~
+immortal 'WIZ TICK' TICK~
 @eng Syntax: {ctick{x <option>
  
 Where option defines what should be updated. It can be one of the following:
@@ -6488,7 +6488,7 @@ weapons and of course you should be skilled with that type of weapon.
 уметь метать оружие, но и владеть типом оружия, которое ты собираешься
 использовать.
 ~
-'immortal' 'WIZ NONOTE' NONOTE~
+immortal 'WIZ NONOTE' NONOTE~
 @eng Syntax: {cnonote{x <character>
  
 This command prevents character from writing notes, ideas etc.
@@ -6496,7 +6496,7 @@ This command prevents character from writing notes, ideas etc.
  
 Запрещает написание обьявлений данному персонажу.
 ~
-'immortal' 'WIZ SNOOP' SNOOP~
+immortal 'WIZ SNOOP' SNOOP~
 @eng Syntax: {csnoop{x <character>
 Syntax: {csnoop self{x
  
@@ -6510,7 +6510,7 @@ SNOOP нужен для слежения за персонажем, при этом все что вводит или получает на
 игроками одновременно. Попытайтесь уважать чужую частную жизнь.
 SNOOP SELF отменяет все слежение.
 ~
-'immortal' 'WIZ RATING' RATING~
+immortal 'WIZ RATING' RATING~
 @eng Syntax: {crating{x
  
 This command show you a list of most dangerous head-hunters of this realm.
@@ -6518,7 +6518,7 @@ This command show you a list of most dangerous head-hunters of this realm.
  
 Эта команда показывает список самых отьявленных головорезов этого мира.
 ~
-'immortal' 'WIZ DUMP' DUMP~
+immortal 'WIZ DUMP' DUMP~
 @eng Syntax: {cdump{x
  
 DUMP saves detailed memory structures analisys on disk.
@@ -6526,7 +6526,7 @@ DUMP saves detailed memory structures analisys on disk.
  
 Команда DUMP сбрасывает на диск анализ структур памяти.
 ~
-'immortal' 'WIZ RENAME' RENAME~
+immortal 'WIZ RENAME' RENAME~
 @eng Syntax: {crename{x <char> <new name>
  
 This command is used to change character's name. It correctly handles clans,
@@ -6536,7 +6536,7 @@ object ownership etc.
 Эта команда служит для смены имени персонажа. Она корректно обрабатывает
 состояние в клане, владение именными обьектами и т.д.
 ~
-'immortal' 'WIZ SMITE' SMITE~
+immortal 'WIZ SMITE' SMITE~
 @eng Syntax: {csmite{x <char>
  
 SMITE is used for punishment. It almost kills target character.
@@ -6544,7 +6544,7 @@ SMITE is used for punishment. It almost kills target character.
  
 SMITE служит для показательного наказания. Это почти убивает жертву.
 ~
-'immortal' 'WIZ POPULARITY' POPULARITY~
+immortal 'WIZ POPULARITY' POPULARITY~
 @eng Syntax: {cpopularity{x
  
 This command shows you how much time players spend in each area.
@@ -6552,7 +6552,7 @@ This command shows you how much time players spend in each area.
  
 Эта команда показывает тебе, сколько времени игроки проводят в какой зоне.
 ~
-'immortal' 'WIZ AFFROOMS' AFFROOMS~
+immortal 'WIZ AFFROOMS' AFFROOMS~
 @eng Syntax: {caffrooms{x
  
 Shows you detailed list of all roomaffects.
@@ -6560,7 +6560,7 @@ Shows you detailed list of all roomaffects.
  
 Показывает подробный список всех заклинаний, наложенных на комнаты.
 ~
-'immortal' 'WIZ NOAFFECT' NOAFFECT~
+immortal 'WIZ NOAFFECT' NOAFFECT~
 @eng Syntax: {cnoaffect{x <char>
  
 NOAFFECT strips all affects from char.
@@ -6568,7 +6568,7 @@ NOAFFECT strips all affects from char.
  
 NOAFFECT снимает любые аффекты с персонажа.
 ~
-'immortal' 'WIZ NOTITLE' NOTITLE 'WIZ ITITLE' ITITLE~
+immortal 'WIZ NOTITLE' NOTITLE 'WIZ ITITLE' ITITLE~
 @eng Syntax: {cnotitle{x <char>
 Syntax: {cititle{x <char> <new title>
  
@@ -6703,7 +6703,7 @@ NOTITLE запрещают персонажу устанавливать себе титул. Используй это, когда
                                    |@@@@@@@@@@@@|
                                    |@@@@@@@@@@@@|{x
 ~
-'immortal' 'WIZ PREFIX' PREFIX~
+immortal 'WIZ PREFIX' PREFIX~
 @eng Syntax: {cprefix{x <command>
  
 This command sets a prefix that will precede every line you type. Using it
@@ -6713,7 +6713,7 @@ without argument will clear that prefix.
 Эта команда устанавливает префикс, который будет предшествовать каждой введен-
 ной тобой линии. Эта же команда без аргумента сбросит префикс.
 ~
-'immortal' 'WIZ QTARGET' QTARGET~
+immortal 'WIZ QTARGET' QTARGET~
 @eng Syntax: {cqtarget{x <low> <high> <mobile>
  
 This command restricts players who can attack that mobile by level range.
@@ -6722,7 +6722,7 @@ This command restricts players who can attack that mobile by level range.
 Эта команда позволяет ограничить диапазон уровней игроков, кто может атаковать
 указанного монстра.
 ~
-'immortal' 'WIZ FIND' FIND~
+immortal 'WIZ FIND' FIND~
 @eng Syntax: {cfind{x <location>
  
 FIND displays speedwalk to given location. Location may be specified by mob or
@@ -6732,7 +6732,7 @@ object name or room vnum.
 FIND ищет путь межд твоим текущим положением и указанным местом. Место может
 быть задано именем монстра или обьекта или номером комнаты.
 ~
-'immortal' 'WIZ DISABLE' DISABLE 'WIZ ENABLE' ENABLE~
+immortal 'WIZ DISABLE' DISABLE 'WIZ ENABLE' ENABLE~
 @eng Syntax: {cdisable{x <command>
 Syntax: {cenable{x <command>
  
@@ -6745,26 +6745,26 @@ ENABLE command cannot be disabled.
 команд. Команда ENABLE не может быть заблокирована.
 ~
 0 'CLAN CHAOS' CHAOS~
-@rus С самого начала мирозданиЯ историЯ живых существ несет на себе следы оков
+@rus С самого начала мироздания история живых существ несет на себе следы оков
 различных законов, запретов и ограничений. В человеческой истории все началось
-с их прародителей Адама и Евы, которым запретили всего лишь попробовать Яблоко.
-В истории среднеземьЯ Моргота изгнали всего лишь за то, что он попробовал
+с их прародителей Адама и Евы, которым запретили всего лишь попробовать яблоко.
+В истории среднеземья Моргота изгнали всего лишь за то, что он попробовал
 написать свою музыку. И примеров таких несчетное множество.
 И вот однажды бог Хаоса, у которого бессчетное количество имен, но ни одно из
 них не известно смертным,сказал: "Хватит! Пора положить этому конец". И призвал
 он в свой замок, который стоит на самом видном месте, но которого не видел ни
-один смертный, а даже если бы и увидел, все равно не понЯл бы, что он увидел
+один смертный, а даже если бы и увидел, все равно не понял бы, что он увидел
 лучшего из своих слуг, Eidu, и сказал ему: "Ты - лучше всех из моих слуг можешь
-справитьсЯ с этой задачей. Иди же в этот мир и сделай все, что сможешь. Ибо нет
+справиться с этой задачей. Иди же в этот мир и сделай все, что сможешь. Ибо нет
 сил моих больше смотреть на это." И наделил он его силой, которой не имел никто
-из смертных, а даже если бы и имел, все равно не сумел бы ей воспользоватьсЯ.
-Так пришел в наш мир Eidu. И собрал он вокруг себЯ лучших из лучших, кто мог
+из смертных, а даже если бы и имел, все равно не сумел бы ей воспользоваться.
+Так пришел в наш мир Eidu. И собрал он вокруг себя лучших из лучших, кто мог
 помочь ему в достижении этой цели. И дал он им малую толику той силы, что сам
 имел. Так был образован клан Chaos.
 И принимались в этот клан только лучшие из смертных, кто готов положить свою
-жизнь во имЯ великой цели и кто доказал свою преданность делу Великого Хаоса.
-И они среди вас, постоЯнно делаЯ свое великое дело, но работу их не видЯт глаза
-смертных, а даже если бы увидели, все равно бы не осознали. Но дело движетсЯ и
+жизнь во имя великой цели и кто доказал свою преданность делу Великого Хаоса.
+И они среди вас, постоянно делая свое великое дело, но работу их не видят глаза
+смертных, а даже если бы увидели, все равно бы не осознали. Но дело движется и
 постепенно, но неуклонно приближает их к достижению великой цели - воцарению
 Хаоса в мире.
 ~
@@ -6796,7 +6796,7 @@ WEATHER shows the current game weather.
 Синтаксис: {cweather{x
  
 DATE выводит системное время (локальное для сервера).
-TIME выводит игровое и системное времЯ, а также времЯ последнего рестарта
+TIME выводит игровое и системное время, а также время последнего рестарта
 сервера.
 WEATHER выводит текущую погоду в игре.
 ~
@@ -7015,7 +7015,7 @@ to leadership.
 быть одним из: commoner (обычный член клана), secondary (заместитель лидера)
 или leader (лидер). Назначать лидера может только бессмертный.
 ~
-'immortal' 'WIZ MOB' MOB~
+immortal 'WIZ MOB' MOB~
 @eng Syntax: {cmob{x <action>
  
 MOB command simulates actions of mobiles in mudprogs. This command is 
@@ -7189,14 +7189,14 @@ Syntax: {cpose list{x
  
 To add new pose: {cpose add, pose self{x <number> <msg>, {cpose others{x <number> <msg>
 ~
-'immortal' IMOTD~
+immortal IMOTD~
 1. Есть предложение писать в help imotd краткие сообщения - чтоб не писать
    ноты изза одной фразы.
 2. Старый help imotd переименован в help __imotd
 3. Команда addaffect пока глючит! лучше пока ее не трогать - МУД падает.
    #Arborn
 ~
-'immortal' 'OLC CC_RULESET'~
+immortal 'OLC CC_RULESET'~
 Syntax: <cmd> show
 Syntax: <cmd> order <type> <order>
 Syntax: <cmd> order <type> ?
@@ -7222,7 +7222,7 @@ Additional helps:
         'CC_RULES OBJ_WEAR'
         'CC_RULES SPEC'
 ~
-'immortal' 'CC_RULES OBJ_WEAR'~
+immortal 'CC_RULES OBJ_WEAR'~
 Valid types and check expressions for "obj_wear" cc_rule class are:
 
 '{crace{x'
@@ -7254,7 +7254,7 @@ thieves and assassins.
  
 SEE ALSO: 'OLC CC_RULES'
 ~
-'immortal' 'CC_RULES SPEC'~
+immortal 'CC_RULES SPEC'~
 Valid types and check expressions for "spec" cc_rule class are:
  
 '{chas_spec{x'

@@ -18,8 +18,8 @@ strangers that may pass by.
 ~
 human~
 ABDG HN 1000 0
-65 0 50d10+8250 10d10+1000 11d5+35 'divine'
--35 -35 -35 -16
+45 15 5d100+4500 10d10+1000 11d4+25 'divine'
+-20 -20 -20 -15
 FHKN 0 0 0
 stand stand male 1000
 0 0 medium unknown
@@ -36,7 +36,7 @@ and alloys such as bronze.
 ~
 human~
 ABG HN 1000 0
-50 0 2d1+3000 1d1+99 5d6+50 'pound'
+50 30 2d1+3000 1d1+99 5d6+50 'pound'
 -7 -7 -7 -3
 FHIKN 0 0 0
 stand stand male 1000
@@ -53,7 +53,7 @@ occasional crude iron oddity.
 ~
 human~
 ABGe HN 1000 0
-50 0 2d1+3000 1d1+99 5d6+50 'pound'
+50 30 2d1+3000 1d1+99 5d6+50 'pound'
 -7 -7 -7 -3
 FHIKN 0 0 0
 stand stand male 1000
@@ -67,7 +67,7 @@ Type list to see what he has to offer.
 ~
 human~
 ABGe HN 1000 0
-60 0 2d1+10000 1d1+99 5d6+150 'slash'
+60 40 2d1+10000 1d1+99 8d8+50 'slash'
 -19 -19 -19 -9
 FHIKN 0 0 0
 stand stand male 1000
@@ -83,7 +83,7 @@ marvellous potions. They taste even worse than they smell...
 ~
 human~
 ABGe HN 1000 0
-55 0 2d1+5000 1d1+99 5d6+50 'pound'
+55 30 2d1+5000 1d1+99 5d6+50 'pound'
 -10 -10 -10 -5
 FHIKN 0 0 0
 stand stand female 1000
@@ -101,7 +101,7 @@ clear day).
 ~
 human~
 ABG HN 1000 0
-55 0 2d1+5000 1d1+99 5d6+50 'pound'
+45 30 2d1+5000 1d1+99 5d6+35 'pound'
 -10 -10 -10 -5
 FHIKN 0 0 0
 stand stand female 1000
@@ -117,8 +117,8 @@ in his ability to exact obedience. That bear sure doesn't look tame...
 ~
 human~
 ABGe HN 1000 0
-65 0 50d10+8250 10d10+1000 11d5+35 'pound'
--35 -35 -35 -17
+50 30 5d100+5000 10d10+1000 11d4+30 'pound'
+-20 -20 -20 -15
 FHIKN 0 0 0
 stand stand male 1000
 0 0 medium unknown
@@ -132,7 +132,7 @@ of the year fashioning and selling basic equipment.
 ~
 human~
 ABGe HN 1000 0
-50 0 2d1+3000 1d1+99 5d6+50 'pound'
+50 30 2d1+3000 1d1+99 5d6+35 'pound'
 -7 -7 -7 -3
 FIKN 0 0 0
 stand stand male 1000
@@ -147,7 +147,7 @@ travellers and other villagers.
 ~
 human~
 ABGe HN 1000 0
-50 0 2d1+3000 1d1+99 5d6+50 'pound'
+50 30 2d1+3000 1d1+99 5d6+50 'pound'
 -7 -7 -7 -3
 FIKN 0 0 0
 stand stand female 1000
@@ -165,7 +165,7 @@ the brewer is the size of a grizzly bear, few refuse.
 ~
 human~
 ABGe HN 1000 0
-55 0 2d1+5000 1d1+99 5d6+50 'pound'
+50 30 2d1+5000 1d1+99 5d6+35 'pound'
 -10 -10 -10 -5
 FIKN 0 0 0
 stand stand male 1000
@@ -241,7 +241,7 @@ F 0 0 0
 stand stand none 1000
 0 0 medium unknown
 #24115
-champion~
+village champion~
 the village champion~
 The village champion flexes his mighty thews and grins at you.
 ~
@@ -249,12 +249,12 @@ The village champion once tore the head off a rabid Mastodon with his thumbs.
 Imagine what he could do to you...
 ~
 human~
-ABDG HJN 0 0
-65 0 50d10+8250 10d10+1000 11d5+35 'crush'
--35 -35 -35 -17
-0 0 0 0
+ABDG HJNc 0 0
+50 30 5d200+4000 10d10+1000 11d5+35 'crush'
+-20 -20 -20 -10
+ADEFHOZ 0 0 0
 stand stand male 1000
-FIKN 0 medium unknown
+F ABCF medium unknown
 #24116
 merchant~
 a hook-nosed merchant~
@@ -265,7 +265,7 @@ very well makes conversation suddenly become much simpler- MONEY.
 ~
 human~
 ACGHe DFN 0 0
-50 0 2d1+3000 1d1+99 5d6+50 'pound'
+50 30 2d1+3000 1d1+99 5d6+50 'pound'
 -7 -7 -7 -3
 FHIKN 0 0 0
 stand stand male 1000
@@ -284,10 +284,10 @@ village (and some women too) vie for her favours.
 ~
 human~
 AG CDHJN 1000 0
-60 0 50d10+6750 5d5+5000 8d6+28 'pound'
--30 -30 -30 -3
+50 25 5d100+5000 5d5+5000 8d6+20 'pound'
+-20 -20 -20 -15
 FIKN 0 0 0
-stand stand male 1000
+stand stand female 1000
 0 0 medium unknown
 #24118
 villager~
@@ -450,8 +450,8 @@ and bandits has necessitated the introduction of a militia to keep the peace.
 ~
 human~
 ADG CHN 1000 0
-50 0 50d10+4250 5d5+5000 5d8+19 'pound'
--20 -20 -20 0
+30 15 10d40+1200 5d5+1000 5d7+10 'pound'
+-12 -12 -12 -5
 EFIKN 0 0 0
 stand stand male 1000
 0 0 medium unknown
@@ -466,8 +466,8 @@ and bandits has necessitated the introduction of a militia to keep the peace.
 ~
 human~
 ADG CHN 1000 0
-50 0 50d10+4250 5d5+5000 5d8+19 'pound'
--20 -20 -20 0
+30 15 10d40+1200 5d5+1000 5d7+10 'pound'
+-12 -12 -12 -5
 CEFIKN 0 0 0
 stand stand male 1000
 0 0 medium unknown
@@ -482,8 +482,8 @@ and bandits has necessitated the introduction of a militia to keep the peace.
 ~
 human~
 ABDG CHN 1000 0
-50 0 50d10+4250 5d5+5000 5d8+19 'pound'
--20 -20 -20 0
+30 15 10d40+1200 5d5+5000 5d7+10 'pound'
+-15 -15 -15 -5
 CEFIKN 0 0 0
 stand stand male 1000
 0 0 medium unknown
@@ -836,12 +836,12 @@ g none~
 wolf head~
 a wolf's head~
 The champion's wolf's head is here.~
-copper~
+skin~
 armor 0 AE
 21 21 21 0 0
-93 75 930 P
+45 75 930 P
 A
-13 250
+13 120
 g none~
 #24127
 club~

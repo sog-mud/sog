@@ -683,8 +683,8 @@ desecrate the temple.
 нить покой храма.
 ~
 human~
-ABGTe N 1000 0
-30 25 2d50+1000 0d0+0 6d6+30 'smash'
+ABGTe JNZ 1000 0
+30 25 2d50+1000 0d0+0 6d6+15 'smash'
 -15 -15 -15 -15
 EFHKQUX AB MP 0
 stand stand male 5000
@@ -719,19 +719,81 @@ AEFHKQX AB MP 0
 stand stand male 20000
 0 ABCF medium unknown
 F for H
-#47151
+#47131
+priest high man священник человек такеда takeda~
+@eng the priest Takeda@rus ~~священник~~ ~~Такеда~~~
+@eng A man clad in white watches people around with virtuous smile.
+@rus Человек в белых одеждах смотрит на тебя с доброжелательной полуулыбкой.
 ~
-~
-~
+@eng He is very old but at the same time not infirm.
+Looking into his eyes you see an infinite will
+to help everyone who needs it. It is rumored,
+that he can heal almost any disease with a sin-
+gle touch.
+@rus Он уже очень стар, но отнюдь не немощен. В его глазах
+ты видишь нескончаемую энергию и волю помогать всем,
+кто в этом нуждается. Говорят, он способен излечить
+даже самые тяжелые заболевания одним прикосновением.
 ~
 human~
-A 0 0 0
-0 0 0d0+0 0d0+0 0d0+0 ''
-0 0 0 0
-0 0 0 0
-stand stand none 0
-0 0 medium unknown
-F for AHMV
+ABQae DHJZ 1000 0
+35 20 2d50+1400 2d100+1500 7d6+20 'divine'
+-10 -10 -10 -10
+FH ABP 0 0
+stand stand male 10000
+0 ABCF medium unknown
+F for H
+#47132
+figure silent tori фигура безмолвная тори человек human assassin~
+@eng a darkly clad assassin@rus ~~убийца~~ в черном~
+@eng A silent black figure is lurking in the darkness.
+@rus Безмолвная фигура в черном затаилась в темноте.
+~
+@eng This is Tori, the hired assassin.. well he doesn't only steal,
+he can do literally anything if paid enough. You got no clue
+what his goal here may be, besides the treasures of the temple,
+but he seems to just ignore those. Actually, you don't know
+what that samurai to the east is guarding.. there may be some-
+thing more valuable than gold.
+@rus Это Тори, наемный убийца.. впрочем он может выполнить любую
+работу, если ему достаточно заплатить. У тебя нет ни малей-
+шей идеи, что является его целью здесь, если не сокровища -
+но он их, похоже, проигнорировал. Впрочем, еще неизвестно,
+что охраняет самурай на входе в сад.
+~
+human~
+ABTef DFJPQVZ 0 0
+40 30 2d100+1800 2d100+700 6d7+20 'thrust'
+-20 -20 -20 -15
+AEFHKN APU HI 0
+stand stand male 0
+0 ABCF medium unknown
+F for H
+#47151
+worshipper человек молящийся посетитель~
+@eng a worshipper@rus ~~молящийся~~ ~~человек~~~
+@eng One of worshippers is sitting here, repeating mantras endlessly.
+@rus Один из посетителей храма сидит тут, непрерывно повторяя мантры.
+~
+@eng This is one of the local villagers who has
+come to the temple for a purpose barely un-
+derstandable to a foreigner like you. He
+seems to be in some kind of trance, not even
+noticing you and repeating his mantras in
+an endless loop.
+@rus Это один из местных жителей, пришедший в храм
+с какой-то малопонятной тебе как чужестранцу
+целью. Он, кажется, даже не замечает тебя,
+будучи в трансе и непрерывно повторяя мантры.
+~
+human~
+ABGe J 500 0
+20 7 2d50+300 2d5+200 4d5+10 'punch'
+-5 -5 -5 -5
+FHU 0 0 0
+stand stand male 1000
+0 ABCF medium unknown
+F for H
 #0
 
 #OBJECTS
@@ -1663,8 +1725,8 @@ kimono платье кимоно dress elegant элегантное~
 @eng a beutiful kimono of colour silk@rus ~~красивое~~ кимоно из цветного шелка~
 @eng An elegant silken kimono, painted with birds and something else, lies here.@rus Элегантное шелковое кимоно, украшенное изображениями птиц и чего-то еще, лежит здесь.~
 silk~
-clothing I AD
-0 0 0 0 0
+container I AD
+250 0 0 10 25
 30 4 20000 P
 A
 6 4
@@ -1687,7 +1749,7 @@ key ключ~
 steel~
 key 0 AO
 0 0 0 0 0
-30 2 0 P
+30 0 0 P
 g male~
 #47154
 hairpin sai заколка саи~
@@ -1696,7 +1758,7 @@ hairpin sai заколка саи~
 steel~
 weapon N AN
 dagger 4 9 'thrust' D
-25 4 15000 P
+25 1 15000 P
 g none~
 #47155
 doll кукла деревянная wooden~
@@ -1820,6 +1882,21 @@ A
 27 5
 A
 20 -5
+E
+helm шлем~
+@eng Mithril splinted helm. designed in traditional style,
+protects its wearer's head and back of the neck, and
+leaves the face open. An yellow shade of the metal hints
+on gilding and strange carvings covering it resemble
+magical symbols which probably signify some enchant-
+ments cast upon it for extra protection.
+@rus Мифрильный пластинчатый шлем, выполненный в традиционном
+стиле, закрывает всю голову, кроме лица, и заднюю часть
+шеи. Желтый оттенок металла наводит на мысль о позолоте,
+а странные узоры, покрывающие его, напоминают магические
+символы, которые, возможно, означают заклинания, наложен-
+ные на этот шлем для лучшей защиты.
+~
 g @eng neutral@rus male~
 #47163
 armor splintmail ornate изящный пластинчатый доспех~
@@ -1839,6 +1916,30 @@ A
 27 7
 A
 5 1
+E
+armor доспех~
+@eng Long splintmail can protect its wearer's body from the
+neck to the knees against most weapons, except maybe
+arrows shot from a long battle bow. An yellow shade of
+the metal hints on gliding and strange carvings covering
+this armor resemble magical symbols which probably signify
+some magical enchantments cast upon it for extra protec-
+tion.
+@rus Длинный, до колен, пластинчатый доспех, отлично защищает
+от большинства видов оружия, кроме, может быть, стрел,
+выпущенных из длинного боевого лука. Желтый оттенок ме-
+талла наводит на мысль о позолоте, а странные узоры,
+покрывающие этот доспех, напоминают магические символы,
+означающие, быть может, заклинания, наложенные на него
+для лучшей защиты.
+~
+E
+armor доспех~
+@eng An yellow shade of the metal hints on gliding and strange
+carvings covering it resemble magical symbols which probab-
+ly signify some magical enchantments cast upon this armor
+for extra protection.
+~
 g @eng neutral@rus male~
 #47164
 splinted gauntlets ornate пластинчатые рукавицы~
@@ -1849,15 +1950,33 @@ armor IK AH
 15 15 15 12 0
 35 25 20000 P
 A
-28 3
+20 -4
 A
-29 3
+19 4
 A
-27 3
+29 4
 A
-20 -3
+28 4
 A
-19 3
+27 4
+E
+gauntlets рукавицы~
+@eng An yellow shade of the metal hints on gilding and
+strange carvings covering the gauntlets resemble
+magic symbols which probably signify some enchant-
+ments cast upon these gauntlets.
+@rus Желтый оттенок металла наводит на мысль о позолоте,
+а странные узоры, покрывающие эти рукавицы, напоми-
+нают какие-то магические символы, означая, быть мо-
+жет, заклинания, наложенные на эти рукавицы.
+~
+E
+gauntlets рукавицы~
+@rus Желтый оттенок металла наводит на мысль о позолоте,
+а странные узоры, покрывающие эти рукавицы, напоми-
+нают какие-то магические символы, означая, может,
+быть, наложенные на эти рукавицы заклятия.
+~
 g @eng neutral@rus plural~
 #47165
 boots splinted ornate ботинки пластинчатые~
@@ -1877,11 +1996,26 @@ A
 27 4
 A
 20 -5
+E
+boots ботинки~
+@eng An yellow shade of the metal hints on gilding and
+strange patterns covering the boots point out mos-
+tly decorative purpose.
+@rus Желтый оттенок металла наводит на мысль о позолоте,
+а странные узоры, покрывающие ботинки, коворят о
+предназначении скорее декоративном.
+~
+E
+boots ботинки~
+@rus Желтый оттенок металла наводит на мысль о позолоте,
+а странные узоры, которыми украшены ботинки, говорят
+о предназначении скорее декоративном.
+~
 g @eng neutral@rus plural~
 #47166
 naginata magical магическая нагината~
 @eng a magically enchanted naginata@rus ~~магическая~~ нагината~
-@eng A long pole crowned with sharp curved blade radiates a faint blue glow.@rus Длинный шест, увенчанный острым изогнутым лезвием, слегка светится голубым.~
+@eng A long pole crowned with sharp curved blade glows faintly here.@rus Длинный шест, увенчанный острым изогнутым лезвием, слегка светится голубым.~
 mithril~
 weapon GIK AN
 polearm 6 9 'slice' DFG
@@ -1892,7 +2026,177 @@ A
 18 3
 A
 19 5
+E
+naignata нагината~
+@eng About three feet long blade of unusually blue mithril is
+attached to a shaft as long as this weapon's owner is tall
+and covered with strange carvings from one end to another.
+Barely noticeable lightnings streak along the blade, cas-
+ting ghostly blue light around it and hinting on the magics
+this unique weapon was enchanted with.
+~
+E
+naginata нагината~
+@rus Длинное, в два локтя, лезвие из мифрила необычно синего
+цвета, прикреплено к шесту в человеческий рост, по всей
+длине изукрашенному прихотливыми узорами. Иногда едва
+заметные молнии проскальзывают по поверхности лезвия,
+распространяя вокруг призрачное голубоватое сияние и вы-
+давая магию, наложенную на это необычное оружие.
+~
 g @eng neutral@rus female~
+#47167
+bead четки ivory~
+@eng an ivory bead@rus ~~четки~~ из слоновой кости~
+@eng A bead made of ivory lies on the ground.@rus Четки (bead) из слоновой кости лежат на земле.~
+ivory~
+treasure GIK AO
+0 0 0 0 0
+20 10 7500 P
+A
+37 10
+A
+20 -10
+A
+12 50
+A
+4 3
+g @eng neutral@rus plural~
+#47168
+longbow long bow длинный лук battle~
+@eng a long battle bow@rus ~~длинный~~ ~~лук~~~
+@eng A long battle bow lies here.@rus Большой боевой лук лежит здесь.~
+wood~
+weapon 0 AN
+bow 5 9 'blast' F
+30 250 5000 P
+A
+19 7
+A
+18 3
+g @eng neutral@rus male~
+#47169
+robes white priestly одежды священника белые~
+@eng priestly white robes@rus ~~белые~~ ~~одежды~~ священника~
+@eng White robes of a priest lie here.@rus Белое одеяние священника лежит здесь.~
+cloth~
+clothing GIK AD
+0 0 0 0 0
+35 7 10000 P
+A
+35 15
+A
+20 -10
+A
+12 80
+A
+4 4
+g @eng neutral@rus plural~
+#47170
+chest iron bound сундук окованный~
+@eng an iron bound chest@rus ~~окованный~~ железом ~~сундук~~~
+@eng A massive iron bound chest draws your attention.@rus Большой сундук, окованный железом, привлекает твое внимание.~
+hardwood~
+container RY 0
+100000 ABCD 47171 1000000 100
+30 2147483647 2147483647 P
+g @eng neutral@rus male~
+#47171
+key ключ tarnished потускневший~
+@eng a key@rus ~~ключ~~~
+@eng A tarnished steel key lies here.@rus Небольшой ключ из потускневшего металла лежит тут.~
+steel~
+key Hf AO
+0 0 0 0 0
+0 0 0 P
+g @eng neutral@rus male~
+#47172
+key steel стальной ключ~
+@eng a steel key@rus ~~стальной~~ ~~ключ~~~
+@eng A steel key lies here, forgotten by someone.@rus Стальной ключ лежит здесь, забытый кем-то.~
+steel~
+key 0 AO
+0 0 0 0 0
+30 0 0 P
+g @eng neutral@rus male~
+#47173
+pile jewels gold treasure~
+@eng a large pile of gold and jewels@rus ~~огромная~~ ~~куча~~ драгоценностей и золота~
+@eng A large pile of gold and jewels blinds you with its glitter.@rus Огромная куча золота и драгоценностей ослепляет тебя своим блеском.~
+gold~
+money AT A
+0 5000 0 0 0
+40 200 1000000 P
+g @eng neutral@rus female~
+#47174
+gi ninjitsu black черное облачение ниндзя~
+@eng a black ninjitsu gi@rus ~~черное~~ ~~облачение~~ ниндзя~
+@eng Someone's black clothes lie here in a formless pile.@rus Чьи-то черные одежды лежат здесь бесформенной кучей.~
+cloth~
+container CY AD
+250 0 0 10 25
+40 20 10000 P
+S 'dodge' 10 A
+A
+14 50
+A
+31 10
+A
+30 10
+S 'hide' 50 A
+A
+20 -10
+A
+2 3
+E
+nijitsu gi облачение ниндзя~
+@eng These black clothes conceal most of its wearer's movements,
+helping him avoid being hit in combat. It is almost impossib-
+le to strike true when you fight a ninja. This gi also serves
+as a container for a small number of items, and can provide
+some unexplainable magical protection.. not to mention the
+fact that hiding in the shadows when wearing it is much easier.
+@rus Одежда вроде этой скрывает большую часть движений, помогая
+избежать ударов в бою. Кроме того, в нее можно сложить не
+слишком много мелких вещей, которые сожно будет быстро
+достать в случае необходимости, а также непостижимым
+образом защищает от некоторых видов магии. Ну и конечно,
+прятаться намного легче, если на тебе одет такой костюм.
+~
+g neutral~
+#47175
+shuriken razor sharp острый сюрикен~
+@eng a razor-sharp shuriken@rus ~~острый~~ ~~сюрикен~~~
+@eng A steel star with sharpened edges is gleaming on the ground.@rus Металлическая звездочка с отточенными краями тускло поблескивает на земле.~
+steel~
+weapon 0 AN
+exotic 9 5 'shock' DK
+30 5 5000 P
+g @eng neutral@rus male~
+#47176
+sai blade brown саи клинок коричневый~
+@eng a sharp sai@rus ~~острый~~ саи~
+@eng A trident-shaped weapon with short hilt and enlongated central blade is gleaming here.@rus Клинок в форме трезубца с очень длинным и острым средним лезвием поблескивает не земле.~
+mithril~
+weapon C AN
+dagger 12 4 'thrust' DH
+40 7 8000 P
+A
+18 9
+A
+19 7
+E
+sai blade саи клинок~
+@eng This unusual item resembles a hairpin rather than a weapon,
+tho it'd be difficult to conceal it within a wig due to its
+size. A few brownish streaks can be seen along the blade,
+which probably is the poison.
+@rus Эта необычная вещица скорей похожа на заколку для волос,
+чем на оружие, хотя спрятать "заколку" такого размера в
+прическе было бы затруднительно. Ты замечаешь на лезвии
+следы какого-то коричневатого вещества - возможно, яда.
+~
+g @eng neutral@rus male~
 #47217
 river water~
 @eng River@rus ~~река~~~
@@ -2486,7 +2790,7 @@ D3
 Z 0 47124
 S
 #47126
-@eng Temple guards' barracks@rus Жилище храмовой охраны~
+@eng Temple guard sleeping quarters@rus Жилище храмовой охраны~
 @eng After short hallway you have reached quite large room. There are four
 beds along the walls, and a table with two benches in the corner. Obvio-
 usly,  the temple guards live here,  eat,  sleep and spend time between
@@ -3683,7 +3987,7 @@ is seen in one of them.
 В одной из створок видна скважина для небольших размеров ключа.
 ~
 doors~
-ABCFGZ 0 47176
+ABCFGZ 47172 47176
 D3
 ~
 ~
@@ -3778,7 +4082,7 @@ treasure took care about its safety, of course.
 D3
 ~
 ~
-ABCFGZ 0 47171
+ABCFGZ 47172 47171
 S
 #47177
 @eng The mountain@rus На горе~
@@ -4780,8 +5084,8 @@ D 0 47113 2 1	* Road in the village: door to the south: closed
 D 0 47115 0 1	* A villager's house: door to the north: closed
 D 0 47118 2 1	* A villager's house: door to the south: closed
 D 0 47120 0 1	* A villager's house: door to the north: closed
-D 0 47126 0 1	* Temple guards' barracks: door to the north: closed
-D 0 47126 2 1	* Temple guards' barracks: door to the south: closed
+D 0 47126 0 1	* Temple guard sleeping quarters: door to the north: closed
+D 0 47126 2 1	* Temple guard sleeping quarters: door to the south: closed
 D 0 47127 0 1	* Armoury: door to the north: closed
 D 0 47129 0 1	* The forge: door to the north: closed
 D 0 47166 2 1	* Inside the temple: door to the south: closed
@@ -4847,14 +5151,21 @@ M 0 47123 1 47119 1	* a peasant (A small field behind the house)
 E 0 47137 0 16		*	a fine sturdy hoe: wielded
 M 0 47123 1 47121 1	* a peasant (A small field behind the house)
 E 0 47137 0 16		*	a fine sturdy hoe: wielded
-O 0 47125 0 47126	* wooden bench (Temple guards' barracks)
-O 0 47126 0 47126	* table (Temple guards' barracks)
-M 0 47130 1 47126 1	* captain of the guard (Temple guards' barracks)
+O 0 47125 0 47126	* wooden bench (Temple guard sleeping quarters)
+O 0 47126 0 47126	* table (Temple guard sleeping quarters)
+M 0 47129 6 47126 2	* temple guard (Temple guard sleeping quarters)
+E 0 47160 0 5		*	haramaki: on the body
+E 0 47161 0 16		*	naginata: wielded
+M 0 47129 6 47126 2	* temple guard (Temple guard sleeping quarters)
+E 0 47160 0 5		*	haramaki: on the body
+G 0 47168 0		*	a long battle bow
+M 0 47130 1 47126 1	* captain of the guard (Temple guard sleeping quarters)
 E 0 47162 0 6		*	an ornate splinted helm: over the head
-E 0 47163 0 5		*	a suit of ornate splintmail armor: on the body
 E 0 47164 0 9		*	a pair of ornate splinted gauntlets: on the hands
+E 0 47163 0 5		*	a suit of ornate splintmail armor: on the body
 E 0 47165 0 8		*	a pair of ornate splinted boots: on the feet
 E 0 47166 0 16		*	a magically enchanted naginata: wielded
+G 0 47171 0		*	a key
 O 0 47102 0 47128	* temple gate (The temple courtyard)
 O 0 47109 0 47129	* a huge anvil (The forge)
 O 0 47110 0 47129	* Barrel of water (The forge)
@@ -4886,7 +5197,42 @@ M 0 47103 5 47151 1	* a grasshopper (The meadows)
 M 0 47107 1 47153 1	* a young deer (Medium density forest)
 M 0 47102 2 47154 1	* a small snake (The meadows)
 G 0 47129 0		*	a dead snake
+M 0 47129 6 47163 2	* temple guard (Inside the temple)
+E 0 47160 0 5		*	haramaki: on the body
+E 0 47161 0 16		*	naginata: wielded
+M 0 47129 6 47163 2	* temple guard (Inside the temple)
+E 0 47160 0 5		*	haramaki: on the body
+E 0 47161 0 16		*	naginata: wielded
+M 0 47151 10 47164 2	* a worshipper (Inside the temple)
+M 0 47151 10 47164 2	* a worshipper (Inside the temple)
+M 0 47151 10 47165 1	* a worshipper (Inside the temple)
+E 0 47167 0 17		*	an ivory bead: held in the hands
+M 0 47151 10 47166 1	* a worshipper (Inside the temple)
+M 0 47151 10 47167 2	* a worshipper (Inside the temple)
+M 0 47151 10 47167 2	* a worshipper (Inside the temple)
+M 0 47129 6 47167 1	* temple guard (Inside the temple)
+E 0 47160 0 5		*	haramaki: on the body
+E 0 47161 0 16		*	naginata: wielded
+M 0 47151 10 47168 2	* a worshipper (Inside the temple)
+M 0 47151 10 47168 2	* a worshipper (Inside the temple)
+E 0 47167 0 17		*	an ivory bead: held in the hands
+M 0 47151 10 47169 2	* a worshipper (Inside the temple)
+M 0 47151 10 47169 2	* a worshipper (Inside the temple)
+M 0 47131 1 47170 1	* the priest Takeda (The Priest's stand)
+E 0 47169 0 5		*	priestly white robes: on the body
+G 0 47172 0		*	a steel key
+M 0 47129 6 47171 1	* temple guard (Statue of Buddha)
+E 0 47160 0 5		*	haramaki: on the body
+E 0 47161 0 16		*	naginata: wielded
+M 0 47132 1 47173 1	* a darkly clad assassin (Secret passage)
+E 0 47176 0 20		*	a sharp sai: second wielded
+E 0 47176 0 16		*	a sharp sai: wielded
+E 0 47174 0 5		*	a black ninjitsu gi: on the body
+P 0 47175 2 47174 2	* a black ninjitsu gi: a razor-sharp shuriken
+P 0 47175 2 47174 2	* a black ninjitsu gi: a razor-sharp shuriken
 O 0 47127 0 47175	* {gbodhi tree{x (The sacred garden)
+O 0 47170 0 47176	* an iron bound chest (The temple treasury)
+P 0 47173 1 47170 1	* an iron bound chest: a large pile of gold and jewels
 O 0 47103 0 47188	* Mouth of a cave (The mountain)
 O 0 47104 0 47197	* Crevasse (Deeper into the cave)
 O 0 47105 0 47198	* Hole (Stone trap inside the mountain)
@@ -4915,12 +5261,14 @@ M 0 47119 1 47210 1	* Saburo (Saburo Kanzaki's room)
 G 0 47149 0		*	a small key
 O 0 47115 0 47210	* Bed (Saburo Kanzaki's room)
 O 0 47115 0 47211	* Bed (Mori's room)
+O 0 47152 0 47211	* a chest (Mori's room)
+P 0 47151 2 47152 1	* a chest: a beutiful kimono of colour silk
+P 0 47154 3 47152 2	* a chest: a sharp hairpin
+P 0 47154 3 47152 2	* a chest: a sharp hairpin
 M 0 47120 1 47211 1	* Mori (Mori's room)
 E 0 47151 0 5		*	a beutiful kimono of colour silk: on the body
-G 0 47153 0		*	a small key
-O 0 47152 0 47211	* a chest (Mori's room)
-P 0 47151 1 47152 1	* a chest: a beutiful kimono of colour silk
-P 0 47154 2 47152 2	* a chest: a sharp hairpin
+P 0 47153 1 47151 1	* a beutiful kimono of colour silk: a small key
+P 0 47154 3 47151 1	* a beutiful kimono of colour silk: a sharp hairpin
 M 0 47105 1 47212 1	* apprentice (A small opening)
 E 0 47130 0 13		*	a worn belt: around the waist
 E 0 47131 0 7		*	short pants: on the legs
@@ -4964,6 +5312,14 @@ O 47163 5	* a suit of ornate splintmail armor
 O 47164 5	* a pair of ornate splinted gauntlets
 O 47165 5	* a pair of ornate splinted boots
 O 47166 3	* a magically enchanted naginata
+O 47167 10	* an ivory bead
+O 47168 10	* a long battle bow
+O 47169 5	* priestly white robes
+O 47171 1	* a key
+O 47173 1	* a large pile of gold and jewels
+O 47174 3	* a black ninjitsu gi
+O 47175 10	* a razor-sharp shuriken
+O 47176 4	* a sharp sai
 S
 
 #MOBPROGS
