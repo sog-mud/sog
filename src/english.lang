@@ -1,5 +1,5 @@
 #
-# $Id: english.lang,v 1.79 1998-09-07 02:57:10 fjoe Exp $
+# $Id: english.lang,v 1.80 1998-09-11 16:14:55 fjoe Exp $
 #
 
 MSG_NOTHING		"Nothing.\n\r"
@@ -339,7 +339,7 @@ MSG_CANT_BASH_DOORS_RIDDEN	"You can't bash doors while being ridden.\n\r"
 MSG_BASH_WHICH_DOOR		"Bash wich door or direction?\n\r"
 MSG_WAIT_FIGHT_FINISH		"Wait until the fight finishes.\n\r"
 MSG_N_TOO_CLOSE_TO_DOOR	"$N is standing too close to door."
-MSG_TRY_TO_OPEN		"Just try to open it."
+MSG_TRY_TO_OPEN		"Just try to open it.\n\r"
 MSG_SHIELD_PROTECTS_EXIT	"A mystical shield protects exit.\n\r"
 MSG_YOU_SLAM_TRY_BREAK		"You slam into $d, and try to break $d!"
 MSG_N_SLAMS_TRY_BREAK		"$n slams into $d, and tries to break it!"
