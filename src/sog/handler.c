@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.107 1999-02-10 14:57:35 fjoe Exp $
+ * $Id: handler.c,v 1.108 1999-02-11 05:38:23 fjoe Exp $
  */
 
 /***************************************************************************
@@ -52,6 +52,7 @@
 #include "fight.h"
 #include "quest.h"
 #include "db/db.h"
+#include "olc/olc.h"
 
 DECLARE_DO_FUN(do_raffects	);
 DECLARE_DO_FUN(do_return	);
@@ -1381,6 +1382,9 @@ void char_to_room(CHAR_DATA *ch, ROOM_INDEX_DATA *pRoomIndex)
 		 else
 			raffect_to_char(ch->in_room, ch);
 	}
+
+	if (!IS_NPC(ch) && ch->desc && ch->desc->editor == ED_ROOM)
+		roomed_edit_room(ch, pRoomIndex, TRUE);
 }
 
 /*

@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.110 1999-02-10 15:58:40 fjoe Exp $
+ * $Id: spellfun.c,v 1.111 1999-02-11 05:38:24 fjoe Exp $
  */
 
 /***************************************************************************
@@ -90,7 +90,7 @@ bool check_trust(CHAR_DATA *ch, CHAR_DATA *victim)
  */
 bool spellbane(CHAR_DATA *bch, CHAR_DATA *ch, int bane_chance, int bane_damage)
 {
-	if (bch && is_affected(bch, gsn_spellbane)
+	if (is_affected(bch, gsn_spellbane)
 	&&  number_percent() < bane_chance) {
 		if (ch == bch) {
 	        	act_puts("Your spellbane deflects the spell!",
@@ -408,7 +408,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		break;
 	}
 
-	if (spellbane(bch, ch, bane_chance, 3 * bch->level))
+	if (bch && spellbane(bch, ch, bane_chance, 3 * bch->level))
 		return;
 
 	if (number_percent() > chance) {
@@ -627,7 +627,7 @@ void obj_cast_spell(int sn, int level,
 		}
 	}
 
-	if (spellbane(bch, ch, bane_chance, bane_damage))
+	if (bch && spellbane(bch, ch, bane_chance, bane_damage))
 		return;
 
 	target_name = str_empty;
