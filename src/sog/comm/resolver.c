@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: resolver.c,v 1.7 1998-11-02 05:28:40 fjoe Exp $
+ * $Id: resolver.c,v 1.8 1998-11-23 07:19:13 fjoe Exp $
  */
 
 #if !defined (WIN32)
@@ -38,6 +38,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <signal.h>
+#include <errno.h>
 #include "typedef.h"
 #include "log.h"
 #include "resolver.h"
@@ -58,6 +59,8 @@ void resolver_init(void)
 		exit(1);
 	}
 
+	signal(SIGPIPE, SIG_IGN);
+
 	rpid = fork();
 	if (rpid < 0) {
 		perror("fork");
@@ -76,7 +79,6 @@ void resolver_init(void)
 	signal(SIGFPE, cleanup);
 	signal(SIGBUS, cleanup);
 	signal(SIGSEGV, cleanup);
-	signal(SIGPIPE, cleanup);
 	signal(SIGALRM, cleanup);
 	signal(SIGTERM, cleanup);
 #if !defined (LINUX)
@@ -155,6 +157,9 @@ static void resolver_loop(void)
 		fprintf(fout, "%s@%s\n",
 			buf, hostent ? hostent->h_name : p);
 	}
+
+	if (errno)
+		perror("resolver_loop");
 	fclose(fin);
 	fclose(fout);
 	exit(0);
