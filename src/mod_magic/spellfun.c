@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.294 2002-08-02 13:10:39 tatyana Exp $
+ * $Id: spellfun.c,v 1.295 2002-08-05 17:57:33 tatyana Exp $
  */
 
 /***************************************************************************
@@ -3235,7 +3235,7 @@ SPELL_FUN(spell_bark_skin, sn, level, ch, vo)
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA *paf;
 
-	if (is_sn_affected(ch, sn)) {
+	if (is_sn_affected(victim, sn)) {
 		if (victim == ch)
 			act_char("Your skin is already covered in bark.", ch);
 		else {
@@ -3249,7 +3249,7 @@ SPELL_FUN(spell_bark_skin, sn, level, ch, vo)
 	paf->level     = level;
 	paf->duration  = level;
 	INT(paf->location) = APPLY_AC;
-	paf->modifier  = -(level * 1.5);
+	paf->modifier  = -(level * 15 / 10);
 	affect_to_char(victim, paf);
 	aff_free(paf);
 
