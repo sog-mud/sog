@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.181.2.46 2003-09-30 01:25:04 fjoe Exp $
+ * $Id: spellfun.c,v 1.181.2.47 2003-10-01 14:09:04 tatyana Exp $
  */
 
 /***************************************************************************
@@ -3112,7 +3112,7 @@ void spell_magic_missile(int sn, int level, CHAR_DATA *ch,void *vo)
 		const char *text = LEVEL(ch) > 4 ? "missiles" : "missile";
 
 		act("Your magic $t fizzle out near your victim.",
-		    ch, NULL, victim, TO_CHAR);
+		    ch, text, victim, TO_CHAR);
 		act("Your shield blocks $N's magic $t.",
 		    victim, text, ch, TO_CHAR);
 		return;
