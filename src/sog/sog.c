@@ -23,13 +23,13 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: sog.c,v 1.7 2002-03-20 19:48:57 fjoe Exp $
+ * $Id: sog.c,v 1.8 2002-03-20 19:51:15 fjoe Exp $
  */
 
 #include <sys/time.h>
 #include <sys/socket.h>
-#include <arpa/inet.h>
 #include <netinet/in.h>
+#include <arpa/inet.h>
 #include <errno.h>
 #include <locale.h>
 #include <stdio.h>
