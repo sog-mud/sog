@@ -1,5 +1,5 @@
 #
-# $Id: english.lang,v 1.42 1998-06-10 11:36:48 efdi Exp $
+# $Id: english.lang,v 1.43 1998-06-12 12:22:06 efdi Exp $
 #
 
 INFO_NOTHING		"Nothing.\n\r"
@@ -621,3 +621,10 @@ INFO_ONE_SILVER_COIN	"Wow. One silver coin.\n\r"
 INFO_D_SILVER_COINS	"There are %d silver coins in the pile.\n\r"
 INFO_D_SILVER_AND_D_GOLD
 		"There are %d gold and %d silver coins in the pile.\n\r"
+INFO_EXITS	"{C[Exits:"
+INFO_OBVIOUS_EXITS_IMM	"Obvious exits from room %d:\n\r"
+INFO_OBVIOUS_EXITS	"Obvious exits:\n\r"
+INFO_TOO_DARK_TO_TELL	"Too dark to tell"
+INFO_ROOM_D		" (room %d)\n\r"
+INFO_NONE		" none"
+INFO_CAPNONE		"None.\n\r"
