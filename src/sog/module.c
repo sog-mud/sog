@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: module.c,v 1.4 1999-06-24 20:35:08 fjoe Exp $
+ * $Id: module.c,v 1.5 1999-06-29 10:57:07 fjoe Exp $
  */
 
 /*
@@ -63,7 +63,7 @@ int mod_load(module_t* m)
 	/*
 	 * open .so and check its version
 	 */
-	dlh = dlopen(m->file_name, RTLD_LAZY);
+	dlh = dlopen(m->file_name, RTLD_NOW);
 	if (dlh == NULL) {
 		wizlog("mod_load: %s", dlerror());
 		return -1;

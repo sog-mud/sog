@@ -23,13 +23,9 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_lang.c,v 1.17 1999-06-24 16:33:11 fjoe Exp $
+ * $Id: olc_lang.c,v 1.18 1999-06-29 10:57:04 fjoe Exp $
  */
 
-#include <stdio.h>
-#include <string.h>
-
-#include "merc.h"
 #include "olc.h"
 #include "lang.h"
 
@@ -37,6 +33,7 @@
 
 DECLARE_OLC_FUN(langed_create	);
 DECLARE_OLC_FUN(langed_edit	);
+DECLARE_OLC_FUN(langed_save	);
 DECLARE_OLC_FUN(langed_touch	);
 DECLARE_OLC_FUN(langed_show	);
 DECLARE_OLC_FUN(langed_list	);
@@ -47,13 +44,14 @@ DECLARE_OLC_FUN(langed_slangof	);
 DECLARE_OLC_FUN(langed_filename	);
 DECLARE_OLC_FUN(langed_rulecl	);
 
-DECLARE_VALIDATE_FUN(validate_langname);
+static DECLARE_VALIDATE_FUN(validate_langname);
 
 olc_cmd_t olc_cmds_lang[] =
 {
 	{ "create",	langed_create					},
 	{ "edit",	langed_edit					},
 	{ "touch",	langed_touch					},
+	{ "",		langed_save					},
 	{ "show",	langed_show					},
 	{ "list",	langed_list					},
 
@@ -66,6 +64,8 @@ olc_cmd_t olc_cmds_lang[] =
 	{ "commands",	show_commands					},
 	{ NULL }
 };
+
+static bool save_lang(CHAR_DATA *ch, lang_t *l);
 
 OLC_FUN(langed_create)
 {
@@ -121,6 +121,33 @@ OLC_FUN(langed_edit)
 
 	ch->desc->pEdit = VARR_GET(&langs, lang);
 	OLCED(ch)	= olced_lookup(ED_LANG);
+	return FALSE;
+}
+
+OLC_FUN(langed_save)
+{
+	int lang;
+	FILE *fp;
+
+	fp = olc_fopen(LANG_PATH, LANG_LIST, ch, SECURITY_MSGDB);
+	if (fp == NULL)
+		return FALSE;
+
+	for (lang = 0; lang < langs.nused; lang++) {
+		lang_t *l = VARR_GET(&langs, lang);
+
+		fprintf(fp, "%s\n", l->file_name);
+		if (IS_SET(l->lang_flags, LANG_CHANGED)
+		&&  save_lang(ch, l)) {
+			olc_printf(ch, "Language '%s' saved (%s%c%s).",
+				   l->name, LANG_PATH, PATH_SEPARATOR,
+				   l->file_name);
+			l->lang_flags &= ~LANG_CHANGED;
+		}
+	}
+
+	fprintf(fp, "$\n");
+	fclose(fp);
 	return FALSE;
 }
 
@@ -258,7 +285,7 @@ OLC_FUN(langed_rulecl)
 
 /* local functions */
 
-VALIDATE_FUN(validate_langname)
+static VALIDATE_FUN(validate_langname)
 {
 	if (lang_lookup(arg) >= 0) {
 		char_printf(ch, "%s: language already exists.\n",
@@ -271,5 +298,44 @@ VALIDATE_FUN(validate_langname)
 bool touch_lang(lang_t *l)
 {
 	return FALSE;
+}
+
+static bool save_lang(CHAR_DATA *ch, lang_t *l)
+{
+	int i;
+	FILE *fp;
+	lang_t *sl;
+	int flags;
+
+	fp = olc_fopen(LANG_PATH, l->file_name, ch, -1);
+	if (fp == NULL)
+		return FALSE;
+
+	fprintf(fp, "#LANG\n"
+		    "Name %s\n", l->name);
+	if ((sl = varr_get(&langs, l->slang_of)))
+		fprintf(fp, "SlangOf %s\n", sl->name);
+	flags = l->lang_flags & ~LANG_CHANGED;
+	if (flags)
+		fprintf(fp, "Flags %s~\n", flag_string(lang_flags, flags));
+	fprintf(fp, "End\n\n");
+
+	for (i = 0; i < MAX_RULECL; i++) {
+		rulecl_t *rcl = l->rules + i;
+
+		if (!IS_NULLSTR(rcl->file_impl)
+		||  !IS_NULLSTR(rcl->file_expl)) {
+			fprintf(fp, "#RULECLASS\n"
+				    "Class %s\n",
+				flag_string(rulecl_names, i));
+			fwrite_string(fp, "Impl", rcl->file_impl);
+			fwrite_string(fp, "Expl", rcl->file_expl);
+			fprintf(fp, "End\n\n");
+		}
+	}
+
+	fprintf(fp, "#$\n");
+	fclose(fp);
+	return TRUE;
 }
 

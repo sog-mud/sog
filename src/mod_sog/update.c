@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.145 1999-06-28 09:04:19 fjoe Exp $
+ * $Id: update.c,v 1.146 1999-06-29 10:57:07 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1886,7 +1886,9 @@ void update_handler(void)
 		area_update();
 		room_update();
 		chquest_update();
-		dofun("asave", NULL, "rules");
+
+		/* save explicit rules */
+		dofun("asave", NULL, "explicit");
 	}
 
 	if (--pulse_music <= 0) {

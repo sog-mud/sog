@@ -23,19 +23,15 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_obj.c,v 1.51 1999-06-24 16:33:12 fjoe Exp $
+ * $Id: olc_obj.c,v 1.52 1999-06-29 10:57:05 fjoe Exp $
  */
 
 #include <sys/types.h>
 #include <ctype.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 #include <time.h>
-#include "merc.h"
+
 #include "olc.h"
 #include "chquest.h"
-#include "db.h"
 
 #define EDIT_OBJ(ch, obj)	(obj = (OBJ_INDEX_DATA*) ch->desc->pEdit)
 
@@ -81,6 +77,7 @@ olc_cmd_t olc_cmds_obj[] =
 
 	{ "create",	objed_create					},
 	{ "edit",	objed_edit					},
+	{ "",		NULL						},
 	{ "touch",	objed_touch					},
 	{ "show",	objed_show					},
 	{ "list",	objed_list					},
@@ -958,11 +955,13 @@ void show_obj_values(BUFFER *output, OBJ_INDEX_DATA *pObj)
 			    "[v0] Charges:        [%d]\n"
 			    "[v1] Exit Flags:     %s\n"
 			    "[v2] Portal Flags:   %s\n"
-			    "[v3] Goes to (vnum): [%d]\n",
+			    "[v3] Goes to (vnum): [%d]\n"
+			    "[v4] Portal key:     [%d]\n",
 			    pObj->value[0],
 			    flag_string(exit_flags, pObj->value[1]),
 			    flag_string(portal_flags , pObj->value[2]),
-			    pObj->value[3]);
+			    pObj->value[3],
+			    pObj->value[4]);
 		break;
 			
 	case ITEM_FURNITURE:          
@@ -1239,7 +1238,7 @@ int set_obj_values(BUFFER *output, OBJ_INDEX_DATA *pObj,
 				show_flags_buf(output, exit_flags);
 				return 2;
 			}
-			buf_add(output, "EXIT flag_tS TOGGLED.\n\n");
+			buf_add(output, "EXIT FLAGS TOGGLED.\n\n");
 			TOGGLE_BIT(pObj->value[1], val);
 			break;
 		case 2:
@@ -1248,13 +1247,16 @@ int set_obj_values(BUFFER *output, OBJ_INDEX_DATA *pObj,
 				show_flags_buf(output, portal_flags);
 				return 2;
 			}
-			buf_add(output, "PORTAL flag_tS TOGGLED.\n\n");
+			buf_add(output, "PORTAL FLAGS TOGGLED.\n\n");
 			TOGGLE_BIT(pObj->value[2], val);
 			break;
 		case 3:
 			buf_add(output, "EXIT VNUM SET.\n\n");
 			pObj->value[3] = atoi(argument);
 			break;
+		case 4:
+			buf_add(output, "PORTAL KEY SET.\n\n");
+			pObj->value[4] = atoi(argument);
 		}
 		break;
 
@@ -1274,7 +1276,7 @@ int set_obj_values(BUFFER *output, OBJ_INDEX_DATA *pObj,
 				show_flags_buf(output, furniture_flags);
 				return 2;
 			}
-		        buf_add(output, "FURNITURE flag_tS TOGGLED.\n\n");
+		        buf_add(output, "FURNITURE FLAGS TOGGLED.\n\n");
 			TOGGLE_BIT(pObj->value[2], val);
 			break;
 		case 3:

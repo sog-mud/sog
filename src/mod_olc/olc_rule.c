@@ -23,13 +23,9 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_rule.c,v 1.12 1999-06-24 16:33:12 fjoe Exp $
+ * $Id: olc_rule.c,v 1.13 1999-06-29 10:57:06 fjoe Exp $
  */
 
-#include <stdio.h>
-#include <stdlib.h>
-
-#include "merc.h"
 #include "olc.h"
 #include "lang.h"
 
@@ -50,15 +46,35 @@ typedef struct ruleops_t ruleops_t;
 struct ruleops_t {
 	rule_t*		(*rule_lookup)(rulecl_t *rcl, const char *name);
 	void		(*rule_del)(rulecl_t *rcl, rule_t *r);
+	void		(*rcl_save)(CHAR_DATA *ch, lang_t *l, rulecl_t *rcl);
 	const char *	id;
 	flag32_t	bit;
 };
 
-ruleops_t rops_expl = { erule_lookup, erule_del, ED_EXPL, RULES_EXPL_CHANGED };
-ruleops_t rops_impl = { irule_lookup, irule_del, ED_IMPL, RULES_IMPL_CHANGED };
+static void rcl_save_expl(CHAR_DATA *ch, lang_t *l, rulecl_t *rcl);
+static void rcl_save_impl(CHAR_DATA *ch, lang_t *l, rulecl_t *rcl);
+
+ruleops_t rops_expl =
+{
+	erule_lookup,
+	erule_del,
+	rcl_save_expl,
+	ED_EXPL,
+	RULES_EXPL_CHANGED
+};
+
+ruleops_t rops_impl =
+{
+	irule_lookup,
+	irule_del,
+	rcl_save_impl,
+	ED_IMPL,
+	RULES_IMPL_CHANGED
+};
 
 DECLARE_OLC_FUN(ruleed_create	);
 DECLARE_OLC_FUN(ruleed_edit	);
+DECLARE_OLC_FUN(ruleed_save	);
 DECLARE_OLC_FUN(ruleed_touch	);
 DECLARE_OLC_FUN(ruleed_show	);
 DECLARE_OLC_FUN(ruleed_list	);
@@ -78,6 +94,7 @@ olc_cmd_t olc_cmds_expl[] =
 {
 	{ "create",		ruleed_create,	&rops_expl	},
 	{ "edit",		ruleed_edit,	&rops_expl	},
+	{ "",			ruleed_save,	&rops_expl	},
 	{ "touch",		ruleed_touch,	&rops_expl	},
 	{ "show",		ruleed_show,	&rops_expl	},
 	{ "list",		ruleed_list,	&rops_expl	},
@@ -97,6 +114,7 @@ olc_cmd_t olc_cmds_impl[] =
 {
 	{ "create",		ruleed_create,	&rops_impl	},
 	{ "edit",		ruleed_edit,	&rops_impl	},
+	{ "",			ruleed_save,	&rops_impl	},
 	{ "touch",		ruleed_touch,	&rops_impl	},
 	{ "show",		ruleed_show,	&rops_impl	},
 	{ "list",		ruleed_list,	&rops_impl	},
@@ -202,6 +220,28 @@ OLC_FUN(ruleed_edit)
 	ch->desc->olced = olced_lookup(rops->id);
 	ch->desc->pEdit	= r;
 	ch->desc->pEdit2= rcl;
+	return FALSE;
+}
+
+OLC_FUN(ruleed_save)
+{
+	int lang;
+	ruleops_t *rops;
+
+	if (!olc_trusted(ch, SECURITY_MSGDB) < 0) {
+		olc_printf(ch, "Insufficient security.");
+		return FALSE;
+	}
+
+	EDIT_ROPS(ch, rops);
+	for (lang = 0; lang < langs.nused; lang++) {
+		int i;
+		lang_t *l = VARR_GET(&langs, lang);
+
+		for (i = 0; i < MAX_RULECL; i++)
+			rops->rcl_save(ch, l, l->rules+i);
+	}
+
 	return FALSE;
 }
 
@@ -457,5 +497,82 @@ OLC_FUN(ruleed_delete)
 	edit_done(ch->desc);
 
 	return FALSE;
+}
+
+/******************************************************************************
+ * local functions
+ */
+
+static void rule_save(FILE *fp, rule_t *r)
+{
+	int i;
+
+	fprintf(fp, "#RULE\n"
+		    "Name %s~\n", r->name);
+	if (r->arg)
+		fprintf(fp, "BaseLen %d\n", r->arg);
+	for (i = 0; i < r->f->v.nused; i++) {
+		char **p = VARR_GET(&r->f->v, i);
+		if (IS_NULLSTR(*p))
+			continue;
+		fprintf(fp, "Form %d %s~\n", i, *p);
+	}
+	fprintf(fp, "End\n\n");
+}
+
+static void rcl_save_expl(CHAR_DATA *ch, lang_t *l, rulecl_t *rcl)
+{
+	int i;
+	FILE *fp;
+
+	if (!IS_SET(rcl->rcl_flags, RULES_EXPL_CHANGED))
+		return;
+
+	if ((fp = olc_fopen(LANG_PATH, rcl->file_expl, ch, -1)) == NULL)
+		return;
+
+	for (i = 0; i < MAX_RULE_HASH; i++) {
+		int j;
+
+		for (j = 0; j < rcl->expl[i].nused; j++) {
+			rule_t *r = VARR_GET(rcl->expl+i, j);
+			rule_save(fp, r);
+		}
+	}
+
+	fprintf(fp, "#$\n");
+	fclose(fp);
+
+	olc_printf(ch, "Explicit rules (%s%c%s) saved "
+		       "(lang '%s', rules type '%s').",
+		   LANG_PATH, PATH_SEPARATOR, rcl->file_expl,
+		   l->name, flag_string(rulecl_names, rcl->rulecl));
+	rcl->rcl_flags &= ~RULES_EXPL_CHANGED;
+}
+
+static void rcl_save_impl(CHAR_DATA *ch, lang_t *l, rulecl_t *rcl)
+{
+	int i;
+	FILE *fp;
+
+	if (!IS_SET(rcl->rcl_flags, RULES_IMPL_CHANGED))
+		return;
+
+	if ((fp = olc_fopen(LANG_PATH, rcl->file_impl, ch, -1)) == NULL)
+		return;
+
+	for (i = 0; i < rcl->impl.nused; i++) {
+		rule_t *r = VARR_GET(&rcl->impl, i);
+		rule_save(fp, r);
+	}
+
+	fprintf(fp, "#$\n");
+	fclose(fp);
+
+	olc_printf(ch, "Implicit rules (%s%c%s) saved "
+		       "(lang '%s', rules type '%s').",
+		   LANG_PATH, PATH_SEPARATOR, rcl->file_impl,
+		   l->name, flag_string(rulecl_names, rcl->rulecl));
+	rcl->rcl_flags &= ~RULES_IMPL_CHANGED;
 }
 

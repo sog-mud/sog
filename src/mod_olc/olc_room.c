@@ -23,15 +23,10 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.51 1999-06-24 20:35:04 fjoe Exp $
+ * $Id: olc_room.c,v 1.52 1999-06-29 10:57:05 fjoe Exp $
  */
 
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-#include "merc.h"
 #include "olc.h"
-#include "db.h"
 
 #define EDIT_ROOM(ch, room)	(room = (ROOM_INDEX_DATA*) ch->desc->pEdit)
 
@@ -70,6 +65,7 @@ olc_cmd_t olc_cmds_room[] =
 
 	{ "create",	roomed_create			},
 	{ "edit",	roomed_edit			},
+	{ "",		NULL				},
 	{ "touch",	roomed_touch			},
 	{ "show",	roomed_show			},
 	{ "list",	roomed_list			},

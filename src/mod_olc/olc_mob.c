@@ -23,15 +23,10 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_mob.c,v 1.41 1999-06-24 16:33:11 fjoe Exp $
+ * $Id: olc_mob.c,v 1.42 1999-06-29 10:57:04 fjoe Exp $
  */
 
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-#include "merc.h"
 #include "olc.h"
-#include "db.h"
 
 #define EDIT_MOB(ch, mob)	(mob = (MOB_INDEX_DATA*) ch->desc->pEdit)
 
@@ -91,6 +86,7 @@ olc_cmd_t olc_cmds_mob[] =
 /*	{ command	function		args		}, */
 	{ "create",	mobed_create				},
 	{ "edit",	mobed_edit				},
+	{ "",		NULL					},
 	{ "touch",	mobed_touch				},
 	{ "show",	mobed_show				},
 	{ "list",	mobed_list				},

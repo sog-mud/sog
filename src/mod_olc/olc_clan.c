@@ -23,19 +23,16 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_clan.c,v 1.29 1999-06-24 16:33:11 fjoe Exp $
+ * $Id: olc_clan.c,v 1.30 1999-06-29 10:57:04 fjoe Exp $
  */
 
-#include <stdio.h>
-#include <stdlib.h>
-
-#include "merc.h"
 #include "olc.h"
 
 #define EDIT_CLAN(ch, clan)	(clan = (clan_t*) ch->desc->pEdit)
 
 DECLARE_OLC_FUN(claned_create		);
 DECLARE_OLC_FUN(claned_edit		);
+DECLARE_OLC_FUN(claned_save		);
 DECLARE_OLC_FUN(claned_touch		);
 DECLARE_OLC_FUN(claned_show		);
 DECLARE_OLC_FUN(claned_list		);
@@ -59,6 +56,7 @@ olc_cmd_t olc_cmds_clan[] =
 {
 	{ "create",	claned_create					},
 	{ "edit",	claned_edit					},
+	{ "",		claned_save					},
 	{ "touch",	claned_touch					},
 	{ "show",	claned_show					},
 	{ "list",	claned_list					},
@@ -76,6 +74,8 @@ olc_cmd_t olc_cmds_clan[] =
 	{ "commands",	show_commands					},
 	{ NULL }
 };
+
+static void save_clan(CHAR_DATA *ch, clan_t *clan);
 
 OLC_FUN(claned_create)
 {
@@ -135,6 +135,34 @@ OLC_FUN(claned_edit)
 
 	ch->desc->pEdit	= CLAN(cln);
 	OLCED(ch)	= olced_lookup(ED_CLAN);
+	return FALSE;
+}
+
+OLC_FUN(claned_save)
+{
+	int i;
+	FILE *fp;
+	bool found = FALSE;
+
+	fp = olc_fopen(CLANS_PATH, CLAN_LIST, ch, SECURITY_CLAN);
+	if (fp == NULL)
+		return FALSE;
+
+	olc_printf(ch, "Saved clans:");
+
+	for (i = 0; i < clans.nused; i++) {
+		fprintf(fp, "%s\n", CLAN(i)->file_name);
+		if (IS_SET(CLAN(i)->clan_flags, CLAN_CHANGED)) {
+			save_clan(ch, CLAN(i));
+			found = TRUE;
+		}
+	}
+
+	fprintf(fp, "$\n");
+	fclose(fp);
+
+	if (!found)
+		olc_printf(ch, "    None.");
 	return FALSE;
 }
 
@@ -429,5 +457,60 @@ static VALIDATE_FUN(validate_name)
 		}
 
 	return TRUE;
+}
+
+static void save_clan(CHAR_DATA *ch, clan_t *clan)
+{
+	int i;
+	FILE *fp;
+
+/* save clan data */
+	if ((fp = olc_fopen(CLANS_PATH, clan->file_name, ch, -1)) == NULL)
+		return;
+		
+	fprintf(fp, "#CLAN\n");
+
+	fwrite_string(fp, "Name", clan->name);
+	if (clan->recall_vnum)
+		fprintf(fp, "Recall %d\n", clan->recall_vnum);
+	if (clan->obj_vnum)
+		fprintf(fp, "Item %d\n", clan->obj_vnum);
+	if (clan->mark_vnum)
+		fprintf(fp, "Mark %d\n", clan->mark_vnum);
+	if (clan->altar_vnum)
+		fprintf(fp, "Altar %d\n", clan->altar_vnum);
+
+	REMOVE_BIT(clan->clan_flags, CLAN_CHANGED);
+	if (clan->clan_flags)
+		fprintf(fp, "Flags %s~\n",
+			flag_string(clan_flags, clan->clan_flags));
+
+	for (i = 0; i < clan->skills.nused; i++) {
+		clskill_t *cs = VARR_GET(&clan->skills, i);
+
+		if (cs->sn > 0) 
+			fprintf(fp, "Skill '%s' %d %d\n",
+				skill_name(cs->sn), cs->level, cs->percent);
+	}
+
+	fprintf(fp, "End\n\n"
+		    "#$\n");
+	fclose(fp);
+
+/* save plists */
+	if ((fp = olc_fopen(PLISTS_PATH, clan->file_name, ch, -1)) == NULL)
+		return;
+
+	fprintf(fp, "#PLISTS\n");
+
+	fwrite_string(fp, "Leaders", clan->leader_list);
+	fwrite_string(fp, "Seconds", clan->second_list);
+	fwrite_string(fp, "Members", clan->member_list);
+
+	fprintf(fp, "End\n\n"
+		    "#$\n");
+	fclose(fp);
+
+	olc_printf(ch, "    %s (%s)", clan->name, clan->file_name);
 }
 

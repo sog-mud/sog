@@ -23,13 +23,9 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_msg.c,v 1.32 1999-06-24 16:33:11 fjoe Exp $
+ * $Id: olc_msg.c,v 1.33 1999-06-29 10:57:04 fjoe Exp $
  */
 
-#include <stdio.h>
-#include <string.h>
-
-#include "merc.h"
 #include "olc.h"
 #include "lang.h"
 
@@ -37,6 +33,8 @@
 
 DECLARE_OLC_FUN(msged_create	);
 DECLARE_OLC_FUN(msged_edit	);
+DECLARE_OLC_FUN(msged_save	);
+DECLARE_OLC_FUN(msged_touch	);
 DECLARE_OLC_FUN(msged_show	);
 DECLARE_OLC_FUN(msged_list	);
 
@@ -48,7 +46,8 @@ olc_cmd_t olc_cmds_msg[] =
 {
 	{ "create",	msged_create			},
 	{ "edit",	msged_edit			},
-	{ "touch",	olced_dummy			},
+	{ "",		msged_save			},
+	{ "touch",	msged_touch			},
 	{ "show",	msged_show			},
 	{ "list",	msged_list			},
 
@@ -100,6 +99,7 @@ OLC_FUN(msged_create)
 	m.gender = 0;
 	ch->desc->pEdit	= (void*) msg_add(&m);
 	OLCED(ch)	= olced_lookup(ED_MSG);
+	SET_BIT(changed_flags, CF_MSGDB);
 	char_puts("Msg created.\n", ch);
 	return FALSE;
 }
@@ -125,6 +125,52 @@ OLC_FUN(msged_edit)
 
 	ch->desc->pEdit	= (void *) mp;
 	OLCED(ch)	= olced_lookup(ED_MSG);
+	return FALSE;
+}
+
+OLC_FUN(msged_save)
+{
+	int i;
+	FILE *fp;
+
+	if (!IS_SET(changed_flags, CF_MSGDB)) {
+		olc_printf(ch, "Msgdb is not changed.");
+		return FALSE;
+	}
+
+	if ((fp = olc_fopen(ETC_PATH, MSGDB_CONF, ch, SECURITY_MSGDB)) == NULL)
+		return FALSE;
+
+	for (i = 0; i < MAX_MSG_HASH; i++) {
+		varr *v = msg_hash_table+i;
+		int j;
+
+		for (j = 0; j < v->nused; j++) {
+			msg_t *mp = VARR_GET(v, j);
+
+			fprintf(fp, "#MSG\n");
+
+			if (mp->gender) {
+				fprintf(fp, "Gender %s\n",
+					flag_string(gender_table, mp->gender));
+			}
+
+			mlstr_fwrite(fp, "Text", &mp->ml);
+			fprintf(fp, "End\n\n");
+		}
+	}
+
+	fprintf(fp, "#$\n");
+	fclose(fp);
+
+	REMOVE_BIT(changed_flags, CF_MSGDB);
+	olc_printf(ch, "Msgdb saved.");
+	return FALSE;
+}
+
+OLC_FUN(msged_touch)
+{
+	SET_BIT(changed_flags, CF_MSGDB);
 	return FALSE;
 }
 
@@ -261,6 +307,7 @@ OLC_FUN(msged_del)
 	EDIT_MSG(ch, mp);
 	m = msg_del(mlstr_mval(&mp->ml));
 	mlstr_destroy(&m.ml);
+	SET_BIT(changed_flags, CF_MSGDB);
 	edit_done(ch->desc);
 
 	return FALSE;

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.65 1999-06-29 04:09:17 fjoe Exp $
+ * $Id: olc.c,v 1.66 1999-06-29 10:57:03 fjoe Exp $
  */
 
 /***************************************************************************
@@ -40,13 +40,11 @@
 
 #include <sys/types.h>
 #include <ctype.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 #include <time.h>
+#include <errno.h>
 #include <dlfcn.h>
+#include <stdarg.h>
 
-#include "merc.h"
 #include "olc.h"
 #include "lang.h"
 #include "string_edit.h"
@@ -72,19 +70,22 @@
 		"     Version actual : 1.71 - Mar 22, 1998\n"
 #define CREDITS "     Original by Surreality(cxw197@psu.edu) and Locke(locke@lm.com)"
 
-const char ED_AREA[]	= "area";
-const char ED_ROOM[]	= "room";
-const char ED_OBJ[]	= "object";
-const char ED_MOB[]	= "mobile";
-const char ED_MPCODE[]	= "mpcode";
-const char ED_HELP[]	= "help";
-const char ED_CLAN[]	= "clan";
+int changed_flags;
+
+const char ED_AREA[]	= "areas";
+const char ED_ROOM[]	= "rooms";
+const char ED_OBJ[]	= "objects";
+const char ED_MOB[]	= "mobiles";
+const char ED_MPCODE[]	= "mpcodes";
+const char ED_HELP[]	= "helps";
+const char ED_CLAN[]	= "clans";
 const char ED_MSG[]	= "msgdb";
-const char ED_LANG[]	= "language";
+const char ED_LANG[]	= "languages";
 const char ED_IMPL[]	= "implicit";
 const char ED_EXPL[]	= "explicit";
-const char ED_SOC[]	= "social";
-/*const char ED_CLASS[]	= "class";*/
+const char ED_SOCIAL[]	= "socials";
+const char ED_CMD[]	= "cmds";
+const char ED_SKILL[]	= "skills";
 
 olced_t olced_table[] = {
 	{ ED_AREA,	"AreaEd",	olc_cmds_area	},
@@ -98,8 +99,11 @@ olced_t olced_table[] = {
 	{ ED_LANG,	"LangEd",	olc_cmds_lang	},
 	{ ED_IMPL,	"ImplRuleEd",	olc_cmds_impl	},
 	{ ED_EXPL,	"ExplRuleEd",	olc_cmds_expl	},
-	{ ED_SOC,	"SocEd",	olc_cmds_soc	},
-/*	{ ED_CLASS,	"ClassEd",	olc_cmds_class	}, */
+	{ ED_SOCIAL,	"SocEd",	olc_cmds_soc	},
+#if 0
+	{ ED_CMD,	"CmdEd",	olc_cmds_cmd	}, 
+	{ ED_SKILL,	"SkillEd",	olc_cmds_skill	},
+#endif
 	{ NULL }
 };
 
@@ -181,6 +185,22 @@ void do_edit(CHAR_DATA *ch, const char *argument)
 	do_olc(ch, argument, FUN_EDIT);
 }
 
+void do_asave(CHAR_DATA *ch, const char *argument)
+{
+	char arg[MAX_INPUT_LENGTH];
+
+	/*
+	 * compatibility with old OLC
+	 */
+	one_argument(argument, arg, sizeof(arg));
+	if (!str_cmp(arg, "world"))
+		argument = "areas all";
+	else if (!str_cmp(arg, "changed"))
+		argument = "areas";
+
+	do_olc(ch, argument, FUN_SAVE);
+}
+
 void do_alist(CHAR_DATA *ch, const char *argument)
 {
 	do_olc(ch, argument, FUN_LIST);
@@ -225,11 +245,6 @@ bool olced_busy(CHAR_DATA *ch, const char *id, void *edit, void *edit2)
 OLC_FUN(olced_spell_out)
 {
 	char_puts("Spell it out.\n", ch);
-	return FALSE;
-}
-
-OLC_FUN(olced_dummy)
-{
 	return FALSE;
 }
 
@@ -770,6 +785,8 @@ OLC_FUN(show_commands)
 
 	col = 0;
 	for (cmd = OLCED(ch)->cmd_table+FUN_FIRST; cmd->name; cmd++) {
+		if (IS_NULLSTR(cmd->name))
+			continue;
 		buf_printf(output, "%-15.15s", cmd->name);
 		if (++col % 5 == 0)
 			buf_add(output, "\n");
@@ -829,9 +846,9 @@ void edit_done(DESCRIPTOR_DATA *d)
 	d->olced = NULL;
 }
 
-/* Local functions */
-
-/* lookup OLC editor by id */
+/*
+ * lookup OLC editor by id
+ */
 olced_t *olced_lookup(const char * id)
 {
 	olced_t *olced;
@@ -844,6 +861,55 @@ olced_t *olced_lookup(const char * id)
 			return olced;
 	return NULL;
 }
+
+void olc_printf(CHAR_DATA *ch, const char *format, ...)
+{
+	char buf[MAX_STRING_LENGTH];
+	va_list ap;
+
+	va_start(ap, format);
+	vsnprintf(buf, sizeof(buf), format, ap);
+	va_end(ap);
+
+	if (ch)
+		char_printf(ch, "%s\n", buf);
+	else
+		log(buf);
+	wiznet("$t", ch, buf, WIZ_OLC, 0, 0);
+}
+
+bool olc_trusted(CHAR_DATA *ch, int min_sec)
+{
+	int sec = ch ? (IS_NPC(ch) ? 0 : ch->pcdata->security) : 9;
+
+	if (sec < min_sec) {
+		olc_printf(ch, "Insufficient security.");
+		return FALSE;
+	}
+
+	return TRUE;
+}
+
+FILE *olc_fopen(const char *path, const char *file,
+		CHAR_DATA *ch, int min_sec)
+{
+	FILE *fp;
+
+	if (min_sec > 0 && !olc_trusted(ch, min_sec))
+		return NULL;
+
+	if ((fp = dfopen(path, file, "w")) == NULL) {
+		olc_printf(ch, "%s%c%s: %s",
+			   path, PATH_SEPARATOR, file, strerror(errno));
+		return NULL;
+	}
+
+	return fp;
+}
+
+/******************************************************************************
+ * local functions
+ */
 
 /* lookup cmd function by name */
 static olc_cmd_t *olc_cmd_lookup(olc_cmd_t *cmd_table, const char *name)
@@ -858,6 +924,7 @@ char* help_topics[FUN_MAX] =
 {
 	"'OLC CREATE'",
 	"'OLC EDIT'",
+	"'OLC ASAVE'",
 	str_empty,
 	"'OLC ASHOW'",
 	"'OLC ALIST'"
@@ -867,13 +934,17 @@ static void do_olc(CHAR_DATA *ch, const char *argument, int fun)
 {
 	char command[MAX_INPUT_LENGTH];
 	olced_t *olced;
+	OLC_FUN *olc_fun;
 
-	if (IS_NPC(ch))
+	if (ch && IS_NPC(ch))
 		return;
 
 	argument = one_argument(argument, command, sizeof(command));
-	if ((olced = olced_lookup(command)) == NULL) {
-        	dofun("help", ch, help_topics[fun]);
+	if ((olced = olced_lookup(command)) == NULL
+	||  (olc_fun = olced->cmd_table[fun].olc_fun) == NULL) {
+		if (ch) {
+        		dofun("help", ch, help_topics[fun]);
+		}
         	return;
 	}
 

@@ -1,5 +1,5 @@
 /*
- * $Id: olc.h,v 1.42 1999-06-24 20:35:04 fjoe Exp $
+ * $Id: olc.h,v 1.43 1999-06-29 10:57:04 fjoe Exp $
  */
 
 /***************************************************************************
@@ -23,6 +23,14 @@
 #ifndef _OLC_H_
 #define _OLC_H_
 
+/* some standard headers */
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+#include "merc.h"
+#include "db.h"
+
 typedef	bool OLC_FUN(CHAR_DATA *ch, const char *argument, olc_cmd_t *cmd);
 typedef bool VALIDATE_FUN(CHAR_DATA *ch, const void *arg);
 
@@ -37,15 +45,25 @@ typedef bool VALIDATE_FUN(CHAR_DATA *ch, const void *arg);
 enum {
 	FUN_CREATE,
 	FUN_EDIT,
+	FUN_SAVE,
+
 	FUN_TOUCH,
-
 	FUN_FIRST = FUN_TOUCH,
-
 	FUN_SHOW,
 	FUN_LIST,
 
 	FUN_MAX
 };
+
+/*
+ * changed flags
+ */
+#define CF_MSGDB	(A)
+#define CF_SOCIAL	(B)
+#define CF_CMD		(C)
+#define CF_SKILL	(D)
+
+extern int changed_flags;
 
 extern const char ED_AREA	[];
 extern const char ED_ROOM	[];
@@ -59,7 +77,9 @@ extern const char ED_CLASS	[];
 extern const char ED_LANG	[];
 extern const char ED_IMPL	[];
 extern const char ED_EXPL	[];
-extern const char ED_SOC	[];
+extern const char ED_SOCIAL	[];
+extern const char ED_CMD	[];
+extern const char ED_SKILL	[];
 
 struct olc_cmd_t
 {
@@ -84,6 +104,8 @@ extern olc_cmd_t	olc_cmds_lang[];
 extern olc_cmd_t	olc_cmds_impl[];
 extern olc_cmd_t	olc_cmds_expl[];
 extern olc_cmd_t	olc_cmds_soc[];
+extern olc_cmd_t	olc_cmds_cmd[];
+extern olc_cmd_t	olc_cmds_skill[];
 
 bool olced_obj_busy(CHAR_DATA *ch);
 bool olced_busy(CHAR_DATA *ch, const char *id, void *edit, void *edit2);
@@ -92,7 +114,6 @@ bool olced_busy(CHAR_DATA *ch, const char *id, void *edit, void *edit2);
  * Generic data edit functions
  */
 DECLARE_OLC_FUN(olced_spell_out);
-DECLARE_OLC_FUN(olced_dummy);
 
 bool olced_number	(CHAR_DATA *ch, const char *argument,
 			 olc_cmd_t *cmd, int*);
@@ -139,6 +160,11 @@ bool	touch_clan	(clan_t *clan);
 
 void		edit_done	(DESCRIPTOR_DATA *d);
 olced_t *	olced_lookup	(const char * id);
+
+bool		olc_trusted	(CHAR_DATA *ch, int min_sec);
+FILE *		olc_fopen	(const char *path, const char *file,
+				 CHAR_DATA *ch, int min_sec);
+void		olc_printf	(CHAR_DATA *ch, const char *format, ...);
 
 #define	SECURITY_CLAN		5
 #define	SECURITY_CLAN_PLIST	9

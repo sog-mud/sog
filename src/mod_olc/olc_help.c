@@ -23,14 +23,9 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_help.c,v 1.35 1999-06-24 16:33:11 fjoe Exp $
+ * $Id: olc_help.c,v 1.36 1999-06-29 10:57:04 fjoe Exp $
  */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
-#include "merc.h"
 #include "olc.h"
 
 #define EDIT_HELP(ch, help)	(help = (HELP_DATA*) ch->desc->pEdit)
@@ -50,6 +45,7 @@ olc_cmd_t olc_cmds_help[] =
 {
 	{ "create",		helped_create	},
 	{ "edit",		helped_edit	},
+	{ "",			NULL		},
 	{ "touch",		helped_touch	},
 	{ "show",		helped_show	},
 	{ "list",		helped_list	},

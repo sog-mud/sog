@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: typedef.h,v 1.27 1999-06-28 09:04:16 fjoe Exp $
+ * $Id: typedef.h,v 1.28 1999-06-29 10:57:03 fjoe Exp $
  */
 
 #ifndef _TYPEDEF_H_
@@ -144,6 +144,7 @@ typedef int32_t		flag32_t;	/* short flags (less memory usage) */
 #define SET_BIT(var, bit)	((var) |= (bit))
 #define TOGGLE_BIT(var, bit)    ((var) ^= (bit))
 #define REMOVE_BIT(var, bit)	((var) &= ~(bit))
+#define DIFF_BIT(a, b)		(~(~(a) | (b)))
 
 #define UMIN(a, b)		((a) < (b) ? (a) : (b))
 #define UMAX(a, b)		((a) > (b) ? (a) : (b))

@@ -23,13 +23,9 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_social.c,v 1.7 1999-06-24 16:33:12 fjoe Exp $
+ * $Id: olc_social.c,v 1.8 1999-06-29 10:57:07 fjoe Exp $
  */
 
-#include <stdio.h>
-#include <string.h>
-
-#include "merc.h"
 #include "olc.h"
 #include "socials.h"
 
@@ -37,6 +33,8 @@
 
 DECLARE_OLC_FUN(soced_create		);
 DECLARE_OLC_FUN(soced_edit		);
+DECLARE_OLC_FUN(soced_save		);
+DECLARE_OLC_FUN(soced_touch		);
 DECLARE_OLC_FUN(soced_show		);
 DECLARE_OLC_FUN(soced_list		);
 
@@ -57,7 +55,8 @@ olc_cmd_t olc_cmds_soc[] =
 {
 	{ "create",		soced_create				},
 	{ "edit",		soced_edit				},
-	{ "touch",		olced_dummy				},
+	{ "",			soced_save				},
+	{ "touch",		soced_touch				},
 	{ "show",		soced_show				},
 	{ "list",		soced_list				},
 
@@ -79,6 +78,8 @@ olc_cmd_t olc_cmds_soc[] =
 	{ "commands",		show_commands				},
 	{ NULL }
 };
+
+static void save_social(FILE *fp, social_t *soc);
 
 OLC_FUN(soced_create)
 {
@@ -106,7 +107,8 @@ OLC_FUN(soced_create)
 	soc->name	= str_dup(arg);
 
 	ch->desc->pEdit	= (void *) soc;
-	OLCED(ch)	= olced_lookup(ED_SOC);
+	OLCED(ch)	= olced_lookup(ED_SOCIAL);
+	SET_BIT(changed_flags, CF_SOCIAL);
 	char_puts("Social created.\n",ch);
 	return FALSE;
 }
@@ -133,7 +135,40 @@ OLC_FUN(soced_edit)
 	}
 
 	ch->desc->pEdit	= soc;
-	OLCED(ch)	= olced_lookup(ED_SOC);
+	OLCED(ch)	= olced_lookup(ED_SOCIAL);
+	return FALSE;
+}
+
+OLC_FUN(soced_save)
+{
+	int i;
+	FILE *fp;
+
+	if (!IS_SET(changed_flags, CF_SOCIAL)) {
+		olc_printf(ch, "Socials are not changed.");
+		return FALSE;
+	}
+
+	fp = olc_fopen(ETC_PATH, SOCIALS_CONF, ch, SECURITY_SOCIALS);
+	if (fp == NULL)
+		return FALSE;
+
+	for (i = 0; i < socials.nused; i++) {
+		social_t *soc = VARR_GET(&socials, i);
+		save_social(fp, soc);
+	}
+
+	fprintf(fp, "#$\n");
+	fclose(fp);
+
+	REMOVE_BIT(changed_flags, CF_SOCIAL);
+	olc_printf(ch, "Socials saved.");
+	return FALSE;
+}
+
+OLC_FUN(soced_touch)
+{
+	SET_BIT(changed_flags, CF_SOCIAL);
 	return FALSE;
 }
 
@@ -149,7 +184,7 @@ OLC_FUN(soced_show)
 
 	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
-		if (IS_EDIT(ch, ED_SOC))
+		if (IS_EDIT(ch, ED_SOCIAL))
 			EDIT_SOC(ch, soc);
 		else {
 			dofun("help", ch, "'OLC ASHOW'");
@@ -302,5 +337,22 @@ static VALIDATE_FUN(validate_name)
 	}
 
 	return TRUE;
+}
+
+static void save_social(FILE *fp, social_t *soc)
+{
+	fprintf(fp, "#SOCIAL\n");
+	fprintf(fp, "name %s\n", soc->name);
+	fprintf(fp, "min_pos %s\n",
+		flag_string(position_table, soc->min_pos));
+	fwrite_string(fp, "found_char", soc->found_char);
+	fwrite_string(fp, "found_vict", soc->found_vict);
+	fwrite_string(fp, "found_notvict", soc->found_notvict);
+	fwrite_string(fp, "noarg_char", soc->noarg_char);
+	fwrite_string(fp, "noarg_room", soc->noarg_room);
+	fwrite_string(fp, "self_char", soc->self_char);
+	fwrite_string(fp, "self_room", soc->self_room);
+	fwrite_string(fp, "notfound_char", soc->notfound_char);
+	fprintf(fp, "end\n\n");
 }
 

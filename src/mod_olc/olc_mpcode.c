@@ -1,5 +1,5 @@
 /*
- * $Id: olc_mpcode.c,v 1.26 1999-06-24 16:33:11 fjoe Exp $
+ * $Id: olc_mpcode.c,v 1.27 1999-06-29 10:57:04 fjoe Exp $
  */
 
 /* The following code is based on ILAB OLC by Jason Dinkel */
@@ -7,11 +7,7 @@
 
 #include <sys/types.h>
 #include <ctype.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 #include <time.h>
-#include "merc.h"
 #include "olc.h"
 
 #define EDIT_MPCODE(ch, mpcode)   (mpcode = (MPCODE*) ch->desc->pEdit)
@@ -31,6 +27,7 @@ olc_cmd_t olc_cmds_mpcode[] =
 
 	{ "create",	mped_create	},
 	{ "edit",	mped_edit	},
+	{ "",		NULL		},
 	{ "touch",	mped_touch	},
 	{ "show",	mped_show	},
 	{ "list",	mped_list	},
