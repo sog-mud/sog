@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.386 2004-02-19 15:36:50 fjoe Exp $
+ * $Id: handler.c,v 1.387 2004-02-19 15:52:15 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3538,8 +3538,6 @@ remove_obj(CHAR_DATA *ch, int iWear, bool fReplace)
 	if (iWear == WEAR_STUCK_IN) {
 		const char *wsn = get_weapon_sn(obj);
 
-		unequip_char(ch, obj);
-
 		if (obj->pObjIndex->item_type == ITEM_WEAPON
 		&&  get_stuck_eq(ch, INT(obj->value[0])) == NULL) {
 			if (is_sn_affected(ch, wsn))
@@ -3549,8 +3547,10 @@ remove_obj(CHAR_DATA *ch, int iWear, bool fReplace)
 		act_puts("You remove $p, in pain.",
 			 ch, obj, NULL, TO_CHAR, POS_DEAD);
 		act("$n removes $p, in pain.", ch, obj, NULL, TO_ROOM);
-                damage(ch, ch, dice(obj->level, 12), NULL, DAM_F_NONE);
-                WAIT_STATE(ch, 4);
+		obj_to_char_check(obj, ch);
+
+		damage(ch, ch, dice(obj->level, 12), NULL, DAM_F_NONE);
+		WAIT_STATE(ch, 4);
 		return !IS_EXTRACTED(ch);
 	}
 
@@ -3561,7 +3561,7 @@ remove_obj(CHAR_DATA *ch, int iWear, bool fReplace)
 	act("$n stops using $p.", ch, obj, NULL, TO_ROOM);
 	act_puts("You stop using $p.", ch, obj, NULL, TO_CHAR, POS_DEAD);
 
-	unequip_char(ch, obj);
+	obj_to_char_check(obj, ch);
 	return TRUE;
 }
 
@@ -4863,7 +4863,7 @@ damage_to_obj(CHAR_DATA *ch, OBJ_DATA *wield, OBJ_DATA *worn, int dmg)
 			 ch, wield, worn, TO_CHAR, POS_RESTING);
 		act_puts("$p removes itself from $n.",
 			 ch, wield, worn, TO_ROOM, POS_RESTING);
-		unequip_char(ch, wield);
+		obj_to_char_check(wield, ch);
 		return;
 	}
 
