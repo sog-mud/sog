@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.c,v 1.66.2.8 2001-01-11 18:37:04 fjoe Exp $
+ * $Id: obj_prog.c,v 1.66.2.9 2001-05-21 18:53:59 fjoe Exp $
  */
 
 /***************************************************************************
@@ -62,23 +62,23 @@ DECLARE_OPROG(speech_prog_kassandra);
 DECLARE_OPROG(fight_prog_chaos_blade);
 DECLARE_OPROG(death_prog_chaos_blade);
 
-DECLARE_OPROG(fight_prog_tattoo_atum_ra);
-DECLARE_OPROG(fight_prog_tattoo_zeus);
-DECLARE_OPROG(fight_prog_tattoo_siebele);
-DECLARE_OPROG(fight_prog_tattoo_ahuramazda);
-DECLARE_OPROG(fight_prog_tattoo_shamash);
-DECLARE_OPROG(fight_prog_tattoo_ehrumen);
-DECLARE_OPROG(fight_prog_tattoo_venus);
-DECLARE_OPROG(fight_prog_tattoo_deimos);
-DECLARE_OPROG(fight_prog_tattoo_odin);
-DECLARE_OPROG(fight_prog_tattoo_phobos);
-DECLARE_OPROG(fight_prog_tattoo_teshub);
-DECLARE_OPROG(fight_prog_tattoo_ares);
-DECLARE_OPROG(fight_prog_tattoo_goktengri);
-DECLARE_OPROG(fight_prog_tattoo_hera);
-DECLARE_OPROG(fight_prog_tattoo_seth);
-DECLARE_OPROG(fight_prog_tattoo_enki);
-DECLARE_OPROG(fight_prog_tattoo_eros);
+DECLARE_OPROG(fight_prog_tattoo_lirail);
+DECLARE_OPROG(fight_prog_tattoo_amtinor);
+DECLARE_OPROG(fight_prog_tattoo_aulin);
+DECLARE_OPROG(fight_prog_tattoo_ulwark);
+DECLARE_OPROG(fight_prog_tattoo_dakkorn);
+DECLARE_OPROG(fight_prog_tattoo_moarith);
+DECLARE_OPROG(fight_prog_tattoo_lessa);
+DECLARE_OPROG(fight_prog_tattoo_ilissa);
+DECLARE_OPROG(fight_prog_tattoo_throrgrim);
+DECLARE_OPROG(fight_prog_tattoo_hathir);
+DECLARE_OPROG(fight_prog_tattoo_irian);
+DECLARE_OPROG(fight_prog_tattoo_stivrosh);
+DECLARE_OPROG(fight_prog_tattoo_gwinnerai);
+DECLARE_OPROG(fight_prog_tattoo_trussk);
+DECLARE_OPROG(fight_prog_tattoo_vilirna);
+DECLARE_OPROG(fight_prog_tattoo_calamir);
+DECLARE_OPROG(fight_prog_tattoo_cariel);
 
 DECLARE_OPROG(fight_prog_golden_weapon);
 DECLARE_OPROG(death_prog_golden_weapon);
@@ -183,23 +183,23 @@ OPROG_DATA oprog_table[] = {
 	{ "speech_prog_kassandra", speech_prog_kassandra },
 	{ "fight_prog_chaos_blade", fight_prog_chaos_blade },
 	{ "death_prog_chaos_blade", death_prog_chaos_blade },
-	{ "fight_prog_tattoo_atum_ra", fight_prog_tattoo_atum_ra },
-	{ "fight_prog_tattoo_zeus", fight_prog_tattoo_zeus },
-	{ "fight_prog_tattoo_siebele", fight_prog_tattoo_siebele },
-	{ "fight_prog_tattoo_ahuramazda", fight_prog_tattoo_ahuramazda },
-	{ "fight_prog_tattoo_shamash", fight_prog_tattoo_shamash },
-	{ "fight_prog_tattoo_ehrumen", fight_prog_tattoo_ehrumen },
-	{ "fight_prog_tattoo_venus", fight_prog_tattoo_venus },
-	{ "fight_prog_tattoo_deimos", fight_prog_tattoo_deimos },
-	{ "fight_prog_tattoo_odin", fight_prog_tattoo_odin },
-	{ "fight_prog_tattoo_phobos", fight_prog_tattoo_phobos },
-	{ "fight_prog_tattoo_teshub", fight_prog_tattoo_teshub },
-	{ "fight_prog_tattoo_ares", fight_prog_tattoo_ares },
-	{ "fight_prog_tattoo_goktengri", fight_prog_tattoo_goktengri },
-	{ "fight_prog_tattoo_hera", fight_prog_tattoo_hera },
-	{ "fight_prog_tattoo_seth", fight_prog_tattoo_seth },
-	{ "fight_prog_tattoo_enki", fight_prog_tattoo_enki },
-	{ "fight_prog_tattoo_eros", fight_prog_tattoo_eros },
+	{ "fight_prog_tattoo_lirail", fight_prog_tattoo_lirail },
+	{ "fight_prog_tattoo_amtinor", fight_prog_tattoo_amtinor },
+	{ "fight_prog_tattoo_aulin", fight_prog_tattoo_aulin },
+	{ "fight_prog_tattoo_ulwark", fight_prog_tattoo_ulwark },
+	{ "fight_prog_tattoo_dakkorn", fight_prog_tattoo_dakkorn },
+	{ "fight_prog_tattoo_moarith", fight_prog_tattoo_moarith },
+	{ "fight_prog_tattoo_lessa", fight_prog_tattoo_lessa },
+	{ "fight_prog_tattoo_ilissa", fight_prog_tattoo_ilissa },
+	{ "fight_prog_tattoo_throrgrim", fight_prog_tattoo_throrgrim },
+	{ "fight_prog_tattoo_hathir", fight_prog_tattoo_hathir },
+	{ "fight_prog_tattoo_irian", fight_prog_tattoo_irian },
+	{ "fight_prog_tattoo_stivrosh", fight_prog_tattoo_stivrosh },
+	{ "fight_prog_tattoo_gwinnerai", fight_prog_tattoo_gwinnerai },
+	{ "fight_prog_tattoo_trussk", fight_prog_tattoo_trussk },
+	{ "fight_prog_tattoo_vilirna", fight_prog_tattoo_vilirna },
+	{ "fight_prog_tattoo_calamir", fight_prog_tattoo_calamir },
+	{ "fight_prog_tattoo_cariel", fight_prog_tattoo_cariel },
 	{ "fight_prog_golden_weapon", fight_prog_golden_weapon },
 	{ "death_prog_golden_weapon", death_prog_golden_weapon },
 	{ "fight_prog_breaker", fight_prog_swordbreaker },
@@ -588,19 +588,21 @@ bool death_prog_chaos_blade(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 	return 0;
 }
 
-int fight_prog_tattoo_atum_ra(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
+int fight_prog_tattoo_lirail(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 {
 	if (get_eq_char(ch, WEAR_TATTOO) != obj)
 		return 0;
 
-	switch(number_bits(6)) {
-	case 0:
+	switch(number_bits(5)) {
 	case 1:
-		char_puts("The tattoo on your shoulder glows {Cblue{x.\n", ch);
-		spellfun_call("cure serious", LEVEL(ch), ch, ch);
-		break;
 	case 2:
-		char_puts("The tattoo on your shoulder glows {Rred{x.\n", ch);
+		act_puts("The tattoo on your shoulder glows {Cblue{x.",
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+		spellfun_call("cure critical", LEVEL(ch), ch, ch);
+		break;
+	case 3:
+		act_puts("The tattoo on your shoulder glows {Rred{x.",
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		dofun("yell", ch, "Ever dance with good....");
 		spellfun_call("holy word", LEVEL(ch), ch, NULL);
 		break;
@@ -609,20 +611,23 @@ int fight_prog_tattoo_atum_ra(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 }
 
 
-int fight_prog_tattoo_zeus(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
+int fight_prog_tattoo_amtinor(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 {
 	if (get_eq_char(ch, WEAR_TATTOO) != obj)
 		return 0;
 
-	switch(number_bits(6)) {
-	case 0:
+	switch(number_bits(5)) {
 	case 1:
 	case 2:
-		char_puts("The tattoo on your shoulder glows {Cblue{x.\n", ch);
-		spellfun_call("cure critical", LEVEL(ch), ch, ch);
-		break;
 	case 3:
-		char_puts("The tattoo on your shoulder glows {Cblue{x.\n", ch);
+		act_puts("The tattoo on your shoulder glows {Cblue{x.",
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+		spellfun_call("cure critical", LEVEL(ch), ch, ch);
+		/*FALL THROUGH*/
+	case 4:
+	case 5:
+		act_puts("The tattoo on your shoulder glows {Cblue{x.",
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		if (IS_AFFECTED(ch, AFF_PLAGUE))
 			spellfun_call("cure disease", MAX_LEVEL, ch, ch);
   		if (IS_AFFECTED(ch, AFF_POISON))
@@ -632,120 +637,129 @@ int fight_prog_tattoo_zeus(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 	return 0;
 }
 
-int fight_prog_tattoo_siebele(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
+int fight_prog_tattoo_aulin(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 {
 	if (get_eq_char(ch, WEAR_TATTOO) != obj)
 		return 0;
 
-	switch(number_bits(6)) {
-	case 0:
-		char_puts("The tattoo on your shoulder glows {Cblue{x.\n", ch);
-		spellfun_call("cure serious", LEVEL(ch), ch, ch);
-		break;
+	switch(number_bits(4)) {
 	case 1:
-		char_puts("The tattoo on your shoulder glows {Rred{x.\n", ch);
+		act_puts("The tattoo on your shoulder glows {Cblue{x.",
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+		spellfun_call("cure critical", LEVEL(ch), ch, ch);
+		break;
+	case 2:
+		act_puts("The tattoo on your shoulder glows {Rred{x.",
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		spellfun_call("bluefire", LEVEL(ch), ch, ch->fighting);
 		break;
 	}
 	return 0;
 }
 
-int fight_prog_tattoo_ahuramazda(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
+int fight_prog_tattoo_ulwark(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 {
 	if (get_eq_char(ch, WEAR_TATTOO) != obj)
 		return 0;
 
-	switch(number_bits(6)) {
-	case 0:
-		char_puts("The tattoo on your shoulder glows {Cblue{x.\n", ch);
-		spellfun_call("cure serious", LEVEL(ch), ch, ch); 
-		break;
+	switch(number_bits(5)) {
 	case 1:
-		char_puts("The tattoo on your shoulder glows {Rred{x.\n", ch);
-		spellfun_call("dispel evil", LEVEL(ch), ch, ch->fighting);
+	case 2:
+		act_puts("The tattoo on your shoulder glows {Cblue{x.",
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+		spellfun_call("cure critical", LEVEL(ch), ch, ch); 
+		break;
+	case 3:
+		act_puts("The tattoo on your shoulder glows {Rred{x.",
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+		spellfun_call("ray of truth", LEVEL(ch), ch, ch->fighting);
 		break;
 	}
 	return 0;
 }
 
-int fight_prog_tattoo_shamash(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
+int fight_prog_tattoo_dakkorn(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 {
 	if (get_eq_char(ch, WEAR_TATTOO) != obj)
 		return 0;
 
-	switch(number_bits(6)) {
-	case 0:
+	switch(number_bits(5)) {
 	case 1:
-		char_puts("The tattoo on your shoulder glows {Cblue{x.\n", ch);
-		spellfun_call("cure serious", LEVEL(ch), ch, ch);
-		break;
 	case 2:
-		char_puts("The tattoo on your shoulder glows {Rred{x.\n", ch);
+	case 3:
+		act_puts("The tattoo on your shoulder glows {Cblue{x.",
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+		spellfun_call("cure critical", LEVEL(ch), ch, ch);
+		break;
+	case 4:
+		act_puts("The tattoo on your shoulder glows {Rred{x.",
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		dofun("yell", ch, "And justice for all!....");
-		spellfun_call("screa", LEVEL(ch), ch, ch->fighting);
+		spellfun_call("scream", LEVEL(ch), ch, ch->fighting);
 		break;
 	}
 	return 0;
 }
 
-int fight_prog_tattoo_ehrumen(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
+int fight_prog_tattoo_moarith(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 {
 	if (get_eq_char(ch, WEAR_TATTOO) != obj)
 		return 0;
 
-	switch(number_bits(6)) {
-	case 0:
-		char_puts("The tattoo on your shoulder glows {Cblue{x.\n", ch);
-		spellfun_call("cure light", LEVEL(ch), ch, ch);
-		break;
+	switch(number_bits(5)) {
 	case 1:
-		char_puts("The tattoo on your shoulder glows {Cblue{x.\n", ch);
-		spellfun_call("cure serious", LEVEL(ch), ch, ch);
-		break;
 	case 2:
-		char_puts("The tattoo on your shoulder glows {Rred{x.\n", ch);
+	case 3:
+		act_puts("The tattoo on your shoulder glows {Rred{x.",
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		spellfun_call("demonfire", LEVEL(ch), ch, ch->fighting);
 		break;
 	}
 	return 0;
 }
 
-int fight_prog_tattoo_venus(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
+int fight_prog_tattoo_lessa(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 {
 	if (get_eq_char(ch, WEAR_TATTOO) != obj)
 		return 0;
 
-	switch(number_bits(6)) {
-	case 0:
+	switch(number_bits(5)) {
 	case 1:
 	case 2:
-		char_puts("The tattoo on your shoulder glows {Cblue{x.\n", ch);
-		spellfun_call("cure light", LEVEL(ch), ch, ch);
+		act_puts("The tattoo on your shoulder glows {Cblue{x.",
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+		spellfun_call("cure critical", LEVEL(ch), ch, ch);
 		break;
 	case 3:
-		char_puts("The tattoo on your shoulder glows {Rred{x.\n", ch);
-		spellfun_call("plague", LEVEL(ch), ch, ch->fighting);
+		act_puts("The tattoo on your shoulder glows {Cblue{x.",
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+		spellfun_call("mana restore", LEVEL(ch), ch, ch);
 		break;
 	case 4:
-		char_puts("The tattoo on your shoulder glows {Cblue{x.\n", ch);
+		act_puts("The tattoo on your shoulder glows {Cblue{x.",
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		spellfun_call("bless", LEVEL(ch), NULL, ch);
 		break;
 	}
 	return 0;
 }
 
-int fight_prog_tattoo_seth(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
+int fight_prog_tattoo_vilirna(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 {
 	if (get_eq_char(ch, WEAR_TATTOO) != obj)
 		return 0;
 
 	switch(number_bits(5)) {
-	case 0:
-		char_puts("The tattoo on your shoulder glows {Cblue{x.\n", ch);
+	case 1:
+		act_puts("The tattoo on your shoulder glows {Cblue{x.",
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		spellfun_call("dragon strength", LEVEL(ch), ch, ch);
 		break;
-	case 1:
-		char_puts("The tattoo on your shoulder glows {Rred{x.\n", ch);
+	case 2:
+	case 3:
+	case 4:
+		act_puts("The tattoo on your shoulder glows {Rred{x.",
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		spellfun_call("dragon breath", LEVEL(ch), ch, ch->fighting);
 		break;
 	}
@@ -753,71 +767,74 @@ int fight_prog_tattoo_seth(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 }
 
 
-int fight_prog_tattoo_odin(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
+int fight_prog_tattoo_throrgrim(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 {
 	if (get_eq_char(ch, WEAR_TATTOO) != obj)
 		return 0;
 
 	switch(number_bits(5)) {
-	case 0:
-		char_puts("The tattoo on your shoulder glows {Cblue{x.\n", ch);
+	case 1:
+	case 2:
+	case 3:
+		act_puts("The tattoo on your shoulder glows {Cblue{x.",
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		spellfun_call("cure critical", LEVEL(ch), ch, ch);
 		break;
-	case 1:
-		char_puts("The tattoo on your shoulder glows {Rred{x.\n", ch);
-		spellfun_call("faerie fire", LEVEL(ch), ch, ch->fighting);
+	case 4:
+		act_puts("The tattoo on your shoulder glows {Rred{x.",
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+		spellfun_call("faerie fire", LEVEL(ch) + 35, ch, ch->fighting);
 		break;
 	}
 	return 0;
 }
 
-int fight_prog_tattoo_phobos(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
+int fight_prog_tattoo_hathir(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 {
 	if (get_eq_char(ch, WEAR_TATTOO) != obj)
 		return 0;
 
 	switch(number_bits(6)) {
-	case 0:
-		char_puts("The tattoo on your shoulder glows {Cblue{x.\n", ch);
-		spellfun_call("cure serious", LEVEL(ch), ch, ch);
-		break;
 	case 1:
-		char_puts("The tattoo on your shoulder glows {Rred{x.\n", ch);
-		spellfun_call("colour spray", LEVEL(ch), ch, ch->fighting);
+	case 2:
+	case 3:
+		act_puts("The tattoo on your shoulder glows {Rred{x.",
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+		spellfun_call("fireball", LEVEL(ch), ch, ch->fighting);
 		break;
 	}
 	return 0;
 }
 
-int fight_prog_tattoo_teshub(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
+int fight_prog_tattoo_irian(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 {
 	if (get_eq_char(ch, WEAR_TATTOO) != obj)
 		return 0;
 
-	switch(number_bits(6)) {
-	case 0:
-		char_puts("The tattoo on your shoulder glows {Rred{x.\n", ch);
-		spellfun_call("blindness", LEVEL(ch), ch, ch->fighting);
-		char_puts("You send out a cloud of confusion!\n", ch);
-		break;
+	switch(number_bits(5)) {
 	case 1:
-		char_puts("The tattoo on your shoulder glows {Rred{x.\n", ch);
-		spellfun_call("poison", LEVEL(ch), ch, ch->fighting);
-		char_puts("Some of your insanity rubs off on your opponent.\n", ch);
+		act_puts("The tattoo on your shoulder glows {Cblue{x.",
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+		spellfun_call("haste", LEVEL(ch), ch, ch);
+		spellfun_call("shield", LEVEL(ch), ch, ch);
+		spellfun_call("stone skin", LEVEL(ch), ch, ch);
 		break;
 	case 2:
-		spellfun_call("haste", LEVEL(ch), ch, ch);
-		char_puts("You suddenly feel more hyperactive!\n", ch);
+		act_puts("The tattoo on your shoulder glows {Cblue{x.",
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+		spellfun_call("bless", LEVEL(ch), ch, ch);
 		break;
 	case 3:
-		spellfun_call("shield", LEVEL(ch), ch, ch);
-		char_puts("You feel even more paranoid!\n", ch);
+		act_puts("The tattoo on your shoulder glows {Cblue{x.",
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+		spellfun_call("cure critical", LEVEL(ch), ch, ch);
 		break;
+
 	}
 	return 0;
 }
 
-int fight_prog_tattoo_ares(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
+int fight_prog_tattoo_stivrosh(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 {
 	AFFECT_DATA af;
 
@@ -827,39 +844,66 @@ int fight_prog_tattoo_ares(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 	if (number_percent() < 50) {
 		switch(number_bits(4)) {
 		case 0:
-			if (IS_AFFECTED(ch,AFF_BERSERK)
-			||  is_affected(ch,gsn_berserk)
-			||  is_affected(ch,gsn_frenzy)) {
-				char_puts("You get a little madder.\n",ch);
+			act_puts("The tattoo on your shoulder glows {Cblue{x.",
+				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+			if (IS_AFFECTED(ch, AFF_BERSERK)
+			||  is_affected(ch, gsn_berserk)
+			||  is_affected(ch, gsn_frenzy)) {
+				char_puts("You get a little madder.\n", ch);
 				return 0;
 			}
 
-			af.where = TO_AFFECTS;
-			af.type = gsn_berserk;
-			af.level = LEVEL(ch);
-			af.duration = LEVEL(ch) / 3;
-			af.modifier = LEVEL(ch) / 5;
-			af.bitvector = AFF_BERSERK;
+			af.where	= TO_AFFECTS;
+			af.type		= gsn_berserk;
+			af.level	= LEVEL(ch);
+			af.duration	= UMAX(2, LEVEL(ch) / 3);
+			af.modifier	= UMAX(1, LEVEL(ch) / 5);
+			af.bitvector	= AFF_BERSERK;
 
-			af.location = APPLY_HITROLL;
+			af.location	= APPLY_HITROLL;
 			affect_to_char(ch, &af);
 
-			af.location = APPLY_DAMROLL;
+			af.location	= APPLY_DAMROLL;
 			affect_to_char(ch, &af);
 
-			af.modifier = 10 * (LEVEL(ch) / 10);
-			af.location = APPLY_AC;
+			af.modifier	= UMAX(5, 2 * LEVEL(ch));
+			af.location	= APPLY_AC;
 			affect_to_char(ch, &af);
 		  
 			ch->hit += LEVEL(ch) * 2;
-			ch->hit = UMIN(ch->hit,ch->max_hit);
+			ch->hit = UMIN(ch->hit, ch->max_hit);
 		  
 			char_puts("Your pulse races as you are consumned "
 				  "by rage!\n", ch);
 			act("$n gets a wild look in $s eyes.",
 			    ch, NULL, NULL, TO_ROOM);
 			break;
-		}
+		case 1:
+			act_puts("The tattoo on your shoulder glows {Cblue{x.",
+				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+			if (is_affected(ch, gsn_warcry)) {
+				act_puts("Fighting zeal is already with you.",
+			 		 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+				return 0;
+			} 	 
+
+			af.where        = TO_AFFECTS;
+			af.type		= gsn_warcry;
+			af.level        = ch->level;
+			af.duration	= 6 + ch->level;
+			af.modifier	= UMAX(1, LEVEL(ch) / 8);
+			af.bitvector	= 0;
+
+			af.location	= APPLY_HITROLL;
+			affect_to_char(ch, &af);
+
+			af.modifier	= 0 - UMAX(1, LEVEL(ch) / 8);
+			af.location	= APPLY_SAVING_SPELL;
+			affect_to_char(ch, &af);
+			act_puts("You feel righteous as you yell out your warcry.",
+				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+			break;
+		}	
 	}
 	else {
 		switch(number_bits(4)) {
@@ -886,95 +930,100 @@ int fight_prog_tattoo_ares(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 	return 0;
 }
 
-int fight_prog_tattoo_hera(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
+int fight_prog_tattoo_trussk(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
+{
+	int bonus = 3;
+
+	if (get_eq_char(ch, WEAR_TATTOO) != obj)
+		return 0;
+
+	switch(number_bits(5)) {
+	case 1:
+		act_puts("The tattoo on your shoulder glows {Rred{x.",
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+		spellfun_call("poison", LEVEL(ch) + bonus, ch, ch->fighting);
+		break;
+	case 2:
+		act_puts("The tattoo on your shoulder glows {Rred{x.",
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+		spellfun_call("weaken", LEVEL(ch) + bonus, ch, ch->fighting);
+		break;
+	case 3:
+		act_puts("The tattoo on your shoulder glows {Rred{x.",
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+		spellfun_call("slow", LEVEL(ch) + bonus, ch, ch->fighting);
+		break;
+	case 4: 
+		act_puts("The tattoo on your shoulder glows {Rred{x.",
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+		spellfun_call("energy drain", LEVEL(ch) + bonus, ch, ch->fighting);
+		break;
+	case 5: 
+		act_puts("The tattoo on your shoulder glows {Rred{x.",
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+		spellfun_call("blindness", LEVEL(ch) + bonus, ch, ch->fighting);
+		break;
+	case 6: 
+		act_puts("The tattoo on your shoulder glows {Rred{x.",
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+		spellfun_call("curse", LEVEL(ch) + bonus, ch, ch->fighting);
+		break;
+
+	}
+	return 0;
+}
+
+
+int fight_prog_tattoo_ilissa(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 {
 	if (get_eq_char(ch, WEAR_TATTOO) != obj)
 		return 0;
 
 	switch(number_bits(5)) {
 	case 0:
-		char_puts("The tattoo on your shoulder glows {Rred{x.\n", ch);
-		spellfun_call("plague" , LEVEL(ch), ch, ch->fighting);
-		break;
-	case 1:
-		char_puts("The tattoo on your shoulder glows {Rred{x.\n", ch);
-		spellfun_call("poison", LEVEL(ch), ch, ch->fighting);
-		/* FALLTHRU */
-	case 2:
-		char_puts("The tattoo on your shoulder glows {Rred{x.\n", ch);
-		spellfun_call("weaken", LEVEL(ch), ch, ch->fighting);
-		/* FALLTHRU */
-	case 3:
-		char_puts("The tattoo on your shoulder glows {Rred{x.\n", ch);
-		spellfun_call("slow", LEVEL(ch), ch, ch->fighting);
+		act_puts("The tattoo on your shoulder glows {Rred{x.",
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+		spellfun_call("acid blast", LEVEL(ch), ch, ch->fighting);
 		break;
 	}
 	return 0;
 }
 
-
-int fight_prog_tattoo_deimos(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
-{
-	if (get_eq_char(ch, WEAR_TATTOO) != obj)
-		return 0;
-
-	switch(number_bits(6)) {
-	case 0:
-	case 1:
-		char_puts("The tattoo on your shoulder glows {Cblue{x.\n", ch);
-		spellfun_call("cure serious", LEVEL(ch), ch, ch);
-		break;
-	case 2:
-		char_puts("The tattoo on your shoulder glows {Rred{x.\n", ch);
-		spellfun_call("web", LEVEL(ch), ch, ch->fighting);
-		break;
-	}
-	return 0;
-}
-
-int fight_prog_tattoo_enki(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
+int fight_prog_tattoo_calamir(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 {
 	if (get_eq_char(ch, WEAR_TATTOO) == obj)
 	switch(number_bits(5)) {
-	case 0:
+	case 1:
+	case 2:
 		act_puts("The tattoo on your shoulder glows {Cblue{x.",
 			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		spellfun_call("cure critical", LEVEL(ch), ch, ch);
 		break;
-	case 1:
-	case 2:
+	case 3:
 		act_puts("The tattoo on your shoulder glows {Rred{x.",
 			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
-
-		if (IS_EVIL(ch->fighting) && !IS_EVIL(ch)) {
-			spellfun_call("dispel evil", LEVEL(ch) * 12 / 10,
-				      ch, ch->fighting);
-		} else if (IS_GOOD(ch->fighting) && !IS_GOOD(ch)) {
-			spellfun_call("dispel good", LEVEL(ch) * 12 / 10,
-				      ch, ch->fighting);
-		} else {
-			spellfun_call("lightning bolt", LEVEL(ch) * 12 / 10,
-				      ch, ch->fighting);
-		}
+		spellfun_call("flamestrike", LEVEL(ch), ch, ch->fighting);
 		break;
 	}
 	return 0;
 }
 
-int fight_prog_tattoo_eros(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
+int fight_prog_tattoo_cariel(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 {
 	if (get_eq_char(ch, WEAR_TATTOO) != obj)
 		return 0;
 
 	switch(number_bits(5)) {
-	case 0:
 	case 1:
-		char_puts("The tattoo on your shoulder glows {Cblue{x.\n", ch);
+		act_puts("The tattoo on your shoulder glows {Cblue{x.",
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		spellfun_call("heal", LEVEL(ch), ch, ch);
 		break;
-	case 2:
-		char_puts("The tattoo on your shoulder glows {Cblue{x.\n", ch);
-		spellfun_call("group heal", LEVEL(ch), ch, ch);
+	case 2: 
+	case 3: 
+		act_puts("The tattoo on your shoulder glows {Cblue{x.",
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+		spellfun_call("cure critical", LEVEL(ch), ch, ch);
 		break;
 	}
 	return 0;
@@ -1551,7 +1600,7 @@ int wear_prog_katana_sword(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 	return 0;
 }
 
-int fight_prog_tattoo_goktengri(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
+int fight_prog_tattoo_gwinnerai(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 {
 	if (get_eq_char(ch, WEAR_TATTOO) == obj)
 	switch(number_bits(4)) {

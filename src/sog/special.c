@@ -1,5 +1,5 @@
 /*
- * $Id: special.c,v 1.54.2.3 2000-10-13 11:04:41 fjoe Exp $
+ * $Id: special.c,v 1.54.2.4 2001-05-21 18:54:00 fjoe Exp $
  */
 
 /***************************************************************************
@@ -440,7 +440,7 @@ bool spec_cast_adept(CHAR_DATA *ch)
 		act("$n utters the words, '$t'.",
 		    ch, "judicandus sausabru", NULL, TO_ROOM);
 		spellfun_call("cure poison", ch->level, ch, victim);
-	return TRUE;
+		return TRUE;
 
 	case 5:
 		act("$n utters the words, '$t'.",
@@ -485,7 +485,7 @@ bool spec_cast_cleric(CHAR_DATA *ch)
 		case  3: min_level =  9; spell = "cause critical"; break;
 		case  4: min_level = 10; spell = "dispel evil";    break;
 		case  5: min_level = 12; spell = "curse";          break;
-		case  6: min_level = 12; spell = "change sex";     break;
+		case  6:
 		case  7: min_level = 13; spell = "flamestrike";    break;
 		case  8:
 		case  9:
@@ -549,8 +549,8 @@ bool spec_cast_mage(CHAR_DATA *ch)
 		case  1: min_level =  3; spell = "chill touch";    break;
 		case  2: min_level =  7; spell = "weaken";         break;
 		case  3: min_level =  8; spell = "teleport";       break;
-		case  4: min_level = 11; spell = "mana drain";   break;
-		case  5: min_level = 12; spell = "draining touch";     break;
+		case  4: min_level = 11; spell = "mana drain";     break;
+		case  5: min_level = 12; spell = "draining touch"; break;
 		case  6: min_level = 13; spell = "energy drain";   break;
 		case  7:
 		case  8:
@@ -586,22 +586,22 @@ bool spec_cast_seneschal(CHAR_DATA *ch)
 		return FALSE;
 
 	switch (dice(1, 16)) {
-	case  0: spell = "blindness";      break;
-	case  1: spell = "dispel magic";    break;
-	case  2: spell = "weaken";         break;
-	case  3: spell = "blindness";      break;
-	case  4: spell = "acid arrow";   break;
-	case  5: spell = "fireball";     break;
-	case  6: spell = "energy drain";   break;
+	case  0: spell = "blindness";		break;
+	case  1: spell = "dispel magic";	break;
+	case  2: spell = "weaken";		break;
+	case  3: spell = "blindness";		break;
+	case  4: spell = "acid arrow";		break;
+	case  5: spell = "fireball";		break;
+	case  6: spell = "energy drain";	break;
 	case  7:
 	case  8:
-	case  9: spell = "acid blast";       break;
-	case 10: spell = "plague";	   break;
-	case 11: spell = "acid blast";         break;
+	case  9: spell = "acid blast";		break;
+	case 10: spell = "plague";		break;
+	case 11: spell = "acid blast";		break;
 	case 12:  
-	case 13: spell = "lightning breath";  break;
+	case 13: spell = "lightning breath";	break;
 	case 14:
-	case 15: spell = "acid blast";	break;
+	case 15: spell = "acid blast";		break;
 	default: return FALSE;
 	}
 

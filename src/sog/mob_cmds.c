@@ -1,5 +1,5 @@
 /*
- * $Id: mob_cmds.c,v 1.42.2.3 2000-11-17 12:49:35 avn Exp $
+ * $Id: mob_cmds.c,v 1.42.2.4 2001-05-21 18:53:58 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1182,47 +1182,51 @@ void do_mpreligion(CHAR_DATA *ch, const char *argument)
 	}
 
 	switch(chosen) {
-	case RELIGION_ATUM_RA:
+	case RELIGION_LIRAIL:
 		if (!IS_GOOD(victim) || victim->ethos != ETHOS_LAWFUL)
 			correct = FALSE;
 		break;
-	case RELIGION_ZEUS:
+	case RELIGION_AMTINOR:
 		if (!IS_GOOD(victim) || victim->ethos != ETHOS_NEUTRAL)
 			correct = FALSE;
 		break;
-	case RELIGION_SIEBELE:
+	case RELIGION_AULIN:
 		if (!IS_NEUTRAL(victim) || victim->ethos != ETHOS_NEUTRAL)
 			correct = FALSE;
 		break;
-	case RELIGION_AHURAMAZDA:
+	case RELIGION_ULWARK:
 		if (!IS_GOOD(victim) || victim->ethos != ETHOS_CHAOTIC)
 			correct = FALSE;
 		break;
-	case RELIGION_EHRUMEN:
+	case RELIGION_MOARITH:
 		if (!IS_EVIL(victim) || victim->ethos != ETHOS_CHAOTIC)
 			correct = FALSE;
 		break;
-	case RELIGION_DEIMOS:
+	case RELIGION_ILISSA:
 		if (!IS_EVIL(victim) || victim->ethos != ETHOS_LAWFUL)
 			correct = FALSE;
 		break;
-	case RELIGION_PHOBOS:
+	case RELIGION_HATHIR:
 		if (!IS_EVIL(victim) || victim->ethos != ETHOS_NEUTRAL)
 			correct = FALSE;
 		break;
-	case RELIGION_ODIN:
+	case RELIGION_THRORGRIM:
 		if (!IS_NEUTRAL(victim) || victim->ethos != ETHOS_LAWFUL)
 			correct = FALSE;
 		break;
-	case RELIGION_TESHUB:
+	case RELIGION_IRIAN:
 		if (!IS_NEUTRAL(victim) || victim->ethos != ETHOS_CHAOTIC)
+			correct = FALSE;
+		break;
+	case RELIGION_TRUSSK:
+		if IS_GOOD(victim) 
 			correct = FALSE;
 		break;
 	}
 
 	if (!correct) {
 		dofun("say", ch,
-		      "That religion doesn't match your ethos and alignment.");
+		      "That religion doesn't match your ethos or alignment.");
 		return;
 	}
 

@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.182.2.39 2001-01-24 17:49:22 fjoe Exp $
+ * $Id: handler.c,v 1.182.2.40 2001-05-21 18:53:56 fjoe Exp $
  */
 
 /***************************************************************************
@@ -152,7 +152,6 @@ bool may_float(OBJ_DATA *obj)
 
 	if (check_material(obj, "wood")  ||
 	     check_material(obj, "ebony")  ||
-	     check_material(obj, "ice")  ||
 	     check_material(obj, "energy")  ||
 	     check_material(obj, "hardwood")  ||
 	     check_material(obj, "softwood")  ||

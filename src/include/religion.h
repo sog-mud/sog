@@ -1,5 +1,5 @@
 /*
- * $Id: religion.h,v 1.3.4.1 2000-04-03 16:03:17 fjoe Exp $
+ * $Id: religion.h,v 1.3.4.2 2001-05-21 18:53:48 fjoe Exp $
  */
 
 /***************************************************************************
@@ -52,23 +52,23 @@ int		religion_lookup(const char *name);
  */
 
 #define RELIGION_NONE		0
-#define RELIGION_ATUM_RA	1
-#define RELIGION_ZEUS		2
-#define RELIGION_SIEBELE	3
-#define RELIGION_SHAMASH	4
-#define RELIGION_EHRUMEN	5
-#define RELIGION_AHURAMAZDA	6
-#define RELIGION_DEIMOS 	7
-#define RELIGION_PHOBOS 	8
-#define RELIGION_ODIN		9
-#define RELIGION_TESHUB		10
-#define RELIGION_ARES		11
-#define RELIGION_GOKTENGRI	12
-#define RELIGION_HERA		13
-#define RELIGION_VENUS		14
-#define RELIGION_SETH		15
-#define RELIGION_ENKI		16
-#define RELIGION_EROS		17
+#define RELIGION_LIRAIL		1
+#define RELIGION_AMTINOR	2
+#define RELIGION_AULIN		3
+#define RELIGION_DAKKORN	4
+#define RELIGION_MOARITH	5
+#define RELIGION_ULWARK		6
+#define RELIGION_ILISSA		7
+#define RELIGION_HATHIR 	8
+#define RELIGION_THRORGRIM	9
+#define RELIGION_IRIAN		10
+#define RELIGION_STIVROSH	11
+#define RELIGION_GWINNERAI	12
+#define RELIGION_TRUSSK		13
+#define RELIGION_LESSA		14
+#define RELIGION_VILIRNA	15
+#define RELIGION_CALAMIR	16
+#define RELIGION_CARIEL		17
 
 /* Religion structure */
 struct religion_type

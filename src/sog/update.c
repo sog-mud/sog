@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.157.2.36 2000-12-28 05:18:21 osya Exp $
+ * $Id: update.c,v 1.157.2.37 2001-05-21 18:54:00 fjoe Exp $
  */
 
 /***************************************************************************
@@ -529,7 +529,7 @@ void gain_condition(CHAR_DATA *ch, int iCond, int value)
 			break;
 
 		case COND_THIRST:
-			char_puts("You are dying of thrist!\n", ch);
+			char_puts("You are dying of thirst!\n", ch);
 			act("$n is dying of thirst!", ch, NULL, NULL, TO_ROOM);
 			damage_hunger = ch->max_hit * number_range(2, 4) / 100;
 			if (!damage_hunger)
@@ -542,7 +542,7 @@ void gain_condition(CHAR_DATA *ch, int iCond, int value)
 
 		case COND_BLOODLUST:
 			fdone = 0;
-			char_puts("You are suffering from thrist of blood!\n",
+			char_puts("You are suffering from thirst of blood!\n",
 				  ch);
 			act("$n is suffering from thirst of blood!",
 			    ch, NULL, NULL, TO_ROOM);

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: rmagic.c,v 1.2.2.1 1999-12-16 12:40:00 fjoe Exp $
+ * $Id: rmagic.c,v 1.2.2.2 2001-05-21 18:53:55 fjoe Exp $
  */
 
 
@@ -184,6 +184,10 @@ EVENT_FUN(event_enter_rlight)
 
 EVENT_FUN(event_update_rlight)
 {
+	dofun("visible", ch, str_empty);
+
+	char_puts("A warm feeling fills your body.\n", ch);
+
 	if (IS_AFFECTED(ch, AFF_BLIND))
 		spellfun_call("cure blindness", raf->level, ch, ch);
 	if (IS_AFFECTED(ch, AFF_CURSE))
@@ -194,5 +198,4 @@ EVENT_FUN(event_update_rlight)
 		spellfun_call("cure disease", raf->level, ch, ch);
 	spellfun_call("cure critical", raf->level, ch, ch);
 
-	char_puts("A warm feeling fills your body.\n", ch);
 }

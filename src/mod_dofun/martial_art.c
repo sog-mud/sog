@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.114.2.17 2001-05-12 12:22:21 kostik Exp $
+ * $Id: martial_art.c,v 1.114.2.18 2001-05-21 18:53:49 fjoe Exp $
  */
 
 /***************************************************************************
@@ -393,7 +393,7 @@ void do_berserk(CHAR_DATA *ch, const char *argument)
 		af.type		= gsn_berserk;
 		af.level	= ch->level;
 		af.duration	= number_fuzzy(ch->level / 8);
-		af.modifier	= UMAX(1,LEVEL(ch)/5);
+		af.modifier	= UMAX(1, LEVEL(ch) / 5);
 		af.bitvector 	= AFF_BERSERK;
 
 		af.location	= APPLY_HITROLL;
@@ -402,7 +402,7 @@ void do_berserk(CHAR_DATA *ch, const char *argument)
 		af.location	= APPLY_DAMROLL;
 		affect_to_char(ch,&af);
 
-		af.modifier	= UMAX(10,10 * (LEVEL(ch)/5));
+		af.modifier	= UMAX(10, 2 * LEVEL(ch));
 		af.location	= APPLY_AC;
 		affect_to_char(ch,&af);
 	}
@@ -2383,17 +2383,18 @@ void do_warcry(CHAR_DATA *ch, const char *argument)
 	check_improve(ch, gsn_warcry, TRUE, 1);
 
 	af.where	= TO_AFFECTS;
-	af.type      = gsn_warcry;
-	af.level	 = ch->level;
-	af.duration  = 6+ch->level;
-	af.location  = APPLY_HITROLL;
-	af.modifier  = LEVEL(ch) / 8;
-	af.bitvector = 0;
+	af.type		= gsn_warcry;
+	af.level	= ch->level;
+	af.duration	= 6 + ch->level;
+	af.location	= APPLY_HITROLL;
+	af.modifier	= UMAX(1, LEVEL(ch) / 8);
+	af.bitvector	= 0;
+	affect_to_char(ch, &af);
+	
+	af.location  = APPLY_SAVING_SPELL;
+	af.modifier  = 0 - UMAX(1, (LEVEL(ch) / 8);
 	affect_to_char(ch, &af);
 
-	af.location  = APPLY_SAVING_SPELL;
-	af.modifier  = 0 - LEVEL(ch) / 8;
-	affect_to_char(ch, &af);
 	char_puts("You feel righteous as you yell out your warcry.\n", ch);
 }
 

@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.139.2.37 2001-05-01 08:42:58 kostik Exp $
+ * $Id: spellfun2.c,v 1.139.2.38 2001-05-21 18:53:52 fjoe Exp $
  */
 
 /***************************************************************************
@@ -564,7 +564,7 @@ void spell_benediction(int sn, int level, CHAR_DATA *ch, void *vo)
 	af.modifier	= strength;
 
 	affect_to_char(victim, &af);
-	act("You feel righteous.\n", victim, NULL, NULL, TO_CHAR);
+	act("You feel righteous.", victim, NULL, NULL, TO_CHAR);
 	if (victim != ch)
 		act("You grant $N favor of your god.", 
 			ch, NULL, victim, TO_CHAR);
@@ -2150,7 +2150,7 @@ void spell_holy_armor(int sn, int level, CHAR_DATA *ch, void *vo)
 	af.bitvector = 0;
 	affect_to_char(ch, &af);
 	act("$n is protected from harm.",ch,NULL,NULL,TO_ROOM);
-	char_puts("Your are protected from harm.\n", ch);
+	char_puts("You are protected from harm.\n", ch);
 
 }  
 
@@ -4718,7 +4718,7 @@ void spell_lich(int sn, int level, CHAR_DATA *ch, void *vo)
 	}
 
 	if (IS_NULLSTR(target_name)) {
-		char_puts("Usage: cast lich <type>", ch);
+		char_puts("Usage: cast lich <type>"\n, ch);
 		return;
 	}
 
@@ -5767,7 +5767,7 @@ void spell_abolish_undead(int sn, int level, CHAR_DATA *ch, void *vo)
         CHAR_DATA *tmp_ch;
         OBJ_DATA *obj;
         OBJ_DATA *obj_next;
-        int i,dam=0;
+        int i, dam = 0;
         OBJ_DATA *tattoo, *clanmark;
         PC_DATA *vpc;
 	race_t *r;
@@ -5796,13 +5796,13 @@ void spell_abolish_undead(int sn, int level, CHAR_DATA *ch, void *vo)
 
         act_puts("$n's holy light burns you! Your flesh decays into dust.",
               ch, NULL, victim, TO_VICT, POS_RESTING);
-        act_puts("$n's holy light burns $N! $N's flesh decays into dust.",
+        act_puts("$n's holy light burns $N! $lu{$N}'s flesh decays into dust.",
               ch, NULL, victim, TO_NOTVICT, POS_RESTING);
-        act_puts("Your holy light burns $N! $N's flesh decays into dust.",
+        act_puts("Your holy light burns $N! $lu{$N}'s flesh decays into dust.",
               ch, NULL, victim, TO_CHAR, POS_RESTING);
         char_puts("You have been KILLED!\n", victim);
 
-        act("$N does not exist anymore!\n", ch, NULL, victim, TO_ALL);
+        act("$N does not exist anymore!", ch, NULL, victim, TO_ALL);
 
         char_puts("You turn into an invincible ghost for a few minutes.\n",
                      victim);
@@ -5833,12 +5833,12 @@ void spell_abolish_undead(int sn, int level, CHAR_DATA *ch, void *vo)
 
         while (victim->affected)
                 affect_remove(victim, victim->affected);
-        victim->affected_by   = 0;
+        victim->affected_by	= 0;
         for (i = 0; i < 4; i++)
                 victim->armor[i]= 100;
-        victim->position      = POS_RESTING;
-        victim->hit           = 1;
-        victim->mana      = 1;
+        victim->position	= POS_RESTING;
+        victim->hit     	= 1;
+        victim->mana		= 1;
 
         vpc = PC(victim);
         REMOVE_BIT(vpc->plr_flags, PLR_BOUGHT_PET);

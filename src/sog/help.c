@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: help.c,v 1.13.2.1 1999-12-16 12:40:02 fjoe Exp $
+ * $Id: help.c,v 1.13.2.2 2001-05-21 18:53:58 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -182,7 +182,7 @@ void help_free(HELP_DATA *pHelp)
 		else
 			pArea->help_first = pArea->help_first->next_in_area;
 		if (pArea->help_last == pHelp)
-			help_last = prev;
+			pArea->help_last = prev;
 	}
 
 /* free memory */

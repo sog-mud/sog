@@ -1,5 +1,5 @@
 /*
- * $Id: religion.c,v 1.5.2.1 2000-04-03 16:03:32 fjoe Exp $
+ * $Id: religion.c,v 1.5.2.2 2001-05-21 18:53:59 fjoe Exp $
  */
 
 /***************************************************************************
@@ -44,45 +44,45 @@
 #include "merc.h"
 
 /* vnums for tattoos */
-#define OBJ_VNUM_TATTOO_ATUM_RA 	51
-#define OBJ_VNUM_TATTOO_ZEUS		52
-#define OBJ_VNUM_TATTOO_SIEBELE 	53
-#define OBJ_VNUM_TATTOO_SHAMASH		54
-#define OBJ_VNUM_TATTOO_AHURAMAZDA	55
-#define OBJ_VNUM_TATTOO_EHRUMEN 	56
-#define OBJ_VNUM_TATTOO_DEIMOS		57
-#define OBJ_VNUM_TATTOO_PHOBOS		58
-#define OBJ_VNUM_TATTOO_ODIN		59
-#define OBJ_VNUM_TATTOO_TESHUB		60
-#define OBJ_VNUM_TATTOO_ARES		61
-#define OBJ_VNUM_TATTOO_GOKTENGRI	62
-#define OBJ_VNUM_TATTOO_HERA		63
-#define OBJ_VNUM_TATTOO_VENUS		64
-#define OBJ_VNUM_TATTOO_SETH		65
-#define OBJ_VNUM_TATTOO_ENKI		66
-#define OBJ_VNUM_TATTOO_EROS		67
+#define OBJ_VNUM_TATTOO_LIRAIL	 	51
+#define OBJ_VNUM_TATTOO_AMTINOR		52
+#define OBJ_VNUM_TATTOO_AULIN	 	53
+#define OBJ_VNUM_TATTOO_DAKKORN		54
+#define OBJ_VNUM_TATTOO_ULWARK		55
+#define OBJ_VNUM_TATTOO_MOARITH 	56
+#define OBJ_VNUM_TATTOO_ILISSA		57
+#define OBJ_VNUM_TATTOO_HATHIR		58
+#define OBJ_VNUM_TATTOO_THRORGRIM	59
+#define OBJ_VNUM_TATTOO_IRIAN		60
+#define OBJ_VNUM_TATTOO_STIVROSH	61
+#define OBJ_VNUM_TATTOO_GWINNERAI	62
+#define OBJ_VNUM_TATTOO_TRUSSK		63
+#define OBJ_VNUM_TATTOO_LESSA		64
+#define OBJ_VNUM_TATTOO_VILIRNA		65
+#define OBJ_VNUM_TATTOO_CALAMIR		66
+#define OBJ_VNUM_TATTOO_CARIEL		67
 
 /* God's Name, name of religion, tattoo vnum  */
 const struct religion_type religion_table [] =
 {
   { "none",		"None",			0			},
-  { "Atum-Ra",		"Lawful Good",		OBJ_VNUM_TATTOO_ATUM_RA },
-  { "Zeus",		"Neutral Good",		OBJ_VNUM_TATTOO_ZEUS	},
-  { "Siebele",		"True Neutral",		OBJ_VNUM_TATTOO_SIEBELE },
-  { "Shamash",		"God of Justice",	OBJ_VNUM_TATTOO_SHAMASH	},
-  { "Ehrumen",		"Chaotic Evil",		OBJ_VNUM_TATTOO_EHRUMEN	},
-  { "Ahuramazda",	"Chaotic Good",		OBJ_VNUM_TATTOO_AHURAMAZDA },
-  { "Deimos",		"Lawful Evil",		OBJ_VNUM_TATTOO_DEIMOS	},
-  { "Phobos",		"Neutral Evil",		OBJ_VNUM_TATTOO_PHOBOS	},
-  { "Odin",		"Lawful Neutral",	OBJ_VNUM_TATTOO_ODIN	},
-  { "Teshub",		"Chaotic Neutral",	OBJ_VNUM_TATTOO_TESHUB	},
-  { "Ares",		"God of War",		OBJ_VNUM_TATTOO_ARES	},
-  { "Goktengri",	"God of Honor",		OBJ_VNUM_TATTOO_GOKTENGRI },
-  { "Hera",		"Goddess of Hate",	OBJ_VNUM_TATTOO_HERA	},
-  { "Venus",		"Goddess of Beauty",	OBJ_VNUM_TATTOO_VENUS	},
-  { "Seth",		"God of Anger",		OBJ_VNUM_TATTOO_SETH	},
-  { "Enki",		"God of Knowledge",	OBJ_VNUM_TATTOO_ENKI	},
-  { "Eros",		"God of Love",		OBJ_VNUM_TATTOO_EROS	}
+  { "Lirail",		"Lawful Good",		OBJ_VNUM_TATTOO_LIRAIL  },
+  { "Amtinor",		"Neutral Good",		OBJ_VNUM_TATTOO_AMTINOR	},
+  { "Aulin",		"True Neutral",		OBJ_VNUM_TATTOO_AULIN   },
+  { "Dakkorn",		"God of Justice",	OBJ_VNUM_TATTOO_DAKKORN	},
+  { "Moarith",		"Chaotic Evil",		OBJ_VNUM_TATTOO_MOARITH	},
+  { "Ulwark",		"Chaotic Good",		OBJ_VNUM_TATTOO_ULWARK  },
+  { "Ilissa",		"Lawful Evil",		OBJ_VNUM_TATTOO_ILISSA	},
+  { "Hathir",		"Neutral Evil",		OBJ_VNUM_TATTOO_HATHIR	},
+  { "Throrgrim",	"Lawful Neutral",	OBJ_VNUM_TATTOO_THRORGRIM },
+  { "Irian",		"Chaotic Neutral",	OBJ_VNUM_TATTOO_IRIAN	},
+  { "Stivrosh",		"God of War",		OBJ_VNUM_TATTOO_STIVROSH},
+  { "Gwinnerai",	"Goddess of Honor",	OBJ_VNUM_TATTOO_GWINNERAI },
+  { "Trussk",		"God of Desease and Suffering",	OBJ_VNUM_TATTOO_TRUSSK	},
+  { "Lessa",		"Goddess of Magic",	OBJ_VNUM_TATTOO_LESSA	},
+  { "Vilirna",		"Goddess of Life",	OBJ_VNUM_TATTOO_VILIRNA	},
+  { "Calamir",		"God of Delusion",	OBJ_VNUM_TATTOO_CALAMIR	},
+  { "Cariel",		"Goddess of Revival",	OBJ_VNUM_TATTOO_CARIEL	}
 };
 
 const char *religion_name(int religion)

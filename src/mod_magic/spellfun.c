@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.181.2.20 2001-04-25 10:17:26 cs Exp $
+ * $Id: spellfun.c,v 1.181.2.21 2001-05-21 18:53:51 fjoe Exp $
  */
 
 /***************************************************************************
@@ -87,7 +87,7 @@ void spell_armor(int sn, int level, CHAR_DATA *ch, void *vo)
 }
 
 /*
- * can be called with ch == NULL, vo == ch (e.g.: obj prog of tattoo of venus)
+ * can be called with ch == NULL, vo == ch (e.g.: obj prog of tattoo of lessa)
  */
 void spell_bless(int sn, int level, CHAR_DATA *ch, void *vo)
 {
@@ -154,12 +154,12 @@ void spell_bless(int sn, int level, CHAR_DATA *ch, void *vo)
 	af.level	= level;
 	af.duration	= (6 + level / 2);
 	af.location	= APPLY_HITROLL;
-	af.modifier	= level / 8;
+	af.modifier	= UMAX(1, level / 8);
 	af.bitvector	= 0;
 	affect_to_char(victim, &af);
 
 	af.location	= APPLY_SAVING_SPELL;
-	af.modifier	= 0 - level / 8;
+	af.modifier	= 0 - UMAX(1, level / 8);
 
 	affect_to_char(victim, &af);
 	char_puts("You feel righteous.\n", victim);
@@ -185,7 +185,7 @@ void spell_blindness(int sn, int level, CHAR_DATA *ch, void *vo)
 	af.level     = level;
 	af.location  = APPLY_HITROLL;
 	af.modifier  = -4;
-	af.duration  = 3+level / 15;
+	af.duration  = 3 + level / 15;
 	af.bitvector = AFF_BLIND;
 	affect_to_char(victim, &af);
 	char_puts("You are blinded!\n", victim);
@@ -2374,12 +2374,12 @@ void spell_frenzy(int sn, int level, CHAR_DATA *ch, void *vo)
 		return;
 	}
 
-	af.where     = TO_AFFECTS;
-	af.type 	 = sn;
-	af.level	 = level;
-	af.duration	 = level / 3;
-	af.modifier  = level / 6;
-	af.bitvector = 0;
+	af.where	= TO_AFFECTS;
+	af.type		= sn;
+	af.level	= level;
+	af.duration	= UMAX(2, level / 3);
+	af.modifier	= UMAX(1, level / 6);
+	af.bitvector	= 0;
 
 	af.location  = APPLY_HITROLL;
 	affect_to_char(victim,&af);
@@ -2387,7 +2387,7 @@ void spell_frenzy(int sn, int level, CHAR_DATA *ch, void *vo)
 	af.location  = APPLY_DAMROLL;
 	affect_to_char(victim,&af);
 
-	af.modifier  = 10 * (level / 12);
+	af.modifier  = 5 * UMAX(1, level / 6);
 	af.location  = APPLY_AC;
 	affect_to_char(victim,&af);
 
@@ -3329,7 +3329,7 @@ void spell_ray_of_truth (int sn, int level, CHAR_DATA *ch, void *vo)
 	}
 
 	dam = dice(level, 10);
-	if (saves_spell(level, victim,DAM_HOLY))
+	if (saves_spell(level, victim, DAM_HOLY))
 		dam /= 2;
 
 	align = victim->alignment;
@@ -3340,7 +3340,7 @@ void spell_ray_of_truth (int sn, int level, CHAR_DATA *ch, void *vo)
 
 	dam = (dam * align * align) / 1000000;
 
-	spellfun_call("blindness", 3 * level / 4, ch, victim);
+	spellfun_call("blindness", 4 * level / 3, ch, victim);
 	damage(ch, victim, dam, sn, DAM_HOLY ,TRUE);
 }
 
