@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.145 1999-05-21 13:04:25 fjoe Exp $
+ * $Id: interp.c,v 1.146 1999-05-21 17:55:38 fjoe Exp $
  */
 
 /***************************************************************************
@@ -567,10 +567,8 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 		 */
 		if (!IS_NPC(ch)
 		&&  IS_SET(ch->plr_flags, PLR_FREEZE)
-		&&  !IS_SET(cmd->flags, CMD_FROZEN_OK)) {
-			char_puts("You're totally frozen!\n", ch);
+		&&  !IS_SET(cmd->flags, CMD_FROZEN_OK))
 			continue;
-		}
 
 		if (IS_SET(cmd->flags, CMD_DISABLED)) {
 			char_puts("Sorry, this command is temporarily disabled.\n", ch);

@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.191 1999-05-21 14:30:22 fjoe Exp $
+ * $Id: merc.h,v 1.192 1999-05-21 17:55:38 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2177,7 +2177,7 @@ char *format_flags(flag64_t flags);
 /*
  * Global Constants
  */
-extern	char *	const			dir_name	[];
+extern	const char *			dir_name	[];
 extern	const	int			rev_dir		[];
 extern	const	struct spec_type	spec_table	[];
 extern	char				DEFAULT_PROMPT	[];

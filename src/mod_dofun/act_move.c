@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.170 1999-05-20 06:24:53 avn Exp $
+ * $Id: act_move.c,v 1.171 1999-05-21 17:55:38 fjoe Exp $
  */
 
 /***************************************************************************
@@ -50,17 +50,22 @@
 #include "obj_prog.h"
 #include "fight.h"
 
-char *	const	dir_name	[]		=
+const char *dir_name[] =
 {
 	"north", "east", "south", "west", "up", "down"
 };
 
-const	int	rev_dir		[]		=
+const char *from_dir_name[] =
+{
+	"the north", "the east", "the south", "the west", "the up", "the down"
+};
+
+const int rev_dir[] =
 {
 	2, 3, 0, 1, 5, 4
 };
 
-const	int	movement_loss	[SECT_MAX]	=
+const int movement_loss[SECT_MAX] =
 {
 	1, 2, 2, 3, 4, 6, 4, 1, 6, 10, 6
 };
@@ -2106,8 +2111,7 @@ void do_vbite(CHAR_DATA *ch, const char *argument)
 		damage(ch, victim, 0, gsn_vampiric_bite, DAM_NONE, DAMF_SHOW);
 	}
 	if (!IS_NPC(victim) && victim->position==POS_FIGHTING) 
-		doprintf(do_yell, victim, 
-			"Help! %s tried to bite me!", PERS(ch, victim));
+		yell(victim, ch, "Help! %s tried to bite me!");
 }
 
 void do_bash_door(CHAR_DATA *ch, const char *argument)
@@ -3147,9 +3151,9 @@ int send_arrow(CHAR_DATA *ch, CHAR_DATA *victim,OBJ_DATA *arrow,
 		else {
 			dest_room = pExit->to_room.r;
 			if (dest_room->people) {
-			 	act("$p sails into the room from the $T!",
+			 	act("$p sails into the room from $T!",
 				    dest_room->people, arrow,
-				    dir_name[rev_dir[door]],
+				    from_dir_name[rev_dir[door]],
 				    TO_ALL | ACT_TRANS);
 			}
 
@@ -3245,10 +3249,9 @@ DO_FUN(do_charge)
 	if (!move_char_org(ch, direction, FALSE, TRUE))
 		return;
 	act("$n gallops from $t, charging you!",
-	    ch, dir_name[rev_dir[direction]], victim, TO_VICT);
+	    ch, from_dir_name[rev_dir[direction]], victim, TO_VICT);
 	act("$n gallops from $t, charging $N!",
-	    ch, dir_name[rev_dir[direction]], victim, TO_NOTVICT);
-
+	    ch, from_dir_name[rev_dir[direction]], victim, TO_NOTVICT);
 
 	if (number_percent() < chance) {
 		one_hit(ch, victim, gsn_charge, WEAR_WIELD);
