@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.67 1998-06-12 12:21:55 efdi Exp $
+ * $Id: act_info.c,v 1.68 1998-06-12 12:40:26 efdi Exp $
  */
 
 /***************************************************************************
@@ -1531,21 +1531,23 @@ void do_exits(CHAR_DATA *ch, char *argument)
 
 void do_worth(CHAR_DATA *ch, char *argument)
 {
-	char_printf(ch, "You have %d gold, %d silver",
+	char_printf(ch, msg(INFO_HAVE_D_GOLD_D_SILVER, ch),
 		    ch->gold, ch->silver);
 	if (!IS_NPC(ch) && ch->level < LEVEL_HERO)
-		char_printf(ch, ", and %d experience (%d exp to level)",
+		char_printf(ch, msg(INFO_AND_D_EXP, ch),
 			    ch->exp, exp_to_level(ch, ch->pcdata->points));
 	char_puts(".\n\r", ch);
 
 	if (!IS_NPC(ch))
-		char_printf(ch, "You have killed %3d %s and %3d %s.\n\r",
+		char_printf(ch, msg(INFO_HAVE_KILLED, ch),
 			    ch->pcdata->has_killed,
-			    IS_GOOD(ch) ? "non-goods" :
-			    IS_EVIL(ch) ? "non-evils" : "non-neutrals",
+			    IS_GOOD(ch) ? msg(INFO_NON_GOODS, ch) :
+			    IS_EVIL(ch) ? msg(INFO_NON_EVILS, ch) : 
+					  msg(INFO_NON_NEUTRALS, ch),
 			    ch->pcdata->anti_killed,
-			    IS_GOOD(ch) ? "goods" :
-			    IS_EVIL(ch) ? "evils" : "neutrals");
+			    IS_GOOD(ch) ? msg(INFO_GOODS, ch) :
+			    IS_EVIL(ch) ? msg(INFO_EVILS, ch) : 
+					  msg(INFO_NEUTRALS, ch));
 	return;
 }
 

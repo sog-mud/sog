@@ -2,7 +2,7 @@
 #define _RESOURCE_H_
 
 /*
- * $Id: resource.h,v 1.65 1998-06-12 12:21:55 efdi Exp $
+ * $Id: resource.h,v 1.66 1998-06-12 12:40:26 efdi Exp $
  */
 
 #define msg(msgid, ch) vmsg(msgid, ch, ch)
@@ -630,6 +630,15 @@ enum {
 	INFO_ROOM_D,
 	INFO_NONE,
 	INFO_CAPNONE,
+	INFO_HAVE_D_GOLD_D_SILVER,
+	INFO_AND_D_EXP,
+	INFO_HAVE_KILLED,
+	INFO_NON_GOODS,
+	INFO_NON_EVILS,
+	INFO_NON_NEUTRALS,
+	INFO_GOODS,
+	INFO_EVILS,
+	INFO_NEUTRALS,
 };
 
 #endif

@@ -1,5 +1,5 @@
 #
-# $Id: english.lang,v 1.43 1998-06-12 12:22:06 efdi Exp $
+# $Id: english.lang,v 1.44 1998-06-12 12:40:38 efdi Exp $
 #
 
 INFO_NOTHING		"Nothing.\n\r"
@@ -628,3 +628,12 @@ INFO_TOO_DARK_TO_TELL	"Too dark to tell"
 INFO_ROOM_D		" (room %d)\n\r"
 INFO_NONE		" none"
 INFO_CAPNONE		"None.\n\r"
+INFO_HAVE_D_GOLD_D_SILVER	"You have %d gold, %d silver"
+INFO_AND_D_EXP		", and %d experience (%d exp to level)"
+INFO_HAVE_KILLED	"You have killed %d %s and %d %s.\n\r"
+INFO_NON_GOODS		"non-goods"
+INFO_NON_EVILS		"non-evils"
+INFO_NON_NEUTRALS	"non-neutrals"
+INFO_GOODS		"goods"
+INFO_EVILS		"evils"
+INFO_NEUTRALS		"neutrals"
