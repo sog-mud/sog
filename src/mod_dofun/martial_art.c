@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.168 2000-10-10 15:45:52 fjoe Exp $
+ * $Id: martial_art.c,v 1.169 2000-10-11 12:47:49 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1983,6 +1983,14 @@ void do_ambush(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	if (!HAS_INVIS(ch, ID_CAMOUFLAGE)) {
+		dofun("camouflage", ch, str_empty);
+		if (!HAS_INVIS(ch, ID_CAMOUFLAGE)) {
+			act_char("You failed.", ch);
+			return;
+		}
+	}
+
 	if (is_safe(ch, victim))
 		return;
 
@@ -1991,8 +1999,7 @@ void do_ambush(CHAR_DATA *ch, const char *argument)
 	||  number_percent() < chance) {
 		check_improve(ch, "ambush", TRUE, 1);
 		one_hit(ch, victim, "ambush", WEAR_WIELD);
-	}
-	else {
+	} else {
 		check_improve(ch, "ambush", FALSE, 1);
 		damage(ch, victim, 0, "ambush", DAM_NONE, DAMF_SHOW);
 	}
