@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.200.2.13 2000-12-05 09:32:39 avn Exp $
+ * $Id: comm.c,v 1.200.2.14 2001-02-28 19:12:54 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2694,7 +2694,7 @@ bool class_ok(CHAR_DATA *ch, int class)
 		return FALSE;
 
 	if (rclass_lookup(r, cl->name) == NULL
-	||  (cl->restrict_sex >= 0 && cl->restrict_sex != ch->sex))
+	||  (cl->restrict_sex != INTVAL_NONE && cl->restrict_sex != ch->sex))
 		return FALSE;
 
 	return TRUE;

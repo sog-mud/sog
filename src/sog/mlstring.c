@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mlstring.c,v 1.42.2.1 1999-12-16 12:40:02 fjoe Exp $
+ * $Id: mlstring.c,v 1.42.2.2 2001-02-28 19:12:54 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -241,7 +241,7 @@ const char * mlstr_val(const mlstring *mlp, int lang)
 		lang_t *l;
 
 		if ((l = varr_get(&langs, lang))
-		&&  l->slang_of >= 0
+		&&  l->slang_of != INTVAL_NONE 
 		&&  l->slang_of < mlp->nlang)
 			lang = l->slang_of;
 		else
