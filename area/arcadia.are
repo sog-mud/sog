@@ -1150,7 +1150,7 @@ wood~
 armor G 0 AE
 5 6 5 3 0
 22 3 30 P
-g female~
+g @eng neutral@rus female~
 #12001
 nectar нектар~
 @eng A drop of nectar@rus ~~капелька~~ нектара~
@@ -1159,7 +1159,7 @@ cloth~
 potion Q 0 A
 25 'refresh' 'cure critical' 'cure poison' 'cure blindness'
 22 1 0 P
-g male~
+g @eng neutral@rus female~
 #12002
 trident трезубец~
 @eng A silver trident@rus ~~серебряный~~ ~~трезубец~~~
@@ -1876,14 +1876,14 @@ container G 0 AO
 82 2 0 P
 g none~
 #12059
-orange~
-An orange~
-A small orange orange.~
+orange апельсин~
+@eng An orange@rus апельсин~
+@eng A small orange orange.@rus Маленький оранжевый апельсин (orange).~
 unknown~
 pill 0 0 A
 82 'curse' 'sleep' 'blindness' 'poison'
 83 1 0 P
-g none~
+g @eng none@rus male~
 #12060
 pebble~
 A small pebble~

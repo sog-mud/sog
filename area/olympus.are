@@ -438,6 +438,14 @@ armor FGK 0 AD
 12 12 11 6 0
 35 500 8400 P
 A
+27 2
+A
+29 2
+A
+28 2
+A
+32 7
+A
 1 1
 g none~
 #901
@@ -669,7 +677,11 @@ jewelry FGK 0 AC
 0 0 0 0 0
 40 10 4900 P
 A
-12 50
+35 5
+A
+31 5
+A
+36 5
 g none~
 #923
 sun sword~
@@ -1904,12 +1916,14 @@ S
 0
 
 #OLIMITS
+O 900 5	* the Aegis
 O 901 1	* the Thunder Bolt
 O 903 9	* the spear of Ares
 O 905 9	* an ivory staff
 O 906 9	* poseidon's Trident
 O 907 10	* a silver bow
 O 908 2	* flaming gauntlets
+O 922 9	* the Amulet of Ra
 O 923 1	* the Sword of the Sun
 S
 

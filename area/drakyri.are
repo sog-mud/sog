@@ -23,7 +23,7 @@ her forehead:
 ~
 elf~
 BGR 0 H 0 AB 0 0
-46 0 100d6+3000 1d100+15000 7d13+31 'magic'
+46 0 100d5+3000 1d100+2000 9d9+31 'magic'
 -61 -63 -64 -33
 EFG
 stand stand female 55000

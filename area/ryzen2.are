@@ -9,59 +9,67 @@ End
 
 #MOBILES
 #22002
-ghost wandering~
-A Wandering Ghost~
-A ghost wanders about, stuck in the realms between life and death
+ghost wandering привидение блуждающее~
+@eng A Wandering Ghost@rus ~~блуждающее~~ ~~привидение~~~
+@eng A ghost wanders about, stuck in the realms between life and death
+@rus Привидение (ghost) блуждает тут, потерявшись где-то на полпути в загробный мир.
 ~
-A shadow of its formal self, the ghost appears as it did in life, with
+@eng A shadow of its formal self, the ghost appears as it did in life, with
 the shape of a human body but an astral look to it.  It is a soul which can
 not rest until destroyed and sent into the heavens.  
+@rus Тень самого себя при жизни, этот призрак похож на себя, каким
+он был до смерти, лишь очертаниями. Эта заблудившаяся душа
+обретет покой лишь тогда, когда ее кости будут погребены.
 ~
-human~
-G 0 TU A H -200 0
+ghost~
+G 0 U A H -200 0
 25 0 5d10+550 1d50+100 2d10+7 'wrath'
 -7 -7 -7 0
 EFU
 stand stand none 0
-I 0 medium unknown
-r bash 33
-r pierce 33
-r slash 33
-r holy -50
+0 0 medium unknown
+g @eng none@rus male~
 #22003
-wraith wicked~
-a Wicked Wraith~
-A wicked looking wraith stares at you, chilling your soul
+wraith wicked зловещий призрак~
+@eng a Wicked Wraith@rus ~~зловещий~~ ~~призрак~~~
+@eng A wicked looking wraith stares at you, chilling your soul
+@rus Призрак (wraith) недобро уставился на тебя, заставляя дрожать.
 ~
-The wraith floats slowly towards you, searching for a new soul to consume.  
+@eng The wraith floats slowly towards you, searching for a new soul to consume.  
+@rus Он медленно приближается, собираясь поступить с твоей душой так же,
+как и со всеми остальными - сожрать.
 ~
-human~
-GO 0 U 0 H -1000 0
+ghost~
+0 0 U 0 H -1000 0
 34 0 9d80+1200 34d10+100 4d7+10 'claw'
 -11 -10 -11 5
 CEFH
 stand stand none 0
-I 0 medium unknown
-r holy -50
+0 0 medium unknown
+g @eng none@rus male~
 #22004
-ghastly spectre~
-a spectre~
-A ghastly spectre lurks nearby in the shadows.
+ghastly spectre призрак мертвенно бледный~
+@eng a spectre@rus ~~призрак~~~
+@eng A ghastly spectre lurks nearby in the shadows.
+@rus Бледный, словно сама смерть, призрак (spectre) затаился среди теней.
 ~
-This long dead spirit is now an evil creation that longs for your blood.  
+@eng This long dead spirit is now an evil creation that longs for your blood.  
+@rus Он мертв уже давно и наверное, по-своему сошел с ума, желая
+теперь лишь одной вещи - крови живых.
 ~
-human~
-GO 0 U 0 H -800 0
+ghost~
+G 0 U 0 H -800 0
 32 0 5d10+1000 2d20+1000 6d4+9 'slash'
 -10 -10 -10 4
 CDFH
 stand stand none 0
-I 0 medium unknown
-r holy -50
+0 0 medium unknown
+g @eng none@rus male~
 #22005
-ghoul~
-a ghoul~
-A ghoul stands here chewing on an old bone.
+ghoul гуль~
+@eng a ghoul@rus ~~гуль~~~
+@eng A ghoul stands here chewing on an old bone.
+@rus Гуль (ghoul) стоит здесь, обгладывая чью-то кость.
 ~
 A disgusting undead creature that resembles a zombie, though much more
 ferocious.  It carries around an old arm bone that it chews on constantly,
@@ -1420,11 +1428,16 @@ D3
 Z 0 22042
 S
 #22044
-The End of the Cavern~
-The natural rock formations come to an abrupt stop as you enter this
+@eng The End of the Cavern@rus Конец пещеры~
+@eng The natural rock formations come to an abrupt stop as you enter this
 room.  The darkness present in the maze seems to be here to such a degree
 that you feel blinded by the infinite amount of shadow.  The presence of
 evil continues to grow stronger, you must be getting close.  
+@rus Все каменные нагромождения резко кончаются здесь, , словно оставшись
+за невидимой глазу стеной. Тьма вновь сгущается, делая невозможным
+разглядеть что-либо впереди и уже знакомое чувство первобытного страха
+вновь просыпается в тебе, напоминая о том, что находится в сердце
+этого лабиринта.
 ~
 0 AD inside
 D3
@@ -1441,10 +1454,14 @@ D5
 Z 0 22045
 S
 #22045
-A Dimly Lit Tunnel~
-You are nearly overcome with the presence of tremendous evil.  Howls of
+@eng A Dimly Lit Tunnel@rus Едва освещенный тоннель~
+@eng You are nearly overcome with the presence of tremendous evil.  Howls of
 torment can be heard far off in the distance.  The caverns continue to the
 south, but ponder your mortality first, should you continue?  
+@rus Чувство присутствия чего-то зловещего захлестывает тебя, словно
+волна, едва не обращая в паническое бегство. Стоны боли слышны в
+отдалении и ты уже серъезно задумываешься о необходимости продол-
+жать путь.
 ~
 0 D inside
 D2
@@ -1461,11 +1478,15 @@ D4
 Z 0 22044
 S
 #22046
-A Dimly Lit Tunnel~
-The sound of rushing water seems to be coming from farther up the
+@eng A Dimly Lit Tunnel@rus Едва освещенный тоннель~
+@eng The sound of rushing water seems to be coming from farther up the
 corridor.  The evil assaulting your soul continues to get stronger with
 every step you take.  You feel yourself tense, expecting maybe the ruler of
 hell himself around the corner.  
+@rus Откуда-то спереди доносится звук речного течения, и тебе уже стоит
+большого усилия преодолеть суеверный страх, который усиливается с каж-
+дым сделанным шагом, по мере того, как ты приближаешься к источнику
+пугающих звуков.
 ~
 0 D inside
 D0
@@ -1482,11 +1503,15 @@ D1
 Z 0 22047
 S
 #22047
-A Bend in the Tunnel~
-The sound of rushing water gets louder, perhaps there is a stream or
+@eng A Bend in the Tunnel@rus Поворот~
+@eng The sound of rushing water gets louder, perhaps there is a stream or
 river up ahead.  This part of the caverns seems to glow with an unholy
 light, and although it is nice to have light again you start to think you
 prefered the darkness over this.  
+@rus Звук становится еще громче - теперь у тебя уже не осталось сомнений
+в том, что впереди - река. Какое-то призрачное свечение исходит от стен
+и пола, но ты не испытываешь облегчения при виде его и думаешь, что
+скорей предпочел бы вернуться в темноту.
 ~
 0 D inside
 D2
@@ -1503,11 +1528,13 @@ D3
 Z 0 22046
 S
 #22048
-A Dimly Lit Tunnel~
-Light shines forth from the walls of this room, but it is an unnatural
+@eng A Dimly Lit Tunnel@rus Слабо освещенный тоннель~
+@eng Light shines forth from the walls of this room, but it is an unnatural
 and queer light.  The sound of a river is stronger now and you assume that
 it can not be much farther up ahead.  You may continue through the caverns
 to the south or return towards the exit, north.  
+@rus Исходящий от стен неестественный, пугающий свет становится все ярче,
+а река - все ближе.
 ~
 0 D inside
 D0
@@ -1524,9 +1551,12 @@ D2
 Z 0 22049
 S
 #22049
-The End of The Caverns~
-CONGRATULATIONS!!!!  You've found the entrance to the River Styx, and
+@eng The End of The Caverns@rus Выход из пещер~
+@eng CONGRATULATIONS!!!!  You've found the entrance to the River Styx, and
 Hell. I am sure the demons look forward to having you over for dinner.   
+@rus ПОЗДРАВЛЯЮ! Ты добрался-таки до выхода и стоишь на берегу Стикса.
+Мрачный лодочник неторопливо гребет в твою сторону, и на том берегу,
+наверное, будут рады незваному гостю.
 ~
 0 D inside
 D0

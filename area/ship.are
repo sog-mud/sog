@@ -4120,12 +4120,391 @@ S
 ~
 ~
 0 0 inside
-D4
+D0
 ~
 ~
 ~
 ~
-ABDZ 0 10785
+Z 0 10793
+D1
+~
+~
+~
+~
+Z 0 10794
+D2
+~
+~
+~
+~
+Z 0 10795
+D3
+~
+~
+~
+~
+Z 0 10796
+S
+#10793
+~
+~
+0 0 inside
+D1
+~
+~
+~
+~
+Z 0 10797
+D2
+~
+~
+~
+~
+Z 0 10792
+D3
+~
+~
+~
+~
+Z 0 10800
+S
+#10794
+~
+~
+0 0 inside
+D0
+~
+~
+~
+~
+Z 0 10797
+D2
+~
+~
+~
+~
+Z 0 10798
+D3
+~
+~
+~
+~
+Z 0 10792
+S
+#10795
+~
+~
+0 0 inside
+D0
+~
+~
+~
+~
+Z 0 10792
+D1
+~
+~
+~
+~
+Z 0 10798
+D2
+~
+~
+~
+~
+Z 0 10801
+D3
+~
+~
+~
+~
+Z 0 10799
+S
+#10796
+~
+~
+0 0 inside
+D0
+~
+~
+~
+~
+Z 0 10800
+D1
+~
+~
+~
+~
+Z 0 10792
+D2
+~
+~
+~
+~
+Z 0 10799
+S
+#10797
+~
+~
+0 0 inside
+D2
+~
+~
+~
+~
+Z 0 10794
+D3
+~
+~
+~
+~
+Z 0 10793
+S
+#10798
+~
+~
+0 0 inside
+D0
+~
+~
+~
+~
+Z 0 10794
+D3
+~
+~
+~
+~
+Z 0 10795
+S
+#10799
+~
+~
+0 0 inside
+D0
+~
+~
+~
+~
+Z 0 10796
+D1
+~
+~
+~
+~
+Z 0 10795
+S
+#10800
+~
+~
+0 0 inside
+D1
+~
+~
+~
+~
+Z 0 10793
+D2
+~
+~
+~
+~
+Z 0 10796
+S
+#10801
+~
+~
+0 0 inside
+D0
+~
+~
+~
+~
+Z 0 10795
+D1
+~
+~
+~
+~
+Z 0 10802
+D2
+~
+~
+~
+~
+Z 0 10809
+D3
+~
+~
+~
+~
+Z 0 10808
+S
+#10802
+~
+~
+0 0 inside
+D2
+~
+~
+~
+~
+Z 0 10803
+D3
+~
+~
+~
+~
+Z 0 10801
+S
+#10803
+~
+~
+0 0 inside
+D0
+~
+~
+~
+~
+Z 0 10802
+D2
+~
+~
+~
+~
+Z 0 10804
+D3
+~
+~
+~
+~
+Z 0 10809
+S
+#10804
+~
+~
+0 0 inside
+D0
+~
+~
+~
+~
+Z 0 10803
+D3
+~
+~
+~
+~
+Z 0 10805
+S
+#10805
+~
+~
+0 0 inside
+D0
+~
+~
+~
+~
+Z 0 10809
+D1
+~
+~
+~
+~
+Z 0 10804
+D3
+~
+~
+~
+~
+Z 0 10806
+S
+#10806
+~
+~
+0 0 inside
+D0
+~
+~
+~
+~
+Z 0 10807
+D1
+~
+~
+~
+~
+Z 0 10805
+S
+#10807
+~
+~
+0 0 inside
+D0
+~
+~
+~
+~
+Z 0 10808
+D1
+~
+~
+~
+~
+Z 0 10809
+D2
+~
+~
+~
+~
+Z 0 10806
+S
+#10808
+~
+~
+0 0 inside
+D1
+~
+~
+~
+~
+Z 0 10801
+D2
+~
+~
+~
+~
+Z 0 10807
+S
+#10809
+~
+~
+0 0 inside
+D0
+~
+~
+~
+~
+Z 0 10801
+D1
+~
+~
+~
+~
+Z 0 10803
+D2
+~
+~
+~
+~
+Z 0 10805
+D3
+~
+~
+~
+~
+Z 0 10807
 S
 #0
 
@@ -4146,7 +4525,6 @@ D 0 10709 4 1	* : door to the up: closed
 D 0 10714 4 1	* : door to the up: closed
 D 0 10720 4 1	* : door to the up: closed
 D 0 10785 5 1	* : door to the down: closed
-D 0 10792 4 1	* : door to the up: closed
 O 0 10604 0 10634	*  ()
 M 0 10602 1 10634 1	*  ()
 O 0 10602 0 10636	* gun (Porthole)
@@ -4172,6 +4550,54 @@ O 0 10602 0 10688	* gun (Porthole)
 O 0 10602 0 10689	* gun (Porthole)
 O 0 10602 0 10691	* gun (Porthole)
 M 0 10603 1 10752 1	* gravity (In air)
+R 0 10792 1	* : randomize
+R 0 10792 2	* : randomize
+R 0 10792 3	* : randomize
+R 0 10792 4	* : randomize
+R 0 10793 2	* : randomize
+R 0 10793 3	* : randomize
+R 0 10793 4	* : randomize
+R 0 10794 1	* : randomize
+R 0 10794 3	* : randomize
+R 0 10794 4	* : randomize
+R 0 10795 1	* : randomize
+R 0 10795 2	* : randomize
+R 0 10795 4	* : randomize
+R 0 10796 1	* : randomize
+R 0 10796 2	* : randomize
+R 0 10796 3	* : randomize
+R 0 10797 3	* : randomize
+R 0 10797 4	* : randomize
+R 0 10798 1	* : randomize
+R 0 10798 4	* : randomize
+R 0 10799 1	* : randomize
+R 0 10799 2	* : randomize
+R 0 10800 2	* : randomize
+R 0 10800 3	* : randomize
+R 0 10801 2	* : randomize
+R 0 10801 3	* : randomize
+R 0 10801 4	* : randomize
+R 0 10802 3	* : randomize
+R 0 10802 4	* : randomize
+R 0 10803 1	* : randomize
+R 0 10803 3	* : randomize
+R 0 10803 4	* : randomize
+R 0 10804 1	* : randomize
+R 0 10804 4	* : randomize
+R 0 10805 1	* : randomize
+R 0 10805 2	* : randomize
+R 0 10805 4	* : randomize
+R 0 10806 1	* : randomize
+R 0 10806 2	* : randomize
+R 0 10807 1	* : randomize
+R 0 10807 2	* : randomize
+R 0 10807 3	* : randomize
+R 0 10808 2	* : randomize
+R 0 10808 3	* : randomize
+R 0 10809 1	* : randomize
+R 0 10809 2	* : randomize
+R 0 10809 3	* : randomize
+R 0 10809 4	* : randomize
 S
 
 #OLIMITS

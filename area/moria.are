@@ -611,7 +611,6 @@ stand stand male 1000
 r fire -50
 r cold -50
 r lightning -50
-r acid -50
 r holy -50
 r negative -50
 r energy -50

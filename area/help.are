@@ -1862,7 +1862,7 @@ In order to STEAL successfully, you must practice the appropriate skill.
 Чтобы успешно воровать, тебе надо практиковать соответствующее умение.
 ~
 0 PRACTICE~
-@eng Syntax: {cpractice{x
+Syntax: {cpractice{x
 Syntax: {cpractice{x <skill | spell>
 
 PRACTICE without an argument tells you your current ability level in all
@@ -1905,52 +1905,12 @@ If you SLOOK the spell or skill and find it in group `{cnone{x', `{cweather{x',
 `{ccreation{x', `{charmful{x', `{cprotective{x' or `{cdetection{x', then you
 can practice that {gin your guild{x.
 
-See also {CHELP SLOOK, HELP LEARN{x
-@rus Синтаксис: {cpractice{x
-Синтаксис: {cpractice{x <умение | заклинание>
+Messages for the skill percentage in order from the lowest
+to the highest, are: {cnot learned{x, {cridiculous{x, {cvery bad{x,
+                     {cbad{x, {caverage{x, {cgood{x, {cvery good{x,
+                     {cremarkable{x and {cperfect{x.
  
-PRACTICE без аргумента выводит тебе уровень владения всеми умениями, доступ-
-ными тебе, в процентах. Ты можешь пользоваться этим в любом месте.
- 
-PRACTICE с аргументом тренирует тебя во владении указанным умением или закли-
-нанием. Уровень, до которого можно тренироваться, меняется от 0% до некоторого
-максимума, обычно 75%, зависящего от твоего класса. Ты должен быть у соответ-
-ствующего мастера, который может научить тебя этому.
- 
-Чем выше твой интеллект (int), тем больше ты получаешь от каждой практики. Чем
-выше твоя мудрость (wis), тем больше практических занятий ты получаешь с каждым
-уровнем. Неиспользованные занятия сохраняются до момента, когда они тебе потре-
-буются.
- 
-Практиковать умение или заклинание можно у того, что знает соответствующую
-группу умений. Ниже приведен список мастеров в каждой группе:
- 
- {cattack{x         >>> {gTowering Black Demon{x     (Camelot        )
- {cbeguiling{x      >>> {gMighty Beholder{x          (Thalos         )
- {cbenedictions{x   >>> {gTempleman{x                (Midgaard       )
- {ccombat{x         >>> {gCombat Magician{x          (Elemental Can. )
- {ccurative{x       >>> {gGrand Knight of Paladins{x (Redfernes' R.  )
- {cdefensive{x      >>> {gHeimdall{x                 (Valhalla       )
- {cdraconian{x      >>> {gRulers{x                   (Elemental Can. )
- {cenchantment{x    >>> {gMaster Enchanter{x         (High Tower     )
- {cenhancement{x    >>> {gHealer{x                   (Valley of Titan)
- {cfightmaster{x    >>> {gHeimdall{x                 (Valhalla       )
- {chealing{x        >>> {gHigh Priestess of Ofcol{x  (Ofcol          )
- {cillusion{x       >>> {gMaster Illusionist{x       (High Tower     )
- {cmaladictions{x   >>> {gDiana{x                    (Ofcol          )
- {cmeditation{x     >>> {gHierophant (holy){x        (Holy Grove     )
- {cprotective{x     >>> {gGath{x                     (City of Anon   )
- {ctransportation{x >>> {gGrand Mistress of Magic{x  (High Tower     )
- {cweaponsmaster{x  >>> {gSamurai{x                  (New Thalos     )
- {cwizard{x         >>> {gWizard{x                   (Midgaard       )
- {cnecromancy{x     >>> {gNecromancer-Alchemist{x    (Elvenhame      )
- 
-Используй команду SLOOK для определения группы. Если умение или заклинание
-принадлежит одной из групп '{cnone{x', '{cweather{x', '{ccreation{x', '{charmful{x',
-'{cprotective{x' или '{cdetection{x', то ты можешь практиковать его в своей
-гильдии.
- 
-Смотри также {CHELP SLOOK, HELP LEARN{x
+See also : {CHELP SLOOK{x, {CHELP GLIST{x.
 ~
 0 GLIST SLOOK~
 @eng Syntax: {cglist{x <group>
@@ -5694,6 +5654,10 @@ ridiculous, very bad, bad, average, good, very good, remarkable, perfect.
 Команды SKILLS и SPELLS показывают тебе список умений и заклинаний, доступных
 твоему персонажу. Списки упорядочены по уровню, с указанием стоимости (для
 заклинаний) или уровня владения (для умений).
+ 
+Сообщения, означающие степень изученности навыка (в порядке возрастания):
+{cnot learned{x, {cridiculous{x, {cvery bad{x,{cbad{x, {caverage{x, {cgood{x,
+{cvery good{x, {cremarkable{x и {cperfect{x.
 ~
 0 OUTFIT~
 @eng Syntax: {coutfit{x
