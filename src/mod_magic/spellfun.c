@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.181.2.21 2001-05-21 18:53:51 fjoe Exp $
+ * $Id: spellfun.c,v 1.181.2.22 2001-06-19 09:22:32 kostik Exp $
  */
 
 /***************************************************************************
@@ -3301,19 +3301,22 @@ void spell_protection_good(int sn, int level,CHAR_DATA *ch,void *vo)
 		act("$N is protected from good.",ch,NULL,victim,TO_CHAR);
 }
 
-void spell_ray_of_truth (int sn, int level, CHAR_DATA *ch, void *vo)
+void
+spell_ray_of_truth (int sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	int dam, align;
 
-	if (IS_EVIL(ch))
-	{
+	if (IS_EVIL(ch)) {
 		victim = ch;
 		char_puts("The energy explodes inside you!\n",ch);
+	} else if (!IS_GOOD(ch)) {
+		char_puts("You aren't clean enough to use this power.\n",
+		    ch);
+		return;
 	}
 
-	if (victim != ch)
-	{
+	if (victim != ch) {
 		act("$n raises $s hand, and a blinding ray of light shoots forth!",
 		    ch,NULL,NULL,TO_ROOM);
 		char_puts(
@@ -3321,8 +3324,7 @@ void spell_ray_of_truth (int sn, int level, CHAR_DATA *ch, void *vo)
 		   ch);
 	}
 
-	if (IS_GOOD(victim))
-	{
+	if (IS_GOOD(victim)) {
 		act("$n seems unharmed by the light.",victim,NULL,victim,TO_ROOM);
 		char_puts("The light seems powerless to affect you.\n",victim);
 		return;
@@ -3340,7 +3342,8 @@ void spell_ray_of_truth (int sn, int level, CHAR_DATA *ch, void *vo)
 
 	dam = (dam * align * align) / 1000000;
 
-	spellfun_call("blindness", 4 * level / 3, ch, victim);
+	spellfun_call("blindness", level - URANGE(1, level / 10, 8), ch,
+	    victim);
 	damage(ch, victim, dam, sn, DAM_HOLY ,TRUE);
 }
 

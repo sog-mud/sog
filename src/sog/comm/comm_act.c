@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm_act.c,v 1.40.2.4 2000-05-30 14:45:35 fjoe Exp $
+ * $Id: comm_act.c,v 1.40.2.5 2001-06-19 09:22:35 kostik Exp $
  */
 
 #include <stdarg.h>
@@ -77,7 +77,7 @@ _format_short(mlstring *mlshort, const char *name, CHAR_DATA *to,
 
         if (!IS_SET(to->comm, COMM_NOENG)
 	&&  sshort != mlstr_mval(mlshort)) {
-        	static char buf[MAX_STRING_LENGTH];
+		static char buf[MAX_STRING_LENGTH];
 		char buf2[MAX_STRING_LENGTH];
 		const char *format;
 
@@ -87,7 +87,7 @@ _format_short(mlstring *mlshort, const char *name, CHAR_DATA *to,
 		else
 			format = "%s (%s)";
 
-        	one_argument(name, buf2, sizeof(buf2));
+		one_argument(name, buf2, sizeof(buf2));
 		snprintf(buf, sizeof(buf), format, sshort, buf2);
 		sshort = buf;
 	}

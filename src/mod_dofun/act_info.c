@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.271.2.33 2001-05-22 18:56:17 kostik Exp $
+ * $Id: act_info.c,v 1.271.2.34 2001-06-19 09:22:30 kostik Exp $
  */
 
 /***************************************************************************
@@ -3903,7 +3903,7 @@ static char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 		if (IS_AFFECTED(ch, AFF_DETECT_EVIL)
 		&&  IS_OBJ_STAT(obj, ITEM_EVIL))
 			strnzcat(buf, sizeof(buf),
-				 GETMSG("({RRed Aura{x) ", GET_LANG(ch)));
+				 GETMSG("({DEvil Aura{x) ", GET_LANG(ch)));
 		if (IS_AFFECTED(ch, AFF_DETECT_GOOD)
 		&&  IS_OBJ_STAT(obj, ITEM_BLESS))
 			strnzcat(buf, sizeof(buf),
@@ -3920,7 +3920,7 @@ static char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 				 GETMSG("({YHumming{x) ", GET_LANG(ch)));
 	}
 	else {
-		static char FLAGS[] = "{x[{y.{D.{R.{B.{M.{W.{Y.{x] ";
+		static char FLAGS[] = "{x[{y.{D.{D.{B.{M.{W.{Y.{x] ";
 		strnzcpy(buf, sizeof(buf), FLAGS);
 		if (IS_OBJ_STAT(obj, ITEM_INVIS)	)   buf[5] = 'I';
 		if (IS_OBJ_STAT(obj, ITEM_DARK)		)   buf[8] = 'D';
