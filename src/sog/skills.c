@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.87 1999-11-30 08:10:02 kostik Exp $
+ * $Id: skills.c,v 1.88 1999-11-30 09:58:38 kostik Exp $
  */
 
 /***************************************************************************
@@ -213,12 +213,13 @@ int get_skill(CHAR_DATA *ch, const char *sn)
 	int percent;
 	skill_t *sk;
 
-	if ((sk = skill_lookup(sn)) == NULL
-	||  (IS_SET(sk->skill_flags, SKILL_CLAN) && !clan_item_ok(ch->clan)))
-		return 0;
-
 	if (!IS_NPC(ch)) {
 		pc_skill_t *pc_sk;
+
+		if ((sk = skill_lookup(sn)) == NULL
+		||  (IS_SET(sk->skill_flags, SKILL_CLAN) 
+		&& !clan_item_ok(ch->clan)))
+			return 0;
 
 		if ((pc_sk = pc_skill_lookup(ch, sn)) == NULL
 		||  skill_level(ch, sn) > ch->level)
