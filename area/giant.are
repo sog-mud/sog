@@ -10,11 +10,14 @@ End
 #MOBILES
 #13000
 giant guard гигант охранник~
-@eng a giant guard@rus ~~гигантский~~ ~~охранник~~~
-A giant guard glances around, looking to stop trouble.
+@eng a giant guard@rus ~~охранник~~ ~~гигант~~~
+@eng A giant guard glances around, looking to stop trouble.
+@rus Гигант охранник оглядывается по сторонам, готовый исполнить свой долг.
 ~
-Standing around 12 feet tall, this giant seems to keep things safe in the 
+@eng Standing around 12 feet tall, this giant seems to keep things safe in the 
 castle. I wouldn't mess with him.
+@rus Ростом 12 футов, этот гигант похоже поставлен здесь для охраны вещей и 
+сокровищ замка. Я бы не $gn{хотел} иметь с ним проблем.
 ~
 giant~
 ABGT 0 0 0

@@ -25,11 +25,11 @@ End
 
 #RULE
 Name минут~
-Form 1 минута~
-Form 2 минуты~
-Form 3 минуты~
-Form 4 минуты~
-Form 5 минут~
+BaseLen 5
+Form 1 -а~
+Form 2 -ы~
+Form 3 -ы~
+Form 4 -ы~
 End
 
 #RULE

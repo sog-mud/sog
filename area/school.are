@@ -2902,16 +2902,4 @@ S
 M 3719 weaponsmaster combat harmful healing illusion protective fightmaster defensive wizard~	* the priest of Circe
 S
 
-#OMPROGS
-O 3700 fight_prog fight_prog_sub_weapon	* `a sub issue mace'
-O 3701 fight_prog fight_prog_sub_weapon	* `a sub issue dagger'
-O 3702 fight_prog fight_prog_sub_weapon	* `a sub issue sword'
-O 3717 fight_prog fight_prog_sub_weapon	* `a sub issue spear'
-O 3718 fight_prog fight_prog_sub_weapon	* `a sub issue staff'
-O 3719 fight_prog fight_prog_sub_weapon	* `a sub issue axe'
-O 3720 fight_prog fight_prog_sub_weapon	* `a sub issue flail'
-O 3721 fight_prog fight_prog_sub_weapon	* `a sub issue whip'
-O 3722 fight_prog fight_prog_sub_weapon	* `a sub issue glaive'
-S
-
 #$

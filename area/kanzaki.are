@@ -30,9 +30,10 @@ golem~
 ABGTe DFHJVZ 0 0
 100 50 1d1+30000 100d10+5000 10d10+200 'none'
 -5 -5 -5 -5
-ACDEFHKOPQT AB 0 HK
+ACDEFHKOPQT ABCD 0 0
 stand stand none 10000
 0 0 gargantuan unknown
+F res D
 F vul CP
 M grall 47000 100~
 M exall 47001 3~
@@ -158,34 +159,34 @@ A
 G none
 #47007
 breastplate white blazing~
-{Wblazing white breastplate{x~
+@eng {Wblazing white breastplate{x@rus {Wослепительно-белый доспех{x~
 @eng A breastplate made of pure light shines here.@rus Доспех, сделанный из самого света, ярко сияет тут.~
 light~
 armor AKLS AD
 1000 1000 1000 1000 0
-96 0 0 P
+46 0 0 P
 F R 0 0 D
 F A 0 0 H
 A
 1 22
-G none
+G male
 #47008
 shield faith~
-{Wthe Shield of Faith{x~
+@eng {Wthe Shield of Faith{x@rus {WЩит Веры{x~
 @eng A shield lies here, glowing with the divine power.@rus Ослепительно белый щит лежит здесь, отражая солнце.~
 light~
 armor AKLS AJ
 10 10 10 10 0
-96 0 0 P
+46 0 0 P
 F A 0 0 N
 A
 20 -100
 A
 13 1000
-G none
+G male
 #47009
 cape paladin white~
-{Wwhite cape of the paladin{x~
+@eng {Wwhite cape of the paladin{x@rus ~~{Wбелая~~ ~~накидка~~ рыцаря{x~
 @eng White cape lies on the ground.@rus Белая накидка, принадлежащая паладину, лежит здесь.~
 cloth~
 armor AKLS AK
@@ -193,15 +194,15 @@ armor AKLS AK
 46 0 0 P
 A
 5 22
-G none
+G male
 #47010
 blessing~
-{Wa blessing{x~
+@eng {Wa blessing{x@rus {Wблагословление свыше{x~
 A feeling of righteousness enters you.~
 silver~
 jewelry AKLY AQ
 0 0 0 0 0
-96 0 0 P
+46 0 0 P
 A
 18 300
 F A 0 0 V
@@ -218,16 +219,16 @@ A
 G none
 #47011
 amulet purity~
-{Wamulet of purity{x~
+@eng {Wamulet of purity{x@rus {Wамулет чистоты{x~
 An amulet lies here, reflecting light.~
 silver~
 jewelry AKLY AC
 0 0 0 0 0
-96 0 0 P
+46 0 0 P
 F A 0 0 E
 F A 0 0 C
 F A 0 0 G
-G none
+G male
 #47012
 barrel large~
 @eng {xBarrel of ale@rus ~~бочка~~ с элем~
@@ -236,77 +237,6 @@ wood~
 fountain Y 0
 0 0 'ale' 0 0
 0 1 1 P
-G none
-#47013
-axe battle urukhay~
-@eng {rUrukhay's battle axe{x@rus {rБоевой топор Урукхая{x~
-A large two-bladed battle axe lies on the ground, humming with might.~
-steel~
-weapon ABEHPY AN
-axe 12 12 'cleave' DE
-45 50 100 P
-A
-8 30
-F A 0 0 a
-F A 0 0 H
-F A 0 0 V
-A
-19 20
-A
-18 20
-G none
-#47014
-flamberge blaze sword~
-{YFlamberge Blaze{x~
-A huge wavy blade lies here, enshrouded in flames.~
-adamantite~
-weapon AHKLP AN
-sword 3 44 'flame' ADF
-91 500 10000 P
-A
-19 20
-A
-18 20
-G none
-#47015
-flaming sword~
-{Yflaming sword{x~
-A longsword enshrouded in flames lies here.~
-steel~
-weapon AHP AN
-sword 12 10 'slash' AD
-91 100 0 P
-A
-18 20
-A
-19 20
-G none
-#47016
-shroud shadows myrxes~
-a -=+)> shroud~
-Deep shadows absorb the light.~
-unknown~
-container CF AK
-100 0 0 600 10
-91 10 10000 P
-A
-19 7
-A
-18 6
-A
-13 50
-G none
-#47017
-thingie~
-@eng a thingie@rus фигнюшка~
-A thingie lies here.~
-plastic~
-jewelry AFGMPUZ AC
-0 0 0 0 0
-100 0 0 P
-F A 0 0 e
-A
-0 0
 G none
 #47018
 garland~
@@ -397,8 +327,8 @@ NOTE: Отвественности за последствия компания
 ~
 G none
 #47100
-tablet wooden~
-@eng {xWooden tablet@rus Дереванная табличка~
+tablet wooden табличка деревянная~
+@eng {xWooden tablet@rus ~~деревянная~~ ~~табличка~~~
 @eng (Humming)(Glowing) A wooden tablet stands near the path.@rus Деревянная табличка стоит около дороги.~
 wood~
 trash RY P
@@ -406,7 +336,7 @@ trash RY P
 0 10000 0 P
 E
 tablet~
-*************************************************
+@eng *************************************************
 *                                               *                             
 *           The Rising Sun Land                 *                            
 *                                               *
@@ -417,247 +347,316 @@ tablet~
 *                                               *
 *************************************************
 ~
-G none
+G female
 #47101
-well stone~
-@eng Well@rus Колодец~
-@eng The stone well is here.@rus Колодец, сложенный из камня, находится здесь.~
+well stone колодец~
+@eng Well@rus ~~колодец~~~
+@eng The stone well is here.@rus Здесь стоит сложенный из камня колодец (well).~
 stone~
 fountain RY P
 100000 100000 'water' 0 0
 0 1 1 P
-G none
+G male
 #47102
-gates temple~
-@eng Temple gates@rus Храмовые врата~
-@eng Temple gates are here, wide open.@rus Храмовые врата перед тобой, они открыты.~
+gates temple храмовые врата~
+@eng Temple gates@rus ~~храмовые~~ ~~врата~~~
+@eng Temple gates are here, wide open.@rus Храмовые врата (gates) перед тобой, они открыты.~
 stone~
 portal BR P
 0 0 0 47163 0
 0 0 0 P
-G none
+G plural
 #47103
-cave mouth dark~
-@eng Mouth of a cave@rus Вход в пещеру~
-@eng Mouth of a cave gaps in the stone, making you shiver.@rus Вход в пещеру зияет темным провалом в камне.~
+cave mouth dark вход пещера~
+@eng Mouth of a cave@rus ~~вход~~ в пещеру~
+@eng Mouth of a cave gaps in the stone, making you shiver.@rus Вход в пещеру (cave) зияет темным провалом в камне.~
 stone~
 portal CY 0
 0 0 0 47196 0
 0 1 1 P
 E
+пещера~
+@rus Мрак пещеры резко контрастирует с бесцветно-серым камнем,
+образующим гору. Она выглядит необитаемой, но насколько ты
+в этом уверен?
+~
+E
 cave~
-Darkness of the cave sharply contrasts with pale grey stone of
+@eng Darkness of the cave sharply contrasts with pale grey stone of
 the mountain. It looks haunt, but who knows what is there ?
 ~
-G none
+G male
 #47104
 crevasse~
-@eng Crevasse@rus Расщелина~
-@eng A crevasse gaps in the stone right before you.@rus Расщелина в камне зияет прямо у тебя под ногами.~
+@eng Crevasse@rus ~~расщелина~~~
+@eng A crevasse gaps in the stone right before you.@rus Расщелина (crevasse) в каменном полу зияет прямо перед тобой.~
 stone~
 portal CY 0
 0 0 0 47198 0
 0 1 1 P
 E
+расщелина~
+@rus Все твои попытки разглядеть что-либо внутри не приносят результата,
+но исходящие оттуда приглушенные звуки и странный жар заставляют
+тебя вновь вспомнить и пережить все, казалось бы, давно забытые
+детские страхи. Ты чувствуешь как ужас потихоньку берет верх над
+всем остальным и невольно делаешь шаг назад.
+~
+E
 crevasse~
-You can't see anything down there no matter how hard you try
+@eng You can't see anything down there no matter how hard you try
 but dull noises and heat that come from the hole suddenly give
 life to all nightmares and horrors which you considered long
 forgotten and left in childhood. Fear grips your very soul with
 its icy fingers, making you step back involuntarily.
 ~
-G none
+G female
 #47105
 hole~
-@eng Hole@rus Дыра в камне~
-@eng A tight hole is seen in the stone, probably leading out.@rus Узкая дыра виднеется в стене. Возможно, это выход...~
+@eng Hole@rus ~~дыра~~ в камне~
+@eng A tight hole is seen in the stone, probably leading out.@rus Узкая дыра (hole) виднеется в стене. Возможно, это выход....~
 stone~
 portal CY 0
 0 0 0 47193 0
 0 1 1 P
 E
+дыра~
+@rus Ты не уверен в том, сможешь ли протиснуться через нее, но решаешь
+попытаться. В любом случае, это лучше чем оставаться здесь, чувст-
+вуя этот запах смерти и слыша стоны потерянных душ, обреченных
+страдать над своими останками пока кто-нибудь не придет похоронить
+эти кости, неся с собой долгожданный покой.
+~
+E
 hole~
-You aren't sure you could climb through it, but decide to make  
+@eng You aren't sure you could climb through it, but decide to make  
 an attempt.  Nothing is worse than staying here,  smelling the
 stench of death and listening to the screams of damned souls,
 souls of those slain by the demon and doomed to suffer, until
 someone comes and buries their bones.
 ~
-G none
+G female
 #47106
-door wooden house~
-@eng Wooden door@rus Деревянная дверь~
-@eng Wooden door leads to the house, it is slightly ajar.@rus Деревянная дверь ведет в дом. Она слегка приоткрыта.~
+door wooden house деревянная дверь~
+@eng Wooden door@rus ~~деревянная~~ ~~дверь~~~
+@eng Wooden door leads to the house, it is slightly ajar.@rus Деревянная дверь (door) ведет в дом. Она слегка приоткрыта.~
 wood~
 portal Y 0
 0 0 0 47199 0
 0 1 1 P
-G none
+G female
 #47107
 river water~
-@eng River@rus Река~
-@eng The river flows slowly to the east.@rus Река лениво несет свои воды на восток.~
+@eng River@rus ~~река~~~
+@eng The river flows slowly to the east.@rus Река (river) лениво несет свои воды на восток.~
 water~
 portal Y 0
 0 0 0 47218 0
 0 1 1 P
 E
+река~
+@rus Маленькие пузырьки беспрестанно возникают и исчезают
+на поверхности воды. Временами большая рыба всплывает
+повыше, глотает зазевавшуюся букашку и ныряет обратно.
+Интересно, что же там, внизу?
+~
+E
 river~
-Small ediies appear for a second, and, next moment,
+@eng Small eddies appear for a second, and, next moment,
 are gone away. Sometimes a large fish swims up, and,
 swallowed a bug, dives back into the deep. You wonder
 what can be down there..
 ~
-G none
+G female
 #47108
-cave mouth underwater~
-@eng Cave mouth@rus Вход в пещеру~
-@eng Mouth of a cave is gaping here like a large toothless maw.@rus Вход в подводную пещеру зияет здесь, словно огромная беззубая пасть.~
+cave mouth underwater вход пещера~
+@eng Cave mouth@rus ~~вход~~ в пещеру~
+@eng Mouth of a cave is gaping here like a large toothless maw.@rus Вход в подводную пещеру (cave) зияет здесь, словно огромная беззубая пасть.~
 stone~
 portal CY 0
 0 0 0 47219 0
 0 1 1 P
-G none
+G male
 #47109
-anvil iron huge~
-@eng a huge anvil@rus Чугунная наковальня~
-@eng A huge anvil made of cast iron is here.@rus Огромная чугунная наковальня стоит здесь.~
+anvil iron huge чугунная наковальня~
+@eng a huge anvil@rus ~~чугунная~~ ~~наковальня~~~
+@eng A huge anvil made of cast iron is here.@rus Огромная чугунная наковальня (anvil) стоит здесь.~
 iron~
 furniture BY 0
 A FHJKPQ EHN BEF BEF
 0 1000 1 P
-G none
+G female
 #47110
 barrel water~
-@eng Barrel of water@rus Бочка с водой~
+@eng Barrel of water@rus Бочка (barrel) с водой стоит в углу.~
 @eng A big barrel of water is here.@rus Бочка с водой для ковки стоит здесь.~
 wood~
 fountain Y 0
 10000 10000 'water' 0 0
 0 1 1 P
 E
+бочка~
+@rus Вода в ней не слишком чистая и для питья явно не
+предназначена - скорей для охлаждения заготовок.
+~
+E
 barrel~
-The water inside it is not that clear, I wouldn't drink it.
+@eng The water inside it is not that clear, I wouldn't drink it.
 Probably it is used to cool chunks..
 ~
-G none
+G female
 #47111
 table small~
-@eng Small table@rus Маленький столик~
-@eng Small table with writing accessoires lying on it is here.@rus Низенький столик с письменными принадлежностями стоит тут.~
+@eng Small table@rus ~~маленький~~ ~~столик~~~
+@eng Small table with writing accessoires lying on it is here.@rus Низенький столик (table) с письменными принадлежностями стоит тут.~
 wood~
 furniture Y 0
 AB GJOQRST EHN ADE ADE
 0 1 0 P
 E
+столик~
+@rus На нем лежит какая-то бумага, похоже, неоконченное письмо...
+Впрочем, ты все равно не понимаешь эти иероглифы.
+~
+E
 table~
-There is a paper lying on the table, it looks like unfinished letter..
+@eng There is a paper lying on the table, it looks like unfinished letter..
 You attempt to read it but have no clue what do these hyeroglyphs mean.
 ~
-G none
+G male
 #47112
 tatami~
-@eng Tatami@rus Татами~
-@eng A tatami is on the floor before the table.@rus Татами лежит на полу перед столиком.~
+@eng Tatami@rus ~~татами~~~
+@eng A tatami is on the floor before the table.@rus Татами (tatami) лежит на полу перед столиком.~
 unknown~
 furniture Y 0
 B INOPQSUVWXYa EH CFG CFG
 0 1 1 P
 E
+татами~
+@rus Оно выглядит мягким, и ты чувствуешь соблазн присесть, но
+вспоминаешь, что это было бы не слишком вежливо.
+~
+E
 tatami~
-It looks soft, you barely prevent yourself from just sitting on it,
+@eng It looks soft, you barely prevent yourself from just sitting on it,
 but remember: that would not be polite.
 ~
 G none
 #47113
 altar~
-@eng Altar@rus Алтарь~
-@eng An altar stands here.@rus Небольшой алтарь стоит здесь.~
+@eng Altar@rus ~~алтарь~~~
+@eng An altar stands here.@rus Небольшой алтарь (altar) стоит посредине комнаты.~
 marble~
 furniture Y 0
 0 0 N 0 0
 0 1 1 P
 E
-altar~
-There is a small statuette on it, and lit candlesticks on both sides.
-They fill the air with undescriptably wonderful aroma. 
+алтарь~
+@rus На алтаре стоит небольшая статуэтка и несколько зажженных свеч,
+наполняющих воздух приятным ароматом.
 ~
-G none
+E
+altar~
+@eng There is a small statuette on it, and lit candlesticks on both sides. 
+They fill the air with undescriptably wonderful aroma.  
+~
+G male
 #47114
-tatamis~
-@eng tatamis@rus татами~
-@eng Several tatamis lie on the floor before altar.@rus Татами лежат на полу перед алтарем.~
+tatamis татами~
+@eng tatamis@rus ~~татами~~~
+@eng Several tatamis lie on the floor before altar.@rus Татами (tatamis) лежат на полу перед алтарем.~
 studded leather~
 furniture Y 0
 AB INOPQSUVWXYa EH CFG CFG
 0 1 1 P
 G none
 #47115
-bed coverlet pillow~
-@eng Bed@rus Постель~
-@eng There are small pillow and a coverlet lying on the floor.@rus Маленькая подушка и покрывало лежат на циновках.~
+bed coverlet pillow постель подушка покрывало циновки~
+@eng Bed@rus ~~постель~~~
+@eng There are small pillow and a coverlet lying on the floor.@rus Маленькая подушка и покрывало лежат на циновках (bed).~
 wood~
 furniture Y 0
 A GJOQRST HK CFG CFG
 0 1 1 P
-G none
+G female
 #47116
 mirror large~
-@eng Mirror@rus Зеркало~
-@eng Large mirror is hanging on the wall over a small table.@rus Большое зеркало висит на стене над туалетным столиком.~
+@eng Mirror@rus ~~зеркало~~~
+@eng Large mirror is hanging on the wall over a small table.@rus Большое зеркало (mirror) висит на стене над туалетным столиком.~
 glass~
 furniture Y 0
 0 0 0 0 0
 0 1 1 P
 E
+зеркало~
+@rus Ой, что это такое красивое... сексапильное.. да
+это же ты и есть! Ты поправляешь волосы и еще
+больше себе нравишься.
+~
+E
 mirror~
-Who's that pretty, sexy.. oh, it's you!
+@eng Who's that pretty, sexy.. oh, it's you!
 You smooth your hair and like yourself even more.
 ~
 G none
 #47117
-vase flowers~
-@eng Vase with flowers@rus Ваза с цветами~
-@eng A fine porcelain vase with flowers is standing on the floor.@rus Красивая фарфоровая ваза с цветами стоит на полу.~
+vase flowers ваза цветы~
+@eng Vase with flowers@rus ~~ваза~~ с цветами~
+@eng A fine porcelain vase with flowers is standing on the floor.@rus Красивая фарфоровая ваза (vase) с цветами стоит на полу.~
 glass~
 container Y 0
 1000 0 0 1000 100
 0 1 1 P
-G none
+G female
 #47118
 bouquet flowers~
-@eng A bouquet of flowers@rus Букет цветов~
-@eng A bunch of pretty flowers lies on the floor, fading.@rus Кто-то бросил здесь букет цветов.~
+@eng A bouquet of flowers@rus ~~букет~~ цветов~
+@eng A bunch of pretty flowers lies on the floor, fading.@rus Кто-то бросил здесь букет (bouquet) цветов.~
 plant~
 trash 0 AO
 0 0 0 0 0
 0 10 1000 P
 E
+букет~
+@rus Тут цветы всех цветов (простите за каламбур).
+~
+E
 flowers~
-{xThere are {Rscarlet{x, {Yyellow{x, {Wwhite{x and {Mmagenta{x
+@eng {xThere are {Rscarlet{x, {Yyellow{x, {Wwhite{x and {Mmagenta{x
 flowers. An explosion of color!
 ~
-G none
+G male
 #47119
-chest~
-@eng Chest@rus Сундук~
-@eng Wooden chest with clothes is here.@rus Сундук для одежды стоит тут.~
+chest сундук~
+@eng chest@rus ~~сундук~~~
+@eng Wooden chest with clothes is here.@rus Сундук (chest) для одежды стоит тут.~
 wood~
 container 0 0
 10000 AC 0 10000 100
 0 1 1 P
-G none
+G male
 #47120
 sign~
-@eng Sign@rus Табличка~
-@eng There is a sign on the wall, you could read it.@rus Небольшая табличка висит на стене.~
+@eng sign@rus ~~табличка~~~
+@eng There is a sign on the wall, you could read it.@rus Небольшая табличка (sign) висит на стене.~
 wood~
 furniture 0 0
 0 0 0 0 0
 0 1 1 P
 E
-sign~
+табличка~
+@rus ##################################
+#                                #
+#                                #
+#  Добро пожаловать в бар Саки!  #
+#                                #
+#                                #
 ##################################
+~
+E
+sign~
+@eng ##################################
 #                                #
 #     Welcome to Saki's pub!     #                          
 #                                #
@@ -665,75 +664,86 @@ sign~
 #                                #
 ##################################
 ~
-G none
+G female
 #47121
-bench~
-@eng bench@rus скамейка~
-@eng There is a wooden bench against the wall.@rus Деревянная скамейка стоит у стены.~
+bench скамейка~
+@eng bench@rus ~~скамейка~~~
+@eng There is a wooden bench against the wall.@rus Деревянная скамейка(bench) стоит у стены.~
 wood~
 furniture 0 0
 AC HJKMPTUX EH CFG CFG
 0 1 1 P
-G none
+G female
 #47122
 table~
-@eng Table@rus Столик~
-@eng An old wooden table is here.@rus Старый деревянный столик стоит здесь.~
+@eng Table@rus ~~столик~~~
+@eng An old wooden table is here.@rus Старый деревянный столик(table) стоит здесь.~
 wood~
 furniture 0 0
 0 0 E 0 0
 0 1 1 P
 E
+столик~
+@rus Поверхность столика покрыта многими царапинами,
+некоторые из них, видимо, образуют надписи.. ко-
+торые ты все равно не понимаешь.
+~
+E
 table~
-There are many scratches on its surface, some of
+@eng There are many scratches on its surface, some of
 them form words.. but hell, you can't read them.
 ~
-G none
+G male
 #47123
 plant leaves~
-@eng plant@rus растение~
-@eng Leaves of some plant are spread here.@rus Какое-то растение раскинуло здесь свои листья.~
+@eng plant@rus ~~растение~~~
+@eng Leaves of some plant are spread here.@rus Какое-то растение(plant) раскинуло здесь свои листья.~
 plant~
 container 0 0
 100000 0 0 100000 100
 0 10000 1 P
 E
+растение~
+@rus Под этими широкими листьями вполне может находиться
+что-нибудь еще.
+~
+E
 plant~
-The leaves are wide, there may be something hidden
+@eng The leaves are wide, there may be something hidden
 beneath them.
 ~
 G none
 #47124
-fruits food~
-@eng Some fruits@rus Плоды~
-@eng Some tasty looking fruits are here.@rus Несколько вкусно выглядящих плодов лежат здесь~
+fruits food плоды~
+@eng some fruits@rus ~~плоды~~~
+@eng Some tasty looking fruits are here.@rus Несколько вкусно выглядящих плодов(fruits) лежат здесь.~
 plant~
 food 0 A
 AC AC 0 0 0
 0 50 0 P
-G none
+G plural
 #47125
-bench~
-@eng wooden bench@rus Деревянная скамья~
-@eng A wooden bench is here.@rus Деревянная скамья стоит здесь.~
+bench скамья~
+@eng wooden bench@rus ~~деревянная~~ ~~скамья~~~
+@eng A wooden bench is here.@rus Деревянная скамья(bench) стоит здесь.~
 wood~
 furniture 0 0
 AC GJOQRST EH BEF BEF
 0 1 1 P
-G none
+G female
 #47126
-table wooden~
-@eng table@rus стол~
-@eng A wooden table stands in the corner.@rus Деревянный стол стоит в углу.~
+table wooden стол деревянный~
+@eng table@rus ~~стол~~~
+@eng A wooden table is standing in the corner.@rus Деревянный стол(table) стоит в углу.~
 wood~
 furniture 0 0
 0 0 N 0 0
 0 1 1 P
-G none
+G male
 #47127
-bodhi tree~
-@eng {gbodhi tree{x@rus {gдерево{x~
-@eng {gA bodhi tree grows here, its leaves whispering something quietly.{x@rus {gСвященное дерево что-то тихо шепчет тебе.{x~
+bodhi tree дерево бодхи~
+@eng {gbodhi tree{x@rus ~~{gдерево~~-бодхи{x~
+@eng {gA bodhi tree grows here, its leaves whispering something quietly.{x@rus {gСвященное дерево-бодхи(bodhi tree) что-то тихо шепчет тебе.{x~
 wood~
 furniture 0 0
 0 0 0 0 0
@@ -741,20 +751,27 @@ furniture 0 0
 G none
 #47217
 river water~
-@eng River@rus Река~
-@eng The river carries its waters slowly.@rus Река лениво течет мимо тебя.~
+@eng River@rus ~~река~~~
+@eng The river carries its waters slowly.@rus Река(river) лениво течет мимо тебя.~
 water~
 portal 0 0
 0 0 0 47217 0
 0 0 0 P
 E
+река~
+@rus Маленькие пузырьки беспрестанно возникают и исчезают
+на поверхности воды. Временами большая рыба всплывает
+повыше, глотает зазевавшуюся букашку и ныряет обратно.
+Интересно, что же там, внизу?
+~
+E
 river~
-Small ediies appear for a second, and, next moment,
+@eng Small ediies appear for a second, and, next moment,
 are gone away. Sometimes a large fish swims up, and,
 swallowed a bug, dives back into the deep. You wonder
 what can be down there..
 ~
-G none
+G female
 #0
 
 #ROOMS
@@ -769,7 +786,7 @@ Massive door set in the eastern wall leads to the terrace.
 Два глубоких и мягких кресла, низкий столик между ними и большой
 сейф в углу - вот и вся обстановка.  Огромное окно в пол-стены
 всегда открыто, оттуда тянет прохладным ветерком.
-Двустворчатая дверь в восточной стене ведёт на террасу.
+Двустворчатая дверь в восточной стене ведет на террасу.
 ~
 0 DJSX inside
 E
@@ -978,7 +995,7 @@ hind the door, you consider the forge is there.
 @rus   Ты попал в небольшой деревенский магазинчик. На стенах развешаны     
 вперемежку доспехи, оружие, мотыги и еще много всякой всячины. Улыб-
 чивый хозяин прилаживает очередное свое произведение среди остальных.
-Судя по звукам, за дверью находится кузница.
+Судя по звукам, исходящим из-за двери, за ней находится кузница.
 ~
 0 0 inside
 D0
@@ -986,6 +1003,8 @@ D0
 ~
 Z 0 47105
 D2
+@eng An usual door leads to the forge.
+@rus Самая обычная дверь.
 ~
 ~
 ABZ 0 47129
@@ -1041,7 +1060,7 @@ time, discuss weather, gossips and neighbors, and then go to their homes.
 D0
 ~
 ~
-Z 0 47111
+ABZ 0 47111
 D1
 ~
 ~
@@ -1049,7 +1068,7 @@ Z 0 47113
 D2
 ~
 ~
-Z 0 47120
+ABZ 0 47120
 D3
 ~
 ~
@@ -1070,7 +1089,7 @@ Z 0 47112
 D2
 ~
 ~
-Z 0 47110
+ABZ 0 47110
 S
 #47112
 @eng A small field behind the house@rus Делянка за домом~
@@ -1098,7 +1117,7 @@ leads out of the village.
 D0
 ~
 ~
-Z 0 47118
+ABZ 0 47118
 D1
 ~
 ~
@@ -1106,7 +1125,7 @@ Z 0 47114
 D2
 ~
 ~
-Z 0 47115
+ABZ 0 47115
 D3
 ~
 ~
@@ -1142,7 +1161,7 @@ space to live for a small family.
 D0
 ~
 ~
-Z 0 47113
+ABZ 0 47113
 D2
 ~
 ~
@@ -1190,7 +1209,7 @@ Z 0 47119
 D2
 ~
 ~
-Z 0 47113
+ABZ 0 47113
 S
 #47119
 @eng A small field behind the house@rus Делянка~
@@ -1216,7 +1235,7 @@ space to live for a small family.
 D0
 ~
 ~
-Z 0 47110
+ABZ 0 47110
 D2
 ~
 ~
@@ -1383,6 +1402,8 @@ the anvil leave an impression of some strange dance.
 ~
 0 0 inside
 D0
+@eng The door leads back to the shop.
+@rus Эта дверь ведет обратно в лавку.
 ~
 ~
 ABZ 0 47107
@@ -2238,9 +2259,9 @@ D1
 @eng Wooden door appears very strong. A not so small keyhole
 is seen in one of them.
 @rus Двустворчатые деревянные двери выглядят очень крепкими.
-В одной из створок видна скважина для не маленьких размеров ключа.
+В одной из створок видна скважина для небольших размеров ключа.
 ~
-door~
+doors~
 ABCFGZ 0 47176
 D3
 ~
@@ -2249,10 +2270,10 @@ Z 0 47170
 S
 #47172
 @eng Secret passage@rus Скрытый проход~
-@eng A dark hallway leading somewhere. You almost can't hear noises of the 
-temple from behind the closed door, and this silence is depressing.
-@rus Темный коридор, ведущий куда-то. Здесь, за закрытой дверью, шум храма
-практически не слышен и эта тишина действует угнетающе.
+@eng A dark hallway leading somewhere. Noises of the temple are almost
+inaudible here, and this silence is depressing.
+@rus Темный коридор, ведущий куда-то. Здесь шум храма практически не слышен
+и эта тишина действует угнетающе.
 ~
 0 A inside
 D1
@@ -2260,11 +2281,14 @@ D1
 ~
 Z 0 47173
 D2
-After searching the wall you find a trapdoor,
+@eng After searching the wall you find a trapdoor,
 almost invisible in the shadows. Obviously
 it leads to the main chapel.
+@rus Пристально посмотрев на стену, ты в конце концов
+замечаешь очертания скрытой двери. Очевидно, она
+ведет назад, в главное помещение храма.
 ~
-trapdoor~
+secret~
 ABZ 0 47171
 S
 #47173
@@ -2647,6 +2671,10 @@ D2
 ~
 Z 0 47203
 D3
+@eng Obviously the door was closed with the intent to prevent
+outisders from entering.
+@rus Видимо, дверь закрыта именно затем, чтобы посторонние
+туда не входили.
 ~
 ~
 ABZ 0 47202
@@ -2788,7 +2816,7 @@ ABZ 0 47209
 D2
 ~
 ~
-Z 0 47210
+ABZ 0 47210
 D3
 ~
 ~
@@ -2821,16 +2849,16 @@ in the room.
 D0
 ~
 ~
-Z 0 47208
+ABZ 0 47208
 S
 #47211
 @eng Mori's room@rus Комната Мори~
 @eng Mori always was obedient wife and followed her husband without a ques-
 tion. This partially explains why her room looks much of just a copy of
 Saburo's one. Chest with clothes, low table and mats on the floor, used
-to sleep at.
+to sleep at make all the furniture.
 @rus Мори всегда была послушной женой и беспрекословно выполняла волю мужа.
-Поэтому ее комната столь же аскетично обставлена, сколь и комната Сабуро.
+Поэтому ее комната обставлена столь же аскетично, сколь и комната Сабуро:
 Сундук для одежды, низенький столик, да циновки на полу, служащие постелью.
 ~
 0 D inside
@@ -3001,6 +3029,14 @@ S
 D 0 47000 1 1	* Lothar's residence: door to the east: closed
 D 0 47001 3 1	* The terrace: door to the west: closed
 D 0 47107 2 1	* The village shop: door to the south: closed
+D 0 47110 0 1	* By the well: door to the north: closed
+D 0 47110 2 1	* By the well: door to the south: closed
+D 0 47111 2 1	* A villager's house: door to the south: closed
+D 0 47113 0 1	* Road in the village: door to the north: closed
+D 0 47113 2 1	* Road in the village: door to the south: closed
+D 0 47115 0 1	* A villager's house: door to the north: closed
+D 0 47118 2 1	* A villager's house: door to the south: closed
+D 0 47120 0 1	* A villager's house: door to the north: closed
 D 0 47126 0 1	* Temple guards' barracks: door to the north: closed
 D 0 47126 2 1	* Temple guards' barracks: door to the south: closed
 D 0 47127 0 1	* Armoury: door to the north: closed
@@ -3017,8 +3053,10 @@ D 0 47205 1 1	* Hallway: door to the east: closed
 D 0 47206 1 1	* Kitchen: door to the east: closed
 D 0 47207 3 1	* Guest chamber: door to the west: closed
 D 0 47208 1 1	* End of the hallway: door to the east: closed
+D 0 47208 2 1	* End of the hallway: door to the south: closed
 D 0 47208 3 1	* End of the hallway: door to the west: closed
 D 0 47209 3 1	* Miyu's room: door to the west: closed
+D 0 47210 0 1	* Saburo Kanzaki's room: door to the north: closed
 D 0 47211 1 1	* Mori's room: door to the east: closed
 O 0 47000 0 47000	* Weapons cabinet (Lothar's residence)
 O 0 47012 0 47000	* {xBarrel of ale (Lothar's residence)
@@ -3028,14 +3066,14 @@ M 0 47000 1 47001 1	* The statue (The terrace)
 E 0 47004 0 16		*	Sword of Enforcement: wielded
 O 0 47005 0 47002	* {YThe sun{x (Аbove the clouds)
 O 0 47100 0 47100	* {xWooden tablet (Dusty road)
-O 0 47120 0 47106	* Sign (Village pub)
+O 0 47120 0 47106	* sign (Village pub)
 O 0 47121 0 47106	* bench (Village pub)
 O 0 47122 0 47106	* Table (Village pub)
 O 0 47101 0 47110	* Well (By the well)
 O 0 47123 0 47112	* plant (A small field behind the house)
-P 0 47124 0 47123 1	* plant: Some fruits
+P 0 47124 0 47123 1	* plant: some fruits
 O 0 47123 0 47116	* plant (A small field behind the house)
-P 0 47124 0 47123 1	* plant: Some fruits
+P 0 47124 0 47123 1	* plant: some fruits
 O 0 47106 0 47117	* Wooden door (Before the old Kanzaki's house)
 O 0 47125 0 47126	* wooden bench (Temple guards' barracks)
 O 0 47126 0 47126	* table (Temple guards' barracks)
@@ -3054,14 +3092,10 @@ O 0 47115 0 47207	* Bed (Guest chamber)
 O 0 47116 0 47209	* Mirror (Miyu's room)
 O 0 47117 0 47209	* Vase with flowers (Miyu's room)
 P 0 47118 0 47117 1	* Vase with flowers: A bouquet of flowers
-O 0 47119 0 47210	* Chest (Saburo Kanzaki's room)
+O 0 47119 0 47210	* chest (Saburo Kanzaki's room)
 O 0 47107 0 47215	* River (Shore of the river)
 O 0 47217 0 47216	* River (Shore of the river)
 O 0 47108 0 47218	* Cave mouth (In the river)
-S
-
-#OLIMITS
-O 47013 1	* {rUrukhay's battle axe{x
 S
 
 #MOBPROGS

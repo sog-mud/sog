@@ -57,7 +57,6 @@ ABe 0 0 0
 0 0 0 0
 stand stand female 200
 0 0 medium unknown
-I 50
 #0
 
 #OBJECTS
@@ -222,6 +221,78 @@ shelf полка~
 wood~
 container 0 0
 10 AE 0 1000 1000
+0 0 0 P
+G female
+#33413
+rose scarlet роза~
+@eng a scarlet rose@rus ~~алая~~ ~~роза~~~
+@eng A scarlet rose lies here.@rus Прекрасная алая роза (rose) грустно склонила головку.~
+unknown~
+treasure A AO
+0 0 0 0 0
+1 1 100 P
+E
+rose~
+@rus Прекрасный цветок с яркой окраской.
+~
+G female
+#33414
+bouquet violet букет~
+@eng a bouquet of dame's violet@rus ~~букет~~ ночных фиалок~
+@eng A bouquet of dame's violet is here.@rus Небольшой букетик (bouquet) ночных фиалок притягивает твой взгляд.~
+unknown~
+treasure A AO
+0 0 0 0 0
+1 1 150 P
+E
+bouquet~
+@rus Небольшой, но очень изящный и привлекательный букетик.
+~
+G male
+#33415
+lily лилия~
+@eng a white lily@rus ~~белая~~ ~~лилия~~~
+@eng Lily is here.@rus Капельки влаги на лепестках белой лилии (lily) подчеркивают ее изящество и прелесть.~
+unknown~
+treasure A AO
+0 0 0 0 0
+1 1 90 P
+G female
+#33416
+rose white роза~
+@eng a white rose@rus ~~белая~~ ~~роза~~~
+@eng A white rose is here.@rus Нежная белая роза (rose) испускает сказочный аромат.~
+unknown~
+treasure 0 AO
+0 0 0 0 0
+1 1 120 P
+E
+rose~
+@rus Нежный цветок на длинном колючем стебле.
+~
+G female
+#33417
+bouquet rose букет роз~
+@eng a bouquet of the roses@rus ~~букет~~ роз~
+@eng a bouquet of the roses is here.@rus Букет роз (bouquet) наполняет блароуханием все вокруг.~
+unknown~
+treasure 0 AO
+0 0 0 0 0
+1 5 350 P
+E
+bouquet~
+@rus Этот букет просто чудо. Цветы, из которых он составлен, очень красивы.
+Здесь есть алые, розовые, красные, черные и белые цветки. Все на длинных
+стеблях с нежными зелеными листьями.
+~
+G male
+#33418
+pink гвоздика~
+~
+~
+unknown~
+trash 0 0
+0 0 0 0 0
 0 0 0 P
 G female
 #0
@@ -2767,6 +2838,7 @@ G 0 33409 0		*	small silver key
 E 0 33410 0 17		*	magic scrool: held in the hands
 O 0 33412 0 33495	* a shelf (The Magic Shop)
 M 0 33403 1 33521 1	* Fiora (The Flower Shop)
+G 0 33414 0		*	a bouquet of dame's violet
 S
 
 #SHOPS

@@ -7,4 +7,65 @@ Security 1
 LevelRange 5 45
 End
 
+#ROOMS
+#22451
+Entrance into Forest~
+You standing in a small valley leading into forest.Around valley are small
+groves of trees.In this groves you can see a lot of different creatures 
+danced around trees.In the west you can see a great forest contains from
+groups of one-sorted trees.In the far south west you can see a high mountain.
+~
+0 0 forest
+D3
+~
+~
+Z 0 22452
+S
+#22452
+In the Forest of Nowhere~
+You standing in the great Forest of Nowhere.You surrounded a lots of trees.
+If you looks up you can see a sun, surrounded by multi-colored 
+rainbow in the blue-blue sky.If you looks down you can see a fresh grass,
+and many small creatures living under you boots.In far south west you can
+see a high mountain.And nearly you can see a hole leading down.
+~
+0 0 forest
+D0
+~
+~
+Z 0 22454
+D1
+~
+~
+Z 0 22451
+D2
+~
+~
+Z 0 22453
+S
+#22453
+Camp-In-The-Forest~
+~
+0 0 forest
+D0
+~
+~
+Z 0 22452
+S
+#22454
+In the Forest of Nowhere~
+You standing in the great Forest of Nowhere.You surrounded a lots of trees.
+If you looks up you can see a sun, surrounded by multi-colored 
+rainbow in the blue-blue sky.If you looks down you can see a fresh grass,
+and many small creatures living under you boots.In far south west you can
+see a high mountain.And nearly you can see a hole leading down.
+~
+0 0 forest
+D2
+~
+~
+Z 0 22452
+S
+#0
+
 #$
