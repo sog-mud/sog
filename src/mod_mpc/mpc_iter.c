@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_iter.c,v 1.7 2001-09-15 17:12:43 fjoe Exp $
+ * $Id: mpc_iter.c,v 1.8 2001-09-15 19:55:47 fjoe Exp $
  */
 
 #include <stdlib.h>
@@ -53,6 +53,7 @@ static void	range_next(iterdata_t *id, vo_t *v);
 
 /* char_room */
 void		vo_iter_init(void *vo, iterdata_t *id, vo_t *v);
+void		vo_void_iter_init(iterdata_t *id, vo_t *v);
 static void	vo_iter_destroy(iterdata_t *id);
 static bool	vo_iter_cond(iterdata_t *id, vo_t *v);
 static void	vo_iter_next(iterdata_t *id, vo_t *v);
@@ -71,6 +72,48 @@ iter_t itertab[] = {
 		       ARG(ROOM_INDEX_DATA), room)
 	  (dynafun_t) vo_iter_init, vo_iter_destroy, vo_iter_cond, vo_iter_next,
 	  &iter_char_room
+	},
+
+	{
+	  DECLARE_FUN0(CHAR_DATA, char_in_world)
+	  (dynafun_t) vo_void_iter_init, vo_iter_destroy,
+	  vo_iter_cond, vo_iter_next,
+	  &iter_char_world
+	},
+
+	{
+	  DECLARE_FUN0(CHAR_DATA, npc_in_world)
+	  (dynafun_t) vo_void_iter_init, vo_iter_destroy,
+	  vo_iter_cond, vo_iter_next,
+	  &iter_npc_world
+	},
+
+	{
+	  DECLARE_FUN1(CHAR_DATA, obj_in_obj,
+		       ARG(OBJ_DATA), obj)
+	  (dynafun_t) vo_iter_init, vo_iter_destroy, vo_iter_cond, vo_iter_next,
+	  &iter_obj_obj
+	},
+
+	{
+	  DECLARE_FUN1(CHAR_DATA, obj_of_char,
+		       ARG(CHAR_DATA), ch)
+	  (dynafun_t) vo_iter_init, vo_iter_destroy, vo_iter_cond, vo_iter_next,
+	  &iter_obj_char
+	},
+
+	{
+	  DECLARE_FUN1(CHAR_DATA, obj_in_room,
+		       ARG(ROOM_INDEX_DATA), room)
+	  (dynafun_t) vo_iter_init, vo_iter_destroy, vo_iter_cond, vo_iter_next,
+	  &iter_obj_room
+	},
+
+	{
+	  DECLARE_FUN0(CHAR_DATA, obj_in_world)
+	  (dynafun_t) vo_void_iter_init, vo_iter_destroy,
+	  vo_iter_cond, vo_iter_next,
+	  &iter_obj_world
 	},
 #endif
 };
@@ -129,6 +172,13 @@ void
 vo_iter_init(void *vo, iterdata_t *id, vo_t *v)
 {
 	id->vo.p = vo;
+	v->p = vo_foreach_init(id->vo.p, id->iter->vo_iter, &id->ftag);
+}
+
+void
+vo_void_iter_init(iterdata_t *id, vo_t *v)
+{
+	id->vo.p = NULL;
 	v->p = vo_foreach_init(id->vo.p, id->iter->vo_iter, &id->ftag);
 }
 
