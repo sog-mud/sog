@@ -1469,7 +1469,7 @@ A glass of ice tea has been left here.~
 copper~
 drink 0 A
 5 5 'tea' 0 0
-0 5 0 P
+0 5 100 P
 G none
 #10256
 glass water~
@@ -1478,7 +1478,7 @@ A glass of water has been left here.~
 copper~
 drink 0 A
 5 5 'water' 0 0
-0 5 0 P
+0 5 100 P
 G none
 #10257
 glass koca colah~
@@ -1487,7 +1487,7 @@ A glass of koca colah has been left here.~
 copper~
 drink 0 A
 5 5 'coke' 0 0
-0 5 0 P
+0 5 100 P
 G none
 #10258
 bottle Snapple ice tea~
@@ -1496,7 +1496,7 @@ A bottle of Snapple has been left here.~
 copper~
 drink 0 A
 5 5 'tea' 0 0
-0 5 0 P
+0 5 100 P
 G none
 #10259
 apple~
