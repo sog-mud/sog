@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.208 2004-02-24 09:58:35 fjoe Exp $
+ * $Id: interp.c,v 1.209 2004-02-24 10:14:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -213,6 +213,21 @@ interpret(CHAR_DATA *ch, const char *argument, bool is_order)
 		cmd_level = cmd->min_level;
 	}
 
+	if (IS_SET(cmd_flg, CMD_STRICT_MATCH)
+	&&  !!str_cmp(command, cmd_name)) {
+		act_puts("If you want to $t, spell it out.",
+		    ch, strupr(cmd_name), NULL, TO_CHAR, POS_DEAD);
+		return;
+	}
+
+	if (!IS_SET(cmd_flg, CMD_HARMLESS)
+	&&  !IS_NPC(ch)
+	&&  ch->desc != NULL
+	&&  (ch->wait > 0 || !QBUF_IN_SYNC(ch->desc))) {
+		append_to_qbuf(ch->desc, save_argument);
+		return;
+	}
+
 	/*
 	 * Implement freeze command.
 	 */
@@ -247,24 +262,9 @@ interpret(CHAR_DATA *ch, const char *argument, bool is_order)
 		return;
 	}
 
-	if (!IS_SET(cmd_flg, CMD_HARMLESS)) {
-		if (IS_AFFECTED(ch, AFF_STUN)) {
-			act_char("You are STUNNED to do that.", ch);
-			return;
-		}
-
-		if (!IS_NPC(ch)
-		&&  ch->desc != NULL
-		&&  (ch->wait > 0 || !QBUF_IN_SYNC(ch->desc))) {
-			append_to_qbuf(ch->desc, save_argument);
-			return;
-		}
-	}
-
-	if (IS_SET(cmd_flg, CMD_STRICT_MATCH)
-	&&  !!str_cmp(command, cmd_name)) {
-		act_puts("If you want to $t, spell it out.",
-		    ch, strupr(cmd_name), NULL, TO_CHAR, POS_DEAD);
+	if (!IS_SET(cmd_flg, CMD_HARMLESS)
+	&&  IS_AFFECTED(ch, AFF_STUN)) {
+		act_char("You are STUNNED to do that.", ch);
 		return;
 	}
 
