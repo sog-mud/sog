@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.138 1999-09-30 10:08:33 fjoe Exp $
+ * $Id: spellfun2.c,v 1.139 1999-09-30 10:41:22 osya Exp $
  */
 
 /***************************************************************************
@@ -5733,22 +5733,21 @@ void spell_death_ripple(int sn, int level, CHAR_DATA *ch, void *vo)
 
         for (i = 1; i <= range; i++) {
                 exit = prev_room->exit[door];
-		next_room = exit->to_room.r;		
 
                 if (exit == NULL 
-		||  next_room == NULL
-		||  IS_SET(exit->exit_info, EX_CLOSED)
-		||  !can_see_room(ch, next_room)
-		||  next_room->exit == NULL
-		||  next_room->exit[rev_dir[door]] == NULL
-		||  next_room->exit[rev_dir[door]]->to_room.r != prev_room
-		||  v_counter > level/10) 
+                || (next_room = exit->to_room.r) == NULL
+                || IS_SET(exit->exit_info, EX_CLOSED)
+		|| v_counter > level/10) 
                         return;
+		 
+		if (next_room->exit[rev_dir[door]] ==  NULL
+                || !can_see_room(ch, next_room)		
+		|| IS_SET(next_room->exit[rev_dir[door]]->exit_info, EX_CLOSED))
+			return;
 
-                prev_room = exit->to_room.r;
-
-		act("You feel breathing from the $T", prev_room->people, NULL, from_dir_name[rev_dir[door]], TO_ALL);
+		act("You feel breathing from the $T", next_room->people, NULL, from_dir_name[rev_dir[door]], TO_ALL);
 		v_counter += damage_to_all_in_room(sn, level, ch, next_room, door);	
+		prev_room = next_room ;
 	}
 	
 }
