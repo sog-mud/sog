@@ -848,7 +848,6 @@ gold~
 weapon AHJ AN
 dagger 7 7 thrust B
 51 30 4800 P
-F
 S 'parry' 30 A
 A
 17 -4
@@ -908,7 +907,6 @@ silk~
 armor EIM AK
 11 11 11 11 0
 59 30 5999 P
-F
 S 'mastering spell' 30 A
 A
 7 4
@@ -955,7 +953,6 @@ soft leather~
 armor BGI AG
 11 11 11 11 0
 50 50 3700 P
-F
 S 'kick' 50 0
 A
 3 1
@@ -1333,7 +1330,6 @@ velvet~
 armor ACEGHIJMY AK
 15 15 15 15 0
 60 50 50000 P
-F
 S 'mana transfer' 80 A
 A
 2 3
@@ -1661,8 +1657,9 @@ S
 @eng Northeast Corner@rus Северо-восточный угол~
 @eng To the north and east you see a very dark wall, too high to peer over. The
 foliage here is very thick, as is the canopy of leaves above you.
-@rus На севере и востоке ты видишь очень мрачную стену, слишком высокую чтобы выглянуть
-над ней. Растительность здесь очень пышная, как лесной полог над головой.
+@rus На севере и востоке ты видишь очень мрачную стену, слишком высокую чтобы
+выглянуть над ней. Растительность здесь очень пышная, как лесной полог
+над головой.
 ~
 0 A forest
 D2
@@ -1682,7 +1679,7 @@ examining it more closely. The trees here are tall. From above come the songs
 of birds.
 @rus Стена, что возвышаетеся на западе, неплохо отстроена, но она слишком высокая,
 чтобы выглянуть над ней. Пышная растительность мешает подойти к стене и 
-изучить её с более близкого расстояния. Деревья здесь высокие. Сверху доносится
+изучить ее с более близкого расстояния. Деревья здесь высокие. Сверху доносится
 пение птиц.
 ~
 0 0 forest
@@ -1703,8 +1700,8 @@ S
 @eng Clearing@rus Опушка~
 @eng All around the foliage is thick, but here the bushes and trees have given
 way to a glade of soft grass waving in the gentle breeze.
-@rus Вся растительность вокруг очень густая, но здесь лес расступается, давая проход
-на полянку с мягкой травкой, развевающейся под лёгким ветерком.
+@rus Вся растительность вокруг очень густая, но здесь лес расступается, давая
+проход на полянку с мягкой травкой, развезающейся под легким ветерком.
 ~
 0 0 forest
 D0
@@ -1801,9 +1798,9 @@ S
 @eng The canopy of leaves above you has just about blocked out all the light. The
 path goes no farther north, but continues south. The shrubbery is thick
 around you. You hear the faint song of birds to the west.
-@rus Лесной полог над тобой полностью закрыл весь свет. Тропинка больше не идёт на
-север, но продолжается на юг. Вокруг тебя густой кустарник. С запада доносится
-слабая трель.
+@rus Лесной полог над тобой полностью закрывает весь свет. Тропинка больше не идет
+на север, но продолжается на юг. Вокруг тебя густой кустарник. С запада
+доносится слабая трель
 ~
 0 A forest
 D0
@@ -1851,7 +1848,7 @@ S
 @eng To the east is a dark wall too high too peek over, and all around is thick
 dark foliage. Above your head, the canopy of leaves is thick and keeps light
 out.
-@rus На востоке от тебя находется тёмная стена, слишком высокая, чтобы выглянуть
+@rus На востоке от тебя находится темная стена, слишком высокая, чтобы выглянуть
 над ней, а вокруг мрачная густая растительность.  Крона над твоей головой
 очень густая. Она сдерживает весь свет.
 ~
@@ -1897,11 +1894,11 @@ is broken only by a small pool of clear, sweet water, gurgling up from
 underground, and snaking a small ways until it finds a path back underground.
 Looking down at it, the shape is sort of like a ball with a snaky tail. Shiny
 white rocks line the perimeter of the pool. The glade continues to the north.
-@rus Окружённая пышным кустарником и высокими деревьями, мягкая травка на полянке
+@rus Окруженная пышным кустарником и высокими деревьями, мягкая травка на полянке
 соседствует лишь только с маленьким родничком с прозрачной, сладковатой водой,
 бьющей из-под земли, которая чуть струится, чтобы опять вернуться под землю.
-Посмотрев на него, создаётся впечатление клубка расползающихся змей. Светящиеся
-белые камни окружают родничок. Полянка продолжается на север.
+Посмотрев на него, создается впечатление клубка расползающихся змей. Светящиеся
+белые камни окружают источник. Полянка простирается дальше на север.
 ~
 0 0 forest
 D0
@@ -1918,10 +1915,13 @@ D3
 Z -1 1817
 S
 #1819
-Path in the Thick Wood~
-The path stretches north and south, to the east and west are thick, thorny
+@eng Path in the Thick Wood@rus Тропа в Густом Лесу~
+@eng The path stretches north and south, to the east and west are thick, thorny
 shrubs. The trees are tall, and from above you can hear birds chirping. To
 the west you see a clearing, and you hear the sound of gurgling water.
+@rus Тропа идет с юга на север, на востоке и западе пышный и колючий кустарник.
+Деревья высокие, сверху доносится чириканье птиц. На западе ты видишь 
+опушку и слышишь звук журчащей воды.
 ~
 0 0 forest
 D0
@@ -1942,10 +1942,12 @@ D3
 Z -1 1818
 S
 #1820
-In the Thick Wood~
-The foliage is thick here, and the trees tall. Light still shines through
+@eng In the Thick Wood@rus В Густом Лесу~
+@eng The foliage is thick here, and the trees tall. Light still shines through
 the canopy of leaves above you. From high in the trees you can hear the songs
 of birds.
+@rus Здесь пышный кустарник и высокие деревья. Свет все еще пробивается сквозь
+кроны деревьев над тобой. С макушек доносится пение птиц.
 ~
 0 0 forest
 D0
@@ -1966,11 +1968,15 @@ D3
 Z -1 1819
 S
 #1821
-In the Thick Wood~
-The foliage is thick here, and the trees tall. Light still shines through the
+@eng In the Thick Wood@rus В Густом Лесу~
+@eng The foliage is thick here, and the trees tall. Light still shines through the
 canopy of leaves above you. From high in the trees you can hear the songs of
 birds. Looking east, you notice that the way is impassable, blocked by a
 tangle of shrubs and vines.
+@rus Здесь густая растительность и высокие деревья. Свет все еще пробивается 
+сквозь крону деревьев. С макушек доносится пение птиц. Взглянув на восток,
+ты понимаешь, что пройти там не удастся из-за зарослей кустарника и 
+виноградной лозы.
 ~
 0 0 forest
 D0
@@ -1987,7 +1993,7 @@ D3
 Z -1 1820
 S
 #1822
-Path in the Dark Woods~
+@eng Path in the Dark Woods@rus В Дремучем Лесу~
 The path stretches north and south. To the west the way is impassable, and to
 the east the foliage is dark. Indeed, above you the canopy of leaves is so
 thick that very little light comes through. From the west you hear faint

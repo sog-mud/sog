@@ -2484,8 +2484,7 @@ glass~
 armor 0 AC
 17 17 17 14 0
 55 20 1000 P
-F
-A 0 0 A
+F A 0 0 A
 A
 12 100
 A
@@ -3250,8 +3249,7 @@ energy~
 armor AB AI
 20 20 20 20 0
 76 40 4300 P
-F
-A 0 0 V
+F A 0 0 V
 A
 19 5
 A
@@ -3650,10 +3648,8 @@ adamantite~
 armor B AC
 40 40 40 24 0
 90 30 15000 P
-F
-R 0 0 CD
-F
-A 0 0 c
+F R 0 0 CD
+F A 0 0 c
 A
 20 -10
 A

@@ -163,10 +163,8 @@ light~
 armor AKLS AD
 1000 1000 1000 1000 0
 96 0 0 P
-F
-R 0 0 D
-F
-A 0 0 H
+F R 0 0 D
+F A 0 0 H
 A
 1 22
 G none
@@ -178,8 +176,7 @@ light~
 armor AKLS AJ
 10 10 10 10 0
 96 0 0 P
-F
-A 0 0 N
+F A 0 0 N
 A
 20 -100
 A
@@ -206,8 +203,7 @@ jewelry AKLY AQ
 96 0 0 P
 A
 18 300
-F
-A 0 0 V
+F A 0 0 V
 A
 14 1000
 A
@@ -227,12 +223,9 @@ silver~
 jewelry AKLY AC
 0 0 0 0 0
 96 0 0 P
-F
-A 0 0 E
-F
-A 0 0 C
-F
-A 0 0 G
+F A 0 0 E
+F A 0 0 C
+F A 0 0 G
 G none
 #47012
 barrel large~
@@ -305,10 +298,8 @@ plastic~
 jewelry AFGMPUZ AC
 0 0 0 0 0
 100 0 0 P
-F
-A 0 0 e
-F
-A 0 0 g
+F A 0 0 e
+F A 0 0 g
 G none
 #47018
 garland~

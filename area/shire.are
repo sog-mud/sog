@@ -584,8 +584,7 @@ copper~
 jewelry G AB
 0 0 0 0 0
 20 30 1660 P
-F
-A 0 0 B
+F A 0 0 B
 A
 1 -1
 G none

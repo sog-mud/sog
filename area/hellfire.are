@@ -188,16 +188,11 @@ fire~
 weapon ABKLRSTac ANP
 axe 1 9999 flame ADF
 95 600 2147483647 P
-F
-A 19 100000 a
-F
-A 18 100000 a
-F
-I 0 0 H
-F
-A 2 15 V
-F
-A 0 0 A
+F A 19 100000 a
+F A 18 100000 a
+F I 0 0 H
+F A 2 15 V
+F A 0 0 A
 G male
 #18701
 ring power кольцо силы~
@@ -209,28 +204,17 @@ treasure BSTYa AB
 103 0 0 P
 A
 8 1000
-F
-A 12 1000000 G
-F
-A 13 1000000 m
-F
-A 20 -1000000000 J
-F
-A 17 -1000000000 E
-F
-A 6 100 F
-F
-A 5 100 l
-F
-A 2 100 t
-F
-A 4 100 O
-F
-A 3 100 N
-F
-A 1 100 P
-F
-A 0 0 U
+F A 12 1000000 G
+F A 13 1000000 m
+F A 20 -1000000000 J
+F A 17 -1000000000 E
+F A 6 100 F
+F A 5 100 l
+F A 2 100 t
+F A 4 100 O
+F A 3 100 N
+F A 1 100 P
+F A 0 0 U
 G none
 #18702
 troll skin кожа троля~
@@ -244,8 +228,7 @@ A
 17 -100
 A
 13 100
-F
-A 0 0 c
+F A 0 0 c
 G female
 #18703
 potion healing~
@@ -430,10 +413,8 @@ exotic 13 10 kiss DG
 80 200 100000 P
 A
 8 2
-F
-A 0 0 G
-F
-A 0 0 K
+F A 0 0 G
+F A 0 0 K
 A
 19 20
 A
@@ -495,26 +476,16 @@ holy~
 light AIK A
 0 0 -1 0 0
 92 0 0 P
-F
-I 0 0 M
-F
-A 0 0 J
-F
-A 0 0 E
-F
-A 0 0 C
-F
-A 0 0 G
-F
-A 0 0 t
-F
-A 0 0 l
-F
-A 0 0 D
-F
-A 0 0 F
-F
-A 0 0 m
+F I 0 0 M
+F A 0 0 J
+F A 0 0 E
+F A 0 0 C
+F A 0 0 G
+F A 0 0 t
+F A 0 0 l
+F A 0 0 D
+F A 0 0 F
+F A 0 0 m
 G male
 #0
 

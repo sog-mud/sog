@@ -182,13 +182,9 @@ claw~
 clothing Yh AH
 0 0 0 0 0
 10 1 10000 P
-F
 S 'grip' 75 A
-F
 S 'master hand' 50 A
-F
 S 'hand block' 75 A
-F
 S 'disarm' 75 A
 G plural
 #34451
@@ -199,11 +195,8 @@ paper~
 treasure Ah AO
 0 0 0 0 0
 10 1 10000 P
-F
 S 'locate object' 75 A
-F
 S 'identify' 100 A
-F
 S 'lore' 100 A
 G none
 #0

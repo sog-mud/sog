@@ -262,7 +262,6 @@ adamantite~
 weapon BEIM AN
 dagger 7 7 pierce H
 50 50 2500 P
-F
 S 'knife' 20 0
 A
 18 3
@@ -277,8 +276,7 @@ etherealness~
 armor T AK
 1 1 1 1 0
 45 30 8000 P
-F
-A 0 0 P
+F A 0 0 P
 G none
 #13003
 mask spy~
@@ -288,10 +286,8 @@ iron~
 armor ABGT AE
 1 1 1 1 0
 45 50 8000 P
-F
-A 0 0 D
-F
-A 0 0 F
+F A 0 0 D
+F A 0 0 F
 G none
 #13004
 banner~
@@ -408,7 +404,6 @@ adamantite~
 armor AB AG
 8 8 8 8 8
 50 50 8000 P
-F
 S 'kick' 30 0
 A
 19 5
@@ -425,11 +420,8 @@ wool~
 armor B AD
 8 8 8 8 8
 45 50 8000 P
-F
 S 'cure poison' 80 A
-F
 S 'cure disease' 80 A
-F
 S 'cure blindness' 100 A
 A
 3 3
@@ -489,8 +481,7 @@ copper~
 armor ABJK AE
 10 10 10 10 10
 50 70 8000 P
-F
-R 0 0 E
+F R 0 0 E
 A
 18 1
 A
@@ -521,7 +512,6 @@ copper~
 armor ABJK AG
 8 8 8 8 8
 50 80 8000 P
-F
 S 'trip' 25 0
 A
 18 4
@@ -538,8 +528,7 @@ copper~
 armor A AC
 6 7 5 0 0
 50 20 8000 P
-F
-R 0 0 B
+F R 0 0 B
 A
 1 2
 A
@@ -613,7 +602,6 @@ fur~
 armor A AC
 9 8 9 5 5
 40 150 9000 P
-F
 S 'camouflage' 50 A
 A
 2 2

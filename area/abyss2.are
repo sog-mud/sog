@@ -775,8 +775,7 @@ fire~
 weapon GLO AN
 sword 5 11 blast AF
 50 40 36740 G
-F
-A 0 0 I
+F A 0 0 I
 A
 18 3
 A
@@ -856,12 +855,9 @@ ivory~
 armor GL AM
 9 9 9 2 0
 31 16 13420 G
-F
-R 0 0 D
-F
-A 0 0 KT
-F
-A 0 0 Z
+F R 0 0 D
+F A 0 0 KT
+F A 0 0 Z
 G none
 #25023
 green cape~

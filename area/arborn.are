@@ -209,8 +209,7 @@ A
 24 -25
 A
 18 25
-F
-A 0 0 c
+F A 0 0 c
 G none
 #36102
 helm seeing~
@@ -222,24 +221,15 @@ armor 0 AE
 100 0 0 P
 A
 8 2000
-F
-A 0 0 t
-F
-A 0 0 E
-F
-A 0 0 n
-F
-A 0 0 C
-F
-A 0 0 G
-F
-A 0 0 m
-F
-A 0 0 l
-F
-A 0 0 F
-F
-A 0 0 D
+F A 0 0 t
+F A 0 0 E
+F A 0 0 n
+F A 0 0 C
+F A 0 0 G
+F A 0 0 m
+F A 0 0 l
+F A 0 0 F
+F A 0 0 D
 G none
 #36103
 ring death~
@@ -255,10 +245,8 @@ A
 24 -100
 A
 19 70
-F
-I 0 0 P
-F
-I 0 0 M
+F I 0 0 P
+F I 0 0 M
 G none
 #36104
 dagger might~
@@ -283,14 +271,10 @@ unknown~
 light A A
 0 0 -1 0 0
 0 0 0 P
-F
-A 0 0 T
-F
-A 0 0 H
-F
-R 0 0 C
-F
-R 0 0 D
+F A 0 0 T
+F A 0 0 H
+F R 0 0 C
+F R 0 0 D
 A
 19 20
 G none
@@ -387,8 +371,7 @@ iridium~
 jewelry AGRT ABP
 0 0 0 0 0
 35 2 250000 P
-F
-A 0 0 c
+F A 0 0 c
 A
 24 -3
 A
@@ -407,8 +390,7 @@ copper~
 jewelry ART ABP
 0 0 0 0 0
 35 2 250000 P
-F
-I 0 0 M
+F I 0 0 M
 A
 19 7
 A
@@ -422,10 +404,8 @@ unknown~
 staff HKRZ AOP
 50 20 20 'detect hide' 0
 45 0 0 P
-F
-I 0 0 A
-F
-R 0 0 O
+F I 0 0 A
+F R 0 0 O
 G none
 #36117
 rancor sword~
@@ -435,8 +415,7 @@ steel~
 weapon AJRTa ANP
 sword 4 13 cleave H
 20 20 100000 P
-F
-A 13 -30 M
+F A 13 -30 M
 A
 19 3
 A
@@ -452,8 +431,7 @@ axe 5 19 chop E
 50 50 200000 P
 A
 18 10
-F
-A 19 25 a
+F A 19 25 a
 G male
 #36119
 warmonger sword~
@@ -467,8 +445,7 @@ A
 8 1
 A
 19 20
-F
-A 18 15 V
+F A 18 15 V
 E
 warmonger~
 This legendary sword, once belonged to Borel, is n your hands. Though
@@ -489,8 +466,7 @@ energy~
 weapon AORa AN
 bow 7 17 flame AE
 65 50 700000 P
-F
-I 8 1 H
+F I 8 1 H
 A
 19 10
 A
@@ -504,8 +480,7 @@ steel~
 weapon AORa AN
 dagger 14 10 stab BDE
 75 50 900000 P
-F
-I 8 1 MN
+F I 8 1 MN
 A
 19 25
 A
@@ -519,8 +494,7 @@ unknown~
 weapon AORa AN
 flail 10 9 smash ADE
 55 50 500000 P
-F
-R 8 1 F
+F R 8 1 F
 A
 19 15
 A
@@ -536,8 +510,7 @@ sword 4 17 slash DGI
 40 30 0 P
 A
 13 80
-F
-I 8 1 J
+F I 8 1 J
 A
 19 12
 A
@@ -772,10 +745,8 @@ armor FGHOTVZ AK
 15 0 180000 P
 A
 18 5
-F
-A 12 30 P
-F
-R 13 30 BCD
+F A 12 30 P
+F R 13 30 BCD
 G none
 #36140
 gloves glowing spiked~
@@ -785,7 +756,6 @@ unknown~
 armor AORYa AH
 14 14 14 9 0
 40 100 50000 P
-F
 S 'deathblow' 40 A
 A
 1 3

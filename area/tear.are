@@ -451,12 +451,9 @@ silver~
 light AGY AE
 0 0 1000 0 0
 80 20 0 P
-F
-R 6 5 B
-F
-R 4 5 O
-F
-I 12 200 P
+F R 6 5 B
+F R 4 5 O
+F I 12 200 P
 G none
 #110165
 White dress~
@@ -468,10 +465,8 @@ clothing AGHP AD
 80 1 10000000 P
 A
 6 5
-F
-A 3 10 P
-F
-I 24 -100 E
+F A 3 10 P
+F I 24 -100 E
 G none
 #110166
 brand unholy~
@@ -481,20 +476,16 @@ energy~
 armor BCEFGMTUYZ AR
 50 50 50 50 0
 0 5 1000 P
-F
-R 0 0 D
-F
-A 0 0 Z
+F R 0 0 D
+F A 0 0 Z
 A
 18 10
 A
 19 10
 A
 12 1000
-F
-R 3 5 M
-F
-V 17 -200 N
+F R 3 5 M
+F V 17 -200 N
 G none
 #110167
 swordbreaker~
@@ -569,8 +560,7 @@ armor A AB
 50 200 30000 P
 A
 24 -20
-F
-R 0 0 E
+F R 0 0 E
 G male
 #110175
 sword fear меч~
@@ -680,8 +670,7 @@ silk~
 clothing 0 AK
 0 0 0 0 0
 40 10 500 P
-F
-R 0 0 B
+F R 0 0 B
 G male
 #110186
 cuirass кираса~
@@ -709,8 +698,7 @@ leather~
 armor 0 AE
 2 5 5 15 0
 40 5 100 P
-F
-A 20 -10 D
+F A 20 -10 D
 G female
 #110189
 mail кольчуга~

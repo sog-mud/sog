@@ -234,16 +234,12 @@ divinity~
 weapon 0 AN
 mace 2000 2000 stab BCDEGHI
 100 0 0 P
-F
 S 'critical strike' 1000 0
-F
 S 'resistance' 500 0
 A
 8 100
-F
-A 18 10000 u
-F
-I 19 10000 CD
+F A 18 10000 u
+F I 19 10000 CD
 G none
 #15010
 scythe~
@@ -311,24 +307,15 @@ unknown~
 clothing GITY AE
 0 0 0 0 0
 95 0 0 P
-F
-I 20 -10 CD
-F
-A 20 -10 E
-F
-A 20 -10 C
-F
-A 20 -10 G
-F
-A 20 -10 m
-F
-A 20 -10 F
-F
-A 20 -10 l
-F
-A 20 -10 D
-F
-A 20 -10 t
+F I 20 -10 CD
+F A 20 -10 E
+F A 20 -10 C
+F A 20 -10 G
+F A 20 -10 m
+F A 20 -10 F
+F A 20 -10 l
+F A 20 -10 D
+F A 20 -10 t
 G none
 #15017
 посох staff~
@@ -387,7 +374,6 @@ unknown~
 weapon 0 AN
 exotic 0 0 none 0
 10 0 0 P
-F
 S 'vampire' 100 A
 G none
 #15027

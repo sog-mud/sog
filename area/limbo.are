@@ -561,11 +561,8 @@ A
 12 200
 A
 13 200
-F
 S 'dragon skin' 100 A
-F
 S 'dragon breath' 100 A
-F
 S 'dragon strength' 100 A
 G male
 #25
@@ -616,9 +613,7 @@ unknown~
 armor Yh AH
 -20 -20 -20 -20 0
 10 1 10000 P
-F
 S 'peek' 100 A
-F
 S 'steal' 100 A
 G plural
 #30
@@ -746,7 +741,6 @@ silver~
 jewelry AGh AO
 0 0 0 0 0
 10 0 0 P
-F
 S 'summon' 100 A
 G male
 #40
@@ -786,7 +780,6 @@ canvas~
 container h AO
 0 C 0 500 5
 0 100 10000 P
-F
 S 'blackjack' 100 A
 G male
 #42
@@ -837,15 +830,10 @@ energy~
 container GIYh AQ
 150 A 0 600 5
 10 5 10000 P
-F
 S 'control weather' 100 A
-F
 S 'call lightning' 100 A
-F
 S 'chain lightning' 100 A
-F
 S 'lightning bolt' 100 A
-F
 S 'lightning breath' 100 A
 A
 13 100
@@ -872,11 +860,8 @@ skin~
 armor GIYh AD
 -20 -20 -20 -20 0
 10 1 10000 P
-F
 S 'stone skin' 100 A
-F
 S 'dragon skin' 100 A
-F
 S 'bark skin' 100 A
 A
 2 5
@@ -890,23 +875,14 @@ A
 19 10
 A
 18 10
-F
 S 'enhanced armor' 100 A
-F
 S 'armor' 100 A
-F
 S 'sanctuary' 100 A
-F
 S 'shield' 100 A
-F
 S 'protection good' 100 A
-F
 S 'protection negative' 100 A
-F
 S 'protection heat' 100 A
-F
 S 'protection cold' 100 A
-F
 S 'protection evil' 100 A
 G male
 #48
@@ -917,19 +893,13 @@ gold~
 jewelry Yh AB
 0 0 0 0 0
 10 0 10000 P
-F
 S 'camouflage move' 100 A
-F
-A 13 100 P
+F A 13 100 P
 A
 12 100
-F
 S 'hide' 100 A
-F
 S 'camouflage' 100 A
-F
 S 'improved invis' 100 A
-F
 S 'invisibility' 100 A
 G none
 #49
@@ -940,28 +910,17 @@ silver~
 jewelry Yh AB
 0 0 0 0 0
 10 0 0 P
-F
-A 13 10 s
-F
-A 13 10 t
-F
-A 13 10 t
-F
-A 13 10 n
-F
-A 13 10 m
-F
-A 13 10 l
-F
-A 13 10 G
-F
-A 13 10 F
-F
-A 13 10 D
-F
-A 13 10 C
-F
-A 13 10 E
+F A 13 10 s
+F A 13 10 t
+F A 13 10 t
+F A 13 10 n
+F A 13 10 m
+F A 13 10 l
+F A 13 10 G
+F A 13 10 F
+F A 13 10 D
+F A 13 10 C
+F A 13 10 E
 G none
 #50
 rug коврик~
@@ -1133,16 +1092,13 @@ skin~
 trash Ah AG
 0 0 0 0 0
 10 0 0 P
-F
-A 20 -20 T
+F A 20 -20 T
 A
 19 20
 A
 18 20
-F
-A 12 100 U
-F
-A 13 100 P
+F A 12 100 U
+F A 13 100 P
 G female
 #69
 amulet амулет holy~
@@ -1162,11 +1118,8 @@ A
 8 5
 A
 20 -25
-F
 S 'holy word' 100 A
-F
 S 'bless' 100 A
-F
 S 'benediction' 100 A
 G male
 #70
@@ -1177,8 +1130,7 @@ silver~
 treasure MOTWZ A
 0 0 0 0 0
 50 4 0 P
-F
-A 0 0 F
+F A 0 0 F
 G male
 #71
 buckler ruler shield~
@@ -1417,12 +1369,9 @@ A
 14 500
 A
 18 10
-F
-R 19 10 C
-F
-A 17 -30 J
-F
-A 0 0 CDEG
+F R 19 10 C
+F A 17 -30 J
+F A 0 0 CDEG
 G none
 #95
 ring hero~
