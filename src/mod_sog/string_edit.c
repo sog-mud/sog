@@ -1,5 +1,5 @@
 /*
- * $Id: string_edit.c,v 1.7 1998-08-07 07:57:55 fjoe Exp $
+ * $Id: string_edit.c,v 1.8 1998-08-07 13:08:37 fjoe Exp $
  */
 
 /***************************************************************************
@@ -128,7 +128,7 @@ void string_add(CHAR_DATA *ch, const char *argument)
      * Thanks to James Seng
      */
 
-    if (*argument == ',')
+    if (*argument == ':')
     {
         char arg1 [MAX_INPUT_LENGTH];
         char arg2 [MAX_INPUT_LENGTH];

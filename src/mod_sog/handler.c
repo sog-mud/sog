@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.42 1998-08-04 07:58:31 fjoe Exp $
+ * $Id: handler.c,v 1.43 1998-08-07 13:08:37 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3476,7 +3476,7 @@ char *PERS(CHAR_DATA *ch, CHAR_DATA *looker)
 		return ch->name;
 	}
 
-	if (!IS_NPC(ch) && ch->level > MAX_LEVEL-7)
+	if (!IS_NPC(ch) && ch->level >= LEVEL_IMMORTAL)
 		return "an immortal";
 
 	return "someone";

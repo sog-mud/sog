@@ -1,5 +1,5 @@
 /*
- * $Id: olc_save.c,v 1.13 1998-08-07 11:35:38 fjoe Exp $
+ * $Id: olc_save.c,v 1.14 1998-08-07 13:08:37 fjoe Exp $
  */
 
 /**************************************************************************
@@ -481,12 +481,12 @@ void save_objects(FILE *fp, AREA_DATA *pArea)
 }
  
 
-static int find_exit(EXIT_DATA **exit, int start, int door)
+static int find_exit(EXIT_DATA **exit, int door)
 {
 	EXIT_DATA *pExit;
 	int i;
 
-	for (i = start; i < MAX_DIR; i++)
+	for (i = 0; i < MAX_DIR; i++)
 		if ((pExit = exit[i]) != NULL
 		&&  pExit->orig_door == door)
 			return i;
@@ -534,9 +534,9 @@ void save_rooms(FILE *fp, AREA_DATA *pArea)
 		/* sort exits (to minimize diffs) */
 		exit = pRoomIndex->exit;
 		for (door = 0; door < MAX_DIR; door++)
-			if (/*((pExit = exit[door]) == NULL ||
+			if (((pExit = exit[door]) == NULL ||
 			    pExit->orig_door != door)
-			&& */ (i = find_exit(exit, door+1, door)) >= 0) {
+			&&  (i = find_exit(exit, door)) >= 0) {
 				pExit = exit[door];
 				exit[door] = exit[i];
 				exit[i] = pExit;
