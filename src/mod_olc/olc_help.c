@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_help.c,v 1.27 1999-02-17 07:53:29 fjoe Exp $
+ * $Id: olc_help.c,v 1.28 1999-02-19 15:22:24 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -53,7 +53,8 @@ OLC_CMD_DATA olc_cmds_help[] =
 	{ "touch",	helped_touch	},
 	{ "show",	helped_show	},
 	{ "list",	helped_list	},
-	{ "del",	helped_del	},
+	{ "deletehel",	olced_spell_out	},
+	{ "deletehelp",	helped_del	},
 
 	{ "level",	helped_level	},
 	{ "keywords",	helped_keyword	},

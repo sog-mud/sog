@@ -1,5 +1,5 @@
 /*
- * $Id: olc.h,v 1.32 1999-02-17 04:25:25 fjoe Exp $
+ * $Id: olc.h,v 1.33 1999-02-19 15:22:24 fjoe Exp $
  */
 
 /***************************************************************************
@@ -106,6 +106,8 @@ DECLARE_DO_FUN(do_resets	);
 /*
  * Generic data edit functions
  */
+DECLARE_OLC_FUN(olced_spell_out);
+
 bool olced_number	(CHAR_DATA *ch, const char *argument,
 			 OLC_FUN *olc_fun, int*);
 bool olced_name		(CHAR_DATA *ch, const char *argument,

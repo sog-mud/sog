@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.42 1999-02-17 07:53:28 fjoe Exp $
+ * $Id: olc.c,v 1.43 1999-02-19 15:22:24 fjoe Exp $
  */
 
 /***************************************************************************
@@ -188,6 +188,12 @@ const char *olc_ed_name(CHAR_DATA *ch)
  * Generic OLC editor functions.
  * All functions assume !IS_NPC(ch).
  */
+
+OLC_FUN(olced_spell_out)
+{
+	char_puts("Spell it out.\n", ch);
+	return FALSE;
+}
 
 bool olced_number(CHAR_DATA *ch, const char *argument, OLC_FUN* fun, int *pInt)
 {

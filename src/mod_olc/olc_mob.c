@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_mob.c,v 1.33 1999-02-18 15:13:13 fjoe Exp $
+ * $Id: olc_mob.c,v 1.34 1999-02-19 15:22:24 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -895,23 +895,23 @@ OLC_FUN(mobed_damdice)
 OLC_FUN(mobed_race)
 {
 	MOB_INDEX_DATA *pMob;
-	int race;
+	int race = 0;
 
-	if (argument[0] != '\0'
-	&& (race = rn_lookup(argument)) != 0) {
+	if (argument[0]
+	&&  (!str_prefix(argument, "unique") || (race = rn_lookup(argument)))) {
 		RACE_DATA *r;
 		EDIT_MOB(ch, pMob);
 
 		pMob->race = race;
 		r = RACE(race);
-		pMob->act	  |= r->act;
-		pMob->affected_by |= r->aff;
-		pMob->off_flags   |= r->off;
-		pMob->imm_flags   |= r->imm;
-		pMob->res_flags   |= r->res;
-		pMob->vuln_flags  |= r->vuln;
-		pMob->form        |= r->form;
-		pMob->parts       |= r->parts;
+		pMob->act	  = r->act;
+		pMob->affected_by = r->aff;
+		pMob->off_flags   = r->off;
+		pMob->imm_flags   = r->imm;
+		pMob->res_flags   = r->res;
+		pMob->vuln_flags  = r->vuln;
+		pMob->form        = r->form;
+		pMob->parts       = r->parts;
 
 		char_puts("Race set.\n", ch);
 		return TRUE;
