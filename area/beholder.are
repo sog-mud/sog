@@ -305,8 +305,14 @@ if (saves_spell(obj->level, actor, DAM_OTHER))
 if (is_sn_affected(actor, "blindness"))
         affect_strip(actor, "blindness");
 
-affect_char(actor, TO_AFFECTS, "blindness", obj->level, -1,
-            APPLY_HITROLL, -3, AFF_BLIND);
+Affect aff = aff_new(TO_AFFECTS, "blindness");
+aff->level = obj->level;
+aff->duration = -1;
+aff->location = APPLY_HITROLL;
+aff->modifier = -3;
+aff->bitvector = AFF_BLIND;
+affect_to_char(actor, aff);
+
 act("A veil of darkness seems to cover $n's eyes.", actor, NULL, NULL, TO_ROOM);
 act_char("You can't see a thing!", actor);
 return 0;

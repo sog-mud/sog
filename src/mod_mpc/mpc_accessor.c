@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_accessor.c,v 1.3 2003-09-08 15:45:30 fjoe Exp $
+ * $Id: mpc_accessor.c,v 1.4 2004-02-13 14:48:14 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -40,15 +40,19 @@
  * generic getters
  */
 #define GET_NAME(prefix, name)	prefix##_get_##name
-#define _GET(name, lvalue, val)						\
+#define _GET_BEGIN(name)						\
 		static vo_t name(vo_t *vo)				\
 		{							\
-			vo_t v;						\
-			lvalue = val;					\
+			vo_t v;
+#define GET_BEGIN(prefix, name)						\
+		_GET_BEGIN(GET_NAME(prefix, name))
+#define GET_END								\
 			return v;					\
 		}
 #define GET(prefix, name, lvalue, val)					\
-		_GET(GET_NAME(prefix, name), lvalue, val)
+		GET_BEGIN(prefix, name)					\
+			lvalue = val;					\
+		GET_END
 #define GET_INT(prefix, name, val)	GET(prefix, name, v.i, val)
 #define GET_STR(prefix, name, val)	GET(prefix, name, v.s, val)
 #define GET_CHAR(prefix, name, val)	GET(prefix, name, v.ch, val)
@@ -72,6 +76,11 @@
 			lvalue = val;					\
 		SET_END
 #define SET_INT(prefix, name, lvalue)	SET(prefix, name, lvalue, nv.i)
+#define SET_STR(prefix, name, lvalue)					\
+		SET_BEGIN(prefix, name)					\
+			free_string(lvalue);				\
+			lvalue = str_qdup(nv.s);			\
+		SET_END
 
 /*
  * accessors definitions
@@ -90,7 +99,9 @@
 #define DEF_MUTABLE_INT(prefix, name, type_tag)				\
 		{ #name, type_tag, MT_INT,				\
 		  GET_NAME(prefix, name), SET_NAME(prefix, name) }
-
+#define DEF_MUTABLE_STR(prefix, name, type_tag)				\
+		{ #name, type_tag, MT_STR,				\
+		  GET_NAME(prefix, name), SET_NAME(prefix, name) }
 /*
  * CHAR_DATA accessors
  */
@@ -228,11 +239,10 @@ GET_INT(obj, v_dice_type,
 	vo->obj->pObjIndex->item_type == ITEM_WEAPON ?
 	    INT(vo->obj->value[2]) : 0)
 SET_BEGIN(obj, v_dice_type)
-	if (vo->obj->pObjIndex->item_type != ITEM_WEAPON) {
+	if (vo->obj->pObjIndex->item_type == ITEM_WEAPON)
+		INT(vo->obj->value[2]) = nv.i;
+	else
 		nv.i = 0;
-		return nv;
-	}
-	INT(vo->obj->value[2]) = nv.i;
 SET_END
 OBJ_GET_INT(wear_loc)
 GET_INT(obj, vnum, vo->obj->pObjIndex->vnum)
@@ -263,22 +273,95 @@ mpc_accessor_t obj_acstab[] =
 #define ROOM_GET_OBJ(name)	GET_OBJ(room, name, vo->r->name)
 #define ROOM_GET_ROOM(name)	GET_ROOM(room, name, vo->r->name)
 
-#define DEF_ROOM_GET_INT(name)	DEF_INT(room, name, MT_ROOM)
-#define DEF_ROOM_GET_STR(name)	DEF_STR(room, name, MT_ROOM)
-#define DEF_ROOM_GET_CHAR(name)	DEF_CHAR(room, name, MT_ROOM)
-#define DEF_ROOM_GET_OBJ(name)	DEF_OBJ(room, name, MT_ROOM)
-#define DEF_ROOM_GET_ROOM(name)	DEF_ROOM(room, name, MT_ROOM)
+#define DEF_ROOM_INT(name)	DEF_INT(room, name, MT_ROOM)
+#define DEF_ROOM_STR(name)	DEF_STR(room, name, MT_ROOM)
+#define DEF_ROOM_CHAR(name)	DEF_CHAR(room, name, MT_ROOM)
+#define DEF_ROOM_OBJ(name)	DEF_OBJ(room, name, MT_ROOM)
+#define DEF_ROOM_ROOM(name)	DEF_ROOM(room, name, MT_ROOM)
 
 ROOM_GET_INT(sector_type)
 ROOM_GET_INT(vnum)
 
 mpc_accessor_t room_acstab[] =
 {
-	DEF_ROOM_GET_INT(sector_type),
-	DEF_ROOM_GET_INT(vnum),
+	DEF_ROOM_INT(sector_type),
+	DEF_ROOM_INT(vnum),
 	{ NULL, 0, 0, NULL, NULL }
 };
 #define ROOM_ACSTAB_SZ	(sizeof(room_acstab) / sizeof(*room_acstab))
+
+/*
+ * AFFECT_DATA accessors
+ */
+#define AFFECT_GET_INT(name)	GET_INT(affect, name, vo->aff->name)
+#define AFFECT_GET_STR(name)	GET_STR(affect, name, vo->aff->name)
+#define AFFECT_GET_CHAR(name)	GET_CHAR(affect, name, vo->aff->name)
+#define AFFECT_GET_OBJ(name)	GET_OBJ(affect, name, vo->aff->name)
+#define AFFECT_GET_AFFECT(name)	GET_AFFECT(affect, name, vo->aff->name)
+
+#define DEF_AFFECT_INT(name)	DEF_INT(affect, name, MT_AFFECT)
+#define DEF_AFFECT_STR(name)	DEF_STR(affect, name, MT_AFFECT)
+#define DEF_AFFECT_CHAR(name)	DEF_CHAR(affect, name, MT_AFFECT)
+#define DEF_AFFECT_OBJ(name)	DEF_OBJ(affect, name, MT_AFFECT)
+#define DEF_AFFECT_AFFECT(name)	DEF_AFFECT(affect, name, MT_AFFECT)
+
+#define AFFECT_SET_INT(name)	SET_INT(affect, name, vo->aff->name)
+#define AFFECT_SET_STR(name)	SET_STR(affect, name, vo->aff->name)
+
+#define DEF_AFFECT_MUTABLE_INT(name)	DEF_MUTABLE_INT(affect, name, MT_AFFECT)
+#define DEF_AFFECT_MUTABLE_STR(name)	DEF_MUTABLE_STR(affect, name, MT_AFFECT)
+
+AFFECT_GET_INT(where)
+AFFECT_GET_STR(type)
+AFFECT_GET_INT(level)
+AFFECT_SET_INT(level)
+AFFECT_GET_INT(duration)
+AFFECT_SET_INT(duration)
+GET_BEGIN(affect, location)
+	if (!HAS_STR_LOCATION(vo->aff))
+		v.i = INT(vo->aff->location);
+	else
+		v.i = -1;
+GET_END
+SET_BEGIN(affect, location)
+	if (HAS_STR_LOCATION(vo->aff))
+		INT(vo->aff->location) = nv.i;
+	else
+		nv.i = -1;
+SET_END
+GET_BEGIN(affect, str_location)
+	if (HAS_STR_LOCATION(vo->aff))
+		v.s = vo->aff->location.s;
+	else
+		v.s = str_empty;
+GET_END
+SET_BEGIN(affect, str_location)
+	if (HAS_STR_LOCATION(vo->aff)) {
+		free_string(vo->aff->location.s);
+		vo->aff->location.s = str_qdup(nv.s);
+	} else
+		nv.s = str_empty;
+SET_END
+AFFECT_GET_INT(modifier)
+AFFECT_SET_INT(modifier)
+AFFECT_GET_INT(bitvector)
+AFFECT_SET_INT(bitvector)
+AFFECT_GET_CHAR(owner)
+
+mpc_accessor_t affect_acstab[] =
+{
+	DEF_AFFECT_INT(where),
+	DEF_AFFECT_STR(type),
+	DEF_AFFECT_MUTABLE_INT(level),
+	DEF_AFFECT_MUTABLE_INT(duration),
+	DEF_MUTABLE_INT(affect, location, MT_AFFECT),
+	DEF_MUTABLE_STR(affect, str_location, MT_AFFECT),
+	DEF_AFFECT_MUTABLE_INT(modifier),
+	DEF_AFFECT_MUTABLE_INT(bitvector),
+	DEF_AFFECT_CHAR(owner),
+	{ NULL, 0, 0, NULL, NULL }
+};
+#define AFFECT_ACSTAB_SZ	(sizeof(affect_acstab) / sizeof(*affect_acstab))
 
 /*
  * Lookup accessor by type and name
@@ -297,6 +380,8 @@ mpc_accessor_lookup(int type_tag, const char *name)
 		      cmpstr);
 		qsort(room_acstab, ROOM_ACSTAB_SZ, sizeof(mpc_accessor_t),
 		      cmpstr);
+		qsort(affect_acstab, AFFECT_ACSTAB_SZ, sizeof(mpc_accessor_t),
+		      cmpstr);
 		acstab_initialized = TRUE;
 	}
 
@@ -312,6 +397,10 @@ mpc_accessor_lookup(int type_tag, const char *name)
 	case MT_ROOM:
 		tab = room_acstab;
 		sz = ROOM_ACSTAB_SZ;
+		break;
+	case MT_AFFECT:
+		tab = affect_acstab;
+		sz = AFFECT_ACSTAB_SZ;
 		break;
 	default:
 		return NULL;

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: affect.c,v 1.70 2004-02-12 14:57:32 fjoe Exp $
+ * $Id: affect.c,v 1.71 2004-02-13 14:48:16 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -47,17 +47,10 @@ aff_new(int where, const char *sn)
 	paf->type = str_dup(sn);
 	paf->level = 0;
 	paf->duration = 0;
-	switch (paf->where) {
-	case TO_SKILLS:
-	case TO_RACE:
-	case TO_FORM:
-	case TO_TRIG:
+	if (HAS_STR_LOCATION(paf))
 		paf->location.s = str_empty;
-		break;
-	default:
+	else
 		INT(paf->location) = 0;
-		break;
-	}
 	paf->modifier = 0;
 	paf->bitvector = 0;
 	paf->owner = NULL;
@@ -70,17 +63,10 @@ aff_dup(const AFFECT_DATA *paf)
 	AFFECT_DATA *naf = aff_new(paf->where, paf->type);
 	naf->level	= paf->level;
 	naf->duration	= paf->duration;
-	switch (paf->where) {
-	case TO_SKILLS:
-	case TO_RACE:
-	case TO_FORM:
-	case TO_TRIG:
+	if (HAS_STR_LOCATION(naf))
 		naf->location.s = str_qdup(paf->location.s);
-		break;
-	default:
+	else
 		INT(naf->location) = INT(paf->location);
-		break;
-	}
 	naf->modifier	= paf->modifier;
 	naf->bitvector	= paf->bitvector;
 	naf->owner	= paf->owner;
@@ -90,14 +76,8 @@ aff_dup(const AFFECT_DATA *paf)
 void
 aff_free(AFFECT_DATA *af)
 {
-	switch (af->where) {
-	case TO_SKILLS:
-	case TO_RACE:
-	case TO_FORM:
-	case TO_TRIG:
+	if (HAS_STR_LOCATION(af))
 		free_string(af->location.s);
-		break;
-	}
 	free_string(af->type);
 	mem_free(af);
 	affect_count--;

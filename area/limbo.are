@@ -1208,12 +1208,20 @@ case 0:
            actor, NULL, NULL, TO_CHAR);
 
        int level = actor->level;
-       affect_char(actor, TO_AFFECTS, "berserk", level, umax(1, level / 3),
-                   APPLY_HITROLL, umax(1, level / 5), AFF_BERSERK);
-       affect_char(actor, TO_AFFECTS, "berserk", level, umax(1, level / 3),
-                   APPLY_DAMROLL, umax(1, level / 5), AFF_BERSERK);
-       affect_char(actor, TO_AFFECTS, "berserk", level, umax(1, level / 3),
-                   APPLY_AC, 10 * (level / 10), AFF_BERSERK);
+       Affect aff = aff_new(TO_AFFECTS, "berserk");
+       aff->level = level;
+       aff->duration = umax(1, level / 3);
+       aff->location = APPLY_HITROLL;
+       aff->modifier = umax(1, level / 5);
+       aff->bitvector = AFF_BERSERK;
+       affect_to_char(actor, aff);
+
+       aff->location = APPLY_DAMROLL;
+       affect_to_char(actor, aff);
+
+       aff->location = APPLY_AC;
+       aff->modifier = 10 * (level / 10);
+       affect_to_char(actor, aff);
        break;
 }
 return 0;
@@ -1477,8 +1485,12 @@ if (is_sn_affected(actor, "cold shield"))
  
 act("As you wear $p, you became resistive to cold.",
     actor, obj, NULL, TO_CHAR);
-affect_char(actor, TO_RESISTS, "cold shield", actor->level,
-            -2, DAM_COLD, 50, 0);
+Affect aff = aff_new(TO_RESISTS, "cold shield");
+aff->level = actor->level;
+aff->duration = -2;
+aff->location = DAM_COLD;
+aff->modifier = 50;
+affect_to_char(actor, aff);
 return 0;
 ~
 m obj_remove @ 100~
@@ -1702,8 +1714,12 @@ if (is_sn_affected(actor, "fire shield"))
 
 act("As you wear $p, you became resistive to fire.",
     actor, obj, NULL, TO_CHAR);
-affect_char(actor, TO_RESISTS, "fire shield", actor->level,
-            -2, DAM_FIRE, 50, 0);
+Affect aff = aff_new(TO_RESISTS, "fire shield");
+aff->level = actor->level;
+aff->duration = -2;
+aff->location = DAM_FIRE;
+aff->modifier = 50;
+affect_to_char(actor, aff);
 return 0;
 ~
 m obj_remove @ 100~

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_mpc.c,v 1.57 2004-02-12 22:01:10 sg Exp $
+ * $Id: init_mpc.c,v 1.58 2004-02-13 14:48:14 fjoe Exp $
  */
 
 #include <dlfcn.h>
@@ -78,6 +78,8 @@ static dynafun_data_t core_dynafun_tab[] = {
 
 #if !defined(MPC)
 avltree_t mpcodes;
+
+mpcode_t *current_mpc;
 
 static varr_info_t c_info_swjumps = {
 	&varr_ops, NULL, NULL,
@@ -149,6 +151,12 @@ static varr_info_t c_info_iters = {
 	sizeof(vo_iter_t), 4
 };
 
+static varr_info_t c_info_affects = {
+	&varr_ops, NULL, NULL,
+
+	sizeof(AFFECT_DATA *), 4
+};
+
 static varr_info_t c_info_vos = {
 	&varr_ops, NULL, NULL,
 
@@ -198,6 +206,7 @@ mpcode_init(mpcode_t *mpc)
 
 	c_init(&mpc->jumptabs, &c_info_jumptabs);
 	c_init(&mpc->iters, &c_info_iters);
+	c_init(&mpc->affects, &c_info_affects);
 
 	c_init(&mpc->data, &c_info_vos);
 }
@@ -205,6 +214,8 @@ mpcode_init(mpcode_t *mpc)
 static void
 mpcode_destroy(mpcode_t *mpc)
 {
+	AFFECT_DATA **paf;
+
 	free_string(mpc->name);
 
 	c_destroy(&mpc->strings);
@@ -218,6 +229,9 @@ mpcode_destroy(mpcode_t *mpc)
 
 	c_destroy(&mpc->jumptabs);
 	c_destroy(&mpc->iters);
+	C_FOREACH(paf, &mpc->affects)
+		aff_free(*paf);
+	c_destroy(&mpc->affects);
 
 	c_destroy(&mpc->data);
 }
@@ -285,133 +299,142 @@ MODINIT_FUN(_module_unload, m)
 /*
  * keep this alphabetically sorted
  */
-const char *mpc_dynafuns[] = {
+struct mpc_dynafun_t {
+	const char *name;
+	const char *fun;
+};
+typedef struct mpc_dynafun_t mpc_dynafun_t;
+
+mpc_dynafun_t mpc_dynafuns[] = {
 #if !defined(MPC)
 /* core dynafuns */
-	"dice",
-	"dofun",
-	"get_room_index",
-	"number_bits",
-	"number_percent",
-	"number_range",
+	{ "dice",		NULL		},
+	{ "dofun",		NULL		},
+	{ "get_room_index",	NULL		},
+	{ "number_bits",	NULL		},
+	{ "number_percent",	NULL		},
+	{ "number_range",	NULL		},
 
 /* mpc dynafuns */
-	"affect_char",
-	"can_wear",
-	"char_form_is",
-	"char_name_is",
-	"get_random_fighting",
-	"has_sp",
-	"has_detect",
-	"has_invis",
-	"is_act",
-	"is_affected",
-	"is_awake",
-	"is_evil",
-	"is_ghost",
-	"is_good",
-	"is_immortal",
-	"is_mount",
-	"is_neutral",
-	"is_npc",
-	"is_owner",
-	"is_owner_name",
-	"is_pumped",
-	"is_wanted",
-	"load_mob",
-	"load_obj",
-	"mob_interpret",
-	"room_is",
-	"spclass_count",
-	"transfer_group",
-	"time_hour",
-	"umax",
-	"umin",
-	"wait_state",
-	"weapon_is",
+	{ "aff_new",		"mpc_aff_new"	},
+	{ "affect_to_char",	NULL		},
+	{ "affect_to_obj",	NULL		},
+	{ "affect_to_room",	NULL		},
+	{ "can_wear",		NULL		},
+	{ "char_form_is",	NULL		},
+	{ "char_name_is",	NULL		},
+	{ "get_random_fighting",NULL		},
+	{ "has_sp",		NULL		},
+	{ "has_detect",		NULL		},
+	{ "has_invis",		NULL		},
+	{ "is_act",		NULL		},
+	{ "is_affected",	NULL		},
+	{ "is_awake",		NULL		},
+	{ "is_evil",		NULL		},
+	{ "is_ghost",		NULL		},
+	{ "is_good",		NULL		},
+	{ "is_immortal",	NULL		},
+	{ "is_mount",		NULL		},
+	{ "is_neutral",		NULL		},
+	{ "is_npc",		NULL		},
+	{ "is_owner",		NULL		},
+	{ "is_owner_name",	NULL		},
+	{ "is_pumped",		NULL		},
+	{ "is_wanted",		NULL		},
+	{ "load_mob",		NULL		},
+	{ "load_obj",		NULL		},
+	{ "mob_interpret",	NULL		},
+	{ "room_is",		NULL		},
+	{ "spclass_count",	NULL		},
+	{ "transfer_group",	NULL		},
+	{ "time_hour",		NULL		},
+	{ "umax",		NULL		},
+	{ "umin",		NULL		},
+	{ "wait_state",		NULL		},
+	{ "weapon_is",		NULL		},
 
 /* exported dynafuns */
-	"act",
-	"act_around",
-	"act_char",
-	"act_clan",
-	"act_say",
-	"act_yell",
-	"affect_strip",
-	"affect_strip_obj",
-	"backstab_char",
-	"calc_spell_damage",
-	"can_backstab",
-	"can_loot",
-	"can_see",
-	"cast",
-	"cast_char",
-	"cast_obj",
-	"close_door",
-	"close_obj",
-	"create_mob",
-	"create_obj",
-	"damage",
-	"drop_obj",
-	"extract_obj",
-	"get_char_area",
-	"get_char_here",
-	"get_char_room",
-	"get_char_world",
-	"get_eq_char",
-	"get_obj",
-	"get_obj_carry",
-	"get_obj_here",
-	"get_obj_obj",
-	"get_obj_room",
-	"get_obj_wear",
-	"get_obj_world",
-	"get_pulse",
-	"get_skill",
-	"give_obj",
-	"handle_death",
-	"has_spec",
-	"inflict_effect",
-	"is_safe",
-	"is_safe_nomessage",
-	"is_same_group",
-	"is_sn_affected",
-	"is_sn_affected_obj",
-	"lock_door",
-	"lock_obj",
-	"look_char",
-	"multi_hit",
-	"obj_cast_spell",
-	"obj_to_char",
-	"obj_to_obj",
-	"obj_to_room",
-	"one_hit",
-	"open_door",
-	"open_obj",
-	"raw_kill",
-	"saves_spell",
-	"say_spell",
-	"social_char",
-	"spellfun",
-	"tell_char",
-	"transfer_char",
-	"unlock_door",
-	"unlock_obj",
+	{ "act",		NULL		},
+	{ "act_around",		NULL		},
+	{ "act_char",		NULL		},
+	{ "act_clan",		NULL		},
+	{ "act_say",		NULL		},
+	{ "act_yell",		NULL		},
+	{ "affect_strip",	NULL		},
+	{ "affect_strip_obj",	NULL		},
+	{ "backstab_char",	NULL		},
+	{ "calc_spell_damage",	NULL		},
+	{ "can_backstab",	NULL		},
+	{ "can_loot",		NULL		},
+	{ "can_see",		NULL		},
+	{ "cast",		NULL		},
+	{ "cast_char",		NULL		},
+	{ "cast_obj",		NULL		},
+	{ "close_door",		NULL		},
+	{ "close_obj",		NULL		},
+	{ "create_mob",		NULL		},
+	{ "create_obj",		NULL		},
+	{ "damage",		NULL		},
+	{ "drop_obj",		NULL		},
+	{ "extract_obj",	NULL		},
+	{ "get_char_area",	NULL		},
+	{ "get_char_here",	NULL		},
+	{ "get_char_room",	NULL		},
+	{ "get_char_world",	NULL		},
+	{ "get_eq_char",	NULL		},
+	{ "get_obj",		NULL		},
+	{ "get_obj_carry",	NULL		},
+	{ "get_obj_here",	NULL		},
+	{ "get_obj_obj",	NULL		},
+	{ "get_obj_room",	NULL		},
+	{ "get_obj_wear",	NULL		},
+	{ "get_obj_world",	NULL		},
+	{ "get_pulse",		NULL		},
+	{ "get_skill",		NULL		},
+	{ "give_obj",		NULL		},
+	{ "handle_death",	NULL		},
+	{ "has_spec",		NULL		},
+	{ "inflict_effect",	NULL		},
+	{ "is_safe",		NULL		},
+	{ "is_safe_nomessage",	NULL		},
+	{ "is_same_group",	NULL		},
+	{ "is_sn_affected",	NULL		},
+	{ "is_sn_affected_obj",	NULL		},
+	{ "lock_door",		NULL		},
+	{ "lock_obj",		NULL		},
+	{ "look_char",		NULL		},
+	{ "multi_hit",		NULL		},
+	{ "obj_cast_spell",	NULL		},
+	{ "obj_to_char",	NULL		},
+	{ "obj_to_obj",		NULL		},
+	{ "obj_to_room",	NULL		},
+	{ "one_hit",		NULL		},
+	{ "open_door",		NULL		},
+	{ "open_obj",		NULL		},
+	{ "raw_kill",		NULL		},
+	{ "saves_spell",	NULL		},
+	{ "say_spell",		NULL		},
+	{ "social_char",	NULL		},
+	{ "spellfun",		NULL		},
+	{ "tell_char",		NULL		},
+	{ "transfer_char",	NULL		},
+	{ "unlock_door",	NULL		},
+	{ "unlock_obj",		NULL		},
 #else
-	"nonexistent",
-	"number_range",
-	"print",
-	"print2",
-	"prints",
+	{ "nonexistent",	NULL		},
+	{ "number_range",	NULL		},
+	{ "print",		NULL		},
+	{ "print2",		NULL		},
+	{ "prints",		NULL		},
 #endif
-	NULL
+	{ NULL, NULL }
 };
 
 int
 mpc_init(void)
 {
 	int_const_t *ic;
-	const char **pp;
+	mpc_dynafun_t *mdf;
 	module_t m;
 
 	c_init(&glob_syms, &c_info_syms);
@@ -438,16 +461,21 @@ mpc_init(void)
 	/*
 	 * add dynafuns to global symbol table
 	 */
-	for (pp = mpc_dynafuns; *pp != NULL; pp++) {
+	for (mdf = mpc_dynafuns; mdf->name != NULL; mdf++) {
 		sym_t *s;
 
-		if ((s = c_insert(&glob_syms, *pp)) == NULL) {
-			printlog(LOG_ERROR, "%s: duplicate symbol (func)", *pp);
+		if ((s = c_insert(&glob_syms, mdf->name)) == NULL) {
+			printlog(LOG_ERROR, "%s: duplicate symbol (func)",
+			    mdf->name);
 			continue;
 		}
 
-		s->name = str_dup(*pp);
+		s->name = str_dup(mdf->name);
 		s->type = SYM_FUNC;
+		if (mdf->fun == NULL)
+			s->s.func.name = str_qdup(s->name);
+		else
+			s->s.func.name = str_dup(mdf->fun);
 	}
 
 #if defined(MPC)

@@ -69,7 +69,7 @@ m mob_fight mob_fight_cast_mage 100~
 m mob_fight @ 40~
 act("'Guards! Guards!' shouts Loranhir hoarsely.", mob, NULL, actor, TO_ROOM);
 if (dice(1,2) == 1)
-	return 0;
+        return 0;
 act("You see a faint glitter from your left as an armored figure approaches.",
     mob, NULL, actor, TO_ROOM);
 act("A mirror guardian silently begins his attack!", mob, NULL, actor, TO_ALL);
@@ -80,7 +80,7 @@ return 0;
 m mob_give @ 19129~
 Obj taliesin = load_obj(mob, 19157);
 if (taliesin == NULL)
-	return 1;
+        return 1;
 
 social_char("bow", mob, actor);
 act_say(actor, "You have proven your worthiness...here is the sword Taliesin.", NULL);
@@ -90,8 +90,8 @@ return 0;
 ~
 m mob_give @ 19128~
 Obj sunrise = load_obj(mob, 19158);
-if(sunrise == NULL)
-	return 1;
+if (sunrise == NULL)
+        return 1;
 
 social_char("bow", mob, actor);
 act_say(actor, "You have proven your worthiness...here is the Sunrise Shield.", NULL);
@@ -208,16 +208,16 @@ stand stand none 0
 0 0 medium unknown
 m mob_fight @ 100~
 if (dice(1, 10) < 4) {
-	act("$n whinnies in terror.", mob, NULL, actor, TO_ROOM);
-	dofun("kick", mob, "");
+        act("$n whinnies in terror.", mob, NULL, actor, TO_ROOM);
+        dofun("kick", mob, "");
 }
 
 if (dice(1, 10) < 4) {
-	act("$n charges at you, lowering its horn at your heart!",
+        act("$n charges at you, lowering its horn at your heart!",
             mob, NULL, actor, TO_VICT);
-	act("$n charges at $N, lowering its horn at $gN{his} heart!",
+        act("$n charges at $N, lowering its horn at $gN{his} heart!",
             mob, NULL, actor, TO_NOTVICT);
-	damage(mob, actor, dice(mob->level, 10), "+stab", DAM_F_SHOW);
+        damage(mob, actor, dice(mob->level, 10), "+stab", DAM_F_SHOW);
 }
 
 return 0;
@@ -348,7 +348,7 @@ stand stand female 0
 m mob_random @ 10~
 Char groom = get_char_room(mob, mob->in_room, "19015");
 if (groom == NULL)
-	return 1;
+        return 1;
 social_char("nudge", mob, groom);
 return 0;
 ~
@@ -544,14 +544,14 @@ m mob_random @ 100~
 int chance = number_percent();
 
 if (chance<10) {
-	act("$n collects all the balls, sets up a new rack, and breaks.",
+        act("$n collects all the balls, sets up a new rack, and breaks.",
             mob, NULL, NULL, TO_ROOM);
 } else if (chance < 25)
-	act("$n sinks a combination shot.", mob, NULL, NULL, TO_ROOM);
+        act("$n sinks a combination shot.", mob, NULL, NULL, TO_ROOM);
 else if (chance < 45)
-	act("$n misses a bank shot.", mob, NULL, NULL, TO_ROOM);
+        act("$n misses a bank shot.", mob, NULL, NULL, TO_ROOM);
 else if (chance < 70)
-	act("$n makes a straight shot.", mob, NULL, NULL, TO_ROOM);
+        act("$n makes a straight shot.", mob, NULL, NULL, TO_ROOM);
 return 0;
 ~
 #19026
@@ -622,8 +622,13 @@ if (chance < 35) {
         act("$n screams 'YOTAH!'", mob, NULL, NULL, TO_ROOM);
         damage(mob, vict, dice(2, 3), "dirt kicking", DAM_F_SHOW);
         if (!is_affected(vict, AFF_BLIND)) {
-                affect_char(vict, TO_AFFECTS, "dirt kicking",
-                    mob->level, 0, APPLY_HITROLL, -5, AFF_BLIND);
+                Affect aff = aff_new(TO_AFFECTS, "dirt kicking");
+                aff->level = mob->level;
+                aff->duration = 0;
+                aff->location = APPLY_HITROLL;
+                aff->modifier = -5;
+                aff->bitvector = AFF_BLIND;
+                affect_to_char(vict, aff);
         }
 } else if (chance < 85) {
         act("$n screams 'AIYIII!'", mob, NULL, NULL, TO_ROOM);
@@ -740,19 +745,25 @@ stand stand male 0
 m mob_fight @ 100~
 Char vict = get_random_fighting(mob);
 if (number_percent() < 30 && !is_affected(vict, AFF_BLIND)) {
-	damage(mob, vict, dice(2,3), "dirt kicking", DAM_F_SHOW);
-        affect_char(vict, TO_AFFECTS, "dirt kicking", mob->level, 0,
-            APPLY_HITROLL, -5, AFF_BLIND);
+        damage(mob, vict, dice(2,3), "dirt kicking", DAM_F_SHOW);
+
+        Affect aff = aff_new(TO_AFFECTS, "dirt kicking");
+        aff->level = mob->level;
+        aff->duration = 0;
+        aff->location = APPLY_HITROLL;
+        aff->modifier = -5;
+        aff->bitvector = AFF_BLIND;
+        affect_to_char(vict, aff);
 }
 
 if (number_percent() < 50) {
-	damage(mob, actor, dice(mob->level, 7), "+stab", DAM_F_SHOW);
+        damage(mob, actor, dice(mob->level, 7), "+stab", DAM_F_SHOW);
 }
 return 0;
 ~
 m mob_greet @ 100~
 if (can_backstab(mob))
-	backstab_char(mob, actor);
+        backstab_char(mob, actor);
 return 0;
 ~
 #19035
@@ -908,8 +919,8 @@ return 0;
 m mob_random mob_random_thief 100~
 m mob_speech @ one~
 if (mob->silver + 10 * mob->gold < 1000) {
-	act_say(mob, "First of all, $N, give me 10 gold coins.", actor);
-	return 1;
+        act_say(mob, "First of all, $N, give me 10 gold coins.", actor);
+        return 1;
 }
 
 mob->gold = 0;
@@ -922,8 +933,8 @@ return 0;
 ~
 m mob_speech @ two~
 if (mob->silver + 10 * mob->gold < 1000) {
-	act_say(mob, "First of all, $N, give me 10 gold coins.", actor);
-	return 1;
+        act_say(mob, "First of all, $N, give me 10 gold coins.", actor);
+        return 1;
 }
 
 mob->gold = 0;
@@ -936,8 +947,8 @@ return 0;
 ~
 m mob_speech @ three~
 if (mob->silver + 10 * mob->gold < 1000) {
-	act_say(mob, "First of all, $N, give me 10 gold coins.", actor);
-	return 1;
+        act_say(mob, "First of all, $N, give me 10 gold coins.", actor);
+        return 1;
 }
 
 mob->gold = 0;
@@ -1116,7 +1127,7 @@ stand stand male 0
 0 0 medium unknown
 m mob_greet @ 70~
 if (actor->sex == SEX_MALE)
-	social_char("wink", mob, actor);
+        social_char("wink", mob, actor);
 return 0;
 ~
 m mob_random mob_random_thief 100~
@@ -3174,7 +3185,7 @@ book legends~
 Most of the book has faded to illegibility, but one page still has a few clear
 words:
 
-	   FOR ...... WHO WOULD QUEST ... TALIESIN ............ SHIELD:
+           FOR ...... WHO WOULD QUEST ... TALIESIN ............ SHIELD:
 
 ........through the Towers: but for the side of the Light, ..... need not fight.
 ....must instead prove knowledge of the land.
@@ -5554,10 +5565,10 @@ says,
 
     list--Type list to see a list of what the shopkeeper has.
     buy <item>--to buy the item.  If there are two items with the same name,
-		use "buy 2.item" to buy the second, and so on.
+                use "buy 2.item" to buy the second, and so on.
     sell <item>--to sell something, assuming this shopkeeper buys anything.
     value <item>--will tell you how much this shopkeeper will pay for a given
-		  item.
+                  item.
 
 (Reg Felix Dept Mud Admin)~
 D3

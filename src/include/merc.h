@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.412 2004-02-11 23:06:09 fjoe Exp $
+ * $Id: merc.h,v 1.413 2004-02-13 14:48:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2191,6 +2191,12 @@ extern bool merc_down;
 #define TO_FORMRESISTS	9
 #define TO_RESISTS	10
 #define TO_TRIG		11
+
+#define HAS_STR_LOCATION(paf)						\
+	((paf)->where == TO_SKILLS ||					\
+	 (paf)->where == TO_RACE ||					\
+	 (paf)->where == TO_FORM ||					\
+	 (paf)->where == TO_TRIG)
 
 struct affect_data
 {

@@ -1,5 +1,5 @@
 /*
- * $Id: obj_wear_giant_str.mpc,v 1.4 2003-07-21 23:46:11 fjoe Exp $
+ * $Id: obj_wear_giant_str.mpc,v 1.5 2004-02-13 14:48:13 fjoe Exp $
  */
 
 if (is_sn_affected(actor, "giant strength"))
@@ -9,6 +9,11 @@ act("As you wear $p, you feel your self getting stronger.",
      actor, obj, NULL, TO_CHAR);
 act_char("Your muscles seems incredibly huge.", actor);
  
-int mod = 1 + (actor->level >= 18) + (actor->level >= 30) + (actor->level >= 45);
-affect_char(actor, TO_AFFECTS, "giant strength", actor->level, -2, APPLY_STR, mod, 0);
+Affect aff = aff_new(TO_AFFECTS, "giant strength");
+aff->level = actor->level;
+aff->duration = -2;
+aff->location = APPLY_STR;
+aff->modifier = 1 + (actor->level >= 18) + (actor->level >= 30) +
+                (actor->level >= 45);
+affect_to_char(actor, aff);
 return 0;

@@ -25,7 +25,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc.y,v 1.56 2004-02-11 23:37:48 fjoe Exp $
+ * $Id: mpc.y,v 1.57 2004-02-13 14:48:14 fjoe Exp $
  */
 
 /*
@@ -834,8 +834,9 @@ expr:	lvalue assign expr %prec '=' {
 		dynafun_data_t *d;
 
 		SYM_LOOKUP(sym, $1, SYM_FUNC);
-		if ((d = dynafun_data_lookup(sym->name)) == NULL) {
-			compile_error(mpc, "%s: no such dynafun", sym->name);
+		if ((d = dynafun_data_lookup(sym->s.func.name)) == NULL) {
+			compile_error(mpc, "%s: no such function",
+			    sym->s.func.name);
 			YYERROR;
 		}
 
@@ -1260,6 +1261,8 @@ static void
 sym_destroy(sym_t *sym)
 {
 	free_string(sym->name);
+	if (sym->type == SYM_FUNC)
+		free_string(sym->s.func.name);
 }
 
 avltree_info_t c_info_syms = {
@@ -1565,7 +1568,7 @@ _mprog_compile(mprog_t *mp)
 			return MPC_ERR_COMPILE;
 		if (var_add(mpc, "arg", MT_STR) < 0)
 			return MPC_ERR_COMPILE;
-		if (var_add(mpc, "affowner", MT_CHAR) < 0)
+		if (var_add(mpc, "affect", MT_AFFECT) < 0)
 			return MPC_ERR_COMPILE;
 		break;
 
@@ -1578,7 +1581,7 @@ _mprog_compile(mprog_t *mp)
 			return MPC_ERR_COMPILE;
 		if (var_add(mpc, "arg", MT_STR) < 0)
 			return MPC_ERR_COMPILE;
-		if (var_add(mpc, "affowner", MT_CHAR) < 0)
+		if (var_add(mpc, "affect", MT_AFFECT) < 0)
 			return MPC_ERR_COMPILE;
 		break;
 
@@ -1589,7 +1592,7 @@ _mprog_compile(mprog_t *mp)
 			return MPC_ERR_COMPILE;
 		if (var_add(mpc, "arg", MT_STR) < 0)
 			return MPC_ERR_COMPILE;
-		if (var_add(mpc, "affowner", MT_CHAR) < 0)
+		if (var_add(mpc, "affect", MT_AFFECT) < 0)
 			return MPC_ERR_COMPILE;
 		break;
 
@@ -1646,6 +1649,7 @@ _mprog_execute(mprog_t *mp, void *arg1, void *arg2, void *arg3, void *arg4,
 		return MPC_ERR_RUNTIME;
 	}
 
+	current_mpc = mpc;
 	mpc->mp = mp;
 	if (mpc->mp->status != MP_S_READY)
 		execerr(MPC_ERR_DIRTY);
@@ -1660,7 +1664,7 @@ _mprog_execute(mprog_t *mp, void *arg1, void *arg2, void *arg3, void *arg4,
 			execerr(MPC_ERR_RUNTIME);
 		if (var_assign(mpc, "arg", MT_STR, arg4) < 0)
 			execerr(MPC_ERR_RUNTIME);
-		if (var_assign(mpc, "affowner", MT_CHAR, arg5) < 0)
+		if (var_assign(mpc, "affect", MT_AFFECT, arg5) < 0)
 			execerr(MPC_ERR_RUNTIME);
 		break;
 
@@ -1673,7 +1677,7 @@ _mprog_execute(mprog_t *mp, void *arg1, void *arg2, void *arg3, void *arg4,
 			execerr(MPC_ERR_RUNTIME);
 		if (var_assign(mpc, "arg", MT_STR, arg4) < 0)
 			execerr(MPC_ERR_RUNTIME);
-		if (var_assign(mpc, "affowner", MT_CHAR, arg5) < 0)
+		if (var_assign(mpc, "affect", MT_AFFECT, arg5) < 0)
 			execerr(MPC_ERR_RUNTIME);
 		break;
 
@@ -1684,7 +1688,7 @@ _mprog_execute(mprog_t *mp, void *arg1, void *arg2, void *arg3, void *arg4,
 			execerr(MPC_ERR_RUNTIME);
 		if (var_assign(mpc, "arg", MT_STR, arg4) < 0)
 			execerr(MPC_ERR_RUNTIME);
-		if (var_assign(mpc, "affowner", MT_CHAR, arg5) < 0)
+		if (var_assign(mpc, "affect", MT_AFFECT, arg5) < 0)
 			execerr(MPC_ERR_RUNTIME);
 		break;
 
@@ -1710,6 +1714,7 @@ _mprog_execute(mprog_t *mp, void *arg1, void *arg2, void *arg3, void *arg4,
 err:
 	cleanup_syms(mpc, 0);
 	mpc->mp = NULL;
+	current_mpc = NULL;
 	return rv;
 }
 

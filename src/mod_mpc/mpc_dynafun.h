@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_dynafun.h,v 1.22 2003-04-25 12:49:32 fjoe Exp $
+ * $Id: mpc_dynafun.h,v 1.23 2004-02-13 14:48:15 fjoe Exp $
  */
 
 #ifndef _MPC_DYNAFUN_H_
@@ -102,10 +102,8 @@ DECLARE_FUN2(OBJ_DATA, load_obj,
 	     ARG(CHAR_DATA), ch, ARG(int), vnum)
 DECLARE_FUN2(bool, transfer_group,
 	     ARG(CHAR_DATA), ch, ARG(ROOM_INDEX_DATA), room)
-DECLARE_PROC8(affect_char,
-	      ARG(CHAR_DATA), ch, ARG(int), where, ARG(cchar_t), sn,
-	      ARG(int), level, ARG(int), duration,
-	      ARG(int), loc, ARG(int), mod, ARG(int), bits)
+DECLARE_FUN2(AFFECT_DATA, mpc_aff_new,
+	     ARG(int), where, ARG(cchar_t), sn)
 
 __MODULE_END_DECL
 

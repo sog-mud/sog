@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_c.c,v 1.37 2003-09-30 00:31:21 fjoe Exp $
+ * $Id: mpc_c.c,v 1.38 2004-02-13 14:48:15 fjoe Exp $
  */
 
 #include <assert.h>
@@ -181,7 +181,8 @@ c_push_retval(mpcode_t *mpc)
 
 	sym = sym_get(mpc, SYM_FUNC);
 
-	TRACE((LOG_INFO, "%s: %s", __FUNCTION__, sym->name));
+	TRACE((LOG_INFO, "%s: %s (%s)",
+	    __FUNCTION__, sym->name, sym->s.func.name));
 
 	/*
 	 * get function info
@@ -213,8 +214,8 @@ c_push_retval(mpcode_t *mpc)
 	/*
 	 * lookup dynafun
 	 */
-	d = dynafun_data_lookup(sym->name);
-	mpc_assert(mpc, __FUNCTION__, d != NULL, "%s: not found", sym->name);
+	d = dynafun_data_lookup(sym->s.func.name);
+	mpc_assert(mpc, __FUNCTION__, d != NULL, "%s: not found", sym->s.func.name);
 	mpc_assert(mpc, __FUNCTION__, d->fun != NULL, "%s: NULL fun", d->name);
 
 	/*
@@ -264,6 +265,7 @@ c_push_retval(mpcode_t *mpc)
 		case MT_CHAR:
 		case MT_OBJ:
 		case MT_ROOM:
+		case MT_AFFECT:
 			mpc_assert(mpc, __FUNCTION__,
 			    dynafun_check_arg(d, i, ((void **) &args)[i]),
 			    "dynafun_arg_check failed");

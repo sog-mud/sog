@@ -23,10 +23,11 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_dynafun.c,v 1.30 2003-04-25 12:49:32 fjoe Exp $
+ * $Id: mpc_dynafun.c,v 1.31 2004-02-13 14:48:15 fjoe Exp $
  */
 
 #include <stdio.h>
+#include <setjmp.h>
 
 #if !defined(MPC)
 
@@ -34,6 +35,7 @@
 
 #include <sog.h>
 
+#include "mpc_impl.h"
 #include "mpc_dynafun.h"
 
 bool
@@ -321,26 +323,19 @@ transfer_group(CHAR_DATA *ch, ROOM_INDEX_DATA *room)
 	return found;
 }
 
-void
-affect_char(CHAR_DATA *ch, int where, const char *sn,
-	    int level, int duration, int loc, int mod, int bits)
+AFFECT_DATA *
+mpc_aff_new(int where, const char *sn)
 {
-	AFFECT_DATA *paf;
+	AFFECT_DATA *aff;
+	AFFECT_DATA **paf;
 
-	if (!IS_APPLY_WHERE(where))
-		return;
+	if (current_mpc == NULL)
+		return NULL;
 
-	paf = aff_new(where, sn);
-
-	paf->level = level;
-	paf->duration = duration;
-
-	INT(paf->location) = loc;
-	paf->modifier = mod;
-	paf->bitvector = bits;
-
-	affect_to_char(ch, paf);
-	aff_free(paf);
+	aff = aff_new(where, sn);
+	paf = varr_enew(&current_mpc->affects);
+	*paf = aff;
+	return aff;
 }
 #else /* !defined(MPC) */
 

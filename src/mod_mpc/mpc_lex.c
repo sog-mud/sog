@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_lex.c,v 1.26 2003-09-29 23:11:36 fjoe Exp $
+ * $Id: mpc_lex.c,v 1.27 2004-02-13 14:48:15 fjoe Exp $
  */
 
 #include <ctype.h>
@@ -176,6 +176,7 @@ struct flaginfo_t mpc_types[] =
 	{ "Char",	MT_CHAR,		FALSE	},
 	{ "Obj",	MT_OBJ,			FALSE	},
 	{ "Room",	MT_ROOM,		FALSE	},
+	{ "Affect",	MT_AFFECT,		FALSE	},
 
 	{ NULL, 0, FALSE }
 };
@@ -414,4 +415,3 @@ badch:
 	    "Illegal character (0x%02x) '%c'", (unsigned) ch, (char) ch);
 	return ' ';
 }
-

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_impl.h,v 1.30 2003-04-25 12:49:32 fjoe Exp $
+ * $Id: mpc_impl.h,v 1.31 2004-02-13 14:48:15 fjoe Exp $
  */
 
 #ifndef _MPC_IMPL_H_
@@ -60,6 +60,10 @@ struct sym_t {
 			bool is_const;
 			int block;
 		} var;
+
+		struct {
+			const char *name;
+		} func;
 
 		struct {
 			int addr;
@@ -158,6 +162,7 @@ struct mpcode_t {
 
 	varr jumptabs;		/**< (varr) 'switch' jump tables	*/
 	varr iters;		/**< (iterdata_t) iterators		*/
+	varr affects;		/**< (AFFECT_DATA *) affects		*/
 
 	jmp_buf jmpbuf;		/**< jmp buf				*/
 	varr data;		/**< data stack				*/
@@ -167,6 +172,11 @@ typedef struct mpcode_t mpcode_t;
 extern avltree_t mpcodes;
 
 #define mpcode_lookup(name)	((mpcode_t *) c_lookup(&mpcodes, (name)))
+
+/**
+ * Currently executed mpc
+ */
+extern mpcode_t *current_mpc;
 
 struct mpc_accessor_t {
 	const char *name;

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: trig.c,v 1.37 2004-02-12 06:29:49 fjoe Exp $
+ * $Id: trig.c,v 1.38 2004-02-13 14:48:16 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -548,7 +548,7 @@ pull_one_trigger(trig_t *trig, int mp_type,
 			return MPC_ERR_COND_FAILED;
 	}
 	if (trig->trig_paf != NULL)
-		arg5 = trig->trig_paf->owner;
+		arg5 = trig->trig_paf;
 
 	return mprog_execute(mp, arg1, arg2, arg3, arg4, arg5);
 }

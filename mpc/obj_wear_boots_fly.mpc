@@ -1,5 +1,5 @@
 /*
- * $Id: obj_wear_boots_fly.mpc,v 1.4 2003-07-21 23:46:11 fjoe Exp $
+ * $Id: obj_wear_boots_fly.mpc,v 1.5 2004-02-13 14:48:12 fjoe Exp $
  */
 
 if (is_sn_affected(actor, "fly"))
@@ -9,5 +9,9 @@ act("As you wear $p on your feet, they hold you up.",
      actor, obj, NULL, TO_CHAR);
 act_char("You start to fly.", actor);
  
-affect_char(actor, TO_AFFECTS, "fly", actor->level, -2, 0, 0, AFF_FLYING);
+Affect aff = aff_new(TO_AFFECTS, "fly");
+aff->level = actor->level;
+aff->duration = -2;
+aff->bitvector = AFF_FLYING;
+affect_to_char(actor, aff);
 return 0;

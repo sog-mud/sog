@@ -34,7 +34,7 @@ r magic 100
 m mob_death mob_death_tree 100~
 m mob_greet @ all~
 if (number_percent() < 70)
-	return 0;
+        return 0;
 
 if (actor->race != "felar")
         return 0;
@@ -129,7 +129,7 @@ if (wear != NULL && wear->vnum == 35480)
  
 Obj claw = create_obj(35471, 0);
 if (claw == NULL)
-	return 0;
+        return 0;
 obj_to_room(claw, mob->in_room);
 return 0;
 ~
@@ -515,13 +515,21 @@ act("{y$n's branches wind $N and slow down $gN{his} movements.{x",
     mob, NULL, victim, TO_NOTVICT);
 
 if (!is_sn_affected(victim, "hold person")) {
-        affect_char(victim, TO_AFFECTS, "hold person", level, 1,
-                    APPLY_DEX, - level / 12, 0);
+        Affect aff = aff_new(TO_AFFECTS, "hold person");
+        aff->level = level;
+        aff->duration = 1;
+        aff->location = APPLY_DEX;
+        aff->modifier = -level / 12;
+        affect_to_char(victim, aff);
 }
 
 if (!is_affected(victim, AFF_SLOW)) {
-        affect_char(victim, TO_AFFECTS, "slow", level, 1,
-                    APPLY_DEX, - umax(2, level / 12), AFF_SLOW);
+        Affect aff = aff_new(TO_AFFECTS, "slow");
+        aff->level = level;
+        aff->duration = 1;
+        aff->location = APPLY_DEX;
+        aff->modifier = -umax(2, level/12);
+        aff->bitvector = AFF_SLOW;
 }
 
 return 0;
@@ -536,17 +544,17 @@ if (object == NULL)
  
 Obj window = get_obj_room(mob, mob->in_room, "35462");
 if (window != NULL) {
-	act_say(mob,
-		"You have $P, so if you wish you may visit a secret glade.",
-		object);
-	act("$n points at $p.", mob, window, NULL, TO_ROOM);
-	act_say(mob, "Go through this $P for it.", window); 
-	return 0;
+        act_say(mob,
+            "You have $P, so if you wish you may visit a secret glade.",
+            object);
+        act("$n points at $p.", mob, window, NULL, TO_ROOM);
+        act_say(mob, "Go through this $P for it.", window); 
+        return 0;
 }
 
 Obj portal = create_obj(35462, 0);
 if (portal == NULL)
-	return 0;
+        return 0;
 
 portal->timer = 2;
 obj_to_room(portal, mob->in_room);
@@ -777,8 +785,12 @@ if (actor->size > SIZE_SMALL) {
             actor, obj, NULL, TO_CHAR);
         act("As $n wears $p, $gn{he} runs up. $n is flying!",
             actor, obj, NULL, TO_ROOM);
-        affect_char(actor, TO_AFFECTS, "fly", actor->level, -2,
-                    0, 0, AFF_FLYING);
+
+        Affect aff = aff_new(TO_AFFECTS, "fly");
+        aff->level = actor->level;
+        aff->duration = -2;
+        aff->bitvector = AFF_FLYING;
+        affect_to_char(actor, aff);
 }
  
 return 0;

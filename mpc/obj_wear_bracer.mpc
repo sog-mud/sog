@@ -1,5 +1,5 @@
 /*
- * $Id: obj_wear_bracer.mpc,v 1.4 2003-07-21 23:46:11 fjoe Exp $
+ * $Id: obj_wear_bracer.mpc,v 1.5 2004-02-13 14:48:13 fjoe Exp $
  */
 
 if (is_sn_affected(actor, "haste"))
@@ -9,6 +9,12 @@ act("As you slide your arms into $p, they mold to your skin.",
     actor, obj, NULL, TO_CHAR);
 act_char("Your hands and arms feel incredibly light.", actor);
 
-int mod = 1 + (actor->level >= 18) + (actor->level >= 30) + (actor->level >= 45); 
-affect_char(actor, TO_AFFECTS, "haste", actor->level, -2, APPLY_DEX, mod, AFF_HASTE);
+Affect aff = aff_new(TO_AFFECTS, "haste");
+aff->level = actor->level;
+aff->duration = -2;
+aff->location = APPLY_DEX;
+aff->modifier = 1 + (actor->level >= 18) + (actor->level >= 30) +
+                (actor->level >= 45); 
+aff->bitvector = AFF_HASTE;
+affect_to_char(actor, aff);
 return 0;
