@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.139 1998-10-08 02:46:04 fjoe Exp $
+ * $Id: act_info.c,v 1.140 1998-10-08 12:39:26 fjoe Exp $
  */
 
 /***************************************************************************
@@ -521,38 +521,36 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 
 char* wear_loc_names[] =
 {
-	"<used as light>     ",
-	"<worn on finger>    ",
-	"<worn on finger>    ",
-	"<worn around neck>  ",
-	"<worn around neck>  ",
-	"<worn on torso>     ",
-	"<worn on head>      ",
-	"<worn on legs>      ",
-	"<worn on feet>      ",
-	"<worn on hands>     ",
-	"<worn on arms>      ",
-	"<worn as shield>    ",
-	"<worn about body>   ",
-	"<worn about waist>  ",
-	"<worn about wrist>  ",
-	"<worn about wrist>  ",
-	"<wielded>           ",
-	"<held>              ",
-	"<floating nearby>   ",
-	"<scratched tattoo>  ",
-	"<dual wielded>      ",
-	"<stuck in>          ",
+	"<used as light>     $t",
+	"<worn on finger>    $t",
+	"<worn on finger>    $t",
+	"<worn around neck>  $t",
+	"<worn around neck>  $t",
+	"<worn on torso>     $t",
+	"<worn on head>      $t",
+	"<worn on legs>      $t",
+	"<worn on feet>      $t",
+	"<worn on hands>     $t",
+	"<worn on arms>      $t",
+	"<worn as shield>    $t",
+	"<worn about body>   $t",
+	"<worn about waist>  $t",
+	"<worn about wrist>  $t",
+	"<worn about wrist>  $t",
+	"<wielded>           $t",
+	"<held>              $t",
+	"<floating nearby>   $t",
+	"<scratched tattoo>  $t",
+	"<dual wielded>      $t",
+	"<stuck in>          $t",
 };
 
 void show_obj_to_char(CHAR_DATA *ch, OBJ_DATA *obj, sflag_t wear_loc)
 {
-	char buf[MAX_STRING_LENGTH];
 	bool can_see = can_see_obj(ch, obj);
-
-	snprintf(buf, sizeof(buf), "%s%s", wear_loc_names[wear_loc], "$t");
-	act(buf, ch, can_see ?  format_obj_to_char(obj, ch, TRUE) : "something",
-	    NULL, TO_CHAR | (can_see ? 0 : TRANSLATE_TEXT));
+	act(wear_loc_names[wear_loc], ch,
+	    can_see ? format_obj_to_char(obj, ch, TRUE) : "something",
+	    NULL, TO_CHAR | (can_see ? 0 : TRANS_TEXT));
 }
 
 void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
@@ -1687,7 +1685,7 @@ static void do_who_raw(CHAR_DATA* ch, CHAR_DATA *wch, BUFFER* output)
 	else
 		buf_add(output, wch->pcdata->title);
 
-	buf_add(output, "{x\n\r");
+	buf_add(output, "\n\r{x");
 }
 
 void do_who(CHAR_DATA *ch, const char *argument)

@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.86 1998-10-06 13:18:28 fjoe Exp $
+ * $Id: merc.h,v 1.87 1998-10-08 12:39:34 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1213,15 +1213,6 @@ enum {
 #define WIZ_SPAM		(T)
 
 /*
- * spoken language stuff
- */
-struct translation_type
-{
-	char *common;
-	char *slang;
-};
-
-/*
  * Prototype for a mob.
  * This is the in-memory version of #MOBILES.
  */
@@ -1840,7 +1831,6 @@ extern	const	struct wis_app_type	wis_app 	[26];
 extern	const	struct dex_app_type	dex_app 	[26];
 extern	const	struct con_app_type	con_app 	[26];
 
-extern	const	struct translation_type translation_table	[];
 extern	const	struct cmd_type	cmd_table	[];
 extern	const	struct wiznet_type	wiznet_table	[];
 extern	const	struct attack_type	attack_table	[];

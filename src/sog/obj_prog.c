@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.c,v 1.35 1998-10-06 19:09:01 fjoe Exp $
+ * $Id: obj_prog.c,v 1.36 1998-10-08 12:39:35 fjoe Exp $
  */
 
 /***************************************************************************
@@ -260,7 +260,7 @@ int optype_lookup(const char *name)
 	return -1;
 }
 
-int oprog_call(int optype, OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
+int oprog_call(int optype, OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 {
 	if (obj->pIndexData->oprogs
 	&&  obj->pIndexData->oprogs[optype] != NULL)

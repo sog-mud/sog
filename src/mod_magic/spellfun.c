@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.61 1998-10-07 08:36:20 fjoe Exp $
+ * $Id: spellfun.c,v 1.62 1998-10-08 12:39:33 fjoe Exp $
  */
 
 /***************************************************************************
@@ -77,7 +77,8 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 	int mana;
 	int sn = -1;
 	int target;
-	int cast_far = 0, door, range;
+	int door, range;
+	bool cast_far = FALSE;
 	int slevel;
 	int chance = 0;
 	SKILL_DATA *spell;
@@ -154,6 +155,13 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 
 	mana = mana_cost(ch, sn);
 
+	if (!IS_NPC(ch) && ch->mana < mana) {
+		char_puts("You don't have enough mana.\n\r", ch);
+		return;
+	}
+
+	WAIT_STATE(ch, spell->beats);
+
 	/*
 	 * Locate targets.
 	 */
@@ -201,7 +209,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 						 ch, NULL, victim, TO_CHAR, POS_DEAD);
 					return;
 				}
-				cast_far = 1;
+				cast_far = TRUE;
 			} else if (!(victim = get_char_room(ch, target_name))) {
 				char_puts("They aren't here.\n\r", ch);
 				return;
@@ -379,21 +387,14 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		break;
 	}
 
-	if (!IS_NPC(ch) && ch->mana < mana) {
-		char_puts("You don't have enough mana.\n\r", ch);
-		return;
-	}
-
 	if (str_cmp(spell->name, "ventriloquate"))
 		say_spell(ch, sn);
-
-	WAIT_STATE(ch, spell->beats);
 
 	if (number_percent() > chance) {
 		char_puts("You lost your concentration.\n\r", ch);
 		check_improve(ch, sn, FALSE, 1);
 		ch->mana -= mana / 2;
-		if (cast_far) cast_far = 2;
+		if (cast_far) cast_far = FALSE;
 	}
 	else {
 		if (IS_SET(cl->flags, CLASS_MAGIC))
@@ -429,8 +430,8 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		check_improve(ch, sn, TRUE, 1);
 	}
 		
-	if (cast_far == 1 && door != -1)
-		path_to_track(ch,victim,door);
+	if (cast_far && door != -1)
+		path_to_track(ch, victim, door);
 	else if ((spell->target == TAR_CHAR_OFFENSIVE ||
 		 (spell->target == TAR_OBJ_CHAR_OFF && target == TARGET_CHAR))
 	&&   victim != ch
@@ -445,14 +446,11 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		    {
 			if (victim->position != POS_SLEEPING)
 			multi_hit(victim, ch, TYPE_UNDEFINED);
-
 			break;
 		    }
 		}
 	}
 }
-
-
 
 /*
  * Cast spells at targets using a magical object.

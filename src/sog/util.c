@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: util.c,v 1.12 1998-10-06 13:18:32 fjoe Exp $
+ * $Id: util.c,v 1.13 1998-10-08 12:39:36 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -74,6 +74,12 @@ int d2rename(const char *dir1, const char *file1,
 	free_string(name1);
 	free_string(name2);
 	return res;
+}
+
+const char *get_filename(const char *name)
+{
+	const char *p = (p = strrchr(name, '/')) ? ++p : name;
+	return str_dup(p);
 }
 
 int cmpint(const void *p1, const void *p2)

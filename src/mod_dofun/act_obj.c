@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.75 1998-10-06 19:08:57 fjoe Exp $
+ * $Id: act_obj.c,v 1.76 1998-10-08 12:39:31 fjoe Exp $
  */
 
 /***************************************************************************
@@ -897,6 +897,7 @@ void do_envenom(CHAR_DATA * ch, const char *argument)
 			return;
 		}
 
+		WAIT_STATE(ch, SKILL(sn)->beats);
 		if (number_percent() < chance) {	/* success! */
 			act("$n treats $p with deadly poison.",
 			    ch, obj, NULL, TO_ROOM);
@@ -906,13 +907,11 @@ void do_envenom(CHAR_DATA * ch, const char *argument)
 				obj->value[3] = 1;
 				check_improve(ch, sn, TRUE, 4);
 			}
-			WAIT_STATE(ch, SKILL(sn)->beats);
 			return;
 		}
 		act("You fail to poison $p.", ch, obj, NULL, TO_CHAR);
 		if (!obj->value[3])
 			check_improve(ch, sn, FALSE, 4);
-		WAIT_STATE(ch, SKILL(sn)->beats);
 		return;
 	}
 	else if (obj->item_type == ITEM_WEAPON) {
@@ -939,6 +938,8 @@ void do_envenom(CHAR_DATA * ch, const char *argument)
 			act("$p is already envenomed.", ch, obj, NULL, TO_CHAR);
 			return;
 		}
+
+		WAIT_STATE(ch, SKILL(sn)->beats);
 		percent = number_percent();
 		if (percent < chance) {
 			af.where = TO_WEAPON;
@@ -954,12 +955,11 @@ void do_envenom(CHAR_DATA * ch, const char *argument)
 				act("$n coats $p with deadly venom.", ch, obj, NULL, TO_ROOM);
 			act("You coat $p with venom.", ch, obj, NULL, TO_CHAR);
 			check_improve(ch, sn, TRUE, 3);
-			WAIT_STATE(ch, SKILL(sn)->beats);
 			return;
-		} else {
+		}
+		else {
 			act("You fail to envenom $p.", ch, obj, NULL, TO_CHAR);
 			check_improve(ch, sn, FALSE, 3);
-			WAIT_STATE(ch, SKILL(sn)->beats);
 			return;
 		}
 	}
@@ -1184,7 +1184,7 @@ void do_drink(CHAR_DATA * ch, const char *argument)
 	act_puts("You drink $T from $p.",
 		 ch, obj, liq_table[liquid].liq_name, TO_CHAR, POS_DEAD);
 
-	if (ch->fighting != NULL)
+	if (ch->fighting)
 		WAIT_STATE(ch, 3 * PULSE_VIOLENCE);
 
 	gain_condition(ch, COND_DRUNK,
@@ -1835,9 +1835,6 @@ void do_sacr(CHAR_DATA * ch, const char *argument)
 
 		switch (ch->in_room->sector_type) {
 		case SECT_FIELD:
-			strcat(buf, MSG("scatter on the dirt.", ch->lang));
-			strcat(buf2, MSG("scatter on the dirt.", ch->lang));
-			break;
 		case SECT_FOREST:
 			strcat(buf, MSG("scatter on the dirt.", ch->lang));
 			strcat(buf2, MSG("scatter on the dirt.", ch->lang));
@@ -2131,11 +2128,18 @@ void do_steal(CHAR_DATA * ch, const char *argument)
 		char_puts("Steal what from whom?\n\r", ch);
 		return;
 	}
+
 	if (IS_NPC(ch) && IS_SET(ch->affected_by, AFF_CHARM)
 	    && (ch->master != NULL)) {
 		char_puts("You are to dazed to steal anything.\n\r", ch);
 		return;
 	}
+
+	if ((sn = sn_lookup("steal")) < 0)
+		return;
+
+	WAIT_STATE(ch, SKILL(sn)->beats);
+
 	if ((victim = get_char_room(ch, arg2)) == NULL) {
 		char_puts("They aren't here.\n\r", ch);
 		return;
@@ -2150,11 +2154,9 @@ void do_steal(CHAR_DATA * ch, const char *argument)
 		return;
 	}
 
-	if ((sn = sn_lookup("steal")) < 0
-	||  is_safe(ch, victim))
+	if (is_safe(ch, victim))
 		return;
 	
-	WAIT_STATE(ch, SKILL(sn)->beats);
 	percent = number_percent() +
 		  (IS_AWAKE(victim) ? 10 : -50) +
 		  (!can_see(victim, ch) ? -10 : 0);
@@ -2312,6 +2314,7 @@ CHAR_DATA * find_keeper(CHAR_DATA * ch)
 	 */
 	if (!can_see(keeper, ch) && !IS_IMMORTAL(ch)) {
 		do_say(keeper, "I don't trade with folks I can't see.");
+		do_scan(keeper, str_empty);
 		return NULL;
 	}
 	return keeper;
@@ -2860,13 +2863,15 @@ void do_herbs(CHAR_DATA * ch, const char *argument)
 		char_puts("You can't find any more herbs.\n\r", ch);
 		return;
 	}
+
+	WAIT_STATE(ch, SKILL(sn)->beats);
+
 	if (arg[0] == '\0')
 		victim = ch;
 	else if ((victim = get_char_room(ch, arg)) == NULL) {
 		char_puts("They're not here.\n\r", ch);
 		return;
 	}
-	WAIT_STATE(ch, SKILL(sn)->beats);
 
 	if (ch->in_room->sector_type != SECT_INSIDE
 	&&  ch->in_room->sector_type != SECT_CITY
@@ -2941,6 +2946,7 @@ void do_lore(CHAR_DATA * ch, const char *argument)
 		return;
 	}
 	ch->mana -= mana;
+	WAIT_STATE(ch, SKILL(sn)->beats);
 
 	/* a random lore */
 	chance = number_percent();
@@ -3514,11 +3520,12 @@ void do_enchant(CHAR_DATA * ch, const char *argument)
 		char_puts("You don't have enough mana.\n\r", ch);
 		return;
 	}
+
+	WAIT_STATE(ch, SKILL(sn)->beats);
 	if (number_percent() > chance) {
 		char_puts("You lost your concentration.\n\r", ch);
 		act("$n tries to enchant $p, but he forgets how for a moment.",
 		    ch, obj, NULL, TO_ROOM);
-		WAIT_STATE(ch, SKILL(sn)->beats);
 		check_improve(ch, sn, FALSE, 6);
 		ch->mana -= 50;
 		return;
@@ -3526,5 +3533,4 @@ void do_enchant(CHAR_DATA * ch, const char *argument)
 	ch->mana -= 100;
 	spell_enchant_weapon(24, ch->level, ch, obj, TARGET_OBJ);
 	check_improve(ch, sn, TRUE, 2);
-	WAIT_STATE(ch, SKILL(sn)->beats);
 }

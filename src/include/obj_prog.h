@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.h,v 1.2 1998-09-17 15:51:21 fjoe Exp $
+ * $Id: obj_prog.h,v 1.3 1998-10-08 12:39:35 fjoe Exp $
  */
 
 /***************************************************************************
@@ -44,7 +44,7 @@
 #define _OBJ_PROG_H_
 
 void oprog_set(OBJ_INDEX_DATA*, const char*, const char*);
-int oprog_call(int optype, OBJ_DATA *obj, CHAR_DATA *ch, void *arg);
+int oprog_call(int optype, OBJ_DATA *obj, CHAR_DATA *ch, const void *arg);
 int optype_lookup(const char *name);
 char *oprog_name_lookup(OPROG_FUN* fn);
 

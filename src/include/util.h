@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: util.h,v 1.10 1998-10-06 13:18:32 fjoe Exp $
+ * $Id: util.h,v 1.11 1998-10-08 12:39:36 fjoe Exp $
  */
 
 #ifndef _UTIL_H_
@@ -31,10 +31,12 @@
 
 void	doprintf(DO_FUN*, CHAR_DATA*, const char *fmt, ...);
 
-FILE *	dfopen(const char *dir, const char *file, const char *mode);
-int	dunlink(const char *dir, const char *file);
+FILE *	dfopen	(const char *dir, const char *file, const char *mode);
+int	dunlink	(const char *dir, const char *file);
 int	d2rename(const char *dir1, const char *file1,
 		 const char *dir2, const char *file2);
+
+const char *	get_filename(const char*);
 
 int cmpint(const void *p1, const void *p2);
 int cmpstrp(const void *p1, const void *p2);

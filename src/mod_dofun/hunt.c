@@ -1,5 +1,5 @@
 /*
- * $Id: hunt.c,v 1.12 1998-09-22 18:07:15 fjoe Exp $
+ * $Id: hunt.c,v 1.13 1998-10-08 12:39:32 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -475,6 +475,8 @@ void do_hunt(CHAR_DATA *ch, const char *argument)
 			check_improve(ch, sn_world_find, TRUE, 1);
 	}
 
+ 	WAIT_STATE(ch, SKILL(sn_hunt)->beats);
+
 	if (fArea)
 		victim = get_char_area(ch, arg);
 	else
@@ -511,7 +513,6 @@ void do_hunt(CHAR_DATA *ch, const char *argument)
 
 	act("$n stares intently at the ground.", ch, NULL, NULL, TO_ROOM);
 
- 	WAIT_STATE(ch, SKILL(sn_hunt)->beats);
 	direction = find_path(ch->in_room->vnum, victim->in_room->vnum,
 			      ch, -40000, fArea);
 

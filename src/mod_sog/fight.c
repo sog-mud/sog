@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.78 1998-10-07 08:36:20 fjoe Exp $
+ * $Id: fight.c,v 1.79 1998-10-08 12:39:32 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2414,6 +2414,8 @@ void do_kill(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	WAIT_STATE(ch, 1 * PULSE_VIOLENCE);
+
 	if ((victim = get_char_room(ch, arg)) == NULL) {
 		char_puts("They aren't here.\n\r", ch);
 		return;
@@ -2449,8 +2451,6 @@ void do_kill(CHAR_DATA *ch, const char *argument)
 
 	if (is_safe(ch, victim))
 		return;
-
-	WAIT_STATE(ch, 1 * PULSE_VIOLENCE);
 
 	if ((chance = get_skill(ch, gsn_mortal_strike))
 	&&  get_eq_char(ch, WEAR_WIELD)
@@ -2499,6 +2499,8 @@ void do_murder(CHAR_DATA *ch, const char *argument)
 	||  (IS_NPC(ch) && IS_SET(ch->act,ACT_PET)))
 		return;
 
+	WAIT_STATE(ch, 1 * PULSE_VIOLENCE);
+
 	if ((victim = get_char_room(ch, arg)) == NULL) {
 		char_puts("They aren't here.\n\r", ch);
 		return;
@@ -2521,8 +2523,6 @@ void do_murder(CHAR_DATA *ch, const char *argument)
 
 	if (is_safe(ch, victim))
 		return;
-
-	WAIT_STATE(ch, 1 * PULSE_VIOLENCE);
 
 	if ((chance = get_skill(ch, gsn_mortal_strike))
 	&&  get_eq_char(ch, WEAR_WIELD)

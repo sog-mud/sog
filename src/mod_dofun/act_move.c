@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.101 1998-10-07 08:36:19 fjoe Exp $
+ * $Id: act_move.c,v 1.102 1998-10-08 12:39:29 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1764,6 +1764,7 @@ void do_visible(CHAR_DATA *ch, const char *argument)
 
 	if (IS_AFFECTED(ch, AFF_INVISIBLE | AFF_IMP_INVIS)) {
 		char_puts("You fade into existence.\n\r", ch);
+		affect_bit_strip(ch, TO_AFFECTS, AFF_INVISIBLE | AFF_IMP_INVIS);
 		REMOVE_BIT(ch->affected_by, AFF_INVISIBLE | AFF_IMP_INVIS);
 		act("$n fades into existence.", ch, NULL, NULL, TO_ROOM);
 	}
@@ -2086,6 +2087,8 @@ void do_vbite(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	WAIT_STATE(ch, SKILL(gsn_vampiric_bite)->beats);
+
 	if ((victim = get_char_room(ch, arg)) == NULL) {
 		char_puts("They aren't here.\n\r", ch);
 		return;
@@ -2111,8 +2114,6 @@ void do_vbite(CHAR_DATA *ch, const char *argument)
 
 	if (is_safe(ch, victim))
 		return;
-
-	WAIT_STATE(ch, SKILL(gsn_vampiric_bite)->beats);
 
 	if (victim->hit < (8 * victim->max_hit / 10) && (IS_AWAKE(victim))) {
 		act_puts("$N is hurt and suspicious ... doesn't worth up.",
@@ -2321,15 +2322,13 @@ void do_vanish(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 	ch->mana -= 25;
+	WAIT_STATE(ch, SKILL(sn)->beats);
 
 	if (number_percent() > chance) {
 		char_puts("You failed.\n\r", ch);
-		WAIT_STATE(ch, SKILL(sn)->beats);
 		check_improve(ch, sn, FALSE, 1);
 		return;
 	}
-
-	WAIT_STATE(ch, SKILL(sn)->beats);
 
 	if (ch->in_room == NULL
 	||  IS_SET(ch->in_room->room_flags, ROOM_NORECALL)) {
@@ -2405,6 +2404,8 @@ void do_vtouch(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	WAIT_STATE(ch, SKILL(sn)->beats);
+
 	if (IS_AFFECTED(ch, AFF_CHARM))  {
 		char_puts("You don't want to drain your master.\n\r", ch);
 		return;
@@ -2428,8 +2429,6 @@ void do_vtouch(CHAR_DATA *ch, const char *argument)
 
 	SET_FIGHT_TIME(victim);
 	SET_FIGHT_TIME(ch);
-
-	WAIT_STATE(ch, SKILL(sn)->beats);
 
 	if (IS_NPC(ch) || number_percent() < 0.85 * chance) {
 		act_nprintf(victim, NULL, ch, TO_VICT, POS_DEAD, 
@@ -2541,6 +2540,11 @@ void do_push(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	if ((sn = sn_lookup("push")) < 0)
+		return;
+
+	WAIT_STATE(ch, SKILL(sn)->beats);
+
 	if ((victim = get_char_room(ch, arg1)) == NULL) {
 		char_puts("They aren't here.\n\r", ch);
 		return;
@@ -2589,13 +2593,9 @@ void do_push(CHAR_DATA *ch, const char *argument)
 		return; 
 	}
 
-	if ((sn = sn_lookup("push")) < 0)
-		return;
-
 	if (is_safe(ch,victim))
 		return;
 
-	WAIT_STATE(ch, SKILL(sn)->beats);
 	percent  = number_percent() + (IS_AWAKE(victim) ? 10 : -50);
 	percent += can_see(victim, ch) ? -10 : 0;
 
@@ -2805,6 +2805,8 @@ void do_layhands(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	WAIT_STATE(ch, SKILL(sn)->beats);
+
 	if ((victim = get_char_room(ch,argument)) == NULL) {
 		char_puts("They aren't here.\n\r", ch);
 		return;
@@ -2814,7 +2816,6 @@ void do_layhands(CHAR_DATA *ch, const char *argument)
 		 char_puts("You can't concentrate enough.\n\r", ch);
 		 return;
 	}
-	WAIT_STATE(ch, SKILL(sn)->beats);
 
 	af.type = sn;
 	af.where = TO_AFFECTS;
@@ -3184,8 +3185,12 @@ void do_shoot(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 		
-	if ((victim = find_char(ch, arg2, direction, range)) == NULL)
+	WAIT_STATE(ch, SKILL(gsn_bow)->beats);
+   
+	if ((victim = find_char(ch, arg2, direction, range)) == NULL) {
+		char_puts("They aren't there.\n\r", ch);
 		return;
+	}
 
 	if (!IS_NPC(victim) && victim->desc == NULL) {
 		char_puts("You can't do that.\n\r", ch);
@@ -3224,13 +3229,9 @@ void do_shoot(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 		
-	if (is_safe(ch,victim)) {
-		char_printf(ch, "Gods protect %s.\n\r", PERS(victim, ch));
+	if (is_safe(ch, victim))
 		return;
-	}
 
-	WAIT_STATE(ch, SKILL(gsn_bow)->beats);
-   
 	chance = (chance - 50) * 2;
 	if (ch->position == POS_SLEEPING)
 		chance += 40;
@@ -3337,8 +3338,12 @@ void do_throw_spear(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 		
-	if ((victim = find_char(ch, arg2, direction, range)) == NULL)
+	WAIT_STATE(ch, SKILL(gsn_spear)->beats);
+   
+	if ((victim = find_char(ch, arg2, direction, range)) == NULL) {
+		char_puts("They aren't there.\n\r", ch);
 		return;
+	}
 
 	if (!IS_NPC(victim) && victim->desc == NULL) {
 		char_puts("You can't do that.\n\r", ch);
@@ -3362,13 +3367,9 @@ void do_throw_spear(CHAR_DATA *ch, const char *argument)
 		return;    	
 	}
 
-	if (is_safe(ch,victim)) {
-		char_printf(ch, "Gods protect %s.\n\r", PERS(victim, ch));
+	if (is_safe(ch,victim))
 		return;
-	}
 
-	WAIT_STATE(ch, SKILL(gsn_spear)->beats);
-   
 	chance = (chance - 50) * 2;
 	if (ch->position == POS_SLEEPING)
 		chance += 40;
@@ -3578,12 +3579,12 @@ void do_settraps(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (!ch->in_room)	return;
+	if (!ch->in_room)
+		return;
 
-	if (IS_SET(ch->in_room->room_flags, ROOM_LAW))
-	{
-	 char_puts("A mystical power protects the room.\n\r",ch);
-	 return;
+	if (IS_SET(ch->in_room->room_flags, ROOM_LAW)) {
+		char_puts("A mystical power protects the room.\n\r",ch);
+		return;
 	}
 
 	WAIT_STATE(ch, SKILL(gsn_settraps)->beats);
@@ -3666,6 +3667,8 @@ void do_thumbling(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	WAIT_STATE(ch, SKILL(gsn_thumbling)->beats);
+
 	if (is_affected(ch, gsn_thumbling)) {
 		char_puts("You do the best you can.\n\r", ch);
 		return;
@@ -3682,8 +3685,6 @@ void do_thumbling(CHAR_DATA *ch, const char *argument)
 		check_improve(ch, gsn_thumbling, FALSE, 3);
 		return;
 	}
-
-	WAIT_STATE(ch, SKILL(gsn_thumbling)->beats);
 
 	af.where	= TO_AFFECTS;
 	af.type		= gsn_thumbling;

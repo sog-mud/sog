@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.77 1998-10-06 13:18:26 fjoe Exp $
+ * $Id: interp.c,v 1.78 1998-10-08 12:39:33 fjoe Exp $
  */
 
 /***************************************************************************
@@ -195,10 +195,10 @@ const	struct	cmd_type	cmd_table	[] =
     { "replay",		do_replay,	POS_SLEEPING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
     { "say",		do_say,		POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
     { "'",		do_say,		POS_RESTING,	 0,  LOG_NORMAL, 0, CMD_GHOST },
-    { "shout",		do_shout,	POS_RESTING,	 3,  LOG_NORMAL, 1, CMD_GHOST },
+    { "shout",		do_shout,	POS_DEAD,	 3,  LOG_NORMAL, 1, CMD_GHOST },
+    { ".",		do_shout,	POS_DEAD,	 3,  LOG_NORMAL, 1, CMD_GHOST },
     { "music",		do_music,	POS_DEAD,	 3,  LOG_NORMAL, 1, CMD_GHOST },
     { "gossip",		do_gossip,	POS_DEAD,	 3,  LOG_NORMAL, 1, CMD_GHOST },
-    { ".",		do_gossip,	POS_DEAD,	 3,  LOG_NORMAL, 1, CMD_GHOST },
     { "motd",		do_motd,	POS_DEAD,        0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "wake",		do_wake,	POS_SLEEPING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "warcry",         do_warcry,      POS_FIGHTING,    0,  LOG_NORMAL, 1,0},
@@ -796,8 +796,8 @@ bool check_social(CHAR_DATA *ch, char *command, const char *argument)
 		return TRUE;
 	}
 
-	if ((victim = get_char_room(ch, arg)) == NULL
-	&&  ((victim = get_char_world(ch, arg)) == NULL || IS_NPC(victim))) {
+	if ((victim = get_char_world(ch, arg)) == NULL
+	||  (IS_NPC(victim) && victim->in_room != ch->in_room)) {
 		char_puts("They aren't here.\n\r", ch);
 		return TRUE;
 	}
