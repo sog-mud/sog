@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.426 2002-11-23 18:02:30 fjoe Exp $
+ * $Id: act_info.c,v 1.427 2002-11-23 20:05:07 fjoe Exp $
  */
 
 /***************************************************************************
@@ -4301,8 +4301,13 @@ show_aliases(CHAR_DATA *ch, const char *argument, bool wiz)
 
 	one_argument(argument, arg, sizeof(arg));
 	C_FOREACH(cmd, &commands) {
-		if ((wiz ? WIZCMD_ALLOWED(cmd, vch) : CMD_ALLOWED(cmd, vch))
-		&&  !str_prefix(arg, cmd->name)) {
+		char a[MAX_INPUT_LENGTH];
+		const char *p;
+
+		if (wiz ? !WIZCMD_ALLOWED(cmd, vch) : !CMD_ALLOWED(cmd, vch))
+			continue;
+
+		if (!str_prefix(arg, cmd->name)) {
 			if (!IS_NULLSTR(cmd->aliases)) {
 				act_puts("Aliases for '$t' are: [$T]",
 				    ch, cmd->name, cmd->aliases,
@@ -4315,9 +4320,19 @@ show_aliases(CHAR_DATA *ch, const char *argument, bool wiz)
 
 			return;
 		}
+
+		p = one_argument(cmd->aliases, a, sizeof(a));
+		for (; a[0] != '\0'; p = one_argument(p, a, sizeof(a))) {
+			if (!str_prefix(arg, a)) {
+				act_puts("'$t' as an alias for '$T'.",
+					 ch, arg, cmd->name,
+					 TO_CHAR | ACT_NOTRANS, POS_DEAD);
+				return;
+			}
+		}
 	}
 
-	act_puts("$t: No such $Tcommand found.",
+	act_puts("$t: No such $Tcommand or alias found.",
 	    ch, arg, wiz ? "wiz" : "",
 	    TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 }
