@@ -1,5 +1,5 @@
 /*
- * $Id: olc_help.c,v 1.1 1998-08-14 22:33:06 fjoe Exp $
+ * $Id: olc_help.c,v 1.2 1998-08-15 09:14:42 fjoe Exp $
  */
 #include <sys/types.h>
 #include <stdio.h>
@@ -15,22 +15,31 @@
 #include "string_edit.h"
 #include "buffer.h"
 #include "util.h"
+#include "interp.h"
 
 #define HEDIT(fun)	bool fun(CHAR_DATA *ch, const char *argument)
+
+DECLARE_OLC_FUN(hedit_create		);
+DECLARE_OLC_FUN(hedit_edit		);
+DECLARE_OLC_FUN(hedit_show		);
+DECLARE_OLC_FUN(hedit_level		);
+DECLARE_OLC_FUN(hedit_keyword		);
+DECLARE_OLC_FUN(hedit_text		);
 
 const struct olc_cmd_type hedit_table[] =
 {
 	{ "commands",	show_commands	},
 	{ "?",		show_help	},
 	{ "create",	hedit_create	},
+	{ "edit",	hedit_edit	},
 	{ "show",	hedit_show	},
 	{ "level",	hedit_level 	},
-	{ "keyword",	hedit_keyword	},
+	{ "keywords",	hedit_keyword	},
 	{ "text",	hedit_text	},
 	{ NULL }
 };
 
-HELP_DATA *help_lookup(const char *keyword);
+HELP_DATA *help_lookup(int num, const char *keyword);
 
 void hedit(CHAR_DATA *ch, const char *argument)
 {
@@ -66,7 +75,6 @@ void hedit(CHAR_DATA *ch, const char *argument)
 
 void do_hedit(CHAR_DATA *ch, const char *argument)
 {
-	HELP_DATA *pHelp;
 	char command[MAX_INPUT_LENGTH];
 
 	if (IS_NPC(ch)) {
@@ -74,32 +82,24 @@ void do_hedit(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 		
+	if (ch->pcdata->security < 9) {
+		char_puts("HEdit: Insufficient security for editing helps\n\r", ch);
+		return;
+	}
+
 	argument = one_argument(argument, command);
 
 	if (!str_cmp(command, "create")) {
-		if (argument[0] == '\0') {
-			char_puts("Syntax: hedit create keyword\n\r", ch);
-			return;
-		}
-
 		hedit_create(ch, argument);
 		return;
 	}
 
-	if ((pHelp = help_lookup(command)) != NULL) {
-		if (ch->pcdata->security < 9) {
-			char_puts("HEdit: Insufficient security for editing helps\n\r", ch);
-			return;
-		}
-
-		ch->desc->pEdit		= (void *)pHelp;
-		ch->desc->editor	= ED_HELP;
-
+	if (!str_cmp(command, "edit")) {
+		hedit_edit(ch, argument);
 		return;
 	}
 
-	char_puts("Syntax: hedit keyword\n\r"
-		  "        hedit create keyword\n\r", ch);
+	do_help(ch, "'OLC HEDIT'");
 }
 
 HEDIT(hedit_create)
@@ -107,23 +107,12 @@ HEDIT(hedit_create)
 	HELP_DATA *pHelp;
 	AREA_DATA *pArea;
 
-	if (ch->pcdata->security < 9) {
-		char_puts("HEdit: Insufficient security for editing helps\n\r", ch);
-		return FALSE;
-	}
-
 	if (argument[0] == '\0') {
-		char_puts("Syntax: hedit create keyword\n\r", ch);
+		do_help(ch, "'OLC HEDIT'");
 		return FALSE;
 	}
 
-	if ((pHelp = help_lookup(argument)) != NULL) {
-		if (!str_cmp(argument, "create")) {
-			/* hedit create create */
-			ch->desc->pEdit		= (void *)pHelp;
-			ch->desc->editor	= ED_HELP;
-			return FALSE;
-		}
+	if ((pHelp = help_lookup(1, argument)) != NULL) {
 		char_printf(ch,
 			    "HEdit: Help already exists in area %s (%s).\n\r",
 			    pHelp->area->name, pHelp->area->file_name);
@@ -150,6 +139,23 @@ HEDIT(hedit_create)
 	ch->desc->editor	= ED_HELP;
 
 	send_to_char("Help created.\n\r",ch);
+
+	return FALSE;
+}
+
+HEDIT(hedit_edit)
+{
+	int num;
+	char keyword[MAX_STRING_LENGTH];
+	HELP_DATA *pHelp;
+
+	num = number_argument(argument, keyword);
+	if ((pHelp = help_lookup(num, keyword)) != NULL) {
+		ch->desc->pEdit		= (void *)pHelp;
+		ch->desc->editor	= ED_HELP;
+	}
+	else
+		do_help(ch, "'OLC HEDIT'");
 
 	return FALSE;
 }
@@ -220,15 +226,15 @@ HEDIT(hedit_text)
 	return FALSE;
 }
 
-HELP_DATA *help_lookup(const char *keyword)
+HELP_DATA *help_lookup(int num, const char *keyword)
 {
 	HELP_DATA *res;
 
-	if (IS_NULLSTR(keyword))
+	if (num <= 0 || IS_NULLSTR(keyword))
 		return NULL;
 
 	for (res = help_first; res != NULL; res = res->next)
-		if (is_name(keyword, res->keyword))
+		if (is_name(keyword, res->keyword) && !--num)
 			return res;
 	return NULL;
 }

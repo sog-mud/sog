@@ -1,5 +1,5 @@
 /*
- * $Id: olc_act.c,v 1.15 1998-08-15 07:47:34 fjoe Exp $
+ * $Id: olc_act.c,v 1.16 1998-08-15 09:14:42 fjoe Exp $
  */
 
 /***************************************************************************
@@ -4101,16 +4101,14 @@ static bool change_exit(CHAR_DATA *ch, const char *argument, int door)
 	 * Set the exit flags, needs full argument.
 	 * ----------------------------------------
 	 */
-	if ((value = flag_value(exit_flags, argument)) != NO_FLAG)
-	{
+	if ((value = flag_value(exit_flags, argument)) != NO_FLAG) {
 		ROOM_INDEX_DATA *pToRoom;
 		int rev;                                    /* ROM OLC */
 
-		if (!pRoom->exit[door])
-		   {
-		   	send_to_char("Salida no existe.\n\r",ch);
+		if (!pRoom->exit[door]) {
+		   	send_to_char("Exit does not exist.\n\r",ch);
 		   	return FALSE;
-		   }
+		}
 		 /*   pRoom->exit[door] = new_exit(); */
 
 		/*
@@ -4126,10 +4124,9 @@ static bool change_exit(CHAR_DATA *ch, const char *argument, int door)
 		pToRoom = pRoom->exit[door]->u1.to_room;     /* ROM OLC */
 		rev = rev_dir[door];
 
-		if (pToRoom->exit[rev] != NULL)
-		{
-		   TOGGLE_BIT(pToRoom->exit[rev]->rs_flags,  value);
-		   TOGGLE_BIT(pToRoom->exit[rev]->exit_info, value);
+		if (pToRoom->exit[rev] != NULL) {
+			TOGGLE_BIT(pToRoom->exit[rev]->rs_flags,  value);
+			TOGGLE_BIT(pToRoom->exit[rev]->exit_info, value);
 		}
 
 		send_to_char("Exit flag toggled.\n\r", ch);
@@ -4142,25 +4139,21 @@ static bool change_exit(CHAR_DATA *ch, const char *argument, int door)
 	argument = one_argument(argument, command);
 	argument = one_argument(argument, arg);
 
-	if (command[0] == '\0' && argument[0] == '\0')	/* Move command. */
-	{
+	if (command[0] == '\0' && argument[0] == '\0') { /* Move command. */
 		move_char(ch, door, TRUE);                    /* ROM OLC */
 		return FALSE;
 	}
 
-	if (command[0] == '?')
-	{
-		do_help(ch, "EXIT");
+	if (command[0] == '?') {
+		do_help(ch, "'OLC EXITS'");
 		return FALSE;
 	}
 
-	if (!str_cmp(command, "delete"))
-	{
+	if (!str_cmp(command, "delete")) {
 		ROOM_INDEX_DATA *pToRoom;
 		int rev;                                     /* ROM OLC */
 		
-		if (!pRoom->exit[door])
-		{
+		if (!pRoom->exit[door]) {
 			send_to_char("REdit:  Cannot delete a null exit.\n\r", ch);
 			return FALSE;
 		}
@@ -4171,8 +4164,7 @@ static bool change_exit(CHAR_DATA *ch, const char *argument, int door)
 		rev = rev_dir[door];
 		pToRoom = pRoom->exit[door]->u1.to_room;       /* ROM OLC */
 		
-		if (pToRoom->exit[rev])
-		{
+		if (pToRoom->exit[rev]) {
 			free_exit(pToRoom->exit[rev]);
 			pToRoom->exit[rev] = NULL;
 		}
@@ -4187,12 +4179,11 @@ static bool change_exit(CHAR_DATA *ch, const char *argument, int door)
 		return TRUE;
 	}
 
-	if (!str_cmp(command, "link"))
-	{
+	if (!str_cmp(command, "link")) {
 		EXIT_DATA *pExit;
 
-		if (arg[0] == '\0' || !is_number(arg))
-		{
+		if (arg[0] == '\0' || !is_number(arg)) {
+			do_help(ch, "'OLC EXITS'");
 			send_to_char("Syntax:  [direction] link [vnum]\n\r", ch);
 			return FALSE;
 		}

@@ -2,7 +2,7 @@
 #define _OLC_H_
 
 /*
- * $Id: olc.h,v 1.7 1998-08-14 22:33:06 fjoe Exp $
+ * $Id: olc.h,v 1.8 1998-08-15 09:14:42 fjoe Exp $
  */
 
 /***************************************************************************
@@ -276,13 +276,6 @@ DECLARE_OLC_FUN(mpedit_create		);
 DECLARE_OLC_FUN(mpedit_code		);
 DECLARE_OLC_FUN(mpedit_show		);
 DECLARE_OLC_FUN(mpedit_list		);
-
-/* help editor */
-DECLARE_OLC_FUN(hedit_create		);
-DECLARE_OLC_FUN(hedit_show		);
-DECLARE_OLC_FUN(hedit_level		);
-DECLARE_OLC_FUN(hedit_keyword		);
-DECLARE_OLC_FUN(hedit_text		);
 
 /*
  * Macros
