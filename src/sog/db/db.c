@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.17 1998-06-03 20:44:10 fjoe Exp $
+ * $Id: db.c,v 1.18 1998-06-06 10:51:54 fjoe Exp $
  */
 
 /***************************************************************************
@@ -49,8 +49,8 @@
 #include <sys/types.h>
 #include <sys/time.h>
 #include <sys/resource.h>
-#include <sys/dir.h>
-#include <sys/syslimits.h>
+#include <limits.h>
+#include <dirent.h>
 
 #include "merc.h"
 #include "db.h"
@@ -62,6 +62,15 @@
 #include "act_comm.h"
 #include "rating.h"
 #include "update.h"
+
+#ifdef SUNOS
+#include "compat.h"
+#define d_namlen d_reclen
+#endif
+
+#ifdef SVR4
+#define d_namlen d_reclen
+#endif
 
 void load_limited_objects();
 
@@ -3896,7 +3905,7 @@ void load_olimits(FILE *fp)
  */
 void load_limited_objects()
 {
-	struct direct *dp;
+	struct dirent *dp;
 
 	int i;
 	DIR *dirp;

@@ -1,5 +1,5 @@
 /*
- * $Id: quest.c,v 1.26 1998-06-02 15:56:06 fjoe Exp $
+ * $Id: quest.c,v 1.27 1998-06-06 10:51:57 fjoe Exp $
  */
 
 /***************************************************************************
@@ -69,6 +69,11 @@
 #include "hometown.h"
 #include "magic.h"
 #include "quest.h"
+
+#ifdef SUNOS
+#	include <stdarg.h>
+#	include "compat.h"
+#endif
 
 void do_tell_quest(CHAR_DATA *ch, CHAR_DATA *victim, char *argument);
 extern	MOB_INDEX_DATA	*mob_index_hash [MAX_KEY_HASH];

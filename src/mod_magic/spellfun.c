@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.11 1998-06-03 20:44:12 fjoe Exp $
+ * $Id: spellfun.c,v 1.12 1998-06-06 10:51:55 fjoe Exp $
  */
 
 /***************************************************************************
@@ -767,7 +767,8 @@ void do_cast(CHAR_DATA *ch, char *argument)
 /*
  * Cast spells at targets using a magical object.
  */
-void obj_cast_spell(int sn, int level, CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *obj)
+void obj_cast_spell(int sn, int level,
+		    CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *obj)
 {
 	void *vo;
 	int target = TARGET_NONE;
@@ -775,14 +776,12 @@ void obj_cast_spell(int sn, int level, CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DAT
 	if (sn <= 0)
 		return;
 
-	if (sn >= MAX_SKILL || skill_table[sn].spell_fun == 0)
-	{
+	if (sn >= MAX_SKILL || skill_table[sn].spell_fun == 0) {
 		bug("Obj_cast_spell: bad sn %d.", sn);
 		return;
 	}
 
-	switch (skill_table[sn].target)
-	{
+	switch (skill_table[sn].target) {
 	default:
 		bug("Obj_cast_spell: bad target for sn %d.", sn);
 		return;
@@ -916,6 +915,10 @@ void obj_cast_spell(int sn, int level, CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DAT
 
 		break;
 	}
+
+	if ((target == TARGET_CHAR && ((CHAR_DATA*) vo)->extracted)
+	||  (target == TARGET_OBJ && ((OBJ_DATA*) vo)->extracted))
+		return;
 
 	target_name = "";
 	(*skill_table[sn].spell_fun) (sn, level, ch, vo,target);

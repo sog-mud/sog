@@ -1,5 +1,5 @@
 /*
- * $Id: act_hera.c,v 1.15 1998-06-02 15:55:59 fjoe Exp $
+ * $Id: act_hera.c,v 1.16 1998-06-06 10:51:53 fjoe Exp $
  */
 
 /***************************************************************************
@@ -47,7 +47,7 @@
 ***************************************************************************/
 
 /*
- * $Id: act_hera.c,v 1.15 1998-06-02 15:55:59 fjoe Exp $
+ * $Id: act_hera.c,v 1.16 1998-06-06 10:51:53 fjoe Exp $
  */
 #include <sys/types.h>
 #include <sys/time.h>
@@ -61,6 +61,11 @@
 #include "comm.h"
 #include "interp.h"
 #include "resource.h"
+
+/* for bzero, bcopy */
+#if defined(SUNOS) || defined(SVR4)
+#include <strings.h>
+#endif
 
 /* random room generation procedure */
 ROOM_INDEX_DATA  *get_random_room(CHAR_DATA *ch)
@@ -326,16 +331,6 @@ void do_settraps( CHAR_DATA *ch, char *argument )
  *  Modified by Turtle for Merc22 (07-Nov-94).                             *
  *  Adopted to ANATOLIA by Chronos.                                        *
  ***************************************************************************/
-
-#if	defined(linux)
-void bcopy(const void *src,void *dest,int n);
-void bzero(void *s,int n);
-#elif	defined(BSD44)
-#include <string.h>
-#else
-void bcopy(char *s1,char* s2,int len);
-void bzero(char *sp,int len);
-#endif
 
 extern const char * dir_name[];
 

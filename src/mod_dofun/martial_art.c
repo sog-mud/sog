@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.6 1998-05-27 08:47:26 fjoe Exp $
+ * $Id: martial_art.c,v 1.7 1998-06-06 10:51:56 fjoe Exp $
  */
 
 /***************************************************************************
@@ -48,6 +48,11 @@
 #include "comm.h"
 #include "magic.h"
 #include "act_comm.h"
+
+#ifdef SUNOS
+#	include <stdarg.h>
+#	include "compat.h"
+#endif
 
 DECLARE_DO_FUN(do_yell		);
 DECLARE_DO_FUN(do_sleep		);

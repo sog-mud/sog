@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.38 1998-06-03 20:44:10 fjoe Exp $
+ * $Id: comm.c,v 1.39 1998-06-06 10:51:54 fjoe Exp $
  */
 
 /***************************************************************************
@@ -67,10 +67,15 @@
 #include <time.h>
 #include <stdarg.h>   
 #include <ctype.h>
+#include <arpa/telnet.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <unistd.h>
+#include <fcntl.h>
+#include <netdb.h>
 
 #include <sys/wait.h>
 #include <stdlib.h>
-#include <stdarg.h>
 
 #include "merc.h"
 #include "recycle.h"
@@ -97,10 +102,6 @@ char* color(char type, CHAR_DATA *ch);
 /*
  * Malloc debugging stuff.
  */
-#if defined(sun)
-#undef MALLOC_DEBUG
-#endif
-
 #if defined(MALLOC_DEBUG)
 #include <malloc.h>
 extern	int	malloc_debug	args( ( int  ) );
@@ -144,11 +145,6 @@ struct codepage codepages[] = {
 /*
  * Socket and TCP/IP stuff.
  */
-#include <fcntl.h>
-#include <netdb.h>
-#include <netinet/in.h>
-#include <sys/socket.h>
-#include <arpa/telnet.h>
 
 char	echo_off_str	[] = { IAC, WILL, TELOPT_ECHO, '\0' };
 char	echo_on_str	[] = { IAC, WONT, TELOPT_ECHO, '\0' };
@@ -160,13 +156,6 @@ char *get_stat_alias		args( (CHAR_DATA* ch, int which) );
 /*
  * OS-dependent declarations.
  */
-#if	defined(BSD44)
-#include <sys/types.h>
-#include <sys/time.h>
-#include <sys/socket.h>
-#include <unistd.h>
-#include <string.h>
-#endif
 
 #if	defined(_AIX)
 #include <sys/select.h>
@@ -268,27 +257,14 @@ int	write		args( ( int fd, char *buf, int nbyte ) );
 #endif
 
 /* This includes Solaris Sys V as well */
-#if defined(sun)
-int	accept		args( ( int s, struct sockaddr *addr, int *addrlen ) );
-int	bind		args( ( int s, struct sockaddr *name, int namelen ) );
-void	bzero		args( ( char *b, int length ) );
-int	close		args( ( int fd ) );
-int	getpeername	args( ( int s, struct sockaddr *name, int *namelen ) );
-int	getsockname	args( ( int s, struct sockaddr *name, int *namelen ) );
-int	gettimeofday	args( ( struct timeval *tp, struct timezone *tzp ) );
-int	listen		args( ( int s, int backlog ) );
-int	read		args( ( int fd, char *buf, int nbyte ) );
-int	select		args( ( int width, fd_set *readfds, fd_set *writefds,
-			    fd_set *exceptfds, struct timeval *timeout ) );
-#if defined(SYSV)
-int setsockopt		args( ( int s, int level, int optname,
-			    const char *optval, int optlen ) );
-#else
-int	setsockopt	args( ( int s, int level, int optname, void *optval,
-			    int optlen ) );
+#if defined(SUNOS)
+#	include <crypt.h>
+#	include "compat.h"
 #endif
-int	socket		args( ( int domain, int type, int protocol ) );
-int	write		args( ( int fd, char *buf, int nbyte ) );
+
+#if defined(SVR4)
+#	include <arpa/inet.h>
+#	include <crypt.h>
 #endif
 
 #if defined(ultrix)
@@ -424,61 +400,50 @@ int main( int argc, char **argv )
 
 
 
-int init_socket( int port )
+int init_socket(int port)
 {
 	static struct sockaddr_in sa_zero;
 	struct sockaddr_in sa;
+	struct linger ld;
 	int x = 1;
 	int fd;
 
-	if ( ( fd = socket( AF_INET, SOCK_STREAM, 0 ) ) < 0 )
-	{
-	perror( "Init_socket: socket" );
-	exit( 1 );
+	if ((fd = socket(AF_INET, SOCK_STREAM, 0)) < 0) {
+		perror("Init_socket: socket");
+		exit(1);
 	}
 
-	if ( setsockopt( fd, SOL_SOCKET, SO_REUSEADDR,
-	(char *) &x, sizeof(x) ) < 0 )
-	{
-	perror( "Init_socket: SO_REUSEADDR" );
-	close(fd);
-	exit( 1 );
+	if (setsockopt(fd, SOL_SOCKET, SO_REUSEADDR,
+		       (char *) &x, sizeof(x)) < 0) {
+		perror("Init_socket: SO_REUSEADDR");
+		close(fd);
+		exit(1);
 	}
 
-#if defined(SO_DONTLINGER) && !defined(SYSV)
-	{
-	struct	linger	ld;
-
-	ld.l_onoff  = 1;
+	ld.l_onoff  = 0;
 	ld.l_linger = 1000;
 
-	if ( setsockopt( fd, SOL_SOCKET, SO_DONTLINGER,
-	(char *) &ld, sizeof(ld) ) < 0 )
-	{
-	    perror( "Init_socket: SO_DONTLINGER" );
-	    close(fd);
-	    exit( 1 );
+	if (setsockopt(fd, SOL_SOCKET, SO_LINGER,
+	    (char *) &ld, sizeof(ld)) < 0) {
+		perror("Init_socket: SO_DONTLINGER");
+		close(fd);
+		exit(1);
 	}
-	}
-#endif
 
-	sa		    = sa_zero;
+	sa		= sa_zero;
 	sa.sin_family   = AF_INET;
-	sa.sin_port	    = htons( port );
+	sa.sin_port	= htons( port );
 
-	if ( bind( fd, (struct sockaddr *) &sa, sizeof(sa) ) < 0 )
-	{
-	perror("Init socket: bind" );
-	close(fd);
-	exit(1);
+	if (bind(fd, (struct sockaddr *) &sa, sizeof(sa)) < 0) {
+		perror("Init socket: bind");
+		close(fd);
+		exit(1);
 	}
 
-
-	if ( listen( fd, 3 ) < 0 )
-	{
-	perror("Init socket: listen");
-	close(fd);
-	exit(1);
+	if (listen(fd, 3) < 0) {
+		perror("Init socket: listen");
+		close(fd);
+		exit(1);
 	}
 
 	return fd;

@@ -2,7 +2,7 @@
 #define _MERC_H_
 
 /*
- * $Id: merc.h,v 1.25 1998-06-03 20:44:12 fjoe Exp $
+ * $Id: merc.h,v 1.26 1998-06-06 10:51:56 fjoe Exp $
  */
 
 /***************************************************************************
@@ -42,10 +42,6 @@
 *	By using this code, you have agreed to follow the terms of the	   *
 *	ROM license, in the file Rom24/doc/rom.license			   *
 ***************************************************************************/
-
-#ifndef BSD44
-#include <libio.h>
-#endif
 
 /*
  * Accommodate old non-Ansi compilers.
@@ -2838,21 +2834,6 @@ char *	crypt		args( ( const char *key, const char *salt ) );
 int	fclose		args( ( FILE *stream ) );
 int	fprintf 	args( ( FILE *stream, const char *format, ... ) );
 int	fread		args( ( void *ptr, int size, int n, FILE *stream ) );
-int	fseek		args( ( FILE *stream, long offset, int ptrname ) );
-void	perror		args( ( const char *s ) );
-int	ungetc		args( ( int c, FILE *stream ) );
-#endif
-
-#if	defined(sun)
-char *	crypt		args( ( const char *key, const char *salt ) );
-int	fclose		args( ( FILE *stream ) );
-int	fprintf 	args( ( FILE *stream, const char *format, ... ) );
-#if	defined(SYSV)
-size_t	fread		args( ( void *ptr, size_t size, size_t n,
-			    FILE *stream) );
-#else
-int	fread		args( ( void *ptr, int size, int n, FILE *stream ) );
-#endif
 int	fseek		args( ( FILE *stream, long offset, int ptrname ) );
 void	perror		args( ( const char *s ) );
 int	ungetc		args( ( int c, FILE *stream ) );

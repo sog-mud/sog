@@ -1,12 +1,22 @@
 /*
- * $Id: resource.c,v 1.17 1998-06-03 20:56:35 fjoe Exp $
+ * $Id: resource.c,v 1.18 1998-06-06 10:51:57 fjoe Exp $
  */
 
-#include <sys/time.h>
+#include <limits.h>
 #include <stdio.h>
+#include <time.h>
 #include "merc.h"
 #include "resource.h"
 #include "db.h"
+
+#ifdef SUNOS
+#	include <stdarg.h>
+#	include "compat.h"
+#endif
+
+#ifdef SVR4
+#	include "compat.h"
+#endif
 
 char BLANK_STRING[] = "{RBUG!!!{x";
 
@@ -59,7 +69,8 @@ char *vmsg(int msgid, CHAR_DATA *ch, CHAR_DATA *victim)
 #	define EX_NOINPUT	66
 #	define EX_OSERR		71
 #endif
-#include <sys/syslimits.h>
+
+#include <limits.h>
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
@@ -269,7 +280,7 @@ lang_load(int langnum, char* fname)
 					fprintf(stderr,
 						"%s:%d: invalid "
 						"sex dependancy\n",
-						name, line);
+						fname, line);
 					exit(EX_DATAERR);
 				}
 					

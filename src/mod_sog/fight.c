@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.28 1998-06-05 22:58:37 efdi Exp $
+ * $Id: fight.c,v 1.29 1998-06-06 10:51:55 fjoe Exp $
  */
 
 /***************************************************************************
@@ -41,7 +41,7 @@
 ***************************************************************************/
 
 #include <sys/types.h>
-#include <sys/syslimits.h>
+#include <limits.h>
 #include <stdio.h>
 #include <string.h>
 #include <time.h>

@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.61 1998-06-06 01:44:58 efdi Exp $
+ * $Id: act_info.c,v 1.62 1998-06-06 10:51:53 fjoe Exp $
  */
 
 /***************************************************************************
@@ -63,6 +63,10 @@
 #include "hometown.h"
 #include "interp.h"
 #include "update.h"
+
+#if defined(SUNOS) || defined(SVR4)
+#	include <crypt.h>
+#endif
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_exits		);
