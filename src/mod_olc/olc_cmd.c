@@ -1,5 +1,5 @@
 /*-
- * Copyright (c) 1998 arborn <avn@org.chem.msu.su>
+ * Copyright (c) 1998 SoG Development Team
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_cmd.c,v 1.3 1999-12-15 20:12:26 avn Exp $
+ * $Id: olc_cmd.c,v 1.4 1999-12-16 12:24:48 fjoe Exp $
  */
 
 #include "olc.h"

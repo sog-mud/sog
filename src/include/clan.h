@@ -1,5 +1,5 @@
 /*-
- * Copyright (c) 1998 fjoe <fjoe@iclub.nsu.ru>
+ * Copyright (c) 1998 SoG Development Team
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: clan.h,v 1.21 1999-12-11 15:31:08 fjoe Exp $
+ * $Id: clan.h,v 1.22 1999-12-16 12:24:43 fjoe Exp $
  */
 
 #ifndef _CLAN_H_

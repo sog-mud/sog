@@ -1,5 +1,5 @@
 /*-
- * Copyright (c) 1998 fjoe <fjoe@iclub.nsu.ru>
+ * Copyright (c) 1998 SoG Development Team
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: util.c,v 1.24 1999-11-23 12:14:32 fjoe Exp $
+ * $Id: util.c,v 1.25 1999-12-16 12:24:53 fjoe Exp $
  */
 
 #include <sys/types.h>

@@ -1,7 +1,7 @@
 %{
 
 /*-
- * Copyright (c) 1999 fjoe <fjoe@iclub.nsu.ru>
+ * Copyright (c) 1999 SoG Development Team
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -25,7 +25,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: cc_parse.y,v 1.3 1999-12-14 15:31:14 fjoe Exp $
+ * $Id: cc_parse.y,v 1.4 1999-12-16 12:24:50 fjoe Exp $
  */
 
 #include <setjmp.h>

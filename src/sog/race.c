@@ -1,5 +1,5 @@
 /*-
- * Copyright (c) 1998 fjoe <fjoe@iclub.nsu.ru>
+ * Copyright (c) 1998 SoG Development Team
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: race.c,v 1.19 1999-12-16 11:38:41 kostik Exp $
+ * $Id: race.c,v 1.20 1999-12-16 12:24:52 fjoe Exp $
  */
 
 #include <stdio.h>

@@ -1,5 +1,5 @@
 /*-
- * Copyright (c) 1999 fjoe <fjoe@iclub.nsu.ru>
+ * Copyright (c) 1999 SoG Development Team
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: hash.h,v 1.5 1999-11-22 14:54:23 fjoe Exp $
+ * $Id: hash.h,v 1.6 1999-12-16 12:24:44 fjoe Exp $
  */
 
 #ifndef _HASH_H_

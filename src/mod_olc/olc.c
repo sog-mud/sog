@@ -1,5 +1,5 @@
 /*-                        
- * Copyright (c) 1998 fjoe <fjoe@iclub.nsu.ru>
+ * Copyright (c) 1998 SoG Development Team
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.98 1999-12-16 11:40:52 fjoe Exp $
+ * $Id: olc.c,v 1.99 1999-12-16 12:24:46 fjoe Exp $
  */
 
 /***************************************************************************

@@ -1,5 +1,5 @@
 /*-
- * Copyright (c) 1999 arborn <avn@org.chem.msu.su>
+ * Copyright (c) 1999 SoG Development Team
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_material.c,v 1.11 1999-12-16 11:40:52 fjoe Exp $
+ * $Id: olc_material.c,v 1.12 1999-12-16 12:24:48 fjoe Exp $
  */
 
 #include "olc.h"

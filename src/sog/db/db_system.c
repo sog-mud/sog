@@ -1,5 +1,5 @@
 /*-
- * Copyright (c) 1999 fjoe <fjoe@iclub.nsu.ru>
+ * Copyright (c) 1999 SoG Development Team
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_system.c,v 1.8 1999-10-26 13:52:59 fjoe Exp $
+ * $Id: db_system.c,v 1.9 1999-12-16 12:24:55 fjoe Exp $
  */
 
 #include <sys/types.h>

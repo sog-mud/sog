@@ -1,5 +1,5 @@
 /*-
- * Copyright (c) 1998 efdi <efdi@iclub.nsu.ru>
+ * Copyright (c) 1998 SoG Development Team
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: rating.h,v 1.6 1999-06-28 09:04:16 fjoe Exp $
+ * $Id: rating.h,v 1.7 1999-12-16 12:24:45 fjoe Exp $
  */
 
 #ifndef _RATING_H_
