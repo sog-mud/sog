@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.202.2.7 2000-04-24 11:28:18 osya Exp $
+ * $Id: act_move.c,v 1.202.2.8 2000-05-05 14:16:05 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1146,11 +1146,15 @@ void do_sneak(CHAR_DATA *ch, const char *argument)
 		  return;
 	}
 
-	char_puts("You attempt to move silently.\n", ch);
-	affect_strip(ch, gsn_sneak);
-
-	if (IS_AFFECTED(ch, AFF_SNEAK))
+	if (IS_AFFECTED(ch, AFF_SNEAK)) {
+		act_puts("You already move as silently as you can.",
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		return;
+	}
+
+	act_puts("You attempt to move silently.",
+		 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+	affect_strip(ch, gsn_sneak);
 
 	if (number_percent() < chance) {
 		check_improve(ch, gsn_sneak, TRUE, 3);
@@ -1162,8 +1166,7 @@ void do_sneak(CHAR_DATA *ch, const char *argument)
 		af.modifier  = 0;
 		af.bitvector = AFF_SNEAK;
 		affect_to_char(ch, &af);
-	}
-	else
+	} else
 		check_improve(ch, gsn_sneak, FALSE, 3);
 }
 
