@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.414 2004-02-19 13:31:39 fjoe Exp $
+ * $Id: merc.h,v 1.415 2004-02-19 17:16:40 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1788,7 +1788,6 @@ struct obj_data
 	int			condition;
 	const char *		material;
 	int			timer;
-	flag_t			item_type;
 	vo_t			value[5];
 	int			progtypes;
 	mlstring		owner;

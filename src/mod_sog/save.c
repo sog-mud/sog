@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.207 2004-02-18 21:42:00 fjoe Exp $
+ * $Id: save.c,v 1.208 2004-02-19 17:16:48 fjoe Exp $
  */
 
 /***************************************************************************
@@ -512,18 +512,13 @@ fwrite_obj(CHAR_DATA *ch, OBJ_DATA *obj, FILE *fp, int iNest)
 		fprintf(fp, "Time %d\n", obj->timer);
 	fprintf(fp, "Cost %d\n", obj->cost);
 
-	if (obj->item_type != obj->pObjIndex->item_type) {
-		fprintf(fp, "ItemType %s\n",
-			flag_string(item_types, obj->item_type));
-	}
-
 	if (INT(obj->value[0]) != INT(obj->pObjIndex->value[0])
 	||  INT(obj->value[1]) != INT(obj->pObjIndex->value[1])
 	||  INT(obj->value[2]) != INT(obj->pObjIndex->value[2])
 	||  INT(obj->value[3]) != INT(obj->pObjIndex->value[3])
 	||  INT(obj->value[4]) != INT(obj->pObjIndex->value[4])) {
 		fprintf(fp, "Values ");
-		fwrite_objval(obj->item_type, obj->value, fp);
+		fwrite_objval(obj->pObjIndex->item_type, obj->value, fp);
 	}
 
 	aff_fwrite_list("Affc", NULL, obj->affected, fp, 0);
@@ -1162,11 +1157,6 @@ fread_obj(CHAR_DATA *ch, CHAR_DATA *obj_to, rfile_t *fp, int flags)
 			}
 			break;
 
-		case 'I':
-			KEY("ItemType", obj->item_type,
-			    fread_fword(item_types, fp));
-			break;
-
 		case 'L':
 			KEY("Lev", obj->level, fread_number(fp));
 			SKEY("Label", obj->label, fread_string(fp));
@@ -1214,8 +1204,9 @@ fread_obj(CHAR_DATA *ch, CHAR_DATA *obj_to, rfile_t *fp, int flags)
 
 		case 'V':
 			if (IS_TOKEN(fp, "Values")) {
-				fread_objval(obj->item_type, obj->value, fp);
-				if (obj->item_type == ITEM_WEAPON
+				fread_objval(
+				    obj->pObjIndex->item_type, obj->value, fp);
+				if (obj->pObjIndex->item_type == ITEM_WEAPON
 				&&  INT(obj->value[0]) == 0)
 					obj->value[0] = obj->pObjIndex->value[0];
 				fMatch = TRUE;

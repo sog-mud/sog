@@ -1,5 +1,5 @@
 /*
- * $Id: effects.c,v 1.50 2004-02-11 23:54:08 fjoe Exp $
+ * $Id: effects.c,v 1.51 2004-02-19 17:16:45 fjoe Exp $
  */
 
 /***************************************************************************
@@ -98,7 +98,7 @@ EFFECT_FUN(acid_effect)
 
 		chance -= obj->level * 2;
 
-		switch (obj->item_type) {
+		switch (obj->pObjIndex->item_type) {
 		default:
 			return;
 		case ITEM_CONTAINER:
@@ -126,7 +126,7 @@ EFFECT_FUN(acid_effect)
 		if (!effect_ok(obj, chance, msg))
 			return;
 
-		if (obj->item_type == ITEM_ARMOR) { /* etch it */
+		if (obj->pObjIndex->item_type == ITEM_ARMOR) { /* etch it */
 			AFFECT_DATA *paf;
 			bool af_found = FALSE;
 			int i;
@@ -228,7 +228,7 @@ EFFECT_FUN(cold_effect)
 
 		chance -= obj->level * 2;
 
-		switch (obj->item_type) {
+		switch (obj->pObjIndex->item_type) {
 		default:
 			return;
 		case ITEM_POTION:
@@ -312,7 +312,7 @@ EFFECT_FUN(fire_effect)
 			chance += 30;
 			msg = "$p melts and evaporates!";
 		} else {
-			switch (obj->item_type) {
+			switch (obj->pObjIndex->item_type) {
 			default:
 				return;
 			case ITEM_CONTAINER:
@@ -398,7 +398,7 @@ EFFECT_FUN(poison_effect)
 			chance = (chance - 50) / 2 + 50;
 
 		chance -= obj->level * 2;
-		switch (obj->item_type) {
+		switch (obj->pObjIndex->item_type) {
 		default:
 			return;
 		case ITEM_FOOD:
@@ -458,7 +458,7 @@ EFFECT_FUN(shock_effect)
 			chance -= 5;
 
 		chance -= obj->level * 2;
-		switch(obj->item_type) {
+		switch(obj->pObjIndex->item_type) {
 		default:
 			return;
 		case ITEM_WAND:
@@ -534,7 +534,7 @@ EFFECT_FUN(sand_effect)
 
 		chance -= obj->level * 2;
 
-		switch (obj->item_type) {
+		switch (obj->pObjIndex->item_type) {
 		default:
 			return;
 		case ITEM_CONTAINER:
@@ -567,7 +567,7 @@ EFFECT_FUN(sand_effect)
 		if (!effect_ok(obj, chance, msg))
 			return;
 
-		if (obj->item_type == ITEM_ARMOR) { /* etch it */
+		if (obj->pObjIndex->item_type == ITEM_ARMOR) { /* etch it */
 			AFFECT_DATA *paf;
 			bool af_found = FALSE;
 			int i;
@@ -672,7 +672,7 @@ EFFECT_FUN(scream_effect)
 			chance += 30;
 			msg = "$p breaks into tiny small pieces.";
 		} else {
-			switch (obj->item_type) {
+			switch (obj->pObjIndex->item_type) {
 			default:
 				return;
 			case ITEM_POTION:

@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.389 2004-02-19 16:57:58 fjoe Exp $
+ * $Id: handler.c,v 1.390 2004-02-19 17:16:47 fjoe Exp $
  */
 
 /***************************************************************************
@@ -121,7 +121,7 @@ char_to_room(CHAR_DATA *ch, ROOM_INDEX_DATA *pRoomIndex)
 	}
 
 	if ((obj = get_eq_char(ch, WEAR_LIGHT)) != NULL
-	&&   obj->item_type == ITEM_LIGHT
+	&&   obj->pObjIndex->item_type == ITEM_LIGHT
 	&&   INT(obj->value[2]) != 0)
 		++ch->in_room->light;
 
@@ -987,13 +987,12 @@ create_obj(int vnum, int flags)
 	/*
 	 * objval_destroy is not needed since obj was just created
 	 */
-	obj->item_type = pObjIndex->item_type;
-	objval_cpy(obj->item_type, obj->value, pObjIndex->value);
+	objval_cpy(obj->pObjIndex->item_type, obj->value, pObjIndex->value);
 
 	/*
 	 * Mess with object properties.
 	 */
-	switch (obj->item_type) {
+	switch (obj->pObjIndex->item_type) {
 	case ITEM_LIGHT:
 		if (INT(obj->value[2]) == 999)
 			INT(obj->value[2]) = -1;
@@ -1058,8 +1057,8 @@ clone_obj(OBJ_DATA *parent)
 	/*
 	 * obj values
 	 */
-	objval_destroy(parent->item_type, clone->value);
-	objval_cpy(parent->item_type, clone->value, parent->value);
+	objval_destroy(parent->pObjIndex->item_type, clone->value);
+	objval_cpy(parent->pObjIndex->item_type, clone->value, parent->value);
 
 	/*
 	 * affects
@@ -1259,10 +1258,10 @@ can_see_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 	if (IS_OBJ_STAT(obj, ITEM_VIS_DEATH))
 		return FALSE;
 
-	if (IS_AFFECTED(ch, AFF_BLIND) && obj->item_type != ITEM_POTION)
+	if (IS_AFFECTED(ch, AFF_BLIND) && obj->pObjIndex->item_type != ITEM_POTION)
 		return FALSE;
 
-	if (obj->item_type == ITEM_LIGHT
+	if (obj->pObjIndex->item_type == ITEM_LIGHT
 	&&  INT(obj->value[2]) != 0)
 		return TRUE;
 
@@ -1508,11 +1507,11 @@ get_obj_number(OBJ_DATA *obj)
 {
 	int number;
 /*
-	if (obj->item_type == ITEM_CONTAINER || obj->item_type == ITEM_MONEY
-	||  obj->item_type == ITEM_GEM || obj->item_type == ITEM_JEWELRY)
+	if (obj->pObjIndex->item_type == ITEM_CONTAINER || obj->pObjIndex->item_type == ITEM_MONEY
+	||  obj->pObjIndex->item_type == ITEM_GEM || obj->pObjIndex->item_type == ITEM_JEWELRY)
 	    number = 0;
 */
-	if (obj->item_type == ITEM_MONEY)
+	if (obj->pObjIndex->item_type == ITEM_MONEY)
 		number = 0;
 	else
 		number = 1;
@@ -1614,7 +1613,7 @@ equip_char(CHAR_DATA *ch, OBJ_DATA *obj, int iWear)
 	/*
 	 * adjust light
 	 */
-	if (obj->item_type == ITEM_LIGHT
+	if (obj->pObjIndex->item_type == ITEM_LIGHT
 	&&  INT(obj->value[2]) != 0
 	&&  ch->in_room != NULL)
 		++ch->in_room->light;
@@ -1660,7 +1659,7 @@ unequip_char(CHAR_DATA *ch, OBJ_DATA *obj)
 	/*
 	 * adjust light
 	 */
-	if (obj->item_type == ITEM_LIGHT
+	if (obj->pObjIndex->item_type == ITEM_LIGHT
 	&&  INT(obj->value[2]) != 0
 	&&  ch->in_room != NULL
 	&&  ch->in_room->light > 0)
@@ -2962,7 +2961,7 @@ get_obj(CHAR_DATA *ch, OBJ_DATA *obj, OBJ_DATA *container,
 	int             members;
 
 	if (!CAN_WEAR(obj, ITEM_TAKE)
-	||  (obj->item_type == ITEM_CORPSE_PC &&
+	||  (obj->pObjIndex->item_type == ITEM_CORPSE_PC &&
 	     obj->in_room &&
 	     IS_SET(obj->in_room->room_flags, ROOM_BATTLE_ARENA) &&
 	     !IS_OWNER(ch, obj))) {
@@ -2993,7 +2992,7 @@ get_obj(CHAR_DATA *ch, OBJ_DATA *obj, OBJ_DATA *container,
 		}
 	}
 
-	if (obj->item_type == ITEM_MONEY) {
+	if (obj->pObjIndex->item_type == ITEM_MONEY) {
 		if (!can_carry_more_w(ch, MONEY_WEIGHT(obj))) {
 			act_puts("$P: you can't carry that much weight.",
 				 ch, NULL, obj, TO_CHAR, POS_DEAD);
@@ -3033,7 +3032,7 @@ get_obj(CHAR_DATA *ch, OBJ_DATA *obj, OBJ_DATA *container,
 		    TO_ROOM | (HAS_INVIS(ch, ID_SNEAK) ? ACT_NOMORTAL : 0));
 	}
 
-	if (obj->item_type == ITEM_MONEY) {
+	if (obj->pObjIndex->item_type == ITEM_MONEY) {
 		ch->silver += INT(obj->value[0]);
 		ch->gold += INT(obj->value[1]);
 		if (!IS_NPC(ch)
@@ -3138,7 +3137,7 @@ wear_obj(CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace)
 		return FALSE;
 	}
 
-	if (obj->item_type == ITEM_LIGHT) {
+	if (obj->pObjIndex->item_type == ITEM_LIGHT) {
 		if (!remove_obj(ch, WEAR_LIGHT, fReplace))
 			return FALSE;
 
@@ -3534,7 +3533,7 @@ remove_obj(CHAR_DATA *ch, int iWear, bool fReplace)
 		return FALSE;
 	}
 
-	if (obj->item_type == ITEM_TATTOO && !IS_IMMORTAL(ch)) {
+	if (obj->pObjIndex->item_type == ITEM_TATTOO && !IS_IMMORTAL(ch)) {
 		act_puts("You must scratch it to remove $p.",
 			 ch, obj, NULL, TO_CHAR, POS_DEAD);
 		return FALSE;
@@ -3690,7 +3689,7 @@ drop_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 bool
 open_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 {
-	if (obj->item_type == ITEM_PORTAL) {
+	if (obj->pObjIndex->item_type == ITEM_PORTAL) {
 		/* open portal */
 		if (!IS_SET(INT(obj->value[1]), EX_ISDOOR)) {
 			act_char("You can't do that.", ch);
@@ -3708,7 +3707,7 @@ open_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 		}
 	} else {
 		/* 'open object' */
-		if (obj->item_type != ITEM_CONTAINER) {
+		if (obj->pObjIndex->item_type != ITEM_CONTAINER) {
 			act_char("That's not a container.", ch);
 			return FALSE;
 		}
@@ -3748,7 +3747,7 @@ open_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 	act_puts("You open $p.", ch, obj, NULL, TO_CHAR, POS_DEAD);
 	act("$n opens $p.", ch, obj, NULL, TO_ROOM);
 
-	if (obj->item_type == ITEM_PORTAL)
+	if (obj->pObjIndex->item_type == ITEM_PORTAL)
 		REMOVE_BIT(INT(obj->value[1]), EX_CLOSED);
 	else
 		REMOVE_BIT(INT(obj->value[1]), CONT_CLOSED);
@@ -3759,7 +3758,7 @@ open_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 bool
 close_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 {
-	if (obj->item_type == ITEM_PORTAL) {
+	if (obj->pObjIndex->item_type == ITEM_PORTAL) {
 		/* portal stuff */
 		if (!IS_SET(INT(obj->value[1]), EX_ISDOOR)
 		||  IS_SET(INT(obj->value[1]), EX_NOCLOSE)) {
@@ -3773,7 +3772,7 @@ close_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 		}
 	} else {
 		/* 'close object' */
-		if (obj->item_type != ITEM_CONTAINER) {
+		if (obj->pObjIndex->item_type != ITEM_CONTAINER) {
 			act_char("That's not a container.", ch);
 			return FALSE;
 		}
@@ -3793,7 +3792,7 @@ close_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 	||  IS_EXTRACTED(ch) || !mem_is(obj, MT_OBJ))
 		return FALSE;
 
-	if (obj->item_type == ITEM_PORTAL)
+	if (obj->pObjIndex->item_type == ITEM_PORTAL)
 		SET_BIT(INT(obj->value[1]), EX_CLOSED);
 	else
 		SET_BIT(INT(obj->value[1]), CONT_CLOSED);
@@ -3807,7 +3806,7 @@ close_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 bool
 lock_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 {
-	if (obj->item_type == ITEM_PORTAL) {
+	if (obj->pObjIndex->item_type == ITEM_PORTAL) {
 		/* portal stuff */
 		if (!IS_SET(INT(obj->value[1]), EX_ISDOOR)
 		||  IS_SET(INT(obj->value[1]), EX_NOCLOSE)) {
@@ -3837,7 +3836,7 @@ lock_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 		}
 	} else {
 		/* 'lock object' */
-		if (obj->item_type != ITEM_CONTAINER) {
+		if (obj->pObjIndex->item_type != ITEM_CONTAINER) {
 			act_char("That's not a container.", ch);
 			return FALSE;
 		}
@@ -3867,7 +3866,7 @@ lock_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 	||  IS_EXTRACTED(ch) || !mem_is(obj, MT_OBJ))
 		return FALSE;
 
-	if (obj->item_type == ITEM_PORTAL)
+	if (obj->pObjIndex->item_type == ITEM_PORTAL)
 		SET_BIT(INT(obj->value[1]), EX_LOCKED);
 	else
 		SET_BIT(INT(obj->value[1]), CONT_LOCKED);
@@ -3881,7 +3880,7 @@ lock_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 bool
 unlock_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 {
-	if (obj->item_type == ITEM_PORTAL) {
+	if (obj->pObjIndex->item_type == ITEM_PORTAL) {
 		/* portal stuff */
 		if (!IS_SET(INT(obj->value[1]), EX_ISDOOR)) {
 			act_char("You can't do that.", ch);
@@ -3909,7 +3908,7 @@ unlock_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 		}
 	} else {
 		/* 'unlock object' */
-		if (obj->item_type != ITEM_CONTAINER) {
+		if (obj->pObjIndex->item_type != ITEM_CONTAINER) {
 			act_char("That's not a container.", ch);
 			return FALSE;
 		}
@@ -3939,7 +3938,7 @@ unlock_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 	||  IS_EXTRACTED(ch) || !mem_is(obj, MT_OBJ))
 		return FALSE;
 
-	if (obj->item_type == ITEM_PORTAL)
+	if (obj->pObjIndex->item_type == ITEM_PORTAL)
 		REMOVE_BIT(INT(obj->value[1]),EX_LOCKED);
 	else
 		REMOVE_BIT(INT(obj->value[1]), CONT_LOCKED);
@@ -5474,7 +5473,7 @@ format_obj(BUFFER *output, OBJ_DATA *obj)
 		"Object '%s%s' is type %s, stat flags %s.\n"
 		"Weight is %d, value is %d, level is %d.\n",
 		obj->pObjIndex->name, obj->label,
-		flag_string(item_types, obj->item_type),
+		flag_string(item_types, obj->pObjIndex->item_type),
 		flag_string(stat_flags, obj->stat_flags & ~ITEM_ENCHANTED),
 		obj->weight,
 		obj->cost,
@@ -5487,7 +5486,7 @@ format_obj(BUFFER *output, OBJ_DATA *obj)
 	else if (obj->pObjIndex->limit < 6)
 		buf_printf(output, BUF_END, "It is very rare equipment.\n");
 
-	switch (obj->item_type) {
+	switch (obj->pObjIndex->item_type) {
 	case ITEM_SCROLL:
 	case ITEM_POTION:
 	case ITEM_PILL:
@@ -5879,7 +5878,7 @@ look_at(CHAR_DATA *ch, ROOM_INDEX_DATA *room)
 	bool adjust_light = FALSE;
 
 	if ((obj = get_eq_char(ch, WEAR_LIGHT))
-	&&  obj->item_type == ITEM_LIGHT
+	&&  obj->pObjIndex->item_type == ITEM_LIGHT
 	&&  INT(obj->value[2])) {
 		adjust_light = TRUE;
 		room->light++;
@@ -6093,7 +6092,7 @@ count_users(OBJ_DATA *obj)
 int
 apply_ac(OBJ_DATA *obj, int iWear, int type)
 {
-	if (obj->item_type != ITEM_ARMOR)
+	if (obj->pObjIndex->item_type != ITEM_ARMOR)
 		return 0;
 
 	switch (iWear) {
@@ -6749,7 +6748,7 @@ has_boat(CHAR_DATA *ch)
 		return TRUE;
 
 	for (obj = ch->carrying; obj != NULL; obj = obj->next_content)
-		if (obj->item_type == ITEM_BOAT) {
+		if (obj->pObjIndex->item_type == ITEM_BOAT) {
 			found = TRUE;
 			break;
 		}
@@ -6807,7 +6806,7 @@ char_from_room(CHAR_DATA *ch)
 		--ch->in_room->area->nplayer;
 
 	if ((obj = get_eq_char(ch, WEAR_LIGHT)) != NULL
-	&&   obj->item_type == ITEM_LIGHT
+	&&   obj->pObjIndex->item_type == ITEM_LIGHT
 	&&   INT(obj->value[2]) != 0
 	&&   ch->in_room->light > 0)
 		--ch->in_room->light;

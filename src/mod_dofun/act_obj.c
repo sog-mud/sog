@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.301 2004-02-19 16:56:02 fjoe Exp $
+ * $Id: act_obj.c,v 1.302 2004-02-19 17:16:42 fjoe Exp $
  */
 
 /***************************************************************************
@@ -194,7 +194,7 @@ DO_FUN(do_get, ch, argument)
 		return;
 	}
 
-	switch (container->item_type) {
+	switch (container->pObjIndex->item_type) {
 	default:
 		act_char("That is not a container.", ch);
 		return;
@@ -289,7 +289,7 @@ DO_FUN(do_put, ch, argument)
 		return;
 	}
 
-	if (container->item_type != ITEM_CONTAINER) {
+	if (container->pObjIndex->item_type != ITEM_CONTAINER) {
 		act_char("That is not a container.", ch);
 		return;
 	}
@@ -653,7 +653,8 @@ DO_FUN(do_envenom, ch, argument)
 	}
 
 	chance = get_skill(ch, "envenom");
-	if (obj->item_type == ITEM_FOOD || obj->item_type == ITEM_DRINK_CON) {
+	if (obj->pObjIndex->item_type == ITEM_FOOD
+	||  obj->pObjIndex->item_type == ITEM_DRINK_CON) {
 		if (IS_OBJ_STAT(obj, ITEM_BLESS)
 		||  IS_OBJ_STAT(obj, ITEM_BURN_PROOF)) {
 			act("You fail to poison $p.", ch, obj, NULL, TO_CHAR);
@@ -676,7 +677,7 @@ DO_FUN(do_envenom, ch, argument)
 		if (!INT(obj->value[3]))
 			check_improve(ch, "envenom", FALSE, 4);
 		return;
-	} else if (obj->item_type == ITEM_WEAPON) {
+	} else if (obj->pObjIndex->item_type == ITEM_WEAPON) {
 		if (IS_WEAPON_STAT(obj, WEAPON_FLAMING)
 		||  IS_WEAPON_STAT(obj, WEAPON_FROST)
 		||  IS_WEAPON_STAT(obj, WEAPON_VAMPIRIC)
@@ -747,8 +748,8 @@ DO_FUN(do_feed, ch, argument)
 	}
 
 	for (obj = ch->carrying; obj; obj = obj->next_content)
-		if (obj->item_type == ITEM_CORPSE_NPC
-		||  obj->item_type == ITEM_CORPSE_PC)
+		if (obj->pObjIndex->item_type == ITEM_CORPSE_NPC
+		||  obj->pObjIndex->item_type == ITEM_CORPSE_PC)
 			break;
 
 	if (!obj) {
@@ -873,7 +874,7 @@ DO_FUN(do_fill, ch, argument)
 	found = FALSE;
 	for (fountain = ch->in_room->contents; fountain != NULL;
 	     fountain = fountain->next_content) {
-		if (fountain->item_type == ITEM_FOUNTAIN) {
+		if (fountain->pObjIndex->item_type == ITEM_FOUNTAIN) {
 			found = TRUE;
 			break;
 		}
@@ -884,7 +885,7 @@ DO_FUN(do_fill, ch, argument)
 		return;
 	}
 
-	if (obj->item_type != ITEM_DRINK_CON) {
+	if (obj->pObjIndex->item_type != ITEM_DRINK_CON) {
 		act_char("You can't fill that.", ch);
 		return;
 	}
@@ -930,7 +931,7 @@ DO_FUN(do_pour, ch, argument)
 		act_char("You don't have that item.", ch);
 		return;
 	}
-	if (out->item_type != ITEM_DRINK_CON) {
+	if (out->pObjIndex->item_type != ITEM_DRINK_CON) {
 		act_char("That's not a drink container.", ch);
 		return;
 	}
@@ -973,7 +974,7 @@ DO_FUN(do_pour, ch, argument)
 			return;
 		}
 	}
-	if (in->item_type != ITEM_DRINK_CON) {
+	if (in->pObjIndex->item_type != ITEM_DRINK_CON) {
 		act_char("You can only pour into other drink containers.", ch);
 		return;
 	}
@@ -1045,7 +1046,7 @@ DO_FUN(do_drink, ch, argument)
 
 	if (arg[0] == '\0') {
 		for (obj = ch->in_room->contents; obj; obj= obj->next_content) {
-			if (obj->item_type == ITEM_FOUNTAIN)
+			if (obj->pObjIndex->item_type == ITEM_FOUNTAIN)
 				break;
 		}
 
@@ -1065,7 +1066,7 @@ DO_FUN(do_drink, ch, argument)
 		return;
 	}
 
-	switch (obj->item_type) {
+	switch (obj->pObjIndex->item_type) {
 	default:
 		act_char("You can't drink from that.", ch);
 		return;
@@ -1154,10 +1155,10 @@ DO_FUN(do_eat, ch, argument)
 		return;
 	}
 	if (!IS_IMMORTAL(ch)) {
-		if ((obj->item_type != ITEM_FOOD ||
+		if ((obj->pObjIndex->item_type != ITEM_FOOD ||
 		     IS_OBJ_STAT(obj, ITEM_NOT_EDIBLE))
-		&& obj->item_type != ITEM_PILL
-		&& obj->item_type != ITEM_HERB) {
+		&& obj->pObjIndex->item_type != ITEM_PILL
+		&& obj->pObjIndex->item_type != ITEM_HERB) {
 			act_char("That's not edible.", ch);
 			return;
 		}
@@ -1167,14 +1168,16 @@ DO_FUN(do_eat, ch, argument)
 		}
 	}
 
-	if ((obj->item_type == ITEM_FOOD || obj->item_type == ITEM_HERB)
+	if ((obj->pObjIndex->item_type == ITEM_FOOD ||
+	     obj->pObjIndex->item_type == ITEM_HERB)
 	&&  ch->fighting != NULL) {
 		act_puts("You can't eat while fighting.",
 			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		return;
 	}
 
-	if ((obj->item_type == ITEM_PILL || obj->item_type == ITEM_HERB)
+	if ((obj->pObjIndex->item_type == ITEM_PILL ||
+	     obj->pObjIndex->item_type == ITEM_HERB)
 	&&  ch->level < obj->level) {
 		act_puts("$p is too powerful for you to eat.",
 			 ch, obj, NULL, TO_CHAR, POS_DEAD);
@@ -1184,7 +1187,7 @@ DO_FUN(do_eat, ch, argument)
 	act("$n eats $p.", ch, obj, NULL, TO_ROOM);
 	act_puts("You eat $p.", ch, obj, NULL, TO_CHAR, POS_DEAD);
 
-	switch (obj->item_type) {
+	switch (obj->pObjIndex->item_type) {
 	case ITEM_FOOD:
 		if (!IS_NPC(ch)) {
 			int             condition;
@@ -1411,7 +1414,7 @@ DO_FUN(do_quaff, ch, argument)
 		return;
 	}
 
-	if (obj->item_type != ITEM_POTION) {
+	if (obj->pObjIndex->item_type != ITEM_POTION) {
 		act_char("You can quaff only potions.", ch);
 		return;
 	}
@@ -1478,7 +1481,7 @@ DO_FUN(do_dip, ch, argument)
 		return;
 	}
 
-	if (potion->item_type != ITEM_POTION) {
+	if (potion->pObjIndex->item_type != ITEM_POTION) {
 		act("$p is not a potion.", ch, potion, NULL, TO_CHAR);
 		return;
 	}
@@ -1527,7 +1530,7 @@ DO_FUN(do_recite, ch, argument)
 		return;
 	}
 
-	if (scroll->item_type != ITEM_SCROLL) {
+	if (scroll->pObjIndex->item_type != ITEM_SCROLL) {
 		act_char("You can recite only scrolls.", ch);
 		return;
 	}
@@ -1598,7 +1601,7 @@ DO_FUN(do_brandish, ch, argument)
 		return;
 	}
 
-	if (staff->item_type != ITEM_STAFF) {
+	if (staff->pObjIndex->item_type != ITEM_STAFF) {
 		act_char("You can brandish only with a staff.", ch);
 		return;
 	}
@@ -1685,7 +1688,7 @@ DO_FUN(do_zap, ch, argument)
 		act_char("You hold nothing in your hand.", ch);
 		return;
 	}
-	if (wand->item_type != ITEM_WAND) {
+	if (wand->pObjIndex->item_type != ITEM_WAND) {
 		act_char("You can zap only with a wand.", ch);
 		return;
 	}
@@ -2345,7 +2348,7 @@ DO_FUN(do_sell, ch, argument)
 	ch->silver += silver;
 	deduct_cost(keeper, cost);
 
-	if (obj->item_type == ITEM_TRASH
+	if (obj->pObjIndex->item_type == ITEM_TRASH
 	||  OBJ_IS(obj, OBJ_SELL_EXTRACT))
 		extract_obj(obj, 0);
 	else {
@@ -2572,7 +2575,7 @@ do_lore_raw(CHAR_DATA *ch, OBJ_DATA *obj, BUFFER *output)
 			   "Weight is %d, value is %d, level is %d.\n"
 			   "Material is %s.\n",
 			   obj->pObjIndex->name, obj->label,
-			   flag_string(item_types, obj->item_type),
+			   flag_string(item_types, obj->pObjIndex->item_type),
 			   flag_string(obj_flags, obj->pObjIndex->obj_flags),
 			   flag_string(stat_flags, obj->stat_flags),
 			   obj->weight,
@@ -2592,7 +2595,7 @@ do_lore_raw(CHAR_DATA *ch, OBJ_DATA *obj, BUFFER *output)
 			   "Weight is %d, value is %d, level is %d.\n"
 			   "Material is %s.\n",
 			   obj->pObjIndex->name, obj->label,
-			   flag_string(item_types, obj->item_type),
+			   flag_string(item_types, obj->pObjIndex->item_type),
 			   flag_string(obj_flags, obj->pObjIndex->obj_flags),
 			   flag_string(stat_flags, obj->stat_flags),
 			   obj->weight,
@@ -2607,7 +2610,7 @@ do_lore_raw(CHAR_DATA *ch, OBJ_DATA *obj, BUFFER *output)
 	v3 = obj->value[3];
 	v4 = obj->value[4];
 
-	switch (obj->item_type) {
+	switch (obj->pObjIndex->item_type) {
 	case ITEM_SCROLL:
 	case ITEM_POTION:
 	case ITEM_PILL:
@@ -2789,8 +2792,8 @@ DO_FUN(do_butcher, ch, argument)
 		act_char("You do not see that here.", ch);
 		return;
 	}
-	if (obj->item_type != ITEM_CORPSE_PC
-	&&  obj->item_type != ITEM_CORPSE_NPC) {
+	if (obj->pObjIndex->item_type != ITEM_CORPSE_PC
+	&&  obj->pObjIndex->item_type != ITEM_CORPSE_NPC) {
 		act_char("You can't butcher that.", ch);
 		return;
 	}
@@ -2870,8 +2873,8 @@ DO_FUN(do_crucify, ch, argument)
 		return;
 	}
 
-	if (obj->item_type != ITEM_CORPSE_PC
-	&&  obj->item_type != ITEM_CORPSE_NPC) {
+	if (obj->pObjIndex->item_type != ITEM_CORPSE_PC
+	&&  obj->pObjIndex->item_type != ITEM_CORPSE_NPC) {
 		act_char("You cannot crucify that.", ch);
 		return;
 	 }
@@ -3543,7 +3546,7 @@ static uint get_cost(CHAR_DATA *keeper, OBJ_DATA *obj, bool fBuy)
 		int             itype;
 		cost = 0;
 		for (itype = 0; itype < MAX_TRADE; itype++) {
-			if (obj->item_type == pShop->buy_type[itype]) {
+			if (obj->pObjIndex->item_type == pShop->buy_type[itype]) {
 				cost = obj->cost * pShop->profit_sell / 100;
 				break;
 			}
@@ -3564,8 +3567,8 @@ static uint get_cost(CHAR_DATA *keeper, OBJ_DATA *obj, bool fBuy)
 			}
 	}
 
-	if (obj->item_type == ITEM_STAFF
-	||  obj->item_type == ITEM_WAND) {
+	if (obj->pObjIndex->item_type == ITEM_STAFF
+	||  obj->pObjIndex->item_type == ITEM_WAND) {
 		if (INT(obj->value[1]) == 0)
 			cost /= 4;
 		else
@@ -3601,8 +3604,8 @@ sac_obj(CHAR_DATA * ch, OBJ_DATA *obj)
 		return;
 
 	silver = UMAX(1, number_fuzzy(obj->level));
-	if (obj->item_type != ITEM_CORPSE_NPC
-	&&  obj->item_type != ITEM_CORPSE_PC)
+	if (obj->pObjIndex->item_type != ITEM_CORPSE_NPC
+	&&  obj->pObjIndex->item_type != ITEM_CORPSE_PC)
 		silver = UMIN(silver, obj->cost);
 
 	act("You sacrifice $p to gods.", ch, obj, NULL, TO_CHAR);
@@ -3631,8 +3634,8 @@ sac_obj(CHAR_DATA * ch, OBJ_DATA *obj)
 
 	wiznet("$N sends up $p as a burnt offering.",
 	       ch, obj, WIZ_SACCING, 0, 0);
-	if (obj->item_type == ITEM_CORPSE_NPC
-	||  obj->item_type == ITEM_CORPSE_PC) {
+	if (obj->pObjIndex->item_type == ITEM_CORPSE_NPC
+	||  obj->pObjIndex->item_type == ITEM_CORPSE_PC) {
 		OBJ_DATA       *obj_content;
 		OBJ_DATA       *obj_next;
 		OBJ_DATA       *two_objs[2];
@@ -3724,7 +3727,7 @@ static bool put_obj(CHAR_DATA *ch, OBJ_DATA *container,
 	}
 
 	if (IS_SET(INT(container->value[1]), CONT_QUIVER)
-	&&  (obj->item_type != ITEM_WEAPON ||
+	&&  (obj->pObjIndex->item_type != ITEM_WEAPON ||
 	     !WEAPON_IS(obj, WEAPON_ARROW))) {
 		act_puts("You can only put arrows in $p.",
 			 ch, container, NULL, TO_CHAR, POS_DEAD);
@@ -3746,11 +3749,11 @@ static bool put_obj(CHAR_DATA *ch, OBJ_DATA *container,
 		return TRUE;
 	}
 
-	if (obj->item_type == ITEM_POTION
+	if (obj->pObjIndex->item_type == ITEM_POTION
 	&&  IS_SET(container->wear_flags, ITEM_TAKE)) {
 		int pcount = 0;
 		for (objc = container->contains; objc; objc = objc->next_content)
-			if (objc->item_type == ITEM_POTION)
+			if (objc->pObjIndex->item_type == ITEM_POTION)
 				pcount++;
 		if (pcount > 15) {
 			act_puts("It's not safe to put more potions into $p.",

@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.327 2004-02-19 13:31:42 fjoe Exp $
+ * $Id: act_wiz.c,v 1.328 2004-02-19 17:16:43 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1114,7 +1114,7 @@ DO_FUN(do_ostat, ch, argument)
 	buf_printf(output, BUF_END,
 	    "Vnum: %d  Type: %s  Resets: %d Magic value %d (%d, 0x%x)\n", // notrans
 	    obj->pObjIndex->vnum,
-	    flag_string(item_types, obj->item_type),
+	    flag_string(item_types, obj->pObjIndex->item_type),
 	    obj->pObjIndex->reset_num,
 	    magic_value, MV_HI(magic_value) == 0, MV_LO(magic_value));
 
@@ -1156,7 +1156,7 @@ DO_FUN(do_ostat, ch, argument)
 			obj->altar->room->vnum);
 	}
 
-	objval_show(output, obj->item_type, obj->value);
+	objval_show(output, obj->pObjIndex->item_type, obj->value);
 
 	if (obj->ed) {
 		ED_DATA *ed;

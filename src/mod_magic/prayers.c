@@ -1,5 +1,5 @@
 /*
- * $Id: prayers.c,v 1.55 2004-02-19 15:36:49 fjoe Exp $
+ * $Id: prayers.c,v 1.56 2004-02-19 17:16:45 fjoe Exp $
  */
 
 /***************************************************************************
@@ -209,7 +209,7 @@ SPELL_FUN(prayer_detect_poison, sn, level, ch, vo)
 {
 	OBJ_DATA *obj = (OBJ_DATA *) vo;
 
-	if (obj->item_type == ITEM_DRINK_CON || obj->item_type == ITEM_FOOD) {
+	if (obj->pObjIndex->item_type == ITEM_DRINK_CON || obj->pObjIndex->item_type == ITEM_FOOD) {
 		if (INT(obj->value[3]) != 0)
 			act_char("You smell poisonous fumes.", ch);
 		else {
@@ -737,7 +737,7 @@ SPELL_FUN(prayer_create_water, sn, level, ch, vo)
 	OBJ_DATA *obj = (OBJ_DATA *) vo;
 	int water;
 
-	if (obj->item_type != ITEM_DRINK_CON) {
+	if (obj->pObjIndex->item_type != ITEM_DRINK_CON) {
 		act_char("It is unable to hold water.", ch);
 		return;
 	}
@@ -1681,7 +1681,7 @@ SPELL_FUN(prayer_heat_metal, sn, level, ch, vo)
 		||  IS_OBJ_STAT(obj_lose, ITEM_BURN_PROOF))
 			continue;
 
-		switch (obj_lose->item_type) {
+		switch (obj_lose->pObjIndex->item_type) {
 		case ITEM_ARMOR:
 			if (obj_lose->wear_loc == -1) {
 				/*
@@ -1940,7 +1940,7 @@ SPELL_FUN(prayer_bless_weapon, sn, level, ch, vo)
 	OBJ_DATA *obj = (OBJ_DATA *) vo;
 	AFFECT_DATA *paf;
 
-	if (obj->item_type != ITEM_WEAPON) {
+	if (obj->pObjIndex->item_type != ITEM_WEAPON) {
 		act_char("That isn't a weapon.", ch);
 		return;
 	}

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: material.c,v 1.10 2001-09-13 16:22:22 fjoe Exp $
+ * $Id: material.c,v 1.11 2004-02-19 17:16:50 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -86,14 +86,14 @@ floating_time(OBJ_DATA *obj)
 	int  ftime = 0;
 	material_t *mat;
 
-	if (obj->item_type == ITEM_BOAT)
+	if (obj->pObjIndex->item_type == ITEM_BOAT)
 		return -1;
 
 	if ((mat = material_lookup(obj->material)) != NULL
 	&&  (ftime = mat->float_time) == 0)
 		return ftime;
 
-	switch (obj->item_type) {
+	switch (obj->pObjIndex->item_type) {
 	default:
 		break;
 	case ITEM_POTION:

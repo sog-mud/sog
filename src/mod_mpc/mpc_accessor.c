@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_accessor.c,v 1.4 2004-02-13 14:48:14 fjoe Exp $
+ * $Id: mpc_accessor.c,v 1.5 2004-02-19 17:16:47 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -230,7 +230,7 @@ OBJ_GET_OBJ(in_obj)
 OBJ_GET_ROOM(in_room)
 
 OBJ_GET_INT(cost)
-OBJ_GET_INT(item_type)
+GET_INT(obj, item_type, vo->obj->pObjIndex->item_type)
 OBJ_GET_INT(level)
 OBJ_SET_INT(level)
 OBJ_GET_INT(timer)

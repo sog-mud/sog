@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: updfun.c,v 1.62 2004-02-19 16:54:49 fjoe Exp $
+ * $Id: updfun.c,v 1.63 2004-02-19 17:16:49 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -350,7 +350,7 @@ UPDATE_FOREACH_FUN(mobile_update_foreach, vo)
 		OBJ_DATA *obj;
 
 		for (obj = ch->carrying; obj; obj = obj->next_content) {
-			if (obj->item_type != ITEM_POTION)
+			if (obj->pObjIndex->item_type != ITEM_POTION)
 				continue;
 
 			if (ch->hit < ch->max_hit * 90 / 100) {
@@ -739,7 +739,7 @@ UPDATE_FOREACH_FUN(char_update_foreach, vo)
 		PC_DATA *pc = PC(ch);
 
 		if ((obj = get_eq_char(ch, WEAR_LIGHT))
-		&&  obj->item_type == ITEM_LIGHT
+		&&  obj->pObjIndex->item_type == ITEM_LIGHT
 		&&  INT(obj->value[2]) > 0) {
 			if (--INT(obj->value[2]) == 0) {
 				if (ch->in_room->light > 0)
@@ -882,7 +882,7 @@ UPDATE_FOREACH_FUN(water_float_update_foreach, vo)
 
 	obj->water_float = obj->water_float > 0 ?  obj->water_float - 1 : -1;
 
-	if (obj->item_type == ITEM_DRINK_CON) {
+	if (obj->pObjIndex->item_type == ITEM_DRINK_CON) {
 		INT(obj->value[1]) = URANGE(1, INT(obj->value[1]) + 8,
 					    INT(obj->value[0]));
 		act("$p makes bubbles on the water.",
@@ -939,18 +939,18 @@ UPDATE_FOREACH_FUN(obj_update_foreach, vo)
 	&&  update_melt_obj(obj))
 		return FALSE;
 
-	if (obj->item_type == ITEM_POTION
+	if (obj->pObjIndex->item_type == ITEM_POTION
 	&&  update_potion(obj))
 		return FALSE;
 
-	if (obj->item_type == ITEM_DRINK_CON
+	if (obj->pObjIndex->item_type == ITEM_DRINK_CON
 	&&  update_drinkcon(obj))
 		return FALSE;
 
 	if (obj->condition > -1 && (obj->timer <= 0 || --obj->timer > 0))
 		return FALSE;
 
-	switch (obj->item_type) {
+	switch (obj->pObjIndex->item_type) {
 	default:
 		message = "$p crumbles into dust.";
 		break;
@@ -999,7 +999,7 @@ UPDATE_FOREACH_FUN(obj_update_foreach, vo)
 	if (obj->in_room && !OBJ_IS(obj, OBJ_PIT))
 		act(message, obj->in_room->people, obj, NULL, TO_ALL);
 
-	if (obj->item_type == ITEM_CORPSE_PC && obj->contains)
+	if (obj->pObjIndex->item_type == ITEM_CORPSE_PC && obj->contains)
 		save_corpse_contents(obj);
 	extract_obj(obj, 0);
 
@@ -1561,7 +1561,7 @@ hit_gain(CHAR_DATA *ch)
 
 	gain = gain * GET_HEAL_RATE(ch->in_room) / 100;
 
-	if (ch->on != NULL && ch->on->item_type == ITEM_FURNITURE)
+	if (ch->on != NULL && ch->on->pObjIndex->item_type == ITEM_FURNITURE)
 		gain = gain * INT(ch->on->value[3]) / 100;
 
 	if (IS_AFFECTED(ch, AFF_POISON))
@@ -1638,7 +1638,7 @@ mana_gain(CHAR_DATA *ch)
 
 	gain = gain * GET_MANA_RATE(ch->in_room) / 100;
 
-	if (ch->on != NULL && ch->on->item_type == ITEM_FURNITURE)
+	if (ch->on != NULL && ch->on->pObjIndex->item_type == ITEM_FURNITURE)
 		gain = gain * INT(ch->on->value[4]) / 100;
 
 	if (IS_AFFECTED(ch, AFF_POISON))
@@ -1692,7 +1692,7 @@ move_gain(CHAR_DATA *ch)
 
 	gain = gain * GET_HEAL_RATE(ch->in_room) / 100;
 
-	if (ch->on != NULL && ch->on->item_type == ITEM_FURNITURE)
+	if (ch->on != NULL && ch->on->pObjIndex->item_type == ITEM_FURNITURE)
 		gain = gain * INT(ch->on->value[3]) / 100;
 
 	if (IS_AFFECTED(ch, AFF_POISON))
@@ -1860,7 +1860,7 @@ save_corpse_contents(OBJ_DATA *corpse)
 		for (obj = corpse->contains; obj; obj = obj_next) {
 			obj_next = obj->next_content;
 
-			if (obj->item_type == ITEM_MONEY) {
+			if (obj->pObjIndex->item_type == ITEM_MONEY) {
 				corpse->carried_by->silver +=
 				    INT(obj->value[0]);
 				corpse->carried_by->gold +=

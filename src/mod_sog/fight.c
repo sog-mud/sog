@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.363 2003-10-10 16:14:53 fjoe Exp $
+ * $Id: fight.c,v 1.364 2004-02-19 17:16:47 fjoe Exp $
  */
 
 /***************************************************************************
@@ -169,7 +169,7 @@ one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 
 	if (IS_NULLSTR(dt)) {
 		SET_BIT(dam_flags, DAM_F_HIT);
-		if (wield && wield->item_type == ITEM_WEAPON) {
+		if (wield && wield->pObjIndex->item_type == ITEM_WEAPON) {
 			dt = wield->value[3].s;
 		} else if (ch->shapeform) {
 			dt = ch->shapeform->index->damtype;
@@ -1709,7 +1709,7 @@ is_safe_rspell(AFFECT_DATA *af, CHAR_DATA *victim)
 int
 get_dam_class(CHAR_DATA *ch, OBJ_DATA *wield)
 {
-	if (wield && wield->item_type == ITEM_WEAPON) {
+	if (wield && wield->pObjIndex->item_type == ITEM_WEAPON) {
 		return skill_damclass(wield->value[3].s);
 	} else if (ch->shapeform) {
 		return skill_damclass(ch->shapeform->index->damtype);
@@ -1960,7 +1960,7 @@ get_gold_corpse(CHAR_DATA *ch, OBJ_DATA *corpse)
 	OBJ_DATA *tmp, *tmp_next;
 	for (tmp = corpse->contains; tmp; tmp = tmp_next) {
 		tmp_next = tmp->next_content;
-		if (tmp->item_type == ITEM_MONEY)
+		if (tmp->pObjIndex->item_type == ITEM_MONEY)
 			get_obj(ch, tmp, corpse, NULL);
 	}
 }
@@ -2657,13 +2657,13 @@ make_corpse(CHAR_DATA *ch)
 
 	for (obj = ch->carrying; obj != NULL; obj = obj_next) {
 		obj_next = obj->next_content;
-		if (obj->item_type == ITEM_POTION)
+		if (obj->pObjIndex->item_type == ITEM_POTION)
 			obj->timer = number_range(500, 1000);
-		if (obj->item_type == ITEM_SCROLL)
+		if (obj->pObjIndex->item_type == ITEM_SCROLL)
 			obj->timer = number_range(1000, 2500);
 		if (IS_OBJ_STAT(obj, ITEM_ROT_DEATH)) {
 			obj->timer = number_range(5, 10);
-			if (obj->item_type == ITEM_POTION)
+			if (obj->pObjIndex->item_type == ITEM_POTION)
 				obj->timer += obj->level * 20;
 		}
 
@@ -2756,7 +2756,7 @@ death_cry(CHAR_DATA *ch)
 		mlstr_cpy(&obj->owner, &ch->short_descr);
 		obj->timer = number_range(4, 7);
 
-		if (obj->item_type == ITEM_FOOD) {
+		if (obj->pObjIndex->item_type == ITEM_FOOD) {
 			if (IS_SET(ch->form, FORM_POISON))
 				INT(obj->value[3]) = 1;
 			if (IS_SET(ch->form, FORM_MAGICAL))

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_auction.c,v 1.13 2003-10-10 16:14:14 fjoe Exp $
+ * $Id: act_auction.c,v 1.14 2004-02-19 17:16:41 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -230,13 +230,13 @@ do_auction(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	switch (obj->item_type) {
+	switch (obj->pObjIndex->item_type) {
 	default:
 		if (!OBJ_IS(obj, OBJ_CHQUEST)) {
 			act_puts("You cannot auction $T.",
 				 ch, NULL,
 				 flag_string(item_types,
-					     obj->item_type),
+					     obj->pObjIndex->item_type),
 				 TO_CHAR, POS_SLEEPING);
 			break;
 		}

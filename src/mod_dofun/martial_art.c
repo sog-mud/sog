@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.228 2004-02-19 15:36:48 fjoe Exp $
+ * $Id: martial_art.c,v 1.229 2004-02-19 17:16:43 fjoe Exp $
  */
 
 /***************************************************************************
@@ -754,7 +754,7 @@ DO_FUN(do_gash, ch, argument)
 
 		gauntlets = get_eq_char(victim, WEAR_HANDS);
 		if(gauntlets) {
-			if((gauntlets->item_type != ITEM_ARMOR)
+			if((gauntlets->pObjIndex->item_type != ITEM_ARMOR)
 			|| !(material_is(gauntlets, MATERIAL_METAL)
 			|| material_is(gauntlets, MATERIAL_INDESTRUCT))) {
 				damage_to_obj(victim, dagger, gauntlets,

@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.319 2004-02-19 15:36:49 fjoe Exp $
+ * $Id: spellfun.c,v 1.320 2004-02-19 17:16:45 fjoe Exp $
  */
 
 /***************************************************************************
@@ -832,7 +832,7 @@ SPELL_FUN(spell_enchant_armor, sn, level, ch, vo)
 	bool ac_found = FALSE;
 	bool hp_found = FALSE;
 
-	if (obj->item_type != ITEM_ARMOR) {
+	if (obj->pObjIndex->item_type != ITEM_ARMOR) {
 		act_char("That isn't an armor.", ch);
 		return;
 	}
@@ -999,7 +999,7 @@ SPELL_FUN(spell_enchant_weapon, sn, level, ch, vo)
 	int hit_bonus, dam_bonus, added;
 	bool hit_found = FALSE, dam_found = FALSE;
 
-	if (obj->item_type != ITEM_WEAPON) {
+	if (obj->pObjIndex->item_type != ITEM_WEAPON) {
 		act_char("That isn't a weapon.", ch);
 		return;
 	}
@@ -1861,8 +1861,8 @@ SPELL_FUN(spell_poison, sn, level, ch, vo)
 	if (mem_is(vo, MT_OBJ)) {
 		OBJ_DATA *obj = (OBJ_DATA *) vo;
 
-		if (obj->item_type == ITEM_FOOD
-		||  obj->item_type == ITEM_DRINK_CON) {
+		if (obj->pObjIndex->item_type == ITEM_FOOD
+		||  obj->pObjIndex->item_type == ITEM_DRINK_CON) {
 			if (IS_OBJ_STAT(obj, ITEM_BLESS)
 			||  IS_OBJ_STAT(obj, ITEM_BURN_PROOF)) {
 				act("Your spell fails to corrupt $p.",
@@ -1875,7 +1875,7 @@ SPELL_FUN(spell_poison, sn, level, ch, vo)
 			return;
 		}
 
-		if (obj->item_type == ITEM_WEAPON) {
+		if (obj->pObjIndex->item_type == ITEM_WEAPON) {
 			if (IS_WEAPON_STAT(obj, WEAPON_FLAMING)
 			||  IS_WEAPON_STAT(obj, WEAPON_FROST)
 			||  IS_WEAPON_STAT(obj, WEAPON_VAMPIRIC)
@@ -1935,8 +1935,8 @@ SPELL_FUN(spell_recharge, sn, level, ch, vo)
 	OBJ_DATA *obj = (OBJ_DATA *) vo;
 	int chance, percent;
 
-	if (obj->item_type != ITEM_WAND
-	&&  obj->item_type != ITEM_STAFF) {
+	if (obj->pObjIndex->item_type != ITEM_WAND
+	&&  obj->pObjIndex->item_type != ITEM_STAFF) {
 		act_char("That item does not carry charges.", ch);
 		return;
 	}
@@ -2989,12 +2989,12 @@ SPELL_FUN(spell_portal, sn, level, ch, vo)
 
 	stone = get_eq_char(ch, WEAR_HOLD);
 	if (!IS_IMMORTAL(ch)
-	&&  (stone == NULL || stone->item_type != ITEM_WARP_STONE)) {
+	&&  (stone == NULL || stone->pObjIndex->item_type != ITEM_WARP_STONE)) {
 		act_char("You lack the proper component for this spell.", ch);
 		return;
 	}
 
-	if (stone != NULL && stone->item_type == ITEM_WARP_STONE) {
+	if (stone != NULL && stone->pObjIndex->item_type == ITEM_WARP_STONE) {
 		act("You draw upon the power of $p.", ch, stone, NULL, TO_CHAR);
 		act("It flares brightly and vanishes!",
 		    ch, stone, NULL, TO_CHAR);
@@ -3035,12 +3035,12 @@ SPELL_FUN(spell_nexus, sn, level, ch, vo)
 
 	stone = get_eq_char(ch,WEAR_HOLD);
 	if (!IS_IMMORTAL(ch)
-	&&  (stone == NULL || stone->item_type != ITEM_WARP_STONE)) {
+	&&  (stone == NULL || stone->pObjIndex->item_type != ITEM_WARP_STONE)) {
 		act_char("You lack the proper component for this spell.", ch);
 		return;
 	}
 
-	if (stone != NULL && stone->item_type == ITEM_WARP_STONE) {
+	if (stone != NULL && stone->pObjIndex->item_type == ITEM_WARP_STONE) {
 		act("You draw upon the power of $p.", ch, stone, NULL, TO_CHAR);
 		act("It flares brightly and vanishes!",
 		    ch, stone, NULL, TO_CHAR);
@@ -3740,7 +3740,7 @@ SPELL_FUN(spell_nightfall, sn, level, ch, vo)
 			continue;
 
 		for (obj = vch->carrying; obj; obj = obj->next_content) {
-			if (obj->item_type != ITEM_LIGHT
+			if (obj->pObjIndex->item_type != ITEM_LIGHT
 			||  INT(obj->value[2]) == 0
 			||  saves_spell(level, vch, DAM_ENERGY))
 				continue;
@@ -3755,7 +3755,7 @@ SPELL_FUN(spell_nightfall, sn, level, ch, vo)
 	}
 
 	for (obj = ch->in_room->contents; obj; obj = obj->next_content) {
-		if (obj->item_type != ITEM_LIGHT
+		if (obj->pObjIndex->item_type != ITEM_LIGHT
 		||  INT(obj->value[2]) == 0)
 			continue;
 
@@ -4117,9 +4117,9 @@ SPELL_FUN(spell_brew, sn, level, ch, vo)
 	int spell_num;
 	const char *spell;
 
-	if (obj->item_type != ITEM_TRASH
-	&&  obj->item_type != ITEM_TREASURE
-	&&  obj->item_type != ITEM_KEY) {
+	if (obj->pObjIndex->item_type != ITEM_TRASH
+	&&  obj->pObjIndex->item_type != ITEM_TREASURE
+	&&  obj->pObjIndex->item_type != ITEM_KEY) {
 		act_char("That can't be transformed into a potion.", ch);
 		return;
 	}
@@ -4144,9 +4144,9 @@ SPELL_FUN(spell_brew, sn, level, ch, vo)
 		return;
 	}
 
-	if (obj->item_type == ITEM_TRASH)
+	if (obj->pObjIndex->item_type == ITEM_TRASH)
 		potion = create_obj(OBJ_VNUM_POTION_SILVER, 0);
-	else if (obj->item_type == ITEM_TREASURE)
+	else if (obj->pObjIndex->item_type == ITEM_TREASURE)
 		potion = create_obj(OBJ_VNUM_POTION_GOLDEN, 0);
 	else
 		potion = create_obj(OBJ_VNUM_POTION_SWIRLING, 0);
@@ -4177,7 +4177,7 @@ SPELL_FUN(spell_brew, sn, level, ch, vo)
 		}
 	}
 
-	switch (obj->item_type) {
+	switch (obj->pObjIndex->item_type) {
 	case ITEM_TRASH:
 		switch(spell_num) {
 		case 0:
@@ -5190,8 +5190,8 @@ SPELL_FUN(spell_animate_dead, sn, level, ch, vo)
 
 		obj = (OBJ_DATA *) vo;
 
-		if (!(obj->item_type == ITEM_CORPSE_NPC
-		|| obj->item_type == ITEM_CORPSE_PC)) {
+		if (obj->pObjIndex->item_type != ITEM_CORPSE_NPC
+		&&  obj->pObjIndex->item_type != ITEM_CORPSE_PC) {
 			act_char("You can animate only corpses!", ch);
 			return;
 		}
@@ -5210,7 +5210,7 @@ SPELL_FUN(spell_animate_dead, sn, level, ch, vo)
 		}
 
 		/* can't animate PC corpses in ROOM_BATTLE_ARENA */
-		if (obj->item_type == ITEM_CORPSE_PC
+		if (obj->pObjIndex->item_type == ITEM_CORPSE_PC
 		&&  obj->in_room
 		&&  IS_SET(obj->in_room->room_flags, ROOM_BATTLE_ARENA)
 		&&  !IS_OWNER(ch, obj)) {
@@ -7197,7 +7197,7 @@ SPELL_FUN(spell_hunger_weapon, sn, level, ch, vo)
         OBJ_DATA *obj = (OBJ_DATA *) vo;
 	int chance;
 
-        if (obj->item_type != ITEM_WEAPON) {
+        if (obj->pObjIndex->item_type != ITEM_WEAPON) {
 		act_char("That's not a weapon.", ch);
 		return;
         }

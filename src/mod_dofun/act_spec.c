@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_spec.c,v 1.32 2004-02-11 20:52:27 sg Exp $
+ * $Id: act_spec.c,v 1.33 2004-02-19 17:16:43 fjoe Exp $
  */
 
 #include <sys/time.h>
@@ -56,7 +56,7 @@ DO_FUN(do_read, ch, argument)
 	}
 
 	if ((book = get_eq_char(ch, WEAR_HOLD)) == NULL
-	||  (book->item_type != ITEM_BOOK)) {
+	||  (book->pObjIndex->item_type != ITEM_BOOK)) {
 		act("You do not hold any book in your hands.",
 			ch, NULL, NULL, TO_CHAR);
 		return;

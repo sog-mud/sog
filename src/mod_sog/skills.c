@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: skills.c,v 1.138 2003-09-30 00:31:30 fjoe Exp $
+ * $Id: skills.c,v 1.139 2004-02-19 17:16:48 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -277,7 +277,7 @@ get_weapon_sn(OBJ_DATA *wield)
 	if (wield == NULL)
 		return "hand to hand";
 
-	if (wield->item_type != ITEM_WEAPON
+	if (wield->pObjIndex->item_type != ITEM_WEAPON
 	||  INT(wield->value[0]) == WEAPON_EXOTIC)
 		return NULL;
 

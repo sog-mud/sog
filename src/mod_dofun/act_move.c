@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.301 2003-12-25 21:16:46 sg Exp $
+ * $Id: act_move.c,v 1.302 2004-02-19 17:16:42 fjoe Exp $
  */
 
 /***************************************************************************
@@ -256,7 +256,7 @@ DO_FUN(do_pick, ch, argument)
 	chance = get_skill(ch, "pick lock");
 	if ((obj = get_obj_here(ch, arg)) != NULL) {
 		/* portal stuff */
-		if (obj->item_type == ITEM_PORTAL) {
+		if (obj->pObjIndex->item_type == ITEM_PORTAL) {
 			if (!IS_SET(INT(obj->value[1]), EX_ISDOOR)) {
 				act_char("You can't do that.", ch);
 				return;
@@ -292,7 +292,7 @@ DO_FUN(do_pick, ch, argument)
 		}
 
 		/* 'pick object' */
-		if (obj->item_type != ITEM_CONTAINER) {
+		if (obj->pObjIndex->item_type != ITEM_CONTAINER) {
 			act_char("That's not a container.", ch);
 			return;
 		}
@@ -401,7 +401,7 @@ DO_FUN(do_stand, ch, argument)
 			return;
 		}
 
-		if (obj->item_type != ITEM_FURNITURE
+		if (obj->pObjIndex->item_type != ITEM_FURNITURE
 		||  (!IS_SET(INT(obj->value[2]), STAND_AT) &&
 		     !IS_SET(INT(obj->value[2]), STAND_ON) &&
 		     !IS_SET(INT(obj->value[2]), STAND_IN))) {
@@ -527,7 +527,7 @@ DO_FUN(do_rest, ch, argument)
 	else obj = ch->on;
 
 	if (obj != NULL) {
-		if (obj->item_type != ITEM_FURNITURE 
+		if (obj->pObjIndex->item_type != ITEM_FURNITURE 
 		||  (!IS_SET(INT(obj->value[2]), REST_ON) &&
 		     !IS_SET(INT(obj->value[2]), REST_IN) &&
 		     !IS_SET(INT(obj->value[2]), REST_AT))) {
@@ -661,7 +661,7 @@ DO_FUN(do_sit, ch, argument)
 		obj = ch->on;
 
 	if (obj != NULL) {
-		if (obj->item_type != ITEM_FURNITURE
+		if (obj->pObjIndex->item_type != ITEM_FURNITURE
 		||  (!IS_SET(INT(obj->value[2]), SIT_ON) &&
 		     !IS_SET(INT(obj->value[2]), SIT_IN) &&
 		     !IS_SET(INT(obj->value[2]), SIT_AT))) {
@@ -798,7 +798,7 @@ DO_FUN(do_sleep, ch, argument)
 				return;
 			}
 
-			if (obj->item_type != ITEM_FURNITURE
+			if (obj->pObjIndex->item_type != ITEM_FURNITURE
 			||  (!IS_SET(INT(obj->value[2]), SLEEP_ON) &&
 			     !IS_SET(INT(obj->value[2]), SLEEP_IN) &&
 			     !IS_SET(INT(obj->value[2]), SLEEP_AT))) {
@@ -2240,7 +2240,7 @@ find_arrow(CHAR_DATA *ch)
 
 	for (obj = ch->carrying; obj; obj = obj->next_content) {
 		if (obj->wear_loc == WEAR_NONE
-		||  obj->item_type != ITEM_CONTAINER
+		||  obj->pObjIndex->item_type != ITEM_CONTAINER
 		||  !IS_SET(INT(obj->value[1]), CONT_QUIVER)
 		||  !obj->contains)
 			continue;
@@ -2406,7 +2406,7 @@ DO_FUN(do_shoot, ch, argument)
 	wield = get_eq_char(ch, WEAR_WIELD);
 
 	if (!wield
-	||  wield->item_type != ITEM_WEAPON
+	||  wield->pObjIndex->item_type != ITEM_WEAPON
 	||  !WEAPON_IS(wield, WEAPON_BOW)) {
 		act_char("You need a bow to shoot!", ch);
 		return;
@@ -2423,7 +2423,7 @@ DO_FUN(do_shoot, ch, argument)
 		 return;
 	}
 
-	if (arrow->item_type != ITEM_WEAPON
+	if (arrow->pObjIndex->item_type != ITEM_WEAPON
 	||  !WEAPON_IS(arrow, WEAPON_ARROW)) {
 		act_char("That's not the right kind of arrow!", ch);
 		return;
@@ -2537,7 +2537,7 @@ DO_FUN(do_throw_weapon, ch, argument)
 		return;
 	}
 
-	if (obj->item_type != ITEM_WEAPON) {
+	if (obj->pObjIndex->item_type != ITEM_WEAPON) {
 		act_char("Throwing cakes will not wound your foes. Try weapons.", ch);
 		return;
 	}
@@ -2605,7 +2605,7 @@ DO_FUN(do_enter, ch, argument)
 		return;
 	}
 
-	if (portal->item_type != ITEM_PORTAL
+	if (portal->pObjIndex->item_type != ITEM_PORTAL
 	||  (IS_SET(INT(portal->value[1]), EX_CLOSED) &&
 	     !IS_TRUSTED(ch, LEVEL_IMMORTAL))) {
 		act_char("You can't seem to find a way in.", ch);

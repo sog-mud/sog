@@ -1,5 +1,5 @@
 /*
- * $Id: affects.c,v 1.89 2004-02-12 22:01:10 sg Exp $
+ * $Id: affects.c,v 1.90 2004-02-19 17:16:47 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1205,7 +1205,7 @@ affect_modify_obj(OBJ_DATA *obj, AFFECT_DATA *paf, bool fAdd)
 				SET_OBJ_STAT(obj, paf->bitvector);
 				break;
 			case TO_WEAPON:
-				if (obj->item_type == ITEM_WEAPON)
+				if (obj->pObjIndex->item_type == ITEM_WEAPON)
 					SET_BIT(INT(obj->value[4]), paf->bitvector);
 				break;
 			}
@@ -1218,7 +1218,7 @@ affect_modify_obj(OBJ_DATA *obj, AFFECT_DATA *paf, bool fAdd)
 				REMOVE_OBJ_STAT(obj, paf->bitvector);
 				break;
 			case TO_WEAPON:
-				if (obj->item_type == ITEM_WEAPON)
+				if (obj->pObjIndex->item_type == ITEM_WEAPON)
 					REMOVE_BIT(INT(obj->value[4]),
 						   paf->bitvector);
 				break;
