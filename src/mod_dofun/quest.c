@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: quest.c,v 1.123.2.16 2004-02-19 17:23:09 fjoe Exp $
+ * $Id: quest.c,v 1.123.2.17 2004-05-26 06:26:43 tatyana Exp $
  */
 
 #include <sys/types.h>
@@ -78,6 +78,7 @@ static bool buy_tattoo(CHAR_DATA *ch, CHAR_DATA *questor);
 static bool buy_death(CHAR_DATA *ch, CHAR_DATA *questor);
 static bool buy_katana(CHAR_DATA *ch, CHAR_DATA *questor);
 static bool buy_vampire(CHAR_DATA *ch, CHAR_DATA *questor);
+static bool buy_restoration(CHAR_DATA *ch, CHAR_DATA *questor);
 
 enum qitem_type {
 	TYPE_ITEM,
@@ -120,6 +121,9 @@ qitem_t qitem_table[] = {
 
 	{ "Bottomless canteen with cranberry juice", 350, NULL,
 	   QUEST_VNUM_CANTEEN, NULL				},
+
+	{ "Restoration",			100, NULL,
+	   0, buy_restoration					},
 
 	{ NULL }
 };
@@ -1137,3 +1141,12 @@ static bool buy_vampire(CHAR_DATA *ch, CHAR_DATA *questor)
 	return TRUE;
 }
 
+static bool buy_restoration(CHAR_DATA *ch, CHAR_DATA *questor)
+{
+	act("$N restores your health.", ch, NULL, questor, TO_CHAR);
+	act("$N restores $n's health.", ch, NULL, questor, TO_ROOM);
+	ch->hit = ch->max_hit;
+	ch->mana = ch->max_mana;
+	ch->move = ch->max_move;
+	return TRUE;
+}
