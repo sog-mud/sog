@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.415 2001-12-15 13:47:49 matrim Exp $
+ * $Id: act_info.c,v 1.416 2001-12-16 15:38:09 matrim Exp $
  */
 
 /***************************************************************************
@@ -4692,7 +4692,7 @@ DO_FUN(do_compress, ch, argument)
 	one_argument(argument, arg1, sizeof(arg1));
 
 	if (!str_cmp(arg1, "on") && ch->desc->mccp_support) {
-    		if (!ch->desc->out_compress) {
+    		if (ch->desc->out_compress == NULL) {
 			if (!compressStart(ch->desc))
 				act_char("Failed.", ch);
 			else
@@ -4705,7 +4705,7 @@ DO_FUN(do_compress, ch, argument)
 	}
 
 	if (!str_cmp(arg1, "off") && ch->desc->mccp_support) {
-		if (ch->desc->out_compress) {
+		if (ch->desc->out_compress != NULL) {
 			if (!compressEnd(ch->desc))
 				act_char("Failed.", ch);
 			else
@@ -4726,24 +4726,24 @@ DO_FUN(do_compress, ch, argument)
 
 	switch (ch->desc->mccp_support) {
 	case 1:
-		support = "mccp version 1 supported with client";
+		support = "mccp version 1 supported by client";
 		break;
 	case 2:
-		support = "mccp version 2 supported with client";
+		support = "mccp version 2 supported by client";
 		break;
 	default:
-		support = "mccp not supported with client";
+		support = "mccp not supported by client";
+		break;
 	}
 
 
-	if (ch->desc->out_compress)
-		status = "{Genabled{x";
+	if (ch->desc->out_compress != NULL)
+		status = "enabled";
 	else
-		status = "{Rdisabled{x";
+		status = "disabled";
     
 	buf_printf(output, BUF_END,
-			"Command: {Ccompress {x[{zon{x|{zoff{x]\n"
-			"Support: {Y%s{x\n"
+			"Support: %s\n"
 			"Status:  %s\n\n"
 			"Total bytes.........%-d\n"
 			"Sent bytes..........%-d\n"
