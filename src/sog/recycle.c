@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.25 1998-10-06 13:18:30 fjoe Exp $
+ * $Id: recycle.c,v 1.26 1998-10-09 13:42:43 fjoe Exp $
  */
 
 /***************************************************************************
@@ -168,7 +168,6 @@ OBJ_DATA *new_obj(void)
 	obj->in_room		= NULL;
 	obj->enchanted		= FALSE;
 	obj->name		= NULL;
-	obj->item_type		= 0;
 	obj->extra_flags	= 0;
 	obj->wear_flags		= 0;
 	obj->wear_loc		= 0;

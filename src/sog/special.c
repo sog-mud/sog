@@ -1,5 +1,5 @@
 /*
- * $Id: special.c,v 1.28 1998-09-29 01:06:40 fjoe Exp $
+ * $Id: special.c,v 1.29 1998-10-09 13:42:43 fjoe Exp $
  */
 
 /***************************************************************************
@@ -454,7 +454,7 @@ bool spec_cast_adept(CHAR_DATA *ch)
 	for (victim = ch->in_room->people; victim != NULL; victim = v_next) {
 		v_next = victim->next_in_room;
 		if (victim != ch && can_see(ch, victim) && number_bits(1) == 0 
-		&&  !IS_NPC(victim) && victim->level < 11)
+		&&  !IS_NPC(victim) && victim->level < 10)
 			break;
 	}
 
@@ -790,7 +790,7 @@ bool spec_fido(CHAR_DATA *ch)
 	for (corpse = ch->in_room->contents; corpse != NULL; corpse = c_next)
 	{
 	c_next = corpse->next_content;
-	if (corpse->item_type != ITEM_CORPSE_NPC)
+	if (corpse->pIndexData->item_type != ITEM_CORPSE_NPC)
 	    continue;
 
 	act("$n savagely devours a corpse.", ch, NULL, NULL, TO_ROOM);
@@ -820,8 +820,8 @@ bool spec_janitor(CHAR_DATA *ch)
 		if (!IS_SET(trash->wear_flags, ITEM_TAKE)
 		||  !can_loot(ch, trash))
 			continue;
-		if (trash->item_type == ITEM_DRINK_CON
-		||  trash->item_type == ITEM_TRASH
+		if (trash->pIndexData->item_type == ITEM_DRINK_CON
+		||  trash->pIndexData->item_type == ITEM_TRASH
 		||  trash->cost < 10) {
 			act("$n picks up some trash.", ch, NULL, NULL, TO_ROOM);
 			obj_from_room(trash);

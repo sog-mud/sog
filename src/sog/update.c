@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.70 1998-10-07 08:36:21 fjoe Exp $
+ * $Id: update.c,v 1.71 1998-10-09 13:42:44 fjoe Exp $
  */
 
 /***************************************************************************
@@ -251,7 +251,7 @@ int hit_gain(CHAR_DATA *ch)
 
 	gain = gain * ch->in_room->heal_rate / 100;
 	
-	if (ch->on != NULL && ch->on->item_type == ITEM_FURNITURE)
+	if (ch->on != NULL && ch->on->pIndexData->item_type == ITEM_FURNITURE)
 		gain = gain * ch->on->value[3] / 100;
 
 	if (IS_AFFECTED(ch, AFF_POISON))
@@ -336,7 +336,7 @@ int mana_gain(CHAR_DATA *ch)
 
 	gain = gain * ch->in_room->mana_rate / 100;
 
-	if (ch->on != NULL && ch->on->item_type == ITEM_FURNITURE)
+	if (ch->on != NULL && ch->on->pIndexData->item_type == ITEM_FURNITURE)
 	gain = gain * ch->on->value[4] / 100;
 
 	if (IS_AFFECTED(ch, AFF_POISON))
@@ -391,7 +391,7 @@ int move_gain(CHAR_DATA *ch)
 
 	gain = gain * ch->in_room->heal_rate/100;
 
-	if (ch->on != NULL && ch->on->item_type == ITEM_FURNITURE)
+	if (ch->on != NULL && ch->on->pIndexData->item_type == ITEM_FURNITURE)
 	gain = gain * ch->on->value[3] / 100;
 
 	if (IS_AFFECTED(ch, AFF_POISON))
@@ -554,8 +554,8 @@ void mobile_update(void)
 		/* update pumped state */
 		if (ch->last_fight_time != -1
 		&&  current_time - ch->last_fight_time >= FIGHT_DELAY_TIME
-		&&  ch->pumped) {
-			ch->pumped = FALSE;
+		&&  IS_PUMPED(ch)) {
+			REMOVE_BIT((ch)->act, PLR_PUMPED);
 			if (!IS_NPC(ch) && ch->desc != NULL
 			&&  ch->desc->pString == NULL 
 			&&  (ch->last_death_time == -1 ||
@@ -652,7 +652,7 @@ void mobile_update(void)
 			||  IS_AFFECTED(ch,AFF_PLAGUE)
 			||  ch->fighting!=NULL)) {
 	      for(obj=ch->carrying;obj!=NULL;obj=obj->next_content)
-		 if (obj->item_type == ITEM_POTION)
+		 if (obj->pIndexData->item_type == ITEM_POTION)
 		 {
 		   if (ch->hit < ch->max_hit*0.9)  /* hp curies */
 		   {
@@ -1109,7 +1109,7 @@ void char_update(void)
 			OBJ_DATA *obj;
 
 			if ((obj = get_eq_char(ch, WEAR_LIGHT)) != NULL
-			&& obj->item_type == ITEM_LIGHT && obj->value[2] > 0) {
+			&& obj->pIndexData->item_type == ITEM_LIGHT && obj->value[2] > 0) {
 				if (--obj->value[2] == 0) {
 					--ch->in_room->light;
 					act("$p goes out.",
@@ -1332,7 +1332,7 @@ void water_float_update(void)
 		obj->water_float = obj->water_float > 0 ?
 						obj->water_float - 1 : -1;
 
-		if (obj->item_type == ITEM_DRINK_CON) {
+		if (obj->pIndexData->item_type == ITEM_DRINK_CON) {
 			obj->value[1] = URANGE(1, obj->value[1]+8,
 					       obj->value[0]);
 			if ((ch = obj->in_room->people))
@@ -1468,14 +1468,14 @@ void update_one_obj(OBJ_DATA *obj)
 		return;
 
 	if (check_material(obj, "glass")
-	&&  obj->item_type == ITEM_POTION
+	&&  obj->pIndexData->item_type == ITEM_POTION
 	&&  update_glass_obj(obj))
 		return;
 
 	if (obj->condition > -1 && (obj->timer <= 0 || --obj->timer > 0))
 		return;
 
-	switch (obj->item_type) {
+	switch (obj->pIndexData->item_type) {
 	default:
 		message = "$p crumbles into dust.";
 		break;
@@ -1524,7 +1524,7 @@ void update_one_obj(OBJ_DATA *obj)
 	      && !CAN_WEAR(obj->in_obj, ITEM_TAKE)))
 		act(message, rch, obj, NULL, TO_ALL);
 
-	if ((obj->item_type == ITEM_CORPSE_PC
+	if ((obj->pIndexData->item_type == ITEM_CORPSE_PC
 	     || obj->wear_loc == WEAR_FLOAT)
 	&&  obj->contains) {
 		/* save the contents */

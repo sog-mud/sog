@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.70 1998-10-06 19:08:58 fjoe Exp $
+ * $Id: act_wiz.c,v 1.71 1998-10-09 13:42:37 fjoe Exp $
  */
 
 /***************************************************************************
@@ -56,6 +56,7 @@
 #include "interp.h"
 #include "fight.h"
 #include "quest.h"
+#include "db/db.h"
 
 #include "resource.h"
 
@@ -1110,10 +1111,9 @@ void do_ostat(CHAR_DATA *ch, const char *argument)
 	output = buf_new(0);
 	buf_printf(output, "Name(s): %s\n\r", obj->name);
 
-	buf_printf(output, "Vnum: %d  Format: %s  Type: %s  Resets: %d\n\r",
+	buf_printf(output, "Vnum: %d  Type: %s  Resets: %d\n\r",
 		obj->pIndexData->vnum,
-		obj->pIndexData->new_format ? "new" : "old",
-		flag_string(item_types, obj->item_type),
+		flag_string(item_types, obj->pIndexData->item_type),
 		obj->pIndexData->reset_num);
 
 	mlstr_dump(output, "Short description: ", obj->short_descr);
@@ -1147,7 +1147,7 @@ void do_ostat(CHAR_DATA *ch, const char *argument)
 	
 	/* now give out vital statistics as per identify */
 	
-	switch (obj->item_type) {
+	switch (obj->pIndexData->item_type) {
 		int i;
 	case ITEM_SCROLL: 
 	case ITEM_POTION:
@@ -1181,16 +1181,9 @@ void do_ostat(CHAR_DATA *ch, const char *argument)
 	case ITEM_WEAPON:
 		buf_printf(output, "%s\n\r",
 			   flag_string(weapon_class, obj->value[0]));
-		if (obj->pIndexData->new_format)
-		    	buf_printf(output,"Damage is %dd%d (average %d)\n\r",
-			    obj->value[1],obj->value[2],
-			    (1 + obj->value[2]) * obj->value[1] / 2);
-		else
-			buf_printf(output,
-				   "Damage is %d to %d (average %d)\n\r",
-				   obj->value[1], obj->value[2],
-				   (obj->value[1] + obj->value[2]) / 2);
-
+		buf_printf(output,"Damage is %dd%d (average %d)\n\r",
+			   obj->value[1],obj->value[2],
+			   (1 + obj->value[2]) * obj->value[1] / 2);
 		buf_printf(output, "Damage noun is %s.\n\r",
 			   attack_table[obj->value[3]].noun);
 		    
@@ -1285,9 +1278,8 @@ void do_mstat(CHAR_DATA *ch, const char *argument)
 		(IS_NPC(victim) &&victim->zone) ? victim->zone->name : "?");
 
 	buf_printf(output, 
-		"Vnum: %d  Format: %s  Race: %s(%s)  Group: %d  Sex: %s  Room: %d\n\r",
+		"Vnum: %d  Race: %s(%s)  Group: %d  Sex: %s  Room: %d\n\r",
 		IS_NPC(victim) ? victim->pIndexData->vnum : 0,
-		IS_NPC(victim) ? victim->pIndexData->new_format ? "new" : "old" : "pc",
 		race_table[RACE(victim)].name,race_table[ORG_RACE(victim)].name,
 		IS_NPC(victim) ? victim->group : 0, sex_table[victim->sex].name,
 		victim->in_room == NULL    ?        0 : victim->in_room->vnum);
@@ -1350,31 +1342,33 @@ void do_mstat(CHAR_DATA *ch, const char *argument)
 		flag_string(position_table, victim->position),
 		victim->wimpy);
 
-	if (IS_NPC(victim) && victim->pIndexData->new_format)
+	if (IS_NPC(victim))
 		buf_printf(output, "Damage: %dd%d  Message:  %s\n\r",
-		    victim->damage[DICE_NUMBER],victim->damage[DICE_TYPE],
-		    attack_table[victim->dam_type].noun);
+			   victim->damage[DICE_NUMBER],
+			   victim->damage[DICE_TYPE],
+			   attack_table[victim->dam_type].noun);
 
 	buf_printf(output, "Fighting: %s Deaths: %d Carry number: %d  Carry weight: %ld\n\r",
-		victim->fighting ? victim->fighting->name : "(none)" ,
-		IS_NPC(victim) ? 0 : victim->pcdata->death,
-		victim->carry_number, get_carry_weight(victim) / 10);
+		   victim->fighting ? victim->fighting->name : "(none)" ,
+		   IS_NPC(victim) ? 0 : victim->pcdata->death,
+		   victim->carry_number, get_carry_weight(victim) / 10);
 
 	if (!IS_NPC(victim)) {
 		buf_printf(output,
-"Thirst: %d  Hunger: %d  Full: %d  Drunk: %d Bloodlust: %d Desire: %d\n\r",
-		    victim->pcdata->condition[COND_THIRST],
-		    victim->pcdata->condition[COND_HUNGER],
-		    victim->pcdata->condition[COND_FULL],
-		    victim->pcdata->condition[COND_DRUNK],
-		    victim->pcdata->condition[COND_BLOODLUST],
-		    victim->pcdata->condition[COND_DESIRE]);
+			   "Thirst: %d  Hunger: %d  Full: %d  "
+			   "Drunk: %d Bloodlust: %d Desire: %d\n\r",
+			   victim->pcdata->condition[COND_THIRST],
+			   victim->pcdata->condition[COND_HUNGER],
+			   victim->pcdata->condition[COND_FULL],
+			   victim->pcdata->condition[COND_DRUNK],
+			   victim->pcdata->condition[COND_BLOODLUST],
+			   victim->pcdata->condition[COND_DESIRE]);
 		buf_printf(output, 
-		    "Age: %d  Played: %d  Last Level: %d  Timer: %d\n\r",
-		    get_age(victim), 
-		    (int) (victim->played + current_time - victim->logon) / 3600, 
-		    victim->pcdata->last_level, 
-		    victim->timer);
+			   "Age: %d  Played: %d  Last Level: %d  Timer: %d\n\r",
+			   get_age(victim), 
+			   (int) (victim->played+current_time-victim->logon) / 3600, 
+			   victim->pcdata->last_level, 
+			   victim->timer);
 	}
 
 	buf_printf(output, "Act: [%s]\n\r",
@@ -1417,7 +1411,8 @@ void do_mstat(CHAR_DATA *ch, const char *argument)
 
 	/* OLC */
 	if (!IS_NPC(victim))
-		buf_printf(output, "Security: %d.\n\r", victim->pcdata->security);
+		buf_printf(output, "Security: %d.\n\r",
+			   victim->pcdata->security);
 
 	mlstr_dump(output, "Short description: ", victim->short_descr);
 	if (IS_NPC(victim))
@@ -1425,7 +1420,7 @@ void do_mstat(CHAR_DATA *ch, const char *argument)
 
 	if (IS_NPC(victim) && victim->spec_fun != 0)
 		buf_printf(output, "Mobile has special procedure %s.\n\r",
-			spec_name(victim->spec_fun));
+			   spec_name(victim->spec_fun));
 
 	for (paf = victim->affected; paf != NULL; paf = paf->next)
 		buf_printf(output,
@@ -1462,10 +1457,11 @@ void do_mstat(CHAR_DATA *ch, const char *argument)
 	}
 
 	buf_printf(output,
-		   "Last fought: %10s  Last fight time: %s  Pumped: %d\n\r", 
-		victim->last_fought!=NULL?victim->last_fought->name:"none", 
-		ctime(&(victim->last_fight_time)),
-		victim->pumped);
+		   "Last fought: [%s], Last fight time: [%s]\n\r",
+		   victim->last_fought ? victim->last_fought->name : "none", 
+		   ctime(&victim->last_fight_time));
+	if (IS_PUMPED(victim))
+		buf_add(output, "Adrenalin is gushing.\n\r");
 	buf_printf(output, "In_mind: [%s]\n\r", 
 			victim->in_mind ? victim->in_mind : "none");
 
@@ -2848,7 +2844,7 @@ void do_oset(CHAR_DATA *ch, const char *argument)
 		char_puts("  set obj <object> <field> <value>\n\r",ch);
 		char_puts("Field being one of:\n\r", ch);
 		char_puts("value0 value1 value2 value3 value4 (v1-v4)\n\r", ch);
-		char_puts("    extra wear level weight cost timer\n\r",	ch);
+		char_puts("    level cost timer\n\r",	ch);
 		return;
 	}
 
@@ -2887,26 +2883,11 @@ void do_oset(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (!str_prefix(arg2, "extra")) {
-		obj->extra_flags = value;
-		return;
-	}
-
-	if (!str_prefix(arg2, "wear")) {
-		obj->wear_flags = value;
-		return;
-	}
-
 	if (!str_prefix(arg2, "level")) {
 		obj->level = value;
 		return;
 	}
 		
-	if (!str_prefix(arg2, "weight")) {
-		obj->weight = value;
-		return;
-	}
-
 	if (!str_prefix(arg2, "cost")) {
 		obj->cost = value;
 		return;
@@ -3409,7 +3390,7 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 		char_puts("    str int wis dex con cha sex class level\n\r",ch);
 		char_puts("    race gold hp mana move practice align\n\r", ch);
 		char_puts("    train thirst drunk full hometown ethos\n\r", ch);
-		char_puts("    pumped noghost clan trouble security\n\r", ch);
+		char_puts("    noghost clan trouble security\n\r", ch);
 		char_puts("    questp questt relig bloodlust desire \n\r", ch);
 		return;
 	}
@@ -3455,13 +3436,6 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 
 		qtrouble_set(victim, value, val2+1);
 		char_puts("Ok.\n\r", ch);
-		return;
-	}
-
-	if (!str_cmp(arg2, "pumped")) {
-		if (value < 0)
-			return;
-		victim->pumped = value != 0;
 		return;
 	}
 

@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.31 1998-10-08 13:27:54 fjoe Exp $
+ * $Id: skills.c,v 1.32 1998-10-09 13:42:43 fjoe Exp $
  */
 
 /***************************************************************************
@@ -733,7 +733,7 @@ int get_weapon_sn(CHAR_DATA *ch, int type)
 		return 0;
 
 	wield = get_eq_char(ch, type);
-	if (wield == NULL || wield->item_type != ITEM_WEAPON)
+	if (wield == NULL || wield->pIndexData->item_type != ITEM_WEAPON)
 		sn = (type == WEAR_WIELD) ? gsn_hand_to_hand : 0;
 	else
 		switch (wield->value[0]) {

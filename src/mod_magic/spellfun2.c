@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.45 1998-10-06 19:09:00 fjoe Exp $
+ * $Id: spellfun2.c,v 1.46 1998-10-09 13:42:41 fjoe Exp $
  */
 
 /***************************************************************************
@@ -106,13 +106,13 @@ void spell_portal(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 
 	stone = get_eq_char(ch,WEAR_HOLD);
 	if (!IS_IMMORTAL(ch) 
-	&&  (stone == NULL || stone->item_type != ITEM_WARP_STONE))
+	&&  (stone == NULL || stone->pIndexData->item_type != ITEM_WARP_STONE))
 	{
 	char_puts("You lack the proper component for this spell.\n\r",ch);
 	return;
 	}
 
-	if (stone != NULL && stone->item_type == ITEM_WARP_STONE)
+	if (stone != NULL && stone->pIndexData->item_type == ITEM_WARP_STONE)
 	{
 	 	act("You draw upon the power of $p.",ch,stone,NULL,TO_CHAR);
 	 	act("It flares brightly and vanishes!",ch,stone,NULL,TO_CHAR);
@@ -150,12 +150,12 @@ void spell_nexus(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 
 	stone = get_eq_char(ch,WEAR_HOLD);
 	if (!IS_IMMORTAL(ch)
-	&&  (stone == NULL || stone->item_type != ITEM_WARP_STONE)) {
+	&&  (stone == NULL || stone->pIndexData->item_type != ITEM_WARP_STONE)) {
 		char_puts("You lack the proper component for this spell.\n\r",ch);
 		return;
 	}
  
-	if (stone != NULL && stone->item_type == ITEM_WARP_STONE) {
+	if (stone != NULL && stone->pIndexData->item_type == ITEM_WARP_STONE) {
 		act("You draw upon the power of $p.",ch,stone,NULL,TO_CHAR);
 		act("It flares brightly and vanishes!",ch,stone,NULL,TO_CHAR);
 		extract_obj(stone);
@@ -791,7 +791,7 @@ void spell_nightfall(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	for (vch = ch->in_room->people; vch != NULL; vch = vch->next_in_room)
 	for (light = vch->carrying; light != NULL; light = light->next_content)
 	  {
-	if (light->item_type == ITEM_LIGHT && light->value[2] != 0
+	if (light->pIndexData->item_type == ITEM_LIGHT && light->value[2] != 0
 		&& !is_same_group(ch, vch)) {  
 	  if (/*light->value[2] != -1 ||*/ saves_spell(level, vch, DAM_ENERGY)) {
 	    act("$p flickers and goes out!",ch,light,NULL,TO_CHAR);
@@ -807,7 +807,7 @@ void spell_nightfall(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	  }  
 
 	for (light = ch->in_room->contents;light != NULL; light=light->next_content)
-	if (light->item_type == ITEM_LIGHT && light->value[2] != 0) {  
+	if (light->pIndexData->item_type == ITEM_LIGHT && light->value[2] != 0) {  
 	  act("$p flickers and goes out!",ch,light,NULL,TO_CHAR);
 	  act("$p flickers and goes out!",ch,light,NULL,TO_ROOM);
 	  light->value[2] = 0; 
@@ -1369,8 +1369,8 @@ void spell_brew(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	OBJ_DATA *vial;
 	int spell;
 
-	if (obj->item_type != ITEM_TRASH && obj->item_type != ITEM_TREASURE
-	&& obj->item_type != ITEM_KEY)
+	if (obj->pIndexData->item_type != ITEM_TRASH && obj->pIndexData->item_type != ITEM_TREASURE
+	&& obj->pIndexData->item_type != ITEM_KEY)
 	  {
 	char_puts("That can't be transformed into a potion.\n\r",ch);
 	return;
@@ -1399,9 +1399,9 @@ void spell_brew(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	return;
 	  }
 	
-	if (obj->item_type == ITEM_TRASH)
+	if (obj->pIndexData->item_type == ITEM_TRASH)
 	  potion = create_obj(get_obj_index(OBJ_VNUM_POTION_SILVER), level);
-	else if (obj->item_type == ITEM_TREASURE)
+	else if (obj->pIndexData->item_type == ITEM_TREASURE)
 	  potion = create_obj(get_obj_index(OBJ_VNUM_POTION_GOLDEN), level);
 	else
 	  potion = create_obj(get_obj_index(OBJ_VNUM_POTION_SWIRLING), level);
@@ -1410,7 +1410,7 @@ void spell_brew(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 
 	potion->value[0] = level;
 
-	if (obj->item_type == ITEM_TRASH)
+	if (obj->pIndexData->item_type == ITEM_TRASH)
 	  {
 	if (number_percent() < 20)
 	  spell = sn_lookup("fireball");
@@ -1423,7 +1423,7 @@ void spell_brew(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	else
 	  spell = sn_lookup("word of recall");
 	  }
-	else if (obj->item_type == ITEM_TREASURE)
+	else if (obj->pIndexData->item_type == ITEM_TREASURE)
 	  {
 	switch(number_bits(3)) {
 	case 0:
@@ -2401,8 +2401,8 @@ void spell_animate_dead(int sn,int level, CHAR_DATA *ch, void *vo,int target)
 	if (target == TARGET_OBJ) {
 		obj = (OBJ_DATA *) vo;
 
-		if (!(obj->item_type == ITEM_CORPSE_NPC 
-		|| obj->item_type == ITEM_CORPSE_PC)) {
+		if (!(obj->pIndexData->item_type == ITEM_CORPSE_NPC 
+		|| obj->pIndexData->item_type == ITEM_CORPSE_PC)) {
 			char_puts("You can animate only corpses!\n\r", ch);
 			return;
 		}
@@ -2423,7 +2423,7 @@ void spell_animate_dead(int sn,int level, CHAR_DATA *ch, void *vo,int target)
 		}
 
 		/* can't animate PC corpses in ROOM_BATTLE_ARENA */
-		if (obj->item_type == ITEM_CORPSE_PC
+		if (obj->pIndexData->item_type == ITEM_CORPSE_PC
 		&&  obj->in_room != NULL
 		&&  IS_SET(obj->in_room->room_flags, ROOM_BATTLE_ARENA)
 		&&  obj->from != NULL
@@ -3808,7 +3808,7 @@ void spell_bless_weapon(int sn,int level,CHAR_DATA *ch, void *vo,int target)
 	OBJ_DATA *obj = (OBJ_DATA *) vo;
 	AFFECT_DATA af;
 
-	if (obj->item_type != ITEM_WEAPON)
+	if (obj->pIndexData->item_type != ITEM_WEAPON)
 	{
 	char_puts("That isn't a weapon.\n\r",ch);
 	return;
@@ -3820,7 +3820,7 @@ void spell_bless_weapon(int sn,int level,CHAR_DATA *ch, void *vo,int target)
 	return;
 	}
 
-	if (obj->item_type == ITEM_WEAPON)
+	if (obj->pIndexData->item_type == ITEM_WEAPON)
 	{
 	 if (IS_WEAPON_STAT(obj,WEAPON_FLAMING)
 	    ||  IS_WEAPON_STAT(obj,WEAPON_FROST)

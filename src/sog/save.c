@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.63 1998-10-06 13:18:30 fjoe Exp $
+ * $Id: save.c,v 1.64 1998-10-09 13:42:43 fjoe Exp $
  */
 
 /***************************************************************************
@@ -401,6 +401,7 @@ fwrite_pet(CHAR_DATA * pet, FILE * fp)
 
 	fprintf(fp, "End\n");
 }
+
 /*
  * Write an object and its contents.
  */
@@ -424,14 +425,13 @@ fwrite_obj(CHAR_DATA * ch, OBJ_DATA * obj, FILE * fp, int iNest)
 	/*
 	 * Castrate storage characters.
 	 */
-	if (((ch->level < 10) && (obj->pIndexData->limit != -1))
-	    || (obj->item_type == ITEM_KEY && obj->value[0] == 0)
-	    || (obj->item_type == ITEM_MAP && !obj->value[0])
-	    || ((ch->level < obj->level - 3) && (obj->item_type != ITEM_CONTAINER))
-	|| ((ch->level > obj->level + 35) && (obj->pIndexData->limit > 1))) {
+	if ((get_wear_level(ch, obj) < obj->level &&
+	     obj->pIndexData->item_type != ITEM_CONTAINER)
+	||  (ch->level > obj->level + 20 && obj->pIndexData->limit > 1)) {
 		extract_obj(obj);
 		return;
 	}
+
 /* FIXX ME
 	if (obj->pIndexData->vnum == QUEST_ITEM1
 		|| obj->pIndexData->vnum == QUEST_ITEM2
@@ -448,32 +448,19 @@ fwrite_obj(CHAR_DATA * ch, OBJ_DATA * obj, FILE * fp, int iNest)
 	fprintf(fp, "Vnum %d\n", obj->pIndexData->vnum);
 	fprintf(fp, "Cond %d\n", obj->condition);
 
-	if (!obj->pIndexData->new_format)
-		fprintf(fp, "Oldstyle\n");
 	if (obj->enchanted)
 		fprintf(fp, "Enchanted\n");
 	fprintf(fp, "Nest %d\n", iNest);
-
-	/* these data are only used if they do not match the defaults */
 
 	if (str_cmp(obj->name, obj->pIndexData->name) != 0)
 		fprintf(fp, "Name %s~\n", obj->name);
 	if (mlstr_cmp(obj->short_descr, obj->pIndexData->short_descr) != 0)
 		mlstr_fwrite(fp, "ShD", obj->short_descr);
 	if (mlstr_cmp(obj->description, obj->pIndexData->description) != 0)
-		mlstr_fwrite(fp, "Desc", obj->short_descr);
+		mlstr_fwrite(fp, "Desc", obj->description);
+
 	if (obj->extra_flags != obj->pIndexData->extra_flags)
 		fprintf(fp, "ExtF %d\n", obj->extra_flags);
-	if (obj->wear_flags != obj->pIndexData->wear_flags)
-		fprintf(fp, "WeaF %d\n", obj->wear_flags);
-/*
-	if (obj->item_type != obj->pIndexData->item_type)
-		fprintf(fp, "Ityp %d\n", obj->item_type);
- */
-	if (obj->weight != obj->pIndexData->weight)
-		fprintf(fp, "Wt   %d\n", obj->weight);
-
-	/* variable data */
 
 	fprintf(fp, "Wear %d\n", obj->wear_loc);
 	if (obj->level != obj->pIndexData->level)
@@ -490,7 +477,7 @@ fwrite_obj(CHAR_DATA * ch, OBJ_DATA * obj, FILE * fp, int iNest)
 		  obj->value[0], obj->value[1], obj->value[2], obj->value[3],
 			obj->value[4]);
 
-	switch (obj->item_type) {
+	switch (obj->pIndexData->item_type) {
 	case ITEM_POTION:
 	case ITEM_SCROLL:
 		if (obj->value[1] > 0) {
@@ -667,7 +654,7 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 		case 'A':
 			KEY("Act", ch->act, fread_flags(fp) &
 					    ~(PLR_GHOST | PLR_CONFIRM_DELETE |
-					      PLR_NOEXP | PLR_NEW));
+					      PLR_NOEXP | PLR_NEW | PLR_PUMPED));
 			KEY("AffectedBy", ch->affected_by, fread_flags(fp));
 			KEY("AfBy", ch->affected_by, fread_flags(fp) &
 						     ~AFF_CHARM);
@@ -1251,13 +1238,9 @@ fread_obj(CHAR_DATA * ch, FILE * fp)
 	bool            fNest;
 	bool            fVnum;
 	bool            first;
-	bool            new_format;	/* to prevent errors */
-	bool            make_new;	/* update object */
 	fVnum = FALSE;
 	obj = NULL;
 	first = TRUE;		/* used to counter fp offset */
-	new_format = FALSE;
-	make_new = FALSE;
 
 	word = feof(fp) ? "End" : fread_word(fp);
 	if (!str_cmp(word, "Vnum")) {
@@ -1265,12 +1248,10 @@ fread_obj(CHAR_DATA * ch, FILE * fp)
 		first = FALSE;	/* fp will be in right place */
 
 		vnum = fread_number(fp);
-		if (get_obj_index(vnum) == NULL) {
+		if (get_obj_index(vnum) == NULL)
 			bug("Fread_obj: bad vnum %d.", vnum);
-		} else {
+		else 
 			obj = create_obj_nocount(get_obj_index(vnum), -1);
-			new_format = TRUE;
-		}
 	}
 	if (obj == NULL) {	/* either not found or old style */
 		obj = new_obj();
@@ -1350,12 +1331,12 @@ fread_obj(CHAR_DATA * ch, FILE * fp)
 			break;
 
 		case 'E':
-
 			if (!str_cmp(word, "Enchanted")) {
 				obj->enchanted = TRUE;
 				fMatch = TRUE;
 				break;
 			}
+
 			KEY("ExtraFlags", obj->extra_flags, fread_number(fp));
 			KEY("ExtF", obj->extra_flags, fread_number(fp));
 
@@ -1375,28 +1356,6 @@ fread_obj(CHAR_DATA * ch, FILE * fp)
 						obj = create_obj(get_obj_index(OBJ_VNUM_DUMMY), 0);
 					}
 
-					if (!new_format) {
-						obj->next = object_list;
-						object_list = obj;
-						obj->pIndexData->count++;
-					}
-
-					if (!obj->pIndexData->new_format
-					    && obj->item_type == ITEM_ARMOR
-					    && obj->value[1] == 0) {
-						obj->value[1] = obj->value[0];
-						obj->value[2] = obj->value[0];
-					}
-
-					if (make_new) {
-						int             wear;
-						wear = obj->wear_loc;
-						extract_obj(obj);
-
-						obj = create_obj(obj->pIndexData, 0);
-						obj->wear_loc = wear;
-					}
-
 					if (iNest == 0 || rgObjNest[iNest] == NULL)
 						obj_to_char(obj, ch);
 					else
@@ -1404,13 +1363,6 @@ fread_obj(CHAR_DATA * ch, FILE * fp)
 					return;
 				}
 			}
-			break;
-
-		case 'I':
-/*
-			KEY("ItemType", obj->item_type, fread_number(fp));
-			KEY("Ityp", obj->item_type, fread_number(fp));
- */
 			break;
 
 		case 'L':
@@ -1432,15 +1384,6 @@ fread_obj(CHAR_DATA * ch, FILE * fp)
 				fMatch = TRUE;
 			}
 			break;
-
-		case 'O':
-			if (!str_cmp(word, "Oldstyle")) {
-				if (obj->pIndexData != NULL && obj->pIndexData->new_format)
-					make_new = TRUE;
-				fMatch = TRUE;
-			}
-			break;
-
 
 		case 'Q':
 			KEY("Quality", obj->condition, fread_number(fp));
@@ -1478,7 +1421,7 @@ fread_obj(CHAR_DATA * ch, FILE * fp)
 				obj->value[1] = fread_number(fp);
 				obj->value[2] = fread_number(fp);
 				obj->value[3] = fread_number(fp);
-				if (obj->item_type == ITEM_WEAPON && obj->value[0] == 0)
+				if (obj->pIndexData->item_type == ITEM_WEAPON && obj->value[0] == 0)
 					obj->value[0] = obj->pIndexData->value[0];
 				fMatch = TRUE;
 				break;
@@ -1505,12 +1448,8 @@ fread_obj(CHAR_DATA * ch, FILE * fp)
 			break;
 
 		case 'W':
-			KEY("WearFlags", obj->wear_flags, fread_number(fp));
-			KEY("WeaF", obj->wear_flags, fread_number(fp));
 			KEY("WearLoc", obj->wear_loc, fread_number(fp));
 			KEY("Wear", obj->wear_loc, fread_number(fp));
-			KEY("Weight", obj->weight, fread_number(fp));
-			KEY("Wt", obj->weight, fread_number(fp));
 			break;
 
 		}

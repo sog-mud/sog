@@ -1,5 +1,5 @@
 /*
- * $Id: effects.c,v 1.9 1998-09-20 17:01:00 fjoe Exp $
+ * $Id: effects.c,v 1.10 1998-10-09 13:42:37 fjoe Exp $
  */
 
 /***************************************************************************
@@ -101,7 +101,7 @@ void acid_effect(void *vo, int level, int dam, int target)
 
 	chance -= obj->level * 2;
 
-	switch (obj->item_type)
+	switch (obj->pIndexData->item_type)
 	{
 	    default:
 		return;
@@ -137,7 +137,7 @@ void acid_effect(void *vo, int level, int dam, int target)
 	else if (obj->in_room != NULL && obj->in_room->people != NULL)
 	    act(msg,obj->in_room->people,obj,NULL,TO_ALL);
 
-	if (obj->item_type == ITEM_ARMOR)  /* etch it */
+	if (obj->pIndexData->item_type == ITEM_ARMOR)  /* etch it */
 	{
 	    AFFECT_DATA *paf;
 	    bool af_found = FALSE;
@@ -278,7 +278,7 @@ void cold_effect(void *vo, int level, int dam, int target)
 
  	chance -= obj->level * 2;
 
-	switch(obj->item_type)
+	switch(obj->pIndexData->item_type)
 	{
 	    default:
 		return;
@@ -391,7 +391,7 @@ void fire_effect(void *vo, int level, int dam, int target)
           msg = "$p melts and evaporates!";
         }
         else
-        switch ( obj->item_type )
+        switch ( obj->pIndexData->item_type )
         {
         default:             
 	    return;
@@ -524,7 +524,7 @@ void poison_effect(void *vo,int level, int dam, int target)
 
 	chance -= obj->level * 2;
 
-	switch (obj->item_type)
+	switch (obj->pIndexData->item_type)
 	{
 	    default:
 		return;
@@ -606,7 +606,7 @@ void shock_effect(void *vo,int level, int dam, int target)
 
  	chance -= obj->level * 2;
 
-	switch(obj->item_type)
+	switch(obj->pIndexData->item_type)
 	{
 	    default:
 		return;
@@ -707,7 +707,7 @@ void sand_effect(void *vo, int level, int dam, int target)
 
 	chance -= obj->level * 2;
 
-	switch (obj->item_type)
+	switch (obj->pIndexData->item_type)
 	{
 	    default:
 		return;
@@ -748,7 +748,7 @@ void sand_effect(void *vo, int level, int dam, int target)
 	else if (obj->in_room != NULL && obj->in_room->people != NULL)
 	    act(msg,obj->in_room->people,obj,NULL,TO_ALL);
 
-	if (obj->item_type == ITEM_ARMOR)  /* etch it */
+	if (obj->pIndexData->item_type == ITEM_ARMOR)  /* etch it */
 	{
 	    AFFECT_DATA *paf;
 	    bool af_found = FALSE;
@@ -909,7 +909,7 @@ void scream_effect(void *vo, int level, int dam, int target)
 	 msg = "$p breaks into tiny small peaces";
 	}
 	else
-        switch ( obj->item_type )
+        switch ( obj->pIndexData->item_type )
         {
         default:             
 	    return;

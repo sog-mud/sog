@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: const.h,v 1.7 1998-10-08 02:46:05 fjoe Exp $
+ * $Id: const.h,v 1.8 1998-10-09 13:42:37 fjoe Exp $
  */
 
 #ifndef _CONST_H_
@@ -100,7 +100,7 @@
 #define MAX_SOCIALS		256
 #define MAX_PC_RACE		19	/* 18 */
 #define MAX_RELIGION		18
-#define PK_MIN_LEVEL		5	/* min PK level */
+#define PK_MIN_LEVEL		10	/* min PK level */
 #define MAX_NEWBIES		120	/* number of newbies allowed */
 #define MAX_OLDIES		999	/* number of newbies allowed */
 #define MAX_TRADE		5	/* number of trade types for shops */

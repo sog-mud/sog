@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.11 1998-10-08 12:39:36 fjoe Exp $
+ * $Id: tables.c,v 1.12 1998-10-09 13:42:43 fjoe Exp $
  */
 
 /***************************************************************************
@@ -480,6 +480,8 @@ FLAG extra_flags[] =
 	{ "burnproof",		ITEM_BURN_PROOF,	TRUE	},
 	{ "nouncurse",		ITEM_NOUNCURSE,		TRUE	},
 	{ "nosell",		ITEM_NOSELL,		TRUE	},
+	{ "not_edible",		ITEM_NOT_EDIBLE,	TRUE	},
+	{ "quest",		ITEM_QUEST,		TRUE	},
 	{ NULL }
 };
 

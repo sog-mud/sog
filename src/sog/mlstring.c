@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mlstring.c,v 1.22 1998-10-08 12:39:35 fjoe Exp $
+ * $Id: mlstring.c,v 1.23 1998-10-09 13:42:42 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -218,7 +218,10 @@ mlstring *mlstr_printf(mlstring *ml,...)
 	else {
 		int lang;
 
+		res->u.lstr = calloc(1, sizeof(char*) * res->nlang);
 		for (lang = 0; lang < ml->nlang; lang++) {
+			if (IS_NULLSTR(ml->u.lstr[lang]))
+				continue;
 			vsnprintf(buf, sizeof(buf), ml->u.lstr[lang], ap);
 			res->u.lstr[lang] = str_dup(buf);
 		}

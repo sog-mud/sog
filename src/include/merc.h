@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.88 1998-10-08 13:27:54 fjoe Exp $
+ * $Id: merc.h,v 1.89 1998-10-09 13:42:42 fjoe Exp $
  */
 
 /***************************************************************************
@@ -835,6 +835,8 @@ enum {
 #define ITEM_BURN_PROOF 	(Y)
 #define ITEM_NOUNCURSE		(Z)
 #define ITEM_NOSELL		(aa)
+#define ITEM_NOT_EDIBLE		(bb)
+#define ITEM_QUEST		(cc)
 
 /*
  * Wear flags.	 *WEAR*
@@ -1128,28 +1130,24 @@ enum {
 #define PLR_LOG 		(W)
 #define PLR_DENY		(X)
 #define PLR_FREEZE		(Y)
-
+#define PLR_PUMPED		(Z)	/* adrenalin is gushing */
 #define PLR_CONFIRM_DELETE	(cc)
 #define PLR_HARA_KIRI		(dd)
 #define PLR_BLINK		(ee)
 #define PLR_NEW			(ff)
 
-#define IS_HARA_KIRI(ch) (IS_SET((ch)->act , PLR_HARA_KIRI))
+#define IS_HARA_KIRI(ch) (IS_SET((ch)->act, PLR_HARA_KIRI))
 
-/*
-#define IS_PUMPED(ch) ((ch)->last_fight_time != -1 && \
-		       current_time - (ch)->last_fight_time < FIGHT_DELAY_TIME)
-*/
-#define IS_PUMPED(ch) (ch->pumped)
+#define IS_PUMPED(ch) (IS_SET((ch)->act, PLR_PUMPED))
 #define SET_FIGHT_TIME(ch)					\
 	{							\
 		(ch)->last_fight_time = current_time;		\
-		(ch)->pumped = TRUE;				\
+		SET_BIT((ch)->act, PLR_PUMPED);			\
 	}
 #define RESET_FIGHT_TIME(ch)					\
 	{							\
 		(ch)->last_fight_time = -1;			\
-		(ch)->pumped = FALSE;				\
+		REMOVE_BIT((ch)->act, PLR_PUMPED);		\
 	}
 
 /* RT comm flags -- may be used on both mobs and chars */
@@ -1272,7 +1270,6 @@ struct char_data
 	CHAR_DATA * 		reply;
 	CHAR_DATA * 		last_fought;
 	time_t			last_fight_time;
-	bool			pumped;
 	time_t			last_death_time;
 	CHAR_DATA * 		pet;
 	CHAR_DATA *		mprog_target;
@@ -1467,7 +1464,7 @@ enum {
 };
 
 /*
- * Prototype for an object.  *OID*
+ * Prototype for an object.
  */
 struct obj_index_data
 {
@@ -1496,7 +1493,7 @@ struct obj_index_data
 };
 
 /*
- * One object.	*OD*
+ * One object.
  */
 struct obj_data
 {
@@ -1515,7 +1512,6 @@ struct obj_data
 	const char *		name;
 	mlstring *		short_descr;
 	mlstring *		description;
-	sflag_t			item_type;
 	sflag_t 		extra_flags;
 	sflag_t 		wear_flags;
 	sflag_t			wear_loc;
@@ -1791,7 +1787,7 @@ struct mpcode
 #define CAN_WEAR(obj, part)	(IS_SET((obj)->wear_flags,  (part)))
 #define IS_OBJ_STAT(obj, stat)	(IS_SET((obj)->extra_flags, (stat)))
 #define IS_WEAPON_STAT(obj,stat)(IS_SET((obj)->value[4],(stat)))
-#define WEIGHT_MULT(obj)	((obj)->item_type == ITEM_CONTAINER ? \
+#define WEIGHT_MULT(obj)	((obj)->pIndexData->item_type == ITEM_CONTAINER ? \
 	(obj)->value[4] : 100)
 
 /*
@@ -1880,17 +1876,10 @@ extern		bool			MOBtrigger;
  * Our function prototypes.
  * One big lump ... this is every function in Merc.
  */
-#define MID	MOB_INDEX_DATA
-#define OD	OBJ_DATA
-#define OID	OBJ_INDEX_DATA
-#define RID	ROOM_INDEX_DATA
-#define SF	SPEC_FUN
-#define AD	AFFECT_DATA
-#define MPC	MPCODE
 
 /* act_hera.c */
 /* enter.c */
-RID  *get_random_room	(CHAR_DATA *ch);
+ROOM_INDEX_DATA  *get_random_room	(CHAR_DATA *ch);
 /* hunt.c */
 void hunt_victim(CHAR_DATA *ch);
 int find_path(int in_room_vnum, int out_room_vnum, CHAR_DATA *ch, 
@@ -1906,7 +1895,7 @@ void	sand_effect	(void *vo, int level, int dam, int target);
 void	scream_effect	(void *vo, int level, int dam, int target);
 
 /* handler.c */
-AD	*affect_find (AFFECT_DATA *paf, int sn);
+AFFECT_DATA	*affect_find (AFFECT_DATA *paf, int sn);
 void	affect_check	(CHAR_DATA *ch, int where, flag_t vector);
 int	count_users	(OBJ_DATA *obj);
 void	deduct_cost	(CHAR_DATA *ch, int cost);
@@ -1914,7 +1903,6 @@ void	affect_enchant	(OBJ_DATA *obj);
 int	check_immune	(CHAR_DATA *ch, int dam_type);
 bool	check_material	(OBJ_DATA *obj, char *material);
 bool	is_metal	(OBJ_DATA *obj);
-bool	is_old_mob	(CHAR_DATA *ch);
 int	get_age 	(CHAR_DATA *ch);
 void	reset_char	(CHAR_DATA *ch);
 int	get_trust	(CHAR_DATA *ch);
@@ -1948,7 +1936,7 @@ void	char_to_room	(CHAR_DATA *ch, ROOM_INDEX_DATA *pRoomIndex);
 void	obj_to_char	(OBJ_DATA *obj, CHAR_DATA *ch);
 void	obj_from_char	(OBJ_DATA *obj);
 int	apply_ac	(OBJ_DATA *obj, int iWear, int type);
-OD *	get_eq_char	(CHAR_DATA *ch, int iWear);
+OBJ_DATA *	get_eq_char	(CHAR_DATA *ch, int iWear);
 void	equip_char	(CHAR_DATA *ch, OBJ_DATA *obj, int iWear);
 void	unequip_char	(CHAR_DATA *ch, OBJ_DATA *obj);
 int	count_obj_list	(OBJ_INDEX_DATA *obj, OBJ_DATA *list);
@@ -1966,14 +1954,14 @@ CHAR_DATA *	get_char_room	(CHAR_DATA *ch, const char *argument);
 CHAR_DATA *	get_char_room2	(CHAR_DATA *ch, ROOM_INDEX_DATA *room,const char *argument, int *number);
 CHAR_DATA *	get_char_world	(CHAR_DATA *ch, const char *argument);
 CHAR_DATA *	get_char_area	(CHAR_DATA *ch, const char *argument);
-OD *	get_obj_type	(OBJ_INDEX_DATA *pObjIndexData);
-OD *	get_obj_list	(CHAR_DATA *ch, const char *argument,
+OBJ_DATA *	get_obj_type	(OBJ_INDEX_DATA *pObjIndexData);
+OBJ_DATA *	get_obj_list	(CHAR_DATA *ch, const char *argument,
 			    OBJ_DATA *list);
-OD *	get_obj_carry	(CHAR_DATA *ch, const char *argument);
-OD *	get_obj_wear	(CHAR_DATA *ch, const char *argument);
-OD *	get_obj_here	(CHAR_DATA *ch, const char *argument);
-OD *	get_obj_world	(CHAR_DATA *ch, const char *argument);
-OD *	create_money	(int gold, int silver);
+OBJ_DATA *	get_obj_carry	(CHAR_DATA *ch, const char *argument);
+OBJ_DATA *	get_obj_wear	(CHAR_DATA *ch, const char *argument);
+OBJ_DATA *	get_obj_here	(CHAR_DATA *ch, const char *argument);
+OBJ_DATA *	get_obj_world	(CHAR_DATA *ch, const char *argument);
+OBJ_DATA *	create_money	(int gold, int silver);
 int	get_obj_number	(OBJ_DATA *obj);
 int	get_obj_realnumber	(OBJ_DATA *obj);
 int	get_obj_weight	(OBJ_DATA *obj);
@@ -2028,7 +2016,7 @@ void	save_char_obj	(CHAR_DATA *ch, bool reboot);
 void	load_char_obj	(DESCRIPTOR_DATA *d, const char *name);
 
 /* special.c */
-SF *	spec_lookup	(const char *name);
+SPEC_FUN *	spec_lookup	(const char *name);
 char *	spec_name	(SPEC_FUN *function);
 
 void new_reset(ROOM_INDEX_DATA *pRoom, RESET_DATA *pReset);
@@ -2066,34 +2054,6 @@ void		mpcode_add		(MPCODE *mpcode);
 MPCODE *	mpcode_lookup		(int vnum);
 void		mpcode_free		(MPCODE *mpcode);
 
-/* db.c */
-extern int		newmobs;
-extern int		newobjs;
-extern MOB_INDEX_DATA *	mob_index_hash	[MAX_KEY_HASH];
-extern OBJ_INDEX_DATA *	obj_index_hash	[MAX_KEY_HASH];
-extern ROOM_INDEX_DATA *room_index_hash [MAX_KEY_HASH];
-extern int		top_mob_index;
-extern int		top_obj_index;
-extern int		top_vnum_mob;
-extern int		top_vnum_obj;
-extern int		top_vnum_room;
-extern int  		top_affect;
-extern int		top_ed; 
-extern int		top_area;
-extern int		top_exit;
-extern int		top_help;
-extern int		top_reset;
-extern int		top_room;
-extern int		top_shop;
-extern AREA_DATA *	area_first;
-extern AREA_DATA *	area_last;
-extern AREA_DATA *	area_current;
-extern HELP_DATA *	help_first;
-extern SHOP_DATA *	shop_last;
-
-void	reset_area      (AREA_DATA * pArea);		/* OLC */
-void	reset_room	(ROOM_INDEX_DATA *pRoom);	/* OLC */
-
 void		boot_db		(void);
 CHAR_DATA *	create_mob	(MOB_INDEX_DATA *pMobIndex);
 CHAR_DATA *	create_named_mob(MOB_INDEX_DATA *pMobIndex, const char *name);
@@ -2126,41 +2086,9 @@ char *format_flags(flag_t flags);
 
 #define chance(num) (number_range(1, 100) <= num)
 
-/* from db2.c */
-extern int	social_count;
-
-/* conversion from db.h */
-void	convert_mob(MOB_INDEX_DATA *mob);
-void	convert_obj(OBJ_INDEX_DATA *obj);
-
-/* macro for flag swapping */
-#define GET_UNSET(flag1,flag2)	(~(flag1)&((flag1)|(flag2)))
-
-extern void vnum_check(AREA_DATA *area, int vnum);	/* OLC */
-
-void convert_mobile(MOB_INDEX_DATA *pMobIndex);            /* OLC ROM */
-void convert_objects(void);                                /* OLC ROM */
-void convert_object(OBJ_INDEX_DATA *pObjIndex);            /* OLC ROM */
-
-char * fix_string(const char *);
-int xgetc(FILE *fp);
-void xungetc(int c, FILE *fp);
-
-#undef	MID
-#undef	OD
-#undef	OID
-#undef	RID
-#undef	SF
-#undef	AD
-
 /*****************************************************************************
  *                                    OLC                                    *
  *****************************************************************************/
-
-/*
- * Object defined in limbo.are
- * Used in save.c to load objects that don't exist.
- */
 
 /*
  * Global Constants

@@ -1,5 +1,5 @@
 /*
- * $Id: mem.c,v 1.16 1998-09-29 01:06:39 fjoe Exp $
+ * $Id: mem.c,v 1.17 1998-10-09 13:42:42 fjoe Exp $
  */
 
 /***************************************************************************
@@ -22,6 +22,7 @@
 #include <string.h>
 #include <time.h>
 #include "merc.h"
+#include "db/db.h"
 
 /*
  * Globals
@@ -308,16 +309,12 @@ SHOP_DATA *new_shop(void)
     return pShop;
 }
 
-
-
 void free_shop(SHOP_DATA *pShop)
 {
     pShop->next = shop_free;
     shop_free   = pShop;
     return;
 }
-
-
 
 OBJ_INDEX_DATA *new_obj_index(void)
 {
@@ -358,8 +355,6 @@ OBJ_INDEX_DATA *new_obj_index(void)
 
     return pObj;
 }
-
-
 
 void free_obj_index(OBJ_INDEX_DATA *pObj)
 {
@@ -445,8 +440,6 @@ MOB_INDEX_DATA *new_mob_index(void)
 
     return pMob;
 }
-
-
 
 void free_mob_index(MOB_INDEX_DATA *pMob)
 {

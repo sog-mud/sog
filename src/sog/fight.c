@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.79 1998-10-08 12:39:32 fjoe Exp $
+ * $Id: fight.c,v 1.80 1998-10-09 13:42:37 fjoe Exp $
  */
 
 /***************************************************************************
@@ -102,7 +102,7 @@ void get_gold_corpse(CHAR_DATA *ch, OBJ_DATA *corpse)
 	OBJ_DATA *tmp, *tmp_next;
 	for (tmp = corpse->contains; tmp; tmp = tmp_next) {
 		tmp_next = tmp->next_content;
-		if (tmp->item_type == ITEM_MONEY)
+		if (tmp->pIndexData->item_type == ITEM_MONEY)
 			get_obj(ch, tmp, corpse);
 	}
 }
@@ -582,7 +582,7 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, bool secondary)
 
 	if (dt == TYPE_UNDEFINED) {
 		dt = TYPE_HIT;
-		if (wield != NULL && wield->item_type == ITEM_WEAPON)
+		if (wield != NULL && wield->pIndexData->item_type == ITEM_WEAPON)
 		    dt += wield->value[3];
 		else
 		    dt += ch->dam_type;
@@ -698,25 +698,14 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, bool secondary)
 	 * Calc damage.
 	 */
 
-	if (IS_NPC(ch) && (!ch->pIndexData->new_format || wield == NULL))
-		if (!ch->pIndexData->new_format) {
-			dam = number_range(ch->level / 2, ch->level * 3 / 2);
-			if (wield != NULL)
-				dam += dam / 2;
-		}
-		else
-			dam = dice(ch->damage[DICE_NUMBER],
-				   ch->damage[DICE_TYPE]);
+	if (IS_NPC(ch) && wield == NULL)
+		dam = dice(ch->damage[DICE_NUMBER], ch->damage[DICE_TYPE]);
 	else {
 		if (sn != -1)
 			check_improve(ch, sn, TRUE, 5);
 		if (wield != NULL) {
-			if (wield->pIndexData->new_format)
-				dam = dice(wield->value[1],
-						wield->value[2]) * sk / 100;
-			else
-				dam = number_range(wield->value[1] * sk / 100,
-						wield->value[2] * sk / 100);
+			dam = dice(wield->value[1],
+				   wield->value[2]) * sk / 100;
 
 /* no shield = more */
 			if (get_eq_char(ch, WEAR_SHIELD) == NULL)
@@ -1774,13 +1763,13 @@ void make_corpse(CHAR_DATA *ch)
 	for (obj = ch->carrying; obj != NULL; obj = obj_next) {
 		obj_next = obj->next_content;
 		obj_from_char(obj);
-		if (obj->item_type == ITEM_POTION)
+		if (obj->pIndexData->item_type == ITEM_POTION)
 		    obj->timer = number_range(500,1000);
-		if (obj->item_type == ITEM_SCROLL)
+		if (obj->pIndexData->item_type == ITEM_SCROLL)
 		    obj->timer = number_range(1000,2500);
 		if (IS_SET(obj->extra_flags,ITEM_ROT_DEATH))  {
 		    obj->timer = number_range(5,10);
-		    if (obj->item_type == ITEM_POTION)
+		    if (obj->pIndexData->item_type == ITEM_POTION)
 		       obj->timer += obj->level * 20;
 		}
 		REMOVE_BIT(obj->extra_flags,ITEM_VIS_DEATH);
@@ -1888,11 +1877,11 @@ void death_cry_org(CHAR_DATA *ch, int part)
 		obj->timer	= number_range(4, 7);
 		obj->from = str_dup(name);
 
-		if (obj->item_type == ITEM_FOOD) {
+		if (obj->pIndexData->item_type == ITEM_FOOD) {
 			if (IS_SET(ch->form,FORM_POISON))
 				obj->value[3] = 1;
 			else if (!IS_SET(ch->form,FORM_EDIBLE))
-				obj->item_type = ITEM_TRASH;
+				SET_BIT(obj->extra_flags, ITEM_NOT_EDIBLE);
 		}
 
 		obj_to_room(obj, ch->in_room);

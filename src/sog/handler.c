@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.64 1998-10-06 13:18:26 fjoe Exp $
+ * $Id: handler.c,v 1.65 1998-10-09 13:42:38 fjoe Exp $
  */
 
 /***************************************************************************
@@ -208,7 +208,7 @@ bool may_float(OBJ_DATA *obj)
 	     check_material(obj, "oak"))
 	   return TRUE;
 
-	if (obj->item_type == ITEM_BOAT) 
+	if (obj->pIndexData->item_type == ITEM_BOAT) 
 		return TRUE;
 
 	return FALSE;
@@ -244,7 +244,7 @@ int floating_time(OBJ_DATA *obj)
  int  ftime;
 
  ftime = 0;
- switch(obj->item_type)  
+ switch(obj->pIndexData->item_type)  
  {
 	default: break;
 	case ITEM_KEY 	: ftime = 1;	break;
@@ -344,16 +344,6 @@ int check_immune(CHAR_DATA *ch, int dam_type)
 	  	return immune;
 }
 
-/* checks mob format */
-bool is_old_mob(CHAR_DATA *ch)
-{
-	if (ch->pIndexData == NULL)
-		return FALSE;
-	else if (ch->pIndexData->new_format)
-		return FALSE;
-	return TRUE;
-}
- 
 void reset_obj_affects(CHAR_DATA *ch, OBJ_DATA *obj, AFFECT_DATA *af)
 {
 	for (; af != NULL; af = af->next) {
@@ -980,7 +970,7 @@ void affect_to_obj(OBJ_DATA *obj, AFFECT_DATA *paf)
 			SET_BIT(obj->extra_flags,paf->bitvector);
 			break;
 		case TO_WEAPON:
-			if (obj->item_type == ITEM_WEAPON)
+			if (obj->pIndexData->item_type == ITEM_WEAPON)
 		        	SET_BIT(obj->value[4],paf->bitvector);
 			break;
 		}
@@ -1047,7 +1037,7 @@ void affect_remove_obj(OBJ_DATA *obj, AFFECT_DATA *paf)
 			REMOVE_BIT(obj->extra_flags,paf->bitvector);
 			break;
 		case TO_WEAPON:
-			if (obj->item_type == ITEM_WEAPON)
+			if (obj->pIndexData->item_type == ITEM_WEAPON)
 				REMOVE_BIT(obj->value[4],paf->bitvector);
 			break;
 		}
@@ -1202,7 +1192,7 @@ void char_from_room(CHAR_DATA *ch)
 		--ch->in_room->area->nplayer;
 
 	if ((obj = get_eq_char(ch, WEAR_LIGHT)) != NULL
-	&&   obj->item_type == ITEM_LIGHT
+	&&   obj->pIndexData->item_type == ITEM_LIGHT
 	&&   obj->value[2] != 0
 	&&   ch->in_room->light > 0)
 		--ch->in_room->light;
@@ -1282,7 +1272,7 @@ void char_to_room(CHAR_DATA *ch, ROOM_INDEX_DATA *pRoomIndex)
 	}
 
 	if ((obj = get_eq_char(ch, WEAR_LIGHT)) != NULL
-	&&   obj->item_type == ITEM_LIGHT
+	&&   obj->pIndexData->item_type == ITEM_LIGHT
 	&&   obj->value[2] != 0)
 		++ch->in_room->light;
 		
@@ -1393,8 +1383,7 @@ void obj_from_char(OBJ_DATA *obj)
 
 		if (p && strstr(p, ch->name)
 		&&  get_wear_level(ch, obj) < obj->level
-		&&  ((94 <= vnum && vnum <= 96) ||
-		     (31 <= vnum && vnum <= 33))) {
+		&&  IS_SET(obj->pIndexData->extra_flags, ITEM_QUEST)) {
 			ch->pcdata->questpoints += 1000;
 			qtrouble_set(ch, vnum, 4);
 		}
@@ -1406,7 +1395,7 @@ void obj_from_char(OBJ_DATA *obj)
  */
 int apply_ac(OBJ_DATA *obj, int iWear, int type)
 {
-	if (obj->item_type != ITEM_ARMOR)
+	if (obj->pIndexData->item_type != ITEM_ARMOR)
 		return 0;
 
 	switch (iWear) {
@@ -1493,7 +1482,7 @@ void equip_char(CHAR_DATA *ch, OBJ_DATA *obj, int iWear)
 		else
 			affect_modify(ch, paf, TRUE);
 
-	if (obj->item_type == ITEM_LIGHT
+	if (obj->pIndexData->item_type == ITEM_LIGHT
 	&&  obj->value[2] != 0
 	&&  ch->in_room != NULL)
 		++ch->in_room->light;
@@ -1551,7 +1540,7 @@ void unequip_char(CHAR_DATA *ch, OBJ_DATA *obj)
 		strip_obj_affects(ch, obj, obj->pIndexData->affected);
 	strip_obj_affects(ch, obj, obj->affected);
 
-	if (obj->item_type == ITEM_LIGHT
+	if (obj->pIndexData->item_type == ITEM_LIGHT
 	&&   obj->value[2] != 0
 	&&   ch->in_room != NULL
 	&&   ch->in_room->light > 0)
@@ -2279,11 +2268,11 @@ int get_obj_number(OBJ_DATA *obj)
 {
 	int number;
 /* 
-	if (obj->item_type == ITEM_CONTAINER || obj->item_type == ITEM_MONEY
-	||  obj->item_type == ITEM_GEM || obj->item_type == ITEM_JEWELRY)
+	if (obj->pIndexData->item_type == ITEM_CONTAINER || obj->pIndexData->item_type == ITEM_MONEY
+	||  obj->pIndexData->item_type == ITEM_GEM || obj->pIndexData->item_type == ITEM_JEWELRY)
 	    number = 0;
 */
-	if (obj->item_type == ITEM_MONEY)
+	if (obj->pIndexData->item_type == ITEM_MONEY)
 		number = 0;
 	else
 	    number = 1;
@@ -2527,10 +2516,10 @@ bool can_see_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 	if (IS_SET(obj->extra_flags, ITEM_VIS_DEATH))
 		return FALSE;
 
-	if (IS_AFFECTED(ch, AFF_BLIND) && obj->item_type != ITEM_POTION)
+	if (IS_AFFECTED(ch, AFF_BLIND) && obj->pIndexData->item_type != ITEM_POTION)
 		return FALSE;
 
-	if (obj->item_type == ITEM_LIGHT && obj->value[2] != 0)
+	if (obj->pIndexData->item_type == ITEM_LIGHT && obj->value[2] != 0)
 		return TRUE;
 
 	if (IS_SET(obj->extra_flags, ITEM_INVIS)
@@ -2836,6 +2825,10 @@ void path_to_track(CHAR_DATA *ch, CHAR_DATA *victim, int door)
   }
 }
 
+int pk_range(int level)
+{
+	return UMAX(4, level/10 + 2);
+}
 
 bool in_PK(CHAR_DATA *ch, CHAR_DATA *victim)
 {
@@ -2847,10 +2840,10 @@ bool in_PK(CHAR_DATA *ch, CHAR_DATA *victim)
 
 	/* level adjustment */
 	if (ch != victim && !IS_IMMORTAL(ch)
-	&&  (ch->level >= (victim->level + UMAX(4,ch->level/10 +2)) ||
-	     ch->level <= (victim->level - UMAX(4,ch->level/10 +2)))
-	&&  (victim->level >= (ch->level + UMAX(4,victim->level/10 +2)) ||
-	     victim->level <= (ch->level - UMAX(4,victim->level/10 +2))))
+	&&  (ch->level >= (victim->level + pk_range(ch->level)) ||
+	     ch->level <= (victim->level - pk_range(ch->level)))
+	&&  (victim->level >= (ch->level + pk_range(victim->level)) ||
+	     victim->level <= (ch->level - pk_range(victim->level))))
 		return FALSE;
 
 	return TRUE;
@@ -2922,7 +2915,7 @@ void format_obj(BUFFER *output, OBJ_DATA *obj)
 		"Object '%s' is type %s, extra flags %s.\n\r"
 		"Weight is %d, value is %d, level is %d.\n\r",
 		obj->name,
-		flag_string(item_types, obj->item_type),
+		flag_string(item_types, obj->pIndexData->item_type),
 		flag_string(extra_flags, obj->extra_flags),
 		obj->weight / 10,
 		obj->cost,
@@ -2933,7 +2926,7 @@ void format_obj(BUFFER *output, OBJ_DATA *obj)
 			   "This equipment has been LIMITED by number %d \n\r",
 			   obj->pIndexData->limit);
 
-	switch (obj->item_type) {
+	switch (obj->pIndexData->item_type) {
 	case ITEM_SCROLL:
 	case ITEM_POTION:
 	case ITEM_PILL:
@@ -2984,15 +2977,9 @@ void format_obj(BUFFER *output, OBJ_DATA *obj)
 	case ITEM_WEAPON:
 		buf_printf(output, "Weapon type is %s.\n\r",
 			   flag_string(weapon_class, obj->value[0]));
-		if (obj->pIndexData->new_format)
-			buf_printf(output, "Damage is %dd%d (average %d).\n\r",
-				   obj->value[1],obj->value[2],
-				   (1 + obj->value[2]) * obj->value[1] / 2);
-		else
-			buf_printf(output,
-				   "Damage is %d to %d (average %d).\n\r",
-		    		   obj->value[1], obj->value[2],
-		    		   (obj->value[1] + obj->value[2]) / 2);
+		buf_printf(output, "Damage is %dd%d (average %d).\n\r",
+			   obj->value[1],obj->value[2],
+			   (1 + obj->value[2]) * obj->value[1] / 2);
 		if (obj->value[4])
 	        	buf_printf(output, "Weapons flags: %s\n\r",
 				   flag_string(weapon_type2, obj->value[4]));
@@ -3041,11 +3028,24 @@ int get_wear_level(CHAR_DATA *ch, OBJ_DATA *obj)
 	if ((cl = class_lookup(ch->class)) == NULL)
 		return wear_level;
 
+	switch (obj->pIndexData->item_type) {
+	case ITEM_POTION:
+	case ITEM_PILL:
+	case ITEM_WAND:
+	case ITEM_STAFF:
+	case ITEM_SCROLL:
+		return wear_level;
+	}
+
+	if (!IS_SET(obj->pIndexData->extra_flags, ITEM_QUEST)
+	&&  (obj->pIndexData->limit < 0 || obj->pIndexData->limit > 1))
+		wear_level += pk_range(wear_level);
+
 	if (IS_SET(cl->flags, CLASS_MAGIC)) {
-		if (obj->item_type == ITEM_ARMOR)
+		if (obj->pIndexData->item_type == ITEM_ARMOR)
 			wear_level += 3;
 	}
-	else if (obj->item_type == ITEM_WEAPON)
+	else if (obj->pIndexData->item_type == ITEM_WEAPON)
 		wear_level += 3;
 	return wear_level;
 }

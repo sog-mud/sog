@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.140 1998-10-08 12:39:26 fjoe Exp $
+ * $Id: act_info.c,v 1.141 1998-10-09 13:42:35 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1095,7 +1095,7 @@ void do_look_in(CHAR_DATA* ch, const char *argument)
 		return;
 	}
 
-	switch (obj->item_type) {
+	switch (obj->pIndexData->item_type) {
 	default:
 		char_puts("That is not a container.\n\r", ch);
 		break;
@@ -1387,7 +1387,7 @@ void do_examine(CHAR_DATA *ch, const char *argument)
 	do_look(ch, arg);
 
 	if ((obj = get_obj_here(ch, arg)) != NULL) {
-		switch (obj->item_type) {
+		switch (obj->pIndexData->item_type) {
 		case ITEM_MONEY:
 			if (obj->value[0] == 0) {
 				if (obj->value[1] == 0)
@@ -1968,7 +1968,7 @@ void do_compare(CHAR_DATA *ch, const char *argument)
 		     obj2 != NULL; obj2 = obj2->next_content)
 			if (obj2->wear_loc != WEAR_NONE
 			&&  can_see_obj(ch,obj2)
-			&&  obj1->item_type == obj2->item_type
+			&&  obj1->pIndexData->item_type == obj2->pIndexData->item_type
 			&&  (obj1->wear_flags & obj2->wear_flags & ~ITEM_TAKE))
 				break;
 
@@ -1988,10 +1988,10 @@ void do_compare(CHAR_DATA *ch, const char *argument)
 
 	if (obj1 == obj2)
 		cmsg = "You compare $p to itself.  It looks about the same.";
-	else if (obj1->item_type != obj2->item_type)
+	else if (obj1->pIndexData->item_type != obj2->pIndexData->item_type)
 		cmsg = "You can't compare $p and $P.";
 	else {
-		switch (obj1->item_type) {
+		switch (obj1->pIndexData->item_type) {
 		default:
 			cmsg = "You can't compare $p and $P.";
 			break;
@@ -2002,15 +2002,8 @@ void do_compare(CHAR_DATA *ch, const char *argument)
 			break;
 
 		case ITEM_WEAPON:
-			if (obj1->pIndexData->new_format)
-				value1 = (1 + obj1->value[2]) * obj1->value[1];
-			else
-				value1 = obj1->value[1] + obj1->value[2];
-
-			if (obj2->pIndexData->new_format)
-				value2 = (1 + obj2->value[2]) * obj2->value[1];
-			else
-				value2 = obj2->value[1] + obj2->value[2];
+			value1 = (1 + obj1->value[2]) * obj1->value[1];
+			value2 = (1 + obj2->value[2]) * obj2->value[1];
 			break;
 		}
 	}
@@ -2113,6 +2106,11 @@ void do_consider(CHAR_DATA *ch, const char *argument)
 
 	if ((victim = get_char_room(ch, arg)) == NULL) {
 		char_puts("They aren't here.\n\r", ch);
+		return;
+	}
+
+	if (victim == ch) {
+		char_puts("Suicide is against your way.\n\r", ch);
 		return;
 	}
 

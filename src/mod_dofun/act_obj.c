@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.76 1998-10-08 12:39:31 fjoe Exp $
+ * $Id: act_obj.c,v 1.77 1998-10-09 13:42:36 fjoe Exp $
  */
 
 /***************************************************************************
@@ -93,7 +93,7 @@ void get_obj(CHAR_DATA * ch, OBJ_DATA * obj, OBJ_DATA * container)
 
 	/* can't take corpses in ROOM_BATTLE_ARENA rooms */
 	if (!CAN_WEAR(obj, ITEM_TAKE)
-	||  (obj->item_type == ITEM_CORPSE_PC &&
+	||  (obj->pIndexData->item_type == ITEM_CORPSE_PC &&
 	     obj->in_room != NULL &&
 	     IS_SET(obj->in_room->room_flags, ROOM_BATTLE_ARENA) &&
 	     obj->from != NULL &&
@@ -179,7 +179,7 @@ void get_obj(CHAR_DATA * ch, OBJ_DATA * obj, OBJ_DATA * container)
 		obj_from_room(obj);
 	}
 
-	if (obj->item_type == ITEM_MONEY) {
+	if (obj->pIndexData->item_type == ITEM_MONEY) {
 		if (get_carry_weight(ch) + obj->value[0] / 10
 		    + obj->value[1] * 2 / 5 > can_carry_w(ch)) {
 			act_puts("$d: you can't carry that much weight.",
@@ -276,7 +276,7 @@ void do_get(CHAR_DATA * ch, const char *argument)
 			 ch, NULL, arg2, TO_CHAR, POS_DEAD);
 		return;
 	}
-	switch (container->item_type) {
+	switch (container->pIndexData->item_type) {
 	default:
 		char_puts("That is not a container.\n\r", ch);
 		return;
@@ -334,15 +334,77 @@ void do_get(CHAR_DATA * ch, const char *argument)
 	}
 }
 
+bool put_obj(CHAR_DATA *ch, OBJ_DATA *container, OBJ_DATA *obj, int* count)
+{
+	OBJ_DATA *	objc;
+
+	if (IS_SET(container->value[1], CONT_FOR_ARROW)
+	&&  (obj->pIndexData->item_type != ITEM_WEAPON || obj->value[0] != WEAPON_ARROW)) {
+		act_puts("You can only put arrows in $p.",
+			 ch, container, NULL, TO_CHAR, POS_DEAD);
+		return FALSE;
+	}
+
+	if (container->pIndexData->vnum == OBJ_VNUM_PIT
+	&&  !CAN_WEAR(obj, ITEM_TAKE))
+		if (obj->timer)
+			SET_BIT(obj->extra_flags, ITEM_HAD_TIMER);
+		else
+			obj->timer = number_range(100, 200);
+
+	if (obj->pIndexData->limit != -1) {
+		act_puts("This unworthy container won't hold $p.",
+			 ch, obj, NULL, TO_CHAR, POS_DEAD);
+		return TRUE;
+	}
+
+	if (obj->pIndexData->item_type == ITEM_POTION
+	&&  IS_SET(container->wear_flags, ITEM_TAKE)) {
+		int pcount = 0;
+		for (objc = container->contains; objc; objc = objc->next_content)
+			if (objc->pIndexData->item_type == ITEM_POTION)
+				pcount++;
+		if (pcount > 15) {
+			act_puts("It's not safe to put more potions into $p.",
+				 ch, container, NULL, TO_CHAR, POS_DEAD);
+			return FALSE;
+		}
+	}
+
+	(*count)++;
+	if (*count > container->value[0]) {
+		act_puts("It's not safe to put that much items into $p.",
+			 ch, container, NULL, TO_CHAR, POS_DEAD);
+		return FALSE;
+	}
+
+	obj_from_char(obj);
+	obj_to_obj(obj, container);
+
+	if (IS_SET(container->value[1], CONT_PUT_ON)) {
+		act("$n puts $p on $P.", ch, obj, container, TO_ROOM);
+		act_puts("You put $p on $P.",
+			 ch, obj, container, TO_CHAR, POS_DEAD);
+	}
+	else {
+		act("$n puts $p in $P.", ch, obj, container, TO_ROOM);
+		act_puts("You put $p in $P.",
+			 ch, obj, container, TO_CHAR, POS_DEAD);
+	}
+
+	return TRUE;
+}
+
 void do_put(CHAR_DATA * ch, const char *argument)
 {
-	char            arg1[MAX_INPUT_LENGTH];
-	char            arg2[MAX_INPUT_LENGTH];
-	OBJ_DATA       *container;
-	OBJ_DATA       *obj;
-	OBJ_DATA       *obj_next;
-	OBJ_DATA       *objc;
-	int             pcount;
+	char		arg1[MAX_INPUT_LENGTH];
+	char		arg2[MAX_INPUT_LENGTH];
+	OBJ_DATA *	container;
+	OBJ_DATA *	obj;
+	OBJ_DATA *	obj_next;
+	OBJ_DATA *	objc;
+	int		count;
+
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
 
@@ -353,99 +415,69 @@ void do_put(CHAR_DATA * ch, const char *argument)
 		char_puts("Put what in what?\n\r", ch);
 		return;
 	}
+
 	if (!str_cmp(arg2, "all") || !str_prefix("all.", arg2)) {
 		char_puts("You can't do that.\n\r", ch);
 		return;
 	}
+
 	if ((container = get_obj_here(ch, arg2)) == NULL) {
 		act_puts("I see no $T here.",
 			 ch, NULL, arg2, TO_CHAR, POS_DEAD);
 		return;
 	}
-	if (container->item_type != ITEM_CONTAINER) {
+
+	if (container->pIndexData->item_type != ITEM_CONTAINER) {
 		char_puts("That is not a container.\n\r", ch);
 		return;
 	}
+
 	if (IS_SET(container->value[1], CONT_CLOSED)) {
 		act_puts("The $d is closed.",
 			 ch, NULL, container->name, TO_CHAR, POS_DEAD);
 		return;
 	}
+
 	if (str_cmp(arg1, "all") && str_prefix("all.", arg1)) {
 		/* 'put obj container' */
 		if ((obj = get_obj_carry(ch, arg1)) == NULL) {
 			char_puts("You do not have that item.\n\r", ch);
 			return;
 		}
+
 		if (obj == container) {
 			char_puts("You can't fold it into itself.\n\r", ch);
 			return;
 		}
+
 		if (!can_drop_obj(ch, obj)) {
 			char_puts("You can't let go of it.\n\r", ch);
 			return;
 		}
+
 		if (WEIGHT_MULT(obj) != 100) {
 			char_puts("You have a feeling that would be a bad idea.\n\r", ch);
 			return;
 		}
+
 		if (obj->pIndexData->limit != -1) {
 			act_puts("This unworthy container won't hold $p.",
 				 ch, obj, NULL, TO_CHAR, POS_DEAD);
 			return;
 		}
-		if (IS_SET(container->value[1], CONT_FOR_ARROW)
-		&&  (obj->item_type != ITEM_WEAPON ||
-		     obj->value[0] != WEAPON_ARROW)) {
-			act_puts("You can only put arrows in $p.",
-				 ch, container, NULL, TO_CHAR, POS_DEAD);
-			return;
-		}
-		if (get_obj_weight(obj) + get_true_weight(container)
-		    > (container->value[0] * 10)
-		    || get_obj_weight(obj) > (container->value[3] * 10)) {
+
+		if (get_obj_weight(obj) + get_true_weight(container) >
+		    (container->value[0] * 10)
+		||  get_obj_weight(obj) > (container->value[3] * 10)) {
 			char_puts("It won't fit.\n\r", ch);
 			return;
 		}
-		if (obj->item_type == ITEM_POTION &&
-		    IS_SET(container->wear_flags, ITEM_TAKE)) {
-			pcount = 0;
-			for (objc = container->contains; objc != NULL; objc = objc->next_content)
-				if (objc->item_type == ITEM_POTION)
-					pcount++;
-			if (pcount > 15) {
-				act("It's not safe to put more potions into $p.", ch, container, NULL, TO_CHAR);
-				return;
-			}
-		}
-		pcount = 0;
-		for (objc = container->contains; objc != NULL; objc = objc->next_content)
-			pcount++;
-		if (pcount > container->value[0]) {
-			act("It's not safe to put that much item into $p.",
-			    ch, container, NULL, TO_CHAR);
-			return;
-		}
-		if (container->pIndexData->vnum == OBJ_VNUM_PIT
-		    && !CAN_WEAR(container, ITEM_TAKE))
-			if (obj->timer)
-				SET_BIT(obj->extra_flags, ITEM_HAD_TIMER);
-			else
-				obj->timer = number_range(100, 200);
 
-		obj_from_char(obj);
-		obj_to_obj(obj, container);
+		count = 0;
+		for (objc = container->contains; objc; objc = objc->next_content)
+			count++;
 
-		if (IS_SET(container->value[1], CONT_PUT_ON)) {
-			act("$n puts $p on $P.", ch, obj, container, TO_ROOM);
-			act_puts("You put $p on $P.",
-				 ch, obj, container, TO_CHAR, POS_DEAD);
-		}
-		else {
-			act("$n puts $p in $P.", ch, obj, container, TO_ROOM);
-			act_puts("You put $p in $P.",
-				 ch, obj, container, TO_CHAR, POS_DEAD);
-		}
+		put_obj(ch, container, obj, &count);
 	}
 	else {
 		if (!IS_NPC(ch) && IS_AFFECTED(ch, AFF_CHARM)) {
@@ -453,67 +485,70 @@ void do_put(CHAR_DATA * ch, const char *argument)
 			return;
 		}
 
-		pcount = 0;
-		for (objc = container->contains; objc != NULL; objc = objc->next_content)
-			pcount++;
+		count = 0;
+		for (objc = container->contains; objc; objc = objc->next_content)
+			count++;
 
 		/* 'put all container' or 'put all.obj container' */
 		for (obj = ch->carrying; obj != NULL; obj = obj_next) {
 			obj_next = obj->next_content;
 
 			if ((arg1[3] == '\0' || is_name(&arg1[4], obj->name))
-			    && can_see_obj(ch, obj)
-			    && WEIGHT_MULT(obj) == 100
-			    && obj->wear_loc == WEAR_NONE
-			    && obj != container
-			    && can_drop_obj(ch, obj)
-			  && get_obj_weight(obj) + get_true_weight(container)
-			    <= (container->value[0] * 10)
-			&& get_obj_weight(obj) < (container->value[3] * 10)) {
-				if (container->pIndexData->vnum == OBJ_VNUM_PIT
-				    && !CAN_WEAR(obj, ITEM_TAKE))
-					if (obj->timer)
-						SET_BIT(obj->extra_flags, ITEM_HAD_TIMER);
-					else
-						obj->timer = number_range(100, 200);
-
-				if (obj->pIndexData->limit != -1) {
-					act_puts("This unworthy container won't hold $p.",
-						 ch, obj, NULL, TO_CHAR, POS_DEAD);
-					continue;
-				}
-				if (obj->item_type == ITEM_POTION &&
-				  IS_SET(container->wear_flags, ITEM_TAKE)) {
-					pcount = 0;
-					for (objc = container->contains; objc != NULL; objc = objc->next_content)
-						if (objc->item_type == ITEM_POTION)
-							pcount++;
-					if (pcount > 15) {
-						act_puts("It's not safe to put more potions into $p.",
-							 ch, container, NULL, TO_CHAR, POS_DEAD);
-						continue;
-					}
-				}
-				pcount++;
-				if (pcount > container->value[0]) {
-					act_puts("It's not safe to put that much item into $p.",
-						 ch, container, NULL, TO_CHAR, POS_DEAD);
-					return;
-				}
-				obj_from_char(obj);
-				obj_to_obj(obj, container);
-
-				if (IS_SET(container->value[1], CONT_PUT_ON)) {
-					act("$n puts $p on $P.", ch, obj, container, TO_ROOM);
-					act_puts("You put $p on $P.",
-						 ch, obj, container, TO_CHAR, POS_DEAD);
-				} else {
-					act("$n puts $p in $P.", ch, obj, container, TO_ROOM);
-					act_puts("You put $p in $P.",
-						 ch, obj, container, TO_CHAR, POS_DEAD);
-				}
-			}
+			&&  can_see_obj(ch, obj)
+			&&  WEIGHT_MULT(obj) == 100
+			&&  obj->wear_loc == WEAR_NONE
+			&&  obj != container
+			&&  can_drop_obj(ch, obj)
+			&&  get_obj_weight(obj) + get_true_weight(container) <=
+			    (container->value[0] * 10)
+			&&  get_obj_weight(obj) < (container->value[3] * 10)
+			&&  !put_obj(ch, container, obj, &count))
+				break;
 		}
+	}
+}
+
+void drop_obj(CHAR_DATA *ch, OBJ_DATA *obj)
+{
+	obj_from_char(obj);
+	obj_to_room(obj, ch->in_room);
+
+	if (!IS_AFFECTED(ch, AFF_SNEAK))
+		act("$n drops $p.", ch, obj, NULL, TO_ROOM);
+	act_puts("You drop $p.", ch, obj, NULL, TO_CHAR, POS_DEAD);
+
+	if (obj->pIndexData->vnum == OBJ_VNUM_POTION_VIAL
+	&&  number_percent() < 51)
+		switch (ch->in_room->sector_type) {
+		case SECT_FOREST:
+		case SECT_DESERT:
+		case SECT_AIR:
+		case SECT_WATER_NOSWIM:
+		case SECT_WATER_SWIM:
+		case SECT_FIELD:
+			break;
+		default:
+			act("$p cracks and shaters into tiny pieces.",
+			    ch, obj, NULL, TO_ROOM);
+			act("$p cracks and shaters into tiny pieces.",
+			    ch, obj, NULL, TO_CHAR);
+			extract_obj(obj);
+			return;
+		}
+
+	oprog_call(OPROG_DROP, obj, ch, NULL);
+
+	if (!may_float(obj) && cant_float(obj) && IS_WATER(ch->in_room)) {
+		if (!IS_AFFECTED(ch, AFF_SNEAK))
+			act("$p sinks down the water.", ch, obj, NULL, TO_ROOM);
+		act("$p sinks down the water.", ch, obj, NULL, TO_CHAR);
+		extract_obj(obj);
+	}
+	else if (IS_OBJ_STAT(obj, ITEM_MELT_DROP)) {
+		if (!IS_AFFECTED(ch, AFF_SNEAK))
+			act("$p dissolves into smoke.", ch, obj, NULL, TO_ROOM);
+		act("$p dissolves into smoke.", ch, obj, NULL, TO_CHAR);
+		extract_obj(obj);
 	}
 }
 
@@ -614,37 +649,9 @@ void do_drop(CHAR_DATA * ch, const char *argument)
 			char_puts("You can't let go of it.\n\r", ch);
 			return;
 		}
-		obj_from_char(obj);
-		obj_to_room(obj, ch->in_room);
-		if (!IS_AFFECTED(ch, AFF_SNEAK))
-			act("$n drops $p.", ch, obj, NULL, TO_ROOM);
-		act_puts("You drop $p.", ch, obj, NULL, TO_CHAR, POS_DEAD);
-		if (obj->pIndexData->vnum == OBJ_VNUM_POTION_VIAL &&
-		    number_percent() < 51)
-			if (!IS_SET(ch->in_room->sector_type, SECT_FOREST) &&
-			    !IS_SET(ch->in_room->sector_type, SECT_DESERT) &&
-			    !IS_SET(ch->in_room->sector_type, SECT_AIR) &&
-			    !IS_WATER(ch->in_room)) {
-				act("$p cracks and shaters into tiny pieces.", ch, obj, NULL, TO_ROOM);
-				act("$p cracks and shaters into tiny pieces.", ch, obj, NULL, TO_CHAR);
-				extract_obj(obj);
-				return;
-			}
-
-		oprog_call(OPROG_DROP, obj, ch, NULL);
-
-		if (!may_float(obj) && cant_float(obj) && IS_WATER(ch->in_room)) {
-			if (!IS_AFFECTED(ch, AFF_SNEAK))
-				act("$p sinks down the water.", ch, obj, NULL, TO_ROOM);
-			act("$p sinks down the water.", ch, obj, NULL, TO_CHAR);
-			extract_obj(obj);
-		} else if (IS_OBJ_STAT(obj, ITEM_MELT_DROP)) {
-			if (!IS_AFFECTED(ch, AFF_SNEAK))
-				act("$p dissolves into smoke.", ch, obj, NULL, TO_ROOM);
-			act("$p dissolves into smoke.", ch, obj, NULL, TO_CHAR);
-			extract_obj(obj);
-		}
-	} else {
+		drop_obj(ch, obj);
+	}
+	else {
 /* 'drop all' or 'drop all.obj' */
 
 		if (!IS_NPC(ch) && IS_AFFECTED(ch, AFF_CHARM)) {
@@ -657,48 +664,11 @@ void do_drop(CHAR_DATA * ch, const char *argument)
 			obj_next = obj->next_content;
 
 			if ((arg[3] == '\0' || is_name(&arg[4], obj->name))
-			    && can_see_obj(ch, obj)
-			    && obj->wear_loc == WEAR_NONE
-			    && can_drop_obj(ch, obj)) {
+			&&  can_see_obj(ch, obj)
+			&&  obj->wear_loc == WEAR_NONE
+			&&  can_drop_obj(ch, obj)) {
 				found = TRUE;
-				obj_from_char(obj);
-				obj_to_room(obj, ch->in_room);
-				if (!IS_AFFECTED(ch, AFF_SNEAK))
-					act("$n drops $p.", ch, obj, NULL, TO_ROOM);
-				act_puts("You drop $p.",
-					 ch, obj, NULL, TO_CHAR, POS_DEAD);
-				if (obj->pIndexData->vnum == OBJ_VNUM_POTION_VIAL &&
-				    number_percent() < 70)
-					if (!IS_SET(ch->in_room->sector_type, SECT_FOREST) &&
-					    !IS_SET(ch->in_room->sector_type, SECT_DESERT) &&
-					    !IS_SET(ch->in_room->sector_type, SECT_AIR) &&
-					    !IS_WATER(ch->in_room)) {
-						if (!IS_AFFECTED(ch, AFF_SNEAK))
-							act("$p cracks and shaters into tiny pieces.", ch, obj, NULL, TO_ROOM);
-						act_puts("$p cracks and shaters into tiny pieces.",
-							 ch, obj, NULL, TO_CHAR, POS_DEAD);
-						extract_obj(obj);
-						continue;
-					}
-
-				oprog_call(OPROG_DROP, obj, ch, NULL);
-
-				if (!may_float(obj) && cant_float(obj) && IS_WATER(ch->in_room)) {
-					if (!IS_AFFECTED(ch, AFF_SNEAK))
-						act("$p sinks down the water.",
-						    ch, obj, NULL, TO_ROOM);
-					act_puts("$p sinks down the water.",
-						 ch, obj, NULL, TO_CHAR, POS_DEAD);
-					extract_obj(obj);
-				}
-				else if (IS_OBJ_STAT(obj, ITEM_MELT_DROP)) {
-					if (!IS_AFFECTED(ch, AFF_SNEAK))
-						act("$p dissolves into smoke.",
-						    ch, obj, NULL, TO_ROOM);
-					act_puts("$p dissolves into smoke.",
-						 ch, obj, NULL, TO_CHAR, POS_DEAD);
-					extract_obj(obj);
-				}
+				drop_obj(ch, obj);
 			}
 		}
 
@@ -890,7 +860,7 @@ void do_envenom(CHAR_DATA * ch, const char *argument)
 		return;
 	}
 
-	if (obj->item_type == ITEM_FOOD || obj->item_type == ITEM_DRINK_CON) {
+	if (obj->pIndexData->item_type == ITEM_FOOD || obj->pIndexData->item_type == ITEM_DRINK_CON) {
 		if (IS_OBJ_STAT(obj, ITEM_BLESS)
 		||  IS_OBJ_STAT(obj, ITEM_BURN_PROOF)) {
 			act("You fail to poison $p.", ch, obj, NULL, TO_CHAR);
@@ -914,7 +884,7 @@ void do_envenom(CHAR_DATA * ch, const char *argument)
 			check_improve(ch, sn, FALSE, 4);
 		return;
 	}
-	else if (obj->item_type == ITEM_WEAPON) {
+	else if (obj->pIndexData->item_type == ITEM_WEAPON) {
 		if (IS_WEAPON_STAT(obj, WEAPON_FLAMING)
 		||  IS_WEAPON_STAT(obj, WEAPON_FROST)
 		||  IS_WEAPON_STAT(obj, WEAPON_VAMPIRIC)
@@ -985,7 +955,7 @@ void do_fill(CHAR_DATA * ch, const char *argument)
 	found = FALSE;
 	for (fountain = ch->in_room->contents; fountain != NULL;
 	     fountain = fountain->next_content) {
-		if (fountain->item_type == ITEM_FOUNTAIN) {
+		if (fountain->pIndexData->item_type == ITEM_FOUNTAIN) {
 			found = TRUE;
 			break;
 		}
@@ -995,7 +965,7 @@ void do_fill(CHAR_DATA * ch, const char *argument)
 		char_puts("There is no fountain here!\n\r", ch);
 		return;
 	}
-	if (obj->item_type != ITEM_DRINK_CON) {
+	if (obj->pIndexData->item_type != ITEM_DRINK_CON) {
 		char_puts("You can't fill that.\n\r", ch);
 		return;
 	}
@@ -1034,7 +1004,7 @@ void do_pour(CHAR_DATA * ch, const char *argument)
 		char_puts("You don't have that item.\n\r", ch);
 		return;
 	}
-	if (out->item_type != ITEM_DRINK_CON) {
+	if (out->pIndexData->item_type != ITEM_DRINK_CON) {
 		char_puts("That's not a drink container.\n\r", ch);
 		return;
 	}
@@ -1072,7 +1042,7 @@ void do_pour(CHAR_DATA * ch, const char *argument)
 			return;
 		}
 	}
-	if (in->item_type != ITEM_DRINK_CON) {
+	if (in->pIndexData->item_type != ITEM_DRINK_CON) {
 		char_puts("You can only pour into other drink containers.\n\r", ch);
 		return;
 	}
@@ -1129,7 +1099,7 @@ void do_drink(CHAR_DATA * ch, const char *argument)
 
 	if (arg[0] == '\0') {
 		for (obj = ch->in_room->contents; obj; obj= obj->next_content) {
-			if (obj->item_type == ITEM_FOUNTAIN)
+			if (obj->pIndexData->item_type == ITEM_FOUNTAIN)
 				break;
 		}
 
@@ -1148,7 +1118,7 @@ void do_drink(CHAR_DATA * ch, const char *argument)
 		char_puts("You fail to reach your mouth.  *Hic*\n\r", ch);
 		return;
 	}
-	switch (obj->item_type) {
+	switch (obj->pIndexData->item_type) {
 	default:
 		char_puts("You can't drink from that.\n\r", ch);
 		return;
@@ -1238,8 +1208,9 @@ void do_eat(CHAR_DATA * ch, const char *argument)
 		return;
 	}
 	if (!IS_IMMORTAL(ch)) {
-		if (obj->item_type != ITEM_FOOD
-		&& obj->item_type != ITEM_PILL) {
+		if ((obj->pIndexData->item_type != ITEM_FOOD ||
+		     IS_SET(obj->extra_flags, ITEM_NOT_EDIBLE))
+		&& obj->pIndexData->item_type != ITEM_PILL) {
 			char_puts("That's not edible.\n\r", ch);
 			return;
 		}
@@ -1253,7 +1224,7 @@ void do_eat(CHAR_DATA * ch, const char *argument)
 	if (ch->fighting != NULL)
 		WAIT_STATE(ch, 3 * PULSE_VIOLENCE);
 
-	switch (obj->item_type) {
+	switch (obj->pIndexData->item_type) {
 
 	case ITEM_FOOD:
 		if (!IS_NPC(ch)) {
@@ -1314,7 +1285,7 @@ bool remove_obj(CHAR_DATA * ch, int iWear, bool fReplace)
 			 ch, obj, NULL, TO_CHAR, POS_DEAD);
 		return FALSE;
 	}
-	if ((obj->item_type == ITEM_TATTOO) && (!IS_IMMORTAL(ch))) {
+	if ((obj->pIndexData->item_type == ITEM_TATTOO) && (!IS_IMMORTAL(ch))) {
 		act_puts("You must scratch it to remove $p.",
 			 ch, obj, NULL, TO_CHAR, POS_DEAD);
 		return FALSE;
@@ -1363,7 +1334,7 @@ void wear_obj(CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace)
 		return;
 	}
 
-	if (obj->item_type == ITEM_LIGHT) {
+	if (obj->pIndexData->item_type == ITEM_LIGHT) {
 		if (!remove_obj(ch, WEAR_LIGHT, fReplace))
 			return;
 		act("$n lights $p and holds it.", ch, obj, NULL, TO_ROOM);
@@ -1747,7 +1718,7 @@ void do_sacr(CHAR_DATA * ch, const char *argument)
 		char_puts("You can't find it.\n\r", ch);
 		return;
 	}
-	if ((obj->item_type == ITEM_CORPSE_PC && ch->level < MAX_LEVEL)
+	if ((obj->pIndexData->item_type == ITEM_CORPSE_PC && ch->level < MAX_LEVEL)
 	    || (QUEST_OBJ_FIRST <= obj->pIndexData->vnum
 		&& obj->pIndexData->vnum <= QUEST_OBJ_LAST)) {
 		char_puts("Gods wouldn't like that.\n\r", ch);
@@ -1760,8 +1731,8 @@ void do_sacr(CHAR_DATA * ch, const char *argument)
 	}
 	silver = UMAX(1, number_fuzzy(obj->level));
 
-	if (obj->item_type != ITEM_CORPSE_NPC
-	    && obj->item_type != ITEM_CORPSE_PC)
+	if (obj->pIndexData->item_type != ITEM_CORPSE_NPC
+	    && obj->pIndexData->item_type != ITEM_CORPSE_PC)
 		silver = UMIN(silver, obj->cost);
 
 	if (silver == 1)
@@ -1790,8 +1761,8 @@ void do_sacr(CHAR_DATA * ch, const char *argument)
 	wiznet("$N sends up $p as a burnt offering.",
 	       ch, obj, WIZ_SACCING, 0, 0);
 	fScatter = TRUE;
-	if (obj->item_type == ITEM_CORPSE_NPC
-	    || obj->item_type == ITEM_CORPSE_PC) {
+	if (obj->pIndexData->item_type == ITEM_CORPSE_NPC
+	    || obj->pIndexData->item_type == ITEM_CORPSE_PC) {
 		iScatter = 0;
 		for (obj_content = obj->contains; obj_content;
 		     obj_content = obj_next) {
@@ -1875,7 +1846,7 @@ void do_quaff(CHAR_DATA * ch, const char *argument)
 		char_puts("You do not have that potion.\n\r", ch);
 		return;
 	}
-	if (obj->item_type != ITEM_POTION) {
+	if (obj->pIndexData->item_type != ITEM_POTION) {
 		char_puts("You can quaff only potions.\n\r", ch);
 		return;
 	}
@@ -1915,7 +1886,7 @@ void do_recite(CHAR_DATA * ch, const char *argument)
 		return;
 	}
 
-	if (scroll->item_type != ITEM_SCROLL) {
+	if (scroll->pIndexData->item_type != ITEM_SCROLL) {
 		char_puts("You can recite only scrolls.\n\r", ch);
 		return;
 	}
@@ -1972,7 +1943,7 @@ void do_brandish(CHAR_DATA * ch, const char *argument)
 		return;
 	}
 
-	if (staff->item_type != ITEM_STAFF) {
+	if (staff->pIndexData->item_type != ITEM_STAFF) {
 		char_puts("You can brandish only with a staff.\n\r", ch);
 		return;
 	}
@@ -2053,7 +2024,7 @@ void do_zap(CHAR_DATA * ch, const char *argument)
 		char_puts("You hold nothing in your hand.\n\r", ch);
 		return;
 	}
-	if (wand->item_type != ITEM_WAND) {
+	if (wand->pIndexData->item_type != ITEM_WAND) {
 		char_puts("You can zap only with a wand.\n\r", ch);
 		return;
 	}
@@ -2399,7 +2370,7 @@ int get_cost(CHAR_DATA * keeper, OBJ_DATA * obj, bool fBuy)
 		int             itype;
 		cost = 0;
 		for (itype = 0; itype < MAX_TRADE; itype++) {
-			if (obj->item_type == pShop->buy_type[itype]) {
+			if (obj->pIndexData->item_type == pShop->buy_type[itype]) {
 				cost = obj->cost * pShop->profit_sell / 100;
 				break;
 			}
@@ -2419,7 +2390,7 @@ int get_cost(CHAR_DATA * keeper, OBJ_DATA * obj, bool fBuy)
 			}
 	}
 
-	if (obj->item_type == ITEM_STAFF || obj->item_type == ITEM_WAND) {
+	if (obj->pIndexData->item_type == ITEM_STAFF || obj->pIndexData->item_type == ITEM_WAND) {
 		if (obj->value[1] == 0)
 			cost /= 4;
 		else
@@ -2794,7 +2765,7 @@ void do_sell(CHAR_DATA * ch, const char *argument)
 	if (keeper->silver < 0)
 		keeper->silver = 0;
 
-	if (obj->item_type == ITEM_TRASH || IS_OBJ_STAT(obj, ITEM_SELL_EXTRACT)) {
+	if (obj->pIndexData->item_type == ITEM_TRASH || IS_OBJ_STAT(obj, ITEM_SELL_EXTRACT)) {
 		extract_obj(obj);
 	} else {
 		obj_from_char(obj);
@@ -2981,7 +2952,7 @@ void do_lore(CHAR_DATA * ch, const char *argument)
 		char_printf(ch,
 			    "Object '%s' is type %s, extra flags %s.\n\rWeight is %d, value is %d, level is %d.\n\rMaterial is %s.\n\r",
 			    obj->name,
-			    flag_string(item_types, obj->item_type),
+			    flag_string(item_types, obj->pIndexData->item_type),
 			    flag_string(extra_flags, obj->extra_flags),
 			    obj->weight,
 		    chance < 60 ? number_range(1, 2 * obj->cost) : obj->cost,
@@ -2994,7 +2965,7 @@ void do_lore(CHAR_DATA * ch, const char *argument)
 		char_printf(ch,
 			    "Object '%s' is type %s, extra flags %s.\n\rWeight is %d, value is %d, level is %d.\n\rMaterial is %s.\n\r",
 			    obj->name,
-			    flag_string(item_types, obj->item_type),
+			    flag_string(item_types, obj->pIndexData->item_type),
 			    flag_string(extra_flags, obj->extra_flags),
 			    obj->weight,
 			    obj->cost,
@@ -3005,7 +2976,7 @@ void do_lore(CHAR_DATA * ch, const char *argument)
 		char_printf(ch,
 			    "Object '%s' is type %s, extra flags %s.\n\rWeight is %d, value is %d, level is %d.\n\rMaterial is %s.\n\r",
 			    obj->name,
-			    flag_string(item_types, obj->item_type),
+			    flag_string(item_types, obj->pIndexData->item_type),
 			    flag_string(extra_flags, obj->extra_flags),
 			    obj->weight,
 			    obj->cost,
@@ -3021,7 +2992,7 @@ void do_lore(CHAR_DATA * ch, const char *argument)
 
 	max_skill = skills.nused;
 
-	switch (obj->item_type) {
+	switch (obj->pIndexData->item_type) {
 	case ITEM_SCROLL:
 	case ITEM_POTION:
 	case ITEM_PILL:
@@ -3105,14 +3076,9 @@ void do_lore(CHAR_DATA * ch, const char *argument)
 
 		char_printf(ch, "%s.\n\r", flag_string(weapon_class, value0));
 
-		if (obj->pIndexData->new_format)
-			char_printf(ch, "Damage is %dd%d (average %d).\n\r",
-				    value1, value2,
-				    (1 + value2) * value1 / 2);
-		else
-			char_printf(ch, "Damage is %d to %d (average %d).\n\r",
-				    value1, value2,
-				    (value1 + value2) / 2);
+		char_printf(ch, "Damage is %dd%d (average %d).\n\r",
+			    value1, value2,
+			    (1 + value2) * value1 / 2);
 		break;
 
 	case ITEM_ARMOR:
@@ -3187,8 +3153,8 @@ void do_butcher(CHAR_DATA * ch, const char *argument)
 		char_puts("You do not see that here.\n\r", ch);
 		return;
 	}
-	if (obj->item_type != ITEM_CORPSE_PC
-	&&  obj->item_type != ITEM_CORPSE_NPC) {
+	if (obj->pIndexData->item_type != ITEM_CORPSE_PC
+	&&  obj->pIndexData->item_type != ITEM_CORPSE_NPC) {
 		char_puts("You can't butcher that.\n\r", ch);
 		return;
 	}
