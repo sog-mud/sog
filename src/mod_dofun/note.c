@@ -1,5 +1,5 @@
 /*
- * $Id: note.c,v 1.10 2000-09-05 06:05:38 fjoe Exp $
+ * $Id: note.c,v 1.11 2000-10-04 20:28:46 fjoe Exp $
  */
 
 /***************************************************************************
@@ -93,7 +93,7 @@ void do_unread(CHAR_DATA *ch, const char *argument)
 }
 
 	if (!found && str_cmp(argument, "login"))
-		char_puts("You have no unread messages.\n", ch);
+		act_char("You have no unread messages.", ch);
 }
 
 void do_note(CHAR_DATA *ch,const char *argument)
@@ -492,7 +492,7 @@ static void parse_note(CHAR_DATA *ch, const char *argument, int type)
 				else if (is_note_to(ch, pnote))
 					vnum++;
 			}
-			char_puts("You have no unread messages.\n", ch);
+			act_char("You have no unread messages.", ch);
 			return;
         	}
 		else if (is_number(argument)) {
@@ -500,7 +500,7 @@ static void parse_note(CHAR_DATA *ch, const char *argument, int type)
 			anum = atoi(argument);
 		}
 		else {
-			char_puts("Read which number?\n", ch);
+			act_char("Read which number?", ch);
 			return;
 		}
  
@@ -584,7 +584,7 @@ static void parse_note(CHAR_DATA *ch, const char *argument, int type)
 
 	if (!str_prefix(arg, "remove")) {
 		if (!is_number(argument)) {
-			char_puts("Remove which number?\n", ch);
+			act_char("Remove which number?", ch);
 			return;
 		}
  
@@ -593,7 +593,7 @@ static void parse_note(CHAR_DATA *ch, const char *argument, int type)
 		for (pnote = *list; pnote != NULL; pnote = pnote->next) {
 			if (is_note_to(ch, pnote) && vnum++ == anum) {
 				note_remove(ch, pnote, FALSE);
-				char_puts("Ok.\n", ch);
+				act_char("Ok.", ch);
 				return;
 			}
 		}
@@ -633,7 +633,7 @@ static void parse_note(CHAR_DATA *ch, const char *argument, int type)
 	}
 
 	if (IS_SET(ch->comm, COMM_NONOTE)) {
-		char_puts("News pigeon refuses to take your letter.\n", ch);
+		act_char("News pigeon refuses to take your letter.", ch);
 		return;
 	}
 
@@ -641,7 +641,7 @@ static void parse_note(CHAR_DATA *ch, const char *argument, int type)
 
 	if (!str_prefix(arg, "delete")) {
 		if (!is_number(argument)) {
-			char_puts("Delete which number?\n", ch);
+			act_char("Delete which number?", ch);
 			return;
 		}
  
@@ -650,7 +650,7 @@ static void parse_note(CHAR_DATA *ch, const char *argument, int type)
 		for (pnote = *list; pnote != NULL; pnote = pnote->next) {
 			if (is_note_to(ch, pnote) && vnum++ == anum) {
 				note_remove(ch, pnote, TRUE);
-				char_puts("Ok.\n", ch);
+				act_char("Ok.", ch);
 				return;
 			}
 		}
@@ -673,14 +673,14 @@ static void parse_note(CHAR_DATA *ch, const char *argument, int type)
 			return;
 
 		if (strlen(pc->pnote->text) + strlen(argument) >= MAX_STRING_LENGTH-4) {
-			char_puts("Note too long.\n", ch);
+			act_char("Note too long.", ch);
 			return;
 		}
 
 		p = str_printf("%s%s\n", pc->pnote->text, argument);
 		free_string(pc->pnote->text);
 		pc->pnote->text = p;
-		char_puts("Ok.\n", ch);
+		act_char("Ok.", ch);
 		return;
 	}
 
@@ -693,18 +693,18 @@ static void parse_note(CHAR_DATA *ch, const char *argument, int type)
 			return;
 
 		if (IS_NULLSTR(pc->pnote->text)) {
-			char_puts("No lines left to remove.\n", ch);
+			act_char("No lines left to remove.", ch);
 			return;
 		}
 
 		if (argument[0] != '\0') {
 			if (!is_number(argument)) {
-				char_puts("Remove which number?", ch);
+				act_char("Remove which number?", ch);
 				return;
 			}
 			pc->pnote->text = string_linedel(pc->pnote->text,
 							 atoi(argument));
-			char_puts("Ok.\n", ch);
+			act_char("Ok.", ch);
 			return;
 		}
 
@@ -721,14 +721,14 @@ static void parse_note(CHAR_DATA *ch, const char *argument, int type)
 				buf[len + 1] = '\0';
 				free_string(pc->pnote->text);
 				pc->pnote->text = str_dup(buf);
-				char_puts("Ok.\n", ch);
+				act_char("Ok.", ch);
 				return;
 			}
 		}
 
 		free_string(pc->pnote->text);
 		pc->pnote->text = str_empty;
-		char_puts("Ok.\n", ch);
+		act_char("Ok.", ch);
 		return;
 	}
 
@@ -738,7 +738,7 @@ static void parse_note(CHAR_DATA *ch, const char *argument, int type)
 
 		free_string(pc->pnote->subject);
 		pc->pnote->subject = str_dup(argument);
-		char_puts("Ok.\n", ch);
+		act_char("Ok.", ch);
 		return;
 	}
 
@@ -748,7 +748,7 @@ static void parse_note(CHAR_DATA *ch, const char *argument, int type)
 
 		free_string(pc->pnote->to_list);
 		pc->pnote->to_list = str_dup(argument);
-		char_puts("Ok.\n", ch);
+		act_char("Ok.", ch);
 		return;
 	}
 
@@ -757,7 +757,7 @@ static void parse_note(CHAR_DATA *ch, const char *argument, int type)
 
 		argument = one_argument(argument, buf, sizeof(buf));
 		if (!is_number(buf)) {
-			char_puts("Forward which number?\n", ch);
+			act_char("Forward which number?", ch);
 			return;
 		}
 
@@ -800,7 +800,7 @@ static void parse_note(CHAR_DATA *ch, const char *argument, int type)
 
 		argument = one_argument(argument, buf, sizeof(buf));
 		if (!is_number(buf)) {
-			char_puts("Quote which number?\n", ch);
+			act_char("Quote which number?", ch);
 			return;
 		}
 
@@ -835,7 +835,7 @@ static void parse_note(CHAR_DATA *ch, const char *argument, int type)
 			pc->pnote = NULL;
 		}
 
-		char_puts("Ok.\n", ch);
+		act_char("Ok.", ch);
 		return;
 	}
 
@@ -843,12 +843,12 @@ static void parse_note(CHAR_DATA *ch, const char *argument, int type)
 		BUFFER *output;
 
 		if (!pc->pnote) {
-			char_puts("You have no note in progress.\n", ch);
+			act_char("You have no note in progress.", ch);
 			return;
 		}
 
 		if (pc->pnote->type != type) {
-			char_puts("You aren't working on that kind of note.\n",ch);
+			act_char("You aren't working on that kind of note.", ch);
 			return;
 		}
 
@@ -870,30 +870,27 @@ static void parse_note(CHAR_DATA *ch, const char *argument, int type)
 
 	if (!str_prefix(arg, "post") || !str_prefix(arg, "send")) {
 		if (pc->pnote == NULL) {
-			char_puts("You have no note in progress.\n", ch);
+			act_char("You have no note in progress.", ch);
 			return;
 		}
 
 		if (pc->pnote->type != type) {
-			char_puts("You aren't working on that kind of note.\n",
-				  ch);
+			act_char("You aren't working on that kind of note.", ch);
 			return;
 		}
 
 		if (IS_NULLSTR(pc->pnote->to_list)) {
-			char_puts("You need to provide a recipient "
-				  "(name, clan name, all, or immortal).\n",
-				  ch);
+			act_char("You need to provide a recipient (name, clan name, all, or immortal).", ch);
 			return;
 		}
 
 		if (IS_NULLSTR(pc->pnote->subject)) {
-			char_puts("You need to provide a subject.\n", ch);
+			act_char("You need to provide a subject.", ch);
 			return;
 		}
 
 		if (IS_NULLSTR(pc->pnote->text)) {
-			char_puts("You need to provide a text.\n", ch);
+			act_char("You need to provide a text.", ch);
 			return;
 		}
 
@@ -917,7 +914,7 @@ static void parse_note(CHAR_DATA *ch, const char *argument, int type)
 		return;
 	}
 
-	char_puts("You can't do that.\n", ch);
+	act_char("You can't do that.", ch);
 }
 
 static int count_spool(CHAR_DATA *ch, note_t *spool)

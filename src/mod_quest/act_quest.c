@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_quest.c,v 1.141 2000-06-02 16:41:01 fjoe Exp $
+ * $Id: act_quest.c,v 1.142 2000-10-04 20:28:50 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -142,7 +142,7 @@ void do_quest(CHAR_DATA *ch, const char *argument)
 	for (qcmd = qcmd_table; qcmd->name != NULL; qcmd++)
 		if (str_prefix(cmd, qcmd->name) == 0) {
 			if (ch->position < qcmd->min_position) {
-				char_puts("In your dreams, or what?\n", ch);
+				act_char("In your dreams, or what?", ch);
 				return;
 			}
 			if (!IS_SET(qcmd->extra, CMD_KEEP_HIDE)
@@ -161,14 +161,15 @@ void do_quest(CHAR_DATA *ch, const char *argument)
 	for (qcmd = qcmd_table; qcmd->name != NULL; qcmd++) {
 		char_printf(ch, " %s", qcmd->name);
 	}
-	char_puts("\nFor more information, type: help quests.\n", ch);
+	send_to_char("\n", ch);
+	act_char("For more information, type: help quests.", ch);
 }
 
 static inline void chquest_status(CHAR_DATA *ch)
 {
 	chquest_t *q;
 
-	char_puts("Challenge quest items:\n", ch);
+	act_char("Challenge quest items:", ch);
 	for (q = chquest_list; q; q = q->next) {
 		OBJ_DATA *obj;
 
@@ -177,7 +178,7 @@ static inline void chquest_status(CHAR_DATA *ch)
 			    q->obj_index->vnum);
 
 		if (IS_STOPPED(q)) {
-			char_puts("stopped.\n", ch);
+			act_char("stopped.", ch);
 			continue;
 		} else if (IS_WAITING(q)) {
 			char_printf(ch, "%d area ticks to start.\n",
@@ -186,7 +187,7 @@ static inline void chquest_status(CHAR_DATA *ch)
 		}
 
 		if ((obj = q->obj) == NULL) {
-			char_puts("status unknown.\n", ch);
+			act_char("status unknown.", ch);
 			continue;
 		}
 
@@ -222,7 +223,7 @@ void do_chquest(CHAR_DATA *ch, const char *argument)
 
 	if (!str_prefix(arg, "restart")) {
 		chquest_start(CHQUEST_F_NODELAY);
-		char_puts("Challenge quest restarted.\n", ch);
+		act_char("Challenge quest restarted.", ch);
 		return;
 	}
 
@@ -341,12 +342,13 @@ static void quest_points(CHAR_DATA *ch, char* arg)
 static void quest_info(CHAR_DATA *ch, char* arg)
 {
 	if (!IS_ON_QUEST(ch)) {
-		char_puts("You aren't currently on a quest.\n", ch);
+		act_char("You aren't currently on a quest.", ch);
 		return;
 	}
 
 	if (PC(ch)->questmob == -1) {
-		char_puts("Your quest is ALMOST complete!\nGet back to questor before your time runs out!\n", ch);
+		act_char("Your quest is ALMOST complete!", ch);
+		act_char("Get back to questor before your time runs out!", ch);
 		return;
 	}
 
@@ -370,7 +372,7 @@ static void quest_info(CHAR_DATA *ch, char* arg)
 				    TO_CHAR);
 			}
 		} else 
-			char_puts("You aren't currently on a quest.\n", ch);
+			act_char("You aren't currently on a quest.", ch);
 		return;
 	}
 
@@ -394,7 +396,7 @@ static void quest_info(CHAR_DATA *ch, char* arg)
 				    TO_CHAR);
 			}
 		} else 
-			char_puts("You aren't currently on a quest.\n", ch);
+			act_char("You aren't currently on a quest.", ch);
 		return;
 	}
 }
@@ -402,14 +404,14 @@ static void quest_info(CHAR_DATA *ch, char* arg)
 static void quest_time(CHAR_DATA *ch, char* arg)
 {
 	if (!IS_ON_QUEST(ch)) {
-		char_puts("You aren't currently on a quest.\n", ch);
+		act_char("You aren't currently on a quest.", ch);
 		if (PC(ch)->questtime < -1) {
 			act("There are {W$j{x $qj{minutes} remaining until "
 			    "you can go on another quest.",
 			    ch, (const void*) -PC(ch)->questtime, NULL,
 			    TO_CHAR);
 	    	} else if (PC(ch)->questtime == -1) {
-			char_puts("There is less than a minute remaining until you can go on another quest.\n", ch);
+			act_char("There is less than a minute remaining until you can go on another quest.", ch);
 		}
 	}
 	else {
@@ -431,7 +433,7 @@ static void quest_list(CHAR_DATA *ch, char *arg)
 	act_puts("You ask $N for list of quest items.",
 		 ch, NULL, questor, TO_CHAR, POS_DEAD);
 
-	char_puts("Current Quest Items available for Purchase:\n", ch);
+	act_char("Current Quest Items available for Purchase:", ch);
 	for (qitem = qitem_table; qitem->name; qitem++) {
 		if (qitem->restrict_class != NULL
 		&&  !is_name(ch->class, qitem->restrict_class))
@@ -443,7 +445,7 @@ static void quest_list(CHAR_DATA *ch, char *arg)
 		char_printf(ch, "%5dqp...........%s\n",
 			    qitem->price, qitem->name);
 	}
-	char_puts("To buy an item, type 'QUEST BUY <item>'.\n", ch);
+	act_char("To buy an item, type 'QUEST BUY <item>'.", ch);
 }
 
 static void quest_buy(CHAR_DATA *ch, char *arg)
@@ -455,7 +457,7 @@ static void quest_buy(CHAR_DATA *ch, char *arg)
 		return;
 
 	if (arg[0] == '\0') {
-		char_puts("To buy an item, type 'QUEST BUY <item>'.\n", ch);
+		act_char("To buy an item, type 'QUEST BUY <item>'.", ch);
 		return;
 	}
 
@@ -741,7 +743,7 @@ static void quest_trouble(CHAR_DATA *ch, char *arg)
 		return;
 
 	if (arg[0] == '\0') {
-		char_puts("To resolve a quest award's trouble, type: 'quest trouble award'.\n", ch);
+		act_char("To resolve a quest award's trouble, type: 'quest trouble award'.", ch);
 		return;
 	}
 

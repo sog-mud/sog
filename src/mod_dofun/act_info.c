@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.348 2000-07-27 09:30:06 fjoe Exp $
+ * $Id: act_info.c,v 1.349 2000-10-04 20:28:44 fjoe Exp $
  */
 
 /***************************************************************************
@@ -119,7 +119,7 @@ static int show_order[] = {
 void do_clear(CHAR_DATA *ch, const char *argument)
 {
 	if (!IS_NPC(ch))
-		char_puts("\033[0;0H\033[2J", ch);
+		send_to_char("\033[0;0H\033[2J", ch);
 }
 
 /* changes your scroll */
@@ -141,7 +141,7 @@ void do_scroll(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (!is_number(arg)) {
-		char_puts("You must provide a number.\n",ch);
+		act_char("You must provide a number.", ch);
 		return;
 	}
 
@@ -171,14 +171,13 @@ void do_socials(CHAR_DATA *ch, const char *argument)
 	MOB_INDEX_DATA *mob_index;
 
 	if (argument[0] == '\0') {
-		char_puts("\nUse social <name> to view "
-			"what that social does.\n\n", ch);
+		act_char("Use social <name> to view what that social does.", ch);
 		dofun("alist", ch, "social");
 		return;
 	}
 
 	if ((soc = social_search(argument)) == NULL) {
-		char_puts("There is no such social.\n", ch);
+		act_char("There is no such social.", ch);
 		return;
 	}
 
@@ -234,8 +233,8 @@ void do_autolist(CHAR_DATA *ch, const char *argument)
 	if (IS_NPC(ch))
 		return;
 
-	char_puts("action         status\n",ch);
-	char_puts("---------------------\n",ch);
+	act_char("action         status", ch);
+	act_char("---------------------", ch);
 	do_print_sw(ch, "autoassist", IS_SET(PC(ch)->plr_flags, PLR_AUTOASSIST));
 	do_print_sw(ch, "autoexit", IS_SET(PC(ch)->plr_flags, PLR_AUTOEXIT));
 	do_print_sw(ch, "autogold", IS_SET(PC(ch)->plr_flags, PLR_AUTOGOLD));
@@ -245,113 +244,112 @@ void do_autolist(CHAR_DATA *ch, const char *argument)
 	do_print_sw(ch, "autosplit", IS_SET(PC(ch)->plr_flags, PLR_AUTOSPLIT));
 
 	if (IS_SET(PC(ch)->plr_flags, PLR_NOSUMMON))
-		char_puts("You can only be summoned players within "
-			     "your PK range.\n",ch);
+		act_char("You can only be summoned players within your PK range.",ch);
 	else
-		char_puts("You can be summoned by anyone.\n",ch);
+		act_char("You can be summoned by anyone.", ch);
 
 	if (IS_SET(PC(ch)->plr_flags, PLR_NOFOLLOW))
-		char_puts("You do not welcome followers.\n",ch);
+		act_char("You do not welcome followers.", ch);
 	else
-		char_puts("You accept followers.\n",ch);
+		act_char("You accept followers.", ch);
 }
 
 void do_autoassist(CHAR_DATA *ch, const char *argument)
 {
 	if (IS_NPC(ch)) {
-		char_puts("Huh?\n", ch);
+		act_char("Huh?", ch);
 		return;
 	}
 
 	TOGGLE_BIT(PC(ch)->plr_flags, PLR_AUTOASSIST);
 	if (IS_SET(PC(ch)->plr_flags, PLR_AUTOASSIST))
-		char_puts("You will now assist when needed.\n",ch);
+		act_char("You will now assist when needed.", ch);
 	else
-		char_puts("Autoassist removed.\n",ch);
+		act_char("Autoassist removed.", ch);
 }
 
 void do_autoexit(CHAR_DATA *ch, const char *argument)
 {
 	if (IS_NPC(ch)) {
-		char_puts("Huh?\n", ch);
+		act_char("Huh?", ch);
 		return;
 	}
 
 	TOGGLE_BIT(PC(ch)->plr_flags, PLR_AUTOEXIT);
 	if (IS_SET(PC(ch)->plr_flags, PLR_AUTOEXIT))
-		char_puts("Exits will now be displayed.\n",ch);
+		act_char("Exits will now be displayed.", ch);
 	else 
-		char_puts("Exits will no longer be displayed.\n",ch);
+		act_char("Exits will no longer be displayed.", ch);
 }
 
 void do_autogold(CHAR_DATA *ch, const char *argument)
 {
 	if (IS_NPC(ch)) {
-		char_puts("Huh?\n", ch);
+		act_char("Huh?", ch);
 		return;
 	}
 
 	TOGGLE_BIT(PC(ch)->plr_flags, PLR_AUTOGOLD);
 	if (IS_SET(PC(ch)->plr_flags, PLR_AUTOGOLD))
-		char_puts("Automatic gold looting set.\n",ch);
+		act_char("Automatic gold looting set.", ch);
 	else 
-		char_puts("Autogold removed.\n",ch);
+		act_char("Autogold removed.", ch);
 }
 
 void do_autolook(CHAR_DATA *ch, const char *argument)
 {
 	if (IS_NPC(ch)) {
-		char_puts("Huh?\n", ch);
+		act_char("Huh?", ch);
 		return;
 	}
 
 	TOGGLE_BIT(PC(ch)->plr_flags, PLR_AUTOLOOK);
 	if (IS_SET(PC(ch)->plr_flags, PLR_AUTOLOOK))
-		char_puts("Automatic corpse examination set.\n", ch);
+		act_char("Automatic corpse examination set.", ch);
 	else
-		char_puts("Autolooking removed.\n", ch);
+		act_char("Autolooking removed.", ch);
 }
 
 void do_autoloot(CHAR_DATA *ch, const char *argument)
 {
 	if (IS_NPC(ch)) {
-		char_puts("Huh?\n", ch);
+		act_char("Huh?", ch);
 		return;
 	}
 
 	TOGGLE_BIT(PC(ch)->plr_flags, PLR_AUTOLOOT);
 	if (IS_SET(PC(ch)->plr_flags, PLR_AUTOLOOT))
-		char_puts("Automatic corpse looting set.\n", ch);
+		act_char("Automatic corpse looting set.", ch);
 	else
-		char_puts("Autolooting removed.\n", ch);
+		act_char("Autolooting removed.", ch);
 }
 
 void do_autosac(CHAR_DATA *ch, const char *argument)
 {
 	if (IS_NPC(ch)) {
-		char_puts("Huh?\n", ch);
+		act_char("Huh?", ch);
 		return;
 	}
 
 	TOGGLE_BIT(PC(ch)->plr_flags, PLR_AUTOSAC);
 	if (IS_SET(PC(ch)->plr_flags, PLR_AUTOSAC))
-		char_puts("Automatic corpse sacrificing set.\n",ch);
+		act_char("Automatic corpse sacrificing set.", ch);
 	else
-		char_puts("Autosacrificing removed.\n",ch);
+		act_char("Autosacrificing removed.", ch);
 }
 
 void do_autosplit(CHAR_DATA *ch, const char *argument)
 {
 	if (IS_NPC(ch)) {
-		char_puts("Huh?\n", ch);
+		act_char("Huh?", ch);
 		return;
 	}
 
 	TOGGLE_BIT(PC(ch)->plr_flags, PLR_AUTOSPLIT);
 	if (IS_SET(PC(ch)->plr_flags, PLR_AUTOSPLIT))
-		char_puts("Automatic gold splitting set.\n",ch);
+		act_char("Automatic gold splitting set.", ch);
 	else
-		char_puts("Autosplitting removed.\n",ch);
+		act_char("Autosplitting removed.", ch);
 }
 
 void do_prompt(CHAR_DATA *ch, const char *argument)
@@ -364,7 +362,7 @@ void do_prompt(CHAR_DATA *ch, const char *argument)
 
 	if (argument[0] == '\0') {
 		bust_a_prompt(d);
-		char_puts("\n", ch);
+		send_to_char("\n", ch);
 		return;
 	}
 
@@ -387,31 +385,29 @@ void do_prompt(CHAR_DATA *ch, const char *argument)
 void do_nofollow(CHAR_DATA *ch, const char *argument)
 {
 	if (IS_NPC(ch)) {
-		char_puts("Huh?\n", ch);
+		act_char("Huh?", ch);
 		return;
 	}
 
 	TOGGLE_BIT(PC(ch)->plr_flags, PLR_NOFOLLOW);
 	if (IS_SET(PC(ch)->plr_flags,PLR_NOFOLLOW)) {
-		char_puts("You no longer accept followers.\n", ch);
+		act_char("You no longer accept followers.", ch);
 		die_follower(ch);
 	}
 	else
-		char_puts("You now accept followers.\n", ch);
+		act_char("You now accept followers.", ch);
 }
 
 void do_nosummon(CHAR_DATA *ch, const char *argument)
 {
 	if (IS_NPC(ch)) {
-		char_puts("Huh?\n", ch);
-	}
-	else {
+		act_char("Huh?", ch);
+	} else {
 		TOGGLE_BIT(PC(ch)->plr_flags, PLR_NOSUMMON);
 		if (IS_SET(PC(ch)->plr_flags,PLR_NOSUMMON))
-			char_puts("You may only be summoned by players "
-				  "within your PK range.\n", ch);
+			act_char("You may only be summoned by players within your PK range.", ch);
 		else 
-			char_puts("You may now be summoned by anyone.\n", ch);
+			act_char("You may now be summoned by anyone.", ch);
 	}
 }
 
@@ -422,13 +418,13 @@ static void do_look_in(CHAR_DATA* ch, const char *argument)
 	clan_t *clan;
 
 	if ((obj = get_obj_here(ch, argument)) == NULL) {
-		char_puts("You don't see that here.\n", ch);
+		act_char("You don't see that here.", ch);
 		return;
 	}
 
 	switch (obj->item_type) {
 	default:
-		char_puts("That is not a container.\n", ch);
+		act_char("That is not a container.", ch);
 		break;
 	case ITEM_DRINK_CON:
 		if ((lq = liquid_lookup(STR(obj->value[2]))) == NULL) {
@@ -436,7 +432,7 @@ static void do_look_in(CHAR_DATA* ch, const char *argument)
 			break;
 		}
 		if (INT(obj->value[1]) == 0) {
-			char_puts("It is empty.\n", ch);
+			act_char("It is empty.", ch);
 			break;
 		}
 
@@ -483,27 +479,27 @@ static void do_look_room(CHAR_DATA *ch, int flags)
 		if (GET_LANG(ch) && name != engname)
 			char_printf(ch, " (%s){x", engname);
 		else
-			char_puts("{x", ch);
+			send_to_char("{x", ch);
 		
 		if (IS_IMMORTAL(ch)
 		||  IS_BUILDER(ch, ch->in_room->area))
 			char_printf(ch, " [Room %d]",ch->in_room->vnum);
 
-		char_puts("\n", ch);
+		send_to_char("\n", ch);
 
  		if (!IS_SET(flags, LOOK_F_NORDESC)) {
-			char_puts("  ", ch);
+			send_to_char("  ", ch);
 			act_puts(mlstr_cval(&ch->in_room->description, ch),
 				 ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
 		}
 
 		if (!IS_NPC(ch) && IS_SET(PC(ch)->plr_flags, PLR_AUTOEXIT)) {
-			char_puts("\n", ch);
+			send_to_char("\n", ch);
 			do_exits(ch, "auto");
 		}
 	}
 	else 
-		char_puts("It is pitch black...\n", ch);
+		act_char("It is pitch black...", ch);
 
 	show_list_to_char(ch->in_room->contents, ch, FALSE, FALSE);
 	show_char_to_char(ch->in_room->people, ch);
@@ -530,12 +526,12 @@ void do_look(CHAR_DATA *ch, const char *argument)
 		return;
 
 	if (ch->position < POS_SLEEPING) {
-		char_puts("You can't see anything but stars!\n", ch);
+		act_char("You can't see anything but stars!", ch);
 		return;
 	}
 
 	if (ch->position == POS_SLEEPING) {
-		char_puts("You can't see anything, you're sleeping!\n", ch);
+		act_char("You can't see anything, you're sleeping!", ch);
 		return;
 	}
 
@@ -560,7 +556,7 @@ void do_look(CHAR_DATA *ch, const char *argument)
 	||  !str_cmp(arg1,"on")) {
 		/* 'look in' */
 		if (arg2[0] == '\0') {
-			char_puts("Look in what?\n", ch);
+			act_char("Look in what?", ch);
 			return;
 		}
 
@@ -629,7 +625,7 @@ void do_look(CHAR_DATA *ch, const char *argument)
 
 			if (is_name(arg3, obj->name))
 				if (++count == number) {
-					char_puts("You see nothing special about it.\n", ch);
+					act_char("You see nothing special about it.", ch);
 					return;
 				}
 		}
@@ -691,7 +687,7 @@ void do_look(CHAR_DATA *ch, const char *argument)
 
 	/* 'look direction' */
 	if ((pexit = ch->in_room->exit[door]) == NULL) {
-		char_puts("Nothing special there.\n", ch);
+		act_char("Nothing special there.", ch);
 		return;
 	}
 
@@ -699,7 +695,7 @@ void do_look(CHAR_DATA *ch, const char *argument)
 		act_puts(mlstr_cval(&pexit->description, ch),
 			 ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
 	else
-		char_puts("Nothing special there.\n", ch);
+		act_char("Nothing special there.", ch);
 
 	if (IS_SET(pexit->exit_info, EX_ISDOOR)) {
 		if (IS_SET(pexit->exit_info, EX_CLOSED)) {
@@ -725,12 +721,12 @@ void do_examine(CHAR_DATA *ch, const char *argument)
 		return;
 
 	if (ch->position < POS_SLEEPING) {
-		char_puts("You can't see anything but stars!\n", ch);
+		act_char("You can't see anything but stars!", ch);
 		return;
 	}
 
 	if (ch->position == POS_SLEEPING) {
-		char_puts("You can't see anything, you're sleeping!\n", ch);
+		act_char("You can't see anything, you're sleeping!", ch);
 		return;
 	}
 
@@ -738,7 +734,7 @@ void do_examine(CHAR_DATA *ch, const char *argument)
 		return;
 
 	if (arg[0] == '\0') {
-		char_puts("Examine what?\n", ch);
+		act_char("Examine what?", ch);
 		return;
 	}
 
@@ -800,7 +796,7 @@ void do_exits(CHAR_DATA *ch, const char *argument)
 		char_printf(ch, "Obvious exits from room %d:\n",
 			    ch->in_room->vnum);
 	else
-		char_puts("Obvious exits:\n", ch);
+		act_char("Obvious exits:", ch);
 
 	found = FALSE;
 	for (door = 0; door < MAX_DIR; door++) {
@@ -840,16 +836,16 @@ void do_exits(CHAR_DATA *ch, const char *argument)
 				||  IS_BUILDER(ch, pexit->to_room.r->area))
 					char_printf(ch, " (room %d)",
 						    pexit->to_room.r->vnum);
-				char_puts("\n", ch);
+				send_to_char("\n", ch);
 			}
 		}
 	}
 
 	if (!found)
-		char_puts(fAuto ? " none" : "None.\n", ch);
+		act_char(fAuto ? " none" : "None.", ch);
 
 	if (fAuto)
-		char_puts("]{x\n", ch);
+		act_char("]{x", ch);
 }
 
 void do_worth(CHAR_DATA *ch, const char *argument)
@@ -953,7 +949,7 @@ void do_weather(CHAR_DATA *ch, const char *argument)
 	};
 
 	if (!IS_OUTSIDE(ch)) {
-		char_puts("You can't see the weather indoors.\n", ch);
+		act_char("You can't see the weather indoors.", ch);
 		return;
 	}
 
@@ -1029,7 +1025,7 @@ void do_who(CHAR_DATA *ch, const char *argument)
 
 		if (!str_cmp(arg, "tattoo")) {
 			if ((obj = get_eq_char(ch, WEAR_TATTOO)) == NULL) {
-				char_puts("You haven't got a tattoo yet!\n", ch);
+				act_char("You haven't got a tattoo yet!", ch);
 				goto bail_out;
 			}
 			SET_BIT(flags, WHO_F_TATTOO);
@@ -1179,7 +1175,7 @@ void do_whois(CHAR_DATA *ch, const char *argument)
 
 	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
-		char_puts("You must provide a name.\n", ch);
+		act_char("You must provide a name.", ch);
 		return;
 	}
 
@@ -1208,7 +1204,7 @@ void do_whois(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (output == NULL) {
-		char_puts("No one of that name is playing.\n", ch);
+		act_char("No one of that name is playing.", ch);
 		return;
 	}
 
@@ -1220,7 +1216,7 @@ void do_whois(CHAR_DATA *ch, const char *argument)
 
 void do_inventory(CHAR_DATA *ch, const char *argument)
 {
-	char_puts("You are carrying:\n", ch);
+	act_char("You are carrying:", ch);
 	show_list_to_char(ch->carrying, ch, TRUE, TRUE);
 }
 
@@ -1230,7 +1226,7 @@ void do_equipment(CHAR_DATA *ch, const char *argument)
 	int i;
 	bool found;
 
-	char_puts("You are using:\n", ch);
+	act_char("You are using:", ch);
 	found = FALSE;
 	for (i = 0; show_order[i] >= 0; i++) {
 		if ((obj = get_eq_char(ch, show_order[i])) == NULL)
@@ -1249,7 +1245,7 @@ void do_equipment(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (!found)
-		char_puts("Nothing.\n", ch);
+		act_char("Nothing.", ch);
 }
 
 void do_compare(CHAR_DATA *ch, const char *argument)
@@ -1265,12 +1261,12 @@ void do_compare(CHAR_DATA *ch, const char *argument)
 	argument = one_argument(argument, arg1, sizeof(arg1));
 	argument = one_argument(argument, arg2, sizeof(arg2));
 	if (arg1[0] == '\0') {
-		char_puts("Compare what to what?\n", ch);
+		act_char("Compare what to what?", ch);
 		return;
 	}
 
 	if ((obj1 = get_obj_carry(ch, arg1)) == NULL) {
-		char_puts("You do not have that item.\n", ch);
+		act_char("You do not have that item.", ch);
 		return;
 	}
 
@@ -1284,12 +1280,12 @@ void do_compare(CHAR_DATA *ch, const char *argument)
 				break;
 
 		if (obj2 == NULL) {
-			char_puts("You aren't wearing anything comparable.\n", ch);
+			act_char("You aren't wearing anything comparable.", ch);
 			return;
 		}
 	}
 	else if ((obj2 = get_obj_carry(ch,arg2)) == NULL) {
-		char_puts("You do not have that item.\n", ch);
+		act_char("You do not have that item.", ch);
 		return;
 	}
 
@@ -1354,7 +1350,7 @@ void do_where(CHAR_DATA *ch, const char *argument)
 		return;
 
 	if (room_is_dark(ch)) {
-		char_puts("It's too dark to see.\n", ch);
+		act_char("It's too dark to see.", ch);
 		return;
 	}
 
@@ -1362,7 +1358,7 @@ void do_where(CHAR_DATA *ch, const char *argument)
 		fPKonly = TRUE;
 
 	if (arg[0] == '\0' || fPKonly) {
-		char_puts("Players near you:\n", ch);
+		act_char("Players near you:", ch);
 		found = FALSE;
 		for (d = descriptor_list; d; d = d->next) {
 			if (d->connected == CON_PLAYING
@@ -1390,7 +1386,7 @@ void do_where(CHAR_DATA *ch, const char *argument)
 			}
 		}
 		if (!found)
-			char_puts("None.\n", ch);
+			act_char("None.", ch);
 	}
 	else {
 		found = FALSE;
@@ -1424,22 +1420,22 @@ void do_consider(CHAR_DATA *ch, const char *argument)
 	one_argument(argument, arg, sizeof(arg));
 
 	if (arg[0] == '\0') {
-		char_puts("Consider killing whom?\n", ch);
+		act_char("Consider killing whom?", ch);
 		return;
 	}
 
 	if ((victim = get_char_room(ch, arg)) == NULL) {
-		char_puts("They aren't here.\n", ch);
+		act_char("They aren't here.", ch);
 		return;
 	}
 
 	if (victim == ch) {
-		char_puts("Suicide is against your way.\n", ch);
+		act_char("Suicide is against your way.", ch);
 		return;
 	}
 
 	if (!in_PK(ch, victim)) {
-		char_puts("Don't even think about it.\n", ch);
+		act_char("Don't even think about it.", ch);
 		return;
 	}
 
@@ -1479,7 +1475,7 @@ void do_description(CHAR_DATA *ch, const char *argument)
 	char arg[MAX_STRING_LENGTH];
 
 	if (IS_NPC(ch)) {
-		char_puts("Huh?\n", ch);
+		act_char("Huh?", ch);
 		return;
 	}
 
@@ -1528,12 +1524,12 @@ void do_wimpy(CHAR_DATA *ch, const char *argument)
 		wimpy = atoi(arg);
 
 	if (wimpy < 0) {
-		char_puts("Your courage exceeds your wisdom.\n", ch);
+		act_char("Your courage exceeds your wisdom.", ch);
 		return;
 	}
 
 	if (wimpy > ch->max_hit/2) {
-		char_puts("Such cowardice ill becomes you.\n", ch);
+		act_char("Such cowardice ill becomes you.", ch);
 		return;
 	}
 
@@ -1556,18 +1552,18 @@ void do_password(CHAR_DATA *ch, const char *argument)
 	argument = first_arg(argument, arg2, sizeof(arg2), FALSE);
 
 	if (arg1[0] == '\0' || arg2[0] == '\0') {
-		char_puts("Syntax: password <old> <new>.\n", ch);
+		act_char("Syntax: password <old> <new>.", ch);
 		return;
 	}
 
 	if (strcmp(crypt(arg1, PC(ch)->pwd), PC(ch)->pwd)) {
 		WAIT_STATE(ch, 10 * PULSE_PER_SECOND);
-		char_puts("Wrong password. Wait 10 seconds.\n", ch);
+		act_char("Wrong password. Wait 10 seconds.", ch);
 		return;
 	}
 
 	if (strlen(arg2) < 5) {
-		char_puts("New password must be at least five characters long.\n", ch);
+		act_char("New password must be at least five characters long.", ch);
 		return;
 	}
 
@@ -1576,14 +1572,14 @@ void do_password(CHAR_DATA *ch, const char *argument)
 	 */
 	pwdnew = crypt(arg2, ch->name);
 	if (strchr(pwdnew, '~') != NULL) {
-		char_puts("New password not acceptable, try again.\n", ch);
+		act_char("New password not acceptable, try again.", ch);
 		return;
 	}
 
 	free_string(PC(ch)->pwd);
 	PC(ch)->pwd = str_dup(pwdnew);
 	char_save(ch, 0);
-	char_puts("Ok.\n", ch);
+	act_char("Ok.", ch);
 }
 
 static void scan_list(ROOM_INDEX_DATA *scan_room, CHAR_DATA *ch, 
@@ -1610,9 +1606,9 @@ static void scan_all(CHAR_DATA *ch)
 	if (!check_blind(ch))
 		return;
 
-	char_puts("Looking around you see:\n", ch);
+	act_char("Looking around you see:", ch);
 
-	char_puts("{Chere{x:\n", ch);
+	act_char("{Chere{x:", ch);
 	scan_list(ch->in_room, ch, 0, -1);
 	for (door = 0; door < 6; door++) {
 		if ((pExit = ch->in_room->exit[door]) == NULL
@@ -1621,7 +1617,7 @@ static void scan_all(CHAR_DATA *ch)
 			continue;
 		char_printf(ch, "{C%s{x:\n", dir_name[door]);
 		if (IS_SET(pExit->exit_info, EX_CLOSED)) {
-			char_puts("	You see closed door.\n", ch);
+			act_char("	You see closed door.", ch);
 			continue;
 		}
 		scan_list(pExit->to_room.r, ch, 1, door);
@@ -1681,7 +1677,7 @@ void do_scan(CHAR_DATA *ch, const char *argument)
 			act("Scan which direction?", ch, NULL, NULL, TO_CHAR);
 		return;
 	default:
-		char_puts("Wrong direction.\n", ch);
+		act_char("Wrong direction.", ch);
 		return;
 	}
 
@@ -1702,7 +1698,7 @@ void do_scan(CHAR_DATA *ch, const char *argument)
 		if (IS_SET(exit->exit_info, EX_CLOSED)
 		&&  can_see_room(ch, to_room)) {
 			if (i == 1)
-				char_puts("	You see closed door.\n", ch);
+				act_char("	You see closed door.", ch);
 			return;
 		}
 
@@ -1714,7 +1710,7 @@ void do_scan(CHAR_DATA *ch, const char *argument)
 		if (vch) {
 			char_printf(ch, "***** Range %d *****\n", i);
 			show_char_to_char(to_room->people, ch);
-			char_puts("\n", ch);
+			send_to_char("\n", ch);
 		}
 		in_room = to_room;
 	}
@@ -1730,7 +1726,7 @@ void do_request(CHAR_DATA *ch, const char *argument)
 	int carry_w, carry_n;
 
 	if (is_affected(ch, "reserved")) {
-		char_puts("Wait for a while to request again.\n", ch);
+		act_char("Wait for a while to request again.", ch);
 		return;
 	}
 
@@ -1741,17 +1737,17 @@ void do_request(CHAR_DATA *ch, const char *argument)
 		return;
 
 	if (arg1[0] == '\0' || arg2[0] == '\0') {
-		char_puts("Request what from whom?\n", ch);
+		act_char("Request what from whom?", ch);
 		return;
 	}
 
 	if ((victim = get_char_room(ch, arg2)) == NULL) {
-		char_puts("They aren't here.\n", ch);
+		act_char("They aren't here.", ch);
 		return;
 	}
 
 	if (!IS_NPC(victim)) {
-		char_puts("Why don't you just ask the player?\n", ch);
+		act_char("Why don't you just ask the player?", ch);
 		return;
 	}
 
@@ -1799,13 +1795,13 @@ void do_request(CHAR_DATA *ch, const char *argument)
 
 	if ((carry_n = can_carry_n(ch)) >= 0
 	&&  ch->carry_number + get_obj_number(obj) > carry_n) {
-		char_puts("Your hands are full.\n", ch);
+		act_char("Your hands are full.", ch);
 		return;
 	}
 
 	if ((carry_w = can_carry_w(ch)) >= 0
 	&&  get_carry_weight(ch) + get_obj_weight(obj) > carry_w) {
-		char_puts("You can't carry that much weight.\n", ch);
+		act_char("You can't carry that much weight.", ch);
 		return;
 	}
 
@@ -1834,7 +1830,7 @@ void do_request(CHAR_DATA *ch, const char *argument)
 
 	act("You feel grateful for the trust of $N.", ch, NULL, victim,
 	    TO_CHAR);
-	char_puts("and for the goodness you have seen in the world.\n",ch);
+	act_char("and for the goodness you have seen in the world.", ch);
 
 	af.type = "reserved";
 	af.where = TO_AFFECTS;
@@ -1881,7 +1877,7 @@ void do_hometown(CHAR_DATA *ch, const char *argument)
 			 ch, (const void*) amount, NULL, TO_CHAR, POS_DEAD);
 		char_puts("Choose from: ", ch);
 		hometown_print_avail(ch);
-		char_puts(".\n", ch);
+		act_char(".", ch);
 		return;
 	}
 
@@ -1925,18 +1921,17 @@ void do_detect_hidden(CHAR_DATA *ch, const char *argument)
 	int		chance;
 
 	if ((chance = get_skill(ch, "detect hide")) == 0) {
-		char_puts("Huh?\n", ch);
+		act_char("Huh?", ch);
 		return;
 	}
 
 	if (HAS_DETECT(ch, ID_HIDDEN)) {
-		char_puts("You are already as alert as you can be. \n",ch);
+		act_char("You are already as alert as you can be. ", ch);
 		return;
 	}
 
 	if (number_percent() > chance) {
-		char_puts("You peer intently at the shadows "
-			     "but they are unrevealing.\n", ch);
+		act_char("You peer intently at the shadows but they are unrevealing.", ch);
 		check_improve(ch, "detect hide", FALSE, 1);
 		return;
 	}
@@ -1950,7 +1945,7 @@ void do_detect_hidden(CHAR_DATA *ch, const char *argument)
 	af.bitvector = ID_HIDDEN;
 	af.owner     = NULL;
 	affect_to_char(ch, &af);
-	char_puts("Your awareness improves.\n", ch);
+	act_char("Your awareness improves.", ch);
 	check_improve(ch, "detect hide", TRUE, 1);
 }
 
@@ -1960,18 +1955,17 @@ void do_awareness(CHAR_DATA *ch, const char *argument)
 	int		chance;
 
 	if ((chance = get_skill(ch, "awareness")) == 0) {
-		char_puts("Huh?\n", ch);
+		act_char("Huh?", ch);
 		return;
 	}
 
 	if (is_affected(ch, "awareness")) {
-		char_puts("You are already as alert as you can be. \n",ch);
+		act_char("You are already as alert as you can be.", ch);
 		return;
 	}
 
 	if (number_percent() > chance) {
-		char_puts("You peer intently at the shadows "
-			     "but they are unrevealing.\n", ch);
+		act_char("You peer intently at the shadows but they are unrevealing.", ch);
 		check_improve(ch, "awareness", FALSE, 1);
 		return;
 	}
@@ -1988,7 +1982,7 @@ void do_awareness(CHAR_DATA *ch, const char *argument)
 
 	affect_to_char(ch, &af);
 
-	char_puts("Your awareness improves.\n", ch);
+	act_char("Your awareness improves.", ch);
 	check_improve(ch, "awareness", TRUE, 1);
 }
 
@@ -2005,16 +1999,15 @@ void do_bear_call(CHAR_DATA *ch, const char *argument)
 	int		mana;
 
 	if ((chance = get_skill(ch, "bear call")) == 0) {
-		char_puts("Huh?\n", ch);
+		act_char("Huh?", ch);
 		return;
 	}
 
-	char_puts("You call for bears help you.\n",ch);
+	act_char("You call for bears help you.", ch);
 	act("$n shouts a bear call.",ch,NULL,NULL,TO_ROOM);
 
 	if (is_affected(ch, "bear call")) {
-		char_puts("You cannot summon the strength to handle "
-			     "more bears right now.\n", ch);
+		act_char("You cannot summon the strength to handle more bears right now.", ch);
 		return;
 	}
 
@@ -2022,15 +2015,14 @@ void do_bear_call(CHAR_DATA *ch, const char *argument)
 		if (IS_AFFECTED(gch, AFF_CHARM)
 		&&  gch->master == ch
 		&&  gch->pMobIndex->vnum == MOB_VNUM_BEAR) {
-			char_puts("What's wrong with the bear you've got?",
-				     ch);
+			act_char("What's wrong with the bear you've got?", ch);
 			return;
 		}
 	}
 
 	if (ch->in_room != NULL
 	&&  IS_SET(ch->in_room->room_flags, ROOM_NOMOB)) {
-		char_puts("No bears listen you.\n", ch);
+		act_char("No bears listen you.", ch);
 		return;
 	}
 
@@ -2043,20 +2035,19 @@ void do_bear_call(CHAR_DATA *ch, const char *argument)
 	&&   ch->in_room->sector_type != SECT_FOREST
 	&&   ch->in_room->sector_type != SECT_MOUNTAIN
 	&&   ch->in_room->sector_type != SECT_HILLS)) {
-		char_puts("No bears come to your rescue.\n", ch);
+		act_char("No bears come to your rescue.", ch);
 		return;
 	}
 
 	mana = skill_mana(ch, "bear call");
 	if (ch->mana < mana) {
-		char_puts("You don't have enough mana "
-			     "to shout a bear call.\n", ch);
+		act_char("You don't have enough mana to shout a bear call.", ch);
 		return;
 	}
 	ch->mana -= mana;
 
 	if (number_percent() > chance) {
-		char_puts("No bears listen you.\n", ch);
+		act_char("No bears listen you.", ch);
 		check_improve(ch, "bear call", FALSE, 1);
 		return;
 	}
@@ -2084,7 +2075,7 @@ void do_bear_call(CHAR_DATA *ch, const char *argument)
 	bear->master = bear2->master = ch;
 	bear->leader = bear2->leader = ch;
 
-	char_puts("Two bears come to your rescue!\n",ch);
+	act_char("Two bears come to your rescue!", ch);
 	act("Two bears come to $n's rescue!", ch, NULL, NULL, TO_ROOM);
 
 	af.where	= TO_AFFECTS;
@@ -2107,7 +2098,7 @@ void do_identify(CHAR_DATA *ch, const char *argument)
 	CHAR_DATA *rch;
 
 	if ((obj = get_obj_carry(ch, argument)) == NULL) {
-		 char_puts("You are not carrying that.\n", ch);
+		 act_char("You are not carrying that.", ch);
 		 return;
 	}
 
@@ -2116,8 +2107,7 @@ void do_identify(CHAR_DATA *ch, const char *argument)
 			break;
 
 	if (!rch) {
-		 char_puts("No one here seems to know much "
-			      "about that.\n", ch);
+		 act_char("No one here seems to know much about that.", ch);
 		 return;
 	}
 
@@ -2126,11 +2116,11 @@ void do_identify(CHAR_DATA *ch, const char *argument)
 	else if (ch->gold < 1) {
 		act("$n resumes to identify by looking at $p.",
 		       rch, obj, 0, TO_ROOM);
-		char_puts("You need at least 1 gold.\n", ch);
+		act_char("You need at least 1 gold.", ch);
 		return;
 	} else {
 		ch->gold -= 1;
-		char_puts("Your purse feels lighter.\n", ch);
+		act_char("Your purse feels lighter.", ch);
 	}
 
 	act("$n gives a wise look at $p.", rch, obj, 0, TO_ROOM);
@@ -2611,11 +2601,11 @@ void do_raffects(CHAR_DATA *ch, const char *argument)
 	AFFECT_DATA *paf, *paf_last = NULL;
 
 	if (ch->in_room->affected == NULL) {
-		char_puts("The room is not affected by any spells.\n",ch);
+		act_char("The room is not affected by any spells.", ch);
 		return;
 	}
 
-	char_puts("The room is affected by the following spells:\n", ch);
+	act_char("The room is affected by the following spells:", ch);
 	for (paf = ch->in_room->affected; paf != NULL; paf = paf->next) {
 		if (paf_last != NULL && IS_SKILL(paf->type, paf_last->type)) {
 			if (ch->level >= 20)
@@ -2635,7 +2625,7 @@ void do_raffects(CHAR_DATA *ch, const char *argument)
 				char_printf(ch, "for {c%d{x hours.",
 					    paf->duration);
 		}
-		char_puts("\n", ch);
+		send_to_char("\n", ch);
 		paf_last = paf;
 	}
 }
@@ -2714,16 +2704,15 @@ void do_lion_call(CHAR_DATA *ch, const char *argument)
 	int		mana;
 
 	if ((chance = get_skill(ch, "lion call")) == 0) {
-		char_puts("Huh?\n", ch);
+		act_char("Huh?", ch);
 		return;
 	}
 
-	char_puts("You call for lions help you.\n",ch);
+	act_char("You call for lions help you.", ch);
 	act("$n shouts a lion call.",ch,NULL,NULL,TO_ROOM);
 
 	if (is_affected(ch, "lion call")) {
-		char_puts("You cannot summon the strength to handle "
-			     "more lions right now.\n", ch);
+		act_char("You cannot summon the strength to handle more lions right now.", ch);
 		return;
 	}
 
@@ -2731,14 +2720,14 @@ void do_lion_call(CHAR_DATA *ch, const char *argument)
 		if (IS_AFFECTED(gch,AFF_CHARM)
 		&&  gch->master == ch
 		&&  gch->pMobIndex->vnum == MOB_VNUM_LION) {
-			char_puts("What's wrong with the lion you've got?", ch);
+			act_char("What's wrong with the lion you've got?", ch);
 			return;
 		}
 	}
 
 	if (ch->in_room != NULL
 	&& IS_SET(ch->in_room->room_flags, ROOM_NOMOB)) {
-		char_puts("No lions hear you.\n", ch);
+		act_char("No lions hear you.", ch);
 		return;
 	}
 
@@ -2751,21 +2740,20 @@ void do_lion_call(CHAR_DATA *ch, const char *argument)
 	&&   ch->in_room->sector_type != SECT_FOREST
 	&&   ch->in_room->sector_type != SECT_MOUNTAIN
 	&&   ch->in_room->sector_type != SECT_HILLS)) {
-		char_puts("No lions come to your rescue.\n", ch);
+		act_char("No lions come to your rescue.", ch);
 		return;
 	}
 
 	mana = skill_mana(ch, "lion call");
 	if (ch->mana < mana) {
-		char_puts("You don't have enough mana "
-			     "to shout a lion call.\n", ch);
+		act_char("You don't have enough mana to shout a lion call.", ch);
 		return;
 	}
 	ch->mana -= mana;
 
 	if (number_percent() > chance) {
 		check_improve(ch, "lion call", FALSE, 1);
-		char_puts("No lions hear you.\n", ch);
+		act_char("No lions hear you.", ch);
 		return;
 	}
 
@@ -2792,7 +2780,7 @@ void do_lion_call(CHAR_DATA *ch, const char *argument)
 	lion->master = lion2->master = ch;
 	lion->leader = lion2->leader = ch;
 
-	char_puts("Two lions come to your rescue!\n",ch);
+	act_char("Two lions come to your rescue!", ch);
 	act("Two lions come to $n's rescue!",ch,NULL,NULL,TO_ROOM);
 
 	af.where	= TO_AFFECTS;
@@ -2865,7 +2853,7 @@ void do_practice(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (pc->practice <= 0) {
-		char_puts("You have no practice sessions left.\n", ch);
+		act_char("You have no practice sessions left.", ch);
 		return;
 	}
 
@@ -2875,13 +2863,12 @@ void do_practice(CHAR_DATA *ch, const char *argument)
 	||  (sk = skill_lookup(pc_sk->sn)) == NULL
 	||  pc_sk->percent == 0
 	||  get_skill(ch, pc_sk->sn) == 0) {
-		char_puts("You can't practice that.\n", ch);
+		act_char("You can't practice that.", ch);
 		return;
 	}
 
 	if (IS_SKILL(pc_sk->sn, "vampire")) {
-		char_puts("You can't practice that, only available "
-			  "at questor.\n", ch);
+		act_char("You can't practice that, only available at questor.", ch);
 		return;
 	}
 
@@ -2909,12 +2896,9 @@ void do_practice(CHAR_DATA *ch, const char *argument)
 
 	if (mob == NULL) {
 		if (found) {
-			char_puts("You can't do that here. "
-				  "Use 'slook skill', 'help practice' "
-				  "for more info.\n", ch);
+			act_char("You can't do that here. Use 'slook skill', 'help practice' for more info.", ch);
 		} else {
-			char_puts("You couldn't find anyone "
-				  "who can teach you.\n", ch);
+			act_char("You couldn't find anyone who can teach you.", ch);
 		}
 		return;
 	}
@@ -2956,19 +2940,19 @@ void do_learn(CHAR_DATA *ch, const char *argument)
 		return;
 
 	if (!IS_AWAKE(ch)) {
-		char_puts("In your dreams, or what?\n", ch);
+		act_char("In your dreams, or what?", ch);
 		return;
 	}	
 
 	if (argument[0] == '\0') {
-		char_puts("Syntax: learn <skill | spell> <player>\n", ch);
+		act_char("Syntax: learn <skill | spell> <player>", ch);
 		return;
 	}
 
 	pc = PC(ch);
 
 	if (pc->practice <= 0) {
-		char_puts("You have no practice sessions left.\n", ch);
+		act_char("You have no practice sessions left.", ch);
 		return;
 	}
 
@@ -2978,31 +2962,30 @@ void do_learn(CHAR_DATA *ch, const char *argument)
 	||  skill_lookup(pc_sk->sn) == NULL
 	||  pc_sk->percent == 0
 	||  get_skill(ch, pc_sk->sn) == 0) {
-		char_puts("You can't learn that.\n", ch);
+		act_char("You can't learn that.", ch);
 		return;
 	}
 
 	if (IS_SKILL(pc_sk->sn, "vampire")) {
-		char_puts("You can't practice that, only available "
-			  "at questor.\n", ch);
+		act_char("You can't practice that, only available at questor.", ch);
 		return;
 	}	
 
 	argument = one_argument(argument, arg, sizeof(arg));
 		
 	if ((practicer = get_char_room(ch,arg)) == NULL) {
-		char_puts("Your hero is not here.\n", ch);
+		act_char("Your hero is not here.", ch);
 		return;
 	}
 			
 	if (IS_NPC(practicer) || practicer->level != LEVEL_HERO) {
-		char_puts("You must find a hero, not an ordinary one.\n",
+		act_char("You must find a hero, not an ordinary one.",
 			  ch);
 		return;
 	}
 
 	if (!IS_SET(PC(practicer)->plr_flags, PLR_PRACTICER)) {
-		char_puts("Your hero doesn't want to teach you anything.\n",ch);
+		act_char("Your hero doesn't want to teach you anything.", ch);
 		return;
 	}
 
@@ -3010,7 +2993,7 @@ void do_learn(CHAR_DATA *ch, const char *argument)
 	spec_stats(practicer, &spec_sk);
 	if ((pc_sk2 = pc_skill_lookup(practicer, pc_sk->sn)) == NULL
 	||  pc_sk2->percent < spec_sk.max) {
-		char_puts("Your hero doesn't know that skill enough to teach you.\n",ch);
+		act_char("Your hero doesn't know that skill enough to teach you.", ch);
 		return;
 	}
 
@@ -3042,11 +3025,11 @@ void do_learn(CHAR_DATA *ch, const char *argument)
 void do_teach(CHAR_DATA *ch, const char *argument)
 {
 	if (IS_NPC(ch) || ch->level != LEVEL_HERO) {
-		char_puts("You must be a hero.\n",ch);
+		act_char("You must be a hero.", ch);
 		return;
 	}
 	SET_BIT(PC(ch)->plr_flags, PLR_PRACTICER);
-	char_puts("Now, you can teach youngsters your 100% skills.\n",ch);
+	act_char("Now, you can teach youngsters your 100% skills.", ch);
 }
 
 /* used to converter of prac and train */
@@ -3067,7 +3050,7 @@ void do_gain(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (tr == NULL || !can_see(ch, tr)) {
-		char_puts("You can't do that here.\n",ch);
+		act_char("You can't do that here.", ch);
 		return;
 	}
 
@@ -3222,10 +3205,10 @@ static void list_spells(flag_t type, CHAR_DATA *ch, const char *argument)
 	if (!found) {
 		switch(type) {
  			case ST_PRAYER: 
-				char_puts("You do not have any empowers.\n",ch);
+				act_char("You do not have any empowers.", ch);
 				return;
 			case ST_SPELL:
-				char_puts("You know no spells.\n",ch);
+				act_char("You know no spells.", ch);
 				return;
 		}
 	}
@@ -3295,7 +3278,7 @@ void do_skills(CHAR_DATA *ch, const char *argument)
 	/* return results */
 	
 	if (!found) {
-		char_puts("You know no skills.\n",ch);
+		act_char("You know no skills.", ch);
 		return;
 	}
 	
@@ -3324,7 +3307,7 @@ glist_cb(void *p, va_list ap)
 		char_printf(ch, "%c%-18s",
 			    pc_skill_lookup(ch, sn) ?  '*' : ' ', sn);
 		if (*pcol)
-			char_puts("\n", ch);
+			send_to_char("\n", ch);
 		*pcol = 1 - *pcol;
 	}
 
@@ -3340,8 +3323,8 @@ void do_glist(CHAR_DATA *ch, const char *argument)
 	one_argument(argument, arg, sizeof(arg));
 	
 	if (arg[0] == '\0') {
-		char_puts("Syntax: glist group\n"
-			  "Use 'glist ?' to get the list of groups.\n", ch);
+		act_char("Syntax: glist group", ch);
+		act_char("Use 'glist ?' to get the list of groups.", ch);
 		return;
 	}
 
@@ -3352,7 +3335,7 @@ void do_glist(CHAR_DATA *ch, const char *argument)
 
 	if (str_prefix(arg, "none")
 	&&  (group = flag_value(skill_groups, arg)) == 0) {
-		char_puts("That is not a valid group.\n", ch);
+		act_char("That is not a valid group.", ch);
 		do_glist(ch, str_empty);
 		return;
 	}
@@ -3361,7 +3344,7 @@ void do_glist(CHAR_DATA *ch, const char *argument)
 		    flag_string(skill_groups, group));
 	hash_foreach(&skills, glist_cb, ch, group, &col);
 	if (col)
-		char_puts("\n", ch);
+		send_to_char("\n", ch);
 }
 
 void do_slook(CHAR_DATA *ch, const char *argument)
@@ -3372,7 +3355,7 @@ void do_slook(CHAR_DATA *ch, const char *argument)
 
 	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
-		char_puts("Syntax : slook <skill | spell>\n",ch);
+		act_char("Syntax : slook <skill | spell>", ch);
 		return;
 	}
 
@@ -3385,7 +3368,7 @@ void do_slook(CHAR_DATA *ch, const char *argument)
 		sk = skill_lookup(pc_sk->sn);
 
 	if (sk == NULL) {
-		char_puts("That is not a spell or skill.\n", ch);
+		act_char("That is not a spell or skill.", ch);
 		return; 
 	}
 
@@ -3401,13 +3384,12 @@ void do_camp(CHAR_DATA *ch, const char *argument)
 	int mana;
 
 	if ((chance = get_skill(ch, "camp")) == 0) {
-		char_puts("Huh?\n", ch);
+		act_char("Huh?", ch);
 		return;
 	}
 
 	if (is_affected(ch, "camp")) {
-		char_puts("You don't have enough power to handle more "
-			     "camp areas.\n", ch);
+		act_char("You don't have enough power to handle more camp areas.", ch);
 		return;
 	}
 
@@ -3417,21 +3399,19 @@ void do_camp(CHAR_DATA *ch, const char *argument)
 	&&   ch->in_room->sector_type != SECT_FOREST
 	&&   ch->in_room->sector_type != SECT_MOUNTAIN
 	&&   ch->in_room->sector_type != SECT_HILLS)) {
-		char_puts("There are not enough leaves to camp here.\n",
-			     ch);
+		act_char("There are not enough leaves to camp here.", ch);
 		return;
 	}
 
 	mana = skill_mana(ch, "camp");
 	if (ch->mana < mana) {
-		char_puts("You don't have enough mana to make a camp.\n",
-			     ch);
+		act_char("You don't have enough mana to make a camp.", ch);
 		return;
 	}
 	ch->mana -= mana;
 
 	if (number_percent() > chance) {
-		char_puts("You failed to make your camp.\n", ch);
+		act_char("You failed to make your camp.", ch);
 		check_improve(ch, "camp", FALSE, 4);
 		return;
 	}
@@ -3439,7 +3419,7 @@ void do_camp(CHAR_DATA *ch, const char *argument)
 	check_improve(ch, "camp", TRUE, 4);
 	WAIT_STATE(ch, skill_beats("camp"));
 
-	char_puts("You succeeded to make your camp.\n", ch);
+	act_char("You succeeded to make your camp.", ch);
 	act("$n succeeded to make $s camp.", ch, NULL, NULL, TO_ROOM);
 
 	af.where	= TO_AFFECTS;
@@ -3484,18 +3464,17 @@ void do_demand(CHAR_DATA *ch, const char *argument)
 
 
 	if (arg1[0] == '\0' || arg2[0] == '\0') {
-		char_puts("Demand what from whom?\n", ch);
+		act_char("Demand what from whom?", ch);
 		return;
 	}
 
 	if ((victim = get_char_room(ch, arg2)) == NULL) {
-		char_puts("They aren't here.\n", ch);
+		act_char("They aren't here.", ch);
 		return;
 	}
 
 	if (!IS_NPC(victim)) {
-		char_puts("Why don't you just want that directly "
-			     "from the player?\n", ch);
+		act_char("Why don't you just want that directly from the player?", ch);
 		return;
 	}
 
@@ -3539,13 +3518,13 @@ void do_demand(CHAR_DATA *ch, const char *argument)
 
 	if ((carry_n = can_carry_n(ch)) >= 0
 	&&  ch->carry_number + get_obj_number(obj) > carry_n) {
-		char_puts("Your hands are full.\n", ch);
+		act_char("Your hands are full.", ch);
 		return;
 	}
 
 	if ((carry_w = can_carry_w(ch)) >= 0
 	&&  get_carry_weight(ch) + get_obj_weight(obj) > carry_w) {
-		char_puts("You can't carry that much weight.\n", ch);
+		act_char("You can't carry that much weight.", ch);
 		return;
 	}
 
@@ -3561,7 +3540,7 @@ void do_demand(CHAR_DATA *ch, const char *argument)
 	act("$n demands $p from you.", ch, obj, victim, TO_VICT  );
 
 	oprog_call(OPROG_GIVE, obj, ch, victim);
-	char_puts("Your power makes all around the world shivering.\n",ch);
+	act_char("Your power makes all around the world shivering.", ch);
 }
 
 void do_control(CHAR_DATA *ch, const char *argument)
@@ -3574,23 +3553,23 @@ void do_control(CHAR_DATA *ch, const char *argument)
 	argument = one_argument(argument, arg, sizeof(arg));
 
 	if ((chance = get_skill(ch, "control animal")) == 0) {
-		char_puts("Huh?\n", ch);
+		act_char("Huh?", ch);
 		return;
 	}
 
 	if (arg[0] == '\0') {
-		char_puts("Charm what?\n", ch);
+		act_char("Charm what?", ch);
 		return;
 	}
 
 	if ((victim = get_char_room(ch, arg)) == NULL) {
-		char_puts("They aren't here.\n", ch);
+		act_char("They aren't here.", ch);
 		return;
 	}
 
 	if ((r = race_lookup(ORG_RACE(victim))) == NULL 
 	||  !IS_SET(r->form, FORM_ANIMAL)) {
-		char_puts("You should try this on animals?\n", ch);
+		act_char("You should try this on animals?", ch);
 		return;
 	}
 
@@ -3654,14 +3633,14 @@ void do_make_arrow(CHAR_DATA *ch, const char *argument)
 		return;
 
 	if ((chance = get_skill(ch, "make arrow")) == 0) {
-		char_puts("You don't know how to make arrows.\n", ch);
+		act_char("You don't know how to make arrows.", ch);
 		return;
 	}
 
 	if (ch->in_room->sector_type != SECT_FIELD
 	&&  ch->in_room->sector_type != SECT_FOREST
 	&&  ch->in_room->sector_type != SECT_HILLS) {
-		char_puts("You couldn't find enough wood.\n", ch);
+		act_char("You couldn't find enough wood.", ch);
 		return;
 	}
 
@@ -3689,8 +3668,7 @@ void do_make_arrow(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (vnum < 0) {
-		char_puts("You don't know how to make "
-			  "that kind of arrow.\n", ch);
+		act_char("You don't know how to make that kind of arrows.", ch);
 		return;
 	}
 
@@ -3701,21 +3679,19 @@ void do_make_arrow(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (ch->mana < mana) {
-		char_puts("You don't have enough energy "
-			  "to make that kind of arrows.\n", ch);
+		act_char("You don't have enough energy to make that kind of arrows.", ch);
 		return;
 	}
 
 	ch->mana -= mana;
 	WAIT_STATE(ch, wait);
 
-	char_puts("You start to make arrows!\n",ch);
+	act_char("You start to make arrows!", ch);
 	act("$n starts to make arrows!", ch, NULL, NULL, TO_ROOM);
 	pObjIndex = get_obj_index(vnum);
 	for(count = 0; count < LEVEL(ch) / 5; count++) {
 		if (number_percent() > chance * color_chance / 100) {
-			char_puts("You failed to make the arrow, "
-				  "and broke it.\n", ch);
+			act_char("You failed to make the arrow, and broke it.", ch);
 			check_improve(ch, "make arrow", FALSE, 3);
 			if (color != NULL)
 				check_improve(ch, color, FALSE, 3);
@@ -3763,29 +3739,27 @@ void do_make_bow(CHAR_DATA *ch, const char *argument)
 		return;
 
 	if ((chance = get_skill(ch, "make bow")) == 0) {
-		char_puts("You don't know how to make bows.\n", ch);
+		act_char("You don't know how to make bows.", ch);
 		return;
 	}
 
 	if (ch->in_room->sector_type != SECT_FIELD
 	&&  ch->in_room->sector_type != SECT_FOREST
 	&&  ch->in_room->sector_type != SECT_HILLS) {
-		char_puts("You couldn't find enough wood.\n", ch);
+		act_char("You couldn't find enough wood.", ch);
 		return;
 	}
 
 	mana = skill_mana(ch, "make bow");
 	if (ch->mana < mana) {
-		char_puts("You don't have enough energy to make a bow.\n",
-			     ch);
+		act_char("You don't have enough energy to make a bow.", ch);
 		return;
 	}
 	ch->mana -= mana;
 	WAIT_STATE(ch, skill_beats("make bow"));
 
 	if (number_percent() > chance) {
-		char_puts("You failed to make the bow, and broke it.\n",
-			     ch);
+		act_char("You failed to make the bow, and broke it.", ch);
 		check_improve(ch, "make bow", FALSE, 1);
 		return;
 	}
@@ -3819,7 +3793,7 @@ void do_make(CHAR_DATA *ch, const char *argument)
 
 	argument = one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
-		char_puts("You can make either bow or arrow.\n",ch);
+		act_char("You can make either bow or arrow.", ch);
 		return;
 	}
 
@@ -3839,12 +3813,12 @@ void do_homepoint(CHAR_DATA *ch, const char *argument)
         char arg[MAX_INPUT_LENGTH];
 
         if ((chance = get_skill(ch, "homepoint")) == 0) {
-                char_puts("Huh?\n", ch);
+                act_char("Huh?", ch);
                 return;
         }
 
         if (is_affected(ch, "homepoint")) {
-                char_puts("You fatigue for searching new home.\n", ch) ;
+                act_char("You fatigue for searching new home.", ch);
                 return;
         }
 
@@ -3854,21 +3828,19 @@ void do_homepoint(CHAR_DATA *ch, const char *argument)
         &&   ch->in_room->sector_type != SECT_FOREST
         &&   ch->in_room->sector_type != SECT_MOUNTAIN
         &&   ch->in_room->sector_type != SECT_HILLS)) {
-                char_puts("You are cannot set home here.\n",
-                             ch);
+                act_char("You are cannot set home here.", ch);
                 return;
         }
 
         if (ch->mana < ch->max_mana) {
-                char_puts("You don't have strength to make a new home.\n",
-                             ch);
+                act_char("You don't have strength to make a new home.", ch);
                 return;
         }
 
         ch->mana = 0 ;
 
         if (number_percent() > chance) {
-                char_puts("You failed to make your homepoint.\n", ch);
+                act_char("You failed to make your homepoint.", ch);
                 check_improve(ch, "homepoint", FALSE, 4);
                 return;
         }
@@ -3876,7 +3848,7 @@ void do_homepoint(CHAR_DATA *ch, const char *argument)
         check_improve(ch, "homepoint", TRUE, 4);
         WAIT_STATE(ch, skill_beats("homepoint"));
 
-        char_puts("You succeeded to make your homepoint.\n", ch);
+        act_char("You succeeded to make your homepoint.", ch);
         act("$n succeeded to make $s homepoint. ", ch, NULL, NULL, TO_ROOM);
 
         af.where        = TO_AFFECTS;
@@ -4090,14 +4062,14 @@ static void show_list_to_char(OBJ_DATA *list, CHAR_DATA *ch,
 		}
 
 		buf_add(output, prgpstrShow[iShow]);
-		buf_add(output,"\n");
+		buf_add(output, "\n");
 		free_string(prgpstrShow[iShow]);
 	}
 
 	if (fShowNothing && nShow == 0) {
 		if (IS_NPC(ch) || IS_SET(ch->comm, COMM_COMBINE))
-			char_puts("     ", ch);
-		char_puts("Nothing.\n", ch);
+			send_to_char("     ", ch);
+		act_char("Nothing.", ch);
 	}
 
 	page_to_char(buf_string(output),ch);
@@ -4129,8 +4101,7 @@ static void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 		if (!IS_NPC(ch) && PC(ch)->questmob > 0
 		&&  NPC(victim)->hunter == ch)
 			char_puts("{r[{RTARGET{r]{x ", ch);
-	}
-	else {
+	} else {
 		if (IS_WANTED(victim))
 			char_puts("({RWanted{x) ", ch);
 
@@ -4204,7 +4175,7 @@ static void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 		FLAG_SET(44, 'B', HAS_INVIS(victim, ID_BLEND));
 
 		if (strcmp(buf, FLAGS))
-			char_puts(buf, ch);
+			send_to_char(buf, ch);
 	}
 
 	if (victim->invis_level >= LEVEL_HERO)
@@ -4226,9 +4197,9 @@ static void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 	}
 
 	if (IS_IMMORTAL(victim))
-		char_puts("{W", ch);
+		send_to_char("{W", ch);
 	else
-		char_puts("{x", ch);
+		send_to_char("{x", ch);
 
 	switch (victim->position) {
 	case POS_DEAD:
@@ -4479,7 +4450,7 @@ static void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 		if ((obj = get_eq_char(mirror, show_order[i]))
 		&&  can_see_obj(ch, obj)) {
 			if (!found) {
-				char_puts("\n", ch);
+				send_to_char("\n", ch);
 				act("$N is using:", ch, NULL, victim, TO_CHAR);
 				found = TRUE;
 			}
@@ -4491,7 +4462,7 @@ static void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 		if (obj->wear_loc == WEAR_STUCK_IN
 		&&  can_see_obj(ch, obj)) {
 			if (!found) {
-				char_puts("\n", ch);
+				send_to_char("\n", ch);
 				act("$N is using:", ch, NULL, victim, TO_CHAR);
 				found = TRUE;
 			}
@@ -4503,7 +4474,8 @@ static void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 	&&  (!IS_IMMORTAL(victim) || IS_IMMORTAL(ch))
 	&&  !IS_NPC(ch)
 	&&  number_percent() < get_skill(ch, "peek")) {
-		char_puts("\nYou peek at the inventory:\n", ch);
+		send_to_char("\n", ch);
+		act_char("You peek at the inventory:", ch);
 		check_improve(ch, "peek", TRUE, 4);
 		show_list_to_char(mirror->carrying, ch, TRUE, TRUE);
 	}
@@ -4536,7 +4508,7 @@ static void show_char_to_char(CHAR_DATA *list, CHAR_DATA *ch)
 			show_char_to_char_0(rch, ch);
 		else {
 			if (room_is_dark(ch) && HAS_DETECT(rch, ID_INFRARED))
-				char_puts("You see {rglowing red eyes{x watching YOU!\n", ch);
+				act_char("You see {rglowing red eyes{x watching YOU!", ch);
 			life_count++;
 		}
 	}
@@ -4566,12 +4538,12 @@ void do_commands(CHAR_DATA *ch, const char *argument)
 		&&  !IS_SET(cmd->cmd_flags, CMD_HIDDEN)) {
 			char_printf(ch, "%-12s", cmd->name);
 			if (++col % 6 == 0)
-				char_puts("\n", ch);
+				send_to_char("\n", ch);
 		}
 	}
  
 	if (col % 6 != 0)
-		char_puts("\n", ch);
+		send_to_char("\n", ch);
 }
 
 void do_wizhelp(CHAR_DATA *ch, const char *argument)
@@ -4580,7 +4552,7 @@ void do_wizhelp(CHAR_DATA *ch, const char *argument)
 	int col;
  
 	if (IS_NPC(ch)) {
-		char_puts("Huh?\n", ch);
+		act_char("Huh?", ch);
 		return;
 	}
 
@@ -4597,11 +4569,11 @@ void do_wizhelp(CHAR_DATA *ch, const char *argument)
 
 		char_printf(ch, "%-12s", cmd->name);
 		if (++col % 6 == 0)
-			char_puts("\n", ch);
+			send_to_char("\n", ch);
 	}
  
 	if (col % 6 != 0)
-		char_puts("\n", ch);
+		send_to_char("\n", ch);
 }
 
 static void
@@ -4672,7 +4644,7 @@ void do_clanlist(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (!clan && (clan = clan_lookup(ch->clan)) == NULL) {
-		char_puts("You are not in a clan.\n", ch);
+		act_char("You are not in a clan.", ch);
 		return;
 	}
 
@@ -4722,12 +4694,12 @@ void do_item(CHAR_DATA* ch, const char* argument)
 	}
 
 	if (!clan && (clan = clan_lookup(ch->clan)) == NULL) {
-		char_puts("You are not in clan, you should not worry about your clan item.\n", ch);
+		act_char("You are not in clan, you should not worry about your clan item.", ch);
 		return;
 	}
 
 	if (clan->obj_ptr == NULL) {
-		char_puts("Your clan do not have an item of power.\n",ch);
+		act_char("Your clan do not have an item of power.", ch);
 		return;
 	}
 
@@ -4757,8 +4729,8 @@ void do_rating(CHAR_DATA *ch, const char *argument)
 {
 	int i;
 
-	char_puts("Name                    | PC's killed\n", ch);
-	char_puts("------------------------+------------\n", ch);
+	act_char("Name                    | PC's killed", ch);
+	act_char("------------------------+------------", ch);
 	for (i = 0; i < RATING_TABLE_SIZE; i++) {
 		if (rating_table[i].name == NULL)
 			continue;
@@ -4783,7 +4755,7 @@ void do_areas(CHAR_DATA *ch, const char *argument)
 	BUFFER *output;
 
 	if (argument[0] != '\0') {
-		char_puts("No argument is used with this command.\n",ch);
+		act_char("No argument is used with this command.", ch);
 		return;
 	}
 

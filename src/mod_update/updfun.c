@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: updfun.c,v 1.13 2000-08-21 07:43:51 fjoe Exp $
+ * $Id: updfun.c,v 1.14 2000-10-04 20:28:50 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -138,7 +138,7 @@ mobile_update_cb(void *vo, va_list ap)
 		if (ch->last_death_time != -1
 		&&  current_time - ch->last_death_time >= GHOST_DELAY_TIME
 		&&  IS_SET(PC(ch)->plr_flags, PLR_GHOST)) {
-			char_puts("You return to your normal form.\n", ch);
+			act_char("You return to your normal form.", ch);
 			REMOVE_BIT(PC(ch)->plr_flags, PLR_GHOST);
 		}
 
@@ -205,7 +205,7 @@ mobile_update_cb(void *vo, va_list ap)
 	&&  !ch->desc->pString
 	&&  !ch->desc->showstr_point
 	&&  !IS_SET(ch->comm, COMM_NOBUST))
-		char_puts(str_empty, ch);
+		send_to_char(str_empty, ch);
 
 	/*
 	 * that's all for PCs and charmed mobiles
@@ -550,11 +550,11 @@ char_update_cb(void *vo, va_list ap)
 		if (!MOUNTED(ch)) {
 			if (!HAS_INVIS(ch, ID_HIDDEN) 
 			&&  (r->has_invis & ID_HIDDEN))
-				char_puts("You step back into the shadows.\n", ch);
+				act_char("You step back into the shadows.", ch);
 
 			if (!HAS_INVIS(ch, ID_SNEAK)
 			&&  (r->has_invis & ID_SNEAK))
-				char_puts("You move silently again.\n", ch);
+				act_char("You move silently again.", ch);
 		} else
 			inv_skip |= ID_ALL_INVIS;
 
@@ -632,7 +632,7 @@ char_update_cb(void *vo, va_list ap)
 		&&  !ch->desc->pString
 		&&  !ch->desc->showstr_point
 		&&  !IS_SET(ch->comm, COMM_NOBUST))
-			char_puts(str_empty, ch);
+			send_to_char(str_empty, ch);
 	}
 
 	if (ch->position == POS_STUNNED)
@@ -929,9 +929,9 @@ light_update(void)
 		}
 
 		if (dam_light == 1)
-			char_puts("The light in the room disturbs you.\n", ch);
+			act_char("The light in the room disturbs you.", ch);
 		else
-			char_puts("Sun light disturbs you.\n",ch);
+			act_char("Sun light disturbs you.", ch);
 
 		dam_light = 1 + (ch->max_hit * 4)/ 100;
 		damage(ch, ch, dam_light, NULL, DAM_LIGHT,

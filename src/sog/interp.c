@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.173 2000-06-07 08:55:58 fjoe Exp $
+ * $Id: interp.c,v 1.174 2000-10-04 20:28:51 fjoe Exp $
  */
 
 /***************************************************************************
@@ -153,7 +153,7 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 			continue;
 
 		if (IS_SET(cmd->cmd_flags, CMD_DISABLED)) {
-			char_puts("Sorry, this command is temporarily disabled.\n", ch);
+			act_char("Sorry, this command is temporarily disabled.", ch);
 			return;
 		}
 
@@ -178,15 +178,14 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 			&&  !IS_SET(cmd->cmd_flags, CMD_CHARMED_OK)
 			&&  cmd->min_level < LEVEL_IMMORTAL 
 			&&  !IS_IMMORTAL(ch)) {
-				char_puts("First ask your beloved master!\n",
-					  ch);
+				act_char("First ask your beloved master!", ch);
 				return;
 			}
 		}
 
 		if (IS_AFFECTED(ch, AFF_STUN) 
 		&&  !(cmd->cmd_flags & CMD_KEEP_HIDE)) {
-			char_puts("You are STUNNED to do that.\n", ch);
+			act_char("You are STUNNED to do that.", ch);
 			return;
 		}
 
@@ -207,7 +206,7 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 	if (!found) {
 		if (!IS_NPC(ch)
 		&&  IS_SET(PC(ch)->plr_flags, PLR_FREEZE)) {
-			char_puts("You're totally frozen!\n", ch);
+			act_char("You're totally frozen!", ch);
 			return;
 		}
 
@@ -215,12 +214,12 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 		 * Look for command in socials table.
 		 */
 		if ((soc = social_search(command)) == NULL) {
-			char_puts("Huh?\n", ch);
+			act_char("Huh?", ch);
 			return;
 		}
 
 		if (!IS_NPC(ch) && IS_SET(ch->comm, COMM_NOEMOTE)) {
-			char_puts("You are anti-social!\n", ch);
+			act_char("You are anti-social!", ch);
 			return;
 		}
 
@@ -271,32 +270,32 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 	if (ch->position < min_pos) {
 		switch(ch->position) {
 		case POS_DEAD:
-			char_puts("Lie still; You are DEAD.\n", ch);
+			act_char("Lie still; You are DEAD.", ch);
 			break;
 
 		case POS_MORTAL:
 		case POS_INCAP:
-			char_puts("You are hurt far too bad for that.\n", ch);
+			act_char("You are hurt far too bad for that.", ch);
 			break;
 
 		case POS_STUNNED:
-			char_puts("You are too stunned to do that.\n", ch);
+			act_char("You are too stunned to do that.", ch);
 			break;
 
 		case POS_SLEEPING:
-			char_puts("In your dreams, or what?\n", ch);
+			act_char("In your dreams, or what?", ch);
 			break;
 
 		case POS_RESTING:
-			char_puts("Nah... You feel too relaxed...\n", ch);
+			act_char("Nah... You feel too relaxed...", ch);
 			break;
 
 		case POS_SITTING:
-			char_puts("Better stand up first.\n", ch);
+			act_char("Better stand up first.", ch);
 			break;
 
 		case POS_FIGHTING:
-			char_puts("No way! You are still fighting!\n", ch);
+			act_char("No way! You are still fighting!", ch);
 			break;
 		}
 		return;
@@ -485,8 +484,7 @@ void substitute_alias(DESCRIPTOR_DATA *d, const char *argument)
 	if (d->dvdata->prefix[0] != '\0' && str_prefix("prefix", argument)) {
 		if (strlen(d->dvdata->prefix) + strlen(argument) + 2 >
 							MAX_INPUT_LENGTH) {
-			char_puts("Line to long, prefix not processed.\n",
-				  d->character);
+			act_char("Line to long, prefix not processed.", d->character);
 		} else {
 			snprintf(prefix, sizeof(prefix), "%s %s",
 				 d->dvdata->prefix, argument);
@@ -526,8 +524,7 @@ void substitute_alias(DESCRIPTOR_DATA *d, const char *argument)
 			}
 
 			if (strlen(buf) > MAX_INPUT_LENGTH) {
-				char_puts("Alias substitution too long. "
-					  "Truncated.\n", d->character);
+				act_char("Alias substitution too long. Truncated.", d->character);
 				buf[MAX_INPUT_LENGTH -1] = '\0';
 			}
 			argument = buf;

@@ -1,5 +1,5 @@
 /*
- * $Id: string_edit.c,v 1.40 2000-09-25 01:24:35 fjoe Exp $
+ * $Id: string_edit.c,v 1.41 2000-10-04 20:28:53 fjoe Exp $
  */
 
 /***************************************************************************
@@ -33,14 +33,14 @@ char *numlines(const char *);
  ****************************************************************************/
 void string_append(CHAR_DATA *ch, const char **pString)
 {
-	char_puts("-=======- Entering APPEND Mode -========-\n", ch);
-	char_puts("    Type :h on a new line for help\n", ch);
-	char_puts(" Terminate with a ~ or @ on a blank line.\n", ch);
-	char_puts("-=======================================-\n", ch);
+	act_char("-=======- Entering APPEND Mode -========-", ch);
+	act_char("    Type :h on a new line for help", ch);
+	act_char(" Terminate with a ~ or @ on a blank line.", ch);
+	act_char("-=======================================-", ch);
 
 	if (*pString == NULL)
 		*pString = str_dup(str_empty);
-	char_puts(numlines(*pString), ch);
+	send_to_char(numlines(*pString), ch);
 
 	ch->desc->pString = pString;
 	ch->desc->backup = str_dup(*pString);
@@ -94,7 +94,7 @@ void string_add_exit(CHAR_DATA *ch, bool save)
 	DESCRIPTOR_DATA *d = ch->desc;
 
 	if (!save) {
-		char_puts("No changes saved.\n", ch);
+		act_char("No changes saved.", ch);
 		free_string(*d->pString);
 		*d->pString = d->backup;
 	} else {
@@ -137,7 +137,7 @@ void string_add(CHAR_DATA *ch, const char *argument)
 		 * clear string
 		 */
 		if (!str_cscmp(arg1+1, "c")) {
-			char_puts("String cleared.\n", ch);
+			act_char("String cleared.", ch);
 			free_string(*ch->desc->pString);
 			*ch->desc->pString = str_dup(str_empty);
 			return;
@@ -175,7 +175,7 @@ void string_add(CHAR_DATA *ch, const char *argument)
 		 */
 		if (!str_cscmp(arg1+1, "f")) {
 			*ch->desc->pString = format_string(*ch->desc->pString);
-			char_puts("String formatted.\n", ch);
+			act_char("String formatted.", ch);
 			return;
 		}
 
@@ -185,7 +185,7 @@ void string_add(CHAR_DATA *ch, const char *argument)
 		 if (!str_cscmp(arg1+1, "ld")) {
 			*ch->desc->pString = string_linedel(*ch->desc->pString,
 							    atoi(arg2));
-			char_puts("Line deleted.\n", ch);
+			act_char("Line deleted.", ch);
 			return;
 		}
 
@@ -195,7 +195,7 @@ void string_add(CHAR_DATA *ch, const char *argument)
 		if (!str_cscmp(arg1+1, "li")) {
 			*ch->desc->pString = string_lineadd(*ch->desc->pString,
 							   tmparg3, atoi(arg2));
-			char_puts("Line inserted.\n", ch);
+			act_char("Line inserted.", ch);
 			return;
 		}
 
@@ -207,7 +207,7 @@ void string_add(CHAR_DATA *ch, const char *argument)
 							    atoi(arg2));
 			*ch->desc->pString = string_lineadd(*ch->desc->pString,
 							   tmparg3, atoi(arg2));
-			char_puts("Line replaced.\n", ch);
+			act_char("Line replaced.", ch);
 			return;
 		}
 
@@ -232,23 +232,26 @@ void string_add(CHAR_DATA *ch, const char *argument)
 		 * help
 		 */
 		if (!str_cscmp(arg1+1, "h")) {
-			char_puts("Sedit help (commands on blank line):\n"
-				  ":r 'old' 'new'   - replace a substring (first occurence)\n"
-				  ":R 'old' 'new'   - replace a substring (all occurences)\n"
-				  "                   (requires '', \"\")\n"
-				  ":h               - get help (this info)\n"
-				  ":s               - show string so far\n"
-				  ":f               - (word wrap) string\n"
-				  ":c               - clear string so far\n"
-				  ":ld <num>        - delete line #num\n"
-				  ":li <num> <str>  - insert <str> before line #num\n"
-				  ":lr <num> <str>  - replace line #num with <str>\n"
-				  "@, ~, :x, :wq    - finish editing (save changes)\n"
-				  ":q!              - abort editing (do not save changes)\n", ch);
+			/*
+			 * use do_help here
+			 */
+			act_char("Sedit help (commands on blank line):\n"
+				 ":r 'old' 'new'   - replace a substring (first occurence)\n"
+				 ":R 'old' 'new'   - replace a substring (all occurences)\n"
+				 "                   (requires '', \"\")\n"
+				 ":h               - get help (this info)\n"
+				 ":s               - show string so far\n"
+				 ":f               - (word wrap) string\n"
+				 ":c               - clear string so far\n"
+				 ":ld <num>        - delete line #num\n"
+				 ":li <num> <str>  - insert <str> before line #num\n"
+				 ":lr <num> <str>  - replace line #num with <str>\n"
+				 "@, ~, :x, :wq    - finish editing (save changes)\n"
+				 ":q!              - abort editing (do not save changes)", ch);
 			return;
 		}
 
-		char_puts("SEdit: Invalid command.\n", ch);
+		act_char("SEdit: Invalid command.", ch);
 		return;
 	}
 
@@ -266,7 +269,7 @@ void string_add(CHAR_DATA *ch, const char *argument)
 	*/
 	len = strlen(argument);
 	if (strlen(*ch->desc->pString) + len >= (MAX_STRING_LENGTH - 4)) {
-		char_puts("String too long, last line skipped.\n", ch);
+		act_char("String too long, last line skipped.", ch);
 		return;
 	}
 

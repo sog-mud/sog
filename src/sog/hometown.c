@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: hometown.c,v 1.8 1999-12-18 11:01:41 fjoe Exp $
+ * $Id: hometown.c,v 1.9 2000-10-04 20:28:51 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -104,7 +104,7 @@ void hometown_print_avail(CHAR_DATA *ch)
 			continue;
 
 		if (col > 60) {
-			char_puts("\n", ch);
+			send_to_char("\n", ch);
 			col = 0;
 		}
 

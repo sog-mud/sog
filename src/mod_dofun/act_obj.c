@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.216 2000-10-03 12:45:17 fjoe Exp $
+ * $Id: act_obj.c,v 1.217 2000-10-04 20:28:45 fjoe Exp $
  */
 
 /***************************************************************************
@@ -100,7 +100,7 @@ void do_get(CHAR_DATA * ch, const char *argument)
 
 	/* Get type. */
 	if (arg1[0] == '\0') {
-		char_puts("Get what?\n", ch);
+		act_char("Get what?", ch);
 		return;
 	}
 	if (arg2[0] == '\0') {
@@ -130,7 +130,7 @@ void do_get(CHAR_DATA * ch, const char *argument)
 
 			if (!found) {
 				if (arg1[3] == '\0')
-					char_puts("I see nothing here.\n", ch);
+					act_char("I see nothing here.", ch);
 				else
 					act_puts("I see no $T here.",
 						 ch, NULL, arg1+4, TO_CHAR,
@@ -142,7 +142,7 @@ void do_get(CHAR_DATA * ch, const char *argument)
 
 	/* 'get ... container' */
 	if (!str_cmp(arg2, "all") || !str_prefix("all.", arg2)) {
-		char_puts("You can't do that.\n", ch);
+		act_char("You can't do that.", ch);
 		return;
 	}
 	if ((container = get_obj_here(ch, arg2)) == NULL) {
@@ -153,7 +153,7 @@ void do_get(CHAR_DATA * ch, const char *argument)
 
 	switch (container->item_type) {
 	default:
-		char_puts("That is not a container.\n", ch);
+		act_char("That is not a container.", ch);
 		return;
 
 	case ITEM_CONTAINER:
@@ -162,7 +162,7 @@ void do_get(CHAR_DATA * ch, const char *argument)
 
 	case ITEM_CORPSE_PC:
 		if (!can_loot(ch, container)) {
-			char_puts("You can't do that.\n", ch);
+			act_char("You can't do that.", ch);
 			return;
 		}
 	}
@@ -229,12 +229,12 @@ void do_put(CHAR_DATA * ch, const char *argument)
 		argument = one_argument(argument, arg2, sizeof(arg2));
 
 	if (arg1[0] == '\0' || arg2[0] == '\0') {
-		char_puts("Put what in what?\n", ch);
+		act_char("Put what in what?", ch);
 		return;
 	}
 
 	if (!str_cmp(arg2, "all") || !str_prefix("all.", arg2)) {
-		char_puts("You can't do that.\n", ch);
+		act_char("You can't do that.", ch);
 		return;
 	}
 
@@ -245,7 +245,7 @@ void do_put(CHAR_DATA * ch, const char *argument)
 	}
 
 	if (container->item_type != ITEM_CONTAINER) {
-		char_puts("That is not a container.\n", ch);
+		act_char("That is not a container.", ch);
 		return;
 	}
 
@@ -264,22 +264,22 @@ void do_put(CHAR_DATA * ch, const char *argument)
 	if (str_cmp(arg1, "all") && str_prefix("all.", arg1)) {
 		/* 'put obj container' */
 		if ((obj = get_obj_carry(ch, arg1)) == NULL) {
-			char_puts("You do not have that item.\n", ch);
+			act_char("You do not have that item.", ch);
 			return;
 		}
 
 		if (obj == container) {
-			char_puts("You can't fold it into itself.\n", ch);
+			act_char("You can't fold it into itself.", ch);
 			return;
 		}
 
 		if (!can_drop_obj(ch, obj)) {
-			char_puts("You can't let go of it.\n", ch);
+			act_char("You can't let go of it.", ch);
 			return;
 		}
 
 		if (WEIGHT_MULT(obj) != 100) {
-			char_puts("You have a feeling that would be a bad idea.\n", ch);
+			act_char("You have a feeling that would be a bad idea.", ch);
 			return;
 		}
 
@@ -292,7 +292,7 @@ void do_put(CHAR_DATA * ch, const char *argument)
 		if (get_obj_weight(obj) + get_true_weight(container) >
 		    (INT(container->value[0]) * 10)
 		||  get_obj_weight(obj) > (INT(container->value[3]) * 10)) {
-			char_puts("It won't fit.\n", ch);
+			act_char("It won't fit.", ch);
 			return;
 		}
 
@@ -340,7 +340,7 @@ void do_drop(CHAR_DATA * ch, const char *argument)
 	argument = one_argument(argument, arg, sizeof(arg));
 
 	if (arg[0] == '\0') {
-		char_puts("Drop what?\n", ch);
+		act_char("Drop what?", ch);
 		return;
 	}
 	if (is_number(arg)) {
@@ -351,20 +351,20 @@ void do_drop(CHAR_DATA * ch, const char *argument)
 		if (amount <= 0
 		    || (str_cmp(arg, "coins") && str_cmp(arg, "coin")
 			&& str_cmp(arg, "gold") && str_cmp(arg, "silver"))) {
-			char_puts("You can't do that.\n", ch);
+			act_char("You can't do that.", ch);
 			return;
 		}
 		if (!str_cmp(arg, "coins") || !str_cmp(arg, "coin")
 		    || !str_cmp(arg, "silver")) {
 			if (ch->silver < amount) {
-				char_puts("You don't have that much silver.\n", ch);
+				act_char("You don't have that much silver.", ch);
 				return;
 			}
 			ch->silver -= amount;
 			silver = amount;
 		} else {
 			if (ch->gold < amount) {
-				char_puts("You don't have that much gold.\n", ch);
+				act_char("You don't have that much gold.", ch);
 				return;
 			}
 			ch->gold -= amount;
@@ -391,7 +391,7 @@ void do_drop(CHAR_DATA * ch, const char *argument)
 		obj_to_room(obj, ch->in_room);
 		act("$n drops some coins.", ch, NULL, NULL,
 		    TO_ROOM | (HAS_INVIS(ch, ID_SNEAK) ? ACT_NOMORTAL : 0));
-		char_puts("Ok.\n", ch);
+		act_char("Ok.", ch);
 		if (IS_WATER(ch->in_room)) {
 			extract_obj(obj, 0);
 			act("The coins sink down, and disapear in the water.",
@@ -405,11 +405,11 @@ void do_drop(CHAR_DATA * ch, const char *argument)
 	if (str_cmp(arg, "all") && str_prefix("all.", arg)) {
 		/* 'drop obj' */
 		if ((obj = get_obj_carry(ch, arg)) == NULL) {
-			char_puts("You do not have that item.\n", ch);
+			act_char("You do not have that item.", ch);
 			return;
 		}
 		if (!can_drop_obj(ch, obj)) {
-			char_puts("You can't let go of it.\n", ch);
+			act_char("You can't let go of it.", ch);
 			return;
 		}
 		drop_obj(ch, obj);
@@ -456,7 +456,7 @@ void do_give(CHAR_DATA * ch, const char *argument)
 
 	argument = one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
-		char_puts("Give what to whom?\n", ch);
+		act_char("Give what to whom?", ch);
 		return;
 	}
 
@@ -477,7 +477,7 @@ void do_give(CHAR_DATA * ch, const char *argument)
 		if (amount <= 0
 		||  (str_cmp(arg, "coins") && str_cmp(arg, "coin") &&
 		     str_cmp(arg, "gold") && str_cmp(arg, "silver"))) {
-			char_puts("Sorry, you can't do that.\n", ch);
+			act_char("Sorry, you can't do that.", ch);
 			return;
 		}
 
@@ -492,13 +492,13 @@ void do_give(CHAR_DATA * ch, const char *argument)
 		}
 
 		if ((victim = get_char_room(ch, arg)) == NULL) {
-			char_puts("They aren't here.\n", ch);
+			act_char("They aren't here.", ch);
 			return;
 		}
 
 		if ((!silver && ch->gold < amount)
 		||  (silver && ch->silver < amount)) {
-			char_puts("You haven't got that much.\n", ch);
+			act_char("You haven't got that much.", ch);
 			return;
 		}
 
@@ -572,7 +572,7 @@ void do_give(CHAR_DATA * ch, const char *argument)
 	}
 
 	if ((obj = get_obj_carry(ch, arg)) == NULL) {
-		char_puts("You do not have that item.\n", ch);
+		act_char("You do not have that item.", ch);
 		return;
 	}
 
@@ -585,12 +585,12 @@ void do_give(CHAR_DATA * ch, const char *argument)
 	}
 
 	if (obj->wear_loc != WEAR_NONE) {
-		char_puts("You must remove it first.\n", ch);
+		act_char("You must remove it first.", ch);
 		return;
 	}
 
 	if ((victim = get_char_room(ch, arg)) == NULL) {
-		char_puts("They aren't here.\n", ch);
+		act_char("They aren't here.", ch);
 		return;
 	}
 
@@ -601,7 +601,7 @@ void do_give(CHAR_DATA * ch, const char *argument)
 	}
 
 	if (!can_drop_obj(ch, obj)) {
-		char_puts("You can't let go of it.\n", ch);
+		act_char("You can't let go of it.", ch);
 		return;
 	}
 
@@ -656,18 +656,18 @@ void do_envenom(CHAR_DATA * ch, const char *argument)
 
 	/* find out what */
 	if (argument == '\0') {
-		char_puts("Envenom what item?\n", ch);
+		act_char("Envenom what item?", ch);
 		return;
 	}
 	obj = get_obj_list(ch, argument, ch->carrying, GETOBJ_F_ANY);
 
 	if (obj == NULL) {
-		char_puts("You don't have that item.\n", ch);
+		act_char("You don't have that item.", ch);
 		return;
 	}
 
 	if ((chance = get_skill(ch, "envenom")) == 0) {
-		char_puts("Are you crazy? You'd poison yourself!\n", ch);
+		act_char("Are you crazy? You'd poison yourself!", ch);
 		return;
 	}
 
@@ -711,8 +711,7 @@ void do_envenom(CHAR_DATA * ch, const char *argument)
 		}
 
 		if (damtype_class(obj->value[3].s) == DAM_BASH) {
-			char_puts("You can only envenom edged weapons.\n",
-				  ch);
+			act_char("You can only envenom edged weapons.", ch);
 			return;
 		}
 
@@ -757,7 +756,7 @@ void do_feed(CHAR_DATA *ch, const char *argument)
 	AFFECT_DATA af;
 
 	if (get_skill(ch, "bone dragon") == 0) {
-		char_puts("Huh?\n", ch);
+		act_char("Huh?", ch);
 		return;
 	}
 
@@ -901,11 +900,11 @@ void do_fill(CHAR_DATA * ch, const char *argument)
 	one_argument(argument, arg, sizeof(arg));
 
 	if (arg[0] == '\0') {
-		char_puts("Fill what?\n", ch);
+		act_char("Fill what?", ch);
 		return;
 	}
 	if ((obj = get_obj_carry(ch, arg)) == NULL) {
-		char_puts("You do not have that item.\n", ch);
+		act_char("You do not have that item.", ch);
 		return;
 	}
 	found = FALSE;
@@ -918,24 +917,24 @@ void do_fill(CHAR_DATA * ch, const char *argument)
 	}
 
 	if (!found) {
-		char_puts("There is no fountain here!\n", ch);
+		act_char("There is no fountain here!", ch);
 		return;
 	}
 
 	if (obj->item_type != ITEM_DRINK_CON) {
-		char_puts("You can't fill that.\n", ch);
+		act_char("You can't fill that.", ch);
 		return;
 	}
 
 	if (INT(obj->value[1]) != 0
 	&&  str_cmp(STR(obj->value[2]), STR(fountain->value[2]))) {
-		char_puts("There is already another liquid in it.\n", ch);
+		act_char("There is already another liquid in it.", ch);
 		return;
 	}
 
 	if (INT(obj->value[1]) >= INT(obj->value[0])
 	&&  INT(obj->value[0]) >= 0) {
-		char_puts("Your container is full.\n", ch);
+		act_char("Your container is full.", ch);
 		return;
 	}
         if ((lq = liquid_lookup(STR(fountain->value[2]))) == NULL) {
@@ -961,15 +960,15 @@ void do_pour(CHAR_DATA * ch, const char *argument)
 	argument = one_argument(argument, arg, sizeof(arg));
 
 	if (arg[0] == '\0' || argument[0] == '\0') {
-		char_puts("Pour what into what?\n", ch);
+		act_char("Pour what into what?", ch);
 		return;
 	}
 	if ((out = get_obj_carry(ch, arg)) == NULL) {
-		char_puts("You don't have that item.\n", ch);
+		act_char("You don't have that item.", ch);
 		return;
 	}
 	if (out->item_type != ITEM_DRINK_CON) {
-		char_puts("That's not a drink container.\n", ch);
+		act_char("That's not a drink container.", ch);
 		return;
 	}
         if ((lq = liquid_lookup(STR(out->value[2]))) == NULL) {
@@ -978,7 +977,7 @@ void do_pour(CHAR_DATA * ch, const char *argument)
 	}
 	if (!str_cmp(argument, "out")) {
 		if (INT(out->value[1]) == 0) {
-			char_puts("It is empty.\n", ch);
+			act_char("It is empty.", ch);
 			return;
 		}
 		INT(out->value[1]) = 0;
@@ -1001,27 +1000,27 @@ void do_pour(CHAR_DATA * ch, const char *argument)
 		vch = get_char_room(ch, argument);
 
 		if (vch == NULL) {
-			char_puts("Pour into what?\n", ch);
+			act_char("Pour into what?", ch);
 			return;
 		}
 		in = get_eq_char(vch, WEAR_HOLD);
 
 		if (in == NULL) {
-			char_puts("They aren't holding anything.", ch);
+			act_char("They aren't holding anything.", ch);
 			return;
 		}
 	}
 	if (in->item_type != ITEM_DRINK_CON) {
-		char_puts("You can only pour into other drink containers.\n", ch);
+		act_char("You can only pour into other drink containers.", ch);
 		return;
 	}
 	if (in == out) {
-		char_puts("You cannot change the laws of physics!\n", ch);
+		act_char("You cannot change the laws of physics!", ch);
 		return;
 	}
 	if (INT(in->value[1]) != 0
 	&& str_cmp(STR(in->value[2]), STR(out->value[2]))) {
-		char_puts("They don't hold the same liquid.\n", ch);
+		act_char("They don't hold the same liquid.", ch);
 		return;
 	}
 	if (INT(out->value[1]) == 0) {
@@ -1088,24 +1087,24 @@ void do_drink(CHAR_DATA * ch, const char *argument)
 		}
 
 		if (obj == NULL) {
-			char_puts("Drink what?\n", ch);
+			act_char("Drink what?", ch);
 			return;
 		}
 	} else {
 		if ((obj = get_obj_here(ch, arg)) == NULL) {
-			char_puts("You can't find it.\n", ch);
+			act_char("You can't find it.", ch);
 			return;
 		}
 	}
 
 	if (!IS_NPC(ch) && PC(ch)->condition[COND_DRUNK] > 10) {
-		char_puts("You fail to reach your mouth.  *Hic*\n", ch);
+		act_char("You fail to reach your mouth.  *Hic*", ch);
 		return;
 	}
 
 	switch (obj->item_type) {
 	default:
-		char_puts("You can't drink from that.\n", ch);
+		act_char("You can't drink from that.", ch);
 		return;
 
 	case ITEM_FOUNTAIN:
@@ -1114,7 +1113,7 @@ void do_drink(CHAR_DATA * ch, const char *argument)
 
 	case ITEM_DRINK_CON:
 		if (INT(obj->value[1]) == 0) {
-			char_puts("It is empty.\n", ch);
+			act_char("It is empty.", ch);
 			return;
 		}
 		amount = 1;
@@ -1128,7 +1127,7 @@ void do_drink(CHAR_DATA * ch, const char *argument)
 
 	if (!IS_NPC(ch) && !IS_IMMORTAL(ch)
 	    && PC(ch)->condition[COND_FULL] > 80) {
-		char_puts("You're too full to drink more.\n", ch);
+		act_char("You're too full to drink more.", ch);
 		return;
 	}
 
@@ -1144,18 +1143,18 @@ void do_drink(CHAR_DATA * ch, const char *argument)
 		gain_condition(ch, i, lq->affect[i]);
 
 	if (!IS_NPC(ch) && PC(ch)->condition[COND_DRUNK] > 10)
-		char_puts("You feel drunk.\n", ch);
+		act_char("You feel drunk.", ch);
 	if (!IS_NPC(ch) && PC(ch)->condition[COND_FULL] > 60)
-		char_puts("You are full.\n", ch);
+		act_char("You are full.", ch);
 	if (!IS_NPC(ch) && PC(ch)->condition[COND_THIRST] > 60)
-		char_puts("Your thirst is quenched.\n", ch);
+		act_char("Your thirst is quenched.", ch);
 
 	if (INT(obj->value[3]) != 0) {
 		/* The drink was poisoned ! */
 		AFFECT_DATA     af;
 
 		act("$n chokes and gags.", ch, NULL, NULL, TO_ROOM);
-		char_puts("You choke and gag.\n", ch);
+		act_char("You choke and gag.", ch);
 		af.where = TO_AFFECTS;
 		af.type = "poison";
 		af.level = number_fuzzy(lq->sip);
@@ -1178,7 +1177,7 @@ void do_eat(CHAR_DATA * ch, const char *argument)
 
 	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
-		char_puts("Eat what?\n", ch);
+		act_char("Eat what?", ch);
 		return;
 	}
 	
@@ -1189,18 +1188,18 @@ void do_eat(CHAR_DATA * ch, const char *argument)
 	}
 
 	if ((obj = get_obj_carry(ch, arg)) == NULL) {
-		char_puts("You do not have that item.\n", ch);
+		act_char("You do not have that item.", ch);
 		return;
 	}
 	if (!IS_IMMORTAL(ch)) {
 		if ((obj->item_type != ITEM_FOOD ||
 		     IS_OBJ_STAT(obj, ITEM_NOT_EDIBLE))
 		&& obj->item_type != ITEM_PILL) {
-			char_puts("That's not edible.\n", ch);
+			act_char("That's not edible.", ch);
 			return;
 		}
 		if (!IS_NPC(ch) && PC(ch)->condition[COND_FULL] > 80) {
-			char_puts("You are too full to eat more.\n", ch);
+			act_char("You are too full to eat more.", ch);
 			return;
 		}
 	}
@@ -1231,12 +1230,12 @@ void do_eat(CHAR_DATA * ch, const char *argument)
 			gain_condition(ch, COND_HUNGER, INT(obj->value[1]) * 2);
 			if (!condition
 			&& PC(ch)->condition[COND_HUNGER] > 0)
-				char_puts("You are no longer hungry.\n", ch);
+				act_char("You are no longer hungry.", ch);
 			else if (PC(ch)->condition[COND_FULL] > 60)
-				char_puts("You are full.\n", ch);
+				act_char("You are full.", ch);
 			if (obj->pObjIndex->vnum == OBJ_VNUM_TORN_HEART) {
 				ch->hit = UMIN(ch->max_hit, ch->hit+obj->level+number_range(1,5));
-				char_puts("You feel empowered from the blood of your foe.\n",ch);
+				act_char("You feel empowered from the blood of your foe.", ch);
 			};
 		}
 		if (INT(obj->value[3]) != 0) {
@@ -1244,7 +1243,7 @@ void do_eat(CHAR_DATA * ch, const char *argument)
 			AFFECT_DATA     af;
 
 			act("$n chokes and gags.", ch, NULL, NULL, TO_ROOM);
-			char_puts("You choke and gag.\n", ch);
+			act_char("You choke and gag.", ch);
 
 			af.where = TO_AFFECTS;
 			af.type = "poison";
@@ -1257,7 +1256,7 @@ void do_eat(CHAR_DATA * ch, const char *argument)
 			affect_join(ch, &af);
 		}
 		if (IS_OBJ_STAT(obj, ITEM_MAGIC)) {
-			char_puts("Magical heat flows through your blood.\n", ch);
+			act_char("Magical heat flows through your blood.", ch);
 			ch->mana = UMIN(ch->max_mana, ch->mana + obj->level + number_range(1, 5));
 			if (number_percent() < 2) {
 				AFFECT_DATA af;
@@ -1322,7 +1321,7 @@ void do_wear(CHAR_DATA * ch, const char *argument)
 	}
 
 	if (arg[0] == '\0') {
-		char_puts("Wear, wield, or hold what?\n", ch);
+		act_char("Wear, wield, or hold what?", ch);
 		return;
 	}
 
@@ -1333,7 +1332,7 @@ void do_wear(CHAR_DATA * ch, const char *argument)
 				wear_obj(ch, obj, FALSE);
 		}
 	} else if ((obj = get_obj_carry(ch, arg)) == NULL) {
-		char_puts("You do not have that item.\n", ch);
+		act_char("You do not have that item.", ch);
 		return;
 	} else
 		wear_obj(ch, obj, TRUE);
@@ -1351,7 +1350,7 @@ void do_remove(CHAR_DATA * ch, const char *argument)
 	}
 
 	if (arg[0] == '\0') {
-		char_puts("Remove what?\n", ch);
+		act_char("Remove what?", ch);
 		return;
 	}
 	if (!str_cmp(arg, "all")) {
@@ -1370,7 +1369,7 @@ void do_remove(CHAR_DATA * ch, const char *argument)
 		return;
 	}
 	if ((obj = get_obj_wear(ch, arg)) == NULL) {
-		char_puts("You do not have that item.\n", ch);
+		act_char("You do not have that item.", ch);
 		return;
 	}
 	remove_obj(ch, obj->wear_loc, TRUE);
@@ -1395,14 +1394,13 @@ void do_sacrifice(CHAR_DATA * ch, const char *argument)
 	if (arg[0] == '\0' || !str_cmp(arg, ch->name)) {
 		act("$n offers $mself to gods, who graciously declines.",
 		    ch, NULL, NULL, TO_ROOM);
-		char_puts("Gods appreciates your offer "
-			  "and may accept it later.\n", ch);
+		act_char("Gods appreciates your offer and may accept it later.", ch);
 		return;
 	}
 
 	obj = get_obj_list(ch, arg, ch->in_room->contents, GETOBJ_F_ANY);
 	if (obj == NULL) {
-		char_puts("You can't find it.\n", ch);
+		act_char("You can't find it.", ch);
 		return;
 	}
 
@@ -1416,28 +1414,27 @@ void do_quaff(CHAR_DATA * ch, const char *argument)
 	one_argument(argument, arg, sizeof(arg));
 	
 	if (has_spec(ch, "clan_battleragers")) {
-		char_puts("You are Battle Rager, not filthy magician!\n",ch);
+		act_char("You are Battle Rager, not filthy magician!", ch);
 		return;
 	}
 
 	if (arg[0] == '\0') {
-		char_puts("Quaff what?\n", ch);
+		act_char("Quaff what?", ch);
 		return;
 	}
 
 	if ((obj = get_obj_carry(ch, arg)) == NULL) {
-		char_puts("You do not have that potion.\n", ch);
+		act_char("You do not have that potion.", ch);
 		return;
 	}
 
 	if (obj->item_type != ITEM_POTION) {
-		char_puts("You can quaff only potions.\n", ch);
+		act_char("You can quaff only potions.", ch);
 		return;
 	}
 
 	if ((obj->level - LEVEL(ch)) * 7 > number_percent()) {
-		char_puts("This liquid was too powerful for you to drink.\n", 
-			ch);
+		act_char("This liquid was too powerful for you to drink.", ch);
 		spellfun_call("hallucination", NULL, obj->level, ch, ch);
 		return;
 	}
@@ -1452,7 +1449,7 @@ void do_recite(CHAR_DATA * ch, const char *argument)
 	OBJ_DATA *scroll;
 
 	if (has_spec(ch, "clan_battleragers")) {
-		char_puts ("RECITE? You are Battle Rager!\n", ch);
+		act_char("RECITE? You are Battle Rager!", ch);
 		return;
 	}
 
@@ -1460,17 +1457,17 @@ void do_recite(CHAR_DATA * ch, const char *argument)
 	argument = one_argument(argument, arg2, sizeof(arg2));
 
 	if ((scroll = get_obj_carry(ch, arg1)) == NULL) {
-		char_puts("You do not have that scroll.\n", ch);
+		act_char("You do not have that scroll.", ch);
 		return;
 	}
 
 	if (scroll->item_type != ITEM_SCROLL) {
-		char_puts("You can recite only scrolls.\n", ch);
+		act_char("You can recite only scrolls.", ch);
 		return;
 	}
 
 	if (ch->level < scroll->level) {
-		char_puts("This scroll is too complex for you to comprehend.\n", ch);
+		act_char("This scroll is too complex for you to comprehend.", ch);
 		return;
 	}
 
@@ -1479,7 +1476,7 @@ void do_recite(CHAR_DATA * ch, const char *argument)
 	else if ((vo = get_char_room(ch, arg2)) == NULL
 	&&       (vo = get_obj_here(ch, arg2)) == NULL) {
 		WAIT_STATE(ch, MISSING_TARGET_DELAY);
-		char_puts("You can't find it.\n", ch);
+		act_char("You can't find it.", ch);
 		return;
 	}
 
@@ -1563,17 +1560,17 @@ void do_brandish(CHAR_DATA * ch, const char *argument)
 	skill_t *	sk;
 
 	if (has_spec(ch, "clan_battleragers")) {
-		char_puts("BRANDISH? You are not a filthy magician!\n",ch);
+		act_char("BRANDISH? You are not a filthy magician!", ch);
 		return;
 	}
 
 	if ((staff = get_eq_char(ch, WEAR_HOLD)) == NULL) {
-		char_puts("You hold nothing in your hand.\n", ch);
+		act_char("You hold nothing in your hand.", ch);
 		return;
 	}
 
 	if (staff->item_type != ITEM_STAFF) {
-		char_puts("You can brandish only with a staff.\n", ch);
+		act_char("You can brandish only with a staff.", ch);
 		return;
 	}
 
@@ -1613,17 +1610,17 @@ void do_zap(CHAR_DATA * ch, const char *argument)
 	void *vo;
 	
 	if (has_spec(ch, "clan_battleragers")) {
-		char_puts("You'd destroy magic, not use it!\n",ch);
+		act_char("You'd destroy magic, not use it!", ch);
 		return;
 	}
 
 	one_argument(argument, arg, sizeof(arg));
 	if ((wand = get_eq_char(ch, WEAR_HOLD)) == NULL) {
-		char_puts("You hold nothing in your hand.\n", ch);
+		act_char("You hold nothing in your hand.", ch);
 		return;
 	}
 	if (wand->item_type != ITEM_WAND) {
-		char_puts("You can zap only with a wand.\n", ch);
+		act_char("You can zap only with a wand.", ch);
 		return;
 	}
 
@@ -1631,13 +1628,13 @@ void do_zap(CHAR_DATA * ch, const char *argument)
 		if (ch->fighting && ch->fighting->in_room == ch->in_room)
 			vo = ch->fighting;
 		else {
-			char_puts("Zap whom or what?\n", ch);
+			act_char("Zap whom or what?", ch);
 			return;
 		}
 	} else if ((vo = get_char_room(ch, arg)) == NULL
 	&&       (vo = get_obj_here(ch, arg)) == NULL) {
 		WAIT_STATE(ch, MISSING_TARGET_DELAY);
-		char_puts("You can't find it.\n", ch);
+		act_char("You can't find it.", ch);
 		return;
 	}
 
@@ -1697,7 +1694,7 @@ void do_steal(CHAR_DATA * ch, const char *argument)
 	int		carry_n, carry_w;
 
 	if (!(chance = get_skill(ch, "steal"))) {
-		char_puts("Huh?\n", ch);
+		act_char("Huh?", ch);
 		return;
 	}
 	
@@ -1705,13 +1702,13 @@ void do_steal(CHAR_DATA * ch, const char *argument)
 	argument = one_argument(argument, arg2, sizeof(arg2));
 
 	if (arg1[0] == '\0' || arg2[0] == '\0') {
-		char_puts("Steal what from whom?\n", ch);
+		act_char("Steal what from whom?", ch);
 		return;
 	}
 
 	if (IS_NPC(ch) && IS_SET(ch->affected_by, AFF_CHARM)
 	    && (ch->master != NULL)) {
-		char_puts("You are too dazed to steal anything.\n", ch);
+		act_char("You are too dazed to steal anything.", ch);
 		return;
 	}
 
@@ -1719,16 +1716,16 @@ void do_steal(CHAR_DATA * ch, const char *argument)
 
 	if ((victim = get_char_room(ch, arg2)) == NULL) {
 		WAIT_STATE(ch, MISSING_TARGET_DELAY);
-		char_puts("They aren't here.\n", ch);
+		act_char("They aren't here.", ch);
 		return;
 	}
 	if (victim == ch) {
-		char_puts("That's pointless.\n", ch);
+		act_char("That's pointless.", ch);
 		return;
 	}
 
 	if (victim->position == POS_FIGHTING) {
-		char_puts("You'd better not -- you might get hit.\n", ch);
+		act_char("You'd better not -- you might get hit.", ch);
 		return;
 	}
 
@@ -1750,7 +1747,7 @@ void do_steal(CHAR_DATA * ch, const char *argument)
 		 * Failure.
 		 */
 
-		char_puts("Oops.\n", ch);
+		act_char("Oops.", ch);
 
 		if (HAS_INVIS(ch, ID_HIDDEN | ID_FADE) && !IS_NPC(ch)) {
 			REMOVE_INVIS(ch, ID_HIDDEN | ID_FADE);
@@ -1809,14 +1806,14 @@ void do_steal(CHAR_DATA * ch, const char *argument)
 			amount_g = victim->gold * number_range(1, 7) / 100;
 
 		if (amount_s <= 0 && amount_g <= 0) {
-			char_puts("You couldn't get any coins.\n", ch);
+			act_char("You couldn't get any coins.", ch);
 			return;
 		}
 
 		if ((carry_w = can_carry_w(ch)) >= 0
 		&&  get_carry_weight(ch) +
 		    COINS_WEIGHT(amount_g, amount_s) > carry_w) {
-			char_puts("You can't carry that weight.\n", ch);
+			act_char("You can't carry that weight.", ch);
 			return;
 		}
 
@@ -1835,39 +1832,39 @@ void do_steal(CHAR_DATA * ch, const char *argument)
 
 	obj = get_obj_list(ch, arg1, victim->carrying, GETOBJ_F_INV);
 	if (obj == NULL) {
-		char_puts("You can't find it.\n", ch);
+		act_char("You can't find it.", ch);
 		return;
 	}
 
 	if (!can_drop_obj(ch, obj)
 	/* ||   IS_OBJ_STAT(obj, ITEM_INVENTORY) */
 	     /* ||  obj->level > ch->level */ ) {
-		char_puts("You can't pry it away.\n", ch);
+		act_char("You can't pry it away.", ch);
 		return;
 	}
 
 	if ((carry_n = can_carry_n(ch)) >= 0
 	&&  ch->carry_number + get_obj_number(obj) > carry_n) {
-		char_puts("You have your hands full.\n", ch);
+		act_char("You have your hands full.", ch);
 		return;
 	}
 
 	if ((carry_w = can_carry_w(ch)) >= 0
 	&&  get_carry_weight(ch) + get_obj_weight(obj) > carry_w) {
-		char_puts("You can't carry that much weight.\n", ch);
+		act_char("You can't carry that much weight.", ch);
 		return;
 	}
 
 	if (!IS_OBJ_STAT(obj, ITEM_INVENTORY)) {
 		obj_from_char(obj);
 		obj_to_char(obj, ch);
-		char_puts("You got it!\n", ch);
+		act_char("You got it!", ch);
 		check_improve(ch, "steal", TRUE, 2);
 	} else {
 		obj_inve = clone_obj(obj);
 		REMOVE_OBJ_STAT(obj_inve, ITEM_INVENTORY);
 		obj_to_char(obj_inve, ch);
-		char_puts("You got one of them!\n", ch);
+		act_char("You got one of them!", ch);
 		check_improve(ch, "steal", TRUE, 1);
 	}
 	oprog_call(OPROG_GET, obj, ch, NULL);
@@ -1889,14 +1886,14 @@ void do_buy_pet(CHAR_DATA * ch, const char *argument)
 
 	argument = one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
-		char_puts("Buy what?\n", ch);
+		act_char("Buy what?", ch);
 		return;
 	}
 
 	pRoomIndexNext = get_room_index(ch->in_room->vnum + 1);
 	if (pRoomIndexNext == NULL) {
 		log(LOG_BUG, "Do_buy: bad pet shop at vnum %d.", ch->in_room->vnum);
-		char_puts("Sorry, you can't buy that here.\n", ch);
+		act_char("Sorry, you can't buy that here.", ch);
 		return;
 	}
 	in_room = ch->in_room;
@@ -1907,7 +1904,7 @@ void do_buy_pet(CHAR_DATA * ch, const char *argument)
 	if (!pet
 	||  !IS_NPC(pet)
 	||  !IS_SET(pet->pMobIndex->act, ACT_PET)) {
-		char_puts("Sorry, you can't buy that here.\n", ch);
+		act_char("Sorry, you can't buy that here.", ch);
 		return;
 	}
 
@@ -1916,12 +1913,11 @@ void do_buy_pet(CHAR_DATA * ch, const char *argument)
 		cost = 10 * pet->level * pet->level;
 
 		if ((ch->silver + 100 * ch->gold) < cost) {
-			char_puts("You can't afford it.\n", ch);
+			act_char("You can't afford it.", ch);
 			return;
 		}
 		if (ch->level < pet->level + 5) {
-			char_puts("You're not powerful enough "
-				     "to master this pet.\n", ch);
+			act_char("You're not powerful enough to master this pet.", ch);
 			return;
 		}
 		deduct_cost(ch, cost);
@@ -1934,23 +1930,22 @@ void do_buy_pet(CHAR_DATA * ch, const char *argument)
 			return;
 
 		do_mount(ch, pet->name);
-		char_puts("Enjoy your mount.\n", ch);
+		act_char("Enjoy your mount.", ch);
 		act("$n bought $N as a mount.", ch, NULL, pet, TO_ROOM);
 		return;
 	}
 	if (GET_PET(ch) != NULL) {
-		char_puts("You already own a pet.\n", ch);
+		act_char("You already own a pet.", ch);
 		return;
 	}
 	cost = 10 * pet->level * pet->level;
 
 	if ((ch->silver + 100 * ch->gold) < cost) {
-		char_puts("You can't afford it.\n", ch);
+		act_char("You can't afford it.", ch);
 		return;
 	}
 	if (LEVEL(ch) < LEVEL(pet)) {
-		char_puts("You're not powerful enough "
-			     "to master this pet.\n", ch);
+		act_char("You're not powerful enough to master this pet.", ch);
 		return;
 	}
 	/* haggle */
@@ -1980,7 +1975,7 @@ void do_buy_pet(CHAR_DATA * ch, const char *argument)
 	add_follower(pet, ch);
 	pet->leader = ch;
 	PC(ch)->pet = pet;
-	char_puts("Enjoy your pet.\n", ch);
+	act_char("Enjoy your pet.", ch);
 	act("$n bought $N as a pet.", ch, NULL, pet, TO_ROOM);
 }
 
@@ -2003,12 +1998,12 @@ void do_buy(CHAR_DATA * ch, const char *argument)
 
 	number = mult_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0' || number == 0) {
-		char_puts("Buy what?\n", ch);
+		act_char("Buy what?", ch);
 		return;
 	}
 
 	if (number < 0) {
-		char_puts("What? Try sell instead.\n", ch);
+		act_char("What? Try sell instead.", ch);
 		return;
 	}
 
@@ -2053,13 +2048,13 @@ void do_buy(CHAR_DATA * ch, const char *argument)
 
 	if ((carry_n = can_carry_n(ch)) >= 0
 	&&  ch->carry_number + number * get_obj_number(obj) > carry_n) {
-		char_puts("You can't carry that many items.\n", ch);
+		act_char("You can't carry that many items.", ch);
 		return;
 	}
 
 	if ((carry_w = can_carry_w(ch)) >= 0
 	&&  get_carry_weight(ch) + number * get_obj_weight(obj) > carry_w) {
-		char_puts("You can't carry that much weight.\n", ch);
+		act_char("You can't carry that much weight.", ch);
 		return;
 	}
 
@@ -2116,7 +2111,7 @@ void do_list(CHAR_DATA * ch, const char *argument)
 		pRoomIndexNext = get_room_index(ch->in_room->vnum + 1);
 		if (pRoomIndexNext == NULL) {
 			log(LOG_BUG, "Do_list: bad pet shop at vnum %d.", ch->in_room->vnum);
-			char_puts("You can't do that here.\n", ch);
+			act_char("You can't do that here.", ch);
 			return;
 		}
 		found = FALSE;
@@ -2126,7 +2121,7 @@ void do_list(CHAR_DATA * ch, const char *argument)
 			if (IS_SET(pet->pMobIndex->act, ACT_PET)) {
 				if (!found) {
 					found = TRUE;
-					char_puts("Pets for sale:\n", ch);
+					act_char("Pets for sale:", ch);
 				}
 				char_printf(ch, "[%2d] %8d - %s\n",
 					    pet->level,
@@ -2135,7 +2130,7 @@ void do_list(CHAR_DATA * ch, const char *argument)
 			}
 		}
 		if (!found)
-			char_puts("Sorry, we're out of pets right now.\n", ch);
+			act_char("Sorry, we're out of pets right now.", ch);
 		return;
 	} else {
 		CHAR_DATA      *keeper;
@@ -2156,7 +2151,7 @@ void do_list(CHAR_DATA * ch, const char *argument)
 				|| is_name(arg, obj->name))) {
 				if (!found) {
 					found = TRUE;
-					char_puts("[Lv Price Qty] Item\n", ch);
+					act_char("[Lv Price Qty] Item", ch);
 				}
 				if (IS_OBJ_STAT(obj, ITEM_INVENTORY))
 					char_printf(ch, "[%2d %5d -- ] %s\n",
@@ -2182,7 +2177,7 @@ void do_list(CHAR_DATA * ch, const char *argument)
 		}
 
 		if (!found)
-			char_puts("You can't buy anything here.\n", ch);
+			act_char("You can't buy anything here.", ch);
 		return;
 	}
 }
@@ -2198,7 +2193,7 @@ void do_sell(CHAR_DATA * ch, const char *argument)
 	one_argument(argument, arg, sizeof(arg));
 
 	if (arg[0] == '\0') {
-		char_puts("Sell what?\n", ch);
+		act_char("Sell what?", ch);
 		return;
 	}
 	if ((keeper = find_keeper(ch)) == NULL)
@@ -2209,7 +2204,7 @@ void do_sell(CHAR_DATA * ch, const char *argument)
 		return;
 	}
 	if (!can_drop_obj(ch, obj)) {
-		char_puts("You can't let go of it.\n", ch);
+		act_char("You can't let go of it.", ch);
 		return;
 	}
 	if (!can_see_obj(keeper, obj)) {
@@ -2230,7 +2225,7 @@ void do_sell(CHAR_DATA * ch, const char *argument)
 	roll = number_percent();
 	if (!OBJ_IS(obj, OBJ_SELL_EXTRACT) && roll < get_skill(ch, "haggle")) {
 		roll = get_skill(ch, "haggle") + number_range(1, 20) - 10;
-		char_puts("You haggle with the shopkeeper.\n", ch);
+		act_char("You haggle with the shopkeeper.", ch);
 		cost += obj->cost / 2 * roll / 100;
 		cost = UMIN(cost, 95 * get_cost(keeper, obj, TRUE) / 100);
 		cost = UMIN(cost, (keeper->silver + 100 * keeper->gold));
@@ -2278,7 +2273,7 @@ void do_value(CHAR_DATA * ch, const char *argument)
 	one_argument(argument, arg, sizeof(arg));
 
 	if (arg[0] == '\0') {
-		char_puts("Value what?\n", ch);
+		act_char("Value what?", ch);
 		return;
 	}
 	if ((keeper = find_keeper(ch)) == NULL)
@@ -2293,7 +2288,7 @@ void do_value(CHAR_DATA * ch, const char *argument)
 		return;
 	}
 	if (!can_drop_obj(ch, obj)) {
-		char_puts("You can't let go of it.\n", ch);
+		act_char("You can't let go of it.", ch);
 		return;
 	}
 	if ((cost = get_cost(keeper, obj, FALSE)) <= 0) {
@@ -2318,7 +2313,7 @@ void do_herbs(CHAR_DATA * ch, const char *argument)
 	one_argument(argument, arg, sizeof(arg));
 
 	if (is_affected(ch, "herbs")) {
-		char_puts("You can't find any more herbs.\n", ch);
+		act_char("You can't find any more herbs.", ch);
 		return;
 	}
 
@@ -2327,7 +2322,7 @@ void do_herbs(CHAR_DATA * ch, const char *argument)
 	if (arg[0] == '\0')
 		victim = ch;
 	else if ((victim = get_char_room(ch, arg)) == NULL) {
-		char_puts("They're not here.\n", ch);
+		act_char("They're not here.", ch);
 		return;
 	}
 
@@ -2349,7 +2344,7 @@ void do_herbs(CHAR_DATA * ch, const char *argument)
 			affect_to_char(ch, &af);
 		}
 
-		char_puts("You gather some beneficial herbs.\n", ch);
+		act_char("You gather some beneficial herbs.", ch);
 		act("$n gathers some herbs.", ch, NULL, NULL, TO_ROOM);
 
 		if (ch != victim) {
@@ -2359,7 +2354,7 @@ void do_herbs(CHAR_DATA * ch, const char *argument)
 		}
 
 		if (victim->hit < victim->max_hit) {
-			char_puts("You feel better.\n", victim);
+			act_char("You feel better.", victim);
 			act("$n looks better.", victim, NULL, NULL, TO_ROOM);
 		}
 		victim->hit = UMIN(victim->max_hit, victim->hit + 5 * LEVEL(ch));
@@ -2376,7 +2371,7 @@ void do_herbs(CHAR_DATA * ch, const char *argument)
 			    victim, NULL, NULL, TO_ROOM);
 		}
 	} else {
-		char_puts("You search for herbs but find none here.\n", ch);
+		act_char("You search for herbs but find none here.", ch);
 		act("$n looks around for herbs.", ch, NULL, NULL, TO_ROOM);
 		if (chance)
 			check_improve(ch, "herbs", FALSE, 1);
@@ -2652,7 +2647,7 @@ void do_lore(CHAR_DATA *ch, const char *argument)
 
 	argument = one_argument(argument, arg, sizeof(arg));
 	if ((obj = get_obj_carry(ch, arg)) == NULL) {
-		char_puts("You do not have that object.\n", ch);
+		act_char("You do not have that object.", ch);
 		return;
 	}
 
@@ -2674,25 +2669,25 @@ void do_butcher(CHAR_DATA * ch, const char *argument)
 
 	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
-		char_puts("Butcher what?\n", ch);
+		act_char("Butcher what?", ch);
 		return;
 	}
 	if ((obj = get_obj_here(ch, arg)) == NULL) {
-		char_puts("You do not see that here.\n", ch);
+		act_char("You do not see that here.", ch);
 		return;
 	}
 	if (obj->item_type != ITEM_CORPSE_PC
 	&&  obj->item_type != ITEM_CORPSE_NPC) {
-		char_puts("You can't butcher that.\n", ch);
+		act_char("You can't butcher that.", ch);
 		return;
 	}
 	if (obj->carried_by != NULL) {
-		char_puts("Put it down first.\n", ch);
+		act_char("Put it down first.", ch);
 		return;
 	}
 
 	if ((chance = get_skill(ch, "butcher")) == 0) {
-		char_puts("You don't have the instruments for that.", ch);
+		act_char("You don't have the instruments for that.", ch);
 		return;
 	}
 
@@ -2744,41 +2739,41 @@ void do_crucify(CHAR_DATA *ch, const char *argument)
 	AFFECT_DATA af;
 
 	if ((chance = get_skill(ch, "crucify")) == 0) {
-		char_puts("Oh no, you can't do that.\n", ch);
+		act_char("Oh no, you can't do that.", ch);
 		return;
 	}
 
 	if (is_affected(ch, "crucify")) {
-		char_puts("You are not yet ready to make a sacrifice.\n", ch);
+		act_char("You are not yet ready to make a sacrifice.", ch);
 		return;
 	}
 
 	if (IS_AFFECTED(ch, AFF_BERSERK) 
 	|| is_affected(ch, "frenzy")) {
-		char_puts("Calm down first.\n", ch);
+		act_char("Calm down first.", ch);
 		return;
 	}
 
 	one_argument(argument, arg, sizeof(arg));
 
 	if (arg == '\0') {
-		char_puts("Crucify what?\n", ch);
+		act_char("Crucify what?", ch);
 		return;
 	}
 
 	if ((obj = get_obj_here(ch, arg)) == NULL) {
-		char_puts("You do not see that here.", ch);
+		act_char("You do not see that here.", ch);
 		return;
 	}
 
 	if (obj->item_type != ITEM_CORPSE_PC
 	 && obj->item_type != ITEM_CORPSE_NPC) {
-		char_puts("You cannot crucify that.\n", ch);
+		act_char("You cannot crucify that.", ch);
 		return;
 	 }
 
 	if (obj->carried_by != NULL) {
-		char_puts("Put it down first.\n", ch);
+		act_char("Put it down first.", ch);
 		return;
 	}
 
@@ -2804,7 +2799,7 @@ void do_crucify(CHAR_DATA *ch, const char *argument)
 		    "$p to a sacrificial cross.", ch, obj, NULL, TO_CHAR);
 		act("With a crunch of bone and splash of blood $n nails "
 		    "$p to a sacrificial cross.", ch, obj, NULL, TO_ROOM);
-		char_puts("You are filled with a dark energy.\n", ch);
+		act_char("You are filled with a dark energy.", ch);
 		ch->hit += obj->level*3/2;
 		af.where 	= TO_AFFECTS;
 		af.type  	= "crucify";
@@ -2836,16 +2831,16 @@ void do_balance(CHAR_DATA * ch, const char *argument)
 	int bank_s;
 
 	if (IS_NPC(ch)) {
-		char_puts("You don't have a bank account.\n", ch);
+		act_char("You don't have a bank account.", ch);
 		return;
 	}
 	if (!IS_SET(ch->in_room->room_flags, ROOM_BANK)) {
-		char_puts("You are not in a bank.\n", ch);
+		act_char("You are not in a bank.", ch);
 		return;
 	}
 
 	if (PC(ch)->bank_s + PC(ch)->bank_g == 0) {
-		char_puts("You don't have any money in the bank.\n", ch);
+		act_char("You don't have any money in the bank.", ch);
 		return;
 	}
 
@@ -2871,38 +2866,37 @@ void do_withdraw(CHAR_DATA * ch, const char *argument)
 	int	carry_w;
 
 	if (IS_NPC(ch)) {
-		char_puts("You don't have a bank account.\n", ch);
+		act_char("You don't have a bank account.", ch);
 		return;
 	}
 
 	if (!IS_SET(ch->in_room->room_flags, ROOM_BANK)) {
-		char_puts("The mosquito by your feet "
-			  "will not give you any money.\n", ch);
+		act_char("The mosquito by your feet will not give you any money.", ch);
 		return;
 	}
 
 	argument = one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
-		char_puts("Withdraw how much?\n", ch);
+		act_char("Withdraw how much?", ch);
 		return;
 	}
 
 	amount = atoi(arg);
 	if (amount <= 0) {
-		char_puts("What?\n", ch);
+		act_char("What?", ch);
 		return;
 	}
 
 	if (!str_cmp(argument, "silver"))
 		silver = TRUE;
 	else if (str_cmp(argument, "gold") && argument[0] != '\0') {
-		char_puts("You can withdraw gold and silver coins only.", ch);
+		act_char("You can withdraw gold and silver coins only.", ch);
 		return;
 	}
 
 	if ((silver && amount > PC(ch)->bank_s)
 	||  (!silver && amount > PC(ch)->bank_g)) {
-		char_puts("Sorry, we don't give loans.\n", ch);
+		act_char("Sorry, we don't give loans.", ch);
 		return;
 	}
 
@@ -2912,7 +2906,7 @@ void do_withdraw(CHAR_DATA * ch, const char *argument)
 	&&  get_carry_weight(ch) +
 	    COINS_WEIGHT(silver ? 0 : (amount - fee),
 			 silver ? (amount - fee) : 0) > carry_w) {
-		char_puts("You can't carry that weight.\n", ch);
+		act_char("You can't carry that weight.", ch);
 		return;
 	}
 
@@ -2938,37 +2932,37 @@ void do_deposit(CHAR_DATA * ch, const char *argument)
 	char	arg[MAX_INPUT_LENGTH];
 
 	if (IS_NPC(ch)) {
-		char_puts("You don't have a bank account.\n", ch);
+		act_char("You don't have a bank account.", ch);
 		return;
 	}
 
 	if (!IS_SET(ch->in_room->room_flags, ROOM_BANK)) {
-		char_puts("The ant by your feet can't carry your gold.\n", ch);
+		act_char("The ant by your feet can't carry your gold.", ch);
 		return;
 	}
 
 	argument = one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
-		char_puts("Deposit how much?\n", ch);
+		act_char("Deposit how much?", ch);
 		return;
 	}
 
 	amount = atoi(arg);
 	if (amount <= 0) {
-		char_puts("What?\n", ch);
+		act_char("What?", ch);
 		return;
 	}
 
 	if (!str_cmp(argument, "silver"))
 		silver = TRUE;
 	else if (str_cmp(argument, "gold") && argument[0] != '\0') {
-		char_puts("You can deposit gold and silver coins only.", ch);
+		act_char("You can deposit gold and silver coins only.", ch);
 		return;
 	}
 
 	if ((silver && amount > ch->silver)
 	||  (!silver && amount > ch->gold)) {
-		char_puts("That's more than you've got.\n", ch);
+		act_char("That's more than you've got.", ch);
 		return;
 	}
 
@@ -2998,20 +2992,20 @@ void do_second_wield(CHAR_DATA * ch, const char *argument)
 	int		skill;
 
 	if (get_skill(ch, "dual wield") == 0) {
-		char_puts("You don't know how to wield a second weapon.\n", ch);
+		act_char("You don't know how to wield a second weapon.", ch);
 		return;
 	}
 	if (argument[0] == '\0') {
-		char_puts("Wear which weapon in your off-hand?\n", ch);
+		act_char("Wear which weapon in your off-hand?", ch);
 		return;
 	}
 	obj = get_obj_carry(ch, argument);
 	if (obj == NULL) {
-		char_puts("You don't have that item.\n", ch);
+		act_char("You don't have that item.", ch);
 		return;
 	}
 	if (!CAN_WEAR(obj, ITEM_WIELD)) {
-		char_puts("You can't wield that as your second weapon.\n", ch);
+		act_char("You can't wield that as your second weapon.", ch);
 		return;
 	}
 
@@ -3022,15 +3016,15 @@ void do_second_wield(CHAR_DATA * ch, const char *argument)
 
 	if (IS_WEAPON_STAT(obj, WEAPON_TWO_HANDS|WEAPON_NO_OFFHAND) 
 	|| WEAPON_IS_LONG(obj)) {
-		char_puts("You can't dual wield this weapon!\n", ch);
+		act_char("You can't dual wield this weapon!", ch);
 		return;
 	}
 	if ((wield = get_eq_char(ch, WEAR_WIELD)) == NULL) {
-		char_puts("You need to wield a primary weapon, before using a secondary one!\n", ch);
+		act_char("You need to wield a primary weapon, before using a secondary one!", ch);
 		return;
 	}
 	if (get_obj_weight(obj) > str_app[get_curr_stat(ch, STAT_STR)].wield / 2) {
-		char_puts("This weapon is too heavy to be used as a secondary weapon by you.\n", ch);
+		act_char("This weapon is too heavy to be used as a secondary weapon by you.", ch);
 		return;
 	}
 	if (!remove_obj(ch, WEAR_SECOND_WIELD, TRUE))
@@ -3067,18 +3061,18 @@ void do_enchant(CHAR_DATA * ch, const char *argument)
 	int		chance;
 
 	if ((chance = get_skill(ch, "enchant sword")) == 0) {
-		char_puts("Huh?\n", ch);
+		act_char("Huh?", ch);
 		return;
 	}
 
 	if (argument[0] == '\0') {	/* empty */
-		char_puts("Wear which weapon to enchant?\n", ch);
+		act_char("Wear which weapon to enchant?", ch);
 		return;
 	}
 	obj = get_obj_carry(ch, argument);
 
 	if (obj == NULL) {
-		char_puts("You don't have that item.\n", ch);
+		act_char("You don't have that item.", ch);
 		return;
 	}
 
@@ -3091,13 +3085,13 @@ void do_enchant(CHAR_DATA * ch, const char *argument)
 	}
 
 	if (ch->mana < 100) {
-		char_puts("You don't have enough mana.\n", ch);
+		act_char("You don't have enough mana.", ch);
 		return;
 	}
 
 	WAIT_STATE(ch, skill_beats("enchant sword"));
 	if (number_percent() > chance) {
-		char_puts("You lost your concentration.\n", ch);
+		act_char("You lost your concentration.", ch);
 		act("$n tries to enchant $p, but he forgets how for a moment.",
 		    ch, obj, NULL, TO_ROOM);
 		check_improve(ch, "enchant sword", FALSE, 6);
@@ -3123,28 +3117,27 @@ void do_label(CHAR_DATA* ch, const char *argument)
 	first_arg(argument, label, sizeof(label), FALSE);
 	
 	if (!obj_name[0]) {
-		char_puts("Label what?\n",ch);
+		act_char("Label what?", ch);
 		return;
 	}
 
 	if (!label[0]) {
-		char_puts("How do you want to label it?\n",ch);
+		act_char("How do you want to label it?", ch);
 		return;
 	}
 
 	if ((obj = get_obj_carry(ch, obj_name)) == NULL) {
-		char_puts("You don't have that object.\n", ch);
+		act_char("You don't have that object.", ch);
 		return;
 	}
 	
 	if (PC(ch)->questpoints < 10) {
-		char_puts("You do not have enough questpoints for labeling.\n",
-			  ch);
+		act_char("You do not have enough questpoints for labeling.", ch);
 		return;
 	}
 
 	if ((strlen(obj->name) + strlen(label) + 2) >= MAX_STRING_LENGTH) {
-		char_puts("You can't label this object with this label.\n", ch);
+		act_char("You can't label this object with this label.", ch);
 		return;
 	}
 
@@ -3153,7 +3146,7 @@ void do_label(CHAR_DATA* ch, const char *argument)
 	free_string(p);
 	
 	PC(ch)->questpoints -= 10;
-	char_puts("Ok.\n",ch);
+	act_char("Ok.", ch);
 }
 
 #define OBJ_VNUM_HAMMER 		6522
@@ -3171,7 +3164,7 @@ void do_repair(CHAR_DATA *ch, const char *argument)
 	}
  
 	if (mob == NULL) {
-		char_puts("You can't do that here.\n", ch);
+		act_char("You can't do that here.", ch);
 		return;
 	}
 
@@ -3179,7 +3172,7 @@ void do_repair(CHAR_DATA *ch, const char *argument)
 
 	if (arg[0] == '\0') {
 	do_say(mob,"I will repair a weapon for you, for a price.");
-	char_puts("Type estimate <weapon> to be assessed for damage.\n",ch);
+	act_char("Type estimate <weapon> to be assessed for damage.", ch);
 	return;
 	}
 	if ((obj = get_obj_carry(ch, arg)) == NULL)
@@ -3236,7 +3229,7 @@ void do_estimate(CHAR_DATA *ch, const char *argument)
  
 	if (mob == NULL)
 	{
-	    char_puts("You can't do that here.\n", ch);
+	    act_char("You can't do that here.", ch);
 	    return;
 	}
 	
@@ -3293,7 +3286,7 @@ void do_restring(CHAR_DATA *ch, const char *argument)
  
 	if (mob == NULL) {
 #endif
-	    char_puts("You can't do that here.\n", ch);
+	    act_char("You can't do that here.", ch);
 	    return;
 #if 0
 	/* XXX */
@@ -3304,9 +3297,9 @@ void do_restring(CHAR_DATA *ch, const char *argument)
 
 	if (arg[0] == '\0' || arg1[0] == '\0' || argument[0] == '\0')
 	{
-		char_puts("Syntax:\n",ch);
-		char_puts("  restring <obj> <field> <string>\n",ch);
-		char_puts("    fields: name short long\n",ch);
+		act_char("Syntax:", ch);
+		act_char("  restring <obj> <field> <string>", ch);
+		act_char("    fields: name short long", ch);
 		return;
 	}
 
@@ -3338,7 +3331,7 @@ void do_restring(CHAR_DATA *ch, const char *argument)
 		obj->description = str_dup(argument);
 	}
 	else {
-		char_puts("That's not a valid Field.\n",ch);
+		act_char("That's not a valid Field.", ch);
 		return;
 	}
 	
@@ -3366,38 +3359,38 @@ void do_smithing(CHAR_DATA *ch, const char *argument)
 	int chance;
 
 	if ((chance = get_skill(ch, "smithing")) == 0) {
-		char_puts("Huh?\n", ch);
+		act_char("Huh?", ch);
 		return;
 	}
 
 	if (ch->fighting) {
-		char_puts("Wait until the fight finishes.\n", ch);
+		act_char("Wait until the fight finishes.", ch);
 		return;
 	}
 
 	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
-		char_puts("Which object do you want to repair.\n",ch);
+		act_char("Which object do you want to repair.", ch);
 		return;
 	}
 
 	if ((obj = get_obj_carry(ch, arg)) == NULL) {
-		char_puts("You are not carrying that.\n",ch);
+		act_char("You are not carrying that.", ch);
 		return;
 	}
 
 	if (obj->condition >= 100) {
-		char_puts("But that item is not broken.\n",ch);
+		act_char("But that item is not broken.", ch);
 		return;
 	}
 
 	if ((hammer = get_eq_char(ch, WEAR_HOLD)) == NULL) {
-		char_puts("You are not holding a hammer.\n",ch);
+		act_char("You are not holding a hammer.", ch);
 		return;
 	}
 
 	if (hammer->pObjIndex->vnum != OBJ_VNUM_HAMMER) {
-		char_puts("That is not the correct hammer.\n",ch);
+		act_char("That is not the correct hammer.", ch);
 		return;
 	}
 
@@ -3439,7 +3432,7 @@ static CHAR_DATA *find_keeper(CHAR_DATA *ch)
 	}
 
 	if (pShop == NULL) {
-		char_puts("You can't do that here.\n", ch);
+		act_char("You can't do that here.", ch);
 		return NULL;
 	}
 
@@ -3891,13 +3884,13 @@ void do_auction(CHAR_DATA *ch, const char *argument)
 		return;
 
 	if (!str_cmp(arg1, "off")) {
-		char_puts("Auction channel is now OFF.\n",ch);
+		act_char("Auction channel is now OFF.", ch);
 		SET_BIT(ch->chan, CHAN_NOAUCTION);
 		return;
 	}
 
 	if (IS_SET(ch->chan, CHAN_NOAUCTION)) {
-		char_puts("Auction channel is now ON.\n",ch);
+		act_char("Auction channel is now ON.", ch);
 		REMOVE_BIT(ch->chan, CHAN_NOAUCTION);
 	}
 
@@ -3927,18 +3920,16 @@ void do_auction(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 		else {	
-			char_puts("Auction WHAT?\n", ch);
+			act_char("Auction WHAT?", ch);
 			return;
 		}
 	}
 
 	if (IS_IMMORTAL(ch) && !str_cmp(arg1, "stop")) {
 		if (auction.item == NULL) {
-			char_puts("There is no auction going on "
-				  "you can stop.\n",ch);
+			act_char("There is no auction going on you can stop.", ch);
 			return;
-		}
-		else { /* stop the auction */
+		} else { /* stop the auction */
 			act_auction("Sale of $p has been stopped by $N.",
 				    auction.item, ch, NULL,
 				    ACT_FORMSH, POS_DEAD);

@@ -61,7 +61,7 @@ void do_settick(CHAR_DATA *ch, const char *argument)
 	one_argument(argument, arg2, sizeof(arg2));
 	val = atoi(arg2);
 	if (!val) {
-		char_puts("Non-zero, please.\n", ch);
+		act_char("Non-zero, please.", ch);
 		return;
 	}
 

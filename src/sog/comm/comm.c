@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.230 2000-07-25 12:02:25 fjoe Exp $
+ * $Id: comm.c,v 1.231 2000-10-04 20:28:53 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1218,7 +1218,7 @@ bool process_output(DESCRIPTOR_DATA *d, bool fPrompt)
 					battle_prompt(ch, victim);
 
 				if (!IS_SET(ch->comm, COMM_COMPACT))
-					char_puts("\n", ch);
+					send_to_char("\n", ch);
 
 				if (IS_SET(ch->comm, COMM_PROMPT)) {
 					if (IS_SET(ch->comm, COMM_AFK)) 
@@ -1680,7 +1680,7 @@ static void print_hometown(CHAR_DATA *ch)
 	if ((r = race_lookup(ORG_RACE(ch))) == NULL
 	||  !r->race_pcdata
 	||  (cl = class_lookup(ch->class)) == NULL) {
-		char_puts("You should create your character anew.\n", ch);
+		act_char("You should create your character anew.", ch);
 		close_descriptor(ch->desc, SAVE_F_NONE);
 		return;
 	}
@@ -1697,7 +1697,7 @@ static void print_hometown(CHAR_DATA *ch)
 		return;
 	}
 
-	char_puts("\n", ch);
+	send_to_char("\n", ch);
 	dofun("help", ch, "'CREATECHAR HOMETOWN'");
 	hometown_print_avail(ch);
 	char_puts("? ", ch);
@@ -1884,7 +1884,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 #undef NO_PLAYING_TWICE
 #ifdef NO_PLAYING_TWICE
 			if (search_sockets(d)) {
-				char_puts("Playing twice is restricted...\n", ch);
+				act_char("Playing twice is restricted...", ch);
 				close_descriptor(d, SAVE_F_NONE);
 				return;
 			} 
@@ -1923,7 +1923,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		if (check_reconnect(d, argument, FALSE))
 			REMOVE_BIT(PC(ch)->plr_flags, PLR_NEW);
 		else if (wizlock && !IS_HERO(ch)) {
-			char_puts("The game is wizlocked.\n", ch);
+			act_char("The game is wizlocked.", ch);
 			close_descriptor(d, SAVE_F_NONE);
 			return;
 		}
@@ -1937,7 +1937,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		} else {
 			/* New player */
  			if (newlock) {
-				char_puts("The game is newlocked.\n", ch);
+				act_char("The game is newlocked.", ch);
 				close_descriptor(d, SAVE_F_NONE);
 				return;
 			}
@@ -1999,7 +1999,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 	case CON_CONFIRM_NEW_NAME:
 		switch (*argument) {
 		case 'y': case 'Y':
-			char_puts("New character.\n", ch);
+			act_char("New character.", ch);
 			char_printf(ch, "Give me a password for %s: ",
 				    ch->name);
 			write_to_descriptor(d->descriptor, echo_off_str, 0);
@@ -2020,10 +2020,9 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		break;
 
 	case CON_GET_NEW_PASSWORD:
-		char_puts("\n", ch);
+		send_to_char("\n", ch);
 		if (strlen(argument) < 5) {
-			char_puts("Password must be at least five characters "
-				  "long.\n", ch);
+			act_char("Password must be at least five characters long.", ch);
 			char_puts("Password: ", ch);
 			return;
 		}
@@ -2036,16 +2035,16 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		break;
 
 	case CON_CONFIRM_NEW_PASSWORD:
-		char_puts("\n", ch);
+		send_to_char("\n", ch);
 		if (strcmp(crypt(argument, PC(ch)->pwd), PC(ch)->pwd)) {
-			char_puts("Passwords don't match.\n", ch);
+			act_char("Passwords don't match.", ch);
 			char_puts("\nRetype password: ", ch);
 			d->connected = CON_GET_NEW_PASSWORD;
 			return;
 		}
 
 		write_to_descriptor(d->descriptor, (char *) echo_on_str, 0);
-		char_puts("\n", ch);
+		send_to_char("\n", ch);
 		dofun("help", ch, "RACETABLE");
 		char_puts("What is your race ('help <race>' for more information)? ", ch);
 		d->connected = CON_GET_NEW_RACE;
@@ -2056,7 +2055,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 
 		if (!str_cmp(arg, "help")) {
 			argument = one_argument(argument, arg, sizeof(arg));
-			char_puts("\n", ch);
+			send_to_char("\n", ch);
 			if (argument[0] == '\0')
 	  			dofun("help", ch,"RACETABLE");
 			else 
@@ -2069,11 +2068,11 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		if (r == NULL
 		||  !r->race_pcdata
 		||  r->race_pcdata->classes.nused == 0) {
-			char_puts("That is not a valid race.\n", ch);
+			act_char("That is not a valid race.", ch);
 			char_puts("The following races are available:\n  ", ch);
 			col = 0;
 			hash_foreach(&races, print_race_cb, ch, &col);
-			char_puts("\n", ch);
+			send_to_char("\n", ch);
 			char_puts("What is your race ('help <race>' for more information)? ", ch);
 			break;
 		}
@@ -2104,17 +2103,17 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 			mlstr_init2(&ch->gender, flag_string(gender_table, SEX_FEMALE));
 			break;
 		default:
-	    		char_puts("That's not a sex.\n", ch);
+	    		act_char("That's not a sex.", ch);
 			char_puts("What IS your sex? ", ch);
 			return;
 		}
 	
 		dofun("help", ch, "'CLASS HELP'");
 
-		char_puts("The following classes are available:\n", ch);
+		act_char("The following classes are available:", ch);
 		col = 0;
 		hash_foreach(&classes, print_class_cb, ch, &col);
-	        char_puts("\n", ch);
+		send_to_char("\n", ch);
 		char_puts("What is your class ('help <class>' for more information)? ", ch);
 		d->connected = CON_GET_NEW_CLASS;
 		break;
@@ -2132,19 +2131,19 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		}
 
 		if ((cl = class_search(arg)) == NULL) {
-			char_puts("That's not a class.\n", ch);
+			act_char("That's not a class.", ch);
 			char_puts("What IS your class? ", ch);
 			return;
 		}
 
 		if (IS_SET(cl->class_flags, CLASS_CLOSED)) {
-			char_puts("This class isn't available yet.\n", ch);
+			act_char("This class isn't available yet.", ch);
 			char_puts("What IS your class? ", ch);
 			return;
 		}
 
 		if (!class_ok(ch, cl)) {
-			char_puts("That class is not available for your race or sex.\n", ch);
+			act_char("That class is not available for your race or sex.", ch);
 			char_puts("Choose again: ", ch);
 			return;
 		}
@@ -2155,7 +2154,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		act("You are now $t.", ch, cl->name, NULL, TO_CHAR);
 
 		if (!align_restrict(ch)) {
-			char_puts("You may be good, neutral, or evil.\n", ch);
+			act_char("You may be good, neutral, or evil.", ch);
 			char_puts("Which alignment (G/N/E)? ", ch);
 			d->connected = CON_GET_ALIGNMENT;
 		} else {
@@ -2176,7 +2175,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 			ch->alignment = -1000; 
 			break;
 		default:
-			char_puts("That's not a valid alignment.\n", ch);
+			act_char("That's not a valid alignment.", ch);
 			char_puts("Which alignment (G/N/E)? ", ch);
 			return;
 		}
@@ -2193,7 +2192,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		if (argument[0] == '\0'
 		||  (htn = htn_lookup(argument)) < 0
 		||  hometown_restrict(HOMETOWN(htn), ch)) {
-			char_puts("That's not a valid hometown.\n", ch);
+			act_char("That's not a valid hometown.", ch);
 			print_hometown(ch);
 			return;
 		}
@@ -2201,7 +2200,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		PC(ch)->hometown = htn; 
 		char_printf(ch, "\nNow your hometown is %s.\n",
 			    hometown_name(htn));
-		char_puts("[Hit Return to continue]\n", ch);
+		act_char("[Hit Return to continue]", ch);
 		ch->endur = 100;
 		d->connected = CON_GET_ETHOS;
 		break;
@@ -2225,7 +2224,8 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 				ch->ethos = ETHOS_CHAOTIC; 
 				break;
 			default:
-				char_puts("\nThat is not a valid ethos.\n", ch);
+				send_to_char("\n", ch);
+				act_char("That is not a valid ethos.", ch);
 				char_puts("What ethos do you want, (L/N/C) (type 'help' for more info)? ", ch);
 				return;
 			}
@@ -2255,9 +2255,9 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		break;
 
 	case CON_GET_OLD_PASSWORD:
-		char_puts("\n", ch);
+		send_to_char("\n", ch);
 		if (strcmp(crypt(argument, PC(ch)->pwd), PC(ch)->pwd)) {
-			char_puts("Wrong password.\n", ch);
+			act_char("Wrong password.", ch);
 			log(LOG_INFO, "Wrong password by %s@%s", ch->name, d->host);
 			if (ch->endur == 2)
 				close_descriptor(d, SAVE_F_NONE);
@@ -2272,8 +2272,8 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		}
  
 		if (PC(ch)->pwd[0] == '\0') {
-			char_puts("Warning! Null password!\n", ch);
-			char_puts("Type 'password null <new password>' to fix.\n", ch);
+			act_char("Warning! Null password!", ch);
+			act_char("Type 'password null <new password>' to fix.", ch);
 		}
 
 		write_to_descriptor(d->descriptor, (char *) echo_on_str, 0);
@@ -2296,7 +2296,8 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		/* FALLTHRU */
 
 	case CON_READ_MOTD:
-		char_puts("Welcome to Shades of Gray! Enjoy!\n\n", ch);
+		act_char("Welcome to Shades of Gray! Enjoy!", ch);
+		send_to_char("\n", ch);
 
 		ch->next	= char_list;
 		char_list	= ch;
@@ -2465,7 +2466,7 @@ bool check_reconnect(DESCRIPTOR_DATA *d, const char *name, bool fConn)
 				PC(ch)->idle_timer	= 0;
 				dvdata_free(d->dvdata);
 				d->dvdata = dvdata_dup(PC(ch)->dvdata);
-				char_puts("Reconnecting. Type replay to see missed tells.\n", ch);
+				act_char("Reconnecting. Type replay to see missed tells.", ch);
 				act("$n has reconnected.",
 				    ch, NULL, NULL, TO_ROOM);
 
@@ -2690,21 +2691,21 @@ int align_restrict(CHAR_DATA *ch)
 
 	if (r->race_pcdata->restrict_align == RA_GOOD
 	||  cl->restrict_align == RA_GOOD) {
-		char_puts("Your character has good tendencies.\n", ch);
+		act_char("Your character has good tendencies.", ch);
 		ch->alignment = 1000;
 		return RA_GOOD;
 	}
 
 	if (r->race_pcdata->restrict_align == RA_NEUTRAL
 	||  cl->restrict_align == RA_NEUTRAL) {
-		char_puts("Your character has neutral tendencies.\n", ch);
+		act_char("Your character has neutral tendencies.", ch);
 		ch->alignment = 0;
 		return RA_NEUTRAL;
 	}
 
 	if (r->race_pcdata->restrict_align == RA_EVIL
 	||  cl->restrict_align == RA_EVIL) {
-		char_puts("Your character has evil tendencies.\n", ch);
+		act_char("Your character has evil tendencies.", ch);
 		ch->alignment = -1000;
 		return RA_EVIL;
 	}		
@@ -2721,7 +2722,7 @@ int ethos_check(CHAR_DATA *ch)
 		 * temporary workaround for paladins
 		 */
 		if (IS_SET(cl->restrict_ethos, ETHOS_LAWFUL)) {
-			char_puts("You are Lawful.\n", ch);
+			act_char("You are Lawful.", ch);
 			return 1;
 		}
 	}

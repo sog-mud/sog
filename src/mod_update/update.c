@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: update.c,v 1.193 2000-06-08 19:43:58 fjoe Exp $
+ * $Id: update.c,v 1.194 2000-10-04 20:28:50 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -126,28 +126,26 @@ gain_condition(CHAR_DATA *ch, int iCond, int value)
 	&&  PC(ch)->condition[iCond] > -6) {
 		switch (iCond) {
 		case COND_HUNGER:
-			char_puts("You are hungry.\n",  ch);
+			act_char("You are hungry.", ch);
 			break;
 
 		case COND_THIRST:
-			char_puts("You are thirsty.\n", ch);
+			act_char("You are thirsty.", ch);
 			break;
 	 
 		case COND_DRUNK:
 			if (condition != 0)
-				char_puts("You are sober.\n", ch);
+				act_char("You are sober.", ch);
 			break;
 
 		case COND_BLOODLUST:
 			if (condition != 0)
-				char_puts("You are hungry for blood.\n",
-					     ch);
+				act_char("You are hungry for blood.", ch);
 			break;
 
 		case COND_DESIRE:
 			if (condition != 0)
-				char_puts("You have missed your home.\n",
-					     ch);
+				act_char("You are missing your home.", ch);
 			break;
 		}
 	}
@@ -155,7 +153,7 @@ gain_condition(CHAR_DATA *ch, int iCond, int value)
 	if (PC(ch)->condition[iCond] == -6 && ch->level >= LEVEL_PK) {
 		switch (iCond) {
 		case COND_HUNGER:
-			char_puts("You are starving!\n",  ch);
+			act_char("You are starving!", ch);
 			act("$n is starving!",  ch, NULL, NULL, TO_ROOM);
 			damage_hunger = ch->max_hit * number_range(2, 4) / 100;
 			if (!damage_hunger)
@@ -167,7 +165,7 @@ gain_condition(CHAR_DATA *ch, int iCond, int value)
 			break;
 
 		case COND_THIRST:
-			char_puts("You are dying of thrist!\n", ch);
+			act_char("You are dying of thrist!", ch);
 			act("$n is dying of thirst!", ch, NULL, NULL, TO_ROOM);
 			damage_hunger = ch->max_hit * number_range(2, 4) / 100;
 			if (!damage_hunger)
@@ -179,8 +177,7 @@ gain_condition(CHAR_DATA *ch, int iCond, int value)
 			break;
 
 		case COND_BLOODLUST:
-			char_puts("You are suffering from thrist of blood!\n",
-				  ch);
+			act_char("You are suffering from thrist of blood!", ch);
 			act("$n is suffering from thirst of blood!",
 			    ch, NULL, NULL, TO_ROOM);
 			if (ch->in_room && ch->in_room->people
@@ -203,7 +200,7 @@ gain_condition(CHAR_DATA *ch, int iCond, int value)
 			break;
 
 		case COND_DESIRE:
-			char_puts("You want to go your home!\n", ch);
+			act_char("You want to go your home!", ch);
 			act("$n desires for $s home!", ch, NULL, NULL, TO_ROOM);
 			if (ch->position >= POS_STANDING) 
 				move_char(ch, number_door(), FALSE);

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_magic.c,v 1.27 2000-06-07 08:55:41 fjoe Exp $
+ * $Id: act_magic.c,v 1.28 2000-10-04 20:28:48 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -56,26 +56,24 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 	int bane_chance;	/* spellbane chance */
 
 	if (has_spec(ch, "clan_battleragers") && !IS_IMMORTAL(ch)) {
-		char_puts("You are Battle Rager, not the filthy magician.\n",
-			  ch);
+		act_char("You are Battlerager, not the filthy magician.", ch);
 		return;
 	}
 
 	if (is_affected(ch, "shielding")) {
-		char_puts("You reach for the True Source and feel something "
-			  "stopping you.\n", ch);
+		act_char("You reach for the True Source and feel something stopping you.", ch);
 		return;
 	}
 
 	if (is_affected(ch, "garble") || is_affected(ch, "deafen") 
 	|| (ch->shapeform && IS_SET(ch->shapeform->index->flags, FORM_NOCAST))){
-		char_puts("You can't get the right intonations.\n", ch);
+		act_char("You can't get the right intonations.", ch);
 		return;
 	}
 
 	target_name = one_argument(argument, arg1, sizeof(arg1));
 	if (arg1[0] == '\0') {
-		char_puts("Cast which what where?\n", ch);
+		act_char("Cast which what where?", ch);
 		return;
 	}
 
@@ -116,7 +114,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 
 		if (spell == NULL
 		||  (chance = get_skill(ch, (sn = gmlstr_mval(&spell->sk_name)))) == 0) {
-			char_puts("You don't know any spells of that name.\n", ch);
+			act_char("You don't know any spells of that name.", ch);
 			return;
 		}
 	}
@@ -126,24 +124,23 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 	&&  !is_affected(ch, "vampire")
 	&&  pc_sk
 	&&  !IS_SET(spell->skill_flags, SKILL_CLAN)) {
-		char_puts("You must transform to vampire before casting!\n",
-			  ch);
+		act_char("You must transform to vampire before casting!", ch);
 		return;
 	}
 
 	if (spell->skill_type != ST_SPELL
 	||  spell->fun == NULL) {
-		char_puts("That's not a spell.\n", ch);
+		act_char("That's not a spell.", ch);
 		return;
 	}
 
 	if (ch->position < spell->min_pos) {
-		char_puts("You can't concentrate enough.\n", ch);
+		act_char("You can't concentrate enough.", ch);
 		return;
 	}
 
 	if (IS_SET(ch->in_room->room_flags, ROOM_NOMAGIC)) {
-		char_puts("Your spell fizzles out and fails.\n", ch);
+		act_char("Your spell fizzles out and fails.", ch);
 		act("$n's spell fizzles out and fails.",
 		    ch, NULL, NULL, TO_ROOM);
 		return;
@@ -160,7 +157,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 	if (!IS_NPC(ch)) {
 		mana = shadow? spell->min_mana: skill_mana(ch, sn);
 		if (ch->mana < mana) {
-			char_puts("You don't have enough mana.\n", ch);
+			act_char("You don't have enough mana.", ch);
 			return;
 		}
 	} else
@@ -187,7 +184,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 	case TAR_CHAR_OFFENSIVE:
 		if (target_name[0] == '\0') {
 			if ((victim = ch->fighting) == NULL) {
-				char_puts("Cast the spell on whom?\n", ch);
+				act_char("Cast the spell on whom?", ch);
 				return;
 			}
 		} else if ((range = allowed_other(ch, spell)) > 0) {
@@ -202,7 +199,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 				if (IS_NPC(victim)) {
 					if (room_is_private(ch->in_room)) {
 						WAIT_STATE(ch, spell->beats);
-						char_puts("You can't cast this spell from private room right now.\n", ch);
+						act_char("You can't cast this spell from private room right now.", ch);
 						return;
 					}
 
@@ -217,7 +214,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		}
 		else if ((victim = get_char_room(ch, target_name)) == NULL) {
 			WAIT_STATE(ch, MISSING_TARGET_DELAY);
-			char_puts("They aren't here.\n", ch);
+			act_char("They aren't here.", ch);
 			return;
 		}
 
@@ -230,7 +227,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		if (target_name[0] == '\0')
 			victim = ch;
 		else if ((victim = get_char_room(ch, target_name)) == NULL) {
-			char_puts("They aren't here.\n", ch);
+			act_char("They aren't here.", ch);
 			return;
 		}
 
@@ -243,8 +240,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 			victim = ch;
 		else if ((victim = get_char_room(ch, target_name)) == NULL
 		     ||  (!IS_NPC(ch) && victim != ch)) {
-			char_puts("You cannot cast this spell "
-				  "on another.\n", ch);
+			act_char("You cannot cast this spell on another.", ch);
 			return;
 		}
 
@@ -254,13 +250,12 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 
 	case TAR_OBJ_INV:
 		if (target_name[0] == '\0') {
-			char_puts("What should the spell be cast upon?\n",
-				  ch);
+			act_char("What should the spell be cast upon?", ch);
 			return;
 		}
 
 		if ((obj = get_obj_carry(ch, target_name)) == NULL) {
-			char_puts("You are not carrying that.\n", ch);
+			act_char("You are not carrying that.", ch);
 			return;
 		}
 
@@ -272,8 +267,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		if (target_name[0] == '\0') {
 			if ((victim = ch->fighting) == NULL) {
 				WAIT_STATE(ch, MISSING_TARGET_DELAY);
-				char_puts("Cast the spell on whom or what?\n",
-					  ch);
+				act_char("Cast the spell on whom or what?", ch);
 				return;
 			}
 			vo = victim;
@@ -284,7 +278,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 			vo = obj;
 		else {
 			WAIT_STATE(ch, spell->beats);
-			char_puts("You don't see that here.\n",ch);
+			act_char("You don't see that here.", ch);
 			return;
 		}
 		bch = victim;
@@ -300,7 +294,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		else if ((obj = get_obj_carry(ch, target_name)))
 			vo = obj;
 		else {
-			char_puts("You don't see that here.\n",ch);
+			act_char("You don't see that here.", ch);
 			return;
 		}
 		bch = victim;
@@ -325,8 +319,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		case TAR_OBJ_CHAR_DEF:
 			if (IS_SET(spell->skill_flags, SKILL_QUESTIONABLE)
 			&&  !check_trust(ch, victim)) {
-				char_puts("They do not trust you enough "
-					  "for this spell.\n", ch);
+				act_char("They do not trust you enough for this spell.", ch);
 				return;
 			}
 			break;
@@ -357,7 +350,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 	WAIT_STATE(ch, spell->beats);
 
 	if (number_percent() > chance) {
-		char_puts("You lost your concentration.\n", ch);
+		act_char("You lost your concentration.", ch);
 		check_improve(ch, sn, FALSE, 1);
 		ch->mana -= mana / 2;
 		if (shadow)
@@ -502,20 +495,19 @@ void do_pray(CHAR_DATA *ch, const char *argument)
 	int bane_chance;	/* spellbane chance */
 
 	if (has_spec(ch, "clan_battleragers") && !IS_IMMORTAL(ch)) {
-		char_puts("You are Battle Rager, you prefer not to use prayers.\n",
-			  ch);
+		act_char("You are Battlerager, you prefer not to use prayers.", ch);
 		return;
 	}
 
 	if (is_affected(ch, "garble") || is_affected(ch, "deafen") 
 	|| (ch->shapeform && IS_SET(ch->shapeform->index->flags, FORM_NOCAST))){
-		char_puts("You can't get the right intonations.\n", ch);
+		act_char("You can't get the right intonations.", ch);
 		return;
 	}
 
 	target_name = one_argument(argument, arg1, sizeof(arg1));
 	if (arg1[0] == '\0') {
-		char_puts("Pray for what?\n", ch);
+		act_char("Pray for what?", ch);
 		return;
 	}
 
@@ -537,25 +529,25 @@ void do_pray(CHAR_DATA *ch, const char *argument)
 
 	if (prayer == NULL
 	||  (chance = get_skill(ch, (sn = gmlstr_mval(&prayer->sk_name)))) == 0) {
-		char_puts("You don't know any prayers of that name.\n", ch);
+		act_char("You don't know any prayers of that name.", ch);
 		return;
 	}
 	
 	if (prayer->skill_type != ST_PRAYER
 	||  prayer->fun == NULL) {
-		char_puts("That's not a prayer.\n", ch);
+		act_char("That's not a prayer.", ch);
 		return;
 	}
 
 	if (ch->position < prayer->min_pos) {
-		char_puts("You can't concentrate enough.\n", ch);
+		act_char("You can't concentrate enough.", ch);
 		return;
 	}
 
 	if (!IS_NPC(ch)) {
 		mana = skill_mana(ch, sn);
 		if (ch->mana < mana) {
-			char_puts("You don't have enough mana.\n", ch);
+			act_char("You don't have enough mana.", ch);
 			return;
 		}
 	} else
@@ -582,7 +574,7 @@ void do_pray(CHAR_DATA *ch, const char *argument)
 	case TAR_CHAR_OFFENSIVE:
 		if (target_name[0] == '\0') {
 			if ((victim = ch->fighting) == NULL) {
-				char_puts("Use this prayer on whom?\n", ch);
+				act_char("Use this prayer on whom?", ch);
 				return;
 			}
 		} else if ((range = allowed_other(ch, prayer)) > 0) {
@@ -597,7 +589,7 @@ void do_pray(CHAR_DATA *ch, const char *argument)
 				if (IS_NPC(victim)) {
 					if (room_is_private(ch->in_room)) {
 						WAIT_STATE(ch, prayer->beats);
-						char_puts("You can't cast this spell from private room right now.\n", ch);
+						act_char("You can't cast this spell from private room right now.", ch);
 						return;
 					}
 
@@ -612,7 +604,7 @@ void do_pray(CHAR_DATA *ch, const char *argument)
 		}
 		else if ((victim = get_char_room(ch, target_name)) == NULL) {
 			WAIT_STATE(ch, MISSING_TARGET_DELAY);
-			char_puts("They aren't here.\n", ch);
+			act_char("They aren't here.", ch);
 			return;
 		}
 
@@ -624,7 +616,7 @@ void do_pray(CHAR_DATA *ch, const char *argument)
 		if (target_name[0] == '\0')
 			victim = ch;
 		else if ((victim = get_char_room(ch, target_name)) == NULL) {
-			char_puts("They aren't here.\n", ch);
+			act_char("They aren't here.", ch);
 			return;
 		}
 
@@ -637,7 +629,7 @@ void do_pray(CHAR_DATA *ch, const char *argument)
 			victim = ch;
 		else if ((victim = get_char_room(ch, target_name)) == NULL
 		     ||  (!IS_NPC(ch) && victim != ch)) {
-			char_puts("They can pray their gods themself.\n", ch);
+			act_char("They can pray their gods themself.", ch);
 			return;
 		}
 
@@ -647,13 +639,12 @@ void do_pray(CHAR_DATA *ch, const char *argument)
 
 	case TAR_OBJ_INV:
 		if (target_name[0] == '\0') {
-			char_puts("Use this prayer on what?\n",
-				  ch);
+			act_char("Use this prayer on what?", ch);
 			return;
 		}
 
 		if ((obj = get_obj_carry(ch, target_name)) == NULL) {
-			char_puts("You are not carrying that.\n", ch);
+			act_char("You are not carrying that.", ch);
 			return;
 		}
 
@@ -665,8 +656,7 @@ void do_pray(CHAR_DATA *ch, const char *argument)
 		if (target_name[0] == '\0') {
 			if ((victim = ch->fighting) == NULL) {
 				WAIT_STATE(ch, MISSING_TARGET_DELAY);
-				char_puts("Use this prayer on whom or what?\n",
-					  ch);
+				act_char("Use this prayer on whom or what?", ch);
 				return;
 			}
 			vo = victim;
@@ -677,7 +667,7 @@ void do_pray(CHAR_DATA *ch, const char *argument)
 			vo = obj;
 		else {
 			WAIT_STATE(ch, prayer->beats);
-			char_puts("You don't see that here.\n",ch);
+			act_char("You don't see that here.", ch);
 			return;
 		}
 		bch = victim;
@@ -693,7 +683,7 @@ void do_pray(CHAR_DATA *ch, const char *argument)
 		else if ((obj = get_obj_carry(ch, target_name)))
 			vo = obj;
 		else {
-			char_puts("You don't see that here.\n",ch);
+			act_char("You don't see that here.", ch);
 			return;
 		}
 		bch = victim;
@@ -717,8 +707,7 @@ void do_pray(CHAR_DATA *ch, const char *argument)
 		case TAR_OBJ_CHAR_DEF:
 			if (IS_SET(prayer->skill_flags, SKILL_QUESTIONABLE)
 			&&  !check_trust(ch, victim)) {
-				char_puts("They do not trust you enough.\n",
-					  ch);
+				act_char("They do not trust you enough.", ch);
 				return;
 			}
 			break;
@@ -757,7 +746,7 @@ void do_pray(CHAR_DATA *ch, const char *argument)
 	chance -= (cha > 18)? 0 : (18 - cha) * 3;
 
 	if (number_percent() > chance) {
-		char_puts("Your god doesn't hear you.\n", ch);
+		act_char("Your god doesn't hear you.", ch);
 		check_improve(ch, sn, FALSE, 1);
 		ch->mana -= mana / 2;
 		if (cast_far) cast_far = FALSE;

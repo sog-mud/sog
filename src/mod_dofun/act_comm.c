@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.211 2000-08-17 11:38:44 fjoe Exp $
+ * $Id: act_comm.c,v 1.212 2000-10-04 20:28:44 fjoe Exp $
  */
 
 /***************************************************************************
@@ -69,7 +69,7 @@ void do_afk(CHAR_DATA *ch, const char *argument)
 	if (IS_SET(ch->comm, COMM_AFK))
 		do_replay(ch, str_empty);
 	else
-		char_puts("You are now in AFK mode.\n", ch);
+		act_char("You are now in AFK mode.", ch);
 	TOGGLE_BIT(ch->comm, COMM_AFK);
 }
 
@@ -77,8 +77,7 @@ void do_afk(CHAR_DATA *ch, const char *argument)
 
 void do_delet(CHAR_DATA *ch, const char *argument)
 {
-	char_puts("You must type the full command to delete yourself.\n",
-		     ch);
+	act_char("You must type the full command to delete yourself.", ch);
 }
 
 void do_delete(CHAR_DATA *ch, const char *argument)
@@ -88,7 +87,7 @@ void do_delete(CHAR_DATA *ch, const char *argument)
 	
 	if (IS_SET(PC(ch)->plr_flags, PLR_CONFIRM_DELETE)) {
 		if (argument[0] != '\0') {
-			char_puts("Delete status removed.\n",ch);
+			act_char("Delete status removed.", ch);
 			REMOVE_BIT(PC(ch)->plr_flags, PLR_CONFIRM_DELETE);
 			return;
 		}
@@ -99,14 +98,13 @@ void do_delete(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (argument[0] != '\0') {
-		char_puts("Just type delete. No argument.\n",ch);
+		act_char("Just type delete. No argument.", ch);
 		return;
 	}
 
-	char_puts("Type delete again to confirm this command.\n"
-		     "WARNING: this command is irreversible.\n"
-		     "Typing delete with an argument will undo delete status.\n",
-		     ch);
+	act_char("Type delete again to confirm this command.", ch);
+	act_char("WARNING: this command is irreversible.", ch);
+	act_char("Typing delete with an argument will undo delete status.", ch);
 	SET_BIT(PC(ch)->plr_flags, PLR_CONFIRM_DELETE);
 	wiznet("$N is contemplating deletion.", ch, NULL, 0, 0, ch->level);
 }
@@ -115,66 +113,66 @@ void do_delete(CHAR_DATA *ch, const char *argument)
 void do_channels(CHAR_DATA *ch, const char *argument)
 {
 	/* lists all channels and their status */
-	char_puts("   channel     status\n",ch);
-	char_puts("---------------------\n",ch);
+	act_char("   channel     status", ch);
+	act_char("---------------------", ch);
 	
 	char_puts("music          ", ch);
 	if (!IS_SET(ch->chan, CHAN_NOMUSIC))
-		 char_puts("ON\n", ch);
+		 act_char("ON", ch);
 	else
-		 char_puts("OFF\n", ch);
+		 act_char("OFF", ch);
 
 	char_puts("shout          ", ch);
 	if (!IS_SET(ch->chan, CHAN_NOSHOUT))
-		 char_puts("ON\n", ch);
+		 act_char("ON", ch);
 	else
-		 char_puts("OFF\n", ch);
+		 act_char("OFF", ch);
 
 	char_puts("auction        ", ch);
 	if (!IS_SET(ch->chan, CHAN_NOAUCTION))
-		 char_puts("ON\n", ch);
+		 act_char("ON", ch);
 	else
-		 char_puts("OFF\n", ch);
+		 act_char("OFF", ch);
 
 	if (IS_IMMORTAL(ch)) {
 		char_puts("god channel    ", ch);
 		if (!IS_SET(ch->chan, CHAN_NOWIZ))
-			char_puts("ON\n", ch);
+			act_char("ON", ch);
 		else
-			char_puts("OFF\n", ch);
+			act_char("OFF", ch);
 	}
 
 	char_puts("tells          ",ch);
 	if (!IS_SET(ch->comm, COMM_DEAF))
-		char_puts("ON\n", ch);
+		act_char("ON", ch);
 	else
-		char_puts("OFF\n", ch);
+		act_char("OFF", ch);
 
 	char_puts("hints          ",ch);
 	if (IS_SET(ch->comm, COMM_NEWBIE_TIPS))
-		char_puts("All\n", ch);
+		act_char("All", ch);
 	else if (IS_SET(ch->comm, COMM_SOG_TIPS))
-		char_puts("SoG-specific\n", ch);
+		act_char("SoG-specific", ch);
 	else
-		char_puts("None\n", ch);
+		act_char("None", ch);
 
 	char_puts("quiet mode     ", ch);
 	if (IS_SET(ch->comm, COMM_QUIET))
-		 char_puts("ON\n", ch);
+		 act_char("ON", ch);
 	else
-		 char_puts("OFF\n", ch);
+		 act_char("OFF", ch);
 
 	if (IS_SET(ch->comm, COMM_SNOOP_PROOF))
-		char_puts("You are immune to snooping.\n", ch);
+		act_char("You are immune to snooping.", ch);
 	
 	if (IS_SET(ch->comm, COMM_NOTELL))
-		 char_puts("You cannot use tell.\n", ch);
+		 act_char("You cannot use tell.", ch);
 	
 	if (IS_SET(ch->chan, CHAN_NOCHANNELS))
-		char_puts("You cannot use channels.\n", ch);
+		act_char("You cannot use channels.", ch);
 
 	if (IS_SET(ch->comm, COMM_NOEMOTE))
-		 char_puts("You cannot show emotions.\n", ch);
+		 act_char("You cannot show emotions.", ch);
 }
 
 void do_hints(CHAR_DATA *ch, const char *argument)
@@ -189,18 +187,18 @@ void do_hints(CHAR_DATA *ch, const char *argument)
 	one_argument(argument, arg, sizeof(arg));
 	if (!str_prefix(arg, "all")) {
 		SET_BIT(ch->comm, COMM_NEWBIE_TIPS | COMM_SOG_TIPS);
-		char_puts("All tips will be displayed.\n", ch);
+		act_char("All tips will be displayed.", ch);
 		return;
 	}
 
 	if (!str_prefix(arg, "sog")) {
 		SET_BIT(ch->comm, COMM_SOG_TIPS);
-		char_puts("Specific for this world tips will be displayed.\n", ch);
+		act_char("Specific for this world tips will be displayed.", ch);
 		return;
 	}
 
 	if (!str_prefix(arg, "none")) {
-		char_puts("Tips disabled.\n", ch);
+		act_char("Tips disabled.", ch);
 		return;
 	}
 
@@ -210,11 +208,11 @@ void do_hints(CHAR_DATA *ch, const char *argument)
 void do_deaf(CHAR_DATA *ch, const char *argument)
 {
 	if (IS_SET(ch->comm,COMM_DEAF)) {
-		char_puts("You can now hear tells again.\n",ch);
+		act_char("You can now hear tells again.", ch);
 		REMOVE_BIT(ch->comm, COMM_DEAF);
 	}
 	else {
-		char_puts("From now on, you won't hear tells.\n",ch);
+		act_char("From now on, you won't hear tells.", ch);
 		SET_BIT(ch->comm, COMM_DEAF);
 	}
 }
@@ -223,11 +221,11 @@ void do_deaf(CHAR_DATA *ch, const char *argument)
 void do_quiet(CHAR_DATA *ch, const char *argument)
 {
 	if (IS_SET(ch->comm,COMM_QUIET)) {
-		 char_puts("Quiet mode removed.\n",ch);
+		 act_char("Quiet mode removed.", ch);
 		 REMOVE_BIT(ch->comm, COMM_QUIET);
 	}
 	else {
-		char_puts("From now on, you will only hear says and emotes.\n", ch);
+		act_char("From now on, you will only hear says and emotes.", ch);
 		SET_BIT(ch->comm, COMM_QUIET);
 	}
 }
@@ -235,7 +233,7 @@ void do_quiet(CHAR_DATA *ch, const char *argument)
 void do_replay(CHAR_DATA *ch, const char *argument)
 {
 	if (IS_NPC(ch)) {
-		char_puts("Huh?\n", ch);
+		act_char("Huh?", ch);
 		return;
 	}
 
@@ -249,7 +247,7 @@ void do_say(CHAR_DATA *ch, const char *argument)
 	OBJ_DATA *char_obj_next;
   
 	if (argument[0] == '\0') {
-		char_puts("Say what?\n", ch);
+		act_char("Say what?", ch);
 		return;
 	}
 
@@ -294,7 +292,7 @@ void do_tell(CHAR_DATA *ch, const char *argument)
 
 	argument = one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0' || argument[0] == '\0') {
-		char_puts("Tell whom what?\n", ch);
+		act_char("Tell whom what?", ch);
 		return;
 	}
 
@@ -304,7 +302,7 @@ void do_tell(CHAR_DATA *ch, const char *argument)
 void do_reply(CHAR_DATA *ch, const char *argument)
 {
 	if (IS_NPC(ch)) {
-		char_puts("Huh?\n", ch);
+		act_char("Huh?", ch);
 		return;
 	}
 	do_tell_raw(ch, PC(ch)->reply, argument);
@@ -317,12 +315,12 @@ void do_gtell(CHAR_DATA *ch, const char *argument)
 	int flags;
 
 	if (argument[0] == '\0') {
-		char_puts("Tell your group what?\n", ch);
+		act_char("Tell your group what?", ch);
 		return;
 	}
 
 	if (IS_SET(ch->comm, COMM_NOTELL)) {
-		char_puts("Your message didn't get through!\n", ch);
+		act_char("Your message didn't get through!", ch);
 		return;
 	}
 
@@ -343,7 +341,7 @@ void do_gtell(CHAR_DATA *ch, const char *argument)
 			 ch, argument, NULL,
 			 TO_CHAR | ACT_SPEECH(ch), POS_DEAD);
 	else
-		char_puts("Quit talking to yourself. You are all alone.\n", ch);
+		act_char("Quit talking to yourself. You are all alone.", ch);
 }
 
 void do_emote(CHAR_DATA *ch, const char *argument)
@@ -351,12 +349,12 @@ void do_emote(CHAR_DATA *ch, const char *argument)
 	int flags;
 
 	if (!IS_NPC(ch) && IS_SET(ch->comm, COMM_NOEMOTE)) {
-		char_puts("You can't show your emotions.\n", ch);
+		act_char("You can't show your emotions.", ch);
 		return;
 	}
 	
 	if (argument[0] == '\0') {
-		char_puts("Emote what?\n", ch);
+		act_char("Emote what?", ch);
 		return;
 	}
 	
@@ -379,12 +377,12 @@ void do_pmote(CHAR_DATA *ch, const char *argument)
 	int flags;
 
 	if (!IS_NPC(ch) && IS_SET(ch->comm, COMM_NOEMOTE)) {
-		char_puts("You can't show your emotions.\n", ch);
+		act_char("You can't show your emotions.", ch);
 		return;
 	}
 	
 	if (argument[0] == '\0') {
-		char_puts("Emote what?\n", ch);
+		act_char("Emote what?", ch);
 		return;
 	}
 	
@@ -457,14 +455,14 @@ void do_immtalk(CHAR_DATA *ch, const char *argument)
 	if (argument[0] == '\0') {
 		TOGGLE_BIT(orig->chan, CHAN_NOWIZ);
 		if (IS_SET(orig->chan, CHAN_NOWIZ))
-			char_puts("Immortal channel is now OFF\n", ch);
+			act_char("Immortal channel is now OFF", ch);
 		else
-			char_puts("Immortal channel is now ON\n", ch);
+			act_char("Immortal channel is now ON", ch);
 		return;
 	}
 
 	if (IS_SET(orig->chan, CHAN_NOCHANNELS)) {
-		char_puts("The gods have revoked your channel privileges.\n", ch);
+		act_char("The gods have revoked your channel privileges.", ch);
 		return;
 	}
 	
@@ -490,12 +488,12 @@ void do_immtalk(CHAR_DATA *ch, const char *argument)
 void do_yell(CHAR_DATA *ch, const char *argument)
 {
 	if (IS_SET(ch->chan, CHAN_NOCHANNELS)) {
-		 char_puts("The gods have revoked your channel privileges.\n", ch);
+		 act_char("The gods have revoked your channel privileges.", ch);
 		 return;
 	}
 	
 	if (argument[0] == '\0') {
-		char_puts("Yell what?\n", ch);
+		act_char("Yell what?", ch);
 		return;
 	}
 
@@ -521,14 +519,14 @@ void do_shout(CHAR_DATA *ch, const char *argument)
 	if (argument[0] == '\0') {
 		TOGGLE_BIT(ch->chan, CHAN_NOSHOUT);
 		if (IS_SET(ch->chan, CHAN_NOSHOUT))
-			char_puts("You will no longer hear shouts.\n",ch);
+			act_char("You will no longer hear shouts.", ch);
 		else 
-			char_puts("You will now hear shouts.\n", ch);
+			act_char("You will now hear shouts.", ch);
 		return;
 	}
 
 	if (IS_SET(ch->chan, CHAN_NOCHANNELS)) {
-		 char_puts("The gods have revoked your channel privileges.\n", ch);
+		 act_char("The gods have revoked your channel privileges.", ch);
 		 return;
 	}
 	
@@ -568,14 +566,14 @@ void do_music(CHAR_DATA *ch, const char *argument)
 	if (argument[0] == '\0') {
 		TOGGLE_BIT(ch->chan, CHAN_NOMUSIC);
 		if (IS_SET(ch->chan, CHAN_NOMUSIC))
-			char_puts("You will no longer hear music.\n",ch);
+			act_char("You will no longer hear music.", ch);
 		else 
-			char_puts("You will now hear music.\n", ch);
+			act_char("You will now hear music.", ch);
 		return;
 	}
 
 	if (IS_SET(ch->chan, CHAN_NOCHANNELS)) {
-		 char_puts("The gods have revoked your channel privileges.\n", ch);
+		 act_char("The gods have revoked your channel privileges.", ch);
 		 return;
 	}
 	
@@ -607,7 +605,7 @@ void do_gossip(CHAR_DATA *ch, const char *argument)
 		return;
 
 	if (IS_SET(ch->chan, CHAN_NOCHANNELS)) {
-		 char_puts("The gods have revoked your channel privileges.\n", ch);
+		 act_char("The gods have revoked your channel privileges.", ch);
 		 return;
 	}
 
@@ -618,7 +616,7 @@ void do_gossip(CHAR_DATA *ch, const char *argument)
 	}
 	
 	if (argument[0] == '\0') {
-		char_puts("Gossip what?\n", ch);
+		act_char("Gossip what?", ch);
 		return;
 	}
 
@@ -626,7 +624,7 @@ void do_gossip(CHAR_DATA *ch, const char *argument)
 
 	if (!IS_IMMORTAL(ch)) {
 		if (ch->mana < ch->max_mana) {
-			char_puts("You don't have enough mana.\n", ch);
+			act_char("You don't have enough mana.", ch);
 			return;
 		}
 		ch->mana = 0;
@@ -651,16 +649,16 @@ void do_clan(CHAR_DATA *ch, const char *argument)
 	clan_t *clan;
 
 	if ((clan = clan_lookup(ch->clan)) == NULL) {
-		char_puts("You are not in a clan.\n", ch);
+		act_char("You are not in a clan.", ch);
 		return;
 	}
 
 	if (argument[0] == '\0') {
 		TOGGLE_BIT(ch->chan, CHAN_NOCLAN);
 		if (IS_SET(ch->chan, CHAN_NOCLAN))
-			char_puts("You will no longer hear clan talks.\n",ch);
+			act_char("You will no longer hear clan talks.", ch);
 		else 
-			char_puts("You will now hear clan talks.\n", ch);
+			act_char("You will now hear clan talks.", ch);
 		return;
 	}
 
@@ -681,7 +679,7 @@ void do_implore(CHAR_DATA *ch, const char *argument)
 		return;
 
 	if (IS_SET(ch->chan, CHAN_NOCHANNELS)) {
-		 char_puts("The gods refuse to listen to you right now.", ch);
+		 act_char("The gods refuse to listen to you right now.", ch);
 		 return;
 	}
 
@@ -724,13 +722,13 @@ void do_pose(CHAR_DATA *ch, const char *argument)
 
 void do_rent(CHAR_DATA *ch, const char *argument)
 {
-	char_puts("There is no rent here.  Just save and quit.\n", ch);
+	act_char("There is no rent here.  Just save and quit.", ch);
 	return;
 }
 
 void do_qui(CHAR_DATA *ch, const char *argument)
 {
-	char_puts("If you want to QUIT, you have to spell it out.\n", ch);
+	act_char("If you want to QUIT, you have to spell it out.", ch);
 }
 
 void do_quit(CHAR_DATA *ch, const char *argument)
@@ -738,7 +736,7 @@ void do_quit(CHAR_DATA *ch, const char *argument)
 	PC_DATA *pc;
 
 	if (IS_NPC(ch)) {
-		char_puts("Huh?\n", ch);
+		act_char("Huh?", ch);
 		return;
 	}
 
@@ -759,7 +757,7 @@ void do_save(CHAR_DATA *ch, const char *argument)
 		return;
 
 	if (ch->level < 2) {
-		char_puts("You must be at least level 2 for saving.\n",ch);
+		act_char("You must be at least level 2 for saving.", ch);
 		return;
 	}
 	char_save(ch, 0);
@@ -775,12 +773,12 @@ void do_follow(CHAR_DATA *ch, const char *argument)
 	one_argument(argument, arg, sizeof(arg));
 
 	if (arg[0] == '\0') {
-		char_puts("Follow whom?\n", ch);
+		act_char("Follow whom?", ch);
 		return;
 	}
 
 	if ((victim = get_char_room(ch, arg)) == NULL) {
-		char_puts("They aren't here.\n", ch);
+		act_char("They aren't here.", ch);
 		return;
 	}
 
@@ -791,7 +789,7 @@ void do_follow(CHAR_DATA *ch, const char *argument)
 
 	if (victim == ch) {
 		if (ch->master == NULL) {
-			char_puts("You already follow yourself.\n", ch);
+			act_char("You already follow yourself.", ch);
 			return;
 		}
 		stop_follower(ch);
@@ -837,12 +835,12 @@ void do_order(CHAR_DATA *ch, const char *argument)
 	argument = one_argument(argument, arg, sizeof(arg));
 
 	if (arg[0] == '\0' || argument[0] == '\0') {
-		char_puts("Order whom to do what?\n", ch);
+		act_char("Order whom to do what?", ch);
 		return;
 	}
 
 	if (IS_AFFECTED(ch, AFF_CHARM)) {
-		char_puts("You feel like taking, not giving, orders.\n", ch);
+		act_char("You feel like taking, not giving, orders.", ch);
 		return;
 	}
 
@@ -854,32 +852,32 @@ void do_order(CHAR_DATA *ch, const char *argument)
 
 		if (found) {
 			WAIT_STATE(ch, get_pulse("violence"));
-			char_puts("Ok.\n", ch);
+			act_char("Ok.", ch);
 		} else
-			char_puts("You have no followers here.\n", ch);
+			act_char("You have no followers here.", ch);
 		return;
 	}
 
 	if ((victim = get_char_room(ch, arg)) == NULL) {
-		char_puts("They aren't here.\n", ch);
+		act_char("They aren't here.", ch);
 		return;
 	}
 
 	if (victim == ch) {
-		char_puts("Aye aye, right away!\n", ch);
+		act_char("Aye aye, right away!", ch);
 		return;
 	}
 
 	if (!IS_AFFECTED(victim, AFF_CHARM)
 	||  victim->master != ch) {
-		char_puts("Do it yourself!\n", ch);
+		act_char("Do it yourself!", ch);
 		return;
 	}
 
 	act("$n orders you to '$t', you do.", ch, argument, victim, TO_VICT);
 	interpret_raw(victim, argument, TRUE);
 	WAIT_STATE(ch, get_pulse("violence"));
-	char_puts("Ok.\n", ch);
+	act_char("Ok.", ch);
 }
 
 void do_group(CHAR_DATA *ch, const char *argument)
@@ -913,17 +911,17 @@ void do_group(CHAR_DATA *ch, const char *argument)
 	}
 
 	if ((victim = get_char_room(ch, arg)) == NULL) {
-		char_puts("They aren't here.\n", ch);
+		act_char("They aren't here.", ch);
 		return;
 	}
 
 	if (victim == ch) {
-		char_puts("Huh? Grouping with yourself?!\n", ch);
+		act_char("Huh? Grouping with yourself?!", ch);
 		return;
 	}
 
 	if (ch->master != NULL || ch->leader != NULL) {
-		char_puts("But you are following someone else!\n", ch);
+		act_char("But you are following someone else!", ch);
 		return;
 	}
 
@@ -933,7 +931,7 @@ void do_group(CHAR_DATA *ch, const char *argument)
 	}
 	
 	if (IS_AFFECTED(victim, AFF_CHARM)) {
-		char_puts("You can't remove charmed mobs from your group.\n",ch);
+		act_char("You can't remove charmed mobs from your group.", ch);
 		return;
 	}
 	
@@ -1167,14 +1165,14 @@ void do_speak(CHAR_DATA *ch, const char *argument)
 	if (arg[0] == '\0') {
 		char_printf(ch, "You now speak %s.\n", 
 			flag_string(slang_table, ch->slang));
-		char_puts("You can speak :\n", ch);
+		act_char("You can speak :", ch);
 		char_printf(ch, "       common, %s\n",
 			    flag_string(slang_table, r->race_pcdata->slang));
 		return;
 	}
 
 	if ((language = flag_value(slang_table, arg)) < 0) {
-		char_puts("You never heard of that language.\n", ch);
+		act_char("You never heard of that language.", ch);
 		return;
 	}
 
@@ -1192,7 +1190,7 @@ void do_twit(CHAR_DATA *ch, const char *argument)
 	char arg[MAX_STRING_LENGTH];
 
 	if (IS_NPC(ch)) {
-		char_puts("Huh?\n", ch);
+		act_char("Huh?", ch);
 		return;
 	}
 
@@ -1215,7 +1213,7 @@ void do_lang(CHAR_DATA *ch, const char *argument)
 	DESCRIPTOR_DATA *d;
 
 	if (langs.nused == 0) {
-		char_puts("No languages defined.\n", ch);
+		act_char("No languages defined.", ch);
 		return;
 	}
 
@@ -1245,7 +1243,7 @@ void do_lang(CHAR_DATA *ch, const char *argument)
 			char_printf(ch, "%s%s",
 				    lang == 0 ? str_empty : " | ", l->name);
 		}
-		char_puts(" ]\n", ch);
+		act_char(" ]", ch);
 		return;
 	}
 
@@ -1260,29 +1258,28 @@ void do_judge(CHAR_DATA *ch, const char *argument)
 	CHAR_DATA *victim;
 
 	if (!has_spec(ch, "clan_rulers")) {
-		char_puts("Huh?\n", ch);
+		act_char("Huh?", ch);
 		return;
 	}
 
 	argument = one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
-		char_puts("Judge whom?\n", ch);
+		act_char("Judge whom?", ch);
 		return;
 	}
 
 	if ((victim = get_char_world(ch, arg)) == NULL) {
-		char_puts("They aren't here.\n", ch);
+		act_char("They aren't here.", ch);
 		return;
 	}
 
 	if (IS_NPC(victim)) {
-		char_puts("Not a mobile, of course.\n", ch);
+		act_char("Not a mobile, of course.", ch);
 		return;
 	}
 
 	if (IS_IMMORTAL(victim) && !IS_IMMORTAL(ch)) {
-		char_puts("You do not have the power to judge Immortals.\n",
-			  ch);
+		act_char("You do not have the power to judge Immortals.", ch);
 		return;
 	}
 
@@ -1298,7 +1295,7 @@ void do_trust(CHAR_DATA *ch, const char *argument)
 	PC_DATA *pc;
 	
 	if (IS_NPC(ch)) {
-		char_puts("Huh?\n", ch);
+		act_char("Huh?", ch);
 		return;
 	}
 
@@ -1306,34 +1303,34 @@ void do_trust(CHAR_DATA *ch, const char *argument)
 	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
 		if (!pc->trust) {
-			char_puts("You do not allow anyone to cast questionable spells on you.\n", ch);
+			act_char("You do not allow anyone to cast questionable spells on you.", ch);
 			return;
 		}
 
 		if (IS_SET(pc->trust, TRUST_ALL)) {
-			char_puts("You allow everyone to cast questionable spells on you.\n", ch);
+			act_char("You allow everyone to cast questionable spells on you.", ch);
 			return;
 		}
 		if (IS_SET(pc->trust, TRUST_CLAN)) 
-			char_puts("You trust your clan with questionable spells.\n", ch);
+			act_char("You trust your clan with questionable spells.", ch);
 		if (IS_SET(pc->trust, TRUST_GROUP))
-			char_puts("You trust your group with questionable spells.\n", ch);
+			act_char("You trust your group with questionable spells.", ch);
 		return;
 	}
 
 	if (!str_cmp(arg, "clan")) {
 		if (IS_NULLSTR(ch->clan)) {
-			char_puts("You are not in clan.\n", ch);
+			act_char("You are not in clan.", ch);
 			return;
 		};
 
 		TOGGLE_BIT(pc->trust, TRUST_CLAN);
 		if (IS_SET(pc->trust, TRUST_CLAN)) {
 			REMOVE_BIT(pc->trust, TRUST_ALL);
-			char_puts("You now trust your clan with questionable spells.\n", ch);
+			act_char("You now trust your clan with questionable spells.", ch);
 		}
 		else 
-			char_puts("You no longer trust your clan with questionable spells.\n", ch);
+			act_char("You no longer trust your clan with questionable spells.", ch);
 		return;
 	}
 
@@ -1341,26 +1338,26 @@ void do_trust(CHAR_DATA *ch, const char *argument)
 		TOGGLE_BIT(pc->trust, TRUST_GROUP);
 		if (IS_SET(pc->trust, TRUST_GROUP)) {
 			REMOVE_BIT(pc->trust, TRUST_ALL);
-			char_puts("You allow your group to cast questionable spells on you.\n", ch);
+			act_char("You allow your group to cast questionable spells on you.", ch);
 		}
 		else
-			char_puts("You no longer trust your group with questionable spells.\n", ch);
+			act_char("You no longer trust your group with questionable spells.", ch);
 		return;
 	}
 
 	if (!str_cmp(arg, "all")) {
 		pc->trust = TRUST_ALL;
-		char_puts("You allow everyone to cast questionable spells on you.\n", ch);
+		act_char("You allow everyone to cast questionable spells on you.", ch);
 		return;
 	}
 
 	if (!str_cmp(arg, "none")) {
 		pc->trust = 0;
-		char_puts("You do not allow anyone to cast questionable spells on you.\n", ch);
+		act_char("You do not allow anyone to cast questionable spells on you.", ch);
 		return;
 	}
 
-	char_puts("Syntax: trust {{ group | clan | all | none }\n", ch);
+	act_char("Syntax: trust {{ group | clan | all | none }", ch);
 }
 
 void do_wanted(CHAR_DATA *ch, const char *argument)
@@ -1369,23 +1366,23 @@ void do_wanted(CHAR_DATA *ch, const char *argument)
 	CHAR_DATA *victim;
 
 	if (get_skill(ch, "wanted") == 0) {
-		char_puts("Huh?\n", ch);
+		act_char("Huh?", ch);
 		return;
 	}
 
 	argument = one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
-		char_puts("Set wanted whom?\n", ch);
+		act_char("Set wanted whom?", ch);
 		return;
 	}
 
 	if ((victim = get_char_area(ch, arg)) == NULL) {
-		char_puts("They aren't here.\n", ch);
+		act_char("They aren't here.", ch);
 		return;
 	}
 
 	if (IS_NPC(victim)) {
-		char_puts("Not a mobile, of course.\n", ch);
+		act_char("Not a mobile, of course.", ch);
 		return;
 	}
 
@@ -1396,7 +1393,7 @@ void do_wanted(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (victim == ch) {
-		char_puts( "You cannot do that to yourself.\n", ch);
+		act_char("You cannot do that to yourself.", ch);
 		return;
 	}
 
@@ -1440,12 +1437,12 @@ void do_mark(CHAR_DATA *ch, const char *argument)
 	clan_t *clan = NULL;
 
 	if ((clan = clan_lookup(ch->clan)) == NULL) {
-		char_puts("You are not in clan.\n", ch);
+		act_char("You are not in clan.", ch);
 		return;
 	}
 
 	if (!clan->mark_vnum) {
-		char_puts ("Your clan do not have any mark.\n", ch);
+		act_char("Your clan do not have any mark.", ch);
 		return;
 	}
 
@@ -1461,7 +1458,7 @@ void do_mark(CHAR_DATA *ch, const char *argument)
 
 void do_petitio(CHAR_DATA *ch, const char *argument)
 {
-	char_puts("You must enter full command to petition.\n",ch);
+	act_char("You must enter full command to petition.", ch);
 }
 
 void do_petition(CHAR_DATA *ch, const char *argument)
@@ -1486,7 +1483,7 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 				    "<char name>\n",
 				    IS_IMMORTAL(ch) ? "<clan name> " : str_empty);
 		} else if (IS_NULLSTR(ch->clan))
-			char_puts("Usage: petition <clan name>\n", ch);
+			act_char("Usage: petition <clan name>", ch);
 		return;
 	}
 
@@ -1519,8 +1516,7 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 		if (pc->clan_status != CLAN_LEADER
 		&&  pc->clan_status != CLAN_SECOND
 		&&  !IS_IMMORTAL(ch)) {
-			char_puts("You don't have enough power to "
-				  "accept/reject petitions.\n", ch);
+			act_char("You don't have enough power to accept/reject petitions.", ch);
 			return;
 		}
 
@@ -1540,7 +1536,7 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 		||  IS_NPC(victim)) {
 			victim = char_load(arg2, LOAD_F_NOCREATE);
 			if (victim == NULL) {
-				char_puts("Can't find them.\n", ch);
+				act_char("Can't find them.", ch);
 				return;
 			}
 			loaded = TRUE;
@@ -1550,7 +1546,7 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 
 		if (accept) {
 			if (!IS_CLAN(vpc->petition, clan->name)) {
-				char_puts("They didn't petition.\n", ch);
+				act_char("They didn't petition.", ch);
 				goto cleanup;
 			}
 
@@ -1566,7 +1562,7 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 			name_add(&clan->member_list, victim->name, NULL, NULL);
 			clan_save(clan);
 
-			char_puts("Greet new member!\n", ch);
+			act_char("Greet new member!", ch);
 			v_changed = TRUE;
 			if (!loaded)
 				act("Your petition to $t has been accepted.",
@@ -1588,8 +1584,7 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 		if (IS_CLAN(victim->clan, clan->name)) {
 			if (vpc->clan_status == CLAN_LEADER
 			&&  !IS_IMMORTAL(ch)) {
-				char_puts("You don't have enough power "
-					  "to do that.\n", ch);
+				act_char("You don't have enough power to do that.", ch);
 				return;
 			}
 
@@ -1626,7 +1621,7 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 		if (IS_CLAN(vpc->petition, clan->name)) {
 			free_string(vpc->petition);
 			vpc->petition = str_empty;
-			char_puts("Petition was rejected.\n", ch);
+			act_char("Petition was rejected.", ch);
 			v_changed = TRUE;
 			if (!loaded)
 				act("Your petition to $t was rejected.",
@@ -1656,7 +1651,7 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 		if (changed)
 			clan_save(clan);
 
-		char_puts("They didn't petition.\n", ch);
+		act_char("They didn't petition.", ch);
 
 	cleanup:
 		if (v_changed)
@@ -1716,7 +1711,7 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 	}
 
 	if ((clan = clan_search(arg1)) == 0) {
-		char_puts("No such clan.\n", ch);
+		act_char("No such clan.", ch);
 		return;
 	}
 
@@ -1735,7 +1730,7 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 
 	free_string(pc->petition);
 	pc->petition = str_qdup(clan->name);
-	char_puts("Petition sent.\n", ch);
+	act_char("Petition sent.", ch);
 }
 
 void do_promote(CHAR_DATA *ch, const char *argument)
@@ -1749,7 +1744,7 @@ void do_promote(CHAR_DATA *ch, const char *argument)
 
 	if (IS_NPC(ch)
 	||  (!IS_IMMORTAL(ch) && PC(ch)->clan_status != CLAN_LEADER)) {
-		char_puts("Huh?\n", ch);
+		act_char("Huh?", ch);
 		return;
 	}
 
@@ -1757,12 +1752,9 @@ void do_promote(CHAR_DATA *ch, const char *argument)
 	argument = one_argument(argument, arg2, sizeof(arg2));
 
 	if (!*arg1 || !*arg2) {
-		char_puts("Usage: promote <char name> <commoner | secondary>\n",
-			  ch);
-		if (IS_IMMORTAL(ch)) {
-			char_puts("    or: promote <char name> <leader>\n",
-				  ch);
-		}
+		act_char("Usage: promote <char name> <commoner | secondary>", ch);
+		if (IS_IMMORTAL(ch))
+			act_char("    or: promote <char name> <leader>", ch);
 		return;
 	}
 
@@ -1776,7 +1768,7 @@ void do_promote(CHAR_DATA *ch, const char *argument)
 
 	if ((clan = clan_lookup(victim->clan)) == NULL
 	||  (!IS_CLAN(victim->clan, ch->clan) && !IS_IMMORTAL(ch))) {
-		char_puts("They are not an a clan.\n", ch);
+		act_char("They are not an a clan.", ch);
 		if (loaded)
 			char_nuke(victim);
 		return;
@@ -1785,8 +1777,7 @@ void do_promote(CHAR_DATA *ch, const char *argument)
 	vpc = PC(victim);
 
 	if (!IS_IMMORTAL(ch) && vpc->clan_status == CLAN_LEADER) {
-		char_puts("You don't have enough power to promote them.\n",
-			  ch);
+		act_char("You don't have enough power to promote them.", ch);
 		if (loaded)
 			char_nuke(victim);
 		return;
@@ -1794,8 +1785,7 @@ void do_promote(CHAR_DATA *ch, const char *argument)
 
 	if (!str_prefix(arg2, "leader") && IS_IMMORTAL(ch)) {
 		if (vpc->clan_status == CLAN_LEADER) {
-			char_puts("They are already leader in a clan.\n",
-				  ch);
+			act_char("They are already leader in a clan.", ch);
 			if (loaded)
 				char_nuke(victim);
 			return;
@@ -1807,16 +1797,15 @@ void do_promote(CHAR_DATA *ch, const char *argument)
 
 		vpc->clan_status = CLAN_LEADER;
 		if (ch != victim)
-			char_puts("They are now leader in their clan.\n", ch);
-		char_puts("You are now leader in your clan.\n", victim);
+			act_char("They are now leader in their clan.", ch);
+		act_char("You are now leader in your clan.", victim);
 		changed = TRUE;
 		goto cleanup;
 	}
 
 	if (!str_prefix(arg2, "secondary")) {
 		if (vpc->clan_status == CLAN_SECOND) {
-			char_puts("They are already second in a clan.\n",
-				  ch);
+			act_char("They are already second in a clan.", ch);
 			if (loaded)
 				char_nuke(victim);
 			return;
@@ -1828,16 +1817,15 @@ void do_promote(CHAR_DATA *ch, const char *argument)
 
 		vpc->clan_status = CLAN_SECOND;
 		if (ch != victim)
-			char_puts("They are now second in the clan.\n", ch);
-		char_puts("You are now second in the clan.\n", victim);
+			act_char("They are now second in the clan.", ch);
+		act_char("You are now second in the clan.", victim);
 		changed = TRUE;
 		goto cleanup;
 	}
 
 	if (!str_prefix(arg2, "commoner")) {
 		if (vpc->clan_status == CLAN_COMMONER) {
-			char_puts("They are already commoner in a clan.\n",
-				  ch);
+			act_char("They are already commoner in a clan.", ch);
 			if (loaded)
 				char_nuke(victim);
 			return;
@@ -1848,8 +1836,8 @@ void do_promote(CHAR_DATA *ch, const char *argument)
 
 		vpc->clan_status = CLAN_COMMONER;
 		if (ch != victim)
-			char_puts("They are now commoner in the clan.\n", ch);
-		char_puts("You are now commoner in the clan.\n", victim);
+			act_char("They are now commoner in the clan.", ch);
+		act_char("You are now commoner in the clan.", victim);
 		changed = TRUE;
 		goto cleanup;
 	}
@@ -1870,7 +1858,7 @@ cleanup:
 
 void do_alia(CHAR_DATA *ch, const char *argument)
 {
-	char_puts("I'm sorry, alias must be entered in full.\n", ch);
+	act_char("I'm sorry, alias must be entered in full.", ch);
 }
 
 void do_alias(CHAR_DATA *ch, const char *argument)
@@ -1886,11 +1874,11 @@ void do_alias(CHAR_DATA *ch, const char *argument)
     
 	if (arg[0] == '\0') {
 		if (d->dvdata->alias[0] == NULL) {
-			char_puts("You have no aliases defined.\n",ch);
+			act_char("You have no aliases defined.", ch);
 			return;
 		}
 
-		char_puts("Your current aliases are:\n",ch);
+		act_char("Your current aliases are:", ch);
 		for (pos = 0; pos < MAX_ALIAS; pos++) {
 			if (d->dvdata->alias[pos] == NULL
 			||  d->dvdata->alias_sub[pos] == NULL)
@@ -1904,7 +1892,7 @@ void do_alias(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (!str_cmp(arg, "unalias") || !str_cmp(arg, "alias")) {
-		char_puts("Sorry, that word is reserved.\n",ch);
+		act_char("Sorry, that word is reserved.", ch);
 		return;
 	}
 
@@ -1922,13 +1910,13 @@ void do_alias(CHAR_DATA *ch, const char *argument)
 			}
 		}
 
-		char_puts("That alias is not defined.\n",ch);
+		act_char("That alias is not defined.", ch);
 		return;
     	}
 
 	if (!str_prefix(argument, "delete")
 	||  !str_prefix(argument, "prefix")) {
-		char_puts("That shall not be done!\n",ch);
+		act_char("That shall not be done!", ch);
 		return;
 	}
 
@@ -1950,7 +1938,7 @@ void do_alias(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (pos >= MAX_ALIAS) {
-		char_puts("Sorry, you have reached the alias limit.\n", ch);
+		act_char("Sorry, you have reached the alias limit.", ch);
 		return;
 	}
   
@@ -1965,7 +1953,7 @@ void do_alias(CHAR_DATA *ch, const char *argument)
 
 void do_unalia(CHAR_DATA *ch, const char *argument)
 {
-	char_puts("I'm sorry, unalias must be entered in full.\n", ch);
+	act_char("I'm sorry, unalias must be entered in full.", ch);
 }
 
 void do_unalias(CHAR_DATA *ch, const char *argument)
@@ -1980,7 +1968,7 @@ void do_unalias(CHAR_DATA *ch, const char *argument)
  
 	argument = one_argument(argument, arg, sizeof(arg));
 	if (arg == '\0') {
-		char_puts("Unalias what?\n",ch);
+		act_char("Unalias what?", ch);
 		return;
 	}
 
@@ -1997,7 +1985,7 @@ void do_unalias(CHAR_DATA *ch, const char *argument)
 		}
 
 		if (!strcmp(arg, d->dvdata->alias[pos])) {
-			char_puts("Alias removed.\n", ch);
+			act_char("Alias removed.", ch);
 			free_string(d->dvdata->alias[pos]);
 			free_string(d->dvdata->alias_sub[pos]);
 			d->dvdata->alias[pos] = NULL;
@@ -2007,7 +1995,7 @@ void do_unalias(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (!found)
-		char_puts("No alias of that name to remove.\n", ch);
+		act_char("No alias of that name to remove.", ch);
 }
 
 /*-----------------------------------------------------------------------------
@@ -2133,7 +2121,7 @@ void do_toggle(CHAR_DATA *ch, const char *argument)
 
 	argument = one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
-		char_puts("Your current settings are:\n", ch);
+		act_char("Your current settings are:", ch);
 		for (t = toggle_table; t->name; t++)
 			toggle_print(ch, t);
 		return;

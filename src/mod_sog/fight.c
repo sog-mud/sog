@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.278 2000-08-11 12:51:46 cs Exp $
+ * $Id: fight.c,v 1.279 2000-10-04 20:28:47 fjoe Exp $
  */
 
 /***************************************************************************
@@ -365,7 +365,7 @@ one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 				}
 				act("$n's katana glows blue.\n",
 				    ch, NULL, NULL, TO_ROOM);
-				char_puts("Your katana glows blue.\n",ch);
+				act_char("Your katana glows blue.", ch);
 			}
 		}
 	}
@@ -442,7 +442,7 @@ one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 				act_puts("$n's weapon runs through $N's chest!",
 				 	ch, NULL, victim,
 				 	TO_NOTVICT, POS_RESTING);
-				char_puts("You have been KILLED!\n", victim);
+				act_char("You have been KILLED!", victim);
 				act("$n is DEAD!", victim, NULL, NULL, TO_ROOM);
 				WAIT_STATE(ch, 2);
 				victim->position = POS_DEAD;
@@ -466,7 +466,7 @@ one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 				act_puts("$n's cleave chops $N IN HALF!",
 					 ch, NULL, victim,
 					 TO_NOTVICT, POS_RESTING);
-				char_puts("You have been KILLED!\n", victim);
+				act_char("You have been KILLED!", victim);
 				act("$n is DEAD!", victim, NULL, NULL, TO_ROOM);
 				WAIT_STATE(ch, 2);
 				victim->position = POS_DEAD;
@@ -487,7 +487,7 @@ one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 				act_puts("$n {R+++ASSASSINATES+++{x you!",
 					 ch, NULL, victim,
 					 TO_VICT, POS_DEAD);
-				char_puts("You have been KILLED!\n", victim);
+				act_char("You have been KILLED!", victim);
 				act("$n is DEAD!", victim, NULL, victim,
 				    TO_ROOM);
 				check_improve(ch, "assassinate", TRUE, 1);
@@ -557,8 +557,7 @@ one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 		ch->hit += hit_ga;
 		ch->hit  = UMIN(ch->hit, ch->max_hit);
 		update_pos(ch);
-		char_puts("Your health increases as you suck "
-			  "your victim's blood.\n", ch);
+		act_char("Your health increases as you suck your victim's blood.", ch);
 	}
 
 	/* but do we have a funky weapon? */
@@ -580,7 +579,7 @@ one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 				    "chopping your head OFF!",
 				    victim, wield, NULL, TO_CHAR);
 				act("$n is DEAD!", victim, NULL, NULL, TO_ROOM);
-				char_puts("You have been KILLED!\n", victim);
+				act_char("You have been KILLED!", victim);
 				victim->position = POS_DEAD;
 				handle_death(ch, victim);
 				return;
@@ -1148,7 +1147,7 @@ damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, const char *dt,
 			break;
 		act("$n is mortally wounded, and will die soon, if not aided.",
 		    victim, NULL, NULL, TO_ROOM);
-		char_puts( "You are mortally wounded, and will die soon, if not aided.\n", victim);
+		act_char("You are mortally wounded, and will die soon, if not aided.", victim);
 		break;
 
 	case POS_INCAP:
@@ -1156,7 +1155,7 @@ damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, const char *dt,
 			break;
 		act("$n is incapacitated and will slowly die, if not aided.",
 		    victim, NULL, NULL, TO_ROOM);
-		char_puts( "You are incapacitated and will slowly die, if not aided.\n", victim);
+		act_char("You are incapacitated and will slowly die, if not aided.", victim);
 		break;
 
 	case POS_STUNNED:
@@ -1164,22 +1163,22 @@ damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, const char *dt,
 			break;
 		act("$n is stunned, but will probably recover.",
 		    victim, NULL, NULL, TO_ROOM);
-		char_puts("You are stunned, but will probably recover.\n",
-			     victim);
+		act_char("You are stunned, but will probably recover.", victim);
 		break;
 
 	case POS_DEAD:
 		act("$n is DEAD!!", victim, 0, 0, TO_ROOM);
-		char_puts("You have been KILLED!!\n\n", victim);
+		act_char("You have been KILLED!!", victim);
+		send_to_char("\n", victim);
 		break;
 
 	default:
 		if (IS_SET(dam_flags, DAMF_HUNGER | DAMF_THIRST))
 			break;
 		if (dam > victim->max_hit / 4)
-			char_puts("That really did HURT!\n", victim);
+			act_char("That really did HURT!", victim);
 		if (victim->hit < victim->max_hit / 4)
-			char_puts("You sure are BLEEDING!\n", victim);
+			act_char("You sure are BLEEDING!", victim);
 		break;
 	}
 
@@ -1343,7 +1342,7 @@ raw_kill(CHAR_DATA *ch, CHAR_DATA *victim)
 		victim->move	= victim->max_move;
 		update_pos(victim);
 	        if (!saves_spell(victim->level,ch,DAM_NEGATIVE)) {
-			char_puts("Your muscles stop responding.\n", ch);
+			act_char("Your muscles stop responding.", ch);
 			DAZE_STATE(ch, victim->level);
 		}
 		return NULL;
@@ -1397,9 +1396,7 @@ raw_kill(CHAR_DATA *ch, CHAR_DATA *victim)
 	}
 
 	SET_BIT(PC(victim)->plr_flags, PLR_GHOST);
-	char_puts("You turn into an invincible ghost for a few minutes.\n"
-		  "As long as you don't attack anything.\n",
-		  victim);
+	act_char("You turn into an invincible ghost for a few minutes.", ch);
 
 	extract_char(victim, XC_F_INCOMPLETE);
 
@@ -1645,7 +1642,7 @@ bool is_safe_nomessage(CHAR_DATA *ch, CHAR_DATA *victim)
 	if (victim != ch
 	&&  !IS_NPC(ch)
 	&&  IS_SET(PC(ch)->plr_flags, PLR_GHOST)) {
-		char_puts("You return to your normal form.\n", ch);
+		act_char("You return to your normal form.", ch);
 		REMOVE_BIT(PC(ch)->plr_flags, PLR_GHOST);
 	}
 
@@ -2640,12 +2637,12 @@ group_gain(CHAR_DATA *ch, CHAR_DATA *victim)
 			continue;
 
 		if (gch->level - lch->level > 8) {
-			char_puts("You are too high for this group.\n", gch);
+			act_char("You are too high for this group.", gch);
 			continue;
 		}
 
 		if (gch->level - lch->level < -8) {
-			char_puts("You are too low for this group.\n", gch);
+			act_char("You are too low for this group.", gch);
 			continue;
 		}
 
@@ -2756,8 +2753,7 @@ xp_compute(CHAR_DATA *gch, CHAR_DATA *victim, int total_levels, int members)
 				    IS_EVIL(gch) ?	"evils" :
 							"neutrals");
 			if (gch->perm_stat[STAT_CHA] > 3 && IS_GOOD(gch)) {
-				char_puts("So your charisma "
-					  "has reduced by one.\n", gch);
+				act_char("So your charisma has reduced by one.", gch);
 				gch->perm_stat[STAT_CHA] -= 1;
 			}
 		}
@@ -2771,8 +2767,7 @@ xp_compute(CHAR_DATA *gch, CHAR_DATA *victim, int total_levels, int members)
 			if (gch->perm_stat[STAT_CHA] <
 						get_max_train(gch, STAT_CHA)
 			&&  IS_GOOD(gch)) {
-				char_puts("So your charisma "
-					  "has increased by one.\n", gch);
+				act_char("So your charisma has increased by one.", gch);
 				gch->perm_stat[STAT_CHA] += 1;
 			}
 		}

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: core.c,v 1.12 2000-06-07 08:55:24 fjoe Exp $
+ * $Id: core.c,v 1.13 2000-10-04 20:28:44 fjoe Exp $
  */
 
 #include <errno.h>
@@ -84,7 +84,7 @@ do_modules(CHAR_DATA *ch, const char *argument)
 		log_setchar(ch);
 		time(&curr_time);
 		if (!mod_load(m, curr_time))
-			char_puts("Ok.\n", ch);
+			act_char("Ok.", ch);
 		log_unsetchar();
 		return;
 	}
@@ -94,12 +94,12 @@ do_modules(CHAR_DATA *ch, const char *argument)
 		int i;
 
 		if (modules.nused == 0) {
-			char_puts("No modules found.\n", ch);
+			act_char("No modules found.", ch);
 			return;
 		}
 
-		char_puts("  Module  Prio          Load time         Deps\n", ch);
-		char_puts("--------- ---- -------------------------- -----------------------------------\n", ch);
+		act_char("  Module  Prio          Load time         Deps", ch);
+		act_char("--------- ---- -------------------------- -----------------------------------", ch);
 		for (i = 0; i < modules.nused; i++) {
 			module_t *m = VARR_GET(&modules, i);
 			char_printf(ch, "%9s %4d [%24s] %s\n",
@@ -118,7 +118,7 @@ do_modules(CHAR_DATA *ch, const char *argument)
 void
 do_shutdow(CHAR_DATA *ch, const char *argument)
 {
-	char_puts("If you want to SHUTDOWN, spell it out.\n", ch);
+	act_char("If you want to SHUTDOWN, spell it out.", ch);
 }
 
 void
@@ -151,16 +151,16 @@ do_shutdown(CHAR_DATA *ch, const char *argument)
 			}
 			fclose(fp);
 			wiznet("$N has activated shutdown", ch, NULL, 0, 0, 0);
-			char_puts("Shutdown activated.\n", ch);
+			act_char("Shutdown activated.", ch);
 		}
 		else
-			char_puts("Shutdown already activated.\n", ch);
+			act_char("Shutdown already activated.", ch);
 		return;
 	}
 
 	if (!str_prefix(arg, "deactivate") || !str_prefix(arg, "cancel")) {
 		if (!active)
-			char_puts("Shutdown already inactive.\n", ch);
+			act_char("Shutdown already inactive.", ch);
 		else {
 			if (dunlink(TMP_PATH, SHUTDOWN_FILE) < 0) {
 				char_printf(ch, "Error: %s.\n",
@@ -169,7 +169,7 @@ do_shutdown(CHAR_DATA *ch, const char *argument)
 			}
 			wiznet("$N has deactivated shutdown",
 				ch, NULL, 0, 0, 0);
-			char_puts("Shutdown deactivated.\n", ch);
+			act_char("Shutdown deactivated.", ch);
 		}
 		return;
 	}
@@ -180,7 +180,7 @@ do_shutdown(CHAR_DATA *ch, const char *argument)
 void
 do_reboo(CHAR_DATA *ch, const char *argument)
 {
-	char_puts("If you want to REBOOT, spell it out.\n", ch);
+	act_char("If you want to REBOOT, spell it out.", ch);
 }
 
 void
@@ -197,7 +197,7 @@ do_reboot(CHAR_DATA *ch, const char *argument)
 
 	if (is_name(arg, "cancel")) {
 		reboot_counter = -1;
-		char_puts("Reboot canceled.\n", ch);
+		act_char("Reboot canceled.", ch);
 		return;
 	}
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: eventfun.c,v 1.19 2000-07-27 09:30:09 fjoe Exp $
+ * $Id: eventfun.c,v 1.20 2000-10-04 20:28:47 fjoe Exp $
  */
 
 
@@ -56,7 +56,7 @@ EVENT_FUN(event_enter_lshield)
 		return;
 	}
 
-	char_puts("The protective shield of room blocks you.\n", ch);
+	act_char("The protective shield of room blocks you.", ch);
 	act("$N has entered the room.", af->owner, NULL, ch, TO_CHAR);
 	dofun("wake", af->owner, str_empty);
 
@@ -162,7 +162,7 @@ EVENT_FUN(event_update_espirit)
 		af2.bitvector	= 0;
 		af2.owner	= NULL;
 		affect_join(ch, &af2);
-		char_puts("You feel worse than ever.\n", ch);
+		act_char("You feel worse than ever.", ch);
 		act("$n looks more evil.", ch, NULL, NULL, TO_ROOM);
 	}
 }
@@ -189,7 +189,7 @@ EVENT_FUN(event_update_rlight)
 		spellfun_call("cure disease", NULL, af->level, ch, ch);
 	spellfun_call("cure critical", NULL, af->level, ch, ch);
 
-	char_puts("A warm feeling fills your body.\n", ch);
+	act_char("A warm feeling fills your body.", ch);
 }
 
 EVENT_FUN(event_updatechar_wcurse)
@@ -201,7 +201,7 @@ EVENT_FUN(event_updatechar_wcurse)
 
 	act("The witch curse makes $n feel $s life slipping away.",
 	    ch, NULL, NULL, TO_ROOM);
-	char_puts("The witch curse makes you feeling your life slipping away.\n", ch);
+	act_char("The witch curse makes you feeling your life slipping away.", ch);
 
 	witch.where = af->where;
 	witch.type  = af->type;
@@ -236,7 +236,7 @@ EVENT_FUN(event_updatechar_plague)
         
 	act("$n writhes in agony as plague sores erupt from $s skin.",
 	    ch, NULL, NULL, TO_ROOM);
-	char_puts("You writhe in agony from the plague.\n", ch);
+	act_char("You writhe in agony from the plague.", ch);
 	    
 	if (af->level == 1)
 		return;
@@ -255,7 +255,7 @@ EVENT_FUN(event_updatechar_plague)
 		&&  !IS_IMMORTAL(vch) 
 		&&  !IS_AFFECTED(vch, AFF_PLAGUE) 
 		&&  number_bits(2) == 0) {
-			char_puts("You feel hot and feverish.\n", vch);
+			act_char("You feel hot and feverish.", vch);
 			act("$n shivers and looks very ill.",
 			    vch, NULL, NULL, TO_ROOM);
 			affect_join(vch, &plague);
@@ -277,7 +277,7 @@ EVENT_FUN(event_updatechar_poison)
 	if (IS_AFFECTED(ch, AFF_SLOW)) return;
 
 	act("$n shivers and suffers.", ch, NULL, NULL, TO_ROOM); 
-	char_puts("You shiver and suffer.\n", ch);
+	act_char("You shiver and suffer.", ch);
 	damage(ch, ch, af->level/10 + 1, "poison", DAM_POISON, DAMF_SHOW);
 }
 
@@ -325,7 +325,7 @@ EVENT_FUN(event_updatechar_crippled_hands)
 	if (get_eq_char(ch, WEAR_WIELD) 
 	|| get_eq_char(ch, WEAR_SECOND_WIELD)
 	|| get_eq_char(ch, WEAR_HOLD)) {
-		char_puts("The pain pulses in your crippled hands.", ch);
+		act_char("The pain pulses in your crippled hands.", ch);
 		damage(ch, ch, ch->level/2, "crippled hands", DAM_HARM, TRUE);
 	}
 }

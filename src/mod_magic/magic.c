@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: magic.c,v 1.25 2000-08-04 14:12:47 cs Exp $
+ * $Id: magic.c,v 1.26 2000-10-04 20:28:48 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -68,7 +68,7 @@ obj_cast_spell(const char *sn, int level, CHAR_DATA *ch, void *vo)
 			vo = ch->fighting;
 		/* mem_is handles NULL vo properly (returns FALSE) */
 		if (!mem_is(vo, MT_CHAR)) {
-			char_puts("You can't do that.\n", ch);
+			act_char("You can't do that.", ch);
 			return;
 		}
 
@@ -83,7 +83,7 @@ obj_cast_spell(const char *sn, int level, CHAR_DATA *ch, void *vo)
 			vo = ch;
 		/* mem_is handles NULL vo properly (returns FALSE) */
 		if (!mem_is(vo, MT_CHAR)) {
-			char_puts("You can't do that.\n", ch);
+			act_char("You can't do that.", ch);
 			return;
 		}
 		bch = vo;
@@ -93,7 +93,7 @@ obj_cast_spell(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	case TAR_OBJ_INV:
 		/* mem_is handles NULL vo properly (returns FALSE) */
 		if (!mem_is(vo, MT_OBJ)) {
-			char_puts("You can't do that.\n", ch);
+			act_char("You can't do that.", ch);
 			return;
 		}
 		bch = ch;
@@ -105,7 +105,7 @@ obj_cast_spell(const char *sn, int level, CHAR_DATA *ch, void *vo)
 			if (ch->fighting)
 				vo = ch->fighting;
 			else {
-				char_puts("You can't do that.\n", ch);
+				act_char("You can't do that.", ch);
 				return;
 			}
 		}
@@ -115,7 +115,7 @@ obj_cast_spell(const char *sn, int level, CHAR_DATA *ch, void *vo)
 			bch = vo;
 			bane_damage = 3*bch->level;
 		} else if (!mem_is(vo, MT_OBJ)) {
-			char_puts("You can't do that.\n", ch);
+			act_char("You can't do that.", ch);
 			return;
 		}
 		break;
@@ -129,7 +129,7 @@ obj_cast_spell(const char *sn, int level, CHAR_DATA *ch, void *vo)
 			bch = vo;
 			bane_damage = 3*bch->level;
 		} else if (!mem_is(vo, MT_OBJ)) {
-			char_puts("You can't do that.\n", ch);
+			act_char("You can't do that.", ch);
 			return;
 		}
 		break;
@@ -143,8 +143,7 @@ obj_cast_spell(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		case TAR_OBJ_CHAR_DEF:
 			if (IS_SET(spell->skill_flags, SKILL_QUESTIONABLE)
 			&&  !check_trust(ch, victim)) {
-				char_puts("They do not trust you enough "
-					  "for this spell.\n", ch);
+				act_char("They do not trust you enough for this spell.", ch);
 				return;
 			}
 			break;
@@ -157,8 +156,7 @@ obj_cast_spell(const char *sn, int level, CHAR_DATA *ch, void *vo)
 
 			if (offensive) {
 				if (is_safe(ch, victim)) {
-					char_puts("Something isn't right...\n",
-						  ch);
+					act_char("Something isn't right...", ch);
 					return;
 				}
 			}

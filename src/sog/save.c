@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.166 2000-08-04 14:12:49 cs Exp $
+ * $Id: save.c,v 1.167 2000-10-04 20:28:52 fjoe Exp $
  */
 
 /***************************************************************************
@@ -108,8 +108,7 @@ void delete_player(CHAR_DATA *victim, char* msg)
 	char *name;
 
 	if (msg) {
-		char_puts("You became a ghost permanently "
-			  "and leave the earth realm.\n", victim);
+		act_char("You became a ghost permanently and leave the earth realm.", victim);
 		act("$n is dead, and will not rise again.\n",
 		    victim, NULL, NULL, TO_ROOM);
 		victim->hit = 1;

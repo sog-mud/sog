@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.261 2000-08-11 10:03:37 cs Exp $
+ * $Id: handler.c,v 1.262 2000-10-04 20:28:51 fjoe Exp $
  */
 
 /***************************************************************************
@@ -706,7 +706,7 @@ void extract_obj(OBJ_DATA *obj, int flags)
 		 for (wch = char_list; wch && !IS_NPC(wch); wch = wch->next) {
 		 	if (!mlstr_cmp(&obj->owner, &wch->short_descr)) {
 				REMOVE_BIT(PC(wch)->plr_flags, PLR_NOEXP);
-				char_puts("Now you catch your spirit.\n", wch);
+				act_char("Now you catch your spirit.", wch);
 				break;
 			}
 		}
@@ -1016,7 +1016,7 @@ CHAR_DATA *find_char(CHAR_DATA *ch, const char *argument, int door, int range)
 
 	if ((opdoor = opposite_door(door)) == -1) {
 		log(LOG_BUG, "In find_char wrong door: %d", door);
-		char_puts("You don't see that there.\n", ch);
+		act_char("You don't see that there.", ch);
 		return NULL;
 	}
 
@@ -1032,15 +1032,14 @@ CHAR_DATA *find_char(CHAR_DATA *ch, const char *argument, int door, int range)
 
 		if ((bExit = dest_room->exit[opdoor]) == NULL
 		||  bExit->to_room.r != back_room) {
-			char_puts("The path you choose prevents your power "
-				  "to pass.\n",ch);
+			act_char("The path you choose prevents your power to pass.",ch);
 			return NULL;
 		}
 		if ((target = get_char_room_raw(ch, arg, &number, dest_room))) 
 			return target;
 	}
 
-	char_puts("You don't see that there.\n", ch);
+	act_char("You don't see that there.", ch);
 	return NULL;
 }
 
@@ -1674,7 +1673,7 @@ int count_charmed(CHAR_DATA *ch)
 	}
 
 	if (count >= MAX_CHARM(ch)) {
-		char_puts("You are already controlling as many charmed mobs as you can!\n", ch);
+		act_char("You are already controlling as many charmed mobs as you can!", ch);
 		return count;
 	}
 	return 0;
@@ -2124,7 +2123,7 @@ bool check_blind(CHAR_DATA *ch)
 	bool can_see = check_blind_raw(ch);
 
 	if (!can_see)
-		char_puts("You can't see a thing!\n", ch);
+		act_char("You can't see a thing!", ch);
 
 	return can_see;
 }
@@ -2310,7 +2309,7 @@ const char *garble(CHAR_DATA *ch, const char *i)
 void do_tell_raw(CHAR_DATA *ch, CHAR_DATA *victim, const char *msg)
 {
 	if (ch == victim) {
-		char_puts("Talking to yourself, eh?\n", ch);
+		act_char("Talking to yourself, eh?", ch);
 		return;
 	}
 
@@ -2321,13 +2320,13 @@ void do_tell_raw(CHAR_DATA *ch, CHAR_DATA *victim, const char *msg)
 	}
 
 	if (IS_SET(ch->comm, COMM_NOTELL)) {
-		char_puts("Your message didn't get through.\n", ch);
+		act_char("Your message didn't get through.", ch);
 		return;
 	}
 
 	if (victim == NULL 
 	|| (IS_NPC(victim) && victim->in_room != ch->in_room)) {
-		char_puts("They aren't here.\n", ch);
+		act_char("They aren't here.", ch);
 		return;
 	}
 
@@ -2454,27 +2453,27 @@ void quit_char(CHAR_DATA *ch, int flags)
 	const char *name;
 
 	if (ch->position == POS_FIGHTING) {
-		char_puts("No way! You are fighting.\n", ch);
+		act_char("No way! You are fighting.", ch);
 		return;
 	}
 
 	if (ch->position < POS_STUNNED ) {
-		char_puts("You're not DEAD yet.\n", ch);
+		act_char("You're not DEAD yet.", ch);
 		return;
 	}
 
 	if (IS_AFFECTED(ch, AFF_CHARM)) {
-		char_puts("You don't want to leave your master.\n", ch);
+		act_char("You don't want to leave your master.", ch);
 		return;
 	}
 
 	if (IS_SET(PC(ch)->plr_flags, PLR_NOEXP)) {
-		char_puts("You don't want to lose your spirit.\n", ch);
+		act_char("You don't want to lose your spirit.", ch);
 		return;
 	}
 
 	if (IS_AFFECTED(ch, AFF_SLEEP)) {
-		char_puts("You cannot quit, you are in deep sleep.\n", ch);
+		act_char("You cannot quit, you are in deep sleep.", ch);
 		return;
 	}
 
@@ -2502,42 +2501,41 @@ void quit_char(CHAR_DATA *ch, int flags)
 
 	if (auction.item != NULL
 	&&  ((ch == auction.buyer) || (ch == auction.seller))) {
-		char_puts("Wait till you have sold/bought the item "
-			  "on auction.\n",ch);
+		act_char("Wait till you have sold/bought the item on auction.",ch);
 		return;
 	}
 
 	if (!IS_IMMORTAL(ch)) {
 		if (IS_PUMPED(ch)) {
-			char_puts("Your adrenalin is gushing! You can't quit yet.\n", ch);
+			act_char("Your adrenalin is gushing! You can't quit yet.", ch);
 			return;
 		}
 
 		if (is_affected(ch, "witch curse")) {
-			char_puts("You are cursed. Wait till you DIE!\n", ch);
+			act_char("You are cursed. Wait till you DIE!", ch);
 			return;
 		}
 
 		if (!IS_NULLSTR(ch->in_room->area->clan)
 		&&  !IS_CLAN(ch->in_room->area->clan, ch->clan)) {
-			char_puts("You can't quit here.\n", ch);
+			act_char("You can't quit here.", ch);
 			return;
 		}
 
 		if (ch->in_room && IS_AFFECTED(ch->in_room, RAFF_ESPIRIT)) {
-			char_puts("Evil spirits in the area prevents you from leaving.\n", ch);
+			act_char("Evil spirits in the area prevents you from leaving.", ch);
 			return;
 		}
 
 		if (!get_skill(ch, "evil spirit")
 		&&  is_affected(ch, "evil spirit")) {
-			char_puts("Evil spirits in you prevents you from leaving.\n", ch);
+			act_char("Evil spirits in you prevents you from leaving.", ch);
 			return;
 		}
 
 		if (current_time - PC(ch)->last_offence < OFFENCE_DELAY_TIME 
 		&& !IS_IMMORTAL(ch)) {
-			char_puts("You cannot quit yet.", ch);
+			act_char("You cannot quit yet.", ch);
 			return;
 		}
 	}
@@ -2579,8 +2577,8 @@ void quit_char(CHAR_DATA *ch, int flags)
 		}
 	}
 
-	char_puts("Alas, all good things must come to an end.\n", ch);
-	char_puts("You hit reality hard. Reality truth does unspeakable things to you.\n", ch);
+	act_char("Alas, all good things must come to an end.", ch);
+	act_char("You hit reality hard. Reality truth does unspeakable things to you.", ch);
 	act_puts("$n has left the game.", ch, NULL, NULL, TO_ROOM, POS_RESTING);
 	log(LOG_INFO, "%s has quit.", ch->name);
 	wiznet("{W$N{x rejoins the real world.",
@@ -2592,8 +2590,7 @@ void quit_char(CHAR_DATA *ch, int flags)
 		vch_next = vch->next;
 		if (is_affected(vch, "doppelganger")
 		&&  vch->doppel == ch) {
-			char_puts("You shift to your true form as your victim leaves.\n",
-				  vch);
+			act_char("You shift to your true form as your victim leaves.", vch);
 			affect_strip(vch, "doppelganger");
 		}
 
@@ -2846,8 +2843,7 @@ int mount_success(CHAR_DATA *ch, CHAR_DATA *mount, int canattack)
 
 	if (!IS_NPC(ch) && IS_DRUNK(ch)) {
 		percent += chance / 2;
-		char_puts("Due to your being under the influence, riding seems "
-			  "a bit harder...\n", ch);
+		act_char("Due to your being under the influence, riding seems a bit harder...", ch);
 	}
 
 	success = percent - chance;
@@ -3026,7 +3022,7 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 	if ((pexit = in_room->exit[door]) == NULL
 	||  (to_room = pexit->to_room.r) == NULL 
 	||  !can_see_room(ch, pexit->to_room.r)) {
-		char_puts("Alas, you cannot go that way.\n", ch);
+		act_char("Alas, you cannot go that way.", ch);
 		return FALSE;
 	}
 
@@ -3073,22 +3069,22 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 	if (IS_AFFECTED(ch, AFF_CHARM)
 	&&  ch->master != NULL
 	&&  in_room == ch->master->in_room) {
-		char_puts("What? And leave your beloved master?\n", ch);
+		act_char("What? And leave your beloved master?", ch);
 		return FALSE;
 	}
 
 	if (room_is_private(to_room)) {
-		char_puts("That room is private right now.\n", ch);
+		act_char("That room is private right now.", ch);
 		return FALSE;
 	}
 
 	if (MOUNTED(ch)) {
 		if (MOUNTED(ch)->position < POS_FIGHTING) {
-			char_puts("Your mount must be standing.\n", ch);
+			act_char("Your mount must be standing.", ch);
 			return FALSE; 
 		}
 		if (!mount_success(ch, MOUNTED(ch), FALSE)) {
-			char_puts("Your mount subbornly refuses to go that way.\n", ch);
+			act_char("Your mount subbornly refuses to go that way.", ch);
 			return FALSE;
 		}
 	}
@@ -3099,7 +3095,7 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 		if (!IS_IMMORTAL(ch)) {
 			if (IS_SET(to_room->room_flags, ROOM_GUILD)
 			&&  !guild_ok(ch, to_room)) {
-				char_puts("You aren't allowed there.\n", ch);
+				act_char("You aren't allowed there.", ch);
 				return FALSE;
 			}
 
@@ -3117,12 +3113,12 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 		    to_room->sector_type == SECT_AIR) {
 			if (MOUNTED(ch)) {
 				if (!CAN_FLY(MOUNTED(ch))) {
-					char_puts("You mount can't fly.\n", ch);
+					act_char("You mount can't fly.", ch);
 					return FALSE;
 				}
 			} else {
 				if (!CAN_FLY(ch)) {
-					char_puts("You can't fly.\n", ch);
+					act_char("You can't fly.", ch);
 					return FALSE;
 				}
 			}
@@ -3132,12 +3128,12 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 		    to_room->sector_type == SECT_WATER_SWIM) {
 			if (MOUNTED(ch)) {
 				if (!CAN_FLY(MOUNTED(ch)) && !CAN_SWIM(MOUNTED(ch))) {
-					char_puts("Your mount can neither fly nor swim.\n", ch);
+					act_char("Your mount can neither fly nor swim.", ch);
 					return FALSE;
 				}
 			} else {
 				if (!CAN_FLY(ch) && !CAN_SWIM(ch) && !has_boat(ch)) {
-					char_puts("Learn to swim or buy a boat.\n", ch);
+					act_char("Learn to swim or buy a boat.", ch);
 					return FALSE;
 				}
 			}
@@ -3147,12 +3143,12 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 		    to_room->sector_type == SECT_WATER_NOSWIM) {
 			if (MOUNTED(ch)) {
 				if (!CAN_FLY(MOUNTED(ch))) {
-					char_puts("Your mount can't fly.\n", ch);
+					act_char("Your mount can't fly.", ch);
 					return FALSE;
 				}
 			} else {
 				if (!CAN_FLY(ch) && !has_boat(ch)) {
-					char_puts("Learn to fly or buy a boat.\n", ch);
+					act_char("Learn to fly or buy a boat.", ch);
 					return FALSE;
 				}
 			}
@@ -3163,11 +3159,11 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 			if (MOUNTED(ch)	
 			&& (!CAN_SWIM(MOUNTED(ch))
 			    || !is_affected(MOUNTED(ch), "water breathing"))) {
-				char_puts("Your mount refuses to dive.\n", ch);
+				act_char("Your mount refuses to dive.", ch);
 				return FALSE;
 			}
 			if (!CAN_SWIM(ch)) {
-				char_puts("You can't swim.\n", ch);
+				act_char("You can't swim.", ch);
 				return FALSE;
 			}
 		}
@@ -3382,7 +3378,7 @@ door_lookup(CHAR_DATA *ch, const char *arg)
 			return door;
 	}
 
-	char_puts("You don't see that here.\n", ch);
+	act_char("You don't see that here.", ch);
 	return -1;
 }
 
@@ -3407,7 +3403,7 @@ int find_door(CHAR_DATA *ch, const char *arg)
 
 	/* 'look direction' */
 	if (!IS_SET(pexit->exit_info, EX_ISDOOR)) {
-		char_puts("You can't do that.\n", ch);
+		act_char("You can't do that.", ch);
 		return -1;
 	}
 
@@ -3702,7 +3698,7 @@ void wear_obj(CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace)
 		}
 
 		log(LOG_BUG, "wear_obj: no free finger");
-		char_puts("You already wear two rings.\n", ch);
+		act_char("You already wear two rings.", ch);
 		return;
 	}
 
@@ -3847,7 +3843,7 @@ void wear_obj(CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace)
 		}
 
 		log(LOG_BUG, "wear_obj: no free wrist");
-		char_puts("You already wear two wrist items.\n", ch);
+		act_char("You already wear two wrist items.", ch);
 		return;
 	}
 
@@ -3893,7 +3889,7 @@ void wear_obj(CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace)
 		if (!IS_NPC(ch)
 		&& get_obj_weight(obj) >
 			  str_app[get_curr_stat(ch, STAT_STR)].wield) {
-			char_puts("It is too heavy for you to wield.\n", ch);
+			act_char("It is too heavy for you to wield.", ch);
 			if (dual)
 				equip_char(ch, dual, WEAR_SECOND_WIELD);
 			return;
@@ -3903,7 +3899,7 @@ void wear_obj(CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace)
 		    (IS_WEAPON_STAT(obj, WEAPON_TWO_HANDS)
 		&&  !IS_NPC(ch) && ch->size < SIZE_LARGE))
 		&&  free_hands(ch) < 2) {
-			char_puts("You need two hands free for that weapon.\n", ch);
+			act_char("You need two hands free for that weapon.", ch);
 			if (dual)
 				equip_char(ch, dual, WEAR_SECOND_WIELD);
 			return;
@@ -4420,7 +4416,7 @@ void advance(CHAR_DATA *victim, int level)
 		int temp_prac;
 		int delta;
 
-		char_puts("**** OOOOHHHHHHHHHH  NNNNOOOO ****\n", victim);
+		act_char("**** OOOOHHHHHHHHHH  NNNNOOOO ****", victim);
 		temp_prac = PC(victim)->practice;
 		victim->level = 1;
 		PC(victim)->exp	= base_exp(victim);
@@ -4440,7 +4436,7 @@ void advance(CHAR_DATA *victim, int level)
 		advance_level(victim);
 		PC(victim)->practice= temp_prac;
 	} else 
-		char_puts("**** OOOOHHHHHHHHHH  YYYYEEEESSS ****\n", victim);
+		act_char("**** OOOOHHHHHHHHHH  YYYYEEEESSS ****", victim);
 
 	for (iLevel = victim->level; iLevel < level; iLevel++) {
 		char_puts("{CYou raise a level!!{x ", victim);
@@ -4464,7 +4460,7 @@ void gain_exp(CHAR_DATA *ch, int gain)
 		return;
 
 	if (IS_SET(PC(ch)->plr_flags, PLR_NOEXP) && gain > 0) {
-		char_puts("You can't gain exp without your spirit.\n", ch);
+		act_char("You can't gain exp without your spirit.", ch);
 		return;
 	}
 

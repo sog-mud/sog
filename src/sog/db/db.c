@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.228 2000-08-21 07:50:57 fjoe Exp $
+ * $Id: db.c,v 1.229 2000-10-04 20:28:54 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1893,7 +1893,7 @@ void append_file(CHAR_DATA *ch, const char *file, const char *str)
 		return;
 
 	if ((fp = dfopen(TMP_PATH, file, "a")) == NULL)
-		char_puts("Could not open the file!\n", ch);
+		act_char("Could not open the file!", ch);
 	else {
 		fprintf(fp, "[%5d] %s: %s\n",
 		    ch->in_room ? ch->in_room->vnum : 0, ch->name, str);

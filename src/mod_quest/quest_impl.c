@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: quest_impl.c,v 1.1 2000-06-02 16:41:01 fjoe Exp $
+ * $Id: quest_impl.c,v 1.2 2000-10-04 20:28:50 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -41,16 +41,16 @@ quest_update(void)
 
 		if (PC(ch)->questtime < 0) {
 			if (++PC(ch)->questtime == 0) {
-				char_puts("{*You may now quest again.\n", ch);
+				act_char("{*You may now quest again.", ch);
 				return;
 			}
 		} else if (IS_ON_QUEST(ch)) {
 			if (--PC(ch)->questtime == 0) {
-				char_puts("You have run out of time for your quest!\n", ch);
+				act_char("You have run out of time for your quest!", ch);
 				quest_cancel(ch);
 				PC(ch)->questtime = -number_range(5, 10);
 			} else if (PC(ch)->questtime < 6) {
-				char_puts("Better hurry, you're almost out of time for your quest!\n", ch);
+				act_char("Better hurry, you're almost out of time for your quest!", ch);
 				return;
 			}
 		}

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: healer.c,v 1.41 2000-06-01 17:57:34 fjoe Exp $
+ * $Id: healer.c,v 1.42 2000-10-04 20:28:45 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -95,7 +95,7 @@ void do_heal(CHAR_DATA *ch, const char *argument)
 	}
  
 	if (mob == NULL) {
-		char_puts("You can't do that here.\n", ch);
+		act_char("You can't do that here.", ch);
 		return;
 	}
 
@@ -110,7 +110,7 @@ void do_heal(CHAR_DATA *ch, const char *argument)
 				    h->keyword, h->name,
 				    get_heal_cost(h, mob, ch)/100);
 		}
-		char_puts(" Type heal <type> to be healed.\n", ch);
+		act_char(" Type heal <type> to be healed.", ch);
 		return;
 	}
 
@@ -127,7 +127,7 @@ void do_heal(CHAR_DATA *ch, const char *argument)
 	cost = get_heal_cost(h, mob, ch);
 
 	if (has_spec(ch, "clan_battleragers") && (h->price > 0)) {
-		char_puts("You are Battlerager, not the filthy magician\n", ch);
+		act_char("You are Battlerager, not the filthy magician", ch);
 		return;
 	}
 
