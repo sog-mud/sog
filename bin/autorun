@@ -21,7 +21,7 @@ while [ 1 ]
 do
 	if [ -r $lastlog ]; then
 		index=`cat $lastlog`
-	endif
+	fi
 
 	while [ 1 ]
 	do
