@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.36 1998-05-28 17:46:39 fjoe Exp $
+ * $Id: comm.c,v 1.37 1998-05-28 20:54:40 efdi Exp $
  */
 
 /***************************************************************************
@@ -2292,6 +2292,7 @@ sprintf(buf,"Str:%s  Int:%s  Wis:%s  Dex:%s  Con:%s Cha:%s \n\r Accept (Y/N)? ",
 	        	count++;
 	    max_on = UMAX(count,max_on);
 	}
+
 
 
 	if ( ch->level == 0 )

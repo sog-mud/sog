@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.20 1998-05-27 08:47:28 fjoe Exp $
+ * $Id: save.c,v 1.21 1998-05-28 20:54:41 efdi Exp $
  */
 
 /***************************************************************************
@@ -327,6 +327,9 @@ void fwrite_char( CHAR_DATA *ch, FILE *fp )
 		ch->pcdata->condition[5] );
 	/* write i_lang */
 	fprintf( fp, "I_Lang %d\n", ch->i_lang );
+
+	/* write pc_killed */
+	fprintf( fp, "PC_Killed %d\n", ch->pcdata->pc_killed );
 
 	/* write alias */
         for (pos = 0; pos < MAX_ALIAS; pos++)
@@ -678,6 +681,7 @@ bool load_char_obj( DESCRIPTOR_DATA *d, char *name )
     ch->pcdata->condition[COND_DESIRE]	= 48;
     ch->pcdata->adr_stops_shown		= 1;
 
+    ch->pcdata->pc_killed = 0;
     ch->hunter = NULL;
     ch->i_lang = 0;
     ch->pcdata->questpoints = 0; 
@@ -1141,6 +1145,7 @@ void fread_char( CHAR_DATA *ch, FILE *fp )
 	case 'P':
 		KEY( "Password",	ch->pcdata->pwd,	fread_string( fp ) );
 		KEY( "Pass",	ch->pcdata->pwd,	fread_string( fp ) );
+		KEY("PC_Killed",ch->pcdata->pc_killed,	fread_number( fp ) );
 		KEY( "Played",	ch->pcdata->played,	fread_number( fp ) );
 		KEY( "Plyd",	ch->pcdata->played,	fread_number( fp ) );
 		KEY( "Points",	ch->pcdata->points,	fread_number( fp ) );

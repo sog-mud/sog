@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.32 1998-05-28 10:12:56 efdi Exp $
+ * $Id: act_comm.c,v 1.33 1998-05-28 20:54:39 efdi Exp $
  */
 
 /***************************************************************************
@@ -66,6 +66,29 @@ void do_quit_org	args((CHAR_DATA *ch, char *argument, bool Count));
 bool proper_order	args((CHAR_DATA *ch, char *argument));
 char *translate(CHAR_DATA *ch, CHAR_DATA *victim, char *argument);
 int lang_lookup		args((const char *name));
+
+tag_rate_table rate_table[RATE_TABLE_SIZE]; 
+
+int compar(const void *a, const void *b)
+{
+	return ((tag_rate_table *)b)->pc_killed 
+		- ((tag_rate_table *)a)->pc_killed;
+}
+
+void do_rating(CHAR_DATA *ch, char *argument)
+{
+	int i;
+	qsort(rate_table, RATE_TABLE_SIZE, sizeof(tag_rate_table), compar);
+	send_to_char("Name\t\t|\tPC's killed\n\r", ch);
+	send_to_char("-------------------------------------\n\r", ch);
+	for (i = 0; i < RATE_TABLE_SIZE; ++i) {
+		if (!*rate_table[i].name || !rate_table[i].pc_killed)
+			continue;
+		char_printf(ch, "%s\t\t|\t%d\n\r", rate_table[i].name, 
+					rate_table[i].pc_killed);
+	}
+	char_printf(ch, "\n\rYou have killed {R%d{x players.\n\r", ch->pcdata->pc_killed);
+}
 
 void do_music(CHAR_DATA *ch, char *argument)
 {

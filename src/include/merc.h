@@ -2,7 +2,7 @@
 #define _MERC_H_
 
 /*
- * $Id: merc.h,v 1.22 1998-05-27 20:17:20 efdi Exp $
+ * $Id: merc.h,v 1.23 1998-05-28 20:54:41 efdi Exp $
  */
 
 /***************************************************************************
@@ -2114,6 +2114,7 @@ struct	pc_data
     ROOM_INDEX_DATA *	questroom;	/* quest */
     sh_int		race;	/* orginal race for polymorph */
     sh_int		adr_stops_shown;
+    int			pc_killed;	/* how many PC's killed by character */
 };
 
 

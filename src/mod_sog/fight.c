@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.19 1998-05-27 20:17:20 efdi Exp $
+ * $Id: fight.c,v 1.20 1998-05-28 20:54:40 efdi Exp $
  */
 
 /***************************************************************************
@@ -81,6 +81,7 @@ extern void do_visible(CHAR_DATA *ch, char *argument);
 /*
  * Local functions.
  */
+void	rating_update	args((CHAR_DATA *ch, CHAR_DATA *victim));
 void	check_assist	args((CHAR_DATA *ch, CHAR_DATA *victim));
 bool	check_dodge	args((CHAR_DATA *ch, CHAR_DATA *victim));
 bool	check_parry	args((CHAR_DATA *ch, CHAR_DATA *victim));
@@ -107,6 +108,30 @@ int	critical_strike args((CHAR_DATA *ch, CHAR_DATA *victim, int dam));
 void	check_shield_destroyed	args((CHAR_DATA *ch, CHAR_DATA *victim, bool second));
 void	check_weapon_destroyed	args((CHAR_DATA *ch, CHAR_DATA *victim, bool second));
 
+/*
+ * Updates player's rating.
+ * Should be called every death.
+ */
+void rating_update(CHAR_DATA *ch, CHAR_DATA *victim)
+{
+	int i, minnum = -1;
+	if (IS_NPC(ch) || IS_NPC(victim))
+		return;
+
+	ch->pcdata->pc_killed++;
+	
+	for (i = 0; i < RATE_TABLE_SIZE; ++i) {
+		if (rate_table[i].pc_killed < ch->pcdata->pc_killed)
+			minnum = i;
+		if (!str_cmp(ch->name, rate_table[i].name))
+			break;
+	}
+
+	if (minnum >= 0) {
+		strcpy(rate_table[minnum].name, ch->name);
+		rate_table[minnum].pc_killed = ch->pcdata->pc_killed;
+	} 	
+}
 
 
 /*
@@ -950,6 +975,7 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt ,bool secondary)
 		    send_to_char("You have been KILLED!\n\r",victim);
 		    act("$n is DEAD!",victim,NULL,NULL,TO_ROOM);
 		    WAIT_STATE(ch, 2);
+		    rating_update(ch, victim);
 		    raw_kill(victim);
 		    if (!IS_NPC(ch) && IS_NPC(victim))
 		      {
@@ -992,6 +1018,7 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt ,bool secondary)
 			      TO_VICT,POS_DEAD);
 		    send_to_char("You have been KILLED!\n\r",victim);
 		    check_improve(ch,gsn_assassinate,TRUE,1);
+		    rating_update(ch, victim);
 		    raw_kill(victim);
 		    if (!IS_NPC(ch) && IS_NPC(victim))
 		      {
@@ -1395,6 +1422,7 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt, int dam_type, boo
 	if (victim->position == POS_DEAD)
 	{
 		group_gain(ch, victim);
+		rating_update(ch, victim);
 
 		if (IS_NPC(ch) && ch->pIndexData->vnum == MOB_VNUM_STALKER)
 			ch->status = 10;
@@ -1584,7 +1612,7 @@ bool is_safe_nomessage(CHAR_DATA *ch, CHAR_DATA *victim)
 	/* Experimental vampires' coffins handle */
 	if (victim->on && IS_SET(victim->on->value[2], SLEEP_IN)
 	    && victim->on->pIndexData->vnum == 1200
-	    && time_info.hour >= 5 && time_info.hour <= 20
+	    && time_info.hour >= 6 && time_info.hour <= 18
 	    && victim->class == CLASS_VAMPIRE)
 		return TRUE;
 

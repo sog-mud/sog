@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.11 1998-05-27 08:47:23 fjoe Exp $
+ * $Id: db.c,v 1.12 1998-05-28 20:54:40 efdi Exp $
  */
 
 /***************************************************************************
@@ -58,6 +58,7 @@
 #include "act_wiz.h"
 #include "comm.h"
 #include "magic.h"
+#include "act_comm.h"
 
 void load_limited_objects();
 
@@ -446,6 +447,7 @@ void	reset_area	args((AREA_DATA * pArea));
 void boot_db(void)
 {
 	char buf[MAX_STRING_LENGTH];
+	int i;
 
 	/*
 	 * Init some data space stuff.
@@ -518,6 +520,14 @@ void boot_db(void)
 		
 		/* reboot counter */
 		reboot_counter = 1440;	/* 12 hours */
+
+	/* 
+	 * Initialize rate_table 
+	 */
+	for (i = 0; i < RATE_TABLE_SIZE; ++i) {
+		*(rate_table[i].name) = 0;
+		rate_table[i].pc_killed = 0;
+	}
 
 	/*
 	 * Assign gsn's for skills which have them.
@@ -3979,7 +3989,7 @@ void load_limited_objects()
 {
   struct direct *dp;
 
-  int i;
+  int i, killed;
   DIR *dirp;
   FILE *pfile;
   char letter;
@@ -3987,6 +3997,7 @@ void load_limited_objects()
   char buf[100]; 
   bool fReadLevel;
   char buf2[160];
+  int minnum = -1;
   int vnum;
 
   total_levels = 0;
@@ -4044,9 +4055,26 @@ dump_to_scr(buf2);
 				  	get_obj_index(vnum)->count++;
 				  fBootDb = TRUE;
 				}
-			    }
+			    } else if (letter == 'P') {
+				word = fread_word(pfile);
+				if (!strcmp(word, "C_Killed")) {
+					killed = fread_number(pfile);
+					minnum = -1;
 
-			}
+					for (i = 0;i < RATE_TABLE_SIZE; ++i)
+						if (rate_table[i].pc_killed 
+							<= killed)
+						    minnum = i;
+
+					if (minnum >= 0) {
+						strcpy(rate_table[minnum].name, 
+							dp->d_name);
+						rate_table[minnum].pc_killed = 
+							killed;
+					}	
+				}	
+			} 
+		      }
 		      fclose(pfile);
 		    }
 		}
