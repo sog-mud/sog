@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.87 2001-01-07 17:58:21 fjoe Exp $
+ * $Id: olc_room.c,v 1.88 2001-02-11 21:19:39 fjoe Exp $
  */
 
 #include "olc.h"
@@ -879,12 +879,14 @@ void display_resets(CHAR_DATA *ch)
 		buf_printf(buf, BUF_END, "[%2d] ", ++rnum);
 		switch (r->command) {
 		default:
-			buf_printf(buf, BUF_END, "Bad reset command: %c.", r->command);
+			buf_printf(buf, BUF_END, "Bad reset command: %c.",
+				   r->command);
 			break;
 
 		case 'M':
 			if ((mob = get_mob_index(r->arg1)) == NULL) {
-				buf_printf(buf, BUF_END, "<bad mob %d>\n", r->arg1);
+				buf_printf(buf, BUF_END, "<bad mob %d>\n",
+					   r->arg1);
 				break;
 			}
 
@@ -899,7 +901,8 @@ void display_resets(CHAR_DATA *ch)
 
 		case 'O':
 			if ((obj = get_obj_index(r->arg1)) == NULL) {
-				buf_printf(buf, BUF_END, "<bad obj %d>\n", r->arg1);
+				buf_printf(buf, BUF_END, "<bad obj %d>\n",
+					   r->arg1);
 				break;
 			}
 
@@ -916,7 +919,8 @@ void display_resets(CHAR_DATA *ch)
 			}
 
 			if ((obj = get_obj_index(r->arg1)) == NULL) {
-				buf_printf(buf, BUF_END, "<bad obj %d>\n", r->arg1);
+				buf_printf(buf, BUF_END, "<bad obj %d>\n",
+					   r->arg1);
 				break;
 			}
 
@@ -944,14 +948,23 @@ void display_resets(CHAR_DATA *ch)
 				break;
 			}
 
+			if ((mob = get_mob_index(last_mob->arg1)) == NULL) {
+				buf_printf(buf, BUF_END, "<bad mob %d>\n",
+					   r->arg1);
+				break;
+			}
+
 			if ((obj = get_obj_index(r->arg1)) == NULL) {
-				buf_printf(buf, BUF_END, "<bad obj %d>\n", r->arg1);
+				buf_printf(buf, BUF_END, "<bad obj %d>\n",
+					   r->arg1);
 				break;
 			}
 
 			last_obj = r;
 			buf_printf(buf, BUF_END, "%s%c[%5d:%3d%%] %-26.26s <%s>\n",
-				   tab, r->command,
+				   tab,
+				   r->command == 'G' && mob->pShop ?
+					'S' : r->command,
 				   r->arg1, 100 - r->arg0,
 				   mlstr_mval(&obj->short_descr),
 				   flag_string(wear_loc_strings, r->command == 'G' ?  WEAR_NONE : r->arg3));
