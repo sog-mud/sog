@@ -31,7 +31,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_bm.c,v 1.1.2.6 2002-10-22 21:14:48 tatyana Exp $
+ * $Id: act_bm.c,v 1.1.2.7 2002-10-23 10:14:52 tatyana Exp $
  */
 
 #include <stdio.h>
@@ -388,21 +388,34 @@ void do_bm(CHAR_DATA *ch, const char *argument)
 		case ITEM_FISHING_POLE:
 		case ITEM_CONTAINER:
 			if (!can_drop_obj(ch, obj)) {
-				act("You can't let go of it.",
-				    ch, NULL, NULL, TO_CHAR);
+				act("{D[BLACK MARKET]{x You can't let go of "
+				    "$p.", ch, obj, NULL, TO_CHAR);
 				return;
 			}
 
 			if (obj->timer != 0) {
-				act("You can't propose this object for sale.",
+				act("{D[BLACK MARKET]{x You can't propose "
+				    "this object for sale.",
 				    ch, NULL, NULL, TO_CHAR);
 				return;
 			}
 
 			if (obj->contains) {
-				act_puts("You can sell only empty containers.",
+				act_puts("{D[BLACK MARKET]{x You can sell "
+					 "only empty containers.",
 					 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 				return;
+			}
+
+			for (item = bmitem_list; item != NULL; item = item->next) {
+				if (obj->pObjIndex == item->obj->pObjIndex
+				    && IS_NULLSTR(item->buyer)) {
+					act("{D[BLACK MARKET]{x Nobody likes "
+					    "to buy the same object. Try to "
+					    "sell $p later.",
+					    ch, obj, NULL, TO_CHAR);
+					return;
+				}
 			}
 			break;
 		default:
