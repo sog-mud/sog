@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.28 1998-10-17 09:45:29 fjoe Exp $
+ * $Id: olc.c,v 1.29 1998-10-17 10:46:10 fjoe Exp $
  */
 
 /***************************************************************************
@@ -669,7 +669,7 @@ char* help_topics[FUN_MAX] =
 	"'OLC CREATE'",
 	"'OLC EDIT'",
 	NULL,
-	NULL,
+	"'OLC ASHOW'",
 	"'OLC ALIST'"
 };
 

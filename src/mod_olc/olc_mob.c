@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_mob.c,v 1.17 1998-10-17 09:45:29 fjoe Exp $
+ * $Id: olc_mob.c,v 1.18 1998-10-17 10:46:10 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -142,7 +142,7 @@ OLC_FUN(mobed_create)
 	int  iHash;
 	char arg[MAX_STRING_LENGTH];
 
-	argument = one_argument(argument, arg);
+	one_argument(argument, arg);
 	value = atoi(arg);
 	if (!value) {
 		do_help(ch, "'OLC CREATE'");

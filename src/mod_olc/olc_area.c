@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_area.c,v 1.17 1998-10-17 09:45:29 fjoe Exp $
+ * $Id: olc_area.c,v 1.18 1998-10-17 10:46:10 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -118,7 +118,7 @@ OLC_FUN(areaed_edit)
 	AREA_DATA *pArea;
 	char arg[MAX_STRING_LENGTH];
 
-	argument = one_argument(argument, arg);
+	one_argument(argument, arg);
 	if (arg[0] == '\0')
 		pArea = ch->in_room->area;
 	else if (!is_number(arg) || (pArea = area_lookup(atoi(arg))) == NULL) {
@@ -148,10 +148,10 @@ OLC_FUN(areaed_show)
 	AREA_DATA *pArea;
 	char arg[MAX_STRING_LENGTH];
 
-	argument = one_argument(argument, arg);
+	one_argument(argument, arg);
 	if (arg[0] == '\0') {
 		EDIT_AREA(ch, pArea);
-		if (!pArea);
+		if (!pArea)
 			pArea = ch->in_room->area;
 	}
 	else if (!is_number(arg) || (pArea = area_lookup(atoi(arg))) == NULL) {
