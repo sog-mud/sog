@@ -42,7 +42,7 @@ stand stand male 0
 0 0 large unknown
 F for AM
 F par K
-M greet 33000 100~
+M grall 33000 100~
 #33002
 grey mousecatcher guard~
 @eng {DGrey MouseCatcher{w@rus {DСерый Мышелов{w~
@@ -231,13 +231,15 @@ if ischarm $n
 say Charmies are not allowed here!
 mob transfer $n 33000
 end
-end if
+endif
 if isghost $n
 mob transfer $n 33000
 end
 endif
 if clan $n Confederacy
-else
+bow $n
+end
+endif
 if sex $n == 1
 yell Peck my shit $n!!! Green Motherfucker!!!
 else

@@ -18,7 +18,7 @@ demon~
 ~
 human~
 ABGQe DFHVZc 0 0
-95 300 1d1+25000 10d10+200 10d10+3000 none
+50 1000 1d1+25000 10d10+200 10d10+10000 none
 -100 -100 -100 -100
 0 AB CD 0
 stand stand male 0
@@ -336,7 +336,7 @@ Chaos sword~
 @eng Chaos Sword of Hero is here.@rus Горящий Меч Героя здесь.~
 energy~
 weapon A AN
-sword 12 10 cleave ABDGH
+sword 12 10 cleave ADH
 91 0 55000 P
 A
 19 20
@@ -768,7 +768,7 @@ S
 @rus Вполне понятно, что деньги здесь увидишь редко, они надежно укрыты в сейфах.
 За сохранность ваших вложений банк ответственности не несет.
 ~
-0 U inside
+0 0 inside
 D0
 ~
 ~

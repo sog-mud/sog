@@ -543,7 +543,7 @@ song hero~
 the %s Song of %s~
 You hear the Song of Real Hero filling the room with its power.~
 unknown~
-container IORYa APQ
+container IORYac APQ
 150 0 0 600 5
 21 5 0 P
 A
@@ -842,7 +842,7 @@ treasure ATY A
 0 0 0 P
 E
 quest~
-The letters '%s' is carved on the staff.
+The letters '%s' are carved on the staff.
 ~
 #85
 quest conrad~
@@ -854,7 +854,7 @@ treasure ATY A
 0 0 0 P
 E
 quest~
-The letters '%s' is carved on the staff.
+The letters '%s' are carved on the staff.
 ~
 #86
 quest powerman~
@@ -866,7 +866,7 @@ treasure ATY A
 0 0 0 P
 E
 quest~
-The letters '%s' is carved on the staff.
+The letters '%s' are carved on the staff.
 ~
 #87
 quest mandrake~
@@ -878,14 +878,14 @@ treasure ATY A
 0 0 0 P
 E
 quest~
-The letters '%s' is carved on the staff.
+The letters '%s' are carved on the staff.
 ~
 #88
 eyed sword~
 %s's eyed sword~
 A sword with an eye on it is here.~
 platinum~
-weapon B AN
+weapon Bc AN
 exotic 10 1 pierce D
 15 60 0 P
 A
@@ -1044,7 +1044,7 @@ sword katana~
 a katana sword~
 A katana sword is forgotten here.~
 iron~
-weapon a AN
+weapon ac AN
 sword 10 1 slash 0
 15 60 0 P
 E

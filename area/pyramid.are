@@ -2282,14 +2282,14 @@ E 0 3351 0 16		*	a standard issue dagger: wielded
 M 0 8705 1 8743 1	* Ali Baba (A Dead End)
 E 0 8703 0 6		*	a dirty cloth turban: over the head
 E 0 8702 0 16		*	an obsidian dirk: wielded
-M 0 8710 2 8745 1	* A caryatid (The Tomb of the Pharoahs)
-E 0 8708 0 16		*	a stone scimitar: wielded
-M 0 8710 2 8745 1	* A caryatid (The Tomb of the Pharoahs)
-E 0 8708 0 16		*	a stone scimitar: wielded
-G 0 8709 0		*	a stone key
 O 0 8710 0 8745	* a mighty stone sarcophagus (The Tomb of the Pharoahs)
 P 0 8711 1 8710 1	* a mighty stone sarcophagus: some ancient dust
 P 0 8712 1 8710 1	* a mighty stone sarcophagus: a small emerald scarab
+M 0 8710 1 8745 1	* A caryatid (The Tomb of the Pharoahs)
+E 0 8708 0 16		*	a stone scimitar: wielded
+M 0 8710 1 8745 1	* A caryatid (The Tomb of the Pharoahs)
+E 0 8708 0 16		*	a stone scimitar: wielded
+G 0 8709 0		*	a stone key
 M 0 8715 1 8747 1	* An androsphinx (A Sandstone Crypt)
 G 0 8716 0		*	a lion's paw
 M 0 8712 3 8748 1	* A hieracosphinx (An Arched Hall)

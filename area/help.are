@@ -725,7 +725,7 @@ Syntax: cast 'turn' <victim>
 their holy mission. A powerful holy energy flows through the fingers of 
 paladin and this energy force the evil victims to flee.
 ~
-0 VAMPIRIC TOUCH~
+0 'VAMPIRIC TOUCH'~
 Syntax: vampiric touch <victim>
 
 	You deadly touch your victim's neck and put it/him/her to nightmares.
@@ -2341,7 +2341,7 @@ A vampire can flee a fight, or can live a place by dividing himself into
 too many mouses. At this moment you must kill all mouses to kill the vampire.
 
 ~
-0 VAMPIRIC 'VAMPIRIC BITE'~
+0 'VAMPIRIC BITE'~
 Syntax: bite <victim>
 
    A vampire bites a sleeping victim and gains victim's hitpoint to itself.
@@ -3585,7 +3585,7 @@ S
 fin
 
 ~
-0 PRICES~
+0 PRICE 'CLAN PRICE'~
 Прайс-лист на клан и все прилагающиеся услуги:
 ver 2.0
  

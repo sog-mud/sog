@@ -572,11 +572,11 @@ A
 1 3
 #10004
 jug beer~
-A Jug 'o Beer.~
+A Jug 'o Beer~
 There is a jug of beer on the ground here.~
 glass~
 drink BC A
-20 20 'water' 0 0
+20 20 'beer' 0 0
 1 1 1 P
 #10005
 thief boot boots black~
@@ -1896,10 +1896,10 @@ E 0 10005 0 8		*	A Pair of Black Boots: on the feet
 M 0 10028 1 10022 1	* A dopey little cat (The Road Along the Village.)
 G 0 10017 0		*	a BIG cookie!
 M 0 10023 1 10023 1	* The bar tender (The Bar.)
-G 0 10004 0		*	A Jug 'o Beer.
+G 0 10004 0		*	A Jug 'o Beer
 G 0 10016 0		*	a Magical Leather Pouch
 M 0 10024 4 10023 1	* A drunken villager (The Bar.)
-G 0 10004 0		*	A Jug 'o Beer.
+G 0 10004 0		*	A Jug 'o Beer
 M 0 10024 4 10023 1	* A drunken villager (The Bar.)
 M 0 10024 4 10023 1	* A drunken villager (The Bar.)
 M 0 10024 4 10023 1	* A drunken villager (The Bar.)

@@ -228,6 +228,74 @@ unknown~
 furniture FGRTYa AP
 A HJKMPTUX H CEFGHI CEFGHI
 0 0 0 P
+#15042
+gabagaba ring~
+gabagaba ring~
+Gabagaba ring is here.~
+unknown~
+armor GIRTYa ABP
+-20 -20 -20 -20 0
+0 0 0 P
+A
+6 3
+A
+5 3
+A
+3 3
+A
+4 3
+A
+2 3
+A
+1 3
+#15043
+splinter~
+splinter "p"~
+splinter "n" is here.~
+unknown~
+trash GTYa AP
+0 0 0 0 0
+0 0 0 P
+#15044
+splinter~
+splinter "i"~
+splinter "i" is here.~
+unknown~
+trash GTYa AP
+0 0 0 0 0
+0 0 0 P
+#15045
+splinter~
+splinter "r"~
+splinter "l" is here.~
+unknown~
+trash GTYa AP
+0 0 0 0 0
+0 0 0 P
+#15046
+splinter~
+splinter "a"~
+splinter "b" is here.~
+unknown~
+trash GTYa AP
+0 0 0 0 0
+0 0 0 P
+#15047
+splinter~
+splinter "t"~
+splinter "o" is here.~
+unknown~
+trash GTYa AP
+0 0 0 0 0
+0 0 0 P
+#15048
+splinter~
+splinter "e"~
+splinter "g" is here.~
+unknown~
+trash GTYa AP
+0 0 0 0 0
+0 0 0 P
 #15100
 cheburator~
 @eng a dwarven golden ring~
@@ -280,7 +348,7 @@ A
 @eng You are in Abrazak's office..  Hmmm...  It's very strange place.  
 @rus Ты попал в офис абразака..... Достаточно странное место... 
 ~
-0 C forest
+0 CD forest
 D2
 ~
 ~
@@ -330,6 +398,7 @@ O 15010 0	* {DScythe{x
 O 15011 0	* {DHorns{x
 O 15012 0	* {DBlack Rose{x
 O 15013 0	* {DHoofs{x
+O 15042 1	* gabagaba ring
 O 15100 1	* a dwarven golden ring
 O 15112 1	* {W'{CAenis + Leo{W' ring{w
 S

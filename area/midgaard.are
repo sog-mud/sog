@@ -6,7 +6,7 @@ Credits Diku~
 Security 9
 LevelRange 1 100
 ResetMessage The earth rumbles with the after affects of another experience gone away...~
-Flags hometown
+Flags none
 End
 
 #MOBILES
@@ -6585,6 +6585,10 @@ The waiting room is to the west.
 ~
 ~
 Z -1 3137
+D4
+~
+~
+Z 0 46000
 S
 #3139
 Penny Lane~
@@ -8203,18 +8207,22 @@ say I have the finest armor in my store!
 endif
 ~
 #3022
+if isvisible $n
 bow $n
 say Would you like to taste a big pot pie today?
 if sex $n == 2 
 and rand 50
 say You're looking so beautiful today, $n!
-MOB OLOAD 3009
+mob oload 3009
 give pie $n
 say It's tasty.
 endif
+endif
 ~
 #3023
+if isvisible $n
 say Would you like to buy a nice love potion?
+endif
 ~
 #0
 
