@@ -1,5 +1,5 @@
 /*
- * $Id: prayers.c,v 1.82 2004-05-26 06:38:17 tatyana Exp $
+ * $Id: prayers.c,v 1.83 2004-06-11 21:57:35 sg Exp $
  */
 
 /***************************************************************************
@@ -4366,7 +4366,7 @@ SPELL_FUN(prayer_strength_of_earth, sn, level, ch, vo)
 
 /* domain: earth
  * Prayer filles soil of a room with sharp barbs.
- * Basrb damages all creaturesin room (owner has immunity).
+ * Barbs damages all creatures in room (owner has immunity).
  * Enter room event: event_enter_barbs
  * Update room event: event_update_barbs
  */
