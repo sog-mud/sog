@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.207 2004-03-01 18:55:58 tatyana Exp $
+ * $Id: tables.c,v 1.208 2004-04-08 11:53:39 kets Exp $
  */
 
 /***************************************************************************
@@ -1333,6 +1333,7 @@ flaginfo_t dam_classes[] =
 	{ "air",		DAM_AIR,			TRUE	},
 	{ "earth",		DAM_EARTH,			TRUE	},
 	{ "water",		DAM_WATER,			TRUE	},
+	{ "evil",		DAM_EVIL,			TRUE	},
 
 	{ "iron",		DAM_IRON,			TRUE	},
 	{ "wood",		DAM_WOOD,			TRUE	},
@@ -1370,6 +1371,7 @@ flaginfo_t resist_info_flags[] =
 	{ "air based attacks",	DAM_AIR,		TRUE	},
 	{ "earth based attacks",DAM_EARTH,		TRUE	},
 	{ "water based attacks",DAM_WATER,		TRUE	},
+	{ "unholy energy",	DAM_EVIL,		TRUE	},
 
 	{ "iron weapons",	DAM_IRON,		TRUE	},
 	{ "wooden weapons",	DAM_WOOD,		TRUE	},
