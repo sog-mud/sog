@@ -24,7 +24,7 @@
 # OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
 # SUCH DAMAGE.
 #
-# $Id: who.cgi,v 1.2 1998-11-26 10:50:58 fjoe Exp $
+# $Id: who.cgi,v 1.2.4.1 2002-09-01 17:43:56 tatyana Exp $
 #
 
 $netcat = "/usr/local/bin/nc";
@@ -35,7 +35,7 @@ Content-type: text/HTML
 
 <html>
 <head><title>
-List of players, who are online now in the Muddy Realms"
+List of players, who are online now in the Shades of Gray"
 </title></head>
 <body bgcolor=#000000><font size=4>
 <font color=#C0C0C0>List of players, who are online now in the Muddy Realms:
