@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mlstring.c,v 1.59 2001-06-24 21:12:48 avn Exp $
+ * $Id: mlstring.c,v 1.60 2001-06-25 21:46:42 avn Exp $
  */
 
 #include <stdio.h>
@@ -40,7 +40,7 @@
  * multi-language string implementation
  */
 
-static const char* smash_a(const char *s, int len);
+static const char* smash_a(const char *s, int len, bool smashdot);
 static char* fix_mlstring(const char* s);
 
 void mlstr_init(mlstring *mlp)
@@ -91,7 +91,7 @@ void mlstr_fread(rfile_t *fp, mlstring *mlp)
 		return;
 
 	if (*p != '@' || *(p+1) == '@') {
-		mlp->u.str = smash_a(p, -1);
+		mlp->u.str = smash_a(p, -1, FALSE);
 		free_string(p);
 		return;
 	}
@@ -129,7 +129,7 @@ void mlstr_fread(rfile_t *fp, mlstring *mlp)
 		}
 		if (s == NULL)
 			s = strchr(q, '\0');
-		mlp->u.lstr[lang] = smash_a(q, s-q);
+		mlp->u.lstr[lang] = smash_a(q, s-q, TRUE);
 		if (!*s++)
 			break;
 	}
@@ -529,7 +529,7 @@ gmlstr_destroy(gmlstr_t *gml)
 	mlstr_destroy(&gml->gender);
 }
 
-static const char *smash_a(const char *s, int len)
+static const char *smash_a(const char *s, int len, bool smashdot)
 {
 	char buf[MAX_STRING_LENGTH];
 	char *p = buf;
@@ -538,7 +538,7 @@ static const char *smash_a(const char *s, int len)
 	if (len < 0 || (unsigned)(len + 1) > sizeof(buf))
 		len = sizeof(buf)-1;
 
-	if (*q == '.')
+	if (smashdot && *q == '.')
 		q++;
 
 	while (q-s < len && *q) {
