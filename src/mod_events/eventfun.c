@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: eventfun.c,v 1.50 2004-02-27 19:29:42 tatyana Exp $
+ * $Id: eventfun.c,v 1.51 2004-02-27 19:36:54 tatyana Exp $
  */
 
 #include <sys/time.h>
@@ -76,6 +76,9 @@ show_owner(CHAR_DATA *ch, AFFECT_DATA *af)
 
 EVENT_FUN(event_enter_lshield, ch, af)
 {
+	if (IS_IMMORTAL(ch))
+		return;
+
 	if (af->owner->in_room != ch->in_room) {
 		printlog(LOG_BUG, "event_enter_lshield: owner of lightning shield left the room");
 		affect_remove_room(ch->in_room, af);
@@ -99,6 +102,9 @@ EVENT_FUN(event_enter_alarm, ch, af)
 {
 	DESCRIPTOR_DATA *d;
 
+	if (IS_IMMORTAL(ch))
+		return;
+
 	if (af->owner == ch)
 		return;
 
@@ -118,6 +124,9 @@ EVENT_FUN(event_enter_alarm, ch, af)
 
 EVENT_FUN(event_enter_shocking, ch, af)
 {
+	if (IS_IMMORTAL(ch))
+		return;
+
 	if (af->owner == ch) {
 		act("You avoid your trap here.", ch, NULL, NULL, TO_CHAR);
 		return;
@@ -137,6 +146,9 @@ EVENT_FUN(event_enter_shocking, ch, af)
 
 EVENT_FUN(event_enter_thieftrap, ch, af)
 {
+	if (IS_IMMORTAL(ch))
+		return;
+
 	if (af->owner == ch) {
 		act("You avoid your trap here.", ch, NULL, NULL, TO_CHAR);
 		return;

@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.394 2004-02-27 19:29:43 tatyana Exp $
+ * $Id: handler.c,v 1.395 2004-02-27 19:36:55 tatyana Exp $
  */
 
 /***************************************************************************
@@ -128,12 +128,11 @@ char_to_room(CHAR_DATA *ch, ROOM_INDEX_DATA *pRoomIndex)
 	if (pRoomIndex->affected) {
 		if (IS_IMMORTAL(ch))
 			dofun("raffects", ch, str_empty);
-		else {
-			check_events(ch, ch->in_room->affected,
-				EVENT_ROOM_ENTER);
-			if (IS_EXTRACTED(ch))
-				return;
-		}
+
+		check_events(ch, ch->in_room->affected, EVENT_ROOM_ENTER);
+
+		if (IS_EXTRACTED(ch))
+			return;
 	}
 
 	if (ch->desc != NULL && IS_EDIT(ch, "rooms"))
