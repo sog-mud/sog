@@ -1,5 +1,5 @@
 /*
- * $Id: quest.c,v 1.29 1998-06-08 23:58:13 efdi Exp $
+ * $Id: quest.c,v 1.30 1998-06-09 09:46:22 efdi Exp $
  */
 
 /***************************************************************************
@@ -742,6 +742,8 @@ void generate_quest(CHAR_DATA *ch, CHAR_DATA *questman)
 		if ((vch = mobs[idx]) != NULL
 		&&  ((IS_EVIL(vch) && !IS_EVIL(ch)) ||
 		     (!IS_EVIL(vch) && !IS_GOOD(ch)))
+		&&  (vch = get_char_world(ch, vch->pIndexData->player_name)) 
+							!= NULL
 		&&  vch->hunter == NULL
 		&&  (room = find_location(ch, vch->name)) != NULL
 		&&  !IS_SET(room->area->area_flag, AREA_HOMETOWN)) {
