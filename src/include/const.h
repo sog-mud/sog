@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: const.h,v 1.47 1999-10-07 12:37:18 kostik Exp $
+ * $Id: const.h,v 1.48 1999-10-20 04:34:58 avn Exp $
  */
 
 #ifndef _CONST_H_
@@ -86,6 +86,19 @@ enum {
 #define MAX_STATS	MAX_STAT	/* ROM compatibility */
 
 /*
+ * Conditions.
+ */
+enum {
+	COND_DRUNK,
+	COND_FULL,
+	COND_THIRST,
+	COND_HUNGER,
+	COND_BLOODLUST,
+	COND_DESIRE,
+	MAX_COND
+};
+
+/*
  * String and memory management parameters.
  */
 #define MAX_KEY_HASH		1024
@@ -108,7 +121,6 @@ enum {
 #define MAX_NEWBIES		120	/* number of newbies allowed */
 #define MAX_OLDIES		999	/* number of newbies allowed */
 #define MAX_TRADE		5	/* number of trade types for shops */
-#define MAX_COND		6	/* number of char condition stats */
 #define MAX_DIR			6	/* number of exits */
 #define MAX_ALIAS		50	/* number of aliases char can have */
 

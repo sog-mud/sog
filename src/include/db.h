@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db.h,v 1.52 1999-10-18 18:08:03 avn Exp $
+ * $Id: db.h,v 1.53 1999-10-20 04:34:58 avn Exp $
  */
 
 #ifndef _DB_H_
@@ -101,6 +101,7 @@ extern DBDATA db_cmd;
 extern DBDATA db_damtype;
 extern DBDATA db_hometowns;
 extern DBDATA db_langs;
+extern DBDATA db_liquids;
 extern DBDATA db_materials;
 extern DBDATA db_msg;
 extern DBDATA db_races;
@@ -249,6 +250,7 @@ extern const char MSGDB_CONF	[];
 extern const char CMD_CONF	[];
 extern const char DAMTYPE_CONF	[];
 extern const char MATERIALS_CONF[];
+extern const char LIQUIDS_CONF	[];
 
 extern const char AREA_LIST	[];
 extern const char CLAN_LIST	[];

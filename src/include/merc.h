@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.240 1999-10-18 19:34:33 avn Exp $
+ * $Id: merc.h,v 1.241 1999-10-20 04:34:58 avn Exp $
  */
 
 /***************************************************************************
@@ -97,6 +97,7 @@
 #include "religion.h"
 #include "damtype.h"
 #include "material.h"
+#include "liquid.h"
 
 /*
  * configuration parameters
@@ -1015,16 +1016,6 @@ enum {
  ***************************************************************************/
 
 /*
- * Conditions.
- */
-#define COND_DRUNK			0
-#define COND_FULL			1
-#define COND_THIRST			2
-#define COND_HUNGER			3
-#define COND_BLOODLUST			4
-#define COND_DESIRE			5
-
-/*
  * Positions.
  */
 #define POS_DEAD		      0
@@ -1464,18 +1455,6 @@ struct pc_skill_t {
 void pc_skill_init(pc_skill_t *);
 
 /*
- * Liquids.
- */
-#define LIQ_WATER	 0
-
-struct liq_type
-{
-	char *	liq_name;
-	char *	liq_color;
-	int	liq_affect[5];
-};
-
-/*
  * Extra description data for a room or object.
  */
 struct ed_data
@@ -1845,7 +1824,6 @@ extern	const	struct con_app_type	con_app 	[26];
 
 extern	const	struct wiznet_type	wiznet_table	[];
 extern	const	struct spec_type	spec_table	[];
-extern	const	struct liq_type		liq_table	[];
 
 /*
  * Global variables.
@@ -2229,9 +2207,7 @@ void	obj_update	(void);
 void	clan_item_update(void);
 void	weather_update	(void);
 
-int	liq_lookup		(const char *name);
-void	show_liq_types		(BUFFER *output);
-long	wiznet_lookup	(const char *name);
+flag32_t wiznet_lookup	(const char *name);
 
 #endif
 
