@@ -1316,7 +1316,7 @@ golden mace булава~
 @eng A shiny gold mace is on the ground.@rus Блестящая золотистая булава (mace) лежит на земле.~
 gold~
 weapon AIP CD AN
-mace 8 1 'crush' 0
+mace 11 1 'crush' 0
 20 200 0 P
 g @rus female~
 #82
@@ -1754,6 +1754,7 @@ O 96 wear_prog wear_prog_quest_weapon	* `the %s Weapon of %s'
 O 96 get_prog get_prog_quest_reward	* `the %s Weapon of %s'
 O 97 fight_prog fight_prog_chaos_blade	* `a chaos blade'
 O 98 wear_prog wear_prog_katana_sword	* `a katana sword'
+O 99 fight_prog fight_prog_golden_weapon	* `a golden lance'
 O 99 death_prog death_prog_golden_weapon	* `a golden lance'
 S
 
