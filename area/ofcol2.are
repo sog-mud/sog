@@ -1097,16 +1097,16 @@ A
 19 5
 #647
 avenger holy sword~
-holy Avenger~
+the holy Avenger~
 A glowing silvery sword is hovering here, ready to possess an owner.~
 platinum~
 weapon GK AN
 sword 17 5 slice 0
 72 250 5700 P
 A
-19 15
-A
 18 3
+A
+19 15
 #648
 whiskey shot~
 a shot of whiskey~
@@ -3248,7 +3248,7 @@ E 0 643 0 9		*	platinum gauntlets: on the hands
 E 0 644 0 10		*	platinum sleeves: on the arms
 E 0 645 0 11		*	the platinum spiked shield: as a shield
 E 0 646 0 13		*	the platinum girth: around the waist
-E 0 647 0 16		*	holy Avenger: wielded
+E 0 647 0 16		*	the holy Avenger: wielded
 M 0 617 3 601 1	* the citizen (The Big Intersection)
 M 0 604 1 603 1	* Jim the Blacksmith (The Blacksmith)
 G 0 600 0		*	a hand axe

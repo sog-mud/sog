@@ -699,7 +699,7 @@ A trained ninja has get the secret of pound usage. His/her pound
 would become more damageful on his/her opponents.
 ~
 0 AREA ATTACK~
-        Warriors and samurai's have the secret of the area attack to
+Warriors and samurai's have the secret of the area attack to
 destroy to their enemies. At the beginning, they can fight with two
 opponents and as they trained enough they can increase the opponets.
         Usage of this skill is automatic. To fight with a new enemy as you
@@ -1484,10 +1484,10 @@ Syntax: cast blindness <victim>
 This spell renders the target character blind.
 ~
 0 'ACID BLAST' 'ACID ARROW' 'CAUSTIC FONT' 'SULFURUS SPRAY' 'QUANTUM SPIKE'
-'BURNING HANDS' 'ACETUM PRIMUS' 'SONIC RESONANCE' 'HAND OF UNDEAD'
-'ETHERAL FIST' 'COLOUR SPRAY' 'FIREBALL' 'LIGHTNING BOLT' 'MAGIC MISSILE'
-'SHOCKING GRASP' 'ICEBALL' 'MIND WRENCH' 'MIND WRACK'
-~
+'BURNING HANDS' 'ACETUM PRIMUS' 'SONIC RESONANCE' 'HAND OF UNDEAD'
+'ETHERAL FIST' 'COLOUR SPRAY' 'FIREBALL' 'LIGHTNING BOLT' 'MAGIC MISSILE'
+'SHOCKING GRASP' 'ICEBALL' 'MIND WRENCH' 'MIND WRACK'
+~
 Syntax: cast 'acid blast'     <victim>
 Syntax: cast 'burning hands'  <victim>
 Syntax: cast 'color spray'   <victim>
@@ -2302,7 +2302,7 @@ chance for an instant kill.
 
 ~
 0 'QUIET MOVEMENT' HERBS TAME BUTCHER BARKSKIN 'BARK SKIN' 'BEAR CALL'
-  'RANGER STAFF'~
+  'RANGER STAFF'~
 Syntax: HERBS <victim> or HERBS
         TAME <victim>
         BUTCHER <corpse>
@@ -3897,7 +3897,7 @@ This function is available in shortened form from OLC editors
  
 ~
 0 'OLC ADDAFFECT'~
-Syntax: addaffect <location | none> <modifier> [<bitloc> bitvector]
+Syntax: addaffect <location | none> <modifier> [<bitloc> <bits...>]
  
 ~
 -1 $~

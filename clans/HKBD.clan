@@ -1,9 +1,8 @@
 #CLAN
 Name HKBD~
-Filename HKBD.clan~
 Recall 35001
-MsgPrays $n prays for transportation.~
-MsgVanishes $n vanishes.~
+MsgPrays $n подзывает своего боевого коня.~
+MsgVanishes $n вскакивает на коня и исчезает за горизонтом.~
 Skill 'clan recall' 1
 Skill 'resistance' 12
 Skill 'tesseract' 29

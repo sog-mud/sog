@@ -1,0 +1,123 @@
+#AREADATA
+Name Test Area~
+VNUMs 47000 47999
+Security 1
+LevelRange 0 0
+End
+
+#MOBILES
+#47000
+statue warrior~
+@eng Statue of the warrior@rus Статуя воина~
+@eng Statue of a warrior clad in silvery armor stands here.
+@rus Статуя воина, одетого в серебристые доспехи, стоит здесь.
+~
+@eng An imposing figure clad in a suit of mithril armor is
+almost 12 feet tall. It looks mighty and indestructible.
+A HUGE two-handed sword looks no more than just a stick in
+his hands, due to the size of warrior. Sure there are
+quite a few things he may fear.
+@rus Огромная статуя воина, одетого в мифрильные доспехи
+будет, наверное, все 4 метра в высоту. On выглядит
+очень сильным и практически неуязвимым. Огромный
+двуручный меч в его руках смотрится маленькой хрупкой
+палочкой. Наверное, он был бы одним из величайших
+воинов мира.. если бы был живым...
+~
+golem~
+A 0 0 0
+100 50 1d1+30000 100d10+5000 10d10+200 none
+-5 -5 -5 -5
+ACDEFKOQT ABN 0 H
+stand stand none 0
+0 0 gargantuan unknown
+F vul CP
+#0
+
+#OBJECTS
+#47000
+cabinet weapons~
+@eng Weapons cabinet@rus Сейф для оружия~
+@eng A large weapons cabinet stands here.@rus Большой сейф для оружия стоит тут. Его дверца, похоже, приоткрыта..~
+titanium~
+container R P
+1000000 0 0 1000000 100
+0 1000000 0 P
+#47001
+window~
+@eng the window@rus Окно~
+@eng A rather large window takes more than a half of the wall.@rus Большое окно наполняет комнату светом.~
+glass~
+trash R P
+0 0 0 0 0
+0 1000000 0 P
+#47002
+armchair cosy~
+@eng A velvet covered armchair@rus Обитое бархатом кресло~
+@eng A cosy armchair stands here, beckoning you to sit.@rus Уютное кресло словно приглашает тебя сесть.~
+velvet~
+furniture R P
+B GJOQRST DGJM BEF BEF
+0 1000000 0 P
+#47003
+tree~
+@eng A small tree@rus Деревце в кадке~
+@eng A small tree grows from the wooden tub.@rus Маленькое деревце в кадке растёт тут.~
+wood~
+jukebox R P
+0 0 0 0 0
+0 0 0 P
+#47004
+sword enforcement~
+Sword of Enforcement~
+@eng A huge two-handed sword lies here, humming with power.@rus Огромный меч лежит здесь, ожидая достойного владельца.~
+mithril~
+weapon BJLMT AN
+sword 11 11 slash DF
+100 400 100000 P
+A
+18 15
+A
+19 15
+#0
+
+#ROOMS
+#47000
+@eng Lothar's residence.@rus Резиденция Лотара.~
+@eng This room is not very large, and has quite a few
+furniture: just two cosy armchairs, small table and BIG
+weapons cabinet in the corner. Rather large window takes
+whole half of the wall and is open, letting the cool breeze
+flow in. Massive door set in the eastern wall leads to the
+terrace.
+@rus Ты попал в небольшую, просто обставленную и очень уютную комнату.
+Два глубоких и мягких кресла, низкий столик между ними и
+большой сейф в углу - вот и вся обстановка. Огромное окно в
+пол-стены всегда открыто, оттуда тянет прохладным ветерком.
+Двустворчатая дверь в восточной стене ведёт на террасу.
+~
+0 DJSX inside
+S
+#47001
+@eng The terrace@rus Терраса~
+@eng Wide terrace under the sky.
+You can see the clouds beneath if look down from the edge.
+Are you afraid of *this* height ?
+You see a door set in the western wall.
+@rus Просторная терраса под открытым небом. Воздух здесь очень чист и свеж.
+Если подойти к краю и посмотреть вниз, можно увидеть ..облака..
+Ты не боишься высоты?
+На западе ты видишь стену и дверь в ней.
+~
+0 SX mountain
+S
+#0
+
+#RESETS
+O 0 47002 0 47000	* A velvet covered armchair (Lothar's residence.)
+O 0 47001 0 47000	* the window (Lothar's residence.)
+O 0 47000 0 47000	* Weapons cabinet (Lothar's residence.)
+O 0 47003 0 47001	* A small tree (The terrace)
+S
+
+#$
