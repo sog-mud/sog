@@ -9,25 +9,25 @@ $IMCCONFIG
 
 
 # This is the name that the network will know your mud as.
-LocalName    SomeMudName~
+LocalName    SoG~
 
 # This is the name of the IMC2 network that your mud will be connected to.
-NetworkName  SomeNetwork~
+NetworkName  ICE-MAN~
 
 # This is the network name of the hub that you will connect to.
-HubName   SomeHubName~
+HubName   Hub7-Sg~
 
 # This is the hostname or ip address of the hub that you will connect to.
-HubAddr   SomeHubAddress~
+HubAddr   mud.starman.ee~
 
 # This is the port on the host of the hub that you will connect to.
 HubPort   4050
 
 # This is the password that you will use to confirm who you are to the server.
-ClientPwd   SomeClientPassword~
+ClientPwd   1dcf7927606~
 
 # This is the password that the server will use to confirm who it is to you.
-ServerPwd   SomeServerPassword~
+ServerPwd   8ec245cc328~
 
 # This sets whether your mud will attempt to connect to IMC on startup.
 Autoconnect  1
@@ -40,7 +40,7 @@ Debug        0
 
 
 # Minimum level for a player to use IMC.
-MinPlayerLevel     2
+MinPlayerLevel    5
 
 # Minimum level for someone to achieve immortal privileges.
 MinImmLevel        92
@@ -53,25 +53,25 @@ AdminLevel         92
 
 
 # This is the full name of your mud that you wish to display.
-InfoName     Some Mud Name~
+InfoName     Shades Of Gray~
 
 # This is the hostname or ip address that you wish to have others connect to.
-InfoHost     SomeMudAddress~
+InfoHost     sog.dnttm.ru~
 
 # This is the port that you wish to have others connect to for your mud.
 InfoPort     4000
 
 # This is the email address that you would like to be contacted at.
-InfoEmail    SomeAdmin@SomeMudAddress~
+InfoEmail    mud@iclub.nsu.ru~
 
 # This is the mud website that you would like interested parties to go to.
-InfoWWW      SomeWebpageAddress~
+InfoWWW      http://iclub.nsu.ru/mud~
 
 # This is the codebase that your mud is based upon.
-InfoBase     SomeCodebase~
+InfoBase     Anatolia~
 
 # This is a description of your mud that you would like other muds to see.
-InfoDetails  SomeDescription~
+InfoDetails  We are the best!~
 
 
 # Miscellaneous Configuration Components.
@@ -79,7 +79,7 @@ InfoDetails  SomeDescription~
 
 # Sets the color pattern for IMC2, current options are:
 # 0 - Continuum Default 1 - Winter 2 - Fiery Bowels of Hell 3 - IMC2 Classic
-WhoStyle        0
+WhoStyle        1
 
 
 End
