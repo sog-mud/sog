@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: msg.c,v 1.16 1999-02-23 22:26:12 fjoe Exp $
+ * $Id: msg.c,v 1.17 1999-03-08 13:56:07 fjoe Exp $
  */
 
 #if	defined (LINUX) || defined (WIN32)
@@ -36,12 +36,12 @@
 #include "const.h"
 #include "typedef.h"
 
+#include "mlstring.h"
+#include "varr.h"
 #include "db.h"
 #include "msg.h"
 #include "str.h"
-#include "mlstring.h"
 #include "util.h"
-#include "varr.h"
 
 varr msg_hash_table[MAX_MSG_HASH];
 

@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.47 1999-02-23 22:06:47 fjoe Exp $
+ * $Id: tables.c,v 1.48 1999-03-08 13:56:05 fjoe Exp $
  */
 
 /***************************************************************************
@@ -64,6 +64,7 @@ FLAG slang_table[] =
 	{ "trollish",		SLANG_TROLLISH,		TRUE	},
 	{ "cat",		SLANG_CAT,		TRUE	},
 	{ "mothertongue",	SLANG_MAX,		FALSE	},
+
 	{ NULL }
 };
 
@@ -78,6 +79,7 @@ FLAG size_table[] =
 	{ "huge", 		SIZE_HUGE,		TRUE	},
 	{ "giant",		SIZE_GIANT,		TRUE	},
 	{ "gargantuan",		SIZE_GARGANTUAN,	TRUE	},
+
 	{ NULL }
 };
 
@@ -112,6 +114,7 @@ FLAG act_flags[] =
 	{ "changer",		ACT_CHANGER,		TRUE	},
 	{ "notrack",		ACT_NOTRACK,		TRUE	},
 	{ "clan_guard",		ACT_CLAN_GUARD,		TRUE	},
+
 	{ NULL }
 };
 
@@ -142,6 +145,7 @@ FLAG plr_flags[] =
 	{ "noexp",		PLR_NOEXP,		FALSE	},
 	{ "hara_kiri",		PLR_HARA_KIRI,		FALSE	},
 	{ "blink",		PLR_BLINK,		FALSE	},
+
 	{ NULL }
 };
 
@@ -196,6 +200,7 @@ FLAG affect_flags[] =
 	{ "detect_life",	AFF_DETECT_LIFE,	TRUE	},
 	{ "acute_vision",	AFF_ACUTE_VISION,	TRUE	},
 	{ "black_shroud",	AFF_BLACK_SHROUD,	TRUE	},
+
 	{ NULL }
 };
 
@@ -224,6 +229,7 @@ FLAG off_flags[] =
 	{ "assist_players",	ASSIST_PLAYERS,		TRUE	},
 	{ "assist_guard",	ASSIST_GUARD,		TRUE	},
 	{ "assist_vnum",	ASSIST_VNUM,		TRUE	},
+
 	{ NULL }
 };
 
@@ -255,6 +261,7 @@ FLAG imm_flags[] =
 	{ "silver",		IMM_SILVER,		TRUE	},
 	{ "iron",		IMM_IRON,		TRUE	},
 	{ "steal",		IMM_STEAL,		TRUE	},
+
 	{ NULL }
 };
 
@@ -288,6 +295,7 @@ FLAG form_flags[] =
 	{ "amphibian",		FORM_AMPHIBIAN,		TRUE	},
 	{ "fish",		FORM_FISH ,		TRUE	},
 	{ "cold_blood",		FORM_COLD_BLOOD,	TRUE	},
+
 	{ NULL }
 };
 
@@ -317,6 +325,7 @@ FLAG part_flags[] =
 	{ "horns",		PART_HORNS,		TRUE	},
 	{ "scales",		PART_SCALES,		TRUE	},
 	{ "tusks",		PART_TUSKS,		TRUE	},
+
 	{ NULL }
 };
 
@@ -354,6 +363,7 @@ FLAG comm_flags[] =
 	{ "noverbose",		COMM_NOVERBOSE,		TRUE	},
 	{ "nobust",		COMM_NOBUST,		TRUE	},
 	{ "noeng",		COMM_NOENG,		TRUE	},
+
 	{ NULL }
 };
 
@@ -363,6 +373,7 @@ FLAG clan_flags[] =
 
 	{ "hidden",		CLAN_HIDDEN,		TRUE	},
 	{ "changed",		CLAN_CHANGED,		FALSE	},
+
 	{ NULL }
 };
 
@@ -374,6 +385,7 @@ FLAG area_flags[] =
 	{ "under_construction",	AREA_UNDER_CONSTRUCTION,TRUE	},
 	{ "noquest",		AREA_NOQUEST,		TRUE	},
 	{ "changed",		AREA_CHANGED,		FALSE	},
+
 	{ NULL }
 };
 
@@ -387,6 +399,7 @@ FLAG sex_table[] =
 	{ "either",		SEX_EITHER,		TRUE	},
 	{ "random",		SEX_EITHER,		TRUE    },
 	{ "neutral",		SEX_NEUTRAL,		TRUE	},
+
 	{ NULL	}
 };
 
@@ -416,6 +429,7 @@ FLAG exit_flags[] =
 	{ "infuriating",	EX_INFURIATING,		TRUE	},
 	{ "noclose",		EX_NOCLOSE,		TRUE	},
 	{ "nolock",		EX_NOLOCK,		TRUE	},
+
 	{ NULL }
 };
 
@@ -426,6 +440,7 @@ FLAG door_resets[] =
 	{ "open",			0,		TRUE	},
 	{ "closed",			1,		TRUE	},
 	{ "closed and locked",		2,		TRUE	},
+
 	{ NULL }
 };
 
@@ -454,6 +469,7 @@ FLAG room_flags[] =
 	{ "battle_arena",	ROOM_BATTLE_ARENA,	TRUE	},
 	{ "guild",		ROOM_GUILD,		TRUE	},
 	{ "registry",		ROOM_REGISTRY,		TRUE	},
+
 	{ NULL }
 };
 
@@ -472,6 +488,7 @@ FLAG sector_types[] =
 	{ "unused",		SECT_UNUSED,		TRUE	},
 	{ "air",		SECT_AIR,		TRUE	},
 	{ "desert",		SECT_DESERT,		TRUE	},
+
 	{ NULL }
 };
 
@@ -509,6 +526,7 @@ FLAG item_types[] =
 	{ "jewelry",		ITEM_JEWELRY,		TRUE	},
 	{ "jukebox",		ITEM_JUKEBOX,		TRUE	},
 	{ "tattoo",		ITEM_TATTOO,		FALSE	},
+
 	{ NULL }
 };
 
@@ -548,6 +566,7 @@ FLAG extra_flags[] =
 	{ "quit_drop",		ITEM_QUIT_DROP,		TRUE	},
 	{ "enchanted",		ITEM_ENCHANTED,		FALSE	},
 	{ "oldstyle",		ITEM_OLDSTYLE,		FALSE	},
+
 	{ NULL }
 };
 
@@ -575,6 +594,7 @@ FLAG wear_flags[] =
 /*	{ "twohands",		ITEM_TWO_HANDS,		TRUE	}, */
 	{ "tattoo",		ITEM_WEAR_TATTOO,	TRUE	},
 	{ "clanmark",		ITEM_WEAR_CLANMARK,	TRUE	},
+
 	{ NULL }
 };
 
@@ -615,6 +635,7 @@ FLAG apply_flags[] =
 	{ "size",		APPLY_SIZE,		TRUE	},
 	{ "class",		APPLY_CLASS,		TRUE	},
 	{ "race",		APPLY_RACE,		TRUE	},
+
 	{ NULL }
 };
 
@@ -624,6 +645,7 @@ FLAG rapply_flags[] =
 
 	{ "healrate",		APPLY_ROOM_HEAL,	TRUE	},
 	{ "manarate",		APPLY_ROOM_MANA,	TRUE	},
+
 	{ NULL }
 };
 
@@ -658,6 +680,7 @@ FLAG wear_loc_strings[] =
 	{ "second wielded",		WEAR_SECOND_WIELD,	TRUE	},
 	{ "clan mark",			WEAR_CLANMARK,		TRUE	},
 	{ "stuck in",			WEAR_STUCK_IN,		TRUE	},
+
 	{ NULL }
 };
 
@@ -690,6 +713,7 @@ FLAG wear_loc_flags[] =
 	{ "second",		WEAR_SECOND_WIELD,	TRUE	},
 	{ "stuck",		WEAR_STUCK_IN,		TRUE	},
 	{ "clanmark",		WEAR_CLANMARK,		TRUE	},
+
 	{ NULL }
 };
 
@@ -703,6 +727,7 @@ FLAG cont_flags[] =
 	{ "locked",		CONT_LOCKED,		TRUE	},
 	{ "put_on",		CONT_PUT_ON,		TRUE	},
 	{ "quiver",		CONT_QUIVER,		TRUE	},
+
 	{ NULL }
 };
 
@@ -714,6 +739,7 @@ FLAG ac_type[] =
 	{ "bash",		AC_BASH,		TRUE	},
 	{ "slash",		AC_SLASH,		TRUE	},
 	{ "exotic",		AC_EXOTIC,		TRUE	},
+
 	{ NULL }
 };
 
@@ -734,6 +760,7 @@ FLAG weapon_class[] =
 	{ "bow",		WEAPON_BOW,		TRUE	},
 	{ "arrow",		WEAPON_ARROW,		TRUE	},
 	{ "lance",		WEAPON_LANCE,		TRUE	},
+
 	{ NULL }
 };
 
@@ -751,6 +778,7 @@ FLAG weapon_type2[] =
 	{ "poison",		WEAPON_POISON,		TRUE	},
 	{ "holy",		WEAPON_HOLY,		TRUE	},
 	{ "katana",		WEAPON_KATANA,		TRUE	},
+
 	{ NULL }
 };
 
@@ -781,6 +809,7 @@ FLAG res_flags[] =
 	{ "wood",		RES_WOOD,		TRUE	},
 	{ "silver",		RES_SILVER,		TRUE	},
 	{ "iron",		RES_IRON,		TRUE	},
+
 	{ NULL }
 };
 
@@ -811,6 +840,7 @@ FLAG vuln_flags[] =
 	{ "wood",		VULN_WOOD,		TRUE	},
 	{ "silver",		VULN_SILVER,		TRUE	},
 	{ "iron",		VULN_IRON,		TRUE	},
+
 	{ NULL }
 };
 
@@ -827,6 +857,7 @@ FLAG position_table[] =
 	{ "sit",		POS_SITTING,		TRUE	},
 	{ "fight",		POS_FIGHTING,		TRUE	},
 	{ "stand",		POS_STANDING,		TRUE	},
+
 	{ NULL }
 };
 
@@ -843,6 +874,7 @@ FLAG position_names[] =
 	{ "sitting",		POS_SITTING	},
 	{ "fighting",		POS_FIGHTING	},
 	{ "standing",		POS_STANDING	},
+
 	{ NULL }
 };
 
@@ -855,6 +887,7 @@ FLAG portal_flags[]=
 	{ "gowith",		GATE_GOWITH,		TRUE	},
 	{ "buggy",		GATE_BUGGY,		TRUE	},
 	{ "random",		GATE_RANDOM,		TRUE	},
+
 	{ NULL }
 };
 
@@ -878,6 +911,7 @@ FLAG furniture_flags[]=
 	{ "put_on",		PUT_ON,			TRUE	},
 	{ "put_in",		PUT_IN,			TRUE	},
 	{ "put_inside",		PUT_INSIDE,		TRUE	},
+
 	{ NULL }
 };
 
@@ -891,6 +925,7 @@ FLAG apply_types[] =
 	{ "resist",		TO_RESIST,		TRUE	},
 	{ "vuln",		TO_VULN,		TRUE	},
 /*	{ "weapon",		TO_WEAPON,		TRUE	}, */
+
 	{ NULL }
 };
 
@@ -908,6 +943,7 @@ FLAG raffect_flags[] =
 	{ "sleep",		RAFF_SLEEP,		TRUE	},
 	{ "plague",		RAFF_PLAGUE,		TRUE	},
 	{ "slow",		RAFF_SLOW,		TRUE	},
+
 	{ NULL }
 };
 
@@ -940,6 +976,7 @@ FLAG skill_groups[] =
 	{ "clan",		GROUP_CLAN,		TRUE	},
 	{ "defensive",		GROUP_DEFENSIVE,	TRUE	},
 	{ "wizard",		GROUP_WIZARD,		TRUE	},
+
 	{ NULL }
 };
 
@@ -963,6 +1000,7 @@ FLAG mptrig_types[] =
 	{ "exall",		TRIG_EXALL,		TRUE    },
 	{ "delay",		TRIG_DELAY,		TRUE    },
 	{ "surr",		TRIG_SURR,		TRUE    },
+
 	{ NULL }
 };
 
@@ -971,6 +1009,7 @@ FLAG mptrig_flags[] =
 	{ "",			TABLE_BITVAL			},
 
 	{ "case-sensitive",	TRIG_CASEDEP,		FALSE	},
+
 	{ NULL }
 };
 
@@ -985,6 +1024,7 @@ FLAG skill_targets[] =
 	{ "objinv",		TAR_OBJ_INV,		TRUE	},
 	{ "objchardef",		TAR_OBJ_CHAR_DEF,	TRUE	},
 	{ "objcharoff",		TAR_OBJ_CHAR_OFF,	TRUE	},
+
 	{ NULL }
 };
 
@@ -998,6 +1038,7 @@ FLAG stat_names[] =
 	{ "wis",		STAT_WIS,		TRUE	},
 	{ "con",		STAT_CON,		TRUE	},
 	{ "cha",		STAT_CHA,		TRUE	},
+
 	{ NULL }
 };
 
@@ -1009,6 +1050,7 @@ FLAG skill_flags[] =
 	{ "range",		SKILL_RANGE,		TRUE	},
 	{ "area_attack",	SKILL_AREA_ATTACK,	TRUE	},
 	{ "questionable",	SKILL_QUESTIONABLE,	TRUE	},
+
 	{ NULL }
 };
 
@@ -1016,7 +1058,8 @@ FLAG class_flags[] =
 {
 	{ "",			TABLE_BITVAL			},
 
-	{ "mage",		CLASS_MAGIC,		TRUE	},
+	{ "magic",		CLASS_MAGIC,		TRUE	},
+
 	{ NULL }
 };
 
@@ -1027,6 +1070,7 @@ FLAG align_names[] =
 	{ "evil",		CR_EVIL,		TRUE	},
 	{ "neutral",		CR_NEUTRAL,		TRUE	},
 	{ "good",		CR_GOOD,		TRUE	},
+
 	{ NULL }
 };
 
@@ -1035,9 +1079,8 @@ FLAG lang_flags[] =
 	{ "",			TABLE_BITVAL			},
 
 	{ "hidden",		LANG_HIDDEN,		TRUE	},
-	{ "genders_changed",	LANG_GENDERS_CHANGED,	FALSE	},
-	{ "cases_changed",	LANG_CASES_CHANGED,	FALSE	},
 	{ "changed",		LANG_CHANGED,		FALSE	},
+
 	{ NULL }
 };
 
@@ -1048,6 +1091,29 @@ FLAG ethos_table[] =
 	{ "lawful",		ETHOS_LAWFUL,		TRUE	},
 	{ "neutral",		ETHOS_NEUTRAL,		TRUE	},
 	{ "chaotic",		ETHOS_CHAOTIC,		TRUE	},
+
+	{ NULL }
+};
+
+FLAG rulecl_names[] =
+{
+	{ "",			TABLE_INTVAL			},
+
+	{ "cases",		RULES_CASE,		TRUE	},
+	{ "genders",		RULES_GENDER,		TRUE	},
+	{ "qtys",		RULES_QTY,		TRUE	},
+
+	{ NULL }
+};
+
+FLAG rulecl_flags[] =
+{
+	{ "",			TABLE_BITVAL			},
+
+	{ "expl_changed",	RULES_EXPL_CHANGED		},
+	{ "impl_changed",	RULES_IMPL_CHANGED		},
+
+	{ NULL }
 };
 
 /* wiznet table and prototype for future flag setting */

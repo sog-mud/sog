@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.125 1999-03-03 13:50:42 fjoe Exp $
+ * $Id: handler.c,v 1.126 1999-03-08 13:56:04 fjoe Exp $
  */
 
 /***************************************************************************
@@ -53,7 +53,7 @@
 #include "quest.h"
 #include "db/db.h"
 #include "olc/olc.h"
-#include "db/word.h"
+#include "db/lang.h"
 
 DECLARE_DO_FUN(do_raffects	);
 DECLARE_DO_FUN(do_return	);
@@ -1401,7 +1401,7 @@ void char_to_room(CHAR_DATA *ch, ROOM_INDEX_DATA *pRoomIndex)
 			raffect_to_char(ch->in_room, ch);
 	}
 
-	if (!IS_NPC(ch) && ch->desc && ch->desc->editor == ED_ROOM)
+	if (ch->desc && OLCED(ch) && IS_EDIT(ch, ED_ROOM))
 		roomed_edit_room(ch, pRoomIndex, TRUE);
 }
 
@@ -2443,8 +2443,9 @@ money_form(int lang, char *buf, size_t len, int num, const char *name)
 	if (num < 0)
 		return;
 
-	strnzcpy(tmp, sizeof(tmp), word_case(lang, GETMSG(name, lang), 1));
-	strnzcpy(buf, len, word_quantity(lang, tmp, num));
+	strnzcpy(tmp, sizeof(tmp),
+		 word_form(GETMSG(name, lang), 1, lang, RULES_CASE));
+	strnzcpy(buf, len, word_form(tmp, num, lang, RULES_QTY));
 }
 
 struct _data {
@@ -3154,17 +3155,16 @@ const char *PERS2(CHAR_DATA *ch, CHAR_DATA *looker, flag32_t flags)
 			return descr;
 		}
 		else if (is_affected(ch, gsn_vampire) && !IS_IMMORTAL(looker)) {
-			return word_gender(looker->lang,
-					   GETMSG("an ugly creature",
-						  looker->lang), ch->sex);
+			return word_form(GETMSG("an ugly creature",
+						looker->lang),
+					 ch->sex, looker->lang, RULES_GENDER);
 		}
 		return ch->name;
 	}
 
 	if (IS_IMMORTAL(ch)) {
-		return word_gender(looker->lang,
-				   GETMSG("an immortal", looker->lang),
-				   ch->sex);
+		return word_form(GETMSG("an immortal", looker->lang), ch->sex,
+				 looker->lang, RULES_GENDER);
 	}
 
 	return "someone";

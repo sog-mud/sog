@@ -1,5 +1,5 @@
 /*
- * $Id: olc_save.c,v 1.62 1999-02-25 14:27:26 fjoe Exp $
+ * $Id: olc_save.c,v 1.63 1999-03-08 13:56:08 fjoe Exp $
  */
 
 /**************************************************************************
@@ -32,7 +32,6 @@
 #include "obj_prog.h"
 #include "olc.h"
 #include "db/db.h"
-#include "db/word.h"
 #include "db/lang.h"
 #include "db/socials.h"
 
@@ -1048,16 +1047,16 @@ void save_msgdb(CHAR_DATA *ch)
 	save_print(ch, "Msgdb saved.");
 }
 
-void save_word(FILE *fp, WORD_DATA *w)
+void save_rule(FILE *fp, rule_t *r)
 {
 	int i;
 
-	fprintf(fp, "#WORD\n"
-		    "Name %s~\n", w->name);
-	if (w->base_len)
-		fprintf(fp, "BaseLen %d\n", w->base_len);
-	for (i = 0; i < w->f.nused; i++) {
-		char **p = VARR_GET(&w->f, i);
+	fprintf(fp, "#RULE\n"
+		    "Name %s~\n", r->name);
+	if (r->arg)
+		fprintf(fp, "BaseLen %d\n", r->arg);
+	for (i = 0; i < r->f->v.nused; i++) {
+		char **p = VARR_GET(&r->f->v, i);
 		if (IS_NULLSTR(*p))
 			continue;
 		fprintf(fp, "Form %d %s~\n", i, *p);
@@ -1065,49 +1064,76 @@ void save_word(FILE *fp, WORD_DATA *w)
 	fprintf(fp, "End\n\n");
 }
 
-bool save_words(CHAR_DATA *ch, const char *filename, varr *hash)
+void save_expl(CHAR_DATA *ch, LANG_DATA *l, rulecl_t *rcl)
 {
 	int i;
 	FILE *fp;
-	int sec = ch ? (IS_NPC(ch) ? 0 : ch->pcdata->security) : 9;
 
-	if (sec < SECURITY_MSGDB) {
-		save_print(ch, "Insufficient security to save words hash.");
-		return FALSE;
-	}
+	if (!IS_SET(rcl->flags, RULES_EXPL_CHANGED))
+		return;
 
-	if ((fp = dfopen(LANG_PATH, filename, "w")) == NULL) {
+	if ((fp = dfopen(LANG_PATH, rcl->file_expl, "w")) == NULL) {
 		save_print(ch, "%s%c%s: %s",
-			   LANG_PATH, PATH_SEPARATOR, filename,
+			   LANG_PATH, PATH_SEPARATOR, rcl->file_expl,
 			   strerror(errno));
-		return FALSE;
+		return;
 	}
 
-	for (i = 0; i < MAX_WORD_HASH; i++) {
+	for (i = 0; i < MAX_RULE_HASH; i++) {
 		int j;
 
-		for (j = 0; j < hash[i].nused; j++) {
-			WORD_DATA *w = VARR_GET(hash+i, j);
-			save_word(fp, w);
+		for (j = 0; j < rcl->expl[i].nused; j++) {
+			rule_t *r = VARR_GET(rcl->expl+i, j);
+			save_rule(fp, r);
 		}
 	}
 
 	fprintf(fp, "#$\n");
 	fclose(fp);
-	return TRUE;
+
+	save_print(ch, "Explicit rules (%s%c%s) saved "
+		       "(lang '%s', rules type '%s').",
+		   LANG_PATH, PATH_SEPARATOR, rcl->file_expl,
+		   l->name, flag_string(rulecl_names, rcl->rulecl));
+	rcl->flags &= ~RULES_EXPL_CHANGED;
+}
+
+void save_impl(CHAR_DATA *ch, LANG_DATA *l, rulecl_t *rcl)
+{
+	int i;
+	FILE *fp;
+
+	if (!IS_SET(rcl->flags, RULES_IMPL_CHANGED))
+		return;
+
+	if ((fp = dfopen(LANG_PATH, rcl->file_impl, "w")) == NULL) {
+		save_print(ch, "%s%c%s: %s",
+			   LANG_PATH, PATH_SEPARATOR, rcl->file_impl,
+			   strerror(errno));
+		return;
+	}
+
+	for (i = 0; i < rcl->impl.nused; i++) {
+		rule_t *r = VARR_GET(&rcl->impl, i);
+		save_rule(fp, r);
+	}
+
+	fprintf(fp, "#$\n");
+	fclose(fp);
+
+	save_print(ch, "Implicit rules (%s%c%s) saved "
+		       "(lang '%s', rules type '%s').",
+		   LANG_PATH, PATH_SEPARATOR, rcl->file_impl,
+		   l->name, flag_string(rulecl_names, rcl->rulecl));
+	rcl->flags &= ~RULES_IMPL_CHANGED;
 }
 
 bool save_lang(CHAR_DATA *ch, LANG_DATA *l)
 {
+	int i;
 	FILE *fp;
 	LANG_DATA *sl;
-	int sec = ch ? (IS_NPC(ch) ? 0 : ch->pcdata->security) : 9;
 	int flags;
-
-	if (sec < SECURITY_MSGDB) {
-		save_print(ch, "Insufficient security to save langs.");
-		return FALSE;
-	}
 
 	if ((fp = dfopen(LANG_PATH, l->file_name, "w")) == NULL) {
 		save_print(ch, "%s%c%s: %s",
@@ -1120,15 +1146,29 @@ bool save_lang(CHAR_DATA *ch, LANG_DATA *l)
 		    "Name %s\n", l->name);
 	if ((sl = varr_get(&langs, l->slang_of)))
 		fprintf(fp, "SlangOf %s\n", sl->name);
-	flags = l->flags & ~(LANG_CHANGED | LANG_GENDERS_CHANGED |
-			     LANG_CASES_CHANGED | LANG_QTYS_CHANGED);
+	flags = l->flags & ~LANG_CHANGED;
 	if (flags)
 		fprintf(fp, "Flags %s~\n", flag_string(lang_flags, flags));
-	fwrite_string(fp, "CasesFile", l->file_cases);
-	fwrite_string(fp, "GendersFile", l->file_genders);
-	fwrite_string(fp, "QtysFile", l->file_qtys);
-	fprintf(fp, "End\n\n"
-		    "#$\n");
+	fprintf(fp, "End\n\n");
+
+	for (i = 0; i < MAX_RULECL; i++) {
+		rulecl_t *rcl = l->rules + i;
+
+		if (!IS_NULLSTR(rcl->file_impl)
+		||  !IS_NULLSTR(rcl->file_expl)) {
+			fprintf(fp, "#RULECLASS\n"
+				    "Class %s\n",
+				flag_string(rulecl_names, i));
+			fwrite_string(fp, "Impl", rcl->file_impl);
+			fwrite_string(fp, "Expl", rcl->file_expl);
+			fprintf(fp, "End\n\n");
+		}
+
+		save_expl(ch, l, rcl);
+		save_impl(ch, l, rcl);
+	}
+
+	fprintf(fp, "#$\n");
 	fclose(fp);
 	return TRUE;
 }
@@ -1137,35 +1177,21 @@ void save_langs(CHAR_DATA *ch)
 {
 	int lang;
 	bool list = FALSE;
+	int sec = ch ? (IS_NPC(ch) ? 0 : ch->pcdata->security) : 9;
+
+	if (sec < SECURITY_MSGDB) {
+		save_print(ch, "Insufficient security to save langs.");
+		return;
+	}
 
 	for (lang = 0; lang < langs.nused; lang++) {
 		LANG_DATA *l = VARR_GET(&langs, lang);
 
-		if (IS_SET(l->flags, LANG_GENDERS_CHANGED)
-		&&  save_words(ch, l->file_genders, l->hash_genders)) {
-			save_print(ch, "Genders saved (language '%s', %s%c%s).",
-				   l->name, LANG_PATH, PATH_SEPARATOR, l->file_genders);
-			l->flags &= ~LANG_GENDERS_CHANGED;
-		}
-
-		if (IS_SET(l->flags, LANG_CASES_CHANGED)
-		&&  save_words(ch, l->file_cases, l->hash_cases)) {
-			save_print(ch, "Cases saved (language '%s', %s%c%s).",
-				   l->name, LANG_PATH, PATH_SEPARATOR, l->file_cases);
-			l->flags &= ~LANG_CASES_CHANGED;
-		}
-
-		if (IS_SET(l->flags, LANG_QTYS_CHANGED)
-		&&  save_words(ch, l->file_qtys, l->hash_qtys)) {
-			save_print(ch, "Qtys saved (language '%s', %s%c%s).",
-				   l->name, LANG_PATH, PATH_SEPARATOR, l->file_qtys);
-			l->flags &= ~LANG_QTYS_CHANGED;
-		}
-
 		if (IS_SET(l->flags, LANG_CHANGED)
 		&&  save_lang(ch, l)) {
 			save_print(ch, "Language '%s' saved (%s%c%s).",
-				   l->name, LANG_PATH, PATH_SEPARATOR, l->file_name);
+				   l->name, LANG_PATH, PATH_SEPARATOR,
+				   l->file_name);
 			l->flags &= ~LANG_CHANGED;
 			list = TRUE;
 		}
@@ -1235,7 +1261,7 @@ void save_socials(CHAR_DATA *ch)
 	save_print(ch, "Socials saved.");
 }
 
-void do_asave_raw(CHAR_DATA *ch, int flags)
+void save_areas(CHAR_DATA *ch, int flags)
 {
 	AREA_DATA *pArea;
 	bool found = FALSE;
@@ -1299,7 +1325,7 @@ void do_asave(CHAR_DATA *ch, const char *argument)
 	/* Save the world, only authorized areas. */
 	/* -------------------------------------- */
 	if (!str_cmp("world", argument)) {
-		do_asave_raw(ch, 0);
+		save_areas(ch, 0);
 		if (ch)
 			char_puts("You saved the world.\n", ch);
 		else
@@ -1310,7 +1336,7 @@ void do_asave(CHAR_DATA *ch, const char *argument)
 	/* Save changed areas, only authorized areas. */
 	/* ------------------------------------------ */
 	if (!str_cmp("changed", argument)) {
-		do_asave_raw(ch, AREA_CHANGED);
+		save_areas(ch, AREA_CHANGED);
 		if (ch)
 			char_puts("You saved changed areas.\n", ch);
 		else

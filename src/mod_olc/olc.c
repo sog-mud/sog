@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.48 1999-02-27 07:26:16 fjoe Exp $
+ * $Id: olc.c,v 1.49 1999-03-08 13:56:07 fjoe Exp $
  */
 
 /***************************************************************************
@@ -46,6 +46,7 @@
 #include <time.h>
 #include "merc.h"
 #include "olc.h"
+#include "db/lang.h"
 
 /*
  * The version info.  Please use this info when reporting bugs.
@@ -66,13 +67,6 @@
 		"     Version actual : 1.71 - Mar 22, 1998\n"
 #define CREDITS "     Original by Surreality(cxw197@psu.edu) and Locke(locke@lm.com)"
 
-struct olced_data {
-	const char *	id;
-	const char *	name;
-	OLC_CMD_DATA *	cmd_table;
-};
-typedef struct olced_data OLCED_DATA;	
-
 const char ED_AREA[]	= "area";
 const char ED_ROOM[]	= "room";
 const char ED_OBJ[]	= "object";
@@ -82,13 +76,12 @@ const char ED_HELP[]	= "help";
 const char ED_CLAN[]	= "clan";
 const char ED_MSG[]	= "msgdb";
 const char ED_LANG[]	= "language";
-const char ED_GENDER[]	= "form";
-const char ED_CASE[]	= "form";
-const char ED_QTY[]	= "form";
+const char ED_IMPL[]	= "implicit";
+const char ED_EXPL[]	= "explicit";
 const char ED_SOC[]	= "social";
 /*const char ED_CLASS[]	= "class";*/
 
-OLCED_DATA olced_table[] = {
+olced_t olced_table[] = {
 	{ ED_AREA,	"AreaEd",	olc_cmds_area	},
 	{ ED_ROOM,	"RoomEd",	olc_cmds_room	},
 	{ ED_OBJ,	"ObjEd",	olc_cmds_obj	},
@@ -98,18 +91,14 @@ OLCED_DATA olced_table[] = {
 	{ ED_MSG,	"MsgEd",	olc_cmds_msg	},
 	{ ED_CLAN,	"ClanEd",	olc_cmds_clan	},
 	{ ED_LANG,	"LangEd",	olc_cmds_lang	},
-	{ ED_GENDER,	"FormEd",	olc_cmds_form	},
-	{ ED_CASE,	"FormEd",	olc_cmds_form	},
-	{ ED_QTY,	"FormEd",	olc_cmds_form	},
+	{ ED_IMPL,	"ImplRuleEd",	olc_cmds_impl	},
+	{ ED_EXPL,	"ExplRuleEd",	olc_cmds_expl	},
 	{ ED_SOC,	"SocEd",	olc_cmds_soc	},
 /*	{ ED_CLASS,	"ClassEd",	olc_cmds_class	}, */
 	{ NULL }
 };
 
-static OLCED_DATA *	olced_lookup	(const char * id);
-static OLC_CMD_DATA *	cmd_lookup	(OLC_CMD_DATA *cmd_table, OLC_FUN *fun);
-static OLC_CMD_DATA *	cmd_name_lookup	(OLC_CMD_DATA *cmd_table,
-					 const char *name);
+static olc_cmd_t *	cmd_lookup(olc_cmd_t *cmd_table, const char *name);
 
 static void do_olc(CHAR_DATA *ch, const char *argument, int fun);
 
@@ -117,17 +106,18 @@ static void do_olc(CHAR_DATA *ch, const char *argument, int fun);
 bool run_olc_editor(DESCRIPTOR_DATA *d)
 {
 	char command[MAX_INPUT_LENGTH];
-	OLC_CMD_DATA *cmd;
+	olc_cmd_t *cmd;
 	const char *argument;
-	OLCED_DATA *olced = olced_lookup(d->editor);
+	olced_t *olced = d->olced;
 
-	if ((olced = olced_lookup(d->editor)) == NULL)
+	if ((olced = d->olced) == NULL)
 		return FALSE;
 
 	argument = one_argument(d->incomm, command, sizeof(command));
 
 	if (command[0] == '\0') {
-		olced->cmd_table[FUN_SHOW].olc_fun(d->character, argument);
+		olced->cmd_table[FUN_SHOW].olc_fun(d->character, argument,
+						   olced->cmd_table+FUN_SHOW);
 		return TRUE;
 	}
 
@@ -136,13 +126,14 @@ bool run_olc_editor(DESCRIPTOR_DATA *d)
 		return TRUE;
 	}
 
-	if ((cmd = cmd_name_lookup(olced->cmd_table+FUN_FIRST, command)) == NULL
+	if ((cmd = cmd_lookup(olced->cmd_table+FUN_FIRST, command)) == NULL
 	||  cmd->olc_fun == NULL)
 		return FALSE;
 
-	if (cmd->olc_fun(d->character, argument)
+	if (cmd->olc_fun(d->character, argument, cmd)
 	&&  olced->cmd_table[FUN_TOUCH].olc_fun)
-		olced->cmd_table[FUN_TOUCH].olc_fun(d->character, NULL);
+		olced->cmd_table[FUN_TOUCH].olc_fun(d->character, NULL,
+						    olced->cmd_table+FUN_TOUCH);
 
 	return TRUE;
 }
@@ -168,66 +159,23 @@ void do_ashow(CHAR_DATA *ch, const char *argument)
 }
 
 /*
- * olc_ed_name - returns name of current OLC editor (if any).
- *		 Called by bust_a_prompt.
- */
-const char *olc_ed_name(CHAR_DATA *ch)
-{
-	OLCED_DATA *olced;
-
-	if (IS_NPC(ch))
-		return str_empty;
-
-	olced = olced_lookup(ch->desc->editor);
-	if (olced == NULL)
-		return str_empty;
-	return olced->name;
-}
-
-/*
- * olced_obj_busy -- returns TRUE if there is another character
- *		     editing the same OLC object
- */
-bool olced_obj_busy(CHAR_DATA *ch)
-{
-	DESCRIPTOR_DATA *d;
-
-	for (d = descriptor_list; d; d = d->next) {
-		CHAR_DATA *vch = d->original ? d->original : d->character;
-
-		if (vch != ch
-		&&  d->editor == ch->desc->editor
-		&&  d->pEdit == ch->desc->pEdit) {
-			char_printf(ch, "%s: %s is editing this object "
-					"right now.\n",
-				    olc_ed_name(ch), vch->name);
-			return TRUE;
-		}
-	}
-
-	return FALSE;
-}
-
-/*
  * olced_busy -- returns TRUE if there is another character
  *		 is using the same OLC editor
  */
-bool olced_busy(CHAR_DATA *ch, const char *id, void *edit, void *edit2)
+bool olced_busy(CHAR_DATA *ch, void *edit, void *edit2)
 {
 	DESCRIPTOR_DATA *d;
 
 	for (d = descriptor_list; d; d = d->next) {
-		OLCED_DATA *olced;
 		CHAR_DATA *vch = d->original ? d->original : d->character;
 
 		if (vch != ch
-		&&  d->editor == id
-		&&  (!edit || vch->desc->pEdit == edit)
-		&&  (!edit2 || vch->desc->pEdit2 == edit2)) {
-			char_printf(ch, "%s: %s is using this editor "
+		&&  d->olced == OLCED(ch)
+		&&  (!edit || d->pEdit == edit)
+		&&  (!edit2 || d->pEdit2 == edit2)) {
+			char_printf(ch, "%s: %s is locking this editor "
 					"right now.\n",
-				    (olced = olced_lookup(id)) ?
-					olced->name : str_empty,
+				    d->olced->name,
 				    vch->name);
 			return TRUE;
 		}
@@ -240,23 +188,19 @@ bool olced_busy(CHAR_DATA *ch, const char *id, void *edit, void *edit2)
  * Generic OLC editor functions.
  * All functions assume !IS_NPC(ch).
  */
-
 OLC_FUN(olced_spell_out)
 {
 	char_puts("Spell it out.\n", ch);
 	return FALSE;
 }
 
-bool olced_number(CHAR_DATA *ch, const char *argument, OLC_FUN* fun, int *pInt)
+bool olced_number(CHAR_DATA *ch, const char *argument,
+		  olc_cmd_t* cmd, int *pInt)
 {
 	int val;
 	char *endptr;
 	char arg[MAX_STRING_LENGTH];
-	OLC_CMD_DATA *cmd;
 	VALIDATE_FUN *validator;
-
-	if ((cmd = olc_cmd_lookup(ch, fun)) == NULL)
-		return FALSE;
 
 	one_argument(argument, arg, sizeof(arg));
 	val = strtol(arg, &endptr, 0);
@@ -274,17 +218,11 @@ bool olced_number(CHAR_DATA *ch, const char *argument, OLC_FUN* fun, int *pInt)
 }
 
 bool olced_name(CHAR_DATA *ch, const char *argument,
-	        OLC_FUN *fun, const char **pStr)
+		olc_cmd_t *cmd, const char **pStr)
 {
-	OLC_CMD_DATA *cmd;
-	OLCED_DATA *olced;
 	VALIDATE_FUN *validator;
 	bool changed;
 	char arg[MAX_INPUT_LENGTH];
-
-	if ((cmd = olc_cmd_lookup(ch, fun)) == NULL
-	||  (olced = olced_lookup(ch->desc->editor)) == NULL)
-		return FALSE;
 
 	argument = one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
@@ -299,24 +237,20 @@ bool olced_name(CHAR_DATA *ch, const char *argument,
 	for (; arg[0]; argument = one_argument(argument, arg, sizeof(arg))) {
 		if (!str_cmp(arg, "all")) {
 			char_printf(ch, "%s: %s: Illegal name.\n",
-				    olced->name, arg);
+				    OLCED(ch)->name, arg);
 			continue;
 		}
 		changed = TRUE;
-		name_toggle(pStr, arg, ch, olced->name);
+		name_toggle(pStr, arg, ch, OLCED(ch)->name);
 	}
 
 	return changed;
 }
 
 bool olced_str(CHAR_DATA *ch, const char *argument,
-	       OLC_FUN *fun, const char **pStr)
+	       olc_cmd_t *cmd, const char **pStr)
 {
-	OLC_CMD_DATA *cmd;
 	VALIDATE_FUN *validator;
-
-	if ((cmd = olc_cmd_lookup(ch, fun)) == NULL)
-		return FALSE;
 
 	if (IS_NULLSTR(argument)) {
 		char_printf(ch, "Syntax: %s string\n", cmd->name);
@@ -333,13 +267,8 @@ bool olced_str(CHAR_DATA *ch, const char *argument,
 }
 
 bool olced_str_text(CHAR_DATA *ch, const char *argument,
-		    OLC_FUN *fun, const char **pStr)
+		    olc_cmd_t *cmd, const char **pStr)
 {
-	OLC_CMD_DATA *cmd;
-
-	if ((cmd = olc_cmd_lookup(ch, fun)) == NULL)
-		return FALSE;
-
 	if (argument[0] =='\0') {
 		string_append(ch, pStr);
 		return TRUE;
@@ -350,13 +279,8 @@ bool olced_str_text(CHAR_DATA *ch, const char *argument,
 }
 
 bool olced_mlstr(CHAR_DATA *ch, const char *argument,
-		 OLC_FUN *fun, mlstring **pmlstr)
+		 olc_cmd_t *cmd, mlstring **pmlstr)
 {
-	OLC_CMD_DATA *cmd;
-
-	if ((cmd = olc_cmd_lookup(ch, fun)) == NULL)
-		return FALSE;
-
 	if (!mlstr_edit(pmlstr, argument)) {
 		char_printf(ch, "Syntax: %s lang string\n", cmd->name);
 		return FALSE;
@@ -366,13 +290,8 @@ bool olced_mlstr(CHAR_DATA *ch, const char *argument,
 }
 
 bool olced_mlstrnl(CHAR_DATA *ch, const char *argument,
-		   OLC_FUN *fun, mlstring **pmlstr)
+		   olc_cmd_t *cmd, mlstring **pmlstr)
 {
-	OLC_CMD_DATA *cmd;
-
-	if ((cmd = olc_cmd_lookup(ch, fun)) == NULL)
-		return FALSE;
-
 	if (!mlstr_editnl(pmlstr, argument)) {
 		char_printf(ch, "Syntax: %s lang string\n", cmd->name);
 		return FALSE;
@@ -382,13 +301,8 @@ bool olced_mlstrnl(CHAR_DATA *ch, const char *argument,
 }
 
 bool olced_mlstr_text(CHAR_DATA *ch, const char *argument,
-		      OLC_FUN *fun, mlstring **pmlstr)
+		      olc_cmd_t *cmd, mlstring **pmlstr)
 {
-	OLC_CMD_DATA *cmd;
-
-	if ((cmd = olc_cmd_lookup(ch, fun)) == NULL)
-		return FALSE;
-
 	if (!mlstr_append(ch, pmlstr, argument)) {
 		char_printf(ch, "Syntax: %s lang\n", cmd->name);
 		return FALSE;
@@ -401,16 +315,13 @@ static void cb_format(int lang, const char **p, void *arg)
 	*p = format_string(*p);
 }
 
-bool olced_exd(CHAR_DATA *ch, const char* argument, ED_DATA **ped)
+bool olced_exd(CHAR_DATA *ch, const char* argument,
+	       olc_cmd_t *cmd, ED_DATA **ped)
 {
 	ED_DATA *ed;
 	char command[MAX_INPUT_LENGTH];
 	char keyword[MAX_INPUT_LENGTH];
 	char arg[MAX_INPUT_LENGTH];
-	OLCED_DATA *olced;
-
-	if ((olced = olced_lookup(ch->desc->editor)) == NULL)
-		return FALSE;
 
 	argument = one_argument(argument, command, sizeof(command));
 	argument = one_argument(argument, keyword, sizeof(keyword));
@@ -440,24 +351,24 @@ bool olced_exd(CHAR_DATA *ch, const char* argument, ED_DATA **ped)
 	if (!str_cmp(command, "name")) {
 		ed = ed_lookup(keyword, *ped);
 		if (ed == NULL) {
-			char_printf(ch, "%s: Extra description keyword not found.\n", olced->name);
+			char_printf(ch, "%s: Extra description keyword not found.\n", OLCED(ch)->name);
 			return FALSE;
 		}
 
 		if (!str_cmp(arg, "none")
 		||  !str_cmp(arg, "all")) {
 			char_printf(ch, "%s: %s: Illegal keyword.\n",
-				    olced->name, arg);
+				    OLCED(ch)->name, arg);
 			return FALSE;
 		}
-		name_toggle(&ed->keyword, arg, ch, olced->name);
+		name_toggle(&ed->keyword, arg, ch, OLCED(ch)->name);
 		return TRUE;
 	}
 
 	if (!str_cmp(command, "edit")) {
 		ed = ed_lookup(keyword, *ped);
 		if (ed == NULL) {
-			char_printf(ch, "%s: Extra description keyword not found.\n", olced->name);
+			char_printf(ch, "%s: Extra description keyword not found.\n", OLCED(ch)->name);
 			return FALSE;
 		}
 
@@ -478,7 +389,7 @@ bool olced_exd(CHAR_DATA *ch, const char* argument, ED_DATA **ped)
 		}
 
 		if (ed == NULL) {
-			char_printf(ch, "%s: Extra description keyword not found.\n", olced->name);
+			char_printf(ch, "%s: Extra description keyword not found.\n", OLCED(ch)->name);
 			return FALSE;
 		}
 
@@ -499,7 +410,7 @@ bool olced_exd(CHAR_DATA *ch, const char* argument, ED_DATA **ped)
 
 		ed = ed_lookup(keyword, *ped);
 		if (ed == NULL) {
-			char_printf(ch, "%s: Extra description keyword not found.\n", olced->name);
+			char_printf(ch, "%s: Extra description keyword not found.\n", OLCED(ch)->name);
 			return FALSE;
 		}
 
@@ -514,7 +425,7 @@ bool olced_exd(CHAR_DATA *ch, const char* argument, ED_DATA **ped)
 	if (!str_cmp(command, "format")) {
 		ed = ed_lookup(keyword, *ped);
 		if (ed == NULL) {
-			char_printf(ch, "%s: Extra description keyword not found.\n", olced->name);
+			char_printf(ch, "%s: Extra description keyword not found.\n", OLCED(ch)->name);
 			return FALSE;
 		}
 
@@ -528,21 +439,15 @@ bool olced_exd(CHAR_DATA *ch, const char* argument, ED_DATA **ped)
 }
 
 bool olced_flag64(CHAR_DATA *ch, const char *argument,
-		OLC_FUN* fun, flag64_t *pflag)
+		  olc_cmd_t* cmd, flag64_t *pflag)
 {
-	OLC_CMD_DATA *cmd;
-	OLCED_DATA *olced;
 	const FLAG *flag64_table;
 	const FLAG *f;
 	flag64_t ttype;
 	const char *tname;
 
-	if ((olced = olced_lookup(ch->desc->editor)) == NULL
-	||  (cmd = cmd_lookup(olced->cmd_table, fun)) == NULL)
-		return FALSE;
-
 	if (!cmd->arg1) {
-		char_printf(ch, "%s: %s: Table of values undefined (report it to implementors).\n", olced->name, cmd->name);
+		char_printf(ch, "%s: %s: Table of values undefined (report it to implementors).\n", OLCED(ch)->name, cmd->name);
 		return FALSE;
 	}
 
@@ -581,7 +486,8 @@ bool olced_flag64(CHAR_DATA *ch, const char *argument,
 			if (!f->settable) {
 				char_printf(ch, "%s: %s: '%s': flag is not "
 						"settable.\n",
-					    olced->name, cmd->name, f->name);
+					    OLCED(ch)->name,
+					    cmd->name, f->name);
 				continue;
 			}
 			SET_BIT(marked, f->bit);
@@ -590,7 +496,7 @@ bool olced_flag64(CHAR_DATA *ch, const char *argument,
 		if (marked) {
 			TOGGLE_BIT(*pflag, marked);
 			char_printf(ch, "%s: %s: '%s': flag(s) toggled.\n",
-				    olced->name, cmd->name,
+				    OLCED(ch)->name, cmd->name,
 				    flag_string(cmd->arg1, marked));
 			return TRUE;
 		}
@@ -609,40 +515,37 @@ bool olced_flag64(CHAR_DATA *ch, const char *argument,
 		}
 		if (!f->settable) {
 			char_printf(ch, "%s: %s: '%s': value is not settable.\n",
-				    olced->name, cmd->name, f->name);
+				    OLCED(ch)->name, cmd->name, f->name);
 			return FALSE;
 		}
 		*pflag = f->bit;
 		char_printf(ch, "%s: %s: '%s': Ok.\n",
-			    olced->name, cmd->name, f->name);
+			    OLCED(ch)->name, cmd->name, f->name);
 		return TRUE;
 		/* NOT REACHED */
 
 	default:
-		char_printf(ch, "%s: %s: %s: table type %d unknown (report it to implementors).\n", olced->name, cmd->name, tname, ttype);
+		char_printf(ch, "%s: %s: %s: table type %d unknown (report it to implementors).\n", OLCED(ch)->name, cmd->name, tname, ttype);
 		return FALSE;
 		/* NOT REACHED */
 	}
 }
 
 bool olced_flag32(CHAR_DATA *ch, const char *argument,
-		 OLC_FUN *fun, flag32_t *psflag)
+		  olc_cmd_t *cmd, flag32_t *psflag)
 {
 	flag64_t flag = (flag64_t) (*psflag);
-	bool retval = olced_flag64(ch, argument, fun, &flag);
+	bool retval = olced_flag64(ch, argument, cmd, &flag);
 	if (retval)
 		*psflag = (flag32_t) flag;
 	return retval;
 }
 
-bool olced_dice(CHAR_DATA *ch, const char *argument, OLC_FUN *fun, int *dice)
+bool olced_dice(CHAR_DATA *ch, const char *argument,
+		olc_cmd_t *cmd, int *dice)
 {
 	int num, type, bonus;
 	char* p;
-	OLC_CMD_DATA *cmd;
-
-	if ((cmd = olc_cmd_lookup(ch, fun)) == NULL)
-		return FALSE;
 
 	if (argument[0] == '\0')
 		goto bail_out;
@@ -671,13 +574,10 @@ bail_out:
 	return FALSE;
 }
 
-bool olced_clan(CHAR_DATA *ch, const char *argument, OLC_FUN *fun, int *vnum)
+bool olced_clan(CHAR_DATA *ch, const char *argument,
+		olc_cmd_t *cmd, int *vnum)
 {
-	OLC_CMD_DATA *cmd;
 	int cn;
-
-	if ((cmd = olc_cmd_lookup(ch, fun)) == NULL)
-		return FALSE;
 
 	if (IS_NULLSTR(argument)) {
 		char_printf(ch, "Syntax: %s clan\n"
@@ -701,11 +601,85 @@ bool olced_clan(CHAR_DATA *ch, const char *argument, OLC_FUN *fun, int *vnum)
 	return TRUE;
 }
 
+bool olced_rulecl(CHAR_DATA *ch, const char *argument,
+		  olc_cmd_t *cmd, LANG_DATA *l)
+{
+	char arg[MAX_INPUT_LENGTH];
+	char arg2[MAX_INPUT_LENGTH];
+	int rulecl;
+
+	argument = one_argument(argument, arg, sizeof(arg));
+	argument = one_argument(argument, arg2, sizeof(arg2));
+
+	if (argument[0] == '\0') {
+		do_help(ch, "'OLC RULECLASS'");
+		return FALSE;
+	}
+
+	if ((rulecl = flag_value(rulecl_names, arg)) < 0) {
+		char_printf(ch, "%s: %s: unknown rule class\n",
+			    OLCED(ch)->name, arg);
+		return FALSE;
+	}
+
+	if (!str_prefix(arg2, "implicit")) {
+		cmd->arg1 = validate_filename;
+		return olced_str(ch, argument, cmd,
+				 &l->rules[rulecl].file_impl);
+	}
+
+	if (!str_prefix(arg2, "explicit")) {
+		cmd->arg1 = validate_filename;
+		return olced_str(ch, argument, cmd,
+				 &l->rules[rulecl].file_expl);
+	}
+
+	if (!str_prefix(arg2, "flags")) {
+		cmd->arg1 = rulecl_flags;
+		return olced_flag32(ch, argument, cmd, &l->rules[rulecl].flags);
+	}
+
+	do_help(ch, "'OLC RULECLASS'");
+	return FALSE;
+}
+
+bool olced_vform_add(CHAR_DATA *ch, const char *argument,
+		     olc_cmd_t *cmd, rule_t *r)
+{
+	char arg[MAX_STRING_LENGTH];
+
+	argument = one_argument(argument, arg, sizeof(arg));
+	if (argument[0] == '\0' || !is_number(arg)) {
+		do_help(ch, "'OLC VFORM'");
+		return FALSE;
+	}
+
+	vform_add(r->f, atoi(arg), argument);
+	char_puts("Form added.\n", ch);
+	return TRUE;
+}
+
+bool olced_vform_del(CHAR_DATA *ch, const char *argument,
+		     olc_cmd_t *cmd, rule_t *r)
+{
+	char arg[MAX_STRING_LENGTH];
+
+	argument = one_argument(argument, arg, sizeof(arg));
+	if (!is_number(arg)) {
+		do_help(ch, "'OLC FORM'");
+		return FALSE;
+	}
+
+	vform_del(r->f, atoi(arg));
+	char_puts("Form deleted.\n", ch);
+	return TRUE;
+}
+
 VALIDATE_FUN(validate_filename)
 {
 	if (strpbrk(arg, "/")) {
 		char_printf(ch, "%s: Invalid characters in file name.\n",
-			    olc_ed_name(ch));
+			    OLCED(ch)->name);
 		return FALSE;
 	}
 	return TRUE;
@@ -728,20 +702,15 @@ VALIDATE_FUN(validate_room_vnum)
  Purpose:	Display all olc commands.
  Called by:	olc interpreters.
  ****************************************************************************/
-bool show_commands(CHAR_DATA *ch, const char *argument)
+OLC_FUN(show_commands)
 {
-	OLCED_DATA *	olced;
-	OLC_CMD_DATA *	cmd;
 	BUFFER *	output;
 	int		col;
 
-	olced = olced_lookup(ch->desc->editor);
-	if (olced == NULL)
-		return FALSE;
-
 	output = buf_new(-1); 
 
-	for (col = 0, cmd = olced->cmd_table+FUN_FIRST; cmd->name; cmd++) {
+	col = 0;
+	for (cmd = OLCED(ch)->cmd_table+FUN_FIRST; cmd->name; cmd++) {
 		buf_printf(output, "%-15.15s", cmd->name);
 		if (++col % 5 == 0)
 			buf_add(output, "\n");
@@ -755,7 +724,7 @@ bool show_commands(CHAR_DATA *ch, const char *argument)
 	return FALSE;
 }
 
-bool show_version(CHAR_DATA *ch, const char *argument)
+OLC_FUN(show_version)
 {
 	char_puts(VERSION	"\n"
 		  AUTHOR	"\n"
@@ -768,23 +737,26 @@ bool show_version(CHAR_DATA *ch, const char *argument)
 AREA_DATA *get_edited_area(CHAR_DATA *ch)
 {
 	int vnum;
-	const char *id = ch->desc->editor;
+	olced_t *olced = OLCED(ch);
 	void *p = ch->desc->pEdit;
 
-	if (id == ED_AREA)
+	if (!olced)
+		return NULL;
+
+	if (olced->id == ED_AREA)
 		return p;
 
-	if (id == ED_HELP)
+	if (olced->id == ED_HELP)
 		return ((HELP_DATA*) p)->area;
 
-	if (id == ED_ROOM)
+	if (olced->id == ED_ROOM)
 		return ch->in_room->area;
 
-	if (id == ED_OBJ)
+	if (olced->id == ED_OBJ)
 		vnum = ((OBJ_INDEX_DATA*) p)->vnum;
-	else if (id == ED_MOB)
+	else if (olced->id == ED_MOB)
 		vnum = ((MOB_INDEX_DATA*) p)->vnum;
-	else if (id == ED_MPCODE)
+	else if (olced->id == ED_MPCODE)
 		vnum = ((MPCODE*) p)->vnum;
 	else
 		return NULL;
@@ -804,28 +776,26 @@ bool touch_vnum(int vnum)
 	return touch_area(area_vnum_lookup(vnum));
 }
 
+bool touch_lang(LANG_DATA *l, rulecl_t *rcl, flag32_t flag)
+{
+	SET_BIT(l->flags, LANG_CHANGED);
+	if (rcl)
+		SET_BIT(rcl->flags, flag);
+	return FALSE;
+}
+
 void edit_done(DESCRIPTOR_DATA *d)
 {
 	d->pEdit = NULL;
-	d->editor = NULL;
-}
-
-OLC_CMD_DATA *olc_cmd_lookup(CHAR_DATA *ch, OLC_FUN *fun)
-{
-	OLCED_DATA *olced = olced_lookup(ch->desc->editor);
-
-	if ((olced = olced_lookup(ch->desc->editor)) == NULL)
-		return NULL;
-
-	return cmd_lookup(olced->cmd_table, fun);
+	d->olced = NULL;
 }
 
 /* Local functions */
 
 /* lookup OLC editor by id */
-static OLCED_DATA *olced_lookup(const char * id)
+olced_t *olced_lookup(const char * id)
 {
-	OLCED_DATA *olced;
+	olced_t *olced;
 
 	if (IS_NULLSTR(id))
 		return NULL;
@@ -836,17 +806,8 @@ static OLCED_DATA *olced_lookup(const char * id)
 	return NULL;
 }
 
-/* lookup cmd function by pointer */
-static OLC_CMD_DATA *cmd_lookup(OLC_CMD_DATA *cmd_table, OLC_FUN *fun)
-{
-	for (; cmd_table->name; cmd_table++)
-		if (cmd_table->olc_fun == fun)
-			return cmd_table;
-	return NULL;
-}
-
 /* lookup cmd function by name */
-static OLC_CMD_DATA *cmd_name_lookup(OLC_CMD_DATA *cmd_table, const char *name)
+static olc_cmd_t *cmd_lookup(olc_cmd_t *cmd_table, const char *name)
 {
 	for (; cmd_table->name; cmd_table++)
 		if (!str_prefix(name, cmd_table->name))
@@ -866,7 +827,7 @@ char* help_topics[FUN_MAX] =
 static void do_olc(CHAR_DATA *ch, const char *argument, int fun)
 {
 	char command[MAX_INPUT_LENGTH];
-	OLCED_DATA *olced;
+	olced_t *olced;
 	OLC_FUN *olcfun;
 
 	if (IS_NPC(ch))
@@ -879,6 +840,6 @@ static void do_olc(CHAR_DATA *ch, const char *argument, int fun)
         	return;
 	}
 
-	olcfun(ch, argument);
+	olcfun(ch, argument, olced->cmd_table+fun);
 }
 

@@ -1,5 +1,5 @@
 /*
- * $Id: olc_mpcode.c,v 1.24 1999-02-17 07:53:29 fjoe Exp $
+ * $Id: olc_mpcode.c,v 1.25 1999-03-08 13:56:08 fjoe Exp $
  */
 
 /* The following code is based on ILAB OLC by Jason Dinkel */
@@ -25,7 +25,7 @@ DECLARE_OLC_FUN(mped_list		);
 
 DECLARE_OLC_FUN(mped_code		);
 
-OLC_CMD_DATA olc_cmds_mpcode[] =
+olc_cmd_t olc_cmds_mpcode[] =
 {
 /*	{ command	function	}, */
 
@@ -72,12 +72,12 @@ OLC_FUN(mped_create)
 		return FALSE;
 	}
 
-	mpcode			= mpcode_new();
-	mpcode->vnum		= value;
+	mpcode		= mpcode_new();
+	mpcode->vnum	= value;
 	mpcode_add(mpcode);
 
-	ch->desc->pEdit		= (void *)mpcode;
-	ch->desc->editor	= ED_MPCODE;
+	ch->desc->pEdit	= (void*) mpcode;
+	OLCED(ch)	= olced_lookup(ED_MPCODE);
 	touch_area(pArea);
 	char_puts("MPEd: mpcode created.\n", ch);
 	return FALSE;
@@ -110,7 +110,7 @@ OLC_FUN(mped_edit)
 	}
 
 	ch->desc->pEdit = (void*) mpcode;
-	ch->desc->editor = ED_MPCODE;
+	OLCED(ch)	= olced_lookup(ED_MPCODE);
 	return FALSE;
 }
 
@@ -128,7 +128,7 @@ OLC_FUN(mped_show)
 
 	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
-		if (ch->desc->editor == ED_MPCODE)
+		if (IS_EDIT(ch, ED_MPCODE))
 			EDIT_MPCODE(ch, mpcode);
 		else {
 			do_help(ch, "'OLC ASHOW'");
@@ -195,6 +195,6 @@ OLC_FUN(mped_code)
 {
 	MPCODE *mpcode;
 	EDIT_MPCODE(ch, mpcode);
-	return olced_str_text(ch, argument, mped_code, &mpcode->code);
+	return olced_str_text(ch, argument, cmd, &mpcode->code);
 }
 

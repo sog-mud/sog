@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.41 1999-02-27 07:26:16 fjoe Exp $
+ * $Id: olc_room.c,v 1.42 1999-03-08 13:56:08 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -64,7 +64,7 @@ DECLARE_OLC_FUN(roomed_sector		);
 DECLARE_OLC_FUN(roomed_reset		);
 DECLARE_OLC_FUN(roomed_clone		);
 
-OLC_CMD_DATA olc_cmds_room[] =
+olc_cmd_t olc_cmds_room[] =
 {
 /*	{ command	function			}, */
 
@@ -104,7 +104,7 @@ OLC_CMD_DATA olc_cmds_room[] =
 };
 
 static bool olced_exit(CHAR_DATA *ch, const char *argument,
-		       OLC_FUN *fun, int door);
+		       olc_cmd_t *cmd, int door);
 static void add_reset(ROOM_INDEX_DATA *room, RESET_DATA *pReset, int index);
 
 OLC_FUN(roomed_create)
@@ -150,7 +150,7 @@ OLC_FUN(roomed_create)
 	room_index_hash[iHash]	= pRoom;
 
 	ch->desc->pEdit		= (void *)pRoom;
-	ch->desc->editor	= ED_ROOM;
+	OLCED(ch)		= olced_lookup(ED_ROOM);
 	touch_area(pArea);
 	char_puts("RoomEd: Room created.\n", ch);
 	return FALSE;
@@ -198,13 +198,13 @@ OLC_FUN(roomed_show)
 	
 	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
-		if (ch->desc->editor == ED_ROOM)
+		if (IS_EDIT(ch, ED_ROOM))
 			EDIT_ROOM(ch, pRoom);
 		else
 			pRoom = ch->in_room;
 	}
 	else if (!is_number(arg)) {
-		do_help(ch, ch->desc->editor ? "'OLC EDIT'" : "'OLC ASHOW'");
+		do_help(ch, OLCED(ch) ? "'OLC EDIT'" : "'OLC ASHOW'");
 		return FALSE;
 	}
 	else if ((pRoom = get_room_index(atoi(arg))) == NULL) {
@@ -369,74 +369,74 @@ OLC_FUN(roomed_list)
 
 OLC_FUN(roomed_north)
 {
-	return olced_exit(ch, argument, roomed_north, DIR_NORTH);
+	return olced_exit(ch, argument, cmd, DIR_NORTH);
 }
 
 OLC_FUN(roomed_south)
 {
-	return olced_exit(ch, argument, roomed_south, DIR_SOUTH);
+	return olced_exit(ch, argument, cmd, DIR_SOUTH);
 }
 
 OLC_FUN(roomed_east)
 {
-	return olced_exit(ch, argument, roomed_east, DIR_EAST);
+	return olced_exit(ch, argument, cmd, DIR_EAST);
 }
 
 OLC_FUN(roomed_west)
 {
-	return olced_exit(ch, argument, roomed_west, DIR_WEST);
+	return olced_exit(ch, argument, cmd, DIR_WEST);
 }
 
 OLC_FUN(roomed_up)
 {
-	return olced_exit(ch, argument, roomed_up, DIR_UP);
+	return olced_exit(ch, argument, cmd, DIR_UP);
 }
 
 OLC_FUN(roomed_down)
 {
-	return olced_exit(ch, argument, roomed_down, DIR_DOWN);
+	return olced_exit(ch, argument, cmd, DIR_DOWN);
 }
 
 OLC_FUN(roomed_exd)
 {
 	ROOM_INDEX_DATA *pRoom;
 	EDIT_ROOM(ch, pRoom);
-	return olced_exd(ch, argument, &pRoom->ed);
+	return olced_exd(ch, argument, cmd, &pRoom->ed);
 }
 
 OLC_FUN(roomed_name)
 {
 	ROOM_INDEX_DATA *pRoom;
 	EDIT_ROOM(ch, pRoom);
-	return olced_mlstr(ch, argument, roomed_name, &pRoom->name);
+	return olced_mlstr(ch, argument, cmd, &pRoom->name);
 }
 
 OLC_FUN(roomed_desc)
 {
 	ROOM_INDEX_DATA *pRoom;
 	EDIT_ROOM(ch, pRoom);
-	return olced_mlstr_text(ch, argument, roomed_desc, &pRoom->description);
+	return olced_mlstr_text(ch, argument, cmd, &pRoom->description);
 }
 
 OLC_FUN(roomed_heal)
 {
 	ROOM_INDEX_DATA *pRoom;
 	EDIT_ROOM(ch, pRoom);
-	return olced_number(ch, argument, roomed_heal, &pRoom->heal_rate);
+	return olced_number(ch, argument, cmd, &pRoom->heal_rate);
 }       
 
 OLC_FUN(roomed_mana)
 {
 	ROOM_INDEX_DATA *pRoom;
 	EDIT_ROOM(ch, pRoom);
-	return olced_number(ch, argument, roomed_mana, &pRoom->mana_rate);
+	return olced_number(ch, argument, cmd, &pRoom->mana_rate);
 }       
 
 OLC_FUN(roomed_clan)
 {
 	ROOM_INDEX_DATA *pRoom;
 	EDIT_ROOM(ch, pRoom);
-	return olced_clan(ch, argument, roomed_clan, &pRoom->clan);
+	return olced_clan(ch, argument, cmd, &pRoom->clan);
 }
 	  
 #define MAX_MOB	1		/* Default maximum number for resetting mobs */
@@ -750,14 +750,14 @@ OLC_FUN(roomed_room)
 {
 	ROOM_INDEX_DATA *room;
 	EDIT_ROOM(ch, room);
-	return olced_flag32(ch, argument, roomed_room, &room->room_flags);
+	return olced_flag32(ch, argument, cmd, &room->room_flags);
 }
 
 OLC_FUN(roomed_sector)
 {
 	ROOM_INDEX_DATA *room;
 	EDIT_ROOM(ch, room);
-	return olced_flag32(ch, argument, roomed_sector, &room->sector_type);
+	return olced_flag32(ch, argument, cmd, &room->sector_type);
 }
 
 OLC_FUN(roomed_owner)
@@ -856,20 +856,16 @@ void roomed_edit_room(CHAR_DATA *ch, ROOM_INDEX_DATA *pRoom, bool drop_out)
 	}
 
 	ch->desc->pEdit = (void*) pRoom;
-	ch->desc->editor = ED_ROOM;
+	OLCED(ch)	= olced_lookup(ED_ROOM);
 }
 
 static bool olced_exit(CHAR_DATA *ch, const char *argument,
-		       OLC_FUN fun, int door)
+		       olc_cmd_t *cmd, int door)
 {
-	OLC_CMD_DATA *cmd;
 	ROOM_INDEX_DATA *pRoom;
 	char command[MAX_INPUT_LENGTH];
 	char arg[MAX_INPUT_LENGTH];
 	int  value;
-
-	if ((cmd = olc_cmd_lookup(ch, fun)) == NULL)
-		return FALSE;
 
 	EDIT_ROOM(ch, pRoom);
 
@@ -1015,10 +1011,10 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 			return FALSE;
 		}
 		
-		roomed_create(ch, arg);
+		roomed_create(ch, arg, cmd);
 		ch->desc->pEdit = pRoom;
 		snprintf(buf, sizeof(buf), "link %s", arg);
-		olced_exit(ch, buf, fun, door);
+		olced_exit(ch, buf, cmd, door);
 		return TRUE;
 	}
 

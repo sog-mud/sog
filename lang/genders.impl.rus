@@ -1,0 +1,22 @@
+#RULE
+Name -ый~
+BaseLen -2
+Form 1 -ая~
+Form 2 -ое~
+End
+
+#RULE
+Name -ий~
+BaseLen -2
+Form 1 -ая~
+Form 2 -ое~
+End
+
+#RULE
+Name -ой~
+BaseLen -2
+Form 1 -ая~
+Form 2 -ое~
+End
+
+#$

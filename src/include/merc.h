@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.166 1999-03-04 08:28:44 fjoe Exp $
+ * $Id: merc.h,v 1.167 1999-03-08 13:56:05 fjoe Exp $
  */
 
 /***************************************************************************
@@ -51,14 +51,9 @@
 
 #include <limits.h>
 #include <ctype.h>
+
 #include "typedef.h"
 #include "const.h"
-#include "tables.h"
-#include "comm/comm.h"
-#include "comm/comm_act.h"
-#include "db/gsn.h"
-#include "db/spellfn.h"
-#include "db/msg.h"
 
 /* basic types */
 #include "namedp.h"
@@ -67,6 +62,13 @@
 #include "mlstring.h"
 #include "varr.h"
 #include "flag.h"
+
+#include "tables.h"
+#include "comm/comm.h"
+#include "comm/comm_act.h"
+#include "db/gsn.h"
+#include "db/spellfn.h"
+#include "db/msg.h"
 
 /* utils */
 #include "log.h"
@@ -173,7 +175,7 @@ struct descriptor_data
 	struct codepage*	codepage;
 
 /* OLC stuff */
-	const char *		editor;		/* editor id	*/
+	olced_t	*		olced;
 	void *             	pEdit;		/* edited obj	*/
 	void *             	pEdit2;		/* edited obj 2	*/
 

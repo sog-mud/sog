@@ -23,13 +23,102 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: lang.h,v 1.9 1999-02-18 13:34:33 fjoe Exp $
+ * $Id: lang.h,v 1.10 1999-03-08 13:56:07 fjoe Exp $
  */
 
 #ifndef _LANG_H_
 #define _LANG_H_
 
-#define MAX_WORD_HASH		256
+/*
+ * language support with creating forms of words
+ * (by gender, case or quantity)
+ */
+
+const char *	word_form(const char* word, int form, int lang, int rulecl);
+
+/*
+ * vform_t -- just a varr of forms with ref count
+ */
+typedef struct vform_t vform_t;
+struct vform_t {
+	varr	v;
+	int	ref;
+};
+
+vform_t *vform_new	(void);
+vform_t *vform_dup	(vform_t *f);
+void	vform_free	(vform_t *f);
+
+void	vform_add	(vform_t *f, int fnum, const char *s);
+void	vform_del	(vform_t *f, int fnum);
+
+/*
+ * rule_t: rules can be of two types
+ *	- explicit rule -- shows how to create word forms explicitly
+ *	- implicit rule -- shows how to create explicit rules
+ *
+ * explicit rules are used in word_form_lookup to build word forms
+ * if explicit rules are not found then word_form_lookup
+ * tries to use implicit rules to build explicit rules
+ *
+ * rules are never allocated dynamically (via malloc/calloc)
+ * the are always put into varrs ("statically") so rule_init/rule_clear
+ * are used instead of rule_new/rule_free
+ */
+struct rule_t {
+	const char *	name;
+	vform_t *	f;		/* forms */
+	int		arg;		/* length of base for explicit rules */
+					/* offset (always < 0) from the end  */
+					/* of the word for implicit rules    */
+};
+
+void	rule_init	(rule_t*);
+void	rule_clear	(rule_t*);
+
+/* create explicit rule from implicit rule and word itself */
+void 	erule_create	(rule_t *expl, rule_t *impl, const char* word);
+
+#define MAX_RULE_HASH	256
+
+/*
+ * rule class - just hash of explicit rules with set of implicit rules
+ */
+struct rulecl_t {
+	int rulecl;			/* rulecl number		*/
+	const char *file_expl;		/* explicit rules file		*/
+	const char *file_impl;		/* implicit rules file		*/
+	varr expl[MAX_RULE_HASH];	/* explicit rules (hashed)	*/
+	varr impl;			/* implicit rules		*/
+	flag32_t flags;
+};
+
+#define RULES_EXPL_CHANGED (Y)	/* explicit rules changed */
+#define RULES_IMPL_CHANGED (Z)	/* implicit rules changed */
+
+/*
+ * rule operations
+ */
+rule_t *	irule_add	(rulecl_t *rcl, rule_t *r);
+rule_t *	irule_insert	(rulecl_t *rcl, size_t num, rule_t *r);
+void		irule_del	(rulecl_t *rcl, rule_t *r);
+rule_t *	irule_lookup	(rulecl_t *rcl, const char *num);
+rule_t *	irule_find	(rulecl_t *rcl, const char *word);
+
+rule_t *	erule_add	(rulecl_t *rcl, rule_t *r);
+void		erule_del	(rulecl_t *rcl, rule_t *r);
+rule_t *	erule_lookup	(rulecl_t *rcl, const char *name);
+
+/*
+ * at this time three rules classes are supported
+ */
+enum {
+	RULES_CASE,		/* rules for cases forms	*/
+	RULES_GENDER,		/* rules for gender forms	*/
+	RULES_QTY,		/* rules for quantity forms	*/
+
+	MAX_RULECL
+};
 
 struct lang_data {
 	const char *	name;
@@ -39,19 +128,10 @@ struct lang_data {
 	flag32_t	flags;
 	int		slang_of;		/* id of base lang */
 
-	const char *	file_genders;
-	const char *	file_cases;
-	const char *	file_qtys;
-
-	varr	hash_genders[MAX_WORD_HASH];
-	varr 	hash_cases[MAX_WORD_HASH];
-	varr 	hash_qtys[MAX_WORD_HASH];
+	rulecl_t	rules[MAX_RULECL];
 };
 
 #define LANG_HIDDEN		(A)
-#define LANG_GENDERS_CHANGED	(W)
-#define LANG_CASES_CHANGED	(X)
-#define LANG_QTYS_CHANGED	(Y)
 #define LANG_CHANGED		(Z)
 
 extern varr	langs;

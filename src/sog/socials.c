@@ -23,15 +23,15 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: socials.c,v 1.2 1999-02-15 13:18:55 fjoe Exp $
+ * $Id: socials.c,v 1.3 1999-03-08 13:56:07 fjoe Exp $
  */
 
 #include <stdio.h>
 
 #include "typedef.h"
+#include "varr.h"
 #include "socials.h"
 #include "str.h"
-#include "varr.h"
 
 varr socials = { sizeof(social_t), 8 };
 

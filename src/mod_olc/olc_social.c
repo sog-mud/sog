@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_social.c,v 1.4 1999-02-17 07:53:30 fjoe Exp $
+ * $Id: olc_social.c,v 1.5 1999-03-08 13:56:08 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -54,7 +54,7 @@ DECLARE_OLC_FUN(soced_notfound_char	);
 
 static DECLARE_VALIDATE_FUN(validate_name);
 
-OLC_CMD_DATA olc_cmds_soc[] =
+olc_cmd_t olc_cmds_soc[] =
 {
 	{ "create",		soced_create				},
 	{ "edit",		soced_edit				},
@@ -103,11 +103,11 @@ OLC_FUN(soced_create)
 		return FALSE;
 	}
 
-	soc			= social_new();
-	soc->name		= str_dup(arg);
+	soc		= social_new();
+	soc->name	= str_dup(arg);
 
-	ch->desc->pEdit		= (void *) soc;
-	ch->desc->editor	= ED_SOC;
+	ch->desc->pEdit	= (void *) soc;
+	OLCED(ch)	= olced_lookup(ED_SOC);
 	char_puts("Social created.\n",ch);
 	return FALSE;
 }
@@ -133,8 +133,8 @@ OLC_FUN(soced_edit)
 		return FALSE;
 	}
 
-	ch->desc->pEdit		= soc;
-	ch->desc->editor	= ED_SOC;
+	ch->desc->pEdit	= soc;
+	OLCED(ch)	= olced_lookup(ED_SOC);
 	return FALSE;
 }
 
@@ -155,7 +155,7 @@ OLC_FUN(soced_show)
 
 	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
-		if (ch->desc->editor == ED_SOC)
+		if (IS_EDIT(ch, ED_SOC))
 			EDIT_SOC(ch, soc);
 		else {
 			do_help(ch, "'OLC ASHOW'");
@@ -222,72 +222,70 @@ OLC_FUN(soced_name)
 {
 	social_t *soc;
 	EDIT_SOC(ch, soc);
-	return olced_str(ch, argument, soced_name, &soc->name);
+	return olced_str(ch, argument, cmd, &soc->name);
 }
 
 OLC_FUN(soced_min_pos)
 {
 	social_t *soc;
 	EDIT_SOC(ch, soc);
-	return olced_flag32(ch, argument, soced_min_pos, &soc->min_pos);
+	return olced_flag32(ch, argument, cmd, &soc->min_pos);
 }
 
 OLC_FUN(soced_found_char)
 {
 	social_t *soc;
 	EDIT_SOC(ch, soc);
-	return olced_str(ch, argument, soced_found_char, &soc->found_char);
+	return olced_str(ch, argument, cmd, &soc->found_char);
 }
 
 OLC_FUN(soced_found_vict)
 {
 	social_t *soc;
 	EDIT_SOC(ch, soc);
-	return olced_str(ch, argument, soced_found_vict, &soc->found_vict);
+	return olced_str(ch, argument, cmd, &soc->found_vict);
 }
 
 OLC_FUN(soced_found_notvict)
 {
 	social_t *soc;
 	EDIT_SOC(ch, soc);
-	return olced_str(ch, argument,
-			 soced_found_notvict, &soc->found_notvict);
+	return olced_str(ch, argument, cmd, &soc->found_notvict);
 }
 
 OLC_FUN(soced_noarg_char)
 {
 	social_t *soc;
 	EDIT_SOC(ch, soc);
-	return olced_str(ch, argument, soced_noarg_char, &soc->noarg_char);
+	return olced_str(ch, argument, cmd, &soc->noarg_char);
 }
 
 OLC_FUN(soced_noarg_room)
 {
 	social_t *soc;
 	EDIT_SOC(ch, soc);
-	return olced_str(ch, argument, soced_noarg_room, &soc->noarg_room);
+	return olced_str(ch, argument, cmd, &soc->noarg_room);
 }
 
 OLC_FUN(soced_self_char)
 {
 	social_t *soc;
 	EDIT_SOC(ch, soc);
-	return olced_str(ch, argument, soced_self_char, &soc->self_char);
+	return olced_str(ch, argument, cmd, &soc->self_char);
 }
 
 OLC_FUN(soced_self_room)
 {
 	social_t *soc;
 	EDIT_SOC(ch, soc);
-	return olced_str(ch, argument, soced_self_room, &soc->self_room);
+	return olced_str(ch, argument, cmd, &soc->self_room);
 }
 
 OLC_FUN(soced_notfound_char)
 {
 	social_t *soc;
 	EDIT_SOC(ch, soc);
-	return olced_str(ch, argument,
-			 soced_notfound_char, &soc->notfound_char);
+	return olced_str(ch, argument, cmd, &soc->notfound_char);
 }
 
 static VALIDATE_FUN(validate_name)

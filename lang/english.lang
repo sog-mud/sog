@@ -1,6 +1,10 @@
 #LANG
 Name eng
-QtysFile qtys.eng~
+End
+
+#RULECLASS
+Class qtys
+Expl qtys.eng~
 End
 
 #$

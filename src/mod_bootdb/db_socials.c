@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_socials.c,v 1.1 1999-02-15 12:51:11 fjoe Exp $
+ * $Id: db_socials.c,v 1.2 1999-03-08 13:56:07 fjoe Exp $
  */
 
 #include <limits.h>
@@ -32,10 +32,10 @@
 
 #include "typedef.h"
 #include "const.h"
+#include "varr.h"
 #include "socials.h"
 #include "db.h"
 #include "str.h"
-#include "varr.h"
 #include "tables.h"
 
 DECLARE_DBLOAD_FUN(load_social);

@@ -1,5 +1,5 @@
 /*
- * $Id: flag.c,v 1.22 1999-02-23 22:06:44 fjoe Exp $
+ * $Id: flag.c,v 1.23 1999-03-08 13:56:04 fjoe Exp $
  */
 
 /***************************************************************************
@@ -28,7 +28,6 @@
 #include <time.h>
 #include "merc.h"
 #include "util.h"
-#include "log.h"
 
 /*
  * flag_lookup -- lookup flag by name in flag table
@@ -92,7 +91,7 @@ flag64_t flag_value(const FLAG *flag64_table, const char *argument)
 		/* NOT REACHED */
 
 	default:
-		log_printf("flag_value", "%s: unknown table type %d",
+		log_printf("flag_value: %s: unknown table type %d",
 			   tname, ttype);
 		break;
 	}
@@ -138,7 +137,7 @@ const char *flag_string(const FLAG *flag64_table, flag64_t bits)
 			break;
 
 		default:
-			log_printf("flag_value", "%s: unknown table type %d",
+			log_printf("flag_value: %s: unknown table type %d",
 				   tname, ttype);
 			buf[cnt][0] = '\0';
 			return buf[cnt];

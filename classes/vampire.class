@@ -13,7 +13,7 @@ Thac0_00 18
 Thac0_32 -6
 HPRate 80
 ManaRate 70
-Flags mage~
+Flags magic~
 AddExp 300
 StatMod 1 2 0 0 0 5
 RestrictAlign evil~

@@ -1,122 +1,122 @@
-#WORD
+#RULE
 Name он~
 Form 1 она~
 Form 2 оно~
 End
 
-#WORD
+#RULE
 Name его~
 Form 1 ее~
 End
 
-#WORD
+#RULE
 Name вооруженный~
 BaseLen 9
 Form 1 -ая~
 End
 
-#WORD
+#RULE
 Name ранен~
 BaseLen 5
 Form 1 -а~
 Form 2 -о~
 End
 
-#WORD
+#RULE
 Name насчитал~
 BaseLen 8
 Form 1 -а~
 End
 
-#WORD
+#RULE
 Name него~
 Form 1 нее~
 End
 
-#WORD
+#RULE
 Name уклонился~
 BaseLen 7
 Form 1 -ась~
 Form 2 -ось~
 End
 
-#WORD
+#RULE
 Name принесен~
 BaseLen 8
 Form 1 -а~
 End
 
-#WORD
+#RULE
 Name заинтересован~
 BaseLen 13
 Form 1 -а~
 Form 2 -о~
 End
 
-#WORD
+#RULE
 Name приготовил~
 Form 1 приготовила~
 End
 
-#WORD
+#RULE
 Name способен~
 BaseLen 6
 Form 1 -на~
 End
 
-#WORD
+#RULE
 Name разделал~
 BaseLen 8
 Form 1 -а~
 End
 
-#WORD
+#RULE
 Name МЕРТВ~
 Form 1 МЕРТВА~
 Form 2 МЕРТВО~
 End
 
-#WORD
+#RULE
 Name отважный~
 Form 1 отважная~
 End
 
-#WORD
+#RULE
 Name создал~
 Form 1 создала~
 End
 
-#WORD
+#RULE
 Name видимый~
 Form 1 видимая~
 End
 
-#WORD
+#RULE
 Name им~
 Form 1 ей~
 End
 
-#WORD
+#RULE
 Name твой~
 BaseLen 2
 Form 1 -оя~
 Form 2 -ое~
 End
 
-#WORD
+#RULE
 Name успокоился~
 BaseLen 8
 Form 1 -ась~
 End
 
-#WORD
+#RULE
 Name упал~
 BaseLen 4
 Form 1 -а~
 Form 2 -о~
 End
 
-#WORD
+#RULE
 Name бессмертный~
 BaseLen 9
 Form 1 -ая~

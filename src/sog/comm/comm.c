@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.156 1999-03-04 14:31:59 fjoe Exp $
+ * $Id: comm.c,v 1.157 1999-03-08 13:56:05 fjoe Exp $
  */
 
 /***************************************************************************
@@ -98,7 +98,7 @@
 #include "olc/olc.h"
 #include "comm_info.h"
 #include "comm_colors.h"
-#include "db/word.h"
+#include "db/lang.h"
 
 DESCRIPTOR_DATA	*	new_descriptor	(void);
 void			free_descriptor	(DESCRIPTOR_DATA *d);
@@ -557,7 +557,7 @@ void game_loop_unix(int control, int infofd)
 				else if (d->pString)
 					string_add(d->character, d->incomm);
 				else if (d->connected == CON_PLAYING) {
-					if (!d->editor || !run_olc_editor(d))
+					if (!run_olc_editor(d))
 			    			substitute_alias(d, d->incomm);
 				}
 				else
@@ -709,9 +709,10 @@ void init_descriptor(int control)
 	dnew->connected		= CON_GET_CODEPAGE;
 	dnew->showstr_head	= NULL;
 	dnew->showstr_point	= NULL;
-	dnew->pEdit		= NULL;			/* OLC */
-	dnew->pString		= NULL;			/* OLC */
-	dnew->editor		= NULL;			/* OLC */
+	dnew->pString		= NULL;
+	dnew->olced		= NULL;
+	dnew->pEdit		= NULL;
+	dnew->pEdit2		= NULL;
 	dnew->outsize		= 2000;
 	dnew->outbuf		= malloc(dnew->outsize);
 	dnew->wait_for_se	= 0;
@@ -1156,8 +1157,8 @@ void bust_a_prompt(CHAR_DATA *ch)
 	if (IS_NULLSTR(str))
 		str = DEFAULT_PROMPT;
 
-	while(*str != '\0') {
-		if(*str != '%') {
+	while (*str != '\0') {
+		if (*str != '%') {
 			*point++ = *str++;
 			continue;
 		}
@@ -1287,7 +1288,7 @@ void bust_a_prompt(CHAR_DATA *ch)
 			break;
 
 		case 'r':
-			if (ch->in_room != NULL)
+			if (ch->in_room)
 				i = (check_blind_raw(ch) && !room_is_dark(ch)) ?
 				     mlstr_cval(ch->in_room->name, ch) :
 				     "darkness";
@@ -1296,8 +1297,9 @@ void bust_a_prompt(CHAR_DATA *ch)
 			break;
 
 		case 'R':
-			if(IS_IMMORTAL(ch) && ch->in_room != NULL) {
-				snprintf(buf2, sizeof(buf2), "%d", ch->in_room->vnum);
+			if (IS_IMMORTAL(ch) && ch->in_room) {
+				snprintf(buf2, sizeof(buf2), "%d",
+					 ch->in_room->vnum);
 				i = buf2;
 			}
 			else
@@ -1316,7 +1318,7 @@ void bust_a_prompt(CHAR_DATA *ch)
 			break;
 
 		case 'E':
-			i = olc_ed_name(ch);
+			i = OLCED(ch) ? OLCED(ch)->name : str_empty;
 			if (!IS_NULLSTR(i)) {
 				snprintf(buf2, sizeof(buf2), "%s ", i);
 				i = buf2;

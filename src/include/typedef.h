@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: typedef.h,v 1.16 1999-02-15 18:19:42 fjoe Exp $
+ * $Id: typedef.h,v 1.17 1999-03-08 13:56:05 fjoe Exp $
  */
 
 #ifndef _TYPEDEF_H_
@@ -69,9 +69,7 @@ typedef struct room_history_data	ROOM_HISTORY_DATA;
 typedef struct mptrig			MPTRIG;
 typedef struct mpcode			MPCODE;
 typedef struct qtrouble_data		QTROUBLE_DATA;
-typedef struct mlstring			mlstring;
 typedef struct hometown_data		HOMETOWN_DATA;
-typedef struct varr			varr;
 typedef struct flag			FLAG; 
 typedef struct class_skill		CLASS_SKILL;
 typedef struct clan_skill		CLAN_SKILL;
@@ -83,12 +81,15 @@ typedef struct pose_data		POSE_DATA;
 typedef struct skill_data		SKILL_DATA;
 typedef struct namedp			NAMEDP;
 typedef struct lang_data		LANG_DATA;
-typedef struct word_data		WORD_DATA;
 typedef struct cmd_data			CMD_DATA;
 typedef struct race_data		RACE_DATA;
 typedef struct race_pcdata		RACE_PCDATA;
 typedef struct race_class_data		RACE_CLASS_DATA;
 typedef struct race_skill		RACE_SKILL;
+typedef struct mlstring			mlstring;
+typedef struct rulecl_t			rulecl_t;
+typedef struct olced_t 			olced_t;	
+typedef struct rule_t			rule_t;
 
 typedef void	DO_FUN		(CHAR_DATA *ch, const char *argument);
 typedef bool	SPEC_FUN	(CHAR_DATA *ch);

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_obj.c,v 1.41 1999-02-27 07:26:16 fjoe Exp $
+ * $Id: olc_obj.c,v 1.42 1999-03-08 13:56:08 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -74,7 +74,7 @@ DECLARE_OLC_FUN(objed_gender		);
 
 DECLARE_VALIDATE_FUN(validate_condition);
 
-OLC_CMD_DATA olc_cmds_obj[] =
+olc_cmd_t olc_cmds_obj[] =
 {
 /*	{ command	function		arg			}, */
 
@@ -165,7 +165,7 @@ OLC_FUN(objed_create)
 	obj_index_hash[iHash]	= pObj;
 
 	ch->desc->pEdit		= (void *)pObj;
-	ch->desc->editor	= ED_OBJ;
+	OLCED(ch)		= olced_lookup(ED_OBJ);
 	touch_area(pArea);
 	char_puts("ObjEd: Object created.\n", ch);
 	return FALSE;
@@ -198,7 +198,7 @@ OLC_FUN(objed_edit)
 	}
 
 	ch->desc->pEdit = (void*) pObj;
-	ch->desc->editor = ED_OBJ;
+	OLCED(ch)	= olced_lookup(ED_OBJ);
 	return FALSE;
 }
 
@@ -221,7 +221,7 @@ OLC_FUN(objed_show)
 
 	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
-		if (ch->desc->editor == ED_OBJ)
+		if (IS_EDIT(ch, ED_OBJ))
 			EDIT_OBJ(ch, pObj);
 		else {
 			do_help(ch, "'OLC EDIT'");
@@ -370,10 +370,10 @@ OLC_FUN(objed_del)
 	int i;
 	bool error = FALSE;
 
-	if (olced_obj_busy(ch))
-		return FALSE;
-
 	EDIT_OBJ(ch, pObj);
+
+	if (olced_busy(ch, pObj, NULL))
+		return FALSE;
 
 /* check that pObj is not in resets */
 	for (i = 0; i < MAX_KEY_HASH; i++) {
@@ -671,21 +671,21 @@ OLC_FUN(objed_name)
 {
 	OBJ_INDEX_DATA *pObj;
 	EDIT_OBJ(ch, pObj);
-	return olced_name(ch, argument, objed_name, &pObj->name);
+	return olced_name(ch, argument, cmd, &pObj->name);
 }
 
 OLC_FUN(objed_short)
 {
 	OBJ_INDEX_DATA *pObj;
 	EDIT_OBJ(ch, pObj);
-	return olced_mlstr(ch, argument, objed_short, &pObj->short_descr);
+	return olced_mlstr(ch, argument, cmd, &pObj->short_descr);
 }
 
 OLC_FUN(objed_long)
 {
 	OBJ_INDEX_DATA *pObj;
 	EDIT_OBJ(ch, pObj);
-	return olced_mlstr(ch, argument, objed_long, &pObj->description);
+	return olced_mlstr(ch, argument, cmd, &pObj->description);
 }
 
 /*****************************************************************************
@@ -738,42 +738,42 @@ OLC_FUN(objed_weight)
 {
 	OBJ_INDEX_DATA *pObj;
 	EDIT_OBJ(ch, pObj);
-	return olced_number(ch, argument, objed_weight, &pObj->weight);
+	return olced_number(ch, argument, cmd, &pObj->weight);
 }
 
 OLC_FUN(objed_limit)
 {
 	OBJ_INDEX_DATA *pObj;
 	EDIT_OBJ(ch, pObj);
-	return olced_number(ch, argument, objed_limit, &pObj->limit);
+	return olced_number(ch, argument, cmd, &pObj->limit);
 }
 
 OLC_FUN(objed_cost)
 {
 	OBJ_INDEX_DATA *pObj;
 	EDIT_OBJ(ch, pObj);
-	return olced_number(ch, argument, objed_cost, &pObj->cost);
+	return olced_number(ch, argument, cmd, &pObj->cost);
 }
 
 OLC_FUN(objed_exd)
 {
 	OBJ_INDEX_DATA *pObj;
 	EDIT_OBJ(ch, pObj);
-	return olced_exd(ch, argument, &pObj->ed);
+	return olced_exd(ch, argument, cmd, &pObj->ed);
 }
 
 OLC_FUN(objed_extra)
 {
 	OBJ_INDEX_DATA *pObj;
 	EDIT_OBJ(ch, pObj);
-	return olced_flag64(ch, argument, objed_extra, &pObj->extra_flags);
+	return olced_flag64(ch, argument, cmd, &pObj->extra_flags);
 }
 
 OLC_FUN(objed_wear)
 {
 	OBJ_INDEX_DATA *pObj;
 	EDIT_OBJ(ch, pObj);
-	return olced_flag32(ch, argument, objed_wear, &pObj->wear_flags);
+	return olced_flag32(ch, argument, cmd, &pObj->wear_flags);
 }
 
 OLC_FUN(objed_type)
@@ -781,7 +781,7 @@ OLC_FUN(objed_type)
 	bool changed;
 	OBJ_INDEX_DATA *pObj;
 	EDIT_OBJ(ch, pObj);
-	changed = olced_flag32(ch, argument, objed_type, &pObj->item_type);
+	changed = olced_flag32(ch, argument, cmd, &pObj->item_type);
 	if (changed) {
 		pObj->value[0] = 0;
 		pObj->value[1] = 0;
@@ -796,28 +796,28 @@ OLC_FUN(objed_material)
 {
 	OBJ_INDEX_DATA *pObj;
 	EDIT_OBJ(ch, pObj);
-	return olced_str(ch, argument, objed_material, &pObj->material);
+	return olced_str(ch, argument, cmd, &pObj->material);
 }
 
 OLC_FUN(objed_level)
 {
 	OBJ_INDEX_DATA *pObj;
 	EDIT_OBJ(ch, pObj);
-	return olced_number(ch, argument, objed_level, &pObj->level);
+	return olced_number(ch, argument, cmd, &pObj->level);
 }
 
 OLC_FUN(objed_condition)
 {
 	OBJ_INDEX_DATA *pObj;
 	EDIT_OBJ(ch, pObj);
-	return olced_number(ch, argument, objed_condition, &pObj->condition);
+	return olced_number(ch, argument, cmd, &pObj->condition);
 }
 
 OLC_FUN(objed_clan)
 {
 	OBJ_INDEX_DATA *pObj;
 	EDIT_OBJ(ch, pObj);
-	return olced_clan(ch, argument, objed_clan, &pObj->clan);
+	return olced_clan(ch, argument, cmd, &pObj->clan);
 }
 
 OLC_FUN(objed_clone)
@@ -891,7 +891,7 @@ OLC_FUN(objed_gender)
 {
 	OBJ_INDEX_DATA *pObj;
 	EDIT_OBJ(ch, pObj);
-	return olced_flag32(ch, argument, objed_gender, &pObj->gender);
+	return olced_flag32(ch, argument, cmd, &pObj->gender);
 }
 
 void show_obj_values(BUFFER *output, OBJ_INDEX_DATA *pObj)

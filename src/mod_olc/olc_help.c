@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_help.c,v 1.31 1999-02-23 22:26:12 fjoe Exp $
+ * $Id: olc_help.c,v 1.32 1999-03-08 13:56:07 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -46,7 +46,7 @@ DECLARE_OLC_FUN(helped_level		);
 DECLARE_OLC_FUN(helped_keyword		);
 DECLARE_OLC_FUN(helped_text		);
 
-OLC_CMD_DATA olc_cmds_help[] =
+olc_cmd_t olc_cmds_help[] =
 {
 	{ "create",		helped_create	},
 	{ "edit",		helped_edit	},
@@ -86,9 +86,9 @@ OLC_FUN(helped_create)
 		return FALSE;
 	}
 
-	if (ch->desc->editor == ED_HELP)
+	if (IS_EDIT(ch, ED_HELP))
 		pArea = ((HELP_DATA*) ch->desc->pEdit)->area;
-	else if (ch->desc->editor == ED_AREA)
+	else if (IS_EDIT(ch, ED_AREA))
 		pArea = ((AREA_DATA*) ch->desc->pEdit);
 	else { 
 		char_puts("You must be editing an area or another help to create helps.\n",
@@ -96,14 +96,14 @@ OLC_FUN(helped_create)
 		return FALSE;
 	}
 
-	pHelp			= help_new();
-	pHelp->level		= 0;
-	pHelp->keyword		= str_dup(argument);
-	pHelp->text		= NULL;
+	pHelp		= help_new();
+	pHelp->level	= 0;
+	pHelp->keyword	= str_dup(argument);
+	pHelp->text	= NULL;
 	help_add(pArea, pHelp);
 
-	ch->desc->pEdit		= (void *)pHelp;
-	ch->desc->editor	= ED_HELP;
+	ch->desc->pEdit	= (void*) pHelp;
+	OLCED(ch)	= olced_lookup(ED_HELP);
 	touch_area(pArea);
 	char_puts("Help created.\n",ch);
 	return FALSE;
@@ -132,8 +132,8 @@ OLC_FUN(helped_edit)
 		return FALSE;
 	}
 
-	ch->desc->pEdit		= (void *)pHelp;
-	ch->desc->editor	= ED_HELP;
+	ch->desc->pEdit	= (void*) pHelp;
+	OLCED(ch)	= olced_lookup(ED_HELP);
 	return FALSE;
 }
 
@@ -150,7 +150,7 @@ OLC_FUN(helped_show)
 	HELP_DATA *pHelp;
 
 	if (argument[0] == '\0') {
-		if (ch->desc->editor == ED_HELP)
+		if (IS_EDIT(ch, ED_HELP))
 			EDIT_HELP(ch, pHelp);
 		else {
 			do_help(ch, "'OLC ASHOW'");
@@ -163,9 +163,7 @@ OLC_FUN(helped_show)
 
 		num = number_argument(argument, keyword, sizeof(keyword));
 		if (keyword[0] == '\0') {
-			if (ch->desc->editor)
-			do_help(ch, ch->desc->editor ?
-				    "'OLC EDIT'" : "'OLC ASHOW'");
+			do_help(ch, OLCED(ch) ?  "'OLC EDIT'" : "'OLC ASHOW'");
 			return FALSE;
 		}
 
@@ -232,31 +230,31 @@ OLC_FUN(helped_level)
 {
 	HELP_DATA *pHelp;
 	EDIT_HELP(ch, pHelp);
-	return olced_number(ch, argument, helped_level, &pHelp->level);
+	return olced_number(ch, argument, cmd, &pHelp->level);
 }
 
 OLC_FUN(helped_keyword)
 {
 	HELP_DATA *pHelp;
 	EDIT_HELP(ch, pHelp);
-	return olced_str(ch, argument, helped_keyword, &pHelp->keyword);
+	return olced_str(ch, argument, cmd, &pHelp->keyword);
 }
 		
 OLC_FUN(helped_text)
 {
 	HELP_DATA *pHelp;
 	EDIT_HELP(ch, pHelp);
-	return olced_mlstr_text(ch, argument, helped_text, &pHelp->text);
+	return olced_mlstr_text(ch, argument, cmd, &pHelp->text);
 }
 
 OLC_FUN(helped_del)
 {
 	HELP_DATA *pHelp;
+	EDIT_HELP(ch, pHelp);
 
-	if (olced_obj_busy(ch))
+	if (olced_busy(ch, pHelp, NULL))
 		return FALSE;
 
-	EDIT_HELP(ch, pHelp);
 	touch_area(pHelp->area);
 	help_free(pHelp);
 	char_puts("HelpEd: Help deleted.\n", ch);

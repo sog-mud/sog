@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_clan.c,v 1.24 1999-02-25 14:27:25 fjoe Exp $
+ * $Id: olc_clan.c,v 1.25 1999-03-08 13:56:07 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -55,7 +55,7 @@ DECLARE_OLC_FUN(claned_skill_del	);
 
 static DECLARE_VALIDATE_FUN(validate_name);
 
-OLC_CMD_DATA olc_cmds_clan[] =
+olc_cmd_t olc_cmds_clan[] =
 {
 	{ "create",	claned_create					},
 	{ "edit",	claned_edit					},
@@ -101,12 +101,12 @@ OLC_FUN(claned_create)
 		return FALSE;
 	}
 
-	clan			= clan_new();
-	clan->name		= str_dup(arg);
-	clan->file_name		= str_printf("clan%02d.clan", clans.nused-1);
+	clan		= clan_new();
+	clan->name	= str_dup(arg);
+	clan->file_name	= str_printf("clan%02d.clan", clans.nused-1);
 
-	ch->desc->pEdit		= (void *)clan;
-	ch->desc->editor	= ED_CLAN;
+	ch->desc->pEdit	= (void *)clan;
+	OLCED(ch)	= olced_lookup(ED_CLAN);
 	touch_clan(clan);
 	char_puts("Clan created.\n",ch);
 	return FALSE;
@@ -133,8 +133,8 @@ OLC_FUN(claned_edit)
 		return FALSE;
 	}
 
-	ch->desc->pEdit		= CLAN(cn);
-	ch->desc->editor	= ED_CLAN;
+	ch->desc->pEdit	= CLAN(cn);
+	OLCED(ch)	= olced_lookup(ED_CLAN);
 	return FALSE;
 }
 
@@ -154,7 +154,7 @@ OLC_FUN(claned_show)
 
 	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
-		if (ch->desc->editor == ED_CLAN)
+		if (IS_EDIT(ch, ED_CLAN))
 			EDIT_CLAN(ch, clan);
 		else {
 			do_help(ch, "'OLC ASHOW'");
@@ -221,49 +221,49 @@ OLC_FUN(claned_name)
 {
 	CLAN_DATA *clan;
 	EDIT_CLAN(ch, clan);
-	return olced_str(ch, argument, claned_name, &clan->name);
+	return olced_str(ch, argument, cmd, &clan->name);
 }
 
 OLC_FUN(claned_filename)
 {
 	CLAN_DATA *clan;
 	EDIT_CLAN(ch, clan);
-	return olced_str(ch, argument, claned_filename, &clan->file_name);
+	return olced_str(ch, argument, cmd, &clan->file_name);
 }
 
 OLC_FUN(claned_recall)
 {
 	CLAN_DATA *clan;
 	EDIT_CLAN(ch, clan);
-	return olced_number(ch, argument, claned_recall, &clan->recall_vnum);
+	return olced_number(ch, argument, cmd, &clan->recall_vnum);
 }
 
 OLC_FUN(claned_item)
 {
 	CLAN_DATA *clan;
 	EDIT_CLAN(ch, clan);
-	return olced_number(ch, argument, claned_item, &clan->obj_vnum);
+	return olced_number(ch, argument, cmd, &clan->obj_vnum);
 }
 
 OLC_FUN(claned_mark)
 {
 	CLAN_DATA *clan;
 	EDIT_CLAN(ch, clan);
-	return olced_number(ch, argument, claned_mark, &clan->mark_vnum);
+	return olced_number(ch, argument, cmd, &clan->mark_vnum);
 }
 
 OLC_FUN(claned_altar)
 {
 	CLAN_DATA *clan;
 	EDIT_CLAN(ch, clan);
-	return olced_number(ch, argument, claned_altar, &clan->altar_vnum);
+	return olced_number(ch, argument, cmd, &clan->altar_vnum);
 }
 
 OLC_FUN(claned_flags)
 {
 	CLAN_DATA *clan;
 	EDIT_CLAN(ch, clan);
-	return olced_flag32(ch, argument, claned_flags, &clan->flags);
+	return olced_flag32(ch, argument, cmd, &clan->flags);
 }
 
 OLC_FUN(claned_skill)
@@ -272,9 +272,9 @@ OLC_FUN(claned_skill)
 
 	argument = one_argument(argument, arg, sizeof(arg));
 	if (!str_prefix(arg, "add")) 
-		return claned_skill_add(ch, argument);
+		return claned_skill_add(ch, argument, cmd);
 	else if (!str_prefix(arg, "delete"))
-		return claned_skill_del(ch, argument);
+		return claned_skill_del(ch, argument, cmd);
 
 	do_help(ch, "'OLC CLAN SKILL'");
 	return FALSE;
@@ -315,7 +315,7 @@ OLC_FUN(claned_plist)
 		name = "secondaries";
 	}
 	else
-		return claned_plist(ch, str_empty);
+		return claned_plist(ch, str_empty, cmd);
 
 	if (arg2[0] == '\0') {
 		char_printf(ch, "List of %s of %s: [%s]\n",

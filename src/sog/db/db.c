@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.119 1999-03-04 08:28:59 fjoe Exp $
+ * $Id: db.c,v 1.120 1999-03-08 13:56:06 fjoe Exp $
  */
 
 /***************************************************************************
@@ -62,7 +62,7 @@
 #include "socials.h"
 #include "update.h"
 #include "db.h"
-#include "db/word.h"
+#include "db/lang.h"
 #include "olc/olc.h"
 
 #ifdef SUNOS
@@ -937,7 +937,8 @@ static void obj_of_callback(int lang, const char **p, void *arg)
 	if (IS_NULLSTR(*p))
 		return;
 
-	q = str_printf(*p, word_case(lang, mlstr_val(owner, lang), 1));
+	q = str_printf(*p, word_form(mlstr_val(owner, lang), 1,
+				     lang, RULES_CASE));
 	free_string(*p);
 	*p = q;
 }

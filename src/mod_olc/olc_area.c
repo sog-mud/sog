@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_area.c,v 1.36 1999-02-20 12:54:31 fjoe Exp $
+ * $Id: olc_area.c,v 1.37 1999-03-08 13:56:07 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -62,7 +62,7 @@ DECLARE_VALIDATE_FUN(validate_minvnum	);
 DECLARE_VALIDATE_FUN(validate_maxvnum	);
 DECLARE_VALIDATE_FUN(validate_move	);
 
-OLC_CMD_DATA olc_cmds_area[] =
+olc_cmd_t olc_cmds_area[] =
 {
 /*	{   command	function	arg			}, */
 
@@ -108,12 +108,12 @@ OLC_FUN(areaed_create)
 		return FALSE;
 	}
 
-	pArea			= new_area();
-	area_last->next		= pArea;
-	area_last		= pArea;	/* Thanks, Walker. */
+	pArea		= new_area();
+	area_last->next	= pArea;
+	area_last	= pArea;	/* Thanks, Walker. */
 
-	ch->desc->pEdit		= (void*) pArea;
-	ch->desc->editor	= ED_AREA;
+	ch->desc->pEdit	= (void*) pArea;
+	OLCED(ch)	= olced_lookup(ED_AREA);
 	touch_area(pArea);
 	char_puts("AreaEd: Area created.\n", ch);
 	return FALSE;
@@ -137,8 +137,8 @@ OLC_FUN(areaed_edit)
 		return FALSE;
 	}
 
-	ch->desc->pEdit		= (void *) pArea;
-	ch->desc->editor	= ED_AREA;
+	ch->desc->pEdit	= (void *) pArea;
+	OLCED(ch)	= olced_lookup(ED_AREA);
 	return FALSE;
 }
 
@@ -156,7 +156,7 @@ OLC_FUN(areaed_show)
 
 	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
-		if (ch->desc->editor == ED_AREA)
+		if (IS_EDIT(ch, ED_AREA))
 			EDIT_AREA(ch, pArea);
 		else
 			pArea = ch->in_room->area;
@@ -232,63 +232,63 @@ OLC_FUN(areaed_name)
 {
 	AREA_DATA *pArea;
 	EDIT_AREA(ch, pArea);
-	return olced_str(ch, argument, areaed_name, &pArea->name);
+	return olced_str(ch, argument, cmd, &pArea->name);
 }
 
 OLC_FUN(areaed_credits)
 {
 	AREA_DATA *pArea;
 	EDIT_AREA(ch, pArea);
-	return olced_str(ch, argument, areaed_credits, &pArea->credits);
+	return olced_str(ch, argument, cmd, &pArea->credits);
 }
 
 OLC_FUN(areaed_file)
 {
 	AREA_DATA *pArea;
 	EDIT_AREA(ch, pArea);
-	return olced_str(ch, argument, areaed_file, &pArea->file_name);
+	return olced_str(ch, argument, cmd, &pArea->file_name);
 }
 
 OLC_FUN(areaed_age)
 {
 	AREA_DATA *pArea;
 	EDIT_AREA(ch, pArea);
-	return olced_number(ch, argument, areaed_age, &pArea->age);
+	return olced_number(ch, argument, cmd, &pArea->age);
 }
 
 OLC_FUN(areaed_flags)
 {
 	AREA_DATA *pArea;
 	EDIT_AREA(ch, pArea);
-	return olced_flag32(ch, argument, areaed_flags, &pArea->flags);
+	return olced_flag32(ch, argument, cmd, &pArea->flags);
 }
 
 OLC_FUN(areaed_security)
 {
 	AREA_DATA *pArea;
 	EDIT_AREA(ch, pArea);
-	return olced_number(ch, argument, areaed_security, &pArea->security);
+	return olced_number(ch, argument, cmd, &pArea->security);
 }
 
 OLC_FUN(areaed_minlevel)
 {
 	AREA_DATA *pArea;
 	EDIT_AREA(ch, pArea);
-	return olced_number(ch, argument, areaed_minlevel, &pArea->min_level);
+	return olced_number(ch, argument, cmd, &pArea->min_level);
 }
 
 OLC_FUN(areaed_maxlevel)
 {
 	AREA_DATA *pArea;
 	EDIT_AREA(ch, pArea);
-	return olced_number(ch, argument, areaed_maxlevel, &pArea->max_level);
+	return olced_number(ch, argument, cmd, &pArea->max_level);
 }
 
 OLC_FUN(areaed_resetmsg)
 {
 	AREA_DATA *pArea;
 	EDIT_AREA(ch, pArea);
-	return olced_mlstr(ch, argument, areaed_resetmsg, &pArea->resetmsg);
+	return olced_mlstr(ch, argument, cmd, &pArea->resetmsg);
 }
 
 OLC_FUN(areaed_builders)
@@ -311,28 +311,28 @@ OLC_FUN(areaed_minvnum)
 {
 	AREA_DATA *pArea;
 	EDIT_AREA(ch, pArea);
-	return olced_number(ch, argument, areaed_minvnum, &pArea->min_vnum);
+	return olced_number(ch, argument, cmd, &pArea->min_vnum);
 }
 
 OLC_FUN(areaed_maxvnum)
 {
 	AREA_DATA *pArea;
 	EDIT_AREA(ch, pArea);
-	return olced_number(ch, argument, areaed_maxvnum, &pArea->max_vnum);
+	return olced_number(ch, argument, cmd, &pArea->max_vnum);
 }
 
 OLC_FUN(areaed_move)
 {
 	AREA_DATA *pArea;
 	EDIT_AREA(ch, pArea);
-	return olced_number(ch, argument, areaed_move, &pArea->min_vnum);
+	return olced_number(ch, argument, cmd, &pArea->min_vnum);
 }
 
 OLC_FUN(areaed_clan)
 {
 	AREA_DATA *pArea;
 	EDIT_AREA(ch, pArea);
-	return olced_clan(ch, argument, areaed_clan, &pArea->clan);
+	return olced_clan(ch, argument, cmd, &pArea->clan);
 }
 
 /* Validators */

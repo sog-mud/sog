@@ -1,8 +1,22 @@
 #LANG
 Name rus
-CasesFile cases.rus~
-GendersFile genders.rus~
-QtysFile qtys.rus~
+End
+
+#RULECLASS
+Class cases
+Impl cases.impl.rus~
+Expl cases.rus~
+End
+
+#RULECLASS
+Class genders
+Impl genders.impl.rus~
+Expl genders.rus~
+End
+
+#RULECLASS
+Class qtys
+Expl qtys.rus~
 End
 
 #$

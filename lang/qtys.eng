@@ -1,24 +1,24 @@
-#WORD
+#RULE
 Name gold coins~
 Form 1 gold coin~
 End
 
-#WORD
+#RULE
 Name silver coins~
 Form 1 silver coin~
 End
 
-#WORD
+#RULE
 Name steaks~
 Form 1 steak~
 End
 
-#WORD
+#RULE
 Name coins~
 Form 1 coin~
 End
 
-#WORD
+#RULE
 Name pieces~
 Form 1 piece~
 End

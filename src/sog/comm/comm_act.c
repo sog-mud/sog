@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm_act.c,v 1.16 1999-03-03 13:50:43 fjoe Exp $
+ * $Id: comm_act.c,v 1.17 1999-03-08 13:56:06 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -32,7 +32,7 @@
 #include "merc.h"
 #include "comm_colors.h"
 #include "mob_prog.h"
-#include "db/word.h"
+#include "db/lang.h"
 
 /*
  * static functions declarations
@@ -336,29 +336,25 @@ static void act_raw(CHAR_DATA *ch, CHAR_DATA *to,
 			}
 
 			if (sp < TSTACK_SZ) {
-				const char *tr = str_empty;
-
-				*point = '\0';
+				int rulecl = 0;
 
 				switch (tstack[sp].type) {
 				case 'g':
-					tr = word_gender(to->lang, tstack[sp].p,
-								tstack[sp].arg);
+					rulecl = RULES_GENDER;
 					break;
-
 				case 'c':
-					tr = word_case(to->lang, tstack[sp].p,
-								tstack[sp].arg);
+					rulecl = RULES_CASE;
 					break;
 				case 'q':
-					tr = word_quantity(to->lang,
-						tstack[sp].p, tstack[sp].arg);
+					rulecl = RULES_QTY;
 					break;
 				}
 
+				*point = '\0';
 				strnzcpy(tstack[sp].p, 
 					 sizeof(buf) - (tstack[sp].p - buf),
-					 tr);
+					 word_form(tstack[sp].p, tstack[sp].arg,
+						   to->lang, rulecl));
 				point = strchr(tstack[sp].p, '\0');
 			}
 

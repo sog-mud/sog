@@ -1,5 +1,5 @@
 /*
- * $Id: buffer.c,v 1.9 1998-12-23 16:11:13 fjoe Exp $
+ * $Id: buffer.c,v 1.10 1999-03-08 13:56:04 fjoe Exp $
  */
 
 /***************************************************************************
@@ -47,6 +47,9 @@
 
 #include "typedef.h"
 #include "const.h"
+
+#include "mlstring.h"
+#include "varr.h"
 #include "buffer.h"
 #include "log.h"
 #include "db/msg.h"

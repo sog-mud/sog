@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_lang.c,v 1.12 1999-02-22 13:30:29 fjoe Exp $
+ * $Id: olc_lang.c,v 1.13 1999-03-08 13:56:08 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -45,29 +45,25 @@ DECLARE_OLC_FUN(langed_name	);
 DECLARE_OLC_FUN(langed_flags	);
 DECLARE_OLC_FUN(langed_slangof	);
 DECLARE_OLC_FUN(langed_filename	);
-DECLARE_OLC_FUN(langed_genders	);
-DECLARE_OLC_FUN(langed_cases	);
-DECLARE_OLC_FUN(langed_qtys	);
+DECLARE_OLC_FUN(langed_rulecl	);
 
 DECLARE_VALIDATE_FUN(validate_langname);
 
-OLC_CMD_DATA olc_cmds_lang[] =
+olc_cmd_t olc_cmds_lang[] =
 {
-	{ "create",	langed_create				},
-	{ "edit",	langed_edit				},
-	{ "touch",	langed_touch				},
-	{ "show",	langed_show				},
-	{ "list",	langed_list				},
+	{ "create",	langed_create					},
+	{ "edit",	langed_edit					},
+	{ "touch",	langed_touch					},
+	{ "show",	langed_show					},
+	{ "list",	langed_list					},
 
-	{ "name",	langed_name,	validate_langname	},
-	{ "flags",	langed_flags,	lang_flags		},
-	{ "slangof",	langed_slangof				},
-	{ "filename",	langed_filename,validate_filename	},
-	{ "genders",	langed_genders,	validate_filename	},
-	{ "cases",	langed_cases,	validate_filename	},
-	{ "qtys",	langed_qtys,	validate_filename	},
+	{ "name",	langed_name,		validate_langname	},
+	{ "flags",	langed_flags,		lang_flags		},
+	{ "slangof",	langed_slangof					},
+	{ "filename",	langed_filename,	validate_filename	},
+	{ "ruleclass",	langed_rulecl					},
 
-	{ "commands",	show_commands				},
+	{ "commands",	show_commands					},
 	{ NULL }
 };
 
@@ -95,11 +91,10 @@ OLC_FUN(langed_create)
 	l = lang_new();
 	l->name = str_dup(arg);
 	l->file_name = str_printf("lang%02d.lang", langs.nused-1);
-	ch->desc->pEdit = l;
-	ch->desc->editor = ED_LANG;
-	touch_lang(l, NULL);
+	ch->desc->pEdit	= l;
+	OLCED(ch)	= olced_lookup(ED_LANG);
 	char_puts("LangEd: lang created.\n", ch);
-	return FALSE;
+	return touch_lang(l, NULL, 0);
 }
 
 OLC_FUN(langed_edit)
@@ -124,7 +119,7 @@ OLC_FUN(langed_edit)
 	}
 
 	ch->desc->pEdit = VARR_GET(&langs, lang);
-	ch->desc->editor = ED_LANG;
+	OLCED(ch)	= olced_lookup(ED_LANG);
 	return FALSE;
 }
 
@@ -132,18 +127,19 @@ OLC_FUN(langed_touch)
 {
 	LANG_DATA *l;
 	EDIT_LANG(ch, l);
-	return touch_lang(l, ch->desc->editor);
+	return touch_lang(l, NULL, 0);
 }
 
 OLC_FUN(langed_show)
 {
+	int i;
 	char arg[MAX_INPUT_LENGTH];
 	LANG_DATA *l;
 	LANG_DATA *sl;
 
 	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
-		if (ch->desc->editor == ED_LANG)
+		if (IS_EDIT(ch, ED_LANG))
 			EDIT_LANG(ch, l);
 		else {
 			do_help(ch, "'OLC ASHOW'");
@@ -165,15 +161,28 @@ OLC_FUN(langed_show)
 		    l->name, l->file_name);
 	if ((sl = varr_get(&langs, l->slang_of)))
 		char_printf(ch, "Slang of: [%s]\n", sl->name);
-	if (!IS_NULLSTR(l->file_genders))
-		char_printf(ch, "Genders:  [%s]\n", l->file_genders);
-	if (!IS_NULLSTR(l->file_cases))
-		char_printf(ch, "Cases:    [%s]\n", l->file_cases);
-	if (!IS_NULLSTR(l->file_qtys))
-		char_printf(ch, "Qtys:     [%s]\n", l->file_qtys);
-	if (l->flags)
+	if (l->flags) {
 		char_printf(ch, "Flags:    [%s]\n",
 			    flag_string(lang_flags, l->flags)); 
+	}
+
+	for (i = 0; i < MAX_RULECL; i++) {
+		rulecl_t *rcl = l->rules + i;
+
+		if (IS_NULLSTR(rcl->file_expl)
+		&&  IS_NULLSTR(rcl->file_impl))
+			continue;
+
+		char_printf(ch, "\nRule Class: [%s]\n"
+				"Expl file: [%s]\n" 
+				"Impl file: [%s]\n"
+				"Flags: [%s]\n",
+			    flag_string(rulecl_names, i),
+			    rcl->file_expl,
+			    rcl->file_impl,
+			    flag_string(rulecl_flags, rcl->flags));
+	}
+
 	return FALSE;
 }
 
@@ -199,14 +208,14 @@ OLC_FUN(langed_name)
 	}
 
 	EDIT_LANG(ch, l);
-	return olced_str(ch, argument, langed_name, &l->name);
+	return olced_str(ch, argument, cmd, &l->name);
 }
 
 OLC_FUN(langed_flags)
 {
 	LANG_DATA *l;
 	EDIT_LANG(ch, l);
-	return olced_flag32(ch, argument, langed_flags, &l->flags);
+	return olced_flag32(ch, argument, cmd, &l->flags);
 }
 
 OLC_FUN(langed_slangof)
@@ -235,41 +244,14 @@ OLC_FUN(langed_filename)
 {
 	LANG_DATA *l;
 	EDIT_LANG(ch, l);
-	return olced_str(ch, argument, langed_filename, &l->file_name);
+	return olced_str(ch, argument, cmd, &l->file_name);
 }
 
-OLC_FUN(langed_genders)
+OLC_FUN(langed_rulecl)
 {
 	LANG_DATA *l;
 	EDIT_LANG(ch, l);
-	return olced_str(ch, argument, langed_genders, &l->file_genders);
-}
-
-OLC_FUN(langed_cases)
-{
-	LANG_DATA *l;
-	EDIT_LANG(ch, l);
-	return olced_str(ch, argument, langed_cases, &l->file_cases);
-}
-
-OLC_FUN(langed_qtys)
-{
-	LANG_DATA *l;
-	EDIT_LANG(ch, l);
-	return olced_str(ch, argument, langed_qtys, &l->file_qtys);
-}
-
-bool touch_lang(LANG_DATA *l, const char *editor)
-{
-	if (editor == ED_GENDER)
-		SET_BIT(l->flags, LANG_GENDERS_CHANGED);
-	else if (editor == ED_CASE)
-		SET_BIT(l->flags, LANG_CASES_CHANGED);
-	else if (editor == ED_QTY)
-		SET_BIT(l->flags, LANG_QTYS_CHANGED);
-	else
-		SET_BIT(l->flags, LANG_CHANGED);
-	return FALSE;
+	return olced_rulecl(ch, argument, cmd, l);
 }
 
 /* local functions */
@@ -278,7 +260,7 @@ VALIDATE_FUN(validate_langname)
 {
 	if (lang_lookup(arg) >= 0) {
 		char_printf(ch, "%s: language already exists.\n",
-			    olc_ed_name(ch));
+			    OLCED(ch)->name);
 		return FALSE;
 	}
 	return TRUE;

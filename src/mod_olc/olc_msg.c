@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_msg.c,v 1.25 1999-02-23 22:26:12 fjoe Exp $
+ * $Id: olc_msg.c,v 1.26 1999-03-08 13:56:08 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -43,7 +43,7 @@ DECLARE_OLC_FUN(msged_list		);
 DECLARE_OLC_FUN(msged_msg		);
 DECLARE_OLC_FUN(msged_del		);
 
-OLC_CMD_DATA olc_cmds_msg[] =
+olc_cmd_t olc_cmds_msg[] =
 {
 	{ "create",	msged_create	},
 	{ "edit",	msged_edit	},
@@ -89,11 +89,11 @@ OLC_FUN(msged_create)
 		return FALSE;
 	}
 
-	if (olced_busy(ch, ED_MSG, NULL, NULL))
+	if (olced_busy(ch, NULL, NULL))
 		return FALSE;
 
 	ch->desc->pEdit	= (void*) msg_add(mlstr_new(argument));
-	ch->desc->editor = ED_MSG;
+	OLCED(ch)	= olced_lookup(ED_MSG);
 	char_puts("Msg created.\n", ch);
 	return FALSE;
 }
@@ -117,8 +117,8 @@ OLC_FUN(msged_edit)
 		return FALSE;
 	}
 
-	ch->desc->pEdit		= (void *) mlp;
-	ch->desc->editor	= ED_MSG;
+	ch->desc->pEdit	= (void *) mlp;
+	OLCED(ch)	= olced_lookup(ED_MSG);
 	return FALSE;
 }
 
@@ -128,7 +128,7 @@ OLC_FUN(msged_show)
 	mlstring **mlp;
 
 	if (argument[0] == '\0') {
-		if (ch->desc->editor == ED_MSG)
+		if (IS_EDIT(ch, ED_MSG))
 			EDIT_MSG(ch, mlp);
 		else {
 			do_help(ch, "'OLC ASHOW'");
@@ -220,7 +220,7 @@ OLC_FUN(msged_msg)
 			return FALSE;
 		}
 
-		if (olced_busy(ch, ED_MSG, NULL, NULL))
+		if (olced_busy(ch, NULL, NULL))
 			return FALSE;
 
 		ml = msg_del(mlstr_mval(*mlp));
@@ -242,7 +242,7 @@ OLC_FUN(msged_del)
 	mlstring *ml;
 	mlstring **mlp;
 
-	if (olced_busy(ch, ED_MSG, NULL, NULL))
+	if (olced_busy(ch, NULL, NULL))
 		return FALSE;
 
 	EDIT_MSG(ch, mlp);

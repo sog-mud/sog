@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_lang.c,v 1.12 1999-02-23 22:06:50 fjoe Exp $
+ * $Id: db_lang.c,v 1.13 1999-03-08 13:56:07 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -32,83 +32,65 @@
 
 #include "merc.h"
 #include "db.h"
-#include "word.h"
 #include "lang.h"
 
-LANG_DATA *	lang;
-
 DECLARE_DBLOAD_FUN(load_lang);
+DECLARE_DBLOAD_FUN(load_rulecl);
+DECLARE_DBINIT_FUN(init_lang);
 
 DBFUN dbfun_langs[] =
 {
-	{ "LANG",	load_lang },
+	{ "LANG",	load_lang	},
+	{ "RULECLASS",	load_rulecl	},
 	{ NULL }
 };
 
-DBDATA db_langs = { dbfun_langs };
+DBDATA db_langs = { dbfun_langs, init_lang };
 
-DECLARE_DBLOAD_FUN(load_word);
+DECLARE_DBLOAD_FUN(load_expl);
+DECLARE_DBLOAD_FUN(load_impl);
 
-DBFUN dbfun_words[] =
+DBFUN dbfun_expl[] =
 {
-	{ "WORD",	load_word },
+	{ "RULE",	load_expl },
 	{ NULL }
 };
 
-DBDATA db_words = { dbfun_words };
+DBFUN dbfun_impl[] =
+{
+	{ "RULE",	load_impl },
+	{ NULL }
+};
+
+DBDATA db_expl = { dbfun_expl };
+DBDATA db_impl = { dbfun_impl };
+
+/*----------------------------------------------------------------------------
+ * lang loader
+ */
+DBINIT_FUN(init_lang)
+{
+	db_set_arg(dbdata, "RULECLASS", NULL);
+}
 
 DBLOAD_FUN(load_lang)
 {
 	LANG_DATA *lang = lang_new();
 	lang->file_name = get_filename(filename);
+	db_set_arg(dbdata, "RULECLASS", lang);
 
 	for (;;) {
 		char *word = feof(fp) ? "End" : fread_word(fp);
 		bool fMatch = FALSE;
 
 		switch (UPPER(*word)) {
-		case 'C':
-			SKEY("CasesFile", lang->file_cases);
-			break;
-
 		case 'E':
 			if (!str_cmp(word, "End")) {
-				const char *s;
-				char path[PATH_MAX];
-
 				if (IS_NULLSTR(lang->name)) {
 					db_error("load_lang",
 						 "lang name undefined");
 					langs.nused--;
 					return;
-				}
-
-				s = strrchr(filename, PATH_SEPARATOR);
-				if (s)
-					strnzncpy(path, sizeof(path), filename,
-						  s - filename);
-				else
-					path[0] = '\0';
-
-				if (lang->file_genders) {
-					db_set_arg(&db_words, "WORD",
-						   lang->hash_genders);
-					db_load_file(&db_words, path,
-						     lang->file_genders);
-				}
-
-				if (lang->file_cases) {
-					db_set_arg(&db_words, "WORD",
-						   lang->hash_cases);
-					db_load_file(&db_words, path,
-						     lang->file_cases);
-				}
-
-				if (lang->file_qtys) {
-					db_set_arg(&db_words, "WORD",
-						   lang->hash_qtys);
-					db_load_file(&db_words, path,
-						     lang->file_qtys);
 				}
 				return;
 			}
@@ -117,14 +99,8 @@ DBLOAD_FUN(load_lang)
 			KEY("Flags", lang->flags,
 			    fread_fstring(lang_flags, fp));
 			break;
-		case 'G':
-			SKEY("GendersFile", lang->file_genders);
-			break;
 		case 'N':
 			KEY("Name", lang->name, str_dup(fread_word(fp)));
-			break;
-		case 'Q':
-			SKEY("QtysFile", lang->file_qtys);
 			break;
 		case 'S':
 			KEY("SlangOf", lang->slang_of,
@@ -136,38 +112,105 @@ DBLOAD_FUN(load_lang)
 	}
 }
 
-DBLOAD_FUN(load_word)
+DBLOAD_FUN(load_rulecl)
 {
-	varr *hash = arg;
-	WORD_DATA w;
+	LANG_DATA *l = arg;
+	char *word;
+	rulecl_t *rcl = NULL;
 
-	word_init(&w);
+	if (!l) {
+		db_error("load_rulecl", "#RULECLASS before #LANG");
+		return;
+	}
+
+	word = feof(fp) ? "End" : fread_word(fp);
+	if (!str_cmp(word, "Class"))
+		rcl = l->rules + fread_fword(rulecl_names, fp);
+	else {
+		db_error("load_rulecl", "Class must be defined first");
+		return;
+	}
+
+	for (;;) {
+		char *word = feof(fp) ? "End" : fread_word(fp);
+		bool fMatch = FALSE;
+
+		switch (UPPER(*word)) {
+		case 'E':
+			SKEY("Expl", rcl->file_expl);
+			if (!str_cmp(word, "End")) {
+				const char *s;
+				char path[PATH_MAX];
+
+				s = strrchr(filename, PATH_SEPARATOR);
+				if (s) {
+					strnzncpy(path, sizeof(path),
+						  filename, s - filename);
+				}
+				else
+					path[0] = '\0';
+
+				if (rcl->file_expl) {
+					db_set_arg(&db_expl, "RULE", rcl);
+					db_load_file(&db_expl, path,
+						     rcl->file_expl);
+				}
+
+				if (rcl->file_impl) {
+					db_set_arg(&db_impl, "RULE", rcl);
+					db_load_file(&db_impl, path,
+						     rcl->file_impl);
+				}
+				return;
+			}
+			break;
+		case 'I':
+			SKEY("Impl", rcl->file_impl);
+			break;
+		}
+
+		if (!fMatch) 
+			db_error("load_rulecl", "%s: Unknown keyword", word);
+	}
+}
+
+static void
+load_rules(FILE *fp, rulecl_t *rcl, rule_t* (*add_rule)(rulecl_t*, rule_t*));
+
+DBLOAD_FUN(load_expl)
+{
+	load_rules(fp, arg, erule_add);
+}
+
+DBLOAD_FUN(load_impl)
+{
+	load_rules(fp, arg, irule_add);
+}
+
+static void
+load_rules(FILE *fp, rulecl_t *rcl, rule_t* (*rule_add)(rulecl_t*, rule_t*))
+{
+	rule_t r;
+	rule_init(&r);
+
 	for (;;) {
 		char *word = feof(fp) ? "End" : fread_word(fp);
 		bool fMatch = FALSE;
 
 		switch(UPPER(*word)) {
 		case 'B':
-			if (!str_cmp(word, "Base")) {
-				free_string(fread_string(fp));
-				fMatch = TRUE;
-				break;
-			}
-			KEY("BaseLen", w.base_len, fread_number(fp));
+			KEY("BaseLen", r.arg, fread_number(fp));
 			break;
 
 		case 'E':
 			if (!str_cmp(word, "End")) {
-				if (IS_NULLSTR(w.name)) {
-					db_error("load_word",
-						 "word name undefined");
-					word_clear(&w);
-					return;
+				if (IS_NULLSTR(r.name)) {
+					db_error("load_rules",
+						 "rule name undefined");
+					rule_clear(&r);
 				}
-				if (!word_add(hash, &w)) {
-					word_clear(&w);
-					return;
-				}
+				else if (!rule_add(rcl, &r))
+					rule_clear(&r);
 				return;
 			}
 			break;
@@ -176,19 +219,19 @@ DBLOAD_FUN(load_word)
 			if (!str_cmp(word, "Form")) {
 				int fnum = fread_number(fp);
 				const char *fstring = fread_string(fp);
-				word_form_add(&w, fnum, fstring);
+				vform_add(r.f, fnum, fstring);
 				free_string(fstring);
 				fMatch = TRUE;
 			}
 			break;
 
 		case 'N':
-			SKEY("Name", w.name);
+			SKEY("Name", r.name);
 			break;
 		}
 
 		if (!fMatch) 
-			db_error("load_word", "%s: Unknown keyword", word);
+			db_error("load_rules", "%s: Unknown keyword", word);
 	}
 }
 
