@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.181.2.32 2002-08-14 15:42:24 tatyana Exp $
+ * $Id: spellfun.c,v 1.181.2.33 2002-08-30 20:16:17 tatyana Exp $
  */
 
 /***************************************************************************
@@ -3744,26 +3744,29 @@ void spell_slow(int sn, int level, CHAR_DATA *ch, void *vo)
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA af;
 
-	if (is_affected(victim, sn) || IS_AFFECTED(victim,AFF_SLOW))
-	{
+	if (is_affected(victim, sn)
+	||  IS_AFFECTED(victim,AFF_SLOW)) {
 		if (victim == ch)
-		  char_puts("You can't move any slower!\n",ch);
+			char_puts("You can't move any slower!\n",ch);
 		else if (ch->in_room == victim->in_room)
-		  act("$N can't get any slower than that.",
-		      ch,NULL,victim,TO_CHAR);
+			act("$N can't get any slower than that.",
+			    ch, NULL, victim, TO_CHAR);
 		return;
 	}
 
-	if (saves_spell(level,victim,DAM_OTHER)
-	||  IS_SET(victim->imm_flags,IMM_MAGIC))
+	if (!check_trust(ch, victim)
+	&&  (saves_spell(level, victim, DAM_OTHER) ||
+	     IS_SET(victim->imm_flags, IMM_MAGIC))) {
+		act("You failed to slow $N.", ch, NULL, victim, TO_CHAR);
+		act("$n failed to slow you.", ch, NULL, victim, TO_VICT);
+		act("$n failed to slow $N.", ch, NULL, victim, TO_NOTVICT);
 		return;
+	}
+	if (IS_AFFECTED(victim, AFF_HASTE)) {
+		if (!check_dispel(level, victim, sn_lookup("haste")))
+			return;
 
-	if (IS_AFFECTED(victim,AFF_HASTE))
-	{
-		if (!check_dispel(level,victim,sn_lookup("haste")))
-		    return;
-
-		act("$n is moving less quickly.",victim,NULL,NULL,TO_ROOM);
+		act("$n is moving less quickly.", victim, NULL, NULL, TO_ROOM);
 		return;
 	}
 
