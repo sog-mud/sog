@@ -1,5 +1,5 @@
 #
-# $Id: english.lang,v 1.72 1998-08-14 05:45:13 fjoe Exp $
+# $Id: english.lang,v 1.73 1998-08-14 06:18:46 fjoe Exp $
 #
 
 MSG_NOTHING		"Nothing.\n\r"
@@ -555,7 +555,7 @@ MSG_AUTOREBOOT_IN    "{*{W*****{R AUTOMAGIC rEBOOT IN {W%d{R MIN. {W*****{x\n\r"
 MSG_P_STRIKES_YOU	"$p strikes you!"
 MSG_YOU_P_STRIKES_N	"Your $p strikes $N!"
 MSG_N_P_STRIKES_N	"$n's $p strikes $N!"
-MSG_TARGET		"{r[{RMSG_TARGET{r]{x "
+MSG_TARGET		"{r[{RTARGET{r]{x "
 MSG_INVIS		"({yInvis{x) "
 MSG_HIDDEN		"({DHidden{x) "
 MSG_CHARMED		"({mCharmed{x) "

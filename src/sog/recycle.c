@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.16 1998-08-14 03:36:24 fjoe Exp $
+ * $Id: recycle.c,v 1.17 1998-08-14 06:18:47 fjoe Exp $
  */
 
 /***************************************************************************
@@ -254,17 +254,16 @@ OBJ_DATA *new_obj(void)
 	int i;
 	OBJ_DATA *obj;
 
-	if (obj_free == NULL) {
+	if (obj_free == NULL)
 		obj = alloc_perm(sizeof(*obj));
-		obj->short_descr = NULL;
-		obj->description = NULL;
-	}
 	else {
 		obj = obj_free;
 		obj_free = obj_free->next;
 	}
 	VALIDATE(obj);
 
+	obj->short_descr	= NULL;
+	obj->description	= NULL;
 	obj->next		= NULL;
 	obj->next_content	= NULL;
 	obj->contains		= NULL;
@@ -341,12 +340,8 @@ CHAR_DATA *new_char (void)
 	CHAR_DATA *ch;
 	int i;
 
-	if (char_free == NULL) {
+	if (char_free == NULL) 
 		ch = alloc_perm(sizeof(*ch));
-		ch->short_descr	= NULL;
-		ch->long_descr	= NULL;
-		ch->description	= NULL;
-	}
 	else {
 		ch = char_free;
 		char_free = char_free->next;
@@ -354,6 +349,9 @@ CHAR_DATA *new_char (void)
 
 	VALIDATE(ch);
 
+	ch->short_descr		= NULL;
+	ch->long_descr		= NULL;
+	ch->description		= NULL;
 	ch->next		= NULL;
 	ch->next_in_room	= NULL;
 	ch->master		= NULL;
