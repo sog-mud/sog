@@ -1655,6 +1655,14 @@ E
 chair~
 This chair is actually quite beneficial if held.
 ~
+#5830
+box~
+big box~
+A big bos with big sword is here.~
+wood~
+container 0 0
+10 0 0 100 0
+0 0 0 P
 #0
 
 #ROOMS
@@ -3758,7 +3766,8 @@ M 0 5749 2 5774 2	* a giant Bat (On the Banks of the River)
 M 0 5748 2 5775 2	* A lumbering Neanderthal (A Cave)
 E 0 5763 0 16		*	a crude stone club: wielded
 M 0 5769 1 5776 1	* a crocodile (The River)
-O 0 5766 0 5777	* a magnificent-looking sword (The River)
+O 0 5830 0 5777	* big box (The River)
+P 0 5766 1 5830 1	* big box: a magnificent-looking sword
 M 0 5755 3 5778 3	* a vicious Piranha (The River)
 M 0 5751 1 5781 1	* an Ogre (Ogre Cave)
 M 0 5752 1 5789 1	* a Troll (The Troll Den)

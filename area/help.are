@@ -2824,46 +2824,25 @@ Syntax: cast 'protective shield'
 This spell makes a shield around the caster which can deflect blunt blows
 such as those from bashes and throws.
 ~
-0 REWARD~
-Quest weapons, rings and girths cannot be sacrificed and these items
+0 'QUEST REWARD'~
+Quest rewards cannot be sacrificed and these items
 are special for the character. Any other character cannot get or wear 
 these items. Also these items cannot get damage. As you lost one of them 
 because of crashes note to gods.
 
-Syntax: help weaponreward... for more information about the reward weapon.
-Syntax: help ringreward..... for more information about the reward ring.
-Syntax: help girthreward.... for more information about the reward girth.
 ~
-0 WEAPONREWARD~
-Object 'weapon hero' is type weapon, extra flags glow magic bless nopurge burn_proof.
-Weight is 30, value is 100000, level is from 21 to your level.
-Weapon type is exotic.
-Damage varies from 10d4 (average 25)
-              to   10d12(average 65) 
-Weapons flags: sharp
-Affects moves by 500.
-Affects hp by 200.
-Affects mana by 200.
-Affects hit roll by 25.
-Affects damage roll by 25.
-Affects charisma by 1.
-Affects wisdom by 2.
-Affects dexterity by 2.
-Affects strength by 2.
-~
--1 RINGREWARD~
+-1 RINGREWARD 'QUEST REWARD RING'~
 Object 'ring hero' is type armor, extra flags glow magic bless nopurge burn_proof.
 Weight is 30, value is 100000, level is 21.
 Armor class is 12 pierce, 12 bash, 12 slash, and 9 vs. magic.
 Affects moves by 500.
-Adds flying pass_door affect.
 Affects hp by 150.
 Affects mana by 150.
 Affects hit roll by 10.
 Affects armor class by -20.
 Affects charisma by 1.
 ~
--1 GIRTHREWARD~
+-1 GIRTHREWARD 'QUEST REWARD GIRTH'~
 Object 'girth hero' is type armor, extra flags glow magic bless nopurge burn_proof.
 Weight is 30, value is 100000, level is 21.
 Armor class is 12 pierce, 12 bash, 12 slash, and 9 vs. magic.
@@ -2881,24 +2860,18 @@ Affects constitution by 3.
 Affects wisdom by 2.
 Affects strength by 2.
 ~
--1 QUESTS~
-There are currently n quests in Muddy MUD.
-	* Questor quest    : For more info type 'help 'questor quest''
-	* Kassandra quest  : Read some fascicles of books.. :)
-	* ....
-~
--1 'QUESTOR QUEST'~
-quest points   : shows quest points
+-1 'QUEST AUTOMAGIC'~
+quest points   : show quest points
 	quest info     : shows what must you do for finish the quest
 	quest time     : shows the left time to finish the quest
 	quest request  : in order to want a quest
 	quest complete : to inform questmaster that you finished the quest
 	quest list     : lists the available quest objects that you can buy
 	quest buy      : to buy a quest obj	
-        quest trouble  : if you lose a quest obj, you can regain it. But
+    quest trouble  : if you lose a quest obj, you can regain it. But
                          at most 3 times.
        
-Syntax: help reward ... for more information about the quest reward. 
+Type `help 'quest reward'` for more information about the quest reward.
 ~
 -1 AUCTION~
 Syntax of the auction command is:
@@ -3772,8 +3745,8 @@ Syntax: hedit create keyword
  
 В клан могут вступать только evils и склонные к кровавым убийствам нейтралы 
 Любому оружию НЕЧИСТЬ предпочитает темную магию, и поэтому при вступлении
-предпочтение отдается вампирам, некромантам, варлокам и ведьмам.
- 
+предпочтение отдается вампирам, некромантам, варлокам, ведьмам и
+анти-паладинам (человеческих и эльфийских расс).
 Любое, на свою беду разумное существо, не состоящее в клане Scum, не
 подчиненное клану, не состоящее с ним в угодном Темному союзе является
 врагом клана.
@@ -3786,8 +3759,7 @@ Syntax: hedit create keyword
 неугодных клану существ.
  
 Лидеры клана:
-Dark Elf  Warlock     Voland
-Dark Elf  Necromancer Karabas
+Dark Elf  Warlock     Woland
           Vampire     Osya
 ~
 0 'CLAN HKBD' HKBD~
@@ -3815,6 +3787,57 @@ Syntax: medit [create] vnum
 ~
 0 'protection negative'~
 Characters affected by 'protection negative' are immune to negative attack, for example 'energy drain', 'hand of undead', 'corruption'
+~
+0 CHAOS~
+@eng @rus Основные положения и цели :
+ 
+1. Закон, запрет, правило, обычай, либо любой другой устоявшийся свод правил,
+обязывающий человека ему непрекословно следовать - ограничение свободы 
+личности данного человека.
+2. Идеальный Хаос - отсутствие всего, изложенного в пункте 1.
+Основная личная цель члена клана:
+Развитие Собственной Индивидуальности любыми способами, предварительно
+уничтожив ограничения своей свободы прав.
+ 
+Основная цель клана:
+Достижение полнейшей свободы права выбора любого индивидуума,
+путем создания повсеместного Идеального Хаоса.
+ 
+Средства клана:
+Член клана имеет право пользоваться любыми средствами, так как не имеет
+никакого ограничения прав. Разумеется, наиболее опасным и,
+в то же время, максимально эффективным и часто используемым
+(так как используется оно постоянно) является неожиданность и
+непредсказуемость.
+ 
+Внешняя политика:
+ 
+1. Если встретится ситуация не предусмотренная в этом уставе,
+то следует действовать так, как заблагорассудится
+(то есть хаотически) ;)
+2. Все, что касается внешнего мира нам пофиг =>
+3. Мы НЕ обьявляем никому войн и игнорируем все такие обьявления.
+4. Мы НЕ обьявляем ни с кем перемирий или альянсов и игнорируем все такие
+предложения.
+5. Мы вообще не ведем никаких переговоров и не откликаемся на какие-либо 
+угрозы.
+6. Правила 2-5 это не обязанности каждого члена , а наша внешняя политика.
+~
+0 SONGREWARD 'QUEST REWARD SONG'~
+Object 'song hero' is type container, extra flags bless nopurge nosac burnproof
+Weight is 0, value is 0, level is 21.
+Capacity: 150#  Maximum weight: 600#  flags: none
+Weight multiplier: 5%
+Affects savingspell by -15.
+Affects hitroll by 15.
+Affects strength by 2.
+Affects dexterity by 2.
+Affects wisdom by 2.
+Affects charisma by 1.
+Affects damroll by 15.
+Affects move by 500.
+Affects mana by 150.
+Affects hp by 200.
 ~
 -1 $~
 

@@ -585,8 +585,8 @@ libram gainful conjuration~
 the Libram of Gainful Conjuration~
 A large spellbook lies here waiting to be read.~
 parchment~
-scroll ABCEPT AO
-50 'blindness' 'burning hands' 'chill touch' ''
+container ABCEPT AO
+100 0 0 500 0
 50 15 40000 P
 #4628
 potion protection divine~
@@ -1490,17 +1490,17 @@ G 0 4623 0		*	the Shadow Dagger
 G 0 4628 0		*	a potion of divine protection
 G 0 4629 0		*	the cloak of wizardry
 G 0 4627 0		*	the Libram of Gainful Conjuration
-P 0 4613 0 4627 1	* the Libram of Gainful Conjuration: an ancient yellow parchment
-P 0 4630 0 4627 1	* the Libram of Gainful Conjuration: a scroll of ultimate overkill
-P 0 4631 0 4627 1	* the Libram of Gainful Conjuration: a scroll of truimph
-P 0 4632 0 4627 1	* the Libram of Gainful Conjuration: a scroll of feasting
-P 0 4633 0 4627 1	* the Libram of Gainful Conjuration: a scroll of room-redecoration
-P 0 4634 0 4627 1	* the Libram of Gainful Conjuration: a scroll of protection
-P 0 4635 0 4627 1	* the Libram of Gainful Conjuration: a scroll of invulnerability
-P 0 4636 0 4627 1	* the Libram of Gainful Conjuration: a scroll of the Wolverine
-P 0 4637 0 4627 1	* the Libram of Gainful Conjuration: a scroll of lifebane
-P 0 4638 0 4627 1	* the Libram of Gainful Conjuration: a scroll of destruction
-P 0 4639 0 4627 1	* the Libram of Gainful Conjuration: a scroll of chaos
+P 0 4613 1 4627 1	* the Libram of Gainful Conjuration: an ancient yellow parchment
+P 0 4630 1 4627 1	* the Libram of Gainful Conjuration: a scroll of ultimate overkill
+P 0 4631 1 4627 1	* the Libram of Gainful Conjuration: a scroll of truimph
+P 0 4632 1 4627 1	* the Libram of Gainful Conjuration: a scroll of feasting
+P 0 4633 1 4627 1	* the Libram of Gainful Conjuration: a scroll of room-redecoration
+P 0 4634 1 4627 1	* the Libram of Gainful Conjuration: a scroll of protection
+P 0 4635 1 4627 1	* the Libram of Gainful Conjuration: a scroll of invulnerability
+P 0 4636 1 4627 1	* the Libram of Gainful Conjuration: a scroll of the Wolverine
+P 0 4637 1 4627 1	* the Libram of Gainful Conjuration: a scroll of lifebane
+P 0 4638 1 4627 1	* the Libram of Gainful Conjuration: a scroll of destruction
+P 0 4639 1 4627 1	* the Libram of Gainful Conjuration: a scroll of chaos
 O 0 4603 0 4611	* a smelly humanoid corpse (Western main area of the Mausoleum.)
 O 0 4603 0 4612	* a smelly humanoid corpse (Central main area of the Mausoleum.)
 O 0 4618 0 4612	* a half-eaten corpse (Central main area of the Mausoleum.)

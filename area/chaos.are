@@ -32,9 +32,10 @@ small demongirl~
 @eng Small pretty demongirl
 @rus МаленькаЯ скромненькаЯ демоница
 ~
-~
+@eng {x
+@rus ~
 human~
-A DFHTXZclt 0 0
+AG DFHTXZclt 0 0
 1 300 100d100+300 100d100+300 10d10+100 none
 0 0 0 0
 0 0 0 0
@@ -43,9 +44,28 @@ stand stand female 0
 F for AHMV
 F par ABCDEFGHIJK
 M greet 36101 100~
+#36102
+Armourer~
+@eng Armourer@rus Одевальщик, обувальщик, надувальщик.~
+@eng Drunk armourer is lying here.
+@rus Бухой мужик пытается привстать и продать тебе чего-нибудь.
+~
+@eng @rus {x
+~
+human~
+ABGe FHVct 0 0
+95 300 100d100+10000 100d100+1000 100d10+500 none
+-50 -50 -50 -50
+0 AB 0 0
+stand stand male 1000
+0 0 medium unknown
+F for AHMV
+F par ABCDEFGHIJK
 #36103
 Bartender~
 @eng {gChaos bartender{x@rus {gРаздолбай бармен.{x~
+@eng A drunk bartender is here.
+@rus В доску пьяный бармен протягивает тебе кружку.
 ~
 @eng Drunk
 @rus Обычный бухарик.
@@ -54,7 +74,77 @@ human~
 ABGe DFHVZcmot 0 0
 95 300 300d300+30000 300d300+30000 100d10+300 none
 -50 -50 -50 -50
-H 0 0 0
+H AB 0 0
+stand stand male 0
+C 0 medium unknown
+F for AHMV
+F par ABCDEFGHIJK
+M bribe 36131 20000~
+#36104
+bookseller~
+@eng Bookseller@rus Книжный червь.~
+@eng A bookseller tries to sell you some papers here.
+@rus Хитрый старичок пытаетсЯ всучить тебе какие то бумажки.
+~
+@eng {x
+@rus ~
+human~
+ABGe DFHVclt 0 0
+95 300 100d100+10000 100d100+1000 100d10+1000 none
+0 0 0 0
+0 AB 0 0
+stand stand male 0
+0 0 medium unknown
+F for AHMV
+F par ABCDEFGHIJK
+#36105
+weaponsmith~
+@eng weaponsmith@rus Приколист кузнец~
+@eng A man smile at you and continue sharpen a sword.
+@rus Веселый парень подмигивает тебе, доставая из кармана ножик.
+~
+@eng @rus {x
+~
+human~
+ABGe FHVclt 0 0
+95 300 100d100+10000 100d100+10000 10d100+1000 none
+-50 -50 -50 -50
+0 AB 0 0
+stand stand male 1000
+0 0 medium unknown
+F for AHMV
+F par ABCDEFGHIJK
+#36106
+wizard~
+@eng wizard@rus Хитрый колдун~
+@eng A wizard with flaming staff is here.
+@rus Старик с большой белой бородой и безумными глазами сейчас тебе что то продаст.
+~
+@eng @rus {x
+~
+human~
+ABGRe DFHVclt 0 0
+95 300 100d100+10000 100d100+10000 100d10+1000 none
+-50 -50 -50 -50
+0 AB 0 0
+stand stand male 1000
+0 0 medium unknown
+F for AHMV
+F par ABCDEFGHIJK
+M bribe 36130 100000~
+#36108
+grocer~
+@eng Grocer@rus Бакалейщик~
+@eng A grocer is here.
+@rus Мужик с наглой, рыжей мордой задумчиво смотрит на тебя.
+~
+@eng @rus {x
+~
+human~
+ABGe DFHVlt 0 0
+95 300 100d10+10000 100d10+10000 100d10+500 none
+-50 -50 -50 -50
+0 AB 0 0
 stand stand male 0
 0 0 medium unknown
 F for AHMV
@@ -76,7 +166,7 @@ eng Board~
 @eng A bar board is here.@rus Стойка бара уютно расположилась здесь.~
 Доска~
 furniture R 0
-AB 0 AGJ B B
+AB 0 AGJ DGH DGH
 0 10000000 0 P
 #36102
 sign~
@@ -94,6 +184,128 @@ unknown~
 map R 0
 0 0 0 0 0
 0 0 0 P
+#36104
+beer~
+@eng Beer@rus Пыво~
+@eng Beer@rus Пыво~
+Хмель~
+drink 0 A
+64 64 'beer' 0 0
+0 0 100 P
+#36105
+paper~
+@eng paper@rus газетенка~
+@eng paper@rus газетенка~
+paper~
+trash 0 A
+0 0 0 0 0
+0 0 110 P
+#36106
+sword~
+@eng {rTiny chaos sword{x@rus {rКрошечный меч хаоса{x~
+@eng A small flaming sword is here.@rus Маленький сверкающий меч лежит здесь.~
+energy~
+weapon 0 AN
+sword 2 5 slash AD
+7 0 610 P
+#36107
+jerkin~
+@eng {rTiny chaos jerkin{x@rus {rМалюсенькая жилетка хаоса{x~
+@eng A tiny chaos jerkin is lying on the ground.@rus Крошечная жилетка лежит здесь.~
+energy~
+armor AG AD
+4 4 4 4 0
+5 0 850 P
+A
+14 50
+A
+15 50
+#36108
+wand~
+@eng {rTiny chaos wand{x@rus {rМаленькая горящая палка{x~
+@eng A tiny chaos wand is lying here.@rus Горящая палка валяется здесь.~
+energy~
+wand A AO
+5 10 10 'fireball' 0
+1 0 400 P
+#36109
+potion~
+@eng potion@rus склянка~
+@eng potion@rus склянка~
+energy~
+potion G A
+90 'frenzy' 'reserved' 'reserved' 'reserved'
+30 0 100 P
+#36110
+vodka~
+@eng small bottle@rus маленькая бутылочка~
+@eng small bottle@rus маленькая бутылочка~
+energy~
+potion 0 A
+30 'frenzy' 'reserved' 'reserved' 'reserved'
+20 0 500 P
+#36111
+sword~
+@eng sword@rus меч~
+@eng sw@rus sw~
+unknown~
+weapon P AN
+exotic 0 0 none 0
+0 0 0 P
+#36112
+flame~
+@eng flame@rus {rЗажигалка{x~
+@eng flame@rus зажигалка~
+energy~
+light A A
+0 0 -1 0 0
+5 0 10000 P
+A
+19 1
+A
+3 1
+A
+17 -2
+#36189
+no name~
+~
+~
+unknown~
+treasure 0 0
+0 0 0 0 0
+0 0 0 P
+#36197
+ninjitsu gi black~
+@eng {DNinjitsu Gi{x@rus {DNinjitsu Gi{x~
+@eng Someone's black silk combat suit lies here.@rus Someone's black silk combat suit lies here.~
+black silk~
+container GIKLORSTYa AK
+100 0 0 600 10
+91 0 0 P
+A
+20 -10
+A
+19 15
+A
+18 15
+A
+13 100
+#36198
+cloak ebony~
+@eng {DEbony Cloak{x@rus {DEbony Cloak{x~
+@eng This wonderful ebony cloak is a symbol of thy membership in the thief guild.@rus This wonderful ebony cloak is a symbol of thy membership in the thief guild.~
+shadow~
+container CFJKMRSTYa AK
+100 0 0 600 10
+91 0 0 P
+A
+13 100
+A
+20 -10
+A
+18 15
+A
+19 15
 #36199
 shadow sai~
 @eng {Dthe Shadow Sai{x@rus {Dthe Shadow Sai{x~
@@ -103,7 +315,7 @@ weapon CFMT AN
 dagger 50 50 slice ACD
 92 20 100000 P
 A
-17 20000
+17 -20000
 A
 14 100000
 A
@@ -437,6 +649,10 @@ You can see all town from here.
 И все же отсюда можно увидеть почти весь город.
 ~
 0 0 inside
+D0
+~
+~
+Z 0 36124
 D1
 ~
 ~
@@ -457,6 +673,10 @@ S
 За сохранность ваших вложений банк ответственности не несет.
 ~
 0 U inside
+D0
+~
+~
+Z 0 36122
 D1
 ~
 ~
@@ -472,6 +692,10 @@ S
 @rus Вот это да! Здесь есть правительство!
 ~
 0 0 inside
+D0
+~
+~
+Z 0 36123
 D2
 ~
 ~
@@ -481,15 +705,137 @@ D3
 ~
 Z 0 36119
 S
+#36122
+@eng Chaos street@rus ХаотичнаЯ улица~
+@eng An averege street.
+@rus Обычная улица.
+~
+0 0 inside
+D1
+~
+~
+Z 0 36124
+D2
+~
+~
+Z 0 36120
+S
+#36123
+@eng Chaos street@rus ХаотичнаЯ улица~
+@eng An averege street.
+@rus Обычная улица.
+~
+0 0 inside
+D2
+~
+~
+Z 0 36121
+D3
+~
+~
+Z 0 36124
+S
+#36124
+@eng Chaos street@rus ХаотичнаЯ улица~
+@eng An averege street, you can see a square at the south.
+@rus ОбычнаЯ улица с видом на площадь
+~
+0 0 inside
+D0
+~
+~
+Z 0 36125
+D1
+~
+~
+Z 0 36123
+D2
+~
+~
+Z 0 36119
+D3
+~
+~
+Z 0 36122
+S
+#36125
+@eng Chaos street@rus ХаотичнаЯ улица~
+@eng You can see a grocer shop at the east and a jeweller on the west.
+@rus Универмаг торчит напротив магазина брюликов.
+~
+0 0 inside
+D1
+~
+~
+Z 0 36126
+D2
+~
+~
+Z 0 36124
+D3
+~
+~
+Z 0 36127
+S
+#36126
+@eng Grocer shop@rus Универмаг~
+@eng A shells contains a many different products.
+@rus Полки магазина забиты всякой всячиной, по большей мере не нужной.
+~
+0 0 inside
+D3
+~
+~
+Z 0 36125
+S
+#36127
+@eng Jeweller shop@rus Ювелирный магазин~
+@eng Hmm, a brilliants...
+@rus Под пуленепробиваемыми стеклами здесь разложены какие то камушки.
+~
+0 0 inside
+D1
+~
+~
+Z 0 36125
+S
 #0
 
 #RESETS
 O 0 36100 0 36100	* {rFlaming Altar{x ({x      {gTemple of Chaos      {x)
 M 0 36100 1 36100 1	* {rChaos Demon{x ({x      {gTemple of Chaos      {x)
+M 0 36101 1 36108 1	* Small pretty demongirl (Chaos street)
 O 0 36101 0 36109	* A bar board is here. (Bar)
+M 0 36103 1 36109 1	* {gChaos bartender{x (Bar)
+G 0 36104 0		*	Beer
+M 0 36104 1 36111 1	* Bookseller (Book shop)
+G 0 36105 0		*	paper
+M 0 36105 1 36112 1	* weaponsmith (Weapon Shop)
+G 0 36106 0		*	{rTiny chaos sword{x
+M 0 36102 1 36113 1	* Armourer (Armory)
+G 0 36107 0		*	{rTiny chaos jerkin{x
+M 0 36106 1 36114 1	* wizard (Magic Shop)
+G 0 36108 0		*	{rTiny chaos wand{x
+M 0 36101 1 36115 1	* Small pretty demongirl (A strange place.)
+M 0 36101 1 36116 1	* Small pretty demongirl (Chaos street)
+M 0 36101 1 36119 1	* Small pretty demongirl (Chaos Square)
+O 0 36103 0 36121	* All came to drink. (White House.)
+M 0 36108 1 36126 1	* Grocer (Grocer shop)
+G 0 36112 0		*	flame
 S
 
+#SHOPS
+36102 0 9 0 0 0 100 100 0 23
+36103 0 17 0 0 0 100 100 0 23
+36104 0 13 0 0 0 100 100 0 23
+36105 0 5 0 0 0 100 100 0 23
+36106 0 3 0 0 0 100 100 0 23
+36108 0 1 0 0 0 100 100 0 23
+0
+
 #OLIMITS
+O 36197 1	* {DNinjitsu Gi{x
+O 36198 1	* {DEbony Cloak{x
 O 36199 1	* {Dthe Shadow Sai{x
 S
 
@@ -558,8 +904,49 @@ endif
 if isimmort $n 
 kiss $n
 else
+if rand 80
 slap $n
 endif
+if rand 80
+kiss $n
+endif
+if rand 80
+fren $n
+endif
+if rand 80
+love $n
+endif
+if rand 80
+flirt $n
+endif
+if rand 80
+wrestle $n
+endif
+if rand 80
+hug $n
+endif
+if rand 80
+strip $n
+endif
+if rand 80
+undres $n
+endif
+if rand 80
+massage $n
+endif
+endif
+~
+#36130
+emote воровато оглядывается.
+smile $n
+mob oload 36109
+emote еще раз воровато оглядывается.
+give potion $n
+~
+#36131
+emote достает из под прилавка бутылку водки.
+mob oload 36110
+give vodka $n
 ~
 #0
 

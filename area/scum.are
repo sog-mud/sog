@@ -22,6 +22,8 @@ ABORTe DFHNOVZa -1000 0
 ACEFJKLNO A 0 NSY
 stand stand male 0
 I 0 large unknown
+F aff d
+F imm CL
 M grall 40000 100~
 C Scum~
 #40001
@@ -39,7 +41,7 @@ ACDEIJKLO A 0 0
 stand stand female 0
 I 0 large unknown
 F aff d
-F imm BL
+F imm CL
 F res I
 M grall 40000 100~
 C Scum~
@@ -81,7 +83,7 @@ master guildmaster~
 ~
 ~
 drow~
-ABGK 0 -1000 0
+ABGKe 0 -1000 0
 100 0 1d1+25000 0d0+0 1d1+1000 magic
 0 0 0 0
 0 ABCD 0 0
@@ -152,11 +154,11 @@ S
 по  всюду. Видимо  все они были на столько же глупы как ты, что пришли
 сюда. Ага! А вот и палачи! Сегодня явно неблагополучный для тебя день.{x
 ~
-0 A inside
+0 AN inside
 D0
 ~
 ~
-Z 0 40002
+DZ 0 40002
 D4
 ~
 ~
@@ -174,7 +176,7 @@ S
 D2
 ~
 ~
-Z 0 40001
+DZ 0 40001
 D5
 ~
 ~
@@ -235,6 +237,7 @@ if isghost $n
 giggle
 say Wait a moment, please
 mob transfer $n 40000
+say foo!!
 end
 endif
 yae $n

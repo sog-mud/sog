@@ -16,7 +16,7 @@ the healer~
 ~
 ~
 human~
-ABQVae DFH 1000 0
+ABQVae DFHl 1000 0
 100 10 1d1+29099 1d1+1999 10d20+50 divine
 -150 -150 -150 -100
 FHIK ABC D 0
@@ -34,10 +34,10 @@ fafhrd guard~
 недоброжелательно скользит по тебе, он готов к бою.
 ~
 human~
-ABGSTe BCDFHPQTVZ 1000 0
+ABGSTe BCDFHPQTVZl 1000 0
 91 100 2d500+25000 1d1+3999 1d1+200 divine
 -10 -10 -10 -10
-ABCEFHJKL AB CDJKPTYZ R
+ABCEFHJKL AB 0 R
 stand stand male 0
 0 0 large unknown
 F for AM
@@ -56,7 +56,7 @@ and dangerous and he's smirking while loking at you.
 тебя пробирает дрожь.
 ~
 human~
-ABCGRSTe BCDFGHNOPQTVZ 0 0
+ABCGRSTe BCDFGHNOPQTVZl 0 0
 91 100 2d500+25000 1d1+3999 1d1+200 acbite
 -10 -10 -10 -10
 ABEFHJKO AB CDEFGHIJK 0
@@ -158,7 +158,7 @@ S
 намокают от страха...{x
  
 ~
-0 0 inside
+0 N inside
 D0
 ~
 ~
@@ -178,7 +178,7 @@ S
 патриархов лиги - Кармаеля, Хельги, Леопольда.
  
 ~
-0 0 inside
+0 N inside
 D0
 ~
 ~
@@ -197,7 +197,7 @@ S
 друзьями, которые свободны от заданий Лиги...
  
 ~
-0 K inside
+0 N inside
 D2
 ~
 ~
