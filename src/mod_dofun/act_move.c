@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.282 2001-11-06 07:22:49 kostik Exp $
+ * $Id: act_move.c,v 1.283 2001-11-21 14:33:25 kostik Exp $
  */
 
 /***************************************************************************
@@ -497,6 +497,12 @@ DO_FUN(do_rest, ch, argument)
 		return;
 	}
 
+	if (ch->shapeform && IS_SET(ch->shapeform->index->flags,
+	    FORM_IMMOBILE)) {
+		act_char("You cannot rest in this form.", ch);
+		return;
+	}
+
 	if (MOUNTED(ch)) {
 		  act_char("You can't rest while mounted.", ch);
 		  return;
@@ -507,8 +513,10 @@ DO_FUN(do_rest, ch, argument)
 		  return;
 	}
 
-	if (IS_AFFECTED(ch, AFF_SLEEP))
-	{ act_char("You are already sleeping.", ch); return; }
+	if (IS_AFFECTED(ch, AFF_SLEEP)) {
+		act_char("You are already sleeping.", ch);
+		return;
+	}
 
 	/* okay, now that we know we can rest, find an object to rest on */
 	if (argument[0] != '\0') {
@@ -757,6 +765,12 @@ DO_FUN(do_sleep, ch, argument)
 		return;
 	}
 
+	if (ch->shapeform && IS_SET(ch->shapeform->index->flags,
+	    FORM_IMMOBILE)) {
+		act_char("You cannot sleep in this form.", ch);
+		return;
+	}
+
 	if (RIDDEN(ch)) {
 		act_char("You can't sleep while being ridden.", ch);
 		return;
@@ -926,9 +940,9 @@ DO_FUN(do_hide, ch, argument)
 	if (sector == SECT_FOREST
 	||  sector == SECT_HILLS
 	||  sector == SECT_MOUNTAIN)
-		chance += 15;
-	else if (sector == SECT_CITY)
 		chance -= 15;
+	else if (sector == SECT_CITY)
+		chance += 15;
 
 	if (number_percent() < chance) {
 		SET_INVIS(ch, ID_HIDDEN);

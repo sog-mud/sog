@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: race.c,v 1.34 2001-09-15 17:12:54 fjoe Exp $
+ * $Id: race.c,v 1.35 2001-11-21 14:33:34 kostik Exp $
  */
 
 #include <stdio.h>
@@ -134,6 +134,7 @@ race_resetstats(CHAR_DATA *ch)
 	if (r->race_pcdata != NULL)
 		ch->size = r->race_pcdata->size;
 
+	free_string(ch->damtype);
 	ch->damtype = str_dup(r->damtype);
 	ch->affected_by = r->aff;
 	ch->has_invis = r->has_invis;

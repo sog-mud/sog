@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.177 2001-11-14 17:54:58 tatyana Exp $
+ * $Id: tables.c,v 1.178 2001-11-21 14:33:35 kostik Exp $
  */
 
 /***************************************************************************
@@ -217,6 +217,7 @@ flaginfo_t id_flags[] =
 	{ "magic",		ID_MAGIC,		TRUE	},
 	{ "good",		ID_GOOD,		TRUE	},
 	{ "trueseeing",		ID_TRUESEEING,		TRUE	},
+	{ "treeform",		ID_TREEFORM,		TRUE	},
 
 	{ NULL, 0, FALSE }
 };
@@ -1040,6 +1041,8 @@ flaginfo_t shapeform_flags[] =
 	{ "nocast",		FORM_NOCAST,		TRUE	},
 	{ "castself",		FORM_CASTSELF,		TRUE	},
 	{ "noget",		FORM_NOGET,		TRUE	},
+	{ "immobile",		FORM_IMMOBILE,		TRUE	},
+	{ "noemote",		FORM_NOEMOTE,		TRUE	},
 
 	{ NULL, 0, FALSE }
 };

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: forms.h,v 1.10 2001-09-13 16:21:51 fjoe Exp $
+ * $Id: forms.h,v 1.11 2001-11-21 14:33:21 kostik Exp $
  */
 
 #ifndef _FORMS_H_
@@ -33,6 +33,8 @@
 #define FORM_CASTSELF		(B)	/* can only cast spells on themself */
 #define FORM_NOSPEAK		(C)	/* cannot speak */
 #define FORM_NOGET		(D)	/* can't take anything */
+#define FORM_IMMOBILE		(E)	/* can't even move in this form */
+#define FORM_NOEMOTE		(F)	/* can't use socials and emote */
 
 struct form_index_t
 {
@@ -44,6 +46,9 @@ struct form_index_t
 	const char *	damtype;
 	int		damage[3];
 	int		hitroll;
+	flag_t		has_invis;
+	flag_t		has_detect;
+	flag_t		affected_by;
 	int		num_attacks;	/* Number of attacks		*/
 	const char *	skill_spec;	/* Skill spec for this form	*/
 	int		stats[MAX_STAT];

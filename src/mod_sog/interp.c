@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.192 2001-10-21 21:34:03 fjoe Exp $
+ * $Id: interp.c,v 1.193 2001-11-21 14:33:32 kostik Exp $
  */
 
 /***************************************************************************
@@ -216,6 +216,13 @@ interpret(CHAR_DATA *ch, const char *argument, bool is_order)
 		if ((soc = social_search(command)) != NULL) {
 			if (!IS_NPC(ch) && IS_SET(ch->comm, COMM_NOEMOTE)) {
 				act_char("You are anti-social!", ch);
+				return;
+			}
+			if (ch->shapeform &&
+			    IS_SET(ch->shapeform->index->flags, FORM_NOEMOTE)) {
+				act_char(
+				    "You can't do such a things in this form.",
+				    ch);
 				return;
 			}
 

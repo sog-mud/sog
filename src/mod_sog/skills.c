@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: skills.c,v 1.132 2001-11-06 07:22:55 kostik Exp $
+ * $Id: skills.c,v 1.133 2001-11-21 14:33:32 kostik Exp $
  */
 
 #include <stdio.h>
@@ -122,8 +122,9 @@ get_skill(CHAR_DATA *ch, const char *sn)
 				return 0;
 			}
 
-			if ((sp_sk = spec_skill_lookup(fsp, sn)) != NULL)
+			if ((sp_sk = spec_skill_lookup(fsp, sn)) != NULL) {
 				return sp_sk->adept;
+			}
 		}
 
 		if (sk->skill_type == ST_SKILL

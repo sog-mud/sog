@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_form.c,v 1.17 2001-09-13 16:21:58 fjoe Exp $
+ * $Id: db_form.c,v 1.18 2001-11-21 14:33:22 kostik Exp $
  */
 
 #include <stdio.h>
@@ -64,12 +64,19 @@ DBLOAD_FUN(load_form)
 			CHECK_VAR(f, "Name");
 
 			KEY("Attacks", f->num_attacks, fread_number(fp));
+
+			KEY("Aff", f->affected_by, fread_fstring(affect_flags,
+			    fp));
 			break;
 
 		case 'D':
 			CHECK_VAR(f, "Name");
 
 			KEY("Damtype", f->damtype, fread_strkey(fp, &damtypes));
+
+			KEY("Detect", f->has_detect, fread_fstring(id_flags,
+			    fp));
+
 			if (IS_TOKEN(fp, "Damage")) {
 				f->damage[DICE_NUMBER]	= fread_number(fp);
 				fread_letter(fp);
@@ -80,6 +87,12 @@ DBLOAD_FUN(load_form)
 				break;
 			}
 			MLSKEY("Description", f->description);
+			break;
+
+		case 'I':
+			CHECK_VAR(f, "Name");
+
+			KEY("Invis", f->has_invis, fread_fstring(id_flags, fp));
 			break;
 
 		case 'F':

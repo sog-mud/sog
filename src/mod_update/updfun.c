@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: updfun.c,v 1.50 2001-11-09 16:09:19 kostik Exp $
+ * $Id: updfun.c,v 1.51 2001-11-21 14:33:33 kostik Exp $
  */
 
 #include <stdio.h>
@@ -104,6 +104,29 @@ FOREACH_CB_FUN(violence_update_cb, vo, ap)
 
 	if ((victim = ch->fighting) == NULL || ch->in_room == NULL)
 		return NULL;
+
+	if (ch->in_room == victim->in_room) {
+		/* Wimp out ? */
+		if (IS_NPC(ch) && !ch->wait) {
+			flag_t f_act = ch->pMobIndex->act;
+			if ((IS_SET(f_act, ACT_WIMPY) && number_bits(2) == 0 &&
+			    ch->hit < ch->max_hit / 5)
+			    ||  (IS_AFFECTED(ch, AFF_CHARM) &&
+			    ch->master != NULL &&
+			    ch->master->in_room != ch->in_room)
+			    ||  (IS_AFFECTED(ch, AFF_FEAR) &&
+			    !IS_SET(f_act, ACT_NOTRACK)))
+				dofun("flee", ch, str_empty);
+		}
+
+		if (!IS_NPC(ch) && ch->hit > 0
+		&&  (ch->hit <= ch->wimpy || IS_AFFECTED(ch, AFF_FEAR))
+		&&  !ch->wait)
+			dofun("flee", ch, str_empty);
+
+		if (IS_EXTRACTED(ch) || IS_EXTRACTED(victim))
+			return NULL;
+	}
 
 	if (IS_AWAKE(ch) && ch->in_room == victim->in_room)
 		multi_hit(ch, victim, NULL);
@@ -538,9 +561,22 @@ FOREACH_CB_FUN(char_update_cb, vo, ap)
 	AFFECT_DATA *paf_next;
 	int chance;
 	race_t *r;
+	flag_t org_invis;
+	flag_t org_detect;
+	flag_t org_affects;
 
 	if ((r = race_lookup(ch->race)) == NULL)
 		return NULL;
+
+	if (ch->shapeform) {
+		org_invis	= ch->shapeform->index->has_invis;
+		org_detect	= ch->shapeform->index->has_detect;
+		org_affects	= ch->shapeform->index->affected_by;
+	} else {
+		org_invis	= r->has_invis;
+		org_detect	= r->has_detect;
+		org_affects	= r->aff;
+	}
 
 	/* reset path find */
 	if ((chance = get_skill(ch, "path find")) != 0) {
@@ -562,18 +598,18 @@ FOREACH_CB_FUN(char_update_cb, vo, ap)
 
 		if (!MOUNTED(ch)) {
 			if (!HAS_INVIS(ch, ID_HIDDEN)
-			&&  (r->has_invis & ID_HIDDEN))
+			&&  (org_invis & ID_HIDDEN))
 				act_char("You step back into the shadows.", ch);
 
 			if (!HAS_INVIS(ch, ID_SNEAK)
-			&&  (r->has_invis & ID_SNEAK))
+			&&  (org_invis & ID_SNEAK))
 				act_char("You move silently again.", ch);
 		} else
 			inv_skip |= ID_ALL_INVIS;
 
-		SET_BIT(ch->affected_by, r->aff & ~AFF_FLYING);
-		SET_INVIS(ch, r->has_invis & ~inv_skip);
-		SET_DETECT(ch, r->has_detect);
+		SET_BIT(ch->affected_by, org_affects & ~AFF_FLYING);
+		SET_INVIS(ch, org_invis & ~inv_skip);
+		SET_DETECT(ch, org_detect);
 	}
 
 	/* Remove vampire effect when morning. */

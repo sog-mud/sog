@@ -1,5 +1,5 @@
 /*
- * $Id: prayers.c,v 1.24 2001-11-09 16:09:13 kostik Exp $
+ * $Id: prayers.c,v 1.25 2001-11-21 14:33:29 kostik Exp $
  */
 
 /***************************************************************************
@@ -132,10 +132,15 @@ DECLARE_SPELL_FUN(prayer_light);
 DECLARE_SPELL_FUN(prayer_darkness);
 DECLARE_SPELL_FUN(prayer_air_elemental);
 DECLARE_SPELL_FUN(prayer_wall_of_thorns);
+DECLARE_SPELL_FUN(prayer_obscuring_mist);
+DECLARE_SPELL_FUN(prayer_treeform);
 
 static void
 hold(CHAR_DATA *ch, CHAR_DATA *victim, int duration, int dex_modifier, int
     level);
+
+static bool
+can_cast_sanctuary(CHAR_DATA *ch, CHAR_DATA *victim);
 
 SPELL_FUN(prayer_detect_good, sn, level, ch, vo)
 {
@@ -1473,27 +1478,8 @@ SPELL_FUN(prayer_sanctuary, sn, level, ch, vo)
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA *paf;
 
-	if (IS_AFFECTED(victim, AFF_SANCTUARY)) {
-		if (victim == ch) {
-			act_puts("You are already in sanctuary.",
-				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
-		} else {
-			act("$N is already in sanctuary.",
-			    ch, NULL, victim, TO_CHAR);
-		}
+	if (!can_cast_sanctuary(ch, victim))
 		return;
-	}
-
-	if (IS_AFFECTED(victim, AFF_BLACK_SHROUD)) {
-		if (victim == ch) {
-			act_puts("But you are surrounded by black shroud.",
-				  ch, NULL, NULL, TO_CHAR, POS_DEAD);
-		} else {
-			act("But $N is surrounded by black shroud.",
-			    ch, NULL, victim, TO_CHAR);
-		}
-		return;
-	}
 
 	if (IS_EVIL(ch)) {
 		act_puts("The gods are infuriated!",
@@ -1526,27 +1512,8 @@ SPELL_FUN(prayer_black_shroud, sn, level, ch, vo)
 	CHAR_DATA *victim = (CHAR_DATA*) vo;
 	AFFECT_DATA *paf;
 
-	if (IS_AFFECTED(victim, AFF_BLACK_SHROUD)) {
-		if (victim == ch) {
-			act_puts("You are already protected.",
-				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
-		} else {
-			act("$N is already protected.",
-			    ch, NULL, victim, TO_CHAR);
-		}
+	if (!can_cast_sanctuary(ch, victim))
 		return;
-	}
-
-	if (IS_AFFECTED(victim, AFF_SANCTUARY)) {
-		if (victim == ch) {
-			act_puts("But you are in sanctuary.",
-				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
-		} else {
-			act("But $N is in sanctuary.",
-			    ch, NULL, victim, TO_CHAR);
-		}
-		return;
-	}
 
 	if (!IS_EVIL(ch)) {
 		act_puts("The gods are infuriated!",
@@ -2677,11 +2644,53 @@ SPELL_FUN(prayer_wall_of_thorns, sn, level, ch, vo)
 	char_to_room(wall, ch->in_room);
 }
 
+SPELL_FUN(prayer_obscuring_mist, sn, level, ch, vo)
+{
+	AFFECT_DATA *paf;
+	CHAR_DATA *victim = (CHAR_DATA *) vo;
+
+	if (!can_cast_sanctuary(ch, victim))
+		return;
+
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->level	= level;
+	paf->duration	= level / 6 + 2;
+	affect_to_char(victim, paf);
+	aff_free(paf);
+
+	act_char("Suddenly obscuring mist surrounds you.", victim);
+	act_char("You feel very safe under it's cover.", victim);
+
+	act("$n is surrounded by some kind of mist.", victim, NULL, NULL,
+	    TO_ROOM);
+}
+
+SPELL_FUN(prayer_treeform, sn, level, ch, vo)
+{
+	AFFECT_DATA *paf;
+
+	if (ch->shapeform) {
+		act_char("You must return to your natural form first.", ch);
+		return;
+	}
+
+	paf = aff_new(TO_FORM, sn);
+	paf->level	= level;
+	paf->duration	= -1;
+	paf->location.s	= str_dup("tree");
+	affect_to_char(ch, paf);
+	aff_free(paf);
+
+	act("You are suddenly transformed into $n.", ch, NULL, NULL,
+	    TO_CHAR);
+}
+
 static void
 hold(CHAR_DATA *ch, CHAR_DATA *victim, int duration, int dex_modifier,
      int level)
 {
 	AFFECT_DATA *paf;
+
 	affect_strip(victim, "hold");
 
 	paf = aff_new(TO_AFFECTS, "hold");
@@ -2696,4 +2705,62 @@ hold(CHAR_DATA *ch, CHAR_DATA *victim, int duration, int dex_modifier,
 	aff_free(paf);
 	act("$N suddenly seems immobile.", ch, NULL, victim, TO_NOTVICT);
 	act_char("You are unable to move.", victim);
+}
+
+struct mutually_exclusive_spells {
+	const char *sn;
+	const char *self_cast_msg;
+	const char *other_cast_msg;
+};
+
+static struct mutually_exclusive_spells mx_sancs[] = {
+	/* sanctuary and black shroud should be first */
+	{ "sanctuary",		"But you are in sanctuary.",
+		"But $N is in sanctuary." },
+	{ "black shroud",	"But you are protected by black shroud.",
+		"But $N is protected by black shroud." },
+	{ "obscuring mist",	"But mist around you already protects you well.",
+		"Obscuring mist around $N already protects $M well enough" },
+	{ NULL,	NULL, NULL }
+};
+
+static bool
+can_cast_sanctuary(CHAR_DATA *ch, CHAR_DATA *victim)
+{
+	struct mutually_exclusive_spells *p = mx_sancs;
+
+	if (IS_AFFECTED(victim, AFF_SANCTUARY)) {
+		if (ch == victim) {
+			act_char(mx_sancs[0].self_cast_msg, ch);
+			return FALSE;
+		} else {
+			act(mx_sancs[0].other_cast_msg, ch, NULL, victim,
+			    TO_CHAR);
+			return FALSE;
+		}
+	}
+
+	if (IS_AFFECTED(victim, AFF_BLACK_SHROUD)) {
+		if (ch == victim) {
+			act_char(mx_sancs[1].self_cast_msg, ch);
+			return FALSE;
+		} else {
+			act(mx_sancs[1].other_cast_msg, ch, NULL, victim,
+			    TO_CHAR);
+			return FALSE;
+		}
+	}
+
+	for (; p->sn; p++) {
+		if (is_sn_affected(victim, p->sn)) {
+			if (ch == victim)
+				act_char(p->self_cast_msg, ch);
+			else
+				act(p->other_cast_msg, ch, NULL, victim,
+				    TO_CHAR);
+			return FALSE;
+		}
+	}
+
+	return TRUE;
 }

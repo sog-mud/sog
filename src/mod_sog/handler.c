@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.342 2001-11-15 13:51:48 tatyana Exp $
+ * $Id: handler.c,v 1.343 2001-11-21 14:33:31 kostik Exp $
  */
 
 /***************************************************************************
@@ -1135,10 +1135,13 @@ bool
 can_see(CHAR_DATA *ch, CHAR_DATA *victim)
 {
 	CHAR_DATA *vch;
-
 	flag_t ch_can_see = ch->has_detect;
+
 	if (ch_can_see & ID_INVIS)
 		ch_can_see |= ID_IMP_INVIS;
+
+	if (victim->in_room && victim->in_room->sector_type != SECT_FOREST)
+		ch_can_see |= ID_TREEFORM;
 
 	if (ch == NULL || victim == NULL) {
 		log(LOG_BUG, "can_see: ch = %p, victim = %p", ch, victim);
@@ -1189,6 +1192,7 @@ can_see(CHAR_DATA *ch, CHAR_DATA *victim)
 
 	if ((victim->has_invis & ID_ALL_INVIS & ~ch_can_see) != 0)
 		return FALSE;
+
 
 	return TRUE;
 }
@@ -1706,6 +1710,12 @@ move_char(CHAR_DATA *ch, int door, flag_t flags)
 
 	if (IS_NPC(ch) && IS_SET(ch->pMobIndex->act, ACT_IMMOBILE))
 		return FALSE;
+
+	if (ch->shapeform && IS_SET(ch->shapeform->index->flags,
+	    FORM_IMMOBILE)) {
+		act_char("You cannot move in this form.", ch);
+		return FALSE;
+	}
 
 	if (RIDDEN(ch) && !IS_NPC(ch->mount))
 		return move_char(ch->mount, door, flags);

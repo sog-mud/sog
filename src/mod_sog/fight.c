@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.340 2001-11-15 13:51:48 tatyana Exp $
+ * $Id: fight.c,v 1.341 2001-11-21 14:33:30 kostik Exp $
  */
 
 /***************************************************************************
@@ -131,7 +131,9 @@ one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 	if (victim == ch || ch == NULL || victim == NULL)
 		return;
 
-	if (IS_NPC(ch) && IS_SET(ch->pMobIndex->act, ACT_IMMOBILE))
+	if ((IS_NPC(ch) && IS_SET(ch->pMobIndex->act, ACT_IMMOBILE)) ||
+	    (ch->shapeform &&
+	     IS_SET(ch->shapeform->index->flags, FORM_IMMOBILE)))
 		return;
 
 	/*
@@ -188,7 +190,7 @@ one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 	weapon_sn = get_weapon_sn(wield);
 	if (ch->shapeform)  {
 		weapon_sn = NULL;
-		sk = 120;
+		sk = 30 + LEVEL(ch) * 100 / MAX_LEVEL;
 	} else {
 		sk = 20 + get_weapon_skill(ch, weapon_sn);
 	}
@@ -300,22 +302,28 @@ one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 		return;
 	}
 
+	if (is_sn_affected(victim, "obscuring mist")
+	    && number_percent() > 84) {
+		act("The mist around $N prevents your hit to pass.",
+		    ch, NULL, victim, TO_CHAR);
+		return;
+	}
+
 	/*
 	 * Hit.
 	 * Calc damage.
 	 */
 	if (IS_NPC(ch) && wield == NULL) {
 		NPC_DATA *npc = NPC(ch);
-		dam = dice_wlb(npc->dam.dice_number, npc->dam.dice_type,
-			ch, victim);
+		dam = dice(npc->dam.dice_number, npc->dam.dice_type);
 		m = material_lookup(ch->material);
 	} else {
 		if (weapon_sn != NULL)
 			check_improve(ch, weapon_sn, TRUE, 5);
 		if (wield != NULL) {
 			m = material_lookup(wield->material);
-			dam = dice_wlb(INT(wield->value[1]),
-			    INT(wield->value[2]), ch, victim) * sk / 100;
+			dam = dice(INT(wield->value[1]), INT(wield->value[2]))
+			    * sk / 100;
 
 /* no shield = more */
 			if (get_eq_char(ch, WEAR_SHIELD) == NULL)
@@ -338,9 +346,9 @@ one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 				dam += dam * 120 / 100;
 			}
 		} else if (ch->shapeform) {
-			dam = dice_wlb(ch->shapeform->index->damage[DICE_NUMBER],
-				ch->shapeform->index->damage[DICE_TYPE],
-				ch, victim);
+			dam = dice(ch->shapeform->index->damage[DICE_NUMBER],
+			    ch->shapeform->index->damage[DICE_TYPE]) * sk/100;
+
 		} else {
 			OBJ_DATA *gaunt = get_eq_char(ch, WEAR_HANDS);
 			if (gaunt)
@@ -1159,6 +1167,9 @@ damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, const char *dt,
 	if (IS_AFFECTED(victim, AFF_BLACK_SHROUD))
 		dam = (4 * dam) / 7;
 
+	if (is_sn_affected(victim, "obscuring mist"))
+		dam = (5 * dam) / 8;
+
 	if (IS_AFFECTED(victim, AFF_PROTECT_EVIL) && IS_EVIL(ch))
 		dam -= dam / 4;
 
@@ -1306,26 +1317,6 @@ damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, const char *dt,
 		}
 	}
 
-	/*
-	 * Wimp out?
-	 */
-	if (IS_NPC(victim) && dam > 0 && victim->wait < get_pulse("violence") / 2) {
-		flag_t f_act = victim->pMobIndex->act;
-		if ((IS_SET(f_act, ACT_WIMPY) && number_bits(2) == 0 &&
-		     victim->hit < victim->max_hit / 5)
-		||  (IS_AFFECTED(victim, AFF_CHARM) &&
-		     victim->master != NULL &&
-		     victim->master->in_room != victim->in_room)
-		||  (IS_AFFECTED(victim, AFF_FEAR) &&
-		     !IS_SET(f_act, ACT_NOTRACK)))
-			dofun("flee", victim, str_empty);
-	}
-
-	if (!IS_NPC(victim)
-	&&  victim->hit > 0
-	&&  (victim->hit <= victim->wimpy || IS_AFFECTED(victim, AFF_FEAR))
-	&&  victim->wait < get_pulse("violence") / 2)
-		dofun("flee", victim, str_empty);
 
 	return TRUE;
 }

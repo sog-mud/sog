@@ -1,5 +1,5 @@
 /*
- * $Id: affects.c,v 1.75 2001-11-14 17:54:57 tatyana Exp $
+ * $Id: affects.c,v 1.76 2001-11-21 14:33:30 kostik Exp $
  */
 
 /***************************************************************************
@@ -57,6 +57,8 @@ static void show_loc_affect(CHAR_DATA *ch, BUFFER *output,
 static void show_bit_affect(CHAR_DATA *ch, BUFFER *output,
 		            AFFECT_DATA *paf, AFFECT_DATA **ppaf);
 static void show_obj_affects(BUFFER *output, AFFECT_DATA *paf);
+static void strip_race_and_form_affects(CHAR_DATA *ch);
+static void reset_affects(CHAR_DATA *ch);
 
 /* enchanted stuff for eq */
 void
@@ -131,8 +133,7 @@ affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd)
 	} else if (paf->where == TO_RACE) {
 		free_string(ch->race);
 		ch->race = str_qdup(fAdd ? paf->location.s : ORG_RACE(ch));
-		race_resetstats(ch);
-		affect_check(ch, -1, -1);
+		reset_affects(ch);
 		if (!IS_NPC(ch))
 			spec_update(ch);
 		return;
@@ -166,6 +167,7 @@ affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd)
 			break;
 		case TO_FORM:
 			shapeshift(ch, paf->location.s);
+			reset_affects(ch);
 			return;
 		}
 	} else {
@@ -182,6 +184,7 @@ affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd)
 			break;
 		case TO_FORM:
 			revert(ch);
+			reset_affects(ch);
 			return;
 		}
 	}
@@ -340,6 +343,9 @@ affect_to_char(CHAR_DATA *ch, AFFECT_DATA *paf)
 	AFFECT_DATA *paf_new, *paf2;
 
 	STRKEY_CHECK(&skills, paf->type);
+
+	if (paf->where == TO_RACE || paf->where == TO_FORM)
+		strip_race_and_form_affects(ch);
 
 	if (paf->owner != NULL) {
 		for (paf2 = ch->affected; paf2 != NULL; paf2 = paf2->next) {
@@ -1098,4 +1104,35 @@ show_obj_affects(BUFFER *output, AFFECT_DATA *paf)
 
 	for (; paf; paf = paf->next)
 		show_bit_affect(NULL, output, paf, &paf_last);
+}
+
+static void
+strip_race_and_form_affects(CHAR_DATA *ch)
+{
+	AFFECT_DATA *paf;
+
+	for (; ;) {
+		for (paf = ch->affected; paf; paf = paf->next) {
+			if (paf->where == TO_RACE || paf->where == TO_FORM)
+				break;
+		}
+
+		if (paf != NULL)
+			affect_strip(ch, paf->type);
+		else
+			break;
+	}
+}
+
+static void
+reset_affects(CHAR_DATA *ch)
+{
+	if (ch->shapeform) {
+		ch->affected_by	= ch->shapeform->index->affected_by;
+		ch->has_invis	= ch->shapeform->index->has_invis;
+		ch->has_detect	= ch->shapeform->index->has_detect;
+	} else
+		race_resetstats(ch);
+
+	affect_check(ch, -1, -1);
 }

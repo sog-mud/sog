@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.258 2001-11-14 17:54:56 tatyana Exp $
+ * $Id: act_comm.c,v 1.259 2001-11-21 14:33:23 kostik Exp $
  */
 
 /***************************************************************************
@@ -381,6 +381,14 @@ DO_FUN(do_emote, ch, argument)
 		return;
 	}
 
+	if (ch->shapeform && IS_SET(ch->shapeform->index->flags,
+	    FORM_NOEMOTE)) {
+		act_char(
+		    "You aren't able to express your emotions in this form.",
+		    ch);
+		return;
+	}
+
 	if (argument[0] == '\0') {
 		act_char("Emote what?", ch);
 		return;
@@ -388,7 +396,7 @@ DO_FUN(do_emote, ch, argument)
 
 	argument = garble(ch, argument);
 
-	flags = ACT_NOTRIG | 
+	flags = ACT_NOTRIG |
 		(!IS_NPC(ch) || IS_AFFECTED(ch, AFF_CHARM) ? ACT_NOTRANS : 0);
 	act("$n $T", ch, NULL, argument, TO_CHAR | flags);	// notrans
 
@@ -406,6 +414,14 @@ DO_FUN(do_pmote, ch, argument)
 
 	if (!IS_NPC(ch) && IS_SET(ch->comm, COMM_NOEMOTE)) {
 		act_char("You can't show your emotions.", ch);
+		return;
+	}
+
+	if (ch->shapeform && IS_SET(ch->shapeform->index->flags,
+	    FORM_NOEMOTE)) {
+		act_char(
+		    "You aren't able to express your emotions in this form.",
+		    ch);
 		return;
 	}
 
@@ -869,6 +885,12 @@ DO_FUN(do_order, ch, argument)
 		return;
 	}
 
+	if (ch->shapeform && IS_SET(ch->shapeform->index->flags,
+	    FORM_NOSPEAK)) {
+		act_char("You cannot give orders in this form.", ch);
+		return;
+	}
+
 	if (IS_AFFECTED(ch, AFF_CHARM)) {
 		act_char("You feel like taking, not giving, orders.", ch);
 		return;
@@ -895,6 +917,11 @@ DO_FUN(do_order, ch, argument)
 
 	if (victim == ch) {
 		act_char("Aye aye, right away!", ch);
+		return;
+	}
+
+	if (is_sn_affected(victim, "deafen")) {
+		act("$N doesn't hear you.", ch, NULL, victim, TO_CHAR);
 		return;
 	}
 

@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.375 2001-11-14 17:54:55 tatyana Exp $
+ * $Id: merc.h,v 1.376 2001-11-21 14:33:21 kostik Exp $
  */
 
 /***************************************************************************
@@ -685,9 +685,11 @@ struct wiznet_type
 #define ID_GOOD			(M)
 #define ID_TRUESEEING		(N)
 #define ID_CHARM		(O)	/* Detect charm */
+#define ID_TREEFORM		(P)	/* treeform	*/
 
 #define ID_ALL_INVIS	(ID_INVIS | ID_HIDDEN | ID_FADE | \
-			 ID_IMP_INVIS | ID_BLEND | ID_CAMOUFLAGE)
+			 ID_IMP_INVIS | ID_BLEND | ID_CAMOUFLAGE | \
+			 ID_TREEFORM)
 
 #define HAS_INVIS(ch, f)	(IS_SET((ch)->has_invis, (f)))
 #define SET_INVIS(ch, f)	(SET_BIT((ch)->has_invis, (f)))

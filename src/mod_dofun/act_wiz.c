@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.306 2001-11-01 13:21:44 kostik Exp $
+ * $Id: act_wiz.c,v 1.307 2001-11-21 14:33:26 kostik Exp $
  */
 
 /***************************************************************************
@@ -1025,9 +1025,9 @@ DO_FUN(do_rstat, ch, argument)
 	buf_printf(output, BUF_END, "Area: '%s'\n", location->area->name); // notrans
 
 	buf_printf(output, BUF_END,
-		   "Vnum: %d  Sector: %d  Light: %d  Healing: %d  Mana: %d\n", // notrans
+		   "Vnum: %d  Sector: %s  Light: %d  Healing: %d  Mana: %d\n", // notrans
 		   location->vnum,
-		   location->sector_type,
+		   flag_string(sector_types, location->sector_type),
 		   location->light,
 		   location->heal_rate,
 		   location->mana_rate);

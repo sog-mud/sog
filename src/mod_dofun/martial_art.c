@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.205 2001-11-15 13:51:43 tatyana Exp $
+ * $Id: martial_art.c,v 1.206 2001-11-21 14:33:27 kostik Exp $
  */
 
 /***************************************************************************
@@ -4662,7 +4662,7 @@ DO_FUN(do_rake, ch, argument)
 
 	argument = one_argument(argument, arg, sizeof(arg));
 
-	if ((chance = get_skill(ch, "bash")) == 0) {
+	if ((chance = get_skill(ch, "rake")) == 0) {
 		act_char("Huh?", ch);
 		return;
 	}
@@ -4754,6 +4754,10 @@ DO_FUN(do_rake, ch, argument)
 			case 3: wait = 3; break;
 		}
 
+		act("You rake $N and throw $M to the ground.", ch,
+		    NULL, victim, TO_CHAR);
+		act("$n rakes you and throws to the ground.", ch,
+		    NULL, victim, TO_VICT);
 		WAIT_STATE(victim, wait * get_pulse("violence"));
 		WAIT_STATE(ch, skill_beats("rake"));
 		victim->position = POS_RESTING;
@@ -4762,14 +4766,9 @@ DO_FUN(do_rake, ch, argument)
 		    DAM_BASH, DAMF_SHOW);
 		check_downstrike(victim);
 	} else {
-		damage(ch, victim, 0, "bash", DAM_BASH, DAMF_SHOW);
-		act_puts("You fail grab your opponent",
-			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
-		act("$n fails to grab you.", ch, NULL, victim, TO_VICT);
+		damage(ch, victim, 0, "rake", DAM_SLASH, DAMF_SHOW);
 		check_improve(ch, "rake", FALSE, 1);
-		ch->position = POS_RESTING;
-		WAIT_STATE(ch, skill_beats("rake") * 3/2);
-		check_downstrike(ch);
+		WAIT_STATE(ch, skill_beats("rake"));
 	}
 
 	if (attack)

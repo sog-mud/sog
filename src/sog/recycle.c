@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.139 2001-11-12 09:43:39 kostik Exp $
+ * $Id: recycle.c,v 1.140 2001-11-21 14:33:35 kostik Exp $
  */
 
 /***************************************************************************
@@ -1320,6 +1320,10 @@ form_init(form_index_t *f)
 	f->hitroll		= 0;
 	f->num_attacks		= 0;
 	f->flags		= 0;
+	f->affected_by		= 0;
+	f->has_invis		= 0;
+	f->has_detect		= 0;
+
 	f->skill_spec	= str_empty;
 	for (i = 0; i < MAX_RESIST; i++)
 		f->resists[i] = RES_UNDEF;

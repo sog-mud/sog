@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.412 2001-11-06 14:21:02 tatyana Exp $
+ * $Id: act_info.c,v 1.413 2001-11-21 14:33:23 kostik Exp $
  */
 
 /***************************************************************************
@@ -1484,6 +1484,7 @@ DO_FUN(do_where, ch, argument)
 			&&  (!fPKonly || in_PK(ch, victim))
 			&&  victim->in_room != NULL
 			&&  victim->in_room->area == ch->in_room->area
+			&&  !IS_SET(victim->in_room->room_flags, ROOM_NOWHERE)
 			&&  can_see(ch, victim)) {
 				CHAR_DATA *doppel;
 				found = TRUE;
