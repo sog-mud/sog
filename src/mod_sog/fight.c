@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.282 2000-10-22 17:53:42 fjoe Exp $
+ * $Id: fight.c,v 1.283 2000-10-27 11:18:52 cs Exp $
  */
 
 /***************************************************************************
@@ -3012,7 +3012,8 @@ critical_strike(CHAR_DATA *ch, CHAR_DATA *victim, int dam)
 	&&  number_percent() > ((ch->hit * 100) / ch->max_hit)) 
 		return 0;
 
-	if ((chance = get_skill(ch, "critical strike")) == 0)
+	if ((chance = get_skill(ch, "critical strike") - 
+	   GET_LUCK(victim) + 50) <= 0)
 		return dam;
 	
 	diceroll = number_range(0, 100);
