@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.169 1999-10-18 18:07:59 avn Exp $
+ * $Id: act_obj.c,v 1.170 1999-10-20 04:13:46 avn Exp $
  */
 
 /***************************************************************************
@@ -867,6 +867,8 @@ void do_fill(CHAR_DATA * ch, const char *argument)
 	OBJ_DATA       *obj;
 	OBJ_DATA       *fountain;
 	bool            found;
+	liquid_t	*lq;
+
 	one_argument(argument, arg, sizeof(arg));
 
 	if (arg[0] == '\0') {
@@ -897,7 +899,7 @@ void do_fill(CHAR_DATA * ch, const char *argument)
 	}
 
 	if (INT_VAL(obj->value[1]) != 0
-	&&  INT_VAL(obj->value[2]) != INT_VAL(fountain->value[2])) {
+	&&  str_cmp(STR_VAL(obj->value[2]), STR_VAL(fountain->value[2]))) {
 		char_puts("There is already another liquid in it.\n", ch);
 		return;
 	}
@@ -907,16 +909,15 @@ void do_fill(CHAR_DATA * ch, const char *argument)
 		char_puts("Your container is full.\n", ch);
 		return;
 	}
-
+        if ((lq = liquid_lookup(STR_VAL(fountain->value[2]))) == NULL) {
+		bug("Unknown liquid: %s", STR_VAL(fountain->value[2]));
+		return;
+	}
 	act_puts3("You fill $p with $U from $P.",
-		   ch, obj, fountain,
-		   liq_table[INT_VAL(fountain->value[2])].liq_name,
-		   TO_CHAR, POS_DEAD);
+		   ch, obj, fountain, lq->name, TO_CHAR, POS_DEAD);
 	act_puts3("$n fills $p with $U from $P.",
-		   ch, obj, fountain,
-		   liq_table[INT_VAL(fountain->value[2])].liq_name,
-		   TO_ROOM, POS_RESTING);
-	INT_VAL(obj->value[2]) = INT_VAL(fountain->value[2]);
+		   ch, obj, fountain, lq->name, TO_ROOM, POS_RESTING);
+	STR_VAL_ASSIGN(obj->value[2], STR_VAL(fountain->value[2]));
 	INT_VAL(obj->value[1]) = INT_VAL(obj->value[0]);
 
 }
@@ -927,6 +928,7 @@ void do_pour(CHAR_DATA * ch, const char *argument)
 	OBJ_DATA       *out, *in;
 	CHAR_DATA      *vch = NULL;
 	int             amount;
+	liquid_t	*lq;
 	argument = one_argument(argument, arg, sizeof(arg));
 
 	if (arg[0] == '\0' || argument[0] == '\0') {
@@ -941,6 +943,10 @@ void do_pour(CHAR_DATA * ch, const char *argument)
 		char_puts("That's not a drink container.\n", ch);
 		return;
 	}
+        if ((lq = liquid_lookup(STR_VAL(out->value[2]))) == NULL) {
+		bug("Unknown liquid: %s", STR_VAL(out->value[2]));
+		return;
+	}
 	if (!str_cmp(argument, "out")) {
 		if (INT_VAL(out->value[1]) == 0) {
 			char_puts("It is empty.\n", ch);
@@ -949,12 +955,12 @@ void do_pour(CHAR_DATA * ch, const char *argument)
 		INT_VAL(out->value[1]) = 0;
 		INT_VAL(out->value[3]) = 0;
 		act_puts3("You invert $p, spilling $T $U.",
-			  ch, out, liq_table[INT_VAL(out->value[2])].liq_name,
+			  ch, out, lq->name,
 			  IS_WATER(ch->in_room) ? "in to the water" :
 						  "all over the ground",
 			  TO_CHAR, POS_DEAD);
 		act_puts3("$n inverts $p, spilling $T $U.",
-			  ch, out, liq_table[INT_VAL(out->value[2])].liq_name,
+			  ch, out, lq->name,
 			  IS_WATER(ch->in_room) ? "in to the water" :
 						  "all over the ground",
 			  TO_ROOM, POS_RESTING);
@@ -982,7 +988,8 @@ void do_pour(CHAR_DATA * ch, const char *argument)
 		char_puts("You cannot change the laws of physics!\n", ch);
 		return;
 	}
-	if (INT_VAL(in->value[1]) != 0 && INT_VAL(in->value[2]) != INT_VAL(out->value[2])) {
+	if (INT_VAL(in->value[1]) != 0
+	&& str_cmp(STR_VAL(in->value[2]), STR_VAL(out->value[2]))) {
 		char_puts("They don't hold the same liquid.\n", ch);
 		return;
 	}
@@ -1007,22 +1014,17 @@ void do_pour(CHAR_DATA * ch, const char *argument)
 
 	if (vch == NULL) {
 		act_puts3("You pour $U from $p into $P.",
-			  ch, out, in, liq_table[INT_VAL(out->value[2])].liq_name,
-			  TO_CHAR, POS_DEAD);
+			  ch, out, in, lq->name, TO_CHAR, POS_DEAD);
 		act_puts3("$n pours $U from $p into $P.",
-			  ch, out, in, liq_table[INT_VAL(out->value[2])].liq_name,
-			  TO_ROOM, POS_RESTING);
+			  ch, out, in, lq->name, TO_ROOM, POS_RESTING);
 	}
 	else {
 		act_puts3("You pour some $U for $N.",
-			  ch, NULL, vch, liq_table[INT_VAL(out->value[2])].liq_name,
-			  TO_CHAR, POS_DEAD);
+			  ch, NULL, vch, lq->name, TO_CHAR, POS_DEAD);
 		act_puts3("$n pours you some $U.",
-			  ch, NULL, vch, liq_table[INT_VAL(out->value[2])].liq_name,
-			  TO_VICT, POS_RESTING);
+			  ch, NULL, vch, lq->name, TO_VICT, POS_RESTING);
 		act_puts3("$n pours some $U for $N.",
-			  ch, NULL, vch, liq_table[INT_VAL(out->value[2])].liq_name,
-			  TO_NOTVICT, POS_RESTING);
+			  ch, NULL, vch, lq->name, TO_NOTVICT, POS_RESTING);
 	}
 
 }
@@ -1032,7 +1034,9 @@ void do_drink(CHAR_DATA * ch, const char *argument)
 	char            arg[MAX_INPUT_LENGTH];
 	OBJ_DATA       *obj;
 	int             amount;
-	int             liquid;
+	int		i;
+	liquid_t	*lq;
+
 	one_argument(argument, arg, sizeof(arg));
 
 	if (arg[0] == '\0') {
@@ -1056,17 +1060,17 @@ void do_drink(CHAR_DATA * ch, const char *argument)
 		char_puts("You fail to reach your mouth.  *Hic*\n", ch);
 		return;
 	}
+	if ((lq = liquid_lookup(STR_VAL(obj->value[2]))) == NULL) {
+		bug("Do_drink: bad liquid %s.", STR_VAL(obj->value[2]));
+		return;
+	}
 	switch (obj->pObjIndex->item_type) {
 	default:
 		char_puts("You can't drink from that.\n", ch);
 		return;
 
 	case ITEM_FOUNTAIN:
-		if ((liquid = INT_VAL(obj->value[2])) < 0) {
-			bug("Do_drink: bad liquid number %d.", liquid);
-			liquid = INT_VAL(obj->value[2]) = 0;
-		}
-		amount = liq_table[liquid].liq_affect[4] * 3;
+		amount = 3;
 		break;
 
 	case ITEM_DRINK_CON:
@@ -1074,13 +1078,7 @@ void do_drink(CHAR_DATA * ch, const char *argument)
 			char_puts("It is empty.\n", ch);
 			return;
 		}
-		if ((liquid = INT_VAL(obj->value[2])) < 0) {
-			bug("Do_drink: bad liquid number %d.", liquid);
-			liquid = INT_VAL(obj->value[2]) = 0;
-		}
-		amount = liq_table[liquid].liq_affect[4];
-		if (INT_VAL(obj->value[0]) >= 0)
-			amount = UMIN(amount, INT_VAL(obj->value[1]));
+		amount = 1;
 		break;
 	}
 	if (!IS_NPC(ch) && !IS_IMMORTAL(ch)
@@ -1088,23 +1086,14 @@ void do_drink(CHAR_DATA * ch, const char *argument)
 		char_puts("You're too full to drink more.\n", ch);
 		return;
 	}
-	act("$n drinks $T from $p.",
-	    ch, obj, liq_table[liquid].liq_name, TO_ROOM);
-	act_puts("You drink $T from $p.",
-		 ch, obj, liq_table[liquid].liq_name,
-		 TO_CHAR, POS_DEAD);
+	act("$n drinks $T from $p.", ch, obj, lq->name, TO_ROOM);
+	act_puts("You drink $T from $p.", ch, obj, lq->name, TO_CHAR, POS_DEAD);
 
 	if (ch->fighting)
 		WAIT_STATE(ch, 3 * PULSE_VIOLENCE);
 
-	gain_condition(ch, COND_DRUNK,
-		     amount * liq_table[liquid].liq_affect[COND_DRUNK] / 36);
-	gain_condition(ch, COND_FULL,
-		       amount * liq_table[liquid].liq_affect[COND_FULL] / 2);
-	gain_condition(ch, COND_THIRST,
-		     amount * liq_table[liquid].liq_affect[COND_THIRST] / 5);
-	gain_condition(ch, COND_HUNGER,
-		     amount * liq_table[liquid].liq_affect[COND_HUNGER] / 1);
+	for (i = 0; i < MAX_COND; i++)
+		gain_condition(ch, i, lq->affect[i]);
 
 	if (!IS_NPC(ch) && PC(ch)->condition[COND_DRUNK] > 10)
 		char_puts("You feel drunk.\n", ch);
@@ -1121,7 +1110,7 @@ void do_drink(CHAR_DATA * ch, const char *argument)
 		char_puts("You choke and gag.\n", ch);
 		af.where = TO_AFFECTS;
 		af.type = "poison";
-		af.level = number_fuzzy(amount);
+		af.level = number_fuzzy(lq->sip);
 		af.duration = 3 * amount;
 		af.location = APPLY_NONE;
 		af.modifier = 0;
@@ -1130,7 +1119,7 @@ void do_drink(CHAR_DATA * ch, const char *argument)
 		affect_join(ch, &af);
 	}
 	if (INT_VAL(obj->value[0]) > 0)
-		INT_VAL(obj->value[1]) = UMAX(INT_VAL(obj->value[1]) - amount, 0);
+		INT_VAL(obj->value[1]) = UMAX(INT_VAL(obj->value[1]) - lq->sip, 0);
 }
 
 void do_eat(CHAR_DATA * ch, const char *argument)

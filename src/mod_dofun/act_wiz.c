@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.189 1999-10-17 08:55:39 fjoe Exp $
+ * $Id: act_wiz.c,v 1.190 1999-10-20 04:13:49 avn Exp $
  */
 
 /***************************************************************************
@@ -1082,6 +1082,7 @@ void do_ostat(CHAR_DATA *ch, const char *argument)
 	
 	switch (obj->pObjIndex->item_type) {
 		int i;
+		liquid_t *lq;
 	case ITEM_SCROLL: 
 	case ITEM_POTION:
 	case ITEM_PILL:
@@ -1104,9 +1105,11 @@ void do_ostat(CHAR_DATA *ch, const char *argument)
 		break;
 
 	case ITEM_DRINK_CON:
+		if ((lq = liquid_lookup(STR_VAL(obj->value[2]))) == NULL)
+			break;
 		buf_printf(output, "It holds %s-colored %s.\n",
-			   liq_table[INT_VAL(obj->value[2])].liq_color,
-			   liq_table[INT_VAL(obj->value[2])].liq_name);
+			   lq->color,
+			   lq->name);
 		break;
 	  
 	case ITEM_WEAPON:

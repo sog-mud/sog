@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.276 1999-10-19 14:44:50 kostik Exp $
+ * $Id: act_info.c,v 1.277 1999-10-20 04:13:44 avn Exp $
  */
 
 /***************************************************************************
@@ -477,6 +477,7 @@ void do_nosummon(CHAR_DATA *ch, const char *argument)
 static void do_look_in(CHAR_DATA* ch, const char *argument)
 {
 	OBJ_DATA *obj;
+	liquid_t *lq;
 
 	if ((obj = get_obj_here(ch, argument)) == NULL) {
 		char_puts("You don't see that here.\n", ch);
@@ -487,8 +488,11 @@ static void do_look_in(CHAR_DATA* ch, const char *argument)
 	default:
 		char_puts("That is not a container.\n", ch);
 		break;
-
 	case ITEM_DRINK_CON:
+		if ((lq = liquid_lookup(STR_VAL(obj->value[2]))) == NULL) {
+			bug("Do_look_in: bad liquid %s.", STR_VAL(obj->value[2]));
+			break;
+		}
 		if (INT_VAL(obj->value[1]) == 0) {
 			char_puts("It is empty.\n", ch);
 			break;
@@ -503,8 +507,7 @@ static void do_look_in(CHAR_DATA* ch, const char *argument)
 			  INT_VAL(obj->value[1]) < 3 * INT_VAL(obj->value[0]) / 4 ?
 			 	"about half-" :
 			 	"more than half-",
-			  obj, liq_table[INT_VAL(obj->value[2])].liq_color,
-			  TO_CHAR, POS_DEAD);
+			  obj, lq->color, TO_CHAR, POS_DEAD);
 		break;
 
 	case ITEM_CONTAINER:
