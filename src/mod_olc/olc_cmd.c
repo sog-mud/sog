@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_cmd.c,v 1.5 1999-12-18 11:01:39 fjoe Exp $
+ * $Id: olc_cmd.c,v 1.6 1999-12-19 08:10:30 avn Exp $
  */
 
 #include "olc.h"
@@ -46,6 +46,7 @@ DECLARE_OLC_FUN(cmded_flags		);
 DECLARE_OLC_FUN(cmded_log		);
 DECLARE_OLC_FUN(cmded_class		);
 DECLARE_OLC_FUN(cmded_move		);
+DECLARE_OLC_FUN(cmded_delete		);
 
 static DECLARE_VALIDATE_FUN(validate_cmd_name);
 
@@ -67,6 +68,8 @@ olc_cmd_t olc_cmds_cmd[] =
 	{ "class",	cmded_class,	NULL,		cmd_classes	},
 	{ "move",	cmded_move					},
 
+	{ "delete_cm",	olced_spell_out					},
+	{ "delete_cmd",	cmded_delete					},
 	{ "commands",	show_commands					},
 	{ NULL }
 };
@@ -120,7 +123,7 @@ OLC_FUN(cmded_edit)
 	if (arg[0] == '\0')
 		OLC_ERROR("'OLC EDIT'");
 
-	if (!(cmnd = cmd_lookup(arg))) {
+	if (!(cmnd = cmd_search(arg))) {
 		char_printf(ch, "CmdEd: %s: No such command.\n", arg);
 		return FALSE;
 	}
@@ -325,6 +328,16 @@ OLC_FUN(cmded_move)
 	ch->desc->pEdit	= ncmnd;
 	char_printf(ch, "CmdEd: '%s' moved to %d position.\n",
 		ncmnd->name, varr_index(&commands, ncmnd));
+	return TRUE;
+}
+
+OLC_FUN(cmded_delete)
+{
+	cmd_t *cmnd;
+	EDIT_CMD(ch, cmnd);
+
+	varr_edelete(&commands, cmnd);
+	edit_done(ch->desc);
 	return TRUE;
 }
 

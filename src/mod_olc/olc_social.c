@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_social.c,v 1.18 1999-12-18 11:01:40 fjoe Exp $
+ * $Id: olc_social.c,v 1.19 1999-12-19 08:10:30 avn Exp $
  */
 
 #include "olc.h"
@@ -48,6 +48,8 @@ DECLARE_OLC_FUN(soced_noarg_room	);
 DECLARE_OLC_FUN(soced_self_char		);
 DECLARE_OLC_FUN(soced_self_room		);
 DECLARE_OLC_FUN(soced_notfound_char	);
+DECLARE_OLC_FUN(soced_delete		);
+DECLARE_OLC_FUN(soced_move		);
 
 static DECLARE_VALIDATE_FUN(validate_soc_name);
 
@@ -75,6 +77,9 @@ olc_cmd_t olc_cmds_soc[] =
 
 	{ "notfound_char",soced_notfound_char				},
 
+	{ "move",	soced_move					},
+	{ "delete_so",	olced_spell_out					},
+	{ "delete_soc",	soced_delete					},
 	{ "commands",	show_commands					},
 	{ NULL }
 };
@@ -358,6 +363,16 @@ OLC_FUN(soced_move)
 	ch->desc->pEdit	= nsoc;
 	char_printf(ch, "SocEd: '%s' moved to %d position.\n",
 		nsoc->name, varr_index(&socials, nsoc));
+	return TRUE;
+}
+
+OLC_FUN(soced_delete)
+{
+	social_t *soc;
+	EDIT_SOC(ch, soc);
+
+	varr_edelete(&socials, soc);
+	edit_done(ch->desc);
 	return TRUE;
 }
 
