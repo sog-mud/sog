@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.70.2.7 2002-11-28 21:54:36 fjoe Exp $
+ * $Id: olc.c,v 1.70.2.8 2002-12-11 14:06:43 tatyana Exp $
  */
 
 /***************************************************************************
@@ -170,9 +170,11 @@ bool _olc_interpret(DESCRIPTOR_DATA *d, const char *argument)
 	||  cmd->olc_fun == NULL)
 		return FALSE;
 
-	if (cmd->olc_fun(d->character, argument, cmd))
-		olced->cmd_table[FUN_TOUCH].olc_fun(d->character, str_empty,
-						    olced->cmd_table+FUN_TOUCH);
+	if (cmd->olc_fun(d->character, argument, cmd)
+	&&  d->character->desc != NULL) {
+		olced->cmd_table[FUN_TOUCH].olc_fun(
+		    d->character, str_empty, olced->cmd_table + FUN_TOUCH);
+	}
 
 	return TRUE;
 }
