@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.100 1998-12-24 12:24:13 kostik Exp $
+ * $Id: interp.c,v 1.101 1999-01-05 08:11:59 kostik Exp $
  */
 
 /***************************************************************************
@@ -598,7 +598,8 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 		else {
 			if (IS_AFFECTED(ch, AFF_CHARM)
 			&&  !IS_SET(cmd->flags, CMD_CHARMED_OK)
-			&&  cmd->level < LEVEL_IMMORTAL) {
+			&&  cmd->level < LEVEL_IMMORTAL 
+			&&  !IS_IMMORTAL(ch)) {
 				char_puts("First ask your beloved master!\n",
 					  ch);
 				return;

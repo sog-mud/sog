@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: gsn.c,v 1.7 1998-11-26 13:19:37 fjoe Exp $
+ * $Id: gsn.c,v 1.8 1999-01-05 08:12:14 kostik Exp $
  */
 
 #include <stdio.h>
@@ -116,6 +116,13 @@ int gsn_burning_hands;
 int gsn_acid_blast;
 int gsn_ray_of_truth;
 int gsn_spell_craft;
+int gsn_improved_maladiction;
+int gsn_improved_benediction;
+int gsn_improved_attack;
+int gsn_improved_combat;
+int gsn_improved_curative;
+int gsn_improved_beguiling;
+int gsn_improved_protective;
 int gsn_giant_strength;
 int gsn_explode;
 int gsn_acid_breath;
@@ -312,6 +319,13 @@ NAMEDP gsn_table[] =
 	{ "gsn_acid_blast",		&gsn_acid_blast			},
 	{ "gsn_ray_of_truth",		&gsn_ray_of_truth		},
 	{ "gsn_spell_craft",		&gsn_spell_craft		},
+	{ "gsn_improved_maladiction",	&gsn_improved_maladiction	},
+	{ "gsn_improved_benediction",	&gsn_improved_benediction	},
+	{ "gsn_improved_attack",	&gsn_improved_attack		},
+	{ "gsn_improved_combat",	&gsn_improved_combat		},
+	{ "gsn_improved_curative",	&gsn_improved_curative		},
+	{ "gsn_improved_beguiling",	&gsn_improved_beguiling		},
+	{ "gsn_improved_protective",	&gsn_improved_protective	},
 	{ "gsn_giant_strength",		&gsn_giant_strength		},
 	{ "gsn_explode",		&gsn_explode			},
 	{ "gsn_acid_breath",		&gsn_acid_breath		},

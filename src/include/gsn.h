@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: gsn.h,v 1.7 1998-11-26 13:19:37 fjoe Exp $
+ * $Id: gsn.h,v 1.8 1999-01-05 08:12:14 kostik Exp $
  */
 
 #ifndef _GSN_H_
@@ -119,6 +119,13 @@ extern int gsn_burning_hands;
 extern int gsn_acid_blast;
 extern int gsn_ray_of_truth;
 extern int gsn_spell_craft;
+extern int gsn_improved_maladiction;
+extern int gsn_improved_benediction;
+extern int gsn_improved_attack;
+extern int gsn_improved_combat;
+extern int gsn_improved_curative;
+extern int gsn_improved_beguiling;
+extern int gsn_improved_protective;
 extern int gsn_giant_strength;
 extern int gsn_explode;
 extern int gsn_acid_breath;

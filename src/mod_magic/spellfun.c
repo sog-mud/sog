@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.100 1998-12-23 16:11:15 fjoe Exp $
+ * $Id: spellfun.c,v 1.101 1999-01-05 08:11:59 kostik Exp $
  */
 
 /***************************************************************************
@@ -394,6 +394,28 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 			}
 			else 
 				check_improve(ch, gsn_spell_craft, FALSE, 1);
+		}
+
+		if ((chance = get_skill(ch, gsn_improved_maladiction)) 
+			&& IS_SET(spell->group, GROUP_MALADICTIONS)) {
+			if (number_percent() < chance) {
+				slevel = ch->level;
+				slevel += chance/20;
+				check_improve(ch, gsn_improved_maladiction, TRUE, 1);
+			}
+			else
+				check_improve(ch, gsn_improved_maladiction, FALSE, 1);
+		}
+
+		if ((chance = get_skill(ch, gsn_improved_benediction))
+			&& IS_SET(spell->group, GROUP_BENEDICTIONS)) {
+			if (number_percent() < chance) {
+				slevel = ch->level;
+				slevel += chance/10;
+				check_improve(ch, gsn_improved_benediction, TRUE, 1);
+			}
+			else 
+				check_improve(ch, gsn_improved_benediction, FALSE, 1);
 		}
 
 		if ((chance = get_skill(ch, gsn_mastering_spell))
