@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.114 2000-03-05 17:14:43 avn Exp $
+ * $Id: olc.c,v 1.115 2000-04-10 07:58:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -318,26 +318,26 @@ OLC_FUN(olced_strkey)
 	return TRUE;
 }
 
-OLC_FUN(olced_mlstrkey)
+bool
+_olced_mlstrkey(CHAR_DATA *ch, const char *langname, const char *argument,
+		olc_cmd_t *cmd)
 {
-	char arg[MAX_INPUT_LENGTH];
 	int lang;
 	const char **pp;
 	const char *old_key;
 	void *q;
 	olced_strkey_t *o;
 
-	argument = one_argument(argument, arg, sizeof(arg));
-	if (IS_NULLSTR(arg) || IS_NULLSTR(argument)) {
+	if (IS_NULLSTR(argument)) {
 		char_printf(ch, "Syntax: %s <lang> <string>\n", cmd->name);
 		return FALSE;
 	}
 
-	if (!str_cmp(arg, "all"))
+	if (!str_cmp(langname, "all"))
 		lang = -1;
-	else if ((lang = lang_lookup(arg)) < 0) {
+	else if ((lang = lang_lookup(langname)) < 0) {
 		char_printf(ch, "%s: %s: unknown language\n",
-			    OLCED(ch)->name, arg);
+			    OLCED(ch)->name, langname);
 		return FALSE;
 	}
 
@@ -394,7 +394,7 @@ OLC_FUN(olced_mlstrkey)
 		ch->desc->pEdit = hash_lookup(o->h, argument);
 		if (ch->desc->pEdit == NULL) {
 			char_printf(ch, "%s: %s: not found.\n",
-				    OLCED(ch)->name, arg);
+				    OLCED(ch)->name, langname);
 			edit_done(ch->desc);
 			return FALSE;
 		}
@@ -402,6 +402,13 @@ OLC_FUN(olced_mlstrkey)
 
 	char_puts("Ok.\n", ch);
 	return TRUE;
+}
+
+OLC_FUN(olced_mlstrkey)
+{
+	char arg[MAX_INPUT_LENGTH];
+	argument = one_argument(argument, arg, sizeof(arg));
+	return _olced_mlstrkey(ch, arg, argument, cmd);
 }
 
 bool olced_number(CHAR_DATA *ch, const char *argument,
