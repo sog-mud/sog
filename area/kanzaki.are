@@ -515,7 +515,7 @@ AG 0 700 0
 15 7 2d50+250 0d0+0 4d5+7 'slap'
 -5 -5 -5 -5
 FHJ 0 0 0
-stand stand  50
+stand stand none 50
 0 ABCDEF medium unknown
 F for H
 #47151
