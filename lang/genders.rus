@@ -482,6 +482,14 @@ Form 3 -имися~
 End
 
 #RULE
+Name кидает~
+BaseLen 4
+Form 1 -ет~
+Form 2 -ет~
+Form 3 -ют~
+End
+
+#RULE
 Name вошел~
 BaseLen 3
 Form 1 -ла~
@@ -567,6 +575,14 @@ BaseLen 8
 Form 1 -а~
 Form 2 -о~
 Form 3 -и~
+End
+
+#RULE
+Name проводит~
+BaseLen 6
+Form 1 -ит~
+Form 2 -ит~
+Form 3 -ят~
 End
 
 #RULE
@@ -1702,6 +1718,14 @@ End
 #RULE
 Name слеп~
 BaseLen 4
+Form 1 -а~
+Form 2 -о~
+Form 3 -ы~
+End
+
+#RULE
+Name прост~
+BaseLen 5
 Form 1 -а~
 Form 2 -о~
 Form 3 -ы~
