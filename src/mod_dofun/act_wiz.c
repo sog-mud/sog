@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.238 2000-04-03 15:14:24 fjoe Exp $
+ * $Id: act_wiz.c,v 1.239 2000-04-18 09:17:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -4612,13 +4612,12 @@ void do_shapeshift(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (!(form = form_lookup(arg))) {
+	if ((form = form_search(arg)) == NULL) {
 		char_puts("No such form.\n", ch);
 		return;
 	}
 
 	shapeshift(ch, arg);
-
 }
 
 

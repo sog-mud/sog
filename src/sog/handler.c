@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.249 2000-04-16 09:21:54 fjoe Exp $
+ * $Id: handler.c,v 1.250 2000-04-18 09:17:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -4390,32 +4390,31 @@ flag_t wiznet_lookup(const char *name)
 	return -1;
 }
 
-
 /*
-Following functions assume !IS_NPC(ch). 
-*/
-int max_hit_gain(CHAR_DATA *ch)
+ * Following functions assume !IS_NPC(ch). 
+ */
+int max_hit_gain(CHAR_DATA *ch, class_t *cl)
 {	
 	return (con_app[get_max_train(ch, STAT_CON)].hitp + 2) * 
-		class_lookup(ch->class)->hp_rate / 100;
+		cl->hp_rate / 100;
 }
 
-int min_hit_gain(CHAR_DATA *ch)
+int min_hit_gain(CHAR_DATA *ch, class_t *cl)
 {	
 	return (con_app[get_curr_stat(ch, STAT_CON)].hitp - 3) * 
-		class_lookup(ch->class)->hp_rate / 100;
+		cl->hp_rate / 100;
 }
 
-int max_mana_gain(CHAR_DATA *ch)
+int max_mana_gain(CHAR_DATA *ch, class_t *cl)
 {
 	return (get_max_train(ch, STAT_WIS) + get_max_train(ch, STAT_INT) + 5) *
-		class_lookup(ch->class)->mana_rate / 200;
+		cl->mana_rate / 200;
 }
 
-int min_mana_gain(CHAR_DATA *ch)
+int min_mana_gain(CHAR_DATA *ch, class_t *cl)
 {
 	return (get_curr_stat(ch, STAT_WIS) + get_curr_stat(ch, STAT_INT) - 3) *
-		class_lookup(ch->class)->mana_rate / 200;
+		cl->mana_rate / 200;
 }
 
 int min_move_gain(CHAR_DATA *ch)
@@ -4427,6 +4426,7 @@ int max_move_gain(CHAR_DATA *ch)
 {
 	return UMAX(6, get_max_train(ch, STAT_DEX)/4+get_max_train(ch, STAT_CON)/6);
 }
+
 /*
  * assumes !IS_NPC(ch)
  */
@@ -4449,8 +4449,8 @@ void advance_level(CHAR_DATA *ch)
 		return;
 	}
 
-	add_hp = number_range(min_hit_gain(ch), max_hit_gain(ch));
-	add_mana = number_range(min_mana_gain(ch), max_mana_gain(ch));
+	add_hp = number_range(min_hit_gain(ch, cl), max_hit_gain(ch, cl));
+	add_mana = number_range(min_mana_gain(ch, cl), max_mana_gain(ch, cl));
 	add_move = number_range(min_move_gain(ch), max_move_gain(ch));
 
 	ch->max_hit += add_hp;
@@ -4493,10 +4493,8 @@ void delevel(CHAR_DATA *ch)
 
 	update_skills(ch);
 
-	lost_hitp = max_hit_gain(ch);
-
-	lost_mana = max_mana_gain(ch);
-
+	lost_hitp = max_hit_gain(ch, cl);
+	lost_mana = max_mana_gain(ch, cl);
 	lost_move = max_move_gain(ch);
 
 	ch->max_hit  -= lost_hitp;

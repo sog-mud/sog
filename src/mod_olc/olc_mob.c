@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_mob.c,v 1.65 2000-04-06 05:40:50 fjoe Exp $
+ * $Id: olc_mob.c,v 1.66 2000-04-18 09:17:17 fjoe Exp $
  */
 
 #include "olc.h"
@@ -934,16 +934,39 @@ OLC_FUN(mobed_race)
 		free_string(pMob->race);
 		pMob->race = str_qdup(r->name);
 
-		pMob->act	  = (pMob->act & ~ro->act) | r->act;
-		pMob->affected_by = (pMob->affected_by & ~ro->aff) | r->aff;
-		pMob->has_invis	  = (pMob->has_invis & ~ro->has_invis) | r->has_invis;
-		pMob->has_detect  = (pMob->has_detect & ~ro->has_detect) | r->has_detect;
-		pMob->off_flags   = (pMob->off_flags & ~ro->off) | r->off;
-		pMob->form        = (pMob->form & ~ro->form) | r->form;
-		pMob->parts       = (pMob->parts & ~ro->parts) | r->parts;
-		for (i = 0; i < MAX_RESIST; i++)
-			if (pMob->resists[i] != MOB_IMMUNE) 
-				pMob->resists[i] += r->resists[i] - ro->resists[i];
+		if (ro == NULL) {
+			pMob->act	  = r->act;
+			pMob->affected_by = r->aff;
+			pMob->has_invis	  = r->has_invis;
+			pMob->has_detect  = r->has_detect;
+			pMob->off_flags   = r->off;
+			pMob->form        = r->form;
+			pMob->parts       = r->parts;
+			for (i = 0; i < MAX_RESIST; i++) {
+				if (pMob->resists[i] != MOB_IMMUNE) 
+					pMob->resists[i] = r->resists[i];
+			}
+		} else {
+			pMob->act	  = (pMob->act & ~ro->act) | r->act;
+			pMob->affected_by = (pMob->affected_by & ~ro->aff) |
+							r->aff;
+			pMob->has_invis	  = (pMob->has_invis & ~ro->has_invis) |
+							r->has_invis;
+			pMob->has_detect  = (pMob->has_detect & ~ro->has_detect) |
+							r->has_detect;
+			pMob->off_flags   = (pMob->off_flags & ~ro->off) |
+							r->off;
+			pMob->form        = (pMob->form & ~ro->form) |
+							r->form;
+			pMob->parts       = (pMob->parts & ~ro->parts) |
+							r->parts;
+			for (i = 0; i < MAX_RESIST; i++) {
+				if (pMob->resists[i] != MOB_IMMUNE) {
+					pMob->resists[i] +=
+						r->resists[i] - ro->resists[i];
+				}
+			}
+		}
 
 		char_puts("Race set.\n", ch);
 		return TRUE;
