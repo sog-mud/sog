@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.181.2.15 2001-01-21 11:19:05 cs Exp $
+ * $Id: spellfun.c,v 1.181.2.16 2001-02-11 18:23:16 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2320,12 +2320,14 @@ void spell_fly(int sn, int level, CHAR_DATA *ch, void *vo)
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA af;
 
-	if (IS_AFFECTED(victim, AFF_FLYING))
-	{
+	if (IS_AFFECTED(victim, AFF_FLYING)
+	||  is_affected(victim, sn)) {
 		if (victim == ch)
-		  char_puts("You are already airborne.\n",ch);
-		else
-		  act("$N doesn't need your help to fly.",ch,NULL,victim,TO_CHAR);
+			char_puts("You are already airborne.\n", ch);
+		else {
+			act("$N doesn't need your help to fly.",
+			    ch, NULL, victim, TO_CHAR);
+		}
 		return;
 	}
 	af.where     = TO_AFFECTS;
@@ -2901,21 +2903,31 @@ void spell_know_alignment(int sn, int level,CHAR_DATA *ch,void *vo)
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	char *msg;
 
-		 if (IS_GOOD(victim)) msg = "$N has a pure and good aura.";
-	else if (IS_NEUTRAL(victim)) msg = "$N act as no align.";
-	else msg = "$N is the embodiment of pure evil!.";
-
+	if (IS_GOOD(victim))
+		msg = "$N has a pure and good aura.";
+	else if (IS_NEUTRAL(victim))
+		msg = "$N act as no align.";
+	else
+		msg = "$N is the embodiment of pure evil!.";
 	act(msg, ch, NULL, victim, TO_CHAR);
 
-	if (!IS_NPC(victim)) 
-	{
-	 if (victim->ethos == 1)		msg = "$N upholds the laws.";
-	 else if (victim->ethos == 2) 	msg = "$N seems ambivalent to society.";
-	 else if (victim->ethos == 3) 	msg = "$N seems very chaotic.";
-	 else msg = "$N doesn't know where they stand on the laws.";
-	 act(msg, ch, NULL, victim, TO_CHAR);
+	if (!IS_NPC(victim)) {
+		switch (victim->ethos) {
+		case ETHOS_LAWFUL:
+	 		msg = "$N upholds the laws.";
+			break;
+		case ETHOS_NEUTRAL:
+	 		msg = "$N seems ambivalent to society.";
+			break;
+		case ETHOS_CHAOTIC:
+			msg = "$N seems very chaotic.";
+			break;
+		default:
+			msg = "$N doesn't know where they stand on the laws.";
+			break;
+		}
+		act(msg, ch, NULL, victim, TO_CHAR);
 	}
-	return;
 }
 
 void spell_lightning_bolt(int sn, int level,CHAR_DATA *ch,void *vo)

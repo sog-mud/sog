@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.139.2.30 2001-01-23 21:48:44 fjoe Exp $
+ * $Id: spellfun2.c,v 1.139.2.31 2001-02-11 18:23:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -4036,47 +4036,41 @@ void spell_bless_weapon(int sn, int level,CHAR_DATA *ch, void *vo)
 	OBJ_DATA *obj = (OBJ_DATA *) vo;
 	AFFECT_DATA af;
 
-	if (obj->pObjIndex->item_type != ITEM_WEAPON)
-	{
-	char_puts("That isn't a weapon.\n",ch);
-	return;
+	if (obj->pObjIndex->item_type != ITEM_WEAPON) {
+		char_puts("That isn't a weapon.\n", ch);
+		return;
 	}
 
-	if (obj->wear_loc != -1)
-	{
-	char_puts("The item must be carried to be blessed.\n",ch);
-	return;
+	if (obj->wear_loc != -1) {
+		char_puts("The item must be carried to be blessed.\n", ch);
+		return;
 	}
 
-	if (obj->pObjIndex->item_type == ITEM_WEAPON)
-	{
-	 if (IS_WEAPON_STAT(obj,WEAPON_FLAMING)
-	    ||  IS_WEAPON_STAT(obj,WEAPON_FROST)
-	    ||  IS_WEAPON_STAT(obj,WEAPON_VAMPIRIC)
-	    ||  IS_WEAPON_STAT(obj,WEAPON_SHARP)
-	    ||  IS_WEAPON_STAT(obj,WEAPON_VORPAL)
-	    ||  IS_WEAPON_STAT(obj,WEAPON_SHOCKING)
-	    ||  IS_WEAPON_STAT(obj,WEAPON_HOLY)
-	    ||  IS_OBJ_STAT(obj,ITEM_BLESS) 
-	    || IS_OBJ_STAT(obj,ITEM_BURN_PROOF))
-	 {
-	act("You can't seem to bless $p.",ch,obj,NULL,TO_CHAR);
-	return;
-	 }
-	}
-	if (IS_WEAPON_STAT(obj,WEAPON_HOLY))
-	{
-	act("$p is already blessed for holy attacks.",ch,obj,NULL,TO_CHAR);
-	return;
+	if (IS_WEAPON_STAT(obj, WEAPON_HOLY)) {
+		act("$p is already blessed for holy attacks.",
+		    ch, obj, NULL, TO_CHAR);
+		return;
 	}
 
-	af.where	 = TO_WEAPON;
-	af.type	 = sn;
-	af.level	 = level / 2;
-	af.duration	 = level/8;
-	af.location	 = 0;
-	af.modifier	 = 0;
-	af.bitvector = WEAPON_HOLY;
+	if (IS_WEAPON_STAT(obj, WEAPON_FLAMING)
+	||  IS_WEAPON_STAT(obj, WEAPON_FROST)
+	||  IS_WEAPON_STAT(obj, WEAPON_VAMPIRIC)
+	||  IS_WEAPON_STAT(obj, WEAPON_SHARP)
+	||  IS_WEAPON_STAT(obj, WEAPON_VORPAL)
+	||  IS_WEAPON_STAT(obj, WEAPON_SHOCKING)
+	||  IS_OBJ_STAT(obj, ITEM_BLESS) 
+	||  IS_OBJ_STAT(obj, ITEM_BURN_PROOF)) {
+		act("You can't seem to bless $p.", ch, obj, NULL, TO_CHAR);
+		return;
+	}
+
+	af.where	= TO_WEAPON;
+	af.type		= sn;
+	af.level	= level / 2;
+	af.duration	= level/8;
+	af.location	= 0;
+	af.modifier	= 0;
+	af.bitvector	= WEAPON_HOLY;
 	affect_to_obj(obj,&af);
 
 	act("$p is prepared for holy attacks.",ch,obj,NULL,TO_ALL);
