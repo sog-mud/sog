@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: varr.c,v 1.38 2001-09-14 10:01:06 fjoe Exp $
+ * $Id: varr.c,v 1.39 2001-09-14 19:27:46 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -73,16 +73,20 @@ varr_touch(varr *v, size_t i)
 void *
 varr_insert(varr *v, size_t i)
 {
-	void *p = VARR_GET(v, i);
+	void *p;
 
 	if (i >= v->nused)
 		return varr_touch(v, i);
+
 	varr_enew(v);
-	memmove(VARR_GET(v, i+1), p, v->v_data->nsize*(v->nused-1 - i));
+	p = VARR_GET(v, i);
+	memmove(VARR_GET(v, i + 1), p, v->v_data->nsize * (v->nused - 1 - i));
+
 	if (v->v_data->e_init)
 		v->v_data->e_init(p);
 	else
 		memset(p, 0, v->v_data->nsize);
+
 	return p;
 }
 
