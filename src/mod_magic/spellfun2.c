@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.110 1999-06-03 11:17:10 fjoe Exp $
+ * $Id: spellfun2.c,v 1.111 1999-06-06 17:26:59 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3525,10 +3525,10 @@ void spell_knock (int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	      return; }
 	chance = ch->level / 5 + get_curr_stat(ch,STAT_INT) + get_skill(ch,sn) / 5;
 
-	act("You knock $d, and try to open $d!",
-		ch,NULL,pexit->keyword,TO_CHAR);
-	act("You knock $d, and try to open $d!",
-		ch,NULL,pexit->keyword,TO_ROOM);
+	act("You knock $d, and try to open $d.",
+	    ch, NULL, pexit->keyword, TO_CHAR);
+	act("$n knocks $d, and tries to open $d.",
+	    ch, NULL, pexit->keyword, TO_ROOM);
 
 	if (room_dark(ch->in_room))
 		chance /= 2;
@@ -3538,10 +3538,10 @@ void spell_knock (int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	 {
 	REMOVE_BIT(pexit->exit_info, EX_LOCKED);
 	REMOVE_BIT(pexit->exit_info, EX_CLOSED);
-	act("$n knocks the the $d and opens the lock.", ch, NULL, 
-		pexit->keyword, TO_ROOM);
-	act_puts("You successed to open the door.",
-		 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+	act("$n knocks the $d and opens the lock.",
+	    ch, NULL, pexit->keyword, TO_ROOM);
+	act_puts("You successed to open the $d.",
+		 ch, NULL, pexit->keyword, TO_CHAR, POS_DEAD);
 
 	/* open the other side */
 	if ((to_room   = pexit->to_room.r           ) != NULL
@@ -3560,7 +3560,7 @@ void spell_knock (int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	 {
 	act("You couldn't knock the $d!",
 	    ch,NULL,pexit->keyword,TO_CHAR);
-	act("$n failed to knock $d.",
+	act("$n failed to knock the $d.",
 	    ch,NULL,pexit->keyword,TO_ROOM);
 	 }
 	return;
