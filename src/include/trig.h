@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: trig.h,v 1.18 2001-12-08 10:22:43 fjoe Exp $
+ * $Id: trig.h,v 1.19 2003-05-14 17:41:48 fjoe Exp $
  */
 
 #ifndef _TRIG_H_
@@ -221,11 +221,11 @@ const char *genmpname_str(int mp_type, const char *str);
 /**
  * Generate inline mp name for objects with `vnum' and trigger with index `num'
  */
-const char *genmpname_vnumn(int mp_type, int vnum, int num);
+const char *genmpname_vnum(int mp_type, int vnum, int num);
 
 /**
- * Generate inline mp name for object with `vnum' and trigger in `v'
+ * Format mprog name
  */
-const char *genmpname_vnumv(int mp_type, int vnum, varr *v);
+const char *format_mpname(mprog_t *mp);
 
 #endif /* _TRIG_H_ */

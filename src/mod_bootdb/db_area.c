@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.147 2003-05-08 14:00:05 fjoe Exp $
+ * $Id: db_area.c,v 1.148 2003-05-14 17:41:59 fjoe Exp $
  */
 
 /***************************************************************************
@@ -551,9 +551,9 @@ DBLOAD_FUN(load_rooms)
 				break;
 
 			if (letter == 'm') {
-				const char *mp_name = genmpname_vnumv(
+				const char *mp_name = genmpname_vnum(
 				    MP_T_ROOM, pRoomIndex->vnum,
-				    &pRoomIndex->mp_trigs);
+				    c_size(&pRoomIndex->mp_trigs));
 
 				if (trig_fread_list(&pRoomIndex->mp_trigs,
 						    MP_T_ROOM, mp_name, fp))
@@ -1307,9 +1307,9 @@ DBLOAD_FUN(load_mobiles)
 				SLIST_ADD(
 				    AFFECT_DATA, pMobIndex->affected, paf);
 			} else if (letter == 'm') {
-				const char *mp_name = genmpname_vnumv(
+				const char *mp_name = genmpname_vnum(
 				    MP_T_MOB, pMobIndex->vnum,
-				    &pMobIndex->mp_trigs);
+				    c_size(&pMobIndex->mp_trigs));
 
 				trig_fread_list(
 				    &pMobIndex->mp_trigs,
@@ -1631,9 +1631,9 @@ DBLOAD_FUN(load_objects)
 				break;
 
 			case 'm':
-				mp_name = genmpname_vnumv(
+				mp_name = genmpname_vnum(
 				    MP_T_OBJ, pObjIndex->vnum,
-				    &pObjIndex->mp_trigs);
+				    c_size(&pObjIndex->mp_trigs));
 
 				trig_fread_list(
 				    &pObjIndex->mp_trigs,

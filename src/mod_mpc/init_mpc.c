@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_mpc.c,v 1.53 2003-04-25 12:49:32 fjoe Exp $
+ * $Id: init_mpc.c,v 1.54 2003-05-14 17:42:09 fjoe Exp $
  */
 
 #include <dlfcn.h>
@@ -255,9 +255,14 @@ MODINIT_FUN(_module_load, m)
 	c_init(&mpcodes, &c_info_mpcodes);
 	C_FOREACH(mp, &mprogs) {
 		if (mprog_compile(mp) < 0) {
-			log(LOG_INFO, "load_mprog: %s (%s)",
-			    mp->name, flag_string(mprog_types, mp->type));
-			fprintf(stderr, "%s", buf_string(mp->errbuf));
+			char *errmsg = buf_string(mp->errbuf);
+			int len = strlen(errmsg);
+
+			/* strip trailing slash */
+			if (errmsg[len - 1] == '\n')
+				len--;
+			log(LOG_INFO, "load_mprog: %s\n%.*s",
+			    format_mpname(mp), len, errmsg);
 		}
 	}
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.158 2003-05-08 14:00:10 fjoe Exp $
+ * $Id: olc.c,v 1.159 2003-05-14 17:42:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1337,7 +1337,7 @@ olced_trig(CHAR_DATA *ch, const char *argument, olc_cmd_t *cmd,
 			int trignum = c_size(v);
 
 			do {
-				mp_name = genmpname_vnumn(
+				mp_name = genmpname_vnum(
 				    mp_type, vnum, trignum++);
 			} while ((mp = c_insert(&mprogs, mp_name)) == NULL);
 

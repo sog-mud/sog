@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_bootdb.c,v 1.23 2003-05-08 15:24:38 fjoe Exp $
+ * $Id: init_bootdb.c,v 1.24 2003-05-14 17:42:01 fjoe Exp $
  */
 
 #include <sys/stat.h>
@@ -569,7 +569,7 @@ fix_mprogs(void)
 				mp_name = genmpname_str(
 				    mp->type, spec->spec_name);
 			} else {
-				mp_name = genmpname_vnumn(
+				mp_name = genmpname_vnum(
 				    mp->type, vnum, trignum);
 			}
 

@@ -25,7 +25,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc.y,v 1.49 2003-04-25 13:36:45 fjoe Exp $
+ * $Id: mpc.y,v 1.50 2003-05-14 17:42:10 fjoe Exp $
  */
 
 /*
@@ -1422,8 +1422,8 @@ compile_error(mpcode_t *mpc, const char *fmt, ...)
 	vsnprintf(buf, sizeof(buf), fmt, ap);
 	va_end(ap);
 
-	buf_printf(mpc->mp->errbuf, BUF_END, "%s:%d: %s\n",
-		   mpc->name, mpc->lineno, buf);
+	buf_printf(mpc->mp->errbuf, BUF_END,
+	    "line %d: %s\n", mpc->lineno, buf);
 }
 
 const char *

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: trig.c,v 1.29 2003-04-17 11:25:59 tatyana Exp $
+ * $Id: trig.c,v 1.30 2003-05-14 17:42:23 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -332,7 +332,7 @@ genmpname_str(int mp_type, const char *str)
 }
 
 const char *
-genmpname_vnumn(int mp_type, int vnum, int num)
+genmpname_vnum(int mp_type, int vnum, int num)
 {
 	static char buf[MAX_INPUT_LENGTH];
 
@@ -342,9 +342,43 @@ genmpname_vnumn(int mp_type, int vnum, int num)
 }
 
 const char *
-genmpname_vnumv(int mp_type, int vnum, varr *v)
+format_mpname(mprog_t *mp)
 {
-	return genmpname_vnumn(mp_type, vnum, c_size(v));
+	static char buf[MAX_STRING_LENGTH];
+	const char *p, *q, *r;
+	int vnum;
+	AREA_DATA *a;
+
+	if (mp->name[0] != '@')
+		return mp->name;
+
+	/* get type */
+	p = mp->name + 1;
+	if ((q = strchr(p, '#')) == NULL && (q = strchr(p, '$')) == NULL)
+		return mp->name;
+	strnzncpy(buf, sizeof(buf), p, q - p);
+	strnzcat(buf, sizeof(buf), " ");
+	if (*q == '$') {
+		/* spec mprog */
+		strnzcat(buf, sizeof(buf), q + 1);
+		return buf;
+	}
+
+	p = q;
+	if ((q = strchr(p + 1, '#')) == NULL)
+		return mp->name;
+	r = strchr(buf, '\0');
+	strnzncat(buf, sizeof(buf), p, q - p);
+	if ((vnum = atoi(r + 1)) == 0)
+		return mp->name;
+	if ((a = area_vnum_lookup(vnum)) != NULL) {
+		strnzcat(buf, sizeof(buf), " (");
+		strnzcat(buf, sizeof(buf), a->file_name);
+		strnzcat(buf, sizeof(buf), ")");
+	}
+	strnzcat(buf, sizeof(buf), " trig ");
+	strnzcat(buf, sizeof(buf), q);
+	return buf;
 }
 
 /*--------------------------------------------------------------------
