@@ -23,7 +23,7 @@
 * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
 * SUCH DAMAGE.
 *
-* $Id: gsn.h,v 1.30.2.5 2000-03-27 04:01:17 osya Exp $
+* $Id: gsn.h,v 1.30.2.6 2000-04-04 05:42:12 fjoe Exp $
 */
 
 #ifndef _GSN_H_
@@ -94,7 +94,7 @@ extern int gsn_trophy;
 extern int gsn_truesight;
 extern int gsn_brew;
 extern int gsn_shadowlife;
-extern int gsn_ruler_badge;
+extern int gsn_enforcer_badge;
 extern int gsn_remove_badge;
 extern int gsn_dragon_strength;
 extern int gsn_dragon_breath;

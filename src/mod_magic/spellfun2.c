@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.139.2.13 2000-04-03 16:03:27 fjoe Exp $
+ * $Id: spellfun2.c,v 1.139.2.14 2000-04-04 05:42:15 fjoe Exp $
  */
 
 /***************************************************************************
@@ -605,21 +605,20 @@ void spell_manacles(int sn, int level, CHAR_DATA *ch, void *vo)
 	}
 }
 
-void spell_shield_of_ruler(int sn, int level,
-			   CHAR_DATA *ch, void *vo) 
+void spell_shield_of_enforcer(int sn, int level, CHAR_DATA *ch, void *vo) 
 {
 	int shield_vnum;
 	OBJ_DATA *shield;
 	AFFECT_DATA af;
 
 	if (level >= 71)
-		shield_vnum = OBJ_VNUM_RULER_SHIELD4;
+		shield_vnum = OBJ_VNUM_ENFORCER_SHIELD4;
 	else if (level >= 51)
-		shield_vnum = OBJ_VNUM_RULER_SHIELD3;
+		shield_vnum = OBJ_VNUM_ENFORCER_SHIELD3;
 	else if (level >= 31)
-		shield_vnum = OBJ_VNUM_RULER_SHIELD2;
+		shield_vnum = OBJ_VNUM_ENFORCER_SHIELD2;
 	else
-		shield_vnum = OBJ_VNUM_RULER_SHIELD1;
+		shield_vnum = OBJ_VNUM_ENFORCER_SHIELD1;
 
 	shield = create_obj(get_obj_index(shield_vnum), 0);
 	shield->level = ch->level;
@@ -1482,7 +1481,7 @@ void spell_shadowlife(int sn, int level, CHAR_DATA *ch, void *vo)
 	dofun("murder", shadow, victim->name);
 }  
 
-void spell_ruler_badge(int sn, int level, CHAR_DATA *ch, void *vo)
+void spell_enforcer_badge(int sn, int level, CHAR_DATA *ch, void *vo)
 {
 	OBJ_DATA *badge;
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
@@ -1501,7 +1500,7 @@ void spell_ruler_badge(int sn, int level, CHAR_DATA *ch, void *vo)
 	{
 	  obj_next = badge->next_content;
 	  if (badge->pObjIndex->vnum == OBJ_VNUM_DEPUTY_BADGE 
-	  || badge->pObjIndex->vnum == OBJ_VNUM_RULER_BADGE)
+	  || badge->pObjIndex->vnum == OBJ_VNUM_ENFORCER_BADGE)
 	{
 	  act("Your $p vanishes.",ch, badge, NULL, TO_CHAR);
 	  obj_from_char(badge);
@@ -1510,7 +1509,7 @@ void spell_ruler_badge(int sn, int level, CHAR_DATA *ch, void *vo)
 	}
 	}
 
-	badge = create_obj(get_obj_index(OBJ_VNUM_RULER_BADGE), 0);
+	badge = create_obj(get_obj_index(OBJ_VNUM_ENFORCER_BADGE), 0);
 	badge->level = ch->level;
 
 	af.where        = TO_OBJECT;
@@ -1540,8 +1539,8 @@ void spell_ruler_badge(int sn, int level, CHAR_DATA *ch, void *vo)
 	affect_to_obj(badge,&af);
 
 	badge->timer = 200;
-	act("You wear the ruler badge!",ch, NULL, NULL, TO_CHAR);
-	act("$n wears the $s ruler badge!", ch, NULL, NULL, TO_ROOM);
+	act("You wear $p!",ch, badge, NULL, TO_CHAR);
+	act("$n wears $p!", ch, badge, NULL, TO_ROOM);
 
 	obj_to_char(badge,victim);
 	if (get_eq_char(ch, WEAR_NECK_1)  == NULL)
@@ -1569,7 +1568,7 @@ void spell_remove_badge(int sn, int level, CHAR_DATA *ch, void *vo)
 	{
 	  obj_next = badge->next_content;
 	  if (badge->pObjIndex->vnum == OBJ_VNUM_DEPUTY_BADGE 
-	  || badge->pObjIndex->vnum == OBJ_VNUM_RULER_BADGE)
+	  || badge->pObjIndex->vnum == OBJ_VNUM_ENFORCER_BADGE)
 	{
 	  act("Your $p vanishes.",ch, badge, NULL, TO_CHAR);
 	  act("$n's $p vanishes.", ch, badge, NULL, TO_ROOM);
@@ -4801,7 +4800,7 @@ void spell_protection_negative (int sn, int level, CHAR_DATA *ch, void *vo)
  return;
 }
 
-void spell_ruler_aura(int sn, int level, CHAR_DATA *ch, void *vo)
+void spell_enforcer_aura(int sn, int level, CHAR_DATA *ch, void *vo)
 {
 	AFFECT_DATA af;
 

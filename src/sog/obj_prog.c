@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.c,v 1.66 1999-09-08 10:40:11 fjoe Exp $
+ * $Id: obj_prog.c,v 1.66.2.1 2000-04-04 05:42:20 fjoe Exp $
  */
 
 /***************************************************************************
@@ -137,7 +137,7 @@ DECLARE_OPROG(fight_prog_lion_claw);
 
 DECLARE_OPROG(speech_prog_ring_ra);
 DECLARE_OPROG(wear_prog_eyed_sword);
-DECLARE_OPROG(wear_prog_ruler_shield);
+DECLARE_OPROG(wear_prog_enforcer_shield);
 DECLARE_OPROG(wear_prog_katana_sword);
 
 DECLARE_OPROG(wear_prog_snake);
@@ -242,7 +242,7 @@ OPROG_DATA oprog_table[] = {
 	{ "fight_prog_lion_claw", fight_prog_lion_claw },
 	{ "speech_prog_ring_ra", speech_prog_ring_ra },
 	{ "wear_prog_eyed_sword", wear_prog_eyed_sword },
-	{ "wear_prog_ruler_shield", wear_prog_ruler_shield },
+	{ "wear_prog_enforcer_shield", wear_prog_enforcer_shield },
 	{ "wear_prog_katana_sword", wear_prog_katana_sword },
 	{ "wear_prog_snake", wear_prog_snake },
 	{ "remove_prog_snake", remove_prog_snake },
@@ -1674,11 +1674,11 @@ int get_prog_quest_reward(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 	return 0;
 }
 
-int wear_prog_ruler_shield(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
+int wear_prog_enforcer_shield(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 {
 	clan_t *clan = clan_lookup(ch->clan);
 
-	if (!clan || str_cmp(clan->name, "rulers")) {
+	if (!clan || str_cmp(clan->name, "enforcers")) {
 		act("You are zapped by $p and drop it.",
 		    ch, obj, NULL, TO_CHAR);
 		act("$n is zapped by $p and drops it.",

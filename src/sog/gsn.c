@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: gsn.c,v 1.32.2.5 2000-03-27 04:01:31 osya Exp $
+ * $Id: gsn.c,v 1.32.2.6 2000-04-04 05:42:20 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -92,7 +92,7 @@ int gsn_trophy;
 int gsn_truesight;
 int gsn_brew;
 int gsn_shadowlife;
-int gsn_ruler_badge;
+int gsn_enforcer_badge;
 int gsn_remove_badge;
 int gsn_dragon_strength;
 int gsn_dragon_breath;
@@ -318,7 +318,7 @@ namedp_t gsn_table[] =
 	{ "gsn_truesight",		&gsn_truesight			},
 	{ "gsn_brew",			&gsn_brew			},
 	{ "gsn_shadowlife",		&gsn_shadowlife			},
-	{ "gsn_ruler_badge",		&gsn_ruler_badge		},
+	{ "gsn_enforcer_badge",		&gsn_enforcer_badge		},
 	{ "gsn_remove_badge",		&gsn_remove_badge		},
 	{ "gsn_dragon_strength",	&gsn_dragon_strength		},
 	{ "gsn_dragon_breath",		&gsn_dragon_breath		},

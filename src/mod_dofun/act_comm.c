@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.187.2.7 2000-03-31 13:56:44 fjoe Exp $
+ * $Id: act_comm.c,v 1.187.2.8 2000-04-04 05:42:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -954,8 +954,8 @@ void do_group(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if ((HAS_SKILL(ch, gsn_ruler_badge) && HAS_SKILL(victim, gsn_disperse))
-	||  (HAS_SKILL(ch, gsn_disperse) && HAS_SKILL(victim, gsn_ruler_badge))
+	if ((HAS_SKILL(ch, gsn_enforcer_badge) && HAS_SKILL(victim, gsn_disperse))
+	||  (HAS_SKILL(ch, gsn_disperse) && HAS_SKILL(victim, gsn_enforcer_badge))
 	||  (HAS_SKILL(ch, gsn_evil_spirit) && HAS_SKILL(victim, gsn_riding))
 	||  (HAS_SKILL(ch, gsn_riding) && HAS_SKILL(victim, gsn_evil_spirit))
 	||  (HAS_SKILL(ch, gsn_mastering_spell) &&
@@ -1205,7 +1205,7 @@ void do_judge(CHAR_DATA *ch, const char *argument)
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
 
-	if (!HAS_SKILL(ch, gsn_ruler_badge)) {
+	if (!HAS_SKILL(ch, gsn_enforcer_badge)) {
 		char_puts("Huh?\n", ch);
 		return;
 	}
