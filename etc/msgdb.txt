@@ -603,7 +603,6 @@ Get back to questor before your time runs out!
 @eng It won't fit.
 @rus Не входит.
 ~
-@eng You say '{GI have {c%d/%d{z hp {c%d/%d{z mana {c%d/%d{z mv.{x'@rus Ты произносишь '{GУ меня {c%d/%d{z hp {c%d/%d{z mana {c%d/%d{z mv.{x'~
 @eng You go to sleep.
 @rus Ты засыпаешь.
 ~
@@ -643,7 +642,6 @@ Get back to questor before your time runs out!
 ~
 @eng Congratulations on completing your quest!@rus Поздравляю с выполнением задания!~
 @eng $n wakes and stands at $p.@rus $n просыпается и встает около $p.~
-@eng $n says '{GI have {c%d/%d{z hp {c%d/%d{z mana {c%d/%d{z mv.{x'@rus $n произносит '{GУ меня {c%d/%d{z hp {c%d/%d{z mana {c%d/%d{z mv.{x'~
 @eng $n looks all around.@rus $n осматривается вокруг.~
 @eng $N is no match for you.@rus $N не соперник тебе.~
 @eng {Ris nearly dead{x.@rus {Rпочти труп{x.~
@@ -1248,8 +1246,8 @@ Players found: %d. Most so far today: %d.
 @eng You are hurt far too bad for that.
 @rus Тебе слишком больно делать это.
 ~
-@eng First ask to your beloved master!
-@rus Сначала спроси у своегое любимого хозяина!
+@eng First ask your beloved master!
+@rus Сначала спроси у своего любимого хозяина!
 ~
 @eng $n sits down on the ground.@rus $n садится на землю.~
 @eng $N gives 350,000 gold pieces to $n.@rus $N дает 350,000 gold $n.~
