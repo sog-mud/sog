@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.150 1999-05-20 19:59:00 fjoe Exp $
+ * $Id: act_wiz.c,v 1.151 1999-05-24 09:02:08 fjoe Exp $
  */
 
 /***************************************************************************
@@ -64,6 +64,7 @@
 #include "obj_prog.h"
 #include "fight.h"
 #include "quest.h"
+#include "chquest.h"
 #include "db/cmd.h"
 #include "db/db.h"
 #include "olc/olc.h"
@@ -271,40 +272,52 @@ void do_tick(CHAR_DATA *ch, const char *argument)
 	
 	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0')  {
-		char_puts("tick area : area update\n",ch);
-		char_puts("tick char : char update\n",ch);
-		char_puts("tick room : room update\n",ch);
-		char_puts("tick track: track update\n",ch);
-		char_puts("tick obj  : obj update\n",ch);
+		char_puts("tick area   : area update\n", ch);
+		char_puts("tick char   : char update\n", ch);
+		char_puts("tick room   : room update\n", ch);
+		char_puts("tick track  : track update\n", ch);
+		char_puts("tick obj    : obj update\n", ch);
+		char_puts("tick chquest: chquest update\n", ch);
 		return;
 	}
-	if (is_name(arg, "area"))  {
+
+	if (!str_prefix(arg, "area")) {
 		area_update();
 		char_puts("Area updated.\n", ch);
 		return;
 	}
-	if (is_name(arg, "char player"))  {
+
+	if (!str_prefix(arg, "char player")) {
 		char_update();
 		char_puts("Players updated.\n", ch);
 		return;
 	}
-	if (is_name(arg, "room"))  {
+
+	if (!str_prefix(arg, "room")) {
 		room_update();
 		char_puts("Room updated.\n", ch);
 		return;
 	}
-	if (is_name(arg, "track"))  {
+
+	if (!str_prefix(arg, "track")) {
 		track_update();
 		char_puts("Tracks updated.\n", ch);
 		return;
 	}
-	if (is_name(arg, "obj"))  {
+
+	if (!str_prefix(arg, "obj")) {
 		obj_update();
 		char_puts("Objects updated.\n", ch);
 		return;
 	}
-	do_tick(ch,str_empty);
-	return;
+
+	if (!str_prefix(arg, "chquest")) {
+		chquest_update();
+		char_puts("Challenge quests updated.\n", ch);
+		return;
+	}
+
+	do_tick(ch, str_empty);
 }
 
 /* equips a character */

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: chquest.c,v 1.3 1999-05-24 07:52:48 fjoe Exp $
+ * $Id: chquest.c,v 1.4 1999-05-24 09:02:09 fjoe Exp $
  */
 
 /*
@@ -48,8 +48,10 @@
 
 DECLARE_DO_FUN(do_help);
 
+#define STOP_F_NOEXTRACT (A)
+
 static void chquest_startq(chquest_t *q);
-static void chquest_stopq(chquest_t *q);
+static void chquest_stopq(chquest_t *q, int flags);
 static inline void chquest_status(CHAR_DATA *ch);
 
 static chquest_t *chquest_lookup(OBJ_INDEX_DATA *obj_index);
@@ -122,7 +124,7 @@ void do_chquest(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
-		chquest_stopq(q);
+		chquest_stopq(q, 0);
 		return;
 	}
 
@@ -217,7 +219,7 @@ void chquest_extract(OBJ_DATA *obj)
 	||  q->obj != obj)
 		return;
 
-	chquest_stopq(q);
+	chquest_stopq(q, STOP_F_NOEXTRACT);
 	q->delay = number_range(15, 20);
 }
 
@@ -273,11 +275,12 @@ static void chquest_startq(chquest_t *q)
 	obj_to_room(q->obj, room);
 }
 
-static void chquest_stopq(chquest_t *q)
+static void chquest_stopq(chquest_t *q, int flags)
 {
 	log_printf("chquest_stopq: stopped quest for '%s' (vnum %d)",
 		   mlstr_mval(q->obj_index->short_descr), q->obj_index->vnum);
-	extract_obj(q->obj, XO_F_NOCHQUEST);
+	if (!IS_SET(flags, STOP_F_NOEXTRACT))
+		extract_obj(q->obj, XO_F_NOCHQUEST);
 	q->obj = NULL;
 	q->delay = -1;
 }

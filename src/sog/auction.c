@@ -1,5 +1,5 @@
 /*
- * $Id: auction.c,v 1.32 1999-05-24 07:58:41 fjoe Exp $
+ * $Id: auction.c,v 1.33 1999-05-24 09:02:09 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -275,16 +275,8 @@ void do_auction(CHAR_DATA *ch, const char *argument)
 		return;
 
 	if (IS_SET(ch->comm, COMM_NOAUCTION)) {
-		if (!str_cmp(arg1, "on")) {
-			char_puts("Auction channel is now ON.\n",ch);
-			REMOVE_BIT(ch->comm,COMM_NOAUCTION);
-			return;
-		}
-		else {
-			char_puts("Your auction channel is OFF.\n",ch);
-			char_puts("You must first change auction channel ON.\n",ch);
-			return;
-		}
+		char_puts("Auction channel is now ON.\n",ch);
+		REMOVE_BIT(ch->comm, COMM_NOAUCTION);
 	}
 
 	if (arg1[0] == '\0')
