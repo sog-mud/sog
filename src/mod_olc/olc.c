@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.107 1999-12-20 12:44:34 fjoe Exp $
+ * $Id: olc.c,v 1.108 1999-12-28 07:01:33 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1126,7 +1126,7 @@ olced_addaffect(CHAR_DATA *ch, const char *argument, olc_cmd_t *cmd,
 			INT(location) = APPLY_NONE;
 			modifier = -1;
 		} else {
-			if ((INT(location) = flag_value(apply_flags, arg2)) < 0) {
+			if ((INT(location) = flag_svalue(apply_flags, arg2)) < 0) {
 				char_puts("Valid locations are:\n", ch);
 				show_flags(ch, apply_flags);
 				return FALSE;
@@ -1223,6 +1223,30 @@ olced_delaffect(CHAR_DATA *ch, const char *argument, olc_cmd_t *cmd,
 
 	aff_free(paf);
 	char_puts("Affect removed.\n", ch);
+	return TRUE;
+}
+
+bool
+olced_resists(CHAR_DATA *ch, const char *argument, olc_cmd_t *cmd,
+	      int16_t *resists)
+{
+	char arg[MAX_INPUT_LENGTH];
+	int res;
+
+	argument = one_argument(argument, arg, sizeof(arg));
+	if (argument[0] == '\0') {
+		char_printf(ch, "Syntax: %s <damclass> <number>\n",
+			    cmd->name);
+		return FALSE;
+	}
+	
+	res = flag_svalue(resist_flags, arg);
+	argument = one_argument(argument, arg, sizeof(arg));
+	if (!is_number(arg) || (res < 0))
+		return olced_resists(ch, str_empty, cmd, resists);
+	
+	resists[res] = atoi(arg);
+	char_puts("Resistance set.\n", ch);
 	return TRUE;
 }
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: race.h,v 1.25 1999-12-18 11:01:39 fjoe Exp $
+ * $Id: race.h,v 1.26 1999-12-28 07:01:29 fjoe Exp $
  */
 
 #ifndef _RACE_H_
@@ -44,7 +44,7 @@ struct race_t
 	flag_t		parts;		/* default body parts		*/
 	flag_t		race_flags;	/* race flags			*/
 	const char *	damtype;	/* default dam_type for race	*/
-	int		resists[MAX_RESIST];
+	int16_t		resists[MAX_RESIST];
 					/* initial resistances		*/
 	pcrace_t *	race_pcdata;	/* additional data for pc races */
 	AFFECT_DATA *	affected;	/* initial affected by		*/

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_race.c,v 1.29 1999-12-20 12:40:36 fjoe Exp $
+ * $Id: olc_race.c,v 1.30 1999-12-28 07:01:34 fjoe Exp $
  */
 
 #include "olc.h"
@@ -610,31 +610,8 @@ OLC_FUN(raceed_ethos)
 OLC_FUN(raceed_resists) 
 {
 	race_t *race;
-	char arg[MAX_INPUT_LENGTH];
-	int res;
-
 	EDIT_RACE(ch, race);
-	argument = one_argument(argument, arg, sizeof(arg));
-
-
-	if (arg[0] == '\0') {
-		char_puts("Syntax: resists <damclass> <number>\n", ch);
-		return FALSE;
-	}
-
-	res = flag_value(resist_flags, arg);
-
-	one_argument(argument, arg, sizeof(arg));
-
-	if((res < 0) ||arg[0] == '\0' || !is_number(arg)) {
-		char_puts("Syntax: resists <damclass> <number>\n", ch);
-		return FALSE;
-	}
-
-	race->resists[res] = atoi(arg);
-	char_puts("Resistance set.\n", ch);
-
-	return TRUE;
+	return olced_resists(ch, argument, cmd, race->resists);
 }
 
 OLC_FUN(raceed_damtype)

@@ -1,5 +1,5 @@
 /*
- * $Id: olc.h,v 1.67 1999-12-23 09:08:46 fjoe Exp $
+ * $Id: olc.h,v 1.68 1999-12-28 07:01:33 fjoe Exp $
  */
 
 /***************************************************************************
@@ -169,6 +169,8 @@ bool olced_addaffect	(CHAR_DATA *ch, const char *argument,
 			 olc_cmd_t *cmd, int level, AFFECT_DATA **ppaf);
 bool olced_delaffect	(CHAR_DATA *ch, const char *argument,
 			 olc_cmd_t *cmd, AFFECT_DATA **ppaf);
+bool olced_resists	(CHAR_DATA *ch, const char *argument,
+			 olc_cmd_t *cmd, int16_t *resists);
 
 DECLARE_VALIDATE_FUN(validate_filename);
 DECLARE_VALIDATE_FUN(validate_room_vnum);

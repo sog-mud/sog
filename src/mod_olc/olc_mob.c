@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_mob.c,v 1.59 1999-12-21 06:36:26 fjoe Exp $
+ * $Id: olc_mob.c,v 1.60 1999-12-28 07:01:33 fjoe Exp $
  */
 
 #include "olc.h"
@@ -1244,34 +1244,8 @@ OLC_FUN(mobed_fvnum)
 OLC_FUN(mobed_resist)
 {
 	MOB_INDEX_DATA *pMob;
-	char arg[MAX_INPUT_LENGTH];
-	int res;
-
 	EDIT_MOB(ch, pMob);
-
-	if (argument[0] == '\0') {
-		char_puts("Syntax: resist <damclass> <number>\n", ch);
-		return FALSE;
-	}
-	
-	argument = one_argument(argument, arg, sizeof(arg));
-
-	if (arg[0] == '\0') {
-		char_puts("Syntax: resist <damclass> <number>\n", ch);
-		return FALSE;
-	}
-	
-	res = flag_svalue(resist_flags, arg);
-	argument = one_argument(argument, arg, sizeof(arg));
-
-	if (!is_number(arg) || (res < 0)) {
-		char_puts("Syntax: resist <damclass> <number>\n", ch);
-		return FALSE;
-	}
-	
-	pMob->resists[res] = atoi(arg);
-	char_puts("Resistance set.\n", ch);
-	return TRUE;
+	return olced_resists(ch, argument, cmd, pMob->resists);
 }
 
 OLC_FUN(mobed_addaffect)
