@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: magic.c,v 1.18 2000-01-04 19:28:01 fjoe Exp $
+ * $Id: magic.c,v 1.19 2000-01-19 06:51:48 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -107,7 +107,7 @@ void obj_cast_spell(const char *sn, int level, CHAR_DATA *ch, void *vo)
 
 	switch (spell->target) {
 	default:
-		bug("obj_cast_spell: %s: bad target",
+		bug("obj_cast_spell: %s: bad target %d",
 		    gmlstr_mval(&spell->sk_name), spell->target);
 		return;
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_race.c,v 1.30 1999-12-28 07:01:34 fjoe Exp $
+ * $Id: olc_race.c,v 1.31 2000-01-19 06:51:46 fjoe Exp $
  */
 
 #include "olc.h"
@@ -771,7 +771,8 @@ static VALIDATE_FUN(validate_whoname)
 
 	if ((r2 = hash_foreach(&races, search_whoname_cb, arg)) != NULL
 	&&  r2 != r) {
-		char_printf(ch, "RaceEd: %s: duplicate race whoname.\n", arg);
+		char_printf(ch, "RaceEd: %s: duplicate race whoname.\n",
+			    (const char *) arg);
 		return FALSE;
 	}
 

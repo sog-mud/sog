@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.207 1999-12-22 08:29:15 fjoe Exp $
+ * $Id: db.c,v 1.208 2000-01-19 06:51:49 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1122,7 +1122,7 @@ CHAR_DATA *create_mob(MOB_INDEX_DATA *pMobIndex)
 	AFFECT_DATA *paf;
 
 	if (pMobIndex == NULL) {
-		bug("Create_mobile: NULL pMobIndex.", 0);
+		bug("create_mobile: NULL pMobIndex");
 		exit(1);
 	}
 
@@ -1409,7 +1409,7 @@ OBJ_DATA *create_obj(OBJ_INDEX_DATA *pObjIndex, int flags)
 	int i;
 
 	if (pObjIndex == NULL) {
-		bug("Create_object: NULL pObjIndex.", 0);
+		bug("create_object: NULL pObjIndex");
 		exit(1);
 	}
 
@@ -1904,8 +1904,7 @@ void scan_pfiles()
 			   strerror(errno));
 
 	if ((dirp = opendir(PLAYER_PATH)) == NULL) {
-		bug("scan_pfiles: unable to open player directory.",
-		    0);
+		bug("scan_pfiles: unable to open player directory");
 		exit(1);
 	}
 
@@ -1976,8 +1975,7 @@ void move_pfiles(int minvnum, int maxvnum, int delta)
 	DIR *dirp;
 
 	if ((dirp = opendir(PLAYER_PATH)) == NULL) {
-		bug("move_pfiles : unable to open player directory.",
-		    0);
+		bug("move_pfiles : unable to open player directory");
 		exit(1);
 	}
 	for (dp = readdir(dirp); dp != NULL; dp = readdir(dirp)) {

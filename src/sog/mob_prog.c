@@ -1,5 +1,5 @@
 /*
- * $Id: mob_prog.c,v 1.57 1999-12-22 08:29:10 fjoe Exp $
+ * $Id: mob_prog.c,v 1.58 2000-01-19 06:51:48 fjoe Exp $
  */
 
 /***************************************************************************
@@ -254,7 +254,7 @@ int num_eval(int lval, int oper, int rval)
         case EVAL_LT:
              return (lval < rval);
         default:
-             bug("num_eval: invalid oper", 0);
+             bug("num_eval: invalid oper");
              return 0;
     }
 }

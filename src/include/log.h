@@ -1,5 +1,5 @@
 /*
- * $Id: log.h,v 1.5 1999-06-24 08:05:00 fjoe Exp $
+ * $Id: log.h,v 1.6 2000-01-19 06:51:44 fjoe Exp $
  */
 
 /***************************************************************************
@@ -43,8 +43,8 @@
 #ifndef _LOG_H_
 #define _LOG_H_
 
-void	log	(const char *str, ...);
-void	bug	(const char *str, ...);
+void	log	(const char *str, ...) __attribute__((format(printf, 1, 2)));
+void	bug	(const char *str, ...) __attribute__((format(printf, 1, 2)));
 void	wizlog	(const char *str, ...);
 
 #endif

@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.218 1999-12-31 06:16:28 fjoe Exp $
+ * $Id: comm.c,v 1.219 2000-01-19 06:51:48 fjoe Exp $
  */
 
 /***************************************************************************
@@ -925,7 +925,7 @@ void close_descriptor(DESCRIPTOR_DATA *dclose, int save_flags)
 		if (d != NULL)
 			d->next = dclose->next;
 		else
-			bug("Close_socket: dclose not found.", 0);
+			bug("close_socket: dclose not found");
 	}
 
 #if !defined( WIN32 )

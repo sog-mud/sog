@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.201 2000-01-18 13:25:34 kostik Exp $
+ * $Id: act_obj.c,v 1.202 2000-01-19 06:51:42 fjoe Exp $
  */
 
 /***************************************************************************
@@ -863,7 +863,7 @@ void do_feed(CHAR_DATA *ch, const char *argument)
 			break;
 
 	if (!paf) {
-		bug("Feed: bone dragon w/o affect", 0);
+		bug("do_feed: bone dragon w/o affect");
 		return;
 	}
 

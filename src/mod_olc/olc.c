@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.109 2000-01-05 06:29:42 fjoe Exp $
+ * $Id: olc.c,v 1.110 2000-01-19 06:51:45 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1036,7 +1036,8 @@ olced_cc_vexpr(CHAR_DATA *ch, const char *argument, olc_cmd_t *cmd,
 		} else {
 			one_argument(argument, arg, sizeof(arg));
 			if (cc_efun_lookup(ecl, arg) == NULL) {
-				char_printf(ch, "%s: %s: no such efun in eclass '%s'.\n");
+				char_printf(ch, "%s: %s: no such efun in eclass '%s'.\n",
+					    OLCED(ch)->name, cmd->name, arg);
 				return FALSE;
 			}
 
@@ -1295,7 +1296,7 @@ VALIDATE_FUN(validate_funname)
 	if (strpbrk(name, " \t")) {
 		char_printf(ch,
 			    "%s: %s: illegal character in command name.\n",
-			    OLCED(ch)->name, arg);
+			    OLCED(ch)->name, name);
 		return FALSE;
 	}
 	return TRUE;

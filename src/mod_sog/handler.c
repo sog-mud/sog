@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.233 2000-01-13 14:46:36 kostik Exp $
+ * $Id: handler.c,v 1.234 2000-01-19 06:51:47 fjoe Exp $
  */
 
 /***************************************************************************
@@ -160,7 +160,7 @@ void char_from_room(CHAR_DATA *ch)
 	CHAR_DATA *vch;
 
 	if (ch->in_room == NULL) {
-		bug("Char_from_room: NULL.", 0);
+		bug("char_from_room: NULL");
 		return;
 	}
 
@@ -215,7 +215,7 @@ void char_to_room(CHAR_DATA *ch, ROOM_INDEX_DATA *pRoomIndex)
 	if (pRoomIndex == NULL) {
 		ROOM_INDEX_DATA *room;
 
-		bug("Char_to_room: NULL.", 0);
+		bug("char_to_room: NULL");
 		
 		if ((room = get_room_index(ROOM_VNUM_TEMPLE)) != NULL)
 			char_to_room(ch, room);
@@ -288,8 +288,7 @@ void obj_from_char(OBJ_DATA *obj)
 	CHAR_DATA *ch;
 
 	if ((ch = obj->carried_by) == NULL) {
-		bug("Obj_from_char: null ch.", 0);
-		log("Name %s", obj->name);
+		bug("obj_from_char: null ch (obj name: %s)", obj->name);
 		return;
 	}
 
@@ -309,7 +308,7 @@ void obj_from_char(OBJ_DATA *obj)
 		}
 
 		if (prev == NULL)
-			bug("Obj_from_char: obj not in list.", 0);
+			bug("obj_from_char: obj not in list");
 	}
 
 	obj->carried_by		= NULL;
@@ -462,7 +461,7 @@ void unequip_char(CHAR_DATA *ch, OBJ_DATA *obj)
 		return;
 
 	if (obj->wear_loc == WEAR_NONE) {
-		bug("Unequip_char: already unequipped.", 0);
+		bug("unequip_char: already unequipped");
 		return;
 	}
 
@@ -537,7 +536,7 @@ void obj_from_room(OBJ_DATA *obj)
 		}
 
 		if (prev == NULL) {
-			bug("Obj_from_room: obj not found.", 0);
+			bug("obj_from_room: obj not found");
 			return;
 		}
 	}
@@ -599,7 +598,7 @@ void obj_from_obj(OBJ_DATA *obj)
 	OBJ_DATA *obj_from;
 
 	if ((obj_from = obj->in_obj) == NULL) {
-		bug("Obj_from_obj: null obj_from.", 0);
+		bug("obj_from_obj: null obj_from");
 		return;
 	}
 
@@ -616,7 +615,7 @@ void obj_from_obj(OBJ_DATA *obj)
 		}
 
 		if (prev == NULL) {
-			bug("Obj_from_obj: obj not found.", 0);
+			bug("obj_from_obj: obj not found");
 			return;
 		}
 	}
@@ -802,7 +801,7 @@ void extract_char(CHAR_DATA *ch, int flags)
 		}
 
 		if (!prev) {
-			bug("Extract_char: char not found.", 0);
+			bug("extract_char: char not found");
 			return;
 		}
 
@@ -1778,7 +1777,7 @@ void path_to_track(CHAR_DATA *ch, CHAR_DATA *victim, int door)
 		}
 
 		if (range > 100) {
-			bug("In path_to_track: range exceeded 100",0);
+			bug("path_to_track: range exceeded 100");
 			return;
 		}
 	}
@@ -2027,7 +2026,7 @@ void format_obj(BUFFER *output, OBJ_DATA *obj)
 	case ITEM_SCROLL:
 	case ITEM_POTION:
 	case ITEM_PILL:
-		buf_printf(output, "Level %d spells of:", obj->value[0]);
+		buf_printf(output, "Level %d spells of:", INT(obj->value[0]));
 
 		for (i = 1; i < 5; i++) {
 			if (!IS_NULLSTR(obj->value[i].s))
@@ -2059,7 +2058,7 @@ void format_obj(BUFFER *output, OBJ_DATA *obj)
 	case ITEM_CONTAINER:
 		buf_printf(output,
 			   "Capacity: %d#  Maximum weight: %d#  flags: %s\n",
-			   obj->value[0], obj->value[3],
+			   INT(obj->value[0]), INT(obj->value[3]),
 			   SFLAGS(cont_flags, obj->value[1]));
 		if (INT(obj->value[4]) != 100)
 			buf_printf(output, "Weight multiplier: %d%%\n",
@@ -2779,7 +2778,7 @@ void add_follower(CHAR_DATA *ch, CHAR_DATA *master)
 void stop_follower(CHAR_DATA *ch)
 {
 	if (ch->master == NULL) {
-		bug("Stop_follower: null master.", 0);
+		bug("stop_follower: null master");
 		return;
 	}
 
@@ -3786,7 +3785,7 @@ void wear_obj(CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace)
 			return;
 		}
 
-		bug("Wear_obj: no free finger.", 0);
+		bug("wear_obj: no free finger");
 		char_puts("You already wear two rings.\n", ch);
 		return;
 	}
@@ -3816,7 +3815,7 @@ void wear_obj(CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace)
 			return;
 		}
 
-		bug("Wear_obj: no free neck.", 0);
+		bug("wear_obj: no free neck");
 		char_puts("You already wear two neck items.\n", ch);
 		return;
 	}
@@ -3934,7 +3933,7 @@ void wear_obj(CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace)
 			return;
 		}
 
-		bug("Wear_obj: no free wrist.", 0);
+		bug("wear_obj: no free wrist");
 		char_puts("You already wear two wrist items.\n", ch);
 		return;
 	}

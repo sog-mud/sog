@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_social.c,v 1.23 1999-12-29 06:33:27 fjoe Exp $
+ * $Id: olc_social.c,v 1.24 2000-01-19 06:51:46 fjoe Exp $
  */
 
 /* I never wanted to be
@@ -408,15 +408,14 @@ static VALIDATE_FUN(validate_soc_name)
 	EDIT_SOC(ch, soc);
 
 	if (strpbrk(name, " \t")) {
-		char_printf(ch,
-			    "SocEd: %s: illegal character in social name.\n",
-			    arg);
+		char_printf(ch, "SocEd: %s: illegal character in social name.\n",
+			    name);
 		return FALSE;
 	}
 
 	if ((soc2 = social_lookup(name))
 	&&  soc2 != soc) {
-		char_printf(ch, "SocEd: %s: duplicate social name.\n", arg);
+		char_printf(ch, "SocEd: %s: duplicate social name.\n", name);
 		return FALSE;
 	}
 

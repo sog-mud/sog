@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.184 2000-01-13 14:46:37 kostik Exp $
+ * $Id: update.c,v 1.185 2000-01-19 06:51:48 fjoe Exp $
  */
 
 /***************************************************************************
@@ -89,7 +89,7 @@ void advance_level(CHAR_DATA *ch)
 	class_t *cl;
 
 	if (IS_NPC(ch)) {
-		bug("Advance_level: a mob to advance!", 0);
+		bug("advance_level: a mob to advance!");
 		return;
 	}
 
@@ -131,7 +131,7 @@ void delevel(CHAR_DATA *ch)
 	class_t *cl;
 
 	if (IS_NPC(ch)) {
-		bug("Delevel: a mob to delevel!", 0);
+		bug("delevel: a mob to delevel!");
 		return;
 	}
 

@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.255 2000-01-18 13:25:49 kostik Exp $
+ * $Id: fight.c,v 1.256 2000-01-19 06:51:46 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1638,7 +1638,7 @@ bool is_safe_spell(CHAR_DATA *ch, CHAR_DATA *victim, bool area)
 bool is_safe_rspell_nom(AFFECT_DATA *af, CHAR_DATA *victim)
 {
 	if (af->owner) return is_safe_nomessage(victim, af->owner);
-	bug("is_safe_rspell_nom: no affect owner", 0);
+	bug("is_safe_rspell_nom: no affect owner");
 	affect_remove_room(victim->in_room, af);
 	return TRUE; /* protected from broken room affects */ 
 }
@@ -2081,7 +2081,7 @@ void update_pos(CHAR_DATA *victim)
 void set_fighting(CHAR_DATA *ch, CHAR_DATA *victim)
 {
 	if (ch->fighting != NULL) {
-		bug("Set_fighting: already fighting", 0);
+		bug("set_fighting: already fighting");
 		return;
 	}
 

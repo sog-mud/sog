@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.324 2000-01-13 14:46:32 kostik Exp $
+ * $Id: act_info.c,v 1.325 2000-01-19 06:51:40 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2352,7 +2352,7 @@ void do_oscore(CHAR_DATA *ch, const char *argument)
 	}
 
 	buf_printf(output, "You are carrying {c%d{x/{c%d{x items "
-		"with weight {c%ld{x/{c%d{x pounds.\n",
+		"with weight {c%d{x/{c%d{x pounds.\n",
 		ch->carry_number, can_carry_n(ch),
 		get_carry_weight(ch), can_carry_w(ch));
 

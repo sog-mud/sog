@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_mob.c,v 1.61 1999-12-29 07:09:28 fjoe Exp $
+ * $Id: olc_mob.c,v 1.62 2000-01-19 06:51:45 fjoe Exp $
  */
 
 #include "olc.h"
@@ -670,7 +670,7 @@ OLC_FUN(mobed_shop)
 
 		if (!str_cmp(argument, "none")) {
 			pMob->pShop->buy_type[num] = 0;
-			char_printf(ch, "Shop type %d reset.\n");
+			char_printf(ch, "Shop type %d reset.\n", num);
 			return TRUE;
 		}
 

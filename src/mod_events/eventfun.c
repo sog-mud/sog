@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: eventfun.c,v 1.8 2000-01-04 19:27:55 fjoe Exp $
+ * $Id: eventfun.c,v 1.9 2000-01-19 06:51:44 fjoe Exp $
  */
 
 
@@ -62,12 +62,11 @@ void show_owner(CHAR_DATA *ch, AFFECT_DATA *af)
 
 EVENT_FUN(event_enter_lshield)
 {
-	if (af->owner->in_room != ch->in_room)
-		{
-		 bug("Event: owner of lightning shield left the room.", 0);
-		 affect_remove_room(ch->in_room, af); 
-		 return;
-		}
+	if (af->owner->in_room != ch->in_room) {
+		bug("event_enter_lshield: owner of lightning shield left the room");
+		affect_remove_room(ch->in_room, af); 
+		return;
+	}
 
 	char_puts("The protective shield of room blocks you.\n", ch);
 	act("$N has entered the room.", af->owner, NULL, ch, TO_CHAR);

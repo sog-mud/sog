@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: rwfile.c,v 1.8 1999-12-16 12:24:52 fjoe Exp $
+ * $Id: rwfile.c,v 1.9 2000-01-19 06:51:48 fjoe Exp $
  */
 
 static char str_end[] = "End";
@@ -343,7 +343,7 @@ const char *fread_string(rfile_t *fp)
 		 */
 
 		if (plast - buf >= sizeof(buf) - 1) {
-			bug("fread_string: line too long (truncated)", 0);
+			bug("fread_string: line too long (truncated)");
 			buf[sizeof(buf)-1] = '\0';
 			return str_dup(buf);
 		}

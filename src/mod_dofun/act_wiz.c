@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.225 2000-01-06 04:48:35 fjoe Exp $
+ * $Id: act_wiz.c,v 1.226 2000-01-19 06:51:43 fjoe Exp $
  */
 
 /***************************************************************************
@@ -555,7 +555,7 @@ void do_disconnect(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
-	bug("Do_disconnect: desc not found.", 0);
+	bug("do_disconnect: desc not found");
 	char_puts("Descriptor not found!\n", ch);
 	return;
 }
@@ -1224,7 +1224,7 @@ void do_mstat(CHAR_DATA *ch, const char *argument)
 	}
 
 	buf_printf(output,
-		"Lv: %d + %d  Class: %s  Align: %s  Gold: %ld  Silver: %ld  Exp: %d\n",
+		"Lv: %d + %d  Class: %s  Align: %s  Gold: %d  Silver: %d  Exp: %d\n",
 		victim->level,
 		victim->add_level,
 		victim->class,
@@ -3646,7 +3646,7 @@ void do_popularity(CHAR_DATA *ch, const char *argument)
 	for (area = area_first,i=0; area != NULL; area = area->next,i++) {
 		if (i % 2 == 0) 
 			buf_add(output, "\n");
-		buf_printf(output, "%-20s %-8lu       ",
+		buf_printf(output, "%-20s %-8u       ",
 			   area->name, area->count);
 	}
 	buf_add(output, "\n\n");
