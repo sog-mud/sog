@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: util.c,v 1.41 2002-11-21 12:59:21 fjoe Exp $
+ * $Id: util.c,v 1.42 2002-11-23 19:36:17 fjoe Exp $
  */
 
 #include <sys/stat.h>
@@ -457,7 +457,7 @@ number_range(int from, int to)
 	for (power = 2; power < to; power <<= 1)
 		;
 
-	while ((number = number_mm() & (power -1)) >= to)
+	while ((number = number_mm() & (power - 1)) >= to)
 		;
 
 	return from + number;
