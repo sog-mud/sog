@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.60 1999-06-30 15:42:30 fjoe Exp $
+ * $Id: recycle.c,v 1.61 1999-06-30 16:37:14 fjoe Exp $
  */
 
 /***************************************************************************
@@ -170,6 +170,7 @@ OBJ_DATA *new_obj(void)
 		obj = free_obj_list;
 		free_obj_list = free_obj_list->next;
 		obj_free_count--;
+		mem_validate(obj);
 	}
 	else {
 		obj = mem_alloc(MT_OBJ, sizeof(*obj));
@@ -232,6 +233,7 @@ CHAR_DATA *new_char(void)
 		ch = free_char_list;
 		free_char_list = free_char_list->next;
 		mob_free_count--;
+		mem_validate(ch);
 	}
 	else {
 		ch = mem_alloc(MT_CHAR, sizeof(*ch));

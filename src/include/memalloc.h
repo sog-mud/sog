@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: memalloc.h,v 1.2 1999-06-30 15:42:24 fjoe Exp $
+ * $Id: memalloc.h,v 1.3 1999-06-30 16:37:14 fjoe Exp $
  */
 
 #ifndef _MEMALLOC_H_
@@ -52,6 +52,8 @@ void	mem_free(const void *p);
 
 #define GET_CHUNK(p) ((memchunk_t*) (((char*) p) - sizeof(memchunk_t)))
 bool	mem_is(const void *p, int mem_type);
+
+void	mem_validate(const void *p);
 void	mem_invalidate(const void *p);
 
 #endif
