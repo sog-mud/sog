@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: race.c,v 1.13 1999-12-10 11:30:09 kostik Exp $
+ * $Id: race.c,v 1.14 1999-12-11 11:23:57 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -67,6 +67,7 @@ race_cpy(race_t *dst, race_t *src)
 	dst->res = src->res;
 	dst->vuln = src->vuln;
 	dst->form = src->form;
+	dst->parts = src->parts;
 	dst->race_flags = src->race_flags;
 	for (i = 0; i < MAX_RESIST; i++)
 		dst->resists[i] = src->resists[i];
