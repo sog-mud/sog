@@ -3656,7 +3656,7 @@ M 0 5342 1 5386 1	* the healer (By the Temple Altar)
 O 0 3010 0 5386	* the donation pit (By the Temple Altar)
 M 0 5336 1 5387 1	* the baker (The Bakery)
 G 0 3009 0		*	a big pot pie
-G 0 3011 0		*	a bread
+G 0 3011 0		*	bread
 G 0 3012 0		*	a cinnamon roll
 G 0 3013 0		*	a batch of Sara's cookies
 G 0 3014 0		*	a blueberry danish

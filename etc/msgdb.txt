@@ -166,6 +166,7 @@ Use 'desc edit' to edit your description.
 ~
 @eng $p flickers and goes out.@rus $p прогорел и погас.~
 @eng $N grins evilly at you.@rus $N зло ухмыляется тебе.~
+@eng You sell $P for $j gold $qj{pieces}.@rus Ты продаешь $c3{$P} за $j $c3{$qj{золотые монеты}}.~
 @eng The rain stopped.@rus Дождь прекратился.~
 @eng It won't fit.
 @rus Не входит.
@@ -222,6 +223,7 @@ Use 'desc edit' to edit your description.
 ~
 @eng The day has begun.@rus Начинается новый день.~
 @eng coffee@rus кофе~
+@eng You sell $P for $j gold and $J silver $qJ{pieces}.@rus Ты продаешь $c3{$P} за $j $c3{$qj{золотые}} и $J $c3{$qJ{серебряные монеты}}.~
 @eng <worn on arms>      $t@rus <надето на плечи>      $t~
 @eng You see nothing special about it.
 @rus Ты не видишь ничего особенного в этом.
@@ -281,6 +283,7 @@ Use 'desc edit' to edit your description.
 @eng $n orders you to '%s', you do.@rus $n приказывает тебе '%s', ты подчиняешься.~
 @eng Vile pilferers have stolen {W%s{z from the royal treasury!@rus Подлые жулики украли {W%s{z из королевской сокровищницы!~
 @eng ({cTranslucent{x) @rus ({cПрозрачно{x) ~
+@eng $n gives you $J $t.@rus $n дает тебе $J $c3{$qJ{$t}}.~
 @eng $n asks $N for a quest.@rus $n просит задание у $N.~
 @eng  none@rus  нет~
 @eng  is sitting here.@rus  сидит здесь.~
@@ -316,6 +319,7 @@ Use 'desc edit' to edit your description.
 @eng $n wears $p around $s neck.@rus $n надевает $p на шею.~
 @eng $n drops some coins.@rus $n бросает несколько монет.~
 @eng $N looks like an easy kill.@rus Ты, похоже, легко убьешь $N.~
+@eng You sell $P for $j silver $qj{pieces}.@rus Ты продаешь $c3{$P} за $j $c3{$qj{серебряные монеты}}.~
 @eng You rest on $p.@rus Ты садишься отдыхать на $p.~
 @eng The $d clicks.@rus $d щелкает.~
 @eng It is too heavy for you to wield.
@@ -451,12 +455,14 @@ Use 'desc edit' to edit your description.
 @eng It's locked.
 @rus Тут закрыто.
 ~
+@eng $n sells $p.@rus $n продает $c3{$p}.~
 @eng $n quaffs $p.@rus $n пьет $p.~
 @eng You follow $N.@rus Ты следуешь за $N.~
 @eng You are still fighting!
 @rus Ты сражаешься!
 ~
 @eng $n sits down at $p.@rus $n садится около $p.~
+@eng $n gives $N some coins.@rus $n дает $c2{$N} несколько монет.~
 @eng $n dismounts from $N.@rus $n спешивается с $N.~
 @eng $N tattoos you with {W$p{x!@rus $N татуирует у тебя на плече {W$p{x!~
 @eng {r[{RTARGET{r]{x @rus {r[{RЦЕЛЬ{r]{x ~
@@ -501,6 +507,7 @@ Use 'desc edit' to edit your description.
 @eng $p feels like a part of you!@rus $p выглядит частью тебя!~
 @eng $n stupidly tries to push $N while webbed.@rus $n, как дурак, пытается толкнуть $N, болтаясь в паутине.~
 @eng scatter on the dirt.~
+@eng gold@rus золотые~
 @eng You wear $p on your arms.@rus Ты надеваешь $p на плечи.~
 @eng You put $p on $P.@rus Ты кладешь $p он $P.~
 @eng You can't sneak while mounted.
@@ -555,6 +562,7 @@ Use 'desc edit' to edit your description.
 @eng You wear $p around your left wrist.@rus Ты надеваешь $p на левое запястье.~
 @eng $n wakes you.@rus $n будит тебя.~
 @eng $n locks the $d.@rus $n замыкает $d.~
+@eng You give $N $J $t.@rus Ты даешь $c2{$N} $J $c3{$qJ{$t}}.~
 @eng You don't want to drain your master.
 @rus Ты не хочешь усыплять своего хозяина.
 ~
@@ -924,6 +932,7 @@ Use 'desc edit' to edit your description.
 @eng $n wears $p as a shield.@rus $n берет $p как щит.~
 @eng $n sits at $p.@rus $n садится около $p.~
 @eng $n opens the $d.@rus $n открывает $d.~
+@eng $n butchers $P and creates $j $qj{steaks}.@rus $n $gc{разделал} $c3{$P} и $gc{приготовил} $j $c3{$qj{бифштексы}}.~
 @eng You now use $p as the tattoo of your religion.@rus Ты теперь используешь $p, как татуировку твоей религии.~
 @eng You don't know how to camouflage yourself.
 @rus Ты не умеешь маскироваться.
@@ -1069,6 +1078,7 @@ You peek at the inventory:
 @rus Попробуй flee. Может быть это подойдет тебе лучше.
 ~
 @eng $p flickers.@rus $p гаснет.~
+@eng silver@rus серебряные~
 @eng Your mount must be standing.
 @rus Твое животное должно стоять.
 ~
@@ -1327,7 +1337,9 @@ You peek at the inventory:
 ~
 @eng sherry@rus херес~
 @eng rose wine@rus розовое вино~
+@eng You butcher $P and create $j $qj{steaks}.@rus Ты $gc{разделал} $c3{$P} и $gc{приготовил} $j $c3{$qj{бифштексы}}.~
 @eng But you are already on a quest!@rus У тебя уже есть задание!~
+@eng $n tells you '{GI'll give you '{GI'll give you %d %s and $J gold $qJ{coins} for $p.{x'@rus $n говорит тебе: "Я дам тебе %d %s и $J $c3{$qJ{золотые монеты}} за $c3{$p}."~
 @eng $n stands at $p.@rus $n встает около $p.~
 @eng blood@rus кровь~
 @eng That's not a container.
@@ -1363,6 +1375,7 @@ You peek at the inventory:
 @rus Ты пытаешься двигаться бесшумно.
 ~
 @eng You ask $N for a quest.@rus Ты просишь задание у $N.~
+@eng Gods give you $j silver $qj{coins} for your sacrifice.@rus Боги дают тебе $j $c3{$qj{серебряные монеты}} за твое жертвоприношение.~
 @eng Eat what?
 @rus Что съесть?
 ~

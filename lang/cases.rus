@@ -1,4 +1,14 @@
 #WORD
+Name золотые~
+Form 3 золотых~
+End
+
+#WORD
+Name краюха хлеба~
+Form 1 краюху хлеба~
+End
+
+#WORD
 Name адамантитовый голем~
 Form 1 адамантитового голема~
 End
@@ -40,6 +50,11 @@ Form 5 -ом~
 End
 
 #WORD
+Name бифштексы~
+Form 3 бифштекса~
+End
+
+#WORD
 Name кока-кола~
 Form 3 кока-колу~
 End
@@ -56,13 +71,38 @@ Form 1 каменного голема~
 End
 
 #WORD
+Name золотая монета~
+Form 3 золотую монету~
+End
+
+#WORD
 Name скамейка~
 Base скамейк~
 Form 3 -у~
 End
 
 #WORD
+Name серебряная монета~
+Form 3 серебряную монету~
+End
+
+#WORD
+Name золотые монеты~
+Form 3 золотых монет~
+End
+
+#WORD
 Name голем~
+End
+
+#WORD
+Name серебряные монеты~
+Form 3 серебряных монет~
+End
+
+#WORD
+Name серебряные~
+Form 3 серебряных~
 End
 
 #$

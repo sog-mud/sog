@@ -462,7 +462,7 @@ Wearing camouflage green, the ranger shopkeeper is as ready for life in
 the wilds as he is for keeping shop here at the Ranger Station.
 ~
 human~
-ABGTW HV 1000 0
+ABGTWd HV 1000 0
 60 1 50d10+9977 3d400+580 8d6+95 cleave
 -54 -54 -54 -54
 CFHIJKV ABCD 0 T
@@ -680,6 +680,24 @@ AGHUY V 0 0
 U 0 JO HKLM
 stand stand either 110
 0 0 medium unknown
+#1899
+ranger healer~
+ranger healer~
+Old wrinkled man offers healing services.
+~
+Tanned wrinkled man looks around proudly. His collection of healing herbs
+can heal almost everything. Retired from his rangership, he now offers his
+herbs to heal your wounds and diseases. Type "HEAL" to get the list.
+~
+elf~
+ABGQUXae DHct 1000 0
+100 100 2d4+50000 1d1+10000 5d7+100 divine
+-100 -100 -100 -100
+FHIK ABC D 0
+stand stand male 0
+0 0 medium unknown
+F res B
+F vul Z
 #0
 
 #OBJECTS
@@ -1309,7 +1327,7 @@ an old altar~
 An old altar waits for another sacrifice.~
 marble~
 container 0 0
-500 0 0 30 100
+1000 0 0 1000 1000
 0 0 5000 P
 #1858
 gold golden tree~
@@ -2548,7 +2566,7 @@ altar seems to still be in use. You can see fresh bloodstains on its surface
 where something was apparently sacrificed. Or perhaps hunters have been using
 it for butchering their kills.
 ~
-0 0 forest
+0 SU forest
 D0
 ~
 ~
@@ -2806,6 +2824,10 @@ D3
 ~
 ~
 Z -1 1863
+D4
+~
+~
+Z 0 3757
 S
 #1865
 Entrance to the Magic Forest~
@@ -3001,7 +3023,7 @@ of a 10-point buck and a green dragon. A fireplace graces one wall, and
 on the mantle are a quiver of arrows and a stuffed raccoon. You see a
 stair leading up.
 ~
-0 NUW forest
+0 CNSWXY forest
 D3
 ~
 ~
@@ -3159,7 +3181,7 @@ Here you can get a variety of useful items (and some not so useful). Along
 one wall is a bar to sit at and enjoy a drink. You see a stairway leading
 down, and another one leading up.
 ~
-0 NUW forest
+0 CNSWXY forest
 D4
 ~
 ~
@@ -3176,7 +3198,7 @@ care of the land. Here, too, they learn to defend themselves and others,
 skills with weapons, and how to dress a killed beast to turn it into food.
 The old ranger who runs the Station is here to help you learn.
 ~
-0 NUW forest
+0 CDNSWXY forest
 D5
 ~
 ~
@@ -3303,6 +3325,7 @@ M 1824 spec_cast_mage	* the blue warlock
 M 1825 spec_cast_mage	* the indigo warlock
 M 1826 spec_cast_mage	* the violet warlock
 M 1838 spec_cast_mage	* the black warlock
+M 1899 spec_cast_adept	* ranger healer
 S
 
 #RESETS
@@ -3490,6 +3513,7 @@ M 0 1831 10 1854 1	* a tiny butterfly (The Old Altar)
 M 0 1839 13 1854 1	* a small white bunny (The Old Altar)
 O 0 1857 0 1854	* an old altar (The Old Altar)
 P 0 1859 1 1857 1	* an old altar: a pair of camouflage gloves
+M 0 1899 1 1854 1	* ranger healer (The Old Altar)
 M 0 1834 5 1857 1	* a blue bird (On a Path)
 M 0 1802 7 1858 1	* a white unicorn (A Turn in the Path)
 M 0 1830 27 1859 1	* a grey squirrel (Twin Pines)

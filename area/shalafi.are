@@ -120,7 +120,7 @@ BD 0 HK DGH DGH
 
 #ROOMS
 #95300
-Fifth Level~
+@eng Fifth Level@rus Пятый этаж~
 The fifth level of the tower hums with whole magical power of the
 universe. All around, you see many items which have been carried and
 transported from different lands. Probably they have been used to reached
@@ -143,7 +143,7 @@ D5
 Z -1 95301
 S
 #95301
-Fourth Level~
+@eng Fourth Level@rus Четвертый этаж~
 The fourth level is much bigger than the others. All around you see the
 magic. There are many wands and staves which have been created by the
 the Arcane Arts magicians and used to destroy undisciplined heros at
@@ -161,7 +161,7 @@ D5
 Z -1 95302
 S
 #95302
-Third Level~
+@eng Third Level@rus Третий этаж~
 Now, you are in a mist that has been suddenly appeared. Swirling mist
 obscures your vision and cloud your mind. You start to wander about the
 eternity and power of the magic. The mist itself thickens to the up.  
@@ -177,7 +177,7 @@ D5
 Z -1 95303
 S
 #95303
-Second Level~
+@eng Second Level@rus Второй этаж~
 The second level of the tower of the Arcane Arts is much like the first.
 The walls are blackened and burnt by what you could only imagine to be
 magical fire. A large globe of magical energy floats overhead, providing
@@ -194,11 +194,12 @@ D5
 Z -1 95304
 S
 #95304
-Inside the Tower~
-You stand in the lowest level of the Tower of Arcane Arts. The magical
+@eng Inside the Tower@rus Внутри башни~
+@eng You stand in the lowest level of the Tower of Arcane Arts. The magical
 walls all around you emit a faint magical glow which provides enough light 
 to see by. Perhaps in the upper levels lie the secrets of this tower and
 Arcane Arts.
+@rus Вы стоите на нижнем уровне башни искусств Аркана. Стены выделяют слабое магическое свечение, которое создает достаточно света чтобы видеть. Может быть на верхнем уровне находится секрет башни и искусств Аркана.
 ~
 0 DK inside
 D2
@@ -211,12 +212,13 @@ D4
 Z -1 95303
 S
 #95305
-Outside the Tower~
-You are in a long way leading north and south. The magical walls emit a
+@eng Outside the Tower@rus Перед входом в башню~
+@eng You are in a long way leading north and south. The magical walls emit a
 faint magical glow which provides enough light to see by. Additionally a
 large globe of magical energy floats overhead, providing light. The tower
 is created by pure magic and you feel that the whole magical power of the
 universe has been used to create this tower.
+@rus Вы находитесь на длинной дороге, простирающейся на север и юг. Стены выделяют слабое магическое свечение, которое создает достаточно света чтобы видеть. Кроме этого, большой шар магической энергии плавает над головой, создавая освещение. Башня была создана при помощи чистой магии и вы чуствуете, что вся магическая сила вселенной была использована при создании этой башни.
 ~
 0 DK inside
 D0
@@ -229,11 +231,12 @@ D2
 DZ -1 95306
 S
 #95306
-The Mystical Path~
-You start to feel the power of magic. Magical beings from every known
+@eng The Mystical Path@rus Мистический Путь~
+@eng You start to feel the power of magic. Magical beings from every known
 plane walk amongst you. The path, like everything here, is magically
 created and seems perfect. Up ahead you see the Tower of the Arcane
 Arts.
+@rus Вы начинаете чувствовать силу магии. Магические существа из всех известных измерений окружают вас. Этот путь был создан при помощи магии и выглядит совершенным. Над вами возвышается башня искусств Аркана.
 ~
 0 DK inside
 D0
@@ -246,7 +249,7 @@ D2
 Z 0 1480
 S
 #95307
-The Mystical Room~
+@eng The Mystical Room@rus Мистическая комната~
 This room is looks like the third level of the tower. You are in a mist
 that has been suddenly appeared. Swirling mist obscures your vision and
 cloud your mind. You start to wander about the eternity and power of the
@@ -260,7 +263,7 @@ D3
 Z -1 95300
 S
 #95308
-The Mystical Room~
+@eng The Mystical Room@rus Мистическая комната~
 This room is looks like the third level of the tower. You are in a mist
 that has been suddenly appeared. Swirling mist obscures your vision and
 cloud your mind. You start to wander about the eternity and power of the

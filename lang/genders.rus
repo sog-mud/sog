@@ -4,6 +4,11 @@ Form 1 отважная~
 End
 
 #WORD
+Name приготовил~
+Form 1 приготовила~
+End
+
+#WORD
 Name вооруженный~
 Base вооруженн~
 Form 1 -ая~
@@ -19,6 +24,11 @@ End
 Name способен~
 Base способ~
 Form 1 -на~
+End
+
+#WORD
+Name разделал~
+Form 1 разделала~
 End
 
 #$

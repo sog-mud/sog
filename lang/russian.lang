@@ -1,7 +1,8 @@
 #LANG
 Name rus
-GendersFile genders.rus~
 CasesFile cases.rus~
+GendersFile genders.rus~
+QtysFile qtys.rus~
 End
 
 #$

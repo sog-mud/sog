@@ -470,7 +470,7 @@ warrior monk, and he must be trying to regain spiritual peace and
 conscience with the Most High.
 ~
 unique~
-ABG DHJN 1000 0
+ABGX DHJN 1000 0
 39 15 2d1+1550 1d1+99 5d6+35 punch
 -6 -6 -6 -6
 EFHK B B QXYZ
@@ -1642,6 +1642,25 @@ ABFG DFHJ -1000 0
 FKQ AB B HN
 stand stand female 30
 AB ABCDEF medium unknown
+#299
+healer woodskeeper~
+priest~
+A man in white robe stands here, praying.
+~
+A man in long white robe kneels in prayer. He does not seem to notice you,
+but he turns to you and tells you in an unusually low voice, "May the God's
+bless be with you. Ask me for healing. With power of my God, I can heal
+almost everything."
+Type HEAL for list.
+~
+elf~
+ABGQae DHct 1000 0
+100 100 1d1+50000 1d1+10000 1d1+100 divine
+0 0 0 0
+EFIK ABC D 0
+stand stand male 0
+0 0 medium unknown
+F vul Z
 #0
 
 #OBJECTS
@@ -5422,6 +5441,7 @@ M 234 spec_poison	* a hellHound
 M 237 spec_cast_undead	* Demon-Elf
 M 239 spec_cast_mage	* Marisa
 M 291 spec_cast_mage	* the Devil Lieutenant
+M 299 spec_cast_adept	* priest
 S
 
 #RESETS
@@ -5638,6 +5658,7 @@ M 0 232 1 287 1	* Yun Fei Yang (Yun Fei Yang's humble abode)
 E 0 234 0 17		*	the TianCanShenGong manual: held in the hands
 O 0 274 0 287	* a cactus (Yun Fei Yang's humble abode)
 O 0 235 0 289	* the Bible (The Chapel of Saint Sebastian)
+M 0 299 1 289 1	* priest (The Chapel of Saint Sebastian)
 M 0 226 1 290 1	* a Knight (Outside the Wall of the Monastery)
 E 0 215 0 16		*	a Crusader's Sword: wielded
 E 0 216 0 3		*	a wooden cross: around the neck (1)
