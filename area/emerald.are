@@ -21,12 +21,13 @@ is just slightly taller than 5 feet and has the eternally beautiful
 and youthful features of the faerie folk.
 ~
 unique~
-ABG DJT 1000 0
+ABG JT 1000 0
 24 6 2d10+500 1d1+99 5d5+5 punch
 -7 -7 -7 -7
 KU BJN B 0
 stand stand female 100
 AC 0 small unknown
+A det D
 #202
 Nymph~
 a nymph~
@@ -39,12 +40,13 @@ running water and you cannot be sure if it is her singing or a brook
 in the distance.  She calls out to you to join her in her dance.
 ~
 unique~
-ABG DJT 1000 0
+ABG JT 1000 0
 29 9 2d10+750 1d1+99 5d5+10 slap
 -10 -10 -10 -10
 FKU BJN B 0
 stand stand female 150
 AC 0 small unknown
+A det D
 #203
 Pixie~
 a pixie~
@@ -58,12 +60,13 @@ out. Not looking at them directly, he seems to be eyeing one of the
 brownies.
 ~
 unique~
-AG DJ 1000 0
+AG J 1000 0
 13 4 2d1+175 1d1+99 4d5+7 magic
 0 0 0 0
 FU BJN B 0
 stand stand female 80
 AC 0 medium unknown
+A det D
 #204
 Sprite~
 a sprite~
@@ -74,12 +77,13 @@ and equally playful.  He is dressed in a brown jerkin and you see that
 its pockets are filled with acorns and nuts.
 ~
 unique~
-AG DJT 0 0
+AG JT 0 0
 20 6 2d1+350 1d1+99 4d5+12 stab
 -5 -5 -5 -5
 FU BJN B 0
 stand stand male 80
 AC 0 small unknown
+A det D
 #205
 Brownie~
 a brownie~
@@ -93,12 +97,13 @@ pretty elvin features, and is dressed totally in brown. She wears
 no cap, her otherwise long hair tied in a pony-tail.
 ~
 unique~
-ABG DJ 1000 0
+ABG J 1000 0
 17 5 2d1+280 1d1+99 4d5+9 punch
 -4 -4 -4 -4
 FKU BJN B 0
 stand stand male 100
 AC 0 medium unknown
+A det D
 #206
 Ranger~
 a ranger~
@@ -112,12 +117,13 @@ while continues tending to a small deer which seems to have injured
 it's leg.
 ~
 unique~
-ABG DJ 1000 0
+ABG J 1000 0
 39 20 2d1+1700 1d1+99 6d6+35 punch
 -10 -10 -10 -10
 FKNU BJLN B 0
 stand stand male 100
 AC 0 medium unknown
+A det D
 #207
 Spriggan Iachimo~
 the Spriggan~
@@ -149,12 +155,13 @@ got 'kill me now' written all over it's forehead in every possible
 language known.
 ~
 unique~
-ABG DJ -1000 0
+ABG J -1000 0
 15 3 2d1+200 1d1+99 4d5+5 pierce
 5 5 5 5
 CDEFJKU AB B N
 stand stand none 50
 AB ABCDEF small unknown
+A det D
 #209
 Fiendish Donkey~
 a fiendish donkey~
@@ -166,12 +173,13 @@ banquet table.  This one looks set to give you a good kick if you won't
 let it continue eating its weeds.  It bares large yellowed teeth at you.
 ~
 unique~
-ABG DJ -950 0
+ABG J -950 0
 20 8 2d1+300 1d1+99 4d5+14 beating
 0 0 0 0
 CDEFJKU B B N
 stand stand none 50
 AB ABCDEF medium unknown
+A det D
 #210
 Devil's Huntsman~
 the Devil's Huntsman~
@@ -182,12 +190,13 @@ rotting cape about his body and draws his weapon slowly.  He has been
 preparing for the Great Hunt and in a low voice he intones your name.
 ~
 unique~
-ABFG DJ -1000 0
+ABFG J -1000 0
 35 15 2d1+1700 1d1+99 6d6+25 punch
 -8 -8 -8 -8
 CDEFJKU AB B N
 stand stand none 50
 AB ABCDEF large unknown
+A det D
 #211
 Pumpkin man~
 the pumpkin man~
@@ -199,12 +208,13 @@ It holds its boney hands out-stretched and seems to be asking you
 for a dance.  A tango perhaps, or a foxtrot.
 ~
 unique~
-ABFG DJ -1000 0
+ABFG J -1000 0
 25 10 2d1+600 1d1+99 5d5+14 scratch
 -3 -3 -3 -3
 CDEFJKU AB B N
 stand stand male 50
 AB ABCDEF medium unknown
+A det D
 #212
 Ranger Guildmaster Elesar~
 the Ancient Ranger Guildmaster~
@@ -236,12 +246,13 @@ physical fitness. He is intently carving some wooden sticks, probably
 arrows after he's finished with them.
 ~
 unique~
-ABGJ DFHJ 0 0
+ABGJ HJ 0 0
 58 30 2d1+6500 1d1+99 5d6+75 beating
 -12 -12 -12 -12
 FKW AB BCD 0
 stand stand male 100
 A ABCDEF medium unknown
+A det DF
 #214
 Ranger Bear~
 the ancient ranger bear~
@@ -250,12 +261,13 @@ A twelve foot bear stands here scratching his crotch.
 Smokey smiles affably at you as he beckons you over to buy his wares.
 ~
 unique~
-ABGe DF 750 0
+ABGe 0 750 0
 55 25 2d1+5000 1d1+99 5d6+50 claw
 -10 -10 -10 -10
 DKN L L H
 stand stand male 100
 A ABCDEF large unknown
+A det DF
 #215
 Grand Pooh-Ba~
 the Grand Pooh-Ba~
@@ -270,12 +282,13 @@ pixies and brownies. He is dressed in large and flowing green-brown
 robe, and seems rather busy with his duties.
 ~
 unique~
-ABG DJ 1000 0
+ABG J 1000 0
 30 20 2d1+850 1d1+99 5d6+30 smash
 3 3 3 3
 CFK BJLN B 0
 stand stand male 100
 AC 0 small unknown
+A det D
 #216
 Witch Aude~
 Aude~
@@ -286,12 +299,13 @@ the sparks from the fire. Aude looks at you with moistened lips and half
 closed eyes issuing an invitation you somehow cannot resist.
 ~
 unique~
-ABFG DFHJO -1000 0
+ABFG HJO -1000 0
 40 15 2d1+1500 1d1+99 5d6+35 wrath
 -5 -5 -5 -5
 FQ AB B HN
 stand stand female 30
 AB ABCDEF medium unknown
+A det DF
 #217
 Witch Gertrude~
 Gertrude~
@@ -303,12 +317,13 @@ her mottled cheeks and her gnarled skin testify to her long suffering and
 an intense adhorrence for all beauty and youth.
 ~
 unique~
-ABFG DFHJ -1000 0
+ABFG HJ -1000 0
 41 15 2d1+1600 1d1+99 5d6+40 divine
 -6 -6 -6 -6
 FKQ AB B HN
 stand stand female 30
 AB ABCDEF medium unknown
+A det DF
 #218
 Witch Hela~
 Hela~
@@ -319,12 +334,13 @@ Gertrude. Born in a half-living, half-dead state, she harnesses the power
 of the undeed to destroy you!
 ~
 unique~
-ABFG DFHJ -1000 0
+ABFG HJ -1000 0
 40 15 2d1+1450 1d1+99 5d6+40 magic
 -5 -5 -5 -5
 EFQ AB B HN
 stand stand female 30
 AB ABCDEF medium unknown
+A det DF
 #219
 Jim Young~
 Young Jim~
@@ -471,12 +487,13 @@ warrior monk, and he must be trying to regain spiritual peace and
 conscience with the Most High.
 ~
 unique~
-ABG DHJN 1000 0
+ABG HJN 1000 0
 39 15 2d1+1550 1d1+99 5d6+35 punch
 -6 -6 -6 -6
 EFHK B B QXYZ
 stand stand male 30
 A ABCDEF medium unknown
+A det D
 #227
 Sylph~
 a Sylph~
@@ -490,12 +507,13 @@ is mercy to be found in this evil place, she will fade away before
 the witches come to sacrifice her tonight. She looks at you pleadingly.
 ~
 unique~
-ABG DIJKN 1000 0
+ABG IJKN 1000 0
 15 10 2d1+80 1d1+99 4d5+0 stab
 2 2 2 2
 K AB B 0
 stand stand female 80
 AC 0 small unknown
+A det D
 #228
 Irin girl elfin maid elf-maid~
 Irin~
@@ -507,12 +525,13 @@ seems lost in her own world, her long black hair framing a face that
 is almost too beautiful to describe.
 ~
 unique~
-ABCGH DHJN 1000 0
+ABCGH HJN 1000 0
 50 15 2d1+3000 1d1+99 5d6+50 punch
 -7 -7 -7 -7
 EFK B B QXYZ
 stand stand female 30
 A ABCDEF medium unknown
+A det D
 #229
 cat~
 the marmalade cat~
@@ -524,12 +543,13 @@ tail from side to side.  A sudden crackle of orange electricity runs
 down the length of its body and disappears.
 ~
 unique~
-ABCGH DFJ 0 0
+ABCGH J 0 0
 40 10 2d1+3000 1d1+99 5d6+40 bite
 0 0 0 0
 DFJK AB B 0
 stand stand female 30
 A ABCDEF medium unknown
+A det DF
 #230
 Kortho Wordgiver~
 Kortho~
@@ -541,12 +561,13 @@ he seems abit tight-lipped at the moment.  You're probably going to
 have to beat it out of him.
 ~
 unique~
-ABCG DJN 0 0
+ABCG JN 0 0
 38 15 2d1+1450 1d1+99 5d6+25 suction
 -3 -3 -3 -3
 FK AB B 0
 stand stand male 30
 A ABCDEF medium unknown
+A det D
 #231
 Knight Sorrow~
 Sir Sorrow~
@@ -561,12 +582,13 @@ burdened with. The Sorrow of God, perhaps? Nobody really knows save
 the members of the order.
 ~
 unique~
-ABG DHJ 1000 0
+ABG HJ 1000 0
 37 12 2d1+1300 1d1+99 5d6+25 punch
 -2 -2 -2 -2
 EK 0 0 0
 stand stand male 30
 A ABCDEF medium unknown
+A det D
 #232
 priest YunFeiYang~
 Yun Fei Yang~
@@ -580,12 +602,13 @@ You draw back in ponder of this pointed-beard priest while his greyish-
 black apparel gives hint of his oriental origin.
 ~
 unique~
-ABG DHJ 1000 0
+ABG HJ 1000 0
 60 25 2d1+5500 1d1+99 10d5+65 frbite
 -11 -11 -11 -11
 DEFHK AB BHIJKLMNOP 0
 stand stand male 30
 A ABCDEF large unknown
+A det D
 #233
 Farmer Griff man~
 farmer~
@@ -612,12 +635,13 @@ fanged maw.  It snarls viciously and circles you slowly, seeming to
 consider you with an evil intelligence.
 ~
 unique~
-ABF DJ -1000 0
+ABF J -1000 0
 30 8 2d1+900 1d1+99 5d5+16 bite
 -5 -5 -5 -5
 BEFG AB B N
 stand stand none 15
 AB ABCDEF small unknown
+A det D
 #235
 boogum~
 the mountain boogum~
@@ -628,12 +652,13 @@ He looks like a dirty-furred dwarf with overly long hands and a mouth
 filled with sharp little teeth.
 ~
 unique~
-ABCFG DFJ -1000 0
+ABCFG J -1000 0
 12 5 2d1+180 1d1+99 4d5+12 chop
 2 2 2 2
 BCF AB B 0
 stand stand male 15
 A ABCDEF large unknown
+A det DF
 #236
 apparition priest~
 an Apparition~
@@ -663,12 +688,13 @@ you sharply and for a moment, you see upon her face the image of
 smiling demon.
 ~
 unique~
-ABG DHJ -1000 0
+ABG HJ -1000 0
 43 10 2d1+2150 1d1+99 5d6+45 punch
 -2 -2 -2 -2
 AFK AB B N
 stand stand female 1000
 AB ABCDEF medium unknown
+A det D
 #238
 imbessar king~
 Imbessar~
@@ -722,12 +748,13 @@ years, her long blond hair fall gently over her shoulders making
 her strikingly beautiful.
 ~
 unique~
-ABG DJ 1000 0
+ABG J 1000 0
 34 15 2d1+1200 1d1+99 6d6+25 punch
 -8 -8 -8 -8
 FKNU BJLN B 0
 stand stand female 100
 AC 0 medium unknown
+A det D
 #241
 Pixie~
 a pixie~
@@ -741,12 +768,13 @@ out. Not looking at them directly, he seems to be eyeing one of the
 brownies.
 ~
 unique~
-ABG DJ 1000 0
+ABG J 1000 0
 13 4 2d1+175 1d1+99 4d5+7 magic
 0 0 0 0
 FU BJN B 0
 stand stand female 80
 AC 0 small unknown
+A det D
 #242
 Pixie~
 a pixie~
@@ -760,12 +788,13 @@ out. Not looking at them directly, he seems to be eyeing one of the
 brownies.
 ~
 unique~
-ABG DJ 1000 0
+ABG J 1000 0
 13 4 2d1+175 1d1+99 4d5+7 magic
 0 0 0 0
 FU BJN B 0
 stand stand female 80
 AC 0 small unknown
+A det D
 #243
 Pixie~
 a pixie~
@@ -779,12 +808,13 @@ out. Not looking at them directly, he seems to be eyeing one of the
 brownies.
 ~
 unique~
-ABG DJ 1000 0
+ABG J 1000 0
 13 4 2d1+175 1d1+99 4d5+7 magic
 0 0 0 0
 FU BJN B 0
 stand stand female 80
 AC 0 small unknown
+A det D
 #244
 Pixie~
 a pixie~
@@ -798,12 +828,13 @@ out. Not looking at them directly, he seems to be eyeing one of the
 brownies.
 ~
 unique~
-ABG DJ 1000 0
+ABG J 1000 0
 13 4 2d1+175 1d1+99 4d5+7 magic
 0 0 0 0
 FU BJN B 0
 stand stand female 80
 AC 0 small unknown
+A det D
 #245
 Brownie~
 a brownie~
@@ -817,12 +848,13 @@ pretty elvin features, and is dressed totally in brown. She wears
 no cap, her otherwise long hair tied in a pony-tail.
 ~
 unique~
-ABG DJ 1000 0
+ABG J 1000 0
 17 5 2d1+280 1d1+99 4d5+9 punch
 -4 -4 -4 -4
 FKU BJN B 0
 stand stand male 100
 AC 0 small unknown
+A det D
 #246
 Brownie~
 a brownie~
@@ -836,12 +868,13 @@ pretty elvin features, and is dressed totally in brown. She wears
 no cap, her otherwise long hair tied in a pony-tail.
 ~
 unique~
-ABG DJ 1000 0
+ABG J 1000 0
 17 5 2d1+280 1d1+99 4d5+9 punch
 -4 -4 -4 -4
 FKU BJN B 0
 stand stand male 100
 AC 0 small unknown
+A det D
 #247
 Brownie~
 a brownie~
@@ -855,12 +888,13 @@ pretty elvin features, and is dressed totally in brown. She wears
 no cap, her otherwise long hair tied in a pony-tail.
 ~
 unique~
-ABG DJ 1000 0
+ABG J 1000 0
 17 5 2d1+280 1d1+99 4d5+9 punch
 -4 -4 -4 -4
 FKU BJN B 0
 stand stand male 100
 AC 0 small unknown
+A det D
 #248
 Brownie~
 a brownie~
@@ -874,12 +908,13 @@ pretty elvin features, and is dressed totally in brown. She wears
 no cap, her otherwise long hair tied in a pony-tail.
 ~
 unique~
-ABG DJ 1000 0
+ABG J 1000 0
 17 5 2d1+280 1d1+99 4d5+9 punch
 -4 -4 -4 -4
 FKU BJN B 0
 stand stand male 100
 AC 0 small unknown
+A det D
 #249
 Brownie~
 a brownie~
@@ -893,12 +928,13 @@ pretty elvin features, and is dressed totally in brown. She wears
 no cap, her otherwise long hair tied in a pony-tail.
 ~
 unique~
-ABG DJ 1000 0
+ABG J 1000 0
 17 5 2d1+280 1d1+99 4d5+9 punch
 -4 -4 -4 -4
 FKU BJN B 0
 stand stand male 100
 AC 0 small unknown
+A det D
 #250
 Sprite~
 a sprite~
@@ -909,12 +945,13 @@ and equally playful.  He is dressed in a brown jerkin and you see that
 its pockets are filled with acorns and nuts.
 ~
 unique~
-ABG DJT 0 0
+ABG JT 0 0
 20 6 2d1+350 1d1+99 4d5+12 stab
 -5 -5 -5 -5
 FU BJN B 0
 stand stand male 80
 AC 0 small unknown
+A det D
 #251
 Sprite~
 a sprite~
@@ -925,12 +962,13 @@ and equally playful.  He is dressed in a brown jerkin and you see that
 its pockets are filled with acorns and nuts.
 ~
 unique~
-ABG DJT 0 0
+ABG JT 0 0
 20 6 2d1+350 1d1+99 4d5+12 stab
 -5 -5 -5 -5
 FU BJN B 0
 stand stand male 80
 AC 0 small unknown
+A det D
 #252
 Sprite~
 a sprite~
@@ -941,12 +979,13 @@ and equally playful.  He is dressed in a brown jerkin and you see that
 its pockets are filled with acorns and nuts.
 ~
 unique~
-ABG DJT 0 0
+ABG JT 0 0
 20 6 2d1+350 1d1+99 4d5+12 stab
 -5 -5 -5 -5
 FU BJN B 0
 stand stand male 80
 AC 0 small unknown
+A det D
 #253
 Sprite~
 a sprite~
@@ -957,12 +996,13 @@ and equally playful.  He is dressed in a brown jerkin and you see that
 its pockets are filled with acorns and nuts.
 ~
 unique~
-ABG DJT 0 0
+ABG JT 0 0
 20 6 2d1+350 1d1+99 4d5+12 stab
 -5 -5 -5 -5
 FU BJN B 0
 stand stand male 80
 AC 0 small unknown
+A det D
 #254
 Dryad~
 a dryad~
@@ -976,12 +1016,13 @@ is just slightly taller than 5 feet and has the eternally beautiful
 and youthful features of the faerie folk.
 ~
 unique~
-ABG DJT 1000 0
+ABG JT 1000 0
 24 6 2d10+500 1d1+99 5d5+5 punch
 -7 -7 -7 -7
 KU BJN B 0
 stand stand female 100
 AC 0 small unknown
+A det D
 #255
 Dryad~
 a dryad~
@@ -995,12 +1036,13 @@ is just slightly taller than 5 feet and has the eternally beautiful
 and youthful features of the faerie folk.
 ~
 unique~
-ABG DJT 1000 0
+ABG JT 1000 0
 24 6 2d10+500 1d1+99 5d5+5 punch
 -7 -7 -7 -7
 KU BJN B 0
 stand stand female 100
 AC 0 small unknown
+A det D
 #256
 Dryad~
 a dryad~
@@ -1014,12 +1056,13 @@ is just slightly taller than 5 feet and has the eternally beautiful
 and youthful features of the faerie folk.
 ~
 unique~
-ABG DJT 1000 0
+ABG JT 1000 0
 24 6 2d10+500 1d1+99 5d5+5 punch
 -7 -7 -7 -7
 KU BJN B 0
 stand stand female 100
 AC 0 small unknown
+A det D
 #257
 Dryad~
 a dryad~
@@ -1033,12 +1076,13 @@ is just slightly taller than 5 feet and has the eternally beautiful
 and youthful features of the faerie folk.
 ~
 unique~
-ABG DJT 1000 0
+ABG JT 1000 0
 24 6 2d10+500 1d1+99 5d5+5 punch
 -7 -7 -7 -7
 KU BJN B 0
 stand stand female 100
 AC 0 small unknown
+A det D
 #258
 Nymph~
 a nymph~
@@ -1051,12 +1095,13 @@ running water and you cannot be sure if it is her singing or a brook
 in the distance.  She calls out to you to join her in her dance.
 ~
 unique~
-ABG DJT 1000 0
+ABG JT 1000 0
 29 9 2d10+750 1d1+99 5d5+10 slap
 -10 -10 -10 -10
 FKU BJN B 0
 stand stand female 150
 AC 0 small unknown
+A det D
 #259
 Nymph~
 a nymph~
@@ -1069,12 +1114,13 @@ running water and you cannot be sure if it is her singing or a brook
 in the distance.  She calls out to you to join her in her dance.
 ~
 unique~
-ABG DJT 1000 0
+ABG JT 1000 0
 29 9 2d10+750 1d1+99 5d5+10 slap
 -10 -10 -10 -10
 FKU BJN B 0
 stand stand female 150
 AC 0 small unknown
+A det D
 #260
 Nymph~
 a nymph~
@@ -1087,12 +1133,13 @@ running water and you cannot be sure if it is her singing or a brook
 in the distance.  She calls out to you to join her in her dance.
 ~
 unique~
-ABG DJT 1000 0
+ABG JT 1000 0
 29 9 2d10+750 1d1+99 5d5+10 slap
 -10 -10 -10 -10
 FKU BJN B 0
 stand stand female 150
 AC 0 small unknown
+A det D
 #261
 Nymph~
 a nymph~
@@ -1105,12 +1152,13 @@ running water and you cannot be sure if it is her singing or a brook
 in the distance.  She calls out to you to join her in her dance.
 ~
 unique~
-ABG DJT 1000 0
+ABG JT 1000 0
 29 9 2d10+750 1d1+99 5d5+10 slap
 -10 -10 -10 -10
 FKU BJN B 0
 stand stand female 150
 AC 0 small unknown
+A det D
 #262
 Ranger~
 a lady ranger~
@@ -1125,12 +1173,13 @@ years, her long blond hair fall gently over her shoulders making
 her strikingly beautiful.
 ~
 unique~
-ABG DJ 1000 0
+ABG J 1000 0
 34 15 2d1+1200 1d1+99 6d6+25 punch
 -8 -8 -8 -8
 FKNU BJLN B 0
 stand stand female 100
 AC 0 medium unknown
+A det D
 #263
 Ranger~
 a lady ranger~
@@ -1145,12 +1194,13 @@ years, her long blond hair fall gently over her shoulders making
 her strikingly beautiful.
 ~
 unique~
-ABG DJ 1000 0
+ABG J 1000 0
 34 15 2d1+1200 1d1+99 6d6+25 punch
 -8 -8 -8 -8
 FKNU BJLN B 0
 stand stand female 100
 AC 0 medium unknown
+A det D
 #264
 Ranger~
 a ranger~
@@ -1164,12 +1214,13 @@ while continues tending to a small deer which seems to have injured
 it's leg.
 ~
 unique~
-ABG DJ 1000 0
+ABG J 1000 0
 39 20 2d1+1700 1d1+99 6d6+35 punch
 -10 -10 -10 -10
 FKNU BJLN B 0
 stand stand male 100
 AC 0 medium unknown
+A det D
 #265
 Ranger~
 a ranger~
@@ -1183,12 +1234,13 @@ while continues tending to a small deer which seems to have injured
 it's leg.
 ~
 unique~
-ABG DJ 1000 0
+ABG J 1000 0
 39 20 2d1+1700 1d1+99 6d6+35 punch
 -10 -10 -10 -10
 FKNU BJLN B 0
 stand stand male 100
 AC 0 medium unknown
+A det D
 #266
 Ranger~
 a ranger~
@@ -1202,12 +1254,13 @@ while continues tending to a small deer which seems to have injured
 it's leg.
 ~
 unique~
-ABG DJ 1000 0
+ABG J 1000 0
 39 20 2d1+1700 1d1+99 6d6+35 punch
 -10 -10 -10 -10
 FKNU BJLN B 0
 stand stand male 100
 AC 0 medium unknown
+A det D
 #267
 Ranger~
 a ranger~
@@ -1221,12 +1274,13 @@ while continues tending to a small deer which seems to have injured
 it's leg.
 ~
 unique~
-ABG DJ 1000 0
+ABG J 1000 0
 39 20 2d1+1700 1d1+99 6d6+35 punch
 -10 -10 -10 -10
 FKNU BJLN B 0
 stand stand male 100
 AC 0 medium unknown
+A det D
 #268
 Gremlin~
 a gremlin~
@@ -1240,12 +1294,13 @@ got 'kill me now' written all over it's forehead in every possible
 language known.
 ~
 unique~
-ABG DJ -1000 0
+ABG J -1000 0
 15 3 2d1+200 1d1+99 4d5+5 pierce
 5 5 5 5
 CDEFJKU AB B N
 stand stand none 50
 AB ABCDEF small unknown
+A det D
 #269
 Gremlin~
 a gremlin~
@@ -1259,12 +1314,13 @@ got 'kill me now' written all over it's forehead in every possible
 language known.
 ~
 unique~
-ABG DJ -1000 0
+ABG J -1000 0
 15 3 2d1+200 1d1+99 4d5+5 pierce
 5 5 5 5
 CDEFJKU AB B N
 stand stand none 50
 AB ABCDEF small unknown
+A det D
 #270
 Gremlin~
 a gremlin~
@@ -1278,12 +1334,13 @@ got 'kill me now' written all over it's forehead in every possible
 language known.
 ~
 unique~
-ABG DJ -1000 0
+ABG J -1000 0
 15 3 2d1+200 1d1+99 4d5+5 pierce
 5 5 5 5
 CDEFJKU AB B N
 stand stand none 50
 AB ABCDEF small unknown
+A det D
 #271
 Gremlin~
 a gremlin~
@@ -1297,12 +1354,13 @@ got 'kill me now' written all over it's forehead in every possible
 language known.
 ~
 unique~
-ABG DJ -1000 0
+ABG J -1000 0
 15 3 2d1+200 1d1+99 4d5+5 pierce
 5 5 5 5
 CDEFJKU AB B N
 stand stand none 50
 AB ABCDEF small unknown
+A det D
 #272
 Pumpkin man~
 the pumpkin man~
@@ -1314,12 +1372,13 @@ It holds its boney hands out-stretched and seems to be asking you
 for a dance.  A tango perhaps, or a foxtrot.
 ~
 unique~
-ABFG DJ -1000 0
+ABFG J -1000 0
 25 10 2d1+600 1d1+99 5d5+15 scratch
 -3 -3 -3 -3
 CDEFJKU AB B N
 stand stand male 50
 AB ABCDEF medium unknown
+A det D
 #273
 Pumpkin man~
 the pumpkin man~
@@ -1331,12 +1390,13 @@ It holds its boney hands out-stretched and seems to be asking you
 for a dance.  A tango perhaps, or a foxtrot.
 ~
 unique~
-ABFG DJ -1000 0
+ABFG J -1000 0
 25 10 2d1+600 1d1+99 5d5+15 scratch
 -3 -3 -3 -3
 CDEFJKU AB B N
 stand stand male 50
 AB ABCDEF medium unknown
+A det D
 #274
 Pumpkin man~
 the pumpkin man~
@@ -1348,12 +1408,13 @@ It holds its boney hands out-stretched and seems to be asking you
 for a dance.  A tango perhaps, or a foxtrot.
 ~
 unique~
-ABFG DJ -1000 0
+ABFG J -1000 0
 25 10 2d1+600 1d1+99 5d5+15 scratch
 -3 -3 -3 -3
 CDEFJKU AB B N
 stand stand male 50
 AB ABCDEF medium unknown
+A det D
 #275
 Pumpkin man~
 the pumpkin man~
@@ -1365,12 +1426,13 @@ It holds its boney hands out-stretched and seems to be asking you
 for a dance.  A tango perhaps, or a foxtrot.
 ~
 unique~
-ABFG DJ -1000 0
+ABFG J -1000 0
 25 10 2d1+600 1d1+99 5d5+15 scratch
 -3 -3 -3 -3
 CDEFJKU AB B N
 stand stand male 50
 AB ABCDEF medium unknown
+A det D
 #276
 Fiendish Donkey~
 a fiendish donkey~
@@ -1382,12 +1444,13 @@ banquet table.  This one looks set to give you a good kick if you won't
 let it continue eating its weeds.  It bares large yellowed teeth at you.
 ~
 unique~
-ABG DJ -950 0
+ABG J -950 0
 20 8 2d1+390 1d1+99 4d5+15 beating
 0 0 0 0
 CDEFJKU B B N
 stand stand none 50
 AB ABCDEF medium unknown
+A det D
 #277
 Fiendish Donkey~
 a fiendish donkey~
@@ -1399,12 +1462,13 @@ banquet table.  This one looks set to give you a good kick if you won't
 let it continue eating its weeds.  It bares large yellowed teeth at you.
 ~
 unique~
-ABG DJ -950 0
+ABG J -950 0
 20 8 2d1+390 1d1+99 4d5+15 beating
 0 0 0 0
 CDEFJKU B B N
 stand stand none 50
 AB ABCDEF medium unknown
+A det D
 #278
 Fiendish Donkey~
 a fiendish donkey~
@@ -1416,12 +1480,13 @@ banquet table.  This one looks set to give you a good kick if you won't
 let it continue eating its weeds.  It bares large yellowed teeth at you.
 ~
 unique~
-ABG DJ -950 0
+ABG J -950 0
 20 8 2d1+390 1d1+99 4d5+15 beating
 0 0 0 0
 CDEFJKU B B N
 stand stand none 50
 AB ABCDEF medium unknown
+A det D
 #279
 Fiendish Donkey~
 a fiendish donkey~
@@ -1433,12 +1498,13 @@ banquet table.  This one looks set to give you a good kick if you won't
 let it continue eating its weeds.  It bares large yellowed teeth at you.
 ~
 unique~
-ABG DJ -950 0
+ABG J -950 0
 20 8 2d1+390 1d1+99 4d5+15 beating
 0 0 0 0
 CDEFJKU B B N
 stand stand none 50
 AB ABCDEF medium unknown
+A det D
 #280
 HellHound dog~
 a hellHound~
@@ -1449,12 +1515,13 @@ fanged maw.  It snarls viciously and circles you slowly, seeming to
 consider you with an evil intelligence.
 ~
 unique~
-ABFG DJ -1000 0
+ABFG J -1000 0
 30 8 2d1+900 1d1+99 5d5+16 bite
 -5 -5 -5 -5
 BEFG AB B N
 stand stand none 15
 AB ABCDEF small unknown
+A det D
 #281
 HellHound dog~
 a hellHound~
@@ -1465,12 +1532,13 @@ fanged maw.  It snarls viciously and circles you slowly, seeming to
 consider you with an evil intelligence.
 ~
 unique~
-ABFG DJ -1000 0
+ABFG J -1000 0
 30 8 2d1+900 1d1+99 5d5+16 bite
 -5 -5 -5 -5
 BEFG AB B N
 stand stand none 15
 AB ABCDEF small unknown
+A det D
 #282
 HellHound dog~
 a hellHound~
@@ -1481,12 +1549,13 @@ fanged maw.  It snarls viciously and circles you slowly, seeming to
 consider you with an evil intelligence.
 ~
 unique~
-ABFG DJ -1000 0
+ABFG J -1000 0
 30 8 2d1+900 1d1+99 5d5+16 bite
 -5 -5 -5 -5
 BEFG AB B N
 stand stand none 15
 AB ABCDEF small unknown
+A det D
 #283
 Devil's Huntsman~
 the Devil's Huntsman~
@@ -1497,12 +1566,13 @@ rotting cape about his body and draws his weapon slowly.  He has been
 preparing for the Great Hunt and in a low voice he intones your name.
 ~
 unique~
-ABFG DJ -1000 0
+ABFG J -1000 0
 35 15 2d1+1700 1d1+99 6d6+25 punch
 -8 -8 -8 -8
 CDEFJKU AB B N
 stand stand male 50
 AB ABCDEF large unknown
+A det D
 #284
 Devil's Huntsman~
 the Devil's Huntsman~
@@ -1513,12 +1583,13 @@ rotting cape about his body and draws his weapon slowly.  He has been
 preparing for the Great Hunt and in a low voice he intones your name.
 ~
 unique~
-ABFG DJ -1000 0
+ABFG J -1000 0
 35 15 2d1+1700 1d1+99 6d6+25 punch
 -8 -8 -8 -8
 CDEFJKU AB B N
 stand stand male 50
 AB ABCDEF large unknown
+A det D
 #285
 Devil's Huntsman~
 the Devil's Huntsman~
@@ -1529,12 +1600,13 @@ rotting cape about his body and draws his weapon slowly.  He has been
 preparing for the Great Hunt and in a low voice he intones your name.
 ~
 unique~
-ABFG DJ -1000 0
+ABFG J -1000 0
 35 15 2d1+1700 1d1+99 6d6+25 punch
 -8 -8 -8 -8
 CDEFJKU AB B N
 stand stand male 50
 AB ABCDEF large unknown
+A det D
 #286
 Devil's Huntsman~
 the Devil's Huntsman~
@@ -1545,12 +1617,13 @@ rotting cape about his body and draws his weapon slowly.  He has been
 preparing for the Great Hunt and in a low voice he intones your name.
 ~
 unique~
-ABFG DJ -1000 0
+ABFG J -1000 0
 35 15 2d1+1700 1d1+99 6d6+25 punch
 -8 -8 -8 -8
 CDEFJKU AB B N
 stand stand male 50
 AB ABCDEF large unknown
+A det D
 #287
 Nymph~
 a nymph~
@@ -1562,12 +1635,13 @@ water as her laughter rings gaily through the forest.  A tunic wrapped
 loosely in a braided cloak of forest green lies among the lilac bushes.
 ~
 unique~
-ABG DJT 1000 0
+ABG JT 1000 0
 27 10 2d10+650 1d1+99 5d5+0 slap
 -8 -8 -8 -8
 FKU BJN B 0
 stand stand female 150
 AC 0 small unknown
+A det D
 #288
 Ranger~
 a ranger~
@@ -1581,12 +1655,13 @@ while continues tending to a small deer which seems to have injured
 it's leg.
 ~
 unique~
-ABG DJ 1000 0
+ABG J 1000 0
 40 20 2d1+1700 1d1+99 6d6+35 punch
 -10 -10 -10 -10
 FKNU BJLN B 0
 stand stand male 100
 AC 0 medium unknown
+A det D
 #289
 Ranger~
 a ranger~
@@ -1600,12 +1675,13 @@ while continues tending to a small deer which seems to have injured
 it's leg.
 ~
 unique~
-ABG DJ 1000 0
+ABG J 1000 0
 40 20 2d1+1700 1d1+99 6d6+35 punch
 -10 -10 -10 -10
 FKNU BJLN B 0
 stand stand male 100
 AC 0 medium unknown
+A det D
 #290
 Ranger~
 a ranger~
@@ -1619,12 +1695,13 @@ while continues tending to a small deer which seems to have injured
 it's leg.
 ~
 unique~
-AG DJ 1000 0
+AG J 1000 0
 40 20 2d1+1700 1d1+99 6d6+35 punch
 -10 -10 -10 -10
 FKNU BJLN B 0
 stand stand male 100
 AC 0 medium unknown
+A det D
 #291
 Devil Lieutenant~
 the Devil Lieutenant~
@@ -1637,12 +1714,13 @@ in the sixth plane of Hell, he now watches over witchwood with his liege of
 huntsmen in service to Gertrude.
 ~
 unique~
-ABFG DFHJ -1000 0
+ABFG HJ -1000 0
 40 14 2d1+1600 1d1+99 8d6+30 magic
 -7 -7 -7 -7
 FKQ AB B HN
 stand stand female 30
 AB ABCDEF medium unknown
+A det DF
 #0
 
 #OBJECTS

@@ -16,12 +16,13 @@ A shadow guardian screams a challenge and attacks.
 It seems to be made of nothing more than darkness ...
 ~
 human~
-ACFG BDJP -350 0
+ACFG BJP -350 0
 7 0 2d6+110 4d9+100 1d8+2 none
 2 2 2 8
 EFNU 0 0 0
 stand stand none 5
 0 0 medium unknown
+A det D
 #1301
 oldstyle adventurer~
 a lost adventurer~
@@ -60,12 +61,13 @@ A huge diamond golem is standing guard here.
 It looks quite strong.
 ~
 golem~
-ABG D 500 0
+ABG 0 500 0
 23 0 5d10+450 11d9+100 3d6+6 none
 -6 -6 -6 6
 EFNU 0 0 0
 stand stand none 49
 0 0 medium unknown
+A det D
 #1304
 oldstyle mage young~
 a mage~
@@ -75,12 +77,13 @@ He seems to be contemplating life, love and the mysteries of the universe.
 Then again, he may just have a headache.
 ~
 human~
-AGHR D 450 0
+AGHR 0 450 0
 10 0 2d6+110 10d9+100 1d8+1 none
 2 2 2 6
 FU 0 0 0
 stand stand male 21
 0 0 medium unknown
+A det D
 #1305
 oldstyle strick bartender~
 Strick the bartender~
@@ -89,12 +92,13 @@ Strick is here levitating drinks to his customers.
 He looks rather harmless, but then again so does a sleeping dragon.
 ~
 human~
-ABGe D 750 0
+ABGe 0 750 0
 25 0 5d10+550 12d9+100 2d10+7 none
 -7 -7 -7 6
 EFNU 0 0 0
 stand stand male 100
 0 0 medium unknown
+A det D
 #1306
 oldstyle tatorious wizard~
 Tatorious~
@@ -103,12 +107,13 @@ Tatorious the wizard is here counting his earnings.
 Tatorious winks at you mischievously.
 ~
 human~
-ABGRe D 900 0
+ABGRe 0 900 0
 25 0 5d10+500 25d9+100 4d4+6 none
 -6 -6 -6 2
 FU 0 0 0
 stand stand male 250
 0 0 medium unknown
+A det D
 #1307
 oldstyle ezmerelda cook~
 Ezmerelda~
@@ -116,12 +121,13 @@ Ezmerelda the cook is here stirring a large pot of something.
 ~
 ~
 human~
-ABGR D -500 0
+ABGR 0 -500 0
 20 0 3d9+308 20d9+100 3d4+4 none
 -4 -4 -4 3
 FU 0 0 0
 stand stand female 54
 0 0 medium unknown
+A det D
 #1308
 oldstyle assistant mage~
 The cook's assistant~
@@ -129,12 +135,13 @@ The cook's assistant is here assisting the cook.
 ~
 ~
 human~
-ABGHR D -200 0
+ABGHR 0 -200 0
 11 0 2d7+121 11d9+100 1d7+2 none
 1 1 1 6
 FU 0 0 0
 stand stand male 5
 0 0 medium unknown
+A det D
 #1309
 oldstyle prisoner~
 The prisoner~
@@ -161,12 +168,13 @@ The Jailor is here enjoying a comfortable nap.
 He looks rather dirty.
 ~
 human~
-ABGR D 100 0
+ABGR 0 100 0
 17 0 3d9+233 17d9+100 1d12+3 none
 -2 -2 -2 4
 FU 0 0 0
 sleep sleep male 66
 0 0 medium unknown
+A det D
 #1311
 oldstyle broom~
 a broom~
@@ -175,12 +183,13 @@ A straw broom is here leaning against the wall.
 The broom screams 'Take that you lout!'
 ~
 human~
-ABCFGS DFJ 50 0
+ABCFGS J 50 0
 7 0 2d7+71 3d9+100 1d7+1 none
 4 4 4 8
 BEFJNU 0 0 0
 stand stand none 0
 0 0 medium unknown
+A det DF
 #1312
 oldstyle lesser guardian hands~
 a pair of disembodied hands~
@@ -203,12 +212,13 @@ A pair of disembodied eyes floats here glaring at you.
 The eyes smolder with hatred.
 ~
 human~
-AFG DJ -600 0
+AFG J -600 0
 15 0 3d9+208 7d9+100 2d6+3 none
 -2 -2 -2 7
 EFNU 0 0 0
 stand stand none 0
 0 0 medium unknown
+A det D
 #1314
 oldstyle mage visitor~
 the mage~
@@ -217,12 +227,13 @@ A visiting mage is here snoring away in peaceful slumber.
 He looks quite sleepy.
 ~
 human~
-ABCGHR D 250 0
+ABCGHR 0 250 0
 12 0 2d8+134 12d9+100 1d8+2 none
 1 1 1 6
 FU 0 0 0
 sleep sleep male 36
 0 0 medium unknown
+A det D
 #1315
 oldstyle apprentice young~
 a young apprentice magic user~
@@ -316,12 +327,13 @@ The instructor screams at your interruption and attacks you.
 He looks quite angry at your interruption.
 ~
 human~
-ABFGR D 300 0
+ABFGR 0 300 0
 14 0 2d10+170 14d9+100 1d10+2 none
 -1 -1 -1 5
 FU 0 0 0
 stand stand male 44
 0 0 medium unknown
+A det D
 #1322
 oldstyle student~
 a student of spells~
@@ -330,12 +342,13 @@ A student of spells is here trying to master invisibility.
 He blinks in and out of existence, trying to master the spell.
 ~
 human~
-ABGHR BD 400 0
+ABGHR B 400 0
 8 0 2d6+85 8d9+100 1d6+1 none
 4 4 4 7
 FU 0 0 0
 stand stand male 9
 0 0 medium unknown
+A det D
 #1323
 oldstyle teacher mage~
 a spell teacher~
@@ -343,12 +356,13 @@ A spell teacher screams at your interruption and attacks.
 ~
 ~
 human~
-ABFGR BD 300 0
+ABFGR B 300 0
 15 0 2d10+190 15d9+100 1d10+3 none
 -1 -1 -1 5
 FU 0 0 0
 stand stand male 62
 0 0 medium unknown
+A det D
 #1324
 oldstyle student~
 a student of spells~
@@ -357,12 +371,13 @@ A student of spells has fallen asleep at her desk here.
 She looks to have collapsed from sheer boredom.
 ~
 human~
-ABGHR D 400 0
+ABGHR 0 400 0
 9 0 2d7+96 9d9+100 1d7+1 none
 3 3 3 7
 FU 0 0 0
 sleep sleep female 28
 0 0 medium unknown
+A det D
 #1325
 oldstyle wizard speaker mage~
 a wizard~
@@ -370,12 +385,13 @@ An old wizard is here making a speech
 ~
 ~
 human~
-ABGHR D 400 0
+ABGHR 0 400 0
 18 0 3d9+258 18d9+100 2d6+3 none
 -3 -3 -3 4
 FU 0 0 0
 stand stand male 123
 0 0 medium unknown
+A det D
 #1326
 oldstyle mage young~
 a young mage~
@@ -383,12 +399,13 @@ A young mage is here learning hand to hand combat.
 ~
 ~
 human~
-ABGHR D 300 0
+ABGHR 0 300 0
 9 0 2d7+96 9d9+100 1d7+1 none
 3 3 3 7
 FU 0 0 0
 stand stand male 34
 0 0 medium unknown
+A det D
 #1327
 oldstyle mistress battle~
 the battle mistress~
@@ -398,12 +415,13 @@ She looks quite rugged. In fact, she more resembles a warrior than a magic
 user.
 ~
 human~
-ABFGR D 200 0
+ABFGR 0 200 0
 17 0 3d9+233 17d9+100 1d12+3 none
 -2 -2 -2 4
 FU 0 0 0
 stand stand female 160
 0 0 medium unknown
+A det D
 #1328
 oldstyle mage teacher~
 a spell teacher~
@@ -411,12 +429,13 @@ A spell teacher is here relaxing.
 ~
 ~
 human~
-ABGR D 200 0
+ABGR 0 200 0
 15 0 2d10+190 15d9+100 1d10+3 none
 -1 -1 -1 5
 FU 0 0 0
 rest rest male 50
 0 0 medium unknown
+A det D
 #1329
 oldstyle wizard~
 an aged wizard~
@@ -424,12 +443,13 @@ An aged wizard is sleeping here.
 ~
 ~
 human~
-ABFGHR D 350 0
+ABFGHR 0 350 0
 20 0 3d9+308 20d9+100 3d4+4 none
 -4 -4 -4 3
 FU 0 0 0
 sleep sleep male 78
 0 0 medium unknown
+A det D
 #1330
 oldstyle scribe mage~
 a scribe~
@@ -437,12 +457,13 @@ A scribe is here working on some manuscripts.
 ~
 ~
 human~
-ABCGHR D 400 0
+ABCGHR 0 400 0
 14 0 2d10+170 14d9+100 1d10+2 none
 -1 -1 -1 5
 FU 0 0 0
 stand stand male 15
 0 0 medium unknown
+A det D
 #1331
 oldstyle scribe mage~
 a scribe~
@@ -452,12 +473,13 @@ She's quite cute.  Too bad her only interest seems to be the words of
 lore she is translating.
 ~
 human~
-ABGHR D 500 0
+ABGHR 0 500 0
 15 0 2d10+190 15d9+100 1d10+3 none
 -1 -1 -1 5
 FU 0 0 0
 stand stand female 34
 0 0 medium unknown
+A det D
 #1332
 oldstyle master scribe~
 the master scribe~
@@ -467,12 +489,13 @@ He seems to be so old, his skin has become nothing but a giant wrinkle.
 The master scribe screams 'How dare you interrupt my important work???'
 ~
 human~
-ABFGHR D 100 0
+ABFGHR 0 100 0
 22 0 4d10+360 22d9+100 2d7+5 none
 -5 -5 -5 3
 FU 0 0 0
 stand stand male 281
 0 0 medium unknown
+A det D
 #1333
 oldstyle assistant scribe~
 the scribe's assistant~
@@ -480,12 +503,13 @@ The scribe's assistant is here folding parchments.
 ~
 ~
 human~
-ABFGHR D 100 0
+ABFGHR 0 100 0
 16 0 3d9+208 16d9+100 2d5+3 none
 -2 -2 -2 4
 FU 0 0 0
 stand stand male 52
 0 0 medium unknown
+A det D
 #1334
 oldstyle master enchanter mage~
 the Enchanter~
@@ -493,12 +517,13 @@ The Enchanter is here placing a dweomer upon well made sword.
 ~
 ~
 human~
-ABGKRe D 0 0
+ABGKRe 0 0 0
 43 30 5d100+6400 23d9+100 2d8+35 none
 -35 -35 -35 -23
 F AB 0 0
 stand stand male 340
 0 0 medium unknown
+A det D
 #1335
 oldstyle sword dancing~
 a dancing sword~
@@ -523,12 +548,13 @@ wildly, and he starts to drool.
 The Mad Alchemist throws back his head and cackles with insane glee!
 ~
 human~
-ABCFGHR D 150 0
+ABCFGHR 0 150 0
 24 0 5d10+450 24d9+100 4d4+5 none
 -6 -6 -6 2
 FU 0 0 0
 stand stand male 117
 0 0 medium unknown
+A det D
 #1337
 oldstyle master summoner~
 the master summoner~
@@ -536,13 +562,14 @@ The master summoner is here holding gateways open to other planes.
 ~
 ~
 human~
-ABFGHR D -200 0
+ABFGHR 0 -200 0
 22 0 4d10+360 22d9+100 2d7+5 none
 -5 -5 -5 3
 FU 0 0 0
 stand stand male 50
 0 0 medium unknown
-M KILL 1300 100~
+A det D
+M kill 1300 100~
 #1338
 oldstyle master charmer~
 the master charmer~
@@ -551,12 +578,13 @@ The master charmer utters the words, 'uuuzzldctz'.
 The master charmer sizes you up, always looking for a new pet.
 ~
 human~
-ABFR D -400 0
+ABFR 0 -400 0
 23 0 5d10+400 23d9+100 2d8+5 none
 -5 -5 -5 3
 FU 0 0 0
 stand stand male 233
 0 0 medium unknown
+A det D
 #1339
 oldstyle golem wooden~
 a wooden golem~
@@ -565,12 +593,13 @@ A wooden golem stands a silent vigil here, guarding the stairs.
 He looks flammable.
 ~
 golem~
-ABFG D 100 0
+ABFG 0 100 0
 16 0 3d9+233 8d9+100 2d6+4 none
 -2 -2 -2 7
 EFNU 0 0 0
 stand stand none 50
 0 0 medium unknown
+A det D
 #1340
 oldstyle master binder~
 the master spell binder~
@@ -579,12 +608,13 @@ The master spell binder is here re-charging a blackened wand.
 The master spell binder snarls at you and attacks.
 ~
 human~
-ABCFGHR D -500 0
+ABCFGHR 0 -500 0
 23 0 5d10+400 23d9+100 2d8+5 none
 -5 -5 -5 3
 FU 0 0 0
 stand stand male 115
 0 0 medium unknown
+A det D
 #1341
 oldstyle master maker~
 the golem maker~
@@ -592,12 +622,13 @@ The golem maker is here chiseling some stone.
 ~
 ~
 human~
-ABFGR D 300 0
+ABFGR 0 300 0
 21 0 3d9+333 21d9+100 2d7+4 none
 -4 -4 -4 3
 FU 0 0 0
 stand stand male 133
 0 0 medium unknown
+A det D
 #1342
 oldstyle golem granite~
 a granite golem~
@@ -677,12 +708,13 @@ A clay golem stands guard here.
 ~
 ~
 golem~
-ABCFG D 200 0
+ABCFG 0 200 0
 15 0 3d9+208 7d9+100 2d6+3 none
 -2 -2 -2 7
 EFNU 0 0 0
 stand stand none 0
 0 0 medium unknown
+A det D
 #1348
 oldstyle master illusionist mage~
 the master of illusions~
@@ -692,12 +724,13 @@ The image of an ugly dragon flickers slightly, and where the dragon was
 now stands a small harmless looking old man.
 ~
 human~
-ABCGKRe CDEFG 150 0
+ABCGKRe 0 150 0
 101 50 1d99+29333 21d9+5100 12d47+60 magic
 -104 -104 -104 -53
 F ABC 0 0
 stand stand male 117
 0 0 medium unknown
+A det CDEFG
 #1349
 oldstyle necromancer master~
 the Necromancer~
@@ -709,12 +742,13 @@ embers which serve as eyes can be seen through the shadow.
 The Necromancer shrieks some obscenities and orders his minions to attack.
 ~
 human~
-ABCFGHR DJ -950 0
+ABCFGHR J -950 0
 25 0 5d10+500 25d9+100 4d4+6 none
 -6 -6 -6 2
 FU 0 0 0
 stand stand male 584
 0 0 medium unknown
+A det D
 #1350
 oldstyle skeleton undead~
 an animated skeleton~
@@ -723,12 +757,13 @@ An animated skeleton screams silently and attacks.
 It feels no pain, and hacks at you ruthlessly.
 ~
 human~
-ABFG DJ -500 0
+ABFG J -500 0
 15 0 3d9+208 7d9+100 2d6+3 none
 -2 -2 -2 7
 EFNU 0 0 E
 stand stand none 0
 0 0 medium unknown
+A det D
 #1351
 oldstyle undead giant~
 an undead giant~
@@ -736,12 +771,13 @@ An undead giant lumbers towards you.
 ~
 ~
 human~
-ABCFG DJ -500 0
+ABCFG J -500 0
 18 0 3d9+283 9d9+100 2d7+4 none
 -3 -3 -3 7
 EFNU 0 0 0
 stand stand none 0
 0 0 medium unknown
+A det D
 #1352
 oldstyle witch hag~
 an ugly witch~
@@ -752,12 +788,13 @@ her mouth should be, comes a disgusting giggling sound that makes your skin
 crawl with revulsion.
 ~
 human~
-ABCFGR DJ -450 0
+ABCFGR J -450 0
 20 0 3d9+308 20d9+100 3d4+4 none
 -4 -4 -4 3
 FU 0 0 0
 stand stand female 107
 0 0 medium unknown
+A det D
 #1353
 oldstyle librarian mage~
 the Librarian~
@@ -766,12 +803,13 @@ The Librarian has fallen asleep at his desk here.
 He looks like a rather peaceful old man.
 ~
 human~
-ABFGHR D 450 0
+ABFGHR 0 450 0
 23 0 5d10+400 23d9+100 2d8+5 none
 -5 -5 -5 3
 FU 0 0 0
 sleep sleep male 64
 0 0 medium unknown
+A det D
 #1354
 oldstyle apprentice~
 the master's apprentice~
@@ -783,12 +821,13 @@ great master in hopes of gleaning secrets one could never hope to uncover
 alone.
 ~
 human~
-ABCFGR D 0 0
+ABCFGR 0 0 0
 24 0 5d10+450 24d9+100 4d4+5 none
 -6 -6 -6 2
 FU 0 0 0
 stand stand male 336
 0 0 medium unknown
+A det D
 #1355
 oldstyle cat grey familiar~
 a grey cat~
@@ -812,12 +851,13 @@ The master of Neutrality stands here contemplating the balance of the universe.
 He looks quite peaceful.
 ~
 human~
-ABGR DH 0 0
+ABGR H 0 0
 30 0 6d12+778 30d9+100 5d4+7 none
 -9 -9 -9 1
 FU 0 0 0
 stand stand male 767
 0 0 medium unknown
+A det D
 #1357
 oldstyle apprentice black~
 a black robed apprentice~
@@ -828,12 +868,13 @@ must have been beautiful, now the scar combined with what seems to be a
 permanent scowl make her looks quite fearsome.
 ~
 human~
-ABCFGR DJP -750 0
+ABCFGR JP -750 0
 20 0 3d9+308 20d9+100 3d4+4 none
 -4 -4 -4 3
 FU 0 0 0
 stand stand female 693
 0 0 medium unknown
+A det D
 #1358
 oldstyle cat black familiar~
 a black cat~
@@ -843,12 +884,13 @@ It looks both mean and dangerous.  Petting seems to be completely out of
 the question.
 ~
 cat~
-ABGR DJP -800 0
+ABGR JP -800 0
 16 0 3d9+208 16d9+100 2d5+3 none
 -2 -2 -2 4
 R 0 0 0
 stand stand none 0
 0 0 medium unknown
+A det D
 #1359
 oldstyle master guildmaster black~
 the master of the black robes~
@@ -857,12 +899,13 @@ The master of the black robes is here plotting vile deeds.
 The master glares at you.
 ~
 human~
-ABCGR DHJ -1000 0
+ABCGR HJ -1000 0
 30 0 6d12+778 30d9+100 5d4+7 none
 -9 -9 -9 1
 FU 0 0 0
 stand stand male 1105
 0 0 medium unknown
+A det D
 #1360
 oldstyle apprentice white~
 a white robed apprentice~
@@ -872,12 +915,13 @@ He looks like a fanatic.
 The apprentice screams 'Thou art unworthy of this honor!'
 ~
 human~
-ABFGR D 750 0
+ABFGR 0 750 0
 20 0 3d9+308 20d9+100 3d4+4 none
 -4 -4 -4 3
 FU 0 0 0
 stand stand male 370
 0 0 medium unknown
+A det D
 #1361
 oldstyle cat white familiar~
 a white cat~
@@ -886,12 +930,13 @@ A white cat is here preening its fur.
 It seems to be nothing more than a large ball of fluff with claws.
 ~
 cat~
-ABGR DP 800 0
+ABGR P 800 0
 15 0 2d10+190 15d9+100 1d10+3 none
 -1 -1 -1 5
 R 0 0 0
 stand stand none 0
 0 0 medium unknown
+A det D
 #1362
 oldstyle master guildmaster white~
 The master of goodness~
@@ -900,12 +945,13 @@ The master of goodness is here frowning at your intrusion.
 He looks like a self-righteous bastard.
 ~
 human~
-ABGR DH 1000 0
+ABGR H 1000 0
 30 0 6d12+778 30d9+100 5d4+7 none
 -9 -9 -9 1
 FU 0 0 0
 stand stand male 1095
 0 0 medium unknown
+A det D
 #1363
 oldstyle cat calico familiar~
 A calico cat~
@@ -915,12 +961,13 @@ It looks incredibly large for a cat, no doubt a giant of its species.
 A beautiful jewel encrusted collar about its neck is its only adornment.
 ~
 cat~
-ABGR DP 800 0
+ABGR P 800 0
 25 0 5d10+500 25d9+100 4d4+6 none
 -6 -6 -6 2
 R 0 0 0
 stand stand female 0
 0 0 medium unknown
+A det D
 #1364
 oldstyle guildmaster grand mistress~
 The Grand Mistress~
@@ -932,12 +979,13 @@ youthful appearance through the use of strong magics.
 The Grand Master pets her familiar and smiles at you in confidence.
 ~
 human~
-ABGKRe DH 0 0
+ABGKRe H 0 0
 50 0 50d10+4000 50d9+100 6d6+17 none
 -19 -19 -19 -4
 FU AB 0 0
 stand stand female 2500
 0 0 medium unknown
+A det D
 #1365
 oldstyle wizard~
 a wizard~
@@ -945,12 +993,13 @@ A wandering wizard is here mumbling to himself.
 ~
 ~
 human~
-ACGR DP 350 0
+ACGR P 350 0
 17 0 3d9+233 17d9+100 1d12+3 none
 -2 -2 -2 4
 FU 0 0 0
 stand stand male 160
 0 0 medium unknown
+A det D
 #0
 
 #OBJECTS

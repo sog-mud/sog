@@ -87,12 +87,13 @@ face and the cold look in his eye bespeak of a man who definitely knows how
 to handle himself in battle.
 ~
 human~
-ABGT CDEFHN 800 0
+ABGT HN 800 0
 55 0 50d10+5500 5d5+5000 10d4+23 slash
 -25 -25 -25 -1
 CDEFIKTU 0 0 0
 stand stand male 200
 0 0 medium unknown
+A det CDEF
 #31205
 guard captain south wall~
 the south wall guard captain~
@@ -104,12 +105,13 @@ face and the cold look in his eye bespeak of a man who definitely knows how
 to handle himself in battle.
 ~
 human~
-ABGT CDEFHN 800 0
+ABGT HN 800 0
 55 0 50d10+5500 5d5+5000 10d4+23 slash
 -25 -25 -25 -1
 CDEFIKTU 0 0 0
 stand stand male 200
 0 0 medium unknown
+A det CDEF
 #31206
 guard captain north wall~
 the north wall guard captain~
@@ -121,12 +123,13 @@ face and the cold look in his eye bespeak of a man who definitely knows how
 to handle himself in battle.
 ~
 human~
-ABGT CDEFHN 800 0
+ABGT HN 800 0
 55 0 50d10+5500 5d5+5000 10d4+23 slash
 -25 -25 -25 -1
 CDEFIKTU 0 0 0
 stand stand male 200
 0 0 medium unknown
+A det CDEF
 #31207
 guard captain west wall~
 the west wall guard captain~
@@ -138,12 +141,13 @@ face and the cold look in his eye bespeak of a man who definitely knows how
 to handle himself in battle.
 ~
 human~
-ABGT CDEFHN 800 0
+ABGT HN 800 0
 55 0 50d10+5500 5d5+5000 10d4+23 slash
 -25 -25 -25 -1
 CDEFIKTU 0 0 0
 stand stand male 200
 0 0 medium unknown
+A det CDEF
 #31208
 knight~
 a knight~
@@ -154,12 +158,13 @@ in existence for 15 generations. However constant wars and incursions of
 chaos have severely depleted their numbers, and now very few remain.
 ~
 human~
-ABGT CDEFHN 1000 0
+ABGT HN 1000 0
 58 0 50d10+6250 5d5+5000 5d10+25 slash
 -28 -28 -28 -3
 CDEFIK 0 0 0
 stand stand male 200
 0 0 medium unknown
+A det CDEF
 #31209
 battle mage~
 an elven battle mage~
@@ -172,12 +177,13 @@ adventurers. Some of them, such as this fellow, labor for the forces of
 good, if the price is right.
 ~
 elf~
-ABGR CDEFT 400 0
+ABGR T 400 0
 56 0 50d10+5750 5d5+5000 10d4+24 pound
 -26 -26 -26 -2
 EIK 0 0 0
 stand stand male 200
 0 0 medium unknown
+A det CDEF
 #31210
 marshal~
 the marshal~
@@ -188,12 +194,13 @@ medals than it does material. He marches proudly along, constantly on
 duty, ever eager to make sure order is maintained on HIS walls.
 ~
 human~
-ABGT CDEFHN 800 0
+ABGT HN 800 0
 62 0 50d10+7250 5d5+5000 6d9+32 slash
 -32 -32 -32 -4
 CEFIK 0 0 0
 stand stand male 200
 0 0 medium unknown
+A det CDEF
 #31211
 crossbowman~
 a crossbowman~
@@ -219,12 +226,13 @@ This doughty dwarf spends all his time repairing damaged equipment. He isn't
 one for much conversation.
 ~
 dwarf~
-ABGT CDEFHN 0 0
+ABGT HN 0 0
 59 0 50d10+6500 5d5+5000 8d6+26 pound
 -29 -29 -29 -3
 CDEFIKTU 0 0 0
 stand stand male 200
 0 0 medium unknown
+A det CDEF
 #31213
 spectre~
 a vile spectre~
@@ -235,12 +243,13 @@ girl here who eventually slew him, dying herself in the process. He has been
 condemned to remain here for eternity in punishment for his sins.
 ~
 unique~
-ABFG CDEFHJNPT -1000 0
+ABFG HJNPT -1000 0
 60 0 50d10+6750 5d5+5000 8d6+28 charge
 -30 -30 -30 -3
 EFIKN 0 0 0
 stand stand none 200
 0 0 medium unknown
+A det CDEF
 #31214
 ghost~
 a ghost~
@@ -252,12 +261,13 @@ escape, but died herself in the process, slipping in his blood and breaking
 her neck. Her spirit remains here, tormented by its misery.
 ~
 unique~
-ABGH BCDEFHJNPQT 1000 0
+ABGH BHJNPQT 1000 0
 60 0 50d10+6750 5d5+5000 8d6+28 magic
 -30 -30 -30 -3
 EF 0 0 0
 stand stand none 200
 0 0 medium unknown
+A det CDEF
 #31215
 priestess~
 a priestess of Lenny~
@@ -268,12 +278,13 @@ smiles at you as you enter, and bids you state your injuries so she can
 heal them.
 ~
 human~
-ABG CDEFHJN 1000 0
+ABG HJN 1000 0
 60 0 50d10+6750 5d5+5000 8d6+28 slap
 -30 -30 -30 -3
 EFNU 0 0 0
 stand stand female 200
 0 0 medium unknown
+A det CDEF
 #31216
 worker~
 a burly worker~

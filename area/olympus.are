@@ -18,12 +18,13 @@ destroy you with a thought.  Every glance penetrates deep into your soul.
 You now know what true fear is.
 ~
 human~
-ABCQ BDFHNT 1000 0
+ABCQ BHNT 1000 0
 60 30 50d10+11000 60d9+100 5d10+28 none
 -30 -30 -30 -3
 EIKU B B 0
 stand stand male 5000
 0 0 medium unknown
+A det DF
 #902
 oldstyle prometheus~
 Prometheus~
@@ -33,12 +34,13 @@ This mortal risked the wrath of Zeus to give the gift of fire to humans.  He
 looks up at you and smiles.
 ~
 human~
-ABC BDFHJNT 1000 0
+ABC BHJNT 1000 0
 51 0 50d10+5000 25d9+100 5d8+20 none
 -21 -21 -21 3
 EFNU B B 0
 stand stand male 2000
 0 0 medium unknown
+A det DF
 #903
 oldstyle hermes~
 Hermes~
@@ -49,12 +51,13 @@ darts from place to place.  He looks very busy, and it seems as if he doesn't
 even notice your presence.
 ~
 human~
-ACS BDFHNPT 1000 0
+ACS BHNPT 1000 0
 56 0 50d10+7000 28d9+100 10d4+23 none
 -25 -25 -25 -1
 BEFJNU 0 0 0
 stand stand male 2500
 0 0 medium unknown
+A det DF
 #904
 oldstyle poseidon~
 Poseidon~
@@ -65,12 +68,13 @@ visiting Mount Olympus.  He nods at you and motions for you to enter and
 have a seat.
 ~
 human~
-ABCR BDFHNT 1000 0
+ABCR BHNT 1000 0
 59 0 50d10+8500 59d9+100 10d4+24 none
 -28 -28 -28 -9
 FU B B 0
 sit stand male 5000
 0 0 medium unknown
+A det DF
 #905
 oldstyle apollo~
 Apollo~
@@ -81,12 +85,13 @@ join him.  You notice a dangerous looking bow by his side, however, and think
 that he knows more than music.
 ~
 human~
-ABC BDFHNT 1000 0
+ABC BHNT 1000 0
 58 0 50d10+8500 29d9+100 5d10+25 none
 -28 -28 -28 1
 EFNU B B 0
 stand stand male 2000
 0 0 medium unknown
+A det DF
 #906
 oldstyle ares~
 Ares~
@@ -96,12 +101,13 @@ The God of War is here, studying some maps.  He scowls at you as you enter
 and says 'I am very busy.  What do you want?'
 ~
 human~
-ABCF BDFHJT -1000 0
+ABCF BHJT -1000 0
 59 0 50d10+9000 29d9+100 8d6+26 none
 -29 -29 -29 1
 EFNU B B 0
 stand stand male 2500
 0 0 medium unknown
+A det DF
 #907
 oldstyle athena~
 Athena~
@@ -111,12 +117,13 @@ Zeus' favorite daughter is sitting on a couch eating grapes.  She smiles at
 you and invites you to join her.
 ~
 human~
-ABC BDFHNT 1000 0
+ABC BHNT 1000 0
 56 0 50d10+7500 28d9+100 10d4+24 none
 -26 -26 -26 1
 EFNU 0 0 0
 stand stand female 3000
 0 0 medium unknown
+A det DF
 #908
 oldstyle hephaestus smith~
 Hephaestus~
@@ -127,12 +134,13 @@ ugly.  You get the impression that he is kind, however, and would go out of his
 way to help you.  He is attended by three golden maidens.
 ~
 human~
-ABC BDFHNT 1000 0
+ABC BHNT 1000 0
 55 0 50d10+7000 27d9+100 10d4+23 none
 -25 -25 -25 2
 EFNU 0 0 0
 stand stand male 3000
 0 0 medium unknown
+A det DF
 #909
 oldstyle handmaid golden~
 A Golden Maiden~
@@ -142,12 +150,13 @@ As you gaze upon this creation, you realize that she is made from solid
 gold.  She seems to be very lifelike as she assists the smith in his work.
 ~
 human~
-ABCT BDFHNT 0 0
+ABCT BHNT 0 0
 26 0 5d10+650 13d9+100 3d7+7 none
 -7 -7 -7 6
 CDEIKLU 0 0 0
 stand stand female 50
 0 0 medium unknown
+A det DF
 #910
 oldstyle soldier~
 A Soldier~
@@ -157,12 +166,13 @@ This man is waiting on Ares.  Although he does not look very strong, you
 realize that Ares would not have any weaklings working for him.
 ~
 human~
-ABCF BDFHJT 0 0
+ABCF BHJT 0 0
 35 0 10d10+1300 17d9+100 4d7+11 none
 -11 -11 -11 5
 EFNU 0 0 0
 stand stand male 250
 0 0 medium unknown
+A det DF
 #911
 oldstyle musician apprentice~
 an apprentice musician~
@@ -172,12 +182,13 @@ This man has mastered his first profession, and is now studying music from the
 immortal Apollo.
 ~
 human~
-ABC BDFHT 1000 0
+ABC BHT 1000 0
 14 0 2d10+190 7d9+100 1d12+3 none
 -1 -1 -1 8
 EFNU 0 0 0
 stand stand male 125
 0 0 medium unknown
+A det DF
 #912
 oldstyle boy serving servant~
 A serving boy~
@@ -186,12 +197,13 @@ A servant is here, feeding Athena her grapes.
 This boy is truly lucky to be able to serve Athena herself.
 ~
 human~
-ABC BDFHT 1000 0
+ABC BHT 1000 0
 6 0 2d7+71 3d9+100 1d7+1 none
 4 4 4 9
 EFNU 0 0 0
 stand stand male 25
 0 0 medium unknown
+A det DF
 #913
 oldstyle hound dog war~
 A hound of war~
@@ -201,12 +213,13 @@ This great beast can barely be called a dog.  It has been bred to cause fear
 on the battle field, and you have no doubt that it does its job well.
 ~
 human~
-ABCF BDFHT -600 0
+ABCF BHT -600 0
 35 0 10d10+1300 17d9+100 4d7+11 none
 -11 -11 -11 5
 EFNU 0 0 0
 stand stand none 0
 0 0 medium unknown
+A det DF
 #914
 oldstyle Odin~
 Odin~
@@ -217,12 +230,13 @@ over you, and is so intent on his activities that he barely recognizes your
 presence.
 ~
 human~
-ABC BDFHNT 1000 0
+ABC BHNT 1000 0
 60 30 50d10+9500 30d9+100 8d6+28 none
 -50 -50 -50 -20
 EFNU 0 0 0
 stand stand male 5000
 0 0 medium unknown
+A det DF
 #915
 oldstyle grocer greengrocer julius~
 Julius the Green Grocer~
@@ -234,12 +248,13 @@ not to underestimate him.  He smiles warmly at you and shows you his selection
 of delicious looking foods.
 ~
 human~
-ABCe BDFHNT 1000 0
+ABCe BHNT 1000 0
 50 0 50d10+4500 25d9+100 5d8+19 none
 -40 -40 -40 -13
 EFNU 0 0 0
 stand stand male 500
 0 0 medium unknown
+A det DF
 #916
 oldstyle alchemist~
 the Alchemist~
@@ -250,12 +265,13 @@ stands ready to supply the citizens here (but not you) with all manner of
 arcane supplies.
 ~
 human~
-ABC BDFHNT 1000 0
+ABC BHNT 1000 0
 50 0 50d10+9500 25d9+100 5d8+19 none
 -40 -40 -40 -13
 EFNU 0 0 0
 stand stand male 500
 0 0 medium unknown
+A det DF
 #917
 oldstyle clive~
 Clive the Weapons Master~
@@ -265,12 +281,13 @@ Clive looks VERY big and VERY tough.  All those years in the army must have
 paid off.
 ~
 human~
-ABC BDFHNT 1000 0
+ABC BHNT 1000 0
 50 0 50d10+4500 25d9+100 5d8+19 none
 -20 -20 -20 3
 EFNU 0 0 0
 stand stand male 2000
 0 0 medium unknown
+A det DF
 #918
 oldstyle armourer samuel~
 Samuel the Armourer~
@@ -280,12 +297,13 @@ Samuel looks just like Clive the Weapons Master: VERY big and VERY tough.
 He doesn't like what you've been doing in his city.
 ~
 human~
-ABCF BDFHNT 1000 0
+ABCF BHNT 1000 0
 34 0 10d10+1500 17d9+100 4d7+10 none
 -11 -11 -11 5
 EFNU 0 0 0
 stand stand male 500
 0 0 medium unknown
+A det DF
 #919
 oldstyle ra sun god~
 Ra the Sun God~
@@ -296,12 +314,13 @@ about his appearance.  What you can tell, however, suggests that he is no one
 to be trifled with.
 ~
 human~
-ABC BDFHNT 1000 0
+ABC BHNT 1000 0
 60 85 50d10+12000 30d9+100 8d6+28 none
 -40 -40 -40 0
 ENR B B 0
 stand stand male 5000
 0 0 medium unknown
+A det DF
 #920
 oldstyle chimera~
 a chimera~
@@ -311,12 +330,13 @@ This bizarre creature has three heads - one of a goat, one of a lion, and one
 of a dragon.  It growls at you as you enter the cell, then suddenly attacks!
 ~
 human~
-ABCF BDFHJT -1000 0
+ABCF BHJT -1000 0
 34 0 10d10+1200 17d9+100 4d7+10 none
 -11 -11 -11 5
 EFNU 0 0 0
 stand stand male 50
 0 0 medium unknown
+A det DF
 #921
 oldstyle hera~
 Hera~
@@ -326,12 +346,13 @@ Hera, the wife of Zeus is here.  She smiles at you as you enter and invites you
 to rest and sit for a while.
 ~
 human~
-ABCQ BDFHNT 1000 0
+ABCQ BHNT 1000 0
 59 0 50d10+9000 59d9+100 6d8+26 none
 -29 -29 -29 -3
 EIKU B B 0
 stand stand female 5000
 0 0 medium unknown
+A det DF
 #922
 oldstyle roc~
 a roc~
@@ -341,12 +362,13 @@ This is a giant bird.  It looks at you quizzically, then makes a noise and
 looks away.
 ~
 human~
-AC BDFHNT 0 0
+AC BHNT 0 0
 25 0 5d10+550 12d9+100 2d10+7 none
 -7 -7 -7 6
 EFNU 0 0 0
 stand stand none 250
 0 0 medium unknown
+A det DF
 #923
 oldstyle citizen resident~
 A citizen~
@@ -355,12 +377,13 @@ A citizen of this town is strolling down the street here.
 He looks happy and carefree.  He smiles and tips his hat to you.
 ~
 human~
-ACS BDFHNT 1000 0
+ACS BHNT 1000 0
 6 0 2d6+60 3d9+100 1d6+1 none
 5 5 5 9
 BEFJNU 0 0 0
 stand stand male 3
 0 0 medium unknown
+A det DF
 #924
 oldstyle pegasus horse~
 a pegasus~
@@ -370,12 +393,13 @@ This horse is snow white with large wings.  Although it doesn't look very
 threatening, it seems as though it would be dangerous if provoked.
 ~
 human~
-ACZ BDFHNT 0 0
+ACZ BHNT 0 0
 14 0 2d10+190 7d9+100 1d12+3 none
 -1 -1 -1 8
 EFNU 0 0 0
 stand stand none 40
 0 0 medium unknown
+A det DF
 #925
 oldstyle cook~
 A Cook~
@@ -384,12 +408,13 @@ A cook is here, hard at work.
 This man looks as is he has been spending WAY too much time in the kitchen.
 ~
 human~
-ABC BDFHNT 1000 0
+ABC BHNT 1000 0
 8 0 2d7+96 4d9+100 1d7+2 none
 3 3 3 9
 EFNU 0 0 0
 stand stand male 5
 0 0 medium unknown
+A det DF
 #926
 oldstyle jailer~
 The Jailer~
@@ -399,12 +424,13 @@ He looks as though he has spent a lot of time underground, guarding the
 prisoners.
 ~
 human~
-ABCR BDFHJNT 0 0
+ABCR BHJNT 0 0
 22 0 4d10+360 22d9+100 2d7+5 none
 -5 -5 -5 3
 FU 0 0 0
 stand stand male 50
 0 0 medium unknown
+A det DF
 #0
 
 #OBJECTS

@@ -98,12 +98,13 @@ and slew. But he underestimated his master's power, and now he as returned
 as a Lich, seeking revenge!
 ~
 human~
-ABFGO DFJ -1000 0
+ABFGO J -1000 0
 58 0 50d10+6250 10d10+1110 5d10+25 pierce
 -28 -28 -28 2
 EFNQ AB T K
 stand stand male 5800
 0 0 medium unknown
+A det DF
 #8106
 demon~
 a lesser demon~
@@ -223,12 +224,13 @@ A GIANT Rat savagely charges you!
 When I say GIANT, I am talking ten feet high...
 ~
 unique~
-ACFGHO DFQ -1000 0
+ACFGHO Q -1000 0
 40 0 10d10+1850 10d10+100 4d8+13 charge
 -13 -13 -13 4
 EFNQ 0 0 0
 stand stand none 5000
 0 0 medium unknown
+A det DF
 #8114
 giant spider~
 a giant spider~
@@ -315,12 +317,13 @@ after the weak Xantharus lost control of his creations. He is a powerful,
 diabolically evil mage, and will not hesitate to destroy you.
 ~
 human~
-ABFGHO CDEFH -1000 0
+ABFGHO H -1000 0
 60 0 50d10+6750 10d10+1000 8d6+28 pierce
 -30 -30 -30 0
 EFNQ 0 0 0
 stand stand none 5300
 0 0 medium unknown
+A det CDEF
 #8120
 shambling mound~
 a shambling mound~
@@ -483,12 +486,13 @@ master, and inform his master if the strange man poses a significant threat
 to his domination of all things Undead.
 ~
 undead~
-ACGHO EQV -1000 0
+ACGHO QV -1000 0
 50 0 50d10+4250 10d10+1000 5d8+19 pound
 -40 -40 -40 2
 EFNQ 0 0 0
 stand stand none 5000
 0 0 medium unknown
+A det E
 #8131
 orcus~
 Orcus~
@@ -501,12 +505,13 @@ He is not really meant to be here, and thus will avoid attracting attention
 of the powers of the Prime Material Plane by avoiding combat.
 ~
 undead~
-ABGHO BEHN -1000 0
+ABGHO BHN -1000 0
 65 0 50d10+8250 10d10+1000 11d5+35 pierce
 -35 -35 -35 -4
 EFNQ 0 0 0
 stand stand none 5000
 I 0 medium unknown
+A det E
 #8132
 water weird~
 a water weird~

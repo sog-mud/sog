@@ -18,12 +18,13 @@ eyestalks atop the round body which can do anything from charm you
 to disintegrate you.  Beholders are not known for their personality.
 ~
 human~
-ABHKRe D -870 0
+ABHKRe 0 -870 0
 25 10 5d10+2500 25d9+100 4d4+16 none
 -16 -16 -16 -2
 F ABC 0 0
 stand stand none 1128
 0 0 medium unknown
+A det D
 #5201
 oldstyle lamia beast~
 The lamia~

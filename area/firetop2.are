@@ -163,12 +163,13 @@ This specially made Iron Golem is extremely tough and powerful. Although not
 aggressive, it will certainly attack if you seek to take its gem.
 ~
 giant~
-ABG DHJNO 0 0
+ABG HJNO 0 0
 15 0 3d9+208 149d1+1 2d6+3 bite
 -2 -2 -2 7
 IR A 0 Y
 stand stand male 10
 0 0 huge unknown
+A det D
 #5745
 barbarian~
 an insane Barbarian~
@@ -195,12 +196,13 @@ appearance, this elderly gentleman is more than capable of taking care of
 himself. He can sell you lighting equipment for the journey ahead.
 ~
 human~
-ABCGRe CDEFHNO 400 0
+ABCGRe HNO 400 0
 30 0 6d12+853 299d1+1 4d6+8 scratch
 -9 -9 -9 6
 0 0 0 0
 stand stand male 500
 0 0 medium unknown
+A det CDEF
 #5747
 old man wererat~
 an old man who is a Wererat~
@@ -210,12 +212,13 @@ This seemingly harmless old coot is actually a powerful lycanthrope, who
 will not hesitate to kill you if you threaten him.
 ~
 human~
-ABCG DFHJNO 0 0
+ABCG HJNO 0 0
 13 0 2d10+170 129d1+1 2d5+3 punch
 -1 -1 -1 8
 IR A 0 P
 stand stand male 20
 0 0 medium unknown
+A det DF
 #5748
 neanderthal caveman man~
 A lumbering Neanderthal~
@@ -226,12 +229,13 @@ but has a blow like a sledgehammer and a hide like a stone wall, so fight
 well!
 ~
 human~
-ABCFG EFJNO 0 0
+ABCFG JNO 0 0
 12 0 2d10+150 119d1+1 1d10+3 pound
 0 0 0 8
 IR AB 0 0
 stand stand male 0
 0 0 medium unknown
+A det EF
 #5749
 bat giant~
 a giant Bat~
@@ -242,12 +246,13 @@ pointy fangs dripping potent venom, it is quite a formidable sight. Better
 be careful with this one.
 ~
 bat~
-ABCFG DJNO -400 0
+ABCFG JNO -400 0
 11 0 2d8+134 109d1+1 1d10+2 beating
 1 1 1 8
 IR AB 0 0
 stand stand either 0
 0 0 medium unknown
+A det D
 #5750
 spider giant~
 a giant Spider~
@@ -259,12 +264,13 @@ the way its beady eyes stare evilly at you as is approaches, or the way the
 venom dripping from its maw burns into the stone as it falls...
 ~
 human~
-ABFG DJ -400 0
+ABFG J -400 0
 12 0 2d10+150 119d1+1 1d10+3 beating
 0 0 0 8
 IR AB 0 0
 stand stand male 0
 0 0 medium unknown
+A det D
 #5751
 ogre~
 an Ogre~
@@ -308,12 +314,13 @@ blood. It lashes at you with its sharp claws and seeks to clamp its fangs
 around your neck!
 ~
 human~
-ABFG DJ -400 0
+ABFG J -400 0
 10 0 2d7+121 99d1+1 2d4+2 smash
 1 1 1 8
 0 0 AB 0
 stand stand male 30
 0 0 medium unknown
+A det D
 #5754
 giant~
 a burly Giant~
@@ -354,12 +361,13 @@ This big fellow makes sea serpents of old look tiny. His circular maw is
 lined with rows and rows of teeth, all ready to bite into you!.
 ~
 human~
-ABFG DJNO 0 0
+ABFG JNO 0 0
 16 0 3d9+233 159d1+1 2d6+4 crush
 -2 -2 -2 7
 IR 0 0 0
 stand stand male 10
 0 0 huge unknown
+A det D
 #5757
 skeleton~
 a Skeleton worker~
@@ -370,12 +378,13 @@ to pay any mind to you. It will, however, act to defend itself if assaulted,
 as will its many comrades.
 ~
 human~
-ABCG DNO 0 0
+ABCG NO 0 0
 12 0 2d10+150 119d1+1 2d5+3 pound
 0 0 0 8
 R 0 0 0
 stand stand male 10
 0 0 medium unknown
+A det D
 #5758
 wight~
 a Wight~
@@ -387,12 +396,13 @@ including its long, sharp, poisoned fangs and claws, its resistance to
 physical blows, and its nauseating stench.
 ~
 human~
-ABCFGO DHJNO -1000 0
+ABCFGO HJNO -1000 0
 14 0 2d10+190 139d1+1 1d12+3 slap
 -1 -1 -1 8
 IR AB 0 K
 stand stand male 100
 0 0 medium unknown
+A det D
 #5759
 zombie~
 a Zombie~
@@ -419,12 +429,13 @@ you may find that it is not like msot other Dogs, in that it is very tough
 and has certain abilities that may catch you by surprise...
 ~
 dog~
-ABG DFJNO 0 0
+ABG JNO 0 0
 12 0 2d10+150 119d1+1 1d10+3 cleave
 0 0 0 8
 0 0 0 0
 stand stand male 10
 0 0 medium unknown
+A det DF
 #5761
 werewolf man~
 a Werewolf~
@@ -450,12 +461,13 @@ This decaying corpse-like undead slashes at you with its filthy fingernails,
 attempting to slay and devour you!
 ~
 human~
-ABFG DJNO -500 0
+ABFG JNO -500 0
 13 0 2d10+170 129d1+1 2d5+3 blast
 -1 -1 -1 8
 I AB 0 0
 stand stand male 10
 0 0 medium unknown
+A det D
 #5763
 vampire~
 an evil Vampire~
@@ -466,12 +478,13 @@ towards you, attempting to make eye contact with you, so that it can charm
 you and then feat upon you at its leisure.
 ~
 human~
-ABCFGO DFHJT -1000 0
+ABCFGO HJT -1000 0
 17 0 3d9+258 169d1+1 3d4+4 smash
 -3 -3 -3 7
 IR AB K 0
 stand stand male 200
 0 0 medium unknown
+A det DF
 #5764
 dwarf~
 a Dwarf~
@@ -524,12 +537,13 @@ You have been KILLED!!!
 BATTLE UPDATE : adventurer killed by an enormous red dragon.
 ~
 dragon~
-ABCFG CDEFHNO -1000 0
+ABCFG HNO -1000 0
 20 0 4d10+360 199d1+1 2d8+5 beating
 -4 -4 -4 7
 R AB 0 K
 stand stand male 500
 0 0 medium unknown
+A det CDEF
 #5767
 warlock~
 the Warlock of Firetop Mountain~
@@ -540,12 +554,13 @@ Velvet and Gold. Sparks fly from his gloved hands as he stares grimly at you,
 waiting for you to move. Already, you know you are in for a heck of a fight...
 ~
 human~
-ABCGR CDEFHJNOU -1000 0
+ABCGR HJNOU -1000 0
 23 0 5d10+450 229d1+1 3d6+6 pierce
 -6 -6 -6 6
 R AB 0 K
 stand stand male 800
 0 0 medium unknown
+A det CDEF
 #5768
 hand~
 a hand~
@@ -554,12 +569,13 @@ An animated Hand strikes at you!
 This hand rises up from the floor and begins to beat you!
 ~
 human~
-ABCFGS DJ 0 0
+ABCFGS J 0 0
 10 0 2d7+121 99d1+1 2d4+2 slash
 1 1 1 8
 0 0 0 0
 stand stand either 0
 0 0 medium unknown
+A det D
 #5769
 crocodile croc~
 a crocodile~
@@ -569,12 +585,13 @@ This huge reptile is hideous and mean, and it looks eager to bury its many
 pointed teeth in your body!
 ~
 human~
-ABFG DJ 0 0
+ABFG J 0 0
 12 0 2d10+150 119d1+1 1d10+3 crush
 0 0 0 8
 0 0 0 0
 stand stand either 0
 0 0 medium unknown
+A det D
 #5770
 gas beast~
 a gas beast~
@@ -584,12 +601,13 @@ This horrid creature is little more than a gas cloud with a will of its own,
 and as such is very hard to kill.
 ~
 human~
-ABFG DFHJNOT -1000 0
+ABFG HJNOT -1000 0
 15 0 3d9+208 149d1+1 1d12+3 punch
 -2 -2 -2 7
 0 0 0 0
 stand stand either 10
 0 0 medium unknown
+A det DF
 #0
 
 #OBJECTS

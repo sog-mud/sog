@@ -222,12 +222,13 @@ You see a huge flame which resembles the shape of a bat.  The creature
 hangs from the ceiling and bites at you.
 ~
 bat~
-ABCF DJ -900 0
+ABCF J -900 0
 12 0 2d10+150 6d9+100 1d10+3 none
 0 0 0 8
 ENR 0 0 0
 stand stand male 300
 0 0 medium unknown
+A det D
 #1516
 oldstyle guard hobgoblin~
 the hobgoblin guard~

@@ -77,12 +77,13 @@ You can smell the alcohol on his breath from across the room.  This poor bard
 has been sitting here quite a while, drinking himself into oblivion.
 ~
 human~
-ABST D 600 0
+ABST 0 600 0
 8 3 1d12+110 1d1+99 2d6+0 punch
 3 5 3 6
 FIJKNQ 0 0 0
 sit sit male 260
 0 0 medium unknown
+A det D
 #3505
 horseman dark~
 the dark horseman~

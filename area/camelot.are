@@ -63,12 +63,13 @@ armor emblazoned with the sign of a gold dragon. He carries Excalibur
 in a strange looking sheath.
 ~
 human~
-ABX DH 1000 0
+ABX H 1000 0
 38 0 10d10+1600 5d5+1000 5d6+12 pound
 -13 -13 -13 3
 EFNU 0 0 0
 stand stand male 1000
 0 0 medium unknown
+A det D
 #17305
 benlad knight green~
 Sir Benlad de Haudtesert (the green knight)~
@@ -94,12 +95,13 @@ Sir Galahad is dressed in his white armor and carries a two handed sword
 saga)
 ~
 human~
-ABX CDFN 1000 0
+ABX N 1000 0
 40 0 15d10+1850 5d5+1000 4d8+13 slash
 -13 -13 -13 3
 EFNU 0 0 0
 stand stand male 1000
 0 0 medium unknown
+A det CDF
 #17307
 black knight~
 the black knight~
@@ -109,14 +111,15 @@ The black knight has black armor and a visored helm. He stands resting on
 a two handed sword.
 ~
 human~
-AB DF 0 0
+AB 0 0 0
 20 0 3d9+333 5d5+1000 2d8+5 pound
 -4 -4 -4 5
 EFNU 0 0 0
 stand stand male 1000
 0 0 medium unknown
-M GREET 17000 100~
-M GREET 17000 all~
+A det DF
+M greet 17000 100~
+M greet 17000 all~
 #17308
 gareth knight~
 Sir Gareth~
@@ -142,12 +145,13 @@ Sir Garlon (the vile villian) is hiding here. He was given his invisibility
 power by the witch of the fens for the furtherment of evil.
 ~
 human~
-ABF BDJP -1000 0
+ABF BJP -1000 0
 28 0 6d12+703 5d5+1000 2d12+8 pound
 -8 -8 -8 4
 EFNU 0 0 0
 stand stand male 1000
 0 0 medium unknown
+A det D
 #17310
 gawaine knight~
 Sir Gawaine~
@@ -188,12 +192,13 @@ Sir Lancelot is mounted upon a white charger and is wearing polished steel
 armor. His visor is up, and his lance raised in salute to you.
 ~
 human~
-ABJKX DFHN 1000 0
+ABJKX HN 1000 0
 44 0 25d10+2750 5d5+1000 8d4+15 crush
 -15 -15 -15 2
 EFNU 0 0 0
 stand stand male 1000
 0 0 medium unknown
+A det DF
 #17313
 merlin mage~
 Merlin~
@@ -204,12 +209,13 @@ an earthy colored robe and bears a twisted staff. His flowing white beard
 offsets his rosy cheeks and sparkling blue eyes.
 ~
 human~
-ABCH CDEJT 750 0
+ABCH JT 750 0
 40 0 15d10+1850 5d5+1000 4d8+13 pound
 -13 -13 -13 3
 EFNU 0 0 0
 stand stand male 1000
 0 0 medium unknown
+A det CDE
 #17314
 morgan mage~
 Morgan Le Fey~
@@ -236,12 +242,13 @@ Beast for generations and asks if you have seen it. Pelinore is just past
 middle age, though he is still a stout fighter.
 ~
 human~
-A F 0 0
+A 0 0 0
 28 0 6d12+703 5d5+1000 2d12+8 pound
 -8 -8 -8 4
 EFNU 0 0 0
 stand stand male 1000
 0 0 medium unknown
+A det F
 #17316
 beast questing~
 the Questing Beast~
@@ -254,12 +261,13 @@ You sure are BLEEDING!
 The Questing Beast is in perfect health.
 ~
 human~
-ABFH DFJPQ -1000 0
+ABFH JPQ -1000 0
 24 0 5d10+500 5d5+1000 2d10+6 claw
 -6 -6 -6 4
 FMU J HIJK FI
 stand stand none 1000
 Zc LPQUVX huge unknown
+A det DF
 #17317
 tristram~
 Sir Tristram of Lyoness~
@@ -576,12 +584,13 @@ has slipped a few times, enabling the demon to give out a few artifacts
 to encourage the downfall of Camelot (Morgana, Pict leader).
 ~
 unique~
-ABKe CDEFHJK -1000 0
+ABKe HJK -1000 0
 52 0 50d10+7750 5d5+5000 8d9+20 charge
 -22 -22 -22 0
 EFNU 0 HIJK F
 stand stand none 1000
 AHMVZc ABCDEFGHIJKLPQUVX medium unknown
+A det CDEF
 #17338
 jack iron~
 Iron Jack~
@@ -693,12 +702,13 @@ The Saxon chief, Render (you know his name because of the general grunting),
 is decked in the spoils of war. All and all you think he has lice.
 ~
 human~
-ABCF DFQ -500 0
+ABCF Q -500 0
 28 0 6d12+703 5d5+1000 2d12+8 pound
 -8 -8 -8 4
 EFNU 0 0 0
 stand stand male 1000
 0 0 medium unknown
+A det DF
 #17346
 guard border northern~
 A northern border guard~
@@ -707,12 +717,13 @@ A northern border guard is here, stoically holding the line against intruders.
 The border guard wears chain armor and is equipped with a standard sword.
 ~
 human~
-AB FN 300 0
+AB N 300 0
 20 0 3d9+333 5d5+1000 2d8+5 pound
 -4 -4 -4 5
 EFNU 0 0 0
 stand stand male 1000
 0 0 medium unknown
+A det F
 #17347
 commander outpost~
 The northern outpost commander~
@@ -722,12 +733,13 @@ The outpost commander is a hardened, grizzled veteran with the cunning that
 comes from a life of leading men in endless battle.
 ~
 human~
-ABK DFN 500 0
+ABK N 500 0
 25 0 5d10+550 5d5+1000 2d10+7 pound
 -7 -7 -7 4
 EFNU 0 0 0
 stand stand male 1000
 0 0 medium unknown
+A det DF
 #17348
 clansman scot~
 A Scot clansman~
@@ -800,12 +812,13 @@ The Angle chief is a giant of a man, covered in blood, and laughing with
 a deep boom at each kill.
 ~
 human~
-ABF F -700 0
+ABF 0 -700 0
 30 0 6d12+853 5d5+1000 4d6+8 pound
 -9 -9 -9 3
 EFNU 0 0 0
 stand stand male 1000
 0 0 medium unknown
+A det F
 #17353
 calvary unit~
 The calvary unit~
@@ -933,12 +946,13 @@ The outpost commander is a hardened, grizzled veteran with the cunning that
 comes from a life of leading men in endless battle.
 ~
 human~
-ABK DFN 500 0
+ABK N 500 0
 25 0 5d10+550 5d5+1000 2d10+7 punch
 -7 -7 -7 4
 EFNU 0 0 0
 stand stand male 1000
 0 0 medium unknown
+A det DF
 #17362
 guard border southern~
 A southern border guard~
@@ -947,12 +961,13 @@ A southern border guard is here, stoically holding the line against intruders.
 The border guard wears chain armor and is equipped with a standard sword.
 ~
 human~
-AB FN 300 0
+AB N 300 0
 20 0 3d9+333 5d5+1000 2d8+5 pound
 -4 -4 -4 5
 EFNU 0 0 0
 stand stand male 1000
 0 0 medium unknown
+A det F
 #17363
 slave~
 A slave~

@@ -18,12 +18,13 @@ was involved in the carnage that occurred here. His soul is trapped here, as
 he waits for release.
 ~
 human~
-AB DHJ -1000 0
+AB HJ -1000 0
 25 0 5d10+550 12d9+100 2d10+7 none
 -7 -7 -7 6
 EFNU 0 0 0
 stand stand male 1250
 0 0 medium unknown
+A det D
 #2301
 oldstyle treant tree~
 the Old Treant~
@@ -50,12 +51,13 @@ a bird's beak, huge white eyes, a furry body, and long clawed hands and feet.
 It sees you and snarls.
 ~
 human~
-ABF CEJP 0 0
+ABF JP 0 0
 15 0 3d9+208 7d9+100 2d6+3 none
 -2 -2 -2 7
 EFNU 0 0 0
 stand stand none 125
 0 0 medium unknown
+A det CE
 #2303
 oldstyle toad rock~
 the Rock Toad~
@@ -79,12 +81,13 @@ The weeping willow has long thins branches. These branches seem to droop in
 anguish and dismay. You hear a faint sound of crying.
 ~
 human~
-AB DHJ 1000 0
+AB HJ 1000 0
 25 0 5d10+550 12d9+100 2d10+7 none
 -7 -7 -7 6
 EFNU 0 0 0
 stand stand female 1000
 0 0 medium unknown
+A det D
 #2305
 oldstyle mist mistling~
 the Mistling~
@@ -169,12 +172,13 @@ The ogre shaman is draped in thick fur cloaks and pelts. He has all types of
 charms and holy symbols draped about him. He looks at you and snarls.
 ~
 human~
-ABCFGHQ DH -750 0
+ABCFGHQ H -750 0
 20 0 3d9+333 20d9+100 2d7+5 none
 -4 -4 -4 6
 EIKU 0 0 0
 stand stand male 2500
 0 0 medium unknown
+A det D
 #2311
 oldstyle chief chieftain ogre~
 the Ogre Chieftain~
@@ -184,12 +188,13 @@ This is the biggest ogre you have ever seen. He is heavily equipped and looks
 quite formidable. He towers high above you and growls menacingly.
 ~
 human~
-ABCFGH DH -1000 0
+ABCFGH H -1000 0
 25 0 5d10+550 12d9+100 2d10+7 none
 -7 -7 -7 6
 EFNU 0 0 0
 stand stand male 2500
 0 0 medium unknown
+A det D
 #2312
 oldstyle barbarian~
 the Plains Barbarian~
@@ -290,12 +295,13 @@ The minotaur stands rigidly before the gates of the keep. It looks quite
 miserable standing in the driven snow and ice.
 ~
 human~
-ABCG D -330 0
+ABCG 0 -330 0
 25 0 5d10+550 12d9+100 2d10+7 none
 -7 -7 -7 6
 EFNU 0 0 0
 stand stand none 1250
 0 0 medium unknown
+A det D
 #2319
 oldstyle minotaur high guard~
 the High Minotaur Guard~
@@ -305,12 +311,13 @@ The high guard is dressed in blue plate armour. He looks quite dangerous and
 skilled.
 ~
 human~
-ABCFG D -330 0
+ABCFG 0 -330 0
 25 0 5d10+550 12d9+100 2d10+7 none
 -7 -7 -7 6
 EFNU 0 0 0
 stand stand male 2250
 0 0 medium unknown
+A det D
 #2320
 oldstyle minotaur royal guard~
 the Royal Minotaur Guard~
@@ -320,12 +327,13 @@ The royal guard is quite huge. He is dressed in heavy red armor and wields a
 huge glaive. He looks quite capable of protecting the keep.
 ~
 human~
-ABCFG D -330 0
+ABCFG 0 -330 0
 26 0 5d10+600 13d9+100 3d7+7 none
 -7 -7 -7 6
 EFNU 0 0 0
 stand stand male 2500
 0 0 medium unknown
+A det D
 #2321
 oldstyle guard minotaur elite~
 the Elite Minotaur Guard~
@@ -335,12 +343,13 @@ This minotaur wields a huge morningstar and is clad in heavy crimson plate and
 furs.
 ~
 human~
-ABCFG D -250 0
+ABCFG 0 -250 0
 28 0 6d12+703 14d9+100 5d4+8 none
 -8 -8 -8 6
 EFNU 0 0 0
 stand stand male 3750
 0 0 medium unknown
+A det D
 #2322
 oldstyle girl haremgirl harem slave~
 the Harem Girl~
@@ -379,12 +388,13 @@ The ring-keeper is a huge minotaur. You notice a huge ring of multicolored
 keys hanging from his belt. He wears huge, spiked brass knuckles.
 ~
 human~
-ABCGR DH -300 0
+ABCGR H -300 0
 29 0 6d12+703 29d9+100 3d7+7 none
 -8 -8 -8 1
 FU 0 0 0
 stand stand male 2500
 0 0 medium unknown
+A det D
 #2325
 oldstyle gorak minotaur warrior master~
 Gorak~
@@ -394,12 +404,13 @@ Gorak is HUGE. His bulging muscles are confined beneath heavy armor. He is the
 master of the warrior guild of Mahn-Tor.
 ~
 human~
-ABF DH -300 0
+ABF H -300 0
 30 0 6d12+853 15d9+100 4d6+8 none
 -9 -9 -9 6
 EFNU 0 0 0
 stand stand male 5000
 0 0 medium unknown
+A det D
 #2326
 oldstyle darkoth minotaur anti-paladin master~
 Darkoth~
@@ -409,12 +420,13 @@ Darkoth is a living incarnation of evil. He radiates a dark aura, and a cold
 chill runs down your spine. He is the master of the Mahn-Tor anti-paladins.
 ~
 human~
-ABF DHJ -1000 0
+ABF HJ -1000 0
 33 0 6d12+853 15d9+100 4d6+10 none
 -9 -9 -9 6
 EFNU 0 0 0
 stand stand male 5000
 0 0 medium unknown
+A det D
 #2327
 oldstyle tyrgoth minotaur paladin master~
 Tyrgoth~
@@ -424,12 +436,13 @@ Tyrgoth is the minotaur incarnation of good. You feel safe and at ease in his
 presence. He is the leader of the Mahn-Tor paladins.
 ~
 human~
-AB DH 1000 0
+AB H 1000 0
 34 2 6d12+853 15d9+100 4d6+10 none
 -9 -9 -9 6
 EFNU 0 0 0
 stand stand male 5000
 0 0 medium unknown
+A det D
 #2328
 oldstyle amyrok minotaur mage master~
 Amyrok~
@@ -440,12 +453,13 @@ power. He appears quite dangerous, despite his size. He is the leader of the
 mages of Mahn-Tor.
 ~
 human~
-ABFR DH 300 0
+ABFR H 300 0
 30 0 6d12+778 30d9+100 5d4+7 none
 -9 -9 -9 1
 FU 0 0 0
 stand stand male 5000
 0 0 medium unknown
+A det D
 #2329
 oldstyle sumaron minotaur cleric master~
 Sumaron~
@@ -455,12 +469,13 @@ Sumaron is clad in white glowing robes. He is goodness incarnate. He is the
 master of all the clerics of Mahn-Tor.
 ~
 human~
-ABFQ DH 1000 0
+ABFQ H 1000 0
 30 0 6d12+853 30d9+100 5d4+8 none
 -9 -9 -9 4
 EIKU 0 0 0
 stand stand male 5000
 0 0 medium unknown
+A det D
 #2330
 oldstyle nasturn minotaur druid master~
 Nasturn~
@@ -470,12 +485,13 @@ Nasturn is quite a natural looking minotaur. He is dressed in leather and
 wears no metal of any type. He looks at you and smiles.
 ~
 human~
-ABQ DH 500 0
+ABQ H 500 0
 30 0 6d12+853 30d9+100 5d4+8 none
 -9 -9 -9 4
 EIKU 0 0 0
 stand stand male 5000
 0 0 medium unknown
+A det D
 #2331
 oldstyle belrak minotaur ranger master~
 Belrak~
@@ -485,12 +501,13 @@ Belrak is clad in green and brown leather. He looks quite agile and thin, when
 compared to the normal minotaur. He looks at you with a slight smirk.
 ~
 human~
-ABF DH 500 0
+ABF H 500 0
 30 0 6d12+853 15d9+100 4d6+8 none
 -9 -9 -9 6
 EFNU 0 0 0
 stand stand male 5000
 0 0 medium unknown
+A det D
 #2332
 oldstyle dorgar minotaur thief master~
 Dorgar~
@@ -516,12 +533,13 @@ armor and robes. He wields the largest axe you have ever seen. You can see why
 Mahn-Tor is the leader of the minotaurs. He is awe-inspiring.
 ~
 human~
-ABCR BDHTU -500 0
+ABCR BHTU -500 0
 33 0 10d10+1000 33d9+100 4d6+8 none
 -10 -10 -10 0
 FU 0 0 0
 stand stand male 5000
 0 0 medium unknown
+A det D
 #0
 
 #OBJECTS

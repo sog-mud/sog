@@ -19,12 +19,13 @@ rend the very earth asunder if he is angered. It is small wonder the dark
 powers have chosen him as their fell agent on Anon.
 ~
 human~
-ABG CDEHJN -1000 0
+ABG HJN -1000 0
 65 0 50d10+8250 5d5+5000 11d5+35 pound
 -35 -35 -35 -5
 EFHIJKNU B C 0
 stand stand male 1000
 0 0 medium unknown
+A det CDE
 #14701
 death knight~
 a death knight~
@@ -37,12 +38,13 @@ presence in honor of the alliance he has forged with the dark powers to
 facilitate the conquest of Anon.
 ~
 human~
-ABG DHJ -1000 0
+ABG HJ -1000 0
 56 0 50d10+5750 5d5+5000 10d4+24 punch
 -26 -26 -26 -2
 BCEGK AB D H
 stand stand none 1000
 0 0 medium unknown
+A det D
 #14702
 iron golem~
 an iron golem~
@@ -71,12 +73,13 @@ Krothgar performs. This does not mean that he will fail to defend himself
 to the best of his considerable abilities if the need arises.
 ~
 unique~
-ABG CDEFHJ -1000 0
+ABG HJ -1000 0
 60 0 50d10+6750 5d5+5000 8d6+28 pierce
 -30 -30 -30 -3
 EFIKU 0 H N
 stand stand male 1000
 0 0 large unknown
+A det CDEF
 #14704
 axtraxes arch mage~
 axtraxes~
@@ -87,12 +90,13 @@ and in charge of the dark lord's impressive force of mages. He is infuriated
 at your untimely interruption and reacts aggressively.
 ~
 human~
-ABFGH DEHJ -1000 0
+ABFGH HJ -1000 0
 54 0 50d10+5250 5d5+5000 7d6+22 punch
 -24 -24 -24 -1
 EFIKNU B C D
 stand stand male 1000
 0 0 medium unknown
+A det DE
 #14705
 high priest~
 an evil high priest~
@@ -103,12 +107,13 @@ critical ceremony! He is extremely angry, and so will his worshippers be...
 He is a total fanatic and will battle to the death.
 ~
 human~
-ABFG DHJ -1000 0
+ABFG HJ -1000 0
 54 0 50d10+5250 5d5+5000 7d6+22 pound
 -24 -24 -24 -1
 CDEFIJKNQ 0 0 0
 stand stand male 1000
 0 0 medium unknown
+A det D
 #14706
 elite guard~
 an elite guard~
@@ -167,12 +172,13 @@ Good ;)
 However, the vile mage who is now drooling insanely seems a little upset...
 ~
 human~
-ABFGH EJ -1000 0
+ABFGH J -1000 0
 45 0 25d10+3000 5d5+1000 3d12+14 punch
 -15 -15 -15 2
 FIKU B C 0
 stand stand male 1000
 0 0 medium unknown
+A det E
 #14710
 blackguard guard~
 a member of the blackguard~
@@ -199,12 +205,13 @@ and baleful eyes gleam dangerously from above this maw directly at you. You
 regret your intrusion.
 ~
 red dragon~
-ABFG DFH -1000 0
+ABFG H -1000 0
 57 0 50d10+6000 5d5+5000 6d8+24 claw
 -27 -27 -27 -2
 CEFM 0 0 0
 stand stand none 1000
 0 0 medium unknown
+A det DF
 #14712
 black dragon~
 a black dragon~
@@ -216,12 +223,13 @@ and baleful eyes gleam dangerously from above this maw directly at you. You
 regret your intrusion.
 ~
 black dragon~
-ABFG CFH -1000 0
+ABFG H -1000 0
 48 0 25d10+3750 5d5+1000 6d6+18 claw
 -18 -18 -18 1
 CEFM 0 0 0
 stand stand none 1000
 0 0 medium unknown
+A det CF
 #14713
 white dragon~
 a white dragon~
@@ -233,12 +241,13 @@ and baleful eyes gleam dangerously from above this maw directly at you. You
 regret your intrusion.
 ~
 white dragon~
-ABFG DFH -1000 0
+ABFG H -1000 0
 45 0 25d10+3000 5d5+1000 8d4+16 claw
 -15 -15 -15 2
 CEFM 0 0 0
 stand stand none 1000
 0 0 medium unknown
+A det DF
 #14714
 blue dragon~
 a blue dragon~
@@ -250,12 +259,13 @@ and baleful eyes gleam dangerously from above this maw directly at you. You
 regret your intrusion.
 ~
 blue dragon~
-ABFG DFH -1000 0
+ABFG H -1000 0
 54 0 50d10+5250 5d5+5000 7d6+22 claw
 -24 -24 -24 -1
 CEFM 0 0 0
 stand stand none 1000
 0 0 medium unknown
+A det DF
 #14715
 green dragon~
 a green dragon~
@@ -267,12 +277,13 @@ and baleful eyes gleam dangerously from above this maw directly at you. You
 regret your intrusion.
 ~
 green dragon~
-ABFG DFH -1000 0
+ABFG H -1000 0
 51 0 50d10+4500 5d5+5000 5d8+20 claw
 -21 -21 -21 0
 CEFM 0 0 0
 stand stand none 1000
 0 0 medium unknown
+A det DF
 #14716
 fire elemental~
 a fire elemental~
@@ -298,12 +309,13 @@ has no way of returning home. He reacted by slaying first the summoner, and
 now he will try to slay you!
 ~
 human~
-ABFG CJNT -1000 0
+ABFG JNT -1000 0
 49 0 50d10+4000 5d5+1000 4d10+18 pound
 -19 -19 -19 1
 FIK H 0 0
 stand stand male 1000
 0 0 medium unknown
+A det C
 #14718
 shedu~
 a shedu~
@@ -329,12 +341,13 @@ This foul mind flayer wants brains, and since Krothgar's followers aren't the
 brightest of creatures it is near starvation. You are a nice surprise...
 ~
 unique~
-ABFGH DFN -1000 0
+ABFGH N -1000 0
 50 0 50d10+4250 5d5+5000 5d8+19 charge
 -20 -20 -20 0
 EFKU 0 0 0
 stand stand none 1000
 0 0 medium unknown
+A det DF
 #14720
 slave~
 a wretched slave~
@@ -376,12 +389,13 @@ fighting race, an experiment finally realised in Korgthar's elite guard.
 These failures have been condemned to a dismal life in the pits.
 ~
 human~
-ABFG FJ 0 0
+ABFG J 0 0
 45 0 25d10+3000 5d5+1000 8d4+16 pound
 -15 -15 -15 2
 FIJKNU 0 0 0
 stand stand none 1000
 0 0 medium unknown
+A det F
 #14723
 hydra~
 a twelve-headed hydra~
@@ -407,12 +421,13 @@ This angry creature is the familiar of some mage or another. It is angered
 at being seen.
 ~
 unique~
-ABFGH BDFPQT -1000 0
+ABFGH BPQT -1000 0
 25 0 5d10+550 5d5+1000 2d10+7 magic
 -7 -7 -7 4
 EFU 0 0 0
 stand stand none 1000
 0 0 medium unknown
+A det DF
 #14725
 succubus~
 a succubus~
@@ -423,12 +438,13 @@ appetite is insatiable and she is always on the lookout for new prey... err
 ... lovers.
 ~
 unique~
-ABGH DHJT -1000 0
+ABGH HJT -1000 0
 49 0 50d10+4000 5d5+1000 4d10+18 pound
 -19 -19 -19 1
 EFIU 0 0 0
 stand stand female 1000
 0 0 medium unknown
+A det D
 #14726
 earth elemental~
 an earth elemental~
@@ -480,12 +496,13 @@ Breathing fire and reeking of brimstone, this unholy red-hued hound is indeed
 a terrible sight to behold.
 ~
 unique~
-AFG DJ -1000 0
+AFG J -1000 0
 45 0 25d10+3000 5d5+1000 8d4+16 magic
 -15 -15 -15 2
 EFU 0 0 0
 stand stand none 1000
 0 0 medium unknown
+A det D
 #14730
 fire giant~
 a fire giant~
@@ -575,12 +592,13 @@ suspicious of the arrangement, however, and view all comers with the same
 degree of caution, but not aggression.
 ~
 human~
-ABG DEHJ -1000 0
+ABG HJ -1000 0
 49 0 50d10+4000 5d5+1000 4d10+18 punch
 -19 -19 -19 1
 EFIKQ 0 0 0
 stand stand male 1000
 0 0 medium unknown
+A det DE
 #14736
 troll~
 a troll~
@@ -621,12 +639,13 @@ have achieved more for his cause than a dozen armies. She asks for no quarter,
 and nor does she give any herself.
 ~
 human~
-ABG DJN -1000 0
+ABG JN -1000 0
 53 0 50d10+5000 5d5+5000 6d7+21 pound
 -23 -23 -23 -1
 CEFIK 0 0 0
 stand stand female 1000
 0 0 medium unknown
+A det D
 #14739
 assassin~
 an assassin~
@@ -651,12 +670,13 @@ This priestess is here to secure an alliance between her people and Krothgar's
 forces. She is not happy about your intrusion into this matter.
 ~
 human~
-ABFGH DEHJ -1000 0
+ABFGH HJ -1000 0
 50 0 50d10+4250 5d5+5000 5d8+19 pound
 -20 -20 -20 0
 CEFIKQ 0 0 0
 stand stand female 1000
 0 0 medium unknown
+A det DE
 #14741
 warg~
 a warg~
@@ -665,12 +685,13 @@ A hairy warg patrols for trespassers here.
 This beast is a servant of the hill giants who patrol the plains of Doom.
 ~
 human~
-AFG FJ -1000 0
+AFG J -1000 0
 42 0 25d10+2250 5d5+1000 3d12+14 punch
 -14 -14 -14 3
 CEFIK 0 0 0
 stand stand male 1000
 0 0 medium unknown
+A det F
 #14742
 ghoul~
 a bloodthirsty ghoul~
@@ -694,12 +715,13 @@ This vamp is treacherous and deadly. You can see why Krothgar likes having
 her around...
 ~
 human~
-ABGH DHJTU -1000 0
+ABGH HJTU -1000 0
 52 0 50d10+4750 5d5+5000 6d7+20 drain
 -22 -22 -22 0
 EFIKNQ 0 0 0
 stand stand female 1000
 0 0 medium unknown
+A det D
 #14744
 lich~
 an ancient lich~
@@ -711,12 +733,13 @@ by the forces of Good ages ago. And now you have woken him up. Way to go
 slick.
 ~
 human~
-ABG CDEFHJNT -1000 0
+ABG HJNT -1000 0
 60 0 50d10+6750 5d5+5000 8d6+28 punch
 -30 -30 -30 -3
 CEFIKQ 0 0 0
 stand stand none 1000
 0 0 medium unknown
+A det CDEF
 #14745
 stone golem~
 a stone golem~
@@ -756,12 +779,13 @@ she refrains from attacking, hoping that the guards of the castle will see
 to you so she doesn't have to expend energy fighting.
 ~
 snake~
-ABDG DHJ -1000 0
+ABDG HJ -1000 0
 51 0 50d10+4500 5d5+5000 5d8+20 punch
 -21 -21 -21 0
 EFIK L Q 0
 stand stand male 1000
 0 0 medium unknown
+A det D
 #0
 
 #OBJECTS

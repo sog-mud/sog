@@ -129,12 +129,13 @@ greenish, reptilian skin, leathery wings, and a bat-like mouth, with
 teeth gleaming yellow.
 ~
 human~
-A DJ -780 0
+A J -780 0
 11 0 2d8+134 5d9+100 1d10+2 none
 1 1 1 8
 EFNU 0 0 0
 stand stand none 25
 0 0 medium unknown
+A det D
 #7010
 oldstyle chreffn~
 the evil chreffn~
@@ -144,12 +145,13 @@ The head and torso of a chreffn is copper-covered, with yellow,
 glowing eyes. The lower body is in an orange shading.
 ~
 human~
-ACH DJP -830 0
+ACH JP -830 0
 12 0 2d10+150 6d9+100 1d10+3 none
 0 0 0 8
 EFNU 0 0 0
 stand stand none 75
 0 0 medium unknown
+A det D
 #7011
 oldstyle morkoth~
 the shadowy morkoth~
@@ -192,12 +194,13 @@ arrives.  It says 'Oh, human YOU woke me up ... Hsss', while
 it moves closer.  'Can one NEVER sleep in peace ... Hsss'.
 ~
 dragon~
-ABFZ D -1000 0
+ABFZ 0 -1000 0
 35 90 10d10+1350 16d9+100 6d4+19 none
 -70 -70 -70 -10
 EFNU 0 0 0
 stand stand none 5000
 0 0 medium unknown
+A det D
 #7041
 oldstyle sea hag~
 the sea hag~
@@ -241,12 +244,13 @@ toothy jaws. It is dull brown with yellowish underbelly. It's eyes are
 glowing pale green.
 ~
 human~
-ACF DJ -250 0
+ACF J -250 0
 13 0 2d10+170 6d9+100 2d5+3 none
 -1 -1 -1 8
 EFNU 0 0 0
 stand stand male 17
 0 0 medium unknown
+A det D
 #7044
 oldstyle lemure blob~
 the lemure blob~
@@ -306,12 +310,13 @@ black and purple rod above its head as if it was going to attack you any
 moment now. In the middle of its head are four tentacles with sharp points.
 ~
 human~
-ACFR DJ -800 0
+ACFR J -800 0
 14 0 2d10+170 14d9+100 1d10+2 none
 -1 -1 -1 5
 FU 0 0 0
 stand stand none 50
 0 0 medium unknown
+A det D
 #7201
 oldstyle senior mind mindflayer~
 the senior mindflayer~
@@ -322,12 +327,13 @@ and carrying a large mace in its hand. In the center of its head are four large
 tentacles with very sharp points.
 ~
 human~
-ACFR DJ -600 0
+ACFR J -600 0
 8 0 2d6+85 8d9+100 1d6+1 none
 4 4 4 7
 FU 0 0 0
 stand stand none 20
 0 0 medium unknown
+A det D
 #7202
 oldstyle junior mind mindflayer~
 the junior mindflayer~
@@ -338,12 +344,13 @@ dressed in purple and black cloth. It has four small tentacles in the
 center of its head.
 ~
 human~
-ACFR DJ -350 0
+ACFR J -350 0
 6 0 2d6+60 6d9+100 1d6+0 none
 5 5 5 8
 FU 0 0 0
 stand stand none 10
 0 0 medium unknown
+A det D
 #7203
 oldstyle wererat rat were~
 the ugly wererat~

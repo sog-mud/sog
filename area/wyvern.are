@@ -72,12 +72,13 @@ The gargoyle shaman is here, preparing to do battle.
 She says 'I can SEE you! I have been waiting ...'.
 ~
 human~
-ABCGQ DF -900 0
+ABCGQ 0 -900 0
 13 0 2d10+170 13d9+100 1d10+3 none
 -1 -1 -1 7
 EIKU 0 0 0
 stand stand female 150
 0 0 medium unknown
+A det DF
 #1606
 oldstyle carnivorous plant~
 a carnivorous plant~
@@ -114,12 +115,13 @@ A dark shadow moves about the room.
 The Shadow is vaguely humanoid. Two glowing pinpoints look at you.
 ~
 human~
-ACFG BDFJ -1000 0
+ACFG BJ -1000 0
 10 0 2d7+121 5d9+100 2d4+2 none
 1 1 1 8
 EFNU 0 0 0
 stand stand none 45
 0 0 medium unknown
+A det DF
 #1609
 oldstyle evil wight~
 an evil wight~
@@ -128,12 +130,13 @@ An evil wight lurks in the shadows!
 He glares at you savagely and charges!
 ~
 human~
-ABCFG DFJ -1000 0
+ABCFG J -1000 0
 12 0 2d10+150 6d9+100 1d10+3 none
 0 0 0 8
 EFNU 0 0 0
 stand stand male 110
 0 0 medium unknown
+A det DF
 #1610
 oldstyle burly minotaur~
 A burly minotaur~
@@ -142,12 +145,13 @@ A burly minotaur watches you solemnly.
 This powerful creature wonders whether to kill you or not ...
 ~
 human~
-ACG DJ -600 0
+ACG J -600 0
 14 0 2d10+190 7d9+100 1d12+3 none
 -1 -1 -1 8
 EFNU 0 0 0
 stand stand male 75
 0 0 medium unknown
+A det D
 #1612
 oldstyle savage minotaur~
 the savage minotaur~
@@ -156,12 +160,13 @@ A bloodthirsty minotaur slowly counts his loot
 He looks up at you and screams 'SO! Coming to steal my hoard!'
 ~
 human~
-ABCFG DJ -600 0
+ABCFG J -600 0
 15 0 3d9+208 7d9+100 2d6+3 none
 -2 -2 -2 7
 EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
+A det D
 #1613
 oldstyle minotaur captain~
 the captain~
@@ -170,12 +175,13 @@ Sitting here in this room is the Minotaur Captain.
 He looks at you, and a sinister grin slowly spreads on his face ...
 ~
 human~
-ABCFG DJ -900 0
+ABCFG J -900 0
 17 0 3d9+258 8d9+100 3d4+4 none
 -3 -3 -3 7
 EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
+A det D
 #1614
 oldstyle black pudding~
 the black pudding~
@@ -198,12 +204,13 @@ A lesser Golem stands guarding the entrance.
 The golem appears to be made of some kind of clay, enchanted to come to life!
 ~
 golem~
-ABG D 0 0
+ABG 0 0 0
 16 0 3d9+233 8d9+100 2d6+4 none
 -2 -2 -2 7
 EFNU 0 0 0
 stand stand none 0
 0 0 medium unknown
+A det D
 #1616
 oldstyle ancient wyvern~
 the ancient wyvern~
@@ -212,12 +219,13 @@ An enormous, ancient wyvern stares down at your tiny form...
 It thunders loudly 'I must protect my Master's wealth!'
 ~
 human~
-ACFG DF -1000 0
+ACFG 0 -1000 0
 18 0 3d9+283 9d9+100 2d7+4 none
 -3 -3 -3 7
 EFNU 0 0 0
 stand rest male 0
 0 0 medium unknown
+A det DF
 #1617
 oldstyle spectre~
 the spectre~
@@ -226,12 +234,13 @@ A spectre has begun to materialize in front of you!
 Terror fills your heart as you view this master of the undead.
 ~
 human~
-ACFG BDHJ -1000 0
+ACFG BHJ -1000 0
 19 0 3d9+308 9d9+100 2d7+5 none
 -4 -4 -4 7
 EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
+A det D
 #1702
 oldstyle trapper~
 a trapper~
@@ -268,12 +277,13 @@ A grim ranger reclines at a table.
 The years of wanderings have left the ranger hardened and strong.
 ~
 human~
-ACG D 200 0
+ACG 0 200 0
 12 0 2d10+150 6d9+100 1d10+3 none
 0 0 0 8
 EFNU 0 0 0
 rest stand male 0
 0 0 medium unknown
+A det D
 #1707
 oldstyle ranger leader~
 a ranger leader~
@@ -282,12 +292,13 @@ A leader of the Rangers is watching you solemnly.
 This individual has quite a reputation at the local trading posts!
 ~
 human~
-ABC D 300 0
+ABC 0 300 0
 15 0 3d9+208 7d9+100 2d6+3 none
 -2 -2 -2 7
 EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
+A det D
 #1708
 oldstyle ranger lord~
 the Lord of the Rangers~
@@ -295,12 +306,13 @@ The Lord of the Rangers catches your eye.
 ~
 ~
 human~
-ABC D 400 0
+ABC 0 400 0
 20 0 3d9+333 10d9+100 2d8+5 none
 -4 -4 -4 7
 EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
+A det D
 #1710
 oldstyle male centaur~
 a centaur~

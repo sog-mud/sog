@@ -35,12 +35,13 @@ has black scales and a seven foot wingspan.  He scowls at you and hefts his
 spear as you enter the room.
 ~
 human~
-ABCF D -900 0
+ABCF 0 -900 0
 13 0 2d10+170 6d9+100 2d5+3 none
 -1 -1 -1 8
 EFNU 0 0 0
 stand stand male 100
 0 0 medium unknown
+A det D
 #2202
 oldstyle lord crypt master~
 the dragon master~
@@ -65,12 +66,13 @@ surprised at the fact that he is human, and realize that he must be very
 powerful to have been accepted by the creatures which live here.
 ~
 human~
-ABR BDH -900 0
+ABR BH -900 0
 22 0 4d10+360 22d9+100 2d7+5 none
 -5 -5 -5 3
 FU 0 0 0
 stand stand male 30
 0 0 medium unknown
+A det D
 #2204
 oldstyle cleric draconian~
 the holy Draconian~
@@ -80,12 +82,13 @@ A Draconian stands here, dressed in simple robes.  Around his neck you
 notice a golden medallion in the shape of a five headed dragon.  
 ~
 human~
-ABCFQ DH -900 0
+ABCFQ H -900 0
 22 0 5d10+400 22d9+100 2d8+6 none
 -5 -5 -5 5
 EIKU 0 0 0
 stand stand male 20
 0 0 medium unknown
+A det D
 #2205
 oldstyle king draconian~
 the Draconian King~
@@ -96,12 +99,13 @@ though he could crush your head with a single blow.  Yet you sense that he
 is controlled by a greater power. 
 ~
 human~
-ABC DH -900 0
+ABC H -900 0
 26 0 5d10+600 13d9+100 3d7+7 none
 -7 -7 -7 6
 EFNU 0 0 0
 stand stand male 40
 0 0 medium unknown
+A det D
 #2206
 oldstyle concubine draconian~
 a concubine~
@@ -127,12 +131,13 @@ This creature has devoted its life to defending the king.  Your intrusion has
 not pleased it.
 ~
 human~
-ABF CDF -800 0
+ABF 0 -800 0
 18 0 3d9+283 9d9+100 2d7+4 none
 -3 -3 -3 7
 EFNU 0 0 0
 stand stand male 250
 0 0 medium unknown
+A det CDF
 #2220
 oldstyle tiamat dragon~
 Tiamat~
@@ -142,12 +147,13 @@ You see before you the master of this Tower, Tiamat.  She frowns at you as she
 prepares to make you pay for your insolence ... with your lives!
 ~
 human~
-ABCF DFTV -1000 0
+ABCF TV -1000 0
 52 0 50d10+5500 26d9+100 6d7+20 none
 -22 -22 -22 2
 EFNU AB CD 0
 stand stand female 2500
 0 0 medium unknown
+A det DF
 #2221
 dragon red~
 the Great Red Dragon~
@@ -157,12 +163,13 @@ This huge red dragon dominates the chamber.  As you turn to flee, he grins at
 you and invites you to stay ... forever! 
 ~
 dragon~
-ABCF DF -1000 0
+ABCF 0 -1000 0
 54 60 25d10+8000 22d9+900 11d11+26 none
 -85 -85 -85 -24
 EFNR H 0 0
 stand stand male 8000
 0 0 medium unknown
+A det DF
 F res H
 #2222
 dragon black~
@@ -173,12 +180,13 @@ This huge black wyrm laughs at your puny weapons.  You realize that he is not
 going to roll over and die for you.
 ~
 dragon~
-ABCF DF -900 0
+ABCF 0 -900 0
 40 40 15d10+3700 19d9+400 5d9+13 none
 -19 -19 -19 -1
 EFNR K 0 J
 stand stand male 1000
 0 0 medium unknown
+A det DF
 F res H
 F vul I
 #2223
@@ -191,12 +199,13 @@ dragons, you are not afraid.  She smiles at you and says 'I think you will find
 me a greater challenge than my offspring.'
 ~
 dragon~
-ABCF DF -1000 0
+ABCF 0 -1000 0
 39 20 10d10+3500 18d9+400 3d20+12 none
 -12 -12 -12 5
 EFNR I 0 H
 stand stand female 1750
 0 0 medium unknown
+A det DF
 F res H
 F vul I
 #2225
@@ -209,12 +218,13 @@ She looks at you with sorrow in her eyes and says 'You have slaughtered my
 children.  Prepare to die.'
 ~
 dragon~
-ABCF DF -1000 0
+ABCF 0 -1000 0
 47 70 25d10+6000 20d9+800 4d8+24 none
 -34 -34 -34 -10
 EFNR L 0 P
 stand stand female 1000
 0 0 medium unknown
+A det DF
 F res H
 F vul I
 #2226
@@ -226,12 +236,13 @@ A hydra is here, guarding the entrance to a sealed vault.  You have the feeling
 it isn't happy to see you.
 ~
 human~
-ABCF DF -800 0
+ABCF 0 -800 0
 18 0 3d9+283 9d9+100 2d7+4 none
 -3 -3 -3 7
 EFNU 0 0 0
 stand stand none 250
 0 0 medium unknown
+A det DF
 #2227
 oldstyle slave human~
 A human slave~
@@ -241,12 +252,13 @@ He looks like he's under a lot of stress.  He would probably like it if you
 left him alone.
 ~
 human~
-ABS DF 0 0
+ABS 0 0 0
 5 0 2d7+46 2d9+100 1d5+1 none
 6 6 6 9
 BEFJNU 0 0 0
 stand stand male 5
 0 0 medium unknown
+A det DF
 #2240
 oldstyle zombie draconian~
 a Draconian zombie~
@@ -256,12 +268,13 @@ This used to be one of the warriors of this tribe.  He was denied his final
 rest, however, and now guards this corridor tirelessly as a zombie.
 ~
 human~
-ABCF DFJ -400 0
+ABCF J -400 0
 9 0 2d6+110 4d9+100 1d8+2 none
 2 2 2 8
 EFNU 0 0 0
 stand stand none 75
 0 0 medium unknown
+A det DF
 #2241
 oldstyle dragon phase~
 the phase dragon~
@@ -270,12 +283,13 @@ A Phase Dragon is darting around the room.
 This small dragon looks like he's up to no good. 
 ~
 dragon~
-ACFGH DF -300 0
+ACFGH 0 -300 0
 10 0 2d7+121 5d9+100 2d4+2 none
 1 1 1 8
 EFNR 0 0 0
 stand stand male 250
 0 0 medium unknown
+A det DF
 #2242
 oldstyle fool draconian~
 the draconian fool~
@@ -285,12 +299,13 @@ This dragon man looks VERY foolish, dressed in a green and blue striped
 suit.  As you enter the room, he points at you and laughs. 
 ~
 human~
-AGHS DF 0 0
+AGHS 0 0 0
 5 0 2d7+46 2d9+100 1d5+1 none
 6 6 6 9
 BEFJNU 0 0 0
 stand stand male 25
 0 0 medium unknown
+A det DF
 #2243
 oldstyle queen draconian~
 the Draconian Queen~
@@ -300,12 +315,13 @@ This draconian looks VERY busy as she orders her slaves around.  You think
 it might be a good idea to leave her alone. 
 ~
 human~
-ABC DFH -600 0
+ABC H -600 0
 20 0 3d9+333 10d9+100 2d8+5 none
 -4 -4 -4 7
 EFNU 0 0 0
 stand stand female 500
 0 0 medium unknown
+A det DF
 #0
 
 #OBJECTS

@@ -47,12 +47,13 @@ your dog would not sleep in, he is much smaller than the other goblins in the
 stronghold.
 ~
 goblin~
-ABFHR BCDEFVd -600 0
+ABFHR BVd -600 0
 15 0 5d6+150 1d1+199 1d4+1 none
 2 2 2 8
 PR A 0 0
 stand stand male 100
 0 0 medium unknown
+A det CDEF
 #29004
 champion goblin knarl~
 Knarl~
@@ -61,12 +62,13 @@ Before you is the biggest goblin you have ever seen.
 Knarl glares right back at you.
 ~
 goblin~
-ABFT FPVb -1000 0
+ABFT PVb -1000 0
 20 0 5d5+350 1d1+99 2d4+2 none
 5 5 5 0
 CDEFKPR A B 0
 stand stand male 100
 0 0 medium unknown
+A det F
 #29005
 guard goblin~
 goblin guard~
@@ -131,12 +133,13 @@ This goblin looks very sick.
 He screams! Don't look at me!! Aaargh... leper outcast unclean!
 ~
 goblin~
-ACFGS FPQXbd 0 29009
+ACFGS PQXbd 0 29009
 15 0 5d5+200 1d1+99 2d3+3 none
 3 3 3 0
 BDEFR AB 0 Q
 stand stand male 2
 0 0 small unknown
+A det F
 #29010
 goblin~
 the goblin~

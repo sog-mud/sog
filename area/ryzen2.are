@@ -157,12 +157,13 @@ hide, creating spear like points.  Its skin has decayed away, leaving the
 ribs and organs exposed.  ICK!  
 ~
 unique~
-ABFGO JZ -900 0
+ABFGO J -900 0
 38 0 9d50+1600 38d10+4100 5d6+12 bite
 -13 -13 -13 3
 CDEF 0 0 NY
 stand stand none 500
 AGIV ACDEFJKQV large unknown
+A det Z
 #22012
 cleric holy~
 a Holy Cleric~
@@ -189,12 +190,13 @@ dragon is emblazoned on his plate and he wields his silver long sword with
 ease.  
 ~
 human~
-AGT CJ 1000 0
+AGT J 1000 0
 26 0 5d10+600 26d10+1100 3d7+17 none
 -7 -7 -7 4
 CEFIKS 0 0 0
 stand stand male 500
 0 0 medium unknown
+A det C
 #22014
 halfling thief~
 A Halfling Thief~

@@ -75,12 +75,13 @@ There is a mean looking gnoll here.
 The Gnoll seems annoyed at your presence.
 ~
 human~
-ACG DFJ -1000 0
+ACG J -1000 0
 30 0 6d12+853 15d9+100 4d6+8 none
 -9 -9 -9 6
 EFNU 0 0 0
 stand stand male 1250
 0 0 medium unknown
+A det DF
 #8306
 oldstyle beast~
 a huge hairy beast~
@@ -90,12 +91,13 @@ This huge beast stands about 20 feet in height and has huge green clawed
 appendages. 
 ~
 human~
-ACFG DFJ -450 0
+ACFG J -450 0
 21 0 4d10+360 10d9+100 4d4+5 none
 -5 -5 -5 7
 EFNU 0 0 0
 stand stand male 500
 0 0 medium unknown
+A det DF
 #8307
 oldstyle beast~
 a rather small beast~
@@ -164,12 +166,13 @@ Yech!  She manages to make even Smurfette look attractive.  That's ok,
 because she thinks you stink too, and she's about to do something about it.
 ~
 human~
-ACGS DFJ -200 0
+ACGS J -200 0
 9 0 2d7+96 4d9+100 1d7+2 none
 3 3 3 8
 BEFJNU 0 0 0
 stand stand female 50
 0 0 medium unknown
+A det DF
 #8313
 oldstyle slaad~
 a Death Slaad~
@@ -179,12 +182,13 @@ This dark apparition stands a meager 13 feet in height.  Even in the dim
 swamp light, the blade of his scythe gleams.
 ~
 human~
-ACG DFJ -200 0
+ACG J -200 0
 20 0 3d9+333 10d9+100 2d8+5 none
 -4 -4 -4 7
 EFNU 0 0 0
 stand stand male 700
 0 0 medium unknown
+A det DF
 #8314
 oldstyle wolf~
 a marsh wolf~
@@ -223,12 +227,13 @@ This old orc has an array of bones stuck in his hair and strange symbols
 painted on his face and hands.
 ~
 human~
-ABCDFGQ DF -100 0
+ABCDFGQ 0 -100 0
 12 0 2d10+150 12d9+100 2d4+3 none
 0 0 0 7
 EIKU 0 0 0
 stand stand male 17
 0 0 medium unknown
+A det DF
 #8320
 oldstyle giant~
 a marsh giant~
@@ -237,12 +242,13 @@ A marsh giant stomps towards you.
 This huge monster of a man has green gnarly teeth and a BIG stick.
 ~
 giant~
-ABCDFG DFJ -100 0
+ABCDFG J -100 0
 15 0 3d9+208 7d9+100 2d6+3 none
 -2 -2 -2 7
 EFNR 0 0 0
 stand stand male 600
 0 0 medium unknown
+A det DF
 #8321
 oldstyle gargoyle~
 a gargoyle~
@@ -251,12 +257,13 @@ A large gargoyle lands next to you, baring his fangs at you.
 This creepy fellow looks like he could use you as a meal.
 ~
 human~
-ABCDFG DFJ -100 0
+ABCDFG J -100 0
 12 0 2d10+150 6d9+100 1d10+3 none
 0 0 0 8
 EFNU 0 0 0
 stand stand none 100
 0 0 medium unknown
+A det DF
 #0
 
 #OBJECTS

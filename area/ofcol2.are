@@ -38,12 +38,13 @@ is the hardest metal she can find.  She is willing to defend Ofcol to her
 death.
 ~
 human~
-ABKQe DHN 1000 0
+ABKQe HN 1000 0
 73 0 10d10+12000 33d9+100 4d16+20 none
 -51 -51 -51 -23
 EIKU AB 0 0
 stand stand female 250
 0 0 medium unknown
+A det D
 #602
 derrick captain guard cityguard~
 Captain Derrick~
@@ -55,12 +56,13 @@ descendent of a surviving cityguard of old Thalos.  He believes that everything
 has to be hard won to be kept, and that laxity is for the weak.
 ~
 human~
-AGQ DHN 1000 0
+AGQ HN 1000 0
 27 0 5d10+650 27d9+100 2d10+7 none
 -8 -8 -8 4
 EIKU 0 0 0
 stand stand male 250
 0 0 medium unknown
+A det D
 #603
 jacklyn captain guard cityguard~
 Captain Jacklyn~
@@ -73,12 +75,13 @@ or her magic, no one has ever found out.  She isn't very strong physically, but
 she need not be.
 ~
 human~
-ABR DN 1000 0
+ABR N 1000 0
 27 0 5d10+600 27d9+100 2d10+6 none
 -7 -7 -7 2
 FU 0 0 0
 stand stand female 250
 0 0 medium unknown
+A det D
 #604
 jim blacksmith~
 Jim the Blacksmith~

@@ -19,12 +19,13 @@ with pride on his chestplate. The gold crest of two coins seems to match
 the wealth of this town.
 ~
 human~
-ABT CDFH 900 0
+ABT H 900 0
 30 0 6d12+853 5d5+1000 4d6+8 slash
 -9 -9 -9 3
 CDEFIJKLTU 0 0 0
 stand stand male 1000
 0 0 medium unknown
+A det CDF
 #10202
 lieutenant commander~
 Lieutenant Commander~
@@ -37,12 +38,13 @@ to test his abilities go right ahead. He looks as if he is quite an easy
 fight.
 ~
 human~
-ABGT CFH 800 0
+ABGT H 800 0
 27 0 5d10+650 5d5+1000 5d4+7 pound
 -8 -8 -8 4
 CDEFIJKTU 0 0 0
 stand stand male 1000
 0 0 medium unknown
+A det CF
 #10203
 Sergeant Arms~
 Sergeant at Arms~
@@ -53,12 +55,13 @@ war. He is a middle age man with graying hair that pokes out from under
 his helmet. He is always waiting for a fight.
 ~
 human~
-ABGT CH 400 0
+ABGT H 400 0
 20 0 3d9+333 5d5+1000 2d8+5 slash
 -4 -4 -4 5
 EFIK 0 0 0
 stand stand male 1000
 0 0 medium unknown
+A det C
 #10204
 townguard guard~
 Townguard~
@@ -273,12 +276,13 @@ These are like the biggest and meanest men you've every seen.
 They look more like trolls or ogres than men.
 ~
 human~
-ABT CDFH 800 0
+ABT H 800 0
 16 0 3d9+233 5d5+1000 2d6+4 pound
 -2 -2 -2 6
 EIJKU 0 0 0
 stand stand male 1000
 0 0 medium unknown
+A det CDF
 #10219
 Jhen~
 Jhen the farmer~
@@ -592,12 +596,13 @@ there is a large bat here.
 ~
 ~
 bat~
-ABF D 100 0
+ABF 0 100 0
 5 0 2d6+60 5d5+100 1d6+1 charge
 5 5 5 9
 0 0 0 0
 stand stand none 1000
 0 0 medium unknown
+A det D
 #10241
 old lady~
 old lady~

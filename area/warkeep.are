@@ -22,12 +22,13 @@ He would appear to be almost angelic were it not for the diabolical gleam
 to his eyes, and the evil grin on his thin, cruel lips.
 ~
 human~
-ABDGH CDEFHJNT -1000 0
+ABDGH HJNT -1000 0
 30 0 6d12+853 5d5+1000 4d6+8 pound
 -9 -9 -9 3
 FHIJKN 0 0 0
 stand stand male 1000
 0 0 medium unknown
+A det CDEF
 #15701
 woman witch alara~
 the witch Alara~
@@ -39,12 +40,13 @@ a variety of potions, scrolls and throwing daggers. She would be very
 attractive if she didn't cackle insanely so much.
 ~
 human~
-ABGH DJN -1000 0
+ABGH JN -1000 0
 28 0 6d12+703 5d5+1000 2d12+8 punch
 -8 -8 -8 4
 EIK 0 0 0
 stand stand female 1000
 0 0 medium unknown
+A det D
 #15702
 demon~
 a demon~
@@ -56,12 +58,13 @@ it again. And now you're in here with this eight foot tall, four armed,
 green skinned monstrosity from the lower planes. Great.
 ~
 unique~
-ABDFG DHJT -1000 0
+ABDFG HJT -1000 0
 35 0 10d10+1300 5d5+1000 4d7+11 slash
 -11 -11 -11 3
 EIKQ 0 0 0
 stand stand none 1000
 0 0 medium unknown
+A det D
 #15703
 cat familiar~
 a cat familiar~
@@ -70,12 +73,13 @@ Alara's familiar, a black cat, hisses at you.
 This angry feline is Alara's familiar. Do away with it.
 ~
 cat~
-ABFGH DJN -1000 0
+ABFGH JN -1000 0
 10 0 2d7+121 5d5+100 2d4+2 beating
 1 1 1 7
 0 0 0 0
 stand stand female 1000
 0 0 large unknown
+A det D
 #15704
 hawk familiar~
 a hawk familiar~
@@ -84,12 +88,13 @@ Alara's familiar, a hawk, screeches at you.
 This angry bird is Baragar's familiar. Do away with it.
 ~
 song bird~
-ABFGH DJN -1000 0
+ABFGH JN -1000 0
 12 0 2d10+150 5d5+100 1d10+3 claw
 0 0 0 7
 0 0 0 0
 stand stand none 1000
 0 0 small unknown
+A det D
 #15705
 troll guard~
 a troll guard~
@@ -130,12 +135,13 @@ This angry dragonkin has been roused from its nap by you, and it isn't happy
 about it...
 ~
 unique~
-ABFG DHJ -500 0
+ABFG HJ -500 0
 28 0 6d12+703 5d5+1000 2d12+8 charge
 -8 -8 -8 4
 EFNU 0 0 0
 stand stand male 1000
 0 0 large unknown
+A det D
 #15708
 zombie servant~
 a zombie servant~
@@ -275,12 +281,13 @@ weeks infiltrating the keep, and is now in the final stages of his plan.
 However, he'd be more than happy for you to complete the task for him.
 ~
 human~
-ABG DFHJPQ 400 0
+ABG HJPQ 400 0
 27 0 5d10+650 5d5+1000 5d4+7 pound
 -8 -8 -8 4
 EFIJKN 0 0 0
 stand stand male 1000
 0 0 medium unknown
+A det DF
 #15717
 gnoll slave~
 a gnoll slave~

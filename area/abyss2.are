@@ -23,12 +23,13 @@ fearsome sight. Despite the wasted, rotten flesh it is garbed in the rich
 clothes of nobility.
 ~
 human~
-ABCF DHJ -1000 0
+ABCF HJ -1000 0
 47 0 25d10+3500 469d1+1 6d6+17 punch
 -17 -17 -17 3
 CDIKLN AB E CK
 stand stand male 6700
 0 0 medium unknown
+A det D
 #25001
 keftab~
 Keftab, the Ancient One~
@@ -44,12 +45,13 @@ mossy protrusions, like some strange malignant blemishes. It emits low,
 gutteral mewlings from its fange, quivering oriface.
 ~
 human~
-ABC DJP -1000 0
+ABC JP -1000 0
 45 0 25d10+2300 449d1+1 8d4+10 beating
 -15 -15 -15 4
 CDEFH AB N C
 stand stand male 6500
 0 0 medium unknown
+A det D
 #25002
 death crimson~
 A Crimson Death~
@@ -60,12 +62,13 @@ victims stain the robe. Its skeletal figure resembles that of the angel of
 death. Its eyes glow with a furious fire to kill.
 ~
 human~
-ABCF DHJTU -1000 0
+ABCF HJTU -1000 0
 36 0 10d10+1400 359d1+1 3d10+11 punch
 -12 -12 -12 5
 DEHIJK AB D FGNO
 stand stand either 5600
 0 0 medium unknown
+A det D
 #25003
 mist daemon~
 A Mist Daemon~
@@ -90,12 +93,13 @@ The black slayer is a shadowy figure, about 7 feet in height. Garbed in
 a heavey, black cloak, in his right hand, he wields a wicked dagger.
 ~
 human~
-ABCF DJP -1000 0
+ABCF JP -1000 0
 25 0 5d10+550 249d1+1 2d10+7 punch
 -7 -7 -7 6
 ACFHIK A C B
 stand stand male 999
 0 0 medium unknown
+A det D
 #25005
 lost soul~
 a Lost Soul~
@@ -104,12 +108,13 @@ A ghostly apparition floats here, staring at you in utter hatred.
 The lost soul is a ghostly apparition, seeking revenge on the living.
 ~
 human~
-ACF DJP -1000 0
+ACF JP -1000 0
 20 0 3d9+333 199d1+1 2d8+5 punch
 -4 -4 -4 7
 FGJK A C DS
 stand stand female 666
 0 0 medium unknown
+A det D
 #25006
 storm giant~
 a Storm Giant~
@@ -119,12 +124,13 @@ This huge creature is approximatly 18 feet tall, He grasps a huge bolt
 of lightning it his right hand.... He doesnt look happy to see you.
 ~
 giant~
-ABCF DJP -1000 0
+ABCF JP -1000 0
 40 0 15d10+1850 399d1+1 4d8+13 punch
 -13 -13 -13 4
 CEIKL AB D CIK
 stand stand male 10000
 0 0 large unknown
+A det D
 #25007
 white gold manticore~
 a White Gold Manticore~
@@ -135,12 +141,13 @@ entirely of white gold. Its eyes seem to watch your every move..
 they almost appear is if they were alive.
 ~
 bear~
-ABC DHJ 0 25007
+ABC HJ 0 25007
 22 0 5d10+400 219d1+1 4d4+6 punch
 -5 -5 -5 6
 ACHIKL 0 J E
 stand stand male 877
 0 0 medium unknown
+A det D
 #25008
 flaming efreet~
 an Efreet~
@@ -181,12 +188,13 @@ size. its huge tentacles grasp something... though you can not make out
 what the object is.
 ~
 water fowl~
-ABF DJ -1000 0
+ABF J -1000 0
 40 0 15d10+1700 399d1+1 4d8+11 punch
 -13 -13 -13 7
 AB R C HI
 stand stand male 4504
 0 0 medium unknown
+A det D
 #25011
 treant tree~
 the Treant~
@@ -213,12 +221,13 @@ glow with a brilliant red fire, in its right hand he grasps a an extremely
 sharp blade of magical nature.
 ~
 human~
-ABCGH DJP -1000 25012
+ABCGH JP -1000 25012
 26 0 5d10+600 259d1+1 2d10+7 punch
 -7 -7 -7 6
 ADEF 0 LM D
 stand stand male 1500
 0 0 medium unknown
+A det D
 #25013
 kalas~
 Kalas~
@@ -274,12 +283,13 @@ A shadowy figure stands here, looking you over with greed.
 This creature has almost no form, it looks like some sort of shadow with wings.
 ~
 human~
-ACF DJ -1000 0
+ACF J -1000 0
 28 0 6d12+703 279d1+1 2d12+8 punch
 -8 -8 -8 5
 CDHI AB MNO STZ
 stand stand male 1230
 0 0 medium unknown
+A det D
 #25017
 gatekeeper gate keeper~
 the Gatekeeper~
@@ -289,12 +299,13 @@ He is a huge man, his strong, muscular body stands about 8 feet tall.
 He guards the portal beyond him angrily.
 ~
 human~
-ABFG DFHJ -1000 25036
+ABFG HJ -1000 25036
 35 0 10d10+1300 349d1+1 4d7+11 punch
 -11 -11 -11 5
 CI AB C D
 stand stand male 5400
 0 0 medium unknown
+A det DF
 #25018
 elemental water prince~
 The Water Prince~
@@ -303,12 +314,13 @@ The prince of water elementals flows here
 He looks like a giant wave about to swoop down upon you.
 ~
 water fowl~
-AB FHJ 0 0
+AB HJ 0 0
 32 0 10d10+900 319d1+1 6d4+8 punch
 -10 -10 -10 5
 AHI 0 HIJK 0
 stand stand male 4500
 0 0 medium unknown
+A det F
 #25019
 earth elemental king~
 The Earth King~
@@ -317,12 +329,13 @@ The King of earth elementals stands here.. cower fool!
 It looks vaguely man-shaped.
 ~
 water fowl~
-AB FHJ 0 0
+AB HJ 0 0
 32 0 10d10+900 319d1+1 6d4+8 punch
 -10 -10 -10 5
 AHI 0 HIJK 0
 stand stand male 10000
 0 0 medium unknown
+A det F
 #25020
 air elemental lord~
 The Lord of Air~
@@ -331,12 +344,13 @@ A huge tornado is squeezed into this impossibly small space.
 It looks sentinent.
 ~
 song bird~
-AB DJ 0 0
+AB J 0 0
 32 0 10d10+900 319d1+1 6d4+8 punch
 -10 -10 -10 5
 AI 0 HIJK 0
 stand stand male 4906
 0 0 medium unknown
+A det D
 #25021
 fire elemental sultan~
 The Sultan of Fire~
@@ -345,12 +359,13 @@ The Sultan of fire Elementals stands before you, you feel crisp.
 It looks vaguely man-shaped.
 ~
 dragon~
-AB D 0 0
+AB 0 0 0
 32 0 10d10+900 319d1+1 6d4+8 punch
 -10 -10 -10 5
 AHI 0 IJK 0
 stand stand male 4111
 0 0 medium unknown
+A det D
 #25022
 king goblin~
 The goblin king~
@@ -359,12 +374,13 @@ The goblin king is here.
 He looks like david bowie.
 ~
 goblin~
-A D -351 0
+A 0 -351 0
 18 0 3d9+283 179d1+1 2d7+4 punch
 -3 -3 -3 7
 0 0 0 0
 stand stand male 940
 0 0 medium unknown
+A det D
 #25023
 goblin cannon~
 A goblin cannon~
@@ -429,12 +445,13 @@ A Vrock stands here
 It is a vulture/human creature. Extremely ugly, and nasty.
 ~
 human~
-ACF DFJ -666 25030
+ACF J -666 25030
 21 0 4d10+360 209d1+1 4d4+5 punch
 -5 -5 -5 6
 FI AB C D
 stand stand male 999
 0 0 medium unknown
+A det DF
 #25031
 demon hezrou~
 A hezrou~
@@ -443,12 +460,13 @@ A demon Hezrou stands here.
 Not unlike A large toad/man
 ~
 human~
-ACF DFJ -666 0
+ACF J -666 0
 17 0 3d9+258 169d1+1 3d4+4 punch
 -3 -3 -3 7
 AKN AB GPS HR
 stand stand male 378
 0 0 medium unknown
+A det DF
 #25032
 demon glabrezu~
 A glabrezu~
@@ -457,12 +475,13 @@ A demon Glabrezu stands here.
 I forget what this one looks like.
 ~
 human~
-ACF DFJ -666 25032
+ACF J -666 25032
 18 0 3d9+283 179d1+1 2d7+4 punch
 -3 -3 -3 7
 J AB 0 0
 stand stand either 490
 0 0 medium unknown
+A det DF
 #25033
 demon nalfeshnee~
 Nalfeshnee~
@@ -471,12 +490,13 @@ Nalfeshnee stands here
 This one is big and mean looking.
 ~
 giant~
-ABCF DFJ -666 25033
+ABCF J -666 25033
 19 0 3d9+308 190d1+1 2d7+5 punch
 -4 -4 -4 7
 A AB 0 0
 stand stand either 890
 0 0 medium unknown
+A det DF
 #25034
 demon marilith~
 Marilith~
@@ -485,12 +505,13 @@ Marilith slithers here
 A woman with 6 arms and a snake's tail
 ~
 elf~
-ACF DF -666 25034
+ACF 0 -666 25034
 15 0 3d9+208 149d1+1 2d6+3 punch
 -2 -2 -2 7
 A AB 0 0
 stand stand female 450
 0 0 tiny unknown
+A det DF
 #25035
 demon balor~
 Balor~
@@ -499,12 +520,13 @@ Balor stands here, surrounded by electrical fire
 He is very large, and looks rather deadly
 ~
 dwarf~
-ACF DF -666 0
+ACF 0 -666 0
 20 0 3d9+333 199d1+1 2d8+5 punch
 -4 -4 -4 7
 I AB D C
 stand stand male 899
 0 0 medium unknown
+A det DF
 #25036
 gatekeeper gate keeper~
 the Gatekeeper~
@@ -514,12 +536,13 @@ He is a huge man, his strong, muscular body stands about 8 feet tall.
 He guards the portal beyond him angrily.
 ~
 human~
-ABFG DFHJ -1000 25017
+ABFG HJ -1000 25017
 35 0 10d10+1300 349d1+1 4d7+11 punch
 -11 -11 -11 5
 CDIK AB 0 0
 stand stand male 5400
 0 0 medium unknown
+A det DF
 #0
 
 #OBJECTS

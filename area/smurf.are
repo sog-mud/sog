@@ -17,12 +17,13 @@ A cute little blue smurf with a white hat and white boots.  You have a sudden
 urge to crush him.
 ~
 human~
-AGHS DF 100 0
+AGHS 0 100 0
 1 0 2d4+2 0d9+100 1d2+0 none
 10 10 10 10
 BEFJNU 0 0 0
 stand stand male 1
 0 0 medium unknown
+A det DF
 #102
 oldstyle smurf~
 a smurf~
@@ -31,12 +32,13 @@ A smurf is here, picking berries.
 A small smurf is quietly picking berries.  He seems to hardly notice you.
 ~
 human~
-ABHS DF 100 0
+ABHS 0 100 0
 1 0 2d4+2 0d9+100 1d2+0 none
 10 10 10 10
 BEFJNU 0 0 0
 stand stand male 1
 0 0 medium unknown
+A det DF
 #103
 oldstyle brainy smurf~
 Brainy Smurf~
@@ -46,12 +48,13 @@ Brainy Smurf has on his usual glasses.  Brainy Smurf isn't liked much by the
 other smurfs.  They fear his knowledge.  Knowledge is power!
 ~
 human~
-AGHS DF 100 0
+AGHS 0 100 0
 3 0 2d7+21 1d9+100 1d5+0 none
 8 8 8 10
 BEFJNU 0 0 0
 stand stand male 1
 0 0 medium unknown
+A det DF
 #104
 oldstyle handy smurf~
 Handy Smurf~
@@ -61,12 +64,13 @@ Handy is always building something.  He never takes a break.  Why don't you
 give him a break, like all of his bones.
 ~
 human~
-AGHS DF 100 0
+AGHS 0 100 0
 3 0 2d7+21 1d9+100 1d5+0 none
 8 8 8 10
 BEFJNU 0 0 0
 stand stand male 1
 0 0 medium unknown
+A det DF
 #105
 oldstyle sleepy smurf~
 Sleepy Smurf~
@@ -76,12 +80,13 @@ Sleepy never gets enough sleep.  You would think he goes to college.  I wonder
 if he has ever stayed up a whole night without sleeping.
 ~
 human~
-AGHS DF 100 0
+AGHS 0 100 0
 3 0 2d7+21 1d9+100 1d5+0 none
 8 8 8 10
 BEFJNU 0 0 0
 stand stand male 1
 0 0 medium unknown
+A det DF
 #106
 oldstyle hefty smurf~
 Hefty Smurf~
@@ -91,12 +96,13 @@ Hefty is a total health nut.  He lifts weights, eats right, and exercises all
 the time.  Won't do him much good when he's DEAD.
 ~
 human~
-AGHS DF 100 0
+AGHS 0 100 0
 3 0 2d7+21 1d9+100 1d5+0 none
 8 8 8 10
 BEFJNU 0 0 0
 stand stand male 1
 0 0 medium unknown
+A det DF
 #107
 oldstyle grumpy smurf~
 Grumpy Smurf~
@@ -105,12 +111,13 @@ Grumpy Smurf is here, swearing.
 Grumpy has never been happy in his whole life.  So why don't you just end it?
 ~
 human~
-AGHS DF 100 0
+AGHS 0 100 0
 3 0 2d7+21 1d9+100 1d5+0 none
 8 8 8 10
 BEFJNU 0 0 0
 stand stand male 1
 0 0 medium unknown
+A det DF
 #108
 oldstyle jokey smurf~
 Jokey Smurf~
@@ -120,12 +127,13 @@ Jokey loves to give people presents.  Too bad the present explodes when opened.
 Oh well, to each his own.
 ~
 human~
-AGHS DF 100 0
+AGHS 0 100 0
 3 0 2d7+21 1d9+100 1d5+0 none
 8 8 8 10
 BEFJNU 0 0 0
 stand stand male 1
 0 0 medium unknown
+A det DF
 #109
 oldstyle smurfette~
 Smurfette~
@@ -135,12 +143,13 @@ Smurfette is the cutest little smurf you've ever seen.  If only she were your
 size.  I wonder how much she charges the other smurfs.
 ~
 human~
-AGHS DF 100 0
+AGHS 0 100 0
 3 0 2d7+21 1d9+100 1d5+0 none
 8 8 8 10
 BEFJNU 0 0 0
 stand stand female 1
 0 0 medium unknown
+A det DF
 #110
 oldstyle papa smurf~
 Papa Smurf~

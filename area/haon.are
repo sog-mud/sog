@@ -64,12 +64,13 @@ She is a graceful creature on long, slender legs, and with large, brown eyes
 looking back at you with an air of watchful interest.
 ~
 human~
-ABEGI D 350 0
+ABEGI 0 350 0
 2 0 2d7+21 1d9+100 1d5+0 none
 8 8 8 10
 EFNU 0 0 0
 stand stand female 0
 0 0 medium unknown
+A det D
 #6005
 oldstyle fox~
 the brown fox~
@@ -153,12 +154,13 @@ the nicks in the horns on its head.  It smells as disgusting as only dragons
 do.
 ~
 dragon~
-ABFG D -1000 0
+ABFG 0 -1000 0
 45 50 5d10+1550 12d9+400 2d40+20 none
 -27 -27 -27 -10
 EFNR 0 0 0
 stand stand none 2500
 0 0 medium unknown
+A det D
 #6115
 oldstyle shargugh brownie~
 Shargugh~
@@ -169,12 +171,13 @@ tangled brown beard.  He wears ragged brown and green clothing and looks as if
 he is having great fun.
 ~
 human~
-ACEH BDJP 1000 0
+ACEH BJP 1000 0
 10 0 2d7+121 5d9+100 2d4+2 none
 1 1 1 8
 EFNU 0 0 0
 stand stand male 50
 0 0 medium unknown
+A det D
 #6116
 oldstyle elder druid~
 the elder druid~
@@ -184,12 +187,13 @@ The druid looks quite old.  You would think him venerable, but you know
 he would be a tough foe.
 ~
 human~
-ABCFQ DJ 0 0
+ABCFQ J 0 0
 17 0 3d9+258 17d9+100 2d6+4 none
 -3 -3 -3 6
 EIKU 0 0 0
 stand stand male 250
 0 0 medium unknown
+A det D
 #6117
 guildmaster master~
 the guildmaster~
@@ -199,12 +203,13 @@ He is an old, but strong looking ranger.  Some leaves and dry branches
 still hang over his clothes from last camouflage.
 ~
 human~
-ABKRV DEFZ 1000 0
+ABKRV 0 1000 0
 66 0 1d1+24999 1d1+999 6d18+24 chop
 -90 -90 -90 -70
 FG ABD C 0
 stand stand male 0
 0 0 medium unknown
+A det DEFZ
 #0
 
 #OBJECTS

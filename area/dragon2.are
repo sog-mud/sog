@@ -18,12 +18,13 @@ copper scales seems to stop time.  The Dragon does not seem happy that you are
 here. It ATTACKS.
 ~
 copper dragon~
-ABFGHTZ DFHZ 350 0
+ABFGHTZ H 350 0
 40 0 15d10+1850 5d5+1000 4d8+13 charge
 -13 -13 -13 -2
 CFM AB 0 I
 stand stand male 4999
 0 0 huge unknown
+A det DFZ
 #2401
 White Dragon~
 The White Dragon~
@@ -33,12 +34,13 @@ A intimidating Dragon stands before you.  The icy glare blinds you long enough
 for the Ice Dragon to devour you.
 ~
 white dragon~
-ABFGHT DFHZ -350 0
+ABFGHT H -350 0
 40 0 15d10+1850 5d5+1000 4d8+13 charge
 -13 -13 -13 -2
 CFM AB 0 I
 stand stand male 4999
 0 0 huge unknown
+A det DFZ
 #2402
 Pixie~
 A Pixie~
@@ -63,12 +65,13 @@ The Spirit of the Time Dragon guards the hoard gathered by the copper dragons
 who have stood sentinel over this spot. The Spirit lunges for your SOUL!!!!!!!
 ~
 dragon~
-ABFGT DFHU 0 0
+ABFGT HU 0 0
 55 0 50d10+5500 20d12+100 10d4+23 charge
 -25 -25 -25 -7
 CFM AB 0 0
 stand stand male 6499
 0 0 huge unknown
+A det DF
 #2404
 Ice Dragon Spirit~
 The Spirit of the Ice Dragon~
@@ -78,12 +81,13 @@ The Spirit of the Ice Dragon Stands over the hoard of the previous white dragon
 guardians. The Spirit attempts to leech you life blood from your body.
 ~
 dragon~
-ABFGT DFHU 0 0
+ABFGT HU 0 0
 55 0 50d10+5500 20d12+100 10d4+23 charge
 -25 -25 -25 -7
 CFM AB 0 0
 stand stand male 6999
 0 0 huge unknown
+A det DF
 #2405
 Pixie King~
 The Pixie King~
@@ -94,12 +98,13 @@ The King loves to frolic and play, especially with new friends.
 He asks you "Will you be my friend?".
 ~
 elf~
-ABFG DF 1000 0
+ABFG 0 1000 0
 48 0 25d10+3500 23d8+100 6d6+18 charge
 -16 -16 -16 -3
 EN AB 0 D
 stand stand male 2499
 0 0 small unknown
+A det DF
 #2406
 gate keeper gatekeeper~
 The GateKeeper~
@@ -110,12 +115,13 @@ carrying a large burden for some time.  You feel sorry for him, but
 he does have the key that you need to continue on through the cave.
 ~
 elf~
-ABFGT DF 0 0
+ABFGT 0 0 0
 45 0 25d10+2750 24d7+100 8d4+16 pound
 -15 -15 -15 2
 EFHIKN AB 0 D
 stand stand male 2799
 0 0 small unknown
+A det DF
 #2407
 eternity dragon~
 The Eternity Dragon~
@@ -129,12 +135,13 @@ completely filled by the dragon.  At the time it seems peaceful, but you
 can tell that attacking it would be the dumbest, and last thing you ever did.
 ~
 dragon~
-AT BDFHU 0 0
+AT BHU 0 0
 65 0 50d15+8250 52d12+100 11d5+35 charge
 -37 -37 -37 -20
 CFM 0 0 0
 stand stand male 14999
 0 0 huge unknown
+A det DF
 #2408
 pixie guard~
 A Pixie Guard~
@@ -162,12 +169,13 @@ at you maliciously.  The Staff he carries seems familiar, but you are not
 sure from where you remember it.
 ~
 elf~
-ACGHR DH -500 0
+ACGHR H -500 0
 58 0 50d10+6000 34d10+100 5d10+25 pound
 -27 -27 -27 -10
 FHN 0 0 D
 stand stand male 4499
 0 0 small unknown
+A det D
 #2410
 pixie guard~
 A Pixie Guard~
@@ -193,12 +201,13 @@ This winged creature is the epitome of mischief. He loves to pick on
 travelers, and guess what.... It's your turn :).
 ~
 elf~
-AHS DEQZ -500 0
+AHS Q -500 0
 36 0 10d30+1400 100d10+100 3d10+11 pound
 -11 -11 -11 0
 FHKN 0 0 D
 stand stand male 1499
 0 0 small unknown
+A det DEZ
 #2412
 Keeper~
 A Keeper~
@@ -209,15 +218,16 @@ for many years and in working for three years in midgaard he retired. And
 found this job.
 ~
 human~
-ABHS DEHJPZ -500 2402
+ABHS HJP -500 2402
 91 0 10d30+19000 100d10+100 15d15+10 pound
 -81 -81 -81 -30
 FHKN 0 0 D
 stand stand male 1499
 0 0 medium unknown
-M GIVE 2400 90~
-M GIVE 2401 all~
-M GREET 2402 100~
+A det DEZ
+M give 2400 90~
+M give 2401 all~
+M greet 2402 100~
 #2413
 Fireflash~
 Fireflash~
@@ -226,15 +236,16 @@ The over lord of dragons is here, resting.
 He is, the old dragon, resting and getting off tired of years.
 ~
 gold dragon~
-AHS DEPZ 1000 2402
+AHS P 1000 2402
 91 50 10d30+20400 100d10+100 5d35+60 punch
 -75 -75 -75 -30
 FHKN 0 0 D
 stand stand male 1499
 0 0 small unknown
-M GIVE 2404 91~
-M GIVE 2403 all~
-M GREET 2405 100~
+A det DEZ
+M give 2404 91~
+M give 2403 all~
+M greet 2405 100~
 #2414
 Pixie~
 A Pixie~

@@ -20,12 +20,13 @@ back down. As natives of Mirkwood, they are virtually imposssible to see
 if they don't want to be seen.
 ~
 elf~
-ABCFG FQ 400 0
+ABCFG Q 400 0
 5 0 2d6+60 1d1+99 1d6+1 punch
 5 5 5 10
 DF ABIN AN GH
 stand sit male 103
 0 0 small unknown
+A det F
 #8801
 sylvan elf warrior~
 a sylvan elf warrior~

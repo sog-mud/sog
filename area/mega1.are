@@ -49,12 +49,13 @@ not be stopped by anyone who tries to deter him from revenge upon the
 Justice Department.
 ~
 human~
-ABF D 0 0
+ABF 0 0 0
 17 0 3d9+258 8d9+100 3d4+4 none
 -3 -3 -3 7
 EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
+A det D
 #8003
 oldstyle Citi-Def Militiaman~
 a Citi-Def Militiaman~
@@ -78,12 +79,13 @@ A dunk is here blending into the crowd.
 He blends into the crowd as his hand travels into another citizen's pocket.
 ~
 human~
-ACGHS DF -150 0
+ACGHS 0 -150 0
 10 0 2d6+110 5d9+100 1d8+2 none
 2 2 2 8
 BEFJNU 0 0 0
 stand stand male 0
 0 0 medium unknown
+A det DF
 #8005
 oldstyle tap~
 a tap~
@@ -109,12 +111,13 @@ crimes you have committed.  Being a rookie he will probably be easier on
 you though.
 ~
 human~
-AG DF 300 0
+AG 0 300 0
 20 0 3d9+333 10d9+100 2d8+5 none
 -4 -4 -4 7
 EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
+A det DF
 #8007
 oldstyle Wallaby Gleep~
 Wallaby Gleep~
@@ -124,12 +127,13 @@ Wallaby Gleep is a heavy-set man who gives you the impression that he is
 unintelligent and unimaginative, but looks can be deceiving.
 ~
 human~
-ABC DFJ -600 0
+ABC J -600 0
 22 0 5d10+400 11d9+100 4d4+6 none
 -5 -5 -5 7
 EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
+A det DF
 #8008
 oldstyle Pinkerton Throt~
 Pinkerton Throt~
@@ -140,12 +144,13 @@ Scrooge.  Indeed, the only thing guaranteed to bring a spark to his dead
 eyes is the mention of money.
 ~
 human~
-ABCF DF -900 0
+ABCF 0 -900 0
 25 0 5d10+550 12d9+100 2d10+7 none
 -7 -7 -7 6
 EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
+A det DF
 #8009
 oldstyle Ernie Ramirez~
 Ernie Ramirez~
@@ -171,12 +176,13 @@ He is a dedicated, if somewhat pessimistic Judge.  He is the Senior Judge
 of the Downtown Quadrant.
 ~
 human~
-AG DFH 300 0
+AG H 300 0
 30 0 6d12+853 15d9+100 4d6+8 none
 -9 -9 -9 6
 EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
+A det DF
 #8011
 oldstyle Judge Beddows~
 Judge Beddows~
@@ -187,12 +193,13 @@ She is fanatically dedicated to her job and has no ambitions other than
 to enforce the LAW.
 ~
 human~
-AG DF 500 0
+AG 0 500 0
 25 0 5d10+550 12d9+100 2d10+7 none
 -7 -7 -7 6
 EFNU 0 0 0
 stand stand female 0
 0 0 medium unknown
+A det DF
 #8012
 oldstyle bite fighter~
 a bite fighter~

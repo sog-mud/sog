@@ -20,12 +20,13 @@ the acolyte of Zump~
 К чему бы это????
 ~
 human~
-ABGQTV CH 1000 0
+ABGQTV H 1000 0
 30 10 1d1+999 1d1+999 2d4+30 beating
 -15 -15 -15 -15
 ACEFHIKN ABCD 0 0
 stand stand male 0
 0 0 medium unknown
+A det C
 #3701
 blob~
 the blob~
@@ -40,12 +41,13 @@ would really suffer the consequences.
 убежишь, то вероятно пострадаешь от него.
 ~
 unique~
-ABGe C 0 0
+ABGe 0 0 0
 5 -5 1d1+49 1d1+99 1d1+0 digestion
 -15 -15 -15 -15
 AN AB CD 0
 stand stand none 0
 BSc 0 large unknown
+A det C
 #3702
 monster~
 the monster~
@@ -130,12 +132,13 @@ looks like a great prize!!!
 его, но выглядит он очень аппетитно.
 ~
 school monster~
-AB JZ 0 0
+AB J 0 0
 2 1 2d2+20 1d1+99 1d4+1 claw
 8 8 8 10
 FN 0 0 0
 stand stand none 25
 0 0 medium unknown
+A det Z
 #3707
 adept cleric~
 the adept of ~
@@ -148,12 +151,13 @@ the adept of ~
 ...чтоб его... Бабкина на мыло... @@#$%^#@@$$&*!!!
 ~
 human~
-ABGQTV CH 1000 0
+ABGQTV H 1000 0
 30 10 1d1+999 1d1+999 2d4+30 beating
 -15 -15 -15 -15
 ACEFHIKN ABCD 0 0
 stand stand male 0
 0 0 medium unknown
+A det C
 #3708
 adept~
 the adept of Alander~
@@ -164,12 +168,13 @@ the adept of Alander~
 @rus Он большой и вредный. Не приставай к нему!
 ~
 human~
-ABGQTV CH 1000 0
+ABGQTV H 1000 0
 30 10 1d1+999 1d1+999 2d4+30 beating
 -15 -15 -15 -15
 ACEFHIKN ABCD 0 0
 stand stand male 0
 0 0 medium unknown
+A det C
 #3709
 rabbit~
 the rabbit~
@@ -261,12 +266,13 @@ the beast~
 @rus У! Она выглядит недоброжелательно. Лучше убежа-а-а-ть!
 ~
 school monster~
-AFT JZ 0 0
+AFT J 0 0
 5 1 5d5+55 1d1+99 1d6+3 bite
 5 5 5 8
 EKM 0 HI 0
 stand stand none 50
 0 0 large unknown
+A det Z
 #3715
 bear~
 the bear~
@@ -309,12 +315,13 @@ the adept of Selene~
 @rus Он большой и вредный. Смотри... допрыгаешься.
 ~
 human~
-ABCQTVe CH 1000 0
+ABCQTVe H 1000 0
 30 10 1d1+999 1d1+999 2d4+30 beating
 -15 -15 -15 -15
 ACEFHIKN ABCD 0 0
 stand stand male 0
 0 0 medium unknown
+A det C
 #3718
 adept cleric~
 the adept of Furey~
@@ -325,12 +332,13 @@ the adept of Furey~
 @rus Он большой и вредный. Отстань от него!
 ~
 human~
-ABCJQTV CH 1000 0
+ABCJQTV H 1000 0
 30 10 1d1+999 1d1+999 2d4+30 beating
 -15 -15 -15 -15
 ACEFHIKN ABCD 0 0
 stand stand male 0
 0 0 medium unknown
+A det C
 #3719
 priest cleric~
 the priest of Circe~
@@ -341,12 +349,13 @@ the priest of Circe~
 @rus Он большой и вредный. Отстань от него!
 ~
 human~
-ABCKQTV CH 1000 0
+ABCKQTV H 1000 0
 30 10 1d1+999 1d1+999 2d4+30 beating
 -15 -15 -15 -15
 ACEFHIKN ABCD 0 0
 stand stand male 0
 0 0 medium unknown
+A det C
 #3720
 diploma beast~
 the diploma beast~

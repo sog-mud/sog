@@ -151,12 +151,13 @@ powerful and impressive than the Peace Guards.  These guards are here
 to make sure that law and order is maintained, and so it shall.
 ~
 human~
-AG D 250 0
+AG 0 250 0
 32 0 10d10+1000 5d5+1000 6d4+9 pound
 -10 -10 -10 3
 CDEFIJK 0 0 0
 stand stand male 1000
 0 0 medium unknown
+A det D
 #12340
 Zaertses~
 Zaertses~

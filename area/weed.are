@@ -17,12 +17,13 @@ This giant plant is covered with bud. It looks like it could
 smoke you.
 ~
 human~
-AGH DHT -500 0
+AGH HT -500 0
 55 0 50d10+5500 5d5+5000 10d4+23 charge
 -25 -25 -25 -1
 EK 0 0 0
 stand stand female 0
 0 0 giant unknown
+A det D
 #30233
 cannabis indica~
 Cannabis Indica~
@@ -33,12 +34,13 @@ It is a blend of beautiful orange, red, and blue hairs. Just a
 fraction of this plant would be enough to keep you happy for a year.
 ~
 human~
-ABG DHT -500 0
+ABG HT -500 0
 60 0 50d10+6750 5d5+5000 8d6+28 charge
 -30 -30 -30 -3
 EK 0 0 0
 stand stand male 0
 0 0 giant unknown
+A det D
 #30234
 small joint~
 A Small Joint~
@@ -78,12 +80,13 @@ While not a large quanitity of weed, it's probably enough to get
 you by for an hour or two.
 ~
 human~
-AGH DT -250 0
+AGH T -250 0
 43 0 25d10+2500 5d5+1000 3d12+15 none
 -15 -15 -15 2
 K 0 0 0
 stand stand male 0
 0 0 medium unknown
+A det D
 #30237
 dea agent~
 The DEA Agent~
@@ -95,12 +98,13 @@ messed with. Of course if you've been smoking any of this weed, you
 wouldn't really care.
 ~
 human~
-AGH DP 350 0
+AGH P 350 0
 51 0 50d10+4500 5d5+5000 5d8+20 charge
 -21 -21 -21 0
 K 0 0 0
 stand stand male 0
 0 0 medium unknown
+A det D
 #30238
 smuggler~
 The Smuggler~
@@ -125,12 +129,13 @@ Just the sweet fragrance of the air is enough to give you
 the munchies.
 ~
 unique~
-AFG BD 0 0
+AFG B 0 0
 38 0 10d10+1600 5d5+1000 5d6+12 none
 -13 -13 -13 3
 K 0 0 0
 stand stand none 0
 0 0 medium unknown
+A det D
 #30240
 tom petty~
 Tom Petty~
@@ -139,12 +144,13 @@ Tom Petty stands here strumming a guitar.
 He breaks into timeless verse singing, 
 ~
 human~
-AG DHPT 500 0
+AG HPT 500 0
 57 0 50d10+6000 5d5+5000 6d8+24 pound
 -27 -27 -27 -2
 CEIK 0 0 0
 stand stand male 0
 0 0 medium unknown
+A det D
 #0
 
 #OBJECTS

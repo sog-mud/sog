@@ -20,12 +20,13 @@ but same you can see than he is corking something in leaves.
 которая растет тут. Но ты замечаешь, что он что-то заныкивает в кустах...
 ~
 bear~
-AGVWZe DFGHZe 1000 0
+AGVWZe H 1000 0
 50 0 1d1+1 0d0+0 0d0+0 bite
 0 0 0 0
 0 ABCDEFGHIKLMNOPQRTXYZ 0 0
 stand stand male 10000
 H 0 small unknown
+A det DFGZe
 #34401
 tank t-34~
 @eng {DTank Abrams A1M1{w@rus {DТанк Т-34{w~
@@ -38,12 +39,13 @@ It's armor is covered by blood and squashed brains.
 Его броня заляпана мозгами и кровью тех кого он раздавил.
 ~
 human~
-AUVZ CDEFGHJNOQRTZbcde 0 0
+AUVZ HJNOQRTbcd 0 0
 96 1 1d1+29999 1d1+29999 1d1+0 blast
 -900 -900 -900 -900
 0 ABDEFGHIJLMNPQRTXY CJK S
 stand stand either 0
 EIc X giant unknown
+A det CDEFGZe
 #34403
 test~
 test~

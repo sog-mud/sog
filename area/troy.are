@@ -54,12 +54,13 @@ with his quick wits, which keep him alive long after all his allies have
 died.
 ~
 human~
-ABGT DFH 600 0
+ABGT H 600 0
 40 0 15d10+1850 5d5+1000 4d8+13 pound
 -13 -13 -13 3
 CDEFIK 0 0 0
 stand stand male 1000
 0 0 medium unknown
+A det DF
 #29503
 agamemnon~
 King Agamemnon~

@@ -163,12 +163,13 @@ A fat pig is rooting around for food.
 This fat pig is very hungry. He eats just about ANYTHING.
 ~
 pig~
-ACGH Gb 500 0
+ACGH b 500 0
 5 0 2d6+60 49d1+1 1d6+1 bite
 5 5 5 9
 BDEI 0 0 0
 stand stand either 35
 B V medium unknown
+A det G
 #14512
 dog~
 the dog~
@@ -178,12 +179,13 @@ The dog looks back at you.  After a few moments it sits up..
 puts a cigar in it's mouth, lights it, and asks, "So..what's up bub?"
 ~
 dog~
-AB F 400 0
+AB 0 400 0
 7 3 6d10+60 1d1+149 2d4+1 bite
 4 4 4 8
 CDL 0 C 0
 stand stand either 0
 0 0 medium unknown
+A det F
 #14513
 chicken~
 the chicken~
@@ -237,12 +239,13 @@ An Elven Man is here, looking for something.
 The Elven Man looks at you intently before continuing on his way.
 ~
 elf~
-ABR DEFZ 500 0
+ABR 0 500 0
 13 0 2d10+170 129d1+1 2d5+3 magic
 -1 -1 -1 8
 FG A 0 0
 stand stand male 513
 0 0 medium unknown
+A det DEFZ
 #14517
 woman elven~
 the Elven Woman~
@@ -251,12 +254,13 @@ A beautiful Elven Woman paces back and forth before you.
 Looking into her eyes causes you great fear.
 ~
 elf~
-ABR DEFZ 500 0
+ABR 0 500 0
 16 0 3d9+233 159d1+1 2d6+4 magic
 -2 -2 -2 7
 FG A 0 0
 stand stand female 300
 0 0 medium unknown
+A det DEFZ
 #14518
 woman dwarven~
 the Dwarven Woman~
@@ -265,12 +269,13 @@ The Dwarven Woman is smacking her fist in her hand.
 Stand back!  She's about to blow!!!
 ~
 unique~
-ABT DF 900 0
+ABT 0 900 0
 16 0 3d9+233 159d1+1 2d6+4 beating
 -2 -2 -2 7
 CDEIK A LQ R
 stand stand female 122
 AHMV ABCDEFGHIJ medium unknown
+A det DF
 #14519
 man dwarven~
 the Dwarven Man~
@@ -279,12 +284,13 @@ A large Dwarven Man walks by you.
 He looks back at you, then dismisses you as unimportant.
 ~
 unique~
-ABT DF 900 0
+ABT 0 900 0
 19 0 3d9+308 189d1+1 2d7+5 punch
 -4 -4 -4 7
 CDEIK A LQ R
 stand stand male 444
 AHMV ABCDEFGHIJ medium unknown
+A det DF
 #14520
 warrior goblin~
 the Goblin Warrior~

@@ -18,12 +18,13 @@ count at least 50 teeth on this monster.  You can't tell whether it is blood or
 saliva dripping from the beast's jaw.  The guardian beast snarls again.
 ~
 human~
-ABCFG DJPQ -200 0
+ABCFG JPQ -200 0
 7 0 2d6+85 3d9+100 1d8+1 none
 4 4 4 9
 EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
+A det D
 #2801
 oldstyle young troll~
 the young troll~
@@ -130,12 +131,13 @@ beast.  You can't tell whether it is blood or saliva dripping from the beast's
 jaw.  The roving beast snarls at you.
 ~
 human~
-ABCFG DJP -200 0
+ABCFG JP -200 0
 7 0 2d6+85 3d9+100 1d8+1 none
 4 4 4 9
 EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
+A det D
 #2808
 oldstyle medium troll~
 the medium troll~

@@ -20,12 +20,13 @@ wizard. He is equipped with fine clothing, and is wearing many fine
 rings and bracelets.
 ~
 human~
-ABKVe DHN 900 0
+ABKVe HN 900 0
 83 5 25d10+28800 1d1+1999 10d12+62 magic
 -95 -95 -95 -75
 AF ABC D 0
 stand stand male 15000
 0 0 medium unknown
+A det D
 #3001
 baker~
 the baker~
@@ -41,7 +42,7 @@ ABKVe HN 900 0
 CDF AB CD 0
 stand stand male 500
 0 0 medium unknown
-M GREET 3022 100~
+M greet 3022 100~
 #3002
 grocer~
 the grocer~
@@ -85,7 +86,7 @@ ABVe N 900 0
 CEFJKN AB CD 0
 stand stand male 25000
 0 0 medium unknown
-M GREET 3021 100~
+M greet 3021 100~
 #3005
 thief~
 the thief~
@@ -181,14 +182,15 @@ He knows all the zones of Muddy Realms. It would be a BAD THING to
 commit a crime in his presence. 
 ~
 giant~
-ABTVXe CDFJVZ 1000 3000
+ABTVXe JV 1000 3000
 85 30 1d1+28999 1d1+1499 5d14+80 crush
 -70 -70 -70 -50
 ACDEFHIKLNOT ABP CD 0
 stand stand male 0
 0 0 huge unknown
+A det CDFZ
 F vul P
-M GREET 3019 10~
+M greet 3019 10~
 #3012
 healer~
 the healer~
@@ -198,12 +200,13 @@ Although retired from adventuring, the healer still lends a hand.
 Type 'heal' to see a listing of spells.
 ~
 human~
-ABQVae DFH 1000 0
+ABQVae H 1000 0
 120 10 1d1+29099 1d1+1999 10d20+50 divine
 -150 -150 -150 -100
 FHIK ABC D 0
 stand stand male 5000
 0 0 huge unknown
+A det DF
 #3020
 guildmaster master~
 the guildmaster~
@@ -214,12 +217,13 @@ vast amount of knowledge she possesses. She is wearing fine magic clothing,
 and you notice that she is surrounded by a blue shimmering aura.
 ~
 elf~
-ABKRVe DEFZ 1000 0
+ABKRVe 0 1000 0
 96 0 1d1+29099 1d1+999 43d48+64 magic
 -65 -65 -65 -35
 FG ABD C 0
 stand stand female 0
 0 0 medium unknown
+A det DEFZ
 #3021
 guildmaster master~
 the guildmaster~
@@ -229,12 +233,13 @@ You are in no doubt that this guildmaster is truly close to your god; he has
 a peaceful, loving look. You notice that he is surrounded by a white aura.
 ~
 human~
-ABKQVe CDEFHZ 1000 0
+ABKQVe H 1000 0
 96 0 1d1+29099 1d1+999 43d48+64 divine
 -65 -65 -65 -35
 EFHIK ABD C 0
 stand stand male 0
 0 0 medium unknown
+A det CDEFZ
 #3022
 guildmaster master~
 the guildmaster~
@@ -245,12 +250,13 @@ the way of the true thief.  She is dressed in poor clothing, having
 the appearance of an ordinary citizen.
 human~
 unique~
-ABKSVe DFZ 1000 0
+ABKSVe 0 1000 0
 96 0 1d1+29099 1d1+199 43d48+64 stab
 -65 -65 -65 -35
 BEFHJN ABD C 0
 stand stand female 0
 0 0 medium unknown
+A det DFZ
 #3023
 guildmaster master~
 the guildmaster~
@@ -261,12 +267,13 @@ across his body prove that he was using arms before you were born.  He
 has a calm look on his face.
 ~
 dwarf~
-ABKTVe DF 1000 0
+ABKTVe 0 1000 0
 96 0 1d1+29099 1d1+199 43d48+64 beating
 -60 -60 -60 -40
 ACDEIK ABD C 0
 stand stand male 0
 0 0 medium unknown
+A det DF
 #3024
 sorcerer~
 the sorcerer~
@@ -277,12 +284,13 @@ He is here to guard the Mage's Guild and his superior knowledge of offensive
 as well as defensive spells make him a deadly opponent.
 ~
 elf~
-ABRTVe BD 800 0
+ABRTVe B 800 0
 30 5 1d1+999 1d1+499 10d4+10 magic
 -12 -12 -12 -8
 AEG AB CD 0
 stand stand male 2000
 0 0 medium unknown
+A det D
 #3025
 templar~
 the knight templar~
@@ -294,12 +302,13 @@ his religious devotion combined with his superior skill makes him a deadly
 opponent.
 ~
 human~
-ABQTVe DJ 800 0
+ABQTVe J 800 0
 30 5 1d1+999 1d1+499 5d8+10 divine
 -12 -12 -12 -7
 DEIK AB CD 0
 stand stand male 2000
 0 0 medium unknown
+A det D
 #3026
 assassin~
 the assassin~
@@ -310,12 +319,13 @@ using all sorts of weapons.  His superior knowledge of how and where to use
 them combined with his extraordinary stealth makes him a deadly opponent.
 ~
 human~
-ABSTVe DFPQ 800 0
+ABSTVe PQ 800 0
 30 8 1d1+999 1d1+99 4d10+12 pierce
 -12 -12 -12 -6
 BEFJN AB CD 0
 stand stand male 2000
 0 0 medium unknown
+A det DF
 #3027
 knight~
 the knight~
@@ -327,12 +337,13 @@ extreme skill combined with his experience in warfare makes him a deadly
 opponent.
 ~
 human~
-ABTVe DF 800 0
+ABTVe 0 800 0
 30 10 1d1+999 1d1+199 11d4+10 punch
 -12 -12 -12 -4
 ACDEHIK AB CD 0
 stand stand male 2000
 0 0 medium unknown
+A det DF
 #3040
 bartender~
 the bartender~
@@ -369,12 +380,13 @@ peaceful life as a waiter.
 ~
 ~
 human~
-ABRVe D 600 0
+ABRVe 0 600 0
 23 0 1d1+599 1d1+99 1d8+18 beating
 -6 -6 -6 0
 FJN AB CD 0
 stand stand male 150
 0 0 medium unknown
+A det D
 #3043
 waiter~
 the waiter~
@@ -485,7 +497,7 @@ ACS 0 -200 0
 BJNQ 0 0 C
 stand stand male 18
 0 0 medium unknown
-M DEATH 3020 100~
+M death 3020 100~
 #3064
 drunk~
 the drunk~
@@ -578,13 +590,14 @@ An old man eyes you greedily.
 He looks very dangerous.  I wouldn't try to rob him.
 ~
 human~
-ABQRVe DEFHV 1000 0
+ABQRVe HV 1000 0
 92 0 1d1+29599 1d1+999 10d10+20 magic
 -65 -65 -65 -25
 FGH AB CD 0
 stand stand male 5000
 0 0 medium unknown
-M GREET 3023 100~
+A det DEF
+M greet 3023 100~
 #3071
 cityguard guard~
 the cityguard~
@@ -635,12 +648,13 @@ A small loyal puppy is here.
 The puppy looks like a cute, little, fierce fighter.
 ~
 dog~
-ABIU F 400 0
+ABIU 0 400 0
 3 2 4d6+25 1d1+99 1d6+0 bite
 7 7 7 10
 N 0 C 0
 stand stand either 0
 0 Q small unknown
+A det F
 #3092
 beagle dog pet~
 the beagle~
@@ -649,12 +663,13 @@ A small, quick, loyal beagle is here.
 The beagle looks like a fierce fighter.
 ~
 dog~
-ABIU F 400 0
+ABIU 0 400 0
 5 3 3d12+50 1d1+99 1d6+0 bite
 5 5 5 9
 N 0 C 0
 stand stand either 0
 0 Q small unknown
+A det F
 #3093
 rottweiler dog pet~
 the rottweiler~
@@ -663,12 +678,13 @@ A large, loyal rottweiler is here.
 The rottweiler looks like a strong, fierce fighter.
 ~
 dog~
-ABIU F 400 0
+ABIU 0 400 0
 7 3 6d10+60 1d1+149 2d4+1 bite
 4 4 4 8
 CDL 0 C 0
 stand stand either 0
 0 0 medium unknown
+A det F
 #3094
 wolf pet~
 the wolf~
@@ -677,12 +693,13 @@ A large, trained wolf is here.
 The wolf looks like a strong, fearless fighter.
 ~
 wolf~
-ABIU F 0 0
+ABIU 0 0 0
 9 3 6d10+80 1d1+99 2d5+1 bite
 4 4 4 8
 C 0 C 0
 stand stand either 0
 0 0 medium unknown
+A det F
 #3095
 eagle bird pet~
 the eagle~
@@ -691,12 +708,13 @@ A loyal eagle circles overhead.
 The eagle looks like a strong fierce fighter.
 ~
 song bird~
-ABIU FZ 0 0
+ABIU 0 0 0
 12 3 6d10+130 1d1+99 2d5+3 claw
 0 0 0 8
 N 0 C 0
 stand stand either 0
 0 U small unknown
+A det FZ
 #3096
 lion pet~
 the lion~
@@ -705,12 +723,13 @@ A large, faithful lion is here.
 The great lion looks very fierce.
 ~
 cat~
-ABIU F 0 0
+ABIU 0 0 0
 15 2 4d9+205 1d1+99 2d8+3 chomp
 -2 -2 -2 7
 C 0 C 0
 stand stand either 0
 0 0 medium unknown
+A det F
 #3097
 tiger pet~
 the tiger~
@@ -719,12 +738,13 @@ A great, loyal tiger is here.
 The large, striped tiger looks like a savage fighter.
 ~
 cat~
-ABIU F 0 0
+ABIU 0 0 0
 20 3 4d9+325 1d1+99 4d4+5 claw
 -4 -4 -4 6
 CMN 0 C 0
 stand stand either 0
 0 0 medium unknown
+A det F
 #3100
 maid~
 the maid~
@@ -818,12 +838,13 @@ The captain of the guard is looking very upset.
 A big, strong, angry captain.
 ~
 human~
-ABCFT D 1000 3000
+ABCFT 0 1000 3000
 17 4 15d15+190 1d1+199 2d4+6 punch
 -2 -2 -2 6
 CDEHKLU 0 C 0
 stand stand male 500
 0 0 medium unknown
+A det D
 #3141
 cityguard guard~
 the cityguard~
@@ -924,12 +945,13 @@ jaw, almost as if he were smiling at you.  He's quite friendly, but don't
 get him drunk.
 ~
 snake~
-ABV D 200 0
+ABV 0 200 0
 35 3 11d10+1300 1d1+99 6d6+4 bite
 -16 -15 -12 0
 FHNR 0 F 0
 stand stand male 0
 0 0 small unknown
+A det D
 #3162
 otho money changer moneychanger~
 Otho the Changer~
@@ -943,12 +965,13 @@ changing business pays quite well in this busy city, or possibly the rumors
 of his fencing services are true...
 ~
 human~
-ABVd DF 900 0
+ABVd 0 900 0
 75 0 1d1+28099 1d1+199 15d30+60 slap
 -65 -65 -65 -35
 FG AB CD 0
 stand stand male 1000
 0 0 medium unknown
+A det DF
 #3163
 thief~
 the thief~
@@ -1005,12 +1028,13 @@ Her white robes represend the purity of her soul.  She is standing behind
 the altar, and concentrating, to cure the others wounds.
 ~
 human~
-ABKQRVae DEFHZ 1000 0
+ABKQRVae H 1000 0
 120 0 1d1+1700 1d1+2000 7d4+50 divine
 0 0 0 0
 FG ABC ABCD 0
 stand stand female 0
 0 0 medium unknown
+A det DEFZ
 #3167
 guildmaster master~
 the guildmaster~
@@ -1021,12 +1045,13 @@ charismatic.  He is still wearing his bright body armor, even at a very
 safe place like this. He has a long, two-handed sword next to him.
 ~
 human~
-ABKRVe DEFZ 1000 0
+ABKRVe 0 1000 0
 96 0 1d1+29099 1d1+999 20d48+64 slash
 -80 -80 -80 -40
 FG ABD C 0
 stand stand male 0
 0 0 medium unknown
+A det DEFZ
 #3168
 guildmaster master~
 the guildmaster~
@@ -1036,12 +1061,13 @@ The guild master is a tall well build man.  He wears a dark cloth all
 over his body,  and carries strange equipment tied on his belt.  
 ~
 human~
-ABKRVe DEFZ 0 0
+ABKRVe 0 0 0
 96 0 1d1+29099 1d1+999 20d48+64 slash
 -80 -80 -80 -30
 FG AB CD 0
 stand stand male 0
 0 0 medium unknown
+A det DEFZ
 #3169
 guildmaster master~
 the guildmaster~
@@ -1053,12 +1079,13 @@ face. Even he's an elf, he has a strong build, tall body. He looks
 willing to practice you, as long as you serve the evil.
 ~
 dark-elf~
-ABKRVe DEFZ -300 0
+ABKRVe 0 -300 0
 96 0 1d1+29099 1d1+999 20d50+64 slash
 -80 -80 -80 -40
 FG AB CD 0
 stand stand male 0
 0 0 medium unknown
+A det DEFZ
 #3170
 guildmaster master~
 the guildmaster~
@@ -1069,12 +1096,13 @@ vast amount of knowledge she possesses. She is wearing fine magic clothing,
 and you notice that she is surrounded by a blue shimmering aura.
 ~
 elf~
-ABKRVe DEFZ 0 0
+ABKRVe 0 0 0
 96 0 1d1+29099 1d1+999 20d48+64 magic
 -85 -85 -85 -35
 FG ABD C 0
 stand stand female 0
 0 0 medium unknown
+A det DEFZ
 #3171
 guildmaster master~
 the guildmaster~
@@ -1085,12 +1113,13 @@ charismatic.  He is still wearing his old body armor, even at a very
 safe place like this. 
 ~
 human~
-ABKRVe DEFZ 1000 0
+ABKRVe 0 1000 0
 96 0 1d1+29099 1d1+999 20d48+64 slash
 -80 -80 -80 -40
 FG ABD C 0
 stand stand male 0
 0 0 medium unknown
+A det DEFZ
 #3172
 templeman~
 the templeman~
@@ -1100,31 +1129,32 @@ Although very handsome, the templeman serves for IMMORTALS and GODS.
 help 'religion' to see a listing of religions available.
 ~
 human~
-ABKQVe DFH 1000 0
+ABKQVe H 1000 0
 80 10 1d1+25999 1d1+999 12d44+60 divine
 -95 -95 -95 -15
 FHIK ABC D 0
 stand stand male 5000
 0 0 huge unknown
-M GREET 3000 100~
-M SPEECH 3001 religion~
-M SPEECH 3002 atum-ra~
-M SPEECH 3003 zeus~
-M SPEECH 3004 siebele~
-M SPEECH 3005 shamash~
-M SPEECH 3006 ahuramazda~
-M SPEECH 3007 ehrumen~
-M SPEECH 3008 deimos~
-M SPEECH 3009 phobos~
-M SPEECH 3010 odin~
-M SPEECH 3011 teshub~
-M SPEECH 3012 ares~
-M SPEECH 3013 goktengri~
-M SPEECH 3014 hera~
-M SPEECH 3015 venus~
-M SPEECH 3016 seth~
-M SPEECH 3017 enki~
-M SPEECH 3018 eros~
+A det DF
+M greet 3000 100~
+M speech 3001 religion~
+M speech 3002 atum-ra~
+M speech 3003 zeus~
+M speech 3004 siebele~
+M speech 3005 shamash~
+M speech 3006 ahuramazda~
+M speech 3007 ehrumen~
+M speech 3008 deimos~
+M speech 3009 phobos~
+M speech 3010 odin~
+M speech 3011 teshub~
+M speech 3012 ares~
+M speech 3013 goktengri~
+M speech 3014 hera~
+M speech 3015 venus~
+M speech 3016 seth~
+M speech 3017 enki~
+M speech 3018 eros~
 #0
 
 #OBJECTS

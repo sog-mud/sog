@@ -22,12 +22,13 @@ her forehead:
                              ((+*+))
 ~
 elf~
-ABGR DFH 0 0
+ABGR H 0 0
 93 0 100d12+19000 1d100+15000 13d13+63 magic
 -61 -63 -64 -33
 EFG 0 JK 0
 stand stand female 55000
 0 0 medium unknown
+A det DF
 #11801
 drakyri deriki noriek deiayan lord~
 Noriek~
@@ -39,12 +40,13 @@ mark on the hem of his clothing indicates his rank as consort to the head
 of major house Deriki, Lechandre.
 ~
 elf~
-ABGR DFH 0 0
+ABGR H 0 0
 93 0 100d12+19000 1d100+14700 12d13+63 wrath
 -63 -63 -61 -32
 FG 0 J F
 stand stand male 45700
 0 0 medium unknown
+A det DF
 #11802
 drakyri deriki dyrli sh'aya lady~
 Dyrli~
@@ -56,12 +58,13 @@ her experiment, does not seem to notice you.  She wears the insignia of
 she'vale Deriki and the mark of the first in command.
 ~
 elf~
-ABGR DFH 0 0
+ABGR H 0 0
 89 0 100d12+17000 1d100+12000 14d10+59 wrath
 -58 -58 -59 -39
 FG 0 I H
 stand stand female 15000
 0 0 medium unknown
+A det DF
 #11803
 drakyri deriki roweni sequas~
 Roweni~
@@ -72,12 +75,13 @@ She bears the fine boned features of an elf and the iridescent wings
 of the fae.  Pale green eyes watch you measuringly.
 ~
 elf~
-ABGR BDFT 0 0
+ABGR BT 0 0
 85 0 100d12+15000 1d100+10500 10d13+55 magic
 -55 -55 -55 -25
 FG 0 I H
 stand stand female 10000
 0 0 medium unknown
+A det DF
 #11804
 drakyri deriki xanil treye man~
 Xanil~
@@ -88,12 +92,13 @@ a stack of parchment.  He bears the mark of the treye, third in command,
 of she'vale Deriki.
 ~
 elf~
-ABGR DF 0 0
+ABGR 0 0 0
 82 0 100d10+13500 1d100+10000 10d12+52 magic
 -53 -54 -50 -22
 FG 0 K 0
 stand stand male 10000
 0 0 medium unknown
+A det DF
 #11805
 drakyri deriki tyrena na'deia lady~
 Tyrena~
@@ -106,12 +111,13 @@ marking her as the heir to Deriki.  When she comes into full power, the
 dot will be replaced by the house crest.
 ~
 elf~
-ABGR DFH 0 0
+ABGR H 0 0
 87 0 100d12+16000 1d100+11500 12d11+57 magic
 -56 -55 -57 -27
 FGI 0 0 J
 stand stand female 25300
 0 0 medium unknown
+A det DF
 #11806
 drakyri deriki nalyss ira'deia girl~
 Nalyss~
@@ -122,12 +128,13 @@ her.  A narrow mark along one cheekbone denotes her as one of the
 younger siblings (ira'deia) of the heir.
 ~
 elf~
-ABCGR DFTV 0 0
+ABCGR TV 0 0
 83 0 100d12+14000 1d100+10000 9d14+53 pierce
 -54 -53 -53 -23
 FGJ 0 0 0
 stand stand female 5700
 0 0 medium unknown
+A det DF
 #11807
 drakyri deriki daeman ira'deian boy~
 Daeman~
@@ -138,12 +145,13 @@ seemingly oblivious to your presence.  A blue mark along his cheekbone
 indicates that he is a younger sibling of the Deriki heir.
 ~
 elf~
-ABGR BDFT 0 0
+ABGR BT 0 0
 84 0 100d12+14500 1d100+10000 9d14+54 slash
 -55 -54 -53 -24
 FGHN 0 0 0
 stand stand male 6000
 0 0 medium unknown
+A det DF
 #11808
 drakyri deriki ykandres ira'deian youth~
 Ykandres~
@@ -155,12 +163,13 @@ golden locks to examine you with curious grey-silver eyes.  He
 bears the mark of an ira'deian, or younger child, along one cheekbone.
 ~
 elf~
-ACGR BDFTV 0 0
+ACGR BTV 0 0
 83 0 100d12+14000 1d100+10000 9d14+53 punch
 -52 -52 -52 -14
 FGJ 0 J K
 stand stand male 7500
 0 0 medium unknown
+A det DF
 #11809
 zeion snow owl~
 Zeion~
@@ -169,12 +178,13 @@ A snow owl the color of blue ice cocks its head at you.
 Huge dark eyes examine you curiously.
 ~
 unique~
-AC TZ 0 0
+AC T 0 0
 90 0 100d12+17000 1d50+12000 10d10+60 peckb
 -60 -59 -60 -20
 CDEFG 0 IJ H
 stand stand either 0
 ACHW ACDEFHJKPU large unknown
+A det Z
 #11810
 drakyri lab assistant~
 the lab assistant~
@@ -183,12 +193,13 @@ An assistant rushes around setting up an experiment.
 He seems a little harried and glares at you for getting in the way.
 ~
 elf~
-ABCGR DT 0 0
+ABCGR T 0 0
 81 0 100d12+13000 1d50+9500 13d9+51 punch
 -50 -50 -52 -21
 DFG 0 0 0
 stand stand male 1500
 0 0 medium unknown
+A det D
 #11811
 mage training~
 a mage in training~
@@ -201,12 +212,13 @@ about idiots and fried brains.  An odor of singed hair wafts from
 your left ear.
 ~
 elf~
-ACGR DFT 0 0
+ACGR T 0 0
 80 0 100d12+12500 1d50+9500 13d9+50 scratch
 -49 -50 -50 -20
 FG 0 0 0
 stand stand either 5000
 0 0 medium unknown
+A det DF
 #11812
 writhing form ghostly~
 a writhing form~
@@ -217,12 +229,13 @@ to be trapped in one place by some kind of magic which apparently
 holds despite the form's continuous lashing.
 ~
 unique~
-ABGR BIJTUZ 0 0
+ABGR BIJTU 0 0
 87 0 100d12+16000 1d50+10000 12d11+57 magic
 -57 -57 -57 -20
 DFG 0 D MNO
 stand stand none 0
 HL 0 medium unknown
+A det Z
 #11813
 glyph warding~
 a glyph of warding~
@@ -232,12 +245,13 @@ It seems to be made of semi-transparent substance shaped in the form
 of a magical glyph, created to guard the house against outside threats.
 ~
 unique~
-ABG BDFJQTUZ 0 0
+ABG BJQTU 0 0
 90 0 100d12+17500 1d100+10000 12d12+60 wrath
 -60 -60 -60 -28
 DEFG 0 FMN JOP
 stand stand none 0
 HL 0 medium unknown
+A det DFZ
 #11814
 drakyri treniste dosandre deian lord~
 Dosandre~
@@ -251,12 +265,13 @@ A golden symbol shimmers between his brows:
                           ((-*-))
 ~
 elf~
-ABGT CHN 1000 0
+ABGT HN 1000 0
 90 0 100d12+19000 1d10+1000 12d12+60 none
 -60 -58 -58 -26
 CDEIK N Y M
 stand stand male 65000
 0 0 medium unknown
+A det C
 #11815
 drakyri treniste denylis deiaya lady~
 Denylis~
@@ -267,12 +282,13 @@ golden halo.  Bright blue eyes gaze back at you serenely.  You sense
 an aura of great power behind the gentle smile.
 ~
 elf~
-ABGQ CHNT 1000 0
+ABGQ HNT 1000 0
 89 0 100d12+17500 1d10+2000 12d11+59 none
 -59 -59 -58 -25
 DEF 0 N M
 stand stand female 45500
 0 0 medium unknown
+A det C
 #11816
 drakyri treniste kaele sh'ayan~
 Kaele~
@@ -283,12 +299,13 @@ one eyebrow raises in question.  He bears the mark of a sh'ayan
 on his collar.
 ~
 elf~
-ACGT CHNT 1000 0
+ACGT HNT 1000 0
 85 0 100d12+16500 1d10+950 10d13+55 wrath
 -56 -57 -56 -21
 CDEFK 0 N M
 stand stand male 25500
 0 0 medium unknown
+A det C
 #11817
 drakyri treniste rexena sequas female~
 Rexena~
@@ -300,12 +317,13 @@ and her stance betrays an aura of authority.  She bears the mark of
 the Treniste sequas, the second in command.
 ~
 elf~
-ACGT CNT 900 0
+ACGT NT 900 0
 83 0 100d12+15500 1d10+930 9d14+53 cleave
 -54 -53 -54 -20
 CDEIK 0 IN HM
 stand stand female 15500
 0 0 medium unknown
+A det C
 #11818
 drakyri treniste deis treye male~
 Deis~
@@ -316,12 +334,13 @@ face.  On his collar is the mark of the treye, third in command,
 of house Treniste.
 ~
 elf~
-AGQ CNT 900 0
+AGQ NT 900 0
 80 0 100d12+12500 1d50+5000 9d12+50 none
 -48 -48 -49 -19
 EFI 0 N M
 stand stand male 10200
 0 0 medium unknown
+A det C
 #11819
 drakyri treniste lyrene na'deia girl~
 Lyrene~
@@ -333,12 +352,13 @@ a catlike speed.  A golden dot on her forehead marks this girl as
 the Treniste na'deia, or heir.
 ~
 elf~
-AGT CHNT 980 0
+AGT HNT 980 0
 86 1 100d12+17000 1d10+900 13d10+56 slash
 -57 -56 -55 -24
 CDEHIK 0 JN IM
 stand stand female 21000
 0 0 medium unknown
+A det C
 #11820
 drakyri treniste josreke ira'deian youth~
 Josreke~
@@ -349,12 +369,13 @@ along the spine indicates that it has something to do with magic.
 Along one cheekbone, you notice the tiny mark of a Treniste ira'deian.
 ~
 elf~
-ACGR CDFNT 920 0
+ACGR NT 920 0
 81 0 100d12+12500 1d100+10000 9d12+51 shock
 -51 -50 -50 -18
 FG 0 HN IM
 stand stand male 9400
 0 0 medium unknown
+A det CDF
 #11821
 drakyri treniste rodwen ira'deia girl~
 Rodwen~
@@ -366,12 +387,13 @@ Noticing your scrutiny, she pauses, and you notice the mark of
 an ira'deia along one cheekbone.
 ~
 elf~
-AGT CNT 920 0
+AGT NT 920 0
 82 0 100d12+15000 1d10+900 10d12+52 slash
 -53 -51 -50 -20
 EFHIK 0 N M
 stand stand female 9500
 0 0 medium unknown
+A det C
 #11822
 drakyri white paladin~
 a white clad paladin~
@@ -381,12 +403,13 @@ The paladin seems to follow your every move, as if measuring your
 worth.
 ~
 elf~
-ABGT CNT 950 0
+ABGT NT 950 0
 85 0 100d12+16500 1d10+950 10d13+55 cleave
 -56 -52 -53 -23
 CDFIK 0 N M
 stand stand either 5500
 0 0 medium unknown
+A det C
 #11823
 drakyri reykaris rachal deia lady~
 Rachal~
@@ -401,12 +424,13 @@ of house Reykaris:
                         ->*<-
 ~
 elf~
-ABFGR DFGHOT -1000 0
+ABFGR HOT -1000 0
 90 0 100d12+17000 1d100+12000 13d10+60 none
 -60 -60 -60 -20
 EFG M H IN
 stand stand female 35500
 0 0 medium unknown
+A det DFG
 #11824
 drakyri reykaris toryan deiayan man~
 Toryan~
@@ -417,12 +441,13 @@ an aura of complete evil and corruption radiating from this man..
 He bears the mark of the deiayan (consort) of she'vale Reykaris.
 ~
 elf~
-ABFGT GHOT -1000 0
+ABFGT HOT -1000 0
 89 0 100d12+18500 1d10+1000 14d10+59 slash
 -58 -58 -59 -27
 CDFK 0 M N
 stand stand male 30000
 0 0 medium unknown
+A det G
 #11825
 drakyri reykaris janalis sh'aya lady~
 Janalis~
@@ -434,12 +459,13 @@ blue eyes and pale golden hair.  The mark of the Reykaris sh'aya
 is emblazoned along her collar.
 ~
 elf~
-AFG GHOT -990 0
+AFG HOT -990 0
 86 0 100d12+15500 1d10+960 9d14+56 slice
 -55 -56 -56 -24
 EFK 0 M N
 stand stand female 21200
 0 0 medium unknown
+A det G
 #11826
 drakyri reykaris dreyva sequas~
 Dreyva~
@@ -449,12 +475,13 @@ Dark slitted eyes seem to follow your every move.  You notice the
 mark of the Reykaris sequas on her collar.
 ~
 elf~
-AFG GOT -975 0
+AFG OT -975 0
 83 0 100d12+15750 1d10+930 10d11+53 claw
 -54 -52 -53 -21
 FIK 0 M N
 stand stand female 15400
 0 0 medium unknown
+A det G
 #11827
 drakyri reykaris delyrus treye man~
 Delyrus~
@@ -465,12 +492,13 @@ of warning down your spine.  Along the collar is the mark of the
 Reykaris treye, the third in command.
 ~
 elf~
-ACFGQ BGOT -970 0
+ACFGQ BOT -970 0
 81 0 100d12+13000 1d100+9000 9d12+51 crush
 -50 -50 -50 -20
 FI 0 IM NO
 stand stand male 11250
 0 0 medium unknown
+A det G
 #11828
 drakyri reykaris kranali na'deian~
 Kranali~
@@ -481,12 +509,13 @@ glare at you angrily.  Between his eyebrows shimmers the black dot
 of the heir to Reykaris.
 ~
 elf~
-ABCFGR BDFGHOT -978 0
+ABCFGR BHOT -978 0
 85 0 100d12+15000 1d100+10500 13d9+55 slash
 -56 -56 -55 -25
 EFG 0 HM INP
 stand stand male 23400
 0 0 medium unknown
+A det DFG
 #11829
 drakyri reykaris sorina ira'deia child~
 Sorina~
@@ -499,12 +528,13 @@ mischieviously.  You notice a dark mark along one cheekbone indicating
 her status as an ira'deia, younger child, of house Reykaris.
 ~
 elf~
-ACG GTV -500 0
+ACG TV -500 0
 81 0 100d12+13000 1d10+950 9d12+51 pound
 -50 -51 -50 -20
 FJ 0 0 0
 stand stand female 1000
 0 0 medium unknown
+A det G
 #11830
 drakyri reykaris loryn ira'deia girl~
 Loryn~
@@ -516,12 +546,13 @@ a silvery throwing dagger balanced in her palm.  Along one cheekbone
 is the mark of an ira'deia of house Reykaris.
 ~
 elf~
-ABCFGS FGQTV -900 0
+ABCFGS QTV -900 0
 80 0 100d12+12500 1d10+2000 9d12+50 pierce
 -50 -45 -46 -18
 BEFJK 0 M N
 stand stand female 14300
 0 0 medium unknown
+A det FG
 #11831
 drakyri reykaris chake ira'deian man~
 Chake~
@@ -531,12 +562,13 @@ Short, jet black hair frames a narrow face with high cheekbones and dark
 slitted eyes.  The mark of an ira'deian glimmers along one cheekbone.
 ~
 elf~
-ABCFG GOT -900 0
+ABCFG OT -900 0
 82 0 100d12+13500 1d10+950 9d12+52 slash
 -52 -51 -52 -20
 EFK 0 M N
 stand stand male 14300
 0 0 medium unknown
+A det G
 #11832
 hellish guardian~
 the hellish guardian~
@@ -545,12 +577,13 @@ A hellish guardian stalks here, looking for prey.
 A rabid reddish light flickers behind narrow green cat eyes.
 ~
 pig~
-ACFG GJ -950 0
+ACFG J -950 0
 79 0 100d12+13000 1d50+5000 9d11+49 claw
 -48 -47 -47 -15
 CDJK 0 HM IN
 stand stand none 1000
 0 0 large unknown
+A det G
 #11833
 howling beast figure~
 a howling beast~
@@ -578,12 +611,13 @@ the eyes.  Twisted lips part to reveal cruel white canines.  The
 figure emits a threatening snarl..
 ~
 pig~
-ABCFG GJQT -855 0
+ABCFG JQT -855 0
 81 0 100d12+14250 1d10+950 10d10+51 claw
 -50 -50 -51 -20
 DEFJ 0 DM CN
 stand stand none 1000
 0 0 large unknown
+A det G
 #11835
 wax statue necromancer black figure~
 the necromancer~
@@ -597,12 +631,13 @@ blood-freezing snarl, and a trail of very real blood drips from
 the gleaming white fangs!
 ~
 human~
-ABFGR DGJOZ -955 0
+ABFGR JO -955 0
 80 0 100d12+12500 1d100+8500 9d11+50 claw
 -50 -52 -51 -20
 FG 0 M N
 stand stand either 7500
 0 0 medium unknown
+A det DGZ
 #11836
 mass writhing tentacles~
 a mass of writhing tentacles~
@@ -613,12 +648,13 @@ menacingly.  The tentacles part momentarily, and you notice a
 round, fanged mouth at the center, dripping blood.
 ~
 unique~
-ABCFG JOVZ -670 0
+ABCFG JOV -670 0
 81 0 100d12+14000 1d10+950 10d10+51 slash
 -51 -50 -51 -20
 DEK 0 0 0
 stand stand none 0
 ACGJ ADEFN huge unknown
+A det Z
 #11837
 figure summoned demon~
 a summoned demon~
@@ -627,12 +663,13 @@ A hulking figure snarls viciously.
 You catch a glimpse of hellish red eyes and wickedly sharp black talons.
 ~
 unique~
-ABG EJZc -900 0
+ABG Jc -900 0
 95 0 100d12+22500 1d100+7500 12d12+65 claw
 -65 -65 -63 -24
 EFG 0 MQ NSY
 stand stand none 10300
 ACH ABCDEFJKQUV large unknown
+A det EZ
 #11838
 drakyri myrxes jaena deia eyes~
 Jaena~
@@ -645,12 +682,13 @@ silver eyes gleam from a dark, narrow face like twin daggers.
                         -=+)>
 ~
 elf~
-ABFGS FHQTVZ 0 0
+ABFGS HQTV 0 0
 73 0 100d12+10250 1d10+1000 8d10+43 pierce
 -46 -47 -46 -14
 BEFJK 0 0 0
 stand stand female 65500
 0 0 medium unknown
+A det FZ
 #11839
 drakyri myrxes neraikis deiayan form~
 Neraikis~
@@ -661,12 +699,13 @@ His wary stance betrays a dangerous catlike grace.  You notice
 that he bears the mark of a deiayan of house Myrxes.
 ~
 elf~
-ABFGS FHQT 0 0
+ABFGS HQT 0 0
 73 1 100d12+10250 1d10+900 8d10+43 slash
 -43 -43 -43 -12
 BEFJ 0 0 0
 stand stand male 65000
 0 0 medium unknown
+A det F
 #11840
 drakyri myrxes katyre sh'aya figure~
 Katyre~
@@ -677,12 +716,13 @@ eyes seem to follow your every move.  Along one dark collar, you notice
 the mark of the Myrxes sh'aya.
 ~
 elf~
-ACGS FHQT 0 0
+ACGS HQT 0 0
 70 0 100d12+9000 1d10+900 8d8+40 pierce
 -40 -40 -40 -11
 BEFJ 0 0 0
 stand stand female 52500
 0 0 medium unknown
+A det F
 #11841
 drakyri myrxes ryxis sequen~
 Ryxis~
@@ -694,12 +734,13 @@ merges with them, disappearing from sight.  Along the collar, he
 wears the mark of a sequen, second in command of Myrxes.
 ~
 elf~
-ACGS FQTV 0 0
+ACGS QTV 0 0
 66 0 100d10+8000 1d10+800 11d5+36 pierce
 -36 -36 -36 -5
 BEFJ 0 0 0
 stand stand male 41400
 0 0 medium unknown
+A det F
 #11842
 drakyri myrxes gydeas treye form~
 Gydeas~
@@ -711,12 +752,13 @@ boned face.  The mark of the Myrxes treye, third in command, is
 emblazoned on his collar.
 ~
 elf~
-ACGS FQTZ 0 0
+ACGS QT 0 0
 64 0 100d10+7250 1d10+800 6d9+34 slash
 -34 -34 -34 -4
 BEFJ 0 0 0
 stand stand male 15500
 0 0 medium unknown
+A det FZ
 #11843
 drakyri myrxes dyraena na'deia lady~
 Dyraena~
@@ -729,12 +771,13 @@ smooth, silent gait displays a dangerous, well controlled power.
 Between her eyebrows is the mark of the Myrxes heir.
 ~
 elf~
-ABCFGS FHQTZ 0 0
+ABCFGS HQT 0 0
 71 1 100d12+9500 1d10+1000 7d11+41 slash
 -41 -41 -41 -11
 BEFJK 0 0 0
 stand stand female 25500
 0 0 medium unknown
+A det FZ
 #11844
 drakyri myrxes nyxi ira'deia girl~
 Nyxi~
@@ -745,12 +788,13 @@ Slitted silver eyes pierce the darkness to bore into your own.  Along
 one cheekbone is the mark of an ira'deia of Myrxes.
 ~
 elf~
-ABCGS FQTZ 0 0
+ABCGS QT 0 0
 68 0 100d10+8500 1d10+870 7d9+38 slice
 -38 -38 -39 -4
 BEFHJ 0 0 0
 stand stand female 15560
 0 0 medium unknown
+A det FZ
 #11845
 drakyri myrxes delise ira'deia~
 Delise~
@@ -759,12 +803,13 @@ A drakyri emerges from the shadows.
 Pale green cat eyes seem to glow with a silent power.
 ~
 elf~
-ABCGS FQTZ 0 0
+ABCGS QT 0 0
 68 0 100d12+8500 1d10+850 7d9+38 slash
 -39 -40 -41 -10
 BEFJ 0 0 0
 stand stand female 15500
 0 0 medium unknown
+A det FZ
 #11846
 black panther~
 a black panther~
@@ -774,12 +819,13 @@ Powerful muscles ripple beneath a shadow black coat.  Emerald green
 cat eyes flicker constantly around the room, taking in everything.
 ~
 cat~
-AFG DFJPQ 0 0
+AFG JPQ 0 0
 63 0 100d10+7500 1d10+750 8d6+33 claw
 -33 -33 -33 -13
 EK 0 0 0
 stand stand male 0
 0 0 large unknown
+A det DF
 #11847
 shadow lynx~
 a shadow lynx~
@@ -789,12 +835,13 @@ The form of a huge, dark lynx is barely visible in the shadows.
 Slitted silver eyes flicker towards you, and she hisses in warning.
 ~
 cat~
-AFG DFJPQ 0 0
+AFG JPQ 0 0
 63 0 100d10+7500 1d10+750 8d6+33 claw
 -33 -33 -34 -13
 EK 0 0 0
 stand stand male 0
 0 0 large unknown
+A det DF
 #11848
 night hawk black~
 a night hawk~
@@ -804,12 +851,13 @@ She hovers silently, powerful wings outspread.  Beneath the intelligent
 dark eyes, a cruel black beak opens to emit a shrill scream of challenge!
 ~
 song bird~
-ACFG JPQZ 0 0
+ACFG JPQ 0 0
 75 0 100d10+10500 1d10+800 8d11+45 peck
 -44 -45 -46 -14
 CDE 0 0 0
 stand stand female 0
 0 0 huge unknown
+A det Z
 #11849
 stalker form~
 the stalker~
@@ -820,12 +868,13 @@ The head turns towards you for a moment, fixing you with a sinister
 silver gaze that sends a chill up your spine.
 ~
 elf~
-ACFGS FQTZ 0 0
+ACFGS QT 0 0
 71 0 100d10+9500 1d10+750 7d10+41 pierce
 -43 -43 -42 -11
 BEFJ 0 0 0
 stand stand male 5500
 0 0 medium unknown
+A det FZ
 #11850
 hunter arrow~
 the hunter~
@@ -835,12 +884,13 @@ A lithe humanoid form crouches in the shadows, aiming a silvery
 arrow at you with dangerous accuracy.
 ~
 elf~
-ACFG FQTZ 0 0
+ACFG QT 0 0
 72 0 100d10+10250 1d10+770 7d11+42 slash
 -44 -43 -44 -11
 EFJK 0 0 0
 stand stand female 7000
 0 0 medium unknown
+A det FZ
 #11851
 drakyri xaek dyana deia lady~
 Dyana~
@@ -922,12 +972,13 @@ make this man a dangerous enemy.  Emblazoned on his collar, you notice
 the mark of the Xaek treye, third commander.
 ~
 elf~
-AGT TZ 0 0
+AGT T 0 0
 71 0 100d10+10250 1d10+610 9d9+41 slice
 -38 -39 -40 -8
 CDIK 0 0 0
 stand stand male 12100
 0 0 medium unknown
+A det Z
 #11856
 drakyri xaek versant na'deian boy~
 Versant~
@@ -939,12 +990,13 @@ muscles maintain the perfect balance of a warrior.  A grey dot in the
 center of his forehead marks him as the na'deia (heir) to Xaek.
 ~
 elf~
-ABGT Z 0 0
+ABGT 0 0 0
 76 1 100d10+12000 1d10+680 10d10+46 cleave
 -45 -44 -45 -14
 CDEIK 0 0 0
 stand stand male 16000
 0 0 large unknown
+A det Z
 #11857
 drakyri xaek saera ira'deia girl~
 Saera~
@@ -955,12 +1007,13 @@ deadly speed and accuracy.  Along her cheekbone is the mark of
 an ira'deia.
 ~
 elf~
-ABGT Z 0 0
+ABGT 0 0 0
 72 0 100d10+11000 1d10+700 8d11+42 slash
 -42 -42 -43 -11
 CEFIK 0 0 0
 stand stand female 12100
 0 0 medium unknown
+A det Z
 #11858
 grey lion~
 the grey lion~
@@ -1046,12 +1099,13 @@ the arched brows is the shimmering green insignia of myr'vale Noriva:
                            -(+)-
 ~
 elf~
-AGQ DFHT 0 0
+AGQ HT 0 0
 88 0 100d12+16500 1d100+5000 10d13+58 crush
 -58 -59 -58 -21
 FIK 0 MN HO
 stand stand male 62500
 0 0 medium unknown
+A det DF
 #11864
 drakyri noriva nerael deiaya lady~
 Nerael~
@@ -1063,12 +1117,13 @@ Above the fine, high cheekbones, clear silver eyes sparkle with energy.
 On her collar, the lady bears the mark of the deiaya of myr'vale Noriva.
 ~
 elf~
-AGQ DFHT 0 0
+AGQ HT 0 0
 84 0 100d12+14500 1d100+5000 13d9+54 pound
 -55 -55 -58 -25
 EFI 0 HMN IO
 stand stand female 61100
 0 0 medium unknown
+A det DF
 #11865
 drakyri noriva jorinne sh'aya woman~
 Jorinne~
@@ -1078,12 +1133,13 @@ An aura of health and power surrounds her.  A mark on her collar
 indicates her rank as sh'aya of myr'vale (minor house) Noriva.
 ~
 elf~
-ABGQ CDFGH 0 0
+ABGQ H 0 0
 77 0 100d10+11000 1d100+4800 9d10+47 pound
 -46 -47 -45 -16
 FI 0 HIP KO
 stand stand female 53000
 0 0 medium unknown
+A det CDFG
 #11866
 drakyri noriva lerylke sequen paladin~
 Lerylke~
@@ -1095,12 +1151,13 @@ Lerylke is the sequen of myr'vale Noriva, a neutral house.  Hence,
 he is neutral and worships neutral gods and goddesses.
 ~
 elf~
-ABGQT DFNOT 0 0
+ABGQT NOT 0 0
 74 0 100d10+10500 1d50+4000 9d10+44 cleave
 -43 -44 -44 -12
 CDEK 0 MN J
 rest stand male 25000
 0 0 medium unknown
+A det DF
 #11867
 drakyri noriva nerr treye male~
 Nerr~
@@ -1111,12 +1168,13 @@ His slitted golden eyes are narrowed in concentration as he heightens
 the health of the herbs as he weeds.
 ~
 elf~
-ABGQ DFT 0 0
+ABGQ T 0 0
 72 0 100d10+9750 1d100+4500 7d11+42 pound
 -41 -42 -42 -10
 FIK 0 0 0
 rest stand male 15500
 0 0 medium unknown
+A det DF
 #11868
 drakyri noriva yllyra na'deia lady~
 Yllyra~
@@ -1128,12 +1186,13 @@ occasionally to stretch.  Between her eyebrows shimmers the green
 dot of the Noriva na'deia.
 ~
 elf~
-ABQ DFH 0 0
+ABQ H 0 0
 77 0 100d10+11000 1d100+4900 9d10+47 pound
 -46 -45 -47 -16
 FIK 0 0 0
 stand stand female 45500
 0 0 medium unknown
+A det DF
 #11869
 drakyri noriva dryna ira'deia girl~
 Dryna~
@@ -1145,12 +1204,13 @@ with laughter.  Yet beneath the youthful smile, you sense great power.
 On one cheekbone, she bears the mark of an ira'deia of Noriva.
 ~
 elf~
-ACGQ DFT 0 0
+ACGQ T 0 0
 72 0 100d10+9750 1d100+4300 7d11+42 punch
 -40 -42 -43 -11
 EFGHI 0 HIJ E
 stand stand female 10500
 0 0 medium unknown
+A det DF
 #11870
 drakyri noriva voryl ira'deian boy~
 Voryl~
@@ -1161,12 +1221,13 @@ cut short, frames a handsome, youthful face and sparkling green eyes.
 Along one cheekbone is the mark of a Noriva ira'deian.
 ~
 elf~
-ACGQ DFT 0 0
+ACGQ T 0 0
 86 0 100d10+15500 1d100+4250 10d12+56 pound
 -55 -55 -55 -21
 FI 0 H I
 stand stand male 10500
 0 0 medium unknown
+A det DF
 #11871
 white cat~
 the white cat~
@@ -1177,12 +1238,13 @@ it.. but as you reach out your hand, the slitted green eyes snap open
 and the cat hisses warningly.
 ~
 cat~
-ABC PZ 0 0
+ABC P 0 0
 72 0 100d10+9750 1d10+900 7d11+42 claw
 -42 -42 -42 -12
 D 0 0 0
 stand stand male 0
 0 0 medium unknown
+A det Z
 #11872
 grey cat silvery~
 the grey cat~
@@ -1192,12 +1254,13 @@ Silvery grey fur shimmers in the light.  Bright silver cat eyes
 follow you warily.
 ~
 cat~
-AB FPZ 0 0
+AB P 0 0
 73 0 100d10+10000 1d10+900 7d11+43 claw
 -44 -43 -43 -12
 J 0 0 0
 stand stand female 0
 0 0 medium unknown
+A det FZ
 #11873
 drakyri guardian spirit form ghost~
 the guardian spirit~
@@ -1208,12 +1271,13 @@ It appears to be the spirit of a drakyri, long dead and set to
 guard here.
 ~
 unique~
-ABGQ BDFTUZ 0 0
+ABGQ BTU 0 0
 89 0 100d10+17000 1d100+6000 13d10+59 magic
 -55 -57 -56 -20
 FG 0 MN HIJ
 stand stand none 0
 DHL 0 medium unknown
+A det DFZ
 #11874
 drakyri laerkai flame mage~
 The Flame~
@@ -1241,12 +1305,13 @@ devoted and powerful of the drakyri knights, and a member of the
 elite force of drakyri, the Laerkai.
 ~
 elf~
-AGT DHNT 1000 0
+AGT HNT 1000 0
 92 0 100d12+20000 1d50+7500 15d10+66 none
 -63 -63 -63 -23
 CDIK N 0 M
 stand stand male 65000
 0 0 medium unknown
+A det D
 #11876
 drakyri laerkai claw knight~
 The Claw~
@@ -1256,12 +1321,13 @@ The drakyri emanates an aura of pure evil power.  Noting your gaze,
 she smiles a cruel not-smile and flexes wickedly sharp taloned hands.
 ~
 elf~
-ACGT DHOT -1000 0
+ACGT HOT -1000 0
 92 5 100d12+20000 1d50+7000 15d10+62 none
 -60 -61 -61 -30
 DEFIK M 0 N
 stand stand female 65000
 0 0 medium unknown
+A det D
 #11877
 drakyri laerkai shadow shadows~
 The Shadow~
@@ -1273,12 +1339,13 @@ are characterized by a curious catlike grace which betrays extreme
 power and agility, both dangerous.
 ~
 elf~
-ACGS FHQT 0 0
+ACGS HQT 0 0
 92 0 100d12+19000 1d50+7000 12d12+62 pierce
 -62 -62 -61 -30
 BEFHJ 0 E O
 stand stand male 65000
 0 0 medium unknown
+A det F
 #11878
 drakyri laerkai fist warrior~
 The Fist~
@@ -1305,12 +1372,13 @@ Though not much taller than yourself, the drakyri seems to tower
 far above you, as if possessed by some divine presense.
 ~
 elf~
-AGQ DFHNOT 0 0
+AGQ HNOT 0 0
 91 0 100d12+18000 10d101+10000 12d11+61 none
 -61 -60 -59 -30
 FIK 0 MN HO
 stand stand male 65000
 0 0 medium unknown
+A det DF
 #11880
 drakyri laerkai master~
 the Laerkai Master~
@@ -1325,12 +1393,13 @@ the master comes from a union between the Deriki and Myrxes houses.
 Trained by both, she has become a lethal blend of sorcery and stealth.
 ~
 elf~
-ABCFGRS BDFHQT 0 0
+ABCFGRS BHQT 0 0
 100 12 100d12+29500 1d100+15000 18d11+85 wrath
 -86 -87 -87 -57
 EFGHJK 0 FHIK JOP
 stand stand female 89800
 0 0 medium unknown
+A det DF
 #11881
 drakyri guardian~
 The Guardian~
@@ -1340,12 +1409,13 @@ the drakyri council.  She excels at many skills, due to decades of
 devotion and training, and is a formidable opponent.
 ~
 elf~
-ABGQT DFHT 0 0
+ABGQT HT 0 0
 94 1 100d12+20000 1d100+12500 15d10+64 shock
 -64 -63 -63 -33
 CDEFGK 0 IMN HJP
 stand stand female 10000
 0 0 medium unknown
+A det DF
 #11882
 drakyri mediator light~
 The Mediator~
@@ -1359,12 +1429,13 @@ when it is in session and resolves disputes.  Due to its ancient wisdom,
 it passes the final judgment on all issues that affect the race as a whole.
 ~
 unique~
-ABGQRU BCDEFGHTUZ 0 0
+ABGQRU BHTU 0 0
 90 16 100d12+16500 1d100+15000 10d13+60 none
 -60 -60 -60 -30
 EFIK BES JKLQ PT
 stand stand none 65000
 HK 0 huge unknown
+A det CDEFGZ
 #11883
 drakyri knight protector~
 a drakyri knight protector~
@@ -1389,12 +1460,13 @@ Trained by she'vale Deriki, this mage is sworn to protect the land
 and its inhabitants until death.
 ~
 elf~
-AGR DT 0 0
+AGR T 0 0
 68 0 45d10+8500 1d50+4000 8d7+38 magic
 -40 -40 -40 -10
 FG 0 0 0
 stand stand either 6000
 0 0 medium unknown
+A det D
 #11885
 drakyri healer~
 a drakyri healer~
@@ -1406,12 +1478,13 @@ except to the isle as a whole and answers to no one but the laerkai
 master, the mediator, and the warden.
 ~
 elf~
-AGQ DNOT 0 0
+AGQ NOT 0 0
 68 0 75d10+8500 1d50+3550 7d9+38 pound
 -36 -36 -37 -18
 IK 0 0 0
 stand stand either 6000
 0 0 medium unknown
+A det D
 #11886
 drakyri assassin~
 a drakyri assassin~
@@ -1422,12 +1495,13 @@ jobs in the outside world.  The assassin answers mainly to the laerkai
 master, and occasionally to the mediator or warden.
 ~
 elf~
-ACS FQT 0 0
+ACS QT 0 0
 67 1 50d10+8250 1d10+700 11d5+37 pierce
 -42 -42 -43 -19
 EFJ 0 0 0
 stand stand either 8000
 0 0 medium unknown
+A det F
 #11887
 drakyri shopkeeper frail old man~
 a frail old man~
@@ -1439,12 +1513,13 @@ a youthful power which is quite at odds with his apparent frailty.
 He winks at you and returns to his work.
 ~
 elf~
-ABGe DFT 0 0
+ABGe T 0 0
 65 0 100d12+8000 1d100+17500 8d7+35 shock
 -35 -35 -35 -10
 EFGJK A 0 0
 stand stand male 500000
 0 0 medium unknown
+A det DF
 #11888
 drakyri warden~
 The Warden~
@@ -1456,12 +1531,13 @@ slitted like a cat's catch and hold your own, seeming to weigh your
 very soul.
 ~
 elf~
-ABGT DFHNOTZ 0 0
+ABGT HNOT 0 0
 88 2 100d12+18500 1d100+8000 15d9+58 none
 -58 -58 -58 -28
 CDEFHIK A D HIP
 stand stand female 82000
 0 0 medium unknown
+A det DFZ
 #0
 
 #OBJECTS

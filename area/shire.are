@@ -20,12 +20,13 @@ than the oldest man, he seems to have an inner strength which most mortals
 cannot overcome.
 ~
 human~
-ABGR D 500 0
+ABGR 0 500 0
 18 0 3d9+258 18d9+100 2d6+3 none
 -3 -3 -3 4
 FU 0 0 0
 stand stand male 105
 0 0 medium unknown
+A det D
 #1101
 oldstyle ring keeper~
 the Keeper of the Ring~
@@ -38,12 +39,13 @@ usually a halfling of peace, he will fight you to the death if you attempt
 to take away that which belongs to him.
 ~
 human~
-ABGS BDF 0 0
+ABGS B 0 0
 20 0 3d9+308 10d9+100 2d7+5 none
 -4 -4 -4 6
 BEFJNU 0 0 0
 stand stand male 61
 0 0 medium unknown
+A det DF
 #1102
 oldstyle farmer gamgee~
 Farmer Gamgee~
@@ -366,12 +368,13 @@ The halfling youth is not yet quite in the prime of his youth.  He's knee
 high and you get the sudden urge to step on him.
 ~
 human~
-AGHS DF 0 0
+AGHS 0 0 0
 3 0 2d7+21 1d9+100 1d5+0 none
 8 8 8 10
 BEFJNU 0 0 0
 stand stand male 0
 0 0 medium unknown
+A det DF
 #1123
 oldstyle seasoned adventurer~
 a seasoned adventurer~

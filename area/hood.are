@@ -59,12 +59,13 @@ A big, mean bruiser is looking for limbs to break.
 He's 6'6" 245 pounds and enough muscle to bash your head in. How like a Troll.
 ~
 human~
-ACFGHT D -333 2100
+ACFGHT 0 -333 2100
 11 0 4d8+134 1d1+99 1d10+3 punch
 1 1 1 8
 CDKU 0 C 0
 stand stand male 75
 0 0 medium unknown
+A det D
 #2105
 gang doll~
 a doll~
@@ -116,12 +117,13 @@ You get a nice close look at him while he's tearing at your throat.
 His fangs are blood-stained from hearty meals of ... steak?!
 ~
 dog~
-ABFG DJQ -100 0
+ABFG JQ -100 0
 5 2 4d6+60 2d9+100 1d8+1 bite
 5 5 5 9
 CEGQR 0 0 0
 stand stand male 0
 0 0 small unknown
+A det D
 #2109
 punk troll~
 a punk~
@@ -159,12 +161,13 @@ The thug isn't quite as big as the Troll's bruisers, but you can tell he loves
 breaking heads for the Ogres.
 ~
 human~
-ACFGHT DJ -333 2101
+ACFGHT J -333 2101
 11 0 2d8+134 1d1+99 1d10+2 punch
 1 1 1 8
 JKNU 0 C 0
 stand stand male 75
 0 0 medium unknown
+A det D
 #0
 
 #OBJECTS

@@ -89,12 +89,13 @@ Then adds to it, 'Prepare to die, have a nice day!'
 ~
 ~
 dragon~
-ABCF DH 450 0
+ABCF H 450 0
 28 45 6d12+1053 15d9+100 4d40+28 none
 -19 -19 -19 -10
 EFNR 0 0 0
 stand stand female 275
 0 0 medium unknown
+A det D
 #5006
 oldstyle nomad leader~
 The nomad leader~
@@ -161,12 +162,13 @@ The dracolich is now only bone with pieces of flesh hanging from it.
 Obviously it no longer fears death.
 ~
 human~
-ABF DHJ -1000 0
+ABF HJ -1000 0
 30 0 6d12+853 15d9+100 4d6+8 none
 -9 -9 -9 6
 EFNU 0 0 0
 stand stand none 3750
 0 0 medium unknown
+A det D
 #5011
 oldstyle drider drow~
 The drider~
@@ -175,12 +177,13 @@ The drider looks at you viciously while it draws its sword.
 This half-spider, half-drow creature is a formidable opponent.
 ~
 human~
-AFG DJ -1000 0
+AFG J -1000 0
 8 0 2d7+96 4d9+100 1d7+2 none
 3 3 3 9
 EFNU 0 0 0
 stand stand female 10
 0 0 medium unknown
+A det D
 #5012
 oldstyle duergar dwarf~
 The dark dwarf~
@@ -189,12 +192,13 @@ A duergar is here mining precious stones with his pick.
 The duergar could crush your head as easily as it does those rocks.
 ~
 human~
-AFG DJ -850 0
+AFG J -850 0
 5 0 2d6+60 2d9+100 1d6+1 none
 5 5 5 9
 EFNU 0 0 0
 stand stand male 8
 0 0 medium unknown
+A det D
 #5013
 oldstyle myconoid~
 the myconoid~
@@ -204,12 +208,13 @@ The myconoid looks something like a giant mushroom (and probably
 has the same effect).
 ~
 human~
-AGH DJ 850 0
+AGH J 850 0
 6 0 2d7+71 3d9+100 1d7+1 none
 4 4 4 9
 EFNU 0 0 0
 stand stand male 2
 0 0 medium unknown
+A det D
 #5014
 oldstyle myconoid shaman~
 The myconoid shaman~
@@ -218,12 +223,13 @@ A rather large myconoid stands here chanting in a strange tongue.
 The shaman shoots spores into the air.
 ~
 human~
-ABHQ DHJ 850 0
+ABHQ HJ 850 0
 8 0 2d7+96 8d9+100 1d7+2 none
 3 3 3 8
 EIKU 0 0 0
 stand stand male 75
 0 0 medium unknown
+A det D
 #5015
 oldstyle dustdigger~
 The dustdigger~

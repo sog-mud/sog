@@ -145,12 +145,13 @@ The humming commander was moving tokens representing Aarakocran
 soldiers around a map, but he pushes that aside and lunges at your throat!
 ~
 song bird~
-ABCFG DFHQ 0 0
+ABCFG HQ 0 0
 30 0 3d30+1200 1d9+250 4d6+8 crush
 -9 -9 -9 5
 CER A 0 0
 stand stand male 1000
 0 0 medium unknown
+A det DF
 #5610
 bird aarakocra commander holy~
 the glowing commander~
@@ -160,12 +161,13 @@ The commander was calculating a new backbreaking tax on an abacus, but
  he pushes that aside and lunges at your throat!
 ~
 song bird~
-ABCFG DFHNQ 0 0
+ABCFG HNQ 0 0
 30 0 3d30+1200 1d9+250 6d4+8 crush
 -9 -9 -9 5
 CER 0 0 0
 stand stand male 1000
 0 0 medium unknown
+A det DF
 #5611
 bird aarakocran warrior~
 the fierce warrior~
@@ -175,12 +177,13 @@ The proud Aarakocran warrior defends his city against all threats.  He has
 decided you are a threat.  Prepare to die, dirt dweller!
 ~
 song bird~
-AFG DF -100 0
+AFG 0 -100 0
 27 0 5d10+650 4d60+4 5d4+7 crush
 -5 -6 -6 5
 CEIR 0 0 0
 stand stand male 1000
 0 0 medium unknown
+A det DF
 #5612
 bird aarakocran guard~
 the stalwart guard~
@@ -190,12 +193,13 @@ The proud Aarakocran warrior defends his city against all threats.  He has
 decided you are a threat.  Prepare to die, dirt dweller!
 ~
 song bird~
-ABFGT DF 100 5612
+ABFGT 0 100 5612
 24 0 20d6+470 4d60+4 2d10+6 crush
 -6 -6 -6 6
 CDEIJKR 0 0 0
 stand stand male 1000
 0 0 medium unknown
+A det DF
 #5613
 bird aarakocran revolutionary castro~
 the aarakocran revolutionary~
@@ -208,12 +212,13 @@ much better off before merchant outsiders corrupt Aarakocran ideals.  You
 represent such a threat, and you can see his eyes smoldering with inner hatred.
 ~
 song bird~
-ABGH CDF 100 0
+ABGH 0 100 0
 24 0 20d8+430 4d60+4 2d10+6 crush
 -6 -6 -6 4
 E 0 0 0
 stand stand male 1000
 0 0 medium unknown
+A det CDF
 #5614
 bird aarakocra junk dealer fred~
 the junk dealer~
@@ -285,12 +290,13 @@ can still hold her own in a scrape.  The bald patches in her feathers are not a
 sign of disease but reminders of the day she slew two dragons singlehandedly.
 ~
 song bird~
-ABFG DF -100 0
+ABFG 0 -100 0
 28 0 5d10+560 4d60+40 5d4+7 crush
 -8 -8 -8 5
 CER 0 0 0
 stand stand male 1000
 0 0 medium unknown
+A det DF
 #5619
 bird aarakocran secretary~
 the secretary~
@@ -302,12 +308,13 @@ impressively, and you notice this is the first aarakocran you have seen with
 really beefy legs as a powerful KICK knocks the wind out of you.
 ~
 song bird~
-ABFG DF -100 0
+ABFG 0 -100 0
 25 0 5d10+550 4d60+40 2d10+7 crush
 -7 -7 -7 6
 CE 0 0 0
 stand stand male 1000
 0 0 medium unknown
+A det DF
 #5620
 bird aarakocra aarakocran weapons vendor~
 the weapons vendor~

@@ -18,12 +18,13 @@ white, blue and silver. He looks VERY strong, as he stands here, ready to
 help the innocent.
 ~
 human~
-AGKQe DH 1000 0
+AGKQe H 1000 0
 29 0 6d12+778 29d9+100 5d14+18 none
 -9 -9 -9 4
 EIKU AB 0 0
 stand stand male 0
 0 0 medium unknown
+A det D
 #7901
 paladin solamnia~
 Paladin of Solamnia~
@@ -33,14 +34,15 @@ After so many years fight against anti-paladins he has retired and
 responsible for the stone kassandra.
 ~
 human~
-AHSe DEPZ 1000 2402
+AHSe P 1000 2402
 91 40 10d30+21400 100d10+100 5d35+60 punch
 -41 -41 -41 0
 FHKN 0 0 D
 stand stand male 1499
 0 0 small unknown
-M GIVE 7901 2438~
-M GREET 7900 100~
+A det DEZ
+M give 7901 2438~
+M greet 7900 100~
 #0
 
 #OBJECTS

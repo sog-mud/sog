@@ -19,12 +19,13 @@ has a dog like snout, perky ears, and 6 legs, and has many more long
 sharp nasty teeth.
 ~
 unique~
-AFGX FJ -400 0
+AFGX J -400 0
 30 0 6d12+853 1d1+99 4d6+8 bite
 -9 -9 -9 3
 CFNQ 0 L I
 stand stand male 2000
 AGHMVXc ABCDEFGHIJKPQUVX large unknown
+A det F
 #29121
 hag gelda~
 The hag Gelda~
@@ -36,12 +37,13 @@ battle with a minion of hell, and you die horribly!' . With that the
 hag breaks into an ugly fit of laughter.
 ~
 human~
-ABCGVX DK 0 0
+ABCGVX K 0 0
 28 0 6d12+703 1d1+399 2d12+8 slap
 -8 -8 -8 6
 FR 0 C NZ
 stand stand female 1850
 0 0 medium unknown
+A det D
 #29122
 guard woodsman~
 The woodsman guard~
@@ -219,12 +221,13 @@ The witch looks harried and driven. Her eyes dance wildly, and she
 cackles at you with an insane glee.
 ~
 human~
-AFGX DJ -700 0
+AFGX J -700 0
 32 0 6d12+885 1d1+300 4d6+8 punch
 -9 -9 -9 4
 F 0 CM ENR
 stand stand female 2200
 0 0 medium unknown
+A det D
 #29132
 warlock man~
 The warlock~
@@ -234,12 +237,13 @@ The warlock looks harried and driven. His eyes dart wildly, and he
 cackles with an insane glee.
 ~
 human~
-AFGX DJ -800 0
+AFGX J -800 0
 33 0 10d10+1000 1d1+300 4d6+8 punch
 -11 -11 -11 0
 F 0 CM ENR
 stand stand male 2300
 0 0 medium unknown
+A det D
 #29133
 leader coven~
 The coven leader~
@@ -250,12 +254,13 @@ The coven leader looks harried and driven. His eyes dart wildly, and he
 cackles with an insane glee.
 ~
 human~
-AFGX DFJ -900 0
+AFGX J -900 0
 34 0 10d10+1100 1d1+300 4d6+9 punch
 -11 -11 -11 1
 F M C ENR
 stand stand male 2400
 0 0 medium unknown
+A det DF
 #29134
 beast hell flaming~
 The flaming beast from hell~
@@ -268,12 +273,13 @@ terrible talons. It looks at you, and with a fiery laughter, it says:
 battle, but you will not stop our plan!'
 ~
 unique~
-ABFGX DFHJ -1000 0
+ABFGX HJ -1000 0
 28 0 6d12+703 1d1+200 2d12+8 bite
 -8 -8 -8 6
 F AHL B I
 stand stand none 1800
 ABG ABCDEFJKLMPUV large unknown
+A det DF
 #0
 
 #OBJECTS

@@ -19,12 +19,13 @@ crush you without a second thought. Aside from his mean and deadly build,
 he greets you a good day and wishes you on your way.
 ~
 giant~
-ABT CDEFHJV 1000 0
+ABT HJV 1000 0
 45 0 25d10+3000 1d1+99 3d12+15 slash
 -15 -15 -15 4
 EIK ABL N K
 stand stand male 1200
 0 0 large unknown
+A det CDEF
 #18002
 ally cat~
 a poor ally cat~
@@ -35,12 +36,13 @@ home and must seartch through the garbage for bit of supper. You feel sorry
 for the little fella.
 ~
 cat~
-AB CDEFJ -1000 0
+AB J -1000 0
 30 0 6d12+853 299d1+5 4d6+8 none
 -9 -9 -9 6
 EIK ABL N K
 stand stand either 0
 0 0 large unknown
+A det CDEF
 #18003
 bongo player drummer~
 the bongo drummer~
@@ -49,12 +51,13 @@ A wild bongo drummer is here, moving with his rythme.
 Beating his drums as best he can, this bongo player really grooves.
 ~
 giant~
-ABT CDEFJ -1000 18004
+ABT J -1000 18004
 25 0 5d10+750 1d1+99 2d10+7 pierce
 -7 -7 -7 0
 EIK ABL N K
 stand stand male 3100
 0 0 large unknown
+A det CDEF
 #18004
 guitar player band~
 the guitar player of the band~
@@ -65,12 +68,13 @@ can really rock! He plays a familliar tune as the people pass by, keeping
 a little music in the background.
 ~
 giant~
-AB CDEFJ -1000 18004
+AB J -1000 18004
 25 0 5d10+650 1d1+99 2d10+7 pierce
 -7 -7 -7 0
 EIK ABL N K
 stand stand male 4330
 0 0 large unknown
+A det CDEF
 #18005
 pipe pipeplayer player~
 the windpipe player of the band~
@@ -81,12 +85,13 @@ combination; wooden guitar, bongo and windpipe! But their music is so
 wonderful! You hope it never ends.
 ~
 giant~
-AB CDEFJ -1000 18004
+AB J -1000 18004
 25 0 5d10+650 1d1+99 2d10+7 blast
 -7 -7 -7 6
 EIK ABL N K
 stand stand female 5300
 0 0 large unknown
+A det CDEF
 #18006
 armourer shop shopkeeper~
 the armourer~
@@ -97,12 +102,13 @@ runs to you as you walk in, asking if you need any help. If
 you're in need of armour here is the place to shop!
 ~
 giant~
-ABTe CDEFJ -500 0
+ABTe J -500 0
 53 0 50d10+13000 1d1+99 6d7+41 slice
 -33 -33 -33 2
 EIK ABCDL N K
 stand stand male 200000
 0 0 large unknown
+A det CDEF
 #18007
 shop shopkeeper pet girl~
 the young pet-shop girl~
@@ -114,12 +120,13 @@ but these animals are basically for show and probably not for combat. Well,
 you know what they say: Don't knock 'em till you've bought 'em!
 ~
 giant~
-ABTe CDEFJ -500 0
+ABTe J -500 0
 53 0 50d10+13000 1d1+99 6d7+31 slice
 -43 -43 -43 -10
 EIK ABCDL N K
 stand stand female 200000
 0 0 large unknown
+A det CDEF
 #18008
 grocer~
 the meat grocer~
@@ -131,12 +138,13 @@ t'day and y'can't beat th'lamb, fresh s'a cool mornin' breeze, if
 There is a big selection of meat and poultry to chose from.
 ~
 giant~
-ABTe CDEFJ -1000 0
+ABTe J -1000 0
 51 0 50d10+14000 1d1+99 5d8+39 scratch
 -41 -41 -41 -3
 EIK ABDL N K
 stand stand male 200000
 0 0 large unknown
+A det CDEF
 #18009
 grocer~
 the produce grocer~
@@ -147,12 +155,13 @@ seems to be selling quite an amount of produce. Perhaps you will
 buy some and help keep his business running?
 ~
 giant~
-ABTe CDEFJ -1000 0
+ABTe J -1000 0
 51 0 50d10+14000 1d1+140 5d8+49 scratch
 -41 -41 -41 -30
 EIK ABDL N K
 stand stand male 200000
 0 0 large unknown
+A det CDEF
 #18010
 weaponsmith weapon shopkeeper~
 the weaponsmith~
@@ -165,12 +174,13 @@ the forging of the weapons. If ever you were to go to war, this would be the
 place to get your weapons.
 ~
 giant~
-ABTe CDEFJ 0 0
+ABTe J 0 0
 53 0 50d10+15000 1d1+99 6d7+41 sting
 -43 -43 -43 -30
 CDEFIKN ABDL N K
 stand stand male 200000
 0 0 large unknown
+A det CDEF
 #18011
 magic library shopkeeper~
 the librarian~
@@ -181,12 +191,13 @@ sorting the books. This is no ordinary library but one that contains magical
 books and books of lore. Perhaps you should widen your magical knowledge.
 ~
 giant~
-ABe CDEFJ 500 0
+ABe J 500 0
 48 0 25d10+13750 1d1+99 6d6+48 beating
 -38 -38 -38 -12
 CDEFIKN ABDL N K
 stand stand male 200000
 0 0 large unknown
+A det CDEF
 #18012
 shopkeeper designer~
 the designer~
@@ -198,12 +209,13 @@ leather garnets are here, quite the selection. To have the latest in fashion
 this is a good store to come to.
 ~
 giant~
-ABe CDEFJ -600 0
+ABe J -600 0
 51 0 50d10+15000 1d1+99 5d8+40 pierce
 -41 -41 -41 -23
 CDEFIKN ABDL BN K
 stand stand female 200000
 0 0 large unknown
+A det CDEF
 #18013
 bartender pub owner~
 the bartender~
@@ -214,12 +226,13 @@ on the rocks? What'll it be?" The room seems filled with people who whish
 to have a good time; and get drunk.
 ~
 giant~
-ABTe CDEFJ -100 0
+ABTe J -100 0
 51 0 50d10+15000 1d1+99 5d8+39 slash
 -41 -41 -41 -23
 CDEFIKN ABDL N K
 stand stand male 200000
 0 0 large unknown
+A det CDEF
 #18014
 waiter~
 a kind waiter~
@@ -231,12 +244,13 @@ cod and crab, our cook really did out-do himself this time!" This place seems
 mighty expensive.
 ~
 giant~
-ABTe CDEFJ 200 0
+ABTe J 200 0
 45 0 25d10+14000 1d1+99 8d4+36 pierce
 -15 -15 -15 -1
 CDEFIKN ABL N K
 stand stand male 200000
 0 0 large unknown
+A det CDEF
 #18015
 innkeeper~
 the inn keeper~
@@ -248,12 +262,13 @@ get some good sleep. Please let me know if there is anything I
 could do."
 ~
 giant~
-ABTe CDEFJ -1000 0
+ABTe J -1000 0
 51 0 50d10+5000 1d1+99 5d8+20 pierce
 -21 -21 -21 -3
 CDEFIKN ABL N K
 stand stand male 200000
 0 0 large unknown
+A det CDEF
 #18016
 florist~
 the florist~
@@ -264,12 +279,13 @@ flower arrangements. Perhaps she has something for that special "someone"
 in your life?
 ~
 giant~
-ABTe CDEFJ -300 0
+ABTe J -300 0
 48 0 25d10+4750 1d1+99 6d6+18 slice
 -18 -18 -18 3
 CDEFIKN ABL N K
 stand stand female 200000
 0 0 large unknown
+A det CDEF
 #18017
 town sheriff~
 the town sheriff~
@@ -280,12 +296,13 @@ ever. It would be a real shame to disturb him, even though his cells are full,
 I am sure he could find room for one more unwanted tourist.
 ~
 giant~
-ABT CDEFJ 500 0
+ABT J 500 0
 30 0 6d12+1000 1d1+99 4d6+8 pierce
 -9 -9 -9 6
 CDEFIKN ABL N K
 stand stand male 2100
 0 0 large unknown
+A det CDEF
 #18018
 jail guard~
 the jail guard~
@@ -294,12 +311,13 @@ A jail guard is here, sleeping in his chair.
 ZZZzzzz....ZZZzzzz....ZZZzzzz....ZZZzzzz....ZZZzzzz....
 ~
 giant~
-ABT CDEFJ -500 0
+ABT J -500 0
 28 0 6d12+703 1d1+99 2d12+8 claw
 -8 -8 -8 6
 CDEFIKN ABL BN K
 stand stand male 3100
 0 0 large unknown
+A det CDEF
 #18020
 prisoner~
 a stinky prisoner~
@@ -309,12 +327,13 @@ Locked behind steel bars, you see a stinky prisoner.
 Its the new prisoner! He got arrested for stinking the peace.
 ~
 giant~
-ABT CDEFJ -1000 0
+ABT J -1000 0
 25 0 5d10+650 1d1+100 2d10+7 pierce
 -7 -7 -7 1
 CDEFIKN ABL N KSZ
 stand stand male 0
 0 0 large unknown
+A det CDEF
 #18021
 chocolate shopkeeper~
 the chocolate shopkeeper~
@@ -325,12 +344,13 @@ able to try them all? The man behind the counter seems to know his chocolates
 very well. Perhaps he could show you some of the most popular.
 ~
 giant~
-ABTe CDEFJ -100 0
+ABTe J -100 0
 45 0 25d1+13000 1d1+100 8d4+26 slice
 -35 -35 -35 4
 CDEFIKN ABL N K
 stand stand male 200000
 0 0 large unknown
+A det CDEF
 #18022
 icecream vendor shopkeeper~
 the icecreams vendor~
@@ -341,12 +361,13 @@ Mint...Strawberry Swirl...Which will you have? So many to chose
 form, but I'll bet that they are all superb!
 ~
 giant~
-ABTe CDEFJ -100 0
+ABTe J -100 0
 30 0 6d12+853 1d1+99 4d6+15 slap
 -9 -9 -9 6
 CDEFIKN ABL N K
 stand stand male 200000
 0 0 large unknown
+A det CDEF
 #18023
 apiarist lady shopkeeper~
 the apiarist~
@@ -357,12 +378,13 @@ There are several different varieties to chose from. You really should
 try 'em all!
 ~
 giant~
-ABTe CDEFJ -100 0
+ABTe J -100 0
 40 0 15d10+7850 1d1+100 4d8+13 beating
 -33 -33 -33 -21
 CDEFIKN ABL BN K
 stand stand female 200000
 0 0 large unknown
+A det CDEF
 #18024
 baker shopkeeper~
 the baker~
@@ -373,12 +395,13 @@ You simply love the smell of this room, and all you can think of is Bread!
 Cookies! Pies!!! Try them all, the man looks willing to do business with you!
 ~
 giant~
-ABTe CDEFJ -100 0
+ABTe J -100 0
 48 0 25d10+15050 1d1+100 6d6+38 pierce
 -48 -48 -48 -24
 CDEFIKN ABL N K
 stand stand male 200000
 0 0 large unknown
+A det CDEF
 #18025
 zanrich shopkeeper~
 Zanrich the Shopkeeper~
@@ -388,12 +411,13 @@ The tall young lad is here, selling his special containers. He was rated number
 1 in all the lands, for his speical containers and their capability.
 ~
 giant~
-ABTe CDEFJ -100 0
+ABTe J -100 0
 48 0 25d10+12750 1d1+100 6d6+38 pierce
 -38 -38 -38 -22
 CDEFIKN ABL N K
 stand stand male 200000
 0 0 large unknown
+A det CDEF
 #18026
 master wands shopkeeper wizard~
 the wand making wizard~
@@ -403,12 +427,13 @@ All cloaked in black this wizard wishes to sell you his special
 wands. Magically tuned to perfection. They would be mighty handy.
 ~
 giant~
-ABTe CDEFJ -100 0
+ABTe J -100 0
 55 0 10d10+15300 1d1+100 4d7+21 slash
 -51 -51 -51 -30
 CDEFIKN ABL N K
 stand stand male 200000
 0 0 large unknown
+A det CDEF
 #18027
 knight templar~
 the knight templar~
@@ -417,12 +442,13 @@ A strong knight templar is here, patroling the streets.
 All clad in armor this guy looks quite deadly. Would want to mess with him.
 ~
 giant~
-ABT CDEFJ 1000 0
+ABT J 1000 0
 40 0 15d10+2200 1d1+90 4d8+13 scratch
 -13 -13 -13 4
 CDEFIKN ABL N K
 stand stand male 5250
 0 0 large unknown
+A det CDEF
 #18028
 titan citizen~
 a titan citizen~
@@ -432,12 +458,13 @@ Tall and strong, a citizen of The Valley of The Titans greets
 you, welcoming you to his city.
 ~
 giant~
-ABT CDEFJ -1000 0
+ABT J -1000 0
 28 0 6d12+703 1d1+100 2d12+8 pierce
 -8 -8 -8 6
 CDEFIKN ABL N K
 stand stand male 2500
 0 0 large unknown
+A det CDEF
 #18029
 cook maid chef~
 the house chef~
@@ -447,12 +474,13 @@ The house chef is here, cooking up a meal.
 away. *SSSsssssssnnnnnniiiiiifffffff!* It sure does smell nice!
 ~
 giant~
-ABT CDEFJ -500 0
+ABT J -500 0
 30 0 6d12+953 1d1+100 4d6+8 blast
 -9 -9 -9 6
 CDEFIKN ABL N K
 stand stand female 3900
 0 0 large unknown
+A det CDEF
 #18030
 serf~
 the serf~
@@ -462,12 +490,13 @@ To busy to talk. To busy to listen. This serf is WAY to busy to
 care. He is running back and forth, carrying out orders.
 ~
 giant~
-ABT CDEFJ -500 0
+ABT J -500 0
 30 0 6d12+853 1d1+100 4d6+8 pierce
 -9 -9 -9 6
 CDEFIKN ABL N K
 stand stand male 5330
 0 0 large unknown
+A det CDEF
 #18031
 grubby beggar~
 a grubby beggar~
@@ -477,12 +506,13 @@ Sitting on a pile of garbage which he calls "his", this grubby
 beggar asks for some coins. He sure does look poor.
 ~
 giant~
-ABT CDEFJ -500 0
+ABT J -500 0
 25 0 5d10+650 1d1+310 2d10+7 slice
 -7 -7 -7 6
 CDEFIKN ABL N K
 stand stand male 10
 0 0 large unknown
+A det CDEF
 #18032
 patrol guard~
 a patrol guard~
@@ -492,12 +522,13 @@ Very tall and very strong, this patrol guard looks as though he
 does his job quite well.
 ~
 giant~
-ABT CDEFHJ 0 0
+ABT HJ 0 0
 40 0 15d10+2100 1d1+201 4d8+13 pierce
 -13 -13 -13 4
 CDEFIKN ABL N K
 stand stand male 3330
 0 0 large unknown
+A det CDEF
 #18033
 villager~
 a happy villager~
@@ -507,12 +538,13 @@ If I were you, I wouldn't talk to this fella. He's to busy
 dancing to the music.
 ~
 giant~
-ABT CDEFHJ -1000 0
+ABT HJ -1000 0
 30 0 6d12+953 299d1+1 4d6+8 punch
 -9 -9 -9 6
 CDEFIKN ABL N K
 stand stand male 4003
 0 0 large unknown
+A det CDEF
 #18034
 tournament guard~
 the tournament guard~
@@ -522,12 +554,13 @@ To busy keeping the warriors fighting with the magical monster,
 he doesn't have any time to speak to you.
 ~
 giant~
-ABT CDEFHJ -1000 0
+ABT HJ -1000 0
 48 0 25d10+4750 1d1+120 6d6+18 crush
 -18 -18 -18 3
 CDEFIN ABL N K
 stand stand male 5100
 0 0 large unknown
+A det CDEF
 #18035
 tournament warrior~
 a tournament warrior~
@@ -536,12 +569,13 @@ The tournament warrior is here, practicing his skills.
 *SLICE* *BASH* *BLAM* He looks to be just a tad too busy to socialize.
 ~
 giant~
-ABT CDEFHJ -1000 0
+ABT HJ -1000 0
 38 0 10d10+1800 1d1+100 5d6+12 slash
 -12 -12 -12 4
 CDEFIKN ABL N K
 stand stand male 11300
 0 0 large unknown
+A det CDEF
 #18036
 tournament anti-paladin~
 a tournament anti-paladin~
@@ -551,12 +585,13 @@ A tournament anti-paladin utters the words 'Algetharb'! She is far to busy
 perfecting her spells to speak with you. Maybe later.
 ~
 giant~
-ABR CDEFHJ -1000 0
+ABR HJ -1000 0
 38 0 10d10+1900 1d1+200 5d6+12 pierce
 -12 -12 -12 4
 CDEFIKN ABL N K
 stand stand female 6100
 0 0 large unknown
+A det CDEF
 #18037
 tournament cleric~
 a tournament cleric~
@@ -566,12 +601,13 @@ She's very busy using her magical talents to speak with you. Remember, she is
 fighting real mobs, deadly mobs. You'd hate to get her killed!
 ~
 giant~
-ABQ CDEFHJ -1000 0
+ABQ HJ -1000 0
 38 0 10d10+1900 1d1+200 5d6+12 pierce
 -12 -12 -12 4
 CDEFIKN ABL N K
 stand stand female 6800
 0 0 large unknown
+A det CDEF
 #18038
 tournament ranger~
 a tournament ranger~
@@ -580,12 +616,13 @@ A tournament ranger is here, stealing money from his foe.
 Better not talk to this rascal, he may kick your ass!
 ~
 giant~
-ABS CDEFHJ -1000 0
+ABS HJ -1000 0
 38 0 10d10+1900 1d1+200 5d6+12 pierce
 -12 -12 -12 4
 CDEFIKN ABL N K
 stand stand male 9100
 0 0 large unknown
+A det CDEF
 #18039
 dragon baby evil~
 an evil baby dragon~
@@ -598,12 +635,13 @@ his massive wings, you notice now that he is a HUGE dragon, and an evil one at
 that.
 ~
 dragon~
-ABCFT CDEFUV -1000 0
+ABCFT UV -1000 0
 25 0 5d10+650 1d1+99 2d10+7 crush
 -7 -7 -7 0
 BCDEFGHIJLMNO ABL IJPR JKX
 stand stand male 0
 0 0 large unknown
+A det CDEF
 #18040
 evil tree~
 a gloomy evil tree~
@@ -616,12 +654,13 @@ the catch in the little light there is, a face. An evil face. One looking down,
 glaring at you. Panic races through your veins.
 ~
 giant~
-ABR CDEFIJPV -1000 0
+ABR IJPV -1000 0
 30 0 6d12+853 1d1+100 4d6+8 crush
 -9 -9 -9 -1
 BCDEFGHLO AG JPQ EK
 stand stand either 0
 0 0 large unknown
+A det CDEF
 #18041
 deadly rain cloud~
 a deadly rain cloud~
@@ -631,12 +670,13 @@ Flying madly through the air is a deadly rain cloud, spreading acid rain over
 the world. It would be a good idea not to go near this...thing.
 ~
 giant~
-ABFT CDFJTV -1000 0
+ABFT JTV -1000 0
 23 0 5d10+450 1d1+100 3d6+6 slash
 -6 -6 -6 1
 DEFGHL AG 0 IKRS
 stand stand either 0
 0 0 large unknown
+A det CDF
 #18042
 demon fire~
 a demon of fire~
@@ -648,12 +688,13 @@ or fight. Such a demon is very deadly and will surely burn you to a crisp.
 Chose wisely!
 ~
 giant~
-ABCT FJTZ -1000 0
+ABCT JT -1000 0
 35 0 10d10+1500 1d1+234 4d7+11 pierce
 -11 -11 -11 -1
 BCDEFGHIJKLMNO AGHP L EIKY
 stand stand either 0
 0 0 large unknown
+A det FZ
 #18043
 demon water~
 a demon of water~
@@ -663,12 +704,13 @@ In a near-by pool you notice one of the deadly demons, the demon of fire.
 Something deep in your heart tells you to stay away from him.
 ~
 giant~
-ABCT FJYZ -1000 0
+ABCT JY -1000 0
 35 0 10d10+1500 1d1+234 4d7+11 pierce
 -11 -11 -11 5
 BCDEFGHIJKLMNO AGR EP IKMZ
 stand stand either 0
 0 0 large unknown
+A det FZ
 #18044
 demon air~
 a demon of air~
@@ -678,12 +720,13 @@ In a blazing whirlwind, a demon of air is here, creating deadly
 storms. This is another of those deadly demons, another to avoid.
 ~
 giant~
-ABCT FJYZ -1000 0
+ABCT JY -1000 0
 35 0 10d10+1500 1d1+235 4d7+11 pierce
 -11 -11 -11 5
 BCDEFGHIJKLMNO AEFJQ N CK
 stand stand either 0
 0 0 large unknown
+A det FZ
 #18045
 demon earth~
 a demon of earth~
@@ -694,12 +737,13 @@ crashing out into daylight! Creating deadly earthquakes where ever it may go,
 the demons of earth a destroying all in sight!
 ~
 giant~
-ABCT FJYZ -1000 0
+ABCT JY -1000 0
 35 0 10d10+1500 1d1+236 4d7+11 pierce
 -11 -11 -11 5
 BCDEFGHIJKLMNO OPS B HIKNX
 stand stand either 0
 0 0 large unknown
+A det FZ
 #18046
 demon wood~
 a demon of wood~
@@ -710,12 +754,13 @@ havoc. Having control over all wooden things, this demon isn't one to mess
 with.
 ~
 giant~
-ABCT FJYZ -1000 0
+ABCT JY -1000 0
 35 0 10d10+1500 1d1+236 4d7+11 pierce
 -11 -11 -11 5
 BCDEFGHIJKLMNO FS P HKQZ
 stand stand either 0
 0 0 large unknown
+A det FZ
 #18047
 demon stone~
 a demon of stone~
@@ -725,12 +770,13 @@ A 20 foot demon made fully of stone is here. He brings fear into
 your heart, pain into your soul. This tough beast seems unstopable.
 ~
 giant~
-ABCT FJYZ -1000 0
+ABCT JY -1000 0
 35 0 10d10+1500 1d1+276 4d7+11 pierce
 -12 -12 -12 5
 BCDEFGHIJLNO AC EOQR FKY
 stand stand either 0
 0 0 large unknown
+A det FZ
 #18048
 titan guard royal~
 a Royal Titan guard~
@@ -739,12 +785,13 @@ A Royal Titan guard is here.
 Tall and strong, this Royal Titan guard patrols the castle walls.
 ~
 giant~
-ABCT FJ -1000 0
+ABCT J -1000 0
 40 0 15d10+2000 1d1+201 4d8+13 slash
 -12 -12 -12 -2
 BCDEFGHIK ABL N K
 stand stand male 7000
 0 0 large unknown
+A det F
 #18049
 boy titan~
 a small boy titan~
@@ -753,12 +800,13 @@ A small boy titan is here, plaing with some rocks.
 This little boy is amusing himself witha few rocks.
 ~
 giant~
-ABCT FJ -1000 0
+ABCT J -1000 0
 33 0 10d10+1300 1d1+111 6d4+10 slash
 -11 -11 -11 5
 BCDEFGHIK ABL N K
 stand stand male 330
 0 0 large unknown
+A det F
 #18050
 titan girl~
 a titan girl~
@@ -769,12 +817,13 @@ pretty little girl, all dressed in pink. She looks like some of the other
 children at the park. Perhaps all titan children look the same.
 ~
 giant~
-ABCT FJ -1000 0
+ABCT J -1000 0
 33 0 10d10+1100 1d1+111 6d4+10 slash
 -11 -11 -11 5
 BCDEFGHIK ABL N K
 stand stand female 390
 0 0 large unknown
+A det F
 #18051
 sleep sleeping guard~
 a sleeping patrol guard~
@@ -784,12 +833,13 @@ Zzzzzzz....Zzzzzzzz.....Zzzzzzzzz....
 *SSSSSHHHHHhhhhhhhhh.......!* He is sleeping and you'd hate to disturb him!
 ~
 giant~
-ABCT FJ -1000 0
+ABCT J -1000 0
 40 0 15d10+2000 1d1+111 4d8+13 pierce
 -13 -13 -13 4
 BCDEFGHIK ABL BN K
 sleep sleep male 5870
 0 0 large unknown
+A det F
 #18052
 first advisor~
 the first advisor~
@@ -799,12 +849,13 @@ She seems to be in deep conversation with the queen, it would be
 foolish to disturb her.
 ~
 dwarf~
-ABCT F -1000 0
+ABCT 0 -1000 0
 50 0 50d10+5000 1d1+212 5d8+19 beating
 -20 -20 -20 3
 BCDEFGHIK ABL N KSZ
 stand stand female 7100
 0 0 large unknown
+A det F
 #18053
 keeper deadly pet owner shopkeeper~
 the keeper of the deadly beasts~
@@ -815,12 +866,13 @@ face of a mage. He seems to be selling the best battle animals in the world.
 Perhaps he could interest you in some of his beasts?
 ~
 giant~
-ABTe FJ -1000 0
+ABTe J -1000 0
 50 0 50d10+14500 1d1+212 5d8+29 pierce
 -50 -50 -50 -23
 CDEFIKN ABL N K
 stand stand male 5000
 0 0 large unknown
+A det F
 #18054
 cougar black pet~
 the Visious Black Cougar~
@@ -829,12 +881,13 @@ A black cougar is here, protecting its master.
 Very large and very deadly, you would NOT want to mess with this black cougar!
 ~
 cat~
-ABITV DFHUVZ 1000 0
+ABITV HUV 1000 0
 40 1 15d10+1500 1d1+200 4d8+13 beating
 -13 -13 -13 4
 EN HM GHIJK I
 stand stand male 0
 0 0 large unknown
+A det DFZ
 #18055
 kraken pet~
 the Deadly Kraken~
@@ -844,12 +897,13 @@ VERY very big and tough, this kraken looks to be the most fearsome thing you
 have ever seen!
 ~
 dragon~
-ABITV DFHUV 1000 0
+ABITV HUV 1000 0
 45 1 25d10+2100 1d1+102 8d4+16 beating
 -15 -15 -15 3
 EN H GIJK 0
 stand stand male 0
 0 0 large unknown
+A det DF
 #18056
 bird sylph pet~
 the Magical Sylph~
@@ -859,12 +913,13 @@ A small but beautiful creature, this sylph seems to be a weak fighter. Despite
 her size, she is one of the most rare and deadly creatures in all of Muddy.
 ~
 dragon~
-ABIORV DFHUV 1000 0
+ABIORV HUV 1000 0
 50 0 50d10+3000 1d1+499 5d6+14 beating
 -20 -20 -20 2
 CEFIOY J IJKNO B
 stand stand female 0
 0 0 large unknown
+A det DF
 #18057
 spider monkey pet~
 a Spider Monkey~
@@ -874,12 +929,13 @@ A small but cute little spider monkey is here, aiding its master
 in their times of need.
 ~
 human~
-ABIT DV 1000 0
+ABIT V 1000 0
 20 1 3d9+300 1d1+310 2d8+5 beating
 -4 -4 -4 7
 C J DN 0
 stand stand male 0
 0 0 large unknown
+A det D
 #18058
 tame lion pet~
 a tame lion~
@@ -889,12 +945,13 @@ A cute little male lion is here, following his master about,
 always ready for combat.
 ~
 cat~
-ABIT DV 1000 0
+ABIT V 1000 0
 25 0 5d10+500 1d1+249 2d10+7 beating
 -7 -7 -7 5
 C J HIJKN CF
 stand stand male 0
 0 0 large unknown
+A det D
 #18059
 wolf pet~
 a large black wolf~
@@ -903,12 +960,13 @@ A large black wolf is here, guarding his master.
 A fearsome black wolf is here, protecting his master.
 ~
 dog~
-ABIT DTV 1000 0
+ABIT TV 1000 0
 30 0 6d12+823 1d1+299 4d6+8 beating
 -9 -9 -9 6
 C J HIJKN DF
 stand stand male 0
 0 0 large unknown
+A det D
 #18060
 java pet~
 a Fearsome Java Beast~
@@ -918,12 +976,13 @@ A large and deadly Java Beast is here, protecting her master with
 its magical flames.
 ~
 dragon~
-ABIR DV 1000 0
+ABIR V 1000 0
 35 1 10d10+1550 1d1+904 4d7+11 beating
 -11 -11 -11 5
 C J IJKN 0
 stand stand female 0
 0 0 large unknown
+A det D
 #18061
 king dractax titan~
 the King Dractax~
@@ -932,12 +991,13 @@ The King Dractax of The Titans is here.
 A tall and proud king is here, planning the future of his kingdom.
 ~
 giant~
-ABT DFJV -1000 0
+ABT JV -1000 0
 53 0 50d10+7000 1d1+401 6d7+21 pierce
 -22 -22 -22 2
 CDEFGKNO BO J K
 stand stand male 19990
 0 0 large unknown
+A det DF
 #18062
 queen crystal titan~
 the Queen Crystal~
@@ -946,12 +1006,13 @@ The Queen Crystal of The Titans is here.
 A tall and proud queen is here, planning the future of her kingdom.
 ~
 giant~
-ABT DFJV -1000 0
+ABT JV -1000 0
 51 0 50d10+5500 1d1+502 5d8+19 pierce
 -21 -21 -21 3
 CDEFGKNO BO J K
 stand stand female 16990
 0 0 large unknown
+A det DF
 #18063
 assassin~
 an assassin~
@@ -962,12 +1023,13 @@ passage-way behind the throne. Obviously, someone in the kingdom wants the
 king and queen destroyed. Why is beyon all knowledge.
 ~
 giant~
-ABT DFJV -1000 0
+ABT JV -1000 0
 45 0 25d10+3500 1d1+302 8d4+16 slash
 -15 -15 -15 4
 CDEFGKNO ABL N K
 stand stand male 8990
 0 0 large unknown
+A det DF
 #18064
 rat~
 a small rat~
@@ -976,12 +1038,13 @@ An ugly small rat is here.
 An ugly rat is here, chewing on the carpet.
 ~
 giant~
-ABT DFJV -500 0
+ABT JV -500 0
 30 0 6d12+953 1d1+201 4d6+8 beating
 -9 -9 -9 6
 CDEFGKNO ABL N K
 stand stand male 0
 0 0 large unknown
+A det DF
 #18065
 peasant~
 a happy peasant~
@@ -991,12 +1054,13 @@ She seems to be quite busy, yet manages to have the time to enjoy
 the calm breeze and bright warm sunshine.
 ~
 giant~
-ABT DFHJ -1000 0
+ABT HJ -1000 0
 28 0 6d12+703 1d1+504 2d12+8 pierce
 -8 -8 -8 6
 CDEFGKNO ABL N K
 stand stand female 100
 0 0 large unknown
+A det DF
 #18066
 warrior cleric guildmaster~
 the guildmaster~
@@ -1005,12 +1069,13 @@ The warrior and cleric guildmaster stands here.
 An old man peering through ancient tomes rests here.
 ~
 giant~
-ABJKRVb DFJ 0 0
+ABJKRVb J 0 0
 40 0 15d10+8000 1d1+499 4d8+13 slash
 -13 -13 -13 4
 FHN AB 0 0
 stand stand male 8000
 0 0 large unknown
+A det DF
 #18067
 cleric guildstudent~
 the guildstudent~
@@ -1019,12 +1084,13 @@ A cleric guildstudent stands here, learning his skills.
 An young man wrapped in purple, long-flowing robes meditates here.
 ~
 giant~
-ABJKQV DFJ -250 0
+ABJKQV J -250 0
 35 0 10d10+1300 1d1+499 4d7+11 pierce
 -11 -11 -11 5
 EFGIK AB 0 0
 stand stand male 4500
 0 0 large unknown
+A det DF
 #18068
 warrior guildstudent student~
 the guildstudent~
@@ -1034,12 +1100,13 @@ A smaller man dressed in nothing but a tunic stands here waiting
 to fight mighty foes.
 ~
 giant~
-ABJKTV DFJ 0 0
+ABJKTV J 0 0
 35 0 10d10+1300 1d1+99 4d7+11 pierce
 -11 -11 -11 5
 ACEFHIK AB 0 0
 stand stand male 5500
 0 0 large unknown
+A det DF
 #18069
 anti-paladin ranger guildmaster~
 the guildmaster~
@@ -1050,12 +1117,13 @@ a knife an throws it at you. It lands the wall next to your left ear.
 "We will now begin," is all he says.
 ~
 giant~
-ABJKTVb DFJ -100 0
+ABJKTVb J -100 0
 40 0 15d10+4000 1d1+99 5d6+13 pierce
 -13 -13 -13 3
 BEFHJKN AB B Z
 stand stand male 3000
 0 0 large unknown
+A det DF
 #18070
 anti-paladin guildguard~
 the guildguard~
@@ -1064,12 +1132,13 @@ The Guard for the Guild of Anti-Paladins stand here.
 This man looks like a mage/warrior, i wouldn't mess with him.
 ~
 giant~
-ABRT DJ 0 0
+ABRT J 0 0
 30 0 6d12+953 3d7+4 4d6+8 pierce
 -9 -9 -9 5
 0 0 0 0
 stand stand male 3345
 0 0 large unknown
+A det D
 #18071
 cleric guildguard~
 the guildguard~
@@ -1078,12 +1147,13 @@ The Guard for the Guild of Clerics stands here.
 This man looks like a master cleric. I wouldn't mess with him.
 ~
 giant~
-ABQT DJ 0 0
+ABQT J 0 0
 30 0 6d12+1003 3d7+4 4d6+8 pierce
 -9 -9 -9 5
 0 0 0 0
 stand stand male 4367
 0 0 large unknown
+A det D
 #18072
 warrior guildguard~
 the guildguard~
@@ -1092,12 +1162,13 @@ The Guard for the Guild of Warriors stands here.
 The man looks like Apollo's cousin, I wouldn't mess with him.
 ~
 giant~
-ABTU DJ 0 0
+ABTU J 0 0
 30 0 6d12+1100 3d7+4 4d6+8 pierce
 -9 -9 -9 -1
 0 0 0 0
 stand stand male 4278
 0 0 large unknown
+A det D
 #18073
 ranger guildguard~
 the guildguard~
@@ -1107,12 +1178,13 @@ You see a ranger dressed all in black, he quickly stands as you enter and
 steps to bar your way. You notice his hands resting on two sheafs.
 ~
 giant~
-ABST DJ 0 0
+ABST J 0 0
 30 0 6d12+953 3d7+4 4d6+8 pierce
 -9 -9 -9 -1
 0 0 0 0
 stand stand male 5657
 0 0 large unknown
+A det D
 #18074
 servant boy~
 a servant boy~
@@ -1241,12 +1313,13 @@ A large and deadly Hydra is here.
 A large deadly Hydra is here and will do anything to protect her master.
 ~
 dragon~
-ABIJRTV DFV 1000 0
+ABIJRTV V 1000 0
 35 0 10d10+1550 1d1+348 4d8+13 beating
 -11 -11 -11 5
 N H GIJK 0
 stand stand female 0
 0 0 large unknown
+A det DF
 #18097
 court aritist~
 the court aritist~
@@ -1257,12 +1330,13 @@ want toget on this guys bad side, for he can draw a spell on you and your
 friends!
 ~
 giant~
-ABCT FJ -1000 0
+ABCT J -1000 0
 42 0 25d10+2250 1d1+1111 3d12+14 pierce
 -14 -14 -14 5
 BCDEFH ABL N KS
 stand stand male 9233
 0 0 large unknown
+A det F
 #18098
 apothecary~
 the apothecary~
@@ -1273,12 +1347,13 @@ in potions and pills, you wonder which you shall by. You know right away that
 anything type of cure you would need, here is where you'd get it.
 ~
 giant~
-ABTe CDEFJ -1000 0
+ABTe J -1000 0
 45 0 25d10+3000 1d1+320 8d4+16 slash
 -15 -15 -15 -2
 CDEFIKN ABL BN K
 stand stand female 500000
 0 0 large unknown
+A det CDEF
 #18099
 villager happy~
 a happy villager~
@@ -1290,12 +1365,13 @@ You are glad that this town is such a happy place... lets just hope it doesn't
 get too happy.
 ~
 giant~
-ABT CDEFJ -1000 0
+ABT J -1000 0
 28 0 6d12+703 1d1+195 2d12+8 pierce
 -8 -8 -8 6
 CDEFIKN ABL N K
 stand stand male 100
 0 0 large unknown
+A det CDEF
 #18100
 Questor~
 Qeustor~
@@ -1306,12 +1382,13 @@ He knows all the zones of realms of Muddy. It would be a Bad Thing to
 commit a crime in his presence. 
 ~
 giant~
-ABTVXe CDFJVZ 1000 3000
+ABTVXe JV 1000 3000
 85 30 1d1+13999 1d1+1499 5d14+40 crush
 -50 -50 -50 -50
 ACDEFHIKLNOT ABP CD 0
 stand stand male 0
 0 0 huge unknown
+A det CDFZ
 #18101
 healer~
 the healer~
@@ -1321,12 +1398,13 @@ Although retired from adventuring, the healer still lends a hand.
 Type 'heal' to see a listing of spells.
 ~
 giant~
-ABKQVae DFH 1000 0
+ABKQVae H 1000 0
 120 10 1d1+10999 1d1+999 2d4+30 divine
 -15 -15 -15 -15
 FHIK ABC D 0
 stand stand male 5000
 0 0 huge unknown
+A det DF
 #0
 
 #OBJECTS

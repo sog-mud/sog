@@ -18,12 +18,13 @@ His lazy streak prevents him from doing any other job and besides the pay's
 good here.
 ~
 human~
-ABGe D 0 0
+ABGe 0 0 0
 20 0 3d9+333 199d1+1 2d8+5 punch
 -4 -4 -4 7
 EFNU 0 0 0
 stand stand male 100
 0 0 medium unknown
+A det D
 #8201
 zoo keeper man~
 the zookeeper~
@@ -35,12 +36,13 @@ slicked backgraesy hair and a long curly moustache. From the good state of
 his clothes, you guess that he rarely goes near the animals here himself.
 ~
 human~
-AB F 0 0
+AB 0 0 0
 10 0 2d7+121 99d1+1 2d4+2 punch
 1 1 1 8
 E 0 0 0
 stand stand male 100
 0 0 medium unknown
+A det F
 #8202
 giant leech~
 a giant leech~

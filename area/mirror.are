@@ -19,12 +19,13 @@ round body which can charm you with its cuteness.  Baby beholders are known for
 their playful personality.  Hmmm....  It looks like the baby is teething!
 ~
 human~
-ABCHR D 500 0
+ABCHR 0 500 0
 5 0 2d7+46 5d9+100 1d5+0 none
 6 6 6 8
 FU 0 0 0
 stand stand none 11
 0 0 medium unknown
+A det D
 #5301
 oldstyle lamia pet~
 the pet lamia~
@@ -273,12 +274,13 @@ An old wizard sits quietly at the counter waiting for a sale.
 This old wizard almost looks like he is about to fall over and sleep.
 ~
 human~
-ABRe D 550 0
+ABRe 0 550 0
 30 0 6d12+1278 30d9+100 5d4+9 none
 -19 -19 -19 -1
 FU 0 0 0
 stand stand male 50
 0 0 medium unknown
+A det D
 #5318
 oldstyle masseuse woman~
 a beautiful masseuse~
@@ -421,12 +423,13 @@ A druid is here in meditation.
 He doesn't like you bothering him, but is too polite to ask you to leave.
 ~
 human~
-AGHQ DN 1000 0
+AGHQ N 1000 0
 10 0 2d7+121 10d9+100 1d7+2 none
 1 1 1 7
 EIKU 0 0 0
 stand stand male 2
 0 0 medium unknown
+A det D
 #5328
 oldstyle druidess~
 a druidess~
@@ -435,12 +438,13 @@ A druidess peers at you.
 She wonders why you are staring at her, and how you got in here.
 ~
 human~
-AGHQ DN 1000 0
+AGHQ N 1000 0
 10 0 2d7+121 10d9+100 1d7+2 none
 1 1 1 7
 EIKU 0 0 0
 stand stand female 2
 0 0 medium unknown
+A det D
 #5329
 oldstyle musician bard~
 bard of Thalos~
@@ -535,12 +539,13 @@ wizard. He is equipped with fine clothing, and is wearing many fine
 rings and bracelets.
 ~
 human~
-ABVe DH 900 0
+ABVe H 900 0
 43 5 25d10+3800 1d1+1999 4d8+32 magic
 -35 -35 -35 -15
 AF ABC D 0
 stand stand male 15000
 0 0 medium unknown
+A det D
 #5336
 baker~
 the baker~
@@ -623,12 +628,13 @@ He knows all the zones of realms of Muddy. It would be a Bad Thing to
 commit a crime in his presence. 
 ~
 giant~
-ABTVXe CDFJVZ 1000 3000
+ABTVXe JV 1000 3000
 85 30 1d1+27999 1d1+1499 5d14+40 crush
 -50 -50 -50 -50
 ACDEFHIKLNOT ABP CD 0
 stand stand male 0
 0 0 huge unknown
+A det CDFZ
 #5342
 healer~
 the healer~
@@ -638,12 +644,13 @@ Although retired from adventuring, the healer still lends a hand.
 Type 'heal' to see a listing of spells.
 ~
 human~
-ABQVae DFH 1000 0
+ABQVae H 1000 0
 120 10 1d1+26999 1d1+999 2d4+30 divine
 -45 -45 -45 -15
 FHIK ABC D 0
 stand stand male 5000
 0 0 huge unknown
+A det DF
 #5343
 guildmaster master~
 the guildmaster~
@@ -654,12 +661,13 @@ vast amount of knowledge she possesses. She is wearing fine magic clothing,
 and you notice that she is surrounded by a blue shimmering aura.
 ~
 elf~
-ABKRVe DEFZ -1000 0
+ABKRVe 0 -1000 0
 96 0 1d1+29099 1d1+999 3d8+24 magic
 -65 -65 -65 -35
 FG ABD C 0
 stand stand female 0
 0 0 medium unknown
+A det DEFZ
 #5344
 guildmaster master~
 the guildmaster~
@@ -669,12 +677,13 @@ You are in no doubt that this guildmaster is truly close to your god; he has
 a peaceful, loving look. You notice that he is surrounded by a white aura.
 ~
 human~
-ABKQVe CDEFHZ -1000 0
+ABKQVe H -1000 0
 96 0 1d1+29099 1d1+999 3d8+24 divine
 -65 -65 -65 -35
 EFHIK ABD C 0
 stand stand male 0
 0 0 medium unknown
+A det CDEFZ
 #5345
 templeman~
 the templeman~
@@ -684,31 +693,32 @@ Although very handsome , the templeman serves for IMMORTALS and GODS.
 help 'religion' to see a listing of religions available.
 ~
 human~
-ABQVe DFH 1000 0
+ABQVe H 1000 0
 80 10 1d1+20999 1d1+999 2d4+30 divine
 -65 -65 -65 -15
 FHIK ABC D 0
 stand stand male 5000
 0 0 huge unknown
-M SPEECH 3018 eros~
-M SPEECH 3017 enki~
-M SPEECH 3016 seth~
-M SPEECH 3015 venus~
-M SPEECH 3014 hera~
-M SPEECH 3013 goktengri~
-M SPEECH 3012 ares~
-M SPEECH 3011 teshub~
-M SPEECH 3010 odin~
-M SPEECH 3009 phobos~
-M SPEECH 3008 deimos~
-M SPEECH 3007 ehrumen~
-M SPEECH 3006 ahuramazda~
-M SPEECH 3005 shamash~
-M SPEECH 3004 siebele~
-M SPEECH 3003 zeus~
-M SPEECH 3002 atum-ra~
-M SPEECH 3001 religion~
-M GREET 3000 100~
+A det DF
+M speech 3018 eros~
+M speech 3017 enki~
+M speech 3016 seth~
+M speech 3015 venus~
+M speech 3014 hera~
+M speech 3013 goktengri~
+M speech 3012 ares~
+M speech 3011 teshub~
+M speech 3010 odin~
+M speech 3009 phobos~
+M speech 3008 deimos~
+M speech 3007 ehrumen~
+M speech 3006 ahuramazda~
+M speech 3005 shamash~
+M speech 3004 siebele~
+M speech 3003 zeus~
+M speech 3002 atum-ra~
+M speech 3001 religion~
+M greet 3000 100~
 #5346
 junkseller junk seller~
 Junkseller~

@@ -18,12 +18,13 @@ You see a slate grey vaguely humanoid shape, devoid of any true features.
 It stands before you with arms folded, seemingly uninterested in you.
 ~
 human~
-ABT DFHN 0 0
+ABT HN 0 0
 37 0 10d10+1500 18d9+100 3d10+12 none
 -12 -12 -12 5
 EFNU 0 0 0
 stand stand none 5000
 0 0 medium unknown
+A det DF
 #7701
 oldstyle nightmare~
 A pitch-black nightmare~
@@ -34,12 +35,13 @@ planes to torment mortals.  It vaguely resembles a horse, with a hide blacker
 than the darkest night, and hooves that burn with unholy fires.
 ~
 human~
-AD DJT -950 0
+AD JT -950 0
 18 0 3d9+283 9d9+100 2d7+4 none
 -3 -3 -3 7
 EFNU 0 0 0
 stand stand none 300
 0 0 medium unknown
+A det D
 #7702
 oldstyle night hag~
 An evil night hag~
@@ -50,12 +52,13 @@ purpose is to hunt down and slay mortals in order to obtain souls for her foul
 master to torment.
 ~
 human~
-ADFR DJ -1000 0
+ADFR J -1000 0
 24 0 5d10+450 24d9+100 4d4+5 none
 -6 -6 -6 2
 FU 0 0 0
 stand stand female 625
 0 0 medium unknown
+A det D
 #7703
 oldstyle stalker invisible~
 An invisible stalker~
@@ -96,12 +99,13 @@ normal man.  Like all githyanki, his teeth are fanged and his eyes hollow
 and sunken.
 ~
 human~
-ACS DFJP -500 0
+ACS JP -500 0
 11 0 2d7+121 5d9+100 2d4+2 none
 1 1 1 7
 BEFJNU 0 0 0
 stand stand male 50
 0 0 medium unknown
+A det DF
 #7706
 oldstyle githyanki warrior~
 A githyanki warrior~
@@ -215,12 +219,13 @@ and sunken.  As you turn to flee, you feel the impact of a fireball against
 your back.
 ~
 human~
-AFR DEJ -500 0
+AFR J -500 0
 20 0 3d9+308 20d9+100 3d4+4 none
 -4 -4 -4 3
 FU 0 0 0
 stand stand male 500
 0 0 medium unknown
+A det DE
 #7713
 oldstyle githyanki lich queen~
 The lich-queen~
@@ -232,12 +237,13 @@ unholy magic and the powers of this plane of existence.  The cold glare of her
 hollow eyes sends you into paroxysms of fright.
 ~
 human~
-ABF DEFHJ -750 0
+ABF HJ -750 0
 30 0 6d12+853 15d9+100 4d6+8 none
 -9 -9 -9 6
 EFNU 0 0 0
 stand stand female 5000
 0 0 medium unknown
+A det DEF
 #7714
 oldstyle lord gith~
 Lord Gith~
@@ -252,12 +258,13 @@ He gestures towards you.  You feel your heart tremble and your throat begin
 to tighten.  You are about to die.
 ~
 human~
-ABF BDFHJ -900 0
+ABF BHJ -900 0
 35 0 10d10+1300 17d9+100 4d7+11 none
 -11 -11 -11 5
 EFNU 0 0 0
 stand stand male 250
 0 0 medium unknown
+A det DF
 #7715
 oldstyle ghost~
 An insubstantial ghost~
@@ -318,12 +325,13 @@ in length with an even more massive wingspan.  He watches you, smoke drifting
 from his open mouth.
 ~
 dragon~
-ABR D -400 0
+ABR 0 -400 0
 28 0 5d10+650 28d9+100 2d10+7 none
 -8 -8 -8 1
 FR 0 0 0
 stand stand male 250
 0 0 medium unknown
+A det D
 #7719
 oldstyle fire furnace flame~
 A massive blast of fire~

@@ -30,12 +30,13 @@ A hungry cyclops snarls at you!
 He looks like he's about to have dinner (maybe it's you?).
 ~
 giant~
-ABFQT DF -700 0
+ABFQT 0 -700 0
 22 7 10d10+600 10d10+100 6d4+10 smash
 -7 -7 -7 -2
 ACDIO AB CD 0
 stand stand male 600
 0 0 huge unknown
+A det DF
 #9203
 oldstyle tiny elemental~
 a tiny elemental~
@@ -327,12 +328,13 @@ A dust cloud blowing by makes you sneeze.
 The magical dust cloud is a cross between air and earth.
 ~
 human~
-AGS DFJ 0 0
+AGS J 0 0
 6 0 2d6+60 3d9+100 1d6+1 none
 5 5 5 9
 BEFJNU 0 0 0
 stand stand none 5
 0 0 medium unknown
+A det DF
 #9225
 oldstyle eddie elemental~
 an eddie~
@@ -341,12 +343,13 @@ A small eddie current swirls junk around here.
 The magical eddie current is a manifestation of an air elemental.
 ~
 human~
-AGS DF 0 0
+AGS 0 0 0
 2 0 2d6+10 1d9+100 1d4+0 none
 9 9 9 10
 BEFJNU 0 0 0
 stand stand none 1
 0 0 medium unknown
+A det DF
 #9226
 oldstyle blue flame~
 the Blue Flame~
@@ -471,12 +474,13 @@ An alchemist wanders by in search of magical herbs.
 Rare herbs are rumored to grow only in the canyon.
 ~
 human~
-AGS DF -50 0
+AGS 0 -50 0
 13 0 2d10+150 6d9+100 1d10+3 none
 0 0 0 7
 BEFJNU 0 0 0
 stand stand none 95
 0 0 medium unknown
+A det DF
 #9235
 oldstyle baby rainbow dragon~
 a baby rainbow dragon~
@@ -485,12 +489,13 @@ A baby rainbow dragon plays among the elements here.
 It's only a baby by dragon standards.
 ~
 human~
-ABG DF 0 0
+ABG 0 0 0
 16 0 3d9+233 8d9+100 2d6+4 none
 -2 -2 -2 7
 EFNU 0 0 0
 stand stand none 500
 0 0 medium unknown
+A det DF
 #9236
 oldstyle imp~
 a little imp~
@@ -542,12 +547,13 @@ The elemental magician has come here in search of the fabled
 Stone of Surrender which can be used to render opponents senseless.
 ~
 human~
-ABGKRe D -50 0
+ABGKRe 0 -50 0
 46 30 3d9+8233 17d9+4100 10d12+33 none
 -12 -12 -12 -4
 F ABC 0 0
 stand stand none 400
 0 0 medium unknown
+A det D
 #0
 
 #OBJECTS

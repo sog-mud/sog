@@ -17,12 +17,13 @@ You see a mutant beastly fido, glaring at you with green eyes!  You wonder if
 this factory meets ASPCA guidlines....
 ~
 fido~
-AFGH D -700 0
+AFGH 0 -700 0
 6 0 2d7+71 3d9+100 1d7+1 none
 4 4 4 9
 EN 0 0 0
 stand stand male 0
 0 0 medium unknown
+A det D
 #9402
 oldstyle foreman floyd~
 Foreman Floyd~
@@ -33,12 +34,13 @@ of dedicated Mudding!  Rewarded for his years of dedication as a monster
 slayer, Floyd now creates the beasts for other adventurers to fight.
 ~
 human~
-ABG DFH 2 0
+ABG H 2 0
 12 0 2d10+150 6d9+100 1d10+3 none
 0 0 0 8
 EFNU 0 0 0
 sit stand male 50
 0 0 medium unknown
+A det DF
 #9403
 oldstyle cityguard guard head~
 The Cityguard head~

@@ -21,12 +21,13 @@ of it.
 to make its kill.
 ~
 unique~
-AFGO DFJZ -1000 0
+AFGO J -1000 0
 31 7 20d5+1100 1d1+300 5d5+10 bite
 0 0 0 0
 CDEFK A BM HNSY
 stand stand none 50
 ABDIc ABCDEF medium unknown
+A det DFZ
 #4601
 zombie~
 the Juju zombie~
@@ -39,12 +40,13 @@ actually has no eyes, but instead a faint red glow eminates from it's eye
 sockets.
 ~
 unique~
-ABFGHO DFJZ -1000 0
+ABFGHO J -1000 0
 36 10 20d10+1700 1d1+400 9d3+15 claw
 -5 -5 -5 -5
 DEFKN 0 BM HSY
 stand stand none 1500
 ABIc ABCDEF medium unknown
+A det DFZ
 #4602
 young vampire~
 a young vampire~
@@ -53,12 +55,13 @@ A young vampire stands here, looking for something to kill.
 This young lady looks quite famished and pale.
 ~
 unique~
-AFO DFJUZ -1000 0
+AFO JU -1000 0
 37 15 100d5+2000 0d0+100 7d4+20 magic
 -5 -5 -5 -5
 DEFIKNV A BIM FHNOSXY
 stand stand none 10000
 ABCDHIKMc ABCDEFGHIJKV medium unknown
+A det DFZ
 #4603
 Kharzandra wizardress vampire~
 Kharzandra, the Dark-elf Vampire~
@@ -71,12 +74,13 @@ She looks a bit hungry after having a full day of reanimating corpses,
 perhaps you will be her dinner?
 ~
 elf~
-ABFO DFHUZ -1000 0
+ABFO HU -1000 0
 56 30 100d5+6500 100d4+600 7d5+40 magic
 -10 -10 -10 -10
 EFIK AI IM FHNSY
 stand stand none 17000
 BCDIc 0 medium unknown
+A det DFZ
 #4604
 vampire shadar lunn~
 the Vampire, Shadar Lunn~
@@ -87,12 +91,13 @@ a lieutenant in the Arkham guard... or else, he just knows good armor
 when he sees it.
 ~
 unique~
-ABFO DFHJUZ -1000 0
+ABFO HJU -1000 0
 59 50 200d5+8300 100d3+2000 10d5+30 slash
 -40 -40 -40 -30
 AEFIKV AB BIM FHNSXY
 stand stand none 20000
 ABCDHIKMc ABCDEFGHIJKV medium unknown
+A det DFZ
 #4605
 ghoul creature~
 a hungry ghoul~
@@ -103,12 +108,13 @@ corpse in earnest, but drops it upon noticing the fresh meat that just
 walked into the room.
 ~
 unique~
-AFGO DFJT -1000 0
+AFGO JT -1000 0
 33 10 100d3+1200 0d0+300 5d6+10 chill
 -2 -2 -2 -2
 CEFKN A BM HNSY
 stand stand none 200
 ABCDIc ABCDEFPU medium unknown
+A det DF
 #4606
 mastiff hound~
 the hell hound~
@@ -116,12 +122,13 @@ A large mastiff stands here guarding something.
 ~
 ~
 dog~
-AFT BDFHJPQZ -1000 0
+AFT BHJPQ -1000 0
 45 30 10d50+2000 1d1+200 8d3+23 acbite
 -1 -1 -1 -1
 ADEF A BHM IN
 stand stand none 1
 C B medium unknown
+A det DFZ
 #4608
 bat vampire~
 the vampire bat~
@@ -131,12 +138,13 @@ A horrible little face looks at you and bares its teeth. Ugh!
 You don't like it.
 ~
 unique~
-AFGH FJPTc -700 0
+AFGH JPTc -700 0
 20 10 20d10+600 1d1+199 7d5+10 bite
 1 1 1 1
 FHQ L 0 S
 stand stand none 200
 BIV ADFPV medium unknown
+A det F
 #4609
 demon familiar~
 the demon familiar~
@@ -146,12 +154,13 @@ This little guy looks very familar... you know it would be a bad thing to
 mess with it.
 ~
 unique~
-ABFGT DFJUZ -1000 0
+ABFGT JU -1000 0
 42 15 20d10+3100 1d1+400 7d6+25 drain
 -15 -15 -15 -15
 DEFIJK ABH 0 IN
 stand stand none 5000
 ACDG 0 medium unknown
+A det DFZ
 #4610
 dracolich~
 the great Dracolich~
@@ -160,12 +169,13 @@ A huge skeletal form raises from shadows.
 Horrible skeletal form look at you and green evilly.
 ~
 unique~
-ABFGT DFHJZ -1000 0
+ABFGT HJ -1000 0
 60 20 10d100+3500 1d1+400 7d8+40 claw
 -30 -30 -30 -30
 EFKN AB 0 0
 stand stand none 50000
 BCDI 0 medium unknown
+A det DFZ
 #4611
 priest vampire~
 the dark priest vampire~
@@ -175,12 +185,13 @@ This dark-priest wears the sign of Loki about his neck, and is seeming
 disturbed by your intrusion during his meditation.
 ~
 unique~
-AGLQ DFJUZ -1000 0
+AGLQ JU -1000 0
 46 20 100d3+3500 1d1+500 6d8+25 divine
 -20 -20 -20 -20
 AFIK AB 0 0
 stand stand none 5000
 CGI 0 medium unknown
+A det DFZ
 #4612
 dark spectre~
 the dark spectre~
@@ -190,12 +201,13 @@ You can see right through this creature, except for the dark patch surrounding
 it's red, glowing eyes... it looks pissed off that you're still alive.
 ~
 unique~
-ABFT BDFHJQTU -1000 0
+ABFT BHJQTU -1000 0
 55 10 100d3+2500 1d1+500 5d8+25 bite
 -15 -15 -15 -10
 FK ABCD 0 H
 stand stand none 0
 ACK 0 medium unknown
+A det DF
 #0
 
 #OBJECTS

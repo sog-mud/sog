@@ -17,14 +17,15 @@ The Black Pawn looks quite like a small knight without his powerful steed.
 His armor is shiny and black. He stands ready to give his life for the Crown.
 ~
 human~
-ACF D -400 4200
+ACF 0 -400 4200
 10 0 2d7+121 1d1+99 2d4+1 beating
 1 1 1 8
 EG A 0 0
 stand stand male 60
 B 0 medium unknown
-M BRIBE 4200 1~
-M RANDOM 4200 20~
+A det D
+M bribe 4200 1~
+M random 4200 20~
 #4201
 white pawn~
 the Pawn of the White Court~
@@ -35,12 +36,13 @@ His armor is spotless and white. He stands ready to give his life for the
 Crown.
 ~
 human~
-AC D 400 4201
+AC 0 400 4201
 10 0 2d7+121 1d1+99 2d4+1 beating
 1 1 1 8
 EG 0 0 0
 stand stand male 55
 0 0 medium unknown
+A det D
 #4202
 black rook castle~
 the Black Rook~
@@ -56,7 +58,7 @@ AFH 0 -600 0
 CEI A 0 0
 stand stand male 480
 0 0 medium unknown
-M RANDOM 4200 20~
+M random 4200 20~
 #4203
 white rook castle~
 the White Rook~
@@ -66,12 +68,13 @@ The White Rook is a very large man-made tomb on wheels.  Just
 from the looks of it, it will probably be YOUR tomb.
 ~
 human~
-AH D 600 0
+AH 0 600 0
 27 0 5d10+650 1d1+99 5d4+7 punch
 -8 -8 -8 6
 CEI 0 0 0
 stand stand male 470
 0 0 medium unknown
+A det D
 #4204
 black knight~
 the Black Knight~
@@ -87,7 +90,7 @@ AH 0 -400 0
 EF A 0 0
 stand stand male 266
 0 0 medium unknown
-M RANDOM 4200 20~
+M random 4200 20~
 #4205
 white knight~
 the White Knight~
@@ -118,7 +121,7 @@ AH 0 -500 0
 CDEF A 0 0
 stand stand male 540
 0 0 medium unknown
-M RANDOM 4200 20~
+M random 4200 20~
 #4207
 white bishop priest~
 the White Bishop~
@@ -128,12 +131,13 @@ The White Bishop seems willing to help you in any possible so that he can
 attain a higher spirituality.
 ~
 human~
-A DN 500 0
+A N 500 0
 24 0 5d15+500 1d1+239 2d10+6 punch
 -6 -6 -6 6
 CDEF A 0 0
 stand stand male 590
 0 0 medium unknown
+A det D
 #4208
 black queen~
 the Black Queen~
@@ -144,13 +148,14 @@ dark hair that crowns her head like a black cloud.  If looks could kill, you
 would already be dead.
 ~
 human~
-ABFH DFH -750 4210
+ABFH H -750 4210
 32 0 10d10+1000 1d1+319 6d4+9 magic
 -10 -10 -10 5
 AFJK A 0 0
 stand stand female 856
 0 0 medium unknown
-M RANDOM 4200 20~
+A det DF
+M random 4200 20~
 #4209
 white queen~
 the White Queen~
@@ -161,12 +166,13 @@ of light hair that frames her head like the sun.  This is surely love at
 first sight for you.
 ~
 human~
-ABH DFHN 750 2411
+ABH HN 750 2411
 32 0 10d10+1000 1d1+319 6d4+9 magic
 -10 -10 -10 5
 AFJK 0 0 0
 stand stand female 854
 0 0 medium unknown
+A det DF
 #4210
 black king~
 the Black King~
@@ -176,13 +182,14 @@ The Black King is a menacing figure.  You can easily understand why he
 is the king and you are not.
 ~
 human~
-ABH DFHU -999 0
+ABH HU -999 0
 36 0 10d10+1400 1d35+99 3d10+12 beating
 -12 -12 -12 4
 BCDEF A 0 0
 stand stand male 984
 0 0 medium unknown
-M RANDOM 4200 21~
+A det DF
+M random 4200 21~
 #4211
 white king~
 the White King~
@@ -192,12 +199,13 @@ The White King is a stately figure.  You can easily understand why he
 is the king and you are not.
 ~
 human~
-ABH DFHNU 999 0
+ABH HNU 999 0
 36 0 10d10+1400 1d1+359 3d10+12 beating
 -12 -12 -12 4
 BCDEF 0 0 0
 stand stand male 988
 0 0 medium unknown
+A det DF
 #4212
 caliph omar ghost~
 the Ghost of Caliph Omar~
@@ -207,12 +215,13 @@ Caliph Omar was person who sanctions chess for islamic people.
 His ghost is here small, and looks like made from smoke.
 ~
 human~
-AHT BDFHPQTUV 0 0
+AHT BHPQTUV 0 0
 60 0 50d10+9500 599d1+1 8d6+28 wrath
 -30 -30 -30 0
 FGK 0 0 HIJK
 stand stand male 14999
 0 0 small unknown
+A det DF
 #0
 
 #OBJECTS

@@ -304,12 +304,13 @@ A LARGE Cleaner Worm is here!
 Now you know why these tunnels are so clean.
 ~
 snake~
-AFG DFJ 0 0
+AFG J 0 0
 10 0 2d7+121 99d1+1 2d4+2 grep
 1 1 1 8
 EKN 0 0 0
 stand stand male 200
 0 0 medium unknown
+A det DF
 #7521
 citizen man~
 a citizen of Gerighelm~
@@ -333,12 +334,13 @@ market.
 She looks very worn from all this haggling.  But she is happy nonetheless.
 ~
 human~
-A G 0 7521
+A 0 0 7521
 7 0 2d6+85 69d1+1 1d8+1 punch
 4 4 4 9
 EKN 0 0 0
 stand stand female 140
 0 0 medium unknown
+A det G
 #7523
 troubadour bard~
 a troubadour~
@@ -745,12 +747,13 @@ The Mage is here, selling things.
 He is a powerful old coot....
 ~
 human~
-ABVe D 900 0
+ABVe 0 900 0
 50 0 1d1+2999 1d1+999 1d8+42 magic
 -15 -15 -15 -15
 AF ABCD 0 0
 stand stand male 150000
 0 0 medium unknown
+A det D
 #7595
 pawn shop runner~
 the pawn shop owner~
@@ -815,12 +818,13 @@ The old Witch is here, selling things.
 She is old, and ugly- very good witch material...
 ~
 human~
-ABVe D 900 7006
+ABVe 0 900 7006
 40 0 1d1+1999 1d1+999 1d8+32 magic
 -15 -15 -15 -15
 AF ABCD 0 0
 stand stand male 20000
 0 0 medium unknown
+A det D
 #7698
 hawk~
 a hawk~
@@ -844,12 +848,13 @@ It is strong, impertubable looking creature. It notice that you look at its,
 and it says: 'Have a nice day'. Hm?... Death is your only way, probably...
 ~
 human~
-ABGIT CDF 100 0
+ABGIT 0 100 0
 60 0 50d10+9500 599d1+1 8d6+28 slap
 -30 -30 -30 0
 A 0 0 C
 stand stand either 0
 0 0 medium unknown
+A det CDF
 #0
 
 #OBJECTS

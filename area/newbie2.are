@@ -33,12 +33,13 @@ tell.  He is only about 4 feet tall, but he pretty muscular looking...
 maybe you should ask if he needs help?  Nah... kill him.
 ~
 school monster~
-ABC G 0 0
+ABC 0 0 0
 2 0 2d7+21 19d1+1 1d5+0 scratch
 8 8 8 10
 C 0 0 0
 stand stand male 120
 0 0 medium unknown
+A det G
 #18603
 dragon baby~
 the baby dragon~
@@ -159,12 +160,13 @@ The soul of a long since passed on adventurer... it lurks here waiting for
 a chance to bring death to any who cross its path.
 ~
 water fowl~
-ABDFG BDJ -850 0
+ABDFG BJ -850 0
 6 0 2d7+71 59d1+1 1d7+0 bite
 4 4 4 9
 J AB 0 0
 stand stand either 140
 0 0 medium unknown
+A det D
 #18611
 newbie annoying jerk~
 the annoying newbie~
@@ -175,12 +177,13 @@ comments about everything.  Better silence him with cold, tempered steel
 MUHAHAHAHAHAHAHAHAHAHA!
 ~
 human~
-ABC FGJ -500 0
+ABC J -500 0
 2 0 2d7+21 19d1+1 1d5+0 punch
 8 8 8 10
 K 0 0 0
 stand stand male 120
 0 0 medium unknown
+A det FG
 #18612
 newbie clueless moron~
 the clueless newbie~
@@ -191,12 +194,13 @@ ask and he will probably ask 2 or 3 times too.  This guy just doesn't get
 it, best put him out of his misery.
 ~
 human~
-ABC GJ 0 0
+ABC J 0 0
 1 0 2d6+10 9d1+1 1d4+0 punch
 9 9 9 10
 L 0 0 0
 stand stand male 110
 0 0 medium unknown
+A det G
 #18613
 newbie talkative~
 the talkative newbie~
@@ -238,12 +242,13 @@ Here is a guy who has it all together.  Nice equipment too, must have read
 the help files, Eh?
 ~
 human~
-ABC GJ 0 500
+ABC J 0 500
 5 0 2d6+60 49d1+1 1d6+1 punch
 5 5 5 9
 IK 0 0 0
 stand stand male 150
 0 0 medium unknown
+A det G
 #0
 
 #OBJECTS

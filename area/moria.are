@@ -16,12 +16,13 @@ The huge python rears its head and hisses at you.
 It sways back and forth contemplating whether or not to eat you.
 ~
 snake~
-ABF D -200 0
+ABF 0 -200 0
 11 2 11d9+110 1d1+99 3d4+2 bite
 -1 0 3 6
 FHNOR 0 F 0
 stand stand either 0
 0 0 large unknown
+A det D
 #4001
 garter snake~
 the garter snake~
@@ -235,12 +236,13 @@ knows his way with magic.
 This guy can ace the SAT with his frontal lobe tied behind his back.
 ~
 human~
-ABCFR D -100 0
+ABCFR 0 -100 0
 13 1 7d5+130 13d10+100 1d6+2 punch
 -2 -2 -2 2
 FQ 0 C 0
 stand stand male 400
 0 0 medium unknown
+A det D
 #4101
 troll~
 the troll~

@@ -265,12 +265,13 @@ This fellow may not speak your language well, but the language he does know
 very well makes conversation suddenly become much simpler- MONEY.
 ~
 human~
-ACGHe DFN 0 0
+ACGHe N 0 0
 60 0 50d10+6750 5d5+5000 8d6+28 pound
 -30 -30 -30 -3
 FHIKN 0 0 0
 stand stand male 1000
 0 0 medium unknown
+A det DF
 #24117
 chieftain~
 the village chieftain~
@@ -284,12 +285,13 @@ well-muscled frame - she is still a very attractive woman, and the men of the
 village (and some women too) vie for her favours.
 ~
 human~
-AG CDHJN 1000 0
+AG HJN 1000 0
 60 0 50d10+6750 5d5+5000 8d6+28 pound
 -30 -30 -30 -3
 FIKN 0 0 0
 stand stand male 1000
 0 0 medium unknown
+A det CD
 #24118
 villager~
 a villager~
@@ -450,12 +452,13 @@ standing military or police force. However, the recent influx of foreigners
 and bandits has necessitated the introduction of a militia to keep the peace.
 ~
 human~
-ADG CHN 1000 0
+ADG HN 1000 0
 50 0 50d10+4250 5d5+5000 5d8+19 pound
 -20 -20 -20 0
 EFIKN 0 0 0
 stand stand male 1000
 0 0 medium unknown
+A det C
 #24129
 militia member~
 a member of the village militia~
@@ -466,12 +469,13 @@ standing military or police force. However, the recent influx of foreigners
 and bandits has necessitated the introduction of a militia to keep the peace.
 ~
 human~
-ADG CHN 1000 0
+ADG HN 1000 0
 50 0 50d10+4250 5d5+5000 5d8+19 pound
 -20 -20 -20 0
 CEFIKN 0 0 0
 stand stand male 1000
 0 0 medium unknown
+A det C
 #24130
 militia member~
 a member of the village militia~
@@ -482,12 +486,13 @@ standing military or police force. However, the recent influx of foreigners
 and bandits has necessitated the introduction of a militia to keep the peace.
 ~
 human~
-ABDG CHN 1000 0
+ABDG HN 1000 0
 50 0 50d10+4250 5d5+5000 5d8+19 pound
 -20 -20 -20 0
 CEFIKN 0 0 0
 stand stand male 1000
 0 0 medium unknown
+A det C
 #24131
 minoan merc merc1~
 minoan mercenary~
@@ -496,12 +501,13 @@ A Minoan mercenary scowls menacingly at you.
 This Merc looks big and tough. Better be careful.
 ~
 human~
-AI FJ 0 0
+AI J 0 0
 15 0 3d9+208 5d5+100 2d6+3 pound
 -2 -2 -2 6
 CDFIJK 0 0 0
 stand stand female 1000
 0 0 medium unknown
+A det F
 #24132
 assyrian merc merc2~
 Assyrian mercenary~
@@ -510,12 +516,13 @@ An Assyrian Mercenary scowls menacingly at you.
 This Merc looks big and tough. Better be careful.
 ~
 human~
-AI DJ 0 0
+AI J 0 0
 20 0 3d9+333 5d5+1000 2d8+5 pound
 -4 -4 -4 5
 FIJKN 0 0 0
 stand stand male 1000
 0 0 medium unknown
+A det D
 #24133
 egyptian merc merc3~
 Egyptian mercenary~
@@ -566,12 +573,13 @@ A Mycenaean mercenary scowls menacingly at you.
 This Merc looks big and tough. Better be careful.
 ~
 human~
-AI DFJT 0 0
+AI JT 0 0
 40 0 15d10+1850 5d5+1000 4d8+13 slash
 -13 -13 -13 3
 FIKN 0 0 0
 stand stand male 1000
 0 0 medium unknown
+A det DF
 #0
 
 #OBJECTS

@@ -16,12 +16,13 @@ A dwarven guard is here.
 The guard looks very tough and mean.
 ~
 dwarf~
-AB D 500 0
+AB 0 500 0
 20 0 3d9+333 10d9+100 2d8+5 none
 -4 -4 -4 7
 EFNR 0 0 0
 stand stand male 500
 0 0 medium unknown
+A det D
 #6501
 oldstyle dwarf worker miner~
 the dwarven worker~
@@ -44,12 +45,13 @@ A wraith is awaiting your first move here.
 A black, almost transparent wraith.
 ~
 human~
-AB DFJ -900 0
+AB J -900 0
 29 0 20d20+778 20d20+500 5d17+8 none
 -9 -9 -9 6
 EFNU 0 0 0
 stand stand male 2500
 0 0 medium unknown
+A det DF
 #6503
 oldstyle storekeeper~
 the storekeeper~
@@ -87,12 +89,13 @@ This scaly creature looks like it is well adapted to it's underground
 habitat.  He looks very powerful.
 ~
 lizard~
-AG D 100 0
+AG 0 100 0
 18 0 3d9+283 9d9+100 2d7+4 none
 -3 -3 -3 7
 EFNR 0 0 0
 stand stand male 60
 0 0 medium unknown
+A det D
 #6506
 oldstyle giant~
 the giant~
@@ -143,12 +146,13 @@ The dwarven doctor is here.
 He is a very skilled surgeon, with hands of steel.
 ~
 dwarf~
-AB DH 1000 0
+AB H 1000 0
 9 0 2d6+110 4d9+100 1d8+2 none
 2 2 2 8
 EFNR 0 0 0
 stand stand male 75
 0 0 medium unknown
+A det D
 #6510
 oldstyle dwarf peon~
 the dwarven peon~

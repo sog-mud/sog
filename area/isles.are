@@ -171,12 +171,13 @@ and the beast lets him pass. Others, however, are ignorant of this
 practice, and tend to get eaten.
 ~
 unique~
-ACF E 1000 0
+ACF 0 1000 0
 50 0 50d10+4250 5d5+5000 5d8+19 claw
 -20 -20 -20 0
 KU 0 0 0
 stand stand female 1000
 0 0 medium unknown
+A det E
 #17022
 guard dock~
 the dock guard~
@@ -284,12 +285,13 @@ He holds his men to a higher standard then the rest of the pirate scum
 which sails the seas. He has a funny looking eyepiece.
 ~
 human~
-AB D 400 0
+AB 0 400 0
 60 0 50d10+6750 5d5+5000 8d6+28 pound
 -30 -30 -30 -3
 0 0 0 0
 stand stand male 1000
 0 0 medium unknown
+A det D
 #17029
 lalila elf prince~
 Lalila, the Elven Prince~
@@ -317,12 +319,13 @@ little interest in the affairs of men, dwarves, elves, etc. He
 stands some 20' tall, and is made entirely of flame.
 ~
 unique~
-ABT DFHJ 0 0
+ABT HJ 0 0
 64 0 50d10+8000 5d5+5000 8d7+34 wrath
 -34 -34 -34 -4
 CEFIK H 0 0
 stand stand none 1000
 0 0 medium unknown
+A det DF
 #17031
 mizzenmast pirate lord~
 Mizzenmast~
@@ -544,12 +547,13 @@ landing on its unsuspecting prey's back. Its squawk begins as a low warble
 and finishes with a rapid burst of CAW, caw-CAW, CAH!.
 ~
 song bird~
-A F 0 0
+A 0 0 0
 76 0 50d10+11500 5d5+5000 10d10+46 claw
 -46 -46 -46 -9
 EI 0 0 0
 stand stand none 1000
 0 0 medium unknown
+A det F
 #17045
 pirate gambling~
 the gambling pirate~
@@ -596,12 +600,13 @@ buttons and buckles. He wields a military saber with a precision you have
 seldom seen.
 ~
 human~
-AF DF 400 0
+AF 0 400 0
 76 0 50d10+11500 5d5+5000 10d10+46 slash
 -46 -46 -46 -9
 EFIJ 0 0 0
 stand stand male 1000
 0 0 medium unknown
+A det DF
 #17048
 alindra slave woman~
 Alindra of Dunkeldorf~
@@ -739,12 +744,13 @@ The guard is lean, alert, hardened, and itching for
 a fight.
 ~
 human~
-AFT DFQ 500 0
+AFT Q 500 0
 80 0 50d10+13500 5d5+5000 13d9+50 pound
 -50 -50 -50 -13
 EIJKTU 0 0 0
 stand stand none 1000
 0 0 medium unknown
+A det DF
 #17068
 pirate~
 the helmsman~

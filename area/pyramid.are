@@ -77,12 +77,13 @@ A sneaky tomb thief moves about in search of treasure.
 The thief brushes against you briefly, then slinks back into the shadows.
 ~
 human~
-AGHS DFJP -250 0
+AGHS JP -250 0
 10 0 2d6+110 5d9+100 1d8+2 none
 2 2 2 8
 BEFJNU 0 0 0
 stand stand male 25
 0 0 medium unknown
+A det DF
 #8705
 oldstyle ali baba thief~
 Ali Baba~
@@ -94,12 +95,13 @@ recently from under the nose of the hapless guardians of this pyramid.  Someday
 he might get caught, but not today...
 ~
 human~
-ACGS DFP -300 0
+ACGS P -300 0
 18 0 3d9+258 9d9+100 3d4+4 none
 -3 -3 -3 6
 BEFJNU 0 0 0
 stand stand male 50
 0 0 medium unknown
+A det DF
 #8706
 oldstyle magic carpet~
 The magic carpet~
@@ -110,12 +112,13 @@ It seems to rise up at the touch of your feet.  Wait, it is rising, a few feet
 above the ground!  In fact, it seems to be ALIVE!
 ~
 human~
-AB DJ 500 0
+AB J 500 0
 9 0 2d6+110 4d9+100 1d8+2 none
 2 2 2 8
 EFNU 0 0 0
 stand stand none 12
 0 0 medium unknown
+A det D
 #8707
 oldstyle mummy corpse~
 A mummy~
@@ -156,12 +159,13 @@ The efreeti is a mighty being formed from living fire.  He gazes down at you
 with disdain and scorn, arms folded across his mighty chest.
 ~
 human~
-ABF DJ -600 0
+ABF J -600 0
 20 0 3d9+333 10d9+100 2d8+5 none
 -4 -4 -4 7
 EFNU 0 0 0
 stand stand male 550
 0 0 medium unknown
+A det D
 #8710
 oldstyle caryatid column~
 A caryatid~
@@ -223,12 +227,13 @@ and the hind legs of a mighty cat.  Right now she is confused, having
 just heard a puzzling riddle from a cousin criosphinx.
 ~
 human~
-ABQ D 100 0
+ABQ 0 100 0
 19 0 3d9+308 19d9+100 3d4+5 none
 -4 -4 -4 6
 EIKU 0 0 0
 stand stand female 500
 0 0 medium unknown
+A det D
 #8714
 oldstyle criosphinx sphinx~
 A criosphinx~
@@ -239,12 +244,13 @@ the body of a well-furred feline with eagle-like wings.  He delights in riddles,
 and in poking occasional fun at his easily confused lesser cousins.
 ~
 human~
-ABQ D 300 0
+ABQ 0 300 0
 23 0 5d10+450 23d9+100 4d4+6 none
 -6 -6 -6 5
 EIKU 0 0 0
 stand stand male 1250
 0 0 medium unknown
+A det D
 #8715
 oldstyle androsphinx sphinx~
 An androsphinx~
@@ -256,12 +262,13 @@ wings.  Tales are told of pharoahs that were rendered permanently deaf by the
 mighty roar of this sphinx.
 ~
 human~
-ABQ D 400 0
+ABQ 0 400 0
 27 0 5d10+650 27d9+100 2d10+7 none
 -8 -8 -8 4
 EIKU 0 0 0
 stand stand none 2500
 0 0 medium unknown
+A det D
 #8716
 oldstyle great sphinx~
 The great sphinx~
@@ -274,12 +281,13 @@ it, although you can still make out the features of the handsome face that once
 advised many rulers.
 ~
 human~
-AB DEHN 500 0
+AB HN 500 0
 41 0 25d10+2000 20d9+100 4d8+14 none
 -14 -14 -14 4
 EFNU 0 0 0
 stand stand none 6250
 0 0 medium unknown
+A det DE
 #8717
 oldstyle ramses mummy~
 Ramses the Damned~
@@ -292,12 +300,13 @@ a soft black, his skin a deep chocolate, and his tall frame is totally still,
 his chest not even moving to breathe.
 ~
 human~
-ABQ DEHJN 150 0
+ABQ HJN 150 0
 38 0 10d10+1600 38d9+100 3d10+12 none
 -13 -13 -13 3
 EIKU 0 0 0
 stand stand male 4400
 0 0 medium unknown
+A det DE
 #0
 
 #OBJECTS

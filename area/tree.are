@@ -16,12 +16,13 @@ A Hollyphant is delivering a message here.
 It looks like a large, winged, furry elephant.  It emits an aura of goodness.
 ~
 dragon~
-AG D 1000 2900
+AG 0 1000 2900
 16 0 3d9+233 159d1+1 1d12+3 crush
 -2 -2 -2 5
 CDF 0 0 0
 stand stand either 2000
 0 0 medium unknown
+A det D
 #2901
 planetar~
 a planetar~
@@ -31,12 +32,13 @@ Humanoid in appearance, the planetar has wings and is
 hairless.  He is on a mission from his deity.
 ~
 human~
-ABG BCDH 900 2901
+ABG BH 900 2901
 30 0 6d12+778 299d1+1 5d4+7 punch
 -9 -9 -9 6
 CDFK 0 0 0
 stand stand either 4500
 0 0 medium unknown
+A det CD
 #2902
 shedu~
 a Shedu~
@@ -46,12 +48,13 @@ Half man, half beast.  The Shedu is out looking for evil anywhere it may be
 and it will hunt down until death is the result.
 ~
 human~
-AG F 850 2902
+AG 0 850 2902
 25 0 5d10+550 249d1+1 2d10+7 pierce
 -7 -7 -7 6
 CDFJ 0 0 0
 stand stand either 500
 0 0 medium unknown
+A det F
 #2903
 dretch demon~
 a dretch~
@@ -61,12 +64,13 @@ A pathetic, slobbering thing.  The dretch is constantly picked on by its more
 powerful, demon brothers.
 ~
 bear~
-ABGH DF -800 2903
+ABGH 0 -800 2903
 10 0 2d7+121 99d1+1 2d4+2 punch
 1 1 1 8
 CF 0 0 0
 stand stand either 800
 0 0 medium unknown
+A det DF
 #2904
 chasme fly demon~
 a chasme~
@@ -76,12 +80,13 @@ The chasme or fly demon is half-human and half-fly.  They dont like anyone,
 not even other demons.
 ~
 human~
-ACG DF -900 2904
+ACG 0 -900 2904
 20 0 3d9+308 199d1+1 3d4+4 pound
 -4 -4 -4 2
 CDEFIKN 0 0 C
 stand stand either 2000
 0 0 medium unknown
+A det DF
 #2905
 babau ebony~
 a babau~
@@ -107,12 +112,13 @@ The yagnodemon has one man-sized and one giant-sized arm. With the giant-sized
 arm it can wield huge weapons.  He is not in a good mood right now.
 ~
 human~
-ACG DEF -950 2906
+ACG 0 -950 2906
 25 0 5d10+500 249d1+1 4d4+6 smash
 -7 -7 -7 8
 DFJ 0 0 0
 stand stand either 2900
 0 0 medium unknown
+A det DEF
 #2907
 kostchtchie demon kost~
 Kostchtchie~
@@ -122,12 +128,13 @@ Kostchtchie a powerful demon lord is here.  Obviously derived from giant stock,
 he is very powerful.  And he does not like to be interrupted.
 ~
 human~
-ABEFG DFH -1000 2907
+ABEFG H -1000 2907
 40 0 15d10+1800 399d1+1 4d8+11 chill
 -13 -13 -13 4
 FI AB 0 0
 stand stand either 6900
 0 0 medium unknown
+A det DF
 #2908
 nabassu demon~
 a nabassu~
@@ -137,12 +144,13 @@ A tall, thin demon, the nabassu are very bat-like in appearance.
 He seems to have an intense interest in you.
 ~
 human~
-ACG D -950 2908
+ACG 0 -950 2908
 15 0 2d10+190 149d1+1 1d10+3 slap
 -1 -1 -1 2
 FI 0 0 D
 stand stand either 1120
 0 0 medium unknown
+A det D
 #2909
 dragon cloud~
 a cloud dragon~
@@ -152,12 +160,13 @@ This dragon is as large as a red dragon, but does not like to get involved
 in the struggle between good and evil.  It wants to be left alone.
 ~
 dragon~
-ABG DFH 0 2909
+ABG H 0 2909
 35 0 10d10+1100 349d1+1 4d7+9 bite
 -11 -11 -11 5
 FIKLN 0 0 0
 stand stand either 8000
 0 0 large unknown
+A det DF
 #2910
 solar~
 a solar~
@@ -167,12 +176,13 @@ A beautiful being, the solar is totally dedicated to the continuation
 of the good beings.
 ~
 human~
-ABG CDFH 1000 2910
+ABG H 1000 2910
 47 0 25d10+3500 469d1+1 8d4+16 slash
 -17 -17 -17 0
 FI 0 0 0
 stand stand either 8000
 0 0 medium unknown
+A det CDF
 #2911
 wemic~
 a wemic~
@@ -182,12 +192,13 @@ Part man, part lion, and part horse; the wemic is a creature
 not to be taken lightly.
 ~
 bear~
-AC F 100 2911
+AC 0 100 2911
 10 0 2d7+121 99d1+1 2d4+2 punch
 1 1 1 8
 ABC 0 0 0
 stand stand either 800
 0 0 medium unknown
+A det F
 #2912
 frost giant~
 a frost giant~
@@ -197,12 +208,13 @@ Large members of the giant family, the frost giants are ravenous collectors
 of treasure.  They dont like to share this treasure with anyone.
 ~
 giant~
-ABFG DF -300 2912
+ABFG 0 -300 2912
 25 0 5d10+550 249d1+1 2d10+7 grep
 -7 -7 -7 6
 FJKN AB 0 0
 stand stand male 3400
 0 0 large unknown
+A det DF
 #2913
 gorgimera~
 a gorgimera~
@@ -212,12 +224,13 @@ This three-headed monster is waiting to rip the head off of its latest victim
 to add to its collection.  Watch out for that breath attack.
 ~
 dragon~
-ABFG D -750 2913
+ABFG 0 -750 2913
 20 0 3d9+300 199d1+1 2d8+2 claw
 -4 -4 -4 7
 FIKN AB 0 0
 stand stand either 2500
 0 0 large unknown
+A det D
 #2914
 ratatosk~
 Ratatosk~
@@ -227,12 +240,13 @@ You see a giant squirrel carrying greetings and tidings from the various
 deities residing in these realms.  He does not want to be delayed in his task.
 ~
 human~
-ACG CDFH 200 2914
+ACG H 200 2914
 35 0 10d10+1300 349d1+1 4d7+11 punch
 -11 -11 -11 5
 CDEFJKN 0 0 0
 stand stand male 6700
 0 0 large unknown
+A det CDF
 #0
 
 #OBJECTS

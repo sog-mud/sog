@@ -21,12 +21,13 @@ visitors.  Even so, the guard stands motionless at his post, eyes fixed firmly
 on the empty space in front of him.
 ~
 human~
-ABGT DF 0 0
+ABGT 0 0 0
 23 0 5d10+450 5d5+1000 3d6+6 pound
 -6 -6 -6 4
 CDEFIJKU 0 0 0
 stand stand male 10
 0 0 medium unknown
+A det DF
 #19002
 pale withered knight~
 a withered knight~
@@ -38,12 +39,13 @@ hauberk he wears.  As he sees you, his gray, papery mouth opens, and his
 eyes widen in surprise.....
 ~
 human~
-ABCFG DFJQ 0 0
+ABCFG JQ 0 0
 45 0 25d10+3000 5d5+1000 8d4+16 slash
 -15 -15 -15 2
 CDEFIJK 0 0 0
 stand stand male 0
 0 0 medium unknown
+A det DF
 #19003
 king loranhir man~
 King Loranhir~
@@ -61,12 +63,13 @@ powerful spell, splitting the land in two--but leaving him unable to
 face his failure.
 ~
 human~
-ABGT DFJNU 0 0
+ABGT JNU 0 0
 49 0 50d10+4000 5d5+1000 4d10+18 pound
 -19 -19 -19 1
 CDEFIJKN 0 0 0
 stand stand male 0
 0 0 medium unknown
+A det DF
 #19004
 caerlin bard~
 Caerlin~
@@ -128,12 +131,13 @@ faintly as the light strikes it.  The horn itself is even more distinctive--
 it appears to be golden, and tipped with something that looks like a diamond.
 ~
 human~
-ABG DFHN 1000 0
+ABG HN 1000 0
 39 0 15d10+1700 5d5+1000 5d6+13 charge
 -13 -13 -13 3
 CDEFK 0 0 0
 stand stand none 0
 0 0 medium unknown
+A det DF
 #19008
 watchman~
 a watchman~
@@ -144,12 +148,13 @@ almost impossible to distinguish him from the mountain, since he stands
 completely still with the hood of his robe pulled far over his head.
 ~
 human~
-ABG DFN 0 0
+ABG N 0 0
 19 0 3d9+308 5d5+1000 2d7+5 slap
 -4 -4 -4 5
 CDEFIJ 0 0 0
 stand stand male 0
 0 0 medium unknown
+A det DF
 #19009
 watchman~
 a watchman~
@@ -159,12 +164,13 @@ The watchman's brown robe completely envelops him; only the faint glimmer of
 his eyes shines through the dark shadows inside the robe's hood.
 ~
 human~
-ABG DFJ 0 0
+ABG J 0 0
 19 0 3d9+308 5d5+1000 2d7+5 slap
 -4 -4 -4 5
 DEF 0 0 0
 stand stand male 0
 0 0 medium unknown
+A det DF
 #19010
 watchman~
 a watchman~
@@ -174,12 +180,13 @@ The watchman's brown robe completely envelops him; only the faint glimmer of
 his eyes shines through the dark shadows inside the robe's hood.
 ~
 human~
-ABG DFJ 0 0
+ABG J 0 0
 19 0 3d9+308 5d5+1000 2d7+5 slap
 -4 -4 -4 5
 DF 0 0 0
 stand stand male 0
 0 0 medium unknown
+A det DF
 #19011
 bear zbear~
 Bear-de-bear~
@@ -192,12 +199,13 @@ the rest of him is enveloped in a checkered guvuhveen bag and hood dat
 covers his tiny ears.
 ~
 bear~
-ABGH BDFNU 1000 0
+ABGH BNU 1000 0
 50 0 50d10+4250 5d5+5000 5d8+19 claw
 -21 -21 -21 -1
 CFIJK 0 0 0
 stand stand male 0
 0 0 large unknown
+A det DF
 #19012
 knight withered~
 a withered knight~
@@ -209,12 +217,13 @@ hauberk he wears.  As he sees you, his gray papery mouth opens, and his eyes
 widen in surprise....
 ~
 human~
-ABCFGT DFJQ 0 0
+ABCFGT JQ 0 0
 45 0 25d10+3000 5d5+1000 8d4+16 slash
 -15 -15 -15 2
 DEF 0 0 0
 stand stand male 0
 0 0 medium unknown
+A det DF
 #19013
 grey mare horse skeleton~
 the Grey Mare~
@@ -225,12 +234,13 @@ carefully; as it approaches, it lowers its head, pointing its bone horn
 directly at your chest.
 ~
 unique~
-AG DFIP -1000 0
+AG IP -1000 0
 45 0 25d10+3000 5d5+1000 8d4+16 magic
 -15 -15 -15 2
 CDFIJ 0 0 0
 stand stand none 0
 0 0 medium unknown
+A det DF
 #19014
 bride woman~
 the bride~
@@ -273,12 +283,13 @@ towards you, you catch a glimpse of his face: thin, well-worn laugh lines
 intersect with thick, brownish scars.
 ~
 human~
-AG DFN 1000 0
+AG N 1000 0
 35 0 10d10+1300 5d5+1000 4d7+11 divine
 -11 -11 -11 3
 FIJK 0 0 0
 stand stand male 0
 0 0 medium unknown
+A det DF
 #19017
 orange lord~
 the Orange Lord~
@@ -291,12 +302,13 @@ over his hooded eyes, making it almost impossible to tell just where he's
 looking.
 ~
 human~
-AG DFJN 1000 0
+AG JN 1000 0
 35 0 10d10+1300 5d5+1000 4d7+11 divine
 -11 -11 -11 3
 FIJK 0 0 0
 stand stand male 0
 0 0 medium unknown
+A det DF
 #19018
 yellow lord~
 the Yellow Lord~
@@ -308,12 +320,13 @@ her face has a certain beauty, it has an air of sternness as well, enhanced by
 the razor-sharp crystal sword at her side.
 ~
 human~
-AG DFJN 1000 0
+AG JN 1000 0
 35 0 10d10+1300 5d5+1000 4d7+11 divine
 -11 -11 -11 3
 FIJK 0 0 0
 stand stand male 0
 0 0 medium unknown
+A det DF
 #19019
 green lord~
 the Green Lord~
@@ -325,12 +338,13 @@ Realm, constantly shifting his gaze as he enjoys the land's beauty and watches
 for possible threats.
 ~
 human~
-AG DFJN 1000 0
+AG JN 1000 0
 35 0 10d10+1300 5d5+1000 4d7+11 divine
 -11 -11 -11 3
 FIJK 0 0 0
 stand stand male 0
 0 0 medium unknown
+A det DF
 #19020
 blue lord~
 the Blue Lord~
@@ -342,12 +356,13 @@ possibly in challenge--catching the light and the blue of his robe in the
 facets of his sword.
 ~
 human~
-AG DFJN 1000 0
+AG JN 1000 0
 35 0 10d10+1300 5d5+1000 4d7+11 divine
 -11 -11 -11 3
 FIJK 0 0 0
 stand stand male 0
 0 0 medium unknown
+A det DF
 #19021
 violet lord~
 the Violet Lord~
@@ -359,12 +374,13 @@ in its folds.  At his side, his clear crystal sword looks almost dark as it
 absorbs and reflects the colors of his robe.
 ~
 human~
-AG DFJN 1000 0
+AG JN 1000 0
 35 0 10d10+1300 5d5+1000 4d7+11 divine
 -11 -11 -11 3
 FIJK 0 0 0
 stand stand male 0
 0 0 medium unknown
+A det DF
 #19022
 gardner gardener lady~
 the gardener~
@@ -406,12 +422,13 @@ check.  The wizard giggles as you look at him, and holds up his "Wizard
 Finishing School" diploma.
 ~
 human~
-ABGe DFGJN 1000 0
+ABGe JN 1000 0
 39 0 15d10+1700 5d5+1000 5d6+13 magic
 -13 -13 -13 3
 F 0 0 0
 stand stand male 0
 0 0 medium unknown
+A det DFG
 #19025
 pool man~
 the pool player~
@@ -469,12 +486,13 @@ bows to you as you approach, and motions with his hands, inviting you to
 train with him.
 ~
 human~
-ABGJK DFHN 1000 0
+ABGJK HN 1000 0
 45 0 25d10+3000 5d5+1000 8d4+16 pound
 -15 -15 -15 2
 CDEFIJKN 0 0 0
 stand stand male 0
 0 0 medium unknown
+A det DF
 #19029
 proprietor shopkeeper man~
 the proprietor~
@@ -484,12 +502,13 @@ The proprietor is a thin, tired old man; the adventurers' business isn't doing
 so well right now, what with the land being completely closed off and all.
 ~
 human~
-ABGJKe DFN 1000 0
+ABGJKe N 1000 0
 45 0 25d10+3000 5d5+1000 8d4+16 pound
 -15 -15 -15 2
 FIJ 0 0 0
 stand stand male 0
 0 0 medium unknown
+A det DF
 #19030
 truxton librarian~
 Mrs. Truxton the Librarian~
@@ -501,12 +520,13 @@ with overdue books....her glare chills you to the bone.  Hope you returned
 your books on time.
 ~
 human~
-ABGe DFN 1000 0
+ABGe N 1000 0
 45 0 25d10+3000 5d5+1000 8d4+16 pound
 -15 -15 -15 2
 FIJ 0 0 0
 stand stand male 0
 0 0 medium unknown
+A det DF
 #19031
 father franklin~
 Father Franklin~
@@ -536,12 +556,13 @@ the Signs of the Dark on the sigil around his neck and on the hilt of his
 sword.
 ~
 human~
-AG DFJP -1000 0
+AG JP -1000 0
 35 0 10d10+1300 5d5+1000 4d7+11 slash
 -11 -11 -11 3
 FIK 0 0 0
 stand stand male 0
 0 0 medium unknown
+A det DF
 #19033
 lord dark black~
 the Black Lord~
@@ -552,12 +573,13 @@ dark robes; his cold blue eyes transfix you as they slowly pass over your
 figure.
 ~
 human~
-AG DFJP -1000 0
+AG JP -1000 0
 35 0 10d10+1300 5d5+1000 4d7+11 slash
 -11 -11 -11 3
 FIK 0 0 0
 stand stand male 0
 0 0 medium unknown
+A det DF
 #19034
 storn assassin~
 Storn the assassin~
@@ -569,12 +591,13 @@ cheeks and arms; you also see that many of those slashes have long healed,
 forming thick, hard scars.
 ~
 human~
-AGKe DFJPQ -1000 0
+AGKe JPQ -1000 0
 45 0 25d10+3000 5d5+1000 8d4+16 pound
 -15 -15 -15 2
 FIK 0 0 0
 stand stand male 0
 0 0 medium unknown
+A det DF
 #19035
 wizard standard evil~
 a standard issue wizard~
@@ -585,12 +608,13 @@ spectacles, check; evil grin, check; otherworldly air, check.  The wizard
 smirks as you look at him, and taps his "Wizard's Finishing School" diploma.
 ~
 human~
-ABGe DFJ -1000 0
+ABGe J -1000 0
 45 0 25d10+3000 5d5+1000 8d4+16 magic
 -15 -15 -15 2
 FI 0 0 0
 stand stand male 0
 0 0 medium unknown
+A det DF
 #19036
 gardener gardner lady~
 the gardener~
@@ -599,12 +623,13 @@ The gardener stands here, hacking away at the tangles of vines.
 The gardener grins evilly at you as she decapitates a dead rose bush.
 ~
 human~
-ACG DFJ -1000 0
+ACG J -1000 0
 25 0 5d10+550 5d5+1000 2d10+7 punch
 -7 -7 -7 4
 FI 0 0 0
 stand stand female 0
 0 0 medium unknown
+A det DF
 #19037
 kid boy child~
 the young boy~
@@ -661,12 +686,13 @@ You can't tell anything about whatever this might be...the mists are just too
 thick.
 ~
 unique~
-ABFG BDFINQ -1000 0
+ABFG BINQ -1000 0
 50 0 50d10+4250 5d5+5000 5d8+19 magic
 -20 -20 -20 0
 F 0 0 0
 stand stand none 0
 0 0 medium unknown
+A det DF
 #19041
 mass red ants~
 the mass of red ants~
@@ -711,12 +737,13 @@ peers at you with red-rimmed eyes as you enter, and mumbles a request for your
 order.
 ~
 human~
-ABGe DF -1000 0
+ABGe 0 -1000 0
 40 0 15d10+1850 5d5+1000 4d8+13 pound
 -13 -13 -13 3
 FI 0 0 0
 stand stand female 0
 0 0 medium unknown
+A det DF
 #19044
 carvallo undertaker~
 Carvallo~
@@ -728,12 +755,13 @@ to get rid of rather quickly--or at least anything that no one else will touch
 likely turn it around for a handsome profit).
 ~
 human~
-ABCGe DFJP -1000 0
+ABCGe JP -1000 0
 35 0 10d10+1300 5d5+1000 4d7+11 pound
 -11 -11 -11 3
 F 0 0 0
 stand stand male 0
 0 0 medium unknown
+A det DF
 #19045
 citizen man commoner~
 the young man~
@@ -778,12 +806,13 @@ eyes are filled with animal rage.
 Uh-oh.
 ~
 fox~
-ABFG DFJP -1000 0
+ABFG JP -1000 0
 35 0 10d10+1300 5d5+1000 4d7+11 charge
 -11 -11 -11 3
 0 0 0 0
 stand stand none 0
 0 0 medium unknown
+A det DF
 #19048
 moose~
 the moose~
@@ -812,12 +841,13 @@ It's a big black bear....sharp claws, big teeth, the works.
 And it's coming right at you.
 ~
 bear~
-ABCFG DFIJP -1000 0
+ABCFG IJP -1000 0
 30 0 6d12+853 5d5+1000 4d6+8 claw
 -9 -9 -9 3
 CF 0 0 0
 stand stand none 0
 0 0 large unknown
+A det DF
 #19050
 waiter~
 the waiter~
@@ -828,12 +858,13 @@ through his greasy hair.  He picks up a plate of stew, suddenly sneezes
 on it, then tosses the plate back on the table.
 ~
 human~
-ABCGe DFJP -1000 0
+ABCGe JP -1000 0
 40 0 15d10+1850 5d5+1000 4d8+13 pound
 -13 -13 -13 3
 F 0 0 0
 stand stand male 0
 0 0 medium unknown
+A det DF
 #19051
 urchin boy~
 the young urchin~
@@ -845,12 +876,13 @@ some good.  He refuses to raise his head, or even lift his feet off the ground;
 he only extends his hand towards you, silently asking for money.
 ~
 human~
-ABCG DFPQ -1000 0
+ABCG PQ -1000 0
 20 0 3d9+333 5d5+1000 2d8+5 punch
 -4 -4 -4 5
 F 0 0 0
 stand stand male 0
 0 0 medium unknown
+A det DF
 #19052
 lady woman slut whore night~
 the lady of ill repute~
@@ -863,12 +895,13 @@ beckons you closer.
 What could she possibly want?
 ~
 human~
-ABCG DF -1000 0
+ABCG 0 -1000 0
 25 0 5d10+550 5d5+1000 2d10+7 slap
 -7 -7 -7 4
 F 0 0 0
 stand stand male 0
 0 0 medium unknown
+A det DF
 #19053
 pimp man master~
 the greasy man~
@@ -879,12 +912,13 @@ as if she was somehow bound to him.  Though he doesn't seem attracted to her,
 he still eyes her carefully, seeming to watch her every move.
 ~
 human~
-ABG DF -1000 0
+ABG 0 -1000 0
 35 0 10d10+1300 5d5+1000 4d7+11 pound
 -11 -11 -11 3
 F 0 0 0
 stand stand male 0
 0 0 medium unknown
+A det DF
 #19054
 thief hidden~
 the wily little thief (hidden somewhere in the shadows)~
@@ -893,12 +927,13 @@ The shadows shift faintly.
 You see only a shifty black mass.
 ~
 human~
-ABG BDFJNPQ -1000 0
+ABG BJNPQ -1000 0
 35 0 10d10+1300 5d5+1000 4d7+11 pierce
 -11 -11 -11 3
 FHJN 0 0 0
 stand stand male 0
 0 0 medium unknown
+A det DF
 #19055
 red master~
 the Red Master~
@@ -908,12 +943,13 @@ The Red Master's cloak completely covers his face and body; even his hands and
 feet are hidden somewhere inside its folds.
 ~
 human~
-ABG DFHJN 1000 0
+ABG HJN 1000 0
 50 0 50d10+4250 5d5+5000 5d8+19 pound
 -20 -20 -20 0
 CDEFHK 0 0 0
 stand stand male 0
 0 0 medium unknown
+A det DF
 #19056
 amber master~
 the Amber Master~
@@ -923,12 +959,13 @@ The Amber Master's cloak completely covers his face and body; even his hands
 and feet are hidden somewhere inside its folds.
 ~
 human~
-ABG DFHJN 1000 0
+ABG HJN 1000 0
 50 0 50d10+4250 5d5+5000 5d8+19 pound
 -20 -20 -20 0
 CDEFHK 0 0 0
 stand stand male 0
 0 0 medium unknown
+A det DF
 #19057
 green master~
 the Green Master~
@@ -938,12 +975,13 @@ The Green Master's cloak completely covers his face and body; even his hands
 and feet are hidden somewhere inside its folds.
 ~
 human~
-ABG DFHJN 1000 0
+ABG HJN 1000 0
 50 0 50d10+4250 5d5+5000 5d8+19 pound
 -20 -20 -20 0
 CDEFHK 0 0 0
 stand stand male 0
 0 0 medium unknown
+A det DF
 #19058
 blue master~
 the Blue Master~
@@ -953,12 +991,13 @@ The Blue Master's cloak completely covers his face and body; even his hands
 and feet are hidden somewhere inside its folds.
 ~
 human~
-ABG DFHJN 1000 0
+ABG HJN 1000 0
 50 0 50d10+4250 5d5+5000 5d8+19 pound
 -20 -20 -20 0
 CDEFHK 0 0 0
 stand stand male 0
 0 0 medium unknown
+A det DF
 #19059
 violet master~
 the Violet Master~
@@ -968,12 +1007,13 @@ The Violet Master's cloak completely covers his hands and face; even his hands
 and feet are hidden somewhere inside its folds.
 ~
 human~
-ABG DFHJN 1000 0
+ABG HJN 1000 0
 50 0 50d10+4250 5d5+5000 5d8+19 pound
 -20 -20 -20 0
 CDEFHK 0 0 0
 stand stand male 0
 0 0 medium unknown
+A det DF
 #19060
 yellow master~
 the Yellow Master~
@@ -983,12 +1023,13 @@ The Yellow Master's cloak completely covers his face and body; even his hands
 and feet are hidden somewhere in its folds.
 ~
 human~
-ABG DFHJN 1000 0
+ABG HJN 1000 0
 50 0 50d10+4250 5d5+5000 5d8+19 pound
 -20 -20 -20 0
 CDEFHK 0 0 0
 stand stand male 0
 0 0 medium unknown
+A det DF
 #19061
 light figure being lord master~
 the Master of Light~
@@ -1003,12 +1044,13 @@ and head--they contain no features at all, and only radiate a bright golden
 glow.
 ~
 human~
-ABG DFHJN 1000 0
+ABG HJN 1000 0
 50 0 50d10+4250 5d5+5000 5d8+19 pound
 -20 -20 -20 0
 CDEFHK 0 0 0
 stand stand none 0
 0 0 medium unknown
+A det DF
 #19062
 phoenix bird~
 the Phoenix~
@@ -1020,12 +1062,13 @@ feathers intertwined with a few golden ones; its silvery beak glistens in the
 light, with faint sparkles shining on its razor-sharp edges.
 ~
 unique~
-ABCFG DFIN 0 0
+ABCFG IN 0 0
 50 0 50d10+4250 5d5+5000 5d8+19 pierce
 -20 -20 -20 0
 FH 0 0 0
 stand stand none 0
 0 0 medium unknown
+A det DF
 #19063
 mandeep beekeeper bee keeper~
 Mandeep the Beekeeper~
@@ -1052,12 +1095,13 @@ The White Master's cloak completely covers him; not even his hands and feet
 can be seen.
 ~
 human~
-ABFG DFJ -1000 0
+ABFG J -1000 0
 50 0 50d10+4250 5d5+5000 5d8+19 pound
 -20 -20 -20 0
 CDEFHK 0 0 0
 stand stand male 0
 0 0 medium unknown
+A det DF
 #19065
 white master~
 the White Master~
@@ -1067,12 +1111,13 @@ The White Master's cloak completely covers him; not even his face and hands
 can be seen.
 ~
 human~
-ABFG DFJ -1000 0
+ABFG J -1000 0
 50 0 50d10+4250 5d5+5000 5d8+19 pound
 -20 -20 -20 0
 CDEFHK 0 0 0
 stand stand male 0
 0 0 medium unknown
+A det DF
 #19066
 black master~
 the Black Master~
@@ -1082,12 +1127,13 @@ The Black Master's cloak completely covers his body; not even his face
 and hands are visible.
 ~
 human~
-ABFG DFJ -1000 0
+ABFG J -1000 0
 50 0 50d10+4250 5d5+5000 5d8+19 pound
 -20 -20 -20 0
 CDEFHK 0 0 0
 stand stand male 0
 0 0 medium unknown
+A det DF
 #19067
 black master~
 the Black Master~
@@ -1097,12 +1143,13 @@ The Black Master's cloak completely covers his body; not even his face
 and hands can be seen.
 ~
 human~
-ABFG DFJ -1000 0
+ABFG J -1000 0
 50 0 50d10+4250 5d5+5000 5d8+19 pound
 -20 -20 -20 0
 CDEFHK 0 0 0
 stand stand male 0
 0 0 medium unknown
+A det DF
 #19068
 jerry garcia~
 Jerry Garcia~
@@ -1112,12 +1159,13 @@ Jerry Garcia...famous musician, artist, demigod rock-and-roller of the '60's
 through the '90's....has returned from the dead to heal your wounds.
 ~
 human~
-ABG DFNU 0 0
+ABG NU 0 0
 90 0 50d10+18500 5d5+5000 17d9+60 magic
 -60 -60 -60 -27
 CDEFHK 0 0 0
 stand stand male 0
 0 0 medium unknown
+A det DF
 #19069
 mr teece~
 Mr. Teece~
@@ -1128,12 +1176,13 @@ to be immeasurably old.  He strums on his banjo as you approach, and invites
 you to have a seat and listen.
 ~
 human~
-ABG DFNU 1000 0
+ABG NU 1000 0
 40 0 15d10+1850 5d5+1000 4d8+13 pound
 -13 -13 -13 3
 CDEFHK 0 0 0
 stand stand male 0
 0 0 medium unknown
+A det DF
 #0
 
 #OBJECTS

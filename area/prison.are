@@ -62,12 +62,13 @@ The Prison Worker looks almost exactly like a janitor you have seen in
 Midgaard!
 ~
 human~
-ACG DFJ 0 0
+ACG J 0 0
 9 0 2d6+110 5d5+100 1d8+2 slash
 2 2 2 7
 FIJ 0 0 0
 stand stand male 100
 0 0 medium unknown
+A det DF
 #32004
 Cell Guard~
 the Cell Guard~
@@ -248,12 +249,13 @@ The Steam Monster is glittering although there is no light. It swirls about and
 about almost charming you in the process......
 ~
 unique~
-ABFG D 0 0
+ABFG 0 0 0
 30 0 6d12+853 5d5+1000 4d6+8 claw
 -9 -9 -9 3
 FKN 0 0 0
 stand stand none 100
 0 0 medium unknown
+A det D
 #32016
 Larry armsmaster~
 Larry the armsmaster~
@@ -370,12 +372,13 @@ A huge bronze Dragon is snoozing here with one eye open looking at you!
 Since you are a lesser being than Mnemoth you cannot comprehend what you see here.
 ~
 dragon~
-AG BDFHPU 1000 0
+AG BHPU 1000 0
 1 0 2d6+10 5d5+100 1d4+0 claw
 9 9 9 10
 F 0 0 0
 stand stand male 100
 0 0 huge unknown
+A det DF
 #32024
 Terry ~
 Terry the salesman~

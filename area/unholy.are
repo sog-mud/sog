@@ -18,12 +18,13 @@ intruders in their sanctum! And you can rest assured they will do their
 utmost to eject you!
 ~
 human~
-AFG DFJN -400 0
+AFG JN -400 0
 60 0 50d10+6750 5d5+5000 8d6+28 pound
 -30 -30 -30 -3
 EFHIJKNQ L B J
 stand stand male 0
 0 0 medium unknown
+A det DF
 #30801
 clay golem~
 a clay golem~
@@ -33,12 +34,13 @@ This statue isn't very well-fashioned, and isn't very attractive. You wonder
 why even the unholy monks would use such art in their abbey. Shrug.
 ~
 golem~
-ABG DFJN 0 0
+ABG JN 0 0
 64 0 50d10+8000 5d5+5000 8d7+34 none
 -34 -34 -34 -4
 EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
+A det DF
 #30802
 monk master~
 a master~
@@ -49,12 +51,13 @@ and answer only to the abbot himself. They are if anything more diabolical
 than their demented pupils, and twice as deadly.
 ~
 human~
-AFG DFHJ -800 0
+AFG HJ -800 0
 63 0 50d10+7500 5d5+5000 7d8+33 pound
 -33 -33 -33 -4
 EFHIJKNQ L B J
 stand stand male 0
 0 0 medium unknown
+A det DF
 #30803
 necromancer~
 a necromancer~
@@ -65,12 +68,13 @@ with which they one day intend to conquer the kingdom of Malathar. They are
 horrid, twisted, decrepit old men, who have incredible magical powers.
 ~
 human~
-ABGH DFJ -800 0
+ABGH J -800 0
 62 0 50d10+7250 5d5+5000 6d9+32 punch
 -32 -32 -32 -4
 FIJQ 0 0 0
 stand stand male 0
 0 0 medium unknown
+A det DF
 #30804
 abbot~
 the abbot~
@@ -81,12 +85,13 @@ an iron fist and a lust for conquest and death bordering on the maniacal.
 He may be a shrivelled old man, but he is still immensely powerful.
 ~
 human~
-ABFG CDEFHJN -1000 0
+ABFG HJN -1000 0
 65 0 50d10+8250 5d5+5000 11d5+35 pound
 -35 -35 -35 -5
 EFHIJKNQ L B J
 stand stand male 0
 0 0 medium unknown
+A det CDEF
 #30805
 wight~
 a wight~
@@ -113,12 +118,13 @@ their favorite is the bone devil, who only demands seven virgins rather than
 the many scores other devils demand.
 ~
 human~
-ABG DFJN -1000 0
+ABG JN -1000 0
 66 0 50d10+8500 5d5+5000 7d9+36 none
 -36 -36 -36 -5
 EFHIJKNQ 0 0 0
 stand stand none 0
 0 0 large unknown
+A det DF
 #30807
 elven virgin~
 an elven virgin~
@@ -176,12 +182,13 @@ and imprisoned here. The new clan has not dared to disturb him, for they
 know of his power.
 ~
 human~
-ABG CDEFHJN 1000 0
+ABG HJN 1000 0
 75 0 50d10+11000 5d5+5000 9d11+45 pound
 -45 -45 -45 -9
 EFIJKS N 0 0
 stand stand male 0
 0 0 medium unknown
+A det CDEF
 #30811
 black dragon~
 a black dragon~
@@ -190,12 +197,13 @@ a black dragon~
 They aren't called the dragon clan for nothing, pal.
 ~
 black dragon~
-ABG CDEFHN -1000 0
+ABG HN -1000 0
 70 0 50d10+9750 5d5+5000 8d10+40 claw
 -40 -40 -40 -6
 CDEFQ 0 0 0
 stand stand male 0
 0 0 giant unknown
+A det CDEF
 #30812
 old elf~
 an old elf~
@@ -2669,7 +2677,7 @@ M 0 30804 1 30892 1	* the abbot (A Study)
 E 0 30805 0 1		*	the abbot's ring: on the left finger
 E 0 30805 0 2		*	the abbot's ring: on the right finger
 E 0 30806 0 12		*	the abbot's robes: about the shoulders
-E 0 30807 0 308		*	bracers of might: none
+E 0 30807 0 308		*	bracers of might: unknown
 G 0 30819 0		*	a chest key
 O 0 30820 0 30892	* an iron chest (A Study)
 P 0 30821 1 30820 1	* an iron chest: a suit of unholy armor

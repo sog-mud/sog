@@ -19,12 +19,13 @@ Despite that, you know he is well-loved throughout the land, and has
 a reputation as a wise and just ruler.
 ~
 human~
-AB DH 1000 0
+AB H 1000 0
 48 0 25d10+3750 479d1+11 6d6+18 punch
 -18 -18 -18 3
 ADEK 0 0 D
 stand stand male 10000
 0 0 medium unknown
+A det D
 #15202
 ghost horrible~
 the horrible ghost~
@@ -33,12 +34,13 @@ You hear a frightening wail, and see a horrible Ghost approaching.
 The Ghost is almost translucent, and looks really SCARY!
 ~
 modron~
-ACFHR BDFITU -900 0
+ACFHR BITU -900 0
 30 0 6d12+778 299d1+1 5d4+7 wrath
 -9 -9 -9 1
 FGK A 0 D
 stand stand either 0
 0 0 small unknown
+A det DF
 #15203
 jim guard royal~
 Jim the Royal guard~
@@ -314,12 +316,13 @@ doubt that he is completely prepared to give his life
 for the King, if necessary.
 ~
 human~
-AB D 900 15201
+AB 0 900 15201
 51 0 50d10+5000 509d1+1 5d8+20 punch
 -21 -21 -21 2
 CDEFHIKR 0 0 0
 stand stand male 10000
 0 0 medium unknown
+A det D
 #15221
 tom guard lifeguard~
 Tom, the King's Lifeguard~
@@ -330,12 +333,13 @@ doubt that he is completely prepared to give his life
 for the King, if necessary.
 ~
 human~
-AB D 900 15201
+AB 0 900 15201
 51 0 50d10+5000 509d1+1 5d8+20 punch
 -21 -21 -21 2
 CDEFHIKR 0 0 0
 stand stand male 10000
 0 0 medium unknown
+A det D
 #15222
 chef cook~
 the Chef~
@@ -374,12 +378,13 @@ He really is big, and you get the feeling he wouldn't take kindly
 to an attempt to get past him.
 ~
 human~
-AB D 250 0
+AB 0 250 0
 36 0 10d10+1400 359d1+1 3d10+11 punch
 -12 -12 -12 5
 CDEFIKR 0 0 0
 stand stand male 3600
 0 0 medium unknown
+A det D
 #15225
 dick guard~
 Dick~
@@ -389,12 +394,13 @@ He really is big, and you get the feeling he wouldn't take kindly
 to an attempt to get past him.
 ~
 human~
-AB D 250 0
+AB 0 250 0
 36 0 10d10+1400 359d1+1 3d10+11 punch
 -12 -12 -12 5
 CEFIKR 0 0 0
 stand stand male 3600
 0 0 medium unknown
+A det D
 #15226
 jerry guard royal~
 Jerry the Royal guard~
@@ -467,12 +473,13 @@ Executioner is here on duty.
 Big. Very big. Not stupid like Hassan but dagerous like one.
 ~
 giant~
-ABFTc CDEFGNOVc 1000 0
+ABFTc NOVc 1000 0
 60 0 50d10+9500 599d1+1 8d6+28 punch
 -30 -30 -30 0
 CDEFGHIJKN 0 0 C
 stand stand male 8457
 0 0 large unknown
+A det CDEFG
 #0
 
 #OBJECTS

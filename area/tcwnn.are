@@ -52,12 +52,13 @@ item that be damaged. If not, then I'm afeared there ain't
 nuthin' I can help ye with".
 ~
 human~
-ABG CDEFHN 1000 0
+ABG HN 1000 0
 60 0 50d10+13500 5d5+5000 13d9+50 pound
 -50 -50 -50 -13
 FHKN AB 0 0
 stand stand male 1000
 0 0 medium unknown
+A det CDEF
 #31003
 armorer~
 the Armorer~
@@ -140,12 +141,13 @@ and then I will identify it, tell you what it does, and hand it back. Easy,
 eh? Hmmph... Anyway..."
 ~
 human~
-ABG CDEFHN 1000 0
+ABG HN 1000 0
 60 0 50d10+13500 5d5+5000 13d9+50 slash
 -50 -50 -50 -13
 FHKN AB 0 0
 stand stand male 1000
 0 0 medium unknown
+A det CDEF
 #31008
 pet owner~
 the Pet Shop Owner~
@@ -420,12 +422,13 @@ Aod the dealer stands in the shadows here.
 AOD apparently practices safe sex...
 ~
 human~
-ACGe DFJ 0 0
+ACGe J 0 0
 60 5 50d10+15500 5d5+5000 13d9+50 pound
 -50 -50 -50 -13
 FK 0 0 0
 stand stand male 1000
 0 0 medium unknown
+A det DF
 #31026
 illithid guildmaster~
 the Illithid Guildmaster~
@@ -533,12 +536,13 @@ to do what it takes to defend his city. A veteran of more than twenty years
 of combat, he is not a man to be toyed with.
 ~
 human~
-AG CDHJN 1000 0
+AG HJN 1000 0
 55 0 50d10+8250 5d5+5000 11d5+35 pound
 -35 -35 -35 -5
 FKN 0 0 0
 stand stand male 1000
 0 0 medium unknown
+A det CD
 #31033
 citizen~
 a citizen~
@@ -594,12 +598,13 @@ A janitor is walking around, cleaning up.
 YOUR crap? Grumble grumble... and these BLOODSTAINS! *SIGH*"
 ~
 human~
-AG D 900 0
+AG 0 900 0
 5 0 2d6+60 5d5+100 1d6+1 punch
 5 5 5 9
 0 0 0 0
 stand stand male 1000
 0 0 medium unknown
+A det D
 #31037
 footpad~
 a footpad~
@@ -650,12 +655,13 @@ A thief adroitly cuts the strings of another fat merchant's purse.
 This clever fellow has robbed dozens of unsuspecting visitors to Anon.
 ~
 human~
-AGH CJPQU 0 0
+AGH JPQU 0 0
 10 0 2d7+121 5d5+100 2d4+2 punch
 1 1 1 7
 F 0 0 0
 stand stand male 1000
 0 0 medium unknown
+A det C
 #31041
 fido~
 a beastly fido~
@@ -709,12 +715,13 @@ continent. Dedicated, loyal, efficient, he is the epitome of Truth, Justice
 and the Anon Way :).
 ~
 human~
-AGT CN 1000 0
+AGT N 1000 0
 50 0 50d10+4250 5d5+5000 5d8+19 pound
 -20 -20 -20 0
 CDFIJK 0 0 0
 stand stand male 1000
 0 0 medium unknown
+A det C
 #31045
 guard~
 a City Guard~
@@ -725,12 +732,13 @@ continent. Dedicated, loyal, efficient, she is the epitome of Truth, Justice
 and the Anon Way :).
 ~
 human~
-AG CN 1000 0
+AG N 1000 0
 50 0 50d10+4250 5d5+5000 5d8+19 pound
 -20 -20 -20 0
 CDFIJK 0 0 0
 stand stand female 1000
 0 0 medium unknown
+A det C
 #31046
 guard~
 a City Guard~
@@ -741,12 +749,13 @@ continent. Dedicated, loyal, efficient, he is the epitome of Truth, Justice
 and the Anon Way :).
 ~
 human~
-ABG CN 1000 0
+ABG N 1000 0
 50 0 50d10+4250 5d5+5000 5d8+19 pound
 -20 -20 -20 0
 CDFIJK 0 0 0
 stand stand male 1000
 0 0 medium unknown
+A det C
 #31047
 hobbit merc1~
 Hobbit Mercenary~
@@ -755,12 +764,13 @@ A Hobbit Mercenary scowls menacingly at you.
 This Merc looks big and tough. Better be careful.
 ~
 human~
-AI FJ 0 0
+AI J 0 0
 15 0 3d9+208 5d5+100 2d6+3 pound
 -2 -2 -2 6
 CDF 0 0 0
 stand stand male 1000
 0 0 medium unknown
+A det F
 #31048
 elven elf merc2~
 Elven Mercenary~
@@ -769,12 +779,13 @@ An Elven Mercenary scowls menacingly at you.
 This Merc looks big and tough. Better be careful.
 ~
 elf~
-AI D 0 0
+AI 0 0 0
 20 0 3d9+333 5d5+1000 2d8+5 pound
 -4 -4 -4 5
 F 0 0 0
 stand stand male 1000
 0 0 medium unknown
+A det D
 #31049
 dwarf dwarven merc3~
 Dwarven Mercenary~
@@ -825,12 +836,13 @@ A Half-Dragon Mercenary scowls menacingly at you.
 This Merc looks big and tough. Better be careful.
 ~
 dragon~
-AI DF 0 0
+AI 0 0 0
 40 0 15d10+1850 5d5+1000 4d8+13 claw
 -13 -13 -13 3
 CDEF 0 0 0
 stand stand male 1000
 0 0 medium unknown
+A det DF
 #31053
 salvatore~
 Salvatore~
@@ -857,12 +869,13 @@ continent. Dedicated, loyal, efficient, he is the epitome of Truth, Justice
 and the Anon Way :).
 ~
 human~
-ABGe CN 1000 0
+ABGe N 1000 0
 50 0 50d10+4250 5d5+5000 5d8+19 pound
 -20 -20 -20 0
 CDEF 0 0 0
 stand stand male 1000
 0 0 medium unknown
+A det C
 #31055
 tracey owner co-owner~
 the co-owner Tracey~
@@ -890,12 +903,13 @@ currently living outside the city of Tentchenanwhan, far beneath the surface
 of Anon.
 ~
 human~
-ABG CDEFHJN -400 0
+ABG HJN -400 0
 10 0 2d7+121 5d5+100 2d4+2 pound
 1 1 1 7
 0 0 0 0
 stand stand male 1000
 0 0 medium unknown
+A det CDEF
 #31057
 thaumaturgist alix~
 Alix the Thaumaturgist~
@@ -905,12 +919,13 @@ Alix smiles and asks you to tell him the name of the item you wish to be
 rid of.
 ~
 human~
-ABG CDEFHJN 1000 0
+ABG HJN 1000 0
 60 0 50d10+13500 5d5+5000 13d9+50 pound
 -50 -50 -50 -13
 FHKN 0 0 0
 stand stand male 1000
 0 0 medium unknown
+A det CDEF
 #31058
 clea artificer~
 Clea the Artificer~
@@ -920,12 +935,13 @@ Clea smiles languidly and asks you to hand over the stave that needs
 recharging, chuckling at her deliberate innuendo as she does.
 ~
 human~
-ABG CDEFHJN 1000 0
+ABG HJN 1000 0
 65 0 50d10+13500 5d5+5000 13d9+50 pound
 -50 -50 -50 -13
 FHKN 0 0 0
 stand stand female 1000
 0 0 medium unknown
+A det CDEF
 #31059
 xanafax book seller~
 Xanafax~
@@ -936,12 +952,13 @@ history, social structure and legends of the many races of Anon. He is more
 than willing to sell you a book.
 ~
 human~
-ABGe DH 1000 0
+ABGe H 1000 0
 55 0 50d10+13500 5d5+5000 13d9+50 pound
 -50 -50 -50 -13
 F 0 0 0
 stand stand male 1000
 0 0 medium unknown
+A det D
 #31060
 locksmith dwart~
 Dwart~
@@ -952,12 +969,13 @@ surprisingly dextrous. He also purchases keys off of players. Try selling
 him one!
 ~
 human~
-AGe DH 1000 0
+AGe H 1000 0
 63 0 50d10+13500 5d5+5000 13d9+50 pound
 -50 -50 -50 -13
 F 0 0 0
 stand stand male 1000
 0 0 medium unknown
+A det D
 #31061
 thom enhancer~
 Thom the Enhancer~

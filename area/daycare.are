@@ -117,12 +117,13 @@ This is a big mean bully who is tired of being lost in this maze.
 You suddenly think that you had better flee.
 ~
 dwarf~
-ABCT D -800 0
+ABCT 0 -800 0
 8 1 3d10+100 8d4+100 1d7+3 punch
 3 2 3 8
 CDJR 0 0 0
 stand stand male 120
 0 0 medium unknown
+A det D
 #6608
 brat spoiled~
 the spoiled brat~

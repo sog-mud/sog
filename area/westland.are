@@ -65,12 +65,13 @@ You see a deformed little bug that has giant teeth waiting to
 penetrate your skin.
 ~
 unique~
-ABT BGJTVb -200 0
+ABT BJTVb -200 0
 40 0 25d10+1850 10d10+3000 4d8+13 shbite
 -13 -13 -13 5
 BCEFKO EJL J KM
 stand stand male 300
 0 0 tiny unknown
+A det G
 #10005
 quad assassin~
 a quad assassin~
@@ -160,12 +161,13 @@ heart hounds since when they attack they lunge at your heart.
 Others say they can hear your heart beating.
 ~
 unique~
-AFGT UVZb -1000 0
+AFGT UVb -1000 0
 55 0 50d10+5500 10d10+3000 10d4+23 acbite
 -25 -25 -25 0
 BCDEFGHIKNO 0 0 0
 stand stand male 300
 0 0 huge unknown
+A det Z
 #10011
 speaker~
 a speaker~
@@ -178,12 +180,13 @@ look like an evil person. He speech seems to bore you and you
 want to get on your way.
 ~
 human~
-AFGT UVZb 1000 0
+AFGT UVb 1000 0
 60 0 50d10+6750 10d10+4000 8d6+28 smash
 -30 -30 -30 0
 BCDEFGHIKNO A 0 0
 stand stand male 300
 0 0 medium unknown
+A det Z
 #10012
 happy villager~
 a happy villager~
@@ -194,12 +197,13 @@ kiss. you beging to wonder if he is drunk or just plain out of
 his mind! 
 ~
 human~
-AFGT UVZb 1000 0
+AFGT UVb 1000 0
 60 0 50d10+6750 10d10+4000 8d6+28 smash
 -30 -30 -30 0
 BCDEFGHIKN A 0 0
 stand stand male 300
 0 0 medium unknown
+A det Z
 #10013
 healer~
 a healer~
@@ -211,12 +215,13 @@ down to the floor. Her head is held up high and she has a nice
 smile on her face.
 ~
 human~
-ABQ FH 1000 0
+ABQ H 1000 0
 106 0 1d1+29000 1d1+11039 4d50+80 slap
 -99 -99 -99 -40
 KN ABINS BPQR 0
 stand stand female 0
 0 0 medium unknown
+A det F
 #10014
 boundary warden~
 a boundary warden~
@@ -228,12 +233,13 @@ is clad with weapons and armor and looks prepared for battle. It
 is a good thing that he has a friendly character.
 ~
 human~
-AGT DFHJUVb 1000 0
+AGT HJUVb 1000 0
 70 0 50d10+9750 10d10+4000 8d10+40 acbite
 -40 -40 -40 -10
 BCDEFGHIJKN ABE BH C
 stand stand male 300
 0 0 large unknown
+A det DF
 #10015
 thief~
 a thief~
@@ -245,12 +251,13 @@ and boots and is barely noticable in the shadows of the
 buildings.
 ~
 human~
-ACT CDGPQVd -902 0
+ACT PQVd -902 0
 40 0 25d10+1850 10d10+3000 4d8+13 blast
 -13 -13 -13 5
 BCDEFGHIJKN 0 0 0
 stand stand male 300
 0 0 small unknown
+A det CDG
 #10016
 beggar~
 a beggar~
@@ -262,12 +269,13 @@ It is a shame that it will be soon winter and that he has no
 place to live. OH WELL, life goes on.
 ~
 human~
-ABCH DVb 100 0
+ABCH Vb 100 0
 46 0 25d10+3250 10d10+3000 6d6+10 blast
 -16 -16 -16 4
 BCDEFGHIJKN AB 0 0
 stand stand male 300
 0 0 medium unknown
+A det D
 #10017
 bone woman~
 The Bone Woman~
@@ -281,12 +289,13 @@ will not give it to you so I guess you're going to have to fight
 her for it!
 ~
 human~
-ABR CDEFJTV 1000 0
+ABR JTV 1000 0
 109 0 1d1+29999 1d1+9382 5d50+90 magic
 -93 -93 -90 -43
 CDEFIKN IP E JK
 stand stand female 11300
 0 0 medium unknown
+A det CDEF
 #10018
 gripper~
 A nasty gripper~
@@ -351,12 +360,13 @@ ounce of his body. He looks far tougher than any monster you have
 or will ever see.
 ~
 dragon~
-ABCGT GH -1000 0
+ABCGT H -1000 0
 119 0 50d10+29000 10d10+10203 20d15+100 wrath
 -77 -77 -70 -40
 BCEFIKN IP IJK JK
 stand stand female 300
 c L giant unknown
+A det G
 #10022
 shadow people~
 An evil shadow person~
@@ -366,12 +376,13 @@ You see a dark form that has no features. He is sent by Darken
 Rahl to stop you. Beware, his touch is poison. 
 ~
 human~
-ACGT GJ -1000 0
+ACGT J -1000 0
 110 0 50d10+28000 10d10+10203 20d15+95 wrath
 -77 -77 -70 -40
 CDFIKN IP 0 JK
 stand stand male 300
 0 0 medium unknown
+A det G
 #10023
 bar tender~
 The bar tender~
@@ -382,12 +393,13 @@ though, his shoes are on the wrong feet. He is wearing torn pants
 and looks to be quite poor, yet he runs this bar.
 ~
 human~
-ABCGTe GJ 1000 0
+ABCGTe J 1000 0
 50 0 25d10+4250 10d10+3000 5d8+19 wrath
 -20 -20 -20 0
 BCDEFIN IP 0 JK
 stand stand male 300
 0 0 medium unknown
+A det G
 #10024
 drunken villager~
 A drunken villager~
@@ -397,12 +409,13 @@ He is a short guy with ale stains on his shirt. He makes you want
 to vomit.
 ~
 human~
-ABCGT GJ 102 0
+ABCGT J 102 0
 50 0 25d10+4250 10d10+3000 5d8+19 wrath
 -20 -20 -20 0
 CDEFIKN IP 0 K
 stand stand male 300
 0 0 medium unknown
+A det G
 #10025
 dark thief~
 A little thief~
@@ -413,12 +426,13 @@ darkness of the night waiting to prance upon a poor soul like
 you.
 ~
 human~
-ACGT GJ -1000 0
+ACGT J -1000 0
 60 0 50d10+6750 10d10+4000 8d6+28 bite
 -30 -30 -30 0
 CDEFKN IP D 0
 stand stand male 300
 0 0 medium unknown
+A det G
 #10026
 snake~
 A yellow snake~
@@ -429,12 +443,13 @@ swims through the waters up to you. You better get away fast
 before he attacks you and your body is never be found again.
 ~
 unique~
-ABCGT GJ -1000 0
+ABCGT J -1000 0
 30 0 6d12+853 1d1+100 4d6+8 bite
 -9 -9 -9 2
 CDEFIKN IP 0 0
 stand stand male 300
 0 0 small unknown
+A det G
 #10027
 underworld beast~
 An underworld beast~
@@ -444,12 +459,13 @@ He has no features at all. Just a plain puff of smoke striking
 people dead as they walk by.
 ~
 unique~
-ACGT GJ -1000 0
+ACGT J -1000 0
 69 0 50d10+9500 10d10+1000 7d11+39 bite
 -40 -40 -40 -10
 CDEFIKN IP 0 0
 stand stand none 300
 0 0 large unknown
+A det G
 #10028
 cat dopey~
 A dopey little cat~
@@ -460,12 +476,13 @@ meal to eat, a place to sleep and a place to keep dry. You feel
 sorry for the little fellow but there isn't anything you can do.
 ~
 unique~
-ACGT GJ 1000 0
+ACGT J 1000 0
 11 0 1d1+130 1d1+100 1d10+2 bite
 1 1 1 9
 CDEFIKN IJP 0 0
 stand stand none 300
 0 0 small unknown
+A det G
 #10029
 mord sith~
 A Evil Mord-Sith~
@@ -476,12 +493,13 @@ about her neck that is gleaming in a white aura. This creature is
 very frightening. You better leave quick.
 ~
 human~
-ABCGT GJ -1000 0
+ABCGT J -1000 0
 120 0 50d10+28000 10d10+10203 20d15+95 wrath
 -77 -77 -70 -40
 CDEFIKN IP I M
 stand stand female 300
 0 0 large unknown
+A det G
 #10030
 devoter~
 A Devoter of Darken Rahl~
@@ -492,12 +510,13 @@ belive thatt Darken Rahl is good and not evil. Better stay away
 from this person also.
 ~
 human~
-ABCGT GJ -1000 0
+ABCGT J -1000 0
 110 0 50d10+28000 10d10+10203 20d15+95 wrath
 -77 -77 -70 -40
 BCDEFIKN IP 0 0
 stand stand male 300
 0 0 medium unknown
+A det G
 #10031
 darken rahl~
 The Evil Darken Rahl~
@@ -509,12 +528,13 @@ You'd best get it over with soon for he seems ready to take over
 the world.
 ~
 human~
-ABCGT GHJ -1000 0
+ABCGT HJ -1000 0
 125 0 50d10+28000 10d10+10203 20d15+95 wrath
 -77 -77 -70 -40
 BCDEFIJKNO LP N K
 stand stand male 300
 0 0 large unknown
+A det G
 #0
 
 #OBJECTS

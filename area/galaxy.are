@@ -16,12 +16,13 @@ A poor mudder, lost in this place.
 You will become him if you are not careful.
 ~
 human~
-ACGS DF 0 0
+ACGS 0 0 0
 4 0 2d6+35 2d9+100 1d6+0 none
 7 7 7 9
 BEFJNU 0 0 0
 stand stand male 5
 0 0 medium unknown
+A det DF
 #9302
 oldstyle star~
 a beautiful star~
@@ -196,12 +197,13 @@ before entering the inner galaxy.  His neck is flexing in a random fashion so
 hitting the head is certainly not easy.
 ~
 human~
-ABFG DHJ -1000 0
+ABFG HJ -1000 0
 25 0 5d10+550 12d9+100 2d10+7 none
 -7 -7 -7 6
 EFNU 0 0 0
 stand stand none 750
 0 0 medium unknown
+A det D
 #9314
 oldstyle draco baby~
 a baby draco~
@@ -242,12 +244,13 @@ You see a wild-looking bull with a bad temper.  He is well-built and looks like
 he can fight well ... indeed he has fought with Orion before and survived.
 ~
 human~
-ABFGQ DH -100 0
+ABFGQ H -100 0
 22 0 5d10+400 22d9+100 2d8+6 none
 -5 -5 -5 5
 EIKU 0 0 0
 stand stand male 500
 0 0 medium unknown
+A det D
 #9317
 oldstyle gemini~
 Gemini~
@@ -272,12 +275,13 @@ As soon as you see him you see the most imperfect man you have ever seen.
 How can there be such a contrast?  You wonder ...
 ~
 human~
-ABCFGHQ DHU -1000 0
+ABCFGHQ HU -1000 0
 15 0 3d9+208 15d9+100 2d5+3 none
 -2 -2 -2 6
 EIKU 0 0 0
 stand stand male 250
 0 0 medium unknown
+A det D
 #9319
 oldstyle cancer~
 Cancer~
@@ -304,12 +308,13 @@ during his first Labour.  His skin is so weapon-proof that Hercules had to use
 his bare hands to tear the lion into two from its mouth!
 ~
 human~
-ABFGQ DH -100 0
+ABFGQ H -100 0
 22 0 5d10+400 22d9+100 2d8+6 none
 -5 -5 -5 5
 EIKU 0 0 0
 stand stand male 500
 0 0 medium unknown
+A det D
 #9321
 oldstyle virgo~
 Virgo~
@@ -350,12 +355,13 @@ Ever since he killed Orion in the myths, he has been punished by having
 Sagittarius' arrow aimed at his heart forever.
 ~
 human~
-ABFGQ DH -200 0
+ABFGQ H -200 0
 22 0 5d10+400 22d9+100 2d8+6 none
 -5 -5 -5 5
 EIKU 0 0 0
 stand stand male 500
 0 0 medium unknown
+A det D
 #9324
 oldstyle sagittarius~
 Sagittarius~
@@ -440,12 +446,13 @@ The Huge Bear which resides in the northern skies is here.
 You think you'd better turn back.  At least you have got a chance of survival.
 ~
 bear~
-ABFGQ DH 0 0
+ABFGQ H 0 0
 27 0 5d10+650 27d9+100 2d10+7 none
 -8 -8 -8 4
 IKR 0 0 0
 stand stand none 750
 0 0 medium unknown
+A det D
 #9330
 oldstyle cassiopeia queen~
 Cassiopeia the Queen~
@@ -454,12 +461,13 @@ Cassiopeia, the queen of the Universe, is sitting on her throne.
 She is the Queen of Dignity; facing her you feel all your dignity has gone.
 ~
 human~
-ABGR DH 700 0
+ABGR H 700 0
 26 0 5d10+550 26d9+100 3d6+6 none
 -7 -7 -7 2
 FU 0 0 0
 sit sit female 600
 0 0 medium unknown
+A det D
 #9331
 oldstyle cepheus king~
 Cepheus the King~
@@ -486,12 +494,13 @@ actually a STAR, with dazzling bright light ... maybe you shouldn't have come
 here at all?
 ~
 human~
-ABG BDH 1000 0
+ABG BH 1000 0
 30 0 6d12+853 15d9+100 4d6+8 none
 -9 -9 -9 6
 EFNU 0 0 0
 stand stand male 1000
 0 0 medium unknown
+A det D
 #0
 
 #OBJECTS
