@@ -25,7 +25,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: cc_parse.y,v 1.8 2000-02-10 14:08:44 fjoe Exp $
+ * $Id: cc_parse.y,v 1.9 2001-06-24 10:50:46 avn Exp $
  */
 
 #include <setjmp.h>
@@ -36,34 +36,6 @@
 #include "log.h"
 
 #include "cc_lex.h"
-
-#define yychar cc_yychar
-#define yycheck cc_yycheck
-#define yydebug cc_yydebug
-#define yydefred cc_yydefred
-#define yydgoto cc_yydgoto
-#define yyerrflag cc_yyerrflag
-#define yyerror cc_yyerror
-#define yygindex cc_yygindex
-#define yylen cc_yylen
-#define yylex cc_yylex
-#define yylhs cc_yylhs
-#define yylval cc_yylval
-#define yynerrs cc_yynerrs
-#define yyparse cc_yyparse
-#define yyrindex cc_yyrindex
-#define yysindex cc_yysindex
-#define yyss cc_yyss
-#define yyssp cc_yyssp
-#define yytable cc_yytable
-#define yyval cc_yyval
-#define yyvs cc_yyvs
-#define yyvsp cc_yyvsp
-
-#define yysslim cc_yysslim
-#define yystacksize cc_yystacksize
-
-extern int yylex();
 
 %}
 
@@ -97,7 +69,7 @@ expr:	FUN '(' STRING ')'	{ $$ = cc_fun_call(&cc_ctx, $1, $3);
 %%
 
 void
-yyerror(const char *s)
+cc_yyerror(const char *s)
 {
 	log(LOG_ERROR, "cc_yyerror: %s (%s)", s, cc_ctx.stmt);
 	longjmp(cc_jmpbuf, 1);

@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.149 2001-06-20 06:37:44 avn Exp $
+ * $Id: tables.c,v 1.150 2001-06-24 10:50:53 avn Exp $
  */
 
 /***************************************************************************
@@ -57,7 +57,7 @@
 
 flaginfo_t slang_table[] =
 {
-	{ "",			TABLE_INTVAL,			},
+	{ "",			TABLE_INTVAL,		FALSE	},
 
 	{ "common",		SLANG_COMMON,		TRUE	},
 	{ "human",		SLANG_HUMAN,		TRUE	},
@@ -69,12 +69,12 @@ flaginfo_t slang_table[] =
 	{ "cat",		SLANG_CAT,		TRUE	},
 	{ "mothertongue",	SLANG_MAX,		FALSE	},
 
-	{ NULL }
+	{ NULL, 0, FALSE }
 };
 
 flaginfo_t size_table[] =
 { 
-	{ "",			TABLE_INTVAL			},
+	{ "",			TABLE_INTVAL,		FALSE	},
 
 	{ "tiny",		SIZE_TINY,		TRUE	},
 	{ "small", 		SIZE_SMALL,		TRUE	},
@@ -84,12 +84,12 @@ flaginfo_t size_table[] =
 	{ "giant",		SIZE_GIANT,		TRUE	},
 	{ "gargantuan",		SIZE_GARGANTUAN,	TRUE	},
 
-	{ NULL }
+	{ NULL, 0, FALSE }
 };
 
 flaginfo_t mob_act_flags[] =
 {
-	{ "",			TABLE_BITVAL			},
+	{ "",			TABLE_BITVAL,		FALSE	},
 
 	{ "familiar",		ACT_FAMILIAR,		TRUE	},
 	{ "sentinel",		ACT_SENTINEL,		TRUE	},
@@ -114,12 +114,12 @@ flaginfo_t mob_act_flags[] =
 	{ "update_always",	ACT_UPDATE_ALWAYS,	TRUE	},
 	{ "notrack",		ACT_NOTRACK,		TRUE	},
 
-	{ NULL }
+	{ NULL, 0, FALSE }
 };
 
 flaginfo_t mob_flags[] =
 {
-	{ "",			TABLE_BITVAL			},
+	{ "",			TABLE_BITVAL,		FALSE	},
 
 	{ "changer",		MOB_CHANGER,		TRUE	},
 	{ "gain",		MOB_GAIN,		TRUE	},
@@ -131,12 +131,12 @@ flaginfo_t mob_flags[] =
 	{ "healer",		MOB_HEALER,		TRUE	},
 	{ "clan_guard",		MOB_CLAN_GUARD,		TRUE	},
 
-	{ NULL }
+	{ NULL, 0, FALSE }
 };
 
 flaginfo_t plr_flags[] =
 {
-	{ "",			TABLE_BITVAL			},
+	{ "",			TABLE_BITVAL,		FALSE	},
 
 	{ "autolook",		PLR_AUTOLOOK,		FALSE	},
 	{ "autoassist",		PLR_AUTOASSIST,		FALSE	},
@@ -157,12 +157,12 @@ flaginfo_t plr_flags[] =
 	{ "noexp",		PLR_NOEXP,		FALSE	},
 	{ "hara_kiri",		PLR_HARA_KIRI,		FALSE	},
 
-	{ NULL }
+	{ NULL, 0, FALSE }
 };
 
 flaginfo_t affect_flags[] =
 {
-	{ "",			TABLE_BITVAL			},
+	{ "",			TABLE_BITVAL,		FALSE	},
 
 	{ "blind",		AFF_BLIND,		TRUE	},
 	{ "scream",		AFF_SCREAM,		TRUE	},
@@ -193,7 +193,7 @@ flaginfo_t affect_flags[] =
 	{ "slow",		AFF_SLOW,		TRUE	},
 	{ "questtarget",	AFF_QUESTTARGET,	FALSE	},
 
-	{ NULL }
+	{ NULL, 0, FALSE }
 };
 
 flaginfo_t id_flags[] =
@@ -215,12 +215,12 @@ flaginfo_t id_flags[] =
 	{ "good",		ID_GOOD,		TRUE	},
 	{ "trueseeing",		ID_TRUESEEING,		TRUE	},
 
-	{ NULL }
+	{ NULL, 0, FALSE }
 };
 
 flaginfo_t off_flags[] =
 {
-	{ "",			TABLE_BITVAL			},
+	{ "",			TABLE_BITVAL,		FALSE	},
 
 	{ "area_attack",	OFF_AREA_ATTACK,	TRUE	},
 	{ "backstab",		OFF_BACKSTAB,		TRUE	},
@@ -247,12 +247,12 @@ flaginfo_t off_flags[] =
 	{ "assist_guard",	ASSIST_GUARD,		TRUE	},
 	{ "assist_vnum",	ASSIST_VNUM,		TRUE	},
 
-	{ NULL }
+	{ NULL, 0, FALSE }
 };
 
 flaginfo_t form_flags[] =
 {
-	{ "",			TABLE_BITVAL			},
+	{ "",			TABLE_BITVAL,		FALSE	},
 
 	{ "edible",		FORM_EDIBLE,		TRUE	},
 	{ "poison",		FORM_POISON,		TRUE	},
@@ -281,12 +281,12 @@ flaginfo_t form_flags[] =
 	{ "fish",		FORM_FISH ,		TRUE	},
 	{ "cold_blood",		FORM_COLD_BLOOD,	TRUE	},
 
-	{ NULL }
+	{ NULL, 0, FALSE }
 };
 
 flaginfo_t part_flags[] =
 {
-	{ "",			TABLE_BITVAL			},
+	{ "",			TABLE_BITVAL,		FALSE	},
 
 	{ "head",		PART_HEAD,		TRUE	},
 	{ "arms",		PART_ARMS,		TRUE	},
@@ -311,12 +311,12 @@ flaginfo_t part_flags[] =
 	{ "scales",		PART_SCALES,		TRUE	},
 	{ "tusks",		PART_TUSKS,		TRUE	},
 
-	{ NULL }
+	{ NULL, 0, FALSE }
 };
 
 flaginfo_t comm_flags[] =
 {
-	{ "",			TABLE_BITVAL			},
+	{ "",			TABLE_BITVAL,		FALSE	},
 
 	{ "quiet",		COMM_QUIET,		TRUE	},
 	{ "deaf",		COMM_DEAF,		TRUE	},
@@ -342,12 +342,12 @@ flaginfo_t comm_flags[] =
 	{ "noverbose",		COMM_NOVERBOSE,		TRUE	},
 	{ "nobust",		COMM_NOBUST,		TRUE	},
 
-	{ NULL }
+	{ NULL, 0, FALSE }
 };
 
 flaginfo_t chan_flags[] =
 {
-	{ "",			TABLE_BITVAL			},
+	{ "",			TABLE_BITVAL,		FALSE	},
 
 	{ "nochannels",		CHAN_NOCHANNELS,	FALSE	},
 	{ "nowiz",		CHAN_NOWIZ,		TRUE	},
@@ -359,22 +359,22 @@ flaginfo_t chan_flags[] =
 	{ "noclan",		CHAN_NOCLAN,		TRUE	},
 	{ "noshout",		CHAN_NOSHOUT,		FALSE	},
 
-	{ NULL }
+	{ NULL, 0, FALSE }
 };
 
 flaginfo_t clan_flags[] =
 {
-	{ "",			TABLE_BITVAL			},
+	{ "",			TABLE_BITVAL,		FALSE	},
 
 	{ "hidden",		CLAN_HIDDEN,		TRUE	},
 	{ "changed",		CLAN_CHANGED,		FALSE	},
 
-	{ NULL }
+	{ NULL, 0, FALSE }
 };
 
 flaginfo_t area_flags[] =
 {
-	{ "",			TABLE_BITVAL			},
+	{ "",			TABLE_BITVAL,		FALSE	},
 
 	{ "closed",		AREA_CLOSED,		TRUE	},
 	{ "noquest",		AREA_NOQUEST,		TRUE	},
@@ -383,12 +383,12 @@ flaginfo_t area_flags[] =
 	{ "tagged",		AREA_TAGGED,		TRUE	},
 	{ "changed",		AREA_CHANGED,		FALSE	},
 
-	{ NULL }
+	{ NULL, 0, FALSE }
 };
 
 flaginfo_t sex_table[] =
 {
-	{ "",			TABLE_INTVAL			},
+	{ "",			TABLE_INTVAL,		FALSE	},
 
 	{ "none",		SEX_NEUTRAL,		TRUE	},
 	{ "male",		SEX_MALE,		TRUE	},
@@ -398,12 +398,12 @@ flaginfo_t sex_table[] =
 	{ "neutral",		SEX_NEUTRAL,		TRUE	},
 	{ "plural",		SEX_PLURAL,		TRUE	},
 
-	{ NULL	}
+	{ NULL, 0, FALSE }
 };
 
 flaginfo_t gender_table[] =
 {
-	{ "",			TABLE_INTVAL			},
+	{ "",			TABLE_INTVAL,		FALSE	},
 
 	{ "none",		SEX_NEUTRAL,		TRUE	},
 	{ "male",		SEX_MALE,		TRUE	},
@@ -411,12 +411,12 @@ flaginfo_t gender_table[] =
 	{ "neutral",		SEX_NEUTRAL,		TRUE	},
 	{ "plural",		SEX_PLURAL,		TRUE	},
 
-	{ NULL	}
+	{ NULL, 0, FALSE }
 };
 
 flaginfo_t exit_flags[] =
 {
-	{ "",			TABLE_BITVAL			},
+	{ "",			TABLE_BITVAL,		FALSE	},
 
 	{ "door",		EX_ISDOOR,		TRUE    },
 	{ "closed",		EX_CLOSED,		TRUE	},
@@ -430,23 +430,23 @@ flaginfo_t exit_flags[] =
 	{ "noclose",		EX_NOCLOSE,		TRUE	},
 	{ "nolock",		EX_NOLOCK,		TRUE	},
 
-	{ NULL }
+	{ NULL, 0, FALSE }
 };
 
 flaginfo_t door_resets[] =
 {
-	{ "",			TABLE_INTVAL			},
+	{ "",			TABLE_INTVAL,		FALSE	},
 
 	{ "open",			0,		TRUE	},
 	{ "closed",			1,		TRUE	},
 	{ "closed and locked",		2,		TRUE	},
 
-	{ NULL }
+	{ NULL, 0, FALSE }
 };
 
 flaginfo_t room_flags[] =
 {
-	{ "",			TABLE_BITVAL			},
+	{ "",			TABLE_BITVAL,		FALSE	},
 
 	{ "dark",		ROOM_DARK,		TRUE	},
 	{ "nomob",		ROOM_NOMOB,		TRUE	},
@@ -470,12 +470,12 @@ flaginfo_t room_flags[] =
 	{ "guild",		ROOM_GUILD,		TRUE	},
 	{ "registry",		ROOM_REGISTRY,		TRUE	},
 
-	{ NULL }
+	{ NULL, 0, FALSE }
 };
 
 flaginfo_t sector_types[] =
 {
-	{ "",			TABLE_INTVAL			},
+	{ "",			TABLE_INTVAL,		FALSE	},
 
 	{ "inside",		SECT_INSIDE,		TRUE	},
 	{ "city",		SECT_CITY,		TRUE	},
@@ -489,12 +489,12 @@ flaginfo_t sector_types[] =
 	{ "air",		SECT_AIR,		TRUE	},
 	{ "desert",		SECT_DESERT,		TRUE	},
 
-	{ NULL }
+	{ NULL, 0, FALSE }
 };
 
 flaginfo_t item_types[] =
 {
-	{ "",			TABLE_INTVAL			},
+	{ "",			TABLE_INTVAL,		FALSE	},
 
 	{ "light",		ITEM_LIGHT,		TRUE	},
 	{ "scroll",		ITEM_SCROLL,		TRUE	},
@@ -528,12 +528,12 @@ flaginfo_t item_types[] =
 	{ "book",		ITEM_BOOK,		TRUE	},
 	{ "tattoo",		ITEM_TATTOO,		FALSE	},
 
-	{ NULL }
+	{ NULL, 0, FALSE }
 };
 
 flaginfo_t stat_flags[] =
 {
-	{ "",			TABLE_BITVAL			},
+	{ "",			TABLE_BITVAL,		FALSE	},
 
 	{ "glow",		ITEM_GLOW,		TRUE	},
 	{ "hum",		ITEM_HUM,		TRUE	},
@@ -556,12 +556,12 @@ flaginfo_t stat_flags[] =
 	{ "not_edible",		ITEM_NOT_EDIBLE,	TRUE	},
 	{ "enchanted",		ITEM_ENCHANTED,		FALSE	},
 
-	{ NULL }
+	{ NULL, 0, FALSE }
 };
 
 flaginfo_t obj_flags[] =
 {
-	{ "",			TABLE_BITVAL			},
+	{ "",			TABLE_BITVAL,		FALSE	},
 
 	{ "nopurge",		OBJ_NOPURGE,		TRUE	},
 	{ "nosac",		OBJ_NOSAC,		TRUE	},
@@ -576,12 +576,12 @@ flaginfo_t obj_flags[] =
 	{ "chquest",		OBJ_CHQUEST,		TRUE	},
 	{ "nofind",		OBJ_NOFIND,		TRUE	},
 
-	{ NULL }
+	{ NULL, 0, FALSE }
 };
 
 flaginfo_t wear_flags[] =
 {
-	{ "",			TABLE_BITVAL			},
+	{ "",			TABLE_BITVAL,		FALSE	},
 
 	{ "take",		ITEM_TAKE,		TRUE	},
 	{ "finger",		ITEM_WEAR_FINGER,	TRUE	},
@@ -603,7 +603,7 @@ flaginfo_t wear_flags[] =
 	{ "clanmark",		ITEM_WEAR_CLANMARK,	TRUE	},
 	{ "face",		ITEM_WEAR_FACE,		TRUE	},
 
-	{ NULL }
+	{ NULL, 0, FALSE }
 };
 
 /*
@@ -612,7 +612,7 @@ flaginfo_t wear_flags[] =
 */
 flaginfo_t apply_flags[] =
 {
-	{ "",			TABLE_INTVAL			},
+	{ "",			TABLE_INTVAL,		FALSE	},
 
 	{ "none",		APPLY_NONE,		TRUE	},
 	{ "strength",		APPLY_STR,		TRUE	},
@@ -643,17 +643,17 @@ flaginfo_t apply_flags[] =
 	{ "size",		APPLY_SIZE,		TRUE	},
 	{ "luck",		APPLY_LUCK,		TRUE	},
 
-	{ NULL }
+	{ NULL, 0, FALSE }
 };
 
 flaginfo_t rapply_flags[] =
 {
-	{ "",			TABLE_INTVAL			},
+	{ "",			TABLE_INTVAL,		FALSE	},
 
 	{ "healrate",		APPLY_ROOM_HEAL,	TRUE	},
 	{ "manarate",		APPLY_ROOM_MANA,	TRUE	},
 
-	{ NULL }
+	{ NULL, 0, FALSE }
 };
 
 /*
@@ -661,7 +661,7 @@ flaginfo_t rapply_flags[] =
  */
 flaginfo_t wear_loc_strings[] =
 {
-	{ "",				TABLE_INTVAL			},
+	{ "",				TABLE_INTVAL,		FALSE	},
 
 	{ "in the inventory",		WEAR_NONE,		TRUE	},
 	{ "as a light",			WEAR_LIGHT,		TRUE	},
@@ -688,12 +688,12 @@ flaginfo_t wear_loc_strings[] =
 	{ "clan mark",			WEAR_CLANMARK,		TRUE	},
 	{ "stuck in",			WEAR_STUCK_IN,		TRUE	},
 
-	{ NULL }
+	{ NULL, 0, FALSE }
 };
 
 flaginfo_t wear_loc_flags[] =
 {
-	{ "",			TABLE_INTVAL			},
+	{ "",			TABLE_INTVAL,		FALSE	},
 
 	{ "none",		WEAR_NONE,		TRUE	},
 	{ "inventory",		WEAR_NONE,		TRUE	},
@@ -721,12 +721,12 @@ flaginfo_t wear_loc_flags[] =
 	{ "stuck",		WEAR_STUCK_IN,		TRUE	},
 	{ "clanmark",		WEAR_CLANMARK,		TRUE	},
 
-	{ NULL }
+	{ NULL, 0, FALSE }
 };
 
 flaginfo_t cont_flags[] =
 {
-	{ "",			TABLE_BITVAL			},
+	{ "",			TABLE_BITVAL,		FALSE	},
 
 	{ "closable",		CONT_CLOSEABLE,		TRUE	},
 	{ "pickproof",		CONT_PICKPROOF,		TRUE	},
@@ -735,24 +735,24 @@ flaginfo_t cont_flags[] =
 	{ "put_on",		CONT_PUT_ON,		TRUE	},
 	{ "quiver",		CONT_QUIVER,		TRUE	},
 
-	{ NULL }
+	{ NULL, 0, FALSE }
 };
 
 flaginfo_t ac_type[] =
 {
-	{ "",			TABLE_INTVAL			},
+	{ "",			TABLE_INTVAL,		FALSE	},
 
 	{ "pierce",		AC_PIERCE,		TRUE	},
 	{ "bash",		AC_BASH,		TRUE	},
 	{ "slash",		AC_SLASH,		TRUE	},
 	{ "exotic",		AC_EXOTIC,		TRUE	},
 
-	{ NULL }
+	{ NULL, 0, FALSE }
 };
 
 flaginfo_t weapon_class[] =
 {
-	{ "",			TABLE_INTVAL			},
+	{ "",			TABLE_INTVAL,		FALSE	},
 
 	{ "exotic",		WEAPON_EXOTIC,		TRUE    },
 	{ "sword",		WEAPON_SWORD,		TRUE    },
@@ -768,12 +768,12 @@ flaginfo_t weapon_class[] =
 	{ "arrow",		WEAPON_ARROW,		TRUE	},
 	{ "lance",		WEAPON_LANCE,		TRUE	},
 
-	{ NULL }
+	{ NULL, 0, FALSE }
 };
 
 flaginfo_t weapon_type2[] =
 {
-	{ "",			TABLE_BITVAL			},
+	{ "",			TABLE_BITVAL,		FALSE	},
 
 	{ "flaming",		WEAPON_FLAMING,		TRUE	},
 	{ "frost",		WEAPON_FROST,		TRUE	},
@@ -788,23 +788,23 @@ flaginfo_t weapon_type2[] =
 	{ "throwing",		WEAPON_THROW,		TRUE	},
 	{ "nooffhand",		WEAPON_NO_OFFHAND,	TRUE	},
 
-	{ NULL }
+	{ NULL, 0, FALSE }
 };
 
 flaginfo_t sk_aff_flags[] =
 {
-	{ "",			TABLE_BITVAL			},
+	{ "",			TABLE_BITVAL,		FALSE	},
 
 	{ "teach",		SK_AFF_TEACH,		TRUE	},
 	{ "all",		SK_AFF_ALL,		TRUE	},
 	{ "notclan",		SK_AFF_NOTCLAN,		TRUE	},
 
-	{ NULL }
+	{ NULL, 0, FALSE }
 };
 
 flaginfo_t position_table[] =
 {
-	{ "",			TABLE_INTVAL			},
+	{ "",			TABLE_INTVAL,		FALSE	},
 
 	{ "dead",		POS_DEAD,		TRUE	},
 	{ "mort",		POS_MORTAL,		TRUE	},
@@ -816,29 +816,29 @@ flaginfo_t position_table[] =
 	{ "fight",		POS_FIGHTING,		TRUE	},
 	{ "stand",		POS_STANDING,		TRUE	},
 
-	{ NULL }
+	{ NULL, 0, FALSE }
 };
 
 flaginfo_t position_names[] =
 {
-	{ "",			TABLE_INTVAL	},
+	{ "",			TABLE_INTVAL,	FALSE	},
 
-	{ "DEAD",		POS_DEAD	},
-	{ "mortally wounded",	POS_MORTAL	},
-	{ "incapacitated",	POS_INCAP	},
-	{ "stunned",		POS_STUNNED	},
-	{ "sleeping",		POS_SLEEPING	},
-	{ "resting",		POS_RESTING	},
-	{ "sitting",		POS_SITTING	},
-	{ "fighting",		POS_FIGHTING	},
-	{ "standing",		POS_STANDING	},
+	{ "DEAD",		POS_DEAD,	FALSE	},
+	{ "mortally wounded",	POS_MORTAL,	FALSE	},
+	{ "incapacitated",	POS_INCAP,	FALSE	},
+	{ "stunned",		POS_STUNNED,	FALSE	},
+	{ "sleeping",		POS_SLEEPING,	FALSE	},
+	{ "resting",		POS_RESTING,	FALSE	},
+	{ "sitting",		POS_SITTING,	FALSE	},
+	{ "fighting",		POS_FIGHTING,	FALSE	},
+	{ "standing",		POS_STANDING,	FALSE	},
 
-	{ NULL }
+	{ NULL, 0, FALSE }
 };
 
 flaginfo_t portal_flags[]=
 {
-	{ "",			TABLE_BITVAL			},
+	{ "",			TABLE_BITVAL,		FALSE	},
 
 	{ "normal_exit",	GATE_NORMAL_EXIT,	TRUE	},
 	{ "nocurse",		GATE_NOCURSE,		TRUE	},
@@ -846,12 +846,12 @@ flaginfo_t portal_flags[]=
 	{ "buggy",		GATE_BUGGY,		TRUE	},
 	{ "random",		GATE_RANDOM,		TRUE	},
 
-	{ NULL }
+	{ NULL, 0, FALSE }
 };
 
 flaginfo_t furniture_flags[]=
 {
-	{ "",			TABLE_BITVAL			},
+	{ "",			TABLE_BITVAL,		FALSE	},
 
 	{ "stand_at",		STAND_AT,		TRUE	},
 	{ "stand_on",		STAND_ON,		TRUE	},
@@ -870,23 +870,23 @@ flaginfo_t furniture_flags[]=
 	{ "put_in",		PUT_IN,			TRUE	},
 	{ "put_inside",		PUT_INSIDE,		TRUE	},
 
-	{ NULL }
+	{ NULL, 0, FALSE }
 };
 
 flaginfo_t raffect_flags[] =
 {
-	{ "",			TABLE_BITVAL			},
+	{ "",			TABLE_BITVAL,		FALSE	},
 
 	{ "randomizer",		RAFF_RANDOMIZER,	TRUE	},
 	{ "espirit",		RAFF_ESPIRIT,		TRUE	},
 	{ "curse",		RAFF_CURSE,		TRUE	},
 
-	{ NULL }
+	{ NULL, 0, FALSE }
 };
 
 flaginfo_t skill_groups[] =
 {
-	{ "",			TABLE_BITVAL			},
+	{ "",			TABLE_BITVAL,		FALSE	},
 
 	{ "none",		GROUP_NONE,		TRUE	},
 	{ "weaponsmaster",	GROUP_WEAPONSMASTER,	TRUE	},
@@ -919,12 +919,12 @@ flaginfo_t skill_groups[] =
 	{ "abjuration",		GROUP_ABJURATION,	TRUE	},
 	{ "charm", 		GROUP_CHARM,		TRUE	},
 
-	{ NULL }
+	{ NULL, 0, FALSE }
 };
 
 flaginfo_t mptrig_types[] =
 {
-	{ "",			TABLE_INTVAL			},
+	{ "",			TABLE_INTVAL,		FALSE	},
 
 	{ "act",		TRIG_ACT,		TRUE	},
 	{ "bribe",		TRIG_BRIBE,		TRUE 	},
@@ -943,21 +943,21 @@ flaginfo_t mptrig_types[] =
 	{ "delay",		TRIG_DELAY,		TRUE    },
 	{ "surr",		TRIG_SURR,		TRUE    },
 
-	{ NULL }
+	{ NULL, 0, FALSE }
 };
 
 flaginfo_t mptrig_flags[] =
 {
-	{ "",			TABLE_BITVAL			},
+	{ "",			TABLE_BITVAL,		FALSE	},
 
 	{ "case-sensitive",	TRIG_CASEDEP,		FALSE	},
 
-	{ NULL }
+	{ NULL, 0, FALSE }
 };
 
 flaginfo_t skill_targets[] =
 {
-	{ "",			TABLE_INTVAL			},
+	{ "",			TABLE_INTVAL,		FALSE	},
 
 	{ "ignore",		TAR_IGNORE,		TRUE	},
 	{ "charoff",		TAR_CHAR_OFFENSIVE,	TRUE	},
@@ -967,12 +967,12 @@ flaginfo_t skill_targets[] =
 	{ "objchardef",		TAR_OBJ_CHAR_DEF,	TRUE	},
 	{ "objcharoff",		TAR_OBJ_CHAR_OFF,	TRUE	},
 
-	{ NULL }
+	{ NULL, 0, FALSE }
 };
 
 flaginfo_t stat_aliases[] =
 {
-	{ "",			TABLE_INTVAL			},
+	{ "",			TABLE_INTVAL,		FALSE	},
 
 	{ "str",		STAT_STR,		TRUE	},
 	{ "int",		STAT_INT,		TRUE	},
@@ -981,12 +981,12 @@ flaginfo_t stat_aliases[] =
 	{ "con",		STAT_CON,		TRUE	},
 	{ "cha",		STAT_CHA,		TRUE	},
 
-	{ NULL }
+	{ NULL, 0, FALSE }
 };
 
 flaginfo_t stat_names[] =
 {
-	{ "",			TABLE_INTVAL			},
+	{ "",			TABLE_INTVAL,		FALSE	},
 
 	{ "strength",		STAT_STR,		TRUE	},
 	{ "intelligence",	STAT_INT,		TRUE	},
@@ -995,12 +995,12 @@ flaginfo_t stat_names[] =
 	{ "constitution",	STAT_CON,		TRUE	},
 	{ "charisma",		STAT_CHA,		TRUE	},
 
-	{ NULL }
+	{ NULL, 0, FALSE }
 };
 
 flaginfo_t material_flags[] =
 {
-	{ "",			TABLE_BITVAL			},
+	{ "",			TABLE_BITVAL,		FALSE	},
 
 	{ "indestruct",		MATERIAL_INDESTRUCT,	TRUE	},
 	{ "metal",		MATERIAL_METAL,		TRUE	},
@@ -1009,12 +1009,12 @@ flaginfo_t material_flags[] =
 	{ "susc_cold",		MATERIAL_SUSC_COLD,	TRUE	},
 	{ "fragile",		MATERIAL_FRAGILE,	TRUE	},
 
-	{ NULL }
+	{ NULL, 0, FALSE }
 };
 
 flaginfo_t skill_flags[] =
 {
-	{ "",			TABLE_BITVAL			},
+	{ "",			TABLE_BITVAL,		FALSE	},
 
 	{ "clan",		SKILL_CLAN,		TRUE	},
 	{ "range",		SKILL_RANGE,		TRUE	},
@@ -1024,165 +1024,165 @@ flaginfo_t skill_flags[] =
 	{ "missile", 		SKILL_MISSILE,		TRUE	},
 	{ "shadow",		SKILL_SHADOW,		TRUE	},
 
-	{ NULL }
+	{ NULL, 0, FALSE }
 };
 
 flaginfo_t skill_types[] =
 {
-	{ "",			TABLE_INTVAL,			},
+	{ "",			TABLE_INTVAL,		FALSE	},
 
 	{ "skill",		ST_SKILL,		TRUE	},
 	{ "spell",		ST_SPELL,		TRUE	},
 	{ "prayer",		ST_PRAYER,		TRUE	},
 
-	{ NULL }
+	{ NULL, 0, FALSE }
 };
 
 flaginfo_t class_flags[] =
 {
-	{ "",			TABLE_BITVAL			},
+	{ "",			TABLE_BITVAL,		FALSE	},
 
 	{ "magic",		CLASS_MAGIC,		TRUE	},
 	{ "noch",		CLASS_NOCH,		TRUE	},
 	{ "closed",		CLASS_CLOSED,		TRUE	},
 	{ "changed",		CLASS_CHANGED,		FALSE	},
 
-	{ NULL }
+	{ NULL, 0, FALSE }
 };
 
 flaginfo_t race_flags[] =
 {
-	{ "",			TABLE_BITVAL			},
+	{ "",			TABLE_BITVAL,		FALSE	},
 
 	{ "noch",		RACE_NOCH,		TRUE	},
 	{ "changed",		RACE_CHANGED,		FALSE	},
 
-	{ NULL }
+	{ NULL, 0, FALSE }
 };
 
 flaginfo_t shapeform_flags[] = 
 {
-	{ "",			TABLE_BITVAL			},
+	{ "",			TABLE_BITVAL,		FALSE	},
 	{ "nospeak",		FORM_NOSPEAK,		TRUE	},
 	{ "nocast",		FORM_NOCAST,		TRUE	},
 	{ "castself",		FORM_CASTSELF,		TRUE	},
 	{ "noget",		FORM_NOGET,		TRUE	},
 
-	{ NULL}
+	{ NULL, 0, FALSE }
 };
 
 flaginfo_t ralign_names[] =
 {
-	{ "",			TABLE_BITVAL			},
+	{ "",			TABLE_BITVAL,		FALSE	},
 
 	{ "none",		RA_NONE,		TRUE	},
 	{ "evil",		RA_EVIL,		TRUE	},
 	{ "neutral",		RA_NEUTRAL,		TRUE	},
 	{ "good",		RA_GOOD,		TRUE	},
 
-	{ NULL }
+	{ NULL, 0, FALSE }
 };
 
 flaginfo_t align_names[] =
 {
-	{ "",			TABLE_INTVAL			},
+	{ "",			TABLE_INTVAL,		FALSE	},
 
 	{ "good",		ANUM_GOOD,		TRUE	},
 	{ "neutral",		ANUM_NEUTRAL,		TRUE	},
 	{ "evil",		ANUM_EVIL,		TRUE	},
 
-	{ NULL }
+	{ NULL, 0, FALSE }
 };
 
 flaginfo_t lang_flags[] =
 {
-	{ "",			TABLE_BITVAL			},
+	{ "",			TABLE_BITVAL,		FALSE	},
 
 	{ "hidden",		LANG_HIDDEN,		TRUE	},
 	{ "changed",		LANG_CHANGED,		FALSE	},
 
-	{ NULL }
+	{ NULL, 0, FALSE }
 };
 
 flaginfo_t ethos_table[] =
 {
-	{ "",			TABLE_BITVAL			},
+	{ "",			TABLE_BITVAL,		FALSE	},
 
 	{ "none",		ETHOS_NONE,		TRUE	},
 	{ "lawful",		ETHOS_LAWFUL,		TRUE	},
 	{ "neutral",		ETHOS_NEUTRAL,		TRUE	},
 	{ "chaotic",		ETHOS_CHAOTIC,		TRUE	},
 
-	{ NULL }
+	{ NULL, 0, FALSE }
 };
 
 flaginfo_t rulecl_names[] =
 {
-	{ "",			TABLE_INTVAL			},
+	{ "",			TABLE_INTVAL,		FALSE	},
 
 	{ "cases",		RULES_CASE,		TRUE	},
 	{ "genders",		RULES_GENDER,		TRUE	},
 	{ "qtys",		RULES_QTY,		TRUE	},
 
-	{ NULL }
+	{ NULL, 0, FALSE }
 };
 
 flaginfo_t rulecl_flags[] =
 {
-	{ "",			TABLE_BITVAL			},
+	{ "",			TABLE_BITVAL,		FALSE	},
 
-	{ "expl_changed",	RULES_EXPL_CHANGED		},
-	{ "impl_changed",	RULES_IMPL_CHANGED		},
+	{ "expl_changed",	RULES_EXPL_CHANGED,	FALSE	},
+	{ "impl_changed",	RULES_IMPL_CHANGED,	FALSE	},
 
-	{ NULL }
+	{ NULL, 0, FALSE }
 };
 
 flaginfo_t note_types[] =
 {
-	{ "",			TABLE_INTVAL			},
+	{ "",			TABLE_INTVAL,		FALSE	},
 
-	{ "note",		NOTE_NOTE			},
-	{ "idea",		NOTE_IDEA			},
-	{ "penalty",		NOTE_PENALTY			},
-	{ "news",		NOTE_NEWS			},
-	{ "change",		NOTE_CHANGES			},
+	{ "note",		NOTE_NOTE,		FALSE	},
+	{ "idea",		NOTE_IDEA,		FALSE	},
+	{ "penalty",		NOTE_PENALTY,		FALSE	},
+	{ "news",		NOTE_NEWS,		FALSE	},
+	{ "change",		NOTE_CHANGES,		FALSE	},
 
-	{ NULL }
+	{ NULL, 0, FALSE }
 };
 
 flaginfo_t options_table[] =
 {
-	{ "",			TABLE_BITVAL			},
+	{ "",			TABLE_BITVAL,		FALSE	},
 
-	{ "ascii_only_names",	OPT_ASCII_ONLY_NAMES		},
+	{ "ascii_only_names",	OPT_ASCII_ONLY_NAMES,	FALSE	},
 
-	{ NULL }
+	{ NULL, 0, FALSE }
 };
 
 flaginfo_t ban_actions[] =
 {
-	{ "",			TABLE_INTVAL			},
+	{ "",			TABLE_INTVAL,		FALSE	},
 
-	{ "allow",		BA_ALLOW			},
-	{ "deny",		BA_DENY				},
+	{ "allow",		BA_ALLOW,		FALSE	},
+	{ "deny",		BA_DENY,		FALSE	},
 
-	{ NULL }
+	{ NULL, 0, FALSE }
 };
 
 flaginfo_t ban_classes[] =
 {
-	{ "",			TABLE_INTVAL			},
+	{ "",			TABLE_INTVAL,		FALSE	},
 
-	{ "all",		BCL_ALL				},
-	{ "players",		BCL_PLAYERS			},
-	{ "newbies",		BCL_NEWBIES			},
+	{ "all",		BCL_ALL,		FALSE	},
+	{ "players",		BCL_PLAYERS,		FALSE	},
+	{ "newbies",		BCL_NEWBIES,		FALSE	},
 
-	{ NULL }
+	{ NULL, 0, FALSE }
 };
 
 flaginfo_t cmd_flags[] =
 {
-	{ "",			TABLE_BITVAL,			},
+	{ "",			TABLE_BITVAL,		FALSE	},
 
 	{ "keep_hide",		CMD_KEEP_HIDE,		TRUE	},
 	{ "noorder",		CMD_NOORDER,		TRUE	},
@@ -1191,18 +1191,18 @@ flaginfo_t cmd_flags[] =
 	{ "disabled",		CMD_DISABLED,		TRUE	},
 	{ "frozen_ok",		CMD_FROZEN_OK,		TRUE	},
 
-	{ NULL }
+	{ NULL, 0, FALSE }
 };
 
 flaginfo_t cmd_logtypes[] =
 {
-	{ "",			TABLE_INTVAL,			},
+	{ "",			TABLE_INTVAL,		FALSE	},
 
 	{ "normal",		LOG_NORMAL,		TRUE	},
 	{ "always",		LOG_ALWAYS,		TRUE	},
 	{ "never",		LOG_NEVER,		TRUE	},
 
-	{ NULL }
+	{ NULL, 0, FALSE }
 };
 
 /*
@@ -1211,7 +1211,7 @@ flaginfo_t cmd_logtypes[] =
  */
 flaginfo_t level_table[] =
 {
-	{ "",			TABLE_INTVAL,			},
+	{ "",			TABLE_INTVAL,		FALSE	},
 
 	{ "imp",		LEVEL_IMP,		TRUE	},
 	{ "cre",		LEVEL_CRE,		TRUE	},
@@ -1224,7 +1224,7 @@ flaginfo_t level_table[] =
 	{ "newbie",		LEVEL_NEWBIE,		TRUE	},
 	{ "pk",			LEVEL_PK,		TRUE	},
 
-	{ NULL }
+	{ NULL, 0, FALSE }
 };
 
 /* wiznet table and prototype for future flag setting */
@@ -1252,12 +1252,12 @@ const struct wiznet_type wiznet_table[] =
 	{ "secure",		WIZ_SECURE,	LEVEL_CRE	},
 	{ "olc",		WIZ_OLC,	LEVEL_GOD	},
 	{ "log",		WIZ_WIZLOG,	LEVEL_CRE	},
-	{ NULL }
+	{ NULL, 0, FALSE }
 };
 
 flaginfo_t desc_con_table[] =
 {
-	{ "",			TABLE_INTVAL				},
+	{ "",			TABLE_INTVAL,			FALSE	},
 
 	{ "playing",		CON_PLAYING,			FALSE	},
 	{ "get name",		CON_GET_NAME,			FALSE	},
@@ -1276,12 +1276,12 @@ flaginfo_t desc_con_table[] =
 	{ "create done",	CON_CREATE_DONE,		FALSE	},
 	{ "get charset",	CON_GET_CODEPAGE,		FALSE	},
 	{ "resolving",		CON_RESOLV,			FALSE	},
-	{ NULL }
+	{ NULL, 0, FALSE }
 };
 
 flaginfo_t events_classes[] =
 {
-	{ "",			TABLE_INTVAL				},
+	{ "",			TABLE_INTVAL,			FALSE	},
 
 	{ "enter_room",		EVENT_ROOM_ENTER,		TRUE	},
 	{ "leave_room",		EVENT_ROOM_LEAVE,		TRUE	},
@@ -1290,12 +1290,12 @@ flaginfo_t events_classes[] =
 	{ "update_char",	EVENT_CHAR_UPDATE,		TRUE	},
 	{ "update_fast_char",	EVENT_CHAR_UPDFAST,		TRUE	},
 	{ "timeout_char",	EVENT_CHAR_TIMEOUT,		TRUE	},
-	{ NULL }
+	{ NULL, 0, FALSE }
 };
 
 flaginfo_t dam_classes[] =
 {
-	{ "",			TABLE_INTVAL				},
+	{ "",			TABLE_INTVAL,			FALSE	},
 
 	{ "none",		DAM_NONE,			TRUE	},
 	{ "bash",		DAM_BASH,			TRUE	},
@@ -1321,12 +1321,12 @@ flaginfo_t dam_classes[] =
 	{ "silver",		DAM_SILVER,			TRUE	},
 	{ "iron",		DAM_IRON,			TRUE	},
 
-	{ NULL }
+	{ NULL, 0, FALSE }
 };
 
 flaginfo_t resist_info_flags[] =
 {
-	{ "",			TABLE_INTVAL			},
+	{ "",			TABLE_INTVAL,		FALSE	},
 
 	{ "bashing",		DAM_BASH,		TRUE	},	
 	{ "piercing",		DAM_PIERCE,		TRUE	},	
@@ -1351,12 +1351,12 @@ flaginfo_t resist_info_flags[] =
 	{ "iron weapons",	DAM_IRON,		TRUE	},
 	{ "silver weapons",	DAM_SILVER,		TRUE	},
 
-	{ NULL }
+	{ NULL, 0, FALSE }
 };
 
 flaginfo_t spec_classes[] =
 {
-	{ "",			TABLE_INTVAL				},
+	{ "",			TABLE_INTVAL,			FALSE	},
 
 	{ "class",		SPEC_CLASS,			TRUE	},
 	{ "race",		SPEC_RACE,			TRUE	},
@@ -1366,21 +1366,21 @@ flaginfo_t spec_classes[] =
 	{ "minor_school",	SPEC_MINORSCHOOL,		TRUE	},
 	{ "form",		SPEC_FORM,			TRUE	},
 
-	{ NULL }
+	{ NULL, 0, FALSE }
 };
 
 flaginfo_t spec_flags[] =
 {
-	{ "",			TABLE_BITVAL,				},
+	{ "",			TABLE_BITVAL,			FALSE	},
 
 	{ "changed",		SPF_CHANGED,			FALSE	},
 
-	{ NULL }
+	{ NULL, 0, FALSE }
 };
 
 flaginfo_t cond_table[] =
 {
-	{ "",			TABLE_INTVAL				},
+	{ "",			TABLE_INTVAL,			FALSE	},
 
 	{ "drunkness",		COND_DRUNK,			TRUE	},
 	{ "fullness",		COND_FULL,			TRUE	},
@@ -1389,12 +1389,12 @@ flaginfo_t cond_table[] =
 	{ "bloodlust",		COND_BLOODLUST,			TRUE	},
 	{ "desire",		COND_DESIRE,			TRUE	},
 
-	{ NULL }
+	{ NULL, 0, FALSE }
 };
 
 flaginfo_t affect_where_types[] =
 {
-	{ "",			TABLE_INTVAL				},
+	{ "",			TABLE_INTVAL,			FALSE	},
 
 	{ "to_affects",		TO_AFFECTS,			TRUE	},
 	{ "to_object",		TO_OBJECT,			FALSE	},
@@ -1407,67 +1407,67 @@ flaginfo_t affect_where_types[] =
 	{ "to_formaffects",	TO_FORMAFFECTS,			FALSE	},
 	{ "to_resist",		TO_RESIST,			TRUE	},
 
-	{ NULL }
+	{ NULL, 0, FALSE }
 };
 
 flaginfo_t www_flags_table[] =
 {
-	{ "",			TABLE_BITVAL				},
+	{ "",			TABLE_BITVAL,			FALSE	},
 
-	{ "race",		WSHOW_RACE				},
-	{ "class",		WSHOW_CLASS				},
-	{ "clan",		WSHOW_CLAN				},
-	{ "level",		WSHOW_LEVEL				},
-	{ "align",		WSHOW_ALIGN				},
-	{ "ethos",		WSHOW_ETHOS				},
-	{ "sex",		WSHOW_SEX				},
-	{ "language",		WSHOW_SLANG				},
-	{ "deaths",		WSHOW_DEATHS				},
-	{ "kills",		WSHOW_KILLS				},
-	{ "pckills",		WSHOW_PCKILLS				},
-	{ "title",		WSHOW_TITLE				},
-	{ "hometown",		WSHOW_HOMETOWN				},
-	{ "age",		WSHOW_AGE				},
+	{ "race",		WSHOW_RACE,			FALSE	},
+	{ "class",		WSHOW_CLASS,			FALSE	},
+	{ "clan",		WSHOW_CLAN,			FALSE	},
+	{ "level",		WSHOW_LEVEL,			FALSE	},
+	{ "align",		WSHOW_ALIGN,			FALSE	},
+	{ "ethos",		WSHOW_ETHOS,			FALSE	},
+	{ "sex",		WSHOW_SEX,			FALSE	},
+	{ "language",		WSHOW_SLANG,			FALSE	},
+	{ "deaths",		WSHOW_DEATHS,			FALSE	},
+	{ "kills",		WSHOW_KILLS,			FALSE	},
+	{ "pckills",		WSHOW_PCKILLS,			FALSE	},
+	{ "title",		WSHOW_TITLE,			FALSE	},
+	{ "hometown",		WSHOW_HOMETOWN,			FALSE	},
+	{ "age",		WSHOW_AGE,			FALSE	},
 
-	{ NULL }
+	{ NULL, 0, FALSE }
 };
 
 flaginfo_t clan_status_table[] =
 {
-	{ "",			TABLE_INTVAL				},
+	{ "",			TABLE_INTVAL,			FALSE	},
 
 	{ "commoner",		CLAN_COMMONER,			TRUE	},
 	{ "secondary",		CLAN_SECOND,			TRUE	},
 	{ "leader",		CLAN_LEADER,			TRUE	},
 
-	{ NULL }
+	{ NULL, 0, FALSE }
 };
 
 flaginfo_t book_class[] =
 {
-	{ "", 			TABLE_INTVAL				},
+	{ "", 			TABLE_INTVAL,			FALSE	},
 
 	{ "spellbook",		BOOK_SPELLS,			TRUE	},
 	{ "manual",		BOOK_MANUAL,			TRUE	},
 	{ "prayerbook",		BOOK_PRAYERS,			TRUE	},
 
-	{ NULL}
+	{ NULL, 0, FALSE }
 };
 
 flaginfo_t fail_effects[] = 
 {
-	{ "",			TABLE_INTVAL				},
+	{ "",			TABLE_INTVAL,			FALSE	},
 
 	{ "none",		FAIL_NONE,			TRUE	},
 	{ "death",		FAIL_DEATH,			TRUE	},
 	{ "hallucination",	FAIL_HALLUCINATION,		TRUE	},
 
-	{ NULL}
+	{ NULL, 0, FALSE }
 };
 
 flaginfo_t iterator_names[] =
 {
-	{ "",			TABLE_INTVAL				},
+	{ "",			TABLE_INTVAL,			FALSE	},
 
 	{ "char_world",		(flag_t) &iter_char_world,	TRUE	},
 	{ "npc_world",		(flag_t) &iter_npc_world,	TRUE	},
@@ -1477,28 +1477,28 @@ flaginfo_t iterator_names[] =
 	{ "obj_char",		(flag_t) &iter_obj_char,	TRUE	},
 	{ "obj_obj",		(flag_t) &iter_obj_obj,		TRUE	},
 
-	{ NULL }
+	{ NULL, 0, FALSE }
 };
 
 flaginfo_t hint_levels[] =
 {
-	{ "",			TABLE_INTVAL				},
+	{ "",			TABLE_INTVAL,			FALSE	},
 
 	{ "none",		HINT_NONE,			FALSE	},
 	{ "sog",		HINT_SOG,			TRUE	},
 	{ "all",		HINT_ALL,			TRUE	},
 
-	{ NULL }
+	{ NULL, 0, FALSE }
 };
 
 flaginfo_t olc_flags[] =
 {
-	{ "",			TABLE_BITVAL				},
+	{ "",			TABLE_BITVAL,			FALSE	},
 
 	{ "raw_strings",	OLC_MODE_RAW,			TRUE	},
 	{ "brief_ashow",	OLC_MODE_TRANS,			TRUE	},
 
-	{ NULL }
+	{ NULL, 0, FALSE }
 };
 
 /*

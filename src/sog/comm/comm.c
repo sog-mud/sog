@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.241 2001-03-11 21:59:17 fjoe Exp $
+ * $Id: comm.c,v 1.242 2001-06-24 10:50:56 avn Exp $
  */
 
 /***************************************************************************
@@ -102,7 +102,7 @@
 bool class_ok(CHAR_DATA *ch , class_t *cl);
 
 struct codepage {
-	char* name;
+	const char* name;
 	unsigned char* from;
 	unsigned char* to;
 };
@@ -158,7 +158,6 @@ char 	go_ahead_str	[] = { IAC, GA, '\0' };
  * Global variables.
  */
 DESCRIPTOR_DATA *   descriptor_list;	/* All open descriptors		*/
-DESCRIPTOR_DATA *   d_next;		/* Next descriptor in loop	*/
 bool		    merc_down;		/* Shutdown			*/
 bool		    wizlock;		/* Game is wizlocked		*/
 bool		    newlock;		/* Game is newlocked		*/
@@ -178,15 +177,14 @@ void	resolv_done		(void);
 /*
  * Other local functions (OS-independent).
  */
-bool	check_reconnect		(DESCRIPTOR_DATA *d, const char *name,
-				 bool fConn);
-bool	check_playing		(DESCRIPTOR_DATA *d, const char *name);
-int	main			(int argc, char **argv);
-void	nanny			(DESCRIPTOR_DATA *d, const char *argument);
-bool	process_output		(DESCRIPTOR_DATA *d, bool fPrompt);
-void	read_from_buffer	(DESCRIPTOR_DATA *d);
-void	stop_idling		(DESCRIPTOR_DATA *d);
-void 	log_area_popularity	(void);
+static bool	check_reconnect	(DESCRIPTOR_DATA *d, bool fConn);
+static bool	check_playing	(DESCRIPTOR_DATA *d, const char *name);
+int		main		(int argc, char **argv);
+static void	nanny		(DESCRIPTOR_DATA *d, const char *argument);
+static bool	process_output	(DESCRIPTOR_DATA *d, bool fPrompt);
+static void	read_from_buffer(DESCRIPTOR_DATA *d);
+static void	stop_idling	(DESCRIPTOR_DATA *d);
+static void 	log_area_popularity(void);
 
 varr 	control_sockets;
 varr	info_sockets;
@@ -206,7 +204,7 @@ static void usage(const char *name)
 
 static void open_sockets(varr *v, const char *logm)
 {
-	int i, j;
+	size_t i, j;
 
 	for (i = 0, j = 0; i < v->nused; i++) {
 		int port = GETINT(v, i);
@@ -219,9 +217,9 @@ static void open_sockets(varr *v, const char *logm)
 	v->nused = j;
 }
 
-void close_sockets(varr *v)
+static void close_sockets(varr *v)
 {
-	int i;
+	size_t i;
 
 	for (i = 0; i < v->nused; i++) {
 		int fd = GETINT(v, i);
@@ -347,24 +345,24 @@ int main(int argc, char **argv)
 	return 0;
 }
 
-void outbuf_init(outbuf_t *o, size_t size)
+static void outbuf_init(outbuf_t *o, size_t size)
 {
 	o->top = 0;
 	if ((o->size = size) != 0)
 		o->buf = malloc(o->size);
 }
 
-void outbuf_destroy(outbuf_t *o)
+static void outbuf_destroy(outbuf_t *o)
 {
 	free(o->buf);
 }
 
-bool outbuf_empty(DESCRIPTOR_DATA *d)
+static bool outbuf_empty(DESCRIPTOR_DATA *d)
 {
 	return (d->out_buf.top == 0);
 }
 
-void outbuf_flush(DESCRIPTOR_DATA *d)
+static void outbuf_flush(DESCRIPTOR_DATA *d)
 {
 	d->out_buf.top = 0;
 	d->snoop_buf.top = 0;
@@ -373,7 +371,7 @@ void outbuf_flush(DESCRIPTOR_DATA *d)
 /*
  * Expand the buffer as needed to hold more 'len' characters.
  */
-bool outbuf_adjust(outbuf_t *o, size_t len)
+static bool outbuf_adjust(outbuf_t *o, size_t len)
 {
 	char *newbuf;
 	size_t newsize;
@@ -563,7 +561,7 @@ int init_socket(int port)
 
 static void add_fds(varr *v, fd_set *in_set, int *maxdesc)
 {
-	int i;
+	size_t i;
 
 	for (i = 0; i < v->nused; i++) {
 		int fd = GETINT(v, i);
@@ -574,7 +572,7 @@ static void add_fds(varr *v, fd_set *in_set, int *maxdesc)
 
 static void check_fds(varr *v, fd_set *in_set, void (*new_conn_cb)(int))
 {
-	int i;
+	size_t i;
 
 	for (i = 0; i < v->nused; i++) {
 		int fd = GETINT(v, i);
@@ -585,6 +583,7 @@ static void check_fds(varr *v, fd_set *in_set, void (*new_conn_cb)(int))
 
 void game_loop_unix(void)
 {
+	DESCRIPTOR_DATA *d_next;
 	static struct timeval null_time;
 	struct timeval last_time;
  
@@ -801,7 +800,7 @@ void game_loop_unix(void)
 static void charset_print(DESCRIPTOR_DATA* d)
 {
 	char buf[MAX_STRING_LENGTH];
-	int i;
+	size_t i;
 
 	write_to_buffer(d, "\n\r", 0);				// notrans
 	for (i = 0; i < NCODEPAGES; i++) {
@@ -910,14 +909,9 @@ void close_descriptor(DESCRIPTOR_DATA *dclose, int save_flags)
 			char_nuke(ch);
 	}
 
-	if (d_next == dclose)
-		d_next = d_next->next;   
-
 	if (dclose == descriptor_list)
 		descriptor_list = descriptor_list->next;
 	else {
-		DESCRIPTOR_DATA *d;
-
 		for (d = descriptor_list; d && d->next != dclose; d = d->next)
 			;
 		if (d != NULL)
@@ -936,8 +930,8 @@ void close_descriptor(DESCRIPTOR_DATA *dclose, int save_flags)
 
 bool read_from_descriptor(DESCRIPTOR_DATA *d)
 {
-	int iOld;
-	int iStart;
+	size_t iOld;
+	size_t iStart;
 	unsigned char *p, *q;
 
 	/* 
@@ -1048,7 +1042,7 @@ bool read_from_descriptor(DESCRIPTOR_DATA *d)
 /*
  * Transfer one line from input buffer to input line.
  */
-void read_from_buffer(DESCRIPTOR_DATA *d)
+static void read_from_buffer(DESCRIPTOR_DATA *d)
 {
 	int i, j, k;
 	bool repeat;
@@ -1160,10 +1154,11 @@ void read_from_buffer(DESCRIPTOR_DATA *d)
 /*
  * Low level output function.
  */
-void battle_prompt(CHAR_DATA *ch, CHAR_DATA *victim)
+static void
+battle_prompt(CHAR_DATA *ch, CHAR_DATA *victim)
 {
 	int percent;
-	char* msg;
+	const char* msg;
  
         if (victim->max_hit > 0)
 		percent = victim->hit * 100 / victim->max_hit;
@@ -1193,9 +1188,8 @@ void battle_prompt(CHAR_DATA *ch, CHAR_DATA *victim)
 /*
  * Some specials added by KIO 
  */
-bool process_output(DESCRIPTOR_DATA *d, bool fPrompt)
+static bool process_output(DESCRIPTOR_DATA *d, bool fPrompt)
 {
-	extern bool merc_down;
 	bool ga = FALSE;
 	bool retval;
 	DESCRIPTOR_DATA *snoopy;
@@ -1278,7 +1272,8 @@ bail_out:
 	return retval;
 }
 
-void percent_hp(CHAR_DATA *ch, char buf[MAX_STRING_LENGTH])
+static void
+percent_hp(CHAR_DATA *ch, char buf[MAX_STRING_LENGTH])
 {
 	if (ch->hit >= 0) {
 		snprintf(buf, sizeof(buf), "%d%%",		// notrans
@@ -1315,7 +1310,7 @@ void bust_a_prompt(DESCRIPTOR_DATA *d)
 		CHAR_DATA *victim;
 		EXIT_DATA *pexit;
 		bool found;
-		const char *dir_name[] = {"N","E","S","W","U","D"}; // notrans
+		const char *sdir_name[] = {"N","E","S","W","U","D"}; // notrans
 		int door;
  
 		if (*str != '%') {
@@ -1353,7 +1348,7 @@ void bust_a_prompt(DESCRIPTOR_DATA *d)
 				     IS_IMMORTAL(ch))) {
 					found = TRUE;
 					strnzcat(buf2, sizeof(buf2),
-						 dir_name[door]);
+						 sdir_name[door]);
 					if (IS_SET(pexit->exit_info, EX_CLOSED))
 						strnzcat(buf2, sizeof(buf2),
 							 "*");	// notrans
@@ -1633,11 +1628,11 @@ void write_to_snoop(DESCRIPTOR_DATA *d, const char *txt, size_t len)
  * If this gives errors on very long blocks (like 'ofind all'),
  *   try lowering the max block size.
  */
-bool write_to_descriptor(int desc, const char *txt, uint length)
+bool write_to_descriptor(int desc, const char *txt, size_t length)
 {
-	uint iStart;
-	uint nWrite;
-	uint nBlock;
+	size_t	iStart;
+	ssize_t	nWrite;
+	size_t	nBlock;
 
 	if (!length)
 		length = strlen(txt);
@@ -1656,7 +1651,9 @@ bool write_to_descriptor(int desc, const char *txt, uint length)
 	return TRUE;
 }
 
-int search_sockets(DESCRIPTOR_DATA *inp)
+#ifdef NO_PLAYING_TWICE
+static int
+search_sockets(DESCRIPTOR_DATA *inp)
 {
 	DESCRIPTOR_DATA *d;
 
@@ -1673,6 +1670,7 @@ int search_sockets(DESCRIPTOR_DATA *inp)
 	}
 	return 0;
 }
+#endif
   
 int align_restrict(CHAR_DATA *ch);
 int ethos_check(CHAR_DATA *ch);
@@ -1756,7 +1754,8 @@ print_class_cb(void *p, va_list ap)
 	return NULL;
 }
 
-void adjust_hmv(CHAR_DATA *ch, int percent)
+static void
+adjust_hmv(CHAR_DATA *ch, int percent)
 {
 	if (percent > 0
 	&&  !IS_AFFECTED(ch, AFF_POISON | AFF_PLAGUE)) {
@@ -1806,21 +1805,20 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		return;
 
 	case CON_GET_CODEPAGE: {
-		int num;
+		size_t num;
 
 		if (argument[0] == '\0') {
 			close_descriptor(d, SAVE_F_NONE);
 			return;
 		}
 
-		if (argument[1] != '\0'
-		||  (num = argument[0] - '1') < 0
-		||  num >= NCODEPAGES) {
+		if (argument[1] < '1'
+		|| (num = argument[0] - '1') >= NCODEPAGES) {
 			charset_print(d);
 			break;
 		}
 
-		d->codepage = codepages+num;
+		d->codepage = codepages + num;
 		d->connected = CON_GET_NAME;
 		write_to_buffer(d, "By which name do you wish to be known? ", 0);
 		break;
@@ -1890,7 +1888,6 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 			if (check_ban(d, BCL_PLAYERS))
 				return;
 
-#undef NO_PLAYING_TWICE
 #ifdef NO_PLAYING_TWICE
 			if (search_sockets(d)) {
 				act_char("Playing twice is restricted...", ch);
@@ -1903,7 +1900,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 				act_puts3("\nThere are currently $j "
 					  "$qj{players} mudding out "
 					  "of a maximum of $J.",
-					   ch, (const void*) iNumPlayers - 1,
+					   ch, (const void*)(iNumPlayers - 1),
 					   NULL, (const void*) MAX_OLDIES,
 					   TO_CHAR, POS_DEAD);
 				act_puts("Please try again soon.",
@@ -1918,7 +1915,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 					 "mudding.\n"
 					 "New player creation is limited to "
 					 "when there are",
-					 ch, (const void*) iNumPlayers - 1,
+					 ch, (const void*)(iNumPlayers - 1),
 					 NULL, TO_CHAR, POS_DEAD);
 				act_puts("less than $j players. Please try "
 					 "again soon.",
@@ -1929,7 +1926,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 			}
 		}
 	     
-		if (check_reconnect(d, argument, FALSE))
+		if (check_reconnect(d, FALSE))
 			REMOVE_BIT(PC(ch)->plr_flags, PLR_NEW);
 		else if (wizlock && !IS_HERO(ch)) {
 			act_char("The game is wizlocked.", ch);
@@ -1986,7 +1983,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 				close_descriptor(d_old, SAVE_F_NORMAL);
 			}
 
-			if (check_reconnect(d, ch->name, TRUE))
+			if (check_reconnect(d, TRUE))
 				return;
 			write_to_buffer(d, "Reconnect attempt failed.\n\r", 0);
 
@@ -2319,7 +2316,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		write_to_descriptor(d->descriptor, (char *) echo_on_str, 0);
 
 		if (check_playing(d, ch->name)
-		||  check_reconnect(d, ch->name, TRUE))
+		||  check_reconnect(d, TRUE))
 			return;
 
 		log(LOG_INFO, "%s@%s has connected.", ch->name, d->host);
@@ -2424,7 +2421,6 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 			dofun("help", ch, "NEWBIE INFO");
 			char_to_room(ch, get_room_index(ROOM_VNUM_SCHOOL));
 		} else {
-			CHAR_DATA *pet;
 			ROOM_INDEX_DATA *to_room;
 			int logoff = PC(ch)->logoff;
 			int percent;
@@ -2483,7 +2479,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
  *
  * otherwise reconnect attempt is made
  */
-bool check_reconnect(DESCRIPTOR_DATA *d, const char *name, bool fConn)
+static bool check_reconnect(DESCRIPTOR_DATA *d, bool fConn)
 {
 	CHAR_DATA *ch;
 	DESCRIPTOR_DATA *d2;
@@ -2534,7 +2530,7 @@ bool check_reconnect(DESCRIPTOR_DATA *d, const char *name, bool fConn)
 /*
  * Check if already playing.
  */
-bool check_playing(DESCRIPTOR_DATA *d, const char *name)
+static bool check_playing(DESCRIPTOR_DATA *d, const char *name)
 {
 	DESCRIPTOR_DATA *dold;
 
@@ -2557,7 +2553,7 @@ bool check_playing(DESCRIPTOR_DATA *d, const char *name)
 	return FALSE;
 }
 
-void
+static void
 stop_idling(DESCRIPTOR_DATA *d)
 {
 	CHAR_DATA *ch = d->character;
@@ -2594,7 +2590,7 @@ stop_idling(DESCRIPTOR_DATA *d)
 /*
  * Write to one char.
  */
-void send_to_char(const char *txt, CHAR_DATA *ch)
+void send_to_char(const char *txt, const CHAR_DATA *ch)
 {
 	char buf[MAX_STRING_LENGTH*4];
 
@@ -2608,12 +2604,12 @@ void send_to_char(const char *txt, CHAR_DATA *ch)
 /*
  * Send a page to one char.
  */
-void page_to_char(const char *txt, CHAR_DATA *ch)
+void page_to_char(const char *txt, const CHAR_DATA *ch)
 {
 	DESCRIPTOR_DATA *d;
 
 	if (txt == NULL || (d = ch->desc) == NULL)
-		return; /* ben yazdim ibrahim */
+		return;
 
 	if (d->dvdata->pagelen == 0) {
 		send_to_char(txt, ch);
@@ -2643,7 +2639,7 @@ void show_string(struct descriptor_data *d, char *input)
 		return;
 	}
 
-	for (scan = buffer; scan - buffer < sizeof(buffer)-2;
+	for (scan = buffer; scan < buffer + sizeof(buffer) - 2;
 						scan++, d->showstr_point++) {
 		/*
 		 * simple copy if not eos and not eol
@@ -2676,11 +2672,10 @@ void show_string(struct descriptor_data *d, char *input)
 	}
 }
 
-void log_area_popularity(void)
+static void log_area_popularity(void)
 {
 	FILE *fp;
 	AREA_DATA *area;
-	extern AREA_DATA *area_first;
 
 	if ((fp = dfopen(TMP_PATH, AREASTAT_FILE, "w")) == NULL)
 		return;

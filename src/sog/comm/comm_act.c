@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm_act.c,v 1.70 2001-03-11 22:13:58 fjoe Exp $
+ * $Id: comm_act.c,v 1.71 2001-06-24 10:50:57 avn Exp $
  */
 
 #include <stdio.h>
@@ -53,7 +53,7 @@ smash_tilde(const char *s, int act_flags)
 	||  !strchr(s, '~'))
 		return s;
 
-	for (p = buf; *s && p-buf < sizeof(buf)-1; s++) {
+	for (p = buf; *s && p < buf + sizeof(buf) - 1; s++) {
 		if (*s == '~')
 			continue;
 		*p++ = *s;
@@ -70,8 +70,8 @@ smash_tilde(const char *s, int act_flags)
  * if ACT_NOENG is not set
  */
 const char *
-_format_short(mlstring *mlshort, const char *name, CHAR_DATA *to,
-	      int to_lang, int act_flags)
+_format_short(const mlstring *mlshort, const char *name, const CHAR_DATA *to,
+	      size_t to_lang, int act_flags)
 {
         const char *sshort;
 
@@ -109,7 +109,7 @@ _format_short(mlstring *mlshort, const char *name, CHAR_DATA *to,
  * if ACT_NOENG is set
  */
 const char *
-_format_long(mlstring *ml, CHAR_DATA *to, int to_lang)
+_format_long(const mlstring *ml, const CHAR_DATA *to, size_t to_lang)
 {
 	const char *s;
 	const char *p, *q;
@@ -125,7 +125,7 @@ _format_long(mlstring *ml, CHAR_DATA *to, int to_lang)
 	if (p != s && *(p-1) == ' ')
 		p--;
 
-	strnzncpy(buf, sizeof(buf), s, p-s);
+	strnzncpy(buf, sizeof(buf), s, (unsigned)(p-s));
 	strnzcat(buf, sizeof(buf), q+1);
 	return buf;
 }
@@ -133,17 +133,17 @@ _format_long(mlstring *ml, CHAR_DATA *to, int to_lang)
 /*
  * PERS formatting stuff
  */
-const char *PERS2(CHAR_DATA *ch, CHAR_DATA *to, int to_lang, int act_flags)
+const char *PERS2(const CHAR_DATA *ch, const CHAR_DATA *to, size_t to_lang, int act_flags)
 {
 	bool visible = can_see(to, ch);
 
 	if (is_affected(ch, "doppelganger")
 	&&  (IS_NPC(to) ||
-	     !IS_SET(PC(to)->plr_flags, PLR_HOLYLIGHT)))
+	     !IS_SET(CPC(to)->plr_flags, PLR_HOLYLIGHT)))
 		ch = ch->doppel;
 
 	if (!IS_NPC(to) && is_affected(to, "hallucination"))
-		ch = nth_char(ch, PC(to)->random_value);
+		ch = nth_char(ch, CPC(to)->random_value);
 
 	if (visible) {
 		if (ch->shapeform) {
@@ -168,7 +168,7 @@ const char *PERS2(CHAR_DATA *ch, CHAR_DATA *to, int to_lang, int act_flags)
 			    mlstr_val(&ch->short_descr, to_lang),
 			    act_flags);
 		} else if (IS_AFFECTED(ch, AFF_TURNED) && !IS_IMMORTAL(to)) {
-			return word_form(GETMSG(PC(ch)->form_name, to_lang),
+			return word_form(GETMSG(CPC(ch)->form_name, to_lang),
 					 GET_SEX(&ch->gender, to_lang), to_lang,
 					 RULES_GENDER);
 		}
@@ -195,7 +195,8 @@ char slang[] =
 	"âÂÿßõÕøØáÁõÕùÙ";					// notrans
 
 /* ch says, victim hears */
-static char *translate(CHAR_DATA *ch, CHAR_DATA *victim, const char *i)
+static char *translate(const CHAR_DATA *ch, const CHAR_DATA *victim,
+		       const char *i)
 {
 	static char trans[MAX_STRING_LENGTH];
 	char *o;
@@ -221,7 +222,7 @@ static char *translate(CHAR_DATA *ch, CHAR_DATA *victim, const char *i)
 	snprintf(trans, sizeof(trans), "[%s] ",		// notrans
 		 flag_string(slang_table, ch->slang));
 	o = strchr(trans, '\0');
-	for (; *i && o-trans < sizeof(trans)-1; i++, o++) {
+	for (; *i && o < trans + sizeof(trans) - 1; i++, o++) {
 		char *p = strchr(common, *i);
 		*o = p ? slang[p-common] : *i;
 	}
@@ -242,28 +243,28 @@ struct tdata {
 
 #define TSTACK_SZ 4
 
-int
-GET_SEX(mlstring *ml, int to_lang)
+size_t
+GET_SEX(const mlstring *ml, size_t to_lang)
 {
 	int gender = flag_value(gender_table, mlstr_val(ml, to_lang));
 	return URANGE(0, gender, 4);
 }
 
-int
-PERS_SEX(CHAR_DATA *ch, CHAR_DATA *looker, int to_lang)
+static int
+PERS_SEX(const CHAR_DATA *ch, const CHAR_DATA *looker, size_t to_lang)
 {
 	if (ch != looker
 	&&  is_affected(ch, "doppelganger")
 	&&  ch->doppel != NULL
-	&&  (IS_NPC(looker) || !IS_SET(PC(looker)->plr_flags, PLR_HOLYLIGHT)))
+	&&  (IS_NPC(looker) || !IS_SET(CPC(looker)->plr_flags, PLR_HOLYLIGHT)))
 		ch = ch->doppel;
 
 	return GET_SEX(&ch->gender, to_lang);
 }
 
 static const char *
-act_format_text(const char *text, CHAR_DATA *ch, CHAR_DATA *to,
-		int to_lang, int act_flags)
+act_format_text(const char *text, const CHAR_DATA *ch, const CHAR_DATA *to,
+		size_t to_lang, int act_flags)
 {
 	if (!IS_SET(act_flags, ACT_NOTRANS))
 		text = GETMSG(text, to_lang);
@@ -273,18 +274,19 @@ act_format_text(const char *text, CHAR_DATA *ch, CHAR_DATA *to,
 }
 
 static const char *
-act_format_mltext(mlstring *mltext, CHAR_DATA *ch, CHAR_DATA *to,
-		  int to_lang, int act_flags)
+act_format_mltext(const mlstring *mltext, const CHAR_DATA *ch,
+		  const CHAR_DATA *to, size_t to_lang, int act_flags)
 {
 	return act_format_text(mlstr_val(mltext, to_lang),
 			       ch, to, to_lang, act_flags);
 }
 
 static const char *
-act_format_obj(OBJ_DATA *obj, CHAR_DATA *to, int to_lang, int act_flags)
+act_format_obj(const OBJ_DATA *obj, const CHAR_DATA *to, size_t to_lang,
+	       int act_flags)
 {
 	if (!IS_NPC(to) && is_affected(to, "hallucination"))
-		obj = nth_obj(obj, PC(to)->random_value);
+		obj = nth_obj(obj, CPC(to)->random_value);
 
 	if (!can_see_obj(to, obj))
 		return GETMSG("something", to_lang);
@@ -297,8 +299,8 @@ act_format_obj(OBJ_DATA *obj, CHAR_DATA *to, int to_lang, int act_flags)
 	return smash_tilde(mlstr_val(&obj->short_descr, to_lang), act_flags);
 }
 
-static gmlstr_t *
-act_format_door(gmlstr_t *gml)
+static const gmlstr_t *
+act_format_door(const gmlstr_t *gml)
 {
 	if (gml == NULL)
 		return NULL;
@@ -476,25 +478,25 @@ act_format_door(gmlstr_t *gml)
  *
  */
 
-#define VCH	((CHAR_DATA *) arg2)
-#define VCH1	((CHAR_DATA *) arg1)
-#define VCH3	((CHAR_DATA *) arg3)
+#define VCH	((const CHAR_DATA *) arg2)
+#define VCH1	((const CHAR_DATA *) arg1)
+#define VCH3	((const CHAR_DATA *) arg3)
 #define NUM1	((int) arg1)
 #define NUM3	((int) arg3)
-#define ROOM1	((ROOM_INDEX_DATA *) arg1)
-#define ROOM3	((ROOM_INDEX_DATA *) arg3)
-#define OBJ1	((OBJ_DATA *) arg1)
-#define OBJ2	((OBJ_DATA *) arg2)
-#define GML1	((gmlstr_t *) arg1)
-#define GML3	((gmlstr_t *) arg3)
+#define ROOM1	((const ROOM_INDEX_DATA *) arg1)
+#define ROOM3	((const ROOM_INDEX_DATA *) arg3)
+#define OBJ1	((const OBJ_DATA *) arg1)
+#define OBJ2	((const OBJ_DATA *) arg2)
+#define GML1	((const gmlstr_t *) arg1)
+#define GML3	((const gmlstr_t *) arg3)
 
-void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
+void act_buf(const char *format, const CHAR_DATA *ch, const CHAR_DATA *to,
 	     const void *arg1, const void *arg2, const void *arg3,
 	     actopt_t *opt, char *buf, size_t buf_len)
 {
 	char 		tmp	[MAX_STRING_LENGTH];
 	char		tmp2	[MAX_STRING_LENGTH];
-	gmlstr_t	*gml;
+	const gmlstr_t	*gml;
 
 	char *		point = buf;
 	const char *	s;
@@ -541,7 +543,8 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 				*point = '\0';
 				strnzcpy(tstack[sp].p, 
 					 buf_len - 3 - (tstack[sp].p - buf),
-					 word_form(tstack[sp].p, tstack[sp].arg,
+					 word_form(tstack[sp].p,
+						   (unsigned)tstack[sp].arg,
 						   opt->to_lang, rulecl));
 				point = strchr(tstack[sp].p, '\0');
 				inside_wform--;
@@ -732,10 +735,12 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 
 				switch (code) {
 				case 'f':
-				case 'F':
-					tstack[sp].arg =
-						strtol(s, (char**) &s, 10);
+				case 'F': {
+					char *pp;
+					tstack[sp].arg = strtol(s, &pp, 10);
+					s = pp;
 					break;
+				}
 
 				case 'l':
 					switch (subcode = *s++) {
@@ -873,7 +878,7 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 			}
 	
 			if (i != NULL) {
-				while (point - buf < buf_len - 3 && *i)
+				while (point < buf + buf_len - 3 && *i)
 					*point++ = *i++;
 			}
 			break;
@@ -886,13 +891,13 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 
 /* first non-control char is uppercased */
 	if (!IS_SET(opt->act_flags, ACT_NOUCASE)) {
-		point = (char *) cstrfirst(buf);
+		point = (char*)(uintptr_t)(const void *)cstrfirst(buf);
 		*point = UPPER(*point);
 	}
 }
 
-static CHAR_DATA *
-act_args(CHAR_DATA *ch, CHAR_DATA *vch, int act_flags)
+static const CHAR_DATA *
+act_args(const CHAR_DATA *ch, const CHAR_DATA *vch, int act_flags)
 {
 	if (IS_SET(act_flags, TO_CHAR))
 		return ch;
@@ -907,7 +912,7 @@ act_args(CHAR_DATA *ch, CHAR_DATA *vch, int act_flags)
 }
  
 static bool
-act_skip(CHAR_DATA *ch, CHAR_DATA *vch, CHAR_DATA *to,
+act_skip(const CHAR_DATA *ch, const CHAR_DATA *vch, const CHAR_DATA *to,
 	 int act_flags, int min_pos)
 {
 	if (to->position < min_pos)
@@ -934,7 +939,7 @@ act_skip(CHAR_DATA *ch, CHAR_DATA *vch, CHAR_DATA *to,
 	if (IS_SET(act_flags, ACT_NOTWIT)
 	&&  !IS_NPC(to) && !IS_IMMORTAL(to)
 	&&  !IS_NPC(ch) && !IS_IMMORTAL(ch)
-	&&  is_name(ch->name, PC(to)->twitlist))
+	&&  is_name(ch->name, CPC(to)->twitlist))
 		return TRUE;
 
 /* check "deaf dumb blind" chars */
@@ -952,7 +957,7 @@ act_skip(CHAR_DATA *ch, CHAR_DATA *vch, CHAR_DATA *to,
 }
 
 static void
-act_raw(CHAR_DATA *ch, CHAR_DATA *to,
+act_raw(const CHAR_DATA *ch, const CHAR_DATA *to,
 	const void *arg1, const void *arg2, const void *arg3,
 	const char *format, int act_flags)
 {
@@ -971,29 +976,30 @@ act_raw(CHAR_DATA *ch, CHAR_DATA *to,
 	if (!IS_NPC(to)) {
 		if ((IS_SET(to->comm, COMM_AFK) || to->desc == NULL) &&
 		     IS_SET(act_flags, ACT_TOBUF))
-			buf_append(PC(to)->buffer, tmp);
+			buf_append(CPC(to)->buffer, tmp);
 		else if (to->desc) {
 			if (IS_SET(to->comm, COMM_QUIET_EDITOR)
 			&&  to->desc->pString
 			&&  !IS_SET(act_flags, ACT_SEDIT))
-				buf_append(PC(to)->buffer, tmp);
+				buf_append(CPC(to)->buffer, tmp);
 			else
 				write_to_buffer(to->desc, tmp, 0);
 		}
 	} else {
 		if (!IS_SET(act_flags, ACT_NOTRIG))
-			mp_act_trigger(tmp, to, ch, arg1, arg2, TRIG_ACT);
+			mp_act_trigger(tmp, _DC(to), _DC(ch),
+				arg1, arg2, TRIG_ACT);
 		if (to->desc)
 			write_to_buffer(to->desc, tmp, 0);
 	}
 }
 
-void act_puts3(const char *format, CHAR_DATA *ch,
+void act_puts3(const char *format, const CHAR_DATA *ch,
 	       const void *arg1, const void *arg2, const void *arg3,
 	       int act_flags, int min_pos)
 {
-	CHAR_DATA *to;
-	CHAR_DATA *vch = (CHAR_DATA *) arg2;
+	const CHAR_DATA *to;
+	const CHAR_DATA *vch = (const CHAR_DATA *) arg2;
 
 	if (IS_NULLSTR(format)
 	||  (to = act_args(ch, vch, act_flags)) == NULL)
@@ -1016,12 +1022,12 @@ void act_puts3(const char *format, CHAR_DATA *ch,
 	}
 }
 
-void act_mlputs3(mlstring *mlformat, CHAR_DATA *ch,
+void act_mlputs3(mlstring *mlformat, const CHAR_DATA *ch,
 	         const void *arg1, const void *arg2, const void *arg3,
 	         int act_flags, int min_pos)
 {
-	CHAR_DATA *to;
-	CHAR_DATA *vch = (CHAR_DATA *) arg2;
+	const CHAR_DATA *to;
+	const CHAR_DATA *vch = (const CHAR_DATA *) arg2;
 
 	if (mlstr_null(mlformat)
 	||  (to = act_args(ch, vch, act_flags)) == NULL)

@@ -23,12 +23,8 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: rwfile.c,v 1.17 2001-01-23 21:47:00 fjoe Exp $
+ * $Id: rwfile.c,v 1.18 2001-06-24 10:50:51 avn Exp $
  */
-
-static char str_end[] = "End";					// notrans
-
-int line_number;
 
 #include <ctype.h>
 #include <limits.h>
@@ -57,6 +53,9 @@ int line_number;
 #include <fcntl.h>
 #include <unistd.h>
 
+static char str_end[] = "End";					// notrans
+int line_number;
+
 static int
 count_lf(const char *p, off_t len)
 {
@@ -64,7 +63,7 @@ count_lf(const char *p, off_t len)
 
 	while (len--)
 	for (;;) {
-		char *q = memchr(p, '\n', len);
+		char *q = memchr(p, '\n', (size_t)len);
 		if (q == NULL)
 			return count;
 
@@ -126,14 +125,14 @@ rfile_open(const char *dir, const char *file)
 		return NULL;
 	}
 
-	if ((p = mmap(NULL, s.st_size, PROT_READ, 0, fd, 0)) == MAP_FAILED) {
+	if ((p = mmap(NULL, (size_t)s.st_size, PROT_READ, 0, fd, (off_t)0)) == MAP_FAILED) {
 		close(fd);
 		log(LOG_INFO, "%s: %s", name, strerror(errno));
 		return NULL;
 	}
 
 #if !defined(LINUX)
-	if (madvise(p, s.st_size, MADV_SEQUENTIAL) < 0)
+	if (madvise(p, (size_t)s.st_size, MADV_SEQUENTIAL) < 0)
 		log(LOG_INFO, "%s: %s", name, strerror(errno));
 #endif
 
@@ -150,7 +149,7 @@ rfile_open(const char *dir, const char *file)
 void
 rfile_close(rfile_t *fp)
 {
-	munmap((void *) fp->p, fp->len);
+	munmap((void *)(uintptr_t)fp->p, (size_t)fp->len);
 	close(fp->fd);
 	free(fp);
 }
@@ -172,7 +171,7 @@ const char *
 rfile_tok(rfile_t *fp)
 {
 	static char buf[MAX_STRING_LENGTH];
-	strnzncpy(buf, sizeof(buf), fp->tok, fp->tok_len);
+	strnzncpy(buf, sizeof(buf), fp->tok, (size_t)fp->tok_len);
 	return buf;
 }
 
@@ -206,7 +205,7 @@ fread_word(rfile_t *fp)
 		 * find closing quote
 		 */
 		fp->tok = fp->p + fp->pos;
-		p = memchr(fp->tok, cEnd, fp->len - fp->pos);
+		p = memchr(fp->tok, cEnd, (size_t)(fp->len - fp->pos));
 
 		/*
 		 * calculate fp->tok_len and advance fp->pos
@@ -341,7 +340,7 @@ fread_string(rfile_t *fp)
 		c = xgetc(fp);
 
 	for (;;) {
-		if (plast - buf >= sizeof(buf) - 1) {
+		if (plast >= buf + sizeof(buf) - 1) {
 			log(LOG_ERROR, "fread_string: line too long (truncated)");
 			buf[sizeof(buf)-1] = '\0';
 			return str_dup(buf);
@@ -468,7 +467,7 @@ flag_convert(int letter, int low_end)
 	return rv;
 }
 
-int64_t
+static int64_t
 fread_flagsxx(rfile_t *fp, int low_end)
 {
 	int64_t number;
@@ -499,10 +498,7 @@ fread_flagsxx(rfile_t *fp, int low_end)
 	else if (!isspace(c))
 		xungetc(fp);
 
-	if (negative)
-		return -number;
-
-	return number;
+	return negative ? -number : number;
 }
 
 flag_t

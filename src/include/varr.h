@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: varr.h,v 1.20 2001-06-22 15:21:20 fjoe Exp $
+ * $Id: varr.h,v 1.21 2001-06-24 10:50:41 avn Exp $
  */
 
 #ifndef _VARR_H_
@@ -61,8 +61,8 @@ void *	varr_touch	(varr *, size_t i);
 void *	varr_insert	(varr *, size_t i);
 void	varr_delete	(varr *, size_t i);
 
-void	varr_qsort	(varr *, int (*)(const void *, const void *));
-void *	varr_bsearch	(varr *, const void *e,
+void	varr_qsort	(const varr *, int (*)(const void *, const void *));
+void *	varr_bsearch	(const varr *, const void *e,
 			 int (*)(const void *, const void *));
 
 typedef void *(*foreach_cb_t)(void *, va_list);
@@ -70,18 +70,18 @@ typedef void *(*foreach_cb_t)(void *, va_list);
 /*
  * iterators
  */
-void *	varr_foreach	(varr *, foreach_cb_t, ...);
-void *	varr_eforeach	(varr *, void *, foreach_cb_t, ...);
-void *	varr_nforeach	(varr *, size_t i, foreach_cb_t, ...);
-void *	varr_anforeach	(varr *, size_t i, foreach_cb_t, va_list ap);
+void *	varr_foreach	(const varr *, foreach_cb_t, ...);
+void *	varr_eforeach	(const varr *, void *, foreach_cb_t, ...);
+void *	varr_nforeach	(const varr *, size_t i, foreach_cb_t, ...);
+void *	varr_anforeach	(const varr *, size_t i, foreach_cb_t, va_list ap);
 
 /*
  * reverse iterators
  */
-void *	varr_rforeach	(varr *, foreach_cb_t, ...);
-void *	varr_reforeach	(varr *, void *, foreach_cb_t, ...);
-void *	varr_rnforeach	(varr *, size_t i, foreach_cb_t, ...);
-void *	varr_arnforeach	(varr *, size_t i, foreach_cb_t, va_list ap);
+void *	varr_rforeach	(const varr *, foreach_cb_t, ...);
+void *	varr_reforeach	(const varr *, void *, foreach_cb_t, ...);
+void *	varr_rnforeach	(const varr *, size_t i, foreach_cb_t, ...);
+void *	varr_arnforeach	(const varr *, size_t i, foreach_cb_t, va_list ap);
 
 #define varr_size(v)	((v)->nused)
 #define varr_enew(v)	(varr_touch((v), varr_size(v)))
@@ -93,7 +93,7 @@ extern inline void *varr_get(varr *v, size_t i)
 	return i >= varr_size(v) ? NULL : VARR_GET(v, i);
 }
 
-#define varr_index(v, q) ((((char*) q) - ((char*) (v)->p)) / (v)->v_data->nsize)
+#define varr_index(v, q) ((((const char*) q) - ((const char*) (v)->p)) / varr_size(v))
 #define varr_edelete(v, p) (varr_delete((v), varr_index((v), (p))))
 #define varr_isempty(v)	(!varr_size(v))
 

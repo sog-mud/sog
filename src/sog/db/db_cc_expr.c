@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_cc_expr.c,v 1.5 2001-01-18 22:20:15 fjoe Exp $
+ * $Id: db_cc_expr.c,v 1.6 2001-06-24 10:50:59 avn Exp $
  */
 
 #include <stdio.h>
@@ -39,17 +39,18 @@ DECLARE_DBINIT_FUN(init_cc_eclass);
 
 DBFUN dbfun_cc_eclass[] =
 {
-	{ "ECLASS",	load_cc_eclass	},		// notrans
-	{ NULL }
+	{ "ECLASS",	load_cc_eclass,	NULL	},		// notrans
+	{ NULL, NULL, NULL }
 };
 
-DBDATA db_cc_expr = { dbfun_cc_eclass, init_cc_eclass };
+DBDATA db_cc_expr = { dbfun_cc_eclass, init_cc_eclass, 0 };
 
 static varrdata_t v_cc_eclasses =
 {
 	sizeof(cc_eclass_t), 1,
 	(e_init_t) cc_eclass_init,
-	(e_destroy_t) cc_eclass_destroy
+	(e_destroy_t) cc_eclass_destroy,
+	NULL
 };
 
 /*----------------------------------------------------------------------------

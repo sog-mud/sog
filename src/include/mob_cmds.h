@@ -1,5 +1,5 @@
 /*
- * $Id: mob_cmds.h,v 1.7 1999-06-28 09:04:16 fjoe Exp $
+ * $Id: mob_cmds.h,v 1.8 2001-06-24 10:50:39 avn Exp $
  */
 
 /***************************************************************************
@@ -42,7 +42,7 @@
 
 struct	mob_cmd_type
 {
-    char * const	name;
+    const char * 	name;
     DO_FUN *		do_fun;
 };
 
@@ -73,7 +73,6 @@ DECLARE_DO_FUN(do_mpgtransfer	);
 DECLARE_DO_FUN(do_mpforce	);
 DECLARE_DO_FUN(do_mpgforce	);
 DECLARE_DO_FUN(do_mpvforce	);
-DECLARE_DO_FUN(do_mpcast	);
 DECLARE_DO_FUN(do_mpdamage	);
 DECLARE_DO_FUN(do_mpremember	);
 DECLARE_DO_FUN(do_mpforget	);
@@ -83,7 +82,6 @@ DECLARE_DO_FUN(do_mpcall	);
 DECLARE_DO_FUN(do_mpflee	);
 DECLARE_DO_FUN(do_mpotransfer	);
 DECLARE_DO_FUN(do_mpremove	);
-DECLARE_DO_FUN(do_mpreligion	);
 DECLARE_DO_FUN(do_mpslay	);
 
 #endif

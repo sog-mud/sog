@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: mkdecl.pl,v 1.7 2001-01-18 12:15:07 avn Exp $
+# $Id: mkdecl.pl,v 1.8 2001-06-24 10:50:36 avn Exp $
 
 use strict;
 require "mkutil.pl";
@@ -30,7 +30,7 @@ print COUT << "__END__";
 
 flaginfo_t module_names[] =
 {
-	{ "",			TABLE_INTVAL			},
+	{ "",			TABLE_INTVAL,		TRUE	},
 
 __END__
 
@@ -57,7 +57,7 @@ close(HOUT);
 
 print COUT << "__END__";
 
-	{ NULL }
+	{ NULL, 0, FALSE }
 };
 __END__
 close(COUT);

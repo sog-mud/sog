@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: lang.c,v 1.28 2001-06-22 07:13:53 avn Exp $
+ * $Id: lang.c,v 1.29 2001-06-24 10:50:47 avn Exp $
  */
 
 #include <string.h>
@@ -337,42 +337,32 @@ void lang_init(lang_t *l)
 	l->name = str_empty;
 	l->file_name = str_empty;
 	l->lang_flags = 0;
-	l->slang_of = varr_index(&langs, l);
+	l->slang_of = NULL;
 
 	for (i = 0; i < MAX_RULECL; i++)
 		rulecl_init(l, i);
 }
 
-void lang_destroy(lang_t *l)
-{
-	size_t i;
-
-	/* decrement all slang_of references in langs after this */
-	for (i = varr_index(&langs, l); i < langs.nused; i++) {
-		lang_t *ll;
-		ll = VARR_GET(&langs, i);
-		ll->slang_of--;
-	}
-}
-
-int lang_lookup(const char *name)
+lang_t *
+lang_lookup(const char *name)
 {
 	return lang_nlookup(name, strlen(name));
 }
 
-int lang_nlookup(const char *name, size_t len)
+lang_t *
+lang_nlookup(const char *name, size_t len)
 {
 	size_t lang;
 
 	if (IS_NULLSTR(name))
-		return -1;
+		return NULL;
 
 	for (lang = 0; lang < langs.nused; lang++) {
 		lang_t *l = VARR_GET(&langs, lang);
 		if (str_ncmp(l->name, name, len) == 0)
-			return lang;
+			return l;
 	}
 
 	log(LOG_ERROR, "lang_lookup: %s: unknown language", name);
-	return -1;
+	return NULL;
 }

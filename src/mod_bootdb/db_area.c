@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.105 2001-06-22 07:13:56 avn Exp $
+ * $Id: db_area.c,v 1.106 2001-06-24 10:50:59 avn Exp $
  */
 
 /***************************************************************************
@@ -68,25 +68,25 @@ DECLARE_DBLOAD_FUN(load_aflag);
 DECLARE_DBINIT_FUN(init_area);
 
 DBFUN dbfun_areas[] = {
-	{ "AREA",		load_area	},	// notrans
-	{ "AREADATA",		load_areadata	},	// notrans
-	{ "HELPS",		load_helps	},	// notrans
-	{ "MOBILES",		load_mobiles	},	// notrans
-	{ "MOBPROGS",		load_mobprogs	},	// notrans
-	{ "OBJECTS",		load_objects	},	// notrans
-	{ "RESETS",		load_resets	},	// notrans
-	{ "ROOMS",		load_rooms	},	// notrans
-	{ "SHOPS",		load_shops	},	// notrans
-	{ "OMPROGS",		load_omprogs	},	// notrans
-	{ "OLIMITS",		load_olimits	},	// notrans
-	{ "SPECIALS",		load_specials	},	// notrans
-	{ "PRACTICERS",		load_practicers	},	// notrans
-	{ "RESETMESSAGE",	load_resetmsg	},	// notrans
-	{ "FLAG",		load_aflag	},	// notrans
-	{ NULL }
+	{ "AREA",		load_area,	NULL	},	// notrans
+	{ "AREADATA",		load_areadata,	NULL	},	// notrans
+	{ "HELPS",		load_helps,	NULL	},	// notrans
+	{ "MOBILES",		load_mobiles,	NULL	},	// notrans
+	{ "MOBPROGS",		load_mobprogs,	NULL	},	// notrans
+	{ "OBJECTS",		load_objects,	NULL	},	// notrans
+	{ "RESETS",		load_resets,	NULL	},	// notrans
+	{ "ROOMS",		load_rooms,	NULL	},	// notrans
+	{ "SHOPS",		load_shops,	NULL	},	// notrans
+	{ "OMPROGS",		load_omprogs,	NULL	},	// notrans
+	{ "OLIMITS",		load_olimits,	NULL	},	// notrans
+	{ "SPECIALS",		load_specials,	NULL	},	// notrans
+	{ "PRACTICERS",		load_practicers,NULL	},	// notrans
+	{ "RESETMESSAGE",	load_resetmsg,	NULL	},	// notrans
+	{ "FLAG",		load_aflag,	NULL	},	// notrans
+	{ NULL, NULL, NULL }
 };
 
-DBDATA db_areas = { dbfun_areas, init_area };
+DBDATA db_areas = { dbfun_areas, init_area, 0 };
 
 AREA_DATA *		area_current;
 
@@ -161,7 +161,7 @@ subst_flag(flag_subst_t *fs, int64_t from)
 
 #define RES(i,r,v) (((i) && !(v)) ? 100 : ((i) && (v)) ? 33 : ((r) && (v)) ? 0 : ((v) ? -50 : ((r) ? 33 : 0)))
 
-void 
+static void 
 set_percent_resistances(flag_t imm, flag_t res, flag_t vul, int16_t resist[])
 {
 	bool iw, im, rw, rm, vw, vm;
@@ -876,7 +876,7 @@ flag_subst_t v0_subst_act[] =
 	{ V0_ACT_FAMILIAR,	ACT_FAMILIAR		},
 	{ V0_ACT_IMMSTEAL,	ACT_IMMSTEAL		},
 	{ V0_ACT_IMMSUMMON,	ACT_IMMSUMMON		},
-	{ 0 }
+	{ 0, 0 }
 };
 
 #define V0_ACT_CHANGER		(dd)
@@ -901,7 +901,7 @@ flag_subst_t v0_subst_mob[] =
 	{ V0_ACT_SAGE,		MOB_SAGE			},
 	{ V0_ACT_HEALER,	MOB_HEALER			},
 	{ V0_ACT_CLAN_GUARD,	MOB_CLAN_GUARD			},
-	{ 0 }
+	{ 0, 0 }
 };
 
 #define V0_AFF_SCREAM			(hh)
@@ -945,7 +945,7 @@ flag_subst_t v0_subst_aff[] =
 	{ V0_AFF_QUESTTARGET,	AFF_QUESTTARGET		},
 	{ V0_AFF_TURNED,	AFF_TURNED		},
 
-	{ 0 }
+	{ 0, 0 }
 };
 
 #define V0_AFF_INVIS			(B)
@@ -965,7 +965,7 @@ flag_subst_t v0_subst_invis[] =
 	{ V0_AFF_IMP_INVIS,	ID_IMP_INVIS	},
 	{ V0_AFF_FADE,		ID_FADE		},
 	{ V0_AFF_BLEND,		ID_BLEND	},
-	{ 0 }
+	{ 0, 0 }
 };
 
 #define V0_AFF_DETECT_EVIL		(C)
@@ -995,7 +995,7 @@ flag_subst_t v0_subst_detect[] =
 	{ V0_AFF_DETECT_LIFE,		ID_LIFE		},
 	{ V0_AFF_ACUTE_VISION,		ID_CAMOUFLAGE	},
 	{ V0_AFF_AWARENESS,		ID_BLEND	},
-	{ 0 }
+	{ 0, 0 }
 };
 
 /*
@@ -1025,13 +1025,13 @@ DBLOAD_FUN(load_mobiles)
 	flag_t imm_r = 0;
 	flag_t vul_r = 0;
  
-        letter                          = fread_letter(fp);
+        letter = fread_letter(fp);
         if (letter != '#') {
             log(LOG_ERROR, "load_mobiles: # not found.");
 	    return;
 	}
  
-        vnum                            = fread_number(fp);
+        vnum = fread_number(fp);
         if (vnum == 0)
             break;
  
@@ -1226,7 +1226,6 @@ DBLOAD_FUN(load_mobiles)
 		MPTRIG *mptrig;
 		int type;
 		const char *phrase;
-		int vnum;
 		
 		if ((type = fread_fword(mptrig_types, fp)) == 0) {
 			log(LOG_ERROR, "load_mobiles: vnum %d: invalid mob prog trigger",
@@ -1243,12 +1242,12 @@ DBLOAD_FUN(load_mobiles)
 	     } else if (letter == 'g') {
 		mlstr_fread(fp, &pMobIndex->gender);
 	     } else if (letter == 'r') {   /* Resists */
-		int res = fread_fword(dam_classes, fp);
-		if (res < 0 || res == DAM_NONE) {
+		int _res = fread_fword(dam_classes, fp);
+		if (_res < 0 || _res == DAM_NONE) {
 			log(LOG_ERROR, "load_mobiles: unknown resist value");
 			fread_number(fp);
 		}
-		pMobIndex->resists[res] = fread_number(fp);
+		pMobIndex->resists[_res] = fread_number(fp);
 		found_res = TRUE;
 	     } else {
 		xungetc(fp);
@@ -1351,7 +1350,7 @@ flag_subst_t v0_subst_stat[] =
 	{ ITEM_MELT_DROP,	ITEM_MELT_DROP		},
 	{ ITEM_BURN_PROOF,	ITEM_BURN_PROOF		},
 	{ ITEM_NOT_EDIBLE,	ITEM_NOT_EDIBLE		},
-	{ 0 }
+	{ 0, 0 }
 };
 
 #define V0_ITEM_NOPURGE		(O)
@@ -1383,7 +1382,7 @@ flag_subst_t v0_subst_obj[] =
 	{ V0_ITEM_PIT,		OBJ_PIT			},
 	{ V0_ITEM_CHQUEST,	OBJ_CHQUEST		},
 	{ V0_ITEM_NOFIND,	OBJ_NOFIND		},
-	{ 0 }
+	{ 0, 0 }
 };
 
 enum {
@@ -1501,13 +1500,12 @@ DBLOAD_FUN(load_objects)
 		}
 	 
 		for (done = FALSE; !done;) {
-			char letter = fread_letter(fp);
 			AFFECT_DATA *paf;
 			AFFECT_DATA af;
 			int16_t resists[MAX_RESIST];
 			int64_t f;
 	 
-			switch (letter) {
+			switch (letter = fread_letter(fp)) {
 			case 'a':
 				paf = aff_fread(fp);
 				paf->level = pObjIndex->level;
@@ -1568,15 +1566,15 @@ DBLOAD_FUN(load_objects)
 					break;
 				case 'I':
 					af.where = V0_TO_IMMUNE;
-					set_percent_resistances(f, 0, 0, resists);
+					set_percent_resistances((flag_t)f, 0, 0, resists);
 					break;
 				case 'R':
 					af.where = V0_TO_RESIST;
-					set_percent_resistances(0, f, 0, resists);
+					set_percent_resistances(0, (flag_t)f, 0, resists);
 					break;
 				case 'V':
 					af.where = V0_TO_VULN;
-					set_percent_resistances(0, 0, f, resists);
+					set_percent_resistances(0, 0, (flag_t)f, resists);
 					break;
 				case 'i':
 					af.where = TO_INVIS;

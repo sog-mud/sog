@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.287 2001-06-22 07:13:52 avn Exp $
+ * $Id: handler.c,v 1.288 2001-06-24 10:50:46 avn Exp $
  */
 
 /***************************************************************************
@@ -66,9 +66,9 @@ static int		min_mana_gain	(CHAR_DATA *ch, class_t *cl);
 static int		max_move_gain	(CHAR_DATA *ch);
 static int		min_move_gain	(CHAR_DATA *ch);
 
-static OBJ_DATA *get_obj_list_raw(CHAR_DATA *ch, const char *name, uint *number,
+static OBJ_DATA *get_obj_list_raw(const CHAR_DATA *ch, const char *name, uint *number,
 			   OBJ_DATA *list, int flags);
-static OBJ_DATA *get_obj_here_raw(CHAR_DATA *ch, const char *name,
+static OBJ_DATA *get_obj_here_raw(const CHAR_DATA *ch, const char *name,
 				  uint *number);
 static CHAR_DATA *get_char_room_raw(CHAR_DATA *ch, const char *name,
 				    uint *number, ROOM_INDEX_DATA *room);
@@ -111,7 +111,7 @@ void room_record(const char *name, ROOM_INDEX_DATA *room, int door)
 }
 
 /* returns number of people on an object */
-int count_users(OBJ_DATA *obj)
+int count_users(const OBJ_DATA *obj)
 {
 	CHAR_DATA *fch;
 	int count = 0;
@@ -137,7 +137,7 @@ DECLARE_SPEC_FUN(spec_janitor);
 /*
  * Retrieve a character's carry capacity.
  */
-int can_carry_n(CHAR_DATA *ch)
+int can_carry_n(const CHAR_DATA *ch)
 {
 	if (IS_IMMORTAL(ch))
 		return -1;
@@ -155,7 +155,7 @@ int can_carry_n(CHAR_DATA *ch)
 /*
  * Retrieve a character's carry capacity.
  */
-int can_carry_w(CHAR_DATA *ch)
+int can_carry_w(const CHAR_DATA *ch)
 {
 	if (IS_IMMORTAL(ch))
 		return -1;
@@ -388,7 +388,7 @@ static OBJ_DATA *get_stuck_eq(CHAR_DATA *ch, int wtype)
 /*
  * Find a piece of eq on a character.
  */
-OBJ_DATA *get_eq_char(CHAR_DATA *ch, int iWear)
+OBJ_DATA *get_eq_char(const CHAR_DATA *ch, int iWear)
 {
 	OBJ_DATA *obj;
 
@@ -1105,7 +1105,7 @@ CHAR_DATA *get_char_spell(CHAR_DATA *ch, const char *argument,
 /*
  * Find an obj in a list.
  */
-static OBJ_DATA *get_obj_list_raw(CHAR_DATA *ch, const char *name,
+static OBJ_DATA *get_obj_list_raw(const CHAR_DATA *ch, const char *name,
 				  uint *number, OBJ_DATA *list, int flags)
 {
 	OBJ_DATA *obj;
@@ -1137,7 +1137,7 @@ static OBJ_DATA *get_obj_list_raw(CHAR_DATA *ch, const char *name,
 /*
  * Find an obj in the room or in eq/inventory.
  */
-static OBJ_DATA *get_obj_here_raw(CHAR_DATA *ch, const char *name,
+static OBJ_DATA *get_obj_here_raw(const CHAR_DATA *ch, const char *name,
 				  uint *number)
 {
 	OBJ_DATA *obj;
@@ -1166,7 +1166,8 @@ static OBJ_DATA *get_obj_here_raw(CHAR_DATA *ch, const char *name,
  * Find an obj in a list.
  */
 OBJ_DATA *
-get_obj_list(CHAR_DATA *ch, const char *argument, OBJ_DATA *list, int flags)
+get_obj_list(const CHAR_DATA *ch, const char *argument,
+	     OBJ_DATA *list, int flags)
 {
 	char arg[MAX_INPUT_LENGTH];
 	uint number;
@@ -1181,7 +1182,7 @@ get_obj_list(CHAR_DATA *ch, const char *argument, OBJ_DATA *list, int flags)
 /*
  * Find an obj in player's inventory.
  */
-OBJ_DATA *get_obj_carry(CHAR_DATA *ch, const char *argument)
+OBJ_DATA *get_obj_carry(const CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	uint number;
@@ -1197,7 +1198,7 @@ OBJ_DATA *get_obj_carry(CHAR_DATA *ch, const char *argument)
 /*
  * Find an obj in player's equipment.
  */
-OBJ_DATA *get_obj_wear(CHAR_DATA *ch, const char *argument)
+OBJ_DATA *get_obj_wear(const CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	uint number;
@@ -1212,7 +1213,7 @@ OBJ_DATA *get_obj_wear(CHAR_DATA *ch, const char *argument)
 /*
  * Find an obj in the room or in inventory.
  */
-OBJ_DATA *get_obj_here(CHAR_DATA *ch, const char *argument)
+OBJ_DATA *get_obj_here(const CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	uint number;
@@ -1224,7 +1225,7 @@ OBJ_DATA *get_obj_here(CHAR_DATA *ch, const char *argument)
 	return get_obj_here_raw(ch, arg, &number);
 }
 
-OBJ_DATA *get_obj_room(CHAR_DATA *ch, const char *argument)
+OBJ_DATA *get_obj_room(const CHAR_DATA *ch, const char *argument)
 {
 	OBJ_DATA *obj;
 	CHAR_DATA *vch;
@@ -1262,7 +1263,7 @@ OBJ_DATA *get_obj_room(CHAR_DATA *ch, const char *argument)
 /*
  * Find an obj in the world.
  */
-OBJ_DATA *get_obj_world(CHAR_DATA *ch, const char *argument)
+OBJ_DATA *get_obj_world(const CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	OBJ_DATA *obj;
@@ -1465,11 +1466,11 @@ int get_true_weight(OBJ_DATA *obj)
 /*
  * True if room is dark.
  */
-bool room_is_dark(CHAR_DATA *ch)
+bool room_is_dark(const CHAR_DATA *ch)
 {
 	ROOM_INDEX_DATA * pRoomIndex = ch->in_room;
 
-	if (!IS_NPC(ch) && IS_SET(PC(ch)->plr_flags, PLR_HOLYLIGHT))
+	if (!IS_NPC(ch) && IS_SET(CPC(ch)->plr_flags, PLR_HOLYLIGHT))
 		return FALSE;
 
 	if (is_affected(ch, "vampire"))
@@ -1478,7 +1479,7 @@ bool room_is_dark(CHAR_DATA *ch)
 	return room_dark(pRoomIndex);
 }
 
-bool room_dark(ROOM_INDEX_DATA *pRoomIndex)
+bool room_dark(const ROOM_INDEX_DATA *pRoomIndex)
 {
 	if (pRoomIndex->light > 0)
 		return FALSE;
@@ -1504,7 +1505,7 @@ bool room_dark(ROOM_INDEX_DATA *pRoomIndex)
 /*
  * True if room is private.
  */
-bool room_is_private(ROOM_INDEX_DATA *pRoomIndex)
+bool room_is_private(const ROOM_INDEX_DATA *pRoomIndex)
 {
 	CHAR_DATA *rch;
 	int count;
@@ -1530,7 +1531,7 @@ bool room_is_private(ROOM_INDEX_DATA *pRoomIndex)
 }
 
 /* visibility on a room -- for entering and exits */
-bool can_see_room(CHAR_DATA *ch, ROOM_INDEX_DATA *pRoomIndex)
+bool can_see_room(const CHAR_DATA *ch, const ROOM_INDEX_DATA *pRoomIndex)
 {
 	if (IS_SET(pRoomIndex->room_flags, ROOM_IMP_ONLY) 
 	&&  !IS_TRUSTED(ch, LEVEL_IMP))
@@ -1554,9 +1555,9 @@ bool can_see_room(CHAR_DATA *ch, ROOM_INDEX_DATA *pRoomIndex)
 /*
  * True if char can see victim.
  */
-bool can_see(CHAR_DATA *ch, CHAR_DATA *victim)
+bool can_see(const CHAR_DATA *ch, const CHAR_DATA *victim)
 {
-	CHAR_DATA *vch;
+	const CHAR_DATA *vch;
 	flag_t ch_can_see = ch->has_detect;
 	if (ch_can_see & ID_INVIS)
 		ch_can_see |= ID_IMP_INVIS;
@@ -1583,7 +1584,7 @@ bool can_see(CHAR_DATA *ch, CHAR_DATA *victim)
 	&&  ch->in_room != victim->in_room)
 		return FALSE;
 
-	if (!IS_NPC(vch) && IS_SET(PC(vch)->plr_flags, PLR_HOLYLIGHT))
+	if (!IS_NPC(vch) && IS_SET(CPC(vch)->plr_flags, PLR_HOLYLIGHT))
 		return TRUE;
 
 	/*
@@ -1617,9 +1618,9 @@ bool can_see(CHAR_DATA *ch, CHAR_DATA *victim)
 /*
  * True if char can see obj.
  */
-bool can_see_obj(CHAR_DATA *ch, OBJ_DATA *obj)
+bool can_see_obj(const CHAR_DATA *ch, const OBJ_DATA *obj)
 {
-	if (!IS_NPC(ch) && IS_SET(PC(ch)->plr_flags, PLR_HOLYLIGHT))
+	if (!IS_NPC(ch) && IS_SET(CPC(ch)->plr_flags, PLR_HOLYLIGHT))
 		return TRUE;
 
 	if (IS_OBJ_STAT(obj, ITEM_VIS_DEATH))
@@ -1647,7 +1648,7 @@ bool can_see_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 /*
  * True if char can drop obj.
  */
-bool can_drop_obj(CHAR_DATA *ch, OBJ_DATA *obj)
+bool can_drop_obj(const CHAR_DATA *ch, const OBJ_DATA *obj)
 {
 	if (!IS_OBJ_STAT(obj, ITEM_NODROP))
 		return TRUE;
@@ -1658,7 +1659,7 @@ bool can_drop_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 	return FALSE;
 }
 
-int isn_dark_safe(CHAR_DATA *ch)
+int isn_dark_safe(const CHAR_DATA *ch)
 {
 	CHAR_DATA *rch;
 	OBJ_DATA *light;
@@ -1942,21 +1943,19 @@ ROOM_INDEX_DATA  *get_random_room(CHAR_DATA *ch, AREA_DATA *area)
 	return room;
 }
 
-CHAR_DATA *nth_char(CHAR_DATA *ch, int n)
+const CHAR_DATA *nth_char(const CHAR_DATA *ch, int n)
 {
-	CHAR_DATA *vch;
-
+	const CHAR_DATA *vch;
 	int i = 0;
-
+	
 	for (vch = ch; i < n; vch = (vch->next) ? vch->next : char_list)
 		i++;
 	return vch;
 }
 
-OBJ_DATA *nth_obj(OBJ_DATA *obj, int n)
+const OBJ_DATA *nth_obj(const OBJ_DATA *obj, int n)
 {
-	OBJ_DATA *nobj;
-
+	const OBJ_DATA *nobj;
 	int i = 0;
 
 	for (nobj = obj; i < n; nobj = (nobj->next) ? nobj->next : object_list)
@@ -4164,7 +4163,7 @@ void reboot_mud(void)
 }
 
 /* object condition aliases */
-const char *get_cond_alias(OBJ_DATA *obj)
+const char *get_cond_alias(const OBJ_DATA *obj)
 {
 	const char *stat;
 	int istat = obj->condition;
@@ -4306,30 +4305,30 @@ bool random_eq_damage(CHAR_DATA *ch, CHAR_DATA *victim, int loc_wield)
 }
 
 static inline int
-get_played(CHAR_DATA *ch, bool add_age)
+get_played(const CHAR_DATA *ch, bool add_age)
 {
 	int pl;
 
 	if (IS_NPC(ch))
 		return 0;
 
-	pl = current_time - PC(ch)->logon + PC(ch)->played;
+	pl = current_time - CPC(ch)->logon + CPC(ch)->played;
 	if (add_age)
-		pl += PC(ch)->add_age;
+		pl += CPC(ch)->add_age;
 	return pl;
 }
 
-int get_age(CHAR_DATA *ch)
+int get_age(const CHAR_DATA *ch)
 {
 	return (17 + get_played(ch, TRUE) / 72000);
 }
 
-int get_hours(CHAR_DATA *ch)
+int get_hours(const CHAR_DATA *ch)
 {
 	return get_played(ch, FALSE) / 3600;
 }
 
-int trust_level(CHAR_DATA *ch)
+int trust_level(const CHAR_DATA *ch)
 {
 	ch = GET_ORIGINAL(ch);
 	return IS_NPC(ch) ? UMIN((ch)->level, LEVEL_HERO - 1) : ch->level;

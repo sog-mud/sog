@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm_act.h,v 1.27 2001-06-22 07:13:32 avn Exp $
+ * $Id: comm_act.h,v 1.28 2001-06-24 10:50:38 avn Exp $
  */
 
 #ifndef _COMM_ACT_H_
@@ -62,14 +62,15 @@
 
 #define format_short(mshort, name, to)	\
 		_format_short((mshort), (name), (to), GET_LANG(to), 0)
-const char *_format_short(mlstring *mshort, const char *name,
-			  CHAR_DATA *to, int to_lang, int act_flags);
+const char *_format_short(const mlstring *mshort, const char *name,
+			  const CHAR_DATA *to, size_t to_lang, int act_flags);
 
 #define format_long(desc, to) (_format_long((desc), (to), GET_LANG(to)))
-const char *_format_long(mlstring *desc, CHAR_DATA *to, int to_lang);
+const char *_format_long(const mlstring *desc, const CHAR_DATA *to,
+			 size_t to_lang);
 
 #define PERS(ch, to) PERS2(ch, to, GET_LANG(to), ACT_FORMSH)
-const char* PERS2(CHAR_DATA *ch, CHAR_DATA *to, int to_lang, int act_flags);
+const char* PERS2(const CHAR_DATA *ch, const CHAR_DATA *to, size_t to_lang, int act_flags);
 
 /*
  * act stuff
@@ -97,13 +98,14 @@ typedef struct actopt_t {
  * ->to must not be NULL for all char/obj formatting or if ACT_STRANS is set
  * other formatting functions use opt->to_lang/opt->to_sex instead
  */
-void	act_buf		(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
-			 const void *arg1, const void *arg2, const void *arg3,
+void	act_buf		(const char *format, const CHAR_DATA *ch,
+			 const CHAR_DATA *to, const void *arg1,
+			 const void *arg2, const void *arg3,
 			 actopt_t *opt, char *buf, size_t buf_len);
-void    act_puts3	(const char *format, CHAR_DATA *ch,
+void    act_puts3	(const char *format, const CHAR_DATA *ch,
 			 const void *arg1, const void *arg2, const void *arg3,
 			 int act_flags, int min_pos);
-void	act_mlputs3	(mlstring *mlformat, CHAR_DATA *ch,
+void	act_mlputs3	(mlstring *mlformat, const CHAR_DATA *ch,
 			 const void *arg1, const void *arg2, const void *arg3,
 			 int act_flags, int min_pos);
 
@@ -125,6 +127,6 @@ extern const char *he_she[];
 extern const char *him_her[];
 extern const char *his_her[];
 
-int GET_SEX(mlstring *ml, int to_lang);
+size_t GET_SEX(const mlstring *ml, size_t to_lang);
 
 #endif

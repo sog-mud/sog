@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_material.c,v 1.10 2001-01-18 22:20:16 fjoe Exp $
+ * $Id: db_material.c,v 1.11 2001-06-24 10:51:02 avn Exp $
  */
 
 #include <stdio.h>
@@ -38,11 +38,11 @@ DECLARE_DBINIT_FUN(init_materials);
 
 DBFUN dbfun_materials[] =
 {
-	{ "MATERIAL",	load_material	},		// notrans
-	{ NULL }
+	{ "MATERIAL",	load_material,	NULL	},		// notrans
+	{ NULL, NULL, NULL }
 };
 
-DBDATA db_materials = { dbfun_materials, init_materials };
+DBDATA db_materials = { dbfun_materials, init_materials, 0 };
 
 static hashdata_t h_materials =
 {

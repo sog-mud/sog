@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.374 2001-06-22 07:13:34 avn Exp $
+ * $Id: act_info.c,v 1.375 2001-06-24 10:50:43 avn Exp $
  */
 
 /***************************************************************************
@@ -79,14 +79,16 @@ DECLARE_DO_FUN(do_say		);
 /*
  * Local functions.
  */
-static char *	format_obj_to_char	(OBJ_DATA *obj, CHAR_DATA *ch,
-					 bool fShort);
-static void	show_list_to_char	(OBJ_DATA *list, CHAR_DATA *ch,
+static char *	format_obj_to_char	(const OBJ_DATA *obj,
+					 CHAR_DATA *ch, bool fShort);
+static void	show_list_to_char	(const OBJ_DATA *list, CHAR_DATA *ch,
 					 bool fShort, bool fShowNothing);
-static void	show_char_to_char_0	(CHAR_DATA *victim, CHAR_DATA *ch);
-static void	show_char_to_char_1	(CHAR_DATA *victim, CHAR_DATA *ch);
-static void	show_char_to_char	(CHAR_DATA *list, CHAR_DATA *ch);
-static void	show_obj_to_char	(CHAR_DATA *ch, OBJ_DATA *obj,
+static void	show_char_to_char_0	(const CHAR_DATA *victim,
+					 CHAR_DATA *ch);
+static void	show_char_to_char_1	(const CHAR_DATA *victim,
+					 CHAR_DATA *ch);
+static void	show_char_to_char	(const CHAR_DATA *list, CHAR_DATA *ch);
+static void	show_obj_to_char	(CHAR_DATA *ch, const OBJ_DATA *obj,
 					 flag_t wear_loc);
 static void list_spells(flag_t type, CHAR_DATA *ch, const char *argument);
 
@@ -1574,7 +1576,7 @@ void do_description(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (!str_prefix(arg, "edit")) {
-		string_append(ch, mlstr_convert(&ch->description, -1));
+		string_append(ch, mlstr_convert(&ch->description, NULL));
 		return;
 	}
 
@@ -3990,7 +3992,8 @@ void do_homepoint(CHAR_DATA *ch, const char *argument)
 /*
  * static functions
  */
-static char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
+static char *
+format_obj_to_char(const OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 {
 	static char buf[MAX_STRING_LENGTH];
 
@@ -4104,14 +4107,15 @@ static char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
  * Show a list to a character.
  * Can coalesce duplicated items.
  */
-static void show_list_to_char(OBJ_DATA *list, CHAR_DATA *ch,
+static void
+show_list_to_char(const OBJ_DATA *list, CHAR_DATA *ch,
 			      bool fShort, bool fShowNothing)
 {
 	BUFFER *output;
 	const char **prgpstrShow;
 	int *prgnShow;
 	char *pstrShow;
-	OBJ_DATA *obj;
+	const OBJ_DATA *obj;
 	int nShow;
 	int iShow;
 	int count;
@@ -4207,7 +4211,7 @@ static void show_list_to_char(OBJ_DATA *list, CHAR_DATA *ch,
 
 #define FLAG_SET(pos, c, exp) (buf[pos] = (exp) ? (c) : '.')
 
-static void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
+static void show_char_to_char_0(const CHAR_DATA *victim, CHAR_DATA *ch)
 {
 	const char *msg = str_empty;
 	const void *arg = NULL;
@@ -4480,7 +4484,8 @@ static char* wear_loc_names[] =
 	"<stuck in>          $t",
 };
 
-static void show_obj_to_char(CHAR_DATA *ch, OBJ_DATA *obj, flag_t wear_loc)
+static void
+show_obj_to_char(CHAR_DATA *ch, const OBJ_DATA *obj, flag_t wear_loc)
 {
 	bool can_see = can_see_obj(ch, obj);
 	act(wear_loc_names[wear_loc], ch,
@@ -4488,7 +4493,8 @@ static void show_obj_to_char(CHAR_DATA *ch, OBJ_DATA *obj, flag_t wear_loc)
 	    NULL, TO_CHAR | (can_see ? ACT_NOTRANS : 0));
 }
 
-static void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
+static void
+show_char_to_char_1(const CHAR_DATA *victim, CHAR_DATA *ch)
 {
 	OBJ_DATA *obj;
 	int i;
@@ -4496,8 +4502,8 @@ static void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 	bool found;
 	char *msg;
 	const char *desc;
-	CHAR_DATA *doppel = victim;
-	CHAR_DATA *mirror = victim;
+	const CHAR_DATA *doppel = victim;
+	const CHAR_DATA *mirror = victim;
 	char buf[MAX_STRING_LENGTH];
 
 	if (is_affected(victim, "doppelganger")) {
@@ -4573,6 +4579,7 @@ static void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 		msg = "{Ris nearly dead{x.";
 
 	/* vampire ... */
+	/* XXX should not be here, should be called from do_look or whatever */
 	if (percent < 90 && IS_VAMPIRE(ch))
 		gain_condition(ch, COND_BLOODLUST, -1);
 
@@ -4632,9 +4639,10 @@ static void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 	}
 }
 
-static void show_char_to_char(CHAR_DATA *list, CHAR_DATA *ch)
+static void
+show_char_to_char(const CHAR_DATA *list, CHAR_DATA *ch)
 {
-	CHAR_DATA *rch;
+	const CHAR_DATA *rch;
 	int life_count = 0;
 
 	for (rch = list; rch; rch = rch->next_in_room) {

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: cc_lex.h,v 1.5 2000-01-06 15:52:31 fjoe Exp $
+ * $Id: cc_lex.h,v 1.6 2001-06-24 10:50:46 avn Exp $
  */
 
 #ifndef _CC_LEX_H_
@@ -41,6 +41,36 @@ extern ctx_t cc_ctx;
 bool cc_fun_call(ctx_t *ctx, const char *rn, const char *arg);
 
 extern jmp_buf cc_jmpbuf;
+
+#define yychar cc_yychar
+#define yycheck cc_yycheck
+#define yydebug cc_yydebug
+#define yydefred cc_yydefred
+#define yydgoto cc_yydgoto
+#define yyerrflag cc_yyerrflag
+#define yyerror cc_yyerror
+#define yygindex cc_yygindex
+#define yylen cc_yylen
+#define yylex cc_yylex
+#define yylhs cc_yylhs
+#define yylval cc_yylval
+#define yynerrs cc_yynerrs
+#define yyparse cc_yyparse
+#define yyrindex cc_yyrindex
+#define yysindex cc_yysindex
+#define yyss cc_yyss
+#define yyssp cc_yyssp
+#define yytable cc_yytable
+#define yyval cc_yyval
+#define yyvs cc_yyvs
+#define yyvsp cc_yyvsp
+
+#define yysslim cc_yysslim
+#define yystacksize cc_yystacksize
+
+int cc_yylex(void);
+void cc_yyerror(const char *s);
+int cc_yyparse(void);
 
 #endif
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: vo_iter.c,v 1.5 2000-06-07 08:56:01 fjoe Exp $
+ * $Id: vo_iter.c,v 1.6 2001-06-24 10:50:54 avn Exp $
  */
 
 #include <stdio.h>
@@ -32,77 +32,67 @@
 /*
  * vo iterators
  */
+#define VO_ITER(fun) static void *fun(void *vo __attribute__((unused)))
 
-static void *
-first_char_world(void *cont)
+VO_ITER(first_char_world)
 {
 	return char_list;
 }
 
-static void *
-first_npc_world(void *cont)
+VO_ITER(first_npc_world)
 {
 	return npc_list;
 }
 
-static void *
-next_char_world(void *vo)
+VO_ITER(next_char_world)
 {
 	return ((CHAR_DATA *) vo)->next;
 }
 
-static void *
-first_char_room(void *cont)
+VO_ITER(first_char_room)
 {
-	if (cont == NULL)
+	if (vo == NULL)
 		return NULL;
-	return ((ROOM_INDEX_DATA *) cont)->people;
+	return ((ROOM_INDEX_DATA *)vo)->people;
 }
 
-static void *
-next_char_room(void *vo)
+VO_ITER(next_char_room)
 {
-	return ((CHAR_DATA *) vo)->next_in_room;
+	return ((CHAR_DATA *)vo)->next_in_room;
 }
 
-static void *
-first_obj_world(void *cont)
+VO_ITER(first_obj_world)
 {
 	return object_list;
 }
 
-static void *
-next_obj_world(void *vo)
+VO_ITER(next_obj_world)
 {
-	return ((OBJ_DATA *) vo)->next;
+	return ((OBJ_DATA *)vo)->next;
 }
 
-static void *
-first_obj_room(void *cont)
+VO_ITER(first_obj_room)
 {
-	if (cont == NULL)
+	if (vo == NULL)
 		return NULL;
-	return ((ROOM_INDEX_DATA *) cont)->contents;
+	return ((ROOM_INDEX_DATA *)vo)->contents;
 }
 
-static void *
-first_obj_char(void *cont)
+VO_ITER(first_obj_char)
 {
-	if (cont == NULL)
+	if (vo == NULL)
 		return NULL;
-	return ((CHAR_DATA *) cont)->carrying;
+	return ((CHAR_DATA *)vo)->carrying;
 }
 
-static void *
-first_obj_obj(void *cont)
+VO_ITER(first_obj_obj)
 {
-	if (cont == NULL)
+	if (vo == NULL)
 		return NULL;
-	return ((OBJ_DATA *) cont)->contains;
+	return ((OBJ_DATA *)vo)->contains;
 }
 
-static void *
-next_obj_list(void *vo)
+VO_ITER(next_obj_list)
 {
 	return ((OBJ_DATA *) vo)->next_content;
 }

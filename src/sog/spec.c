@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: spec.c,v 1.22 2001-01-23 21:47:01 fjoe Exp $
+ * $Id: spec.c,v 1.23 2001-06-24 10:50:52 avn Exp $
  */
 
 #include <stdio.h>
@@ -244,7 +244,7 @@ spec_stats_cb(void *p, va_list ap)
 /*
  * spec_stats -- find spec stats of the skill for char,
  */
-void spec_stats(CHAR_DATA *ch, spec_skill_t *spec_sk)
+void spec_stats(const CHAR_DATA *ch, spec_skill_t *spec_sk)
 {
 	race_t *r;
 	skill_t *sk;
@@ -270,7 +270,7 @@ void spec_stats(CHAR_DATA *ch, spec_skill_t *spec_sk)
 		bonus_skills = r->race_pcdata->bonus_skills;
 	else
 		bonus_skills = NULL;
-	varr_foreach(&PC(ch)->specs, spec_stats_cb, spec_sk, bonus_skills);
+	varr_foreach(&CPC(ch)->specs, spec_stats_cb, spec_sk, bonus_skills);
 
 /* check skill affects */
 	if (get_skill_mod(ch, sk, 1))
@@ -461,7 +461,7 @@ void spec_update(CHAR_DATA *ch)
 		update_skills(ch);
 }
 
-static void *
+static const void *
 replace_cb(void *p, va_list ap)
 {
 	const char **pspn = (const char **) p;
@@ -479,7 +479,7 @@ replace_cb(void *p, va_list ap)
 	if ((spec = spec_lookup(*pspn)) != NULL
 	&&  (rv = cc_vexpr_check(&spec->spec_deps, "spec", ch,	// notrans
 				 spn_rm, spn_add)) != NULL)
-		return (void*) rv;
+		return rv;
 
 	return NULL;
 }
@@ -498,7 +498,7 @@ spec_replace(CHAR_DATA *ch, const char *spn_rm, const char *spn_add)
 				 spn_rm, spn_add)) != NULL)
 		return rv;
 
-	if ((rv = varr_foreach(&PC(ch)->specs, replace_cb, ch,
+	if ((rv = varr_foreach(&PC(ch)->specs, (foreach_cb_t)replace_cb, ch,
 			       spn_rm, spn_add)) != NULL)
 		return rv;
 

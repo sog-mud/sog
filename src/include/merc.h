@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.328 2001-06-22 07:13:33 avn Exp $
+ * $Id: merc.h,v 1.329 2001-06-24 10:50:39 avn Exp $
  */
 
 /***************************************************************************
@@ -66,6 +66,8 @@
 #include <stdarg.h>
 
 #include "typedef.h"
+
+#define _DC(expr) ((void*)(uintptr_t)(const void*)expr)
 
 /*
  * sex or gender
@@ -462,7 +464,7 @@ struct wiznet_type
 
 struct spec_type
 {
-	char *		name;			/* special function name */
+	const char *		name;		/* special function name */
 	SPEC_FUN *	function;		/* the function */
 };
 /***************************************************************************
@@ -1193,7 +1195,7 @@ enum {
  * this should be used for !IS_NPC only
  */
 #define IS_PUMPED(ch)	(!IS_NPC(ch) &&					\
-			 IS_SET(PC(ch)->plr_flags, PLR_PUMPED))
+			 IS_SET(CPC(ch)->plr_flags, PLR_PUMPED))
 
 #define SET_FIGHT_TIME(ch)						\
 	{								\
@@ -1329,6 +1331,8 @@ struct mob_index_data
 
 #define NPC(ch)	((NPC_DATA *) ((ch) + 1))
 #define PC(ch)	((PC_DATA *) ((ch) + 1))
+#define CNPC(ch)	((const NPC_DATA *) ((ch) + 1))
+#define CPC(ch)		((const PC_DATA *) ((ch) + 1))
 
 CHAR_DATA *	char_new	(MOB_INDEX_DATA *pMobIndex);
 void		char_free	(CHAR_DATA *ch);
@@ -1577,7 +1581,7 @@ struct pc_skill_t {
 	int percent;	/* skill percentage			*/
 };
 
-pc_skill_t *pc_skill_lookup(CHAR_DATA *ch, const char *sn);
+pc_skill_t *pc_skill_lookup(const CHAR_DATA *ch, const char *sn);
 
 void pc_skill_init(pc_skill_t *);
 
@@ -1854,14 +1858,14 @@ struct mpcode
 #define IS_IMMORTAL(ch)		(!IS_NPC(ch) && (ch)->level >= LEVEL_IMMORTAL)
 #define IS_HERO(ch)		(!IS_NPC(ch) && (ch)->level >= LEVEL_HERO)
 
-int trust_level(CHAR_DATA *ch);
+int trust_level(const CHAR_DATA *ch);
 #define GET_ORIGINAL(ch)	(ch->desc && ch->desc->original ?	\
 					ch->desc->original : ch)
 #define IS_TRUSTED(ch, lev)	(trust_level(ch) >= (lev))
 
 #define IS_AFFECTED(ch, bit)	(IS_SET((ch)->affected_by, (bit)))
 
-#define ORG_RACE(ch)		(IS_NPC(ch) ? (ch)->pMobIndex->race : PC(ch)->race)
+#define ORG_RACE(ch)		(IS_NPC(ch) ? (ch)->pMobIndex->race : CPC(ch)->race)
 
 #define LEVEL(ch)		((ch)->level + (ch)->add_level)
 
@@ -1916,7 +1920,7 @@ int trust_level(CHAR_DATA *ch);
 #define HAS_TRIGGER(ch,trig)	(IS_SET((ch)->pMobIndex->mptrig_types, (trig)))
 #define IS_SWITCHED( ch )       (ch->desc && ch->desc->original)
 #define IS_BUILDER(ch, Area)	(!IS_NPC(ch) && !IS_SWITCHED(ch) &&	      \
-				 (PC(ch)->security >= (Area)->security || \
+				 (CPC(ch)->security >= (Area)->security || \
 				  is_name_strict(ch->name, Area->builders)))
 
 #define MOUNTED(ch)	((!IS_NPC(ch) && ch->mount && ch->riding) ? \
@@ -2003,23 +2007,23 @@ extern		bool			MOBtrigger;
 
 ROOM_INDEX_DATA  *get_random_room(CHAR_DATA *ch, AREA_DATA *area);
 CHAR_DATA *random_char(ROOM_INDEX_DATA *room);
-CHAR_DATA *nth_char(CHAR_DATA *ch, int n);
+const CHAR_DATA *nth_char(const CHAR_DATA *ch, int n);
 OBJ_DATA *random_obj(void);
-OBJ_DATA *nth_obj(OBJ_DATA* obj, int n);
+const OBJ_DATA *nth_obj(const OBJ_DATA* obj, int n);
 
 /* handler.c */
-const char *get_stat_alias(CHAR_DATA *ch, int stat);
-int	count_users	(OBJ_DATA *obj);
+const char *get_stat_alias(CHAR_DATA *ch, int st);
+int	count_users	(const OBJ_DATA *obj);
 void	deduct_cost	(CHAR_DATA *ch, int cost);
 int	check_exit	(const char *arg);
 
-int	get_hours	(CHAR_DATA *ch);
-int	get_age		(CHAR_DATA *ch);
+int	get_hours	(const CHAR_DATA *ch);
+int	get_age		(const CHAR_DATA *ch);
 
-int	get_curr_stat	(CHAR_DATA *ch, int stat);
-int	get_max_train	(CHAR_DATA *ch, int stat);
-int	can_carry_n	(CHAR_DATA *ch);
-int	can_carry_w	(CHAR_DATA *ch);
+int	get_curr_stat	(const CHAR_DATA *ch, int st);
+int	get_max_train	(const CHAR_DATA *ch, int st);
+int	can_carry_n	(const CHAR_DATA *ch);
+int	can_carry_w	(const CHAR_DATA *ch);
 int	age_to_num	(int);
 
 bool	pc_name_ok	(const char *name);
@@ -2028,7 +2032,7 @@ void	char_to_room	(CHAR_DATA *ch, ROOM_INDEX_DATA *pRoomIndex);
 void	obj_to_char	(OBJ_DATA *obj, CHAR_DATA *ch);
 void	obj_from_char	(OBJ_DATA *obj);
 int	apply_ac	(OBJ_DATA *obj, int iWear, int type);
-OBJ_DATA *	get_eq_char	(CHAR_DATA *ch, int iWear);
+OBJ_DATA *	get_eq_char	(const CHAR_DATA *ch, int iWear);
 void		_equip_char	(CHAR_DATA *ch, OBJ_DATA *obj);
 OBJ_DATA *	equip_char	(CHAR_DATA *ch, OBJ_DATA *obj, int iWear);
 void	unequip_char	(CHAR_DATA *ch, OBJ_DATA *obj);
@@ -2071,27 +2075,27 @@ enum {
 	GETOBJ_F_WORN,		/* obj->wear_loc != WEAR_NONE (worn)	     */
 };
 
-OBJ_DATA *	get_obj_list	(CHAR_DATA *ch, const char *argument,
+OBJ_DATA *	get_obj_list	(const CHAR_DATA *ch, const char *argument,
 				 OBJ_DATA *list, int flags);
-OBJ_DATA *	get_obj_carry	(CHAR_DATA *ch, const char *argument);
-OBJ_DATA *	get_obj_wear	(CHAR_DATA *ch, const char *argument);
-OBJ_DATA *	get_obj_here	(CHAR_DATA *ch, const char *argument);
-OBJ_DATA *	get_obj_room	(CHAR_DATA *ch, const char *argument);
-OBJ_DATA *	get_obj_world	(CHAR_DATA *ch, const char *argument);
+OBJ_DATA *	get_obj_carry	(const CHAR_DATA *ch, const char *argument);
+OBJ_DATA *	get_obj_wear	(const CHAR_DATA *ch, const char *argument);
+OBJ_DATA *	get_obj_here	(const CHAR_DATA *ch, const char *argument);
+OBJ_DATA *	get_obj_room	(const CHAR_DATA *ch, const char *argument);
+OBJ_DATA *	get_obj_world	(const CHAR_DATA *ch, const char *argument);
 
 OBJ_DATA *	create_money	(int gold, int silver);
 int	get_obj_number	(OBJ_DATA *obj);
 int	get_obj_realnumber	(OBJ_DATA *obj);
 int	get_obj_weight	(OBJ_DATA *obj);
 int	get_true_weight (OBJ_DATA *obj);
-bool	room_is_dark	(CHAR_DATA *ch);
-bool	room_dark	(ROOM_INDEX_DATA *pRoomIndex);
-int	isn_dark_safe	(CHAR_DATA *ch);
-bool	room_is_private (ROOM_INDEX_DATA *pRoomIndex);
-bool	can_see		(CHAR_DATA *ch, CHAR_DATA *victim);
-bool	can_see_obj	(CHAR_DATA *ch, OBJ_DATA *obj);
-bool	can_see_room	(CHAR_DATA *ch, ROOM_INDEX_DATA *pRoomIndex);
-bool	can_drop_obj	(CHAR_DATA *ch, OBJ_DATA *obj);
+bool	room_is_dark	(const CHAR_DATA *ch);
+bool	room_dark	(const ROOM_INDEX_DATA *pRoomIndex);
+int	isn_dark_safe	(const CHAR_DATA *ch);
+bool	room_is_private (const ROOM_INDEX_DATA *pRoomIndex);
+bool	can_see		(const CHAR_DATA *ch, const CHAR_DATA *victim);
+bool	can_see_obj	(const CHAR_DATA *ch, const OBJ_DATA *obj);
+bool	can_see_room	(const CHAR_DATA *ch, const ROOM_INDEX_DATA *pRoomIndex);
+bool	can_drop_obj	(const CHAR_DATA *ch, const OBJ_DATA *obj);
 void	room_record	(const char *name, ROOM_INDEX_DATA *room,int door);
 int	count_charmed	(CHAR_DATA *ch);
 void	damage_to_obj	(CHAR_DATA *ch, OBJ_DATA *wield, OBJ_DATA *worn,
@@ -2158,7 +2162,7 @@ void		delete_player	(CHAR_DATA *victim, const char* msg);
 
 /* special.c */
 SPEC_FUN *	mob_spec_lookup	(const char *name);
-char *		mob_spec_name(SPEC_FUN *function);
+const char *	mob_spec_name(SPEC_FUN *function);
 
 RESET_DATA *	reset_new	(void);
 void		reset_free	(RESET_DATA *pReset);
@@ -2288,7 +2292,9 @@ CHAR_DATA*	leader_lookup	(CHAR_DATA *ch);
 const char *	garble		(CHAR_DATA *ch, const char *txt);
 void		do_tell_raw	(CHAR_DATA *ch, CHAR_DATA *victim,
 				 const char *msg);
-#define	is_same_group(ach, bch) (leader_lookup(ach) == leader_lookup(bch))
+#define	is_same_group(ach, bch)						\
+	(leader_lookup((CHAR_DATA*)(uintptr_t)ach) ==			\
+	leader_lookup((CHAR_DATA*)(uintptr_t)bch))
 void	do_who_raw	(CHAR_DATA *ch, CHAR_DATA *vch, BUFFER *output);
 
 void move_char(CHAR_DATA *ch, int door, bool follow);
@@ -2312,7 +2318,7 @@ void reboot_mud(void);
 ROOM_INDEX_DATA *find_location(CHAR_DATA *ch, const char *argument);
 
 void substitute_alias(DESCRIPTOR_DATA *d, const char *argument);
-const char *get_cond_alias(OBJ_DATA *obj);
+const char *get_cond_alias(const OBJ_DATA *obj);
 
 /*
  * `advance' and `gain_exp' assume !IS_NPC(victim)

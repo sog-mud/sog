@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: spec.h,v 1.11 1999-12-20 12:09:52 kostik Exp $
+ * $Id: spec.h,v 1.12 2001-06-24 10:50:40 avn Exp $
  */
 
 #ifndef _SPEC_H_
@@ -76,7 +76,7 @@ spec_skill_t *spec_skill_lookup(spec_t *s, const char *sn);
 #define spec_lookup(spn)	((spec_t*) strkey_lookup(&specs, (spn)))
 #define spec_search(spn)	((spec_t*) strkey_search(&specs, (spn)))
 
-void spec_stats		(CHAR_DATA *ch, spec_skill_t *spec_sk);
+void spec_stats		(const CHAR_DATA *ch, spec_skill_t *spec_sk);
 
 bool has_spec		(CHAR_DATA *ch, const char *spn);
 bool spec_add		(CHAR_DATA *ch, const char *spn);

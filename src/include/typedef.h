@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: typedef.h,v 1.44 2001-06-16 18:40:09 fjoe Exp $
+ * $Id: typedef.h,v 1.45 2001-06-24 10:50:40 avn Exp $
  */
 
 #ifndef _TYPEDEF_H_
@@ -129,10 +129,17 @@ typedef void	EVENT_FUN	(CHAR_DATA *ch, AFFECT_DATA *af);
 #define DECLARE_DO_FUN(fun)	DO_FUN fun
 #define DECLARE_OPROG_FUN(fun)	OPROG_FUN fun
 #define DECLARE_EVENT_FUN(fun)	EVENT_FUN fun
+#define DECLARE_SPELL_FUN(fun)	SPELL_FUN fun
 
+#define DO_FUN(fun)	void	fun(CHAR_DATA *ch,			\
+				const char *argument __attribute((unused)))
 #define SPEC_FUN(fun)	bool	fun(CHAR_DATA *ch)
-#define OPROG_FUN(fun)	int	fun(OBJ_DATA *obj, CHAR_DATA *ch, void *arg);
+#define OPROG_FUN(fun)	int	fun(OBJ_DATA *obj __attribute__((unused)),\
+				CHAR_DATA *ch __attribute__((unused)),	\
+				const void *arg __attribute__((unused)))
 #define EVENT_FUN(fun)	void	fun(CHAR_DATA *ch, AFFECT_DATA *af)
+#define SPELL_FUN(fun)	void	fun(const char *sn, int level,		\
+				CHAR_DATA *ch, void *vo)
 
 /* WIN32 Microsoft specific definitions */
 #if defined (WIN32)

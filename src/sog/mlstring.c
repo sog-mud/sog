@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mlstring.c,v 1.57 2001-06-22 07:13:54 avn Exp $
+ * $Id: mlstring.c,v 1.58 2001-06-24 10:50:47 avn Exp $
  */
 
 #include <stdio.h>
@@ -81,7 +81,8 @@ void mlstr_fread(rfile_t *fp, mlstring *mlp)
 {
 	const char *p;
 	const char *s;
-	int lang;
+	size_t lang;
+	lang_t *l;
 
 	mlstr_clear(mlp);
 
@@ -109,10 +110,11 @@ void mlstr_fread(rfile_t *fp, mlstring *mlp)
 			return;
 		}
 
-		if ((lang = lang_nlookup(s, (unsigned)(q-s))) < 0) {
+		if ((l = lang_nlookup(s, (unsigned)(q-s))) == NULL) {
 			log(LOG_ERROR, "mlstr_fread: %s: unknown language", s);
 			return;
 		}
+		lang = varr_index(&langs, l);
 
 		if (mlp->u.lstr[lang] != NULL) {
 			log(LOG_ERROR, "mlstr_fread: lang %s: redefined", s);
@@ -245,9 +247,8 @@ const char * mlstr_val(const mlstring *mlp, size_t lang)
 		lang_t *l;
 
 		if ((l = varr_get(&langs, lang))
-		&&  l->slang_of != lang
-		&&  l->slang_of < mlp->nlang)
-			lang = l->slang_of;
+		&&  l->slang_of != NULL)
+			lang = varr_index(&langs, l->slang_of);
 		else
 			return str_empty;
 	}
@@ -265,7 +266,7 @@ static MLSTR_FOREACH_FUN(mlstr_null_cb)
 
 bool mlstr_null(const mlstring *mlp)
 {
-	return mlstr_foreach((mlstring *) mlp, mlstr_null_cb) == NULL;
+	return mlstr_foreach((mlstring*)(uintptr_t)mlp, mlstr_null_cb) == NULL;
 }
 
 static MLSTR_FOREACH_FUN(mlstr_valid_cb)
@@ -280,12 +281,12 @@ bool mlstr_valid(const mlstring *mlp)
 	if (mlp->nlang > langs.nused)
 		return FALSE;
 
-	return mlstr_foreach((mlstring *) mlp, mlstr_valid_cb) == NULL;
+	return mlstr_foreach((mlstring*)(uintptr_t)mlp, mlstr_valid_cb) == NULL;
 }
 
 int mlstr_cmp(const mlstring *mlp1, const mlstring *mlp2)
 {
-	int lang;
+	size_t lang;
 	int res;
 
 	if (mlp1 == NULL)
@@ -311,12 +312,12 @@ int mlstr_cmp(const mlstring *mlp1, const mlstring *mlp2)
 	return 0;
 }
 
-const char** mlstr_convert(mlstring *mlp, int newlang)
+const char** mlstr_convert(mlstring *mlp, lang_t *newlang)
 {
 	const char *old;
-	int lang;
+	size_t lang;
 
-	if (newlang < 0) {
+	if (newlang == NULL) {
 		/* convert to language-independent */
 		if (mlp->nlang) {
 			old = mlp->u.lstr[0];
@@ -336,15 +337,15 @@ const char** mlstr_convert(mlstring *mlp, int newlang)
 		mlp->u.lstr = calloc(1, sizeof(char*) * langs.nused);
 		mlp->u.lstr[0] = old;
 	}
-	return mlp->u.lstr + newlang;
+	return mlp->u.lstr + varr_index(&langs, newlang);
 }
 
 bool mlstr_append(CHAR_DATA *ch, mlstring *mlp, const char *arg)
 {
-	int lang;
+	lang_t *lang;
 
 	lang = lang_lookup(arg);
-	if (lang < 0 && str_cmp(arg, "all"))
+	if (lang == NULL && str_cmp(arg, "all"))
 		return FALSE;
 
 	string_append(ch, mlstr_convert(mlp, lang));
@@ -355,7 +356,7 @@ const char *
 mlstr_foreach(mlstring *mlp, 
 	      mlstr_foreach_cb_t cb, ...)
 {
-	int lang;
+	size_t lang;
 	const char *rv = NULL;
 	va_list ap;
 
@@ -378,15 +379,12 @@ mlstr_foreach(mlstring *mlp,
 bool mlstr_edit(mlstring *mlp, const char *argument)
 {
 	char arg[MAX_STRING_LENGTH];
-	int lang = -1;
+	lang_t *lang;
 	const char **p;
 
 	argument = one_argument(argument, arg, sizeof(arg));
-	if (str_cmp(arg, "all")) {
-		lang = lang_lookup(arg);
-		if (lang < 0)
-			return FALSE;
-	}
+	if ((lang = lang_lookup(arg)) == NULL && str_cmp(arg, "all"))
+		return FALSE;
 
 	p = mlstr_convert(mlp, lang);
 	free_string(*p);
@@ -400,12 +398,11 @@ bool mlstr_edit(mlstring *mlp, const char *argument)
 bool mlstr_editnl(mlstring *mlp, const char *argument)
 {
 	char arg[MAX_STRING_LENGTH];
-	int lang;
+	lang_t *lang;
 	const char **p;
 
 	argument = one_argument(argument, arg, sizeof(arg));
-	lang = lang_lookup(arg);
-	if (lang < 0 && str_cmp(arg, "all"))
+	if ((lang = lang_lookup(arg)) == NULL && str_cmp(arg, "all"))
 		return FALSE;
 
 	p = mlstr_convert(mlp, lang);
@@ -419,7 +416,7 @@ void mlstr_dump(BUFFER *buf, const char *name, const mlstring *mlp,
 {
 	char space[MAX_STRING_LENGTH];
 	size_t namelen;
-	int lang;
+	size_t lang;
 	static char FORMAT[] = "%s[%s] [%s]\n";			// notrans
 	lang_t *l;
 
@@ -442,7 +439,7 @@ void mlstr_dump(BUFFER *buf, const char *name, const mlstring *mlp,
 		return;
 
 	namelen = strlen(name);
-	namelen = URANGE(0, namelen, sizeof(space)-1);
+	namelen = UMIN(namelen, sizeof(space)-1);
 	memset(space, ' ', namelen);
 	space[namelen] = '\0';
 
@@ -538,7 +535,7 @@ static const char *smash_a(const char *s, int len)
 	char *p = buf;
 	const char *q = s;
 
-	if (len < 0 || len > sizeof(buf)-1)
+	if (len < 0 || (unsigned)(len + 1) > sizeof(buf))
 		len = sizeof(buf)-1;
 
 	if (*q == '.')

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: module.c,v 1.19 2001-01-23 21:47:00 fjoe Exp $
+ * $Id: module.c,v 1.20 2001-06-24 10:50:49 avn Exp $
  */
 
 /*
@@ -53,7 +53,10 @@ static module_t *modset_search	(varr *v, const char *name);
 static int	modset_elem_cmp	(const void *, const void *);
 
 static varrdata_t v_modset = {
-	sizeof(module_t*), 4
+	sizeof(module_t*), 4,
+	NULL,
+	NULL,
+	NULL
 };
 
 int
@@ -103,7 +106,7 @@ mod_lookup(const char *name)
  * load module
  */
 static void *
-mod_load_cb(void *arg, va_list ap)
+mod_load_cb(void *arg, va_list ap __attribute__((unused)))
 {
 	module_t *m = *(module_t **) arg;
 
@@ -155,7 +158,7 @@ mod_load_cb(void *arg, va_list ap)
  * unload previously loaded module
  */
 static void *
-mod_unload_cb(void *arg, va_list ap)
+mod_unload_cb(void *arg, va_list ap __attribute__((unused)))
 {
 	module_t *m = *(module_t **) arg;
 
@@ -261,8 +264,8 @@ modset_search(varr *v, const char *name)
 static int
 modset_elem_cmp(const void *p, const void *q)
 {
-	module_t *m1 = *(module_t **) p;
-	module_t *m2 = *(module_t **) q;
+	const module_t *m1 = *(const module_t **) p;
+	const module_t *m2 = *(const module_t **) q;
 
 	return m2->mod_prio - m1->mod_prio;
 }

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_damtype.c,v 1.13 2001-01-18 22:20:15 fjoe Exp $
+ * $Id: db_damtype.c,v 1.14 2001-06-24 10:51:01 avn Exp $
  */
 
 #include <stdio.h>
@@ -38,11 +38,11 @@ DECLARE_DBINIT_FUN(init_damtype);
 
 DBFUN dbfun_damtype[] =
 {
-	{ "DAMTYPE",	load_damtype	},		// notrans
-	{ NULL }
+	{ "DAMTYPE",	load_damtype, 	NULL	},		// notrans
+	{ NULL, NULL, NULL }
 };
 
-DBDATA db_damtype = { dbfun_damtype, init_damtype };
+DBDATA db_damtype = { dbfun_damtype, init_damtype, 0 };
 
 static hashdata_t h_damtypes =
 {

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db.h,v 1.78 2001-06-22 07:13:32 avn Exp $
+ * $Id: db.h,v 1.79 2001-06-24 10:50:38 avn Exp $
  */
 
 #ifndef _DB_H_
@@ -75,14 +75,15 @@ typedef struct dbdata DBDATA;
 
 typedef void DBLOAD_FUN(DBDATA *dbdata, rfile_t *fp, void *arg);
 #define DECLARE_DBLOAD_FUN(fun) DBLOAD_FUN fun
-#define DBLOAD_FUN(fun) void fun(DBDATA *dbdata, rfile_t *fp, void *arg)
+#define DBLOAD_FUN(fun) void fun(DBDATA *dbdata __attribute__((unused)),\
+		rfile_t *fp, void *arg __attribute__((unused)))
 
 typedef void DBINIT_FUN(DBDATA *dbdata);
 #define DECLARE_DBINIT_FUN(fun) DBINIT_FUN fun
 #define DBINIT_FUN(fun) void fun(DBDATA *dbdata)
 
 struct dbfun {
-	char *		name;
+	const char *	name;
 	DBLOAD_FUN *	fun;
 	void *		arg;
 };
@@ -116,7 +117,12 @@ extern DBDATA db_spec;
 extern DBDATA db_system;
 extern DBDATA db_forms;
 
+void dbdata_init(DBDATA *dbdata);
+DBFUN *dbfun_lookup(DBDATA *dbdata, const char *name);
 void db_load_file(DBDATA *, const char *path, const char *file);
+void db_parse_file(DBDATA *dbdata, const char *path, const char *file);
+void db_load_dir(DBDATA *dbdata, const char *path, const char *ext);
+void db_load_list(DBDATA *dbdata, const char *path, const char *file);
 void db_set_arg(DBDATA *, const char* name, void *arg);
 
 /*
@@ -196,6 +202,7 @@ extern int		top_exit;
 extern int		top_help;
 extern int		top_reset;
 extern int		top_room;
+extern int		top_mprog_index;
 extern int		top_shop;
 extern int		social_count;
 extern int		str_count;

@@ -1,5 +1,5 @@
 /*
- * $Id: string_edit.c,v 1.46 2001-01-23 21:47:01 fjoe Exp $
+ * $Id: string_edit.c,v 1.47 2001-06-24 10:50:53 avn Exp $
  */
 
 /***************************************************************************
@@ -66,7 +66,8 @@ string_replace(const char *orig, const char *old, const char *new, int flags)
 		 * cat prefix
 		 */
 		if (p > orig)
-			strnzncat(xbuf, sizeof(xbuf), orig, p - orig);
+			strnzncat(xbuf, sizeof(xbuf),
+				orig, (unsigned)(p - orig));
 
 		/*
 		 * cat replacement
@@ -337,7 +338,7 @@ const char *format_string(const char *oldstring /*, bool fSpace */)
   char xbuf[MAX_STRING_LENGTH];
   char xbuf2[MAX_STRING_LENGTH];
   const char *rdesc;
-  int i=0;
+  uint i=0;
   bool cap=TRUE;
   
 	if (IS_NULLSTR(oldstring))
@@ -541,7 +542,7 @@ const char *string_lineadd(const char *string, char *newstr, int line)
 /*
  * getline -- copy str to buf up to '\n', len is buf size
  */
-const char *getline(const char *str, char *buf, size_t len)
+static const char *getline(const char *str, char *buf, size_t len)
 {
 	const char *p;
 
@@ -549,7 +550,7 @@ const char *getline(const char *str, char *buf, size_t len)
 	if (!p) 
 		p = strchr(str, '\0');
 
-	strnzncpy(buf, len, str, p - str);
+	strnzncpy(buf, len, str, (unsigned)(p - str));
 
 	if (*p == '\n') {
 		p++;

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: str.h,v 1.16 2001-06-23 17:17:14 fjoe Exp $
+ * $Id: str.h,v 1.17 2001-06-24 10:50:40 avn Exp $
  */
 
 #ifndef _STR_H_
@@ -63,8 +63,8 @@ bool	str_prefix	(const char *astr, const char *bstr);
 bool	str_infix	(const char *astr, const char *bstr);
 bool	str_suffix	(const char *astr, const char *bstr);
 
-int hashstr(const char *s, int maxn, int hashs);
-int hashcasestr(const char *s, int maxn, int hashs);
+size_t hashstr(const char *s, size_t maxn, size_t hashs);
+size_t hashcasestr(const char *s, size_t maxn, size_t hashs);
 
 /**
  * Compare two pointers to strings (case-insensitive)

@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.242 2001-06-22 07:13:56 avn Exp $
+ * $Id: db.c,v 1.243 2001-06-24 10:50:59 avn Exp $
  */
 
 /***************************************************************************
@@ -86,7 +86,7 @@
 #	define d_namlen d_reclen
 #endif
 
-void scan_pfiles();
+void scan_pfiles(void);
 
 extern	int	_filbuf		(FILE *);
 
@@ -252,18 +252,15 @@ static void	init_mm         (void);
 static void	fix_resets	(void);
 static void	fix_exits	(void);
 
-void	reset_area	(AREA_DATA * pArea);
-
 DECLARE_DBLOAD_FUN(load_glob_gmlstr);
 DECLARE_DBINIT_FUN(init_glob_gmlstr);
 
-DBFUN dbfun_glob_gmlstr[] =
-{
-	{ "GLOB",	load_glob_gmlstr	},	// notrans
-	{ NULL }
+DBFUN dbfun_glob_gmlstr[] = {
+	{ "GLOB",	load_glob_gmlstr,	NULL	},	// notrans
+	{ NULL, NULL, NULL }
 };
 
-DBDATA db_glob_gmlstr = { dbfun_glob_gmlstr, init_glob_gmlstr };
+DBDATA db_glob_gmlstr = { dbfun_glob_gmlstr, init_glob_gmlstr, 0 };
 
 void dbdata_init(DBDATA *dbdata)
 {
@@ -430,11 +427,15 @@ void boot_db_system(void)
 static int
 module_cmp(const void *p, const void *q)
 {
-	module_t *m1 = (module_t *) p;
-	module_t *m2 = (module_t *) q;
+	const module_t *m1 = (const module_t *) p;
+	const module_t *m2 = (const module_t *) q;
 
 	return m2->mod_prio - m1->mod_prio;
 }
+
+#ifdef __FreeBSD__
+extern const char* malloc_options;
+#endif
 
 /*
  * Big mama top level function.
@@ -442,12 +443,11 @@ module_cmp(const void *p, const void *q)
 void boot_db(void)
 {
 	long lhour, lday, lmonth;
-	int i;
+	size_t i;
 	time_t curr_time;
 
 #ifdef __FreeBSD__
-	extern char* malloc_options;
-	malloc_options = "X";					// notrans
+	malloc_options = "X";			// notrans
 #endif
 
 #ifdef OLD_RAND
@@ -1603,7 +1603,7 @@ char *fix_string(const char *s)
 	if (*s == '.' || isspace(*s))
 		*p++ = '.';
 
-	for (; *s && p-buf < sizeof(buf)-2; s++) {
+	for (; *s && p < buf + sizeof(buf) - 2; s++) {
 		switch (*s) {
 		case '~':
 			*p++ = *s;
@@ -1741,7 +1741,7 @@ static  int     rgiState[2+55];
 #endif
  
 static void
-init_mm()
+init_mm(void)
 {
 #if defined (OLD_RAND)
 	int *piState;
@@ -2236,7 +2236,8 @@ static varrdata_t v_hints =
 {
 	sizeof(hint_t), 4,
 	(e_init_t) hint_init,
-	(e_destroy_t) hint_destroy
+	(e_destroy_t) hint_destroy,
+	NULL
 };
 
 static void

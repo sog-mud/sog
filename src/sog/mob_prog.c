@@ -1,5 +1,5 @@
 /*
- * $Id: mob_prog.c,v 1.63 2001-06-20 06:37:44 avn Exp $
+ * $Id: mob_prog.c,v 1.64 2001-06-24 10:50:48 avn Exp $
  */
 
 /***************************************************************************
@@ -221,6 +221,21 @@ const char *fn_evals[] =
     "\n"
 };
 
+static void expand_arg(char *buf, 
+	const char *format, 
+	CHAR_DATA *mob, CHAR_DATA *ch, 
+	const void *arg1, const void *arg2, CHAR_DATA *rch);
+static int cmd_eval(int vnum, const char *line, int check,
+	CHAR_DATA *mob, CHAR_DATA *ch, 
+	const void *arg1, const void *arg2, CHAR_DATA *rch);
+static int keyword_lookup(const char **table, char *keyword);
+static int num_eval(int lval, int oper, int rval);
+static CHAR_DATA *get_random_char(CHAR_DATA *mob);
+static int count_people_room(const CHAR_DATA *mob, int iFlag);
+static int get_order(const CHAR_DATA *ch);
+static bool has_item(const CHAR_DATA *ch, int vnum, int item_type, bool fWear);
+static bool get_obj_vnum_room(const CHAR_DATA *ch, int vnum);
+static bool get_mob_vnum_room(const CHAR_DATA *ch, int vnum);
 /*
  * smash '~'
  */
@@ -233,7 +248,7 @@ fix_short(const char *s)
 	if (!strchr(s, '~'))
 		return s;
 
-	for (p = buf; *s && p-buf < sizeof(buf)-1; s++) {
+	for (p = buf; *s && p < buf + sizeof(buf) - 1; s++) {
 		if (*s == '~')
 			continue;
 		*p++ = *s;
@@ -246,7 +261,7 @@ fix_short(const char *s)
 /*
  * Return a valid keyword from a keyword table
  */
-int keyword_lookup(const char **table, char *keyword)
+static int keyword_lookup(const char **table, char *keyword)
 {
     register int i;
     for(i = 0; table[i][0] != '\n'; i++)
@@ -259,7 +274,7 @@ int keyword_lookup(const char **table, char *keyword)
  * Perform numeric evaluation.
  * Called by cmd_eval()
  */
-int num_eval(int lval, int oper, int rval)
+static int num_eval(int lval, int oper, int rval)
 {
     switch(oper)
     {
@@ -290,7 +305,7 @@ int num_eval(int lval, int oper, int rval)
 /*
  * Get a random PC in the room (for $r parameter)
  */
-CHAR_DATA *get_random_char(CHAR_DATA *mob)
+static CHAR_DATA *get_random_char(CHAR_DATA *mob)
 {
     CHAR_DATA *vch, *victim = NULL;
     int now = 0, highest = 0;
@@ -312,7 +327,7 @@ CHAR_DATA *get_random_char(CHAR_DATA *mob)
  * How many other players / mobs are there in the room
  * iFlag: 0: all, 1: players, 2: mobiles 3: mobs w/ same vnum 4: same group
  */
-int count_people_room(CHAR_DATA *mob, int iFlag)
+static int count_people_room(const CHAR_DATA *mob, int iFlag)
 {
     CHAR_DATA *vch;
     int count;
@@ -334,7 +349,7 @@ int count_people_room(CHAR_DATA *mob, int iFlag)
  * a room have the same trigger and you want only the first of them
  * to act 
  */
-int get_order(CHAR_DATA *ch)
+static int get_order(const CHAR_DATA *ch)
 {
     CHAR_DATA *vch;
     int i;
@@ -358,7 +373,7 @@ int get_order(CHAR_DATA *ch)
  * item_type: item type or -1
  * fWear: TRUE: item must be worn, FALSE: don't care
  */
-bool has_item(CHAR_DATA *ch, int vnum, int item_type, bool fWear)
+static bool has_item(const CHAR_DATA *ch, int vnum, int item_type, bool fWear)
 {
     OBJ_DATA *obj;
     for (obj = ch->carrying; obj; obj = obj->next_content)
@@ -372,7 +387,7 @@ bool has_item(CHAR_DATA *ch, int vnum, int item_type, bool fWear)
 /*
  * Check if there's a mob with given vnum in the room
  */
-bool get_mob_vnum_room(CHAR_DATA *ch, int vnum)
+static bool get_mob_vnum_room(const CHAR_DATA *ch, int vnum)
 {
     CHAR_DATA *mob;
     for (mob = ch->in_room->people; mob; mob = mob->next_in_room)
@@ -384,7 +399,7 @@ bool get_mob_vnum_room(CHAR_DATA *ch, int vnum)
 /*
  * Check if there's an object with given vnum in the room
  */
-bool get_obj_vnum_room(CHAR_DATA *ch, int vnum)
+static bool get_obj_vnum_room(const CHAR_DATA *ch, int vnum)
 {
     OBJ_DATA *obj;
     for (obj = ch->in_room->contents; obj; obj = obj->next_content)
@@ -405,15 +420,15 @@ bool get_obj_vnum_room(CHAR_DATA *ch, int vnum)
  *
  *----------------------------------------------------------------------
  */
-int cmd_eval(int vnum, const char *line, int check,
+static int cmd_eval(int vnum, const char *line, int check,
 	CHAR_DATA *mob, CHAR_DATA *ch, 
 	const void *arg1, const void *arg2, CHAR_DATA *rch)
 {
-    CHAR_DATA *lval_char = mob;
-    CHAR_DATA *vch = (CHAR_DATA *) arg2;
-    OBJ_DATA *obj1 = (OBJ_DATA  *) arg1;
-    OBJ_DATA *obj2 = (OBJ_DATA  *) arg2;
-    OBJ_DATA  *lval_obj = NULL;
+    const CHAR_DATA *lval_char = mob;
+    const CHAR_DATA *vch = (const CHAR_DATA *) arg2;
+    const OBJ_DATA *obj1 = (const OBJ_DATA  *) arg1;
+    const OBJ_DATA *obj2 = (const OBJ_DATA  *) arg2;
+    const OBJ_DATA  *lval_obj = NULL;
 
     const char *original;
     char buf[MAX_INPUT_LENGTH], code;
@@ -553,7 +568,7 @@ int cmd_eval(int vnum, const char *line, int check,
 	    return(lval_char != NULL && lval_char->position > POS_SLEEPING);
 	case CHK_ISDELAY:
 	    return(lval_char != NULL && IS_NPC(lval_char) &&
-		   NPC(lval_char)->mprog_delay > 0);
+		   CNPC(lval_char)->mprog_delay > 0);
 	case CHK_ISVISIBLE:
             switch(code)
             {
@@ -570,13 +585,13 @@ int cmd_eval(int vnum, const char *line, int check,
 	    }
 	case CHK_HASTARGET:
 	    return(lval_char != NULL && IS_NPC(lval_char) &&
-			NPC(lval_char)->mprog_target != NULL
-		&&  lval_char->in_room == NPC(lval_char)->mprog_target->in_room);
+			CNPC(lval_char)->mprog_target != NULL
+		&&  lval_char->in_room == CNPC(lval_char)->mprog_target->in_room);
 	case CHK_ISTARGET:
 	    return(lval_char != NULL && NPC(mob)->mprog_target == lval_char);
 	case CHK_ISGHOST:
 		return (lval_char && !IS_NPC(lval_char) &&
-			IS_SET(PC(lval_char)->plr_flags, PLR_GHOST));
+			IS_SET(CPC(lval_char)->plr_flags, PLR_GHOST));
 	case CHK_WAIT:
 		return (lval_char && lval_char->wait);
 	case CHK_SAMECLAN:
@@ -726,7 +741,7 @@ int cmd_eval(int vnum, const char *line, int check,
  * so that missing or invalid $-codes do not crash the server
  * ------------------------------------------------------------------------
  */
-void expand_arg(char *buf, 
+static void expand_arg(char *buf, 
 	const char *format, 
 	CHAR_DATA *mob, CHAR_DATA *ch, 
 	const void *arg1, const void *arg2, CHAR_DATA *rch)
@@ -736,9 +751,9 @@ void expand_arg(char *buf,
     const char *someones = "someone's";
  
     char fname[MAX_INPUT_LENGTH];
-    CHAR_DATA *vch = (CHAR_DATA *) arg2;
-    OBJ_DATA *obj1 = (OBJ_DATA  *) arg1;
-    OBJ_DATA *obj2 = (OBJ_DATA  *) arg2;
+    const CHAR_DATA *vch = (const CHAR_DATA *) arg2;
+    const OBJ_DATA *obj1 = (const OBJ_DATA  *) arg1;
+    const OBJ_DATA *obj2 = (const OBJ_DATA  *) arg2;
     const char *str;
     const char *i;
     char *point;
@@ -973,7 +988,7 @@ void program_flow(int pvnum, CHAR_DATA *mob, CHAR_DATA *ch,
      */
     while (*code)
     {
-	bool first_arg = TRUE;
+	bool firstarg = TRUE;
 	char *b = buf, *c = control, *d = data;
 	/*
 	 * Get a command line. We sneakily get both the control word
@@ -986,14 +1001,14 @@ void program_flow(int pvnum, CHAR_DATA *mob, CHAR_DATA *ch,
 		break;
 	    else if (isspace(*code))
 	    {
-		if (first_arg)
-		    first_arg = FALSE;
+		if (firstarg)
+		    firstarg = FALSE;
 		else
 		    *d++ = *code;
 	    }
 	    else
 	    {
-		if (first_arg)
+		if (firstarg)
 		   *c++ = *code;
 		else
 		   *d++ = *code;

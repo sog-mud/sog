@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: lang.h,v 1.21 2001-06-22 07:13:32 avn Exp $
+ * $Id: lang.h,v 1.22 2001-06-24 10:50:38 avn Exp $
  */
 
 #ifndef _LANG_H_
@@ -105,7 +105,7 @@ struct lang_t {
 	const char *	file_name;
 
 	flag_t		lang_flags;
-	size_t		slang_of;		/* id of base lang */
+	lang_t *	slang_of;
 
 	rulecl_t	rules[MAX_RULECL];
 };
@@ -116,9 +116,8 @@ struct lang_t {
 extern varr	langs;
 
 void	lang_init(lang_t *);
-void	lang_destroy(lang_t *);
 
-int	lang_lookup(const char*);
-int	lang_nlookup(const char*, size_t len);
+lang_t	*lang_lookup(const char*);
+lang_t	*lang_nlookup(const char*, size_t len);
 
 #endif

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: util.c,v 1.29 2001-06-16 18:40:12 fjoe Exp $
+ * $Id: util.c,v 1.30 2001-06-24 10:50:54 avn Exp $
  */
 
 #include <sys/types.h>
@@ -106,7 +106,7 @@ const char *get_filename(const char *name)
 
 int cmpint(const void *p1, const void *p2)
 {
-	return *(int*) p1 - *(int*) p2;
+	return *(const int*) p1 - *(const int*) p2;
 }
 
 size_t cstrlen(const char *cstr)
@@ -158,9 +158,9 @@ bool is_number(const char *argument)
 	return TRUE;
 }
 
-char *strtime(time_t time)
+char *strtime(time_t tm)
 {
-	char *p = ctime(&time);
+	char *p = ctime(&tm);
 	p[24] = '\0';
 	return p;
 }
@@ -171,7 +171,7 @@ strdump(const char *argument, int dump_level)
 	static char buf[2][MAX_STRING_LENGTH];
 	static int cnt;
 	const char *i;
-	int o;
+	size_t o;
 
 	if (IS_NULLSTR(argument))
 		return argument;

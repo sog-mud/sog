@@ -14,41 +14,31 @@ alnum	[a-zA-Z0-9_]
 #include "cc_expr.h"
 #include "str.h"
 
-#define yylval cc_yylval
-#define yyerror cc_yyerror
-#define yyparse cc_yyparse
-#define yylval cc_yylval
-#define yy_scan_string cc_yy_scan_string
-#define yy_delete_buffer cc_yy_delete_buffer
-
-#include "cc_parse.h"
 #include "cc_lex.h"
+#include "cc_parse.h"
 
 ctx_t cc_ctx;
 
 jmp_buf cc_jmpbuf;
 
-static char buf[128];
+static char gbuf[128];
 static char *s;
 
 #define COPYOUT(c)					\
 	do {						\
-		if (s - buf > sizeof(buf) - 1)		\
+		if (s > gbuf + sizeof(gbuf) - 1)		\
 			yyerror("string too long");	\
 		*s++ = (c);				\
 	} while (0);
 
 #define YY_NO_UNPUT
 
-extern int yyparse();
-extern void yyerror(const char *);
-
 %}
 
 %x X_STRING
 
 %%
-\"				{ BEGIN X_STRING; s = buf; }
+\"				{ BEGIN X_STRING; s = gbuf; }
 <X_STRING>\\n			{ COPYOUT('\n'); }
 <X_STRING>\\r			{ COPYOUT('\r'); }
 <X_STRING>\\t			{ COPYOUT('\t'); }
@@ -56,7 +46,7 @@ extern void yyerror(const char *);
 <X_STRING>\\\"			{ COPYOUT('\"'); }
 <X_STRING>\"			{ COPYOUT('\0');
 				  BEGIN 0;
-				  yylval.s = str_dup(buf);
+				  yylval.s = str_dup(gbuf);
 				  return STRING;
 				}
 <X_STRING>.			{ COPYOUT(*yytext); }
@@ -70,18 +60,17 @@ extern void yyerror(const char *);
 
 [!()]				return *yytext;
 [ \t\n]				;
-.				{ snprintf(buf, sizeof(buf),
+.				{ snprintf(gbuf, sizeof(gbuf),
 					   "%c: unknown character", *yytext);
-				  yyerror(buf);
+				  yyerror(gbuf);
 				}
-
 %%
 
-void *
+const void *
 expr_check_cb(void *p, va_list ap)
 {
 	cc_expr_t *e = (cc_expr_t *) p;
-	void *rv;
+	const void *rv;
 	YY_BUFFER_STATE yy_buf;
 
 	cc_ctx.val = FALSE;
@@ -94,7 +83,7 @@ expr_check_cb(void *p, va_list ap)
 	if (!setjmp(cc_jmpbuf)) {
 		yyparse();
 		if (cc_ctx.val)
-			rv = (void *) e->mfun;
+			rv = (const void *) e->mfun;
 		else
 			rv = NULL;
 	} else {
@@ -113,12 +102,12 @@ cc_fun_call(ctx_t *ctx, const char *en, const char *arg)
 
 	efun = cc_efun_lookup(ctx->rcl, en);
 	if (efun == NULL) {
-		char buf[256];
+		char _buf[256];
 
-		snprintf(buf, sizeof(buf),
+		snprintf(_buf, sizeof(_buf),
 			 "cc_fun_call: %s: unknown efun in ruleclass '%s'\n",
 			 en, ctx->rcl->name);
-		yyerror(buf);
+		yyerror(_buf);
 	}
 
 	if (efun->fun == NULL)

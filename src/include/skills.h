@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: skills.h,v 1.37 2001-03-16 12:41:26 cs Exp $
+ * $Id: skills.h,v 1.38 2001-06-24 10:50:40 avn Exp $
  */
 
 #ifndef _SKILLS_H_
@@ -112,17 +112,17 @@ void	check_events	(CHAR_DATA *ch, AFFECT_DATA *list,
 const char *	get_weapon_sn	(OBJ_DATA *obj);
 int		get_weapon_skill(CHAR_DATA *ch, const char *sn);
 
-int		skill_level	(CHAR_DATA *ch, const char *sn);
+int		skill_level	(const CHAR_DATA *ch, const char *sn);
 int		skill_beats	(const char *sn);
-int		skill_mana	(CHAR_DATA *ch, const char *sn);
+int		skill_mana	(const CHAR_DATA *ch, const char *sn);
 gmlstr_t *	skill_noun	(const char *sn);
 
 void		skills_dump	(BUFFER *output, int skill_type);
 
 const char *	skill_slot_lookup(int slot);
 
-int		get_skill_mod	(CHAR_DATA *ch, skill_t *sk, int percent);
-int		get_skill	(CHAR_DATA *ch, const char *sn);
+int		get_skill_mod	(const CHAR_DATA *ch, skill_t *sk, int percent);
+int		get_skill	(const CHAR_DATA *ch, const char *sn);
 void		set_skill	(CHAR_DATA *ch, const char *sn, int value);
 void		_set_skill	(CHAR_DATA *ch, const char *sn,
 				 int value, bool repl);
@@ -132,9 +132,9 @@ void		say_spell	(CHAR_DATA *ch, const skill_t *spell);
 /*
  * exp_to_level assumes !IS_NPC(ch)
  */
-int		base_exp	(CHAR_DATA *ch);
-int		exp_to_level	(CHAR_DATA *ch);
-int		exp_for_level	(CHAR_DATA *ch, int level);
+int		base_exp	(const CHAR_DATA *ch);
+int		exp_to_level	(const CHAR_DATA *ch);
+int		exp_for_level	(const CHAR_DATA *ch, int level);
 void		check_improve	(CHAR_DATA *ch, const char *sn,
 				 bool success, int mult);
 int		group_lookup	(const char *name);

@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.110 2001-06-22 07:13:54 avn Exp $
+ * $Id: recycle.c,v 1.111 2001-06-24 10:50:51 avn Exp $
  */
 
 /***************************************************************************
@@ -48,16 +48,6 @@
 #include <stdlib.h>
 #include "merc.h"
 #include "db.h"
-
-/*
- * Globals
- */
-extern int	top_reset;
-extern int	top_area;
-extern int	top_exit;
-extern int	top_room;
-extern int	top_mprog_index;
-extern int	top_ed;
 
 ED_DATA *ed_new(void)
 {
@@ -199,21 +189,24 @@ static varrdata_t v_sk_affected =
 {
 	sizeof(saff_t), 1,
 	(e_init_t) saff_init,
-	(e_destroy_t) saff_destroy
+	(e_destroy_t) saff_destroy,
+	NULL
 };
 
 static varrdata_t v_learned =
 {
 	sizeof(pc_skill_t), 8,
 	(e_init_t) pc_skill_init,
-	strkey_destroy
+	strkey_destroy,
+	NULL
 };
 
 static varrdata_t v_specs =
 {
 	sizeof(const char *), 2,
 	strkey_init,
-	strkey_destroy
+	strkey_destroy,
+	NULL
 };
 
 CHAR_DATA *char_new(MOB_INDEX_DATA *pMobIndex)

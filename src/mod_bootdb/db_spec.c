@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_spec.c,v 1.17 2001-01-23 21:47:04 fjoe Exp $
+ * $Id: db_spec.c,v 1.18 2001-06-24 10:51:03 avn Exp $
  */
 
 #include <stdio.h>
@@ -40,13 +40,13 @@ DECLARE_DBINIT_FUN(init_specs);
 
 DBFUN dbfun_specs[] =
 {
-	{ "SPEC",	load_spec	},		// notrans
-	{ "R",		load_spec_r	},		// notrans
-	{ "SKILL",	load_spec_skill	},		// notrans
-	{ NULL }
+	{ "SPEC",	load_spec,	NULL	},		// notrans
+	{ "R",		load_spec_r,	NULL	},		// notrans
+	{ "SKILL",	load_spec_skill,NULL	},		// notrans
+	{ NULL, NULL, NULL }
 };
 
-DBDATA db_spec = { dbfun_specs, init_specs };
+DBDATA db_spec = { dbfun_specs, init_specs, 0 };
 
 static hashdata_t h_specs =
 {

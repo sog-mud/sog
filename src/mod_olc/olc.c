@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.127 2001-06-22 07:13:41 avn Exp $
+ * $Id: olc.c,v 1.128 2001-06-24 10:50:44 avn Exp $
  */
 
 /***************************************************************************
@@ -327,7 +327,7 @@ bool
 _olced_mlstrkey(CHAR_DATA *ch, const char *langname, const char *argument,
 		olc_cmd_t *cmd)
 {
-	int lang;
+	lang_t *lang;
 	const char **pp;
 	const char *old_key;
 	void *q;
@@ -340,7 +340,7 @@ _olced_mlstrkey(CHAR_DATA *ch, const char *langname, const char *argument,
 	}
 
 	if (!str_cmp(langname, "all"))
-		lang = -1;
+		lang = NULL;
 	else if ((lang = lang_lookup(langname)) < 0) {
 		act_puts("$t: $T: unknown language",
 			 ch, OLCED(ch)->name, langname,
@@ -355,7 +355,7 @@ _olced_mlstrkey(CHAR_DATA *ch, const char *langname, const char *argument,
 	old_key = mlstr_mval((mlstring *) q);
 	o = (olced_strkey_t *) cmd->arg1;
 
-	if (lang <= 0) {
+	if (lang == NULL || lang == VARR_GET(&langs, 0)) {
 		/*
 		 * gonna change key
 		 */
@@ -392,7 +392,7 @@ _olced_mlstrkey(CHAR_DATA *ch, const char *langname, const char *argument,
 	free_string(*pp);
 	*pp = str_dup(argument);
 
-	if (lang <= 0) {
+	if (lang == NULL || lang == VARR_GET(&langs, 0)) {
 		if (o->path) {
 			d2rename(o->path, strkey_filename(old_key, o->ext),
 				 o->path, strkey_filename(argument, o->ext));

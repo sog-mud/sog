@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: info.c,v 1.22 2001-06-22 07:13:55 avn Exp $
+ * $Id: info.c,v 1.23 2001-06-24 10:50:57 avn Exp $
  */
 
 #include <sys/types.h>
@@ -61,18 +61,21 @@ static INFO_DESC *	id_free_list;
 static INFO_DESC *	info_desc_new(int fd);
 static void		info_desc_free(INFO_DESC *id);
 
-void	cmd_who(const char *argument);
-void	cmd_auth(const char *argument);
-void	cmd_help(const char *argument);
-void	cmd_show(const char *argument);
-void	cmd_setf(const char *argument);
-void	cmd_dumb(const char *argument);
-
 typedef void CMD_FUN (const char *argument);
 typedef struct {
-	char	*name;
+	const char	*name;
 	CMD_FUN	*fun;
 } infocmd_t;
+#define DECLARE_CMD_FUN(fun)	static CMD_FUN fun
+#define CMD_FUN(fun)		static void fun(const char *argument	\
+						__attribute__((unused)))
+
+DECLARE_CMD_FUN(cmd_who);
+DECLARE_CMD_FUN(cmd_auth);
+DECLARE_CMD_FUN(cmd_help);
+DECLARE_CMD_FUN(cmd_show);
+DECLARE_CMD_FUN(cmd_setf);
+DECLARE_CMD_FUN(cmd_dumb);
 
 /* Currently supported commands:
  * WHO <fmt>				- outputs list of visible players
@@ -98,7 +101,7 @@ void info_newconn(int infofd)
 	struct sockaddr_in sock;
 	int size = sizeof(sock);
 	INFO_DESC *id;
-	int i;
+	size_t i;
 
 	getsockname(infofd, (struct sockaddr*) &sock, &size);
 	if ((fd = accept(infofd, (struct sockaddr*) &sock, &size)) < 0) {
@@ -238,7 +241,7 @@ static void info_desc_free(INFO_DESC *id)
 	id_free_list = id;
 }
 
-void	cmd_who(const char *argument)
+CMD_FUN(cmd_who)
 {
 	BUFFER *output;
 	DESCRIPTOR_DATA *d;
@@ -270,8 +273,7 @@ void	cmd_who(const char *argument)
 	buf_free(output);
 }
 
-void
-cmd_auth(const char *argument)
+CMD_FUN(cmd_auth)
 {
 	char arg1[MAX_INPUT_LENGTH],arg2[MAX_INPUT_LENGTH];
 	CHAR_DATA *ch;
@@ -290,17 +292,22 @@ cmd_auth(const char *argument)
 	char_nuke(ch);
 }
 
-void	cmd_help(const char *argument)
+CMD_FUN(cmd_help)
 {
 	BUFFER *output;
-	int format, lang, lev;
+	int format, lev;
 	char arg[MAX_INPUT_LENGTH];
+	lang_t *l;
+	size_t lang;
 
 	argument = one_argument(argument, arg, sizeof(arg));
 	format = format_lookup(arg);
 
 	argument = one_argument(argument, arg, sizeof(arg));
-	lang = lang_lookup(arg);
+	if ((l = lang_lookup(arg)) == NULL)
+		lang = 0;
+	else
+		lang = varr_index(&langs, l);
 
 	argument = one_argument(argument, arg, sizeof(arg));
 	lev = atoi(arg);
@@ -311,7 +318,7 @@ void	cmd_help(const char *argument)
 	buf_free(output);
 }
 
-void	cmd_show(const char *argument)
+CMD_FUN(cmd_show)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *ch;
@@ -355,7 +362,7 @@ void	cmd_show(const char *argument)
 	char_nuke(ch);
 }
 
-void	cmd_setf(const char *argument)
+CMD_FUN(cmd_setf)
 {
 	char arg1[MAX_INPUT_LENGTH],arg2[MAX_INPUT_LENGTH];
 	CHAR_DATA *ch, *vch;
@@ -386,7 +393,7 @@ void	cmd_setf(const char *argument)
 	char_nuke(ch);
 }
 
-void	cmd_dumb(const char *argument)
+CMD_FUN(cmd_dumb)
 {
 	strncpy(buf, "ERROR: unsupported or illegal function.\n", sizeof(buf));
 }

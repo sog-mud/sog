@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.231 2001-06-16 19:07:15 fjoe Exp $
+ * $Id: act_comm.c,v 1.232 2001-06-24 10:50:42 avn Exp $
  */
 
 /***************************************************************************
@@ -1232,8 +1232,7 @@ void do_lang(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	lang = lang_lookup(arg);
-	if (lang < 0) {
+	if ((l = lang_lookup(arg)) == NULL) {
 		act_puts("Usage: lang [ ",
 			 ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
 		for (lang = 0; lang < langs.nused; lang++) {
@@ -1249,7 +1248,7 @@ void do_lang(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	d->dvdata->lang = lang;
+	d->dvdata->lang = varr_index(&langs, l);
 	do_lang(ch, str_empty);
 	do_look(ch, str_empty);
 }

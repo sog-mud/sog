@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_cmd.c,v 1.10 2001-01-18 22:20:15 fjoe Exp $
+ * $Id: db_cmd.c,v 1.11 2001-06-24 10:51:00 avn Exp $
  */
 
 #include <stdio.h>
@@ -36,11 +36,11 @@ DECLARE_DBINIT_FUN(init_cmds);
 
 DBFUN dbfun_cmd[] =
 {
-	{ "CMD",	load_cmd	},		// notrans
-	{ NULL }
+	{ "CMD",	load_cmd,	NULL	},		// notrans
+	{ NULL, NULL, NULL }
 };
 
-DBDATA db_cmd = { dbfun_cmd, init_cmds };
+DBDATA db_cmd = { dbfun_cmd, init_cmds, 0 };
 
 static varrdata_t v_commands =
 {

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: name_edit.c,v 1.6 2001-01-23 21:47:00 fjoe Exp $
+ * $Id: name_edit.c,v 1.7 2001-06-24 10:50:49 avn Exp $
  */
 
 #include <stdio.h>
@@ -39,6 +39,9 @@
  *
  */
 
+static bool name_edit(const char **nl, const char *name, int flags,
+	       CHAR_DATA *ch, const char *editor_name);
+void cat_name(char *buf, const char *name, size_t len);
 /*
  * See if a string is one of the names of an object.
  */
@@ -105,7 +108,7 @@ void cat_name(char *buf, const char *name, size_t len)
  *		  FALSE - name was not found
  *
  */
-bool name_edit(const char **nl, const char *name, int flags,
+static bool name_edit(const char **nl, const char *name, int flags,
 	       CHAR_DATA *ch, const char *editor_name)
 {
 	bool found = FALSE;

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_system.c,v 1.16 2001-01-18 22:20:16 fjoe Exp $
+ * $Id: db_system.c,v 1.17 2001-06-24 10:51:03 avn Exp $
  */
 
 #include <sys/types.h>
@@ -51,19 +51,19 @@ DECLARE_DBINIT_FUN(init_system);
 
 DBFUN dbfun_system[] =
 {
-	{ "SYSTEM",	load_system	},		// notrans
-	{ "INFO",	load_info	},		// notrans
-	{ NULL }
+	{ "SYSTEM",	load_system,	NULL	},		// notrans
+	{ "INFO",	load_info,	NULL	},		// notrans
+	{ NULL, NULL, NULL }
 };
 
-DBDATA db_system = { dbfun_system, init_system };
+DBDATA db_system = { dbfun_system, init_system, 0 };
 
 static void fread_host(rfile_t *fp, varr *v);
 
-static varrdata_t v_control_sockets = { sizeof(int), 2 };
-static varrdata_t v_info_sockets = { sizeof(int), 2 };
-static varrdata_t v_info_trusted = { sizeof(struct in_addr), 2 };
-static varrdata_t v_modules = { sizeof(module_t), 2 };
+static varrdata_t v_control_sockets = { sizeof(int), 2, NULL, NULL, NULL };
+static varrdata_t v_info_sockets = { sizeof(int), 2, NULL, NULL, NULL };
+static varrdata_t v_info_trusted = { sizeof(struct in_addr), 2, NULL, NULL, NULL };
+static varrdata_t v_modules = { sizeof(module_t), 2, NULL, NULL, NULL };
 
 DBINIT_FUN(init_system)
 {

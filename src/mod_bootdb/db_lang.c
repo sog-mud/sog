@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_lang.c,v 1.29 2001-06-22 07:13:57 avn Exp $
+ * $Id: db_lang.c,v 1.30 2001-06-24 10:51:01 avn Exp $
  */
 
 #include <stdio.h>
@@ -40,37 +40,37 @@ DECLARE_DBINIT_FUN(init_lang);
 
 DBFUN dbfun_langs[] =
 {
-	{ "LANG",	load_lang	},		// notrans
-	{ "RULECLASS",	load_rulecl	},		// notrans
-	{ NULL }
+	{ "LANG",	load_lang,	NULL	},		// notrans
+	{ "RULECLASS",	load_rulecl,	NULL	},		// notrans
+	{ NULL, NULL, NULL }
 };
 
-DBDATA db_langs = { dbfun_langs, init_lang };
+DBDATA db_langs = { dbfun_langs, init_lang, 0 };
 
 DECLARE_DBLOAD_FUN(load_expl);
 DECLARE_DBLOAD_FUN(load_impl);
 
 DBFUN dbfun_expl[] =
 {
-	{ "RULE",	load_expl },			// notrans
-	{ NULL }
+	{ "RULE",	load_expl,	NULL },			// notrans
+	{ NULL, NULL, NULL }
 };
 
 DBFUN dbfun_impl[] =
 {
-	{ "RULE",	load_impl },			// notrans
-	{ NULL }
+	{ "RULE",	load_impl,	NULL },			// notrans
+	{ NULL, NULL, NULL }
 };
 
-DBDATA db_expl = { dbfun_expl };
-DBDATA db_impl = { dbfun_impl };
+DBDATA db_expl = { dbfun_expl, NULL, 0 };
+DBDATA db_impl = { dbfun_impl, NULL, 0 };
 
-static int
+static lang_t *
 fread_lang(rfile_t *fp)
 {
 	fread_word(fp);
 #if !defined(NO_MMAP)
-	return lang_nlookup(fp->tok, fp->tok_len);
+	return lang_nlookup(fp->tok, (size_t)fp->tok_len);
 #else
 	return lang_lookup(rfile_tok(fp));
 #endif
@@ -84,7 +84,8 @@ static varrdata_t v_langs =
 {
 	sizeof(lang_t), 2,
 	(e_init_t) lang_init,
-	(e_destroy_t) lang_destroy
+	NULL,
+	NULL
 };
 
 DBINIT_FUN(init_lang)
@@ -168,7 +169,8 @@ DBLOAD_FUN(load_rulecl)
 				s = strrchr(filename, PATH_SEPARATOR);
 				if (s) {
 					strnzncpy(path, sizeof(path),
-						  filename, s - filename);
+						  filename,
+						  (unsigned)(s - filename));
 				}
 				else
 					path[0] = '\0';
@@ -241,13 +243,8 @@ load_rules(rfile_t *fp, rulecl_t *rcl, rule_t* (*rule_add)(rulecl_t*, rule_t*))
 
 		case 'F':
 			if (IS_TOKEN(fp, "Form")) {
-				int fnum = fread_number(fp);
+				size_t fnum = fread_number(fp);
 				const char *fstring = fread_string(fp);
-
-				if (fnum < 0) {
-					log(LOG_ERROR, "load_rules: %d: Negative form number", fnum);
-					break;
-				}
 
 				rule_form_add(&r, fnum, fstring);
 				free_string(fstring);

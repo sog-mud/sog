@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.117 2001-03-16 12:41:30 cs Exp $
+ * $Id: skills.c,v 1.118 2001-06-24 10:50:52 avn Exp $
  */
 
 /***************************************************************************
@@ -50,9 +50,9 @@
 
 hash_t skills;
 
-static int get_mob_skill(CHAR_DATA *ch, skill_t *sk);
+static int get_mob_skill(const CHAR_DATA *ch, skill_t *sk);
 
-int base_exp(CHAR_DATA *ch)
+int base_exp(const CHAR_DATA *ch)
 {
 	int expl;
 	class_t *cl;
@@ -61,7 +61,7 @@ int base_exp(CHAR_DATA *ch)
 
 	if (IS_NPC(ch)
 	||  (cl = class_lookup(ch->class)) == NULL
-	||  (r = race_lookup(PC(ch)->race)) == NULL
+	||  (r = race_lookup(CPC(ch)->race)) == NULL
 	||  !r->race_pcdata
 	||  (rcl = rclass_lookup(r, cl->name)) == NULL)
 		return 1500;
@@ -70,7 +70,7 @@ int base_exp(CHAR_DATA *ch)
 	return expl * rcl->mult/100;
 }
 
-int exp_for_level(CHAR_DATA *ch, int level)
+int exp_for_level(const CHAR_DATA *ch, int level)
 {
 	return base_exp(ch)*level*level*level;
 }
@@ -78,9 +78,9 @@ int exp_for_level(CHAR_DATA *ch, int level)
 /*
  * assumes !IS_NPC(ch)
  */
-int exp_to_level(CHAR_DATA *ch)
+int exp_to_level(const CHAR_DATA *ch)
 {
-	return exp_for_level(ch, ch->level+1) - PC(ch)->exp;
+	return exp_for_level(ch, ch->level+1) - CPC(ch)->exp;
 }
 
 /* checks for skill improvement */
@@ -202,7 +202,7 @@ apply_sa_cb(void *p, va_list ap)
 /*
  * apply skill affect modifiers
  */
-int get_skill_mod(CHAR_DATA *ch, skill_t *sk, int percent)
+int get_skill_mod(const CHAR_DATA *ch, skill_t *sk, int percent)
 {
 	int mod = 0;
 	varr_foreach(&ch->sk_affected, apply_sa_cb, sk, percent, &mod);
@@ -210,7 +210,7 @@ int get_skill_mod(CHAR_DATA *ch, skill_t *sk, int percent)
 }
 
 /* for returning skill information */
-int get_skill(CHAR_DATA *ch, const char *sn)
+int get_skill(const CHAR_DATA *ch, const char *sn)
 {
 	int percent;
 	skill_t *sk;
@@ -261,16 +261,16 @@ int get_skill(CHAR_DATA *ch, const char *sn)
 			percent = 2 * percent / 3;
 	}
 
-	if (!IS_NPC(ch) && PC(ch)->condition[COND_DRUNK]  > 10)
+	if (!IS_NPC(ch) && CPC(ch)->condition[COND_DRUNK]  > 10)
 		percent = 9 * percent / 10;
 
 	return UMAX(0, percent + get_skill_mod(ch, sk, percent));
 }
 
 pc_skill_t *
-pc_skill_lookup(CHAR_DATA *ch, const char *sn)
+pc_skill_lookup(const CHAR_DATA *ch, const char *sn)
 {
-	return (pc_skill_t*) varr_bsearch(&PC(ch)->learned, &sn, cmpstr);
+	return (pc_skill_t*) varr_bsearch(&CPC(ch)->learned, &sn, cmpstr);
 }
 
 /* for returning weapon information */
@@ -309,8 +309,8 @@ void say_spell(CHAR_DATA *ch, const skill_t* spell)
 
 	struct syl_type
 	{
-		char *	old;
-		char *	new;
+		const char *	old;
+		const char *	new;
 	};
 
 	static const struct syl_type syl_table[] =
@@ -413,7 +413,7 @@ int skill_beats(const char *sn)
 /*
  * skill_mana -- return mana cost based on min_mana and ch->level
  */
-int skill_mana(CHAR_DATA *ch, const char *sn)
+int skill_mana(const CHAR_DATA *ch, const char *sn)
 {
 	skill_t *sk;
 
@@ -475,7 +475,7 @@ skills_dump(BUFFER *output, int skill_type)
 /*
  * skill_level -- find min level of the skill for char
  */
-int skill_level(CHAR_DATA *ch, const char *sn)
+int skill_level(const CHAR_DATA *ch, const char *sn)
 {
 	spec_skill_t spec_sk;
 
@@ -487,7 +487,7 @@ int skill_level(CHAR_DATA *ch, const char *sn)
 	return spec_sk.level;
 }
 
-static void *
+static const void *
 skill_slot_cb(void *p, va_list ap)
 {
 	skill_t *sk = (skill_t *) p;
@@ -495,7 +495,7 @@ skill_slot_cb(void *p, va_list ap)
 	int slot = va_arg(ap, int);
 
 	if (sk->slot == slot)
-		return (void*) gmlstr_mval(&sk->sk_name);
+		return (const void*)gmlstr_mval(&sk->sk_name);
 	return NULL;
 }
 
@@ -510,7 +510,7 @@ const char *skill_slot_lookup(int slot)
 	if (slot <= 0)
 		return NULL;
 
-	sn = hash_foreach(&skills, skill_slot_cb, slot);
+	sn = hash_foreach(&skills, (foreach_cb_t)skill_slot_cb, slot);
 	if (IS_NULLSTR(sn))
 		log(LOG_BUG, "skill_slot_lookup: unknown slot %d", slot);
 	return str_qdup(sn);
@@ -640,9 +640,10 @@ void check_events(CHAR_DATA *ch, AFFECT_DATA *paf, flag_t event)
  * mob skills stuff
  */
 
-typedef int MOB_SKILL(CHAR_DATA *);
+typedef int MOB_SKILL(const CHAR_DATA *);
 #define DECLARE_MOB_SKILL(fun) static MOB_SKILL fun;
-#define MOB_SKILL(fun) static int fun(CHAR_DATA *mob)
+#define MOB_SKILL(fun) static int fun(const CHAR_DATA *mob		\
+					__attribute__((unused)))
 
 typedef struct mob_skill_t mob_skill_t;
 struct mob_skill_t {
@@ -726,7 +727,7 @@ static mob_skill_t mob_skill_tab[] =
 	{ "arrow",		mob_weapon		},	// notrans
 	{ "lance",		mob_weapon		},	// notrans
 
-	{ NULL }
+	{ NULL, NULL }
 };
 
 void
@@ -766,7 +767,7 @@ get_minimum_spell_level(int rank)
 }
 
 static int
-get_mob_skill(CHAR_DATA *ch, skill_t *sk)
+get_mob_skill(const CHAR_DATA *ch, skill_t *sk)
 {
 	mob_skill_t *mob_skill;
 	const char *sn;

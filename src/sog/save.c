@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.177 2001-06-20 09:54:27 avn Exp $
+ * $Id: save.c,v 1.178 2001-06-24 10:50:51 avn Exp $
  */
 
 /***************************************************************************
@@ -72,12 +72,12 @@ extern int damtbl [17];
 /*
  * Local functions.
  */
-void fwrite_char (CHAR_DATA * ch, FILE * fp, int flags);
-void fwrite_obj (CHAR_DATA * ch, OBJ_DATA * obj, FILE * fp, int iNest);
-void fwrite_pet (CHAR_DATA * pet, FILE * fp, int flags);
-void fread_char (CHAR_DATA * ch, rfile_t * fp, int flags);
-void fread_pet  (CHAR_DATA * ch, rfile_t * fp, int flags);
-void fread_obj  (CHAR_DATA * ch, rfile_t * fp, int flags);
+static void fwrite_char (CHAR_DATA * ch, FILE * fp, int flags);
+static void fwrite_obj (CHAR_DATA * ch, OBJ_DATA * obj, FILE * fp, int iNest);
+static void fwrite_pet (CHAR_DATA * pet, FILE * fp, int flags);
+static void fread_char (CHAR_DATA * ch, rfile_t * fp, int flags);
+static void fread_pet  (CHAR_DATA * ch, rfile_t * fp, int flags);
+static void fread_obj  (CHAR_DATA * ch, rfile_t * fp, int flags);
 
 /*
  * move_pfile - shifts vnum in range minvnum..maxvnum by delta)
@@ -233,7 +233,7 @@ spn_save_cb(void *p, va_list ap)
 /*
  * Write the char.
  */
-void 
+static void 
 fwrite_char(CHAR_DATA *ch, FILE *fp, int flags)
 {
 	AFFECT_DATA    *paf;
@@ -416,8 +416,9 @@ fwrite_char(CHAR_DATA *ch, FILE *fp, int flags)
 }
 
 /* write a pet */
-void 
-fwrite_pet(CHAR_DATA * pet, FILE * fp, int flags)
+/* flags do not affect pet saving, reserved for future use */
+static void 
+fwrite_pet(CHAR_DATA * pet, FILE * fp, int flags __attribute__((unused)))
 {
 	fprintf(fp, "#PET\n");
 
@@ -470,7 +471,7 @@ fwrite_pet(CHAR_DATA * pet, FILE * fp, int flags)
 /*
  * Write an object and its contents.
  */
-void 
+static void 
 fwrite_obj(CHAR_DATA * ch, OBJ_DATA * obj, FILE * fp, int iNest)
 {
 	ED_DATA *ed;
@@ -642,7 +643,7 @@ CHAR_DATA *char_load(const char *name, int flags)
 /*
  * Read in a char.
  */
-void 
+static void 
 fread_char(CHAR_DATA * ch, rfile_t * fp, int flags)
 {
 	int count = 0;
@@ -953,7 +954,7 @@ fread_char(CHAR_DATA * ch, rfile_t * fp, int flags)
 }
 
 /* load a pet from the forgotten reaches */
-void 
+static void 
 fread_pet(CHAR_DATA * ch, rfile_t * fp, int flags)
 {
 	CHAR_DATA *pet = NULL;
@@ -1114,7 +1115,7 @@ fread_pet(CHAR_DATA * ch, rfile_t * fp, int flags)
 	}
 }
 
-void 
+static void 
 fread_obj(CHAR_DATA * ch, rfile_t * fp, int flags)
 {
 	OBJ_DATA       *obj = NULL;

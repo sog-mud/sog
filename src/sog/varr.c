@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: varr.c,v 1.26 2001-06-16 18:40:12 fjoe Exp $
+ * $Id: varr.c,v 1.27 2001-06-24 10:50:54 avn Exp $
  */
 
 #include <stdarg.h>
@@ -54,7 +54,10 @@ varr_cpy_cb(void *p, va_list ap)
 	varr *v = va_arg(ap, varr *);
 	int *pi = va_arg(ap, int *);
 
-	v->v_data->e_cpy(VARR_GET(v, (*pi)++), p);
+	if (v->v_data->e_cpy)
+		v->v_data->e_cpy(VARR_GET(v, (*pi)++), p);
+	else
+		memcpy(VARR_GET(v, (*pi)++), p, v->v_data->nsize);
 	return NULL;
 }
 
@@ -68,7 +71,7 @@ varr_cpy(varr *dst, const varr *src)
 	dst->p = malloc(dst->v_data->nsize * dst->nalloc);
 	if (dst->v_data->e_cpy) {
 		int i = 0;
-		varr_foreach((varr *) src, varr_cpy_cb, dst, &i);
+		varr_foreach((varr *)(uintptr_t)src, varr_cpy_cb, dst, &i);
 	} else
 		memcpy(dst->p, src->p, dst->v_data->nsize * dst->nused);
 	return dst;
@@ -115,7 +118,7 @@ varr_touch(varr *v, size_t i)
 
 	p = VARR_GET(v, i);
 	if (i >= v->nused) {
-		int j;
+		size_t j;
 
 		for (j = v->nused; j < i+1; j++) {
 			if (v->v_data->e_init)
@@ -160,7 +163,7 @@ varr_delete(varr *v, size_t i)
 }
 
 void
-varr_qsort(varr* v, int (*cmpfun)(const void*, const void*))
+varr_qsort(const varr* v, int (*cmpfun)(const void*, const void*))
 {
 	if (v == NULL || v->nused == 0)
 		return;
@@ -168,7 +171,7 @@ varr_qsort(varr* v, int (*cmpfun)(const void*, const void*))
 }
 
 void *
-varr_bsearch(varr* v, const void *e, int (*cmpfun)(const void*, const void*))
+varr_bsearch(const varr* v, const void *e, int (*cmpfun)(const void*, const void*))
 {
 	if (v == NULL || v->nused == 0)
 		return NULL;
@@ -176,7 +179,7 @@ varr_bsearch(varr* v, const void *e, int (*cmpfun)(const void*, const void*))
 }
 
 void *
-varr_foreach(varr *v, foreach_cb_t cb, ...)
+varr_foreach(const varr *v, foreach_cb_t cb, ...)
 {
 	void *rv;
 	va_list ap;
@@ -189,7 +192,7 @@ varr_foreach(varr *v, foreach_cb_t cb, ...)
 }
 
 void *
-varr_eforeach(varr *v, void *e, foreach_cb_t cb, ...)
+varr_eforeach(const varr *v, void *e, foreach_cb_t cb, ...)
 {
 	void *rv;
 	va_list ap;
@@ -202,7 +205,7 @@ varr_eforeach(varr *v, void *e, foreach_cb_t cb, ...)
 }
 
 void *
-varr_nforeach(varr *v, size_t from, foreach_cb_t cb, ...)
+varr_nforeach(const varr *v, size_t from, foreach_cb_t cb, ...)
 {
 	void *rv;
 	va_list ap;
@@ -215,7 +218,7 @@ varr_nforeach(varr *v, size_t from, foreach_cb_t cb, ...)
 }
 
 void *
-varr_anforeach(varr *v, size_t from, foreach_cb_t cb, va_list ap)
+varr_anforeach(const varr *v, size_t from, foreach_cb_t cb, va_list ap)
 {
 	size_t i;
 
@@ -229,7 +232,7 @@ varr_anforeach(varr *v, size_t from, foreach_cb_t cb, va_list ap)
 }
 
 void *
-varr_rforeach(varr *v, foreach_cb_t cb, ...)
+varr_rforeach(const varr *v, foreach_cb_t cb, ...)
 {
 	void *rv;
 	va_list ap;
@@ -245,7 +248,7 @@ varr_rforeach(varr *v, foreach_cb_t cb, ...)
 }
 
 void *
-varr_reforeach(varr *v, void *e, foreach_cb_t cb, ...)
+varr_reforeach(const varr *v, void *e, foreach_cb_t cb, ...)
 {
 	void *rv;
 	va_list ap;
@@ -261,7 +264,7 @@ varr_reforeach(varr *v, void *e, foreach_cb_t cb, ...)
 }
 
 void *
-varr_rnforeach(varr *v, size_t from, foreach_cb_t cb, ...)
+varr_rnforeach(const varr *v, size_t from, foreach_cb_t cb, ...)
 {
 	void *rv;
 	va_list ap;
@@ -274,7 +277,7 @@ varr_rnforeach(varr *v, size_t from, foreach_cb_t cb, ...)
 }
 
 void *
-varr_arnforeach(varr *v, size_t from, foreach_cb_t cb, va_list ap)
+varr_arnforeach(const varr *v, size_t from, foreach_cb_t cb, va_list ap)
 {
 	size_t i;
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: rating.c,v 1.18 1999-12-16 12:24:52 fjoe Exp $
+ * $Id: rating.c,v 1.19 2001-06-24 10:50:51 avn Exp $
  */
 
 #include <sys/time.h>
@@ -93,6 +93,6 @@ void rating_add(CHAR_DATA *ch)
 
 static int rating_cmp(const void *a, const void *b)
 {
-	return ((rating_t*) b)->pc_killed - ((rating_t*) a)->pc_killed;
+	return ((const rating_t*) b)->pc_killed - ((const rating_t*) a)->pc_killed;
 }
 

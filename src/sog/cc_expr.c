@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: cc_expr.c,v 1.12 2001-01-23 21:46:59 fjoe Exp $
+ * $Id: cc_expr.c,v 1.13 2001-06-24 10:50:46 avn Exp $
  */
 
 #include <ctype.h>
@@ -189,8 +189,6 @@ print_cc_vexpr(varr *v, const char *pre, BUFFER *buf)
 	varr_foreach(v, print_expr_cb, buf, v);
 }
 
-extern void *expr_check_cb(void *, va_list);
-
 const char *
 cc_vexpr_check(varr *v, const char *ecn, ...)
 {
@@ -204,7 +202,7 @@ cc_vexpr_check(varr *v, const char *ecn, ...)
 	}
 
 	va_start(ap, ecn);
-	rv = varr_foreach(v, expr_check_cb, ecl, ap);
+	rv = varr_foreach(v, (foreach_cb_t)expr_check_cb, ecl, ap);
 	va_end(ap);
 	return rv;
 }

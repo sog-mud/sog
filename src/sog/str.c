@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: str.c,v 1.22 2001-06-23 17:17:17 fjoe Exp $
+ * $Id: str.c,v 1.23 2001-06-24 10:50:53 avn Exp $
  */
 
 #include <ctype.h>
@@ -59,8 +59,8 @@ struct str {
 	str *		next;
 };
 
-#define GET_DATA(s) (((char*) s) + sizeof(str) + sizeof(memchunk_t))
-#define GET_STR(p) ((str*) (((char*) p) - sizeof(str) - sizeof(memchunk_t)))
+#define GET_DATA(s) (((const char*) s) + sizeof(str) + sizeof(memchunk_t))
+#define GET_STR(p) ((str*)(uintptr_t)(((const char*) p) - sizeof(str) - sizeof(memchunk_t)))
 
 str *hash_str[MAX_STRING_HASH];
 
@@ -187,7 +187,7 @@ char *strlwr(const char *s)
 	if (s == NULL)
 		return str_empty;
 
-	for (p = buf; p-buf < sizeof(buf)-1 && *s; s++, p++)
+	for (p = buf; p < buf + sizeof(buf) - 1 && *s; s++, p++)
 		*p = LOWER(*s);
 	*p = '\0';
 	return buf;
@@ -315,21 +315,21 @@ static int TT[] = {
 	51, 65, 28, 144, 254, 221, 93, 189, 194, 139, 112, 43, 71, 109, 184, 209,
 };
 
-int
+size_t
 hashstr(s, maxn, hashs)
 const char *s;			/* string to hash */
-int maxn;			/* maximum number of chars to consider */
-int hashs;			/* hash table size. */
+size_t maxn;			/* maximum number of chars to consider */
+size_t hashs;			/* hash table size. */
 {
-    register int h;
-    register u_char *p;
-    register int i;
+    register size_t h;
+    register const u_char *p;
+    register size_t i;
 
-    for(h = 0, i = 0, p = (u_char *)s; *p && i < maxn; i++, p++)
+    for(h = 0, i = 0, p = (const u_char *)s; *p && i < maxn; i++, p++)
 	h = TT[h ^ *p];
     if (hashs > 256 && *s) {
-	int oh = h;
-	for(i = 1, p = (u_char *)s, h = (*p++ + 1)&0xff; *p && i < maxn; i++, p++)
+	size_t oh = h;
+	for(i = 1, p = (const u_char *)s, h = (*p++ + 1)&0xff; *p && i < maxn; i++, p++)
 	    h = TT[h ^ *p];
 	h += (oh << 8);
     }
@@ -339,17 +339,17 @@ int hashs;			/* hash table size. */
 /*
  * case insensitive version of hashstr, hashs must not be greater than 256
  */
-int
+size_t
 hashcasestr(s, maxn, hashs)
 const char *s;			/* string to hash */
-int maxn;			/* maximum number of chars to consider */
-int hashs;			/* hash table size. */
+size_t maxn;			/* maximum number of chars to consider */
+size_t hashs;			/* hash table size. */
 {
-    register int h;
-    register u_char *p;
-    register int i;
+    register size_t h;
+    register const u_char *p;
+    register size_t i;
 
-    for(h = 0, i = 0, p = (u_char *)s; *p && i < maxn; i++, p++)
+    for(h = 0, i = 0, p = (const u_char *)s; *p && i < maxn; i++, p++)
 	h = TT[h ^ LOWER(*p)];
     return h % hashs;
 }
@@ -357,13 +357,13 @@ int hashs;			/* hash table size. */
 int
 cmpstr(const void *p1, const void *p2)
 {
-	return str_cmp(*(char**) p1, *(char**) p2);
+	return str_cmp(*(const char**) p1, *(const char**) p2);
 }
 
 int
 cscmpstr(const void *p1, const void *p2)
 {
-	return str_cscmp(*(char**) p1, *(char**) p2);
+	return str_cscmp(*(const char**) p1, *(const char**) p2);
 }
 
 int

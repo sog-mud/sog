@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_clan.c,v 1.31 2001-01-23 21:47:04 fjoe Exp $
+ * $Id: db_clan.c,v 1.32 2001-06-24 10:51:00 avn Exp $
  */
 
 #include <stdio.h>
@@ -39,21 +39,21 @@ DECLARE_DBINIT_FUN(init_clans);
 
 DBFUN dbfun_clans[] =
 {
-	{ "CLAN",	load_clan	},		// notrans
-	{ NULL }
+	{ "CLAN",	load_clan,	NULL	},		// notrans
+	{ NULL, NULL, NULL }
 };
 
-DBDATA db_clans = { dbfun_clans, init_clans };
+DBDATA db_clans = { dbfun_clans, init_clans, 0 };
 
 DECLARE_DBLOAD_FUN(load_plists);
 
 DBFUN dbfun_plists[] =
 {
-	{ "PLISTS",	load_plists	},		// notrans
-	{ NULL }
+	{ "PLISTS",	load_plists,	NULL	},		// notrans
+	{ NULL , NULL, NULL}
 };
 
-DBDATA db_plists = { dbfun_plists };
+DBDATA db_plists = { dbfun_plists, NULL, 0 };
 
 static hashdata_t h_clans =
 {

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: strkey_hash.c,v 1.16 2001-06-16 18:40:12 fjoe Exp $
+ * $Id: strkey_hash.c,v 1.17 2001-06-24 10:50:53 avn Exp $
  */
 
 #include <limits.h>
@@ -92,13 +92,13 @@ ke_cmp_csstr(const void *k, const void *e)
 int
 ke_cmp_mlstr(const void *k, const void *e)
 {
-	return str_cmp((const char *) k, mlstr_mval((mlstring *) e));
+	return str_cmp((const char *) k, mlstr_mval((const mlstring *) e));
 }
 
 int
 ke_cmp_csmlstr(const void *k, const void *e)
 {
-	return str_cscmp((const char *) k, mlstr_mval((mlstring *) e));
+	return str_cscmp((const char *) k, mlstr_mval((const mlstring *) e));
 }
 #endif
 
@@ -108,15 +108,6 @@ strkey_lookup(hash_t *h, const char *name)
 	if (IS_NULLSTR(name))
 		return NULL;
 	return hash_lookup(h, name);
-}
-
-void *
-strkey_search_cb(void *p, va_list ap)
-{
-	const char *key = va_arg(ap, const char *);
-	if (!str_prefix(key, *(const char **) p))
-		return p;
-	return NULL;
 }
 
 /*
@@ -143,7 +134,7 @@ strkey_search(hash_t *h, const char *name)
 }
 
 #if !defined(HASHTEST) && !defined(MPC)
-void *
+static void *
 mlstrkey_search_cb(void *p, va_list ap)
 {
 	const char *key = va_arg(ap, const char *);
@@ -195,7 +186,8 @@ strkey_filename(const char *name, const char *ext)
 		return str_empty;
 
 	ind = (ind + 1) % 2;
-	for (p = buf[ind]; *name && p-buf[ind] < sizeof(buf[0])-1; p++, name++) {
+	for (p = buf[ind]; *name && p < buf[ind] + sizeof(buf[0]) - 1;
+				p++, name++) {
 		switch (*name) {
 		case ' ':
 		case '\t':

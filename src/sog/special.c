@@ -1,5 +1,5 @@
 /*
- * $Id: special.c,v 1.73 2001-06-16 18:40:11 fjoe Exp $
+ * $Id: special.c,v 1.74 2001-06-24 10:50:52 avn Exp $
  */
 
 /***************************************************************************
@@ -117,7 +117,7 @@ const   struct  spec_type    spec_table[] =
 	{ "spec_assassinater",          spec_assassinater	},  
 	{ "spec_captain",		spec_captain		},
 	{ "spec_headlamia",		spec_headlamia		},   
-	{ NULL }
+	{ NULL, NULL }
 };
 
 static bool dragon(CHAR_DATA *ch, const char *spell_name);
@@ -145,7 +145,7 @@ SPEC_FUN *mob_spec_lookup(const char *name)
 	return 0;
 }
 
-char *mob_spec_name(SPEC_FUN *function)
+const char *mob_spec_name(SPEC_FUN *function)
 {
 	int i;
 
@@ -165,7 +165,7 @@ bool spec_troll_member(CHAR_DATA *ch)
 {
 	CHAR_DATA *vch, *victim = NULL;
 	int count = 0;
-	char *message;
+	const char *message;
 
 	if (!IS_AWAKE(ch) || IS_AFFECTED(ch,AFF_CALM) || ch->in_room == NULL 
 	||  IS_AFFECTED(ch,AFF_CHARM) || ch->fighting != NULL)
@@ -222,7 +222,7 @@ bool spec_ogre_member(CHAR_DATA *ch)
 {
 	CHAR_DATA *vch, *victim = NULL;
 	int count = 0;
-	char *message;
+	const char *message;
  
 	if (!IS_AWAKE(ch) || IS_AFFECTED(ch,AFF_CALM) || ch->in_room == NULL
 	||  IS_AFFECTED(ch,AFF_CHARM) || ch->fighting != NULL)
@@ -281,7 +281,7 @@ bool spec_patrolman(CHAR_DATA *ch)
 {
 	CHAR_DATA *vch,*victim = NULL;
 	OBJ_DATA *obj;
-	char *message;
+	const char *message;
 	int count = 0;
 
 	if (!IS_AWAKE(ch) || IS_AFFECTED(ch,AFF_CALM) || ch->in_room == NULL
@@ -467,7 +467,7 @@ bool spec_cast_cleric(CHAR_DATA *ch)
 {
 	CHAR_DATA *victim;
 	CHAR_DATA *v_next;
-	char *spell;
+	const char *spell;
 
 	if (ch->position != POS_FIGHTING)
 		return FALSE;
@@ -533,7 +533,7 @@ bool spec_cast_mage(CHAR_DATA *ch)
 {
 	CHAR_DATA *victim;
 	CHAR_DATA *v_next;
-	char *spell;
+	const char *spell;
 
 	if (ch->position != POS_FIGHTING)
 		return FALSE;
@@ -577,7 +577,7 @@ bool spec_cast_seneschal(CHAR_DATA *ch)
 {
 	CHAR_DATA *victim;
 	CHAR_DATA *v_next;
-	char *spell;
+	const char *spell;
 
 	if (ch->position != POS_FIGHTING)
 		return FALSE;
@@ -619,7 +619,7 @@ bool spec_cast_undead(CHAR_DATA *ch)
 {
 	CHAR_DATA *victim;
 	CHAR_DATA *v_next;
-	char *spell;
+	const char *spell;
 
 	if (ch->position != POS_FIGHTING)
 		return FALSE;
@@ -1101,7 +1101,7 @@ bool spec_nasty(CHAR_DATA *ch)
 	
 bool spec_assassinater(CHAR_DATA *ch)
 {
-	char* msg;
+	const char* msg;
 	CHAR_DATA *victim;
 	CHAR_DATA *v_next;
 	int rnd_say;
@@ -1128,7 +1128,7 @@ bool spec_assassinater(CHAR_DATA *ch)
 	rnd_say = number_range(1, 40);
 
 	switch (rnd_say) {
-		case  5:
+	case  5:
 		msg = "Death to is the true end...";
 		break;
 
@@ -1352,7 +1352,7 @@ bool spec_cast_beholder(CHAR_DATA *ch)
 {
 	CHAR_DATA *victim;
 	CHAR_DATA *v_next;
-	char *spell;
+	const char *spell;
 
 	if (ch->position != POS_FIGHTING)
 		return FALSE;

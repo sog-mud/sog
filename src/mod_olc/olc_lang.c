@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_lang.c,v 1.29 2001-06-22 07:13:44 avn Exp $
+ * $Id: olc_lang.c,v 1.30 2001-06-24 10:50:45 avn Exp $
  */
 
 #include "olc.h"
@@ -81,7 +81,7 @@ OLC_FUN(langed_create)
 	if (arg[0] == '\0')
 		OLC_ERROR("'OLC CREATE'");
 
-	if (lang_lookup(arg) >= 0) {
+	if (lang_lookup(arg) != NULL) {
 		act_char("LangEd: lang already exists.", ch);
 		return FALSE;
 	}
@@ -98,7 +98,7 @@ OLC_FUN(langed_create)
 
 OLC_FUN(langed_edit)
 {
-	int lang;
+	lang_t *lang;
 	char arg[MAX_INPUT_LENGTH];
 
 	if (PC(ch)->security < SECURITY_LANG) {
@@ -110,12 +110,12 @@ OLC_FUN(langed_edit)
 	if (arg[0] == '\0')
 		OLC_ERROR("'OLC EDIT'");
 
-	if ((lang = lang_lookup(arg)) < 0) {
+	if ((lang = lang_lookup(arg)) == NULL) {
 		act_char("LangEd: language not found.", ch);
 		return FALSE;
 	}
 
-	ch->desc->pEdit = VARR_GET(&langs, lang);
+	ch->desc->pEdit = lang;
 	OLCED(ch)	= olced_lookup(ED_LANG);
 	return FALSE;
 }
@@ -160,7 +160,6 @@ OLC_FUN(langed_show)
 	int i;
 	char arg[MAX_INPUT_LENGTH];
 	lang_t *l;
-	lang_t *sl;
 
 	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
@@ -170,22 +169,19 @@ OLC_FUN(langed_show)
 			OLC_ERROR("'OLC ASHOW'");
 	}
 	else {
-		int lang;
-
-		if ((lang = lang_lookup(arg)) < 0) {
+		if ((l = lang_lookup(arg)) == NULL) {
 			act_char("LangEd: language not found.", ch);
 			return FALSE;
 		}
-		l = VARR_GET(&langs, lang);
 	}
 
 	act_puts("Name:     [$t]",
 		 ch, l->name, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 	act_puts("Filename: [$t]",
 		 ch, l->file_name, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
-	if ((sl = varr_get(&langs, l->slang_of))) {
+	if (l->slang_of) {
 		act_puts("Slang of: [$t]",
-			 ch, sl->name, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
+			 ch, l->slang_of->name, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 	}
 	if (l->lang_flags) {
 		act_puts("Flags:    [$t]",
@@ -255,13 +251,13 @@ OLC_FUN(langed_slangof)
 {
 	char arg[MAX_STRING_LENGTH];
 	lang_t *l;
-	int lang;
+	lang_t *lang;
 
 	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0')
 		OLC_ERROR("'OLC LANG SLANG'");
 
-	if ((lang = lang_lookup(arg)) < 0) {
+	if ((lang = lang_lookup(arg)) == NULL && strcmp(arg, "none")) {
 		act_char("LangEd: language not found.", ch);
 		return FALSE;
 	}
@@ -289,7 +285,7 @@ OLC_FUN(langed_rulecl)
 
 static VALIDATE_FUN(validate_langname)
 {
-	if (lang_lookup(arg) >= 0) {
+	if (lang_lookup(arg) == NULL) {
 		act_puts("$t: language already exists.",
 			 ch, OLCED(ch)->name, NULL,
 			 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
@@ -307,7 +303,6 @@ static bool save_lang(CHAR_DATA *ch, lang_t *l)
 {
 	int i;
 	FILE *fp;
-	lang_t *sl;
 	int flags;
 
 	fp = olc_fopen(LANG_PATH, l->file_name, ch, -1);
@@ -316,9 +311,8 @@ static bool save_lang(CHAR_DATA *ch, lang_t *l)
 
 	fprintf(fp, "#LANG\n"
 		    "Name %s\n", l->name);
-	if ((sl = varr_get(&langs, l->slang_of)) != NULL
-	&& varr_index(&langs, l) != l->slang_of)
-		fprintf(fp, "SlangOf %s\n", sl->name);
+	if (l->slang_of != NULL && l != l->slang_of)
+		fprintf(fp, "SlangOf %s\n", l->slang_of->name);
 	flags = l->lang_flags & ~LANG_CHANGED;
 	if (flags)
 		fprintf(fp, "Flags %s~\n", flag_string(lang_flags, flags));
