@@ -1,5 +1,5 @@
 /*
- * $Id: prayers.c,v 1.45 2003-04-18 11:51:19 tatyana Exp $
+ * $Id: prayers.c,v 1.46 2003-04-18 17:45:24 tatyana Exp $
  */
 
 /***************************************************************************
@@ -143,6 +143,7 @@ DECLARE_SPELL_FUN(prayer_abolish_undead);
 DECLARE_SPELL_FUN(prayer_golden_aura);
 DECLARE_SPELL_FUN(prayer_fire_sphere);
 DECLARE_SPELL_FUN(prayer_sunburst);
+DECLARE_SPELL_FUN(prayer_cone_of_cold);
 
 static void
 hold(CHAR_DATA *ch, CHAR_DATA *victim, int duration, int dex_modifier, int
@@ -3078,4 +3079,37 @@ SPELL_FUN(prayer_sunburst, sn, level, ch, vo)
 	act_char("Sun light bursts your eyes. You are blind!", victim);
 	act("Sun light bursts $N eyes. $gN{He} is blind!",
 	    ch, NULL, victim, TO_NOTVICT);
+}
+static void *
+cone_of_cold_cb(void *vo, va_list ap)
+{
+	CHAR_DATA *vch = (CHAR_DATA *) vo;
+
+	const char *sn = va_arg(ap, const char *);
+	int level = va_arg(ap, int);
+	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
+	int *pdam;
+	int movedam;
+
+	if (is_safe_spell(ch, vch, TRUE))
+		return NULL;
+
+	pdam = va_arg(ap, int *);
+	movedam = va_arg(ap, int);
+
+	if (saves_spell(level, vch, DAM_COLD))
+		*pdam /= 2;
+	vch->move -= UMIN(vch->move, movedam);
+	damage(ch, vch, *pdam, sn, DAM_F_SHOW);
+	return NULL;
+}
+
+SPELL_FUN(prayer_cone_of_cold, sn, level, ch, vo)
+{
+	int dam = calc_spell_damage(ch, level, sn);
+	dam = dam * 4 / 5;
+	act("$n creates a freezing blast of air!", ch, NULL, NULL, TO_ROOM);
+	act_char("You draw heat from the room to create a blast of freezing air!", ch);
+	vo_foreach(ch->in_room, &iter_char_room, cone_of_cold_cb,
+		   sn, level, ch, &dam, number_range(level, 2 * level));
 }
