@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.166 2004-02-19 21:14:13 fjoe Exp $
+ * $Id: olc.c,v 1.167 2004-02-20 00:39:31 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1144,13 +1144,6 @@ olced_addaffect(CHAR_DATA *ch, const char *argument,
 			return FALSE;
 		}
 		loctbl = w->loc_table;
-		if (loctbl == NULL) {
-			act_puts("$t: w->loc_table is NULL.",
-				 ch, flag_string(affect_where_types, where),
-				 NULL, TO_CHAR | ACT_NOTRANS | ACT_NOUCASE,
-				 POS_DEAD);
-			return FALSE;
-		}
 	}
 
 	/*
@@ -1183,6 +1176,13 @@ olced_addaffect(CHAR_DATA *ch, const char *argument,
 			INT(location) = APPLY_NONE;
 			modifier = -1;
 		} else {
+			if (loctbl == NULL) {
+				act_puts("$t: w->loc_table is NULL.",
+				    ch, flag_string(affect_where_types, where),
+				    NULL, TO_CHAR | ACT_NOTRANS | ACT_NOUCASE,
+				    POS_DEAD);
+				return FALSE;
+			}
 			if ((INT(location) = flag_svalue(loctbl, arg2)) < 0) {
 				act_char("Valid locations are:", ch);
 				show_flags(ch, loctbl);
