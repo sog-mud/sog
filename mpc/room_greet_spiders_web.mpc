@@ -1,0 +1,21 @@
+/*
+ * $Id: room_greet_spiders_web.mpc,v 1.1 2001-10-21 22:25:13 fjoe Exp $
+ */
+
+act("A huge, poisonous spider drops from above!",
+    $n, NULL, NULL, TO_CHAR);
+act("A huge, poisonous spider drops from above!",
+    $n, NULL, NULL, TO_CHAR);
+act("A huge, poisonous spider drops from above!",
+    $n, NULL, NULL, TO_CHAR);
+act("", $n, NULL, NULL, TO_CHAR);
+act("The huge, poisonous spider stings you! You resist the poison!",
+    $n, NULL, NULL, TO_CHAR);
+act("The huge, poisonous spider stings you! You are poisoned!",
+    $n, NULL, NULL, TO_CHAR);
+act("The huge, poisonous spider stings you! You are poisoned!",
+    $n, NULL, NULL, TO_CHAR);
+act("", $n, NULL, NULL, TO_CHAR);
+act("You've fallen, and you can't get up!!!!!",
+    $n, NULL, NULL, TO_CHAR);
+return 0;
