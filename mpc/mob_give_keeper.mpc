@@ -1,10 +1,10 @@
 /*
- * $Id: mob_give_keeper.mpc,v 1.4 2001-09-14 17:14:34 fjoe Exp $
+ * $Id: mob_give_keeper.mpc,v 1.5 2001-09-15 17:27:38 fjoe Exp $
  */
 
 dofun("say", $n, "Finally, the dress I sent for!");
 dofun("emote", $n, "tucks the dress away under her desk.");
-purge_obj($p);
+extract_obj($p, 0);
  
 if (get_obj_carry($n, $N, "91")) {
         dofun("say", $n, "I suppose you'll want to see the FireFlash right now.");

@@ -1,8 +1,8 @@
 /*
- * $Id: obj_death_obj_disappears.mpc,v 1.1 2001-09-14 18:20:57 fjoe Exp $
+ * $Id: obj_death_obj_disappears.mpc,v 1.2 2001-09-15 17:27:42 fjoe Exp $
  */
 
 act("Your $p disappears.", $n, $p, NULL, TO_CHAR);
 act("$n's $p disappears.", $n, $p, NULL, TO_ROOM);
-purge_obj($p);
+extract_obj($p, 0);
 return 0;

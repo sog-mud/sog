@@ -1,8 +1,8 @@
 /*
- * $Id: mob_give_fireflash.mpc,v 1.4 2001-09-14 17:14:33 fjoe Exp $
+ * $Id: mob_give_fireflash.mpc,v 1.5 2001-09-15 17:27:36 fjoe Exp $
  */
 
-purge_obj($p);
+extract_obj($p, 0);
 
 dofun("say", $n, "What a wonderful rug! Let's see... where shall I put it?");
 dofun("emote", $n, "starts wandering about the room, mumbling to himself.");

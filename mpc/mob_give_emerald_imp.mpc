@@ -1,8 +1,8 @@
 /*
- * $Id: mob_give_emerald_imp.mpc,v 1.1 2001-09-14 18:08:07 fjoe Exp $
+ * $Id: mob_give_emerald_imp.mpc,v 1.2 2001-09-15 17:27:35 fjoe Exp $
  */
 
-purge_obj($p);
+extract_obj($p, 0);
  
 dofun("say", $n, "Is it your payment for oak sapling?");
 dofun("say", $n, "Nice gem... Go and look for the tree in my chest");

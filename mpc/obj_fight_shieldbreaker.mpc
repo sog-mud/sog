@@ -1,5 +1,5 @@
 /*
- * $Id: obj_fight_shieldbreaker.mpc,v 1.1 2001-09-14 18:07:57 fjoe Exp $
+ * $Id: obj_fight_shieldbreaker.mpc,v 1.2 2001-09-15 17:27:42 fjoe Exp $
  */
 
 char victim = char_fighting($n);
@@ -11,5 +11,5 @@ if (shield == NULL)
 act("You {Wcleaved{x $N's $p into two.", $n, shield, victim, TO_CHAR);
 act("$n {Wcleaved{x your $p into two.", $n, shield, victim, TO_VICT);
 act("$n {Wcleaved{x $N's $p into two.", $n, shield, victim, TO_NOTVICT);
-purge_obj(shield);
+extract_obj(shield, 0);
 return 0;
