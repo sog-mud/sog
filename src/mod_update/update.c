@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.51 1998-08-03 00:22:31 efdi Exp $
+ * $Id: update.c,v 1.52 1998-08-06 13:50:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1068,6 +1068,15 @@ void char_update(void)
 		if (!(ch->fighting) && !IS_AFFECTED(ch, AFF_HIDE) 
 		&& (race_table[RACE(ch)].aff & AFF_HIDE) && !MOUNTED(ch))
 			char_nputs(YOU_STEP_BACK_SHADOWS, ch);
+
+		if (!IS_NPC(ch) && is_affected(ch, gsn_thumbling)) {
+			if (dice(5, 6) > get_curr_stat(ch, STAT_DEX)) {
+				/* act(..., ch, NULL, NULL, TO_CHAR);
+				   act(..., ch, NULL, NULL, TO_ROOM);
+				*/
+				affect_strip(ch, gsn_thumbling);
+			}
+		}
 
 		SET_BIT(ch->affected_by, race_table[RACE(ch)].aff);
 

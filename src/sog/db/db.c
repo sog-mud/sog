@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.49 1998-08-06 08:48:35 fjoe Exp $
+ * $Id: db.c,v 1.50 1998-08-06 13:50:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -365,6 +365,7 @@ int  gsn_frenzy;
 int  gsn_holler;
 int  gsn_holler_self;
 
+int gsn_thumbling;
 
 /*
  * Locals.

@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.49 1998-08-06 08:48:36 fjoe Exp $
+ * $Id: interp.c,v 1.50 1998-08-06 13:50:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -315,7 +315,7 @@ const	struct	cmd_type	cmd_table	[] =
     { "recite",		do_recite,	POS_RESTING,	 0,  LOG_NORMAL, 1,0 },
     { "remove",		do_remove,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
     { "request",        do_request,     POS_STANDING,    0,  LOG_NORMAL, 1,0 },
-    { "sell",		do_sell,	POS_RESTING,	 0,  LOG_NORMAL, 1,0 },
+    { "sell",		do_sell,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
     { "take",		do_get,		POS_RESTING,	 0,  LOG_NORMAL, 1,CMD_KEEP_HIDE | CMD_GHOST },
     { "sacrifice",	do_sacrifice,	POS_RESTING,	 0,  LOG_NORMAL, 1,0 },
     { "junk",           do_sacrifice,   POS_RESTING,     0,  LOG_NORMAL, 0,0 },
@@ -366,6 +366,7 @@ const	struct	cmd_type	cmd_table	[] =
     { "rescue",		do_rescue,	POS_FIGHTING,	 0,  LOG_NORMAL, 0,0 },
     { "resistance",     do_resistance,  POS_FIGHTING,    0,  LOG_NORMAL, 0,0 },
     { "truesight",      do_truesight,   POS_FIGHTING,    0,  LOG_NORMAL, 0,0 },
+    { "thumbling",	do_thumbling,	POS_FIGHTING,	 0,  LOG_NORMAL, 0,CMD_KEEP_HIDE|CMD_GHOST },
     { "shield",		do_shield,	POS_FIGHTING,	 0,  LOG_NORMAL, 1,0 },
     { "spellbane",      do_spellbane,   POS_FIGHTING,    0,  LOG_NORMAL, 0,0 },
     { "strangle",       do_strangle,    POS_STANDING,    0,  LOG_NORMAL, 1,0 },

@@ -2,7 +2,7 @@
 #define _INTERP_H_
 
 /*
- * $Id: interp.h,v 1.14 1998-07-26 01:32:22 efdi Exp $
+ * $Id: interp.h,v 1.15 1998-08-06 13:50:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -361,6 +361,7 @@ DECLARE_DO_FUN( do_tame         );
 DECLARE_DO_FUN( do_teach	);
 DECLARE_DO_FUN(	do_tell		);
 DECLARE_DO_FUN( do_throw        );
+DECLARE_DO_FUN( do_thumbling	);
 DECLARE_DO_FUN( do_tick         );
 DECLARE_DO_FUN( do_tiger	);
 DECLARE_DO_FUN(	do_time		);

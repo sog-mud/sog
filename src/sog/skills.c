@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.12 1998-07-19 01:02:51 efdi Exp $
+ * $Id: skills.c,v 1.13 1998-08-06 13:50:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -313,13 +313,11 @@ void check_improve(CHAR_DATA *ch, int sn, bool success, int multiplier)
 
 	/* check to see if the character has a chance to learn */
 	chance = 10 * int_app[get_curr_stat(ch,STAT_INT)].learn;
-	chance /= (		multiplier
-					*	skill_table[sn].rating[ch->class] 
-					*	4);
+	chance /= (multiplier *	skill_table[sn].rating[ch->class] * 4);
 	chance += ch->level;
 
 	if (number_range(1,1000) > chance)
-			return;
+		return;
 
 	/* now that the character has a CHANCE to learn, see if they really have */	
 

@@ -1,5 +1,5 @@
 /*
- * $Id:
+ * $Id: clan.c,v 1.7 1998-08-06 13:50:10 fjoe Exp $
  */
 
 #include <sys/syslimits.h>

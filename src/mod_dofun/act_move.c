@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.75 1998-08-06 09:06:52 fjoe Exp $
+ * $Id: act_move.c,v 1.76 1998-08-06 13:50:10 fjoe Exp $
  */
 
 /***************************************************************************
@@ -307,24 +307,23 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 		    }
 		}
 
-		move = movement_loss[UMIN(SECT_MAX-1, in_room->sector_type)]
-		     + movement_loss[UMIN(SECT_MAX-1, to_room->sector_type)]
-		     ;
+		move = (movement_loss[UMIN(SECT_MAX-1, in_room->sector_type)]
+		     + movement_loss[UMIN(SECT_MAX-1, to_room->sector_type)])/2;
 
-		  move /= 2;  /* i.e. the average */
+		if (is_affected(ch, gsn_thumbling))
+			move *= 2;
+		else {
+			if (IS_AFFECTED(ch,AFF_FLYING)
+			|| IS_AFFECTED(ch,AFF_HASTE))
+				move /= 2;
 
+			if (IS_AFFECTED(ch,AFF_SLOW))
+				move *= 2;
+		}
 
-		/* conditional effects */
-		if (IS_AFFECTED(ch,AFF_FLYING) || IS_AFFECTED(ch,AFF_HASTE))
-		    move /= 2;
-
-		if (IS_AFFECTED(ch,AFF_SLOW))
-		    move *= 2;
-
-		if (!MOUNTED(ch) && ch->move < move)
-		{
-		    char_nputs(YOU_TOO_EXHAUSTED, ch);
-		    return;
+		if (!MOUNTED(ch) && ch->move < move) {
+			char_nputs(YOU_TOO_EXHAUSTED, ch);
+			return;
 		}
 
 		if (!MOUNTED(ch) && 
@@ -4029,3 +4028,72 @@ void do_settraps(CHAR_DATA *ch, const char *argument)
    return;
 }
 
+void do_thumbling(CHAR_DATA *ch, const char *argument)
+{
+	char arg[MAX_STRING_LENGTH];
+	int chance;
+	bool attack;
+	AFFECT_DATA af;
+
+	if (IS_NPC(ch) || (chance = get_skill(ch, gsn_thumbling)) == 0) {
+		char_puts("You don't know how to do that.\n\r", ch);
+		return;
+	}
+
+	one_argument(argument, arg);
+
+	if (arg[0] == '\0') {
+		affect_strip(ch, gsn_thumbling);
+		return;
+	}
+
+	if (is_name(arg, "attack"))
+		attack = TRUE;
+	else if (is_name(arg, "defense"))
+		attack = FALSE;
+	else {
+		char_puts("Aglebargle, glip-glop?\n\r", ch);
+		return;
+	}
+
+	if (is_affected(ch, gsn_thumbling)) {
+		char_puts("You do the best you can.\n\r", ch);
+		return;
+	}
+
+	if (IS_AFFECTED(ch, AFF_FLYING)) {
+		char_puts("Touch the ground first.\n\r", ch);
+		return;
+	}
+
+	if (number_percent() > chance) {
+		char_puts("You failed.\n\r", ch);
+		check_improve(ch, gsn_thumbling, FALSE, 3);
+		return;
+	}
+
+	WAIT_STATE(ch, skill_table[gsn_thumbling].beats);
+
+	af.where	= TO_AFFECTS;
+	af.type		= gsn_thumbling;
+	af.level	= ch->level;
+	af.duration	= -1;
+	af.bitvector	= 0;
+
+	if (attack) {
+		af.modifier	= ch->level / 3;
+		af.location	= APPLY_HITROLL;
+		affect_to_char(ch, &af);
+		af.location	= APPLY_DAMROLL;
+	}
+	else {
+		af.modifier	= - ch->level * 2;
+		af.location	= APPLY_AC;
+	}
+	affect_to_char(ch, &af);
+
+	act("You start to jump like a tennis ball!", ch, NULL, NULL, TO_CHAR);
+	act("$n starts to jump like a tennis ball!", ch, NULL, NULL, TO_ROOM);
+
+	check_improve(ch, gsn_thumbling, TRUE, 3);
+}

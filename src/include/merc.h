@@ -2,7 +2,7 @@
 #define _MERC_H_
 
 /*
- * $Id: merc.h,v 1.62 1998-08-06 11:10:41 fjoe Exp $
+ * $Id: merc.h,v 1.63 1998-08-06 13:50:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2519,6 +2519,7 @@ extern int  gsn_mastering_spell;
 extern int  gsn_frenzy;
 extern int  gsn_holler;
 extern int  gsn_holler_self;
+extern int gsn_thumbling;
 
 /*
  * Utility macros.
