@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.334 2000-03-30 21:00:49 avn Exp $
+ * $Id: act_info.c,v 1.335 2000-03-31 05:47:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1025,20 +1025,6 @@ void do_who(CHAR_DATA *ch, const char *argument)
 			continue;
 		}
 
-
-		if ((clan = clan_search(arg)) != NULL
-		&&  IS_IMMORTAL(ch)) {
-			name_add(&clan_names, clan->name, NULL, NULL);
-			SET_BIT(flags, WHO_F_RCLAN);
-			continue;
-		}
-
-		if ((r = race_search(arg)) != NULL && r->race_pcdata) {
-			name_add(&race_names, r->name, NULL, NULL);
-			SET_BIT(flags, WHO_F_RRACE);
-			continue;
-		}
-
 		if (!str_cmp(arg, "clan")) {
 			if (IS_IMMORTAL(ch))
 				SET_BIT(flags, WHO_F_CLAN);
@@ -1051,6 +1037,18 @@ void do_who(CHAR_DATA *ch, const char *argument)
 
 		if (!IS_IMMORTAL(ch))
 			continue;
+
+		if ((clan = clan_search(arg)) != NULL) {
+			name_add(&clan_names, clan->name, NULL, NULL);
+			SET_BIT(flags, WHO_F_RCLAN);
+			continue;
+		}
+
+		if ((r = race_search(arg)) != NULL && r->race_pcdata) {
+			name_add(&race_names, r->name, NULL, NULL);
+			SET_BIT(flags, WHO_F_RRACE);
+			continue;
+		}
 
 		if ((cl = class_search(arg)) != NULL) {
 			name_add(&class_names, cl->name, NULL, NULL);
