@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: help.c,v 1.22 2001-08-02 18:20:16 fjoe Exp $
+ * $Id: help.c,v 1.23 2001-08-13 18:24:01 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -87,7 +87,7 @@ help_show(CHAR_DATA *ch, BUFFER *output, const char *keyword)
 }
 
 void
-help_show_raw(int level, size_t lang, BUFFER *output, const char *keyword)
+help_show_raw(int level, uint lang, BUFFER *output, const char *keyword)
 {
 	HELP_DATA *pHelp;
 	HELP_DATA *pFirst = NULL;

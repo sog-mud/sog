@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: varr.h,v 1.23 2001-06-25 12:37:49 fjoe Exp $
+ * $Id: varr.h,v 1.24 2001-08-13 18:23:17 fjoe Exp $
  */
 
 #ifndef _VARR_H_
@@ -66,7 +66,7 @@ void *	varr_bsearch	(const varr *, const void *e,
 			 int (*)(const void *, const void *));
 
 typedef void *(foreach_cb_t)(void *p, va_list ap);
-#define DECLARE_FOREACH_CB(fun)	foreach_cb_t fun
+#define DECLARE_FOREACH_CB_FUN(fun)	foreach_cb_t fun
 #define FOREACH_CB_FUN(fun, p, ap)					\
 	void *fun(void *p __attribute__((unused)),			\
 		  va_list ap __attribute__((unused)))

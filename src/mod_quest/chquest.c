@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: chquest.c,v 1.24 2001-08-03 11:27:45 fjoe Exp $
+ * $Id: chquest.c,v 1.25 2001-08-13 18:23:52 fjoe Exp $
  */
 
 /*
@@ -47,6 +47,7 @@
 
 #include <handler.h>
 
+#include <quest.h>
 #include "chquest_impl.h"
 
 #define CHQUEST_DEBUG 0

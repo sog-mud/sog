@@ -1,5 +1,5 @@
 /*-
- * Copyright (c) 1998 SoG Development Team
+ * Copyright (c) 2001 SoG Development Team
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -23,16 +23,25 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: resolver.h,v 1.3 1999-12-16 12:24:54 fjoe Exp $
+ * $Id: comm.h,v 1.1 2001-08-13 18:23:37 fjoe Exp $
  */
 
-#ifndef _RESOLVER_H_
-#define _RESOLVER_H_
+#ifndef _COMM_H_
+#define _COMM_H_
 
-extern FILE *rfin;
-extern FILE *rfout;
+struct codepage {
+	const char *name;
+	unsigned char *from;
+	unsigned char *to;
+};
 
-void	resolver_init(void);
-void	resolver_done(void);
+extern struct codepage codepages[];
+extern size_t codepages_sz;
 
-#endif
+void write_to_buffer(DESCRIPTOR_DATA *d, const char *txt, size_t len);
+void write_to_snoop(DESCRIPTOR_DATA *d, const char *txt, size_t len);
+bool write_to_descriptor(int desc, const char *txt, size_t length);
+
+void charset_print(DESCRIPTOR_DATA *d);
+
+#endif /* _COMM_H_ */

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: class.c,v 1.33 2001-08-05 16:36:56 fjoe Exp $
+ * $Id: class.c,v 1.34 2001-08-13 18:24:00 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -149,7 +149,8 @@ guild_ok_cb(void *p, va_list ap)
 /*
  * guild_ok - check if ch allowed in the room (if the room is guild)
  */
-int guild_ok(CHAR_DATA *ch, ROOM_INDEX_DATA *room)
+int
+guild_ok(CHAR_DATA *ch, ROOM_INDEX_DATA *room)
 {
 	const char *cn_found;
 
@@ -173,7 +174,8 @@ int guild_ok(CHAR_DATA *ch, ROOM_INDEX_DATA *room)
 	return FALSE;
 }
 
-const char *class_who_name(CHAR_DATA *ch)
+const char *
+class_who_name(CHAR_DATA *ch)
 {
 	class_t *cl;
 
@@ -182,7 +184,8 @@ const char *class_who_name(CHAR_DATA *ch)
 	return cl->who_name;
 }
 
-bool can_flee(CHAR_DATA *ch)
+bool
+can_flee(CHAR_DATA *ch)
 {
 	class_t *cl;
 

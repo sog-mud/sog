@@ -1,5 +1,5 @@
 /*
- * $Id: buffer.c,v 1.33 2001-08-03 11:27:49 fjoe Exp $
+ * $Id: buffer.c,v 1.34 2001-08-13 18:23:59 fjoe Exp $
  */
 
 /***************************************************************************
@@ -60,7 +60,7 @@
 struct buf_data
 {
 	BUFFER *	next;
-	size_t		lang;	/* buffer language, 0 is main lang */
+	uint		lang;	/* buffer language, 0 is main lang */
 	size_t		size;	/* buffer size in bytes */
 	char *		string; /* buffer's string */
 };
@@ -75,10 +75,10 @@ int	sAllocBuf;
 BUFFER *free_list;
 
 static bool buf_resize(BUFFER *buffer, const char *string);
-static size_t get_size (size_t val);
+static size_t get_size(size_t val);
 
 BUFFER *
-buf_new(size_t lang)
+buf_new(uint lang)
 {
 	BUFFER *buffer;
 
@@ -182,7 +182,7 @@ buf_string(BUFFER *buffer)
 	return buffer->string;
 }
 
-size_t
+uint
 buf_lang(BUFFER *buffer)
 {
 	return buffer->lang;

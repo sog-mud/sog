@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_auction.c,v 1.1 2001-08-02 14:21:33 fjoe Exp $
+ * $Id: init_auction.c,v 1.2 2001-08-13 18:23:19 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -38,16 +38,17 @@
 
 #include <update.h>
 
-int
-_module_load(module_t *m)
+DECLARE_MODINIT_FUN(_module_load);
+DECLARE_MODINIT_FUN(_module_unload);
+
+MODINIT_FUN(_module_load, m)
 {
 	varr_foreach(&commands, cmd_load_cb, MODULE, m);
 	uhandler_load(m->name);
 	return 0;
 }
 
-int
-_module_unload(module_t *m)
+MODINIT_FUN(_module_unload, m)
 {
 	uhandler_unload(m->name);
 	varr_foreach(&commands, cmd_unload_cb, MODULE);

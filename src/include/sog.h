@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: sog.h,v 1.11 2001-08-05 16:36:20 fjoe Exp $
+ * $Id: sog.h,v 1.12 2001-08-13 18:23:15 fjoe Exp $
  */
 
 #ifndef _HANDLER_H_
@@ -329,6 +329,9 @@ DECLARE_FUN4(CHAR_DATA, get_char_spell,
 	     ARG(int), range)
 DECLARE_PROC1(hometown_print_avail,
 	      ARG(CHAR_DATA), ch)
+DECLARE_PROC0(reboot_mud)
+DECLARE_PROC2(show_flags,
+	      ARG(CHAR_DATA), ch, ARG(flaginfo_t), flag_table)
 
 /*--- scan_pfiles.c */
 DECLARE_PROC0(scan_pfiles)
@@ -410,7 +413,7 @@ DECLARE_PROC1(strip_raff_owner,
 	      ARG(CHAR_DATA), ch)
 
 DECLARE_PROC2(aff_dump_list,
-	      ARG(AFFECT_DATA), paf, ARG(BUFFER), output)
+	      NULLABLE_ARG(AFFECT_DATA), paf, ARG(BUFFER), output)
 DECLARE_PROC3(show_affects,
 	      ARG(CHAR_DATA), ch, ARG(CHAR_DATA), vch, ARG(BUFFER), output)
 
@@ -489,6 +492,14 @@ DECLARE_PROC4(focus_negative_energy,
 #define LOAD_F_NOCREATE	(A)
 #define LOAD_F_MOVE	(B)
 
+/*
+ * char_save flags (these are mutually exclusive)
+ */
+#define SAVE_F_NONE	(A)
+#define SAVE_F_NORMAL	(B)
+#define SAVE_F_REBOOT	(C)
+#define SAVE_F_PSCAN	(D)
+
 DECLARE_FUN2(CHAR_DATA, char_load,
 	     ARG(cchar_t), name, ARG(int), flags)
 DECLARE_PROC2(char_save,
@@ -559,11 +570,11 @@ DECLARE_FUN3(cchar_t, spec_replace,
 
 DECLARE_FUN5(cchar_t, format_short,
 	     ARG(mlstring), mshort, ARG(cchar_t), name,
-	     ARG(CHAR_DATA), to, ARG(size_t), to_lang, ARG(int), act_flags)
+	     ARG(CHAR_DATA), to, ARG(uint), to_lang, ARG(int), act_flags)
 DECLARE_FUN2(cchar_t, format_long,
 	     ARG(mlstring), desc, ARG(CHAR_DATA), to)
 DECLARE_FUN4(cchar_t, PERS,
-	     ARG(CHAR_DATA), ch, ARG(CHAR_DATA), to, ARG(size_t), to_lang,
+	     ARG(CHAR_DATA), ch, ARG(CHAR_DATA), to, ARG(uint), to_lang,
 	     ARG(int), act_flags)
 
 /* the following 5 act target flags are exclusive */
@@ -718,6 +729,30 @@ DECLARE_PROC2(rating_update,
 DECLARE_PROC1(rating_add,
 	      ARG(CHAR_DATA), ch)
 
+/*--- interp.c */
+DECLARE_PROC3(interpret,
+	      ARG(CHAR_DATA), ch, ARG(cchar_t), argument, ARG(bool), is_order)
+
+/*--- ban.c */
+DECLARE_PROC2(ban_add,
+	      ARG(CHAR_DATA), ch, ARG(cchar_t), argument)
+DECLARE_PROC2(ban_delete,
+	      ARG(CHAR_DATA), ch, ARG(cchar_t), argument)
+DECLARE_FUN2(int, check_ban,
+	     ARG(DESCRIPTOR_DATA), d, ARG(int), ban_class)
+DECLARE_PROC1(dump_bans,
+	      ARG(BUFFER), output)
+
+/*--- comm.c */
+DECLARE_PROC2(send_to_char,
+	      ARG(cchar_t), txt, ARG(CHAR_DATA), ch)
+DECLARE_PROC2(page_to_char,
+	      ARG(cchar_t), txt, ARG(CHAR_DATA), ch)
+DECLARE_PROC1(bust_a_prompt,
+	      ARG(DESCRIPTOR_DATA), d)
+DECLARE_PROC2(close_descriptor,
+	      ARG(DESCRIPTOR_DATA), dclose, ARG(int), save_flags)
+
 __MODULE_END_DECL
 
 /*
@@ -734,7 +769,7 @@ enum {
  */
 
 struct actopt_t {
-	size_t to_lang;
+	uint to_lang;
 	int to_sex;
 	int act_flags;
 };

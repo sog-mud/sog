@@ -23,12 +23,22 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: handler_impl.h,v 1.1 2001-08-05 16:45:28 fjoe Exp $
+ * $Id: handler_impl.h,v 1.2 2001-08-13 18:23:39 fjoe Exp $
  */
 
 #ifndef _HANDLER_IMPL_H_
 #define _HANDLER_IMPL_H_
 
+/*--- handler_impl.c */
 void act_char_logger(CHAR_DATA *ch, const char *alias, const char *msg);
+
+/*--- ban.c */
+void load_bans(void);
+
+/*--- nanny.c */
+void nanny(DESCRIPTOR_DATA *d, const char *argument);
+
+/*--- interp.c */
+void substitute_alias(DESCRIPTOR_DATA *d, const char *argument);
 
 #endif /* _HANDLER_IMPL_H_ */

@@ -31,7 +31,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_update.c,v 1.10 2001-08-03 11:27:47 fjoe Exp $
+ * $Id: act_update.c,v 1.11 2001-08-13 18:23:54 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -44,8 +44,11 @@
 #include <update.h>
 #include "update_impl.h"
 
-static void *
-update_print_cb(void *p, va_list ap)
+DECLARE_DO_FUN(do_settick);
+DECLARE_DO_FUN(do_tick);
+
+static
+FOREACH_CB_FUN(update_print_cb, p, ap)
 {
 	uhandler_t *hdlr = (uhandler_t *) p;
 	BUFFER *buf = va_arg(ap, BUFFER *);
@@ -64,8 +67,8 @@ update_print_cb(void *p, va_list ap)
 	return NULL;
 }
 
-static void *
-update_set_cb(void *p, va_list ap)
+static
+FOREACH_CB_FUN(update_set_cb, p, ap)
 {
 	uhandler_t *hdlr = (uhandler_t *) p;
 	const char *s = va_arg(ap, const char *);
@@ -78,7 +81,7 @@ update_set_cb(void *p, va_list ap)
 	return hdlr;
 }
 
-void do_settick(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_settick, ch, argument)
 {
 	char arg[MAX_INPUT_LENGTH], arg2[MAX_INPUT_LENGTH];
 	int val;
@@ -109,10 +112,10 @@ void do_settick(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_tick(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_tick, ch, argument)
 {
 	char arg[MAX_INPUT_LENGTH];
-	
+
 	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0')  {
 		dofun("help", ch, "'WIZ TICK'");

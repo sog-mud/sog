@@ -1,5 +1,5 @@
 /*
- * $Id: prayers.c,v 1.13 2001-08-05 16:36:45 fjoe Exp $
+ * $Id: prayers.c,v 1.14 2001-08-13 18:23:44 fjoe Exp $
  */
 
 /***************************************************************************
@@ -49,8 +49,84 @@
 #include <magic.h>
 #include "magic_impl.h"
 
-void
-prayer_detect_good(const char *sn, int level, CHAR_DATA *ch, void *vo)
+DECLARE_SPELL_FUN(prayer_detect_good);
+DECLARE_SPELL_FUN(prayer_detect_evil);
+DECLARE_SPELL_FUN(prayer_detect_poison);
+DECLARE_SPELL_FUN(prayer_refresh);
+DECLARE_SPELL_FUN(prayer_restoring_light);
+DECLARE_SPELL_FUN(prayer_word_of_recall);
+DECLARE_SPELL_FUN(prayer_inspire);
+DECLARE_SPELL_FUN(prayer_heal);
+DECLARE_SPELL_FUN(prayer_master_healing);
+DECLARE_SPELL_FUN(prayer_group_heal);
+DECLARE_SPELL_FUN(prayer_superior_heal);
+DECLARE_SPELL_FUN(prayer_mass_healing);
+DECLARE_SPELL_FUN(prayer_dispel_good);
+DECLARE_SPELL_FUN(prayer_dispel_evil);
+DECLARE_SPELL_FUN(prayer_cure_light_wounds);
+DECLARE_SPELL_FUN(prayer_cure_serious_wounds);
+DECLARE_SPELL_FUN(prayer_cure_critical_wounds);
+DECLARE_SPELL_FUN(prayer_cure_blindness);
+DECLARE_SPELL_FUN(prayer_cure_poison);
+DECLARE_SPELL_FUN(prayer_cure_disease);
+DECLARE_SPELL_FUN(prayer_group_defense);
+DECLARE_SPELL_FUN(prayer_turn);
+DECLARE_SPELL_FUN(prayer_mana_restore);
+DECLARE_SPELL_FUN(prayer_severity_force);
+DECLARE_SPELL_FUN(prayer_create_spring);
+DECLARE_SPELL_FUN(prayer_create_food);
+DECLARE_SPELL_FUN(prayer_create_water);
+DECLARE_SPELL_FUN(prayer_resilience);
+DECLARE_SPELL_FUN(prayer_mass_sanctuary);
+DECLARE_SPELL_FUN(prayer_lightning_bolt);
+DECLARE_SPELL_FUN(prayer_sanctify_lands);
+DECLARE_SPELL_FUN(prayer_cursed_lands);
+DECLARE_SPELL_FUN(prayer_desert_fist);
+DECLARE_SPELL_FUN(prayer_calm);
+DECLARE_SPELL_FUN(prayer_harm);
+DECLARE_SPELL_FUN(prayer_wrath);
+DECLARE_SPELL_FUN(prayer_bless);
+DECLARE_SPELL_FUN(prayer_inflict_light_wounds);
+DECLARE_SPELL_FUN(prayer_inflict_serious_wounds);
+DECLARE_SPELL_FUN(prayer_inflict_critical_wounds);
+DECLARE_SPELL_FUN(prayer_demonfire);
+DECLARE_SPELL_FUN(prayer_mind_wrack);
+DECLARE_SPELL_FUN(prayer_remove_fear);
+DECLARE_SPELL_FUN(prayer_call_lightning);
+DECLARE_SPELL_FUN(prayer_protection_good);
+DECLARE_SPELL_FUN(prayer_protection_evil);
+DECLARE_SPELL_FUN(prayer_restoration);
+DECLARE_SPELL_FUN(prayer_holy_hammer);
+DECLARE_SPELL_FUN(prayer_hold_person);
+DECLARE_SPELL_FUN(prayer_lethargic_mist);
+DECLARE_SPELL_FUN(prayer_mind_wrench);
+DECLARE_SPELL_FUN(prayer_holy_word);
+DECLARE_SPELL_FUN(prayer_healing_light);
+DECLARE_SPELL_FUN(prayer_sanctuary);
+DECLARE_SPELL_FUN(prayer_black_shroud);
+DECLARE_SPELL_FUN(prayer_solar_flight);
+DECLARE_SPELL_FUN(prayer_black_death);
+DECLARE_SPELL_FUN(prayer_etheral_fist);
+DECLARE_SPELL_FUN(prayer_earthquake);
+DECLARE_SPELL_FUN(prayer_blade_barrier);
+DECLARE_SPELL_FUN(prayer_anathema);
+DECLARE_SPELL_FUN(prayer_heat_metal);
+DECLARE_SPELL_FUN(prayer_mind_light);
+DECLARE_SPELL_FUN(prayer_free_action);
+DECLARE_SPELL_FUN(prayer_deadly_venom);
+DECLARE_SPELL_FUN(prayer_ray_of_truth);
+DECLARE_SPELL_FUN(prayer_aid);
+DECLARE_SPELL_FUN(prayer_bluefire);
+DECLARE_SPELL_FUN(prayer_bless_weapon);
+DECLARE_SPELL_FUN(prayer_control_weather);
+DECLARE_SPELL_FUN(prayer_benediction);
+DECLARE_SPELL_FUN(prayer_curse);
+DECLARE_SPELL_FUN(prayer_remove_curse);
+DECLARE_SPELL_FUN(prayer_flamestrike);
+DECLARE_SPELL_FUN(prayer_know_alignment);
+DECLARE_SPELL_FUN(prayer_frenzy);
+
+SPELL_FUN(prayer_detect_good, sn, level, ch, vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA *paf;
@@ -77,8 +153,7 @@ prayer_detect_good(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		act_char("Ok.", ch);
 }
 
-void
-prayer_detect_evil(const char *sn, int level, CHAR_DATA *ch, void *vo)
+SPELL_FUN(prayer_detect_evil, sn, level, ch, vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA *paf;
@@ -105,8 +180,7 @@ prayer_detect_evil(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		act_char("Ok.", ch);
 }
 
-void
-prayer_detect_poison(const char *sn, int level, CHAR_DATA *ch, void *vo)
+SPELL_FUN(prayer_detect_poison, sn, level, ch, vo)
 {
 	OBJ_DATA *obj = (OBJ_DATA *) vo;
 
@@ -123,8 +197,7 @@ prayer_detect_poison(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	}
 }
 
-void
-prayer_refresh(const char *sn, int level, CHAR_DATA *ch, void *vo)
+SPELL_FUN(prayer_refresh, sn, level, ch, vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	victim->move = UMIN(victim->move + level, victim->max_move);
@@ -136,8 +209,7 @@ prayer_refresh(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		act_char("Ok.", ch);
 }
 
-void
-prayer_restoring_light(const char *sn, int level, CHAR_DATA *ch, void *vo)
+SPELL_FUN(prayer_restoring_light, sn, level, ch, vo)
 {
 	AFFECT_DATA *paf;
 
@@ -166,8 +238,7 @@ prayer_restoring_light(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	act_char("Ok.", ch);
 }
 
-void
-prayer_word_of_recall(const char *sn, int level, CHAR_DATA *ch,void *vo)
+SPELL_FUN(prayer_word_of_recall, sn, level, ch, vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	ROOM_INDEX_DATA *location;
@@ -269,27 +340,23 @@ inspire_cb(void *vo, va_list ap)
 	return NULL;
 }
 
-void
-prayer_inspire(const char *sn, int level, CHAR_DATA *ch, void *vo)
+SPELL_FUN(prayer_inspire, sn, level, ch, vo)
 {
 	vo_foreach(ch->in_room, &iter_char_room, inspire_cb, level, ch);
 }
 
-void
-prayer_heal(const char *sn, int level, CHAR_DATA *ch, void *vo)
+SPELL_FUN(prayer_heal, sn, level, ch, vo)
 {
 	focus_positive_energy(ch, (CHAR_DATA *) vo, sn, 100 + level / 10);
 }
 
-void
-prayer_master_healing(const char *sn, int level, CHAR_DATA *ch, void *vo)
+SPELL_FUN(prayer_master_healing, sn, level, ch, vo)
 {
 	focus_positive_energy(ch, (CHAR_DATA *) vo, sn,
 	   300 + level + dice(1,40));
 }
 
-void
-prayer_group_heal(const char *sn, int level, CHAR_DATA *ch, void *vo)
+SPELL_FUN(prayer_group_heal, sn, level, ch, vo)
 {
 	CHAR_DATA *gch;
 
@@ -302,15 +369,13 @@ prayer_group_heal(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	}
 }
 
-void
-prayer_superior_heal(const char *sn, int level, CHAR_DATA *ch, void *vo)
+SPELL_FUN(prayer_superior_heal, sn, level, ch, vo)
 {
 	focus_positive_energy(ch, (CHAR_DATA *) vo, sn,
 	    170 + level + dice(1, 20));
 }
 
-void
-prayer_mass_healing(const char *sn, int level, CHAR_DATA *ch, void *vo)
+SPELL_FUN(prayer_mass_healing, sn, level, ch, vo)
 {
 	CHAR_DATA *gch;
 
@@ -323,8 +388,7 @@ prayer_mass_healing(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	}
 }
 
-void
-prayer_dispel_good(const char *sn, int level, CHAR_DATA *ch, void *vo)
+SPELL_FUN(prayer_dispel_good, sn, level, ch, vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	int dam;
@@ -361,8 +425,7 @@ prayer_dispel_good(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	damage(ch, victim, dam, sn, DAM_NEGATIVE, DAMF_SHOW);
 }
 
-void
-prayer_dispel_evil(const char *sn, int level, CHAR_DATA *ch, void *vo)
+SPELL_FUN(prayer_dispel_evil, sn, level, ch, vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	int dam;
@@ -397,28 +460,24 @@ prayer_dispel_evil(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	damage(ch, victim, dam, sn, DAM_HOLY, DAMF_SHOW);
 }
 
-void
-prayer_cure_light_wounds(const char *sn, int level, CHAR_DATA *ch, void *vo)
+SPELL_FUN(prayer_cure_light_wounds, sn, level, ch, vo)
 {
 	focus_positive_energy(ch, (CHAR_DATA *) vo, sn,
 	    dice(1, 8) + level / 4 + 5);
 }
 
-void
-prayer_cure_serious_wounds(const char *sn, int level, CHAR_DATA *ch, void *vo)
+SPELL_FUN(prayer_cure_serious_wounds, sn, level, ch, vo)
 {
 	focus_positive_energy(ch, (CHAR_DATA *) vo, sn,
 	    dice(2, 8) + level / 3 + 10);
 }
 
-void
-prayer_cure_critical_wounds(const char *sn, int level, CHAR_DATA *ch, void *vo)
+SPELL_FUN(prayer_cure_critical_wounds, sn, level, ch, vo)
 {
 	focus_positive_energy(ch, (CHAR_DATA *) vo, sn, dice(3, 8) + level);
 }
 
-void
-prayer_cure_blindness(const char *sn, int level,CHAR_DATA *ch,void *vo)
+SPELL_FUN(prayer_cure_blindness, sn, level, ch, vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 
@@ -437,8 +496,7 @@ prayer_cure_blindness(const char *sn, int level,CHAR_DATA *ch,void *vo)
 		act_char("Your god doesn't hear you.", ch);
 }
 
-void
-prayer_cure_poison(const char *sn, int level, CHAR_DATA *ch, void *vo)
+SPELL_FUN(prayer_cure_poison, sn, level, ch, vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 
@@ -460,8 +518,7 @@ prayer_cure_poison(const char *sn, int level, CHAR_DATA *ch, void *vo)
 }
 
 /* RT added to cure plague */
-void
-prayer_cure_disease(const char *sn, int level, CHAR_DATA *ch,void *vo)
+SPELL_FUN(prayer_cure_disease, sn, level, ch, vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 
@@ -548,8 +605,7 @@ group_defense_cb(void *vo, va_list ap)
 	return NULL;
 }
 
-void
-prayer_group_defense(const char *sn, int level, CHAR_DATA *ch, void *vo )
+SPELL_FUN(prayer_group_defense, sn, level, ch, vo)
 {
 	vo_foreach(ch->in_room, &iter_char_room, group_defense_cb, level, ch);
 }
@@ -598,8 +654,7 @@ turn_cb(void *vo, va_list ap)
 	return NULL;
 }
 
-void
-prayer_turn(const char *sn, int level, CHAR_DATA *ch, void *vo)
+SPELL_FUN(prayer_turn, sn, level, ch, vo)
 {
 	AFFECT_DATA *paf;
 
@@ -617,8 +672,7 @@ prayer_turn(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	vo_foreach(ch->in_room, &iter_char_room, turn_cb, sn, level, ch);
 }
 
-void
-prayer_mana_restore(const char *sn, int level, CHAR_DATA *ch, void *vo)
+SPELL_FUN(prayer_mana_restore, sn, level, ch, vo)
 {
 	CHAR_DATA *vch = (CHAR_DATA *) vo;
 	int restore;
@@ -629,8 +683,7 @@ prayer_mana_restore(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	if (ch != vch) act_char("Ok.", ch);
 }
 
-void
-prayer_severity_force(const char *sn, int level, CHAR_DATA *ch, void *vo)
+SPELL_FUN(prayer_severity_force, sn, level, ch, vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	int dam;
@@ -644,8 +697,7 @@ prayer_severity_force(const char *sn, int level, CHAR_DATA *ch, void *vo)
 
 #define OBJ_VNUM_SPRING			22
 
-void
-prayer_create_spring(const char *sn, int level,CHAR_DATA *ch,void *vo)
+SPELL_FUN(prayer_create_spring, sn, level, ch, vo)
 {
 	OBJ_DATA *spring;
 
@@ -661,8 +713,7 @@ prayer_create_spring(const char *sn, int level,CHAR_DATA *ch,void *vo)
 
 #define OBJ_VNUM_MUSHROOM		20
 
-void
-prayer_create_food(const char *sn, int level, CHAR_DATA *ch, void *vo)
+SPELL_FUN(prayer_create_food, sn, level, ch, vo)
 {
 	OBJ_DATA *mushroom;
 
@@ -677,8 +728,7 @@ prayer_create_food(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	act("$p suddenly appears.", ch, mushroom, NULL, TO_ALL);
 }
 
-void
-prayer_create_water(const char *sn, int level, CHAR_DATA *ch, void *vo)
+SPELL_FUN(prayer_create_water, sn, level, ch, vo)
 {
 	OBJ_DATA *obj = (OBJ_DATA *) vo;
 	int water;
@@ -707,8 +757,7 @@ prayer_create_water(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	}
 }
 
-void
-prayer_resilience(const char *sn, int level, CHAR_DATA *ch, void *vo)
+SPELL_FUN(prayer_resilience, sn, level, ch, vo)
 {
 	if (!is_affected(ch, sn)) {
 		AFFECT_DATA *paf;
@@ -747,14 +796,12 @@ mass_sanctuary_cb(void *vo, va_list ap)
 	return NULL;
 }
 
-void
-prayer_mass_sanctuary(const char *sn, int level, CHAR_DATA *ch, void *vo)
+SPELL_FUN(prayer_mass_sanctuary, sn, level, ch, vo)
 {
 	vo_foreach(ch->in_room, &iter_char_room, mass_sanctuary_cb, level, ch);
 }
 
-void
-prayer_lightning_bolt(const char *sn, int level,CHAR_DATA *ch,void *vo)
+SPELL_FUN(prayer_lightning_bolt, sn, level, ch, vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	int dam;
@@ -765,8 +812,7 @@ prayer_lightning_bolt(const char *sn, int level,CHAR_DATA *ch,void *vo)
 	damage(ch, victim, dam, sn, DAM_LIGHTNING, DAMF_SHOW);
 }
 
-void
-prayer_sanctify_lands(const char *sn, int level, CHAR_DATA *ch, void *vo)
+SPELL_FUN(prayer_sanctify_lands, sn, level, ch, vo)
 {
 	if (number_bits(1) == 0) {
 		act_char("You failed.", ch);
@@ -807,8 +853,7 @@ prayer_sanctify_lands(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	}
 }
 
-void
-prayer_cursed_lands(const char *sn, int level, CHAR_DATA *ch, void *vo)
+SPELL_FUN(prayer_cursed_lands, sn, level, ch, vo)
 {
 	AFFECT_DATA *paf;
 
@@ -834,8 +879,7 @@ prayer_cursed_lands(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	act("The gods has forsaken the room.", ch, NULL, NULL, TO_ROOM);
 }
 
-void
-prayer_desert_fist(const char *sn, int level, CHAR_DATA *ch, void *vo)
+SPELL_FUN(prayer_desert_fist, sn, level, ch, vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	int dam;
@@ -858,8 +902,7 @@ prayer_desert_fist(const char *sn, int level, CHAR_DATA *ch, void *vo)
 }
 
 /* RT calm spell stops all fighting in the room */
-void
-prayer_calm(const char *sn, int level, CHAR_DATA *ch, void *vo)
+SPELL_FUN(prayer_calm, sn, level, ch, vo)
 {
 	CHAR_DATA *vch;
 	int mlevel = 0;
@@ -919,8 +962,7 @@ prayer_calm(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	}
 }
 
-void
-prayer_harm(const char *sn, int level, CHAR_DATA *ch, void *vo)
+SPELL_FUN(prayer_harm, sn, level, ch, vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	int dam;
@@ -932,8 +974,7 @@ prayer_harm(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	damage(ch, victim, dam, sn, DAM_HARM, DAMF_SHOW);
 }
 
-void
-prayer_wrath(const char *sn, int level, CHAR_DATA *ch, void *vo)
+SPELL_FUN(prayer_wrath, sn, level, ch, vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	int dam;
@@ -986,8 +1027,7 @@ prayer_wrath(const char *sn, int level, CHAR_DATA *ch, void *vo)
 /*
  * can be called with ch == NULL, vo == ch (e.g.: obj prog of tattoo of venus)
  */
-void
-prayer_bless(const char *sn, int level, CHAR_DATA *ch, void *vo)
+SPELL_FUN(prayer_bless, sn, level, ch, vo)
 {
 	CHAR_DATA *victim;
 	AFFECT_DATA *paf;
@@ -995,7 +1035,6 @@ prayer_bless(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	/* deal with the object case first */
 	if (mem_is(vo, MT_OBJ)) {
 		OBJ_DATA *obj = (OBJ_DATA *) vo;
-		AFFECT_DATA *paf;
 
 		if (IS_OBJ_STAT(obj,ITEM_BLESS)) {
 			act("$p is already blessed.", ch, obj, NULL, TO_CHAR);
@@ -1058,29 +1097,23 @@ prayer_bless(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	}
 }
 
-void
-prayer_inflict_light_wounds(const char *sn, int level, CHAR_DATA *ch, void *vo)
+SPELL_FUN(prayer_inflict_light_wounds, sn, level, ch, vo)
 {
 	focus_negative_energy(ch, (CHAR_DATA *) vo, sn, dice(1, 8) + level / 3);
 }
 
-void
-prayer_inflict_serious_wounds(const char *sn, int level,
-			      CHAR_DATA *ch,void *vo)
+SPELL_FUN(prayer_inflict_serious_wounds, sn, level, ch, vo)
 {
 	focus_negative_energy(ch, (CHAR_DATA *) vo, sn, dice(2, 8) + level / 2);
 }
 
-void
-prayer_inflict_critical_wounds(const char *sn, int level,
-			       CHAR_DATA *ch, void *vo)
+SPELL_FUN(prayer_inflict_critical_wounds, sn, level, ch, vo)
 {
 	focus_negative_energy(ch, (CHAR_DATA *) vo, sn, dice(3, 8) + level - 6);
 }
 
 /* RT replacement demonfire spell */
-void
-prayer_demonfire(const char *sn, int level, CHAR_DATA *ch, void *vo)
+SPELL_FUN(prayer_demonfire, sn, level, ch, vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	int dam;
@@ -1105,8 +1138,7 @@ prayer_demonfire(const char *sn, int level, CHAR_DATA *ch, void *vo)
 }
 
 /* mental */
-void
-prayer_mind_wrack(const char *sn, int level, CHAR_DATA *ch, void *vo)
+SPELL_FUN(prayer_mind_wrack, sn, level, ch, vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	int dam;
@@ -1119,8 +1151,7 @@ prayer_mind_wrack(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	damage(ch, victim, dam, sn, DAM_MENTAL, DAMF_SHOW);
 }
 
-void
-prayer_remove_fear(const char *sn, int level, CHAR_DATA *ch, void *vo)
+SPELL_FUN(prayer_remove_fear, sn, level, ch, vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 
@@ -1159,8 +1190,7 @@ call_lightning_cb(void *vo, va_list ap)
 	return NULL;
 }
 
-void
-prayer_call_lightning(const char *sn, int level, CHAR_DATA *ch, void *vo)
+SPELL_FUN(prayer_call_lightning, sn, level, ch, vo)
 {
 	int dam;
 
@@ -1181,8 +1211,7 @@ prayer_call_lightning(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		   sn, level, ch, dam);
 }
 
-void
-prayer_protection_good(const char *sn, int level,CHAR_DATA *ch,void *vo)
+SPELL_FUN(prayer_protection_good, sn, level, ch, vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA *paf;
@@ -1212,8 +1241,7 @@ prayer_protection_good(const char *sn, int level,CHAR_DATA *ch,void *vo)
 		act("$N is protected from good.", ch, NULL, victim, TO_CHAR);
 }
 
-void
-prayer_protection_evil(const char *sn, int level, CHAR_DATA *ch, void *vo)
+SPELL_FUN(prayer_protection_evil, sn, level, ch, vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA *paf;
@@ -1243,8 +1271,7 @@ prayer_protection_evil(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		act("$N is protected from evil.", ch, NULL, victim, TO_CHAR);
 }
 
-void
-prayer_restoration(const char *sn, int level, CHAR_DATA *ch, void *vo)
+SPELL_FUN(prayer_restoration, sn, level, ch, vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA *paf;
@@ -1267,8 +1294,7 @@ prayer_restoration(const char *sn, int level, CHAR_DATA *ch, void *vo)
 
 #define OBJ_VNUM_HOLY_HAMMER		18
 
-void
-prayer_holy_hammer(const char *sn, int level, CHAR_DATA *ch, void *vo)
+SPELL_FUN(prayer_holy_hammer, sn, level, ch, vo)
 {
 	OBJ_DATA *hammer;
 	AFFECT_DATA *paf;
@@ -1299,8 +1325,7 @@ prayer_holy_hammer(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	act ("$n creates a Holy Hammer.", ch, NULL, NULL, TO_ROOM);
 }
 
-void
-prayer_hold_person(const char *sn, int level, CHAR_DATA *ch, void *vo)
+SPELL_FUN(prayer_hold_person, sn, level, ch, vo)
 {
 	CHAR_DATA* victim = (CHAR_DATA*) vo;
 	AFFECT_DATA *paf;
@@ -1320,8 +1345,7 @@ prayer_hold_person(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	aff_free(paf);
 }
 
-void
-prayer_lethargic_mist(const char *sn, int level, CHAR_DATA *ch, void *vo)
+SPELL_FUN(prayer_lethargic_mist, sn, level, ch, vo)
 {
 	AFFECT_DATA *paf;
 
@@ -1347,8 +1371,7 @@ prayer_lethargic_mist(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	    ch, NULL, NULL, TO_ROOM);
 }
 
-void
-prayer_mind_wrench(const char *sn, int level, CHAR_DATA *ch, void *vo)
+SPELL_FUN(prayer_mind_wrench, sn, level, ch, vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	int dam;
@@ -1401,8 +1424,7 @@ holy_word_cb(void *vo, va_list ap)
 }
 
 /* RT really nasty high-level attack spell */
-void
-prayer_holy_word(const char *sn, int level, CHAR_DATA *ch, void *vo)
+SPELL_FUN(prayer_holy_word, sn, level, ch, vo)
 {
 	act("$n utters a word of divine power!", ch, NULL, NULL, TO_ROOM);
 	act_char("You utter a word of divine power.", ch);
@@ -1415,8 +1437,7 @@ prayer_holy_word(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	ch->hit = ch->hit * 3 / 4;
 }
 
-void
-prayer_healing_light(const char *sn, int level, CHAR_DATA *ch, void *vo)
+SPELL_FUN(prayer_healing_light, sn, level, ch, vo)
 {
 	AFFECT_DATA *paf;
 
@@ -1443,8 +1464,7 @@ prayer_healing_light(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	    ch, NULL, NULL, TO_ROOM);
 }
 
-void
-prayer_sanctuary(const char *sn, int level, CHAR_DATA *ch, void *vo)
+SPELL_FUN(prayer_sanctuary, sn, level, ch, vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA *paf;
@@ -1497,8 +1517,7 @@ prayer_sanctuary(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		 victim, NULL, NULL, TO_CHAR, POS_DEAD);
 }
 
-void
-prayer_black_shroud(const char *sn, int level, CHAR_DATA *ch, void *vo)
+SPELL_FUN(prayer_black_shroud, sn, level, ch, vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA*) vo;
 	AFFECT_DATA *paf;
@@ -1552,8 +1571,7 @@ prayer_black_shroud(const char *sn, int level, CHAR_DATA *ch, void *vo)
 }
 
 /*  Cleric version of astra_walk  */
-void
-prayer_solar_flight(const char *sn, int level, CHAR_DATA *ch, void *vo)
+SPELL_FUN(prayer_solar_flight, sn, level, ch, vo)
 {
 	CHAR_DATA *victim;
 
@@ -1576,8 +1594,7 @@ prayer_solar_flight(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		      "$N appears in a blinding flash of light!");
 }
 
-void
-prayer_black_death(const char *sn, int level, CHAR_DATA *ch, void *vo)
+SPELL_FUN(prayer_black_death, sn, level, ch, vo)
 {
 	AFFECT_DATA *paf;
 
@@ -1603,8 +1620,7 @@ prayer_black_death(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	    ch, NULL, NULL, TO_ROOM);
 }
 
-void
-prayer_etheral_fist(const char *sn, int level, CHAR_DATA *ch, void *vo)
+SPELL_FUN(prayer_etheral_fist, sn, level, ch, vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	int dam;
@@ -1644,16 +1660,14 @@ earthquake_cb(void *vo, va_list ap)
 	return NULL;
 }
 
-void
-prayer_earthquake(const char *sn, int level, CHAR_DATA *ch, void *vo)
+SPELL_FUN(prayer_earthquake, sn, level, ch, vo)
 {
 	act_char("The earth trembles beneath your feet!", ch);
 	act("$n makes the earth tremble and shiver.", ch, NULL, NULL, TO_ROOM);
 	vo_foreach(NULL, &iter_char_world, earthquake_cb, sn, level, ch);
 }
 
-void
-prayer_blade_barrier(const char *sn, int level,CHAR_DATA *ch, void *vo)
+SPELL_FUN(prayer_blade_barrier, sn, level, ch, vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	int dam;
@@ -1698,8 +1712,7 @@ prayer_blade_barrier(const char *sn, int level,CHAR_DATA *ch, void *vo)
 	act("The blade barriers crash you!", victim, NULL, NULL, TO_CHAR);
 }
 
-void
-prayer_anathema(const char *sn, int level, CHAR_DATA *ch, void *vo)
+SPELL_FUN(prayer_anathema, sn, level, ch, vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA *paf;
@@ -1754,8 +1767,7 @@ prayer_anathema(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	act_char("You feel unclean.", victim);
 }
 
-void
-prayer_heat_metal(const char *sn, int level, CHAR_DATA *ch, void *vo)
+SPELL_FUN(prayer_heat_metal, sn, level, ch, vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	OBJ_DATA *obj_lose, *obj_next;
@@ -1866,8 +1878,7 @@ prayer_heat_metal(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	}
 }
 
-void
-prayer_mind_light(const char *sn, int level, CHAR_DATA *ch, void *vo)
+SPELL_FUN(prayer_mind_light, sn, level, ch, vo)
 {
 	AFFECT_DATA *paf;
 
@@ -1894,8 +1905,7 @@ prayer_mind_light(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	    ch, NULL, NULL, TO_ROOM);
 }
 
-void
-prayer_free_action(const char *sn, int level, CHAR_DATA *ch, void *vo)
+SPELL_FUN(prayer_free_action, sn, level, ch, vo)
 {
 	CHAR_DATA *vch = (CHAR_DATA *) vo;
 	AFFECT_DATA *paf;
@@ -1920,8 +1930,7 @@ prayer_free_action(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		act("You help $N to move easier.", ch, NULL, vch, TO_CHAR);
 }
 
-void
-prayer_deadly_venom(const char *sn, int level, CHAR_DATA *ch, void *vo)
+SPELL_FUN(prayer_deadly_venom, sn, level, ch, vo)
 {
 	AFFECT_DATA *paf;
 
@@ -1946,8 +1955,7 @@ prayer_deadly_venom(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	act("The room starts to be filled by poison.", ch, NULL, NULL, TO_ROOM);
 }
 
-void
-prayer_ray_of_truth(const char *sn, int level, CHAR_DATA *ch, void *vo)
+SPELL_FUN(prayer_ray_of_truth, sn, level, ch, vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	int dam, align;
@@ -1986,8 +1994,7 @@ prayer_ray_of_truth(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	damage(ch, victim, dam, sn, DAM_HOLY, DAMF_SHOW);
 }
 
-void
-prayer_aid(const char *sn, int level, CHAR_DATA *ch, void *vo)
+SPELL_FUN(prayer_aid, sn, level, ch, vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA *paf;
@@ -2012,8 +2019,7 @@ prayer_aid(const char *sn, int level, CHAR_DATA *ch, void *vo)
 }
 
 /* added by chronos */
-void
-prayer_bluefire(const char *sn, int level, CHAR_DATA *ch, void *vo)
+SPELL_FUN(prayer_bluefire, sn, level, ch, vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	int dam;
@@ -2037,8 +2043,7 @@ prayer_bluefire(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	damage(ch, victim, dam, sn, DAM_FIRE, DAMF_SHOW);
 }
 
-void
-prayer_bless_weapon(const char *sn, int level, CHAR_DATA *ch, void *vo)
+SPELL_FUN(prayer_bless_weapon, sn, level, ch, vo)
 {
 	OBJ_DATA *obj = (OBJ_DATA *) vo;
 	AFFECT_DATA *paf;
@@ -2081,8 +2086,7 @@ prayer_bless_weapon(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	act("$p is prepared for holy attacks.",ch,obj,NULL,TO_ALL);
 }
 
-void
-prayer_control_weather(const char *sn, int level,CHAR_DATA *ch,void *vo)
+SPELL_FUN(prayer_control_weather, sn, level, ch, vo)
 {
 	if (!str_cmp(target_name, "better"))
 		weather_info.change += dice(level / 3, 4);
@@ -2096,8 +2100,7 @@ prayer_control_weather(const char *sn, int level,CHAR_DATA *ch,void *vo)
 	act_char("Ok.", ch);
 }
 
-void
-prayer_benediction(const char *sn, int level, CHAR_DATA *ch, void *vo)
+SPELL_FUN(prayer_benediction, sn, level, ch, vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA *paf;
@@ -2149,8 +2152,7 @@ prayer_benediction(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	}
 }
 
-void
-prayer_curse(const char *sn, int level, CHAR_DATA *ch, void *vo)
+SPELL_FUN(prayer_curse, sn, level, ch, vo)
 {
 	CHAR_DATA *victim;
 	AFFECT_DATA *paf;
@@ -2165,8 +2167,10 @@ prayer_curse(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		}
 
 		if (IS_OBJ_STAT(obj, ITEM_BLESS)) {
-			AFFECT_DATA *paf = affect_find(obj->affected, "bless");
-			int spell_level = paf != NULL ? paf->level : obj->level;
+			int spell_level;
+
+			paf = affect_find(obj->affected, "bless");
+			spell_level = paf != NULL ? paf->level : obj->level;
 
 			if (!saves_dispel(level, spell_level, 0)) {
 				if (paf != NULL)
@@ -2219,8 +2223,7 @@ prayer_curse(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		act("$N looks very uncomfortable.", ch, NULL, victim, TO_CHAR);
 }
 
-void
-prayer_remove_curse(const char *sn, int level, CHAR_DATA *ch, void *vo)
+SPELL_FUN(prayer_remove_curse, sn, level, ch, vo)
 {
 	CHAR_DATA *victim;
 	bool found = FALSE;
@@ -2270,8 +2273,7 @@ prayer_remove_curse(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	}
 }
 
-void
-prayer_flamestrike(const char *sn, int level, CHAR_DATA *ch, void *vo)
+SPELL_FUN(prayer_flamestrike, sn, level, ch, vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	int dam;
@@ -2282,11 +2284,10 @@ prayer_flamestrike(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	damage(ch, victim, dam, sn, DAM_FIRE, DAMF_SHOW);
 }
 
-void
-prayer_know_alignment(const char *sn, int level, CHAR_DATA *ch, void *vo)
+SPELL_FUN(prayer_know_alignment, sn, level, ch, vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	char *msg;
+	const char *msg;
 
 	if (IS_GOOD(victim))
 		msg = "$N has a pure and good aura.";
@@ -2316,8 +2317,7 @@ prayer_know_alignment(const char *sn, int level, CHAR_DATA *ch, void *vo)
 }
 
 /* RT clerical berserking spell */
-void
-prayer_frenzy(const char *sn, int level, CHAR_DATA *ch, void *vo)
+SPELL_FUN(prayer_frenzy, sn, level, ch, vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA *paf;

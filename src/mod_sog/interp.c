@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.184 2001-08-05 16:36:59 fjoe Exp $
+ * $Id: interp.c,v 1.185 2001-08-13 18:23:41 fjoe Exp $
  */
 
 /***************************************************************************
@@ -50,11 +50,15 @@
 #include <merc.h>
 #include <cmd.h>
 
-#include <handler.h>	// interpret_social
+#include <handler.h>
+
+#include "handler_impl.h"
+#include "comm.h"
 
 #undef IMMORTALS_LOGS
 
-void interpret_social(social_t *soc, CHAR_DATA *ch, const char *argument);
+static void interpret_social(social_t *soc,
+			     CHAR_DATA *ch, const char *argument);
 
 /*
  * Command logging types.
@@ -62,16 +66,6 @@ void interpret_social(social_t *soc, CHAR_DATA *ch, const char *argument);
 #define LOG_NORMAL	0
 #define LOG_ALWAYS	1
 #define LOG_NEVER	2
-
-/*
- * OLC hook
- */
-bool (*olc_interpret)(DESCRIPTOR_DATA *d, const char *argument);
-
-/*
- * Log-all switch.
- */
-bool				fLogAll		= FALSE;
 
 #ifdef IMMORTALS_LOGS
 /*
@@ -143,7 +137,7 @@ interpret(CHAR_DATA *ch, const char *argument, bool is_order)
 	for (i = 0; i < commands.nused; i++) {
 		cmd = VARR_GET(&commands, i);
 
-		if (str_prefix(command, cmd->name))
+		if (!!str_prefix(command, cmd->name))
 			continue;
 
 		/*
@@ -171,8 +165,7 @@ interpret(CHAR_DATA *ch, const char *argument, bool is_order)
 			if (vch->level < LEVEL_IMP
 			&&  !is_name(cmd->name, PC(vch)->granted))
 				continue;
-		}
-		else if (cmd->min_level > ch->level)
+		} else if (cmd->min_level > ch->level)
 			continue;
 
 		if (is_order) {
@@ -190,8 +183,15 @@ interpret(CHAR_DATA *ch, const char *argument, bool is_order)
 		}
 
 		if (IS_AFFECTED(ch, AFF_STUN)
-		&&  !(cmd->cmd_flags & CMD_KEEP_HIDE)) {
+		&&  !IS_SET(cmd->cmd_flags, CMD_KEEP_HIDE)) {
 			act_char("You are STUNNED to do that.", ch);
+			return;
+		}
+
+		if (IS_SET(cmd->cmd_flags, CMD_STRICT_MATCH)
+		&&  !!str_cmp(command, cmd->name)) {
+			act_puts("If you want to $t, spell it out.",
+			    ch, strupr(cmd->name), NULL, TO_CHAR, POS_DEAD);
 			return;
 		}
 
@@ -311,7 +311,85 @@ interpret(CHAR_DATA *ch, const char *argument, bool is_order)
 		cmd->do_fun(ch, argument);
 }
 
+/*--------------------------------------------------------------------
+ * semi-locals
+ */
+
+/* does aliasing and other fun stuff */
 void
+substitute_alias(DESCRIPTOR_DATA *d, const char *argument)
+{
+	char buf[MAX_STRING_LENGTH];
+	char prefix[MAX_INPUT_LENGTH];
+
+	/* check for prefix */
+	if (d->dvdata->prefix[0] != '\0' && str_prefix("prefix", argument)) {
+		if (strlen(d->dvdata->prefix) + strlen(argument) + 2 >
+							MAX_INPUT_LENGTH) {
+			act_char("Line too long, prefix not processed.", d->character);
+		} else {
+			snprintf(prefix, sizeof(prefix),
+				 "%s %s",			// notrans
+				 d->dvdata->prefix, argument);
+			argument = prefix;
+		}
+	}
+
+	if (d->dvdata->alias[0] != NULL
+	&&  str_prefix("alias", argument)
+	&&  str_prefix("unalias", argument)
+	&&  str_prefix("prefix", argument)) {
+		int i;
+
+		/* go through the aliases */
+		for (i = 0; i < MAX_ALIAS; i++) {
+			const char *point;
+
+			if (d->dvdata->alias[i] == NULL)
+				break;
+
+			if (str_prefix(d->dvdata->alias[i], argument))
+				continue;
+
+			point = one_argument(argument, buf, sizeof(buf));
+			if (strcmp(d->dvdata->alias[i], buf))
+				continue;
+
+			/*
+			 * found an alias
+			 */
+			if (!IS_NULLSTR(point)) {
+				snprintf(buf, sizeof(buf),
+					 "%s %s",		// notrans
+					 d->dvdata->alias_sub[i], point);
+			} else {
+				strnzcpy(buf, sizeof(buf),
+					 d->dvdata->alias_sub[i]);
+			}
+
+			if (strlen(buf) > MAX_INPUT_LENGTH) {
+				act_char("Alias substitution too long. Truncated.", d->character);
+				buf[MAX_INPUT_LENGTH -1] = '\0';
+			}
+			argument = buf;
+			break;
+		}
+	}
+
+	if (argument[0] == '!') {
+		interpret(d->character, argument+1, FALSE);
+		return;
+	}
+
+	if (olc_interpret == NULL || !olc_interpret(d, argument))
+		interpret(d->character, argument, FALSE);
+}
+
+/*--------------------------------------------------------------------
+ * local functions
+ */
+
+static void
 interpret_social(social_t *soc, CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
@@ -376,74 +454,4 @@ interpret_social(social_t *soc, CHAR_DATA *ch, const char *argument)
 				break;
 		}
 	}
-}
-
-/* does aliasing and other fun stuff */
-void
-substitute_alias(DESCRIPTOR_DATA *d, const char *argument)
-{
-	char buf[MAX_STRING_LENGTH];
-	char prefix[MAX_INPUT_LENGTH];
-
-	/* check for prefix */
-	if (d->dvdata->prefix[0] != '\0' && str_prefix("prefix", argument)) {
-		if (strlen(d->dvdata->prefix) + strlen(argument) + 2 >
-							MAX_INPUT_LENGTH) {
-			act_char("Line too long, prefix not processed.", d->character);
-		} else {
-			snprintf(prefix, sizeof(prefix),
-				 "%s %s",			// notrans
-				 d->dvdata->prefix, argument);
-			argument = prefix;
-		}
-	}
-
-	if (d->dvdata->alias[0] != NULL
-	&&  str_prefix("alias", argument)
-	&&  str_prefix("unalias", argument) 
-	&&  str_prefix("prefix", argument)) {
-		int i;
-
-		/* go through the aliases */
-		for (i = 0; i < MAX_ALIAS; i++) {
-			const char *point;
-
-			if (d->dvdata->alias[i] == NULL)
-				break;
-
-			if (str_prefix(d->dvdata->alias[i], argument))
-				continue;
-
-			point = one_argument(argument, buf, sizeof(buf));
-			if (strcmp(d->dvdata->alias[i], buf))
-				continue;
-
-			/*
-			 * found an alias
-			 */
-			if (!IS_NULLSTR(point)) {
-				snprintf(buf, sizeof(buf),
-					 "%s %s",		// notrans
-					 d->dvdata->alias_sub[i], point);
-			} else {
-				strnzcpy(buf, sizeof(buf),
-					 d->dvdata->alias_sub[i]);
-			}
-
-			if (strlen(buf) > MAX_INPUT_LENGTH) {
-				act_char("Alias substitution too long. Truncated.", d->character);
-				buf[MAX_INPUT_LENGTH -1] = '\0';
-			}
-			argument = buf;
-			break;
-		}
-	}
-
-	if (argument[0] == '!') {
-		interpret(d->character, argument+1, FALSE);
-		return;
-	}
-
-	if (olc_interpret == NULL || !olc_interpret(d, argument))
-		interpret(d->character, argument, FALSE);
 }

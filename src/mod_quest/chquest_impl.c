@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: chquest_impl.c,v 1.6 2001-08-05 16:36:54 fjoe Exp $
+ * $Id: chquest_impl.c,v 1.7 2001-08-13 18:23:52 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -34,6 +34,8 @@
 
 #include <quest.h>
 #include "chquest_impl.h"
+
+DECLARE_UPDATE_FUN(chquest_update);
 
 chquest_t *chquest_list;		/* global list of chquests	     */
 
@@ -53,8 +55,7 @@ chquest_init(void)
 	}
 }
 
-void
-chquest_update(void)
+UPDATE_FUN(chquest_update)
 {
 	chquest_t *q;
 	static bool chquest_started;

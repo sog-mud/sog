@@ -1,5 +1,5 @@
 /*
- * $Id: affects.c,v 1.60 2001-08-02 18:20:07 fjoe Exp $
+ * $Id: affects.c,v 1.61 2001-08-13 18:23:35 fjoe Exp $
  */
 
 /***************************************************************************
@@ -908,7 +908,7 @@ aff_dump_list(AFFECT_DATA *paf, BUFFER *output)
 {
 	int cnt = 0;
 
-	for (; paf; paf = paf->next) {
+	for (; paf != NULL; paf = paf->next) {
 		where_t *w = where_lookup(paf->where);
 
 		if (cnt == 0) {

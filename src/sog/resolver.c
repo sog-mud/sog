@@ -23,10 +23,8 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: resolver.c,v 1.16 2001-08-05 16:37:08 fjoe Exp $
+ * $Id: resolver.c,v 1.17 2001-08-13 18:24:03 fjoe Exp $
  */
-
-#if !defined (WIN32)
 
 #include <sys/types.h>
 #include <sys/socket.h>
@@ -41,10 +39,8 @@
 #include <errno.h>
 #include <fcntl.h>
 
-#include <typedef.h>
-#include <log.h>
-
-#include "resolver.h"
+#include <merc.h>
+#include <resolver.h>
 
 FILE *	rfin;
 FILE *	rfout;
@@ -104,7 +100,7 @@ resolver_init(void)
 }
 
 void
-resolver_done(void)
+resolver_destroy(void)
 {
 	fclose(rfin);
 	fclose(rfout);
@@ -112,12 +108,45 @@ resolver_done(void)
 	wait(NULL);
 }
 
+void
+resolv_done(void)
+{
+	char *host;
+	char buf[MAX_STRING_LENGTH];
+	char *p;
+	DESCRIPTOR_DATA *d;
+
+	while (fgets(buf, sizeof(buf), rfin)) {
+		if ((p = strchr(buf, '\n')) == NULL) {
+			log(LOG_INFO, "rfin: line too long, skipping to '\\n'");
+			while(fgetc(rfin) != '\n')
+				;
+			continue;
+		}
+		*p = '\0';
+
+		if ((host = strchr(buf, '@')) == NULL)
+			continue;
+		*host++ = '\0';
+
+		log(LOG_INFO, "resolv_done: %s@%s", buf, host);
+
+		for (d = descriptor_list; d; d = d->next) {
+			if (d->host
+			||  d->character == NULL
+			||  str_cmp(buf, d->character->name))
+				continue;
+			d->host = str_dup(host);
+		}
+	}
+}
+
 /* local functions */
 
 static void
 cleanup(int s)
 {
-	resolver_done();
+	resolver_destroy();
 	signal(s, SIG_DFL);
 	raise(s);
 }
@@ -129,7 +158,7 @@ resolver_loop(void)
 	FILE *fout;
 	char buf[128];
 
-	setproctitle("resolver");
+	setproctitle("resolver");			// notrans
 
 	signal(SIGINT, SIG_IGN);
 	signal(SIGTRAP, SIG_IGN);
@@ -176,5 +205,3 @@ resolver_loop(void)
 	fclose(fout);
 	exit(0);
 }
-
-#endif

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_quest.c,v 1.158 2001-08-05 16:36:53 fjoe Exp $
+ * $Id: act_quest.c,v 1.159 2001-08-13 18:23:51 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -44,6 +44,9 @@
 #	include <compat/compat.h>
 #endif
 
+DECLARE_DO_FUN(do_quest);
+DECLARE_DO_FUN(do_chquest);
+
 /*
  * quest items
  */
@@ -57,16 +60,16 @@
 
 static CHAR_DATA *questor_lookup(CHAR_DATA *ch);
 
-static void quest_points(CHAR_DATA *ch, char *arg);
-static void quest_info(CHAR_DATA *ch, char *arg);
-static void quest_time(CHAR_DATA *ch, char *arg);
-static void quest_list(CHAR_DATA *ch, char *arg);
-static void quest_buy(CHAR_DATA *ch, char *arg);
-static void quest_request(CHAR_DATA *ch, char *arg);
-static void quest_complete(CHAR_DATA *ch, char *arg);
-static void quest_trouble(CHAR_DATA *ch, char *arg);
-static void quest_chquest(CHAR_DATA *ch, char *arg);
-static void quest_cancel_cmd(CHAR_DATA *ch, char *arg);
+static DECLARE_DO_FUN(quest_points);
+static DECLARE_DO_FUN(quest_info);
+static DECLARE_DO_FUN(quest_time);
+static DECLARE_DO_FUN(quest_list);
+static DECLARE_DO_FUN(quest_buy);
+static DECLARE_DO_FUN(quest_request);
+static DECLARE_DO_FUN(quest_complete);
+static DECLARE_DO_FUN(quest_trouble);
+static DECLARE_DO_FUN(quest_chquest);
+static DECLARE_DO_FUN(quest_cancel_cmd);
 
 static bool quest_give_item(CHAR_DATA *ch, CHAR_DATA *questor,
 			    int item_vnum, int count_max);
@@ -80,7 +83,7 @@ enum qitem_type {
 
 typedef struct qitem_t qitem_t;
 struct qitem_t {
-	char		*name;
+	const char	*name;
 	int		price;
 	const char	*restrict_class;
 	int		vnum;
@@ -97,14 +100,14 @@ qitem_t qitem_table[] = {
 	{ "Bottomless canteen with cranberry juice", 350, NULL,
 	   QUEST_VNUM_CANTEEN, NULL				},
 
-	{ NULL }
+	{ NULL, 0, NULL, 0, NULL }
 };
 
 struct qcmd_data {
-	char *name;
-	void (*do_fn)(CHAR_DATA *ch, char* arg);
+	const char *name;
+	DO_FUN *do_fn;
 	int min_position;
-	int extra;
+	int qcmd_flags;
 };
 typedef struct qcmd_data qcmd_t;
 
@@ -118,8 +121,9 @@ qcmd_t qcmd_table[] = {
   { "complete",	quest_complete,	POS_RESTING,	0		}, // notrans
   { "trouble",	quest_trouble,	POS_RESTING,	0		}, // notrans
   { "items",	quest_chquest,	POS_RESTING,	0		}, // notrans
-  { "cancel", 	quest_cancel_cmd,POS_RESTING,	0		}, // notrans
-  { NULL}
+  { "cancel",	quest_cancel_cmd,POS_RESTING,	0		}, // notrans
+
+  { NULL, NULL, 0, 0 }
 };
 
 #define QUESTOR_TELLS_YOU(questor, ch)			\
@@ -129,8 +133,7 @@ qcmd_t qcmd_table[] = {
 /*
  * The main quest function
  */
-void
-do_quest(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_quest, ch, argument)
 {
 	char cmd[MAX_INPUT_LENGTH];
 	char arg[MAX_INPUT_LENGTH];
@@ -148,8 +151,8 @@ do_quest(CHAR_DATA *ch, const char *argument)
 				act_char("In your dreams, or what?", ch);
 				return;
 			}
-			if (!IS_SET(qcmd->extra, CMD_KEEP_HIDE)
-			&&  HAS_INVIS(ch, ID_HIDDEN | ID_FADE)) { 
+			if (!IS_SET(qcmd->qcmd_flags, CMD_KEEP_HIDE)
+			&&  HAS_INVIS(ch, ID_HIDDEN | ID_FADE)) {
 				REMOVE_INVIS(ch, ID_HIDDEN | ID_FADE);
 				act_puts("You step out of shadows.",
 					 ch, NULL, NULL, TO_CHAR, POS_DEAD);
@@ -223,8 +226,7 @@ chquest_status(CHAR_DATA *ch)
 	buf_free(buf);
 }
 
-void
-do_chquest(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_chquest, ch, argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 
@@ -351,16 +353,16 @@ questor_lookup(CHAR_DATA *ch)
  * quest do functions
  */
 
-static void
-quest_points(CHAR_DATA *ch, char *arg)
+static
+DO_FUN(quest_points, ch, arg)
 {
 	act_puts("You have {W$j{x $qj{quest points}.",
 		 ch, (const void*) PC(ch)->questpoints, NULL,
 		 TO_CHAR, POS_DEAD);
 }
 
-static void
-quest_info(CHAR_DATA *ch, char *arg)
+static
+DO_FUN(quest_info, ch, arg)
 {
 	if (!IS_ON_QUEST(ch)) {
 		act_char("You aren't currently on a quest.", ch);
@@ -420,8 +422,8 @@ quest_info(CHAR_DATA *ch, char *arg)
 	}
 }
 
-static void
-quest_time(CHAR_DATA *ch, char* arg)
+static
+DO_FUN(quest_time, ch, arg)
 {
 	if (!IS_ON_QUEST(ch)) {
 		act_char("You aren't currently on a quest.", ch);
@@ -442,8 +444,8 @@ quest_time(CHAR_DATA *ch, char* arg)
 	}
 }
 
-static void
-quest_list(CHAR_DATA *ch, char *arg)
+static
+DO_FUN(quest_list, ch, arg)
 {
 	CHAR_DATA *questor;
 	qitem_t *qitem;
@@ -471,8 +473,8 @@ quest_list(CHAR_DATA *ch, char *arg)
 	act_char("To buy an item, type 'QUEST BUY <item>'.", ch);
 }
 
-static void
-quest_buy(CHAR_DATA *ch, char *arg)
+static
+DO_FUN(quest_buy, ch, arg)
 {
 	CHAR_DATA *questor;
 	qitem_t *qitem;
@@ -519,8 +521,8 @@ quest_buy(CHAR_DATA *ch, char *arg)
 
 #define MAX_QMOB_COUNT 512
 
-static void
-quest_request(CHAR_DATA *ch, char *arg)
+static
+DO_FUN(quest_request, ch, arg)
 {
 	int i;
 	CHAR_DATA *mobs[MAX_QMOB_COUNT];
@@ -636,14 +638,15 @@ quest_request(CHAR_DATA *ch, char *arg)
 			  victim->in_room, TO_VICT, POS_DEAD);
 	} else {	/* Quest to kill a mob */
 		if (IS_GOOD(ch)) {
+			int n = number_range(2, 20);
+
 			act_puts("    Rune's most heinous criminal, {W$i{x,\n"
 				 "    has escaped from the dungeon.",
 				 questor, victim, ch,
 				 TO_VICT | ACT_FORMSH, POS_DEAD);
 			act_puts3("    Since the escape, $i has murdered "
 				  "$J $qJ{civilians}!",
-				  questor, victim, ch,
-				  (const void*) number_range(2, 20),
+				  questor, victim, ch, (const void *) n,
 				  TO_VICT, POS_DEAD);
 			act_puts("    The penalty for this crime is death, "
 				 "and you are to deliver the sentence!",
@@ -677,8 +680,8 @@ quest_request(CHAR_DATA *ch, char *arg)
 		 questor, NULL, ch, TO_VICT, POS_DEAD);
 }
 
-static void
-quest_complete(CHAR_DATA *ch, char *arg)
+static
+DO_FUN(quest_complete, ch, arg)
 {
 	bool complete = FALSE;
 	CHAR_DATA *questor;
@@ -761,8 +764,8 @@ quest_complete(CHAR_DATA *ch, char *arg)
 	PC(ch)->questtime = -number_range(8, 12);
 }
 
-static void
-quest_trouble(CHAR_DATA *ch, char *arg)
+static
+DO_FUN(quest_trouble, ch, arg)
 {
 	CHAR_DATA *questor;
 	qitem_t *qitem;
@@ -790,8 +793,8 @@ quest_trouble(CHAR_DATA *ch, char *arg)
 		 questor, NULL, ch, TO_VICT, POS_DEAD);
 }
 
-static void
-quest_chquest(CHAR_DATA *ch, char *arg)
+static
+DO_FUN(quest_chquest, ch, arg)
 {
 	CHAR_DATA *questor;
 	bool found;
@@ -834,8 +837,8 @@ quest_chquest(CHAR_DATA *ch, char *arg)
 	}
 }
 
-static void
-quest_cancel_cmd(CHAR_DATA *ch, char *arg)
+static
+DO_FUN(quest_cancel_cmd, ch, arg)
 {
 	CHAR_DATA *questor;
 
@@ -880,7 +883,7 @@ qtrouble_cb(void *vo, va_list ap)
 	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
 	int item_vnum = va_arg(ap, int);
 
-	if (obj->pObjIndex->vnum == item_vnum 
+	if (obj->pObjIndex->vnum == item_vnum
 	&&  IS_OWNER(ch, obj))
 		extract_obj(obj, 0);
 	return NULL;

@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.248 2001-08-05 16:36:35 fjoe Exp $
+ * $Id: act_obj.c,v 1.249 2001-08-13 18:23:25 fjoe Exp $
  */
 
 /***************************************************************************
@@ -53,11 +53,50 @@
 #include <magic.h>
 #include <update.h>
 
-DECLARE_DO_FUN(do_split		);
-DECLARE_DO_FUN(do_say		);
-DECLARE_DO_FUN(do_mount		);
-DECLARE_DO_FUN(do_yell		);
-DECLARE_DO_FUN(do_emote		);
+DECLARE_DO_FUN(do_get);
+DECLARE_DO_FUN(do_put);
+DECLARE_DO_FUN(do_drop);
+DECLARE_DO_FUN(do_give);
+DECLARE_DO_FUN(do_envenom);
+DECLARE_DO_FUN(do_feed);
+DECLARE_DO_FUN(do_fill);
+DECLARE_DO_FUN(do_pour);
+DECLARE_DO_FUN(do_drink);
+DECLARE_DO_FUN(do_eat);
+DECLARE_DO_FUN(do_wear);
+DECLARE_DO_FUN(do_remove);
+DECLARE_DO_FUN(do_sacrifice);
+DECLARE_DO_FUN(do_quaff);
+DECLARE_DO_FUN(do_recite);
+DECLARE_DO_FUN(do_brandish);
+DECLARE_DO_FUN(do_zap);
+DECLARE_DO_FUN(do_steal);
+DECLARE_DO_FUN(do_buy_pet);
+DECLARE_DO_FUN(do_buy);
+DECLARE_DO_FUN(do_list);
+DECLARE_DO_FUN(do_sell);
+DECLARE_DO_FUN(do_value);
+DECLARE_DO_FUN(do_herbs);
+DECLARE_DO_FUN(do_lore);
+DECLARE_DO_FUN(do_butcher);
+DECLARE_DO_FUN(do_crucify);
+DECLARE_DO_FUN(do_balance);
+DECLARE_DO_FUN(do_withdraw);
+DECLARE_DO_FUN(do_deposit);
+DECLARE_DO_FUN(do_second_wield);
+DECLARE_DO_FUN(do_enchant);
+DECLARE_DO_FUN(do_label);
+DECLARE_DO_FUN(do_repair);
+DECLARE_DO_FUN(do_estimate);
+DECLARE_DO_FUN(do_smithing);
+DECLARE_DO_FUN(do_outfit);
+
+/* command procedures needed */
+DECLARE_DO_FUN(do_split);
+DECLARE_DO_FUN(do_say);
+DECLARE_DO_FUN(do_mount);
+DECLARE_DO_FUN(do_yell);
+DECLARE_DO_FUN(do_emote);
 
 /*
  * Local functions.
@@ -74,7 +113,7 @@ static bool		put_obj		(CHAR_DATA *ch, OBJ_DATA *container,
 					 OBJ_DATA *obj, int* count);
 static void		drop_obj	(CHAR_DATA *ch, OBJ_DATA *obj);
 
-void do_get(CHAR_DATA * ch, const char *argument)
+DO_FUN(do_get, ch, argument)
 {
 	char            arg1[MAX_INPUT_LENGTH];
 	char            arg2[MAX_INPUT_LENGTH];
@@ -209,7 +248,7 @@ void do_get(CHAR_DATA * ch, const char *argument)
 	}
 }
 
-void do_put(CHAR_DATA * ch, const char *argument)
+DO_FUN(do_put, ch, argument)
 {
 	char		arg1[MAX_INPUT_LENGTH];
 	char		arg2[MAX_INPUT_LENGTH];
@@ -328,7 +367,7 @@ void do_put(CHAR_DATA * ch, const char *argument)
 	}
 }
 
-void do_drop(CHAR_DATA * ch, const char *argument)
+DO_FUN(do_drop, ch, argument)
 {
 	char            arg[MAX_INPUT_LENGTH];
 	OBJ_DATA       *obj;
@@ -447,7 +486,7 @@ void do_drop(CHAR_DATA * ch, const char *argument)
 	}
 }
 
-void do_give(CHAR_DATA * ch, const char *argument)
+DO_FUN(do_give, ch, argument)
 {
 	char            arg[MAX_INPUT_LENGTH];
 	CHAR_DATA      *victim;
@@ -464,7 +503,6 @@ void do_give(CHAR_DATA * ch, const char *argument)
 		/* 'give NNNN coins victim' */
 		int amount;
 		bool silver;
-		int carry_w;
 
 		amount = atoi(arg);
 
@@ -513,8 +551,7 @@ void do_give(CHAR_DATA * ch, const char *argument)
 		if (silver) {
 			ch->silver -= amount;
 			victim->silver += amount;
-		}
-		else {
+		} else {
 			ch->gold -= amount;
 			victim->gold += amount;
 		}
@@ -656,7 +693,7 @@ void do_give(CHAR_DATA * ch, const char *argument)
 }
 
 /* for poisoning weapons and food/drink */
-void do_envenom(CHAR_DATA * ch, const char *argument)
+DO_FUN(do_envenom, ch, argument)
 {
 	OBJ_DATA       *obj;
 	int		percent, chance;
@@ -753,7 +790,7 @@ void do_envenom(CHAR_DATA * ch, const char *argument)
 	act("You can't poison $p.", ch, obj, NULL, TO_CHAR);
 }
 
-void do_feed(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_feed, ch, argument)
 {
 	CHAR_DATA *vch;
 	OBJ_DATA *obj;
@@ -882,7 +919,7 @@ void do_feed(CHAR_DATA *ch, const char *argument)
 	extract_obj(obj, 0);
 }
 
-void do_fill(CHAR_DATA * ch, const char *argument)
+DO_FUN(do_fill, ch, argument)
 {
 	char            arg[MAX_INPUT_LENGTH];
 	OBJ_DATA       *obj;
@@ -943,7 +980,7 @@ void do_fill(CHAR_DATA * ch, const char *argument)
 
 }
 
-void do_pour(CHAR_DATA * ch, const char *argument)
+DO_FUN(do_pour, ch, argument)
 {
 	char            arg[MAX_STRING_LENGTH];
 	OBJ_DATA       *out, *in;
@@ -1051,7 +1088,7 @@ void do_pour(CHAR_DATA * ch, const char *argument)
 
 }
 
-void do_drink(CHAR_DATA * ch, const char *argument)
+DO_FUN(do_drink, ch, argument)
 {
 	char            arg[MAX_INPUT_LENGTH];
 	OBJ_DATA       *obj;
@@ -1161,7 +1198,7 @@ void do_drink(CHAR_DATA * ch, const char *argument)
 		INT(obj->value[1]) = UMAX(INT(obj->value[1]) - lq->sip, 0);
 }
 
-void do_eat(CHAR_DATA * ch, const char *argument)
+DO_FUN(do_eat, ch, argument)
 {
 	char            arg[MAX_INPUT_LENGTH];
 	OBJ_DATA       *obj;
@@ -1298,7 +1335,7 @@ void do_eat(CHAR_DATA * ch, const char *argument)
 	extract_obj(obj, 0);
 }
 
-void do_wear(CHAR_DATA * ch, const char *argument)
+DO_FUN(do_wear, ch, argument)
 {
 	char            arg[MAX_INPUT_LENGTH];
 	OBJ_DATA       *obj;
@@ -1328,7 +1365,7 @@ void do_wear(CHAR_DATA * ch, const char *argument)
 		wear_obj(ch, obj, TRUE);
 }
 
-void do_remove(CHAR_DATA * ch, const char *argument)
+DO_FUN(do_remove, ch, argument)
 {
 	char            arg[MAX_INPUT_LENGTH];
 	OBJ_DATA       *obj;
@@ -1366,7 +1403,7 @@ void do_remove(CHAR_DATA * ch, const char *argument)
 	return;
 }
 
-void do_sacrifice(CHAR_DATA * ch, const char *argument)
+DO_FUN(do_sacrifice, ch, argument)
 {
 	char            arg[MAX_INPUT_LENGTH];
 	OBJ_DATA       *obj;
@@ -1397,7 +1434,7 @@ void do_sacrifice(CHAR_DATA * ch, const char *argument)
 	sac_obj(ch, obj);
 }
 
-void do_quaff(CHAR_DATA * ch, const char *argument)
+DO_FUN(do_quaff, ch, argument)
 {
 	char            arg[MAX_INPUT_LENGTH];
 	OBJ_DATA       *obj;
@@ -1431,7 +1468,7 @@ void do_quaff(CHAR_DATA * ch, const char *argument)
 	quaff_obj(ch, obj);
 }
 
-void do_recite(CHAR_DATA * ch, const char *argument)
+DO_FUN(do_recite, ch, argument)
 {
 	char arg1[MAX_INPUT_LENGTH];
 	char arg2[MAX_INPUT_LENGTH];
@@ -1544,7 +1581,7 @@ brandish_cb(void *vo, va_list ap)
 	return NULL;
 }
 
-void do_brandish(CHAR_DATA * ch, const char *argument)
+DO_FUN(do_brandish, ch, argument)
 {
 	OBJ_DATA       *staff;
 	skill_t *	sk;
@@ -1593,7 +1630,7 @@ void do_brandish(CHAR_DATA * ch, const char *argument)
 	}
 }
 
-void do_zap(CHAR_DATA * ch, const char *argument)
+DO_FUN(do_zap, ch, argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	OBJ_DATA *wand;
@@ -1672,7 +1709,7 @@ void do_zap(CHAR_DATA * ch, const char *argument)
 	}
 }
 
-void do_steal(CHAR_DATA * ch, const char *argument)
+DO_FUN(do_steal, ch, argument)
 {
 	char            arg1[MAX_INPUT_LENGTH];
 	char            arg2[MAX_INPUT_LENGTH];
@@ -1878,7 +1915,7 @@ void do_steal(CHAR_DATA * ch, const char *argument)
 /*
  * Shopping commands.
  */
-void do_buy_pet(CHAR_DATA * ch, const char *argument)
+DO_FUN(do_buy_pet, ch, argument)
 {
 	int		cost, roll;
 	char            arg[MAX_INPUT_LENGTH];
@@ -1989,13 +2026,13 @@ void do_buy_pet(CHAR_DATA * ch, const char *argument)
 	}
 }
 
-void do_buy(CHAR_DATA * ch, const char *argument)
+DO_FUN(do_buy, ch, argument)
 {
-	int		cost, roll;
+	int		roll;
 	CHAR_DATA      *keeper;
 	OBJ_DATA       *obj, *t_obj;
 	char            arg[MAX_INPUT_LENGTH];
-	uint		number, count = 1;
+	uint		number, cost, count = 1;
 	int		carry_w, carry_n;
 
 	if ((keeper = find_keeper(ch)) == NULL)
@@ -2012,11 +2049,6 @@ void do_buy(CHAR_DATA * ch, const char *argument)
 		return;
 	}
 
-	if (number < 0) {
-		act_char("What? Try sell instead.", ch);
-		return;
-	}
-
 	obj = get_obj_keeper(ch, keeper, arg);
 	cost = get_cost(keeper, obj, TRUE);
 
@@ -2024,6 +2056,7 @@ void do_buy(CHAR_DATA * ch, const char *argument)
 		tell_char(keeper, ch, "I don't sell that -- try 'list'");
 		return;
 	}
+
 	if (!IS_OBJ_STAT(obj, ITEM_INVENTORY)) {
 		for (t_obj = obj->next_content; count < number && t_obj != NULL;
 		     t_obj = t_obj->next_content) {
@@ -2040,7 +2073,8 @@ void do_buy(CHAR_DATA * ch, const char *argument)
 			return;
 		}
 	}
-	if ((ch->silver + ch->gold * 100) < cost * number) {
+
+	if ((ch->silver + ch->gold * 100) < (int) (cost * number)) {
 		if (number > 1) {
 			tell_char(keeper, ch,
 				    "You can't afford to buy that many.");
@@ -2050,6 +2084,7 @@ void do_buy(CHAR_DATA * ch, const char *argument)
 		}
 		return;
 	}
+
 	if (obj->level > ch->level) {
 		act("$n tells you '{GYou can't use $p yet.{x'",
 		    keeper, obj, ch, TO_VICT);
@@ -2057,13 +2092,13 @@ void do_buy(CHAR_DATA * ch, const char *argument)
 	}
 
 	if ((carry_n = can_carry_n(ch)) >= 0
-	&&  ch->carry_number + number * get_obj_number(obj) > carry_n) {
+	&&  ch->carry_number + (int) number * get_obj_number(obj) > carry_n) {
 		act_char("You can't carry that many items.", ch);
 		return;
 	}
 
 	if ((carry_w = can_carry_w(ch)) >= 0
-	&&  get_carry_weight(ch) + number * get_obj_weight(obj) > carry_w) {
+	&&  get_carry_weight(ch) + (int) number * get_obj_weight(obj) > carry_w) {
 		act_char("You can't carry that much weight.", ch);
 		return;
 	}
@@ -2115,7 +2150,7 @@ void do_buy(CHAR_DATA * ch, const char *argument)
 	}
 }
 
-void do_list(CHAR_DATA * ch, const char *argument)
+DO_FUN(do_list, ch, argument)
 {
 	if (IS_SET(ch->in_room->room_flags, ROOM_PET_SHOP)) {
 		ROOM_INDEX_DATA *pRoomIndexNext;
@@ -2213,13 +2248,13 @@ void do_list(CHAR_DATA * ch, const char *argument)
 	}
 }
 
-void do_sell(CHAR_DATA * ch, const char *argument)
+DO_FUN(do_sell, ch, argument)
 {
 	char            arg[MAX_INPUT_LENGTH];
 	CHAR_DATA      *keeper;
 	OBJ_DATA       *obj;
-	int		cost, roll;
-	uint		gold, silver;
+	int		roll;
+	uint		cost, gold, silver;
 
 	one_argument(argument, arg, sizeof(arg));
 
@@ -2246,7 +2281,7 @@ void do_sell(CHAR_DATA * ch, const char *argument)
 		act("$n looks uninterested in $p.", keeper, obj, ch, TO_VICT);
 		return;
 	}
-	if (cost > (keeper->silver + 100 * keeper->gold)) {
+	if ((int) cost > (keeper->silver + 100 * keeper->gold)) {
 		act("$n tells you '{GI'm afraid I don't have enough wealth to buy $p.{x'",
 		    keeper, obj, ch, TO_VICT);
 		return;
@@ -2259,7 +2294,7 @@ void do_sell(CHAR_DATA * ch, const char *argument)
 		act_char("You haggle with the shopkeeper.", ch);
 		cost += obj->cost / 2 * roll / 100;
 		cost = UMIN(cost, 95 * get_cost(keeper, obj, TRUE) / 100);
-		cost = UMIN(cost, (keeper->silver + 100 * keeper->gold));
+		cost = UMIN((int) cost, (keeper->silver + 100 * keeper->gold));
 		check_improve(ch, "haggle", TRUE, 4);
 	}
 	silver = cost - (cost / 100) * 100;
@@ -2295,7 +2330,7 @@ void do_sell(CHAR_DATA * ch, const char *argument)
 	}
 }
 
-void do_value(CHAR_DATA * ch, const char *argument)
+DO_FUN(do_value, ch, argument)
 {
 	char            arg[MAX_INPUT_LENGTH];
 	CHAR_DATA      *keeper;
@@ -2335,7 +2370,7 @@ void do_value(CHAR_DATA * ch, const char *argument)
 	act_puts("{x'", ch, NULL, NULL, TO_CHAR, POS_DEAD);	// notrans
 }
 
-void do_herbs(CHAR_DATA * ch, const char *argument)
+DO_FUN(do_herbs, ch, argument)
 {
 	CHAR_DATA *victim;
 	char arg[MAX_INPUT_LENGTH];
@@ -2435,7 +2470,8 @@ random_spell(void)
 	return gmlstr_mval(&sk->sk_name);
 }
 
-void do_lore_raw(CHAR_DATA *ch, OBJ_DATA *obj, BUFFER *output)
+static void
+do_lore_raw(CHAR_DATA *ch, OBJ_DATA *obj, BUFFER *output)
 {
 	int chance;
 	int percent;
@@ -2664,14 +2700,15 @@ void do_lore_raw(CHAR_DATA *ch, OBJ_DATA *obj, BUFFER *output)
 		return;
 	}
 
-	if (!IS_OBJ_STAT(obj, ITEM_ENCHANTED))
-		format_obj_affects(output, obj->pObjIndex->affected,
-				   FOA_F_NODURATION);
+	if (!IS_OBJ_STAT(obj, ITEM_ENCHANTED)) {
+		format_obj_affects(
+		    output, obj->pObjIndex->affected, FOA_F_NODURATION);
+	}
 	format_obj_affects(output, obj->affected, 0);
 	check_improve(ch, "lore", TRUE, 5);
 }
 
-void do_lore(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_lore, ch, argument)
 {
 	char		arg[MAX_INPUT_LENGTH];
 	BUFFER *	output;
@@ -2697,7 +2734,7 @@ void do_lore(CHAR_DATA *ch, const char *argument)
 
 #define OBJ_VNUM_STEAK			27
 
-void do_butcher(CHAR_DATA * ch, const char *argument)
+DO_FUN(do_butcher, ch, argument)
 {
 	OBJ_DATA       *obj;
 	char            arg[MAX_STRING_LENGTH];
@@ -2774,7 +2811,7 @@ void do_butcher(CHAR_DATA * ch, const char *argument)
 
 #define OBJ_VNUM_CROSS			8
 
-void do_crucify(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_crucify, ch, argument)
 {
 	OBJ_DATA *obj;
 	char arg[MAX_STRING_LENGTH];
@@ -2877,7 +2914,7 @@ void do_crucify(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_balance(CHAR_DATA * ch, const char *argument)
+DO_FUN(do_balance, ch, argument)
 {
 	int bank_g;
 	int bank_s;
@@ -2910,7 +2947,7 @@ void do_balance(CHAR_DATA * ch, const char *argument)
 	}
 }
 
-void do_withdraw(CHAR_DATA * ch, const char *argument)
+DO_FUN(do_withdraw, ch, argument)
 {
 	int	amount;
 	int	fee;
@@ -2982,7 +3019,7 @@ void do_withdraw(CHAR_DATA * ch, const char *argument)
 	act("$n steps up to the teller window.", ch, NULL, NULL, TO_ROOM);
 }
 
-void do_deposit(CHAR_DATA * ch, const char *argument)
+DO_FUN(do_deposit, ch, argument)
 {
 	int	amount;
 	bool	silver = FALSE;
@@ -3049,7 +3086,7 @@ void do_deposit(CHAR_DATA * ch, const char *argument)
 }
 
 /* wear object as a secondary weapon */
-void do_second_wield(CHAR_DATA * ch, const char *argument)
+DO_FUN(do_second_wield, ch, argument)
 {
 	OBJ_DATA *	obj;
 	OBJ_DATA *	wield;
@@ -3119,7 +3156,7 @@ void do_second_wield(CHAR_DATA * ch, const char *argument)
 		    ch, obj, NULL, TO_CHAR);
 }
 
-void do_enchant(CHAR_DATA * ch, const char *argument)
+DO_FUN(do_enchant, ch, argument)
 {
 	OBJ_DATA *	obj;
 	int		chance;
@@ -3168,7 +3205,7 @@ void do_enchant(CHAR_DATA * ch, const char *argument)
 	check_improve(ch, "enchant sword", TRUE, 2);
 }
 
-void do_label(CHAR_DATA* ch, const char *argument)
+DO_FUN(do_label, ch, argument)
 {
 	OBJ_DATA *obj;
 	char obj_name[MAX_INPUT_LENGTH];
@@ -3212,7 +3249,7 @@ void do_label(CHAR_DATA* ch, const char *argument)
 
 #define OBJ_VNUM_HAMMER			6522
 
-void do_repair(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_repair, ch, argument)
 {
 	CHAR_DATA *mob;
 	char arg[MAX_INPUT_LENGTH];
@@ -3278,7 +3315,7 @@ void do_repair(CHAR_DATA *ch, const char *argument)
 	obj->condition = 100;
 }
 
-void do_estimate(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_estimate, ch, argument)
 {
 	OBJ_DATA *obj;
 	CHAR_DATA *mob; 
@@ -3332,7 +3369,7 @@ void do_estimate(CHAR_DATA *ch, const char *argument)
 		(const void*) cost);
 }
 
-void do_smithing(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_smithing, ch, argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	OBJ_DATA *obj;
@@ -3563,9 +3600,10 @@ static uint get_cost(CHAR_DATA *keeper, OBJ_DATA *obj, bool fBuy)
 	return cost;
 }
 
-static void sac_obj(CHAR_DATA * ch, OBJ_DATA *obj)
+static void
+sac_obj(CHAR_DATA * ch, OBJ_DATA *obj)
 {
-	int             silver;
+	uint		silver;
 	CHAR_DATA      *gch;
 	int             members;
 
@@ -3589,7 +3627,7 @@ static void sac_obj(CHAR_DATA * ch, OBJ_DATA *obj)
 		silver = UMIN(silver, obj->cost);
 
 	act_puts("Gods give you $j silver $qj{coins} for your sacrifice.",
-		 ch, (const void*) silver, NULL, TO_CHAR, POS_DEAD);
+		 ch, (const void *) silver, NULL, TO_CHAR, POS_DEAD);
 
 	ch->silver += silver;
 
@@ -3820,7 +3858,7 @@ static void drop_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 /*
  * equips a character
  */
-void do_outfit(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_outfit, ch, argument)
 {
 	OBJ_DATA *obj;
 	class_t *cl = class_lookup(ch->class);

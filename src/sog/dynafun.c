@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: dynafun.c,v 1.12 2001-08-05 16:36:57 fjoe Exp $
+ * $Id: dynafun.c,v 1.13 2001-08-13 18:24:00 fjoe Exp $
  */
 
 #include <stdlib.h>
@@ -241,6 +241,7 @@ dynafun_build_args(const char *name, dynafun_args_t *args, int nargs, va_list ap
 		case MT_MLSTRING:
 		case MT_PINT:
 		case MT_SPEC_SKILL:
+		case MT_FLAGINFO:
 			*(void **) args_ap = va_arg(ap, void *);
 			arg = va_arg(args_ap, void *);
 			continue;
@@ -253,6 +254,7 @@ dynafun_build_args(const char *name, dynafun_args_t *args, int nargs, va_list ap
 			/* NOTREACHED */
 
 		case MT_INT:
+		case MT_UINT:
 			*(int *) args_ap = va_arg(ap, int);
 			arg = (const void *) va_arg(args_ap, int);
 			continue;
@@ -284,6 +286,7 @@ dynafun_build_args(const char *name, dynafun_args_t *args, int nargs, va_list ap
 		case MT_BUFFER:
 		case MT_OBJ_INDEX:
 		case MT_MOB_INDEX:
+		case MT_DESCRIPTOR:
 			break;
 
 		default:

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: dynafun_decl.h,v 1.15 2001-08-05 16:36:19 fjoe Exp $
+ * $Id: dynafun_decl.h,v 1.16 2001-08-13 18:23:15 fjoe Exp $
  */
 
 /* no #ifdef _XXX_H_/#define _XXX_H_/#endif */
@@ -75,8 +75,16 @@
 #	define __MODULE_START_DECL \
 		static dynafun_data_t __mod_tab(MODULE_NAME)[] = {
 
+#	define NULL_ARG		{ 0, FALSE }
+
 #	undef __MODULE_END_DECL
-#	define __MODULE_END_DECL	{ NULL } };
+#	define __MODULE_END_DECL					\
+		{ NULL, 0, 0,						\
+		  { NULL_ARG, NULL_ARG, NULL_ARG, NULL_ARG, NULL_ARG,	\
+		    NULL_ARG, NULL_ARG, NULL_ARG, NULL_ARG },		\
+		  NULL							\
+		}							\
+	};
 
 #else
 
@@ -154,6 +162,11 @@
 #undef gmlstr_t_tag_t
 #define gmlstr_t_tag_t gmlstr_t *
 
+#undef flaginfo_t_tag
+#define flaginfo_t_tag MT_FLAGINFO
+#undef flaginfo_t_tag_t
+#define flaginfo_t_tag_t flaginfo_t *
+
 #undef mlstring_tag
 #define mlstring_tag MT_MLSTRING
 #undef mlstring_tag_t
@@ -173,6 +186,11 @@
 #define spec_skill_t_tag MT_SPEC_SKILL
 #undef spec_skill_t_tag_t
 #define spec_skill_t_tag_t spec_skill_t *
+
+#undef uint_tag
+#define uint_tag MT_UINT
+#undef uint_tag_t
+#define uint_tag_t uint
 
 #undef va_list_tag
 #define va_list_tag MT_VA_LIST
@@ -224,6 +242,11 @@
 #undef AREA_DATA_tag_t
 #define AREA_DATA_tag_t AREA_DATA *
 
+#undef DESCRIPTOR_DATA_tag
+#define DESCRIPTOR_DATA_tag MT_DESCRIPTOR
+#undef DESCRIPTOR_DATA_tag_t
+#define DESCRIPTOR_DATA_tag_t DESCRIPTOR_DATA *
+
 #if (MODULE_INIT == MODULE_NAME)
 
 /*
@@ -233,69 +256,91 @@
 #	undef DECLARE_FUN0
 #	define DECLARE_FUN0(ret, name)					\
 	{								\
-	  #name, __tag(ret), 0						\
+	  #name, __tag(ret), 0,						\
+	  { NULL_ARG, NULL_ARG, NULL_ARG, NULL_ARG, NULL_ARG,		\
+	    NULL_ARG, NULL_ARG, NULL_ARG },				\
+	  NULL,								\
 	},
 
 #	undef DECLARE_PROC0
 #	define DECLARE_PROC0(name)					\
 	{								\
-	  #name, __tag(void), 0						\
+	  #name, __tag(void), 0,					\
+	  { NULL_ARG, NULL_ARG, NULL_ARG, NULL_ARG, NULL_ARG,		\
+	    NULL_ARG, NULL_ARG, NULL_ARG },				\
+	  NULL,								\
 	},
 
 #	undef DECLARE_FUN1
 #	define DECLARE_FUN1(ret, name, a1, n1)				\
 	{								\
 	  #name, __tag(ret), 1,						\
-	  { a1 }							\
+	  { a1, NULL_ARG, NULL_ARG, NULL_ARG, NULL_ARG, NULL_ARG,	\
+	    NULL_ARG, NULL_ARG, NULL_ARG },				\
+	  NULL,								\
 	},
 
 #	undef DECLARE_PROC1
 #	define DECLARE_PROC1(name, a1, n1)				\
 	{								\
 	  #name, __tag(void), 1,					\
-	  { a1 }							\
+	  { a1, NULL_ARG, NULL_ARG, NULL_ARG, NULL_ARG, NULL_ARG,	\
+	    NULL_ARG, NULL_ARG, NULL_ARG },				\
+	  NULL,								\
 	},
 
 #	undef DECLARE_FUN2
 #	define DECLARE_FUN2(ret, name, a1, n1, a2, n2)			\
 	{								\
 	  #name, __tag(ret), 2,						\
-	  { a1, a2 }							\
+	  { a1, a2, NULL_ARG, NULL_ARG, NULL_ARG, NULL_ARG, NULL_ARG,	\
+	    NULL_ARG, NULL_ARG },					\
+	  NULL,								\
 	},
 
 #	undef DECLARE_PROC2
 #	define DECLARE_PROC2(name, a1, n1, a2, n2)			\
 	{								\
 	  #name, __tag(void), 2,					\
-	  { a1, a2 }							\
+	  { a1, a2, NULL_ARG, NULL_ARG, NULL_ARG, NULL_ARG, NULL_ARG,	\
+	    NULL_ARG, NULL_ARG },					\
+	  NULL,								\
 	},
 
 #	undef DECLARE_FUN3
 #	define DECLARE_FUN3(ret, name, a1, n1, a2, n2, a3, n3)		\
 	{								\
 	  #name, __tag(ret), 3,						\
-	  { a1, a2, a3 }						\
+	  { a1, a2, a3, NULL_ARG, NULL_ARG, NULL_ARG, NULL_ARG,		\
+	    NULL_ARG, NULL_ARG },					\
+	  NULL,								\
 	},
 
 #	undef DECLARE_PROC3
 #	define DECLARE_PROC3(name, a1, n1, a2, n2, a3, n3)		\
 	{								\
 	  #name, __tag(void), 3,					\
-	  { a1, a2, a3 }						\
+	  { a1, a2, a3, NULL_ARG, NULL_ARG, NULL_ARG, NULL_ARG,		\
+	    NULL_ARG, NULL_ARG },					\
+	  NULL,								\
 	},
 
 #	undef DECLARE_FUN4
 #	define DECLARE_FUN4(ret, name, a1, n1, a2, n2, a3, n3, a4, n4)	\
 	{								\
 	  #name, __tag(ret), 4,						\
-	  { a1, a2, a3, a4 }						\
+	  { a1, a2, a3, a4,						\
+	    NULL_ARG, NULL_ARG, NULL_ARG, NULL_ARG, NULL_ARG },		\
+	  NULL,								\
 	},
 
 #	undef DECLARE_PROC4
 #	define DECLARE_PROC4(name, a1, n1, a2, n2, a3, n3, a4, n4)	\
 	{								\
 	  #name, __tag(void), 4,					\
-	  { a1, a2, a3, a4 }						\
+	  { a1, a2, a3, a4,						\
+	    NULL_ARG, NULL_ARG, NULL_ARG, NULL_ARG, NULL_ARG },		\
+	  NULL,								\
 	},
 
 #	undef DECLARE_FUN5
@@ -303,7 +348,9 @@
 			    a5, n5)					\
 	{								\
 	  #name, __tag(ret), 5,						\
-	  { a1, a2, a3, a4, a5 }					\
+	  { a1, a2, a3, a4, a5,						\
+	    NULL_ARG, NULL_ARG, NULL_ARG, NULL_ARG },			\
+	  NULL,								\
 	},
 
 #	undef DECLARE_PROC5
@@ -311,7 +358,9 @@
 			     a5, n5)					\
 	{								\
 	  #name, __tag(void), 5,					\
-	  { a1, a2, a3, a4, a5 }					\
+	  { a1, a2, a3, a4, a5,						\
+	    NULL_ARG, NULL_ARG, NULL_ARG, NULL_ARG },			\
+	  NULL,								\
 	},
 
 #	undef DECLARE_FUN6
@@ -319,7 +368,8 @@
 			    a5, n5, a6, n6)				\
 	{								\
 	  #name, __tag(ret), 6,						\
-	  { a1, a2, a3, a4, a5, a6 }					\
+	  { a1, a2, a3, a4, a5, a6, NULL_ARG, NULL_ARG, NULL_ARG },	\
+	  NULL,								\
 	},
 
 #	undef DECLARE_PROC6
@@ -327,7 +377,8 @@
 			     a5, n5, a6, n6)				\
 	{								\
 	  #name, __tag(void), 6,					\
-	  { a1, a2, a3, a4, a5, a6 }					\
+	  { a1, a2, a3, a4, a5, a6, NULL_ARG, NULL_ARG, NULL_ARG },	\
+	  NULL,								\
 	},
 
 #	undef DECLARE_FUN7
@@ -335,7 +386,8 @@
 			    a5, n5, a6, n6, a7, n7)			\
 	{								\
 	  #name, __tag(ret), 6,						\
-	  { a1, a2, a3, a4, a5, a6, a7 }				\
+	  { a1, a2, a3, a4, a5, a6, a7, NULL_ARG, NULL_ARG },		\
+	  NULL,								\
 	},
 
 #	undef DECLARE_PROC7
@@ -343,7 +395,8 @@
 			     a5, n5, a6, n6, a7, n7)			\
 	{								\
 	  #name, __tag(void), 6,					\
-	  { a1, a2, a3, a4, a5, a6, a7 }				\
+	  { a1, a2, a3, a4, a5, a6, a7, NULL_ARG, NULL_ARG },		\
+	  NULL,								\
 	},
 
 #	undef DECLARE_FUN8
@@ -351,7 +404,8 @@
 			    a5, n5, a6, n6, a7, n7, a8, n8)		\
 	{								\
 	  #name, __tag(ret), 6,						\
-	  { a1, a2, a3, a4, a5, a6, a7, a8 }				\
+	  { a1, a2, a3, a4, a5, a6, a7, a8, NULL_ARG },			\
+	  NULL,								\
 	},
 
 #	undef DECLARE_PROC8
@@ -359,7 +413,8 @@
 			     a5, n5, a6, n6, a7, n7, a8, n8)		\
 	{								\
 	  #name, __tag(void), 6,					\
-	  { a1, a2, a3, a4, a5, a6, a7, a8 }				\
+	  { a1, a2, a3, a4, a5, a6, a7, a8, NULL_ARG },			\
+	  NULL,								\
 	},
 
 #	undef DECLARE_FUN9
@@ -367,7 +422,8 @@
 			    a5, n5, a6, n6, a7, n7, a8, n8, a9, n9)	\
 	{								\
 	  #name, __tag(ret), 6,						\
-	  { a1, a2, a3, a4, a5, a6, a7, a8, a9 }			\
+	  { a1, a2, a3, a4, a5, a6, a7, a8, a9 },			\
+	  NULL,								\
 	},
 
 #	undef DECLARE_PROC9
@@ -375,7 +431,8 @@
 			     a5, n5, a6, n6, a7, n7, a8, n8, a9, n9)	\
 	{								\
 	  #name, __tag(void), 6,					\
-	  { a1, a2, a3, a4, a5, a6, a7, a8, a9 }			\
+	  { a1, a2, a3, a4, a5, a6, a7, a8, a9 },			\
+	  NULL,								\
 	},
 
 #elif (MODULE == MODULE_NAME)

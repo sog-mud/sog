@@ -1,5 +1,5 @@
 /*
- * $Id: auction_impl.c,v 1.54 2001-08-02 14:21:32 fjoe Exp $
+ * $Id: auction_impl.c,v 1.55 2001-08-13 18:23:19 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -12,6 +12,8 @@
 #include <handler.h>
 
 #include "auction_impl.h"
+
+DECLARE_UPDATE_FUN(auction_update);
 
 static int advatoi(const char *s);
 
@@ -111,8 +113,7 @@ auction_give_obj(CHAR_DATA* victim)
 	auction.item = NULL;
 }
 
-void
-auction_update(void)
+UPDATE_FUN(auction_update)
 {
 	if (auction.item == NULL)
 		return;

@@ -1,5 +1,5 @@
 /*
- * $Id: olc.h,v 1.78 2001-08-03 11:27:44 fjoe Exp $
+ * $Id: olc.h,v 1.79 2001-08-13 18:23:48 fjoe Exp $
  */
 
 /***************************************************************************
@@ -39,8 +39,10 @@ typedef bool VALIDATE_FUN(CHAR_DATA *ch, const void *arg);
 #define DECLARE_OLC_FUN(fun)		OLC_FUN		fun
 #define DECLARE_VALIDATE_FUN(fun)	VALIDATE_FUN	fun
 
-#define OLC_FUN(fun)		bool fun(CHAR_DATA *ch, const char *argument, \
-					 olc_cmd_t *cmd)
+#define OLC_FUN(fun)							\
+	bool fun(CHAR_DATA *ch,						\
+		 const char *argument __attribute__((unused)),		\
+		 olc_cmd_t *cmd __attribute__((unused)))
 #define VALIDATE_FUN(fun)	bool fun(CHAR_DATA *ch, const void *arg)
 
 /* functions all cmd tables must have */
@@ -81,10 +83,10 @@ extern const char ED_HINT	[];
 
 struct olc_cmd_t
 {
-	char *		name;
+	const char *	name;
 	OLC_FUN *	olc_fun;
 	VALIDATE_FUN *	validator;
-	void*		arg1;
+	void *		arg1;
 };
 
 /*
@@ -107,7 +109,6 @@ extern olc_cmd_t	olc_cmds_cmd[];
 extern olc_cmd_t	olc_cmds_skill[];
 extern olc_cmd_t	olc_cmds_spec[];
 extern olc_cmd_t	olc_cmds_race[];
-extern olc_cmd_t	olc_cmds_class[];
 extern olc_cmd_t	olc_cmds_mat[];
 extern olc_cmd_t	olc_cmds_liq[];
 extern olc_cmd_t	olc_cmds_damt[];
@@ -156,7 +157,7 @@ bool olced_exd		(CHAR_DATA *ch, const char* argument,
 bool olced_flag		(CHAR_DATA *ch, const char* argument,
 			 olc_cmd_t *cmd, flag_t *);
 bool olced_dice		(CHAR_DATA *ch, const char *argument,
-			 olc_cmd_t *cmd, int *dice);
+			 olc_cmd_t *cmd, int *pdice);
 bool olced_rulecl	(CHAR_DATA *ch, const char *argument,
 			 olc_cmd_t *cmd, lang_t *l);
 bool olced_vform_add	(CHAR_DATA *ch, const char *argument,
@@ -205,7 +206,7 @@ BUFFER *	show_obj_resets(int vnum);
 void		show_resets(CHAR_DATA *ch, int vnum, const char *xxx,
 			    BUFFER *(*show_xxx_resets)(int));
 
-const char *	format_dice(int *dice);
+const char *	format_dice(int *pdice);
 
 #define SECURITY_MATERIAL	2
 #define SECURITY_RACE		3

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: info.h,v 1.2 1999-12-16 12:24:54 fjoe Exp $
+ * $Id: info.h,v 1.3 2001-08-13 18:23:40 fjoe Exp $
  */
 
 #ifndef _COMM_INFO_H_

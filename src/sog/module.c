@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: module.c,v 1.24 2001-08-05 16:37:00 fjoe Exp $
+ * $Id: module.c,v 1.25 2001-08-13 18:24:02 fjoe Exp $
  */
 
 /*
@@ -38,6 +38,7 @@
 #include <string.h>
 #include <dlfcn.h>
 #include <time.h>
+#include <setjmp.h>
 #include <unistd.h>
 
 #include <merc.h>
@@ -48,14 +49,14 @@
 
 varr modules;
 
-static DECLARE_FOREACH_CB(mod_load_cb);
-static DECLARE_FOREACH_CB(mod_unload_cb);
-static DECLARE_FOREACH_CB(mod_lookup_cb);
+static DECLARE_FOREACH_CB_FUN(mod_load_cb);
+static DECLARE_FOREACH_CB_FUN(mod_unload_cb);
+static DECLARE_FOREACH_CB_FUN(mod_lookup_cb);
 
-static DECLARE_FOREACH_CB(boot_load_cb);
-static DECLARE_FOREACH_CB(boot_cb);
+static DECLARE_FOREACH_CB_FUN(boot_load_cb);
+static DECLARE_FOREACH_CB_FUN(boot_cb);
 
-static DECLARE_FOREACH_CB(checkdep_cb);
+static DECLARE_FOREACH_CB_FUN(checkdep_cb);
 
 static int	modset_add	(varr *v, module_t *m, time_t curr_time);
 static module_t *modset_search	(varr *v, const char *name);
@@ -68,6 +69,9 @@ static varrdata_t v_modset = {
 	NULL,
 	NULL
 };
+
+extern bool do_longjmp;
+extern jmp_buf game_loop_jmpbuf;
 
 int
 mod_reload(module_t* m, time_t curr_time)
@@ -86,6 +90,14 @@ mod_reload(module_t* m, time_t curr_time)
 	varr_foreach(&v, mod_load_cb);
 
 	varr_destroy(&v);
+
+	if (do_longjmp) {
+		do_longjmp = FALSE;
+		log_unsetchar();
+
+		longjmp(game_loop_jmpbuf, 1);
+	}
+
 	return 0;
 }
 
@@ -218,7 +230,7 @@ FOREACH_CB_FUN(mod_load_cb, arg, ap)
 {
 	module_t *m = *(module_t **) arg;
 
-	int (*callback)(module_t *);
+	MODINIT_FUN *callback;
 	void *dlh;
 	const char *_depend;
 
@@ -270,7 +282,7 @@ FOREACH_CB_FUN(mod_unload_cb, arg, ap)
 {
 	module_t *m = *(module_t **) arg;
 
-	int (*callback)(module_t *);
+	MODINIT_FUN *callback;
 
 	if (m->dlh == NULL)
 		return NULL;
@@ -316,13 +328,13 @@ FOREACH_CB_FUN(boot_cb, p, ap)
 {
 	module_t *m = (module_t *) p;
 
-	int (*cb)(void);
+	MODINIT_FUN *callback;
 
 	if (m->dlh == NULL
-	||  (cb = dlsym(m->dlh, "_module_boot")) == NULL) // notrans
+	||  (callback = dlsym(m->dlh, "_module_boot")) == NULL) // notrans
 		return NULL;
 
-	if (cb() < 0)
+	if (callback(m) < 0)
 		exit(1);
 
 	return NULL;

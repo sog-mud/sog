@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_update.c,v 1.11 2001-08-05 16:36:54 fjoe Exp $
+ * $Id: init_update.c,v 1.12 2001-08-13 18:23:54 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -37,6 +37,9 @@
 
 #include <update.h>
 #include "update_impl.h"
+
+DECLARE_MODINIT_FUN(_module_load);
+DECLARE_MODINIT_FUN(_module_unload);
 
 static hashdata_t h_uhandlers = {
 	sizeof(uhandler_t), 4,
@@ -53,14 +56,13 @@ DECLARE_DBLOAD_FUN(load_uhandler);
 
 DBFUN dbfun_uhandlers[] =
 {
-	{ "UHANDLER",	load_uhandler	},			// notrans
-	{ NULL }
+	{ "UHANDLER",	load_uhandler, NULL	},		// notrans
+	{ NULL, NULL, NULL }
 };
 
-DBDATA db_uhandlers = { dbfun_uhandlers };
+DBDATA db_uhandlers = { dbfun_uhandlers, NULL, 0 };
 
-int
-_module_load(module_t *m)
+MODINIT_FUN(_module_load, m)
 {
 	hash_init(&uhandlers, &h_uhandlers);
 	db_load_file(&db_uhandlers, ETC_PATH, UHANDLERS_CONF);
@@ -71,8 +73,7 @@ _module_load(module_t *m)
 	return 0;
 }
 
-int
-_module_unload(module_t *m)
+MODINIT_FUN(_module_unload, m)
 {
 	update_unregister();
 	uhandler_unload(m->name);
@@ -114,7 +115,8 @@ DBLOAD_FUN(load_uhandler)
 
 		case 'I':
 			KEY("Iterator", hdlr.iter,
-			    (vo_iter_t *) fread_fword(iterator_names, fp));
+			    (vo_iter_t *) (uintptr_t) fread_fword(
+				iterator_names, fp));
 			break;
 
 		case 'M':

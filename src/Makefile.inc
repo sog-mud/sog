@@ -1,5 +1,5 @@
 #
-# $Id: Makefile.inc,v 1.22 2001-08-05 16:36:14 fjoe Exp $
+# $Id: Makefile.inc,v 1.23 2001-08-13 18:23:08 fjoe Exp $
 #
 
 #
@@ -15,13 +15,15 @@ INCLUDES=	-I../include -I..
 
 COPTS=		${INCLUDES}
 CFLAGS=		-O -pipe -Wall
-.ifdef EXTRA_CHECKS || !defined(MODULE)
-CFLAGS+= -W -Wbad-function-cast -Wcast-align -Wcast-qual -Wchar-subscriptsi\
-	-Winline -Wmissing-prototypes -Wnested-externs -Wpointer-arith\
-	-Wredundant-decls -Wshadow -Wstrict-prototypes -Wwrite-strings
-#CFLAGS+= -Werror
-.endif
 LDFLAGS=	-export-dynamic
+
+#
+# BDECFLAGS
+CFLAGS+=	-W -Wbad-function-cast -Wcast-align -Wcast-qual\
+		-Wchar-subscripts -Winline -Wmissing-prototypes\
+		-Wnested-externs -Wpointer-arith -Wredundant-decls\
+		-Wshadow -Wstrict-prototypes -Wwrite-strings
+#CFLAGS+=	-Werror
 
 #
 # debug flags

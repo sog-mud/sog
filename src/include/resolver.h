@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: resolver.h,v 1.3 1999-12-16 12:24:54 fjoe Exp $
+ * $Id: resolver.h,v 1.4 2001-08-13 18:23:16 fjoe Exp $
  */
 
 #ifndef _RESOLVER_H_
@@ -33,6 +33,8 @@ extern FILE *rfin;
 extern FILE *rfout;
 
 void	resolver_init(void);
-void	resolver_done(void);
+void	resolver_destroy(void);
+
+void	resolv_done(void);
 
 #endif

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_area.c,v 1.93 2001-08-02 18:20:11 fjoe Exp $
+ * $Id: olc_area.c,v 1.94 2001-08-13 18:23:49 fjoe Exp $
  */
 
 #include "olc.h"
@@ -64,33 +64,33 @@ olc_cmd_t olc_cmds_area[] =
 {
 /*	{   command	function	validator		arg	}, */
 
-	{ "create",	areaed_create					},
-	{ "edit",	areaed_edit					},
-	{ "",		areaed_save					},
-	{ "touch",	areaed_touch					},
-	{ "show",	areaed_show					},
-	{ "list",	areaed_list					},
+	{ "create",	areaed_create,	NULL,			NULL	},
+	{ "edit",	areaed_edit,	NULL,			NULL	},
+	{ "",		areaed_save,	NULL,			NULL	},
+	{ "touch",	areaed_touch,	NULL,			NULL	},
+	{ "show",	areaed_show,	NULL,			NULL	},
+	{ "list",	areaed_list,	NULL,			NULL	},
 
-	{ "name",	areaed_name					},
-	{ "filename",	areaed_file,	validate_filename		},
+	{ "name",	areaed_name,	NULL,			NULL	},
+	{ "filename",	areaed_file,	validate_filename,	NULL	},
 	{ "area",	areaed_flags,	NULL,		area_flags	},
-	{ "age",	areaed_age					},
-	{ "reset",	areaed_reset					},
-	{ "security",	areaed_security,validate_security		},
-	{ "builders",	areaed_builders					},
-	{ "resetmsg",	areaed_resetmsg					},
-	{ "minvnum",	areaed_minvnum,	validate_minvnum		},
-	{ "maxvnum",	areaed_maxvnum,	validate_maxvnum		},
-	{ "move",	areaed_move,	validate_move			},
-	{ "credits",	areaed_credits					},
-	{ "minlevel",	areaed_minlevel					},
-	{ "maxlevel",	areaed_maxlevel					},
+	{ "age",	areaed_age,	NULL,			NULL	},
+	{ "reset",	areaed_reset,	NULL,			NULL	},
+	{ "security",	areaed_security,validate_security,	NULL	},
+	{ "builders",	areaed_builders,NULL,			NULL	},
+	{ "resetmsg",	areaed_resetmsg,NULL,			NULL	},
+	{ "minvnum",	areaed_minvnum,	validate_minvnum,	NULL	},
+	{ "maxvnum",	areaed_maxvnum,	validate_maxvnum,	NULL	},
+	{ "move",	areaed_move,	validate_move,		NULL	},
+	{ "credits",	areaed_credits,	NULL,			NULL	},
+	{ "minlevel",	areaed_minlevel,NULL,			NULL	},
+	{ "maxlevel",	areaed_maxlevel,NULL,			NULL	},
 	{ "clan",	areaed_clan,	NULL,		&clans		},
 
-	{ "commands",	show_commands					},
-	{ "version",	show_version					},
+	{ "commands",	show_commands,	NULL,			NULL	},
+	{ "version",	show_version,	NULL,			NULL	},
 
-	{ NULL }
+	{ NULL, NULL, NULL, NULL }
 };
 
 static AREA_DATA *check_range(AREA_DATA *pArea, int ilower, int iupper);
@@ -414,7 +414,7 @@ OLC_FUN(areaed_clan)
 
 VALIDATE_FUN(validate_security)
 {
-	int sec = *(int*) arg;
+	int sec = *(const int *) arg;
 	if (sec > PC(ch)->security || sec < 0) {
 		if (PC(ch)->security != 0)
 			act_puts("AreaEd: Valid security range is 0..$j.",
@@ -429,7 +429,7 @@ VALIDATE_FUN(validate_security)
 
 VALIDATE_FUN(validate_minvnum)
 {
-	int min_vnum = *(int*) arg;
+	int min_vnum = *(const int *) arg;
 	AREA_DATA *pArea;
 	EDIT_AREA(ch, pArea);
 
@@ -438,7 +438,7 @@ VALIDATE_FUN(validate_minvnum)
 			act_char("AreaEd: Min vnum must be less than max vnum.", ch);
 			return FALSE;
 		}
-	
+
 		if (check_range(pArea, min_vnum, pArea->max_vnum)) {
 			act_char("AreaEd: Range must include only this area.", ch);
 			return FALSE;
@@ -449,7 +449,7 @@ VALIDATE_FUN(validate_minvnum)
 
 VALIDATE_FUN(validate_maxvnum)
 {
-	int max_vnum = *(int*) arg;
+	int max_vnum = *(const int *) arg;
 	AREA_DATA *pArea;
 	EDIT_AREA(ch, pArea);
 
@@ -458,7 +458,7 @@ VALIDATE_FUN(validate_maxvnum)
 			act_char("AreaEd: Max vnum must be greater than min vnum.", ch);
 			return FALSE;
 		}
-	
+
 		if (check_range(pArea, pArea->min_vnum, max_vnum)) {
 			act_char("AreaEd: Range must include only this area.", ch);
 			return FALSE;
@@ -516,7 +516,7 @@ move_print_clan_cb(void *p, va_list ap)
 VALIDATE_FUN(validate_move)
 {
 	int i;
-	int new_min = *(int*) arg;
+	int new_min = *(const int *) arg;
 	int delta, oldmin, oldmax;
 	bool touched = FALSE;
 #if 0
@@ -687,7 +687,8 @@ VALIDATE_FUN(validate_move)
  Purpose:	Ensures the range spans only one area.
  Called by:	areaed_vnum(olc_act.c).
  ****************************************************************************/
-static AREA_DATA *check_range(AREA_DATA *this, int ilower, int iupper)
+static AREA_DATA *
+check_range(AREA_DATA *this, int ilower, int iupper)
 {
 	AREA_DATA *pArea;
 
@@ -703,7 +704,8 @@ static AREA_DATA *check_range(AREA_DATA *this, int ilower, int iupper)
 	return NULL;
 }
 
-static void move_mob(MOB_INDEX_DATA *mob, AREA_DATA *pArea, int delta)
+static void
+move_mob(MOB_INDEX_DATA *mob, AREA_DATA *pArea, int delta)
 {
 	bool touched = FALSE;
 #if 0
@@ -730,7 +732,8 @@ static void move_mob(MOB_INDEX_DATA *mob, AREA_DATA *pArea, int delta)
 		TOUCH_VNUM(old_vnum);
 }
 
-static void move_obj(OBJ_INDEX_DATA *obj, AREA_DATA *pArea, int delta)
+static void
+move_obj(OBJ_INDEX_DATA *obj, AREA_DATA *pArea, int delta)
 {
 	OBJ_DATA *o;
 	bool touched = FALSE;
@@ -765,7 +768,8 @@ static void move_obj(OBJ_INDEX_DATA *obj, AREA_DATA *pArea, int delta)
 		TOUCH_VNUM(old_vnum);
 }
 
-static void move_room(ROOM_INDEX_DATA *room, AREA_DATA *pArea, int delta)
+static void
+move_room(ROOM_INDEX_DATA *room, AREA_DATA *pArea, int delta)
 {
 	int i;
 	bool touched = FALSE;
@@ -822,7 +826,8 @@ static void move_room(ROOM_INDEX_DATA *room, AREA_DATA *pArea, int delta)
  Name:		save_area_list
  Purpose:	Saves the listing of files to be loaded at startup.
  ****************************************************************************/
-static void save_area_list(CHAR_DATA *ch)
+static void
+save_area_list(CHAR_DATA *ch)
 {
 	FILE *fp;
 	AREA_DATA *pArea;
@@ -839,16 +844,17 @@ static void save_area_list(CHAR_DATA *ch)
 
 #if 0
 XXX
-static void save_mobprogs(FILE *fp, AREA_DATA *pArea)
+static void
+save_mobprogs(FILE *fp, AREA_DATA *pArea)
 {
 	MPCODE *mpcode;
         int i;
 	bool found = FALSE;
 
 	for (i = pArea->min_vnum; i <= pArea->max_vnum; i++) {
-        	if ((mpcode = mpcode_lookup(i)) != NULL) {
+		if ((mpcode = mpcode_lookup(i)) != NULL) {
 			if (!found) {
-        			fprintf(fp, "#MOBPROGS\n");
+				fprintf(fp, "#MOBPROGS\n");
 				found = TRUE;
 			}
 			fprintf(fp, "#%d\n", i);
@@ -857,7 +863,7 @@ static void save_mobprogs(FILE *fp, AREA_DATA *pArea)
         }
 
 	if (found)
-        	fprintf(fp,"#0\n\n");
+		fprintf(fp,"#0\n\n");
 }
 #endif
 
@@ -866,7 +872,8 @@ static void save_mobprogs(FILE *fp, AREA_DATA *pArea)
  Purpose:	Save one mobile to file, new format -- Hugin
  Called by:	save_mobiles (below).
  ****************************************************************************/
-static void save_mobile(FILE *fp, MOB_INDEX_DATA *pMobIndex)
+static void
+save_mobile(FILE *fp, MOB_INDEX_DATA *pMobIndex)
 {
 	race_t *r = race_lookup(pMobIndex->race);
 #if 0
@@ -979,7 +986,8 @@ static void save_mobile(FILE *fp, MOB_INDEX_DATA *pMobIndex)
  Called by:	save_area(olc_save.c).
  Notes:         Changed for ROM OLC.
  ****************************************************************************/
-static void save_mobiles(FILE *fp, AREA_DATA *pArea)
+static void
+save_mobiles(FILE *fp, AREA_DATA *pArea)
 {
 	int i;
 	MOB_INDEX_DATA *pMob;
@@ -1004,7 +1012,8 @@ static void save_mobiles(FILE *fp, AREA_DATA *pArea)
                 new ROM format saving -- Hugin
  Called by:	save_objects (below).
  ****************************************************************************/
-static void save_object(FILE *fp, OBJ_INDEX_DATA *pObjIndex)
+static void
+save_object(FILE *fp, OBJ_INDEX_DATA *pObjIndex)
 {
 	char letter;
 	ED_DATA *pEd;
@@ -1050,36 +1059,41 @@ static void save_object(FILE *fp, OBJ_INDEX_DATA *pObjIndex)
  Called by:	save_area(olc_save.c).
  Notes:         Changed for ROM OLC.
  ****************************************************************************/
-static void save_objects(FILE *fp, AREA_DATA *pArea)
+static void
+save_objects(FILE *fp, AREA_DATA *pArea)
 {
 	int i;
 	OBJ_INDEX_DATA *pObj;
 	bool found = FALSE;
 
-	for (i = pArea->min_vnum; i <= pArea->max_vnum; i++)
+	for (i = pArea->min_vnum; i <= pArea->max_vnum; i++) {
 		if ((pObj = get_obj_index(i))) {
 			if (!found) {
-    				fprintf(fp, "#OBJECTS\n");
+				fprintf(fp, "#OBJECTS\n");
 				found = TRUE;
 			}
 			save_object(fp, pObj);
-    		}
+		}
+	}
 
 	if (found)
 		fprintf(fp, "#0\n\n");
 }
 
-static int exitcmp(const void *p1, const void *p2)
+static int
+exitcmp(const void *p1, const void *p2)
 {
-	return (*(EXIT_DATA**)p1)->orig_door - (*(EXIT_DATA**)p2)->orig_door;
+	return (*(const EXIT_DATA**)p1)->orig_door -
+	    (*(const EXIT_DATA**)p2)->orig_door;
 }
 
-static void save_room(FILE *fp, ROOM_INDEX_DATA *pRoomIndex)
+static void
+save_room(FILE *fp, ROOM_INDEX_DATA *pRoomIndex)
 {
 	int door;
 	ED_DATA *pEd;
 	EXIT_DATA *pExit;
-	EXIT_DATA *exit[MAX_DIR];
+	EXIT_DATA *exits[MAX_DIR];
 	int max_door;
 
         fprintf(fp, "#%d\n",	pRoomIndex->vnum);
@@ -1096,28 +1110,28 @@ static void save_room(FILE *fp, ROOM_INDEX_DATA *pRoomIndex)
 	/* sort exits (to minimize diffs) */
 	for (max_door = 0, door = 0; door < MAX_DIR; door++)
 		if ((pExit = pRoomIndex->exit[door]))
-			exit[max_door++] = pExit;
-	qsort(exit, max_door, sizeof(*exit), exitcmp);
+			exits[max_door++] = pExit;
+	qsort(exits, max_door, sizeof(*exits), exitcmp);
 
 	for (door = 0; door < max_door; door++) {
-		pExit = exit[door];
+		pExit = exits[door];
 		if (pExit->to_room.r) {
- 
-	 		/* HACK : TO PREVENT EX_LOCKED etc without EX_ISDOOR
- 			   to stop booting the mud */
- 			if (IS_SET(pExit->rs_flags, EX_CLOSED)
- 			||  IS_SET(pExit->rs_flags, EX_LOCKED)
- 			||  IS_SET(pExit->rs_flags, EX_PICKPROOF)
- 			||  IS_SET(pExit->rs_flags, EX_NOPASS)
- 			||  IS_SET(pExit->rs_flags, EX_EASY)
- 			||  IS_SET(pExit->rs_flags, EX_HARD)
- 			||  IS_SET(pExit->rs_flags, EX_INFURIATING)
- 			||  IS_SET(pExit->rs_flags, EX_NOCLOSE)
- 			||  IS_SET(pExit->rs_flags, EX_NOLOCK) )
- 				SET_BIT(pExit->rs_flags, EX_ISDOOR);
- 			else
- 				REMOVE_BIT(pExit->rs_flags, EX_ISDOOR);
- 
+
+			/* HACK : TO PREVENT EX_LOCKED etc without EX_ISDOOR
+			   to stop booting the mud */
+			if (IS_SET(pExit->rs_flags, EX_CLOSED)
+			||  IS_SET(pExit->rs_flags, EX_LOCKED)
+			||  IS_SET(pExit->rs_flags, EX_PICKPROOF)
+			||  IS_SET(pExit->rs_flags, EX_NOPASS)
+			||  IS_SET(pExit->rs_flags, EX_EASY)
+			||  IS_SET(pExit->rs_flags, EX_HARD)
+			||  IS_SET(pExit->rs_flags, EX_INFURIATING)
+			||  IS_SET(pExit->rs_flags, EX_NOCLOSE)
+			||  IS_SET(pExit->rs_flags, EX_NOLOCK) )
+				SET_BIT(pExit->rs_flags, EX_ISDOOR);
+			else
+				REMOVE_BIT(pExit->rs_flags, EX_ISDOOR);
+
 			if (pExit->size == SIZE_GARGANTUAN)
 				fprintf(fp, "D%d\n",      pExit->orig_door);
 			else
@@ -1138,7 +1152,7 @@ static void save_room(FILE *fp, ROOM_INDEX_DATA *pRoomIndex)
 	if (pRoomIndex->mana_rate != 100 || pRoomIndex->heal_rate != 100)
 		fprintf (fp, "M %d H %d\n", pRoomIndex->mana_rate,
 					    pRoomIndex->heal_rate);
-		 			     
+
 	fprintf(fp, "S\n");
 }
 
@@ -1147,7 +1161,8 @@ static void save_room(FILE *fp, ROOM_INDEX_DATA *pRoomIndex)
  Purpose:	Save #ROOMS section of an area file.
  Called by:	save_area(olc_save.c).
  ****************************************************************************/
-static void save_rooms(FILE *fp, AREA_DATA *pArea)
+static void
+save_rooms(FILE *fp, AREA_DATA *pArea)
 {
 	ROOM_INDEX_DATA *pRoomIndex;
 	bool found = FALSE;
@@ -1166,7 +1181,8 @@ static void save_rooms(FILE *fp, AREA_DATA *pArea)
 		fprintf(fp, "#0\n\n");
 }
 
-static void save_special(FILE *fp, MOB_INDEX_DATA *pMobIndex)
+static void
+save_special(FILE *fp, MOB_INDEX_DATA *pMobIndex)
 {
 #if defined(VERBOSE)
 	fprintf(fp, "M %d %s\t* %s\n",
@@ -1184,13 +1200,14 @@ static void save_special(FILE *fp, MOB_INDEX_DATA *pMobIndex)
  Purpose:	Save #SPECIALS section of area file.
  Called by:	save_area(olc_save.c).
  ****************************************************************************/
-static void save_specials(FILE *fp, AREA_DATA *pArea)
+static void
+save_specials(FILE *fp, AREA_DATA *pArea)
 {
 	int i;
 	MOB_INDEX_DATA *pMobIndex;
 	bool found = FALSE;
-    
-	for (i = pArea->min_vnum; i <= pArea->max_vnum; i++)
+
+	for (i = pArea->min_vnum; i <= pArea->max_vnum; i++) {
 		if ((pMobIndex = get_mob_index(i))
 		&&  pMobIndex->spec_fun) {
 			if (!found) {
@@ -1199,6 +1216,7 @@ static void save_specials(FILE *fp, AREA_DATA *pArea)
 			}
 			save_special(fp, pMobIndex);
 		}
+	}
 
 	if (found)
 		fprintf(fp, "S\n\n");
@@ -1214,7 +1232,7 @@ save_resets_room(FILE *fp, ROOM_INDEX_DATA *pRoomIndex, bool *pfound)
 	OBJ_INDEX_DATA *last_obj = NULL;
 	MOB_INDEX_DATA *last_mob = NULL;
 
-    	for (r = pRoomIndex->reset_first; r != NULL; r = r->next) {
+	for (r = pRoomIndex->reset_first; r != NULL; r = r->next) {
 #if defined(VERBOSE)
 		OBJ_INDEX_DATA *obj;
 		MOB_INDEX_DATA *mob;
@@ -1361,7 +1379,8 @@ save_resets(FILE *fp, AREA_DATA *pArea)
 		fprintf(fp, "S\n\n");
 }
 
-static void save_shop(FILE *fp, MOB_INDEX_DATA *pMobIndex)
+static void
+save_shop(FILE *fp, MOB_INDEX_DATA *pMobIndex)
 {
 	SHOP_DATA *pShopIndex;
 	int iTrade;
@@ -1380,12 +1399,13 @@ static void save_shop(FILE *fp, MOB_INDEX_DATA *pMobIndex)
  Purpose:	Saves the #SHOPS section of an area file.
  Called by:	save_area(olc_save.c)
  ****************************************************************************/
-static void save_shops(FILE *fp, AREA_DATA *pArea)
+static void
+save_shops(FILE *fp, AREA_DATA *pArea)
 {
 	MOB_INDEX_DATA *pMobIndex;
 	int i;
 	bool found = FALSE;
-    
+
 	for (i = pArea->min_vnum; i <= pArea->max_vnum; i++)
 		if ((pMobIndex = get_mob_index(i))
 		&&  pMobIndex->pShop) {
@@ -1400,7 +1420,8 @@ static void save_shops(FILE *fp, AREA_DATA *pArea)
 		fprintf(fp, "0\n\n");
 }
 
-static void save_olimits(FILE *fp, AREA_DATA *pArea)
+static void
+save_olimits(FILE *fp, AREA_DATA *pArea)
 {
 	int i;
 	OBJ_INDEX_DATA *pObj;
@@ -1423,26 +1444,30 @@ static void save_olimits(FILE *fp, AREA_DATA *pArea)
 
 #if 0
 XXX
-static void save_omprog(FILE *fp, OBJ_INDEX_DATA *pObjIndex)
+static void
+save_omprog(FILE *fp, OBJ_INDEX_DATA *pObjIndex)
 {
 	int i;
 
-	for (i = 0; i < OPROG_MAX; i++)
-		if (pObjIndex->oprogs[i] != NULL)
+	for (i = 0; i < OPROG_MAX; i++) {
+		if (pObjIndex->oprogs[i] != NULL) {
 			fprintf(fp, "O %d %s %s\t* `%s'\n",
 				pObjIndex->vnum,
 				optype_table[i],
 				oprog_name_lookup(pObjIndex->oprogs[i]),
 				mlstr_mval(&pObjIndex->short_descr));
+		}
+	}
 }
 
-static void save_omprogs(FILE *fp, AREA_DATA *pArea)
+static void
+save_omprogs(FILE *fp, AREA_DATA *pArea)
 {
 	int i;
 	OBJ_INDEX_DATA *pObjIndex;
 	bool found = FALSE;
 
-	for (i = pArea->min_vnum; i <= pArea->max_vnum; i++)
+	for (i = pArea->min_vnum; i <= pArea->max_vnum; i++) {
 		if ((pObjIndex = get_obj_index(i)) != NULL
 		&&  pObjIndex->oprogs) {
 			if (!found) {
@@ -1451,42 +1476,46 @@ static void save_omprogs(FILE *fp, AREA_DATA *pArea)
 			}
 			save_omprog(fp, pObjIndex);
 		}
+	}
 
 	if (found)
 		fprintf(fp, "S\n\n");
 }
 #endif
 
-static void save_practicers(FILE *fp, AREA_DATA *pArea)
+static void
+save_practicers(FILE *fp, AREA_DATA *pArea)
 {
 	int i;
 	MOB_INDEX_DATA *pMobIndex;
 	bool found = FALSE;
 
-	for (i = pArea->min_vnum; i <= pArea->max_vnum; i++)
+	for (i = pArea->min_vnum; i <= pArea->max_vnum; i++) {
 		if ((pMobIndex = get_mob_index(i)) != NULL
 		&&  pMobIndex->practicer != 0) {
 			if (!found) {
 				fprintf(fp, "#PRACTICERS\n");
 				found = TRUE;
 			}
-    			fprintf(fp, "M %d %s\t* %s\n",
+			fprintf(fp, "M %d %s\t* %s\n",
 				pMobIndex->vnum,
 				format_flags(pMobIndex->practicer),
 				mlstr_mval(&pMobIndex->short_descr));
 		}
+	}
 
 	if (found)
 		fprintf(fp, "S\n\n");
 }
 
-static void save_helps(FILE *fp, AREA_DATA *pArea)
+static void
+save_helps(FILE *fp, AREA_DATA *pArea)
 {
 	HELP_DATA *pHelp = pArea->help_first;
 
 	if (pHelp == NULL)
 		return;
-		
+
 	fprintf(fp, "#HELPS\n");
 
 	for (; pHelp; pHelp = pHelp->next_in_area) {
@@ -1503,7 +1532,8 @@ static void save_helps(FILE *fp, AREA_DATA *pArea)
  Name:		save_area
  Purpose:	Save an area, note that this format is new.
  ****************************************************************************/
-static void save_area(CHAR_DATA *ch, AREA_DATA *pArea)
+static void
+save_area(CHAR_DATA *ch, AREA_DATA *pArea)
 {
 	FILE *fp;
 	int flags;

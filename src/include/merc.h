@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.346 2001-08-05 16:36:22 fjoe Exp $
+ * $Id: merc.h,v 1.347 2001-08-13 18:23:16 fjoe Exp $
  */
 
 /***************************************************************************
@@ -123,7 +123,6 @@ enum {
 #include <cmd.h>
 
 #include <tables.h>
-#include <comm.h>
 #include <hometown.h>
 
 /* utils */
@@ -294,8 +293,8 @@ enum {
 
 typedef struct outbuf_t {
 	char *	buf;
-	uint	size;
-	uint	top;
+	size_t	size;
+	size_t	top;
 } outbuf_t;
 
 /*
@@ -322,7 +321,7 @@ typedef struct dvdata_t dvdata_t;
 struct dvdata_t {
 	int		refcnt;		/* reference count */
 
-	size_t		lang;		/* interface language	*/
+	uint		lang;		/* interface language	*/
 	int		pagelen;	/* pager lines		*/
 	flag_t		olc_flags;	/* olc flags		*/
 
@@ -360,7 +359,7 @@ struct descriptor_data
 	outbuf_t		snoop_buf;
 	const char *		showstr_head;
 	const char *		showstr_point;
-	struct codepage*	codepage;
+	uint			codepage;
 
 /* OLC stuff */
 	olced_t	*		olced;
@@ -373,6 +372,9 @@ struct descriptor_data
 
 	dvdata_t *		dvdata;
 };
+
+DESCRIPTOR_DATA *	new_descriptor(int fd);
+void			free_descriptor(DESCRIPTOR_DATA *d);
 
 /*
  * Attribute bonus structures.
@@ -460,6 +462,7 @@ struct spec_type
 	const char *		name;		/* special function name */
 	SPEC_FUN *	function;		/* the function */
 };
+
 /***************************************************************************
  *									   *
  *		     VALUES OF INTEREST TO AREA BUILDERS		   *
@@ -1892,11 +1895,14 @@ extern		OBJ_DATA	  *	top_affected_obj;
 
 extern		char			bug_buf[];
 extern		time_t			current_time;
+extern		time_t			boot_time;
 extern		bool			fLogAll;
 extern		char			log_buf[];
 extern		TIME_INFO_DATA		time_info;
 extern		WEATHER_DATA		weather_info;
 extern		int			reboot_counter;
+extern		bool			newlock;
+extern		bool			wizlock;
 
 /*
  * The crypt(3) function is not available on some operating systems.
@@ -1910,9 +1916,6 @@ extern		int			reboot_counter;
 
 #define IS_OBJ_NAME(obj, _name)	(is_name(_name, (obj)->pObjIndex->name) ||\
 				 is_name(_name, (obj)->label))
-
-/* interp.c */
-void	interpret	(CHAR_DATA *ch, const char *argument, bool is_order);
 
 /* special.c */
 SPEC_FUN *	mob_spec_lookup	(const char *name);
@@ -1970,7 +1973,7 @@ void		help_add	(AREA_DATA*, HELP_DATA*);
 HELP_DATA *	help_lookup	(int num, const char *keyword);
 void		help_show	(CHAR_DATA *ch, BUFFER *output,
 				 const char *keyword);
-void		help_show_raw	(int level, size_t lang, BUFFER *output,
+void		help_show_raw	(int level, uint lang, BUFFER *output,
 				 const char *keyword);
 void		help_free	(HELP_DATA*);
 
@@ -1988,13 +1991,11 @@ ROOM_INDEX_DATA *	get_room_index	(int vnum);
  */
 extern	const char *			dir_name	[];
 extern	const char *			from_dir_name	[];
-extern	const	int			rev_dir		[];
-extern	char				DEFAULT_PROMPT	[];
+extern	const int			rev_dir		[];
+extern	const char			DEFAULT_PROMPT	[];
 
-bool guild_ok(CHAR_DATA *ch, ROOM_INDEX_DATA *room);
-
-void substitute_alias(DESCRIPTOR_DATA *d, const char *argument);
-
+extern RUNGAME_FUN *run_game;
+extern RUNGAME_FUN *run_game_bottom;
 extern bool (*olc_interpret)(DESCRIPTOR_DATA *d, const char *argument);
 
 /*
@@ -2306,14 +2307,33 @@ extern hashdata_t h_glob_gmlstr;
 
 #define	glob_lookup(gn)	((gmlstr_t *) strkey_lookup(&glob_gmlstr, (gn)))
 
-/*
- * char_save flags (these are mutually exclusive)
- * they are defined here because close_descriptor also uses these flags
+/*----------------------------------------------------------------------
+ * ban stuff
  */
-#define SAVE_F_NONE	(A)
-#define SAVE_F_NORMAL	(B)
-#define SAVE_F_REBOOT	(C)
-#define SAVE_F_PSCAN	(D)
+
+/* ban actions */
+enum {
+	BA_ALLOW,
+	BA_DENY
+};
+
+/* ban classes */
+enum {
+	BCL_ALL,
+	BCL_PLAYERS,
+	BCL_NEWBIES
+};
+
+struct ban_t
+{
+	int		ban_num;
+	flag_t		ban_action;
+	flag_t		ban_class;
+	const char *	ban_mask;
+	ban_t *		next;
+};
+
+extern ban_t *ban_list;
 
 /*
  * changed flags
@@ -2363,6 +2383,15 @@ extern int		top_shop;
 extern int		social_count;
 extern int		str_count;
 extern int		str_real_count;
+#if STR_ALLOC_MEM
+extern int		str_alloc_mem;
+#endif
+extern int		npc_count;
+extern int		npc_free_count;
+extern int		pc_count;
+extern int		pc_free_count;
+extern int		dvdata_count;
+extern int		dvdata_real_count;
 extern int		top_player;
 extern int		rebooter;
 extern AREA_DATA *	area_first;

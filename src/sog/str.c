@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: str.c,v 1.28 2001-08-05 16:37:03 fjoe Exp $
+ * $Id: str.c,v 1.29 2001-08-13 18:24:04 fjoe Exp $
  */
 
 #include <ctype.h>
@@ -217,6 +217,21 @@ strlwr(const char *s)
 
 	for (p = buf; p < buf + sizeof(buf) - 1 && *s; s++, p++)
 		*p = LOWER(*s);
+	*p = '\0';
+	return buf;
+}
+
+char *
+strupr(const char *s)
+{
+	static char buf[MAX_STRING_LENGTH];
+	char *p;
+
+	if (s == NULL)
+		return str_empty;
+
+	for (p = buf; p < buf + sizeof(buf) - 1 && *s; s++, p++)
+		*p = UPPER(*s);
 	*p = '\0';
 	return buf;
 }

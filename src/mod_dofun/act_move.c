@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.268 2001-08-02 18:20:03 fjoe Exp $
+ * $Id: act_move.c,v 1.269 2001-08-13 18:23:25 fjoe Exp $
  */
 
 /***************************************************************************
@@ -51,8 +51,59 @@
 #include <handler.h>
 #include <magic.h>
 
-DECLARE_DO_FUN(do_look		);
-DECLARE_DO_FUN(do_yell		);
+DECLARE_DO_FUN(do_north);
+DECLARE_DO_FUN(do_east);
+DECLARE_DO_FUN(do_south);
+DECLARE_DO_FUN(do_west);
+DECLARE_DO_FUN(do_up);
+DECLARE_DO_FUN(do_down);
+DECLARE_DO_FUN(do_open);
+DECLARE_DO_FUN(do_close);
+DECLARE_DO_FUN(do_lock);
+DECLARE_DO_FUN(do_unlock);
+DECLARE_DO_FUN(do_pick);
+DECLARE_DO_FUN(do_stand);
+DECLARE_DO_FUN(do_rest);
+DECLARE_DO_FUN(do_sit);
+DECLARE_DO_FUN(do_sleep);
+DECLARE_DO_FUN(do_wake);
+DECLARE_DO_FUN(do_sneak);
+DECLARE_DO_FUN(do_hide);
+DECLARE_DO_FUN(do_camouflage);
+DECLARE_DO_FUN(do_blend);
+DECLARE_DO_FUN(do_acute);
+DECLARE_DO_FUN(do_visible);
+DECLARE_DO_FUN(do_recall);
+DECLARE_DO_FUN(do_train);
+DECLARE_DO_FUN(do_track);
+DECLARE_DO_FUN(do_vampire);
+DECLARE_DO_FUN(do_vbite);
+DECLARE_DO_FUN(do_bash_door);
+DECLARE_DO_FUN(do_blink);
+DECLARE_DO_FUN(do_vanish);
+DECLARE_DO_FUN(do_kidnap);
+DECLARE_DO_FUN(do_fade);
+DECLARE_DO_FUN(do_vtouch);
+DECLARE_DO_FUN(do_fly);
+DECLARE_DO_FUN(do_push);
+DECLARE_DO_FUN(do_crecall);
+DECLARE_DO_FUN(do_escape);
+DECLARE_DO_FUN(do_layhands);
+DECLARE_DO_FUN(do_mount);
+DECLARE_DO_FUN(do_dismount);
+DECLARE_DO_FUN(do_charge);
+DECLARE_DO_FUN(do_shoot);
+DECLARE_DO_FUN(do_human);
+DECLARE_DO_FUN(do_revert);
+DECLARE_DO_FUN(do_throw_weapon);
+DECLARE_DO_FUN(do_enter);
+DECLARE_DO_FUN(do_settraps);
+DECLARE_DO_FUN(do_forest);
+DECLARE_DO_FUN(do_breathhold);
+
+/* command procedures needed */
+DECLARE_DO_FUN(do_look);
+DECLARE_DO_FUN(do_yell);
 
 /*
  * Local functions.
@@ -61,37 +112,37 @@ static int	find_exit	(CHAR_DATA *ch, char *arg);
 static bool	has_key		(CHAR_DATA *ch, int key);
 static bool	has_key_ground	(CHAR_DATA *ch, int key);
 
-void do_north(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_north, ch, argument)
 {
 	move_char(ch, DIR_NORTH, 0);
 }
 
-void do_east(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_east, ch, argument)
 {
 	move_char(ch, DIR_EAST, 0);
 }
 
-void do_south(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_south, ch, argument)
 {
 	move_char(ch, DIR_SOUTH, 0);
 }
 
-void do_west(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_west, ch, argument)
 {
 	move_char(ch, DIR_WEST, 0);
 }
 
-void do_up(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_up, ch, argument)
 {
 	move_char(ch, DIR_UP, 0);
 }
 
-void do_down(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_down, ch, argument)
 {
 	move_char(ch, DIR_DOWN, 0);
 }
 
-void do_open(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_open, ch, argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	OBJ_DATA *obj;
@@ -188,7 +239,7 @@ void do_open(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_close(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_close, ch, argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	OBJ_DATA *obj;
@@ -272,7 +323,7 @@ void do_close(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_lock(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_lock, ch, argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	OBJ_DATA *obj;
@@ -391,7 +442,7 @@ void do_lock(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_unlock(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_unlock, ch, argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	OBJ_DATA *obj;
@@ -511,7 +562,7 @@ void do_unlock(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_pick(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_pick, ch, argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *gch;
@@ -679,7 +730,7 @@ void do_pick(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_stand(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_stand, ch, argument)
 {
 	OBJ_DATA *obj = NULL;
 
@@ -780,7 +831,7 @@ void do_stand(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_rest(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_rest, ch, argument)
 {
 	OBJ_DATA *obj = NULL;
 
@@ -916,7 +967,7 @@ void do_rest(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_sit(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_sit, ch, argument)
 {
 	OBJ_DATA *obj = NULL;
 
@@ -1043,7 +1094,7 @@ void do_sit(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_sleep(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_sleep, ch, argument)
 {
 	OBJ_DATA *obj = NULL;
 
@@ -1124,7 +1175,7 @@ void do_sleep(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_wake(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_wake, ch, argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
@@ -1155,7 +1206,7 @@ void do_wake(CHAR_DATA *ch, const char *argument)
 	do_stand(victim, str_empty);
 }
 
-void do_sneak(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_sneak, ch, argument)
 {
 	int		chance;
 
@@ -1192,7 +1243,7 @@ void do_sneak(CHAR_DATA *ch, const char *argument)
 		check_improve(ch, "sneak", FALSE, 3);
 }
 
-void do_hide(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_hide, ch, argument)
 {
 	int chance;
 	flag_t sector;
@@ -1234,7 +1285,7 @@ void do_hide(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_camouflage(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_camouflage, ch, argument)
 {
 	int chance;
 	flag_t sector;
@@ -1282,7 +1333,7 @@ void do_camouflage(CHAR_DATA *ch, const char *argument)
 		check_improve(ch, "camouflage", FALSE, 1);
 }
 
-void do_blend(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_blend, ch, argument)
 {
 	int chance;
 	flag_t sector;
@@ -1331,7 +1382,7 @@ void do_blend(CHAR_DATA *ch, const char *argument)
 		check_improve(ch, "forest blending", FALSE, 2);
 }
 
-void do_acute(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_acute, ch, argument)
 {
 	AFFECT_DATA *paf;
 	int chance, mana;
@@ -1378,13 +1429,12 @@ void do_acute(CHAR_DATA *ch, const char *argument)
  * Contributed by Alander
  */
 
-void
-do_visible(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_visible, ch, argument)
 {
 	make_visible(ch, TRUE);
 }
 
-void do_recall(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_recall, ch, argument)
 {
 	ROOM_INDEX_DATA *location;
 	CHAR_DATA *pet;
@@ -1433,7 +1483,7 @@ void do_recall(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_train(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_train, ch, argument)
 {
 	char buf[MAX_STRING_LENGTH];
 	CHAR_DATA *mob;
@@ -1507,7 +1557,7 @@ void do_train(CHAR_DATA *ch, const char *argument)
 	    ch, flag_string(stat_names, stat), NULL, TO_ROOM);
 }
 
-void do_track(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_track, ch, argument)
 {
 	ROOM_HISTORY_DATA *rh;
 	EXIT_DATA *pexit;
@@ -1546,7 +1596,7 @@ void do_track(CHAR_DATA *ch, const char *argument)
 	check_improve(ch, "track", FALSE, 1);
 }
 
-void do_vampire(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_vampire, ch, argument)
 {
 	AFFECT_DATA *paf;
 	int chance;
@@ -1624,7 +1674,7 @@ void do_vampire(CHAR_DATA *ch, const char *argument)
 	PC(ch)->form_name = str_dup("an ugly creature");
 }
 
-void do_vbite(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_vbite, ch, argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
@@ -1710,7 +1760,7 @@ void do_vbite(CHAR_DATA *ch, const char *argument)
 		yell(victim, ch, "Help! $lu{$i} tried to bite me!");
 }
 
-void do_bash_door(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_bash_door, ch, argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *gch;
@@ -1845,7 +1895,7 @@ void do_bash_door(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_blink(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_blink, ch, argument)
 {
 	if (get_skill(ch, "blink") == 0) {
 		act_char("Huh?", ch);
@@ -1870,7 +1920,7 @@ void do_blink(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_vanish(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_vanish, ch, argument)
 {
 	int chance;
 	int min_mana;
@@ -1912,7 +1962,7 @@ void do_vanish(CHAR_DATA *ch, const char *argument)
 		      "$N is gone!", NULL, "$N appears from nowhere.");
 }
 
-void do_kidnap(CHAR_DATA* ch, const char *argument)
+DO_FUN(do_kidnap, ch, argument)
 {
 	CHAR_DATA * victim;
 	char arg[MAX_INPUT_LENGTH];
@@ -2014,7 +2064,7 @@ void do_kidnap(CHAR_DATA* ch, const char *argument)
 }
 
 
-void do_fade(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_fade, ch, argument)
 {
 	int chance;
 
@@ -2039,7 +2089,7 @@ void do_fade(CHAR_DATA *ch, const char *argument)
 		check_improve(ch, "fade", FALSE, 3);
 }
 
-void do_vtouch(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_vtouch, ch, argument)
 {
 	CHAR_DATA *victim;
 	int chance;
@@ -2114,7 +2164,7 @@ void do_vtouch(CHAR_DATA *ch, const char *argument)
 	yell(victim, ch, "Help! $lu{$i} tried to touch me!");
 }
 
-void do_fly(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_fly, ch, argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 
@@ -2159,7 +2209,7 @@ void do_fly(CHAR_DATA *ch, const char *argument)
 	WAIT_STATE(ch, skill_beats("fly"));
 }
 
-void do_push(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_push, ch, argument)
 {
 	char arg1 [MAX_INPUT_LENGTH];
 	char arg2 [MAX_INPUT_LENGTH];
@@ -2297,7 +2347,7 @@ void do_push(CHAR_DATA *ch, const char *argument)
 	check_improve(ch, "push", TRUE, 1);
 }
 
-void do_crecall(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_crecall, ch, argument)
 {
 	ROOM_INDEX_DATA *location;
 	clan_t *clan;
@@ -2358,7 +2408,7 @@ void do_crecall(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_escape(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_escape, ch, argument)
 {
 	ROOM_INDEX_DATA *was_in;
 	ROOM_INDEX_DATA *now_in;
@@ -2453,7 +2503,7 @@ void do_escape(CHAR_DATA *ch, const char *argument)
 	stop_fighting(ch, TRUE);
 }
 
-void do_layhands(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_layhands, ch, argument)
 {
 	CHAR_DATA *victim;
 	AFFECT_DATA *paf;
@@ -2499,7 +2549,7 @@ void do_layhands(CHAR_DATA *ch, const char *argument)
 /*
  * It is not finished yet to implement all.
  */
-void do_mount(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_mount, ch, argument)
 {
 	char		arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *	mount;
@@ -2569,7 +2619,7 @@ void do_mount(CHAR_DATA *ch, const char *argument)
 	REMOVE_INVIS(ch, ID_ALL_INVIS | ID_SNEAK);
 }
 
-void do_dismount(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_dismount, ch, argument)
 {
 	CHAR_DATA *mount;
 
@@ -2589,8 +2639,9 @@ void do_dismount(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-int send_arrow(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *arrow,
-	       int door, int chance, int bonus)
+static int
+send_arrow(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *arrow,
+	   int door, int chance, int bonus)
 {
 	EXIT_DATA *pExit;
 	ROOM_INDEX_DATA *dest_room;
@@ -2668,8 +2719,6 @@ int send_arrow(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *arrow,
 			 else
 				level = poison->level;
 			 if (!saves_spell(level, victim, DAM_POISON)) {
-				 AFFECT_DATA *paf;
-
 				act_char("You feel poison coursing through your veins.", victim);
 				act("$n is poisoned by the venom on $p.",
 				    victim, arrow, NULL, TO_ROOM);
@@ -2707,8 +2756,6 @@ int send_arrow(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *arrow,
 
 			if (dam > victim->max_hit / 10
 			&&  number_percent() < 50) {
-				AFFECT_DATA *paf;
-
 				paf = aff_new(TO_AFFECTS, sn);
 				paf->level     = ch->level;
 				paf->duration  = -1;
@@ -2771,7 +2818,7 @@ static OBJ_DATA *find_arrow(CHAR_DATA *ch)
 	return NULL;
 }
 
-void do_charge(CHAR_DATA *ch, const char *argument) 
+DO_FUN(do_charge, ch, argument)
 {
  	CHAR_DATA* victim;
 	OBJ_DATA* wield;
@@ -2876,7 +2923,7 @@ void do_charge(CHAR_DATA *ch, const char *argument)
 	yell(victim, ch, "Help! $lu{$i} is attacking me!");
 }
 
-void do_shoot(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_shoot, ch, argument)
 {
 	CHAR_DATA *victim;
 	OBJ_DATA *wield;
@@ -2992,7 +3039,7 @@ void do_shoot(CHAR_DATA *ch, const char *argument)
 	yell(victim, ch, "Help! $lu{$i} is trying to shoot me!");
 }
 
-void do_human(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_human, ch, argument)
 {
 	if (!is_affected(ch, "vampire")) {
 		act_char("You are already a human.", ch);
@@ -3003,7 +3050,7 @@ void do_human(CHAR_DATA *ch, const char *argument)
 	act_char("You return to your original size.", ch);
 }
 
-void do_revert(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_revert, ch, argument)
 {
 	AFFECT_DATA *paf;
 	AFFECT_DATA *paf_next;
@@ -3023,7 +3070,7 @@ void do_revert(CHAR_DATA *ch, const char *argument)
 		revert(ch);
 }
 
-void do_throw_weapon(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_throw_weapon, ch, argument)
 {
 	CHAR_DATA *victim;
 	OBJ_DATA *obj;
@@ -3127,8 +3174,6 @@ void do_throw_weapon(CHAR_DATA *ch, const char *argument)
 	check_improve(ch, "throw weapon", TRUE, 1);
 }
 
-void do_enter(CHAR_DATA *ch, const char *argument);
-
 static void *
 enter_cb(void *vo, va_list ap)
 {
@@ -3143,7 +3188,7 @@ enter_cb(void *vo, va_list ap)
 	 */
 	if (!mem_is(portal, MT_OBJ) || INT(portal->value[0]) == -1) 
 		return vch;
- 
+
 	if (vch->master != ch || vch->position != POS_STANDING)
 		return NULL;
 
@@ -3153,9 +3198,9 @@ enter_cb(void *vo, va_list ap)
 }
 
 /* RT Enter portals */
-void do_enter(CHAR_DATA *ch, const char *argument)
-{    
-	ROOM_INDEX_DATA *location; 
+DO_FUN(do_enter, ch, argument)
+{
+	ROOM_INDEX_DATA *location;
 	ROOM_INDEX_DATA *old_room;
 	OBJ_DATA *portal;
 	CHAR_DATA *mount;
@@ -3296,7 +3341,7 @@ void do_enter(CHAR_DATA *ch, const char *argument)
 #endif
 }
 
-void do_settraps(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_settraps, ch, argument)
 {
 	int chance;
 
@@ -3352,7 +3397,7 @@ void do_settraps(CHAR_DATA *ch, const char *argument)
 		check_improve(ch, "settraps", FALSE, 1);
 }
 
-void do_forest(CHAR_DATA* ch, const char* argument)
+DO_FUN(do_forest, ch, argument)
 {
 	char arg[MAX_STRING_LENGTH];
 	AFFECT_DATA *paf;
@@ -3419,7 +3464,7 @@ void do_forest(CHAR_DATA* ch, const char* argument)
 	aff_free(paf);
 }
 
-void do_breathhold(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_breathhold, ch, argument)
 {
 	if (get_skill(ch, "hold breath") == 0) {
 		act_char("Huh?", ch);

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db.h,v 1.85 2001-08-05 16:36:19 fjoe Exp $
+ * $Id: db.h,v 1.86 2001-08-13 18:23:14 fjoe Exp $
  */
 
 #ifndef _BOOTDB_H_
@@ -33,8 +33,9 @@ typedef struct dbdata DBDATA;
 
 typedef void DBLOAD_FUN(DBDATA *dbdata, rfile_t *fp, void *arg);
 #define DECLARE_DBLOAD_FUN(fun) DBLOAD_FUN fun
-#define DBLOAD_FUN(fun) void fun(DBDATA *dbdata __attribute__((unused)),\
-		rfile_t *fp, void *arg __attribute__((unused)))
+#define DBLOAD_FUN(fun)							\
+	void fun(DBDATA *dbdata __attribute__((unused)),		\
+		 rfile_t *fp, void *arg __attribute__((unused)))
 
 typedef void DBINIT_FUN(DBDATA *dbdata);
 #define DECLARE_DBINIT_FUN(fun) DBINIT_FUN fun

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: info.c,v 1.27 2001-08-03 11:27:56 fjoe Exp $
+ * $Id: info.c,v 1.28 2001-08-13 18:23:40 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -48,11 +48,11 @@
 
 #include <merc.h>
 #include <lang.h>
-
-#include <handler.h>
 #include <colors.h>
 
-#include "comm_info.h"
+#include <handler.h>
+
+#include "info.h"
 
 INFO_DESC *	id_list;
 int		top_id;
@@ -69,8 +69,8 @@ typedef struct {
 	CMD_FUN	*fun;
 } infocmd_t;
 #define DECLARE_CMD_FUN(fun)	static CMD_FUN fun
-#define CMD_FUN(fun)		static void fun(const char *argument	\
-						__attribute__((unused)))
+#define CMD_FUN(fun)						\
+	static void fun(const char *argument __attribute__((unused)))
 
 DECLARE_CMD_FUN(cmd_who);
 DECLARE_CMD_FUN(cmd_auth);

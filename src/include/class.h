@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: class.h,v 1.31 2001-08-05 16:36:18 fjoe Exp $
+ * $Id: class.h,v 1.32 2001-08-13 18:23:12 fjoe Exp $
  */
 
 #ifndef _CLASS_H_
@@ -77,6 +77,7 @@ void	class_destroy	(class_t *cl);
 
 #define IS_CLASS(cl1, cl2)	(!str_cmp((cl1), (cl2)))
 
+bool		guild_ok(CHAR_DATA *ch, ROOM_INDEX_DATA *room);
 const char *	class_who_name(CHAR_DATA *ch);
 bool		can_flee(CHAR_DATA *ch);
 

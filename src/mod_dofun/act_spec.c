@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_spec.c,v 1.21 2001-08-03 11:27:36 fjoe Exp $
+ * $Id: act_spec.c,v 1.22 2001-08-13 18:23:27 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -43,7 +43,11 @@
 #include <handler.h>
 #include <quest.h>
 
-void do_read(CHAR_DATA* ch, const char* argument)
+DECLARE_DO_FUN(do_read);
+DECLARE_DO_FUN(do_specialize);
+DECLARE_DO_FUN(do_magicschool);
+
+DO_FUN(do_read, ch, argument)
 {
 	OBJ_DATA *book;
 	int chance;
@@ -97,7 +101,7 @@ void do_read(CHAR_DATA* ch, const char* argument)
 	}
 }
 
-void do_specialize(CHAR_DATA* ch, const char* argument) 
+DO_FUN(do_specialize, ch, argument)
 {
 	CHAR_DATA *mob;
 	bool found = FALSE;
@@ -168,7 +172,7 @@ void do_specialize(CHAR_DATA* ch, const char* argument)
 	}
 }
 
-void do_magicschool(CHAR_DATA *ch, const char *argument) 
+DO_FUN(do_magicschool, ch, argument)
 {
 
 	char *major_school = NULL;

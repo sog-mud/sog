@@ -23,17 +23,14 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_sog.c,v 1.2 2001-08-05 16:36:43 fjoe Exp $
+ * $Id: init_sog.c,v 1.3 2001-08-13 18:23:40 fjoe Exp $
  */
 
 #include <stdio.h>
 #include <stdarg.h>
+#include <dlfcn.h>
 
-#include <typedef.h>
-#include <memalloc.h>
-#include <varr.h>
-#include <hash.h>
-#include <log.h>
+#include <merc.h>
 
 #include <module.h>
 #define MODULE_INIT MOD_HANDLER
@@ -41,20 +38,46 @@
 
 #include "handler_impl.h"
 
+DECLARE_MODINIT_FUN(_module_load);
+DECLARE_MODINIT_FUN(_module_unload);
+DECLARE_MODINIT_FUN(_module_boot);
+
 static char_logger_t old_logger;
 
-int
-_module_load(module_t *m)
+MODINIT_FUN(_module_load, m)
 {
+	run_game = dlsym(m->dlh, "_run_game");
+	if (run_game == NULL) {
+		log(LOG_INFO, "_module_load(mod_handler): %s", dlerror());
+		return -1;
+	}
+
+	run_game_bottom = dlsym(m->dlh, "_run_game_bottom");
+	if (run_game_bottom == NULL) {
+		log(LOG_INFO, "_module_load(mod_handler): %s", dlerror());
+		return -1;
+	}
+
 	dynafun_tab_register(__mod_tab(MODULE), m);
 	old_logger = char_logger_set(act_char_logger);
 	return 0;
 }
 
-int
-_module_unload(module_t *m)
+extern bool do_longjmp;
+
+MODINIT_FUN(_module_unload, m)
 {
 	char_logger_set(old_logger);
 	dynafun_tab_unregister(__mod_tab(MODULE));
+
+	do_longjmp = TRUE;
+	run_game_bottom = NULL;
+	run_game = NULL;
+	return 0;
+}
+
+MODINIT_FUN(_module_boot, m)
+{
+	load_bans();
 	return 0;
 }

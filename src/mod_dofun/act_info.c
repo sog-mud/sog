@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.388 2001-08-05 16:36:34 fjoe Exp $
+ * $Id: act_info.c,v 1.389 2001-08-13 18:23:23 fjoe Exp $
  */
 
 /***************************************************************************
@@ -64,13 +64,84 @@
 #	include <crypt.h>
 #endif
 
+DECLARE_DO_FUN(do_clear);
+DECLARE_DO_FUN(do_scroll);
+DECLARE_DO_FUN(do_socials);
+DECLARE_DO_FUN(do_motd);
+DECLARE_DO_FUN(do_imotd);
+DECLARE_DO_FUN(do_rules);
+DECLARE_DO_FUN(do_wizlist);
+DECLARE_DO_FUN(do_autolist);
+DECLARE_DO_FUN(do_autoassist);
+DECLARE_DO_FUN(do_autoexit);
+DECLARE_DO_FUN(do_autogold);
+DECLARE_DO_FUN(do_autolook);
+DECLARE_DO_FUN(do_autoloot);
+DECLARE_DO_FUN(do_autosac);
+DECLARE_DO_FUN(do_autosplit);
+DECLARE_DO_FUN(do_prompt);
+DECLARE_DO_FUN(do_nofollow);
+DECLARE_DO_FUN(do_nosummon);
+DECLARE_DO_FUN(do_glance);
+DECLARE_DO_FUN(do_look);
+DECLARE_DO_FUN(do_examine);
+DECLARE_DO_FUN(do_exits);
+DECLARE_DO_FUN(do_worth);
+DECLARE_DO_FUN(do_time);
+DECLARE_DO_FUN(do_date);
+DECLARE_DO_FUN(do_weather);
+DECLARE_DO_FUN(do_help);
+DECLARE_DO_FUN(do_who);
+DECLARE_DO_FUN(do_whois);
+DECLARE_DO_FUN(do_inventory);
+DECLARE_DO_FUN(do_equipment);
+DECLARE_DO_FUN(do_compare);
+DECLARE_DO_FUN(do_credits);
+DECLARE_DO_FUN(do_where);
+DECLARE_DO_FUN(do_consider);
+DECLARE_DO_FUN(do_description);
+DECLARE_DO_FUN(do_report);
+DECLARE_DO_FUN(do_wimpy);
+DECLARE_DO_FUN(do_password);
+DECLARE_DO_FUN(do_scan);
+DECLARE_DO_FUN(do_request);
+DECLARE_DO_FUN(do_hometown);
+DECLARE_DO_FUN(do_detect_hidden);
+DECLARE_DO_FUN(do_awareness);
+DECLARE_DO_FUN(do_bear_call);
+DECLARE_DO_FUN(do_identify);
+DECLARE_DO_FUN(do_score);
+DECLARE_DO_FUN(do_oscore);
+DECLARE_DO_FUN(do_affects);
+DECLARE_DO_FUN(do_raffects);
+DECLARE_DO_FUN(do_resistances);
+DECLARE_DO_FUN(do_lion_call);
+DECLARE_DO_FUN(do_practice);
+DECLARE_DO_FUN(do_learn);
+DECLARE_DO_FUN(do_teach);
+DECLARE_DO_FUN(do_gain);
+DECLARE_DO_FUN(do_prayers);
+DECLARE_DO_FUN(do_spells);
+DECLARE_DO_FUN(do_skills);
+DECLARE_DO_FUN(do_glist);
+DECLARE_DO_FUN(do_slook);
+DECLARE_DO_FUN(do_camp);
+DECLARE_DO_FUN(do_demand);
+DECLARE_DO_FUN(do_control);
+DECLARE_DO_FUN(do_make_arrow);
+DECLARE_DO_FUN(do_make_bow);
+DECLARE_DO_FUN(do_make);
+DECLARE_DO_FUN(do_homepoint);
+DECLARE_DO_FUN(do_commands);
+DECLARE_DO_FUN(do_wizhelp);
+DECLARE_DO_FUN(do_clanlist);
+DECLARE_DO_FUN(do_item);
+DECLARE_DO_FUN(do_rating);
+DECLARE_DO_FUN(do_areas);
+
 /* command procedures needed */
-DECLARE_DO_FUN(do_exits		);
-DECLARE_DO_FUN(do_look		);
-DECLARE_DO_FUN(do_help		);
-DECLARE_DO_FUN(do_affects	);
-DECLARE_DO_FUN(do_murder	);
-DECLARE_DO_FUN(do_say		);
+DECLARE_DO_FUN(do_murder);
+DECLARE_DO_FUN(do_say);
 
 /*
  * Local functions.
@@ -114,14 +185,14 @@ static int show_order[] = {
 	-1
 };
 
-void do_clear(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_clear, ch, argument)
 {
 	if (!IS_NPC(ch))
 		send_to_char("\033[0;0H\033[2J", ch);	// notrans
 }
 
 /* changes your scroll */
-void do_scroll(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_scroll, ch, argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	int pagelen;
@@ -167,8 +238,7 @@ show_social(CHAR_DATA *ch, CHAR_DATA *vch, const char *pre, mlstring *ml)
 	}
 }
 
-void
-do_socials(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_socials, ch, argument)
 {
 	social_t *soc;
 	CHAR_DATA *mob;
@@ -216,22 +286,22 @@ do_socials(CHAR_DATA *ch, const char *argument)
 }
 
 /* RT Commands to replace news, motd, imotd, etc from ROM */
-void do_motd(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_motd, ch, argument)
 {
 	do_help(ch, "motd");
 }
 
-void do_imotd(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_imotd, ch, argument)
 {
 	do_help(ch, "imotd");
 }
 
-void do_rules(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_rules, ch, argument)
 {
 	do_help(ch, "rules");
 }
 
-void do_wizlist(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_wizlist, ch, argument)
 {
 	do_help(ch, "wizlist");
 }
@@ -243,7 +313,7 @@ void do_wizlist(CHAR_DATA *ch, const char *argument)
 			 (ch), (swname), (sw) ? "ON" : "OFF",		\
 			 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 
-void do_autolist(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_autolist, ch, argument)
 {
 	/* lists most player flags */
 	if (IS_NPC(ch))
@@ -270,7 +340,7 @@ void do_autolist(CHAR_DATA *ch, const char *argument)
 		act_char("You accept followers.", ch);
 }
 
-void do_autoassist(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_autoassist, ch, argument)
 {
 	if (IS_NPC(ch)) {
 		act_char("Huh?", ch);
@@ -284,7 +354,7 @@ void do_autoassist(CHAR_DATA *ch, const char *argument)
 		act_char("Autoassist removed.", ch);
 }
 
-void do_autoexit(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_autoexit, ch, argument)
 {
 	if (IS_NPC(ch)) {
 		act_char("Huh?", ch);
@@ -298,7 +368,7 @@ void do_autoexit(CHAR_DATA *ch, const char *argument)
 		act_char("Exits will no longer be displayed.", ch);
 }
 
-void do_autogold(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_autogold, ch, argument)
 {
 	if (IS_NPC(ch)) {
 		act_char("Huh?", ch);
@@ -312,7 +382,7 @@ void do_autogold(CHAR_DATA *ch, const char *argument)
 		act_char("Autogold removed.", ch);
 }
 
-void do_autolook(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_autolook, ch, argument)
 {
 	if (IS_NPC(ch)) {
 		act_char("Huh?", ch);
@@ -326,7 +396,7 @@ void do_autolook(CHAR_DATA *ch, const char *argument)
 		act_char("Autolooking removed.", ch);
 }
 
-void do_autoloot(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_autoloot, ch, argument)
 {
 	if (IS_NPC(ch)) {
 		act_char("Huh?", ch);
@@ -340,7 +410,7 @@ void do_autoloot(CHAR_DATA *ch, const char *argument)
 		act_char("Autolooting removed.", ch);
 }
 
-void do_autosac(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_autosac, ch, argument)
 {
 	if (IS_NPC(ch)) {
 		act_char("Huh?", ch);
@@ -354,7 +424,7 @@ void do_autosac(CHAR_DATA *ch, const char *argument)
 		act_char("Autosacrificing removed.", ch);
 }
 
-void do_autosplit(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_autosplit, ch, argument)
 {
 	if (IS_NPC(ch)) {
 		act_char("Huh?", ch);
@@ -368,7 +438,7 @@ void do_autosplit(CHAR_DATA *ch, const char *argument)
 		act_char("Autosplitting removed.", ch);
 }
 
-void do_prompt(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_prompt, ch, argument)
 {
 	const char *prompt;
 	DESCRIPTOR_DATA *d;
@@ -403,7 +473,7 @@ void do_prompt(CHAR_DATA *ch, const char *argument)
 		 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 }
 
-void do_nofollow(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_nofollow, ch, argument)
 {
 	if (IS_NPC(ch)) {
 		act_char("Huh?", ch);
@@ -419,7 +489,7 @@ void do_nofollow(CHAR_DATA *ch, const char *argument)
 		act_char("You now accept followers.", ch);
 }
 
-void do_nosummon(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_nosummon, ch, argument)
 {
 	if (IS_NPC(ch)) {
 		act_char("Huh?", ch);
@@ -432,7 +502,7 @@ void do_nosummon(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-static void do_look_in(CHAR_DATA* ch, const char *argument)
+static DO_FUN(do_look_in, ch, argument)
 {
 	OBJ_DATA *obj;
 	liquid_t *lq;
@@ -487,7 +557,8 @@ static void do_look_in(CHAR_DATA* ch, const char *argument)
 
 #define LOOK_F_NORDESC	(A)
 
-static void do_look_room(CHAR_DATA *ch, int flags)
+static void
+do_look_room(CHAR_DATA *ch, int flags)
 {
 	if (!char_in_dark_room(ch)
 	&&  check_blind_nomessage(ch)) {
@@ -504,7 +575,7 @@ static void do_look_room(CHAR_DATA *ch, int flags)
 		} else {
 			send_to_char("{x", ch);
 		}
-		
+
 		if (IS_IMMORTAL(ch)
 		||  IS_BUILDER(ch, ch->in_room->area)) {
 			act_puts(" [Room $j]", ch,
@@ -514,7 +585,7 @@ static void do_look_room(CHAR_DATA *ch, int flags)
 
 		send_to_char("\n", ch);
 
- 		if (!IS_SET(flags, LOOK_F_NORDESC)) {
+		if (!IS_SET(flags, LOOK_F_NORDESC)) {
 			send_to_char("  ", ch);			// notrans
 			act_puts(mlstr_cval(&ch->in_room->description, ch),
 				 ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
@@ -531,12 +602,12 @@ static void do_look_room(CHAR_DATA *ch, int flags)
 	show_char_to_char(ch->in_room->people, ch);
 }
 
-void do_glance(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_glance, ch, argument)
 {
 	do_look_room(ch, LOOK_F_NORDESC);
 }
 
-void do_look(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_look, ch, argument)
 {
 	char arg1 [MAX_INPUT_LENGTH];
 	char arg2 [MAX_INPUT_LENGTH];
@@ -732,7 +803,7 @@ void do_look(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_examine(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_examine, ch, argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	OBJ_DATA *obj;
@@ -803,7 +874,7 @@ void do_examine(CHAR_DATA *ch, const char *argument)
 /*
  * Thanks to Zrin for auto-exit part.
  */
-void do_exits(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_exits, ch, argument)
 {
 	EXIT_DATA *pexit;
 	bool found;
@@ -890,7 +961,7 @@ void do_exits(CHAR_DATA *ch, const char *argument)
 		check_improve(ch, "perception", TRUE, 5);
 }
 
-void do_worth(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_worth, ch, argument)
 {
 	act_puts3("You have $j gold, $J silver",
 		  ch, (const void *) ch->gold, NULL, (const void *) ch->silver,
@@ -900,8 +971,10 @@ void do_worth(CHAR_DATA *ch, const char *argument)
 			 ch, (const void *) PC(ch)->exp, NULL,
 			 TO_CHAR | ACT_NOLF, POS_DEAD);
 		if (ch->level < LEVEL_HERO) {
+			int etl = exp_to_level(ch);
+
 			act_puts(" ($j exp to level)",
-				 ch, (const void *) exp_to_level(ch), NULL,
+				 ch, (const void *) etl, NULL,
 				 TO_CHAR | ACT_NOLF, POS_DEAD);
 		}
 	}
@@ -955,9 +1028,8 @@ static const char* month_name[] =
 	"the Great Evil"		// notrans
 };
 
-void do_time(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_time, ch, argument)
 {
-	extern char str_boot_time[];
 	int day = time_info.day + 1;
 	int hour;
 
@@ -990,7 +1062,7 @@ void do_time(CHAR_DATA *ch, const char *argument)
 
 	send_to_char("\n", ch);
 	act_puts("SoG started up at $t.",
-		 ch, str_boot_time, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
+		 ch, strtime(boot_time), NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 	act_puts("The system time is $t.",
 		 ch, strtime(time(NULL)), NULL,
 		 TO_CHAR | ACT_NOTRANS, POS_DEAD);
@@ -998,15 +1070,15 @@ void do_time(CHAR_DATA *ch, const char *argument)
 		 ch, (const void *) reboot_counter, NULL, TO_CHAR, POS_DEAD);
 }
 
-void do_date(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_date, ch, argument)
 {
 	act_puts("$t", ch, strtime(time(NULL)), NULL,
 		 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 }
 
-void do_weather(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_weather, ch, argument)
 {
-	static char * const sky_look[4] = {
+	static const char *sky_look[4] = {
 		"cloudless",
 		"cloudy",
 		"rainy",
@@ -1026,7 +1098,7 @@ void do_weather(CHAR_DATA *ch, const char *argument)
 		 TO_CHAR, POS_DEAD);
 }
 
-void do_help(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_help, ch, argument)
 {
 	BUFFER *output;
 	output = buf_new(GET_LANG(ch));
@@ -1043,7 +1115,7 @@ void do_help(CHAR_DATA *ch, const char *argument)
 #define WHO_F_RRACE	(F)		/* specified races only		*/
 #define WHO_F_RCLASS	(G)		/* specified classes only	*/
 
-void do_who(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_who, ch, argument)
 {
 	BUFFER *output;
 	DESCRIPTOR_DATA *d;
@@ -1237,7 +1309,7 @@ bail_out:
 }
 
 /* whois command */
-void do_whois(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_whois, ch, argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	BUFFER *output = NULL;
@@ -1285,13 +1357,13 @@ void do_whois(CHAR_DATA *ch, const char *argument)
 	buf_free(output);
 }
 
-void do_inventory(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_inventory, ch, argument)
 {
 	act_char("You are carrying:", ch);
 	show_list_to_char(ch->carrying, ch, TRUE, TRUE);
 }
 
-void do_equipment(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_equipment, ch, argument)
 {
 	OBJ_DATA *obj;
 	int i;
@@ -1320,7 +1392,7 @@ void do_equipment(CHAR_DATA *ch, const char *argument)
 		act_char("Nothing.", ch);
 }
 
-void do_compare(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_compare, ch, argument)
 {
 	char arg1[MAX_INPUT_LENGTH];
 	char arg2[MAX_INPUT_LENGTH];
@@ -1328,7 +1400,7 @@ void do_compare(CHAR_DATA *ch, const char *argument)
 	OBJ_DATA *obj2;
 	int value1;
 	int value2;
-	char *cmsg;
+	const char *cmsg;
 
 	argument = one_argument(argument, arg1, sizeof(arg1));
 	argument = one_argument(argument, arg2, sizeof(arg2));
@@ -1403,12 +1475,12 @@ void do_compare(CHAR_DATA *ch, const char *argument)
 	act(cmsg, ch, obj1, obj2, TO_CHAR);
 }
 
-void do_credits(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_credits, ch, argument)
 {
 	do_help(ch, "'SHADES OF GRAY'");
 }
 
-void do_where(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_where, ch, argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
@@ -1492,12 +1564,12 @@ void do_where(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_consider(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_consider, ch, argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
-	char *cmsg;
-	char *align;
+	const char *cmsg;
+	const char *align;
 	int diff;
 
 	one_argument(argument, arg, sizeof(arg));
@@ -1553,7 +1625,7 @@ void do_consider(CHAR_DATA *ch, const char *argument)
 	act(align, ch, NULL, victim, TO_CHAR);
 }
 
-void do_description(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_description, ch, argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 
@@ -1580,7 +1652,7 @@ void do_description(CHAR_DATA *ch, const char *argument)
 	do_description(ch, str_empty);
 }
 
-void do_report(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_report, ch, argument)
 {
 	dofun("say", ch, "I have %d/%d hp %d/%d mana %d/%d mv.",
 	      ch->hit, ch->max_hit,
@@ -1591,7 +1663,7 @@ void do_report(CHAR_DATA *ch, const char *argument)
 /*
  * 'Wimpy' originally by Dionysos.
  */
-void do_wimpy(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_wimpy, ch, argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	int wimpy;
@@ -1626,7 +1698,7 @@ void do_wimpy(CHAR_DATA *ch, const char *argument)
 		 ch, (const void *) wimpy, NULL, TO_CHAR, POS_DEAD);
 }
 
-void do_password(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_password, ch, argument)
 {
 	char arg1[MAX_INPUT_LENGTH];
 	char arg2[MAX_INPUT_LENGTH];
@@ -1712,12 +1784,12 @@ static void scan_all(CHAR_DATA *ch)
 	}
 }
 
-void do_scan(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_scan, ch, argument)
 {
 	char dir[MAX_INPUT_LENGTH];
 	ROOM_INDEX_DATA *in_room;
 	ROOM_INDEX_DATA *to_room;
-	EXIT_DATA *exit;	/* pExit */
+	EXIT_DATA *pexit;
 	int door;
 	int range;
 	int i;
@@ -1779,11 +1851,11 @@ void do_scan(CHAR_DATA *ch, const char *argument)
 	for (i = 1; i <= range; i++) {
 		CHAR_DATA *vch;
 
-		if ((exit = in_room->exit[door]) == NULL
-		||  (to_room = exit->to_room.r) == NULL)
+		if ((pexit = in_room->exit[door]) == NULL
+		||  (to_room = pexit->to_room.r) == NULL)
 			return;
 
-		if (IS_SET(exit->exit_info, EX_CLOSED)
+		if (IS_SET(pexit->exit_info, EX_CLOSED)
 		&&  can_see_room(ch, to_room)) {
 			if (i == 1)
 				act_char("	You see closed door.", ch);
@@ -1805,7 +1877,7 @@ void do_scan(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_request(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_request, ch, argument)
 {
 	char arg1 [MAX_INPUT_LENGTH];
 	char arg2 [MAX_INPUT_LENGTH];
@@ -1931,7 +2003,7 @@ void do_request(CHAR_DATA *ch, const char *argument)
 	aff_free(paf);
 }
 
-void do_hometown(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_hometown, ch, argument)
 {
 	int amount;
 	int htn;
@@ -2004,7 +2076,7 @@ void do_hometown(CHAR_DATA *ch, const char *argument)
 		 NULL, TO_CHAR, POS_DEAD);
 }
 
-void do_detect_hidden(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_detect_hidden, ch, argument)
 {
 	AFFECT_DATA	*paf;
 	int		chance;
@@ -2036,7 +2108,7 @@ void do_detect_hidden(CHAR_DATA *ch, const char *argument)
 	check_improve(ch, "detect hide", TRUE, 1);
 }
 
-void do_awareness(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_awareness, ch, argument)
 {
 	AFFECT_DATA	*paf;
 	int		chance;
@@ -2070,7 +2142,7 @@ void do_awareness(CHAR_DATA *ch, const char *argument)
 
 #define MOB_VNUM_BEAR			12
 
-void do_bear_call(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_bear_call, ch, argument)
 {
 	CHAR_DATA *	gch;
 	CHAR_DATA *	bear;
@@ -2172,7 +2244,7 @@ void do_bear_call(CHAR_DATA *ch, const char *argument)
 	char_to_room(bear2, ch->in_room);
 }
 
-void do_identify(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_identify, ch, argument)
 {
 	OBJ_DATA *obj;
 	CHAR_DATA *rch;
@@ -2218,7 +2290,7 @@ static void format_stat(char *buf, size_t len, CHAR_DATA *ch, int stat)
 	}
 }
 
-void do_score(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_score, ch, argument)
 {
 	char buf2[MAX_INPUT_LENGTH];
 	char title[MAX_STRING_LENGTH];
@@ -2402,7 +2474,7 @@ void do_score(CHAR_DATA *ch, const char *argument)
 	buf_free(output);
 }
 
-void do_oscore(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_oscore, ch, argument)
 {
 	char buf2[MAX_STRING_LENGTH];
 	int i;
@@ -2556,10 +2628,9 @@ void do_oscore(CHAR_DATA *ch, const char *argument)
 		buf_printf(output, BUF_END,
 			   "Saves vs. spell: {c%d{x\n",
 			   ch->saving_throw);
-	}
-	else {
+	} else {
 		for (i = 0; i < 4; i++) {
-			static char* ac_name[4] = {
+			static const char *ac_name[4] = {
 				"{cpiercing{x",
 				"{cbashing{x",
 				"{cslashing{x",
@@ -2668,7 +2739,7 @@ void do_oscore(CHAR_DATA *ch, const char *argument)
 	buf_free(output);
 }
 
-void do_affects(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_affects, ch, argument)
 {
 	BUFFER *output;
 
@@ -2678,7 +2749,7 @@ void do_affects(CHAR_DATA *ch, const char *argument)
 	buf_free(output);
 }
 
-void do_raffects(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_raffects, ch, argument)
 {
 	AFFECT_DATA *paf, *paf_last = NULL;
 
@@ -2753,7 +2824,7 @@ static const char * get_resist_alias(int resist)
 		return "immune to";
 }
 
-void do_resistances(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_resistances, ch, argument)
 {
 	int i;
 
@@ -2788,7 +2859,7 @@ void do_resistances(CHAR_DATA *ch, const char *argument)
 
 #define MOB_VNUM_LION			19
 
-void do_lion_call(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_lion_call, ch, argument)
 {
 	CHAR_DATA *	gch;
 	CHAR_DATA *	lion;
@@ -2891,7 +2962,7 @@ void do_lion_call(CHAR_DATA *ch, const char *argument)
 }
 
 /* new practice */
-void do_practice(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_practice, ch, argument)
 {
 	CHAR_DATA	*mob;
 	pc_skill_t	*pc_sk;
@@ -2909,12 +2980,11 @@ void do_practice(CHAR_DATA *ch, const char *argument)
 	if (argument[0] == '\0') {
 		BUFFER *output;
 		int col = 0;
-		int i;
+		size_t i;
 
 		output = buf_new(GET_LANG(ch));
 
-		for (i = 0; i < pc->learned.nused; i++) {
-			spec_skill_t spec_sk;
+		for (i = 0; i < varr_size(&pc->learned); i++) {
 			pc_sk = VARR_GET(&pc->learned, i);
 
 			spec_sk.sn = pc_sk->sn;
@@ -2948,7 +3018,7 @@ void do_practice(CHAR_DATA *ch, const char *argument)
 	if (!IS_AWAKE(ch)) {
 		act_char("In your dreams, or what?", ch);
 		return;
-	}	
+	}
 
 	if (pc->practice <= 0) {
 		act_char("You have no practice sessions left.", ch);
@@ -3026,7 +3096,7 @@ void do_practice(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_learn(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_learn, ch, argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *practicer;
@@ -3123,7 +3193,7 @@ void do_learn(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_teach(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_teach, ch, argument)
 {
 	if (IS_NPC(ch) || ch->level != LEVEL_HERO) {
 		act_char("You must be a hero.", ch);
@@ -3134,7 +3204,7 @@ void do_teach(CHAR_DATA *ch, const char *argument)
 }
 
 /* used to converter of prac and train */
-void do_gain(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_gain, ch, argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *tr;
@@ -3233,7 +3303,7 @@ skill_knowledge_alias(CHAR_DATA *ch, pc_skill_t *pc_sk, spec_skill_t *spec_sk)
 }
 
 /* RT spells and skills show the players spells (or skills) */
-void do_prayers(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_prayers, ch, argument)
 {
 	if (ch->shapeform &&
 	IS_SET(ch->shapeform->index->flags, FORM_NOCAST)) {
@@ -3244,7 +3314,7 @@ void do_prayers(CHAR_DATA *ch, const char *argument)
 	list_spells(ST_PRAYER, ch, argument);
 }
 
-void do_spells(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_spells, ch, argument)
 {
 	if (ch->shapeform &&
 	IS_SET(ch->shapeform->index->flags, FORM_NOCAST)) {
@@ -3256,11 +3326,13 @@ void do_spells(CHAR_DATA *ch, const char *argument)
 	list_spells(ST_SPELL, ch, argument);
 }
 
-static void list_spells(flag_t type, CHAR_DATA *ch, const char *argument)
+static void
+list_spells(flag_t type, CHAR_DATA *ch,
+	    const char *argument __attribute__((unused)))
 {
 	BUFFER *list[LEVEL_IMMORTAL+1];
 	int lev;
-	int i;
+	size_t i;
 	bool found = FALSE;
 	char buf[MAX_STRING_LENGTH];
 	BUFFER *output;
@@ -3272,7 +3344,7 @@ static void list_spells(flag_t type, CHAR_DATA *ch, const char *argument)
 	for (lev = 0; lev <= LEVEL_IMMORTAL; lev++)
 		list[lev] = NULL;
 
-	for (i = 0; i < PC(ch)->learned.nused; i++) {
+	for (i = 0; i < varr_size(&PC(ch)->learned); i++) {
 		pc_skill_t *pc_sk = VARR_GET(&PC(ch)->learned, i);
 		skill_t *sk;
 		spec_skill_t spec_sk;
@@ -3326,12 +3398,12 @@ static void list_spells(flag_t type, CHAR_DATA *ch, const char *argument)
 	buf_free(output);
 }
 
-void do_skills(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_skills, ch, argument)
 {
 	BUFFER *skill_list[LEVEL_IMMORTAL+1];
 	char skill_columns[LEVEL_IMMORTAL+1];
 	int lev;
-	int i;
+	size_t i;
 	bool found = FALSE;
 	char buf[MAX_STRING_LENGTH];
 	BUFFER *output;
@@ -3345,7 +3417,7 @@ void do_skills(CHAR_DATA *ch, const char *argument)
 		skill_list[lev] = NULL;
 	}
 
-	for (i = 0; i < PC(ch)->learned.nused; i++) {
+	for (i = 0; i < varr_size(&PC(ch)->learned); i++) {
 		pc_skill_t *pc_sk = VARR_GET(&PC(ch)->learned, i);
 		skill_t *sk;
 		spec_skill_t spec_sk;
@@ -3419,7 +3491,7 @@ glist_cb(void *p, va_list ap)
 	return NULL;
 }
 
-void do_glist(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_glist, ch, argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	flag_t group = GROUP_NONE;
@@ -3453,7 +3525,7 @@ void do_glist(CHAR_DATA *ch, const char *argument)
 		send_to_char("\n", ch);
 }
 
-void do_slook(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_slook, ch, argument)
 {
 	pc_skill_t *pc_sk = NULL;
 	skill_t *sk;
@@ -3484,7 +3556,7 @@ void do_slook(CHAR_DATA *ch, const char *argument)
 		 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 }
 
-void do_camp(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_camp, ch, argument)
 {
 	AFFECT_DATA *paf;
 	int chance;
@@ -3546,7 +3618,7 @@ void do_camp(CHAR_DATA *ch, const char *argument)
 	aff_free(paf);
 }
 
-void do_demand(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_demand, ch, argument)
 {
 	char arg1 [MAX_INPUT_LENGTH];
 	char arg2 [MAX_INPUT_LENGTH];
@@ -3645,7 +3717,7 @@ void do_demand(CHAR_DATA *ch, const char *argument)
 	act_char("Your power makes all around the world shivering.", ch);
 }
 
-void do_control(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_control, ch, argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
@@ -3719,7 +3791,7 @@ void do_control(CHAR_DATA *ch, const char *argument)
 #define OBJ_VNUM_WHITE_ARROW		36
 #define OBJ_VNUM_BLUE_ARROW		37
 
-void do_make_arrow(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_make_arrow, ch, argument)
 {
 	OBJ_DATA *arrow;
 	int count, mana, wait;
@@ -3824,7 +3896,7 @@ void do_make_arrow(CHAR_DATA *ch, const char *argument)
 
 #define OBJ_VNUM_RANGER_BOW		7
 
-void do_make_bow(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_make_bow, ch, argument)
 {
 	OBJ_DATA *	bow;
 	AFFECT_DATA	*paf;
@@ -3882,7 +3954,7 @@ void do_make_bow(CHAR_DATA *ch, const char *argument)
 	act_puts("You successfully make $p.", ch, bow, NULL, TO_CHAR, POS_DEAD);
 }
 
-void do_make(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_make, ch, argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 
@@ -3901,7 +3973,7 @@ void do_make(CHAR_DATA *ch, const char *argument)
 }
 
 /*Added by Osya*/
-void do_homepoint(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_homepoint, ch, argument)
 {
         AFFECT_DATA *paf;
         int chance;
@@ -4426,7 +4498,7 @@ static void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 	act_puts3(msg, ch, arg, victim, arg3, TO_CHAR | ACT_FORMSH, POS_DEAD);
 }
 
-static char* wear_loc_names[] =
+static const char *wear_loc_names[] =
 {
 	"<used as light>     $t",
 	"<worn on finger>    $t",
@@ -4456,7 +4528,7 @@ static char* wear_loc_names[] =
 static void
 show_obj_to_char(CHAR_DATA *ch, OBJ_DATA *obj, flag_t wear_loc)
 {
-	bool can_see;
+	bool can_see_it;
 
 	if (obj == NULL) {
 		switch (wear_loc) {
@@ -4479,11 +4551,11 @@ show_obj_to_char(CHAR_DATA *ch, OBJ_DATA *obj, flag_t wear_loc)
 		}
 	}
 
-	can_see = obj == NULL ? FALSE : can_see_obj(ch, obj);
+	can_see_it = (obj == NULL) ? FALSE : can_see_obj(ch, obj);
 	act(wear_loc_names[wear_loc], ch,
-	    can_see ? format_obj_to_char(obj, ch, TRUE) :
+	    can_see_it ? format_obj_to_char(obj, ch, TRUE) :
 	    obj == NULL ? "nothing" : "something",
-	    NULL, TO_CHAR | (can_see ? ACT_NOTRANS : 0));
+	    NULL, TO_CHAR | (can_see_it ? ACT_NOTRANS : 0));
 }
 
 static void
@@ -4493,7 +4565,7 @@ show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 	int i;
 	int percent;
 	bool found;
-	char *msg;
+	const char *msg;
 	const char *desc;
 	CHAR_DATA *doppel = victim;
 	CHAR_DATA *mirror = victim;
@@ -4676,21 +4748,21 @@ show_char_to_char(CHAR_DATA *list, CHAR_DATA *ch)
 /*
  * Contributed by Alander.
  */
-void do_commands(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_commands, ch, argument)
 {
 	int col;
-	int i;
+	size_t i;
 	varr v;
- 
+
 	varr_cpy(&v, &commands);
 	varr_qsort(&v, cmpstr);
 
 	col = 0;
-	for (i = 0; i < v.nused; i++) {
+	for (i = 0; i < varr_size(&v); i++) {
 		cmd_t *cmd = VARR_GET(&v, i);
 
 		if (cmd->min_level < LEVEL_HERO
-		&&  cmd->min_level <= ch->level 
+		&&  cmd->min_level <= ch->level
 		&&  !IS_SET(cmd->cmd_flags, CMD_HIDDEN)) {
 			act_puts("$f-12{$t}", ch, cmd->name, NULL,   // notrans
 				 TO_CHAR | ACT_NOTRANS | ACT_NOLF | ACT_NOUCASE,
@@ -4706,9 +4778,9 @@ void do_commands(CHAR_DATA *ch, const char *argument)
 	varr_destroy(&v);
 }
 
-void do_wizhelp(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_wizhelp, ch, argument)
 {
-	int i;
+	size_t i;
 	int col;
 	varr v;
 
@@ -4721,7 +4793,7 @@ void do_wizhelp(CHAR_DATA *ch, const char *argument)
 	varr_qsort(&v, cmpstr);
 
 	col = 0;
-	for (i = 0; i < v.nused; i++) {
+	for (i = 0; i < varr_size(&v); i++) {
 		cmd_t *cmd = VARR_GET(&v, i);
 
 		if (cmd->min_level < LEVEL_IMMORTAL)
@@ -4796,7 +4868,7 @@ cleanup:
 	buf_free(output);
 }
 
-void do_clanlist(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_clanlist, ch, argument)
 {
 	char arg1[MAX_INPUT_LENGTH];
 	char arg2[MAX_INPUT_LENGTH];
@@ -4850,7 +4922,7 @@ item_cb(void *p, va_list ap)
 	return NULL;
 }
 
-void do_item(CHAR_DATA* ch, const char* argument)
+DO_FUN(do_item, ch, argument)
 {
 	clan_t* clan = NULL;
 	OBJ_DATA* in_obj;
@@ -4898,7 +4970,7 @@ void do_item(CHAR_DATA* ch, const char* argument)
 			 ch, clan->obj_ptr, NULL, TO_CHAR, POS_DEAD);
 }
 
-void do_rating(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_rating, ch, argument)
 {
 	int i;
 
@@ -4921,7 +4993,7 @@ void do_rating(CHAR_DATA *ch, const char *argument)
 			pArea = pArea->next;				\
 	}
 
-void do_areas(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_areas, ch, argument)
 {
 	AREA_DATA *pArea1;
 	AREA_DATA *pArea2;

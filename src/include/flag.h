@@ -1,5 +1,5 @@
 /*
- * $Id: flag.h,v 1.9 1999-12-11 15:31:08 fjoe Exp $
+ * $Id: flag.h,v 1.10 2001-08-13 18:23:15 fjoe Exp $
  */
 
 /***************************************************************************
@@ -44,7 +44,6 @@ const char *	flag_string	(const flaginfo_t *flag_table, flag_t bits);
 const char *	flag_istring	(const flaginfo_t *flag_table, flag_t val);
 
 void show_flags_buf(BUFFER *output, const flaginfo_t *flag_table);
-void show_flags(CHAR_DATA *ch, const flaginfo_t *flag_table);
 
 #endif
 

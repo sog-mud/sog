@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: quest_impl.c,v 1.5 2001-08-03 11:27:46 fjoe Exp $
+ * $Id: quest_impl.c,v 1.6 2001-08-13 18:23:53 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -34,8 +34,9 @@
 #include <quest.h>
 #include "quest_impl.h"
 
-void
-quest_update(void)
+DECLARE_UPDATE_FUN(quest_update);
+
+UPDATE_FUN(quest_update)
 {
 	CHAR_DATA *ch, *ch_next;
 

@@ -1,5 +1,5 @@
 /*
- * $Id: flag.c,v 1.37 2001-08-05 16:36:57 fjoe Exp $
+ * $Id: flag.c,v 1.38 2001-08-13 18:24:00 fjoe Exp $
  */
 
 /***************************************************************************
@@ -137,7 +137,8 @@ flag_istring(const flaginfo_t *f, flag_t val)
  Purpose:	Returns string with name(s) of the flags or stat entered.
  Called by:	act_olc.c, olc.c, and olc_save.c.
  ****************************************************************************/
-const char *flag_string(const flaginfo_t *flag_table, flag_t bits)
+const char *
+flag_string(const flaginfo_t *flag_table, flag_t bits)
 {
 	static char buf[NBUFS][BUFSZ];
 	static int cnt = 0;
@@ -195,7 +196,8 @@ const char *flag_string(const flaginfo_t *flag_table, flag_t bits)
 	}
 }
 
-void show_flags_buf(BUFFER *output, const flaginfo_t *flag_table)
+void
+show_flags_buf(BUFFER *output, const flaginfo_t *flag_table)
 {
 	int  flag;
 	int  col = 0;
@@ -210,21 +212,7 @@ void show_flags_buf(BUFFER *output, const flaginfo_t *flag_table)
 				buf_append(output, "\n");
 		}
 	}
- 
+
 	if (col % 4 != 0)
 		buf_append(output, "\n");
-}
-
-/*****************************************************************************
- Name:		show_flags
- Purpose:	Displays settable flags and stats.
- ****************************************************************************/
-void show_flags(CHAR_DATA *ch, const flaginfo_t *flag_table)
-{
-	BUFFER *output;
-
-	output = buf_new(0);
-	show_flags_buf(output, flag_table);
-	page_to_char(buf_string(output), ch);
-	buf_free(output);
 }

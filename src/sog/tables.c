@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.154 2001-08-05 16:37:03 fjoe Exp $
+ * $Id: tables.c,v 1.155 2001-08-13 18:24:04 fjoe Exp $
  */
 
 /***************************************************************************
@@ -46,7 +46,6 @@
 
 #include <merc.h>
 #include <lang.h>
-#include <ban.h>
 #include <note.h>
 #include <module_decl.h>
 #include <vo_iter.h>
@@ -1159,6 +1158,7 @@ flaginfo_t cmd_flags[] =
 	{ "hidden",		CMD_HIDDEN,		TRUE	},
 	{ "disabled",		CMD_DISABLED,		TRUE	},
 	{ "frozen_ok",		CMD_FROZEN_OK,		TRUE	},
+	{ "strict_match",	CMD_STRICT_MATCH,	TRUE	},
 
 	{ NULL, 0, FALSE }
 };
@@ -1497,6 +1497,7 @@ flaginfo_t mt_types[] =
 	{ "mlstring *",		MT_MLSTRING,			FALSE	},
 	{ "int *",		MT_PINT,			FALSE	},
 	{ "spec_skill_t *",	MT_SPEC_SKILL,			FALSE	},
+	{ "uint",		MT_UINT,			FALSE	},
 
 	{ NULL, 0, FALSE }
 };

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: healer.c,v 1.53 2001-08-05 16:36:37 fjoe Exp $
+ * $Id: healer.c,v 1.54 2001-08-13 18:23:28 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -37,6 +37,8 @@
 #include <handler.h>
 #include <magic.h>
 #include <update.h>
+
+DECLARE_DO_FUN(do_heal);
 
 typedef struct {
 	char * const	keyword;
@@ -106,7 +108,7 @@ get_heal_cost(heal_t *h, CHAR_DATA *mob, CHAR_DATA *ch)
 	return price;
 }
 
-void do_heal(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_heal, ch, argument)
 {
 	CHAR_DATA *mob;
 	char arg[MAX_INPUT_LENGTH];
@@ -118,9 +120,9 @@ void do_heal(CHAR_DATA *ch, const char *argument)
 		if (IS_NPC(mob)
 		&&  MOB_IS(mob, MOB_HEALER)
 		&&  (IS_NULLSTR(mob->clan) || IS_CLAN(mob->clan, ch->clan)))
-		 	break;
+			break;
 	}
- 
+
 	if (mob == NULL) {
 		act_char("You can't do that here.", ch);
 		return;

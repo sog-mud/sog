@@ -1,5 +1,5 @@
 /*
- * $Id: ban.c,v 1.47 2001-08-02 18:38:44 fjoe Exp $
+ * $Id: ban.c,v 1.48 2001-08-13 18:23:36 fjoe Exp $
  */
 
 /***************************************************************************
@@ -57,11 +57,14 @@
 #endif
 
 #include <merc.h>
-#include <ban.h>
 
 #include <handler.h>
 
-ban_t *ban_list;
+#include "comm.h"
+#include "handler_impl.h"
+
+static const char *format_ban(ban_t *);
+static void save_bans(void);
 
 /*
  * ban_add must work properly if ch == NULL
@@ -75,13 +78,14 @@ ban_t *ban_list;
 		log arg;			\
 }
 
-void ban_add(CHAR_DATA *ch, const char *argument)
+void
+ban_add(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 
 	int ban_num;
 	int ban_action;
-	int ban_class; 
+	int ban_class;
 
 	ban_t *b_prev;
 	ban_t *b;
@@ -151,7 +155,8 @@ void ban_add(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void ban_delete(CHAR_DATA *ch, const char *argument)
+void
+ban_delete(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	int ban_num;
@@ -193,67 +198,8 @@ void ban_delete(CHAR_DATA *ch, const char *argument)
 	save_bans();
 }
 
-void load_bans(void)
-{
-	FILE *fp;
-	char buf[MAX_INPUT_LENGTH];
- 
-	if (!dfexist(ETC_PATH, BAN_FILE))
-		return;
-
-	if ((fp = dfopen(ETC_PATH, BAN_FILE, "r")) == NULL)
-		return;
- 
-	while (fgets(buf, sizeof(buf), fp)) {
-		char arg[MAX_INPUT_LENGTH];
-		char *p;
-		const char *argument = buf;
-
-		if ((p = strchr(buf, '\n'))) 
-			*p = '\0';
-
-		one_argument(argument, arg, sizeof(arg));
-		if (arg[0] == '\0')
-			continue;
-
-		ban_add(NULL, buf);
-	}
-
-	fclose(fp);
-}
-
-void save_bans(void)
-{
-	ban_t *pban;
-	FILE *fp;
-
-	if (!ban_list) {
-		dunlink(ETC_PATH, BAN_FILE);
-		return;
-	}
-
-	if ((fp = dfopen(ETC_PATH, BAN_FILE, "w")) == NULL)
-		return;
-
-	for (pban = ban_list; pban; pban = pban->next)
-		fprintf(fp,"%s\n", format_ban(pban));
-
-	fclose(fp);
-}
-
-const char *format_ban(ban_t *pban)
-{
-	static char buf[MAX_STRING_LENGTH];
-
-	snprintf(buf, sizeof(buf), "%9d %5s %7s %s",		// notrans
-		 pban->ban_num,
-		 flag_string(ban_actions, pban->ban_action),
-		 flag_string(ban_classes, pban->ban_class),
-		 pban->ban_mask);
-	return buf;
-}
-
-int check_ban(DESCRIPTOR_DATA *d, int ban_class)
+int
+check_ban(DESCRIPTOR_DATA *d, int ban_class)
 {
 	ban_t *pban;
 	int ban_action = BA_ALLOW;
@@ -283,3 +229,89 @@ int check_ban(DESCRIPTOR_DATA *d, int ban_class)
 	return ban_action;
 }
 
+void
+dump_bans(BUFFER *output)
+{
+	ban_t *pban;
+
+	if (ban_list == NULL) {
+		buf_append(output, "No ban rules defined.\n");
+		return;
+	}
+
+	buf_append(output, "Ban rules:\n");
+
+	for (pban = ban_list; pban != NULL; pban = pban->next)
+		buf_append(output, format_ban(pban));
+}
+
+/*--------------------------------------------------------------------
+ * semi-locals
+ */
+
+void
+load_bans(void)
+{
+	FILE *fp;
+	char buf[MAX_INPUT_LENGTH];
+
+	if (!dfexist(ETC_PATH, BAN_FILE))
+		return;
+
+	if ((fp = dfopen(ETC_PATH, BAN_FILE, "r")) == NULL)
+		return;
+
+	while (fgets(buf, sizeof(buf), fp)) {
+		char arg[MAX_INPUT_LENGTH];
+		char *p;
+		const char *argument = buf;
+
+		if ((p = strchr(buf, '\n'))) 
+			*p = '\0';
+
+		one_argument(argument, arg, sizeof(arg));
+		if (arg[0] == '\0')
+			continue;
+
+		ban_add(NULL, buf);
+	}
+
+	fclose(fp);
+}
+
+/*--------------------------------------------------------------------
+ * local functions
+ */
+
+static void
+save_bans(void)
+{
+	ban_t *pban;
+	FILE *fp;
+
+	if (!ban_list) {
+		dunlink(ETC_PATH, BAN_FILE);
+		return;
+	}
+
+	if ((fp = dfopen(ETC_PATH, BAN_FILE, "w")) == NULL)
+		return;
+
+	for (pban = ban_list; pban; pban = pban->next)
+		fprintf(fp,"%s\n", format_ban(pban));
+
+	fclose(fp);
+}
+
+static const char *
+format_ban(ban_t *pban)
+{
+	static char buf[MAX_STRING_LENGTH];
+
+	snprintf(buf, sizeof(buf), "%9d %5s %7s %s",		// notrans
+		 pban->ban_num,
+		 flag_string(ban_actions, pban->ban_action),
+		 flag_string(ban_classes, pban->ban_class),
+		 pban->ban_mask);
+	return buf;
+}

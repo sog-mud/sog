@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_magic.c,v 1.14 2001-07-31 18:14:52 fjoe Exp $
+ * $Id: init_magic.c,v 1.15 2001-08-13 18:23:43 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -36,11 +36,13 @@
 #define MODULE_INIT MOD_MAGIC
 #include <magic.h>
 
-static void *load_cb(void *p, va_list ap);
-static void *unload_cb(void *p, va_list ap);
+DECLARE_MODINIT_FUN(_module_load);
+DECLARE_MODINIT_FUN(_module_unload);
 
-int
-_module_load(module_t* m)
+static DECLARE_FOREACH_CB_FUN(load_cb);
+static DECLARE_FOREACH_CB_FUN(unload_cb);
+
+MODINIT_FUN(_module_load, m)
 {
 	varr_foreach(&commands, cmd_load_cb, MODULE, m);
 	hash_foreach(&skills, load_cb, m);
@@ -48,8 +50,7 @@ _module_load(module_t* m)
 	return 0;
 }
 
-int
-_module_unload(module_t *m)
+MODINIT_FUN(_module_unload, m)
 {
 	dynafun_tab_unregister(__mod_tab(MODULE));
 	hash_foreach(&skills, unload_cb, NULL);
@@ -57,8 +58,8 @@ _module_unload(module_t *m)
 	return 0;
 }
 
-static void *
-load_cb(void *p, va_list ap)
+static
+FOREACH_CB_FUN(load_cb, p, ap)
 {
 	skill_t *sk = (skill_t*) p;
 
@@ -73,8 +74,8 @@ load_cb(void *p, va_list ap)
 	return NULL;
 }
 
-static void *
-unload_cb(void *p, va_list ap)
+static
+FOREACH_CB_FUN(unload_cb, p, ap)
 {
 	skill_t *sk = (skill_t*) p;
 

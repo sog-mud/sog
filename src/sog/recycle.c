@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.121 2001-08-05 16:37:02 fjoe Exp $
+ * $Id: recycle.c,v 1.122 2001-08-13 18:24:02 fjoe Exp $
  */
 
 /***************************************************************************
@@ -52,6 +52,9 @@
 
 flag_t		mud_options;
 
+time_t		boot_time;
+time_t		current_time;	/* time of this pulse */
+
 TIME_INFO_DATA	time_info;
 WEATHER_DATA	weather_info;
 AUCTION_DATA	auction;
@@ -70,6 +73,28 @@ int		top_vnum_room;
 int		top_vnum_mob;
 int		top_vnum_obj;
 int		top_player;
+
+ban_t *		ban_list;
+
+bool		wizlock;		/* Game is wizlocked		*/
+bool		newlock;		/* Game is newlocked		*/
+bool		merc_down;		/* Shutdown			*/
+
+const char DEFAULT_PROMPT[] = "%hhp %mm %vmv Opp:%o {c%e{x# ";	// notrans
+
+RUNGAME_FUN *run_game;
+RUNGAME_FUN *run_game_bottom;
+
+bool (*olc_interpret)(DESCRIPTOR_DATA *d, const char *argument);
+
+struct fd_set	in_set;
+struct fd_set	out_set;
+struct fd_set	exc_set;
+
+/*
+ * Log-all switch.
+ */
+bool		fLogAll	= FALSE;
 
 /*
  * paths
@@ -1469,3 +1494,122 @@ hashdata_t h_glob_gmlstr =
 	k_hash_str,
 	ke_cmp_mlstr
 };
+
+/*--------------------------------------------------------------------
+ * DESCRIPTOR_DATA
+ */
+
+DESCRIPTOR_DATA *descriptor_list;	/* All open descriptors		*/
+DESCRIPTOR_DATA *descriptor_free;
+
+static void outbuf_init(outbuf_t *o, size_t size);
+static void outbuf_destroy(outbuf_t *o);
+
+DESCRIPTOR_DATA *
+new_descriptor(int fd)
+{
+	DESCRIPTOR_DATA *d;
+
+	if (descriptor_free == NULL)
+		d = mem_alloc(MT_DESCRIPTOR, sizeof(*d));
+	else {
+		d = descriptor_free;
+		descriptor_free = descriptor_free->next;
+		mem_validate(d);
+	}
+
+	memset(d, 0, sizeof(*d));
+	d->descriptor = fd;
+	d->connected = CON_GET_CODEPAGE;
+	d->codepage = 0;
+	outbuf_init(&d->out_buf, 1024);
+	outbuf_init(&d->snoop_buf, 0);
+	d->dvdata = dvdata_new();
+
+	return d;
+}
+
+void
+free_descriptor(DESCRIPTOR_DATA *d)
+{
+	if (!d)
+		return;
+
+	if (!mem_is(d, MT_DESCRIPTOR)) {
+		log(LOG_BUG, "free_descriptor: d is not MT_DESCRIPTOR");
+		return;
+	}
+	mem_invalidate(d);
+
+	free_string(d->host);
+	free_string(d->ip);
+	outbuf_destroy(&d->out_buf);
+	outbuf_destroy(&d->snoop_buf);
+	dvdata_free(d->dvdata);
+
+	d->next = descriptor_free;
+	descriptor_free = d;
+}
+
+int dvdata_count;
+int dvdata_real_count;
+
+static void
+outbuf_init(outbuf_t *o, size_t size)
+{
+	o->top = 0;
+	if ((o->size = size) != 0)
+		o->buf = malloc(o->size);
+}
+
+static void
+outbuf_destroy(outbuf_t *o)
+{
+	free(o->buf);
+}
+
+/*--------------------------------------------------------------------
+ * dvdata_t
+ */
+
+dvdata_t *
+dvdata_new(void)
+{
+	dvdata_t *dv = calloc(1, sizeof(*dv));
+	dv->prefix = str_empty;
+	dv->pagelen = DEFAULT_PAGELEN;
+	dv->prompt = str_dup(DEFAULT_PROMPT);
+	dv->refcnt = 1;
+	dvdata_count++;
+	dvdata_real_count++;
+	return dv;
+}
+
+dvdata_t *
+dvdata_dup(dvdata_t *dv)
+{
+	dv->refcnt++;
+	dvdata_count++;
+	return dv;
+}
+
+void
+dvdata_free(dvdata_t *dv)
+{
+	int i;
+
+	dvdata_count--;
+	if (--dv->refcnt > 0)
+		return;
+
+	free_string(dv->prompt);
+	free_string(dv->prefix);
+
+	for (i = 0; i < MAX_ALIAS; i++) {
+		free_string(dv->alias[i]);
+		free_string(dv->alias_sub[i]);
+	}
+	free(dv);
+	dvdata_real_count--;
+}
+

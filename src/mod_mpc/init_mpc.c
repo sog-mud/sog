@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_mpc.c,v 1.10 2001-08-03 11:27:42 fjoe Exp $
+ * $Id: init_mpc.c,v 1.11 2001-08-13 18:23:47 fjoe Exp $
  */
 
 #include <sys/stat.h>
@@ -94,8 +94,7 @@ hashdata_t h_progs = {
 
 hash_t progs;
 
-int
-_module_load(module_t *m)
+MODINIT_FUN(_module_load, m)
 {
 	mpc_init();
 	dynafun_tab_register(local_dynafun_tab, m);
@@ -105,8 +104,7 @@ _module_load(module_t *m)
 	return 0;
 }
 
-int
-_module_unload(module_t *m)
+MODINIT_FUN(_module_unload, m)
 {
 	hash_destroy(&progs);
 

@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.241 2001-08-05 16:36:34 fjoe Exp $
+ * $Id: act_comm.c,v 1.242 2001-08-13 18:23:23 fjoe Exp $
  */
 
 /***************************************************************************
@@ -58,11 +58,51 @@
 #include <handler.h>
 #include <update.h>
 
-/* command procedures needed */
-DECLARE_DO_FUN(do_replay	);
-DECLARE_DO_FUN(do_look		);
+DECLARE_DO_FUN(do_afk);
+DECLARE_DO_FUN(do_delete);
+DECLARE_DO_FUN(do_channels);
+DECLARE_DO_FUN(do_hints);
+DECLARE_DO_FUN(do_deaf);
+DECLARE_DO_FUN(do_quiet);
+DECLARE_DO_FUN(do_replay);
+DECLARE_DO_FUN(do_say);
+DECLARE_DO_FUN(do_tell);
+DECLARE_DO_FUN(do_reply);
+DECLARE_DO_FUN(do_gtell);
+DECLARE_DO_FUN(do_emote);
+DECLARE_DO_FUN(do_pmote);
+DECLARE_DO_FUN(do_immtalk);
+DECLARE_DO_FUN(do_yell);
+DECLARE_DO_FUN(do_shout);
+DECLARE_DO_FUN(do_music);
+DECLARE_DO_FUN(do_gossip);
+DECLARE_DO_FUN(do_clan);
+DECLARE_DO_FUN(do_implore);
+DECLARE_DO_FUN(do_pose);
+DECLARE_DO_FUN(do_rent);
+DECLARE_DO_FUN(do_quit);
+DECLARE_DO_FUN(do_save);
+DECLARE_DO_FUN(do_follow);
+DECLARE_DO_FUN(do_order);
+DECLARE_DO_FUN(do_group);
+DECLARE_DO_FUN(do_split);
+DECLARE_DO_FUN(do_speak);
+DECLARE_DO_FUN(do_twit);
+DECLARE_DO_FUN(do_lang);
+DECLARE_DO_FUN(do_judge);
+DECLARE_DO_FUN(do_trust);
+DECLARE_DO_FUN(do_wanted);
+DECLARE_DO_FUN(do_mark);
+DECLARE_DO_FUN(do_petition);
+DECLARE_DO_FUN(do_promote);
+DECLARE_DO_FUN(do_alias);
+DECLARE_DO_FUN(do_unalias);
+DECLARE_DO_FUN(do_toggle);
 
-void do_afk(CHAR_DATA *ch, const char *argument)
+/* command procedures needed */
+DECLARE_DO_FUN(do_look);
+
+DO_FUN(do_afk, ch, argument)
 {
 	if (IS_SET(ch->comm, COMM_AFK))
 		do_replay(ch, str_empty);
@@ -73,12 +113,7 @@ void do_afk(CHAR_DATA *ch, const char *argument)
 
 /* RT code to delete yourself */
 
-void do_delet(CHAR_DATA *ch, const char *argument)
-{
-	act_char("You must type the full command to delete yourself.", ch);
-}
-
-void do_delete(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_delete, ch, argument)
 {
 	if (IS_NPC(ch))
 		return;
@@ -108,7 +143,7 @@ void do_delete(CHAR_DATA *ch, const char *argument)
 }
 
 /* RT code to display channel status */
-void do_channels(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_channels, ch, argument)
 {
 	/* lists all channels and their status */
 	act_char("   channel     status", ch);
@@ -149,7 +184,7 @@ void do_channels(CHAR_DATA *ch, const char *argument)
 		 act_char("You cannot show emotions.", ch);
 }
 
-void do_hints(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_hints, ch, argument)
 {
 	flag_t hint_level;
 	char arg[MAX_INPUT_LENGTH];
@@ -183,7 +218,7 @@ void do_hints(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_deaf(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_deaf, ch, argument)
 {
 	if (IS_SET(ch->comm,COMM_DEAF)) {
 		act_char("You can now hear tells again.", ch);
@@ -196,7 +231,7 @@ void do_deaf(CHAR_DATA *ch, const char *argument)
 }
 
 /* RT quiet blocks out all communication */
-void do_quiet(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_quiet, ch, argument)
 {
 	if (IS_SET(ch->comm,COMM_QUIET)) {
 		 act_char("Quiet mode removed.", ch);
@@ -208,7 +243,7 @@ void do_quiet(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_replay(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_replay, ch, argument)
 {
 	if (IS_NPC(ch)) {
 		act_char("Huh?", ch);
@@ -219,7 +254,7 @@ void do_replay(CHAR_DATA *ch, const char *argument)
 	buf_clear(PC(ch)->buffer);
 }
 
-void do_say(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_say, ch, argument)
 {
 #if 0
 	XXX
@@ -270,7 +305,7 @@ void do_say(CHAR_DATA *ch, const char *argument)
 #endif
 }
 
-void do_tell(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_tell, ch, argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 
@@ -283,7 +318,7 @@ void do_tell(CHAR_DATA *ch, const char *argument)
 	tell_char(ch, get_char_world(ch, arg), argument);
 }
 
-void do_reply(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_reply, ch, argument)
 {
 	if (IS_NPC(ch)) {
 		act_char("Huh?", ch);
@@ -292,7 +327,7 @@ void do_reply(CHAR_DATA *ch, const char *argument)
 	tell_char(ch, PC(ch)->reply, argument);
 }
 
-void do_gtell(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_gtell, ch, argument)
 {
 	CHAR_DATA *gch;
 	int i;
@@ -328,7 +363,7 @@ void do_gtell(CHAR_DATA *ch, const char *argument)
 		act_char("Quit talking to yourself. You are all alone.", ch);
 }
 
-void do_emote(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_emote, ch, argument)
 {
 	int flags;
 
@@ -352,24 +387,24 @@ void do_emote(CHAR_DATA *ch, const char *argument)
 	act("$n $T", ch, NULL, argument, TO_ROOM | flags);	// notrans
 }
 
-void do_pmote(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_pmote, ch, argument)
 {
 	CHAR_DATA *vch;
 	const char *letter,*name;
 	char last[MAX_INPUT_LENGTH], temp[MAX_STRING_LENGTH];
-	int matches = 0;
+	size_t matches = 0;
 	int flags;
 
 	if (!IS_NPC(ch) && IS_SET(ch->comm, COMM_NOEMOTE)) {
 		act_char("You can't show your emotions.", ch);
 		return;
 	}
-	
+
 	if (argument[0] == '\0') {
 		act_char("Emote what?", ch);
 		return;
 	}
-	
+
 	argument = garble(ch, argument);
 
 	flags = TO_CHAR | ACT_NOTRIG |
@@ -390,8 +425,8 @@ void do_pmote(CHAR_DATA *ch, const char *argument)
 		temp[strlen(argument) - strlen(letter)] = '\0';
 		last[0] = '\0';
 		name = vch->name;
-	
-		for (; *letter != '\0'; letter++) { 
+
+		for (; *letter != '\0'; letter++) {
 			if (*letter == '\'' && matches == strlen(vch->name)) {
 				strnzcat(temp, sizeof(temp), "r");
 				continue;
@@ -401,7 +436,7 @@ void do_pmote(CHAR_DATA *ch, const char *argument)
 				matches = 0;
 				continue;
 			}
-		
+
 			if (matches == strlen(vch->name))
 				matches = 0;
 
@@ -429,7 +464,7 @@ void do_pmote(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_immtalk(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_immtalk, ch, argument)
 {
 	CHAR_DATA *vch, *vch_next;
 	CHAR_DATA *orig;
@@ -470,7 +505,7 @@ void do_immtalk(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_yell(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_yell, ch, argument)
 {
 	if (IS_SET(ch->chan, CHAN_NOCHANNELS)) {
 		 act_char("The gods have revoked your channel privileges.", ch);
@@ -494,7 +529,7 @@ void do_yell(CHAR_DATA *ch, const char *argument)
 	act_yell(ch, "$t", argument, NULL);
 }
 
-void do_shout(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_shout, ch, argument)
 {
 	DESCRIPTOR_DATA *d;
 
@@ -541,7 +576,7 @@ void do_shout(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_music(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_music, ch, argument)
 {
 	DESCRIPTOR_DATA *d;
 
@@ -582,7 +617,7 @@ void do_music(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_gossip(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_gossip, ch, argument)
 {
 	DESCRIPTOR_DATA *d;
 
@@ -629,7 +664,7 @@ void do_gossip(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_clan(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_clan, ch, argument)
 {
 	clan_t *clan;
 
@@ -656,7 +691,7 @@ void do_clan(CHAR_DATA *ch, const char *argument)
 	act_clan(ch, "$t", argument);
 }
 
-void do_implore(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_implore, ch, argument)
 {
 	CHAR_DATA *vch, *vch_next;
 
@@ -688,7 +723,7 @@ void do_implore(CHAR_DATA *ch, const char *argument)
 	 }
 }
 
-void do_pose(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_pose, ch, argument)
 {
 	class_t *cl;
 	pose_t *pose;
@@ -699,24 +734,19 @@ void do_pose(CHAR_DATA *ch, const char *argument)
 	||  cl->poses.nused == 0)
 		return;
 
-	maxnum = UMIN(ch->level, cl->poses.nused-1);
+	maxnum = UMIN(ch->level, (int) varr_size(&cl->poses) - 1);
 	pose = VARR_GET(&cl->poses, number_range(0, maxnum));
 	act(pose->self, ch, NULL, NULL, TO_CHAR);
 	act(pose->others, ch, NULL, NULL, TO_ROOM | ACT_TOBUF);
 }
 
-void do_rent(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_rent, ch, argument)
 {
 	act_char("There is no rent here.  Just save and quit.", ch);
 	return;
 }
 
-void do_qui(CHAR_DATA *ch, const char *argument)
-{
-	act_char("If you want to QUIT, you have to spell it out.", ch);
-}
-
-void do_quit(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_quit, ch, argument)
 {
 	PC_DATA *pc;
 
@@ -736,7 +766,7 @@ void do_quit(CHAR_DATA *ch, const char *argument)
 	quit_char(ch, XC_F_NOCOUNT);
 }
 
-void do_save(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_save, ch, argument)
 {
 	if (IS_NPC(ch))
 		return;
@@ -754,7 +784,7 @@ void do_save(CHAR_DATA *ch, const char *argument)
 	WAIT_STATE(ch, get_pulse("violence"));
 }
 
-void do_follow(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_follow, ch, argument)
 {
 /* RT changed to allow unlimited following and follow the NOFOLLOW rules */
 	char arg[MAX_INPUT_LENGTH];
@@ -817,7 +847,7 @@ order_cb(void *vo, va_list ap)
 	return NULL;
 }
 
-void do_order(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_order, ch, argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
@@ -870,7 +900,7 @@ void do_order(CHAR_DATA *ch, const char *argument)
 	act_char("Ok.", ch);
 }
 
-void do_group(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_group, ch, argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
@@ -1025,7 +1055,7 @@ void do_group(CHAR_DATA *ch, const char *argument)
 /*
  * 'Split' originally by Gnort, God of Chaos.
  */
-void do_split(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_split, ch, argument)
 {
 	char arg1[MAX_INPUT_LENGTH],arg2[MAX_INPUT_LENGTH];
 	CHAR_DATA *gch;
@@ -1091,14 +1121,14 @@ void do_split(CHAR_DATA *ch, const char *argument)
 
 	ch->silver	-= amount_silver;
 	ch->silver	+= share_silver + extra_silver;
-	ch->gold 	-= amount_gold;
-	ch->gold 	+= share_gold + extra_gold;
+	ch->gold	-= amount_gold;
+	ch->gold	+= share_gold + extra_gold;
 
 	if (share_silver > 0) {
 		act_puts3("You split $j $qj{silver coins}. "
 			  "Your share is $J silver.",
 			  ch, (const void*) amount_silver, NULL,
-			  (const void*) share_silver + extra_silver,
+			  (const void *) (share_silver + extra_silver),
 			  TO_CHAR, POS_DEAD);
 	}
 
@@ -1106,7 +1136,7 @@ void do_split(CHAR_DATA *ch, const char *argument)
 		act_puts3("You split $j $qj{gold coins}. "
 			  "Your share is $J gold.",
 			  ch, (const void*) amount_gold, NULL,
-			  (const void*) share_gold + extra_gold,
+			  (const void *) (share_gold + extra_gold),
 			  TO_CHAR, POS_DEAD);
 	}
 
@@ -1144,7 +1174,7 @@ void do_split(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_speak(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_speak, ch, argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	int language;
@@ -1186,7 +1216,7 @@ void do_speak(CHAR_DATA *ch, const char *argument)
 		 TO_CHAR | ACT_NOUCASE, POS_DEAD);
 }
 
-void do_twit(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_twit, ch, argument)
 {
 	char arg[MAX_STRING_LENGTH];
 
@@ -1207,10 +1237,10 @@ void do_twit(CHAR_DATA *ch, const char *argument)
 	name_toggle(&PC(ch)->twitlist, arg, ch, "Twitlist");
 }
 
-void do_lang(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_lang, ch, argument)
 {
 	char arg[MAX_STRING_LENGTH];
-	int lang;
+	uint lang;
 	lang_t *l;
 	DESCRIPTOR_DATA *d;
 
@@ -1239,7 +1269,7 @@ void do_lang(CHAR_DATA *ch, const char *argument)
 	if ((l = lang_lookup(arg)) == NULL) {
 		act_puts("Usage: lang [ ",
 			 ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
-		for (lang = 0; lang < langs.nused; lang++) {
+		for (lang = 0; lang < varr_size(&langs); lang++) {
 			l = VARR_GET(&langs, lang);
 			if (IS_SET(l->lang_flags, LANG_HIDDEN))
 				continue;
@@ -1257,7 +1287,7 @@ void do_lang(CHAR_DATA *ch, const char *argument)
 	do_look(ch, str_empty);
 }
 
-void do_judge(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_judge, ch, argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
@@ -1296,12 +1326,11 @@ void do_judge(CHAR_DATA *ch, const char *argument)
 		  TO_CHAR | ACT_NOTRANS | ACT_FORMSH, POS_DEAD);
 }
 
-void
-do_trust(CHAR_DATA *ch, const char *argument)
-{	
+DO_FUN(do_trust, ch, argument)
+{
 	char arg[MAX_INPUT_LENGTH];
 	PC_DATA *pc;
-	
+
 	if (IS_NPC(ch)) {
 		act_char("Huh?", ch);
 		return;
@@ -1368,7 +1397,7 @@ do_trust(CHAR_DATA *ch, const char *argument)
 	act_char("Syntax: trust {{ group | clan | all | none $}", ch);
 }
 
-void do_wanted(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_wanted, ch, argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
@@ -1439,7 +1468,7 @@ void do_wanted(CHAR_DATA *ch, const char *argument)
 /*-----------------------------------------------------------------------------
  * clan stuff
  */
-void do_mark(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_mark, ch, argument)
 {
 	OBJ_DATA *mark;
 	clan_t *clan = NULL;
@@ -1465,12 +1494,7 @@ void do_mark(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_petitio(CHAR_DATA *ch, const char *argument)
-{
-	act_char("You must enter full command to petition.", ch);
-}
-
-void do_petition(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_petition, ch, argument)
 {
 	bool accept;
 	clan_t *clan = NULL;
@@ -1752,7 +1776,7 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 	act_char("Petition sent.", ch);
 }
 
-void do_promote(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_promote, ch, argument)
 {
 	char arg1[MAX_STRING_LENGTH];
 	char arg2[MAX_STRING_LENGTH];
@@ -1867,12 +1891,7 @@ cleanup:
  * alias/unalias stuff
  */
 
-void do_alia(CHAR_DATA *ch, const char *argument)
-{
-	act_char("I'm sorry, alias must be entered in full.", ch);
-}
-
-void do_alias(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_alias, ch, argument)
 {
 	DESCRIPTOR_DATA *d;
 	char arg[MAX_INPUT_LENGTH];
@@ -1882,7 +1901,7 @@ void do_alias(CHAR_DATA *ch, const char *argument)
 		return;
 
 	argument = one_argument(argument, arg, sizeof(arg));
-    
+
 	if (arg[0] == '\0') {
 		if (d->dvdata->alias[0] == NULL) {
 			act_char("You have no aliases defined.", ch);
@@ -1926,7 +1945,7 @@ void do_alias(CHAR_DATA *ch, const char *argument)
 
 		act_char("That alias is not defined.", ch);
 		return;
-    	}
+	}
 
 	if (!str_prefix(argument, "delete")
 	||  !str_prefix(argument, "prefix")) {
@@ -1956,7 +1975,7 @@ void do_alias(CHAR_DATA *ch, const char *argument)
 		act_char("Sorry, you have reached the alias limit.", ch);
 		return;
 	}
-  
+
 	/*
 	 * make a new alias
 	 */
@@ -1967,21 +1986,16 @@ void do_alias(CHAR_DATA *ch, const char *argument)
 		 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 }
 
-void do_unalia(CHAR_DATA *ch, const char *argument)
-{
-	act_char("I'm sorry, unalias must be entered in full.", ch);
-}
-
-void do_unalias(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_unalias, ch, argument)
 {
 	DESCRIPTOR_DATA *d;
 	char arg[MAX_INPUT_LENGTH];
 	int pos;
 	bool found = FALSE;
- 
+
 	if ((d = ch->desc) == NULL)
 		return;
- 
+
 	argument = one_argument(argument, arg, sizeof(arg));
 	if (arg == '\0') {
 		act_char("Unalias what?", ch);
@@ -1994,7 +2008,7 @@ void do_unalias(CHAR_DATA *ch, const char *argument)
 
 		if (found) {
 			d->dvdata->alias[pos-1] = d->dvdata->alias[pos];
-	    		d->dvdata->alias_sub[pos-1] = d->dvdata->alias_sub[pos];
+			d->dvdata->alias_sub[pos-1] = d->dvdata->alias_sub[pos];
 			d->dvdata->alias[pos] = NULL;
 			d->dvdata->alias_sub[pos] = NULL;
 			continue;
@@ -2172,10 +2186,10 @@ toggle_t toggle_table[] =
 	  "You will now see empty equipment slots."
 	},
 
-	{ NULL }
+	{ NULL, NULL, NULL, NULL, 0, NULL, NULL }
 };
 
-void do_toggle(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_toggle, ch, argument)
 {
 	toggle_t *t;
 	char arg[MAX_INPUT_LENGTH];

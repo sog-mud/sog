@@ -23,9 +23,8 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: eventfun.c,v 1.33 2001-08-05 16:36:40 fjoe Exp $
+ * $Id: eventfun.c,v 1.34 2001-08-13 18:23:32 fjoe Exp $
  */
-
 
 #include <sys/time.h>
 #include <stdio.h>
@@ -35,7 +34,29 @@
 #include <handler.h>
 #include <magic.h>
 
-static void show_owner(CHAR_DATA *ch, AFFECT_DATA *af)
+DECLARE_EVENT_FUN(event_enter_lshield);
+DECLARE_EVENT_FUN(event_enter_alarm);
+DECLARE_EVENT_FUN(event_enter_shocking);
+DECLARE_EVENT_FUN(event_enter_thieftrap);
+DECLARE_EVENT_FUN(event_enter_mist);
+DECLARE_EVENT_FUN(event_update_plague);
+DECLARE_EVENT_FUN(event_update_poison);
+DECLARE_EVENT_FUN(event_update_slow);
+DECLARE_EVENT_FUN(event_update_sleep);
+DECLARE_EVENT_FUN(event_update_espirit);
+DECLARE_EVENT_FUN(event_leave_lshield);
+DECLARE_EVENT_FUN(event_enter_rlight);
+DECLARE_EVENT_FUN(event_update_rlight);
+DECLARE_EVENT_FUN(event_updatechar_wcurse);
+DECLARE_EVENT_FUN(event_updatechar_plague);
+DECLARE_EVENT_FUN(event_updatechar_poison);
+DECLARE_EVENT_FUN(event_updatefast_entangle);
+DECLARE_EVENT_FUN(event_updatechar_crippled_hands);
+DECLARE_EVENT_FUN(event_updatechar_bonedragon);
+DECLARE_EVENT_FUN(event_timeoutchar_bonedragon);
+
+static void
+show_owner(CHAR_DATA *ch, AFFECT_DATA *af)
 {
 	CHAR_DATA *owner;
 

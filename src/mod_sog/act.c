@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act.c,v 1.79 2001-08-03 11:27:38 fjoe Exp $
+ * $Id: act.c,v 1.80 2001-08-13 18:23:34 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -37,19 +37,21 @@
 
 #include <handler.h>
 
+#include "comm.h"
+
 /*
  * char/mob short/long formatting
  */
 
-static size_t
-GET_SEX(const mlstring *ml, size_t to_lang)
+static uint
+GET_SEX(const mlstring *ml, uint to_lang)
 {
 	int gender = flag_value(gender_table, mlstr_val(ml, to_lang));
 	return URANGE(0, gender, 4);
 }
 
 static int
-PERS_SEX(CHAR_DATA *ch, CHAR_DATA *looker, size_t to_lang)
+PERS_SEX(CHAR_DATA *ch, CHAR_DATA *looker, uint to_lang)
 {
 	if (ch != looker
 	&&  is_affected(ch, "doppelganger")
@@ -91,7 +93,7 @@ smash_tilde(const char *s, int act_flags)
  */
 const char *
 format_short(mlstring *mlshort, const char *name, CHAR_DATA *to,
-	     size_t to_lang, int act_flags)
+	     uint to_lang, int act_flags)
 {
         const char *sshort;
 
@@ -154,7 +156,7 @@ format_long(mlstring *ml, CHAR_DATA *to)
  * PERS formatting stuff
  */
 const char *
-PERS(CHAR_DATA *ch, CHAR_DATA *to, size_t to_lang, int act_flags)
+PERS(CHAR_DATA *ch, CHAR_DATA *to, uint to_lang, int act_flags)
 {
 	bool visible = can_see(to, ch);
 
@@ -264,7 +266,7 @@ struct tdata {
 
 static const char *
 act_format_text(const char *text, CHAR_DATA *ch, CHAR_DATA *to,
-		size_t to_lang, int act_flags)
+		uint to_lang, int act_flags)
 {
 	if (!IS_SET(act_flags, ACT_NOTRANS))
 		text = GETMSG(text, to_lang);
@@ -275,14 +277,14 @@ act_format_text(const char *text, CHAR_DATA *ch, CHAR_DATA *to,
 
 static const char *
 act_format_mltext(const mlstring *mltext, CHAR_DATA *ch,
-		  CHAR_DATA *to, size_t to_lang, int act_flags)
+		  CHAR_DATA *to, uint to_lang, int act_flags)
 {
 	return act_format_text(mlstr_val(mltext, to_lang),
 			       ch, to, to_lang, act_flags);
 }
 
 static const char *
-act_format_obj(OBJ_DATA *obj, CHAR_DATA *to, size_t to_lang,
+act_format_obj(OBJ_DATA *obj, CHAR_DATA *to, uint to_lang,
 	       int act_flags)
 {
 	if (!IS_NPC(to) && is_affected(to, "hallucination"))

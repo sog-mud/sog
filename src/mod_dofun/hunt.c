@@ -1,5 +1,5 @@
 /*
- * $Id: hunt.c,v 1.38 2001-07-31 18:14:42 fjoe Exp $
+ * $Id: hunt.c,v 1.39 2001-08-13 18:23:28 fjoe Exp $
  */
 
 /* Kak zovut sobaku Gejtsa?
@@ -14,6 +14,9 @@
 #include <merc.h>
 
 #include <handler.h>
+
+DECLARE_DO_FUN(do_hunt);
+DECLARE_DO_FUN(do_find);
 
 /***************************************************************************
  *  Original idea from SillyMUD v1.1b (C)1993.                             *
@@ -30,8 +33,7 @@ static int find_path(int in_room_vnum, int out_room_vnum,
 static char *find_way(CHAR_DATA *ch, ROOM_INDEX_DATA *rstart,
 		      ROOM_INDEX_DATA *rend);
 
-void
-do_hunt(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_hunt, ch, argument)
 {
 	char arg[MAX_STRING_LENGTH];
 	CHAR_DATA *victim;
@@ -39,7 +41,7 @@ do_hunt(CHAR_DATA *ch, const char *argument)
 	bool fArea, ok;
 	int chance;
 	int chance2;
-  
+
 	if (IS_NPC(ch) && ch->hunting) {
 		hunt_victim(ch);
 		return;
@@ -148,8 +150,7 @@ do_hunt(CHAR_DATA *ch, const char *argument)
 		 ch, dir_name[direction], victim, TO_CHAR, POS_DEAD);
 }
 
-void
-do_find(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_find, ch, argument)
 {
 	char* path;
 	ROOM_INDEX_DATA *location;

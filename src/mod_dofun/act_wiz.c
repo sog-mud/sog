@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.286 2001-08-05 16:36:36 fjoe Exp $
+ * $Id: act_wiz.c,v 1.287 2001-08-13 18:23:27 fjoe Exp $
  */
 
 /***************************************************************************
@@ -63,37 +63,104 @@
 
 #include <merc.h>
 #include <cmd.h>
-#include <ban.h>
 #include <rwfile.h>
+#include <module.h>
 
 #include <handler.h>
 #include <quest.h>
 
-/* command procedures needed */
-DECLARE_DO_FUN(do_rstat	);
-DECLARE_DO_FUN(do_mstat	);
-DECLARE_DO_FUN(do_dstat	);
-DECLARE_DO_FUN(do_ostat	);
+DECLARE_DO_FUN(do_objlist);
+DECLARE_DO_FUN(do_limited);
+DECLARE_DO_FUN(do_wiznet);
+DECLARE_DO_FUN(do_nonote);
+DECLARE_DO_FUN(do_nochannels);
+DECLARE_DO_FUN(do_smote);
+DECLARE_DO_FUN(do_bamfin);
+DECLARE_DO_FUN(do_bamfout);
+DECLARE_DO_FUN(do_disconnect);
+DECLARE_DO_FUN(do_echo);
+DECLARE_DO_FUN(do_recho);
+DECLARE_DO_FUN(do_zecho);
+DECLARE_DO_FUN(do_pecho);
+DECLARE_DO_FUN(do_transfer);
+DECLARE_DO_FUN(do_at);
+DECLARE_DO_FUN(do_goto);
+DECLARE_DO_FUN(do_stat);
+DECLARE_DO_FUN(do_vnum);
+DECLARE_DO_FUN(do_owhere);
+DECLARE_DO_FUN(do_mwhere);
+DECLARE_DO_FUN(do_protect);
+DECLARE_DO_FUN(do_snoop);
+DECLARE_DO_FUN(do_switch);
+DECLARE_DO_FUN(do_return);
+DECLARE_DO_FUN(do_clone);
+DECLARE_DO_FUN(do_load);
+DECLARE_DO_FUN(do_purge);
+DECLARE_DO_FUN(do_restore);
+DECLARE_DO_FUN(do_freeze);
+DECLARE_DO_FUN(do_log);
+DECLARE_DO_FUN(do_noemote);
+DECLARE_DO_FUN(do_notell);
+DECLARE_DO_FUN(do_peace);
+DECLARE_DO_FUN(do_wizlock);
+DECLARE_DO_FUN(do_newlock);
+DECLARE_DO_FUN(do_set);
+DECLARE_DO_FUN(do_string);
+DECLARE_DO_FUN(do_sockets);
+DECLARE_DO_FUN(do_force);
+DECLARE_DO_FUN(do_invis);
+DECLARE_DO_FUN(do_incognito);
+DECLARE_DO_FUN(do_holylight);
+DECLARE_DO_FUN(do_prefix);
+DECLARE_DO_FUN(do_advance);
+DECLARE_DO_FUN(do_smite);
+DECLARE_DO_FUN(do_popularity);
+DECLARE_DO_FUN(do_title);
+DECLARE_DO_FUN(do_rename);
+DECLARE_DO_FUN(do_wizpass);
+DECLARE_DO_FUN(do_noaffect);
+DECLARE_DO_FUN(do_affrooms);
+DECLARE_DO_FUN(do_grant);
+DECLARE_DO_FUN(do_qtarget);
+DECLARE_DO_FUN(do_slay);
+DECLARE_DO_FUN(do_ban);
+DECLARE_DO_FUN(do_memory);
+DECLARE_DO_FUN(do_dump);
+DECLARE_DO_FUN(do_mob);
+DECLARE_DO_FUN(do_shapeshift);
+DECLARE_DO_FUN(do_mpstat);
+DECLARE_DO_FUN(do_maxrnd);
+DECLARE_DO_FUN(do_modules);
+DECLARE_DO_FUN(do_shutdown);
+DECLARE_DO_FUN(do_reboot);
+
+/* local command procedures */
+DECLARE_DO_FUN(do_rstat);
+DECLARE_DO_FUN(do_mstat);
+DECLARE_DO_FUN(do_dstat);
+DECLARE_DO_FUN(do_ostat);
 #if 0
 XXX
 DECLARE_DO_FUN(do_mpstat);
 #endif
-DECLARE_DO_FUN(do_rset	);
-DECLARE_DO_FUN(do_mset	);
-DECLARE_DO_FUN(do_oset	);
-DECLARE_DO_FUN(do_sset	);
-DECLARE_DO_FUN(do_mfind	);
-DECLARE_DO_FUN(do_ofind	);
-DECLARE_DO_FUN(do_mload	);
-DECLARE_DO_FUN(do_oload	);
-DECLARE_DO_FUN(do_look	);
-DECLARE_DO_FUN(do_stand	);
-DECLARE_DO_FUN(do_help	);
+DECLARE_DO_FUN(do_rset);
+DECLARE_DO_FUN(do_mset);
+DECLARE_DO_FUN(do_oset);
+DECLARE_DO_FUN(do_sset);
+DECLARE_DO_FUN(do_mfind);
+DECLARE_DO_FUN(do_ofind);
+DECLARE_DO_FUN(do_mload);
+DECLARE_DO_FUN(do_oload);
+
+/* command procedures needed */
+DECLARE_DO_FUN(do_look);
+DECLARE_DO_FUN(do_stand);
+DECLARE_DO_FUN(do_help);
 DECLARE_DO_FUN(do_replay);
 
 static void advance(CHAR_DATA *victim, int level);
 
-void do_objlist(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_objlist, ch, argument)
 {
 	FILE *fp;
 	OBJ_DATA *obj;
@@ -124,16 +191,17 @@ void do_objlist(CHAR_DATA *ch, const char *argument)
 	fclose(fp);
 }
 
-void do_limited(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_limited, ch, argument)
 {
 	OBJ_DATA *obj;
-	OBJ_INDEX_DATA *obj_index;
 	int	lCount = 0;
 	int	ingameCount;
 	int	nMatch;
 	BUFFER *buf;
 
 	if (argument[0] != '\0')  {
+		OBJ_INDEX_DATA *obj_index;
+
 		obj_index = get_obj_index(atoi(argument));
 		if (obj_index == NULL)  {
 			act_char("Not found.", ch);
@@ -222,7 +290,7 @@ wiznet_lookup(const char *name)
 	return -1;
 }
 
-void do_wiznet(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_wiznet, ch, argument)
 {
 	int flag;
 	CHAR_DATA *vch;
@@ -285,7 +353,7 @@ void do_wiznet(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_nonote(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_nonote, ch, argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
@@ -335,7 +403,7 @@ cleanup:
 }
 
 /* RT nochannels command, for those spammers */
-void do_nochannels(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_nochannels, ch, argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
@@ -384,7 +452,7 @@ cleanup:
 		char_nuke(victim);
 }
 
-void do_smote(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_smote, ch, argument)
 {
 	CHAR_DATA *vch;
 	const char *letter, *name;
@@ -462,7 +530,7 @@ void do_smote(CHAR_DATA *ch, const char *argument)
 	}
 }	
 
-void do_bamfin(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_bamfin, ch, argument)
 {
 	CHAR_DATA *vch = GET_ORIGINAL(ch);
 
@@ -487,7 +555,7 @@ void do_bamfin(CHAR_DATA *ch, const char *argument)
 		 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 }
 
-void do_bamfout(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_bamfout, ch, argument)
 {
 	CHAR_DATA *vch = GET_ORIGINAL(ch);
 
@@ -499,20 +567,20 @@ void do_bamfout(CHAR_DATA *ch, const char *argument)
 			 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 		return;
 	}
-	
+
 	if (strstr(argument, vch->name) == NULL) {
 		act_char("You must include your name.", ch);
 		return;
 	}
-	
+
 	free_string(PC(vch)->bamfout);
 	PC(vch)->bamfout = str_dup(argument);
-	
+
 	act_puts("Your poofout is now '$t'", ch, PC(vch)->bamfout, NULL,
 		 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 }
 
-void do_disconnect(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_disconnect, ch, argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	DESCRIPTOR_DATA *d;
@@ -530,10 +598,10 @@ void do_disconnect(CHAR_DATA *ch, const char *argument)
 		desc = atoi(arg);
 		for (d = descriptor_list; d != NULL; d = d->next) {
 		        if (d->descriptor == desc) {
-		        	close_descriptor(d, SAVE_F_NORMAL);
-	        		act_char("Ok.", ch);
-	        		return;
-	        	}
+				close_descriptor(d, SAVE_F_NORMAL);
+				act_char("Ok.", ch);
+				return;
+			}
 		}
 	}
 
@@ -564,7 +632,7 @@ void do_disconnect(CHAR_DATA *ch, const char *argument)
 	act_char("Descriptor not found!", ch);
 }
 
-void do_echo(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_echo, ch, argument)
 {
 	DESCRIPTOR_DATA *d;
 	
@@ -586,7 +654,7 @@ void do_echo(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_recho(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_recho, ch, argument)
 {
 	DESCRIPTOR_DATA *d;
 	
@@ -609,7 +677,7 @@ void do_recho(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_zecho(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_zecho, ch, argument)
 {
 	DESCRIPTOR_DATA *d;
 
@@ -632,7 +700,7 @@ void do_zecho(CHAR_DATA *ch, const char *argument)
 		}
 }
 
-void do_pecho(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_pecho, ch, argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
@@ -658,7 +726,7 @@ void do_pecho(CHAR_DATA *ch, const char *argument)
 		 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 }
 
-void do_transfer(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_transfer, ch, argument)
 {
 	char arg1[MAX_INPUT_LENGTH];
 	char arg2[MAX_INPUT_LENGTH];
@@ -738,7 +806,7 @@ void do_transfer(CHAR_DATA *ch, const char *argument)
 	do_look(victim, "auto");
 }
 
-void do_at(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_at, ch, argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	ROOM_INDEX_DATA *location;
@@ -778,7 +846,7 @@ void do_at(CHAR_DATA *ch, const char *argument)
 	ch->on = on;
 }
 
-void do_goto(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_goto, ch, argument)
 {
 	ROOM_INDEX_DATA *location;
 	CHAR_DATA *rch;
@@ -863,7 +931,7 @@ void do_goto(CHAR_DATA *ch, const char *argument)
 
 /* RT to replace the 3 stat commands */
 
-void do_stat(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_stat, ch, argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	OBJ_DATA *obj;
@@ -927,7 +995,7 @@ void do_stat(CHAR_DATA *ch, const char *argument)
 	act_char("Nothing by that name found anywhere.", ch);
 }
 
-void do_rstat(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_rstat, ch, argument)
 {
 	char buf[MAX_STRING_LENGTH];
 	char arg[MAX_INPUT_LENGTH];
@@ -1031,7 +1099,7 @@ void do_rstat(CHAR_DATA *ch, const char *argument)
 	buf_free(output);
 }
 
-void do_ostat(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_ostat, ch, argument)
 {
 #if 0
 	XXX
@@ -1186,7 +1254,7 @@ print_sa_cb(void *p, va_list ap)
 	return NULL;
 }
 
-void do_mstat(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_mstat, ch, argument)
 {
 	char buf[MAX_STRING_LENGTH];
 	char arg[MAX_INPUT_LENGTH];
@@ -1453,7 +1521,7 @@ cleanup:
 		char_nuke(victim);
 }
 
-void do_dstat(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_dstat, ch, argument)
 {
 	BUFFER *output;
 	DESCRIPTOR_DATA *d;
@@ -1507,7 +1575,7 @@ void do_dstat(CHAR_DATA *ch, const char *argument)
 	buf_free(output);
 }
 
-void do_vnum(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_vnum, ch, argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	const char *string;
@@ -1534,7 +1602,7 @@ void do_vnum(CHAR_DATA *ch, const char *argument)
 	do_ofind(ch, argument);
 }
 
-void do_mfind(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_mfind, ch, argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	int i;
@@ -1570,7 +1638,7 @@ void do_mfind(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_ofind(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_ofind, ch, argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	int i;
@@ -1606,7 +1674,7 @@ void do_ofind(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_owhere(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_owhere, ch, argument)
 {
 	BUFFER *buffer = NULL;
 	OBJ_DATA *obj;
@@ -1664,7 +1732,7 @@ void do_owhere(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_mwhere(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_mwhere, ch, argument)
 {
 	BUFFER *buffer;
 	CHAR_DATA *victim;
@@ -1741,7 +1809,7 @@ void do_mwhere(CHAR_DATA *ch, const char *argument)
 		act("You didn't find any $T.", ch, NULL, argument, TO_CHAR);
 }
 
-void do_protect(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_protect, ch, argument)
 {
 	CHAR_DATA *victim;
 	bool loaded = FALSE;
@@ -1785,7 +1853,7 @@ cleanup:
 		char_nuke(victim);
 }
 
-void do_snoop(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_snoop, ch, argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	DESCRIPTOR_DATA *d;
@@ -1852,7 +1920,7 @@ void do_snoop(CHAR_DATA *ch, const char *argument)
 	act_char("Ok.", ch);
 }
 
-void do_switch(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_switch, ch, argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
@@ -1903,7 +1971,7 @@ void do_switch(CHAR_DATA *ch, const char *argument)
 	act_char("Ok.", victim);
 }
 
-void do_return(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_return, ch, argument)
 {
 	CHAR_DATA *vch = GET_ORIGINAL(ch);
 
@@ -1933,7 +2001,7 @@ static void recursive_clone(CHAR_DATA *ch, OBJ_DATA *obj, OBJ_DATA *clone)
 }
 
 /* command that is similar to load */
-void do_clone(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_clone, ch, argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	const char *rest;
@@ -2013,7 +2081,7 @@ void do_clone(CHAR_DATA *ch, const char *argument)
 
 /* RT to replace the two load commands */
 
-void do_load(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_load, ch, argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 
@@ -2038,7 +2106,7 @@ void do_load(CHAR_DATA *ch, const char *argument)
 	do_load(ch, str_empty);
 }
 
-void do_mload(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_mload, ch, argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	MOB_INDEX_DATA *pMobIndex;
@@ -2069,7 +2137,7 @@ void do_mload(CHAR_DATA *ch, const char *argument)
 	char_to_room(victim, ch->in_room);
 }
 
-void do_oload(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_oload, ch, argument)
 {
 	char arg1[MAX_INPUT_LENGTH] ,arg2[MAX_INPUT_LENGTH];
 	OBJ_INDEX_DATA *pObjIndex;
@@ -2104,7 +2172,7 @@ void do_oload(CHAR_DATA *ch, const char *argument)
 	act_char("Ok.", ch);
 }
 
-void do_purge(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_purge, ch, argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
@@ -2189,7 +2257,7 @@ restore_char(CHAR_DATA *ch, CHAR_DATA *vch)
 	act("$n has restored you.", ch, NULL, vch, TO_VICT);
 }
 
-void do_restore(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_restore, ch, argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
@@ -2243,7 +2311,7 @@ void do_restore(CHAR_DATA *ch, const char *argument)
 	act_char("Ok.", ch);
 }
 		
-void do_freeze(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_freeze, ch, argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
@@ -2295,7 +2363,7 @@ cleanup:
 		char_nuke(victim);
 }
 
-void do_log(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_log, ch, argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
@@ -2338,7 +2406,7 @@ void do_log(CHAR_DATA *ch, const char *argument)
 		act_char("LOG set.", ch);
 }
 
-void do_noemote(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_noemote, ch, argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
@@ -2387,7 +2455,7 @@ cleanup:
 		char_nuke(victim);
 }
 
-void do_notell(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_notell, ch, argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
@@ -2436,7 +2504,7 @@ cleanup:
 		char_nuke(victim);
 }
 
-void do_peace(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_peace, ch, argument)
 {
 	CHAR_DATA *rch;
 
@@ -2462,9 +2530,8 @@ void do_peace(CHAR_DATA *ch, const char *argument)
 	act_char("Ok.", ch);
 }
 
-void do_wizlock(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_wizlock, ch, argument)
 {
-	extern bool wizlock;
 	wizlock = !wizlock;
 
 	if (wizlock) {
@@ -2477,11 +2544,10 @@ void do_wizlock(CHAR_DATA *ch, const char *argument)
 }
 
 /* RT anti-newbie code */
-void do_newlock(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_newlock, ch, argument)
 {
-	extern bool newlock;
 	newlock = !newlock;
-	
+
 	if (newlock) {
 		wiznet("$N locks out new characters.", ch, NULL, 0, 0, 0);
 		act_char("New characters have been locked out.", ch);
@@ -2492,7 +2558,7 @@ void do_newlock(CHAR_DATA *ch, const char *argument)
 }
 
 /* RT set replaces sset, mset, oset, and rset */
-void do_set(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_set, ch, argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 
@@ -2539,7 +2605,7 @@ sset_cb(void *p, va_list ap)
 	return NULL;
 }
 
-void do_sset(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_sset, ch, argument)
 {
 	char arg1 [MAX_INPUT_LENGTH];
 	char arg2 [MAX_INPUT_LENGTH];
@@ -2603,7 +2669,7 @@ void do_sset(CHAR_DATA *ch, const char *argument)
 	update_skills(victim);
 }
 
-void do_string(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_string, ch, argument)
 {
 	char type[MAX_INPUT_LENGTH];
 	char arg1[MAX_INPUT_LENGTH];
@@ -2731,7 +2797,7 @@ void do_string(CHAR_DATA *ch, const char *argument)
 	do_string(ch,str_empty);
 }
 
-void do_oset(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_oset, ch, argument)
 {
 	char arg1[MAX_INPUT_LENGTH];
 	char arg2[MAX_INPUT_LENGTH];
@@ -2772,7 +2838,7 @@ void do_oset(CHAR_DATA *ch, const char *argument)
 	do_set(ch, str_empty);
 }
 
-void do_rset(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_rset, ch, argument)
 {
 	char arg1 [MAX_INPUT_LENGTH];
 	char arg2 [MAX_INPUT_LENGTH];
@@ -2828,7 +2894,7 @@ void do_rset(CHAR_DATA *ch, const char *argument)
 	do_set(ch, str_empty);
 }
 
-void do_sockets(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_sockets, ch, argument)
 {
 	BUFFER *output;
 	char arg[MAX_INPUT_LENGTH];
@@ -2903,7 +2969,7 @@ force_cb(void *vo, va_list ap)
 /*
  * Thanks to Grodyn for pointing out bugs in this function.
  */
-void do_force(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_force, ch, argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	char arg2[MAX_INPUT_LENGTH];
@@ -2984,7 +3050,7 @@ void do_force(CHAR_DATA *ch, const char *argument)
 /*
  * New routines by Dionysos.
  */
-void do_invis(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_invis, ch, argument)
 {
 	int level;
 	char arg[MAX_STRING_LENGTH];
@@ -3026,7 +3092,7 @@ void do_invis(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_incognito(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_incognito, ch, argument)
 {
 	int level;
 	char arg[MAX_STRING_LENGTH];
@@ -3066,7 +3132,7 @@ void do_incognito(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_holylight(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_holylight, ch, argument)
 {
 	CHAR_DATA *vch = GET_ORIGINAL(ch);
 
@@ -3081,12 +3147,7 @@ void do_holylight(CHAR_DATA *ch, const char *argument)
 
 /* prefix command: it will put the string typed on each line typed */
 
-void do_prefi(CHAR_DATA *ch, const char *argument)
-{
-	act_char("You cannot abbreviate the prefix command.", ch);
-}
-
-void do_prefix(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_prefix, ch, argument)
 {
 	DESCRIPTOR_DATA *d;
 
@@ -3111,7 +3172,7 @@ void do_prefix(CHAR_DATA *ch, const char *argument)
 		 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 }
 
-void do_advance(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_advance, ch, argument)
 {
 	char arg1[MAX_INPUT_LENGTH];
 	char arg2[MAX_INPUT_LENGTH];
@@ -3161,12 +3222,11 @@ void do_advance(CHAR_DATA *ch, const char *argument)
 cleanup:
 	if (altered)
 		char_save(victim, loaded ? SAVE_F_PSCAN : 0);
-	if (loaded) 
+	if (loaded)
 		char_nuke(victim);
 }
 
-void
-do_mset(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_mset, ch, argument)
 {
 	char arg1 [MAX_INPUT_LENGTH];
 	char arg2 [MAX_INPUT_LENGTH];
@@ -3711,7 +3771,7 @@ cleanup:
 		char_nuke(victim);
 }
 
-void do_smite(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_smite, ch, argument)
 {
 	CHAR_DATA *victim;
 
@@ -3749,11 +3809,10 @@ void do_smite(CHAR_DATA *ch, const char *argument)
 	victim->move = 0;
 }
 
-void do_popularity(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_popularity, ch, argument)
 {
 	BUFFER *output;
 	AREA_DATA *area;
-	extern AREA_DATA *area_first;
 	int i;
 
 	output = buf_new(GET_LANG(ch));
@@ -3770,7 +3829,7 @@ void do_popularity(CHAR_DATA *ch, const char *argument)
 	buf_free(output);
 }
 
-void do_title(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_title, ch, argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
@@ -3832,7 +3891,7 @@ cleanup:
  * .gz files are checked too, just in case.
  */
 
-void do_rename(CHAR_DATA* ch, const char *argument)
+DO_FUN(do_rename, ch, argument)
 {
 	char old_name[MAX_INPUT_LENGTH], 
 	     new_name[MAX_INPUT_LENGTH];
@@ -3965,7 +4024,7 @@ cleanup:
 		char_nuke(victim);
 } 
 
-void do_wizpass(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_wizpass, ch, argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	char arg2[MAX_INPUT_LENGTH];
@@ -4038,7 +4097,7 @@ cleanup:
 		char_nuke(victim);
 }
    
-void do_noaffect(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_noaffect, ch, argument)
 {
 	AFFECT_DATA *paf,*paf_next;
 	char arg[MAX_INPUT_LENGTH];
@@ -4090,7 +4149,7 @@ cleanup:
 		char_nuke(victim);
 }
 
-void do_affrooms(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_affrooms, ch, argument)
 {
 	ROOM_INDEX_DATA *room;
 	CHAR_DATA	*rch;
@@ -4169,7 +4228,7 @@ void do_affrooms(CHAR_DATA *ch, const char *argument)
 	buf_free(buf);
 }
 
-void do_grant(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_grant, ch, argument)
 {
 	cmd_t *cmd;
 	char arg1[MAX_INPUT_LENGTH];
@@ -4278,7 +4337,7 @@ cleanup:
 		char_nuke(victim);
 }
 
-void do_qtarget(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_qtarget, ch, argument)
 {
 	int low, high;
 	char arg[MAX_INPUT_LENGTH];
@@ -4308,13 +4367,7 @@ void do_qtarget(CHAR_DATA *ch, const char *argument)
 	aff_free(paf);
 }
 
-void do_sla(CHAR_DATA *ch, const char *argument)
-{
-	act_char("If you want to SLAY, spell it out.", ch);
-	return;
-}
-
-void do_slay(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_slay, ch, argument)
 {
 	CHAR_DATA *victim;
 	char arg[MAX_INPUT_LENGTH];
@@ -4346,25 +4399,20 @@ void do_slay(CHAR_DATA *ch, const char *argument)
 	raw_kill(ch, victim);
 }
 
-void do_ban(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_ban, ch, argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 
 	argument = one_argument(argument, arg, sizeof(arg));
 
 	if (arg[0] == '\0') {
-		ban_t *pban;
+		BUFFER *output;
 
-		if (ban_list == NULL) {
-			act_char("No ban rules defined.", ch);
-			return;
-  		}
+		output = buf_new(GET_LANG(ch));
+		dump_bans(output);
+		page_to_char(buf_string(output), ch);
+		buf_free(output);
 
-		act_char("Ban rules:", ch);
-		for (pban = ban_list; pban; pban = pban->next) {
-			act_puts("$t", ch, format_ban(pban), NULL,
-				 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
-		}
 		return;
 	}
 
@@ -4376,20 +4424,8 @@ void do_ban(CHAR_DATA *ch, const char *argument)
 		dofun("help", ch, "'WIZ BAN'");
 }
 
-void do_memory(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_memory, ch, argument)
 {
-	extern int str_count;
-	extern int str_real_count;
-#if STR_ALLOC_MEM
-	extern int str_alloc_mem;
-#endif
-	extern int npc_count;
-	extern int npc_free_count;
-	extern int pc_count;
-	extern int pc_free_count;
-	extern int dvdata_count;
-	extern int dvdata_real_count;
-
 	BUFFER *buf;
 
 	buf = buf_new(0);
@@ -4469,7 +4505,7 @@ void do_memory(CHAR_DATA *ch, const char *argument)
 	buf_free(buf);
 }
 
-void do_dump(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_dump, ch, argument)
 {
 	int count,count2,num_pcs,aff_count;
 	CHAR_DATA *fch;
@@ -4599,7 +4635,7 @@ void do_dump(CHAR_DATA *ch, const char *argument)
 
 #if 0
 XXX
-void do_mob(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_mob, ch, argument)
 {
 	/*
 	 * Security check!
@@ -4610,7 +4646,7 @@ void do_mob(CHAR_DATA *ch, const char *argument)
 }
 #endif
 
-void do_shapeshift(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_shapeshift, ch, argument)
 {
 	char arg[MAX_STRING_LENGTH];
 	form_index_t *form;
@@ -4637,7 +4673,7 @@ XXX
  *
  * Syntax: mpstat [name]
  */
-void do_mpstat(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_mpstat, ch, argument)
 {
 	char arg[MAX_STRING_LENGTH];
 	MPTRIG  *mptrig;
@@ -4694,8 +4730,7 @@ void do_mpstat(CHAR_DATA *ch, const char *argument)
 extern int max_rnd_cnt;
 extern int rnd_cnt;
 
-void
-do_maxrnd(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_maxrnd, ch, argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 
@@ -4776,3 +4811,191 @@ advance(CHAR_DATA *victim, int level)
 	PC(victim)->practice	= pra;
 }
 
+DO_FUN(do_modules, ch, argument)
+{
+	char arg[MAX_INPUT_LENGTH];
+
+	argument = one_argument(argument, arg, sizeof(arg));
+	if (arg[0] == '\0') {
+		dofun("help", ch, "'WIZ MODULES'");
+		return;
+	}
+
+	if (!str_prefix(arg, "reload")
+	||  !str_prefix(arg, "load")) {
+		module_t *m;
+		time_t curr_time;
+
+		one_argument(argument, arg, sizeof(arg));
+		if (arg[0] == '\0') {
+			do_modules(ch, str_empty);
+			return;
+		}
+
+		if ((m = mod_lookup(arg)) == NULL) {
+			act_puts("$t: unknown module name.",
+				 ch, arg, NULL,
+				 TO_CHAR | ACT_NOUCASE | ACT_NOTRANS, POS_DEAD);
+			return;
+		}
+
+		if (m->dlh == NULL) {
+			act_puts("$t: module was unloaded and can't be reloaded.",
+				 ch, arg, NULL,
+				 TO_CHAR | ACT_NOUCASE | ACT_NOTRANS, POS_DEAD);
+			return;
+		}
+
+		log(LOG_INFO, "do_modules: reloading module '%s'", m->name);
+		act_puts("Reloading module '$t'.",
+			 ch, m->name, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
+
+		/*
+		 * clear input buffer
+		 */
+		if (ch->desc != NULL)
+			ch->desc->incomm[0] = '\0';
+
+		log_setchar(ch);
+		time(&curr_time);
+		if (!mod_reload(m, curr_time))
+			act_char("Ok.", ch);
+		log_unsetchar();
+		return;
+	}
+
+	if (!str_prefix(arg, "list")
+	||  !str_prefix(arg, "status")) {
+		int i;
+		BUFFER *buf;
+
+		if (modules.nused == 0) {
+			act_char("No modules found.", ch);
+			return;
+		}
+
+		buf = buf_new(GET_LANG(ch));
+		buf_append(buf, "  Module  Prio          Load time         Deps\n");
+		buf_append(buf, "--------- ---- -------------------------- -----------------------------------\n");	// notrans
+		for (i = 0; i < modules.nused; i++) {
+			module_t *m = VARR_GET(&modules, i);
+			buf_printf(buf, BUF_END, "%9s %4d [%24s] %s\n", // notrans
+				   m->name,
+				   m->mod_prio,
+				   m->dlh == NULL ? "module was unloaded" :
+				   m->last_reload ? strtime(m->last_reload) :
+						    "never",
+				   m->mod_deps);
+		}
+
+		page_to_char(buf_string(buf), ch);
+		buf_free(buf);
+
+		return;
+	}
+
+	do_modules(ch, str_empty);
+}
+
+DO_FUN(do_shutdown, ch, argument)
+{
+	bool active;
+	char arg[MAX_INPUT_LENGTH];
+
+	one_argument(argument, arg, sizeof(arg));
+	if (arg[0] == '\0') {
+		dofun("help", ch, "'WIZ SHUTDOWN'");
+		return;
+	}
+
+	active = dfexist(TMP_PATH, SHUTDOWN_FILE);
+
+	if (!str_prefix(arg, "status")) {
+		act_puts(active ? "Shutdown status: active" :
+				  "Shutdown status: inactive",
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+		return;
+	}
+
+	if (!str_prefix(arg, "activate")) {
+		if (!active) {
+			FILE *fp = dfopen(TMP_PATH, SHUTDOWN_FILE, "w");
+			if (!fp) {
+				act_puts("Error: $t",
+					 ch, strerror(errno), NULL,
+					 TO_CHAR | ACT_NOTRANS, POS_DEAD);
+				return;
+			}
+			fclose(fp);
+			wiznet("$N has activated shutdown.", ch, NULL, 0, 0, 0);
+			act_char("Shutdown activated.", ch);
+		} else
+			act_char("Shutdown already activated.", ch);
+		return;
+	}
+
+	if (!str_prefix(arg, "deactivate") || !str_prefix(arg, "cancel")) {
+		if (!active)
+			act_char("Shutdown already inactive.", ch);
+		else {
+			if (dunlink(TMP_PATH, SHUTDOWN_FILE) < 0) {
+				act_puts("Error: $t",
+					 ch, strerror(errno), NULL,
+					 TO_CHAR | ACT_NOTRANS, POS_DEAD);
+				return;
+			}
+			wiznet("$N has deactivated shutdown.",
+				ch, NULL, 0, 0, 0);
+			act_char("Shutdown deactivated.", ch);
+		}
+		return;
+	}
+
+	do_shutdown(ch, str_empty);
+}
+
+DO_FUN(do_reboot, ch, argument)
+{
+	char arg[MAX_INPUT_LENGTH];
+
+	argument = one_argument(argument, arg, sizeof(arg));
+
+	if (arg[0] == '\0') {
+		dofun("help", ch, "'WIZ REBOOT'");
+		return;
+	}
+
+	if (is_name(arg, "cancel")) {
+		reboot_counter = -1;
+		act_char("Reboot canceled.", ch);
+		return;
+	}
+
+	if (is_name(arg, "now")) {
+		rebooter = 1;
+		reboot_mud();
+		return;
+	}
+
+	if (is_name(arg, "status")) {
+		if (reboot_counter == -1)
+			act_char("Automatic rebooting is inactive.", ch);
+		else {
+			act_puts("Reboot in $j $qj{minutes}.",
+				 ch, (const void *) reboot_counter, NULL,
+				 TO_CHAR, POS_DEAD);
+		}
+		return;
+	}
+
+	if (is_number(arg)) {
+		reboot_counter = atoi(arg);
+		rebooter = 1;
+		act_puts("SoG will reboot in $j $qj{ticks}.",
+			 ch, (const void *) reboot_counter, NULL,
+			 TO_CHAR, POS_DEAD);
+		return;
+	}
+
+	do_reboot(ch, "");
+}

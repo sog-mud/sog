@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.133 2001-08-03 11:27:43 fjoe Exp $
+ * $Id: olc.c,v 1.134 2001-08-13 18:23:48 fjoe Exp $
  */
 
 /***************************************************************************
@@ -49,6 +49,17 @@
 #include <module.h>
 
 #include <handler.h>
+
+DECLARE_MODINIT_FUN(_module_load);
+DECLARE_MODINIT_FUN(_module_unload);
+
+bool _olc_interpret(DESCRIPTOR_DATA *d, const char *argument);
+
+DECLARE_DO_FUN(do_create);
+DECLARE_DO_FUN(do_edit);
+DECLARE_DO_FUN(do_asave);
+DECLARE_DO_FUN(do_alist);
+DECLARE_DO_FUN(do_ashow);
 
 /*
  * The version info.  Please use this info when reporting bugs.
@@ -113,11 +124,11 @@ olced_t olced_table[] = {
 	{ ED_LIQUID,	"LiqEd",	olc_cmds_liq	},
 	{ ED_SKILL,	"SkillEd",	olc_cmds_skill	},
 	{ ED_SPEC,	"SpecEd",	olc_cmds_spec	},
-	{ ED_CMD,	"CmdEd",	olc_cmds_cmd	}, 
-	{ ED_DAMT,	"DamtEd",	olc_cmds_damt	}, 
-	{ ED_HINT,	"HintEd",	olc_cmds_hint	}, 
+	{ ED_CMD,	"CmdEd",	olc_cmds_cmd	},
+	{ ED_DAMT,	"DamtEd",	olc_cmds_damt	},
+	{ ED_HINT,	"HintEd",	olc_cmds_hint	},
 
-	{ NULL }
+	{ NULL, NULL, NULL }
 };
 
 static olc_cmd_t *	olc_cmd_lookup(olc_cmd_t *cmd_table, const char *name);
@@ -127,19 +138,20 @@ static void do_olc(CHAR_DATA *ch, const char *argument, int fun);
 const char *skip_commands[] = { "n", "w", "e", "s", "u", "d" };
 #define NSKIP_COMMANDS (sizeof(skip_commands) / sizeof(*skip_commands))
 
-int
-_module_load(module_t *m)
+MODINIT_FUN(_module_load, m)
 {
-	varr_foreach(&commands, cmd_load_cb, MODULE, m);
 	olc_interpret = dlsym(m->dlh, "_olc_interpret");
-	if (olc_interpret == NULL)
-		log(LOG_INFO, "_module_load(olc): %s", dlerror());
+	if (olc_interpret == NULL) {
+		log(LOG_INFO, "_module_load(mod_olc): %s", dlerror());
+		return -1;
+	}
+
+	varr_foreach(&commands, cmd_load_cb, MODULE, m);
 	qsort(skip_commands, NSKIP_COMMANDS, sizeof(*skip_commands), cmpstr);
 	return 0;
 }
 
-int
-_module_unload(module_t *m)
+MODINIT_FUN(_module_unload, m)
 {
 	DESCRIPTOR_DATA *d;
 
@@ -159,7 +171,8 @@ _module_unload(module_t *m)
 	return 0;
 }
 
-bool _olc_interpret(DESCRIPTOR_DATA *d, const char *argument)
+bool
+_olc_interpret(DESCRIPTOR_DATA *d, const char *argument)
 {
 	char command[MAX_INPUT_LENGTH];
 	olc_cmd_t *cmd;
@@ -197,17 +210,17 @@ bool _olc_interpret(DESCRIPTOR_DATA *d, const char *argument)
 	return TRUE;
 }
 
-void do_create(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_create, ch, argument)
 {
 	do_olc(ch, argument, FUN_CREATE);
 }
 
-void do_edit(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_edit, ch, argument)
 {
 	do_olc(ch, argument, FUN_EDIT);
 }
 
-void do_asave(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_asave, ch, argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 
@@ -223,12 +236,12 @@ void do_asave(CHAR_DATA *ch, const char *argument)
 	do_olc(ch, argument, FUN_SAVE);
 }
 
-void do_alist(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_alist, ch, argument)
 {
 	do_olc(ch, argument, FUN_LIST);
 }
 
-void do_ashow(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_ashow, ch, argument)
 {
 	do_olc(ch, argument, FUN_SHOW);
 }
@@ -237,7 +250,8 @@ void do_ashow(CHAR_DATA *ch, const char *argument)
  * olced_busy -- returns TRUE if there is another character
  *		 is using the same OLC editor
  */
-bool olced_busy(CHAR_DATA *ch, const char *id, void *edit, void *edit2)
+bool
+olced_busy(CHAR_DATA *ch, const char *id, void *edit, void *edit2)
 {
 	DESCRIPTOR_DATA *d;
 
@@ -346,7 +360,7 @@ _olced_mlstrkey(CHAR_DATA *ch, const char *langname, const char *argument,
 
 	if (!str_cmp(langname, "all"))
 		lang = NULL;
-	else if ((lang = lang_lookup(langname)) < 0) {
+	else if ((lang = lang_lookup(langname)) == NULL) {
 		act_puts("$t: $T: unknown language",
 			 ch, OLCED(ch)->name, langname,
 			 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
@@ -425,8 +439,8 @@ OLC_FUN(olced_mlstrkey)
 	return _olced_mlstrkey(ch, arg, argument, cmd);
 }
 
-bool olced_number(CHAR_DATA *ch, const char *argument,
-		  olc_cmd_t* cmd, int *pInt)
+bool
+olced_number(CHAR_DATA *ch, const char *argument, olc_cmd_t* cmd, int *pInt)
 {
 	int val;
 	char *endptr;
@@ -448,8 +462,9 @@ bool olced_number(CHAR_DATA *ch, const char *argument,
 	return TRUE;
 }
 
-bool olced_name(CHAR_DATA *ch, const char *argument,
-		olc_cmd_t *cmd, const char **pStr)
+bool
+olced_name(CHAR_DATA *ch, const char *argument,
+	   olc_cmd_t *cmd, const char **pStr)
 {
 	bool changed;
 	char arg[MAX_INPUT_LENGTH];
@@ -479,8 +494,9 @@ bool olced_name(CHAR_DATA *ch, const char *argument,
 	return changed;
 }
 
-bool olced_foreign_strkey(CHAR_DATA *ch, const char *argument,
-			  olc_cmd_t *cmd, const char **pStr)
+bool
+olced_foreign_strkey(CHAR_DATA *ch, const char *argument,
+		     olc_cmd_t *cmd, const char **pStr)
 {
 	hash_t *h;
 	void *p;
@@ -525,8 +541,9 @@ bool olced_foreign_strkey(CHAR_DATA *ch, const char *argument,
 	return TRUE;
 }
 
-bool olced_foreign_mlstrkey(CHAR_DATA *ch, const char *argument,
-			    olc_cmd_t *cmd, const char **pStr)
+bool
+olced_foreign_mlstrkey(CHAR_DATA *ch, const char *argument,
+		       olc_cmd_t *cmd, const char **pStr)
 {
 	hash_t *h;
 	void *p;
@@ -571,8 +588,9 @@ bool olced_foreign_mlstrkey(CHAR_DATA *ch, const char *argument,
 	return TRUE;
 }
 
-bool olced_str(CHAR_DATA *ch, const char *argument,
-	       olc_cmd_t *cmd, const char **pStr)
+bool
+olced_str(CHAR_DATA *ch, const char *argument,
+	  olc_cmd_t *cmd, const char **pStr)
 {
 	if (IS_NULLSTR(argument)) {
 		act_puts("Syntax: $t <string>",
@@ -589,8 +607,9 @@ bool olced_str(CHAR_DATA *ch, const char *argument,
 	return TRUE;
 }
 
-bool olced_str_text(CHAR_DATA *ch, const char *argument,
-		    olc_cmd_t *cmd, const char **pStr)
+bool
+olced_str_text(CHAR_DATA *ch, const char *argument,
+	       olc_cmd_t *cmd, const char **pStr)
 {
 	if (argument[0] =='\0') {
 		string_append(ch, pStr);
@@ -602,8 +621,9 @@ bool olced_str_text(CHAR_DATA *ch, const char *argument,
 	return FALSE;
 }
 
-bool olced_mlstr(CHAR_DATA *ch, const char *argument,
-		 olc_cmd_t *cmd, mlstring *mlp)
+bool
+olced_mlstr(CHAR_DATA *ch, const char *argument,
+	    olc_cmd_t *cmd, mlstring *mlp)
 {
 	if (!mlstr_edit(mlp, argument)) {
 		act_puts("Syntax: $t <lang> <string>",
@@ -614,8 +634,9 @@ bool olced_mlstr(CHAR_DATA *ch, const char *argument,
 	return TRUE;
 }
 
-bool olced_mlstrnl(CHAR_DATA *ch, const char *argument,
-		   olc_cmd_t *cmd, mlstring *mlp)
+bool
+olced_mlstrnl(CHAR_DATA *ch, const char *argument,
+	      olc_cmd_t *cmd, mlstring *mlp)
 {
 	if (!mlstr_editnl(mlp, argument)) {
 		act_puts("Syntax: $t <lang> <string>",
@@ -626,8 +647,9 @@ bool olced_mlstrnl(CHAR_DATA *ch, const char *argument,
 	return TRUE;
 }
 
-bool olced_mlstr_text(CHAR_DATA *ch, const char *argument,
-		      olc_cmd_t *cmd, mlstring *mlp)
+bool
+olced_mlstr_text(CHAR_DATA *ch, const char *argument,
+		 olc_cmd_t *cmd, mlstring *mlp)
 {
 	if (!mlstr_append(ch, mlp, argument)) {
 		act_puts("Syntax: $t <lang>",
@@ -643,8 +665,9 @@ static MLSTR_FOREACH_FUN(cb_format, lang, p, ap)
 	return NULL;
 }
 
-bool olced_exd(CHAR_DATA *ch, const char* argument,
-	       olc_cmd_t *cmd, ED_DATA **ped)
+bool
+olced_exd(CHAR_DATA *ch, const char* argument,
+	  olc_cmd_t *cmd __attribute__((unused)), ED_DATA **ped)
 {
 	ED_DATA *ed;
 	char command[MAX_INPUT_LENGTH];
@@ -795,8 +818,8 @@ bool olced_exd(CHAR_DATA *ch, const char* argument,
 	OLC_ERROR("'OLC EXD'");
 }
 
-bool olced_flag(CHAR_DATA *ch, const char *argument,
-		  olc_cmd_t* cmd, flag_t *pflag)
+bool
+olced_flag(CHAR_DATA *ch, const char *argument, olc_cmd_t* cmd, flag_t *pflag)
 {
 	const flaginfo_t *flag_table;
 	const flaginfo_t *f;
@@ -830,12 +853,12 @@ bool olced_flag(CHAR_DATA *ch, const char *argument,
 		 */
 		for (;;) {
 			char word[MAX_INPUT_LENGTH];
-	
+
 			argument = one_argument(argument, word, sizeof(word));
-	
+
 			if (word[0] == '\0')
 				break;
-	
+
 			if ((f = flag_lookup(cmd->arg1, word)) == NULL) {
 				act_puts("Syntax: $t <flag(s)>",
 					 ch, cmd->name, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
@@ -856,7 +879,7 @@ bool olced_flag(CHAR_DATA *ch, const char *argument,
 
 		if (cmd->validator && !cmd->validator(ch, &marked))
 			return FALSE;
-	
+
 		if (marked) {
 			flag_t fset = ~(*pflag) & marked;
 			flag_t freset = *pflag & marked;
@@ -900,7 +923,7 @@ bool olced_flag(CHAR_DATA *ch, const char *argument,
 
 		if (cmd->validator && !cmd->validator(ch, &f->bit))
 			return FALSE;
-	
+
 		*pflag = f->bit;
 		act_puts3("$t: $T: '$U': Ok.",
 			  ch, OLCED(ch)->name, cmd->name, f->name,
@@ -920,15 +943,15 @@ bool olced_flag(CHAR_DATA *ch, const char *argument,
 	}
 }
 
-bool olced_dice(CHAR_DATA *ch, const char *argument,
-		olc_cmd_t *cmd, int *dice)
+bool
+olced_dice(CHAR_DATA *ch, const char *argument, olc_cmd_t *cmd, int *pdice)
 {
 	int num, type, bonus;
 	char* p;
 
 	if (argument[0] == '\0')
 		goto bail_out;
-	
+
 	num = strtol(argument, &p, 0);
 	if (num < 1 || *p != 'd')
 		goto bail_out;
@@ -936,17 +959,17 @@ bool olced_dice(CHAR_DATA *ch, const char *argument,
 	type = strtol(p+1, &p, 0);
 	if (type < 1 || *p != '+')
 		goto bail_out;
-	
+
 	bonus = strtol(p+1, &p, 0);
 	if (bonus < 0 || *p != '\0')
 		goto bail_out;
 
-	dice[DICE_NUMBER] = num;
-	dice[DICE_TYPE]   = type;
-	dice[DICE_BONUS]  = bonus;
+	pdice[DICE_NUMBER] = num;
+	pdice[DICE_TYPE]   = type;
+	pdice[DICE_BONUS]  = bonus;
 
 	act_puts("$t set to $T.",
-		 ch, cmd->name, format_dice(dice),
+		 ch, cmd->name, format_dice(pdice),
 		 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 	return TRUE;
 
@@ -956,8 +979,8 @@ bail_out:
 	return FALSE;
 }
 
-bool olced_rulecl(CHAR_DATA *ch, const char *argument,
-		  olc_cmd_t *cmd, lang_t *l)
+bool
+olced_rulecl(CHAR_DATA *ch, const char *argument, olc_cmd_t *cmd, lang_t *l)
 {
 	char arg[MAX_INPUT_LENGTH];
 	char arg2[MAX_INPUT_LENGTH];
@@ -994,8 +1017,9 @@ bool olced_rulecl(CHAR_DATA *ch, const char *argument,
 	OLC_ERROR("'OLC RULECLASS'");
 }
 
-bool olced_vform_add(CHAR_DATA *ch, const char *argument,
-		     olc_cmd_t *cmd, rule_t *r)
+bool
+olced_vform_add(CHAR_DATA *ch, const char *argument,
+		olc_cmd_t *cmd __attribute__((unused)), rule_t *r)
 {
 	char arg[MAX_INPUT_LENGTH];
 	int fnum;
@@ -1011,8 +1035,9 @@ bool olced_vform_add(CHAR_DATA *ch, const char *argument,
 	return TRUE;
 }
 
-bool olced_vform_del(CHAR_DATA *ch, const char *argument,
-		     olc_cmd_t *cmd, rule_t *r)
+bool
+olced_vform_del(CHAR_DATA *ch, const char *argument,
+		olc_cmd_t *cmd __attribute__((unused)), rule_t *r)
 {
 	char arg[MAX_INPUT_LENGTH];
 	int fnum;
@@ -1026,8 +1051,8 @@ bool olced_vform_del(CHAR_DATA *ch, const char *argument,
 	return TRUE;
 }
 
-bool olced_ival(CHAR_DATA *ch, const char *argument,
-		olc_cmd_t *cmd, int *pInt)
+bool
+olced_ival(CHAR_DATA *ch, const char *argument, olc_cmd_t *cmd, int *pInt)
 {
 	if (is_number(argument))
 		return olced_number(ch, argument, cmd, pInt);
@@ -1067,7 +1092,8 @@ olced_gender(CHAR_DATA *ch, const char *argument, olc_cmd_t *cmd, mlstring *g)
 }
 
 bool
-olced_addaffect(CHAR_DATA *ch, const char *argument, olc_cmd_t *cmd,
+olced_addaffect(CHAR_DATA *ch, const char *argument,
+		olc_cmd_t *cmd __attribute__((unused)),
 		int level, AFFECT_DATA **ppaf)
 {
 	where_t *w;
@@ -1141,6 +1167,7 @@ olced_addaffect(CHAR_DATA *ch, const char *argument, olc_cmd_t *cmd,
 		argument = one_argument(argument, arg2, sizeof(arg2));
 		break;
 	}
+
 	default:
 		if (!str_cmp(arg2, "none")) {
 			if (where == TO_RESIST) {
@@ -1178,7 +1205,7 @@ olced_addaffect(CHAR_DATA *ch, const char *argument, olc_cmd_t *cmd,
 	/*
 	 * set `bitvector'
 	 */
-	if (w
+	if (w != NULL
 	&&  argument[0] != '\0'
 	&&  (bitvector = flag_value(w->bit_table, argument)) == 0) {
 		act_puts("Valid '$t' bitaffect flags are:",
@@ -1209,8 +1236,8 @@ olced_addaffect(CHAR_DATA *ch, const char *argument, olc_cmd_t *cmd,
 }
 
 bool
-olced_delaffect(CHAR_DATA *ch, const char *argument, olc_cmd_t *cmd,
-		AFFECT_DATA **ppaf)
+olced_delaffect(CHAR_DATA *ch, const char *argument,
+		olc_cmd_t *cmd __attribute__((unused)), AFFECT_DATA **ppaf)
 {
 	AFFECT_DATA *paf;
 	AFFECT_DATA *paf_prev = NULL;
@@ -1235,16 +1262,17 @@ olced_delaffect(CHAR_DATA *ch, const char *argument, olc_cmd_t *cmd,
 		;
 
 	if (paf == NULL) {
+		int n = atoi(arg);
 		act_puts("$T: affect $j not found.",
-			 ch, (const void *) atoi(arg), OLCED(ch)->name,
+			 ch, (const void *) n, OLCED(ch)->name,
 			 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 		return FALSE;
 	}
 
 	if (paf_prev == NULL)
 		*ppaf = (*ppaf)->next;
-	else 
-		paf_prev->next = paf->next; 
+	else
+		paf_prev->next = paf->next;
 
 	aff_free(paf);
 	act_char("Affect removed.", ch);
@@ -1288,7 +1316,7 @@ VALIDATE_FUN(validate_filename)
 
 VALIDATE_FUN(validate_room_vnum)
 {
-	int vnum = *(int*) arg;
+	int vnum = *(const int *) arg;
 
 	if (vnum && get_room_index(vnum) == NULL) {
 		act_puts("OLC: $j: no such room.",
@@ -1329,7 +1357,7 @@ OLC_FUN(show_commands)
 	BUFFER *	output;
 	int		col;
 
-	output = buf_new(0); 
+	output = buf_new(0);
 
 	col = 0;
 	for (cmd = OLCED(ch)->cmd_table+FUN_FIRST; cmd->name; cmd++) {
@@ -1358,7 +1386,8 @@ OLC_FUN(show_version)
 	return FALSE;
 }
 
-AREA_DATA *get_edited_area(CHAR_DATA *ch)
+AREA_DATA *
+get_edited_area(CHAR_DATA *ch)
 {
 	int vnum;
 	olced_t *olced = OLCED(ch);
@@ -1391,7 +1420,8 @@ AREA_DATA *get_edited_area(CHAR_DATA *ch)
 	return area_vnum_lookup(vnum);
 }
 
-void edit_done(DESCRIPTOR_DATA *d)
+void
+edit_done(DESCRIPTOR_DATA *d)
 {
 	d->pEdit = NULL;
 	d->olced = NULL;
@@ -1400,7 +1430,8 @@ void edit_done(DESCRIPTOR_DATA *d)
 /*
  * lookup OLC editor by id
  */
-olced_t *olced_lookup(const char * id)
+olced_t *
+olced_lookup(const char * id)
 {
 	olced_t *olced;
 
@@ -1413,7 +1444,8 @@ olced_t *olced_lookup(const char * id)
 	return NULL;
 }
 
-void olc_printf(CHAR_DATA *ch, const char *format, ...)
+void
+olc_printf(CHAR_DATA *ch, const char *format, ...)
 {
 	char buf[MAX_STRING_LENGTH];
 	va_list ap;
@@ -1430,7 +1462,8 @@ void olc_printf(CHAR_DATA *ch, const char *format, ...)
 	wiznet("$t", ch, buf, WIZ_OLC, 0, 0);
 }
 
-bool olc_trusted(CHAR_DATA *ch, int min_sec)
+bool
+olc_trusted(CHAR_DATA *ch, int min_sec)
 {
 	int sec = ch ? (IS_NPC(ch) ? 0 : PC(ch)->security) : 9;
 
@@ -1442,8 +1475,8 @@ bool olc_trusted(CHAR_DATA *ch, int min_sec)
 	return TRUE;
 }
 
-FILE *olc_fopen(const char *path, const char *file,
-		CHAR_DATA *ch, int min_sec)
+FILE *
+olc_fopen(const char *path, const char *file, CHAR_DATA *ch, int min_sec)
 {
 	FILE *fp;
 
@@ -1558,11 +1591,11 @@ show_resets(CHAR_DATA *ch, int vnum, const char *xxx,
 }
 
 const char *
-format_dice(int *dice)
+format_dice(int *pdice)
 {
 	static char buf[MAX_STRING_LENGTH];
 	snprintf(buf, sizeof(buf), "%dd%d+%d",
-		 dice[DICE_NUMBER], dice[DICE_TYPE], dice[DICE_BONUS]);
+		 pdice[DICE_NUMBER], pdice[DICE_TYPE], pdice[DICE_BONUS]);
 	return buf;
 }
 
@@ -1571,7 +1604,8 @@ format_dice(int *dice)
  */
 
 /* lookup cmd function by name */
-static olc_cmd_t *olc_cmd_lookup(olc_cmd_t *cmd_table, const char *name)
+static olc_cmd_t *
+olc_cmd_lookup(olc_cmd_t *cmd_table, const char *name)
 {
 	for (; cmd_table->name; cmd_table++)
 		if (!str_prefix(name, cmd_table->name))
@@ -1579,7 +1613,7 @@ static olc_cmd_t *olc_cmd_lookup(olc_cmd_t *cmd_table, const char *name)
 	return NULL;
 }
 
-char* help_topics[FUN_MAX] =
+const char *help_topics[FUN_MAX] =
 {
 	"'OLC CREATE'",
 	"'OLC EDIT'",
@@ -1589,7 +1623,8 @@ char* help_topics[FUN_MAX] =
 	"'OLC ALIST'"
 };
 
-static void do_olc(CHAR_DATA *ch, const char *argument, int fun)
+static void
+do_olc(CHAR_DATA *ch, const char *argument, int fun)
 {
 	char command[MAX_INPUT_LENGTH];
 	olced_t *olced;
@@ -1602,11 +1637,10 @@ static void do_olc(CHAR_DATA *ch, const char *argument, int fun)
 	if ((olced = olced_lookup(command)) == NULL
 	||  (olc_fun = olced->cmd_table[fun].olc_fun) == NULL) {
 		if (ch) {
-        		dofun("help", ch, help_topics[fun]);
+			dofun("help", ch, help_topics[fun]);
 		}
-        	return;
+		return;
 	}
 
 	olced->cmd_table[fun].olc_fun(ch, argument, olced->cmd_table+fun);
 }
-

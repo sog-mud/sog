@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.188 2001-08-05 16:36:38 fjoe Exp $
+ * $Id: martial_art.c,v 1.189 2001-08-13 18:23:29 fjoe Exp $
  */
 
 /***************************************************************************
@@ -53,11 +53,70 @@
 #	include <compat/compat.h>
 #endif
 
-DECLARE_DO_FUN(do_yell		);
-DECLARE_DO_FUN(do_sleep		);
-DECLARE_DO_FUN(do_sit		);
-DECLARE_DO_FUN(do_bash_door	);
-DECLARE_DO_FUN(do_dismount	);
+DECLARE_DO_FUN(do_kill);
+DECLARE_DO_FUN(do_murder);
+DECLARE_DO_FUN(do_flee);
+DECLARE_DO_FUN(do_pound);
+DECLARE_DO_FUN(do_entangle);
+DECLARE_DO_FUN(do_gash);
+DECLARE_DO_FUN(do_cut);
+DECLARE_DO_FUN(do_hunger);
+DECLARE_DO_FUN(do_whirl);
+DECLARE_DO_FUN(do_feint);
+DECLARE_DO_FUN(do_berserk);
+DECLARE_DO_FUN(do_breath);
+DECLARE_DO_FUN(do_bash);
+DECLARE_DO_FUN(do_dirt);
+DECLARE_DO_FUN(do_trip);
+DECLARE_DO_FUN(do_backstab);
+DECLARE_DO_FUN(do_knife);
+DECLARE_DO_FUN(do_cleave);
+DECLARE_DO_FUN(do_impale);
+DECLARE_DO_FUN(do_ambush);
+DECLARE_DO_FUN(do_rescue);
+DECLARE_DO_FUN(do_kick);
+DECLARE_DO_FUN(do_circle);
+DECLARE_DO_FUN(do_disarm);
+DECLARE_DO_FUN(do_strip);
+DECLARE_DO_FUN(do_nerve);
+DECLARE_DO_FUN(do_endure);
+DECLARE_DO_FUN(do_tame);
+DECLARE_DO_FUN(do_assassinate);
+DECLARE_DO_FUN(do_caltrops);
+DECLARE_DO_FUN(do_throw);
+DECLARE_DO_FUN(do_strangle);
+DECLARE_DO_FUN(do_headcrush);
+DECLARE_DO_FUN(do_blackjack);
+DECLARE_DO_FUN(do_bloodthirst);
+DECLARE_DO_FUN(do_toughen);
+DECLARE_DO_FUN(do_trophy);
+DECLARE_DO_FUN(do_truesight);
+DECLARE_DO_FUN(do_warcry);
+DECLARE_DO_FUN(do_guard);
+DECLARE_DO_FUN(do_explode);
+DECLARE_DO_FUN(do_target);
+DECLARE_DO_FUN(do_tiger);
+DECLARE_DO_FUN(do_hara);
+DECLARE_DO_FUN(do_shield);
+DECLARE_DO_FUN(do_weapon);
+DECLARE_DO_FUN(do_tail);
+DECLARE_DO_FUN(do_concentrate);
+DECLARE_DO_FUN(do_bandage);
+DECLARE_DO_FUN(do_katana);
+DECLARE_DO_FUN(do_crush);
+DECLARE_DO_FUN(do_sense);
+DECLARE_DO_FUN(do_poison_smoke);
+DECLARE_DO_FUN(do_blindness_dust);
+DECLARE_DO_FUN(do_dishonor);
+DECLARE_DO_FUN(do_surrender);
+
+/* command procedures needed */
+DECLARE_DO_FUN(do_yell);
+DECLARE_DO_FUN(do_sleep);
+DECLARE_DO_FUN(do_sit);
+DECLARE_DO_FUN(do_bash_door);
+DECLARE_DO_FUN(do_dismount);
+DECLARE_DO_FUN(do_throw_weapon);
 
 static inline bool	check_yell	(CHAR_DATA *ch, CHAR_DATA *victim,
 					 bool fighting);
@@ -241,7 +300,7 @@ bool distance_check(CHAR_DATA *ch, CHAR_DATA *victim)
 	return FALSE;
 }
 
-void do_kill(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_kill, ch, argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
@@ -315,13 +374,7 @@ void do_kill(CHAR_DATA *ch, const char *argument)
 	multi_hit(ch, victim, NULL);
 }
 
-void do_murde(CHAR_DATA *ch, const char *argument)
-{
-	act_char("If you want to MURDER, spell it out.", ch);
-	return;
-}
-
-void do_murder(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_murder, ch, argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
@@ -388,7 +441,7 @@ void do_murder(CHAR_DATA *ch, const char *argument)
 	yell(victim, ch, "Help! $lu{$i} is attacking me!");
 }
 
-void do_flee(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_flee, ch, argument)
 {
 	ROOM_INDEX_DATA *was_in;
 	ROOM_INDEX_DATA *now_in;
@@ -462,7 +515,7 @@ void do_flee(CHAR_DATA *ch, const char *argument)
 	act_char("PANIC! You couldn't escape!", ch);
 }
 
-void do_pound(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_pound, ch, argument)
 {
 	CHAR_DATA *victim;
 	int chance;
@@ -543,7 +596,7 @@ void do_pound(CHAR_DATA *ch, const char *argument)
 		yell(victim, ch, "Help! $i is attacking me!");
 }
 
-void do_entangle(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_entangle, ch, argument)
 {
 	CHAR_DATA *victim;
 	int chance;
@@ -636,8 +689,7 @@ static void gash_drop(CHAR_DATA *ch, CHAR_DATA *victim, int loc)
 	}
 }
 
-void
-do_gash(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_gash, ch, argument)
 {
 	CHAR_DATA *victim;
 	int chance, wear_loc;
@@ -791,7 +843,7 @@ do_gash(CHAR_DATA *ch, const char *argument)
 		yell(victim, ch, "Help! $i is attacking me!");
 }
 
-void do_cut(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_cut, ch, argument)
 {
 	CHAR_DATA *victim;
 	int chance;
@@ -890,7 +942,7 @@ void do_cut(CHAR_DATA *ch, const char *argument)
 		yell(victim, ch, "Help! $i is attacking me!");
 }
 
-void do_hunger(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_hunger, ch, argument)
 {
 	AFFECT_DATA *paf;
 
@@ -912,7 +964,7 @@ void do_hunger(CHAR_DATA *ch, const char *argument)
 	act("You feel so hungry now.", ch, NULL, NULL, TO_CHAR);
 }
 
-void do_whirl(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_whirl, ch, argument)
 {
 	CHAR_DATA *victim;
 	int chance;
@@ -986,7 +1038,7 @@ void do_whirl(CHAR_DATA *ch, const char *argument)
 		yell(victim, ch, "Help! $i is attacking me!");
 }
 
-void do_feint(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_feint, ch, argument)
 {
 	CHAR_DATA *victim;
 	int chance;
@@ -1096,7 +1148,7 @@ void disarm(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *obj)
 	}
 }
 
-void do_berserk(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_berserk, ch, argument)
 {
 	int chance, hp_percent;
 
@@ -1174,7 +1226,7 @@ void do_berserk(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_breath(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_breath, ch, argument)
 {
 	CHAR_DATA *victim;
 	int chance;
@@ -1223,7 +1275,7 @@ void do_breath(CHAR_DATA *ch, const char *argument)
 	WAIT_STATE(ch, skill_beats("breath"));
 }
 
-void do_bash(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_bash, ch, argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
@@ -1378,7 +1430,7 @@ void do_bash(CHAR_DATA *ch, const char *argument)
 		yell(victim, ch, "Help! $lu{$i} is bashing me!");
 }
 
-void do_dirt(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_dirt, ch, argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
@@ -1513,7 +1565,7 @@ void do_dirt(CHAR_DATA *ch, const char *argument)
 		yell(victim, ch, "Help! $lu{$i} just kicked dirt into my eyes!");
 }
 
-void do_trip(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_trip, ch, argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
@@ -1640,7 +1692,7 @@ void do_trip(CHAR_DATA *ch, const char *argument)
 		yell(victim, ch, "Help! $lu{$i} just tripped me!");
 }
 
-void do_backstab(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_backstab, ch, argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
@@ -1722,7 +1774,7 @@ void do_backstab(CHAR_DATA *ch, const char *argument)
 	yell(victim, ch, "Die, $i! You are backstabbing scum!");
 }
 
-void do_knife(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_knife, ch, argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
@@ -1782,7 +1834,7 @@ void do_knife(CHAR_DATA *ch, const char *argument)
 	yell(victim, ch, "Die, $i! You're backstabbing scum!");
 }
 
-void do_cleave(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_cleave, ch, argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
@@ -1861,7 +1913,7 @@ void do_cleave(CHAR_DATA *ch, const char *argument)
 	yell(victim, ch, "Die, $i, you butchering fool!");
 }
 
-void do_impale(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_impale, ch, argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
@@ -1935,7 +1987,7 @@ void do_impale(CHAR_DATA *ch, const char *argument)
 	yell(victim, ch, "Help! $i just tryed to impale me!");
 }
 
-void do_ambush(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_ambush, ch, argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
@@ -1999,7 +2051,7 @@ void do_ambush(CHAR_DATA *ch, const char *argument)
 	yell(victim, ch, "Help! I've been ambushed by $i!");
 }
 
-void do_rescue(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_rescue, ch, argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
@@ -2066,7 +2118,7 @@ void do_rescue(CHAR_DATA *ch, const char *argument)
 	set_fighting(fch, ch);
 }
 
-void do_kick(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_kick, ch, argument)
 {
 	CHAR_DATA *victim;
 	int kick_dam;
@@ -2125,7 +2177,7 @@ void do_kick(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_circle(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_circle, ch, argument)
 {
 	CHAR_DATA *victim;
 	CHAR_DATA *rch;
@@ -2174,7 +2226,7 @@ void do_circle(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_disarm(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_disarm, ch, argument)
 {
 	CHAR_DATA *victim;
 	OBJ_DATA *wield;
@@ -2254,7 +2306,7 @@ void do_disarm(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_strip(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_strip, ch, argument)
 {
 	CHAR_DATA *victim;
 	OBJ_DATA *wield;
@@ -2362,7 +2414,7 @@ void do_strip(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_nerve(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_nerve, ch, argument)
 {
 	CHAR_DATA *victim;
 	char arg[MAX_INPUT_LENGTH];
@@ -2441,7 +2493,7 @@ void do_nerve(CHAR_DATA *ch, const char *argument)
 	multi_hit(victim,ch,NULL);
 }
 
-void do_endure(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_endure, ch, argument)
 {
 	AFFECT_DATA *paf;
 	int chance;
@@ -2477,7 +2529,7 @@ void do_endure(CHAR_DATA *ch, const char *argument)
 	check_improve(ch, "endure", TRUE, 1);
 }
 
-void do_tame(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_tame, ch, argument)
 {
 	CHAR_DATA *victim;
 	char arg[MAX_INPUT_LENGTH];
@@ -2537,7 +2589,7 @@ void do_tame(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_assassinate(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_assassinate, ch, argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
@@ -2618,7 +2670,7 @@ void do_assassinate(CHAR_DATA *ch, const char *argument)
 	yell(victim, ch, "Help! $lu{$i} tries to assassinate me!");
 }
 
-void do_caltrops(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_caltrops, ch, argument)
 {
 	CHAR_DATA *victim = ch->fighting;
 	int chance;
@@ -2676,9 +2728,7 @@ void do_caltrops(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-DECLARE_DO_FUN(do_throw_weapon);
-
-void do_throw(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_throw, ch, argument)
 {
 	CHAR_DATA *victim;
 	char arg[MAX_INPUT_LENGTH];
@@ -2796,7 +2846,7 @@ void do_throw(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_strangle(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_strangle, ch, argument)
 {
 	CHAR_DATA *victim;
 	int chance;
@@ -2883,7 +2933,7 @@ void do_strangle(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_headcrush(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_headcrush, ch, argument)
 {
 	CHAR_DATA *victim;
 	OBJ_DATA *wield;
@@ -2998,7 +3048,7 @@ void do_headcrush(CHAR_DATA *ch, const char *argument)
 }
 
 
-void do_blackjack(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_blackjack, ch, argument)
 {
 	CHAR_DATA *victim;
 	int chance;
@@ -3088,7 +3138,7 @@ void do_blackjack(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_bloodthirst(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_bloodthirst, ch, argument)
 {
 	int chance, hp_percent;
 
@@ -3150,7 +3200,7 @@ void do_bloodthirst(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_toughen(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_toughen, ch, argument)
 {
 	int chance;
 	int mana;
@@ -3200,7 +3250,7 @@ void do_toughen(CHAR_DATA *ch, const char *argument)
 
 #define OBJ_VNUM_BATTLE_PONCHO		26
 
-void do_trophy(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_trophy, ch, argument)
 {
 	int trophy_vnum;
 	OBJ_DATA *trophy;
@@ -3328,7 +3378,7 @@ void do_trophy(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_truesight(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_truesight, ch, argument)
 {
 	int chance;
 
@@ -3365,7 +3415,7 @@ void do_truesight(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_warcry(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_warcry, ch, argument)
 {
 	AFFECT_DATA *paf;
 	int chance;
@@ -3415,7 +3465,7 @@ void do_warcry(CHAR_DATA *ch, const char *argument)
 	act_char("You feel righteous as you yell out your warcry.", ch);
 }
 
-void do_guard(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_guard, ch, argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
@@ -3538,7 +3588,7 @@ explode_cb(void *vo, va_list ap)
 	return NULL;
 }
 
-void do_explode(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_explode, ch, argument)
 {
 	CHAR_DATA *victim = ch->fighting;
 	int dam, hp_dam, hpch, dice_dam, mana;
@@ -3601,7 +3651,7 @@ void do_explode(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_target(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_target, ch, argument)
 {
 	CHAR_DATA *victim;
 	int chance;
@@ -3652,7 +3702,7 @@ void do_target(CHAR_DATA *ch, const char *argument)
 	check_improve(ch, "target", FALSE, 1);
 }
 
-void do_tiger(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_tiger, ch, argument)
 {
 	int chance, hp_percent;
 	int mana;
@@ -3737,7 +3787,7 @@ void do_tiger(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_hara(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_hara, ch, argument)
 {
 	int chance;
 
@@ -3803,7 +3853,7 @@ void do_hara(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_shield(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_shield, ch, argument)
 {
 	CHAR_DATA *victim;
 	int chance,ch_weapon,vict_shield;
@@ -3890,7 +3940,7 @@ void do_shield(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_weapon(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_weapon, ch, argument)
 {
 	CHAR_DATA *victim;
 	OBJ_DATA *wield,*axe;
@@ -3970,7 +4020,7 @@ void do_weapon(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_tail(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_tail, ch, argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
@@ -4111,7 +4161,7 @@ void do_tail(CHAR_DATA *ch, const char *argument)
 		yell(victim, ch, "Help! $lu{$i} tried to hit me with his tail!");
 }
 
-void do_concentrate(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_concentrate, ch, argument)
 {
 	int chance;
 	int mana;
@@ -4178,7 +4228,7 @@ void do_concentrate(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_bandage(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_bandage, ch, argument)
 {
 	int heal;
 	int chance;
@@ -4223,7 +4273,7 @@ void do_bandage(CHAR_DATA *ch, const char *argument)
 #define OBJ_VNUM_CHUNK_IRON		6521
 #define OBJ_VNUM_KATANA_SWORD		98
 
-void do_katana(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_katana, ch, argument)
 {
 	OBJ_DATA *katana;
 	OBJ_DATA *part;
@@ -4318,7 +4368,7 @@ void do_katana(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_crush(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_crush, ch, argument)
 {
 	CHAR_DATA *victim;
 	int chance, wait;
@@ -4424,7 +4474,7 @@ void do_crush(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_sense(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_sense, ch, argument)
 {
 	int chance;
 	int mana;
@@ -4490,7 +4540,7 @@ poison_smoke_cb(void *vo, va_list ap)
 	return NULL;
 }
 
-void do_poison_smoke(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_poison_smoke, ch, argument)
 {
 	int chance;
 	int mana;
@@ -4538,7 +4588,7 @@ blindness_dust_cb(void *vo, va_list ap)
 	return NULL;
 }
 
-void do_blindness_dust(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_blindness_dust, ch, argument)
 {
 	CHAR_DATA *vch;
 	int chance;
@@ -4589,7 +4639,7 @@ void do_blindness_dust(CHAR_DATA *ch, const char *argument)
 		multi_hit(vch, ch, NULL);
 }
 
-void do_dishonor(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_dishonor, ch, argument)
 {
 	ROOM_INDEX_DATA *was_in;
 	ROOM_INDEX_DATA *now_in;
@@ -4679,7 +4729,7 @@ void do_dishonor(CHAR_DATA *ch, const char *argument)
 	check_improve(ch, "dishonor", FALSE, 1);
 }
 
-void do_surrender(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_surrender, ch, argument)
 {
 	CHAR_DATA *mob;
 

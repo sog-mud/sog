@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: dofun.c,v 1.10 2001-08-05 16:36:37 fjoe Exp $
+ * $Id: dofun.c,v 1.11 2001-08-13 18:23:28 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -36,14 +36,14 @@
 #include <cmd.h>
 
 int
-_module_load(module_t *m)
+MODINIT_FUN(_module_load, m)
 {
 	varr_foreach(&commands, cmd_load_cb, MODULE, m);
 	return 0;
 }
 
 int
-_module_unload(module_t *m)
+MODINIT_FUN(_module_unload, m)
 {
 	varr_foreach(&commands, cmd_unload_cb, MODULE);
 	return 0;

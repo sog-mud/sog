@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: updfun.c,v 1.35 2001-08-03 11:27:47 fjoe Exp $
+ * $Id: updfun.c,v 1.36 2001-08-13 18:23:55 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -33,11 +33,29 @@
 
 #include <merc.h>
 
-#include <core.h>
 #include <handler.h>
 
 #include <update.h>
 #include "update_impl.h"
+
+DECLARE_FOREACH_CB_FUN(violence_update_cb);
+DECLARE_FOREACH_CB_FUN(mobile_update_cb);
+DECLARE_UPDATE_FUN(weather_update);
+DECLARE_FOREACH_CB_FUN(char_update_cb);
+DECLARE_UPDATE_FUN(save_update);
+DECLARE_FOREACH_CB_FUN(water_float_update_cb);
+DECLARE_FOREACH_CB_FUN(obj_update_cb);
+DECLARE_FOREACH_CB_FUN(aggr_update_cb);
+DECLARE_UPDATE_FUN(light_update);
+DECLARE_UPDATE_FUN(room_update);
+DECLARE_UPDATE_FUN(check_reboot);
+DECLARE_FOREACH_CB_FUN(track_update_cb);
+DECLARE_UPDATE_FUN(raffect_update);
+DECLARE_UPDATE_FUN(clan_update);
+DECLARE_UPDATE_FUN(song_update);
+DECLARE_UPDATE_FUN(hint_update);
+DECLARE_UPDATE_FUN(popularity_update);
+DECLARE_UPDATE_FUN(area_update);
 
 /* locals */
 static void	*check_assist_cb(void *vo, va_list ap);
@@ -52,15 +70,14 @@ static bool	update_melt_obj(OBJ_DATA *obj);
 static bool	update_potion(OBJ_DATA *obj);
 static bool	update_drinkcon(OBJ_DATA *obj);
 static inline void contents_to_obj(OBJ_DATA *obj, OBJ_DATA *to_obj);
-static inline void save_corpse_contents(OBJ_DATA *corpse);
-static void	*find_aggr_cb(void *vo, va_list ap);
-static void	*raff_update_cb(void *vo, va_list ap);
-static void	*put_back_cb(void *p, va_list ap);
-static void	*clan_item_update_cb(void *p, va_list ap);
+static void save_corpse_contents(OBJ_DATA *corpse);
+static DECLARE_FOREACH_CB_FUN(find_aggr_cb);
+static DECLARE_FOREACH_CB_FUN(raff_update_cb);
+static DECLARE_FOREACH_CB_FUN(put_back_cb);
+static DECLARE_FOREACH_CB_FUN(clan_item_update_cb);
 static void	print_resetmsg(AREA_DATA *pArea);
 
-void *
-violence_update_cb(void *vo, va_list ap)
+FOREACH_CB_FUN(violence_update_cb, vo, ap)
 {
 	CHAR_DATA *ch = (CHAR_DATA *) vo;
 	CHAR_DATA *victim;
@@ -128,13 +145,11 @@ violence_update_cb(void *vo, va_list ap)
 	return NULL;
 }
 
-void *
-mobile_update_cb(void *vo, va_list ap)
+FOREACH_CB_FUN(mobile_update_cb, vo, ap)
 {
 	CHAR_DATA *ch = (CHAR_DATA *) vo;
 	EXIT_DATA *pexit;
 	int door;
-	OBJ_DATA *obj;
 
 	bool bust_prompt = FALSE;
 	flag_t f_act;
@@ -272,6 +287,8 @@ mobile_update_cb(void *vo, va_list ap)
 	     IS_AFFECTED(ch, AFF_POISON) ||
 	     IS_AFFECTED(ch, AFF_PLAGUE) ||
 	     ch->fighting != NULL)) {
+		OBJ_DATA *obj;
+
 		for (obj = ch->carrying; obj; obj = obj->next_content) {
 			if (obj->item_type != ITEM_POTION)
 				continue;
@@ -370,7 +387,7 @@ mobile_update_cb(void *vo, va_list ap)
 	&&  number_bits(6) == 0) {
 		OBJ_DATA *obj;
 		OBJ_DATA *obj_best = NULL;
-		int max = 1;
+		uint max = 1;
 
 		for (obj = ch->in_room->contents; obj; obj = obj->next_content) {
 			if (CAN_WEAR(obj, ITEM_TAKE)
@@ -407,8 +424,7 @@ mobile_update_cb(void *vo, va_list ap)
 	return NULL;
 }
 
-void
-weather_update(void)
+UPDATE_FUN(weather_update)
 {
 	CHAR_DATA *ch;
 	int diff;
@@ -531,8 +547,7 @@ weather_update(void)
 	}
 }
 
-void *
-char_update_cb(void *vo, va_list ap)
+FOREACH_CB_FUN(char_update_cb, vo, ap)
 {
 	CHAR_DATA *ch = (CHAR_DATA *) vo;
 
@@ -693,10 +708,9 @@ char_update_cb(void *vo, va_list ap)
 		}
 
 		if (!pc->was_in_vnum) {
-			race_t *r;
 			int race_hunger_rate;
-			if (((r = race_lookup(PC(ch)->race)) == NULL)
-			|| !r->race_pcdata)
+
+			if (r->race_pcdata == NULL)
 				race_hunger_rate = 100;
 			else
 				race_hunger_rate = r->race_pcdata->hunger_rate;
@@ -771,8 +785,7 @@ char_update_cb(void *vo, va_list ap)
 	return NULL;
 }
 
-void
-save_update(void)
+UPDATE_FUN(save_update)
 {
 	static time_t last_save_time = -1;
 	CHAR_DATA *ch, *ch_next;
@@ -789,8 +802,7 @@ save_update(void)
 	}
 }
 
-void *
-water_float_update_cb(void *vo, va_list ap)
+FOREACH_CB_FUN(water_float_update_cb, vo, ap)
 {
 	OBJ_DATA *obj = (OBJ_DATA *) vo;
 
@@ -817,12 +829,11 @@ water_float_update_cb(void *vo, va_list ap)
 	return NULL;
 }
 
-void *
-obj_update_cb(void *vo, va_list ap)
+FOREACH_CB_FUN(obj_update_cb, vo, ap)
 {
 	OBJ_DATA *obj = (OBJ_DATA *) vo;
 	OBJ_DATA *t_obj;
-	char *message;
+	const char *message;
 
 	if (IS_AUCTIONED(obj))
 		return NULL;
@@ -927,8 +938,7 @@ obj_update_cb(void *vo, va_list ap)
 	return NULL;
 }
 
-void *
-aggr_update_cb(void *vo, va_list ap)
+FOREACH_CB_FUN(aggr_update_cb, vo, ap)
 {
 	CHAR_DATA *wch = (CHAR_DATA *) vo;
 
@@ -949,8 +959,7 @@ aggr_update_cb(void *vo, va_list ap)
 	return NULL;
 }
 
-void
-light_update(void)
+UPDATE_FUN(light_update)
 {
 	CHAR_DATA *ch;
 	int dam_light;
@@ -992,8 +1001,7 @@ light_update(void)
 	}
 }
 
-void
-room_update(void)
+UPDATE_FUN(room_update)
 {
 	ROOM_INDEX_DATA *room;
 	ROOM_INDEX_DATA *room_next;
@@ -1019,8 +1027,7 @@ room_update(void)
 	}
 }
 
-void
-check_reboot(void)
+UPDATE_FUN(check_reboot)
 {
 	DESCRIPTOR_DATA *d;
 
@@ -1060,8 +1067,7 @@ check_reboot(void)
 	}
 }
 
-void *
-track_update_cb(void *vo, va_list ap)
+FOREACH_CB_FUN(track_update_cb, vo, ap)
 {
 	CHAR_DATA *ch = (CHAR_DATA *) vo;
 
@@ -1130,8 +1136,7 @@ track_update_cb(void *vo, va_list ap)
 	return NULL;
 }
 
-void
-raffect_update(void)
+UPDATE_FUN(raffect_update)
 {
 	ROOM_INDEX_DATA *room;
 
@@ -1139,8 +1144,7 @@ raffect_update(void)
 		vo_foreach(room, &iter_char_room, raff_update_cb, room);
 }
 
-void
-clan_update(void)
+UPDATE_FUN(clan_update)
 {
 	if (time_info.hour != 0)
 		return;
@@ -1148,25 +1152,23 @@ clan_update(void)
 	hash_foreach(&clans, clan_item_update_cb);
 }
 
-void
-song_update(void)
+UPDATE_FUN(song_update)
 {
 }
 
-void
-hint_update(void)
+UPDATE_FUN(hint_update)
 {
 	DESCRIPTOR_DATA *d;
 	hint_t *t;
-	static int index;
-	int nind;
+	static int idx;
+	int nidx;
 
 	do {
-		nind = number_range(0, hints.nused - 1);
-	} while (nind == index);
-	index = nind;
+		nidx = number_range(0, varr_size(&hints) - 1);
+	} while (nidx == idx);
+	idx = nidx;
 
-	t = (hint_t *) VARR_GET(&hints, index);
+	t = (hint_t *) VARR_GET(&hints, idx);
 
 	/* Found hint has just been created, skip it */
 	if (mlstr_null(&t->phrase))
@@ -1186,8 +1188,7 @@ hint_update(void)
 	}
 }
 
-void
-popularity_update(void)
+UPDATE_FUN(popularity_update)
 {
 	CHAR_DATA *ch;
 
@@ -1197,8 +1198,7 @@ popularity_update(void)
 	}
 }
 
-void
-area_update(void)
+UPDATE_FUN(area_update)
 {
 	AREA_DATA *pArea;
 
@@ -1266,11 +1266,37 @@ area_update(void)
 }
 
 /*----------------------------------------------------------------------------
+ * semi-locals
+ */
+
+FOREACH_CB_FUN(bloodthirst_cb, vo, ap)
+{
+	CHAR_DATA *vch = (CHAR_DATA *) vo;
+	CHAR_DATA *ch;
+
+	if (IS_IMMORTAL(vch))
+		return NULL;
+
+	ch = va_arg(ap, CHAR_DATA *);
+	if (ch != vch
+	&&  can_see(ch, vch)
+	&&  !is_safe_nomessage(ch, vch)) {
+		dofun("yell", ch, "BLOOD! I NEED BLOOD!");
+		multi_hit(ch, vch, NULL);
+		if (IS_EXTRACTED(ch)
+		||  ch->fighting != NULL)
+			return vch;
+	}
+
+	return NULL;
+}
+
+/*----------------------------------------------------------------------------
  * locals
  */
 
-static void *
-check_assist_cb(void *vo, va_list ap)
+static
+FOREACH_CB_FUN(check_assist_cb, vo, ap)
 {
 	CHAR_DATA *rch = (CHAR_DATA *) vo;
 
@@ -1626,7 +1652,7 @@ update_obj_affects(OBJ_DATA *obj)
 
 			if ((paf_next == NULL || paf_next->type != paf->type ||
 			     paf_next->duration > 0)
-			&&  paf->type > 0
+			&&  !IS_NULLSTR(paf->type)
 			&&  (sk = skill_lookup(paf->type)) != NULL
 			&&  !mlstr_null(&sk->msg_obj)) {
 				if (obj->carried_by != NULL) {
@@ -1737,7 +1763,7 @@ contents_to_obj(OBJ_DATA *obj, OBJ_DATA *to_obj)
 	}
 }
 
-static inline void
+static void
 save_corpse_contents(OBJ_DATA *corpse)
 {
 	OBJ_DATA *obj, *obj_next;
@@ -1773,7 +1799,7 @@ save_corpse_contents(OBJ_DATA *corpse)
 
 /* put contents into altar */
 	if (!pit) {
-		for (obj = corpse->contains; obj; obj = obj_next) {
+		for (obj = corpse->contains; obj != NULL; obj = obj_next) {
 			obj_next = obj->next_content;
 			obj_from_obj(obj);
 			obj_to_room(obj, altar->room);
@@ -1785,14 +1811,14 @@ save_corpse_contents(OBJ_DATA *corpse)
 	contents_to_obj(corpse->contains, pit);
 }
 
-static void *
-find_aggr_cb(void *vo, va_list ap)
+static
+FOREACH_CB_FUN(find_aggr_cb, vo, ap)
 {
 	CHAR_DATA *ch = (CHAR_DATA *) vo;
 
 	CHAR_DATA *wch;
 	CHAR_DATA *vch;
-	flag_t act;
+	flag_t f_act;
 	NPC_DATA *npc;
 	int count;
 	CHAR_DATA *victim;
@@ -1802,9 +1828,9 @@ find_aggr_cb(void *vo, va_list ap)
 
 	wch = va_arg(ap, CHAR_DATA *);
 	npc = NPC(ch);
-	act = ch->pMobIndex->act;
+	f_act = ch->pMobIndex->act;
 
-	if ((!IS_SET(act, ACT_AGGRESSIVE) &&
+	if ((!IS_SET(f_act, ACT_AGGRESSIVE) &&
 	     npc->last_fought == NULL &&
 	     npc->target == NULL)
 	||  IS_SET(ch->in_room->room_flags, ROOM_PEACE | ROOM_SAFE)
@@ -1813,7 +1839,7 @@ find_aggr_cb(void *vo, va_list ap)
 	||  RIDDEN(ch)
 	||  IS_AFFECTED(ch, AFF_CHARM)
 	||  !IS_AWAKE(ch)
-	||  (IS_SET(act, ACT_WIMPY) && IS_AWAKE(wch))
+	||  (IS_SET(f_act, ACT_WIMPY) && IS_AWAKE(wch))
 	||  !can_see(ch, wch)
 	||  number_bits(1) == 0
 	||  is_safe_nomessage(ch, wch))
@@ -1846,7 +1872,7 @@ find_aggr_cb(void *vo, va_list ap)
 		if (!IS_NPC(vch)
 		&&  vch->level < LEVEL_IMMORTAL
 		&&  ch->level >= vch->level - 5
-		&&  (!IS_SET(act, ACT_WIMPY) || !IS_AWAKE(vch))
+		&&  (!IS_SET(f_act, ACT_WIMPY) || !IS_AWAKE(vch))
 		&&  can_see(ch, vch)
 		&&  !is_safe_nomessage(ch, vch)
 		/* do not attack vampires */
@@ -1871,16 +1897,16 @@ find_aggr_cb(void *vo, va_list ap)
 	return NULL;
 }
 
-static void *
-raff_update_cb(void *vo, va_list ap)
+static
+FOREACH_CB_FUN(raff_update_cb, vo, ap)
 {
 	ROOM_INDEX_DATA *room = va_arg(ap, ROOM_INDEX_DATA *);
 	check_events(vo, room->affected, EVENT_ROOM_UPDATE);
 	return NULL;
 }
 
-static void *
-put_back_cb(void *p, va_list ap)
+static
+FOREACH_CB_FUN(put_back_cb, p, ap)
 {
 	clan_t *clan = (clan_t *) p;
 
@@ -1892,8 +1918,8 @@ put_back_cb(void *p, va_list ap)
 	return NULL;
 }
 
-static void *
-clan_item_update_cb(void *p, va_list ap)
+static
+FOREACH_CB_FUN(clan_item_update_cb, p, ap)
 {
 	clan_t *clan = (clan_t *) p;
 
@@ -1954,27 +1980,4 @@ print_resetmsg(AREA_DATA *pArea)
 			act_puts(mlstr_cval(&pArea->resetmsg, ch),
 				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 	}
-}
-
-void *
-bloodthirst_cb(void *vo, va_list ap)
-{
-	CHAR_DATA *vch = (CHAR_DATA *) vo;
-	CHAR_DATA *ch;
-
-	if (IS_IMMORTAL(vch))
-		return NULL;
-
-	ch = va_arg(ap, CHAR_DATA *);
-	if (ch != vch
-	&&  can_see(ch, vch)
-	&&  !is_safe_nomessage(ch, vch)) {
-		dofun("yell", ch, "BLOOD! I NEED BLOOD!");
-		multi_hit(ch, vch, NULL);
-		if (IS_EXTRACTED(ch)
-		||  ch->fighting != NULL)
-			return vch;
-	}
-
-	return NULL;
 }

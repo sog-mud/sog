@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.314 2001-08-05 16:36:41 fjoe Exp $
+ * $Id: fight.c,v 1.315 2001-08-13 18:23:37 fjoe Exp $
  */
 
 /***************************************************************************
@@ -88,6 +88,7 @@ static int	num_enemies	(CHAR_DATA *ch);
 static void	secondary_hit	(CHAR_DATA *ch, CHAR_DATA *victim,
 				 const char *dt);
 static void	dam_alias	(int dam, const char **pvs, const char **pvp);
+static bool	is_safe_rspell_nom(AFFECT_DATA *af, CHAR_DATA *victim);
 
 #define FOREST_NONE 0
 #define FOREST_ATTACK 1
@@ -160,17 +161,17 @@ one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 	 * Calculate to-hit-armor-class-0 versus armor.
 	 */
 	if (IS_NPC(ch)) {
-		flag_t act = ch->pMobIndex->act;
+		flag_t f_act = ch->pMobIndex->act;
 
 		thac0_00 = 20;
 		thac0_32 = -4;	 /* as good as a thief */
-		if (IS_SET(act, ACT_WARRIOR))
+		if (IS_SET(f_act, ACT_WARRIOR))
 			thac0_32 = -10;
-		else if (IS_SET(act, ACT_THIEF))
+		else if (IS_SET(f_act, ACT_THIEF))
 			thac0_32 = -4;
-		else if (IS_SET(act, ACT_CLERIC))
+		else if (IS_SET(f_act, ACT_CLERIC))
 			thac0_32 = 2;
-		else if (IS_SET(act, ACT_MAGE))
+		else if (IS_SET(f_act, ACT_MAGE))
 			thac0_32 = 6;
 	} else {
 		class_t *cl;
@@ -555,8 +556,6 @@ one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 
 	/* but do we have a funky weapon? */
 	if (result && wield != NULL && ch->fighting == victim) {
-		int dam;
-
 		if (IS_WEAPON_STAT(wield, WEAPON_VORPAL)) {
 			int chance;
 
@@ -619,41 +618,49 @@ one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 		}
 
 		if (IS_WEAPON_STAT(wield, WEAPON_VAMPIRIC)) {
-			dam = number_range(1, wield->level / 5 + 1);
+			int dam2;
+
+			dam2 = number_range(1, wield->level / 5 + 1);
 			act("$p draws life from $n.",
 			    victim, wield, NULL, TO_ROOM);
 			act("You feel $p drawing your life away.",
 			    victim, wield, NULL, TO_CHAR);
-			damage(ch, victim, dam, NULL, DAM_NEGATIVE, DAMF_NONE);
-			ch->hit += dam/2;
+			damage(ch, victim, dam2, NULL, DAM_NEGATIVE, DAMF_NONE);
+			ch->hit += dam2/2;
 		}
 
 		if (IS_WEAPON_STAT(wield, WEAPON_FLAMING)) {
-			dam = number_range(1,wield->level / 4 + 1);
+			int dam2;
+
+			dam2 = number_range(1,wield->level / 4 + 1);
 			act("$n is burned by $p.", victim, wield, NULL, TO_ROOM);
 			act("$p sears your flesh.",
 			    victim, wield, NULL, TO_CHAR);
-			fire_effect(victim, wield->level/2, dam);
-			damage(ch, victim, dam, NULL, DAM_FIRE, DAMF_NONE);
+			fire_effect(victim, wield->level/2, dam2);
+			damage(ch, victim, dam2, NULL, DAM_FIRE, DAMF_NONE);
 		}
 
 		if (IS_WEAPON_STAT(wield, WEAPON_FROST)) {
-			dam = number_range(1,wield->level / 6 + 2);
+			int dam2;
+
+			dam2 = number_range(1,wield->level / 6 + 2);
 			act("$p freezes $n.", victim, wield, NULL, TO_ROOM);
 			act("The cold touch of $p surrounds you with ice.",
 			    victim, wield, NULL, TO_CHAR);
-			cold_effect(victim, wield->level/2, dam);
-			damage(ch, victim, dam, NULL, DAM_COLD, DAMF_NONE);
+			cold_effect(victim, wield->level/2, dam2);
+			damage(ch, victim, dam2, NULL, DAM_COLD, DAMF_NONE);
 		}
 
 		if (IS_WEAPON_STAT(wield, WEAPON_SHOCKING)) {
-			dam = number_range(1, wield->level/5 + 2);
+			int dam2;
+
+			dam2 = number_range(1, wield->level/5 + 2);
 			act("$n is struck by lightning from $p.",
 			    victim, wield, NULL, TO_ROOM);
 			act("You are shocked by $p.",
 			    victim, wield, NULL, TO_CHAR);
-			shock_effect(victim, wield->level/2, dam);
-			damage(ch, victim, dam, NULL, DAM_LIGHTNING, DAMF_NONE);
+			shock_effect(victim, wield->level/2, dam2);
+			damage(ch, victim, dam2, NULL, DAM_LIGHTNING, DAMF_NONE);
 		}
 
 		if (!IS_EXTRACTED(victim)
@@ -709,7 +716,7 @@ handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
 	corpse = raw_kill(ch, victim);
 
 	if (!IS_NPC(ch) && vnpc && vroom == ch->in_room && corpse) {
-		flag_t plr_flags = PC(ch)->plr_flags;
+		flag_t f_plr = PC(ch)->plr_flags;
 
 		if (IS_VAMPIRE(ch) && !IS_IMMORTAL(ch)) {
 			act_puts("$n sucks {Rblood{x from $p!",
@@ -722,18 +729,18 @@ handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
 				gain_condition(ch, COND_BLOODLUST, 10);
 		}
 
-		if (IS_SET(plr_flags, PLR_AUTOLOOK))
+		if (IS_SET(f_plr, PLR_AUTOLOOK))
 			dofun("examine", ch, "corpse");		// notrans
 
 		if (corpse->contains) {
 			/* corpse exists and not empty */
-			if (IS_SET(plr_flags, PLR_AUTOLOOT))
+			if (IS_SET(f_plr, PLR_AUTOLOOT))
 				dofun("get", ch, "all corpse");	// notrans
-			else if (IS_SET(plr_flags, PLR_AUTOGOLD))
+			else if (IS_SET(f_plr, PLR_AUTOGOLD))
 				get_gold_corpse(ch, corpse);
 		}
 
-		if (IS_SET(plr_flags, PLR_AUTOSAC))
+		if (IS_SET(f_plr, PLR_AUTOSAC))
 			dofun("sacrifice", ch, "corpse");	// notrans
 	}
 
@@ -1257,13 +1264,14 @@ damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, const char *dt,
 	 * Wimp out?
 	 */
 	if (IS_NPC(victim) && dam > 0 && victim->wait < get_pulse("violence") / 2) {
-		flag_t act = victim->pMobIndex->act;
-		if ((IS_SET(act, ACT_WIMPY) && number_bits(2) == 0 &&
+		flag_t f_act = victim->pMobIndex->act;
+		if ((IS_SET(f_act, ACT_WIMPY) && number_bits(2) == 0 &&
 		     victim->hit < victim->max_hit / 5)
 		||  (IS_AFFECTED(victim, AFF_CHARM) &&
 		     victim->master != NULL &&
 		     victim->master->in_room != victim->in_room)
-		||  (IS_AFFECTED(victim, AFF_FEAR) && !IS_SET(act, ACT_NOTRACK)))
+		||  (IS_AFFECTED(victim, AFF_FEAR) &&
+		     !IS_SET(f_act, ACT_NOTRACK)))
 			dofun("flee", victim, str_empty);
 	}
 
@@ -1642,7 +1650,7 @@ check_obj_dodge(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *obj, int bonus)
 	return TRUE;
 }
 
-static bool inline
+static inline bool
 is_safe_raw(CHAR_DATA *ch, CHAR_DATA *victim)
 {
 	/*
@@ -1797,16 +1805,6 @@ is_safe_spell(CHAR_DATA *ch, CHAR_DATA *victim, bool area)
 	}
 
 	return is_safe(ch, victim);
-}
-
-bool
-is_safe_rspell_nom(AFFECT_DATA *af, CHAR_DATA *victim)
-{
-	if (af->owner)
-		return is_safe_nomessage(victim, af->owner);
-	log(LOG_BUG, "is_safe_rspell_nom: no affect owner");
-	affect_remove_room(victim->in_room, af);
-	return TRUE; /* protected from broken room affects */
 }
 
 bool
@@ -1998,8 +1996,8 @@ form_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt)
 static void
 mob_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt)
 {
-	flag_t act = ch->pMobIndex->act;
-	flag_t off = ch->pMobIndex->off_flags;
+	flag_t f_act = ch->pMobIndex->act;
+	flag_t f_off = ch->pMobIndex->off_flags;
 	bool has_second = get_eq_char(ch, WEAR_SECOND_WIELD) ? TRUE : FALSE;
 
 	/* no attack by ridden mobiles except spec_casts */
@@ -2024,7 +2022,7 @@ mob_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt)
 
 	/* Area attack -- BALLS nasty! */
 
-	if (IS_SET(off, OFF_AREA_ATTACK)) {
+	if (IS_SET(f_off, OFF_AREA_ATTACK)) {
 		int count = 0;
 
 		vo_foreach(ch->in_room, &iter_char_room,
@@ -2033,7 +2031,7 @@ mob_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt)
 			return;
 	}
 
-	if (IS_AFFECTED(ch, AFF_HASTE) || IS_SET(off, OFF_FAST))
+	if (IS_AFFECTED(ch, AFF_HASTE) || IS_SET(f_off, OFF_FAST))
 		one_hit(ch, victim, dt, WEAR_WIELD);
 
 	if (ch->fighting != victim
@@ -2087,20 +2085,20 @@ mob_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt)
 
 	switch (number_range(0, 7)) {
 	case 0:
-		if (IS_SET(off, OFF_BASH))
+		if (IS_SET(f_off, OFF_BASH))
 			dofun("bash", ch, str_empty);
 		break;
 
 	case 1:
-		if (IS_SET(off, OFF_BERSERK)
+		if (IS_SET(f_off, OFF_BERSERK)
 		&&  !IS_AFFECTED(ch, AFF_BERSERK))
 			dofun("berserk", ch, str_empty);
 		break;
 
 
 	case 2:
-		if (IS_SET(off, OFF_DISARM)
-		||  IS_SET(act, ACT_WARRIOR | ACT_THIEF)) {
+		if (IS_SET(f_off, OFF_DISARM)
+		||  IS_SET(f_act, ACT_WARRIOR | ACT_THIEF)) {
 			if (number_range(0, 1)
 			&&  get_eq_char(victim, WEAR_SECOND_WIELD))
 				dofun("disarm", ch, "second");
@@ -2110,26 +2108,26 @@ mob_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt)
 		break;
 
 	case 3:
-		if (IS_SET(off, OFF_KICK))
+		if (IS_SET(f_off, OFF_KICK))
 			dofun("kick", ch, str_empty);
 		break;
 
 	case 4:
-		if (IS_SET(off, OFF_DIRT_KICK))
+		if (IS_SET(f_off, OFF_DIRT_KICK))
 			dofun("dirt", ch, str_empty);
 		break;
 
 	case 5:
-		if (IS_SET(off, OFF_TAIL))
+		if (IS_SET(f_off, OFF_TAIL))
 			dofun("tail", ch, str_empty);
 		break;
 
 	case 6:
-		if (IS_SET(off, OFF_TRIP))
+		if (IS_SET(f_off, OFF_TRIP))
 			dofun("trip", ch, str_empty);
 		break;
 	case 7:
-		if (IS_SET(off, OFF_CRUSH))
+		if (IS_SET(f_off, OFF_CRUSH))
 			dofun("crush", ch, str_empty);
 		break;
 	}
@@ -2629,7 +2627,7 @@ static void
 death_cry(CHAR_DATA *ch)
 {
 	ROOM_INDEX_DATA *was_in_room;
-	char *msg;
+	const char *msg;
 	int door;
 	int vnum;
 	OBJ_DATA *obj;
@@ -3188,3 +3186,14 @@ critical_strike(CHAR_DATA *ch, CHAR_DATA *victim, int dam)
 	dam += dam * number_range(2, 5);
 	return dam;
 }
+
+static bool
+is_safe_rspell_nom(AFFECT_DATA *af, CHAR_DATA *victim)
+{
+	if (af->owner)
+		return is_safe_nomessage(victim, af->owner);
+	log(LOG_BUG, "is_safe_rspell_nom: no affect owner");
+	affect_remove_room(victim->in_room, af);
+	return TRUE; /* protected from broken room affects */
+}
+

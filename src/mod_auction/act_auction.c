@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_auction.c,v 1.1 2001-08-02 14:21:32 fjoe Exp $
+ * $Id: act_auction.c,v 1.2 2001-08-13 18:23:19 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -36,6 +36,8 @@
 #include <update.h>
 
 #include "auction_impl.h"
+
+DECLARE_DO_FUN(do_auction);
 
 void
 do_auction(CHAR_DATA *ch, const char *argument)

@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.305 2001-08-05 16:36:42 fjoe Exp $
+ * $Id: handler.c,v 1.306 2001-08-13 18:23:38 fjoe Exp $
  */
 
 /***************************************************************************
@@ -54,6 +54,8 @@
 #include <quest.h>
 
 #include <handler.h>
+
+#include "comm.h"
 
 static const char *	format_hmv	(int hp, int mana, int move);
 
@@ -1274,7 +1276,8 @@ extract_obj(OBJ_DATA *obj, int flags)
 bool
 can_see(CHAR_DATA *ch, CHAR_DATA *victim)
 {
-	const CHAR_DATA *vch;
+	CHAR_DATA *vch;
+
 	flag_t ch_can_see = ch->has_detect;
 	if (ch_can_see & ID_INVIS)
 		ch_can_see |= ID_IMP_INVIS;
@@ -2170,7 +2173,7 @@ move_char(CHAR_DATA *ch, int door, flag_t flags)
 }
 
 static inline int
-get_played(const CHAR_DATA *ch, bool add_age)
+get_played(CHAR_DATA *ch, bool add_age)
 {
 	int pl;
 
@@ -4116,16 +4119,6 @@ char_in_dark_room(CHAR_DATA *ch)
 	return room_is_dark(pRoomIndex);
 }
 
-/*
- * nuke pet
- * ch is assumed to be properly inserted in room
- * (extract_char() already  assumes it)
- */
-void
-nuke_pets(CHAR_DATA *ch)
-{
-}
-
 void
 do_who_raw(CHAR_DATA* ch, CHAR_DATA *wch, BUFFER* output)
 {
@@ -4997,6 +4990,50 @@ hometown_print_avail(CHAR_DATA *ch)
 			 TO_CHAR | ACT_NOLF | ACT_NOTRANS, POS_DEAD);
 		col += strlen(h->area) + 2;
 	}
+}
+
+void
+reboot_mud(void)
+{
+	DESCRIPTOR_DATA *d,*d_next;
+
+	log(LOG_INFO, "Rebooting SoG");
+	for (d = descriptor_list; d != NULL; d = d_next) {
+		d_next = d->next;
+		write_to_buffer(d,"SoG is going down for rebooting NOW!\n\r",0);
+		close_descriptor(d, SAVE_F_REBOOT);
+	}
+
+	/*
+	 * activate eqcheck on next boot
+	 */
+	if (!rebooter) {
+		FILE *fp = dfopen(TMP_PATH, EQCHECK_FILE, "w");
+		if (!fp) {
+			log(LOG_ERROR,
+			    "reboot_mud: unable to activate eqcheck");  // notrans
+		} else {
+			log(LOG_INFO, "reboot_mud: eqcheck activated"); // notrans
+			fclose(fp);
+		}
+	}
+
+	merc_down = TRUE;
+}
+
+/*****************************************************************************
+ Name:		show_flags
+ Purpose:	Displays settable flags and stats.
+ ****************************************************************************/
+void
+show_flags(CHAR_DATA *ch, flaginfo_t *flag_table)
+{
+	BUFFER *output;
+
+	output = buf_new(0);
+	show_flags_buf(output, flag_table);
+	page_to_char(buf_string(output), ch);
+	buf_free(output);
 }
 
 /*--------------------------------------------------------------------

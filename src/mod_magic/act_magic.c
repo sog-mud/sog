@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_magic.c,v 1.36 2001-07-31 18:14:52 fjoe Exp $
+ * $Id: act_magic.c,v 1.37 2001-08-13 18:23:43 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -35,10 +35,12 @@
 #include <magic.h>
 #include "magic_impl.h"
 
+DECLARE_DO_FUN(do_cast);
+DECLARE_DO_FUN(do_pray);
+
 static int allowed_other(CHAR_DATA *ch, skill_t *sk);
 
-void
-do_cast(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_cast, ch, argument)
 {
 	char arg1[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
@@ -499,7 +501,7 @@ do_cast(CHAR_DATA *ch, const char *argument)
 		multi_hit(victim, ch, NULL);
 }
 
-void do_pray(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_pray, ch, argument)
 {
 	char arg1[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: typedef.h,v 1.51 2001-08-03 12:20:57 fjoe Exp $
+ * $Id: typedef.h,v 1.52 2001-08-13 18:23:17 fjoe Exp $
  */
 
 #ifndef _TYPEDEF_H_
@@ -95,6 +95,7 @@ typedef struct altar_t			altar_t;
 typedef struct hometown_t		hometown_t;
 typedef struct note_t			note_t;
 typedef struct rating_t			rating_t;
+typedef struct ban_t			ban_t;
 
 #if !defined(NO_MMAP)
 typedef struct rfile_t			rfile_t;
@@ -126,18 +127,37 @@ typedef void	DO_FUN		(CHAR_DATA *, const char *);
 typedef bool	SPEC_FUN	(CHAR_DATA *);
 typedef void	SPELL_FUN	(const char *, int, CHAR_DATA *, void *);
 typedef void	EVENT_FUN	(CHAR_DATA *, AFFECT_DATA *);
+typedef void	UPDATE_FUN	(void);
+typedef int	MODINIT_FUN	(module_t *);
+typedef void	RUNGAME_FUN	(struct fd_set *, struct fd_set *,	\
+				 struct fd_set *);
 
-#define DECLARE_SPEC_FUN(fun)	SPEC_FUN  fun
-#define DECLARE_DO_FUN(fun)	DO_FUN fun
-#define DECLARE_EVENT_FUN(fun)	EVENT_FUN fun
-#define DECLARE_SPELL_FUN(fun)	SPELL_FUN fun
+#define DECLARE_SPEC_FUN(fun)		SPEC_FUN  fun
+#define DECLARE_DO_FUN(fun)		DO_FUN fun
+#define DECLARE_EVENT_FUN(fun)		EVENT_FUN fun
+#define DECLARE_SPELL_FUN(fun)		SPELL_FUN fun
+#define DECLARE_UPDATE_FUN(fun)		UPDATE_FUN fun
+#define DECLARE_MODINIT_FUN(fun)	MODINIT_FUN fun
+#define DECLARE_RUNGAME_FUN(fun)	RUNGAME_FUN fun
 
-#define DO_FUN(fun,a,b)		void fun(CHAR_DATA *a,			\
-					const char *b __attribute((unused)))
-#define SPEC_FUN(fun,a)		bool fun(CHAR_DATA *a)
-#define EVENT_FUN(fun,a,b)	void fun(CHAR_DATA *a, AFFECT_DATA *b)
-#define SPELL_FUN(fun,a,b,c,d)	void fun(const char *a, int b,		\
-				CHAR_DATA *c, void *d)
+#define DO_FUN(fun, ch, argument)					\
+	void fun(CHAR_DATA *ch, const char *argument __attribute__((unused)))
+#define SPEC_FUN(fun, ch)						\
+	bool fun(CHAR_DATA *ch)
+#define EVENT_FUN(fun, ch, af)						\
+	void fun(CHAR_DATA *ch, AFFECT_DATA *af __attribute__((unused)))
+#define SPELL_FUN(fun, sn, level, ch, vo)				\
+	void fun(const char *sn __attribute__((unused)),		\
+		 int level __attribute__((unused)),			\
+		 CHAR_DATA *ch __attribute__((unused)),			\
+		 void *vo __attribute__((unused)))
+#define	UPDATE_FUN(fun)							\
+	void fun(void)
+#define MODINIT_FUN(fun, m)						\
+	int fun(module_t *m __attribute__((unused)))
+#define RUNGAME_FUN(fun, in_set, out_set, exc_set)			\
+	void fun(struct fd_set *in_set, struct fd_set *out_set,		\
+		 struct fd_set *exc_set __attribute__((unused)))
 
 /* WIN32 Microsoft specific definitions */
 #if defined (WIN32)

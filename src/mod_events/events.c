@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: events.c,v 1.10 2001-07-31 18:14:45 fjoe Exp $
+ * $Id: events.c,v 1.11 2001-08-13 18:23:32 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -33,18 +33,19 @@
 #include <merc.h>
 #include <module.h>
 
-static void *load_cb(void *p, va_list ap);
-static void *unload_cb(void *p, va_list ap);
+DECLARE_MODINIT_FUN(_module_load);
+DECLARE_MODINIT_FUN(_module_unload);
 
-int
-_module_load(module_t* m)
+static DECLARE_FOREACH_CB_FUN(load_cb);
+static DECLARE_FOREACH_CB_FUN(unload_cb);
+
+MODINIT_FUN(_module_load, m)
 {
 	hash_foreach(&skills, load_cb, m);
 	return 0;
 }
 
-int
-_module_unload(module_t *m)
+MODINIT_FUN(_module_unload, m)
 {
 	hash_foreach(&skills, unload_cb);
 	return 0;
@@ -62,8 +63,8 @@ load_event_cb(void *p, va_list ap)
 	return NULL;
 }
 
-static void *
-load_cb(void *p, va_list ap)
+static
+FOREACH_CB_FUN(load_cb, p, ap)
 {
 	skill_t *sk = (skill_t*) p;
 	module_t *m = va_arg(ap, module_t *);
@@ -72,8 +73,8 @@ load_cb(void *p, va_list ap)
 	return NULL;
 }
 
-static void *
-unload_event_cb(void *p, va_list ap)
+static
+FOREACH_CB_FUN(unload_event_cb, p, ap)
 {
 	evf_t *evf = (evf_t *) p;
 
@@ -81,8 +82,8 @@ unload_event_cb(void *p, va_list ap)
 	return NULL;
 }
 
-static void *
-unload_cb(void *p, va_list ap)
+static
+FOREACH_CB_FUN(unload_cb, p, ap)
 {
 	skill_t *sk = (skill_t*) p;
 

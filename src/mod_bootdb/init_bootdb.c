@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_bootdb.c,v 1.2 2001-08-05 16:36:31 fjoe Exp $
+ * $Id: init_bootdb.c,v 1.3 2001-08-13 18:23:20 fjoe Exp $
  */
 
 #include <errno.h>
@@ -35,13 +35,15 @@
 #include <lang.h>
 #include <rwfile.h>
 
+DECLARE_MODINIT_FUN(_module_load);
+DECLARE_MODINIT_FUN(_module_unload);
+
 static void load_msgdb(void);
 static void load_hints(void);
 static void fix_resets(void);
 static void fix_exits(void);
 
-int
-_module_load(module_t *m)
+MODINIT_FUN(_module_load, m)
 {
 	bootdb_errors = 0;
 
@@ -80,8 +82,7 @@ _module_load(module_t *m)
 	return 0;
 }
 
-int
-_module_unload(module_t *m)
+MODINIT_FUN(_module_unload, m)
 {
 	/* empty */
 	return 0;

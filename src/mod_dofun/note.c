@@ -1,5 +1,5 @@
 /*
- * $Id: note.c,v 1.22 2001-08-03 11:27:37 fjoe Exp $
+ * $Id: note.c,v 1.23 2001-08-13 18:23:30 fjoe Exp $
  */
 
 /***************************************************************************
@@ -49,10 +49,17 @@
 
 #include <handler.h>
 
+DECLARE_DO_FUN(do_unread);
+DECLARE_DO_FUN(do_note);
+DECLARE_DO_FUN(do_idea);
+DECLARE_DO_FUN(do_penalty);
+DECLARE_DO_FUN(do_news);
+DECLARE_DO_FUN(do_changes);
+
 static int count_spool(CHAR_DATA *ch, note_t *spool);
 static void parse_note(CHAR_DATA *ch, const char *argument, int type);
 
-void do_unread(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_unread, ch, argument)
 {
 	int count;
 	bool found = FALSE;
@@ -94,27 +101,27 @@ void do_unread(CHAR_DATA *ch, const char *argument)
 		act_char("You have no unread messages.", ch);
 }
 
-void do_note(CHAR_DATA *ch,const char *argument)
+DO_FUN(do_note, ch, argument)
 {
 	parse_note(ch, argument, NOTE_NOTE);
 }
 
-void do_idea(CHAR_DATA *ch,const char *argument)
+DO_FUN(do_idea, ch, argument)
 {
 	parse_note(ch, argument, NOTE_IDEA);
 }
 
-void do_penalty(CHAR_DATA *ch,const char *argument)
+DO_FUN(do_penalty, ch, argument)
 {
 	parse_note(ch, argument, NOTE_PENALTY);
 }
 
-void do_news(CHAR_DATA *ch,const char *argument)
+DO_FUN(do_news, ch, argument)
 {
 	parse_note(ch, argument, NOTE_NEWS);
 }
 
-void do_changes(CHAR_DATA *ch,const char *argument)
+DO_FUN(do_changes, ch, argument)
 {
 	parse_note(ch, argument, NOTE_CHANGES);
 }

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: skills_impl.c,v 1.1 2001-07-31 18:14:50 fjoe Exp $
+ * $Id: skills_impl.c,v 1.2 2001-08-13 18:23:41 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -71,8 +71,8 @@ get_skill_mod(CHAR_DATA *ch, skill_t *sk, int percent)
 
 typedef int MOB_SKILL(const CHAR_DATA *);
 #define DECLARE_MOB_SKILL(fun) static MOB_SKILL fun;
-#define MOB_SKILL(fun) static int fun(const CHAR_DATA *mob		\
-					__attribute__((unused)))
+#define MOB_SKILL(fun)							\
+	static int fun(const CHAR_DATA *mob __attribute__((unused)))
 
 typedef struct mob_skill_t mob_skill_t;
 struct mob_skill_t {
@@ -159,7 +159,7 @@ static mob_skill_t mob_skill_tab[] =
 	{ NULL, NULL }
 };
 
-void
+static void
 mob_skill_init(void)
 {
 	mob_skill_t *mob_skill;

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_cmd.c,v 1.18 2001-07-31 18:15:00 fjoe Exp $
+ * $Id: olc_cmd.c,v 1.19 2001-08-13 18:23:49 fjoe Exp $
  */
 
 #include "olc.h"
@@ -77,7 +77,6 @@ olc_cmd_t olc_cmds_cmd[] =
 
 static void *save_cmd_cb(void *fp, va_list ap);
 static void check_shadow(CHAR_DATA *ch, const char *name);
-
 
 OLC_FUN(cmded_create)
 {
@@ -384,7 +383,8 @@ static VALIDATE_FUN(validate_cmd_name)
 	return TRUE;
 }
 
-static void *save_cmd_cb(void *p, va_list ap)
+static void *
+save_cmd_cb(void *p, va_list ap)
 {
 	cmd_t *cmnd = (cmd_t *) p;
 	FILE *fp = va_arg(ap, FILE *);

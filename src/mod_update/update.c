@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: update.c,v 1.200 2001-07-31 18:15:09 fjoe Exp $
+ * $Id: update.c,v 1.201 2001-08-13 18:23:55 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -38,12 +38,13 @@
 #include <update.h>
 #include "update_impl.h"
 
+DECLARE_MODINIT_FUN(_module_boot);
+
 static void *uhandler_load_cb(void *p, va_list ap);
 static void *uhandler_unload_cb(void *p, va_list ap);
 static void *uhandler_tick_cb(void *p, va_list ap);
 
-void
-_module_boot()
+MODINIT_FUN(_module_boot, m)
 {
 	int hour, day, month;
 
@@ -78,6 +79,8 @@ _module_boot()
 
 	scan_pfiles();
 	update_one("area");
+
+	return 0;
 }
 
 void
@@ -211,8 +214,8 @@ gain_condition(CHAR_DATA *ch, int iCond, int value)
 				damage_hunger = 1;
 			damage(ch, ch, damage_hunger, NULL,
 				DAM_NONE, DAMF_SHOW | DAMF_THIRST);
-			if (ch->position == POS_SLEEPING) 
-				return; 
+			if (ch->position == POS_SLEEPING)
+				return;
 			break;
 
 		case COND_BLOODLUST:
@@ -268,8 +271,8 @@ uhandler_load_cb(void *p, va_list ap)
 	return NULL;
 }
 
-static void *
-uhandler_unload_cb(void *p, va_list ap)
+static
+FOREACH_CB_FUN(uhandler_unload_cb, p, ap)
 {
 	uhandler_t *hdlr = (uhandler_t *) p;
 	int mod = va_arg(ap, int);
@@ -280,8 +283,8 @@ uhandler_unload_cb(void *p, va_list ap)
 	return NULL;
 }
 
-static void *
-uhandler_tick_cb(void *p, va_list ap)
+static
+FOREACH_CB_FUN(uhandler_tick_cb, p, ap)
 {
 	uhandler_t *hdlr = (uhandler_t *) p;
 
@@ -292,4 +295,3 @@ uhandler_tick_cb(void *p, va_list ap)
 
 	return NULL;
 }
-
