@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.155 2000-03-05 18:05:37 avn Exp $
+ * $Id: save.c,v 1.156 2000-03-05 18:59:51 avn Exp $
  */
 
 /***************************************************************************
@@ -66,7 +66,8 @@ static OBJ_DATA *rgObjNest[MAX_NEST];
  * global vars for areaed_move()
  */
 int minv, maxv, del;
-extern int *damtbl;
+
+extern int damtbl [17];
 
 /*
  * Local functions.
@@ -650,20 +651,18 @@ fread_char(CHAR_DATA * ch, rfile_t * fp, int flags)
 				if (PC(ch)->version < 12
 				&&  (paf->where == TO_AFFECTS || paf->where == TO_DETECTS || paf->where == TO_INVIS)
 				&&  INT(paf->location) >=27) {
-					int loc;
-					AFFECT_DATA *paf2 = aff_new();
-					paf2->where = TO_RESIST;
-					paf2->type = str_empty;
-					paf2->duration = -1;
-					paf2->level = paf->level;
-					paf2->type = str_qdup(paf->type);
-					loc = INT(paf->location) - 27;
-					INT(paf2->location) = damtbl[loc];
+					AFFECT_DATA af2;
+					af2.where = TO_RESIST;
+					af2.duration = paf->duration;
+					af2.level = paf->level;
+					af2.type = str_qdup(paf->type);
+					af2.owner = NULL;
+					INT(af2.location) = damtbl[INT(paf->location) - 27];
 					INT(paf->location) = APPLY_NONE;
-					paf2->modifier = paf->modifier;
+					af2.modifier = paf->modifier;
 					paf->modifier = 0;
-					paf2->bitvector = 0;
-					affect_to_char(ch, paf2);
+					af2.bitvector = 0;
+					affect_to_char(ch, &af2);
 				}
 				affect_to_char(ch, paf);
 				aff_free(paf);
@@ -959,17 +958,18 @@ fread_pet(CHAR_DATA * ch, rfile_t * fp, int flags)
 				if (PC(ch)->version < 12
 				&&  (paf->where == TO_AFFECTS || paf->where == TO_DETECTS || paf->where == TO_INVIS)
 				&&  INT(paf->location) >=27) {
-					AFFECT_DATA *paf2 = aff_new();
-					paf2->where = TO_RESIST;
-					paf2->type = str_empty;
-					paf2->duration = -1;
-					paf2->level = paf->level;
-					INT(paf2->location) = damtbl[INT(paf->location)-27];
+					AFFECT_DATA af2;
+					af2.where = TO_RESIST;
+					af2.duration = paf->duration;
+					af2.type = str_qdup(paf->type);
+					af2.level = paf->level;
+					af2.owner = NULL;
+					INT(af2.location) = damtbl[INT(paf->location)-27];
 					INT(paf->location) = APPLY_NONE;
-					paf2->modifier = paf->modifier;
+					af2.modifier = paf->modifier;
 					paf->modifier = 0;
-					paf2->bitvector = 0;
-					affect_to_char(pet, paf2);
+					af2.bitvector = 0;
+					affect_to_char(pet, &af2);
 				}
 				affect_to_char(pet, paf);
 				aff_free(paf);
@@ -1100,11 +1100,8 @@ fread_obj(CHAR_DATA * ch, rfile_t * fp, int flags)
 				if (PC(ch)->version < 12
 				&&  (paf->where == TO_AFFECTS || paf->where == TO_DETECTS || paf->where == TO_INVIS || paf->where == TO_OBJECT)
 				&&  INT(paf->location) >=27) {
-					AFFECT_DATA *paf2 = aff_new();
+					AFFECT_DATA *paf2 = aff_dup(paf);
 					paf2->where = TO_RESIST;
-					paf2->type = str_empty;
-					paf2->duration = -1;
-					paf2->level = paf->level;
 					INT(paf2->location) = damtbl[INT(paf->location)-27];
 					INT(paf->location) = APPLY_NONE;
 					paf2->modifier = paf->modifier;
