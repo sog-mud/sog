@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.165.2.23 2001-03-11 07:23:45 cs Exp $
+ * $Id: act_obj.c,v 1.165.2.24 2001-05-09 14:21:10 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2011,7 +2011,7 @@ void do_buy(CHAR_DATA * ch, const char *argument)
 	roll = number_percent();
 	if (!IS_OBJ_STAT(obj, ITEM_SELL_EXTRACT)
 	    && roll < get_skill(ch, gsn_haggle)) {
-		cost -= obj->cost / 2 * roll / 100;
+		cost -= cost / 2 * roll / 100;
 		act("You haggle with $N.", ch, NULL, keeper, TO_CHAR);
 		check_improve(ch, gsn_haggle, TRUE, 4);
 	}
