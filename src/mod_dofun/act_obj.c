@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.298 2004-02-19 13:31:42 fjoe Exp $
+ * $Id: act_obj.c,v 1.299 2004-02-19 14:28:19 fjoe Exp $
  */
 
 /***************************************************************************
@@ -115,6 +115,9 @@ static bool		put_obj		(CHAR_DATA *ch, OBJ_DATA *container,
 
 static void		give_coins(CHAR_DATA *ch, CHAR_DATA *victim,
 				   int silver, int gold);
+static const char *	money_argument(const char *argument,
+				    char *arg, size_t len,
+				    int *silver, int *gold);
 
 DO_FUN(do_get, ch, argument)
 {
@@ -380,38 +383,33 @@ DO_FUN(do_drop, ch, argument)
 	bool            found;
 
 	argument = one_argument(argument, arg, sizeof(arg));
-
 	if (arg[0] == '\0') {
 		act_char("Drop what?", ch);
 		return;
 	}
+
 	if (is_number(arg)) {
 		/* 'drop NNNN coins' */
-		int             amount, gold = 0, silver = 0;
-		amount = atoi(arg);
-		argument = one_argument(argument, arg, sizeof(arg));
-		if (amount <= 0
-		    || (str_cmp(arg, "coins") && str_cmp(arg, "coin")
-			&& str_cmp(arg, "gold") && str_cmp(arg, "silver"))) {
-			act_char("You can't do that.", ch);
+		int silver, gold;
+
+		argument = money_argument(
+		    argument, arg, sizeof(arg), &silver, &gold);
+		if (argument == NULL) {
+			do_drop(ch, str_empty);
 			return;
 		}
-		if (!str_cmp(arg, "coins") || !str_cmp(arg, "coin")
-		    || !str_cmp(arg, "silver")) {
-			if (ch->silver < amount) {
-				act_char("You don't have that much silver.", ch);
-				return;
-			}
-			ch->silver -= amount;
-			silver = amount;
-		} else {
-			if (ch->gold < amount) {
-				act_char("You don't have that much gold.", ch);
-				return;
-			}
-			ch->gold -= amount;
-			gold = amount;
+
+		if (ch->silver < silver) {
+			act_char("You don't have that much silver.", ch);
+			return;
 		}
+		if (ch->gold < gold) {
+			act_char("You don't have that much gold.", ch);
+			return;
+		}
+
+		ch->silver -= silver;
+		ch->gold -= gold;
 
 		for (obj = ch->in_room->contents; obj != NULL; obj = obj_next) {
 			obj_next = obj->next_content;
@@ -512,25 +510,12 @@ DO_FUN(do_give, ch, argument)
 		int silver, gold;
 		int change_silver, change_gold;
 
-		silver = atoi(arg);
-		argument = one_argument(argument, arg, sizeof(arg));
-		if (arg[0] == '\0') {
+		argument = money_argument(
+		    argument, arg, sizeof(arg), &silver, &gold);
+		if (argument == NULL) {
 			do_give(ch, str_empty);
 			return;
 		}
-
-		if (silver <= 0
-		||  (str_cmp(arg, "coins") && str_cmp(arg, "coin") &&
-		     str_cmp(arg, "gold") && str_cmp(arg, "silver"))) {
-			act_char("Sorry, you can't do that.", ch);
-			return;
-		}
-
-		if (!str_cmp(arg, "gold")) {
-			gold = silver;
-			silver = 0;
-		} else
-			gold = 0;
 
 		argument = one_argument(argument, arg, sizeof(arg));
 		if (!str_cmp(arg, "to"))
@@ -603,15 +588,19 @@ DO_FUN(do_give, ch, argument)
 			return;
 
 		}
-		if (change_silver > victim->silver)
-			victim->silver += change_silver;
-		if (gold && change_gold > victim->gold)
-			victim->gold += change_gold;
-
 		if (silver) {
 			change_silver +=
 			    (95 * silver / 100 - change_gold * 100);
 		}
+
+		/*
+		 * Ensure changer has enough money
+		 */
+		if (change_silver > victim->silver)
+			victim->silver += change_silver;
+		if (change_gold > victim->gold)
+			victim->gold += change_gold;
+
 		give_coins(victim, ch, change_silver, change_gold);
 		tell_char(victim, ch, "Thank you, come again.");
 		return;
@@ -1869,9 +1858,9 @@ DO_FUN(do_steal, ch, argument)
 		return;
 	}
 
-	if (!str_cmp(arg1, "coin")
+	if (!str_cmp(arg1, "silver")
 	||  !str_cmp(arg1, "coins")
-	||  !str_cmp(arg1, "silver")
+	||  !str_cmp(arg1, "coin")
 	||  !str_cmp(arg1, "gold")) {
 		int silver, gold;
 
@@ -1879,8 +1868,8 @@ DO_FUN(do_steal, ch, argument)
 			silver = 0;
 			gold = victim->gold * number_range(1, 7) / 100;
 		} else {
-			gold = 0;
 			silver = victim->silver * number_range(1, 20) / 100;
+			gold = 0;
 		}
 
 		if (silver + gold < 1) {
@@ -2993,21 +2982,9 @@ DO_FUN(do_withdraw, ch, argument)
 		return;
 	}
 
-	silver = atoi(arg);
-	if (silver <= 0) {
-		act_char("What?", ch);
-		return;
-	}
-
-	if (!str_cmp(argument, "silver")
-	||  !str_cmp(argument, "coin")
-	||  !str_cmp(argument, "coins"))
-		gold = 0;
-	else if (!str_cmp(argument, "gold")) {
-		gold = silver;
-		silver = 0;
-	} else {
-		act_char("You can withdraw gold and silver coins only.", ch);
+	argument = money_argument(argument, arg, sizeof(arg), &silver, &gold);
+	if (argument == NULL) {
+		do_withdraw(ch, str_empty);
 		return;
 	}
 
@@ -3068,21 +3045,9 @@ DO_FUN(do_deposit, ch, argument)
 		return;
 	}
 
-	silver = atoi(arg);
-	if (silver <= 0) {
-		act_char("What?", ch);
-		return;
-	}
-
-	if (!str_cmp(argument, "silver")
-	||  !str_cmp(argument, "coin")
-	||  !str_cmp(argument, "coins"))
-		gold = 0;
-	else if (!str_cmp(argument, "gold")) {
-		gold = silver;
-		silver = 0;
-	} else {
-		act_char("You can deposit gold and silver coins only.", ch);
+	argument = money_argument(argument, arg, sizeof(arg), &silver, &gold);
+	if (argument == NULL) {
+		do_deposit(ch, str_empty);
 		return;
 	}
 
@@ -4063,14 +4028,42 @@ give_coins(CHAR_DATA *ch, CHAR_DATA *victim, int silver, int gold)
 {
 	char buf[MAX_INPUT_LENGTH];
 
-	if (silver) {
+	if (silver > 0) {
 		snprintf(buf, sizeof(buf), "%d silver '%s'",	// notrans
 			 silver, victim->name);
 		dofun("give", ch, buf);
 	}
-	if (gold) {
+	if (gold > 0) {
 		snprintf(buf, sizeof(buf), "%d gold '%s'",	// notrans
 			 gold, victim->name);
 		dofun("give", ch, buf);
 	}
+}
+
+static const char *
+money_argument(const char *argument, char *arg, size_t len,
+	       int *silver, int *gold)
+{
+	int amount;
+
+	amount = atoi(arg);
+	if (amount <= 0)
+		return NULL;
+
+	argument = one_argument(argument, arg, len);
+	if (arg[0] == '\0')
+		return NULL;
+
+	if (!str_cmp(arg, "silver")
+	||  !str_cmp(arg, "coins")
+	||  !str_cmp(arg, "coin")) {
+		*silver = amount;
+		*gold = 0;
+	} else if (!str_cmp(arg, "gold")) {
+		*silver = 0;
+		*gold = amount;
+	} else
+		return NULL;
+
+	return argument;
 }
