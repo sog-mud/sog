@@ -1,5 +1,5 @@
 /*
- * $Id: special.c,v 1.54.2.2 2000-04-22 02:59:00 osya Exp $
+ * $Id: special.c,v 1.54.2.3 2000-10-13 11:04:41 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1058,7 +1058,7 @@ bool spec_nasty(CHAR_DATA *ch)
 			&&  (victim->level < ch->level + 10)) {
 				dofun("backstab", ch, victim->name);
 				if (ch->position != POS_FIGHTING)
-					dofun("murder", ch, victim->name);
+					multi_hit(ch, victim, TYPE_UNDEFINED);
 				/* should steal some coins right away? :) */
 				return TRUE;
 			}

@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.157.2.30 2000-10-13 08:42:35 fjoe Exp $
+ * $Id: update.c,v 1.157.2.31 2000-10-13 11:04:41 fjoe Exp $
  */
 
 /***************************************************************************
@@ -562,7 +562,7 @@ void gain_condition(CHAR_DATA *ch, int iCond, int value)
 					&&  !is_safe_nomessage(ch, vch)) {
 						dofun("yell", ch,
 						      "BLOOD! I NEED BLOOD!");
-						dofun("murder", ch, vch->name);
+						multi_hit(ch, vch, TYPE_UNDEFINED);
 						fdone = 1;
 					}
 			         }
@@ -1843,7 +1843,7 @@ void aggr_update(void)
 				if (wch != vch && can_see(wch,vch)
 				&&  !is_safe_nomessage(wch,vch)) {
 					act_puts("{RMORE BLOOD! MORE BLOOD! MORE BLOOD!!!{x", wch,NULL,NULL,TO_CHAR,POS_RESTING);
-					dofun("murder", wch, vch->name);
+					multi_hit(wch, vch, TYPE_UNDEFINED);
 					if (IS_EXTRACTED(wch))
 						continue;
 				}
@@ -1894,7 +1894,7 @@ void aggr_update(void)
 			&& !IS_AFFECTED(ch, AFF_SCREAM | AFF_CALM)) {
 				act_yell(ch, "$i! Now you die!", wch, NULL);
 				wch = check_guard(wch, ch); 
-				dofun("murder", ch, wch->name);
+				multi_hit(ch, wch, TYPE_UNDEFINED);
 				continue;
 			}
 
@@ -2217,7 +2217,7 @@ void track_update(void)
 				continue;
 
 			act_yell(ch, "So we meet again, $i!", vch, NULL);
-			dofun("murder", ch, vch->name);
+			multi_hit(ch, vch, TYPE_UNDEFINED);
 			break;
 		}
 	}
