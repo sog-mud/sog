@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_form.c,v 1.12 1999-02-18 13:34:33 fjoe Exp $
+ * $Id: olc_form.c,v 1.13 1999-02-18 18:01:59 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -241,7 +241,7 @@ OLC_FUN(formed_show)
 		EDIT_WORD(ch, w);
 	}
 	else {
-		char_puts("WordEd: You must be editing a language or another word.\n", ch);
+		char_puts("FormEd: You must be editing a language or another word.\n", ch);
 		return FALSE;
 	}
 
@@ -288,7 +288,7 @@ OLC_FUN(formed_list)
 		 ch->desc->editor == ED_QTY)
 		EDIT_LANG(ch, l);
 	else {
-		char_puts("WordEd: You must be editing a language or another word.\n", ch);
+		char_puts("FormEd: You must be editing a language or another word.\n", ch);
 		return FALSE;
 	}
 
