@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.281 2001-02-11 18:07:22 fjoe Exp $
+ * $Id: handler.c,v 1.282 2001-02-12 19:07:19 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2818,7 +2818,7 @@ void do_who_raw(CHAR_DATA* ch, CHAR_DATA *wch, BUFFER* output)
 	if ((clan = clan_lookup(wch->clan)) != NULL
 	&&  (!IS_SET(clan->clan_flags, CLAN_HIDDEN) ||
 	     (ch && (IS_CLAN(wch->clan, ch->clan) || IS_IMMORTAL(ch)))))
-		buf_printf(output, BUF_END, "[{c%s{x] ", clan->name);
+		buf_printf(output, BUF_END, "[{c%s{x] ", clan->name); // notrans
 
 	if (IS_SET(wch->comm, COMM_AFK))
 		buf_append(output, "{c[AFK]{x ");
@@ -2832,7 +2832,7 @@ void do_who_raw(CHAR_DATA* ch, CHAR_DATA *wch, BUFFER* output)
 		buf_append(output, "{R(WANTED){x ");
 
 	if (IS_IMMORTAL(wch))
-		buf_printf(output, BUF_END, "{W%s{x", wch->name);
+		buf_printf(output, BUF_END, "{W%s{x", wch->name);  // notrans
 	else
 		buf_append(output, wch->name);
 

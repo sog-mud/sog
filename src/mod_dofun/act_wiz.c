@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.265 2001-02-11 14:35:38 fjoe Exp $
+ * $Id: act_wiz.c,v 1.266 2001-02-12 19:07:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3185,7 +3185,7 @@ do_mset(CHAR_DATA *ch, const char *argument)
 
 	if (!str_cmp(arg2, "security"))	{ /* OLC */
 		if (IS_NPC(ch)) {
-			act_char("Si, claro.", ch);
+			act_char("Si, claro.", ch);		// notrans
 			goto cleanup;
 		}
 

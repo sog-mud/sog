@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.366 2001-02-11 14:35:36 fjoe Exp $
+ * $Id: act_info.c,v 1.367 2001-02-12 19:07:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -810,6 +810,7 @@ void do_exits(CHAR_DATA *ch, const char *argument)
 	EXIT_DATA *pexit;
 	bool found;
 	bool fAuto;
+	bool check_perception = FALSE;
 	int door;
 	BUFFER *buf;
 
@@ -839,7 +840,7 @@ void do_exits(CHAR_DATA *ch, const char *argument)
 					show_closed = TRUE;
 				else if ((chance = get_skill(ch, "perception"))){
 					if (number_percent() < chance) {
-						check_improve(ch, "perception", TRUE, 5);
+						check_perception = TRUE;
 						show_closed = TRUE;
 					}
 				}
@@ -886,6 +887,9 @@ void do_exits(CHAR_DATA *ch, const char *argument)
 
 	send_to_char(buf_string(buf), ch);
 	buf_free(buf);
+
+	if (check_perception)
+		check_improve(ch, "perception", TRUE, 5);
 }
 
 void do_worth(CHAR_DATA *ch, const char *argument)
@@ -4265,9 +4269,8 @@ static void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 		if (HAS_INVIS(victim, ID_BLEND))
 			buf_append(output, "({gBlending{x) ");
 		if (IS_SET(ch->comm, COMM_SHOWRACE)) {
-			buf_act(output, BUF_END,
-				"({c$t{x) ", ch, victim->race, 	// notrans
-				  NULL, NULL, TO_CHAR | ACT_NOLF);	
+			buf_act(output, BUF_END, "({c$t{x) ", 	// notrans
+				NULL, victim->race, NULL, ACT_NOLF);	
 		}
 	} else {
 		static char FLAGS[] = "{x[{y.{D.{m.{c.{M.{D.{G.{b.{R.{Y.{W.{y.{g.{g."; // notrans
@@ -4309,8 +4312,7 @@ static void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 
 		if (IS_SET(ch->comm, COMM_SHOWRACE)) {
 			buf_act(output, BUF_END, "{c$t{x] ",	// notrans
-				ch, victim->race, NULL, NULL,
-				TO_CHAR | ACT_NOLF);
+				NULL, victim->race, NULL, ACT_NOLF);
 		} else if (diff)
 			buf_append(output, "{x] ");		// notrans
 	}

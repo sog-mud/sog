@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: healer.c,v 1.47 2001-02-11 14:35:39 fjoe Exp $
+ * $Id: healer.c,v 1.48 2001-02-12 19:07:18 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -133,14 +133,16 @@ void do_heal(CHAR_DATA *ch, const char *argument)
 
 		buf = buf_new(GET_LANG(ch));
 		buf_act(buf, BUF_END, "$N offers the following spells.",
-			ch, NULL, mob, NULL, TO_CHAR);
+			ch, NULL, mob, 0);
 		for (h = heal_table; h->keyword; h++) {
 			if (has_spec(ch, "clan_battleragers") && (h->price > 0))
 				continue;
-			buf_printf(buf, BUF_END,
-				   "%-10.9s : %-20.19s : %3d gold\n",
-				   h->keyword, h->name,
-				   get_heal_cost(h, mob, ch) / 100);
+			buf_printf(buf, BUF_END, "%-10.10s : ",	// notrans
+				   h->keyword);
+			buf_act(buf, BUF_END, "$F-20{$T} : $j gold", ch,
+			    (const void *) (get_heal_cost(h, mob, ch) / 100),
+			    h->name,
+			    ACT_NOUCASE);
 		}
 		buf_append(buf, "Type heal <spell> to be healed.\n");
 		page_to_char(buf_string(buf), ch);

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_spec.c,v 1.13 2001-02-11 14:35:38 fjoe Exp $
+ * $Id: act_spec.c,v 1.14 2001-02-12 19:07:17 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -209,7 +209,7 @@ void do_magicschool(CHAR_DATA *ch, const char *argument)
 	if (!str_prefix(argument, "abjuration")) {
 		major_school 	= "major_abjuration";
 		minor_school 	= "minor_abjuration";
-		school_name 	= "abjuration";			// notrans	
+		school_name 	= "abjuration";			// notrans
 	} else if (!str_prefix(argument, "alteration")
 		|| !str_prefix(argument, "transmutation")) {
 		major_school 	= "major_alteration";

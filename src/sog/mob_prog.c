@@ -1,5 +1,5 @@
 /*
- * $Id: mob_prog.c,v 1.61 2000-10-21 18:15:50 fjoe Exp $
+ * $Id: mob_prog.c,v 1.62 2001-02-12 19:07:19 fjoe Exp $
  */
 
 /***************************************************************************
@@ -220,6 +220,28 @@ const char *fn_evals[] =
     "!=",
     "\n"
 };
+
+/*
+ * smash '~'
+ */
+static const char *
+fix_short(const char *s)
+{
+	char *p;
+	static char buf[MAX_STRING_LENGTH];
+
+	if (!strchr(s, '~'))
+		return s;
+
+	for (p = buf; *s && p-buf < sizeof(buf)-1; s++) {
+		if (*s == '~')
+			continue;
+		*p++ = *s;
+	}
+
+	*p = '\0';
+	return buf;
+}
 
 /*
  * Return a valid keyword from a keyword table

@@ -1,5 +1,5 @@
 /*
- * $Id: affect.c,v 1.49 2001-02-11 14:35:43 fjoe Exp $
+ * $Id: affect.c,v 1.50 2001-02-12 19:07:19 fjoe Exp $
  */
 
 /***************************************************************************
@@ -963,9 +963,10 @@ void show_duration(BUFFER *output, AFFECT_DATA *paf)
 {
 	if (paf->duration < 0)
 		buf_append(output, " permanently.\n");
-	else 
+	else  {
 		buf_act(output, BUF_END, " for {c$j{x $qj{hours}.", NULL,
-			(const void*) paf->duration, NULL, NULL, ACT_NOUCASE);
+			(const void *) paf->duration, NULL, 0);
+	}
 }
 
 void show_loc_affect(CHAR_DATA *ch, BUFFER *output,
@@ -1028,9 +1029,8 @@ void show_affects(CHAR_DATA *ch, CHAR_DATA *vch, BUFFER *output)
 			if (ch == vch)
 				buf_append(output, "You are affected by:\n");
 			else {
-				buf_act(output, BUF_END,
-					"$N is affected by:",
-					ch, NULL, vch, NULL, 0);
+				buf_act(output, BUF_END, "$N is affected by:",
+					ch, NULL, vch, 0);
 			}
 		}
 
@@ -1048,12 +1048,13 @@ void show_affects(CHAR_DATA *ch, CHAR_DATA *vch, BUFFER *output)
 	}
 
 	if (!found) {
-		if (ch == vch)
-			buf_append(output, "You are not affected by any spells.\n");
-		else {
+		if (ch == vch) {
+			buf_append(output,
+			    "You are not affected by any spells.\n");
+		} else {
 			buf_act(output, BUF_END,
 				"$N is not affected by any spells.",
-				ch, NULL, vch, NULL, 0);
+				ch, NULL, vch, 0);
 		}
 	}
 

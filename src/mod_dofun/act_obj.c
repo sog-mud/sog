@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.232 2001-02-11 21:19:39 fjoe Exp $
+ * $Id: act_obj.c,v 1.233 2001-02-12 19:07:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2328,6 +2328,7 @@ void do_herbs(CHAR_DATA * ch, const char *argument)
 	CHAR_DATA *victim;
 	char arg[MAX_INPUT_LENGTH];
 	int chance;
+	bool is_healer;
 
 	one_argument(argument, arg, sizeof(arg));
 
@@ -2345,11 +2346,13 @@ void do_herbs(CHAR_DATA * ch, const char *argument)
 		return;
 	}
 
+	is_healer = IS_NPC(ch) && MOB_IS(ch, MOB_HEALER);
 	chance = get_skill(ch, "herbs");
-	if (ch->in_room->sector_type != SECT_INSIDE
-	&&  ch->in_room->sector_type != SECT_CITY
-	&&  number_percent() < chance) {
-		if (!IS_NPC(ch)) {
+	if (is_healer ||
+	    (ch->in_room->sector_type != SECT_INSIDE &&
+	     ch->in_room->sector_type != SECT_CITY &&
+	     number_percent() < chance)) {
+		if (!is_healer) {
 			AFFECT_DATA af;
 			af.where	= TO_AFFECTS;
 			af.type		= "herbs";
@@ -2363,13 +2366,23 @@ void do_herbs(CHAR_DATA * ch, const char *argument)
 			affect_to_char(ch, &af);
 		}
 
-		act_char("You gather some beneficial herbs.", ch);
-		act("$n gathers some herbs.", ch, NULL, NULL, TO_ROOM);
+		if (is_healer) {
+			act("$N gives you some herbs to eat.",
+			    victim, NULL, ch, TO_CHAR);
+			act("$N gives the herbs to $n.",
+			    victim, NULL, ch, TO_NOTVICT);
+		} else {
+			act_char("You gather some beneficial herbs.", ch);
+			act("$n gathers some herbs.", ch, NULL, NULL, TO_ROOM);
 
-		if (ch != victim) {
-			act("$n gives you some herbs to eat.", ch, NULL, victim, TO_VICT);
-			act("You give the herbs to $N.", ch, NULL, victim, TO_CHAR);
-			act("$n gives the herbs to $N.", ch, NULL, victim, TO_NOTVICT);
+			if (ch != victim) {
+				act("$n gives you some herbs to eat.",
+				    ch, NULL, victim, TO_VICT);
+				act("You give the herbs to $N.",
+				    ch, NULL, victim, TO_CHAR);
+				act("$n gives the herbs to $N.",
+				    ch, NULL, victim, TO_NOTVICT);
+			}
 		}
 
 		if (victim->hit < victim->max_hit) {

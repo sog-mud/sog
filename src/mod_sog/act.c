@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act.c,v 1.68 2001-02-11 14:35:44 fjoe Exp $
+ * $Id: act.c,v 1.69 2001-02-12 19:07:20 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -43,12 +43,14 @@
 /*
  * smash '~'
  */
-const char *fix_short(const char *s)
+static const char *
+smash_tilde(const char *s, int act_flags)
 {
 	char *p;
 	static char buf[MAX_STRING_LENGTH];
 
-	if (!strchr(s, '~'))
+	if (IS_SET(act_flags, ACT_NOFIXSH)
+	||  !strchr(s, '~'))
 		return s;
 
 	for (p = buf; *s && p-buf < sizeof(buf)-1; s++) {
@@ -81,6 +83,11 @@ _format_short(mlstring *mlshort, const char *name, CHAR_DATA *to,
 		char buf2[MAX_STRING_LENGTH];
 		const char *format;
 
+		/*
+		 * enclose in tildes if we do want them
+		 * (if we do not have tilde smasher enabled)
+		 * and `sshort' does not already have them
+		 */
 		if (IS_SET(act_flags, ACT_NOFIXSH)
 		&&  strchr(sshort, '~') == NULL)
 			format = "~%s~ (%s)";			// notrans
@@ -92,9 +99,7 @@ _format_short(mlstring *mlshort, const char *name, CHAR_DATA *to,
 		sshort = buf;
 	}
 
-	if (IS_SET(act_flags, ACT_NOFIXSH))
-		return sshort;
-	return fix_short(sshort);
+	return smash_tilde(sshort, act_flags);
 }
 
 /*
@@ -142,8 +147,6 @@ const char *PERS2(CHAR_DATA *ch, CHAR_DATA *to, int to_lang, int act_flags)
 
 	if (visible) {
 		if (ch->shapeform) {
-			const char *descr;
-
 			if (IS_SET(act_flags, ACT_FORMSH)) {
 				return _format_short(
 					&ch->shapeform->index->short_desc, 
@@ -151,24 +154,19 @@ const char *PERS2(CHAR_DATA *ch, CHAR_DATA *to, int to_lang, int act_flags)
 				     	to, to_lang, act_flags);
 			}
 
-			descr = mlstr_val(&ch->shapeform->index->short_desc, 
-				to_lang);
-			if (IS_SET(act_flags, ACT_NOFIXSH))
-				return descr;
-			return fix_short(descr);
+			return smash_tilde(
+			    mlstr_val(&ch->shapeform->index->short_desc, to_lang),
+			    act_flags);
 		}
 		if (IS_NPC(ch)) {
-			const char *descr;
-
 			if (IS_SET(act_flags, ACT_FORMSH)) {
 				return _format_short(&ch->short_descr, ch->name,
 						     to, to_lang, act_flags);
 			}
 
-			descr = mlstr_val(&ch->short_descr, to_lang);
-			if (IS_SET(act_flags, ACT_NOFIXSH))
-				return descr;
-			return fix_short(descr);
+			return smash_tilde(
+			    mlstr_val(&ch->short_descr, to_lang),
+			    act_flags);
 		} else if (IS_AFFECTED(ch, AFF_TURNED) && !IS_IMMORTAL(to)) {
 			return word_form(GETMSG(PC(ch)->form_name, to_lang),
 					 GET_SEX(&ch->gender, to_lang), to_lang,
@@ -271,9 +269,7 @@ act_format_text(const char *text, CHAR_DATA *ch, CHAR_DATA *to,
 		text = GETMSG(text, to_lang);
 	if (IS_SET(act_flags, ACT_STRANS))
 		text = translate(ch, to, text);
-	if (IS_SET(act_flags, ACT_NOFIXTEXT))
-		return text;
-	return fix_short(text);
+	return text;
 }
 
 static const char *
@@ -287,8 +283,6 @@ act_format_mltext(mlstring *mltext, CHAR_DATA *ch, CHAR_DATA *to,
 static const char *
 act_format_obj(OBJ_DATA *obj, CHAR_DATA *to, int to_lang, int act_flags)
 {
-	const char *descr;
-
 	if (!IS_NPC(to) && is_affected(to, "hallucination"))
 		obj = nth_obj(obj, PC(to)->random_value);
 
@@ -300,10 +294,7 @@ act_format_obj(OBJ_DATA *obj, CHAR_DATA *to, int to_lang, int act_flags)
 				     to, to_lang, act_flags);
 	}
 
-	descr = mlstr_val(&obj->short_descr, to_lang);
-	if (IS_SET(act_flags, ACT_NOFIXSH))
-		return descr;
-	return fix_short(descr);
+	return smash_tilde(mlstr_val(&obj->short_descr, to_lang), act_flags);
 }
 
 static gmlstr_t *
@@ -422,8 +413,8 @@ act_format_door(gmlstr_t *gml)
  * $E - he_she(vch)
  * $f - $fnn{...} - misc formatting
  * $F - $Fnn{...} - ------//-------
- *		$fnn formats string with "%snn" format
- *		$Fnn formats string with "%snn.nn" format
+ *		$fnn formats string with "%nns" format
+ *		$Fnn formats string with "%nn.nns" format
  * $g - $gx{...} - gender form depending on sex of ``x'', where x is:
  *	d	- door name ($d)
  *	n	- ch ($n)
@@ -480,6 +471,7 @@ act_format_door(gmlstr_t *gml)
  * $z
  * $Z
  * ${ - "{{"
+ * $} - "}"
  * $$ - "$"
  *
  */
@@ -512,8 +504,7 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 	int		inside_wform = 0;
 
 	s = format = GETMSG(format, opt->to_lang);
-
-	while(*s) {
+	while (*s) {
 		char		code;
 		char		subcode;
 		const char *	i;
@@ -895,7 +886,7 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 
 /* first non-control char is uppercased */
 	if (!IS_SET(opt->act_flags, ACT_NOUCASE)) {
-		point = (char*) cstrfirst(buf);
+		point = (char *) cstrfirst(buf);
 		*point = UPPER(*point);
 	}
 }

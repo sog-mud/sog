@@ -1,5 +1,5 @@
 /*
- * $Id: buffer.c,v 1.26 2001-02-11 14:35:43 fjoe Exp $
+ * $Id: buffer.c,v 1.27 2001-02-12 19:07:19 fjoe Exp $
  */
 
 /***************************************************************************
@@ -152,8 +152,8 @@ buf_printf(BUFFER *buffer, int where, const char *format, ...)
 }
 
 bool
-buf_act(BUFFER *buffer, int where, const char *format, CHAR_DATA *ch,
-	const void *arg1, const void *arg2, const void *arg3, int act_flags)
+buf_act3(BUFFER *buffer, int where, const char *format, CHAR_DATA *ch,
+	 const void *arg1, const void *arg2, const void *arg3, int act_flags)
 {
 	actopt_t opt;
 	char tmp[MAX_STRING_LENGTH];

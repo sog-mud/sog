@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_quest.c,v 1.149 2001-02-11 19:04:41 fjoe Exp $
+ * $Id: act_quest.c,v 1.150 2001-02-12 19:07:19 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -206,16 +206,14 @@ chquest_status(CHAR_DATA *ch)
 			obj = obj->in_obj;
 
 		if (obj->carried_by) {
-			buf_act(buf, BUF_END,
-				"         $r (vnum $J), carried by $N.",
-				ch, obj->carried_by->in_room, obj->carried_by,
-				(const void *) obj->carried_by->in_room->vnum,
-				TO_CHAR);
+			buf_act3(buf, BUF_END,
+			    "         $r (vnum $J), carried by $N.", ch,
+			    obj->carried_by->in_room, obj->carried_by,
+			    (const void *) obj->carried_by->in_room->vnum, 0);
 		} else if (obj->in_room) {
-			buf_act(buf, BUF_END,
-				"         $r (vnum $J).",
-				ch, obj->in_room, NULL,
-				(const void *) obj->in_room->vnum, TO_CHAR);
+			buf_act3(buf, BUF_END, "         $r (vnum $J).", ch,
+			    obj->in_room, NULL,
+			    (const void *) obj->in_room->vnum, 0);
 		}
 	}
 

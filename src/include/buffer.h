@@ -1,5 +1,5 @@
 /*
- * $Id: buffer.h,v 1.13 2001-02-11 14:35:35 fjoe Exp $
+ * $Id: buffer.h,v 1.14 2001-02-12 19:07:16 fjoe Exp $
  */
 
 /***************************************************************************
@@ -46,25 +46,27 @@
 #define BUF_START	1
 #define BUF_END		0
 
-BUFFER *	buf_new		(int lang);
-void		buf_free	(BUFFER *buffer);
+BUFFER *buf_new		(int lang);
+void	buf_free	(BUFFER *buffer);
 
-bool		buf_prepend	(BUFFER *buffer, const char *string);
-bool		buf_append	(BUFFER *buffer, const char *string);
-bool		buf_printf	(BUFFER *buffer, int where,
+bool	buf_prepend	(BUFFER *buffer, const char *string);
+bool	buf_append	(BUFFER *buffer, const char *string);
+bool	buf_printf	(BUFFER *buffer, int where,
 				 const char *format, ...)
 					__attribute__ ((format(printf, 3, 4)));
-bool		buf_act		(BUFFER *buffer, int where, const char *format,
-				 CHAR_DATA *ch, const void *arg1,
-				 const void *arg2, const void *arg3,
-				 int act_flags);
+bool	buf_act3	(BUFFER *buffer, int where, const char *format,
+			 CHAR_DATA *ch,
+			 const void *arg1, const void *arg2, const void *arg3,
+			 int act_flags);
+#define	buf_act(buffer, where, format, ch, arg1, arg2, act_flags)	\
+		buf_act3((buffer), (where), (format), (ch),		\
+			 (arg1), (arg2), NULL, (act_flags))
 
-void		buf_clear	(BUFFER *buffer);
-char *		buf_string	(BUFFER *buffer);
-int		buf_lang	(BUFFER *buffer);
+void	buf_clear	(BUFFER *buffer);
+char *	buf_string	(BUFFER *buffer);
+int	buf_lang	(BUFFER *buffer);
 
 extern int nAllocBuf;
 extern int sAllocBuf;
 
 #endif
-

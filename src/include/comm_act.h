@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm_act.h,v 1.25 2000-10-21 17:00:48 fjoe Exp $
+ * $Id: comm_act.h,v 1.26 2001-02-12 19:07:16 fjoe Exp $
  */
 
 #ifndef _COMM_ACT_H_
@@ -36,28 +36,29 @@
 #define TO_CHAR		(D)
 #define TO_ALL		(E)
 
-#define ACT_TOBUF	(F)	/* append to replay buffer if link-dead */
-#define ACT_NOTRIG	(G)	/* do not pull act triggers */
-#define ACT_NOTWIT	(H)	/* do not perform twit list checking */
+#define ACT_TOBUF	(F)	/* append to replay buffer if link-dead	    */
+#define ACT_NOTRIG	(G)	/* do not pull act triggers		    */
+#define ACT_NOTWIT	(H)	/* do not perform twit list checking	    */
 #define ACT_NOTRANS	(I)	/* do not perform $t, $T, $u and $U transl. */
-#define ACT_NODEAF	(J)	/* skip is_affected(to, "deafen") chars   */
+#define ACT_NODEAF	(J)	/* skip is_affected(to, "deafen") chars     */
 #define ACT_STRANS	(K)	/* do $t and $T slang translation (from ch) */
-#define ACT_NOMORTAL	(L)	/* skip mortals */
-#define ACT_VERBOSE	(M)	/* skip if (!IS_SET(to->comm, COMM_VERBOSE)) */
-#define ACT_NOLF	(N)	/* do not append lf */
-#define ACT_NOUCASE	(O)	/* do not uppercase first letter */
-#define ACT_FORMSH	(P)	/* call format_short for short descrs */
-#define ACT_NOFIXSH	(Q)	/* do not fix char/obj short descrs */
-#define ACT_NOFIXTEXT	(R)	/* do not call fix_short for text args */
-#define ACT_SEDIT	(S)	/* string editor message */
-#define ACT_SPEECH(ch)	(ACT_NODEAF | ACT_STRANS | ACT_NOFIXTEXT |	\
+#define ACT_NOMORTAL	(L)	/* skip mortals				    */
+#define ACT_VERBOSE	(M)	/* skip if (!IS_SET(to->comm, COMM_VERBOSE))*/
+#define ACT_NOLF	(N)	/* do not append lf			    */
+#define ACT_NOUCASE	(O)	/* do not uppercase first letter	    */
+#define ACT_FORMSH	(P)	/* call format_short for short descrs	    */
+#define ACT_SEDIT	(Q)	/* string editor message		    */
+				/* (do not buffer it)			    */
+#define ACT_NOFIXSH	(Z)	/* do not fix char/obj short descrs	    */
+				/* (used internally in comm_act.c for not   */
+				/* stripping '~' when short descrs are      */
+				/* used inside $xx{}			    */
+#define ACT_SPEECH(ch)	(ACT_NODEAF | ACT_STRANS | 			\
 		  	 (!IS_NPC(ch) || IS_AFFECTED(ch, AFF_CHARM) ?	\
 				ACT_NOTRANS : 0))
 /*
  * formatting stuff
  */
-
-const char *fix_short	(const char *short_descr);
 
 #define format_short(mshort, name, to)	\
 		_format_short((mshort), (name), (to), GET_LANG(to), 0)

@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.225 2001-02-11 14:35:36 fjoe Exp $
+ * $Id: act_comm.c,v 1.226 2001-02-12 19:07:16 fjoe Exp $
  */
 
 /***************************************************************************
@@ -368,7 +368,7 @@ void do_pmote(CHAR_DATA *ch, const char *argument)
 	
 	argument = garble(ch, argument);
 
-	flags = TO_CHAR | ACT_NOTRIG | ACT_NOFIXSH |
+	flags = TO_CHAR | ACT_NOTRIG |
 		(!IS_NPC(ch) || IS_AFFECTED(ch, AFF_CHARM) ? ACT_NOTRANS : 0);
 	act("$n $t", ch, argument, NULL, flags);	// notrans
 
@@ -874,7 +874,7 @@ void do_group(CHAR_DATA *ch, const char *argument)
 
 		buf = buf_new(GET_LANG(ch));
 		buf_act(buf, BUF_END, "$N's group:",
-			ch, NULL, leader_lookup(ch), NULL, TO_CHAR);
+			ch, NULL, leader_lookup(ch), 0);
 
 		for (gch = char_list; gch; gch = gch->next) {
 			if (is_same_group(gch, ch)) {
