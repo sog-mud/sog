@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.132 1999-05-23 14:09:22 fjoe Exp $
+ * $Id: update.c,v 1.133 1999-05-24 06:49:56 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1972,14 +1972,14 @@ void room_affect_update(void)
 	ROOM_INDEX_DATA *room_next;
 	CHAR_DATA	*vch;
 
-	for (room = top_affected_room; room ; room = room_next)
-	{
-	room_next = room->aff_next;
+	for (room = top_affected_room; room ; room = room_next) {
+		CHAR_DATA *vch_next;
+		room_next = room->aff_next;
 
-	for (vch = room->people; vch; vch = vch->next_in_room)
-		check_room_affects(vch, room, EVENT_UPDATE);
-
-	 break;
+		for (vch = room->people; vch; vch = vch_next) {
+			vch_next = vch->next_in_room;
+			check_room_affects(vch, room, EVENT_UPDATE);
+		}
 	}
 }
 

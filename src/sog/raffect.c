@@ -1,5 +1,5 @@
 /*
- * $Id: raffect.c,v 1.23 1999-05-22 16:21:07 avn Exp $
+ * $Id: raffect.c,v 1.24 1999-05-24 06:49:56 fjoe Exp $
  */
 
 /***************************************************************************
@@ -95,8 +95,6 @@ void affect_modify_room(ROOM_INDEX_DATA *room, ROOM_AFFECT_DATA *paf, bool fAdd)
 	case APPLY_ROOM_HEAL:	room->heal_rate += mod;		break;
 	case APPLY_ROOM_MANA:	room->mana_rate += mod;		break;
 	}
-
-	return;
 }
 
 /*
@@ -123,12 +121,14 @@ void affect_to_room(ROOM_INDEX_DATA *room, ROOM_AFFECT_DATA *paf)
 
 	paf_new = raff_new();
 
-	*paf_new		= *paf;
+	*paf_new	= *paf;
 	paf_new->next	= room->affected;
 	room->affected	= paf_new;
 
+	if (!paf->owner)
+		log_printf("[*****] BUG: affect_to_room: NULL owner");
+
 	affect_modify_room(room , paf_new, TRUE);
-	return;
 }
 
 void affect_check_room(ROOM_INDEX_DATA *room,int where,int vector)
@@ -165,8 +165,7 @@ void affect_remove_room(ROOM_INDEX_DATA *room, ROOM_AFFECT_DATA *paf)
 	int vector;
 
 
-	if (room->affected == NULL)
-	{
+	if (room->affected == NULL) {
 		bug("Affect_remove_room: no affect.", 0);
 		return;
 	}
@@ -176,9 +175,7 @@ void affect_remove_room(ROOM_INDEX_DATA *room, ROOM_AFFECT_DATA *paf)
 	vector = paf->bitvector;
 
 	if (paf == room->affected)
-	{
 		room->affected	= paf->next;
-	}
 	else
 	{
 		ROOM_AFFECT_DATA *prev;
@@ -230,7 +227,6 @@ void affect_remove_room(ROOM_INDEX_DATA *room, ROOM_AFFECT_DATA *paf)
 	raff_free(paf);
 
 	affect_check_room(room,where,vector);
-	return;
 }
 
 /*
@@ -241,17 +237,12 @@ void affect_strip_room(ROOM_INDEX_DATA *room, int sn)
 	ROOM_AFFECT_DATA *paf;
 	ROOM_AFFECT_DATA *paf_next;
 
-	for (paf = room->affected; paf != NULL; paf = paf_next)
-	{
+	for (paf = room->affected; paf != NULL; paf = paf_next) {
 		paf_next = paf->next;
 		if (paf->type == sn)
-		    affect_remove_room(room, paf);
+			affect_remove_room(room, paf);
 	}
-
-	return;
 }
-
-
 
 /*
  * Return true if a room is affected by a spell.
@@ -260,16 +251,13 @@ bool is_affected_room(ROOM_INDEX_DATA *room, int sn)
 {
 	ROOM_AFFECT_DATA *paf;
 
-	for (paf = room->affected; paf != NULL; paf = paf->next)
-	{
+	for (paf = room->affected; paf != NULL; paf = paf->next) {
 		if (paf->type == sn)
-		    return TRUE;
+			return TRUE;
 	}
 
 	return FALSE;
 }
-
-
 
 /*
  * Add or enhance an affect.
@@ -280,22 +268,18 @@ void affect_join_room(ROOM_INDEX_DATA *room, ROOM_AFFECT_DATA *paf)
 	bool found;
 
 	found = FALSE;
-	for (paf_old = room->affected; paf_old != NULL; paf_old = paf_old->next)
-	{
-		if (paf_old->type == paf->type)
-		{
-		    paf->level = (paf->level += paf_old->level) / 2;
-		    paf->duration += paf_old->duration;
-		    paf->modifier += paf_old->modifier;
-		    affect_remove_room(room, paf_old);
-		    break;
+	for (paf_old = room->affected; paf_old != NULL; paf_old = paf_old->next) {
+		if (paf_old->type == paf->type) {
+			paf->level = (paf->level += paf_old->level) / 2;
+			paf->duration += paf_old->duration;
+			paf->modifier += paf_old->modifier;
+			affect_remove_room(room, paf_old);
+			break;
 		}
 	}
 
 	affect_to_room(room, paf);
-	return;
 }
-
 
 bool is_safe_rspell_nom(ROOM_AFFECT_DATA *raf, CHAR_DATA *victim)
 {
@@ -311,7 +295,6 @@ bool is_safe_rspell_nom(ROOM_AFFECT_DATA *raf, CHAR_DATA *victim)
 	bug("is_safe_rspell_nom: no affect owner", 0);
 	affect_remove_room(victim->in_room, raf);
 	return TRUE; /* protected from broken raffs */ 
-
 }
 
 
@@ -328,24 +311,30 @@ bool is_safe_rspell(ROOM_AFFECT_DATA *raf, CHAR_DATA *victim)
 
 void check_room_affects(CHAR_DATA *ch, ROOM_INDEX_DATA *room, int event)
 {
-	ROOM_AFFECT_DATA *raf;
+	ROOM_AFFECT_DATA *raf, *raf_next;
 
 	if (!room->affected || event == EVENT_NONE) return;
 
-	for (raf = room->affected; raf != NULL; raf = raf->next) {
-		if (raf->event == event) {
-		    if (!raf->owner) {
-			ROOM_AFFECT_DATA *raf_prev;
-			raf_prev = raf;
-			raf = raf->next;
-			affect_remove_room(room, raf_prev);
-		    }
-		    if (raf->event_fun != NULL)
-				raf->event_fun(room, ch, raf);
-			else log_printf("[*****] BUG: check_room_affects: "
-			"no event_fun for %d event", event);
+	for (raf = room->affected; raf != NULL; raf = raf_next) {
+		raf_next = raf->next;
+
+		if (raf->event != event)
+			continue;
+
+		if (!raf->owner) {
+			affect_remove_room(room, raf);
+			continue;
 		}
-		if (IS_EXTRACTED(ch)) break;
+
+		if (raf->event_fun == NULL) {
+			log_printf("[*****] BUG: check_room_affects: "
+				   "no event_fun for %d event", event);
+			continue;
+		}
+
+		raf->event_fun(room, ch, raf);
+		if (IS_EXTRACTED(ch))
+			break;
 	}
 }
 	  

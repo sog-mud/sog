@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.150 1999-05-23 20:14:49 fjoe Exp $
+ * $Id: handler.c,v 1.151 1999-05-24 06:49:50 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1207,10 +1207,13 @@ void char_to_room(CHAR_DATA *ch, ROOM_INDEX_DATA *pRoomIndex)
 	}
 
 	if (ch->in_room->affected_by) {
-		 if (IS_IMMORTAL(ch))
+		if (IS_IMMORTAL(ch))
 			do_raffects(ch,str_empty);
-		 else
+		else {
 			check_room_affects(ch, ch->in_room, EVENT_ENTER);
+			if (IS_EXTRACTED(ch))
+				return;
+		}
 	}
 
 	if (ch->desc && OLCED(ch) && IS_EDIT(ch, ED_ROOM))
