@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.86 1998-12-01 12:44:37 fjoe Exp $
+ * $Id: save.c,v 1.87 1998-12-10 08:54:15 fjoe Exp $
  */
 
 /***************************************************************************
@@ -440,6 +440,7 @@ fwrite_obj(CHAR_DATA * ch, OBJ_DATA * obj, FILE * fp, int iNest)
 	fprintf(fp, "Cond %d\n", obj->condition);
 
 	fprintf(fp, "Nest %d\n", iNest);
+	fwrite_string(fp, "Owner", obj->owner);
 
 	if (obj->pIndexData->limit < 0) {
 		if (str_cmp(obj->name, obj->pIndexData->name))
@@ -1370,7 +1371,8 @@ fread_obj(CHAR_DATA * ch, FILE * fp)
 				}
 
 				if (IS_SET(obj->pIndexData->extra_flags,
-					   ITEM_QUEST))
+					   ITEM_QUEST)
+				&&  !obj->owner)
 					obj->owner = str_dup(ch->name);
 
 				if (iNest == 0 || rgObjNest[iNest] == NULL)
@@ -1399,6 +1401,10 @@ fread_obj(CHAR_DATA * ch, FILE * fp)
 				}
 				fMatch = TRUE;
 			}
+			break;
+
+		case 'O':
+			SKEY("Owner", obj->owner);
 			break;
 
 		case 'Q':
