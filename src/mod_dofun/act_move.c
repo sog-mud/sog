@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.190 1999-07-05 12:47:43 kostik Exp $
+ * $Id: act_move.c,v 1.191 1999-07-13 05:18:31 kostik Exp $
  */
 
 /***************************************************************************
@@ -2904,6 +2904,9 @@ void do_shoot(CHAR_DATA *ch, const char *argument)
 		char_puts("That's pointless.\n", ch);
 		return;
 	}
+
+	if (is_safe(ch, victim))
+		return;
 
 	wield = get_eq_char(ch, WEAR_WIELD);
 
