@@ -42,6 +42,15 @@ Form 5 жителей~
 End
 
 #RULE
+Name очков~
+BaseLen 3
+Form 1 -о~
+Form 2 -а~
+Form 3 -а~
+Form 4 -а~
+End
+
+#RULE
 Name монет~
 BaseLen 5
 Form 1 -а~

@@ -59,6 +59,12 @@ Form 1 change~
 End
 
 #RULE
+Name points~
+BaseLen 5
+Form 1 -~
+End
+
+#RULE
 Name coins~
 Form 1 coin~
 End
