@@ -1,5 +1,5 @@
 /*
- * $Id: note.c,v 1.27 2001-11-10 21:02:16 fjoe Exp $
+ * $Id: note.c,v 1.28 2001-12-10 22:01:52 tatyana Exp $
  */
 
 /***************************************************************************
@@ -195,7 +195,7 @@ note_quote(note_t *pnote)
 
 	snprintf(buf, sizeof(buf),
 		 "On %s %s {xwrote to %s:\n"		// notrans
-		 "{x\n",
+		 "{x\n",				// notrans
 		 pnote->date, pnote->sender, pnote->to_list);
 
 	q = strchr(buf, '\0');
@@ -494,7 +494,7 @@ parse_note(CHAR_DATA *ch, const char *argument, int type)
 			vnum = 0;
 			for (pnote = *list; pnote; pnote = pnote->next) {
 				if (!hide_note(ch, pnote)) {
-					output = buf_new(0);
+					output = buf_new(GET_LANG(ch));
 					note_show(output, pnote, vnum);
 					page_to_char(buf_string(output), ch);
 					buf_free(output);
@@ -517,7 +517,7 @@ parse_note(CHAR_DATA *ch, const char *argument, int type)
 		vnum = 0;
 		for (pnote = *list; pnote != NULL; pnote = pnote->next) {
 			if (is_note_to(ch, pnote) && (vnum++ == anum || fAll)) {
-				output = buf_new(0);
+				output = buf_new(GET_LANG(ch));
 				note_show(output, pnote, vnum-1);
 				page_to_char(buf_string(output), ch);
 				buf_free(output);
@@ -798,7 +798,7 @@ parse_note(CHAR_DATA *ch, const char *argument, int type)
 			"* Forwarded by: %s\n"			    // notrans
 			"* Originally to: %s\n"			    // notrans
 			"* Originally by: %s, %s\n"		    // notrans
-			"\n"
+			"\n"					    // notrans
 			"---------- Forwarded message ----------\n" // notrans
 			"%s",
 			ch->name, pnote->to_list, pnote->sender, pnote->date,
@@ -870,7 +870,7 @@ parse_note(CHAR_DATA *ch, const char *argument, int type)
 			return;
 		}
 
-		output = buf_new(0);
+		output = buf_new(GET_LANG(ch));
 		buf_printf(output, BUF_END, "{xFrom: %s\n"
 				   "{xTo  : %s\n"
 				   "{xSubj: %s\n"

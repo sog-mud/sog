@@ -1,5 +1,5 @@
 /*
- * $Id: prayers.c,v 1.26 2001-12-03 22:39:16 fjoe Exp $
+ * $Id: prayers.c,v 1.27 2001-12-10 22:01:56 tatyana Exp $
  */
 
 /***************************************************************************
@@ -2720,7 +2720,7 @@ static struct mutually_exclusive_spells mx_sancs[] = {
 	{ "black shroud",	"But you are protected by black shroud.",
 		"But $N is protected by black shroud." },
 	{ "obscuring mist",	"But mist around you already protects you well.",
-		"Obscuring mist around $N already protects $M well enough" },
+		"Obscuring mist around $N already protects $M well enough." },
 	{ NULL,	NULL, NULL }
 };
 

@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.209 2001-12-04 20:38:25 tatyana Exp $
+ * $Id: martial_art.c,v 1.210 2001-12-10 22:01:52 tatyana Exp $
  */
 
 /***************************************************************************
@@ -1896,7 +1896,7 @@ DO_FUN(do_impale, ch, argument)
 	}
 
 	if (victim->fighting != NULL) {
-		act("$N is moving to quickly", ch, NULL, victim, TO_CHAR);
+		act("$N is moving to quickly.", ch, NULL, victim, TO_CHAR);
 		return;
 	}
 

@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.281 2001-12-08 10:13:51 fjoe Exp $
+ * $Id: spellfun.c,v 1.282 2001-12-10 22:01:56 tatyana Exp $
  */
 
 /***************************************************************************
@@ -2217,6 +2217,7 @@ SPELL_FUN(spell_summon, sn, level, ch, vo)
 	||  IS_SET(victim->in_room->room_flags, ROOM_SAFE | ROOM_NORECALL |
 						ROOM_PEACE | ROOM_NOSUMMON)
 	||  IS_SET(ch->in_room->area->area_flags, AREA_CLOSED)
+	||  IS_SET(victim->in_room->area->area_flags, AREA_CLOSED)
 	||  room_is_private(ch->in_room)
 	||  saves_spell(level, victim, DAM_OTHER)
 	||  (victim->in_room->exit[0] == NULL &&
@@ -2227,12 +2228,32 @@ SPELL_FUN(spell_summon, sn, level, ch, vo)
 	     victim->in_room->exit[5] == NULL))
 		failed = TRUE;
 	else if (IS_NPC(victim)) {
+		CHAR_DATA *master = NULL;
+
 		if (victim->pMobIndex->pShop != NULL
 		||  IS_SET(victim->pMobIndex->act, ACT_AGGRESSIVE)
 		||  IS_SET(ch->in_room->room_flags, ROOM_NOMOB)
 		||  IS_SET(victim->pMobIndex->act, ACT_IMMSUMMON)
 		||  NPC(victim)->hunter)
 			failed = TRUE;
+
+                /*
+                 * can't summon charmed creature if master
+                 * has PLR_NOSUMMON or !in_PK, the same for mounts
+                 */
+
+                if (IS_AFFECTED(victim, AFF_CHARM)
+                &&  victim->master != NULL)
+                        master = victim->master;
+                else if (victim->mount != NULL)
+                        master = victim->mount;
+
+                if (master != NULL
+                &&  (!in_PK(ch, master) ||
+                     (!IS_NPC(master) &&
+                      IS_SET(PC(master)->plr_flags, PLR_NOSUMMON))))
+                        failed = TRUE;
+
 	} else {
 		if (victim->level >= LEVEL_HERO
 		||  ((!in_PK(ch, victim) ||
@@ -2266,11 +2287,34 @@ SPELL_FUN(spell_teleport, sn, level, ch, vo)
 	if (victim->in_room == NULL
 	||  IS_SET(victim->in_room->room_flags, ROOM_NORECALL)
 	||  (!IS_NPC(ch) && victim->fighting != NULL)
+	||  (!IS_NPC(ch) && !in_PK(ch, victim))
 	||  (victim != ch
 	&&  (saves_spell(level - 5, victim, DAM_OTHER)))) {
 		act_char("You failed.", ch);
 		return;
 	}
+
+        /*
+         * can't teleport charmed creature if master
+         * !in_PK, the same for mounts
+         */
+        if (IS_NPC(victim)) {
+                CHAR_DATA *master = NULL;
+
+                if (IS_AFFECTED(victim, AFF_CHARM)
+                &&  victim->master != NULL)
+                        master = victim->master;
+                else if (victim->mount != NULL)
+                        master = victim->mount;
+
+                if (master != NULL
+                &&  (!in_PK(ch, master) ||
+                     (!IS_NPC(master) &&
+                      saves_spell(level - 5, master, DAM_OTHER)))) {
+                        act_char("You failed.", ch);
+                        return;
+                }
+        }
 
 	teleport_char(victim, ch, get_random_room(victim, NULL),
 		      "$n vanishes!",
@@ -5150,6 +5194,7 @@ SPELL_FUN(spell_deafen, sn, level, ch, vo)
 SPELL_FUN(spell_disperse, sn, level, ch, vo)
 {
 	CHAR_DATA *vch, *vch_next;
+	CHAR_DATA *master = NULL;
 	AFFECT_DATA *paf;
 
 	if (is_sn_affected(ch, sn)) {
@@ -5170,10 +5215,24 @@ SPELL_FUN(spell_disperse, sn, level, ch, vo)
 			if (IS_SET(vch->pMobIndex->act, ACT_AGGRESSIVE)
 			||  IS_SET(vch->pMobIndex->act, ACT_IMMSUMMON))
 				continue;
-		} else {
-			if (is_safe_nomessage(ch, vch))
+
+                        /*
+                        * can't disperse charmed creature if master
+                        * is_safe, the same for mounts
+                        */
+
+                        if (IS_AFFECTED(vch, AFF_CHARM)
+                        &&  vch->master != NULL)
+                                master = vch->master;
+                        else if (vch->mount != NULL)
+                                master = vch->mount;
+
+                        if (master != NULL
+                        &&  (is_safe_nomessage(ch, master)))
+                                continue;
+
+		} else if (is_safe_nomessage(ch, vch))
 				continue;
-		}
 
 		teleport_char(vch, NULL, get_random_room(vch, NULL),
 			      "$n vanishes!",
