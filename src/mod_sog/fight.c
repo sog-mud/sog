@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.368 2004-03-01 18:55:57 tatyana Exp $
+ * $Id: fight.c,v 1.369 2004-03-03 13:08:22 tatyana Exp $
  */
 
 /***************************************************************************
@@ -610,30 +610,6 @@ one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 		ch->hit  = UMIN(ch->hit, ch->max_hit);
 		update_pos(ch);
 		act_char("Your health increases as you suck your victim's blood.", ch);
-	}
-
-	if (is_sn_affected(victim, "death ward")) {
-		int ward_dam = dam * victim->level / 80;
-
-		if (ward_dam > 0) {
-			act("{D$n is immolated by black fire!{x",
-			    ch, NULL, victim, TO_ROOM | ACT_VERBOSE);
-			act("{DYou are immolated by black fire!{x",
-			    ch, NULL, victim, TO_CHAR |ACT_VERBOSE);
-			damage(victim, ch, ward_dam, "death ward", DAM_F_SHOW);
-		}
-	}
-
-	if (is_sn_affected(victim, "fire sphere")) {
-		int dam_fire;
-		dam_fire = dam * (2 * get_skill(victim, "fire sphere") - 100) / 300;
-		if (dam_fire > 0) {
-			act("$n is burned by $N's fire sphere.",
-			    ch, NULL, victim, TO_ROOM | ACT_VERBOSE);
-			act("$N's fire sphere sears your flesh.",
-			    ch, NULL, victim, TO_CHAR | ACT_VERBOSE);
-			damage(victim, ch, dam_fire, "fire sphere", DAM_F_SHOW);
-		}
 	}
 
 	/* but do we have a funky weapon? */
@@ -3426,6 +3402,14 @@ damage2(CHAR_DATA *ch, CHAR_DATA *victim, int dam, const char *dt,
 		AFFECT_DATA *paf;
 		int ward_dam = dam * victim->level / 80;
 
+		if (ward_dam > 0) {
+			act("{D$n is immolated by black fire!{x",
+			    ch, NULL, victim, TO_ROOM | ACT_VERBOSE);
+			act("{DYou are immolated by black fire!{x",
+			    ch, NULL, victim, TO_CHAR |ACT_VERBOSE);
+			damage(victim, ch, ward_dam, "death ward", DAM_F_NONE);
+		}
+
 		dam -= ward_dam;
 
 		paf = affect_find(victim->affected, "death ward");
@@ -3459,8 +3443,18 @@ damage2(CHAR_DATA *ch, CHAR_DATA *victim, int dam, const char *dt,
 	if (IS_AFFECTED(victim, AFF_PROTECT_GOOD) && IS_GOOD(ch))
 		dam -= dam / 4;
 
-	if (is_sn_affected(victim, "fire sphere"))
+	if (is_sn_affected(victim, "fire sphere")) {
+		int dam_fire;
+		dam_fire = dam * (2 * get_skill(victim, "fire sphere") - 100) / 300;
+		if (dam_fire > 0) {
+			act("{R$n is burned by $N's fire sphere.{x",
+			    ch, NULL, victim, TO_ROOM | ACT_VERBOSE);
+			act("{R$N's fire sphere sears your flesh.{x",
+			    ch, NULL, victim, TO_CHAR | ACT_VERBOSE);
+			damage(victim, ch, dam_fire, "fire sphere", DAM_F_NONE);
+		}
 		dam -= dam / 4;
+	}
 
 	if (is_sn_affected(victim, "golden aura")) {
 		if (IS_GOOD(ch)) /* Goodies shouldn't fight each other */
