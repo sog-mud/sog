@@ -3,18 +3,18 @@
 -1 MUDDY~
 		Muddy is based on Anatolia MUD -- see help anatolia.
 		Original idea, concept and coding:
-	Farmer Joe                    [Someone] (fjoe@iclub.nsu.ru)
-	Alexander Morokhovets            [Eros] (efdi@iclub.nsu.ru)
+	Farmer Joe                    [Someone] (fjoe@@iclub.nsu.ru)
+	Alexander Morokhovets            [Eros] (efdi@@iclub.nsu.ru)
 
 ~
 -1 DIKU~
 .                    Original game idea, concept, and design:
 
-          Katja Nyboe               [Superwoman] (katz@freja.diku.dk)
-          Tom Madsen              [Stormbringer] (noop@freja.diku.dk)
-          Hans Henrik Staerfeldt           [God] (bombman@freja.diku.dk)
-          Michael Seifert                 [Papi] (seifert@freja.diku.dk)
-          Sebastian Hammer               [Quinn] (quinn@freja.diku.dk)
+          Katja Nyboe               [Superwoman] (katz@@freja.diku.dk)
+          Tom Madsen              [Stormbringer] (noop@@freja.diku.dk)
+          Hans Henrik Staerfeldt           [God] (bombman@@freja.diku.dk)
+          Michael Seifert                 [Papi] (seifert@@freja.diku.dk)
+          Sebastian Hammer               [Quinn] (quinn@@freja.diku.dk)
 
 
 Developed at: DIKU -- The Department of Computer Science
@@ -183,7 +183,7 @@ Other {{? sequences are:
          {{z     reset to previous color
 
 Color is courtesy of Lope from Loping Through The MUD.
-Direct questions to ant@solace.mh.se or leave at note at Loping
+Direct questions to ant@@solace.mh.se or leave at note at Loping
 Through The MUD, current site lttm.westside.net port 23 or 9000
 ~
 

@@ -82,9 +82,9 @@ Complete C Code --
         and also Ibrahim Canpunar and Devrim Baris Acar. 
 
 Used snippets (Available on internet) --
-	Quest Code (c) 1996 Ryan Addams (moongate@moongate.ams.com)
+	Quest Code (c) 1996 Ryan Addams (moongate@@moongate.ams.com)
 	Some snippets by Erwin S. Andreasen. 
-		erwin@pip.dknet.dk
+		erwin@@pip.dknet.dk
 ~
 -1 ROM~
 ROM started in early February 1993, using Merc 1.0 code. In July of 1993,  
@@ -270,7 +270,7 @@ _____,*-'   `==
 * Added multi-language support command. See '{Clanguage{x' command.
 * Added short mode for flags. See '{Clong{x' command.
 * {CGossip{x and {Cmusic{x channels added.
-* Use '{Cbug{x' command or mail to mud@iclub.nsu.ru for bug reports
+* Use '{Cbug{x' command or mail to mud@@iclub.nsu.ru for bug reports
   and suggestions.
 * '{Crating{x' command added.
 * win1251 users, see '{CHELP WIN1251{x'.

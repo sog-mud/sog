@@ -687,7 +687,7 @@ $n pats $mself on the head.
 
 curse 0 0
 You swear loudly for a long time.
-$n swears : #@*"*&^*#%@*&! !!!!!
+$n swears : #@@*"*&^*#%@@*&! !!!!!
 You swear at $M.
 $n swears at $N.
 $n swears at you!  Where are the manners?
@@ -1777,7 +1777,7 @@ Who would you like to give it to?
 $
 You give $M a pretty rose.
 $n hands $N a beautiful rose.
-$n hands you a beautiful ---'---,--{{@
+$n hands you a beautiful ---'---,--{{@@
 They seem to have left.
 You give yourself a rose and feel a little sad...
 $n gives $mself a rose, dont you feel sorry for $m?

@@ -1,16 +1,25 @@
-#AREA
-school.are~
-mud school~
-{ 1  5} Hatchet Mud School~
-3700 3799
+#AREADATA
+Name mud school~
+Builders None~
+VNUMs 3700 3799
+Credits Hatchet~
+Security 9
+LevelRange 1 5
+End
+
+
 
 #MOBILES
 #3700
 acolyte cleric~
 the acolyte of Zump~
-An acolyte of Zump welcomes you to mud school.
+@eng An acolyte of Zump welcomes you to mud school.
+@rus Служитель (acolyte) Зуки приглашает тебя в МУД школу.
 ~
-He's big and bad.  Don't mess with him.
+@eng He's big and bad.  Don't mess with him.
+@rus Он большой и вредный. Не доставляй ему неприятностей!
+Он произносит: танцы-шманцы-обжиманцы-фантики-бантики-лимпопо!
+К чему бы это????
 ~
 human~
 ABGQTV CH 1000 0
@@ -18,15 +27,19 @@ ABGQTV CH 1000 0
 -15 -15 -15 -15
 ACEFHIKN ABCD 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #3701
 blob~
 the blob~
-The blob is here, waiting to eat you up.
+@eng The blob is here, waiting to eat you up.
+@rus Пузырь (blob) тут, он ждет тебя чтобы съесть!
 ~
-He is big, he is bad.  You don't want to fight him when he isn't chained up.
+@eng He is big, he is bad.  You don't want to fight him when he isn't chained up.
 Perhaps now would be a good time to flee from him!!!  If you don't flee, you
 would really suffer the consequences.
+@rus Он большой, он плохой. Ты не хочешь дразнить его, пока он не сидит на цепи.
+Возможно сейчас хорошее время, чтобы УБЕЖАТЬ (flee) от него!!! Если ты не
+убежишь, то вероятно пострадаешь от него.
 ~
 unique~
 ABGe C 0 0
@@ -34,14 +47,17 @@ ABGe C 0 0
 -15 -15 -15 -15
 AN AB CD 0
 stand stand none 0
-BSc 0 large 0
+BSc 0 large unknown
 #3702
 monster~
 the monster~
-There is a monster leashed here.
+@eng There is a monster leashed here.
+@rus Монстрик (monster) тут сидит на привязи.
 ~
-He looks mean, but you feel comfortable that you can kill him, especially since
+@eng He looks mean, but you feel comfortable that you can kill him, especially since
 he is leashed up, and you are not.
+@rus Он выглядит недоброжелательно, но ты чувствуешь, что сможешь его убить хотя бы
+потому, что он привязан, а ты нет.
 ~
 school monster~
 AB 0 0 0
@@ -49,14 +65,17 @@ AB 0 0 0
 10 10 10 10
 0 0 0 0
 stand stand none 10
-0 0 medium 0
+0 0 medium unknown
 #3703
 monster wimpy~
 the wimpy monster~
-There is a wimpy monster leashed here.
+@eng There is a wimpy monster leashed here.
+@rus А тут привязан трусливый монстр (monster).
 ~
-He looks wimpy.  You feel comfortable that you can kill him, especially since
+@eng He looks wimpy.  You feel comfortable that you can kill him, especially since
 he is leashed up, and you are not.
+@rus Он трусливо смотрит на тебя. Ты чувствуешь, что сможешь его убить, так как он
+привязан, а ты нет.
 ~
 school monster~
 ABH 0 0 0
@@ -64,14 +83,17 @@ ABH 0 0 0
 10 10 10 10
 O 0 0 0
 stand stand none 10
-0 0 medium 0
+0 0 medium unknown
 #3704
 monster aggressive~
 the aggressive monster~
-There is an aggressive monster leashed here.
+@eng There is an aggressive monster leashed here.
+@rus Агрессивный монстр (monster) привязан тут.
 ~
-He looks mean, but you feel comfortable that you can kill him, especially since
+@eng He looks mean, but you feel comfortable that you can kill him, especially since
 he is leashed up, and you are not.
+@rus Он выглядит недоброжелательно, но ты чувствуешь, что сможешь его убить хотя бы
+потому, что он привязан, а ты нет.
 ~
 school monster~
 ABF 0 0 0
@@ -79,14 +101,17 @@ ABF 0 0 0
 10 10 10 10
 EK 0 0 0
 stand stand none 10
-0 0 medium 0
+0 0 medium unknown
 #3705
 monster wimpy aggressive~
 the wimpy aggressive monster~
-There is a wimpy aggressive monster leashed here.
+@eng There is a wimpy aggressive monster leashed here.
+@rus Трусливо нападающий монстр (monster) привязан тут.
 ~
-He looks mean, but you feel comfortable that you can kill him, especially since
+@eng He looks mean, but you feel comfortable that you can kill him, especially since
 he is leashed up, and you are not.
+@rus Он выглядит недоброжелательно, но ты чувствуешь, что сможешь его убить хотя бы
+потому, что он привязан, а ты нет.
 ~
 school monster~
 ABFH 0 0 0
@@ -94,14 +119,17 @@ ABFH 0 0 0
 10 10 10 10
 J 0 0 0
 stand stand none 10
-0 0 medium 0
+0 0 medium unknown
 #3706
 big creature~
 the big creature~
-There is a big creature hulking over your form.
+@eng There is a big creature hulking over your form.
+@rus Большое создание (creature) неуклюже надвигается на тебя.
 ~
-He looks mean, and you just might have a small problem killing him, but he
+@eng He looks mean, and you just might have a small problem killing him, but he
 looks like a great prize!!!
+@rus Он выглядит недоброжелательно и ты можешь иметь небольший проблемы убивая
+его, но выглядит он очень аппетитно.
 ~
 school monster~
 AB JZ 0 0
@@ -109,13 +137,17 @@ AB JZ 0 0
 8 8 8 10
 FN 0 0 0
 stand stand none 25
-0 0 medium 0
+0 0 medium unknown
 #3707
 adept cleric~
 the adept of ~
-An adept of the mighty goddess Satin is here, contemplating your progress.
+@eng An adept of the mighty goddess Satin is here, contemplating your progress.
+@rus Последователь (adept) могучей богини Сатин стоит тут, созерцая твой прогресс.
 ~
-He is big and bad.  Don't mess with him.
+@eng He is big and bad.  Don't mess with him.
+@rus Он большой и вредный. Не заигрывай с ним! Гы гы гы.
+Он что-то ворчит себе под нос, если прислушаться, то можно различить слова:
+...чтоб его... Бабкина на мыло... @@#$%^#@@$$&*!!!
 ~
 human~
 ABGQTV CH 1000 0
@@ -123,13 +155,15 @@ ABGQTV CH 1000 0
 -15 -15 -15 -15
 ACEFHIKN ABCD 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #3708
 adept~
 the adept of Alander~
-An adept of Alander is here, smiling at you.
+@eng An adept of Alander is here, smiling at you.
+@rus Приспешник (adept) Аландера тут, он тебе улыбается.
 ~
-He is big and bad.  Don't mess with him.
+@eng He is big and bad.  Don't mess with him.
+@rus Он большой и вредный. Не приставай к нему!
 ~
 human~
 ABGQTV CH 1000 0
@@ -137,13 +171,16 @@ ABGQTV CH 1000 0
 -15 -15 -15 -15
 ACEFHIKN ABCD 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #3709
 rabbit~
 the rabbit~
-A rabbit is bouncing around here.
+@eng A rabbit is bouncing around here.
+@rus Кролик (rabbit) скачет по окрестностям.
 ~
-The rabbit smiles at you, completely harmless!
+@eng The rabbit smiles at you, completely harmless!
+@rus Кролик тебе улыбнулся, он полностью в твоей власти.
+Он жует морковку.
 ~
 rabbit~
 AGHU 0 100 0
@@ -151,13 +188,15 @@ AGHU 0 100 0
 10 10 10 10
 0 0 0 0
 stand stand either 0
-0 0 tiny 0
+0 0 tiny unknown
 #3710
 lizard~
 the lizard~
-A lizard slithers up to you.
+@eng A lizard slithers up to you.
+@rus Ящер (lizard) скользнул к тебе.
 ~
-It smiles at you, and tries to eat your leg.
+@eng It smiles at you, and tries to eat your leg.
+@rus Он тебе улыбнулся и укусил за ногу в попытке съесть ее. БОЛЬНО!!! (вот гад)
 ~
 lizard~
 AGU 0 -100 0
@@ -165,13 +204,15 @@ AGU 0 -100 0
 8 8 8 10
 R 0 0 0
 stand stand either 0
-0 0 small 0
+0 0 small unknown
 #3711
 boar~
 the boar~
-A boar tries to run you over.
+@eng A boar tries to run you over.
+@rus Кабан (boar) попытается тебя затоптать.
 ~
-It grunts at you.
+@eng It grunts at you.
+@rus Он тебя обхрюкал.
 ~
 pig~
 AGU 0 0 0
@@ -179,13 +220,15 @@ AGU 0 0 0
 7 7 7 9
 CDFR 0 0 0
 stand stand either 0
-0 0 medium 0
+0 0 medium unknown
 #3712
 fox~
 the fox~
-A fox is here staring at you.
+@eng A fox is here staring at you.
+@rus Лиса (fox)... пялит на тебя глазенки.
 ~
-It's fur might be worth money.
+@eng It's fur might be worth money.
+@rus Ага... ее мех, наверное, стоит хороших денег!
 ~
 fox~
 AGHU 0 100 0
@@ -193,13 +236,15 @@ AGHU 0 100 0
 8 8 8 10
 NR 0 0 0
 stand stand either 0
-0 0 small 0
+0 0 small unknown
 #3713
 snail~
 the snail~
-A snail is trying to get out of your way.
+@eng A snail is trying to get out of your way.
+@rus Улитка (snail) тут пытается убраться с твоего пути.
 ~
-You don't see much but slime about it.
+@eng You don't see much but slime about it.
+@rus Фи... одна слизь кругом.
 ~
 unique~
 AGU 0 0 0
@@ -207,13 +252,15 @@ AGU 0 0 0
 10 10 10 10
 0 0 0 0
 stand stand none 0
-AGQc AFHM tiny 0
+AGQc AFHM tiny unknown
 #3714
 beast~
 the beast~
-A beast tries to feed off of you.
+@eng A beast tries to feed off of you.
+@rus Скотина (beast) пытается сделать из тебя комбикорма.
 ~
-It looks mean.  You'd better run.
+@eng It looks mean.  You'd better run.
+@rus У! Она выглядит недоброжелательно. Лучше убежа-а-а-ть!
 ~
 school monster~
 AFT Z 0 0
@@ -221,13 +268,15 @@ AFT Z 0 0
 5 5 5 8
 EKM 0 HI 0
 stand stand none 50
-0 0 large 0
+0 0 large unknown
 #3715
 bear~
 the bear~
-A bear is here growling at you.
+@eng A bear is here growling at you.
+@rus Медведь (bear) тут, он ворчит на тебя.
 ~
-The bear must be bigger than you!  It wants to rip your head off.
+@eng The bear must be bigger than you!  It wants to rip your head off.
+@rus Медведь наверное больше чем ты! Он хочет оторвать тебе голову. А ты хочешь этого?
 ~
 bear~
 AGU 0 0 0
@@ -235,13 +284,15 @@ AGU 0 0 0
 6 5 6 7
 CR 0 0 0
 stand stand either 0
-0 0 large 0
+0 0 large unknown
 #3716
 wolf~
 the wolf~
-A wolf is here snarling at you.
+@eng A wolf is here snarling at you.
+@rus Волк (wolf) тут, он рычит на тебя.
 ~
-The wolf doesn't want to be bothered.
+@eng The wolf doesn't want to be bothered.
+@rus Волк не желает чтобы его беспокоили.
 ~
 wolf~
 AGU 0 0 0
@@ -249,13 +300,15 @@ AGU 0 0 0
 7 7 7 10
 NR 0 0 0
 stand stand either 0
-0 0 medium 0
+0 0 medium unknown
 #3717
 adept cleric~
 the adept of Selene~
-An adept of Selene is here, grinning and selling you things.
+@eng An adept of Selene is here, grinning and selling you things.
+@rus Идущий (adept) путем Селены тут, скалит зубы и продает тебе шмотки.
 ~
-He is big and bad.  Don't mess with him.
+@eng He is big and bad.  Don't mess with him.
+@rus Он большой и вредный. Смотри... допрыгаешься.
 ~
 human~
 ABCQTV CH 1000 0
@@ -263,13 +316,15 @@ ABCQTV CH 1000 0
 -15 -15 -15 -15
 ACEFHIKN ABCD 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #3718
 adept cleric~
 the adept of Furey~
-An adept of Furey is here, training young students.
+@eng An adept of Furey is here, training young students.
+@rus Адепт (adept) Фьюри стоит тут, он тренирует студентов.
 ~
-He is big and bad.  Don't mess with him.
+@eng He is big and bad.  Don't mess with him.
+@rus Он большой и вредный. Отстань от него!
 ~
 human~
 ABCJQTV CH 1000 0
@@ -277,13 +332,15 @@ ABCJQTV CH 1000 0
 -15 -15 -15 -15
 ACEFHIKN ABCD 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #3719
 priest cleric~
 the priest of Circe~
-The priest of Circe is ready to help you practice.
+@eng The priest of Circe is ready to help you practice.
+@rus Жрец (priest) Циркля готов помочь тебе попрактиковаться.
 ~
-He is big and bad.  Don't mess with him.
+@eng He is big and bad.  Don't mess with him.
+@rus Он большой и вредный. Отстань от него!
 ~
 human~
 ABCKQTV CH 1000 0
@@ -291,14 +348,17 @@ ABCKQTV CH 1000 0
 -15 -15 -15 -15
 ACEFHIKN ABCD 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #3720
 diploma beast~
 the diploma beast~
-The hideous diploma beast is here, holding your graduation present!
+@eng The hideous diploma beast is here, holding your graduation present!
+@rus Отвратительная тварь (beast) сидит тут, у нее твой диплом!
 ~
-This horrible creature is your final test for mud school.  Kill him, and the
+@eng This horrible creature is your final test for mud school.  Kill him, and the
 diploma is yours.
+@rus Это ужастное создание - твой последний выпускной экзамен из школы.
+Убей ее! И диплом будет твой.
 ~
 school monster~
 ABe J 0 0
@@ -306,8 +366,10 @@ ABe J 0 0
 8 8 8 10
 EFN 0 0 0
 stand stand none 30
-0 0 medium 0
+0 0 medium unknown
 #0
+
+
 
 #OBJECTS
 #3700
@@ -361,7 +423,7 @@ a sub issue vest~
 You see a sub issue vest here.~
 leather~
 armor U AD
-1 1 1 0 0
+A A A 0 0
 0 50 144 P
 E
 vest~
@@ -374,7 +436,7 @@ a sub issue shield~
 You see a sub issue shield here.~
 wood~
 armor U AJ
-1 1 1 0 0
+A A A 0 0
 0 30 108 P
 E
 shield~
@@ -387,7 +449,7 @@ a sub issue cloak~
 You see a sub issue cloak here.~
 cloth~
 armor U AC
-1 1 1 0 1
+A A A 0 A
 0 40 72 P
 E
 cloak~
@@ -400,7 +462,7 @@ a sub issue helmet~
 You see a sub issue helmet here.~
 leather~
 armor U AE
-1 1 1 0 0
+A A A 0 0
 0 30 72 P
 E
 helmet~
@@ -409,16 +471,19 @@ Merc Industries
 ~
 #3707
 leggings sub merc~
-a pair of sub issue leggings~
+@eng a pair of sub issue leggings@rus {wСемейные трусы в {GгОрОшек{w (leggings){x~
 You see a pair of sub issue leggings here.~
 leather~
 armor U AF
-1 1 1 0 0
+A A A 0 0
 0 30 72 P
 E
 leggings~
-You see leggings of great but cheap craftsmanship.  Imprinted on the side is:
+@eng You see leggings of great but cheap craftsmanship.  Imprinted on the side is:
 Merc Industries
+@rus Ты видишь трусы, который были заштопаны множество раз.
+На них изображен горошек и ты замечаешь вышитую надпись:
+Их носил Федя Бабкин!
 ~
 #3708
 boots sub merc~
@@ -426,7 +491,7 @@ a pair of sub issue boots~
 You see a pair of sub issue boots here.~
 leather~
 armor U AG
-1 1 1 0 0
+A A A 0 0
 0 30 72 P
 E
 boots~
@@ -439,7 +504,7 @@ a pair of sub issue gloves~
 You see a pair of sub issue gloves here.~
 leather~
 armor U AH
-1 1 1 0 0
+A A A 0 0
 0 10 72 P
 E
 gloves~
@@ -452,7 +517,7 @@ a pair of sub issue sleeves~
 You see a pair of sub issue sleeves here.~
 leather~
 armor U AI
-1 1 1 0 0
+A A A 0 0
 0 20 72 P
 E
 sleeves~
@@ -465,7 +530,7 @@ a sub issue cape~
 You see a sub issue cape here.~
 cloth~
 armor U AK
-1 1 1 0 0
+A A A 0 0
 0 20 72 P
 E
 cape~
@@ -478,7 +543,7 @@ a sub issue belt~
 You see a sub issue belt here.~
 leather~
 armor U AL
-1 1 1 0 0
+A A A 0 0
 0 10 72 P
 E
 belt~
@@ -491,7 +556,7 @@ a sub issue bracer~
 You see a sub issue bracer here.~
 bronze~
 armor U AM
-0 1 1 0 0
+0 A A 0 0
 0 10 48 P
 E
 bracer~
@@ -665,58 +730,67 @@ Merc Industries
 ~
 #0
 
+
+
 #ROOMS
 #3700
-Entrance to Mud School~
-This is the entrance to the Merc Mud School.  Go north to go through mud
+@eng Entrance to Mud School@rus Вход в МУД школу~
+@eng This is the entrance to the Merc Mud School.  Go north to go through mud
 school.  If you have been here before and want to go directly to the arena,
 go south.
 
 A sign warns 'You may not pass these doors once you have passed level 5.'
+
+P.S. {RUse 'LANG rus' command, if you want russian language!!!{x
+P.P.S. {BUse 'COLOR' to enable full ansi color support.{x
+@rus Это вход в МУД школу. Иди на север (north), чтоб пройти курс обучения
+в школе. Если ты там уже был и хочешь попасть на арену, то иди на юг (south).
+На востоке (east) ты видишь вход в музей.
+
+Над дверью ты видишь знак:
+{R'Ты не можешь войти в эти двери, если ты достиг 5 уровня.'{x
 ~
 0 CD 0
 D0
-You see the doorway into the Mud School Building.
+@eng You see the doorway into the Mud School Building.
+@rus Ты видишь проход ведущий в МУД школу.
 ~
 ~
 0 0 3757
 D1
-You see the entrance to the museum.
+@eng You see the entrance to the museum.
+@rus Ты видишь вход в музей.
 ~
 ~
 0 -1 400
 D2
-You see the one way door into the Arena of Mud School.
+@eng You see the one way door into the Arena of Mud School.
+@rus Ты видишь дверь в одну сторону на арену.
 ~
 door~
 1 -1 3744
 D5
-You see the Temple of Midgaard.
+@eng You see the Temple of Midgaard.
+@rus Ты видишь храм Мидгарда.
 ~
 ~
 0 0 3001
 S
 #3701
-A Room in Mud School~
-You are in a square white room.  The walls are all blank, with no windows.
+@eng A Room in Mud School@rus Комната в МУД школе~
+@eng You are in a square white room.  The walls are all blank, with no windows.
 Light fluoresces off the ceiling in soft white tones.  Of course, there is a
 sign on the wall.  The exits are west and south.  A small plaque is on the
 wall.
+@rus Ты находишься в белой квадратной комнате. Стены чистые, окон нет. Мягкий
+свет исходит из потолка. {MНу конечно, на стене ты видишь знак (sign).{x
+Выходы ведут на юг (south) и на запад (west). Ты замечаешь табличку (plague)
+на стене.
 ~
 0 CDR 0
-D2
-You see a path into another room.
-~
-~
-0 -1 3757
-D3
-You see a path into another room.
-~
-~
-0 -1 3702
 E
 sign~
-Equipment check time!  Type 'EQUIPMENT' to see your current equipment.  Right
+@eng Equipment check time!  Type 'EQUIPMENT' to see your current equipment.  Right
 now, you have just a vest, a shield, and a weapon.  As you go through Mud
 School you will acquire a complete set of equipment.
 
@@ -729,53 +803,52 @@ To stop using a piece of equipment, type 'REMOVE item'.
 Finally, to see the items in your inventory, type 'INVENTORY'.
 
 When you are ready to continue, go west.
+@rus Время проверить снаряжение! Набери 'EQUIPMENT' для просмотра текущего состояния.
+Сейчас у тебя есть жилет, щит и оружие. После того, как ты пройдешь сквозь школу
+ты получишь дополнительное снаряжение, которое дополнит набор.
+
+Используй следующие команды:
+'GET item'     - чтобы взять вещь.
+'WEAR item'    - чтобы надеть вещь.
+'HOLD item'    - чтобы схватить вещь.
+'WIELD weapon' - чтобы взять в руки оружие (кстати hold weapon тоже сработает).
+'WEAR ALL'     - чтобы надеть все, что есть в inventory.
+'REMOVE item'  - чтобы снять вещь.
+'INVENTORY'    - чтобы просмотреть inventory.
+
+Как будешь готов иди на восток (west).
 ~
 E
 plaque~
 This zone (Mud School) is created by Hatchet for any Merc Mud.
 Copyright 1992, 1993.
 ~
+D2
+@eng You see a path into another room.
+@rus Ты видишь проход в другую комнату.
+~
+~
+0 -1 3757
+D3
+@eng You see a path into another room.
+@rus Ты видишь проход в другую комнату.
+~
+~
+0 -1 3702
 S
 #3702
-The Center Room~
-You are in a square white room.  The walls are all blank, with no windows.
+@eng The Center Room@rus Центральная комната~
+@eng You are in a square white room.  The walls are all blank, with no windows.
 Light fluoresces off the ceiling in soft white tones.  Of course, there is a
 sign on the wall.  Exits lead in ALL directions.
+@rus Ты находишься в белой квадратной комнате. Стены чистые, окон нет. Мягкий
+свет исходит из потолка. {MНу конечно, на стене ты видишь знак (sign).{x
+Выходы ведут во ВСЕХ направлениях.
 ~
 0 CDR 0
-D0
-You see the room north that will lead you to the next section.
-~
-~
-0 0 3703
-D1
-You see a room.
-~
-~
-0 0 3701
-D2
-You see a room.
-~
-~
-0 0 3705
-D3
-You see a room.
-~
-~
-0 0 3704
-D4
-You see a room.
-~
-~
-0 0 3708
-D5
-You see a room.
-~
-~
-0 0 3707
 E
 sign~
-This is the direction practicing room.  The directions you can go in any
+@eng This is the direction practicing room.  The directions you can go in any
 room are: north, south, east, west, up, or down.  Of course, not all rooms
 have all exits available.
 
@@ -786,120 +859,189 @@ clues in the room description, or try going into that direction and seeing
 if you bump into a door.
 
 Try going into each direction from here.  When you are done, go NORTH.
+@rus Эта комната тренировки вестибулярного аппарата. Направления в которых
+ты можешь идти: north, south, east, west, up, или down. Конечно не всегда
+доступны все направления.
+
+Для просмотра доступных выходов используй 'EXITS'.
+
+Иногда двери закрыты, или заперты, или они секретны! Просто попробуй пойти во
+всех направлениях и ты сам поймешь.
+
+Попробуй походить во всех направления отсюда, как будешь готов или на NORTH.
 ~
+D0
+@eng You see the room north that will lead you to the next section.
+@rus Ты видишь комнату, которая поведет тебя вперед.
+~
+~
+0 0 3703
+D1
+@eng You see a room.
+@rus Ты видишь комнату.
+~
+~
+0 0 3701
+D2
+@eng You see a room.
+@rus Ты видишь комнату.
+~
+~
+0 0 3705
+D3
+@eng You see a room.
+@rus Ты видишь комнату.
+~
+~
+0 0 3704
+D4
+@eng You see a room.
+@rus Ты видишь комнату.
+~
+~
+0 0 3708
+D5
+@eng You see a room.
+@rus Ты видишь комнату.
+~
+~
+0 0 3707
 S
 #3703
-A Room in Mud School~
-You are in a square white room.  The walls are all blank, with no windows.
+@eng A Room in Mud School@rus Комната в МУД школе~
+@eng You are in a square white room.  The walls are all blank, with no windows.
 Light fluoresces off the ceiling in soft white tones.  Of course, there is a
 sign on the wall.  Exits lead north and south.
+@rus Ты находишься в белой квадратной комнате. Стены чистые, окон нет. Мягкий
+свет исходит из потолка. {MНу конечно, на стене ты видишь знак (sign).{x 
+Выходы ведут на север (north) и на юг (south).
 ~
 0 CDR 0
+E
+sign~
+@eng Since you are here, let us have another lesson.  You can see the statistics on
+yourself by typing 'SCORE'.  Do that right now.  At higher levels, 'SCORE'
+gives you more information.
+@rus Ну коли ты тут, то давай проведем еще один урок. Ты можешь посмотреть
+статистику с помощью команды 'SCORE'. Сделай это! На высоких уровнях 'SCORE'
+будет давать больше информации.
+
+{CИ тут тоже был Федя Бабкин!{x
+~
 D0
-You see the next station ahead.
+@eng You see the next station ahead.
+@rus Ты видишь еще одну школу комнаты.
 ~
 ~
 0 -1 3709
 D2
-You see the central room.
+@eng You see the central room.
+@rus Ты видишь центральную комнату.
 ~
 ~
 0 0 3702
-E
-sign~
-Since you are here, let us have another lesson.  You can see the statistics on
-yourself by typing 'SCORE'.  Do that right now.  At higher levels, 'SCORE'
-gives you more information.
-~
 S
 #3704
-A Room in Mud School~
-You are in a square white room.  The walls are all blank, with no windows.
+@eng A Room in Mud School@rus Комната в МУД школе~
+@eng You are in a square white room.  The walls are all blank, with no windows.
 Light fluoresces off the ceiling in soft white tones.  Of course, there is a
 sign on the wall.  The only exit is east.
+@rus Ты находишься в белой квадратной комнате. Стены чистые, окон нет. Мягкий
+свет исходит из потолка. {MНу конечно, на стене ты видишь знак (sign).{x 
+Единственный выход на востоке (east).
 ~
 0 CDR 0
+E
+sign~
+@eng Just go east to the central room.
+@rus Просто иди на восток в центральную комнату.
+~
 D1
-You see the central room.
+@eng You see the central room.
+@rus Ты видишь центральную комнату.
 ~
 ~
 0 0 3702
-E
-sign~
-Just go east to the central room.
-~
 S
 #3705
-A Room in Mud School~
-You are in a square white room.  The walls are all blank, with no windows.
+@eng A Room in Mud School@rus Комната в МУД школе~
+@eng You are in a square white room.  The walls are all blank, with no windows.
 Light fluoresces off the ceiling in soft white tones.  Of course, there is a
 sign on the wall.  The only exit is north.
+@rus Ты находишься в белой квадратной комнате. Стены чистые, окон нет. Мягкий
+свет исходит из потолка. {MНу конечно, на стене ты видишь знак (sign).{x 
+Единственный выход на севере (north).
 ~
 0 CDR 0
+E
+sign~
+@eng Just go north to the central room.
+@rus Просто иди на север в центральную комнату.
+~
 D0
-You see the central room.
+@eng You see the central room.
+@rus Ты видишь центральную комнату.
 ~
 ~
 0 0 3702
-E
-sign~
-Just go north to the central room.
-~
 S
 #3707
-A Room in Mud School~
-You are in a square white room.  The walls are all blank, with no windows.
+@eng A Room in Mud School@rus Комната в МУД школе~
+@eng You are in a square white room.  The walls are all blank, with no windows.
 Light fluoresces off the ceiling in soft white tones.  Of course, there is a
 sign on the wall.  The only exit is up.
+@rus Ты находишься в белой квадратной комнате. Стены чистые, окон нет. Мягкий
+свет исходит из потолка. {MНу конечно, на стене ты видишь знак (sign).{x 
+Единственный выход вверху (up).
 ~
 0 CDR 0
+E
+sign~
+@eng Just go up to the central room.
+@rus Просто иди наверх в центральную комнату.
+~
 D4
-You see the central room.
+@eng You see the central room.
+@rus Ты видишь центральную комнату.
 ~
 ~
 0 0 3702
-E
-sign~
-Just go up to the central room.
-~
 S
 #3708
-A Room in Mud School~
-You are in a square white room.  The walls are all blank, with no windows.
+@eng A Room in Mud School@rus Комната в МУД школе~
+@eng You are in a square white room.  The walls are all blank, with no windows.
 Light fluoresces off the ceiling in soft white tones.  Of course, there is a
 sign on the wall.  The only exit is down.
+@rus Ты находишься в белой квадратной комнате. Стены чистые, окон нет. Мягкий
+свет исходит из потолка. {MНу конечно, на стене ты видишь знак (sign).{x
+Единственный выход внизу (down).
 ~
 0 CDR 0
+E
+sign~
+@eng Just go down to the central room.
+@rus Иди вниз в центральную комнату.
+~
 D5
-You see the central room.
+@eng You see the central room.
+@rus Ты видишь центральную комнату.
 ~
 ~
 0 0 3702
-E
-sign~
-Just go down to the central room.
-~
 S
 #3709
-A Room in Mud School~
-You are in a square white room.  The walls are all blank, with no windows.
+@eng A Room in Mud School@rus Комната в МУД школе~
+@eng You are in a square white room.  The walls are all blank, with no windows.
 Light fluoresces off the ceiling in soft white tones.  Of course, there is a
 sign on the wall.  Exits reach west and down.
+@rus Ты находишься в белой квадратной комнате. Стены чистые, окон нет. Мягкий
+свет исходит из потолка. {MНу конечно, на стене ты видишь знак (sign).{x
+Выходы ведут на запад (west) и вниз (down).
 ~
 0 CDR 0
-D3
-You see the next station of Mud School.
-~
-~
-0 -1 3711
-D5
-You see a cage.
-~
-~
-0 0 3710
 E
 sign~
-Welcome to combat training.
+@eng Welcome to combat training.
 
 The first lesson is knowing whom to fight.  Use the command 'CONSIDER' to
 consider killing a monster.  Avoid fighting monsters that will kill you
@@ -915,84 +1057,104 @@ Type 'HELP WIMPY' to find out more about 'WIMPY'.
 
 After you flee, you will be back in this room.  When you are ready to go on
 to the next station, go 'WEST'.
+@rus Добро пожаловать на боевую тренировку!
+
+Первый урок боевого искусства это знать с кем ты дерешься. Используй команду
+'CONSIDER' для сравнения себя с монстром. Избегай драться с заведомо сильным
+противником.
+
+Второй урок на подходе. Винизу (down) сидит сильный монстр, но сам он на тебя
+не нападет. Так что иди вниз (down), потом используй 'CONSIDER' и 'KILL'. А
+потом убегай от него с помощью команды 'FLEE'.
+
+Ты можешь использовать команду 'WIMPY' для того, чтоб твой персонаж автоматически
+убегал от монстра, при неблагоприятном развитии событий. Используй 'HELP WIMPY'
+для большей информации.
+
+После того, как ты убежишь, ты вновь вернешься сюда и должен будешь идти на
+запад (west) в следующую комнату.
 ~
+D3
+@eng You see the next station of Mud School.
+@rus Ты видишь следующую комнату школы.
+~
+~
+0 -1 3711
+D5
+@eng You see a cage.
+@rus Ты видишь клетку.
+~
+~
+0 0 3710
 S
 #3710
-The Blob Cage~
-You are in a smelly cage.  Strangely, the walls are still clean!
+@eng The Blob Cage@rus Клетка пузыря~
+@eng You are in a smelly cage.  Strangely, the walls are still clean!
 You see a sign here.  The only exit is up.
+@rus Ты находишься в вонючей клетке. Странно, но стены все еще чистые!
+{MТы видишь знак (sign) тут.{x Единственный выход на верху (up).
 ~
 0 DR 0
+E
+sign~
+@eng Remember, don't fight the blob to the finish!  Just type 'KILL BLOB', then
+when you are fighting, type 'FLEE', until you flee and are out of here.
+@rus Помни, ты не должен убивать пузыря до смерти! Просто набери 'KILL BLOB',
+а потом набирай 'FLEE' до тех пор, пока не убежишь от него.
+~
 D4
-You see a safe room up.
+@eng You see a safe room up.
+@rus На верху ты видишь безопасную комнату.
 ~
 ~
 0 0 3709
-E
-sign~
-Remember, don't fight the blob to the finish!  Just type 'KILL BLOB', then
-when you are fighting, type 'FLEE', until you flee and are out of here.
-~
 S
 #3711
-A Room in Mud School~
-You are in a square white room.  The walls are all blank, with no windows.
+@eng A Room in Mud School@rus Комната в МУД школе~
+@eng You are in a square white room.  The walls are all blank, with no windows.
 Light fluoresces off the ceiling in soft white tones.  Of course, there is a
 sign on the wall.
+@rus Ты находишься в белой квадратной комнате. Стены чистые, окон нет. Мягкий
+свет исходит из потолка. {MНу конечно, на стене ты видишь знак (sign).{x
 ~
 0 CDR 0
+E
+sign~
+@eng Welcome to the next station.  Here, you will actually fight real monsters,
+without fleeing!  Kill every mob, since they hold some equipment you need.
+To start, go down.
+@rus Добро подаловать в следубщую комнату. Тут ты сможешь сразиться с настоящими
+монстрами, без надобности убегать. Убей каждого из них, они зажимают некоторые
+вещи, которые тебе пригодятся. Если готов - иди вниз (down).
+
+И надпись: {CГы гы гы... А я тут был! (подпись: Федя Бабкин){x
+~
 D1
-You see the next station of Mud School.
+@eng You see the next station of Mud School.
+@rus Ты видишь еще одну комнату школы.
 ~
 ~
 0 0 3709
 D5
-You see the combat hall.
+@eng You see the combat hall.
+@rus Ты видишь зал сражений.
 ~
 ~
 0 0 3712
-E
-sign~
-Welcome to the next station.  Here, you will actually fight real monsters,
-without fleeing!  Kill every mob, since they hold some equipment you need.
-To start, go down.
-~
 S
 #3712
-The Cage Room~
-You are in the cage room.  All around are 4 cages.  Light fluoresces off the
+@eng The Cage Room@rus Комната с клетками~
+@eng You are in the cage room.  All around are 4 cages.  Light fluoresces off the
 ceiling in soft white tones.  Of course, there is a big sign on the wall.
 Exits lead into the cardinal directions plus down.
+@rus Ты находишься в комнате с клетками. Вокруг всего 4 клетки. Мягкий свет
+исходит из потолка. {MТы видишь большой знак (sign) на стене.{x Выходы ведут во
+всех направления.
 ~
 0 CDR 0
-D0
-You see the aggressive monster inside!
-~
-~
-0 -1 3713
-D1
-You see the unmodified monster inside!
-~
-~
-0 -1 3716
-D2
-You see the wimpy monster inside!
-~
-~
-0 -1 3715
-D3
-You see the aggressive wimpy monster inside!
-~
-~
-0 -1 3714
-D5
-You see the next station below.
-~
-~
-0 -1 3717
 E
 sign~
-Welcome to the cage room.  The adepts of mud school have captured some
+@eng Welcome to the cage room.  The adepts of mud school have captured some
 monsters for you to kill.  In the four cages are four monsters of various
 types.  Kill them all!
 
@@ -1007,101 +1169,153 @@ Between combat, you may need to rest or sleep to regenerate hit points.
 You can 'REST' to regenerate hit points, or you can 'SLEEP'.  'SLEEP' will
 refresh you faster than 'REST', but you will be less aware of your
 surroundings.
+@rus Добро пожаловать в комнату с клетками! Наставники школы поймали немного
+монстров, для того, чтобы ты их мог убить. В этих клетках сидят монстры
+различных типов - Убей их всех!!!
+
+После того как ты убьешь монстра используй команды 'GET ALL CORPSE' и 'WEAR ALL',
+чтобы взять все из трупа и надеть на себя. После этого командой
+'SACRIFICE CORPSE' - принеси труп в жертву богам - они вознаградят тебя.
+
+В перерывах между боями тебе может понадобиться отдых, или сон для того, чтобы
+восстановить жизнь (hit points), используй команды 'REST' или 'SLEEP'. Но учти,
+что когда спишь твои hit points восстанавливаются быстрее, но ты более беззащитен.
+
+Снизу ты видишь гордо нацарапанную надпись:
+{CЗдесь Федю Бабкина больно били крутые ньюбисы! Во! (подпись:куча ньюбисов){x
 ~
+D0
+@eng You see the aggressive monster inside!
+@rus Ты видишь агрессивного монстра внутри.
+~
+~
+0 -1 3713
+D1
+@eng You see the unmodified monster inside!
+@rus Ты видишь оригинального монстра внутри.
+~
+~
+0 -1 3716
+D2
+@eng You see the wimpy monster inside!
+@rus Ты видишь трусливого монстра внутри.
+~
+~
+0 -1 3715
+D3
+@eng You see the aggressive wimpy monster inside!
+@rus Ты видишь непонятно-какого монстра внутри.
+~
+~
+0 -1 3714
+D5
+@eng You see the next station below.
+@rus Ты видишь еще одну комнату школы внизу.
+~
+~
+0 -1 3717
 S
 #3713
-A Cage~
-You are in a cage.  Blood and gore are everywhere.  The keepers must be lax
+@eng A Cage@rus Клетка~
+@eng You are in a cage.  Blood and gore are everywhere.  The keepers must be lax
 in the upkeep here!  There is a sign on the wall.  The only exit is south.
+@rus Ты в клетке. Кровь повсюду. Тут давно никто не прибирася.
+{Mна стене ты видишь знак (sign).{x Единственный выход на юге (south).
 ~
 0 DR 0
+E
+sign~
+@eng There is an aggressive monster in this room.  Kill him and get out of here
+fast!  Remember to loot and sacrifice the corpse.
+@rus Здесь сидит агрессивный монстр. Убей его и уходи отсюда скорее. Не забудь
+оборать труп и принести его в жертву.
+~
 D2
-You see the Cage Room.
+@eng You see the Cage Room.
+@rus Ты видишь комнату с клетками.
 ~
 ~
 0 -1 3712
-E
-sign~
-There is an aggressive monster in this room.  Kill him and get out of here
-fast!  Remember to loot and sacrifice the corpse.
-~
 S
 #3714
-A Cage~
-You are in a cage.  Blood and gore are everywhere.  The keepers must be lax
+@eng A Cage@rus Клетка~
+@eng You are in a cage.  Blood and gore are everywhere.  The keepers must be lax
 in the upkeep here!  There is a sign on the wall.  The only exit is east.
+@rus Ты в клетке. Кровь повсюду. Тут давно никто не прибирася.
+{Mна стене ты видишь знак (sign).{x Единственный выход на востоке (east).
 ~
 0 DR 0
+E
+sign~
+@eng There is a wimpy, aggressive monster in this room.  Kill him and get out of
+here fast!  Remember to loot and sacrifice the corpse.
+@rus Тут сидит нападющий от страха монстр. Убей его и уходи отсюда скорее. Не забудь
+оборать труп и принести его в жертву.
+~
 D1
-You see the Cage Room.
+@eng You see the Cage Room.
+@rus Ты видишь комнату с клетками.
 ~
 ~
 0 -1 3712
-E
-sign~
-There is a wimpy, aggressive monster in this room.  Kill him and get out of
-here fast!  Remember to loot and sacrifice the corpse.
-~
 S
 #3715
-A Cage~
-You are in a cage.  Blood and gore are everywhere.  The keepers must be lax
+@eng A Cage@rus Клетка~
+@eng You are in a cage.  Blood and gore are everywhere.  The keepers must be lax
 in the upkeep here!  There is a sign on the wall.  The only exit is north.
+@rus Ты в клетке. Кровь повсюду. Тут давно никто не прибирася.
+{Mна стене ты видишь знак (sign).{x Единственный выход на севере (north).
 ~
 0 DR 0
+E
+sign~
+@eng There is a wimpy monster in this room.  Kill him and get out of here fast!
+Remember to loot and sacrifice the corpse.
+@rus Здесь сидит трусливый монстр. Убей его и уходи отсюда скорее. Не забудь
+оборать труп и принести его в жертву.
+~
 D0
-You see the Cage Room.
+@eng You see the Cage Room.
+@rus Ты видишь комнату с клетками.
 ~
 ~
 0 -1 3712
-E
-sign~
-There is a wimpy monster in this room.  Kill him and get out of here fast!
-Remember to loot and sacrifice the corpse.
-~
 S
 #3716
-A Cage~
-You are in a cage.  Blood and gore are everywhere.  The keepers must be lax
+@eng A Cage@rus Клетка~
+@eng You are in a cage.  Blood and gore are everywhere.  The keepers must be lax
 in the upkeep here!  There is a sign on the wall.  The only exit is west.
+@rus Ты в клетке. Кровь повсюду. Тут давно никто не прибирася.
+{Mна стене ты видишь знак (sign).{x Единственный выход на западе (west).
 ~
 0 DR 0
+E
+sign~
+@eng There is a monster in this room.  Kill him and get out of here fast!
+Remember to loot and sacrifice the corpse.
+@rus В этой комнате монстр. Убей его и уходи отсюда быстро. Не забудь
+обобрать труп и принести его в жертву богам.
+~
 D3
-You see the Cage Room.
+@eng You see the Cage Room.
+@rus Ты видишь комнату с клетками.
 ~
 ~
 0 -1 3712
-E
-sign~
-There is a monster in this room.  Kill him and get out of here fast!
-Remember to loot and sacrifice the corpse.
-~
 S
 #3717
-A Room in Mud School~
-You are in a square white room.  The walls are all blank, with no windows.
+@eng A Room in Mud School@rus Комната в МУД школе~
+@eng You are in a square white room.  The walls are all blank, with no windows.
 Light fluoresces off the ceiling in soft white tones.  Of course, there is a
 sign on the wall.  Find your own exit here.
+@rus Ты находишься в белой квадратной комнате. Стены чистые, окон нет. Мягкий
+свет исходит из потолка. {MНу конечно, на стене ты видишь знак (sign).{x
+Найди свой выход сам.
 ~
 0 CDR 0
-D1
-You see the next station of Mud School.
-~
-door~
-1 -1 3719
-D2
-You see the Shop.
-~
-~
-0 0 3718
-D4
-You see the Cage room.
-~
-~
-0 -1 3712
 E
 sign~
-By now, you must be hungry and thirsty.  Time to buy groceries!
+@eng By now, you must be hungry and thirsty.  Time to buy groceries!
 To the south is a store.  Inside the store, you can use these commands:
 
     BUY    Buy an item
@@ -1110,92 +1324,139 @@ To the south is a store.  Inside the store, you can use these commands:
 After buying some food and drink, you can 'EAT' and 'DRINK' it.
 
 After that, find the next exit yourself.
+@rus Сейчас ты наверное хочешь есть и пить. Время навестить бакалейную лавку!
+Она находится на юге (south). В магазине висит знак как им пользоваться.
+
+После того, как ты купишь необходимое, попробуй команды 'EAT' и 'DRINK'.
 ~
+D1
+@eng You see the next station of Mud School.
+@rus Ты видишь еще одну комнату школы.
+~
+door~
+1 -1 3719
+D2
+@eng You see the Shop.
+@rus Ты видишь магазин.
+~
+~
+0 0 3718
+D4
+@eng You see the Cage room.
+@rus Ты видишь комнату с клетками.
+~
+~
+0 -1 3712
 S
 #3718
-The Store in Mud School~
-You are in a cramped room.  Stacked neatly on shelves everywhere are items
+@eng The Store in Mud School@rus Магазин в МУД школе~
+@eng You are in a cramped room.  Stacked neatly on shelves everywhere are items
 and packages.  Light fluoresces off the ceiling in soft white tones.  Of
 course, there is a sign on the wall.  The only exit is north.
+@rus Ты находишься в маленькой комнате. На полках аккуратно сложены различные вещи
+и свертки. Потолок испускает ровный белый свет. {MНа стене - знак (sign).{x
+Единственный выход на севере (north).
 ~
 0 DR 0
-D0
-You see the only exit out of here.
-~
-~
-0 0 3717
 E
 sign~
-The sign reads:
+@eng The sign reads:
 
    Buy   - Buy something from the storekeeper.
    List  - The storekeeper will tell you what's for sale.
    Value - The storekeeper will tell you how much he will give to you for
            that item.
    Sell  - Sell that item to the storekeeper.
+@rus Знак гласит:
+
+   Buy   - Купить что-нить у продавца.
+   List  - Попросить список товаров на продажу.
+   Value - Узнать цену вещи, которую ты хочешь продать.
+   Sell  - Продать вещь.
 ~
+D0
+@eng You see the only exit out of here.
+@rus Ты видишь только выход отсюда.
+~
+~
+0 0 3717
 S
 #3719
-A Room in Mud School~
-You are in a square white room.  The walls are all blank, with no windows.
+@eng A Room in Mud School@rus Комната в МУД школе~
+@eng You are in a square white room.  The walls are all blank, with no windows.
 Light fluoresces off the ceiling in soft white tones.  Of course, there is a
 sign on the wall.  The exits are north and west, with a door to the east.
+@rus Ты находишься в белой квадратной комнате. Стены чистые, окон нет. Мягкий
+свет исходит из потолка. {MНу конечно, на стене ты видишь знак (sign).{x
+Выходы ведут на север (north) и запад (west), на востоке (east) ты видишь
+закрытую дверь (door). 
 ~
 0 CDR 0
-D0
-You see a darkened room inside.
-~
-~
-0 0 3720
-D1
-You see the next station of Mud School.
-~
-door~
-2 3714 3721
-D3
-You see the room you just came from.
-~
-door~
-1 -1 3717
 E
 sign~
-North of you is a dark room.  I hope you still have the lantern!  If not,
+@eng North of you is a dark room.  I hope you still have the lantern!  If not,
 you have to back to the store and buy one.
 
 In the room is a monster with a key that you need.  After killing the
 monster and getting the key, come back here, UNLOCK EAST, OPEN EAST,
 and continue east.
+@rus На севере (north) находится темная комната. Я надеюсь у тебя есть лампа!
+Если нет, ты должен вернуться в магазин и купить одну.
+
+В комнате сидит монстр с нужным тебе ключом. После того, как ты достанешь ключ,
+возвращайся сюда, UNLOCK EAST, OPEN EAST, и иди на восток (east).
 ~
+D0
+@eng You see a darkened room inside.
+@rus Ты видишь затемненную внутри комнату.
+~
+~
+0 0 3720
+D1
+@eng You see the next station of Mud School.
+@rus Ты видишь следущую комнату школы.
+~
+door~
+2 3714 3721
+D3
+@eng You see the room you just came from.
+@rus Ты видишь комнату откуда только что пришел.
+~
+door~
+1 -1 3717
 S
 #3720
-The Darkened Room~
-This room was purposefully darkened so that you would need to hold on to a
+@eng The Darkened Room@rus Затемненная комната~
+@eng This room was purposefully darkened so that you would need to hold on to a
 light source to go through.  The walls are, of course, blank, and white.
 The only exit is south.
+@rus Эта комната была затемнена с определенной целью - для того, чтобы ты должен
+был взять в руки светильник (а вобще banner'a хватает) и пройти внутрь. Стены
+конечно белые и неисписанные. Единственный выход на юге (south).
 ~
 0 ADR 0
 D2
-You see the room that you have come from.
+@eng You see the room that you have come from.
+@rus Ты видишь комнату их которой пришел.
 ~
 ~
 0 0 3719
 S
 #3721
-The End of Mud School!~
-This is a very bright room, with a marble pedestal in the center.  Behind
+@eng The End of Mud School!@rus Окончание МУД школы!~
+@eng This is a very bright room, with a marble pedestal in the center.  Behind
 the pedestal stands a person cloaked in Silver.  Tapestries flow from every
 wall, and you feel very happy to be here right now.  There is a big sign here.
 The only exit is on the other side of the gate north of you.
+@rus Это очень ярко освещенная комната, посреди нее ты видишь мраморную колонну.
+За колонной ты замечаешь фигуру закутанную в серебро. На каждой стене висят
+прекрасные гобелены. Ты очень счастлив, что находишься здесь и сейчас.
+{MТы видишь большой знак тут.{x Единственный выход это ворота на севере (north).
 ~
 0 DR 0
-D0
-You see the Arena ahead.
-~
-gate~
-1 -1 3722
 E
 sign~
-You have graduated from Mud School!  Take your diploma...if you can.
+@eng You have graduated from Mud School!  Take your diploma...if you can.
 Go 'NORTH' from here to visit our arena.  There are plenty of low-level
 monsters, but DON'T attack other players.
 
@@ -1208,13 +1469,36 @@ If you need more help during the game, type 'HELP'.  If you see something
 wrong or have comments, use 'BUG', 'IDEA', or 'TYPO' to report them.
 
 May your visit here be ... mercenary.
+@rus Ты стал выпускником МУД школы! Забирай свой диплом...хм...если сможешь.
+Иди на 'NORTH' для посещения нашей арены. Там много малоуровневых монстров,
+но не нападай на других игроков.
+
+Если ты хочешь попасть в храм - набери 'RECALL'.
+
+Не забудь сохранить своего персонажа. До второго уровня ты не будешь иметь
+права сохранить своего персонажа, так что будь внимателен.
+
+Если тебе понадобится (а тебе понадобится) больше помощи во время игры, то
+используй команду 'HELP'. Если ты заметишь, что-то неправильное, то ты можешь
+сообщить об этом, используя команды 'BUG', 'IDEA', или 'TYPO'.
+
+Может быть твой везит сюда будет... корыстным.
 ~
+D0
+@eng You see the Arena ahead.
+@rus Впереди ты видишь арену.
+~
+gate~
+1 -1 3722
 S
 #3722
-South Wall of Arena~
-You are in the Arena.  Remember, if you wish to get out of this Arena, just
+@eng South Wall of Arena@rus Южная стена арены~
+@eng You are in the Arena.  Remember, if you wish to get out of this Arena, just
 go up.  Ceilings can barely be seen in this huge Arena.  You feel as if you are
 being watched by some divine being.
+@rus Ты на арене. Помни, что если ты захочешь отсюда выйти, просто пойди на
+верх (up). Потолок гигантской арены едва различим в высоте. Ты чувствуешь себя
+так, как будто за тобой наблюдает божественное существо.
 ~
 0 D 0
 D0
@@ -1230,16 +1514,20 @@ D3
 ~
 0 0 3723
 D4
-You see the EXIT.
+@eng You see the EXIT.
+@rus Ты видишь ВЫХОД.
 ~
 ~
 0 0 3760
 S
 #3723
-South Wall of Arena~
-You are in the Arena.  Remember, if you wish to get out of this Arena, just
+@eng South Wall of Arena@rus Южная стена арены~
+@eng You are in the Arena.  Remember, if you wish to get out of this Arena, just
 go up.  Ceilings can barely be seen in this huge Arena.  You feel as if you are
 being watched by some divine being.
+@rus Ты на арене. Помни, что если ты захочешь отсюда выйти, просто пойди на
+верх (up). Потолок гигантской арены едва различим в высоте. Ты чувствуешь себя
+так, как будто за тобой наблюдает божественное существо.
 ~
 0 D 0
 D0
@@ -1255,16 +1543,20 @@ D3
 ~
 0 0 3724
 D4
-You see the EXIT.
+@eng You see the EXIT.
+@rus Ты видишь ВЫХОД.
 ~
 ~
 0 0 3760
 S
 #3724
-South West Corner of Arena~
-You are in the Arena.  Remember, if you wish to get out of this Arena, just
+@eng South West Corner of Arena@rus Юго-западный угол арены~
+@eng You are in the Arena.  Remember, if you wish to get out of this Arena, just
 go up.  Ceilings can barely be seen in this huge Arena.  You feel as if you are
 being watched by some divine being.
+@rus Ты на арене. Помни, что если ты захочешь отсюда выйти, просто пойди на
+верх (up). Потолок гигантской арены едва различим в высоте. Ты чувствуешь себя
+так, как будто за тобой наблюдает божественное существо.
 ~
 0 D 0
 D0
@@ -1276,16 +1568,20 @@ D1
 ~
 0 0 3723
 D4
-You see the EXIT.
+@eng You see the EXIT.
+@rus Ты видишь ВЫХОД.
 ~
 ~
 0 0 3760
 S
 #3725
-South Wall of Arena~
-You are in the Arena.  Remember, if you wish to get out of this Arena, just
+@eng South Wall of Arena@rus Южная стена арены~
+@eng You are in the Arena.  Remember, if you wish to get out of this Arena, just
 go up.  Ceilings can barely be seen in this huge Arena.  You feel as if you are
 being watched by some divine being.
+@rus Ты на арене. Помни, что если ты захочешь отсюда выйти, просто пойди на
+верх (up). Потолок гигантской арены едва различим в высоте. Ты чувствуешь себя
+так, как будто за тобой наблюдает божественное существо.
 ~
 0 D 0
 D0
@@ -1301,16 +1597,20 @@ D3
 ~
 0 0 3722
 D4
-You see the EXIT.
+@eng You see the EXIT.
+@rus Ты видишь ВЫХОД.
 ~
 ~
 0 0 3760
 S
 #3726
-South East Corner of Arena~
-You are in the Arena.  Remember, if you wish to get out of this Arena, just
+@eng South East Corner of Arena@rus Юго-восточный угол арены~
+@eng You are in the Arena.  Remember, if you wish to get out of this Arena, just
 go up.  Ceilings can barely be seen in this huge Arena.  You feel as if you are
 being watched by some divine being.
+@rus Ты на арене. Помни, что если ты захочешь отсюда выйти, просто пойди на
+верх (up). Потолок гигантской арены едва различим в высоте. Ты чувствуешь себя
+так, как будто за тобой наблюдает божественное существо.
 ~
 0 D 0
 D0
@@ -1322,16 +1622,20 @@ D3
 ~
 0 0 3725
 D4
-You see the EXIT.
+@eng You see the EXIT.
+@rus Ты видишь ВЫХОД.
 ~
 ~
 0 0 3760
 S
 #3727
-West Wall of Arena~
-You are in the Arena.  Remember, if you wish to get out of this Arena, just
+@eng West Wall of Arena@rus Западная стена арены~
+@eng You are in the Arena.  Remember, if you wish to get out of this Arena, just
 go up.  Ceilings can barely be seen in this huge Arena.  You feel as if you are
 being watched by some divine being.
+@rus Ты на арене. Помни, что если ты захочешь отсюда выйти, просто пойди на
+верх (up). Потолок гигантской арены едва различим в высоте. Ты чувствуешь себя
+так, как будто за тобой наблюдает божественное существо.
 ~
 0 D 0
 D0
@@ -1347,16 +1651,20 @@ D2
 ~
 0 0 3724
 D4
-You see the EXIT.
+@eng You see the EXIT.
+@rus Ты видишь ВЫХОД.
 ~
 ~
 0 0 3760
 S
 #3728
-Arena~
-You are in the Arena.  Remember, if you wish to get out of this Arena, just
+@eng Arena@rus Арена~
+@eng You are in the Arena.  Remember, if you wish to get out of this Arena, just
 go up.  Ceilings can barely be seen in this huge Arena.  You feel as if you are
 being watched by some divine being.
+@rus Ты на арене. Помни, что если ты захочешь отсюда выйти, просто пойди на
+верх (up). Потолок гигантской арены едва различим в высоте. Ты чувствуешь себя
+так, как будто за тобой наблюдает божественное существо. Чтоб ему тошно стало.
 ~
 0 D 0
 D0
@@ -1376,16 +1684,20 @@ D3
 ~
 0 0 3727
 D4
-You see the EXIT.
+@eng You see the EXIT.
+@rus Ты видишь ВЫХОД.
 ~
 ~
 0 0 3760
 S
 #3729
-Arena~
-You are in the Arena.  Remember, if you wish to get out of this Arena, just
+@eng Arena@rus Арена~
+@eng You are in the Arena.  Remember, if you wish to get out of this Arena, just
 go up.  Ceilings can barely be seen in this huge Arena.  You feel as if you are
 being watched by some divine being.
+@rus Ты на арене. Помни, что если ты захочешь отсюда выйти, просто пойди на
+верх (up). Потолок гигантской арены едва различим в высоте. Ты чувствуешь себя
+так, как будто за тобой наблюдает божественное существо.
 ~
 0 D 0
 D0
@@ -1405,16 +1717,20 @@ D3
 ~
 0 0 3728
 D4
-You see the EXIT.
+@eng You see the EXIT.
+@rus Ты видишь ВЫХОД.
 ~
 ~
 0 0 3760
 S
 #3730
-Arena~
-You are in the Arena.  Remember, if you wish to get out of this Arena, just
+@eng Arena@rus Арена~
+@eng You are in the Arena.  Remember, if you wish to get out of this Arena, just
 go up.  Ceilings can barely be seen in this huge Arena.  You feel as if you are
 being watched by some divine being.
+@rus Ты на арене. Помни, что если ты захочешь отсюда выйти, просто пойди на
+верх (up). Потолок гигантской арены едва различим в высоте. Ты чувствуешь себя
+так, как будто за тобой наблюдает божественное существо.
 ~
 0 D 0
 D0
@@ -1434,16 +1750,20 @@ D3
 ~
 0 0 3729
 D4
-You see the EXIT.
+@eng You see the EXIT.
+@rus Ты видишь ВЫХОД.
 ~
 ~
 0 0 3760
 S
 #3731
-East Wall of Arena~
-You are in the Arena.  Remember, if you wish to get out of this Arena, just
+@eng East Wall of Arena@rus Восточная стена арены~
+@eng You are in the Arena.  Remember, if you wish to get out of this Arena, just
 go up.  Ceilings can barely be seen in this huge Arena.  You feel as if you are
 being watched by some divine being.
+@rus Ты на арене. Помни, что если ты захочешь отсюда выйти, просто пойди на
+верх (up). Потолок гигантской арены едва различим в высоте. Ты чувствуешь себя
+так, как будто за тобой наблюдает божественное существо.
 ~
 0 D 0
 D0
@@ -1459,16 +1779,20 @@ D3
 ~
 0 0 3730
 D4
-You see the EXIT.
+@eng You see the EXIT.
+@rus Ты видишь ВЫХОД.
 ~
 ~
 0 0 3760
 S
 #3732
-West Wall of Arena~
-You are in the Arena.  Remember, if you wish to get out of this Arena, just
+@eng West Wall of Arena@rus Западная стена арены~
+@eng You are in the Arena.  Remember, if you wish to get out of this Arena, just
 go up.  Ceilings can barely be seen in this huge Arena.  You feel as if you are
 being watched by some divine being.
+@rus Ты на арене. Помни, что если ты захочешь отсюда выйти, просто пойди на
+верх (up). Потолок гигантской арены едва различим в высоте. Ты чувствуешь себя
+так, как будто за тобой наблюдает божественное существо.
 ~
 0 D 0
 D0
@@ -1484,16 +1808,20 @@ D2
 ~
 0 0 3727
 D4
-You see the EXIT.
+@eng You see the EXIT.
+@rus Ты видишь ВЫХОД.
 ~
 ~
 0 0 3760
 S
 #3733
-Arena~
-You are in the Arena.  Remember, if you wish to get out of this Arena, just
+@eng Arena@rus Арена~
+@eng You are in the Arena.  Remember, if you wish to get out of this Arena, just
 go up.  Ceilings can barely be seen in this huge Arena.  You feel as if you are
 being watched by some divine being.
+@rus Ты на арене. Помни, что если ты захочешь отсюда выйти, просто пойди на
+верх (up). Потолок гигантской арены едва различим в высоте. Ты чувствуешь себя
+так, как будто за тобой наблюдает божественное существо.
 ~
 0 D 0
 D0
@@ -1513,18 +1841,31 @@ D3
 ~
 0 0 3732
 D4
-You see the EXIT.
+@eng You see the EXIT.
+@rus Ты видишь ВЫХОД.
 ~
 ~
 0 0 3760
 S
 #3734
-Center of Arena~
-You are in the Arena.  Remember, if you wish to get out of this Arena, just
+@eng Center of Arena@rus Центр арены~
+@eng You are in the Arena.  Remember, if you wish to get out of this Arena, just
 go up.  Ceilings can barely be seen in this huge Arena.  You feel as if you are
 being watched by some divine being.  There is a BIG SIGN here.
+@rus Ты на арене. Помни, что если ты захочешь отсюда выйти, просто пойди на
+верх (up). Потолок гигантской арены едва различим в высоте. Ты чувствуешь себя
+так, как будто за тобой наблюдает божественное существо.
 ~
 0 D 0
+E
+sign~
+@eng Those with high bravery or low senses of cautiousness might wish to go below
+to the Dungeon.  However, know that there are aggressive monsters down there,
+and there is no quick escape back out of here when you are in the dungeon.
+@rus Те кто храбры и имеют плохое чувство самосохранения могут пожелать спуститься
+вниз, в подземелье. Тем не менее, знай, что там живут агрессивные монстры и там
+нет короткого пути к спасению.
+~
 D0
 ~
 ~
@@ -1542,27 +1883,26 @@ D3
 ~
 0 0 3733
 D4
-You see the EXIT.
+@eng You see the EXIT.
+@rus Ты видишь ВЫХОД.
 ~
 ~
 0 0 3760
 D5
-You see a dark murky dungeon below.
+@eng You see a dark murky dungeon below.
+@rus Ты видишь темное и мрачное подземелье внизу.
 ~
 grate~
 1 -1 3748
-E
-sign~
-Those with high bravery or low senses of cautiousness might wish to go below
-to the Dungeon.  However, know that there are aggressive monsters down there,
-and there is no quick escape back out of here when you are in the dungeon.
-~
 S
 #3735
-Arena~
-You are in the Arena.  Remember, if you wish to get out of this Arena, just
+@eng Arena@rus Арена~
+@eng You are in the Arena.  Remember, if you wish to get out of this Arena, just
 go up.  Ceilings can barely be seen in this huge Arena.  You feel as if you are
 being watched by some divine being.
+@rus Ты на арене. Помни, что если ты захочешь отсюда выйти, просто пойди на
+верх (up). Потолок гигантской арены едва различим в высоте. Ты чувствуешь себя
+так, как будто за тобой наблюдает божественное существо.
 ~
 0 D 0
 D0
@@ -1582,16 +1922,20 @@ D3
 ~
 0 0 3734
 D4
-You see the EXIT.
+@eng You see the EXIT.
+@rus Ты видишь ВЫХОД.
 ~
 ~
 0 0 3760
 S
 #3736
-East Wall of Arena~
-You are in the Arena.  Remember, if you wish to get out of this Arena, just
+@eng East Wall of Arena@rus Восточная стена арены~
+@eng You are in the Arena.  Remember, if you wish to get out of this Arena, just
 go up.  Ceilings can barely be seen in this huge Arena.  You feel as if you are
 being watched by some divine being.
+@rus Ты на арене. Помни, что если ты захочешь отсюда выйти, просто пойди на
+верх (up). Потолок гигантской арены едва различим в высоте. Ты чувствуешь себя
+так, как будто за тобой наблюдает божественное существо.
 ~
 0 D 0
 D0
@@ -1607,16 +1951,20 @@ D3
 ~
 0 0 3735
 D4
-You see the EXIT.
+@eng You see the EXIT.
+@rus Ты видишь ВЫХОД (не надоело смотреть?)
 ~
 ~
 0 0 3760
 S
 #3737
-West Wall of Arena~
-You are in the Arena.  Remember, if you wish to get out of this Arena, just
+@eng West Wall of Arena@rus Западная стена арены~
+@eng You are in the Arena.  Remember, if you wish to get out of this Arena, just
 go up.  Ceilings can barely be seen in this huge Arena.  You feel as if you are
 being watched by some divine being.
+@rus Ты на арене. Помни, что если ты захочешь отсюда выйти, просто пойди на
+верх (up). Потолок гигантской арены едва различим в высоте. Ты чувствуешь себя
+так, как будто за тобой наблюдает божественное существо.
 ~
 0 D 0
 D0
@@ -1632,16 +1980,20 @@ D2
 ~
 0 0 3732
 D4
-You see the EXIT.
+@eng You see the EXIT.
+@rus Ты видишь ВЫХОД.
 ~
 ~
 0 0 3760
 S
 #3738
-Arena~
-You are in the Arena.  Remember, if you wish to get out of this Arena, just
+@eng Arena@rus Арена~
+@eng You are in the Arena.  Remember, if you wish to get out of this Arena, just
 go up.  Ceilings can barely be seen in this huge Arena.  You feel as if you are
 being watched by some divine being.
+@rus Ты на арене. Помни, что если ты захочешь отсюда выйти, просто пойди на
+верх (up). Потолок гигантской арены едва различим в высоте. Ты чувствуешь себя
+так, как будто за тобой наблюдает божественное существо.
 ~
 0 D 0
 D0
@@ -1661,16 +2013,20 @@ D3
 ~
 0 0 3737
 D4
-You see the EXIT.
+@eng You see the EXIT.
+@rus Ты видишь ВЫХОД.
 ~
 ~
 0 0 3760
 S
 #3739
-Arena~
-You are in the Arena.  Remember, if you wish to get out of this Arena, just
+@eng Arena@rus Арена~
+@eng You are in the Arena.  Remember, if you wish to get out of this Arena, just
 go up.  Ceilings can barely be seen in this huge Arena.  You feel as if you are
 being watched by some divine being.
+@rus Ты на арене. Помни, что если ты захочешь отсюда выйти, просто пойди на
+верх (up). Потолок гигантской арены едва различим в высоте. Ты чувствуешь себя
+так, как будто за тобой наблюдает божественное существо.
 ~
 0 D 0
 D0
@@ -1690,16 +2046,20 @@ D3
 ~
 0 0 3738
 D4
-You see the EXIT.
+@eng You see the EXIT.
+@rus Ты видишь ВЫХОД.
 ~
 ~
 0 0 3760
 S
 #3740
-Arena~
-You are in the Arena.  Remember, if you wish to get out of this Arena, just
+@eng Arena@rus Арена~
+@eng You are in the Arena.  Remember, if you wish to get out of this Arena, just
 go up.  Ceilings can barely be seen in this huge Arena.  You feel as if you are
 being watched by some divine being.
+@rus Ты на арене. Помни, что если ты захочешь отсюда выйти, просто пойди на
+верх (up). Потолок гигантской арены едва различим в высоте. Ты чувствуешь себя
+так, как будто за тобой наблюдает божественное существо.
 ~
 0 D 0
 D0
@@ -1719,16 +2079,20 @@ D3
 ~
 0 0 3739
 D4
-You see the EXIT.
+@eng You see the EXIT.
+@rus Ты видишь ВЫХОД.
 ~
 ~
 0 0 3760
 S
 #3741
-East Wall of Arena~
-You are in the Arena.  Remember, if you wish to get out of this Arena, just
+@eng East Wall of Arena@rus Восточная стена арены~
+@eng You are in the Arena.  Remember, if you wish to get out of this Arena, just
 go up.  Ceilings can barely be seen in this huge Arena.  You feel as if you are
 being watched by some divine being.
+@rus Ты на арене. Помни, что если ты захочешь отсюда выйти, просто пойди на
+верх (up). Потолок гигантской арены едва различим в высоте. Ты чувствуешь себя
+так, как будто за тобой наблюдает божественное существо.
 ~
 0 D 0
 D0
@@ -1744,16 +2108,20 @@ D3
 ~
 0 0 3740
 D4
-You see the EXIT.
+@eng You see the EXIT.
+@rus Ты видишь ВЫХОД.
 ~
 ~
 0 0 3760
 S
 #3742
-North West Corner of Arena~
-You are in the Arena.  Remember, if you wish to get out of this Arena, just
+@eng North West Corner of Arena@rus Северо-западный угол арены~
+@eng You are in the Arena.  Remember, if you wish to get out of this Arena, just
 go up.  Ceilings can barely be seen in this huge Arena.  You feel as if you are
 being watched by some divine being.
+@rus Ты на арене. Помни, что если ты захочешь отсюда выйти, просто пойди на
+верх (up). Потолок гигантской арены едва различим в высоте. Ты чувствуешь себя
+так, как будто за тобой наблюдает божественное существо.
 ~
 0 D 0
 D1
@@ -1765,16 +2133,20 @@ D2
 ~
 0 0 3737
 D4
-You see the EXIT.
+@eng You see the EXIT.
+@rus Ты видишь ВЫХОД.
 ~
 ~
 0 0 3760
 S
 #3743
-North Wall of Arena~
-You are in the Arena.  Remember, if you wish to get out of this Arena, just
+@eng North Wall of Arena@rus Северная стена арены~
+@eng You are in the Arena.  Remember, if you wish to get out of this Arena, just
 go up.  You can barely see the ceiling.  You feel as if you are being watched
 by some divine being.
+@rus Ты на арене. Помни, что если ты захочешь отсюда выйти, просто пойди на
+верх (up). Потолок гигантской арены едва различим в высоте. Ты чувствуешь себя
+так, как будто за тобой наблюдает божественное существо.
 ~
 0 D 0
 D1
@@ -1790,16 +2162,20 @@ D3
 ~
 0 0 3742
 D4
-You see the EXIT.
+@eng You see the EXIT.
+@rus Ты видишь ВЫХОД.
 ~
 ~
 0 0 3760
 S
 #3744
-North Wall of Arena~
-You are in the Arena.  Remember, if you wish to get out of this Arena, just
+@eng North Wall of Arena@rus Северная стена арены~
+@eng You are in the Arena.  Remember, if you wish to get out of this Arena, just
 go up.  Ceilings can barely be seen in this huge Arena.  You feel as if you are
 being watched by some divine being.
+@rus Ты на арене. Помни, что если ты захочешь отсюда выйти, просто пойди на
+верх (up). Потолок гигантской арены едва различим в высоте. Ты чувствуешь себя
+так, как будто за тобой наблюдает божественное существо.
 ~
 0 D 0
 D1
@@ -1815,16 +2191,20 @@ D3
 ~
 0 0 3743
 D4
-You see the EXIT.
+@eng You see the EXIT.
+@rus Ты видишь ВЫХОД.
 ~
 ~
 0 0 3760
 S
 #3745
-North Wall of Arena~
-You are in the Arena.  Remember, if you wish to get out of this Arena, just
+@eng North Wall of Arena@rus Северная стена арены~
+@eng You are in the Arena.  Remember, if you wish to get out of this Arena, just
 go up.  Ceilings can barely be seen in this huge Arena.  You feel as if you are
 being watched by some divine being.
+@rus Ты на арене. Помни, что если ты захочешь отсюда выйти, просто пойди на
+верх (up). Потолок гигантской арены едва различим в высоте. Ты чувствуешь себя
+так, как будто за тобой наблюдает божественное существо.
 ~
 0 D 0
 D1
@@ -1840,16 +2220,20 @@ D3
 ~
 0 0 3744
 D4
-You see the EXIT.
+@eng You see the EXIT.
+@rus Ты видишь ВЫХОД.
 ~
 ~
 0 0 3760
 S
 #3746
-North East Corner of Arena~
-You are in the Arena.  Remember, if you wish to get out of this Arena, just
+@eng North East Corner of Arena@rus Северо-восточный угол арены~
+@eng You are in the Arena.  Remember, if you wish to get out of this Arena, just
 go up.  Ceilings can barely be seen in this huge Arena.  You feel as if you are
 being watched by some divine being.
+@rus Ты на арене. Помни, что если ты захочешь отсюда выйти, просто пойди на
+верх (up). Потолок гигантской арены едва различим в высоте. Ты чувствуешь себя
+так, как будто за тобой наблюдает божественное существо.
 ~
 0 D 0
 D2
@@ -1861,376 +2245,482 @@ D3
 ~
 0 0 3745
 D4
-You see the EXIT.
+@eng You see the EXIT.
+@rus Ты видишь ВЫХОД.
 ~
 ~
 0 0 3760
 S
 #3748
-The Center of the Dungeon~
-You are in the center of a large room.  A faint light from above shows that
+@eng The Center of the Dungeon@rus Центр подземелья~
+@eng You are in the center of a large room.  A faint light from above shows that
 the floors are all covered with slime.  A feeling of dread comes over you as
 you notice that this is NOT a great place to go.  Exits go in all directions.
 Of special note is the one that brings you back up!!!
+@rus Ты в центре большой комнаты. Тусклый свет сверху позволяет разглядеть, что
+весь пол покрыт слизью. Тебя окутывает страх при мысле о том, что это не самое
+лучшее место для прогулок. Выходы ведут во все стороны, но стоит учесть, что
+выход которые тебя отсюда выведет - на верху (up).
 ~
 0 D 0
 D0
-You see the north wall.
+@eng You see the north wall.
+@rus Ты видишь северную стену.
 ~
 ~
 0 0 3750
 D1
-You see the east wall.
+@eng You see the east wall.
+@rus Ты видишь восточную стену.
 ~
 ~
 0 0 3753
 D2
-You see the south wall.
+@eng You see the south wall.
+@rus Ты видишь южную стену.
 ~
 ~
 0 0 3755
 D3
-You see the west wall.
+@eng You see the west wall.
+@rus Ты видишь западную стену.
 ~
 ~
 0 0 3752
 D4
-You see safety!
+@eng You see safety!
+@rus Ты видишь СПАСЕНИЕ!
 ~
 grate~
 1 -1 3734
 S
 #3749
-The North West Corner of the Dungeon~
-You are against a wall in the dungeon.  It is quite dark here.  The lack of
+@eng The North West Corner of the Dungeon@rus Северо-западный угол подземелья~
+@eng You are against a wall in the dungeon.  It is quite dark here.  The lack of
 any windows in the area explains the smell around you.
+@rus Ты напротив стены подземелья. Здесь достаточно темно. Недостаток окон тут
+объясняет вонь, которая стоит вокруг.
 ~
 0 AD 0
 D1
-You see the north wall.
+@eng You see the north wall.
+@rus Ты видишь северную стену.
 ~
 ~
 0 0 3750
 D2
-You see the south wall.
+@eng You see the south wall.
+@rus Ты видишь южную стену.
 ~
 ~
 0 0 3752
 S
 #3750
-The North Wall of the Dungeon~
-You are against a wall in the dungeon.  It is quite dark here.  The lack of
+@eng The North Wall of the Dungeon@rus Северная стена подземелья~
+@eng You are against a wall in the dungeon.  It is quite dark here.  The lack of
 any windows in the area explains the smell around you.
+@rus Ты напротив стены подземелья. Здесь достаточно темно. Недостаток окон тут
+объясняет вонь, которая стоит вокруг.
 ~
 0 AD 0
 D1
-You see the north east corner.
+@eng You see the north east corner.
+@rus Ты видишь северо-восточный угол.
 ~
 ~
 0 0 3751
 D2
-You see the center of the dungeon.
+@eng You see the center of the dungeon.
+@rus Ты видишь центр подземелья.
 ~
 ~
 0 0 3748
 D3
-You see the north west corner.
+@eng You see the north west corner.
+@rus Ты видишь северо-западный угол.
 ~
 ~
 0 0 3749
 S
 #3751
-The North East Corner of the Dungeon~
-You are against a wall in the dungeon.  It is quite dark here.  The lack of
+@eng The North East Corner of the Dungeon@rus Северо-восточный угол подземелья~
+@eng You are against a wall in the dungeon.  It is quite dark here.  The lack of
 any windows in the area explains the smell around you.
+@rus Ты напротив стены подземелья. Здесь достаточно темно. Недостаток окон тут
+объясняет вонь, которая стоит вокруг.
 ~
 0 AD 0
 D2
-You see the east wall.
+@eng You see the east wall.
+@rus Ты видишь восточную стену.
 ~
 ~
 0 0 3753
 D3
-You see the north wall.
+@eng You see the north wall.
+@rus Ты видишь северную стену.
 ~
 ~
 0 0 3750
 S
 #3752
-The West Wall of the Dungeon~
-You are against a wall in the dungeon.  It is quite dark here.  The lack of
+@eng The West Wall of the Dungeon@rus Западная стена подземелья~
+@eng You are against a wall in the dungeon.  It is quite dark here.  The lack of
 any windows in the area explains the smell around you.
+@rus Ты напротив стены подземелья. Здесь достаточно темно. Недостаток окон тут
+объясняет вонь, которая стоит вокруг.
 ~
 0 AD 0
 D0
-You see the north west corner.
+@eng You see the north west corner.
+@rus Ты видишь северо-западный угол.
 ~
 ~
 0 0 3749
 D1
-You see the center of the dungeon.
+@eng You see the center of the dungeon.
+@rus Ты видишь центр подземелья.
 ~
 ~
 0 0 3748
 D2
-You see the south west corner.
+@eng You see the south west corner.
+@rus Ты видишь юго-западный угол.
 ~
 ~
 0 0 3754
 S
 #3753
-The East Wall of the Dungeon~
-You are against a wall in the dungeon.  It is quite dark here.  The lack of
+@eng The East Wall of the Dungeon@rus Восточная стена подземелья~
+@eng You are against a wall in the dungeon.  It is quite dark here.  The lack of
 any windows in the area explains the smell around you.
+@rus Ты напротив стены подземелья. Здесь достаточно темно. Недостаток окон тут
+объясняет вонь, которая стоит вокруг.
 ~
 0 AD 0
 D0
-You see the north east corner.
+@eng You see the north east corner.
+@rus Ты видишь северо-восточный угол.
 ~
 ~
 0 0 3751
 D2
-You see the south east corner.
+@eng You see the south east corner.
+@rus Ты видишь юго-восточный угол.
 ~
 ~
 0 0 3756
 D3
-You see the center of the dungeon.
+@eng You see the center of the dungeon.
+@rus Ты видишь цент подземелья.
 ~
 ~
 0 0 3748
 S
 #3754
-The South West Corner of the Dungeon~
-You are against a wall in the dungeon.  It is quite dark here.  The lack of
+@eng The South West Corner of the Dungeon@rus Юго-западный угол подземелья~
+@eng You are against a wall in the dungeon.  It is quite dark here.  The lack of
 any windows in the area explains the smell around you.
+@rus Ты напротив стены подземелья. Здесь достаточно темно. Недостаток окон тут
+объясняет вонь, которая стоит вокруг.
 ~
 0 AD 0
 D0
-You see the north wall.
+@eng You see the north wall.
+@rus Ты видишь северную стену.
 ~
 ~
 0 0 3752
 D1
-You see the south wall.
+@eng You see the south wall.
+@rus Ты видишь южную стену.
 ~
 ~
 0 0 3755
 S
 #3755
-The South Wall of the Dungeon~
-You are against a wall in the dungeon.  It is quite dark here.  The lack of
+@eng The South Wall of the Dungeon@rus Южная стена подземелья~
+@eng You are against a wall in the dungeon.  It is quite dark here.  The lack of
 any windows in the area explains the smell around you.
+@rus Ты напротив стены подземелья. Здесь достаточно темно. Недостаток окон тут
+объясняет вонь, которая стоит вокруг.
 ~
 0 AD 0
 D0
-You see the center of the dungeon.
+@eng You see the center of the dungeon.
+@rus Ты видишь центр подземелья.
 ~
 ~
 0 0 3748
 D1
-You see the south east corner.
+@eng You see the south east corner.
+@rus Ты видишь юго-восточный угол.
 ~
 ~
 0 0 3756
 D3
-You see the south west corner.
+@eng You see the south-west corner.
+@rus Ты видишь юго-западный угол.
 ~
 ~
 0 0 3754
 S
 #3756
-The South East Corner of the Dungeon~
-You are against a wall in the dungeon.  It is quite dark here.  The lack of
+@eng The South East Corner of the Dungeon@rus Юго-восточный угол подземелья~
+@eng You are against a wall in the dungeon.  It is quite dark here.  The lack of
 any windows in the area explains the smell around you.
+@rus Ты напротив стены подземелья. Здесь достаточно темно. Недостаток окон тут
+объясняет вонь, которая стоит вокруг.
 ~
 0 AD 0
 D0
-You see the east wall.
+@eng You see the east wall.
+@rus Ты видишь восточную стену.
 ~
 ~
 0 0 3753
 D3
-You see the south wall.
+@eng You see the south wall.
+@rus Ты видишь южную стену.
 ~
 ~
 0 0 3755
 S
 #3757
-A Room in Mud School~
-You are in a room in Mud School.  Paintings of the heroic graduates of mud
+@eng A Room in Mud School@rus Комната в МУД школе~
+@eng You are in a room in Mud School.  Paintings of the heroic graduates of mud
 school adorn the walls. To the west is Furey's Training Room, and to the east
 is Zump's Guild Room.  North of you is the next Station of Mud School.
 There is a sign on the wall (type 'LOOK SIGN' to read it).
+@rus Ты находишься в комнате МУД школы. Портреты знаменитых выпускников школы
+покрывают стены. На западе (west) ты видишь комнату тренировок Фьюри, на
+востоке (east) - гильдия Зуки, на севере (north) - другая комната. 
+{MНа стене ты видишь знак (sign) - набери 'LOOK SIGN' для прочтения!{x
 ~
 0 CDR 1
-D0
-You see the next station of Mud School.
-~
-~
-0 0 3701
-D1
-You see Zump's Guild Room.  Go there to practice your skills.
-~
-~
-0 0 3759
-D2
-You see the entrance to Mud School.
-~
-~
-0 0 3700
-D3
-You see Furey's Training Room.  Go there to train your attributes.
-~
-~
-0 0 3758
 E
 sign~
-To find out your attributes, type 'score'.  You can improve your attributes
+@eng To find out your attributes, type 'score'.  You can improve your attributes
 in Furey's Training Room to the west.  You can practice your skills and spells
 in Zump's Guild Room to the east.  You can continue through mud school by
 going north.
 
 If you are a new character, you should go 'WEST' from here, train your
 abilities, and then come back here and go 'NORTH'.
+@rus Чтобы посмотреть свои аттрибуты набери 'score'. Ты можешь увеличить их
+в тренировочной комнате Фьюри на западе (west), или ты можешь совершенствовать
+свои навыки в гильдии Зуки на востоке (east). На севере ты видишь коридор
+ведущий в глубину школы.
+
+Если ты новичок тут (ньюбис), то ты ДОЛЖЕН пойти сначала на запад (west),
+потом на восток (east) и потренироваться.
+
+Снизу нацарапано - {CТут был Федя Бабкин!{x 
 ~
+D0
+@eng You see the next station of Mud School.
+@rus Следующая остановка в школе.
+~
+~
+0 0 3701
+D1
+@eng You see Zump's Guild Room.  Go there to practice your skills.
+@rus Ты видишь гильдию Зуки. Иди туда, чтобы практиковать свои умения.
+~
+~
+0 0 3759
+D2
+@eng You see the entrance to Mud School.
+@rus Ты видишь вход в школу.
+~
+~
+0 0 3700
+D3
+@eng You see Furey's Training Room.  Go there to train your attributes.
+@rus Ты видишь комнату тренировок Фьюри. Иди туда, чтобы увеличить аттрибуты.
+~
+~
+0 0 3758
 S
 #3758
-Furey's Training Room~
-You are in Furey's Training Room.  Around you are all sorts of physical
+@eng Furey's Training Room@rus Тренировочная комната Фьюри~
+@eng You are in Furey's Training Room.  Around you are all sorts of physical
 and mental training tools.  The whole room is filled with magic, holiness, 
 and sweat.  There is a sign on the wall.
+@rus Ты находишься в тренировочной комнате Фьюри. Вокруг себя ты видишь все
+виды тренажеров, для физических и умственных упражнений. Комната наполнена
+магией, святостью и запахом пота. {MНа стене ты видишь знак (sign).{x
 ~
 0 CDR 1
-D1
-You see the room you came from, and the room you should go to.
-~
-~
-0 0 3757
 E
 sign~
-Welcome to Furey's Training Room.  Here you can train your attributes.  To 
+@eng Welcome to Furey's Training Room.  Here you can train your attributes.  To 
 train an attribute, you need enough practices.  To find out how many practice
 sessions you have, type 'train' while you are in this room.  To train for a 
 specific attribute, type 'train <attr>' where attr is the first 3 letters of
 the attribute you want increased.  Type 'help train' for more information.
+@rus Добро пожаловать в тренировочную комнату Фьюри! Здесь ты можешь тренировать
+свои физические характеристики. Набери 'train' в этой комнате, чтобы узнать
+количество доступных тебе тренировок. Набери 'train <attr>', где 'attr' есть
+первые 3 буквы характеристики, которую ты хочешь повысить. Набери 'help train'
+для более подробной информации.
 ~
-S
-#3759
-Zump's Guild Room~
-You are in a room filled with weapons, books, and many combat dummies, some
-cut and stabbed many times, others burnt to a crisp.  The room is filled with
-sweat and an aura of magic.  There is a sign on the wall.
-~
-0 CDR 1
-D3
-You see the room you came from and the room you should go to.
+D1
+@eng You see the room you came from, and the room you should go to.
+@rus Ты видишь комнату из которой пришел и в которою будешь должен пойти.
 ~
 ~
 0 0 3757
+S
+#3759
+@eng Zump's Guild Room@rus Гильдия Зуки~
+@eng You are in a room filled with weapons, books, and many combat dummies, some
+cut and stabbed many times, others burnt to a crisp.  The room is filled with
+sweat and an aura of magic.  There is a sign on the wall.
+@rus Ты в комнате наполненой оружием, различными книжками и множеством чучел для
+тренировки, некоторые из них порублены и проткнуты много раз, другие опалены до
+черноты. Комната наполнена запахом пота и ты чувствуешь ауру магии. 
+{MНа стене ты видишь знак (sign).{x
+~
+0 CDR 1
 E
 sign~
-Welcome to Zump's Guild Room.  Here you will learn your skills and spells.
+@eng Welcome to Zump's Guild Room.  Here you will learn your skills and spells.
 To find out what skills and spells you can practice and how many practice
 sessions you have, type 'practice'.  To practice the specific skill, type
 'practice <skill>', where 'skill' is the skill or spell you wish to practice.
 Practicing increases the amount you know of that skill or spell, up to a
 certain maximum.  When you have practiced all you wish to practice, go west.
+@rus Добро пожаловать в гильдию Зуки! Тут ты можешь совершенствовать свои умения
+и заклинания. Для того, чтобы посмотреть список доступных тебе умений и
+заклинаний используй команду 'practice'. Для изучения нужной дисциплины
+используй команду 'practice <skill>', где 'skill' есть умение или заклинание,
+которое ты хочешь изучить. Изучение чего-либо увеличивает проценты, которые
+характеризуют степень владения чем-либо, но не выше 75 процентов. Как
+сочтешь себя готовым - иди на запад (west).
 ~
+D3
+@eng You see the room you came from and the room you should go to.
+@rus Ты видишь комнату из которой пришел и в которою будешь должен пойти.
+~
+~
+0 0 3757
 S
 #3760
-A Safe Room~
-You are in a safe room, away from all the mean rabbits and snails of the Arena.
+@eng A Safe Room@rus Безопасная комната~
+@eng You are in a safe room, away from all the mean rabbits and snails of the Arena.
 You can rest here, and go up to go back to the Temple of Midgaard.
+@rus Ты в безопасности, в дали от злых кроликов и улиток арены. Здесь ты
+можешь спокойно отдохнуть, а потом пойти вверх (up) в храм Мидгарда.
 ~
 0 CD 0
 D4
-You see the Temple of Midgaard.
+@eng You see the Temple of Midgaard.
+@rus Ты видишь храм Мидгарда.
 ~
 ~
 0 0 3001
 S
 #0
 
-#RESETS
-M 0 3720   1 3721  1	* the diploma beast
-E 1 3715  -1   17	*   a mud school diploma
-M 0 3700   1 3701  1	* the acolyte of Zump
-D 0 3700   2    1	* Entrance to Mud School south
-M 0 3701   1 3710  1	* the blob
-M 0 3702   1 3716  1	* the monster
-E 1 3705  -1    3	*   a sub issue cloak
-E 1 3705  -1    4	*   a sub issue cloak
-M 0 3703   1 3715  1	* the wimpy monster
-E 1 3706  -1    6	*   a sub issue helmet
-E 1 3711  -1   12	*   a sub issue cape
-M 0 3704   1 3713  1	* the aggressive monster
-E 1 3707  -1    7	*   a pair of sub issue leggings
-E 1 3712  -1   13	*   a sub issue belt
-M 0 3705   1 3714  1	* the wimpy aggressive monster
-E 1 3708  -1    8	*   a pair of sub issue boots
-E 1 3713  -1   14	*   a sub issue bracer
-D 0 3717   1    1	* A Room in Mud School east
-D 0 3719   3    1	* A Room in Mud School west
-D 0 3719   1    2	* A Room in Mud School east
-M 0 3717   1 3718  1	* the adept of Selene
-G 1 3138  -1     	*   a buffalo water skin
-G 1 3031  -1     	*   a hooded brass lantern
-M 0 3706   1 3720  1	* the big creature
-E 1 3709  -1    9	*   a pair of sub issue gloves
-E 1 3710  -1   10	*   a pair of sub issue sleeves
-E 1 3714  -1   17	*   a key
-E 1 3713  -1   14	*   a sub issue bracer
-D 0 3721   0    1	* The End of Mud School! north
-D 0 3734   5    1	* Center of Arena down
-D 0 3748   4    1	* The Center of the Dungeon up
-M 0 3709   4 3734  4	* the rabbit
-M 0 3710   3 3742  3	* the lizard
-M 0 3711   3 3746  3	* the boar
-M 0 3712   3 3726  3	* the fox
-M 0 3713   5 3724  5	* the snail
-M 0 3714   1 3749  1	* the beast
-M 0 3715   2 3751  2	* the bear
-M 0 3716   2 3754  2	* the wolf
-M 0 3707   1 3712  1	* the adept of Satin
-M 0 3708   1 3721  1	* the adept of Alander
-M 0 3718   1 3758  1	* the adept of Furey
-M 0 3719   1 3759  1	* the priest of Circe
+
+
+#SPECIALS
+M 3707 spec_cast_adept	* the adept of 
+M 3708 spec_cast_adept	* the adept of Alander
+M 3714 spec_fido	* the beast
 S
+
+
+
+#RESETS
+D 0 3700 2 1	* Entrance to Mud School: door to the south: closed
+D 0 3717 1 1	* A Room in Mud School: door to the east: closed
+D 0 3719 1 2	* A Room in Mud School: door to the east: closed and locked
+D 0 3719 3 1	* A Room in Mud School: door to the west: closed
+D 0 3721 0 1	* The End of Mud School!: door to the north: closed
+D 0 3734 5 1	* Center of Arena: door to the down: closed
+D 0 3748 4 1	* The Center of the Dungeon: door to the up: closed
+M 0 3700 1 3701 1	* the acolyte of Zump (A Room in Mud School)
+M 0 3701 1 3710 1	* the blob (The Blob Cage)
+M 0 3707 1 3712 1	* the adept of  (The Cage Room)
+M 0 3704 1 3713 1	* the aggressive monster (A Cage)
+E 0 3707 0 7		*	a pair of sub issue leggings: on the legs
+E 0 3712 0 13		*	a sub issue belt: around the waist
+M 0 3705 1 3714 1	* the wimpy aggressive monster (A Cage)
+E 0 3708 0 8		*	a pair of sub issue boots: on the feet
+E 0 3713 0 14		*	a sub issue bracer: on the left wrist
+M 0 3703 1 3715 1	* the wimpy monster (A Cage)
+E 0 3706 0 6		*	a sub issue helmet: over the head
+E 0 3711 0 12		*	a sub issue cape: about the shoulders
+M 0 3702 1 3716 1	* the monster (A Cage)
+E 0 3705 0 3		*	a sub issue cloak: around the neck (1)
+E 0 3705 0 4		*	a sub issue cloak: around the neck (2)
+M 0 3717 1 3718 1	* the adept of Selene (The Store in Mud School)
+G 0 3138 0		*	a buffalo water skin
+G 0 3031 0		*	a hooded brass lantern
+M 0 3706 1 3720 1	* the big creature (The Darkened Room)
+E 0 3709 0 9		*	a pair of sub issue gloves: on the hands
+E 0 3710 0 10		*	a pair of sub issue sleeves: on the arms
+E 0 3714 0 17		*	a key: held in the hands
+E 0 3713 0 14		*	a sub issue bracer: on the left wrist
+M 0 3720 1 3721 1	* the diploma beast (The End of Mud School!)
+E 0 3715 0 17		*	a mud school diploma: held in the hands
+M 0 3708 1 3721 1	* the adept of Alander (The End of Mud School!)
+M 0 3713 5 3724 5	* the snail (South West Corner of Arena)
+M 0 3712 3 3726 3	* the fox (South East Corner of Arena)
+M 0 3709 4 3734 4	* the rabbit (Center of Arena)
+M 0 3710 3 3742 3	* the lizard (North West Corner of Arena)
+M 0 3711 3 3746 3	* the boar (North East Corner of Arena)
+M 0 3714 1 3749 1	* the beast (The North West Corner of the Dungeon)
+M 0 3715 2 3751 2	* the bear (The North East Corner of the Dungeon)
+M 0 3716 2 3754 2	* the wolf (The South West Corner of the Dungeon)
+M 0 3718 1 3758 1	* the adept of Furey (Furey's Training Room)
+M 0 3719 1 3759 1	* the priest of Circe (Zump's Guild Room)
+S
+
 
 
 #SHOPS
-3717  1 15 17 19  0 	 100 100 	 0 23 	* the adept of Selene
+3717 1 15 17 19 0 100 100 0 23
 0
 
-#SPECIALS
-M 3707 spec_cast_adept     	* the adept of Satin
-M 3708 spec_cast_adept     	* the adept of Alander
-M 3714 spec_fido           	* the beast
+
+
+#OLIMITS
 S
+
+
+
+#MOBPROGS
+#0
+
+#PRACTICERS
+M 3719 weaponsmaster	* the priest of Circe
+M 3719 combat	* the priest of Circe
+M 3719 harmful	* the priest of Circe
+M 3719 healing	* the priest of Circe
+M 3719 illusion	* the priest of Circe
+M 3719 protective	* the priest of Circe
+M 3719 fightmaster	* the priest of Circe
+M 3719 defensive	* the priest of Circe
+M 3719 wizard	* the priest of Circe
+S
+
+
 
 #OMPROGS
-O 3700 fight_prog fight_prog_sub_weapon		* mace	
-O 3701 fight_prog fight_prog_sub_weapon		* dagger
-O 3702 fight_prog fight_prog_sub_weapon		* sword
-O 3717 fight_prog fight_prog_sub_weapon		* spear
-O 3718 fight_prog fight_prog_sub_weapon		* staff
-O 3719 fight_prog fight_prog_sub_weapon		* axe
-O 3720 fight_prog fight_prog_sub_weapon		* flail
-O 3721 fight_prog fight_prog_sub_weapon		* whip
-O 3722 fight_prog fight_prog_sub_weapon		* polearm
+O 3700 fight_prog fight_prog_sub_weapon	* `a sub issue mace'
+O 3701 fight_prog fight_prog_sub_weapon	* `a sub issue dagger'
+O 3702 fight_prog fight_prog_sub_weapon	* `a sub issue sword'
+O 3717 fight_prog fight_prog_sub_weapon	* `a sub issue spear'
+O 3718 fight_prog fight_prog_sub_weapon	* `a sub issue staff'
+O 3719 fight_prog fight_prog_sub_weapon	* `a sub issue axe'
+O 3720 fight_prog fight_prog_sub_weapon	* `a sub issue flail'
+O 3721 fight_prog fight_prog_sub_weapon	* `a sub issue whip'
+O 3722 fight_prog fight_prog_sub_weapon	* `a sub issue glaive'
+S
 
-S
-#PRACTICERS
-M 3719 weaponsmaster *priest of circe
-M 3719 combat
-M 3719 protective
-M 3719 defensive
-M 3719 healing
-M 3719 fightmaster
-M 3719 illusion
-M 3719 harmful
-M 3719 wizard
-S
+
 
 #$
