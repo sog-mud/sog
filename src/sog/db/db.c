@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.169.2.9 2000-04-10 15:46:28 fjoe Exp $
+ * $Id: db.c,v 1.169.2.10 2000-04-11 01:05:53 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2015,7 +2015,7 @@ void scan_pfiles()
 	closedir(dirp);
 
 	log("scan_pfiles: end (save all: %s)",
-	    dfexist(TMP_PATH, EQCHECK_SAVE_ALL_FILE) ? "on" : "off");
+	    dfexist(TMP_PATH, EQCHECK_SAVE_ALL_FILE) ? "yes" : "no");
 }
 
 void move_pfiles(int minvnum, int maxvnum, int delta)

@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.182.2.23 2000-04-10 15:46:24 fjoe Exp $
+ * $Id: handler.c,v 1.182.2.24 2000-04-11 01:05:48 fjoe Exp $
  */
 
 /***************************************************************************
@@ -4710,8 +4710,7 @@ bool remove_obj(CHAR_DATA * ch, int iWear, bool fReplace)
 		act_puts("You remove $p, in pain.",
 			 ch, obj, NULL, TO_CHAR, POS_DEAD);
 		act("$n removes $p, in pain.", ch, obj, NULL, TO_ROOM);
-		/*Osyas patch. Adding damage remove arrow/spear*/
-                damage(ch,ch, dice(obj->level,12),0,DAM_OTHER,DAMF_NONE);
+                damage(ch, ch, dice(obj->level, 12), 0, DAM_OTHER, DAMF_NONE);
                 WAIT_STATE(ch, 4);
 		return TRUE;
 	}
@@ -5127,21 +5126,32 @@ const char *get_cond_alias(OBJ_DATA *obj)
 
 void damage_to_obj(CHAR_DATA *ch, OBJ_DATA *wield, OBJ_DATA *worn, int damage) 
 {
-
- 	if (damage == 0) return;
+ 	if (damage == 0)
+		return;
 
  	worn->condition -= damage;
 
-	act_puts("{gThe $p inflicts damage on {r$P{g.{x",
-		 ch, wield, worn, TO_ROOM, POS_RESTING);
+	if (wield != NULL) {
+		act_puts("{g$p inflicts damage on {r$P{g.{x",
+			 ch, wield, worn, TO_ALL, POS_RESTING);
+	} else {
+		act_puts("{gYou inflict damage on {r$P{g.{x",
+			 ch, NULL, worn, TO_CHAR, POS_RESTING);
+		act_puts("{g$n inflicts damage on {r$P{g.{x",
+			 ch, NULL, worn, TO_ROOM, POS_RESTING);
+	}
 
 	if (worn->condition < 1) {
-		act_puts("{gThe {r$P{g breaks into pieces.{x",
+		act_puts("{r$P{g breaks into pieces.{x",
 			 ch, wield, worn, TO_ROOM, POS_RESTING);
 		extract_obj(worn, 0);
 		return;
 	}
  
+	if (wield == NULL
+	||  !IS_SET(wield->extra_flags, ITEM_MAGIC))
+		return;
+
 	if (IS_SET(wield->extra_flags, ITEM_ANTI_EVIL) 
 	&&  IS_SET(wield->extra_flags, ITEM_ANTI_NEUTRAL)
 	&&  IS_SET(worn->extra_flags, ITEM_ANTI_EVIL) 
@@ -5158,7 +5168,7 @@ void damage_to_obj(CHAR_DATA *ch, OBJ_DATA *wield, OBJ_DATA *worn, int damage)
 
 	if (IS_SET(wield->extra_flags, ITEM_ANTI_EVIL) 
 	&&  IS_SET(worn->extra_flags, ITEM_ANTI_EVIL)) {
-		act_puts("The $p worries for the damage to $P.",
+		act_puts("$p worries for the damage to $P.",
 			 ch, wield, worn, TO_ROOM, POS_RESTING);
 		return;
 	}
@@ -5166,139 +5176,49 @@ void damage_to_obj(CHAR_DATA *ch, OBJ_DATA *wield, OBJ_DATA *worn, int damage)
 
 /*----------------------------------------------------------------------------
  * eq damage functions
- *	- the third parameter is the location of wielded weapon
- *	  (must be WEAR_WIELD or WEAR_SECOND_WIELD), not the
- *	  location of damaged eq
  */
 
-void check_eq_damage(CHAR_DATA *ch, CHAR_DATA *victim, int loc)
+static int
+calc_eqdam_chance(CHAR_DATA *ch, OBJ_DATA *wield,
+		  CHAR_DATA *victim, OBJ_DATA *destroy)
 {
-	OBJ_DATA *wield, *destroy;
-	int skill, chance=0, sn, i;
+	int chance = 0;
+	int skill, sn;
 
-	if (IS_NPC(victim) || number_percent() < 94)
-		return;
-
-	if ((wield = get_eq_char(ch, loc)) == NULL)
-		return;
- 	sn = get_weapon_sn(wield);
- 	skill = get_skill(ch, sn);
-
-	for (i = 0; i < MAX_WEAR; i++) {
-		if ((destroy = get_eq_char(victim,i)) == NULL 
-		||  number_percent() > 95
-		||  number_percent() > 94
-		||  ch->level < (victim->level - 10) 
-		||  check_material(destroy,"platinum") 
-		||  destroy->pObjIndex->limit != -1
-		||  (i == WEAR_WIELD || i== WEAR_SECOND_WIELD ||
-		     i == WEAR_TATTOO || i == WEAR_STUCK_IN ||
-		     i == WEAR_CLANMARK ))
-			continue;
+	if (destroy == NULL 
+	||  check_material(destroy, "platinum"))
+		return 0;
 	
-		if (is_metal(wield)) {
-	 		if (number_percent() > skill)
-				continue;
+	sn = get_weapon_sn(wield);
+ 	skill = get_weapon_skill(ch, sn);
 
-			chance += 20;
-			if (check_material(wield, "platinium")
-			||  check_material(wield, "titanium"))
-	 			chance += 5;
-
-			if (is_metal(destroy))
-				chance -= 20;
-			else
-				chance += 20; 
-
-			chance += ((ch->level - victim->level) / 5);
-			chance += ((wield->level - destroy->level) / 2);
-		}
-		else {
-	 		if (number_percent() < skill)
-				continue;
-
-			chance += 10;
-
-			if (is_metal(destroy))
-				chance -= 20;
-			chance += (ch->level - victim->level);
-			chance += (wield->level - destroy->level);
-		}
-
-		/* sharpness */
-		if (IS_WEAPON_STAT(wield, WEAPON_SHARP))
-			chance += 10;
-
-		if (sn == gsn_axe)
-			chance += 10;
-
-		/* spell affects */
-		if (IS_OBJ_STAT(destroy, ITEM_BLESS))
-			chance -= 10;
-		if (IS_OBJ_STAT(destroy, ITEM_MAGIC))
-			chance -= 20;
-	 
-		chance += skill - 85;
-		chance += get_curr_stat(ch, STAT_STR);
-
-		if (number_percent() < chance && chance > 50) {
-			damage_to_obj(ch, wield, destroy, chance / 5);
-			break;
-		}
-	}
-}
-
-void check_shield_damage(CHAR_DATA *ch, CHAR_DATA *victim, int loc)
-{
-	OBJ_DATA *wield, *destroy;
-	int skill, chance=0, sn;
-
-	if (IS_NPC(victim) || number_percent() < 94)
-		return;
-
-	if ((wield = get_eq_char(ch, loc)) == NULL)
-		return;
- 	sn = get_weapon_sn(wield);
- 	skill = get_skill(ch, sn);
-
-	if ((destroy = get_eq_char(victim, WEAR_SHIELD)) == NULL
-	||  number_percent() > 94
-	||  ch->level < (victim->level - 10) 
-	||  check_material(destroy, "platinum") 
-	||  destroy->pObjIndex->limit != -1)
-		return;
-	
-	if (is_metal(wield)) {
-		if (number_percent() > skill)
-			return;
+	if (wield != NULL && is_metal(wield)) {
+ 		if (number_percent() > skill)
+			return 0;
 
 		chance += 20;
 		if (check_material(wield, "platinium")
 		||  check_material(wield, "titanium"))
-			chance += 5;
+ 			chance += 5;
 
 		if (is_metal(destroy))
 			chance -= 20;
 		else
 			chance += 20; 
-
-		chance += ((ch->level - victim->level) / 5);
-		chance += ((wield->level - destroy->level) / 2);
-	}
-	else {
-		if (number_percent() < skill)
-			return;
+	} else {
+ 		if (number_percent() < skill)
+			return 0;
 
 		chance += 10;
+
 		if (is_metal(destroy))
 			chance -= 20;
-
-		chance += (ch->level - victim->level);
-		chance += (wield->level - destroy->level);
 	}
 
+	chance += (ch->level - victim->level) * 2;
+
 	/* sharpness */
-	if (IS_WEAPON_STAT(wield, WEAPON_SHARP))
+	if (wield && IS_WEAPON_STAT(wield, WEAPON_SHARP))
 		chance += 10;
 
 	if (sn == gsn_axe)
@@ -5310,80 +5230,76 @@ void check_shield_damage(CHAR_DATA *ch, CHAR_DATA *victim, int loc)
 	if (IS_OBJ_STAT(destroy, ITEM_MAGIC))
 		chance -= 20;
 	 
- 	chance += skill - 85;
- 	chance += get_curr_stat(ch, STAT_STR);
+	chance += skill - 85;
+	chance += get_curr_stat(ch, STAT_STR);
+	act_puts("{Weqdam_chance = $j{x",
+		 ch, (const void *) chance, NULL, TO_ALL, POS_DEAD);
+	return chance;
+}
 
+/*
+ * the third parameter is the location of wielded weapon
+ * (must be WEAR_WIELD or WEAR_SECOND_WIELD), not the
+ * location of damaged eq
+ */
+void check_eq_damage(CHAR_DATA *ch, CHAR_DATA *victim, int loc)
+{
+	int wear_loc;
+	int chance;
+	OBJ_DATA *wield;
+	OBJ_DATA *destroy;
+
+	if (number_percent() < 95)
+		return;
+
+	do {
+		wear_loc = number_range(0, MAX_WEAR - 1);
+	} while (wear_loc == WEAR_WIELD ||
+		 wear_loc == WEAR_SECOND_WIELD ||
+		 wear_loc == WEAR_SHIELD ||
+		 wear_loc == WEAR_TATTOO ||
+		 wear_loc == WEAR_STUCK_IN ||
+		 wear_loc == WEAR_CLANMARK);
+
+	wield = get_eq_char(ch, loc);
+	destroy = get_eq_char(victim, wear_loc);
+
+	chance = calc_eqdam_chance(ch, wield, victim, destroy);
+	if (number_percent() < chance && chance > 50)
+		damage_to_obj(ch, wield, destroy, chance / 5);
+}
+
+void check_shield_damage(CHAR_DATA *ch, CHAR_DATA *victim, int loc)
+{
+	OBJ_DATA *wield;
+	OBJ_DATA *destroy;
+	int chance;
+
+	if (number_percent() < 96)
+		return;
+
+	wield = get_eq_char(ch, loc);
+	destroy = get_eq_char(victim, WEAR_SHIELD);
+
+	chance = calc_eqdam_chance(ch, wield, victim, destroy);
 	if (number_percent() < chance && chance > 20)
 		damage_to_obj(ch, wield, destroy, chance / 4);
 }
 
 void check_weapon_damage(CHAR_DATA *ch, CHAR_DATA *victim, int loc)
 {
-	OBJ_DATA *wield, *destroy;
-	int skill, chance=0, sn;
+	OBJ_DATA *wield;
+	OBJ_DATA *destroy;
+	int chance;
 
-	if (IS_NPC(victim) || number_percent() < 94)
+	if (number_percent() < 96)
 		return;
 
-	if ((wield = get_eq_char(ch, loc)) == NULL)
-		return;
- 	sn = get_weapon_sn(wield);
- 	skill = get_skill(ch, sn);
+	wield = get_eq_char(ch, loc);
+	destroy = get_eq_char(victim, WEAR_WIELD);
 
-	if ((destroy = get_eq_char(victim, WEAR_WIELD)) == NULL
-	||  number_percent() > 94
-	||  ch->level < (victim->level - 10) 
-	||  check_material(destroy, "platinum") 
-	||  destroy->pObjIndex->limit != -1)
-		return;
-	
-	if (is_metal(wield)) {
-		if (number_percent() > skill)
-			return;
-
-		chance += 20;
-		if (check_material(wield, "platinium")
-		||  check_material(wield, "titanium"))
-			chance += 5;
-
-		if (is_metal(destroy))
-			chance -= 20;
-		else
-			chance += 20; 
-
-		chance += ((ch->level - victim->level) / 5);
-		chance += ((wield->level - destroy->level) / 2);
-	}
-	else {
-		if (number_percent() < skill)
-			return;
-
-		chance += 10;
-
-		if (is_metal(destroy))
-			chance -= 20;
-
-		chance += (ch->level - victim->level);
-		chance += (wield->level - destroy->level);
-	}
-
-	/* sharpness */
-	if (IS_WEAPON_STAT(wield,WEAPON_SHARP))
-		chance += 10;
-
-	if (sn == gsn_axe)
-		chance += 10;
-
-	/* spell affects */
-	if (IS_OBJ_STAT(destroy, ITEM_BLESS))
-		chance -= 10;
-	if (IS_OBJ_STAT(destroy, ITEM_MAGIC))
-		chance -= 20;
-	 
-	chance += skill - 85 ;
-	chance += get_curr_stat(ch, STAT_STR);
-
-	if (number_percent() < (chance / 2) && chance > 20)
+	chance = calc_eqdam_chance(ch, wield, victim, destroy);
+	if (number_percent() < chance / 2 && chance > 20)
 		damage_to_obj(ch, wield, destroy, chance / 4);
 }
 

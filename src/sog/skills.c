@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.74.2.3 2000-02-01 05:58:40 fjoe Exp $
+ * $Id: skills.c,v 1.74.2.4 2000-04-11 01:05:51 fjoe Exp $
  */
 
 /***************************************************************************
@@ -458,7 +458,7 @@ int get_weapon_skill(CHAR_DATA *ch, int sn)
 	if (sn == -1)
 		sk = 3 * ch->level;
 	else if (!IS_NPC(ch))
-		sk = get_skill(ch, sn);
+		return get_skill(ch, sn);
 	else if (sn == gsn_hand_to_hand)
 		sk = 40 + 2 * ch->level;
 	else 
