@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: gsn.c,v 1.32.2.2 2000-03-15 12:36:19 osya Exp $
+ * $Id: gsn.c,v 1.32.2.3 2000-03-22 14:51:41 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -151,7 +151,6 @@ int gsn_light_resistance;
 int gsn_blink;
 int gsn_path_find;
 int gsn_critical;
-int gsn_detect_sneak;
 int gsn_mend;
 int gsn_shielding;
 int gsn_blind_fighting;
@@ -252,7 +251,6 @@ int gsn_herbs;
 int gsn_fence;
 int gsn_resurrection;
 int gsn_free_action;
-int gsn_abolish_undead;
 
 /* special gsns */
 int gsn_qtarget;
@@ -377,7 +375,6 @@ namedp_t gsn_table[] =
 	{ "gsn_blink",			&gsn_blink			},
 	{ "gsn_path_find",		&gsn_path_find			},
 	{ "gsn_critical",		&gsn_critical			},
-	{ "gsn_detect_sneak",		&gsn_detect_sneak		},
 	{ "gsn_mend",			&gsn_mend			},
 	{ "gsn_shielding",		&gsn_shielding			},
 	{ "gsn_blind_fighting",		&gsn_blind_fighting		},
@@ -472,7 +469,6 @@ namedp_t gsn_table[] =
         { "gsn_deathen",                &gsn_deathen                    },
         { "gsn_death_ripple",           &gsn_death_ripple               },
         { "gsn_death_wave",             &gsn_death_wave                 },
-	{ "gsn_abolish_undead",		&gsn_abolish_undead		},
 	{ NULL }
 };
 

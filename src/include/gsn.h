@@ -23,7 +23,7 @@
 * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
 * SUCH DAMAGE.
 *
-* $Id: gsn.h,v 1.30.2.2 2000-03-15 12:36:12 osya Exp $
+* $Id: gsn.h,v 1.30.2.3 2000-03-22 14:51:40 fjoe Exp $
 */
 
 #ifndef _GSN_H_
@@ -153,7 +153,6 @@ extern int gsn_light_resistance;
 extern int gsn_blink;
 extern int gsn_path_find;
 extern int gsn_critical;
-extern int gsn_detect_sneak;
 extern int gsn_mend;
 extern int gsn_shielding;
 extern int gsn_blind_fighting;
@@ -254,7 +253,6 @@ extern int gsn_herbs;
 extern int gsn_fence;
 extern int gsn_resurrection;
 extern int gsn_free_action;
-extern int gsn_abolish_undead;
 
 extern int gsn_qtarget;
 
