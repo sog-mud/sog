@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.116 1999-02-15 18:19:40 fjoe Exp $
+ * $Id: interp.c,v 1.117 1999-02-15 22:48:23 fjoe Exp $
  */
 
 /***************************************************************************
@@ -658,7 +658,8 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 		if (IS_AFFECTED(ch, AFF_HIDE | AFF_FADE)
 		&&  !IS_SET(cmd_flags, CMD_KEEP_HIDE)) {
 			REMOVE_BIT(ch->affected_by, AFF_HIDE | AFF_FADE);
-			char_puts("You step out of shadows.\n", ch);
+			act_puts("You step out of shadows.",
+				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 			act("$n steps out of shadows.",
 			    ch, NULL, NULL, TO_ROOM);
 		}
@@ -830,9 +831,11 @@ static uint x_argument(const char *argument, char arg[MAX_INPUT_LENGTH], char c)
 	}
 
 	number = strtoul(argument, &q, 0);
-	if (q != p)
-		number = 0;
-	strnzcpy(arg, p+1, MAX_INPUT_LENGTH);
+	if (q == p)
+		argument = p+1;
+	else 
+		number = 1;
+	strnzcpy(arg, argument, MAX_INPUT_LENGTH);
 	return number;
 }
 

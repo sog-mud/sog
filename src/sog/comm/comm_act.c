@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm_act.c,v 1.4 1999-02-12 18:14:37 fjoe Exp $
+ * $Id: comm_act.c,v 1.5 1999-02-15 22:48:26 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -229,6 +229,7 @@ static void act_raw(CHAR_DATA *ch, CHAR_DATA *to,
 		    const char *str, int flags)
 {
 	CHAR_DATA *	vch = (CHAR_DATA*) arg2;
+	CHAR_DATA *	vch1 = (CHAR_DATA*) arg1;
 	OBJ_DATA *	obj1 = (OBJ_DATA*) arg1;
 	OBJ_DATA *	obj2 = (OBJ_DATA*) arg2;
 	char 		buf	[MAX_STRING_LENGTH];
@@ -314,7 +315,11 @@ static void act_raw(CHAR_DATA *ch, CHAR_DATA *to,
 			case 'N':
 				i = PERS(vch, to);
 				break;
-	
+
+			case 'i':
+				i = PERS(vch1, to);
+				break;
+
 			case 'e':
 				i = he_she[SEX(ch, to)];
 				break;

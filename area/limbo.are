@@ -184,7 +184,7 @@ N 0 0 0
 stand stand male 0
 0 0 medium unknown
 #21
-golem lesser~
+golem lesser голем~
 a lesser golem~
 A lesser golem is here.
 ~
@@ -195,11 +195,11 @@ AT V 0 0
 0 1 1d1+1 1d1+1 3d10+12 crush
 0 0 0 0
 EFO 0 0 0
-stand stand none 0
+stand stand male 0
 0 0 small unknown
 #22
-golem stone~
-a stone golem~
+golem stone голем~
+@eng a stone golem@rus каменный голем~
 A stone golem stands ready to rend its master's enemies apart.
 ~
 This is a large stone statue of a man. The statue stands eight feet tall
@@ -210,7 +210,7 @@ AT V 0 0
 0 1 1d1+1 1d1+1 3d10+12 crush
 0 0 0 0
 EFO 0 0 0
-stand stand none 0
+stand stand male 0
 0 0 medium unknown
 #23
 golem iron~
@@ -230,7 +230,7 @@ stand stand none 0
 0 0 medium unknown
 #24
 golem adamantite~
-an adamantite golem~
+@eng an adamantite golem@rus адамантитовый голем~
 An adamantite golem stands here looking very dangerous.
 ~
 It seems to be forged of dark metal.  It looks strong and durable,

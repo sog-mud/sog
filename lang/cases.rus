@@ -1,11 +1,12 @@
 #WORD
-Name вооруженный~
-Base вооруженн~
-Form 1 -ого~
-Form 2 -ому~
-Form 3 -ого~
-Form 4 -ым~
-Form 5 -ом~
+Name адамантитовый голем~
+Form 1 адамантитового голема~
+End
+
+#WORD
+Name фонтан~
+Base фонтан~
+Form 1 фонтана~
 End
 
 #WORD
@@ -16,6 +17,37 @@ Form 2 -ой~
 Form 3 -ую~
 Form 4 -ой~
 Form 5 -ой~
+End
+
+#WORD
+Name вооруженный~
+Base вооруженн~
+Form 1 -ого~
+Form 2 -ому~
+Form 3 -ого~
+Form 4 -ым~
+Form 5 -ом~
+End
+
+#WORD
+Name вода~
+Base вод~
+Form 3 -у~
+End
+
+#WORD
+Name каменный голем~
+Form 1 каменного голема~
+End
+
+#WORD
+Name скамейка~
+Base скамейк~
+Form 3 -у~
+End
+
+#WORD
+Name голем~
 End
 
 #$

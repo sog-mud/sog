@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.133 1999-02-15 18:19:39 fjoe Exp $
+ * $Id: fight.c,v 1.134 1999-02-15 22:48:22 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2683,7 +2683,8 @@ void do_flee(CHAR_DATA *ch, const char *argument)
 		ch->in_room = now_in;
 
 		if (!IS_NPC(ch)) {
-			char_puts("You fled from combat!\n", ch);
+			act_puts("You fled from combat!",
+				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 			if (ch->level < LEVEL_HERO) {
 				char_printf(ch, "You lose %d exps.\n", 10);
 				gain_exp(ch, -10);

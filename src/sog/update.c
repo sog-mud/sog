@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.101 1999-02-15 18:19:42 fjoe Exp $
+ * $Id: update.c,v 1.102 1999-02-15 22:48:26 fjoe Exp $
  */
 
 /***************************************************************************
@@ -586,8 +586,10 @@ void mobile_update(void)
 			if (!IS_NPC(ch) && ch->desc != NULL
 			&&  ch->desc->pString == NULL 
 			&&  (ch->last_death_time == -1 ||
-			     ch->last_death_time < ch->last_fight_time))
-				char_puts("You settle down.\n", ch);
+			     ch->last_death_time < ch->last_fight_time)) {
+				act("You settle down.",
+				    ch, NULL, NULL, TO_CHAR);
+			}
 		}
 
 		if (IS_AFFECTED(ch, AFF_REGENERATION) && ch->in_room != NULL) {

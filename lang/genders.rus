@@ -1,13 +1,24 @@
 #WORD
-Name способен~
-Base способ~
-Form 1 -на~
+Name отважный~
+Form 1 отважная~
 End
 
 #WORD
 Name вооруженный~
 Base вооруженн~
 Form 1 -ая~
+End
+
+#WORD
+Name успокоился~
+Base успокоил~
+Form 1 -ась~
+End
+
+#WORD
+Name способен~
+Base способ~
+Form 1 -на~
 End
 
 #$

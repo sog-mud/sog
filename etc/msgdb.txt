@@ -133,6 +133,7 @@ Use 'desc edit' to edit your description.
 @eng $n appears in the room.@rus Здесь появляется $n.~
 @eng $N gives 60 practices to $n.@rus $N дает 60 практик $n.~
 @eng You wear $p on your left finger.@rus Ты надеваешь $p на палец левой руки.~
+@eng You settle down.@rus Ты $gc{успокоился}.~
 @eng You push $N to %s.@rus Ты выталкиваешь $N на %s.~
 @eng You don't know how to ride!
 @rus Ты не умеешь ездить верхом!
@@ -144,6 +145,7 @@ Use 'desc edit' to edit your description.
 @eng $n picks up some trash.@rus $n подбирает мусор.~
 @eng $n fades into existence.@rus $n появляется словно ниоткуда.~
 @eng $N looks very disinterested.@rus $N не заинтересован тобой.~
+@eng $N{x is resting on $p.@rus $N{x отдыхает на $c5{$p}.~
 @eng You tell $N '{G$t{x'@rus Ты говоришь $N: "{G$t{x"~
 @eng You stop resting.
 @rus Ты прекращаешь отдыхать.
@@ -199,6 +201,7 @@ Use 'desc edit' to edit your description.
 @rus Сначала спроси у своего любимого хозяина!
 ~
 @eng $n picks the lock on $p.@rus $n взламывает замок в $p.~
+@eng $n has arrived.@rus $n прибывает.~
 @eng north@rus на север (north)~
 @eng You rest in $p.@rus Ты садишься отдыхать в $p.~
 @eng You don't have enough power.
@@ -665,6 +668,7 @@ Use 'desc edit' to edit your description.
 @rus Увы, ты не можешь идти туда.
 ~
 @eng $p strikes you!@rus $p ударяет тебя!~
+@eng water@rus вода~
 @eng You are asleep yourself!
 @rus Но ты же сам спишь!
 ~
@@ -702,7 +706,7 @@ Use 'desc edit' to edit your description.
 @eng %s is riding %s.
 @rus %s верхом на %s.
 ~
-@eng $n sits down on $p and rests.@rus $n садится отдыхать на $p.~
+@eng $n sits down on $p and rests.@rus $n садится отдыхать на $c3{$p}.~
 @eng You light $p and hold it.@rus Ты берешь $p и зажигаешь его.~
 @eng You don't have enough training sessions.
 @rus У тебя не достаточно сессий практики.
@@ -1080,6 +1084,7 @@ You peek at the inventory:
 ~
 @eng I see nothing like that in the $T.@rus В $T не видно ничего похожего.~
 @eng $n stands in $p.@rus $n встает в $p.~
+@eng cranberry juice@rus клюквенный сок~
 @eng <used as light>     $t@rus <освещает>             $t~
 @eng $N gives you {W$p{x.@rus $N дает тебе {W$p{x.~
 @eng  is here, riding %s.@rus  здесь, верхом на %s.~
@@ -1094,7 +1099,7 @@ You peek at the inventory:
 @eng <worn on torso>     $t@rus <надето на тело>       $t~
 @eng $N gives you SECRET of undead.@rus $N дает тебе секрет бессмертия.~
 @eng the most on today was %d@rus масксимум на сегодня было %d~
-@eng You drink $T from $p.@rus Ты пьешь $T из $p.~
+@eng You drink $T from $p.@rus Ты пьешь $c3{$T} из $c1{$p}.~
 @eng There is less than a minute remaining until you can go on another quest.
 @rus Осталось меньше минуты до того, как ты сможешь получить новое задание.
 ~
@@ -1104,7 +1109,7 @@ You peek at the inventory:
 @eng  is mortally wounded.@rus  умирает.~
 @eng You sit down in $p.@rus Ты садишься в $p.~
 @eng $n goes to sleep in $p.@rus $n засыпает в $p.~
-@eng $n drinks $T from $p.@rus $n пьет $T из $p.~
+@eng $n drinks $T from $p.@rus $n пьет $c3{$T} из $c1{$p}.~
 @eng on it, ~
 @eng You wake and stand on $p.@rus Ты просыпаешься и встаешь на $p.~
 @eng You have a feeling that would be a bad idea.

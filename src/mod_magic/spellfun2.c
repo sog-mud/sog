@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.76 1999-02-15 15:34:30 fjoe Exp $
+ * $Id: spellfun2.c,v 1.77 1999-02-15 22:48:24 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3474,7 +3474,8 @@ void spell_knock (int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	REMOVE_BIT(pexit->exit_info, EX_CLOSED);
 	act("$n knocks the the $d and opens the lock.", ch, NULL, 
 		pexit->keyword, TO_ROOM);
-	char_puts("You successed to open the door.\n", ch);
+	act_puts("You successed to open the door.",
+		 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 
 	/* open the other side */
 	if ((to_room   = pexit->u1.to_room           ) != NULL

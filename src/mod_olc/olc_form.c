@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_form.c,v 1.6 1999-02-12 16:22:42 fjoe Exp $
+ * $Id: olc_form.c,v 1.7 1999-02-15 22:48:27 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -40,35 +40,35 @@
 	hash = (ch->desc->editor == ED_GENDER) ? 	\
 		l->hash_genders : l->hash_cases;
 
-DECLARE_OLC_FUN(worded_create	);
-DECLARE_OLC_FUN(worded_edit	);
-DECLARE_OLC_FUN(worded_touch	);
-DECLARE_OLC_FUN(worded_show	);
-DECLARE_OLC_FUN(worded_list	);
+DECLARE_OLC_FUN(formed_create	);
+DECLARE_OLC_FUN(formed_edit	);
+DECLARE_OLC_FUN(formed_touch	);
+DECLARE_OLC_FUN(formed_show	);
+DECLARE_OLC_FUN(formed_list	);
 
-DECLARE_OLC_FUN(worded_name	);
-DECLARE_OLC_FUN(worded_base	);
-DECLARE_OLC_FUN(worded_form	);
-DECLARE_OLC_FUN(worded_del	);
+DECLARE_OLC_FUN(formed_name	);
+DECLARE_OLC_FUN(formed_base	);
+DECLARE_OLC_FUN(formed_form	);
+DECLARE_OLC_FUN(formed_del	);
 
-OLC_CMD_DATA olc_cmds_word[] =
+OLC_CMD_DATA olc_cmds_form[] =
 {
-	{ "create",	worded_create	},
-	{ "edit",	worded_edit	},
-	{ "touch",	worded_touch	},
-	{ "show",	worded_show	},
-	{ "list",	worded_list	},
+	{ "create",	formed_create	},
+	{ "edit",	formed_edit	},
+	{ "touch",	formed_touch	},
+	{ "show",	formed_show	},
+	{ "list",	formed_list	},
 
-	{ "name",	worded_name,	},
-	{ "base",	worded_base	},
-	{ "form",	worded_form	},
-	{ "del",	worded_del	},
+	{ "name",	formed_name,	},
+	{ "base",	formed_base	},
+	{ "form",	formed_form	},
+	{ "del",	formed_del	},
 
 	{ "commands",	show_commands	},
 	{ NULL }
 };
 
-OLC_FUN(worded_create)
+OLC_FUN(formed_create)
 {
 	WORD_DATA *w;
 	LANG_DATA *l = NULL;
@@ -77,7 +77,7 @@ OLC_FUN(worded_create)
 	varr *hash;
 
 	if (ch->pcdata->security < SECURITY_MSGDB) {
-		char_puts("WordEd: Insufficient security.\n", ch);
+		char_puts("FormEd: Insufficient security.\n", ch);
 		return FALSE;
 	}
 
@@ -93,7 +93,7 @@ OLC_FUN(worded_create)
 		EDIT_LANG(ch, l);
 
 	if (l == NULL) {
-		char_puts("WordEd: You must be editing a language or another word.\n", ch);
+		char_puts("FormEd: You must be editing a language or another word.\n", ch);
 		return FALSE;
 	}
 
@@ -111,21 +111,21 @@ OLC_FUN(worded_create)
 	}
 
 	if (word_lookup(hash, argument)) {
-		char_printf(ch, "WordEd: %s: duplicate name.\n", argument);
+		char_printf(ch, "FormEd: %s: duplicate name.\n", argument);
 		return FALSE;
 	}
 
 	w = word_new();
 	w->name = str_dup(argument);
-	word_add(hash, w);
 	ch->desc->editor = type;
-	ch->desc->pEdit = w;
+	ch->desc->pEdit = word_add(hash, w);
 	ch->desc->pEdit2 = l; 
-	char_puts("WordEd: word created.\n", ch);
+	touch_lang(l, type);
+	char_puts("FormEd: word created.\n", ch);
 	return FALSE;
 }
 
-OLC_FUN(worded_edit)
+OLC_FUN(formed_edit)
 {
 	WORD_DATA *w;
 	LANG_DATA *l = NULL;
@@ -134,7 +134,7 @@ OLC_FUN(worded_edit)
 	varr *hash;
 
 	if (ch->pcdata->security < SECURITY_MSGDB) {
-		char_puts("WordEd: Insufficient security.\n", ch);
+		char_puts("FormEd: Insufficient security.\n", ch);
 		return FALSE;
 	}
 
@@ -150,7 +150,7 @@ OLC_FUN(worded_edit)
 		EDIT_LANG(ch, l);
 
 	if (l == NULL) {
-		char_puts("WordEd: You must be editing a language or another word.\n", ch);
+		char_puts("FormEd: You must be editing a language or another word.\n", ch);
 		return FALSE;
 	}
 
@@ -168,7 +168,7 @@ OLC_FUN(worded_edit)
 	}
 
 	if ((w = word_lookup(hash, argument)) == NULL) {
-		char_printf(ch, "WordEd: %s: not found.\n", argument);
+		char_printf(ch, "FormEd: %s: not found.\n", argument);
 		return FALSE;
 	}
 
@@ -178,20 +178,14 @@ OLC_FUN(worded_edit)
 	return FALSE;
 }
 
-OLC_FUN(worded_touch)
+OLC_FUN(formed_touch)
 {
 	LANG_DATA *l;
 	EDIT_LANG(ch, l);
-
-	if (ch->desc->editor == ED_GENDER)
-		SET_BIT(l->flags, LANG_GENDERS_CHANGED);
-	else if (ch->desc->editor == ED_CASE)
-		SET_BIT(l->flags, LANG_CASES_CHANGED);
-
-	return FALSE;
+	return touch_lang(l, ch->desc->editor);
 }
 
-OLC_FUN(worded_show)
+OLC_FUN(formed_show)
 {
 	int i;
 	WORD_DATA *w;
@@ -222,7 +216,7 @@ OLC_FUN(worded_show)
 	return FALSE;
 }
 
-OLC_FUN(worded_list)
+OLC_FUN(formed_list)
 {
 	int i;
 	BUFFER *output = NULL;
@@ -237,7 +231,7 @@ OLC_FUN(worded_list)
 	}
 	
 	if ((i = lang_lookup(arg)) < 0) {
-		char_printf(ch, "WordEd: %s: unknown language.\n", arg);
+		char_printf(ch, "FormEd: %s: unknown language.\n", arg);
 		return FALSE;
 	}
 
@@ -264,12 +258,12 @@ OLC_FUN(worded_list)
 		buf_free(output);
 	}
 	else
-		char_puts("WordEd: no messages found.\n", ch);
+		char_puts("FormEd: no messages found.\n", ch);
 
 	return FALSE;
 }
 
-OLC_FUN(worded_name)
+OLC_FUN(formed_name)
 {
 	WORD_DATA *w;
 	LANG_DATA *l;
@@ -285,7 +279,7 @@ OLC_FUN(worded_name)
 	EDIT_HASH(ch, l, hash);
 
 	if (word_lookup(hash, argument)) {
-		char_printf(ch, "WordEd: %s: duplicate name.\n", argument);
+		char_printf(ch, "FormEd: %s: duplicate name.\n", argument);
 		return FALSE;
 	}
 
@@ -296,14 +290,14 @@ OLC_FUN(worded_name)
 	return TRUE;
 }
 
-OLC_FUN(worded_base)
+OLC_FUN(formed_base)
 {
 	WORD_DATA *w;
 	EDIT_WORD(ch, w);
-	return olced_str(ch, argument, worded_base, &w->base);
+	return olced_str(ch, argument, formed_base, &w->base);
 }
 
-OLC_FUN(worded_form)
+OLC_FUN(formed_form)
 {
 	WORD_DATA *w;
 	bool add;
@@ -319,12 +313,12 @@ OLC_FUN(worded_form)
 	else if (!str_prefix(arg, "delete"))
 		add = FALSE;
 	else {
-		do_help(ch, "'OLC WORD FORM'");
+		do_help(ch, "'OLC FORM'");
 		return FALSE;
 	}
 
 	if ((add && argument[0] == '\0') || !is_number(arg2)) {
-		do_help(ch, "'OLC WORD FORM'");
+		do_help(ch, "'OLC FORM'");
 		return FALSE;
 	}
 
@@ -337,7 +331,7 @@ OLC_FUN(worded_form)
 	return FALSE;
 }
 
-OLC_FUN(worded_del)
+OLC_FUN(formed_del)
 {
 	varr *hash;
 	WORD_DATA *w;

@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.137 1999-02-15 18:19:37 fjoe Exp $
+ * $Id: act_move.c,v 1.138 1999-02-15 22:48:20 fjoe Exp $
  */
 
 /***************************************************************************
@@ -102,18 +102,20 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 			20 : get_curr_stat(ch,STAT_STR)].tohit * 5) {
 		 	affect_strip(ch, gsn_web);
 		 	REMOVE_BIT(ch->affected_by, AFF_DETECT_WEB);
-		 	char_puts("When you attempt to leave the room, you "
-				  "break the webs holding you tight.\n", ch);
+		 	act_puts("When you attempt to leave the room, you "
+				 "break the webs holding you tight.",
+				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		 	act_puts("$n struggles against the webs which hold $m "
 				 "in place, and break it.",
 				 ch, NULL, NULL, TO_ROOM, POS_RESTING);
 		}
 		else {
-			char_puts("You attempt to leave the room, but the webs "
-				  "hold you tight.\n", ch);
-			act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
-				   "$n struggles vainly against the webs which "
-				   "hold $m in place.");
+			act_puts("You attempt to leave the room, but the webs "
+				 "hold you tight.",
+				 ch, NULL, NULL, TO_ROOM, POS_DEAD);
+			act("$n struggles vainly against the webs which "
+			    "hold $m in place.",
+			    ch, NULL, NULL, TO_ROOM);
 			return; 
 		}
 	}
@@ -126,7 +128,8 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 	if (IS_AFFECTED(ch, AFF_HIDE | AFF_FADE)
 	&&  !IS_AFFECTED(ch, AFF_SNEAK)) {
 		REMOVE_BIT(ch->affected_by, AFF_HIDE);
-		char_puts("You step out of shadows.\n", ch);
+		act_puts("You step out of shadows.",
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		act_puts("$n steps out of shadows.",
 			 ch, NULL, NULL, TO_ROOM, POS_RESTING);
 	}
@@ -136,7 +139,8 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 
 		if ((chance = get_skill(ch, gsn_camouflage_move)) == 0) {
 			REMOVE_BIT(ch->affected_by, AFF_CAMOUFLAGE);
-			char_puts("You step out from your cover.\n", ch);
+			act_puts("You step out from your cover.",
+				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 			act("$n steps out from $m's cover.",
 			    ch, NULL, NULL, TO_ROOM);
 		}	    
@@ -144,7 +148,8 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 			check_improve(ch, gsn_camouflage_move, TRUE, 5);
 		else {
 			REMOVE_BIT(ch->affected_by, AFF_CAMOUFLAGE);
-			char_puts("You step out from your cover.\n", ch);
+			act_puts("You step out from your cover.",
+				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 			act("$n steps out from $m's cover.",
 			    ch, NULL, NULL, TO_ROOM);
 			check_improve(ch, gsn_camouflage_move, FALSE, 5);
@@ -244,7 +249,8 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 			} 
 			else if (!IS_AFFECTED(ch, AFF_FLYING)
 			&& !IS_IMMORTAL(ch)) {
-				char_puts("You can't fly.\n", ch);
+				act_puts("You can't fly.",
+					 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 				return;
 			} 
 		}
@@ -252,7 +258,8 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 		if ((in_room->sector_type == SECT_WATER_NOSWIM ||
 		     to_room->sector_type == SECT_WATER_NOSWIM)
 		&&  (MOUNTED(ch) && !IS_AFFECTED(MOUNTED(ch),AFF_FLYING))) {
-			char_puts("You can't take your mount there.\n", ch);
+			act_puts("You can't take your mount there.\n",
+				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 			return;
 		}  
 
@@ -301,7 +308,8 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 
 		if (!MOUNTED(ch)) {
 			if (ch->move < move) {
-				char_puts("You are too exhausted.\n", ch);
+				act_puts("You are too exhausted.",
+					 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 				return;
 			}
 
@@ -341,7 +349,8 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 	&&  to_room->sector_type != SECT_MOUNTAIN
 	&&  to_room->sector_type != SECT_HILLS) {
 		REMOVE_BIT(ch->affected_by, AFF_CAMOUFLAGE);
-		char_puts("You step out from your cover.\n", ch);
+		act_puts("You step out from your cover.",
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		act("$n steps out from $m's cover.",
 		    ch, NULL, NULL, TO_ROOM);
 	}
@@ -1703,14 +1712,16 @@ void do_visible(CHAR_DATA *ch, const char *argument)
 {
 	if (IS_AFFECTED(ch, AFF_HIDE | AFF_FADE)) {
 		REMOVE_BIT(ch->affected_by, AFF_HIDE | AFF_FADE);
-		char_puts("You step out of shadows.\n", ch);
+		act_puts("You step out of shadows.",
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		act_puts("$n steps out of shadows.",
 			 ch, NULL, NULL, TO_ROOM, POS_RESTING);
 	}
 
 	if (IS_AFFECTED(ch, AFF_CAMOUFLAGE)) {
 		REMOVE_BIT(ch->affected_by, AFF_CAMOUFLAGE);
-		char_puts("You step out from your cover.\n", ch);
+		act_puts("You step out from your cover.",
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		act("$n steps out from $m's cover.",
 		    ch, NULL, NULL, TO_ROOM);
 	}
@@ -1740,7 +1751,8 @@ void do_recall(CHAR_DATA *ch, const char *argument)
 
 	if (ch->desc) {
 		if (IS_PUMPED(ch)) {
-			char_puts("You are too pumped to pray now.\n", ch);
+			act_puts("You are too pumped to pray now.",
+				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 			return;
 		}
 		point = get_recall(ch);
@@ -1863,14 +1875,14 @@ void do_train(CHAR_DATA *ch, const char *argument)
 			    ch->sex == SEX_MALE   ? "big stud" :
 			    ch->sex == SEX_FEMALE ? "hot babe" :
 						    "wild thing",
-			    TO_CHAR);
+			    TO_CHAR | ACT_TRANS);
 		}
 		return;
 	}
 
 	if (ch->perm_stat[stat] >= get_max_train(ch,stat)) {
 		act_puts("Your $T is already at maximum.",
-			 ch, NULL, pOutput, TO_CHAR, POS_DEAD);
+			 ch, NULL, pOutput, TO_CHAR | ACT_TRANS, POS_DEAD);
 		return;
 	}
 
@@ -1881,8 +1893,9 @@ void do_train(CHAR_DATA *ch, const char *argument)
 
 	ch->train--;
 	ch->perm_stat[stat] += 1;
-	act_puts("Your $T increases!", ch, NULL, pOutput, TO_CHAR, POS_DEAD);
-	act("$n's $T increases!", ch, NULL, pOutput, TO_ROOM);
+	act_puts("Your $T increases!",
+		 ch, NULL, pOutput, TO_CHAR | ACT_TRANS, POS_DEAD);
+	act("$n's $T increases!", ch, NULL, pOutput, TO_ROOM | ACT_TRANS);
 }
 
 void do_track(CHAR_DATA *ch, const char *argument)
@@ -2184,7 +2197,8 @@ void do_bash_door(CHAR_DATA *ch, const char *argument)
 		REMOVE_BIT(pexit->exit_info, EX_CLOSED);
 		act("$n bashes the $d and breaks the lock.",
 		    ch, NULL, pexit->keyword, TO_ROOM);
-		char_puts("You successed to open the door.\n", ch);
+		act_puts("You successed to open the door.",
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 
 /* open the other side */
 		if ((to_room = pexit->u1.to_room) != NULL
@@ -2206,7 +2220,8 @@ void do_bash_door(CHAR_DATA *ch, const char *argument)
 		WAIT_STATE(ch, beats);
 	}
 	else {
-		char_puts("You fall flat on your face!\n", ch);
+		act_puts("You fall flat on your face!",
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		act_puts("$n falls flat on $s face.",
 			 ch, NULL, NULL, TO_ROOM, POS_RESTING);
 		check_improve(ch, gsn_bash_door, FALSE, 1);
@@ -2607,12 +2622,14 @@ void do_crecall(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (is_affected(ch, sn)) {
-		char_puts("You can't pray now.\n", ch);
+		act_puts("You can't pray now.",
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		return;
 	}
 
 	if (ch->desc && IS_PUMPED(ch)) {
-		char_puts("You are too pumped to pray now.\n", ch);
+		act_puts("You are too pumped to pray now.",
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		return;
 	}
 
@@ -2717,7 +2734,8 @@ void do_escape(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (number_percent() > chance) {
-		char_puts("You failed to escape.\n", ch);
+		act_puts("You failed to escape.",
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		check_improve(ch, sn, FALSE, 1);	
 		return;
 	}
@@ -2734,7 +2752,8 @@ void do_escape(CHAR_DATA *ch, const char *argument)
 	ch->in_room = now_in;
 
 	if (!IS_NPC(ch)) {
-		char_puts("You escaped from combat!\n", ch);
+		act_puts("You escaped from combat!",
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		if (ch->level < LEVEL_HERO) {
 			char_printf(ch, "You lose %d exps.\n", 10);
 			gain_exp(ch, -10);

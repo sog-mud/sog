@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.116 1999-02-12 19:05:22 fjoe Exp $
+ * $Id: act_wiz.c,v 1.117 1999-02-15 22:48:22 fjoe Exp $
  */
 
 /***************************************************************************
@@ -836,7 +836,8 @@ void do_goto(CHAR_DATA *ch, const char *argument)
 		}
 
 		if (IS_PUMPED(ch)) {
-			char_puts("You are too pumped to pray now.\n", ch);
+			act_puts("You are too pumped to pray now.",
+				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 			return;
 		}
 #ifdef 0

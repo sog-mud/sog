@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.195 1999-02-15 18:19:36 fjoe Exp $
+ * $Id: act_info.c,v 1.196 1999-02-15 22:48:20 fjoe Exp $
  */
 
 /***************************************************************************
@@ -185,7 +185,7 @@ char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 		return buf;
 	}
 
-	if (obj->in_room != NULL && IS_WATER(obj->in_room)) {
+	if (obj->in_room && IS_WATER(obj->in_room)) {
 		char* p;
 
 		p = strend(buf);
@@ -315,9 +315,9 @@ void show_list_to_char(OBJ_DATA *list, CHAR_DATA *ch,
 
 void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 {
-	BUFFER *output;
-
-	output = buf_new(ch->lang);
+	const char *msg = str_empty;
+	const char *title = str_empty;
+	void *arg = NULL;
 
 	if (is_affected(victim, gsn_doppelganger)
 	&&  (IS_NPC(ch) || !IS_SET(ch->plr_flags, PLR_HOLYLIGHT)))
@@ -326,47 +326,47 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 	if (IS_NPC(victim)) {
 		if (!IS_NPC(ch) && ch->pcdata->questmob > 0
 		&&  victim->hunter == ch)
-			buf_add(output, "{r[{RTARGET{r]{x ");
+			char_puts("{r[{RTARGET{r]{x ", ch);
 	}
 	else {
 		if (IS_SET(victim->plr_flags, PLR_WANTED))
-			buf_add(output, "({RWanted{x) ");
+			char_puts("({RWanted{x) ", ch);
 
 		if (IS_SET(victim->comm, COMM_AFK))
-			buf_add(output, "{c[AFK]{x ");
+			char_puts("{c[AFK]{x ", ch);
 	}
 
 	if (IS_SET(ch->comm, COMM_LONG)) {
 		if (IS_AFFECTED(victim, AFF_INVIS))
-			buf_add(output, "({yInvis{x) ");
+			char_puts("({yInvis{x) ", ch);
 		if (IS_AFFECTED(victim, AFF_HIDE)) 
-			buf_add(output, "({DHidden{x) ");
+			char_puts("({DHidden{x) ", ch);
 		if (IS_AFFECTED(victim, AFF_CHARM)) 
-			buf_add(output, "({mCharmed{x) ");
+			char_puts("({mCharmed{x) ", ch);
 		if (IS_AFFECTED(victim, AFF_PASS_DOOR)) 
-			buf_add(output, "({cTranslucent{x) ");
+			char_puts("({cTranslucent{x) ", ch);
 		if (IS_AFFECTED(victim, AFF_FAERIE_FIRE)) 
-			buf_add(output, "({MPink Aura{x) ");
+			char_puts("({MPink Aura{x) ", ch);
 		if (IS_NPC(victim)
 		&&  IS_SET(victim->pIndexData->act, ACT_UNDEAD)
 		&&  IS_AFFECTED(ch, AFF_DETECT_UNDEAD))
-			buf_add(output, "({DUndead{x) ");
+			char_puts("({DUndead{x) ", ch);
 		if (RIDDEN(victim))
-			buf_add(output, "({GRidden{x) ");
+			char_puts("({GRidden{x) ", ch);
 		if (IS_AFFECTED(victim,AFF_IMP_INVIS))
-			buf_add(output, "({bImproved{x) ");
+			char_puts("({bImproved{x) ", ch);
 		if (IS_EVIL(victim) && IS_AFFECTED(ch, AFF_DETECT_EVIL))
-			buf_add(output, "({RRed Aura{x) ");
+			char_puts("({RRed Aura{x) ", ch);
 		if (IS_GOOD(victim) && IS_AFFECTED(ch, AFF_DETECT_GOOD))
-			buf_add(output, "({YGolden Aura{x) ");
+			char_puts("({YGolden Aura{x) ", ch);
 		if (IS_AFFECTED(victim, AFF_SANCTUARY))
-			buf_add(output, "({WWhite Aura{x) ");
+			char_puts("({WWhite Aura{x) ", ch);
 		if (IS_AFFECTED(victim, AFF_BLACK_SHROUD))
-			buf_add(output, "({DBlack Aura{x) ");
+			char_puts("({DBlack Aura{x) ", ch);
 		if (IS_AFFECTED(victim, AFF_FADE)) 
-			buf_add(output, "({yFade{x) ");
+			char_puts("({yFade{x) ", ch);
 		if (IS_AFFECTED(victim, AFF_CAMOUFLAGE)) 
-			buf_add(output, "({gCamf{x) ");
+			char_puts("({gCamf{x) ", ch);
 	}
 	else {
 		static char FLAGS[] = "{x[{y.{D.{m.{c.{M.{D.{G.{b.{R.{Y.{W.{y.{g.{x] ";
@@ -398,142 +398,131 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 		FLAG_SET(41, 'F', IS_AFFECTED(victim, AFF_FADE));
 
 		if (flags)
-			buf_add(output, FLAGS);
+			char_puts(FLAGS, ch);
 	}
 
 	if (victim->invis_level >= LEVEL_HERO)
-		buf_add(output, "[{WWizi{x] ");
+		char_puts("[{WWizi{x] ", ch);
 	if (victim->incog_level >= LEVEL_HERO)
-		buf_add(output, "[{DIncog{x] ");
+		char_puts("[{DIncog{x] ", ch);
 
 	if (IS_NPC(victim) && victim->position == victim->start_pos) {
 		const char *p = mlstr_cval(victim->long_descr, ch);
-
-		if (IS_NULLSTR(p)) {	/* for the hell of "It" (#2006) :) */
-			buf_free(output);
-			return;
-		}
-		buf_add(output, p);
+		if (!IS_NULLSTR(p))	/* for the hell of "It" (#2006) :) */
+			char_puts(p, ch);
+		return;
 	}
-	else {
-		char *msg;
 
-		if (IS_IMMORTAL(victim))
-			buf_add(output, "{W");
-		buf_add(output, capitalize(PERS(victim, ch)));
-		if (IS_IMMORTAL(victim))
-			buf_add(output, "{x");
+	if (IS_IMMORTAL(victim))
+		char_puts("{W", ch);
 
-		if (!IS_NPC(victim) && !IS_SET(ch->comm, COMM_BRIEF)
-		&&  victim->position == POS_STANDING)
-			buf_printf(output, "%s{x", victim->pcdata->title);
+	if (!IS_NPC(victim) && !IS_SET(ch->comm, COMM_BRIEF)
+	&&  victim->position == POS_STANDING)
+		title = victim->pcdata->title;
 	
-		switch (victim->position) {
-		case POS_DEAD:
-			buf_add(output, " is {RDEAD!!{x");
-			break;
+	switch (victim->position) {
+	case POS_DEAD:
+		msg = "$N{x is {RDEAD!!{x";
+		break;
 	
-		case POS_MORTAL:
-			buf_add(output, " is mortally wounded.");
-			break;
+	case POS_MORTAL:
+		msg = "$N{x is mortally wounded.";
+		break;
 	
-		case POS_INCAP:
-			buf_add(output, " is incapacitated.");
-			break;
+	case POS_INCAP:
+		msg = "$N{x is incapacitated.";
+		break;
 	
-		case POS_STUNNED:
-			buf_add(output, " is lying here stunned.");
-			break;
+	case POS_STUNNED:
+		msg = "$N{x is lying here stunned.";
+		break;
 	
-		case POS_SLEEPING:
-			if (victim->on == NULL) {
-				buf_add(output, " is sleeping here.");
-				break;
-			}
-	
-			if (IS_SET(victim->on->value[2], SLEEP_AT))
-				msg = " is sleeping at %s.";
-			else if (IS_SET(victim->on->value[2], SLEEP_ON))
-				msg = " is sleeping on %s.";
-			else
-				msg = " is sleeping in %s.";
-	
-			buf_printf(output, msg,
-				   mlstr_cval(victim->on->short_descr, ch));
-			break;
-	
-		case POS_RESTING:
-			if (victim->on == NULL) {
-				buf_add(output, " is resting here.");
-				break;
-			}
-	
-			if (IS_SET(victim->on->value[2], REST_AT))
-				msg = " is resting at %s.";
-			else if (IS_SET(victim->on->value[2], REST_ON))
-				msg = " is resting on %s.";
-			else
-				msg = " is resting in %s.";
-			buf_printf(output, msg,
-				mlstr_cval(victim->on->short_descr, ch));
-			break;
-	
-		case POS_SITTING:
-			if (victim->on == NULL) {
-				buf_add(output, " is sitting here.");
-				break;
-			}
-	
-			if (IS_SET(victim->on->value[2], SIT_AT))
-				msg = " is sitting at %s.";
-			else if (IS_SET(victim->on->value[2], SIT_ON))
-				msg = " is sitting on %s.";
-			else
-				msg = " is sitting in %s.";
-			buf_printf(output, msg,
-				mlstr_cval(victim->on->short_descr, ch));
-			break;
-	
-		case POS_STANDING:
-			if (victim->on == NULL) {
-				if (MOUNTED(victim))
-					buf_printf(output,
-						   " is here, riding %s.",
-						   PERS(MOUNTED(victim),ch));
-				else
-					buf_add(output, " is here.");
-				break;
-			}
-	
-			if (IS_SET(victim->on->value[2],STAND_AT))
-				msg = " is standing at %s.";
-			else if (IS_SET(victim->on->value[2],STAND_ON))
-				msg = " is standing on %s.";
-			else
-				msg = " is standing here.";
-			buf_printf(output, msg,
-				mlstr_cval(victim->on->short_descr, ch));
-			break;
-	
-		case POS_FIGHTING:
-			buf_add(output, " is here, fighting with ");
-			if (victim->fighting == NULL)
-				buf_add(output, "thin air??");
-			else if (victim->fighting == ch)
-				buf_add(output, "YOU!");
-			else if (victim->in_room == victim->fighting->in_room)
-				buf_printf(output, "%s.",
-					   PERS(victim->fighting, ch));
-			else
-				buf_add(output, "somone who left??");
+	case POS_SLEEPING:
+		if (victim->on == NULL) {
+			msg = "$N{x is sleeping here.";
 			break;
 		}
 	
-		buf_add(output, "{x\n");
+		arg = victim->on;
+		if (IS_SET(victim->on->value[2], SLEEP_AT))
+			msg = "$N{x is sleeping at $p.";
+		else if (IS_SET(victim->on->value[2], SLEEP_ON))
+			msg = "$N{x is sleeping on $p.";
+		else
+			msg = "$N{x is sleeping in $p.";
+		break;
+	
+	case POS_RESTING:
+		if (victim->on == NULL) {
+			msg = "$N{x is resting here.";
+			break;
+		}
+
+		arg = victim->on;
+		if (IS_SET(victim->on->value[2], REST_AT))
+			msg = "$N{x is resting at $p.";
+		else if (IS_SET(victim->on->value[2], REST_ON))
+			msg = "$N{x is resting on $p.";
+		else
+			msg = "$N{x is resting in $p.";
+		break;
+	
+	case POS_SITTING:
+		if (victim->on == NULL) {
+			msg = "$N{x is sitting here.";
+			break;
+		}
+	
+		arg = victim->on;
+		if (IS_SET(victim->on->value[2], SIT_AT))
+			msg = "$N{x is sitting at $p.";
+		else if (IS_SET(victim->on->value[2], SIT_ON))
+			msg = "$N{x is sitting on $p.";
+		else
+			msg = "$N{x is sitting in $p.";
+		break;
+	
+	case POS_STANDING:
+		if (victim->on == NULL) {
+			if (MOUNTED(victim)) {
+				arg = MOUNTED(victim);
+				msg = "$N{x%s {xis here, riding $i.";
+			}
+			else
+				msg = "$N{x%s {xis here.";
+			break;
+		}
+	
+		arg = victim->on;
+		if (IS_SET(victim->on->value[2],STAND_AT))
+			msg = "$N{x%s {xis standing at $p.";
+		else if (IS_SET(victim->on->value[2],STAND_ON))
+			msg = "$N{x%s {xis standing on $p.";
+		else
+			msg = "$N{x%s {xis standing here.";
+		break;
+	
+	case POS_FIGHTING:
+		if (victim->fighting == NULL) {
+			arg = "thin air??";
+			msg = "$N{x {xis here, fighting with $t";
+		}
+		else if (victim->fighting == ch) {
+			arg = "YOU!";
+			msg = "$N{x {xis here, fighting with $t";
+		}
+		else if (victim->in_room == victim->fighting->in_room) {
+			arg = victim->fighting;
+			msg = "$N{x {xis here, fighting with $i";
+		}
+		else {
+			arg = "someone who left??";
+			msg = "$N{x {xis here, fighting with $t";
+		}
+		break;
 	}
 
-	send_to_char(buf_string(output), ch);
-	buf_free(output);
+	act_printf(ch, arg, victim, TO_CHAR, POS_DEAD, msg, title);
 }
 
 char* wear_loc_names[] =

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_mob.c,v 1.30 1999-02-15 18:19:44 fjoe Exp $
+ * $Id: olc_mob.c,v 1.31 1999-02-15 22:48:27 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -548,7 +548,7 @@ OLC_FUN(mobed_name)
 {
 	MOB_INDEX_DATA *pMob;
 	EDIT_MOB(ch, pMob);
-	return olced_str(ch, argument, mobed_name, &pMob->name);
+	return olced_name(ch, argument, mobed_name, &pMob->name);
 }
 
 OLC_FUN(mobed_shop)

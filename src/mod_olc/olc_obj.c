@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_obj.c,v 1.30 1999-02-15 18:42:41 fjoe Exp $
+ * $Id: olc_obj.c,v 1.31 1999-02-15 22:48:27 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -663,7 +663,7 @@ OLC_FUN(objed_name)
 {
 	OBJ_INDEX_DATA *pObj;
 	EDIT_OBJ(ch, pObj);
-	return olced_str(ch, argument, objed_name, &pObj->name);
+	return olced_name(ch, argument, objed_name, &pObj->name);
 }
 
 OLC_FUN(objed_short)

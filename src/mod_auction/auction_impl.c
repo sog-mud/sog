@@ -1,5 +1,5 @@
 /*
- * $Id: auction_impl.c,v 1.22 1998-12-16 10:21:35 fjoe Exp $
+ * $Id: auction_impl.c,v 1.23 1999-02-15 22:48:22 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -434,7 +434,8 @@ void do_auction(CHAR_DATA *ch, const char *argument)
 	switch (obj->pIndexData->item_type) {
 	default:
 		act_puts("You cannot auction $T.",
-			 ch, NULL, flag_string(item_types, obj->pIndexData->item_type),
+			 ch, NULL,
+			 flag_string(item_types, obj->pIndexData->item_type),
 			 TO_CHAR, POS_SLEEPING);
 		break;
 

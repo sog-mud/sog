@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.66 1999-02-11 17:16:55 fjoe Exp $
+ * $Id: martial_art.c,v 1.67 1999-02-15 22:48:25 fjoe Exp $
  */
 
 /***************************************************************************
@@ -339,8 +339,8 @@ void do_bash(CHAR_DATA *ch, const char *argument)
 	}
 	else {
 		damage(ch, victim, 0, gsn_bash, DAM_BASH, TRUE);
-		act("You fall flat on your face!",
-		    ch, NULL, victim, TO_CHAR);
+		act_puts("You fall flat on your face!",
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		act("$n falls flat on $s face.",
 		    ch, NULL, victim, TO_NOTVICT);
 		act("You evade $n's bash, causing $m to fall flat on $s face.",
@@ -537,7 +537,8 @@ void do_trip(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (victim == ch) {
-		char_puts("You fall flat on your face!\n", ch);
+		act_puts("You fall flat on your face!",
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		WAIT_STATE(ch, 2 * SKILL(gsn_trip)->beats);
 		act("$n trips over $s own feet!", ch, NULL, NULL, TO_ROOM);
 		return;
@@ -3159,8 +3160,8 @@ void do_crush(CHAR_DATA *ch, const char *argument)
 	}
 	else {
 		damage(ch, victim, 0, gsn_crush, DAM_BASH, TRUE);
-		act("You fall flat on your face!",
-		    ch, NULL, victim, TO_CHAR);
+		act_puts("You fall flat on your face!",
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		act("$n falls flat on $s face.",
 		    ch, NULL, victim, TO_NOTVICT);
 		act("You evade $n's crush, causing $m to fall flat on $s face.",

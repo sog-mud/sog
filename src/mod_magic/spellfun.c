@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.116 1999-02-15 16:02:17 fjoe Exp $
+ * $Id: spellfun.c,v 1.117 1999-02-15 22:48:24 fjoe Exp $
  */
 
 /***************************************************************************
@@ -262,22 +262,23 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 				return;
 			}
 
-			if (IS_NPC(victim)
-			&&  victim->in_room != ch->in_room) {
-				if (room_is_private(ch->in_room)) {
-					WAIT_STATE(ch, spell->beats);
-					char_puts("You can't cast this spell from private room right now.\n", ch);
-					return;
-				}
+			if (victim->in_room != ch->in_room) {
+				cast_far = TRUE;
+				if (IS_NPC(victim)) {
+					if (room_is_private(ch->in_room)) {
+						WAIT_STATE(ch, spell->beats);
+						char_puts("You can't cast this spell from private room right now.\n", ch);
+						return;
+					}
 
-				if (IS_SET(victim->pIndexData->act,
-					   ACT_NOTRACK)) {
-					WAIT_STATE(ch, spell->beats);
-					act_puts("You can't cast this spell to $N at this distance.", ch, NULL, victim, TO_CHAR, POS_DEAD);
-					return;
-				}	
+					if (IS_SET(victim->pIndexData->act,
+						   ACT_NOTRACK)) {
+						WAIT_STATE(ch, spell->beats);
+						act_puts("You can't cast this spell to $N at this distance.", ch, NULL, victim, TO_CHAR, POS_DEAD);
+						return;
+					}	
+				}
 			}
-			cast_far = TRUE;
 		}
 		else if ((victim = get_char_room(ch, target_name)) == NULL) {
 			WAIT_STATE(ch, spell->beats);
@@ -4391,7 +4392,8 @@ void spell_word_of_recall(int sn, int level, CHAR_DATA *ch,void *vo, int target)
 	}
 
 	if (victim->desc != NULL && IS_PUMPED(victim)) {
-		char_puts("You are too pumped to pray now.\n",victim);
+		act_puts("You are too pumped to pray now.",
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		return;
 	}
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: varr.c,v 1.5 1998-10-02 04:48:27 fjoe Exp $
+ * $Id: varr.c,v 1.6 1999-02-15 22:48:26 fjoe Exp $
  */
 
 #include <stdlib.h>
@@ -66,7 +66,7 @@ void *varr_touch(varr *v, size_t i)
 
 	p = VARR_GET(v, i);
 	if (i >= v->nused) {
-		memset(VARR_GET(v, i), 0, v->nsize*(i+1 - v->nused));
+		memset(VARR_GET(v, v->nused), 0, v->nsize*(i+1 - v->nused));
 		v->nused = i+1;
 	}
 	return p;

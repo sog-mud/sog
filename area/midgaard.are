@@ -2077,8 +2077,8 @@ polished gold and has various patterns on it along with the Midgaard Coat of
 Arms.
 ~
 #3134
-bench~
-the Bench~
+bench скамейка скамья~
+@eng the Bench@rus скамейка~
 A white-painted wooden bench is standing here.~
 wood~
 furniture 0 0
@@ -2091,8 +2091,8 @@ towards the river so you can sit and watch the river and the houses on the
 other side.
 ~
 #3135
-fountain water~
-a fountain~
+fountain water фонтан~
+@eng a fountain@rus фонтан~
 A small white fountain gushes forth here.~
 ~
 fountain 0 0

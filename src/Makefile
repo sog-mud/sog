@@ -1,5 +1,5 @@
 #
-# $Id: Makefile,v 1.44 1999-02-15 12:51:02 fjoe Exp $
+# $Id: Makefile,v 1.45 1999-02-15 22:48:20 fjoe Exp $
 #
 CC		= gcc
 LD		= gcc
@@ -52,13 +52,13 @@ DB_OFILES = cmd.o db.o db_area.o db_clan.o db_class.o\
 	    word.o
 
 OLC_CFILES = olc/olc.c olc/olc_area.c olc/olc_clan.c olc/olc_help.c\
-	     olc/olc_lang.c olc/olc_mob.c olc/olc_mpcode.c olc/olc_msg.c\
-	     olc/olc_room.c olc/olc_obj.c olc/olc_save.c olc/olc_social.c\
-	     olc/olc_word.c
+	     olc/olc_form.c olc/olc_lang.c olc/olc_mob.c olc/olc_mpcode.c\
+	     olc/olc_msg.c olc/olc_room.c olc/olc_obj.c olc/olc_save.c\
+	     olc/olc_social.c
 OLC_OFILES = olc.o olc_area.o olc_clan.o olc_help.o\
-	     olc_lang.o olc_mob.o olc_mpcode.o olc_msg.o\
-	     olc_room.o olc_obj.o olc_save.o olc_social.o\
-	     olc_word.o
+	     olc_form.o olc_lang.o olc_mob.o olc_mpcode.o\
+	     olc_msg.o olc_room.o olc_obj.o olc_save.o\
+	     olc_social.o
 
 CFILES = act_comm.c act_info.c act_move.c act_obj.c act_wiz.c auction.c\
          buffer.c clan.c class.c\

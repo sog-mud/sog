@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.110 1999-02-15 18:19:39 fjoe Exp $
+ * $Id: handler.c,v 1.111 1999-02-15 22:48:23 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2169,8 +2169,10 @@ CHAR_DATA *get_char_spell(CHAR_DATA *ch, const char *argument,
 	char *p;
 
 	p = strchr(argument, '.');
-	if (!p)
+	if (!p) {
+		*door = -1;
 		return get_char_room(ch, argument);
+	}
 
 	strnzcpy(buf, argument, UMIN(p-argument+1, sizeof(buf)));
 	if ((*door = check_exit(buf)) < 0)

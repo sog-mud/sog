@@ -1,5 +1,5 @@
 /*
- * $Id: olc.h,v 1.30 1999-02-15 18:19:44 fjoe Exp $
+ * $Id: olc.h,v 1.31 1999-02-15 22:48:27 fjoe Exp $
  */
 
 /***************************************************************************
@@ -89,7 +89,7 @@ extern OLC_CMD_DATA	olc_cmds_clan[];
 extern OLC_CMD_DATA	olc_cmds_msg[];
 extern OLC_CMD_DATA	olc_cmds_class[];
 extern OLC_CMD_DATA	olc_cmds_lang[];
-extern OLC_CMD_DATA	olc_cmds_word[];
+extern OLC_CMD_DATA	olc_cmds_form[];
 extern OLC_CMD_DATA	olc_cmds_soc[];
 
 /*
@@ -107,6 +107,8 @@ DECLARE_DO_FUN(do_resets	);
  */
 bool olced_number	(CHAR_DATA *ch, const char *argument,
 			 OLC_FUN *olc_fun, int*);
+bool olced_name		(CHAR_DATA *ch, const char *argument,
+			 OLC_FUN *olc_fun, const char**pStr);
 bool olced_str		(CHAR_DATA *ch, const char *argument,
 			 OLC_FUN *olc_fun, const char**pStr);
 bool olced_str_text	(CHAR_DATA *ch, const char *argument,
@@ -137,6 +139,7 @@ AREA_DATA *get_edited_area(CHAR_DATA *ch);
 
 bool	touch_area	(AREA_DATA*);
 bool	touch_clan	(CLAN_DATA *clan);
+bool	touch_lang	(LANG_DATA*, const char *editor);
 bool	touch_vnum	(int vnum);
 
 void		edit_done	(DESCRIPTOR_DATA *d);

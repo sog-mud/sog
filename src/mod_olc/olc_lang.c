@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_lang.c,v 1.7 1999-02-15 18:19:44 fjoe Exp $
+ * $Id: olc_lang.c,v 1.8 1999-02-15 22:48:27 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -129,8 +129,7 @@ OLC_FUN(langed_touch)
 {
 	LANG_DATA *l;
 	EDIT_LANG(ch, l);
-	SET_BIT(l->flags, LANG_CHANGED);
-	return FALSE;
+	return touch_lang(l, ch->desc->editor);
 }
 
 OLC_FUN(langed_show)
@@ -246,6 +245,17 @@ OLC_FUN(langed_cases)
 	LANG_DATA *l;
 	EDIT_LANG(ch, l);
 	return olced_str(ch, argument, langed_cases, &l->file_cases);
+}
+
+bool touch_lang(LANG_DATA *l, const char *editor)
+{
+	if (editor == ED_GENDER)
+		SET_BIT(l->flags, LANG_GENDERS_CHANGED);
+	else if (editor == ED_CASE)
+		SET_BIT(l->flags, LANG_CASES_CHANGED);
+	else
+		SET_BIT(l->flags, LANG_CHANGED);
+	return FALSE;
 }
 
 /* local functions */

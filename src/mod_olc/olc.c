@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.39 1999-02-15 18:19:43 fjoe Exp $
+ * $Id: olc.c,v 1.40 1999-02-15 22:48:27 fjoe Exp $
  */
 
 /***************************************************************************
@@ -82,8 +82,8 @@ const char ED_HELP[]	= "help";
 const char ED_CLAN[]	= "clan";
 const char ED_MSG[]	= "msgdb";
 const char ED_LANG[]	= "language";
-const char ED_GENDER[]	= "word";
-const char ED_CASE[]	= "word";
+const char ED_GENDER[]	= "form";
+const char ED_CASE[]	= "form";
 const char ED_SOC[]	= "social";
 /*const char ED_CLASS[]	= "class";*/
 
@@ -97,8 +97,8 @@ OLCED_DATA olced_table[] = {
 	{ ED_MSG,	"MsgEd",	olc_cmds_msg	},
 	{ ED_CLAN,	"ClanEd",	olc_cmds_clan	},
 	{ ED_LANG,	"LangEd",	olc_cmds_lang	},
-	{ ED_GENDER,	"WordEd",	olc_cmds_word	},
-	{ ED_CASE,	"WordEd",	olc_cmds_word	},
+	{ ED_GENDER,	"FormEd",	olc_cmds_form	},
+	{ ED_CASE,	"FormEd",	olc_cmds_form	},
 	{ ED_SOC,	"SocEd",	olc_cmds_soc	},
 /*	{ ED_CLASS,	"ClassEd",	olc_cmds_class	}, */
 	{ NULL }
@@ -210,6 +210,31 @@ bool olced_number(CHAR_DATA *ch, const char *argument, OLC_FUN* fun, int *pInt)
 
 	*pInt = val;
 	char_puts("Ok.\n", ch);
+	return TRUE;
+}
+
+bool olced_name(CHAR_DATA *ch, const char *argument,
+	        OLC_FUN *fun, const char **pStr)
+{
+	OLC_CMD_DATA *cmd;
+	OLCED_DATA *olced;
+	VALIDATE_FUN *validator;
+	char arg[MAX_INPUT_LENGTH];
+
+	if ((cmd = olc_cmd_lookup(ch, fun)) == NULL
+	||  (olced = olced_lookup(ch->desc->editor)) == NULL)
+		return FALSE;
+
+	one_argument(argument, arg);
+	if (arg[0] == '\0') {
+		char_printf(ch, "Syntax: %s string\n", cmd->name);
+		return FALSE;
+	}
+
+	if ((validator = cmd->arg1) && !validator(ch, argument))
+		return FALSE;
+
+	name_toggle(pStr, arg, ch, olced->name);
 	return TRUE;
 }
 

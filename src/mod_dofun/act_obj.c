@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.116 1999-02-15 18:19:38 fjoe Exp $
+ * $Id: act_obj.c,v 1.117 1999-02-15 22:48:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -293,7 +293,9 @@ void do_get(CHAR_DATA * ch, const char *argument)
 				found = TRUE;
 				if (container->pIndexData->vnum == OBJ_VNUM_PIT
 				    && !IS_IMMORTAL(ch)) {
-					char_puts("Don't be so greedy!\n", ch);
+					act_puts("Don't be so greedy!",
+						 ch, NULL, NULL, TO_CHAR,
+						 POS_DEAD);
 					return;
 				}
 				get_obj(ch, obj, container);
@@ -1175,9 +1177,10 @@ void do_drink(CHAR_DATA * ch, const char *argument)
 		return;
 	}
 	act("$n drinks $T from $p.",
-	    ch, obj, liq_table[liquid].liq_name, TO_ROOM);
+	    ch, obj, liq_table[liquid].liq_name, TO_ROOM | ACT_TRANS);
 	act_puts("You drink $T from $p.",
-		 ch, obj, liq_table[liquid].liq_name, TO_CHAR, POS_DEAD);
+		 ch, obj, liq_table[liquid].liq_name,
+		 TO_CHAR | ACT_TRANS, POS_DEAD);
 
 	if (ch->fighting)
 		WAIT_STATE(ch, 3 * PULSE_VIOLENCE);
@@ -1970,7 +1973,8 @@ void do_recite(CHAR_DATA * ch, const char *argument)
 	act_puts("You recite $p.", ch, scroll, NULL, TO_CHAR, POS_DEAD);
 
 	if (number_percent() >= get_skill(ch, sn) * 4 / 5) {
-		char_puts("You mispronounce a syllable.\n", ch);
+		act_puts("You mispronounce a syllable.",
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		check_improve(ch, sn, FALSE, 2);
 	} else {
 		obj_cast_spell(scroll->value[1], scroll->value[0],
@@ -2219,8 +2223,8 @@ void do_steal(CHAR_DATA * ch, const char *argument)
 
 		if (IS_AFFECTED(ch, AFF_HIDE | AFF_FADE) && !IS_NPC(ch)) {
 			REMOVE_BIT(ch->affected_by, AFF_HIDE | AFF_FADE);
-			char_puts("You step out of shadows.\n", ch);
-			
+			act_puts("You step out of shadows.",
+				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 			act("$n steps out of shadows.",
 			    ch, NULL, NULL, TO_ROOM);
         	}

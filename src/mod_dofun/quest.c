@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: quest.c,v 1.95 1999-02-12 18:14:35 fjoe Exp $
+ * $Id: quest.c,v 1.96 1999-02-15 22:48:26 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -174,7 +174,8 @@ void do_quest(CHAR_DATA *ch, const char *argument)
 			&&  IS_SET(ch->affected_by, AFF_HIDE | AFF_FADE)) { 
 				REMOVE_BIT(ch->affected_by,
 					   AFF_HIDE | AFF_FADE);
-				char_puts("You step out of shadows.\n", ch);
+				act_puts("You step out of shadows.",
+					 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 				act("$n steps out of shadows.",
 				    ch, NULL, NULL, TO_ROOM);
 			}
@@ -194,17 +195,19 @@ void quest_handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
 
 	if (victim->hunter)
 		if (victim->hunter == ch) {
-			char_puts("You have almost completed your QUEST!\n",
-				  ch);
-			char_puts("Return to questmaster before your time "
-				  "runs out!\n", ch);
+			act_puts("You have almost completed your QUEST!\n"
+				 "Return to questmaster before your time "
+				 "runs out!",
+				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 			ch->pcdata->questmob = -1;
 		}
 		else {
-			char_puts("You have completed someone's quest.\n", ch);
+			act_puts("You have completed someone's quest.",
+				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 
 			ch = victim->hunter;
-			char_puts("Someone has completed you quest.\n", ch);
+			act_puts("Someone has completed you quest.",
+				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 			quest_cancel(ch);
 			ch->pcdata->questtime = -number_range(5, 10);
 		}
