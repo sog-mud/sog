@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.231 2000-01-05 14:53:18 fjoe Exp $
+ * $Id: handler.c,v 1.232 2000-01-06 10:18:38 kostik Exp $
  */
 
 /***************************************************************************
@@ -2163,7 +2163,7 @@ bool check_dispel(int dis_level, CHAR_DATA *victim, const char *sn)
 
 	if (is_affected(victim, sn)) {
 	    for (af = victim->affected; af != NULL; af = af->next) {
-	        if (af->type == sn) {
+	        if (IS_SKILL(af->type, sn)) {
 	            if (!saves_dispel(dis_level,af->level,af->duration)) {
 			skill_t *sk;
 

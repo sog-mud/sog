@@ -1,5 +1,5 @@
 /*
- * $Id: affect.c,v 1.25 2000-01-04 11:53:40 avn Exp $
+ * $Id: affect.c,v 1.26 2000-01-06 10:18:37 kostik Exp $
  */
 
 /***************************************************************************
@@ -897,7 +897,7 @@ void show_name(CHAR_DATA *ch, BUFFER *output,
 	} else 
 		aff_type = "Something";
 
-	if (paf_last && paf->type == paf_last->type)
+	if (paf_last && IS_SKILL(paf->type, paf_last->type))
 		if (ch && ch->level < 20)
 			return;
 		else
