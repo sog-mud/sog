@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.73 1999-07-01 18:13:46 avn Exp $
+ * $Id: skills.c,v 1.74 1999-09-08 10:40:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -60,12 +60,12 @@ int base_exp(CHAR_DATA *ch)
 
 	if (IS_NPC(ch)
 	||  (cl = class_lookup(ch->class)) == NULL
-	||  (r = race_lookup(ch->pcdata->race)) == NULL
-	||  !r->pcdata
+	||  (r = race_lookup(PC(ch)->race)) == NULL
+	||  !r->race_pcdata
 	||  (rcl = rclass_lookup(r, cl->name)) == NULL)
 		return 1500;
 
-	expl = 1000 + r->pcdata->points + cl->points;
+	expl = 1000 + r->race_pcdata->points + cl->points;
 	return expl * rcl->mult/100;
 }
 
@@ -75,9 +75,12 @@ int exp_for_level(CHAR_DATA *ch, int level)
 	return i + i * (level-1) / 20;
 }
 
+/*
+ * assumes !IS_NPC(ch)
+ */
 int exp_to_level(CHAR_DATA *ch)
 { 
-	return exp_for_level(ch, ch->level+1) - ch->exp;
+	return exp_for_level(ch, ch->level+1) - PC(ch)->exp;
 }
 
 /* checks for skill improvement */
@@ -162,10 +165,10 @@ void set_skill_raw(CHAR_DATA *ch, int sn, int percent, bool replace)
 			ps->percent = percent;
 		return;
 	}
-	ps = varr_enew(&ch->pcdata->learned);
+	ps = varr_enew(&PC(ch)->learned);
 	ps->sn = sn;
 	ps->percent = percent;
-	varr_qsort(&ch->pcdata->learned, cmpint);
+	varr_qsort(&PC(ch)->learned, cmpint);
 }
 
 /* use for adding/updating all skills available for that ch  */
@@ -181,7 +184,7 @@ void update_skills(CHAR_DATA *ch)
 	if (IS_NPC(ch)
 	||  (cl = class_lookup(ch->class)) == NULL
 	||  (r = race_lookup(ch->race)) == NULL
-	||  !r->pcdata)
+	||  !r->race_pcdata)
 		return;
 
 /* add class skills */
@@ -191,12 +194,12 @@ void update_skills(CHAR_DATA *ch)
 	}
 
 /* add race skills */
-	for (i = 0; i < r->pcdata->skills.nused; i++) {
-		rskill_t *rs = VARR_GET(&r->pcdata->skills, i);
+	for (i = 0; i < r->race_pcdata->skills.nused; i++) {
+		rskill_t *rs = VARR_GET(&r->race_pcdata->skills, i);
 		set_skill_raw(ch, rs->sn, 100, FALSE);
 	}
 
-	if ((p = r->pcdata->bonus_skills))
+	if ((p = r->race_pcdata->bonus_skills))
 		for (;;) {
 			int sn;
 			char name[MAX_STRING_LENGTH];
@@ -221,8 +224,8 @@ void update_skills(CHAR_DATA *ch)
 	}
 
 /* remove not matched skills */
-	for (i = 0; i < ch->pcdata->learned.nused; i++) {
-		pcskill_t *ps = VARR_GET(&ch->pcdata->learned, i);
+	for (i = 0; i < PC(ch)->learned.nused; i++) {
+		pcskill_t *ps = VARR_GET(&PC(ch)->learned, i);
 		if (skill_level(ch, ps->sn) > LEVEL_HERO && !IS_IMMORTAL(ch))
 			ps->percent = 0;
 	}
@@ -266,8 +269,8 @@ int get_skill(CHAR_DATA *ch, int sn)
 			skill = ps->percent;
 	}
 	else {
-		flag64_t act = ch->pIndexData->act;
-		flag64_t off = ch->pIndexData->off_flags;
+		flag64_t act = ch->pMobIndex->act;
+		flag64_t off = ch->pMobIndex->off_flags;
 
 		/* mobiles */
 		if (sk->skill_type == ST_SPELL)
@@ -342,7 +345,7 @@ int get_skill(CHAR_DATA *ch, int sn)
 			skill = 2 * skill / 3;
 	}
 
-	if (!IS_NPC(ch) && ch->pcdata->condition[COND_DRUNK]  > 10)
+	if (!IS_NPC(ch) && PC(ch)->condition[COND_DRUNK]  > 10)
 		skill = 9 * skill / 10;
 	skill = URANGE(0, skill, 100);
 
@@ -425,7 +428,7 @@ int get_weapon_sn(OBJ_DATA *wield)
 	if (wield == NULL)
 		return gsn_hand_to_hand;
 
-	if (wield->pIndexData->item_type != ITEM_WEAPON)
+	if (wield->pObjIndex->item_type != ITEM_WEAPON)
 		return 0;
 
 	switch (wield->value[0]) {
@@ -564,7 +567,7 @@ int skill_level(CHAR_DATA *ch, int sn)
 	||  (sk = skill_lookup(sn)) == NULL
 	||  (cl = class_lookup(ch->class)) == NULL
 	||  (r = race_lookup(ch->race)) == NULL
-	||  !r->pcdata)
+	||  !r->race_pcdata)
 		return slevel;
 
 	if ((clan = clan_lookup(ch->clan))
@@ -573,7 +576,7 @@ int skill_level(CHAR_DATA *ch, int sn)
 
 	if ((class_skill = cskill_lookup(cl, sn))) {
 		slevel = UMIN(slevel, class_skill->level);
-		if (is_name(sk->name, r->pcdata->bonus_skills))
+		if (is_name(sk->name, r->race_pcdata->bonus_skills))
 			slevel = UMIN(slevel, 1);
 	}
 

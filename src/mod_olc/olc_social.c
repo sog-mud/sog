@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_social.c,v 1.9 1999-06-30 15:42:26 fjoe Exp $
+ * $Id: olc_social.c,v 1.10 1999-09-08 10:40:06 fjoe Exp $
  */
 
 #include "olc.h"
@@ -86,7 +86,7 @@ OLC_FUN(soced_create)
 	social_t *soc;
 	char arg[MAX_STRING_LENGTH];
 
-	if (ch->pcdata->security < SECURITY_SOCIALS) {
+	if (PC(ch)->security < SECURITY_SOCIALS) {
 		char_puts("SocEd: Insufficient security for creating socials\n",
 			  ch);
 		return FALSE;
@@ -118,7 +118,7 @@ OLC_FUN(soced_edit)
 	social_t *soc;
 	char arg[MAX_STRING_LENGTH];
 
-	if (ch->pcdata->security < SECURITY_SOCIALS) {
+	if (PC(ch)->security < SECURITY_SOCIALS) {
 		char_puts("SocEd: Insufficient security.\n", ch);
 		return FALSE;
 	}

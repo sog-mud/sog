@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: core.c,v 1.5 1999-07-19 13:25:15 avn Exp $
+ * $Id: core.c,v 1.6 1999-09-08 10:39:46 fjoe Exp $
  */
 
 #include <errno.h>
@@ -183,6 +183,7 @@ void do_reboot(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (is_name(arg, "now")) {
+		rebooter = 1;
 		reboot_mud();
 		return;
 	}

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: race.c,v 1.4 1999-07-21 04:19:18 avn Exp $
+ * $Id: race.c,v 1.5 1999-09-08 10:40:12 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -52,8 +52,8 @@ pcrace_t *pcrace_new(void)
 
 void race_free(race_t *r)
 {
-	if (r->pcdata)
-		pcrace_free(r->pcdata);
+	if (r->race_pcdata)
+		pcrace_free(r->race_pcdata);
 	free_string(r->name);
 	free_string(r->file_name);
 }

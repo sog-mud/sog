@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.61 1999-06-30 16:37:14 fjoe Exp $
+ * $Id: recycle.c,v 1.62 1999-09-08 10:40:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -219,33 +219,55 @@ void free_obj(OBJ_DATA *obj)
 	obj_free_count++;
 }
 
-CHAR_DATA *free_char_list;
+/*
+ * PC/NPC recycling
+ */
+CHAR_DATA *free_npc_list;
+int npc_free_count;
 
-int mob_count;
-int mob_free_count;
+CHAR_DATA *free_pc_list;
+int pc_free_count;
 
-CHAR_DATA *new_char(void)
+int npc_count;
+int pc_count;
+
+CHAR_DATA *char_new(MOB_INDEX_DATA *pMobIndex)
 {
 	CHAR_DATA *ch;
 	int i;
 
-	if (free_char_list) {
-		ch = free_char_list;
-		free_char_list = free_char_list->next;
-		mob_free_count--;
+	CHAR_DATA **free_list;
+	int *free_count;
+	int *count;
+	size_t size;
+
+	if (pMobIndex) {
+		size = sizeof(*ch) + sizeof(NPC_DATA);
+		count = &npc_count;
+		free_count = &npc_free_count;
+		free_list = &free_npc_list;
+	} else {
+		size = sizeof(*ch) + sizeof(PC_DATA);
+		count = &pc_count;
+		free_count = &pc_free_count;
+		free_list = &free_pc_list;
+	}
+
+	if (*free_list) {
+		ch = *free_list;
+		*free_list = (*free_list)->next;
+		(*free_count)--;
 		mem_validate(ch);
 	}
 	else {
-		ch = mem_alloc(MT_CHAR, sizeof(*ch));
-		mob_count++;
+		ch = mem_alloc(MT_CHAR, size);
+		(*count)++;
 	}
 
-	memset(ch, 0, sizeof(*ch));
+	memset(ch, 0, size);
+
 	RESET_FIGHT_TIME(ch);
 	ch->last_death_time	= -1;
-	ch->prefix		= str_empty;
-	ch->lines		= PAGELEN;
-	ch->logon		= current_time;
 	ch->hit			= 20;
 	ch->max_hit		= 20;
 	ch->mana		= 100;
@@ -253,23 +275,41 @@ CHAR_DATA *new_char(void)
 	ch->move		= 100;
 	ch->max_move		= 100;
 	ch->position		= POS_STANDING;
-	ch->version		= CHAR_VERSION;
 	for (i = 0; i < 4; i++)
 		ch->armor[i]	= 100;
 	for (i = 0; i < MAX_STATS; i ++)
 		ch->perm_stat[i] = 13;
+
+	if (pMobIndex) {
+		ch->pMobIndex = pMobIndex;
+	} else {
+		PC_DATA *pc = PC(ch);
+		pc->logon = current_time;
+		pc->version = PFILE_VERSION;
+		pc->buffer = buf_new(-1);
+		varr_init(&pc->learned, sizeof(pcskill_t), 8);
+		pc->pwd = str_empty;
+		pc->bamfin = str_empty;
+		pc->bamfout = str_empty;
+		pc->title = str_empty;
+		pc->twitlist = str_empty;
+		pc->granted = str_empty;
+		pc->wanted_by = str_empty;
+		pc->dvdata = dvdata_new();
+	}
+
 	return ch;
 }
 
-void free_char(CHAR_DATA *ch)
+void char_free(CHAR_DATA *ch)
 {
 	OBJ_DATA *obj;
 	OBJ_DATA *obj_next;
 	AFFECT_DATA *paf;
 	AFFECT_DATA *paf_next;
 
-	if (!ch)
-		return;
+	CHAR_DATA **free_list;
+	int *free_count;
 
 	if (!mem_is(ch, MT_CHAR)) {
 		bug("free_char: ch is not MT_CHAR");
@@ -277,16 +317,44 @@ void free_char(CHAR_DATA *ch)
 	}
 	mem_invalidate(ch);
 
-	nuke_pets(ch);
+	if (IS_NPC(ch)) {
+		NPC_DATA *npc = NPC(ch);
+
+		free_count = &npc_free_count;
+		free_list = &free_npc_list;
+
+		free_string(npc->in_mind);
+		npc->in_mind = NULL;
+	} else {
+		PC_DATA *pc = PC(ch);
+
+		free_count = &pc_free_count;
+		free_list = &free_pc_list;
+
+		/* free pc stuff */
+		varr_destroy(&pc->learned);
+		free_string(pc->pwd);
+		free_string(pc->bamfin);
+		free_string(pc->bamfout);
+		free_string(pc->title);
+		free_string(pc->twitlist);
+		free_string(pc->granted);
+		free_string(pc->wanted_by);
+		buf_free(pc->buffer);
+		dvdata_free(pc->dvdata);
+
+		nuke_pets(ch);
+	}
 
 	for (obj = ch->carrying; obj; obj = obj_next) {
 		obj_next = obj->next_content;
-		extract_obj(obj, XO_F_NOCOUNT);
+		extract_obj(obj, XO_F_NOCOUNT | XO_F_NUKE);
 	}
+	ch->carrying = NULL;
 
 	for (paf = ch->affected; paf; paf = paf_next) {
 		paf_next = paf->next;
-		affect_remove(ch,paf);
+		aff_free(paf);
 	}
 	ch->affected = NULL;
 
@@ -297,83 +365,15 @@ void free_char(CHAR_DATA *ch)
 	mlstr_destroy(&ch->long_descr);
 	mlstr_destroy(&ch->description);
 
-	free_string(ch->prompt);
-	ch->prompt = NULL;
-
-	free_string(ch->prefix);
-	ch->prefix = NULL;
-
 	free_string(ch->material);
 	ch->material = NULL;
 
-	free_string(ch->in_mind);
-	ch->in_mind = NULL;
+	ch->next = *free_list;
+	*free_list = ch;
 
-	free_pcdata(ch->pcdata);
-	ch->pcdata = NULL;
-
-	ch->next = free_char_list;
-	free_char_list = ch;
-
-	mob_free_count++;
+	(*free_count)++;
 }
 
-PC_DATA *new_pcdata(void)
-{
-	PC_DATA *pcdata;
-	pcdata = calloc(1, sizeof(*pcdata));
-	pcdata->buffer = buf_new(-1);
-	varr_init(&pcdata->learned, sizeof(pcskill_t), 8);
-	pcdata->pwd = str_empty;
-	pcdata->bamfin = str_empty;
-	pcdata->bamfout = str_empty;
-	pcdata->title = str_empty;
-	pcdata->twitlist = str_empty;
-	pcdata->granted = str_empty;
-	pcdata->wanted_by = str_empty;
-	return pcdata;
-}
-	
-void free_pcdata(PC_DATA *pcdata)
-{
-	int alias;
-
-	if (!pcdata)
-		return;
-
-	varr_destroy(&pcdata->learned);
-	free_string(pcdata->pwd);
-	free_string(pcdata->bamfin);
-	free_string(pcdata->bamfout);
-	free_string(pcdata->title);
-	free_string(pcdata->twitlist);
-	free_string(pcdata->granted);
-	free_string(pcdata->wanted_by);
-	buf_free(pcdata->buffer);
-    
-	for (alias = 0; alias < MAX_ALIAS; alias++) {
-		free_string(pcdata->alias[alias]);
-		free_string(pcdata->alias_sub[alias]);
-	}
-	free(pcdata);
-}
-
-/* stuff for setting ids */
-long	last_pc_id;
-long	last_mob_id;
-
-long get_pc_id(void)
-{
-	return last_pc_id = (current_time <= last_pc_id) ?
-			    last_pc_id + 1 : current_time;
-}
-
-long get_mob_id(void)
-{
-	last_mob_id++;
-	return last_mob_id;
-}
-    
 MPTRIG *mptrig_new(int type, const char *phrase, int vnum)
 {
 	const char *p;

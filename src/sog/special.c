@@ -1,5 +1,5 @@
 /*
- * $Id: special.c,v 1.52 1999-06-24 20:35:10 fjoe Exp $
+ * $Id: special.c,v 1.53 1999-09-08 10:40:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -170,10 +170,10 @@ bool spec_troll_member(CHAR_DATA *ch)
 		if (!IS_NPC(vch) || ch == vch)
 			continue;
 
-		if (vch->pIndexData->vnum == MOB_VNUM_PATROLMAN)
+		if (vch->pMobIndex->vnum == MOB_VNUM_PATROLMAN)
 			return FALSE;
 
-		if (vch->pIndexData->group == GROUP_VNUM_OGRES
+		if (vch->pMobIndex->group == GROUP_VNUM_OGRES
 		&&  ch->level > vch->level - 2 && !is_safe(ch,vch)) {
 			if (number_range(0,count) == 0)
 				victim = vch;
@@ -227,10 +227,10 @@ bool spec_ogre_member(CHAR_DATA *ch)
 		if (!IS_NPC(vch) || ch == vch)
 			continue;
  
-		if (vch->pIndexData->vnum == MOB_VNUM_PATROLMAN)
+		if (vch->pMobIndex->vnum == MOB_VNUM_PATROLMAN)
 			return FALSE;
  
-		if (vch->pIndexData->group == GROUP_VNUM_TROLLS
+		if (vch->pMobIndex->group == GROUP_VNUM_TROLLS
 		&&  ch->level > vch->level - 2 && !is_safe(ch,vch)) {
 			if (number_range(0,count) == 0)
 				victim = vch;
@@ -295,13 +295,13 @@ bool spec_patrolman(CHAR_DATA *ch)
 
 	if (victim == NULL
 	||  (IS_NPC(victim) &&
-	     victim->pIndexData->spec_fun == ch->pIndexData->spec_fun))
+	     victim->pMobIndex->spec_fun == ch->pMobIndex->spec_fun))
 		return FALSE;
 
 	if (((obj = get_eq_char(ch,WEAR_NECK_1)) != NULL &&
-	     obj->pIndexData->vnum == OBJ_VNUM_WHISTLE)
+	     obj->pObjIndex->vnum == OBJ_VNUM_WHISTLE)
 	||  ((obj = get_eq_char(ch,WEAR_NECK_2)) != NULL &&
-	     obj->pIndexData->vnum == OBJ_VNUM_WHISTLE)) {
+	     obj->pObjIndex->vnum == OBJ_VNUM_WHISTLE)) {
 		act("You blow down hard on $p.", ch, obj, NULL, TO_CHAR);
 		act("$n blows on $p, ***WHEEEEEEEEEEEET***",
 		    ch, obj, NULL, TO_ROOM);
@@ -689,7 +689,7 @@ bool spec_fido(CHAR_DATA *ch)
 
 	for (corpse = ch->in_room->contents; corpse; corpse = c_next) {
 		c_next = corpse->next_content;
-		if (corpse->pIndexData->item_type != ITEM_CORPSE_NPC)
+		if (corpse->pObjIndex->item_type != ITEM_CORPSE_NPC)
 			continue;
 
 		act("$n savagely devours a corpse.", ch, NULL, NULL, TO_ROOM);
@@ -718,8 +718,8 @@ bool spec_janitor(CHAR_DATA *ch)
 		if (!IS_SET(trash->wear_flags, ITEM_TAKE)
 		||  !can_loot(ch, trash))
 			continue;
-		if (trash->pIndexData->item_type == ITEM_DRINK_CON
-		||  trash->pIndexData->item_type == ITEM_TRASH
+		if (trash->pObjIndex->item_type == ITEM_DRINK_CON
+		||  trash->pObjIndex->item_type == ITEM_TRASH
 		||  trash->cost < 10) {
 			get_obj(ch, trash, NULL, "$n picks up some trash.");
 			return TRUE;
@@ -806,7 +806,7 @@ bool spec_mayor(CHAR_DATA *ch)
 
 	case 'O':
 		for (key = ch->in_room->contents; key; key = key->next_content)
-			if (key->pIndexData->vnum == 3379)
+			if (key->pObjIndex->vnum == 3379)
 				break;
 		if (key)
 			SET_BIT(key->wear_flags, ITEM_TAKE);
@@ -822,7 +822,7 @@ bool spec_mayor(CHAR_DATA *ch)
 		dofun("drop", ch, "key");
 		interpret(ch, "emote locks the gate key to the gate, with chain.");
 		for (key = ch->in_room->contents; key; key = key->next_content)
-			if (key->pIndexData->vnum == 3379)
+			if (key->pObjIndex->vnum == 3379)
 				break;
 		if (key)
 			REMOVE_BIT(key->wear_flags, ITEM_TAKE);
@@ -967,10 +967,13 @@ bool spec_guard(CHAR_DATA *ch)
 	for (victim = ch->in_room->people; victim != NULL; victim = v_next) {
 		v_next = victim->next_in_room;
 	
+		if (IS_NPC(victim))
+			continue;
+
 		if (number_percent() < 2 && !IS_IMMORTAL(victim)) {
 			dofun("say", ch, "Do I know you?");
  			if (str_cmp(ch->in_room->area->name,
-				    hometown_name(victim->hometown)))
+				    hometown_name(PC(victim)->hometown)))
 				dofun("say", ch,
 				      "I don't remember you. Go away!");
 			else {
@@ -1298,7 +1301,7 @@ bool spec_headlamia(CHAR_DATA *ch)
 		return FALSE;
 	
 	for (vch = ch->in_room->people; vch; vch = vch->next_in_room) {
-		if (IS_NPC(vch) && vch->pIndexData->vnum == 3143) {
+		if (IS_NPC(vch) && vch->pMobIndex->vnum == 3143) {
 			dofun("kill", ch, vch->name);
 			break;
 		}
@@ -1319,8 +1322,9 @@ bool spec_headlamia(CHAR_DATA *ch)
 	case 'T':
 		pos++;
 		for(vch = npc_list; vch; vch = vch->next) {
-			if (vch->pIndexData->vnum == 5201) {
-				if (!vch->fighting && !vch->last_fought) {
+			if (vch->pMobIndex->vnum == 5201) {
+				if (!vch->fighting
+				&&  !NPC(vch)->last_fought) {
 					char_from_room(vch);
 					vch->master = ch;
 					vch->leader = ch;

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm_act.h,v 1.13 1999-07-02 12:24:23 fjoe Exp $
+ * $Id: comm_act.h,v 1.14 1999-09-08 10:40:02 fjoe Exp $
  */
 
 #ifndef _COMM_ACT_H_
@@ -49,8 +49,9 @@
 #define ACT_FORMSH	(P)	/* call format_short for short descrs */
 #define ACT_NOFIXSH	(Q)	/* do not fix char/obj short descrs */
 #define ACT_NOFIXTEXT	(R)	/* do not call fix_short for text args */
-
+#define ACT_ASCHAR	(S)	/* can_see is checked against `ch' */
 #define ACT_SPEECH(ch)	(ACT_NODEAF | ACT_STRANS | ACT_NOFIXTEXT |	\
+			 ACT_ASCHAR |					\
 		  	 (!IS_NPC(ch) || IS_AFFECTED(ch, AFF_CHARM) ?	\
 				ACT_NOTRANS : 0))
 
@@ -64,7 +65,9 @@ const char *format_short(mlstring *mshort, const char *name,
 const char *format_long	(mlstring *desc, CHAR_DATA *to);
 
 #define PERS(ch, looker) PERS2(ch, looker, 0)
-const char* PERS2(CHAR_DATA *ch, CHAR_DATA *looker, int act_flags);
+#define PERS2(ch, looker, act_flags) PERS3(ch, looker, looker, act_flags)
+const char* PERS3(CHAR_DATA *ch, CHAR_DATA *looker,
+		  CHAR_DATA *to, int act_flags);
 
 /*
  * act stuff

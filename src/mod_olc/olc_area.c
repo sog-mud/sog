@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_area.c,v 1.47 1999-07-02 05:41:04 fjoe Exp $
+ * $Id: olc_area.c,v 1.48 1999-09-08 10:40:05 fjoe Exp $
  */
 
 #include "olc.h"
@@ -104,7 +104,7 @@ OLC_FUN(areaed_create)
 {
 	AREA_DATA *pArea;
 
-	if (ch->pcdata->security < SECURITY_AREA_CREATE) {
+	if (PC(ch)->security < SECURITY_AREA_CREATE) {
 		char_puts("AreaEd: Insufficient security.\n", ch);
 		return FALSE;
 	}
@@ -398,9 +398,9 @@ OLC_FUN(areaed_clan)
 VALIDATE_FUN(validate_security)
 {
 	int sec = *(int*) arg;
-	if (sec > ch->pcdata->security || sec < 0) {
-		if (ch->pcdata->security != 0)
-			char_printf(ch, "AreaEd: Valid security range is 0..%d.\n", ch->pcdata->security);
+	if (sec > PC(ch)->security || sec < 0) {
+		if (PC(ch)->security != 0)
+			char_printf(ch, "AreaEd: Valid security range is 0..%d.\n", PC(ch)->security);
 		else
 			char_puts("AreaEd: Valid security is 0 only.\n", ch);
 		return FALSE;
@@ -469,7 +469,7 @@ VALIDATE_FUN(validate_move)
 	clan_t *clan;
 	EDIT_AREA(ch, pArea);
 
-	if (ch->pcdata->security < SECURITY_AREA_CREATE) {
+	if (PC(ch)->security < SECURITY_AREA_CREATE) {
 		char_puts("AreaEd: Insufficient security.\n", ch);
 		return FALSE;
 	}
@@ -682,7 +682,7 @@ static void move_obj(OBJ_INDEX_DATA *obj, AREA_DATA *pArea, int delta)
 		MOVE(obj->value[2]); /* container key */
 		if (touched) {
 			for (o = object_list; o; o = o->next)
-				if (o->pIndexData == obj)
+				if (o->pObjIndex == obj)
 					o->value[2] += delta;
 		}
 		break;
@@ -691,7 +691,7 @@ static void move_obj(OBJ_INDEX_DATA *obj, AREA_DATA *pArea, int delta)
 		MOVE(obj->value[4]); /* portal key */
 		if (touched) {
 			for (o = object_list; o; o = o->next)
-				if (o->pIndexData == obj) {
+				if (o->pObjIndex == obj) {
 					o->value[3] += delta;
 					o->value[4] += delta;
 				}

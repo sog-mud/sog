@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: hometown.c,v 1.5 1999-06-10 14:33:35 fjoe Exp $
+ * $Id: hometown.c,v 1.6 1999-09-08 10:40:10 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -64,7 +64,7 @@ bool hometown_restrict(hometown_t *h, CHAR_DATA *ch)
 	class_t *cl;
 
 	if ((r = race_lookup(ORG_RACE(ch))) == NULL
-	||  !r->pcdata
+	||  !r->race_pcdata
 	||  (cl = class_lookup(ch->class)) == NULL)
 		return TRUE;
 
@@ -136,18 +136,22 @@ int hometown_permanent(CHAR_DATA *ch)
 }
 
 /*
- * recall lookup by ch hometown and align (must always return non NULL)
+ * recall lookup ch hometown and align
+ * must always return non NULL, assumes !IS_NPC(ch)
  */
 ROOM_INDEX_DATA *get_recall(CHAR_DATA *ch)
 {
-	if (!IS_NPC(ch) && ch->pcdata->homepoint)
-		return ch->pcdata->homepoint;
-	return get_hometown(ch->hometown)->recall[NALIGN(ch)];
+	if (PC(ch)->homepoint)
+		return PC(ch)->homepoint;
+	return get_hometown(PC(ch)->hometown)->recall[NALIGN(ch)];
 }
 
+/*
+ * map of hometown by hometown and align lookup, assumes !IS_NPC(ch)
+ */
 OBJ_INDEX_DATA *get_map(CHAR_DATA *ch)
 {
-	return get_hometown(ch->hometown)->map[NALIGN(ch)];
+	return get_hometown(PC(ch)->hometown)->map[NALIGN(ch)];
 }
 
 ROOM_INDEX_DATA *get_random_recall(void)
@@ -155,9 +159,12 @@ ROOM_INDEX_DATA *get_random_recall(void)
 	return get_hometown(number_range(1, hometowns.nused-1))->recall[number_range(0, MAX_ANUM-1)];
 }
 
+/*
+ * altar by hometown and align lookup, assumes !IS_NPC(ch)
+ */
 altar_t *get_altar(CHAR_DATA *ch)
 {
-	return get_hometown(ch->hometown)->altar + NALIGN(ch);
+	return get_hometown(PC(ch)->hometown)->altar + NALIGN(ch);
 }
 
 /*----------------------------------------------------------------------------

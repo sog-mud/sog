@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_quest.c,v 1.120 1999-07-02 06:19:13 fjoe Exp $
+ * $Id: act_quest.c,v 1.121 1999-09-08 10:40:00 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -317,8 +317,8 @@ void qtrouble_set(CHAR_DATA *ch, int vnum, int count)
 		qt = malloc(sizeof(*qt));
 		qt->vnum = vnum;
 		qt->count = count;
-		qt->next = ch->pcdata->qtrouble;
-		ch->pcdata->qtrouble = qt;
+		qt->next = PC(ch)->qtrouble;
+		PC(ch)->qtrouble = qt;
 	}
 }
 
@@ -334,7 +334,7 @@ static CHAR_DATA* questor_lookup(CHAR_DATA *ch)
 	for (vch = ch->in_room->people; vch != NULL; vch = vch->next_in_room) {
 		if (!IS_NPC(vch)) 
 			continue;
-		if (IS_SET(vch->pIndexData->act, ACT_QUESTOR)) {
+		if (IS_SET(vch->pMobIndex->act, ACT_QUESTOR)) {
 			questor = vch;
 			break;
 		}
@@ -367,7 +367,7 @@ qtrouble_t *qtrouble_lookup(CHAR_DATA *ch, int vnum)
 {
 	qtrouble_t *qt;
 
-	for (qt = ch->pcdata->qtrouble; qt != NULL; qt = qt->next)
+	for (qt = PC(ch)->qtrouble; qt != NULL; qt = qt->next)
 		if (qt->vnum == vnum)
 			return qt;
 
@@ -381,7 +381,7 @@ qtrouble_t *qtrouble_lookup(CHAR_DATA *ch, int vnum)
 static void quest_points(CHAR_DATA *ch, char* arg)
 {
 	act("You have {W$j{x $qj{quest points}.",
-	    ch, (const void*) ch->pcdata->questpoints, NULL, TO_CHAR);
+	    ch, (const void*) PC(ch)->questpoints, NULL, TO_CHAR);
 }
 
 static void quest_info(CHAR_DATA *ch, char* arg)
@@ -391,27 +391,27 @@ static void quest_info(CHAR_DATA *ch, char* arg)
 		return;
 	}
 
-	if (ch->pcdata->questmob == -1) {
+	if (PC(ch)->questmob == -1) {
 		char_puts("Your quest is ALMOST complete!\nGet back to questor before your time runs out!\n", ch);
 		return;
 	}
 
-	if (ch->pcdata->questobj > 0) {
+	if (PC(ch)->questobj > 0) {
 		OBJ_INDEX_DATA *qinfoobj;
 
-		qinfoobj = get_obj_index(ch->pcdata->questobj);
+		qinfoobj = get_obj_index(PC(ch)->questobj);
 		if (qinfoobj != NULL) {
 			OBJ_DATA *obj = create_obj(qinfoobj, 0);
 			act("You are on a quest to recover the fabled {W$p{x!",
 			    ch, obj, NULL, TO_CHAR | ACT_FORMSH);
 			extract_obj(obj, 0);
 
-			if (ch->pcdata->questroom) {
+			if (PC(ch)->questroom) {
 				act("That location is in general area of "
 				    "{W$T{x for {W$r{x.",
 				    ch,
-				    ch->pcdata->questroom,
-				    ch->pcdata->questroom->area->name, 
+				    PC(ch)->questroom,
+				    PC(ch)->questroom->area->name, 
 				    TO_CHAR);
 			}
 		}
@@ -420,22 +420,22 @@ static void quest_info(CHAR_DATA *ch, char* arg)
 		return;
 	}
 
-	if (ch->pcdata->questmob > 0) {
+	if (PC(ch)->questmob > 0) {
 		MOB_INDEX_DATA *questinfo;
 
-		questinfo = get_mob_index(ch->pcdata->questmob);
+		questinfo = get_mob_index(PC(ch)->questmob);
 		if (questinfo != NULL) {
 			CHAR_DATA *mob = create_mob(questinfo);
 			act("You are on a quest to slay the dreaded {W$N{x!",
 			    ch, NULL, mob, TO_CHAR | ACT_FORMSH);
 			extract_char(mob, 0);
 
-			if (ch->pcdata->questroom) {
+			if (PC(ch)->questroom) {
 				act("That location is in general area of "
 				    "{W$T{x for {W$r{x.",
 				    ch,
-				    ch->pcdata->questroom,
-				    ch->pcdata->questroom->area->name, 
+				    PC(ch)->questroom,
+				    PC(ch)->questroom->area->name, 
 				    TO_CHAR);
 			}
 		} else 
@@ -448,18 +448,18 @@ static void quest_time(CHAR_DATA *ch, char* arg)
 {
 	if (!IS_ON_QUEST(ch)) {
 		char_puts("You aren't currently on a quest.\n", ch);
-		if (ch->pcdata->questtime < -1) {
+		if (PC(ch)->questtime < -1) {
 			act("There are {W$j{x $qj{minutes} remaining until "
 			    "you can go on another quest.",
-			    ch, (const void*) -ch->pcdata->questtime, NULL,
+			    ch, (const void*) -PC(ch)->questtime, NULL,
 			    TO_CHAR);
-	    	} else if (ch->pcdata->questtime == -1) {
+	    	} else if (PC(ch)->questtime == -1) {
 			char_puts("There is less than a minute remaining until you can go on another quest.\n", ch);
 		}
 	}
 	else {
 		act("Time left for current quest: {W$j{x $qj{minutes}.",
-		    ch, (const void*) ch->pcdata->questtime, NULL,
+		    ch, (const void*) PC(ch)->questtime, NULL,
 		    TO_CHAR);
 	}
 }
@@ -516,7 +516,7 @@ static void quest_buy(CHAR_DATA *ch, char *arg)
 			&&  !is_name(cl->name, qitem->restrict_class))
 				continue;
 
-			if (ch->pcdata->questpoints < qitem->price) {
+			if (PC(ch)->questpoints < qitem->price) {
 				QUESTOR_TELLS_YOU(questor, ch);
 				act_puts("    Sorry, $N, but you don't have "
 					 "enough quest points for that.",
@@ -531,7 +531,7 @@ static void quest_buy(CHAR_DATA *ch, char *arg)
 						qitem->vnum, 0);
 
 			if (buy_ok) 
-				ch->pcdata->questpoints -= qitem->price;
+				PC(ch)->questpoints -= qitem->price;
 			return;
 		}
 
@@ -564,7 +564,7 @@ static void quest_request(CHAR_DATA *ch, char *arg)
     		return;
 	} 
 
-	if (ch->pcdata->questtime < 0) {
+	if (PC(ch)->questtime < 0) {
 		act_puts("    You're very brave, $N, but let someone else "
 			 "have a chance.",
 			 questor, NULL, ch, TO_VICT, POS_DEAD);
@@ -586,24 +586,24 @@ static void quest_request(CHAR_DATA *ch, char *arg)
 		if (!IS_NPC(victim)
 		||  (ch->level < 51 && (diff > 4 || diff < -1))
 		||  (ch->level > 50 && (diff > 6 || diff < 0))
-		||  victim->pIndexData->pShop
+		||  victim->pMobIndex->pShop
 		||  victim->race == ch->race
 		||  victim->invis_level
 		||  victim->incog_level
 		||  (IS_EVIL(victim) && IS_EVIL(ch))
 		||  (IS_GOOD(victim) && IS_GOOD(ch))
-		||  victim->pIndexData->vnum < 100
-		||  IS_SET(victim->pIndexData->act,
+		||  victim->pMobIndex->vnum < 100
+		||  IS_SET(victim->pMobIndex->act,
 			   ACT_TRAIN | ACT_PRACTICE | ACT_HEALER |
 			   ACT_NOTRACK | ACT_PET)
-		||  IS_SET(victim->pIndexData->imm_flags, IMM_SUMMON)
-		||  questor->pIndexData == victim->pIndexData
+		||  IS_SET(victim->pMobIndex->imm_flags, IMM_SUMMON)
+		||  questor->pMobIndex == victim->pMobIndex
 		||  victim->in_room == NULL
-		||  (IS_SET(victim->pIndexData->act, ACT_SENTINEL) &&
+		||  (IS_SET(victim->pMobIndex->act, ACT_SENTINEL) &&
 		     IS_SET(victim->in_room->room_flags,
 			    ROOM_PRIVATE | ROOM_SOLITARY))
 		||  !str_cmp(victim->in_room->area->name,
-			     hometown_name(ch->hometown))
+			     hometown_name(PC(ch)->hometown))
 		||  IS_SET(victim->in_room->area->area_flags,
 			   AREA_CLOSED | AREA_NOQUEST))
 			continue;
@@ -615,12 +615,12 @@ static void quest_request(CHAR_DATA *ch, char *arg)
 	if (mob_count == 0) {
 		act_puts("    I'm sorry, but i don't have any quests for you "
 			 "at this time.", questor, NULL, ch, TO_VICT, POS_DEAD);
-		ch->pcdata->questtime = -5;
+		PC(ch)->questtime = -5;
 		return;
 	}
 
 	victim = mobs[number_range(0, mob_count-1)];
-	ch->pcdata->questroom = victim->in_room;
+	PC(ch)->questroom = victim->in_room;
 
 	if (chance(40)) { /* Quest to find an obj */
 		OBJ_DATA *eyed;
@@ -637,12 +637,12 @@ static void quest_request(CHAR_DATA *ch, char *arg)
 		eyed = create_obj(get_obj_index(obj_vnum), 0);
 		eyed->level = ch->level;
 		mlstr_cpy(&eyed->owner, &ch->short_descr);
-		eyed->ed = ed_new2(eyed->pIndexData->ed, ch->name);
+		eyed->ed = ed_new2(eyed->pObjIndex->ed, ch->name);
 		eyed->cost = 0;
 		eyed->timer = 30;
 
 		obj_to_room(eyed, victim->in_room);
-		ch->pcdata->questobj = eyed->pIndexData->vnum;
+		PC(ch)->questobj = eyed->pObjIndex->vnum;
 
 		act_puts("    Vile pilferers have stolen {W$p{x "
 			 "from the royal treasury!",
@@ -685,14 +685,14 @@ static void quest_request(CHAR_DATA *ch, char *arg)
 			 questor, victim->in_room->area->name, ch,
 			 TO_VICT, POS_DEAD);
 
-		ch->pcdata->questmob = victim->pIndexData->vnum;
-		victim->hunter = ch;
+		PC(ch)->questmob = victim->pMobIndex->vnum;
+		NPC(victim)->hunter = ch;
 	}
 
-	ch->pcdata->questgiver = questor->pIndexData->vnum;
-	ch->pcdata->questtime = number_range(10, 20) + ch->level/10;
+	PC(ch)->questgiver = questor->pMobIndex->vnum;
+	PC(ch)->questtime = number_range(10, 20) + ch->level/10;
 	act_puts("    You have {W$j{x $qj{minutes} to complete this quest.", 
-		 questor, (const void*) ch->pcdata->questtime, ch,
+		 questor, (const void*) PC(ch)->questtime, ch,
 		 TO_VICT, POS_DEAD);
 	act_puts("    May the gods go with you!",
 		 questor, NULL, ch, TO_VICT, POS_DEAD);
@@ -724,7 +724,7 @@ static void quest_complete(CHAR_DATA *ch, char *arg)
 		return;
 	}
 
-	if (ch->pcdata->questgiver != questor->pIndexData->vnum) {
+	if (PC(ch)->questgiver != questor->pMobIndex->vnum) {
 		QUESTOR_TELLS_YOU(questor, ch);
 		act_puts("    I never sent you on a quest! Perhaps you're "
 			 "thinking of someone else.",
@@ -732,11 +732,11 @@ static void quest_complete(CHAR_DATA *ch, char *arg)
 		return;
 	}
 
-	if (ch->pcdata->questobj > 0)
+	if (PC(ch)->questobj > 0)
 		for (obj = ch->carrying; obj; obj = obj_next) {
 			obj_next = obj->next_content;
 
-			if (obj->pIndexData->vnum == ch->pcdata->questobj
+			if (obj->pObjIndex->vnum == PC(ch)->questobj
 			&&  IS_OWNER(ch, obj)) {
 				act_puts("You hand {W$p{x to $N.",
 					 ch, obj, questor, TO_CHAR, POS_DEAD);
@@ -753,7 +753,7 @@ static void quest_complete(CHAR_DATA *ch, char *arg)
 				break;
 			}
 		}
-	else if (ch->pcdata->questmob == -1) {
+	else if (PC(ch)->questmob == -1) {
 		if (chance(2))
 			prac_reward = number_range(1, 6);
 		qp_reward = number_range(15, 35);
@@ -772,7 +772,7 @@ static void quest_complete(CHAR_DATA *ch, char *arg)
 	}
 
 	ch->gold += gold_reward;
-	ch->pcdata->questpoints += qp_reward;
+	PC(ch)->questpoints += qp_reward;
 
 	act_puts("    Congratulations on completing your quest!",
 		 questor, NULL, ch, TO_VICT, POS_DEAD);
@@ -783,14 +783,14 @@ static void quest_complete(CHAR_DATA *ch, char *arg)
 		  TO_VICT, POS_DEAD);
 
 	if (prac_reward) {
-		ch->practice += prac_reward;
+		PC(ch)->practice += prac_reward;
 		act_puts("    You gain {W$j{x $qj{practices}!",
 			 questor, (const void*) prac_reward, ch,
 			 TO_VICT, POS_DEAD);
 	}
 
 	quest_cancel(ch);
-	ch->pcdata->questtime = -number_range(8, 12);
+	PC(ch)->questtime = -number_range(8, 12);
 }
 
 static void quest_trouble(CHAR_DATA *ch, char *arg)
@@ -938,7 +938,7 @@ static bool quest_give_item(CHAR_DATA *ch, CHAR_DATA *questor,
 		/* `quest trouble' */
 		for (obj = object_list; obj != NULL; obj = obj_next) {
 			obj_next = obj->next;
-			if (obj->pIndexData->vnum == item_vnum 
+			if (obj->pObjIndex->vnum == item_vnum 
 			&&  IS_OWNER(ch, obj)) {
 				extract_obj(obj, 0);
 				break;
@@ -960,8 +960,8 @@ static bool quest_give_item(CHAR_DATA *ch, CHAR_DATA *questor,
 		qt = malloc(sizeof(*qt));
 		qt->vnum = item_vnum;
 		qt->count = 0;
-		qt->next = ch->pcdata->qtrouble;
-		ch->pcdata->qtrouble = qt;
+		qt->next = PC(ch)->qtrouble;
+		PC(ch)->qtrouble = qt;
 	}
 
 	if (qt) {
@@ -976,7 +976,7 @@ static bool quest_give_item(CHAR_DATA *ch, CHAR_DATA *questor,
 	if (IS_SET(pObjIndex->extra_flags, ITEM_QUEST)) {
 		mlstr_cpy(&reward->owner, &ch->short_descr);
 		mlstr_printf(&reward->short_descr,
-			     &reward->pIndexData->short_descr,
+			     &reward->pObjIndex->short_descr,
 			     IS_GOOD(ch) ?	"holy" :
 			     IS_NEUTRAL(ch) ?	"blue-green" : 
 						"evil", 
@@ -994,7 +994,7 @@ static bool quest_give_item(CHAR_DATA *ch, CHAR_DATA *questor,
 
 static bool buy_gold(CHAR_DATA *ch, CHAR_DATA *questor)
 {
-	ch->pcdata->bank_g += 50000;
+	PC(ch)->bank_g += 50000;
 	act("$N gives 50,000 gold pieces to $n.", ch, NULL, questor, TO_ROOM);
 	act("$N transfers 50,000 gold pieces to your bank account.",ch, NULL, questor, TO_CHAR);
 	return TRUE;
@@ -1002,7 +1002,7 @@ static bool buy_gold(CHAR_DATA *ch, CHAR_DATA *questor)
 
 static bool buy_prac(CHAR_DATA *ch, CHAR_DATA *questor)
 {
-	ch->practice += 60;
+	PC(ch)->practice += 60;
 	act("$N gives 60 practices to $n.", ch, NULL, questor, TO_ROOM);
 	act_puts("$N gives you 60 practices.",
 		 ch, NULL, questor, TO_CHAR, POS_DEAD);
@@ -1012,8 +1012,9 @@ static bool buy_prac(CHAR_DATA *ch, CHAR_DATA *questor)
 static bool buy_tattoo(CHAR_DATA *ch, CHAR_DATA *questor)
 {
 	OBJ_DATA *tattoo;
+	int rel = PC(ch)->religion;
 
-	if (!ch->religion) {
+	if (!rel) {
 		char_puts("You don't have a religion to have a tattoo.\n", ch);
 		return FALSE;
 	}
@@ -1024,7 +1025,7 @@ static bool buy_tattoo(CHAR_DATA *ch, CHAR_DATA *questor)
 		return FALSE;
 	}
 
-	tattoo = create_obj(get_obj_index(religion_table[ch->religion].vnum), 0);
+	tattoo = create_obj(get_obj_index(religion_table[rel].vnum), 0);
 
 	obj_to_char(tattoo, ch);
 	equip_char(ch, tattoo, WEAR_TATTOO);
@@ -1036,14 +1037,14 @@ static bool buy_tattoo(CHAR_DATA *ch, CHAR_DATA *questor)
 
 static bool buy_death(CHAR_DATA *ch, CHAR_DATA *questor)
 {
-	if (ch->pcdata->death < 1) {
+	if (PC(ch)->death < 1) {
 		QUESTOR_TELLS_YOU(questor, ch);
 		act_puts("    Sorry, $N, but you haven't got any deaths yet.",
 			 questor, NULL, ch, TO_VICT, POS_DEAD);
 		return FALSE;
 	}
 
-	ch->pcdata->death -= 1;
+	PC(ch)->death -= 1;
 	return TRUE;
 }
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: chquest.c,v 1.14 1999-06-28 09:19:23 fjoe Exp $
+ * $Id: chquest.c,v 1.15 1999-09-08 10:40:07 fjoe Exp $
  */
 
 /*
@@ -153,7 +153,7 @@ chquest_t *chquest_lookup(OBJ_INDEX_DATA *obj_index)
 
 chquest_t *chquest_lookup_obj(OBJ_DATA *obj)
 {
-	chquest_t *q = chquest_lookup(obj->pIndexData);
+	chquest_t *q = chquest_lookup(obj->pObjIndex);
 
 	if (q == NULL || !IS_RUNNING(q) || q->obj != obj)
 		return NULL;

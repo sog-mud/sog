@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: skills.h,v 1.15 1999-06-22 12:37:21 fjoe Exp $
+ * $Id: skills.h,v 1.16 1999-09-08 10:40:04 fjoe Exp $
  */
 
 #ifndef _SKILLS_H_
@@ -86,6 +86,9 @@ void		update_skills	(CHAR_DATA *ch);
 int		mana_cost	(CHAR_DATA *ch, int sn);
 void		say_spell	(CHAR_DATA *ch, int sn);
 
+/*
+ * exp_to_level assumes !IS_NPC(ch)
+ */
 int		base_exp	(CHAR_DATA *ch);
 int		exp_to_level	(CHAR_DATA *ch);
 int		exp_for_level	(CHAR_DATA *ch, int level);

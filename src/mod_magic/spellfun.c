@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.179 1999-07-30 05:18:26 avn Exp $
+ * $Id: spellfun.c,v 1.180 1999-09-08 10:40:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -282,7 +282,7 @@ void spell_calm(int sn, int level, CHAR_DATA *ch, void *vo)
 		for (vch = ch->in_room->people; vch; vch = vch->next_in_room) {
 			if (IS_NPC(vch)
 			&&  (IS_SET(vch->imm_flags, IMM_MAGIC) ||
-			     IS_SET(vch->pIndexData->act, ACT_UNDEAD)))
+			     IS_SET(vch->pMobIndex->act, ACT_UNDEAD)))
 				return;
 
 			if (IS_AFFECTED(vch, AFF_CALM | AFF_BERSERK)
@@ -650,7 +650,6 @@ void spell_healing_light(int sn, int level, CHAR_DATA *ch, void *vo)
 void spell_charm_person(int sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	char buf[MAX_INPUT_LENGTH];
 	AFFECT_DATA af;
 	int ladj;		/* level adjustment (for females) */
 
@@ -673,7 +672,7 @@ void spell_charm_person(int sn, int level, CHAR_DATA *ch, void *vo)
 	||  level+ladj < LEVEL(victim)
 	||  IS_SET(victim->imm_flags, IMM_CHARM)
 	||  saves_spell(level, victim, DAM_CHARM) 
-	||  (IS_NPC(victim) && victim->pIndexData->pShop != NULL)
+	||  (IS_NPC(victim) && victim->pMobIndex->pShop != NULL)
 	||  (victim->in_room &&
 	     IS_SET(victim->in_room->room_flags, ROOM_BATTLE_ARENA)))
 		return;
@@ -698,12 +697,12 @@ void spell_charm_person(int sn, int level, CHAR_DATA *ch, void *vo)
 		    ch, NULL, victim, TO_CHAR);
 
 	if (IS_NPC(victim) && !IS_NPC(ch)) {
-		victim->last_fought=ch;
+		NPC(victim)->last_fought = ch;
 		if (number_percent() < (4 + (LEVEL(victim) - LEVEL(ch))) * 10)
 		 	add_mind(victim, ch->name);
-		else if (victim->in_mind == NULL) {
-			snprintf(buf, sizeof(buf), "%d", victim->in_room->vnum);
-			victim->in_mind = str_dup(buf);
+		else if (NPC(victim)->in_mind == NULL) {
+			NPC(victim)->in_mind =
+				str_printf("%d", victim->in_room->vnum);
 		}
 	}
 }
@@ -828,7 +827,7 @@ void spell_create_water(int sn, int level, CHAR_DATA *ch, void *vo)
 	OBJ_DATA *obj = (OBJ_DATA *) vo;
 	int water;
 
-	if (obj->pIndexData->item_type != ITEM_DRINK_CON) {
+	if (obj->pObjIndex->item_type != ITEM_DRINK_CON) {
 		char_puts("It is unable to hold water.\n", ch);
 		return;
 	}
@@ -1307,7 +1306,7 @@ void spell_detect_poison(int sn, int level, CHAR_DATA *ch, void *vo)
 {
 	OBJ_DATA *obj = (OBJ_DATA *) vo;
 
-	if (obj->pIndexData->item_type == ITEM_DRINK_CON || obj->pIndexData->item_type == ITEM_FOOD)
+	if (obj->pObjIndex->item_type == ITEM_DRINK_CON || obj->pObjIndex->item_type == ITEM_FOOD)
 	{
 		if (obj->value[3] != 0)
 		    char_puts("You smell poisonous fumes.\n", ch);
@@ -1652,7 +1651,7 @@ void spell_enchant_armor(int sn, int level, CHAR_DATA *ch, void *vo)
 	bool ac_found = FALSE;
 	bool hp_found = FALSE;
 
-	if (obj->pIndexData->item_type != ITEM_ARMOR)
+	if (obj->pObjIndex->item_type != ITEM_ARMOR)
 	{
 		char_puts("That isn't an armor.\n",ch);
 		return;
@@ -1671,7 +1670,7 @@ void spell_enchant_armor(int sn, int level, CHAR_DATA *ch, void *vo)
 	/* find the bonuses */
 
 	if (!IS_SET(obj->extra_flags, ITEM_ENCHANTED))
-		for (paf = obj->pIndexData->affected; 
+		for (paf = obj->pObjIndex->affected; 
 	 	     paf != NULL; 
 		     paf = paf->next) {
 		    	if (paf->location == APPLY_AC) {
@@ -1753,7 +1752,7 @@ void spell_enchant_armor(int sn, int level, CHAR_DATA *ch, void *vo)
 		AFFECT_DATA *af_new;
 		SET_BIT(obj->extra_flags, ITEM_ENCHANTED);
 
-		for (paf = obj->pIndexData->affected; paf != NULL; paf = paf->next) 
+		for (paf = obj->pObjIndex->affected; paf != NULL; paf = paf->next) 
 		{
 		    af_new = aff_new();
 		
@@ -1855,7 +1854,7 @@ void spell_enchant_weapon(int sn, int level,CHAR_DATA *ch, void *vo)
 	int hit_bonus, dam_bonus, added;
 	bool hit_found = FALSE, dam_found = FALSE;
 
-	if (obj->pIndexData->item_type != ITEM_WEAPON)
+	if (obj->pObjIndex->item_type != ITEM_WEAPON)
 	{
 		char_puts("That isn't a weapon.\n",ch);
 		return;
@@ -1875,7 +1874,7 @@ void spell_enchant_weapon(int sn, int level,CHAR_DATA *ch, void *vo)
 	/* find the bonuses */
 
 	if (!IS_SET(obj->extra_flags, ITEM_ENCHANTED))
-		for (paf = obj->pIndexData->affected; paf != NULL; paf = paf->next)
+		for (paf = obj->pObjIndex->affected; paf != NULL; paf = paf->next)
 		{
 	        if (paf->location == APPLY_HITROLL)
 	        {
@@ -1966,7 +1965,7 @@ void spell_enchant_weapon(int sn, int level,CHAR_DATA *ch, void *vo)
 		AFFECT_DATA *af_new;
 		SET_BIT(obj->extra_flags, ITEM_ENCHANTED);
 
-		for (paf = obj->pIndexData->affected; paf != NULL; paf = paf->next) 
+		for (paf = obj->pObjIndex->affected; paf != NULL; paf = paf->next) 
 		{
 		    af_new = aff_new();
 		
@@ -2074,25 +2073,23 @@ void spell_energy_drain(int sn, int level, CHAR_DATA *ch, void *vo)
 	AFFECT_DATA af;
 	int dam;
 
-	if (saves_spell(level, victim,DAM_NEGATIVE))
-	{
-		char_puts("You feel a momentary chill.\n",victim);
+	if (saves_spell(level, victim, DAM_NEGATIVE)) {
+		char_puts("You feel a momentary chill.\n", victim);
 		return;
 	}
 
-
-	if (victim->level <= 2)
-	{
+	if (victim->level <= 2) {
 		dam		 = ch->hit + 1;
 	}
-	else
-	{
-		gain_exp(victim, 0 - number_range(level/5, 3 * level / 5));
+	else {
+		if (!IS_NPC(victim))
+			gain_exp(victim, 0 - number_range(level/5, 3*level/5));
 		victim->mana	/= 2;
 		victim->move	/= 2;
 		dam		 = dice(1, level);
 		ch->hit		+= dam;
 	}
+
 	if (number_percent() < 15) {
 		af.where 	= TO_AFFECTS;
 		af.type		= sn;
@@ -2103,10 +2100,10 @@ void spell_energy_drain(int sn, int level, CHAR_DATA *ch, void *vo)
 		af.bitvector	= 0;
 
 		affect_join(victim, &af);
-
 	}
-	char_puts("You feel your life slipping away!\n",victim);
-	char_puts("Wow....what a rush!\n",ch);
+
+	char_puts("You feel your life slipping away!\n", victim);
+	char_puts("Wow....what a rush!\n", ch);
 	damage(ch, victim, dam, sn, DAM_NEGATIVE, TRUE);
 }
 
@@ -2371,12 +2368,11 @@ void spell_frenzy(int sn, int level, CHAR_DATA *ch, void *vo)
 		return;
 	}
 
-	if ((IS_GOOD(ch) && !IS_GOOD(victim)) ||
-		(IS_NEUTRAL(ch) && !IS_NEUTRAL(victim)) ||
-		(IS_EVIL(ch) && !IS_EVIL(victim))
-	  )
-	{
-		act("Your god doesn't seem to like $N",ch,NULL,victim,TO_CHAR);
+	if ((IS_GOOD(ch) && !IS_GOOD(victim))
+	||  (IS_NEUTRAL(ch) && !IS_NEUTRAL(victim))
+	||  (IS_EVIL(ch) && !IS_EVIL(victim))) {
+		act("Your god doesn't seem to like $N.",
+		    ch, NULL, victim, TO_CHAR);
 		return;
 	}
 
@@ -2423,12 +2419,13 @@ void spell_gate(int sn, int level, CHAR_DATA *ch, void *vo)
 		return;
 	}
 
-	if (ch->pet && ch->in_room == ch->pet->in_room)
-		pet = ch->pet;
+	pet = GET_PET(ch);
+	if (pet && pet->in_room != ch->in_room)
+		pet = NULL;
 
 	gate(ch, victim);
 	if (pet && !IS_AFFECTED(pet, AFF_SLEEP)) {
-		if (ch->pet->position != POS_STANDING)
+		if (pet->position != POS_STANDING)
 			dofun("stand", pet, str_empty);
 		gate(pet, victim);
 	}
@@ -2481,7 +2478,7 @@ void spell_haste(int sn, int level, CHAR_DATA *ch, void *vo)
  
 	if (is_affected(victim, sn)
 	||  IS_AFFECTED(victim,AFF_HASTE)
-	||  (IS_NPC(victim) && IS_SET(victim->pIndexData->off_flags, OFF_FAST))) {
+	||  (IS_NPC(victim) && IS_SET(victim->pMobIndex->off_flags, OFF_FAST))) {
 		if (victim == ch)
 			char_puts("You can't move any faster!\n",ch);
 		else
@@ -2628,7 +2625,7 @@ void spell_heat_metal(int sn, int level, CHAR_DATA *ch, void *vo)
 		    &&   is_metal(obj_lose)
 		    &&   !IS_OBJ_STAT(obj_lose,ITEM_BURN_PROOF))
 		    {
-			switch (obj_lose->pIndexData->item_type)
+			switch (obj_lose->pObjIndex->item_type)
 			{
 			case ITEM_ARMOR:
 			if (obj_lose->wear_loc != -1) /* remove the item */
@@ -2792,7 +2789,8 @@ void spell_holy_word(int sn, int level, CHAR_DATA *ch, void *vo)
 	}
 
 	char_puts("You feel drained.\n", ch);
-	gain_exp(ch, -1 * number_range(1,10) * 5);
+	if (!IS_NPC(ch))
+		gain_exp(ch, -1 * number_range(1, 10) * 5);
 	ch->move /= (4/3);
 	ch->hit /= (4/3);
 }
@@ -2805,7 +2803,7 @@ void spell_identify(int sn, int level, CHAR_DATA *ch, void *vo)
 	output = buf_new(-1);
 	format_obj(output, obj);
 	if (!IS_SET(obj->extra_flags, ITEM_ENCHANTED))
-		format_obj_affects(output, obj->pIndexData->affected,
+		format_obj_affects(output, obj->pObjIndex->affected,
 				   FOA_F_NODURATION | FOA_F_NOAFFECTS);
 	format_obj_affects(output, obj->affected, FOA_F_NOAFFECTS);
 	page_to_char(buf_string(output), ch);
@@ -2820,7 +2818,7 @@ void spell_improved_identify(int sn, int level, CHAR_DATA *ch, void *vo)
 	output = buf_new(-1);
 	format_obj(output, obj);
 	if (!IS_SET(obj->extra_flags, ITEM_ENCHANTED))
-		format_obj_affects(output, obj->pIndexData->affected,
+		format_obj_affects(output, obj->pObjIndex->affected,
 					FOA_F_NODURATION);
 	format_obj_affects(output, obj->affected, 0);
 	page_to_char(buf_string(output), ch);
@@ -2947,7 +2945,7 @@ void spell_locate_object(int sn, int level, CHAR_DATA *ch, void *vo)
 	for (obj = object_list; obj != NULL; obj = obj->next) {
 		if (!can_see_obj(ch, obj) || !is_name(target_name, obj->name)
 		||  IS_OBJ_STAT(obj, ITEM_NOLOCATE)
-		||  (IS_SET(obj->pIndexData->extra_flags, ITEM_CHQUEST) &&
+		||  (IS_SET(obj->pObjIndex->extra_flags, ITEM_CHQUEST) &&
 		     chquest_carried_by(obj) == NULL)
 		||  number_percent() > 2 * level
 		||  LEVEL(ch) < obj->level)
@@ -3133,7 +3131,7 @@ void spell_plague(int sn, int level, CHAR_DATA *ch, void *vo)
 	AFFECT_DATA af;
 
 	if (saves_spell(level,victim,DAM_DISEASE) ||
-		(IS_NPC(victim) && IS_SET(victim->pIndexData->act, ACT_UNDEAD)))
+		(IS_NPC(victim) && IS_SET(victim->pMobIndex->act, ACT_UNDEAD)))
 	{
 		if (ch->in_room == victim->in_room)
 		  act("$N seems to be unaffected.",ch,NULL,victim,TO_CHAR);
@@ -3163,7 +3161,7 @@ void spell_poison(int sn, int level, CHAR_DATA *ch, void *vo)
 	if (mem_is(vo, MT_OBJ)) {
 		OBJ_DATA *obj = (OBJ_DATA *) vo;
 
-		if (obj->pIndexData->item_type == ITEM_FOOD || obj->pIndexData->item_type == ITEM_DRINK_CON)
+		if (obj->pObjIndex->item_type == ITEM_FOOD || obj->pObjIndex->item_type == ITEM_DRINK_CON)
 		{
 		    if (IS_OBJ_STAT(obj,ITEM_BLESS) || IS_OBJ_STAT(obj,ITEM_BURN_PROOF))
 		    {
@@ -3175,7 +3173,7 @@ void spell_poison(int sn, int level, CHAR_DATA *ch, void *vo)
 		    return;
 		}
 
-		if (obj->pIndexData->item_type == ITEM_WEAPON)
+		if (obj->pObjIndex->item_type == ITEM_WEAPON)
 		{
 		    if (IS_WEAPON_STAT(obj,WEAPON_FLAMING)
 		    ||  IS_WEAPON_STAT(obj,WEAPON_FROST)
@@ -3336,8 +3334,8 @@ void spell_recharge(int sn, int level, CHAR_DATA *ch, void *vo)
 	OBJ_DATA *obj = (OBJ_DATA *) vo;
 	int chance, percent;
 
-	if (obj->pIndexData->item_type != ITEM_WAND
-	&&  obj->pIndexData->item_type != ITEM_STAFF) {
+	if (obj->pObjIndex->item_type != ITEM_WAND
+	&&  obj->pObjIndex->item_type != ITEM_STAFF) {
 		char_puts("That item does not carry charges.\n",ch);
 		return;
 	}
@@ -3607,7 +3605,7 @@ void spell_sleep(int sn, int level, CHAR_DATA *ch, void *vo)
 	AFFECT_DATA af;
 
 	if (IS_AFFECTED(victim, AFF_SLEEP)
-	||  (IS_NPC(victim) && IS_SET(victim->pIndexData->act, ACT_UNDEAD))
+	||  (IS_NPC(victim) && IS_SET(victim->pMobIndex->act, ACT_UNDEAD))
 	||  saves_spell(level, victim, DAM_CHARM))
 		return;
 
@@ -3725,18 +3723,18 @@ void spell_summon(int sn, int level, CHAR_DATA *ch, void *vo)
 	     victim->in_room->exit[5] == NULL))
 		failed = TRUE;
 	else if (IS_NPC(victim)) {
-		if (victim->pIndexData->pShop != NULL
+		if (victim->pMobIndex->pShop != NULL
 		||  saves_spell(level, victim, DAM_OTHER)
-		||  IS_SET(victim->pIndexData->act, ACT_AGGRESSIVE)
+		||  IS_SET(victim->pMobIndex->act, ACT_AGGRESSIVE)
 		||  IS_SET(ch->in_room->room_flags, ROOM_NOMOB)
-		||  victim->hunter)
+		||  NPC(victim)->hunter)
 			failed = TRUE;
 	}
 	else {
 		if (victim->level >= LEVEL_HERO
 		||  ((!in_PK(ch, victim) ||
 		      ch->in_room->area != victim->in_room->area) &&
-		     IS_SET(victim->plr_flags, PLR_NOSUMMON))
+		     IS_SET(PC(victim)->plr_flags, PLR_NOSUMMON))
 		||  !guild_ok(victim, ch->in_room))
 			failed = TRUE;
 	}
@@ -3746,10 +3744,10 @@ void spell_summon(int sn, int level, CHAR_DATA *ch, void *vo)
 		return;
 	}
 
-	if (IS_NPC(victim) && victim->in_mind == NULL) {
+	if (IS_NPC(victim) && NPC(victim)->in_mind == NULL) {
 		char buf[MAX_INPUT_LENGTH];
 		snprintf(buf, sizeof(buf), "%d", victim->in_room->vnum);
-		victim->in_mind = str_dup(buf);
+		NPC(victim)->in_mind = str_dup(buf);
 	}
 
 	transfer_char(victim, ch, ch->in_room,
@@ -3847,6 +3845,7 @@ void spell_word_of_recall(int sn, int level, CHAR_DATA *ch,void *vo)
 
 	if (IS_NPC(victim))
 		return;
+
 	if (victim->fighting
 	&&  (vcl = class_lookup(victim->class))
 	&&  !CAN_FLEE(victim, vcl)) {
@@ -3875,13 +3874,13 @@ void spell_word_of_recall(int sn, int level, CHAR_DATA *ch,void *vo)
 	}
 
 	if (victim->fighting) {
-		if (victim == ch)
+		if (victim == ch && !IS_NPC(ch))
 			gain_exp(victim, 0 - (victim->level + 25));
 		stop_fighting(victim, TRUE);
 	}
 
 	ch->move /= 2;
-	pet = victim->pet;
+	pet = GET_PET(victim);
 	location = get_recall(victim);
 	recall(victim, location);
 
@@ -4139,7 +4138,7 @@ void spell_find_object(int sn, int level, CHAR_DATA *ch, void *vo)
 		if (!can_see_obj(ch, obj) || !is_name(target_name, obj->name)
 		||  number_percent() > 2 * level
 		||  LEVEL(ch) < obj->level
-		||  (IS_SET(obj->pIndexData->extra_flags, ITEM_CHQUEST) &&
+		||  (IS_SET(obj->pObjIndex->extra_flags, ITEM_CHQUEST) &&
 		     chquest_carried_by(obj) == NULL))
 			continue;
 
@@ -4443,7 +4442,7 @@ void spell_hand_of_undead(int sn, int level, CHAR_DATA *ch, void *vo)
 		return;
 	}
 
-	if (IS_NPC(victim) && IS_SET(victim->pIndexData->act, ACT_UNDEAD)) {
+	if (IS_NPC(victim) && IS_SET(victim->pMobIndex->act, ACT_UNDEAD)) {
 		 char_puts("Your victim is unaffected by hand of undead.\n",ch);
 		 return;
 	}
@@ -4486,8 +4485,9 @@ void spell_astral_walk(int sn, int level, CHAR_DATA *ch, void *vo)
 		return;
 	}
 
-	if (ch->pet && ch->in_room == ch->pet->in_room)
-		pet = ch->pet;
+	pet = GET_PET(ch);
+	if (pet && pet->in_room != ch->in_room)
+		pet = NULL;
 
 	astral_walk(ch, victim);
 	if (pet && !IS_AFFECTED(pet, AFF_SLEEP)) {
@@ -4572,7 +4572,7 @@ void spell_corruption(int sn, int level, CHAR_DATA *ch, void *vo)
 
 	if (IS_IMMORTAL(victim)
 	||  saves_spell(level, victim, DAM_NEGATIVE)
-	||  (IS_NPC(victim) && IS_SET(victim->pIndexData->act, ACT_UNDEAD))) {
+	||  (IS_NPC(victim) && IS_SET(victim->pMobIndex->act, ACT_UNDEAD))) {
 		if (ch == victim)
 			act_puts("You feel momentarily ill, but it passes.",
 				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
@@ -4671,13 +4671,13 @@ void spell_take_revenge(int sn, int level, CHAR_DATA *ch, void *vo)
 	ROOM_INDEX_DATA *room = NULL;
 	bool found = FALSE;
  
-	if (IS_NPC(ch) && !IS_SET(ch->plr_flags, PLR_GHOST)) {
+	if (IS_NPC(ch) || !IS_SET(PC(ch)->plr_flags, PLR_GHOST)) {
 		char_puts("It is too late to take revenge.\n",ch);
 		return;
 	}
 
 	for (obj = object_list; obj; obj = obj->next) {
-		if (obj->pIndexData->vnum != OBJ_VNUM_CORPSE_PC
+		if (obj->pObjIndex->vnum != OBJ_VNUM_CORPSE_PC
 		||  !IS_OWNER(ch, obj))
 			continue;
 

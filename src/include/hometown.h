@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: hometown.h,v 1.3 1999-04-17 06:56:39 fjoe Exp $
+ * $Id: hometown.h,v 1.4 1999-09-08 10:40:02 fjoe Exp $
  */
 
 #ifndef _HOMETOWN_H_
@@ -56,9 +56,11 @@ bool		hometown_restrict(hometown_t *h, CHAR_DATA *ch);
 void		hometown_print_avail(CHAR_DATA *ch);
 int 		hometown_permanent(CHAR_DATA *ch);
 
+/* the following three functions assume ch is !IS_NPC */
 ROOM_INDEX_DATA*	get_recall(CHAR_DATA *ch);
 OBJ_INDEX_DATA*		get_map(CHAR_DATA *ch);
-ROOM_INDEX_DATA*	get_random_recall(void);
 altar_t *		get_altar(CHAR_DATA *ch);
+ROOM_INDEX_DATA*	get_random_recall(void);
+
 
 #endif

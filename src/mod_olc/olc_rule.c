@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_rule.c,v 1.13 1999-06-29 10:57:06 fjoe Exp $
+ * $Id: olc_rule.c,v 1.14 1999-09-08 10:40:06 fjoe Exp $
  */
 
 #include "olc.h"
@@ -34,7 +34,7 @@
 #define EDIT_ROPS(ch, rops)	(rops = (ruleops_t*) cmd->arg1)
 #define EDIT_LANG(ch, l)						\
 	{								\
-		if ((l = varr_get(&langs, ch->lang)) == NULL) {		\
+		if ((l = varr_get(&langs, GET_LANG(ch))) == NULL) {	\
 			char_puts("RuleEd: unknown current language. "	\
 				  "Use 'lang' command to set "		\
 				  "correct language.\n", ch);		\
@@ -141,7 +141,7 @@ OLC_FUN(ruleed_create)
 	char arg2[MAX_STRING_LENGTH];
 	bool impl;
 
-	if (ch->pcdata->security < SECURITY_MSGDB) {
+	if (PC(ch)->security < SECURITY_MSGDB) {
 		char_puts("RuleEd: Insufficient security.\n", ch);
 		return FALSE;
 	}
@@ -192,7 +192,7 @@ OLC_FUN(ruleed_edit)
 	rule_t *r;
 	char arg[MAX_INPUT_LENGTH];
 
-	if (ch->pcdata->security < SECURITY_MSGDB) {
+	if (PC(ch)->security < SECURITY_MSGDB) {
 		char_puts("RuleEd: Insufficient security.\n", ch);
 		return FALSE;
 	}

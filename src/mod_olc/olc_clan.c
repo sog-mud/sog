@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_clan.c,v 1.30 1999-06-29 10:57:04 fjoe Exp $
+ * $Id: olc_clan.c,v 1.31 1999-09-08 10:40:05 fjoe Exp $
  */
 
 #include "olc.h"
@@ -83,7 +83,7 @@ OLC_FUN(claned_create)
 	clan_t *clan;
 	char arg[MAX_STRING_LENGTH];
 
-	if (ch->pcdata->security < SECURITY_CLAN) {
+	if (PC(ch)->security < SECURITY_CLAN) {
 		char_puts("ClanEd: Insufficient security for creating clans\n",
 			  ch);
 		return FALSE;
@@ -117,7 +117,7 @@ OLC_FUN(claned_edit)
 	int cln;
 	char arg[MAX_STRING_LENGTH];
 
-	if (ch->pcdata->security < SECURITY_CLAN) {
+	if (PC(ch)->security < SECURITY_CLAN) {
 		char_puts("ClanEd: Insufficient security.\n", ch);
 		return FALSE;
 	}
@@ -317,7 +317,7 @@ OLC_FUN(claned_plist)
 	clan_t *clan;
 	EDIT_CLAN(ch, clan);
 	
-	if (ch->pcdata->security < SECURITY_CLAN_PLIST) {
+	if (PC(ch)->security < SECURITY_CLAN_PLIST) {
 		char_puts("ClanEd: Insufficient security.\n", ch);
 		return FALSE;
 	}

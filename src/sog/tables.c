@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.84 1999-07-31 03:35:28 avn Exp $
+ * $Id: tables.c,v 1.85 1999-09-08 10:40:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -147,7 +147,6 @@ flag_t plr_flags[] =
 	{ "notitle",		PLR_NOTITLE,		FALSE	},
 	{ "noexp",		PLR_NOEXP,		FALSE	},
 	{ "hara_kiri",		PLR_HARA_KIRI,		FALSE	},
-	{ "blink",		PLR_BLINK,		FALSE	},
 
 	{ NULL }
 };

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: quest.c,v 1.2 1999-06-28 09:04:18 fjoe Exp $
+ * $Id: quest.c,v 1.3 1999-09-08 10:40:11 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -31,31 +31,36 @@
 #include "merc.h"
 #include "quest.h"
 
+/*
+ * assumes IS_NPC(victim)
+ */
 void quest_handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
 {
+	CHAR_DATA *hunter;
+
 	if (IS_NPC(ch)
-	&&  IS_SET(ch->pIndexData->act, ACT_SUMMONED)
+	&&  IS_SET(ch->pMobIndex->act, ACT_SUMMONED)
 	&&  ch->master != NULL)
 		ch = ch->master;
 
-	if (victim->hunter)
-		if (victim->hunter == ch) {
+	if ((hunter = NPC(victim)->hunter) != NULL) {
+		if (hunter == ch) {
 			act_puts("You have almost completed your QUEST!\n"
 				 "Return to questmaster before your time "
 				 "runs out!",
 				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
-			ch->pcdata->questmob = -1;
+			PC(ch)->questmob = -1;
 		}
 		else {
 			act_puts("You have completed someone's quest.",
 				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 
-			ch = victim->hunter;
 			act_puts("Someone has completed your quest.",
-				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
-			quest_cancel(ch);
-			ch->pcdata->questtime = -number_range(5, 10);
+				 hunter, NULL, NULL, TO_CHAR, POS_DEAD);
+			quest_cancel(hunter);
+			PC(ch)->questtime = -number_range(5, 10);
 		}
+	}
 }
 
 void quest_cancel(CHAR_DATA *ch)
@@ -68,19 +73,21 @@ void quest_cancel(CHAR_DATA *ch)
 	}
 
 	/*
-	 * remove mob->hunter
+	 * remove NPC(mob)->hunter
 	 */
-	for (fch = npc_list; fch; fch = fch->next)
-		if (fch->hunter == ch) {
-			fch->hunter = NULL;
+	for (fch = npc_list; fch; fch = fch->next) {
+		NPC_DATA *npc = NPC(fch);
+		if (npc->hunter == ch) {
+			npc->hunter = NULL;
 			break;
 		}
+	}
 
-	ch->pcdata->questtime = 0;
-	ch->pcdata->questgiver = 0;
-	ch->pcdata->questmob = 0;
-	ch->pcdata->questobj = 0;
-	ch->pcdata->questroom = NULL;
+	PC(ch)->questtime = 0;
+	PC(ch)->questgiver = 0;
+	PC(ch)->questmob = 0;
+	PC(ch)->questobj = 0;
+	PC(ch)->questroom = NULL;
 }
 
 void quest_update(void)
@@ -90,17 +97,17 @@ void quest_update(void)
 	for (ch = char_list; ch && !IS_NPC(ch); ch = ch_next) {
 		ch_next = ch->next;
 
-		if (ch->pcdata->questtime < 0) {
-			if (++ch->pcdata->questtime == 0) {
+		if (PC(ch)->questtime < 0) {
+			if (++PC(ch)->questtime == 0) {
 				char_puts("{*You may now quest again.\n", ch);
 				return;
 			}
 		} else if (IS_ON_QUEST(ch)) {
-			if (--ch->pcdata->questtime == 0) {
+			if (--PC(ch)->questtime == 0) {
 				char_puts("You have run out of time for your quest!\n", ch);
 				quest_cancel(ch);
-				ch->pcdata->questtime = -number_range(5, 10);
-			} else if (ch->pcdata->questtime < 6) {
+				PC(ch)->questtime = -number_range(5, 10);
+			} else if (PC(ch)->questtime < 6) {
 				char_puts("Better hurry, you're almost out of time for your quest!\n", ch);
 				return;
 			}

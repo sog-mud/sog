@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: quest.h,v 1.9 1999-04-16 15:52:21 fjoe Exp $
+ * $Id: quest.h,v 1.10 1999-09-08 10:40:04 fjoe Exp $
  */
 
 #ifndef _QUEST_H_
@@ -41,7 +41,7 @@ struct qtrouble_t {
 	qtrouble_t *next;
 };
 
-#define IS_ON_QUEST(ch)	(ch->pcdata->questtime > 0)
+#define IS_ON_QUEST(ch)	(PC(ch)->questtime > 0)
 
 void quest_handle_death(CHAR_DATA *ch, CHAR_DATA *victim);
 void quest_cancel(CHAR_DATA *ch);

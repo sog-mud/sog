@@ -1,10 +1,8 @@
 #
-# $Id: Makefile,v 1.5 1999-07-21 06:40:57 avn Exp $
+# $Id: Makefile,v 1.6 1999-09-08 10:39:45 fjoe Exp $
 #
 
-MODULE_NAME = core.so.$(ABI_VERSION)
-MODULE_MASK = core.so.*
-
+MODULE = core
 CFILES = core.c
 
 .include "../Makefile.module"

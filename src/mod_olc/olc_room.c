@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.56 1999-07-30 05:18:20 avn Exp $
+ * $Id: olc_room.c,v 1.57 1999-09-08 10:40:06 fjoe Exp $
  */
 
 #include "olc.h"
@@ -660,7 +660,7 @@ OLC_FUN(roomed_oreset)
 		pReset->command	= 'P';
 		pReset->arg1	= pObjIndex->vnum;
 		pReset->arg2	= 0;
-		pReset->arg3	= to_obj->pIndexData->vnum;
+		pReset->arg3	= to_obj->pObjIndex->vnum;
 		pReset->arg4	= 1;
 		reset_add(pReset, pRoom,  0);
 
@@ -671,9 +671,9 @@ OLC_FUN(roomed_oreset)
 		char_printf(ch, "%s (%d) has been loaded into "
 			"%s (%d) and added to resets.\n",
 			mlstr_mval(&newobj->short_descr),
-			newobj->pIndexData->vnum,
+			newobj->pObjIndex->vnum,
 			mlstr_mval(&to_obj->short_descr),
-			to_obj->pIndexData->vnum);
+			to_obj->pObjIndex->vnum);
 	}
 	else
 	/*
@@ -723,7 +723,7 @@ OLC_FUN(roomed_oreset)
 		olevel  = URANGE(0, to_mob->level - 2, LEVEL_HERO);
 		 newobj = create_obj(pObjIndex, 0);
 
-		if (to_mob->pIndexData->pShop) {	/* Shop-keeper? */
+		if (to_mob->pMobIndex->pShop) {	/* Shop-keeper? */
 			switch (pObjIndex->item_type) {
 			default:		olevel = 0;		break;
 			case ITEM_PILL:	olevel = number_range( 0, 10);	break;
@@ -756,7 +756,7 @@ OLC_FUN(roomed_oreset)
 			pObjIndex->vnum,
 			flag_string(wear_loc_strings, pReset->arg3),
 			mlstr_mval(&to_mob->short_descr),
-			to_mob->pIndexData->vnum);
+			to_mob->pMobIndex->vnum);
 	}
 	else	/* Display Syntax */
 	{

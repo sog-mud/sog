@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.109 1999-08-24 07:14:55 kostik Exp $
+ * $Id: martial_art.c,v 1.110 1999-09-08 10:39:58 fjoe Exp $
  */
 
 /***************************************************************************
@@ -157,7 +157,7 @@ void do_murder(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (IS_AFFECTED(ch, AFF_CHARM)
-	||  (IS_NPC(ch) && IS_SET(ch->pIndexData->act, ACT_PET)))
+	||  (IS_NPC(ch) && IS_SET(ch->pMobIndex->act, ACT_PET)))
 		return;
 
 	if ((victim = get_char_room(ch, arg)) == NULL) {
@@ -207,7 +207,7 @@ void do_murder(CHAR_DATA *ch, const char *argument)
 	}
 
 	multi_hit(ch, victim, TYPE_UNDEFINED);
-	yell(victim, ch, "Help! $I is attacking me!");
+	yell(victim, ch, "Help! $lu{$I} is attacking me!");
 }
 
 void do_flee(CHAR_DATA *ch, const char *argument)
@@ -272,15 +272,16 @@ void do_flee(CHAR_DATA *ch, const char *argument)
 				char_printf(ch, "You lose %d exps.\n", 10);
 				gain_exp(ch, -10);
 			}
-		} else
-			ch->last_fought = NULL;
+		} else {
+			/* Once fled, the mob will not go after */
+			NPC(ch)->last_fought = NULL;
+		}
 
 		stop_fighting(ch, TRUE);
 		return;
 	}
 
 	char_puts("PANIC! You couldn't escape!\n", ch);
-	return;
 }
 
 /*
@@ -578,9 +579,9 @@ void do_bash(CHAR_DATA *ch, const char *argument)
 		chance -= 10;
 
 	/* speed */
-	if (IS_NPC(ch) && IS_SET(ch->pIndexData->off_flags, OFF_FAST))
+	if (IS_NPC(ch) && IS_SET(ch->pMobIndex->off_flags, OFF_FAST))
 		chance += 10;
-	if (IS_NPC(victim) && IS_SET(victim->pIndexData->off_flags, OFF_FAST))
+	if (IS_NPC(victim) && IS_SET(victim->pMobIndex->off_flags, OFF_FAST))
 		chance -= 20;
 
 	/* level */
@@ -629,7 +630,7 @@ void do_bash(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (attack)
-		yell(victim, ch, "Help! $I is bashing me!");
+		yell(victim, ch, "Help! $lu{$I} is bashing me!");
 }
 
 void do_dirt(CHAR_DATA *ch, const char *argument)
@@ -704,10 +705,10 @@ void do_dirt(CHAR_DATA *ch, const char *argument)
 	chance -= 2 * get_curr_stat(victim, STAT_DEX);
 
 	/* speed  */
-	if ((IS_NPC(ch) && IS_SET(ch->pIndexData->off_flags, OFF_FAST))
+	if ((IS_NPC(ch) && IS_SET(ch->pMobIndex->off_flags, OFF_FAST))
 	||  IS_AFFECTED(ch, AFF_HASTE))
 		chance += 10;
-	if ((IS_NPC(victim) && IS_SET(victim->pIndexData->off_flags, OFF_FAST))
+	if ((IS_NPC(victim) && IS_SET(victim->pMobIndex->off_flags, OFF_FAST))
 	||  IS_AFFECTED(victim, AFF_HASTE))
 		chance -= 25;
 
@@ -765,7 +766,7 @@ void do_dirt(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (attack)
-		yell(victim, ch, "Help! $I just kicked dirt into my eyes!");
+		yell(victim, ch, "Help! $lu{$I} just kicked dirt into my eyes!");
 }
 
 void do_trip(CHAR_DATA *ch, const char *argument)
@@ -849,10 +850,10 @@ void do_trip(CHAR_DATA *ch, const char *argument)
 		chance -= 10;
 
 	/* speed */
-	if ((IS_NPC(ch) && IS_SET(ch->pIndexData->off_flags, OFF_FAST))
+	if ((IS_NPC(ch) && IS_SET(ch->pMobIndex->off_flags, OFF_FAST))
 	||  IS_AFFECTED(ch, AFF_HASTE))
 		chance += 10;
-	if ((IS_NPC(victim) && IS_SET(victim->pIndexData->off_flags, OFF_FAST))
+	if ((IS_NPC(victim) && IS_SET(victim->pMobIndex->off_flags, OFF_FAST))
 	||  IS_AFFECTED(victim, AFF_HASTE))
 		chance -= 20;
 
@@ -884,7 +885,7 @@ void do_trip(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (attack)
-		yell(victim, ch, "Help! $I just tripped me!");
+		yell(victim, ch, "Help! $lu{$I} just tripped me!");
 }
 
 void do_backstab(CHAR_DATA *ch, const char *argument)
@@ -1469,7 +1470,7 @@ void do_nerve(CHAR_DATA *ch, const char *argument)
 		check_improve(ch, gsn_nerve, FALSE, 1);
 	}
 	if (attack)
-		yell(victim, ch, "Help! $I is attacking me!");
+		yell(victim, ch, "Help! $lu{$I} is attacking me!");
 	multi_hit(victim,ch,TYPE_UNDEFINED);
 }
 
@@ -1548,7 +1549,7 @@ void do_tame(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (!IS_SET(victim->pIndexData->act, ACT_AGGRESSIVE)) {
+	if (!IS_SET(victim->pMobIndex->act, ACT_AGGRESSIVE)) {
 		act("$N is not usually aggressive.", ch, NULL, victim, TO_CHAR);
 		return;
 	}
@@ -1659,7 +1660,7 @@ void do_assassinate(CHAR_DATA *ch, const char *argument)
 		check_improve(ch, gsn_assassinate, FALSE, 1);
 		damage(ch, victim, 0, gsn_assassinate, DAM_NONE, TRUE);
 	}
-	yell(victim, ch, "Help! $I tries to assasinate me!");
+	yell(victim, ch, "Help! $lu{$I} tries to assasinate me!");
 }
 
 void do_caltrops(CHAR_DATA *ch, const char *argument)
@@ -1807,9 +1808,9 @@ void do_throw(CHAR_DATA *ch, const char *argument)
 		chance += 10;
 
 	/* speed */
-	if (IS_NPC(ch) && IS_SET(ch->pIndexData->off_flags, OFF_FAST))
+	if (IS_NPC(ch) && IS_SET(ch->pMobIndex->off_flags, OFF_FAST))
 		chance += 10;
-	if (IS_NPC(victim) && IS_SET(victim->pIndexData->off_flags, OFF_FAST))
+	if (IS_NPC(victim) && IS_SET(victim->pMobIndex->off_flags, OFF_FAST))
 		chance -= 20;
 
 	/* level */
@@ -1975,7 +1976,7 @@ void do_blackjack(CHAR_DATA *ch, const char *argument)
 	chance /= 2;
 	chance += URANGE(0, (get_curr_stat(ch, STAT_DEX)-20)*2, 10);
 	chance += can_see(victim, ch) ? 0 : 5;
-	if (IS_NPC(victim) && victim->pIndexData->pShop != NULL)
+	if (IS_NPC(victim) && victim->pMobIndex->pShop != NULL)
 		chance -= 40;
 
 	WAIT_STATE(ch, SKILL(gsn_blackjack)->beats);
@@ -2176,13 +2177,13 @@ void do_trophy(CHAR_DATA *ch, const char *argument)
 
 	WAIT_STATE(ch, SKILL(gsn_trophy)->beats);
 
-	if (part->pIndexData->vnum == OBJ_VNUM_SLICED_ARM
-	||  part->pIndexData->vnum == OBJ_VNUM_SLICED_LEG
-	||  part->pIndexData->vnum == OBJ_VNUM_SEVERED_HEAD
-	||  part->pIndexData->vnum == OBJ_VNUM_TORN_HEART
-	||  part->pIndexData->vnum == OBJ_VNUM_GUTS)
+	if (part->pObjIndex->vnum == OBJ_VNUM_SLICED_ARM
+	||  part->pObjIndex->vnum == OBJ_VNUM_SLICED_LEG
+	||  part->pObjIndex->vnum == OBJ_VNUM_SEVERED_HEAD
+	||  part->pObjIndex->vnum == OBJ_VNUM_TORN_HEART
+	||  part->pObjIndex->vnum == OBJ_VNUM_GUTS)
 		trophy_vnum = OBJ_VNUM_BATTLE_PONCHO;
-	else if (part->pIndexData->vnum == OBJ_VNUM_BRAINS) {
+	else if (part->pObjIndex->vnum == OBJ_VNUM_BRAINS) {
 		char_puts("Why don't you just eat those instead?\n", ch);
 		return;
 	}
@@ -2372,6 +2373,7 @@ void do_guard(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
+	CHAR_DATA *guarding;
 	int chance;
 	
 	if ((chance = get_skill(ch, gsn_guard)) == 0) {
@@ -2391,40 +2393,43 @@ void do_guard(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (IS_NPC(victim)) {
-		act("$N doesn't need any of your help!", ch, NULL, victim, TO_CHAR);
+		act("$N doesn't need any of your help!",
+		    ch, NULL, victim, TO_CHAR);
 		return;
 	}
 
+	guarding = PC(ch)->guarding;
+
 	if (!str_cmp(arg, "none") || !str_cmp(arg, "self") || victim == ch) {
-		if (ch->guarding == NULL) {
+		if (guarding == NULL) {
 			char_puts("You can't guard yourself!\n", ch);
 			return;
 		}
-		act("You stop guarding $N.", ch, NULL, ch->guarding, TO_CHAR);
-		act("$n stops guarding you.", ch, NULL, ch->guarding, TO_VICT);
-		act("$n stops guarding $N.", ch, NULL, ch->guarding, TO_NOTVICT);
-		ch->guarding->guarded_by = NULL;
-		ch->guarding             = NULL;
+		act("You stop guarding $N.", ch, NULL, guarding, TO_CHAR);
+		act("$n stops guarding you.", ch, NULL, guarding, TO_VICT);
+		act("$n stops guarding $N.", ch, NULL, guarding, TO_NOTVICT);
+		PC(guarding)->guarded_by	= NULL;
+		PC(ch)->guarding		= NULL;
 		return;
 	}
 
-	if (ch->guarding == victim) {
+	if (guarding == victim) {
 		act("You're already guarding $N!", ch, NULL, victim, TO_CHAR);
 		return;
 	}
 
-	if (ch->guarding != NULL) {
+	if (guarding != NULL) {
 		char_puts("But you're already guarding someone else!\n", ch);
 		return;
 	}
 
-	if (victim->guarded_by != NULL) {
+	if (PC(victim)->guarded_by != NULL) {
 		act("$N is already being guarded by someone.",
 		    ch, NULL, victim, TO_CHAR);
 		return;
 	}
 
-	if (victim->guarding == ch) {
+	if (PC(victim)->guarding == ch) {
 		act("But $N is guarding you!", ch, NULL, victim, TO_CHAR);
 		return;
 	}
@@ -2435,7 +2440,7 @@ void do_guard(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (IS_AFFECTED(ch,AFF_CHARM)) {
+	if (IS_AFFECTED(ch, AFF_CHARM)) {
 		act("You like your master too much to bother guarding $N!",
 		    ch, NULL, victim, TO_VICT);
 		return;
@@ -2457,8 +2462,8 @@ void do_guard(CHAR_DATA *ch, const char *argument)
 	act("You are being guarded by $n.", ch, NULL, victim, TO_VICT);
 	act("$n is now guarding $N.", ch, NULL, victim, TO_NOTVICT);
 
-	ch->guarding = victim;
-	victim->guarded_by = ch;
+	PC(ch)->guarding = victim;
+	PC(victim)->guarded_by = ch;
 }
 
 void do_explode(CHAR_DATA *ch, const char *argument)
@@ -2535,12 +2540,12 @@ void do_explode(CHAR_DATA *ch, const char *argument)
 		if (vch == victim) { /* full damage */
 			fire_effect(vch, level, dam, TARGET_CHAR);
 			damage(ch, vch, dam, gsn_explode, DAM_FIRE, TRUE);
-			yell(vch, ch, "Help! $I tries to burn me!");
+			yell(vch, ch, "Help! $lu{$I} tries to burn me!");
 		}
 		else { /* partial damage */
 			fire_effect(vch, level/2, dam/4, TARGET_CHAR);
 			damage(ch, vch, dam/2, gsn_explode, DAM_FIRE,TRUE);
-			yell(vch, ch, "Help! $I tries to burn me!");
+			yell(vch, ch, "Help! $lu{$I} tries to burn me!");
 		}
 	}
 
@@ -2727,10 +2732,10 @@ void do_hara(CHAR_DATA *ch, const char *argument)
 		ch->mana = 1;
 		ch->move = 1;
 
-		if (ch->pcdata->condition[COND_HUNGER] < 40) 
-			ch->pcdata->condition[COND_HUNGER] = 40; 
-		if (ch->pcdata->condition[COND_THIRST] < 40) 
-			ch->pcdata->condition[COND_THIRST] = 40; 
+		if (PC(ch)->condition[COND_HUNGER] < 40) 
+			PC(ch)->condition[COND_HUNGER] = 40; 
+		if (PC(ch)->condition[COND_THIRST] < 40) 
+			PC(ch)->condition[COND_THIRST] = 40; 
 
 		char_puts("Yo cut your finger and wait till all your blood "
 			  "finishes.\n",ch);
@@ -2738,7 +2743,7 @@ void do_hara(CHAR_DATA *ch, const char *argument)
 			 ch, NULL, NULL, TO_ROOM, POS_FIGHTING);
 		check_improve(ch, gsn_hara_kiri, TRUE, 2);
 		do_sleep(ch, str_empty);
-		SET_BIT(ch->plr_flags,PLR_HARA_KIRI);
+		SET_BIT(PC(ch)->plr_flags,PLR_HARA_KIRI);
 
 		af.where     = TO_AFFECTS;
 		af.type      = gsn_hara_kiri;
@@ -2803,7 +2808,7 @@ void do_shield(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (check_material(shield,"platinum")
-	||  shield->pIndexData->limit != -1)
+	||  shield->pObjIndex->limit != -1)
 		return;
 
 	if (axe->value[0] == WEAPON_AXE)
@@ -2885,7 +2890,7 @@ void do_weapon(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (check_material(wield,"platinum") || wield->pIndexData->limit != -1)
+	if (check_material(wield,"platinum") || wield->pObjIndex->limit != -1)
 		return;
 
 
@@ -3029,9 +3034,9 @@ void do_tail(CHAR_DATA *ch, const char *argument)
 		chance -= 10;
 
 	/* speed */
-	if (IS_NPC(ch) && IS_SET(ch->pIndexData->off_flags, OFF_FAST))
+	if (IS_NPC(ch) && IS_SET(ch->pMobIndex->off_flags, OFF_FAST))
 		chance += 20;
-	if (IS_NPC(victim) && IS_SET(victim->pIndexData->off_flags, OFF_FAST))
+	if (IS_NPC(victim) && IS_SET(victim->pMobIndex->off_flags, OFF_FAST))
 		chance -= 30;
 
 	/* level */
@@ -3079,7 +3084,7 @@ void do_tail(CHAR_DATA *ch, const char *argument)
 		WAIT_STATE(ch, SKILL(gsn_tail)->beats * 3/2); 
 	}
 	if (attack)
-		yell(victim, ch, "Help! $I tried to hit me with his tail!");
+		yell(victim, ch, "Help! $lu{$I} tried to hit me with his tail!");
 }
 
 void do_concentrate(CHAR_DATA *ch, const char *argument)
@@ -3238,7 +3243,7 @@ void do_katana(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (part->pIndexData->vnum != OBJ_VNUM_CHUNK_IRON) {
+	if (part->pObjIndex->vnum != OBJ_VNUM_CHUNK_IRON) {
 		char_puts("You do not have the right material.\n", ch);
 		return;
 	}
@@ -3280,7 +3285,7 @@ void do_katana(CHAR_DATA *ch, const char *argument)
 		affect_to_obj(katana, &af);
 
 		katana->value[2] = ch->level / 10;
-		katana->ed = ed_new2(katana->pIndexData->ed, ch->name);
+		katana->ed = ed_new2(katana->pObjIndex->ed, ch->name);
 			
 		obj_to_char(katana, ch);
 		check_improve(ch, gsn_katana, TRUE, 1);
@@ -3354,9 +3359,9 @@ void do_crush(CHAR_DATA *ch, const char *argument)
 		chance -= 10;
 
 	/* speed */
-	if (IS_NPC(ch) && IS_SET(ch->pIndexData->off_flags, OFF_FAST))
+	if (IS_NPC(ch) && IS_SET(ch->pMobIndex->off_flags, OFF_FAST))
 		chance += 10;
-	if (IS_NPC(victim) && IS_SET(victim->pIndexData->off_flags, OFF_FAST))
+	if (IS_NPC(victim) && IS_SET(victim->pMobIndex->off_flags, OFF_FAST))
 		chance -= 20;
 
 	/* level */
@@ -3543,7 +3548,7 @@ void do_blindness_dust(CHAR_DATA *ch, const char *argument)
 
 			spellfun_call("blindness", LEVEL(ch), ch, vch);
 			if (attack)
-				yell(vch, ch, "Help! $I just threw dust into my eyes!");
+				yell(vch, ch, "Help! $lu{$I} just threw dust into my eyes!");
 			if (vch != ch)
 				multi_hit(vch, ch, TYPE_UNDEFINED);
 		}
@@ -3640,8 +3645,10 @@ void do_dishonor(CHAR_DATA *ch, const char *argument)
 				gain_exp(ch, -(ch->level));
 			}
 		}
-		else
-			ch->last_fought = NULL;
+		else {
+			/* Once fled, the mob will not go after */
+			NPC(ch)->last_fought = NULL;
+		}
 
 		stop_fighting(ch, TRUE);
 		if (MOUNTED(ch))

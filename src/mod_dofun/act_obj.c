@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.163 1999-07-21 03:34:22 kostik Exp $
+ * $Id: act_obj.c,v 1.164 1999-09-08 10:39:54 fjoe Exp $
  */
 
 /***************************************************************************
@@ -139,7 +139,7 @@ void do_get(CHAR_DATA * ch, const char *argument)
 		return;
 	}
 
-	switch (container->pIndexData->item_type) {
+	switch (container->pObjIndex->item_type) {
 	default:
 		char_puts("That is not a container.\n", ch);
 		return;
@@ -177,7 +177,7 @@ void do_get(CHAR_DATA * ch, const char *argument)
 			if ((arg1[3] == '\0' || is_name(&arg1[4], obj->name))
 			    && can_see_obj(ch, obj)) {
 				found = TRUE;
-				if (IS_SET(container->pIndexData->extra_flags,
+				if (IS_SET(container->pObjIndex->extra_flags,
 					   ITEM_PIT)
 				&&  !IS_IMMORTAL(ch)) {
 					act_puts("Don't be so greedy!",
@@ -232,7 +232,7 @@ void do_put(CHAR_DATA * ch, const char *argument)
 		return;
 	}
 
-	if (container->pIndexData->item_type != ITEM_CONTAINER) {
+	if (container->pObjIndex->item_type != ITEM_CONTAINER) {
 		char_puts("That is not a container.\n", ch);
 		return;
 	}
@@ -267,7 +267,7 @@ void do_put(CHAR_DATA * ch, const char *argument)
 			return;
 		}
 
-		if (obj->pIndexData->limit != -1) {
+		if (obj->pObjIndex->limit != -1) {
 			act_puts("This unworthy container won't hold $p.",
 				 ch, obj, NULL, TO_CHAR, POS_DEAD);
 			return;
@@ -359,7 +359,7 @@ void do_drop(CHAR_DATA * ch, const char *argument)
 		for (obj = ch->in_room->contents; obj != NULL; obj = obj_next) {
 			obj_next = obj->next_content;
 
-			switch (obj->pIndexData->vnum) {
+			switch (obj->pObjIndex->vnum) {
 			case OBJ_VNUM_SILVER_ONE:
 			case OBJ_VNUM_GOLD_ONE:
 			case OBJ_VNUM_COINS:
@@ -522,7 +522,7 @@ void do_give(CHAR_DATA * ch, const char *argument)
 					 silver ? amount : amount * 100);
 
 		if (IS_NPC(victim)
-		&&  IS_SET(victim->pIndexData->act, ACT_CHANGER)) {
+		&&  IS_SET(victim->pMobIndex->act, ACT_CHANGER)) {
 			int             change;
 			change = (silver ? 95 * amount / 100 / 100
 				  : 95 * amount);
@@ -535,9 +535,7 @@ void do_give(CHAR_DATA * ch, const char *argument)
 				victim->gold += change;
 
 			if (change < 1 && can_see(victim, ch)) {
-				act("$n tells you '{GI'm sorry, you did not give me enough to change.{x'",
-				    victim, NULL, ch, TO_VICT);
-				ch->reply = victim;
+				do_tell_raw(victim, ch, "I'm sorry, you did not give me enough to change.");
 				dofun("give", victim, "%d %s %s",
 				      amount, silver ? "silver" : "gold",
 				      ch->name);
@@ -580,7 +578,7 @@ void do_give(CHAR_DATA * ch, const char *argument)
 		return;
 	}
 
-	if (IS_NPC(victim) && victim->pIndexData->pShop != NULL
+	if (IS_NPC(victim) && victim->pMobIndex->pShop != NULL
 	&&  !HAS_TRIGGER(victim, TRIG_GIVE)) {
 		do_tell_raw(victim, ch, "Sorry, you'll have to sell that.");
 		return;
@@ -604,7 +602,7 @@ void do_give(CHAR_DATA * ch, const char *argument)
 		return;
 	}
 
-	if (IS_SET(obj->pIndexData->extra_flags, ITEM_QUEST)
+	if (IS_SET(obj->pObjIndex->extra_flags, ITEM_QUEST)
 	&&  !IS_IMMORTAL(ch) && !IS_IMMORTAL(victim)) {
 		act_puts("Even you are not that silly to give $p to $N.",
 			 ch, obj, victim, TO_CHAR, POS_DEAD);
@@ -616,7 +614,7 @@ void do_give(CHAR_DATA * ch, const char *argument)
 		return;
 	}
 
-	if (obj->pIndexData->limit != -1) {
+	if (obj->pObjIndex->limit != -1) {
 		if ((IS_OBJ_STAT(obj, ITEM_ANTI_EVIL) && IS_EVIL(victim))
 		||  (IS_OBJ_STAT(obj, ITEM_ANTI_GOOD) && IS_GOOD(victim))
 		||  (IS_OBJ_STAT(obj, ITEM_ANTI_NEUTRAL) && IS_NEUTRAL(victim))) {
@@ -666,7 +664,7 @@ void do_envenom(CHAR_DATA * ch, const char *argument)
 		return;
 	}
 
-	if (obj->pIndexData->item_type == ITEM_FOOD || obj->pIndexData->item_type == ITEM_DRINK_CON) {
+	if (obj->pObjIndex->item_type == ITEM_FOOD || obj->pObjIndex->item_type == ITEM_DRINK_CON) {
 		if (IS_OBJ_STAT(obj, ITEM_BLESS)
 		||  IS_OBJ_STAT(obj, ITEM_BURN_PROOF)) {
 			act("You fail to poison $p.", ch, obj, NULL, TO_CHAR);
@@ -690,7 +688,7 @@ void do_envenom(CHAR_DATA * ch, const char *argument)
 			check_improve(ch, sn, FALSE, 4);
 		return;
 	}
-	else if (obj->pIndexData->item_type == ITEM_WEAPON) {
+	else if (obj->pObjIndex->item_type == ITEM_WEAPON) {
 		if (IS_WEAPON_STAT(obj, WEAPON_FLAMING)
 		||  IS_WEAPON_STAT(obj, WEAPON_FROST)
 		||  IS_WEAPON_STAT(obj, WEAPON_VAMPIRIC)
@@ -763,8 +761,8 @@ void do_feed(CHAR_DATA *ch, const char *argument)
 
 	for (vch = ch->in_room->people; vch; vch = vch->next_in_room) {
 		if (vch->master == ch && IS_NPC(vch)
-		&&  (vch->pIndexData->vnum == MOB_VNUM_COCOON ||
-		     vch->pIndexData->vnum == MOB_VNUM_BONE_DRAGON))
+		&&  (vch->pMobIndex->vnum == MOB_VNUM_COCOON ||
+		     vch->pMobIndex->vnum == MOB_VNUM_BONE_DRAGON))
 			break;
 	}
 
@@ -774,8 +772,8 @@ void do_feed(CHAR_DATA *ch, const char *argument)
 	}
 
 	for (obj = ch->carrying; obj; obj = obj->next_content)
-		if (obj->pIndexData->item_type == ITEM_CORPSE_NPC
-		||  obj->pIndexData->item_type == ITEM_CORPSE_PC)
+		if (obj->pObjIndex->item_type == ITEM_CORPSE_NPC
+		||  obj->pObjIndex->item_type == ITEM_CORPSE_PC)
 			break;
 
 	if (!obj) {
@@ -784,7 +782,7 @@ void do_feed(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (vch->pIndexData->vnum == MOB_VNUM_BONE_DRAGON) {
+	if (vch->pMobIndex->vnum == MOB_VNUM_BONE_DRAGON) {
 		int what;
 
 		if (vch->position < POS_RESTING)
@@ -884,7 +882,7 @@ void do_fill(CHAR_DATA * ch, const char *argument)
 	found = FALSE;
 	for (fountain = ch->in_room->contents; fountain != NULL;
 	     fountain = fountain->next_content) {
-		if (fountain->pIndexData->item_type == ITEM_FOUNTAIN) {
+		if (fountain->pObjIndex->item_type == ITEM_FOUNTAIN) {
 			found = TRUE;
 			break;
 		}
@@ -894,7 +892,7 @@ void do_fill(CHAR_DATA * ch, const char *argument)
 		char_puts("There is no fountain here!\n", ch);
 		return;
 	}
-	if (obj->pIndexData->item_type != ITEM_DRINK_CON) {
+	if (obj->pObjIndex->item_type != ITEM_DRINK_CON) {
 		char_puts("You can't fill that.\n", ch);
 		return;
 	}
@@ -934,7 +932,7 @@ void do_pour(CHAR_DATA * ch, const char *argument)
 		char_puts("You don't have that item.\n", ch);
 		return;
 	}
-	if (out->pIndexData->item_type != ITEM_DRINK_CON) {
+	if (out->pObjIndex->item_type != ITEM_DRINK_CON) {
 		char_puts("That's not a drink container.\n", ch);
 		return;
 	}
@@ -971,7 +969,7 @@ void do_pour(CHAR_DATA * ch, const char *argument)
 			return;
 		}
 	}
-	if (in->pIndexData->item_type != ITEM_DRINK_CON) {
+	if (in->pObjIndex->item_type != ITEM_DRINK_CON) {
 		char_puts("You can only pour into other drink containers.\n", ch);
 		return;
 	}
@@ -1033,7 +1031,7 @@ void do_drink(CHAR_DATA * ch, const char *argument)
 
 	if (arg[0] == '\0') {
 		for (obj = ch->in_room->contents; obj; obj= obj->next_content) {
-			if (obj->pIndexData->item_type == ITEM_FOUNTAIN)
+			if (obj->pObjIndex->item_type == ITEM_FOUNTAIN)
 				break;
 		}
 
@@ -1048,11 +1046,11 @@ void do_drink(CHAR_DATA * ch, const char *argument)
 		}
 	}
 
-	if (!IS_NPC(ch) && ch->pcdata->condition[COND_DRUNK] > 10) {
+	if (!IS_NPC(ch) && PC(ch)->condition[COND_DRUNK] > 10) {
 		char_puts("You fail to reach your mouth.  *Hic*\n", ch);
 		return;
 	}
-	switch (obj->pIndexData->item_type) {
+	switch (obj->pObjIndex->item_type) {
 	default:
 		char_puts("You can't drink from that.\n", ch);
 		return;
@@ -1079,7 +1077,7 @@ void do_drink(CHAR_DATA * ch, const char *argument)
 		break;
 	}
 	if (!IS_NPC(ch) && !IS_IMMORTAL(ch)
-	    && ch->pcdata->condition[COND_FULL] > 80) {
+	    && PC(ch)->condition[COND_FULL] > 80) {
 		char_puts("You're too full to drink more.\n", ch);
 		return;
 	}
@@ -1101,11 +1099,11 @@ void do_drink(CHAR_DATA * ch, const char *argument)
 	gain_condition(ch, COND_HUNGER,
 		     amount * liq_table[liquid].liq_affect[COND_HUNGER] / 1);
 
-	if (!IS_NPC(ch) && ch->pcdata->condition[COND_DRUNK] > 10)
+	if (!IS_NPC(ch) && PC(ch)->condition[COND_DRUNK] > 10)
 		char_puts("You feel drunk.\n", ch);
-	if (!IS_NPC(ch) && ch->pcdata->condition[COND_FULL] > 60)
+	if (!IS_NPC(ch) && PC(ch)->condition[COND_FULL] > 60)
 		char_puts("You are full.\n", ch);
-	if (!IS_NPC(ch) && ch->pcdata->condition[COND_THIRST] > 60)
+	if (!IS_NPC(ch) && PC(ch)->condition[COND_THIRST] > 60)
 		char_puts("Your thirst is quenched.\n", ch);
 
 	if (obj->value[3] != 0) {
@@ -1143,13 +1141,13 @@ void do_eat(CHAR_DATA * ch, const char *argument)
 		return;
 	}
 	if (!IS_IMMORTAL(ch)) {
-		if ((obj->pIndexData->item_type != ITEM_FOOD ||
+		if ((obj->pObjIndex->item_type != ITEM_FOOD ||
 		     IS_SET(obj->extra_flags, ITEM_NOT_EDIBLE))
-		&& obj->pIndexData->item_type != ITEM_PILL) {
+		&& obj->pObjIndex->item_type != ITEM_PILL) {
 			char_puts("That's not edible.\n", ch);
 			return;
 		}
-		if (!IS_NPC(ch) && ch->pcdata->condition[COND_FULL] > 80) {
+		if (!IS_NPC(ch) && PC(ch)->condition[COND_FULL] > 80) {
 			char_puts("You are too full to eat more.\n", ch);
 			return;
 		}
@@ -1159,20 +1157,20 @@ void do_eat(CHAR_DATA * ch, const char *argument)
 	if (ch->fighting != NULL)
 		WAIT_STATE(ch, 3 * PULSE_VIOLENCE);
 
-	switch (obj->pIndexData->item_type) {
+	switch (obj->pObjIndex->item_type) {
 
 	case ITEM_FOOD:
 		if (!IS_NPC(ch)) {
 			int             condition;
-			condition = ch->pcdata->condition[COND_HUNGER];
+			condition = PC(ch)->condition[COND_HUNGER];
 			gain_condition(ch, COND_FULL, obj->value[0] * 2);
 			gain_condition(ch, COND_HUNGER, obj->value[1] * 2);
 			if (!condition
-			&& ch->pcdata->condition[COND_HUNGER] > 0)
+			&& PC(ch)->condition[COND_HUNGER] > 0)
 				char_puts("You are no longer hungry.\n", ch);
-			else if (ch->pcdata->condition[COND_FULL] > 60)
+			else if (PC(ch)->condition[COND_FULL] > 60)
 				char_puts("You are full.\n", ch);
-			if (obj->pIndexData->vnum == OBJ_VNUM_TORN_HEART) {
+			if (obj->pObjIndex->vnum == OBJ_VNUM_TORN_HEART) {
 				ch->hit = UMIN(ch->max_hit, ch->hit+obj->level+number_range(1,5));
 				char_puts("You feel empowered from the blood of your foe.\n",ch);
 			};
@@ -1335,7 +1333,7 @@ void do_quaff(CHAR_DATA * ch, const char *argument)
 		return;
 	}
 
-	if (obj->pIndexData->item_type != ITEM_POTION) {
+	if (obj->pObjIndex->item_type != ITEM_POTION) {
 		char_puts("You can quaff only potions.\n", ch);
 		return;
 	}
@@ -1368,7 +1366,7 @@ void do_recite(CHAR_DATA * ch, const char *argument)
 		return;
 	}
 
-	if (scroll->pIndexData->item_type != ITEM_SCROLL) {
+	if (scroll->pObjIndex->item_type != ITEM_SCROLL) {
 		char_puts("You can recite only scrolls.\n", ch);
 		return;
 	}
@@ -1427,7 +1425,7 @@ void do_brandish(CHAR_DATA * ch, const char *argument)
 		return;
 	}
 
-	if (staff->pIndexData->item_type != ITEM_STAFF) {
+	if (staff->pObjIndex->item_type != ITEM_STAFF) {
 		char_puts("You can brandish only with a staff.\n", ch);
 		return;
 	}
@@ -1516,7 +1514,7 @@ void do_zap(CHAR_DATA * ch, const char *argument)
 		char_puts("You hold nothing in your hand.\n", ch);
 		return;
 	}
-	if (wand->pIndexData->item_type != ITEM_WAND) {
+	if (wand->pObjIndex->item_type != ITEM_WAND) {
 		char_puts("You can zap only with a wand.\n", ch);
 		return;
 	}
@@ -1746,7 +1744,7 @@ void do_steal(CHAR_DATA * ch, const char *argument)
 		check_improve(ch, sn, TRUE, 2);
 	} else {
 		obj_inve = NULL;
-		obj_inve = create_obj(obj->pIndexData, 0);
+		obj_inve = create_obj(obj->pObjIndex, 0);
 		clone_obj(obj, obj_inve);
 		REMOVE_BIT(obj_inve->extra_flags, ITEM_INVENTORY);
 		obj_to_char(obj_inve, ch);
@@ -1790,7 +1788,7 @@ void do_buy_pet(CHAR_DATA * ch, const char *argument)
 
 	if (!pet
 	||  !IS_NPC(pet)
-	||  !IS_SET(act = pet->pIndexData->act, ACT_PET)) {
+	||  !IS_SET(act = pet->pMobIndex->act, ACT_PET)) {
 		char_puts("Sorry, you can't buy that here.\n", ch);
 		return;
 	}
@@ -1810,7 +1808,7 @@ void do_buy_pet(CHAR_DATA * ch, const char *argument)
 			return;
 		}
 		deduct_cost(ch, cost);
-		pet = create_mob(pet->pIndexData);
+		pet = create_mob(pet->pMobIndex);
 		pet->comm = COMM_NOTELL | COMM_NOSHOUT | COMM_NOCHANNELS;
 
 		char_to_room(pet, ch->in_room);
@@ -1822,7 +1820,7 @@ void do_buy_pet(CHAR_DATA * ch, const char *argument)
 		act("$n bought $N as a mount.", ch, NULL, pet, TO_ROOM);
 		return;
 	}
-	if (ch->pet != NULL) {
+	if (GET_PET(ch) != NULL) {
 		char_puts("You already own a pet.\n", ch);
 		return;
 	}
@@ -1846,15 +1844,15 @@ void do_buy_pet(CHAR_DATA * ch, const char *argument)
 		check_improve(ch, gsn_haggle, TRUE, 4);
 	}
 	deduct_cost(ch, cost);
-	pet = create_mob(pet->pIndexData);
+	pet = create_mob(pet->pMobIndex);
 	SET_BIT(pet->affected_by, AFF_CHARM);
 	pet->comm = COMM_NOTELL | COMM_NOSHOUT | COMM_NOCHANNELS;
 
 	argument = one_argument(argument, arg, sizeof(arg));
 	if (arg[0] != '\0')
-		pet->name = str_printf(pet->pIndexData->name, arg);
+		pet->name = str_printf(pet->pMobIndex->name, arg);
 	mlstr_printf(&pet->description,
-		     &pet->pIndexData->description, ch->name);
+		     &pet->pMobIndex->description, ch->name);
 
 	char_to_room(pet, ch->in_room);
 	if (IS_EXTRACTED(pet))
@@ -1862,7 +1860,7 @@ void do_buy_pet(CHAR_DATA * ch, const char *argument)
 
 	add_follower(pet, ch);
 	pet->leader = ch;
-	ch->pet = pet;
+	PC(ch)->pet = pet;
 	char_puts("Enjoy your pet.\n", ch);
 	act("$n bought $N as a pet.", ch, NULL, pet, TO_ROOM);
 }
@@ -1905,7 +1903,7 @@ void do_buy(CHAR_DATA * ch, const char *argument)
 	if (!IS_OBJ_STAT(obj, ITEM_INVENTORY)) {
 		for (t_obj = obj->next_content; count < number && t_obj != NULL;
 		     t_obj = t_obj->next_content) {
-			if (t_obj->pIndexData == obj->pIndexData
+			if (t_obj->pObjIndex == obj->pObjIndex
 			&& !mlstr_cmp(&t_obj->short_descr, &obj->short_descr))
 				count++;
 			else
@@ -1913,26 +1911,24 @@ void do_buy(CHAR_DATA * ch, const char *argument)
 		}
 
 		if (count < number) {
-			act("$n tells you '{GI don't have that many in stock.{x'",
-			    keeper, NULL, ch, TO_VICT);
-			ch->reply = keeper;
+			do_tell_raw(keeper, ch,
+				    "I don't have that many in stock.'");
 			return;
 		}
 	}
 	if ((ch->silver + ch->gold * 100) < cost * number) {
-		if (number > 1)
-			act("$n tells you '{GYou can't afford to buy that many.{x'",
-			    keeper, obj, ch, TO_VICT);
-		else
+		if (number > 1) {
+			do_tell_raw(keeper, ch,
+				    "You can't afford to buy that many.'");
+		} else {
 			act("$n tells you '{GYou can't afford to buy $p.{x'",
 			    keeper, obj, ch, TO_VICT);
-		ch->reply = keeper;
+		}
 		return;
 	}
 	if (obj->level > ch->level) {
 		act("$n tells you '{GYou can't use $p yet.{x'",
 		    keeper, obj, ch, TO_VICT);
-		ch->reply = keeper;
 		return;
 	}
 
@@ -1975,7 +1971,7 @@ void do_buy(CHAR_DATA * ch, const char *argument)
 
 	for (count = 0; count < number; count++) {
 		if (IS_SET(obj->extra_flags, ITEM_INVENTORY))
-			t_obj = create_obj(obj->pIndexData, 0);
+			t_obj = create_obj(obj->pObjIndex, 0);
 		else {
 			t_obj = obj;
 			obj = obj->next_content;
@@ -2008,7 +2004,7 @@ void do_list(CHAR_DATA * ch, const char *argument)
 		for (pet = pRoomIndexNext->people; pet; pet = pet->next_in_room) {
 			if (!IS_NPC(pet))
 				continue;	/* :) */
-			if (IS_SET(pet->pIndexData->act, ACT_PET)) {
+			if (IS_SET(pet->pMobIndex->act, ACT_PET)) {
 				if (!found) {
 					found = TRUE;
 					char_puts("Pets for sale:\n", ch);
@@ -2052,7 +2048,7 @@ void do_list(CHAR_DATA * ch, const char *argument)
 					count = 1;
 
 					while (obj->next_content != NULL
-					       && obj->pIndexData == obj->next_content->pIndexData
+					       && obj->pObjIndex == obj->next_content->pObjIndex
 					       && !mlstr_cmp(&obj->short_descr,
 					   &obj->next_content->short_descr)) {
 						obj = obj->next_content;
@@ -2090,9 +2086,7 @@ void do_sell(CHAR_DATA * ch, const char *argument)
 		return;
 
 	if ((obj = get_obj_carry(ch, arg)) == NULL) {
-		act("$n tells you '{GYou don't have that item.{x'",
-		    keeper, NULL, ch, TO_VICT);
-		ch->reply = keeper;
+		do_tell_raw(keeper, ch, "You don't have that item.");
 		return;
 	}
 	if (!can_drop_obj(ch, obj)) {
@@ -2143,7 +2137,7 @@ void do_sell(CHAR_DATA * ch, const char *argument)
 	ch->silver += silver;
 	deduct_cost(keeper, cost);
 
-	if (obj->pIndexData->item_type == ITEM_TRASH
+	if (obj->pObjIndex->item_type == ITEM_TRASH
 	||  IS_OBJ_STAT(obj, ITEM_SELL_EXTRACT))
 		extract_obj(obj, 0);
 	else {
@@ -2172,9 +2166,7 @@ void do_value(CHAR_DATA * ch, const char *argument)
 		return;
 
 	if ((obj = get_obj_carry(ch, arg)) == NULL) {
-		act("$n tells you '{GYou don't have that item.{x'",
-		    keeper, NULL, ch, TO_VICT);
-		ch->reply = keeper;
+		do_tell_raw(keeper, ch, "You don't have that item.");
 		return;
 	}
 	if (!can_see_obj(keeper, obj)) {
@@ -2222,7 +2214,7 @@ void do_herbs(CHAR_DATA * ch, const char *argument)
 	if ((ch->in_room->sector_type != SECT_INSIDE
 	  &&  ch->in_room->sector_type != SECT_CITY
 	  &&  number_percent() < get_skill(ch, gsn_herbs))
-	|| (IS_NPC(ch) && IS_SET(ch->pIndexData->act, ACT_HEALER))) {
+	|| (IS_NPC(ch) && IS_SET(ch->pMobIndex->act, ACT_HEALER))) {
 		AFFECT_DATA     af;
 		af.where = TO_AFFECTS;
 		af.type = gsn_herbs;
@@ -2324,7 +2316,7 @@ void do_lore_raw(CHAR_DATA *ch, OBJ_DATA *obj, BUFFER *output)
 		buf_printf(output,
 			    "Object '%s' is type %s, extra flags %s.\nWeight is %d, value is %d, level is %d.\nMaterial is %s.\n",
 			    obj->name,
-			    flag_string(item_types, obj->pIndexData->item_type),
+			    flag_string(item_types, obj->pObjIndex->item_type),
 			    flag_string(extra_flags, obj->extra_flags),
 			    obj->weight,
 		    chance < 60 ? number_range(1, 2 * obj->cost) : obj->cost,
@@ -2338,7 +2330,7 @@ void do_lore_raw(CHAR_DATA *ch, OBJ_DATA *obj, BUFFER *output)
 		buf_printf(output,
 			    "Object '%s' is type %s, extra flags %s.\nWeight is %d, value is %d, level is %d.\nMaterial is %s.\n",
 			    obj->name,
-			    flag_string(item_types, obj->pIndexData->item_type),
+			    flag_string(item_types, obj->pObjIndex->item_type),
 			    flag_string(extra_flags, obj->extra_flags),
 			    obj->weight,
 			    obj->cost,
@@ -2350,7 +2342,7 @@ void do_lore_raw(CHAR_DATA *ch, OBJ_DATA *obj, BUFFER *output)
 		buf_printf(output,
 			    "Object '%s' is type %s, extra flags %s.\nWeight is %d, value is %d, level is %d.\nMaterial is %s.\n",
 			    obj->name,
-			    flag_string(item_types, obj->pIndexData->item_type),
+			    flag_string(item_types, obj->pObjIndex->item_type),
 			    flag_string(extra_flags, obj->extra_flags),
 			    obj->weight,
 			    obj->cost,
@@ -2367,7 +2359,7 @@ void do_lore_raw(CHAR_DATA *ch, OBJ_DATA *obj, BUFFER *output)
 
 	max_skill = skills.nused;
 
-	switch (obj->pIndexData->item_type) {
+	switch (obj->pObjIndex->item_type) {
 	case ITEM_SCROLL:
 	case ITEM_POTION:
 	case ITEM_PILL:
@@ -2498,7 +2490,7 @@ void do_lore_raw(CHAR_DATA *ch, OBJ_DATA *obj, BUFFER *output)
 	}
 
 	if (!IS_SET(obj->extra_flags, ITEM_ENCHANTED))
-		format_obj_affects(output, obj->pIndexData->affected,
+		format_obj_affects(output, obj->pObjIndex->affected,
 				   FOA_F_NODURATION);
 	format_obj_affects(output, obj->affected, 0);
 	check_improve(ch, sn, TRUE, 5);
@@ -2540,8 +2532,8 @@ void do_butcher(CHAR_DATA * ch, const char *argument)
 		char_puts("You do not see that here.\n", ch);
 		return;
 	}
-	if (obj->pIndexData->item_type != ITEM_CORPSE_PC
-	&&  obj->pIndexData->item_type != ITEM_CORPSE_NPC) {
+	if (obj->pObjIndex->item_type != ITEM_CORPSE_PC
+	&&  obj->pObjIndex->item_type != ITEM_CORPSE_NPC) {
 		char_puts("You can't butcher that.\n", ch);
 		return;
 	}
@@ -2632,8 +2624,8 @@ void do_crucify(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (obj->pIndexData->item_type != ITEM_CORPSE_PC
-	 && obj->pIndexData->item_type != ITEM_CORPSE_NPC) {
+	if (obj->pObjIndex->item_type != ITEM_CORPSE_PC
+	 && obj->pObjIndex->item_type != ITEM_CORPSE_NPC) {
 		char_puts("You cannot crucify that.\n", ch);
 		return;
 	 }
@@ -2705,13 +2697,13 @@ void do_balance(CHAR_DATA * ch, const char *argument)
 		return;
 	}
 
-	if (ch->pcdata->bank_s + ch->pcdata->bank_g == 0) {
+	if (PC(ch)->bank_s + PC(ch)->bank_g == 0) {
 		char_puts("You don't have any money in the bank.\n", ch);
 		return;
 	}
 
-	bank_g = ch->pcdata->bank_g;
-	bank_s = ch->pcdata->bank_s;
+	bank_g = PC(ch)->bank_g;
+	bank_s = PC(ch)->bank_s;
 	snprintf(buf, sizeof(buf), "You have %s%s%s coin%s in the bank.\n",
 		bank_g ? "%ld gold" : str_empty,
 		(bank_g) && (bank_s) ? " and " : str_empty,
@@ -2761,8 +2753,8 @@ void do_withdraw(CHAR_DATA * ch, const char *argument)
 		return;
 	}
 
-	if ((silver && amount > ch->pcdata->bank_s)
-	||  (!silver && amount > ch->pcdata->bank_g)) {
+	if ((silver && amount > PC(ch)->bank_s)
+	||  (!silver && amount > PC(ch)->bank_g)) {
 		char_puts("Sorry, we don't give loans.\n", ch);
 		return;
 	}
@@ -2778,11 +2770,11 @@ void do_withdraw(CHAR_DATA * ch, const char *argument)
 
 	if (silver) {
 		ch->silver += amount - fee;
-		ch->pcdata->bank_s -= amount;
+		PC(ch)->bank_s -= amount;
 	}
 	else {
 		ch->gold += amount - fee;
-		ch->pcdata->bank_g -= amount;
+		PC(ch)->bank_g -= amount;
 	}
 
 	char_printf(ch,
@@ -2834,11 +2826,11 @@ void do_deposit(CHAR_DATA * ch, const char *argument)
 	}
 
 	if (silver) {
-		ch->pcdata->bank_s += amount;
+		PC(ch)->bank_s += amount;
 		ch->silver -= amount;
 	}
 	else {
-		ch->pcdata->bank_g += amount;
+		PC(ch)->bank_g += amount;
 		ch->gold -= amount;
 	}
 
@@ -3012,7 +3004,7 @@ void do_label(CHAR_DATA* ch, const char *argument)
 		return;
 	}
 	
-	if (ch->pcdata->questpoints < 10) {
+	if (PC(ch)->questpoints < 10) {
 		char_puts("You do not have enough questpoints for labeling.\n",
 			  ch);
 		return;
@@ -3027,7 +3019,7 @@ void do_label(CHAR_DATA* ch, const char *argument)
 	obj->name = str_printf("%s %s", obj->name, label);
 	free_string(p);
 	
-	ch->pcdata->questpoints -= 10;
+	PC(ch)->questpoints -= 10;
 	char_puts("Ok.\n",ch);
 }
 
@@ -3039,7 +3031,7 @@ void do_repair(CHAR_DATA *ch, const char *argument)
 	int cost;
 
 	for (mob = ch->in_room->people; mob; mob = mob->next_in_room) {
-		if (IS_NPC(mob) && IS_SET(mob->pIndexData->act, ACT_REPAIRMAN))
+		if (IS_NPC(mob) && IS_SET(mob->pMobIndex->act, ACT_REPAIRMAN))
 			break;
 	}
  
@@ -3061,7 +3053,7 @@ void do_repair(CHAR_DATA *ch, const char *argument)
 	return;
 	}
 
-	if (obj->pIndexData->vnum == OBJ_VNUM_HAMMER)
+	if (obj->pObjIndex->vnum == OBJ_VNUM_HAMMER)
 	{
 	 do_say(mob,"That hammer is beyond my power.");
 	 return;
@@ -3104,7 +3096,7 @@ void do_estimate(CHAR_DATA *ch, const char *argument)
 	int cost;
 	
 	for (mob = ch->in_room->people; mob; mob = mob->next_in_room) {
-		if (IS_NPC(mob) && IS_SET(mob->pIndexData->act, ACT_REPAIRMAN))
+		if (IS_NPC(mob) && IS_SET(mob->pMobIndex->act, ACT_REPAIRMAN))
 			break;
 	}
  
@@ -3126,7 +3118,7 @@ void do_estimate(CHAR_DATA *ch, const char *argument)
 	do_say(mob,"You don't have that item");
 	return;
 	}
-	if (obj->pIndexData->vnum == OBJ_VNUM_HAMMER)
+	if (obj->pObjIndex->vnum == OBJ_VNUM_HAMMER)
 	{
 	    do_say(mob,"That hammer is beyond my power.");
 	    return;
@@ -3162,7 +3154,7 @@ void do_restring(CHAR_DATA *ch, const char *argument)
 
 	for (mob = ch->in_room->people; mob; mob = mob->next_in_room)
 	{
-	    if (IS_NPC(mob) && IS_SET(mob->pIndexData->act, ACT_HEALER))
+	    if (IS_NPC(mob) && IS_SET(mob->pMobIndex->act, ACT_HEALER))
 	        break;
 	}
  
@@ -3273,7 +3265,7 @@ void do_smithing(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (hammer->pIndexData->vnum != OBJ_VNUM_HAMMER) {
+	if (hammer->pObjIndex->vnum != OBJ_VNUM_HAMMER) {
 		char_puts("That is not the correct hammer.\n",ch);
 		return;
 	}
@@ -3311,7 +3303,7 @@ static CHAR_DATA *find_keeper(CHAR_DATA *ch)
 
 	for (keeper = ch->in_room->people; keeper; keeper = keeper->next_in_room) {
 		if (IS_NPC(keeper)
-		&&  (pShop = keeper->pIndexData->pShop) != NULL)
+		&&  (pShop = keeper->pMobIndex->pShop) != NULL)
 			break;
 	}
 
@@ -3356,7 +3348,7 @@ static void obj_to_keeper(OBJ_DATA *obj, CHAR_DATA *ch)
 	for (t_obj = ch->carrying; t_obj != NULL; t_obj = t_obj_next) {
 		t_obj_next = t_obj->next_content;
 
-		if (obj->pIndexData == t_obj->pIndexData
+		if (obj->pObjIndex == t_obj->pObjIndex
 		&&  !mlstr_cmp(&obj->short_descr, &t_obj->short_descr)) {
 			if (IS_OBJ_STAT(t_obj, ITEM_INVENTORY)) {
 				extract_obj(obj, 0);
@@ -3402,7 +3394,7 @@ static OBJ_DATA *get_obj_keeper(CHAR_DATA *ch, CHAR_DATA *keeper,
 
 			/* skip other objects of the same name */
 			while (obj->next_content != NULL
-			  && obj->pIndexData == obj->next_content->pIndexData
+			  && obj->pObjIndex == obj->next_content->pObjIndex
 			  && !mlstr_cmp(&obj->short_descr, &obj->next_content->short_descr))
 				obj = obj->next_content;
 		}
@@ -3416,7 +3408,7 @@ static uint get_cost(CHAR_DATA *keeper, OBJ_DATA *obj, bool fBuy)
 	SHOP_DATA *	pShop;
 	uint		cost;
 
-	if (obj == NULL || (pShop = keeper->pIndexData->pShop) == NULL)
+	if (obj == NULL || (pShop = keeper->pMobIndex->pShop) == NULL)
 		return 0;
 
 	if (IS_OBJ_STAT(obj, ITEM_NOSELL))
@@ -3429,7 +3421,7 @@ static uint get_cost(CHAR_DATA *keeper, OBJ_DATA *obj, bool fBuy)
 		int             itype;
 		cost = 0;
 		for (itype = 0; itype < MAX_TRADE; itype++) {
-			if (obj->pIndexData->item_type == pShop->buy_type[itype]) {
+			if (obj->pObjIndex->item_type == pShop->buy_type[itype]) {
 				cost = obj->cost * pShop->profit_sell / 100;
 				break;
 			}
@@ -3437,7 +3429,7 @@ static uint get_cost(CHAR_DATA *keeper, OBJ_DATA *obj, bool fBuy)
 
 		if (!IS_OBJ_STAT(obj, ITEM_SELL_EXTRACT))
 			for (obj2 = keeper->carrying; obj2; obj2 = obj2->next_content) {
-				if (obj->pIndexData == obj2->pIndexData
+				if (obj->pObjIndex == obj2->pObjIndex
 				&&  !mlstr_cmp(&obj->short_descr,
 					       &obj2->short_descr))
 					return 0;
@@ -3450,8 +3442,8 @@ static uint get_cost(CHAR_DATA *keeper, OBJ_DATA *obj, bool fBuy)
 			}
 	}
 
-	if (obj->pIndexData->item_type == ITEM_STAFF
-	||  obj->pIndexData->item_type == ITEM_WAND) {
+	if (obj->pObjIndex->item_type == ITEM_STAFF
+	||  obj->pObjIndex->item_type == ITEM_WAND) {
 		if (obj->value[1] == 0)
 			cost /= 4;
 		else
@@ -3473,8 +3465,8 @@ static void sac_obj(CHAR_DATA * ch, OBJ_DATA *obj)
 	}
 	silver = UMAX(1, number_fuzzy(obj->level));
 
-	if (obj->pIndexData->item_type != ITEM_CORPSE_NPC
-	&&  obj->pIndexData->item_type != ITEM_CORPSE_PC)
+	if (obj->pObjIndex->item_type != ITEM_CORPSE_NPC
+	&&  obj->pObjIndex->item_type != ITEM_CORPSE_PC)
 		silver = UMIN(silver, obj->cost);
 
 	act_puts("Gods give you $j silver $qj{coins} for your sacrifice.",
@@ -3482,7 +3474,7 @@ static void sac_obj(CHAR_DATA * ch, OBJ_DATA *obj)
 
 	ch->silver += silver;
 
-	if (IS_SET(ch->plr_flags, PLR_AUTOSPLIT)) {
+	if (!IS_NPC(ch) && IS_SET(PC(ch)->plr_flags, PLR_AUTOSPLIT)) {
 		/* AUTOSPLIT code */
 		members = 0;
 		for (gch = ch->in_room->people; gch != NULL;
@@ -3500,8 +3492,8 @@ static void sac_obj(CHAR_DATA * ch, OBJ_DATA *obj)
 
 	wiznet("$N sends up $p as a burnt offering.",
 	       ch, obj, WIZ_SACCING, 0, 0);
-	if (obj->pIndexData->item_type == ITEM_CORPSE_NPC
-	||  obj->pIndexData->item_type == ITEM_CORPSE_PC) {
+	if (obj->pObjIndex->item_type == ITEM_CORPSE_NPC
+	||  obj->pObjIndex->item_type == ITEM_CORPSE_PC) {
 		OBJ_DATA       *obj_content;
 		OBJ_DATA       *obj_next;
 		OBJ_DATA       *two_objs[2];
@@ -3581,14 +3573,14 @@ static bool put_obj(CHAR_DATA *ch, OBJ_DATA *container,
 	OBJ_DATA *	objc;
 
 	if (IS_SET(container->value[1], CONT_QUIVER)
-	&&  (obj->pIndexData->item_type != ITEM_WEAPON ||
+	&&  (obj->pObjIndex->item_type != ITEM_WEAPON ||
 	     obj->value[0] != WEAPON_ARROW)) {
 		act_puts("You can only put arrows in $p.",
 			 ch, container, NULL, TO_CHAR, POS_DEAD);
 		return FALSE;
 	}
 
-	if (IS_SET(container->pIndexData->extra_flags, ITEM_PIT)
+	if (IS_SET(container->pObjIndex->extra_flags, ITEM_PIT)
 	&&  !CAN_WEAR(obj, ITEM_TAKE)) {
 		if (obj->timer)
 			SET_BIT(obj->extra_flags, ITEM_HAD_TIMER);
@@ -3596,18 +3588,18 @@ static bool put_obj(CHAR_DATA *ch, OBJ_DATA *container,
 			obj->timer = number_range(100, 200);
 	}
 
-	if (obj->pIndexData->limit != -1
-	||  IS_SET(obj->pIndexData->extra_flags, ITEM_QUEST)) {
+	if (obj->pObjIndex->limit != -1
+	||  IS_SET(obj->pObjIndex->extra_flags, ITEM_QUEST)) {
 		act_puts("This unworthy container won't hold $p.",
 			 ch, obj, NULL, TO_CHAR, POS_DEAD);
 		return TRUE;
 	}
 
-	if (obj->pIndexData->item_type == ITEM_POTION
+	if (obj->pObjIndex->item_type == ITEM_POTION
 	&&  IS_SET(container->wear_flags, ITEM_TAKE)) {
 		int pcount = 0;
 		for (objc = container->contains; objc; objc = objc->next_content)
-			if (objc->pIndexData->item_type == ITEM_POTION)
+			if (objc->pObjIndex->item_type == ITEM_POTION)
 				pcount++;
 		if (pcount > 15) {
 			act_puts("It's not safe to put more potions into $p.",
@@ -3649,7 +3641,7 @@ static void drop_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 	    TO_ROOM | (IS_AFFECTED(ch, AFF_SNEAK) ? ACT_NOMORTAL : 0));
 	act_puts("You drop $p.", ch, obj, NULL, TO_CHAR, POS_DEAD);
 
-	if (obj->pIndexData->vnum == OBJ_VNUM_POTION_VIAL
+	if (obj->pObjIndex->vnum == OBJ_VNUM_POTION_VIAL
 	&&  number_percent() < 51)
 		switch (ch->in_room->sector_type) {
 		case SECT_FOREST:
@@ -3917,13 +3909,13 @@ void do_auction(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	switch (obj->pIndexData->item_type) {
+	switch (obj->pObjIndex->item_type) {
 	default:
-		if (!IS_SET(obj->pIndexData->extra_flags, ITEM_CHQUEST)) {
+		if (!IS_SET(obj->pObjIndex->extra_flags, ITEM_CHQUEST)) {
 			act_puts("You cannot auction $T.",
 				 ch, NULL,
 				 flag_string(item_types,
-					     obj->pIndexData->item_type),
+					     obj->pObjIndex->item_type),
 				 TO_CHAR, POS_SLEEPING);
 			break;
 		}

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_race.c,v 1.5 1999-07-31 03:35:28 avn Exp $
+ * $Id: olc_race.c,v 1.6 1999-09-08 10:40:06 fjoe Exp $
  */
 
 #include "olc.h"
@@ -133,7 +133,7 @@ OLC_FUN(raceed_create)
 	race_t *race;
 	char arg[MAX_STRING_LENGTH];
 
-	if (ch->pcdata->security < SECURITY_RACE) {
+	if (PC(ch)->security < SECURITY_RACE) {
 		char_puts("RaceEd: Insufficient security for creating races\n",
 			  ch);
 		return FALSE;
@@ -166,7 +166,7 @@ OLC_FUN(raceed_edit)
 {
 	int rn;
 
-	if (ch->pcdata->security < SECURITY_RACE) {
+	if (PC(ch)->security < SECURITY_RACE) {
 		char_puts("RaceEd: Insufficient security.\n", ch);
 		return FALSE;
 	}
@@ -277,7 +277,7 @@ OLC_FUN(raceed_show)
 	if (race->race_flags)
 		buf_printf(output, "General flags: [%s]\n",
 			   flag_string(race_flags, race->race_flags));
-	if (!race->pcdata) {               
+	if (!race->race_pcdata) {               
 		buf_add(output, "=== No PC race defined ===\n");
 		page_to_char(buf_string(output), ch);
 		buf_free(output);
@@ -285,56 +285,56 @@ OLC_FUN(raceed_show)
         }
 
 	buf_add(output, "=== PC race data ===\n");
-	if (race->pcdata->who_name)
+	if (race->race_pcdata->who_name)
 		buf_printf(output, "WHO name:      [%s]\n",
-			   race->pcdata->who_name);
-	if (race->pcdata->points)
+			   race->race_pcdata->who_name);
+	if (race->race_pcdata->points)
 		buf_printf(output, "Extra exp:     [%d]\n",
-			   race->pcdata->points);
-	if (race->pcdata->bonus_skills)
+			   race->race_pcdata->points);
+	if (race->race_pcdata->bonus_skills)
 		buf_printf(output, "Bonus skills:  [%s]\n",
-			   race->pcdata->bonus_skills);
+			   race->race_pcdata->bonus_skills);
 	for (i = 0, found = FALSE; i < MAX_STATS; i++)
-		if (race->pcdata->stats[i]) found = TRUE;
+		if (race->race_pcdata->stats[i]) found = TRUE;
 	if (found) {
 		buf_add(output, "Stats mod:     [");
 		for (i = 0; i < MAX_STATS; i++)
 			buf_printf(output, "%s: %2d ",
 				   flag_string(stat_names, i),
-				   race->pcdata->stats[i]);
+				   race->race_pcdata->stats[i]);
 		buf_add(output, "]\n");
 	}
 	for (i = 0, found = FALSE; i < MAX_STATS; i++)
-		if (race->pcdata->max_stats[i]) found = TRUE;
+		if (race->race_pcdata->max_stats[i]) found = TRUE;
 	if (found) {
 		buf_add(output, "Max stats:     [");
 		for (i = 0; i < MAX_STATS; i++)
 			buf_printf(output, "%s: %2d ",
 				   flag_string(stat_names, i),
-				   race->pcdata->max_stats[i]);
+				   race->race_pcdata->max_stats[i]);
 		buf_add(output, "]\n");
 	}
 	buf_printf(output, "Size:          [%s]\n",
-		   flag_string(size_table, race->pcdata->size));
-	if (race->pcdata->hp_bonus)
+		   flag_string(size_table, race->race_pcdata->size));
+	if (race->race_pcdata->hp_bonus)
 		buf_printf(output, "HP bonus:      [%d]\n",
-			   race->pcdata->hp_bonus);
-	if (race->pcdata->mana_bonus)
+			   race->race_pcdata->hp_bonus);
+	if (race->race_pcdata->mana_bonus)
 		buf_printf(output, "Mana bonus:    [%d]\n",
-			   race->pcdata->mana_bonus);
-	if (race->pcdata->prac_bonus)
+			   race->race_pcdata->mana_bonus);
+	if (race->race_pcdata->prac_bonus)
 		buf_printf(output, "Prac bonus:    [%d]\n",
-			   race->pcdata->prac_bonus);
+			   race->race_pcdata->prac_bonus);
 	buf_printf(output, "Spoken lang:   [%s]\n",
-		   flag_string(slang_table, race->pcdata->slang));
-	if (race->pcdata->restrict_align)
+		   flag_string(slang_table, race->race_pcdata->slang));
+	if (race->race_pcdata->restrict_align)
 		buf_printf(output, "Align restrict:[%s]\n",
-			   flag_string(ralign_names, race->pcdata->restrict_align));
-	if (race->pcdata->restrict_ethos)
+			   flag_string(ralign_names, race->race_pcdata->restrict_align));
+	if (race->race_pcdata->restrict_ethos)
 		buf_printf(output, "Ethos restrict:[%s]\n",
-			   flag_string(ethos_table, race->pcdata->restrict_ethos));
-       	for (i = 0; i < race->pcdata->classes.nused; i++) {
-		rclass_t *rc = VARR_GET(&race->pcdata->classes, i);
+			   flag_string(ethos_table, race->race_pcdata->restrict_ethos));
+       	for (i = 0; i < race->race_pcdata->classes.nused; i++) {
+		rclass_t *rc = VARR_GET(&race->race_pcdata->classes, i);
 		int c;
 
 		if (rc->name == NULL
@@ -343,8 +343,8 @@ OLC_FUN(raceed_show)
 		buf_printf(output, "Class '%s' (exp %d%%)\n",
 			   rc->name, rc->mult);
 	}
-	for (i = 0; i < race->pcdata->skills.nused; i++) {
-		rskill_t *rs = VARR_GET(&race->pcdata->skills, i);
+	for (i = 0; i < race->race_pcdata->skills.nused; i++) {
+		rskill_t *rs = VARR_GET(&race->race_pcdata->skills, i);
 		skill_t *sk;
 
 		if (rs->sn <= 0
@@ -459,21 +459,21 @@ OLC_FUN(raceed_addpcdata)
 	const char *str;
 	race_t *race;
 	EDIT_RACE(ch, race);
-	if (race->pcdata) {
+	if (race->race_pcdata) {
 		char_puts("RaceEd: Race already has PC race data.\n", ch);
 		return FALSE;
 	}
-	race->pcdata = pcrace_new();
-	str = str_dup(race->pcdata->who_name);
+	race->race_pcdata = pcrace_new();
+	str = str_dup(race->race_pcdata->who_name);
 	if (olced_str(ch, argument, cmd, &str)) {
 		for (i = 0; i < strlen(str); i++)
-			race->pcdata->who_name[i] = str[i];
-		race->pcdata->who_name[i] = '\0';
+			race->race_pcdata->who_name[i] = str[i];
+		race->race_pcdata->who_name[i] = '\0';
 		char_puts("PC race data created.\n", ch);
 		return TRUE;
 	}
-	pcrace_free(race->pcdata);
-	race->pcdata = NULL;
+	pcrace_free(race->race_pcdata);
+	race->race_pcdata = NULL;
 	return FALSE;
 }
 
@@ -481,12 +481,12 @@ OLC_FUN(raceed_delpcdata)
 {
 	race_t *race;
 	EDIT_RACE(ch, race);
-	if (!race->pcdata) {
+	if (!race->race_pcdata) {
 		char_puts("RaceEd: Race has no PC race data.\n", ch);
 		return FALSE;
 	}
-	pcrace_free(race->pcdata);
-	race->pcdata = NULL;
+	pcrace_free(race->race_pcdata);
+	race->race_pcdata = NULL;
 	char_puts("PC race data deleted.\n", ch);
 	return TRUE;
 }
@@ -498,15 +498,15 @@ OLC_FUN(raceed_whoname)
 	race_t *race;
 	EDIT_RACE(ch, race);
 
-	if (!race->pcdata) {
+	if (!race->race_pcdata) {
 		char_puts("RaceEd: no PC race data.\n", ch);
 		return FALSE;
 	}
-	str = str_dup(race->pcdata->who_name);
+	str = str_dup(race->race_pcdata->who_name);
 	if (olced_str(ch, argument, cmd, &str)) {
 		for (i = 0; i < strlen(str); i++)
-			race->pcdata->who_name[i] = str[i];
-		race->pcdata->who_name[i] = '\0';
+			race->race_pcdata->who_name[i] = str[i];
+		race->race_pcdata->who_name[i] = '\0';
 		return TRUE;
 		}
 	return FALSE;
@@ -517,7 +517,7 @@ OLC_FUN(raceed_points)
 	race_t *race;
 	EDIT_RACE(ch, race);
 
-	return olced_number(ch, argument, cmd, &race->pcdata->points);
+	return olced_number(ch, argument, cmd, &race->race_pcdata->points);
 }
 
 OLC_FUN(raceed_bonusskill)
@@ -532,7 +532,7 @@ OLC_FUN(raceed_bonusskill)
 		return FALSE;
 	}
 	buff = str_printf("'%s'", SKILL(sn)->name);
-	return olced_name(ch, buff, cmd, &race->pcdata->bonus_skills);
+	return olced_name(ch, buff, cmd, &race->race_pcdata->bonus_skills);
 }
 
 OLC_FUN(raceed_stats)
@@ -549,7 +549,7 @@ OLC_FUN(raceed_stats)
 		if (*arg == '\0') break;
 		val = strtol(arg, &endptr, 0);
 		if (*arg == '\0' || *endptr != '\0') break;
-		race->pcdata->stats[i] = val;
+		race->race_pcdata->stats[i] = val;
 		st = TRUE;
 	}
 	
@@ -572,7 +572,7 @@ OLC_FUN(raceed_maxstats)
 		if (*arg == '\0') break;
 		val = strtol(arg, &endptr, 0);
 		if (*arg == '\0' || *endptr != '\0') break;
-		race->pcdata->max_stats[i] = val;
+		race->race_pcdata->max_stats[i] = val;
 		st = TRUE;
 	}
 	
@@ -586,7 +586,7 @@ OLC_FUN(raceed_size)
 	race_t *race;
 	EDIT_RACE(ch, race);
 
-	return olced_flag32(ch, argument, cmd, &race->pcdata->size);
+	return olced_flag32(ch, argument, cmd, &race->race_pcdata->size);
 }
 
 OLC_FUN(raceed_hpbonus)
@@ -594,7 +594,7 @@ OLC_FUN(raceed_hpbonus)
 	race_t *race;
 	EDIT_RACE(ch, race);
 
-	return olced_number(ch, argument, cmd, &race->pcdata->hp_bonus);
+	return olced_number(ch, argument, cmd, &race->race_pcdata->hp_bonus);
 }
 
 OLC_FUN(raceed_manabonus)
@@ -602,7 +602,7 @@ OLC_FUN(raceed_manabonus)
 	race_t *race;
 	EDIT_RACE(ch, race);
 
-	return olced_number(ch, argument, cmd, &race->pcdata->mana_bonus);
+	return olced_number(ch, argument, cmd, &race->race_pcdata->mana_bonus);
 }
 
 OLC_FUN(raceed_pracbonus)
@@ -610,7 +610,7 @@ OLC_FUN(raceed_pracbonus)
 	race_t *race;
 	EDIT_RACE(ch, race);
 
-	return olced_number(ch, argument, cmd, &race->pcdata->prac_bonus);
+	return olced_number(ch, argument, cmd, &race->race_pcdata->prac_bonus);
 }
 
 OLC_FUN(raceed_slang)
@@ -618,7 +618,7 @@ OLC_FUN(raceed_slang)
 	race_t *race;
 	EDIT_RACE(ch, race);
 
-	return olced_flag32(ch, argument, cmd, &race->pcdata->slang);
+	return olced_flag32(ch, argument, cmd, &race->race_pcdata->slang);
 }
 
 OLC_FUN(raceed_align)
@@ -626,7 +626,7 @@ OLC_FUN(raceed_align)
 	race_t *race;
 	EDIT_RACE(ch, race);
 
-	return olced_flag32(ch, argument, cmd, &race->pcdata->restrict_align);
+	return olced_flag32(ch, argument, cmd, &race->race_pcdata->restrict_align);
 }
 
 OLC_FUN(raceed_ethos)
@@ -634,7 +634,7 @@ OLC_FUN(raceed_ethos)
 	race_t *race;
 	EDIT_RACE(ch, race);
 
-	return olced_flag32(ch, argument, cmd, &race->pcdata->restrict_ethos);
+	return olced_flag32(ch, argument, cmd, &race->race_pcdata->restrict_ethos);
 }
 
 OLC_FUN(raceed_addclass)
@@ -665,10 +665,10 @@ OLC_FUN(raceed_addclass)
 		return FALSE;
 	}
 
-	rc = varr_enew(&race->pcdata->classes);
+	rc = varr_enew(&race->race_pcdata->classes);
 	rc->name = CLASS(cn)->name;
 	rc->mult = atoi(arg2);
-	varr_qsort(&race->pcdata->classes, cmpstr);
+	varr_qsort(&race->race_pcdata->classes, cmpstr);
         char_puts("Ok.\n", ch);
 	return TRUE;
 }
@@ -699,7 +699,7 @@ OLC_FUN(raceed_delclass)
 		return FALSE;
 	}
 	rc->name = str_dup(str_empty);
-	varr_qsort(&race->pcdata->classes, cmpstr);
+	varr_qsort(&race->race_pcdata->classes, cmpstr);
         char_puts("Ok.\n", ch);
 	return TRUE;
 }
@@ -732,10 +732,10 @@ OLC_FUN(raceed_addskill)
 		return FALSE;
 	}
 
-	rs = varr_enew(&race->pcdata->skills);
+	rs = varr_enew(&race->race_pcdata->skills);
 	rs->sn = sn;
 	rs->level = atoi(arg2);
-	varr_qsort(&race->pcdata->skills, cmpint);
+	varr_qsort(&race->race_pcdata->skills, cmpint);
         char_puts("Ok.\n", ch);
 	return TRUE;
 }
@@ -765,7 +765,7 @@ OLC_FUN(raceed_delskill)
 		return FALSE;
 	}
 	rs->sn = 0;
-	varr_qsort(&race->pcdata->skills, cmpint);
+	varr_qsort(&race->race_pcdata->skills, cmpint);
         char_puts("Ok.\n", ch);
 	return TRUE;
 }
@@ -816,8 +816,8 @@ static VALIDATE_FUN(validate_whoname)
 	}
 	for (i = 0; i < races.nused; i++)
 		if (RACE(i) != race
-		&&  race->pcdata
-		&&  !str_cmp(RACE(i)->pcdata->who_name, arg)) {
+		&&  race->race_pcdata
+		&&  !str_cmp(RACE(i)->race_pcdata->who_name, arg)) {
 			char_printf(ch, "RaceEd: %s: duplicate race whoname.\n",
 				    arg);
 			return FALSE;
@@ -830,7 +830,7 @@ static VALIDATE_FUN(validate_haspcdata)
 	race_t *race;
 	EDIT_RACE(ch, race);
 
-	if (race->pcdata != NULL) return TRUE;
+	if (race->race_pcdata != NULL) return TRUE;
 	char_puts("Add PC race data first.\n", ch);
 	return FALSE;
 }
@@ -877,7 +877,7 @@ static void save_race(CHAR_DATA *ch, race_t *race)
 			flag_string(race_flags, race->race_flags));
 	fprintf(fp, "End\n\n");
 
-	if (!race->pcdata) {
+	if (!race->race_pcdata) {
 		fprintf(fp, "#$\n");
 		fclose(fp);
 		olc_printf(ch, "    %s (%s)", race->name, race->file_name);
@@ -885,14 +885,14 @@ static void save_race(CHAR_DATA *ch, race_t *race)
 	}
 	
 	fprintf(fp, "#PCRACE\n");
-	if (race->pcdata->who_name)
+	if (race->race_pcdata->who_name)
 		fprintf(fp, "Shortname %s~\n",
-			race->pcdata->who_name);
-	if (race->pcdata->points)
+			race->race_pcdata->who_name);
+	if (race->race_pcdata->points)
 		fprintf(fp, "Points %d\n",
-			race->pcdata->points);
-	for (i = 0; i < race->pcdata->classes.nused; i++) {
-		rclass_t *rc = VARR_GET(&race->pcdata->classes, i);
+			race->race_pcdata->points);
+	for (i = 0; i < race->race_pcdata->classes.nused; i++) {
+		rclass_t *rc = VARR_GET(&race->race_pcdata->classes, i);
 		int c;
 
 		if (rc->name == NULL
@@ -901,11 +901,11 @@ static void save_race(CHAR_DATA *ch, race_t *race)
 		fprintf(fp, "Class '%s' %d\n",
 			rc->name, rc->mult);
 	}
-	if (!IS_NULLSTR(race->pcdata->bonus_skills))
+	if (!IS_NULLSTR(race->race_pcdata->bonus_skills))
 		fprintf(fp, "BonusSkills %s~\n",
-			race->pcdata->bonus_skills);
-	for (i = 0; i < race->pcdata->skills.nused; i++) {
-		rskill_t *rs = VARR_GET(&race->pcdata->skills, i);
+			race->race_pcdata->bonus_skills);
+	for (i = 0; i < race->race_pcdata->skills.nused; i++) {
+		rskill_t *rs = VARR_GET(&race->race_pcdata->skills, i);
 		skill_t *sk;
 
 		if (rs->sn <= 0
@@ -915,41 +915,41 @@ static void save_race(CHAR_DATA *ch, race_t *race)
 			sk->name, rs->level);
 	}
 	for (i = 0, found = FALSE; i < MAX_STATS; i++)
-		if (race->pcdata->stats[i]) found = TRUE;
+		if (race->race_pcdata->stats[i]) found = TRUE;
 	if (found) {
 		fprintf(fp, "Stats ");
 		for (i = 0; i < MAX_STATS; i++)
-			fprintf(fp, "%d ", race->pcdata->stats[i]);
+			fprintf(fp, "%d ", race->race_pcdata->stats[i]);
 		fprintf(fp, "\n");
 	}
 	for (i = 0, found = FALSE; i < MAX_STATS; i++)
-		if (race->pcdata->max_stats[i]) found = TRUE;
+		if (race->race_pcdata->max_stats[i]) found = TRUE;
 	if (found) {
 		fprintf(fp, "MaxStats ");
 		for (i = 0; i < MAX_STATS; i++)
 			fprintf(fp, "%d ",
-				race->pcdata->max_stats[i]);
+				race->race_pcdata->max_stats[i]);
 		fprintf(fp, "\n");
 	}
 	fprintf(fp, "Size %s\n",
-		flag_string(size_table, race->pcdata->size));
-	if (race->pcdata->hp_bonus)
+		flag_string(size_table, race->race_pcdata->size));
+	if (race->race_pcdata->hp_bonus)
 		fprintf(fp, "HPBonus %d\n",
-			race->pcdata->hp_bonus);
-	if (race->pcdata->mana_bonus)
+			race->race_pcdata->hp_bonus);
+	if (race->race_pcdata->mana_bonus)
 		fprintf(fp, "ManaBonus %d\n",
-			race->pcdata->mana_bonus);
-	if (race->pcdata->prac_bonus)
+			race->race_pcdata->mana_bonus);
+	if (race->race_pcdata->prac_bonus)
 		fprintf(fp, "PracBonus %d\n",
-			race->pcdata->prac_bonus);
-	if (race->pcdata->restrict_align)
+			race->race_pcdata->prac_bonus);
+	if (race->race_pcdata->restrict_align)
 		fprintf(fp, "RestrictAlign %s~\n",
-			flag_string(ralign_names, race->pcdata->restrict_align));
-	if (race->pcdata->restrict_ethos)
+			flag_string(ralign_names, race->race_pcdata->restrict_align));
+	if (race->race_pcdata->restrict_ethos)
 		fprintf(fp, "RestrictEthos %s~\n",
-			flag_string(ethos_table, race->pcdata->restrict_ethos));
+			flag_string(ethos_table, race->race_pcdata->restrict_ethos));
 	fprintf(fp, "Slang %s\n",
-		flag_string(slang_table, race->pcdata->slang));
+		flag_string(slang_table, race->race_pcdata->slang));
 
 	fprintf(fp, "End\n\n#$\n");
 	fclose(fp);

@@ -1,5 +1,5 @@
 /*
- * $Id: mob_prog.c,v 1.49 1999-06-10 18:19:00 fjoe Exp $
+ * $Id: mob_prog.c,v 1.50 1999-09-08 10:40:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -300,7 +300,7 @@ int count_people_room(CHAR_DATA *mob, int iFlag)
 	  || (iFlag == 1 && !IS_NPC(vch)) 
 	  || (iFlag == 2 && IS_NPC(vch))
 	  || (iFlag == 3 && IS_NPC(mob) && IS_NPC(vch) 
-	     && mob->pIndexData->vnum == vch->pIndexData->vnum)
+	     && mob->pMobIndex->vnum == vch->pMobIndex->vnum)
 	  || (iFlag == 4 && is_same_group(mob, vch)))
 	&& can_see(mob, vch)) 
 	    count++;
@@ -324,7 +324,7 @@ int get_order(CHAR_DATA *ch)
 	if (vch == ch)
 	    return i;
 	if (IS_NPC(vch) 
-	&&   vch->pIndexData->vnum == ch->pIndexData->vnum)
+	&&   vch->pMobIndex->vnum == ch->pMobIndex->vnum)
 	    i++;
     }
     return 0;
@@ -340,8 +340,8 @@ bool has_item(CHAR_DATA *ch, int vnum, int item_type, bool fWear)
 {
     OBJ_DATA *obj;
     for (obj = ch->carrying; obj; obj = obj->next_content)
-	if ((vnum < 0 || obj->pIndexData->vnum == vnum)
-	&&   (item_type < 0 || obj->pIndexData->item_type == item_type)
+	if ((vnum < 0 || obj->pObjIndex->vnum == vnum)
+	&&   (item_type < 0 || obj->pObjIndex->item_type == item_type)
 	&&   (!fWear || obj->wear_loc != WEAR_NONE))
 	    return TRUE;
     return FALSE;
@@ -354,7 +354,7 @@ bool get_mob_vnum_room(CHAR_DATA *ch, int vnum)
 {
     CHAR_DATA *mob;
     for (mob = ch->in_room->people; mob; mob = mob->next_in_room)
-	if (IS_NPC(mob) && mob->pIndexData->vnum == vnum)
+	if (IS_NPC(mob) && mob->pMobIndex->vnum == vnum)
 	    return TRUE;
     return FALSE;
 }
@@ -366,7 +366,7 @@ bool get_obj_vnum_room(CHAR_DATA *ch, int vnum)
 {
     OBJ_DATA *obj;
     for (obj = ch->in_room->contents; obj; obj = obj->next_content)
-	if (obj->pIndexData->vnum == vnum)
+	if (obj->pObjIndex->vnum == vnum)
 	    return TRUE;
     return FALSE;
 }
@@ -405,8 +405,8 @@ int cmd_eval(int vnum, const char *line, int check,
     /*
      * If this mobile has no target, let's assume our victim is the one
      */
-    if (mob->mprog_target == NULL)
-	mob->mprog_target = ch;
+    if (NPC(mob)->mprog_target == NULL)
+	NPC(mob)->mprog_target = ch;
 
     switch (check)
     {
@@ -491,7 +491,7 @@ int cmd_eval(int vnum, const char *line, int check,
         case 'p':
             lval_obj = obj2; break;
 	case 'q':
-	    lval_char = mob->mprog_target; break;
+	    lval_char = NPC(mob)->mprog_target; break;
 	default:
 	    log("cmd_eval: vnum %d: syntax error(4) '%s'",
 		vnum, original);
@@ -530,7 +530,8 @@ int cmd_eval(int vnum, const char *line, int check,
 	case CHK_ISACTIVE:
 	    return(lval_char != NULL && lval_char->position > POS_SLEEPING);
 	case CHK_ISDELAY:
-	    return(lval_char != NULL && lval_char->mprog_delay > 0);
+	    return(lval_char != NULL && IS_NPC(lval_char) &&
+		   NPC(lval_char)->mprog_delay > 0);
 	case CHK_ISVISIBLE:
             switch(code)
             {
@@ -546,12 +547,14 @@ int cmd_eval(int vnum, const char *line, int check,
 	    	    return(lval_obj != NULL && can_see_obj(mob, lval_obj));
 	    }
 	case CHK_HASTARGET:
-	    return(lval_char != NULL && lval_char->mprog_target != NULL
-		&&  lval_char->in_room == lval_char->mprog_target->in_room);
+	    return(lval_char != NULL && IS_NPC(lval_char) &&
+			NPC(lval_char)->mprog_target != NULL
+		&&  lval_char->in_room == NPC(lval_char)->mprog_target->in_room);
 	case CHK_ISTARGET:
-	    return(lval_char != NULL && mob->mprog_target == lval_char);
+	    return(lval_char != NULL && NPC(mob)->mprog_target == lval_char);
 	case CHK_ISGHOST:
-		return (lval_char && IS_SET(lval_char->plr_flags, PLR_GHOST));
+		return (lval_char && !IS_NPC(lval_char) &&
+			IS_SET(PC(lval_char)->plr_flags, PLR_GHOST));
 	case CHK_WAIT:
 		return (lval_char && lval_char->wait);
 	case CHK_SAMECLAN:
@@ -570,13 +573,13 @@ int cmd_eval(int vnum, const char *line, int check,
 		&&  IS_SET(lval_char->affected_by, flag_value(affect_flags, buf)));
 	case CHK_ACT:
 	    return(lval_char != NULL 
-		&&  IS_SET(lval_char->pIndexData->act, flag_value(act_flags, buf)));
+		&&  IS_SET(lval_char->pMobIndex->act, flag_value(act_flags, buf)));
 	case CHK_IMM:
 	    return(lval_char != NULL 
 		&&  IS_SET(lval_char->imm_flags, flag_value(imm_flags, buf)));
 	case CHK_OFF:
 	    return(lval_char != NULL 
-		&&  IS_NPC(ch) && IS_SET(lval_char->pIndexData->off_flags, flag_value(off_flags, buf)));
+		&&  IS_NPC(ch) && IS_SET(lval_char->pMobIndex->off_flags, flag_value(off_flags, buf)));
 	case CHK_CARRIES:
 	    if (is_number(buf))
 		return(lval_char != NULL && has_item(lval_char, atoi(buf), -1, FALSE));
@@ -615,7 +618,7 @@ int cmd_eval(int vnum, const char *line, int check,
 	case CHK_CLASS:
 	    return(lval_char != NULL && !IS_NPC(lval_char) && lval_char->class == cn_lookup(buf));
 	case CHK_OBJTYPE:
-	    return(lval_obj != NULL && lval_obj->pIndexData->item_type == flag_value(item_types, buf));
+	    return(lval_obj != NULL && lval_obj->pObjIndex->item_type == flag_value(item_types, buf));
 	default:;
     }
 
@@ -643,12 +646,12 @@ int cmd_eval(int vnum, const char *line, int check,
                 case 'r':
 		case 'q':
                     if(lval_char != NULL && IS_NPC(lval_char))
-                        lval = lval_char->pIndexData->vnum;
+                        lval = lval_char->pMobIndex->vnum;
                     break;
                 case 'o':
                 case 'p':
                      if (lval_obj != NULL)
-                        lval = lval_obj->pIndexData->vnum;
+                        lval = lval_obj->pObjIndex->vnum;
             }
             break;
 	case CHK_HPCNT:
@@ -788,17 +791,17 @@ void expand_arg(char *buf,
 		:someone;					break;
 	    case 'q':
 		i = someone;
-		if (mob->mprog_target != NULL && can_see(mob, mob->mprog_target))
+		if (NPC(mob)->mprog_target != NULL && can_see(mob, NPC(mob)->mprog_target))
 	        {
-		    one_argument(mob->mprog_target->name, fname, sizeof(fname));
+		    one_argument(NPC(mob)->mprog_target->name, fname, sizeof(fname));
 		    i = capitalize(fname);
 		} 						break;
 	    case 'Q':
-	    	i = (mob->mprog_target != NULL &&
-		     can_see(mob, mob->mprog_target)) ?
-		(IS_NPC(mob->mprog_target) ?
-		mlstr_mval(&mob->mprog_target->short_descr) :
-		mob->mprog_target->name) :
+	    	i = (NPC(mob)->mprog_target != NULL &&
+		     can_see(mob, NPC(mob)->mprog_target)) ?
+		(IS_NPC(NPC(mob)->mprog_target) ?
+		mlstr_mval(&NPC(mob)->mprog_target->short_descr) :
+		NPC(mob)->mprog_target->name) :
 		someone;                         		break;
             case 'j': i = he_she  [URANGE(0, mob->sex, 2)];     break;
             case 'e': 
@@ -814,8 +817,8 @@ void expand_arg(char *buf,
 		? he_she  [URANGE(0, rch->sex, 2)]        
 		: someone;					break;
 	    case 'X':
-		i = (mob->mprog_target != NULL && can_see(mob, mob->mprog_target))
-		? he_she  [URANGE(0, mob->mprog_target->sex, 2)]
+		i = (NPC(mob)->mprog_target != NULL && can_see(mob, NPC(mob)->mprog_target))
+		? he_she  [URANGE(0, NPC(mob)->mprog_target->sex, 2)]
 		: someone;					break;
             case 'k': i = him_her [URANGE(0, mob->sex, 2)];	break;
             case 'm': 
@@ -833,8 +836,8 @@ void expand_arg(char *buf,
 		? him_her [URANGE(0, rch ->sex, 2)]
 		: someone;					break;
             case 'Y': 
-	    	i = (mob->mprog_target != NULL && can_see(mob, mob->mprog_target))
-		? him_her [URANGE(0, mob->mprog_target->sex, 2)]        
+	    	i = (NPC(mob)->mprog_target != NULL && can_see(mob, NPC(mob)->mprog_target))
+		? him_her [URANGE(0, NPC(mob)->mprog_target->sex, 2)]        
 		: someone;					break;
             case 'l': i = his_her [URANGE(0, mob ->sex, 2)];    break;
             case 's': 
@@ -852,8 +855,8 @@ void expand_arg(char *buf,
 		? his_her [URANGE(0, rch ->sex, 2)]
 		: someones;					break;
             case 'Z': 
-	    	i = (mob->mprog_target != NULL && can_see(mob, mob->mprog_target))
-		? his_her [URANGE(0, mob->mprog_target->sex, 2)]
+	    	i = (NPC(mob)->mprog_target != NULL && can_see(mob, NPC(mob)->mprog_target))
+		? his_her [URANGE(0, NPC(mob)->mprog_target->sex, 2)]
 		: someones;					break;
 	    case 'o':
 		i = something;
@@ -924,7 +927,7 @@ void program_flow(int pvnum, CHAR_DATA *mob, CHAR_DATA *ch,
 
 	if ((mprog = mpcode_lookup(pvnum)) == NULL) {
 		log("program_flow: mob vnum %d: mprog vnum %d: "
-			   "not found", mob->pIndexData->vnum, pvnum);
+			   "not found", mob->pMobIndex->vnum, pvnum);
 		return;
 	}
 
@@ -1135,7 +1138,7 @@ void mp_act_trigger(const char *argument, CHAR_DATA *mob, CHAR_DATA *ch,
 	MPTRIG *mptrig;
 	char *l = strlwr(argument);
 
-	for (mptrig = mob->pIndexData->mptrig_list; mptrig; mptrig = mptrig->next) {
+	for (mptrig = mob->pMobIndex->mptrig_list; mptrig; mptrig = mptrig->next) {
 		bool match;
 
  		if (mptrig->type != type)
@@ -1165,7 +1168,7 @@ bool mp_percent_trigger(
 {
     MPTRIG *prg;
 
-    for (prg = mob->pIndexData->mptrig_list; prg != NULL; prg = prg->next)
+    for (prg = mob->pMobIndex->mptrig_list; prg != NULL; prg = prg->next)
     {
     	if (prg->type == type 
 	&&   number_percent() < atoi(prg->phrase))
@@ -1186,7 +1189,7 @@ void mp_bribe_trigger(CHAR_DATA *mob, CHAR_DATA *ch, int amount)
      * and give it to the mobile. WFT was that? Funcs in act_obj()
      * handle it just fine.
      */
-    for (prg = mob->pIndexData->mptrig_list; prg; prg = prg->next)
+    for (prg = mob->pMobIndex->mptrig_list; prg; prg = prg->next)
     {
 	if (prg->type == TRIG_BRIBE
 	&&   amount >= atoi(prg->phrase))
@@ -1208,7 +1211,7 @@ bool mp_exit_trigger(CHAR_DATA *ch, int dir)
 	if (IS_NPC(mob)
 	&&   (HAS_TRIGGER(mob, TRIG_EXIT) || HAS_TRIGGER(mob, TRIG_EXALL)))
 	{
-	    for (prg = mob->pIndexData->mptrig_list; prg; prg = prg->next)
+	    for (prg = mob->pMobIndex->mptrig_list; prg; prg = prg->next)
 	    {
 		/*
 		 * Exit trigger works only if the mobile is not busy
@@ -1217,7 +1220,7 @@ bool mp_exit_trigger(CHAR_DATA *ch, int dir)
 		 */
 		if (prg->type == TRIG_EXIT
 		&&  dir == atoi(prg->phrase)
-		&&  mob->position == mob->pIndexData->default_pos
+		&&  mob->position == mob->pMobIndex->default_pos
 		&&  can_see(mob, ch))
 		{
 		    program_flow(prg->vnum, mob, ch, NULL, NULL);
@@ -1242,7 +1245,7 @@ void mp_give_trigger(CHAR_DATA *mob, CHAR_DATA *ch, OBJ_DATA *obj)
     const char	*p;
     MPTRIG  *prg;
 
-    for (prg = mob->pIndexData->mptrig_list; prg; prg = prg->next)
+    for (prg = mob->pMobIndex->mptrig_list; prg; prg = prg->next)
 	if (prg->type == TRIG_GIVE)
 	{
 	    p = prg->phrase;
@@ -1251,7 +1254,7 @@ void mp_give_trigger(CHAR_DATA *mob, CHAR_DATA *ch, OBJ_DATA *obj)
 	     */
 	    if (is_number(p))
 	    {
-		if (obj->pIndexData->vnum == atoi(p))
+		if (obj->pObjIndex->vnum == atoi(p))
 		{
 		    program_flow(prg->vnum, mob, ch, (void *) obj, NULL);
 		    return;
@@ -1292,7 +1295,7 @@ void mp_greet_trigger(CHAR_DATA *ch)
 	     * GrAll trigger
 	     */
 	    if (HAS_TRIGGER(mob,TRIG_GREET)
-	    &&   mob->position == mob->pIndexData->default_pos
+	    &&   mob->position == mob->pMobIndex->default_pos
 	    &&   can_see(mob, ch))
 		mp_percent_trigger(mob, ch, NULL, NULL, TRIG_GREET);
 	    else                 
@@ -1307,7 +1310,7 @@ void mp_hprct_trigger(CHAR_DATA *mob, CHAR_DATA *ch)
 {
     MPTRIG *prg;
 
-    for (prg = mob->pIndexData->mptrig_list; prg != NULL; prg = prg->next)
+    for (prg = mob->pMobIndex->mptrig_list; prg != NULL; prg = prg->next)
 	if ((prg->type == TRIG_HPCNT)
 	&& ((100 * mob->hit / mob->max_hit) < atoi(prg->phrase)))
 	{

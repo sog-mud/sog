@@ -1,5 +1,5 @@
 /*
- * $Id: ban.c,v 1.38 1999-06-28 09:04:19 fjoe Exp $
+ * $Id: ban.c,v 1.39 1999-09-08 10:40:14 fjoe Exp $
  */
 
 /***************************************************************************
@@ -270,7 +270,7 @@ int check_ban(DESCRIPTOR_DATA *d, int ban_class)
 
 	if (ban_action == BA_DENY) {
 		write_to_buffer(d, "You are banned from this mud.\n\r", 0);
-		close_descriptor(d);
+		close_descriptor(d, SAVE_F_NONE);
 	}
 
 	return ban_action;

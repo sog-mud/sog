@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_help.c,v 1.37 1999-06-30 15:42:26 fjoe Exp $
+ * $Id: olc_help.c,v 1.38 1999-09-08 10:40:05 fjoe Exp $
  */
 
 #include "olc.h"
@@ -65,7 +65,7 @@ OLC_FUN(helped_create)
 	HELP_DATA *pHelp;
 	AREA_DATA *pArea;
 
-	if (ch->pcdata->security < SECURITY_HELP) {
+	if (PC(ch)->security < SECURITY_HELP) {
 		char_puts("HelpEd: Insufficient security.\n", ch);
 		return FALSE;
 	}
@@ -103,7 +103,7 @@ OLC_FUN(helped_edit)
 	char keyword[MAX_STRING_LENGTH];
 	HELP_DATA *pHelp;
 
-	if (ch->pcdata->security < SECURITY_HELP) {
+	if (PC(ch)->security < SECURITY_HELP) {
 		char_puts("HelpEd: Insufficient security.\n", ch);
 		return FALSE;
 	}

@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.195 1999-07-30 05:18:16 avn Exp $
+ * $Id: act_move.c,v 1.196 1999-09-08 10:39:50 fjoe Exp $
  */
 
 /***************************************************************************
@@ -104,7 +104,7 @@ void do_open(CHAR_DATA *ch, const char *argument)
 
 	if ((obj = get_obj_here(ch, arg)) != NULL) {
  	/* open portal */
-		if (obj->pIndexData->item_type == ITEM_PORTAL)
+		if (obj->pObjIndex->item_type == ITEM_PORTAL)
 		{
 		    if (!IS_SET(obj->value[1], EX_ISDOOR))
 		    {
@@ -129,7 +129,7 @@ void do_open(CHAR_DATA *ch, const char *argument)
  	}
 
 		/* 'open object' */
-		if (obj->pIndexData->item_type != ITEM_CONTAINER)
+		if (obj->pObjIndex->item_type != ITEM_CONTAINER)
 		    { char_puts("That's not a container.\n", ch); return; }
 		if (!IS_SET(obj->value[1], CONT_CLOSED))
 		    { char_puts("It's already open.\n", ch); return; }
@@ -193,7 +193,7 @@ void do_close(CHAR_DATA *ch, const char *argument)
 
 	if ((obj = get_obj_here(ch, arg)) != NULL) {
 		/* portal stuff */
-		if (obj->pIndexData->item_type == ITEM_PORTAL)
+		if (obj->pObjIndex->item_type == ITEM_PORTAL)
 		{
 
 		    if (!IS_SET(obj->value[1],EX_ISDOOR)
@@ -215,7 +215,7 @@ void do_close(CHAR_DATA *ch, const char *argument)
 		}
 
 		/* 'close object' */
-		if (obj->pIndexData->item_type != ITEM_CONTAINER)
+		if (obj->pObjIndex->item_type != ITEM_CONTAINER)
 		    { char_puts("That's not a container.\n", ch); return; }
 		if (IS_SET(obj->value[1], CONT_CLOSED))
 		    { char_puts("It's already closed.\n", ch); return; }
@@ -274,7 +274,7 @@ void do_lock(CHAR_DATA *ch, const char *argument)
 
 	if ((obj = get_obj_here(ch, arg)) != NULL) {
 		/* portal stuff */
-		if (obj->pIndexData->item_type == ITEM_PORTAL) {
+		if (obj->pObjIndex->item_type == ITEM_PORTAL) {
 		    if (!IS_SET(obj->value[1], EX_ISDOOR)
 		    ||  IS_SET(obj->value[1], EX_NOCLOSE)) {
 			char_puts("You can't do that.\n", ch);
@@ -307,7 +307,7 @@ void do_lock(CHAR_DATA *ch, const char *argument)
 		}
 
 		/* 'lock object' */
-		if (obj->pIndexData->item_type != ITEM_CONTAINER)
+		if (obj->pObjIndex->item_type != ITEM_CONTAINER)
 		    { char_puts("That's not a container.\n", ch); return; }
 		if (!IS_SET(obj->value[1], CONT_CLOSED))
 		    { char_puts("It's not closed.\n", ch); return; }
@@ -379,7 +379,7 @@ void do_unlock(CHAR_DATA *ch, const char *argument)
 
 	if ((obj = get_obj_here(ch, arg)) != NULL) {
  	/* portal stuff */
-		if (obj->pIndexData->item_type == ITEM_PORTAL) {
+		if (obj->pObjIndex->item_type == ITEM_PORTAL) {
 		    if (IS_SET(obj->value[1],EX_ISDOOR)) {
 			char_puts("You can't do that.\n", ch);
 			return;
@@ -412,7 +412,7 @@ void do_unlock(CHAR_DATA *ch, const char *argument)
 		}
 
 		/* 'unlock object' */
-		if (obj->pIndexData->item_type != ITEM_CONTAINER)
+		if (obj->pObjIndex->item_type != ITEM_CONTAINER)
 		    { char_puts("That's not a container.\n", ch); return; }
 		if (!IS_SET(obj->value[1], CONT_CLOSED))
 		    { char_puts("It's not closed.\n", ch); return; }
@@ -516,7 +516,7 @@ void do_pick(CHAR_DATA *ch, const char *argument)
 
 	if ((obj = get_obj_here(ch, arg)) != NULL) {
 		/* portal stuff */
-		if (obj->pIndexData->item_type == ITEM_PORTAL) {
+		if (obj->pObjIndex->item_type == ITEM_PORTAL) {
 		    if (!IS_SET(obj->value[1],EX_ISDOOR)) {	
 			char_puts("You can't do that.\n", ch);
 			return;
@@ -546,7 +546,7 @@ void do_pick(CHAR_DATA *ch, const char *argument)
 
 		
 		/* 'pick object' */
-		if (obj->pIndexData->item_type != ITEM_CONTAINER)
+		if (obj->pObjIndex->item_type != ITEM_CONTAINER)
 		    { char_puts("That's not a container.\n", ch); return; }
 		if (!IS_SET(obj->value[1], CONT_CLOSED))
 		    { char_puts("It's not closed.\n", ch); return; }
@@ -610,7 +610,7 @@ void do_stand(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
-		if (obj->pIndexData->item_type != ITEM_FURNITURE
+		if (obj->pObjIndex->item_type != ITEM_FURNITURE
 		||  (!IS_SET(obj->value[2], STAND_AT) &&
 		     !IS_SET(obj->value[2], STAND_ON) &&
 		     !IS_SET(obj->value[2], STAND_IN))) {
@@ -659,7 +659,7 @@ void do_stand(CHAR_DATA *ch, const char *argument)
 
 		if (IS_HARA_KIRI(ch)) {
 			char_puts("You feel your blood heats your body.\n", ch);
-			REMOVE_BIT(ch->plr_flags, PLR_HARA_KIRI);
+			REMOVE_BIT(PC(ch)->plr_flags, PLR_HARA_KIRI);
 		}
 
 		ch->position = POS_STANDING;
@@ -734,7 +734,7 @@ void do_rest(CHAR_DATA *ch, const char *argument)
 	else obj = ch->on;
 
 	if (obj != NULL) {
-		if (obj->pIndexData->item_type != ITEM_FURNITURE 
+		if (obj->pObjIndex->item_type != ITEM_FURNITURE 
 		||  (!IS_SET(obj->value[2], REST_ON) &&
 		     !IS_SET(obj->value[2], REST_IN) &&
 		     !IS_SET(obj->value[2], REST_AT))) {
@@ -837,7 +837,7 @@ void do_rest(CHAR_DATA *ch, const char *argument)
 		if (IS_HARA_KIRI(ch)) {
 			char_puts("You feel your blood heats your body.\n",
 				  ch);
-			REMOVE_BIT(ch->plr_flags, PLR_HARA_KIRI);
+			REMOVE_BIT(PC(ch)->plr_flags, PLR_HARA_KIRI);
 		}
 		break;
 	}
@@ -877,7 +877,7 @@ void do_sit(CHAR_DATA *ch, const char *argument)
 		obj = ch->on;
 
 	if (obj != NULL) {
-		if (obj->pIndexData->item_type != ITEM_FURNITURE
+		if (obj->pObjIndex->item_type != ITEM_FURNITURE
 		||  (!IS_SET(obj->value[2], SIT_ON) &&
 		     !IS_SET(obj->value[2], SIT_IN) &&
 		     !IS_SET(obj->value[2], SIT_AT))) {
@@ -973,7 +973,7 @@ void do_sit(CHAR_DATA *ch, const char *argument)
 
 	if (IS_HARA_KIRI(ch)) {
 		 char_puts("You feel your blood heats your body.\n", ch);
-		 REMOVE_BIT(ch->plr_flags, PLR_HARA_KIRI);
+		 REMOVE_BIT(PC(ch)->plr_flags, PLR_HARA_KIRI);
 	}
 }
 
@@ -1015,7 +1015,7 @@ void do_sleep(CHAR_DATA *ch, const char *argument)
 				return;
 			}
 
-			if (obj->pIndexData->item_type != ITEM_FURNITURE
+			if (obj->pObjIndex->item_type != ITEM_FURNITURE
 			||  (!IS_SET(obj->value[2], SLEEP_ON) &&
 			     !IS_SET(obj->value[2], SLEEP_IN) &&
 			     !IS_SET(obj->value[2], SLEEP_AT))) {
@@ -1258,7 +1258,7 @@ void do_blend(CHAR_DATA *ch, const char *argument)
 		ch, NULL, NULL, TO_CHAR, POS_DEAD);
 	act_puts("$n attempts to blend in the forest.",
 		ch, NULL, NULL, TO_ROOM, POS_RESTING);
-	if (number_percent()<chance) {
+	if (number_percent() < chance) {
 		af.where 	= TO_AFFECTS;
 		af.type		= gsn_forest_blending;
 		af.level	= LEVEL(ch);
@@ -1342,7 +1342,7 @@ void do_recall(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	pet = ch->pet;
+	pet = GET_PET(ch);
 	ch->move /= 2;
 	recall(ch, location);
 
@@ -1359,6 +1359,7 @@ void do_train(CHAR_DATA *ch, const char *argument)
 	CHAR_DATA *mob;
 	int stat = - 1;
 	char *pOutput = NULL;
+	PC_DATA *pc;
 
 	if (IS_NPC(ch))
 		return;
@@ -1368,7 +1369,7 @@ void do_train(CHAR_DATA *ch, const char *argument)
 	 */
 	for (mob = ch->in_room->people; mob; mob = mob->next_in_room)
 		if (IS_NPC(mob)
-		&&  IS_SET(mob->pIndexData->act,
+		&&  IS_SET(mob->pMobIndex->act,
 			   ACT_PRACTICE | ACT_TRAIN | ACT_GAIN))
 			break;
 
@@ -1377,9 +1378,10 @@ void do_train(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	pc = PC(ch);
 	if (argument[0] == '\0') {
 		char_printf(ch, "You have %d training sessions.\n",
-			    ch->train);
+			    pc->train);
 		argument = "foo";
 	}
 
@@ -1409,7 +1411,7 @@ void do_train(CHAR_DATA *ch, const char *argument)
 	}
 	else {
 		snprintf(buf, sizeof(buf),
-			 GETMSG("You can train: %s%s%s%s%s%s", ch->lang),
+			 GETMSG("You can train: %s%s%s%s%s%s", GET_LANG(ch)),
 			 ch->perm_stat[STAT_STR] < get_max_train(ch, STAT_STR) ?
 			 	" str" : str_empty,
 			 ch->perm_stat[STAT_INT] < get_max_train(ch, STAT_INT) ?
@@ -1445,12 +1447,12 @@ void do_train(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (ch->train < 1) {
+	if (pc->train < 1) {
 		char_puts("You don't have enough training sessions.\n", ch);
 		return;
 	}
 
-	ch->train--;
+	pc->train--;
 	ch->perm_stat[stat] += 1;
 	act_puts("Your $T increases!",
 		 ch, NULL, pOutput, TO_CHAR, POS_DEAD);
@@ -1475,11 +1477,7 @@ void do_track(CHAR_DATA *ch, const char *argument)
 	act("$n checks the ground for tracks.", ch, NULL, NULL, TO_ROOM);
 
 	if (number_percent() < chance) {
-		if (IS_NPC(ch)) {
-			if (ch->last_fought != NULL
-			&&  !IS_SET(ch->pIndexData->act, ACT_NOTRACK))
-				add_mind(ch, ch->last_fought->name);
-		}
+		/* success */
 
 		for (rh = ch->in_room->history; rh != NULL; rh = rh->next)
 			if (is_name(argument, rh->name)) {
@@ -1572,7 +1570,7 @@ void do_vampire(CHAR_DATA *ch, const char *argument)
 	af.bitvector = AFF_SNEAK | AFF_FLYING | AFF_INFRARED | AFF_TURNED;
 	affect_to_char(ch, &af);
 	
-	ch->pcdata->form_name="an ugly creature";
+	PC(ch)->form_name = "an ugly creature";
 	char_puts("You feel yourself getting greater and greater.\n", ch);
 	act("You cannot recognize $n anymore.", ch, NULL, NULL, TO_ROOM);
 }
@@ -1647,7 +1645,7 @@ void do_vbite(CHAR_DATA *ch, const char *argument)
 		damage(ch, victim, 0, gsn_vampiric_bite, DAM_NONE, DAMF_SHOW);
 	}
 	if (!IS_NPC(victim) && victim->position==POS_FIGHTING) 
-		yell(victim, ch, "Help! $I tried to bite me!");
+		yell(victim, ch, "Help! $lu{$I} tried to bite me!");
 }
 
 void do_bash_door(CHAR_DATA *ch, const char *argument)
@@ -1787,34 +1785,30 @@ void do_bash_door(CHAR_DATA *ch, const char *argument)
 
 void do_blink(CHAR_DATA *ch, const char *argument)
 {
-	char arg[MAX_INPUT_LENGTH];
-
 	if (get_skill(ch, gsn_blink) == 0) {
 		char_puts("Huh?\n", ch);
 		return;
 	}
 
-	argument = one_argument(argument, arg, sizeof(arg));
+	if (is_affected(ch, gsn_blink)) {
+		act("You stop blinking.", ch, NULL, NULL, TO_CHAR);
+		act("$n stops blinking.", ch, NULL, NULL, TO_ROOM);
+		affect_strip(ch, gsn_blink);
+	} else {
+		AFFECT_DATA af;
 
-	if (arg[0] == '\0') {
-		char_printf(ch, "Your current blink status: %s.\n",
-			    IS_SET(ch->plr_flags, PLR_BLINK) ? "ON" : "OFF");
-		return;
+		act("You start blinking.", ch, NULL, NULL, TO_CHAR);
+		act("$n starts blinking.", ch, NULL, NULL, TO_ROOM);
+
+		af.where 	= TO_AFFECTS;
+		af.type		= gsn_blink;
+		af.level	= LEVEL(ch);
+		af.location	= APPLY_NONE;
+		af.modifier	= 0;
+		af.bitvector	= 0;
+		af.duration	= -1;
+		affect_to_char(ch, &af);
 	}
-
-	if (!str_cmp(arg, "ON")) {
-		SET_BIT(ch->plr_flags, PLR_BLINK);
-		char_puts("Now, your current blink status is ON.\n", ch);
-		return;
-	}
-
-	if (!str_cmp(arg, "OFF")) {
-		REMOVE_BIT(ch->plr_flags, PLR_BLINK);
-		char_puts("Now, your current blink status is OFF.\n", ch);
-		return;
-	}
-
-	char_printf(ch, "What's that? Is %s a status?\n", arg);
 }
 
 void do_vanish(CHAR_DATA *ch, const char *argument)
@@ -1938,7 +1932,7 @@ void do_kidnap(CHAR_DATA* ch, const char *argument)
 		transfer_char(victim, NULL, to_room,
 			"$N disappears.", NULL, "$N appears from nowhere.");
 		check_improve(ch, sn, TRUE, 1);
-		yell(victim, ch, "Help! $I just kidnapped me!");
+		yell(victim, ch, "Help! $lu{$I} just kidnapped me!");
 		multi_hit(victim, ch, TYPE_UNDEFINED);
 	} else {
 		act("You grab $N, but $E escaped.", 
@@ -1947,7 +1941,7 @@ void do_kidnap(CHAR_DATA* ch, const char *argument)
 			ch, NULL, victim, TO_VICT);
 		act("$n grabs $N, but $E escaped.",
 			ch, NULL, victim, TO_NOTVICT);
-		yell(victim, ch, "Help! $I tried to kidnap me!");
+		yell(victim, ch, "Help! $lu{$I} tried to kidnap me!");
 		check_improve(ch, sn, FALSE, 1);
 		multi_hit(victim, ch, TYPE_UNDEFINED);
 	}
@@ -2050,7 +2044,7 @@ void do_vtouch(CHAR_DATA *ch, const char *argument)
 		damage(ch, victim, 0, sn, DAM_NONE, DAMF_SHOW);
 		check_improve(ch, sn, FALSE, 1);
 	}
-	yell(victim, ch, "Help! $I tried to touch me!");
+	yell(victim, ch, "Help! $lu{$I} tried to touch me!");
 }
 
 void do_fly(CHAR_DATA *ch, const char *argument)
@@ -2203,7 +2197,7 @@ void do_push(CHAR_DATA *ch, const char *argument)
 	percent += can_see(victim, ch) ? -10 : 0;
 
 	if (victim->position == POS_FIGHTING
-	||  (IS_NPC(victim) && IS_SET(victim->pIndexData->act, ACT_NOTRACK))
+	||  (IS_NPC(victim) && IS_SET(victim->pMobIndex->act, ACT_NOTRACK))
 	||  (!IS_NPC(ch) && percent > get_skill(ch, sn))
 	||  pexit == NULL
 	||  pexit->to_room.r == NULL
@@ -2296,7 +2290,7 @@ void do_crecall(CHAR_DATA *ch, const char *argument)
 	af.bitvector = 0;
 	affect_to_char(ch, &af);
 
-	pet = ch->pet;
+	pet = GET_PET(ch);
 	recall(ch, location);
 
 	if (pet && !IS_AFFECTED(pet, AFF_SLEEP)) {
@@ -2393,9 +2387,10 @@ void do_escape(CHAR_DATA *ch, const char *argument)
 			gain_exp(ch, -10);
 		}
 	}
-	else
+	else {
 		/* Once fled, the mob will not go after */
-		ch->last_fought = NULL;
+		NPC(ch)->last_fought = NULL;
+	}
 
 	stop_fighting(ch, TRUE);
 }
@@ -2472,8 +2467,9 @@ void do_mount(CHAR_DATA *ch, const char *argument)
 		return;
   	}
  
-	if (!IS_NPC(mount) || !IS_SET(mount->pIndexData->act, ACT_RIDEABLE)
-	||  IS_SET(mount->pIndexData->act, ACT_NOTRACK)) { 
+	if (!IS_NPC(mount)
+	||  !IS_SET(mount->pMobIndex->act, ACT_RIDEABLE)
+	||  IS_SET(mount->pMobIndex->act, ACT_NOTRACK)) { 
 		char_puts("You can't ride that.\n", ch); 
 		return;
 	}
@@ -2542,7 +2538,7 @@ void do_dismount(CHAR_DATA *ch, const char *argument)
 	}
 } 
 
-int send_arrow(CHAR_DATA *ch, CHAR_DATA *victim,OBJ_DATA *arrow, 
+int send_arrow(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *arrow, 
 	       int door, int chance ,int bonus) 
 {
 	EXIT_DATA *pExit;
@@ -2553,10 +2549,10 @@ int send_arrow(CHAR_DATA *ch, CHAR_DATA *victim,OBJ_DATA *arrow,
 
 	/* instant kill */
 	if (get_skill(ch, gsn_bow) > 90 
-	&& !IS_NPC(victim)
-	&& !IS_IMMORTAL(victim)
-	&& arrow->value[0] == WEAPON_ARROW
-	&& number_range(1, 10000) < get_skill(ch, gsn_mastering_bow) *
+	&&  !IS_NPC(victim)
+	&&  !IS_IMMORTAL(victim)
+	&&  arrow->value[0] == WEAPON_ARROW
+	&&  number_range(1, 10000) < get_skill(ch, gsn_mastering_bow) *
 	   			    (get_curr_stat(ch, STAT_STR) +
 				     get_curr_stat(ch, STAT_DEX)) / 50) {
 		act("Your arrow hit $N's eye!", ch, NULL, victim, TO_CHAR);
@@ -2571,7 +2567,7 @@ int send_arrow(CHAR_DATA *ch, CHAR_DATA *victim,OBJ_DATA *arrow,
 	}
 
 	if (number_percent() < get_skill(ch, gsn_mastering_bow)) {
-		bonus *= dice(2,4);
+		bonus *= dice(2, 4);
 		check_improve(ch, gsn_mastering_bow, TRUE, 9);
 	}
 
@@ -2610,7 +2606,7 @@ int send_arrow(CHAR_DATA *ch, CHAR_DATA *victim,OBJ_DATA *arrow,
 				}
 				if (is_safe(ch, victim)
 				||  (IS_NPC(victim) &&
-				     IS_SET(victim->pIndexData->act, ACT_NOTRACK))) {
+				     IS_SET(victim->pMobIndex->act, ACT_NOTRACK))) {
 					act("$p falls from you doing no damage...",
 					    victim, arrow, NULL, TO_CHAR);
 					act("$p falls from $n doing no visible damage...",
@@ -2729,7 +2725,7 @@ static OBJ_DATA *find_arrow(CHAR_DATA *ch)
 
 	for (obj = ch->carrying; obj; obj = obj->next_content) {
 		if (obj->wear_loc == WEAR_NONE
-		||  obj->pIndexData->item_type != ITEM_CONTAINER
+		||  obj->pObjIndex->item_type != ITEM_CONTAINER
 		||  !IS_SET(obj->value[1], CONT_QUIVER)
 		||  !obj->contains)
 			continue;
@@ -2840,7 +2836,7 @@ void do_charge(CHAR_DATA *ch, const char *argument)
 		}
 		WAIT_STATE(ch, SKILL(gsn_charge)->beats*2);
 	}
-	yell(victim, ch, "Help! $I is attacking me!");
+	yell(victim, ch, "Help! $lu{$I} is attacking me!");
 }
 
 void do_shoot(CHAR_DATA *ch, const char *argument)
@@ -2853,9 +2849,6 @@ void do_shoot(CHAR_DATA *ch, const char *argument)
 	int chance, direction;
 	int range = (LEVEL(ch) / 10) + 1;
 	
-	if (IS_NPC(ch))
-		return; /* Mobs can't use bows */
-
 	if (IS_NPC(ch) || (chance = get_skill(ch, gsn_bow)) == 0) {
 		char_puts("You don't know how to shoot.\n",ch);
 		return;
@@ -2910,7 +2903,7 @@ void do_shoot(CHAR_DATA *ch, const char *argument)
 
 	wield = get_eq_char(ch, WEAR_WIELD);
 
-	if (!wield || wield->pIndexData->item_type != ITEM_WEAPON
+	if (!wield || wield->pObjIndex->item_type != ITEM_WEAPON
 	||  wield->value[0] != WEAPON_BOW) {
 		char_puts("You need a bow to shoot!\n", ch);
 		return;    	
@@ -2927,7 +2920,7 @@ void do_shoot(CHAR_DATA *ch, const char *argument)
 		 return;    	
 	}
 		
-	if (arrow->pIndexData->item_type != ITEM_WEAPON
+	if (arrow->pObjIndex->item_type != ITEM_WEAPON
 	||  arrow->value[0] != WEAPON_ARROW) {
 		char_puts("That's not the right kind of arrow!\n", ch);
 		return;
@@ -2957,7 +2950,7 @@ void do_shoot(CHAR_DATA *ch, const char *argument)
 	success = send_arrow(ch, victim, arrow, direction, chance,
 			     dice(wield->value[1],wield->value[2]));
 	check_improve(ch, gsn_bow, TRUE, 1);
-	yell(victim, ch, "Help! $I is trying to shoot me!");
+	yell(victim, ch, "Help! $lu{$I} is trying to shoot me!");
 }
 
 void do_human(CHAR_DATA *ch, const char *argument)
@@ -3029,7 +3022,7 @@ void do_throw_weapon(CHAR_DATA *ch, const char *argument)
 	    return;
 	}
 
-	if (obj->pIndexData->item_type != ITEM_WEAPON) {
+	if (obj->pObjIndex->item_type != ITEM_WEAPON) {
 		char_puts("Throwing cakes will not wound your foes. "
 			"Try weapons.\n", ch);
 		return;    	
@@ -3101,7 +3094,7 @@ void do_enter(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (portal->pIndexData->item_type != ITEM_PORTAL 
+	if (portal->pObjIndex->item_type != ITEM_PORTAL 
 	||  (IS_SET(portal->value[1], EX_CLOSED) &&
 	     !IS_TRUSTED(ch, LEVEL_ANG))) {
 		char_puts("You can't seem to find a way in.\n", ch);
@@ -3134,7 +3127,7 @@ void do_enter(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (IS_NPC(ch) && IS_SET(ch->pIndexData->act, ACT_AGGRESSIVE)
+	if (IS_NPC(ch) && IS_SET(ch->pMobIndex->act, ACT_AGGRESSIVE)
 	&&  IS_SET(location->room_flags, ROOM_LAW)) {
 	        char_puts("Something prevents you from leaving...\n",ch);
 	        return;
@@ -3203,7 +3196,7 @@ void do_enter(CHAR_DATA *ch, const char *argument)
 
 	        if (IS_SET(location->room_flags, ROOM_LAW)
 	        &&  IS_NPC(fch)
-		&&  IS_SET(fch->pIndexData->act, ACT_AGGRESSIVE)) {
+		&&  IS_SET(fch->pMobIndex->act, ACT_AGGRESSIVE)) {
 	        	act("You can't bring $N into the city.",
 	                    ch, NULL, fch, TO_CHAR);
 			act("You aren't allowed in the city.",
@@ -3482,7 +3475,7 @@ static bool has_key(CHAR_DATA *ch, int key)
 	OBJ_DATA *obj;
 
 	for (obj = ch->carrying; obj; obj = obj->next_content)
-		if (obj->pIndexData->vnum == key
+		if (obj->pObjIndex->vnum == key
 		&&  can_see_obj(ch, obj))
 		    return TRUE;
 
@@ -3494,7 +3487,7 @@ static bool has_key_ground(CHAR_DATA *ch, int key)
 	OBJ_DATA *obj;
 
 	for (obj = ch->in_room->contents; obj; obj = obj->next_content)
-		if (obj->pIndexData->vnum == key
+		if (obj->pObjIndex->vnum == key
 		&&  can_see_obj(ch, obj))
 		    return TRUE;
 

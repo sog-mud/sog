@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: const.h,v 1.41 1999-07-30 05:18:18 avn Exp $
+ * $Id: const.h,v 1.42 1999-09-08 10:40:02 fjoe Exp $
  */
 
 #ifndef _CONST_H_
@@ -49,7 +49,7 @@
 #	define PATH_SEPARATOR '/'
 #endif
 
-#define CHAR_VERSION	7
+#define PFILE_VERSION	8
 
 /*
  * the following path/file name consts are defined in db.c
@@ -144,9 +144,9 @@ enum {
 #define MAX_PROMPT_LENGTH	60
 #define MAX_TITLE_LENGTH	45
 #define MAX_CHAR_NAME		12
-#define PAGELEN 		22
-#define SCROLL_MIN		16
-#define SCROLL_MAX		192
+#define DEFAULT_PAGELEN		22
+#define MIN_PAGELEN		16
+#define MAX_PAGELEN		192
 
 /*
  * Game parameters.

@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.123 1999-07-05 12:47:45 kostik Exp $
+ * $Id: save.c,v 1.124 1999-09-08 10:40:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -61,9 +61,6 @@
 #define MAX_NEST	100
 static OBJ_DATA *rgObjNest[MAX_NEST];
 
-char DEFAULT_PROMPT[] = "%hhp %mm %vmv Opp:%o {c%e{x# ";
-char OLD_DEFAULT_PROMPT[] = "<%n: {M%h{xhp {C%m{xm {W%v{xmv Opp:%o> ";
-
 /*
  * Local functions.
  */
@@ -77,8 +74,9 @@ void fread_obj  (CHAR_DATA * ch, FILE * fp);
 
 /*
  * delete_player -- delete player, update clan lists if necessary
- *		    if !msg then the player is delete due to
+ *		    if !msg then the player is deleted due to
  *		    low con or high number of deaths. this msg is logged
+ *		    victim is assumed to be !IS_NPC
  */
 void delete_player(CHAR_DATA *victim, char* msg)
 {
@@ -109,13 +107,16 @@ void delete_player(CHAR_DATA *victim, char* msg)
 	dunlink(PLAYER_PATH, name);
 }
 
-void nuke_char_obj(CHAR_DATA *ch)
+void char_nuke(CHAR_DATA *ch)
 {
-	if (ch->pet) {
-		extract_char(ch->pet, 0);
-		ch->pet = NULL;
+	PC_DATA *pc = PC(ch);
+
+	if (pc->pet) {
+		extract_char(pc->pet, 0);
+		pc->pet = NULL;
 	}
-	free_char(ch);
+
+	char_free(ch);
 }
 
 /*
@@ -123,15 +124,14 @@ void nuke_char_obj(CHAR_DATA *ch)
  * Would be cool to save NPC's too for quest purposes,
  *   some of the infrastructure is provided.
  */
-void save_char_obj(CHAR_DATA * ch, int flags)
+void char_save(CHAR_DATA *ch, int flags)
 {
 	FILE           *fp;
 	const char 	*name;
+	CHAR_DATA *	pet;
+
 	if (IS_NPC(ch) || ch->level < 2)
 		return;
-
-	if (ch->desc != NULL && ch->desc->original != NULL)
-		ch = ch->desc->original;
 
 	name = capitalize(ch->name);
 
@@ -140,7 +140,7 @@ void save_char_obj(CHAR_DATA * ch, int flags)
 		if ((fp = dfopen(GODS_PATH, name, "w")) == NULL)
 			return;
 		fprintf(fp, "Lev %2d %s%s\n",
-		      ch->level, ch->name, ch->pcdata->title);
+		      ch->level, ch->name, PC(ch)->title);
 		fclose(fp);
 	}
 
@@ -153,9 +153,9 @@ void save_char_obj(CHAR_DATA * ch, int flags)
 		fwrite_obj(ch, ch->carrying, fp, 0);
 
 	/* save the pets */
-	if (ch->pet
-	&&  (IS_SET(flags, SAVE_F_PSCAN) || ch->pet->in_room == ch->in_room))
-		fwrite_pet(ch->pet, fp, flags);
+	if ((pet = GET_PET(ch))
+	&&  (IS_SET(flags, SAVE_F_PSCAN) || pet->in_room == ch->in_room))
+		fwrite_pet(pet, fp, flags);
 	fprintf(fp, "#END\n");
 	fclose(fp);
 	d2rename(PLAYER_PATH, TMP_FILE, PLAYER_PATH, name);
@@ -165,43 +165,32 @@ void save_char_obj(CHAR_DATA * ch, int flags)
  * Write the char.
  */
 void 
-fwrite_char(CHAR_DATA * ch, FILE * fp, int flags)
+fwrite_char(CHAR_DATA *ch, FILE *fp, int flags)
 {
 	AFFECT_DATA    *paf;
-	int		pos;
 
 	fprintf(fp, "#%s\n", IS_NPC(ch) ? "MOB" : "PLAYER");
 
-	fprintf(fp, "Vers %d\n", CHAR_VERSION);
+	fprintf(fp, "Vers %d\n", PFILE_VERSION);
 	fwrite_string(fp, "Name", ch->name);
 	mlstr_fwrite(fp, "ShD", &ch->short_descr);
-	fprintf(fp, "LogO %ld\n",
-		IS_SET(flags, SAVE_F_PSCAN) ? ch->logoff : current_time);
 	fprintf(fp, "Ethos %s\n", flag_string(ethos_table, ch->ethos));
-	fwrite_string(fp, "Hometown", hometown_name(ch->hometown));
 
 	if (ch->clan) {
 		fwrite_string(fp, "Clan", clan_name(ch->clan));
-		if (!IS_NPC(ch))
-			fprintf(fp, "ClanStatus %d\n", ch->pcdata->clan_status);
 	}
-	else if (ch->pcdata->petition)
-		fwrite_string(fp, "Peti", clan_name(ch->pcdata->petition));
 
 	fwrite_string(fp, "Desc", mlstr_mval(&ch->description));
-	if (str_cmp(ch->prompt, DEFAULT_PROMPT)
-	&&  str_cmp(ch->prompt, OLD_DEFAULT_PROMPT))
-		fwrite_string(fp, "Prom", ch->prompt);
+
 	fwrite_string(fp, "Race", race_name(ch->race));
 	fprintf(fp, "Sex  %d\n", ch->sex);
 	fwrite_string(fp, "Class", class_name(ch));
 	fprintf(fp, "Levl %d\n", ch->level);
-	fprintf(fp, "Scro %d\n", ch->lines);
 	fprintf(fp, "Room %d\n",
-		(ch->in_room == get_room_index(ROOM_VNUM_LIMBO)
-		 && ch->was_in_room != NULL)
-		? ch->was_in_room->vnum
-		: ch->in_room == NULL ? 3001 : ch->in_room->vnum);
+		(ch->in_room == get_room_index(ROOM_VNUM_LIMBO) &&
+		 !IS_NPC(ch) && PC(ch)->was_in_room != NULL) ?
+			PC(ch)->was_in_room->vnum : ch->in_room == NULL ?
+			3001 : ch->in_room->vnum);
 
 	fprintf(fp, "HMV  %d %d %d %d %d %d\n",
 	ch->hit, ch->max_hit, ch->mana, ch->max_mana, ch->move, ch->max_move);
@@ -213,11 +202,9 @@ fwrite_char(CHAR_DATA * ch, FILE * fp, int flags)
 		fprintf(fp, "Silv %d\n", ch->silver);
 	else
 		fprintf(fp, "Silv %d\n", 0);
-	fprintf(fp, "Exp %d\n", ch->exp);
-	fprintf(fp, "ExpTL %d\n", ch->exp_tl);
 	fprintf(fp, "Drain_level %d\n", ch->drain_level);
-	if (ch->plr_flags)
-		fprintf(fp, "Act %s\n", format_flags(ch->plr_flags));
+	if (PC(ch)->plr_flags)
+		fprintf(fp, "Act %s\n", format_flags(PC(ch)->plr_flags));
 	if (ch->affected_by)
 		fprintf(fp, "AfBy %s\n", format_flags(ch->affected_by));
 	if (ch->comm)
@@ -228,10 +215,6 @@ fwrite_char(CHAR_DATA * ch, FILE * fp, int flags)
 		fprintf(fp, "Inco %d\n", ch->incog_level);
 	fprintf(fp, "Pos  %d\n",
 		ch->position == POS_FIGHTING ? POS_STANDING : ch->position);
-	if (ch->practice != 0)
-		fprintf(fp, "Prac %d\n", ch->practice);
-	if (ch->train != 0)
-		fprintf(fp, "Trai %d\n", ch->train);
 	if (ch->saving_throw != 0)
 		fprintf(fp, "Save  %d\n", ch->saving_throw);
 	fprintf(fp, "Alig  %d\n", ch->alignment);
@@ -259,82 +242,100 @@ fwrite_char(CHAR_DATA * ch, FILE * fp, int flags)
 		ch->mod_stat[STAT_CON],
 		ch->mod_stat[STAT_CHA]);
 
-	fprintf(fp, "Relig %d\n", ch->religion);
-
 	if (IS_NPC(ch)) {
-		fprintf(fp, "Vnum %d\n", ch->pIndexData->vnum);
+		fprintf(fp, "Vnum %d\n", ch->pMobIndex->vnum);
 	} else {
-		PC_DATA *pcdata = ch->pcdata;
+		PC_DATA *pc = PC(ch);
 		int i;
 
-		if (pcdata->wiznet)
-			fprintf(fp, "Wizn %s\n", format_flags(pcdata->wiznet));
+		if (str_cmp(pc->dvdata->prompt, DEFAULT_PROMPT))
+			fwrite_string(fp, "Prom", pc->dvdata->prompt);
+		fprintf(fp, "Scro %d\n", pc->dvdata->pagelen);
 
-		if (pcdata->trust)
-			fprintf(fp, "Trust %s\n", format_flags(pcdata->trust));
-
-		if (pcdata->race != ch->race)
-			fwrite_string(fp, "OrgRace",
-				      race_name(pcdata->race));
-		if (pcdata->plevels > 0)
-			fprintf(fp, "PLev %d\n", pcdata->plevels);
-		fprintf(fp, "Plyd %d\n",
-			pcdata->played + (int) (current_time - ch->logon));
-		fprintf(fp, "Not  %ld %ld %ld %ld %ld\n",
-			pcdata->last_note, pcdata->last_idea,
-			pcdata->last_penalty, pcdata->last_news,
-			pcdata->last_changes);
-
-		fprintf(fp, "Dead %d\n", pcdata->death);
-		if (pcdata->homepoint)
-			fprintf(fp, "Homepoint %d\n", pcdata->homepoint->vnum);
-
-		if (pcdata->bank_s)
-			fprintf(fp, "Banks %d\n", pcdata->bank_s);
-		if (pcdata->bank_g)
-			fprintf(fp, "Bankg %d\n", pcdata->bank_g);
-		if (pcdata->security)
-			fprintf(fp, "Sec %d\n", pcdata->security);
-		fwrite_string(fp, "Pass", pcdata->pwd);
-		fwrite_string(fp, "Bin", pcdata->bamfin);
-		fwrite_string(fp, "Bout", pcdata->bamfout);
-		fwrite_string(fp, "Titl", pcdata->title);
-		fwrite_string(fp, "WantedBy", pcdata->wanted_by);
-		if (pcdata->form_name)
-			fwrite_string(fp, "FormName", pcdata->form_name);
-		fprintf(fp, "Pnts %d\n", pcdata->points);
-		fprintf(fp, "TSex %d\n", pcdata->true_sex);
-		fprintf(fp, "LLev %d\n", pcdata->last_level);
-		fprintf(fp, "HMVP %d %d %d\n", pcdata->perm_hit,
-			pcdata->perm_mana,
-			pcdata->perm_move);
-		fprintf(fp, "CndC  %d %d %d %d %d %d\n",
-			pcdata->condition[0],
-			pcdata->condition[1],
-			pcdata->condition[2],
-			pcdata->condition[3],
-			pcdata->condition[4],
-			pcdata->condition[5]);
-
-		/* write lang */
-		fprintf(fp, "Lang %d\n", ch->lang);
-
-		/* write pc_killed */
-		fprintf(fp, "PC_Killed %d\n", pcdata->pc_killed);
-
-		/* write alias */
-		for (pos = 0; pos < MAX_ALIAS; pos++) {
-			if (pcdata->alias[pos] == NULL
-			||  pcdata->alias_sub[pos] == NULL)
+		/* write aliases */
+		for (i = 0; i < MAX_ALIAS; i++) {
+			if (pc->dvdata->alias[i] == NULL
+			||  pc->dvdata->alias_sub[i] == NULL)
 				break;
 
 			fprintf(fp, "Alias %s %s~\n",
-				pcdata->alias[pos],
-				fix_string(pcdata->alias_sub[pos]));
+				pc->dvdata->alias[i],
+				fix_string(pc->dvdata->alias_sub[i]));
 		}
 
-		for (i = 0; i < pcdata->learned.nused; i++) {
-			pcskill_t *ps = VARR_GET(&pcdata->learned, i);
+		if (ch->clan)
+			fprintf(fp, "ClanStatus %d\n", PC(ch)->clan_status);
+		else if (pc->petition)
+			fwrite_string(fp, "Peti",
+				      clan_name(PC(ch)->petition));
+
+		fprintf(fp, "Relig %d\n", pc->religion);
+		if (pc->practice != 0)
+			fprintf(fp, "Prac %d\n", pc->practice);
+		if (pc->train != 0)
+			fprintf(fp, "Trai %d\n", pc->train);
+		fprintf(fp, "Exp %d\n", PC(ch)->exp);
+		fprintf(fp, "ExpTL %d\n", PC(ch)->exp_tl);
+		fwrite_string(fp, "Hometown", hometown_name(pc->hometown));
+		fprintf(fp, "LogO %ld\n",
+			IS_SET(flags, SAVE_F_PSCAN) ?
+				pc->logoff : current_time);
+		if (pc->wiznet)
+			fprintf(fp, "Wizn %s\n", format_flags(pc->wiznet));
+
+		if (pc->trust)
+			fprintf(fp, "Trust %s\n", format_flags(pc->trust));
+
+		if (pc->race != ch->race)
+			fwrite_string(fp, "OrgRace",
+				      race_name(pc->race));
+		if (pc->plevels > 0)
+			fprintf(fp, "PLev %d\n", pc->plevels);
+		fprintf(fp, "Plyd %d\n",
+			pc->played + (int) (current_time - pc->logon));
+		fprintf(fp, "Not  %ld %ld %ld %ld %ld\n",
+			pc->last_note, pc->last_idea,
+			pc->last_penalty, pc->last_news,
+			pc->last_changes);
+
+		fprintf(fp, "Dead %d\n", pc->death);
+		if (pc->homepoint)
+			fprintf(fp, "Homepoint %d\n", pc->homepoint->vnum);
+
+		if (pc->bank_s)
+			fprintf(fp, "Banks %d\n", pc->bank_s);
+		if (pc->bank_g)
+			fprintf(fp, "Bankg %d\n", pc->bank_g);
+		if (pc->security)
+			fprintf(fp, "Sec %d\n", pc->security);
+		fwrite_string(fp, "Pass", pc->pwd);
+		fwrite_string(fp, "Bin", pc->bamfin);
+		fwrite_string(fp, "Bout", pc->bamfout);
+		fwrite_string(fp, "Titl", pc->title);
+		fwrite_string(fp, "WantedBy", pc->wanted_by);
+		if (pc->form_name)
+			fwrite_string(fp, "FormName", pc->form_name);
+		fprintf(fp, "Pnts %d\n", pc->points);
+		fprintf(fp, "TSex %d\n", pc->true_sex);
+		fprintf(fp, "HMVP %d %d %d\n", pc->perm_hit,
+			pc->perm_mana,
+			pc->perm_move);
+		fprintf(fp, "CndC  %d %d %d %d %d %d\n",
+			pc->condition[0],
+			pc->condition[1],
+			pc->condition[2],
+			pc->condition[3],
+			pc->condition[4],
+			pc->condition[5]);
+
+		/* write lang */
+		fprintf(fp, "Lang %d\n", GET_LANG(ch));
+
+		/* write pc_killed */
+		fprintf(fp, "PC_Killed %d\n", pc->pc_killed);
+
+		for (i = 0; i < pc->learned.nused; i++) {
+			pcskill_t *ps = VARR_GET(&pc->learned, i);
 
 			if (ps->percent == 0)
 				continue;
@@ -343,17 +344,17 @@ fwrite_char(CHAR_DATA * ch, FILE * fp, int flags)
 				ps->percent, skill_name(ps->sn));
 		}
 
-		if (pcdata->questpoints != 0)
-			fprintf(fp, "QuestPnts %d\n", pcdata->questpoints);
-		if (pcdata->questtime != 0)
+		if (pc->questpoints != 0)
+			fprintf(fp, "QuestPnts %d\n", pc->questpoints);
+		if (pc->questtime != 0)
 			fprintf(fp, "QuestTime %d\n",
 				IS_SET(flags, SAVE_F_REBOOT) ?
-					-abs(pcdata->questtime) :
-					 pcdata->questtime);
-		fprintf(fp, "Haskilled %d\n", pcdata->has_killed);
-		fprintf(fp, "Antkilled %d\n", pcdata->anti_killed);
-		fwrite_string(fp, "Twitlist", pcdata->twitlist);
-		fwrite_string(fp, "Granted", pcdata->granted);
+					-abs(pc->questtime) :
+					 pc->questtime);
+		fprintf(fp, "Haskilled %d\n", pc->has_killed);
+		fprintf(fp, "Antkilled %d\n", pc->anti_killed);
+		fwrite_string(fp, "Twitlist", pc->twitlist);
+		fwrite_string(fp, "Granted", pc->granted);
 	}
 
 	for (paf = ch->affected; paf != NULL; paf = paf->next) {
@@ -374,22 +375,20 @@ fwrite_pet(CHAR_DATA * pet, FILE * fp, int flags)
 	AFFECT_DATA    *paf;
 	fprintf(fp, "#PET\n");
 
-	fprintf(fp, "Vnum %d\n", pet->pIndexData->vnum);
+	fprintf(fp, "Vnum %d\n", pet->pMobIndex->vnum);
 	fwrite_string(fp, "Name", pet->name);
-	fprintf(fp, "LogO %ld\n",
-		IS_SET(flags, SAVE_F_PSCAN) ? pet->logoff : current_time);
 	if (pet->clan)
 		fwrite_string(fp, "Clan", clan_name(pet->clan));
-	if (mlstr_cmp(&pet->short_descr, &pet->pIndexData->short_descr) != 0)
+	if (mlstr_cmp(&pet->short_descr, &pet->pMobIndex->short_descr) != 0)
 		mlstr_fwrite(fp, "ShD", &pet->short_descr);
-	if (mlstr_cmp(&pet->long_descr, &pet->pIndexData->long_descr) != 0)
+	if (mlstr_cmp(&pet->long_descr, &pet->pMobIndex->long_descr) != 0)
 		mlstr_fwrite(fp, "LnD", &pet->short_descr);
-	if (mlstr_cmp(&pet->description, &pet->pIndexData->description) != 0)
+	if (mlstr_cmp(&pet->description, &pet->pMobIndex->description) != 0)
 		mlstr_fwrite(fp, "Desc", &pet->short_descr);
-	if (pet->race != pet->pIndexData->race)	/* serdar ORG_RACE */
+	if (pet->race != pet->pMobIndex->race)	/* serdar ORG_RACE */
 		fwrite_string(fp, "Race", race_name(pet->race));
 	fprintf(fp, "Sex  %d\n", pet->sex);
-	if (pet->level != pet->pIndexData->level)
+	if (pet->level != pet->pMobIndex->level)
 		fprintf(fp, "Levl %d\n", pet->level);
 	fprintf(fp, "HMV  %d %d %d %d %d %d\n",
 		pet->hit, pet->max_hit, pet->mana, pet->max_mana, pet->move, pet->max_move);
@@ -397,20 +396,18 @@ fwrite_pet(CHAR_DATA * pet, FILE * fp, int flags)
 		fprintf(fp, "Gold %d\n", pet->gold);
 	if (pet->silver)
 		fprintf(fp, "Silv %d\n", pet->silver);
-	if (pet->exp)
-		fprintf(fp, "Exp  %d\n", pet->exp);
-	if (pet->affected_by != pet->pIndexData->affected_by)
+	if (pet->affected_by != pet->pMobIndex->affected_by)
 		fprintf(fp, "AfBy %s\n", format_flags(pet->affected_by));
 	if (pet->comm != 0)
 		fprintf(fp, "Comm %s\n", format_flags(pet->comm));
 	fprintf(fp, "Pos  %d\n", pet->position = POS_FIGHTING ? POS_STANDING : pet->position);
 	if (pet->saving_throw)
 		fprintf(fp, "Save %d\n", pet->saving_throw);
-	if (pet->alignment != pet->pIndexData->alignment)
+	if (pet->alignment != pet->pMobIndex->alignment)
 		fprintf(fp, "Alig %d\n", pet->alignment);
-	if (pet->hitroll != pet->pIndexData->hitroll)
+	if (pet->hitroll != pet->pMobIndex->hitroll)
 		fprintf(fp, "Hit  %d\n", pet->hitroll);
-	if (pet->damroll != pet->pIndexData->damage[DICE_BONUS])
+	if (pet->damroll != pet->pMobIndex->damage[DICE_BONUS])
 		fprintf(fp, "Dam  %d\n", pet->damroll);
 	fprintf(fp, "ACs  %d %d %d %d\n",
 		pet->armor[0], pet->armor[1], pet->armor[2], pet->armor[3]);
@@ -450,9 +447,9 @@ fwrite_obj(CHAR_DATA * ch, OBJ_DATA * obj, FILE * fp, int iNest)
 	 */
 	if (!IS_IMMORTAL(ch)) {
 		if ((get_wear_level(ch, obj) < obj->level &&
-		     obj->pIndexData->item_type != ITEM_CONTAINER)
-		||  (IS_SET(obj->pIndexData->extra_flags, ITEM_QUEST) &&
-		     ch->level < obj->pIndexData->level)) {
+		     obj->pObjIndex->item_type != ITEM_CONTAINER)
+		||  (IS_SET(obj->pObjIndex->extra_flags, ITEM_QUEST) &&
+		     ch->level < obj->pObjIndex->level)) {
 			extract_obj(obj, XO_F_NORECURSE);
 			return;
 		}
@@ -460,7 +457,7 @@ fwrite_obj(CHAR_DATA * ch, OBJ_DATA * obj, FILE * fp, int iNest)
 
 /* do not save named quest rewards if ch is not owner */
 	if (!IS_IMMORTAL(ch)
-	&&  IS_SET(obj->pIndexData->extra_flags, ITEM_QUEST)
+	&&  IS_SET(obj->pObjIndex->extra_flags, ITEM_QUEST)
 	&&  !IS_OWNER(ch, obj)) {
 		log("fwrite_obj: %s: '%s' of %s",
 			   ch->name, obj->name,
@@ -470,45 +467,45 @@ fwrite_obj(CHAR_DATA * ch, OBJ_DATA * obj, FILE * fp, int iNest)
 		return;
 	}
 	
-	if (IS_SET(obj->pIndexData->extra_flags,
+	if (IS_SET(obj->pObjIndex->extra_flags,
 		   ITEM_CLAN | ITEM_QUIT_DROP | ITEM_CHQUEST))
 		return;
 
 	fprintf(fp, "#O\n");
-	fprintf(fp, "Vnum %d\n", obj->pIndexData->vnum);
+	fprintf(fp, "Vnum %d\n", obj->pObjIndex->vnum);
 	fprintf(fp, "Cond %d\n", obj->condition);
 
 	fprintf(fp, "Nest %d\n", iNest);
 	mlstr_fwrite(fp, "Owner", &obj->owner);
 
-	if (obj->pIndexData->limit < 0) {
-		if (str_cmp(obj->name, obj->pIndexData->name))
+	if (obj->pObjIndex->limit < 0) {
+		if (str_cmp(obj->name, obj->pObjIndex->name))
 			fwrite_string(fp, "Name", obj->name);
-		if (mlstr_cmp(&obj->short_descr, &obj->pIndexData->short_descr))
+		if (mlstr_cmp(&obj->short_descr, &obj->pObjIndex->short_descr))
 			mlstr_fwrite(fp, "ShD", &obj->short_descr);
-		if (mlstr_cmp(&obj->description, &obj->pIndexData->description))
+		if (mlstr_cmp(&obj->description, &obj->pObjIndex->description))
 			mlstr_fwrite(fp, "Desc", &obj->description);
 	}
 
-	if (obj->extra_flags != obj->pIndexData->extra_flags)
+	if (obj->extra_flags != obj->pObjIndex->extra_flags)
 		fprintf(fp, "ExtF %d\n", obj->extra_flags);
 
 	fprintf(fp, "Wear %d\n", obj->wear_loc);
-	if (obj->level != obj->pIndexData->level)
+	if (obj->level != obj->pObjIndex->level)
 		fprintf(fp, "Lev  %d\n", obj->level);
 	if (obj->timer != 0)
 		fprintf(fp, "Time %d\n", obj->timer);
 	fprintf(fp, "Cost %d\n", obj->cost);
-	if (obj->value[0] != obj->pIndexData->value[0]
-	    || obj->value[1] != obj->pIndexData->value[1]
-	    || obj->value[2] != obj->pIndexData->value[2]
-	    || obj->value[3] != obj->pIndexData->value[3]
-	    || obj->value[4] != obj->pIndexData->value[4])
+	if (obj->value[0] != obj->pObjIndex->value[0]
+	    || obj->value[1] != obj->pObjIndex->value[1]
+	    || obj->value[2] != obj->pObjIndex->value[2]
+	    || obj->value[3] != obj->pObjIndex->value[3]
+	    || obj->value[4] != obj->pObjIndex->value[4])
 		fprintf(fp, "Val  %d %d %d %d %d\n",
 		  obj->value[0], obj->value[1], obj->value[2], obj->value[3],
 			obj->value[4]);
 
-	switch (obj->pIndexData->item_type) {
+	switch (obj->pObjIndex->item_type) {
 	case ITEM_POTION:
 	case ITEM_SCROLL:
 		if (obj->value[1] > 0) {
@@ -551,6 +548,7 @@ fwrite_obj(CHAR_DATA * ch, OBJ_DATA * obj, FILE * fp, int iNest)
 		fwrite_obj(ch, obj->contains, fp, iNest + 1);
 }
 
+#ifdef RESET_CHAR
 void reset_obj_affects(CHAR_DATA *ch, OBJ_DATA *obj, AFFECT_DATA *af)
 {
 	for (; af != NULL; af = af->next) {
@@ -571,54 +569,107 @@ void reset_obj_affects(CHAR_DATA *ch, OBJ_DATA *obj, AFFECT_DATA *af)
 	}
 }
 
+void add_affects_back(CHAR_DATA *ch, AFFECT_DATA *af)
+{
+	for (; af; af = af->next) {
+		int i;
+		int mod = af->modifier;
+
+		if (af->where == TO_SKILLS) {
+			affect_to_char(ch, af);
+			continue;
+		}
+
+		switch(af->location) {
+		case APPLY_STR:
+			ch->mod_stat[STAT_STR] += mod;
+			break;
+		case APPLY_DEX:		ch->mod_stat[STAT_DEX]	+= mod; break;
+		case APPLY_INT:		ch->mod_stat[STAT_INT]	+= mod; break;
+		case APPLY_WIS:		ch->mod_stat[STAT_WIS]	+= mod; break;
+		case APPLY_CON:		ch->mod_stat[STAT_CON]	+= mod; break;
+ 		case APPLY_CHA:		ch->mod_stat[STAT_CHA]	+= mod; break;
+		case APPLY_MANA:	ch->max_mana		+= mod; break;
+		case APPLY_HIT:		ch->max_hit		+= mod; break;
+		case APPLY_MOVE:	ch->max_move		+= mod; break;
+		case APPLY_AGE:		
+			if (!IS_NPC(ch))
+				PC(ch)->played += age_to_num(mod);
+			break;
+		case APPLY_AC:		
+			for (i = 0; i < 4; i ++)
+				ch->armor[i] += mod; 
+			break;
+		case APPLY_HITROLL:
+			ch->hitroll += mod;
+			break;
+		case APPLY_DAMROLL:
+			ch->damroll += mod;
+			break;
+		case APPLY_SIZE:
+			ch->size += mod;
+			break;
+		case APPLY_LEVEL:
+			ch->drain_level += mod;
+			break;
+		case APPLY_SAVES:
+		case APPLY_SAVING_ROD:
+		case APPLY_SAVING_PETRI:
+		case APPLY_SAVING_BREATH:
+		case APPLY_SAVING_SPELL:
+			ch->saving_throw += mod;
+			break;
+		}
+	}
+}
+
 /* used to de-screw characters */
 void reset_char(CHAR_DATA *ch)
 {
-	 int loc,mod,stat;
-	 OBJ_DATA *obj;
-	 AFFECT_DATA *af;
-	 int i;
+	int loc, stat;
+	OBJ_DATA *obj;
+	int i;
 
-	 if (IS_NPC(ch))
+	if (IS_NPC(ch))
 		return;
 
-	if (ch->pcdata->perm_hit == 0 
-	||  ch->pcdata->perm_mana == 0
-	||  ch->pcdata->perm_move == 0
-	||  ch->pcdata->last_level == 0) {
-	/* do a FULL reset */
+	if (PC(ch)->perm_hit == 0 
+	||  PC(ch)->perm_mana == 0
+	||  PC(ch)->perm_move == 0) {
+		/* do a FULL reset */
+		log("reset_char: %s: full reset", ch->name);
+
 		for (loc = 0; loc < MAX_WEAR; loc++) {
 			obj = get_eq_char(ch,loc);
 			if (obj == NULL)
 				continue;
 			if (!IS_SET(obj->extra_flags, ITEM_ENCHANTED))
 				reset_obj_affects(ch, obj,
-						  obj->pIndexData->affected);
+						  obj->pObjIndex->affected);
 			reset_obj_affects(ch, obj, obj->affected);
 	        }
 
 		/* now reset the permanent stats */
-		ch->pcdata->perm_hit 	= ch->max_hit;
-		ch->pcdata->perm_mana 	= ch->max_mana;
-		ch->pcdata->perm_move	= ch->max_move;
-		ch->pcdata->last_level	= ch->played/3600;
-		if (ch->pcdata->true_sex < 0 || ch->pcdata->true_sex > 2)
+		PC(ch)->perm_hit 	= ch->max_hit;
+		PC(ch)->perm_mana 	= ch->max_mana;
+		PC(ch)->perm_move	= ch->max_move;
+		if (PC(ch)->true_sex < 0 || PC(ch)->true_sex > 2)
 			if (ch->sex > 0 && ch->sex < 3)
-		    	    ch->pcdata->true_sex	= ch->sex;
+		    	    PC(ch)->true_sex	= ch->sex;
 			else
-			    ch->pcdata->true_sex 	= 0;
+			    PC(ch)->true_sex 	= 0;
 	}
 
 	/* now restore the character to his/her true condition */
 	for (stat = 0; stat < MAX_STATS; stat++)
 		ch->mod_stat[stat] = 0;
 
-	if (ch->pcdata->true_sex < 0 || ch->pcdata->true_sex > 2)
-		ch->pcdata->true_sex = 0; 
-	ch->sex		= ch->pcdata->true_sex;
-	ch->max_hit 	= ch->pcdata->perm_hit;
-	ch->max_mana	= ch->pcdata->perm_mana;
-	ch->max_move	= ch->pcdata->perm_move;
+	if (PC(ch)->true_sex < 0 || PC(ch)->true_sex > 2)
+		PC(ch)->true_sex = 0; 
+	ch->sex		= PC(ch)->true_sex;
+	ch->max_hit 	= PC(ch)->perm_hit;
+	ch->max_mana	= PC(ch)->perm_mana;
+	ch->max_move	= PC(ch)->perm_move;
    
 	for (i = 0; i < 4; i++)
 		ch->armor[i]	= 100;
@@ -629,124 +680,32 @@ void reset_char(CHAR_DATA *ch)
 	ch->drain_level		= 0;
 
 	/* now start adding back the effects */
-	for (loc = 0; loc < MAX_WEAR; loc++)
-	{
-	    obj = get_eq_char(ch,loc);
-	    if (obj == NULL)
-	        continue;
+	for (loc = 0; loc < MAX_WEAR; loc++) {
+		obj = get_eq_char(ch, loc);
+		if (obj == NULL)
+			continue;
+
 		for (i = 0; i < 4; i++)
-		    ch->armor[i] -= apply_ac(obj, loc, i);
+			ch->armor[i] -= apply_ac(obj, loc, i);
 
-	    if (!IS_SET(obj->extra_flags, ITEM_ENCHANTED))
-		for (af = obj->pIndexData->affected; af != NULL; af = af->next)
-	    {
-	        mod = af->modifier;
-	        switch(af->location)
-	        {
-			case APPLY_STR:		ch->mod_stat[STAT_STR]	+= mod;	break;
-			case APPLY_DEX:		ch->mod_stat[STAT_DEX]	+= mod; break;
-			case APPLY_INT:		ch->mod_stat[STAT_INT]	+= mod; break;
-			case APPLY_WIS:		ch->mod_stat[STAT_WIS]	+= mod; break;
-			case APPLY_CON:		ch->mod_stat[STAT_CON]	+= mod; break;
- 		case APPLY_CHA:		ch->mod_stat[STAT_CHA]	+= mod; break;
-
-			case APPLY_MANA:	ch->max_mana		+= mod; break;
-			case APPLY_HIT:		ch->max_hit		+= mod; break;
-			case APPLY_MOVE:	ch->max_move		+= mod; break;
-			case APPLY_AGE:		ch->played += age_to_num(mod); break;
-			case APPLY_AC:		
-			    for (i = 0; i < 4; i ++)
-				ch->armor[i] += mod; 
-			    break;
-			case APPLY_HITROLL:	ch->hitroll		+= mod; break;
-			case APPLY_DAMROLL:	ch->damroll		+= mod; break;
-			case APPLY_SIZE:	ch->size		+= mod; break;
-			case APPLY_LEVEL:	ch->drain_level		+= mod; break;
-			case APPLY_SAVES:		ch->saving_throw += mod; break;
-			case APPLY_SAVING_ROD: 		ch->saving_throw += mod; break;
-			case APPLY_SAVING_PETRI:	ch->saving_throw += mod; break;
-			case APPLY_SAVING_BREATH: 	ch->saving_throw += mod; break;
-			case APPLY_SAVING_SPELL:	ch->saving_throw += mod; break;
-		    }
-	    }
- 
-	    for (af = obj->affected; af != NULL; af = af->next)
-	    {
-		if (af->where == TO_SKILLS) affect_to_char(ch, af);
-	        mod = af->modifier;
-	        switch(af->location)
-	        {
-	            case APPLY_STR:         ch->mod_stat[STAT_STR]  += mod; break;
-	            case APPLY_DEX:         ch->mod_stat[STAT_DEX]  += mod; break;
-	            case APPLY_INT:         ch->mod_stat[STAT_INT]  += mod; break;
-	            case APPLY_WIS:         ch->mod_stat[STAT_WIS]  += mod; break;
-	            case APPLY_CON:         ch->mod_stat[STAT_CON]  += mod; break;
-			case APPLY_CHA:		ch->mod_stat[STAT_CHA]	+= mod; break;
- 
-	            case APPLY_MANA:        ch->max_mana            += mod; break;
-	            case APPLY_HIT:         ch->max_hit             += mod; break;
-	            case APPLY_MOVE:        ch->max_move            += mod; break;
-			case APPLY_AGE:		ch->played += age_to_num(mod); break;
- 
-	            case APPLY_AC:
-	                for (i = 0; i < 4; i ++)
-	                    ch->armor[i] += mod;
-	                break;
-			case APPLY_HITROLL:     ch->hitroll             += mod; break;
-	            case APPLY_DAMROLL:     ch->damroll             += mod; break;
- 		case APPLY_SIZE:	ch->size		+= mod; break;
-		case APPLY_LEVEL:	ch->drain_level		+= mod; break;
-	            case APPLY_SAVES:	ch->saving_throw	+= mod; break;
-	            case APPLY_SAVING_ROD:          ch->saving_throw += mod; break;
-	            case APPLY_SAVING_PETRI:        ch->saving_throw += mod; break;
-	            case APPLY_SAVING_BREATH:       ch->saving_throw += mod; break;
-	            case APPLY_SAVING_SPELL:        ch->saving_throw += mod; break;
-	        }
-		}
+		if (!IS_SET(obj->extra_flags, ITEM_ENCHANTED))
+			add_affects_back(ch, obj->pObjIndex->affected);
+		add_affects_back(ch, obj->affected);
 	}
   
-	/* now add back spell effects */
-	for (af = ch->affected; af != NULL; af = af->next)
-	{
-	    mod = af->modifier;
-	    switch(af->location)
-	    {
-	            case APPLY_STR:         ch->mod_stat[STAT_STR]  += mod; break;
-	            case APPLY_DEX:         ch->mod_stat[STAT_DEX]  += mod; break;
-	            case APPLY_INT:         ch->mod_stat[STAT_INT]  += mod; break;
-	            case APPLY_WIS:         ch->mod_stat[STAT_WIS]  += mod; break;
-	            case APPLY_CON:         ch->mod_stat[STAT_CON]  += mod; break;
- 		case APPLY_CHA:		ch->mod_stat[STAT_CHA]	+= mod; break;
+	/* now add back spell affects */
+	add_affects_back(ch, ch->affected);
 
-	            case APPLY_MANA:        ch->max_mana            += mod; break;
-	            case APPLY_HIT:         ch->max_hit             += mod; break;
-	            case APPLY_MOVE:        ch->max_move            += mod; break;
- 
-	            case APPLY_AC:
-	                for (i = 0; i < 4; i ++)
-	                    ch->armor[i] += mod;
-	                break;
-	            case APPLY_HITROLL:     ch->hitroll             += mod; break;
-	            case APPLY_DAMROLL:     ch->damroll             += mod; break;
- 		case APPLY_SIZE:	ch->size		+= mod; break;
-		case APPLY_LEVEL:	ch->drain_level		+= mod; break;
-	            case APPLY_SAVES:	ch->saving_throw	+= mod; break;
-	            case APPLY_SAVING_ROD:          ch->saving_throw += mod; break;
-	            case APPLY_SAVING_PETRI:        ch->saving_throw += mod; break;
-	            case APPLY_SAVING_BREATH:       ch->saving_throw += mod; break;
-	            case APPLY_SAVING_SPELL:        ch->saving_throw += mod; break;
-	    } 
-	}
 	/* make sure sex is RIGHT! */
 	if (ch->sex < 0 || ch->sex > 2)
-		ch->sex = ch->pcdata->true_sex;
- 
+		ch->sex = PC(ch)->true_sex;
 }
+#endif
 
 /*
  * Load a char and inventory into a new ch structure.
  */
-CHAR_DATA *load_char_obj(const char *name, int flags)
+CHAR_DATA *char_load(const char *name, int flags)
 {
 	CHAR_DATA      *ch;
 	FILE           *fp = NULL;
@@ -770,27 +729,25 @@ CHAR_DATA *load_char_obj(const char *name, int flags)
 	if (!found && IS_SET(flags, LOAD_F_NOCREATE))
 		return NULL;
 
-	ch = new_char();
-	ch->pcdata = new_pcdata();
+	ch = char_new(NULL);
 
 	ch->name = str_dup(capitalize(name));
 	mlstr_init(&ch->short_descr, ch->name);
-	ch->race = rn_lookup("human");
-	ch->plr_flags = PLR_NOSUMMON | PLR_NOCANCEL;
-	ch->comm = COMM_COMBINE | COMM_PROMPT;
-	ch->prompt = str_dup(DEFAULT_PROMPT);
 
-	ch->pcdata->race = ch->race;
-	ch->pcdata->clan_status = CLAN_COMMONER;
-	ch->pcdata->condition[COND_THIRST] = 48;
-	ch->pcdata->condition[COND_FULL] = 48;
-	ch->pcdata->condition[COND_HUNGER] = 48;
-	ch->pcdata->condition[COND_BLOODLUST] = 48;
-	ch->pcdata->condition[COND_DESIRE] = 48;
+	PC(ch)->plr_flags = PLR_NOSUMMON | PLR_NOCANCEL;
+	ch->comm = COMM_COMBINE | COMM_PROMPT;
+
+	ch->race = rn_lookup("human");
+	PC(ch)->race = ch->race;
+	PC(ch)->clan_status = CLAN_COMMONER;
+	PC(ch)->condition[COND_THIRST] = 48;
+	PC(ch)->condition[COND_FULL] = 48;
+	PC(ch)->condition[COND_HUNGER] = 48;
+	PC(ch)->condition[COND_BLOODLUST] = 48;
+	PC(ch)->condition[COND_DESIRE] = 48;
 
 	if (!found) {
-		ch->plr_flags |= PLR_NEW;
-		reset_char(ch);
+		PC(ch)->plr_flags |= PLR_NEW;
 		return ch;
 	}
 
@@ -806,7 +763,7 @@ CHAR_DATA *load_char_obj(const char *name, int flags)
 			continue;
 		}
 		if (letter != '#') {
-			log("load_char_obj: %s: # not found.", ch->name);
+			log("char_load: %s: # not found.", ch->name);
 			break;
 		}
 		word = fread_word(fp);
@@ -821,7 +778,7 @@ CHAR_DATA *load_char_obj(const char *name, int flags)
 		else if (!str_cmp(word, "END"))
 			break;
 		else {
-			log("load_char_obj: %s: %s: bad section.", 
+			log("char_load: %s: %s: bad section.", 
 				   ch->name, word);
 			break;
 		}
@@ -837,7 +794,7 @@ CHAR_DATA *load_char_obj(const char *name, int flags)
 	r = RACE(ch->race);
 
 	if (!IS_NPC(ch))
-		ch->size = r->pcdata->size;
+		ch->size = r->race_pcdata->size;
 
 	ch->dam_type = 17;	/* punch */
 	ch->affected_by = ch->affected_by | r->aff;
@@ -848,11 +805,13 @@ CHAR_DATA *load_char_obj(const char *name, int flags)
 	ch->parts = r->parts;
 	affect_check(ch, -1, -1);
 
-	if (ch->pcdata->condition[COND_BLOODLUST] < 48
+	if (PC(ch)->condition[COND_BLOODLUST] < 48
 	&&  !IS_VAMPIRE(ch))
-		ch->pcdata->condition[COND_BLOODLUST] = 48;
+		PC(ch)->condition[COND_BLOODLUST] = 48;
 
+#ifdef RESET_CHAR
 	reset_char(ch);
+#endif
 	return ch;
 }
 
@@ -868,8 +827,8 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 	int             percent;
 	int		foo;
 
-	ch->pcdata->bank_s = 0;
-	ch->pcdata->bank_g = 0;
+	PC(ch)->bank_s = 0;
+	PC(ch)->bank_g = 0;
 
 	for (;;) {
 		word = feof(fp) ? "End" : fread_word(fp);
@@ -882,7 +841,7 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 			break;
 
 		case 'A':
-			KEY("Act", ch->plr_flags, fread_flags(fp) &
+			KEY("Act", PC(ch)->plr_flags, fread_flags(fp) &
 					    ~(PLR_GHOST | PLR_CONFIRM_DELETE |
 					      PLR_NOEXP | PLR_NEW | PLR_PUMPED |
 					      PLR_PRACTICER));
@@ -891,28 +850,19 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 						     ~AFF_CHARM);
 			KEY("Alignment", ch->alignment, fread_number(fp));
 			KEY("Alig", ch->alignment, fread_number(fp));
-			KEY("AntKilled", ch->pcdata->anti_killed, fread_number(fp));
+			KEY("AntKilled", PC(ch)->anti_killed, fread_number(fp));
 
-			if (!str_cmp(word, "Alia")) {
+			if (!str_cmp(word, "Alia")
+			||  !str_cmp(word, "Alias")) {
 				if (count >= MAX_ALIAS) {
 					fread_to_eol(fp);
 					fMatch = TRUE;
 					break;
 				}
-				ch->pcdata->alias[count] = str_dup(fread_word(fp));
-				ch->pcdata->alias_sub[count] = str_dup(fread_word(fp));
-				count++;
-				fMatch = TRUE;
-				break;
-			}
-			if (!str_cmp(word, "Alias")) {
-				if (count >= MAX_ALIAS) {
-					fread_to_eol(fp);
-					fMatch = TRUE;
-					break;
-				}
-				ch->pcdata->alias[count] = str_dup(fread_word(fp));
-				ch->pcdata->alias_sub[count] = fread_string(fp);
+				PC(ch)->dvdata->alias[count] =
+						str_dup(fread_word(fp));
+				PC(ch)->dvdata->alias_sub[count] =
+						fread_string(fp);
 				count++;
 				fMatch = TRUE;
 				break;
@@ -993,12 +943,12 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 			break;
 
 		case 'B':
-			SKEY("Bamfin", ch->pcdata->bamfin);
-			KEY("Banks", ch->pcdata->bank_s, fread_number(fp));
-			KEY("Bankg", ch->pcdata->bank_g, fread_number(fp));
-			SKEY("Bamfout", ch->pcdata->bamfout);
-			SKEY("Bin", ch->pcdata->bamfin);
-			SKEY("Bout", ch->pcdata->bamfout);
+			SKEY("Bamfin", PC(ch)->bamfin);
+			KEY("Banks", PC(ch)->bank_s, fread_number(fp));
+			KEY("Bankg", PC(ch)->bank_g, fread_number(fp));
+			SKEY("Bamfout", PC(ch)->bamfout);
+			SKEY("Bin", PC(ch)->bamfin);
+			SKEY("Bout", PC(ch)->bamfout);
 			break;
 
 		case 'C':
@@ -1011,31 +961,31 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 			}
 			KEY("Cla", ch->class, fread_number(fp));
 			KEY("Clan", ch->clan, fread_clan(fp));
-			KEY("ClanStatus", ch->pcdata->clan_status,
+			KEY("ClanStatus", PC(ch)->clan_status,
 			    fread_number(fp));
 			if (!str_cmp(word, "Condition")
 			|| !str_cmp(word, "Cond")) {
-				ch->pcdata->condition[0] = fread_number(fp);
-				ch->pcdata->condition[1] = fread_number(fp);
-				ch->pcdata->condition[2] = fread_number(fp);
+				PC(ch)->condition[0] = fread_number(fp);
+				PC(ch)->condition[1] = fread_number(fp);
+				PC(ch)->condition[2] = fread_number(fp);
 				fMatch = TRUE;
 				break;
 			}
 			if (!str_cmp(word, "CndC")) {
-				ch->pcdata->condition[0] = fread_number(fp);
-				ch->pcdata->condition[1] = fread_number(fp);
-				ch->pcdata->condition[2] = fread_number(fp);
-				ch->pcdata->condition[3] = fread_number(fp);
-				ch->pcdata->condition[4] = fread_number(fp);
-				ch->pcdata->condition[5] = fread_number(fp);
+				PC(ch)->condition[0] = fread_number(fp);
+				PC(ch)->condition[1] = fread_number(fp);
+				PC(ch)->condition[2] = fread_number(fp);
+				PC(ch)->condition[3] = fread_number(fp);
+				PC(ch)->condition[4] = fread_number(fp);
+				PC(ch)->condition[5] = fread_number(fp);
 				fMatch = TRUE;
 				break;
 			}
 			if (!str_cmp(word, "Cnd")) {
-				ch->pcdata->condition[0] = fread_number(fp);
-				ch->pcdata->condition[1] = fread_number(fp);
-				ch->pcdata->condition[2] = fread_number(fp);
-				ch->pcdata->condition[3] = fread_number(fp);
+				PC(ch)->condition[0] = fread_number(fp);
+				PC(ch)->condition[1] = fread_number(fp);
+				PC(ch)->condition[2] = fread_number(fp);
+				PC(ch)->condition[3] = fread_number(fp);
 				fMatch = TRUE;
 				break;
 			}
@@ -1048,15 +998,18 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 			KEY("Dam", ch->damroll, fread_number(fp));
 			KEY("Drain_level", ch->drain_level, fread_number(fp));
 			MLSKEY("Desc", ch->description);
-			KEY("Dead", ch->pcdata->death, fread_number(fp));
+			KEY("Dead", PC(ch)->death, fread_number(fp));
 			break;
 
 		case 'E':
 			if (!str_cmp(word, "End")) {
-				int logoff = ch->logoff ? ch->logoff : current_time;
 				clan_t *clan;
 				const char **nl = NULL;
 				bool touched = FALSE;
+				int logoff = PC(ch)->logoff;
+
+				if (!logoff)
+					logoff = current_time;
 
 				/*
 				 * adjust hp mana move up  -- here for speed's
@@ -1076,14 +1029,14 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 					ch->move += (ch->max_move - ch->move)
 						    * percent / 100;
 					if (!IS_NPC(ch))
-						ch->pcdata->questtime =
-						  -abs(ch->pcdata->questtime *
+						PC(ch)->questtime =
+						  -abs(PC(ch)->questtime *
 						  (100 - UMIN(5 * percent, 100))
 							/ 100);
 				}
-				ch->played = ch->pcdata->played;
-				if (ch->lines < SCROLL_MIN-2)
-					ch->lines = SCROLL_MAX-2;
+
+				if (PC(ch)->dvdata->pagelen < MIN_PAGELEN-2)
+					PC(ch)->dvdata->pagelen = MAX_PAGELEN-2;
 
 				/* XXX update clan lists */
 				if (!ch->clan
@@ -1091,7 +1044,7 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 					return;
 				
 				touched = !name_add(&clan->member_list, ch->name, NULL, NULL);
-				switch (ch->pcdata->clan_status) {
+				switch (PC(ch)->clan_status) {
 				case CLAN_LEADER:
 					nl = &clan->leader_list;
 					break;
@@ -1105,18 +1058,18 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 					clan_save(clan);
 				return;
 			}
-			KEY("Exp", ch->exp, fread_number(fp));
-			KEY("ExpTL", ch->exp_tl, fread_number(fp));
+			KEY("Exp", PC(ch)->exp, fread_number(fp));
+			KEY("ExpTL", PC(ch)->exp_tl, fread_number(fp));
 			KEY("Etho", ch->ethos, (1 << (fread_number(fp)-1)));
 			KEY("Ethos", ch->ethos, fread_fword(ethos_table, fp));
 			break;
 		case 'F':
-			SKEY("FormName", ch->pcdata->form_name);
+			SKEY("FormName", PC(ch)->form_name);
 			break;
 
 		case 'G':
 			KEY("Gold", ch->gold, fread_number(fp));
-			SKEY("Granted", ch->pcdata->granted);
+			SKEY("Granted", PC(ch)->granted);
 			if (!str_cmp(word, "Group") || !str_cmp(word, "Gr")) {
 				fread_word(fp);
 				fMatch = TRUE;
@@ -1126,17 +1079,17 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 		case 'H':
 			if (!str_cmp(word, "Hometown")) {
 				const char *s = fread_string(fp);
-				ch->hometown = htn_lookup(s);
+				PC(ch)->hometown = htn_lookup(s);
 				free_string(s);
 				fMatch = TRUE;
 			}
 
 			KEY("Hitroll", ch->hitroll, fread_number(fp));
 			KEY("Hit", ch->hitroll, fread_number(fp));
-			KEY("Home", ch->hometown, fread_number(fp));
-			KEY("Haskilled", ch->pcdata->has_killed,
+			KEY("Home", PC(ch)->hometown, fread_number(fp));
+			KEY("Haskilled", PC(ch)->has_killed,
 			    fread_number(fp));
-			KEY("Homepoint", ch->pcdata->homepoint,
+			KEY("Homepoint", PC(ch)->homepoint,
 			    get_room_index(fread_number(fp)));
 
 			if (!str_cmp(word, "HpManaMove") || !str_cmp(word, "HMV")) {
@@ -1150,9 +1103,9 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 				break;
 			}
 			if (!str_cmp(word, "HpManaMovePerm") || !str_cmp(word, "HMVP")) {
-				ch->pcdata->perm_hit = fread_number(fp);
-				ch->pcdata->perm_mana = fread_number(fp);
-				ch->pcdata->perm_move = fread_number(fp);
+				PC(ch)->perm_hit = fread_number(fp);
+				PC(ch)->perm_mana = fread_number(fp);
+				PC(ch)->perm_move = fread_number(fp);
 				fMatch = TRUE;
 				break;
 			}
@@ -1162,29 +1115,26 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 			KEY("InvisLevel", ch->invis_level, fread_number(fp));
 			KEY("Inco", ch->incog_level, fread_number(fp));
 			KEY("Invi", ch->invis_level, fread_number(fp));
-			KEY("I_Lang", ch->lang, fread_number(fp));
 			KEY("Id", foo, fread_number(fp));
 			break;
 
 		case 'L':
-			KEY("LastLevel", ch->pcdata->last_level, fread_number(fp));
-			KEY("LLev", ch->pcdata->last_level, fread_number(fp));
 			KEY("Level", ch->level, fread_number(fp));
 			KEY("Lev", ch->level, fread_number(fp));
 			KEY("Levl", ch->level, fread_number(fp));
-			KEY("LogO", ch->logoff, fread_number(fp));
-			KEY("Lang", ch->lang, fread_number(fp));
+			KEY("LogO", PC(ch)->logoff, fread_number(fp));
+			KEY("Lang", PC(ch)->dvdata->lang, fread_number(fp));
 			break;
 
 		case 'N':
 			SKEY("Name", ch->name);
-			KEY("Note", ch->pcdata->last_note, fread_number(fp));
+			KEY("Note", PC(ch)->last_note, fread_number(fp));
 			if (!str_cmp(word, "Not")) {
-				ch->pcdata->last_note = fread_number(fp);
-				ch->pcdata->last_idea = fread_number(fp);
-				ch->pcdata->last_penalty = fread_number(fp);
-				ch->pcdata->last_news = fread_number(fp);
-				ch->pcdata->last_changes = fread_number(fp);
+				PC(ch)->last_note = fread_number(fp);
+				PC(ch)->last_idea = fread_number(fp);
+				PC(ch)->last_penalty = fread_number(fp);
+				PC(ch)->last_news = fread_number(fp);
+				PC(ch)->last_changes = fread_number(fp);
 				fMatch = TRUE;
 				break;
 			}
@@ -1193,41 +1143,41 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 		case 'O':
 			if (!str_cmp(word, "OrgRace")) {
 				const char *race = fread_string(fp);
-				ch->pcdata->race = rn_lookup(race);
+				PC(ch)->race = rn_lookup(race);
 				free_string(race);
 				fMatch = TRUE;
 				break;
 			}
 			break;
 		case 'P':
-			KEY("Peti", ch->pcdata->petition, fread_clan(fp));
-			KEY("PLev", ch->pcdata->plevels, fread_number(fp));
-			SKEY("Password", ch->pcdata->pwd);
-			SKEY("Pass", ch->pcdata->pwd);
-			KEY("PC_Killed", ch->pcdata->pc_killed, fread_number(fp));
-			KEY("Played", ch->pcdata->played, fread_number(fp));
-			KEY("Plyd", ch->pcdata->played, fread_number(fp));
-			KEY("Points", ch->pcdata->points, fread_number(fp));
-			KEY("Pnts", ch->pcdata->points, fread_number(fp));
+			KEY("Peti", PC(ch)->petition, fread_clan(fp));
+			KEY("PLev", PC(ch)->plevels, fread_number(fp));
+			SKEY("Password", PC(ch)->pwd);
+			SKEY("Pass", PC(ch)->pwd);
+			KEY("PC_Killed", PC(ch)->pc_killed, fread_number(fp));
+			KEY("Played", PC(ch)->played, fread_number(fp));
+			KEY("Plyd", PC(ch)->played, fread_number(fp));
+			KEY("Points", PC(ch)->points, fread_number(fp));
+			KEY("Pnts", PC(ch)->points, fread_number(fp));
 			KEY("Position", ch->position, fread_number(fp));
 			KEY("Pos", ch->position, fread_number(fp));
-			KEY("Practice", ch->practice, fread_number(fp));
-			KEY("Prac", ch->practice, fread_number(fp));
-			SKEY("Prompt", ch->prompt);
-			SKEY("Prom", ch->prompt);
+			KEY("Practice", PC(ch)->practice, fread_number(fp));
+			KEY("Prac", PC(ch)->practice, fread_number(fp));
+			SKEY("Prompt", PC(ch)->dvdata->prompt);
+			SKEY("Prom", PC(ch)->dvdata->prompt);
 			break;
 
 		case 'Q':
-			KEY("QuestTime", ch->pcdata->questtime, fread_number(fp));
-			KEY("QuestPnts", ch->pcdata->questpoints, fread_number(fp));
+			KEY("QuestTime", PC(ch)->questtime, fread_number(fp));
+			KEY("QuestPnts", PC(ch)->questpoints, fread_number(fp));
 			break;
 
 		case 'R':
-			KEY("Relig", ch->religion, fread_number(fp));
+			KEY("Relig", PC(ch)->religion, fread_number(fp));
 			if (!str_cmp(word, "Race")) {
 				const char *race = fread_string(fp);
 				ch->race = rn_lookup(race);
-				ch->pcdata->race = ch->race;
+				PC(ch)->race = ch->race;
 				free_string(race);
 				fMatch = TRUE;
 				break;
@@ -1244,11 +1194,11 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 		case 'S':
 			KEY("SavingThrow", ch->saving_throw, fread_number(fp));
 			KEY("Save", ch->saving_throw, fread_number(fp));
-			KEY("Scro", ch->lines, fread_number(fp));
+			KEY("Scro", PC(ch)->dvdata->pagelen, fread_number(fp));
 			KEY("Sex", ch->sex, fread_number(fp));
 			MLSKEY("ShortDescr", ch->short_descr);
 			MLSKEY("ShD", ch->short_descr);
-			KEY("Sec", ch->pcdata->security, fread_number(fp));
+			KEY("Sec", PC(ch)->security, fread_number(fp));
 			KEY("Silv", ch->silver, fread_number(fp));
 
 			if (!str_cmp(word, "Skill") || !str_cmp(word, "Sk")) {
@@ -1264,11 +1214,11 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 			break;
 
 		case 'T':
-			KEY("TrueSex", ch->pcdata->true_sex, fread_number(fp));
-			KEY("TSex", ch->pcdata->true_sex, fread_number(fp));
-			KEY("Trai", ch->train, fread_number(fp));
-			KEY("Trust", ch->pcdata->trust, fread_flags(fp));
-			SKEY("Twitlist", ch->pcdata->twitlist);
+			KEY("TrueSex", PC(ch)->true_sex, fread_number(fp));
+			KEY("TSex", PC(ch)->true_sex, fread_number(fp));
+			KEY("Trai", PC(ch)->train, fread_number(fp));
+			KEY("Trust", PC(ch)->trust, fread_flags(fp));
+			SKEY("Twitlist", PC(ch)->twitlist);
 			if (!str_cmp(word, "Title") || !str_cmp(word, "Titl")) {
 				const char *p = fread_string(fp);
 				set_title(ch, p);
@@ -1279,9 +1229,9 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 			break;
 
 		case 'V':
-			KEY("Vers", ch->version, fread_number(fp));
+			KEY("Vers", PC(ch)->version, fread_number(fp));
 			if (!str_cmp(word, "Vnum")) {
-				ch->pIndexData = get_mob_index(fread_number(fp));
+				ch->pMobIndex = get_mob_index(fread_number(fp));
 				fMatch = TRUE;
 				break;
 			}
@@ -1290,8 +1240,8 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 		case 'W':
 			KEY("Wimpy", ch->wimpy, fread_number(fp));
 			KEY("Wimp", ch->wimpy, fread_number(fp));
-			KEY("Wizn", ch->pcdata->wiznet, fread_flags(fp));
-			SKEY("WantedBy", ch->pcdata->wanted_by);
+			KEY("Wizn", PC(ch)->wiznet, fread_flags(fp));
+			SKEY("WantedBy", PC(ch)->wanted_by);
 			break;
 		}
 
@@ -1423,10 +1373,13 @@ fread_pet(CHAR_DATA * ch, FILE * fp)
 
 		case 'E':
 			if (!str_cmp(word, "End")) {
-				int logoff = pet->logoff ? pet->logoff : current_time;
+				int logoff = PC(ch)->logoff;
+				if (!logoff)
+					logoff = current_time;
+
 				pet->leader = ch;
 				pet->master = ch;
-				ch->pet = pet;
+				PC(ch)->pet = pet;
 
 				/*
 				 * adjust hp mana move up  -- here for speed's
@@ -1443,7 +1396,6 @@ fread_pet(CHAR_DATA * ch, FILE * fp)
 				}
 				return;
 			}
-			KEY("Exp", pet->exp, fread_number(fp));
 			break;
 
 		case 'G':
@@ -1468,7 +1420,6 @@ fread_pet(CHAR_DATA * ch, FILE * fp)
 		case 'L':
 			MLSKEY("LnD",  pet->description);
 			KEY("Levl", pet->level, fread_number(fp));
-			KEY("LogO", pet->logoff, fread_number(fp));
 			break;
 
 		case 'N':
@@ -1637,7 +1588,7 @@ fread_obj(CHAR_DATA * ch, FILE * fp)
 					SET_BIT(obj->extra_flags,
 						ITEM_ENCHANTED);
 				if (!fNest
-				||  (fVnum && obj->pIndexData == NULL)) {
+				||  (fVnum && obj->pObjIndex == NULL)) {
 					log("fread_obj: %s: incomplete object", ch->name);
 					free_obj(obj);
 					return;
@@ -1648,7 +1599,7 @@ fread_obj(CHAR_DATA * ch, FILE * fp)
 					obj = create_obj(get_obj_index(OBJ_VNUM_DUMMY), 0);
 				}
 
-				if (IS_SET(obj->pIndexData->extra_flags,
+				if (IS_SET(obj->pObjIndex->extra_flags,
 					   ITEM_QUEST)
 				&&  mlstr_null(&obj->owner)) {
 					mlstr_cpy(&obj->owner, &ch->short_descr);
@@ -1726,8 +1677,8 @@ fread_obj(CHAR_DATA * ch, FILE * fp)
 				obj->value[1] = fread_number(fp);
 				obj->value[2] = fread_number(fp);
 				obj->value[3] = fread_number(fp);
-				if (obj->pIndexData->item_type == ITEM_WEAPON && obj->value[0] == 0)
-					obj->value[0] = obj->pIndexData->value[0];
+				if (obj->pObjIndex->item_type == ITEM_WEAPON && obj->value[0] == 0)
+					obj->value[0] = obj->pObjIndex->value[0];
 				fMatch = TRUE;
 				break;
 			}
@@ -1743,7 +1694,7 @@ fread_obj(CHAR_DATA * ch, FILE * fp)
 			if (!str_cmp(word, "Vnum")) {
 				int             vnum;
 				vnum = fread_number(fp);
-				if ((obj->pIndexData = get_obj_index(vnum)) == NULL)
+				if ((obj->pObjIndex = get_obj_index(vnum)) == NULL)
 					log("fread_obj: %s: bad vnum %d",
 						   ch->name, vnum);
 				else

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: race.h,v 1.10 1999-07-21 04:19:18 avn Exp $
+ * $Id: race.h,v 1.11 1999-09-08 10:40:04 fjoe Exp $
  */
 
 #ifndef _RACE_H_
@@ -45,7 +45,7 @@ struct race_t
 	flag32_t	form;		/* default form flag		*/
 	flag32_t	parts;		/* default body parts		*/
 	flag32_t	race_flags;	/* race flags			*/
-	pcrace_t *	pcdata;		/* additional data for pc races */
+	pcrace_t *	race_pcdata;	/* additional data for pc races */
 };
 
 /* additional data for pc races */
@@ -83,9 +83,9 @@ extern varr races;
 #define RACE(i)		((race_t*) VARR_GET(&races, i))
 #define race_lookup(i)	((race_t*) varr_get(&races, i))
 #define rskill_lookup(race, sn) \
-	((rskill_t*) varr_bsearch(&race->pcdata->skills, &sn, cmpint))
+	((rskill_t*) varr_bsearch(&race->race_pcdata->skills, &sn, cmpint))
 #define rclass_lookup(race, name) \
-	((rclass_t*) varr_bsearch(&race->pcdata->classes, &name, cmpstr))
+	((rclass_t*) varr_bsearch(&race->race_pcdata->classes, &name, cmpstr))
 
 race_t *	race_new(void);
 pcrace_t *	pcrace_new(void);

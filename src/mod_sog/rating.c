@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: rating.c,v 1.16 1999-06-28 09:04:18 fjoe Exp $
+ * $Id: rating.c,v 1.17 1999-09-08 10:40:12 fjoe Exp $
  */
 
 #include <sys/time.h>
@@ -48,7 +48,7 @@ void rating_update(CHAR_DATA *ch, CHAR_DATA *victim)
 	     IS_SET(victim->in_room->room_flags, ROOM_BATTLE_ARENA)))
 		return;
 
-	++ch->pcdata->pc_killed;
+	++PC(ch)->pc_killed;
 	rating_add(ch);
 }
 
@@ -70,8 +70,8 @@ void rating_add(CHAR_DATA *ch)
 		if (!IS_NULLSTR(rating_table[i].name)
 		&&  !str_cmp(ch->name, rating_table[i].name)) {
 			p = rating_table + i;
-			if (p->pc_killed < ch->pcdata->pc_killed) {
-				p->pc_killed = ch->pcdata->pc_killed;
+			if (p->pc_killed < PC(ch)->pc_killed) {
+				p->pc_killed = PC(ch)->pc_killed;
 				qsort(rating_table, RATING_TABLE_SIZE,
 				      sizeof(rating_t), rating_cmp);
 			}
@@ -82,10 +82,10 @@ void rating_add(CHAR_DATA *ch)
 			p = rating_table + i;
 	}
 
-	if (p->pc_killed < ch->pcdata->pc_killed) {
+	if (p->pc_killed < PC(ch)->pc_killed) {
 		free_string(p->name);
 		p->name = str_qdup(ch->name);
-		p->pc_killed = ch->pcdata->pc_killed;
+		p->pc_killed = PC(ch)->pc_killed;
 		qsort(rating_table, RATING_TABLE_SIZE, sizeof(rating_t),
 		      rating_cmp);
 	} 	

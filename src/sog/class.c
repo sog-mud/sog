@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: class.c,v 1.15 1999-07-31 03:35:28 avn Exp $
+ * $Id: class.c,v 1.16 1999-09-08 10:40:07 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -147,12 +147,12 @@ int get_max_train(CHAR_DATA *ch, int stat)
 		return 25;
 
 	if ((cl = class_lookup(ch->class)) == NULL
-	||  (r = race_lookup(ch->pcdata->race)) == NULL
-	||  !r->pcdata)
+	||  (r = race_lookup(PC(ch)->race)) == NULL
+	||  !r->race_pcdata)
 		return 0;
 
 /* ORG_RACE && RACE serdar*/
-	return UMIN(25, 20 + r->pcdata->stats[stat] + cl->stats[stat]);
+	return UMIN(25, 20 + r->race_pcdata->stats[stat] + cl->stats[stat]);
 }
 
 bool clan_ok(CHAR_DATA *ch, int sn) 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_class.c,v 1.1 1999-07-31 03:35:28 avn Exp $
+ * $Id: olc_class.c,v 1.2 1999-09-08 10:40:05 fjoe Exp $
  */
 
 #include "olc.h"
@@ -110,7 +110,7 @@ OLC_FUN(classed_create)
 	class_t *class;
 	char arg[MAX_STRING_LENGTH];
 
-	if (ch->pcdata->security < SECURITY_CLASS) {
+	if (PC(ch)->security < SECURITY_CLASS) {
 		char_puts("ClassEd: Insufficient security for creating classes\n",
 			  ch);
 		return FALSE;
@@ -143,7 +143,7 @@ OLC_FUN(classed_edit)
 {
 	int cn;
 
-	if (ch->pcdata->security < SECURITY_CLASS) {
+	if (PC(ch)->security < SECURITY_CLASS) {
 		char_puts("ClassEd: Insufficient security.\n", ch);
 		return FALSE;
 	}

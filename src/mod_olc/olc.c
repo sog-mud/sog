@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.69 1999-07-31 03:35:27 avn Exp $
+ * $Id: olc.c,v 1.70 1999-09-08 10:40:04 fjoe Exp $
  */
 
 /***************************************************************************
@@ -881,7 +881,7 @@ void olc_printf(CHAR_DATA *ch, const char *format, ...)
 
 bool olc_trusted(CHAR_DATA *ch, int min_sec)
 {
-	int sec = ch ? (IS_NPC(ch) ? 0 : ch->pcdata->security) : 9;
+	int sec = ch ? (IS_NPC(ch) ? 0 : PC(ch)->security) : 9;
 
 	if (sec < min_sec) {
 		olc_printf(ch, "Insufficient security.");

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_magic.c,v 1.2 1999-07-21 03:34:25 kostik Exp $
+ * $Id: act_magic.c,v 1.3 1999-09-08 10:39:58 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -91,7 +91,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 	}
 	else {
 		pcskill_t *ps;
-		ps = (pcskill_t*) skill_vlookup(&ch->pcdata->learned, arg1);
+		ps = (pcskill_t*) skill_vlookup(&PC(ch)->learned, arg1);
 		if (ps) {sn = ps->sn; has_skill = TRUE; }
 		    else sn = sn_lookup(arg1);
 	}
@@ -182,7 +182,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 						return;
 					}
 
-					if (IS_SET(victim->pIndexData->act,
+					if (IS_SET(victim->pMobIndex->act,
 						   ACT_NOTRACK)) {
 						WAIT_STATE(ch, spell->beats);
 						act_puts("You can't cast this spell to $N at this distance.", ch, NULL, victim, TO_CHAR, POS_DEAD);

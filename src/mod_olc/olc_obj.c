@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_obj.c,v 1.54 1999-07-01 11:20:02 fjoe Exp $
+ * $Id: olc_obj.c,v 1.55 1999-09-08 10:40:05 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -430,7 +430,7 @@ OLC_FUN(objed_del)
 	for (obj = object_list; obj; obj = obj_next) {
 		obj_next = obj->next;
 
-		if (obj->pIndexData == pObj)
+		if (obj->pObjIndex == pObj)
 			extract_obj(obj, XO_F_NORECURSE);
 	}
 

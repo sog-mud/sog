@@ -1,10 +1,8 @@
 #
-# $Id: Makefile,v 1.5 1999-07-21 06:40:57 avn Exp $
+# $Id: Makefile,v 1.6 1999-09-08 10:39:46 fjoe Exp $
 #
 
-MODULE_NAME = dofun.so.$(ABI_VERSION)
-MODULE_MASK = dofun.so.*
-
+MODULE = dofun
 CFILES = act_comm.c act_info.c act_move.c act_obj.c act_wiz.c\
 	 cast.c dofun.c healer.c hunt.c martial_art.c note.c quest.c
 

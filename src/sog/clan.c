@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: clan.c,v 1.47 1999-06-28 09:04:17 fjoe Exp $
+ * $Id: clan.c,v 1.48 1999-09-08 10:40:07 fjoe Exp $
  */
 
 #include <sys/time.h>
@@ -93,7 +93,7 @@ void clan_update_lists(clan_t *clan, CHAR_DATA *victim, bool memb)
 {
 	const char **nl = NULL;
 
-	switch (victim->pcdata->clan_status) {
+	switch (PC(victim)->clan_status) {
 	case CLAN_SECOND:
 		nl = &clan->second_list;
 		break;

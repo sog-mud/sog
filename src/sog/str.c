@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: str.c,v 1.14 1999-06-24 16:33:18 fjoe Exp $
+ * $Id: str.c,v 1.15 1999-09-08 10:40:13 fjoe Exp $
  */
 
 #include <ctype.h>
@@ -47,6 +47,9 @@ char str_empty[1];
 
 int str_count;
 int str_real_count;
+#if STR_ALLOC_MEM
+int str_alloc_mem;
+#endif
 
 #define strhash(s)	(hashstr(s, 64, MAX_STRING_HASH))
 
@@ -116,6 +119,9 @@ void free_string(const char *p)
 	else
 		hash_str[hash] = hash_str[hash]->next;
 	str_real_count--;
+#if STR_ALLOC_MEM
+	str_alloc_mem -= strlen(p) + 1 + sizeof(memchunk_t);
+#endif
 	mem_free(p);
 }
 
@@ -348,9 +354,13 @@ static str *str_alloc(const char *p, int hash)
 {
 	char *q;
 	str *s;
+	size_t size = strlen(p) + 1;
 
 	str_real_count++;
-	q = mem_alloc2(MT_STR, strlen(p) + 1, sizeof(str));
+#if STR_ALLOC_MEM
+	str_alloc_mem += size + sizeof(memchunk_t) + sizeof(str);
+#endif
+	q = mem_alloc2(MT_STR, size, sizeof(str));
 	strcpy(q, p);
 	s = GET_STR(q);
 	s->ref = 0;

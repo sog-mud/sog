@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: typedef.h,v 1.29 1999-07-30 05:18:20 avn Exp $
+ * $Id: typedef.h,v 1.30 1999-09-08 10:40:04 fjoe Exp $
  */
 
 #ifndef _TYPEDEF_H_
@@ -56,6 +56,7 @@ typedef struct help_data		HELP_DATA;
 typedef struct mob_index_data		MOB_INDEX_DATA;
 typedef struct obj_data			OBJ_DATA;
 typedef struct obj_index_data		OBJ_INDEX_DATA;
+typedef struct npc_data			NPC_DATA;
 typedef struct pc_data 			PC_DATA;
 typedef struct reset_data		RESET_DATA;
 typedef struct room_index_data 		ROOM_INDEX_DATA;

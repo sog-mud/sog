@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.163 1999-06-29 18:28:41 avn Exp $
+ * $Id: interp.c,v 1.164 1999-09-08 10:40:10 fjoe Exp $
  */
 
 /***************************************************************************
@@ -94,6 +94,7 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 	int cmd_log;
 	int i;
 	bool found = FALSE;
+	CHAR_DATA *vch;
 
 	/*
 	 * Strip leading spaces.
@@ -132,6 +133,8 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 	} else
 		argument = one_argument(argument, command, sizeof(command));
 
+	vch = GET_ORIGINAL(ch);
+
 	/*
 	 * Look for command in command table.
 	 */
@@ -145,7 +148,7 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 		 * Implement freeze command.
 		 */
 		if (!IS_NPC(ch)
-		&&  IS_SET(ch->plr_flags, PLR_FREEZE)
+		&&  IS_SET(PC(ch)->plr_flags, PLR_FREEZE)
 		&&  !IS_SET(cmd->cmd_flags, CMD_FROZEN_OK))
 			continue;
 
@@ -155,11 +158,11 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 		}
 
 		if (cmd->min_level >= LEVEL_IMMORTAL) {
-			if (IS_NPC(ch))
+			if (IS_NPC(vch))
 				continue;
 
-			if (ch->level < LEVEL_IMP
-			&&  !is_name(cmd->name, ch->pcdata->granted))
+			if (vch->level < LEVEL_IMP
+			&&  !is_name(cmd->name, PC(vch)->granted))
 				continue;
 		}
 		else if (cmd->min_level > ch->level)
@@ -203,7 +206,7 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 
 	if (!found) {
 		if (!IS_NPC(ch)
-		&&  IS_SET(ch->plr_flags, PLR_FREEZE)) {
+		&&  IS_SET(PC(ch)->plr_flags, PLR_FREEZE)) {
 			char_puts("You're totally frozen!\n", ch);
 			return;
 		}
@@ -234,12 +237,12 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 	/*
 	 * Log
 	 */
-	if (((!IS_NPC(ch) && IS_SET(ch->plr_flags, PLR_LOG)) ||
+	if (((!IS_NPC(ch) && IS_SET(PC(ch)->plr_flags, PLR_LOG)) ||
 	     fLogAll ||
 	     cmd_log == LOG_ALWAYS)
 	&&  cmd_log != LOG_NEVER
 	&&  logline[0] != '\0')
-		wizlog("Log %s: %s", ch->name, logline);
+		wizlog("Log %s: %s", vch->name, logline);
 
 	if (!IS_NPC(ch)) {
 		/* Come out of hiding for most commands */
@@ -494,52 +497,50 @@ const char *first_arg(const char *argument, char *arg_first, size_t len,
 /* does aliasing and other fun stuff */
 void substitute_alias(DESCRIPTOR_DATA *d, const char *argument)
 {
-	CHAR_DATA *ch;
 	char buf[MAX_STRING_LENGTH];
 	char prefix[MAX_INPUT_LENGTH];
 
-	ch = d->original ? d->original : d->character;
-
 	/* check for prefix */
-	if (ch->prefix[0] != '\0' && str_prefix("prefix", argument)) {
-		if (strlen(ch->prefix)+strlen(argument)+2 > MAX_INPUT_LENGTH)
-			char_puts("Line to long, prefix not processed.\n", ch);
-		else {
+	if (d->dvdata->prefix[0] != '\0' && str_prefix("prefix", argument)) {
+		if (strlen(d->dvdata->prefix) + strlen(argument) + 2 >
+							MAX_INPUT_LENGTH) {
+			char_puts("Line to long, prefix not processed.\n",
+				  d->character);
+		} else {
 			snprintf(prefix, sizeof(prefix), "%s %s",
-				 ch->prefix, argument);
+				 d->dvdata->prefix, argument);
 			argument = prefix;
 		}
 	}
 
-	if (!IS_NPC(ch)
-	&&  ch->pcdata->alias[0] != NULL
+	if (d->dvdata->alias[0] != NULL
 	&&  str_prefix("alias", argument)
-	&&  str_prefix("una", argument) 
+	&&  str_prefix("unalias", argument) 
 	&&  str_prefix("prefix", argument)) {
-		int alias;
+		int i;
 
 		/* go through the aliases */
-		for (alias = 0; alias < MAX_ALIAS; alias++) {
+		for (i = 0; i < MAX_ALIAS; i++) {
 			const char *point;
 
-			if (ch->pcdata->alias[alias] == NULL)
+			if (d->dvdata->alias[i] == NULL)
 				break;
 
-			if (str_prefix(ch->pcdata->alias[alias], argument))
+			if (str_prefix(d->dvdata->alias[i], argument))
 				continue;
 
 			point = one_argument(argument, buf, sizeof(buf));
-			if (strcmp(ch->pcdata->alias[alias], buf))
+			if (strcmp(d->dvdata->alias[i], buf))
 				continue;
 
 			/*
 			 * found an alias
 			 */
 			snprintf(buf, sizeof(buf), "%s %s",
-				 ch->pcdata->alias_sub[alias], point);
+				 d->dvdata->alias_sub[i], point);
 			if (strlen(buf) > MAX_INPUT_LENGTH) {
 				char_puts("Alias substitution too long. "
-					  "Truncated.\n", ch);
+					  "Truncated.\n", d->character);
 				buf[MAX_INPUT_LENGTH -1] = '\0';
 			}
 			argument = buf;

@@ -16,6 +16,10 @@ if [ -e shutdown.txt ]; then
 fi
 
 while [ 1 ]; do
+	if [ -r tmp/lastlog ]; then
+		index=`cat tmp/lastlog`
+	fi
+
 	while [ 1 ]; do
 		logfile=log/$index.log
 		if [ -e $logfile ]; then
@@ -25,6 +29,7 @@ while [ 1 ]; do
 		fi
 	done
 
+	echo $(($index+1)) > tmp/lastlog
 	$sog $port 2>&1 | tee $logfile
 	exitcode=$?
 

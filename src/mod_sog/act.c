@@ -23,12 +23,13 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act.c,v 1.38 1999-07-05 12:47:46 kostik Exp $
+ * $Id: act.c,v 1.39 1999-09-08 10:40:16 fjoe Exp $
  */
 
 #include <stdarg.h>
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 #include "merc.h"
 #include "comm_colors.h"
 #include "mob_prog.h"
@@ -124,11 +125,15 @@ const char *format_long(mlstring *ml, CHAR_DATA *to)
 
 /*
  * PERS formatting stuff
+ *
+ * formats `ch' for `to' when `looker' is looking at
  */
-const char *PERS2(CHAR_DATA *ch, CHAR_DATA *looker, int act_flags)
+const char *PERS3(CHAR_DATA *ch, CHAR_DATA *looker,
+		  CHAR_DATA *to, int act_flags)
 {
 	if (is_affected(ch, gsn_doppelganger)
-	&&  (IS_NPC(looker) || !IS_SET(looker->plr_flags, PLR_HOLYLIGHT)))
+	&&  (IS_NPC(to) ||
+	     !IS_SET(PC(to)->plr_flags, PLR_HOLYLIGHT)))
 		ch = ch->doppel;
 
 	if (can_see(looker, ch)) {
@@ -137,28 +142,29 @@ const char *PERS2(CHAR_DATA *ch, CHAR_DATA *looker, int act_flags)
 
 			if (IS_SET(act_flags, ACT_FORMSH)) {
 				return format_short(&ch->short_descr, ch->name,
-						    looker, act_flags);
+						    to, act_flags);
 			}
 
-			descr = mlstr_cval(&ch->short_descr, looker);
+			descr = mlstr_cval(&ch->short_descr, to);
 			if (IS_SET(act_flags, ACT_NOFIXSH))
 				return descr;
 			return fix_short(descr);
 		}
-		else if (IS_AFFECTED(ch, AFF_TURNED) && !IS_IMMORTAL(looker)) {
-			return word_form(GETMSG(ch->pcdata->form_name,
-						looker->lang),
-					 ch->sex, looker->lang, RULES_GENDER);
+		else if (IS_AFFECTED(ch, AFF_TURNED) && !IS_IMMORTAL(to)) {
+			return word_form(GETMSG(PC(ch)->form_name,
+						GET_LANG(to)),
+					 ch->sex, GET_LANG(to),
+					 RULES_GENDER);
 		}
 		return ch->name;
 	}
 
 	if (IS_IMMORTAL(ch)) {
-		return word_form(GETMSG("an immortal", looker->lang), ch->sex,
-				 looker->lang, RULES_GENDER);
+		return word_form(GETMSG("an immortal", GET_LANG(to)),
+				 ch->sex, GET_LANG(to), RULES_GENDER);
 	}
 
-	return "someone";
+	return GETMSG("someone", GET_LANG(to));
 }
 
 /* common and slang should have the same size */
@@ -183,8 +189,8 @@ static char *translate(CHAR_DATA *ch, CHAR_DATA *victim, const char *i)
 	||  IS_IMMORTAL(ch) || IS_IMMORTAL(victim)
 	||  ch->slang == SLANG_COMMON
 	||  ((r = race_lookup(ORG_RACE(victim))) &&
-	     r->pcdata &&
-	     ch->slang == r->pcdata->slang)) {
+	     r->race_pcdata &&
+	     ch->slang == r->race_pcdata->slang)) {
 		if (IS_IMMORTAL(victim))
 			snprintf(trans, sizeof(trans), "[%s] %s",
 				 flag_string(slang_table, ch->slang), i);
@@ -220,7 +226,7 @@ struct tdata {
 static int SEX(CHAR_DATA *ch, CHAR_DATA *looker)
 {
 	if (is_affected(ch, gsn_doppelganger)
-	&&  (IS_NPC(looker) || !IS_SET(looker->plr_flags, PLR_HOLYLIGHT)))
+	&&  (IS_NPC(looker) || !IS_SET(PC(looker)->plr_flags, PLR_HOLYLIGHT)))
 		ch = ch->doppel;
 	return URANGE(0, ch->sex, 2);
 }
@@ -239,12 +245,12 @@ act_format_text(const char *text, CHAR_DATA *ch, CHAR_DATA *to,
 }
 	
 static const char *
-act_format_obj(OBJ_DATA *obj, CHAR_DATA *to, int act_flags)
+act_format_obj(OBJ_DATA *obj, CHAR_DATA *looker, CHAR_DATA *to, int act_flags)
 {
 	const char *descr;
 
-	if (!can_see_obj(to, obj))
-		return GETMSG("something", to->lang);
+	if (!can_see_obj(looker, obj))
+		return GETMSG("something", GET_LANG(to));
 
 	if (IS_SET(act_flags, ACT_FORMSH)) {
 		return format_short(&obj->short_descr, obj->name,
@@ -303,25 +309,31 @@ door_name(const char *name)
 
 #define ACT_FLAGS(flags, sp)	((flags) | ((sp) < 0 ? 0 : ACT_NOFIXSH))
 
-#define CHAR_ARG(ch)							\
+#define CHAR_ARG(ch, vch)						\
 	{								\
-		if (ch == NULL) {					\
+		if (vch == NULL) {					\
 			i = GETMSG("Noone", opt->to_lang);		\
 		} else {						\
-			CHECK_TYPE(ch, MT_CHAR);			\
-			i = PERS2(ch, to,				\
-				  ACT_FLAGS(opt->act_flags, sp));	\
+			int flags;					\
+			CHECK_TYPE(vch, MT_CHAR);			\
+			flags = ACT_FLAGS(opt->act_flags, sp);		\
+			i = PERS3(vch,					\
+				IS_SET(flags, ACT_ASCHAR) ? ch : to,	\
+				to, flags);				\
 		}							\
 	}
 
-#define OBJ_ARG(obj)							\
+#define OBJ_ARG(ch, obj)						\
 	{								\
 		if (obj == NULL) {					\
 			i = GETMSG("Nothing", opt->to_lang);		\
 		} else {						\
+			int flags;					\
 			CHECK_TYPE(obj, MT_OBJ);			\
-			i = act_format_obj(obj, to,			\
-				ACT_FLAGS(opt->act_flags, sp));		\
+			flags = ACT_FLAGS(opt->act_flags, sp);		\
+			i = act_format_obj(obj,				\
+				IS_SET(flags, ACT_ASCHAR) ? ch : to,	\
+				to, flags);				\
 		}							\
 	}
 
@@ -340,19 +352,21 @@ door_name(const char *name)
  *
  * Known act_xxx format codes are:
  *
- * a
- * A
- * b - like $t but text is parsed by act_buf (with the same args)
- * B - like $T ----- // ----
- * c - $cn{...} - case number ``n''
- * C
- * d - door name (arg2)
- * D
- * e - he_she(ch)
- * E - he_she(vch)
- * f
- * F
- * g - $gx{...} - gender form depending on sex of ``x'', where x is:
+ * $a
+ * $A
+ * $b - like $t but text is parsed by act_buf (with the same args)
+ * $B - like $T ----- // ----
+ * $c - $cn{...} - case number ``n''
+ * $C
+ * $d - door name (arg2)
+ * $D
+ * $e - he_she(ch)
+ * $E - he_she(vch)
+ * $f - $fnn{...} - misc formatting
+ * $F - $Fnn{...} - ------//-------
+ *		$fnn formats string with "%snn" format
+ *		$Fnn formats string with "%snn.nn" format
+ * $g - $gx{...} - gender form depending on sex of ``x'', where x is:
  *	d	- door name ($d)
  *	n	- ch ($n)
  *	N	- vch ($N)
@@ -365,47 +379,50 @@ door_name(const char *name)
  *	T	- msg2 ($T)
  *	u	- msg1 ($u), without slang translation
  *	U	- msg3 ($U), without slang translation
- * G
- * h
- * H
- * i - name(vch1)
- * I - name(vch3)
- * j - num(arg1)
- * J - num(arg3)
- * k
- * K
- * l
- * L
- * m - him_her(ch)
- * M - him_her(vch)
- * n - name(ch)
- * N - name(vch)
- * o
- * O
- * p - name(obj1)
- * P - name(obj2)
- * q - $qx{...} - numeric form depending on ``x'' where x is:
+ * $G
+ * $h
+ * $H
+ * $i - name(vch1)
+ * $I - name(vch3)
+ * $j - num(arg1)
+ * $J - num(arg3)
+ * $k
+ * $K
+ * $l - $lx{...} - tolower/toupper convertions
+ *	u	- uppercase first letter
+ * $L
+ * $m - him_her(ch)
+ * $M - him_her(vch)
+ * $n - name(ch)
+ * $N - name(vch)
+ * $o
+ * $O
+ * $p - name(obj1)
+ * $P - name(obj2)
+ * $q - $qx{...} - numeric form depending on ``x'' where x is:
  *	j - num(arg1)
  *	J - num(arg2)
- * Q
- * r - room name (arg1)
- * R - room name (arg3)
- * s - his_her(ch)
- * S - his_her(vch)
- * t - text(arg1)
- * T - text(arg2)
- * u - text(arg1)
- * U - text(arg3)
- * v
- * V
- * w
- * W
- * x
- * X
- * y
- * Y
- * z
- * Z
+ * $Q
+ * $r - room name (arg1)
+ * $R - room name (arg3)
+ * $s - his_her(ch)
+ * $S - his_her(vch)
+ * $t - text(arg1)
+ * $T - text(arg2)
+ * $u - text(arg1)
+ * $U - text(arg3)
+ * $v
+ * $V
+ * $w
+ * $W
+ * $x
+ * $X
+ * $y
+ * $Y
+ * $z
+ * $Z
+ * ${ - "{{"
+ * $$ - "$"
  *
  */
 void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
@@ -422,13 +439,16 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 	OBJ_DATA *	obj1 = (OBJ_DATA*) arg1;
 	OBJ_DATA *	obj2 = (OBJ_DATA*) arg2;
 	char 		tmp	[MAX_STRING_LENGTH];
+	char		tmp2	[MAX_STRING_LENGTH];
 
 	char *		point = buf;
-	const char *	s = GETMSG(format, opt->to_lang);
+	const char *	s;
 
 	struct tdata	tstack[TSTACK_SZ];
 	int		sp = -1;
 	int		old_flags;
+
+	s = format = GETMSG(format, opt->to_lang);
 
 	while(*s) {
 		char		code;
@@ -441,42 +461,59 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 			break;
 
 		case '}':
-			if (sp < 0) {
-				s++;
+			s++;
+
+			if (sp < 0)
+				continue;
+
+			if (sp >= TSTACK_SZ) {
+				sp--;
 				continue;
 			}
 
-			if (sp < TSTACK_SZ) {
-				int rulecl = 0;
+			switch (tstack[sp].type) {
+			case 'g':
+			case 'c':
+			case 'q': {
+				int rulecl;
 
-				switch (tstack[sp].type) {
-				case 'g':
+				if (tstack[sp].type == 'g')
 					rulecl = RULES_GENDER;
-					break;
-				case 'c':
+				else if (tstack[sp].type == 'c')
 					rulecl = RULES_CASE;
-					break;
-				case 'q':
+				else
 					rulecl = RULES_QTY;
-					break;
-				}
 
 				*point = '\0';
 				strnzcpy(tstack[sp].p, 
-					 buf_len - (tstack[sp].p - buf),
+					 buf_len - 3 - (tstack[sp].p - buf),
 					 word_form(tstack[sp].p, tstack[sp].arg,
 						   opt->to_lang, rulecl));
 				point = strchr(tstack[sp].p, '\0');
+				break;
+			}
+
+			case 'f':
+			case 'F':
+				*point = '\0';
+				snprintf(tmp2, sizeof(tmp2),
+					 tstack[sp].type == 'f' ?
+					 	"%%%ds" : "%%%d.%ds",
+					 tstack[sp].arg, abs(tstack[sp].arg));
+				snprintf(tmp, sizeof(tmp), tmp2, tstack[sp].p);
+				strnzcpy(tstack[sp].p,
+					 buf_len - 3 - (tstack[sp].p - buf),
+					 tmp);
+				point = strchr(tstack[sp].p, '\0');
+				break;
+
+			case 'l':
+				if (tstack[sp].arg == 'u')
+					*tstack[sp].p = UPPER(*tstack[sp].p);
+				break;
 			}
 
 			sp--;
-			s++;
-			continue;
-
-		case '{':
-			if (*(s+1) == '}')
-				s++;
-			*point++ = *s++;
 			continue;
 
 		case '$':
@@ -490,9 +527,13 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 				continue;
 
 			case '$':
-				*point++ = '$';
-				continue;
+				i = "$";
+				break;
 				
+			case '{':
+				i = "{{";
+				break;
+
 /* text arguments */
 			case 't': 
 				TEXT_ARG(arg1, opt->act_flags);
@@ -543,19 +584,19 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 
 /* char arguments */
 			case 'n':
-				CHAR_ARG(ch);
+				CHAR_ARG(ch, ch);
 				break;
 
 			case 'N':
-				CHAR_ARG(vch);
+				CHAR_ARG(ch, vch);
 				break;
 
 			case 'i':
-				CHAR_ARG(vch1);
+				CHAR_ARG(ch, vch1);
 				break;
 
 			case 'I':
-				CHAR_ARG(vch3);
+				CHAR_ARG(ch, vch3);
 				break;
 
 /* numeric arguments */
@@ -602,47 +643,64 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 
 /* obj arguments */
 			case 'p':
-				OBJ_ARG(obj1);
+				OBJ_ARG(ch, obj1);
 				break;
 
 			case 'P':
-				OBJ_ARG(obj2);
+				OBJ_ARG(ch, obj2);
 				break;
 
 /* door arguments */
 			case 'd':
 				CHECK_STRING(arg2);
-				i = GETMSG(door_name(arg2), to->lang);
+				i = GETMSG(door_name(arg2), GET_LANG(to));
 				break;
 
 /* $gx{...}, $cx{...}, $qx{...} arguments */
 			case 'g':
 			case 'c':
 			case 'q':
-				if (*(s+1) != '{') {
-					log("act_raw: '%s': "
-						   "syntax error", format);
-					continue;
-				}
-
+			case 'f':
+			case 'l':
+			case 'F':
 				if (++sp >= TSTACK_SZ) {
 					log("act_raw: '%s': "
-						   "tstack overflow", format);
+					    "tstack overflow", format);
 					continue;
 				}
 
 				tstack[sp].p = point;
 				tstack[sp].type = code;
-				subcode = *s++;
-				s++;
 
 				switch (code) {
+				case 'f':
+				case 'F':
+					tstack[sp].arg =
+						strtol(s, (char**) &s, 10);
+					break;
+
+				case 'l':
+					switch (subcode = *s++) {
+					case 'u':
+						tstack[sp].arg = subcode;
+						break;
+					default:
+						log("act_buf: '%s': "
+						    "bad subcode '%c' "
+						    "(pos %d)",
+						    format, subcode,
+						    s - format);
+						sp--;
+						continue;
+					}
+					break;
+
 				case 'c':
-					tstack[sp].arg = subcode - '0';
+					tstack[sp].arg = *s++ - '0';
 					break;
 
 				case 'g':
-					switch (subcode) {
+					switch (subcode = *s++) {
 					case 'd':
 						CHECK_STRING(arg2);
 						tstack[sp].arg =
@@ -675,12 +733,12 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 
 					case 'p':
 						CHECK_TYPE2(obj1, MT_OBJ);
-						tstack[sp].arg = obj1->pIndexData->gender;
+						tstack[sp].arg = obj1->pObjIndex->gender;
 						break;
 
 					case 'P':
 						CHECK_TYPE2(obj2, MT_OBJ);
-						tstack[sp].arg = obj2->pIndexData->gender;
+						tstack[sp].arg = obj2->pObjIndex->gender;
 						break;
 
 					case 't':
@@ -711,15 +769,17 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 
 					default:
 						log("act_buf: '%s': "
-							   "bad subcode '%c'",
-							   format, subcode);
+						    "bad subcode '%c' "
+						    "(pos %d)",
+						    format, subcode,
+						    s - format);
 						sp--;
-						break;
+						continue;
 					}
 					break;
 
 				case 'q':
-					switch(subcode) {
+					switch(subcode = *s++) {
 					case 'j':
 						tstack[sp].arg = num1;
 						break;
@@ -728,20 +788,32 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 						tstack[sp].arg = num3;
 						break;
 					default:
-						log("act_raw: '%s': "
-							   "bad subcode '%c'",
-							   format, subcode);
+						log("act_buf: '%s': "
+						    "bad subcode '%c' "
+						    "(pos %d)",
+						    format, subcode,
+						    s - format);
 						sp--;
-						break;
+						continue;
 					}
 					break;
 				}
+
+				if (*s != '{') {
+					log("act_buf: '%s': "
+					    "syntax error (pos %d)",
+					    format, s - format);
+					sp--;
+					continue;
+				}
+
+				s++;
 				continue;
 			}
 	
-			if (i) {
-				while ((*point++ = *i++));
-				point--;
+			if (i != NULL) {
+				while (point - buf < buf_len - 3 && *i)
+					*point++ = *i++;
 			}
 			break;
 		}
@@ -804,7 +876,7 @@ act_skip(CHAR_DATA *ch, CHAR_DATA *vch, CHAR_DATA *to,
 	if (IS_SET(act_flags, ACT_NOTWIT)
 	&&  !IS_NPC(to) && !IS_IMMORTAL(to)
 	&&  !IS_NPC(ch) && !IS_IMMORTAL(ch)
-	&&  is_name(ch->name, to->pcdata->twitlist))
+	&&  is_name(ch->name, PC(to)->twitlist))
 		return TRUE;
 
 /* check "deaf dumb blind" chars */
@@ -828,7 +900,7 @@ act_raw(CHAR_DATA *ch, CHAR_DATA *to,
 	char tmp[MAX_STRING_LENGTH];
 	actopt_t opt;
 
-	opt.to_lang = to->lang;
+	opt.to_lang = GET_LANG(to);
 	opt.to_sex = to->sex;
 	opt.act_flags = act_flags;
 
@@ -839,11 +911,11 @@ act_raw(CHAR_DATA *ch, CHAR_DATA *to,
 	if (!IS_NPC(to)) {
 		if ((IS_SET(to->comm, COMM_AFK) || to->desc == NULL) &&
 		     IS_SET(act_flags, ACT_TOBUF))
-			buf_add(to->pcdata->buffer, tmp);
+			buf_add(PC(to)->buffer, tmp);
 		else if (to->desc) {
 			if (IS_SET(to->comm, COMM_QUIET_EDITOR)
 			&&  to->desc->pString)
-				buf_add(to->pcdata->buffer, tmp);
+				buf_add(PC(to)->buffer, tmp);
 			else
 				write_to_buffer(to->desc, tmp, 0);
 		}

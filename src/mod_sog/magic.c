@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: magic.c,v 1.5 1999-06-30 15:42:30 fjoe Exp $
+ * $Id: magic.c,v 1.6 1999-09-08 10:40:10 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -77,12 +77,12 @@ bool check_trust(CHAR_DATA *ch, CHAR_DATA *victim)
 	if (IS_NPC(victim))
 		return is_same_group(ch, victim);
 
-	if (IS_SET(victim->pcdata->trust, TRUST_ALL)) 
+	if (IS_SET(PC(victim)->trust, TRUST_ALL)) 
 		return TRUE;
 
-	return (IS_SET(victim->pcdata->trust, TRUST_GROUP) &&
+	return (IS_SET(PC(victim)->trust, TRUST_GROUP) &&
 		is_same_group(ch, victim))
-	    || (ch->clan && IS_SET(victim->pcdata->trust, TRUST_CLAN) &&
+	    || (ch->clan && IS_SET(PC(victim)->trust, TRUST_CLAN) &&
 		ch->clan == victim->clan);
 }
 
@@ -236,7 +236,7 @@ void obj_cast_spell(int sn, int level, CHAR_DATA *ch, void *vo)
 			vch_next = vch->next_in_room;
 
 			if (victim == vch)
-				yell(victim, ch, "Help! $I is attacking me!");
+				yell(victim, ch, "Help! $lu{$I} is attacking me!");
 
 			if (victim == vch && victim->fighting == NULL) {
 				multi_hit(victim, ch, TYPE_UNDEFINED);

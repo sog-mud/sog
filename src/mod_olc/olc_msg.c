@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_msg.c,v 1.34 1999-07-02 05:41:05 fjoe Exp $
+ * $Id: olc_msg.c,v 1.35 1999-09-08 10:40:05 fjoe Exp $
  */
 
 #include "olc.h"
@@ -72,7 +72,7 @@ OLC_FUN(msged_create)
 {
 	msg_t m;
 
-	if (ch->pcdata->security < SECURITY_MSGDB) {
+	if (PC(ch)->security < SECURITY_MSGDB) {
 		char_puts("MsgEd: Insufficient security.\n", ch);
 		return FALSE;
 	}
@@ -108,7 +108,7 @@ OLC_FUN(msged_edit)
 {
 	msg_t *mp;
 
-	if (ch->pcdata->security < SECURITY_MSGDB) {
+	if (PC(ch)->security < SECURITY_MSGDB) {
 		char_puts("MsgEd: Insufficient security.\n", ch);
 		return FALSE;
 	}

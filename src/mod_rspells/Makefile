@@ -1,10 +1,8 @@
 #
-# $Id: Makefile,v 1.1 1999-07-30 05:18:21 avn Exp $
+# $Id: Makefile,v 1.2 1999-09-08 10:40:06 fjoe Exp $
 #
 
-MODULE_NAME = rspells.so.$(ABI_VERSION)
-MODULE_MASK = rspells.so.*
-
+MODULE = rspells
 CFILES = rmagic.c rspellfn.c
 
 .include "../Makefile.module"

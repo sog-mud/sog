@@ -1,5 +1,5 @@
 /*
- * $Id: comm.h,v 1.30 1999-06-24 16:33:09 fjoe Exp $
+ * $Id: comm.h,v 1.31 1999-09-08 10:40:02 fjoe Exp $
  */
 
 /***************************************************************************
@@ -43,12 +43,15 @@
 #ifndef _COMM_H_
 #define _COMM_H_
 
+DESCRIPTOR_DATA *	new_descriptor(int fd);
+void			free_descriptor(DESCRIPTOR_DATA *d);
+
 void	show_string	(struct descriptor_data *d, char *input);
-void	close_descriptor(DESCRIPTOR_DATA *dclose);
+void	close_descriptor(DESCRIPTOR_DATA *dclose, int save_flags);
 void	write_to_buffer	(DESCRIPTOR_DATA *d, const char *txt, size_t length);
 bool	write_to_descriptor	(int desc, const char *txt, uint length);
 void	write_to_snoop	(DESCRIPTOR_DATA *d, const char *txt, size_t len);
-void	bust_a_prompt	(CHAR_DATA *ch);
+void	bust_a_prompt	(DESCRIPTOR_DATA *d);
 
 void	char_puts(const char *txt, CHAR_DATA *ch);
 void	char_printf(CHAR_DATA *ch, const char *format, ...);

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_race.c,v 1.8 1999-06-10 14:33:35 fjoe Exp $
+ * $Id: db_race.c,v 1.9 1999-09-08 10:40:17 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -116,15 +116,15 @@ DBLOAD_FUN(load_race)
 
 DBLOAD_FUN(load_pcrace)
 {
-	race_t *race = arg;
+	race_t *r = arg;
 	pcrace_t *pcr;
 
-	if (!race) {
+	if (!r) {
 		db_error("load_pcrace", "#PCRACE before #RACE");
 		return;
 	}
 
-	pcr = race->pcdata = pcrace_new();
+	pcr = r->race_pcdata = pcrace_new();
 
 	for (;;) {
 		int i;
@@ -153,7 +153,7 @@ DBLOAD_FUN(load_pcrace)
 					db_error("load_pcrace",
 						 "race who_name undefined");
 					pcrace_free(pcr);
-					race->pcdata = NULL;
+					r->race_pcdata = NULL;
 				}
 				varr_qsort(&pcr->classes, cmpstr);
 				varr_qsort(&pcr->skills, cmpint);

@@ -1,5 +1,5 @@
 /*
- * $Id: note.c,v 1.2 1999-06-29 04:09:16 fjoe Exp $
+ * $Id: note.c,v 1.3 1999-09-08 10:40:00 fjoe Exp $
  */
 
 /***************************************************************************
@@ -97,7 +97,7 @@ void do_unread(CHAR_DATA *ch, const char *argument)
 
 void do_note(CHAR_DATA *ch,const char *argument)
 {
-	parse_note(ch,argument,NOTE_NOTE);
+	parse_note(ch, argument, NOTE_NOTE);
 }
 
 void do_idea(CHAR_DATA *ch,const char *argument)
@@ -147,19 +147,19 @@ static void update_read(CHAR_DATA *ch, note_t *pnote)
 	default:
 		return;
 	case NOTE_NOTE:
-		ch->pcdata->last_note = UMAX(ch->pcdata->last_note, stamp);
+		PC(ch)->last_note = UMAX(PC(ch)->last_note, stamp);
 		break;
 	case NOTE_IDEA:
-		ch->pcdata->last_idea = UMAX(ch->pcdata->last_idea, stamp);
+		PC(ch)->last_idea = UMAX(PC(ch)->last_idea, stamp);
 		break;
 	case NOTE_PENALTY:
-		ch->pcdata->last_penalty = UMAX(ch->pcdata->last_penalty, stamp);
+		PC(ch)->last_penalty = UMAX(PC(ch)->last_penalty, stamp);
 		break;
 	case NOTE_NEWS:
-		ch->pcdata->last_news = UMAX(ch->pcdata->last_news, stamp);
+		PC(ch)->last_news = UMAX(PC(ch)->last_news, stamp);
 		break;
 	case NOTE_CHANGES:
-		ch->pcdata->last_changes = UMAX(ch->pcdata->last_changes, stamp);
+		PC(ch)->last_changes = UMAX(PC(ch)->last_changes, stamp);
 		break;
 	}
 }
@@ -289,11 +289,13 @@ static bool is_note_to(CHAR_DATA *ch, note_t *pnote)
 static bool note_attach(CHAR_DATA *ch, int type)
 {
 	note_t *pnote;
+	PC_DATA *pc = PC(ch);
 
-	if (ch->pnote) {
-		if (ch->pnote->type != type) {
+	if (pc->pnote) {
+		if (pc->pnote->type != type) {
 			act_puts("You have an unfinished $t in progress.",
-				 ch, flag_string(note_types, ch->pnote->type),
+				 ch,
+				 flag_string(note_types, pc->pnote->type),
 				 NULL, TO_CHAR, POS_DEAD);
 			return FALSE;
 		}
@@ -309,7 +311,7 @@ static bool note_attach(CHAR_DATA *ch, int type)
 	pnote->subject	= str_empty;
 	pnote->text	= str_empty;
 	pnote->type	= type;
-	ch->pnote	= pnote;
+	pc->pnote	= pnote;
 	return TRUE;
 }
 
@@ -395,19 +397,19 @@ static bool hide_note(CHAR_DATA *ch, note_t *pnote)
 	default:
 		return TRUE;
 	case NOTE_NOTE:
-		last_read = ch->pcdata->last_note;
+		last_read = PC(ch)->last_note;
 		break;
 	case NOTE_IDEA:
-		last_read = ch->pcdata->last_idea;
+		last_read = PC(ch)->last_idea;
 		break;
 	case NOTE_PENALTY:
-		last_read = ch->pcdata->last_penalty;
+		last_read = PC(ch)->last_penalty;
 		break;
 	case NOTE_NEWS:
-		last_read = ch->pcdata->last_news;
+		last_read = PC(ch)->last_news;
 		break;
 	case NOTE_CHANGES:
-		last_read = ch->pcdata->last_changes;
+		last_read = PC(ch)->last_changes;
 		break;
 	}
     
@@ -432,6 +434,7 @@ static void parse_note(CHAR_DATA *ch, const char *argument, int type)
 	int vnum;
 	int anum;
 	DESCRIPTOR_DATA *d;
+	PC_DATA *pc;
 
 	if (IS_NPC(ch))
 		return;
@@ -620,19 +623,19 @@ static void parse_note(CHAR_DATA *ch, const char *argument, int type)
 	if (!str_prefix(arg, "catchup")) {
 		switch(type) {
 		case NOTE_NOTE:	
-			ch->pcdata->last_note = current_time;
+			PC(ch)->last_note = current_time;
 			break;
 		case NOTE_IDEA:
-			ch->pcdata->last_idea = current_time;
+			PC(ch)->last_idea = current_time;
 			break;
 		case NOTE_PENALTY:
-			ch->pcdata->last_penalty = current_time;
+			PC(ch)->last_penalty = current_time;
 			break;
 		case NOTE_NEWS:
-			ch->pcdata->last_news = current_time;
+			PC(ch)->last_news = current_time;
 			break;
 		case NOTE_CHANGES:
-			ch->pcdata->last_changes = current_time;
+			PC(ch)->last_changes = current_time;
 			break;
 		}
 		return;
@@ -652,10 +655,12 @@ static void parse_note(CHAR_DATA *ch, const char *argument, int type)
 		return;
 	}
 
+	pc = PC(ch);
+
 	if (!str_prefix(arg, "edit")) {
 		if (!note_attach(ch, type))
 			return;
-		string_append(ch, &ch->pnote->text);
+		string_append(ch, &pc->pnote->text);
 		return;
 	}
 
@@ -663,8 +668,8 @@ static void parse_note(CHAR_DATA *ch, const char *argument, int type)
 		if (!note_attach(ch, type))
 			return;
 
-		free_string(ch->pnote->subject);
-		ch->pnote->subject = str_dup(argument);
+		free_string(pc->pnote->subject);
+		pc->pnote->subject = str_dup(argument);
 		char_puts("Ok.\n", ch);
 		return;
 	}
@@ -673,8 +678,8 @@ static void parse_note(CHAR_DATA *ch, const char *argument, int type)
 		if (!note_attach(ch, type))
 			return;
 
-		free_string(ch->pnote->to_list);
-		ch->pnote->to_list = str_dup(argument);
+		free_string(pc->pnote->to_list);
+		pc->pnote->to_list = str_dup(argument);
 		char_puts("Ok.\n", ch);
 		return;
 	}
@@ -703,8 +708,8 @@ static void parse_note(CHAR_DATA *ch, const char *argument, int type)
 		if (!note_attach(ch, type))
 			return;
 
-		free_string(ch->pnote->text);
-		ch->pnote->text = str_printf(
+		free_string(pc->pnote->text);
+		pc->pnote->text = str_printf(
 			"* Forwarded by: %s\n"
 			"* Originally to: %s\n"
 			"* Originally by: %s, %s\n"
@@ -714,10 +719,10 @@ static void parse_note(CHAR_DATA *ch, const char *argument, int type)
 			ch->name, pnote->to_list, pnote->sender, pnote->date,
 			pnote->text);
 
-		free_string(ch->pnote->subject);
-		ch->pnote->subject = str_qdup(pnote->subject);
+		free_string(pc->pnote->subject);
+		pc->pnote->subject = str_qdup(pnote->subject);
 
-		string_append(ch, &ch->pnote->text);
+		string_append(ch, &pc->pnote->text);
 		return;
 	}
 
@@ -746,20 +751,20 @@ static void parse_note(CHAR_DATA *ch, const char *argument, int type)
 		if (!note_attach(ch, type))
 			return;
 
-		free_string(ch->pnote->text);
-		ch->pnote->text = note_quote(pnote);
+		free_string(pc->pnote->text);
+		pc->pnote->text = note_quote(pnote);
 
-		free_string(ch->pnote->subject);
-		ch->pnote->subject = str_qdup(pnote->subject);
+		free_string(pc->pnote->subject);
+		pc->pnote->subject = str_qdup(pnote->subject);
 
-		string_append(ch, &ch->pnote->text);
+		string_append(ch, &pc->pnote->text);
 		return;
 	}
 
 	if (!str_prefix(arg, "clear") || !str_prefix(arg, "cancel")) {
-		if (ch->pnote) {
-			free_note(ch->pnote);
-			ch->pnote = NULL;
+		if (pc->pnote) {
+			free_note(pc->pnote);
+			pc->pnote = NULL;
 		}
 
 		char_puts("Ok.\n", ch);
@@ -769,12 +774,12 @@ static void parse_note(CHAR_DATA *ch, const char *argument, int type)
 	if (!str_prefix(arg, "show")) {
 		BUFFER *output;
 
-		if (!ch->pnote) {
+		if (!pc->pnote) {
 			char_puts("You have no note in progress.\n", ch);
 			return;
 		}
 
-		if (ch->pnote->type != type) {
+		if (pc->pnote->type != type) {
 			char_puts("You aren't working on that kind of note.\n",ch);
 			return;
 		}
@@ -785,10 +790,10 @@ static void parse_note(CHAR_DATA *ch, const char *argument, int type)
 				   "{xSubj: %s\n"
 				   "{x%s\n"
 				   "{x",
-			   ch->pnote->sender,
-			   ch->pnote->to_list,
-			   ch->pnote->subject,
-			   ch->pnote->text);
+			   pc->pnote->sender,
+			   pc->pnote->to_list,
+			   pc->pnote->subject,
+			   pc->pnote->text);
 		page_to_char(buf_string(output), ch);
 		buf_free(output);
 
@@ -796,51 +801,51 @@ static void parse_note(CHAR_DATA *ch, const char *argument, int type)
 	}
 
 	if (!str_prefix(arg, "post") || !str_prefix(arg, "send")) {
-		if (ch->pnote == NULL) {
+		if (pc->pnote == NULL) {
 			char_puts("You have no note in progress.\n", ch);
 			return;
 		}
 
-		if (ch->pnote->type != type) {
+		if (pc->pnote->type != type) {
 			char_puts("You aren't working on that kind of note.\n",
 				  ch);
 			return;
 		}
 
-		if (IS_NULLSTR(ch->pnote->to_list)) {
+		if (IS_NULLSTR(pc->pnote->to_list)) {
 			char_puts("You need to provide a recipient "
 				  "(name, clan name, all, or immortal).\n",
 				  ch);
 			return;
 		}
 
-		if (IS_NULLSTR(ch->pnote->subject)) {
+		if (IS_NULLSTR(pc->pnote->subject)) {
 			char_puts("You need to provide a subject.\n", ch);
 			return;
 		}
 
-		if (IS_NULLSTR(ch->pnote->text)) {
+		if (IS_NULLSTR(pc->pnote->text)) {
 			char_puts("You need to provide a text.\n", ch);
 			return;
 		}
 
-		ch->pnote->next		= NULL;
-		ch->pnote->date		= str_dup(strtime(current_time));
-		ch->pnote->date_stamp	= current_time;
+		pc->pnote->next	= NULL;
+		pc->pnote->date	= str_dup(strtime(current_time));
+		pc->pnote->date_stamp= current_time;
 
-		append_note(ch->pnote);
+		append_note(pc->pnote);
 
 		/* Show new note message */
 		for (d = descriptor_list; d; d = d->next) {
 			CHAR_DATA *fch = d->character;
 			if (fch != NULL
 			&&  fch != ch
-			&&  is_note_to(fch, ch->pnote)
+			&&  is_note_to(fch, pc->pnote)
 			&&  d->connected == CON_PLAYING)
 				do_unread(fch, "login");
 		}
 
-		ch->pnote = NULL;
+		pc->pnote = NULL;
 		return;
 	}
 

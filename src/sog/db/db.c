@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.167 1999-07-30 05:18:24 avn Exp $
+ * $Id: db.c,v 1.168 1999-09-08 10:40:16 fjoe Exp $
  */
 
 /***************************************************************************
@@ -715,7 +715,7 @@ void reset_room(ROOM_INDEX_DATA *pRoom, int flags)
 /* */
 	    count = 0;
 	    for (mob = pRoomIndex->people; mob != NULL; mob = mob->next_in_room)
-		if (mob->pIndexData == pMobIndex)
+		if (mob->pMobIndex == pMobIndex)
 		{
 		    count++;
 		    if (count >= pReset->arg4)
@@ -729,7 +729,7 @@ void reset_room(ROOM_INDEX_DATA *pRoom, int flags)
 		break;
 
 		pMob = create_mob(pMobIndex);
-		pMob->zone = pRoom->area;
+		NPC(pMob)->zone = pRoom->area;
 		char_to_room(pMob, pRoom);
 		if (IS_EXTRACTED(pMob))
 			LastMob = NULL;
@@ -839,7 +839,7 @@ void reset_room(ROOM_INDEX_DATA *pRoom, int flags)
 	    }
 
 	    /* fix object lock state! */
-	    LastObj->value[1] = LastObj->pIndexData->value[1];
+	    LastObj->value[1] = LastObj->pObjIndex->value[1];
 	    last = TRUE;
             break;
 
@@ -862,7 +862,7 @@ void reset_room(ROOM_INDEX_DATA *pRoom, int flags)
                 break;
             }
 
-            if (LastMob->pIndexData->pShop) {  /* Shop-keeper? */
+            if (LastMob->pMobIndex->pShop) {  /* Shop-keeper? */
                 pObj = create_obj(pObjIndex, 0);
 		SET_BIT(pObj->extra_flags, ITEM_INVENTORY);
             }
@@ -975,9 +975,7 @@ CHAR_DATA *create_mob(MOB_INDEX_DATA *pMobIndex)
 		exit(1);
 	}
 
-	mob = new_char();
-
-	mob->pIndexData	= pMobIndex;
+	mob = char_new(pMobIndex);
 
 	mob->name	= str_qdup(pMobIndex->name);
 	mlstr_cpy(&mob->short_descr, &pMobIndex->short_descr);
@@ -994,7 +992,6 @@ CHAR_DATA *create_mob(MOB_INDEX_DATA *pMobIndex)
 		mob->silver = wealth - (mob->gold * 100);
 	} 
 
-	mob->plr_flags		= ACT_NPC;
 	mob->comm		= COMM_NOSHOUT | COMM_NOMUSIC;
 	mob->affected_by	= pMobIndex->affected_by;
 	mob->alignment		= pMobIndex->alignment;
@@ -1002,9 +999,7 @@ CHAR_DATA *create_mob(MOB_INDEX_DATA *pMobIndex)
 	mob->imm_flags		= pMobIndex->imm_flags;
 	mob->res_flags		= pMobIndex->res_flags;
 	mob->vuln_flags		= pMobIndex->vuln_flags;
-	mob->start_pos		= pMobIndex->start_pos;
-	mob->position		= mob->start_pos;
-	mob->default_pos	= pMobIndex->default_pos;
+	mob->position		= pMobIndex->start_pos;
 	mob->race		= pMobIndex->race;
 	mob->form		= pMobIndex->form;
 	mob->parts		= pMobIndex->parts;
@@ -1012,7 +1007,6 @@ CHAR_DATA *create_mob(MOB_INDEX_DATA *pMobIndex)
 	mob->clan		= pMobIndex->clan;
 	mob->invis_level	= pMobIndex->invis_level;
 	mob->incog_level	= pMobIndex->incog_level;
- 	mob->group		= pMobIndex->group;
 	mob->material		= str_qdup(pMobIndex->material);
 
 	mob->dam_type		= pMobIndex->dam_type;
@@ -1052,8 +1046,8 @@ CHAR_DATA *create_mob(MOB_INDEX_DATA *pMobIndex)
 				       pMobIndex->mana[DICE_TYPE])
 				  + pMobIndex->mana[DICE_BONUS];
 	mob->mana		= mob->max_mana;
-	mob->damage[DICE_NUMBER]= pMobIndex->damage[DICE_NUMBER];
-	mob->damage[DICE_TYPE]	= pMobIndex->damage[DICE_TYPE];
+	NPC(mob)->dam.dice_number = pMobIndex->damage[DICE_NUMBER];
+	NPC(mob)->dam.dice_type = pMobIndex->damage[DICE_TYPE];
 	for (i = 0; i < 4; i++)
 		mob->armor[i]	= pMobIndex->ac[i]; 
 
@@ -1169,12 +1163,10 @@ void clone_mob(CHAR_DATA *parent, CHAR_DATA *clone)
 	mlstr_cpy(&clone->short_descr, &parent->short_descr);
 	mlstr_cpy(&clone->long_descr, &parent->long_descr);
 	mlstr_cpy(&clone->description, &parent->description);
-	clone->group		= parent->group;
 	clone->sex		= parent->sex;
 	clone->class		= parent->class;
 	clone->race		= parent->race;
 	clone->level		= parent->level;
-	clone->timer		= parent->timer;
 	clone->wait		= parent->wait;
 	clone->hit		= parent->hit;
 	clone->max_hit		= parent->max_hit;
@@ -1184,7 +1176,6 @@ void clone_mob(CHAR_DATA *parent, CHAR_DATA *clone)
 	clone->max_move		= parent->max_move;
 	clone->gold		= parent->gold;
 	clone->silver		= parent->silver;
-	clone->exp		= parent->exp;
 	clone->comm		= parent->comm;
 	clone->imm_flags	= parent->imm_flags;
 	clone->res_flags	= parent->res_flags;
@@ -1193,8 +1184,6 @@ void clone_mob(CHAR_DATA *parent, CHAR_DATA *clone)
 	clone->incog_level	= parent->incog_level;
 	clone->affected_by	= parent->affected_by;
 	clone->position		= parent->position;
-	clone->practice		= parent->practice;
-	clone->train		= parent->train;
 	clone->saving_throw	= parent->saving_throw;
 	clone->alignment	= parent->alignment;
 	clone->hitroll		= parent->hitroll;
@@ -1205,22 +1194,18 @@ void clone_mob(CHAR_DATA *parent, CHAR_DATA *clone)
 	clone->size		= parent->size;
 	clone->material		= str_qdup(parent->material);
 	clone->dam_type		= parent->dam_type;
-	clone->start_pos	= parent->start_pos;
-	clone->default_pos	= parent->default_pos;
 	clone->hunting		= NULL;
 	clone->clan		= parent->clan;
+	NPC(clone)->dam	= NPC(parent)->dam;
+
 
 	for (i = 0; i < 4; i++)
 		clone->armor[i]	= parent->armor[i];
 
-	for (i = 0; i < MAX_STATS; i++)
-	{
+	for (i = 0; i < MAX_STATS; i++) {
 		clone->perm_stat[i]	= parent->perm_stat[i];
 		clone->mod_stat[i]	= parent->mod_stat[i];
 	}
-
-	for (i = 0; i < 3; i++)
-		clone->damage[i]	= parent->damage[i];
 
 	/* now add the affects */
 	for (paf = parent->affected; paf != NULL; paf = paf->next)
@@ -1244,7 +1229,7 @@ OBJ_DATA *create_obj(OBJ_INDEX_DATA *pObjIndex, int flags)
 
 	obj = new_obj();
 
-	obj->pIndexData	= pObjIndex;
+	obj->pObjIndex	= pObjIndex;
  	obj->level = pObjIndex->level;
 	obj->wear_loc	= -1;
 
@@ -1969,7 +1954,7 @@ void scan_pfiles()
 #endif
 
 		if (strchr(dp->d_name, '.')
-		||  (ch = load_char_obj(dp->d_name, LOAD_F_NOCREATE)) == NULL)
+		||  (ch = char_load(dp->d_name, LOAD_F_NOCREATE)) == NULL)
 			continue;
 
 		changed = FALSE;
@@ -1977,9 +1962,9 @@ void scan_pfiles()
 		for (obj = ch->carrying; obj; obj = obj_next) {
 			obj_next = obj->next_content;
 
-			obj->pIndexData->count++;
+			obj->pObjIndex->count++;
 
-			if (obj->pIndexData->limit < 0
+			if (obj->pObjIndex->limit < 0
 			||  !eqcheck
 			||  number_percent() < 95)
 				continue;
@@ -1987,18 +1972,18 @@ void scan_pfiles()
 			changed = TRUE;
 			log("scan_pfiles: %s: %s (vnum %d)",
 				   ch->name,
-				   mlstr_mval(&obj->pIndexData->short_descr),
-				   obj->pIndexData->vnum);
+				   mlstr_mval(&obj->pObjIndex->short_descr),
+				   obj->pObjIndex->vnum);
 			extract_obj(obj, XO_F_NORECURSE);
 		}
 
 		if (!IS_IMMORTAL(ch))
 			rating_add(ch);
 
-		if (changed || ch->version < CHAR_VERSION)
-			save_char_obj(ch, SAVE_F_PSCAN);
+		if (changed || PC(ch)->version < PFILE_VERSION)
+			char_save(ch, SAVE_F_PSCAN);
 
-		nuke_char_obj(ch);
+		char_nuke(ch);
 	}
 	closedir(dirp);
 

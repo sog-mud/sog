@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_lang.c,v 1.19 1999-06-29 11:32:23 fjoe Exp $
+ * $Id: olc_lang.c,v 1.20 1999-09-08 10:40:05 fjoe Exp $
  */
 
 #include "olc.h"
@@ -72,7 +72,7 @@ OLC_FUN(langed_create)
 	lang_t *l;
 	char arg[MAX_INPUT_LENGTH];
 
-	if (ch->pcdata->security < 9) {
+	if (PC(ch)->security < 9) {
 		char_puts("LangEd: Insufficient security.\n", ch);
 		return FALSE;
 	}
@@ -103,7 +103,7 @@ OLC_FUN(langed_edit)
 	int lang;
 	char arg[MAX_INPUT_LENGTH];
 
-	if (ch->pcdata->security < SECURITY_MSGDB) {
+	if (PC(ch)->security < SECURITY_MSGDB) {
 		char_puts("LangEd: Insufficient security", ch);
 		return FALSE;
 	}
@@ -231,7 +231,7 @@ OLC_FUN(langed_name)
 {
 	lang_t *l;
 
-	if (ch->pcdata->security < 9) {
+	if (PC(ch)->security < 9) {
 		char_puts("LangEd: Insufficient security", ch);
 		return FALSE;
 	}

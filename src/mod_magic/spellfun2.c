@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.129 1999-08-19 05:12:12 kostik Exp $
+ * $Id: spellfun2.c,v 1.130 1999-09-08 10:40:19 fjoe Exp $
  */
 
 /***************************************************************************
@@ -92,13 +92,13 @@ void spell_portal(int sn, int level, CHAR_DATA *ch, void *vo)
 
 	stone = get_eq_char(ch,WEAR_HOLD);
 	if (!IS_IMMORTAL(ch) 
-	&&  (stone == NULL || stone->pIndexData->item_type != ITEM_WARP_STONE))
+	&&  (stone == NULL || stone->pObjIndex->item_type != ITEM_WARP_STONE))
 	{
 	char_puts("You lack the proper component for this spell.\n",ch);
 	return;
 	}
 
-	if (stone != NULL && stone->pIndexData->item_type == ITEM_WARP_STONE)
+	if (stone != NULL && stone->pObjIndex->item_type == ITEM_WARP_STONE)
 	{
 	 	act("You draw upon the power of $p.",ch,stone,NULL,TO_CHAR);
 	 	act("It flares brightly and vanishes!",ch,stone,NULL,TO_CHAR);
@@ -136,12 +136,12 @@ void spell_nexus(int sn, int level, CHAR_DATA *ch, void *vo)
 
 	stone = get_eq_char(ch,WEAR_HOLD);
 	if (!IS_IMMORTAL(ch)
-	&&  (stone == NULL || stone->pIndexData->item_type != ITEM_WARP_STONE)) {
+	&&  (stone == NULL || stone->pObjIndex->item_type != ITEM_WARP_STONE)) {
 		char_puts("You lack the proper component for this spell.\n",ch);
 		return;
 	}
  
-	if (stone != NULL && stone->pIndexData->item_type == ITEM_WARP_STONE) {
+	if (stone != NULL && stone->pObjIndex->item_type == ITEM_WARP_STONE) {
 		act("You draw upon the power of $p.",ch,stone,NULL,TO_CHAR);
 		act("It flares brightly and vanishes!",ch,stone,NULL,TO_CHAR);
 		extract_obj(stone, 0);
@@ -182,6 +182,7 @@ void spell_disintegrate(int sn, int level, CHAR_DATA *ch, void *vo)
 	OBJ_DATA *obj_next;
 	int i,dam=0;
 	OBJ_DATA *tattoo, *clanmark; 
+	PC_DATA *vpc;
 	
 	if (saves_spell(level-2, victim, DAM_ENERGY)
 	||  number_bits(1) == 0
@@ -207,8 +208,6 @@ void spell_disintegrate(int sn, int level, CHAR_DATA *ch, void *vo)
 	             victim);
 	char_puts("As long as you don't attack anything.\n", victim);
 
-	quest_handle_death(ch, victim);
-
 	/*  disintegrate the objects... */
 	tattoo = get_eq_char(victim, WEAR_TATTOO); /* keep tattoos for later */
 	if (tattoo != NULL)
@@ -225,7 +224,8 @@ void spell_disintegrate(int sn, int level, CHAR_DATA *ch, void *vo)
 	}
 
 	if (IS_NPC(victim)) {
-		victim->pIndexData->killed++;
+		quest_handle_death(ch, victim);
+		victim->pMobIndex->killed++;
 		extract_char(victim, 0);
 		return;
 	}
@@ -242,14 +242,15 @@ void spell_disintegrate(int sn, int level, CHAR_DATA *ch, void *vo)
 	victim->hit           = 1;
 	victim->mana  	  = 1;
 
-	REMOVE_BIT(victim->plr_flags, PLR_BOUGHT_PET);
+	vpc = PC(victim);
+	REMOVE_BIT(vpc->plr_flags, PLR_BOUGHT_PET);
 	SET_WANTED(victim, NULL);
 
-	victim->pcdata->condition[COND_THIRST] = 40;
-	victim->pcdata->condition[COND_HUNGER] = 40;
-	victim->pcdata->condition[COND_FULL] = 40;
-	victim->pcdata->condition[COND_BLOODLUST] = 40;
-	victim->pcdata->condition[COND_DESIRE] = 40;
+	vpc->condition[COND_THIRST] = 40;
+	vpc->condition[COND_HUNGER] = 40;
+	vpc->condition[COND_FULL] = 40;
+	vpc->condition[COND_BLOODLUST] = 40;
+	vpc->condition[COND_DESIRE] = 40;
 
 	if (tattoo != NULL) {
 		obj_to_char(tattoo, victim);
@@ -262,8 +263,8 @@ void spell_disintegrate(int sn, int level, CHAR_DATA *ch, void *vo)
 	}
 
 	for (tmp_ch = npc_list; tmp_ch; tmp_ch = tmp_ch->next)
-		if (tmp_ch->last_fought == victim)
-			tmp_ch->last_fought = NULL;
+		if (NPC(tmp_ch)->last_fought == victim)
+			NPC(tmp_ch)->last_fought = NULL;
 }
 
 void spell_bark_skin(int sn, int level, CHAR_DATA *ch, void *vo)
@@ -421,20 +422,18 @@ void spell_demon_summon(int sn, int level, CHAR_DATA *ch, void *vo)
 	AFFECT_DATA af;
 	int i;
 
-	if (is_affected(ch,sn))
-	{
-	  char_puts("You lack the power to summon another demon right now.\n",
-		   ch);
-	  return;
+	if (is_affected(ch, sn)) {
+		char_puts("You lack the power to summon another demon right now.\n", ch);
+		return;
 	}
 
 	char_puts("You attempt to summon a demon.\n",ch);
 	act("$n attempts to summon a demon.",ch,NULL,NULL,TO_ROOM);
 
 	for (gch = npc_list; gch; gch = gch->next) {
-		if (IS_AFFECTED(gch,AFF_CHARM)
+		if (IS_AFFECTED(gch, AFF_CHARM)
 		&&  gch->master == ch
-		&&  gch->pIndexData->vnum == MOB_VNUM_DEMON) {
+		&&  gch->pMobIndex->vnum == MOB_VNUM_DEMON) {
 			char_puts("Two demons are more than you can control!\n",
 				  ch);
 			return;
@@ -443,25 +442,24 @@ void spell_demon_summon(int sn, int level, CHAR_DATA *ch, void *vo)
 
 	demon = create_mob(get_mob_index(MOB_VNUM_DEMON));
 
-	for (i=0;i < MAX_STATS; i++)
-	{
-	  demon->perm_stat[i] = ch->perm_stat[i];
+	for (i = 0; i < MAX_STATS; i++) {
+		demon->perm_stat[i] = ch->perm_stat[i];
 	}
 
-	demon->max_hit = IS_NPC(ch)? URANGE(ch->max_hit,1 * ch->max_hit,30000)
-		: URANGE(ch->pcdata->perm_hit,ch->hit,30000);
+	demon->max_hit = IS_NPC(ch) ?
+			URANGE(ch->max_hit, 1 * ch->max_hit, 30000) :
+			URANGE(PC(ch)->perm_hit, ch->hit, 30000);
 	demon->hit = demon->max_hit;
-	demon->max_mana = IS_NPC(ch)? ch->max_mana : ch->pcdata->perm_mana;
+	demon->max_mana = IS_NPC(ch)? ch->max_mana : PC(ch)->perm_mana;
 	demon->mana = demon->max_mana;
 	demon->level = level;
 	for (i=0; i < 3; i++)
 	demon->armor[i] = interpolate(demon->level,100,-100);
 	demon->armor[3] = interpolate(demon->level,100,0);
 	demon->gold = 0;
-	demon->timer = 0;
-	demon->damage[DICE_NUMBER] = number_range(level/15, level/10);   
-	demon->damage[DICE_TYPE] = number_range(level/3, level/2);
-	demon->damage[DICE_BONUS] = number_range(level/8, level/6);
+	NPC(demon)->dam.dice_number = number_range(level/15, level/10);   
+	NPC(demon)->dam.dice_type = number_range(level/3, level/2);
+	demon->damroll = number_range(level/8, level/6);
 
 	char_puts("A demon arrives from the underworld!\n",ch);
 	act("A demon arrives from the underworld!",ch,NULL,NULL,TO_ROOM);
@@ -475,7 +473,7 @@ void spell_demon_summon(int sn, int level, CHAR_DATA *ch, void *vo)
 	af.location           = APPLY_NONE;
 	affect_to_char(ch, &af);  
 
-	char_to_room(demon,ch->in_room);
+	char_to_room(demon, ch->in_room);
 	if (IS_EXTRACTED(demon))
 		return;
 
@@ -677,7 +675,7 @@ void spell_guard_call(int sn, int level, CHAR_DATA *ch, void *vo)
 	for (gch = npc_list; gch; gch = gch->next) {
 		if (IS_AFFECTED(gch,AFF_CHARM)
 		&&  gch->master == ch
-		&&  gch->pIndexData->vnum == MOB_VNUM_SPECIAL_GUARD) {
+		&&  gch->pMobIndex->vnum == MOB_VNUM_SPECIAL_GUARD) {
 			dofun("say", gch, "What? I'm not good enough?");
 			return;
 		}
@@ -699,13 +697,12 @@ void spell_guard_call(int sn, int level, CHAR_DATA *ch, void *vo)
 	guard->armor[3] = interpolate(guard->level,100,-100);
 	guard->sex = ch->sex;
 	guard->gold = 0;
-	guard->timer = 0;
 
-	guard->damage[DICE_NUMBER] = number_range(level/18, level/14);   
-	guard->damage[DICE_TYPE] = number_range(level/4, level/3);
-	guard->damage[DICE_BONUS] = number_range(level/10, level/8);
+	NPC(guard)->dam.dice_number = number_range(level/18, level/14);   
+	NPC(guard)->dam.dice_type = number_range(level/4, level/3);
+	guard->damroll = number_range(level/10, level/8);
 
-	guard2 = create_mob(guard->pIndexData);
+	guard2 = create_mob(guard->pMobIndex);
 	clone_mob(guard,guard2);
 	
 	SET_BIT(guard->affected_by, AFF_CHARM);
@@ -749,7 +746,7 @@ void spell_nightwalker(int sn, int level, CHAR_DATA *ch, void *vo)
 	for (gch = npc_list; gch; gch = gch->next) {
 		if (IS_AFFECTED(gch, AFF_CHARM)
 		&&  gch->master == ch
-		&&  gch->pIndexData->vnum == MOB_VNUM_NIGHTWALKER) {
+		&&  gch->pMobIndex->vnum == MOB_VNUM_NIGHTWALKER) {
 			act_puts("Two Nightwalkers are more than "
 				 "you can control!",
 				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
@@ -762,7 +759,7 @@ void spell_nightwalker(int sn, int level, CHAR_DATA *ch, void *vo)
 	for (i = 0; i < MAX_STATS; i++)
 		walker->perm_stat[i] = ch->perm_stat[i];
 
-	walker->max_hit = IS_NPC(ch) ? ch->max_hit : ch->pcdata->perm_hit;
+	walker->max_hit = IS_NPC(ch) ? ch->max_hit : PC(ch)->perm_hit;
 	walker->hit = walker->max_hit;
 	walker->max_mana = ch->max_mana;
 	walker->mana = walker->max_mana;
@@ -771,10 +768,9 @@ void spell_nightwalker(int sn, int level, CHAR_DATA *ch, void *vo)
 		walker->armor[i] = interpolate(walker->level, 100, -100);
 	walker->armor[3] = interpolate(walker->level, 100, 0);
 	walker->gold = 0;
-	walker->timer = 0;
-	walker->damage[DICE_NUMBER] = number_range(level/15, level/10);   
-	walker->damage[DICE_TYPE]   = number_range(level/3, level/2);
-	walker->damage[DICE_BONUS]  = 0;
+	NPC(walker)->dam.dice_number = number_range(level/15, level/10);   
+	NPC(walker)->dam.dice_type   = number_range(level/3, level/2);
+	walker->damroll  = 0;
 	 
 	act_puts("$N rises from the shadows!",
 		 ch, NULL, walker, TO_CHAR, POS_DEAD);
@@ -869,7 +865,7 @@ void spell_nightfall(int sn, int level, CHAR_DATA *ch, void *vo)
 			continue;
 
 		for (obj = vch->carrying; obj; obj = obj->next_content) {
-			if (obj->pIndexData->item_type != ITEM_LIGHT
+			if (obj->pObjIndex->item_type != ITEM_LIGHT
 			||  obj->value[2] == 0
 			||  saves_spell(level, vch, DAM_ENERGY))
 				continue;
@@ -884,7 +880,7 @@ void spell_nightfall(int sn, int level, CHAR_DATA *ch, void *vo)
 	}
 
 	for (obj = ch->in_room->contents; obj; obj = obj->next_content) {
-		if (obj->pIndexData->item_type != ITEM_LIGHT
+		if (obj->pObjIndex->item_type != ITEM_LIGHT
 		||  obj->value[2] == 0)
 			continue;
 
@@ -1097,8 +1093,8 @@ void spell_amnesia(int sn, int level, CHAR_DATA *ch, void *vo)
 	if (IS_NPC(victim))
 		return;
 
-	for (i = 0; i < victim->pcdata->learned.nused; i++) {
-		pcskill_t *ps = VARR_GET(&victim->pcdata->learned, i);
+	for (i = 0; i < PC(ch)->learned.nused; i++) {
+		pcskill_t *ps = VARR_GET(&PC(ch)->learned, i);
 		ps->percent /= 2;
 	}
 
@@ -1254,13 +1250,12 @@ void spell_stalker(int sn, int level, CHAR_DATA *ch, void *vo)
 
 	if ((victim = get_char_world(ch, target_name)) == NULL
 	||  victim == ch
-	||  victim->in_room == NULL
 	||  !IS_WANTED(victim)) {
 		char_puts("You failed.\n", ch);
 		return;
 	}
 
-	if (is_affected(ch,sn)) {
+	if (is_affected(ch, sn)) {
 		char_puts("This power is used too recently.\n", ch);
 		return;
 	}
@@ -1282,28 +1277,29 @@ void spell_stalker(int sn, int level, CHAR_DATA *ch, void *vo)
 	for (i = 0; i < MAX_STATS; i++)
 		stalker->perm_stat[i] = victim->perm_stat[i];
 
-	stalker->max_hit = UMIN(30000,2 * victim->max_hit);
+	stalker->max_hit = UMIN(30000, 2 * victim->max_hit);
 	stalker->hit = stalker->max_hit;
 	stalker->max_mana = victim->max_mana;
 	stalker->mana = stalker->max_mana;
 	stalker->level = victim->level;
 
-	stalker->damage[DICE_NUMBER] = 
+	NPC(stalker)->dam.dice_number = 
 		number_range(victim->level/18, victim->level/14);   
-	stalker->damage[DICE_TYPE] = 
+	NPC(stalker)->dam.dice_type = 
 		number_range(victim->level/4, victim->level/3);
-	stalker->damage[DICE_BONUS] = 
+	stalker->damroll = 
 		number_range(victim->level/10, victim->level/8);
 
 	for (i=0; i < 3; i++)
-	stalker->armor[i] = interpolate(stalker->level,100,-100);
-	stalker->armor[3] = interpolate(stalker->level,100,0);
+	stalker->armor[i] = interpolate(stalker->level, 100, -100);
+	stalker->armor[3] = interpolate(stalker->level, 100, 0);
 	stalker->gold = 0;
-	stalker->affected_by |= (AFF_DETECT_IMP_INVIS | AFF_DETECT_FADE | AFF_DETECT_EVIL |
-				 AFF_DETECT_INVIS | AFF_DETECT_MAGIC | AFF_DETECT_HIDDEN |
-				 AFF_DETECT_GOOD | AFF_DARK_VISION | AFF_IMP_INVIS);
+	stalker->affected_by |=
+		(AFF_DETECT_IMP_INVIS | AFF_DETECT_FADE | AFF_DETECT_EVIL |
+		 AFF_DETECT_INVIS | AFF_DETECT_MAGIC | AFF_DETECT_HIDDEN |
+		 AFF_DETECT_GOOD | AFF_DARK_VISION | AFF_IMP_INVIS);
 	
-	stalker->target = victim;
+	NPC(stalker)->target = victim;
 	stalker->clan   = ch->clan;
 	char_puts("An invisible stalker arrives to stalk you!\n",victim);
 	act("An invisible stalker arrives to stalk $n!",victim,NULL,NULL,TO_ROOM);
@@ -1337,8 +1333,9 @@ void spell_tesseract(int sn, int level, CHAR_DATA *ch, void *vo)
 		return;
 	}
 	
-	if (ch->pet != NULL && ch->in_room == ch->pet->in_room)
-		pet = ch->pet;
+	pet = GET_PET(ch);
+	if (pet && pet->in_room != ch->in_room)
+		pet = NULL;
 
 	for (wch = ch->in_room->people; wch; wch = wch_next) {
 		wch_next = wch->next_in_room;
@@ -1366,8 +1363,8 @@ void spell_brew(int sn, int level, CHAR_DATA *ch, void *vo)
 	OBJ_DATA *vial;
 	int spell;
 
-	if (obj->pIndexData->item_type != ITEM_TRASH && obj->pIndexData->item_type != ITEM_TREASURE
-	&& obj->pIndexData->item_type != ITEM_KEY)
+	if (obj->pObjIndex->item_type != ITEM_TRASH && obj->pObjIndex->item_type != ITEM_TREASURE
+	&& obj->pObjIndex->item_type != ITEM_KEY)
 	  {
 	char_puts("That can't be transformed into a potion.\n",ch);
 	return;
@@ -1380,7 +1377,7 @@ void spell_brew(int sn, int level, CHAR_DATA *ch, void *vo)
 	  }
 
 	for(vial=ch->carrying; vial != NULL; vial=vial->next_content)
-	  if (vial->pIndexData->vnum == OBJ_VNUM_POTION_VIAL)
+	  if (vial->pObjIndex->vnum == OBJ_VNUM_POTION_VIAL)
 	    break;
 	if ( vial == NULL)  {
 	char_puts("You don't have any vials to brew the potion into.\n"
@@ -1395,9 +1392,9 @@ void spell_brew(int sn, int level, CHAR_DATA *ch, void *vo)
 	return;
 	  }
 	
-	if (obj->pIndexData->item_type == ITEM_TRASH)
+	if (obj->pObjIndex->item_type == ITEM_TRASH)
 		potion = create_obj(get_obj_index(OBJ_VNUM_POTION_SILVER), 0);
-	else if (obj->pIndexData->item_type == ITEM_TREASURE)
+	else if (obj->pObjIndex->item_type == ITEM_TREASURE)
 		potion = create_obj(get_obj_index(OBJ_VNUM_POTION_GOLDEN), 0);
 	else
 		potion = create_obj(get_obj_index(OBJ_VNUM_POTION_SWIRLING), 0);
@@ -1406,7 +1403,7 @@ void spell_brew(int sn, int level, CHAR_DATA *ch, void *vo)
 
 	spell = 0;
 
-	switch (obj->pIndexData->item_type) {
+	switch (obj->pObjIndex->item_type) {
 	 case ITEM_TRASH:
 		switch(number_bits(3)) {
 		case 0:
@@ -1507,17 +1504,14 @@ void spell_shadowlife(int sn, int level, CHAR_DATA *ch, void *vo)
 	AFFECT_DATA af;
 	int i;
 
-	if (IS_NPC(victim))
-	{
-	  char_puts("Now, why would you want to do that?!?\n", ch);
-	  return;
+	if (IS_NPC(victim)) {
+		char_puts("Now, why would you want to do that?!?\n", ch);
+		return;
 	}
 
-	if (is_affected(ch,sn))
-	{
-	  char_puts("You don't have the strength to raise a Shadow now.\n",
-		   ch);
-	  return;
+	if (is_affected(ch,sn)) {
+		char_puts("You don't have the strength to raise a Shadow now.\n", ch);
+		return;
 	}
 
 	act("You give life to $N's shadow!", ch, NULL, victim, TO_CHAR);
@@ -1536,13 +1530,13 @@ void spell_shadowlife(int sn, int level, CHAR_DATA *ch, void *vo)
 	shadow->mana = shadow->max_mana;
 	shadow->alignment = ch->alignment;
 	shadow->level = level;
-	for (i=0; i < 3; i++)
-	shadow->armor[i] = interpolate(shadow->level,100,-100);
+	for (i = 0; i < 3; i++)
+		shadow->armor[i] = interpolate(shadow->level,100,-100);
 	shadow->armor[3] = interpolate(shadow->level,100,0);
 	shadow->sex = victim->sex;
 	shadow->gold = 0;
 
-	shadow->target  = victim;
+	NPC(shadow)->target = victim;
 	
 	af.where	= TO_AFFECTS;
 	af.type         = sn;
@@ -1575,8 +1569,8 @@ void spell_ruler_badge(int sn, int level, CHAR_DATA *ch, void *vo)
 	   badge = obj_next)
 	{
 	  obj_next = badge->next_content;
-	  if (badge->pIndexData->vnum == OBJ_VNUM_DEPUTY_BADGE 
-	  || badge->pIndexData->vnum == OBJ_VNUM_RULER_BADGE)
+	  if (badge->pObjIndex->vnum == OBJ_VNUM_DEPUTY_BADGE 
+	  || badge->pObjIndex->vnum == OBJ_VNUM_RULER_BADGE)
 	{
 	  act("Your $p vanishes.",ch, badge, NULL, TO_CHAR);
 	  obj_from_char(badge);
@@ -1614,7 +1608,6 @@ void spell_ruler_badge(int sn, int level, CHAR_DATA *ch, void *vo)
 	af.location     = APPLY_DAMROLL;
 	affect_to_obj(badge,&af);
 
-
 	badge->timer = 200;
 	act("You wear the ruler badge!",ch, NULL, NULL, TO_CHAR);
 	act("$n wears the $s ruler badge!", ch, NULL, NULL, TO_ROOM);
@@ -1644,8 +1637,8 @@ void spell_remove_badge(int sn, int level, CHAR_DATA *ch, void *vo)
 	   badge = obj_next)
 	{
 	  obj_next = badge->next_content;
-	  if (badge->pIndexData->vnum == OBJ_VNUM_DEPUTY_BADGE 
-	  || badge->pIndexData->vnum == OBJ_VNUM_RULER_BADGE)
+	  if (badge->pObjIndex->vnum == OBJ_VNUM_DEPUTY_BADGE 
+	  || badge->pObjIndex->vnum == OBJ_VNUM_RULER_BADGE)
 	{
 	  act("Your $p vanishes.",ch, badge, NULL, TO_CHAR);
 	  act("$n's $p vanishes.", ch, badge, NULL, TO_ROOM);
@@ -1771,7 +1764,7 @@ void spell_blue_dragon(int sn, int level, CHAR_DATA *ch, void *vo)
 	
 	race = rn_lookup("blue dragon");
 
-	ch->pcdata->form_name = "blue dragon";
+	PC(ch)->form_name = "blue dragon";
 
 	act("$n turns $self into blue dragon.", ch, NULL, NULL, TO_ROOM);
 	act("You turn yourself into blue dragon.", ch, NULL, NULL, TO_CHAR);
@@ -1815,7 +1808,7 @@ void spell_green_dragon(int sn, int level, CHAR_DATA *ch, void *vo)
 	
 	race = rn_lookup("green dragon");
 
-	ch->pcdata->form_name = "green dragon";
+	PC(ch)->form_name = "green dragon";
 
 	act("$n turns $self into green dragon.", ch, NULL, NULL, TO_ROOM);
 	act("You turn yourself into green dragon.", ch, NULL, NULL, TO_CHAR);
@@ -1858,7 +1851,7 @@ void spell_white_dragon(int sn, int level, CHAR_DATA *ch, void *vo)
 	
 	race = rn_lookup("white dragon");
 
-	ch->pcdata->form_name = "white dragon";
+	PC(ch)->form_name = "white dragon";
 
 	act("$n turns $self into white dragon.", ch, NULL, NULL, TO_ROOM);
 	act("You turn yourself into white dragon.", ch, NULL, NULL, TO_CHAR);
@@ -1902,7 +1895,7 @@ void spell_black_dragon(int sn, int level, CHAR_DATA *ch, void *vo)
 	
 	race = rn_lookup("black dragon");
 
-	ch->pcdata->form_name = "black dragon";
+	PC(ch)->form_name = "black dragon";
 
 	act("$n turns $self into black dragon.", ch, NULL, NULL, TO_ROOM);
 	act("You turn yourself into black dragon.", ch, NULL, NULL, TO_CHAR);
@@ -1945,7 +1938,7 @@ void spell_red_dragon(int sn, int level, CHAR_DATA *ch, void *vo)
 	
 	race = rn_lookup("red dragon");
 
-	ch->pcdata->form_name = "red dragon";
+	PC(ch)->form_name = "red dragon";
 
 	act("$n turns $self into red dragon.", ch, NULL, NULL, TO_ROOM);
 	act("You turn yourself into red dragon.", ch, NULL, NULL, TO_CHAR);
@@ -2028,7 +2021,7 @@ void spell_squire(int sn, int level, CHAR_DATA *ch, void *vo)
 	for (gch = npc_list; gch; gch = gch->next) {
 		if (IS_AFFECTED(gch, AFF_CHARM)
 		&&  gch->master == ch
-		&&  gch->pIndexData->vnum == MOB_VNUM_SQUIRE) {
+		&&  gch->pMobIndex->vnum == MOB_VNUM_SQUIRE) {
 			char_puts("Two squires are more than you need!\n",ch);
 			return;
 		}
@@ -2049,9 +2042,9 @@ void spell_squire(int sn, int level, CHAR_DATA *ch, void *vo)
 	squire->armor[3] = interpolate(squire->level,100,0);
 	squire->gold = 0;
 
-	squire->damage[DICE_NUMBER] = number_range(level/20, level/15);   
-	squire->damage[DICE_TYPE] = number_range(level/4, level/3);
-	squire->damage[DICE_BONUS] = number_range(level/10, level/8);
+	NPC(squire)->dam.dice_number = number_range(level/20, level/15);   
+	NPC(squire)->dam.dice_type = number_range(level/4, level/3);
+	squire->damroll = number_range(level/10, level/8);
 
 	char_puts("A squire arrives from nowhere!\n",ch);
 	act("A squire arrives from nowhere!",ch,NULL,NULL,TO_ROOM);
@@ -2295,7 +2288,7 @@ void spell_disperse(int sn, int level, CHAR_DATA *ch, void *vo)
 			continue;
 
 		if (IS_NPC(vch)) {
-			if (IS_SET(vch->pIndexData->act, ACT_AGGRESSIVE))
+			if (IS_SET(vch->pMobIndex->act, ACT_AGGRESSIVE))
 				continue;
 		}
 		else {
@@ -2653,8 +2646,8 @@ void spell_animate_dead(int sn, int level, CHAR_DATA *ch, void *vo)
 
 		obj = (OBJ_DATA *) vo;
 
-		if (!(obj->pIndexData->item_type == ITEM_CORPSE_NPC 
-		|| obj->pIndexData->item_type == ITEM_CORPSE_PC)) {
+		if (!(obj->pObjIndex->item_type == ITEM_CORPSE_NPC 
+		|| obj->pObjIndex->item_type == ITEM_CORPSE_PC)) {
 			char_puts("You can animate only corpses!\n", ch);
 			return;
 		}
@@ -2675,7 +2668,7 @@ void spell_animate_dead(int sn, int level, CHAR_DATA *ch, void *vo)
 		}
 
 		/* can't animate PC corpses in ROOM_BATTLE_ARENA */
-		if (obj->pIndexData->item_type == ITEM_CORPSE_PC
+		if (obj->pObjIndex->item_type == ITEM_CORPSE_PC
 		&&  obj->in_room
 		&&  IS_SET(obj->in_room->room_flags, ROOM_BATTLE_ARENA)
 		&&  !IS_OWNER(ch, obj)) {
@@ -2732,9 +2725,9 @@ void spell_animate_dead(int sn, int level, CHAR_DATA *ch, void *vo)
 		undead->armor[3] = interpolate(undead->level, 50, -200);
 		undead->sex = ch->sex;
 		undead->gold = 0;
-		undead->damage[DICE_NUMBER] = 11;
-		undead->damage[DICE_TYPE]   = 5;
-		undead->damage[DICE_BONUS]  = u_level/2 +10;
+		NPC(undead)->dam.dice_number = 11;
+		NPC(undead)->dam.dice_type   = 5;
+		undead->damroll  = u_level/2 +10;
 	
 		undead->master = ch;
 		undead->leader = ch;
@@ -2796,8 +2789,8 @@ void spell_bone_dragon(int sn, int level, CHAR_DATA *ch, void *vo)
 
 	for (gch = npc_list; gch; gch = gch->next) {
 		if (gch->master == ch
-		&&  (gch->pIndexData->vnum == MOB_VNUM_COCOON ||
-		     gch->pIndexData->vnum == MOB_VNUM_BONE_DRAGON)) {
+		&&  (gch->pMobIndex->vnum == MOB_VNUM_COCOON ||
+		     gch->pMobIndex->vnum == MOB_VNUM_BONE_DRAGON)) {
 			char_puts("You cannot control two or more dragons.\n",
 				  ch);
 			return;
@@ -2816,10 +2809,9 @@ void spell_bone_dragon(int sn, int level, CHAR_DATA *ch, void *vo)
 	for (i = 0; i < 4; i++)
 		coc->armor[i] = 100 - 2*ch->level - number_range(0, 50);
 	coc->gold = 0;
-	coc->timer = 0;
-	coc->damage[DICE_NUMBER] = number_range(1, level/20);
-	coc->damage[DICE_TYPE]   = number_range(1, level/10);
-	coc->damage[DICE_BONUS]  = number_range(1, level/3);
+	NPC(coc)->dam.dice_number = number_range(1, level/20);
+	NPC(coc)->dam.dice_type   = number_range(1, level/10);
+	coc->damroll  = number_range(1, level/3);
 	coc->master = ch;
 
 	af.where	= TO_AFFECTS;
@@ -3214,7 +3206,7 @@ void spell_eyed_sword(int sn, int level, CHAR_DATA *ch, void *vo)
 				&ch->short_descr);
 	eyed->level = ch->level;
 	mlstr_cpy(&eyed->owner, &ch->short_descr);
-	eyed->ed = ed_new2(eyed->pIndexData->ed, ch->name);
+	eyed->ed = ed_new2(eyed->pObjIndex->ed, ch->name);
 	eyed->value[2] = (ch->level / 10) + 3;  
 	eyed->cost = 0;
 	obj_to_char(eyed, ch);
@@ -3292,9 +3284,9 @@ void spell_lion_help(int sn, int level, CHAR_DATA *ch, void *vo)
 	lion->armor[3] = interpolate(lion->level,100,0);
 	lion->sex = ch->sex;
 	lion->gold = 0;
-	lion->damage[DICE_NUMBER] = number_range(level/15, level/10);   
-	lion->damage[DICE_TYPE] = number_range(level/3, level/2);
-	lion->damage[DICE_BONUS] = number_range(level/8, level/6);
+	NPC(lion)->dam.dice_number = number_range(level/15, level/10);   
+	NPC(lion)->dam.dice_type = number_range(level/3, level/2);
+	lion->damroll = number_range(level/8, level/6);
 	
 	char_puts("A hunter lion comes to kill your victim!\n", ch);
 	act("A hunter lion comes to kill $n's victim!",
@@ -3337,7 +3329,7 @@ void spell_magic_jar(int sn, int level, CHAR_DATA *ch, void *vo)
 	}
 
 	for(vial = ch->carrying; vial != NULL; vial = vial->next_content)
-		if (vial->pIndexData->vnum == OBJ_VNUM_POTION_VIAL)
+		if (vial->pObjIndex->vnum == OBJ_VNUM_POTION_VIAL)
 			break;
 
 	if (vial == NULL)  {
@@ -3351,10 +3343,10 @@ void spell_magic_jar(int sn, int level, CHAR_DATA *ch, void *vo)
 				&victim->short_descr);
 	fire->level = ch->level;
 	mlstr_cpy(&fire->owner, &victim->short_descr);
-	fire->ed = ed_new2(fire->pIndexData->ed, victim->name);
+	fire->ed = ed_new2(fire->pObjIndex->ed, victim->name);
 	fire->cost = 0;
 	obj_to_char(fire, ch);    
-	SET_BIT(victim->plr_flags, PLR_NOEXP);
+	SET_BIT(PC(victim)->plr_flags, PLR_NOEXP);
 	act_puts("You catch $N's spirit into your vial.",
 		 ch, NULL, victim, TO_CHAR, POS_DEAD);
 	act_puts("$n catches your spirit into vial.",
@@ -3580,7 +3572,7 @@ void spell_fire_shield (int sn, int level, CHAR_DATA *ch, void *vo)
 	name_add(&fire->name, arg, NULL, NULL);
 
 	mlstr_cpy(&fire->owner, &ch->short_descr);
-	fire->ed = ed_new2(fire->pIndexData->ed, arg);
+	fire->ed = ed_new2(fire->pObjIndex->ed, arg);
 
 	fire->cost = 0;
 	fire->timer = 5 * ch->level ;
@@ -3756,7 +3748,7 @@ void spell_wolf(int sn, int level, CHAR_DATA *ch, void *vo)
 	for (gch = npc_list; gch; gch = gch->next) {
 		if (IS_AFFECTED(gch, AFF_CHARM)
 		&&  gch->master == ch
-		&&  gch->pIndexData->vnum == MOB_VNUM_WOLF) {
+		&&  gch->pMobIndex->vnum == MOB_VNUM_WOLF) {
 			char_puts("Two wolfs are more than you can control!\n",
 				  ch);
 			return;
@@ -3771,19 +3763,18 @@ void spell_wolf(int sn, int level, CHAR_DATA *ch, void *vo)
 	}
 
 	demon->max_hit = IS_NPC(ch)? URANGE(ch->max_hit,1 * ch->max_hit,30000)
-		: URANGE(ch->pcdata->perm_hit,ch->hit,30000);
+		: URANGE(PC(ch)->perm_hit,ch->hit,30000);
 	demon->hit = demon->max_hit;
-	demon->max_mana = IS_NPC(ch)? ch->max_mana : ch->pcdata->perm_mana;
+	demon->max_mana = IS_NPC(ch)? ch->max_mana : PC(ch)->perm_mana;
 	demon->mana = demon->max_mana;
 	demon->level = ch->level;
 	for (i=0; i < 3; i++)
 	demon->armor[i] = interpolate(demon->level,100,-100);
 	demon->armor[3] = interpolate(demon->level,100,0);
 	demon->gold = 0;
-	demon->timer = 0;
-	demon->damage[DICE_NUMBER] = number_range(level/15, level/10);   
-	demon->damage[DICE_TYPE] = number_range(level/3, level/2);
-	demon->damage[DICE_BONUS] = number_range(level/8, level/6);
+	NPC(demon)->dam.dice_number = number_range(level/15, level/10);   
+	NPC(demon)->dam.dice_type = number_range(level/3, level/2);
+	demon->damroll = number_range(level/8, level/6);
 
 	char_puts("The wolf arrives and bows before you!\n",ch);
 	act("A wolf arrives from somewhere and bows!",ch,NULL,NULL,TO_ROOM);
@@ -4053,7 +4044,7 @@ void spell_bless_weapon(int sn, int level,CHAR_DATA *ch, void *vo)
 	OBJ_DATA *obj = (OBJ_DATA *) vo;
 	AFFECT_DATA af;
 
-	if (obj->pIndexData->item_type != ITEM_WEAPON)
+	if (obj->pObjIndex->item_type != ITEM_WEAPON)
 	{
 	char_puts("That isn't a weapon.\n",ch);
 	return;
@@ -4065,7 +4056,7 @@ void spell_bless_weapon(int sn, int level,CHAR_DATA *ch, void *vo)
 	return;
 	}
 
-	if (obj->pIndexData->item_type == ITEM_WEAPON)
+	if (obj->pObjIndex->item_type == ITEM_WEAPON)
 	{
 	 if (IS_WEAPON_STAT(obj,WEAPON_FLAMING)
 	    ||  IS_WEAPON_STAT(obj,WEAPON_FROST)
@@ -4213,7 +4204,7 @@ void spell_lesser_golem(int sn, int level, CHAR_DATA *ch, void *vo)
 	for (gch = npc_list; gch; gch = gch->next) {
 		if (IS_AFFECTED(gch,AFF_CHARM)
 		&&  gch->master == ch
-		&&  gch->pIndexData->vnum == MOB_VNUM_LESSER_GOLEM) {
+		&&  gch->pMobIndex->vnum == MOB_VNUM_LESSER_GOLEM) {
 			i++;
 			if (i > 2) {
 				char_puts("More golems are more than you can "
@@ -4233,19 +4224,18 @@ void spell_lesser_golem(int sn, int level, CHAR_DATA *ch, void *vo)
 	golem->perm_stat[STAT_CON] += 2;
 
 	golem->max_hit = IS_NPC(ch)? URANGE(ch->max_hit,1 * ch->max_hit,30000)
-		: UMIN((2 * ch->pcdata->perm_hit) + 400,30000);
+		: UMIN((2 * PC(ch)->perm_hit) + 400,30000);
 	golem->hit = golem->max_hit;
-	golem->max_mana = IS_NPC(ch)? ch->max_mana : ch->pcdata->perm_mana;
+	golem->max_mana = IS_NPC(ch)? ch->max_mana : PC(ch)->perm_mana;
 	golem->mana = golem->max_mana;
 	golem->level = level;
 	for (i=0; i < 3; i++)
 	golem->armor[i] = interpolate(golem->level,100,-100);
 	golem->armor[3] = interpolate(golem->level,100,0);
 	golem->gold = 0;
-	golem->timer = 0;
-	golem->damage[DICE_NUMBER] = 3;   
-	golem->damage[DICE_TYPE] = 10;
-	golem->damage[DICE_BONUS] = level / 2;
+	NPC(golem)->dam.dice_number = 3;   
+	NPC(golem)->dam.dice_type = 10;
+	golem->damroll = level / 2;
 
 	char_puts("You created a lesser golem!\n",ch);
 	act("$n creates a lesser golem!",ch,NULL,NULL,TO_ROOM);
@@ -4283,7 +4273,7 @@ void spell_stone_golem(int sn, int level, CHAR_DATA *ch, void *vo)
 	for (gch = npc_list; gch; gch = gch->next) {
 		if (IS_AFFECTED(gch, AFF_CHARM)
 		&&  gch->master == ch
-		&&  gch->pIndexData->vnum == MOB_VNUM_STONE_GOLEM) {
+		&&  gch->pMobIndex->vnum == MOB_VNUM_STONE_GOLEM) {
 			i++;
 			if (i > 2) {
 				char_puts("More golems are more than you can "
@@ -4304,19 +4294,18 @@ void spell_stone_golem(int sn, int level, CHAR_DATA *ch, void *vo)
 	golem->perm_stat[STAT_CON] += 2;
 
 	golem->max_hit = IS_NPC(ch)? URANGE(ch->max_hit,1 * ch->max_hit,30000)
-		: UMIN((5 * ch->pcdata->perm_hit) + 2000, 30000);
+		: UMIN((5 * PC(ch)->perm_hit) + 2000, 30000);
 	golem->hit = golem->max_hit;
-	golem->max_mana = IS_NPC(ch)? ch->max_mana : ch->pcdata->perm_mana;
+	golem->max_mana = IS_NPC(ch)? ch->max_mana : PC(ch)->perm_mana;
 	golem->mana = golem->max_mana;
 	golem->level = level;
 	for (i=0; i < 3; i++)
 	golem->armor[i] = interpolate(golem->level,100,-100);
 	golem->armor[3] = interpolate(golem->level,100,0);
 	golem->gold = 0;
-	golem->timer = 0;
-	golem->damage[DICE_NUMBER] = 8;   
-	golem->damage[DICE_TYPE] = 4;
-	golem->damage[DICE_BONUS] = level / 2;
+	NPC(golem)->dam.dice_number = 8;   
+	NPC(golem)->dam.dice_type = 4;
+	golem->damroll = level / 2;
 
 	char_puts("You created a stone golem!\n",ch);
 	act("$n creates a stone golem!",ch,NULL,NULL,TO_ROOM);
@@ -4354,7 +4343,7 @@ void spell_iron_golem(int sn, int level, CHAR_DATA *ch, void *vo)
 	for (gch = npc_list; gch; gch = gch->next) {
 		if (IS_AFFECTED(gch, AFF_CHARM)
 		&&  gch->master == ch
-		&&  gch->pIndexData->vnum == MOB_VNUM_IRON_GOLEM) {
+		&&  gch->pMobIndex->vnum == MOB_VNUM_IRON_GOLEM) {
 			char_puts("More golems are more than you "
 				  "can control!\n", ch);
 			return;
@@ -4371,19 +4360,18 @@ void spell_iron_golem(int sn, int level, CHAR_DATA *ch, void *vo)
 	golem->perm_stat[STAT_CON] += 2;
 
 	golem->max_hit = IS_NPC(ch)? URANGE(ch->max_hit,1 * ch->max_hit,30000)
-		: UMIN((10 * ch->pcdata->perm_hit) + 1000, 30000);
+		: UMIN((10 * PC(ch)->perm_hit) + 1000, 30000);
 	golem->hit = golem->max_hit;
-	golem->max_mana = IS_NPC(ch)? ch->max_mana : ch->pcdata->perm_mana;
+	golem->max_mana = IS_NPC(ch)? ch->max_mana : PC(ch)->perm_mana;
 	golem->mana = golem->max_mana;
 	golem->level = level;
 	for (i=0; i < 3; i++)
 	golem->armor[i] = interpolate(golem->level,100,-100);
 	golem->armor[3] = interpolate(golem->level,100,0);
 	golem->gold = 0;
-	golem->timer = 0;
-	golem->damage[DICE_NUMBER] = 11;   
-	golem->damage[DICE_TYPE] = 5;
-	golem->damage[DICE_BONUS] = level / 2 + 10;
+	NPC(golem)->dam.dice_number = 11;   
+	NPC(golem)->dam.dice_type = 5;
+	golem->damroll = level / 2 + 10;
 
 	char_puts("You created an iron golem!\n",ch);
 	act("$n creates an iron golem!",ch,NULL,NULL,TO_ROOM);
@@ -4421,7 +4409,7 @@ void spell_adamantite_golem(int sn, int level, CHAR_DATA *ch, void *vo)
 	for (gch = npc_list; gch; gch = gch->next) {
 		if (IS_AFFECTED(gch, AFF_CHARM)
 		&&  gch->master == ch
-		&&  gch->pIndexData->vnum == MOB_VNUM_ADAMANTITE_GOLEM) {
+		&&  gch->pMobIndex->vnum == MOB_VNUM_ADAMANTITE_GOLEM) {
 			char_puts("More golems are more than you "
 				  "can control!\n", ch);
 			return;
@@ -4438,19 +4426,18 @@ void spell_adamantite_golem(int sn, int level, CHAR_DATA *ch, void *vo)
 	golem->perm_stat[STAT_CON] += 2;
 
 	golem->max_hit = IS_NPC(ch)? URANGE(ch->max_hit,1 * ch->max_hit,30000)
-		: UMIN((10 * ch->pcdata->perm_hit) + 4000, 30000);
+		: UMIN((10 * PC(ch)->perm_hit) + 4000, 30000);
 	golem->hit = golem->max_hit;
-	golem->max_mana = IS_NPC(ch)? ch->max_mana : ch->pcdata->perm_mana;
+	golem->max_mana = IS_NPC(ch)? ch->max_mana : PC(ch)->perm_mana;
 	golem->mana = golem->max_mana;
 	golem->level = level;
 	for (i=0; i < 3; i++)
 	golem->armor[i] = interpolate(golem->level,100,-100);
 	golem->armor[3] = interpolate(golem->level,100,0);
 	golem->gold = 0;
-	golem->timer = 0;
-	golem->damage[DICE_NUMBER] = 13;   
-	golem->damage[DICE_TYPE] = 9;
-	golem->damage[DICE_BONUS] = level / 2 + 10;
+	NPC(golem)->dam.dice_number = 13;   
+	NPC(golem)->dam.dice_type = 9;
+	golem->damroll = level / 2 + 10;
 
 	char_puts("You created an Adamantite golem!\n",ch);
 	act("$n creates an Adamantite golem!",ch,NULL,NULL,TO_ROOM);
@@ -4677,8 +4664,8 @@ void spell_polymorph(int sn, int level, CHAR_DATA *ch, void *vo)
 	}
 
 	race = rn_lookup(target_name);
-	r = RACE(race);
-	if (race == -1 || !r->pcdata || !r->pcdata->classes.nused) {
+	r = race_lookup(race);
+	if (!r || !r->race_pcdata || !r->race_pcdata->classes.nused) {
 		char_puts("That is not a valid race to polymorph.\n",ch); 
 		return;
 	}
@@ -4719,7 +4706,7 @@ void spell_lich(int sn, int level, CHAR_DATA *ch, void *vo)
 
 	race = rn_lookup(target_name);
 	r = RACE(race);
-	if (!r->pcdata || !IS_SET(r->form, FORM_UNDEAD)) {
+	if (!r->race_pcdata || !IS_SET(r->form, FORM_UNDEAD)) {
 		char_puts("This is not a valid undead type.\n", ch);
 		return;
 	}
@@ -4952,21 +4939,20 @@ void spell_disgrace(int sn, int level, CHAR_DATA *ch, void *vo)
 void spell_control_undead(int sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
- 	char buf[MAX_INPUT_LENGTH];
  	AFFECT_DATA af;
  	race_t *r;	
  
  	if (count_charmed(ch))
- 	    return;
+ 		return;
  
  	if (victim == ch) {
- 	    char_puts("You like yourself even better!\n", ch);
- 	    return;
+ 		char_puts("You like yourself even better!\n", ch);
+ 		return;
  	}
  
- 	r=RACE(victim->race);
+ 	r = RACE(victim->race);
   
- 	if  ((!IS_NPC(victim) || !IS_SET(victim->pIndexData->act, ACT_UNDEAD)) 
+ 	if  ((!IS_NPC(victim) || !IS_SET(victim->pMobIndex->act, ACT_UNDEAD)) 
              && (!IS_SET(r->form, FORM_UNDEAD))) {
   		act("$N doesn't seem to be an undead.",ch,NULL,victim,TO_CHAR);
   		return;
@@ -4981,10 +4967,10 @@ void spell_control_undead(int sn, int level, CHAR_DATA *ch, void *vo)
 	||  IS_AFFECTED(victim, AFF_CHARM)
  	||  IS_AFFECTED(ch, AFF_CHARM)
  	||  saves_spell(level, victim, DAM_OTHER) 
- 	||  (IS_NPC(victim) && victim->pIndexData->pShop != NULL)
+ 	||  (IS_NPC(victim) && victim->pMobIndex->pShop != NULL)
  	||  (victim->in_room &&
- 	     IS_SET(victim->in_room->room_flags, ROOM_BATTLE_ARENA)))
- 		return;
+ 		IS_SET(victim->in_room->room_flags, ROOM_BATTLE_ARENA)))
+ 			return;
  
  	if (is_safe(ch, victim))
  		return;
@@ -5005,12 +4991,12 @@ void spell_control_undead(int sn, int level, CHAR_DATA *ch, void *vo)
  		    ch, NULL, victim, TO_CHAR);
  
  	if (IS_NPC(victim) && !IS_NPC(ch)) {
- 		victim->last_fought=ch;
+ 		NPC(victim)->last_fought = ch;
  		if (number_percent() < (4 + (LEVEL(victim) - LEVEL(ch))) * 10)
  		 	add_mind(victim, ch->name);
- 		else if (victim->in_mind == NULL) {
- 			snprintf(buf, sizeof(buf), "%d", victim->in_room->vnum);
- 			victim->in_mind = str_dup(buf);
+ 		else if (NPC(victim)->in_mind == NULL) {
+ 			NPC(victim)->in_mind =
+				str_printf("%d", victim->in_room->vnum);
  		}
  	}
 }
@@ -5091,7 +5077,7 @@ void spell_summon_shadow(int sn, int level, CHAR_DATA *ch, void *vo)
 	for (gch = npc_list; gch; gch = gch->next) {
 		if (IS_AFFECTED(gch,AFF_CHARM)
 		&&  gch->master == ch
-		&&  gch->pIndexData->vnum == MOB_VNUM_SUM_SHADOW) {
+		&&  gch->pMobIndex->vnum == MOB_VNUM_SUM_SHADOW) {
 			char_puts("Two shadows are more than you "
 				  "can control!\n",ch);
 			return;
@@ -5106,19 +5092,18 @@ void spell_summon_shadow(int sn, int level, CHAR_DATA *ch, void *vo)
 	}
 
 	shadow->max_hit = IS_NPC(ch)? URANGE(ch->max_hit,1 * ch->max_hit,30000)
-		: URANGE(ch->pcdata->perm_hit,ch->hit,30000);
+		: URANGE(PC(ch)->perm_hit,ch->hit,30000);
 	shadow->hit = shadow->max_hit;
-	shadow->max_mana = IS_NPC(ch)? ch->max_mana : ch->pcdata->perm_mana;
+	shadow->max_mana = IS_NPC(ch)? ch->max_mana : PC(ch)->perm_mana;
 	shadow->mana = shadow->max_mana;
 	shadow->level = level;
 	for (i=0; i < 3; i++)
 	shadow->armor[i] = interpolate(shadow->level,100,-100);
 	shadow->armor[3] = interpolate(shadow->level,100,0);
 	shadow->gold = 0;
-	shadow->timer = 0;
-	shadow->damage[DICE_NUMBER] = number_range(level/15, level/10);   
-	shadow->damage[DICE_TYPE] = number_range(level/3, level/2);
-	shadow->damage[DICE_BONUS] = number_range(level/8, level/6);
+	NPC(shadow)->dam.dice_number = number_range(level/15, level/10);   
+	NPC(shadow)->dam.dice_type = number_range(level/3, level/2);
+	shadow->damroll = number_range(level/8, level/6);
 
 	act("A shadow conjures!",ch,NULL,NULL,TO_ALL);
 
@@ -5231,8 +5216,8 @@ void spell_mirror(int sn, int level, CHAR_DATA *ch, void *vo)
 		free_string(gch->name);
 		gch->name = str_qdup(victim->name);
 		mlstr_cpy(&gch->short_descr, &victim->short_descr);
-		mlstr_printf(&gch->long_descr, &gch->pIndexData->long_descr,
-			     victim->name, victim->pcdata->title);
+		mlstr_printf(&gch->long_descr, &gch->pMobIndex->long_descr,
+			     victim->name, PC(victim)->title);
 		mlstr_cpy(&gch->description, &victim->description);
 		gch->sex = victim->sex;
     
@@ -5322,7 +5307,7 @@ void spell_hunger_weapon(int sn, int level, CHAR_DATA *ch, void *vo)
         AFFECT_DATA af;
 	int chance;
 
-        if (obj->pIndexData->item_type != ITEM_WEAPON) {
+        if (obj->pObjIndex->item_type != ITEM_WEAPON) {
         	char_puts("That's not a weapon.\n", ch);
         	return;
         } 

@@ -1,5 +1,5 @@
 /*
- * $Id: auction_impl.c,v 1.44 1999-06-24 16:33:13 fjoe Exp $
+ * $Id: auction_impl.c,v 1.45 1999-09-08 10:40:06 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -254,7 +254,7 @@ void auction_update(void)
 				  "charging an auction fee of $J gold.",
 				  auction.seller, (const void*) pay,
 				  NULL, (const void*) tax, TO_CHAR, POS_DEAD);
-			auction.seller->pcdata->bank_g += pay;
+			PC(auction.seller)->bank_g += pay;
 		} else {
 			/* not sold */
 	        	act_auction("No bets received for $p.",

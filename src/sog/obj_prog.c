@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.c,v 1.65 1999-07-12 04:56:25 kostik Exp $
+ * $Id: obj_prog.c,v 1.66 1999-09-08 10:40:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -266,9 +266,9 @@ int optype_lookup(const char *name)
 
 int oprog_call(int optype, OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 {
-	if (obj->pIndexData->oprogs
-	&&  obj->pIndexData->oprogs[optype] != NULL)
-		return (obj->pIndexData->oprogs[optype])(obj, ch, arg);
+	if (obj->pObjIndex->oprogs
+	&&  obj->pObjIndex->oprogs[optype] != NULL)
+		return (obj->pObjIndex->oprogs[optype])(obj, ch, arg);
 	return 0;
 }
 
@@ -990,7 +990,7 @@ bool death_prog_golden_weapon(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 	RESET_FIGHT_TIME(ch);
 	ch->last_death_time = current_time;
 	if (!IS_NPC(ch))
-		SET_BIT(ch->plr_flags, PLR_GHOST);
+		SET_BIT(PC(ch)->plr_flags, PLR_GHOST);
 	return 1; 
 }
 
@@ -1508,7 +1508,7 @@ int wear_prog_eyed_sword(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 
 int wear_prog_katana_sword(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 {
-	if (obj->pIndexData->item_type == ITEM_WEAPON 
+	if (obj->pObjIndex->item_type == ITEM_WEAPON 
 	&&  IS_WEAPON_STAT(obj, WEAPON_KATANA)
 	&&  IS_OWNER(ch, obj)) {
 		if (LEVEL(ch) <= 10)

@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.225 1999-07-30 05:18:19 avn Exp $
+ * $Id: merc.h,v 1.226 1999-09-08 10:40:02 fjoe Exp $
  */
 
 /***************************************************************************
@@ -152,26 +152,29 @@ struct weather_data
 /*
  * Connected state for a channel.
  */
-#define CON_PLAYING			 0
-#define CON_GET_NAME			 1
-#define CON_GET_OLD_PASSWORD		 2
-#define CON_CONFIRM_NEW_NAME		 3
-#define CON_GET_NEW_PASSWORD		 4
-#define CON_CONFIRM_NEW_PASSWORD	 5
-#define CON_GET_NEW_RACE		 6
-#define CON_GET_NEW_SEX 		 7
-#define CON_GET_NEW_CLASS		 8
-#define CON_GET_ALIGNMENT		 9
-#define CON_READ_IMOTD			13
-#define CON_READ_MOTD			14
-#define CON_BREAK_CONNECT		15
-#define CON_ROLL_STATS			16
-#define CON_ACCEPT_STATS		17
-#define CON_PICK_HOMETOWN		18
-#define CON_GET_ETHOS			19
-#define CON_CREATE_DONE 		20
-#define CON_GET_CODEPAGE		21
-#define CON_RESOLV			22
+enum {
+	CON_GET_CODEPAGE,
+	CON_GET_NAME,
+	CON_RESOLV,
+	CON_CONFIRM_NEW_NAME,
+	CON_GET_NEW_PASSWORD,
+	CON_CONFIRM_NEW_PASSWORD,
+	CON_GET_NEW_RACE,
+	CON_GET_NEW_SEX,
+	CON_GET_NEW_CLASS,
+	CON_GET_ALIGNMENT,
+	CON_ROLL_STATS,
+	CON_ACCEPT_STATS,
+	CON_PICK_HOMETOWN,
+	CON_GET_ETHOS,
+	CON_CREATE_DONE,
+
+	CON_BREAK_CONNECT,
+	CON_GET_OLD_PASSWORD,
+	CON_READ_IMOTD,
+	CON_READ_MOTD,
+	CON_PLAYING
+};
 
 typedef struct outbuf_t {
 	char *	buf;
@@ -190,6 +193,32 @@ struct olced_t {
 
 #define OLCED(ch) (ch->desc->olced)
 #define IS_EDIT(ch, ed_id) (OLCED(ch) && OLCED(ch)->id == ed_id)
+
+/*
+ * descriptor variable data (that is stored in pfile)
+ *
+ * both `descriptor_data' and `pc_data' have `dvdata_t*' field
+ *
+ * dvdata is read from pfile into pc and is shared (with ref counting)
+ * between pc_data and descriptor_data
+ */
+typedef struct dvdata_t dvdata_t;
+struct dvdata_t {
+	int		refcnt;		/* reference count */
+
+	int		lang;		/* interface language	*/
+	int 		pagelen;	/* pager lines		*/
+
+	const char *	prompt;	
+	const char *	prefix;
+
+	const char *	alias[MAX_ALIAS];
+	const char *	alias_sub[MAX_ALIAS];
+};
+
+dvdata_t *	dvdata_new	(void);
+dvdata_t *	dvdata_dup	(dvdata_t*);
+void		dvdata_free	(dvdata_t*);
 
 /*
  * Descriptor (channel) structure.
@@ -224,6 +253,8 @@ struct descriptor_data
 /* string editor stuff */
 	const char **		pString;	/* edited string	*/
 	const char *		backup;		/* backup		*/
+
+	dvdata_t *		dvdata;
 };
 
 /*
@@ -1118,7 +1149,6 @@ enum {
 #define PLR_PRACTICER		(aa)
 #define PLR_CONFIRM_DELETE	(cc)
 #define PLR_HARA_KIRI		(dd)
-#define PLR_BLINK		(ee)
 #define PLR_NEW			(ff)
 
 /* Trust stuff */
@@ -1126,29 +1156,39 @@ enum {
 #define TRUST_CLAN		(B)
 #define TRUST_ALL		(C) /* mutually exclusive with previous two */
 
-#define IS_HARA_KIRI(ch) (IS_SET((ch)->plr_flags, PLR_HARA_KIRI))
-#define IS_CLAN_GUARD(ch) (IS_NPC(ch) && IS_SET(ch->pIndexData->act, ACT_CLAN_GUARD))
+#define IS_HARA_KIRI(ch)	(!IS_NPC(ch) &&	\
+				 IS_SET(PC(ch)->plr_flags, PLR_HARA_KIRI))
+#define IS_CLAN_GUARD(ch)	(IS_NPC(ch) && \
+				 IS_SET(ch->pMobIndex->act, ACT_CLAN_GUARD))
 #define IS_OWNER(ch, obj) (!mlstr_cmp(&ch->short_descr, &obj->owner))
 
-#define IS_WANTED(ch)	(!IS_NPC(ch) && !IS_NULLSTR(ch->pcdata->wanted_by))
+#define IS_WANTED(ch)	(!IS_NPC(ch) && !IS_NULLSTR(PC(ch)->wanted_by))
 #define SET_WANTED(ch, w_by)					\
 {								\
 	if (!IS_NPC(ch)) {					\
-		free_string(ch->pcdata->wanted_by);		\
-		ch->pcdata->wanted_by = str_qdup(w_by);		\
+		free_string(PC(ch)->wanted_by);			\
+		PC(ch)->wanted_by = str_qdup(w_by);		\
 	}							\
 }
 
-#define IS_PUMPED(ch) (IS_SET((ch)->plr_flags, PLR_PUMPED))
-#define SET_FIGHT_TIME(ch)					\
-	{							\
-		(ch)->last_fight_time = current_time;		\
-		SET_BIT((ch)->plr_flags, PLR_PUMPED);		\
+/*
+ * this should be used for !IS_NPC only
+ */
+#define IS_PUMPED(ch)	(!IS_NPC(ch) &&					\
+			 IS_SET(PC(ch)->plr_flags, PLR_PUMPED))
+
+#define SET_FIGHT_TIME(ch)						\
+	{								\
+		(ch)->last_fight_time = current_time;			\
+		if (!IS_NPC(ch))					\
+			SET_BIT(PC(ch)->plr_flags, PLR_PUMPED);	\
 	}
-#define RESET_FIGHT_TIME(ch)					\
-	{							\
-		(ch)->last_fight_time = -1;			\
-		REMOVE_BIT((ch)->plr_flags, PLR_PUMPED);	\
+
+#define RESET_FIGHT_TIME(ch)						\
+	{								\
+		(ch)->last_fight_time = -1;				\
+		if (!IS_NPC(ch))					\
+			REMOVE_BIT(PC(ch)->plr_flags, PLR_PUMPED);	\
 	}
 
 #define IS_VAMPIRE(ch)	(get_skill(ch, gsn_vampire) == 100)
@@ -1221,7 +1261,6 @@ enum {
 
 /*
  * Prototype for a mob.
- * This is the in-memory version of #MOBILES.
  */
 struct mob_index_data
 {
@@ -1268,54 +1307,71 @@ struct mob_index_data
 	int			incog_level;	/* mobincog level */
 };
 
+#define NPC(ch)	((NPC_DATA *) ((ch) + 1))
+#define PC(ch)	((PC_DATA *) ((ch) + 1))
+
+CHAR_DATA *	char_new	(MOB_INDEX_DATA *pMobIndex);
+void 		char_free	(CHAR_DATA *ch);
+
+/* char_load flags */
+#define LOAD_F_NOCREATE	(A)
+
+/* char_save flags (these are mutually exclusive) */
+#define SAVE_F_NONE	(A)
+#define SAVE_F_NORMAL	(B)
+#define SAVE_F_REBOOT	(C)
+#define SAVE_F_PSCAN	(D)
+
 /*
- * One character (PC or NPC). *CHAR_DATA*
+ * if d == NULL then fake decriptor is created and data is read into it
+ * char should be destroyed with char_nuke if it was created by
+ * char_load(..., NULL, ...);
+ * this behavior is implemented for load/unload operations with
+ * pfiles without inserting them into char_list
+ */
+CHAR_DATA *	char_load	(const char *name, int flags);
+void		char_save	(CHAR_DATA *ch, int flags);
+void		char_nuke	(CHAR_DATA *ch);
+
+/*
+ * Common data for both PC and NPC.
+ * PC/NPC specific data is kept right after this struct
+ * (Use PC(ch) and NPC(ch) macros to obtain it)
  */
 struct char_data
 {
+	/*
+	 * pointer to mob index
+	 * IS_NPC relies on this pointer set to NULL or non NULL
+	 */
+	MOB_INDEX_DATA *	pMobIndex;
+
+	DESCRIPTOR_DATA *	desc;
+
 	CHAR_DATA * 		next;
 	CHAR_DATA * 		next_in_room;
+
 	CHAR_DATA * 		master;
 	CHAR_DATA * 		leader;
+
 	CHAR_DATA * 		fighting;
-	CHAR_DATA * 		reply;
-	CHAR_DATA * 		last_fought;
 	time_t			last_fight_time;
 	time_t			last_death_time;
-	CHAR_DATA * 		pet;
-	CHAR_DATA *		mprog_target;
-	CHAR_DATA *	 	guarding;
-	CHAR_DATA * 		guarded_by;
-	MOB_INDEX_DATA *	pIndexData;
-	DESCRIPTOR_DATA *	desc;
+
 	AFFECT_DATA *		affected;
-	note_t * 		pnote;
 	OBJ_DATA *		carrying;
 	OBJ_DATA *		on;
 	ROOM_INDEX_DATA *	in_room;
-	ROOM_INDEX_DATA *	was_in_room;
-	AREA_DATA * 		zone;
-	PC_DATA *		pcdata;
 	const char *		name;
 	mlstring		short_descr;
 	mlstring		long_descr;
 	mlstring		description;
-	const char *		prompt;
-	const char *		prefix;
-	int			group;
 	flag32_t		sex;
 	int			class;
 	int			race;
 	int			clan;
-	int			hometown;
 	int			ethos;
 	int			level;
-	int 			played;
-	int 			lines;	/* for the pager */
-	time_t			logon;
-	int			version;
-	time_t			logoff;
-	int			timer;
 	int			wait;
 	int 			drain_level;
 	int			daze;
@@ -1327,9 +1383,6 @@ struct char_data
 	int 			max_move;
 	int			gold;
 	int			silver;
-	int 			exp;	/* total exp */
-	int			exp_tl;	/* exp gained this level */
-	flag32_t		plr_flags;
 	flag64_t		comm;	/* RT added to pad the vector */
 	flag32_t		imm_flags;
 	flag32_t		res_flags;
@@ -1338,45 +1391,56 @@ struct char_data
 	int			incog_level;
 	flag64_t		affected_by;
 	flag32_t		position;
-	int			practice;
-	int			train;
 	int			carry_weight;
 	int			carry_number;
 	int			saving_throw;
 	int			alignment;
 	int			hitroll;
 	int			damroll;
+	int			dam_type;
 	int			armor[4];
 	int			wimpy;
+
 	/* stats */
 	int			perm_stat[MAX_STATS];
 	int			mod_stat[MAX_STATS];
+
 	/* parts stuff */
 	flag32_t		form;
 	flag32_t		parts;
 	flag32_t		size;
 	const char *		material;
-	/* mobile stuff */
-	int			damage[3];
-	int			dam_type;
-	flag32_t		start_pos;
-	flag32_t		default_pos;
-	int			mprog_delay;
-	const char *		in_mind;
-	int	 		religion;
+
+	bool			riding;		/* mount data */
+	CHAR_DATA *		mount;
+
 	CHAR_DATA *		hunting;	/* hunt data */
 	int 			endur;
-	bool			riding; /* mount data */
-	CHAR_DATA *		mount;
-	int			slang;	/* spoken language */
-	int			lang; /* interface language */
-	CHAR_DATA *		hunter;	/* who quested to slay */
-	CHAR_DATA *		doppel;
-	CHAR_DATA *		target;
+
+	CHAR_DATA *		doppel;		/* doppelganger and mirror */
+
+	int			slang;		/* spoken language */
 };
 
 /*
- * Data which only PC's have.
+ * NPC-specific data
+ */
+struct npc_data {
+	int		mprog_delay;
+	CHAR_DATA *	mprog_target;
+	struct {
+		int dice_number;
+		int dice_type;
+	} dam;
+	AREA_DATA * 	zone;
+	CHAR_DATA *	target;
+	const char *	in_mind;
+	CHAR_DATA * 	last_fought;
+	CHAR_DATA *	hunter;		/* who quested to slay */
+};
+
+/*
+ * PC-specific data
  */
 struct pc_data
 {
@@ -1399,18 +1463,15 @@ struct pc_data
 	int 			perm_move;
 	flag32_t		true_sex;
 	flag32_t		trust;
+	flag32_t		plr_flags;
 	flag32_t		wiznet; /* wiz stuff */
-	int 			last_level;
 	int			condition	[MAX_COND];
 	varr			learned;
 	int			points;
-	const char *		alias[MAX_ALIAS];
-	const char *		alias_sub[MAX_ALIAS];
 	int 			security;	/* OLC */ /* Builder security */
 	int			bank_s;
 	int			bank_g;
 	int 			death;
-	int 			played;
 	int 			anti_killed;
 	int 			has_killed;
 
@@ -1429,9 +1490,34 @@ struct pc_data
 	int			petition;
 
 	int			plevels;	/* penalty levels */
+
+	int			hometown;
 	ROOM_INDEX_DATA	*	homepoint;
 
 	const char *		wanted_by;
+	CHAR_DATA * 		reply;		/* for do_reply */
+	note_t * 		pnote;
+
+	int 			exp;	/* total exp */
+	int			exp_tl;	/* exp gained this level */
+
+	int			practice;
+	int			train;
+
+	time_t			logon;
+	time_t			logoff;
+	int 			played;
+	int			idle_timer;
+
+	int	 		religion;
+
+	ROOM_INDEX_DATA *	was_in_room;
+	CHAR_DATA * 		pet;
+	CHAR_DATA *	 	guarding;
+	CHAR_DATA * 		guarded_by;
+	int			version;
+
+	dvdata_t *		dvdata;
 };
 
 /*
@@ -1444,7 +1530,7 @@ struct pcskill_t {
 };
 
 #define pcskill_lookup(ch, sn) \
-	((pcskill_t*) varr_bsearch(&ch->pcdata->learned, &sn, cmpint))
+	((pcskill_t*) varr_bsearch(&PC(ch)->learned, &sn, cmpint))
 
 /*
  * Liquids.
@@ -1527,7 +1613,7 @@ struct obj_data
 	CHAR_DATA * 		carried_by;
 	ED_DATA *		ed;
 	AFFECT_DATA *		affected;
-	OBJ_INDEX_DATA *	pIndexData;
+	OBJ_INDEX_DATA *	pObjIndex;
 	ROOM_INDEX_DATA *	in_room;
 	const char *		name;
 	mlstring		short_descr;
@@ -1731,19 +1817,22 @@ struct mpcode
 /*
  * Character macros.
  */
-#define IS_NPC(ch)		(IS_SET((ch)->plr_flags, ACT_NPC))
+#define IS_NPC(ch)		(ch->pMobIndex != NULL)
 #define IS_IMMORTAL(ch) 	(!IS_NPC(ch) && (ch)->level >= LEVEL_IMMORTAL)
 #define IS_HERO(ch)		(!IS_NPC(ch) && (ch)->level >= LEVEL_HERO)
-#define IS_TRUSTED(ch, lev)	((IS_NPC(ch) ?				    \
-					UMIN((ch)->level, LEVEL_HERO - 1) : \
-					(ch)->level) >= (lev))
+
+int trust_level(CHAR_DATA *ch);
+#define GET_ORIGINAL(ch)	(ch->desc && ch->desc->original ?	\
+				 	ch->desc->original : ch)
+#define IS_TRUSTED(ch, lev)	(trust_level(ch) >= (lev))
+
 #define IS_AFFECTED(ch, bit)	(IS_SET((ch)->affected_by, (bit)))
 
-#define IS_PK(ch, vt)		(!IS_NPC((ch)) & !IS_NPC((vt)))
+#define ORG_RACE(ch)		(IS_NPC(ch) ?				\
+					(ch)->pMobIndex->race :		\
+					PC(ch)->race)
 
-#define ORG_RACE(ch)		(IS_NPC(ch) ? ch->pIndexData->race : ch->pcdata->race)
-
-#define LEVEL(ch)		((ch)->level+(ch)->drain_level)
+#define LEVEL(ch)		((ch)->level + (ch)->drain_level)
 
 #if defined(WIN32)
 void SET_ORG_RACE(CHAR_DATA *ch, int race);
@@ -1751,11 +1840,13 @@ void SET_ORG_RACE(CHAR_DATA *ch, int race);
 #	define SET_ORG_RACE(victim, race)	ORG_RACE(victim) = race
 #endif
 
-#define GET_AGE(ch)		((int) (17 + ((ch)->played \
-				    + current_time - (ch)->logon)/72000))
+#define GET_EXP(ch)		(IS_NPC(ch) ? 0 : PC(ch)->exp)
+#define GET_PET(ch)		(IS_NPC(ch) ? NULL : PC(ch)->pet)
+#define GET_LANG(ch)		(ch->desc ? ch->desc->dvdata->lang : 0)
+#define GET_RELIGION(ch)	(IS_NPC(ch) ? 0 : PC(ch)->religion)
 
-#define IS_GOOD(ch)		(ch->alignment >= 350)
-#define IS_EVIL(ch)		(ch->alignment <= -350)
+#define IS_GOOD(ch)		((ch)->alignment >= 350)
+#define IS_EVIL(ch)		((ch)->alignment <= -350)
 #define IS_NEUTRAL(ch)		(!IS_GOOD(ch) && !IS_EVIL(ch))
 
 #define RALIGN(ch)	(IS_GOOD(ch) ? RA_GOOD :	\
@@ -1786,11 +1877,11 @@ void SET_ORG_RACE(CHAR_DATA *ch, int race);
 				 COINS_WEIGHT((ch)->silver, (ch)->gold))
 #define MONEY_WEIGHT(obj)	COINS_WEIGHT(obj->value[0], obj->value[1])
 
-#define HAS_TRIGGER(ch,trig)	(IS_SET((ch)->pIndexData->mptrig_types,(trig)))
+#define HAS_TRIGGER(ch,trig)	(IS_SET((ch)->pMobIndex->mptrig_types, (trig)))
 #define IS_SWITCHED( ch )       (ch->desc && ch->desc->original)
-#define IS_BUILDER(ch, Area)	(!IS_NPC(ch) && !IS_SWITCHED(ch) &&	\
-				(ch->pcdata->security >= Area->security	\
-				|| is_name(ch->name, Area->builders)))
+#define IS_BUILDER(ch, Area)	(!IS_NPC(ch) && !IS_SWITCHED(ch) &&	      \
+				 (PC(ch)->security >= (Area)->security || \
+				  is_name(ch->name, Area->builders)))
 
 /*
  * room macros
@@ -1803,8 +1894,7 @@ void SET_ORG_RACE(CHAR_DATA *ch, int race);
 				ch->mount : NULL)
 #define RIDDEN(ch)	((IS_NPC(ch) && ch->mount && ch->riding) ? \
 				ch->mount : NULL)
-#define IS_DRUNK(ch)	(IS_NPC(ch)  ? \
-			      FALSE : ch->pcdata->condition[COND_DRUNK] > 10)
+#define IS_DRUNK(ch)	(!IS_NPC(ch) && PC(ch)->condition[COND_DRUNK] > 10)
 
 #define IS_EXTRACTED(ch)	(!mem_is(ch, MT_CHAR) || \
 				 ch->last_death_time >= current_time)
@@ -1816,7 +1906,7 @@ void SET_ORG_RACE(CHAR_DATA *ch, int race);
 #define CAN_WEAR(obj, part)	(IS_SET((obj)->wear_flags,  (part)))
 #define IS_OBJ_STAT(obj, stat)	(IS_SET((obj)->extra_flags, (stat)))
 #define IS_WEAPON_STAT(obj,stat)(IS_SET((obj)->value[4],(stat)))
-#define WEIGHT_MULT(obj)	((obj)->pIndexData->item_type == ITEM_CONTAINER ? \
+#define WEIGHT_MULT(obj)	((obj)->pObjIndex->item_type == ITEM_CONTAINER ? \
 	(obj)->value[4] : 100)
 
 /*
@@ -1906,7 +1996,10 @@ int	check_immune	(CHAR_DATA *ch, int dam_type);
 bool	check_material	(OBJ_DATA *obj, char *material);
 int	check_exit	(const char *arg);
 bool	is_metal	(OBJ_DATA *obj);
+
+int	get_hours	(CHAR_DATA *ch);
 int	get_age 	(CHAR_DATA *ch);
+
 int	get_curr_stat	(CHAR_DATA *ch, int stat);
 int	get_max_train	(CHAR_DATA *ch, int stat);
 int	can_carry_n	(CHAR_DATA *ch);
@@ -1957,11 +2050,17 @@ void	obj_from_obj	(OBJ_DATA *obj);
 #define XO_F_NOCOUNT	(A)	/* do not update obj count		*/
 #define XO_F_NORECURSE	(B)	/* do not extract contained in objs	*/
 #define XO_F_NOCHQUEST	(C)	/* do not check for chquest objs	*/
+#define XO_F_NUKE	(D)	/* fast extract (used in char_free)
+				   does not call obj_from_xxx
+				   and is always recursive		*/
 
 /* quit_char/extract_char */
 #define XC_F_COUNT	(A)	/* update obj count			*/
 #define XC_F_INCOMPLETE	(B)	/* do not extract char from char_list	*/
 
+/*
+ * quit_char assumes !IS_NPC(ch)
+ */
 void	extract_obj(OBJ_DATA *obj, int flags);
 void	extract_char(CHAR_DATA *ch, int flags);
 void	quit_char(CHAR_DATA *ch, int flags);
@@ -1994,9 +2093,14 @@ void	room_record	(const char *name, ROOM_INDEX_DATA *room,int door);
 bool	is_safe_rspell	(ROOM_AFFECT_DATA *raf, CHAR_DATA *victim);
 EVENT_FUN*	get_event_fun	(int sn, int event);
 int	count_charmed	(CHAR_DATA *ch);
+
+/*
+ * the followind three functions assume IS_NPC(ch)
+ */
 void	add_mind	(CHAR_DATA *ch, const char *str);
 void	remove_mind	(CHAR_DATA *ch, const char *str);
 void	back_home	(CHAR_DATA *ch);
+
 CHAR_DATA*	find_char	(CHAR_DATA *ch, const char *argument, int door, int range);
 CHAR_DATA*	get_char_spell	(CHAR_DATA *ch, const char *argument, int *door, int range);
 void	path_to_track	(CHAR_DATA *ch, CHAR_DATA *victim, int door);
@@ -2053,16 +2157,10 @@ const char *	one_argument	(const char *argument, char *arg_first, size_t);
 const char *	first_arg	(const char *argument, char *arg_first, size_t,
 				 bool fCase);
 
-/* save.c */
-#define SAVE_F_REBOOT	(A)
-#define SAVE_F_PSCAN	(B)
-
-#define LOAD_F_NOCREATE	(A)
-
+/*
+ * victim is assumed to be !IS_NPC
+ */
 void		delete_player	(CHAR_DATA *victim, char* msg);
-void		save_char_obj	(CHAR_DATA *ch, int flags);
-CHAR_DATA *	load_char_obj	(const char *name, int flags);
-void		nuke_char_obj	(CHAR_DATA *ch);
 
 /* special.c */
 SPEC_FUN *	spec_lookup	(const char *name);
@@ -2132,20 +2230,6 @@ void		free_obj(OBJ_DATA *obj);
 extern int obj_count;
 extern int obj_free_count;
 
-/* mob recycling */
-CHAR_DATA *	new_char	(void);
-void		free_char	(CHAR_DATA *ch);
-
-extern int mob_count;
-extern int mob_free_count;
-
-PC_DATA	*	new_pcdata	(void);
-void		free_pcdata	(PC_DATA *pcdata);
-
-/* mob id and memory procedures */
-long 	get_pc_id	(void);
-long	get_mob_id	(void);
-
 HELP_DATA *	help_new	(void);
 void		help_add	(AREA_DATA*, HELP_DATA*);
 HELP_DATA *	help_lookup	(int num, const char *keyword);
@@ -2201,6 +2285,10 @@ void		add_follower	(CHAR_DATA *ch, CHAR_DATA *master);
 void		stop_follower	(CHAR_DATA *ch);
 
 void		check_sex	(CHAR_DATA *ch);
+
+/*
+ * ch is assumed to be !IS_NPC
+ */
 void		nuke_pets	(CHAR_DATA *ch);
 void		die_follower	(CHAR_DATA *ch);
 void		do_afk		(CHAR_DATA *ch, const char *argument);
@@ -2239,13 +2327,14 @@ ROOM_INDEX_DATA *find_location(CHAR_DATA *ch, const char *argument);
 void substitute_alias(DESCRIPTOR_DATA *d, const char *argument);
 const char *get_cond_alias(OBJ_DATA *obj);
 
-void advance(CHAR_DATA *victim, int level);
-void advance_level(CHAR_DATA *ch);
+/*
+ * `advance' and `gain_exp' assume !IS_NPC(victim)
+ */
+void advance		(CHAR_DATA *ch, int level);
+void gain_exp		(CHAR_DATA *ch, int gain);
 
 bool (*olc_interpret)(DESCRIPTOR_DATA *d, const char *argument);
 
-void	advance_level	(CHAR_DATA *ch);
-void	gain_exp	(CHAR_DATA *ch, int gain);
 void	gain_condition	(CHAR_DATA *ch, int iCond, int value);
 void	update_handler	(void);
 void	char_update	(void);

@@ -23,11 +23,16 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: str.h,v 1.7 1999-02-23 22:06:47 fjoe Exp $
+ * $Id: str.h,v 1.8 1999-09-08 10:40:04 fjoe Exp $
  */
 
 #ifndef _STR_H_
 #define _STR_H_
+
+/*
+ * count allocated memory (slows down free_string)
+ */
+#define STR_ALLOC_MEM 1
 
 const char *	str_dup		(const char *str);
 const char *	str_qdup	(const char *str);
