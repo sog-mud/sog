@@ -1,0 +1,26 @@
+#AREADATA
+Ver 4
+Name Cowboy Town~
+VNUMs 34600 34699
+Credits nimloth~
+Security 1
+LevelRange 0 0
+End
+
+#ROOMS
+#34600
+@eng Deserts@rus Пустыни~
+@eng You are walking in the driest, hottest desert you have ever encountered
+in your short life. Sand is everywhere, and the sun has been baking it
+all day long, until the point it can't get any hotter.
+  North of here is what appears to be an oasis.
+@rus Ты идешь по самой горячей и сухой пустыне из всех тех, в которых тебе
+приходилось находиться. Все что ты видишь вокруг это - песок, раскален-
+ный до предела жарким солнцем.
+  На севере виднеется небольшой оазис. Не мираж ли это?
+~
+0 0 desert
+S
+#0
+
+#$
