@@ -1,0 +1,19 @@
+#AREADATA
+Ver 2
+Name The Temple of White Lotus~
+Builders jiehar~
+VNUMs 22700 22749
+Security 9
+LevelRange 0 0
+Flags BC
+End
+
+#ROOMS
+#22700
+~
+~
+0 0 inside
+S
+#0
+
+#$
