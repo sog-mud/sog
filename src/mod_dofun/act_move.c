@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.17 1998-04-28 10:38:18 efdi Exp $
+ * $Id: act_move.c,v 1.18 1998-04-29 03:06:19 efdi Exp $
  */
 
 /***************************************************************************
@@ -1498,22 +1498,22 @@ void do_sit (CHAR_DATA *ch, char *argument )
 
     if (ch->position == POS_FIGHTING)
     {
-	send_to_char("Maybe you should finish this fight first?\n\r",ch);
+	send_to_char(msg(MOVE_MAYBE_YOU_SHOULD_FINISH_FIGHTING_FIRST, ch), ch);
 	return;
     }
     if (MOUNTED(ch)) 
     {
-        send_to_char("You can't sit while mounted.\n\r", ch);
+        send_to_char(msg(MOVE_YOU_CANT_SIT_MOUNTED, ch), ch);
         return;
     }
     if (RIDDEN(ch)) 
     {
-        send_to_char("You can't sit while being ridden.\n\r", ch);
+        send_to_char(msg(MOVE_YOU_CANT_SIT_RIDDEN, ch), ch);
         return;
     }
 
     if ( IS_AFFECTED(ch, AFF_SLEEP) )
-    { send_to_char( "You are already sleeping.\n\r", ch ); return; }
+    { send_to_char(msg(MOVE_YOU_ARE_ALREADY_SLEEPING, ch), ch ); return; }
 
     /* okay, now that we know we can sit, find an object to sit on */
     if (argument[0] != '\0')
@@ -1522,8 +1522,8 @@ void do_sit (CHAR_DATA *ch, char *argument )
 	if (obj == NULL)
 	{
     if ( IS_AFFECTED(ch, AFF_SLEEP) )
-    { send_to_char( "You are already sleeping.\n\r", ch ); return; }
-	    send_to_char("You don't see that here.\n\r",ch);
+    { send_to_char(msg(MOVE_YOU_ARE_ALREADY_SLEEPING, ch), ch ); return; }
+	    send_to_char(msg(MOVE_YOU_DONT_SEE_THAT, ch), ch);
 	    return;
 	}
     }
@@ -1536,13 +1536,14 @@ void do_sit (CHAR_DATA *ch, char *argument )
 	&&   !IS_SET(obj->value[2],SIT_IN)
 	&&   !IS_SET(obj->value[2],SIT_AT)))
 	{
-	    send_to_char("You can't sit on that.\n\r",ch);
+	    send_to_char(msg(MOVE_YOU_CANT_SIT_ON_THAT, ch), ch);
 	    return;
 	}
 
 	if (obj != NULL && ch->on != obj && count_users(obj) >= obj->value[0])
 	{
-	    act_puts("There's no more room on $p.",ch,obj,NULL,TO_CHAR,POS_DEAD);
+	    act_printf(ch, obj, NULL, TO_CHAR, POS_DEAD,
+			MOVE_THERES_NO_MORE_ROOM_ON);
 	    return;
 	}
 
@@ -1553,73 +1554,91 @@ void do_sit (CHAR_DATA *ch, char *argument )
 	case POS_SLEEPING:
             if (obj == NULL)
             {
-            	send_to_char( "You wake and sit up.\n\r", ch );
-            	act( "$n wakes and sits up.", ch, NULL, NULL, TO_ROOM );
+            	send_to_char(msg(MOVE_YOU_WAKE_AND_SIT_UP,  ch), ch);
+            	act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
+				MOVE_N_WAKES_AND_SITS_UP);
             }
             else if (IS_SET(obj->value[2],SIT_AT))
             {
-            	act_puts("You wake and sit at $p.",ch,obj,NULL,TO_CHAR,POS_DEAD);
-            	act("$n wakes and sits at $p.",ch,obj,NULL,TO_ROOM);
+            	act_printf(ch, obj, NULL, TO_CHAR, POS_DEAD,
+				MOVE_YOU_WAKE_AND_SIT_AT);
+            	act_printf(ch, obj, NULL, TO_ROOM, POS_RESTING,
+				MOVE_N_WAKES_AND_SITS_AT);
             }
             else if (IS_SET(obj->value[2],SIT_ON))
             {
-            	act_puts("You wake and sit on $p.",ch,obj,NULL,TO_CHAR,POS_DEAD);
-            	act("$n wakes and sits at $p.",ch,obj,NULL,TO_ROOM);
+            	act_printf(ch, obj, NULL, TO_CHAR, POS_DEAD,
+				MOVE_YOU_WAKE_AND_SIT_ON);
+            	act_printf(ch, obj, NULL, TO_ROOM, POS_RESTING,
+				MOVE_N_WAKES_AND_SITS_ON);
             }
             else
             {
-            	act_puts("You wake and sit in $p.",ch,obj,NULL,TO_CHAR,POS_DEAD);
-            	act("$n wakes and sits in $p.",ch,obj,NULL,TO_ROOM);
+            	act_printf(ch, obj, NULL, TO_CHAR, POS_DEAD,
+				MOVE_YOU_WAKE_AND_SIT_IN);
+            	act_printf(ch, obj, NULL, TO_ROOM, POS_RESTING,
+				MOVE_N_WAKES_AND_SITS_IN);
             }
 
 	    ch->position = POS_SITTING;
 	    break;
 	case POS_RESTING:
 	    if (obj == NULL)
-		send_to_char("You stop resting.\n\r",ch);
+		send_to_char(msg(MOVE_YOU_STOP_RESTING, ch), ch);
 	    else if (IS_SET(obj->value[2],SIT_AT))
 	    {
-		act("You sit at $p.",ch,obj,NULL,TO_CHAR);
-		act("$n sits at $p.",ch,obj,NULL,TO_ROOM);
+		act_printf(ch, obj, NULL, TO_CHAR, POS_DEAD,
+				MOVE_YOU_SIT_AT);
+		act_printf(ch, obj, NULL, TO_ROOM, POS_RESTING,
+				MOVE_N_SITS_AT);
 	    }
 
 	    else if (IS_SET(obj->value[2],SIT_ON))
 	    {
-		act("You sit on $p.",ch,obj,NULL,TO_CHAR);
-		act("$n sits on $p.",ch,obj,NULL,TO_ROOM);
+		act_printf(ch, obj, NULL, TO_CHAR, POS_DEAD,
+				MOVE_YOU_SIT_ON);
+		act_printf(ch, obj, NULL, TO_ROOM, POS_RESTING,
+				MOVE_N_SITS_ON);
 	    }
 	    ch->position = POS_SITTING;
 	    break;
 	case POS_SITTING:
-	    send_to_char("You are already sitting down.\n\r",ch);
+	    send_to_char(msg(MOVE_YOU_ARE_ALREADY_SITTING_DOWN, ch), ch);
 	    break;
 	case POS_STANDING:
 	    if (obj == NULL)
     	    {
-		send_to_char("You sit down.\n\r",ch);
-    	        act("$n sits down on the ground.",ch,NULL,NULL,TO_ROOM);
+		send_to_char(msg(MOVE_YOU_SIT_DOWN,  ch), ch);
+    	        act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
+				MOVE_N_SITS_DOWN_ON_THE_GROUND);
 	    }
 	    else if (IS_SET(obj->value[2],SIT_AT))
 	    {
-		act("You sit down at $p.",ch,obj,NULL,TO_CHAR);
-		act("$n sits down at $p.",ch,obj,NULL,TO_ROOM);
+		act_printf(ch, obj, NULL, TO_CHAR, POS_DEAD,
+				MOVE_YOU_SIT_DOWN_AT);
+		act_printf(ch, obj, NULL, TO_ROOM, POS_RESTING,
+				MOVE_N_SITS_DOWN_AT);
 	    }
 	    else if (IS_SET(obj->value[2],SIT_ON))
 	    {
-		act("You sit on $p.",ch,obj,NULL,TO_CHAR);
-		act("$n sits on $p.",ch,obj,NULL,TO_ROOM);
+		act_printf(ch, obj, NULL, TO_CHAR, POS_DEAD,
+				MOVE_YOU_SIT_ON);
+		act_printf(ch, obj, NULL, TO_ROOM, POS_RESTING,
+				MOVE_N_SITS_ON);
 	    }
 	    else
 	    {
-		act("You sit down in $p.",ch,obj,NULL,TO_CHAR);
-		act("$n sits down in $p.",ch,obj,NULL,TO_ROOM);
+		act_printf(ch, obj, NULL, TO_CHAR, POS_DEAD,
+				MOVE_YOU_SIT_DOWN_IN);
+		act_printf(ch, obj, NULL, TO_ROOM, POS_RESTING,
+				MOVE_N_SITS_DOWN_IN);
 	    }
     	    ch->position = POS_SITTING;
     	    break;
     }
     if (IS_HARA_KIRI(ch)) 
 	{
-	 send_to_char("You feel your blood heats your body.\n\r",ch);
+	 send_to_char(msg(MOVE_FEEL_BLOOD_HEATS, ch), ch);
 	 REMOVE_BIT(ch->act,PLR_HARA_KIRI);
 	}
     return;
