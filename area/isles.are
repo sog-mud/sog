@@ -1452,7 +1452,7 @@ stone ghost~
 the ghost stone~
 (TRANSLUCENT) A stone lies on the ground here.~
 stone~
-wand G AN
+wand G AO
 40 5 5 'pass door' 0
 40 1 1000 P
 G none

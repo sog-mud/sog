@@ -180,7 +180,7 @@ CE CE 0 0 0
 G none
 #34407
 glass vodka~
-@eng {WHeeled glass filled with {BKosoruloFF{W vodka{w@rus {WГраненый стакан водовки {BКосорылоФФ{w~
+@eng {WHeeled glass filled with {BKosoruloFF{W vodka{w@rus {W~~Граненый~~ ~~стакан~~ водовки {BКосорылоФФ{x~
 @eng Heeled glass stands on the ground.@rus Граненый стакан стоит на земле.~
 glass~
 drink IU AO

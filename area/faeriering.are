@@ -345,7 +345,7 @@ food finger пирожок~
 @eng delicious finger food@rus ~~вкусный~~ ~~пирожок~~~
 @eng A delicious little plate of scrumptious finger foods lies beckons to you.@rus Великолепно приготовленный пирожок (food) сам просится к тебе в рот.~
 flesh~
-food 0 AN
+food 0 A
 DE DE 0 0 0
 0 1 5 P
 G male

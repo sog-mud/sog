@@ -402,7 +402,7 @@ key shaman goblin~
 the goblin shaman's key~
 An old rusty key has been forgotten here.~
 iron~
-key 0 AN
+key 0 A
 0 0 0 0 0
 5 10 0 G
 G none
@@ -411,7 +411,7 @@ key king goblin~
 the goblin king's key~
 An old rusty key has been forgotten here.~
 iron~
-key 0 AN
+key 0 A
 0 0 0 0 0
 5 10 0 G
 G none
@@ -420,7 +420,7 @@ key mage goblin~
 the goblin mage's key~
 An old rusty key has been forgotten here.~
 iron~
-key 0 AN
+key 0 A
 0 0 0 0 0
 5 10 0 G
 G none
@@ -429,7 +429,7 @@ key dungeon goblin~
 the goblin dungeon key~
 An old rusty key has been forgotten here.~
 iron~
-key 0 AN
+key 0 A
 0 0 0 0 0
 5 10 0 G
 G none

@@ -455,7 +455,7 @@ In order to create a role-playing and adventure atmosphere throughout the
 Shades of Gray, you must choose a name accordingly explained below:
  
 {cAcceptable{x:
-   -- Proper names, medieval or modern. i.e  (Takasi, Mitra)
+{x   -- Proper names, medieval or modern, i.e. (Takasi, Aurian)
    -- Created names with a medieval or fictional sound. (Priatros, Sansoles)
  
 {cUnacceptable{x:
@@ -466,7 +466,19 @@ Shades of Gray, you must choose a name accordingly explained below:
    -- Scientific phrases, words. (Proof, Logic, Electrics...)
    -- Object names. (Necklace, Staff, Sword etc)
    -- Compound names. (FarmerJoe, Maryjane etc.)
+{x   -- Attributes of objects or creatures (Fine, Common,...)
+
+{CRestricted{x:
+{x   -- Well-known names of the world epic Gods and Heroes,
+{x      as well as historical persons (Arjuna, Odin, Napoleon){x
+{x   -- Names of authors, characters and actors of the world literature,
+{x      theater and cinema (Pushkin, Kruger, Schwarzenneger)
  
+You can use some of the "restricted" names, but in this case you MUST
+roleplay this character IN FULL.
+Otherwise, you will be asked to rename.
+All the above said concern to consonant names as well, and it does not
+matter, in what language.
 Anyway, immortals may ask you to choose another name if they consider
 your name inappropriate.
 If your name fits above restrictions, type Y. Otherwise choose another
@@ -477,7 +489,7 @@ name. Last decision depend upon Immortals of Shades of Gray.
 указанным ниже правилам:
 
 {cПриемлемо:{x
-    -- имена, соответствующие средневековой эпохе (Takasi, Mitra)
+{x    -- имена, соответствующие средневековой эпохе (Takasi, Aurian){x
     -- выдуманные имена с красивым звучанием (Priatros, Sansoles)
 
 {cНеприемлемо:{x
@@ -488,7 +500,19 @@ name. Last decision depend upon Immortals of Shades of Gray.
     -- наукообразные изречения (Proof, Logic, Electries...)
     -- названия предметов (Necklace, Staff, Sword)
     -- составные имена (FarmerJoe, Maryjane)
+{x    -- атрибуты объектов или существ (Fine, Common,...)
 
+{CОсобые:{x
+{x    -- хорошо известные имена богов и героев мирового эпоса,
+{x       а также исторических личностей (Arjuna, Odin, Napoleon)
+{x    -- имена авторов, персонажей и актеров мировой литературы,{x
+{x       театра и кино (Pushkin, Kruger, Schwarzenegger){x
+
+Вы можете использовать некоторые имена из категории "особые", но
+в этом случае вы ОБЯЗАНЫ отыгрывать соответствующую роль ПОЛНОСТЬЮ.
+Иначе вас "попросят" о переименовании.
+{xВсе вышесказанное относится также и к именам, просто созвучным{x
+{xэтим, а также к словам на любом языке.{x
 В любом случае Боги могут "предложить" тебе сменить имя.
 
 Если твое имя удовлетворяет вышеуказанным требованиям, нажми Y,
@@ -5115,7 +5139,7 @@ This function is available in shortened form from OLC editors
  
 ~
 0 'OLC ADDAFFECT'~
-Syntax:
+@eng Syntax:
    {Caddaffect <location | none> <modifier> [<bitloc> <bits...>]{x
    Possible <bitloc> values: affect, immune, resist, vuln, skill
 Examples:
@@ -5123,6 +5147,7 @@ Examples:
    addaffect hitroll 5 affect haste
    addaffect none 0 immune negative
    addaffect 'acid blast' 50 skill teach
+{x
 ~
 0 TWIT~
 @eng Syntax: {ctwit{x <name>
@@ -6485,7 +6510,7 @@ of a clan, while the caster himself will not be struck unless no other
 viable target remains.  Chain lightning is most effective when used on
 groups of creatures.
 ~
-60 FARSIGHT~
+-1 FARSIGHT~
 Syntax: cast 'farsight'
 	cast 'farsight' <direction>
 
@@ -6883,7 +6908,7 @@ TITLE устанавливает титул указанного персонажа.
          .. /.--. ./\.. . / \___ .. {y|@@@@@@@@{G /
           ./. . . .. . __/ .. ./\__.{y|@@@@@@@@|{G
               .. / . ./..\.  . ..  \/{y@@@@@@@@|{G
-                                   {y|@@@@@@@@@@|{G                {Y Eidu{G
+                                {y   |@@@@@@@@@@|{Y          Diogen  Eidu{x
                                    {y|@@@@@@@@@@|{G    . . . ______------____ . .  
                                    {y|@@@@@@@@@@|{G ... ____/\__.. \_. ..\ ..\___ .
                                    {y|@@@@@@@@@@|{G.___/ . .\__.. ./ \__. .. / ..\.
@@ -6892,7 +6917,7 @@ TITLE устанавливает титул указанного персонажа.
        . /. ./..__/ .. . \._._ . . {y|@@@@@@@@@@|{G
       . /\ . . /.. .  . _/.. .\.__.{y|@@@@@@@@@@|{G
        ...   ...     . /..  . . ..\/{y@@@@@@@@@@|{G
-                      ..          .{y|@@@@@@@@@@|{G              {Y        {G
+{D                                   {y|@@@@@@@@@@|{Y                 Serre{x
                                    {y|@@@@@@@@@@|{G  ..  . _______--------______  . .
                                    {y|@@@@@@@@@@|{G ..____/. . . .\ ... . \ . . \___ 
                                    {y|@@@@@@@@@@|{G__/.. .\_.. .. .\__. ../\ . . \ .\

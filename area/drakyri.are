@@ -1986,7 +1986,7 @@ ancient tome~
 an ancient tome~
 An ancient tome is here, covered with dust.~
 parchment~
-staff BFG AO
+staff BFGKL AO
 95 11 11 'detect hidden' 0
 79 50 10000 P
 A
@@ -1997,7 +1997,7 @@ ornate mask~
 an ornate mask~
 An ornately engraved mask is here.~
 wood~
-armor BFI AE
+armor BFIKL AE
 26 26 26 23 0
 78 20 11000 P
 A
@@ -2031,7 +2031,7 @@ gleaming white sword~
 a gleaming white sword~
 A white sword gleams brightly.~
 mithril~
-weapon IK AN
+weapon IKL AN
 sword 9 12 cleave 0
 80 200 10000 P
 A
@@ -2044,7 +2044,7 @@ gleaming white shield~
 a gleaming white shield~
 a white shield lies here gleaming.~
 mithril~
-armor IK AJ
+armor IKL AJ
 27 27 27 23 0
 81 50 10000 P
 A
@@ -2170,7 +2170,7 @@ cloak nightmares black~
 a cloak of nightmares~
 A shadowy black cloak writhes with agony.~
 shadows~
-armor CEFJ AK
+armor CEFJL AK
 24 23 23 23 0
 72 20 10000 P
 A
@@ -2208,7 +2208,7 @@ dark ->*<- necklace reykaris~
 a dark  ->*<-  necklace~
 A dark necklace lies here.~
 obsidian~
-treasure EL AC
+treasure EJL AC
 0 0 0 0 0
 80 20 25000 P
 A
@@ -2227,7 +2227,7 @@ humanoid skull~
 a humanoid skull~
 A humanoid skull stares at you with empty sockets.~
 bone~
-treasure E AO
+treasure EJL AO
 0 0 0 0 0
 88 20 5000 P
 A
@@ -2259,7 +2259,7 @@ tempered silver throwing dagger~
 a tempered throwing dagger~
 A silver dagger with a sharply tempered edge gleams wickedly.~
 silver~
-weapon CE AN
+weapon CEJL AN
 dagger 9 11 pierce DHK
 80 200 15000 P
 A
@@ -2289,7 +2289,7 @@ black collar runes runed leather~
 a black runed collar~
 A black leather collar engraved with shimmering runes lies here.~
 leather~
-armor BEGHM AC
+armor BEGHJLM AC
 27 27 27 22 0
 85 30 5500 P
 A
@@ -2317,7 +2317,7 @@ demon's wings demon black~
 demon's wings~
 A pair of membranous black wings lie here.~
 leather~
-armor BE AI
+armor BEJL AI
 29 29 27 26 0
 89 50 15000 P
 A
@@ -2894,7 +2894,7 @@ laerkai justice shield~
 laerkai justice~
 A finely crafted shield is here.~
 mithril~
-armor AI AJ
+armor AIK AJ
 29 29 29 26 0
 89 50 50000 P
 A
@@ -2911,7 +2911,7 @@ laerkai pain~
 laerkai pain~
 A wave of pain slams into you!~
 nothingness~
-armor BI AH
+armor BIJ AH
 40 40 39 26 0
 89 0 50000 P
 A
@@ -3516,10 +3516,10 @@ of a circle bisected by a cross.
 0 D inside
 E
 crests~
-The crests represent the six drakyri houses.  The crests of the major
+@eng The crests represent the six drakyri houses.  The crests of the major
 houses mark the six western chairs:  She'valen Deriki, Treniste, and
 Reykaris.  The six eastern chairs bear the minor house crests of
-She'valen Myrxes, Xaek, and Noriva.
+Myr'valen Myrxes, Xaek, and Noriva.
 ~
 D5
 Double silver doors open onto a descending marble stairwell.

@@ -374,7 +374,7 @@ This mighty dragon wants to sell some junk to you.
 ~
 dragon~
 Aef DEFHNOUVYc 0 0
-150 250 1d1+28000 1d1+25000 50d60+100 divine
+150 250 1d1+28000 1d1+25000 50d60+100 kiss
 -66 -66 -66 -66
 CDEFHIKNO ABCDU 0 0
 stand stand male 0
@@ -1289,7 +1289,7 @@ golden dragonplate plate~
 Dragonplate~
 @eng A Dragonplate is left here.@rus Золотая броня (plate) с нарисованным Драконом оставлена тут.~
 gold~
-armor GIY AD
+armor GIKLY AD
 30 30 30 30 0
 0 250 10000 P
 A

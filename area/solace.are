@@ -1832,8 +1832,8 @@ Scythe Grim Reaper~
 Scythe of the Grim Reaper~
 A huge bloody scythe is here floating above the ground~
 copper~
-armor AGJ AN
-3 3 3 0 0
+weapon AGJ AN
+polearm 3 3 cleave 0
 0 50 0 P
 A
 18 80
@@ -1858,8 +1858,8 @@ crystal longsword~
 crystal longsword~
 A finely crafted crystal longsword is here.~
 copper~
-armor FG AN
-6 6 6 1 0
+weapon FG AN
+sword 6 6 slash F
 18 15 180 P
 A
 13 10
@@ -1910,8 +1910,8 @@ enchanted bow~
 enchanted bow~
 A bow with runes etched in it is on the floor.~
 copper~
-armor G AN
-6 6 6 0 0
+weapon G AN
+bow 4 5 blast 0
 15 7 150 P
 A
 18 2

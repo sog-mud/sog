@@ -3400,31 +3400,24 @@ E 0 4939 0 8		*	"12" glowing boots: on the feet
 E 0 4943 0 16		*	clock lance: wielded
 M 0 4922 15 4953 1	* Small gear (Clock-Work)
 M 0 4920 10 4953 1	* Large gear (Clock-Work)
-R 0 4953 5	* Clock-Work: randomize
-R 0 4957 3	* Clock-Work: randomize
 M 0 4921 15 4958 1	* Medium gear (Clock-Work)
 M 0 4920 10 4960 1	* Large gear (Clock-Work)
 M 0 4921 20 4960 2	* Medium gear (Clock-Work)
 M 0 4923 15 4962 1	* Tiny gear (Clock-Work)
 M 0 4921 20 4962 2	* Medium gear (Clock-Work)
-R 0 4962 2	* Clock-Work: randomize
+R 0 4962 3	* Clock-Work: randomize
 M 0 4923 15 4963 1	* Tiny gear (Clock-Work)
-R 0 4964 3	* Clock-Work: randomize
 M 0 4920 10 4964 1	* Large gear (Clock-Work)
 M 0 4923 15 4964 3	* Tiny gear (Clock-Work)
 M 0 4920 10 4965 1	* Large gear (Clock-Work)
 M 0 4903 1 4965 1	* Pendulum (Clock-Work)
 M 0 4922 20 4965 2	* Small gear (Clock-Work)
-R 0 4965 3	* Clock-Work: randomize
 M 0 4923 15 4966 2	* Tiny gear (Clock-Work)
-R 0 4966 3	* Clock-Work: randomize
 M 0 4901 1 4967 1	* Mechanic (Clock-Work)
 E 0 4902 0 16		*	standart set of instruments: wielded
 E 0 4901 0 5		*	robe of mechanic: on the body
-R 0 4967 3	* Clock-Work: randomize
 M 0 4922 15 4968 1	* Small gear (Clock-Work)
 M 0 4921 20 4968 2	* Medium gear (Clock-Work)
-R 0 4968 5	* Clock-Work: randomize
 M 0 4921 20 4969 2	* Medium gear (Clock-Work)
 M 0 4920 10 4970 1	* Large gear (Clock-Work)
 M 0 4922 15 4970 2	* Small gear (Clock-Work)
@@ -3437,7 +3430,6 @@ M 0 4920 10 4973 1	* Large gear (Clock-Work)
 M 0 4922 20 4973 3	* Small gear (Clock-Work)
 M 0 4923 15 4973 3	* Tiny gear (Clock-Work)
 M 0 4920 10 4974 1	* Large gear (Clock-Work)
-R 0 4975 3	* Clock-Work: randomize
 M 0 4922 20 4976 1	* Small gear (Clock-Work)
 M 0 4920 10 4976 1	* Large gear (Clock-Work)
 R 0 4977 4	* Clock-Work: randomize
@@ -3445,7 +3437,6 @@ M 0 4920 10 4978 1	* Large gear (Clock-Work)
 M 0 4923 15 4978 1	* Tiny gear (Clock-Work)
 M 0 4921 15 4979 1	* Medium gear (Clock-Work)
 M 0 4920 10 4979 1	* Large gear (Clock-Work)
-R 0 4979 5	* Clock-Work: randomize
 M 0 4926 4 4980 2	* angry bat (Attic)
 E 0 4912 0 15		*	bat's wing: on the right wrist
 E 0 4912 0 14		*	bat's wing: on the left wrist

@@ -853,7 +853,7 @@ sword war~
 The sword of war~
 A great two-handed sword lies here.~
 admantite~
-weapon EJM AN
+weapon EJLM AN
 sword 11 12 slash DEFH
 85 20 14000 P
 A
@@ -917,8 +917,8 @@ scythe reaper grim~
 The scythe of the Grim reaper~
 An unholy scythe, devours the light here.~
 unknown~
-weapon CEFJMQ AN
-polearm 11 10 cleave CDFH
+weapon CEFJLMQ AN
+polearm 11 12 cleave CDFH
 85 20 14000 P
 A
 19 10
@@ -930,8 +930,8 @@ lance holy archangel Michael~
 The holy lance of archangel Michael~
 A lance hums with a heavenly aura.~
 admantite~
-weapon ABGIKMS AN
-lance 12 10 pierce A
+weapon ABGIKLMS AN
+lance 12 10 pierce AI
 91 15 20000 P
 A
 19 10

@@ -38,14 +38,13 @@ prisoner karabas~
 @rus Он большой и толстый. лучше не ссорься с ним.
 ~
 human~
-A 0 0 0
+Af 0 0 0
 200 0 10d10+25000 0d0+0 10d10+1000 none
 -66 -66 -66 -66
 0 ABQ 0 0
 stand stand male 0
 0 0 huge unknown
 M act 15004 is dead!!~
-M random 15005 5~
 M delay 15003 100~
 M act 15007 is starving!~
 M act 15007 dying of thirst!~
@@ -795,6 +794,57 @@ treasure A AO
 0 0 0 0 0
 1 1 0 P
 G none
+#15060
+tun бочка diogen~
+@eng a Diogen's tun@rus ~~бочка~~ Диогена~
+@eng A big tun lies here turned sideways.@rus Большая бочка лежит, опрокинутая на бок.~
+wood~
+container RY AQ
+1000 0 0 500 100
+107 1000 0 P
+F I 0 0 C
+F I 0 0 D
+G female
+#15061
+lamp лампа diogen~
+@eng a Diogen's lamp@rus ~~лампа~~ Диогена~
+@eng A small lamp, made of darkened bronze, lies here neglected.@rus Небольшая лампа из потемневшей бронзы лежит, брошенная, здесь.~
+bronze~
+light GRY AO
+0 0 -1 0 0
+5 10 0 P
+S 'detect good' 100 A
+S 'detect evil' 100 A
+S 'truesight' 100 A
+A
+6 2
+A
+5 2
+A
+2 2
+A
+4 2
+A
+3 2
+A
+1 2
+E
+lamp~
+@eng A lamp made of darkened bronze is filled with oil. 
+But, despite of the small wick, it lights all around
+perfectly. Strange signs on the bottom read:
+ 
+{y             __              __{x
+{y| \  |  /\  |    <  |\ | <  \{x
+{y| /  |  \/  |    <  | \| <  /__{x
+@rus Лампа из потемневшей от времени бронзы заправлена маслом.
+Но, несмотря на скромный фитилек, прекрасно освещает все вокруг.
+На дне лампы выбиты какие-то знаки:
+{y             __              __{x
+{y| \  |  /\  |    <  |\ | <  \{x
+{y| /  |  \/  |    <  | \| <  /__{x
+~
+G female
 #15087
 nut орех~
 @eng the gold nut@rus ~~золотой~~ ~~орех~~~
@@ -834,7 +884,7 @@ CE CE 0 0 0
 G none
 #15190
 scarlet cloak~
-@eng {RScarlet Cloak {x@rus {RАлый Плащ {x~
+@eng {RScarlet Cloak{x@rus {RАлый Плащ{x~
 @eng {DRakot's Scarlet Cloak lies here...Attention! Be cautious! {x@rus {DПлащ Великого Ракота (scarlet cloak) лежит тут. Запрещено даже думать дотронуться до него! {x~
 gold~
 armor ABCGRTi AK

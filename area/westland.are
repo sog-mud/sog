@@ -966,7 +966,7 @@ dagger warden кинжал boundary~
 @eng a boundary warden's dagger@rus ~~кинжал~~ стража границы~
 @eng A dagger has been left here.@rus Небольшой, но острый кинжал (dagger) валяется подле тебя.~
 steel~
-weapon ABCEIJ AN
+weapon ABCEJ AN
 dagger 5 10 pierce 0
 50 30 2999 P
 A

@@ -3033,74 +3033,6 @@ W  - Walkway                    [ Path to the ]        L  - Lawn
 # - Small Path (grate)          [Festival Town]
  
 ~
-E
-map~
-=== The Map of the Festival Town ===
- 
-This is the map the wise little hedgehog has painted.
-But he dislike [C]averns, so enter it at your own risc!
-
-                                [Path to the Forest] [Dark Hill]
-                                          |                |
-[The edge of]                             |                |
-[the forest ]                        [Unused Path]       [D L]
-    |                                     |                |
-[Shooting]         [The edge of] [W]-[W]-[W]-[W]-[W]     [D L]
-[  Place ]         [the forest ]  |       |       |        |
-    |                    |        |       |       |        |
-[Shooting] [W L]-[W L]-[W L]     [W] [L]-[L]-[L] [W]     [D L]-[H]-[H]-[H]
-[  Place ]   |     |     |        |   |   |   |   |        |    |   |   |
-    |        |     |     |        |   |   |   |   |        |    |   |   |
-[Shooting]-[W L]-[W L]-[W L]-[#]-[W] [L]-[L]-[L] [W]-[#]-[D L] [H]-[M]-[H]
-[  Place ]   |     |     |        |   |   |   |   |        |    | / |   |
-     |       |     |     |        |   |   |   |   |        |    |[C]|   |
-[Shooting] [W L]-[W L]-[W L]     [W] [L]-[L]-[L] [W]     [D L]-[H]-[H]-[H]
-[  Place ]         |              |       |       |        |    |
-     |         [Strange]          |       |       |        |   [Small]
-[Shooting]     [ Grove ]         [W]-[W]-[W]-[W]-[W]    [Lit ] [ Bush]
-[  Place ]                                |             [Hill]   
-     |                                   [#]
-[The edge of]                             |
-[the forest ] [2nd Line]-[2nd Line]-[Intersection]-[2nd Line]-[2nd Line]
-                   |          |           |             |          |
-                [Small]    [Small]    [ Main ]       [Small]    [Small]  
-                [House]    [House]    [Street]       [House]    [House]   
-                                        |
-                      [Samurai's]  [ Main ]  [Ranger's]       [Living]
-                      [  House  ]--[Street]--[  House ]       [ Room ]
-                                       |                        /
-            [Living]  [Warrior's]  [ Main ]  [Paladin's]   [Great]
- [Bedroom]--[ Room ]  [  House  ]--[Street]--[  House  ]   [ Hall]--[GL]
-                |                      |                       |
-           [Entrance]  [Entrance]  [Central]  [Entrance]  [Entrance] [DH]
-           [  Hall  ]--[to  Bank]--[Square ]--[to Mayor]--[  Hall  ]/    
-                |      [ Office ]      |      [Residenc]       |    _[MO] 
-[Dark Room]--[Office]                  |                   [Secr's]/
-                       [Vampir's]  [ Main ]  [Witch's]     [Office]-[A]
-                       [  House ]--[Street]--[ House ]
-                                       |                         
-                       [Cleric's]  [ Main ]  [ Mage's]
-                       [  House ]--[Street]--[ House ]
-                                       |
-             [Small]    [Small]    [ Main ]       [Small]    [Small]
-             [House]    [House]    [Street]       [House]    [House]
-                |          |           |             |          |
-           [1st Line]-[1st Line]-[Intersection]-[1st Line]-[1st Line]
-                                       |
-GL - Great Library               [The Gates]           WL - Wasted Lawn
-DH - Dining Hall                       |               DL - Deserted Lawn
-MO - Mayor's Office           [Before the Gates]       H  - Hills
-A  - Archives                          |               M  - Rocky Mountain
-W  - Walkway                    [ Path to the ]        L  - Lawn
-# - Small Path (grate)          [Festival Town]
-~
-E
-map~
-@eng The map.
-~
-E
-paper~
-~
 G female
 #36437
 entrance дверь door~
@@ -3128,10 +3060,10 @@ A
 G female
 #36439
 shackles foot iron band chain pair кандалы~
-@eng A pair of heavy iron foot shackles@rus Тяжелые железные кандалы~
+@eng A pair of heavy iron foot shackles@rus ~~тяжелые~~ ~~железные~~ ~~кандалы~~~
 @eng A pair of heavy iron bands attached to a strong chain lies here.@rus Пара тяжелых железных обручей, соединенных крепкой цепью, лежит на земле.~
 iron~
-treasure CEHIPUY AG
+treasure CEHPUY AG
 0 0 0 0 0
 90 300 10 P
 A
@@ -7057,7 +6989,6 @@ M 0 36353 10 36398 2	* small insect (Path to the Forest)
 O 0 36379 0 36399	* oak (Deep in the Dark Forest)
 P 0 36378 1 36379 1	* oak: bureau key
 O 0 36384 0 36399	* hole (Deep in the Dark Forest)
-O 0 36439 0 36399	* A pair of heavy iron foot shackles (Deep in the Dark Forest)
 M 0 36351 10 36402 2	* centipede (Wide Tunnel)
 M 0 36352 10 36403 2	* small snake (Wide Tunnel)
 M 0 36353 10 36406 2	* small insect (A rocky path around the lake)

@@ -423,8 +423,8 @@ hammer thunder bolt thunderbolt~
 the Thunder Bolt~
 A huge hammer has been carelessly dropped here.~
 mithril~
-weapon FGK AN
-mace 8 7 blast G
+weapon FGKL AN
+mace 9 9 blast G
 50 140 5400 P
 A
 18 5
@@ -654,7 +654,7 @@ sun sword~
 the Sword of the Sun~
 A beautiful sword with the rising sun etched on the pommel is lying here.~
 unknown~
-weapon FGK AN
+weapon FGKL AN
 sword 9 9 slash 0
 50 200 6800 P
 A

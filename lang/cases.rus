@@ -1281,6 +1281,17 @@ Form 6 -а~
 End
 
 #RULE
+Name граненый~
+BaseLen 6
+Form 1 -ого~
+Form 2 -ому~
+Form 3 -ый~
+Form 4 -ым~
+Form 5 -ом~
+Form 6 -ого~
+End
+
+#RULE
 Name вкусный~
 BaseLen 5
 Form 1 -ого~
