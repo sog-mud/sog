@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_class.c,v 1.24 1999-10-25 12:05:30 fjoe Exp $
+ * $Id: db_class.c,v 1.25 1999-10-26 13:52:58 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -68,10 +68,10 @@ DBLOAD_FUN(load_class)
 	class_init(&class);
 
 	for (;;) {
-		char *word = rfile_feof(fp) ? "End" : fread_word(fp);
 		bool fMatch = FALSE;
 
-		switch(UPPER(word[0])) {
+		fread_keyword(fp);
+		switch(rfile_tokfl(fp)) {
 		case 'A':
 			KEY("AddExp", class.points, fread_number(fp));
 			break;
@@ -80,7 +80,7 @@ DBLOAD_FUN(load_class)
 			    fread_number(fp));
 			break;
 		case 'E':
-			if (!str_cmp(word, "End")) {
+			if (IS_TOKEN(fp, "End")) {
 				class_t *cl;
 
 				if (IS_NULLSTR(class.name)) {
@@ -102,7 +102,7 @@ DBLOAD_FUN(load_class)
 			    fread_fstring(class_flags, fp));
 			break;
 		case 'G':
-			if (!str_cmp(word, "GuildRoom")) {
+			if (IS_TOKEN(fp, "GuildRoom")) {
 				int vnum = fread_number(fp);
 				int *pvnum = varr_enew(&class.guilds);
 				*pvnum = vnum;
@@ -135,14 +135,14 @@ DBLOAD_FUN(load_class)
 			    fread_number(fp));
 			SKEY("SkillSpec", class.skill_spec,
 			     fread_strkey(fp, &specs, "load_class"));
-			if (!str_cmp(word, "ShortName")) {
+			if (IS_TOKEN(fp, "ShortName")) {
 				const char *p = fread_string(fp);
 				strnzcpy(class.who_name,
 					 sizeof(class.who_name), p);
 				free_string(p);
 				fMatch = TRUE;
 			}
-			if (!str_cmp(word, "StatMod")) {
+			if (IS_TOKEN(fp, "StatMod")) {
 				for (i = 0; i < MAX_STATS; i++)
 					class.stats[i] = fread_number(fp);
 				fMatch = TRUE;
@@ -154,8 +154,11 @@ DBLOAD_FUN(load_class)
 			break;
 		}
 
-		if (!fMatch) 
-			db_error("load_class", "%s: Unknown keyword", word);
+		if (!fMatch) {
+			db_error("load_class", "%s: Unknown keyword",
+				 rfile_tok(fp));
+			fread_to_eol(fp);
+		}
 	}
 }
 
@@ -171,12 +174,12 @@ DBLOAD_FUN(load_pose)
 
 	pose = varr_enew(&class->poses);
 	for (;;) {
-		char *word = rfile_feof(fp) ? "End" : fread_word(fp);
 		bool fMatch = FALSE;
 
-		switch(UPPER(word[0])) {
+		fread_keyword(fp);
+		switch(rfile_tokfl(fp)) {
 		case 'E':
-			if (!str_cmp(word, "End"))
+			if (IS_TOKEN(fp, "End"))
 				return;
 			break;
 		case 'O':
@@ -187,7 +190,10 @@ DBLOAD_FUN(load_pose)
 			break;
 		}
 
-		if (!fMatch) 
-			db_error("load_pose", "%s: Unknown keyword", word);
+		if (!fMatch) {
+			db_error("load_pose", "%s: Unknown keyword",
+				 rfile_tok(fp));
+			fread_to_eol(fp);
+		}
 	}
 }

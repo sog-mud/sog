@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_socials.c,v 1.4 1999-10-25 12:05:30 fjoe Exp $
+ * $Id: db_socials.c,v 1.5 1999-10-26 13:52:58 fjoe Exp $
  */
 
 #include <limits.h>
@@ -53,12 +53,12 @@ DBLOAD_FUN(load_social)
 	social_t *soc = social_new();
 
 	for (;;) {
-		char *word = rfile_feof(fp) ? "End" : fread_word(fp);
 		bool fMatch = FALSE;
 
-		switch (UPPER(word[0])) {
+		fread_keyword(fp);
+		switch (rfile_tokfl(fp)) {
 		case 'E':
-			if (!str_cmp(word, "end")) {
+			if (IS_TOKEN(fp, "end")) {
 				if (IS_NULLSTR(soc->name)) {
 					db_error("load_social",
 						 "social name not defined");
@@ -74,7 +74,7 @@ DBLOAD_FUN(load_social)
 			SKEY("found_notvict", soc->found_notvict, fread_string(fp));
 			break;
 		case 'N':
-			KEY("name", soc->name, str_dup(fread_word(fp)));
+			KEY("name", soc->name, fread_sword(fp));
 			SKEY("notfound_char", soc->notfound_char, fread_string(fp));
 			SKEY("noarg_char", soc->noarg_char, fread_string(fp));
 			SKEY("noarg_room", soc->noarg_room, fread_string(fp));
@@ -89,7 +89,10 @@ DBLOAD_FUN(load_social)
 			break;
 		}
 
-		if (!fMatch) 
-			db_error("load_social", "%s: Unknown keyword", word);
+		if (!fMatch) {
+			db_error("load_social", "%s: Unknown keyword",
+				 rfile_tok(fp));
+			fread_to_eol(fp);
+		}
 	}
 }

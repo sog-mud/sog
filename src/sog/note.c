@@ -1,5 +1,5 @@
 /*
- * $Id: note.c,v 1.62 1999-10-25 12:05:23 fjoe Exp $
+ * $Id: note.c,v 1.63 1999-10-26 13:52:51 fjoe Exp $
  */
 
 /***************************************************************************
@@ -149,7 +149,6 @@ static void load_thread(const char *name, note_t **list,
 {
 	rfile_t *fp;
 	note_t *pnotelast;
-	const char *p;
  
 	if (!dfexist(NOTES_PATH, name))
 		return;
@@ -170,27 +169,33 @@ static void load_thread(const char *name, note_t **list,
 			
 		pnote = new_note();
  
-		if (str_cmp(p = fread_word(fp), "sender"))
+		fread_word(fp);
+		if (!IS_TOKEN(fp, "sender"))
 			break;
 		pnote->sender = fread_string(fp);
  
-		if (str_cmp(p = fread_word(fp), "date"))
+		fread_word(fp);
+		if (!IS_TOKEN(fp, "date"))
 			break;
 		pnote->date = fread_string(fp);
  
-		if (str_cmp(p = fread_word(fp), "stamp"))
+		fread_word(fp);
+		if (!IS_TOKEN(fp, "stamp"))
 			break;
 		pnote->date_stamp = fread_number(fp);
  
-		if (str_cmp(p = fread_word(fp), "to"))
+		fread_word(fp);
+		if (!IS_TOKEN(fp, "to"))
 			break;
 		pnote->to_list = fread_string(fp);
  
-		if (str_cmp(p = fread_word(fp), "subject"))
+		fread_word(fp);
+		if (!IS_TOKEN(fp, "subject"))
 			break;
 		pnote->subject  = fread_string(fp);
  
-		if (str_cmp(p = fread_word(fp), "text"))
+		fread_word(fp);
+		if (!IS_TOKEN(fp, "text"))
 			break;
 		pnote->text = fread_string(fp);
  
@@ -209,6 +214,6 @@ static void load_thread(const char *name, note_t **list,
 		pnotelast = pnote;
 	}
  
-	db_error("load_notes", "%s: bad keyword '%s'", name, p);
+	db_error("load_notes", "%s: %s: bad keyword", name, rfile_tok(fp));
 }
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_hometown.c,v 1.4 1999-10-25 12:05:30 fjoe Exp $
+ * $Id: db_hometown.c,v 1.5 1999-10-26 13:52:58 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -51,32 +51,32 @@ DBLOAD_FUN(load_hometown)
 	hometown_t *h = varr_enew(&hometowns);
 
 	for (;;) {
-		char *word = rfile_feof(fp) ? "End" : fread_word(fp);
 		bool fMatch = FALSE;
 
-		switch (UPPER(word[0])) {
+		fread_keyword(fp);
+		switch (rfile_tokfl(fp)) {
 		case 'A':
 			SKEY("Area", h->area, fread_string(fp));
-			if (!str_cmp(word, "Altar")) {
+			if (IS_TOKEN(fp, "Altar")) {
 				fread_altar(h, fp);
 				fMatch = TRUE;
 			}
 			break;
 		case 'E':
-			if (!str_cmp(word, "End")) {
+			if (IS_TOKEN(fp, "End")) {
 				if (!check_hometown(h))
 					hometowns.nused--;
 				return;
 			}
 			break;
 		case 'M':
-			if (!str_cmp(word, "Map")) {
+			if (IS_TOKEN(fp, "Map")) {
 				fread_map(h, fp);
 				fMatch = TRUE;
 			}
 			break;
 		case 'R':
-			if (!str_cmp(word, "Recall")) {
+			if (IS_TOKEN(fp, "Recall")) {
 				fread_recall(h, fp);
 				fMatch = TRUE;
 			}
@@ -87,8 +87,11 @@ DBLOAD_FUN(load_hometown)
 			break;
 		}
 
-		if (!fMatch)
-			db_error("load_hometown", "%s: Unknown keyword", word);
+		if (!fMatch) {
+			db_error("load_hometown", "%s: Unknown keyword",
+				 rfile_tok(fp));
+			fread_to_eol(fp);
+		}
 	}
 }
 
@@ -97,12 +100,13 @@ DBLOAD_FUN(load_hometown)
  */
 static void fread_altar(hometown_t *h, rfile_t *fp)
 {
-	const char *align = fread_word(fp);
 	int anum;
-	ROOM_INDEX_DATA *room = get_room_index(fread_number(fp));
-	OBJ_INDEX_DATA *pit = get_obj_index(fread_number(fp));
+	ROOM_INDEX_DATA *room;
+	OBJ_INDEX_DATA *pit;
 
-	anum = flag_value(align_names, align);
+	anum = fread_fword(align_names, fp);
+	room = get_room_index(fread_number(fp));
+	pit = get_obj_index(fread_number(fp));
 	if (anum < 0) {
 		int i;
 
@@ -119,11 +123,11 @@ static void fread_altar(hometown_t *h, rfile_t *fp)
 
 static void fread_recall(hometown_t *h, rfile_t *fp)
 {
-	const char *align = fread_word(fp);
 	int anum;
-	ROOM_INDEX_DATA *room = get_room_index(fread_number(fp));
+	ROOM_INDEX_DATA *room;
 
-	anum = flag_value(align_names, align);
+	anum = fread_fword(align_names, fp);
+	room = get_room_index(fread_number(fp));
 	if (anum < 0) {
 		int i;
 
@@ -136,16 +140,15 @@ static void fread_recall(hometown_t *h, rfile_t *fp)
 
 static void fread_map(hometown_t *h, rfile_t *fp)
 {
-	const char *align = fread_word(fp);
 	int anum;
 	int vnum;
 	OBJ_INDEX_DATA *obj;
 
+	anum = fread_fword(align_names, fp);
 	if ((vnum = fread_number(fp)) == 0)
 		return;
 
 	obj = get_obj_index(vnum);
-	anum = flag_value(align_names, align);
 	if (anum < 0) {
 		int i;
 

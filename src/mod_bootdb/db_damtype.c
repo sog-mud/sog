@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_damtype.c,v 1.3 1999-10-25 12:05:30 fjoe Exp $
+ * $Id: db_damtype.c,v 1.4 1999-10-26 13:52:58 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -63,15 +63,15 @@ DBLOAD_FUN(load_damtype)
 	damtype_init(&d);
 
 	for (;;) {
-		char *word = rfile_feof(fp) ? "End" : fread_word(fp);
 		bool fMatch = FALSE;
 
-		switch (UPPER(word[0])) {
+		fread_keyword(fp);
+		switch (rfile_tokfl(fp)) {
 		case 'C':
 			KEY("Class", d.dam_class, fread_fword(dam_classes, fp));
 			break;
 		case 'E':
-			if (!str_cmp(word, "End")) {
+			if (IS_TOKEN(fp, "End")) {
 				if (IS_NULLSTR(d.dam_name)) {
 					db_error("load_damtype",
 						 "damtype name undefined");
@@ -84,7 +84,7 @@ DBLOAD_FUN(load_damtype)
 			}
 			break;
 		case 'N':
-			KEY("Name", d.dam_name, str_dup(fread_word(fp)));
+			KEY("Name", d.dam_name, fread_sword(fp));
 			SKEY("Noun", d.dam_noun, fread_string(fp));
 			break;
 		case 'S':
@@ -92,7 +92,10 @@ DBLOAD_FUN(load_damtype)
 			break;
 		}
 
-		if (!fMatch)
-			db_error("load_damtype", "%s: Unknown keyword", word);
+		if (!fMatch) {
+			db_error("load_damtype", "%s: Unknown keyword",
+				 rfile_tok(fp));
+			fread_to_eol(fp);
+		}
 	}
 }

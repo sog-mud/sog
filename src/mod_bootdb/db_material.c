@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_material.c,v 1.4 1999-10-25 12:05:30 fjoe Exp $
+ * $Id: db_material.c,v 1.5 1999-10-26 13:52:58 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -63,15 +63,15 @@ DBLOAD_FUN(load_material)
 	material_init(&mat);
 
 	for (;;) {
-		char *word = rfile_feof(fp) ? "End" : fread_word(fp);
 		bool fMatch = FALSE;
 
-		switch (UPPER(word[0])) {
+		fread_keyword(fp);
+		switch (rfile_tokfl(fp)) {
 		case 'D':
 			KEY("Damc", mat.dam_class, fread_fword(dam_classes, fp));
 			break;
 		case 'E':
-			if (!str_cmp(word, "End")) {
+			if (IS_TOKEN(fp, "End")) {
 				if (IS_NULLSTR(mat.name)) {
 					db_error("load_material",
 						 "material name undefined");
@@ -93,8 +93,11 @@ DBLOAD_FUN(load_material)
 			break;
 		}
 
-		if (!fMatch)
-			db_error("load_material", "%s: Unknown keyword", word);
+		if (!fMatch) {
+			db_error("load_material", "%s: Unknown keyword",
+				 rfile_tok(fp));
+			fread_to_eol(fp);
+		}
 	}
 }
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_system.c,v 1.7 1999-10-25 12:05:30 fjoe Exp $
+ * $Id: db_system.c,v 1.8 1999-10-26 13:52:59 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -61,23 +61,23 @@ static void fread_host(rfile_t *fp, varr *v);
 DBLOAD_FUN(load_system)
 {
 	for (;;) {
-		char *word = rfile_feof(fp) ? "End" : fread_word(fp);
 		bool fMatch = FALSE;
 
-		switch(UPPER(word[0])) {
+		fread_keyword(fp);
+		switch(rfile_tokfl(fp)) {
 		case 'E':
-			if (!str_cmp(word, "End"))
+			if (IS_TOKEN(fp, "End"))
 				return;
 			break;
 		case 'L':
-			if (!str_cmp(word, "Listen")) {
+			if (IS_TOKEN(fp, "Listen")) {
 				int *p = varr_enew(&control_sockets);
 				*p = fread_number(fp);
 				fMatch = TRUE;
 			}
 			break;
 		case 'M':
-			if (!str_cmp(word, "Module")) {
+			if (IS_TOKEN(fp, "Module")) {
 				module_t *m = varr_enew(&modules);
 				m->name = fread_string(fp);
 				m->file_name = str_printf("%s%c%s.so.%d",
@@ -92,30 +92,33 @@ DBLOAD_FUN(load_system)
 			break;
 		}
 
-		if (!fMatch) 
-			db_error("load_system", "%s: Unknown keyword", word);
+		if (!fMatch) {
+			db_error("load_system", "%s: Unknown keyword",
+				 rfile_tok(fp));
+			fread_to_eol(fp);
+		}
 	}
 }
 
 DBLOAD_FUN(load_info)
 {
 	for (;;) {
-		char *word = rfile_feof(fp) ? "End" : fread_word(fp);
 		bool fMatch = FALSE;
 
-		switch(UPPER(word[0])) {
+		fread_keyword(fp);
+		switch(rfile_tokfl(fp)) {
 		case 'A':
-			if (!str_cmp(word, "Allow")) {
+			if (IS_TOKEN(fp, "Allow")) {
 				fread_host(fp, &info_trusted);
 				fMatch = TRUE;
 			}
 			break;
 		case 'E':
-			if (!str_cmp(word, "End"))
+			if (IS_TOKEN(fp, "End"))
 				return;
 			break;
 		case 'L':
-			if (!str_cmp(word, "Listen")) {
+			if (IS_TOKEN(fp, "Listen")) {
 				int *p = varr_enew(&info_sockets);
 				*p = fread_number(fp);
 				fMatch = TRUE;
@@ -123,8 +126,11 @@ DBLOAD_FUN(load_info)
 			break;
 		}
 
-		if (!fMatch) 
-			db_error("load_info", "%s: Unknown keyword", word);
+		if (!fMatch) {
+			db_error("load_info", "%s: Unknown keyword",
+				 rfile_tok(fp));
+			fread_to_eol(fp);
+		}
 	}
 }
 

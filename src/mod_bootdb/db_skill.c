@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_skill.c,v 1.15 1999-10-25 12:05:30 fjoe Exp $
+ * $Id: db_skill.c,v 1.16 1999-10-26 13:52:58 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -63,15 +63,15 @@ DBLOAD_FUN(load_skill)
 	skill_init(&sk);
 
 	for (;;) {
-		char *word = rfile_feof(fp) ? "End" : fread_word(fp);
 		bool fMatch = FALSE;
 
-		switch (UPPER(word[0])) {
+		fread_keyword(fp);
+		switch (rfile_tokfl(fp)) {
 		case 'B':
 			KEY("Beats", sk.beats, fread_number(fp));
 			break;
 		case 'E':
-			if (!str_cmp(word, "End")) {
+			if (IS_TOKEN(fp, "End")) {
 				if (IS_NULLSTR(sk.name)) {
 					db_error("load_skill",
 						 "skill name undefined");
@@ -82,9 +82,9 @@ DBLOAD_FUN(load_skill)
 				skill_destroy(&sk);
 				return;
 			}
-			if (!str_cmp(word, "Event")) {
+			if (IS_TOKEN(fp, "Event")) {
 				flag32_t event = fread_fword(events_table, fp);
-				const char *fun_name = str_dup(fread_word(fp));
+				const char *fun_name = fread_sword(fp);
 				event_fun_t *evf;
 
 				if (!event) {
@@ -127,8 +127,7 @@ DBLOAD_FUN(load_skill)
 			break;
 		case 'S':
 			KEY("Slot", sk.slot, fread_number(fp));
-			KEY("SpellFun", sk.fun_name,
-			    str_dup(fread_word(fp)));
+			KEY("SpellFun", sk.fun_name, fread_sword(fp));
 			break;
 		case 'T':
 			KEY("Type", sk.skill_type,
@@ -141,8 +140,11 @@ DBLOAD_FUN(load_skill)
 			break;
 		}
 
-		if (!fMatch)
-			db_error("load_skill", "%s: Unknown keyword", word);
+		if (!fMatch) {
+			db_error("load_skill", "%s: Unknown keyword",
+				 rfile_tok(fp));
+			fread_to_eol(fp);
+		}
 	}
 }
 

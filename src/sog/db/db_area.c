@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.65 1999-10-25 12:05:29 fjoe Exp $
+ * $Id: db_area.c,v 1.66 1999-10-26 13:52:57 fjoe Exp $
  */
 
 /***************************************************************************
@@ -121,7 +121,7 @@ DBLOAD_FUN(load_area)
 	pArea->min_level	= fread_number(fp);
 	pArea->max_level	= fread_number(fp);
 	fread_letter(fp);			/* '}' */
-	pArea->credits		= str_dup(fread_word(fp));	
+	pArea->credits		= fread_sword(fp);	
 	free_string(fread_string(fp));
 	pArea->min_vnum		= fread_number(fp);
 	pArea->max_vnum		= fread_number(fp);
@@ -151,8 +151,6 @@ DBLOAD_FUN(load_area)
 DBLOAD_FUN(load_areadata)
 {
 	AREA_DATA *	pArea;
-	char *		word;
-	bool		fMatch;
 
 	pArea			= new_area();
 	pArea->age		= 15;
@@ -162,10 +160,10 @@ DBLOAD_FUN(load_areadata)
 	pArea->security		= 9;                    /* 9 -- Hugin */
  
 	for (; ;) {
-		word   = rfile_feof(fp) ? "End" : fread_word(fp);
-		fMatch = FALSE;
+		bool fMatch = FALSE;
 
-		switch (UPPER(word[0])) {
+		fread_keyword(fp);
+		switch (rfile_tokfl(fp)) {
 		case 'B':
 			SKEY("Builders", pArea->builders, fread_string(fp));
 			break;
@@ -175,7 +173,7 @@ DBLOAD_FUN(load_areadata)
 			SKEY("Credits", pArea->credits, fread_string(fp));
 			break;
 		case 'E':
-			if (!str_cmp(word, "End")) {
+			if (IS_TOKEN(fp, "End")) {
 				fMatch = TRUE;
 				if (area_first == NULL)
 			        	area_first = pArea;
@@ -192,9 +190,10 @@ DBLOAD_FUN(load_areadata)
 			    fread_fstring(area_flags, fp));
 			break;
 		case 'L':
-			if (!str_cmp(word, "LevelRange")) {
+			if (IS_TOKEN(fp, "LevelRange")) {
 				pArea->min_level = fread_number(fp);
 				pArea->max_level = fread_number(fp);
+				fMatch = TRUE;
 			}
 			break;
 		case 'N':
@@ -207,11 +206,18 @@ DBLOAD_FUN(load_areadata)
 			KEY("Security", pArea->security, fread_number(fp));
 			break;
 		case 'V':
-			if (!str_cmp(word, "VNUMs")) {
+			if (IS_TOKEN(fp, "VNUMs")) {
 				pArea->min_vnum = fread_number(fp);
 				pArea->max_vnum = fread_number(fp);
+				fMatch = TRUE;
 			}
 			break;
+		}
+
+		if (!fMatch) {
+			db_error("load_areadata", "%s: Unknown keyword",
+				 rfile_tok(fp));
+			fread_to_eol(fp);
 		}
 	}
 }
@@ -911,8 +917,9 @@ DBLOAD_FUN(load_specials)
 		    break;
 
 		case 'M':
-		    pMobIndex		= get_mob_index	(fread_number (fp));
-		    pMobIndex->spec_fun	= mob_spec_lookup	(fread_word   (fp));
+		    pMobIndex		= get_mob_index(fread_number(fp));
+		    fread_word(fp);
+		    pMobIndex->spec_fun	= mob_spec_lookup(rfile_tok(fp));
 		    if (pMobIndex->spec_fun == NULL) {
 			db_error("load_specials", "'M': vnum %d.",
 				 pMobIndex->vnum);
@@ -1095,11 +1102,9 @@ DBLOAD_FUN(load_mobiles)
 	pMobIndex->vuln_flags		= fread_flags(fp) | (r ? r->vuln : 0);
 
 	/* vital statistics */
-	pMobIndex->start_pos		= flag_value(position_table,
-						     fread_word(fp));
-	pMobIndex->default_pos		= flag_value(position_table,
-						     fread_word(fp));
-	pMobIndex->sex			= flag_value(sex_table, fread_word(fp));
+	pMobIndex->start_pos		= fread_fword(position_table, fp);
+	pMobIndex->default_pos		= fread_fword(position_table, fp);
+	pMobIndex->sex			= fread_fword(sex_table, fp);
 
 	pMobIndex->wealth		= fread_number(fp);
 
@@ -1108,21 +1113,16 @@ DBLOAD_FUN(load_mobiles)
 	/* size */
 	pMobIndex->size			= fread_fword(size_table, fp);
 	free_string(pMobIndex->material);
-	pMobIndex->material		= str_dup(fread_word(fp));
+	pMobIndex->material		= fread_sword(fp);
  
 	for (; ;)
         {
             letter = fread_letter(fp);
 
 	    if (letter == 'A') {
-		char *word;
-		long vector;
-
-                word	= fread_word(fp);
-		vector	= fread_flags(fp);
-
-		if (!str_prefix(word,"det"))
-		    SET_BIT(pMobIndex->affected_by, vector);
+		fread_word(fp);
+		if (!IS_TOKEN(fp, "det"))
+		    SET_BIT(pMobIndex->affected_by, fread_flags(fp));
 	    } else if (letter == 'C') {
 		if (!IS_NULLSTR(pMobIndex->clan)) {
 		    db_error("load_mobiles", "duplicate clan.");
@@ -1136,44 +1136,37 @@ DBLOAD_FUN(load_mobiles)
 	    else if (letter == 'V') 
 		pMobIndex->fvnum = fread_number(fp);
             else if (letter == 'F') {
-		char *word;
-		long vector;
-
-                word                    = fread_word(fp);
-		vector			= fread_flags(fp);
-
-		if (!str_prefix(word,"act"))
-		    REMOVE_BIT(pMobIndex->act,vector);
-                else if (!str_prefix(word,"aff"))
-		    REMOVE_BIT(pMobIndex->affected_by,vector);
-		else if (!str_prefix(word,"off"))
-		    REMOVE_BIT(pMobIndex->affected_by,vector);
-		else if (!str_prefix(word,"imm"))
-		    REMOVE_BIT(pMobIndex->imm_flags,vector);
-		else if (!str_prefix(word,"res"))
-		    REMOVE_BIT(pMobIndex->res_flags,vector);
-		else if (!str_prefix(word,"vul"))
-		    REMOVE_BIT(pMobIndex->vuln_flags,vector);
-		else if (!str_prefix(word,"for"))
-		    REMOVE_BIT(pMobIndex->form,vector);
-		else if (!str_prefix(word,"par"))
-		    REMOVE_BIT(pMobIndex->parts,vector);
+		fread_word(fp);
+		if (IS_TOKEN(fp, "act"))
+		    REMOVE_BIT(pMobIndex->act, fread_flags(fp));
+                else if (IS_TOKEN(fp, "aff"))
+		    REMOVE_BIT(pMobIndex->affected_by, fread_flags(fp));
+		else if (IS_TOKEN(fp, "off"))
+		    REMOVE_BIT(pMobIndex->affected_by, fread_flags(fp));
+		else if (IS_TOKEN(fp, "imm"))
+		    REMOVE_BIT(pMobIndex->imm_flags, fread_flags(fp));
+		else if (IS_TOKEN(fp, "res"))
+		    REMOVE_BIT(pMobIndex->res_flags, fread_flags(fp));
+		else if (IS_TOKEN(fp, "vul"))
+		    REMOVE_BIT(pMobIndex->vuln_flags, fread_flags(fp));
+		else if (IS_TOKEN(fp, "for"))
+		    REMOVE_BIT(pMobIndex->form, fread_flags(fp));
+		else if (IS_TOKEN(fp, "par"))
+		    REMOVE_BIT(pMobIndex->parts, fread_flags(fp));
 		else {
 		    db_error("flag remove", "flag not found.");
 		    return;
 		}
 	     } else if ( letter == 'M' ) {
 		MPTRIG *mptrig;
-		char *word;
 		int type;
 		const char *phrase;
 		int vnum;
 		
-		word = fread_word(fp);
-		if ((type = flag_value(mptrig_types, word)) == 0) {
+		if ((type = fread_fword(mptrig_types, fp)) == 0) {
 			db_error("load_mobiles", "vnum %d: "
 				   "'%s': invalid mob prog trigger",
-				   pMobIndex->vnum, word);
+				   pMobIndex->vnum);
 			return;
 		}
 
@@ -1394,8 +1387,10 @@ DBLOAD_FUN(load_omprogs)
 	    
         case 'O':
 	    pObjIndex = get_obj_index (fread_number (fp));
-	    strnzcpy(progtype, sizeof(progtype), fread_word(fp));
-	    strnzcpy(progname, sizeof(progname), fread_word(fp));
+	    fread_word(fp);
+	    strnzcpy(progtype, sizeof(progtype), rfile_tok(fp));
+	    fread_word(fp);
+	    strnzcpy(progname, sizeof(progname), rfile_tok(fp));
 	    oprog_set(pObjIndex, progtype, progname);
 	    break;
 	

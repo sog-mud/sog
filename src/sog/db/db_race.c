@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_race.c,v 1.13 1999-10-25 12:05:30 fjoe Exp $
+ * $Id: db_race.c,v 1.14 1999-10-26 13:52:58 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -65,16 +65,16 @@ DBLOAD_FUN(load_race)
 	race_init(&r);
 
 	for (;;) {
-		char *word = rfile_feof(fp) ? "End" : fread_word(fp);
 		bool fMatch = FALSE;
 
-		switch(UPPER(word[0])) {
+		fread_keyword(fp);
+		switch(rfile_tokfl(fp)) {
 		case 'A':
 			KEY("Aff", r.aff, fread_fstring(affect_flags, fp));
 			KEY("Act", r.act, fread_fstring(act_flags, fp));
 			break;
 		case 'E':
-			if (!str_cmp(word, "End")) {
+			if (IS_TOKEN(fp, "End")) {
 				race_t *pr;
 
 				if (IS_NULLSTR(r.name)) {
@@ -115,8 +115,11 @@ DBLOAD_FUN(load_race)
 			break;
 		}
 
-		if (!fMatch)
-			db_error("load_race", "%s: Unknown keyword", word);
+		if (!fMatch) {
+			db_error("load_race", "%s: Unknown keyword",
+				 rfile_tok(fp));
+			fread_to_eol(fp);
+		}
 	}
 }
 
@@ -134,27 +137,27 @@ DBLOAD_FUN(load_pcrace)
 
 	for (;;) {
 		int i;
-		char *word = rfile_feof(fp) ? "End" : fread_word(fp);
 		bool fMatch = FALSE;
 
-		switch(UPPER(word[0])) {
+		fread_keyword(fp);
+		switch(rfile_tokfl(fp)) {
 		case 'B':
 			SKEY("BonusSkills", pcr->bonus_skills, fread_string(fp));
 			break;
 
 		case 'C':
-			if (!str_cmp(word, "Class")) {
+			if (IS_TOKEN(fp, "Class")) {
 				rclass_t *rcl;
 
 				rcl = varr_enew(&pcr->classes);
-				rcl->name = str_dup(fread_word(fp));
+				rcl->name = fread_sword(fp);
 				rcl->mult = fread_number(fp);
 				fMatch = TRUE;
 			}
 			break;
 
 		case 'E':
-			if (!str_cmp(word, "End")) {
+			if (IS_TOKEN(fp, "End")) {
 				if (pcr->who_name[0] == '\0') {
 					db_error("load_pcrace",
 						 "race who_name undefined");
@@ -172,7 +175,7 @@ DBLOAD_FUN(load_pcrace)
 
 		case 'M':
 			KEY("ManaBonus", pcr->mana_bonus, fread_number(fp));
-			if (!str_cmp(word, "MaxStats")) {
+			if (IS_TOKEN(fp, "MaxStats")) {
 				for (i = 0; i < MAX_STATS; i++)
 					pcr->max_stats[i] = fread_number(fp);
 				fMatch = TRUE;
@@ -195,21 +198,24 @@ DBLOAD_FUN(load_pcrace)
 			KEY("Slang", pcr->slang, fread_fword(slang_table, fp));
 			SKEY("SkillSpec", pcr->skill_spec,
 			     fread_strkey(fp, &specs, "load_pcrace"));
-			if (!str_cmp(word, "ShortName")) {
+			if (IS_TOKEN(fp, "ShortName")) {
 				const char *p = fread_string(fp);
 				strnzcpy(pcr->who_name, sizeof(pcr->who_name),
 					 p);
 				free_string(p);
 				fMatch = TRUE;
 			}
-			if (!str_cmp(word, "Stats")) {
+			if (IS_TOKEN(fp, "Stats")) {
 				for (i = 0; i < MAX_STATS; i++)
 					pcr->stats[i] = fread_number(fp);
 				fMatch = TRUE;
 			}
 		}
 
-		if (!fMatch)
-			db_error("load_pcrace", "%s: Unknown keyword", word);
+		if (!fMatch) {
+			db_error("load_pcrace", "%s: Unknown keyword",
+				 rfile_tok(fp));
+			fread_to_eol(fp);
+		}
 	}
 }

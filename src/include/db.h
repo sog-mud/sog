@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db.h,v 1.56 1999-10-25 12:05:18 fjoe Exp $
+ * $Id: db.h,v 1.57 1999-10-26 13:52:49 fjoe Exp $
  */
 
 #ifndef _DB_H_
@@ -133,15 +133,6 @@ void	reset_room	(ROOM_INDEX_DATA *pRoom, int flags);
 
 char *		fix_string	(const char *s);
 
-const char *	fread_string	(rfile_t *fp);
-char		fread_letter	(rfile_t *fp);
-int		fread_number	(rfile_t *fp);
-flag64_t 	fread_flags	(rfile_t *fp);
-void		fread_to_eol	(rfile_t *fp);
-char *		fread_word	(rfile_t *fp);
-flag64_t	fread_fword	(const flag_t *table, rfile_t *fp); 
-flag64_t	fread_fstring	(const flag_t *table, rfile_t *fp);
-
 void		fwrite_ival	(FILE *fp, const flag_t *table,
 				 const char *name, int);
 void		fwrite_string	(FILE *fp, const char *name, const char *str);
@@ -149,7 +140,6 @@ void		fwrite_word	(FILE *fp, const char *name, const char *w);
 void		fwrite_number	(FILE *fp, const char *name, int num);
 
 extern char	filename	[PATH_MAX];
-extern int	line_number;
 void		db_error	(const char* fn, const char* fmt, ...);
 
 #define SLIST_ADD(type, list, item)					\
@@ -165,28 +155,6 @@ void		db_error	(const char* fn, const char* fmt, ...);
 		}							\
 		(item)->next = NULL;					\
 	}
-
-#define KEY(literal, field, value)			\
-		if (!str_cmp(word, literal)) {		\
-			field  = value;			\
-			fMatch = TRUE;			\
-			break;				\
-		}
-
-#define SKEY(string, field, value)			\
-		if (!str_cmp(word, string)) {		\
-			free_string(field);		\
-			field = value;			\
-			fMatch = TRUE;			\
-			break;				\
-		}
-
-#define MLSKEY(string, field)				\
-		if (!str_cmp(word, string)) {		\
-			mlstr_fread(fp, &field);	\
-			fMatch = TRUE;			\
-			break;				\
-		}
 
 extern int		newmobs;
 extern int		newobjs;

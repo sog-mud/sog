@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_liquid.c,v 1.4 1999-10-25 12:05:30 fjoe Exp $
+ * $Id: db_liquid.c,v 1.5 1999-10-26 13:52:58 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -63,12 +63,12 @@ DBLOAD_FUN(load_liquid)
 	liquid_init(&lq);
 
 	for (;;) {
-		char *word = rfile_feof(fp) ? "End" : fread_word(fp);
 		bool fMatch = FALSE;
 
-		switch (UPPER(word[0])) {
+		fread_keyword(fp);
+		switch (rfile_tokfl(fp)) {
 		case 'A':
-			if (!str_cmp(word, "Affect")) {
+			if (IS_TOKEN(fp, "Affect")) {
 				int i;
 
 				for (i = 0; i < MAX_COND; i++)
@@ -80,7 +80,7 @@ DBLOAD_FUN(load_liquid)
 			SKEY("Color", lq.color, fread_string(fp));
 			break;
 		case 'E':
-			if (!str_cmp(word, "End")) {
+			if (IS_TOKEN(fp, "End")) {
 				if (IS_NULLSTR(lq.name))
 					db_error("load_liquid",
 						 "liquid name undefined");
@@ -99,7 +99,10 @@ DBLOAD_FUN(load_liquid)
 			break;
 		}
 
-		if (!fMatch)
-			db_error("load_liquid", "%s: Unknown keyword", word);
+		if (!fMatch) {
+			db_error("load_liquid", "%s: Unknown keyword",
+				 rfile_tok(fp));
+			fread_to_eol(fp);
+		}
 	}
 }

@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.71 1999-10-25 12:05:23 fjoe Exp $
+ * $Id: recycle.c,v 1.72 1999-10-26 13:52:51 fjoe Exp $
  */
 
 /***************************************************************************
@@ -974,7 +974,7 @@ void fread_objval(flag32_t item_type, vo_t *v, rfile_t *fp)
 		break;
 
 	case ITEM_WEAPON:
-		INT_VAL(v[0]) = flag_value(weapon_class, fread_word(fp));
+		INT_VAL(v[0]) = fread_fword(weapon_class, fp);
 		INT_VAL(v[1]) = fread_number(fp);
 		INT_VAL(v[2]) = fread_number(fp);
 		STR_VAL_ASSIGN(v[3], fread_strkey(fp, &damtypes, "fread_obj_val"));

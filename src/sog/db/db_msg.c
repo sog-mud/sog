@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_msg.c,v 1.6 1999-10-25 12:05:30 fjoe Exp $
+ * $Id: db_msg.c,v 1.7 1999-10-26 13:52:58 fjoe Exp $
  */
 
 #include <limits.h>
@@ -67,12 +67,12 @@ DBLOAD_FUN(load_msg)
 	m.gender = 0;
 
 	for (;;) {
-		char *word = rfile_feof(fp) ? "End" : fread_word(fp);
 		bool fMatch = FALSE;
 
-		switch (UPPER(word[0])) {
+		fread_keyword(fp);
+		switch (rfile_tokfl(fp)) {
 		case 'E':
-			if (!str_cmp(word, "End")) {
+			if (IS_TOKEN(fp, "End")) {
 				if (mlstr_null(&m.ml)) {
 					db_error("load_msg",
 						 "msg text not defined");
@@ -91,7 +91,10 @@ DBLOAD_FUN(load_msg)
 			break;
 		}
 
-		if (!fMatch) 
-			db_error("load_msg", "%s: Unknown keyword", word);
+		if (!fMatch) {
+			db_error("load_msg", "%s: Unknown keyword",
+				 rfile_tok(fp));
+			fread_to_eol(fp);
+		}
 	}
 }

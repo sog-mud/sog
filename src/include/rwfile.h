@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: rwfile.h,v 1.1 1999-10-25 12:05:20 fjoe Exp $
+ * $Id: rwfile.h,v 1.2 1999-10-26 13:52:50 fjoe Exp $
  */
 
 #ifndef _RFILE_H_
@@ -32,10 +32,13 @@
 #ifdef USE_MMAP
 
 struct rfile_t {
-	unsigned char *	p;
+	const u_char *	p;
 	off_t	len;
 	off_t	pos;
 	int	fd;
+
+	const u_char *	tok;		/* token for fread_word */
+	off_t		tok_len;	/* token length		*/
 };
 
 rfile_t *	rfile_open(const char *dir, const char *file);
@@ -43,13 +46,59 @@ void		rfile_close(rfile_t *fp);
 
 #define		rfile_feof(fp)		((fp)->pos >= (fp)->len)
 
-#else
+bool		IS_TOKEN(rfile_t *fp, const char *k);
+const char *	rfile_tok(rfile_t *fp);
+#define		rfile_tokfl(fp)		(UPPER((fp)->tok[0]))
+
+#else /* USE_MMAP */
 
 #define rfile_open(dir, file)	dfopen((dir), (file), "r")
 #define rfile_close(fp)		fclose(fp)
 #define rfile_feof(fp)		feof(fp)
 
-#endif
+extern const char _token[MAX_STRING_LENGTH];
+
+#define		IS_TOKEN(fp, k)		(!str_cmp(_token, (k)))
+#define		rfile_token(fp)		(_token)
+#define		rfile_tokfl(fp)		(UPPER(_token[0]))
+
+#endif /* USE_MMAP */
+
+extern int	line_number;
+
+void		fread_word	(rfile_t *fp);
+void		fread_keyword	(rfile_t *fp);
+const char *	fread_sword	(rfile_t *fp);
+
+const char *	fread_string	(rfile_t *fp);
+char		fread_letter	(rfile_t *fp);
+int		fread_number	(rfile_t *fp);
+flag64_t 	fread_flags	(rfile_t *fp);
+void		fread_to_eol	(rfile_t *fp);
+flag64_t	fread_fword	(const flag_t *table, rfile_t *fp); 
+flag64_t	fread_fstring	(const flag_t *table, rfile_t *fp);
+
+#define KEY(k, field, val)				\
+		if (IS_TOKEN(fp, (k))) {		\
+			(field) = (val);		\
+			fMatch = TRUE;			\
+			break;				\
+		}
+
+#define SKEY(k, field, val)				\
+		if (IS_TOKEN(fp, (k))) {		\
+			free_string(field);		\
+			(field) = (val);		\
+			fMatch = TRUE;			\
+			break;				\
+		}
+
+#define MLSKEY(k, field)				\
+		if (IS_TOKEN(fp, (k))) {		\
+			mlstr_fread(fp, &(field));	\
+			fMatch = TRUE;			\
+			break;				\
+		}
 
 #endif
 

@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.98 1999-10-25 14:41:06 kostik Exp $
+ * $Id: tables.c,v 1.99 1999-10-26 13:52:53 fjoe Exp $
  */
 
 /***************************************************************************
@@ -255,7 +255,7 @@ flag_t imm_flags[] =
 	{ "fire",		IMM_FIRE,		TRUE	},
 	{ "cold",		IMM_COLD,		TRUE	},
 	{ "light",		IMM_LIGHT,		TRUE	},
-	{ "electricity",	IMM_LIGHTNING,		TRUE	},
+	{ "lightning",		IMM_LIGHTNING,		TRUE	},
 	{ "acid",		IMM_ACID,		TRUE	},
 	{ "poison",		IMM_POISON,		TRUE	},
 	{ "negative",		IMM_NEGATIVE,		TRUE	},
@@ -812,7 +812,7 @@ flag_t res_flags[] =
 	{ "fire",		RES_FIRE,		TRUE	},
 	{ "cold",		RES_COLD,		TRUE	},
 	{ "light",		RES_LIGHT,		TRUE	},
-	{ "electricity",	RES_LIGHTNING,		TRUE	},
+	{ "lightning",		RES_LIGHTNING,		TRUE	},
 	{ "acid",		RES_ACID,		TRUE	},
 	{ "poison",		RES_POISON,		TRUE	},
 	{ "negative",		RES_NEGATIVE,		TRUE	},
@@ -843,7 +843,7 @@ flag_t vuln_flags[] =
 	{ "fire",		VULN_FIRE,		TRUE	},
 	{ "cold",		VULN_COLD,		TRUE	},
 	{ "light",		VULN_LIGHT,		TRUE	},
-	{ "electricity",	VULN_LIGHTNING,		TRUE	},
+	{ "lightning",		VULN_LIGHTNING,		TRUE	},
 	{ "acid",		VULN_ACID,		TRUE	},
 	{ "poison",		VULN_POISON,		TRUE	},
 	{ "negative",		VULN_NEGATIVE,		TRUE	},
@@ -1367,7 +1367,7 @@ flag_t dam_classes[] =
 	{ "slash",		DAM_SLASH,			TRUE	},
 	{ "fire",		DAM_FIRE,			TRUE	},
 	{ "cold",		DAM_COLD,			TRUE	},
-	{ "electricity",	DAM_LIGHTNING,			TRUE	},
+	{ "lightning",		DAM_LIGHTNING,			TRUE	},
 	{ "acid",		DAM_ACID,			TRUE	},
 	{ "poison",		DAM_POISON,			TRUE	},
 	{ "negative",		DAM_NEGATIVE,			TRUE	},

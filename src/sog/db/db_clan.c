@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_clan.c,v 1.23 1999-10-25 12:05:29 fjoe Exp $
+ * $Id: db_clan.c,v 1.24 1999-10-26 13:52:58 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -77,15 +77,15 @@ DBLOAD_FUN(load_clan)
 	clan_init(&clan);
 
 	for (;;) {
-		char *word = rfile_feof(fp) ? "End" : fread_word(fp);
 		bool fMatch = FALSE;
 
-		switch (UPPER(word[0])) {
+		fread_keyword(fp);
+		switch (rfile_tokfl(fp)) {
 		case 'A':
 			KEY("Altar", clan.altar_vnum, fread_number(fp));
 			break;
 		case 'E':
-			if (!str_cmp(word, "End")) {
+			if (IS_TOKEN(fp, "End")) {
 				clan_t *pclan;
 				if (IS_NULLSTR(clan.name)) {
 					db_error("load_clan",
@@ -127,8 +127,11 @@ DBLOAD_FUN(load_clan)
 			     fread_strkey(fp, &specs, "load_clan"));
 		}
 
-		if (!fMatch) 
-			db_error("load_clan", "%s: Unknown keyword", word);
+		if (!fMatch) {
+			db_error("load_clan", "%s: Unknown keyword",
+				 rfile_tok(fp));
+			fread_to_eol(fp);
+		}
 	}
 }
 
@@ -137,12 +140,12 @@ DBLOAD_FUN(load_plists)
 	clan_t *clan = arg;
 
 	for (;;) {
-		char *word = rfile_feof(fp) ? "End" : fread_word(fp);
 		bool fMatch = FALSE;
 
-		switch (UPPER(word[0])) {
+		fread_keyword(fp);
+		switch (rfile_tokfl(fp)) {
 		case 'E':
-			if (!str_cmp(word, "End"))
+			if (IS_TOKEN(fp, "End"))
 				return;
 			break;
 		case 'L':
@@ -156,8 +159,11 @@ DBLOAD_FUN(load_plists)
 			break;
 		}
 
-		if (!fMatch) 
-			db_error("load_plists", "%s: Unknown keyword", word);
+		if (!fMatch) {
+			db_error("load_plists", "%s: Unknown keyword",
+				 rfile_tok(fp));
+			fread_to_eol(fp);
+		}
 	}
 }
 

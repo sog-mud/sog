@@ -1,5 +1,5 @@
 /*
- * $Id: flag.c,v 1.26 1999-06-25 07:14:38 fjoe Exp $
+ * $Id: flag.c,v 1.27 1999-10-26 13:52:51 fjoe Exp $
  */
 
 /***************************************************************************
@@ -84,8 +84,10 @@ flag64_t flag_value(const flag_t *flag64_table, const char *argument)
 			if (word[0] == '\0')
 				break;
 
-			if ((f = flag_lookup(flag64_table, word)) == NULL)
-				return 0;
+			if ((f = flag_lookup(flag64_table, word)) == NULL) {
+				log("flag_value: %s: unknown flag name", word);
+				continue;
+			}
 
 			SET_BIT(marked, f->bit);
 		}

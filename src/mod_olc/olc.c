@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.78 1999-10-21 12:51:54 fjoe Exp $
+ * $Id: olc.c,v 1.79 1999-10-26 13:52:50 fjoe Exp $
  */
 
 /***************************************************************************
@@ -604,7 +604,8 @@ bool olced_flag64(CHAR_DATA *ch, const char *argument,
 		return FALSE;
 	}
 
-	if (!str_cmp(argument, "?")) {
+	if (IS_NULLSTR(argument)
+	||  !str_cmp(argument, "?")) {
 		show_flags(ch, cmd->arg1);
 		return FALSE;
 	}

@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.130 1999-10-25 12:05:24 fjoe Exp $
+ * $Id: save.c,v 1.131 1999-10-26 13:52:52 fjoe Exp $
  */
 
 /***************************************************************************
@@ -767,7 +767,6 @@ CHAR_DATA *char_load(const char *name, int flags)
 
 	for (;;) {
 		char	letter;
-		char *	word;
 		letter = fread_letter(fp);
 		if (letter == '*') {
 			fread_to_eol(fp);
@@ -777,20 +776,21 @@ CHAR_DATA *char_load(const char *name, int flags)
 			log("char_load: %s: # not found.", ch->name);
 			break;
 		}
-		word = fread_word(fp);
-		if (!str_cmp(word, "PLAYER"))
+
+		fread_word(fp);
+		if (IS_TOKEN(fp, "PLAYER"))
 			fread_char(ch, fp, flags);
-		else if (!str_cmp(word, "OBJECT"))
+		else if (IS_TOKEN(fp, "OBJECT"))
 			fread_obj(ch, fp, flags);
-		else if (!str_cmp(word, "O"))
+		else if (IS_TOKEN(fp, "O"))
 			fread_obj(ch, fp, flags);
-		else if (!str_cmp(word, "PET"))
+		else if (IS_TOKEN(fp, "PET"))
 			fread_pet(ch, fp, flags);
-		else if (!str_cmp(word, "END"))
+		else if (IS_TOKEN(fp, "END"))
 			break;
 		else {
 			log("char_load: %s: %s: bad section.", 
-				   ch->name, word);
+			    ch->name, rfile_tok(fp));
 			break;
 		}
 	}
@@ -832,8 +832,6 @@ CHAR_DATA *char_load(const char *name, int flags)
 void 
 fread_char(CHAR_DATA * ch, rfile_t * fp, int flags)
 {
-	char           *word = "End";
-	bool            fMatch;
 	int             count = 0;
 	int             percent;
 	int		foo;
@@ -842,10 +840,10 @@ fread_char(CHAR_DATA * ch, rfile_t * fp, int flags)
 	PC(ch)->bank_g = 0;
 
 	for (;;) {
-		word = rfile_feof(fp) ? "End" : fread_word(fp);
-		fMatch = FALSE;
+		bool fMatch = FALSE;
 
-		switch (UPPER(word[0])) {
+		fread_keyword(fp);
+		switch (rfile_tokfl(fp)) {
 		case '*':
 			fMatch = TRUE;
 			fread_to_eol(fp);
@@ -863,48 +861,47 @@ fread_char(CHAR_DATA * ch, rfile_t * fp, int flags)
 			KEY("Alig", ch->alignment, fread_number(fp));
 			KEY("AntKilled", PC(ch)->anti_killed, fread_number(fp));
 
-			if (!str_cmp(word, "Alia")
-			||  !str_cmp(word, "Alias")) {
+			if (IS_TOKEN(fp, "Alia") || IS_TOKEN(fp, "Alias")) {
 				if (count >= MAX_ALIAS) {
 					fread_to_eol(fp);
 					fMatch = TRUE;
 					break;
 				}
 				PC(ch)->dvdata->alias[count] =
-						str_dup(fread_word(fp));
+						fread_sword(fp);
 				PC(ch)->dvdata->alias_sub[count] =
 						fread_string(fp);
 				count++;
 				fMatch = TRUE;
 				break;
 			}
-			if (!str_cmp(word, "AC") || !str_cmp(word, "Armor")) {
+			if (IS_TOKEN(fp, "AC") || IS_TOKEN(fp, "Armor")) {
 				fread_to_eol(fp);
 				fMatch = TRUE;
 				break;
 			}
-			if (!str_cmp(word, "ACs")) {
+			if (IS_TOKEN(fp, "ACs")) {
 				int             i;
 				for (i = 0; i < 4; i++)
 					ch->armor[i] = fread_number(fp);
 				fMatch = TRUE;
 				break;
 			}
-			if (!str_cmp(word, "Affc")) {
+			if (IS_TOKEN(fp, "Affc")) {
 				AFFECT_DATA *paf = fread_affect(fp);
 				SLIST_ADD(AFFECT_DATA, ch->affected, paf);
 				fMatch = TRUE;
 				break;
 			}
-			if (!str_cmp(word, "AttrMod") || !str_cmp(word, "AMod")) {
-				int             stat;
+			if (IS_TOKEN(fp, "AttrMod") || IS_TOKEN(fp, "AMod")) {
+				int stat;
 				for (stat = 0; stat < MAX_STATS; stat++)
 					ch->mod_stat[stat] = fread_number(fp);
 				fMatch = TRUE;
 				break;
 			}
-			if (!str_cmp(word, "AttrPerm") || !str_cmp(word, "Attr")) {
-				int             stat;
+			if (IS_TOKEN(fp, "AttrPerm") || IS_TOKEN(fp, "Attr")) {
+				int stat;
 				for (stat = 0; stat < MAX_STATS; stat++)
 					ch->perm_stat[stat] = fread_number(fp);
 				fMatch = TRUE;
@@ -932,15 +929,14 @@ fread_char(CHAR_DATA * ch, rfile_t * fp, int flags)
 			    fread_strkey(fp, &clans, "fread_char"));
 			KEY("ClanStatus", PC(ch)->clan_status,
 			    fread_number(fp));
-			if (!str_cmp(word, "Condition")
-			|| !str_cmp(word, "Cond")) {
+			if (IS_TOKEN(fp, "Condition") || IS_TOKEN(fp, "Cond")) {
 				PC(ch)->condition[0] = fread_number(fp);
 				PC(ch)->condition[1] = fread_number(fp);
 				PC(ch)->condition[2] = fread_number(fp);
 				fMatch = TRUE;
 				break;
 			}
-			if (!str_cmp(word, "CndC")) {
+			if (IS_TOKEN(fp, "CndC")) {
 				PC(ch)->condition[0] = fread_number(fp);
 				PC(ch)->condition[1] = fread_number(fp);
 				PC(ch)->condition[2] = fread_number(fp);
@@ -950,7 +946,7 @@ fread_char(CHAR_DATA * ch, rfile_t * fp, int flags)
 				fMatch = TRUE;
 				break;
 			}
-			if (!str_cmp(word, "Cnd")) {
+			if (IS_TOKEN(fp, "Cnd")) {
 				PC(ch)->condition[0] = fread_number(fp);
 				PC(ch)->condition[1] = fread_number(fp);
 				PC(ch)->condition[2] = fread_number(fp);
@@ -971,7 +967,7 @@ fread_char(CHAR_DATA * ch, rfile_t * fp, int flags)
 			break;
 
 		case 'E':
-			if (!str_cmp(word, "End")) {
+			if (IS_TOKEN(fp, "End")) {
 				clan_t *clan;
 				const char **nl = NULL;
 				bool touched = FALSE;
@@ -1040,14 +1036,14 @@ fread_char(CHAR_DATA * ch, rfile_t * fp, int flags)
 		case 'G':
 			KEY("Gold", ch->gold, fread_number(fp));
 			SKEY("Granted", PC(ch)->granted, fread_string(fp));
-			if (!str_cmp(word, "Group") || !str_cmp(word, "Gr")) {
+			if (IS_TOKEN(fp, "Group") || IS_TOKEN(fp, "Gr")) {
 				fread_word(fp);
 				fMatch = TRUE;
 			}
 			break;
 
 		case 'H':
-			if (!str_cmp(word, "Hometown")) {
+			if (IS_TOKEN(fp, "Hometown")) {
 				const char *s = fread_string(fp);
 				PC(ch)->hometown = htn_lookup(s);
 				free_string(s);
@@ -1059,7 +1055,7 @@ fread_char(CHAR_DATA * ch, rfile_t * fp, int flags)
 			KEY("Home", PC(ch)->hometown, fread_number(fp));
 			KEY("Haskilled", PC(ch)->has_killed,
 			    fread_number(fp));
-			if (!str_cmp(word, "Homepoint")) {
+			if (IS_TOKEN(fp, "Homepoint")) {
 				int room = fread_number(fp);
 
 				if (IS_SET(flags, LOAD_F_MOVE))
@@ -1069,7 +1065,7 @@ fread_char(CHAR_DATA * ch, rfile_t * fp, int flags)
 				break;
 			}
 
-			if (!str_cmp(word, "HpManaMove") || !str_cmp(word, "HMV")) {
+			if (IS_TOKEN(fp, "HpManaMove") || IS_TOKEN(fp, "HMV")) {
 				ch->hit = fread_number(fp);
 				ch->max_hit = fread_number(fp);
 				ch->mana = fread_number(fp);
@@ -1079,7 +1075,7 @@ fread_char(CHAR_DATA * ch, rfile_t * fp, int flags)
 				fMatch = TRUE;
 				break;
 			}
-			if (!str_cmp(word, "HpManaMovePerm") || !str_cmp(word, "HMVP")) {
+			if (IS_TOKEN(fp, "HpManaMovePerm") || IS_TOKEN(fp, "HMVP")) {
 				PC(ch)->perm_hit = fread_number(fp);
 				PC(ch)->perm_mana = fread_number(fp);
 				PC(ch)->perm_move = fread_number(fp);
@@ -1106,7 +1102,7 @@ fread_char(CHAR_DATA * ch, rfile_t * fp, int flags)
 		case 'N':
 			SKEY("Name", ch->name, fread_string(fp));
 			KEY("Note", PC(ch)->last_note, fread_number(fp));
-			if (!str_cmp(word, "Not")) {
+			if (IS_TOKEN(fp, "Not")) {
 				PC(ch)->last_note = fread_number(fp);
 				PC(ch)->last_idea = fread_number(fp);
 				PC(ch)->last_penalty = fread_number(fp);
@@ -1151,14 +1147,13 @@ fread_char(CHAR_DATA * ch, rfile_t * fp, int flags)
 
 		case 'R':
 			KEY("Relig", PC(ch)->religion, fread_number(fp));
-			if (!str_cmp(word, "Race")
-			||  !str_cmp(word, "RaceW")) {
+			if (IS_TOKEN(fp, "Race") || IS_TOKEN(fp, "RaceW")) {
 				free_string(ch->race);
 				ch->race = fread_strkey(fp, &races, "fread_char");
 				SET_ORG_RACE(ch, ch->race);
 				fMatch = TRUE;
 			}
-			if (!str_cmp(word, "Room")) {
+			if (IS_TOKEN(fp, "Room")) {
 				int room = fread_number(fp);
 
 				if (IS_SET(flags, LOAD_F_MOVE))
@@ -1180,12 +1175,12 @@ fread_char(CHAR_DATA * ch, rfile_t * fp, int flags)
 			MLSKEY("ShD", ch->short_descr);
 			KEY("Sec", PC(ch)->security, fread_number(fp));
 			KEY("Silv", ch->silver, fread_number(fp));
-			if (!str_cmp(word, "Spec")) {
+			if (IS_TOKEN(fp, "Spec")) {
 				const char **pspn = varr_enew(&PC(ch)->specs);
 				*pspn = fread_strkey(fp, &specs, "fread_char");
 				fMatch = TRUE;
 			}
-			if (!str_cmp(word, "Skill") || !str_cmp(word, "Sk")) {
+			if (IS_TOKEN(fp, "Skill") || IS_TOKEN(fp, "Sk")) {
 				int value = fread_number(fp);
 				const char *sn = fread_strkey(fp, &skills,
 							    "fread_char");
@@ -1201,7 +1196,7 @@ fread_char(CHAR_DATA * ch, rfile_t * fp, int flags)
 			KEY("Trai", PC(ch)->train, fread_number(fp));
 			KEY("Trust", PC(ch)->trust, fread_flags(fp));
 			SKEY("Twitlist", PC(ch)->twitlist, fread_string(fp));
-			if (!str_cmp(word, "Title") || !str_cmp(word, "Titl")) {
+			if (IS_TOKEN(fp, "Title") || IS_TOKEN(fp, "Titl")) {
 				const char *p = fread_string(fp);
 				set_title(ch, p);
 				free_string(p);
@@ -1212,7 +1207,7 @@ fread_char(CHAR_DATA * ch, rfile_t * fp, int flags)
 
 		case 'V':
 			KEY("Vers", PC(ch)->version, fread_number(fp));
-			if (!str_cmp(word, "Vnum")) {
+			if (IS_TOKEN(fp, "Vnum")) {
 				ch->pMobIndex = get_mob_index(fread_number(fp));
 				fMatch = TRUE;
 				break;
@@ -1229,7 +1224,7 @@ fread_char(CHAR_DATA * ch, rfile_t * fp, int flags)
 
 		if (!fMatch) {
 			log("fread_char: %s: %s: no match",
-				   ch->name, word);
+			    ch->name, rfile_tok(fp));
 			fread_to_eol(fp);
 		}
 	}
@@ -1239,13 +1234,12 @@ fread_char(CHAR_DATA * ch, rfile_t * fp, int flags)
 void 
 fread_pet(CHAR_DATA * ch, rfile_t * fp, int flags)
 {
-	char           *word;
 	CHAR_DATA      *pet;
-	bool            fMatch;
 	int             percent;
+
 	/* first entry had BETTER be the vnum or we barf */
-	word = rfile_feof(fp) ? "END" : fread_word(fp);
-	if (!str_cmp(word, "Vnum")) {
+	fread_keyword(fp);
+	if (IS_TOKEN(fp, "Vnum")) {
 		int             vnum;
 		vnum = fread_number(fp);
 		if (IS_SET(flags, LOAD_F_MOVE))
@@ -1263,10 +1257,10 @@ fread_pet(CHAR_DATA * ch, rfile_t * fp, int flags)
 	}
 
 	for (;;) {
-		word = rfile_feof(fp) ? "END" : fread_word(fp);
-		fMatch = FALSE;
+		bool fMatch = FALSE;
 
-		switch (UPPER(word[0])) {
+		fread_keyword(fp);
+		switch (rfile_tokfl(fp)) {
 		case '*':
 			fMatch = TRUE;
 			fread_to_eol(fp);
@@ -1276,27 +1270,27 @@ fread_pet(CHAR_DATA * ch, rfile_t * fp, int flags)
 			KEY("AfBy", pet->affected_by, fread_flags(fp));
 			KEY("Alig", pet->alignment, fread_number(fp));
 
-			if (!str_cmp(word, "ACs")) {
+			if (IS_TOKEN(fp, "ACs")) {
 				int             i;
 				for (i = 0; i < 4; i++)
 					pet->armor[i] = fread_number(fp);
 				fMatch = TRUE;
 				break;
 			}
-			if (!str_cmp(word, "Affc")) {
+			if (IS_TOKEN(fp, "Affc")) {
 				AFFECT_DATA *paf = fread_affect(fp);
 				SLIST_ADD(AFFECT_DATA, pet->affected, paf);
 				fMatch = TRUE;
 				break;
 			}
-			if (!str_cmp(word, "AMod")) {
+			if (IS_TOKEN(fp, "AMod")) {
 				int             stat;
 				for (stat = 0; stat < MAX_STATS; stat++)
 					pet->mod_stat[stat] = fread_number(fp);
 				fMatch = TRUE;
 				break;
 			}
-			if (!str_cmp(word, "Attr")) {
+			if (IS_TOKEN(fp, "Attr")) {
 				int             stat;
 				for (stat = 0; stat < MAX_STATS; stat++)
 					pet->perm_stat[stat] = fread_number(fp);
@@ -1319,7 +1313,7 @@ fread_pet(CHAR_DATA * ch, rfile_t * fp, int flags)
 			break;
 
 		case 'E':
-			if (!str_cmp(word, "End")) {
+			if (IS_TOKEN(fp, "End")) {
 				int logoff = PC(ch)->logoff;
 				if (!logoff)
 					logoff = current_time;
@@ -1352,7 +1346,7 @@ fread_pet(CHAR_DATA * ch, rfile_t * fp, int flags)
 		case 'H':
 			KEY("Hit", pet->hitroll, fread_number(fp));
 
-			if (!str_cmp(word, "HMV")) {
+			if (IS_TOKEN(fp, "HMV")) {
 				pet->hit = fread_number(fp);
 				pet->max_hit = fread_number(fp);
 				pet->mana = fread_number(fp);
@@ -1394,7 +1388,7 @@ fread_pet(CHAR_DATA * ch, rfile_t * fp, int flags)
 
 		if (!fMatch) {
 			log("fread_pet: %s: %s: no match",
-				   ch->name, word);
+			    ch->name, rfile_tok(fp));
 			fread_to_eol(fp);
 		}
 	}
@@ -1406,10 +1400,8 @@ void
 fread_obj(CHAR_DATA * ch, rfile_t * fp, int flags)
 {
 	OBJ_DATA       *obj;
-	char           *word;
 	int             iNest;
 	int		wl;
-	bool            fMatch;
 	bool            fNest;
 	bool            fVnum;
 	bool            first;
@@ -1418,8 +1410,8 @@ fread_obj(CHAR_DATA * ch, rfile_t * fp, int flags)
 	obj = NULL;
 	first = TRUE;		/* used to counter fp offset */
 
-	word = rfile_feof(fp) ? "End" : fread_word(fp);
-	if (!str_cmp(word, "Vnum")) {
+	fread_keyword(fp);
+	if (IS_TOKEN(fp, "Vnum")) {
 		int             vnum;
 		first = FALSE;	/* fp will be in right place */
 
@@ -1442,20 +1434,21 @@ fread_obj(CHAR_DATA * ch, rfile_t * fp, int flags)
 	iNest = 0;
 
 	for (;;) {
+		bool fMatch = FALSE;
+
 		if (first)
 			first = FALSE;
 		else
-			word = rfile_feof(fp) ? "End" : fread_word(fp);
-		fMatch = FALSE;
+			fread_keyword(fp);
 
-		switch (UPPER(word[0])) {
+		switch (rfile_tokfl(fp)) {
 		case '*':
 			fMatch = TRUE;
 			fread_to_eol(fp);
 			break;
 
 		case 'A':
-			if (!str_cmp(word, "Affc")) {
+			if (IS_TOKEN(fp, "Affc")) {
 				AFFECT_DATA *paf = fread_affect(fp);
 				SLIST_ADD(AFFECT_DATA, obj->affected, paf);
 				fMatch = TRUE;
@@ -1474,7 +1467,7 @@ fread_obj(CHAR_DATA * ch, rfile_t * fp, int flags)
 			break;
 
 		case 'E':
-			if (!str_cmp(word, "Enchanted")) {
+			if (IS_TOKEN(fp, "Enchanted")) {
 				enchanted = TRUE;
 				fMatch = TRUE;
 				break;
@@ -1483,13 +1476,13 @@ fread_obj(CHAR_DATA * ch, rfile_t * fp, int flags)
 			KEY("ExtraFlags", obj->extra_flags, fread_number(fp));
 			KEY("ExtF", obj->extra_flags, fread_number(fp));
 
-			if (!str_cmp(word, "ExtraDescr") || !str_cmp(word, "ExDe")) {
+			if (IS_TOKEN(fp, "ExtraDescr") || IS_TOKEN(fp, "ExDe")) {
 				ed_fread(fp, &obj->ed);
 				fMatch = TRUE;
 				break;
 			}
 
-			if (!str_cmp(word, "End")) {
+			if (IS_TOKEN(fp, "End")) {
 				if (enchanted)
 					SET_BIT(obj->extra_flags,
 						ITEM_ENCHANTED);
@@ -1530,7 +1523,7 @@ fread_obj(CHAR_DATA * ch, rfile_t * fp, int flags)
 		case 'N':
 			SKEY("Name", obj->name, fread_string(fp));
 
-			if (!str_cmp(word, "Nest")) {
+			if (IS_TOKEN(fp, "Nest")) {
 				iNest = fread_number(fp);
 				if (iNest < 0 || iNest >= MAX_NEST) {
 					log("fread_obj: %s: bad nest %d",
@@ -1555,7 +1548,7 @@ fread_obj(CHAR_DATA * ch, rfile_t * fp, int flags)
 			MLSKEY("ShortDescr", obj->short_descr);
 			MLSKEY("ShD", obj->short_descr);
 
-			if (!str_cmp(word, "Spell")) {
+			if (IS_TOKEN(fp, "Spell")) {
 				int iValue = fread_number(fp);
 				const char *sn = fread_strkey(fp, &skills, "fread_obj");
 
@@ -1575,7 +1568,7 @@ fread_obj(CHAR_DATA * ch, rfile_t * fp, int flags)
 			break;
 
 		case 'V':
-			if (!str_cmp(word, "Values")) {
+			if (IS_TOKEN(fp, "Values")) {
 				fread_objval(obj->pObjIndex->item_type,
 					     obj->value, fp);
 				if (obj->pObjIndex->item_type == ITEM_WEAPON
@@ -1584,7 +1577,7 @@ fread_obj(CHAR_DATA * ch, rfile_t * fp, int flags)
 				fMatch = TRUE;
 				break;
 			}
-			if (!str_cmp(word, "Val")) {
+			if (IS_TOKEN(fp, "Val")) {
 				switch(obj->pObjIndex->item_type) {
 				default:
 					obj->value[0] = fread_number(fp);
@@ -1622,7 +1615,7 @@ fread_obj(CHAR_DATA * ch, rfile_t * fp, int flags)
 				fMatch = TRUE;
 				break;
 			}
-			if (!str_cmp(word, "Vnum")) {
+			if (IS_TOKEN(fp, "Vnum")) {
 				int             vnum;
 				vnum = fread_number(fp);
 				if ((obj->pObjIndex = get_obj_index(vnum)) == NULL)
@@ -1644,7 +1637,7 @@ fread_obj(CHAR_DATA * ch, rfile_t * fp, int flags)
 
 		if (!fMatch) {
 			log("fread_obj: %s: %s: no match",
-				   ch->name, word);
+			    ch->name, rfile_tok(fp));
 			fread_to_eol(fp);
 		}
 	}

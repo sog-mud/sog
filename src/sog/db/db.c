@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.178 1999-10-25 12:05:27 fjoe Exp $
+ * $Id: db.c,v 1.179 1999-10-26 13:52:56 fjoe Exp $
  */
 
 /***************************************************************************
@@ -182,8 +182,6 @@ MOB_INDEX_DATA *	mob_index_hash		[MAX_KEY_HASH];
 OBJ_INDEX_DATA *	obj_index_hash		[MAX_KEY_HASH];
 ROOM_INDEX_DATA *	room_index_hash		[MAX_KEY_HASH];
 
-int			line_number;
-
 AREA_DATA *		area_first;
 AREA_DATA *		area_last;
 
@@ -291,20 +289,21 @@ void db_parse_file(DBDATA *dbdata, const char *path, const char *file)
 		return;
 	}
 
+	log("Loading %s", filename);
+
 	for (; ;) {
 		DBFUN *fn;
-		char *word;
 
 		if (fread_letter(fp) != '#') {
 			db_error("db_parse_file", "'#' not found");
 			break;
 		}
 
-		word = fread_word(fp);
-		if (word[0] == '$')
+		fread_word(fp);
+		if (IS_TOKEN(fp, "$"))
 			break;
 
-		fn = dbfun_lookup(dbdata, word);
+		fn = dbfun_lookup(dbdata, rfile_tok(fp));
 		if (fn) 
 			fn->fun(dbdata, fp, fn->arg);
 		else {
@@ -372,13 +371,13 @@ void db_load_list(DBDATA *dbdata, const char *path, const char *file)
 	if (!dbdata->tab_sz)
 		dbdata_init(dbdata);
 	for (; ;) {
-		char *name = fread_word(fp);
-		if (name[0] == '$')
+		fread_word(fp);
+		if (IS_TOKEN(fp, "$"))
 			break;
 
 		if (dbdata->dbinit)
 			dbdata->dbinit(dbdata);
-		db_parse_file(dbdata, path, name);
+		db_parse_file(dbdata, path, rfile_tok(fp));
 	}
 	rfile_close(fp);
 }
@@ -1649,274 +1648,6 @@ fix_word(const char *w)
 
 	snprintf(buf, sizeof(buf), "'%s'", w);
 	return buf;
-}
-
-#ifdef USE_MMAP
-
-int xgetc(rfile_t *fp)
-{
-	int c;
-
-	if (rfile_feof(fp))
-		return EOF;
-
-	c = fp->p[fp->pos++];
-	if (c == '\n')
-		line_number++;
-	return c;
-}
-
-void xungetc(rfile_t *fp)
-{
-	if (!fp->pos)
-		return;
-
-	fp->pos--;
-
-	if (!rfile_feof(fp)
-	&&  fp->p[fp->pos] == '\n')
-		line_number--;
-		
-}
-
-#else
-
-static int last_c;
-
-int xgetc(rfile_t *fp)
-{
-	int c = getc(fp);
-	if (c == '\n')
-		line_number++;
-	return last_c = c;
-}
-
-void xungetc(rfile_t *fp)
-{
-	if (last_c == '\n')
-		line_number--;
-	ungetc(last_c, fp);
-}
-
-#endif
-
-/*
- * Read a letter from a file.
- */
-char fread_letter(rfile_t *fp)
-{
-	char c;
-
-	do {
-		c = xgetc(fp);
-	} while (isspace(c));
-	return c;
-}
-
-/*
- * Read to end of line (for comments).
- */
-void fread_to_eol(rfile_t *fp)
-{
-	char c;
-
-	do {
-		c = xgetc(fp);
-	} while (c != '\n' && c != '\r');
-
-	do {
-		c = xgetc(fp);
-	} while (c == '\n' || c == '\r');
-
-	xungetc(fp);
-}
-
-const char *fread_string(rfile_t *fp)
-{
-	char buf[MAX_STRING_LENGTH];
-	char *plast = buf;
-	int c = fread_letter(fp);
-
-	for (;;) {
-		/*
-		 * Back off the char type lookup,
-		 *   it was too dirty for portability.
-		 *   -- Furey
-		 */
-
-		if (plast - buf >= sizeof(buf) - 1) {
-			bug("fread_string: line too long (truncated)", 0);
-			buf[sizeof(buf)-1] = '\0';
-			return str_dup(buf);
-		}
-
-		switch (c) {
-		default:
-			*plast++ = c;
-			break;
- 
-		case EOF:
-			db_error("fread_string", "EOF");
-			return str_empty;
- 
-		case '\r':
-			break;
- 
-		case '~':
-			if ((c = xgetc(fp)) == '~') {
-				*plast++ = c;
-				break;
-			}
-			xungetc(fp);
-			*plast = '\0';
-			return str_dup(buf);
-		}
-		c = xgetc(fp);
-	}
-}
-
-/*
- * Read one word (into static buffer).
- */
-char *fread_word(rfile_t *fp)
-{
-	static char word[MAX_INPUT_LENGTH];
-	char *pword;
-	char cEnd;
-
-	for (;;) {
-		cEnd = fread_letter(fp);
-
-		if (cEnd == '%') {
-			fread_to_eol(fp);
-			continue;
-		}
-
-		break;
-	}
-
-	if (cEnd == '\'' || cEnd == '"')
-		pword   = word;
-	else {
-		word[0] = cEnd;
-		pword   = word+1;
-		cEnd    = ' ';
-	}
-
-	for (; pword < word + MAX_INPUT_LENGTH; pword++) {
-		*pword = xgetc(fp);
-		if (cEnd == ' ' ? isspace(*pword) : *pword == cEnd) {
-			if (cEnd == ' ')
-				xungetc(fp);
-			*pword = '\0';
-			return word;
-		}
-	}
-
-	db_error("fread_word", "word too long");
-	return NULL;
-}
-
-/*
- * Read a number from a file.
- */
-int fread_number(rfile_t *fp)
-{
-	int number = 0;
-	bool sign = FALSE;
-	char c = fread_letter(fp);
-
-	if (c == '+')
-		c = xgetc(fp);
-	else if (c == '-') {
-		sign = TRUE;
-		c = xgetc(fp);
-	}
-
-	if (!isdigit(c)) {
-		if (fBootDb)
-			db_error("fread_number", "bad format");
-		log("fread_number: bad format");
-		exit(1);
-	}
-
-	while (isdigit(c)) {
-		number = number * 10 + c - '0';
-		c      = xgetc(fp);
-	}
-
-	if (sign)
-		number = 0 - number;
-
-	if (c == '|')
-		number += fread_number(fp);
-	else
-		xungetc(fp);
-
-	return number;
-}
-
-flag64_t fread_flags(rfile_t *fp)
-{
-	flag64_t number;
-	bool negative = FALSE;
-	char c = fread_letter(fp);
-
-	if (c == '-') {
-		negative = TRUE;
-		c = xgetc(fp);
-	}
-
-	number = 0;
-
-	if (!isdigit(c)) {
-		while (('A' <= c && c <= 'Z') || ('a' <= c && c <= 'z')) {
-			number += flag_convert(c);
-			c = xgetc(fp);
-		}
-	}
-
-	while (isdigit(c)) {
-		number = number * 10 + c - '0';
-		c = xgetc(fp);
-	}
-
-	if (c == '|')
-		number += fread_flags(fp);
-	else if (c != ' ')
-		xungetc(fp);
-
-	if (negative)
-		return -number;
-
-	return number;
-}
-
-/*
- * read flag word (not f-word :)
- */
-flag64_t fread_fword(const flag_t *table, rfile_t *fp)
-{
-	char *name = fread_word(fp);
-
-	if (is_number(name))
-		return atoi(name);
-
-	return flag_value(table, name);
-}
-
-flag64_t fread_fstring(const flag_t *table, rfile_t *fp)
-{
-	const char *s = fread_string(fp);
-	flag64_t val;
-
-	if (is_number(s))
-		val = atoi(s);
-	else
-		val = flag_value(table, s);
-
-	free_string(s);
-	return val;
 }
 
 void fwrite_ival(FILE *fp, const flag_t *table, const char *name, int val)

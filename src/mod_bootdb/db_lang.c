@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_lang.c,v 1.18 1999-10-25 12:05:30 fjoe Exp $
+ * $Id: db_lang.c,v 1.19 1999-10-26 13:52:58 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -65,6 +65,17 @@ DBFUN dbfun_impl[] =
 DBDATA db_expl = { dbfun_expl };
 DBDATA db_impl = { dbfun_impl };
 
+static int
+fread_lang(rfile_t *fp)
+{
+	fread_word(fp);
+#ifdef USE_MMAP
+	return lang_nlookup(fp->tok, fp->tok_len);
+#else
+	return lang_lookup(rfile_tok(fp));
+#endif
+}
+
 /*----------------------------------------------------------------------------
  * lang loader
  */
@@ -81,12 +92,12 @@ DBLOAD_FUN(load_lang)
 	db_set_arg(dbdata, "RULECLASS", lang);
 
 	for (;;) {
-		char *word = rfile_feof(fp) ? "End" : fread_word(fp);
 		bool fMatch = FALSE;
 
-		switch (UPPER(*word)) {
+		fread_keyword(fp);
+		switch (rfile_tokfl(fp)) {
 		case 'E':
-			if (!str_cmp(word, "End")) {
+			if (IS_TOKEN(fp, "End")) {
 				if (IS_NULLSTR(lang->name)) {
 					db_error("load_lang",
 						 "lang name undefined");
@@ -101,22 +112,24 @@ DBLOAD_FUN(load_lang)
 			    fread_fstring(lang_flags, fp));
 			break;
 		case 'N':
-			KEY("Name", lang->name, str_dup(fread_word(fp)));
+			KEY("Name", lang->name, fread_sword(fp));
 			break;
 		case 'S':
-			KEY("SlangOf", lang->slang_of,
-			    lang_lookup(fread_word(fp)));
+			KEY("SlangOf", lang->slang_of, fread_lang(fp));
+			break;
 		}
 
-		if (!fMatch) 
-			db_error("load_lang", "%s: Unknown keyword", word);
+		if (!fMatch) {
+			db_error("load_lang", "%s: Unknown keyword",
+				 rfile_tok(fp));
+			fread_to_eol(fp);
+		}
 	}
 }
 
 DBLOAD_FUN(load_rulecl)
 {
 	lang_t *l = arg;
-	char *word;
 	rulecl_t *rcl = NULL;
 
 	if (!l) {
@@ -124,8 +137,8 @@ DBLOAD_FUN(load_rulecl)
 		return;
 	}
 
-	word = rfile_feof(fp) ? "End" : fread_word(fp);
-	if (!str_cmp(word, "Class"))
+	fread_keyword(fp);
+	if (IS_TOKEN(fp, "Class"))
 		rcl = l->rules + fread_fword(rulecl_names, fp);
 	else {
 		db_error("load_rulecl", "Class must be defined first");
@@ -133,13 +146,13 @@ DBLOAD_FUN(load_rulecl)
 	}
 
 	for (;;) {
-		char *word = rfile_feof(fp) ? "End" : fread_word(fp);
 		bool fMatch = FALSE;
 
-		switch (UPPER(*word)) {
+		fread_keyword(fp);
+		switch (rfile_tokfl(fp)) {
 		case 'E':
 			SKEY("Expl", rcl->file_expl, fread_string(fp));
-			if (!str_cmp(word, "End")) {
+			if (IS_TOKEN(fp, "End")) {
 				const char *s;
 				char path[PATH_MAX];
 
@@ -170,8 +183,11 @@ DBLOAD_FUN(load_rulecl)
 			break;
 		}
 
-		if (!fMatch) 
-			db_error("load_rulecl", "%s: Unknown keyword", word);
+		if (!fMatch) {
+			db_error("load_rulecl", "%s: Unknown keyword",
+				 rfile_tok(fp));
+			fread_to_eol(fp);
+		}
 	}
 }
 
@@ -195,16 +211,16 @@ load_rules(rfile_t *fp, rulecl_t *rcl, rule_t* (*rule_add)(rulecl_t*, rule_t*))
 	rule_init(&r);
 
 	for (;;) {
-		char *word = rfile_feof(fp) ? "End" : fread_word(fp);
 		bool fMatch = FALSE;
 
-		switch(UPPER(*word)) {
+		fread_keyword(fp);
+		switch(rfile_tokfl(fp)) {
 		case 'B':
 			KEY("BaseLen", r.arg, fread_number(fp));
 			break;
 
 		case 'E':
-			if (!str_cmp(word, "End")) {
+			if (IS_TOKEN(fp, "End")) {
 				if (IS_NULLSTR(r.name)) {
 					db_error("load_rules",
 						 "rule name undefined");
@@ -217,7 +233,7 @@ load_rules(rfile_t *fp, rulecl_t *rcl, rule_t* (*rule_add)(rulecl_t*, rule_t*))
 			break;
 
 		case 'F':
-			if (!str_cmp(word, "Form")) {
+			if (IS_TOKEN(fp, "Form")) {
 				int fnum = fread_number(fp);
 				const char *fstring = fread_string(fp);
 
@@ -237,8 +253,11 @@ load_rules(rfile_t *fp, rulecl_t *rcl, rule_t* (*rule_add)(rulecl_t*, rule_t*))
 			break;
 		}
 
-		if (!fMatch) 
-			db_error("load_rules", "%s: Unknown keyword", word);
+		if (!fMatch) {
+			db_error("load_rules", "%s: Unknown keyword",
+				 rfile_tok(fp));
+			fread_to_eol(fp);
+		}
 	}
 }
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: strkey_hash.c,v 1.2 1999-10-25 12:05:26 fjoe Exp $
+ * $Id: strkey_hash.c,v 1.3 1999-10-26 13:52:53 fjoe Exp $
  */
 
 #include <limits.h>
@@ -103,7 +103,7 @@ strkey_search(hash_t *h, const char *name)
 
 const char *fread_strkey(rfile_t *fp, hash_t *h, const char *id)
 {
-	const char *name = str_dup(fread_word(fp));
+	const char *name = fread_sword(fp);
 	STRKEY_CHECK(h, name, id);
 	return name;
 }
