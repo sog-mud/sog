@@ -1,0 +1,110 @@
+#AREADATA
+Name Pirate Ship~
+VNUMs 700 799
+Credits JullyRoger~
+Security 9
+LevelRange 0 0
+Flags noquest~
+End
+
+#MOBILES
+#700
+rottweiler ротвейлер~
+@eng rottweiler@rus ротвейлер~
+@eng A large angry rottweiler is here.
+@rus Большой злой ротвейлер (rottweiler) стоит здесь.
+~
+~
+dog~
+ALSc DFJPTUVZclmtu -1000 0
+101 100 50d10+35000 10d10+10000 35d30+98 bite
+-82 -82 -82 -80
+CDFL BELPQ 0 H
+stand stand male 0
+0 0 large unknown
+M entry 700 100~
+M grall 701 100~
+M act 702 JullyRoger says 'сидеть'~
+M act 703 JullyRoger says 'встать'~
+#0
+
+#OBJECTS
+#700
+armchair кресло~
+@eng armchair@rus кресло~
+@eng A wooden armchair with gilding is standing before the table.@rus Возле стола стоит деревянное кресло (armchair) с позолотой.~
+oak~
+furniture GRT 0
+A 0 FIL DGH DGH
+0 0 0 P
+G male
+#701
+table стол~
+@eng table@rus стол~
+@eng A large oak table is standing at the center of cabin.@rus Большой дубовый стол (table) стоит в центре каюты.~
+oak~
+furniture RT 0
+0 0 0 0 0
+0 0 0 P
+G none
+#702
+bottle rum бутылка рома~
+@eng Rum bottle@rus ~~бутылка~~ рома~
+@eng A bottle of pretty Rum is sits on the table.@rus На столе стоит бутылка (bottle) превосходного рома.~
+glass~
+drink GRT 0
+-1 -1 'rum' 0 0
+0 0 0 P
+G female
+#0
+
+#ROOMS
+#700
+@eng Captain's cabin@rus Капитанская каюта~
+~
+0 NX inside
+S
+#0
+
+#RESETS
+O 0 701 0 700	* table (Captain's cabin)
+O 0 700 0 700	* armchair (Captain's cabin)
+O 0 702 0 700	* Rum bottle (Captain's cabin)
+S
+
+#MOBPROGS
+#700
+if name $r JullyRoger
+emote радостно виляет хвостом.
+end
+else
+say Гав-гав!
+endif
+track JullyRoger
+~
+#701
+if name $n JullyRoger
+emote радостно виляет хвостом.
+end
+else
+emote злобно рычит.
+endif
+~
+#702
+sit
+~
+#703
+stand
+~
+#704
+stand
+north
+east
+south
+west
+up
+down
+~
+#0
+
+#$
