@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.11 1998-06-07 07:15:41 fjoe Exp $
+ * $Id: handler.c,v 1.12 1998-06-11 12:32:20 efdi Exp $
  */
 
 /***************************************************************************
@@ -901,7 +901,7 @@ int get_trust(CHAR_DATA *ch)
     if (ch->desc != NULL && ch->desc->original != NULL)
 	ch = ch->desc->original;
 
-    if (ch->trust != 0 && IS_SET(ch->comm,COMM_TRUE_TRUST))
+    if (ch->trust != 0)
 	return ch->trust;
 
     if (IS_NPC(ch) && ch->level >= LEVEL_HERO)
