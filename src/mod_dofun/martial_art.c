@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.114 1999-09-30 00:23:29 avn Exp $
+ * $Id: martial_art.c,v 1.114.2.1 1999-11-26 07:06:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1907,9 +1907,16 @@ void do_strangle(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (is_affected(victim, gsn_free_action)) chance -= 15;
+	if (IS_AFFECTED(victim, AFF_SLEEP))  {
+		act("$E is already asleep.", ch, NULL, victim, TO_CHAR);
+		return;
+	}
+
 	if (is_safe(ch, victim))
 		return;
+
+	if (is_affected(victim, gsn_free_action))
+		chance -= 15;
 
 	SET_FIGHT_TIME(victim);
 	SET_FIGHT_TIME(ch);
@@ -1987,7 +1994,7 @@ void do_blackjack(CHAR_DATA *ch, const char *argument)
 		return;
 	} 
 
-	if (IS_AFFECTED(victim,AFF_SLEEP))  {
+	if (IS_AFFECTED(victim, AFF_SLEEP))  {
 		act("$E is already asleep.", ch, NULL, victim, TO_CHAR);
 		return;
 	}
