@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.271.2.76 2002-12-11 17:32:32 tatyana Exp $
+ * $Id: act_info.c,v 1.271.2.77 2002-12-11 19:11:03 tatyana Exp $
  */
 
 /***************************************************************************
@@ -5217,9 +5217,17 @@ void do_finger(CHAR_DATA *ch, const char *argument)
 		char_nuke(victim);
 }
 
+#define GET_VCLSKILL(p)		(*(clskill_t **) (p))
+
+static int
+cmpclskill(const void *a, const void *b)
+{
+	return GET_VCLSKILL(a)->level - GET_VCLSKILL(b)->level;
+}
+
 void do_cskills(CHAR_DATA *ch, const char *argument)
 {
-	int i, col;
+	int i;
 	varr v;
 	clan_t *cn;
 
@@ -5231,6 +5239,9 @@ void do_cskills(CHAR_DATA *ch, const char *argument)
 	if ((cn = clan_lookup(ch->clan)) == NULL)
 		return;
 
+	/*
+	 * show clan commands
+	 */
 	varr_init(&v, sizeof(int), commands.nused);
 	for (i = 0; i < commands.nused; i++) {
 		cmd_t *cmd = (cmd_t *) VARR_GET(&commands, i);
@@ -5241,27 +5252,43 @@ void do_cskills(CHAR_DATA *ch, const char *argument)
 		}
 	}
 	varr_qsort(&v, cmpcmd);
-
-	col = 0;
 	act_char("Commands:", ch);
 	for (i = 0; i < v.nused; i++) {
 		cmd_t *cmd = GET_VCMD(VARR_GET(&v, i));
 
 		char_printf(ch, "    %s\n", cmd->name);
 	}
-
 	varr_destroy(&v);
 
-	act_char("Skills/spells:", ch);
+	/*
+	 * show clan skills
+	 */
+	varr_init(&v, sizeof(clskill_t *), cn->skills.nused);
         for (i = 0; i < cn->skills.nused; i++) {
 		clskill_t *cs = VARR_GET(&cn->skills, i);
 		skill_t *sk;
+		clskill_t **p;
 
 		if (cs->sn <= 0
 		||  (sk = skill_lookup(cs->sn)) == NULL)
 			continue;
 
-		char_printf(ch, "    Level %2d:       '%s'.\n",
-			   cs->level, sk->name);
+		p = (clskill_t **) varr_enew(&v);
+		*p = cs;
 	}
+	varr_qsort(&v, cmpclskill);
+	act_char("Skills/spells:", ch);
+	for (i = 0; i < v.nused; i++) {
+		clskill_t *cs = GET_VCLSKILL(VARR_GET(&v, i));
+		skill_t *sk;
+		pcskill_t *pc_sk;
+
+		if ((sk = skill_lookup(cs->sn)) == NULL
+		||  (pc_sk = pcskill_lookup(ch, cs->sn)) == NULL)
+			continue;
+
+		char_printf(ch, "    Level %2d:   %-22s %3d%%\n",
+			   cs->level, sk->name, pc_sk->percent);
+	}
+	varr_destroy(&v);
 }
