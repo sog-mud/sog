@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.32 1998-05-11 19:23:32 fjoe Exp $
+ * $Id: act_info.c,v 1.33 1998-05-11 19:35:10 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1679,10 +1679,10 @@ void do_help(CHAR_DATA *ch, char *argument)
 static void do_who_raw(CHAR_DATA* ch, CHAR_DATA *wch, char* output)
 {
 	char const *class;
-	char* pk;
-	char* cabal;
-	char* act;
-	char* title;
+	char *pk;
+/*	char *cabal; */
+	char *act;
+	char *title;
 	char level[100];
 	int trusted;
 
@@ -1702,6 +1702,7 @@ static void do_who_raw(CHAR_DATA* ch, CHAR_DATA *wch, char* output)
 	case MAX_LEVEL - 8: class = "AVA"; break;
 	}
 
+/*
 	if ((wch->cabal && ch->cabal ==  wch->cabal)
 	||  IS_IMMORTAL(ch)
 	||  (IS_SET(wch->act, PLR_CANINDUCT) && wch->cabal == 1)
@@ -1709,6 +1710,7 @@ static void do_who_raw(CHAR_DATA* ch, CHAR_DATA *wch, char* output)
 		cabal = cabal_table[wch->cabal].short_name;
 	else
 		cabal = EMPTY_STRING;
+*/
 
 	if (!((ch==wch && ch->level<PK_MIN_LEVEL) || is_safe_nomessage(ch,wch)))
 		pk = "{R(PK){x ";
@@ -1731,14 +1733,13 @@ static void do_who_raw(CHAR_DATA* ch, CHAR_DATA *wch, char* output)
 	sprintf(level, "%2d", wch->level);
 	trusted = IS_TRUSTED(ch, LEVEL_IMMORTAL) || ch == wch ||
 		  wch->level >= LEVEL_HERO;
-	sprintf(strend(output), "[{C%s{x %s {Y%s{x] %s[{C%s{x] %s%s%s\n\r",
+	sprintf(strend(output), "[{C%s{x %s {Y%s{x] %s%s%s%s\n\r",
 		trusted ? level
 			: (get_curr_stat(wch, STAT_CHA) < 18) ? level : "  ",
 		RACE(wch) < MAX_PC_RACE ? pc_race_table[RACE(wch)].who_name
 					: "     ",
 		class,
 		pk,
-		cabal,
 		act,
 		/* IS_IMMORTAL(wch) ? "Chronos" : */ wch->name,
 		title);
