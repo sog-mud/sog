@@ -28,7 +28,7 @@
  * along with this program (see the file COPYING); if not, write to the
  * Free Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  *
- * $Id: imc.h,v 1.1.2.1 2003-09-11 13:41:16 matrim Exp $
+ * $Id: imc.h,v 1.1.2.2 2003-09-19 13:34:19 tatyana Exp $
  */
 
 #ifndef _IMC_H_
@@ -360,6 +360,7 @@ struct imc_hubinfo
    int insize;
    char *outbuf;		    /* output buffer */
    int outsize;
+   bool in_progress;
 };
 
 /* IMC statistics */

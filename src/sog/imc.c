@@ -28,7 +28,7 @@
  * along with this program (see the file COPYING); if not, write to the
  * Free Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  *
- * $Id: imc.c,v 1.1.2.2 2003-09-12 09:37:52 fjoe Exp $
+ * $Id: imc.c,v 1.1.2.3 2003-09-19 13:34:12 tatyana Exp $
  */
 
 #include <stdlib.h>
@@ -1699,7 +1699,7 @@ void imc_sendblacklistresponse( char *to )
 void imc_recv_imcptell( imc_char_data *from, char *to, const char *argument, int isreply )
 {
    DESCRIPTOR_DATA *d;
-   CHAR_DATA *victim;
+   CHAR_DATA *victim = NULL;
    IMC_BLACKLIST *entry;
    char buf[IMC_DATA_LENGTH];
    char tstring[LSS];
@@ -2366,7 +2366,7 @@ void process_imcplist( imc_char_data *from, const char *argument )
 void process_imcpinfo( imc_char_data *from, const char *to )
 {
    DESCRIPTOR_DATA *d;
-   CHAR_DATA *victim;
+   CHAR_DATA *victim = NULL;
    char buf[LSS], permissions[LSS], functions[LSS];
    unsigned char i = 0;
    static char * const male_female [] = { "Neither", "Male", "Female" }; 
@@ -2488,7 +2488,10 @@ bool imc_connect_to( void )
          close( desc );
          return FALSE;
       }
+      this_imcmud->in_progress = TRUE;
    }
+   else
+	this_imcmud->in_progress = FALSE;
 
    this_imcmud->state    = CONN_SENDCLIENTPWD;
    this_imcmud->desc     = desc;
@@ -2727,7 +2730,7 @@ void imc_recv_whoisreply( const char *to, const char *text )
 void imc_recv_imcpbeep( imc_char_data *from, const char *to )
 {
    DESCRIPTOR_DATA *d;
-   CHAR_DATA *victim;
+   CHAR_DATA *victim = NULL;
    IMC_BLACKLIST *entry;
    char buf[IMC_DATA_LENGTH];
 
@@ -4299,6 +4302,7 @@ void imc_idle_select( fd_set *iread, fd_set *iwrite, fd_set *exc, time_t now )
 {
    char *command;
    PACKET *p;
+   int error, error_len;
 
    if( this_imcmud->desc < 1  || this_imcmud->state == CONN_NONE)
 	return;
@@ -4373,19 +4377,30 @@ void imc_idle_select( fd_set *iread, fd_set *iwrite, fd_set *exc, time_t now )
           imc_freedata( p );
           break;
       }
-
-
    }
 
-   if( this_imcmud->desc > 0 ) // Something could have caused shutdown during reading
-   {
-      if( this_imcmud->state != CONN_NONE && ( FD_ISSET( this_imcmud->desc, iwrite ) 
-                  || this_imcmud->newoutput ) )
-      {
-         do_imcwrite( );
-         this_imcmud->newoutput = this_imcmud->outbuf[0];
-      }
-   }
+	if( this_imcmud->desc > 0 ) { // Something could have caused shutdown during reading
+		if (this_imcmud->in_progress
+		&&  FD_ISSET(this_imcmud->desc, iwrite)) {
+			error_len = sizeof(error);
+			getsockopt(this_imcmud->desc, SOL_SOCKET,
+				   SO_ERROR, &error, &error_len);
+		if (error) {
+			imcbug( "Coulnd't connect to host %s, reason = %d",
+				this_imcmud->hubname, error);
+		imc_shutdown(TRUE);
+		return;
+		}
+	this_imcmud->in_progress = FALSE;
+	}
+
+	if (this_imcmud->state != CONN_NONE
+	&&  !this_imcmud->in_progress
+	&&  (FD_ISSET(this_imcmud->desc, iwrite) || this_imcmud->newoutput)) {
+		do_imcwrite();
+		this_imcmud->newoutput = this_imcmud->outbuf[0];
+	}
+	}
 }
 
 void imc_loop( void )

@@ -28,7 +28,7 @@
  * along with this program (see the file COPYING); if not, write to the
  * Free Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  *
- * $Id: imccfg.h,v 1.1.2.1 2003-09-11 13:41:16 matrim Exp $
+ * $Id: imccfg.h,v 1.1.2.2 2003-09-19 13:34:20 tatyana Exp $
  */
 
 #define SOCIALSTRUCT	// We have olc for socials
@@ -48,4 +48,4 @@
 #define IMC_CSUBSCRIBED(ch)	(PC(ch)->imcchardata->imc_csubscribed)
 #define IMC_RREPLY(ch)	(PC(ch)->imcchardata->rreply)
 #define IMC_PFLAGS(ch)	(PC(ch)->imcchardata->imc_pflags)
-#define IS_IMCVISIBLE(ch)	(!IS_NPC(ch) && !IS_SET(IMC_PFLAGS(ch), PSET_IMCPVISIBLE))
+#define IS_IMCVISIBLE(ch)	(!IS_NPC(ch) && !IS_SET(IMC_PFLAGS(ch), PSET_IMCPVISIBLE) && !ch->invis_level && !ch->incog_level && !IS_AFFECTED(ch, AFF_FADE | AFF_HIDE | AFF_CAMOUFLAGE | AFF_INVIS | AFF_BLEND | AFF_IMP_INVIS))
