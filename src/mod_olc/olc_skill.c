@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_skill.c,v 1.1 1999-12-03 22:39:41 avn Exp $
+ * $Id: olc_skill.c,v 1.2 1999-12-04 09:36:57 fjoe Exp $
  */
 
 #include "olc.h"
@@ -212,18 +212,19 @@ OLC_FUN(skilled_show)
 	event_fun_t *ev;
 	int i=1;
 
-	if (argument[0] == '\0')
+	if (argument[0] == '\0') {
 		if (IS_EDIT(ch, ED_SKILL))
 			EDIT_SKILL(ch, sk);
 		else {
 			dofun("help", ch, "'OLC ASHOW'");
 			return FALSE;
 		}
-	else
+	} else {
 		if (!(sk = skill_search(argument))) {
 			char_printf(ch, "SkillEd: %s: no such skill.\n", argument);
 			return FALSE;
 		}
+	}
 	
 	char_printf(ch, "Name       [%s]\n", sk->name);
 	char_printf(ch, "Type       [%s]     Group       [%s]\n",
@@ -250,11 +251,12 @@ OLC_FUN(skilled_show)
 	if (!IS_NULLSTR(sk->msg_obj))
 		char_printf(ch, "ObjWearOff  [%s]\n", sk->msg_obj);
 	for (ev = sk->eventlist; ev; ev = ev->next, i++) {
-		if (i == 1) char_puts("Events:\n", ch);
+		if (i == 1)
+			char_puts("Events:\n", ch);
 		char_printf(ch, "%d) in event   [%s] call fun [%s]\n", i,
 			flag_string(events_table, ev->event),
 			ev->fun_name);
-		}
+	}
 	return FALSE;
 }
 
