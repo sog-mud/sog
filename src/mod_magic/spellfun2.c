@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.134 1999-09-28 14:57:14 osya Exp $
+ * $Id: spellfun2.c,v 1.135 1999-09-29 21:23:36 osya Exp $
  */
 
 /***************************************************************************
@@ -1094,7 +1094,7 @@ void spell_amnesia(int sn, int level, CHAR_DATA *ch, void *vo)
 		return;
 
 	for (i = 0; i < PC(ch)->learned.nused; i++) {
-		pcskill_t *ps = VARR_GET(&PC(ch)->learned, i);
+		pcskill_t *ps = VARR_GET(&PC(victim)->learned, i);
 		ps->percent /= 2;
 	}
 
@@ -4658,7 +4658,7 @@ void spell_polymorph(int sn, int level, CHAR_DATA *ch, void *vo)
 	int race;
 	race_t *r;
 
-	if (is_affected(ch, sn)) {
+	if (is_affected(ch, sn) || is_affected(ch,gsn_deathen)) {
 		char_puts("You are already polymorphed.\n",ch); 
 		return;
 	}
@@ -4727,7 +4727,7 @@ void spell_deathen(int sn, int level, CHAR_DATA *ch, void *vo)
         af.bitvector    = 0;
         affect_to_char(victim, &af);
 
-        act("$n's flesh starts to decay.", victim, NULL, NULL, TO_CHAR);
+        act("$n's flesh starts to decay.", victim, NULL, NULL, TO_ROOM);
         act("Your flesh starts to decay.", victim, NULL, NULL, TO_CHAR);
 
 }
@@ -4739,7 +4739,7 @@ void spell_lich(int sn, int level, CHAR_DATA *ch, void *vo)
 	race_t *r;
 	int lev=0;
 
-	if (is_affected(ch,sn)) {
+	if (is_affected(ch,sn) || is_affected(ch,gsn_deathen)) {
 		act("Your flesh is already dead.", ch, NULL, NULL, TO_CHAR);
 		return;
 	}
@@ -5645,3 +5645,105 @@ void spell_find_familiar(int sn, int level, CHAR_DATA *ch, void *vo)
 		act("$N comes to serve $n.", ch, NULL, familiar, TO_NOTVICT);
 	}
 }
+
+/* function for some necromancers area-attack */
+int damage_to_all_in_room(int sn, int level, CHAR_DATA *ch,
+				 ROOM_INDEX_DATA *room, int door)
+{
+        CHAR_DATA *vch, *vch_next;
+	int dam, v_counter;
+
+	if (sn == gsn_death_ripple) {
+		dam = dice(level,9);
+	} else {
+		dam = dice(level,14);
+	}
+	v_counter = 0;
+	for (vch = room->people; vch != NULL; vch = vch_next) {
+		vch_next = vch->next_in_room;
+
+
+                if (is_safe_spell(ch,vch,TRUE)
+                ||  (IS_NPC(vch) && IS_NPC(ch))
+                ||  (IS_NPC(vch) 
+                    && IS_SET(vch->pMobIndex->act, ACT_NOTRACK)))
+	                continue;
+
+
+		v_counter++;
+                if (saves_spell(level,vch,DAM_NEGATIVE)) {
+                	damage(ch, vch, dam/2, sn, DAM_NEGATIVE, TRUE);
+                } else {
+                	damage(ch, vch, dam, sn, DAM_NEGATIVE, TRUE);
+                }
+
+		if(door != -1 && IS_NPC(vch)) 
+	                path_to_track(ch, vch, door);
+        }
+	return v_counter;
+}
+
+void spell_death_ripple(int sn, int level, CHAR_DATA *ch, void *vo)
+{
+	ROOM_INDEX_DATA *dest_room;
+	EXIT_DATA *exit;
+	int v_counter, range, door, i;
+
+	dest_room = ch->in_room;
+	range = level/10;
+
+	act("You feel $n's deadly wave passing through your body.", ch,
+						 NULL, NULL, TO_ROOM);
+        act("Deadly wave emanates from you.", ch,
+                                                 NULL, NULL, TO_CHAR);
+	v_counter = damage_to_all_in_room(sn, level, ch, dest_room, -1);
+
+        if (IS_NULLSTR(target_name)||!check_blind(ch))	
+		return;
+	
+        switch (target_name[0]) {
+        case 'N':
+        case 'n':
+                door = 0;
+                break;
+        case 'E':
+        case 'e':
+                door = 1;
+                break;
+        case 'S':
+        case 's':
+                door = 2;
+                break;
+        case 'W':
+        case 'w':
+                door = 3;
+                break;
+        case 'U':
+        case 'u':
+                door = 4;
+                break;
+        case 'D':
+        case 'd':
+                door = 5;
+                break;
+        default:
+                char_puts("Wrong direction.\n", ch);
+                return;
+        }
+
+        for (i = 1; i <= range; i++) {
+                exit = dest_room->exit[door];
+
+                if (exit == NULL 
+                || exit->to_room.r == NULL
+                || IS_SET(exit->exit_info,EX_CLOSED)
+                || !can_see_room(ch,exit->to_room.r)
+		|| v_counter > level/10) 
+                        return;
+		dest_room = exit->to_room.r;
+		act("You feel deadly breathing from the $T", dest_room->people, NULL, from_dir_name[rev_dir[door]], TO_ALL);
+		v_counter += damage_to_all_in_room(sn, level, ch, dest_room, door);	
+	}
+	
+}
+

@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.181 1999-09-24 04:16:07 avn Exp $
+ * $Id: handler.c,v 1.182 1999-09-29 21:23:23 osya Exp $
  */
 
 /***************************************************************************
@@ -3802,6 +3802,7 @@ void stop_follower(CHAR_DATA *ch)
 			pc->pet = NULL;
 	}
 
+	stop_fighting(ch, TRUE);	
 	ch->master = NULL;
 	ch->leader = NULL;
 }

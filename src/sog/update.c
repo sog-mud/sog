@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.155 1999-09-25 11:29:35 fjoe Exp $
+ * $Id: update.c,v 1.156 1999-09-29 21:23:24 osya Exp $
  */
 
 /***************************************************************************
@@ -2219,7 +2219,14 @@ void hatchout_dragon(CHAR_DATA *coc, AFFECT_DATA *paf)
 	NPC(drag)->dam.dice_number = number_fuzzy(13);
 	NPC(drag)->dam.dice_type = number_fuzzy(9);
 	drag->damroll = dlev/2 + dice(3, 11);
-	drag->master = drag->leader = ch;
+
+        if (GET_PET(ch) == NULL) {
+	        add_follower(drag, ch);
+	        drag->leader = ch;
+	        PC(ch)->pet = drag;
+	} else {
+        drag->master = drag->leader = ch;	
+	}
 	char_to_room(drag, coc->in_room);
 	extract_char(coc, 0);
 }
