@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.182.2.78 2004-02-19 18:52:49 fjoe Exp $
+ * $Id: handler.c,v 1.182.2.79 2004-02-21 20:12:06 fjoe Exp $
  */
 
 /***************************************************************************
@@ -911,8 +911,8 @@ void affect_remove(CHAR_DATA *ch, AFFECT_DATA *paf)
 		}
 	}
 
-	if (paf->type == gsn_charm_person
-	||  paf->type == sn_lookup("control undead"))
+	if (paf->where == TO_AFFECTS
+	&&  IS_SET(paf->bitvector, AFF_CHARM))
 		ch->leader = NULL;
 
 	aff_free(paf);
