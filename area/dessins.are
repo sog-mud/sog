@@ -191,8 +191,8 @@ m mob_random @ 4~
 string msg;
 char victim;
 
-foreach (victim, char_in_room(char_room($n))) {
-        if (char_gold(victim) < 50 || is_npc(victim))
+foreach (victim, char_in_room($n->in_room)) {
+        if (victim->gold < 50 || is_npc(victim))
                 continue;
 
         switch (number_bits(1)) {
@@ -264,7 +264,7 @@ m obj_greet @ all~
 obj banan;
 int found = FALSE;
 
-foreach (banan, obj_in_room(char_room($n))) {
+foreach (banan, obj_in_room($n->in_room)) {
         if (banan == $p) {
                 found = TRUE;
                 break;
@@ -276,7 +276,7 @@ if (!found)
 
 act("$n $gn{подскользнулся} на $c5{$p} и $gn{упал}.", $n, $p, NULL, TO_ROOM);
 act("Ты $gn{подскользнулся} на $c5{$p} и $gn{упал}.", $n, $p, NULL, TO_CHAR);
-inflict_effect("shock", $n, char_level($n), obj_level($p));
+inflict_effect("shock", $n, $n->level, $p->level);
 extract_obj($p, 0);
 
 return 0;
@@ -534,15 +534,15 @@ m obj_drop @ 100~
 int index; int sector; int times;
 
 times = 1;
-sector = room_sector(char_room($n));
+sector = $n->in_room->sector_type;
 
 if (sector != SECT_WATER_SWIM && sector != SECT_WATER_NOSWIM)
         return 0;
 
 act("You skip $p by the ocean...", $n, $p, NULL, TO_CHAR);
 act("$n skipped $p by the ocean...", $n, $p, NULL, TO_ROOM);
-foreach (index, range(1, real_char_level($n))) {
-        if (number_percent() < char_level($n))
+foreach (index, range(1, $n->real_level)) {
+        if (number_percent() < $n->level)
                 times++;
 }
 

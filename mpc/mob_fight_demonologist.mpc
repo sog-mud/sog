@@ -1,5 +1,5 @@
 /*
- * $Id: mob_fight_demonologist.mpc,v 1.1 2003-04-19 13:27:20 tatyana Exp $
+ * $Id: mob_fight_demonologist.mpc,v 1.2 2003-04-25 12:52:52 fjoe Exp $
  */
  
 if (number_bits(2) != 0)
@@ -13,7 +13,7 @@ int bonus = 3;
 string spell;
 string msg = "$n raises his hands and blood runes etched into the floor explode!";
 
-if (char_level($n) >= 25) {
+if ($n->level >= 25) {
         switch (number_range(1, 10)) {
         case 1:
                spell = "blindness";
@@ -53,9 +53,8 @@ if (char_level($n) >= 25) {
 if (spell == "") {
 
         char servant;
-        foreach (servant, char_in_room(char_room($n))) {
-                if (is_npc(servant)
-                &&  char_vnum(servant) == 34403)
+        foreach (servant, char_in_room($n->in_room)) {
+                if (is_npc(servant) && servant->vnum == 34403)
                         break;
         }
 
@@ -73,5 +72,5 @@ if (spell == "") {
 }
  
 act(msg, $n, NULL, NULL, TO_ROOM);
-spellfun_call(spell, NULL, char_level($n) + bonus, $n, victim);
+spellfun(spell, NULL, $n->level + bonus, $n, victim);
 return 0;

@@ -1,14 +1,14 @@
 /*
- * $Id: obj_fight_golden_weapon.mpc,v 1.2 2001-09-12 08:20:45 fjoe Exp $
+ * $Id: obj_fight_golden_weapon.mpc,v 1.3 2003-04-25 12:53:00 fjoe Exp $
  */
 
 if (number_percent() < 4) {
         act("Your $p glows bright blue!", $n, $p, NULL, TO_CHAR);
         act("$n's $p glows bright blue!", $n, $p, NULL, TO_ROOM);
-        spellfun_call("cure critial wounds", NULL, char_level($n), $n, $n);
+        spellfun("cure critial wounds", NULL, $n->level, $n, $n);
 } else if (number_percent() > 92) {
         act("Your $p glows bright blue!", $n, $p, NULL, TO_CHAR);
         act("$n's $p glows bright blue!", $n, $p, NULL, TO_ROOM);
-        spellfun_call("cure serious wounds", NULL, char_level($n), $n, $n);
+        spellfun("cure serious wounds", NULL, $n->level, $n, $n);
 }
 return 0;

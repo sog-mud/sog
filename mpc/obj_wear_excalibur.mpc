@@ -1,10 +1,10 @@
 /*
- * $Id: obj_wear_excalibur.mpc,v 1.2 2001-09-12 08:20:49 fjoe Exp $
+ * $Id: obj_wear_excalibur.mpc,v 1.3 2003-04-25 12:53:01 fjoe Exp $
  */
 
 act("$p begins to shine a bright white.", $n, $p, NULL, TO_ALL);
  
-int level = char_level($n);
+int level = $n->level;
 int dice_type;
 if (level <= 20)
         dice_type = 3;
@@ -14,5 +14,5 @@ else if (level <= 40)
         dice_type = 5;
 else
         dice_type = 6;
-set_weapon_dice_type($p, dice_type);
+$p->v_dice_type = dice_type;
 return 0;

@@ -152,7 +152,7 @@ mace 6 9 'crush' 0
 33 180 4323 P
 f object damroll 10 0
 m obj_fight @ 100~
-char victim = char_fighting($n);
+char victim = $n->fighting;
  
 if (is_immortal(victim))
         return 0;
@@ -160,8 +160,8 @@ if (is_immortal(victim))
 if (!char_form_is(victim, FORM_UNDEAD))
         return 0;
  
-if (saves_spell(char_level($n), victim, DAM_ENERGY)
-||  saves_spell(char_level($n), victim, DAM_OTHER))
+if (saves_spell($n->level, victim, DAM_ENERGY)
+||  saves_spell($n->level, victim, DAM_OTHER))
         return 0;
  
 if (number_percent() < 95)

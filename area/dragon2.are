@@ -343,7 +343,7 @@ if (get_obj_carry($n, $N, "91") != NULL)
 dofun("say", $n, "I don't see that worthless rug anywhere near me.");
 dofun("say", $n, "Don't you give it to that silly Green sister from Tear?");
  
-obj o = get_obj_room($n, char_room($n), "2436");
+obj o = get_obj_room($n, $n->in_room, "2436");
 if (o == NULL)
         return 0;
  

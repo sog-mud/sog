@@ -1,9 +1,9 @@
 /*
- * $Id: mob_random_executioner.mpc,v 1.1 2001-09-16 11:57:32 fjoe Exp $
+ * $Id: mob_random_executioner.mpc,v 1.2 2003-04-25 12:52:58 fjoe Exp $
  */
 
 char victim;
-foreach (victim, char_in_room(char_room($n))) {
+foreach (victim, char_in_room($n->in_room)) {
         if (is_wanted(victim) && can_see($n, victim))
                 break;
 }

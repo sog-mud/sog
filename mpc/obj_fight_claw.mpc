@@ -1,13 +1,13 @@
 /*
- * $Id: obj_fight_claw.mpc,v 1.1 2001-09-14 16:48:16 fjoe Exp $
+ * $Id: obj_fight_claw.mpc,v 1.2 2003-04-25 12:53:00 fjoe Exp $
  */
 
 act_char("The nails of your claw appear from its fingers.", $n);
 act("The nails of $n's claw appear for an instant.",
     $n, NULL, NULL, TO_ROOM);
  
-char victim = char_fighting($n);
-int wear_loc = obj_wear_loc($p);
+char victim = $n->fighting;
+int wear_loc = $p->wear_loc;
 one_hit($n, victim, NULL, wear_loc);
 one_hit($n, victim, NULL, wear_loc);
 one_hit($n, victim, NULL, wear_loc);

@@ -1,9 +1,9 @@
 /*
- * $Id: mob_random_demonologist.mpc,v 1.1 2003-04-19 13:27:20 tatyana Exp $
+ * $Id: mob_random_demonologist.mpc,v 1.2 2003-04-25 12:52:58 fjoe Exp $
  */
 
 char victim;
-foreach (victim, char_in_room(char_room($n))) {
+foreach (victim, char_in_room($n->in_room)) {
 
         if (!is_npc(victim)
         &&  !is_immortal(victim)
@@ -19,5 +19,5 @@ if (victim == NULL
 act("$n intones a word of death and the pentagram flares up!",
     $n, NULL, NULL, TO_ROOM);
  
-spellfun_call("fireball", NULL, char_level($n) + 4, $n, victim);
+spellfun("fireball", NULL, $n->level + 4, $n, victim);
 return 0;

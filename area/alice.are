@@ -975,7 +975,7 @@ dofun("say", $n, "You can't chop off a head with no body!");
 return 0;
 ~
 m mob_kill @ 100~
-if (char_room($n) == char_room($N)) {
+if ($n->in_room == $N->in_room) {
         cast_char("bamf", $n, $N);
         return 1;
 }

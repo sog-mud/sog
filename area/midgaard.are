@@ -51,8 +51,7 @@ m mob_greet @ all~
 social_char("bow", $n, $N);
 dofun("say", $n, "Would you like to taste a big pot pie today?");
 
-if (char_sex($N) != SEX_FEMALE
-||  number_percent() < 90)
+if ($N->sex != SEX_FEMALE || number_percent() < 90)
         return 0;
 
 act_say($n, "You're looking so beautiful today, $N!", $N);
@@ -90,7 +89,7 @@ if (is_npc($N)
 ||  is_immortal($N))
         return 0;
  
-if (char_hometown($n) != char_hometown($N))
+if ($n->hometown != $N->hometown)
         dofun("say", $n, "Welcome to my Store, traveler!");
 else
         act_say($n, "Welcome to my Store, $N!", $N);
@@ -277,7 +276,7 @@ m mob_greet @ all~
 if (number_percent() < 90)
 	return 0;
 
-if (can_see($n, $N) && char_quest_time($N) == 0)
+if (can_see($n, $N) && $N->quest_time == 0)
         tell_char($n, $N, "Don't you want a quest?");
 return 0;
 ~
@@ -801,8 +800,8 @@ else
 return 0;
 ~
 m mob_fight @ 100~
-if (char_hit($n) < char_max_hit($n) * 45 / 100
-||  char_hit($n) > char_max_hit($n) * 55 / 100)
+if ($n->hit < $n->max_hit * 45 / 100
+||  $n->hit > $n->max_hit * 55 / 100)
         return 0;
  
 dofun("say", $n, "Halfway to death...");

@@ -34,9 +34,15 @@ m mob_look @ 100~
 persistent int $N[avatara_look_count];
  
 $N[avatara_look_count]++;
+act_char("---", $N);
 act("You looked at me $j $qj{times}.",
     $N, $N[avatara_look_count], NULL, TO_CHAR);
-act("Huh!", $n, NULL, NULL, TO_ROOM);
+act_char("---", $N);
+
+obj o;
+foreach(o, obj_in_room($n->in_room))
+        act("$p is here.", $N, o, NULL, TO_CHAR);
+act_char("---", $N);
 return 0;
 ~
 #15001
@@ -245,8 +251,7 @@ f resists holy 75 0
 f object damroll 10000 0
 f object level 2000 0
 m obj_wear @ 100~
-if (char_race($n) == "lich"
-||  char_race($n) == "human")
+if ($n->race == "lich" || $n->race == "human")
         return 0;
  
 act("Your race can't use $p.", $n, $p, NULL, TO_CHAR);

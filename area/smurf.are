@@ -192,10 +192,10 @@ stand stand male 2
 0 0 medium unknown
 m mob_fight mob_fight_cast_cleric 100~
 m mob_give @ all~
-if (char_level($N) > 6)
+if ($N->level > 6)
 	return 0;
 
-if (obj_item_type($p) != ITEM_CORPSE_NPC
+if ($p->item_type != ITEM_CORPSE_NPC
 ||  (!is_owner_name($p, "smurf") && !is_owner_name($p, "smurfette"))) {
        extract_obj($p, 0);
        return 1;
@@ -204,8 +204,7 @@ if (obj_item_type($p) != ITEM_CORPSE_NPC
 int i;
 char smurf;
 foreach (smurf, npc_in_world()) {
-        if (char_vnum(smurf) >= 101
-        &&  char_vnum(smurf) <= 110)
+        if (smurf->vnum >= 101 && smurf->vnum <= 110)
                 i++;
 }
 
@@ -253,7 +252,7 @@ multi_hit($n, ch, NULL);
 return 0;
 ~
 m mob_tell @ smurf~
-if (char_level($N) > 6)
+if ($N->level > 6)
 	return 0;
 
 tell_char($n, $N, "Don't speak about these silly smurfes!");

@@ -36,7 +36,7 @@ m mob_greet @ all~
 if (number_percent() < 70)
 	return 0;
 
-if (char_race($N) != "felar")
+if ($N->race != "felar")
         return 0;
  
 act("$n tells you:", $n, NULL, $N, TO_VICT);
@@ -124,12 +124,11 @@ act("{WYou notice one of its long, curved claws has fallen loose.{x",
     $n, NULL, NULL, TO_ROOM);
 
 obj wear = get_eq_char($n, WEAR_WIELD);
-if (wear != NULL
-&&  obj_vnum(wear) == 35480)
+if (wear != NULL && wear->vnum == 35480)
         return 0;
  
 obj claw = create_obj(35471, 0);
-obj_to_room(claw, char_room($n));
+obj_to_room(claw, $n->in_room);
 return 0;
 ~
 m mob_fight @ 15~
@@ -170,7 +169,7 @@ m mob_death @ 100~
 act("{WAs the small creature plunges to the surface, a wing is torn off.{x",
     $n, NULL, NULL, TO_ROOM);
 obj wings = create_obj(35472, 0);
-obj_to_room(wings, char_room($n));
+obj_to_room(wings, $n->in_room);
 return 0;
 ~
 m mob_fight @ 15~
@@ -186,9 +185,8 @@ if (number_bits(1) == 0
 } else {
         act("{W$n shrieks wildly through the air, trying to avoid harm.{x",
             $n, NULL, NULL, TO_ROOM); 
-        spellfun_call("cure critical wounds",
-                      NULL, char_level($n), $n, $n);
-        spellfun_call("heal", NULL, MAX_LEVEL, $n, $n);
+        spellfun("cure critical wounds", NULL, $n->level, $n, $n);
+        spellfun("heal", NULL, MAX_LEVEL, $n, $n);
 }
  
 return 0;
@@ -226,12 +224,11 @@ act("{DAs the foul imp perishes, a small object slips its grasp...{x",
     $n, NULL, NULL, TO_ROOM);
  
 obj wear = get_eq_char($n, WEAR_HOLD);
-if (wear != NULL
-&&  obj_vnum(wear) == 35477) 
+if (wear != NULL && wear->vnum == 35477) 
         return 0;
  
 obj pearl = create_obj(35470, 0);
-obj_to_room(pearl, char_room($n));
+obj_to_room(pearl, $n->in_room);
 return 0;
 ~
 m mob_fight @ 20~
@@ -256,17 +253,15 @@ if (oak == NULL
 ||  chest == NULL)
         return 1;
 
-set_obj_timer(oak, 10);
-set_obj_timer(chest, 3);
+oak->timer = 10;
+chest->timer = 3;
 obj_to_room(chest, get_room_index(35482));
 obj_to_obj(oak, chest);
  
 return 1;
 ~
 m mob_give @ all~
-int type = obj_item_type($p);
- 
-if (type == ITEM_GEM) {
+if ($p->item_type == ITEM_GEM) {
         dofun("say", $n, "Nice gem...");
         dofun("say", $n, "I'll take it, but it's not enough payment for the oak sapling.");
         extract_obj($p, 0);
@@ -310,17 +305,15 @@ act("{B$n collapses into the water, forming a circle of liquid.{x",
     $n, NULL, NULL, TO_ROOM);
 
 obj wear = get_eq_char($n, WEAR_FINGER_L);
-if (wear != NULL
-&&  obj_vnum(wear) == 35478)
+if (wear != NULL && wear->vnum == 35478)
         return 0;
  
 wear = get_eq_char($n, WEAR_FINGER_R);
-if (wear != NULL
-&&  obj_vnum(wear) == 35478)
+if (wear != NULL && wear->vnum == 35478)
         return 0;
 
 obj ring = create_obj(35473, 0);
-obj_to_room(ring, char_room($n));
+obj_to_room(ring, $n->in_room);
 return 0;
 ~
 m mob_fight @ 15~
@@ -356,12 +349,11 @@ act("{WAs the small creature plunges to the surface, a wing is torn off.{x",
  
 obj wear = get_eq_char($n, WEAR_ARMS);
 
-if (wear != NULL
-&&  obj_vnum(wear) == 35479)
+if (wear != NULL && wear->vnum == 35479)
         return 0;
  
 obj wings = create_obj(35472, 0);
-obj_to_room(wings, char_room($n));
+obj_to_room(wings, $n->in_room);
 return 0;
 ~
 m mob_fight @ 15~
@@ -378,9 +370,9 @@ if (victim != NULL
 }
  
 act("{WBrightly light surrounds $n.{x", $n, NULL, NULL, TO_ROOM);
-spellfun_call("heal", NULL, MAX_LEVEL, $n, $n);
-spellfun_call("cure critical wounds", NULL, char_level($n), $n, $n);
-spellfun_call("cure critical wounds", NULL, char_level($n), $n, $n);
+spellfun("heal", NULL, MAX_LEVEL, $n, $n);
+spellfun("cure critical wounds", NULL, $n->level, $n, $n);
+spellfun("cure critical wounds", NULL, $n->level, $n, $n);
 return 0;
 ~
 m mob_give @ 35469~
@@ -489,18 +481,17 @@ act("{y$n dissapears. Only peace of wooden bark remains on the ground.{x",
     $n, NULL, NULL, TO_ROOM);
  
 obj wear = get_eq_char($n, WEAR_BODY);
-if (wear != NULL
-&&  obj_vnum(wear) == 35482)
+if (wear != NULL && wear->vnum == 35482)
         return 0;
 
 obj bark = create_obj(35465, 0);
-obj_to_room(bark, char_room($n));
+obj_to_room(bark, $n->in_room);
  
 return 0;
 ~
 m mob_fight @ 30~
 char victim = get_random_fighting($n);
-int level = char_level($n);
+int level = $n->level;
 
 if (is_sn_affected(victim, "hold person")
 &&  is_affected(victim, AFF_SLOW))
@@ -524,14 +515,14 @@ if (!is_affected(victim, AFF_SLOW)) {
 return 0;
 ~
 m mob_greet @ north west~
-if (char_room($n) != get_room_index(35477))
+if ($n->in_room->vnum != 35477)
         return 0;
 
 obj object = get_obj_carry($n, $N, "35467");
 if (object == NULL)
         return 0;
  
-obj window = get_obj_room($n, char_room($n), "35462");
+obj window = get_obj_room($n, $n->in_room, "35462");
 if (window != NULL) {
 	act_say($n,
 		"You have $P, so if you wish you may visit a secret glade.",
@@ -545,8 +536,8 @@ obj portal = create_obj(35462, 0);
 if (portal == NULL)
 	return 0;
 
-set_obj_timer(portal, 2);
-obj_to_room(portal, char_room($n));
+portal->timer = 2;
+obj_to_room(portal, $n->in_room);
 
 act_say($n, "You have $P, so if you wish you may visit a secret glade.", object);
 act("$n points at $p.", $n, portal, NULL, TO_ROOM);
@@ -634,7 +625,7 @@ key 0 0 A
 0 0 0 0 0
 1 1 100 P
 m obj_get @ 100~
-obj chest = get_obj_room($n, char_room($n), "35461");
+obj chest = get_obj_room($n, $n->in_room, "35461");
 if (chest == NULL)
         return 0;
  
@@ -765,15 +756,15 @@ m obj_wear @ 100~
 if (is_affected($n, AFF_FLYING))
         return 0;
 
-if (char_size($n) > SIZE_SMALL)
+if ($n->size > SIZE_SMALL) {
         act("You are too big and heavy. These small wings can't get you up.",
             $n, NULL, NULL, TO_CHAR);
-else {
+} else {
         act("As you wear $p, you run up. Your are flying!",
             $n, $p, NULL, TO_CHAR);
         act("As $n wears $p, $gn{he} runs up. $n is flying!",
             $n, $p, NULL, TO_ROOM);
-        affect_char($n, TO_AFFECTS, "fly", char_level($n), -2,
+        affect_char($n, TO_AFFECTS, "fly", $n->level, -2,
                     0, 0, AFF_FLYING);
 }
  

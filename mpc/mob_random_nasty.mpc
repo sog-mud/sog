@@ -1,12 +1,12 @@
 /*
- * $Id: mob_random_nasty.mpc,v 1.2 2002-11-23 15:39:38 fjoe Exp $
+ * $Id: mob_random_nasty.mpc,v 1.3 2003-04-25 12:52:59 fjoe Exp $
  */
 
 char victim;
-foreach (victim, char_in_room(char_room($n))) {
+foreach (victim, char_in_room($n->in_room)) {
         if (!is_npc(victim)
-        &&  char_level(victim) > char_level($n) - 5
-        &&  char_level(victim) < char_level($n) + 5
+        &&  victim->level > $n->level - 5
+        &&  victim->level < $n->level + 5
         &&  !is_safe_nomessage($n, victim)
         &&  can_backstab($n)) {
                 backstab_char($n, victim);

@@ -1953,7 +1953,7 @@ f object saves -10 0
 f object mana 80 0
 f object wis 4 0
 m obj_wear @ 100~
-if (is_class($n, "cleric"))
+if (has_spec($n, "class_cleric"))
         return 0;
  
 act("Your class can't use $p.", $n, $p, NULL, TO_CHAR);
@@ -2012,7 +2012,7 @@ f skills 'hide' 50 A
 f object saves -10 0
 f object dex 3 0
 m obj_wear @ 100~
-if (char_size($n) == SIZE_MEDIUM)
+if ($n->size == SIZE_MEDIUM)
         return 0;
  
 act("$p does not fit you.", $n, $p, NULL, TO_CHAR);
@@ -2080,7 +2080,7 @@ f object damroll 7 0
 f object dex 2 0
 f object str 2 0
 m obj_wear @ 100~
-if (is_class($n, "warrior"))
+if (has_spec($n, "class_warrior"))
         return 0;
  
 act("You are not skilled enough to use $p.", $n, $p, NULL, TO_CHAR);

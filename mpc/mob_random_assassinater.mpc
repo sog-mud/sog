@@ -1,21 +1,19 @@
 /*
- * $Id: mob_random_assassinater.mpc,v 1.1 2001-09-16 18:49:35 fjoe Exp $
+ * $Id: mob_random_assassinater.mpc,v 1.2 2003-04-25 12:52:52 fjoe Exp $
  */
 
 char victim;
-foreach (victim, char_in_room(char_room($n))) {
- 
+foreach (victim, char_in_room($n->in_room)) {
         if (!is_npc(victim)
         &&  !is_immortal(victim)
-        &&  !is_class(victim, "thief")
-        &&  !is_class(victim, "assassin")
-        &&  char_hit(victim) >= char_max_hit(victim)
-        &&  char_level(victim) <= char_level($n) + 3)
+        &&  !has_spec(victim, "class_thief")
+        &&  !has_spec(victim, "class_assassin")
+        &&  victim->hit >= victim->max_hit
+        &&  victim->level <= $n->level + 3)
                 break;
 }
  
-if (victim == NULL
-||  number_percent() > 15)
+if (victim == NULL || number_percent() > 15)
         return 0;
  
 string msg;

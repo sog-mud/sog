@@ -213,7 +213,7 @@ if (dice(1, 10) < 4) {
             $n, NULL, $N, TO_VICT);
 	act("$n charges at $N, lowering its horn at $gN{his} heart!",
             $n, NULL, $N, TO_NOTVICT);
-	damage($n, $N, dice(char_level($n),10), "+stab", DAM_F_SHOW);
+	damage($n, $N, dice($n->level, 10), "+stab", DAM_F_SHOW);
 }
 
 return 0;
@@ -340,7 +340,7 @@ F
 stand stand female 0
 0 0 medium unknown
 m mob_random @ 10~
-char groom = get_char_room($n, char_room($n), "19015");
+char groom = get_char_room($n, $n->in_room, "19015");
 if (groom == NULL)
 	return 1;
 social_char("nudge", $n, groom);
@@ -617,11 +617,11 @@ if (chance < 35) {
         damage($n, vict, dice(2, 3), "dirt kicking", DAM_F_SHOW);
         if (!is_affected(vict, AFF_BLIND)) {
                 affect_char(vict, TO_AFFECTS, "dirt kicking",
-                    char_level($n), 0, APPLY_HITROLL, -5, AFF_BLIND);
+                    $n->level, 0, APPLY_HITROLL, -5, AFF_BLIND);
         }
 } else if (chance < 85) {
         act("$n screams 'AIYIII!'", $n, NULL, NULL, TO_ROOM);
-        damage($n, vict, 3 * number_range(1, char_level($n)),
+        damage($n, vict, 3 * number_range(1, $n->level),
             "kick", DAM_F_SHOW);
 }
 
@@ -735,12 +735,12 @@ m mob_fight @ 100~
 char vict = get_random_fighting($n);
 if (number_percent() < 30 && !is_affected(vict, AFF_BLIND)) {
 	damage($n, vict, dice(2,3), "dirt kicking", DAM_F_SHOW);
-        affect_char(vict, TO_AFFECTS, "dirt kicking", char_level($n), 0,
+        affect_char(vict, TO_AFFECTS, "dirt kicking", $n->level, 0,
             APPLY_HITROLL, -5, AFF_BLIND);
 }
 
 if (number_percent() < 50) {
-	damage($n, $N, dice(char_level($n), 7), "+stab", DAM_F_SHOW);
+	damage($n, $N, dice($n->level, 7), "+stab", DAM_F_SHOW);
 }
 return 0;
 ~
@@ -901,13 +901,13 @@ return 0;
 ~
 m mob_random mob_random_thief 100~
 m mob_speech @ one~
-if (char_silver($n) + 10 * char_gold($n) < 1000) {
+if ($n->silver + 10 * $n->gold < 1000) {
 	act_say($n, "First of all, $N, give me 10 gold coins.", $N);
 	return 1;
 }
 
-set_char_gold($n, 0);
-set_char_silver($n, 0);
+$n->gold = 0;
+$n->silver = 0;
 act_say($n, "Nope!", NULL);
 act("$n turns over the second card.", $n, NULL, NULL, TO_ROOM);
 act_say($n, "There it was......waiting for you!", NULL);
@@ -915,13 +915,13 @@ act("$n picks up the cards and shuffles.", $n, NULL, NULL, TO_ROOM);
 return 0;
 ~
 m mob_speech @ two~
-if (char_silver($n) + 10 * char_gold($n)<1000) {
+if ($n->silver + 10 * $n->gold < 1000) {
 	act_say($n, "First of all, $N, give me 10 gold coins.", $N);
 	return 1;
 }
 
-set_char_gold($n, 0);
-set_char_silver($n, 0);
+$n->gold = 0;
+$n->silver = 0;
 act_say($n, "Nope!", NULL);
 act("$n turns over the first card.", $n, NULL, NULL, TO_ROOM);
 act_say($n, "There it was......waiting for you!", NULL);
@@ -929,13 +929,13 @@ act("$n picks up the cards and shuffles.", $n, NULL, NULL, TO_ROOM);
 return 0;
 ~
 m mob_speech @ three~
-if (char_silver($n) + 10 * char_gold($n) < 1000) {
+if ($n->silver + 10 * $n->gold < 1000) {
 	act_say($n, "First of all, $N, give me 10 gold coins.", $N);
 	return 1;
 }
 
-set_char_gold($n, 0);
-set_char_silver($n, 0);
+$n->gold = 0;
+$n->silver = 0;
 act_say($n, "Nope!", NULL);
 act("$n turns over the first card.", $n, NULL, NULL, TO_ROOM);
 act_say($n, "There it was......waiting for you!", NULL);
@@ -1109,7 +1109,7 @@ F
 stand stand male 0
 0 0 medium unknown
 m mob_greet @ 70~
-if (char_sex($N) == SEX_MALE)
+if ($N->sex == SEX_MALE)
 	social_char("wink", $n, $N);
 return 0;
 ~

@@ -1,9 +1,9 @@
 /*
- * $Id: mob_random_cast_clan.mpc,v 1.1 2001-09-16 18:49:35 fjoe Exp $
+ * $Id: mob_random_cast_clan.mpc,v 1.2 2003-04-25 12:52:56 fjoe Exp $
  */
 
 char victim;
-foreach (victim, char_in_room(char_room($n))) {
+foreach (victim, char_in_room($n->in_room)) {
         if (can_see($n, victim)
         &&  number_bits(1) == 0
         &&  !is_npc(victim))
@@ -48,5 +48,5 @@ default:
 }
  
 say_spell($n, spell);
-spellfun_call(spell, NULL, char_level($n), $n, victim);
+spellfun(spell, NULL, $n->level, $n, victim);
 return 0;

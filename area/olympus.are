@@ -457,7 +457,7 @@ f object hitroll 5 0
 f object damroll 5 0
 f object wis -1 0
 m obj_fight @ 100~
-char victim = char_fighting($n);
+char victim = $n->fighting;
 
 switch (number_bits(6)) {
 case 0:
@@ -467,7 +467,7 @@ case 0:
 	    $n, NULL, victim, TO_VICT);
         act("A bolt of lightning shoots out from $n's bolt, arcing towards $N!",
 	    $n, NULL, victim, TO_NOTVICT);
-        spellfun_call("lightning bolt", NULL, char_level($n), $n, victim);
+        spellfun("lightning bolt", NULL, $n->level, $n, victim);
         break;
 }
 return 0;
@@ -552,15 +552,15 @@ if (get_eq_char($n, WEAR_WIELD) != NULL
 ||  get_eq_char($n, WEAR_SECOND_WIELD) != NULL)
         return 0;
  
-char victim = char_fighting($n);
+char victim = $n->fighting;
 
 act("Your $p burns $N's face!", $n, $p, victim, TO_CHAR);
 act("$n's $p burns $N's face!", $n, $p, victim, TO_NOTVICT);
 act("$n's $p burns your face!", $n, $p, victim, TO_VICT);
 
-int dam = number_percent()/4 + 15 + char_level($n);
+int dam = number_percent()/4 + 15 + $n->level;
 damage($n, victim, dam, "burning hands", DAM_F_SHOW);
-inflict_effect("fire", victim, obj_level($p)/2, dam);
+inflict_effect("fire", victim, $p->level/2, dam);
 return 0;
 ~
 g @rus plural~
@@ -716,7 +716,7 @@ f object cha 3 0
 m obj_wear obj_wear_excalibur 100~
 m obj_remove obj_remove_excalibur 100~
 m obj_fight @ 2~
-char victim = char_fighting($n);
+char victim = $n->fighting;
 if (is_immortal(victim))
         return 0;
  

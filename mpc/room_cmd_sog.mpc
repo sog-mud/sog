@@ -1,14 +1,18 @@
 /*
- * $Id: room_cmd_sog.mpc,v 1.1 2003-04-19 13:21:01 tatyana Exp $
+ * $Id: room_cmd_sog.mpc,v 1.2 2003-04-25 12:53:01 fjoe Exp $
  */
 
 act("{gThe SoG Matrix contain:{x", $n, NULL, NULL, TO_CHAR);
 char victim;
-string str;
-foreach (victim, char_in_world())
-if (!is_npc(victim)){
-str = "{x  [$j] $N{x";
-if (is_immortal(victim))
-str = "{x  [$j] {W$N{x";
-act(str, $n, real_char_level(victim), victim, TO_CHAR);}
+foreach (victim, char_in_world()) {
+        if (is_npc(victim))
+                continue;
+
+        string str;
+        if (is_immortal(victim))
+                str = "{x  [$j] {W$N{x";
+        else
+                str = "{x  [$j] $N{x";
+        act(str, $n, victim->real_level, victim, TO_CHAR);
+}
 return 0;

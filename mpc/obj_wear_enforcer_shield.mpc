@@ -1,11 +1,11 @@
 /*
- * $Id: obj_wear_enforcer_shield.mpc,v 1.1 2001-09-14 18:07:57 fjoe Exp $
+ * $Id: obj_wear_enforcer_shield.mpc,v 1.2 2003-04-25 12:53:01 fjoe Exp $
  */
 
-if (char_clan($n) == "enforcers")
+if (has_spec($n, "clan_enforcers"))
         return 0;
  
 act("You are zapped by $p and drop it.", $n, $p, NULL, TO_CHAR);
 act("$n is zapped by $p and drops it.", $n, $p, NULL, TO_ROOM);
-obj_to_room($p, char_room($n));
+obj_to_room($p, $n->in_room);
 return 0;

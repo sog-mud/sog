@@ -1,5 +1,5 @@
 /*
- * $Id: mob_fight_cast_cleric.mpc,v 1.1 2001-09-14 16:48:24 fjoe Exp $
+ * $Id: mob_fight_cast_cleric.mpc,v 1.2 2003-04-25 12:52:52 fjoe Exp $
  */
 
 if (number_bits(2) != 0)
@@ -11,7 +11,7 @@ if (victim == NULL)
  
 string spell;
  
-if (char_level($n) >= 16) {
+if ($n->level >= 16) {
         switch (number_bits(4)) {
         case 0:
                spell = "blindness";
@@ -47,7 +47,7 @@ if (char_level($n) >= 16) {
                spell = "dispel magic";
                break;
         }
-} else if (char_level($n) >= 15) {
+} else if ($n->level >= 15) {
         switch (dice(1, 12)) {
         case 1:
                spell = "blindness";
@@ -80,7 +80,7 @@ if (char_level($n) >= 16) {
                spell = "plague";
                break;
         }
-} else if (char_level($n) >= 13) {
+} else if ($n->level >= 13) {
          switch (dice(1, 8)) {
         case 1:
                spell = "blindness";
@@ -105,7 +105,7 @@ if (char_level($n) >= 16) {
                spell = "flamestrike";
                break;
         }
-} else if (char_level($n) >= 12) {
+} else if ($n->level >= 12) {
         switch (dice(1, 6)) {
         case 1:
                spell = "blindness";
@@ -126,7 +126,7 @@ if (char_level($n) >= 16) {
                spell = "curse";
                break;
         }
-} else if (char_level($n) >= 10) {
+} else if ($n->level >= 10) {
         switch (dice(1, 5)) {
         case 1:
                spell = "blindness";
@@ -144,7 +144,7 @@ if (char_level($n) >= 16) {
                spell = "dispel evil";
                break;
         }
-} else if (char_level($n) >= 9) {
+} else if ($n->level >= 9) {
         switch (dice(1, 4)) { 
         case 1:
                spell = "blindness";
@@ -159,7 +159,7 @@ if (char_level($n) >= 16) {
                spell = "inflict critical wounds";
                break;
         }
-} else if (char_level($n) >= 7) {
+} else if ($n->level >= 7) {
         switch (dice(1, 3)) {
         case 1:
                spell = "blindness";
@@ -171,7 +171,7 @@ if (char_level($n) >= 16) {
                spell = "earthquake";
                break;
         }
-} else if (char_level($n) >= 3) {
+} else if ($n->level >= 3) {
         switch (dice(1, 2)) {
         case 1:
                spell = "blindness";

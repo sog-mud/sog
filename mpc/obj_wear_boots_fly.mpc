@@ -1,5 +1,5 @@
 /*
- * $Id: obj_wear_boots_fly.mpc,v 1.2 2001-09-12 08:20:49 fjoe Exp $
+ * $Id: obj_wear_boots_fly.mpc,v 1.3 2003-04-25 12:53:01 fjoe Exp $
  */
 
 if (is_sn_affected($n, "fly"))
@@ -9,6 +9,5 @@ act("As you wear $p on your feet, they hold you up.",
      $n, $p, NULL, TO_CHAR);
 act_char("You start to fly.", $n);
  
-affect_char($n, TO_AFFECTS, "fly", char_level($n), -2,
-            0, 0, AFF_FLYING);
+affect_char($n, TO_AFFECTS, "fly", $n->level, -2, 0, 0, AFF_FLYING);
 return 0;

@@ -71,8 +71,8 @@ stand stand none 0
 g @eng none@rus male~
 m mob_greet @ all~
 obj portal;
-foreach (portal, obj_in_room(char_room($n))) {
-        if (obj_item_type(portal) != ITEM_PORTAL)
+foreach (portal, obj_in_room($n->in_room)) {
+        if (portal->item_type != ITEM_PORTAL)
                 continue;
         extract_obj(portal, XO_F_NORECURSE);
 }
@@ -195,42 +195,42 @@ trash 0 0 0
 0 0 0 P
 m obj_look @ 100~
 obj portal;
-foreach (portal, obj_in_room(char_room($n))) {
-        if (obj_item_type(portal) != ITEM_PORTAL)
+foreach (portal, obj_in_room($n->in_room)) {
+        if (portal->item_type != ITEM_PORTAL)
                 continue;
         extract_obj(portal, XO_F_NORECURSE);
 }
 
 act("The elf opens disguiseded manhole.", $n, NULL, NULL, TO_CHAR);
 
-if (real_char_level($n) < 11 && real_char_level($n) > 5) {
+if ($n->real_level < 11 && $n->real_level > 5) {
         portal = create_obj(51310, 0);
-        obj_to_room(portal, char_room($n));
+        obj_to_room(portal, $n->in_room);
 }
 
-if (real_char_level($n) < 21 && real_char_level($n) > 10) {
+if ($n->real_level < 21 && $n->real_level > 10) {
         portal = create_obj(51311, 0);
-        obj_to_room(portal, char_room($n));
+        obj_to_room(portal, $n->in_room);
 }
 
-if (real_char_level($n) < 31 && real_char_level($n) > 20) {
+if ($n->real_level < 31 && $n->real_level > 20) {
         portal = create_obj(51312, 0);
-        obj_to_room(portal, char_room($n));
+        obj_to_room(portal, $n->in_room);
 }
 
-if (real_char_level($n) < 41 && real_char_level($n) > 30) {
+if ($n->real_level < 41 && $n->real_level > 30) {
         portal = create_obj(51313, 0);
-        obj_to_room(portal, char_room($n));
+        obj_to_room(portal, $n->in_room);
 }
 
-if (real_char_level($n) < 45 && real_char_level($n) > 40) {
+if ($n->real_level < 45 && $n->real_level > 40) {
         portal = create_obj(51314, 0);
-        obj_to_room(portal, char_room($n));
+        obj_to_room(portal, $n->in_room);
 }
 
-if (real_char_level($n) > 44) {
+if ($n->real_level > 44) {
         portal = create_obj(51315, 0);
-        obj_to_room(portal, char_room($n));
+        obj_to_room(portal, $n->in_room);
 }
 return 0;
 ~

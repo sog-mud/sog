@@ -1,10 +1,10 @@
 /*
- * $Id: mob_random_guard.mpc,v 1.2 2001-09-30 20:15:27 fjoe Exp $
+ * $Id: mob_random_guard.mpc,v 1.3 2003-04-25 12:52:58 fjoe Exp $
  */
 
 char victim;
 
-foreach (victim, char_in_room(char_room($n))) {
+foreach (victim, char_in_room($n->in_room)) {
         if (!is_immortal(victim)
         &&  is_wanted(victim)
         &&  can_see($n, victim))
@@ -17,27 +17,27 @@ if (victim != NULL) {
         return 0;
 }
 
-foreach (victim, char_in_room(char_room($n))) {
-        if (char_fighting(victim) != NULL 
+foreach (victim, char_in_room($n->in_room)) {
+        if (victim->fighting != NULL 
         &&  can_see($n, victim)) {
 		break;
         }
 }
 	
-if (victim != NULL && char_fighting(victim) != $n) {
-	char target = char_fighting(victim);
+if (victim != NULL && victim->fighting != $n) {
+	char target = victim->fighting;
 
         int bad = ((is_npc(victim) && is_act(victim, ACT_AGGRESSIVE)) +
             (is_npc(victim) && is_act(victim, ACT_AGGRESSIVE)) +
-	    (!is_npc(victim) && char_ethos(victim) == ETHOS_CHAOTIC) +
-	    (!is_npc(victim) && char_ethos(victim) != ETHOS_LAWFUL) +
+	    (!is_npc(victim) && victim->ethos == ETHOS_CHAOTIC) +
+	    (!is_npc(victim) && victim->ethos != ETHOS_LAWFUL) +
 	    is_npc(victim) + 
 	    is_evil(victim) + !is_good(victim));
 
         int worst = ((is_npc(target) && is_act(victim, ACT_AGGRESSIVE)) +
             (is_npc(target) && is_act(victim, ACT_AGGRESSIVE)) +
-	    (!is_npc(target) && char_ethos(victim) == ETHOS_CHAOTIC) +
-	    (!is_npc(target) && char_ethos(victim) != ETHOS_LAWFUL) +
+	    (!is_npc(target) && victim->ethos == ETHOS_CHAOTIC) +
+	    (!is_npc(target) && victim->ethos != ETHOS_LAWFUL) +
 	    is_npc(target) + 
 	    is_evil(target) + !is_good(victim));
 
@@ -56,11 +56,11 @@ if (victim != NULL && char_fighting(victim) != $n) {
 	return 0;
 }
 
-foreach (victim, char_in_room(char_room($n))) {
+foreach (victim, char_in_room($n->in_room)) {
         if (!is_immortal(victim)
         &&  !is_npc(victim)
         &&  can_see($n, victim)
-        &&  char_fighting(victim) == NULL
+        &&  victim->fighting == NULL
         &&  number_percent() < 2)
                 break;
 }
@@ -69,7 +69,7 @@ if (victim == NULL)
         return 0;
 
 act_say($n, "Do I know you, $lu{$N}?", victim);
-if (char_hometown(victim) != char_hometown($n))
+if (victim->hometown != $n->hometown)
       	dofun("say", $n, "I don't remember you. Go away!");
 else {
        	dofun("say", $n, "Ok, my dear! I have just remembered.");

@@ -1,5 +1,5 @@
 /*
- * $Id: obj_get_quest_reward.mpc,v 1.2 2001-10-21 21:33:55 fjoe Exp $
+ * $Id: obj_get_quest_reward.mpc,v 1.3 2003-04-25 12:53:01 fjoe Exp $
  */
 
 if (is_owner($p, $n)) {
@@ -9,5 +9,5 @@ if (is_owner($p, $n)) {
  
 act("You are zapped by $p and drop it.", $n, $p, NULL, TO_CHAR);
 act("$n is zapped by $p and drops it.", $n, $p, NULL, TO_ROOM);
-obj_to_room($p, char_room($n));
+obj_to_room($p, $n->in_room);
 return 0;

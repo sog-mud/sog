@@ -753,18 +753,17 @@ jewelry BG 0 AB
 f object damroll 5 0
 f object ac 20 0
 m obj_speech @ punish~
-if (room_is(char_room($n), ROOM_NOMAGIC))
+if (room_is($n->in_room, ROOM_NOMAGIC))
         return 0;
 
-char victim = char_fighting($n);
-
+char victim = $n->fighting;
 if ((get_eq_char($n, WEAR_FINGER_R) != $p &&
      get_eq_char($n, WEAR_FINGER_L) != $p)
 ||  victim == NULL)
         return 0;
 
 act("An electrical arc sprays from $p.", $n, $p, NULL, TO_ALL);
-spellfun_call("lightning breath", NULL, char_level($n), $n, victim);
+spellfun("lightning breath", NULL, $n->level, $n, victim);
 wait_state($n, 2 * get_pulse("violence"));
 return 0;
 ~

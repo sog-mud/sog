@@ -1,10 +1,10 @@
 /*
- * $Id: mob_random_fido.mpc,v 1.1 2001-09-16 11:57:32 fjoe Exp $
+ * $Id: mob_random_fido.mpc,v 1.2 2003-04-25 12:52:58 fjoe Exp $
  */
 
 obj corpse;
-foreach (corpse, obj_in_room(char_room($n))) {
-        if (obj_item_type(corpse) != ITEM_CORPSE_NPC)
+foreach (corpse, obj_in_room($n->in_room)) {
+        if (corpse->item_type != ITEM_CORPSE_NPC)
                 continue;
  
         act("$n savagely devours a corpse.", $n, NULL, NULL, TO_ROOM);

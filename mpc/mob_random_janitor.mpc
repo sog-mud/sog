@@ -1,17 +1,18 @@
 /*
- * $Id: mob_random_janitor.mpc,v 1.2 2001-12-04 17:01:32 tatyana Exp $
+ * $Id: mob_random_janitor.mpc,v 1.3 2003-04-25 12:52:58 fjoe Exp $
  */
 
 obj trash;
-foreach (trash, obj_in_room(char_room($n))) {
+foreach (trash, obj_in_room($n->in_room)) {
+	int item_type = trash->item_type;
         if (!can_wear(trash, ITEM_TAKE)
         ||  !can_loot($n, trash)
-	||  obj_item_type(trash) == ITEM_CORPSE_PC)
+	||  item_type == ITEM_CORPSE_PC)
                 continue;
  
-        if (obj_item_type(trash) == ITEM_DRINK_CON
-        ||  obj_item_type(trash) == ITEM_TRASH
-        ||  obj_cost(trash) < 10) {
+        if (item_type == ITEM_DRINK_CON
+        ||  item_type == ITEM_TRASH
+        ||  trash->cost < 10) {
                 if (get_obj($n, trash, NULL, "$n picks up some trash."))
                         return 1;
         }

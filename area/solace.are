@@ -1060,9 +1060,8 @@ f object hitroll 10 0
 f object damroll 10 0
 f object saving_spell -10 0
 m obj_fight @ 10~
-char victim = char_fighting($n);
+char victim = $n->fighting;
 obj shield = get_eq_char(victim, WEAR_SHIELD);
- 
 if (shield == NULL)
        return 0;
  
@@ -1189,7 +1188,7 @@ f object hitroll 4 0
 f object damroll 1 0
 f object mana -50 0
 m obj_greet @ 87~
-if (!is_class($n, "wizard"))
+if (!has_spec($n, "class_wizard"))
         return 0;
 act("$p glows and pulses.", $n, $p, NULL, TO_ALL);
 return 1;

@@ -916,7 +916,7 @@ f affects mana 50 0
 f affects hp 50 0
 f affects damroll 10 0
 m obj_wear @ 100~
-if (is_class($n, "warrior"))
+if (has_spec($n, "class_warrior"))
         return 0;
 
 act("$p is too heavy for you to wear.", $n, $p, NULL, TO_CHAR);

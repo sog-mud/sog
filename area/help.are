@@ -7278,23 +7278,6 @@ Syntax: {cpose list{x
  
 To add new pose: {cpose add, pose self{x <number> <msg>, {cpose others{x <number> <msg>
 ~
-immortal 'OLC CC_EXPR'~
-Syntax: <cmd> [add] <expr>
-Syntax: <cmd> mfun <num> <mfun>
-Syntax: <cmd> delete <num>
-Syntax: <cmd> show
- 
-<cmd> is OLC command for editing CC exprs (depends on current OLC
-editor, e.g.: {crestrictions{x for OLC for objects).
- 
-<expr> is an arbitrary expression of boolean predicates. Each
-predicate has one string argument. Valid predicates and their meaning
-depend on current OLC editor and are listed in 'OLC CC_PREDICATES'.
-You can use !, && and || operators.
- 
-<mfun> is a name of `main' predicate for an expression.
- 
-~
 0 SPECIALIZE~
 @eng Syntax: {cspecialize{x <weapon type>
  
@@ -7309,33 +7292,6 @@ related to that weapon.
 0 pray~
 Syntax:{cpray{x <prayer> <target>
  
-~
-immortal 'OLC CC_PREDICATES'~
-Condition checking expression is one of the following:
- 
-cc_fun{c("{xargument{c"){x
-{c({xexpression{c){x
-{c!{xexpression
-expression_1 {cAND{x expression_2
-expression_1 {cOR{x expression_2
- 
-List of cc_functions with explanation of arguments is below.
- 
-Object wear restrictions:
-{crace{x    - TRUE if character is of the races listed. Argument is
-          space-separated list of races.
-{cclass{x   - TRUE if character is of the classes listed. Argument
-          is space-spearated list of classes.
-{cminsize{x - TRUE if character's size is not greater then specified
- 
-Spec dependancies:
-{chas_spec{x      - TRUE if character has at least one of specs
-                listed in argument.
-{cspclass_limit{x - TRUE if character has no more then specified
-                number of specs of given class. Argument is
-                "number class" format, class is one of the following:
-                {crace{x, {cweapon{x, {cclass{x, {cclan{x.
-{clevel_lt{x      - TRUE if character's level is less than specified number.
 ~
 immortal 'OLC CLASS GUILDS'~
 Syntax: {cguilds list{x

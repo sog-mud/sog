@@ -1,13 +1,13 @@
 /*
- * $Id: mob_fight_poison_bite.mpc,v 1.1 2001-09-14 16:48:20 fjoe Exp $
+ * $Id: mob_fight_poison_bite.mpc,v 1.2 2003-04-25 12:52:52 fjoe Exp $
  */
 
-if (number_percent() > char_level($n))
+if (number_percent() > $n->level)
         return 0;
  
-char victim = char_fighting($n);
+char victim = $n->fighting;
 act("You bite $N!", $n, NULL, victim, TO_CHAR);
 act("$n bites $N!", $n, NULL, victim, TO_NOTVICT);
 act("$n bites you!", $n, NULL, victim, TO_VICT);
-spellfun_call("poison", NULL, char_level($n), $n, victim);
+spellfun("poison", NULL, $n->level, $n, victim);
 return 0;

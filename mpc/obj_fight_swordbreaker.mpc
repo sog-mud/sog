@@ -1,8 +1,8 @@
 /*
- * $Id: obj_fight_swordbreaker.mpc,v 1.2 2001-09-15 17:27:43 fjoe Exp $
+ * $Id: obj_fight_swordbreaker.mpc,v 1.3 2003-04-25 12:53:00 fjoe Exp $
  */
 
-char victim = char_fighting($n);
+char victim = $n->fighting;
 obj wield = get_eq_char(victim, WEAR_WIELD);
 obj second_wield = get_eq_char(victim, WEAR_SECOND_WIELD);
  

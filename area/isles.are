@@ -974,14 +974,14 @@ act_char("Your arms cool down again.", $n);
 return 0;
 ~
 m obj_fight @ 20~
-char victim = char_fighting($n);
+char victim = $n->fighting;
 act("Your $p burns $N's face!", $n, $p, victim, TO_CHAR);
 act("$n's $p burns $N's face!", $n, $p, victim, TO_NOTVICT);
 act("$n's $p burns your face!", $n, $p, victim, TO_VICT);
  
-int dam = number_percent()/2 + 30 + 5 * char_level($n);
+int dam = number_percent()/2 + 30 + 5 * $n->level;
 damage($n, victim, dam, "burning hands", DAM_F_SHOW);
-inflict_effect("fire", victim, obj_level($p)/2, dam);
+inflict_effect("fire", victim, $p->level/2, dam);
 return 0;
 ~
 E

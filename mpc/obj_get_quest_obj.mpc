@@ -1,12 +1,12 @@
 /*
- * $Id: obj_get_quest_obj.mpc,v 1.2 2001-10-21 21:33:54 fjoe Exp $
+ * $Id: obj_get_quest_obj.mpc,v 1.3 2003-04-25 12:53:00 fjoe Exp $
  */
 
 if (is_owner($p, $n)) {
         if (is_affected($n, AFF_POISON)
         &&  dice(1, 5) == 1) {
                 act("$p glows blue.", $n, $p, NULL, TO_ALL);
-                spellfun_call("cure poison", NULL, 30, $n, $n);
+                spellfun("cure poison", NULL, 30, $n, $n);
                 return 0;
         }
         act("$p waits patiently to return.", $n, $p, NULL, TO_CHAR);
@@ -14,14 +14,14 @@ if (is_owner($p, $n)) {
 }
 
 act("You are zapped by $p and drop it.", $n, $p, NULL, TO_CHAR);
-obj_to_room($p, char_room($n));
+obj_to_room($p, $n->in_room);
  
 switch (dice(1, 10)) {
 case 1:
-       spellfun_call("curse", NULL, char_level($n), $n, $n);
+       spellfun("curse", NULL, $n->level, $n, $n);
        break;
 case 2:
-       spellfun_call("poison", NULL, char_level($n), $n, $n);
+       spellfun("poison", NULL, $n->level, $n, $n);
        break;
 }
  

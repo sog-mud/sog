@@ -240,7 +240,7 @@ portal 0 CL 0
 0 0 A 51201 0
 0 0 0 P
 m obj_enter @ 100~
-int l = char_level($n);
+int l = $n->level;
 inflict_effect("shock", $n, l, l);
 return 0;
 ~
@@ -710,7 +710,7 @@ sword 1 1 'cleave' CDEI
 0 1 0 P
 m obj_fight @ 100~
 // типа handle_death()
-char victim =  char_fighting($n);
+char victim =  $n->fighting;
 if (is_immortal(victim)) {
         dofun("peace", $n, "");
         return 0;
@@ -2426,19 +2426,18 @@ if (chance == 0) {
         return 0;
 }
 
-char victim = char_fighting($n);
+char victim = $n->fighting;
 if (victim == NULL) {
         act_char("You aren't fighting anyone.", $n);
         return 0;
 }
 
-room here = char_room($n);
 char pet;
-foreach (pet, char_in_room(here)) {
+foreach (pet, char_in_room($n->in_room)) {
         if (is_npc(pet)) {
                 if (is_mount($n, pet)) {
                         act_char("You can't kick while riding!", $n);
-                         return 0;
+                        return 0;
                 }
         }
 }
@@ -2447,7 +2446,7 @@ if (is_affected($n, AFF_FLYING))
         chance = chance * 110 / 100;
 
 if (number_percent() < chance) {
-        int kick_dam = number_range(1, char_level($n));
+        int kick_dam = number_range(1, $n->level);
         damage($n, victim, kick_dam, "kick", DAM_F_SHOW);
 }
 

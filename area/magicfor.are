@@ -510,7 +510,7 @@ r holy -50
 r wood -50
 m mob_fight mob_fight_cast_mage 100~
 m mob_greet @ all~
-if (char_sex($N) == SEX_MALE) {
+if ($N->sex == SEX_MALE) {
         social_char("pinch", $n, $N);
         mob_interpret($n, "innocent");
 } else {
@@ -687,7 +687,7 @@ r holy -50
 r wood -50
 m mob_fight mob_fight_cast_mage 100~
 m mob_greet @ all~
-if (char_sex($N) == SEX_FEMALE) {
+if ($N->sex == SEX_FEMALE) {
         social_char("wink", $n, $N);
         dofun("say", $n, "Let's have a kiss, eh, cutie?");
 } else

@@ -1,5 +1,5 @@
 /*
- * $Id: mob_death_smurf.mpc,v 1.1 2001-09-16 18:49:34 fjoe Exp $
+ * $Id: mob_death_smurf.mpc,v 1.2 2003-04-25 12:52:52 fjoe Exp $
  */
 
 int i;
@@ -8,8 +8,7 @@ foreach (smurf, npc_in_world()) {
         if ($n == smurf)
                 continue;
  
-        if (char_vnum(smurf) >= 101
-        &&  char_vnum(smurf) <= 110)
+        if (smurf->vnum >= 101 && smurf->vnum <= 110)
                 i++;
 }
 

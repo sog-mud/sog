@@ -1,7 +1,10 @@
 /*
-* $Id: obj_wear_hero_only.mpc,v 1.1 2003-04-19 13:21:01 tatyana Exp $ obj_earl_hero_only ... by krol
+ * $Id: obj_wear_hero_only.mpc,v 1.2 2003-04-25 12:53:01 fjoe Exp $
  */
 
-if ((real_char_level($n) > 44) && (is_npc($n)==0)) return 0;
-act("Боги создали эту вещь только для героев.", $n, NULL, NULL, TO_CHAR);
-return 1;
+if ($n->real_level < LEVEL_HERO) {
+        act("Боги создали эту вещь только для героев.",
+            $n, NULL, NULL, TO_CHAR);
+        return 1;
+}
+return 0;

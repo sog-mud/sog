@@ -1,5 +1,5 @@
 /*
- * $Id: obj_wear_bracer.mpc,v 1.2 2001-09-12 08:20:49 fjoe Exp $
+ * $Id: obj_wear_bracer.mpc,v 1.3 2003-04-25 12:53:01 fjoe Exp $
  */
 
 if (is_sn_affected($n, "haste"))
@@ -9,8 +9,6 @@ act("As you slide your arms into $p, they mold to your skin.",
     $n, $p, NULL, TO_CHAR);
 act_char("Your hands and arms feel incredibly light.", $n);
 
-int mod = 1 + (char_level($n) >= 18) + (char_level($n) >= 30) +
-          (char_level($n) >= 45); 
-affect_char($n, TO_AFFECTS, "haste", char_level($n), -2,
-            APPLY_DEX, mod, AFF_HASTE);
+int mod = 1 + ($n->level >= 18) + ($n->level >= 30) + ($n->level >= 45); 
+affect_char($n, TO_AFFECTS, "haste", $n->level, -2, APPLY_DEX, mod, AFF_HASTE);
 return 0;
