@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.118 1999-01-04 06:39:31 kostik Exp $
+ * $Id: fight.c,v 1.119 1999-01-18 04:47:14 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2839,6 +2839,12 @@ void do_dishonor(CHAR_DATA *ch, const char *argument)
 void do_surrender(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *mob;
+
+	if (!IS_NPC(ch)) {
+		char_puts("Huh?\n", ch);
+		return;
+	}
+
 	if ((mob = ch->fighting) == NULL) {
 		char_puts("But you're not fighting!\n", ch);
 		return;
