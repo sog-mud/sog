@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.c,v 1.85 2000-06-14 15:04:02 fjoe Exp $
+ * $Id: obj_prog.c,v 1.86 2000-06-15 16:17:50 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1455,15 +1455,15 @@ lion_claw_hit(OBJ_DATA *obj, CHAR_DATA *ch, int loc)
 	if (obj != get_eq_char(ch, loc))
 		return FALSE;
 
-	char_puts("The nails of your claw appears from its fingers.\n",ch);
-	act_puts("The nails of $n's claw appears for an instant.",
+	char_puts("The nails of your claw appear from its fingers.\n", ch);
+	act_puts("The nails of $n's claw appear for an instant.",
 		 ch, NULL, NULL, TO_ROOM, POS_DEAD);
 	one_hit(ch, ch->fighting, NULL, loc);
 	one_hit(ch, ch->fighting, NULL, loc);
 	one_hit(ch, ch->fighting, NULL, loc);
 	one_hit(ch, ch->fighting, NULL, loc);
-	char_puts("The nails of your claw disappears.\n",ch);
-	act_puts("The nails of $n's claw disappears suddenly.",
+	char_puts("The nails of your claw disappear.\n",ch);
+	act_puts("The nails of $n's claw disappear suddenly.",
 		 ch, NULL, NULL, TO_ROOM, POS_DEAD);
 	return TRUE;
 }
