@@ -5929,6 +5929,17 @@ Form 6 -~
 End
 
 #RULE
+Name солнечные~
+BaseLen 8
+Form 1 -х~
+Form 2 -м~
+Form 3 -е~
+Form 4 -ми~
+Form 5 -х~
+Form 6 -х~
+End
+
+#RULE
 Name эльф~
 BaseLen 4
 Form 1 -а~
@@ -7953,6 +7964,17 @@ End
 #RULE
 Name красный~
 BaseLen 5
+Form 1 -ого~
+Form 2 -ому~
+Form 3 -ый~
+Form 4 -ым~
+Form 5 -ом~
+Form 6 -ого~
+End
+
+#RULE
+Name красивый~
+BaseLen 6
 Form 1 -ого~
 Form 2 -ому~
 Form 3 -ый~
