@@ -1,5 +1,5 @@
 #
-# $Id: Makefile,v 1.64 2000-02-15 08:47:09 fjoe Exp $
+# $Id: Makefile,v 1.65 2000-02-15 09:01:27 fjoe Exp $
 #
 
 SUBDIR = sog mod_core mod_dofun mod_events mod_cc_expr mod_olc mod_spellfun
@@ -19,9 +19,7 @@ abi_version.h: Makefile.inc
 	echo "#define" `grep ^ABI_VERSION Makefile.inc | sed s/=//` > abi_version.h
 
 ctags:
-	ctags -dtw include/*.h sog/comm/*.[ch] sog/db/*.[ch] sog/*.[ch]\
-		core/*.[ch] dofun/*.[ch] spellfun/*.[ch] olc/*.[ch]\
-		events/*.[ch]
+	ctags -dtw include/*.h sog/*.[ch] sog/*/*.[ch] mod_*/*.[ch]
 
 gtags:
 	gtags -co .
