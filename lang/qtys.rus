@@ -4,6 +4,15 @@ Form 1 серебряный~
 End
 
 #RULE
+Name квестовых очков~
+Form 1 квестовое очко~
+Form 2 квестовых очка~
+Form 3 квестовых очка~
+Form 4 квестовых очка~
+Form 5 квестовых очков~
+End
+
+#RULE
 Name идут~
 Form 0 идет~
 Form 1 идет~
@@ -12,6 +21,24 @@ End
 #RULE
 Name players~
 Form 1 player~
+End
+
+#RULE
+Name минут~
+Form 1 минута~
+Form 2 минуты~
+Form 3 минуты~
+Form 4 минуты~
+Form 5 минут~
+End
+
+#RULE
+Name жителей~
+Form 1 житель~
+Form 2 жителя~
+Form 3 жителя~
+Form 4 жителя~
+Form 5 жителей~
 End
 
 #RULE
@@ -42,6 +69,15 @@ Form 1 золотая монета~
 Form 2 золотые монеты~
 Form 3 золотые монеты~
 Form 4 золотые монеты~
+End
+
+#RULE
+Name практик~
+Form 1 практика~
+Form 2 практики~
+Form 3 практики~
+Form 4 практики~
+Form 5 практик~
 End
 
 #RULE

@@ -87,6 +87,14 @@ Form 3 -ют~
 End
 
 #RULE
+Name преступник~
+BaseLen 9
+Form 1 -ца~
+Form 2 -к~
+Form 3 -ки~
+End
+
+#RULE
 Name отдыхает~
 BaseLen 6
 Form 1 -ет~
@@ -363,6 +371,14 @@ Form 3 -ут~
 End
 
 #RULE
+Name говорит~
+BaseLen 5
+Form 1 -ит~
+Form 2 -ит~
+Form 3 -ят~
+End
+
+#RULE
 Name восстановил~
 BaseLen 11
 Form 1 -а~
@@ -574,6 +590,14 @@ Form 3 они~
 End
 
 #RULE
+Name размыкает~
+BaseLen 7
+Form 1 -ет~
+Form 2 -ет~
+Form 3 -ют~
+End
+
+#RULE
 Name узнал~
 BaseLen 5
 Form 1 -а~
@@ -710,6 +734,14 @@ Form 3 -ют~
 End
 
 #RULE
+Name выполнил~
+BaseLen 7
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
 Name переместил~
 BaseLen 9
 Form 1 -ла~
@@ -827,6 +859,14 @@ BaseLen 6
 Form 1 -а~
 Form 2 -о~
 Form 3 -ы~
+End
+
+#RULE
+Name храбрый~
+BaseLen 5
+Form 1 -ая~
+Form 2 -ое~
+Form 3 -ые~
 End
 
 #RULE
