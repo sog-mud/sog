@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.112 1998-12-19 12:26:25 kostik Exp $
+ * $Id: fight.c,v 1.113 1998-12-21 07:13:28 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2165,48 +2165,46 @@ int xp_compute(CHAR_DATA *gch, CHAR_DATA *victim, int total_levels, int members)
 	xp += (xp * (gch->max_hit - gch->hit)) / (gch->max_hit * 5);
 #endif
 
-	if (xp > 0) {
-		if (IS_GOOD(gch)) {
-			if (IS_GOOD(victim)) {
-				gch->pcdata->anti_killed++;
-				neg_cha = 1;
-			}
-			else if (IS_NEUTRAL(victim)) {
-				gch->pcdata->has_killed++;
-				pos_cha = 1;
-			}
-			else if (IS_EVIL(victim)) {
-				gch->pcdata->has_killed++;
-				pos_cha = 1;
-			}
+	if (IS_GOOD(gch)) {
+		if (IS_GOOD(victim)) {
+			gch->pcdata->anti_killed++;
+			neg_cha = 1;
 		}
-		else if (IS_NEUTRAL(gch)) {
-			if (IS_GOOD(victim)) {
-				gch->pcdata->has_killed++;
-				pos_cha = 1;
-			}
-			else if (IS_NEUTRAL(victim)) {
-				gch->pcdata->anti_killed++;
-				neg_cha = 1;
-			}
-			else if (IS_EVIL(victim)) {
-				gch->pcdata->has_killed++;
-				pos_cha =1;
-			}
+		else if (IS_NEUTRAL(victim)) {
+			gch->pcdata->has_killed++;
+			pos_cha = 1;
 		}
-		else if (IS_EVIL(gch)) {
-			if (IS_GOOD(victim)) {
-				gch->pcdata->has_killed++;
-				pos_cha = 1;
-			}
-			else if (IS_NEUTRAL(victim)) {
-				gch->pcdata->has_killed++;
-				pos_cha = 1;
-			}
-			else if (IS_EVIL(victim)) {
-				gch->pcdata->anti_killed++;
-				neg_cha = 1;
-			}
+		else if (IS_EVIL(victim)) {
+			gch->pcdata->has_killed++;
+			pos_cha = 1;
+		}
+	}
+	else if (IS_NEUTRAL(gch)) {
+		if (IS_GOOD(victim)) {
+			gch->pcdata->has_killed++;
+			pos_cha = 1;
+		}
+		else if (IS_NEUTRAL(victim)) {
+			gch->pcdata->anti_killed++;
+			neg_cha = 1;
+		}
+		else if (IS_EVIL(victim)) {
+			gch->pcdata->has_killed++;
+			pos_cha =1;
+		}
+	}
+	else if (IS_EVIL(gch)) {
+		if (IS_GOOD(victim)) {
+			gch->pcdata->has_killed++;
+			pos_cha = 1;
+		}
+		else if (IS_NEUTRAL(victim)) {
+			gch->pcdata->has_killed++;
+			pos_cha = 1;
+		}
+		else if (IS_EVIL(victim)) {
+			gch->pcdata->anti_killed++;
+			neg_cha = 1;
 		}
 	}
 
