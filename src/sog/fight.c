@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.202.2.9 2000-04-06 06:36:35 osya Exp $
+ * $Id: fight.c,v 1.202.2.10 2000-04-06 06:55:41 fjoe Exp $
  */
 
 /***************************************************************************
@@ -74,7 +74,7 @@ int	xp_compute		(CHAR_DATA *gch, CHAR_DATA *victim,
 				 int total_levels, int members);
 bool	is_safe 		(CHAR_DATA *ch, CHAR_DATA *victim);
 
-OBJ_DATA *	make_corpse		(CHAR_DATA *ch, CHAR_DATA *killer);
+OBJ_DATA *make_corpse		(CHAR_DATA *ch, CHAR_DATA *killer);
 void	one_hit 		(CHAR_DATA *ch, CHAR_DATA *victim, int dt,
 				 int loc);
 void	mob_hit 		(CHAR_DATA *ch, CHAR_DATA *victim, int dt);
@@ -1996,18 +1996,19 @@ make_corpse(CHAR_DATA *ch, CHAR_DATA *killer)
 	for (obj = ch->carrying; obj != NULL; obj = obj_next) {
 		obj_next = obj->next_content;
 		obj_from_char(obj);
+
 		if (killer != NULL
-		&& !IS_IMMORTAL(killer)
-		&& !IS_NPC(killer)
-		&& obj->pObjIndex->item_type != ITEM_POTION
-		&& obj->pObjIndex->item_type != ITEM_SCROLL
-		&& obj->pObjIndex->item_type != ITEM_STAFF
-		&& obj->pObjIndex->item_type != ITEM_PILL
-		&& (90 + ch->level - killer->level) < number_percent()) {
-			act("$p cracks and shatters into tiny pieces.", ch, obj, NULL, TO_ROOM);
+		&&  !IS_IMMORTAL(killer)
+		&&  !IS_NPC(killer) && IS_NPC(ch) /* killer != ch */
+		&&  (obj->pObjIndex->item_type == ITEM_WEAPON ||
+		     obj->pObjIndex->item_type == ITEM_ARMOR)
+		&&  (90 + ch->level - killer->level) < number_percent()) {
+			act("$p cracks and shatters into tiny pieces.",
+			    ch, obj, NULL, TO_ROOM);
 			extract_obj(obj, 0);
 			continue;
 		}
+
 		if (obj->pObjIndex->item_type == ITEM_POTION)
 		    obj->timer = number_range(500,1000);
 		if (obj->pObjIndex->item_type == ITEM_SCROLL)
