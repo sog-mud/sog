@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: module.c,v 1.16 2000-06-07 08:56:00 fjoe Exp $
+ * $Id: module.c,v 1.17 2000-06-07 09:40:28 fjoe Exp $
  */
 
 /*
@@ -185,6 +185,7 @@ modset_add_cb(void *p, va_list ap)
 
 	if (is_sname(name, m->mod_deps)
 	&&  !modset_search(v, m->name)
+	&&  m->dlh != NULL
 	&&  m->last_reload < curr_time
 	&&  modset_add(v, m, curr_time) < 0)
 		return m;

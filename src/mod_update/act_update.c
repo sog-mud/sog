@@ -15,12 +15,12 @@ update_print_cb(void *p, va_list ap)
 	buf_printf(buf, "[%9s] [%9s] [%10s] %5d %5d %c%s\n",
 		   hdlr->name,
 		   flag_string(module_names, hdlr->mod),
-		   hdlr->iter ?
+		   hdlr->iter != NULL ?
 			flag_string(iterator_names, (flag_t) hdlr->iter):
 			"none",
 		   hdlr->ticks,
 		   hdlr->cnt,
-		   hdlr->fun ? ' ' : '*',
+		   hdlr->fun != NULL ? ' ' : '*',
 		   hdlr->fun_name);
 	return NULL;
 }
