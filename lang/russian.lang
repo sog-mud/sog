@@ -1,6 +1,6 @@
 #LANG
 Name rus
-CasesFile Даркен~
+CasesFile cases.rus~
 GendersFile genders.rus~
 QtysFile qtys.rus~
 End
