@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.104 1998-12-22 18:23:23 fjoe Exp $
+ * $Id: act_wiz.c,v 1.105 1998-12-22 19:03:00 fjoe Exp $
  */
 
 /***************************************************************************
@@ -841,7 +841,7 @@ void do_goto(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
-		if (!IS_SET(ch->in_room->room_flags, ROOM_SAFE)) {
+		if (!IS_SET(ch->in_room->room_flags, ROOM_PEACE)) {
 			char_puts("You must be in a safe place in order "
 				  "to make a transportation.\n", ch);
 			return;

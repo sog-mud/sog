@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.178 1998-12-22 16:22:38 fjoe Exp $
+ * $Id: act_info.c,v 1.179 1998-12-22 19:02:58 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2744,9 +2744,8 @@ void do_bear_call(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (IS_SET(ch->in_room->room_flags, ROOM_SAFE)
-	||  IS_SET(ch->in_room->room_flags, ROOM_PRIVATE)
-	||  IS_SET(ch->in_room->room_flags, ROOM_SOLITARY)
+	if (IS_SET(ch->in_room->room_flags, ROOM_SAFE | ROOM_PEACE |
+					    ROOM_PRIVATE | ROOM_SOLITARY)
 	||  (ch->in_room->exit[0] == NULL && ch->in_room->exit[1] == NULL
 	&&   ch->in_room->exit[2] == NULL && ch->in_room->exit[3] == NULL
 	&&   ch->in_room->exit[4] == NULL && ch->in_room->exit[5] == NULL)
@@ -3333,9 +3332,8 @@ void do_lion_call(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (IS_SET(ch->in_room->room_flags, ROOM_SAFE)
-	||  IS_SET(ch->in_room->room_flags, ROOM_PRIVATE)
-	||  IS_SET(ch->in_room->room_flags, ROOM_SOLITARY)
+	if (IS_SET(ch->in_room->room_flags, ROOM_SAFE | ROOM_PEACE |
+					    ROOM_PRIVATE | ROOM_SOLITARY)
 	||  (ch->in_room->exit[0] == NULL && ch->in_room->exit[1] == NULL
 	&&   ch->in_room->exit[2] == NULL && ch->in_room->exit[3] == NULL
 	&&   ch->in_room->exit[4] == NULL && ch->in_room->exit[5] == NULL)
@@ -3570,9 +3568,8 @@ void do_camp(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (IS_SET(ch->in_room->room_flags, ROOM_SAFE)
-	||  IS_SET(ch->in_room->room_flags, ROOM_PRIVATE)
-	||  IS_SET(ch->in_room->room_flags, ROOM_SOLITARY)
+	if (IS_SET(ch->in_room->room_flags, ROOM_SAFE | ROOM_PEACE |
+					    ROOM_PRIVATE | ROOM_SOLITARY)
 	||  (ch->in_room->sector_type != SECT_FIELD
 	&&   ch->in_room->sector_type != SECT_FOREST
 	&&   ch->in_room->sector_type != SECT_MOUNTAIN

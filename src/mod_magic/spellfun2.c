@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.65 1998-12-17 21:05:42 fjoe Exp $
+ * $Id: spellfun2.c,v 1.66 1998-12-22 19:03:02 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2474,9 +2474,9 @@ void spell_animate_dead(int sn,int level, CHAR_DATA *ch, void *vo,int target)
 			return;
 		}
 
-		if (IS_SET(ch->in_room->room_flags, ROOM_SAFE)
-		||  IS_SET(ch->in_room->room_flags, ROOM_PRIVATE)
-		||  IS_SET(ch->in_room->room_flags, ROOM_SOLITARY)) {
+		if (IS_SET(ch->in_room->room_flags,
+			   ROOM_SAFE | ROOM_PEACE | ROOM_PRIVATE |
+			   ROOM_SOLITARY)) {
 			char_puts("You can't animate here.\n", ch);
 			return;
 		}
@@ -2968,62 +2968,56 @@ void spell_lion_help(int sn, int level, CHAR_DATA *ch, void *vo , int target)
 	int i;
 	
 	target_name = one_argument(target_name, arg);
-	if (arg[0] == '\0')
-	{
-	     char_puts("Whom do you want to have killed.\n",ch);
-	 return;
+	if (arg[0] == '\0') {
+		char_puts("Whom do you want to have killed.\n",ch);
+		return;
 	}
 
-	if ((victim = get_char_area(ch,arg)) == NULL)
-	{
-	 char_puts("Noone around with that name.\n",ch);
-	 return;
+	if ((victim = get_char_area(ch,arg)) == NULL) {
+		char_puts("Noone around with that name.\n", ch);
+		return;
 	}
-	if (is_safe_nomessage(ch,victim))
-	{
-	 char_puts("God protects your victim.\n",ch);
-	 return;
+
+	if (is_safe_nomessage(ch, victim)) {
+		char_puts("God protects your victim.\n", ch);
+		return;
 	}	
 
-	char_puts("You call for a hunter lion.\n",ch);
-	act("$n shouts a hunter lion.",ch,NULL,NULL,TO_ROOM);
+	char_puts("You call for a hunter lion.\n", ch);
+	act("$n shouts a hunter lion.", ch, NULL, NULL, TO_ROOM);
 
-	if (is_affected(ch,sn))
-	{
-	  char_puts("You cannot summon the strength to handle more lion right now.\n", ch);
-	  return;
+	if (is_affected(ch, sn)) {
+		char_puts("You cannot summon the strength to handle more "
+			  "lions right now.\n", ch);
+		return;
 	}
 
-	if (ch->in_room != NULL && IS_SET(ch->in_room->room_flags, ROOM_NOMOB))
-	{
-	 char_puts("No lions can listen you.\n", ch);
-	 return;
+	if (ch->in_room != NULL
+	&&  IS_SET(ch->in_room->room_flags, ROOM_NOMOB)) {
+		char_puts("No lions can listen you.\n", ch);
+		return;
 	}
 
-	if (IS_SET(ch->in_room->room_flags, ROOM_SAFE)      ||
-	   IS_SET(ch->in_room->room_flags, ROOM_PRIVATE)   ||
-	   IS_SET(ch->in_room->room_flags, ROOM_SOLITARY)  ||
-	   (ch->in_room->exit[0] == NULL &&
-	      ch->in_room->exit[1] == NULL &&
-	      ch->in_room->exit[2] == NULL &&
-	      ch->in_room->exit[3] == NULL &&
-	      ch->in_room->exit[4] == NULL &&
-	      ch->in_room->exit[5] == NULL) ||
-	     (ch->in_room->sector_type != SECT_FIELD &&
-	       ch->in_room->sector_type != SECT_FOREST &&
-	       ch->in_room->sector_type != SECT_MOUNTAIN &&
-	       ch->in_room->sector_type != SECT_HILLS))
-	{
-	char_puts("No hunter lion can come to you.\n", ch);
-	return;
+	if (IS_SET(ch->in_room->room_flags,
+		   ROOM_SAFE | ROOM_PEACE | ROOM_PRIVATE | ROOM_SOLITARY)
+	||  (ch->in_room->exit[0] == NULL &&
+	     ch->in_room->exit[1] == NULL &&
+	     ch->in_room->exit[2] == NULL &&
+	     ch->in_room->exit[3] == NULL &&
+	     ch->in_room->exit[4] == NULL &&
+	     ch->in_room->exit[5] == NULL)
+	||  (ch->in_room->sector_type != SECT_FIELD &&
+	     ch->in_room->sector_type != SECT_FOREST &&
+	     ch->in_room->sector_type != SECT_MOUNTAIN &&
+	     ch->in_room->sector_type != SECT_HILLS)) {
+		char_puts("No hunter lion can come to you.\n", ch);
+		return;
 	}
 
 	lion = create_mob(get_mob_index(MOB_VNUM_HUNTER));
 
 	for (i=0;i < MAX_STATS; i++)
-	{
-	  lion->perm_stat[i] = UMIN(25,2 * ch->perm_stat[i]);
-	}
+		lion->perm_stat[i] = UMIN(25,2 * ch->perm_stat[i]);
 
 	lion->max_hit =  UMIN(30000,ch->max_hit * 1.2);
 	lion->hit = lion->max_hit;
@@ -3040,20 +3034,19 @@ void spell_lion_help(int sn, int level, CHAR_DATA *ch, void *vo , int target)
 	lion->damage[DICE_TYPE] = number_range(level/3, level/2);
 	lion->damage[DICE_BONUS] = number_range(level/8, level/6);
 	
-/*	lion->master = lion->leader = ch; */
+	char_to_room(lion, ch->in_room);
 
-	char_to_room(lion,ch->in_room);
+	char_puts("A hunter lion comes to kill your victim!\n", ch);
+	act("A hunter lion comes to kill $n's victim!",
+	    ch, NULL, NULL, TO_ROOM);
 
-	char_puts("A hunter lion comes to kill your victim!\n",ch);
-	act("A hunter lion comes to kill $n's victim!",ch,NULL,NULL,TO_ROOM);
-
-	af.where		= TO_AFFECTS;
-	af.type               = sn;
-	af.level              = ch->level; 
-	af.duration           = 24;
-	af.bitvector          = 0;
-	af.modifier           = 0;
-	af.location           = APPLY_NONE;
+	af.where	= TO_AFFECTS;
+	af.type		= sn;
+	af.level	= ch->level; 
+	af.duration	= 24;
+	af.bitvector	= 0;
+	af.modifier	= 0;
+	af.location	= APPLY_NONE;
 	affect_to_char(ch, &af);  
 	lion->hunting = victim;
 	hunt_victim(lion);

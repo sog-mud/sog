@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.96 1998-12-21 04:23:39 fjoe Exp $
+ * $Id: update.c,v 1.97 1998-12-22 19:03:03 fjoe Exp $
  */
 
 /***************************************************************************
@@ -778,7 +778,8 @@ void mobile_update(void)
 		&&  (!IS_SET(act, ACT_STAY_AREA) ||
 		     pexit->u1.to_room->area == ch->in_room->area) 
 		&&  (!IS_SET(act, ACT_AGGRESSIVE) ||
-		     !IS_SET(pexit->u1.to_room->room_flags, ROOM_SAFE))
+		     !IS_SET(pexit->u1.to_room->room_flags,
+			     ROOM_PEACE | ROOM_SAFE))
 		&&  (!IS_SET(act, ACT_OUTDOORS) ||
 		     !IS_SET(pexit->u1.to_room->room_flags, ROOM_INDOORS)) 
 		&&  (!IS_SET(act, ACT_INDOORS) ||
@@ -1670,7 +1671,8 @@ void aggr_update(void)
 			||  (!IS_SET(act = ch->pIndexData->act,
 				     ACT_AGGRESSIVE) &&
 			     ch->last_fought == NULL)
-			||  IS_SET(ch->in_room->room_flags, ROOM_SAFE)
+			||  IS_SET(ch->in_room->room_flags,
+				   ROOM_PEACE | ROOM_SAFE)
 			||  IS_AFFECTED(ch, AFF_CALM)
 			||  ch->fighting != NULL
 			||  RIDDEN(ch)

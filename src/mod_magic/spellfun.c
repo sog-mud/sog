@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.98 1998-12-22 18:23:24 fjoe Exp $
+ * $Id: spellfun.c,v 1.99 1998-12-22 19:03:01 fjoe Exp $
  */
 
 /***************************************************************************
@@ -4054,13 +4054,12 @@ void spell_summon(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	||  victim->level >= level + 3
 	||  victim->fighting != NULL
 	||  !can_see_room(ch, victim->in_room)
-	||  IS_SET(ch->in_room->room_flags, ROOM_SAFE)
-	||  IS_SET(victim->in_room->room_flags, ROOM_SAFE)
+	||  IS_SET(ch->in_room->room_flags, ROOM_SAFE | ROOM_NORECALL |
+					    ROOM_PEACE | ROOM_NOSUMMON)
+	||  IS_SET(victim->in_room->room_flags, ROOM_SAFE | ROOM_NORECALL |
+						ROOM_PEACE | ROOM_NOSUMMON)
 	||  IS_SET(ch->in_room->area->flags, AREA_UNDER_CONSTRUCTION)
 	||  room_is_private(ch->in_room)
-	||  IS_SET(victim->in_room->room_flags, ROOM_NOSUMMON)
-	||  IS_SET(ch->in_room->room_flags, ROOM_NORECALL)
-	||  IS_SET(victim->in_room->room_flags, ROOM_NORECALL)
 	||  IS_SET(victim->imm_flags, IMM_SUMMON)
 	||  (victim->in_room->exit[0] == NULL &&
 	     victim->in_room->exit[1] == NULL &&
@@ -4149,7 +4148,7 @@ void spell_bamf(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 		if (pRoomIndex
 		&&  can_see_room(victim, pRoomIndex) 
 		&&  !room_is_private(pRoomIndex)
-		&&  !IS_SET(pRoomIndex->room_flags, ROOM_SAFE))
+		&&  !IS_SET(pRoomIndex->room_flags, ROOM_SAFE | ROOM_PEACE))
 			break;
 	}
 
