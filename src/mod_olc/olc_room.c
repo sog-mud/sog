@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.65 1999-12-04 11:32:13 fjoe Exp $
+ * $Id: olc_room.c,v 1.66 1999-12-05 07:07:20 avn Exp $
  */
 
 #include "olc.h"
@@ -218,13 +218,11 @@ OLC_FUN(roomed_show)
 	if (pRoom->ed) {
 		ED_DATA *ed;
 
-		buf_add(output, "Desc Kwds:  [");
-		for (ed = pRoom->ed; ed != NULL; ed = ed->next) {
-			buf_add(output, ed->keyword);
-			if (ed->next != NULL)
-				buf_add(output, " ");
-		}
-		buf_add(output, "]\n");
+		buf_add(output, "Desc Kwds:  ");
+		for (ed = pRoom->ed; ed != NULL; ed = ed->next)
+			buf_printf(output, "[%s]", ed->keyword);
+		
+		buf_add(output, "\n");
 	}
 
 	buf_add(output, "Characters: [");
@@ -792,13 +790,23 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 
 	EDIT_ROOM(ch, pRoom);
 
-	/*
-	 * Set the exit flags, needs full argument.
-	 * ----------------------------------------
-	 */
-	if ((value = flag_value(exit_flags, argument)) != 0) {
+	if (argument[0] == '\0') { /* Move command. */
+		move_char(ch, door, TRUE);                    /* ROM OLC */
+		return FALSE;
+	}
+
+	argument = one_argument(argument, command, sizeof(command));
+
+	/* old method did not allow to set 'door' as an exit name - Arborn */
+
+	if (!str_prefix(command, "flags")) {
 		ROOM_INDEX_DATA *pToRoom;
-		int rev;                                    /* ROM OLC */
+		int rev;
+
+		if ((value = flag_value(exit_flags, argument)) == 0) {
+			char_puts("RoomEd: %s: no such exit flags.\n", ch);
+			return FALSE;
+		}
 
 		if (!pRoom->exit[door]) {
 		   	char_puts("Exit does not exist.\n",ch);
@@ -827,20 +835,12 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 			TOGGLE_BIT(pToRoom->exit[rev]->exit_info, value);
 		}
 
-		char_puts("Exit flag toggled.\n", ch);
+		char_printf(ch, "Exit flag '%s' toggled.\n",
+				flag_string(exit_flags, value));
 		return TRUE;
 	}
 
-	/*
-	 * Now parse the arguments.
-	 */
-	argument = one_argument(argument, command, sizeof(command));
 	argument = one_argument(argument, arg, sizeof(arg));
-
-	if (command[0] == '\0' && argument[0] == '\0') { /* Move command. */
-		move_char(ch, door, TRUE);                    /* ROM OLC */
-		return FALSE;
-	}
 
 	if (command[0] == '?') {
 		BUFFER *output;
