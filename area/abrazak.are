@@ -54,13 +54,14 @@ S
 #15100
 ~
 ~
-0 0 0
+0 C 0
 S
 #0
 
 
 
 #SPECIALS
+M 15004 spec_breath_lightning	* (null)
 S
 
 
