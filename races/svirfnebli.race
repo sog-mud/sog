@@ -1,0 +1,28 @@
+#RACE
+Name svirfnebli~
+Aff infrared~
+Res magic poison disease~
+Vuln bash~
+Form edible sentient biped mammal~
+Parts head arms legs heart brains guts hands feet fingers ear eye~
+End
+
+#PCRACE
+Shortname Svirf~
+Points 250
+Class 'witch' 100
+Class 'cleric' 100
+Class 'thief' 100
+Class 'warrior' 100
+Class 'warlock' 100
+BonusSkills 'lore' 'identify'~
+Stats 0 -1 3 0 0 0
+MaxStats 20 19 23 18 19 25
+Size small
+HPBonus 10
+PracBonus 2
+RestrictAlign neutral
+Slang gnomish
+End
+
+#$

@@ -1,0 +1,28 @@
+#RACE
+Name gnome~
+Aff infrared~
+Res poison~
+Vuln bash~
+Form edible sentient biped mammal~
+Parts head arms legs heart brains guts hands feet fingers ear eye~
+End
+
+#PCRACE
+Shortname Gnome~
+Points 300
+Class 'witch' 100
+Class 'cleric' 100
+Class 'thief' 100
+Class 'warrior' 100
+Class 'warlock' 100
+BonusSkills 'identify'~
+Stats -2 3 5 0 -2 0
+MaxStats 18 23 25 20 18 25
+Size small
+ManaBonus 10
+PracBonus 5
+RestrictAlign neutral
+Slang gnomish
+End
+
+#$

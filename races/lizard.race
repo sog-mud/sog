@@ -1,0 +1,9 @@
+#RACE
+Name lizard~
+Res poison~
+Vuln cold~
+Form edible animal reptile cold_blood~
+Parts head legs heart brains guts feet eye tail fangs~
+End
+
+#$

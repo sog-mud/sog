@@ -1,0 +1,26 @@
+#RACE
+Name frost giant~
+Res cold~
+Vuln fire lightning mental~
+Form edible sentient biped mammal~
+Parts head arms legs heart brains guts hands feet fingers ear eye~
+End
+
+#PCRACE
+Shortname FrGia~
+Points 500
+Class 'cleric' 100
+Class 'warrior' 100
+Class 'anti-paladin' 100
+Class 'ranger' 100
+BonusSkills 'bash' 'enhanced damage' 'axe'~
+Stats 5 -4 -3 -6 3 0
+MaxStats 25 15 17 16 23 25
+Size huge
+HPBonus 20
+ManaBonus -20
+RestrictAlign evil
+Slang giant
+End
+
+#$

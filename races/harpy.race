@@ -1,0 +1,10 @@
+#RACE
+Name harpy~
+Aff detect_invis detect_hidden flying~
+Off disarm~
+Res charm~
+Form edible sentient biped mammal~
+Parts head arms legs heart brains guts hands feet fingers ear eye wings~
+End
+
+#$

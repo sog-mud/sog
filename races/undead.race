@@ -1,0 +1,11 @@
+#RACE
+Name undead~
+Aff detect_evil detect_invis detect_hidden detect_good infrared pass_door~
+Imm poison disease drowning~
+Res negative energy~
+Vuln holy light silver~
+Form edible sentient biped mammal~
+Parts head arms legs heart brains guts hands feet fingers ear eye~
+End
+
+#$

@@ -1,0 +1,9 @@
+#RACE
+Name snake~
+Res poison~
+Vuln cold~
+Form edible animal reptile snake cold_blood~
+Parts head heart brains guts eye long_tongue tail fangs scales~
+End
+
+#$

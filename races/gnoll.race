@@ -1,0 +1,9 @@
+#RACE
+Name gnoll~
+Aff detect_invis detect_hidden~
+Off disarm~
+Form edible sentient biped mammal~
+Parts head arms legs heart brains guts hands feet fingers ear eye~
+End
+
+#$

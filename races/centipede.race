@@ -1,0 +1,10 @@
+#RACE
+Name centipede~
+Aff dark_vision~
+Res pierce cold~
+Vuln bash~
+Form edible poison animal insect~
+Parts head legs eye~
+End
+
+#$

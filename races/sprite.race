@@ -1,0 +1,10 @@
+#RACE
+Name sprite~
+Aff detect_evil flying~
+Off fade~
+Vuln weapon cold~
+Form edible sentient biped mammal~
+Parts head arms legs heart brains guts hands feet fingers ear eye~
+End
+
+#$

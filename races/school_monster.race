@@ -1,0 +1,10 @@
+#RACE
+Name school monster~
+Act noalign~
+Imm summon charm~
+Vuln magic~
+Form edible biped mammal~
+Parts head arms legs heart brains guts feet ear eye tail claws~
+End
+
+#$

@@ -1,0 +1,11 @@
+#RACE
+Name wyvern~
+Aff detect_invis detect_hidden flying~
+Off bash dodge fast~
+Imm poison~
+Vuln light~
+Form edible poison animal dragon~
+Parts head legs heart brains guts feet ear eye tail fangs scales~
+End
+
+#$
