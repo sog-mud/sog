@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.202.2.25 2002-09-02 10:34:54 tatyana Exp $
+ * $Id: act_move.c,v 1.202.2.26 2002-11-22 15:23:24 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1513,17 +1513,11 @@ void do_track(CHAR_DATA *ch, const char *argument)
 	static char *door[] = { "north","east","south","west","up","down",
 		                      "that way" };
 	int d;
-	int chance;
-
-	if ((chance = get_skill(ch, gsn_track)) == 0) {
-		char_puts("There are no train tracks here.\n", ch);
-		return;
-	}
 
 	WAIT_STATE(ch, SKILL(gsn_track)->beats);
 	act("$n checks the ground for tracks.", ch, NULL, NULL, TO_ROOM);
 
-	if (number_percent() < chance) {
+	if (number_percent() < get_skill(ch, gsn_track)) {
 		/* success */
 
 		for (rh = ch->in_room->history; rh != NULL; rh = rh->next)
