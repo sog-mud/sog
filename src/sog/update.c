@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.21 1998-05-27 08:47:29 fjoe Exp $
+ * $Id: update.c,v 1.22 1998-06-02 15:56:07 fjoe Exp $
  */
 
 /***************************************************************************
@@ -554,13 +554,14 @@ void gain_condition(CHAR_DATA *ch, int iCond, int value)
  */
 void mobile_update(void)
 {
-	CHAR_DATA *ch;
+	CHAR_DATA *ch, *ch_next;
 	EXIT_DATA *pexit;
 	int door;
 	OBJ_DATA *obj;
 
 	/* Examine all mobs. */
-	for (ch = char_list; ch != NULL; ch = ch->next) {
+	for (ch = char_list; ch != NULL; ch = ch_next) {
+		ch_next = ch->next;
 		if (ch->position == POS_FIGHTING)
 			ch->last_fight_time = current_time;
 
@@ -1616,19 +1617,21 @@ void obj_update(void)
  */
 void aggr_update(void)
 {
-	CHAR_DATA *wch;
-	CHAR_DATA *ch;
-	CHAR_DATA *vch;
+	CHAR_DATA *wch, *wch_next;
+	CHAR_DATA *ch, *ch_next;
+	CHAR_DATA *vch, *vch_next;
 	CHAR_DATA *victim;
 	char buf[MAX_STRING_LENGTH];
 
-	for (wch = char_list; wch != NULL; wch = wch->next) {
+	for (wch = char_list; wch != NULL; wch = wch_next) {
+		wch_next = wch->next;
 		if (IS_AWAKE(wch)
 		&&  IS_AFFECTED(wch, AFF_BLOODTHIRST)
 		&&  wch->fighting == NULL) {
 			for (vch = wch->in_room->people;
 			     vch != NULL && wch->fighting == NULL;
-			     vch = vch->next_in_room) {
+			     vch = vch_next) {
+				vch_next = vch->next_in_room;
 				if (wch != vch && can_see(wch,vch)
 				&&  !is_safe_nomessage(wch,vch)) {
 					act_puts("{RMORE BLOOD! MORE BLOOD! MORE BLOOD!!!{x", wch,NULL,NULL,TO_CHAR,POS_RESTING);
@@ -1644,9 +1647,10 @@ void aggr_update(void)
 		||  wch->in_room->area->empty)
 			continue;
 
-		for (ch = wch->in_room->people;
-		     ch != NULL; ch = ch->next_in_room) {
+		for (ch = wch->in_room->people; ch != NULL; ch = ch_next) {
 			int count;
+
+			ch_next = ch->next_in_room;
 
 			if (!IS_NPC(ch)
 			||  (!IS_SET(ch->act, ACT_AGGRESSIVE)
@@ -1689,8 +1693,8 @@ void aggr_update(void)
 			count = 0;
 			victim = NULL;
 			for (vch = wch->in_room->people;
-			     vch != NULL;
-			     vch = vch->next_in_room) {
+			     vch != NULL; vch = vch_next) {
+				vch_next = vch->next_in_room;
 				if (!IS_NPC(vch)
 				&&  vch->level < LEVEL_IMMORTAL
 				&&  ch->level >= vch->level - 5 
@@ -2210,12 +2214,13 @@ void check_reboot(void)
 
 void track_update(void)
 {   
-	CHAR_DATA *ch;
+	CHAR_DATA *ch, *ch_next;
 	char buf[MAX_STRING_LENGTH];
 
-	for (ch = char_list; ch != NULL; ch = ch->next) {
-		CHAR_DATA *vch;
+	for (ch = char_list; ch != NULL; ch = ch_next) {
+		CHAR_DATA *vch, *vch_next;
 
+		ch_next = ch->next;
 		if (!IS_NPC(ch)
 		||  IS_AFFECTED(ch, AFF_CALM)
 		||  IS_AFFECTED(ch, AFF_CHARM)
@@ -2237,7 +2242,9 @@ void track_update(void)
 			continue;
 
 		for (vch = ch->in_room->people;
-		     vch != NULL; vch = vch->next_in_room) {
+		     vch != NULL; vch = vch_next) {
+			vch_next = vch->next_in_room;
+
 			if (IS_IMMORTAL(vch)
 			||  !can_see(ch,vch)
 			||  is_safe_nomessage(ch,vch)

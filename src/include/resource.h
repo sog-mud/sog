@@ -2,7 +2,7 @@
 #define _RESOURCE_H_
 
 /*
- * $Id: resource.h,v 1.55 1998-05-30 16:01:01 efdi Exp $
+ * $Id: resource.h,v 1.56 1998-06-02 15:56:06 fjoe Exp $
  */
 
 #define msg(msgid, ch) vmsg(msgid, ch, ch)
@@ -402,7 +402,7 @@ enum {
 	QUEST_HAS_MURDERED,
 	QUEST_THE_PENALTY_IS,
 	QUEST_ENEMY_OF_MINE,
-	QUEST_ELEMINATE_THREAT,
+	QUEST_ELIMINATE_THREAT,
 	QUEST_SEEK_S_OUT,
 	QUEST_LOCATION_IS_IN_AREA,
 	QUEST_VILE_PILFERERS,

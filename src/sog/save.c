@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.21 1998-05-28 20:54:41 efdi Exp $
+ * $Id: save.c,v 1.22 1998-06-02 15:56:06 fjoe Exp $
  */
 
 /***************************************************************************
@@ -379,7 +379,7 @@ void fwrite_char( CHAR_DATA *ch, FILE *fp )
         fprintf( fp, "QuestPnts %d\n", ch->pcdata->questpoints	);
     if (ch->pcdata->questtime !=0)
         fprintf( fp ,"QuestTime %d\n", ch->pcdata->questtime	);
-    if (IS_QUESTOR(ch)) {
+    if (IS_ON_QUEST(ch)) {
         fprintf( fp ,"QuestMob %d\n", ch->pcdata->questmob	);
         fprintf( fp ,"QuestObj %d\n", ch->pcdata->questobj	);
         fprintf( fp ,"QuestGiv %d\n", ch->pcdata->questgiver	);

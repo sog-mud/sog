@@ -1,5 +1,5 @@
 /*
- * $Id: special.c,v 1.7 1998-05-27 08:47:29 fjoe Exp $
+ * $Id: special.c,v 1.8 1998-06-02 15:56:06 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1113,7 +1113,7 @@ TARGET_CHAR);
 bool spec_guard(CHAR_DATA *ch)
 {
     char buf[MAX_STRING_LENGTH];
-    CHAR_DATA *victim;
+    CHAR_DATA *victim, *v_next;
     CHAR_DATA *ech;
     char *crime;
     int max_evil; 
@@ -1126,7 +1126,8 @@ bool spec_guard(CHAR_DATA *ch)
     crime    = "";
     
     for (victim = ch->in_room->people;
-	 victim != NULL; victim = victim->next_in_room) {
+	 victim != NULL; victim = v_next) {
+		v_next = victim->next_in_room;
 	
 	if (IS_SET(ch->in_room->area->area_flag,AREA_HOMETOWN) 
 		&& number_percent() < 2 && !IS_IMMORTAL(victim)) {

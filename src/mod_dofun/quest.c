@@ -1,5 +1,5 @@
 /*
- * $Id: quest.c,v 1.25 1998-06-02 13:26:29 efdi Exp $
+ * $Id: quest.c,v 1.26 1998-06-02 15:56:06 fjoe Exp $
  */
 
 /***************************************************************************
@@ -85,8 +85,8 @@ ROOM_INDEX_DATA *	find_location	args((CHAR_DATA *ch, char *arg));
 
 bool chance(int num)
 {
-    if (number_range(1,100) <= num) return TRUE;
-    else return FALSE;
+	if (number_range(1,100) <= num) return TRUE;
+	else return FALSE;
 }
 
 /* The main quest function */
@@ -111,7 +111,7 @@ void do_quest(CHAR_DATA *ch, char *argument)
 		return;
 
 	if (!strcmp(arg1, "info")) {
-		if (IS_QUESTOR(ch)) {
+		if (IS_ON_QUEST(ch)) {
 			if (ch->pcdata->questmob == -1) {
 				send_to_char(msg(QUEST_IS_ALMOST_COMPLETE, ch), 
 						ch);
@@ -157,7 +157,7 @@ void do_quest(CHAR_DATA *ch, char *argument)
 				ch->pcdata->questpoints);
 		return;
 	} else if (!strcmp(arg1, "time")) {
-		if (!IS_QUESTOR(ch)) {
+		if (!IS_ON_QUEST(ch)) {
 			send_to_char(msg(QUEST_ARENT_ON_QUEST, ch), ch);
 			if (ch->pcdata->questtime < -1) {
 				sprintf(buf, msg(QUEST_D_MIN_REMAINING, ch), 
@@ -457,7 +457,7 @@ void do_quest(CHAR_DATA *ch, char *argument)
 				QUEST_N_ASKS_FOR_QUEST);
 		act_nprintf(ch, NULL, questman, TO_CHAR, POS_DEAD, 
 				QUEST_YOU_ASK_FOR_QUEST);
-		if (IS_QUESTOR(ch)) {
+		if (IS_ON_QUEST(ch)) {
 	    		sprintf(buf, msg(QUEST_YOU_ALREADY_ON_QUEST, ch));
 	    		do_tell_quest(ch,questman,buf);
 	    		return;
@@ -497,7 +497,7 @@ void do_quest(CHAR_DATA *ch, char *argument)
 				return;
 			}
 
-			if (IS_QUESTOR(ch)) {
+			if (IS_ON_QUEST(ch)) {
 				if (ch->pcdata->questmob == -1) {
 					int reward = 0, pointreward = 0, 
 					    pracreward = 0, level;
@@ -689,208 +689,161 @@ if (obj != NULL && obj->pIndexData->vnum == ch->pcdata->questobj && strstr(obj->
 	return;
 }
 
+#define MAX_QMOB_COUNT 512
+
 void generate_quest(CHAR_DATA *ch, CHAR_DATA *questman)
 {
-	CHAR_DATA *victim;
-	MOB_INDEX_DATA *vsearch;
-	ROOM_INDEX_DATA *room;
-	OBJ_DATA *eyed;
-	char buf [MAX_STRING_LENGTH];
-	int level_diff, i;
-	int mob_buf[1000], mob_count;
-	int found;
-
-	room = alloc_perm(sizeof(*room));
-
-	mob_count = 0;
+	int i;
+	char buf[MAX_STRING_LENGTH];
+	int mob_vnums[MAX_QMOB_COUNT];
+	size_t vnum_count;
+	CHAR_DATA *victim = NULL;
+	ROOM_INDEX_DATA* room = NULL; /* disable gcc
+					 'might be used uninitialized'
+					 warning */
+	/*
+	 * find MAX_QMOB_COUNT quest mobs and store their vnums in mob_buf
+	 */
+	vnum_count = 0;
 	for (i = 0; i < MAX_KEY_HASH; i++) {
-		if ((vsearch  = mob_index_hash[i]) == NULL) 
-			continue;
-		level_diff = vsearch->level - ch->level;
-		if ((ch->level < 51 && (level_diff > 4 || level_diff < -1))
-		    || (ch->level > 50 && (level_diff > 6 || level_diff < 0))
-		    || vsearch->pShop != NULL
-		    || IS_SET(vsearch->act, ACT_TRAIN)
-		    || IS_SET(vsearch->act, ACT_PRACTICE)
-		    || IS_SET(vsearch->act, ACT_IS_HEALER)
-		    || IS_SET(vsearch->act, ACT_NOTRACK)
-		    || IS_SET(vsearch->imm_flags, IMM_SUMMON))
-			continue;
-		mob_buf[mob_count] = vsearch->vnum;
-		mob_count++;
-		if (mob_count > 999) 
-			break;
+		MOB_INDEX_DATA* mid;
+
+		for (mid = mob_index_hash[i]; mid != NULL; mid = mid->next) {
+			int diff = mid->level - ch->level;
+
+			if ((ch->level < 51 && (diff > 4 || diff < -1))
+			||  (ch->level > 50 && (diff > 6 || diff < 0))
+			||  mid->pShop != NULL
+			||  IS_SET(mid->act, ACT_TRAIN)
+			||  IS_SET(mid->act, ACT_PRACTICE)
+			||  IS_SET(mid->act, ACT_IS_HEALER)
+			||  IS_SET(mid->act, ACT_NOTRACK)
+			||  IS_SET(mid->imm_flags, IMM_SUMMON)
+			||  questman->pIndexData == mid)
+				continue;
+			mob_vnums[vnum_count++] = mid->vnum;
+			if (vnum_count >= MAX_QMOB_COUNT)
+				break;
+		}
 	}
 
-	if (chance(40)) {
-		int objvnum = 0;
-		int i;
+	log_printf("generate_quest: %s, %d mobs found", ch->name, vnum_count);
 
+	/*
+	 * randomly select mob vnum
+	 */
+	for(i = 0; i < vnum_count; i++) {
+		CHAR_DATA* vch;
+		MOB_INDEX_DATA* mid;
+		int vnum;
 
-		found = number_range(0, mob_count - 1);
-		for (i = 0; i < mob_count; i++) {
-			if ((vsearch = get_mob_index(mob_buf[found])) == NULL) {
-				bug("Error unknown mob in quest: %d", i);
-				found++;
-				if (found > mob_count - 1) 
-					break;
-				else 
-					continue;
-			} else 
-				break;
+		vnum = number_range(0, vnum_count-1);
+		if ((mid = get_mob_index(mob_vnums[vnum])) != NULL
+		&&  ((IS_EVIL(mid) && !IS_EVIL(ch)) ||
+		     (!IS_EVIL(mid) && !IS_GOOD(ch)))
+		&&  (vch = get_char_world(ch, mid->player_name)) != NULL
+		&&  vch->hunter == NULL
+		&&  (room = find_location(ch, vch->name)) != NULL
+		&&  !IS_SET(room->area->area_flag, AREA_HOMETOWN)) {
+			victim = vch;
+			break;
 		}
+	}
 
-		if (vsearch == NULL 
-	   	|| (victim = get_char_world(ch,vsearch->player_name)) == NULL) {
-			sprintf(buf, msg(QUEST_DONT_HAVE_QUESTS, ch));
-			do_tell_quest(ch,questman,buf);
-			sprintf(buf, msg(QUEST_TRY_AGAIN_LATER, ch));
-			do_tell_quest(ch,questman,buf);
-			ch->pcdata->questtime = -5;
-			return;
-		}
+	if (victim == NULL) {
+		log_printf("generate_quest: no quests for %s", ch->name);
+		snprintf(buf, sizeof(buf), msg(QUEST_DONT_HAVE_QUESTS, ch));
+		do_tell_quest(ch, questman, buf);
+		snprintf(buf, sizeof(buf), msg(QUEST_TRY_AGAIN_LATER, ch));
+		do_tell_quest(ch, questman, buf);
+		ch->pcdata->questtime = -5;
+		return;
+	}
 
-		if ((room = find_location(ch, victim->name)) == NULL) {
-			sprintf(buf, msg(QUEST_DONT_HAVE_QUESTS, ch));
-			do_tell_quest(ch,questman,buf);
-			sprintf(buf, msg(QUEST_TRY_AGAIN_LATER, ch));
-			do_tell_quest(ch,questman,buf);
-			ch->pcdata->questtime = -5;
-			return;
-		}
+	ch->pcdata->questroom = room;
 
-		switch(number_range(0, 3)) {
-			case 0:
-				objvnum = QUEST_OBJQUEST1;
-				break;
-
-			case 1:
-				objvnum = QUEST_OBJQUEST2;
-				break;
-
-			case 2:
-				objvnum = QUEST_OBJQUEST3;
-				break;
-
-			case 3:
-				objvnum = QUEST_OBJQUEST4;
-				break;
-
-		}
-
+	if (chance(40)) { /* Quest to find an obj */
+		OBJ_DATA *eyed;
+		int obj_vnum;
 
 		if (IS_GOOD(ch))
 			i = 0;
 		else if (IS_EVIL(ch))
 			i = 2;
-		else 
+		else
 			i = 1;
 
-		eyed = create_object(get_obj_index(objvnum), ch->level);
+		obj_vnum = number_range(QUEST_OBJ_FIRST, QUEST_OBJ_LAST);
+		eyed = create_object(get_obj_index(obj_vnum), ch->level);
 		eyed->owner = str_dup(ch->name);
 		eyed->from = str_dup(ch->name);
 		eyed->altar = hometown_table[ch->hometown].altar[i];
 		eyed->pit = hometown_table[ch->hometown].pit[i];
 		eyed->level = ch->level;
-	
-		sprintf(buf, eyed->description, ch->name);
+
+		snprintf(buf, sizeof(buf), eyed->description, ch->name);
 		free_string(eyed->description);
 		eyed->description = str_dup(buf);
-	
-		sprintf(buf, eyed->pIndexData->extra_descr->description, 
-			ch->name);
+
+		snprintf(buf, sizeof(buf),
+			eyed->pIndexData->extra_descr->description, ch->name);
 		eyed->extra_descr = new_extra_descr();
 		eyed->extra_descr->keyword =
-			  str_dup(eyed->pIndexData->extra_descr->keyword);
+			str_dup(eyed->pIndexData->extra_descr->keyword);
 		eyed->extra_descr->description = str_dup(buf);
 		eyed->extra_descr->next = NULL;
 
 		eyed->cost = 0;
 		eyed->timer = 30;
-	
+
 		obj_to_room(eyed, room);
 		ch->pcdata->questobj = eyed->pIndexData->vnum;
-		ch->pcdata->questroom = room;
 
-		sprintf(buf, msg(QUEST_VILE_PILFERERS, ch), eyed->short_descr);
-		do_tell_quest(ch,questman,buf);
-		do_tell_quest(ch,questman, msg(QUEST_MY_COURT_WIZARDESS, ch));
-
-	/* I changed my area names so that they have just the name of the area
-	   and none of the level stuff. You may want to comment these next two
-	   lines. - Vassago */
-
-		sprintf(buf, msg(QUEST_LOCATION_IS_IN_AREA, ch), 
-			room->area->name, room->name);
-		do_tell_quest(ch,questman,buf);
-		return;
-	} else {
-    		/* Quest to kill a mob */
-		found = number_range(0, mob_count - 1);
-		for (i = 0; i < mob_count; i++) {
-			if ((vsearch = get_mob_index(mob_buf[found])) == NULL
-			    || (IS_EVIL(vsearch) && !IS_EVIL(ch))
-			    || (IS_GOOD(vsearch) && !IS_GOOD(ch))
-			    || (IS_NEUTRAL(vsearch) && !IS_GOOD(ch))) {
-				/*
-				 * bug("Error unknown mob in quest: %d",i);
-				 */
-				found++;
-				if (found > mob_count - 1) 
-					break;
-				else 
-					continue;
-			} else 
-				break;
-		}
-
-		if (vsearch == NULL
-		|| (victim = get_char_world(ch, vsearch->player_name)) == NULL
-		|| (room = find_location(ch, victim->name)) == NULL
-		|| IS_SET(room->area->area_flag,AREA_HOMETOWN)) {
-			sprintf(buf, msg(QUEST_DONT_HAVE_QUESTS, ch));
-			do_tell_quest(ch, questman, buf);
-			sprintf(buf, msg(QUEST_TRY_AGAIN_LATER, ch));
-			do_tell_quest(ch, questman, buf);
-			ch->pcdata->questtime = -5;
-			return;
-		}
-
+		snprintf(buf, sizeof(buf),
+			 msg(QUEST_VILE_PILFERERS, ch), eyed->short_descr);
+		do_tell_quest(ch, questman, buf);
+		do_tell_quest(ch, questman, msg(QUEST_MY_COURT_WIZARDESS, ch));
+	}
+	else {	/* Quest to kill a mob */
 		if (IS_GOOD(ch)) {
-			sprintf(buf, msg(QUEST_RUNES_MOST_HEINOUS, ch), 
-				victim->short_descr);
+			snprintf(buf, sizeof(buf),
+				 msg(QUEST_RUNES_MOST_HEINOUS, ch),
+				 victim->short_descr);
 			do_tell_quest(ch, questman, buf);
-			sprintf(buf, vmsg(QUEST_HAS_MURDERED, ch, victim), 
-				victim->short_descr, number_range(2, 20));
+			snprintf(buf, sizeof(buf),
+				 vmsg(QUEST_HAS_MURDERED, ch, victim),
+				 victim->short_descr, number_range(2,20));
 			do_tell_quest(ch, questman, buf);
-			do_tell_quest(ch, questman, 
-					msg(QUEST_THE_PENALTY_IS, ch));
-		} else {
-			sprintf(buf, msg(QUEST_ENEMY_OF_MINE, ch), 
-				victim->short_descr);
+			do_tell_quest(ch, questman,
+				      msg(QUEST_THE_PENALTY_IS, ch));
+		}
+		else {
+			snprintf(buf, sizeof(buf),
+				 msg(QUEST_ENEMY_OF_MINE, ch),
+				 victim->short_descr);
 			do_tell_quest(ch, questman, buf);
-			sprintf(buf, msg(QUEST_ELEMINATE_THREAT, ch));
+			snprintf(buf, sizeof(buf),
+				 msg(QUEST_ELIMINATE_THREAT, ch));
 			do_tell_quest(ch, questman, buf);
 		}
 
-		if (room->name != NULL) {
-			sprintf(buf, msg(QUEST_SEEK_S_OUT, ch), 
-				victim->short_descr, room->name);
-			do_tell_quest(ch,questman,buf);
+		snprintf(buf, sizeof(buf),
+			 msg(QUEST_SEEK_S_OUT, ch),
+			 victim->short_descr, room->name);
+		do_tell_quest(ch,questman,buf);
 
-	/* I changed my area names so that they have just the name of the area
-	   and none of the level stuff. You may want to comment these next two
-	   lines. - Vassago */
-
-			ch->pcdata->questroom = room;
-			sprintf(buf, msg(QUEST_LOCATION_IS_IN_AREA, ch), 
-				room->area->name, room->name);
-			do_tell_quest(ch, questman, buf);
-		}
 		ch->pcdata->questmob = victim->pIndexData->vnum;
 		victim->hunter = ch;
 	}
-	return;
+
+	/* 
+	 * I changed my area names so that they have just the name
+	 * of the area and none of the level stuff. You may want
+	 * to comment these next two lines. - Vassago
+	 */
+	snprintf(buf, sizeof(buf), msg(QUEST_LOCATION_IS_IN_AREA, ch),
+		 room->area->name, room->name);
+	do_tell_quest(ch, questman, buf);
 }
 
 /* Called from update_handler() by pulse_area */
@@ -901,8 +854,9 @@ void cancel_quest(CHAR_DATA *ch)
 	ch->pcdata->questgiver = 0;
 	ch->pcdata->questmob = 0;
 	ch->pcdata->questobj = 0;
-	ch->pcdata->questroom = 0;
-	/* here remove mob->hunter */
+	ch->pcdata->questroom = NULL;
+
+	/* remove mob->hunter */
 	for (fch = char_list; fch; fch = fch->next)
 		if (fch->hunter == ch) {
 			fch->hunter = 0;
@@ -926,7 +880,7 @@ void quest_update(void)
 						 ch), ch);
 				return;
 			}
-		} else if (IS_QUESTOR(ch)) {
+		} else if (IS_ON_QUEST(ch)) {
 			if (!--ch->pcdata->questtime) {
 				send_to_char(msg(QUEST_RUN_OUT_TIME, ch), ch);
 				cancel_quest(ch);
@@ -941,7 +895,8 @@ void quest_update(void)
 
 void do_tell_quest(CHAR_DATA *ch, CHAR_DATA *victim, char *argument)
 {
-	char_printf(ch, msg(QUEST_QUESTOR_TELLS_YOU, ch),victim->name,argument);
+	char_printf(ch, msg(QUEST_QUESTOR_TELLS_YOU, ch), victim->name,
+		    argument);
 	return;
 }
 

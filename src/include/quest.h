@@ -20,11 +20,10 @@ void cancel_quest(CHAR_DATA *ch);
 #define QUEST_GIRTH3		(J)
 #define QUEST_RING3		(K)
 
-/* Object vnums for object quest 'tokens': object quest. */
-
-#define QUEST_OBJQUEST1 84
-#define QUEST_OBJQUEST2 85
-#define QUEST_OBJQUEST3 86
-#define QUEST_OBJQUEST4 97
+/*
+ * Quest obj vnums must take a continuous interval for proper quest generating.
+ */
+#define QUEST_OBJ_FIRST 84
+#define QUEST_OBJ_LAST  87
 
 #endif

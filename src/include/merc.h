@@ -2,7 +2,7 @@
 #define _MERC_H_
 
 /*
- * $Id: merc.h,v 1.23 1998-05-28 20:54:41 efdi Exp $
+ * $Id: merc.h,v 1.24 1998-06-02 15:56:05 fjoe Exp $
  */
 
 /***************************************************************************
@@ -274,7 +274,7 @@ typedef void OPROG_FUN_AREA args((OBJ_DATA *obj));
 #define PULSE_RAFFECT		  ( 3 * PULSE_MOBILE)
 #define PULSE_AREA		  (110 * PULSE_PER_SECOND) /* 97 saniye */
 #define FIGHT_DELAY_TIME	  (20 * PULSE_PER_SECOND)
-#define PULSE_AUCTION		  (10 * PULSE_PER_SECOND) /* 10 seconds */
+#define PULSE_AUCTION		  (20 * PULSE_PER_SECOND) /* 10 seconds */
 
 #define IMPLEMENTOR		MAX_LEVEL
 #define CREATOR 		(MAX_LEVEL - 1)
@@ -1771,7 +1771,7 @@ struct	kill_data
 
 
 /* quest done by chronos */
-#define IS_QUESTOR(ch)	(ch->pcdata->questtime > 0)
+#define IS_ON_QUEST(ch)	(ch->pcdata->questtime > 0)
 #define IS_VAMPIRE(ch)	(!IS_NPC(ch) && IS_SET((ch)->act , PLR_VAMPIRE))
 #define IS_HARA_KIRI(ch) (IS_SET((ch)->act , PLR_HARA_KIRI))
 #define CANT_CHANGE_TITLE(ch) (IS_SET(ch->act , PLR_NO_TITLE))

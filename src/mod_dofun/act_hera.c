@@ -1,5 +1,5 @@
 /*
- * $Id: act_hera.c,v 1.14 1998-05-27 08:47:18 fjoe Exp $
+ * $Id: act_hera.c,v 1.15 1998-06-02 15:55:59 fjoe Exp $
  */
 
 /***************************************************************************
@@ -47,7 +47,7 @@
 ***************************************************************************/
 
 /*
- * $Id: act_hera.c,v 1.14 1998-05-27 08:47:18 fjoe Exp $
+ * $Id: act_hera.c,v 1.15 1998-06-02 15:55:59 fjoe Exp $
  */
 #include <sys/types.h>
 #include <sys/time.h>
@@ -2127,9 +2127,8 @@ void do_auction (CHAR_DATA *ch, char *argument)
 			else
 				send_to_char ("No bets on this item have been "
 					      "received.\n\r", ch);
-			/* Commented by efdi.
-			 * spell_identify(0, 0, ch, auction->item,0);
-			 */return;
+			spell_identify(0, 0, ch, auction->item,0);
+			return;
 		}
 		else {	
 			send_to_char("Auction WHAT?%s\n\r", ch);

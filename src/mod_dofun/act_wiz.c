@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.14 1998-05-27 16:22:59 fjoe Exp $
+ * $Id: act_wiz.c,v 1.15 1998-06-02 15:56:02 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1995,7 +1995,7 @@ void do_mstat(CHAR_DATA *ch, char *argument)
 
 	if (!(IS_NPC(victim)))
 	   {
-		if (IS_QUESTOR(victim))
+		if (IS_ON_QUEST(victim))
 		{
 		 char_printf(ch,"Questgiver: %d QuestPnts: %d	Questnext: %d\n\r",
 			victim->pcdata->questgiver,victim->pcdata->questpoints,
@@ -2004,7 +2004,7 @@ void do_mstat(CHAR_DATA *ch, char *argument)
 			victim->pcdata->questtime > 0 ? victim->pcdata->questtime : 0,
 			victim->pcdata->questobj, victim->pcdata->questmob);
 		}
-		if  (!IS_QUESTOR(victim))
+		if  (!IS_ON_QUEST(victim))
 		 char_printf(ch,"QuestPnts: %d	Questnext: %d    NOT QUESTING\n\r",
 			victim->pcdata->questpoints,
 			victim->pcdata->questtime < 0 ? -victim->pcdata->questtime : 0);

@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.22 1998-05-29 09:08:58 efdi Exp $
+ * $Id: fight.c,v 1.23 1998-06-02 15:56:03 fjoe Exp $
  */
 
 /***************************************************************************
@@ -313,6 +313,7 @@ void multi_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 	if (ch->position < POS_RESTING)
 		return;
 
+#ifdef 0
 	/* become CRIMINAL in Law rooms */
 	if (!IS_NPC(ch) && !IS_NPC(victim)
 	    && IS_SET(ch->in_room->room_flags, ROOM_LAW)
@@ -321,6 +322,7 @@ void multi_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 		send_to_char("This room is under supervision of the law! Now you're {RCRIMINAL{x!\n\r", ch);
 		SET_BIT(ch->act, PLR_WANTED);		
 	}
+#endif
 
 	/* ridden's adjustment */
 	if (RIDDEN(victim) && !IS_NPC(victim->mount))
@@ -2323,7 +2325,7 @@ void group_gain(CHAR_DATA *ch, CHAR_DATA *victim)
 		&& ch->master->class == CLASS_NECROMANCER)
 		gch = ch->master;
 	else gch = ch;
-	if (!IS_NPC(gch) && IS_QUESTOR(gch) && IS_NPC(victim))
+	if (!IS_NPC(gch) && IS_ON_QUEST(gch) && IS_NPC(victim))
 	{
 		if (victim->hunter == gch) {
 			send_to_char(msg(FIGHT_ALMOST_COMPLETE_QUEST, gch),gch);

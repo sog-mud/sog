@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.13 1998-05-30 16:01:00 efdi Exp $
+ * $Id: act_obj.c,v 1.14 1998-06-02 15:56:01 fjoe Exp $
  */
 
 /***************************************************************************
@@ -250,152 +250,130 @@ void do_get(CHAR_DATA *ch, char *argument)
 {
 	char arg1[MAX_INPUT_LENGTH];
 	char arg2[MAX_INPUT_LENGTH];
-	OBJ_DATA *obj;
-	OBJ_DATA *obj_next;
+	OBJ_DATA *obj, *obj_next;
 	OBJ_DATA *container;
 	bool found;
-
 
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
 
-	if (!str_cmp(arg2,"from"))
-		argument = one_argument(argument,arg2);
+	if (!str_cmp(arg2, "from"))
+		argument = one_argument(argument, arg2);
 
-	  /* Get type. */
+	/* Get type. */
 	if (arg1[0] == '\0') {
 		send_to_char("Get what?\n\r", ch);
 		return;
 	}
 
 	if (arg2[0] == '\0') {
-	if (str_cmp(arg1, "all") && str_prefix("all.", arg1))
-	{
-	    /* 'get obj' */
-	    obj = get_obj_list(ch, arg1, ch->in_room->contents);
-	    if (obj == NULL)
-	    {
-		act("I see no $T here.", ch, NULL, arg1, TO_CHAR);
-		return;
-	    }
+		if (str_cmp(arg1, "all") && str_prefix("all.", arg1)) {
+			/* 'get obj' */
+			obj = get_obj_list(ch, arg1, ch->in_room->contents);
+			if (obj == NULL) {
+				act("I see no $T here.",
+				    ch, NULL, arg1, TO_CHAR);
+				return;
+			}
 
-	    get_obj(ch, obj, NULL);
-	}
-	else
-	{
-	    /* 'get all' or 'get all.obj' */
-	    found = FALSE;
-	    for (obj = ch->in_room->contents; obj != NULL; obj = obj_next)
-	    {
-		obj_next = obj->next_content;
-		if ((arg1[3] == '\0' || is_name(&arg1[4], obj->name))
-		&&   can_see_obj(ch, obj))
-		{
-		    found = TRUE;
-		    get_obj(ch, obj, NULL);
+			get_obj(ch, obj, NULL);
 		}
-	    }
+		else {
+			/* 'get all' or 'get all.obj' */
+			found = FALSE;
+			for (obj = ch->in_room->contents; obj != NULL;
+					obj = obj_next) {
+				obj_next = obj->next_content;
+				if ((arg1[3] == '\0'
+				||   is_name(&arg1[4], obj->name))
+				&&  can_see_obj(ch, obj)) {
+					found = TRUE;
+					get_obj(ch, obj, NULL);
+				}
+			}
 
-	    if (!found) 
-	    {
-		if (arg1[3] == '\0')
-		    send_to_char("I see nothing here.\n\r", ch);
-		else
-		    act("I see no $T here.", ch, NULL, &arg1[4], TO_CHAR);
-	    }
+			if (!found) {
+				if (arg1[3] == '\0')
+					send_to_char("I see nothing here.\n\r",
+						     ch);
+				else
+					act("I see no $T here.",
+					    ch, NULL, &arg1[4], TO_CHAR);
+			}
+		}
+		return;
 	}
-	  }
-	  else
-	  {
+
 	/* 'get ... container' */
-	if (!str_cmp(arg2, "all") || !str_prefix("all.", arg2))
-	{
-	    send_to_char("You can't do that.\n\r", ch);
-	    return;
+	if (!str_cmp(arg2, "all") || !str_prefix("all.", arg2)) {
+		send_to_char("You can't do that.\n\r", ch);
+		return;
 	}
 
-	if ((container = get_obj_here(ch, arg2)) == NULL)
-	{
-	    act("I see no $T here.", ch, NULL, arg2, TO_CHAR);
-	    return;
+	if ((container = get_obj_here(ch, arg2)) == NULL) {
+		act("I see no $T here.", ch, NULL, arg2, TO_CHAR);
+		return;
 	}
 
-	switch (container->item_type)
-	{
+	switch (container->item_type) {
 	default:
-	    send_to_char("That's not a container.\n\r", ch);
-	    return;
+		send_to_char("That's not a container.\n\r", ch);
+		return;
 
 	case ITEM_CONTAINER:
 	case ITEM_CORPSE_NPC:
-	    break;
+		break;
 
 	case ITEM_CORPSE_PC:
-	    {
-
-		if (!can_loot(ch,container))
-		{
-		    send_to_char("You can't do that.\n\r", ch);
-		    return;
-		}
-	    }
-	}
-
-	if (IS_SET(container->value[1], CONT_CLOSED))
-	{
-	    act("The $d is closed.", ch, NULL, container->name, TO_CHAR);
-	    return;
-	}
-
-	if (str_cmp(arg1, "all") && str_prefix("all.", arg1))
-	{
-	    /* 'get obj container' */
-	    obj = get_obj_list(ch, arg1, container->contains);
-	    if (obj == NULL)
-	    {
-		act("I see nothing like that in the $T.",
-		    ch, NULL, arg2, TO_CHAR);
-		return;
-	    }
-	    get_obj(ch, obj, container);
-	}
-	else
-	{
-	    /* 'get all container' or 'get all.obj container' */
-	    found = FALSE;
-	    for (obj = container->contains; obj != NULL; obj = obj_next)
-	    {
-		obj_next = obj->next_content;
-		if ((arg1[3] == '\0' || is_name(&arg1[4], obj->name))
-		&&   can_see_obj(ch, obj))
-		{
-		    found = TRUE;
-		    if (container->pIndexData->vnum == OBJ_VNUM_PIT
-		    &&  !IS_IMMORTAL(ch))
-		    {
-			send_to_char("Don't be so greedy!\n\r",ch);
+		if (!can_loot(ch, container)) {
+			send_to_char("You can't do that.\n\r", ch);
 			return;
-		    }
-		    get_obj(ch, obj, container);
 		}
-	    }
-
-	    if (!found)
-	    {
-		if (arg1[3] == '\0')
-		    act("I see nothing in the $T.",
-			ch, NULL, arg2, TO_CHAR);
-		else
-		    act("I see nothing like that in the $T.",
-			ch, NULL, arg2, TO_CHAR);
-	    }
 	}
-	  }
 
-	  return;
+	if (IS_SET(container->value[1], CONT_CLOSED)) {
+		act("The $d is closed.", ch, NULL, container->name, TO_CHAR);
+		return;
+	}
+
+	if (str_cmp(arg1, "all") && str_prefix("all.", arg1)) {
+		/* 'get obj container' */
+		obj = get_obj_list(ch, arg1, container->contains);
+		if (obj == NULL) {
+			act("I see nothing like that in the $T.",
+			    ch, NULL, arg2, TO_CHAR);
+			return;
+		}
+		get_obj(ch, obj, container);
+	}
+	else {
+		/* 'get all container' or 'get all.obj container' */
+		found = FALSE;
+		for (obj = container->contains; obj != NULL; obj = obj_next) {
+			obj_next = obj->next_content;
+			if ((arg1[3] == '\0' || is_name(&arg1[4], obj->name))
+			&&   can_see_obj(ch, obj)) {
+				found = TRUE;
+				if (container->pIndexData->vnum == OBJ_VNUM_PIT
+				&&  !IS_IMMORTAL(ch)) {
+					send_to_char("Don't be so greedy!\n\r",
+						     ch);
+					return;
+				}
+				get_obj(ch, obj, container);
+			}
+		}
+
+		if (!found) {
+			if (arg1[3] == '\0')
+				act("I see nothing in the $T.",
+				    ch, NULL, arg2, TO_CHAR);
+			else
+				act("I see nothing like that in the $T.",
+				    ch, NULL, arg2, TO_CHAR);
+		}
+	}
 }
-
-
 
 void do_put(CHAR_DATA *ch, char *argument)
 {
@@ -2086,14 +2064,12 @@ void do_sacr(CHAR_DATA *ch, char *argument)
 	return;
 	  }
 
-	  if ((obj->item_type == ITEM_CORPSE_PC && ch->level < MAX_LEVEL) 
-	|| (obj->pIndexData->vnum == QUEST_OBJQUEST1 
-	 || obj->pIndexData->vnum == QUEST_OBJQUEST2
-	 || obj->pIndexData->vnum == QUEST_OBJQUEST3 
-	 || obj->pIndexData->vnum == QUEST_OBJQUEST4)) {
-	send_to_char("Gods wouldn't like that.\n\r",ch);
+	if ((obj->item_type == ITEM_CORPSE_PC && ch->level < MAX_LEVEL) 
+	||  (QUEST_OBJ_FIRST <= obj->pIndexData->vnum &&
+	     obj->pIndexData->vnum <= QUEST_OBJ_LAST)) {
+		send_to_char("Gods wouldn't like that.\n\r",ch);
 	   	return;
-	  }
+	}
 
 
 	  if (!CAN_WEAR(obj, ITEM_TAKE) || CAN_WEAR(obj, ITEM_NO_SAC))

@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.43 1998-05-27 08:47:19 fjoe Exp $
+ * $Id: act_move.c,v 1.44 1998-06-02 15:56:01 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2476,99 +2476,96 @@ void do_bash_door(CHAR_DATA *ch, char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *gch;
-	int chance=0;
+	int chance;
 	int damage_bash,door;
+
+	ROOM_INDEX_DATA *to_room;
+	EXIT_DATA *pexit;
+	EXIT_DATA *pexit_rev;
 
 	one_argument(argument,arg);
  
-	if (get_skill(ch,gsn_bash) == 0
-	||	 (IS_NPC(ch) && !IS_SET(ch->off_flags,OFF_BASH))
-	||	 (!IS_NPC(ch)
-	&&	  ch->level < skill_table[gsn_bash].skill_level[ch->class]))
-	{	
+	if ((chance = get_skill(ch, gsn_bash_door)) == 0
+	||  (IS_NPC(ch) && !IS_SET(ch->off_flags,OFF_BASH))) {	
 		send_to_char(msg(MOVE_BASH_WHATS_THAT, ch), ch);
 		return;
 	}
  
-    if (MOUNTED(ch)) 
-    {
-        send_to_char(msg(MOVE_CANT_BASH_DOORS_MOUNTED, ch), ch);
-        return;
-    }
-    if (RIDDEN(ch)) 
-    {
-        send_to_char(msg(MOVE_CANT_BASH_DOORS_RIDDEN, ch), ch);
-        return;
-    }
-
-    if (arg[0] == '\0')
-    {
-    send_to_char(msg(MOVE_BASH_WHICH_DOOR, ch), ch);
-    return;
-    }
-
-    if (ch->fighting)
-    {	
-	send_to_char(msg(MOVE_WAIT_FIGHT_FINISH, ch), ch);
-	return;
-    }
-
-    /* look for guards */
-    for ( gch = ch->in_room->people; gch; gch = gch->next_in_room )
-    {
-	if ( IS_NPC(gch) && IS_AWAKE(gch) && ch->level + 5 < gch->level )
-	{
-	    act_nprintf(ch, NULL, gch, TO_CHAR, POS_DEAD, 
-			MOVE_N_TOO_CLOSE_TO_DOOR);
-	    return;
+	if (MOUNTED(ch)) {
+        	send_to_char(msg(MOVE_CANT_BASH_DOORS_MOUNTED, ch), ch);
+		return;
 	}
-    }
 
-    if ( ( door = find_door( ch, arg ) ) >= 0 )
-    {
-	/* 'bash door' */
-	ROOM_INDEX_DATA *to_room;
-	EXIT_DATA *pexit;
-	EXIT_DATA *pexit_rev;
+	if (RIDDEN(ch)) {
+		send_to_char(msg(MOVE_CANT_BASH_DOORS_RIDDEN, ch), ch);
+		return;
+	}
+
+	if (arg[0] == '\0') {
+		send_to_char(msg(MOVE_BASH_WHICH_DOOR, ch), ch);
+		return;
+	}
+
+	if (ch->fighting) {	
+		send_to_char(msg(MOVE_WAIT_FIGHT_FINISH, ch), ch);
+		return;
+	}
+
+	/* look for guards */
+	for (gch = ch->in_room->people; gch; gch = gch->next_in_room)
+		if (IS_NPC(gch)
+		&&  IS_AWAKE(gch) && ch->level + 5 < gch->level) {
+			act_nprintf(ch, NULL, gch, TO_CHAR, POS_DEAD, 
+				    MOVE_N_TOO_CLOSE_TO_DOOR);
+			return;
+		}
+
+	if ((door = find_door(ch, arg)) < 0)
+		return;
+
 	pexit = ch->in_room->exit[door];
 
-		pexit = ch->in_room->exit[door];
-	if ( !IS_SET(pexit->exit_info, EX_CLOSED) )
-	    { send_to_char(msg(MOVE_ITS_ALREADY_OPEN, ch), ch); return; }
-	if ( !IS_SET(pexit->exit_info, EX_LOCKED) )
-	    { send_to_char(msg(MOVE_TRY_TO_OPEN, ch), ch); return; }
-	if ( IS_SET(pexit->exit_info, EX_NOPASS) )
-	    { send_to_char(msg(MOVE_SHIELD_PROTECTS_EXIT, ch), ch); 
-		      return; }
+	if (!IS_SET(pexit->exit_info, EX_CLOSED)) {
+		send_to_char(msg(MOVE_ITS_ALREADY_OPEN, ch), ch);
+		return;
+	}
+
+	if (!IS_SET(pexit->exit_info, EX_LOCKED)) {
+		send_to_char(msg(MOVE_TRY_TO_OPEN, ch), ch);
+		return;
+	}
+
+	if (IS_SET(pexit->exit_info, EX_NOPASS)) {
+		send_to_char(msg(MOVE_SHIELD_PROTECTS_EXIT, ch), ch); 
+		return;
+	}
+
+	chance -= 90;
 
 	/* modifiers */
 
-	/* size  and weight */
+	/* size and weight */
 	chance += get_carry_weight(ch) / 100;
-
 	chance += (ch->size - 2) * 20;
 
 	/* stats */
-	chance += get_curr_stat(ch,STAT_STR);
+	chance += get_curr_stat(ch, STAT_STR);
 
 	if (IS_AFFECTED(ch,AFF_FLYING))
 		chance -= 10;
 
-    act_nprintf(ch, NULL, pexit->keyword, TO_CHAR, POS_DEAD, 
-			MOVE_YOU_SLAM_TRY_BREAK);
-    act_nprintf(ch, NULL, pexit->keyword, TO_ROOM, POS_RESTING,
-			MOVE_N_SLAMS_TRY_BREAK);
+	act_nprintf(ch, NULL, pexit->keyword, TO_CHAR, POS_DEAD, 
+		    MOVE_YOU_SLAM_TRY_BREAK);
+	act_nprintf(ch, NULL, pexit->keyword, TO_ROOM, POS_RESTING,
+		    MOVE_N_SLAMS_TRY_BREAK);
 
-	chance += (get_skill(ch,gsn_bash) - 90);
 
 	if (room_dark(ch->in_room))
-			chance /= 2;
+		chance /= 2;
 
 	/* now the attack */
-	if (number_percent() < chance)
-	{
-	
-		check_improve(ch,gsn_bash,TRUE,1);
+	if (number_percent() < chance) {
+		check_improve(ch,gsn_bash_door,TRUE,1);
 
 		REMOVE_BIT(pexit->exit_info, EX_LOCKED);
 		REMOVE_BIT(pexit->exit_info, EX_CLOSED);
@@ -2577,37 +2574,35 @@ void do_bash_door(CHAR_DATA *ch, char *argument)
 		send_to_char(msg(MOVE_YOU_SUCCESSED_TO_OPEN_DOOR, ch), ch);
 
 		/* open the other side */
-		if ((to_room   = pexit->u1.to_room           ) != NULL
-		&&   (pexit_rev = to_room->exit[rev_dir[door]]) != NULL
-		&&   pexit_rev->u1.to_room == ch->in_room)
-		{
-		    CHAR_DATA *rch;
+		if ((to_room = pexit->u1.to_room) != NULL
+		&&  (pexit_rev = to_room->exit[rev_dir[door]]) != NULL
+		&&  pexit_rev->u1.to_room == ch->in_room) {
+			CHAR_DATA *rch;
 
-		    REMOVE_BIT(pexit_rev->exit_info, EX_CLOSED);
-		    REMOVE_BIT(pexit_rev->exit_info, EX_LOCKED);
-		    for (rch = to_room->people; rch != NULL; rch = rch->next_in_room)
-			act_nprintf(rch, NULL, pexit_rev->keyword, TO_CHAR,
-				POS_DEAD, MOVE_THE_D_OPENS);
+			REMOVE_BIT(pexit_rev->exit_info, EX_CLOSED);
+			REMOVE_BIT(pexit_rev->exit_info, EX_LOCKED);
+			for (rch = to_room->people; rch != NULL;
+							rch = rch->next_in_room)
+				act_nprintf(rch, NULL, pexit_rev->keyword,
+					    TO_CHAR, POS_DEAD,
+					    MOVE_THE_D_OPENS);
 		}
 
-
-		WAIT_STATE(ch,skill_table[gsn_bash].beats);
-		
+		check_improve(ch, gsn_bash_door, TRUE, 1);
+		WAIT_STATE(ch,skill_table[gsn_bash_door].beats);
 	}
-	else
-	{
+	else {
 		send_to_char(msg(MOVE_YOU_FALL_ON_FACE, ch), ch);
 		act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
-				MOVE_N_FALLS_ON_FACE);
-		check_improve(ch,gsn_bash,FALSE,1);
+			    MOVE_N_FALLS_ON_FACE);
+		check_improve(ch, gsn_bash_door, FALSE, 1);
 		ch->position = POS_RESTING;
-		WAIT_STATE(ch,skill_table[gsn_bash].beats * 3/2); 
-		damage_bash = ch->damroll + number_range(4,4 + 4* ch->size + chance/5);
-		damage(ch,ch,damage_bash,gsn_bash, DAM_BASH, TRUE);
+		WAIT_STATE(ch,skill_table[gsn_bash_door].beats * 3/2); 
+		damage_bash = ch->damroll +
+			      number_range(4,4 + 4* ch->size + chance/5);
+		damage(ch, ch, damage_bash, gsn_bash_door, DAM_BASH, TRUE);
 	}
-	return;
-	}
-  return;
+
 }
 
 void do_blink(CHAR_DATA *ch, char *argument)
