@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.378 2001-12-03 22:28:19 fjoe Exp $
+ * $Id: merc.h,v 1.379 2001-12-03 22:32:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1205,7 +1205,7 @@ enum {
 			REMOVE_BIT(PC(ch)->plr_flags, PLR_PUMPED);	\
 	}
 
-#define IS_VAMPIRE(ch)	(get_skill(ch, "vampire") == 100)
+#define IS_VAMPIRE(ch)	(get_skill(ch, "vampire"))
 
 #define CHAN_NOCHANNELS		(A)
 #define CHAN_NOWIZ		(B)
