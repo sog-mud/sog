@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_race.c,v 1.28 1999-12-16 12:24:49 fjoe Exp $
+ * $Id: olc_race.c,v 1.29 1999-12-20 12:40:36 fjoe Exp $
  */
 
 #include "olc.h"
@@ -64,8 +64,9 @@ DECLARE_OLC_FUN(raceed_pracbonus	);
 DECLARE_OLC_FUN(raceed_slang		);
 DECLARE_OLC_FUN(raceed_align		);
 DECLARE_OLC_FUN(raceed_ethos		);
-
 DECLARE_OLC_FUN(raceed_class		);
+DECLARE_OLC_FUN(raceed_addaffect	);
+DECLARE_OLC_FUN(raceed_delaffect	);
 
 DECLARE_OLC_FUN(olc_skill_update	);
 
@@ -112,8 +113,9 @@ olc_cmd_t olc_cmds_race[] =
 	{ "slang",	raceed_slang,	NULL,		slang_table	},
 	{ "align",	raceed_align,	NULL,		ralign_names	},
 	{ "ethos",	raceed_ethos,	NULL,		ethos_table	},
-
 	{ "class",	raceed_class					},
+	{ "addaffect",	raceed_addaffect				},
+	{ "delaffect",	raceed_delaffect				},
 
 	{ "update",	olc_skill_update				},
 	{ "commands",	show_commands					},
@@ -260,12 +262,15 @@ OLC_FUN(raceed_show)
 				buf_printf(output, "\t%s\t\t%d%%",
 					flag_string(resist_flags, i),
 					r->resists[i]);
-			if (!(++j%3))
+			if (!(++j % 3))
 				buf_add(output, "\n");
 		}
 	}
 	if (j)
 		buf_add(output, "\n");
+
+	aff_dump_list(r->affected, output);
+
 	if (!r->race_pcdata) {               
 		buf_add(output, "=== No PC race defined ===\n");
 		page_to_char(buf_string(output), ch);
@@ -733,6 +738,20 @@ OLC_FUN(raceed_class)
 	OLC_ERROR("'OLC RACE CLASS'");
 }
 
+OLC_FUN(raceed_addaffect)
+{
+	race_t *r;
+	EDIT_RACE(ch, r);
+	return olced_addaffect(ch, argument, cmd, 0, &r->affected);
+}
+
+OLC_FUN(raceed_delaffect)
+{
+	race_t *r;
+	EDIT_RACE(ch, r);
+	return olced_delaffect(ch, argument, cmd, &r->affected);
+}
+
 OLC_FUN(olc_skill_update)
 {
 	CHAR_DATA *gch;
@@ -897,6 +916,8 @@ save_race_cb(void *p, va_list ap)
 
 	if (strcmp(r->damtype, "punch"))
 		fprintf(fp, "Damtype %s\n", r->damtype);
+
+	aff_fwrite_list("Affc", r->affected, fp);
 
 	fprintf(fp, "End\n\n");
 

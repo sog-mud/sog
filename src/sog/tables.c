@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.119 1999-12-20 12:09:53 kostik Exp $
+ * $Id: tables.c,v 1.120 1999-12-20 12:40:37 fjoe Exp $
  */
 
 /***************************************************************************
@@ -933,24 +933,6 @@ flaginfo_t furniture_flags[]=
 	{ NULL }
 };
 
-flaginfo_t apply_types[] =
-{
-	{ "",			TABLE_INTVAL			},
-
-	{ "affects",		TO_AFFECTS,		TRUE	},
-/*	{ "object",		TO_OBJECT,		TRUE	}, */
-	{ "immune",		TO_IMMUNE,		TRUE	},
-	{ "resist",		TO_RESIST,		TRUE	},
-	{ "vuln",		TO_VULN,		TRUE	},
-	{ "skill",		TO_SKILLS,		TRUE	},
-	{ "race",		TO_RACE,		TRUE	},
-	{ "invis",		TO_INVIS,		TRUE	},
-	{ "detects",		TO_DETECTS,		TRUE	},
-/*	{ "weapon",		TO_WEAPON,		TRUE	}, */
-
-	{ NULL }
-};
-
 flaginfo_t raffect_flags[] =
 {
 	{ "",			TABLE_BITVAL			},
@@ -1433,6 +1415,26 @@ flaginfo_t cond_table[] =
 	{ "hunger",		COND_HUNGER,			TRUE	},
 	{ "bloodlust",		COND_BLOODLUST,			TRUE	},
 	{ "desire",		COND_DESIRE,			TRUE	},
+
+	{ NULL }
+};
+
+flaginfo_t affect_where_types[] =
+{
+	{ "",			TABLE_INTVAL				},
+
+	{ "to_affects",		TO_AFFECTS,			TRUE	},
+	{ "to_object",		TO_OBJECT,			FALSE	},
+	{ "to_immune",		TO_IMMUNE,			TRUE	},
+	{ "to_resist",		TO_RESIST,			TRUE	},
+	{ "to_vuln",		TO_VULN,			TRUE	},
+	{ "to_weapon",		TO_WEAPON,			FALSE	},
+	{ "to_skills",		TO_SKILLS,			TRUE	},
+	{ "to_race",		TO_RACE,			FALSE	},
+	{ "to_detects",		TO_DETECTS,			TRUE	},
+	{ "to_invis",		TO_INVIS,			TRUE	},
+	{ "to_form",		TO_FORM,			FALSE	},
+	{ "to_formaffects",	TO_FORMAFFECTS,			FALSE	},
 
 	{ NULL }
 };

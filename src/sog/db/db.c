@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.203 1999-12-20 08:31:23 fjoe Exp $
+ * $Id: db.c,v 1.204 1999-12-20 12:40:38 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1119,6 +1119,7 @@ CHAR_DATA *create_mob(MOB_INDEX_DATA *pMobIndex)
 	CHAR_DATA *mob;
 	int i;
 	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 
 	if (pMobIndex == NULL) {
 		bug("Create_mobile: NULL pMobIndex.", 0);
@@ -1287,6 +1288,9 @@ CHAR_DATA *create_mob(MOB_INDEX_DATA *pMobIndex)
 		affect_to_char(mob, &af);
 	}  
 
+	for (paf = pMobIndex->affected; paf != NULL; paf = paf->next)
+		affect_to_char(mob, paf);
+
 	/* link the mob to the world list */
 	if (char_list_lastpc) {
 		mob->next = char_list_lastpc->next;
@@ -1316,7 +1320,7 @@ CHAR_DATA *
 clone_mob(CHAR_DATA *parent)
 {
 	int i;
-	AFFECT_DATA *paf;
+	AFFECT_DATA *paf, *paf_next;
 	CHAR_DATA *clone;
 
 	clone = create_mob(parent->pMobIndex);
@@ -1384,6 +1388,12 @@ clone_mob(CHAR_DATA *parent)
 	/*
 	 * clone affects
 	 */
+	for (paf = clone->affected; paf != NULL; paf = paf_next) {
+		paf_next = paf->next;
+		affect_remove(clone, paf);
+	}
+	clone->affected = NULL;
+
 	for (paf = parent->affected; paf != NULL; paf = paf->next)
 		affect_to_char(clone, paf);
 

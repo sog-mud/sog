@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_area.c,v 1.73 1999-12-16 12:24:47 fjoe Exp $
+ * $Id: olc_area.c,v 1.74 1999-12-20 12:40:34 fjoe Exp $
  */
 
 #include "olc.h"
@@ -943,6 +943,7 @@ static void save_mobile(FILE *fp, MOB_INDEX_DATA *pMobIndex)
 				pMobIndex->resists[i]);
 		}
 	}
+	aff_fwrite_list("a", pMobIndex->affected, fp);
 }
 
 /*****************************************************************************
@@ -979,7 +980,6 @@ static void save_mobiles(FILE *fp, AREA_DATA *pArea)
 static void save_object(FILE *fp, OBJ_INDEX_DATA *pObjIndex)
 {
 	char letter;
-	AFFECT_DATA *pAf;
 	ED_DATA *pEd;
 
 	fprintf(fp, "#%d\n",	pObjIndex->vnum);
@@ -1004,40 +1004,7 @@ static void save_object(FILE *fp, OBJ_INDEX_DATA *pObjIndex)
 	fprintf(fp, "%d %d %d %c\n",
 		pObjIndex->level, pObjIndex->weight, pObjIndex->cost, letter);
 
-	for (pAf = pObjIndex->affected; pAf; pAf = pAf->next) {
-		if (pAf->where == TO_SKILLS) {
-			fprintf(fp, "S '%s' %d %s\n",
-				STR(pAf->location),
-				pAf->modifier,
-				format_flags(pAf->bitvector));
-		} else if (pAf->where == TO_OBJECT || !pAf->bitvector) {
-			fprintf(fp, "A\n%d %d\n",
-				INT(pAf->location), pAf->modifier);
-		} else {
-			int letter;
-
-			switch(pAf->where) {
-			case TO_AFFECTS:
-				letter = 'A';
-				break;
-			case TO_INVIS:
-				letter = 'i';
-				break;
-			case TO_DETECTS:
-				letter = 'd';
-				break;
-			default:
-				log("olc_save: vnum %d: "
-					   "invalid affect->where: %d",
-					   pObjIndex->vnum, pAf->where);
-				continue;
-			}
-		
-			fprintf(fp, "F %c %d %d %s\n",
-				letter, INT(pAf->location), pAf->modifier,
-				format_flags(pAf->bitvector));
-		}
-	}
+	aff_fwrite_list("a", pObjIndex->affected, fp);
 
 	for (pEd = pObjIndex->ed; pEd; pEd = pEd->next)
 		ed_fwrite(fp, pEd);

@@ -1,5 +1,5 @@
 /*
- * $Id: olc.h,v 1.65 1999-12-18 16:08:37 avn Exp $
+ * $Id: olc.h,v 1.66 1999-12-20 12:40:32 fjoe Exp $
  */
 
 /***************************************************************************
@@ -165,6 +165,10 @@ bool olced_gender	(CHAR_DATA *ch, const char *argument,
 			 olc_cmd_t *cmd, mlstring *);
 bool olced_cc_vexpr	(CHAR_DATA *ch, const char *argument,
 			 olc_cmd_t *cmd, varr *v, const char *ecn);
+bool olced_addaffect	(CHAR_DATA *ch, const char *argument,
+			 olc_cmd_t *cmd, int level, AFFECT_DATA **ppaf);
+bool olced_delaffect	(CHAR_DATA *ch, const char *argument,
+			 olc_cmd_t *cmd, AFFECT_DATA **ppaf);
 
 DECLARE_VALIDATE_FUN(validate_filename);
 DECLARE_VALIDATE_FUN(validate_room_vnum);

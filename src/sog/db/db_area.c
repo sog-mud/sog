@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.85 1999-12-20 08:31:24 fjoe Exp $
+ * $Id: db_area.c,v 1.86 1999-12-20 12:40:39 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1179,7 +1179,10 @@ DBLOAD_FUN(load_mobiles)
         {
             letter = fread_letter(fp);
 
-	    if (letter == 'A') {
+	    if (letter == 'a') {
+		AFFECT_DATA *paf = aff_fread(fp);
+		SLIST_ADD(AFFECT_DATA, pMobIndex->affected, paf);
+	    } if (letter == 'A') {
 		fread_word(fp);
 		if (!IS_TOKEN(fp, "det"))
 		    SET_BIT(pMobIndex->affected_by, fread_flags(fp));
@@ -1490,6 +1493,11 @@ DBLOAD_FUN(load_objects)
 			int64_t f;
 	 
 			switch (letter) {
+			case 'a':
+				paf = aff_fread(fp);
+				SLIST_ADD(AFFECT_DATA, pObjIndex->affected, paf);
+				break;
+
 			case 'A':
 				paf                     = aff_new();
 				paf->where		= TO_OBJECT;

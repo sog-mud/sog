@@ -1,5 +1,5 @@
 /*
- * $Id: affects.h,v 1.9 1999-12-16 11:38:36 kostik Exp $
+ * $Id: affects.h,v 1.10 1999-12-20 12:40:29 fjoe Exp $
  */
 
 /***************************************************************************
@@ -68,12 +68,18 @@ typedef struct saff_t {
 	flag_t		bit;		/* with bits ... */
 } saff_t;
 
-AFFECT_DATA *	aff_new	(void);
-AFFECT_DATA *	aff_dup	(const AFFECT_DATA *af);
-void		aff_free(AFFECT_DATA *af);
+AFFECT_DATA *	aff_new		(void);
+AFFECT_DATA *	aff_dup		(const AFFECT_DATA *af);
+void		aff_free	(AFFECT_DATA *af);
 
-AFFECT_DATA *	aff_dup_list(AFFECT_DATA *af);
-void		aff_free_list(AFFECT_DATA *af);
+AFFECT_DATA *	aff_dup_list	(AFFECT_DATA *af);
+void		aff_free_list	(AFFECT_DATA *af);
+
+AFFECT_DATA *	aff_fread	(rfile_t *fp);
+
+void		aff_fwrite	(AFFECT_DATA *paf, FILE *fp);
+void		aff_fwrite_list	(const char *pre, AFFECT_DATA *paf, FILE *fp);
+void		aff_dump_list	(AFFECT_DATA *paf, BUFFER *output);
 
 void saff_init(saff_t *sa);
 void saff_destroy(saff_t *sa);
@@ -133,8 +139,5 @@ void	strip_raff_owner(CHAR_DATA *ch);
 
 void format_obj(BUFFER *output, OBJ_DATA *obj);
 void format_obj_affects(BUFFER *output, AFFECT_DATA *paf, int flags);
-
-void fwrite_affect(AFFECT_DATA *paf, FILE *fp);
-AFFECT_DATA *fread_affect(rfile_t *fp);
 
 #endif

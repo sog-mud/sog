@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.147 1999-12-20 08:31:21 fjoe Exp $
+ * $Id: save.c,v 1.148 1999-12-20 12:40:37 fjoe Exp $
  */
 
 /***************************************************************************
@@ -390,7 +390,7 @@ fwrite_char(CHAR_DATA *ch, FILE *fp, int flags)
 			continue;
 
 		fprintf(fp, "Affc ");
-		fwrite_affect(paf, fp);
+		aff_fwrite(paf, fp);
 	}
 
 	fprintf(fp, "End\n\n");
@@ -400,7 +400,6 @@ fwrite_char(CHAR_DATA *ch, FILE *fp, int flags)
 void 
 fwrite_pet(CHAR_DATA * pet, FILE * fp, int flags)
 {
-	AFFECT_DATA    *paf;
 	fprintf(fp, "#PET\n");
 
 	fprintf(fp, "Vnum %d\n", pet->pMobIndex->vnum);
@@ -436,11 +435,7 @@ fwrite_pet(CHAR_DATA * pet, FILE * fp, int flags)
 		pet->perm_stat[STAT_WIS], pet->perm_stat[STAT_DEX],
 		pet->perm_stat[STAT_CON], pet->perm_stat[STAT_CHA]);
 
-	for (paf = pet->affected; paf != NULL; paf = paf->next) {
-		fprintf(fp, "Affc ");
-		fwrite_affect(paf, fp);
-	}
-
+	aff_fwrite_list("Affc", pet->affected, fp);
 	fprintf(fp, "End\n\n");
 }
 
@@ -451,7 +446,6 @@ void
 fwrite_obj(CHAR_DATA * ch, OBJ_DATA * obj, FILE * fp, int iNest)
 {
 	ED_DATA *ed;
-	AFFECT_DATA    *paf;
 
 	/*
 	 * Slick recursion to write lists backwards, so loading them will load
@@ -514,10 +508,7 @@ fwrite_obj(CHAR_DATA * ch, OBJ_DATA * obj, FILE * fp, int iNest)
 		fwrite_objval(obj->pObjIndex->item_type, obj->value, fp);
 	}
 
-	for (paf = obj->affected; paf != NULL; paf = paf->next) {
-		fprintf(fp, "Affc ");
-		fwrite_affect(paf, fp);
-	}
+	aff_fwrite_list("Affc", obj->affected, fp);
 
 	for (ed = obj->ed; ed != NULL; ed = ed->next) {
 		if (IS_NULLSTR(ed->keyword))
@@ -647,7 +638,7 @@ fread_char(CHAR_DATA * ch, rfile_t * fp, int flags)
 				break;
 			}
 			if (IS_TOKEN(fp, "Affc")) {
-				AFFECT_DATA *paf = fread_affect(fp);
+				AFFECT_DATA *paf = aff_fread(fp);
 				affect_to_char(ch, paf);
 				aff_free(paf);
 				fMatch = TRUE;
@@ -930,7 +921,7 @@ fread_pet(CHAR_DATA * ch, rfile_t * fp, int flags)
 			KEY("Alig", pet->alignment, fread_number(fp));
 
 			if (IS_TOKEN(fp, "Affc")) {
-				AFFECT_DATA *paf = fread_affect(fp);
+				AFFECT_DATA *paf = aff_fread(fp);
 				affect_to_char(pet, paf);
 				aff_free(paf);
 				fMatch = TRUE;
@@ -1056,7 +1047,7 @@ fread_obj(CHAR_DATA * ch, rfile_t * fp, int flags)
 
 		case 'A':
 			if (IS_TOKEN(fp, "Affc")) {
-				AFFECT_DATA *paf = fread_affect(fp);
+				AFFECT_DATA *paf = aff_fread(fp);
 				SLIST_ADD(AFFECT_DATA, obj->affected, paf);
 				fMatch = TRUE;
 				break;

@@ -1,5 +1,5 @@
 /*
- * $Id: affects.c,v 1.21 1999-12-17 09:00:45 fjoe Exp $
+ * $Id: affects.c,v 1.22 1999-12-20 12:40:37 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1001,7 +1001,7 @@ void show_affects(CHAR_DATA *ch, BUFFER *output)
 		}
 }
 
-void fwrite_affect(AFFECT_DATA *paf, FILE *fp)
+void aff_fwrite(AFFECT_DATA *paf, FILE *fp)
 {
 	if (IS_SKILL(paf->type, "doppelganger"))
 		return;
@@ -1009,35 +1009,45 @@ void fwrite_affect(AFFECT_DATA *paf, FILE *fp)
 	switch (paf->where) {
 	case TO_SKILLS:
 	case TO_RACE:
-		fprintf(fp, "'%s' %3d %3d %3d %3d '%s' %s\n",
+		fprintf(fp, "'%s' %s %d %d %d '%s' %s\n",
 			paf->type,
-			paf->where, paf->level, paf->duration, paf->modifier,
+			flag_string(affect_where_types, paf->where),
+			paf->level, paf->duration, paf->modifier,
 			STR(paf->location), format_flags(paf->bitvector));
 		break;
 	default:
-		fprintf(fp, "'%s' %3d %3d %3d %3d %3d %s\n",
+		fprintf(fp, "'%s' %s %d %d %d %d %s\n",
 			paf->type,
-			paf->where, paf->level, paf->duration, paf->modifier,
+			flag_string(affect_where_types, paf->where),
+			paf->level, paf->duration, paf->modifier,
 			INT(paf->location), format_flags(paf->bitvector));
 		break;
 	}
 }
 
-AFFECT_DATA *fread_affect(rfile_t *fp)
+void aff_fwrite_list(const char *pre, AFFECT_DATA *paf, FILE *fp)
+{
+	for (; paf != NULL; paf = paf->next) {
+		fprintf(fp, "%s ", pre);
+		aff_fwrite(paf, fp);
+	}
+}
+
+AFFECT_DATA *aff_fread(rfile_t *fp)
 {
 	AFFECT_DATA *paf = aff_new();
 
-	paf->type = fread_strkey(fp, &skills, "fread_affect");
-	paf->where = fread_number(fp);
+	paf->type = fread_strkey(fp, &skills, "aff_fread");
+	paf->where = fread_fword(affect_where_types, fp);
 	paf->level = fread_number(fp);
 	paf->duration = fread_number(fp);
 	paf->modifier = fread_number(fp);
 	switch (paf->where) {
 	case TO_SKILLS:
-		paf->location.s = fread_strkey(fp, &skills, "fread_affect");
+		paf->location.s = fread_strkey(fp, &skills, "aff_fread");
 		break;
 	case TO_RACE:
-		paf->location.s = fread_strkey(fp, &races, "fread_affect");
+		paf->location.s = fread_strkey(fp, &races, "aff_fread");
 		break;
 	default:
 		INT(paf->location) = fread_number(fp);
@@ -1046,5 +1056,31 @@ AFFECT_DATA *fread_affect(rfile_t *fp)
 	paf->bitvector = fread_flags(fp);
 
 	return paf;
+}
+
+void
+aff_dump_list(AFFECT_DATA *paf, BUFFER *output)
+{
+	int cnt = 0;
+
+	for (; paf; paf = paf->next) {
+		where_t *w = where_lookup(paf->where);
+
+		if (cnt == 0) {
+			buf_add(output, "Number      Affects Modifier Affects Bitvector\n");
+			buf_add(output, "------ ------------ -------- ------- -----------------------------------------\n");
+		}
+		buf_printf(output, "[%4d] %12.12s %8d %7.7s %s"
+				   "\n",
+			   cnt,
+			   paf->where == TO_SKILLS ||
+			   paf->where == TO_RACE ?
+				STR(paf->location) :
+				SFLAGS(apply_flags, paf->location),
+			   paf->modifier,
+			   flag_string(affect_where_types, paf->where),
+			   w ? flag_string(w->table, paf->bitvector) : "none");
+		cnt++;
+	}
 }
 

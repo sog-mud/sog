@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: tables.h,v 1.28 1999-12-16 12:24:46 fjoe Exp $
+ * $Id: tables.h,v 1.29 1999-12-20 12:40:29 fjoe Exp $
  */
 
 #ifndef _TABLES_H_
@@ -67,7 +67,6 @@ extern flaginfo_t	position_table[];
 extern flaginfo_t	position_names[];
 extern flaginfo_t	portal_flags[];
 extern flaginfo_t	furniture_flags[];
-extern flaginfo_t	apply_types[];
 extern flaginfo_t	raffect_flags[];
 extern flaginfo_t	skill_groups[];
 extern flaginfo_t	mptrig_types[];
@@ -102,6 +101,7 @@ extern flaginfo_t	cond_table[];
 extern flaginfo_t	resist_flags[];
 extern flaginfo_t	resist_info_flags[];
 extern flaginfo_t	shapeform_flags[];
+extern flaginfo_t	affect_where_types[];
 
 #endif
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_obj.c,v 1.78 1999-12-17 12:40:35 fjoe Exp $
+ * $Id: olc_obj.c,v 1.79 1999-12-20 12:40:35 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -204,8 +204,6 @@ OLC_FUN(objed_show)
 	char arg[MAX_INPUT_LENGTH];
 	OBJ_INDEX_DATA	*pObj;
 	AREA_DATA	*pArea;
-	AFFECT_DATA *paf;
-	int cnt;
 	BUFFER *output;
 
 	one_argument(argument, arg, sizeof(arg));
@@ -277,25 +275,7 @@ OLC_FUN(objed_show)
 	mlstr_dump(output, "Short desc: ", &pObj->short_descr);
 	mlstr_dump(output, "Long desc: ", &pObj->description);
 
-	for (cnt = 0, paf = pObj->affected; paf; paf = paf->next) {
-		where_t *w = where_lookup(paf->where);
-
-		if (cnt == 0) {
-			buf_add(output, "Number      Affects Modifier Affects Bitvector\n");
-			buf_add(output, "------ ------------ -------- ------- -----------------------------------------\n");
-		}
-		buf_printf(output, "[%4d] %12.12s %8d %7.7s %s"
-				   "\n",
-			   cnt,
-			   paf->where == TO_SKILLS ?
-				STR(paf->location) :
-				SFLAGS(apply_flags, paf->location),
-			   paf->modifier,
-			   flag_string(apply_types, paf->where),
-			   w ? flag_string(w->table, paf->bitvector) : "none");
-		cnt++;
-	}
-
+	aff_dump_list(pObj->affected, output);
 	objval_show(output, pObj->item_type, pObj->value);
 	print_cc_vexpr(&pObj->restrictions, "Restrictions:", output);
 	page_to_char(buf_string(output), ch);
@@ -447,195 +427,18 @@ OLC_FUN(objed_del)
 	return FALSE;
 }
 
-/*
- * Need to issue warning if flag isn't valid. -- does so now -- Hugin.
- */
 OLC_FUN(objed_addaffect)
 {
-	where_t *w;
-	vo_t location;
-	int modifier = 0;
-	flag_t where;
-	flag_t bitvector = 0;
 	OBJ_INDEX_DATA *pObj;
-	AFFECT_DATA *paf;
-	char arg1[MAX_STRING_LENGTH];
-	char arg2[MAX_STRING_LENGTH];
-
 	EDIT_OBJ(ch, pObj);
-
-	argument = one_argument(argument, arg1, sizeof(arg1));
-	argument = one_argument(argument, arg2, sizeof(arg2));
-
-	if (arg1[0] == '\0')
-		OLC_ERROR("'OLC ADDAFFECT'");
-
-	/*
-	 * set `w' and `where'
-	 */
-	if (!str_cmp(arg1, "none")) {
-		w = NULL;
-		where = -1;
-	} else {
-		if ((where = flag_value(apply_types, arg1)) < 0) {
-			char_puts("Valid bitaffect locations are:\n", ch);
-			show_flags(ch, apply_types);
-			return FALSE;
-		}
-
-		if ((w = where_lookup(where)) == NULL) {
-			char_printf(ch, "%s: not in where_table.\n",
-				    flag_string(apply_types, where));
-			return FALSE;
-		}
-	}
-
-	/*
-	 * set `location' and initialize `modifier'
-	 */
-	switch (where) {
-	case TO_SKILLS: {
-		skill_t *sk;
-
-		if ((sk = skill_lookup(arg2)) == NULL) {
-			BUFFER *output = buf_new(-1);
-			buf_add(output, "Valid skills are:\n");
-			skills_dump(output, -1);
-			page_to_char(buf_string(output), ch);
-			buf_free(output);
-			return FALSE;
-		}
-
-		location.s = gmlstr_mval(&sk->sk_name);
-		argument = one_argument(argument, arg2, sizeof(arg2));
-		break;
-	}
-	default:
-		if (!str_cmp(arg2, "none")) {
-			INT(location) = APPLY_NONE;
-			modifier = -1;
-		} else {
-			if ((INT(location) = flag_value(apply_flags, arg2)) < 0) {
-				char_puts("Valid locations are:\n", ch);
-				show_flags(ch, apply_flags);
-				return FALSE;
-			}
-			argument = one_argument(argument, arg2, sizeof(arg2));
-		}
-		break;
-	}
-
-	/*
-	 * set `modifier'
-	 */
-	if (modifier < 0) {
-		/*
-		 * do not want modifier to be set
-		 */
-		modifier = 0;
-	} else {
-		if (!is_number(arg2))
-			OLC_ERROR("'OLC ADDAFFECT'");
-
-		modifier = atoi(arg2);
-	}
-
-	/*
-	 * set `bitvector'
-	 */
-	if (w
-	&&  argument[0] != '\0'
-	&&  (bitvector = flag_value(w->table, argument)) == 0) {
-		char_printf(ch, "Valid '%s' bitaffect flags are:\n",
-			    flag_string(apply_types, where));
-		show_flags(ch, w->table);
-		return FALSE;
-	}
-
-	paf             = aff_new();
-	switch (where) {
-	case TO_SKILLS:
-		paf->location.s = str_dup(location.s);
-		break;
-	default:
-		paf->location = location;
-		break;
-	}
-	paf->modifier   = modifier;
-	paf->where	= where;
-	paf->type       = str_empty;
-	paf->duration   = -1;
-	paf->bitvector  = bitvector;
-	paf->level      = pObj->level;
-	paf->next       = pObj->affected;
-	pObj->affected  = paf;
-
-	char_puts("Affect added.\n", ch);
-	return TRUE;
+	return olced_addaffect(ch, argument, cmd, pObj->level, &pObj->affected);
 }
 
-/*
- * My thanks to Hans Hvidsten Birkeland and Noam Krendel(Walker)
- * for really teaching me how to manipulate pointers.
- */
 OLC_FUN(objed_delaffect)
 {
 	OBJ_INDEX_DATA *pObj;
-	AFFECT_DATA *pAf;
-	AFFECT_DATA *pAf_next;
-	char affect[MAX_STRING_LENGTH];
-	int  value;
-	int  cnt = 0;
-
 	EDIT_OBJ(ch, pObj);
-
-	one_argument(argument, affect, sizeof(affect));
-
-	if (!is_number(affect) || affect[0] == '\0')
-	{
-		char_puts("Syntax:  delaffect [#xaffect]\n", ch);
-		return FALSE;
-	}
-
-	value = atoi(affect);
-
-	if (value < 0)
-	{
-		char_puts("Only non-negative affect-numbers allowed.\n", ch);
-		return FALSE;
-	}
-
-	if (!(pAf = pObj->affected))
-	{
-		char_puts("ObjEd:  Non-existant affect.\n", ch);
-		return FALSE;
-	}
-
-	if(value == 0)	/* First case: Remove first affect */
-	{
-		pAf = pObj->affected;
-		pObj->affected = pAf->next;
-		aff_free(pAf);
-	}
-	else		/* Affect to remove is not the first */
-	{
-		while ((pAf_next = pAf->next) && (++cnt < value))
-			 pAf = pAf_next;
-
-		if(pAf_next)		/* See if it's the next affect */
-		{
-			pAf->next = pAf_next->next;
-			aff_free(pAf_next);
-		}
-		else                                 /* Doesn't exist */
-		{
-			 char_puts("No such affect.\n", ch);
-			 return FALSE;
-		}
-	}
-
-	char_puts("Affect removed.\n", ch);
-	return TRUE;
+	return olced_delaffect(ch, argument, cmd, &pObj->affected);
 }
 
 OLC_FUN(objed_name)

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_mob.c,v 1.57 1999-12-17 12:44:35 fjoe Exp $
+ * $Id: olc_mob.c,v 1.58 1999-12-20 12:40:35 fjoe Exp $
  */
 
 #include "olc.h"
@@ -79,6 +79,8 @@ DECLARE_OLC_FUN(mobed_wizi		);
 DECLARE_OLC_FUN(mobed_incog		);
 DECLARE_OLC_FUN(mobed_fvnum		);
 DECLARE_OLC_FUN(mobed_resist		);
+DECLARE_OLC_FUN(mobed_addaffect		);
+DECLARE_OLC_FUN(mobed_delaffect		);
 
 DECLARE_VALIDATE_FUN(validate_fvnum	);
 
@@ -132,6 +134,8 @@ olc_cmd_t olc_cmds_mob[] =
 	{ "incog",	mobed_incog					},
 	{ "fvnum",	mobed_fvnum,	validate_fvnum			},
 	{ "resist",	mobed_resist					},
+	{ "addaffect",	mobed_addaffect					},
+	{ "delaffect",	mobed_delaffect					},
 
 	{ "commands",	show_commands					},
 	{ "version",	show_version					},
@@ -238,8 +242,7 @@ OLC_FUN(mobed_show)
 			EDIT_MOB(ch, pMob);
 		else
 			OLC_ERROR("'OLC ASHOW'");
-	}
-	else {
+	} else {
 		int value = atoi(arg);
 		if ((pMob = get_mob_index(value)) == NULL) {
 			char_puts("MobEd: Vnum does not exist.\n", ch);
@@ -368,8 +371,9 @@ OLC_FUN(mobed_show)
 		if(!((i+1) % 3))
 			buf_add(buf, "\n");
 	}
-	
 	buf_add(buf, "\n");
+
+	aff_dump_list(pMob->affected, buf);
 
 	if (pMob->pShop) {
 		SHOP_DATA *pShop;
@@ -799,39 +803,6 @@ OLC_FUN(mobed_prac)
 	return olced_flag(ch, argument, cmd, &pMob->practicer);
 }
 
-OLC_FUN(mobed_resist)
-{
-	MOB_INDEX_DATA *pMob;
-	char arg[MAX_INPUT_LENGTH];
-	int res;
-
-	EDIT_MOB(ch, pMob);
-
-	if (argument[0] == '\0') {
-		char_puts("Syntax: resist <damclass> <number>\n", ch);
-		return FALSE;
-	}
-	
-	argument = one_argument(argument, arg, sizeof(arg));
-
-	if (arg[0] == '\0') {
-		char_puts("Syntax: resist <damclass> <number>\n", ch);
-		return FALSE;
-	}
-	
-	res = flag_svalue(resist_flags, arg);
-	argument = one_argument(argument, arg, sizeof(arg));
-
-	if (!is_number(arg) || (res < 0)) {
-		char_puts("Syntax: resist <damclass> <number>\n", ch);
-		return FALSE;
-	}
-	
-	pMob->resists[res] = atoi(arg);
-	char_puts("Resistance set.\n", ch);
-	return TRUE;
-}
-
 OLC_FUN(mobed_ac)
 {
 	MOB_INDEX_DATA *pMob;
@@ -966,6 +937,9 @@ OLC_FUN(mobed_race)
 		pMob->parts       = r->parts;
 		for (i = 0; i < MAX_RESIST; i++)
 			pMob->resists[i] = r->resists[i];
+
+		aff_free_list(pMob->affected);
+		pMob->affected = aff_dup_list(r->affected);
 
 		char_puts("Race set.\n", ch);
 		return TRUE;
@@ -1237,6 +1211,12 @@ OLC_FUN(mobed_clone)
 	for (i = 0; i < 4; i++)
 		pMob->ac[i]	= pFrom->ac[i];
 
+	for (i = 0; i < MAX_RESIST; i++)
+		pMob->resists[i] = pFrom->resists[i];
+
+	aff_free_list(pMob->affected);
+	pMob->affected = aff_dup_list(pFrom->affected);
+
 	return TRUE;
 }
 
@@ -1259,6 +1239,53 @@ OLC_FUN(mobed_fvnum)
 	MOB_INDEX_DATA *pMob;
 	EDIT_MOB(ch, pMob);
 	return olced_number(ch, argument, cmd, &pMob->fvnum);
+}
+
+OLC_FUN(mobed_resist)
+{
+	MOB_INDEX_DATA *pMob;
+	char arg[MAX_INPUT_LENGTH];
+	int res;
+
+	EDIT_MOB(ch, pMob);
+
+	if (argument[0] == '\0') {
+		char_puts("Syntax: resist <damclass> <number>\n", ch);
+		return FALSE;
+	}
+	
+	argument = one_argument(argument, arg, sizeof(arg));
+
+	if (arg[0] == '\0') {
+		char_puts("Syntax: resist <damclass> <number>\n", ch);
+		return FALSE;
+	}
+	
+	res = flag_svalue(resist_flags, arg);
+	argument = one_argument(argument, arg, sizeof(arg));
+
+	if (!is_number(arg) || (res < 0)) {
+		char_puts("Syntax: resist <damclass> <number>\n", ch);
+		return FALSE;
+	}
+	
+	pMob->resists[res] = atoi(arg);
+	char_puts("Resistance set.\n", ch);
+	return TRUE;
+}
+
+OLC_FUN(mobed_addaffect)
+{
+	MOB_INDEX_DATA *mob;
+	EDIT_MOB(ch, mob);
+	return olced_addaffect(ch, argument, cmd, mob->level, &mob->affected);
+}
+
+OLC_FUN(mobed_delaffect)
+{
+	MOB_INDEX_DATA *mob;
+	EDIT_MOB(ch, mob);
+	return olced_delaffect(ch, argument, cmd, &mob->affected);
 }
 
 /* Local functions */

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.105 1999-12-20 10:46:56 fjoe Exp $
+ * $Id: olc.c,v 1.106 1999-12-20 12:40:29 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1048,6 +1048,182 @@ olced_cc_vexpr(CHAR_DATA *ch, const char *argument, olc_cmd_t *cmd,
 	}
 
 	olced_cc_vexpr(ch, "show", cmd, v, ecn);
+	return TRUE;
+}
+
+bool
+olced_addaffect(CHAR_DATA *ch, const char *argument, olc_cmd_t *cmd,
+		int level, AFFECT_DATA **ppaf)
+{
+	where_t *w;
+	vo_t location;
+	int modifier = 0;
+	flag_t where;
+	flag_t bitvector = 0;
+	AFFECT_DATA *paf;
+	char arg[MAX_INPUT_LENGTH];
+	char arg1[MAX_INPUT_LENGTH];
+	char arg2[MAX_INPUT_LENGTH];
+
+	argument = one_argument(argument, arg, sizeof(arg));
+	argument = one_argument(argument, arg1, sizeof(arg1));
+	argument = one_argument(argument, arg2, sizeof(arg2));
+
+	if (arg[0] != '\0' && skill_lookup(arg) == NULL) {
+		BUFFER *output = buf_new(-1);
+		buf_add(output, "Valid types are spell/prayer names (listed below) and empty type (''):\n");
+		skills_dump(output, ST_SPELL);
+		skills_dump(output, ST_PRAYER);
+		page_to_char(buf_string(output), ch);
+		buf_free(output);
+		return FALSE;
+	}
+
+	if (arg1[0] == '\0')
+		OLC_ERROR("'OLC ADDAFFECT'");
+
+	/*
+	 * set `w' and `where'
+	 */
+	if (!str_cmp(arg1, "none")) {
+		w = NULL;
+		where = -1;
+	} else {
+		if ((where = flag_value(affect_where_types, arg1)) < 0) {
+			char_puts("Valid locations are:\n", ch);
+			show_flags(ch, affect_where_types);
+			return FALSE;
+		}
+
+		if ((w = where_lookup(where)) == NULL) {
+			char_printf(ch, "%s: not in where_table.\n",
+				    flag_string(affect_where_types, where));
+			return FALSE;
+		}
+	}
+
+	/*
+	 * set `location' and initialize `modifier'
+	 */
+	switch (where) {
+	case TO_SKILLS: {
+		skill_t *sk;
+
+		if ((sk = skill_lookup(arg2)) == NULL) {
+			BUFFER *output = buf_new(-1);
+			buf_add(output, "Valid skills are:\n");
+			skills_dump(output, -1);
+			page_to_char(buf_string(output), ch);
+			buf_free(output);
+			return FALSE;
+		}
+
+		location.s = gmlstr_mval(&sk->sk_name);
+		argument = one_argument(argument, arg2, sizeof(arg2));
+		break;
+	}
+	default:
+		if (!str_cmp(arg2, "none")) {
+			INT(location) = APPLY_NONE;
+			modifier = -1;
+		} else {
+			if ((INT(location) = flag_value(apply_flags, arg2)) < 0) {
+				char_puts("Valid locations are:\n", ch);
+				show_flags(ch, apply_flags);
+				return FALSE;
+			}
+			argument = one_argument(argument, arg2, sizeof(arg2));
+		}
+		break;
+	}
+
+	/*
+	 * set `modifier'
+	 */
+	if (modifier < 0) {
+		/*
+		 * do not want modifier to be set
+		 */
+		modifier = 0;
+	} else {
+		if (!is_number(arg2))
+			OLC_ERROR("'OLC ADDAFFECT'");
+
+		modifier = atoi(arg2);
+	}
+
+	/*
+	 * set `bitvector'
+	 */
+	if (w
+	&&  argument[0] != '\0'
+	&&  (bitvector = flag_value(w->table, argument)) == 0) {
+		char_printf(ch, "Valid '%s' bitaffect flags are:\n",
+			    flag_string(affect_where_types, where));
+		show_flags(ch, w->table);
+		return FALSE;
+	}
+
+	paf             = aff_new();
+	switch (where) {
+	case TO_SKILLS:
+	case TO_RACE:
+		paf->location.s = str_dup(location.s);
+		break;
+	default:
+		paf->location = location;
+		break;
+	}
+	paf->modifier   = modifier;
+	paf->where	= where;
+	paf->type       = str_dup(arg);
+	paf->duration   = -1;
+	paf->bitvector  = bitvector;
+	paf->level      = level;
+	paf->next       = *ppaf;
+	*ppaf		= paf;
+	char_puts("Affect added.\n", ch);
+	return TRUE;
+}
+
+bool
+olced_delaffect(CHAR_DATA *ch, const char *argument, olc_cmd_t *cmd,
+		AFFECT_DATA **ppaf)
+{
+	AFFECT_DATA *paf;
+	AFFECT_DATA *paf_prev = NULL;
+	char arg[MAX_INPUT_LENGTH];
+	int num;
+
+	one_argument(argument, arg, sizeof(arg));
+
+	if (!is_number(arg)) {
+		char_puts("Syntax: delaffect <num>\n", ch);
+		return FALSE;
+	}
+
+	if ((num = atoi(arg)) < 0) {
+		char_printf(ch, "%s: affect number should be > 0.\n",
+			    OLCED(ch)->name);
+		return FALSE;
+	}
+
+	for (paf = *ppaf; paf != NULL && num--; paf_prev = paf, paf = paf->next)
+		;
+
+	if (paf == NULL) {
+		char_printf(ch, "%s: affect %d not found.\n",
+			    OLCED(ch)->name, atoi(arg));
+		return FALSE;
+	}
+
+	if (paf_prev == NULL)
+		*ppaf = (*ppaf)->next;
+	else 
+		paf_prev->next = paf->next; 
+
+	aff_free(paf);
+	char_puts("Affect removed.\n", ch);
 	return TRUE;
 }
 
