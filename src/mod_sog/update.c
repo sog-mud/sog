@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.18 1998-05-24 16:11:52 efdi Exp $
+ * $Id: update.c,v 1.19 1998-05-24 19:20:56 efdi Exp $
  */
 
 /***************************************************************************
@@ -984,7 +984,6 @@ void char_update(void)
 
 	ch_next = ch->next;
 
-	send_to_char("", ch);
 	/* reset hunters path find */
 	if (!IS_NPC(ch) && ch->cabal == CABAL_HUNTER)
 	{
@@ -1286,6 +1285,9 @@ void char_update(void)
 	    damage(ch, ch, 1, TYPE_UNDEFINED, DAM_NONE,FALSE);
 	}
 	}
+
+	/* bust_a_prompt */
+	send_to_char("", ch);
 
 	/*
 	 * Autosave and autoquit.
