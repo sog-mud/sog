@@ -6,7 +6,7 @@ sog_sh=$sog_home/bin/sog.sh
 case "$1" in
 start)
 	su - sog -c "nohup $sog_sh >/dev/null 2>&1 &"
-	echo -n " sog"
+	echo -n " sog1"
 	;;
 stop)
 	;;
