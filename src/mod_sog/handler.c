@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.350 2002-01-19 11:25:44 fjoe Exp $
+ * $Id: handler.c,v 1.351 2002-02-07 12:57:00 tatyana Exp $
  */
 
 /***************************************************************************
@@ -84,6 +84,8 @@ static void char_from_room(CHAR_DATA *ch);
 static void obj_from_xxx(OBJ_DATA *obj);
 static void obj_from_room(OBJ_DATA *obj);
 static void obj_from_obj(OBJ_DATA *obj);
+
+static char * format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, int flags);
 
 /*
  * Move a char into a room.
@@ -6192,116 +6194,6 @@ show_flags(CHAR_DATA *ch, flaginfo_t *flag_table)
 	buf_free(output);
 }
 
-char *
-format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, int flags)
-{
-	static char buf[MAX_STRING_LENGTH];
-
-	buf[0] = '\0';
-	if ((IS_SET(flags, FO_F_SHORT) && mlstr_null(&obj->short_descr))
-	||  mlstr_null(&obj->description))
-		return str_empty;
-
-	if (IS_SET(ch->comm, COMM_LONG)) {
-		if (IS_OBJ_STAT(obj, ITEM_INVIS))
-			strnzcat(buf, sizeof(buf),
-				 GETMSG("({yInvis{x) ", GET_LANG(ch)));
-		if (IS_OBJ_STAT(obj, ITEM_DARK))
-			strnzcat(buf, sizeof(buf),
-				 GETMSG("({DDark{x) ", GET_LANG(ch)));
-		if (HAS_DETECT(ch, ID_EVIL)
-		&&  IS_OBJ_STAT(obj, ITEM_EVIL))
-			strnzcat(buf, sizeof(buf),
-				 GETMSG("({RRed Aura{x) ", GET_LANG(ch)));
-		if (HAS_DETECT(ch, ID_GOOD)
-		&&  IS_OBJ_STAT(obj, ITEM_BLESS))
-			strnzcat(buf, sizeof(buf),
-				 GETMSG("({BBlue Aura{x) ", GET_LANG(ch)));
-		if (HAS_DETECT(ch, ID_MAGIC)
-		&&  IS_OBJ_STAT(obj, ITEM_MAGIC))
-			strnzcat(buf, sizeof(buf),
-				 GETMSG("({MMagical{x) ", GET_LANG(ch)));
-		if (IS_OBJ_STAT(obj, ITEM_GLOW))
-			strnzcat(buf, sizeof(buf),
-				 GETMSG("({WGlowing{x) ", GET_LANG(ch)));
-		if (IS_OBJ_STAT(obj, ITEM_HUM))
-			strnzcat(buf, sizeof(buf),
-				 GETMSG("({YHumming{x) ", GET_LANG(ch)));
-	} else {
-		static char FLAGS[] = "{x[{y.{D.{R.{B.{M.{W.{Y.{x] "; // notrans
-		strnzcpy(buf, sizeof(buf), FLAGS);
-		if (IS_OBJ_STAT(obj, ITEM_INVIS))
-			buf[5] = 'I';
-		if (IS_OBJ_STAT(obj, ITEM_DARK))
-			buf[8] = 'D';
-		if (HAS_DETECT(ch, ID_EVIL)
-		&&  IS_OBJ_STAT(obj, ITEM_EVIL))
-			buf[11] = 'E';
-		if (HAS_DETECT(ch, ID_GOOD)
-		&&  IS_OBJ_STAT(obj,ITEM_BLESS))
-			buf[14] = 'B';
-		if (HAS_DETECT(ch, ID_MAGIC)
-		&&  IS_OBJ_STAT(obj, ITEM_MAGIC))
-			buf[17] = 'M';
-		if (IS_OBJ_STAT(obj, ITEM_GLOW))
-			buf[20] = 'G';
-		if (IS_OBJ_STAT(obj, ITEM_HUM))
-			buf[23] = 'H';
-		if (strcmp(buf, FLAGS) == 0)
-			buf[0] = '\0';
-	}
-
-	if (IS_SET(flags, FO_F_SHORT)) {
-		strnzcat(buf, sizeof(buf),
-			 format_short(&obj->short_descr, obj->pObjIndex->name,
-				      ch, GET_LANG(ch), 0));
-		if (obj->pObjIndex->vnum > 5 /* not money, gold, etc */
-		&&  (obj->condition < COND_EXCELLENT ||
-		     !IS_SET(ch->comm, COMM_NOVERBOSE))) {
-			char buf2[MAX_STRING_LENGTH];
-			snprintf(buf2, sizeof(buf2), " [{g%s{x]",  // notrans
-				 GETMSG(get_cond_alias(obj), GET_LANG(ch)));
-			strnzcat(buf, sizeof(buf), buf2);
-		}
-		return buf;
-	}
-
-	if (obj->in_room && IS_WATER(obj->in_room)) {
-		char *p;
-
-		p = strchr(buf, '\0');
-		strnzcat(buf, sizeof(buf),
-			 format_short(&obj->short_descr, obj->pObjIndex->name,
-				      ch, GET_LANG(ch), 0));
-		cstrtoupper(p);
-		switch(number_range(1, 3)) {
-		case 1:
-			strnzcat(buf, sizeof(buf),
-				 " is floating gently on the water.");
-			break;
-		case 2:
-			strnzcat(buf, sizeof(buf),
-				 " is making it's way on the water.");
-			break;
-		case 3:
-			strnzcat(buf, sizeof(buf),
-				 " is getting wet by the water.");
-			break;
-		}
-	} else {
-		char tmp[MAX_STRING_LENGTH];
-		actopt_t opt;
-
-		opt.to_lang = GET_LANG(ch);
-		opt.act_flags = ACT_NOUCASE | ACT_NOLF;
-
-		act_buf(format_long(&obj->description, ch), ch, ch,
-			NULL, NULL, NULL, &opt, tmp, sizeof(tmp));
-		strnzcat(buf, sizeof(buf), tmp);
-	}
-	return buf;
-}
-
 /*
  * Show a list to a character.
  * Can coalesce duplicated items.
@@ -6771,4 +6663,117 @@ obj_from_obj(OBJ_DATA *obj)
 /*	    obj_from->carried_by->carry_number -= get_obj_number(obj); */
 			obj_from->carried_by->carry_weight -= get_obj_weight(obj) * WEIGHT_MULT(obj_from) / 100;
 	}
+}
+
+static char *
+format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, int flags)
+{
+	static char buf[MAX_STRING_LENGTH];
+
+	buf[0] = '\0';
+	if ((IS_SET(flags, FO_F_SHORT) && mlstr_null(&obj->short_descr))
+	||  mlstr_null(&obj->description))
+		return str_empty;
+
+	if (IS_SET(ch->comm, COMM_LONG)) {
+		if (IS_OBJ_STAT(obj, ITEM_INVIS))
+			strnzcat(buf, sizeof(buf),
+				 GETMSG("({yInvis{x) ", GET_LANG(ch)));
+		if (IS_OBJ_STAT(obj, ITEM_DARK))
+			strnzcat(buf, sizeof(buf),
+				 GETMSG("({DDark{x) ", GET_LANG(ch)));
+		if (HAS_DETECT(ch, ID_EVIL)
+		&&  IS_OBJ_STAT(obj, ITEM_EVIL))
+			strnzcat(buf, sizeof(buf),
+				 GETMSG("({RRed Aura{x) ", GET_LANG(ch)));
+		if (HAS_DETECT(ch, ID_GOOD)
+		&&  IS_OBJ_STAT(obj, ITEM_BLESS))
+			strnzcat(buf, sizeof(buf),
+				 GETMSG("({BBlue Aura{x) ", GET_LANG(ch)));
+		if (HAS_DETECT(ch, ID_MAGIC)
+		&&  IS_OBJ_STAT(obj, ITEM_MAGIC))
+			strnzcat(buf, sizeof(buf),
+				 GETMSG("({MMagical{x) ", GET_LANG(ch)));
+		if (IS_OBJ_STAT(obj, ITEM_GLOW))
+			strnzcat(buf, sizeof(buf),
+				 GETMSG("({WGlowing{x) ", GET_LANG(ch)));
+		if (IS_OBJ_STAT(obj, ITEM_HUM))
+			strnzcat(buf, sizeof(buf),
+				 GETMSG("({YHumming{x) ", GET_LANG(ch)));
+	} else {
+		static char FLAGS[] = "{x[{y.{D.{R.{B.{M.{W.{Y.{x] "; // notrans
+		strnzcpy(buf, sizeof(buf), FLAGS);
+		if (IS_OBJ_STAT(obj, ITEM_INVIS))
+			buf[5] = 'I';
+		if (IS_OBJ_STAT(obj, ITEM_DARK))
+			buf[8] = 'D';
+		if (HAS_DETECT(ch, ID_EVIL)
+		&&  IS_OBJ_STAT(obj, ITEM_EVIL))
+			buf[11] = 'E';
+		if (HAS_DETECT(ch, ID_GOOD)
+		&&  IS_OBJ_STAT(obj,ITEM_BLESS))
+			buf[14] = 'B';
+		if (HAS_DETECT(ch, ID_MAGIC)
+		&&  IS_OBJ_STAT(obj, ITEM_MAGIC))
+			buf[17] = 'M';
+		if (IS_OBJ_STAT(obj, ITEM_GLOW))
+			buf[20] = 'G';
+		if (IS_OBJ_STAT(obj, ITEM_HUM))
+			buf[23] = 'H';
+		if (strcmp(buf, FLAGS) == 0)
+			buf[0] = '\0';
+	}
+
+	if (IS_SET(flags, FO_F_SHORT)) {
+		if (IS_SET(obj->stat_flags, ITEM_KEEP))
+			strnzcat(buf, sizeof(buf), "* ");
+
+		strnzcat(buf, sizeof(buf),
+			 format_short(&obj->short_descr, obj->pObjIndex->name,
+				      ch, GET_LANG(ch), 0));
+		if (obj->pObjIndex->vnum > 5 /* not money, gold, etc */
+		&&  (obj->condition < COND_EXCELLENT ||
+		     !IS_SET(ch->comm, COMM_NOVERBOSE))) {
+			char buf2[MAX_STRING_LENGTH];
+			snprintf(buf2, sizeof(buf2), " [{g%s{x]",  // notrans
+				 GETMSG(get_cond_alias(obj), GET_LANG(ch)));
+			strnzcat(buf, sizeof(buf), buf2);
+		}
+		return buf;
+	}
+
+	if (obj->in_room && IS_WATER(obj->in_room)) {
+		char *p;
+
+		p = strchr(buf, '\0');
+		strnzcat(buf, sizeof(buf),
+			 format_short(&obj->short_descr, obj->pObjIndex->name,
+				      ch, GET_LANG(ch), 0));
+		cstrtoupper(p);
+		switch(number_range(1, 3)) {
+		case 1:
+			strnzcat(buf, sizeof(buf),
+				 " is floating gently on the water.");
+			break;
+		case 2:
+			strnzcat(buf, sizeof(buf),
+				 " is making it's way on the water.");
+			break;
+		case 3:
+			strnzcat(buf, sizeof(buf),
+				 " is getting wet by the water.");
+			break;
+		}
+	} else {
+		char tmp[MAX_STRING_LENGTH];
+		actopt_t opt;
+
+		opt.to_lang = GET_LANG(ch);
+		opt.act_flags = ACT_NOUCASE | ACT_NOLF;
+
+		act_buf(format_long(&obj->description, ch), ch, ch,
+			NULL, NULL, NULL, &opt, tmp, sizeof(tmp));
+		strnzcat(buf, sizeof(buf), tmp);
+	}
+	return buf;
 }

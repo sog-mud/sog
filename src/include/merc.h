@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.386 2002-01-08 20:21:32 tatyana Exp $
+ * $Id: merc.h,v 1.387 2002-02-07 12:56:57 tatyana Exp $
  */
 
 /***************************************************************************
@@ -786,6 +786,7 @@ struct wiznet_type
 #define ITEM_GLOW		(A)
 #define ITEM_HUM		(B)
 #define ITEM_DARK		(C)
+#define ITEM_KEEP		(D)
 #define ITEM_EVIL		(E)
 #define ITEM_INVIS		(F)
 #define ITEM_MAGIC		(G)

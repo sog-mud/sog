@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_auction.c,v 1.6 2002-01-08 20:21:34 tatyana Exp $
+ * $Id: act_auction.c,v 1.7 2002-02-07 12:56:59 tatyana Exp $
  */
 
 #include <stdio.h>
@@ -208,6 +208,11 @@ do_auction(CHAR_DATA *ch, const char *argument)
 	if (auction.item != NULL) {
 		act_puts("Try again later - $p is being auctioned right now!",
 			 ch, auction.item, NULL, TO_CHAR, POS_DEAD);
+		return;
+	}
+
+	if (IS_OBJ_STAT(obj, ITEM_KEEP)) {
+		act_char("Unkeep it first.", ch);
 		return;
 	}
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: sog.h,v 1.33 2001-12-15 13:47:48 matrim Exp $
+ * $Id: sog.h,v 1.34 2002-02-07 12:56:58 tatyana Exp $
  */
 
 #ifndef _SOG_H_
@@ -373,8 +373,6 @@ DECLARE_PROC2(show_flags,
 #define FO_F_SHORT		(A)		/* short		*/
 #define FO_F_SHOW_NOTHING	(B)		/* print 'Nothing:'	*/
 
-DECLARE_FUN3(pchar_t, format_obj_to_char,
-	     ARG(OBJ_DATA), obj, ARG(CHAR_DATA), ch, ARG(int), flags)
 DECLARE_PROC3(show_list_to_char,
 	      NULLABLE_ARG(OBJ_DATA), list, ARG(CHAR_DATA), ch, ARG(int), flags)
 DECLARE_PROC3(show_obj_to_char,

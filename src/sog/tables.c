@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.186 2002-01-08 20:21:43 tatyana Exp $
+ * $Id: tables.c,v 1.187 2002-02-07 12:57:00 tatyana Exp $
  */
 
 /***************************************************************************
@@ -544,6 +544,7 @@ flaginfo_t stat_flags[] =
 	{ "glow",		ITEM_GLOW,		TRUE	},
 	{ "hum",		ITEM_HUM,		TRUE	},
 	{ "dark",		ITEM_DARK,		TRUE	},
+	{ "kept",		ITEM_KEEP,		TRUE	},
 	{ "evil",		ITEM_EVIL,		TRUE	},
 	{ "invis",		ITEM_INVIS,		TRUE	},
 	{ "magic",		ITEM_MAGIC,		TRUE	},

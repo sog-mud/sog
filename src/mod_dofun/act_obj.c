@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.275 2002-01-08 20:31:55 tatyana Exp $
+ * $Id: act_obj.c,v 1.276 2002-02-07 12:56:59 tatyana Exp $
  */
 
 /***************************************************************************
@@ -89,6 +89,8 @@ DECLARE_DO_FUN(do_repair);
 DECLARE_DO_FUN(do_estimate);
 DECLARE_DO_FUN(do_smithing);
 DECLARE_DO_FUN(do_outfit);
+DECLARE_DO_FUN(do_keep);
+DECLARE_DO_FUN(do_unkeep);
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_split);
@@ -466,6 +468,7 @@ DO_FUN(do_drop, ch, argument)
 			if ((arg[3] == '\0' || IS_OBJ_NAME(obj, arg+4))
 			&&  can_see_obj(ch, obj)
 			&&  obj->wear_loc == WEAR_NONE
+			&&  !IS_OBJ_STAT(obj, ITEM_KEEP)
 			&&  can_drop_obj(ch, obj)) {
 				found = TRUE;
 				obj->last_owner = NULL;
@@ -1376,6 +1379,8 @@ DO_FUN(do_sacrifice, ch, argument)
 	if (!str_cmp(argument, "all")) {
 		for (obj = ch->in_room->contents; obj; obj = r_next_cont) {
 			r_next_cont = obj->next_content;
+			if (IS_OBJ_STAT(obj, ITEM_KEEP))
+				continue;
 			sac_obj(ch, obj);
 		}
 		return;
@@ -2253,6 +2258,12 @@ DO_FUN(do_sell, ch, argument)
 		act("$n looks uninterested in $p.", keeper, obj, ch, TO_VICT);
 		return;
 	}
+
+	if (IS_OBJ_STAT(obj, ITEM_KEEP)) {
+		act_char("Unkeep it first!", ch);
+		return;
+	}
+
 	if ((int) cost > (keeper->silver + 100 * keeper->gold)) {
 		act("$n tells you '{GI'm afraid I don't have enough wealth to buy $p.{x'",
 		    keeper, obj, ch, TO_VICT);
@@ -2857,6 +2868,7 @@ DO_FUN(do_crucify, ch, argument)
 		if (cross == NULL)
 			return;
 
+		cross->timer =  10 * ch->level;
 		obj_to_room(cross, ch->in_room);
 		act("With a crunch of bone and splash of blood you nail "
 		    "$p to a sacrificial cross.", ch, obj, NULL, TO_CHAR);
@@ -3822,4 +3834,57 @@ DO_FUN(do_outfit, ch, argument)
 
 	act_puts("You have been equipped by gods.",
 		 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+}
+DO_FUN(do_keep, ch, argument)
+{
+	char		arg[MAX_INPUT_LENGTH];
+	OBJ_DATA	*obj;
+
+	one_argument(argument, arg, sizeof(arg));
+	if (arg[0] == '\0') {
+		act_char("Keep what?", ch);
+		return;
+	}
+
+	if (is_number(arg)) {
+		act_char("You can't keep coins.", ch);
+		return;
+	}
+
+	if ((obj = get_obj_carry(ch, ch, arg)) == NULL) {
+		act_char("You do not have that item.", ch);
+		return;
+	}
+
+	if (IS_OBJ_STAT(obj, ITEM_KEEP)) {
+		act("$p is already kept.", ch, obj, NULL, TO_CHAR);
+		return;
+	}
+
+	SET_OBJ_STAT(obj, ITEM_KEEP);
+	act("You keep $p.", ch, obj, NULL, TO_CHAR);
+}
+DO_FUN(do_unkeep, ch, argument)
+{
+	char		arg[MAX_INPUT_LENGTH];
+	OBJ_DATA	*obj;
+
+	one_argument(argument, arg, sizeof(arg));
+	if (arg[0] == '\0') {
+		act_char("Unkeep what?", ch);
+		return;
+	}
+
+	if ((obj = get_obj_carry(ch, ch, arg)) == NULL) {
+		act_char("You do not have that item.", ch);
+		return;
+	}
+
+	if (!IS_OBJ_STAT(obj, ITEM_KEEP)) {
+		act("$p is not kept.", ch, obj, NULL, TO_CHAR);
+		return;
+	}
+
+	REMOVE_OBJ_STAT(obj, ITEM_KEEP);
+	act("You unkeep $p.", ch, obj, NULL, TO_CHAR);
 }
