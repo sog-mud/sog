@@ -1,8 +1,8 @@
 #
-# $Id: Makefile,v 1.63 1999-12-14 15:31:08 fjoe Exp $
+# $Id: Makefile,v 1.64 2000-02-15 08:47:09 fjoe Exp $
 #
 
-SUBDIR = sog core dofun events mod_cc_expr olc spellfun
+SUBDIR = sog mod_core mod_dofun mod_events mod_cc_expr mod_olc mod_spellfun
 
 all: abi_version.h _SUBDIRUSE
 
