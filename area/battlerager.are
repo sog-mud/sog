@@ -5,7 +5,7 @@ VNUMs 95400 95499
 Credits Chronos~
 Security 9
 LevelRange 90 100
-Flags noquest update_always~
+Flags CD
 Clan Battleragers
 End
 
@@ -629,8 +629,8 @@ mob transfer $n 95402
 #0
 
 #PRACTICERS
-M 95400 clan~	* the Powerman
-M 95403 clan~	* Urukhay
+M 95400 V	* the Powerman
+M 95403 V	* Urukhay
 S
 
 #HELPS

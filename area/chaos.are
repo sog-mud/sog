@@ -5,7 +5,7 @@ VNUMs 95500 95599
 Credits Asena~
 Security 9
 LevelRange 90 100
-Flags noquest update_always~
+Flags CD
 Clan Chaos
 End
 
@@ -270,7 +270,7 @@ mob attack $n
 #0
 
 #PRACTICERS
-M 95501 clan~	* Ivan the guardian of Chaos Realms
+M 95501 V	* Ivan the guardian of Chaos Realms
 S
 
 #$
