@@ -1,5 +1,5 @@
 #
-# $Id: Makefile.inc,v 1.9 2000-06-06 08:39:53 fjoe Exp $
+# $Id: Makefile.inc,v 1.10 2000-06-06 09:00:27 fjoe Exp $
 #
 
 #
@@ -42,10 +42,21 @@ LDFLAGS+=	${MOD_LDFLAGS}
 
 BINDIR=		${INSTDIR}/modules
 
-.if !make(depend)
+DEPCLEANFILES=	${DEPENDFILE}
+
+cleandepend:	_SUBDIR
+	rm -f ${DEPCLEANFILES}
+
 .if exists(_depend.c)
+
+.if !make(depend)
 SRCS+=		_depend.c
 .endif
+
+.if make(cleandepend)
+DEPCLEANFILES+=	_depend.c
+.endif
+
 .endif
 
 .else
