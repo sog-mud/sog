@@ -10,6 +10,7 @@
 #include "buffer.h"
 #include "mlstring.h"
 #include "lookup.h"
+#include "interp.h"
 
 #define MEDIT(fun)		bool fun(CHAR_DATA *ch, const char *argument)
 #define EDIT_MOB(Ch, Mob)	(Mob = (MOB_INDEX_DATA *)Ch->desc->pEdit)
@@ -55,125 +56,112 @@ DECLARE_OLC_FUN(medit_trigdel		);  /* ROM */
 DECLARE_OLC_FUN(medit_detect		); 
 DECLARE_OLC_FUN(medit_prac		); 
 
-DECLARE_VALIDATE_FUN(validate_act	);
-
 OLC_CMD_DATA medit_table[] =
 {
-/*  { command		function	validator	params		}, */
-    { "alignment",	medit_align					},
-    { "create",		medit_create					},
-    { "desc",		medit_desc					},
-    { "level",		medit_level					},
-    { "long",		medit_long					},
-    { "name",		medit_name					},
-    { "shop",		medit_shop					},
-    { "short",		medit_short					},
-    { "show",		medit_show					},
-    { "spec",		medit_spec					},
+/*  { command		function		args		}, */
+    { "alignment",	medit_align				},
+    { "create",		medit_create				},
+    { "desc",		medit_desc				},
+    { "level",		medit_level				},
+    { "long",		medit_long				},
+    { "name",		medit_name				},
+    { "shop",		medit_shop				},
+    { "short",		medit_short				},
+    { "show",		medit_show				},
+    { "spec",		medit_spec				},
 
-    { "sex",		medit_sex,		NULL,	sex_table	},
-    { "act",		medit_act,	validate_act,	act_flags	},
-    { "affect",		medit_affect,		NULL,	affect_flags	},
-    { "detect",		medit_detect,		NULL,	detect_flags	},
-    { "prac",		medit_prac,		NULL,	skill_groups	},
-    { "armor",		medit_ac					},
-    { "form",		medit_form,		NULL,	form_flags	},
-    { "part",		medit_part,		NULL,	part_flags	},
-    { "imm",		medit_imm,		NULL,	imm_flags	},
-    { "res",		medit_res,		NULL,	res_flags	},
-    { "vuln",		medit_vuln,		NULL,	vuln_flags	},
-    { "material",	medit_material					},
-    { "off",		medit_off,		NULL,	off_flags	},
-    { "size",		medit_size,		NULL,	size_table	},
-    { "hitdice",	medit_hitdice					},
-    { "manadice",	medit_manadice					},
-    { "damdice",	medit_damdice					},
-    { "race",		medit_race					},
-    { "startpos",	medit_startpos,		NULL,	position_table	},
-    { "defaultpos",	medit_defaultpos,	NULL,	position_table	},
-    { "wealth",		medit_gold					},
-    { "hitroll",	medit_hitroll					},
-    { "damtype",	medit_damtype					},
-    { "group",		medit_group					},
-    { "trigadd",	medit_trigadd					},
-    { "trigdel",	medit_trigdel					},
+    { "sex",		medit_sex,		sex_table	},
+    { "act",		medit_act,		act_flags	},
+    { "affect",		medit_affect,		affect_flags	},
+    { "detect",		medit_detect,		detect_flags	},
+    { "prac",		medit_prac,		skill_groups	},
+    { "armor",		medit_ac				},
+    { "form",		medit_form,		form_flags	},
+    { "part",		medit_part,		part_flags	},
+    { "imm",		medit_imm,		imm_flags	},
+    { "res",		medit_res,		res_flags	},
+    { "vuln",		medit_vuln,		vuln_flags	},
+    { "material",	medit_material				},
+    { "off",		medit_off,		off_flags	},
+    { "size",		medit_size,		size_table	},
+    { "hitdice",	medit_hitdice				},
+    { "manadice",	medit_manadice				},
+    { "damdice",	medit_damdice				},
+    { "race",		medit_race				},
+    { "startpos",	medit_startpos,		position_table	},
+    { "defaultpos",	medit_defaultpos,	position_table	},
+    { "wealth",		medit_gold				},
+    { "hitroll",	medit_hitroll				},
+    { "damtype",	medit_damtype				},
+    { "group",		medit_group				},
+    { "trigadd",	medit_trigadd				},
+    { "trigdel",	medit_trigdel				},
 
-    { "?",		show_help					},
-    { "commands",	show_commands					},
-    { "version",	show_version					},
+    { "commands",	show_commands				},
+    { "version",	show_version				},
 
     { NULL }
 };
 
+static void show_spec_cmds(CHAR_DATA *ch);
+
 /* Entry point for editing mob_index_data. */
 void do_medit(CHAR_DATA *ch, const char *argument)
 {
-    MOB_INDEX_DATA *pMob;
-    AREA_DATA *pArea;
-    int value;
-    char arg1[MAX_STRING_LENGTH];
+	MOB_INDEX_DATA *pMob;
+	AREA_DATA *pArea;
+	int value;
+	char arg1[MAX_STRING_LENGTH];
 
-    argument = one_argument(argument, arg1);
+	argument = one_argument(argument, arg1);
 
-    if (IS_NPC(ch))
-    	return;
-
-    if (is_number(arg1))
-    {
-	value = atoi(arg1);
-	if (!(pMob = get_mob_index(value)))
-	{
-	    send_to_char("MEdit:  That vnum does not exist.\n\r", ch);
-	    return;
-	}
-
-	pArea = get_vnum_area(pMob->vnum);
-	if (!IS_BUILDER(ch, pArea))
-	{
-		send_to_char("Insuficiente seguridad para modificar mobs.\n\r" , ch);
-	        return;
-	}
-
-	ch->desc->pEdit = (void *)pMob;
-	ch->desc->editor = ED_MOBILE;
-	return;
-    }
-    else
-    {
-	if (!str_cmp(arg1, "create"))
-	{
-	    value = atoi(argument);
-	    if (arg1[0] == '\0' || value == 0)
-	    {
-		send_to_char("Syntax:  edit mobile create [vnum]\n\r", ch);
+	if (IS_NPC(ch))
 		return;
-	    }
 
-	    pArea = get_vnum_area(value);
+	if (is_number(arg1)) {
+		value = atoi(arg1);
+		if (!(pMob = get_mob_index(value))) {
+			send_to_char("MEdit: Vnum does not exist.\n\r", ch);
+			return;
+		}
 
-	    if (!pArea)
-	    {
-		send_to_char("OEdit:  That vnum is not assigned an area.\n\r", ch);
-		return;
-	    }
+		pArea = area_vnum_lookup(pMob->vnum);
+		if (!IS_BUILDER(ch, pArea)) {
+			send_to_char("MEdit: Insufficient security for editing mobs.\n\r" , ch);
+	        	return;
+		}
 
-	    if (!IS_BUILDER(ch, pArea))
-	    {
-		send_to_char("Insuficiente seguridad para modificar mobs.\n\r" , ch);
-	        return;
-	    }
-
-	    if (medit_create(ch, argument))
-	    {
-		SET_BIT(pArea->flags, AREA_CHANGED);
+		ch->desc->pEdit = (void *)pMob;
 		ch->desc->editor = ED_MOBILE;
-	    }
-	    return;
+		return;
 	}
-    }
 
-    send_to_char("MEdit:  There is no default mobile to edit.\n\r", ch);
-    return;
+	if (!str_cmp(arg1, "create")) {
+		value = atoi(argument);
+		if (arg1[0] == '\0' || value == 0) {
+			do_help(ch, "'OLC MEDIT'");
+			return;
+		}
+
+		pArea = area_vnum_lookup(value);
+		if (!pArea) {
+			send_to_char("OEdit:  That vnum is not assigned an area.\n\r", ch);
+			return;
+		}
+
+		if (!IS_BUILDER(ch, pArea)) {
+			send_to_char("MEdit: Insufficient security for editing mobs.\n\r" , ch);
+			return;
+		}
+
+		if (medit_create(ch, argument)) {
+			SET_BIT(pArea->flags, AREA_CHANGED);
+			ch->desc->editor = ED_MOBILE;
+		}
+		return;
+	}
+
+	do_help(ch, "'OLC MEDIT'");
 }
 
 /* Mobile Interpreter, called by do_medit. */
@@ -190,7 +178,7 @@ void medit(CHAR_DATA *ch, const char *argument)
     argument = one_argument(arg, command);
 
     EDIT_MOB(ch, pMob);
-    pArea = get_vnum_area(pMob->vnum);
+    pArea = area_vnum_lookup(pMob->vnum);
 
     if (!IS_BUILDER(ch, pArea))
     {
@@ -245,7 +233,7 @@ MEDIT(medit_show)
 
 	buf = buf_new(0);
 
-	pArea = get_vnum_area(pMob->vnum);
+	pArea = area_vnum_lookup(pMob->vnum);
 	buf_printf(buf, "Name:        [%s]\n\rArea:        [%5d] %s\n\r",
 		pMob->name, pArea->vnum, pArea->name);
 
@@ -386,8 +374,6 @@ MEDIT(medit_show)
 	return FALSE;
 }
 
-
-
 MEDIT(medit_create)
 {
 	MOB_INDEX_DATA *pMob;
@@ -402,7 +388,7 @@ MEDIT(medit_create)
 		return FALSE;
 	}
 
-	pArea = get_vnum_area(value);
+	pArea = area_vnum_lookup(value);
 
 	if (!pArea)
 	{
@@ -438,37 +424,35 @@ MEDIT(medit_create)
 	return TRUE;
 }
 
-
-
 MEDIT(medit_spec)
 {
 	MOB_INDEX_DATA *pMob;
-
 	EDIT_MOB(ch, pMob);
 
-	if (argument[0] == '\0')
-	{
+	if (argument[0] == '\0') {
 		send_to_char("Syntax:  spec [special function]\n\r", ch);
 		return FALSE;
 	}
 
+	if (!str_cmp(argument, "?")) {
+		show_spec_cmds(ch);
+		return FALSE;
+	}
 
-	if (!str_cmp(argument, "none"))
-	{
+	if (!str_cmp(argument, "none")) {
 		 pMob->spec_fun = NULL;
 
 		 send_to_char("Spec removed.\n\r", ch);
 		 return TRUE;
 	}
 
-	if (spec_lookup(argument))
-	{
+	if (spec_lookup(argument)) {
 		pMob->spec_fun = spec_lookup(argument);
 		send_to_char("Spec set.\n\r", ch);
 		return TRUE;
 	}
 
-	send_to_char("MEdit: No such special function.\n\r", ch);
+	char_puts("MEdit: No such special function.\n\r", ch);
 	return FALSE;
 }
 
@@ -489,7 +473,6 @@ MEDIT(medit_damtype)
 	send_to_char("Damage type set.\n\r", ch);
 	return TRUE;
 }
-
 
 MEDIT(medit_align)
 {
@@ -1014,19 +997,24 @@ MEDIT (medit_trigadd)
 	argument=one_argument(argument, trigger);
 	argument=one_argument(argument, phrase);
 
+	if (!str_cmp(num, "?")) {
+		show_flag_cmds(ch, mptrig_types);
+		return FALSE;
+	}
+
 	if (!is_number(num) || trigger[0] =='\0' || phrase[0] =='\0') {
 		 char_puts("Syntax: trigadd [vnum] [trigger] [phrase]\n\r",ch);
 		 return FALSE;
 	}
 
 	if ((value = flag_value(mptrig_types, trigger)) < 0) {
-		send_to_char("Valid triggers are:\n\r",ch);
-		show_flag_cmds(ch, mptrig_types);
+		send_to_char("Invalid trigger type.\n\r"
+			     "Use 'trigadd ?' for list of triggers.\n\r", ch);
 		return FALSE;
 	}
 
 	if ((mpcode = mpcode_lookup(atoi(num))) == NULL) {
-		 send_to_char("No such MOBProgram.\n\r",ch);
+		 send_to_char("No such MOBProgram.\n\r", ch);
 		 return FALSE;
 	}
 
@@ -1090,8 +1078,27 @@ MEDIT (medit_trigdel)
 	return TRUE;
 }
 
-VALIDATOR(validate_act)
+/* Local functions */
+
+static void show_spec_cmds(CHAR_DATA *ch)
 {
-	REMOVE_BIT(*(int*) arg, ACT_NPC);
-	return TRUE;
+	int  spec;
+	int  col;
+	BUFFER *output;
+
+	output = buf_new(0);
+	col = 0;
+	buf_add(output, "Preceed special functions with 'spec_'\n\r\n\r");
+	for (spec = 0; spec_table[spec].function != NULL; spec++) {
+		buf_printf(output, "%-19.18s", &spec_table[spec].name[5]);
+		if (++col % 4 == 0)
+			buf_add(output, "\n\r");
+	}
+ 
+	if (col % 4 != 0)
+		buf_add(output, "\n\r");
+
+	send_to_char(buf_string(output), ch);
+	buf_free(output);
 }
+

@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.57 1998-08-17 18:47:04 fjoe Exp $
+ * $Id: db.c,v 1.58 1998-08-18 09:50:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -603,8 +603,8 @@ void load_area(FILE *fp)
 
 	pArea->name		= fread_string(fp);
 	fread_letter(fp);			/* '{' */
-	pArea->low_range	= fread_number(fp);
-	pArea->high_range	= fread_number(fp);
+	pArea->min_level	= fread_number(fp);
+	pArea->max_level	= fread_number(fp);
 	fread_letter(fp);			/* '}' */
 	pArea->credits		= str_dup(fread_word(fp));	
 	free_string(fread_string(fp));
@@ -692,8 +692,8 @@ void load_areadata(FILE *fp)
 	pArea->min_vnum		= 0;
 	pArea->max_vnum		= 0;
 	pArea->flags		= 0;
-	pArea->low_range	= 0;
-	pArea->high_range	= 0;          
+	pArea->min_level	= 0;
+	pArea->max_level	= 0;          
 	pArea->resetmsg		= NULL;
 /*  pArea->recall       = ROOM_VNUM_TEMPLE;        ROM OLC */
  
@@ -727,8 +727,8 @@ void load_areadata(FILE *fp)
 			break;
 		case 'L':
 			if (!str_cmp(word, "LevelRange")) {
-				pArea->low_range = fread_number(fp);
-				pArea->high_range = fread_number(fp);
+				pArea->min_level = fread_number(fp);
+				pArea->max_level = fread_number(fp);
 			}
 			break;
 		case 'N':
@@ -3576,13 +3576,13 @@ void do_areas(CHAR_DATA *ch, const char *argument)
 	buf_add(output, "Current areas of Muddy Realms: \n\r");
 	for (iArea = 0; iArea < iAreaHalf; iArea++) {
 		buf_printf(output,"{W{{{x%2d %3d{W} {B%-20s {C%8s{x ",
-			pArea1->low_range,pArea1->high_range,
+			pArea1->min_level,pArea1->max_level,
 			pArea1->name,
 			pArea1->credits);
 
 		if (pArea2 != NULL) 
 			buf_printf(output,"{W{{{x%2d %3d{W} {B%-20s {C%8s{x",
-				pArea2->low_range,pArea2->high_range,
+				pArea2->min_level,pArea2->max_level,
 				pArea2->name,
 				pArea2->credits);
 		buf_add(output, "\n\r");

@@ -2,7 +2,7 @@
 #define _OLC_H_
 
 /*
- * $Id: olc.h,v 1.9 1998-08-17 18:47:38 fjoe Exp $
+ * $Id: olc.h,v 1.10 1998-08-18 09:50:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -40,7 +40,6 @@ struct olc_cmd_data
 {
 	char *		name;
 	OLC_FUN *	olc_fun;
-	VALIDATE_FUN *	validate_fun;
 	void*		arg1;
 };
 typedef struct olc_cmd_data OLC_CMD_DATA;
@@ -110,24 +109,11 @@ bool olced_dice		(CHAR_DATA *ch, const char *argument,
 			 OLC_FUN *fun, int *dice);
 
 bool show_commands	(CHAR_DATA *ch, const char *argument);
-bool show_help		(CHAR_DATA *ch, const char *argument);
-bool edit_done		(CHAR_DATA *ch);
 bool show_version	(CHAR_DATA *ch, const char *argument);
-
 void show_flag_cmds	(CHAR_DATA *ch, const FLAG *flag_table);
+bool edit_done		(CHAR_DATA *ch);
 
 OLC_CMD_DATA *olc_cmd_lookup(CHAR_DATA *ch, OLC_FUN *fun);
-
-/*
- * OLC Constants
- */
-#define MAX_MOB	1		/* Default maximum number for resetting mobs */
-
-/*
- * Utils.
- */
-AREA_DATA *get_vnum_area	(int vnum);
-AREA_DATA *get_area_data	(int vnum);
 
 #endif
 

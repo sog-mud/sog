@@ -73,10 +73,9 @@ OLC_CMD_DATA redit_table[] =
     {	"mshow",	redit_mshow	},
     {	"oshow",	redit_oshow	},
     {   "owner",	redit_owner	},
-    {	"room",		redit_room,		NULL,	room_flags	},
-    {	"sector",	redit_sector,		NULL,	sector_types	},
+    {	"room",		redit_room,	room_flags	},
+    {	"sector",	redit_sector,	sector_types	},
 
-    {   "?",		show_help	},
     {   "version",	show_version	},
 
     {	NULL,		0,		}
@@ -401,7 +400,7 @@ REDIT(redit_create)
 		return FALSE;
 	}
 
-	pArea = get_vnum_area(value);
+	pArea = area_vnum_lookup(value);
 	if (!pArea)
 	{
 		send_to_char("REdit:  That vnum is not assigned an area.\n\r", ch);
@@ -477,6 +476,8 @@ REDIT(redit_clan)
 */
 }
 	  
+#define MAX_MOB	1		/* Default maximum number for resetting mobs */
+
 REDIT(redit_mreset)
 {
 	ROOM_INDEX_DATA	*pRoom;
@@ -503,7 +504,7 @@ REDIT(redit_mreset)
 		return FALSE;
 	}
 
-	pArea = get_vnum_area(pMobIndex->vnum);
+	pArea = area_vnum_lookup(pMobIndex->vnum);
 	if (pArea != pRoom->area) {
 		send_to_char("REdit: No such mobile in this area.\n\r", ch);
 		return FALSE;
@@ -840,7 +841,7 @@ REDIT(redit_oreset)
 		return FALSE;
 	}
 
-	pArea = get_vnum_area(pObjIndex->vnum);
+	pArea = area_vnum_lookup(pObjIndex->vnum);
 	if (pArea != pRoom->area) {
 		send_to_char("REdit: No such object in this area.\n\r", ch);
 		return FALSE;
@@ -1091,6 +1092,8 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 
 	if (command[0] == '?') {
 		do_help(ch, "'OLC EXITS'");
+		char_printf(ch, "Valid exit flags are:\n\r");
+		show_flag_cmds(ch, exit_flags);
 		return FALSE;
 	}
 

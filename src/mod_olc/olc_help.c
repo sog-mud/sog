@@ -1,5 +1,5 @@
 /*
- * $Id: olc_help.c,v 1.3 1998-08-17 18:47:38 fjoe Exp $
+ * $Id: olc_help.c,v 1.4 1998-08-18 09:50:17 fjoe Exp $
  */
 #include <sys/types.h>
 #include <stdio.h>
@@ -41,7 +41,6 @@ OLC_CMD_DATA hedit_table[] =
 	{ "del",	hedit_del				},
 
 	{ "commands",	show_commands				},
-	{ "?",		show_help				},
 	{ NULL }
 };
 

@@ -1,5 +1,5 @@
 /*
- * $Id: mem.c,v 1.10 1998-08-17 18:47:06 fjoe Exp $
+ * $Id: mem.c,v 1.11 1998-08-18 09:50:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -105,12 +105,11 @@ AREA_DATA *new_area(void)
 	pArea->help_last	= NULL;
 	pArea->file_name	= str_printf("area%d.are", pArea->vnum);
 	pArea->name		= str_dup("New area");
-	pArea->writer		= NULL;
 	pArea->credits		= NULL;
 	pArea->age		= 0;
 	pArea->nplayer		= 0;
-	pArea->low_range	= 0;
-	pArea->high_range	= 0;
+	pArea->min_level	= 0;
+	pArea->max_level	= 0;
 	pArea->min_vnum		= 0;
 	pArea->max_vnum		= 0;
 	pArea->empty		= TRUE;              /* ROM patch */
@@ -123,6 +122,37 @@ AREA_DATA *new_area(void)
 /*    pArea->recall		= ROOM_VNUM_TEMPLE;      ROM OLC */
 
 	return pArea;
+}
+
+
+/*****************************************************************************
+ Name:		area_lookup
+ Purpose:	Returns pointer to area with given vnum.
+ Called by:	do_aedit(olc.c).
+ ****************************************************************************/
+AREA_DATA *area_lookup(int vnum)
+{
+	AREA_DATA *pArea;
+
+	for (pArea = area_first; pArea; pArea = pArea->next)
+		if (pArea->vnum == vnum)
+			return pArea;
+
+	return 0;
+}
+
+
+AREA_DATA *area_vnum_lookup(int vnum)
+{
+	AREA_DATA *pArea;
+
+	for (pArea = area_first; pArea; pArea = pArea->next) {
+		 if (vnum >= pArea->min_vnum
+		 &&  vnum <= pArea->max_vnum)
+		     return pArea;
+	}
+
+	return 0;
 }
 
 

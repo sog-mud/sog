@@ -1,5 +1,5 @@
 /*
- * $Id: olc_save.c,v 1.20 1998-08-17 21:00:32 fjoe Exp $
+ * $Id: olc_save.c,v 1.21 1998-08-18 09:50:18 fjoe Exp $
  */
 
 /**************************************************************************
@@ -964,7 +964,7 @@ void save_area(AREA_DATA *pArea)
 	fprintf(fp, "VNUMs %d %d\n",	pArea->min_vnum, pArea->max_vnum);
 	fprintf(fp, "Credits %s~\n",	pArea->credits);
 	fprintf(fp, "Security %d\n",	pArea->security);
-	fprintf(fp, "LevelRange %d %d\n",	pArea->low_range, pArea->high_range);
+	fprintf(fp, "LevelRange %d %d\n",	pArea->min_level, pArea->max_level);
 	if (!mlstr_null(pArea->resetmsg))
 		mlstr_fwrite(fp, "ResetMessage", pArea->resetmsg);
 	flags = pArea->flags & ~AREA_CHANGED;

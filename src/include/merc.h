@@ -2,7 +2,7 @@
 #define _MERC_H_
 
 /*
- * $Id: merc.h,v 1.71 1998-08-17 18:47:06 fjoe Exp $
+ * $Id: merc.h,v 1.72 1998-08-18 09:50:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2110,12 +2110,11 @@ struct	area_data
 	HELP_DATA *	help_last;
 	char *		file_name;
 	char *		name;
-	char *		writer;
 	char *		credits;
 	int		age;
 	int		nplayer;
-	int		low_range;
-	int		high_range;
+	int		min_level;
+	int		max_level;
 	int		min_vnum;
 	int		max_vnum;
 	bool		empty;
@@ -2977,8 +2976,12 @@ char *	spec_name	(SPEC_FUN *function);
 
 RESET_DATA	*new_reset_data		(void);
 void		free_reset_data		(RESET_DATA *pReset);
+
 AREA_DATA	*new_area		(void);
+AREA_DATA *	area_lookup		(int vnum);
+AREA_DATA *	area_vnum_lookup	(int vnum);
 void		free_area		(AREA_DATA *pArea);
+
 EXIT_DATA	*new_exit		(void);
 void		free_exit		(EXIT_DATA *pExit);
 ROOM_INDEX_DATA *new_room_index		(void);
@@ -3056,6 +3059,7 @@ struct	bit_type
 };
 
 bool is_stat(const FLAG *flag_table);
+bool is_settable(const FLAG *flag_table, int val);
 int flag_value(const FLAG *flag_table, const char *argument);
 char *flag_string(const FLAG *flag_table, int bits);
 

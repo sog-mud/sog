@@ -1,5 +1,5 @@
 /*
- * $Id: olc_mpcode.c,v 1.6 1998-08-17 18:47:39 fjoe Exp $
+ * $Id: olc_mpcode.c,v 1.7 1998-08-18 09:50:18 fjoe Exp $
  */
 
 /* The following code is based on ILAB OLC by Jason Dinkel */
@@ -37,7 +37,6 @@ OLC_CMD_DATA mpedit_table[] =
 	{ "code",	mpedit_code	},
 	{ "show",	mpedit_show	},
 	{ "list",	mpedit_list	},
-	{ "?",		show_help	},
 
 	{ NULL }
 };
@@ -57,7 +56,7 @@ void mpedit(CHAR_DATA *ch, const char *argument)
 	EDIT_MPCODE(ch, mpcode);
 
 	if (mpcode) {
-		ad = get_vnum_area(mpcode->vnum);
+		ad = area_vnum_lookup(mpcode->vnum);
 
 		if (ad == NULL) { /* ??? */
 			edit_done(ch);
@@ -84,7 +83,7 @@ void mpedit(CHAR_DATA *ch, const char *argument)
 	for (cmd = 0; mpedit_table[cmd].name != NULL; cmd++) {
 		if (!str_prefix(command, mpedit_table[cmd].name)) {
 			if ((*mpedit_table[cmd].olc_fun) (ch, argument) && mpcode)
-				if ((ad = get_vnum_area(mpcode->vnum)) != NULL)
+				if ((ad = area_vnum_lookup(mpcode->vnum)) != NULL)
 					SET_BIT(ad->flags, AREA_CHANGED);
 			return;
 		}
@@ -112,7 +111,7 @@ void do_mpedit(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
-		ad = get_vnum_area(vnum);
+		ad = area_vnum_lookup(vnum);
 
 		if (ad == NULL) {
 			send_to_char("MPEdit : VNUM no asignado a ningun area.\n\r", ch);
@@ -155,7 +154,7 @@ MPEDIT (mpedit_create)
 		return FALSE;
 	}
 
-	ad = get_vnum_area(value);
+	ad = area_vnum_lookup(value);
 
 	if (ad == NULL) {
 		send_to_char("MPEdit : VNUM no asignado a ningun area.\n\r", ch);
@@ -222,7 +221,7 @@ MPEDIT(mpedit_list)
 
 	for (mpcode = mpcode_list; mpcode !=NULL; mpcode = mpcode->next)
 		if (fAll || ENTRE(ch->in_room->area->min_vnum, mpcode->vnum, ch->in_room->area->max_vnum)) {
-			ad = get_vnum_area(mpcode->vnum);
+			ad = area_vnum_lookup(mpcode->vnum);
 
 			if (ad == NULL)
 				blah = '?';

@@ -1,5 +1,5 @@
 /*
- * $Id: olc_obj.c,v 1.1 1998-08-17 18:47:39 fjoe Exp $
+ * $Id: olc_obj.c,v 1.2 1998-08-18 09:50:18 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -56,7 +56,6 @@ OLC_CMD_DATA oedit_table[] =
 
     {   "addaffect",	oedit_addaffect	},
     {	"addapply",	oedit_addapply	},
-    {   "commands",	show_commands	},
     {   "cost",		oedit_cost	},
     {   "create",	oedit_create	},
     {   "delaffect",	oedit_delaffect	},
@@ -73,15 +72,15 @@ OLC_CMD_DATA oedit_table[] =
     {   "weight",	oedit_weight	},
     {   "limit",	oedit_limit	},
 
-    {   "extra",        oedit_extra     },  /* ROM */
-    {   "wear",         oedit_wear      },  /* ROM */
-    {   "type",         oedit_type      },  /* ROM */
+    {   "extra",        oedit_extra,	extra_flags     },  /* ROM */
+    {   "wear",         oedit_wear,	wear_flags      },  /* ROM */
+    {   "type",         oedit_type,	type_flags      },  /* ROM */
     {   "material",     oedit_material  },  /* ROM */
     {   "level",        oedit_level     },  /* ROM */
     {   "condition",    oedit_condition },  /* ROM */
 
-    {   "?",		show_help	},
     {   "version",	show_version	},
+    {   "commands",	show_commands	},
 
     {	NULL,		0,		}
 };
@@ -89,6 +88,7 @@ OLC_CMD_DATA oedit_table[] =
 static void show_obj_values(BUFFER *output, OBJ_INDEX_DATA *obj);
 static bool set_obj_values(CHAR_DATA *ch, OBJ_INDEX_DATA *pObj,
 			   int value_num, const char *argument);
+static void show_skill_cmds(CHAR_DATA *ch, int tar);
 
 /* Entry point for editing obj_index_data. */
 void do_oedit(CHAR_DATA *ch, const char *argument)
@@ -112,7 +112,7 @@ void do_oedit(CHAR_DATA *ch, const char *argument)
 	    return;
 	}
 
-	pArea = get_vnum_area(pObj->vnum);
+	pArea = area_vnum_lookup(pObj->vnum);
 	if (!IS_BUILDER(ch, pArea))
 	{
 		send_to_char("Insuficiente seguridad para modificar objetos.\n\r" , ch);
@@ -134,7 +134,7 @@ void do_oedit(CHAR_DATA *ch, const char *argument)
 		return;
 	    }
 
-	    pArea = get_vnum_area(value);
+	    pArea = area_vnum_lookup(value);
 
 	    if (!pArea)
 	    {
@@ -176,7 +176,7 @@ void oedit(CHAR_DATA *ch, const char *argument)
     argument = one_argument(arg, command);
 
     EDIT_OBJ(ch, pObj);
-    pArea = get_vnum_area(pObj->vnum);
+    pArea = area_vnum_lookup(pObj->vnum);
 
     if (!IS_BUILDER(ch, pArea))
     {
@@ -223,7 +223,7 @@ OEDIT(oedit_show)
 	BUFFER *output;
 
 	EDIT_OBJ(ch, pObj);
-	pArea = get_vnum_area(pObj->vnum);
+	pArea = area_vnum_lookup(pObj->vnum);
 
 	output = buf_new(0);
 	buf_printf(output, "Name:        [%s]\n\rArea:        [%5d] %s\n\r",
@@ -310,10 +310,9 @@ OEDIT(oedit_addaffect)
 		return FALSE;
 	}
 
-	if ((value = flag_value(apply_flags, loc)) < 0) /* Hugin */
-	{
+	if ((value = flag_value(apply_flags, loc)) < 0) {
 		send_to_char("Valid affects are:\n\r", ch);
-		show_help(ch, "apply");
+		show_flag_cmds(ch, apply_flags);
 		return FALSE;
 	}
 
@@ -349,25 +348,22 @@ OEDIT(oedit_addapply)
 	argument = one_argument(argument, mod);
 	one_argument(argument, bvector);
 
-	if (type[0] == '\0' || (typ = flag_value(apply_types, type)) < 0)
-	{
+	if (type[0] == '\0' || (typ = flag_value(apply_types, type)) < 0) {
 		send_to_char("Invalid apply type. Valid apply types are:\n\r", ch);
-		show_help(ch, "apptype");
+		show_flag_cmds(ch, apply_types);
 		return FALSE;
 	}
 
-	if (loc[0] == '\0' || (value = flag_value(apply_flags, loc)) < 0)
-	{
-		 send_to_char("Valid applys are:\n\r", ch);
-		show_help(ch, "apply");
+	if (loc[0] == '\0' || (value = flag_value(apply_flags, loc)) < 0) {
+		send_to_char("Valid applys are:\n\r", ch);
+		show_flag_cmds(ch, apply_flags);
 		return FALSE;
 	}
 
-	if (bvector[0] == '\0' || (bv = flag_value(bitvector_type[typ].table, bvector)) < 0)
-	{
+	if (bvector[0] == '\0' || (bv = flag_value(bitvector_type[typ].table, bvector)) < 0) {
 		send_to_char("Invalid bitvector type.\n\r", ch);
 		send_to_char("Valid bitvector types are:\n\r", ch);
-		show_help(ch, bitvector_type[typ].help);
+		show_flag_cmds(ch, bitvector_type[typ].table);
 		return FALSE;
 	}
 
@@ -517,9 +513,8 @@ OEDIT(oedit_long)
 
 bool set_value(CHAR_DATA *ch, OBJ_INDEX_DATA *pObj, const char *argument, int value)
 {
-	if (argument[0] == '\0')
-	{
-		set_obj_values(ch, pObj, -1, "");     /* '\0' changed to "" -- Hugin */
+	if (argument[0] == '\0') {
+		set_obj_values(ch, pObj, -1, "");
 		return FALSE;
 	}
 
@@ -661,7 +656,7 @@ OEDIT(oedit_create)
 		return FALSE;
 	}
 
-	pArea = get_vnum_area(value);
+	pArea = area_vnum_lookup(value);
 	if (!pArea)
 	{
 		send_to_char("OEdit:  That vnum is not assigned an area.\n\r", ch);
@@ -1259,4 +1254,103 @@ bool set_obj_values(CHAR_DATA *ch, OBJ_INDEX_DATA *pObj,
 	return TRUE;
 }
 
+/*****************************************************************************
+ Name:		show_skill_cmds
+ Purpose:	Displays all skill functions.
+ 		Does remove those damn immortal commands from the list.
+ 		Could be improved by:
+ 		(1) Adding a check for a particular class.
+ 		(2) Adding a check for a level range.
+ ***************************************************************************/
+static void show_skill_cmds(CHAR_DATA *ch, int tar)
+{
+	int  sn;
+	int  col;
+	BUFFER *output;
+ 
+	output = buf_new(0);
+	col = 0;
+	for (sn = 0; sn < MAX_SKILL; sn++) {
+		if (!skill_table[sn].name)
+			break;
 
+		if (!str_cmp(skill_table[sn].name, "reserved")
+		||  skill_table[sn].spell_fun == spell_null)
+			continue;
+
+		if (tar == -1 || skill_table[sn].target == tar) {
+			buf_printf(output, "%-19.18s", skill_table[sn].name);
+			if (++col % 4 == 0)
+				buf_add(output, "\n\r");
+		}
+	}
+ 
+	if (col % 4 != 0)
+		buf_add(output, "\n\r");
+
+	send_to_char(buf_string(output), ch);
+	buf_free(output);
+}
+
+void show_liqlist(CHAR_DATA *ch)
+{
+	int liq;
+	BUFFER *buffer;
+	
+	buffer = buf_new(0);
+	
+	for (liq = 0; liq_table[liq].liq_name != NULL; liq++) {
+		if ((liq % 21) == 0)
+			buf_add(buffer,"Name                 Color          Proof Full Thirst Food Ssize\n\r");
+
+		buf_printf(buffer, "%-20s %-14s %5d %4d %6d %4d %5d\n\r",
+			liq_table[liq].liq_name,liq_table[liq].liq_color,
+			liq_table[liq].liq_affect[0],liq_table[liq].liq_affect[1],
+			liq_table[liq].liq_affect[2],liq_table[liq].liq_affect[3],
+			liq_table[liq].liq_affect[4]);
+	}
+
+	page_to_char(buf_string(buffer), ch);
+	buf_free(buffer);
+}
+
+void show_damlist(CHAR_DATA *ch)
+{
+	int att;
+	BUFFER *buffer;
+	
+	buffer = buf_new(0);
+	
+	for (att = 0; attack_table[att].name != NULL; att++) {
+		if ((att % 21) == 0)
+			buf_add(buffer,"Name                 Noun\n\r");
+
+		buf_printf(buffer, "%-20s %-20s\n\r",
+			attack_table[att].name,attack_table[att].noun);
+	}
+
+	page_to_char(buf_string(buffer),ch);
+	buf_free(buffer);
+}
+
+#if 0
+	{ "type",	type_flags,	"Types of objects."		},
+	{ "extra",	extra_flags,	"Object attributes."		},
+	{ "wear",	wear_flags,	"Where to wear object."		},
+	{ "wear-loc",	wear_loc_flags,	"Where mobile wears object."	},
+	{ "container",	container_flags,"Container status."		},
+
+/* ROM specific bits: */
+
+	{ "armor",	ac_type,	"Ac for different attacks."	},
+	{ "apply",	apply_flags,	"Apply flags"			},
+	{ "wclass",     weapon_class,   "Weapon class."                }, 
+	{ "wtype",      weapon_type2,   "Special weapon type."         },
+	{ "portal",	portal_flags,	"Portal types."		},
+	{ "furniture",	furniture_flags,"Furniture types."		},
+	{ "liquid",	liq_table,	"Liquid types."		},
+	{ "apptype",	apply_types,	"Apply types."			},
+	{ "weapon",	attack_table,	"Weapon types."		},
+	{ NULL,		NULL,		 NULL				}
+};
+#endif

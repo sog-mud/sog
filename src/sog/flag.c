@@ -1,5 +1,5 @@
 /*
- * $Id: flag.c,v 1.6 1998-08-17 18:47:03 fjoe Exp $
+ * $Id: flag.c,v 1.7 1998-08-18 09:50:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -31,6 +31,7 @@
 #include "util.h"
 #include "db.h"
 #include "comm.h"
+#include "log.h"
 
 struct flag_stat_type
 {
@@ -98,10 +99,35 @@ bool is_stat(const FLAG *flag_table)
 		if (flag_stat_table[flag].structure == flag_table)
 			return flag_stat_table[flag].is_stat;
 
+	log_printf("flag_table[0] == '%s': not in flag_stat_table",
+		   flag_table[0].name);
 	return FALSE;
 }
 
-static int flag_lookup(const char *name, const FLAG *f)
+bool is_settable(const FLAG *f, int val)
+{
+	bool stat = is_stat(f);
+	bool found = FALSE;
+
+	for(; f->name; f++) {
+		if (stat) {
+			if (val == f->bit)
+				return f->settable;
+		}
+		else {
+			if (IS_SET(val, f->bit)) {
+				found = TRUE;
+				if (!f->settable)
+					return FALSE;
+			}
+		}
+	}
+	if (!stat && found)
+		return TRUE;
+	return FALSE;
+}
+
+static int flag_lookup(const FLAG *f, const char *name)
 {
 	if (IS_NULLSTR(name))
 		return 0;
@@ -125,7 +151,7 @@ int flag_value(const FLAG *flag_table, const char *argument)
 	bool found = FALSE;
 
 	if (is_stat(flag_table)) 
-		return flag_lookup(argument, flag_table);
+		return flag_lookup(flag_table, argument);
 
 	/*
 	 * Accept multiple flags.
@@ -138,7 +164,7 @@ int flag_value(const FLAG *flag_table, const char *argument)
 		if (word[0] == '\0')
 			break;
 
-		if ((bit = flag_lookup(word, flag_table)) < 0)
+		if ((bit = flag_lookup(flag_table, word)) < 0)
 			return 0;
 
 		SET_BIT(marked, bit);
@@ -356,7 +382,7 @@ void do_flag(CHAR_DATA *ch, const char *argument)
 	    if (word[0] == '\0')
 		break;
 
-	    pos = flag_lookup(word,flag_table);
+	    pos = flag_lookup(flag_table, word);
 	    if (pos < 0)
 	    {
 		send_to_char("That flag doesn't exist!\n\r",ch);
