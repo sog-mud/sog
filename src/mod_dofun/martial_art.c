@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.104 1999-06-29 18:28:37 avn Exp $
+ * $Id: martial_art.c,v 1.105 1999-07-01 02:55:20 kostik Exp $
  */
 
 /***************************************************************************
@@ -1299,7 +1299,7 @@ void do_disarm(CHAR_DATA *ch, const char *argument)
 
 	chance += (ch_weapon/2 - vict_weapon) / 2; 
 
-	if (wield->value[0] == WEAPON_STAFF) chance += 30;
+	if (wield && (wield->value[0] == WEAPON_STAFF)) chance += 30;
 	if (vwield->value[0] == WEAPON_STAFF) chance -= 30;
 
 	/* dex vs. strength */
