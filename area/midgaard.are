@@ -1318,23 +1318,23 @@ stand stand male 5000
 0 0 huge unknown
 M greet 3000 100~
 M speech 3001 religion~
-M speech 3002 atum-ra~
-M speech 3003 zeus~
-M speech 3004 siebele~
-M speech 3005 shamash~
-M speech 3006 ahuramazda~
-M speech 3007 ehrumen~
-M speech 3008 deimos~
-M speech 3009 phobos~
-M speech 3010 odin~
-M speech 3011 teshub~
-M speech 3012 ares~
-M speech 3013 goktengri~
-M speech 3014 hera~
-M speech 3015 venus~
-M speech 3016 seth~
-M speech 3017 enki~
-M speech 3018 eros~
+M speech 3002 lirail~
+M speech 3003 amtinor~
+M speech 3004 aulin~
+M speech 3005 dakkorn~
+M speech 3006 ulwark~
+M speech 3007 moarith~
+M speech 3008 ilissa~
+M speech 3009 hathir~
+M speech 3010 throrgrim~
+M speech 3011 irian~
+M speech 3012 stivrosh~
+M speech 3013 gwinnerai~
+M speech 3014 trussk~
+M speech 3015 lessa~
+M speech 3016 vilirna~
+M speech 3017 calamir~
+M speech 3018 cariel~
 #0
 
 #OBJECTS
@@ -6340,17 +6340,9 @@ violet-tinged light.
 ~
 0 DS inside
 D0
-@eng You see the alley.
-@rus Ты видишь переулок.
 ~
 ~
-Z -1 3046
-D4
-@eng You see machine dreams and taste violet phosphor.
-@rus Ты видишь обрывки миражей, плавающих в фиолетовом сиянии.
-~
-~
-Z 0 8604
+Z 0 3046
 M 150 H 100
 S
 #3051
@@ -6560,15 +6552,9 @@ S
 #3057
 @eng In the air...@rus В воздухе...~
 @eng WOW you can fly!  You are floating in the air above Temple Square of Midgaard.
-@rus Вау! Ты умеешь летать! И ты поднялся прямо над храмовой площадью. 
+@rus Вау! Ты умеешь летать! И ты $gn{поднялся} прямо над храмовой площадью. 
 ~
 0 CS air
-D4
-@eng More of the same.
-@rus То же самое.
-~
-~
-Z 0 1017
 D5
 @eng Back down on the earth where you should be!
 @rus Родная земля.
@@ -9981,55 +9967,55 @@ say I don't speak with people I can't see.
 endif
 ~
 #3002
-mob religion $n atum-ra
+mob religion $n lirail
 ~
 #3003
-mob religion $n zeus
+mob religion $n amtinor
 ~
 #3004
-mob religion $n siebele
+mob religion $n aulin
 ~
 #3005
-mob religion $n shamash
+mob religion $n dakkorn
 ~
 #3006
-mob religion $n ahuramazda
+mob religion $n ulwark
 ~
 #3007
-mob religion $n ehrumen
+mob religion $n moarith
 ~
 #3008
-mob religion $n deimos
+mob religion $n ilissa
 ~
 #3009
-mob religion $n phobos
+mob religion $n hathir
 ~
 #3010
-mob religion $n odin
+mob religion $n throrgrim
 ~
 #3011
-mob religion $n teshub
+mob religion $n irian
 ~
 #3012
-mob religion $n ares
+mob religion $n stivrosh
 ~
 #3013
-mob religion $n goktengri
+mob religion $n gwinnerai
 ~
 #3014
-mob religion $n hera
+mob religion $n trussk
 ~
 #3015
-mob religion $n venus
+mob religion $n lessa
 ~
 #3016
-mob religion $n seth
+mob religion $n vilirna
 ~
 #3017
-mob religion $n enki
+mob religion $n calamir
 ~
 #3018
-mob religion $n eros
+mob religion $n cariel
 ~
 #3019
 if isvisible $n

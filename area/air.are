@@ -4,6 +4,7 @@ VNUMs 1000 1099
 Credits Copper~
 Security 9
 LevelRange 5 10
+Flags closed~
 End
 
 #MOBILES
@@ -665,12 +666,6 @@ D4
 ~
 ~
 Z 0 1037
-D5
-@eng More of the same
-@rus То же самое.
-~
-~
-Z 0 3057
 S
 #1018
 @eng In the air ...@rus В воздухе...~

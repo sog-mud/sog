@@ -994,8 +994,8 @@ A EIJKN HK DGH DGH
 10 10 0 P
 G male
 #51
-tattoo atum ra~
-lawful good tattoo of atum-ra~
+tattoo lirail~
+tattoo of Lirail, Goddess of Order and Protection~
 A tattoo flying in the air.~
 energy~
 tattoo ATUY AR
@@ -1003,8 +1003,8 @@ tattoo ATUY AR
 0 0 0 P
 G none
 #52
-tattoo zeus~
-neutral good tattoo of zeus~
+tattoo amtinor~
+tattoo of Amtinor, God of Woodlands~
 A tattoo flying in the air.~
 energy~
 tattoo ATUY AR
@@ -1012,8 +1012,8 @@ tattoo ATUY AR
 0 0 0 P
 G none
 #53
-tattoo siebele~
-true neutral tattoo of siebele~
+tattoo aulin~
+tattoo of Aulin, Goddess of Knowledges~
 A tattoo flying in the air.~
 energy~
 tattoo ATUY AR
@@ -1021,8 +1021,8 @@ tattoo ATUY AR
 0 0 0 P
 G none
 #54
-tattoo shamash~
-tattoo of shamash, god of justice~
+tattoo dakkorn~
+tattoo of Dakkorn, God of Justice~
 A tattoo flying in the air.~
 energy~
 tattoo ATUY AR
@@ -1030,8 +1030,8 @@ tattoo ATUY AR
 0 0 0 P
 G none
 #55
-tattoo ahura mazda~
-chaotic good tattoo of ahuramazda~
+tattoo ulwark~
+tattoo of Ulwark, God of Dreams and Ambitions.~
 A tattoo flying in the air.~
 energy~
 tattoo ATUY AR
@@ -1039,8 +1039,8 @@ tattoo ATUY AR
 0 0 0 P
 G none
 #56
-tattoo ehrumen~
-chaotic evil tattoo of ehrumen~
+tattoo moarith~
+tattoo of Moarith, Goddess of Slaughter~
 A tattoo flying in the air.~
 energy~
 tattoo ATUY AR
@@ -1048,8 +1048,8 @@ tattoo ATUY AR
 0 0 0 P
 G none
 #57
-tattoo deimos~
-lawful evil tattoo of deimos~
+tattoo ilissa~
+tattoo of Ilissa, Goddess of Tyranny~
 A tattoo flying in the air.~
 energy~
 tattoo ATUY AR
@@ -1057,8 +1057,8 @@ tattoo ATUY AR
 0 0 0 P
 G none
 #58
-tattoo phobos~
-neutral evil tattoo of phobos~
+tattoo hathir~
+tattoo of Hathir, God of Death~
 A tattoo flying in the air.~
 energy~
 tattoo ATUY AR
@@ -1066,8 +1066,8 @@ tattoo ATUY AR
 0 0 0 P
 G none
 #59
-tattoo odin~
-lawful neutral tattoo of odin~
+tattoo throrgrim~
+tattoo of Throrgrim, God of Retribution~
 A tattoo flying in the air.~
 energy~
 tattoo ATUY AR
@@ -1075,8 +1075,8 @@ tattoo ATUY AR
 0 0 0 P
 G none
 #60
-tattoo teshub~
-chaotic neutral tattoo of teshub~
+tattoo irian~
+tattoo of Irian, Goddess of True Chaos~
 A tattoo flying in the air.~
 energy~
 tattoo ATUY AR
@@ -1084,8 +1084,8 @@ tattoo ATUY AR
 0 0 0 P
 G none
 #61
-tattoo ares~
-tattoo of ares, God of War~
+tattoo stivrosh~
+tattoo of Stivrosh, God of War~
 A tattoo flying in the air.~
 energy~
 tattoo ATUY AR
@@ -1093,17 +1093,17 @@ tattoo ATUY AR
 0 0 0 P
 G none
 #62
-tattoo goktengri татуировка гоктенгри~
-@eng tattoo of goktengri, God of Honor@rus татуировка Гоктенгри, бога чести~
-@eng A tattoo flying in the air.@rus Татуировка (tattoo) летает по воздуху.~
+tattoo gwinnerai~
+tattoo of Gwinnerai, Goddess of Honor~
+A tattoo flying in the air.~
 energy~
 tattoo ATUY AR
 0 0 -1 0 0
 0 0 0 P
 G female
 #63
-tattoo hera~
-tattoo of hera, god of hate~
+tattoo trussk~
+tattoo of Trussk, God of Disease and Suffering~
 A tattoo flying in the air.~
 energy~
 tattoo ATUY AR
@@ -1111,8 +1111,8 @@ tattoo ATUY AR
 0 0 0 P
 G none
 #64
-tattoo venus~
-tattoo of venus, god of beauty~
+tattoo lessa~
+tattoo of Lessa, Goddess of Magic~
 A tattoo flying in the air.~
 energy~
 tattoo ATUY AR
@@ -1120,8 +1120,8 @@ tattoo ATUY AR
 0 0 0 P
 G none
 #65
-tattoo seth~
-tattoo of seth, god of anger~
+tattoo vilirna~
+tattoo of Vilirna, Goddess of Life~
 A tattoo flying in the air.~
 energy~
 tattoo ATUY AR
@@ -1129,8 +1129,8 @@ tattoo ATUY AR
 0 0 0 P
 G none
 #66
-tattoo enki~
-tattoo of enki, god of knowledge~
+tattoo calamir~
+tattoo of Calamir, God of Delusion~
 A tattoo flying in the air.~
 energy~
 tattoo ATUY AR
@@ -1138,9 +1138,9 @@ tattoo ATUY AR
 0 0 0 P
 G none
 #67
-tattoo eros татуировка эрос~
-@eng tattoo of eros, god of love@rus татуировка Эроса, бога любви~
-@eng A tattoo flying in the air.@rus Татуировка Эроса (tattoo) летает по воздуху.~
+tattoo Cariel~
+tattoo of Cariel, Goddess of Revival~
+A tattoo flying in the air.~
 energy~
 tattoo ATUY AR
 0 0 -1 0 0
@@ -1685,23 +1685,23 @@ endif
 O 28 wear_prog wear_prog_ranger_staff	* `a ranger staff'
 O 28 fight_prog fight_prog_ranger_staff	* `a ranger staff'
 O 40 get_prog get_prog_quest_reward	* `the %s Song of %s'
-O 51 fight_prog fight_prog_tattoo_atum_ra	* `lawful good tattoo of atum-ra'
-O 52 fight_prog fight_prog_tattoo_zeus	* `neutral good tattoo of zeus'
-O 53 fight_prog fight_prog_tattoo_siebele	* `true neutral tattoo of siebele'
-O 54 fight_prog fight_prog_tattoo_shamash	* `tattoo of shamash, god of justice'
-O 55 fight_prog fight_prog_tattoo_ahuramazda	* `chaotic good tattoo of ahuramazda'
-O 56 fight_prog fight_prog_tattoo_ehrumen	* `chaotic evil tattoo of ehrumen'
-O 57 fight_prog fight_prog_tattoo_deimos	* `lawful evil tattoo of deimos'
-O 58 fight_prog fight_prog_tattoo_phobos	* `neutral evil tattoo of phobos'
-O 59 fight_prog fight_prog_tattoo_odin	* `lawful neutral tattoo of odin'
-O 60 fight_prog fight_prog_tattoo_teshub	* `chaotic neutral tattoo of teshub'
-O 61 fight_prog fight_prog_tattoo_ares	* `tattoo of ares, God of War'
-O 62 fight_prog fight_prog_tattoo_goktengri	* `tattoo of goktengri, God of Honor'
-O 63 fight_prog fight_prog_tattoo_hera	* `tattoo of hera, god of hate'
-O 64 fight_prog fight_prog_tattoo_venus	* `tattoo of venus, god of beauty'
-O 65 fight_prog fight_prog_tattoo_seth	* `tattoo of seth, god of anger'
-O 66 fight_prog fight_prog_tattoo_enki	* `tattoo of enki, god of knowledge'
-O 67 fight_prog fight_prog_tattoo_eros	* `tattoo of eros, god of love'
+O 51 fight_prog fight_prog_tattoo_lirail	* `tattoo of Lirail, Goddess of Order and Protection'
+O 52 fight_prog fight_prog_tattoo_amtinor	* `tattoo of Amtinor'
+O 53 fight_prog fight_prog_tattoo_aulin		* `tattoo of Aulin'
+O 54 fight_prog fight_prog_tattoo_dakkorn	* `tattoo of Dakkorn, God of Justice'
+O 55 fight_prog fight_prog_tattoo_ulwark	* `tattoo of Ulwark, God of Dreams and Ambitions'
+O 56 fight_prog fight_prog_tattoo_moarith	* `tattoo of Moarith, Goddess of Slaughter'
+O 57 fight_prog fight_prog_tattoo_ilissa	* `tattoo of Ilissa, Goddess of Tyranny'
+O 58 fight_prog fight_prog_tattoo_hathir	* `tattoo of Hathir, God of Death'
+O 59 fight_prog fight_prog_tattoo_throrgrim	* `tattoo of Throrgrim, God of Retribution'
+O 60 fight_prog fight_prog_tattoo_irian		* `tattoo of Irian, Goddess of True Chaos'
+O 61 fight_prog fight_prog_tattoo_stivrosh	* `tattoo of Stivrosh, God of War'
+O 62 fight_prog fight_prog_tattoo_gwinnerai	* `tattoo of Gwinnerai, Goddess of Honor'
+O 63 fight_prog fight_prog_tattoo_trussk	* `tattoo of Trussk, God of Desease and Suffering'
+O 64 fight_prog fight_prog_tattoo_lessa		* `tattoo of Lessa, Goddess of Magic'
+O 65 fight_prog fight_prog_tattoo_vilirna	* `tattoo of Vilirna, Goddess of Life'
+O 66 fight_prog fight_prog_tattoo_calamir	* `tattoo of Calamir, God of Delusion'
+O 67 fight_prog fight_prog_tattoo_cariel	* `tattoo of Cariel, Goddess of Revival'
 O 71 wear_prog wear_prog_enforcer_shield	* `Enforcers' Buckler'
 O 72 wear_prog wear_prog_enforcer_shield	* `Enforcers' Great Shield'
 O 73 wear_prog wear_prog_enforcer_shield	* `Enforcers' Kite Shield'
