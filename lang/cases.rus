@@ -1511,6 +1511,17 @@ Form 6 -а~
 End
 
 #RULE
+Name граненый~
+BaseLen 6
+Form 1 -ого~
+Form 2 -ому~
+Form 3 -ый~
+Form 4 -ым~
+Form 5 -ом~
+Form 6 -ого~
+End
+
+#RULE
 Name булыжник~
 BaseLen 8
 Form 1 -а~
@@ -3232,6 +3243,17 @@ Form 3 -ю~
 Form 4 -ей~
 Form 5 -е~
 Form 6 -ю~
+End
+
+#RULE
+Name наперсток~
+BaseLen 7
+Form 1 -ка~
+Form 2 -ку~
+Form 3 -ок~
+Form 4 -ком~
+Form 5 -ке~
+Form 6 -ка~
 End
 
 #RULE
@@ -9716,6 +9738,17 @@ Form 1 -и~
 Form 2 -и~
 Form 4 -ью~
 Form 5 -и~
+End
+
+#RULE
+Name венгерка~
+BaseLen 7
+Form 1 -и~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ой~
+Form 5 -е~
+Form 6 -у~
 End
 
 #RULE
