@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.27 1998-10-14 18:10:39 fjoe Exp $
+ * $Id: olc.c,v 1.28 1998-10-17 09:45:29 fjoe Exp $
  */
 
 /***************************************************************************
@@ -97,8 +97,8 @@ OLCED_DATA olced_table[] = {
 	{ ED_MSG,	"MsgEd",	olc_cmds_msg	},
 	{ ED_CLAN,	"ClanEd",	olc_cmds_clan	},
 	{ ED_LANG,	"LangEd",	olc_cmds_lang	},
-	{ ED_GENDER,	"WordEd",	olc_cmds_word	},
-	{ ED_CASE,	"WordEd",	olc_cmds_word	},
+/*	{ ED_GENDER,	"WordEd",	olc_cmds_word	},
+	{ ED_CASE,	"WordEd",	olc_cmds_word	}, */
 /*	{ ED_CLASS,	"ClassEd",	olc_cmds_class	}, */
 	{ NULL }
 };
@@ -157,6 +157,11 @@ void do_edit(CHAR_DATA *ch, const char *argument)
 void do_alist(CHAR_DATA *ch, const char *argument)
 {
 	do_olc(ch, argument, FUN_LIST);
+}
+
+void do_ashow(CHAR_DATA *ch, const char *argument)
+{
+	do_olc(ch, argument, FUN_SHOW);
 }
 
 /*

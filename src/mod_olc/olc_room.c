@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.17 1998-10-16 13:25:26 fjoe Exp $
+ * $Id: olc_room.c,v 1.18 1998-10-17 09:45:30 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -43,6 +43,7 @@ DECLARE_OLC_FUN(roomed_create		);
 DECLARE_OLC_FUN(roomed_edit		);
 DECLARE_OLC_FUN(roomed_touch		);
 DECLARE_OLC_FUN(roomed_show		);
+DECLARE_OLC_FUN(roomed_list		);
 
 DECLARE_OLC_FUN(roomed_name		);
 DECLARE_OLC_FUN(roomed_desc		);
@@ -55,9 +56,6 @@ DECLARE_OLC_FUN(roomed_up		);
 DECLARE_OLC_FUN(roomed_down		);
 DECLARE_OLC_FUN(roomed_mreset		);
 DECLARE_OLC_FUN(roomed_oreset		);
-DECLARE_OLC_FUN(roomed_mlist		);
-DECLARE_OLC_FUN(roomed_rlist		);
-DECLARE_OLC_FUN(roomed_olist		);
 DECLARE_OLC_FUN(roomed_mshow		);
 DECLARE_OLC_FUN(roomed_oshow		);
 DECLARE_OLC_FUN(roomed_heal		);
@@ -76,7 +74,7 @@ OLC_CMD_DATA olc_cmds_room[] =
 	{ "edit",	roomed_edit			},
 	{ "touch",	roomed_touch			},
 	{ "show",	roomed_show			},
-	{ "list",	NULL				},
+	{ "list",	roomed_list			},
 
 	{ "desc",	roomed_desc			},
 	{ "exd",	roomed_exd			},
@@ -95,9 +93,6 @@ OLC_CMD_DATA olc_cmds_room[] =
 /* New reset commands. */
 	{ "mreset",	roomed_mreset			},
 	{ "oreset",	roomed_oreset			},
-	{ "mlist",	roomed_mlist			},
-	{ "rlist",	roomed_rlist			},
-	{ "olist",	roomed_olist			},
 	{ "mshow",	roomed_mshow			},
 	{ "oshow",	roomed_oshow			},
 	{ "owner",	roomed_owner			},
@@ -173,7 +168,11 @@ OLC_FUN(roomed_edit)
 	one_argument(argument, arg);
 	if (arg[0] == '\0')
 		pRoom = ch->in_room;
-	else if (!is_number(arg) || (pRoom = get_room_index(atoi(arg))) == NULL) {
+	else if (!is_number(arg)) {
+		do_help(ch, "'OLC EDIT'");
+		return FALSE;
+	}
+	else if ((pRoom = get_room_index(atoi(arg))) == NULL) {
 		char_puts("RoomEd: Vnum does not exist.\n\r", ch);
 		return FALSE;
 	}
@@ -199,6 +198,7 @@ OLC_FUN(roomed_touch)
 OLC_FUN(roomed_show)
 {
 	char buf[MAX_STRING_LENGTH];
+	char arg[MAX_STRING_LENGTH];
 	ROOM_INDEX_DATA	*pRoom;
 	BUFFER *	output;
 	OBJ_DATA	*obj;
@@ -207,7 +207,20 @@ OLC_FUN(roomed_show)
 	bool		fcnt;
 	CLAN_DATA	*clan;
 	
-	EDIT_ROOM(ch, pRoom);
+	one_argument(argument, arg);
+	if (arg[0] == '\0') {
+		EDIT_ROOM(ch, pRoom);
+		if (!pRoom)
+			pRoom = ch->in_room;
+	}
+	else if (!is_number(arg)) {
+		do_help(ch, ch->desc->editor ? "'OLC EDIT'" : "'OLC ASHOW'");
+		return FALSE;
+	}
+	else if ((pRoom = get_room_index(atoi(arg))) == NULL) {
+		char_puts("RoomEd: Vnum does not exist.\n\r", ch);
+		return FALSE;
+	}
 
 	output = buf_new(0);
 	
@@ -322,6 +335,43 @@ OLC_FUN(roomed_show)
 
 	char_puts(buf_string(output), ch);
 	buf_free(output);
+	return FALSE;
+}
+
+OLC_FUN(roomed_list)
+{
+	ROOM_INDEX_DATA	*pRoomIndex;
+	AREA_DATA	*pArea;
+	BUFFER		*buffer;
+	bool found;
+	int vnum;
+	int  col = 0;
+
+	pArea = ch->in_room->area;
+	buffer = buf_new(0);
+	found   = FALSE;
+
+	for (vnum = pArea->min_vnum; vnum <= pArea->max_vnum; vnum++) {
+		if ((pRoomIndex = get_room_index(vnum))) {
+			found = TRUE;
+			buf_printf(buffer, "[%5d] %-17.16s",
+				vnum,
+				capitalize(mlstr_cval(pRoomIndex->name, ch)));
+			if (++col % 3 == 0)
+				buf_add(buffer, "\n\r");
+		}
+	}
+
+	if (!found) 
+		char_puts("REdit: No rooms in this area.\n\r", ch);
+	else {
+		if (col % 3 != 0)
+			buf_add(buffer, "\n\r");
+
+		page_to_char(buf_string(buffer), ch);
+	}
+
+	buf_free(buffer);
 	return FALSE;
 }
 
@@ -461,141 +511,6 @@ OLC_FUN(roomed_mreset)
 		pReset->arg2);
 	act("$n has created $N!", ch, NULL, newmob, TO_ROOM);
 	return TRUE;
-}
-
-OLC_FUN(roomed_rlist)
-{
-	ROOM_INDEX_DATA	*pRoomIndex;
-	AREA_DATA		*pArea;
-	BUFFER		*buffer;
-	char		arg  [ MAX_INPUT_LENGTH    ];
-	bool found;
-	int vnum;
-	int  col = 0;
-
-	one_argument(argument, arg);
-
-	pArea = ch->in_room->area;
-	buffer = buf_new(0);
-	found   = FALSE;
-
-	for (vnum = pArea->min_vnum; vnum <= pArea->max_vnum; vnum++) {
-		if ((pRoomIndex = get_room_index(vnum))) {
-			found = TRUE;
-			buf_printf(buffer, "[%5d] %-17.16s",
-				vnum,
-				capitalize(mlstr_cval(pRoomIndex->name, ch)));
-			if (++col % 3 == 0)
-				buf_add(buffer, "\n\r");
-		}
-	}
-
-	if (!found) {
-		char_puts("Room(s) not found in this area.\n\r", ch);
-		return FALSE;
-	}
-
-	if (col % 3 != 0)
-		buf_add(buffer, "\n\r");
-
-	page_to_char(buf_string(buffer), ch);
-	buf_free(buffer);
-	return FALSE;
-}
-
-OLC_FUN(roomed_mlist)
-{
-	MOB_INDEX_DATA	*pMobIndex;
-	AREA_DATA	*pArea;
-	BUFFER		*buffer;
-	char		arg  [MAX_INPUT_LENGTH];
-	bool fAll, found;
-	int vnum;
-	int  col = 0;
-
-	one_argument(argument, arg);
-	if (arg[0] == '\0') {
-		char_puts("Syntax:  mlist <all/name>\n\r", ch);
-		return FALSE;
-	}
-
-	buffer = buf_new(0);
-	pArea = ch->in_room->area;
-	fAll    = !str_cmp(arg, "all");
-	found   = FALSE;
-
-	for (vnum = pArea->min_vnum; vnum <= pArea->max_vnum; vnum++) {
-		if ((pMobIndex = get_mob_index(vnum)) != NULL) {
-			if (fAll || is_name(arg, pMobIndex->name)) {
-				found = TRUE;
-				buf_printf(buffer, "[%5d] %-17.16s",
-					   pMobIndex->vnum,
-					   mlstr_mval(pMobIndex->short_descr));
-				if (++col % 3 == 0)
-					buf_add(buffer, "\n\r");
-			}
-		}
-	}
-
-	if (!found) {
-		char_puts("Mobile(s) not found in this area.\n\r", ch);
-		return FALSE;
-	}
-
-	if (col % 3 != 0)
-		buf_add(buffer, "\n\r");
-
-	page_to_char(buf_string(buffer), ch);
-	buf_free(buffer);
-	return FALSE;
-}
-
-OLC_FUN(roomed_olist)
-{
-	OBJ_INDEX_DATA	*pObjIndex;
-	AREA_DATA	*pArea;
-	BUFFER		*buffer;
-	char		arg  [MAX_INPUT_LENGTH];
-	bool fAll, found;
-	int vnum;
-	int  col = 0;
-
-	one_argument(argument, arg);
-	if (arg[0] == '\0') {
-		char_puts("Syntax:  olist <all/name/item_type>\n\r", ch);
-		return FALSE;
-	}
-
-	pArea   = ch->in_room->area;
-	buffer  = buf_new(0);
-	fAll    = !str_cmp(arg, "all");
-	found   = FALSE;
-
-	for (vnum = pArea->min_vnum; vnum <= pArea->max_vnum; vnum++) {
-		if ((pObjIndex = get_obj_index(vnum))) {
-			if (fAll || is_name(arg, pObjIndex->name)
-			|| flag_value(item_types, arg) == pObjIndex->item_type) {
-				found = TRUE;
-				buf_printf(buffer, "[%5d] %-17.16s",
-					   pObjIndex->vnum,
-					   mlstr_mval(pObjIndex->short_descr));
-				if (++col % 3 == 0)
-					buf_add(buffer, "\n\r");
-			}
-		}
-	}
-
-	if (!found) {
-		char_puts("Object(s) not found in this area.\n\r", ch);
-		return FALSE;
-	}
-
-	if (col % 3 != 0)
-		buf_add(buffer, "\n\r");
-
-	page_to_char(buf_string(buffer), ch);
-	buf_free(buffer);
-	return FALSE;
 }
 
 OLC_FUN(roomed_mshow)

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_msg.c,v 1.8 1998-10-10 04:37:44 fjoe Exp $
+ * $Id: olc_msg.c,v 1.9 1998-10-17 09:45:30 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -122,11 +122,22 @@ OLC_FUN(msged_show)
 	BUFFER *output;
 	mlstring **mlp;
 
-	EDIT_MSG(ch, mlp);
+	if (argument[0] == '\0') {
+		EDIT_MSG(ch, mlp);
+		if (!mlp) {
+			do_help(ch, "'OLC ASHOW'");
+			return FALSE;
+		}
+	}
+	else {
+		if ((mlp = msg_search(argument)) == NULL) {
+			char_puts("MsgEd: msg not found.\n\r", ch);
+			return FALSE;
+		}
+	}
+
 	output = buf_new(0);
-
 	msg_dump(output, *mlp);
-
 	page_to_char(buf_string(output), ch);
 	buf_free(output);
 	return FALSE;

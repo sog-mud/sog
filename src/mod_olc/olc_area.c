@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_area.c,v 1.16 1998-10-15 08:21:50 fjoe Exp $
+ * $Id: olc_area.c,v 1.17 1998-10-17 09:45:29 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -146,7 +146,19 @@ OLC_FUN(areaed_touch)
 OLC_FUN(areaed_show)
 {
 	AREA_DATA *pArea;
-	EDIT_AREA(ch, pArea);
+	char arg[MAX_STRING_LENGTH];
+
+	argument = one_argument(argument, arg);
+	if (arg[0] == '\0') {
+		EDIT_AREA(ch, pArea);
+		if (!pArea);
+			pArea = ch->in_room->area;
+	}
+	else if (!is_number(arg) || (pArea = area_lookup(atoi(arg))) == NULL) {
+		char_puts("AEdit: That area vnum does not exist.\n\r", ch);
+		return FALSE;
+	}
+
 	char_printf(ch, "Name:     [%5d] %s\n\r", pArea->vnum, pArea->name);
 	char_printf(ch, "File:     %s\n\r", pArea->file_name);
 	char_printf(ch, "Vnums:    [%d-%d]\n\r",

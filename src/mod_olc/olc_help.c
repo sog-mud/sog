@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_help.c,v 1.18 1998-10-02 08:15:40 fjoe Exp $
+ * $Id: olc_help.c,v 1.19 1998-10-17 09:45:29 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -67,20 +67,18 @@ OLC_FUN(helped_create)
 {
 	HELP_DATA *pHelp;
 	AREA_DATA *pArea;
-	char arg[MAX_STRING_LENGTH];
 
 	if (ch->pcdata->security < SECURITY_HELP) {
 		char_puts("HEdit: Insufficient security.\n\r", ch);
 		return FALSE;
 	}
 
-	first_arg(argument, arg, FALSE);
-	if (arg[0] == '\0') {
+	if (argument[0] == '\0') {
 		do_help(ch, "'OLC CREATE'");
 		return FALSE;
 	}
 
-	if ((pHelp = help_lookup(1, arg)) != NULL) {
+	if ((pHelp = help_lookup(1, argument)) != NULL) {
 		char_printf(ch,
 			    "HEdit: Help already exists in area %s (%s).\n\r",
 			    pHelp->area->name, pHelp->area->file_name);
@@ -99,7 +97,7 @@ OLC_FUN(helped_create)
 
 	pHelp			= help_new();
 	pHelp->level		= 0;
-	pHelp->keyword		= str_dup(arg);
+	pHelp->keyword		= str_dup(argument);
 	pHelp->text		= NULL;
 	help_add(pArea, pHelp);
 
@@ -128,7 +126,7 @@ OLC_FUN(helped_edit)
 	}
 
 	if ((pHelp = help_lookup(num, keyword)) == NULL) {
-		char_printf(ch, "HEdit: %s: Help keyword not found.\n\r",
+		char_printf(ch, "HEdit: %s: Help not found.\n\r",
 			    keyword);
 		return FALSE;
 	}
@@ -149,7 +147,32 @@ OLC_FUN(helped_show)
 {
 	BUFFER *output;
 	HELP_DATA *pHelp;
-	EDIT_HELP(ch, pHelp);
+
+	if (argument[0] == '\0') {
+		EDIT_HELP(ch, pHelp);
+		if (!pHelp) {
+			do_help(ch, "'OLC ASHOW'");
+			return FALSE;
+		}
+	}
+	else {
+		int num;
+		char keyword[MAX_INPUT_LENGTH];
+
+		num = number_argument(argument, keyword);
+		if (keyword[0] == '\0') {
+			if (ch->desc->editor)
+			do_help(ch, ch->desc->editor ?
+				    "'OLC EDIT'" : "'OLC ASHOW'");
+			return FALSE;
+		}
+
+		if ((pHelp = help_lookup(num, keyword)) == NULL) {
+			char_printf(ch, "HEdit: %s: Help not found.\n\r",
+				    keyword);
+			return FALSE;
+		}
+	}
 
 	output = buf_new(0);
 	buf_printf(output,

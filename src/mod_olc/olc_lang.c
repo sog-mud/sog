@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_lang.c,v 1.2 1998-10-08 13:31:28 fjoe Exp $
+ * $Id: olc_lang.c,v 1.3 1998-10-17 09:45:29 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -136,9 +136,27 @@ OLC_FUN(langed_touch)
 
 OLC_FUN(langed_show)
 {
+	char arg[MAX_INPUT_LENGTH];
 	LANG_DATA *l;
 	LANG_DATA *sl;
-	EDIT_LANG(ch, l);
+
+	one_argument(argument, arg);
+	if (arg[0] == '\0') {
+		EDIT_LANG(ch, l);
+		if (!l) {
+			do_help(ch, "'OLC ASHOW'");
+			return FALSE;
+		}
+	}
+	else {
+		int lang;
+
+		if ((lang = lang_lookup(arg)) < 0) {
+			char_puts("LangEd: language not found.\n\r", ch);
+			return FALSE;
+		}
+		l = VARR_GET(&langs, lang);
+	}
 
 	char_printf(ch, "Name:     [%s]\n\r"
 			"Filename: [%s]\n\r",

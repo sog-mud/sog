@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_mob.c,v 1.16 1998-10-14 11:05:25 fjoe Exp $
+ * $Id: olc_mob.c,v 1.17 1998-10-17 09:45:29 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -43,6 +43,7 @@ DECLARE_OLC_FUN(mobed_create		);
 DECLARE_OLC_FUN(mobed_edit		);
 DECLARE_OLC_FUN(mobed_touch		);
 DECLARE_OLC_FUN(mobed_show		);
+DECLARE_OLC_FUN(mobed_list		);
 
 DECLARE_OLC_FUN(mobed_name		);
 DECLARE_OLC_FUN(mobed_short		);
@@ -87,7 +88,7 @@ OLC_CMD_DATA olc_cmds_mob[] =
 	{ "edit",	mobed_edit				},
 	{ "touch",	mobed_touch				},
 	{ "show",	mobed_show				},
-	{ "list",	NULL					},
+	{ "list",	mobed_list				},
 
 	{ "alignment",	mobed_align				},
 	{ "desc",	mobed_desc				},
@@ -187,17 +188,16 @@ OLC_FUN(mobed_edit)
 	MOB_INDEX_DATA *pMob;
 	AREA_DATA *pArea;
 	int value;
-	char arg[MAX_STRING_LENGTH];
+	char arg[MAX_INPUT_LENGTH];
 
-	argument = one_argument(argument, arg);
-
+	one_argument(argument, arg);
 	if (arg[0] == '\0') {
 		do_help(ch, "'OLC EDIT'");
 		return FALSE;
 	}
 
 	value = atoi(arg);
-	if (!(pMob = get_mob_index(value))) {
+	if ((pMob = get_mob_index(value)) == NULL) {
 		char_puts("MEdit: Vnum does not exist.\n\r", ch);
 		return FALSE;
 	}
@@ -222,9 +222,77 @@ OLC_FUN(mobed_touch)
 
 OLC_FUN(mobed_show)
 {
+	char arg[MAX_INPUT_LENGTH];
 	MOB_INDEX_DATA	*pMob;
-	EDIT_MOB(ch, pMob);
+
+	one_argument(argument, arg);
+	if (arg[0] == '\0') {
+		EDIT_MOB(ch, pMob);
+		if (!pMob) {
+			do_help(ch, "'OLC ASHOW'");
+			return FALSE;
+		}
+	}
+	else {
+		int value = atoi(arg);
+		if ((pMob = get_mob_index(value)) == NULL) {
+			char_puts("MEdit: Vnum does not exist.\n\r", ch);
+			return FALSE;
+		}
+	}
+
 	return show_mob(ch, pMob);
+}
+
+OLC_FUN(mobed_list)
+{
+	MOB_INDEX_DATA	*pMobIndex;
+	AREA_DATA	*pArea;
+	BUFFER		*buffer;
+	char		arg  [MAX_INPUT_LENGTH];
+	bool fAll, found;
+	int vnum;
+	int  col = 0;
+
+	one_argument(argument, arg);
+	if (arg[0] == '\0') {
+		do_help(ch, "'OLC ALIST'");
+		return FALSE;
+	}
+
+	buffer = buf_new(0);
+	EDIT_MOB(ch, pMobIndex);
+	if (!pMobIndex)
+		pArea = ch->in_room->area;
+	else
+		pArea = area_vnum_lookup(pMobIndex->vnum);
+	fAll    = !str_cmp(arg, "all");
+	found   = FALSE;
+
+	for (vnum = pArea->min_vnum; vnum <= pArea->max_vnum; vnum++) {
+		if ((pMobIndex = get_mob_index(vnum)) != NULL) {
+			if (fAll || is_name(arg, pMobIndex->name)) {
+				found = TRUE;
+				buf_printf(buffer, "[%5d] %-17.16s",
+					   pMobIndex->vnum,
+					   mlstr_mval(pMobIndex->short_descr));
+				if (++col % 3 == 0)
+					buf_add(buffer, "\n\r");
+			}
+		}
+	}
+
+	if (!found) 
+		char_puts("MEdit: No mobiles in this area.\n\r", ch);
+	else {
+		if (col % 3 != 0)
+			buf_add(buffer, "\n\r");
+
+		page_to_char(buf_string(buffer), ch);
+	}
+
+	buf_free(buffer);
+	return FALSE;
 }
 
 OLC_FUN(mobed_spec)

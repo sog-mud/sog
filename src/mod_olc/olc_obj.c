@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_obj.c,v 1.13 1998-10-09 13:43:15 fjoe Exp $
+ * $Id: olc_obj.c,v 1.14 1998-10-17 09:45:30 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -43,6 +43,7 @@ DECLARE_OLC_FUN(objed_create		);
 DECLARE_OLC_FUN(objed_edit		);
 DECLARE_OLC_FUN(objed_touch		);
 DECLARE_OLC_FUN(objed_show		);
+DECLARE_OLC_FUN(objed_list		);
 
 DECLARE_OLC_FUN(objed_name		);
 DECLARE_OLC_FUN(objed_short		);
@@ -79,7 +80,7 @@ OLC_CMD_DATA olc_cmds_obj[] =
 	{ "edit",	objed_edit					},
 	{ "touch",	objed_touch					},
 	{ "show",	objed_show					},
-	{ "list",	NULL						},
+	{ "list",	objed_list					},
 
 	{ "addaffect",	objed_addaffect					},
 	{ "addapply",	objed_addapply					},
@@ -166,7 +167,7 @@ OLC_FUN(objed_create)
 
 OLC_FUN(objed_edit)
 {
-	char arg[MAX_STRING_LENGTH];
+	char arg[MAX_INPUT_LENGTH];
 	int value;
 	OBJ_INDEX_DATA *pObj;
 	AREA_DATA *pArea;
@@ -204,9 +205,79 @@ OLC_FUN(objed_touch)
 
 OLC_FUN(objed_show)
 {
+	char arg[MAX_INPUT_LENGTH];
 	OBJ_INDEX_DATA	*pObj;
-	EDIT_OBJ(ch, pObj);
+
+	one_argument(argument, arg);
+	if (arg[0] == '\0') {
+		EDIT_OBJ(ch, pObj);
+		if (!pObj) {
+			do_help(ch, "'OLC EDIT'");
+			return FALSE;
+		}
+	}
+	else {
+		int value = atoi(arg);
+		pObj = get_obj_index(value);
+		if (!pObj) {
+			char_puts("OEdit: Vnum does not exist.\n\r", ch);
+			return FALSE;
+		}
+	}
+
 	return show_obj(ch, pObj);
+}
+
+OLC_FUN(objed_list)
+{
+	OBJ_INDEX_DATA	*pObjIndex;
+	AREA_DATA	*pArea;
+	BUFFER		*buffer;
+	char		arg  [MAX_INPUT_LENGTH];
+	bool fAll, found;
+	int vnum;
+	int  col = 0;
+
+	one_argument(argument, arg);
+	if (arg[0] == '\0') {
+		do_help(ch, "'OLC ALIST'");
+		return FALSE;
+	}
+
+	EDIT_OBJ(ch, pObjIndex);
+	if (!pObjIndex)
+		pArea   = ch->in_room->area;
+	else
+		pArea	= area_vnum_lookup(pObjIndex->vnum);
+	buffer  = buf_new(0);
+	fAll    = !str_cmp(arg, "all");
+	found   = FALSE;
+
+	for (vnum = pArea->min_vnum; vnum <= pArea->max_vnum; vnum++) {
+		if ((pObjIndex = get_obj_index(vnum))) {
+			if (fAll || is_name(arg, pObjIndex->name)
+			|| flag_value(item_types, arg) == pObjIndex->item_type) {
+				found = TRUE;
+				buf_printf(buffer, "[%5d] %-17.16s",
+					   pObjIndex->vnum,
+					   mlstr_mval(pObjIndex->short_descr));
+				if (++col % 3 == 0)
+					buf_add(buffer, "\n\r");
+			}
+		}
+	}
+
+	if (!found)
+		char_puts("Object(s) not found in this area.\n\r", ch);
+	else {
+		if (col % 3 != 0)
+			buf_add(buffer, "\n\r");
+
+		page_to_char(buf_string(buffer), ch);
+	}
+
+	buf_free(buffer);
+	return FALSE;
 }
 
 /*

@@ -1,5 +1,5 @@
 /*
- * $Id: olc.h,v 1.21 1998-10-06 13:20:13 fjoe Exp $
+ * $Id: olc.h,v 1.22 1998-10-17 09:45:29 fjoe Exp $
  */
 
 /***************************************************************************
@@ -93,6 +93,7 @@ extern OLC_CMD_DATA	olc_cmds_word[];
  */
 DECLARE_DO_FUN(do_alist		);
 DECLARE_DO_FUN(do_asave		);
+DECLARE_DO_FUN(do_ashow		);
 DECLARE_DO_FUN(do_edit		);
 DECLARE_DO_FUN(do_create	);
 DECLARE_DO_FUN(do_resets	);

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_clan.c,v 1.10 1998-10-02 08:15:40 fjoe Exp $
+ * $Id: olc_clan.c,v 1.11 1998-10-17 09:45:29 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -44,13 +44,13 @@ DECLARE_OLC_FUN(claned_list		);
 DECLARE_OLC_FUN(claned_name		);
 DECLARE_OLC_FUN(claned_filename		);
 DECLARE_OLC_FUN(claned_recall		);
-DECLARE_OLC_FUN(claned_msg_prays		);
+DECLARE_OLC_FUN(claned_msg_prays	);
 DECLARE_OLC_FUN(claned_msg_vanishes	);
 DECLARE_OLC_FUN(claned_flags		);
 DECLARE_OLC_FUN(claned_skill		);
 
-DECLARE_OLC_FUN(claned_skill_add		);
-DECLARE_OLC_FUN(claned_skill_del		);
+DECLARE_OLC_FUN(claned_skill_add	);
+DECLARE_OLC_FUN(claned_skill_del	);
 DECLARE_VALIDATE_FUN(validate_name	);
 
 static bool touch_clan(CLAN_DATA *clan);
@@ -120,7 +120,6 @@ OLC_FUN(claned_edit)
 	}
 
 	one_argument(argument, arg);
-
 	if (arg[0] == '\0') {
 		do_help(ch, "'OLC EDIT'");
 		return FALSE;
@@ -145,10 +144,27 @@ OLC_FUN(claned_touch)
 
 OLC_FUN(claned_show)
 {
+	char arg[MAX_STRING_LENGTH];
 	int i;
 	BUFFER *output;
 	CLAN_DATA *clan;
-	EDIT_CLAN(ch, clan);
+
+	one_argument(argument, arg);
+	if (arg[0] == '\0') {
+		EDIT_CLAN(ch, clan);
+		if (!clan) {
+			do_help(ch, "'OLC ASHOW'");
+			return FALSE;
+		}
+	}
+	else {
+		if ((i = cn_lookup(arg)) < 0) {
+			char_printf(ch, "CEdit: %s: No such clan.\n\r",
+				    argument);
+			return FALSE;
+		}
+		clan = CLAN(i);
+	}
 
 	output = buf_new(0);
 	buf_printf(output,

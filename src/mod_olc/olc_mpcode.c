@@ -1,5 +1,5 @@
 /*
- * $Id: olc_mpcode.c,v 1.17 1998-10-02 08:15:40 fjoe Exp $
+ * $Id: olc_mpcode.c,v 1.18 1998-10-17 09:45:30 fjoe Exp $
  */
 
 /* The following code is based on ILAB OLC by Jason Dinkel */
@@ -89,9 +89,9 @@ OLC_FUN(mped_edit)
 	MPCODE *mpcode;
 	AREA_DATA *pArea;
 	int value;
-	char arg[MAX_STRING_LENGTH];
+	char arg[MAX_INPUT_LENGTH];
 
-	argument = one_argument(argument, arg);
+	one_argument(argument, arg);
 	if (arg[0] == '\0') {
 		do_help(ch, "'OLC EDIT'");
 		return FALSE;
@@ -125,9 +125,27 @@ OLC_FUN(mped_touch)
 OLC_FUN(mped_show)
 {
 	MPCODE *mpcode;
-	EDIT_MPCODE(ch, mpcode);
+	char arg[MAX_INPUT_LENGTH];
 
-	char_printf(ch, "Vnum:       [%d]\n\rCode:\n\r%s\n\r",
+	one_argument(argument, arg);
+	if (arg[0] == '\0') {
+		EDIT_MPCODE(ch, mpcode);
+		if (!mpcode) {
+			do_help(ch, "'OLC ASHOW'");
+			return FALSE;
+		}
+	}
+	else {
+		int value = atoi(arg);
+		mpcode = mpcode_lookup(value);
+		if (!mpcode) {
+			char_puts("MPEdit: Vnum does not exist.\n\r", ch);
+			return FALSE;
+		}
+	}
+
+	char_printf(ch, "Vnum:       [%d]\n\r"
+			"Code:\n\r%s\n\r",
 		   mpcode->vnum, mpcode->code);
 
 	return FALSE;
