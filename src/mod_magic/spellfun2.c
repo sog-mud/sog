@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.122 1999-07-05 12:47:46 kostik Exp $
+ * $Id: spellfun2.c,v 1.123 1999-07-08 05:11:29 kostik Exp $
  */
 
 /***************************************************************************
@@ -299,13 +299,13 @@ void spell_ranger_staff(int sn, int level, CHAR_DATA *ch, void *vo)
 
 	staff = create_obj(get_obj_index(OBJ_VNUM_RANGER_STAFF), 0);
 	staff->level = ch->level;
-	staff->value[1] = 4 + level / 15;
+	staff->value[1] = 5 + level / 14;
 	staff->value[2] = 4 + level / 15;
 
 	char_puts("You create a ranger's staff!\n",ch);
 	act("$n creates a ranger's staff!",ch,NULL,NULL,TO_ROOM);
 
-	tohit.where		   = TO_OBJECT;
+	tohit.where		 = TO_OBJECT;
 	tohit.type               = sn;
 	tohit.level              = ch->level; 
 	tohit.duration           = -1;
@@ -314,7 +314,7 @@ void spell_ranger_staff(int sn, int level, CHAR_DATA *ch, void *vo)
 	tohit.bitvector          = 0;
 	affect_to_obj(staff,&tohit);
 
-	todam.where		   = TO_OBJECT;
+	todam.where		 = TO_OBJECT;
 	todam.type               = sn;
 	todam.level              = ch->level; 
 	todam.duration           = -1;
@@ -2995,51 +2995,55 @@ void spell_group_defense(int sn, int level, CHAR_DATA *ch, void *vo )
 	{
 		if(!is_same_group(gch, ch))
 			continue;
-		if(is_affected(gch, armor_sn))
-		{
+		if (spellbane(gch, ch, 100, dice(2, LEVEL(gch)))) {
+			if (IS_EXTRACTED(ch))
+				return;
+			else
+				continue;
+		}
+		if(is_affected(gch, armor_sn)) {
 	    	    if(gch == ch)
 			char_puts("You are already armored.\n",ch);
 		    else
 			act("$N is already armored.", ch, NULL, gch, TO_CHAR);
 		  continue;
 		}
+		else {
+			af.type      = armor_sn;
+			af.level     = level;
+			af.duration  = level;
+			af.location  = APPLY_AC;
+			af.modifier  = -20;
+			af.bitvector = 0;
+			affect_to_char(gch, &af);
 
-		af.type      = armor_sn;
-		af.level     = level;
-		af.duration  = level;
-		af.location  = APPLY_AC;
-		af.modifier  = -20;
-		af.bitvector = 0;
-		affect_to_char(gch, &af);
+			char_puts("You feel someone protecting you.\n",gch);
+			if(ch != gch)
+				act("$N is protected by your magic.",
+					ch, NULL, gch, TO_CHAR);
+		}
 
-		char_puts("You feel someone protecting you.\n",gch);
-		if(ch != gch)
-			act("$N is protected by your magic.",
-				ch, NULL, gch, TO_CHAR);
-		
-		if(!is_same_group(gch, ch))
-			continue;
-		if(is_affected(gch, shield_sn))
-		{
+		if(is_affected(gch, shield_sn)) {
 		  if(gch == ch) 	
 			char_puts("You are already shielded.\n",ch);
 		  else 
 		        act("$N is already shielded.", ch, NULL, gch, TO_CHAR);
 		  continue;
 		}
+		else {
+			af.type      = shield_sn;
+			af.level     = level;
+			af.duration  = level;
+			af.location  = APPLY_AC;
+			af.modifier   = -20;
+			af.bitvector = 0;
+			affect_to_char(gch, &af);
 
-		af.type      = shield_sn;
-		af.level     = level;
-		af.duration  = level;
-		af.location  = APPLY_AC;
-		af.modifier   = -20;
-		af.bitvector = 0;
-		affect_to_char(gch, &af);
-
-		char_puts("You are surrounded by a force shield.\n",gch);
-		if(ch != gch)
-			act("$N is surrounded by a force shield.",
-				ch, NULL, gch, TO_CHAR);
+			char_puts("You are surrounded by a force shield.\n",gch);
+			if(ch != gch)
+				act("$N is surrounded by a force shield.",
+					ch, NULL, gch, TO_CHAR);
+		}
 	}
 }
 
@@ -3055,6 +3059,13 @@ void spell_inspire(int sn, int level, CHAR_DATA *ch, void *vo)
 	{
 		if(!is_same_group(gch, ch))
 			continue;
+		if (spellbane(gch, ch, 100, dice(3, LEVEL(gch)))) {
+			if (IS_EXTRACTED(ch))
+				return;
+			else
+				continue;
+		}
+			
 		if (is_affected(gch, bless_sn))
 		{
 		  if(gch == ch)
@@ -3089,8 +3100,13 @@ void spell_mass_sanctuary(int sn, int level, CHAR_DATA *ch, void *vo)
 	CHAR_DATA *gch;
 
 	for (gch = ch->in_room->people; gch; gch = gch->next_in_room) {
-		if (is_same_group(ch, gch))
-			spellfun_call("sanctuary", level, ch, gch);
+		if (is_same_group(ch, gch)) {
+			if (!spellbane(gch, ch, 100, dice(3, LEVEL(gch)))) 
+				spellfun_call("sanctuary", level, ch, gch);
+			else
+				if(IS_EXTRACTED(ch))
+					return;
+		}
 	}
 }
 
@@ -4186,7 +4202,7 @@ void spell_group_heal(int sn, int level, CHAR_DATA *ch, void *vo)
 	CHAR_DATA *gch;
 
 	for (gch = ch->in_room->people; gch != NULL; gch = gch->next_in_room) {
-		if (is_same_group(ch, gch)) {
+		if (is_same_group(ch, gch) && !HAS_SKILL(gch, gsn_spellbane)) {
 			spellfun_call("master healing", level, ch, gch);
 			spellfun_call("refresh", level, ch, gch);
 		}

@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.172 1999-07-01 11:20:05 fjoe Exp $
+ * $Id: spellfun.c,v 1.173 1999-07-08 05:11:27 kostik Exp $
  */
 
 /***************************************************************************
@@ -3044,6 +3044,12 @@ void spell_mass_invis(int sn, int level, CHAR_DATA *ch, void *vo)
 	{
 		if (!is_same_group(gch, ch) || IS_AFFECTED(gch, AFF_INVIS))
 		    continue;
+		if (spellbane(gch, ch, 100, dice(2, LEVEL(gch)))) {
+			if (IS_EXTRACTED(ch)) 
+				return;
+			else 
+				continue;
+		}
 		act("$n slowly fades out of existence.", gch, NULL, NULL, TO_ROOM);
 		char_puts("You slowly fade out of existence.\n", gch);
 
