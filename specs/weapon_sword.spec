@@ -1,6 +1,7 @@
 #SPEC
 Name weapon_sword~
 Class weapon
+Trigger spec_weapon~
 End
 
 #SKILL

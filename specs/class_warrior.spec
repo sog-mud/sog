@@ -1,6 +1,7 @@
 #SPEC
 Name class_warrior~
 Class class
+Trigger spec_class_warrior~
 End
 
 #SKILL

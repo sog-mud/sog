@@ -1,6 +1,7 @@
 #SPEC
 Name minor_illusion~
 Class minor_school
+Trigger spec_minor_illusion~
 End
 
 #SKILL

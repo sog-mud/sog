@@ -1,6 +1,7 @@
 #SPEC
 Name major_charm~
 Class major_school
+Trigger spec_major_charm~
 End
 
 #SKILL

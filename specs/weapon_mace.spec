@@ -1,6 +1,7 @@
 #SPEC
 Name weapon_mace~
 Class weapon
+Trigger spec_weapon~
 End
 
 #SKILL

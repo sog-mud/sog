@@ -1,6 +1,7 @@
 #SPEC
 Name major_invocation~
 Class major_school
+Trigger spec_major_invocation~
 End
 
 #SKILL

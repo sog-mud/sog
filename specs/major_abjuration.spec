@@ -1,6 +1,7 @@
 #SPEC
 Name major_abjuration~
 Class major_school
+Trigger spec_major_abjuration~
 End
 
 #SKILL

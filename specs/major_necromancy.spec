@@ -1,6 +1,7 @@
 #SPEC
 Name major_necromancy~
 Class major_school
+Trigger spec_major_necromancy~
 End
 
 #SKILL

@@ -1,6 +1,7 @@
 #SPEC
 Name minor_alteration~
 Class minor_school
+Trigger spec_minor_alteration~
 End
 
 #SKILL

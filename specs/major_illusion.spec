@@ -1,6 +1,7 @@
 #SPEC
 Name major_illusion~
 Class major_school
+Trigger spec_major_illusion~
 End
 
 #SKILL

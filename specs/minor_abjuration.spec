@@ -1,6 +1,7 @@
 #SPEC
 Name minor_abjuration~
 Class minor_school
+Trigger spec_minor_abjuration~
 End
 
 #SKILL

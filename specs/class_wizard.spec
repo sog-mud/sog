@@ -1,6 +1,7 @@
 #SPEC
 Name class_wizard~
 Class class
+Trigger spec_class_wizard~
 End
 
 #SKILL

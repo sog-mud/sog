@@ -1,6 +1,7 @@
 #SPEC
 Name minor_invocation~
 Class minor_school
+Trigger spec_minor_invocation~
 End
 
 #SKILL

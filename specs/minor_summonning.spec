@@ -1,6 +1,7 @@
 #SPEC
 Name minor_summonning~
 Class minor_school
+Trigger spec_minor_summoning~
 End
 
 #SKILL

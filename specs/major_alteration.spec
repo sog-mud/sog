@@ -1,6 +1,7 @@
 #SPEC
 Name major_alteration~
 Class major_school
+Trigger spec_major_alteration~
 End
 
 #SKILL

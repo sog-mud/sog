@@ -1,6 +1,7 @@
 #SPEC
 Name minor_necromancy~
 Class minor_school
+Trigger spec_minor_necromancy~
 End
 
 #SKILL
