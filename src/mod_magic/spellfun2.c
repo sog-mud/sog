@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.139.2.15 2000-04-04 06:12:25 osya Exp $
+ * $Id: spellfun2.c,v 1.139.2.16 2000-04-17 06:55:08 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1703,7 +1703,8 @@ void spell_blue_dragon(int sn, int level, CHAR_DATA *ch, void *vo)
 	
 	race = rn_lookup("blue dragon");
 
-	PC(ch)->form_name = "blue dragon";
+	free_string(PC(ch)->form_name);
+	PC(ch)->form_name = str_dup("blue dragon");
 
 	act("$n turns $self into blue dragon.", ch, NULL, NULL, TO_ROOM);
 	act("You turn yourself into blue dragon.", ch, NULL, NULL, TO_CHAR);
@@ -1747,7 +1748,8 @@ void spell_green_dragon(int sn, int level, CHAR_DATA *ch, void *vo)
 	
 	race = rn_lookup("green dragon");
 
-	PC(ch)->form_name = "green dragon";
+	free_string(PC(ch)->form_name);
+	PC(ch)->form_name = str_dup("green dragon");
 
 	act("$n turns $self into green dragon.", ch, NULL, NULL, TO_ROOM);
 	act("You turn yourself into green dragon.", ch, NULL, NULL, TO_CHAR);
@@ -1790,7 +1792,8 @@ void spell_white_dragon(int sn, int level, CHAR_DATA *ch, void *vo)
 	
 	race = rn_lookup("white dragon");
 
-	PC(ch)->form_name = "white dragon";
+	free_string(PC(ch)->form_name);
+	PC(ch)->form_name = str_dup("white dragon");
 
 	act("$n turns $self into white dragon.", ch, NULL, NULL, TO_ROOM);
 	act("You turn yourself into white dragon.", ch, NULL, NULL, TO_CHAR);
@@ -1834,7 +1837,8 @@ void spell_black_dragon(int sn, int level, CHAR_DATA *ch, void *vo)
 	
 	race = rn_lookup("black dragon");
 
-	PC(ch)->form_name = "black dragon";
+	free_string(PC(ch)->form_name);
+	PC(ch)->form_name = str_dup("black dragon");
 
 	act("$n turns $self into black dragon.", ch, NULL, NULL, TO_ROOM);
 	act("You turn yourself into black dragon.", ch, NULL, NULL, TO_CHAR);
@@ -1877,7 +1881,8 @@ void spell_red_dragon(int sn, int level, CHAR_DATA *ch, void *vo)
 	
 	race = rn_lookup("red dragon");
 
-	PC(ch)->form_name = "red dragon";
+	free_string(PC(ch)->form_name);
+	PC(ch)->form_name = str_dup("red dragon");
 
 	act("$n turns $self into red dragon.", ch, NULL, NULL, TO_ROOM);
 	act("You turn yourself into red dragon.", ch, NULL, NULL, TO_CHAR);

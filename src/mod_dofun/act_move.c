@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.202.2.5 2000-04-14 12:40:31 fjoe Exp $
+ * $Id: act_move.c,v 1.202.2.6 2000-04-17 06:54:33 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1616,7 +1616,8 @@ void do_vampire(CHAR_DATA *ch, const char *argument)
 	af.bitvector = AFF_SNEAK | AFF_FLYING | AFF_INFRARED | AFF_TURNED;
 	affect_to_char(ch, &af);
 	
-	PC(ch)->form_name = "an ugly creature";
+	free_string(PC(ch)->form_name);
+	PC(ch)->form_name = str_dup("an ugly creature");
 }
 
 void do_vbite(CHAR_DATA *ch, const char *argument)
