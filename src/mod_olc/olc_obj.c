@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_obj.c,v 1.25 1998-12-23 16:11:21 fjoe Exp $
+ * $Id: olc_obj.c,v 1.26 1998-12-26 08:43:33 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -1427,25 +1427,6 @@ void show_liqlist(CHAR_DATA *ch)
 	}
 
 	page_to_char(buf_string(buffer), ch);
-	buf_free(buffer);
-}
-
-void show_damlist(CHAR_DATA *ch)
-{
-	int att;
-	BUFFER *buffer;
-	
-	buffer = buf_new(-1);
-	
-	for (att = 0; attack_table[att].name != NULL; att++) {
-		if ((att % 21) == 0)
-			buf_add(buffer,"Name                 Noun\n");
-
-		buf_printf(buffer, "%-20s %-20s\n",
-			attack_table[att].name,attack_table[att].noun);
-	}
-
-	page_to_char(buf_string(buffer),ch);
 	buf_free(buffer);
 }
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_mob.c,v 1.26 1998-12-23 16:11:20 fjoe Exp $
+ * $Id: olc_mob.c,v 1.27 1998-12-26 08:43:32 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -479,18 +479,32 @@ OLC_FUN(mobed_spec)
 
 OLC_FUN(mobed_damtype)
 {
+	char arg[MAX_INPUT_LENGTH];
+	int dt;
 	MOB_INDEX_DATA *pMob;
-
 	EDIT_MOB(ch, pMob);
 
-	if (argument[0] == '\0')
-	{
-		char_puts("Syntax:  damtype [damage message]\n", ch);
-		char_puts("Para ver una lista de tipos de mensajes, pon '? weapon'.\n", ch);
+	one_argument(argument, arg);
+	if (arg[0] == '\0') {
+		char_puts("Syntax: damtype [damage message]\n", ch);
+		char_puts("Syntax: damtype ?\n", ch);
 		return FALSE;
 	}
 
-	pMob->dam_type = attack_lookup(argument);
+	if (!str_cmp(arg, "?")) {
+		BUFFER *output = buf_new(-1);
+		show_attack_types(output);
+		page_to_char(buf_string(output), ch);
+		buf_free(output);
+		return FALSE;
+	}
+
+	if ((dt = attack_lookup(arg)) < 0) {
+		char_printf(ch, "MobEd: %s: unknown damtype.\n", arg);
+		return FALSE;
+	}
+
+	pMob->dam_type = dt;
 	char_puts("Damage type set.\n", ch);
 	return TRUE;
 }
