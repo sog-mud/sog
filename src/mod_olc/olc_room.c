@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.28 1998-12-03 14:08:23 fjoe Exp $
+ * $Id: olc_room.c,v 1.29 1998-12-10 13:52:17 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -1418,20 +1418,20 @@ void do_resets(CHAR_DATA *ch, const char *argument)
 		 * Into a Mobile's inventory.
 		 * --------------------------
 		 */
-			int loc = WEAR_NONE;
-			int vnum;
+		    int loc = WEAR_NONE;
+		    int vnum;
 
 		    if (str_prefix(arg4, "none")
 		    &&  str_prefix(arg4, "inventory")
-		    &&  flag_value(wear_loc_flags, arg4) < 0) {
+		    &&  (loc = flag_value(wear_loc_flags, arg4)) < 0) {
 				show_flags(ch, wear_loc_flags);
 				return;
 		    }
-		    if (get_obj_index(vnum = atoi(arg3)) == NULL)
-		      {
+
+		    if (get_obj_index(vnum = atoi(arg3)) == NULL) {
 		         char_puts("Vnum no existe.\n",ch);
 		         return;
-		      }
+		    }
 		    pReset->arg1 = vnum;
 		    pReset->arg3 = loc;
 		    if (pReset->arg3 == WEAR_NONE)
