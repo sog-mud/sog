@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.c,v 1.66.2.1 2000-04-04 05:42:20 fjoe Exp $
+ * $Id: obj_prog.c,v 1.66.2.2 2000-04-06 05:28:39 fjoe Exp $
  */
 
 /***************************************************************************
@@ -378,6 +378,7 @@ bool death_prog_excalibur(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 		act_puts("$p starts to glow with a blue aura.",ch,obj,NULL,TO_CHAR,POS_DEAD);
 		act("$p starts to glow with a blue aura,",ch,obj,NULL,TO_ROOM);
 		ch->hit = ch->max_hit;
+		update_pos(ch);
 		char_puts("You feel much better.",ch);
 		act("$n looks much better.",ch,NULL,NULL,TO_ROOM);
 		return TRUE;
@@ -985,6 +986,7 @@ bool death_prog_golden_weapon(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 	act("$n's golden weapon disappears.",ch,NULL,NULL,TO_ROOM);
 	extract_obj(obj, 0);
 	ch->hit = 1;
+	update_pos(ch);
 	while (ch->affected)
 		affect_remove(ch, ch->affected);
 	RESET_FIGHT_TIME(ch);

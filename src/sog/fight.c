@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.202.2.7 2000-04-05 14:23:55 osya Exp $
+ * $Id: fight.c,v 1.202.2.8 2000-04-06 05:28:35 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1109,7 +1109,7 @@ void handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
 	 * Death trigger
 	 */
 	if (vnpc && HAS_TRIGGER(victim, TRIG_DEATH)) {
-		update_pos(victim);
+		victim->position = POS_STANDING;
 		mp_percent_trigger(victim, ch, NULL, NULL, TRIG_DEATH);
 	}
 
@@ -1118,7 +1118,7 @@ void handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
 	 */
 	corpse = raw_kill(ch, victim);
 
-	if (!IS_NPC(ch) && vnpc && vroom == ch->in_room &&  corpse) {
+	if (!IS_NPC(ch) && vnpc && vroom == ch->in_room && corpse) {
 		flag32_t plr_flags = PC(ch)->plr_flags;
 
 		if (IS_VAMPIRE(ch) && !IS_IMMORTAL(ch)) {
@@ -1989,17 +1989,17 @@ make_corpse(CHAR_DATA *ch, CHAR_DATA *killer)
 		mlstr_cpy(&corpse->owner, &ch->short_descr);
 		corpse->level = ch->level;
 	}
+
 	ch->gold = 0;
 	ch->silver = 0;
-
 
 	for (obj = ch->carrying; obj != NULL; obj = obj_next) {
 		obj_next = obj->next_content;
 		obj_from_char(obj);
-		if ( killer != NULL
-		&& !IS_IMMORTAL(killer)
-		&& (90 + ch->level - killer->level) < number_percent()) {
-			act("$p cracks and shaters into tiny pieces.", ch, obj, NULL, TO_ROOM);
+		if (killer != NULL
+		&&  !IS_IMMORTAL(killer)
+		&&  (90 + ch->level - killer->level) < number_percent()) {
+			act("$p cracks and shatters into tiny pieces.", ch, obj, NULL, TO_ROOM);
 			extract_obj(obj, 0);
 			continue;
 		}
@@ -2022,11 +2022,10 @@ make_corpse(CHAR_DATA *ch, CHAR_DATA *killer)
 		    extract_obj(obj, 0);
 		    continue;
 		  }
-		else if (IS_SET(ch->form,FORM_INSTANT_DECAY))
-		  obj_to_room(obj, ch->in_room);
-
-		else
+		else if (corpse != NULL)
 		  obj_to_obj(obj, corpse);
+		else
+		  obj_to_room(obj, ch->in_room);
 	}
 
 	if (corpse) 
@@ -2173,10 +2172,8 @@ raw_kill(CHAR_DATA *ch, CHAR_DATA *victim)
 	for (obj = victim->carrying; obj != NULL; obj = obj_next) {
 		obj_next = obj->next_content;
 		if (obj->wear_loc != WEAR_NONE
-		&&  oprog_call(OPROG_DEATH, obj, victim, NULL)) {
-			update_pos(victim);
+		&&  oprog_call(OPROG_DEATH, obj, victim, NULL))
 			return NULL;
-		}
 	}
 
 	if (IS_NPC(victim))
