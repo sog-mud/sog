@@ -1,5 +1,5 @@
 /*
- * $Id: olc_save.c,v 1.24 1998-09-01 18:38:09 fjoe Exp $
+ * $Id: olc_save.c,v 1.25 1998-09-17 13:34:34 fjoe Exp $
  */
 
 /**************************************************************************
@@ -907,9 +907,10 @@ void save_area(AREA_DATA *pArea)
 	int flags;
 
 	fclose(fpReserve);
-	if (!(fp = dfopen(AREA_PATH, pArea->file_name, "w"))) {
+	if ((fp = dfopen(AREA_PATH, pArea->file_name, "w")) == NULL) {
 		bug("Open_area: fopen", 0);
 		perror(pArea->file_name);
+		return;
 	}
 
 	fprintf(fp, "#AREADATA\n");
