@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.139.2.60 2002-12-03 16:57:40 tatyana Exp $
+ * $Id: spellfun2.c,v 1.139.2.61 2003-03-04 13:05:51 tatyana Exp $
  */
 
 /***************************************************************************
@@ -231,6 +231,11 @@ void spell_disintegrate(int sn, int level, CHAR_DATA *ch, void *vo)
 	
 	rating_update(ch, victim);
 	extract_char(victim, XC_F_INCOMPLETE);
+
+	free_string(PC(victim)->form_name);
+	PC(victim)->form_name = str_printf("the ghost of %s", victim->name);
+
+	SET_BIT(PC(victim)->plr_flags, PLR_GHOST);
 
 	while (victim->affected)
 		affect_remove(victim, victim->affected);
@@ -5996,6 +6001,10 @@ void spell_abolish_undead(int sn, int level, CHAR_DATA *ch, void *vo)
         }
         extract_char(victim, XC_F_INCOMPLETE);
 
+	free_string(PC(victim)->form_name);
+	PC(victim)->form_name = str_printf("the ghost of %s", victim->name);
+
+	SET_BIT(PC(victim)->plr_flags, PLR_GHOST);
         while (victim->affected)
                 affect_remove(victim, victim->affected);
         victim->affected_by	= 0;
