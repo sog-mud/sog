@@ -1684,7 +1684,7 @@ A
 G male
 #36333
 belt shoulder перевязь~
-@eng shoulder belt@rus {Mперевязь {z~
+@eng shoulder belt@rus {M~~перевязь~~{x~
 @eng A strip of leather is here.@rus Кожаная лента (belt) лежит тут.~
 hard leather~
 container GY AL
@@ -7131,7 +7131,7 @@ O 36319 3	* illusory longsword
 O 36320 3	* silver arrow
 O 36330 3	* some moccasins
 O 36344 1	* Grand Prize
-O 36439 1	* A pair of heavy iron foot shackles
+O 36439 0	* A pair of heavy iron foot shackles
 S
 
 #MOBPROGS

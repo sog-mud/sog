@@ -5613,6 +5613,7 @@ Thanks to ...
                       ::                `                '     `
 ~
 -2 MOTD~
+* {RPLEASE, DO NOT PING cs.nstu.ru.{x
 * This is a Roleplaying, PlayerKilling and Adventure MUD.
 * You are responsible for knowing the rules (type 'rules').  Ignorance of 
   the rules is no excuse.
@@ -5625,6 +5626,7 @@ Thanks to ...
   and suggestions.
 * Players who use russian codepages, see '{CHELP RUSSIAN{x'.
 * Check out our homepage at {Chttp://iclub.nsu.ru/mud/{x.
+* {RAgain, DO NOT PING cs.nstu.ru.{x
 ~
 92 IMOTD~
 @eng Welcome Immortal!
