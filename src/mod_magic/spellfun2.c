@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.139.2.19 2000-04-18 08:10:00 osya Exp $
+ * $Id: spellfun2.c,v 1.139.2.20 2000-04-22 02:58:56 osya Exp $
  */
 
 /***************************************************************************
@@ -1110,7 +1110,24 @@ void spell_chaos_blade(int sn, int level, CHAR_DATA *ch, void *vo)
 	blade->level = level;
 	blade->timer = level * 2;
 	blade->value[2] = (level / 10) + 3;  
-
+	
+	switch(dice(1, 5)) {
+		case 0: /* exotic */
+			blade->value[0] = WEAPON_EXOTIC;
+			break;	
+		case 1: /* mace */
+			blade->value[0] = WEAPON_MACE;
+			break;
+		case 2: /* polearm */
+			blade->value[0] = WEAPON_POLEARM;
+			break;
+		case 3: /* sword */
+			blade->value[0] = WEAPON_SWORD;
+			break;
+		case 4: /* dagger */
+			blade->value[0] = WEAPON_DAGGER;
+			break;
+	}
 	char_puts("You create a blade of chaos!\n",ch);
 	act("$n creates a blade of chaos!",ch,NULL,NULL,TO_ROOM);
 

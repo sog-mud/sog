@@ -1,5 +1,5 @@
 /*
- * $Id: special.c,v 1.54.2.1 2000-03-21 07:28:42 osya Exp $
+ * $Id: special.c,v 1.54.2.2 2000-04-22 02:59:00 osya Exp $
  */
 
 /***************************************************************************
@@ -549,8 +549,8 @@ bool spec_cast_mage(CHAR_DATA *ch)
 		case  1: min_level =  3; spell = "chill touch";    break;
 		case  2: min_level =  7; spell = "weaken";         break;
 		case  3: min_level =  8; spell = "teleport";       break;
-		case  4: min_level = 11; spell = "colour spray";   break;
-		case  5: min_level = 12; spell = "change sex";     break;
+		case  4: min_level = 11; spell = "mana drain";   break;
+		case  5: min_level = 12; spell = "draining touch";     break;
 		case  6: min_level = 13; spell = "energy drain";   break;
 		case  7:
 		case  8:
