@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.65 1998-06-10 11:36:27 efdi Exp $
+ * $Id: act_info.c,v 1.66 1998-06-11 11:45:52 efdi Exp $
  */
 
 /***************************************************************************
@@ -2689,7 +2689,8 @@ void do_scan(CHAR_DATA *ch, char *argument)
 		if (!to_room)
 			return;
 
-		if (IS_SET(exit->exit_info,EX_CLOSED)) {
+		if (IS_SET(exit->exit_info,EX_CLOSED)
+		&&  can_see_room(ch,exit->u1.to_room)) {
 			send_to_char(msg(MOVE_SCAN_DOOR_CLOSED, ch), ch);
 			return;
 		}

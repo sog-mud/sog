@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.47 1998-06-07 07:15:38 fjoe Exp $
+ * $Id: act_move.c,v 1.48 1998-06-11 11:45:53 efdi Exp $
  */
 
 /***************************************************************************
@@ -596,7 +596,7 @@ void do_scan2(CHAR_DATA *ch, char *argument)
 	scan_list(ch->in_room, ch, 0, -1);
 	for (door = 0; door < 6; door++) {
 		if ((pExit = ch->in_room->exit[door]) == NULL
-		     || pExit->u1.to_room == NULL)
+		|| !can_see_room(ch,pExit->u1.to_room))
 			continue;
 		char_printf(ch, "{C%s{x:\n\r", dir_name[door]);
 		if (IS_SET(pExit->exit_info, EX_CLOSED)) {
