@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.271.2.39 2001-09-15 19:26:09 fjoe Exp $
+ * $Id: act_info.c,v 1.271.2.40 2001-10-25 18:53:07 tatyana Exp $
  */
 
 /***************************************************************************
@@ -4173,6 +4173,12 @@ static void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 			char_puts("({DBlack Aura{x) ", ch);
 		if (is_affected(victim, gsn_golden_aura))
 			char_puts("({YGolden aura{x) ", ch);
+		if (is_affected(victim, gsn_shadow_cloak))
+			char_puts("({DShadowy{x) ", ch);
+		if (is_affected(victim, gsn_shield_of_law))
+			char_puts("({CCyan Aura{x) ", ch);
+		if (is_affected(victim, gsn_prismatic_sphere))
+			char_puts("({BBlue Aura{x) ", ch);
 		if (IS_AFFECTED(victim, AFF_FADE))
 			char_puts("({yFade{x) ", ch);
 		if (IS_AFFECTED(victim, AFF_CAMOUFLAGE))
@@ -4187,7 +4193,7 @@ static void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 			act_puts("({c$T{x) ", ch, NULL, race_name(victim->race), TO_CHAR | ACT_NOLF, POS_DEAD);
 	}
 	else {
-		static char FLAGS[] = "{x[{y.{D.{m.{c.{M.{D.{G.{b.{x.{Y.{W.{y.{g.{g.{x.{x";
+		static char FLAGS[] = "{x[{y.{D.{m.{c.{M.{D.{G.{b.{x.{x.{W.{y.{g.{g.{x.{x";
 		char buf[sizeof(FLAGS)];
 		bool diff;
 
@@ -4209,7 +4215,20 @@ static void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 			FLAG_SET(28, 'W', TRUE);
 			FLAG_SET(29, 'G', TRUE);
 		}
-		FLAG_SET(32, 'G', is_affected(victim, gsn_golden_aura));
+
+		if (is_affected(victim, gsn_golden_aura)) {
+			FLAG_SET(31, 'Y', TRUE);
+			FLAG_SET(32, 'G', TRUE);
+		} else if (is_affected(victim, gsn_shadow_cloak)) {
+			FLAG_SET(31, 'D', TRUE);
+			FLAG_SET(32, 'S', TRUE);
+		} else if (is_affected(victim, gsn_shield_of_law)){
+			FLAG_SET(31, 'C', TRUE);
+			FLAG_SET(32, 'L', TRUE);
+		} else if (is_affected(victim, gsn_prismatic_sphere)){
+			FLAG_SET(31, 'B', TRUE);
+			FLAG_SET(32, 'P', TRUE);
+		}
 
 		if (IS_AFFECTED(victim, AFF_SANCTUARY)) {
 			FLAG_SET(35, 'S', TRUE);

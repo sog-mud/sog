@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.202.2.37 2001-09-09 08:26:36 kostik Exp $
+ * $Id: fight.c,v 1.202.2.38 2001-10-25 18:53:11 tatyana Exp $
  */
 
 /***************************************************************************
@@ -1384,6 +1384,19 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim,
 			dam -= dam / 5;
 		else
 			dam -= dam / 10;
+	}
+
+	if (is_affected(victim, gsn_shadow_cloak))
+		dam -= dam/8;
+
+	if (is_affected(victim, gsn_prismatic_sphere))
+		dam -= dam/6;
+
+	if (is_affected(victim, gsn_shield_of_law)) {
+		if (ch->ethos == ETHOS_CHAOTIC)
+			dam -= dam/4;
+		else
+			dam -= dam/8;
 	}
 
 	if (is_affected(victim,gsn_resistance))

@@ -23,7 +23,7 @@
 * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
 * SUCH DAMAGE.
 *
-* $Id: gsn.h,v 1.30.2.11 2001-05-22 18:56:16 kostik Exp $
+* $Id: gsn.h,v 1.30.2.12 2001-10-25 18:53:05 tatyana Exp $
 */
 
 #ifndef _GSN_H_
@@ -257,6 +257,9 @@ extern int gsn_ice_sphere;
 extern int gsn_fire_sphere;
 extern int gsn_blur;
 extern int gsn_golden_aura;
+extern int gsn_shadow_cloak;
+extern int gsn_shield_of_law;
+extern int gsn_prismatic_sphere;
 
 extern int gsn_qtarget;
 

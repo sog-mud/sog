@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.139.2.46 2001-10-14 19:18:09 fjoe Exp $
+ * $Id: spellfun2.c,v 1.139.2.47 2001-10-25 18:53:09 tatyana Exp $
  */
 
 /***************************************************************************
@@ -823,32 +823,74 @@ void spell_shadow_cloak(int sn, int level, CHAR_DATA *ch, void *vo)
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA af;
 
-	if (ch->clan != victim->clan)
-	  {
-	char_puts("You may only use this spell on fellow clan members.\n",ch);
-	return;
-	  }
-
-	if (is_affected(victim, sn))
-	{
-	if (victim == ch)
-	  char_puts("You are already protected by a shadow cloak.\n",ch);
-	else
-	  act("$N is already protected by a shadow cloak.",ch,NULL,victim,TO_CHAR);
-	return;
+	if (ch->clan != victim->clan) {
+		char_puts("You may only use this spell on fellow clan members.\n", ch);
+		return;
 	}
 
-	af.where	 = TO_AFFECTS;
-	af.type      = sn;
-	af.level	 = level;
-	af.duration  = 24;
-	af.modifier  = -level;
-	af.location  = APPLY_AC;
-	af.bitvector = 0;
+	if (!IS_EVIL(victim)) {
+		if (ch == victim)
+			char_puts("Shadows do not wish to protect you.\n", ch);
+		else {
+			act("Shadows do not wish to protect $N.",
+			    ch, NULL, victim, TO_CHAR);
+		}
+		return;
+	}
+		
+	if (is_affected(victim, gsn_shadow_cloak)) {
+		if (victim == ch)
+	  		char_puts("You are already protected by a cloak of shadows.\n", ch);
+		else {
+	  		act("$N is already protected by a cloak of shadows.",
+			    ch, NULL, victim, TO_CHAR);
+		}
+		return;
+	}
+
+	if (is_affected(victim, gsn_shield_of_law)) {
+		if (victim != ch) {
+			act("$N is protected by shield of law. It and cloak of"
+			    " shadows can't be used in the same time.",
+			    ch, NULL, victim, TO_CHAR);
+		} else {
+			act("Cloak of shadows and shield of law can't be used"
+			    " in the same time.",
+			    ch, NULL, NULL, TO_CHAR);
+		}
+		return;
+	}
+
+	if (is_affected(victim, gsn_prismatic_sphere)) {
+		if (victim != ch) {
+			act("$N is protected by prismatic sphere It and cloak"
+			    " of shadows can't be used in the same time.",
+			    ch, NULL, victim, TO_CHAR);
+		} else {
+			act("Cloak of shadows and prismatic sphere can't be"
+			    " used in the same time.",
+			    ch, NULL, NULL, TO_CHAR);
+		}
+		return;
+	}
+
+	af.where	= TO_AFFECTS;
+	af.type      	= sn;
+	af.level	= level;
+	af.duration	= 1 + level/5;
+	af.modifier	= -level;
+	af.location	= APPLY_AC;
+	af.bitvector	= 0;
 	affect_to_char(victim, &af);
+
+	af.modifier = -UMAX(1, level/8);
+	af.location = APPLY_SAVING_SPELL;
+	affect_to_char(victim, &af);
+
 	char_puts("You feel the shadows protect you.\n", victim);
 	if (ch != victim)
-	act("A cloak of shadows protect $N.",ch,NULL,victim,TO_CHAR);
+		act("A cloak of shadows protects $N.",
+		    ch, NULL, victim, TO_CHAR);
 }
 	
 void spell_nightfall(int sn, int level, CHAR_DATA *ch, void *vo)
@@ -1684,17 +1726,45 @@ void spell_golden_aura(int sn, int level, CHAR_DATA *ch, void *vo)
 				act("$N is already protected by a golden aura.",ch,NULL,vch,TO_CHAR);
 			continue;
 		}
+
+		if (is_affected(vch, gsn_prismatic_sphere)) {
+			if (vch != ch) {
+				act("$N is protected by prismatic sphere. It"
+				    " and golden aura can't be used in the "
+				    "same time.", ch, NULL, vch, TO_CHAR); 
+			} else {
+				act("Golden aura and prismatic sphere can't "
+				    "be used in the same time.",
+				    ch, NULL, NULL, TO_CHAR);
+			}
+			continue;
+		}
+
+		if (is_affected(vch, gsn_shield_of_law)) {
+			if (vch != ch) {
+				act("$N is protected by shield of law. It"
+				    " and golden aura can't be used in the "
+				    "same time.", ch, NULL, vch, TO_CHAR); 
+			} else {
+				act("Golden aura and shield of law can't "
+				    "be used in the same time.",
+				    ch, NULL, NULL, TO_CHAR);
+			}
+			continue;
+		}
+
+
 		af.where	= TO_AFFECTS;
 		af.type		= sn;
 		af.level	= level;
-		af.duration	= 6 + level;
+		af.duration	= 1 + level/5;
 
-		af.modifier = level/8;
+		af.modifier = UMAX(1, level/8);
 		af.location = APPLY_HITROLL;
 		af.bitvector = 0;
 		affect_to_char(vch, &af);
 
-		af.modifier = 0 - level/8;
+		af.modifier = -UMAX(1, level/8);
 		af.location = APPLY_SAVING_SPELL;
 		affect_to_char(vch, &af);
 
@@ -6033,4 +6103,160 @@ void spell_freeze_decay(int sn, int level,CHAR_DATA *ch, void *vo)
 	obj->timer = level * 2;
 
 	act("You slow down $p's decay.", ch, obj, NULL, TO_CHAR);
+}
+
+void
+spell_shield_of_law(int sn, int level, CHAR_DATA *ch, void *vo)
+{
+
+	AFFECT_DATA af;
+	CHAR_DATA *victim = (CHAR_DATA *) vo;
+
+	if (victim->ethos != ETHOS_LAWFUL) {
+		act("Shield of law is only for lawful characters.",
+		    ch, NULL, NULL, TO_CHAR);
+		return;
+	}
+
+	if (is_affected(victim, sn)) {
+		if (ch == victim) {
+			act("You are already protected by shield of law.",
+			    ch, NULL, NULL, TO_CHAR);
+		} else {
+			act("$N is already protected by shield of law.",
+			    ch, NULL, victim, TO_CHAR);
+		}
+		return;
+	}
+
+	if (is_affected(victim, gsn_prismatic_sphere)) {
+		if (ch != victim) {
+			act("$N is protected by prismatic sphere. It and "
+			    "shield of law can't be used in the same time.",
+		    	    ch, NULL, victim, TO_CHAR);
+		} else {
+			act("Shield of law and prismatic sphere can't be"
+			    " used in the same time.",
+			    ch, NULL, NULL, TO_CHAR);
+		}
+		return;
+	}
+
+	if (is_affected(victim, gsn_shadow_cloak)) {
+		if (ch != victim) {
+			act("$N is protected by cloak of shadows. It and shield"
+		    	    " of law can't be used in the same time.",
+		    	    ch, NULL, victim, TO_CHAR);
+		} else {
+			act("Shield of law and cloak of shadows can't be"
+			    " used in the same time.",
+			    ch, NULL, NULL, TO_CHAR);
+		}
+		return;
+	}
+
+	if (is_affected(victim, gsn_golden_aura)) {
+		if (ch != victim) {
+			act("$N is protected by golden aura. It and shield"
+			    " of law can't be used in the same time.",
+			     ch, NULL, victim, TO_CHAR);
+		} else {
+			act("Shiled of law and golden aura can't be used"
+			    " in the same time.",
+			    ch, NULL, NULL, TO_CHAR);	
+		}
+		return;
+	}
+
+	af.where	= TO_AFFECTS;
+	af.type		= sn;
+	af.level	= level;
+	af.duration	= 1 + level/10;
+	af.bitvector	= 0;
+
+	af.modifier = UMAX(1, level/8);
+	af.location = APPLY_HITROLL;
+	affect_to_char(victim, &af);
+
+	af.modifier = -UMAX(1, level/8);
+	af.location = APPLY_SAVING_SPELL;
+	affect_to_char(victim, &af);
+
+	act("A brightly, blue glow surrounds you, protecting from Chaos.",
+ 	    victim, NULL, NULL, TO_CHAR);
+	act("A brightly, blue glow surrounds $n, protecting $gn{him}.",
+	    victim, NULL, NULL, TO_ROOM);
+}
+
+void
+spell_prismatic_sphere(int sn, int level, CHAR_DATA *ch, void *vo)
+{
+
+	AFFECT_DATA af;
+	CHAR_DATA *victim = (CHAR_DATA *) vo;
+
+	if (is_affected(victim, sn)) {
+		if (ch == victim) {
+			act("You are already protected by prismatic sphere.",
+			    ch, NULL, NULL, TO_CHAR);
+		} else {
+			act("$N is already protected by prismatic sphere.",
+			    ch, NULL, victim, TO_CHAR);
+		}
+		return;
+	}
+
+	if (is_affected(victim, gsn_golden_aura)) {
+		if (ch != victim) {
+			act("$N is protected by golden aura. It and prismatic"
+			    " sphere can't be used in the same time.",
+			    ch, NULL, victim, TO_CHAR);
+		} else {
+			act("Prismatic sphere and golden aura can't be used "
+			    "in the same time.", ch, NULL, NULL, TO_CHAR);
+		}
+		return;
+	}
+
+	if (is_affected(victim, gsn_shadow_cloak)) {
+		if (ch != victim) {
+			act("$N is protected by cloak of shadows. It and "
+			    "prismatic sphere can't be used in the same time.",
+			    ch, NULL, victim, TO_CHAR);
+		} else {
+			act("Prismatic sphere and cloak of shadows can't be "
+			    "used in the same time.", ch, NULL, NULL, TO_CHAR);
+		}
+		return;
+	}
+
+	if (is_affected(victim, gsn_shield_of_law)) {
+		if (ch != victim) {
+			act("$N is protected by shield of law. It and "
+			    "prismatic sphere can't be used in the same time.",
+			    ch, NULL, victim, TO_CHAR);
+		} else {
+			act("Prismatic sphere and shield of law can't be "
+			    "used in the same time.", ch, NULL, NULL, TO_CHAR);
+		}
+		return;
+	}
+
+	af.where	= TO_AFFECTS;
+	af.type		= sn;
+	af.level	= level;
+	af.duration	= 1 + level/10;
+	af.bitvector	= 0;
+
+	af.modifier = UMAX(1, level/7);
+	af.location = APPLY_HITROLL;
+	affect_to_char(victim, &af);
+
+	af.modifier = -UMAX(1, level/7);
+	af.location = APPLY_SAVING_SPELL;
+	affect_to_char(victim, &af);
+
+	char_puts("The blue-green sphere surrounds you.\n", victim);
+	act("The blue-green sphere surrounds $n.", victim, NULL, NULL, TO_ROOM);
+
 }

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: gsn.c,v 1.32.2.12 2001-05-22 18:56:23 kostik Exp $
+ * $Id: gsn.c,v 1.32.2.13 2001-10-25 18:53:12 tatyana Exp $
  */
 
 #include <stdio.h>
@@ -254,6 +254,9 @@ int gsn_ice_sphere;
 int gsn_fire_sphere;
 int gsn_blur;
 int gsn_golden_aura;
+int gsn_shadow_cloak;
+int gsn_shield_of_law;
+int gsn_prismatic_sphere;
 
 /* special gsns */
 int gsn_qtarget;
@@ -475,6 +478,9 @@ namedp_t gsn_table[] =
 	{ "gsn_fire_sphere",            &gsn_fire_sphere                },
 	{ "gsn_blur",			&gsn_blur			},
 	{ "gsn_golden_aura",		&gsn_golden_aura		},
+	{ "gsn_shadow_cloak",		&gsn_shadow_cloak		},
+	{ "gsn_shield_of_law",		&gsn_shield_of_law		},
+	{ "gsn_prismatic_sphere",	&gsn_prismatic_sphere		},
 	{ NULL }
 };
 
