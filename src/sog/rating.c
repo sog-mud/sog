@@ -1,3 +1,7 @@
+/*
+ * $Id: rating.c,v 1.2 1998-06-03 07:27:19 fjoe Exp $
+ */
+
 #include <sys/time.h>
 #include <stdlib.h>
 #include <stdio.h>

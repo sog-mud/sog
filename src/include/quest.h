@@ -1,5 +1,9 @@
-#ifndef __QUEST_H_FILE__
-#define __QUEST_H_FILE__
+#ifndef _QUEST_H_
+#define _QUEST_H_
+
+/*
+ * $Id: quest.h,v 1.4 1998-06-03 07:27:19 fjoe Exp $
+ */
 
 void cancel_quest(CHAR_DATA *ch);
 

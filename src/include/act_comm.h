@@ -1,6 +1,10 @@
 #ifndef _ACT_COMM_H_
 #define _ACT_COMM_H_
 
+/*
+ * $Id: act_comm.h,v 1.9 1998-06-03 07:27:17 fjoe Exp $
+ */
+
 void	check_sex	(CHAR_DATA *ch);
 void	add_follower	(CHAR_DATA *ch, CHAR_DATA *master);
 void	stop_follower	(CHAR_DATA *ch);

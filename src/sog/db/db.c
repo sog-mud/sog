@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.15 1998-06-02 21:49:17 fjoe Exp $
+ * $Id: db.c,v 1.16 1998-06-03 07:27:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3829,7 +3829,7 @@ void log_printf(const char *format, ...)
 		va_list ap;
 
 		va_start(ap, format);
-		vsprintf(buf, format, ap);
+		vsnprintf(buf, sizeof(buf), format, ap);
 		va_end(ap);
 
 		fprintf(stderr, "%s :: %s\n", ctime(&current_time), buf);
