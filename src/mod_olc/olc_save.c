@@ -1,5 +1,5 @@
 /*
- * $Id: olc_save.c,v 1.47 1999-02-02 15:50:31 kostik Exp $
+ * $Id: olc_save.c,v 1.48 1999-02-09 14:28:33 fjoe Exp $
  */
 
 /**************************************************************************
@@ -957,8 +957,8 @@ void save_clan(CHAR_DATA *ch, CLAN_DATA *clan)
 		CLAN_SKILL *cs = VARR_GET(&clan->skills, i);
 
 		if (cs->sn > 0) 
-			fprintf(fp, "Skill '%s' %d\n",
-				skill_name(cs->sn), cs->level);
+			fprintf(fp, "Skill '%s' %d %d\n",
+				skill_name(cs->sn), cs->level, cs->percent);
 	}
 
 	fprintf(fp, "End\n\n"

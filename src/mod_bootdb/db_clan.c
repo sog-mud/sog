@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_clan.c,v 1.10 1999-02-02 15:50:31 kostik Exp $
+ * $Id: db_clan.c,v 1.11 1999-02-09 14:28:28 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -89,6 +89,7 @@ DBLOAD_FUN(load_clan)
 				CLAN_SKILL *sk = varr_enew(&clan->skills);
 				sk->sn = sn_lookup(fread_word(fp));	
 				sk->level = fread_number(fp);
+				sk->percent = fread_number(fp);
 				fMatch = TRUE;
 			}
 			break;

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_clan.c,v 1.16 1999-02-02 15:50:31 kostik Exp $
+ * $Id: olc_clan.c,v 1.17 1999-02-09 14:28:32 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -200,8 +200,8 @@ OLC_FUN(claned_show)
 		if (cs->sn <= 0
 		||  (skill = skill_lookup(cs->sn)) == NULL)
 			continue;
-		buf_printf(output, "Skill:       '%s' (level %d)\n",
-			   skill->name, cs->level);
+		buf_printf(output, "Skill:       '%s' (level %d, %d%%)\n",
+			   skill->name, cs->level, cs->percent);
 	}
 
 	page_to_char(buf_string(output), ch);
@@ -292,16 +292,19 @@ OLC_FUN(claned_skill)
 OLC_FUN(claned_skill_add)
 {
 	int sn;
+	int percent;
 	CLAN_SKILL *clan_skill;
 	char	arg1[MAX_STRING_LENGTH];
 	char	arg2[MAX_STRING_LENGTH];
+	char	arg3[MAX_STRING_LENGTH];
 	CLAN_DATA *clan;
 	EDIT_CLAN(ch, clan);
 
 	argument = one_argument(argument, arg1);
-		   one_argument(argument, arg2);
+	argument = one_argument(argument, arg2);
+		   one_argument(argument, arg3);
 
-	if (arg1[0] == '\0' || arg2[0] == '\0') {
+	if (arg1[0] == '\0' || arg2[0] == '\0' || arg3[0] == '\0') {
 		do_help(ch, "'OLC CLAN SKILL'");
 		return FALSE;
 	}
@@ -318,14 +321,22 @@ OLC_FUN(claned_skill_add)
 	}
 
 	if ((clan_skill = clan_skill_lookup(clan, sn))) {
-		char_printf(ch, "Cedit: %s: already there.\n",
+		char_printf(ch, "CEdit: %s: already there.\n",
 			    SKILL(sn)->name);
+		return FALSE;
+	}
+
+	percent = atoi(arg3);
+	if (percent < 1 || percent > 100) {
+		char_puts("CEdit: percent value must be in range 1..100.\n",
+			  ch);
 		return FALSE;
 	}
 
 	clan_skill = varr_enew(&clan->skills);
 	clan_skill->sn = sn;
 	clan_skill->level = atoi(arg2);
+	clan_skill->percent = percent;
 	varr_qsort(&clan->skills, cmpint);
 
 	return TRUE;
@@ -339,6 +350,11 @@ OLC_FUN(claned_skill_del)
 	EDIT_CLAN(ch, clan);
 
 	one_argument(argument, arg);
+	if (arg[0] == '\0') {
+		do_help(ch, "'OLC CLAN SKILL'");
+		return FALSE;
+	}
+
 	if ((clan_skill = skill_vlookup(&clan->skills, arg)) == NULL) {
 		char_printf(ch, "CEdit: %s: not found in clan skill list.\n",
 			    arg);

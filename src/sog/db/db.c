@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.96 1999-02-02 15:50:30 kostik Exp $
+ * $Id: db.c,v 1.97 1999-02-09 14:28:27 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1185,7 +1185,6 @@ void clone_mob(CHAR_DATA *parent, CHAR_DATA *clone)
 	clone->start_pos	= parent->start_pos;
 	clone->default_pos	= parent->default_pos;
 	clone->spec_fun		= parent->spec_fun;
-	clone->status		= parent->status;
 	clone->hunting		= NULL;
 	clone->clan		= parent->clan;
 	clone->invis_level	= parent->invis_level;
