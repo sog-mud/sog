@@ -2980,3 +2980,76 @@ Text
  
 {WАрвен{x.
 ~
+Sender  Tyan~
+Date    Mon Jul 31 18:11:09 2000~
+Stamp   965052669
+To      all~
+Subject group heal, master healing, superior heal~
+Text
+hi, there!
+ 
+После ребута спеллы 'group heal', 'master healing' и 'superior heal'
+будут стоить меньше
+ 
+{WTyan{x
+~
+Sender  Nergal~
+Date    Fri Aug 11 13:58:56 2000~
+Stamp   965987936
+To      all~
+Subject Something about bone dragon and other charmed mobiles~
+Text
+Hi, there!
+ 
+Bone dragon стал слегка слабее.
+Часть монстров разучилась одевать одежку (bone dragon - в их числе), 
+кто конкретно - узнавайте сами.
+ 
+/ Nergal, the god of death and decay.
+ 
+PS. Это все после ребута будет
+~
+Sender  Tyan~
+Date    Wed Oct 11 16:59:09 2000~
+Stamp   971269149
+To      all~
+Subject ambush~
+Text
+hi, there!
+ 
+ambush slightly changed: ambush will succeed only when victim does not
+see attacker. attacker should be camouflaged. if attacker is not under
+camouflage he atomagically makes an attempt to camouflage himself
+but if he fails ambush will also fail
+ 
+{WTyan{x
+~
+Sender  Arwen~
+Date    Tue Oct 17 20:17:40 2000~
+Stamp   971799460
+To      all~
+Subject new items~
+Text
+Приветствую!
+ 
+В мире появилось три новых жезла и две новых пилюли, дающих
+'ice sphere' и 'fire sphere'. Контроль над ними получили те, 
+кто так или иначе является частью ледяной и огненной стихий.
+ 
+{WАрвен{x.
+~
+Sender  Tyan~
+Date    Sat Oct 21 21:06:18 2000~
+Stamp   972147978
+To      all~
+Subject вещи на полу~
+Text
+hi, there!
+ 
+пофиксен старый баг с вещами на полу: раньше если чар спал на чем-нибудь
+и на него кто-нибудь нападал, ту вещь, на которой спал чар никто не мог
+поднять до тех пор пока хозяин не выйдет из комнаты
+happy mudding
+ 
+{WTyan{x
+~
