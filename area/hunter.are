@@ -287,14 +287,14 @@ mob slay $n
 end
 endif
 clan We are attacked by $n !
-mob attack $n
+mob kill $n
 ~
 #95701
 if clan $n hunters
 or isimmort $n
 mob transfer $n 95702
 else
-mob attack $n
+mob kill $n
 endif
 ~
 #0

@@ -616,7 +616,7 @@ mob slay $n
 end
 endif
 clan We are attacked by $n !
-mob attack $n
+mob kill $n
 ~
 #95301
 mob mload 95304
@@ -636,7 +636,7 @@ if isimmort $n
 mob transfer $n 95305
 end
 endif
-mob attack $n
+mob kill $n
 ~
 #0
 

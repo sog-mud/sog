@@ -500,7 +500,7 @@ mob slay $n
 end
 endif
 clan We are attacked by $n!
-mob attack $n
+mob kill $n
 ~
 #95401
 if clan $n battleragers
@@ -508,7 +508,7 @@ or isimmort $n
 mob transfer $n 95402
 end
 endif
-mob attack $n
+mob kill $n
 ~
 #95402
 clan О! Ко мне в гости пожаловал $n

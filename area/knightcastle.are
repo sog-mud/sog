@@ -701,7 +701,7 @@ mob slay $n
 end
 endif
 clan We are attacked by $n!
-mob attack $n
+mob kill $n
 ~
 #95201
 if clan $n knights 
@@ -709,7 +709,7 @@ or isimmort $n
 mob transfer $n 95219
 end
 endif
-mob attack $n
+mob kill $n
 ~
 #0
 

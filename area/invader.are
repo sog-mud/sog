@@ -576,7 +576,7 @@ mob slay $n
 end
 endif
 clan We are attacked by $n
-mob attack $n
+mob kill $n
 ~
 #95601
 if clan $n invaders
@@ -608,7 +608,7 @@ if isimmort $n
 mob gtransfer $n 95608
 end
 endif
-mob attack $n
+mob kill $n
 ~
 #95604
 cast black

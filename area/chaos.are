@@ -240,7 +240,7 @@ mob slay $n
 end
 endif
 clan We are attacked by $n !
-mob attack $n
+mob kill $n
 ~
 #95501
 if clan $n chaos
@@ -248,7 +248,7 @@ or isimmort $n
 mob transfer $n 95501
 end
 endif
-mob attack $n
+mob kill $n
 ~
 #0
 
