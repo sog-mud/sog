@@ -307,7 +307,7 @@ a sparkling green potion~
 A green potion is lying here sparkling.~
 energy~
 potion AG AO
-10 'detect invis' 'detect magic' 'detect poison' 'detect evil'
+10 'detect invis' 'detect magic' 'detect evil' ''
 23 10 4580 G
 G none
 #2907
@@ -345,7 +345,7 @@ a sparkling pink potion~
 A pink potion is lying here sparkling.~
 energy~
 potion AG A
-10 'detect invis' 'detect magic' 'detect poison' 'detect good'
+10 'detect invis' 'detect magic' 'detect good' ''
 13 10 4580 G
 G none
 #0

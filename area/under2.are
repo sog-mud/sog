@@ -2844,7 +2844,7 @@ potion detection зелье обнаружения~
 @eng A potion of detection waits to be used@rus Зелье обнаружения (potion) здесь.~
 glass~
 potion 0 A
-15 'detect invis' 'detect magic' 'detect poison' 'detect evil'
+15 'detect invis' 'detect magic' 'detect evil' ''
 10 2 100 P
 G none
 #16062

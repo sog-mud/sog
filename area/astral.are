@@ -725,7 +725,7 @@ a silvery-colored potion~
 An octagonal vial holds a silvery-colored fluid that reflects light.~
 glass~
 potion 0 A
-20 'detect invis' 'detect magic' 'detect poison' ''
+20 'detect invis' 'detect magic' '' ''
 1 20 320 P
 E
 potion silvery~

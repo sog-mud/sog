@@ -894,7 +894,7 @@ SMOTE работает аналогично PMOTE, за исключением того, что имя может стоять в
 любом месте строки.
 ~
 0 HOLD REMOVE WEAR WIELD~
-Syntax: hold   <object>
+@eng Syntax: hold   <object>
 Syntax: remove <object>
 Syntax: wear   <object>
 Syntax: wear   all
@@ -915,6 +915,22 @@ to use it properly.
 
 REMOVE will take any object from your equipment and put it back into your
 inventory.
+@rus Синтаксис: {chold{x   <объект>
+Синтаксис: {cwear{x   <объект>
+Синтаксис: {cwear   all{x
+Синтаксис: {cwield{x  <объект>
+Синтаксис: {cremove{x <объект>
+
+Три из этих команд дают указание начать использовать объект из инвентаря в
+снаряжении. HOLD, WEAR и WIELD равнозначны для любых типов снаряжения.
+
+WEAR ALL попробует HOLD, WEAR, or WIELD каждую подходящую вещь в вещмешке.;
+
+Тебе может не удастьсЯ HOLD, WEAR, or WIELD вещь если она либо не подходит тебе
+по характеру (align), либо слишком тяжела для тебя, либо ты еще недостаточно
+опытен для ее использования.
+
+REMOVE снимет любой объект с тебя и положит его обратно в инвентарь.           ;
 ~
 0 BUG TYPO~
 Syntax: bug <message>

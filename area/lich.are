@@ -318,7 +318,7 @@ a silvery potion ~
 A silvery potion has been left in the desk~
 glass~
 potion AG AO
-40 'invisibility' 'detect invis' 'detect magic' 'detect poison'
+40 'invisibility' 'detect invis' 'detect magic' ''
 40 2 1000 P
 G none
 #29363

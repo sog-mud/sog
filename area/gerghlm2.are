@@ -930,7 +930,7 @@ a bunch of herbs~
 A bunch of strange herbs are growing here.~
 food~
 pill 0 A
-1 'detect hidden' 'detect poison' 'detect invis' 'infravision'
+1 'detect hidden' 'detect invis' 'infravision' ''
 1 10 494 P
 G none
 #7511
