@@ -2193,7 +2193,7 @@ dark ->*<- necklace reykaris~
 a dark  ->*<-  necklace~
 A dark necklace lies here.~
 obsidian~
-treasure EL 0 AC
+treasure EJL 0 AC
 0 0 0 0 0
 40 20 25000 P
 f object mana 30 0

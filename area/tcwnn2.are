@@ -390,7 +390,7 @@ spear~
 a throwing spear~
 A sturdy throwing spear has been thrust into the ground here.~
 copper~
-warp_stone G 0 ANO
+warp_stone G 0 A
 0 0 0 0 0
 50 20 500 P
 f object hitroll 2 0

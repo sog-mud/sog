@@ -9,6 +9,22 @@ LevelRange 25 40
 End
 
 #MOBILES
+#1800
+bootie executive бутявка хозяйственная~
+@eng bootie@rus ~~бутявка~~~
+@eng Executive bootie is very busy by nothing here.@rus Хозяйственная бутявка очень занята ничем.~
+.
+ \_|_/
+_|{cO{R_{cO{x|_
+ |___|
+ / | \ ~
+unique~
+0 0 0 0 0 0 0
+0 0 0d0+0 0d0+0 0d0+0 ''
+0 0 0 0
+0
+stand stand none 0
+0 0 medium unknown
 #1801
 unicorn white единорог белый~
 @eng a white unicorn@rus ~~белый~~ ~~единорог~~~
@@ -251,7 +267,7 @@ r disease 33
 #1811
 mushroom mush shroom гриб~
 @eng a mushroom as tall as a giant's knee@rus ~~гриб~~ высотой по колено гиганту~
-@eng A mushroom as tall as a giant's knee is here.@rus Ты видишь гриб по колено гиганту высотой (mushroom as tall as a giant's knee).~
+@eng A mushroom as tall as a giant's knee is here.@rus Ты видишь гриб по колено гиганту высотой (mushroom).~
 @eng It is taller than any mushroom you've ever seen in your life. Brown with
 greenish polka-dots, and having spores the color of oak leaves late in
 autumn, the thing looks as though it would feed a crowd.
@@ -288,7 +304,7 @@ m mob_fight mob_fight_cast_mage 100~
 #1813
 witch red ведьма красная~
 @eng the red witch@rus ~~красная~~ ~~ведьма~~~
-@eng The red witch is here, stirring a bubbling cauldron.@rus Красная ведьма помешивает в кипящем котле.~
+@eng The red witch is here, stirring a bubbling cauldron.@rus КраснаЯ ведьма (red witch) помешивает в кипЯщем котле.~
 @eng She has scraggly grey hair, a face that badly needs beauty cream (but even
 so, it seems too little too late), and a nose that has been broken one time
 too many. Her robe is red with golden embroidery. On her head is a pointed
@@ -309,12 +325,12 @@ r acid 33
 r negative 33
 r holy -50
 r wood -50
-m mob_random mob_random_red_witch 12~
 m mob_fight mob_fight_cast_mage 100~
+m mob_random mob_random_red_witch 12~
 #1814
 witch orange ведьма рыжая~
 @eng the orange witch@rus ~~рыжая~~ ~~ведьма~~~
-@eng The orange witch is here, waving a magic wand.@rus Рыжая ведьма помахивает волшебной палочкой.~
+@eng The orange witch is here, waving a magic wand.@rus РыжаЯ ведьма (orange witch) помахивает волшебной палочкой.~
 @eng She has hair of black streaked with grey, a face that appears to have gotten
 too close to a dragon's claws while they were still attached to the dragon,
 and eyes as black as midnight. Her robe is orange with embroidery done in
@@ -335,12 +351,12 @@ r acid 33
 r negative 33
 r holy -50
 r wood -50
-m mob_random mob_random_orange_witch 12~
 m mob_fight mob_fight_cast_mage 100~
+m mob_random mob_random_orange_witch 12~
 #1815
 witch yellow ведьма желтая~
 @eng the yellow witch@rus ~~желтая~~ ~~ведьма~~~
-@eng The yellow witch is here, mumbling a spell.@rus Желтая ведьма бормочет заклинание.~
+@eng The yellow witch is here, mumbling a spell.@rus ЖелтаЯ ведьма (yellow witch) бормочет заклинание.~
 @eng Her hair is blonde, a golden yellow blonde, and her face is young and
 without wrinkles. Her eyes regard you with curiosity, curiosity of the
 order of what kind of animal she can turn you into. Her robe is yellow
@@ -362,8 +378,8 @@ r acid 33
 r negative 33
 r holy -50
 r wood -50
-m mob_random mob_random_yellow_witch 12~
 m mob_fight mob_fight_cast_mage 100~
+m mob_random mob_random_yellow_witch 12~
 #1816
 witch green ведьма зеленая~
 @eng the green witch@rus ~~зеленая~~ ~~ведьма~~~
@@ -461,12 +477,12 @@ r acid 33
 r negative 33
 r holy -50
 r wood -50
-m mob_greet mob_greet_violet_witch 100~
 m mob_fight mob_fight_cast_mage 100~
+m mob_greet mob_greet_violet_witch 100~
 #1820
 warlock red колдун красный~
 @eng the red warlock@rus ~~красный~~ ~~колдун~~~
-@eng The red warlock is here, brandishing an oaken staff.@rus Красный колдун (red warlock) размахивает дубовым посохом.~
+@eng The red warlock is here, brandishing an oaken staff.@rus Красный колдун (red warlock) потрясает дубовым посохом.~
 @eng He stares at you with malevolence, his red robe glowing an evil red as
 he calls forth the powers of magic to harm you.
 @rus Он злорадно уставился на тебя, его красное одеяние вспыхивает зловеще
@@ -487,7 +503,7 @@ m mob_fight mob_fight_cast_mage 100~
 #1821
 warlock orange колдун оранжевый~
 @eng the orange warlock@rus ~~оранжевый~~ ~~колдун~~~
-@eng The orange warlock is here, waving a silver wand.@rus оранжевый колдун~
+@eng The orange warlock is here, waving a silver wand.@rus Оранжевый колдун (orange warlock) помахивает серебряной палочкой.~
 @eng He has long unkempt white hair, a wrinkled face, and grey eyes. His robe
 is orange with yellow, almost golden stars sprinkled throughout.
 @rus У него длинные белые неубранные волосы, морщинистое лицо и серые глаза. Он
@@ -629,8 +645,8 @@ r acid 33
 r negative 33
 r holy -50
 r wood -50
-m mob_greet mob_greet_violet_warlock 100~
 m mob_fight mob_fight_cast_mage 100~
+m mob_greet mob_greet_violet_warlock 100~
 #1827
 shopkeeper ranger продавец егерь торговец~
 @eng the ranger shopkeeper@rus ~~егерский~~ ~~торговец~~~
@@ -805,7 +821,7 @@ m mob_random mob_random_blue_bird 1~
 #1835
 bird finch goldfinch yellow gold птичка канарейка желтая~
 @eng a goldfinch@rus ~~канарейка~~~
-@eng A bright yellow bird sings nearby.@rus Ярко-желтая птичка поет неподалеку.~
+@eng A bright yellow bird sings nearby.@rus Ярко-желтаЯ птичка (goldfinch) поет неподалеку.~
 @eng Bright yellow with a black cap, white rump, and white edges on its black
 wings and tail, this goldfinch is quite a pretty little bird.
 @rus Птичка с ярко-желтым оперением, черным хохолком, белым брюшком и белой
@@ -823,12 +839,15 @@ g @eng either@rus female~
 r lightning 33
 r energy -50
 #1836
-bird red-eyed vireo ткачик красноглазый~
-@eng a red-eyed vireo@rus красноглазый ткачик~
-A red-eyed vireo fiercely guards its nest.~
-Greenish above and white below, with a grey crown and white eyebrow stripe,
+bird vireo red-eyed ткачик красноглазый~
+@eng a red-eyed vireo@rus ~~красноглазый~~ ~~ткачик~~~
+@eng A red-eyed vireo fiercely guards its nest.@rus Красноглазый ткачик (vireo) свирепо защищает свое гнездо.~
+@eng Greenish above and white below, with a grey crown and white eyebrow stripe,
 this bird's red eyes gaze piercingly at you. If you even think about looking
 at its nest, it will attack with a vengeance.
+@rus Зеленоватый сверху и белый снизу, с серой короной и белыми бровями,
+ткачик пронзительно смотрит на тебя своими красными глазами. Стоит тебе
+только подумать о том, чтобы заглянуть в его гнездо, -- и он нападет.
 ~
 song bird~
 GU 0 V 0 0 0 0
@@ -843,11 +862,15 @@ r energy -50
 m mob_get mob_get_vireo 1842~
 #1837
 bird hummingbird humming колибри птичка птица~
-a tiny hummingbird~
-A tiny hummingbird hovers over a flower.~
-Metallic green above with a gorget of white with purple-violet rays, this
+@eng a tiny hummingbird@rus ~~маленькая~~ ~~колибри~~~
+@eng A tiny hummingbird hovers over a flower.@rus МаленькаЯ колибри (hummingbird) висит над цветком.~
+@eng Metallic green above with a gorget of white with purple-violet rays, this
 tiny bird will rise up out of sight and then swoop down on you if it thinks
 you are disturbing its feeding flowers.
+@rus Одетая в блестящее зеленое оперение с горжеткой из белых перьев с
+пурпурно-фиолетовыми лучами, эта маленькая птичка вспорхнет за пределы
+видимости и затем спикирует на тебя, если ей подумается, что ты тревожишь
+цветы, которые кормят ее.
 ~
 song bird~
 GU 0 V 0 0 0 0
@@ -860,14 +883,19 @@ r lightning 33
 r energy -50
 m mob_get mob_get_hummingbird 1838~
 #1838
-black warlock~
-the black warlock~
-The black warlock brews another bubbly potion.~
-He looks back at you with mild disinterest, for you are below his station
+warlock black колдун черный~
+@eng the black warlock@rus ~~черный~~ ~~колдун~~~
+@eng The black warlock brews another bubbly potion.@rus Черный колдун (warlock) готовит очередное кипЯщее зелье.~
+@eng He looks back at you with mild disinterest, for you are below his station
 and therefore do not truly deserve any attention. If this dark warlock
 thought you worthy of attention, it would probably be of a negative sort.
 While he continues to ignore you, you notice that he has an excellent black
 robe.
+@rus Он оглянулся на тебя со спокойной незаинтересованностью, считая тебя
+стоящим ниже его и следовательно, не заслуживающим внимания. Если бы этот
+темный колдун счел тебя заслуживающим внимания, оно вероятно носило бы
+негативный характер. Пока он продолжает игнорировать тебя, ты замечаешь,
+что он одет в изумительный черный халат.
 ~
 human~
 BR 0 TU 0 0 -1000 0
@@ -882,11 +910,13 @@ r holy -50
 r wood -50
 m mob_fight mob_fight_cast_mage 100~
 #1839
-bunny rabbit~
-a small white bunny~
-A small white bunny hops across your path.~
-It is small and soft and furry and cute, with long ears. Its fur is a
+bunny rabbit кролик~
+@eng a small white bunny@rus ~~маленький~~ ~~белый~~ ~~кролик~~~
+@eng A small white bunny hops across your path.@rus Маленький белый кролик (bunny) перепрыгнул тебе дорогу.~
+@eng It is small and soft and furry and cute, with long ears. Its fur is a
 lovely white, and it has a cute little cotton-tail.
+@rus Он маленький, мягкий и пушистый, с длинными ушами. У него приятный белый
+мех и милый маленький пушистый хвостик.
 ~
 rabbit~
 GHUY 0 V 0 0 0 0
@@ -901,10 +931,11 @@ r fire -50
 r cold 33
 r lightning -50
 #1840
-fallow deer small~
-a fallow deer~
-A fallow deer nibbles on the leaves of a bush.~
-It is small and brown with dark grey spots and a white tail.
+fallow deer small косуля маленькая~
+@eng a fallow deer@rus ~~косуля~~~
+@eng A fallow deer nibbles on the leaves of a bush.@rus КосулЯ (a fallow deer) щиплет листву кустарника.~
+@eng It is small and brown with dark grey spots and a white tail.
+@rus Она маленькая, коричневая с темно-серыми пятнами и белым хвостом.
 ~
 rabbit~
 GHUY 0 V 0 0 0 0
@@ -913,6 +944,7 @@ GHUY 0 V 0 0 0 0
 U
 stand stand either 0
 0 0 medium unknown
+g @eng either@rus female~
 r fire -50
 r lightning 33
 r acid -50
@@ -920,12 +952,15 @@ r poison -50
 r negative -50
 r energy 33
 #1899
-ranger healer~
-ranger healer~
-Old wrinkled man offers healing services.~
-Tanned wrinkled man looks around proudly. His collection of healing herbs
+healer ranger целитель егерский~
+@eng ranger healer@rus ~~егерский~~ ~~целитель~~~
+@eng Old wrinkled man offers healing services.@rus Морщинистый старик (ranger healer) предлагает целительские услуги.~
+@eng Tanned wrinkled man looks around proudly. His collection of healing herbs
 can heal almost everything. Retired from his rangership, he now offers his
 herbs to heal your wounds and diseases. Type "HEAL" to get the list.
+@rus Задубевший морщинистый старик гордо взирает вокруг. Его коллекция лечебных
+трав способна исцелить почти все. Удалившись на покой от егерства, теперь он
+предлагает свои травы для лечения ран и болезней. Набери "HEAL" для списка.
 ~
 elf~
 BGJQUe EH Hc 0 AF 1000 0
@@ -1657,22 +1692,17 @@ E
 @eng {Gobjects     {W|  {Gtranslated  {W|  {G checked    {W|
 {W------------+--------------+--------------|
 {Grooms       {W| 1801 -- 1897 | 1801 -- 1804 |
-{Gmobs        {W| 1801 -- 1835 |              |
+{Gmobs        {W| {w1801 -- 1899 {W| {w1801 -- 1899 {W|
 {Gthings      {W|              |              |{x
- 
-{r I could use some help with word VIREO for mob #1836{x
 @rus {W.----------------.--------------.--------------.
 {W|    {Gобъекты     {W|  {Gпереведены  {W|  {Gпроверены   {W|
 {W|----------------+--------------+--------------|
 {W|    {Gкомнаты     {W| 1801 -- 1897 | 1801 -- 1804 |
 {W|----------------+--------------+--------------|
-{W|     {Gмобы       {W| 1801 -- 1835 |              |
+{W|     {Gмобы       {W| {w1801 -- 1899 {W| {w1801 -- 1899 {W|
 {W|----------------+--------------+--------------|
 {W|     {Gвещи       {W|              |              |
 {W`----------------`--------------`--------------`{x
- 
-{rНелишней была бы помощь со словом VIREO для моба 1836{x
-{wНу не ткачик это, а кто -- не знаю.. ;){x
 ~
 S
 #1801
@@ -4447,6 +4477,7 @@ S
 #0
 
 #RESETS
+M 0 1800 1 1800 1	* bootie (Hidden Workplace)
 M 0 1830 27 1801 1	* a grey squirrel (Northwest Corner)
 M 0 1839 13 1801 1	* a small white bunny (Northwest Corner)
 M 0 1830 27 1802 1	* a grey squirrel (In the Thick Wood)

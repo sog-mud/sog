@@ -1,0 +1,259 @@
+#AREADATA
+Ver 7
+Name Dessins d'enfants~
+Builders grothendieck~
+VNUMs 51000 51099
+Credits Grothendieck~
+Security 1
+LevelRange 46 50
+End
+
+#OBJECTS
+#51000
+banana~
+@eng {Ybanana{x@rus {Y~~банановая~~ ~~кожура~~{x~
+@eng Used banana was left carelessly here.@rus Какой-то негодяй оставил на дороге кожуру банана ({Ybanana{x).~
+food~
+trash 0 0 A
+0 0 0 0 0
+30 1 1543 P
+m obj_greet obj_greet_banana 80~
+g @eng none@rus female~
+#51001
+candle dogmatic подсвечник начетчика~
+@eng dogmatic's candle@rus ~~подсвечник~~ начетчика~
+@eng Candle which obviously belongs to knowing one is left here.@rus Подсвечник (candle), явно принадлежащий человеку знающему оставлен здесь.~
+magic dust~
+light 0 0 A
+0 0 -1 0 0
+45 0 0 P
+f skills 'reserved' 1 B
+m obj_wear obj_wear_dogmatic 100~
+#51002
+ring dogmatic кольцо начетчика~
+@eng dogmatic's ring@rus ~~кольцо~~ начетчика~
+@eng Ring which obviously belongs to knowing one is left here.@rus Кольцо (ring), явно принадлежащее человеку знающему оставлено здесь.~
+magic dust~
+treasure 0 0 AB
+0 0 0 0 0
+45 0 0 P
+f skills 'reserved' 1 B
+m obj_wear obj_wear_dogmatic 100~
+E
+кольцо~
+@eng Real ring - associative, commutative with identity.
+@rus Настоящее кольцо -- ассоциативное, коммутативное с единицей.
+~
+g @eng none@rus neutral~
+#51003
+thimble dogmatic наперсток начетчика~
+@eng dogmatic's thimble@rus ~~наперсток~~ начетчика~
+@eng Thimble which obviously belongs to knowing one is left here.@rus Наперсток (thimble), явно принадлежащий человеку знающему оставлен здесь.~
+magic dust~
+treasure 0 0 AB
+0 0 0 0 0
+45 0 0 P
+f skills 'reserved' 1 B
+m obj_wear obj_wear_dogmatic 100~
+g @eng none@rus male~
+#51004
+amulet dogmatic амулет начетчика~
+@eng dogmatic's amulet@rus ~~амулет~~ начетчика~
+@eng Amulet which obviously belongs to knowing one is left here.@rus Амулет (amulet), явно принадлежащий человеку знающему оставлен здесь.~
+magic dust~
+treasure 0 0 AC
+0 0 0 0 0
+45 0 0 P
+f skills 'reserved' 1 B
+m obj_wear obj_wear_dogmatic 100~
+#51005
+glasses dogmatic очки начетчика~
+@eng dogmatic's glasses@rus ~~очки~~ начетчика~
+@eng Glasses which obviously belongs to knowing one are left here.@rus Очки (glasses), явно принадлежащие человеку знающему оставлены здесь.~
+magic dust~
+treasure 0 0 AT
+0 0 0 0 0
+45 0 0 P
+f skills 'reserved' 1 B
+m obj_wear obj_wear_dogmatic 100~
+g @eng none@rus plural~
+#51006
+jacket dogmatic венгерка начетчика~
+@eng dogmatic's jacket@rus ~~венгерка~~ начетчика~
+@eng Jacket which obviously belongs to knowing one is left here.@rus Венгерка (jacket), явно принадлежащая человеку знающему оставлена здесь.~
+magic dust~
+treasure 0 0 AD
+0 0 0 0 0
+45 0 0 P
+f skills 'reserved' 1 B
+m obj_wear obj_wear_dogmatic 100~
+g @eng none@rus female~
+#51007
+chechen cap dogmatic chechen-cap чеченка начетчика~
+@eng dogmatic's chechen-cap@rus ~~чеченка~~ начетчика~
+@eng Cap which obviously belongs to knowing one is left here.@rus Чеченка (cap), явно принадлежащая человеку знающему оставлена здесь.~
+magic dust~
+treasure 0 0 AE
+0 0 0 0 0
+45 0 0 P
+f skills 'reserved' 1 B
+m obj_wear obj_wear_dogmatic 100~
+g @eng none@rus female~
+#51008
+~
+~
+~
+magic dust~
+treasure 0 0 A
+0 0 0 0 0
+45 0 0 P
+f skills 'reserved' 1 B
+m obj_wear obj_wear_dogmatic 100~
+#51009
+~
+~
+~
+magic dust~
+treasure 0 0 A
+0 0 0 0 0
+45 0 0 P
+f skills 'reserved' 1 B
+m obj_wear obj_wear_dogmatic 100~
+#51010
+~
+~
+~
+magic dust~
+treasure 0 0 A
+0 0 0 0 0
+45 0 0 P
+f skills 'reserved' 1 B
+m obj_wear obj_wear_dogmatic 100~
+#51011
+~
+~
+~
+magic dust~
+treasure 0 0 A
+0 0 0 0 0
+45 0 0 P
+f skills 'reserved' 1 B
+m obj_wear obj_wear_dogmatic 100~
+#51012
+~
+~
+~
+magic dust~
+treasure 0 0 A
+0 0 0 0 0
+45 0 0 P
+f skills 'reserved' 1 B
+m obj_wear obj_wear_dogmatic 100~
+#51013
+~
+~
+~
+magic dust~
+treasure 0 0 A
+0 0 0 0 0
+45 0 0 P
+f skills 'reserved' 1 B
+m obj_wear obj_wear_dogmatic 100~
+#51014
+~
+~
+~
+magic dust~
+treasure 0 0 A
+0 0 0 0 0
+45 0 0 P
+f skills 'reserved' 1 B
+m obj_wear obj_wear_dogmatic 100~
+#51015
+~
+~
+~
+magic dust~
+treasure 0 0 A
+0 0 0 0 0
+45 0 0 P
+f skills 'reserved' 1 B
+m obj_wear obj_wear_dogmatic 100~
+#51016
+~
+~
+~
+magic dust~
+treasure 0 0 A
+0 0 0 0 0
+45 0 0 P
+f skills 'reserved' 1 B
+m obj_wear obj_wear_dogmatic 100~
+#51017
+~
+~
+~
+magic dust~
+treasure 0 0 A
+0 0 0 0 0
+45 0 0 P
+f skills 'reserved' 1 B
+m obj_wear obj_wear_dogmatic 100~
+#51018
+~
+~
+~
+magic dust~
+treasure 0 0 A
+0 0 0 0 0
+45 0 0 P
+f skills 'reserved' 1 B
+m obj_wear obj_wear_dogmatic 100~
+#51019
+~
+~
+~
+magic dust~
+treasure 0 0 A
+0 0 0 0 0
+45 0 0 P
+f skills 'reserved' 1 B
+m obj_wear obj_wear_dogmatic 100~
+#0
+
+#ROOMS
+#51000
+@eng Fano Threefold@rus Трифолд Фано~
+@rus Какое интересное место :
+Пучок, обратный к каноническому -- очень обилен !
+Это чем-то похоже на проективное пространство.
+Кругом расставлены какие-то зеркала( или это мирроры ? ).
+К чему бы это всё ?
+~
+0 0 air
+S
+#0
+
+#OLIMITS
+O 51001 1	* dogmatic's candle
+O 51002 1	* dogmatic's ring
+O 51003 1	* dogmatic's thimble
+O 51004 1	* dogmatic's amulet
+O 51005 1	* dogmatic's glasses
+O 51006 1	* dogmatic's jacket
+O 51007 1	* dogmatic's chechen-cap
+O 51008 1	* 
+O 51009 1	* 
+O 51010 1	* 
+O 51011 1	* 
+O 51012 1	* 
+O 51013 1	* 
+O 51014 1	* 
+O 51015 1	* 
+O 51016 1	* 
+O 51017 1	* 
+O 51018 1	* 
+O 51019 1	* 
+S
+
+#$

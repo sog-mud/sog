@@ -47,9 +47,9 @@ r bash 33
 r pierce -50
 r cold 33
 r charm 33
+m mob_fight mob_fight_cast_mage 100~
 m mob_give mob_give_white_rabbit 21007~
 m mob_greet mob_greet_white_rabbit 100~
-m mob_fight mob_fight_cast_mage 100~
 m mob_exit mob_exit_white_rabbit all~
 m mob_tell mob_tell_white_rabbit ~
 #21002
@@ -262,8 +262,8 @@ BGHT 0 HN 0 H 400 0
 EFNU
 stand stand male 0
 0 0 medium unknown
-m mob_greet mob_greet_caterpillar 100~
 m mob_fight mob_fight_breath_gas 100~
+m mob_greet mob_greet_caterpillar 100~
 m mob_exit mob_exit_caterpillar all~
 m mob_look mob_look_caterpillar 100~
 #21015
@@ -386,10 +386,10 @@ GHT 0 HNU 0 H 1000 0
 EFNU
 stand stand male 0
 0 0 medium unknown
+m mob_fight mob_fight_cast_mage 100~
 m mob_greet mob_greet_cheshire_cat 100~
 m mob_kill mob_kill_bamf_self 100~
 m mob_random mob_random_cheshire_cat 1~
-m mob_fight mob_fight_cast_mage 100~
 m mob_exit mob_exit_cheshire_cat all~
 m mob_look mob_look_cast_invis 100~
 #21022
@@ -1180,7 +1180,7 @@ biscuit plate~
 a biscuit plate~
 A biscuit plate sits on the table here.~
 copper~
-warp_stone 0 0 ANO
+warp_stone 0 0 AO
 0 0 0 0 0
 43 1 430 P
 g @rus none~

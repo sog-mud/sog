@@ -494,7 +494,7 @@ potion invisibility~
 a potion of invisibility~
 A glass jar of a clear fluid is here.~
 glass~
-potion 0 0 AN
+potion 0 0 AO
 30 'invisibility' 'detect invis' '' ''
 28 10 3000 P
 g @rus none~

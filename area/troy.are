@@ -689,7 +689,7 @@ spear~
 a long throwing spear~
 A long throwing spear has been thrust into the dirt here.~
 unknown~
-warp_stone 0 0 ANO
+warp_stone 0 0 AO
 0 0 0 0 0
 25 10 250 P
 f object hitroll 4 0

@@ -1231,7 +1231,7 @@ chamorro ringmail~
 chamorro ringmail~
 A bunch of rings sewn together with taotamoa bark is on the ground.~
 copper~
-armor G 0 AN
+armor G 0 AD
 5 5 5 0 0
 10 6 100 P
 f object mana 15 0
@@ -1722,7 +1722,7 @@ Scythe Grim Reaper~
 Scythe of the Grim Reaper~
 A huge bloody scythe is here floating above the ground~
 copper~
-armor AGJ 0 AN
+armor AGJ 0 AO
 3 3 3 0 0
 0 50 0 P
 f object hitroll 80 0
@@ -1744,7 +1744,7 @@ crystal longsword~
 crystal longsword~
 A finely crafted crystal longsword is here.~
 copper~
-armor FG 0 AN
+armor FG 0 AO
 6 6 6 1 0
 18 15 180 P
 f object hp 10 0
@@ -1788,8 +1788,8 @@ enchanted bow~
 enchanted bow~
 A bow with runes etched in it is on the floor.~
 copper~
-armor G 0 AN
-6 6 6 0 0
+weapon G 0 AN
+bow 6 4 'blast' F
 15 7 150 P
 f object hitroll 2 0
 g @rus none~

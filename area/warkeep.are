@@ -605,7 +605,7 @@ dagger~
 a throwing dagger~
 A throwing dagger has been left here.~
 copper~
-warp_stone 0 0 ANO
+warp_stone 0 0 AO
 0 0 0 0 0
 20 3 200 P
 f object hitroll 2 0
