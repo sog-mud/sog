@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.48 1998-08-02 22:18:13 efdi Exp $
+ * $Id: act_obj.c,v 1.49 1998-08-03 00:22:30 efdi Exp $
  */
 
 /***************************************************************************
@@ -2249,7 +2249,7 @@ do_steal(CHAR_DATA * ch, const char *argument)
 
 		if (!IS_NPC(ch) && IS_NPC(victim)) {
 			check_improve(ch, gsn_steal, FALSE, 2);
-			multi_hit(victim, ch, TYPE_UNDEFINED, 0);
+			multi_hit(victim, ch, TYPE_UNDEFINED, MSTRIKE);
 		}
 		return;
 	}

@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.72 1998-08-02 22:18:13 efdi Exp $
+ * $Id: act_move.c,v 1.73 1998-08-03 00:22:29 efdi Exp $
  */
 
 /***************************************************************************
@@ -2942,7 +2942,7 @@ if ((door = find_exit(ch, arg2)) >= 0)
 		    if (IS_NPC(victim))
 		    {
 		        check_improve(ch,gsn_push,FALSE,2);
-			multi_hit(victim, ch, TYPE_UNDEFINED, 0);
+			multi_hit(victim, ch, TYPE_UNDEFINED, MSTRIKE);
 		    }
 		}
 

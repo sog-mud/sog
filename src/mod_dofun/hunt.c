@@ -1,5 +1,5 @@
 /*
- * $Id: hunt.c,v 1.3 1998-08-02 22:18:14 efdi Exp $
+ * $Id: hunt.c,v 1.4 1998-08-03 00:22:30 efdi Exp $
  */
 
 #include <stdio.h>
@@ -596,7 +596,7 @@ void hunt_victim_attack(CHAR_DATA* ch)
 		    ch, NULL, ch->hunting, TO_VICT);
 		act("You glare at $N and say, '{GYe shall DIE!{x'.",
 		    ch, NULL, ch->hunting, TO_CHAR);
-		multi_hit(ch, ch->hunting, TYPE_UNDEFINED, 0);
+		multi_hit(ch, ch->hunting, TYPE_UNDEFINED, MSTRIKE);
 		ch->hunting = NULL;
 	}  
 }
@@ -708,18 +708,16 @@ void hunt_victim_old(CHAR_DATA *ch)
 	       doprintf(do_cast, ch, "portal %s", ch->hunting->name);
 	       log("do_enter1");
 	       do_enter(ch, "portal");
-  /* Deth...this shouldn't have to be here..but it got
-  here in a core file with ch->hunting==null.. */
-  if (ch->in_room==NULL || ch->hunting==NULL) return;
-  if(ch->in_room == ch->hunting->in_room)
-	{
+	       if (ch->in_room==NULL || ch->hunting==NULL)
+			return;
+	if(ch->in_room == ch->hunting->in_room) {
 	  act("$n glares at $N and says, 'Ye shall DIE!'",
 	  ch, NULL, ch->hunting, TO_NOTVICT);
 	  act("$n glares at you and says, 'Ye shall DIE!'",
 	  ch, NULL, ch->hunting, TO_VICT);
 	  act("You glare at $N and say, 'Ye shall DIE!",
 	  ch, NULL, ch->hunting, TO_CHAR);
-	  multi_hit(ch, ch->hunting, TYPE_UNDEFINED, 0);
+	  multi_hit(ch, ch->hunting, TYPE_UNDEFINED, MSRTIKE);
 	  ch->hunting = NULL;
 	  return;
 	}  
@@ -760,8 +758,6 @@ void hunt_victim_old(CHAR_DATA *ch)
 	  doprintf(do_cast, ch, "portal %s", ch->hunting->name);
 	  log("do_enter2");
 	  do_enter(ch, "portal");
-  /* Deth...this shouldn't have to be here..but it got
-  here in a core file with ch->hunting==null.. */
   if (ch->in_room==NULL || ch->hunting==NULL) return;
   if(ch->in_room == ch->hunting->in_room)
 	{
@@ -771,7 +767,7 @@ void hunt_victim_old(CHAR_DATA *ch)
 	  ch, NULL, ch->hunting, TO_VICT);
 	  act("You glare at $N and say, 'Ye shall DIE!",
 	  ch, NULL, ch->hunting, TO_CHAR);
-	  multi_hit(ch, ch->hunting, TYPE_UNDEFINED, 0);
+	  multi_hit(ch, ch->hunting, TYPE_UNDEFINED, MSTRIKE);
 	  ch->hunting = NULL;
 	  return;
 	}  
@@ -849,7 +845,7 @@ void hunt_victim_old(CHAR_DATA *ch)
 	  ch, NULL, ch->hunting, TO_VICT);
 	  act("You glare at $N and say, 'Ye shall DIE!",
 	  ch, NULL, ch->hunting, TO_CHAR);
-	  multi_hit(ch, ch->hunting, TYPE_UNDEFINED, 0);
+	  multi_hit(ch, ch->hunting, TYPE_UNDEFINED, MSTRIKE);
 	  ch->hunting = NULL;
 	  return;
 	}  

@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.44 1998-08-02 22:18:13 efdi Exp $
+ * $Id: act_wiz.c,v 1.45 1998-08-03 00:22:30 efdi Exp $
  */
 
 /***************************************************************************
@@ -69,6 +69,7 @@
 #include "olc.h"
 #include "interp.h"
 #include "fight.h"
+#include "quest.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_rstat		);
@@ -92,6 +93,7 @@ DECLARE_DO_FUN(do_stand		);
 DECLARE_DO_FUN(do_grant        );
 DECLARE_DO_FUN(do_limited      );
 DECLARE_DO_FUN(do_help	       );
+QTROUBLE_DATA *qtrouble_lookup(CHAR_DATA *ch, int vnum);
 
 extern int max_on;
 
@@ -1713,7 +1715,16 @@ void do_mstat(CHAR_DATA *ch, const char *argument)
 			victim->pcdata->questtime < 0 ? -victim->pcdata->questtime : 0);
 	   }	
 
-	buf_printf(output, "Last fought: %10s  Last fight time: %s  Pumped: %d", 
+	if (!IS_NPC(victim)) {
+		QTROUBLE_DATA *qt;
+		buf_add(output, "quest troubles: ");
+		for (qt = victim->pcdata->qtrouble; qt; qt = qt->next)
+			buf_printf(output, "[%d]-[%d] ", qt->vnum, qt->count-1);
+		buf_add(output, "\n\r");
+	}
+
+	buf_printf(output,
+		   "Last fought: %10s  Last fight time: %s  Pumped: %d\n\r", 
 		victim->last_fought!=NULL?victim->last_fought->name:"none", 
 		ctime(&(victim->last_fight_time)),
 		victim->pumped);
@@ -3703,30 +3714,29 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 	char arg1 [MAX_INPUT_LENGTH];
 	char arg2 [MAX_INPUT_LENGTH];
 	char arg3 [MAX_INPUT_LENGTH];
+	char arg4 [MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
-	int value,sn;
+	int value, val2, sn;
 
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
-		   one_argument(argument, arg3);
+	argument = one_argument(argument, arg3);
+		   one_argument(argument, arg4);
 
 	if (arg1[0] == '\0' || arg2[0] == '\0' || arg3[0] == '\0') {
 		char_puts("Syntax:\n\r",ch);
 		char_puts("  set char <name> <field> <value>\n\r",ch); 
 		char_puts("  Field being one of:\n\r",			ch);
 		char_puts("    str int wis dex con cha sex class level\n\r",ch);
-		char_puts("    race gold hp mana move practice align\n\r",	ch);
-		char_puts("    train thirst drunk full hometown ethos\n\r",	ch);
-		char_puts("    pumped noghost clan\n\r", ch);
-
-/*** Added By KIO ***/
-		char_puts("    questp questt relig bloodlust desire security\n\r",	ch);
-/*** Added By KIO ***/
+		char_puts("    race gold hp mana move practice align\n\r", ch);
+		char_puts("    train thirst drunk full hometown ethos\n\r", ch);
+		char_puts("    pumped noghost clan trouble security\n\r", ch);
+		char_puts("    questp questt relig bloodlust desire \n\r", ch);
 		return;
 	}
 
 	if ((victim = get_char_world(ch, arg1)) == NULL) {
-		char_puts("They aren't here.\n\r", ch);
+		char_nputs(THEY_ARENT_HERE, ch);
 		return;
 	}
 
@@ -3734,6 +3744,7 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 	 * Snarf the value (which need not be numeric).
 	 */
 	value = is_number(arg3) ? atoi(arg3) : -1;
+	val2  = is_number(arg4) ? atoi(arg4) : -1;
 
 	/*
 	 * Set something.
@@ -3748,6 +3759,23 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 		}
 
 		victim->perm_stat[STAT_STR] = value;
+		return;
+	}
+
+	if (!str_cmp(arg2, "trouble")) {
+		if (IS_NPC(victim)) {
+			char_puts("Not on NPC's.\n\r", ch);
+			return;
+		}
+		
+		if (value == -1 || val2 == -1) {
+			char_puts("Usage: set char <name> trouble "
+				  "<vnum> <value>.\n\r", ch);
+			return;
+		}
+
+		qtrouble_set(victim, value, val2+1);
+		char_nputs(OK, ch);
 		return;
 	}
 
@@ -3806,7 +3834,6 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 		victim->perm_stat[STAT_WIS] = value;
 		return;
 	}
-/*** Added By KIO  ***/
 	if (!str_cmp(arg2, "questp"))
 	{
 		 if (value == -1) value = 0;
@@ -3825,8 +3852,6 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 		 victim->religion = value;
 		return;
 	}
-/*** Added By KIO ***/
-
 
 
 	if (!str_cmp(arg2, "dex"))

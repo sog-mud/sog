@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.59 1998-08-02 22:18:14 efdi Exp $
+ * $Id: fight.c,v 1.60 1998-08-03 00:22:30 efdi Exp $
  */
 
 /***************************************************************************
@@ -68,7 +68,6 @@
 #include "mlstring.h"
 
 #define MAX_DAMAGE_MESSAGE 34
-#define NOT_FIRST_HIT	   1
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_emote 	);
@@ -152,7 +151,7 @@ void violence_update(void)
 
 
 		if (IS_AWAKE(ch) && ch->in_room == victim->in_room)
-		    multi_hit(ch, victim, TYPE_UNDEFINED, NOT_FIRST_HIT);
+		    multi_hit(ch, victim, TYPE_UNDEFINED, NO_MSTRIKE);
 		else
 		    stop_fighting(ch, FALSE);
 
@@ -202,7 +201,7 @@ void check_assist(CHAR_DATA *ch,CHAR_DATA *victim)
 		    && IS_SET(rch->off_flags,ASSIST_PLAYERS)
 		    &&	rch->level + 6 > victim->level) {
 			do_emote(rch, "screams and attacks!");
-			multi_hit(rch,victim,TYPE_UNDEFINED, 0);
+			multi_hit(rch,victim,TYPE_UNDEFINED, MSTRIKE);
 			continue;
 		    }
 
@@ -212,14 +211,14 @@ void check_assist(CHAR_DATA *ch,CHAR_DATA *victim)
 			if (((!IS_NPC(rch) && IS_SET(rch->act,PLR_AUTOASSIST))
 			||     IS_AFFECTED(rch,AFF_CHARM))
 			&&   is_same_group(ch,rch))
-			    multi_hit (rch,victim,TYPE_UNDEFINED, 0);
+			    multi_hit (rch,victim,TYPE_UNDEFINED, MSTRIKE);
 
 			continue;
 		    }
 
 		    if (!IS_NPC(ch) && RIDDEN(rch) == ch)
 		    {
-			multi_hit(rch,victim,TYPE_UNDEFINED, 0);
+			multi_hit(rch,victim,TYPE_UNDEFINED, MSTRIKE);
 			continue;
 		    }
 
@@ -266,7 +265,7 @@ void check_assist(CHAR_DATA *ch,CHAR_DATA *victim)
 			    if (target != NULL)
 			    {
 				do_emote(rch,"screams and attacks!");
-				multi_hit(rch,target,TYPE_UNDEFINED, 0);
+				multi_hit(rch,target,TYPE_UNDEFINED, MSTRIKE);
 			    }
 			}
 		    }
@@ -278,7 +277,7 @@ void check_assist(CHAR_DATA *ch,CHAR_DATA *victim)
 /*
  * Do one group of attacks.
  */
-void multi_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, int not_first_hit)
+void multi_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, int mstrike)
 {
 	int     chance;
 
@@ -342,11 +341,11 @@ void multi_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, int not_first_hit)
 		return;
 	}
 
-	if (!not_first_hit)
-		if (SKILL_OK(ch, gsn_mortal_strike)
-		&&  get_eq_char(ch, WEAR_WIELD)
-		&&  ch->level > (victim->level - 5)
-		&&  SKILL_OK(ch, gsn_mortal_strike)) {
+	if (mstrike == MSTRIKE
+	&&  SKILL_OK(ch, gsn_mortal_strike)
+	&&  get_eq_char(ch, WEAR_WIELD)
+	&&  ch->level > (victim->level - 5)
+	&&  SKILL_OK(ch, gsn_mortal_strike)) {
 			int chance = 1 + get_skill(ch, gsn_mortal_strike) / 5;
 			chance += (ch->level - victim->level) / 2;
 			if (number_percent() < chance) {
@@ -1079,7 +1078,7 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt ,bool secondary)
 
 	if (counter) {
 		result = damage(ch,ch,2*dam,dt,dam_type,TRUE);
-		multi_hit(victim,ch,TYPE_UNDEFINED, 0);
+		multi_hit(victim,ch,TYPE_UNDEFINED, NO_MSTRIKE);
 	} else
 		result = damage(ch, victim, dam, dt, dam_type, TRUE);
 
@@ -1347,7 +1346,8 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim,
 			&&  victim->master->in_room == ch->in_room
 			&&  number_bits(3) == 0) {
 				stop_fighting(ch, FALSE);
-				multi_hit(ch,victim->master,TYPE_UNDEFINED, 0);
+				multi_hit(ch,victim->master,
+					  TYPE_UNDEFINED, NO_MSTRIKE);
 				return FALSE;
 			}
 		}
@@ -2657,7 +2657,7 @@ void do_kill(CHAR_DATA *ch, const char *argument)
 
 	if (victim == ch) {
 		send_to_char("You hit yourself.  Ouch!\n\r", ch);
-		multi_hit(ch, ch, TYPE_UNDEFINED, 0);
+		multi_hit(ch, ch, TYPE_UNDEFINED, NO_MSTRIKE);
 		return;
 	}
 
@@ -2670,7 +2670,7 @@ void do_kill(CHAR_DATA *ch, const char *argument)
 
 	WAIT_STATE(ch, 1 * PULSE_VIOLENCE);
 
-	multi_hit(ch, victim, TYPE_UNDEFINED, 0);
+	multi_hit(ch, victim, TYPE_UNDEFINED, MSTRIKE);
 	return;
 }
 
@@ -2738,7 +2738,7 @@ void do_murder(CHAR_DATA *ch, const char *argument)
 				 ch->name);
 	}
 
-	multi_hit(ch, victim, TYPE_UNDEFINED, 0);
+	multi_hit(ch, victim, TYPE_UNDEFINED, MSTRIKE);
 	return;
 }
 
@@ -2995,6 +2995,6 @@ void do_surrender(CHAR_DATA *ch, const char *argument)
 	     !mp_percent_trigger(mob, ch, NULL, NULL, TRIG_SURR))) {
 		act("$N seems to ignore your cowardly act!",
 		    ch, NULL, mob, TO_CHAR);
-		multi_hit(mob, ch, TYPE_UNDEFINED, 0);
+		multi_hit(mob, ch, TYPE_UNDEFINED, NO_MSTRIKE);
 	}
 }

@@ -1,5 +1,5 @@
 /*
- * $Id: quest.c,v 1.54 1998-07-29 10:15:35 fjoe Exp $
+ * $Id: quest.c,v 1.55 1998-08-03 00:22:31 efdi Exp $
  */
 
 /***************************************************************************
@@ -95,7 +95,7 @@
 
 static void quest_tell(CHAR_DATA *ch, CHAR_DATA *questor, const char *fmt, ...);
 static CHAR_DATA *questor_lookup(CHAR_DATA *ch);
-static QTROUBLE_DATA *qtrouble_lookup(CHAR_DATA *ch, int vnum);
+QTROUBLE_DATA *qtrouble_lookup(CHAR_DATA *ch, int vnum);
 
 static void quest_points(CHAR_DATA *ch, char *arg);
 static void quest_info(CHAR_DATA *ch, char *arg);
@@ -395,7 +395,7 @@ static CHAR_DATA* questor_lookup(CHAR_DATA *ch)
 }
 
 
-static QTROUBLE_DATA *qtrouble_lookup(CHAR_DATA *ch, int vnum)
+QTROUBLE_DATA *qtrouble_lookup(CHAR_DATA *ch, int vnum)
 {
 	QTROUBLE_DATA *qt;
 

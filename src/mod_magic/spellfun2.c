@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.29 1998-08-02 22:18:15 efdi Exp $
+ * $Id: spellfun2.c,v 1.30 1998-08-03 00:22:31 efdi Exp $
  */
 
 /***************************************************************************
@@ -310,7 +310,7 @@ void spell_poison_smoke(int sn, int level, CHAR_DATA *ch, void *vo, int target) 
 	  
 	spell_poison(gsn_poison,ch->level,ch,tmp_vict, TARGET_CHAR);
 	if (tmp_vict != ch)
-	  multi_hit(tmp_vict,ch,TYPE_UNDEFINED, 0);
+	  multi_hit(tmp_vict,ch,TYPE_UNDEFINED, NO_MSTRIKE);
 	
 	}
 	
@@ -341,7 +341,7 @@ void spell_blindness_dust(int sn, int level, CHAR_DATA *ch, void *vo, int target
 	  
 	spell_blindness(gsn_blindness,ch->level,ch,tmp_vict, TARGET_CHAR);
 	if (tmp_vict != ch)
-	  multi_hit(tmp_vict,ch,TYPE_UNDEFINED, 0);
+	  multi_hit(tmp_vict,ch,TYPE_UNDEFINED, NO_MSTRIKE);
 
 	}
 

@@ -1,5 +1,5 @@
 /*
- * $Id: mob_cmds.c,v 1.7 1998-08-02 22:18:15 efdi Exp $
+ * $Id: mob_cmds.c,v 1.8 1998-08-03 00:22:31 efdi Exp $
  */
 
 /***************************************************************************
@@ -367,7 +367,7 @@ void do_mpkill(CHAR_DATA *ch, const char *argument)
 	return;
     }
 
-    multi_hit(ch, victim, TYPE_UNDEFINED, 0);
+    multi_hit(ch, victim, TYPE_UNDEFINED, NO_MSTRIKE);
     return;
 }
 
@@ -392,7 +392,7 @@ void do_mpassist(CHAR_DATA *ch, const char *argument)
     if (victim == ch || ch->fighting != NULL || victim->fighting == NULL)
 	return;
 
-    multi_hit(ch, victim->fighting, TYPE_UNDEFINED, 0);
+    multi_hit(ch, victim->fighting, TYPE_UNDEFINED, NO_MSTRIKE);
     return;
 }
 

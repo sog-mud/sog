@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.50 1998-08-02 22:18:16 efdi Exp $
+ * $Id: update.c,v 1.51 1998-08-03 00:22:31 efdi Exp $
  */
 
 /***************************************************************************
@@ -1680,7 +1680,7 @@ void aggr_update(void)
 					 PERS(wch,ch));
 				wch = check_guard(wch, ch); 
 
-				multi_hit(ch,wch,TYPE_UNDEFINED, 0);
+				multi_hit(ch,wch,TYPE_UNDEFINED, NO_MSTRIKE);
 				continue;
 			}
 
@@ -1719,7 +1719,8 @@ void aggr_update(void)
 
 			if (!is_safe_nomessage(ch, victim)) {
 				victim = check_guard(victim, ch); 
-				multi_hit(ch, victim, TYPE_UNDEFINED, 0);
+				multi_hit(ch, victim, TYPE_UNDEFINED,
+					  NO_MSTRIKE);
 			}
 		}
 	}

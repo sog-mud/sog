@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.40 1998-08-02 22:18:14 efdi Exp $
+ * $Id: spellfun.c,v 1.41 1998-08-03 00:22:30 efdi Exp $
  */
 
 /***************************************************************************
@@ -457,7 +457,8 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 				act("$N deflects $n's spell!",ch,NULL,victim,
 				    TO_NOTVICT);
 				damage(victim,ch,3 * victim->level,gsn_spellbane,DAM_NEGATIVE, TRUE);
-				multi_hit(victim, ch, TYPE_UNDEFINED, 0);
+				multi_hit(victim, ch, TYPE_UNDEFINED,
+					  NO_MSTRIKE);
 	        	}
 			return;
 		}
@@ -687,7 +688,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		    if (victim == vch && victim->fighting == NULL)
 		    {
 			if (victim->position != POS_SLEEPING)
-			multi_hit(victim, ch, TYPE_UNDEFINED, 0);
+			multi_hit(victim, ch, TYPE_UNDEFINED, NO_MSTRIKE);
 
 			break;
 		    }
@@ -868,8 +869,7 @@ void obj_cast_spell(int sn, int level,
 		    vch_next = vch->next_in_room;
 		    if (victim == vch && victim->fighting == NULL)
 		    {
-			multi_hit(victim, ch, TYPE_UNDEFINED, 0);
-
+			multi_hit(victim, ch, TYPE_UNDEFINED, NO_MSTRIKE);
 			break;
 		    }
 		}
