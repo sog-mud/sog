@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.44 1998-07-13 11:09:00 fjoe Exp $
+ * $Id: update.c,v 1.45 1998-07-19 01:03:45 efdi Exp $
  */
 
 /***************************************************************************
@@ -1442,13 +1442,18 @@ void obj_update(void)
 					&&  skill_table[paf->type].msg_obj) {
 						if (obj->carried_by != NULL) {
 							rch = obj->carried_by;
-							act(skill_table[paf->type].msg_obj, rch,obj,NULL,TO_CHAR);
+							act(skill_table[
+							     paf->type].msg_obj,
+							    rch,obj,NULL,
+							    TO_CHAR);
 						}
 
 						if (obj->in_room != NULL 
-						&& obj->in_room->people != NULL) {
-							rch = obj->in_room->people;
-							act(skill_table[paf->type].msg_obj, rch,obj,NULL,TO_ALL);
+						&& obj->in_room->people) {
+						    rch = obj->in_room->people;
+						    act(skill_table[
+							     paf->type].msg_obj,
+							rch,obj,NULL,TO_ALL);
 						}
 	                		}
 	            		}
@@ -1468,42 +1473,48 @@ void obj_update(void)
 
 		if (check_material(obj, "ice")) {
 			if (obj->carried_by != NULL) {
-				if (obj->carried_by->in_room->sector_type == SECT_DESERT)
+				if (obj->carried_by->in_room->sector_type
+				     == SECT_DESERT)
 				if (number_percent() < 40) {
-					act("The extreme heat melts $p.", obj->carried_by, obj, NULL, TO_CHAR);
+					act("The extreme heat melts $p.",
+					    obj->carried_by, obj, NULL,
+					    TO_CHAR);
 					extract_obj(obj);
 					continue;
 				}
-			}
-			else if (obj->in_room != NULL)
-				if (obj->in_room->sector_type == SECT_DESERT)
-					if (number_percent() < 50)  {
-						if (obj->in_room->people != NULL) {
-							act("The extreme heat melts $p.", obj->in_room->people, obj, NULL, TO_ROOM);
-							act("The extreme heat melts $p.", obj->in_room->people, obj, NULL, TO_CHAR);
-						}
-					extract_obj(obj);
-					continue;
+			} else if (obj->in_room != NULL)
+			    if (obj->in_room->sector_type == SECT_DESERT)
+			    	if (number_percent() < 50)  {
+			    	     if (obj->in_room->people) {
+					  act("The extreme heat melts $p.",
+			    			obj->in_room->people,
+			    			obj, NULL, TO_ROOM);
+					  act("The extreme heat melts $p.",
+			    			obj->in_room->people,
+			    			obj, NULL, TO_CHAR);
+			    	    }
+				    extract_obj(obj);
+				    continue;
 				}
-			}
+			    }
 
-	    if (!check_material(obj, "glass") && obj->item_type==ITEM_POTION)  {
-	  if (obj->carried_by != NULL)  {
-	    if (obj->carried_by->in_room->sector_type == SECT_DESERT &&
-		 !IS_NPC(obj->carried_by))
-	      if (number_percent() < 20)  {
-		act("$p evaporates.", obj->carried_by, obj, NULL, TO_CHAR);
-		extract_obj(obj);
-		continue;
-	      }
-	  }
-	  else if (obj->in_room != NULL)
-	    if (obj->in_room->sector_type == SECT_DESERT)
-	      if (number_percent() < 30)  
-	           {
-		if (obj->in_room->people != NULL)  
-	            {
-		  act("$p evaporates by the extream heat.", obj->in_room->people, obj, NULL, TO_ROOM);
+			    if (!check_material(obj, "glass")
+			    &&  obj->item_type == ITEM_POTION)  {
+				if (obj->carried_by != NULL)  {
+				    if (obj->carried_by->in_room->sector_type
+					== SECT_DESERT
+				    &&  !IS_NPC(obj->carried_by)
+				    &&  number_percent() < 20)  {
+					act("$p evaporates.", obj->carried_by,
+					    obj, NULL, TO_CHAR);
+					extract_obj(obj);
+					continue;
+				    }
+				} else if (obj->in_room != NULL)
+				    if (obj->in_room->sector_type == SECT_DESERT
+				    &&  number_percent() < 30)  {
+					if (obj->in_room->people != NULL)  {
+					    act("$p evaporates by the extream heat.", obj->in_room->people, obj, NULL, TO_ROOM);
 		  act("$p evaporates by the extream heat.", obj->in_room->people, obj, NULL, TO_CHAR);
 	        }
 	        extract_obj(obj);

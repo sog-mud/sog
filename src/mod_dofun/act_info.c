@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.98 1998-07-14 12:43:48 fjoe Exp $
+ * $Id: act_info.c,v 1.99 1998-07-19 01:03:43 efdi Exp $
  */
 
 /***************************************************************************
@@ -1151,25 +1151,17 @@ void do_look(CHAR_DATA *ch, const char *argument)
 		return;
 
 	if (ch->position < POS_SLEEPING) {
-		send_to_char(msg(CANT_SEE_BUT_STARS, ch), ch);
+		char_nputs(CANT_SEE_BUT_STARS, ch);
 		return;
 	}
 
 	if (ch->position == POS_SLEEPING) {
-		send_to_char(msg(CANT_SEE_SLEEPING, ch), ch);
+		char_nputs(CANT_SEE_SLEEPING, ch);
 		return;
 	}
 
 	if (!check_blind(ch))
 		return;
-
-	if (!IS_NPC(ch)
-	&&  !IS_SET(ch->act, PLR_HOLYLIGHT)
-	&&  room_is_dark(ch)) {
-		send_to_char(msg(PITCH_BLACK, ch), ch);
-		show_char_to_char(ch->in_room->people, ch);
-		return;
-	}
 
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
@@ -1180,6 +1172,7 @@ void do_look(CHAR_DATA *ch, const char *argument)
 
 		/* 'look' or 'look auto' */
 
+	    if (!room_is_dark(ch)) {
 		char *name;
 		char *engname;
 
@@ -1207,6 +1200,8 @@ void do_look(CHAR_DATA *ch, const char *argument)
 			send_to_char("\n\r", ch);
 			do_exits(ch, "auto");
 		}
+	    } else 
+		char_nputs(PITCH_BLACK, ch);
 
 		show_list_to_char(ch->in_room->contents, ch, FALSE, FALSE);
 		show_char_to_char(ch->in_room->people, ch);
@@ -1216,7 +1211,7 @@ void do_look(CHAR_DATA *ch, const char *argument)
 	if (!str_cmp(arg1, "i") || !str_cmp(arg1, "in") || !str_cmp(arg1,"on")) {
 		/* 'look in' */
 		if (arg2[0] == '\0') {
-			send_to_char(msg(LOOK_IN_WHAT, ch), ch);
+			char_nputs(LOOK_IN_WHAT, ch);
 			return;
 		}
 
@@ -1324,9 +1319,9 @@ void do_look(CHAR_DATA *ch, const char *argument)
 
 	if (count > 0 && count != number) {
 		if (count == 1)
-			char_printf(ch, msg(ONLY_SEE_ONE_S, ch), arg3);
+			char_nprintf(ch, ONLY_SEE_ONE_S, arg3);
 		else
-			char_printf(ch, msg(ONLY_SEE_D_THOSE, ch), count);
+			char_nprintf(ch, ONLY_SEE_D_THOSE, count);
 		return;
 	}
 
@@ -1337,13 +1332,13 @@ void do_look(CHAR_DATA *ch, const char *argument)
 	else if (!str_cmp(arg1, "u") || !str_cmp(arg1, "up" )) door = 4;
 	else if (!str_cmp(arg1, "d") || !str_cmp(arg1, "down")) door = 5;
 	else {
-		send_to_char(msg(YOU_DONT_SEE_THAT, ch), ch);
+		char_nputs(YOU_DONT_SEE_THAT, ch);
 		return;
 	}
 
 	/* 'look direction' */
 	if ((pexit = ch->in_room->exit[door]) == NULL) {
-		send_to_char(msg(NOTHING_SPECIAL_THERE, ch), ch);
+		char_nputs(NOTHING_SPECIAL_THERE, ch);
 		return;
 	}
 
@@ -1384,12 +1379,12 @@ void do_examine(CHAR_DATA *ch, const char *argument)
 		return;
 
 	if (ch->position < POS_SLEEPING) {
-		send_to_char(msg(CANT_SEE_BUT_STARS, ch), ch);
+		char_nputs(CANT_SEE_BUT_STARS, ch);
 		return;
 	}
 
 	if (ch->position == POS_SLEEPING) {
-		send_to_char(msg(CANT_SEE_SLEEPING, ch), ch);
+		char_nputs(CANT_SEE_SLEEPING, ch);
 		return;
 	}
 
@@ -1397,7 +1392,7 @@ void do_examine(CHAR_DATA *ch, const char *argument)
 		return;
 
 	if (arg[0] == '\0') {
-		send_to_char(msg(EXA_WHAT, ch), ch);
+		char_nputs(EXA_WHAT, ch);
 		return;
 	}
 
@@ -1408,29 +1403,23 @@ void do_examine(CHAR_DATA *ch, const char *argument)
 		case ITEM_MONEY:
 			if (obj->value[0] == 0) {
 				if (obj->value[1] == 0)
-					char_puts(msg(NO_COINS_PILE, ch),
-							 ch);
+					char_nputs(NO_COINS_PILE, ch);
 				else if (obj->value[1] == 1)
-					char_puts(msg(ONE_GOLD_COIN, ch),
-						  ch);
+					char_nputs(ONE_GOLD_COIN, ch);
 				else
-					char_printf(ch, 
-						    msg(D_GOLD_COINS, ch),
-						    obj->value[1]);
+					char_nprintf(ch, D_GOLD_COINS,
+						     obj->value[1]);
 			}
 			else if (obj->value[1] == 0) {
 				if (obj->value[0] == 1)
-					char_puts(msg(ONE_SILVER_COIN, ch),
-							 ch);
+					char_nputs(ONE_SILVER_COIN, ch);
 				else
-					char_printf(ch, 
-						   msg(D_SILVER_COINS, ch),
-						   obj->value[0]);
+					char_nprintf(ch, D_SILVER_COINS,
+						     obj->value[0]);
 			}
 			else
-				char_printf(ch, 
-					    msg(D_SILVER_AND_D_GOLD, ch), 
-					    obj->value[1],obj->value[0]);
+				char_nprintf(ch, D_SILVER_AND_D_GOLD, 
+					    obj->value[1], obj->value[0]);
 			break;
 
 		case ITEM_DRINK_CON:
@@ -1451,7 +1440,6 @@ void do_examine(CHAR_DATA *ch, const char *argument)
 void do_exits(CHAR_DATA *ch, const char *argument)
 {
 	extern char * const dir_name[];
-	char buf[MAX_STRING_LENGTH];
 	EXIT_DATA *pexit;
 	bool found;
 	bool fAuto;
@@ -1463,38 +1451,33 @@ void do_exits(CHAR_DATA *ch, const char *argument)
 		return;
 
 	if (fAuto)
-		sprintf(buf, msg(EXITS, ch));
+		char_nputs(EXITS, ch);
 	else if (IS_IMMORTAL(ch))
-		sprintf(buf, msg(OBVIOUS_EXITS_IMM, ch),
-			ch->in_room->vnum);
+		char_nprintf(ch, OBVIOUS_EXITS_IMM, ch->in_room->vnum);
 	else
-		sprintf(buf, msg(OBVIOUS_EXITS, ch));
+		char_nputs(OBVIOUS_EXITS, ch);
 
 	found = FALSE;
 	for (door = 0; door <= 5; door++) {
-		char* p;
-
 		if ((pexit = ch->in_room->exit[door]) != NULL
 		&&  pexit->u1.to_room != NULL
 		&&  can_see_room(ch,pexit->u1.to_room)
 		&&  !IS_SET(pexit->exit_info, EX_CLOSED)) {
 			found = TRUE;
-			if (fAuto) {
-				strcat(buf, " ");
-				strcat(buf, dir_name[door]);
-			}
+			if (fAuto)
+				char_printf(ch, " %s", dir_name[door]);
 			else {
-				sprintf(strchr(buf, '\0'), "{C%-5s{x - %s",
-					capitalize(dir_name[door]),
-					room_dark(pexit->u1.to_room) ?
-					msg(TOO_DARK_TO_TELL, ch) :
-					mlstr_cval(pexit->u1.to_room->name, ch));
-				p = strend(buf);
+				char_printf(ch, "{C%-5s{x - %s",
+					    capitalize(dir_name[door]),
+					    room_dark(pexit->u1.to_room) ?
+					    msg(TOO_DARK_TO_TELL, ch) :
+					    mlstr_cval(pexit->u1.to_room->name,
+							ch));
 				if (IS_IMMORTAL(ch))
-					sprintf(p, msg(ROOM_D, ch),
-						pexit->u1.to_room->vnum);
+					char_nprintf(ch, ROOM_D,
+						     pexit->u1.to_room->vnum);
 				else
-					sprintf(p, "\n\r");
+					char_puts("\n\r", ch);
 			}
 		}
 
@@ -1506,31 +1489,28 @@ void do_exits(CHAR_DATA *ch, const char *argument)
 			check_improve(ch,gsn_perception, TRUE, 5);
 			found = TRUE;
 
-			p = strchr(buf, '\0');
 			if (fAuto)
-				sprintf(p, " %s*", dir_name[door]);
+				char_printf(ch, " %s*", dir_name[door]);
 			else {
-				sprintf(p, "%-5s * (%s)",
-					capitalize(dir_name[door]),
-					pexit->keyword);
+				char_printf(ch, "%-5s * (%s)",
+					    capitalize(dir_name[door]),
+					    pexit->keyword);
 
-				p = strend(buf);
 				if (IS_IMMORTAL(ch))
-					sprintf(p, msg(ROOM_D, ch),
-						pexit->u1.to_room->vnum);
+					char_nprintf(ch, ROOM_D,
+						     pexit->u1.to_room->vnum);
 				else
-					sprintf(p, "\n\r");
+					char_puts("\n\r", ch);
 			}
 		}
 	}
 
 	if (!found)
-		strcat(buf, fAuto ? msg(NONE, ch) : msg(CAPNONE, ch));
+		char_nputs(fAuto ? NONE : CAPNONE, ch);
 
 	if (fAuto)
-		strcat(buf, "]{x\n\r");
+		char_puts("]{x\n\r", ch);
 
-	send_to_char(buf, ch);
 	return;
 }
 

@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.37 1998-07-14 07:47:43 fjoe Exp $
+ * $Id: handler.c,v 1.38 1998-07-19 01:03:45 efdi Exp $
  */
 
 /***************************************************************************
@@ -2465,14 +2465,10 @@ OBJ_DATA *get_obj_list(CHAR_DATA *ch, const char *argument, OBJ_DATA *list)
 
 	number = number_argument(argument, arg);
 	count  = 0;
-	for (obj = list; obj != NULL; obj = obj->next_content)
-	{
+	for (obj = list; obj; obj = obj->next_content)
 		if (can_see_obj(ch, obj) && is_name(arg, obj->name))
-		{
-		    if (++count == number)
-			return obj;
-		}
-	}
+			if (++count == number)
+				return obj;
 
 	return NULL;
 }
@@ -2733,10 +2729,11 @@ bool room_is_dark(CHAR_DATA *ch)
 {
 	ROOM_INDEX_DATA * pRoomIndex = ch->in_room;
 
+	if (!IS_NPC(ch) && IS_SET(ch->act, PLR_HOLYLIGHT))
+		return FALSE;
+
 	if (IS_VAMPIRE (ch)) 
-		{
-	     return FALSE;
-		}
+		return FALSE;
 		
 	if (pRoomIndex->light > 0)
 		return FALSE;
@@ -2749,7 +2746,7 @@ bool room_is_dark(CHAR_DATA *ch)
 		return FALSE;
 
 	if (weather_info.sunlight == SUN_SET
-		   || weather_info.sunlight == SUN_DARK)
+	||  weather_info.sunlight == SUN_DARK)
 		return TRUE;
 
 	return FALSE;
@@ -2918,7 +2915,7 @@ bool can_see_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 	if (!IS_NPC(ch) && IS_SET(ch->act, PLR_HOLYLIGHT))
 		return TRUE;
 
-	if (IS_SET(obj->extra_flags,ITEM_VIS_DEATH))
+	if (IS_SET(obj->extra_flags, ITEM_VIS_DEATH))
 		return FALSE;
 
 	if (IS_AFFECTED(ch, AFF_BLIND) && obj->item_type != ITEM_POTION)
@@ -2931,14 +2928,11 @@ bool can_see_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 	&&   !CAN_DETECT(ch, DETECT_INVIS))
 	    return FALSE;
 
-	if (IS_OBJ_STAT(obj,ITEM_GLOW))
+	if (IS_OBJ_STAT(obj, ITEM_GLOW))
 		return TRUE;
 
 	if (room_is_dark(ch) && !IS_AFFECTED(ch, AFF_INFRARED))
 		return FALSE;
-
-	if (obj->item_type == ITEM_TATTOO)
-		return TRUE;
 
 	return TRUE;
 }
