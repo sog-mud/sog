@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.114.2.37 2004-02-19 17:23:08 fjoe Exp $
+ * $Id: martial_art.c,v 1.114.2.38 2004-05-26 16:31:40 tatyana Exp $
  */
 
 /***************************************************************************
@@ -3690,7 +3690,7 @@ void do_dishonor(CHAR_DATA *ch, const char *argument)
 		if ((pexit = was_in->exit[door]) == 0
 		||  pexit->to_room.r == NULL
 		||  (IS_SET(pexit->exit_info, EX_CLOSED) &&
-		     (!IS_AFFECTED(ch, AFF_PASS_DOOR) ||
+		     (!IS_TRANSLUCENT(ch) ||
 		      IS_SET(pexit->exit_info,EX_NOPASS)) &&
 		     !IS_TRUSTED(ch, LEVEL_ANG))
 		|| IS_SET(pexit->exit_info, EX_NOFLEE)

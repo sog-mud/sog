@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.181.2.49 2004-02-19 17:23:10 fjoe Exp $
+ * $Id: spellfun.c,v 1.181.2.50 2004-05-26 16:31:41 tatyana Exp $
  */
 
 /***************************************************************************
@@ -3189,12 +3189,13 @@ void spell_pass_door(int sn, int level, CHAR_DATA *ch, void *vo)
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA af;
 
-	if (IS_AFFECTED(victim, AFF_PASS_DOOR))
-	{
+	if (IS_TRANSLUCENT(victim)) {
 		if (victim == ch)
-		  char_puts("You are already out of phase.\n",ch);
-		else
-		  act("$N is already shifted out of phase.",ch,NULL,victim,TO_CHAR);
+			char_puts("You are already out of phase.\n",ch);
+		else {
+			act("$N is already shifted out of phase.",
+			    ch,NULL,victim,TO_CHAR);
+		}
 		return;
 	}
 
