@@ -1,5 +1,5 @@
 #AREADATA
-Ver 7
+Ver 8
 Name Generic Helps~
 VNUMs 0 0
 Credits Diku~
@@ -7539,6 +7539,12 @@ COMPRESS ON включает опцию компресси, если она выключена и клиент
 по адресу: http://www.randomly.org/projects/MCCP/clients.html
  
 Смотри также: {CCOMPRESS{x
+~
+0 'OLC MOB PRAC'~
+Syntax: {cprac ?{x
+Syntax: {cprac add{x name...
+Syntax: {cprac delete{x name...
+Syntax: {cprac remove{x name...
 ~
 -1 $~
 
