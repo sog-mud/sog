@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm_act.c,v 1.30 1999-06-21 17:21:22 fjoe Exp $
+ * $Id: comm_act.c,v 1.31 1999-06-22 13:50:46 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -133,6 +133,8 @@ const char *PERS2(CHAR_DATA *ch, CHAR_DATA *looker, int act_flags)
 			}
 
 			descr = mlstr_cval(&ch->short_descr, looker);
+			if (IS_SET(act_flags, ACT_NOFIXSH))
+				return descr;
 			return fix_short(descr);
 		}
 		else if (is_affected(ch, gsn_vampire) && !IS_IMMORTAL(looker)) {
@@ -216,13 +218,14 @@ static int SEX(CHAR_DATA *ch, CHAR_DATA *looker)
 }
 
 static const char *
-act_format_text(const char *text, CHAR_DATA *ch, CHAR_DATA *to, actopt_t *opt)
+act_format_text(const char *text, CHAR_DATA *ch, CHAR_DATA *to,
+		int to_lang, int act_flags)
 {
-	if (!IS_SET(opt->act_flags, ACT_NOTRANS))
-		text = GETMSG(text, opt->to_lang);
-	if (IS_SET(opt->act_flags, ACT_STRANS))
+	if (!IS_SET(act_flags, ACT_NOTRANS))
+		text = GETMSG(text, to_lang);
+	if (IS_SET(act_flags, ACT_STRANS))
 		text = translate(ch, to, text);
-	if (IS_SET(opt->act_flags, ACT_NOFIXSH))
+	if (IS_SET(act_flags, ACT_NOFIXSH))
 		return text;
 	return fix_short(text);
 }
@@ -230,13 +233,18 @@ act_format_text(const char *text, CHAR_DATA *ch, CHAR_DATA *to, actopt_t *opt)
 static const char *
 act_format_obj(OBJ_DATA *obj, CHAR_DATA *to, int act_flags)
 {
+	const char *descr;
+
 	if (!can_see_obj(to, obj))
 		return GETMSG("something", to->lang);
 
 	if (IS_SET(act_flags, ACT_FORMSH))
 		return format_short(&obj->short_descr, obj->name, to);
 
-	return fix_short(mlstr_cval(&obj->short_descr, to));
+	descr = mlstr_cval(&obj->short_descr, to);
+	if (IS_SET(act_flags, ACT_NOFIXSH))
+		return descr;
+	return fix_short(descr);
 }
 
 static const char *
@@ -283,14 +291,35 @@ door_name(const char *name)
 		break;						\
 	}
 
-#define CHAR_ARG(ch, to, opt)					\
-	{							\
-		if (ch == NULL) {				\
-			i = GETMSG("Noone", opt->to_lang);	\
-		} else {					\
-			CHECK_TYPE(ch, MT_CHAR);		\
-			i = PERS2(ch, to, opt->act_flags);	\
-		}						\
+#define ACT_FLAGS(opt, sp)					\
+		(opt->act_flags | (sp < 0 ? 0 : ACT_NOFIXSH))	\
+
+#define CHAR_ARG(ch)							\
+	{								\
+		if (ch == NULL) {					\
+			i = GETMSG("Noone", opt->to_lang);		\
+		} else {						\
+			CHECK_TYPE(ch, MT_CHAR);			\
+			i = PERS2(ch, to, ACT_FLAGS(opt, sp));		\
+		}							\
+	}
+
+#define OBJ_ARG(obj)							\
+	{								\
+		if (obj == NULL) {					\
+			i = GETMSG("Nothing", opt->to_lang);		\
+		} else {						\
+			CHECK_TYPE(obj, MT_OBJ);			\
+			i = act_format_obj(obj, to,			\
+					   ACT_FLAGS(opt, sp));		\
+		}							\
+	}
+
+#define TEXT_ARG(text)							\
+	{								\
+		CHECK_STRING(text);					\
+		i = act_format_text(text, ch, to, opt->to_lang,		\
+				    ACT_FLAGS(opt, sp));		\
 	}
 
 /*
@@ -456,18 +485,15 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 /* text arguments */
 			case 't': 
 			case 'u':
-				CHECK_STRING(arg1);
-				i = act_format_text(arg1, ch, to, opt);
+				TEXT_ARG(arg1);
 				break;
 
 			case 'T':
-				CHECK_STRING(arg2);
-				i = act_format_text(arg2, ch, to, opt);
+				TEXT_ARG(arg2);
 				break;
 
 			case 'U':
-				CHECK_STRING(arg3);
-				i = act_format_text(arg3, ch, to, opt);
+				TEXT_ARG(arg3);
 				break;
 
 			case 'b':
@@ -503,19 +529,19 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 
 /* char arguments */
 			case 'n':
-				CHAR_ARG(ch, to, opt);
+				CHAR_ARG(ch);
 				break;
 
 			case 'N':
-				CHAR_ARG(vch, to, opt);
+				CHAR_ARG(vch);
 				break;
 
 			case 'i':
-				CHAR_ARG(vch1, to, opt);
+				CHAR_ARG(vch1);
 				break;
 
 			case 'I':
-				CHAR_ARG(vch3, to, opt);
+				CHAR_ARG(vch3);
 				break;
 
 /* numeric arguments */
@@ -562,13 +588,11 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 
 /* obj arguments */
 			case 'p':
-				CHECK_TYPE(obj1, MT_OBJ);
-				i = act_format_obj(obj1, to, opt->act_flags);
+				OBJ_ARG(obj1);
 				break;
 
 			case 'P':
-				CHECK_TYPE(obj2, MT_OBJ);
-				i = act_format_obj(obj2, to, opt->act_flags);
+				OBJ_ARG(obj2);
 				break;
 
 /* door arguments */

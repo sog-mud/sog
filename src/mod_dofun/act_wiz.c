@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.160 1999-06-22 03:57:30 avn Exp $
+ * $Id: act_wiz.c,v 1.161 1999-06-22 13:50:44 fjoe Exp $
  */
 
 /***************************************************************************
@@ -68,6 +68,7 @@
 #include "db/cmd.h"
 #include "db/db.h"
 #include "olc/olc.h"
+#include "dl.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_rstat	);
@@ -4556,5 +4557,24 @@ DO_FUN(do_qtarget)
 	af.bitvector	= AFF_QUESTTARGET;
 	af.location	= APPLY_NONE;
 	affect_to_char(vch, &af);
+}
+
+void do_modules(CHAR_DATA *ch, const char *argument)
+{
+	char arg[MAX_INPUT_LENGTH];
+
+	argument = one_argument(argument, arg, sizeof(arg));
+	if (arg[0] == '\0') {
+		do_help(ch, "'WIZ MODULES'");
+		return;
+	}
+
+	if (!str_prefix(arg, "reload")) {
+		one_argument(argument, arg, sizeof(arg));
+		dl_load(arg);
+		return;
+	}
+
+	do_modules(ch, str_empty);
 }
 

@@ -1,5 +1,5 @@
 /*
- * $Id: interp.h,v 1.53 1999-06-22 03:57:31 avn Exp $
+ * $Id: interp.h,v 1.54 1999-06-22 13:50:46 fjoe Exp $
  */
 
 /***************************************************************************
@@ -204,6 +204,7 @@ DECLARE_DO_FUN(do_make		);
 DECLARE_DO_FUN(do_mark		);
 DECLARE_DO_FUN(do_memory	);
 DECLARE_DO_FUN(do_mfind		);
+DECLARE_DO_FUN(do_modules	);
 DECLARE_DO_FUN(do_msgstat	);
 DECLARE_DO_FUN(do_mwhere	);
 DECLARE_DO_FUN(do_mob		);

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: module.c,v 1.1 1999-06-22 12:37:17 fjoe Exp $
+ * $Id: module.c,v 1.2 1999-06-22 13:50:45 fjoe Exp $
  */
 
 /*
@@ -41,19 +41,26 @@
 #include "db/db.h"
 
 static void load_spellfun(dl_t*);
+static void unload_spellfun(dl_t*);
 
 dl_t dl_tab[] =
 {
-	{ "spellfun", load_spellfun },
+	{ "spellfun", load_spellfun, unload_spellfun },
 
 	{ NULL }
 };
 
-int dl_load(dl_t *dl)
+int dl_load(const char *name)
 {
 	void *dlh;
 	int (*dl_version)(void);
 	int ver;
+	dl_t *dl;
+
+	if ((dl = dl_lookup(name)) == NULL) {
+		db_error("dl_load", "%s: unknown module name", name);
+		return -1;
+	}
 
 	/*
 	 * build .so filename if it was not done before
@@ -67,15 +74,25 @@ int dl_load(dl_t *dl)
 	}
 
 	/*
+	 * unload previously loaded module
+	 */
+	if (dl->dlh != NULL) {
+		if (dl->unload_callback)
+			dl->unload_callback(dl->dlh);
+		dl_close(dl->dlh);
+		dl->dlh = NULL;
+	}
+
+	/*
 	 * open .so and check its version
 	 */
-	dlh = dlopen(dl->filename, RTLD_LAZY);
+	dlh = dl_open(dl->filename, RTLD_LAZY);
 	if (dlh == NULL) {
 		db_error("dl_load", "%s: %s", dl->filename, dl_error(dlh));
 		return -1;
 	}
 
-	dl_version = dlsym(dlh, "dl_version");
+	dl_version = dl_sym(dlh, "dl_version");
 	if (dl_version == NULL) {
 		dlclose(dlh);
 		db_error("dl_load", "%s: %s", dl->filename, dl_error(dlh));
@@ -84,16 +101,14 @@ int dl_load(dl_t *dl)
 
 	if ((ver = dl_version()) != DL_VERSION) {
 		dl_close(dlh);
-		db_error("dl_load: %s: incorrect version %d.%d, "
-			 "current version %d.%d",
+		db_error("dl_load",
+			 "%s: incorrect version %d.%d, current version %d.%d",
 			 dl->filename,
 			 VERSION_HI(ver), VERSION_LO(ver),
 			 VERSION_HI(DL_VERSION), VERSION_LO(DL_VERSION));
 		return -1;
 	}
 
-	if (dl->dlh != NULL)
-		dl_close(dlh);
 	dl->dlh = dlh;
 
 	if (dl->load_callback)
@@ -134,3 +149,16 @@ static void load_spellfun(dl_t* dl)
 	}
 }
 
+static void unload_spellfun(dl_t *dl)
+{
+	int sn;
+
+	for (sn = 0; sn < skills.nused; sn++) {
+		skill_t *sk = SKILL(sn);
+
+		if (sk->skill_type != ST_SPELL)
+			continue;
+
+		sk->fun = NULL;
+	}
+}

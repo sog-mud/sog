@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.155 1999-06-22 03:57:31 avn Exp $
+ * $Id: interp.c,v 1.156 1999-06-22 13:50:45 fjoe Exp $
  */
 
 /***************************************************************************
@@ -492,6 +492,8 @@ cmd_t cmd_table[] =
     { "alist",		do_alist,	POS_DEAD,   IM,  LOG_NEVER	},
     { "ashow",		do_ashow,	POS_DEAD,   IM,  LOG_NEVER	},
     { "resets",		do_resets,	POS_DEAD,   IM,  LOG_NORMAL	},
+
+    { "modules",	do_modules, 	POS_DEAD,   IM,  LOG_NORMAL	},
 
     /*
      * End of list.

@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.157 1999-06-22 12:37:22 fjoe Exp $
+ * $Id: db.c,v 1.158 1999-06-22 13:50:46 fjoe Exp $
  */
 
 /***************************************************************************
@@ -341,7 +341,6 @@ void boot_db_system(void)
 void boot_db(void)
 {
 	long lhour, lday, lmonth;
-	dl_t *dlt;
 
 #ifdef __FreeBSD__
 	extern char* malloc_options;
@@ -394,12 +393,7 @@ void boot_db(void)
 
 	db_load_file(&db_skills, ETC_PATH, SKILLS_CONF);
 	namedp_check(gsn_table);
-	dlt = dl_lookup("spellfun");
-	if (dlt == NULL) {
-		db_error("boot_db", "spellfun: unknown library");
-		exit(1);
-	}
-	dl_load(dlt);
+	dl_load("spellfun");
 
 	db_load_list(&db_races, RACES_PATH, RACE_LIST);
 	db_load_list(&db_classes, CLASSES_PATH, CLASS_LIST);

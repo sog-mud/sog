@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: module.h,v 1.1 1999-06-22 12:37:17 fjoe Exp $
+ * $Id: module.h,v 1.2 1999-06-22 13:50:45 fjoe Exp $
  */
 
 #ifndef _DL_H_
@@ -33,17 +33,19 @@ typedef struct dl_t dl_t;
 
 struct dl_t {
 	const char *name;		/* library name		*/
-	void (*load_callback)(dl_t*);	/* loader callback	*/
+	void (*load_callback)(dl_t*);	/* load callback	*/
+	void (*unload_callback)(dl_t*);	/* unload callback	*/
 	const char *filename;		/* library filename	*/
 	void *dlh;			/* library handler	*/
 };
 
-int	dl_load		(dl_t *);
+int	dl_load			(const char *name);
+dl_t *	dl_lookup	(const char *name);
+
+#define dl_open(name, mode)	dlopen(name, mode)
 #define dl_error(dlh)		dlerror()
 #define dl_sym(dlh, name)	dlsym(dlh, name)
 #define dl_close(dlh)		dlclose(dlh)
-
-dl_t *	dl_lookup	(const char *name);
 
 extern dl_t dl_tab[];
 

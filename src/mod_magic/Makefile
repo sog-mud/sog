@@ -18,5 +18,5 @@ depend:
 clean:
 	rm -f spellfun.so $(OFILES)
 
-install:
+install: spellfun.so
 	install -c -m 770 spellfun.so $(INSTALL_PATH)/../lib
