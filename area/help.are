@@ -20,11 +20,11 @@ End
                      Web page design:
         Denis Petrakov                         (den@@oapmg.sscc.ru)
  
-@rus Shades of Gray составлен на основе MUDа Anatolia -- смотри help anatolia.
+@@rus @@rus S@@rus Sh@rus Shades of Gray составлен на основе MUDа Anatolia -- смотри help anatolia.
 
                  Первоначальная идея, концепция и кодирование:
 
-        Фермер Джо                   [Iluvatar] (fjoe@@iclub.nsu.ru)
+        Farmer Joe                   [Iluvatar] (fjoe@@iclub.nsu.ru)
         Константин Свинцов            [abrazak] (kostik@@iclub.nsu.ru)
         Александр Мороховец              [Eros] (efdi@@iclub.nsu.ru)
         Алексей Нейман                 [Arborn] (avn@@org.chem.msu.su)
@@ -734,10 +734,6 @@ spell do more damage.
 0 MASTERING SWORD~
 A trained samurai can get the secret of sword usage. His/her sword 
 would be more damageful on his/her opponents.
-~
-0 MASTERING POUND~
-A trained ninja has get the secret of pound usage. His/her pound
-would become more damageful on his/her opponents.
 ~
 0 AREA ATTACK~
 Warriors and samurai's have the secret of the area attack to
@@ -3431,7 +3427,7 @@ An up-to-date list of liquid types can be obtained by typing
    value 3    unused
    value 4    unused
 ~
-0 TRANSLATE~
+92 TRANSLATE~
 Инструкция по переводу арий.
 ver 1.1
 by Askold
@@ -4214,7 +4210,7 @@ it from list of available quest items.
        |.  /  . |                                          |.  /  . |
        | .//\.  |                Angels [93]               | .//\.  |
        |.  /  . |                ***********               |.  /  . |
-       |. //\ . |                   Orrin                  |.  //\. |
+       |. //\ . |                                          |.  //\. |
        | .//\.  |                                          | .//\.  |
        |.  /  . |               Avatars [92]               |.  /  . |
        | .//\.  |               ************               | .//\.  |
@@ -4790,13 +4786,11 @@ and clerics are the most skilled at kicking, although thieves may also learn
 it.
 ~
 -1 PARRY~
-If at first you fail to dodge, block it.  Parry is useful for deflecting 
+@eng If at first you fail to dodge, block it.  Parry is useful for deflecting 
 attacks, and is succesful more often than dodge.  Parry requires a weapon for
 full success, the hand-to-hand skill may also be used, but results in reduced
 damage instead of no damage.  The best chance of parrying occurs when the
-defender is skilled in both his and his opponent's weapon type. Due to their
-belief that touching the blades of their opponent with their own blade is
-a loss of honor, Ninjas cannot parry with swords.
+defender is skilled in both his and his opponent's weapon type.
 	Warriors and samurai's have more chance than the others to parry
 the attacks.  
 
@@ -5128,7 +5122,7 @@ Codepages:              | _- |/_________\____ ,,,,,,/==\     / \
                    |  |  |  | | H | |_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|
  
 ~
-0 'mastering bow'~
+0 MASTERING BOW~
 @eng Most famous rangers are able to shoot an arrow with an astonishing
 accuracy, so that even very distant targets can be hit with one shot.
 Everyone knows that wood elves have developed this skill and they are
@@ -5137,6 +5131,11 @@ legendary experts in it.
 тью, так что даже весьма далекие цели могут быть поражены с одного
 выстрела. Непревзойденными мастерами этого умения являются лесные эльфы,
 которые и разработали данную технику.
+~
+0 HAND BLOCK~
+@eng This automatic skill allows unarmed person to block enemy attack with his 
+or her hands. 
+@rus Это автоматическое умение позволяет отбивать наносимые удары голыми руками.
 ~
 -1 $~
 

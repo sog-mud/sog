@@ -662,11 +662,11 @@ else
 mob mload 50
 endif
 mob vforce 50 mob oload 15000
-mob vforce 50 say I'm very sorry but I must go to other places.....
+mob vforce 50 say I'm very sorry but I must go to other places...
 mob vforce 50 wave
 mob vforce 50 mob goto 15000
 mob vforce 50 cast 'teleport'
-mob vforce 50 yell Hey! I have some funny junk for you !
+mob vforce 50 yell Hey! I have some funny junk for you!
 if rand 25
 mob vforce 50 mob oload 15008
 mob vforce 50 drop invader

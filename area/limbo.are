@@ -442,7 +442,7 @@ corpse труп~
 @eng the corpse of %s@rus ~~труп~~ %s~
 @eng The corpse of %s is lying here.@rus Ты видишь труп (corpse) %s.~
 flesh~
-pc_corpse O A
+pc_corpse OR A
 0 0 0 A 0
 0 1000 0 D
 G male
@@ -509,6 +509,18 @@ weapon AGIKL AN
 mace 9 0 divine I
 0 0 0 P
 G male
+#19
+pick lockpick~
+@eng lockpick@rus ~~отмычка~~~
+@eng A small steell needle lies here.@rus Маленькая стальная игла блестит в пыли.~
+steel~
+trash h AO
+0 0 0 0 0
+10 10 10000 P
+S 'perception' 100 A
+S 'knock' 100 A
+S 'pick lock' 100 A
+G female
 #20
 mushroom грибок~
 @eng a Magic Mushroom@rus ~~Волшебный~~ ~~Мухомор~~~

@@ -40,6 +40,14 @@ Form 1 отважная~
 End
 
 #RULE
+Name испарился~
+BaseLen 6
+Form 1 -лась~
+Form 2 -лось~
+Form 3 -лись~
+End
+
+#RULE
 Name растворился~
 BaseLen 8
 Form 1 -лась~

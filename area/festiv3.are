@@ -1568,8 +1568,8 @@ sword veteran old~
 old veteran's sword~
 A rusted sword lies here.~
 steel~
-weapon BMTY AN
-sword 7 17 slash D
+weapon BHMTY AN
+sword 8 14 slash D
 90 100 10000 A
 G none
 #36335
@@ -3319,6 +3319,7 @@ Central Square~
 You are on the Central Square of Festival Town. North and
 south the main road continues, west is a Bank Office,
 east you can enter a Mayor's Residence.
+The Clock Tower is in the middle of the square.
 ~
 0 0 city
 D0

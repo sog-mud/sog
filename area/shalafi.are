@@ -83,7 +83,7 @@ undead~
 ABGO R -1000 0
 92 30 2d500+25000 1d1+3999 10d25+90 bite
 -79 -79 -79 -40
-CF 0 0 0
+CFR 0 0 0
 stand stand male 0
 0 0 huge unknown
 M bribe 95301 5000~
