@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.131 2001-09-12 08:11:35 fjoe Exp $
+ * $Id: db_area.c,v 1.132 2001-09-12 12:49:05 fjoe Exp $
  */
 
 /***************************************************************************
@@ -709,7 +709,7 @@ typedef struct spec_subst_t spec_subst_t;
 
 struct spec_subst_t spec_substs[] =
 {
-  { "spec_assassinater",	TRIG_MOB_FIGHT,	"assassinater"	}, // notrans
+  { "spec_assassinater",	TRIG_MOB_RANDOM,"assassinater"	}, // notrans
   { "spec_breath_any",		TRIG_MOB_FIGHT,	"breath_any"	}, // notrans
   { "spec_breath_acid",		TRIG_MOB_FIGHT,	"breath_acid"	}, // notrans
   { "spec_breath_fire",		TRIG_MOB_FIGHT,	"breath_fire"	}, // notrans

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_dynafun.c,v 1.15 2001-09-12 08:11:44 fjoe Exp $
+ * $Id: mpc_dynafun.c,v 1.16 2001-09-12 12:49:07 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -344,6 +344,18 @@ get_random_fighting(CHAR_DATA *ch)
 	}
 
 	return victim;
+}
+
+int
+char_gold(CHAR_DATA *ch)
+{
+	return ch->gold;
+}
+
+int
+char_silver(CHAR_DATA *ch)
+{
+	return ch->silver;
 }
 
 #else /* !defined(MPC) */
