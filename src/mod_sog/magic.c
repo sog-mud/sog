@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: magic.c,v 1.39 2003-10-10 14:28:22 fjoe Exp $
+ * $Id: magic.c,v 1.40 2003-12-29 13:21:05 sg Exp $
  */
 
 #include <stdio.h>
@@ -993,7 +993,7 @@ cast_spell(CHAR_DATA *ch, cpdata_t *cp, sptarget_t *spt)
 
 			if (cp->sk->rank
 			&&  cp->sk->rank > (get_curr_stat(ch, STAT_INT) - 12)) {
-				act_char("You aren't intellegent enough to cast this spell.", ch);
+				act_char("You aren't intelligent enough to cast this spell.", ch);
 				return;
 			}
 
