@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act.c,v 1.69 2001-02-12 19:07:20 fjoe Exp $
+ * $Id: act.c,v 1.70 2001-03-11 22:13:58 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -269,7 +269,7 @@ act_format_text(const char *text, CHAR_DATA *ch, CHAR_DATA *to,
 		text = GETMSG(text, to_lang);
 	if (IS_SET(act_flags, ACT_STRANS))
 		text = translate(ch, to, text);
-	return text;
+	return smash_tilde(text, act_flags);
 }
 
 static const char *
