@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.229 2000-06-07 08:56:05 fjoe Exp $
+ * $Id: comm.c,v 1.230 2000-07-25 12:02:25 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2508,7 +2508,8 @@ bool check_playing(DESCRIPTOR_DATA *d, const char *name)
 	return FALSE;
 }
 
-void stop_idling(DESCRIPTOR_DATA *d)
+void
+stop_idling(DESCRIPTOR_DATA *d)
 {
 	CHAR_DATA *ch = d->character;
 	PC_DATA *pc;
@@ -2532,6 +2533,13 @@ void stop_idling(DESCRIPTOR_DATA *d)
 	act("$N has returned from the void.",
 	    to_room->people, NULL, ch, TO_ALL);
 	char_to_room(ch, to_room);
+
+	if (pc->pet) {
+		char_from_room(pc->pet);
+		act("$N has returned from the void.",
+		    to_room->people, NULL, pc->pet, TO_ALL);
+		char_to_room(pc->pet, to_room);
+	}
 }
 
 void char_puts(const char *txt, CHAR_DATA *ch)

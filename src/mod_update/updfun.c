@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: updfun.c,v 1.10 2000-06-07 08:55:50 fjoe Exp $
+ * $Id: updfun.c,v 1.11 2000-07-25 12:02:24 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -645,15 +645,27 @@ char_update_cb(void *vo, va_list ap)
 
 		if (++pc->idle_timer >= 12) {
 			if (!pc->was_in_vnum) {
+				ROOM_INDEX_DATA *to_room =
+					    get_room_index(ROOM_VNUM_LIMBO);
+
 				pc->was_in_vnum = ch->in_room->vnum;
 				if (ch->fighting != NULL)
 					stop_fighting(ch, TRUE);
 				act("$n disappears into the void.",
 				    ch, NULL, NULL, TO_ROOM);
-				char_puts("You disappear into the void.\n", ch);
+				act_puts("You disappear into the void.",
+					 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 				char_save(ch, 0);
   				char_from_room(ch);
-				char_to_room(ch, get_room_index(ROOM_VNUM_LIMBO));
+				char_to_room(ch, to_room);
+				if (pc->pet) {
+					act("$n disappears into the void.",
+					    pc->pet, NULL, NULL, TO_ROOM);
+					act_puts("You disappear into the void.",
+						 pc->pet, NULL, NULL, TO_CHAR, POS_DEAD);
+					char_from_room(pc->pet);
+					char_to_room(pc->pet, to_room);
+				}
 				if (IS_EXTRACTED(ch))
 					return NULL;
 			}
