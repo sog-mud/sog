@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.23 1998-06-18 05:19:12 fjoe Exp $
+ * $Id: db.c,v 1.24 1998-06-19 15:30:10 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3243,7 +3243,7 @@ void do_areas(CHAR_DATA *ch, char *argument)
 
 		if (pArea2 != NULL) {
 			sprintf(buf2,"{W{{{x%2d %3d{W} {B%s {C%s{x",
-				pArea2->low_range,pArea1->high_range,
+				pArea2->low_range,pArea2->high_range,
 				pArea2->writer,
 				pArea2->credits);
 			strcat(buf, buf2);

@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.49 1998-06-18 05:19:12 fjoe Exp $
+ * $Id: comm.c,v 1.50 1998-06-19 15:30:10 fjoe Exp $
  */
 
 /***************************************************************************
@@ -806,58 +806,45 @@ void init_descriptor(int control)
 void close_socket(DESCRIPTOR_DATA *dclose)
 {
 	CHAR_DATA *ch;
-
-	if (dclose->outtop > 0)
-	process_output(dclose, FALSE);
-
-	if (dclose->snoop_by != NULL)
-	{
-	write_to_buffer(dclose->snoop_by,
-	    "Your victim has left the game.\n\r", 0);
-	}
-
-	{
 	DESCRIPTOR_DATA *d;
 
-	for (d = descriptor_list; d != NULL; d = d->next)
-	{
-	    if (d->snoop_by == dclose)
-		d->snoop_by = NULL;
-	}
-	}
+	if (dclose->outtop > 0)
+		process_output(dclose, FALSE);
 
-	if ((ch = dclose->character) != NULL)
-	{
-	log_printf("Closing link to %s.", ch->name);
-	if (dclose->connected == CON_PLAYING)
-	{
-	    act("$n has lost $s link.", ch, NULL, NULL, TO_ROOM);
-	    wiznet("Net death has claimed $N.",ch,NULL,WIZ_LINKS,0,0);
-	    ch->desc = NULL;
-	}
-	else
-	{
-	    free_char(dclose->character);
-	}
+	if (dclose->snoop_by != NULL) 
+		write_to_buffer(dclose->snoop_by,
+				"Your victim has left the game.\n\r", 0);
+
+	for (d = descriptor_list; d != NULL; d = d->next)
+		if (d->snoop_by == dclose)
+			d->snoop_by = NULL;
+
+	if ((ch = dclose->character) != NULL) {
+		log_printf("Closing link to %s.", ch->name);
+		if (dclose->connected == CON_PLAYING) {
+			act("$n has lost $s link.", ch, NULL, NULL, TO_ROOM);
+			wiznet("Net death has claimed $N.", ch, NULL,
+			       WIZ_LINKS, 0, 0);
+			ch->desc = NULL;
+		}
+		else
+	    		free_char(dclose->character);
 	}
 
 	if (d_next == dclose)
-	d_next = d_next->next;   
+		d_next = d_next->next;   
 
 	if (dclose == descriptor_list)
-	{
-	descriptor_list = descriptor_list->next;
-	}
-	else
-	{
-	DESCRIPTOR_DATA *d;
+		descriptor_list = descriptor_list->next;
+	else {
+		DESCRIPTOR_DATA *d;
 
-	for (d = descriptor_list; d && d->next != dclose; d = d->next)
-	    ;
-	if (d != NULL)
-	    d->next = dclose->next;
-	else
-	    bug("Close_socket: dclose not found.", 0);
+		for (d = descriptor_list; d && d->next != dclose; d = d->next)
+			;
+		if (d != NULL)
+			d->next = dclose->next;
+		else
+			bug("Close_socket: dclose not found.", 0);
 	}
 
 	close(dclose->descriptor);
@@ -930,7 +917,9 @@ bool read_from_descriptor(DESCRIPTOR_DATA *d)
 	for (p = d->inbuf+iOld; *p; p++) {
 		if (d->wait_for_se)
 			goto wse;
-		if (*p == IAC) {
+		if (*p == IAC
+		&&  (d->connected != CON_PLAYING ||
+		     !IS_SET(d->character->comm, COMM_NOTELNET))) {
 			switch (p[1]) {
 			case DONT:
 			case DO:
@@ -967,7 +956,7 @@ bool read_from_descriptor(DESCRIPTOR_DATA *d)
 			if (*(p = q) == '\0')
 				break;
 		}
-	    } 
+	} 
 #ifdef 0
 	else 
 	    cm_stage=0;
@@ -1370,6 +1359,8 @@ void write_to_buffer(DESCRIPTOR_DATA *d, const char *txt, int length)
 {
 	int size;
 	int i;
+	bool noiac = (d->connected == CON_PLAYING &&
+		      IS_SET(d->character->comm, COMM_NOIAC));
 	
 	/*
 	 * Find length in case caller didn't.
@@ -1381,9 +1372,10 @@ void write_to_buffer(DESCRIPTOR_DATA *d, const char *txt, int length)
 	 * Adjust size in case of IACs (they will be doubled)
 	 */
 	size = length;
-	for (i = 0; i < length; i++)
-		if (d->codepage->to[(unsigned char) txt[i]] == IAC)
-			size++;
+	if (!noiac)
+		for (i = 0; i < length; i++)
+			if (d->codepage->to[(unsigned char) txt[i]] == IAC)
+				size++;
 
 	/*
 	 * Initial \n\r if needed.
@@ -1419,9 +1411,13 @@ void write_to_buffer(DESCRIPTOR_DATA *d, const char *txt, int length)
 		unsigned char c;
 
 		c = d->codepage->to[(unsigned char) *txt++];
-		d->outbuf[d->outtop++] = c;
+		d->outbuf[d->outtop] = c;
 		if (c == IAC)
-			d->outbuf[d->outtop++] = IAC;
+			if (noiac)
+				d->outbuf[d->outtop] = IAC_REPL;
+			else 
+				d->outbuf[++d->outtop] = IAC;
+		d->outtop++;
 	}
 	return;
 }
@@ -1441,13 +1437,14 @@ bool write_to_descriptor(int desc, char *txt, int length)
 	int nBlock;
 
 	if (length <= 0)
-	length = strlen(txt);
+		length = strlen(txt);
 
-	for (iStart = 0; iStart < length; iStart += nWrite)
-	{
-	nBlock = UMIN(length - iStart, 4096);
-	if ((nWrite = write(desc, txt + iStart, nBlock)) < 0)
-	    { perror("Write_to_descriptor"); return FALSE; }
+	for (iStart = 0; iStart < length; iStart += nWrite) {
+		nBlock = UMIN(length - iStart, 4096);
+		if ((nWrite = write(desc, txt + iStart, nBlock)) < 0) {
+			perror("Write_to_descriptor");
+			return FALSE;
+		}
 	} 
 	return TRUE;
 }

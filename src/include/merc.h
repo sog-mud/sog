@@ -2,7 +2,7 @@
 #define _MERC_H_
 
 /*
- * $Id: merc.h,v 1.31 1998-06-18 05:19:14 fjoe Exp $
+ * $Id: merc.h,v 1.32 1998-06-19 15:30:10 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1593,6 +1593,7 @@ struct	kill_data
 #define ROOM_BANK		(U)
 #define ROOM_NO_MAGIC		(W)
 #define ROOM_NOSUMMON		(X)
+#define ROOM_GUILD		(Y)
 #define ROOM_BATTLE_ARENA	(Z)
 #define ROOM_REGISTRY		(bb)
 
@@ -1789,6 +1790,12 @@ struct	kill_data
 #define COMM_AFK		(Z)
 
 #define COMM_LONG		(aa)
+#define COMM_NOTELNET		(bb)
+#define COMM_NOIAC		(cc)
+
+/* IAC replacement if COMM_NOIAC is set */
+/* COMM_NOIAC is useful to map 'Ñ' (IAC) to 'ñ' when using win1251 codepage */
+#define IAC_REPL	223
 
 /* WIZnet flags */
 #define WIZ_ON			(A)

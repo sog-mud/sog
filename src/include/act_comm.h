@@ -2,7 +2,7 @@
 #define _ACT_COMM_H_
 
 /*
- * $Id: act_comm.h,v 1.10 1998-06-16 16:56:45 fjoe Exp $
+ * $Id: act_comm.h,v 1.11 1998-06-19 15:30:09 fjoe Exp $
  */
 
 void		check_sex	(CHAR_DATA *ch);
@@ -14,6 +14,8 @@ void		do_ilang	(CHAR_DATA *ch, char *argument);
 void		do_music	(CHAR_DATA *ch, char *argument);
 void		do_gossip	(CHAR_DATA *ch, char *argument);
 void		do_rating	(CHAR_DATA *ch, char *argument);
+void		do_noiac	(CHAR_DATA *ch, char *argument);
+void		do_notelnet	(CHAR_DATA *ch, char *argument);
 CHAR_DATA*	leader_lookup	(CHAR_DATA *ch);
 
 #define	is_same_group(ach, bch) (leader_lookup(ach) == leader_lookup(bch))

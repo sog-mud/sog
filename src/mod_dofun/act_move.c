@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.52 1998-06-18 05:19:12 fjoe Exp $
+ * $Id: act_move.c,v 1.53 1998-06-19 15:30:09 fjoe Exp $
  */
 
 /***************************************************************************
@@ -233,7 +233,8 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 
 
 		for (iClass = 0; iClass < MAX_CLASS; iClass++)
-		    for (iGuild = 0; iGuild < MAX_GUILD; iGuild ++)	
+		    for (iGuild = 0;
+			 class_table[iClass].guild[iGuild]; iGuild++)	
 		    	if (to_room->vnum == class_table[iClass].guild[iGuild] 
 			     && !IS_IMMORTAL(ch))
 		    	{

@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.46 1998-06-18 05:19:11 fjoe Exp $
+ * $Id: act_comm.c,v 1.47 1998-06-19 15:30:09 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1932,4 +1932,29 @@ void do_judge(CHAR_DATA *ch, char *argument)
 		IS_EVIL(victim) ? "Evil" : "Neutral");
 
 	return;
+}
+
+
+void do_noiac(CHAR_DATA *ch, char *arg)
+{
+	if (IS_SET(ch->comm, COMM_NOIAC)) {
+		REMOVE_BIT(ch->comm, COMM_NOIAC);
+		char_puts("Text will be sent to you unmodified.\n\r", ch);
+	}
+	else {
+		SET_BIT(ch->comm, COMM_NOIAC);
+		char_printf(ch, "IACs will not be sent to you anymore (will be replaced with '%c'.\n\r", IAC_REPL);
+	}
+}
+
+void do_notelnet(CHAR_DATA *ch, char *arg)
+{
+	if (IS_SET(ch->comm, COMM_NOTELNET)) {
+		REMOVE_BIT(ch->comm, COMM_NOTELNET);
+		char_puts("Telnet filter is ON.\n\r", ch);
+	}
+	else {
+		SET_BIT(ch->comm, COMM_NOTELNET);
+		char_puts("Telnet filter is OFF.\n\r", ch);
+	}
 }
