@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_cmd.c,v 1.7 1999-12-21 00:27:51 avn Exp $
+ * $Id: olc_cmd.c,v 1.8 1999-12-21 01:32:43 avn Exp $
  */
 
 #include "olc.h"
@@ -293,7 +293,8 @@ OLC_FUN(cmded_minlevel)
 
 OLC_FUN(cmded_move)
 {
-	cmd_t *cmnd, *ncmnd;
+	cmd_t *cmnd;
+	cmd_t ncmnd;
 	char arg[MAX_INPUT_LENGTH];
 	int num, num2;
 
@@ -306,28 +307,39 @@ OLC_FUN(cmded_move)
 	if (!is_number(arg))
 		OLC_ERROR("'OLC CMDS'");
 
-	if ((num = atoi(arg)) > commands.nused)
-		num = commands.nused;
+	if ((num = atoi(arg)) >= commands.nused)
+		num = commands.nused - 1;
 
 	num2 = varr_index(&commands, cmnd);
+	if (num2 == num) {
+		char_puts("CmdEd: move: already there.\n", ch);
+		return FALSE;
+	}
 
-	ncmnd = (cmd_t *)varr_insert(&commands, num);
-	if (num <= num2)
-		cmnd = (cmd_t *)varr_get(&commands, num2 + 1);
+	ncmnd.name		= str_qdup(cmnd->name);
+	ncmnd.dofun_name	= str_qdup(cmnd->dofun_name);
+	ncmnd.do_fun		= cmnd->do_fun;
+	ncmnd.cmd_class		= cmnd->cmd_class;
+	ncmnd.cmd_log		= cmnd->cmd_log;
+	ncmnd.cmd_flags		= cmnd->cmd_flags;
+	ncmnd.min_pos		= cmnd->min_pos;
+	ncmnd.min_level		= cmnd->min_level;
 
-	ncmnd->name		= str_qdup(cmnd->name);
-	ncmnd->dofun_name	= str_qdup(cmnd->dofun_name);
-	ncmnd->do_fun		= cmnd->do_fun;
-	ncmnd->cmd_class	= cmnd->cmd_class;
-	ncmnd->cmd_log		= cmnd->cmd_log;
-	ncmnd->cmd_flags	= cmnd->cmd_flags;
-	ncmnd->min_pos		= cmnd->min_pos;
-	ncmnd->min_level	= cmnd->min_level;
-	
 	varr_edelete(&commands, cmnd);
-	ch->desc->pEdit	= ncmnd;
+	cmnd = (cmd_t *)varr_insert(&commands, num);
+
+	cmnd->name		= ncmnd.name;
+	cmnd->dofun_name	= ncmnd.dofun_name;
+	cmnd->do_fun		= ncmnd.do_fun;
+	cmnd->cmd_class		= ncmnd.cmd_class;
+	cmnd->cmd_log		= ncmnd.cmd_log;
+	cmnd->cmd_flags		= ncmnd.cmd_flags;
+	cmnd->min_pos		= ncmnd.min_pos;
+	cmnd->min_level		= ncmnd.min_level;
+	
+	ch->desc->pEdit	= cmnd;
 	char_printf(ch, "CmdEd: '%s' moved to %d position.\n",
-		ncmnd->name, varr_index(&commands, ncmnd));
+		cmnd->name, varr_index(&commands, cmnd));
 	return TRUE;
 }
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_social.c,v 1.20 1999-12-21 00:27:51 avn Exp $
+ * $Id: olc_social.c,v 1.21 1999-12-21 01:32:43 avn Exp $
  */
 
 /* I never wanted to be
@@ -334,7 +334,11 @@ OLC_FUN(soced_notfound_char)
 
 OLC_FUN(soced_move)
 {
-	social_t *soc, *nsoc;
+	char_puts("Temporarily disabled.\n", ch);
+	return FALSE;
+
+#if 0
+	social_t *soc, nsoc;
 	char arg[MAX_INPUT_LENGTH];
 	int num, num2;
 
@@ -351,27 +355,50 @@ OLC_FUN(soced_move)
 		num = socials.nused;
 
 	num2 = varr_index(&socials, soc);
+	if (num == num2) {
+		char_puts("SocEd: move: already there", ch);
+		return FALSE;
+	}
 
-	nsoc = (social_t *)varr_insert(&socials, num);
-	if (num <= num2)
-		soc = (social_t *)varr_get(&socials, num2 + 1);
-
-	nsoc->name		= str_qdup(soc->name);
-	nsoc->min_pos		= soc->min_pos;
-	mlstr_cpy(&nsoc->found_char, &soc->found_char);
-	mlstr_cpy(&nsoc->found_vict, &soc->found_vict);
-	mlstr_cpy(&nsoc->found_notvict, &soc->found_notvict);
-	mlstr_cpy(&nsoc->noarg_char, &soc->noarg_char);
-	mlstr_cpy(&nsoc->noarg_room, &soc->noarg_room);
-	mlstr_cpy(&nsoc->self_char, &soc->self_char);
-	mlstr_cpy(&nsoc->self_room, &soc->self_room);
-	mlstr_cpy(&nsoc->notfound_char, &soc->notfound_char);
+	nsoc.name		= str_qdup(soc->name);
+	nsoc.min_pos		= soc->min_pos;
+	mlstr_cpy(&nsoc.found_char, &soc->found_char);
+	mlstr_cpy(&nsoc.found_vict, &soc->found_vict);
+	mlstr_cpy(&nsoc.found_notvict, &soc->found_notvict);
+	mlstr_cpy(&nsoc.noarg_char, &soc->noarg_char);
+	mlstr_cpy(&nsoc.noarg_room, &soc->noarg_room);
+	mlstr_cpy(&nsoc.self_char, &soc->self_char);
+	mlstr_cpy(&nsoc.self_room, &soc->self_room);
+	mlstr_cpy(&nsoc.notfound_char, &soc->notfound_char);
 	
 	varr_edelete(&socials, soc);
-	ch->desc->pEdit	= nsoc;
+	soc = (social_t *)varr_insert(&socials, num);
+
+	soc->name		= nsoc.name;
+	soc->min_pos		= nsoc.min_pos;
+	mlstr_cpy(&soc->found_char, &nsoc.found_char);
+	mlstr_cpy(&soc->found_vict, &nsoc.found_vict);
+	mlstr_cpy(&soc->found_notvict, &nsoc.found_notvict);
+	mlstr_cpy(&soc->noarg_char, &nsoc.noarg_char);
+	mlstr_cpy(&soc->noarg_room, &nsoc.noarg_room);
+	mlstr_cpy(&soc->self_char, &nsoc.self_char);
+	mlstr_cpy(&soc->self_room, &nsoc.self_room);
+	mlstr_cpy(&soc->notfound_char, &nsoc.notfound_char);
+
+	mlstr_destroy(&nsoc.found_char);
+	mlstr_destroy(&nsoc.found_vict);
+	mlstr_destroy(&nsoc.found_notvict);
+	mlstr_destroy(&nsoc.noarg_char);
+	mlstr_destroy(&nsoc.noarg_room);
+	mlstr_destroy(&nsoc.self_char);
+	mlstr_destroy(&nsoc.self_room);
+	mlstr_destroy(&nsoc.notfound_char);
+
+	ch->desc->pEdit	= soc;
 	char_printf(ch, "SocEd: '%s' moved to %d position.\n",
-		nsoc->name, varr_index(&socials, nsoc));
+		soc->name, varr_index(&socials, soc));
 	return TRUE;
+#endif
 }
 
 OLC_FUN(soced_delete)
