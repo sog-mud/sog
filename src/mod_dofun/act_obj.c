@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.42 1998-07-11 20:55:08 fjoe Exp $
+ * $Id: act_obj.c,v 1.43 1998-07-12 11:26:07 efdi Exp $
  */
 
 /***************************************************************************
@@ -2213,8 +2213,9 @@ do_steal(CHAR_DATA * ch, const char *argument)
 		send_to_char("You'd better not -- you might get hit.\n\r", ch);
 		return;
 	}
-	ch->last_death_time = -1;
 
+	REMOVE_BIT(ch->act, PLR_GHOST);
+	
 	WAIT_STATE(ch, skill_table[gsn_steal].beats);
 	percent = number_percent() + (IS_AWAKE(victim) ? 10 : -50);
 	percent += can_see(victim, ch) ? -10 : 0;

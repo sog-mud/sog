@@ -2,7 +2,7 @@
 #define _ACT_COMM_H_
 
 /*
- * $Id: act_comm.h,v 1.14 1998-07-11 20:55:07 fjoe Exp $
+ * $Id: act_comm.h,v 1.15 1998-07-12 11:26:06 efdi Exp $
  */
 
 void		check_sex	(CHAR_DATA *ch);
@@ -10,7 +10,8 @@ void		add_follower	(CHAR_DATA *ch, CHAR_DATA *master);
 void		stop_follower	(CHAR_DATA *ch);
 void		nuke_pets	(CHAR_DATA *ch);
 void		die_follower	(CHAR_DATA *ch);
-void		do_lang	(CHAR_DATA *ch, const char *argument);
+void		do_afk		(CHAR_DATA *ch, const char *argument);
+void		do_lang		(CHAR_DATA *ch, const char *argument);
 void		do_music	(CHAR_DATA *ch, const char *argument);
 void		do_gossip	(CHAR_DATA *ch, const char *argument);
 void		do_noiac	(CHAR_DATA *ch, const char *argument);

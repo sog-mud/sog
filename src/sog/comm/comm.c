@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.68 1998-07-11 22:09:10 fjoe Exp $
+ * $Id: comm.c,v 1.69 1998-07-12 11:26:07 efdi Exp $
  */
 
 /***************************************************************************
@@ -1195,6 +1195,11 @@ void bust_a_prompt(CHAR_DATA *ch)
 	const char *dir_name[] = {"N","E","S","W","U","D"};
 	int door;
  
+	if (IS_SET(ch->comm, COMM_AFK)) {
+		char_printf(ch, "{c<AFK>{x %s", ch->prefix);
+		return;
+	}
+
 	point = buf;
 	str = ch->prompt;
 	if (str == NULL || str[0] == '\0') {

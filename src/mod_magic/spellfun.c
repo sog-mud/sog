@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.28 1998-07-12 07:01:56 fjoe Exp $
+ * $Id: spellfun.c,v 1.29 1998-07-12 11:26:07 efdi Exp $
  */
 
 /***************************************************************************
@@ -5773,43 +5773,39 @@ void spell_detect_undead(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 
 void spell_take_revenge(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 {
- OBJ_DATA *obj;
- OBJ_DATA *in_obj;
- ROOM_INDEX_DATA *room = NULL;
- bool found = FALSE;
+	OBJ_DATA *obj;
+	OBJ_DATA *in_obj;
+	ROOM_INDEX_DATA *room = NULL;
+	bool found = FALSE;
  
-  if (IS_NPC(ch) 
-		|| ch->last_death_time == -1 
-		|| current_time - ch->last_death_time > 600)
-   {
-	send_to_char("It is too late to take revenge.\n\r",ch);
-	return;
-   }
+	if (IS_NPC(ch) && !IS_SET(ch->act, PLR_GHOST)) {
+		send_to_char("It is too late to take revenge.\n\r",ch);
+		return;
+	}
 
- for (obj = object_list; obj != NULL; obj = obj->next)
-	{
+	for (obj = object_list; obj != NULL; obj = obj->next) {
 		if (obj->pIndexData->vnum != OBJ_VNUM_CORPSE_PC
-			|| !is_name(ch->name,obj->short_descr))
-		    continue;
+		||  !is_name(ch->name, obj->short_descr))
+			continue;
 
-	    found = TRUE;
-		for (in_obj = obj; in_obj->in_obj != NULL; in_obj = in_obj->in_obj)
-		    ;
+		found = TRUE;
+		for (in_obj = obj; in_obj->in_obj; in_obj = in_obj->in_obj)
+			;
 
 		if (in_obj->carried_by != NULL)
 			room = in_obj->carried_by->in_room;
-		else    room = in_obj->in_room;
-	    break;
+		else
+			room = in_obj->in_room;
+		break;
 	}
 
 	if (!found || room == NULL)
 		send_to_char("Unluckily your corpse is devoured.\n\r", ch);
-	else
-	  {
+	else {
 		char_from_room(ch);
 		char_to_room(ch, room);
 		do_look(ch,"auto");
-	  }
+	}
 	return;
 }
 

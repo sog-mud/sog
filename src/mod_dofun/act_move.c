@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.65 1998-07-11 20:55:08 fjoe Exp $
+ * $Id: act_move.c,v 1.66 1998-07-12 11:26:06 efdi Exp $
  */
 
 /***************************************************************************
@@ -2902,16 +2902,14 @@ if ((door = find_exit(ch, arg2)) >= 0)
 		return; 
 	}
 
-	ch->last_death_time = -1;
+	REMOVE_BIT(ch->act, PLR_GHOST);
 
 	WAIT_STATE(ch, skill_table[gsn_push].beats);
 	percent  = number_percent() + (IS_AWAKE(victim) ? 10 : -50);
 	percent += can_see(victim, ch) ? -10 : 0;
 
-	if (/* ch->level + 5 < victim->level || */
-		   victim->position == POS_FIGHTING
-	|| (!IS_NPC(ch) && percent > get_skill(ch,gsn_push)))
-	{
+	if (victim->position == POS_FIGHTING
+	||  (!IS_NPC(ch) && percent > get_skill(ch,gsn_push))) {
 		/*
 		 * Failure.
 		 */

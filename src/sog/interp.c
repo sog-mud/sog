@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.39 1998-07-11 20:55:11 fjoe Exp $
+ * $Id: interp.c,v 1.40 1998-07-12 11:26:07 efdi Exp $
  */
 
 /***************************************************************************
@@ -140,6 +140,7 @@ const	struct	cmd_type	cmd_table	[] =
      * Informational commands.
      */
     { "affects",	do_affects,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
+    { "afk",		do_afk,		POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "areas",		do_areas,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "balance",	do_balance,	POS_STANDING,	 0,  LOG_NORMAL, 1,0 },
     { "bug",		do_bug,		POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },

@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.92 1998-07-11 22:09:10 fjoe Exp $
+ * $Id: act_info.c,v 1.93 1998-07-12 11:26:06 efdi Exp $
  */
 
 /***************************************************************************
@@ -1694,6 +1694,7 @@ static void do_who_raw(CHAR_DATA* ch, CHAR_DATA *wch, char* output)
 	char *pk;
 	char *wizi;
 /*	char *clan; */
+	char *afk;
 	char *act;
 	char *title;
 	char level[100];
@@ -1731,6 +1732,11 @@ static void do_who_raw(CHAR_DATA* ch, CHAR_DATA *wch, char* output)
 		clan = EMPTY_STRING;
 */
 
+	if (IS_SET(wch->comm, COMM_AFK))
+		afk = "{c[AFK]{x ";
+	else
+		afk = EMPTY_STRING;
+
 	if (wch->invis_level >= LEVEL_HERO)
 		wizi = "[{WWizi{x] ";
 	else
@@ -1757,11 +1763,12 @@ static void do_who_raw(CHAR_DATA* ch, CHAR_DATA *wch, char* output)
 	snprintf(level, sizeof(level), "%3d", wch->level);
 	trusted = IS_TRUSTED(ch, LEVEL_IMMORTAL) || ch == wch ||
 		  wch->level >= LEVEL_HERO;
-	sprintf(strend(output), "[{C%s{x %s {Y%s{x] %s%s%s%s%s{x\n\r",
+	sprintf(strend(output), "[{C%s{x %s {Y%s{x] %s%s%s%s%s%s{x\n\r",
 		trusted ? level
 			: (get_curr_stat(wch, STAT_CHA) < 18) ? level : "   ",
 		race,
 		class,
+		afk,
 		wizi,
 		pk,
 		act,

@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.60 1998-07-11 22:09:10 fjoe Exp $
+ * $Id: act_comm.c,v 1.61 1998-07-12 11:26:05 efdi Exp $
  */
 
 /***************************************************************************
@@ -73,6 +73,23 @@ void do_quit_org	args((CHAR_DATA *ch, const char *argument, bool Count));
 bool proper_order	args((CHAR_DATA *ch, const char *argument));
 char *translate(CHAR_DATA *ch, CHAR_DATA *victim, const char *argument);
 
+void do_afk(CHAR_DATA *ch, const char *argument)
+{
+	if (IS_SET(ch->comm, COMM_AFK)) {
+		REMOVE_BIT(ch->comm, COMM_AFK);
+		char_puts("AFK mode removed. Type 'replay' to see tells.\n\r",
+			  ch);
+	} else {
+		if (!IS_SET(ch->in_room->room_flags, ROOM_SAFE)) {
+			char_puts("You may be in AFK only in safe room.\n\r",
+				  ch);
+			return;
+		}
+		SET_BIT(ch->comm, COMM_AFK);
+		char_puts("You are now in AFK mode.\n\r", ch);
+	}
+	
+}
 void do_music(CHAR_DATA *ch, const char *argument)
 {
 	DESCRIPTOR_DATA *d;
@@ -473,13 +490,13 @@ void do_tell_raw(CHAR_DATA *ch, CHAR_DATA *victim, const char *msg)
 	char buf[MAX_STRING_LENGTH];
 
 	if (IS_SET(ch->comm, COMM_NOTELL)) {
-		send_to_char(msg(COMM_YOUR_MESSAGE_DIDNT_GET_THROUGH, ch), ch);
+		char_nputs(COMM_YOUR_MESSAGE_DIDNT_GET_THROUGH, ch);
 		return;
 	}
 
 	if (victim == NULL 
 	|| (IS_NPC(victim) && victim->in_room != ch->in_room)) {
-		send_to_char(msg(THEY_ARENT_HERE, ch), ch);
+		char_nputs(THEY_ARENT_HERE, ch);
 		return;
 	}
 
@@ -488,12 +505,18 @@ void do_tell_raw(CHAR_DATA *ch, CHAR_DATA *victim, const char *msg)
 	else
 		strcpy(buf, msg);
 
-	if (victim->desc == NULL && !IS_NPC(victim)) {
+	if (!IS_NPC(victim)
+	&&  (!victim->desc || IS_SET(victim->comm, COMM_AFK))){
 		char *p;
 
-		act_puts("$N seems to have misplaced $S link..."
-			 "try again later.",
-			 ch, NULL, victim, TO_CHAR, POS_DEAD);
+		if (!victim->desc)
+			act_puts("$N seems to have misplaced $S link..."
+				 "try again later.", ch, NULL, victim,
+				 TO_CHAR, POS_DEAD);
+		if (IS_SET(victim->comm, COMM_AFK))
+			act_puts("$E is AFK, but your tell will go through "
+				 "when $E returns.", ch, NULL, victim,
+				 TO_CHAR, POS_DEAD);
 		p = strend(buf_string(victim->pcdata->buffer));
 		buf_printf(victim->pcdata->buffer, "%s tells you '{G%s{x'\n\r",
 			   PERS(ch,victim), buf);
@@ -501,11 +524,6 @@ void do_tell_raw(CHAR_DATA *ch, CHAR_DATA *victim, const char *msg)
 		return;
 	}
 
-/*	if (!IS_IMMORTAL(ch) && !IS_AWAKE(victim)) {
-		act("$E can't hear you.", ch, 0, victim, TO_CHAR);
-		return;
-	}
-*/
 	if (IS_SET(victim->comm, (COMM_QUIET | COMM_DEAF))
 	&&  !IS_IMMORTAL(ch) && !IS_IMMORTAL(victim)) {
 		act_puts("$E is not receiving tells.", ch, 0, victim,
@@ -513,11 +531,6 @@ void do_tell_raw(CHAR_DATA *ch, CHAR_DATA *victim, const char *msg)
 		return;
 	}
 
-/*	if (!IS_IMMORTAL(victim) && !IS_AWAKE(ch)) {
-		send_to_char("In your dreams, or what?\n\r", ch);
-		return;
-	}
-*/
 	if (!is_affected(ch, gsn_deafen))
 		act_nprintf(ch, buf, victim, TO_CHAR, 
 				POS_SLEEPING, COMM_YOU_TELL);

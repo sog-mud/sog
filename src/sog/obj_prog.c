@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.c,v 1.16 1998-07-11 20:55:13 fjoe Exp $
+ * $Id: obj_prog.c,v 1.17 1998-07-12 11:26:08 efdi Exp $
  */
 
 /***************************************************************************
@@ -1081,6 +1081,8 @@ bool death_prog_golden_weapon(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 	affect_remove(ch, ch->affected);
 	RESET_FIGHT_TIME(ch);
 	ch->last_death_time = current_time;
+	if (!IS_NPC(ch))
+		SET_BIT(ch->act, PLR_GHOST);
 	return 1; 
 }
 

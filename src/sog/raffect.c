@@ -1,5 +1,5 @@
 /*
- * $Id: raffect.c,v 1.2 1998-07-11 20:55:15 fjoe Exp $
+ * $Id: raffect.c,v 1.3 1998-07-12 11:26:08 efdi Exp $
  */
 
 #include <sys/time.h>
@@ -282,16 +282,15 @@ bool is_safe_rspell_nom(int level, CHAR_DATA *victim)
 	if (victim->level < 5 && !IS_NPC(victim))
 		return TRUE;
 
-  if (!IS_NPC(victim) &&
-	  (victim->last_death_time != -1 && current_time - 	victim->last_death_time < 600))
-	return TRUE;
+	if (!IS_NPC(victim) && IS_SET(victim->act, PLR_GHOST))
+		return TRUE;
 
 
-  if (!IS_NPC(victim) &&
-	  ((level >= victim->level + 5) || (victim->level >= level + 5)))
-	return TRUE;
+	if (!IS_NPC(victim)
+	&&  ((level >= victim->level + 5) || (victim->level >= level + 5)))
+		return TRUE;
 
-  return FALSE;
+	return FALSE;
 }
 
 

@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.41 1998-07-11 22:09:13 fjoe Exp $
+ * $Id: update.c,v 1.42 1998-07-12 11:26:08 efdi Exp $
  */
 
 /***************************************************************************
@@ -589,9 +589,15 @@ void mobile_update(void)
 			ch->pumped = FALSE;
 			if (!IS_NPC(ch) && ch->desc != NULL
 			&&  ch->desc->pString == NULL 
-			&&  (ch->last_death_time == -1 ||
+			&&  (IS_SET(ch->act, PLR_GHOST) ||
 			     ch->last_death_time < ch->last_fight_time))
 				char_nputs(YOU_SETTLE_DOWN, ch);
+		}
+
+		if (ch->last_death_time != -1
+		&&  current_time - ch->last_death_time >= GHOST_DELAY_TIME) {
+			REMOVE_BIT(ch->act, PLR_GHOST);
+			ch->last_death_time = -1;
 		}
 
 		if (IS_AFFECTED(ch, AFF_REGENERATION) && ch->in_room != NULL) {
@@ -1797,8 +1803,7 @@ void update_handler(void)
 		/* room counting */
 		for (ch = char_list; ch != NULL; ch = ch->next)
 			if (!IS_NPC(ch) && ch->in_room != NULL)
-				ch->in_room->area->count =
-				UMIN(ch->in_room->area->count+1, 5000000);
+				ch->in_room->area->count++;
 	}
 
 	aggr_update();

@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.50 1998-07-12 06:51:08 fjoe Exp $
+ * $Id: fight.c,v 1.51 1998-07-12 11:26:07 efdi Exp $
  */
 
 /***************************************************************************
@@ -1575,9 +1575,8 @@ bool is_safe_nomessage(CHAR_DATA *ch, CHAR_DATA *victim)
 
 	/* newly death staff */
 	if (!IS_IMMORTAL(ch) && !IS_NPC(victim)
-	&&  ch->last_death_time != -1
-	&&  (current_time - ch->last_death_time < 600 ||
-	     current_time - victim->last_death_time < 600))
+	&&  !IS_SET(ch->act, PLR_GHOST)
+	&&  !IS_SET(victim->act, PLR_GHOST))
 		return TRUE;
 
 	return !in_PK(ch, victim);
@@ -2130,6 +2129,8 @@ void raw_kill_org(CHAR_DATA *ch, CHAR_DATA *victim, int part)
 
 	RESET_FIGHT_TIME(victim);
 	victim->last_death_time = current_time;
+	if(!IS_NPC(victim))
+		SET_BIT(victim->act, PLR_GHOST);
 
 	tattoo = get_eq_char(victim, WEAR_TATTOO);
 	if (tattoo != NULL)
@@ -2166,7 +2167,6 @@ void raw_kill_org(CHAR_DATA *ch, CHAR_DATA *victim, int part)
 	/* RT added to prevent infinite deaths */
 	REMOVE_BIT(victim->act, PLR_WANTED);
 	REMOVE_BIT(victim->act, PLR_BOUGHT_PET);
-	/*  SET_BIT(victim->act, PLR_GHOST);	*/
 
 	victim->pcdata->condition[COND_THIRST] = 40;
 	victim->pcdata->condition[COND_HUNGER] = 40;

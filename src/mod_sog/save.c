@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.36 1998-07-11 22:09:13 fjoe Exp $
+ * $Id: save.c,v 1.37 1998-07-12 11:26:08 efdi Exp $
  */
 
 /***************************************************************************
@@ -211,7 +211,7 @@ fwrite_char(CHAR_DATA * ch, FILE * fp, bool reboot)
 	}
 	if (ch->detection != 0)
 		fprintf(fp, "Detect %s\n", format_flags(ch->detection));
-	fprintf(fp, "Comm %s\n", format_flags(ch->comm));
+	fprintf(fp, "Comm %s\n", format_flags(ch->comm & ~(COMM_AFK)));
 	if (ch->wiznet)
 		fprintf(fp, "Wizn %s\n", format_flags(ch->wiznet));
 	if (ch->invis_level)

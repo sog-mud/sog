@@ -2,7 +2,7 @@
 #define _MERC_H_
 
 /*
- * $Id: merc.h,v 1.48 1998-07-11 22:09:12 fjoe Exp $
+ * $Id: merc.h,v 1.49 1998-07-12 11:26:08 efdi Exp $
  */
 
 /***************************************************************************
@@ -121,43 +121,45 @@ typedef void SPELL_FUN	(int sn, int level, CHAR_DATA *ch, void *vo,
 /*
  * Game parameters.
  */
-#define MAX_SOCIALS		  256
-#define MAX_SKILL		  378
-#define MAX_ALIAS		   50
-#define MAX_CLASS		   13
-#define MAX_PC_RACE		   19	/* 18 */
-#define MAX_CLAN		    9
-#define MAX_RELIGION		   18
-#define MAX_LEVEL		   100
-#define LEVEL_HERO		   (MAX_LEVEL - 9)
-#define LEVEL_IMMORTAL		   (MAX_LEVEL - 8)
+#define MAX_SOCIALS		256
+#define MAX_SKILL		378
+#define MAX_ALIAS		50
+#define MAX_CLASS		13
+#define MAX_PC_RACE		19	/* 18 */
+#define MAX_CLAN		9
+#define MAX_RELIGION		18
+#define MAX_LEVEL		100
+#define LEVEL_HERO		(MAX_LEVEL - 9)
+#define LEVEL_IMMORTAL		(MAX_LEVEL - 8)
 
 
 #undef ANATOLIA_MACHINE
 
 #if defined(ANATOLIA_MACHINE)
-#define PULSE_PER_SCD		    6  /* 6 for comm.c */
-#define PULSE_PER_SECOND	    4  /* for update.c */
-#define PULSE_VIOLENCE		  (2 *  PULSE_PER_SECOND)
+#define PULSE_PER_SCD		6  /* 6 for comm.c */
+#define PULSE_PER_SECOND	4  /* for update.c */
+#define PULSE_VIOLENCE		(2 *  PULSE_PER_SECOND)
 
 #else
-#define PULSE_PER_SCD		    4
-#define PULSE_PER_SECOND	    4
-#define PULSE_VIOLENCE		  (3 * PULSE_PER_SECOND)
+#define PULSE_PER_SCD		4
+#define PULSE_PER_SECOND	4
+#define PULSE_VIOLENCE		(3 * PULSE_PER_SECOND)
 
 #endif
 
-#define PULSE_MOBILE		  (4 * PULSE_PER_SECOND)
-#define PULSE_WATER_FLOAT	  (4 * PULSE_PER_SECOND)
-#define PULSE_MUSIC		  (6 * PULSE_PER_SECOND)
-#define PULSE_TRACK		  (6 * PULSE_PER_SECOND)
-#define PULSE_TICK		  (50 * PULSE_PER_SECOND) /* 36 saniye */
+#define PULSE_MOBILE		(4 * PULSE_PER_SECOND)
+#define PULSE_WATER_FLOAT	(4 * PULSE_PER_SECOND)
+#define PULSE_MUSIC		(6 * PULSE_PER_SECOND)
+#define PULSE_TRACK		(6 * PULSE_PER_SECOND)
+#define PULSE_TICK		(50 * PULSE_PER_SECOND) /* 36 saniye */
 
 /* room_affect_update (not room_update) */
-#define PULSE_RAFFECT		  (3 * PULSE_MOBILE)
-#define PULSE_AREA		  (110 * PULSE_PER_SECOND) /* 97 saniye */
-#define FIGHT_DELAY_TIME	  (20 * PULSE_PER_SECOND)
-#define PULSE_AUCTION		  (20 * PULSE_PER_SECOND) /* 20 seconds */
+#define PULSE_RAFFECT		(3 * PULSE_MOBILE)
+#define PULSE_AREA		(110 * PULSE_PER_SECOND) /* 97 saniye */
+#define PULSE_AUCTION		(20 * PULSE_PER_SECOND) /* 20 seconds */
+
+#define FIGHT_DELAY_TIME	(20 * PULSE_PER_SECOND)
+#define GHOST_DELAY_TIME	600
 
 #define IMPLEMENTOR		MAX_LEVEL
 #define CREATOR 		(MAX_LEVEL - 1)
