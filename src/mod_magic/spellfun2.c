@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.167 2000-01-04 19:28:08 fjoe Exp $
+ * $Id: spellfun2.c,v 1.168 2000-01-05 12:01:52 kostik Exp $
  */
 
 /***************************************************************************
@@ -3022,6 +3022,12 @@ void spell_power_word_kill(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	int dam;
+	bool saves_mental, saves_nega;
+
+	if (ch == victim) {
+		char_puts("You can't do that to yourself.\n", ch);
+		return;
+	}
 
 	act_puts("A stream of darkness from your finger surrounds $N.", 
 		ch, NULL, victim, TO_CHAR, POS_RESTING);
@@ -3030,20 +3036,29 @@ void spell_power_word_kill(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	act_puts("A stream of darkness from $N's finger surrounds you.", 
 		victim, NULL, ch, TO_CHAR, POS_RESTING);
 
-	if (saves_spell(level-2, victim, DAM_MENTAL)
-	||  IS_IMMORTAL(victim)
-	||  IS_CLAN_GUARD(victim)) {
+	saves_mental = saves_spell(level-5, victim, DAM_MENTAL);
+	saves_nega = saves_spell(level-5, victim, DAM_NEGATIVE);
+
+	if ((saves_mental && saves_nega)
+	|| IS_IMMORTAL(victim)
+	|| IS_CLAN_GUARD(victim)) {
+		act("Your power word doesn't seems to affect $N.", 
+			ch, NULL, victim, TO_CHAR);
+		act("You are not affected by the power word of $n.",
+			ch, NULL, victim, TO_CHAR);
+	} else if (saves_mental || saves_nega) {
 		dam = dice(level , 24) ;
-		damage(ch, victim , dam , sn, DAM_MENTAL, DAMF_SHOW);
-		return;
+		damage(ch, victim , dam , sn, 
+			saves_nega ? DAM_MENTAL : DAM_NEGATIVE,  DAMF_SHOW);
+	} else {
+
+		char_puts("You have been KILLED!\n", victim);
+
+		act("$N has been killed!\n", ch, NULL, victim, TO_CHAR);
+		act("$N has been killed!\n", ch, NULL, victim, TO_NOTVICT);
+
+		raw_kill(ch, victim);
 	}
-
-	char_puts("You have been KILLED!\n", victim);
-
-	act("$N has been killed!\n", ch, NULL, victim, TO_CHAR);
-	act("$N has been killed!\n", ch, NULL, victim, TO_ROOM);
-
-	raw_kill(ch, victim);
 }
 
 void spell_eyed_sword(const char *sn, int level, CHAR_DATA *ch, void *vo) 
