@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.124 1999-11-26 07:04:39 fjoe Exp $
+ * $Id: martial_art.c,v 1.125 1999-11-26 09:24:05 fjoe Exp $
  */
 
 /***************************************************************************
@@ -403,6 +403,7 @@ void do_berserk(CHAR_DATA *ch, const char *argument)
 		af.bitvector 	= AFF_BERSERK;
 
 		af.location	= APPLY_HITROLL;
+		af.bitvector	= 0;
 		affect_to_char(ch,&af);
 
 		af.location	= APPLY_DAMROLL;
