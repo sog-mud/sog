@@ -10004,7 +10004,7 @@ This command allow to leave clan. Remember, renegade can't join clan anymore.
 При помощи этой команды можно выйти из клана. Но помни, ренегат больше
 не может вступить в клан.
 ~
-92 OLC HELP LEVEL~
+92 'OLC HELP LEVEL'~
 Уровень help'а определяет с какого уровня он будет доступен char'ам.
 
 Для help'ов, которые показываются при роллинге, необходимо использовать
