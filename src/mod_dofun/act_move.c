@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.202.2.24 2002-01-03 21:33:28 tatyana Exp $
+ * $Id: act_move.c,v 1.202.2.25 2002-09-02 10:34:54 tatyana Exp $
  */
 
 /***************************************************************************
@@ -51,6 +51,7 @@
 
 DECLARE_DO_FUN(do_look		);
 DECLARE_DO_FUN(do_yell		);
+DECLARE_DO_FUN(do_help		);
 
 /*
  * Local functions.
@@ -1853,30 +1854,58 @@ void do_bash_door(CHAR_DATA *ch, const char *argument)
 
 void do_blink(CHAR_DATA *ch, const char *argument)
 {
+	char arg[MAX_INPUT_LENGTH];
+
 	if (get_skill(ch, gsn_blink) == 0) {
 		char_puts("Huh?\n", ch);
 		return;
 	}
 
-	if (is_affected(ch, gsn_blink)) {
-		act("You stop blinking.", ch, NULL, NULL, TO_CHAR);
-		act("$n stops blinking.", ch, NULL, NULL, TO_ROOM);
-		affect_strip(ch, gsn_blink);
-	} else {
-		AFFECT_DATA af;
+	one_argument(argument, arg, sizeof(arg));
 
-		act("You start blinking.", ch, NULL, NULL, TO_CHAR);
-		act("$n starts blinking.", ch, NULL, NULL, TO_ROOM);
+	if (arg[0] =='\0') {
+		if (is_affected(ch, gsn_blink)) {
+			act("You current blink status is now: ON.",
+			    ch, NULL, NULL, TO_CHAR);
+			return;
+		} else {
+			act("You current blink status is now: OFF.",
+			    ch, NULL, NULL, TO_CHAR);
+			return;
+		}
+	} else if (!str_cmp(arg,"on")) {
+		if (is_affected(ch, gsn_blink)) {
+			act("You are already blinking.",
+			    ch, NULL, NULL, TO_CHAR);
+			return;
+		} else {
+			AFFECT_DATA af;
 
-		af.where 	= TO_AFFECTS;
-		af.type		= gsn_blink;
-		af.level	= LEVEL(ch);
-		af.location	= APPLY_NONE;
-		af.modifier	= 0;
-		af.bitvector	= 0;
-		af.duration	= -1;
-		affect_to_char(ch, &af);
-	}
+			act("You start blinking.", ch, NULL, NULL, TO_CHAR);
+			act("$n starts blinking.", ch, NULL, NULL, TO_ROOM);
+
+			af.where	= TO_AFFECTS;
+			af.type		= gsn_blink;
+			af.level	= LEVEL(ch);
+			af.location	= APPLY_NONE;
+			af.modifier	= 0;
+			af.bitvector	= 0;
+			af.duration	= -1;
+			affect_to_char(ch, &af);
+			return;
+		}
+	} else if (!str_cmp(arg,"off")) {
+		if (is_affected(ch, gsn_blink)) {
+			act("You stop blinking.", ch, NULL, NULL, TO_CHAR);
+			act("$n stops blinking.", ch, NULL, NULL, TO_ROOM);
+			affect_strip(ch, gsn_blink);
+			return;
+		} else {
+			act("You are not blinking.", ch, NULL, NULL, TO_CHAR);
+			return;
+		}
+	} else
+		do_help(ch, "blink");
 }
 
 void do_vanish(CHAR_DATA *ch, const char *argument)
