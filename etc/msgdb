@@ -154,7 +154,7 @@ channel    | status@rus .
 @eng $N doesn't need any of your help!@rus $N не $gN{нуждается} в твоей помощи!~
 @eng $N doesn't need your help to fly.@rus $N не нуждается в твоей помощи, чтобы взлететь.~
 @eng $N doesn't seem to be an undead.@rus $N не $gN{является} представителем рода нежити.~
-@eng $N doesn't seem to want any followers.@rus $N не желает, чтобы за ним кто-либо следовал.~
+@eng $N doesn't seem to want any followers.@rus $N не желает, чтобы за $gN{ним} кто-либо следовал.~
 @eng $N drops $S $p, unable to hold it!@rus $N $gN{бросил} $c3{$p}, не имея возможности удержать!~
 @eng $N enters to the room and triggers a hidden alarm.@rus При появлении $c1{$N} раздался сигнал тревоги.~
 @eng $N feels $M less confident!@rus $N $gN{стал} меньше $gn{уверенным} в себе!~
@@ -445,8 +445,10 @@ $n $gn{нанес} на $c3{$p} смертельный яд.~
 @eng $n changes target to you!@rus Ты теперь цель $c1{$n}.~
 @eng $n checks the ground for tracks.@rus $n внимательно $gn{рассматривает} следы на земле.~
 @eng $n chokes and gags.@rus $n $gn{мучается} от удушья.~
+@eng $n cleaved $N's $p into two.@rus $n $gn{раскалывает} $c3{$p} $c1{$N} надвое.~
 @eng $n cleaved $N's shield into two.@rus $n $gn{расколол} $c1{$N} щит надвое.~
 @eng $n cleaved $N's weapon into two.@rus $n $gn{расколол} оружие $c1{$N} надвое.~
+@eng $n cleaved your $p into two.@rus $n $gn{раскалывает} $gp{твой} $c3{$p} надвое.~
 @eng $n cleaved your shield into two.@rus $n $gn{расколол} твой щит надвое.~
 @eng $n cleaved your weapon into two.@rus $n $gn{расколол} твое оружие на две части.~
 @eng $n cloaks $s presence.@rus $n $gn{скрыл} свое присутствие.~
@@ -2600,7 +2602,7 @@ and hands you $p.@rus Из клуба дыма перед тобой появился маленький человечек
 @eng You are unable to pray in this form.@rus Ты не можешь молиться в этой форме.~
 @eng You are unable to release $p and it pulls your hand down.@rus Не имея возможности избавиться от $c1{$p}, ты болезненно $gN{опустил} руки вниз.~
 @eng You are using:@rus Ты используешь:~
-@eng You are zapped by $p and drop it.@rus Твои жизненные принципы не позволяют пользоваться $c4{$p} и ты выбрасываешь $gp{его}.~
+@eng You are zapped by $p and drop it.@rus Обжегшись о $c3{$p}, ты бросаешь $gp{его}.~
 @eng You are {cdrunk{x.
 @rus Ты {c$gn{пьян}{x.
 ~
@@ -3297,7 +3299,7 @@ Return to questmaster before your time runs out!@rus Ты почти $gn{выполнил} свое
 @eng You look about sharply, but you don't see anything new.@rus Ты кидаешь взгляды по сторонам, но не видишь ничего нового.~
 @eng You look around sharply!@rus Ты зорко глядишь по сторонам!~
 @eng You look rather tired, why don't you rest a bit first?@rus Ты выглядишь слишком $gn{усталым}, почему бы тебе немного не отдохнуть?~
-@eng You loose $j experience points.@rus Ты теряешь $j $qj{единиц} опыта.~
+@eng You loose $j experience points.@rus Ты теряешь $j $c3{$qj{единиц}} опыта.~
 @eng You loose $t.@rus Ты теряешь $c3{$t}.~
 @eng You loose a level!@rus Ты $gn{потерял} уровень!~
 @eng You lose $j exp.@rus Ты $gn{потерял} $j $qj{очков} опыта.~
@@ -3619,6 +3621,7 @@ Return to questmaster before your time runs out!@rus Ты почти $gn{выполнил} свое
 @eng You zap $P with $p.@rus Ты $gn{коснулся} $c1{$P} $c5{$p}.~
 @eng You zap yourself with $p.@rus Ты $gn{коснулся} себя $gn{самого} $c5{$p}.~
 @eng You {R+++ASSASSINATE+++{x $N!@rus Ты {R+++УБИВАЕШЬ+++{x $c6{$N}!~
+@eng You {Wcleaved{x $N's $p into two.@rus Ты {Wраскалываешь{x $c3{$p} $c1{$N} надвое.~
 @eng You'd better not -- you might get hit.@rus Лучше не стоит -- можно просто напасть.~
 @eng You'd better try your chance on other sex!@rus Лучше попытай счастья с противоположным полом!~
 @eng You'd destroy magic, not use it!@rus Ты уничтожаешь магию, а не пользуешься ей!~

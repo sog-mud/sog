@@ -750,6 +750,15 @@ Form 6 -а~
 End
 
 #RULE
+Name единицы~
+BaseLen 6
+Form 1 -~
+Form 2 -ам~
+Form 4 -ами~
+Form 5 -ах~
+End
+
+#RULE
 Name богач~
 BaseLen 5
 Form 1 -а~
@@ -10283,6 +10292,14 @@ Form 5 -е~
 End
 
 #RULE
+Name единиц~
+BaseLen 6
+Form 2 -ам~
+Form 4 -ами~
+Form 5 -ах~
+End
+
+#RULE
 Name дракон~
 BaseLen 6
 Form 1 -а~
@@ -11238,6 +11255,17 @@ End
 #RULE
 Name альпинист~
 BaseLen 9
+Form 1 -а~
+Form 2 -у~
+Form 3 -а~
+Form 4 -ом~
+Form 5 -е~
+Form 6 -а~
+End
+
+#RULE
+Name смурф~
+BaseLen 5
 Form 1 -а~
 Form 2 -у~
 Form 3 -а~

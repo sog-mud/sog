@@ -1467,6 +1467,14 @@ Form 3 -ыми~
 End
 
 #RULE
+Name вселился~
+BaseLen 6
+Form 1 -ась~
+Form 2 -ось~
+Form 3 -ись~
+End
+
+#RULE
 Name пьян~
 BaseLen 4
 Form 1 -а~
@@ -3730,6 +3738,14 @@ End
 #RULE
 Name приобрел~
 BaseLen 7
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name писал~
+BaseLen 4
 Form 1 -ла~
 Form 2 -ло~
 Form 3 -ли~
