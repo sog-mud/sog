@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.169 1999-05-19 08:05:09 fjoe Exp $
+ * $Id: act_move.c,v 1.170 1999-05-20 06:24:53 avn Exp $
  */
 
 /***************************************************************************
@@ -2991,7 +2991,9 @@ int send_arrow(CHAR_DATA *ch, CHAR_DATA *victim,OBJ_DATA *arrow,
 	/* Added by Osya */
 	/* Patched by avn */
 	/* instant kill */
-	if (get_skill(ch, gsn_bow) > 90
+	if (get_skill(ch, gsn_bow) > 90 
+	&& !IS_NPC(victim)
+	&& !IS_IMMORTAL(victim)
 	&& number_range(1, 10000) < get_skill(ch, gsn_mastering_bow) *
 		(get_curr_stat(ch, STAT_STR) + get_curr_stat(ch, STAT_DEX))/50)
 		{
