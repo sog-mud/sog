@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.145 1999-05-14 20:09:06 avn Exp $
+ * $Id: spellfun.c,v 1.146 1999-05-15 07:57:40 kostik Exp $
  */
 
 /***************************************************************************
@@ -418,8 +418,6 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		break;
 	}
 
-	if (bch && spellbane(bch, ch, bane_chance, 3 * bch->level))
-		return;
 
 	WAIT_STATE(ch, spell->beats);
 
@@ -485,7 +483,8 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 
 		ch->mana -= mana;
 
-		spell->spell_fun(sn, IS_NPC(ch) ? ch->level : slevel,
+		if (!(bch && spellbane(bch, ch, bane_chance, 3 * bch->level)))
+			spell->spell_fun(sn, IS_NPC(ch) ? ch->level : slevel,
 				 ch, vo, target);
 		check_improve(ch, sn, TRUE, 1);
 	}
