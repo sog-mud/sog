@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.24 1998-06-19 15:30:10 fjoe Exp $
+ * $Id: db.c,v 1.25 1998-06-20 20:53:25 fjoe Exp $
  */
 
 /***************************************************************************
@@ -179,11 +179,9 @@ int  gsn_bloodthirst;
 int  gsn_spellbane;
 int  gsn_resistance;
 int  gsn_deathblow;
-int  gsn_doppelganger;
 int  gsn_fade;
 int  gsn_garble;
 int  gsn_confuse;
-int  gsn_mirror;
 int  gsn_track;
 int  gsn_vanish;
 int  gsn_chaos_blade;

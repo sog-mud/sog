@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.29 1998-06-19 22:51:24 efdi Exp $
+ * $Id: interp.c,v 1.30 1998-06-20 20:53:26 fjoe Exp $
  */
 
 /***************************************************************************
@@ -375,7 +375,7 @@ const	struct	cmd_type	cmd_table	[] =
      * Immortal commands.
      */
     { "advance",	do_advance,	POS_DEAD,	ML,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST }, 
-    { "set",		do_set,		POS_DEAD,	ML,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST },
+    { "set",		do_set,		POS_DEAD,	L1,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "dump",		do_dump,	POS_DEAD,	ML,  LOG_ALWAYS, 0, CMD_KEEP_HIDE|CMD_GHOST },
     { "rename",		do_rename,	POS_DEAD,	ML,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "violate",	do_violate,	POS_DEAD,	ML,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST },

@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.25 1998-06-18 05:19:15 fjoe Exp $
+ * $Id: save.c,v 1.26 1998-06-20 20:53:27 fjoe Exp $
  */
 
 /***************************************************************************
@@ -334,8 +334,7 @@ void fwrite_char(CHAR_DATA *ch, FILE *fp)
 
 	for (paf = ch->affected; paf != NULL; paf = paf->next)
 	{
-		if (paf->type < 0 || paf->type>= MAX_SKILL ||
-	        paf->type == gsn_doppelganger)
+		if (paf->type < 0 || paf->type>= MAX_SKILL)
 			continue;
 
 		if (!IS_NPC(ch)	&& paf->bitvector == AFF_CHARM)
@@ -430,10 +429,8 @@ void fwrite_pet(CHAR_DATA *pet, FILE *fp)
 		pet->mod_stat[STAT_WIS], pet->mod_stat[STAT_DEX],
 		pet->mod_stat[STAT_CON], pet->mod_stat[STAT_CHA]);
 	
-	for (paf = pet->affected; paf != NULL; paf = paf->next)
-	{
-		if (paf->type < 0 || paf->type >= MAX_SKILL ||
-	      paf->type == gsn_doppelganger)
+	for (paf = pet->affected; paf != NULL; paf = paf->next) {
+		if (paf->type < 0 || paf->type >= MAX_SKILL)
 		    continue;
 		    
 		fprintf(fp, "Affc '%s' %3d %3d %3d %3d %3d %10d\n",
@@ -1184,7 +1181,7 @@ void fread_char(CHAR_DATA *ch, FILE *fp)
 				qtrouble_set(ch, QUEST_ITEM3, 3);
 		}
 				
-		if (strcmp(word, "QTrouble") == 0) {
+		if (str_cmp(word, "Qtrouble") == 0) {
 			int vnum;
 			int count;
 

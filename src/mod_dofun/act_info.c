@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.75 1998-06-18 05:19:11 fjoe Exp $
+ * $Id: act_info.c,v 1.76 1998-06-20 20:53:24 fjoe Exp $
  */
 
 /***************************************************************************
@@ -393,30 +393,10 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 		return;
 	}
 
-	if (IS_SET(ch->act,PLR_HOLYLIGHT)
-	&&  is_affected(victim,gsn_doppelganger)) {
-		strcat(buf, "{{");
-		strcat(buf, PERS(victim,ch));
-		strcat(buf, "} ");
-	}
-
-	if (is_affected(victim, gsn_doppelganger)
-	&&  victim->doppel->long_descr[0] != '\0') {
-		char_printf(ch, "%s%s", buf, victim->doppel->long_descr);
-		return;
-	}
-
-	if (is_affected(victim, gsn_doppelganger)) {
-		strcat(buf, PERS(victim->doppel, ch));
-		if (!IS_NPC(victim->doppel) && !IS_SET(ch->comm, COMM_BRIEF))
-			strcat(buf, victim->doppel->pcdata->title);
-	}
-	else {
-		strcat(buf, PERS(victim, ch));
-		if (!IS_NPC(victim) && !IS_SET(ch->comm, COMM_BRIEF)
-		&&  victim->position == POS_STANDING && ch->on == NULL)
-			strcat(buf, victim->pcdata->title);
-	}
+	strcat(buf, PERS(victim, ch));
+	if (!IS_NPC(victim) && !IS_SET(ch->comm, COMM_BRIEF)
+	&&  victim->position == POS_STANDING && ch->on == NULL)
+		strcat(buf, victim->pcdata->title);
 
 	switch (victim->position) {
 	case POS_DEAD:
@@ -529,10 +509,7 @@ void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 	int i;
 	int percent;
 	bool found;
-	CHAR_DATA *vict;
 	int msgnum;
-
-	vict = is_affected(victim, gsn_doppelganger) ? victim->doppel : victim;
 
 	if (can_see(victim, ch)) {
 		if (ch == victim)
@@ -546,8 +523,8 @@ void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 		}
 	}
 
-	if (vict->description[0] != '\0')
-		send_to_char(vict->description, ch);
+	if (victim->description[0] != '\0')
+		send_to_char(victim->description, ch);
 	else
 		act_nprintf(ch, NULL, victim, TO_CHAR, POS_DEAD,
 				SEE_NOTHING_SPECIAL);
@@ -586,13 +563,12 @@ void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 		gain_condition(ch, COND_BLOODLUST, -1);
 
 	char_printf(ch, "(%s) %s %s\n\r",
-		    race_table[RACE(vict)].name, PERS(vict, ch),
-		    vmsg(msgnum, ch, vict));
+		    race_table[RACE(victim)].name, PERS(victim, ch),
+		    vmsg(msgnum, ch, victim));
 
 	found = FALSE;
 	for (i = 0; show_order[i] != -1; i++) {
-		if ((obj = get_eq_char(is_affected(victim,gsn_mirror) ?
-				       vict : victim, show_order[i])) != NULL
+		if ((obj = get_eq_char(victim, show_order[i])) != NULL
 		&&  can_see_obj(ch, obj)) {
 
 			if (!found) {
@@ -609,8 +585,7 @@ void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 		}
 	}
 
-	for (obj = is_affected(victim,gsn_mirror) ?
-	     vict->carrying : victim->carrying;
+	for (obj = victim->carrying;
 	     obj != NULL; obj = obj->next_content) {
 		if (obj->wear_loc != WEAR_STUCK_IN || !can_see_obj(ch, obj))
 			continue;
@@ -629,10 +604,8 @@ void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 	&&  !IS_NPC(ch)
 	&&  number_percent() < get_skill(ch,gsn_peek)) {
 		send_to_char(msg(YOU_PEEK_AT_THE_INVENTORY, ch), ch);
-		check_improve(ch,gsn_peek,TRUE,4);
-		show_list_to_char(is_affected(victim,gsn_mirror) ?
-				  vict->carrying : victim->carrying,
-				  ch, TRUE, TRUE);
+		check_improve(ch, gsn_peek, TRUE, 4);
+		show_list_to_char(victim->carrying, ch, TRUE, TRUE);
 	}
 
 	return;
@@ -1646,6 +1619,7 @@ void do_weather(CHAR_DATA *ch, char *argument)
 
 void do_help(CHAR_DATA *ch, char *argument)
 {
+	bool found = FALSE;
 	HELP_DATA *pHelp;
 	char argall[MAX_INPUT_LENGTH],argone[MAX_INPUT_LENGTH];
 
@@ -1661,13 +1635,26 @@ void do_help(CHAR_DATA *ch, char *argument)
 		strcat(argall, argone);
 	}
 
+	/*
+	 * prevent spamming
+	 */
+	if (strlen(argall) < 3) {
+		char_puts("Help topic must be at least 3 characters long.\n\r",
+			  ch);
+		return;
+	}
+
 	for (pHelp = help_first; pHelp != NULL; pHelp = pHelp->next) {
 		if (pHelp->level > get_trust(ch))
 			continue;
 
 		if (is_name(argall, pHelp->keyword)) {
+			if (found)
+				char_puts("\n\r-------------------------------------------------------------------------------\n\r\n\r", ch);
+			found = TRUE;
+
 			if (pHelp->level >= 0 && str_cmp(argall, "imotd"))
-				char_printf(ch, "%s\n\r", pHelp->keyword);
+				char_printf(ch, "{C%s{x\n\r", pHelp->keyword);
 
 			/*
 			 * Strip leading '.' to allow initial blanks.
@@ -1675,13 +1662,13 @@ void do_help(CHAR_DATA *ch, char *argument)
 			if (pHelp->text[0] == '.')
 				page_to_char(pHelp->text+1, ch);
 			else
-				page_to_char(pHelp->text  , ch);
-			return;
+				page_to_char(pHelp->text, ch);
+
 		}
 	}
 
-	send_to_char(msg(NO_HELP_ON_WORD, ch), ch);
-	return;
+	if (!found)
+		send_to_char(msg(NO_HELP_ON_WORD, ch), ch);
 }
 
 
@@ -1690,6 +1677,7 @@ static void do_who_raw(CHAR_DATA* ch, CHAR_DATA *wch, char* output)
 	char const *race;
 	char const *class;
 	char *pk;
+	char *wizi;
 /*	char *clan; */
 	char *act;
 	char *title;
@@ -1728,8 +1716,13 @@ static void do_who_raw(CHAR_DATA* ch, CHAR_DATA *wch, char* output)
 		clan = EMPTY_STRING;
 */
 
-	if (!((ch==wch && ch->level<PK_MIN_LEVEL) || is_safe_nomessage(ch,wch)))
-		pk = "{R(PK){x ";
+	if (ch->invis_level >= LEVEL_HERO)
+		wizi = "[{WWizi{x] ";
+	else
+		wizi = EMPTY_STRING;
+
+	if (in_PK(ch, wch))
+		pk = "{r[{RPK{r]{x ";
 	else
 		pk = EMPTY_STRING;
 
@@ -1746,14 +1739,15 @@ static void do_who_raw(CHAR_DATA* ch, CHAR_DATA *wch, char* output)
 	/*
 	 * Format it up.
 	 */
-	sprintf(level, "%3d", wch->level);
+	snprintf(level, sizeof(level), "%3d", wch->level);
 	trusted = IS_TRUSTED(ch, LEVEL_IMMORTAL) || ch == wch ||
 		  wch->level >= LEVEL_HERO;
-	sprintf(strend(output), "[{C%s{x %s {Y%s{x] %s{x%s{x%s{x%s{x\n\r",
+	sprintf(strend(output), "[{C%s{x %s {Y%s{x] %s%s%s%s%s{x\n\r",
 		trusted ? level
 			: (get_curr_stat(wch, STAT_CHA) < 18) ? level : "   ",
 		race,
 		class,
+		wizi,
 		pk,
 		act,
 		wch->name,
@@ -2264,10 +2258,10 @@ void do_where(CHAR_DATA *ch, char *argument)
 			&&   can_see(ch, victim)) {
 				found = TRUE;
 				char_printf(ch, "%s%-28s %s\n\r",
-		(is_safe_nomessage(ch, (is_affected(victim,gsn_doppelganger) && victim->doppel) ? victim->doppel : victim) || IS_NPC(victim)) ?  "     " :
-		"{r(PK){x ",
-		(is_affected(victim,gsn_doppelganger) && !IS_SET(ch->act,PLR_HOLYLIGHT)) ?  victim->doppel->name : victim->name,
-		victim->in_room->name);
+					    (in_PK(ch, victim)) ?
+						"{r[{RPK{r]{x " : "     ",
+					    PERS(ch, victim),
+					    victim->in_room->name);
 			}
 		}
 		if (!found)

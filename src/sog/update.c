@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.32 1998-06-18 05:19:15 fjoe Exp $
+ * $Id: update.c,v 1.33 1998-06-20 20:53:27 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1484,9 +1484,6 @@ void obj_update(void)
 	       }
 	}
 	
-	if (obj->item_type == ITEM_KEY)
-		continue;
-
 	if (obj->condition > -1 && (obj->timer <= 0 || --obj->timer > 0))
 	    continue;
 
@@ -1660,9 +1657,7 @@ void aggr_update(void)
 			if (ch->last_fought == wch
 			&&  !IS_AFFECTED(ch,AFF_SCREAM)) {
 				doprintf(do_yell, ch, "%s! Now you die!",
-					(is_affected(wch, gsn_doppelganger) &&
-					!IS_SET(ch->act,PLR_HOLYLIGHT)) ?
-					PERS(wch->doppel, ch) : PERS(wch,ch));
+					 PERS(wch,ch));
 				wch = check_guard(wch, ch); 
 
 				multi_hit(ch,wch,TYPE_UNDEFINED);

@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.11 1998-06-18 05:19:14 fjoe Exp $
+ * $Id: martial_art.c,v 1.12 1998-06-20 20:53:27 fjoe Exp $
  */
 
 /***************************************************************************
@@ -383,10 +383,7 @@ void do_bash(CHAR_DATA *ch, char *argument)
 			do_yell(victim, "Help! Someone is bashing me!");
 		else
 			doprintf(do_yell, victim,
-				 "Help! %s is bashing me!",
-				 (is_affected(ch,gsn_doppelganger) &&
-				 !IS_IMMORTAL(victim)) ? ch->doppel->name
-						       : ch->name);
+				 "Help! %s is bashing me!", ch->name);
 	}
 }
 
@@ -526,9 +523,8 @@ void do_dirt(CHAR_DATA *ch, char *argument)
 		if (!can_see(victim,ch))
 			do_yell(victim, "Someone just kicked dirt in my eyes!");
 		else
-			doprintf(do_yell, victim, "Die, %s!  You dirty fool!", (is_affected(ch,
-			gsn_doppelganger) && !IS_IMMORTAL(victim)) ? ch->doppel->name
-			: ch->name);
+			doprintf(do_yell, victim, "Die, %s!  You dirty fool!",
+				 ch->name);
 		}
 	
 }
@@ -661,9 +657,8 @@ void do_trip(CHAR_DATA *ch, char *argument)
 		if (!can_see(victim, ch))
 			do_yell(victim, " Help! Someone just tripped me!");
 		else
-			  doprintf(do_yell, victim, "Help! %s just tripped me!", 
-			(is_affected(ch,gsn_doppelganger) && !IS_IMMORTAL(victim)) ?
-			ch->doppel->name : ch->name);
+			doprintf(do_yell, victim, "Help! %s just tripped me!",
+				 ch->name);
 		}
 }
 
@@ -780,9 +775,9 @@ void do_backstab(CHAR_DATA *ch, char *argument)
 		if (!can_see(victim, ch))
 			do_yell(victim, "Help! I've been backstabbed!");
 		else
-			  doprintf(do_yell, victim, "Die, %s, you backstabbing scum!", 
-			(is_affected(ch,gsn_doppelganger) && !IS_IMMORTAL(victim)) ?
-			ch->doppel->name : ch->name);
+			doprintf(do_yell, victim,
+				 "Die, %s, you backstabbing scum!", 
+				 ch->name);
 		}
 	return;
 }
@@ -864,9 +859,9 @@ void do_cleave(CHAR_DATA *ch, char *argument)
 		if (!can_see(victim, ch))
 			do_yell(victim, "Help! Someone is attacking me!");
 		else
-			  doprintf(do_yell, victim, "Die, %s, you butchering fool!", 
-			(is_affected(ch,gsn_doppelganger) && !IS_IMMORTAL(victim)) ?
-			ch->doppel->name : ch->name);
+			doprintf(do_yell, victim,
+				 "Die, %s, you butchering fool!", 
+				 ch->name);
 		}
 	return;
 }
@@ -933,16 +928,14 @@ void do_ambush(CHAR_DATA *ch, char *argument)
 
 	/* Player shouts if he doesn't die */
 	if (!(IS_NPC(victim)) && !(IS_NPC(ch)) 
-		&& victim->position == POS_FIGHTING)
-		{
+	&& victim->position == POS_FIGHTING) {
 		if (!can_see(victim, ch))
 			do_yell(victim, "Help! I've been ambushed by someone!");
 		else
-			  doprintf(do_yell, victim, "Help! I've been ambushed by %s!", 
-			    (is_affected(ch,gsn_doppelganger)&& !IS_IMMORTAL(victim)) ?
-			    ch->doppel->name : ch->name);
-		}
-	return;
+			doprintf(do_yell, victim,
+				 "Help! I've been ambushed by %s!", 
+				 ch->name);
+	}
 }
 
 
@@ -1304,15 +1297,14 @@ void do_nerve(CHAR_DATA *ch, char *argument)
 	multi_hit(victim,ch,TYPE_UNDEFINED);
 
 	if (!(IS_NPC(victim)) && !(IS_NPC(ch)) 
-		&& victim->position != POS_FIGHTING)
-		{
+	&& victim->position != POS_FIGHTING) {
 		if (!can_see(victim, ch))
 			do_yell(victim, "Help! I'm being attacked by someone!");
 		else
-			doprintf(do_yell, victim, "Help! I'm being attacked by %s!",
-			  (is_affected(ch,gsn_doppelganger) && !IS_IMMORTAL(victim)) ?
-			  ch->doppel->name : ch->name);
-		}
+			doprintf(do_yell, victim,
+				 "Help! I'm being attacked by %s!",
+				 ch->name);
+	}
 	return;
 }
 
@@ -1505,29 +1497,27 @@ void do_assassinate(CHAR_DATA *ch, char *argument)
 		return;
 		}
 */
+
 	WAIT_STATE(ch, skill_table[gsn_assassinate].beats);
-	if (IS_NPC(ch) ||
-		!IS_AWAKE(victim) 
-		||   number_percent() < get_skill(ch,gsn_assassinate))
+	if (IS_NPC(ch) || !IS_AWAKE(victim) 
+	||  number_percent() < get_skill(ch,gsn_assassinate))
 		multi_hit(ch,victim,gsn_assassinate);
-	else
-		{
+	else {
 		check_improve(ch,gsn_assassinate,FALSE,1);
 		damage(ch, victim, 0, gsn_assassinate,DAM_NONE, TRUE);
-		}
+	}
+
 	/* Player shouts if he doesn't die */
 	if (!(IS_NPC(victim)) && !(IS_NPC(ch))
-		&& victim->position == POS_FIGHTING)
-		{
+	&& victim->position == POS_FIGHTING) {
 		if (!can_see(victim, ch))
 			do_yell(victim, "Help! Someone tried to assassinate me!");
 		else
-			  doprintf(do_yell, victim, "Help! %s tried to assassinate me!",
-			    (is_affected(ch,gsn_doppelganger) && !IS_IMMORTAL(victim)) ?
-			    ch->doppel->name : ch->name);
-		}
-	return;
+			doprintf(do_yell, victim,
+				 "Help! %s tried to assassinate me!",
+				 ch->name);
 	}
+}
 
 
 void do_caltrops(CHAR_DATA *ch, char *argument)
@@ -1788,9 +1778,9 @@ void do_strangle(CHAR_DATA *ch, char *argument)
 		if (!can_see(victim, ch))
 			do_yell(victim, "Help! I'm being strangled by someone!");
 		else if (!IS_NPC(victim)) 
-			  doprintf(do_yell, victim, "Help! I'm being strangled by %s!",
-			    (is_affected(ch,gsn_doppelganger)&& !IS_IMMORTAL(victim))?
-			    ch->doppel->name : ch->name);
+			doprintf(do_yell, victim,
+				 "Help! I'm being strangled by %s!",
+			  	 ch->name);
 	}
 }
 
@@ -1881,10 +1871,10 @@ void do_blackjack(CHAR_DATA *ch, char *argument)
 		if (!can_see(victim, ch))
 			do_yell(victim, "Help! I'm being blackjacked by someone!");
 		else if (!IS_NPC(victim))
-			  doprintf(do_yell, victim, "Help! I'm being blackjacked by %s!",
-			    (is_affected(ch,gsn_doppelganger)&& !IS_IMMORTAL(victim))?
-			    ch->doppel->name : ch->name);
-		}
+			doprintf(do_yell, victim,
+				 "Help! I'm being blackjacked by %s!",
+				 ch->name);
+	}
 }
 
 
@@ -3188,15 +3178,14 @@ act_puts("$n's tail seems to slide around $N.",ch,NULL,victim,
 		WAIT_STATE(ch,skill_table[gsn_tail].beats * 3/2); 
 	}
 	if (!(IS_NPC(victim)) && !(IS_NPC(ch)) && victim->position > POS_STUNNED
-			&& !FightingCheck)
-		{
+	&& !FightingCheck) {
 		if (!can_see(victim, ch))
 			do_yell(victim, "Help! Someone hit me!");
 		else
-			  doprintf(do_yell, victim, "Help! %s try to hit me with its tail!",
-			(is_affected(ch,gsn_doppelganger) && !IS_IMMORTAL(victim)) ?
-			ch->doppel->name : ch->name);
-		}
+			doprintf(do_yell, victim,
+				 "Help! %s tries to hit me with its tail!",
+				 ch->name);
+	}
 }
 
 void do_concentrate(CHAR_DATA *ch, char *argument)
@@ -3635,19 +3624,20 @@ void do_poison_smoke(CHAR_DATA *ch, char *argument)
 
 	for (tmp_vict=ch->in_room->people;tmp_vict!=NULL;
 		 tmp_vict=tmp_vict->next_in_room)
-	if (!is_safe_spell(ch,tmp_vict,TRUE))
-		{
-		if (!IS_NPC(ch) && tmp_vict != ch && 
-			  ch->fighting != tmp_vict && tmp_vict->fighting != ch &&
-			  (IS_SET(tmp_vict->affected_by,AFF_CHARM) || !IS_NPC(tmp_vict)))
-			{
-			  if (!can_see(tmp_vict, ch))
-			do_yell(tmp_vict, "Help someone is attacking me!");
-			  else 
-			       doprintf(do_yell, tmp_vict,"Die, %s, you sorcerous dog!",
-			    (is_affected(ch,gsn_doppelganger)&&!IS_IMMORTAL(tmp_vict))?
-			     ch->doppel->name : ch->name);
-			}
+	if (!is_safe_spell(ch,tmp_vict,TRUE)) {
+		if (!IS_NPC(ch) && tmp_vict != ch
+		&&  ch->fighting != tmp_vict
+		&&  tmp_vict->fighting != ch
+		&&  (IS_SET(tmp_vict->affected_by,AFF_CHARM) ||
+		     !IS_NPC(tmp_vict))) {
+			if (!can_see(tmp_vict, ch))
+				do_yell(tmp_vict,
+					"Help someone is attacking me!");
+			else 
+				doprintf(do_yell, tmp_vict,
+					 "Die, %s, you sorcerous dog!",
+					 ch->name);
+		}
 			
 		spell_poison(gsn_poison,ch->level,ch,tmp_vict, TARGET_CHAR);
 		if (tmp_vict != ch)
@@ -3686,24 +3676,24 @@ void do_blindness_dust(CHAR_DATA *ch, char *argument)
 
 	for (tmp_vict=ch->in_room->people;tmp_vict!=NULL;
 		 tmp_vict=tmp_vict->next_in_room)
-	if (!is_safe_spell(ch,tmp_vict,TRUE))
-		{
-		if (!IS_NPC(ch) && tmp_vict != ch && 
-			  ch->fighting != tmp_vict && tmp_vict->fighting != ch &&
-			  (IS_SET(tmp_vict->affected_by,AFF_CHARM) || !IS_NPC(tmp_vict)))
-			{
-			  if (!can_see(tmp_vict, ch))
-			do_yell(tmp_vict, "Help someone is attacking me!");
-			  else 
-			       doprintf(do_yell, tmp_vict,"Die, %s, you sorcerous dog!",
-			    (is_affected(ch,gsn_doppelganger)&&!IS_IMMORTAL(tmp_vict))?
-			     ch->doppel->name : ch->name);
-			}
+	if (!is_safe_spell(ch,tmp_vict,TRUE)) {
+		if (!IS_NPC(ch) && tmp_vict != ch
+		&&  ch->fighting != tmp_vict
+		&&  tmp_vict->fighting != ch
+		&&  (IS_SET(tmp_vict->affected_by, AFF_CHARM) ||
+		     !IS_NPC(tmp_vict))) {
+			if (!can_see(tmp_vict, ch))
+				do_yell(tmp_vict,
+					"Help someone is attacking me!");
+			else 
+				doprintf(do_yell, tmp_vict,
+					 "Die, %s, you sorcerous dog!",
+					 ch->name);
+		}
 			
 		spell_blindness(gsn_blindness,ch->level,ch,tmp_vict, TARGET_CHAR);
 		if (tmp_vict != ch)
 			multi_hit(tmp_vict,ch,TYPE_UNDEFINED);
-		}
-
+	}
 }
 

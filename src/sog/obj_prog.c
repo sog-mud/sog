@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.c,v 1.11 1998-06-18 05:19:15 fjoe Exp $
+ * $Id: obj_prog.c,v 1.12 1998-06-20 20:53:27 fjoe Exp $
  */
 
 /***************************************************************************
@@ -799,14 +799,6 @@ void fight_prog_chaos_blade(OBJ_DATA *obj, CHAR_DATA *ch)
 	if ((get_eq_char(ch,WEAR_WIELD) == obj) || 
 		(get_eq_char(ch,WEAR_SECOND_WIELD) == obj))
 	switch(number_bits(7)) {
-	case 0:
-	  
-	  act("The chaotic blade trembles violently!", ch, NULL, NULL, TO_ROOM);
-	  send_to_char("Your chaotic blade trembles violently!\n\r", ch);
-	  obj_cast_spell(gsn_mirror,ch->level,ch,ch,obj); 
-	  WAIT_STATE(ch, 2 * PULSE_VIOLENCE);
-	  break;
-
 	case 1:
 
 	  act("The chaotic blade shakes a bit.", ch, NULL, NULL, TO_ROOM);

@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.39 1998-06-18 20:21:41 efdi Exp $
+ * $Id: fight.c,v 1.40 1998-06-20 20:53:26 fjoe Exp $
  */
 
 /***************************************************************************
@@ -158,12 +158,6 @@ void violence_update(void)
 		if (!IS_NPC(victim))
 		  ch->last_fought = victim;
 
-/*	more efficient DOPPLEGANGER
-		if (!IS_NPC(victim))
-		  ch->last_fought =
-		(is_affected(victim,gsn_doppelganger) && victim->doppel) ?
-				victim->doppel : victim;
-*/
 
 		ch->last_fight_time = current_time;
 
@@ -1383,16 +1377,6 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim,
 	 * Check for parry, and dodge.
 	 */
 	if (dt >= TYPE_HIT && ch != victim) {
-		/*
-		 * Some funny stuf.
-		 */
-		if (is_affected(victim,gsn_mirror)) {
-			act("$n shatters into tiny fragments of glass.",
-			    victim, NULL, NULL, TO_ROOM);
-			extract_char(victim, TRUE);
-			return FALSE;
-		}
-
 		if (check_parry(ch, victim))
 			return FALSE;
 		if (check_block(ch, victim))
@@ -1580,10 +1564,6 @@ bool is_safe_nomessage(CHAR_DATA *ch, CHAR_DATA *victim)
 	&&  victim->desc == NULL)
 		return TRUE;
 
-	if ((!IS_NPC(ch) && !IS_NPC(victim))
-	&&  (victim->level < 5 || ch->level < 5))
-		return TRUE;
-
 	/* newly death staff */
 	if (!IS_IMMORTAL(ch) && !IS_NPC(victim)
 	&&  ch->last_death_time != -1
@@ -1591,15 +1571,7 @@ bool is_safe_nomessage(CHAR_DATA *ch, CHAR_DATA *victim)
 	     current_time - victim->last_death_time < 600))
 		return TRUE;
 
-	/* level adjustement */
-	if (ch != victim && !IS_IMMORTAL(ch) && !IS_NPC(ch) && !IS_NPC(victim)
-	&&  (ch->level >= (victim->level + UMAX(4,ch->level/10 +2)) ||
-	     ch->level <= (victim->level - UMAX(4,ch->level/10 +2)))
-	&&  (victim->level >= (ch->level + UMAX(4,victim->level/10 +2)) ||
-	     victim->level <= (ch->level - UMAX(4,victim->level/10 +2))))
-		return TRUE;
-
-	return FALSE;
+	return !in_PK(ch, victim);
 }
 
 
@@ -2217,8 +2189,6 @@ void raw_kill_org(CHAR_DATA *ch, CHAR_DATA *victim, int part)
 			tmp_ch->last_fought = NULL;
 		remove_mind(tmp_ch, victim->name);
 	}
-
-  return;
 }
 
 
@@ -2783,8 +2753,8 @@ void do_murder(CHAR_DATA *ch, char *argument)
 				ch->short_descr);
 		else
 			doprintf(do_yell, victim,
-				"Help! I am being attacked by %s!",
-				(is_affected(ch,gsn_doppelganger) && !IS_IMMORTAL(victim)) ?  ch->doppel->name : ch->name);
+				 "Help! I am being attacked by %s!",
+				 ch->name);
 	}
 
 	if (SKILL_OK(ch, gsn_mortal_strike)

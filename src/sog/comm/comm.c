@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.50 1998-06-19 15:30:10 fjoe Exp $
+ * $Id: comm.c,v 1.51 1998-06-20 20:53:25 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1276,7 +1276,7 @@ void bust_a_prompt(CHAR_DATA *ch)
 	             else
 	                         sprintf(buf2,"BAD!!");
 	                 }
-		     else    sprintf(buf2,"None!");
+		     else    sprintf(buf2,"None");
 	        i = buf2; break;
 /***** FInished ****/
 	     case 'h' :
@@ -1526,13 +1526,18 @@ void nanny(DESCRIPTOR_DATA *d, char *argument)
 	case CON_GET_CODEPAGE: {
 		int num;
 
-		if (argument[0] == '\0'
-		||  argument[1] != '\0'
+		if (argument[0] == '\0') {
+			close_socket(d);
+			return;
+		}
+
+		if (argument[1] != '\0'
 		||  (num = argument[0] - '1') < 0
 		||  num >= NCODEPAGES) {
 			cp_print(d);
 			break;
 		}
+
 		d->codepage = codepages+num;
 		log_printf("'%s' codepage selected", d->codepage->name);
 		d->connected = CON_GET_NAME;
@@ -1794,7 +1799,8 @@ void nanny(DESCRIPTOR_DATA *d, char *argument)
 	{
 	case 'y': case 'Y':
 	    write_to_descriptor(d->descriptor, echo_off_str, 0);
-	    sprintf(buf, "New character.\n\rGive me a password for %s: ",
+	    snprintf(buf, sizeof(buf),
+		"New character.\n\rGive me a password for %s: ",
 		ch->name);
 	    write_to_buffer(d, buf, 0);
 	    d->connected = CON_GET_NEW_PASSWORD;
@@ -2724,13 +2730,13 @@ void fix_sex(CHAR_DATA *ch)
 		ch->sex = IS_NPC(ch) ? 0 : ch->pcdata->true_sex;
 }
 
+static char * const he_she  [] = { "it",  "he",  "she" };
+static char * const him_her [] = { "it",  "him", "her" };
+static char * const his_her [] = { "its", "his", "her" };
+ 
 void act_nprintf(CHAR_DATA *ch, const void *arg1, 
 	      const void *arg2, int type, int min_pos, int msgid, ...)
 {
-	static char * const he_she  [] = { "it",  "he",  "she" };
-	static char * const him_her [] = { "it",  "him", "her" };
-	static char * const his_her [] = { "its", "his", "her" };
- 
 	CHAR_DATA	*to;
 	CHAR_DATA 	*vch = (CHAR_DATA *) arg2;
 	OBJ_DATA 	*obj1 = (OBJ_DATA  *) arg1;
@@ -2835,52 +2841,37 @@ void act_nprintf(CHAR_DATA *ch, const void *arg1,
 				i = (char *) arg2;                            
 				break;
 
-	            case 'n': i =  
-		  (is_affected(ch,gsn_doppelganger) && 
-		   !IS_SET(to->act,PLR_HOLYLIGHT)) ? 
-		    PERS(ch->doppel,to) : PERS(ch,  to);
-		  break;
-	            case 'N': i =  
-		  (is_affected(vch,gsn_doppelganger) && 
-		   !IS_SET(to->act,PLR_HOLYLIGHT)) ? 
-		    PERS(vch->doppel,to):PERS(vch,  to);
-		  break;
-	            case 'e': i = 
-		  (is_affected(ch, gsn_doppelganger) &&
-		    !IS_SET(to->act,PLR_HOLYLIGHT)) ?
-		    he_she [URANGE(0,ch->doppel->sex,2)] :
-		    he_she  [URANGE(0, ch  ->sex, 2)];    
-		  break;
-	            case 'E': i = 
-		  (is_affected(vch, gsn_doppelganger) &&
-		    !IS_SET(to->act,PLR_HOLYLIGHT)) ?
-		    he_she  [URANGE(0, vch->doppel->sex, 2)] :
-		    he_she  [URANGE(0, vch->sex, 2)];
-		  break;
-	            case 'm': i = 
-		  (is_affected(ch, gsn_doppelganger) &&
-		    !IS_SET(to->act,PLR_HOLYLIGHT)) ?
-		    him_her [URANGE(0,ch->doppel->sex,2)] :
-		    him_her [URANGE(0, ch->sex, 2)];    
-		  break;
-	            case 'M': i = 
-		  (is_affected(vch, gsn_doppelganger) &&
-		    !IS_SET(to->act,PLR_HOLYLIGHT)) ?
-		    him_her  [URANGE(0, vch->doppel->sex, 2)] :
-		    him_her  [URANGE(0, vch->sex, 2)];
-		  break;
-	            case 's': i = 
-		  (is_affected(ch, gsn_doppelganger) &&
-		    !IS_SET(to->act,PLR_HOLYLIGHT)) ?
-		    his_her [URANGE(0,ch->doppel->sex,2)] :
-		    his_her [URANGE(0, ch  ->sex, 2)];    
-		  break;
-	            case 'S': i = 
-		  (is_affected(vch, gsn_doppelganger) &&
-		    !IS_SET(to->act,PLR_HOLYLIGHT)) ?
-		    his_her  [URANGE(0, vch->doppel->sex, 2)] :
-		    his_her  [URANGE(0, vch->sex, 2)];
-		  break;
+			    case 'n':
+				i = PERS(ch,  to);
+				break;
+
+			    case 'N':
+				i = PERS(vch, to);
+				break;
+
+			    case 'e':
+				i = he_she[URANGE(0, ch->sex, 2)];    
+				break;
+
+			    case 'E':
+				i = he_she[URANGE(0, vch->sex, 2)];
+				break;
+
+			    case 'm':
+				i = him_her[URANGE(0, ch->sex, 2)];    
+				break;
+
+			    case 'M':
+				i = him_her  [URANGE(0, vch->sex, 2)];
+				break;
+
+			    case 's':
+				i = his_her [URANGE(0, ch  ->sex, 2)];    
+				break;
+
+			    case 'S':
+				i = his_her  [URANGE(0, vch->sex, 2)];
+				break;
  
 			    case 'p':
 				i = can_see_obj(to, obj1)
@@ -3005,10 +2996,6 @@ void act_printf(CHAR_DATA *ch, const void *arg1,
 		const void *arg2, int type, int min_pos,
 		const char* format, ...)
 {
-	static char * const he_she  [] = { "it",  "he",  "she" };
-	static char * const him_her [] = { "it",  "him", "her" };
-	static char * const his_her [] = { "its", "his", "her" };
- 
 	CHAR_DATA	*to;
 	CHAR_DATA 	*vch = (CHAR_DATA *) arg2;
 	OBJ_DATA 	*obj1 = (OBJ_DATA  *) arg1;
@@ -3099,53 +3086,38 @@ void act_printf(CHAR_DATA *ch, const void *arg1,
 				i = (char *) arg2;                            
 				break;
 
-	            case 'n': i =  
-		  (is_affected(ch,gsn_doppelganger) && 
-		   !IS_SET(to->act,PLR_HOLYLIGHT)) ? 
-		    PERS(ch->doppel,to) : PERS(ch,  to);
-		  break;
-	            case 'N': i =  
-		  (is_affected(vch,gsn_doppelganger) && 
-		   !IS_SET(to->act,PLR_HOLYLIGHT)) ? 
-		    PERS(vch->doppel,to):PERS(vch,  to);
-		  break;
-	            case 'e': i = 
-		  (is_affected(ch, gsn_doppelganger) &&
-		    !IS_SET(to->act,PLR_HOLYLIGHT)) ?
-		    he_she [URANGE(0,ch->doppel->sex,2)] :
-		    he_she  [URANGE(0, ch  ->sex, 2)];    
-		  break;
-	            case 'E': i = 
-		  (is_affected(vch, gsn_doppelganger) &&
-		    !IS_SET(to->act,PLR_HOLYLIGHT)) ?
-		    he_she  [URANGE(0, vch->doppel->sex, 2)] :
-		    he_she  [URANGE(0, vch->sex, 2)];
-		  break;
-	            case 'm': i = 
-		  (is_affected(ch, gsn_doppelganger) &&
-		    !IS_SET(to->act,PLR_HOLYLIGHT)) ?
-		    him_her [URANGE(0,ch->doppel->sex,2)] :
-		    him_her [URANGE(0, ch->sex, 2)];    
-		  break;
-	            case 'M': i = 
-		  (is_affected(vch, gsn_doppelganger) &&
-		    !IS_SET(to->act,PLR_HOLYLIGHT)) ?
-		    him_her  [URANGE(0, vch->doppel->sex, 2)] :
-		    him_her  [URANGE(0, vch->sex, 2)];
-		  break;
-	            case 's': i = 
-		  (is_affected(ch, gsn_doppelganger) &&
-		    !IS_SET(to->act,PLR_HOLYLIGHT)) ?
-		    his_her [URANGE(0,ch->doppel->sex,2)] :
-		    his_her [URANGE(0, ch  ->sex, 2)];    
-		  break;
-	            case 'S': i = 
-		  (is_affected(vch, gsn_doppelganger) &&
-		    !IS_SET(to->act,PLR_HOLYLIGHT)) ?
-		    his_her  [URANGE(0, vch->doppel->sex, 2)] :
-		    his_her  [URANGE(0, vch->sex, 2)];
-		  break;
- 
+			    case 'n':
+				i = PERS(ch,  to);
+				break;
+
+			    case 'N':
+				i = PERS(vch, to);
+				break;
+
+			    case 'e':
+				i = he_she[URANGE(0, ch->sex, 2)];    
+				break;
+
+			    case 'E':
+				i = he_she[URANGE(0, vch->sex, 2)];
+				break;
+
+			    case 'm':
+				i = him_her[URANGE(0, ch->sex, 2)];    
+				break;
+
+			    case 'M':
+				i = him_her  [URANGE(0, vch->sex, 2)];
+				break;
+
+			    case 's':
+				i = his_her [URANGE(0, ch  ->sex, 2)];    
+				break;
+
+			    case 'S':
+				i = his_her  [URANGE(0, vch->sex, 2)];
+				break;
+
 			    case 'p':
 				i = can_see_obj(to, obj1)
 				  ? obj1->short_descr
@@ -3269,7 +3241,6 @@ void act_printf(CHAR_DATA *ch, const void *arg1,
  * Colour stuff by Lope of Loping Through The MUD (taken from Rot)
  */
 static char CLEAR[]		= "[0m";	/* Resets Color        */
-static char BLINK[]		= "[5m";	/* Blink                */
 						/* Normal Colors       */
 /* static char C_BLACK[]	= "[0;30m";	-- Not used */	
 static char C_RED[]		= "[0;31m";
@@ -3312,8 +3283,6 @@ char* color(char type, CHAR_DATA *ch)
 		return "";
 
 	switch (type) {
-	case 'z':
-		return BLINK;
 	case 'b':
 	case '4':
 		return C_BLUE;
@@ -3363,6 +3332,8 @@ char* color(char type, CHAR_DATA *ch)
 		return "\a";
 	case '{':
 		return "{";
+	case '\\':
+		return "\n\r";
 	}
 
 	return CLEAR;

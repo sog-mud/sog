@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.47 1998-06-19 15:30:09 fjoe Exp $
+ * $Id: act_comm.c,v 1.48 1998-06-20 20:53:24 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1086,12 +1086,6 @@ void do_quit_org(CHAR_DATA *ch, char *argument, bool Count)
 
 
 	for (vch = char_list; vch != NULL; vch = vch->next) {
-		if (is_affected(vch, gsn_doppelganger) && vch->doppel == ch) {
-			send_to_char("You shift to your true form as your victim leaves.\n\r",
-				vch);
-			affect_strip(vch,gsn_doppelganger);
-		}
-
 		if (vch->guarding == ch) {
 			act("You stops guarding $N.", vch, NULL, ch, TO_CHAR);
 			act("$n stops guarding you.", vch, NULL, ch, TO_VICT);

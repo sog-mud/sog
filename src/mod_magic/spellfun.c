@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.17 1998-06-18 05:19:13 fjoe Exp $
+ * $Id: spellfun.c,v 1.18 1998-06-20 20:53:26 fjoe Exp $
  */
 
 /***************************************************************************
@@ -502,8 +502,7 @@ void do_cast(CHAR_DATA *ch, char *argument)
 	            do_yell(victim, "Help someone is attacking me!");
 	        else
 	             doprintf(do_yell, victim,"Die, %s, you sorcerous dog!",
-	                (is_affected(ch,gsn_doppelganger)&&!IS_IMMORTAL(victim))?
-	                 ch->doppel->name : ch->name);
+	                ch->name);
 	      }
 	    if (is_affected(victim,gsn_spellbane) && 
 	        (number_percent() < 2*victim->pcdata->learned[gsn_spellbane]/3) 
@@ -1497,8 +1496,7 @@ void spell_chain_lightning(int sn,int level,CHAR_DATA *ch, void *vo,int target)
 	      do_yell(victim, "Help someone is attacking me!");
 	    else
 	        doprintf(do_yell, victim,"Die, %s, you sorcerous dog!",
-	                (is_affected(ch,gsn_doppelganger)&&!IS_IMMORTAL(victim))?
-	                ch->doppel->name : ch->name);
+			ch->name);
 	  }
 
 
@@ -1534,9 +1532,8 @@ void spell_chain_lightning(int sn,int level,CHAR_DATA *ch, void *vo,int target)
 	        if (!can_see(tmp_vict, ch))
 	            do_yell(tmp_vict, "Help someone is attacking me!");
 	        else
-	             doprintf(do_yell, tmp_vict,"Die, %s, you sorcerous dog!",                    
-			(is_affected(ch,gsn_doppelganger)&&!IS_IMMORTAL(tmp_vict))?
-	                 ch->doppel->name : ch->name);
+	             doprintf(do_yell, tmp_vict,"Die, %s, you sorcerous dog!",
+				ch->name);
 	      }
 
 		      if (saves_spell(level,tmp_vict,DAM_LIGHTNING))
@@ -3039,7 +3036,7 @@ void spell_iceball(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	            do_yell(tmp_vict, "Help someone is attacking me!");
 	        else
 	             doprintf(do_yell, tmp_vict,"Die, %s, you sorcerous dog!",
-		(is_affected(ch,gsn_doppelganger)&&!IS_IMMORTAL(tmp_vict))? ch->doppel->name : ch->name);
+				ch->name);
 	      }
 
 	      if (saves_spell(level,tmp_vict, DAM_COLD))
@@ -3603,8 +3600,7 @@ void spell_holy_word(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	            do_yell(vch, "Help someone is attacking me!");
 	        else
 	             doprintf(do_yell, vch,"Die, %s, you sorcerous dog!",
-	                (is_affected(ch,gsn_doppelganger)&&!IS_IMMORTAL(vch))?
-	                 ch->doppel->name : ch->name);
+				ch->name);
 	      }
 
 	        spell_curse(curse_num,level,ch,(void *) vch, TARGET_CHAR);
@@ -3626,8 +3622,7 @@ void spell_holy_word(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	            do_yell(vch, "Help someone is attacking me!");
 	        else
 	             doprintf(do_yell, vch,"Die, %s, you sorcerous dog!",
-	                (is_affected(ch,gsn_doppelganger)&&!IS_IMMORTAL(vch))?
-	                 ch->doppel->name : ch->name);
+				ch->name);
 	      }
 
 	        spell_curse(curse_num,level/2,ch,(void *) vch, TARGET_CHAR);
@@ -5154,8 +5149,7 @@ void spell_gas_breath(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	            do_yell(vch, "Help someone is attacking me!");
 	        else
 	             doprintf(do_yell, vch, "Die, %s, you sorcerous dog!",
-	                (is_affected(ch,gsn_doppelganger)&&!IS_IMMORTAL(vch))?
-	                 ch->doppel->name : ch->name);
+				ch->name);
 	      }
 
 		if (saves_spell(level,vch,DAM_POISON))
@@ -5841,8 +5835,7 @@ void spell_hurricane(int sn,int level,CHAR_DATA *ch,void *vo,int target)
 	            do_yell(vch, "Help someone is attacking me!");
 	        else
 	             doprintf(do_yell, vch,"Die, %s, you sorcerous dog!",
-	                (is_affected(ch,gsn_doppelganger)&&!IS_IMMORTAL(vch))?
-	                 ch->doppel->name : ch->name);
+				ch->name);
 	      }
 
 		if (!IS_AFFECTED(vch,AFF_FLYING)) dam /= 2;

@@ -1,5 +1,5 @@
 /*
- * $Id: const.c,v 1.10 1998-06-19 15:30:10 fjoe Exp $
+ * $Id: const.c,v 1.11 1998-06-20 20:53:25 fjoe Exp $
  */
 
 /***************************************************************************
@@ -6218,29 +6218,11 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
     },
 
     {
-        "mirror",         { 15, 15, 15,15,15,15,15,15,15,15,15,15,15 },
-        { 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
-        spell_mirror,      TAR_CHAR_DEFENSIVE,       POS_STANDING,
-	&gsn_mirror,       SLOT(536),        40,       12,
-	"", "You fade away.", "",	CLAN_CHAOS,
-	RACE_NONE, ALIGN_NONE, GROUP_CLAN
-    },
-
-    {
 	"confuse",         {  20, 20, 20,20,20,20,20,20 ,20,20,20,20,20},
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_confuse,      TAR_CHAR_OFFENSIVE,       POS_FIGHTING,
 	&gsn_confuse,       SLOT(537),        20,       12,
 	"", "You feel less confused.", "",	CLAN_CHAOS,
-	RACE_NONE, ALIGN_NONE, GROUP_CLAN
-    },
-
-    {
-	"doppelganger",         {  25, 25, 25,25,25,25,25,25 ,25,25,25,25,25},
-	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
-	spell_doppelganger,      TAR_CHAR_DEFENSIVE,       POS_STANDING,
-	&gsn_doppelganger,       SLOT(527),        75,       12,
-	"", "You return to your native form.", "",	CLAN_CHAOS,
 	RACE_NONE, ALIGN_NONE, GROUP_CLAN
     },
 

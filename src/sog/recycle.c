@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.6 1998-06-18 05:19:15 fjoe Exp $
+ * $Id: recycle.c,v 1.7 1998-06-20 20:53:27 fjoe Exp $
  */
 
 /***************************************************************************
@@ -320,7 +320,6 @@ CHAR_DATA *new_char (void)
     ch->hometown		= 0;
     ch->guarded_by		= NULL;
     ch->guarding		= NULL;
-    ch->doppel			= NULL;
     ch->language		= LANG_COMMON;
     ch->hunter			= NULL;
     ch->hunting			= NULL;

@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.15 1998-06-18 05:19:14 fjoe Exp $
+ * $Id: spellfun2.c,v 1.16 1998-06-20 20:53:26 fjoe Exp $
  */
 
 /***************************************************************************
@@ -321,8 +321,7 @@ void spell_poison_smoke(int sn, int level, CHAR_DATA *ch, void *vo, int target) 
 		do_yell(tmp_vict, "Help someone is attacking me!");
 	    else 
 	         doprintf(do_yell, tmp_vict, "Die, %s, you sorcerous dog!",
-		    (is_affected(ch,gsn_doppelganger)&&!IS_IMMORTAL(tmp_vict))?
-		     ch->doppel->name : ch->name);
+			ch->name);
 	  }
 	  
 	spell_poison(gsn_poison,ch->level,ch,tmp_vict, TARGET_CHAR);
@@ -354,8 +353,7 @@ void spell_blindness_dust(int sn, int level, CHAR_DATA *ch, void *vo, int target
 		do_yell(tmp_vict, "Help someone is attacking me!");
 	    else 
 	         doprintf(do_yell, tmp_vict,"Die, %s, you sorcerous dog!",
-		    (is_affected(ch,gsn_doppelganger)&&!IS_IMMORTAL(tmp_vict))?
-		     ch->doppel->name : ch->name);
+			ch->name);
 	  }
 	  
 	spell_blindness(gsn_blindness,ch->level,ch,tmp_vict, TARGET_CHAR);
@@ -728,8 +726,7 @@ void spell_scourge(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 		do_yell(tmp_vict, "Help someone is attacking me!");
 	      else 
 		  doprintf(do_yell, tmp_vict,"Die, %s, you sorcerous dog!",
-		    (is_affected(ch,gsn_doppelganger)&&!IS_IMMORTAL(tmp_vict))?
-		     ch->doppel->name : ch->name);
+				ch->name);
 	    }
 	    
 	  if (!is_affected(tmp_vict,sn)) {
@@ -753,53 +750,6 @@ void spell_scourge(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	}
 }
 
-void spell_doppelganger(int sn, int level, CHAR_DATA *ch, void *vo, int target)	
-{
-	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
-
-	if ((ch == victim) || 
-	  (is_affected(ch, sn) && (ch->doppel == victim)))
-	{
-	  act("You already look like $M.",ch,NULL,victim,TO_CHAR);
-	  return;
-	}
-
-	if (IS_NPC(victim))
-	{
-	 act("$N is too different from yourself to mimic.",ch,NULL,victim,TO_CHAR);
-	 return;
-	 }
-
-	if (IS_IMMORTAL(victim))
-	{
-	  send_to_char("Yeah, sure. And I'm the Pope.\n\r",ch);
-	  return;
-	}
-
-	if (saves_spell(level,victim, DAM_CHARM))
-	 {
-	send_to_char("You failed.\n\r",ch);
-	return;
-	 }
-
-	act("You change form to look like $N.",ch,NULL,victim,TO_CHAR);
-	act("$n changes form to look like YOU!",ch,NULL,victim,TO_VICT);
-	act("$n changes form to look like $N!",ch,NULL,victim,TO_NOTVICT);
-
-	af.where 		= TO_AFFECTS;
-	af.type               = sn;
-	af.level              = level; 
-	af.duration           = (2 * level)/3;
-	af.location           = APPLY_NONE;
-	af.modifier           = 0;
-	af.bitvector          = 0;
-
-	affect_to_char(ch,&af);  
-	ch->doppel = victim;
-
-}
-	
 void spell_manacles(int sn, int level, CHAR_DATA *ch, void *vo, int target)	
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
@@ -1144,95 +1094,6 @@ void spell_nightfall(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	affect_to_char(ch, &af);
 }
 	      
-void spell_mirror(int sn, int level, CHAR_DATA *ch, void *vo, int target)	
-{
-	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
-	int mirrors,new_mirrors;
-	CHAR_DATA *gch;
-	CHAR_DATA *tmp_vict;
-	char long_buf[MAX_STRING_LENGTH];
-	int order;
-
-	if (IS_NPC(victim)) {
-		send_to_char("Only players can be mirrored.\n\r",ch);
-		return;
-	}
-
-	for (mirrors = 0, gch = char_list; gch != NULL; gch = gch->next)
-	if (IS_NPC(gch) && is_affected(gch,gsn_mirror)
-	&& is_affected(gch,gsn_doppelganger) && gch->doppel == victim)
-	  mirrors++;
-
-if (mirrors >= level/5) {
-	if (ch==victim) 
-	send_to_char("You cannot be further mirrored.\n\r",ch);
-	else
-	act("$N cannot be further mirrored.",ch,NULL,victim,TO_CHAR);
-	return;
-}
-
-	af.where     = TO_AFFECTS;
-	af.level     = level;
-	af.modifier  = 0;
-	af.location  = 0;
-	af.bitvector = 0;
-
-	for (tmp_vict = victim; is_affected(tmp_vict,gsn_doppelganger);
-	   tmp_vict = tmp_vict->doppel);
-
-	snprintf(long_buf, sizeof(long_buf), "%s%s is here.\n\r", tmp_vict->name, tmp_vict->pcdata->title);
-
-	order = number_range(0,level/5 - mirrors);
-
-	for (new_mirrors=0; mirrors + new_mirrors < level/5;new_mirrors++) 
-	{
-	gch = create_mobile(get_mob_index(MOB_VNUM_MIRROR_IMAGE));
-	free_string(gch->name);
-	free_string(gch->short_descr);
-	free_string(gch->long_descr);
-	free_string(gch->description);
-	gch->name = str_dup(tmp_vict->name);
-	gch->short_descr = str_dup(tmp_vict->name);
-	gch->long_descr = str_dup(long_buf);
-	gch->description = (tmp_vict->description == NULL) ? 
-	                   NULL : str_dup(tmp_vict->description);
-	gch->sex = tmp_vict->sex;
-	
-	af.type = gsn_doppelganger;
-	af.duration = level;
-	affect_to_char(gch,&af);
-	af.type = gsn_mirror;
-	af.duration = -1;
-	affect_to_char(gch,&af);
-
-	gch->max_hit = gch->hit = 1;
-	gch->level = 1;
-	gch->doppel = victim;
-	gch->master = victim;
-	char_to_room(gch,victim->in_room);
-
-	if (new_mirrors == order) 
-	{
-	  char_from_room(victim);
-	  char_to_room(victim,gch->in_room);
-	}
-	  
-
-	if (ch==victim) {
-	  send_to_char("A mirror image of yourself appears beside you!\n\r",ch);
-	  act("A mirror image of $n appears beside $M!",ch,NULL,victim,TO_ROOM);
-	}
-	else {
-	  act("A mirror of $N appears beside $M!",ch,NULL,victim,TO_CHAR);
-	  act("A mirror of $N appears beside $M!",ch,NULL,victim,TO_NOTVICT);
-	  send_to_char("A mirror image of yourself appears beside you!\n\r",
-		   victim);
-	}
-	
-	}
-}    
- 
 void spell_garble(int sn, int level, CHAR_DATA *ch, void *vo, int target)	
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
@@ -2736,8 +2597,7 @@ switch(dice(1,5))
 	            do_yell(vch, "Help someone is attacking me!");
 	        else
 	             doprintf(do_yell, vch, "Die, %s, you sorcerous dog!",
-	                (is_affected(ch,gsn_doppelganger)&&!IS_IMMORTAL(vch))?
-	                 ch->doppel->name : ch->name);
+				ch->name);
 	      }
 
 	if (saves_spell(level,vch,DAM_POISON))
@@ -5128,8 +4988,7 @@ void spell_blade_barrier(int sn,int level,CHAR_DATA *ch, void *vo,int target)
 	      do_yell(victim, "Help someone is attacking me!");
 	    else
 	        doprintf(do_yell, victim,"Die, %s, you sorcerous dog!",
-	                (is_affected(ch,gsn_doppelganger)&&!IS_IMMORTAL(victim))?
-	                ch->doppel->name : ch->name);
+				ch->name);
 	  }
 
 	act("The blade barriers crash $n!",victim,NULL,NULL,TO_ROOM);
