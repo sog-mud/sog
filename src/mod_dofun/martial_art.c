@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.114.2.22 2001-12-10 12:08:34 cs Exp $
+ * $Id: martial_art.c,v 1.114.2.23 2001-12-20 16:31:23 tatyana Exp $
  */
 
 /***************************************************************************
@@ -1256,10 +1256,19 @@ void do_kick(CHAR_DATA *ch, const char *argument)
 	WAIT_STATE(ch, SKILL(gsn_kick)->beats);
 	if (IS_NPC(ch) || number_percent() < chance) {
 		kick_dam = number_range(1, LEVEL(ch));
+
+		if (ch->race == rn_lookup("centaur"))
+			kick_dam = kick_dam * 15 / 10;
+
+		if (ch->race == rn_lookup("satyr"))
+			kick_dam = kick_dam * 12 / 10;
+
+		kick_dam += ch->damroll / 2;
+
 		if (HAS_SKILL(ch, gsn_katana)
 		&&  (get_eq_char(ch, WEAR_FEET) == NULL)) 
 			kick_dam *= 2;
-		kick_dam += ch->damroll / 2;
+
 		damage(ch, victim, kick_dam, gsn_kick, DAM_BASH, TRUE);
 		check_improve(ch, gsn_kick, TRUE, 1);
                 if((chance = get_skill(ch, sn_lookup("follow through"))) != 0){
