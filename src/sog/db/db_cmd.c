@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_cmd.c,v 1.8 2000-06-01 17:58:02 fjoe Exp $
+ * $Id: db_cmd.c,v 1.9 2000-10-22 17:53:48 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -46,7 +46,8 @@ static varrdata_t v_commands =
 {
 	sizeof(cmd_t), 16,
 	(e_init_t) cmd_init,
-	(e_destroy_t) cmd_destroy
+	(e_destroy_t) cmd_destroy,
+	(e_cpy_t) cmd_cpy
 };
 
 DBINIT_FUN(init_cmds)

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.85 2000-10-21 18:15:50 fjoe Exp $
+ * $Id: olc_room.c,v 1.86 2000-10-22 17:53:45 fjoe Exp $
  */
 
 #include "olc.h"
@@ -168,14 +168,10 @@ OLC_FUN(roomed_touch)
 
 OLC_FUN(roomed_show)
 {
-	char buf[MAX_STRING_LENGTH];
 	char arg[MAX_STRING_LENGTH];
 	ROOM_INDEX_DATA	*pRoom;
 	BUFFER *	output;
-	OBJ_DATA	*obj;
-	CHAR_DATA	*rch;
 	int		door;
-	bool		fcnt;
 	
 	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
@@ -193,20 +189,10 @@ OLC_FUN(roomed_show)
 
 	output = buf_new(-1);
 	
-	buf_append(output, "Description:\n");
-	mlstr_dump(output, str_empty, &pRoom->description);
-	mlstr_dump(output, "Name:       ", &pRoom->name);
+	buf_printf(output, BUF_END, "Vnum:       [%5d]\n", pRoom->vnum);
 	buf_printf(output, BUF_END, "Area:       [%5d] %s\n",
 		   pRoom->area->vnum, pRoom->area->name);
-	buf_printf(output, BUF_END, "Vnum:       [%5d]\nSector:     [%s]\n",
-		   pRoom->vnum, flag_string(sector_types, pRoom->sector_type));
-
-	buf_printf(output, BUF_END, "Room flags: [%s]\n",
-		   flag_string(room_flags, pRoom->room_flags));
-
-	if (pRoom->heal_rate != 100 || pRoom->mana_rate != 100)
-		buf_printf(output, BUF_END, "Health rec: [%d]\nMana rec  : [%d]\n",
-			   pRoom->heal_rate, pRoom->mana_rate);
+	mlstr_dump(output, "Name:       ", &pRoom->name, DUMP_LEVEL(ch));
 
 	if (pRoom->ed) {
 		ED_DATA *ed;
@@ -218,35 +204,8 @@ OLC_FUN(roomed_show)
 		buf_append(output, "\n");
 	}
 
-	buf_append(output, "Characters: [");
-	fcnt = FALSE;
-	for (rch = pRoom->people; rch; rch = rch->next_in_room) {
-		one_argument(rch->name, buf, sizeof(buf));
-		buf_append(output, buf);
-		if (rch->next_in_room != NULL)
-			buf_append(output, " ");
-		fcnt = TRUE;
-	}
-
-	if (fcnt) 
-		buf_append(output, "]\n");
-	else
-		buf_append(output, "none]\n");
-
-	buf_append(output, "Objects:    [");
-	fcnt = FALSE;
-	for (obj = pRoom->contents; obj; obj = obj->next_content) {
-		one_argument(obj->pObjIndex->name, buf, sizeof(buf));
-		buf_append(output, buf);
-		if (obj->next_content != NULL)
-			buf_append(output, " ");
-		fcnt = TRUE;
-	}
-
-	if (fcnt)
-		buf_append(output, "]\n");
-	else
-		buf_append(output, "none]\n");
+	buf_append(output, "Description:\n");
+	mlstr_dump(output, str_empty, &pRoom->description, DUMP_LEVEL(ch));
 
 	for (door = 0; door < MAX_DIR; door++) {
 		EXIT_DATA *pexit;
@@ -298,15 +257,36 @@ OLC_FUN(roomed_show)
 
 			if (!mlstr_null(&pexit->short_descr.ml)) {
 				mlstr_dump(output, "Short:  ",
-					   &pexit->short_descr.ml);
+					   &pexit->short_descr.ml,
+					   DUMP_LEVEL(ch));
 				mlstr_dump(output, "Gender: ",
-				   	   &pexit->short_descr.gender);
+				   	   &pexit->short_descr.gender,
+					   DUMP_LEVEL(ch));
 			}
 
-			mlstr_dump(output, str_empty, &pexit->description);
+			mlstr_dump(output, str_empty, &pexit->description,
+				   DUMP_LEVEL(ch));
 		}
 	}
 
+	if (IN_TRANS_MODE(ch))
+		goto bamfout;
+
+	buf_printf(output, BUF_END,
+		   "Sector:     [%s]\n",
+		   flag_string(sector_types, pRoom->sector_type));
+
+	buf_printf(output, BUF_END, "Room flags: [%s]\n",
+		   flag_string(room_flags, pRoom->room_flags));
+
+	if (pRoom->heal_rate != 100 || pRoom->mana_rate != 100) {
+		buf_printf(output, BUF_END,
+			   "Health rec: [%d]\n"
+			   "Mana rec  : [%d]\n",
+			   pRoom->heal_rate, pRoom->mana_rate);
+	}
+
+bamfout:
 	send_to_char(buf_string(output), ch);
 	buf_free(output);
 	return FALSE;
@@ -1026,6 +1006,7 @@ void do_resets(CHAR_DATA *ch, const char *argument)
 	if (!str_prefix(arg1, "where")) {
 		int vnum;	
 		bool show_mob;
+		AREA_DATA *pArea;
 
 		if (!str_prefix(arg2, "mob"))
 			show_mob = TRUE;
@@ -1040,10 +1021,16 @@ void do_resets(CHAR_DATA *ch, const char *argument)
 			do_resets(ch, "?");
 			return;
 		}
-
 		vnum = atoi(arg3);
+
+		pArea = area_vnum_lookup(vnum);
+		if (!IS_BUILDER(ch, pArea)) {
+			act_char("Insufficient security.", ch);
+		       	return;
+		}
+
 		if (show_mob)
-			show_resets(ch, vnum, "mob", show_obj_resets);
+			show_resets(ch, vnum, "mob", show_mob_resets);
 		else
 			show_resets(ch, vnum, "obj", show_obj_resets);
 		return;
@@ -1082,6 +1069,7 @@ void do_resets(CHAR_DATA *ch, const char *argument)
 		 */
 		int mob_vnum;
 		RESET_DATA *mob_reset;
+		AREA_DATA *pArea;
 
 		if (arg2[0] == '\0') {
 			do_resets(ch, "?");
@@ -1094,6 +1082,12 @@ void do_resets(CHAR_DATA *ch, const char *argument)
 				 ch, arg2, NULL,
 				 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 			return;
+		}
+
+		pArea = area_vnum_lookup(mob_vnum);
+		if (!IS_BUILDER(ch, pArea)) {
+			act_char("Insufficient security.", ch);
+		       	return;
 		}
 
 		mob_reset = reset_new();
@@ -1117,6 +1111,7 @@ void do_resets(CHAR_DATA *ch, const char *argument)
 		int obj_vnum;
 		RESET_DATA *after;
 		RESET_DATA *obj_reset;
+		AREA_DATA *pArea;
 
 		if (arg2[0] == '\0') {
 			do_resets(ch, "?");
@@ -1129,6 +1124,12 @@ void do_resets(CHAR_DATA *ch, const char *argument)
 				 ch, arg2, NULL,
 				 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 			return;
+		}
+
+		pArea = area_vnum_lookup(obj_vnum);
+		if (!IS_BUILDER(ch, pArea)) {
+			act_char("Insufficient security.", ch);
+		       	return;
 		}
 
 		if (!str_prefix(arg3, "inside")) {

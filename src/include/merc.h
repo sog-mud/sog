@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.311 2000-10-21 18:15:48 fjoe Exp $
+ * $Id: merc.h,v 1.312 2000-10-22 17:53:38 fjoe Exp $
  */
 
 /***************************************************************************
@@ -329,6 +329,7 @@ struct dvdata_t {
 
 	int		lang;		/* interface language	*/
 	int 		pagelen;	/* pager lines		*/
+	flag_t		olc_flags;	/* olc flags		*/
 
 	const char *	prompt;	
 	const char *	prefix;
@@ -1166,8 +1167,9 @@ enum {
 /*
  * OLC flags
  */
-#define OLC_RAW_STRINGS		(A)	/* show strings without color parsing */
-#define OLC_BRIEF_ASHOW		(B)	/* show only string fields */
+#define OLC_MODE_RAW		(A)	/* show strings without color parsing */
+#define OLC_MODE_TRANS		(B)	/* translation mode (show only	
+					   name/description/gender fields */
 
 #define IS_HARA_KIRI(ch)	(!IS_NPC(ch) &&	\
 				 IS_SET(PC(ch)->plr_flags, PLR_HARA_KIRI))
@@ -1561,7 +1563,6 @@ struct pc_data
 	int			version;
 
 	flag_t			hints_level;
-	flag_t			olc_flags;
 
 	dvdata_t *		dvdata;
 };
@@ -1912,7 +1913,7 @@ int trust_level(CHAR_DATA *ch);
 #define IS_SWITCHED( ch )       (ch->desc && ch->desc->original)
 #define IS_BUILDER(ch, Area)	(!IS_NPC(ch) && !IS_SWITCHED(ch) &&	      \
 				 (PC(ch)->security >= (Area)->security || \
-				  is_sname(ch->name, Area->builders)))
+				  is_name_strict(ch->name, Area->builders)))
 
 #define MOUNTED(ch)	((!IS_NPC(ch) && ch->mount && ch->riding) ? \
 				ch->mount : NULL)
@@ -2322,6 +2323,21 @@ void delevel		(CHAR_DATA *ch);
 bool (*olc_interpret)(DESCRIPTOR_DATA *d, const char *argument);
 
 flag_t wiznet_lookup	(const char *name);
+
+/*
+ * dump levels
+ */
+enum {
+	DL_NONE,	/* do nothing */
+	DL_COLOR,	/* color sequences escaping */
+	DL_ALL		/* DL_COLOR and control characters escaping */
+};
+
+#define DUMP_LEVEL(ch)	((ch)->desc &&					\
+			 IS_SET((ch)->desc->dvdata->olc_flags,		\
+				OLC_MODE_RAW) ? DL_COLOR : DL_NONE)
+
+const char *strdump	(const char *argument, int dump_level);
 
 #endif
 

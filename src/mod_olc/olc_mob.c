@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_mob.c,v 1.71 2000-10-21 17:00:53 fjoe Exp $
+ * $Id: olc_mob.c,v 1.72 2000-10-22 17:53:44 fjoe Exp $
  */
 
 #include "olc.h"
@@ -259,8 +259,26 @@ OLC_FUN(mobed_show)
 	buf = buf_new(-1);
 
 	pArea = area_vnum_lookup(pMob->vnum);
-	buf_printf(buf, BUF_END, "Name:        [%s]\nArea:        [%5d] %s\n",
-		pMob->name, pArea->vnum, pArea->name);
+	buf_printf(buf, BUF_END, 
+		   "Name:        [%s]\n"
+		   "Area:        [%5d] %s\n",
+		   pMob->name, pArea->vnum, pArea->name);
+
+	buf_printf(buf, BUF_END, "Vnum:        [%5d]    Race: [%s]\n",
+		   pMob->vnum, pMob->race);
+	if (pMob->fvnum)
+		buf_printf(buf, BUF_END, "Female vnum: [%d]\n", pMob->fvnum);
+
+	mlstr_dump(buf, "Gender:      ", &pMob->gender, DL_NONE);
+
+	mlstr_dump(buf, "Short descr: ", &pMob->short_descr, DUMP_LEVEL(ch));
+	buf_append(buf, "Long descr:\n");
+	mlstr_dump(buf, str_empty, &pMob->long_descr, DUMP_LEVEL(ch));
+	buf_append(buf, "Description:\n");
+	mlstr_dump(buf, str_empty, &pMob->description, DUMP_LEVEL(ch));
+
+	if (IN_TRANS_MODE(ch))
+		goto bamfout;
 
 	buf_printf(buf, BUF_END, "Act:         [%s]\n",
 		flag_string(act_flags, pMob->act));
@@ -269,13 +287,6 @@ OLC_FUN(mobed_show)
 		buf_printf(buf, BUF_END, "Mob:         [%s]\n",
 			flag_string(mob_flags, pMob->mob_flags));
 	}
-
-	buf_printf(buf, BUF_END, "Vnum:        [%5d]    Race: [%s]\n",
-		pMob->vnum,
-		pMob->race);
-
-	mlstr_dump(buf, "Gender:      ", &pMob->gender);
-
 	if (!IS_NULLSTR(pMob->clan))
 		buf_printf(buf, BUF_END, "Clan:        [%s]\n", pMob->clan);
 
@@ -284,12 +295,13 @@ OLC_FUN(mobed_show)
 		pMob->hitroll,	pMob->damtype);
 
 	if (pMob->group)
-		buf_printf(buf, BUF_END, "Group:       [%5d]\n", pMob->group);
+		buf_printf(buf, BUF_END, "Group:       [%5d]\n",
+			   pMob->group);
 
 	buf_printf(buf, BUF_END, "Hit dice:    [%2dd%-3d+%4d] ",
-			 pMob->hit[DICE_NUMBER],
-			 pMob->hit[DICE_TYPE],
-			 pMob->hit[DICE_BONUS]);
+		   pMob->hit[DICE_NUMBER],
+		   pMob->hit[DICE_TYPE],
+		   pMob->hit[DICE_BONUS]);
 
 	buf_printf(buf, BUF_END, "Damage dice: [%2dd%-3d+%4d] ",
 			 pMob->damage[DICE_NUMBER],
@@ -301,8 +313,6 @@ OLC_FUN(mobed_show)
 			 pMob->mana[DICE_TYPE],
 			 pMob->mana[DICE_BONUS]);
 
-/* ROM values end */
-
 	buf_printf(buf, BUF_END, "Affected by: [%s]\n",
 		flag_string(affect_flags, pMob->affected_by));
 
@@ -312,8 +322,6 @@ OLC_FUN(mobed_show)
 	buf_printf(buf, BUF_END, "Detect:      [%s]\n",
 		flag_string(id_flags, pMob->has_detect));
 
-/* ROM values: */
-
 	buf_printf(buf, BUF_END, "Armor:       [pierce: %d  bash: %d  slash: %d  magic: %d]\n",
 		pMob->ac[AC_PIERCE], pMob->ac[AC_BASH],
 		pMob->ac[AC_SLASH], pMob->ac[AC_EXOTIC]);
@@ -322,7 +330,7 @@ OLC_FUN(mobed_show)
 		flag_string(form_flags, pMob->form));
 
 	buf_printf(buf, BUF_END, "Parts:       [%s]\n",
-		flag_string(part_flags, pMob->parts));
+			flag_string(part_flags, pMob->parts));
 
 	buf_printf(buf, BUF_END, "Off:         [%s]\n",
 		flag_string(off_flags,  pMob->off_flags));
@@ -334,33 +342,32 @@ OLC_FUN(mobed_show)
 		 pMob->material);
 
 	buf_printf(buf, BUF_END, "Start pos:   [%s]\n",
-		flag_string(position_table, pMob->start_pos));
+	flag_string(position_table, pMob->start_pos));
 
 	buf_printf(buf, BUF_END, "Default pos: [%s]\n",
 		flag_string(position_table, pMob->default_pos));
 
 	buf_printf(buf, BUF_END, "Wealth:      [%5d]\n", pMob->wealth);
 
-	if (pMob->invis_level)
-		buf_printf(buf, BUF_END, "Invis level: [%d]\n", pMob->invis_level);
+	if (pMob->invis_level) {
+		buf_printf(buf, BUF_END, "Invis level: [%d]\n",
+			   pMob->invis_level);
+	}
 
-	if (pMob->incog_level)
-		buf_printf(buf, BUF_END, "Incog level: [%d]\n", pMob->incog_level);
+	if (pMob->incog_level) {
+		buf_printf(buf, BUF_END, "Incog level: [%d]\n",
+			   pMob->incog_level);
+	}
 
-	if (pMob->fvnum)
-		buf_printf(buf, BUF_END, "Female vnum: [%d]\n", pMob->fvnum);
+	if (pMob->spec_fun) {
+		buf_printf(buf, BUF_END, "Spec fun:    [%s]\n",
+			   mob_spec_name(pMob->spec_fun));
+	}
 
-/* ROM values end */
-
-	if (pMob->spec_fun)
-		buf_printf(buf, BUF_END, "Spec fun:    [%s]\n",  mob_spec_name(pMob->spec_fun));
-	if (pMob->practicer)
+	if (pMob->practicer) {
 		buf_printf(buf, BUF_END, "Practicer:   [%s]\n",
-			flag_string(skill_groups, pMob->practicer));
-
-	mlstr_dump(buf, "Short descr: ", &pMob->short_descr);
-	mlstr_dump(buf, "Long descr: ", &pMob->long_descr);
-	mlstr_dump(buf, "Description: ", &pMob->description);
+			   flag_string(skill_groups, pMob->practicer));
+	}
 
 	buf_append(buf, "Resist");
 
@@ -372,9 +379,9 @@ OLC_FUN(mobed_show)
 		else
 			buf_printf(buf, BUF_END, "\t%s\t\t%d%%", 
 				flag_string(dam_classes, i),
-				pMob->resists[i]);
+			pMob->resists[i]);
 			
-		if(!((i+1) % 3))
+		if (!((i+1) % 3))
 			buf_append(buf, "\n");
 	}
 	buf_append(buf, "\n");
@@ -412,7 +419,7 @@ OLC_FUN(mobed_show)
 		buf_printf(buf, BUF_END, "\nMOBPrograms for [%5d]:\n", pMob->vnum);
 
 		for (mptrig = pMob->mptrig_list; mptrig; mptrig = mptrig->next) {
-			if (cnt ==0) {
+			if (cnt == 0) {
 				buf_append(buf, " Number Vnum Trigger Phrase [Flags]\n");
 				buf_append(buf, " ------ ---- ------- ----------------------------------------------------------\n");
 			}
@@ -425,9 +432,9 @@ OLC_FUN(mobed_show)
 		}
 	}
 
+bamfout:
 	page_to_char(buf_string(buf), ch);
 	buf_free(buf);
-
 	return FALSE;
 }
 
@@ -569,7 +576,7 @@ OLC_FUN(mobed_long)
 {
 	MOB_INDEX_DATA *pMob;
 	EDIT_MOB(ch, pMob);
-	return olced_mlstrnl(ch, argument, cmd, &pMob->long_descr);
+	return olced_mlstr(ch, argument, cmd, &pMob->long_descr);
 }
 
 OLC_FUN(mobed_short)

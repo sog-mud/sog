@@ -1,5 +1,5 @@
 /*
- * $Id: olc.h,v 1.74 2000-10-21 17:00:53 fjoe Exp $
+ * $Id: olc.h,v 1.75 2000-10-22 17:53:43 fjoe Exp $
  */
 
 /***************************************************************************
@@ -226,6 +226,9 @@ const char *	format_dice(int *dice);
 					dofun("help", ch, (topic));	\
 					return FALSE;			\
 				} while (0)
+
+#define IN_TRANS_MODE(ch)	(IS_SET((ch)->desc->dvdata->olc_flags,	\
+					OLC_MODE_TRANS))
 
 #endif
 

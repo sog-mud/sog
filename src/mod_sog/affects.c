@@ -1,5 +1,5 @@
 /*
- * $Id: affects.c,v 1.46 2000-10-21 17:00:55 fjoe Exp $
+ * $Id: affects.c,v 1.47 2000-10-22 17:53:46 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1023,10 +1023,10 @@ void show_affects(CHAR_DATA *ch, CHAR_DATA *vch, BUFFER *output)
 	for (paf = vch->affected; paf; paf = paf->next) {
 		if (!found) {
 			if (ch == vch)
-				buf_append(output, "You are affected by the following spells:\n");
+				buf_append(output, "You are affected by:\n");
 			else {
 				buf_act(output, BUF_END,
-					"$N is affected by the following spells:",
+					"$N is affected by:",
 					ch, NULL, vch, NULL, 0);
 			}
 		}

@@ -1,5 +1,5 @@
 /*
- * $Id: string_edit.c,v 1.44 2000-10-21 17:00:57 fjoe Exp $
+ * $Id: string_edit.c,v 1.45 2000-10-22 17:53:47 fjoe Exp $
  */
 
 /***************************************************************************
@@ -24,7 +24,7 @@
 #include "merc.h"
 #include "string_edit.h"
 
-char *numlines(const char *);
+char *numlines(const char *, int dump_level);
 
 /*****************************************************************************
  Name:		string_append
@@ -43,7 +43,7 @@ void string_append(CHAR_DATA *ch, const char **pString)
 		 " Terminate with a ~ or @ on a blank line.\n"
 		 "-=======================================-\n"
 		 "$t",
-		 ch, numlines(*pString), NULL,
+		 ch, numlines(*pString, DL_COLOR), NULL,
 		 TO_CHAR | ACT_SEDIT | ACT_NOTRANS | ACT_NOLF, POS_DEAD);
 }
 
@@ -136,10 +136,10 @@ void string_add(CHAR_DATA *ch, const char *argument)
 		argument = first_arg(argument, arg3, sizeof(arg3), FALSE);
 
 		/*
-		 * clear string
+		 * clear text
 		 */
 		if (!str_cscmp(arg1+1, "c")) {
-			act_puts("String cleared.",
+			act_puts("Text cleared.",
 				 ch, NULL, NULL, TO_CHAR | ACT_SEDIT, POS_DEAD);
 			free_string(*ch->desc->pString);
 			*ch->desc->pString = str_dup(str_empty);
@@ -147,13 +147,27 @@ void string_add(CHAR_DATA *ch, const char *argument)
 		}
 
 		/*
-		 * show string
+		 * show text
 		 */
 		if (!str_cscmp(arg1+1, "s")) {
-			act_puts("String so far:\n"
-				 "$t", ch, numlines(*ch->desc->pString), NULL,
+			act_puts("Text so far:\n"
+				 "$t", ch,
+				 numlines(*ch->desc->pString, DL_COLOR), NULL,
 				 TO_CHAR | ACT_SEDIT | ACT_NOTRANS | ACT_NOLF,
 				 POS_DEAD);
+			return;
+		}
+
+		/*
+		 * preview text
+		 */
+		if (!str_cscmp(arg1+1, "p")) {
+			act_puts("Text so far (preview):\n"
+				 "$t", ch,
+				 numlines(*ch->desc->pString, DL_NONE), NULL,
+				 TO_CHAR | ACT_SEDIT | ACT_NOTRANS | ACT_NOLF,
+				 POS_DEAD);
+			send_to_char("{x", ch);
 			return;
 		}
 
@@ -174,7 +188,8 @@ void string_add(CHAR_DATA *ch, const char *argument)
 			    arg1[1] == 'r' ? 0 : SR_F_ALL);
 			act_puts3("$t'$T' replaced with '$U'.",
 				  ch, arg1[1] == 'r' ? str_empty : "All ",
-				  arg2, arg3,
+				  strdump(arg2, DL_COLOR),
+				  strdump(arg3, DL_COLOR),
 				  TO_CHAR | ACT_NOTRANS | ACT_SEDIT, POS_DEAD);
 			return;
 		}
@@ -253,9 +268,10 @@ void string_add(CHAR_DATA *ch, const char *argument)
 				 ":R 'old' 'new'   - replace a substring (all occurences)\n"
 				 "                   (requires '', \"\")\n"
 				 ":h               - get help (this info)\n"
-				 ":s               - show string so far\n"
-				 ":f               - (word wrap) string\n"
-				 ":c               - clear string so far\n"
+				 ":s               - show text so far\n"
+				 ":p		   - preview text\n"
+				 ":f               - format (word wrap) text\n"
+				 ":c               - clear text so far\n"
 				 ":ld <num>        - delete line #num\n"
 				 ":li <num> <str>  - insert <str> before line #num\n"
 				 ":lr <num> <str>  - replace line #num with <str>\n"
@@ -284,7 +300,7 @@ void string_add(CHAR_DATA *ch, const char *argument)
 	*/
 	len = strlen(argument);
 	if (strlen(*ch->desc->pString) + len >= (MAX_STRING_LENGTH - 4)) {
-		act_puts("String too long, last line skipped.",
+		act_puts("Text too long, last line skipped.",
 			 ch, NULL, NULL, TO_CHAR | ACT_SEDIT, POS_DEAD);
 		return;
 	}
@@ -537,7 +553,7 @@ const char *getline(const char *str, char *buf, size_t len)
 	return p;
 }
 
-char *numlines(const char *string)
+char *numlines(const char *string, int dump_level)
 {
 	int cnt = 1;
 	static char buf[MAX_STRING_LENGTH*2];
@@ -547,8 +563,8 @@ char *numlines(const char *string)
 
 	while (*string) {
 		string = getline(string, tmpb, sizeof(tmpb));
-		snprintf(buf2, sizeof(buf2),
-			 "%2d. %s\n", cnt++, tmpb);
+		snprintf(buf2, sizeof(buf2), "%2d. %s\n",
+			 cnt++, strdump(tmpb, dump_level));
 		strnzcat(buf, sizeof(buf), buf2);
 	}
 

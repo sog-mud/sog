@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.219 2000-10-21 18:15:48 fjoe Exp $
+ * $Id: act_comm.c,v 1.220 2000-10-22 17:53:39 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1999,6 +1999,7 @@ typedef struct toggle_t toggle_t;
 struct toggle_t {
 	const char *name;	/* flag name				*/
 	const char *desc;	/* toggle description			*/
+	const char *cmds;	/* cmds char must have to use toggle	*/
 	flaginfo_t *f;		/* flag table				*/
 	flag_t bit;		/* flag bit				*/
 	const char *msg_on;	/* msg to print when flag toggled on	*/
@@ -2008,6 +2009,7 @@ struct toggle_t {
 static toggle_t *toggle_lookup(const char *name);
 static void toggle_print(CHAR_DATA *ch, toggle_t *t);
 static flag_t* toggle_bits(CHAR_DATA *ch, toggle_t *t);
+static bool toggle_enabled(CHAR_DATA *ch, toggle_t *t);
 
 /*
  * alphabetize these table by name if you are adding new entries
@@ -2015,99 +2017,129 @@ static flag_t* toggle_bits(CHAR_DATA *ch, toggle_t *t);
 toggle_t toggle_table[] =
 {
 	{ "affects",		"show affects in score",
+	  NULL,
 	  comm_flags,	COMM_SHOWAFF,
 	  "Affects will now be shown in score.",
 	  "Affects will no longer be shown in score."
 	},
 
 	{ "brief",		"brief descriptions",
+	  NULL,
 	  comm_flags,	COMM_BRIEF,
 	  "Short descriptions activated.",
 	  "Full descriptions activated."
 	},
 
 	{ "color",		"ANSI colors",
+	  NULL,
 	  comm_flags,	COMM_COLOR,
 	  "{BC{Ro{Yl{Co{Gr{x is now {RON{x, Way Cool!",
 	  "Color is now OFF, *sigh*"
 	},
 
 	{ "compact",		"compact mode",
+	  NULL,
 	  comm_flags,	COMM_COMPACT,
-	  "$t set.",
-	  "$t removed."
+	  "$t on.",
+	  "$t off."
 	},
 
 	{ "combine",		"combined items in inventory list",
+	  NULL,
 	  comm_flags,	COMM_COMBINE,
 	  "Combined inventory selected.",
 	  "Long inventory selected."
 	},
 
 	{ "long flags",		"long flags mode",
+	  NULL,
 	  comm_flags,	COMM_LONG,
-	  "$t set.",
-	  "$t removed."
+	  "$t on.",
+	  "$t off."
 	},
 
-	{ "nobust",		"do not bust prompt if hp/mana/move changed",
+	{ "nobust",		"do not bust prompt if hp/mana/move changed mode",
+	  NULL,
 	  comm_flags,	COMM_NOBUST,
-	  "$t set.",
-	  "$t removed."
+	  "$t on.",
+	  "$t off."
 	},
 
 	{ "noeng",		"do not display english obj/mob names",
+	  NULL,
 	  comm_flags,	COMM_NOENG,
 	  "You will not see english obj/mob names anymore.",
 	  "You will now see english obj/mob names."
 	},
 
 	{ "noflee",		"do not flee from combat in lost-link",
+	  NULL,
 	  comm_flags,	COMM_NOFLEE,
 	  "You will not flee automagically from combat in lost-link anymore.",
 	  "You will flee automagically from combat in lost-link."
 	},
 
 	{ "notelnet",		"no telnet parser",
+	  NULL,
 	  comm_flags,	COMM_NOTELNET,
 	  "Telnet parser is OFF.",
 	  "Telnet parser is ON.",
 	},
 
 	{ "noiac",		"no IACs in output",
+	  NULL,
 	  comm_flags,	COMM_NOIAC,
 	  "IACs will not be sent to you anymore.",
 	  "Text will be sent to you unmodified.",
 	},
 
 	{ "noverbose",		"no verbose messages",
+	  NULL,
 	  comm_flags,	COMM_NOVERBOSE,
 	  "You will no longer see verbose messages.",
 	  "Now you will see verbose messages."
 	},
 
 	{ "prompt",		"show prompt",
+	  NULL,
 	  comm_flags,	COMM_PROMPT,
 	  "You will now see prompts.",
 	  "You will no longer see prompts."
 	},
 
 	{ "telnet GA",		"send IAC GA (goahead) after each prompt",
+	  NULL,
 	  comm_flags,	COMM_TELNET_GA,
 	  "IAC GA will be sent after each prompt.",
 	  "IAC GA will not be sent after prompts.",
 	},
 
 	{ "quiet edit",		"quiet mode in string editor",
+	  NULL,
 	  comm_flags,	COMM_QUIET_EDITOR,
-	  "$t set.",
-	  "$t removed."
+	  "$t on.",
+	  "$t off."
 	},
 
 	{ "show race",		"show race in long desc",
+	  NULL,
 	  comm_flags,	COMM_SHOWRACE,
 	  "You will now see race in long desc.",
 	  "You will no longer see race in long desc.",
+	},
+
+	{ "trans mode",		"OLC translation mode",
+	  "create edit ashow",
+	  olc_flags,	OLC_MODE_TRANS,
+	  "$t on.",
+	  "$t off."
+	},
+
+	{ "raw strings",	"raw strings mode",
+	  "create edit ashow stat",
+	  olc_flags,	OLC_MODE_RAW,
+	  "$t on.",
+	  "$t off."
 	},
 
 	{ NULL }
@@ -2153,7 +2185,8 @@ void do_toggle(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-static toggle_t *toggle_lookup(const char *name)
+static toggle_t *
+toggle_lookup(const char *name)
 {
 	toggle_t *t;
 
@@ -2163,12 +2196,13 @@ static toggle_t *toggle_lookup(const char *name)
 	return t;
 }
 
-static void toggle_print(CHAR_DATA *ch, toggle_t *t)
+static void
+toggle_print(CHAR_DATA *ch, toggle_t *t)
 {
 	char buf[MAX_STRING_LENGTH];
 	flag_t *bits;
 
-	if ((bits = toggle_bits(ch, t)) < 0)
+	if ((bits = toggle_bits(ch, t)) == 0)
 		return;
 
 	snprintf(buf, sizeof(buf), "  %-11.11s - %-3.3s ($t)",
@@ -2176,10 +2210,39 @@ static void toggle_print(CHAR_DATA *ch, toggle_t *t)
 	act_puts(buf, ch, t->desc, NULL, TO_CHAR, POS_DEAD);
 }
 
-static flag_t* toggle_bits(CHAR_DATA *ch, toggle_t *t)
+static flag_t*
+toggle_bits(CHAR_DATA *ch, toggle_t *t)
 {
+	if (!toggle_enabled(ch, t))
+		return NULL;
+
 	if (t->f == comm_flags)
 		return &ch->comm;
+	if (t->f == olc_flags && ch->desc)
+		return &ch->desc->dvdata->olc_flags;
 	return NULL;
 }
 
+static bool
+toggle_enabled(CHAR_DATA *ch, toggle_t *t)
+{
+	if (t->cmds == NULL)
+		return TRUE;
+
+	if (!IS_NPC(ch)) {
+		char cmdname[MAX_STRING_LENGTH];
+		const char *str = t->cmds;
+		PC_DATA *pc = PC(ch);
+
+		for (;;) {
+			str = one_argument(str, cmdname, sizeof(cmdname));
+
+			if (cmdname[0] == '\0')
+				break;
+			if (is_name_strict(cmdname, pc->granted))
+				return TRUE;
+		}
+	}
+
+	return FALSE;
+}

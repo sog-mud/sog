@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: cc_spec.c,v 1.3 1999-12-20 10:44:10 fjoe Exp $
+ * $Id: cc_spec.c,v 1.4 2000-10-22 17:53:39 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -48,7 +48,7 @@ has_spec_cb(void *p, va_list ap)
 	if (!str_cmp(*pspn, spn_rm))
 		return NULL;
 
-	if (is_sname(*pspn, arg))
+	if (is_name_strict(*pspn, arg))
 		return p;
 
 	return NULL;
@@ -68,7 +68,7 @@ cc_spec_has_spec(const char *arg, va_list ap)
 	const char *spn_rm = va_arg(ap, const char *);
 	const char *spn_add = va_arg(ap, const char *);
 
-	if (is_sname(spn_add, arg))
+	if (is_name_strict(spn_add, arg))
 		return TRUE;
 
 	return !!varr_foreach(&PC(ch)->specs, has_spec_cb, arg, spn_rm);

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_hint.c,v 1.1 2000-10-07 18:14:59 fjoe Exp $
+ * $Id: olc_hint.c,v 1.2 2000-10-22 17:53:44 fjoe Exp $
  */
 
 #include "olc.h"
@@ -158,7 +158,7 @@ OLC_FUN(hinted_show)
 	buf_printf(output, BUF_END,
 		   "Level: [%s]\n",
 		   flag_string(hint_levels, hint->hint_level));
-	mlstr_dump(output, "Hint:  ", &hint->phrase);
+	mlstr_dump(output, "Hint:  ", &hint->phrase, DUMP_LEVEL(ch));
 
 	page_to_char(buf_string(output), ch);
 	buf_free(output);

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_social.c,v 1.28 2000-10-07 20:41:08 fjoe Exp $
+ * $Id: olc_social.c,v 1.29 2000-10-22 17:53:45 fjoe Exp $
  */
 
 /* I never wanted to be
@@ -184,7 +184,7 @@ OLC_FUN(soced_touch)
 
 #define SOC_SHOW(preword, mlp)					\
 	if (!mlstr_null(mlp))					\
-		mlstr_dump(output, preword, mlp);
+		mlstr_dump(output, preword, mlp, DUMP_LEVEL(ch));
 
 OLC_FUN(soced_show)
 {

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mlstring.c,v 1.54 2000-10-07 10:58:06 fjoe Exp $
+ * $Id: mlstring.c,v 1.55 2000-10-22 17:53:47 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -417,7 +417,8 @@ bool mlstr_editnl(mlstring *mlp, const char *argument)
 	return TRUE;
 }
 
-void mlstr_dump(BUFFER *buf, const char *name, const mlstring *mlp)
+void mlstr_dump(BUFFER *buf, const char *name, const mlstring *mlp,
+		int dump_level)
 {
 	char space[MAX_STRING_LENGTH];
 	size_t namelen;
@@ -427,7 +428,8 @@ void mlstr_dump(BUFFER *buf, const char *name, const mlstring *mlp)
 
 	if (mlp == NULL || mlp->nlang == 0) {
 		buf_printf(buf, BUF_END, FORMAT, name, "all",
-			   mlp == NULL ? "(null)" : mlp->u.str);
+			   mlp == NULL ?
+				"(null)" : strdump(mlp->u.str, dump_level));
 		return;
 	}
 
@@ -435,7 +437,8 @@ void mlstr_dump(BUFFER *buf, const char *name, const mlstring *mlp)
 		return;
 
 	l = VARR_GET(&langs, 0);
-	buf_printf(buf, BUF_END, FORMAT, name, l->name, mlp->u.lstr[0]);
+	buf_printf(buf, BUF_END, FORMAT,
+		   name, l->name, strdump(mlp->u.lstr[0], dump_level));
 
 	if (langs.nused < 1)
 		return;
@@ -448,7 +451,8 @@ void mlstr_dump(BUFFER *buf, const char *name, const mlstring *mlp)
 	for (lang = 1; lang < mlp->nlang && lang < langs.nused; lang++) {
 		l = VARR_GET(&langs, lang);
 		buf_printf(buf, BUF_END, FORMAT,
-			   space, l->name, mlp->u.lstr[lang]);
+			   space, l->name,
+			   strdump(mlp->u.lstr[lang], dump_level));
 	}
 }
 
@@ -540,6 +544,9 @@ static const char *smash_a(const char *s, int len)
 
 	if (len < 0 || len > sizeof(buf)-1)
 		len = sizeof(buf)-1;
+
+	if (*q == '.')
+		q++;
 
 	while (q-s < len && *q) {
 		if (*q == '@' && *(q+1) == '@')

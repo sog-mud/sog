@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: util.c,v 1.27 2000-04-10 15:45:52 fjoe Exp $
+ * $Id: util.c,v 1.28 2000-10-22 17:53:47 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -165,3 +165,53 @@ char *strtime(time_t time)
 	return p;
 }
 
+const char*
+strdump(const char *argument, int dump_level)
+{
+	static char buf[2][MAX_STRING_LENGTH];
+	static int cnt;
+	const char *i;
+	int o;
+
+	if (IS_NULLSTR(argument))
+		return argument;
+
+	if (dump_level == DL_NONE)
+		return argument;
+
+	cnt = (cnt + 1) % 2;
+	for (o = 0, i = argument; o < sizeof(buf[cnt])-2 && *i; i++, o++) {
+		switch (*i) {
+		case '\a':
+			if (dump_level < DL_ALL)
+				break;
+			buf[cnt][o++] = '\\';
+			buf[cnt][o] = 'a';
+			continue;
+		case '\n':
+			if (dump_level < DL_ALL)
+				break;
+			buf[cnt][o++] = '\\';
+			buf[cnt][o] = 'n';
+			continue;
+		case '\r':
+			if (dump_level < DL_ALL)
+				break;
+			buf[cnt][o++] = '\\';
+			buf[cnt][o] = 'r';
+			continue;
+		case '\\':
+			if (dump_level < DL_ALL)
+				break;
+			buf[cnt][o++] = '\\';
+			break;
+		case '{':
+			buf[cnt][o++] = *i;
+			break;
+		}
+		buf[cnt][o] = *i;
+	}
+	buf[cnt][o] = '\0';
+
+	return buf[cnt];
+}

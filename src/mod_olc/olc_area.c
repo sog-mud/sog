@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_area.c,v 1.86 2000-10-15 17:19:31 fjoe Exp $
+ * $Id: olc_area.c,v 1.87 2000-10-22 17:53:43 fjoe Exp $
  */
 
 #include "olc.h"
@@ -239,7 +239,7 @@ OLC_FUN(areaed_show)
 	if (!IS_NULLSTR(pArea->builders))
 		buf_printf(buf, BUF_END, "Builders: [%s]\n", pArea->builders);
 	buf_printf(buf, BUF_END, "Credits:  [%s]\n", pArea->credits);
-	mlstr_dump(buf, "ResetMsg: ", &pArea->resetmsg);
+	mlstr_dump(buf, "ResetMsg: ", &pArea->resetmsg, DUMP_LEVEL(ch));
 	buf_printf(buf, BUF_END, "Flags:    [%s]\n",
 			flag_string(area_flags, pArea->area_flags));
 	page_to_char(buf_string(buf), ch);

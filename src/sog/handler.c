@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.267 2000-10-21 18:15:50 fjoe Exp $
+ * $Id: handler.c,v 1.268 2000-10-22 17:53:46 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3659,8 +3659,7 @@ bool remove_obj(CHAR_DATA * ch, int iWear, bool fReplace)
 void wear_obj(CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace)
 {
 	if (cc_vexpr_check(&obj->pObjIndex->restrictions, "obj_wear", ch)) {
-		act("You can't wear, wield or hold $p.",
-		    ch, obj, NULL, TO_CHAR);
+		act("You can't use $p.", ch, obj, NULL, TO_CHAR);
 		return;
 	}
 

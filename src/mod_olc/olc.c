@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.124 2000-10-21 19:41:06 fjoe Exp $
+ * $Id: olc.c,v 1.125 2000-10-22 17:53:43 fjoe Exp $
  */
 
 /***************************************************************************
@@ -765,7 +765,8 @@ bool olced_exd(CHAR_DATA *ch, const char* argument,
 
 		output = buf_new(-1);
 		buf_printf(output, BUF_END, "Keyword:     [%s]\n", ed->keyword);
-		mlstr_dump(output, "Description: ", &ed->description);
+		buf_append(output, "Description:\n");
+		mlstr_dump(output, str_empty, &ed->description, DUMP_LEVEL(ch));
 		page_to_char(buf_string(output), ch);
 		buf_free(output);
 		return FALSE;

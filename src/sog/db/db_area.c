@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.100 2000-06-02 16:41:12 fjoe Exp $
+ * $Id: db_area.c,v 1.101 2000-10-22 17:53:48 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1043,6 +1043,7 @@ DBLOAD_FUN(load_mobiles)
         pMobIndex->name			= fread_string(fp);
         mlstr_fread(fp, &pMobIndex->short_descr);
         mlstr_fread(fp, &pMobIndex->long_descr);
+	mlstr_stripnl(&pMobIndex->long_descr);
         mlstr_fread(fp, &pMobIndex->description);
 	free_string(pMobIndex->race);
 	pMobIndex->race		 	= fread_string(fp);

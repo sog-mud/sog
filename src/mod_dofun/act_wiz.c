@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.259 2000-10-21 18:15:48 fjoe Exp $
+ * $Id: act_wiz.c,v 1.260 2000-10-22 17:53:41 fjoe Exp $
  */
 
 /***************************************************************************
@@ -935,15 +935,17 @@ void do_rstat(CHAR_DATA *ch, const char *argument)
 
 	output = buf_new(-1);
 
-	if (ch->in_room->affected_by)
+	if (ch->in_room->affected_by) {
 		buf_printf(output, BUF_END, "Affected by %s\n", 
 			   flag_string(raffect_flags, ch->in_room->affected_by));
+	}
 
-	if (ch->in_room->room_flags)
+	if (ch->in_room->room_flags) {
 		buf_printf(output, BUF_END, "Room Flags %s\n", 
 			   flag_string(room_flags, ch->in_room->room_flags));
+	}
 
-	mlstr_dump(output, "Name: ", &location->name);
+	mlstr_dump(output, "Name: ", &location->name, DUMP_LEVEL(ch));
 	buf_printf(output, BUF_END, "Area: '%s'\n", location->area->name);
 
 	buf_printf(output, BUF_END,
@@ -957,7 +959,7 @@ void do_rstat(CHAR_DATA *ch, const char *argument)
 	buf_printf(output, BUF_END, "Room flags: [%s].\n",
 		   flag_string(room_flags, location->room_flags));
 	buf_append(output, "Description:\n");
-	mlstr_dump(output, str_empty, &location->description);
+	mlstr_dump(output, str_empty, &location->description, DUMP_LEVEL(ch));
 
 	if (location->ed != NULL) {
 		ED_DATA *ed;
@@ -1000,7 +1002,7 @@ void do_rstat(CHAR_DATA *ch, const char *argument)
 		    		pexit->exit_info,
 		    		pexit->keyword);
 			mlstr_dump(output, "Description: ",
-				   &pexit->description);
+				   &pexit->description, DUMP_LEVEL(ch));
 		}
 	}
 	buf_append(output, "Tracks:\n");
@@ -1041,8 +1043,10 @@ void do_ostat(CHAR_DATA *ch, const char *argument)
 		flag_string(item_types, obj->item_type),
 		obj->pObjIndex->reset_num);
 
-	mlstr_dump(output, "Short description: ", &obj->short_descr);
-	mlstr_dump(output, "Long description:  ", &obj->description);
+	mlstr_dump(output, "Short description: ",
+		   &obj->short_descr, DUMP_LEVEL(ch));
+	buf_append(output, "Long description:\n");
+	mlstr_dump(output, str_empty, &obj->description, DUMP_LEVEL(ch));
 
 	buf_printf(output, BUF_END, "Wear bits: [%s]\n",
 		   flag_string(wear_flags, obj->wear_flags));
@@ -1191,7 +1195,7 @@ void do_mstat(CHAR_DATA *ch, const char *argument)
 		victim->race, ORG_RACE(victim),
 		victim->in_room == NULL ? 0 : victim->in_room->vnum);
 
-	mlstr_dump(output, "Gender: ", &victim->gender);
+	mlstr_dump(output, "Gender: ", &victim->gender, DL_NONE);
 
 	if (IS_NPC(victim)) {
 		buf_printf(output, BUF_END,"Group: [%d]  Count: [%d]  Killed: [%d]\n",
@@ -1334,9 +1338,12 @@ void do_mstat(CHAR_DATA *ch, const char *argument)
 		buf_printf(output, BUF_END, "Security: [%d]\n",
 			   PC(victim)->security);
 
-	mlstr_dump(output, "Short description: ", &victim->short_descr);
+	mlstr_dump(output, "Short description: ",
+		   &victim->short_descr, DUMP_LEVEL(ch));
 	if (IS_NPC(victim)) {
-		mlstr_dump(output, "Long description:  ", &victim->long_descr);
+		buf_append(output, "Long description:\n");
+		mlstr_dump(output, str_empty,
+			   &victim->long_descr, DUMP_LEVEL(ch));
 		if (victim->pMobIndex->spec_fun != 0) {
 			buf_printf(output, BUF_END, "Mobile has special procedure %s.\n",
 				   mob_spec_name(victim->pMobIndex->spec_fun));
@@ -2604,7 +2611,7 @@ void do_string(CHAR_DATA *ch, const char *argument)
 				act_char("Not on PC's.", ch);
 				return;
 			}
-			mlstr_editnl(&victim->long_descr, arg3);
+			mlstr_edit(&victim->long_descr, arg3);
 			return;
 		}
 	}

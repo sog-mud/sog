@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.360 2000-10-21 19:41:06 fjoe Exp $
+ * $Id: act_info.c,v 1.361 2000-10-22 17:53:40 fjoe Exp $
  */
 
 /***************************************************************************
@@ -672,8 +672,7 @@ void do_look(CHAR_DATA *ch, const char *argument)
 		if (IS_OBJ_NAME(obj, arg3))
 			if (++count == number) {
 				act_puts(format_long(&obj->description, ch),
-					 ch, NULL, NULL, TO_CHAR,
-					 POS_DEAD);
+					 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 				return;
 			}
 	}
@@ -1182,11 +1181,11 @@ void do_who(CHAR_DATA *ch, const char *argument)
 		}
 
 		if (IS_SET(flags, WHO_F_RRACE)
-		&&  !is_sname(PC(wch)->race, race_names))
+		&&  !is_name_strict(PC(wch)->race, race_names))
 			continue;
 
 		if (IS_SET(flags, WHO_F_RCLASS)
-		&&  !is_sname(wch->class, class_names))
+		&&  !is_name_strict(wch->class, class_names))
 			continue;
 
 		count++;
@@ -4283,7 +4282,7 @@ static void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 	if (IS_NPC(victim)
 	&&  victim->position == victim->pMobIndex->start_pos) {
 		act_puts(format_long(&victim->long_descr, ch),
-			 ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		return;
 	}
 

@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.146 2000-10-21 18:15:51 fjoe Exp $
+ * $Id: tables.c,v 1.147 2000-10-22 17:53:47 fjoe Exp $
  */
 
 /***************************************************************************
@@ -214,7 +214,7 @@ flaginfo_t id_flags[] =
 	{ "evil",		ID_EVIL,		TRUE	},
 	{ "magic",		ID_MAGIC,		TRUE	},
 	{ "good",		ID_GOOD,		TRUE	},
-	{ "everything",		ID_TRUESEEING,		TRUE	},
+	{ "trueseeing",		ID_TRUESEEING,		TRUE	},
 
 	{ NULL }
 };
@@ -1496,8 +1496,8 @@ flaginfo_t olc_flags[] =
 {
 	{ "",			TABLE_BITVAL				},
 
-	{ "raw_strings",	OLC_RAW_STRINGS,		TRUE	},
-	{ "brief_ashow",	OLC_BRIEF_ASHOW,		TRUE	},
+	{ "raw_strings",	OLC_MODE_RAW,			TRUE	},
+	{ "brief_ashow",	OLC_MODE_TRANS,			TRUE	},
 
 	{ NULL }
 };

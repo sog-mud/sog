@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_msg.c,v 1.47 2000-10-21 20:12:54 fjoe Exp $
+ * $Id: olc_msg.c,v 1.48 2000-10-22 17:53:44 fjoe Exp $
  */
 
 #include "olc.h"
@@ -66,7 +66,6 @@ olc_cmd_t olc_cmds_msg[] =
 static mlstring *	msg_search(const char *argument);
 
 static const char*	atomsg(const char *argument);
-static const char*	msgtoa(const char *argument);
 
 OLC_FUN(msged_create)
 {
@@ -165,42 +164,6 @@ OLC_FUN(msged_touch)
 	return FALSE;
 }
 
-static void
-msg_dump(BUFFER *buf, const char *name, const mlstring *mlp)
-{
-	char space[MAX_STRING_LENGTH];
-	size_t namelen;
-	int lang;
-	static char FORMAT[] = "%s[%s] [%s]\n";
-	lang_t *l;
-
-	if (mlp == NULL || mlp->nlang == 0) {
-		buf_printf(buf, BUF_END, FORMAT, name, "all",
-			   mlp == NULL ? "(null)" : msgtoa(mlp->u.str));
-		return;
-	}
-
-	if (langs.nused == 0)
-		return;
-
-	l = VARR_GET(&langs, 0);
-	buf_printf(buf, BUF_END, FORMAT, name, l->name, msgtoa(mlp->u.lstr[0]));
-
-	if (langs.nused < 1)
-		return;
-
-	namelen = strlen(name);
-	namelen = URANGE(0, namelen, sizeof(space)-1);
-	memset(space, ' ', namelen);
-	space[namelen] = '\0';
-
-	for (lang = 1; lang < mlp->nlang && lang < langs.nused; lang++) {
-		l = VARR_GET(&langs, lang);
-		buf_printf(buf, BUF_END, FORMAT,
-			   space, l->name, msgtoa(mlp->u.lstr[lang]));
-	}
-}
-
 OLC_FUN(msged_show)
 {
 	BUFFER *output;
@@ -219,7 +182,7 @@ OLC_FUN(msged_show)
 	}
 
 	output = buf_new(-1);
-	msg_dump(output, "Msg: ", mlp);
+	mlstr_dump(output, "Msg: ", mlp, DL_ALL);
 	page_to_char(buf_string(output), ch);
 	buf_free(output);
 	return FALSE;
@@ -237,8 +200,10 @@ msged_list_cb(void *p, va_list ap)
 	if (IS_NULLSTR(name))
 		return NULL;
 
-	if (strstr(name, arg)) 
-		buf_printf(output, BUF_END, "%2d. [%s]\n", ++(*pnum), msgtoa(name));
+	if (strstr(name, arg)) {
+		buf_printf(output, BUF_END, "%2d. [%s]\n",
+			   ++(*pnum), strdump(name, DL_ALL));
+	}
 	return NULL;
 }
 
@@ -347,43 +312,6 @@ static const char *atomsg(const char *argument)
 				break;
 			}
 			continue;
-		}
-		buf[o] = *i;
-	}
-	buf[o] = '\0';
-
-	return buf;
-}
-
-static const char* msgtoa(const char *argument)
-{
-	static char buf[MAX_STRING_LENGTH];
-	const char *i;
-	int o;
-
-	if (!argument)
-		return str_empty;
-
-	for (o = 0, i = argument; o < sizeof(buf)-2 && *i; i++, o++) {
-		switch (*i) {
-		case '\a':
-			buf[o++] = '\\';
-			buf[o] = 'a';
-			continue;
-		case '\n':
-			buf[o++] = '\\';
-			buf[o] = 'n';
-			continue;
-		case '\r':
-			buf[o++] = '\\';
-			buf[o] = 'r';
-			continue;
-		case '\\':
-			buf[o++] = '\\';
-			break;
-		case '{':
-			buf[o++] = *i;
-			break;
 		}
 		buf[o] = *i;
 	}

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mlstring.h,v 1.24 1999-12-20 08:31:20 fjoe Exp $
+ * $Id: mlstring.h,v 1.25 2000-10-22 17:53:38 fjoe Exp $
  */
 
 #ifndef _MLSTRING_H_
@@ -69,7 +69,8 @@ bool	mlstr_append	(CHAR_DATA *ch, mlstring *mlp, const char *arg);
 bool	mlstr_edit	(mlstring *mlp, const char *arg);
 bool	mlstr_editnl	(mlstring *mlp, const char *arg);
 
-void	mlstr_dump	(BUFFER *buf, const char *name, const mlstring *ml);
+void	mlstr_dump	(BUFFER *buf, const char *name, const mlstring *ml,
+			 int dump_level);
 
 const char *mlstr_foreach(mlstring *mlp,
 			  const char * (*cb)(int lang, const char **p, va_list),

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_skill.c,v 1.19 2000-10-21 17:00:54 fjoe Exp $
+ * $Id: olc_skill.c,v 1.20 2000-10-22 17:53:45 fjoe Exp $
  */
 
 #include "olc.h"
@@ -253,8 +253,8 @@ OLC_FUN(skilled_show)
 	}
 	
 	buf = buf_new(-1);
-	mlstr_dump(buf, "Name       ", &sk->sk_name.ml);
-	mlstr_dump(buf, "Gender:    ", &sk->sk_name.gender);
+	mlstr_dump(buf, "Name       ", &sk->sk_name.ml, DL_NONE);
+	mlstr_dump(buf, "Gender:    ", &sk->sk_name.gender, DL_NONE);
 	buf_printf(buf, BUF_END, "Type       [%s]     Group       [%s]\n",
 			flag_string(skill_types, sk->skill_type),
 			flag_string(skill_groups, sk->group));
@@ -268,16 +268,16 @@ OLC_FUN(skilled_show)
 				flag_string(skill_flags, sk->skill_flags));
 	if (sk->min_mana)
 		buf_printf(buf, BUF_END, "MinMana    [%d]\n", sk->min_mana);
-	mlstr_dump(buf, "NounDamage ", &sk->noun_damage.ml);
-	mlstr_dump(buf, "NounGender ", &sk->noun_damage.gender);
+	mlstr_dump(buf, "NounDamage ", &sk->noun_damage.ml, DUMP_LEVEL(ch));
+	mlstr_dump(buf, "NounGender ", &sk->noun_damage.gender, DL_NONE);
 	if (sk->slot)
 		buf_printf(buf, BUF_END, "Slot       [%d]\n", sk->slot);
 
 	if (!IS_NULLSTR(sk->fun_name))
 		buf_printf(buf, BUF_END, "SpellFun   [%s]\n", sk->fun_name);
 
-	mlstr_dump(buf, "WearOff    ", &sk->msg_off);
-	mlstr_dump(buf, "ObjWearOff ", &sk->msg_obj);
+	mlstr_dump(buf, "WearOff    ", &sk->msg_off, DUMP_LEVEL(ch));
+	mlstr_dump(buf, "ObjWearOff ", &sk->msg_obj, DUMP_LEVEL(ch));
 	varr_foreach(&sk->events, event_show_cb, buf);
 
 	page_to_char(buf_string(buf), ch);

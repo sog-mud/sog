@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_obj.c,v 1.88 2000-10-21 17:00:53 fjoe Exp $
+ * $Id: olc_obj.c,v 1.89 2000-10-22 17:53:45 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -215,8 +215,7 @@ OLC_FUN(objed_show)
 			EDIT_OBJ(ch, pObj);
 		else
 			OLC_ERROR("'OLC EDIT'");
-	}
-	else {
+	} else {
 		int value = atoi(arg);
 		pObj = get_obj_index(value);
 		if (!pObj) {
@@ -228,20 +227,41 @@ OLC_FUN(objed_show)
 	pArea = area_vnum_lookup(pObj->vnum);
 
 	output = buf_new(-1);
-	buf_printf(output, BUF_END, "Name:        [%s]\n"
-			   "Area:        [%5d] %s\n",
-		pObj->name, pArea->vnum, pArea->name);
+	buf_printf(output, BUF_END,
+		   "Name:        [%s]\n"
+		   "Area:        [%5d] %s\n",
+		   pObj->name, pArea->vnum, pArea->name);
 
-	buf_printf(output, BUF_END, "Vnum:        [%5d]\n"
-			   "Type:        [%s]\n",
-		pObj->vnum,
-		flag_string(item_types, pObj->item_type));
+	buf_printf(output, BUF_END,
+		   "Vnum:        [%5d]\n"
+		   "Type:        [%s]\n",
+		   pObj->vnum,
+		   flag_string(item_types, pObj->item_type));
 
-	mlstr_dump(output, "Gender:      ", &pObj->gender);
+	mlstr_dump(output, "Gender:      ", &pObj->gender, DL_NONE);
 
-	if (pObj->limit != -1)
-		buf_printf(output, BUF_END, "Limit:       [%5d]\n", pObj->limit);
-	else
+	if (pObj->ed) {
+		ED_DATA *ed;
+
+		buf_append(output, "Ex desc kwd: ");
+
+		for (ed = pObj->ed; ed; ed = ed->next)
+			buf_printf(output, BUF_END, "[%s]", ed->keyword);
+
+		buf_append(output, "\n");
+	}
+
+	mlstr_dump(output, "Short desc:  ", &pObj->short_descr, DUMP_LEVEL(ch));
+	buf_append(output,  "Long desc:\n");
+	mlstr_dump(output, str_empty, &pObj->description, DUMP_LEVEL(ch));
+
+	if (IN_TRANS_MODE(ch))
+		goto bamfout;
+
+	if (pObj->limit != -1) {
+		buf_printf(output, BUF_END, "Limit:       [%5d]\n",
+			   pObj->limit);
+	} else
 		buf_append(output, "Limit:       [none]\n");
 
 	buf_printf(output, BUF_END, "Level:       [%5d]\n", pObj->level);
@@ -255,35 +275,24 @@ OLC_FUN(objed_show)
 	buf_printf(output, BUF_END, "Obj flags:   [%s]\n",
 		flag_string(obj_flags, pObj->obj_flags));
 
-	buf_printf(output, BUF_END, "Material:    [%s]\n",                /* ROM */
-		pObj->material);
+	buf_printf(output, BUF_END, "Material:    [%s]\n",	/* ROM */
+		   pObj->material);
 
-	buf_printf(output, BUF_END, "Condition:   [%5d]\n",               /* ROM */
-		pObj->condition);
+	buf_printf(output, BUF_END, "Condition:   [%5d]\n",	/* ROM */
+		   pObj->condition);
 
-	buf_printf(output, BUF_END, "Weight:      [%5d]\nCost:        [%5d]\n",
-		pObj->weight, pObj->cost);
-
-	if (pObj->ed) {
-		ED_DATA *ed;
-
-		buf_append(output, "Ex desc kwd: ");
-
-		for (ed = pObj->ed; ed; ed = ed->next)
-			buf_printf(output, BUF_END, "[%s]", ed->keyword);
-
-		buf_append(output, "\n");
-	}
-
-	mlstr_dump(output, "Short desc: ", &pObj->short_descr);
-	mlstr_dump(output, "Long desc: ", &pObj->description);
+	buf_printf(output, BUF_END,
+		   "Weight:      [%5d]\n"
+		   "Cost:        [%5d]\n",
+		   pObj->weight, pObj->cost);
 
 	aff_dump_list(pObj->affected, output);
 	objval_show(output, pObj->item_type, pObj->value);
 	print_cc_vexpr(&pObj->restrictions, "Restrictions:", output);
+
+bamfout:
 	page_to_char(buf_string(output), ch);
 	buf_free(output);
-
 	return FALSE;
 }
 

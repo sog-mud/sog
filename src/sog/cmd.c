@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: cmd.c,v 1.15 2000-06-07 08:55:55 fjoe Exp $
+ * $Id: cmd.c,v 1.16 2000-10-22 17:53:46 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -57,6 +57,20 @@ cmd_destroy(cmd_t *cmd)
 {
 	free_string(cmd->name);
 	free_string(cmd->dofun_name);
+}
+
+cmd_t *
+cmd_cpy(cmd_t *dst, cmd_t *src)
+{
+	dst->name =		str_qdup(src->name);
+	dst->dofun_name =	str_qdup(src->dofun_name);
+	dst->min_pos =		src->min_pos;
+	dst->min_level =	src->min_level;
+	dst->cmd_log =		src->cmd_log;
+	dst->cmd_flags =	src->cmd_flags;
+	dst->cmd_mod =		src->cmd_mod;
+	dst->do_fun = 		src->do_fun;
+	return dst;
 }
 
 void *

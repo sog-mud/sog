@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.170 2000-10-21 18:15:50 fjoe Exp $
+ * $Id: save.c,v 1.171 2000-10-22 17:53:47 fjoe Exp $
  */
 
 /***************************************************************************
@@ -129,7 +129,7 @@ void delete_player(CHAR_DATA *victim, char* msg)
 	 */
 	touched = FALSE;
 	for (pArea = area_first; pArea != NULL; pArea = pArea->next) {
-		if (!is_sname(victim->name, pArea->builders))
+		if (!is_name_strict(victim->name, pArea->builders))
 			continue;
 		name_delete(&pArea->builders, victim->name, NULL, NULL);
 		SET_BIT(pArea->area_flags, AREA_CHANGED);
@@ -397,8 +397,10 @@ fwrite_char(CHAR_DATA *ch, FILE *fp, int flags)
 			fprintf(fp, "HintsLevel %s\n",
 				flag_string(hint_levels, pc->hints_level));
 		}
-		if (pc->olc_flags)
-			fprintf(fp, "OLC %s\n", format_flags(pc->olc_flags));
+		if (pc->dvdata->olc_flags) {
+			fprintf(fp, "OLC %s\n",
+				format_flags(pc->dvdata->olc_flags));
+		}
 	}
 
 	for (paf = ch->affected; paf != NULL; paf = paf->next) {
@@ -844,7 +846,7 @@ fread_char(CHAR_DATA * ch, rfile_t * fp, int flags)
 			break;
 
 		case 'O':
-			KEY("OLC", PC(ch)->olc_flags, fread_flags(fp));
+			KEY("OLC", PC(ch)->dvdata->olc_flags, fread_flags(fp));
 			break;
 
 		case 'P':

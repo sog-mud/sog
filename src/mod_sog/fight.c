@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.281 2000-10-21 17:00:51 fjoe Exp $
+ * $Id: fight.c,v 1.282 2000-10-22 17:53:42 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1573,7 +1573,7 @@ is_safe_raw(CHAR_DATA *ch, CHAR_DATA *victim)
 	
 	if (!IS_NPC(ch)
 	&&  !IS_NPC(victim)
-	&&  is_sname(victim->name, PC(ch)->enemy_list)) {
+	&&  is_name_strict(victim->name, PC(ch)->enemy_list)) {
 		name_add(&PC(victim)->enemy_list, ch->name, NULL,NULL);
 		return FALSE;
 	}
