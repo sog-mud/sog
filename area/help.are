@@ -2025,13 +2025,6 @@ TEACH позволяет герою учить других игроков умениям, которыми он владеет в
 LEARN позволяет персонажу обучаться у героя указанному умению или заклинанию.
 Конечно, герой должен быть в режиме преподавания.
 ~
-0 LEARN~
-Syntax: learn <spell | skill> <hero>
-
-        Allows player to learn any group of skills or spells from
-a hero. But the hero's corresponding skills must be 100% and hero must
-be in teach mode.
-~
 0 TRAIN~
 @eng Syntax: {ctrain{x <str int wis dex con cha>
 
@@ -3790,12 +3783,42 @@ Use this command without argument to ask for a price of hometown change.
 жительства.
 ~
 -1 ETHOS~
-You may pick a Lawful, Neutral or Chaotic ethos.  This shows your opinion
-toward the laws of the land (not the rules).  If you plan on obeying the
-laws no matter what, you take a lawful ethos, if you will obey the laws
-some of the time, then you are neutral.  If you plan on breaking the laws
-and only obeying them when you just happen to obey the laws, then you are
-chaotic.  Ethos can only be set once.
+@eng Now 'help ethos' is available only in russian. Sorry.
+@rus Ethos определяет отношение персонажа и его личностной системы ценностей
+с обществом и традициями и законами, в нем существующими. Возможны три
+варианта:
+
+  -- lawful; такой персонаж уважает и соблюдает все законы и традиции
+общества вне зависимости от того, в прибыль это для него или в убыток.
+Законы довлеют над его личностной ситемой ценностей и являются приори-
+тетным направлением в его поведении. В любой ситуации такой персонаж в
+первую очередь ищет ответа сначала в традициях и законах, и если они не
+дают ответа, как поступить, спрашивает совета у окружающих или находит
+ответ в себе. Жизнь такого персонажа посвещена в первую очередь обществу,
+его процветанию, сохранению традиций. Никогда и ни при каких условиях
+lawful персонаж не нарушит закона (даже если закон глуп, но подобных
+мыслей у lawful не возникает): ни ради себя, ни ради друзей.
+ 
+  -- chaotic; это противоположность lawful. Такой персонаж всегда и во
+всем руководствуется своими собственными убеждениями и принципами. В лю-
+бом деле для chaotic определяющим аргументом является собственная выго-
+да, а не польза общества или какого-то друга, знакомого или согрупника.
+Если персонаж chaotic это совсем не означает того, что он должен нарушать
+законы или действовать им наперекор. Да, это для chaotic не составляет
+труда, но только в том случае, если его собственные желания, устремления
+и убеждения идут в разрез с существующими традициями и законами. Следует
+заметить, что персонаж поступающий по принципу "так хочет сейчас моя ле-
+вая (правая) пятка" является не chaotic'ом, а просто напросто не имеет
+никакой позиции, и ему стоит над этим внимательно поразмыслить.
+ 
+  -- neutral; это некоторая середина между двумя крайностями: служением
+обществу и служением себе; безропотным принятием законов общества и неот-
+ступным следованием своим собственным идеалам. Для нейтрала собственно об-
+щество не важно, но для него очень большую роль играют люди (и нелюди), его
+составляющие. Это друзья, согрупники, люди (и нелюди), исповедующие ту же
+идею или религию, что и он. В их пользу он может нарушить закон, если это
+необходимо, или поступиться своими собственными интересами, чтобы кому-то
+помочь или же если этого требует его дело (орден, гильдия и пр.)
 ~
 -2 'NEWBIE INFO' NEWBIE~
 Ah! Another mortal, seeking adventure.  You should go through mudschool 
@@ -3948,7 +3971,7 @@ This skill, when practiced, gives a player a chance to turn an
 attacker's first blow against him, causing double damage.  You need
 not type "counter" -- it happens automatic.
 ~
-0 ROLE-PLAYING ROLEPLAYING~
+0 ROLE-PLAYING ROLEPLAYING RP~
 Welcome to the world of Shades of Gray which is based on role-playing
 and adventure. Role-playing is encouraged, and in some cases, almost
 mandatory. One can enter a clan for protection and gaining power. We
@@ -3988,129 +4011,47 @@ See also: ROLEPLAYING GROUP ALIGNMENT
 превышать max(4, уровень/10+2).  На территории клана нападающий может быть
 атакован вне зависимости от уровня.  
  
-Ожидайте нападения, и не воспринимайте это слишком лично. Помните, будучи в
+Ожидай нападения, и не воспринимай это слишком лично. Помни, будучи в
 группе, ты делаешь свою жизнь безопаснее.
  
 Пусть твои нападения не будут случайными, а будут определяться той ролью,
 которую играет твой персонаж.
  
-Не пытайтесь разорвать соединение, чтобы избежать убийства. Это верный путь
+Не пытайся разорвать соединение, чтобы избежать убийства. Это верный путь
 быть наказанным если не атакующим тебя, то богами.
  
 Смотри также: {CROLEPLAY, ALIGN, GROUP{x
 ~
-0 ALIGNMENT~
-@eng In the interest of attracting the right caliber of followers, the
-immortals of Shades of Gray have outlined the following alignments.
-See where you think you fit in.
-
-Lawful Good:   An orderly, strong society with a well-organized government
-	       can make life better for the majority of the people.  To ensure
-	       the quality of life, laws must be created and obeyed.  When
-	       people respect the laws, and try to help each other, society as
-	       whole prospers. 
-
-Lawful Neutral:  Also believes in a strong, well-organized government, whether
-	       it is a tyranny or democracy.  Organization and regimentation
-	       bring benefits that outweigh any moral questions raised by
-	       their actions.
-
-Lawful Evil:   The use of society and its laws for personal benefit.  Structure
-	       and organization elevate those who deserve to rule as well as
-	       provide a clearly defined hierarchy between master and servant.
-	       Laws and societies are supported so long as they fit with
-	       personal concerns.  Laws are obeyed out of fear of punishment.
-
-Neutral Good:  A balance of forces is important, but the concerns of laws and
-	       chaos do not moderate the need for good.  The universe is vast
-	       and contains many creatures striving for different goals, so a
-	       pursuit of good will not upset the balance.  Fostering good may
-	       mean supporting an organized society, or overthrowing the
-	       existing social order.  Social structure has no innate value.         
-  
-True Neutral:  Almost impossible to find such people as the majority of people
-	       make judgments.  It is their duty to see that all of the forces
-	       (evil, good, law, and chaos) remain in balance.  Alliances with
-	       such people are odd, as they tend to switch sides as one side
-	       brings the other to the point of destruction.
-
-Neutral Evil:  The primary concern for such people is their own advancement.
-	       Working with others or on their own, their only interest is 
-	       getting ahead.  Such people are known for their 'Me, Myself,
-	       and I' personalities.  No scruples, no conscience.
-
-Chaotic Good:  Strong individualists marked with a streak of kindness and 
-	       benevolence.  Goodness and right matter, but there is little
-	       use for laws and regulations.  Their actions are morally good
-	       but may not be in perfect agreement with the rest of society.
-					  
-Chaotic Neutral:  There is no order to anything, even their own actions.
-	       Good and Evil are irrelevant when making a decision.  They
-	       are almost totally unreliable, except for the fact that you
-	       can rely on them being like this.  The true coin-flipper, they
-	       rely on fate and chance to lead them.
-
-Chaotic Evil:  The bane of all that is good and organized.  Laws and
-	       governments are the tools of weaklings unable to fend for
-	       themselves.  The strong have a right to what they want, and
-	       weak are there to be exploited.  Leadership among CEs is based
-	       on power, with the leader capable of bullying his underlings
-	       into obedience.  
-
-Each god may accept a follower based on these outlines.
-@rus  Заинтересованные в правильной и органичной структуре мира, имморталы SoG
- охарактеризовали имеющееся разделение мировоззрений (alignment/ethos).
- Прочти это прежде чем выбрать свой путь.
-
- Lawful Good:   Устойчивая общественная структура, с продуманными законами
-                и хорошо организованным управлением, сделает жизнь многих
-                людей благополучней. В стремлении к лучшей жизни, законы
-                должны издаваться и исполнятся. Когда каждый уважает закон,
-                и готов помочь любому нуждающемуся, общество процветает.
-
-Lawful Neutral: Та же вера в крепкое общество с четким эффективным управлением,
-                хотя и неважно, будет ли это тирания или демократия. Создание
-                такого общества и работа во благо его приностит пользу,
-                оправдывающую некоторые моральные издержки.
-
-Lawful Evil:    Использование общества и его законов для личного процветания.
-                Структура и организация возвышает четко соблюдающего правила
-                отношений слуги и хозяина. Общество и закон - инструмент в
-                руках достойного. Закон выполняется в страхе перед наказанием.
-
-Neutral Good:   Важен баланс, и дела закона и хаоса не увеличат жажду доброго
-                в мире. Вселенная огромна, и в ней множество существ с различ-
-                ными устремлениями, гонка за "своей" правдой не принесет
-                желанного равновесия. Дело добра не может поддерживаться ни
-                организацией общества, ни уходом от существующего общественного
-                порядка. Социальная структура - не самоцель, а результат
-                развития.
-
-True Neutral:   Это редкая позиция, осуждаемая большинством. Долг - следить
-                за балансом всех сил (добро, зло, закон и хаос) оставаясь ней-
-                тральным. Союз случаен, возможно прийдется перейти к против-
-                нику, если одна из сил доведет почти до полного истребления
-                другую.
-
-Neutral Evil:   Первоочередное дело - собственное усиление. Любая возможность
-                интересна если она приносит выгоду. Известны лишь понятия "Мне,
-                Мое или Я". Ни сомнений, ни совести.
-
-Chaotic Good:   Сильный характер, отмеченный добротой и благожелательностью.
-                Доброта и справедливость важны, но закон и устав зачастую не
-                эффективны в борьбе за них. Это дело высшего закона, чувства
-                добра, морали и оно не нуждается в одобрении обществом.
-
-Chaotic Neutral:  Никаких ограничений в поступках быть не может. Понятия Добра
-                и Зла неуместны в делах. Почти все ненадежно, за исключением
-                того, что полагаться надо только на самого себя, если хочешь
-                не только выжить, но и жить хорошо. Судьба и звон монет, вот
-                что ведет по жизни.
-
-Chaotic Evil:   Препятствие на пути всего доброго и упорядоченного. Законы и
-                правительство - инструмент для слабых и не способных оградить
-                себя. Сила - это право на все, слабые уничтожаются. Лидерство
-                основано на силе, на способности вождя заставить подчинятся.
+-1 ALIGNMENT~
+@eng Now 'help alignmnet' is available only on russian. Sorry.
+@rus Alignment определяет мировозрение персонажа, его поведение в различных
+ситуациях и то, что является главным в его жизни.
+ 
+-- good; такой персонаж имеет "открытую душу", в окружающих он видит
+лишь хорошее, он готов помочь в случае надобности (если это не будет
+против его интересов (для chaotic), не требует нарушения закона (для
+lawful)), добрый персонаж ценит и уважает других, и не будет делать
+ничего, что принесет кому-то вред.
+ 
+-- evil; такой персонаж живет для себя, для него важным в любом деле
+является получение собственной выгоды. Он не задумываясь причинит вред
+другому, если этого требуют его интересы. Он может убить, а может по-
+мочь, например, если это приведет к обогащению или позволит подняться
+выше по общественной лестнице.
+ 
+-- neutral; такой персонаж не стремится жить для людей, как good, но
+и не живет для себя, как evil. Neutral служит идее и неважно, что это:
+какой-то тайный орден, наука, честь мундира, деньги и т.д.
+ 
+Немного о "борьбе добра со злом". Злой персонаж за свою жизнь может
+не принести вреда. То что он злой означает, что он сделает это при
+надобности. Поэтому, если good, узнав из, например, 'know alignment',
+что кто-то "evil", нападет на этого кто-то, он уже не может считаться
+good'ом. Подобный поступок будет просто проявлением трусости этого
+уже бывшего good'а. Поэтому "evil alignment" не может считаться для
+good'а обоснованием для нападения. Также как и то, что evil имел злые
+намерения. Ведь мысль еще не является преступлением, и никто не может
+сказать, была ли она на самом деле.
 ~
 0 RULES~
 @eng These are the rules of the Shades of Gray. Disobeying is grounds
@@ -4135,13 +4076,15 @@ for deletion. For other matters, use common sense.
    deleting of one char. Anyone who assists people in multicharing,
    i.e. holding equipment while they transfer it, 'looking the other way',
    etc will be punished harshly.
+     You may have only one clan character. Other will be turned out or
+   deleted.
 7. DO NOT, in any way, shape or form, exploit bugs. Report it to immortals.
 8. SPAMMING IS ILLEGAL.  (Spam filling up someone's screen with needless
    repetion of anything)  You will be given one warning and then deleted.
    Don't do it.
 9. Sexual harrassment will not be tolerated.  If both parties do not consent
    to the socials/emotes, then don't do them.
-10.If you are level 20 and have not description you will be given
+10.If you are level 10 and have not description you will be given
    one warning. Then you will be punished.
  
 These are simple, clear rules.  If you violate them you WILL be
@@ -4179,8 +4122,9 @@ may be done without warning, notice, or even evidence of sanity.
      приказам богов, и ты будешь здоров. :-)
 
   6. MULTICHARRING: Ты можешь иметь более одного персонажа, но не разрешено
-     заходить ими одновременно, передавать вещи и т.д. Наказание за нарушение
-     этого правила -- уничтожение одного персонажа. Любой, кто помогает
+     заходить ими одновременно, передавать вещи и т.д. И ты не можешь иметь
+     больше одного кланового персонажа. Наказание за нарушение этого правила
+     уничтожение персонажа его нарушевшего. Любой, кто помогает
      в multicharing (хранит вещи, например) также будет наказан.
 
   7. Ни в коем случае не используй баги. Если ты нашел ошибку, сообщи о
@@ -4192,7 +4136,7 @@ may be done without warning, notice, or even evidence of sanity.
   9. Любые сексуальные приставания недопустимы! Если обе стороны не пришли к
      согласию по поводу socials/emotes - не делайте этого.
 
- 10. Персонаж, достигший 20 уровня, обязан иметь описание. Предупреждение
+ 10. Персонаж, достигший 10 уровня, обязан иметь описание. Предупреждение
      будет только одно, потом ты будешь наказан.
 
 Это простые и понятные правила. Если ты нарушишь их, ты будешь наказан.
@@ -4201,77 +4145,41 @@ may be done without warning, notice, or even evidence of sanity.
 Изменение правил - прерогатива бессмертных, и бессмертные могут менять правила
 без всякого предупреждения, и даже без всякого основания.
 ~
-0 LAWS LAW ~
-@eng The laws of the land that shall be enforced by the Enforcers Clan are as
-follows :
- 
-    The areas that are defined as protected by the jurisdiction of the Law
-are the entirety of Midgaard, New Thalos, Valley of Titans and  New Ofcol.
+0 LAWS~
+Ниже приводятся Законы, установленные в Мире Серых Теней. Действие законов
+распространяется на следующие области: Midgaard, New Thalos, Valley of Titans,
+New Ofcol. За соблюдением законов следят Хранители Порядка (Enforcers), они
+же наказывают за их нарушение.
 
-1. No Player Killing/Stealing/Looting in any protected area.  Theft is fully
-   illegal.  This includes the attempt of stealing any from a person OR looting
-   a player's corpse OR looting the pit when a player's equipment has returned
-   from their decayed corpse.  Stealing also includes taking a disarmed weapon
-   or equipment during a legal duel that is not your own.  Looting a criminal's
-   corpse is unlawful within the towns.  You will be held responsible for your
-   groupmate's actions.
- 
-2. No offensive area spells or harmful powers will be used in any protected
-   area.  This includes area spells from charmed, summoned or attacked mobs.
-   Aggressive mobs may not be summoned/brought into any protected area.
-								       
-3. Aiding known criminals in any way by directly giving them equipment,
-   helping them to elude punishment, to kill Enforcers guards, etc.
-   will result in a WANTED flag.
-								       
-4. Intrusion into the Enforcers Clan is considered illegal and an attack upon
-   the laws themselves.  
+-- Запрещены любые нападения на игроков, продавцов магазинов, городских
+стражников, а также тех, кто представляет инфраструктуру города (Otho,
+healer, questor, mayor, janitors, templemans). Воровство запрещено
+полностью. (Воровство включает попытку любой кражи у игрока/любого жителя
+города; вытаскивание вещей из трупа, или из алтаря в случае, если кто-либо ждет
+появления своих вещей в алтаре).
 
-5. A dispersal that teleports the victim from a protected area directly into
-   the room of an aggressive mob that causes their death is considered a
-   player kill and will result in a WANTED flag on the caster.
-
-6. Garbling Enforcers members is against the law, as well as any other offensive
-   act against them, including: dispersal, mob summoning, setting traps,
-   stealing equipment and inventory.
-
-7. Criminals are outlaw. You can attack criminal in protected area.
-
- Enforcement of these laws will be carried out by Enforcers members. Midgaard,
-New Thalos, Valley of Titans and New Ofcol are defined by the 'where protector'
-command. Old midgaard is not a holy town.
-@rus Законы, за выполнением которых должен следить клан Enforcers:
+-- Дуэли запрещены. Если таковая проводится, то виновными признаются обе
+стороны и обе будут наказаны.
  
-Области в которых действует Закон - Midgaard, New Thalos, Valley of Titans
-и New Ofcol.
+-- Запрещено использовать area spells, могущие нанести вред окружающим,
+в том числе spells зачармленных и засуммоненных мобов.
  
-1. В вышеприведенных ариях запрещено нападение/воровство/грабеж игрока.
-Воровство запрещено полностью. Воровство включает попытку любой кражи у игрока,
-или вытаскивание вещей из трупа, или из алтаря в случае, если игрок ждет
-появления своих вещей в алтаре. Воровство также включает в себя взятие чужого
-обмундирования или оружия после разоружения в течение законного поединка.
+-- Запрещено помогать криминальному элементу: давать ему вещи, помогать
+избежать наказания, убивать стражников, охотящихся за ним и пр.
  
-2. В любой защищенной области Запрещено использовать area spells или другие
-Это включает в себя area spells зачармленых, засуммоненых или атакующих 
-мобов.
- 
-3. Запрещено помогать криминальному элементу, давать ему вещи, помогать
-избежать наказания, убивать стражников охотящихся за ним.
- 
-4. Вторжение в Клан Enforcers запрещено и рассматривается как нарушение закона.
- 
-5. Перенос с помощью заклинаний группы transportations жертвы из защищенной
+-- Перенос с помощью заклинаний группы transportations жертвы из защищенной
 области непосредственно в комнату с агрессивными мобами, который приведет к
-смерти рассматривается как нападение на игрока в защищенной области.
- 
-6. Использование garble на членов клана Enforcers, а так же другие агрессивные
-действия против них включая: disperse, summon мобов, установка ловушек и
-воровство.
- 
-7. Криминальный элемент (WANTED) - вне закона и может быть атакован 
-в пределах защищенной области.
+смерти, рассматривается как нападение на игрока в защищенной области. (или
+же может привести)
 
-ПРИМЕЧАНИЕ. Старый Мидгард не является защищенной областью.
+-- Запрещена любая помощь мобам охотящимся за кем-либо, если жертва пыталась
+скрыться в городе и была настигнута. (И даже если еще не была.)
+ 
+-- Вторжение в помещения, принадлежащие Хранителям Порядка, запрещено, явля-
+ется нарушением закона и карается соответствующе.
+ 
+-- Криминальный элемент (WANTED) - не находится под защитой закона и может
+быть атакован в пределах защищенной области.
 ~
 1 WANTED ~
 @eng Syntax: {cwanted{x <player>
@@ -4432,15 +4340,14 @@ not being attacked may circle around and stab a victim while in
 battle. This is useful when you are not the one in your group taking
 the hits.  It requires the use of a piercing instrument.
 ~
-0 'CRITICAL STRIKE'~
-Syntax: critical strike <victim>
- 	Using their knowledge of Nage Waza (throwing techniques), the ninjas
-and samurais able to grab their opponent and throw them to the ground.  It 
-can be attempted every 2 rounds, but no commands can be entered for 2 rounds 
-after attempting a critical strike. There are three possibility :
-	>>Opponent may get a powerful damage.
-        >>Opponent may get a higher damage and can be blind.
-        >>Opponent may get a power hit damage.    
+-1 'CRITICAL STRIKE'~
+@eng `Critical strike' is a ninja/samuray autoskill. When strike
+is successful opponent get a higher damage and can be blinded
+or stuned.
+@rus 'Critical strike' -- срабатывающие автоматически умение, которым
+обладают нинзи и самураи. В случае успеха удар, наносимый по
+жертве, сильнее, чем обычный, а также есть шанс, что он ослепит
+или обездвижет жертву.
 ~
 0 THROW ~
 Syntax: throw <victim>
@@ -4565,6 +4472,7 @@ auction on | off	- will make the channel auction on/off
 auction bet <bet>	- will bet on the item
 auction stop		- will stop the auction, return the gold to the last
 			  better and transfer the item to seller (imm only).
+Money for selling item deposits to bank account.
 @rus С помощью аукциона ты можешь выставить на продажу имеющуюся у тебя вещь.
 И соответственно приобрести то, что продается на аукционе.
  
@@ -4864,23 +4772,23 @@ standard merc values.  (Will be put in when there's time to calculate
 them...)
 ~
 0 'OLC RESETS'~
-Syntax: RESET <number> OBJ <vnum> <location on body>    - equips last mobile
-        RESET <number> OBJ <vnum> inside <obj vnum>     - store in container
-        RESET <number> OBJ <vnum> room                  - store in room
-        RESET <number> MOB <vnum> [<max #>]             - load a mobile
-        RESET <number> DELETE                           - delete a reset
-
-RESET alone will display the resets in the current room.  The <number> will
-be displayed with this list.  Typing ? WEAR-LOC will list possible locations
-that an object can be loaded to.  The [<max #>] is the maximum number of
-mobiles allowed in this room and will default to 1 if no number is entered.
-
-For resets to be successful make sure that you add them in a logical order.
-For example if you are equiping a mobile don't load a container in the room
-and fill it with some objects and then continue equiping the mobile.  It is
-likely that resets will backfire if they are not carefully entered.
-
-If you wish to reset the room then use EDIT ROOM RESET.  
+Syntax: {cresets{x
+Syntax: {cresets ?{x
+Syntax: {creset mob{x <vnum> [<total lim>] [<room lim>]
+Syntax: {creset obj{x <vnum> {cinside{x <reset_num> [<total_lim>] [<inobj_lim>]
+Syntax: {creset obj{x <vnum> {croom{x
+Syntax: {creset obj{x <vnum> <{cnone{x|{cinventory{x> <reset_num>
+Syntax: {creset obj{x <vnum> <wear_location> <reset_num>
+Syntax: {creset random{x <num>
+Syntax: {creset delete{x <reset_num>
+Syntax: {creset clear{x
+Syntax: {creset now{x
+ 
+<reset_num> for '{creset obj{x' is the number of reset after which
+new reset will be inserted.
+{creset{x without params shows resets in room.
+'{creset now{x' will reset room immediately.
+'{creset clear{x' will delete all resets in the room (use with care!).
 ~
 0 MOB_AC~
 The values ROM generates for a merc format mob is:
@@ -5331,7 +5239,7 @@ CALL       [vnum] [victim] [target1] [target2]
    Ордена, является отступником и врагом, которого он будет преследовать
    до своего смертного часа.
 ~
-0 'CLAN INVADER' INVADER~
+0 'CLAN INVADERS' INVADERS~
 @rus {RВласть{x. Природа власти...
 Видели ли вы человеческого детеныша, вырывающего игрушку у своего
 соседа? Или молоденького фейри, деловито вспарывающего труп матери?
@@ -5781,15 +5689,12 @@ Thanks to ...
 ~
 -2 MOTD~
 * This is a Roleplaying, PlayerKilling and Adventure MUD.
-* You are responsible for knowing the rules (type 'rules').  Ignorance of 
+* You are responsible for knowing the rules{x (type '{Crules{x').  Ignorance of 
   the rules is no excuse.
 * Important commands: help, commands, news, notes, changes.
 * Read all helps. So many things are changed relatively before.
 * Added multi-language support command. See '{Clanguage{x' command.
-* Added short mode for flags. See '{CHELP TOGGLE{x'.
-* {CGossip{x and {Cmusic{x channels added.
-* Use '{Cbug{x' command or mail to {Csog@@any.ru{x for bug reports
-  and suggestions.
+* Mail to {Csog@@any.ru{x for bug reports and suggestions.
 * Players who use russian codepages, see '{CHELP RUSSIAN{x'.
 * Check out our homepage at {Chttp://sog.any.ru/{x.
 ~
@@ -6156,7 +6061,7 @@ Axes may split shields in two.
 	Warriors have more chance than the others to block the attacks
 with the shields.
 ~
--1 BACKSTAB 'DUAL BACKSTAB' BS~
+-1 BACKSTAB 'DUAL BACKSTAB' BS KNIFE~
 @eng Syntax: {cbackstab{x <victim>
 Syntax: {cknife{x <victim>
  
@@ -6628,7 +6533,7 @@ or her hands.
 @rus Это автоматическое умение позволяет отбивать наносимые удары голыми руками.
 ~
 0 'MASTERING HAND'~
-This automatic skill allows ninjas to fight more efficiently then unarmed.
+This automatic skill allows ninjas to fight more efficiently when unarmed.
 ~
 0 'WIZ MODULES' MODULES~
 @eng Syntax: {cmodules reload{x <name>
@@ -6643,7 +6548,7 @@ MODULES RELOAD перезагружает указанный модуль.
 MODULES LIST показывает список всех загруженных модулей.
 ~
 0 TOGGLE~
-@eng Syntax: {ctoggle{x <option>
+Syntax: {ctoggle{x <option>
  
 Toggles given option on/off. Available options are:
 {caffects{x    - defines whether spells affecting you will be shown in score
@@ -6666,27 +6571,8 @@ Toggles given option on/off. Available options are:
 {cprompt{x     - enables/disable prompt showing.
 {ctelnet GA{x  - some clients require special symbol (GA) to be sent to them.
 {cquiet edit{x - buffer all output when you write a note.
-@rus Переключает различные настройки, такие как:
-{caffects{x    - определяет, показывать ли заклинания, наложенные на тебя, по
-           - команде SCORE. Смотри {CHELP AFFECTS{x
-{cbrief{x      - с включенной этой опцией ты будешь видеть описания комнат при
-           - хождении. Только названия.
-{ccolor{x      - включает/выключает поддержку ANSI цветов. Смотри HELP COLOR.
-{ccompact{x    - эта опция подавляет вывод пустой строки перед приглашением.
-{ccombine{x    - определяет, надо ли комбинировать одинаковые предметы в твоем
-           - мешке, показывая только количество, или показывать их отдельно.
-{clong flags{x - переклчает между новым и старым форматом вывода флагов. Смотри
-           - {CHELP FLAGS{x
-{cnobust{x     - подавляет вывод нового приглашения при изменении hp/mana/move.
-           - Полезно для избегания спама при регенерации.
-{cnoflee{x     - при потере связи персонаж не будет пытаться сбегать. Смотри
-           - {CHELP FLEE{x.
-{cnotelnet{x   - отключает парсер телнета. Смотри {CHELP RUSSIAN{x
-{cnoiac{x      - транслирует строчные 'Я' в прописные. Смотри {CHELP RUSSIAN{x
-{cnoverbose{x  - отключает неинформативные сообщения (например, [отличное])
-{cprompt{x     - отключает показ приглашения.
-{ctelnet GA{x  - некоторым клиентам необходимо посылать спец. символ (GA)
-{cquiet edit{x - помещает все сообщения в буфер, когда ты находишься в редакторе.
+{cshowrace{x   - show race in long descr (look)
+{cshort equip{x- do not show empty slots in eq
 ~
 0 FLAGS~
 You can see following flags on mobiles:
@@ -6702,6 +6588,9 @@ You can see following flags on mobiles:
 {DE  Evil aura{x   - mobile is an embodiment of evil
 {WG  Good aura{x   - mobile is kind and pure at heart
 {YG  Golden Aura{x - mobile is protected with 'golden aura' spell
+{CL  Cyan Aura{x   - mobile is protected with 'shield of law' spell
+{BP  Blue Aura{x   - mobile is protected with 'prismatic sphere' spell
+{DC  Shadowy{x     - mobile is protected with 'shadow cloak' spell
 {WS  White Aura{x  - mobile is protected with 'sanctuary' spell
 {DB  Black Aura{x  - mobile is protected with 'black shroud' spell
 {yF  Fade{x        - mobile is hard to detect
@@ -6876,9 +6765,13 @@ NOAFFECT снимает любые аффекты с персонажа.
 @eng Syntax: {ctitle{x <char> <new title>
  
 TITLE changes character's title to given one.
+Only clan leaders and imms can grant you by
+the title.
 @rus Синтаксис: {ctitle{x <персонаж> <новый титул>
  
 TITLE устанавливает титул указанного персонажа.
+Только лидеры кланов и бессмертные могут награ-
+дить титулом.
 ~
 0 WIZLIST~
 {WDEITIES OF THIS WORLD{x
@@ -7008,71 +6901,37 @@ ENABLE command cannot be disabled.
 Хаоса в мире.
 ~
 0 'CLAN RULERS' 'CLAN ENFORCERS' RULERS ENFORCERS~
-@eng +----------------------------------------------------------------------------+
-|                                                                            |
-|        Justice  above  all!  The world consists of two parts:  right and   |
-|   wrong... And there should be NO second part. Every Enforcer must do as   |
-|   much as possible for that to happen.  Our word is the LAW.               |
-|                                                                            |
-|        It does not matter who commited a crime and when it happened. The   |
-|   Law will prevail and the punishment will be given to him not regarding   |
-|   of his location. A _thief_ should be in prison. A _murderer_ should be   |
-|   sentenced to death.  Every outlaw will be punished!                      |
-|                                                                            |
-|        Those of clan Chaos who are planting disorder and not obeying the   |
-|   rules are our enemies. The Invaders, thirsty for power and domination,   |
-|   are also our enemies. And we are proud to call the noble and righteous   |
-|   Knights our allies.                                                      |
-|                                                                            |
-|   2) Responsibilities of an Enforcer                                       |
-|                                                                            |
-|        All members of clan Enforcers must obey the code. We also have to   |
-|   make sure others follow the law. Not knowing the law is not an excuse,   |
-|   it makes the punishment even harsher.                                    |
-|                                                                            |
-|   3) Requirements for newcomers                                            |
-|                                                                            |
-|        Every lawful creature must help Enforcers to his/her full extent.   |
-|   It doesn't matter whether you are an elf or a troll, a man or a woman,   |
-|   a warrior or a mage. If you are loyal enough, you'll be able to become   |
-|   one of us.  The only exceptions are thieves and ninjas, who will never   |
-|   become Enforcers.                                                        |
-|                                                                            |
-+----------------------------------------------------------------------------+
-@rus +----------------------------------------------------------------------------+
-|                                                                            |
-|        Справедливость превыше  всего!  Мир  состоит  из   двух   частей:   |
-|   правильной и неправильной.  Второй части быть НЕ ДОЛЖНО.  Каждый,  кто   |
-|   принял на себя обязанности Рулера,  должен  приложить  для  этого  все   |
-|   усилия. Наше слово - закон.                                              |
-|                                                                            |
-|        Неважно, кто,  когда и где совершил преступление.  Карающая длань   |
-|   Закона настигнет его,  где бы он ни был.  Вор должен сидеть в  тюрьме.   |
-|   Убийца   должен   быть   казнен.   Ни  один  преступник  не  останется   |
-|   безнаказанным.                                                           |
-|                                                                            |
-|        Сеющие беспорядок и неподчиняющиеся закону  члены  клана  Хаос  -   |
-|   наши  враги.  Жадные до власти и неразборчивые в средствах Invader'ы -   |
-|   тоже.  С  гордостью  мы  называем  нашими  союзниками  благородных   и   |
-|   справедливых Рыцарей.                                                    |
-|                                                                            |
-|                                                                            |
-|   2) Обязанности рулера                                                    |
-|                                                                            |
-|        Члены клана   обязаны   чтить   кодекс   и   беспрекословно   ему   |
-|   подчиняться.  Мы также должны следить  за  тем,  чтобы  все  остальные   |
-|   выполняли  это  правило.  Незнание  закона не только не освобождает от   |
-|   наказания, но и является отягчающим обстоятельством.                     |
-|                                                                            |
-|   3) Условия приема                                                        |
-|                                                                            |
-|        Любой законопослушный гражданин  обязан  оказывать  членам  клана   |
-|   посильную помощь.  Нам все равно,  как ты выглядишь.  Будь ты эльф или   |
-|   тролль,  мужчина или женщина,  воин или волшебник,  добрый или злой  -   |
-|   если ты достаточно лоялен (lawful),  ты можешь рассчитывать на то, что   |
-|   станешь одним из нас. Лишь Воры и Нинзи ни при каких условиях не будут   |
-|   приняты.                                                                 |
-+----------------------------------------------------------------------------+
+Законы созданы во благо общества и для его процветания. Нарушение их -- есть
+действие, направленное на внесение дисбаланса в мир, что неминуемо приведет к
+хаосу и анархии, которые порождают неразбериху, преступления и насилие. Любой,
+кто идет на нарушение закона должен знать, что он понесет наказание; ни один,
+преступивший установленные правила, не уйдет от расплаты за совершенное. Незна-
+ние законов не освобождает от ответственности за их нарушение. Более того, это
+может служить отягощающим обстоятельством при разборе того или иного дела.
+ 
+  Орден Хранителей Порядка (Enforcers) создан в мире Серых Теней для того, что-
+бы следить за исполнением законов ({CHELP LAW{x) и наказывать тех, кто законы
+нарушает. Членом Ордена может стать любой законопослушных гражданин, за исклю-
+чением воров и нинзей (даже если такие и бывают). Члены Ордена должны забыть о
+своих личным амбициях во имя общего дела. Если Хранитель допускает малейший на-
+мек на нарушение закона или позволяет уйти виновному от расплаты по какой-бы то
+ни было причине, он немедленно перестает быть Хранителем.
+ 
+  При рассмотрение любого дела и/или проишествия действует принцип "презумпции
+невиновности". Это значит, что любое существо, пока его вина не доказана, счи-
+тается невиновным. Решение о виновности Хранитель может принять в следующих
+случаях:
+  -- Хранитель присутствовал при нарушении закона;
+  -- возможно принятие решения на основании показаний свидетелей. В этом случае
+не принимаются в рассмотрение показания воров, нинзей, chaotic'ов, а также чле-
+нов одного клана. Хранитель, выслушивающий свидетелей, сам принимает решение о
+том, верит он сказанному или нет, независимо от того, законопослушен (lawful)
+свидетель или нет.
+ 
+  Каждый законопослушный гражданин должен оказывать посильную помощь членам
+Ордена Хранителей Порядка. Воры и нинзи всегда должны находиться под присталь-
+ным постоянным вниманием, дабы свести к минимуму вред, который они могут при-
+чинить. То же самое относится к так называемым chaotic'ам.
 ~
 0 AREAS COMMANDS~
 @eng Syntax: {careas{x
@@ -7303,17 +7162,40 @@ This command clear the screen. CLS is a synonym for this command.
 @eng Syntax: {cdescription{x
  
 Use this command to enter your description.
-Pictures ARE NOT allowed in description.
+Descriptions are mandatory by level 10. Anyone should have one, no matter 
+who you are. Expect worst, if you'll be caught without a good description
+after 9 level.
+Description should contain information about :
+who you are,  your personality,   what you look like.
+
+The following description should NOT contain : 
+Out-of-character information, Pictures,
+Actions -- anything like "You have become better at look!",
+You have been killed!, "Takasi smiles at you.", "Aurian grins." etc
+Clothing worn, inventory, equipment. You will not always have it.
+Feelings of other players when they look at you.
+Emoticons , such as :( ;)  :P , etc.
+
+Description may be written in English, as well as Russian languages.
+You can put few words from elven, gnomish or cat, but don't overuse.
+Your description should be short. At least about two paragraphs in length.
+A pair of sentences is NOT a description.
  
-PS: Do not forget about {{x at the end of your description.
 @rus Синтаксис: {cdescription{x
 Описание -- это то, что видят другие, когда смотрят на тебя.
 
-Способом написания может служить представление себя перед зеркалом
-и описание того, что там, по-твоему, видно :)
 Используй эту команду для ввода описания твоего персонажа.
 Картинка не может считаться описанием. Описание не должно быть
-слишком коротким.
+слишком коротким. Хотя бы два абзаца. Пара предложений - не описание.
+Действия и предметы  НЕ  должны присутствовать в описаниях.
+Не пиши и ощущений других персонажей при взгляде на тебя. 
+Следует указать внешний облик персонажа, его суть и индивидуальные качества.
+ 
+Описания могут быть написаны на любом языке, поддерживаемом SoG.
+( Русском либо английском. Можно использовать пару слов из эльфийского
+или кошачьего, но не злоупотребляй ими.) Ошибки ненаказуемы, однако
+описание должно быть в читаемом виде, по крайней мере.
+Не используй в описаниях смайликов -- :)  :(  :P,  и прочих.
 ~
 0 PROMOTE~
 @eng Syntax: {cpromote{x <character> <position>
@@ -7532,7 +7414,7 @@ undead instantly. Victim's gear also will be destroyed.
 добру, могут в мгновение ока уничтожить нежить. Все вещи, ей при-
 надлежавшие, также уничтожаются.
 ~
-1 resilience~
+1 RESILIENCE~
 Syntax: {ccast resilience{x
  
 This spell makes you resistive to pure energy attacks.
@@ -7718,7 +7600,7 @@ Strong and dexterous, Stivrosh is the first in martial arts.
 -1 GWINNERAI~
 {WGwinnerai, Goddess of Honor.{x
 
-  As Dakkorn, Gwinneray promotes Justice, Valor, Chivalry, and Honor. These
+  As Dakkorn, Gwinnerai promotes Justice, Valor, Chivalry, and Honor. These
 two cults resemble each other very much.
 
           To you: additional attack
@@ -7751,9 +7633,9 @@ world.
 {WVilirna, Goddess of Life.{x
 
   She is protector of the life in this world. People like she for her sage.
-Vilirna is worshiped by cleric.
+Vilirna is worshiped by clerics.
 
-          To you: dragon strenght
+          To you: dragon strength
           To enemy: dragon breath
 ~
 -1 CALAMIR~

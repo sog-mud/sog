@@ -1355,7 +1355,7 @@ E 0 18606 0 16		*	a shiny newbie dagger: wielded
 S
 
 #HELPS
--1 newbie zone~
+-1 'NEWBIE ZONE'~
 Converted to standard Envy 1.x by Jason Huang (god@@sure.net)
 Further conversion to Rom 2.4 by Jaceks and Chicken's Den Staff~
 -1 $~

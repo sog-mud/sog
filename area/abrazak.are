@@ -29,6 +29,7 @@ M random 15000 1~
 M bribe 15000 1~
 M speech 15001 shadow~
 M speech 15002 demon~
+M random 34409 2~
 #15001
 prisoner karabas~
 @eng the prisoner@rus узник~
@@ -79,6 +80,26 @@ A Z 0 0
 FH B 0 S
 stand stand either 0
 G 0 small unknown
+#15004
+prisoner barabas~
+@eng the prisoner@rus узник~
+@eng Another prisoner is here.
+@rus Другой узник сидит с тобой и не дает тебе скучать...
+~
+@rus Он большой и толстый. лучше не ссорься с ним.
+~
+human~
+Af 0 0 0
+200 0 10d10+25000 0d0+0 10d10+1000 none
+-66 -66 -66 -66
+0 ABQ 0 0
+stand stand male 0
+0 0 huge unknown
+M act 15004 is dead!!~
+M act 15007 is starving!~
+M act 15007 dying of thirst!~
+M delay 15008 100~
+W 92
 #15005
 kitten cat кошечка karapupa~
 @eng little furry kitten@rus ~~маленькая~~ ~~пушистая~~ ~~кошечка~~~
@@ -183,7 +204,7 @@ pill strange~
 strange pill~
 Someone has left a strange pill here.~
 unknown~
-pill ABG AOQ
+pill ABGTi AOQ
 20 'detect invis' 'detect hidden' 'acute vision' 'improved detect'
 1 1 100000 P
 G none
@@ -794,6 +815,15 @@ treasure A AO
 0 0 0 0 0
 1 1 0 P
 G none
+#15055
+scroll misfortune~
+@eng scroll of {bMisfortune{x@rus свиток {bНевезения{x~
+@eng A piece of leprous lesbian virgin's skin is lying here.@rus Кусок кожи прокаженной девственницы-лесбиянки валяется тут.~
+virgin's skin~
+scroll ABCEFGJLRTVYZi A
+666 'anathema' 'deathen' 'magic jar' 'abolish undead'
+13 13 -13 P
+G none
 #15060
 tun бочка diogen~
 @eng a Diogen's tun@rus ~~бочка~~ Диогена~
@@ -813,21 +843,22 @@ bronze~
 light GRY AO
 0 0 -1 0 0
 5 10 0 P
-S 'detect good' 100 A
-S 'detect evil' 100 A
-S 'truesight' 100 A
+S 'acute vision' 50 A
+S 'detect hide' 100 A
+S 'improved detect' 50 A
+S 'detect invis' 100 A
+A
+1 20
+A
+3 5
+A
+2 5
+A
+5 20
 A
 6 2
-A
-5 2
-A
-2 2
-A
-4 2
-A
-3 2
-A
-1 2
+S 'detect good' 100 A
+S 'detect evil' 100 A
 E
 lamp~
 @eng A lamp made of darkened bronze is filled with oil. 
@@ -1004,6 +1035,14 @@ S
 ~
 0 CDHKNSTWX inside
 S
+#15003
+@eng Personal Cell@rus Карцер.~
+@eng You are in jail.
+@rus Ты попал в сырую и мрачную камеру.  Здесь грязно, а из пола  бьет
+небольшой фонтан с какой-то гадостью.  К тому же, здесь до одури скучно.  
+~
+0 CDHKNSTWX inside
+S
 #15010
 @eng {DThe room of Death{x@rus {DКомната Смерти{x~
 ~
@@ -1138,6 +1177,33 @@ S
 ~
 0 C inside
 S
+#15151
+@eng {bIsle of Misfortune{x@rus {bОстров Невезения{x~
+@rus Весь покрытый {Gзеленью{x, абсолютно весь.
+~
+0 HKNSUb forest
+D0
+~
+~
+Z 0 15151
+D1
+~
+~
+Z 0 15151
+D2
+~
+~
+Z 0 15151
+D3
+~
+~
+Z 0 15151
+D5
+~
+~
+Z 0 13
+M 13 H 13
+S
 #0
 
 #SPECIALS
@@ -1146,13 +1212,14 @@ S
 
 #RESETS
 M 0 15000 1 15000 1	* Avatar of abrazak (Abrazak's Lair.)
-M 0 15000 1 15000 1	* Avatar of abrazak (Abrazak's Lair.)
 O 0 15002 0 15000	* a fountain (Abrazak's Lair.)
 O 0 15005 0 15002	* a fountain with milk (Cell)
 M 0 15001 1 15002 1	* the prisoner (Cell)
 M 0 15002 1 15002 1	* cockroach (Cell)
 M 0 15003 1 15002 1	* a rat (Cell)
 O 0 15006 0 15002	* bed (Cell)
+M 0 15001 1 15003 1	* the prisoner (Personal Cell)
+M 0 15004 1 15003 1	* the prisoner (Personal Cell)
 M 0 15010 1 15010 1	* {DDevil{x ({DThe room of Death{x)
 M 0 15016 1 15015 1	* pine (In the forest)
 M 0 15015 1 15016 1	* gray squirrel (In the forest)
@@ -1162,6 +1229,10 @@ S
 15005 0 0 0 0 0 100 100 0 23
 15016 0 0 0 0 0 100 100 0 23
 0
+
+#OLIMITS
+O 15055 13	* scroll of {bMisfortune{x
+S
 
 #MOBPROGS
 #15000
@@ -1175,7 +1246,7 @@ mob vforce 50 wave
 mob vforce 50 mob goto 15000
 mob vforce 50 cast 'teleport'
 mob vforce 50 yell Hey! I have some funny junk for you!
-if rand 5
+if rand 95
 mob vforce 50 mob oload 15008
 mob vforce 50 drop invader
 endif
@@ -1245,6 +1316,11 @@ mob force $n drink fountain
 mob force $n drink fountain
 mob force $n drink fountain
 mob force $n drink fountain
+~
+#15008
+say Щаз, щааз...
+mob transfer $q 15003
+say Ну вот. так просто ты от меня н избавишься.
 ~
 #15100
 ~

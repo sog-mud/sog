@@ -240,7 +240,7 @@ janitor дворничиха~
 ~
 ~
 human~
-AGH 0 900 0
+AGHW 0 900 0
 1 0 2d6+10 1d1+99 1d5+0 pound
 10 10 10 10
 NU 0 0 C
@@ -415,7 +415,12 @@ bartender бармен~
 @rus Бармен (bartender) равнодушно смотрит на тебя, смешивая напитки.
 ~
 @eng A tired looking Bartender who hates trouble in his bar.
+If you wish he can tell you legendary names of peoples
+who was the best in pk. You must only ask about pk legends.
 @rus Устало выглядящий бармен ненавидит разборки в своем заведении.
+Если ты желаешь, он может назвать тебе имена тех легендарных
+жителей Мира Серый Теней, которым не было равным в мастерстве
+убивать. Тебе нужно лишь спросить о легендах пк.
 ~
 human~
 ABVe 0 900 0
@@ -424,6 +429,10 @@ ABVe 0 900 0
 FHJN AB CD 0
 stand stand male 150
 0 0 medium unknown
+M speech 3100 legend~
+M speech 3100 pk~
+M speech 3100 пк~
+M speech 3100 легенды~
 #3041
 waiter~
 the waiter~
@@ -549,7 +558,7 @@ janitor дворник~
 ~
 ~
 human~
-AGH 0 900 0
+AGHW 0 900 0
 1 0 2d6+10 1d1+99 1d5+0 pound
 10 10 10 10
 NU 0 0 C
@@ -1127,6 +1136,10 @@ ABVdh DF 900 0
 FG ABU CD 0
 stand stand male 1000
 0 0 medium unknown
+M greet 3162 100~
+M fight 3162 100~
+M kill 3162 100~
+M random 3162 100~
 #3163
 thief вор~
 @eng the thief@rus вор~
@@ -2253,7 +2266,7 @@ anvil наковальня~
 @eng An anvil stands in the middle of the room.@rus Наковальня (anvil) стоит в центре кузни.~
 unknown~
 furniture BRY 0
-1 10000 A -10 0
+1 10000 A 10 10
 0 0 0 P
 S 'smithing' 75 A
 G female
@@ -4976,10 +4989,10 @@ S
 @eng Entrance to the Grunting Boar Inn@rus Вход в таверну "Хрюкающий кабан"~
 @eng You are standing in the entrance hall of the Grunting Boar Inn.  The hall
 has been wisely decorated with simple but functional furniture.  A small
-staircase leads up to the defunct reception room and the bar is to the east.
+staircase leads up and the bar is to the east.
 @rus Ты стоишь во входном зале таверны "Хрюкающий кабан". Зал обставлен
-простой, но удобной мебелью. Маленькая лестница ведет вверх (up) в
-заброшенную приемную и в бар на востоке (east).
+простой, но удобной мебелью. Маленькая лестница ведет вверх (up),
+проход на восток (east) ведет в бар.
 ~
 0 DS inside
 D1
@@ -5051,13 +5064,15 @@ D3
 Z -1 3006
 S
 #3008
-@eng The Defunct Reception@rus Заброшенная приемная~
-@eng You are standing in a dusty, defunct reception.  The staircase leads
-down to the entrance hall.
-@rus Ты стоишь в грязной, заброшенной приемной. Лестница ведет вниз (down) во
-входной зал.
+@eng The bank@rus Банк~
+@eng You are standing in a small clean hall. There are many clients and
+clerks. The Midgaard Bank is one of the best banks of Shades of Gray.
+You may deposit your money without any doubts.
+@rus Ты стоишь в небольшой опрятной комнате. Вокруг толпятся клиенты и
+снуют туда сюда клерки. Банк Мидгарда считается одним из самых
+надежных и здесь можно, не боясь, оставить крупную сумму.
 ~
-0 DS inside
+0 DSU inside
 D5
 @eng You see the entrance hall.
 @rus Ты видишь входной зал.
@@ -6699,7 +6714,7 @@ smell of meat can even be felt from the place you are standing.
 @rus Ты находишься в северной части мостовой, примыкающей к Рыночной Площади.
 Обширная площадь прекрасно видна на севере (north), хотя большая часть всего
 города находится на юге (south). На востоке (east) расположена мясная лавка,
-запах мяса из которой заставляет доносится даже до того места, где ты стоишь.
+запах мяса из которой  доносится даже до того места, где ты стоишь.
 ~
 0 S city
 D0
@@ -6944,7 +6959,7 @@ D3
 Z -1 3352
 S
 #3074
-@eng Warlock laboratory@rus Лаборатория варлоков~
+@eng The warlock's laboratory@rus Лаборатория варлоков~
 @eng This is the Magical Experiments Laboratory of WARLocks. Dark smoke-stained
 stones arch over numerous huge oaken tables, most of these cluttered with 
 strange-looking  flasks.  The floor is covered with half-erased pentagrams
@@ -9562,8 +9577,6 @@ G 0 3000 0		*	a barrel of beer
 G 0 3001 0		*	a bottle of beer
 E 0 3022 0 16		*	a long sword: wielded
 M 0 3064 3 3007 3	* the drunk (The Grunting Boar)
-O 0 3139 0 3008	* the receptionist's letter of resignation (The Defunct Reception)
-O 0 3140 0 3008	* the bank's notice of liquidation (The Defunct Reception)
 M 0 3001 1 3009 1	* the baker (The Bakery)
 G 0 3009 0		*	a big pot pie
 G 0 3011 0		*	bread
@@ -9775,7 +9788,7 @@ M 0 3166 1 3070 1	* Nacya (Altar)
 O 0 3135 0 3071	* a fountain (Dark Temple)
 M 0 3012 6 3072 1	* the healer (By the Temple Altar)
 O 0 3010 0 3072	* the donation pit (By the Temple Altar)
-M 0 3170 1 3074 1	* the guildmaster (Warlock laboratory)
+M 0 3170 1 3074 1	* the guildmaster (The warlock's laboratory)
 M 0 3171 1 3076 1	* the guildmaster (Samurai's Shrine)
 M 0 3172 1 3077 1	* the templeman (Room of Templeman)
 M 0 3168 1 3078 1	* the guildmaster (Underground Chamber)
@@ -10092,6 +10105,16 @@ say Thank you for your kindness, $N.
 emote puts the coins into his beltpouch.
 thank $n
 say Sorry, I haven't got coppers for the exchange ;)
+~
+#3100
+sign
+mob echo $I says: '{GIt's not good, that you do not know these legendary names.{x'
+mob echo $I says: '{GThere are these names: Woland, Osya, Demien, Minomoto, Cleopatra, Hegan, Zeratul, Corgh, Hart and Meriadok.{x'
+mob echo $I says: '{GRemember them!{x'
+~
+#3162
+mob junk gcash
+mob junk gold
 ~
 #0
 

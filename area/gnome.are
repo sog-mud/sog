@@ -2326,7 +2326,7 @@ S
 
 #MOBPROGS
 #1501
-if mobexists 1519
+if mobexists hobgoblin king
 if level $n <= 15
 if isgood $n
 mob echoat $n The chief gnome tells you:

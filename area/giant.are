@@ -198,12 +198,18 @@ literature. After bargaining with the Lord he obtained the statis of 'Castle
 Librarian' and has been as pleased as can be ever since.
 ~
 giant~
-ABGT 0 0 0
+ABGT J 0 0
 35 -2 1d1+999 1d1+100 5d8+12 shbite
 -8 -15 -10 -3
 CDEKOT 0 0 0
-sit stand male 25
+stand stand male 25
 0 0 huge unknown
+M speech 34403 knowledge~
+M speech 34403 ancient knowledge~
+M speech 34403 знание~
+M speech 34403 древнее знание~
+M speech 34403 znanie~
+M speech 34403 drevnee znanie~
 #13012
 human torturer~
 the torturer~

@@ -731,6 +731,12 @@ EFNU 0 0 0
 sit sit male 345
 0 0 tiny unknown
 F par GHIJK
+M speech 34407 knowledge~
+M speech 34407 ancient knowledge~
+M speech 34407 знание~
+M speech 34407 древнее знание~
+M speech 34407 znanie~
+M speech 34407 drevnee znanie~
 #9547
 dirt devil~
 the dirt devil~
@@ -7533,6 +7539,7 @@ M 0 9567 6 9645 6	* a horse (The Royal Stables)
 M 0 9503 1 9646 1	* the guildmaster (The Secret Yard)
 M 0 9500 1 9648 1	* the guildmaster (The Mage's Laboratory)
 M 0 9544 20 9649 2	* the vulture (The Hay Loft)
+M 0 9546 1 9651 1	* Conan the Librarian (The Library)
 M 0 9589 1 9654 1	* the mayor (City Hall)
 G 0 9501 0		*	the Key to the City of New Thalos
 M 0 9544 20 9655 1	* the vulture (The Boyer/Fletcher's)
