@@ -1131,8 +1131,8 @@ a '' to_detects 50 -1 0 0 B
 g @rus male~
 #71
 buckler ruler shield~
-@eng Rulers' Buckler@rus ~~круглый~~ ~~щит~~ Рулера~
-@eng A buckler of a Ruler is on the ground.@rus Круглый щит (shield) с гербом клана Ruler лежит на земле.~
+@eng Enforcer's Buckler@rus ~~круглый~~ ~~щит~~ блюстителя порядка~
+@eng A buckler of Enforcer is on the ground.@rus Круглый щит (shield) с гербом клана Enforcers лежит на земле.~
 steel~
 armor GIY BE AJ
 8 8 8 3 0
@@ -1140,8 +1140,8 @@ armor GIY BE AJ
 g @rus male~
 #72
 great ruler shield щит~
-@eng Rulers' Great Shield@rus ~~большой~~ ~~щит~~ Рулера~
-@eng There is a Great Ruler Shield on the ground.@rus Большой щит (shield) с гербом клана Ruler лежит на земле.~
+@eng Enforcer's Great Shield@rus ~~большой~~ ~~щит~~ блюстителя порядка~
+@eng There is a Great Enforcer's Shield on the ground.@rus Большой щит (shield) с гербом клана Enforcers лежит на земле.~
 steel~
 armor GIY BE AJ
 20 20 20 10 0
@@ -1149,8 +1149,8 @@ armor GIY BE AJ
 g @rus male~
 #73
 kite ruler shield щит~
-Rulers' Kite Shield~
-You see a large Kite Shield of Ruler on the ground.~
+Enforcer's Kite Shield~
+You see a large Kite Shield of Enforcer on the ground.~
 steel~
 armor GIY BE AJ
 20 20 20 10 0
@@ -1161,8 +1161,8 @@ a '' to_object 0 -1 4 19 0
 g @rus none~
 #74
 tower ruler shield щит~
-@eng Rulers' Tower Shield@rus ~~огромный~~ ~~щит~~ Рулера~
-@eng A very big shield with a symbol of Ruler covers the ground.@rus ОГРОМНЫЙ щит (shield) с гербом клана Ruler лежит на земле.~
+@eng Enforcer's Tower Shield@rus ~~огромный~~ ~~щит~~ блюстителя порядка~
+@eng A very big shield with a symbol of Enforcers covers the ground.@rus ОГРОМНЫЙ щит (shield) с гербом клана Enforcers лежит на земле.~
 steel~
 armor GIY BE AJ
 30 30 30 20 0

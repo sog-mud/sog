@@ -4003,7 +4003,7 @@ for deletion. For other matters, use common sense.
   may be done withoutwarning, notice, or even evidence of sanity.
 ~
 0 LAWS LAW ~
-@eng The laws of the land that shall be enforced by the Ruler Clan are as
+@eng The laws of the land that shall be enforced by the Enforcers Clan are as
 follows :
  
     The areas that are defined as protected by the jurisdiction of the Law
@@ -4022,25 +4022,25 @@ are the entirety of Midgaard, New Thalos, Valley of Titans and  New Ofcol.
    Aggressive mobs may not be summoned/brought into any protected area.
 								       
 3. Aiding known criminals in any way by directly giving them equipment,
-   helping them to elude punishment, to kill Ruler guards, etc.
+   helping them to elude punishment, to kill Enforcers guards, etc.
    will result in a WANTED flag.
 								       
-4. Intrusion into the Ruler Clan is considered illegal and an attack upon
+4. Intrusion into the Enforcers Clan is considered illegal and an attack upon
    the laws themselves.  
 
 5. A dispersal that teleports the victim from a protected area directly into
    the room of an aggressive mob that causes their death is considered a
    player kill and will result in a WANTED flag on the caster.
 
-6. Garbling Ruler members is against the law.  This prevents them from
+6. Garbling Enforcers members is against the law.  This prevents them from
    doing their job and is considered an offensive attack upon the law itself.
 
 7. Criminals are outlaw. You can attack criminal in protected area.
 
- Enforcement of these laws will be carried out by Ruler members. Midgaard,
+ Enforcement of these laws will be carried out by Enforcers members. Midgaard,
 New Thalos, Valley of Titans and New Ofcol are defined by the 'where protector'
 command. Old midgaard is not a holy town.
-@rus Законы, за выполнением которых должен следить клан Ruler:
+@rus Законы, за выполнением которых должен следить клан Enforcers:
  
 Области в которых действует Закон - Midgaard, New Thalos, Valley of Titans
 и New Ofcol.
@@ -4058,13 +4058,13 @@ command. Old midgaard is not a holy town.
 3. Запрещено помогать криминальному элементу, давать ему вещи, помогать
 избежать наказания, убивать стражников охотящихся за ним.
  
-4. Вторжение в Клан Ruler запрещено и рассматривается как нарушение закона.
+4. Вторжение в Клан Enforcers запрещено и рассматривается как нарушение закона.
  
 5. Перенос с помощью заклинаний группы transportations жертвы из защищенной
 области непосредственно в комнату с агрессивными мобами, который приведет к
 смерти рассматривается как нападение на игрока в защищенной области.
  
-6. Использование garble на членов клана Ruler запрещено, так как мешает
+6. Использование garble на членов клана Enforcers запрещено, так как мешает
 нормальному выполнению их обязанностей и потому рассматривается как нарушение
 закона.
  
@@ -4076,8 +4076,8 @@ command. Old midgaard is not a holy town.
 1 WANTED ~
 @eng Syntax: {cwanted{x <player>
  
-This is clan skill of Rulers that mark a player as a criminal or removes this
-mark. Ruler commoner can remove wanted status only if he set it. Leaders and
+This is clan skill of Enforcers that mark a player as a criminal or removes this
+mark. Enforcers commoner can remove wanted status only if he set it. Leaders and
 secondaries can always remove wanted status.
 
 Wanted players are denied from the shops, suffer attacks of cityguards. If
@@ -4133,11 +4133,11 @@ offensive spell which can only be used in locations where you can also camo.
 0 PHILOSOPHY ~
 Here is a general philosophy of each of the known clans.
 
-Ruler:  The enforcement of the laws above all.  The world exists in two
+Enforcers:  The enforcement of the laws above all.  The world exists in two
 	halves: right and wrong.  The law comes first in all respects.
 	They control and decide what is lawful or not.  Their word is law.
 
-BattleRager:  BattleRagers live for combat, and look down on those who need    
+BattleRagers: BattleRagers live for combat, and look down on those who need    
 	      magic to survive.  They have a strong aversion to mage magic,
 	      and are very wary of clerical magic.
 
@@ -4146,7 +4146,7 @@ Chaos:    Chaos wants to spread chaos throughout the land.  Not necessarily
 	  rules hamper freedom, and will go out of their way to see them
 	  broken, or to cause chaos.
 
-Knight:   Honor is valued above all else.  These fighting warriors seek to
+Knights:  Honor is valued above all else.  These fighting warriors seek to
 	  right injustices and correct wrongs.  They follow the ideals of
 	  the paladin. 
 
@@ -4155,11 +4155,11 @@ Shalafi:  In Dark-Elf language, it means 'Master'. Discipline brings power.
           of the Art is their motivation.  They look down on physical combat, 
           preferring to use their magic.
 
-Invader:  Invader is born to invade or massacre.  Establishment of its power 
+Invaders: Invader is born to invade or massacre.  Establishment of its power 
           over all is its goal.  Invader, in short, wants to control the world, 
           but would never do so openly.
 
-Hunter:   Mercenary of Shades of Gray. These pupils  kill any mobile and player
+Hunters:  Mercenary of Shades of Gray. These pupils  kill any mobile and player
 	  with the money that they will want. You may hire any of hunter
 	  for above purpose.
 
@@ -5239,7 +5239,7 @@ See also: {CHELP 'OLC FORMS INTRO'{x
  
 ~
 0 'CLAN KNIGHT' KNIGHT~
-@eng ...Deep chaos fell on the World. Seven Cabals had come to being. Chaos, Terror 
+@eng ...Deep chaos fell on the World. Seven Clans had come to being. Chaos, Terror 
 and Disorder had been fighting with Law, Order, and Justice. The seventh one, 
 somewhat called Equilibrium, obeyed neither the Law, nor the Chaos...
  
@@ -7025,7 +7025,7 @@ without any argument to see a list of learned languages.
 @eng Syntax: {cjudge{x <victim>
  
 This command is used to get to know victim's ethos and align.
-It is Rulers' clan skill.
+It is Enforcers' clan skill.
 @rus Синтаксис: {cjudge{x <жертва>
 При помощи этой команды Рулер может определить характер жертвы.
 ~
