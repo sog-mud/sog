@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: resolver.c,v 1.8 1998-11-23 07:19:13 fjoe Exp $
+ * $Id: resolver.c,v 1.9 1998-11-23 07:37:48 fjoe Exp $
  */
 
 #if !defined (WIN32)
@@ -71,10 +71,8 @@ void resolver_init(void)
 		resolver_loop();
 
 	signal(SIGHUP, cleanup);
-	signal(SIGINT, cleanup);
 	signal(SIGQUIT, cleanup);
 	signal(SIGILL, cleanup);
-	signal(SIGTRAP, cleanup);
 	signal(SIGABRT, cleanup);
 	signal(SIGFPE, cleanup);
 	signal(SIGBUS, cleanup);
@@ -121,6 +119,9 @@ static void resolver_loop(void)
 	FILE *fin;
 	FILE *fout;
 	char buf[128];
+
+	signal(SIGINT, SIG_IGN);
+	signal(SIGTRAP, SIG_IGN);
 
 	close(fildes[0]);
 	close(fildes[3]);
