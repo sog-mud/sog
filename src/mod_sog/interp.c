@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.55 1998-08-17 18:47:05 fjoe Exp $
+ * $Id: interp.c,v 1.56 1998-08-17 19:21:03 fjoe Exp $
  */
 
 /***************************************************************************
@@ -910,17 +910,10 @@ const char *one_argument(const char *argument, char *arg_first)
 	return first_arg(argument, arg_first, TRUE);
 }
 
-/*
- * Used above in string_add.  Because this function does not
- * modify case if fCase is FALSE and because it understands
- * parenthesis, it would probably make a nice replacement
- * for one_argument.
- */
 /*****************************************************************************
  Name:		first_arg
  Purpose:	Pick off one argument from a string and return the rest.
- 		Understands quates, parenthesis (barring) ('s) and
- 		percentages.
+ 		Understands quotes, if fCase then case will not be modified
  Called by:	string_add(string.c)
  ****************************************************************************/
 const char *first_arg(const char *argument, char *arg_first, bool fCase)
@@ -936,7 +929,7 @@ const char *first_arg(const char *argument, char *arg_first, bool fCase)
         	cEnd = *argument++;
 
 	while (*argument) {
-		if (isspace(*argument) || *argument == cEnd) {
+		if ((!cEnd && isspace(*argument)) || *argument == cEnd) {
 			argument++;
 			break;
 		}
