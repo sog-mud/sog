@@ -1,11 +1,11 @@
 /*
- * $Id: act_info.c,v 1.271.2.69 2002-11-21 10:14:24 tatyana Exp $
+ * $Id: act_info.c,v 1.271.2.70 2002-11-21 13:56:27 fjoe Exp $
  */
 
 /***************************************************************************
  *     ANATOLIA 2.1 is copyright 1996-1997 Serdar BULUT, Ibrahim CANPUNAR  *
  *     ANATOLIA has been brought to you by ANATOLIA consortium		   *
- *	 Serdar BULUT {Chronos} 	bulut@rorqual.cc.metu.edu.tr	   *
+ *	 Serdar BULUT {Chronos}		bulut@rorqual.cc.metu.edu.tr	   *
  *	 Ibrahim Canpunar  {Asena}	canpunar@rorqual.cc.metu.edu.tr    *
  *	 Murat BICER  {KIO}		mbicer@rorqual.cc.metu.edu.tr	   *
  *	 D.Baris ACAR {Powerman}	dbacar@rorqual.cc.metu.edu.tr	   *
@@ -4683,7 +4683,11 @@ static void show_char_to_char(CHAR_DATA *list, CHAR_DATA *ch)
 }
 
 #define CMD_ALLOWED(cmd, ch)						\
-	((cmd)->min_level < LEVEL_HERO && (cmd)->min_level <= (ch)->level)
+	((cmd)->min_level < LEVEL_HERO &&				\
+	 (cmd)->min_level <= (ch)->level &&				\
+	 (IS_NULLSTR((cmd)->sn) ||					\
+	  (sn = sn_lookup((cmd)->sn)) < 0 ||				\
+	  get_skill((ch), sn) != 0))
 
 #define WIZCMD_ALLOWED(cmd, ch)						\
 	((cmd)->min_level >= LEVEL_IMMORTAL &&				\
@@ -4698,6 +4702,7 @@ show_aliases(CHAR_DATA *ch, const char *argument, bool wiz)
 
 	one_argument(argument, arg, sizeof(arg));
 	for (i = 0; i < commands.nused; i++) {
+		int sn;
 		cmd_t *cmd = VARR_GET(&commands, i);
 
 		if ((wiz ? WIZCMD_ALLOWED(cmd, ch) : CMD_ALLOWED(cmd, ch))
@@ -4716,7 +4721,7 @@ show_aliases(CHAR_DATA *ch, const char *argument, bool wiz)
 		}
 	}
 
-	act_puts("$t: No such $Tcommands found.",
+	act_puts("$t: No such $Tcommand found.",
 	    ch, arg, wiz ? "wiz" : "",
 	    TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 }
@@ -4736,6 +4741,7 @@ void do_commands(CHAR_DATA *ch, const char *argument)
 
 	col = 0;
 	for (i = 0; i < commands.nused; i++) {
+		int sn;
 		cmd_t *cmd = VARR_GET(&commands, i);
 
 		if (CMD_ALLOWED(cmd, ch)
@@ -4754,8 +4760,9 @@ void do_wizhelp(CHAR_DATA *ch, const char *argument)
 {
 	int i;
 	int col;
+	CHAR_DATA *vch = GET_ORIGINAL(ch);
 
-	if (IS_NPC(ch)) {
+	if (IS_NPC(vch)) {
 		char_puts("Huh?\n", ch);
 		return;
 	}
@@ -4769,7 +4776,7 @@ void do_wizhelp(CHAR_DATA *ch, const char *argument)
 	for (i = 0; i < commands.nused; i++) {
 		cmd_t *cmd = VARR_GET(&commands, i);
 
-		if (!WIZCMD_ALLOWED(cmd, ch))
+		if (!WIZCMD_ALLOWED(cmd, vch))
 			continue;
 
 		char_printf(ch, "%-12s", cmd->name);
@@ -5008,28 +5015,22 @@ void do_areas(CHAR_DATA *ch, const char *argument)
 	}
 
 	buf_printf(output, "\n%d areas total.\n", maxArea);
-	page_to_char(buf_string(output), ch);	
+	page_to_char(buf_string(output), ch);
 	buf_free(output);
 }
 
 void do_acute_vision(CHAR_DATA *ch, const char *argument)
 {
 	AFFECT_DATA	af;
-	int		chance;
 	int		sn;
 
-	if ((sn = sn_lookup("acute eye")) < 0
-	||  (chance = get_skill(ch, sn)) == 0) {
-		char_puts("Huh?\n", ch);
+	if (IS_AFFECTED(ch, AFF_ACUTE_VISION)) {
+		char_puts("Your vision is already acute. \n",ch);
 		return;
 	}
-	if (IS_AFFECTED(ch, AFF_ACUTE_VISION)) {
-			char_puts("Your vision is already acute. \n",ch);
-			return;
-	}
 
-
-	if (number_percent() > chance) {
+	sn = sn_lookup("acute eye");
+	if (number_percent() > get_skill(ch, sn)) {
 		char_puts("You peer intently through leaf "
 			     "but they are unrevealing.\n", ch);
 		check_improve(ch, sn, FALSE, 1);

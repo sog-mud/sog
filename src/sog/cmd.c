@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: cmd.c,v 1.5.2.2 2002-11-21 10:00:48 fjoe Exp $
+ * $Id: cmd.c,v 1.5.2.3 2002-11-21 13:56:46 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -47,6 +47,7 @@ cmd_t *cmd_new(void)
 	cmd->name = str_empty;
 	cmd->aliases = str_empty;
 	cmd->dofun_name = str_empty;
+	cmd->sn = str_empty;
 	cmd->cmd_log = LOG_NORMAL;
 
 	return cmd;
@@ -57,6 +58,7 @@ void cmd_free(cmd_t *cmd)
 	free_string(cmd->name);
 	free_string(cmd->aliases);
 	free_string(cmd->dofun_name);
+	free_string(cmd->sn);
 }
 
 cmd_t *cmd_lookup(const char *name)

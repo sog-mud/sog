@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.164.2.5 2002-11-21 10:00:48 fjoe Exp $
+ * $Id: interp.c,v 1.164.2.6 2002-11-21 13:56:46 fjoe Exp $
  */
 
 /***************************************************************************
@@ -144,10 +144,17 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 	 * Look for command in command table.
 	 */
 	for (i = 0; i < commands.nused; i++) {
+		int sn;
+
 		cmd = VARR_GET(&commands, i);
 
 		if (!!str_prefix(command, cmd->name)
 		&&  !is_name(command, cmd->aliases))
+			continue;
+
+		if (!IS_NULLSTR(cmd->sn)
+		&&  (sn = sn_lookup(cmd->sn)) >= 0
+		&&  get_skill(vch, sn) == 0)
 			continue;
 
 		/*

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_cmd.c,v 1.1.2.2 2002-11-21 10:00:50 fjoe Exp $
+ * $Id: db_cmd.c,v 1.1.2.3 2002-11-21 13:56:52 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -86,9 +86,12 @@ DBLOAD_FUN(load_cmd)
 		case 'N':
 			SKEY("name", cmd->name);
 			break;
+		case 'S':
+			SKEY("skill", cmd->sn);
+			break;
 		}
 
-		if (!fMatch) 
+		if (!fMatch)
 			db_error("load_cmd", "%s: Unknown keyword", word);
 	}
 }
