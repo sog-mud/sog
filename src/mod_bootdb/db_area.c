@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.52 1999-06-17 19:28:06 fjoe Exp $
+ * $Id: db_area.c,v 1.53 1999-06-17 21:13:26 fjoe Exp $
  */
 
 /***************************************************************************
@@ -546,6 +546,13 @@ DBLOAD_FUN(load_old_obj)
 		case ITEM_STAFF:
 		case ITEM_WAND:
 			pObjIndex->value[3] = slot_lookup(pObjIndex->value[3]);
+			break;
+
+		case ITEM_WEAPON:
+			if (pObjIndex->value[0] == WEAPON_SPEAR) {
+				SET_BIT(pObjIndex->value[4], WEAPON_THROW);
+				touch_area(area_current);
+			}
 			break;
 		}
 
@@ -1482,6 +1489,12 @@ DBLOAD_FUN(load_objects)
             }
         }
  
+	if (pObjIndex->item_type == ITEM_WEAPON
+	&&  pObjIndex->value[0] == WEAPON_SPEAR) {
+		SET_BIT(pObjIndex->value[4], WEAPON_THROW);
+		touch_area(area_current);
+	}
+
         iHash                   = vnum % MAX_KEY_HASH;
         pObjIndex->next         = obj_index_hash[iHash];
         obj_index_hash[iHash]   = pObjIndex;
