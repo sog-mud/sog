@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.85 1998-06-28 04:47:13 fjoe Exp $
+ * $Id: act_info.c,v 1.86 1998-07-03 15:18:39 fjoe Exp $
  */
 
 /***************************************************************************
@@ -54,7 +54,6 @@
 #include "const.h"
 #include "magic.h"
 #include "recycle.h"
-#include "tables.h"
 #include "lookup.h"
 #include "resource.h"
 #include "act_info.h"
@@ -67,6 +66,7 @@
 #include "quest.h"
 #include "log.h"
 #include "obj_prog.h"
+#include "buffer.h"
 
 #if defined(SUNOS) || defined(SVR4)
 #	include <crypt.h>
@@ -122,16 +122,13 @@ void	show_char_to_char_1	args((CHAR_DATA *victim, CHAR_DATA *ch));
 void	show_char_to_char	args((CHAR_DATA *list, CHAR_DATA *ch));
 bool	check_blind		args((CHAR_DATA *ch));
 
-#define is_empty(s) ((s) == NULL || (s)[0] == '\0')
-#define strend(s) (strchr(s, '\0'))
-
 char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 {
 	static char buf[MAX_STRING_LENGTH];
 
 	buf[0] = '\0';
-	if ((fShort && is_empty(obj->short_descr))
-	||  is_empty(obj->description))
+	if ((fShort && IS_NULLSTR(obj->short_descr))
+	||  IS_NULLSTR(obj->description))
 		return buf;
 
 	if (IS_SET(ch->comm, COMM_LONG)) {
@@ -206,7 +203,6 @@ char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 void show_list_to_char(OBJ_DATA *list, CHAR_DATA *ch,
 		       bool fShort, bool fShowNothing)
 {
-	char buf[MAX_STRING_LENGTH];
 	BUFFER *output;
 	char **prgpstrShow;
 	int *prgnShow;
@@ -223,7 +219,7 @@ void show_list_to_char(OBJ_DATA *list, CHAR_DATA *ch,
 	/*
 	 * Alloc space for output lines.
 	 */
-	output = new_buf();
+	output = buf_new(0);
 
 	count = 0;
 	for (obj = list; obj != NULL; obj = obj->next_content)
@@ -278,16 +274,14 @@ void show_list_to_char(OBJ_DATA *list, CHAR_DATA *ch,
 		}
 
 		if (IS_NPC(ch) || IS_SET(ch->comm, COMM_COMBINE)) {
-			if (prgnShow[iShow] != 1) {
-				sprintf(buf, "(%2d) ", prgnShow[iShow]);
-				add_buf(output,buf);
-			}
+			if (prgnShow[iShow] != 1) 
+				buf_printf(output, "(%2d) ", prgnShow[iShow]);
 			else
-				add_buf(output,"     ");
+				buf_add(output,"     ");
 		}
 
-		add_buf(output,prgpstrShow[iShow]);
-		add_buf(output,"\n\r");
+		buf_add(output, prgpstrShow[iShow]);
+		buf_add(output,"\n\r");
 		free_string(prgpstrShow[iShow]);
 	}
 
@@ -302,7 +296,7 @@ void show_list_to_char(OBJ_DATA *list, CHAR_DATA *ch,
 	/*
 	 * Clean up.
 	 */
-	free_buf(output);
+	buf_free(output);
 	free_mem(prgpstrShow, count * sizeof(char *));
 	free_mem(prgnShow,    count * sizeof(int)  );
 
@@ -1661,26 +1655,22 @@ void do_help(CHAR_DATA *ch, char *argument)
 
 		if (is_name(argall, pHelp->keyword)) {
 			if (output == NULL)
-				output = new_buf();
+				output = buf_new(0);
 			else
-				add_buf(output, "\n\r-------------------------------------------------------------------------------\n\r\n\r");
+				buf_add(output, "\n\r-------------------------------------------------------------------------------\n\r\n\r");
 
 			if (pHelp->level > -2
-			&&  str_cmp(pHelp->keyword, "imotd")) {
-				char buf[MAX_STRING_LENGTH];
-
-				snprintf(buf, sizeof(buf), "{C%s{x\n\r\n\r",
+			&&  str_cmp(pHelp->keyword, "imotd"))
+				buf_printf(output, "{C%s{x\n\r\n\r",
 					 pHelp->keyword);
-				add_buf(output, buf);
-			}
 
 			/*
 			 * Strip leading '.' to allow initial blanks.
 			 */
 			if (pHelp->text[0] == '.')
-				add_buf(output, pHelp->text+1);
+				buf_add(output, pHelp->text+1);
 			else
-				add_buf(output, pHelp->text);
+				buf_add(output, pHelp->text);
 
 		}
 	}
@@ -1689,7 +1679,7 @@ void do_help(CHAR_DATA *ch, char *argument)
 		send_to_char(msg(NO_HELP_ON_WORD, ch), ch);
 	else {
 		page_to_char(buf_string(output), ch);
-		free_buf(output);
+		buf_free(output);
 	}
 }
 
@@ -3583,47 +3573,6 @@ char *get_cond_alias(OBJ_DATA *obj, CHAR_DATA *ch)
 	else			stat = msg(COND_FRAGILE, ch);
 
 	return stat;
-}
-
-
-/* room affects */
-void do_raffects(CHAR_DATA *ch, char *argument)
-{
-	AFFECT_DATA *paf, *paf_last = NULL;
-
-	if (ch->in_room->affected == NULL) {
-		send_to_char("The room is not affected by any spells.\n\r",ch);
-		return;
-	}
-
-	send_to_char("The room is affected by the following spells:\n\r", ch);
-	for (paf = ch->in_room->affected; paf != NULL; paf = paf->next) {
-		if (paf_last != NULL && paf->type == paf_last->type)
-			if (ch->level >= 20)
-				char_puts("                      ", ch);
-			else
-				continue;
-		else
-			char_printf(ch, "%s {c%-15s{x", msg(AFF_SPELL, ch),
-				    skill_table[paf->type].name);
-
-		if (ch->level >= 20) {
-			char_printf(ch, ": %s {c%s{x %s {c%d{x ",
-				    msg(AFF_MODIFIES, ch),
-				    raffect_loc_name(paf->location),
-				    msg(AFF_BY, ch),
-				    paf->modifier);
-			if (paf->duration == -1 || paf->duration == -2)
-				char_nputs(AFF_PERMANENTLY, ch);
-			else
-				char_printf(ch, msg(AFF_FOR_D_HOURS, ch),
-					    paf->duration);
-		}
-		send_to_char("\n\r", ch);
-		paf_last = paf;
-	}
-
-	return;
 }
 
 

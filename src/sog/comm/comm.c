@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.56 1998-06-29 06:48:30 fjoe Exp $
+ * $Id: comm.c,v 1.57 1998-07-03 15:18:40 fjoe Exp $
  */
 
 /***************************************************************************
@@ -78,8 +78,6 @@
 #include <stdlib.h>
 
 #include "merc.h"
-#include "tables.h"
-
 #include "recycle.h"
 #include "comm.h"
 #include "act_wiz.h"
@@ -1600,7 +1598,7 @@ void nanny(DESCRIPTOR_DATA *d, char *argument)
 
 	}      
 
-	   if (!IS_IMMORTAL(ch) && !IS_SET(ch->act,PLR_CANINDUCT)) {
+		if (!IS_IMMORTAL(ch)) {
 	  if (iNumPlayers > MAX_OLDIES && fOld)  {
 	     sprintf(buf, 
 	   "\n\rThere are currently %i players mudding out of a maximum of %i.\n\rPlease try again soon.\n\r",iNumPlayers - 1, MAX_OLDIES);
@@ -2350,11 +2348,6 @@ sprintf(buf,"Str:%s  Int:%s  Wis:%s  Dex:%s  Con:%s Cha:%s \n\r Accept (Y/N)? ",
 
 		wiznet("{W$N{x joins us.", ch, NULL, WIZ_LOGINS, 0, 
 			get_trust(ch));
-
-	if (IS_SET(ch->act,PLR_NO_EXP))	REMOVE_BIT(ch->act,PLR_NO_EXP);
-
-	if (IS_SET(ch->act,PLR_CHANGED_AFF)) 
-		REMOVE_BIT(ch->act,PLR_CHANGED_AFF);
 
 	    for (i = 0; i < MAX_STATS; i++)
 	{

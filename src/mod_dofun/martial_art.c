@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.14 1998-06-24 02:42:23 efdi Exp $
+ * $Id: martial_art.c,v 1.15 1998-07-03 15:18:42 fjoe Exp $
  */
 
 /***************************************************************************
@@ -47,10 +47,10 @@
 #include "recycle.h"
 #include "db.h"
 #include "comm.h"
-#include "magic.h"
 #include "act_comm.h"
 #include "util.h"
 #include "log.h"
+#include "lookup.h"
 
 #ifdef SUNOS
 #	include <stdarg.h>
@@ -408,7 +408,7 @@ void do_dirt(CHAR_DATA *ch, char *argument)
 	one_argument(argument,arg);
 
 	if ((chance = get_skill(ch,gsn_dirt)) == 0
-	||   (IS_NPC(ch) && !IS_SET(ch->off_flags,OFF_KICK_DIRT))) {
+	||   (IS_NPC(ch) && !IS_SET(ch->off_flags,OFF_DIRT_KICK))) {
 		send_to_char("You get your feet dirty.\n\r",ch);
 		return;
 	}

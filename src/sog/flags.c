@@ -1,5 +1,5 @@
 /*
- * $Id: flags.c,v 1.4 1998-06-28 04:47:14 fjoe Exp $
+ * $Id: flags.c,v 1.5 1998-07-03 15:18:41 fjoe Exp $
  */
 
 /***************************************************************************
@@ -46,9 +46,9 @@
 #include <string.h>
 #include <stdlib.h>
 #include "merc.h"
-#include "tables.h"
 #include "db.h"
 #include "comm.h"
+#include "tables.h"
 
 int flag_lookup args( ( const char *name, const struct flag_type *flag_table) );
 
@@ -77,7 +77,7 @@ void do_flag(CHAR_DATA *ch, char *argument)
 	send_to_char("  flag char <name> <field> <flags>\n\r",ch);
 	send_to_char("  flag obj  <name> <field> <flags>\n\r",ch);
 	send_to_char("  flag room <room> <field> <flags>\n\r",ch);
-	send_to_char("  mob  flags: act,aff,off,imm,res,vuln,form,part\n\r",ch);
+	send_to_char("  mob  flags: act,aff,off,imm,res,vuln,form,part,det,pra\n\r",ch);
 	send_to_char("  char flags: plr,comm,aff,imm,res,vuln,\n\r",ch);
 	send_to_char("  obj  flags: extra,wear,weap,cont,gate,exit\n\r",ch);
 	send_to_char("  room flags: room\n\r",ch);
@@ -142,6 +142,12 @@ void do_flag(CHAR_DATA *ch, char *argument)
 	{
 	    flag = &victim->affected_by;
 	    flag_table = affect_flags;
+	}
+
+	else if (!str_prefix(arg3, "det"))
+	{
+	    flag = &victim->detection;
+	    flag_table = detect_flags;
 	}
 
   	else if (!str_prefix(arg3,"immunity"))
@@ -259,7 +265,3 @@ void do_flag(CHAR_DATA *ch, char *argument)
 	return;
     }
 }
-
-
-
-    

@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.31 1998-06-29 06:48:31 fjoe Exp $
+ * $Id: save.c,v 1.32 1998-07-03 15:18:46 fjoe Exp $
  */
 
 /***************************************************************************
@@ -53,10 +53,8 @@
 #endif
 
 #include "merc.h"
-#include "tables.h"
 #include "recycle.h"
 #include "lookup.h"
-#include "tables.h"
 #include "db.h"
 #include "comm.h"
 #include "const.h"
@@ -204,7 +202,9 @@ fwrite_char(CHAR_DATA * ch, FILE * fp)
 		fprintf(fp, "Silv %d\n", 0);
 	fprintf(fp, "Exp  %d\n", ch->exp);
 	if (ch->act != 0)
-		fprintf(fp, "Act  %s\n", format_flags(ch->act));
+		fprintf(fp, "Act  %s\n",
+			format_flags(ch->act & ~(PLR_NOEXP | PLR_CHANGED_AFF)));
+
 	if (ch->affected_by != 0) {
 		if (IS_NPC(ch))
 			fprintf(fp, "AfBy %s\n", format_flags(ch->affected_by));

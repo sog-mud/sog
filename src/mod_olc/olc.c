@@ -1,5 +1,5 @@
 /*
- * $Id: olc.c,v 1.2 1998-06-30 17:45:45 fjoe Exp $
+ * $Id: olc.c,v 1.3 1998-07-03 15:18:45 fjoe Exp $
  */
 
 /***************************************************************************
@@ -24,11 +24,11 @@
 #include <string.h>
 #include <time.h>
 #include "merc.h"
-#include "tables.h"
 #include "olc.h"
 #include "comm.h"
 #include "db.h"
 #include "interp.h"
+#include "tables.h"
 
 /*
  * Local functions.
@@ -292,6 +292,7 @@ const struct olc_cmd_type oedit_table[] =
     {   "v3",		oedit_value3	},
     {   "v4",		oedit_value4	},  /* ROM */
     {   "weight",	oedit_weight	},
+    {   "limit",	oedit_limit	},
 
     {   "extra",        oedit_extra     },  /* ROM */
     {   "wear",         oedit_wear      },  /* ROM */
@@ -327,6 +328,8 @@ const struct olc_cmd_type medit_table[] =
     {   "sex",          medit_sex       },  /* ROM */
     {   "act",          medit_act       },  /* ROM */
     {   "affect",       medit_affect    },  /* ROM */
+    {   "detect",       medit_detect    },
+    {   "prac",		medit_prac	},
     {   "armor",        medit_ac        },  /* ROM */
     {   "form",         medit_form      },  /* ROM */
     {   "part",         medit_part      },  /* ROM */

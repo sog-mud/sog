@@ -1,5 +1,5 @@
 /*
- * $Id: flag.c,v 1.1 1998-06-28 04:47:14 fjoe Exp $
+ * $Id: flag.c,v 1.2 1998-07-03 15:18:40 fjoe Exp $
  */
 
 /***************************************************************************
@@ -29,9 +29,8 @@
 #include <string.h>
 #include <time.h>
 #include "merc.h"
-#include "tables.h"
 #include "lookup.h"
-
+#include "tables.h"
 
 struct flag_stat_type
 {
@@ -62,6 +61,8 @@ const struct flag_stat_type flag_stat_table[] =
     {   wear_flags,		FALSE	},
     {   act_flags,		FALSE	},
     {   affect_flags,		FALSE	},
+    {   detect_flags,		FALSE	},
+    {	skill_groups,		FALSE	},
     {   apply_flags,		TRUE	},
     {   wear_loc_flags,		TRUE	},
     {   wear_loc_strings,	TRUE	},

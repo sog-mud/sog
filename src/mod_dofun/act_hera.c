@@ -1,5 +1,5 @@
 /*
- * $Id: act_hera.c,v 1.25 1998-06-29 06:48:29 fjoe Exp $
+ * $Id: act_hera.c,v 1.26 1998-07-03 15:18:38 fjoe Exp $
  */
 
 /***************************************************************************
@@ -47,7 +47,7 @@
 ***************************************************************************/
 
 /*
- * $Id: act_hera.c,v 1.25 1998-06-29 06:48:29 fjoe Exp $
+ * $Id: act_hera.c,v 1.26 1998-07-03 15:18:38 fjoe Exp $
  */
 #include <sys/types.h>
 #include <sys/time.h>
@@ -135,7 +135,7 @@ void do_enter(CHAR_DATA *ch, char *argument)
 	if (!IS_TRUSTED(ch,ANGEL) && !IS_SET(portal->value[2],GATE_NOCURSE)
 	&&  (IS_AFFECTED(ch,AFF_CURSE) 
 	||   IS_SET(old_room->room_flags,ROOM_NO_RECALL) 
-	||   IS_RAFFECTED(old_room,AFF_ROOM_CURSE)))
+	||   IS_RAFFECTED(old_room,RAFF_CURSE)))
 	{
 	    send_to_char("Something prevents you from leaving...\n\r",ch);
 	    return;
@@ -316,7 +316,7 @@ void do_settraps(CHAR_DATA *ch, char *argument)
 	  af.duration  = ch->level / 40;
 	  af.location  = APPLY_NONE;
 	  af.modifier  = 0;
-	  af.bitvector = AFF_ROOM_THIEF_TRAP;
+	  af.bitvector = RAFF_THIEF_TRAP;
 	  affect_to_room(ch->in_room, &af);
 
 	  af2.where     = TO_AFFECTS;

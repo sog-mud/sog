@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.54 1998-06-30 11:09:49 fjoe Exp $
+ * $Id: act_comm.c,v 1.55 1998-07-03 15:18:38 fjoe Exp $
  */
 
 /***************************************************************************
@@ -54,7 +54,6 @@
 #include "recycle.h"
 #include "comm.h"
 #include "db.h"
-#include "tables.h"
 #include "interp.h"
 #include "resource.h"
 #include "act_comm.h"
@@ -62,6 +61,7 @@
 #include "log.h"
 #include "mob_prog.h"
 #include "obj_prog.h"
+#include "buffer.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_quit	);
@@ -357,7 +357,7 @@ void do_replay (CHAR_DATA *ch, char *argument)
 	}
 
 	page_to_char(buf_string(ch->pcdata->buffer), ch);
-	clear_buf(ch->pcdata->buffer);
+	buf_clear(ch->pcdata->buffer);
 }
 
 void do_immtalk(CHAR_DATA *ch, char *argument)
@@ -516,11 +516,15 @@ void do_tell_raw(CHAR_DATA *ch, CHAR_DATA *victim, char *msg)
 		strcpy(buf, msg);
 
 	if (victim->desc == NULL && !IS_NPC(victim)) {
-		act("$N seems to have misplaced $S link...try again later.",
-		    ch, NULL, victim, TO_CHAR);
-		snprintf(buf, sizeof(buf), "%s tells you '%s'\n\r", PERS(ch,victim),msg);
-		buf[0] = UPPER(buf[0]);
-		add_buf(victim->pcdata->buffer,buf);
+		char *p;
+
+		act_puts("$N seems to have misplaced $S link..."
+			 "try again later.",
+			 ch, NULL, victim, TO_CHAR, POS_DEAD);
+		p = strend(buf_string(victim->pcdata->buffer));
+		buf_printf(victim->pcdata->buffer, "%s tells you '{G%s{x'\n\r",
+			   PERS(ch,victim), buf);
+		*p = UPPER(*p);
 		return;
 	}
 
@@ -529,7 +533,7 @@ void do_tell_raw(CHAR_DATA *ch, CHAR_DATA *victim, char *msg)
 		return;
 	}
 */
-	if ((IS_SET(victim->comm,COMM_QUIET) || IS_SET(victim->comm,COMM_DEAF))
+	if (IS_SET(victim->comm, (COMM_QUIET | COMM_DEAF))
 	&&  !IS_IMMORTAL(ch) && !IS_IMMORTAL(victim)) {
 		act_puts("$E is not receiving tells.", ch, 0, victim,
 			 TO_CHAR, POS_DEAD);
@@ -547,7 +551,6 @@ void do_tell_raw(CHAR_DATA *ch, CHAR_DATA *victim, char *msg)
 	act_nprintf(ch, buf, victim, TO_VICT, POS_SLEEPING, COMM_TELLS_YOU);
 
 	victim->reply = ch;
-
 	if (!IS_NPC(ch) && IS_NPC(victim) && HAS_TRIGGER(victim,TRIG_SPEECH))
 		mp_act_trigger(msg, victim, ch, NULL, NULL, TRIG_SPEECH);
 }
@@ -1036,7 +1039,7 @@ void do_quit_org(CHAR_DATA *ch, char *argument, bool Count)
 		return;
 	}
 
-	if (IS_SET(ch->act, PLR_NO_EXP)) {
+	if (CANT_GAIN_EXP(ch)) {
 		send_to_char("You don't want to lose your spirit.\n\r", ch);
 		return;
 	}
@@ -1048,7 +1051,7 @@ void do_quit_org(CHAR_DATA *ch, char *argument, bool Count)
 	}
 
 	if (!IS_IMMORTAL(ch)
-	&&  ch->in_room && IS_RAFFECTED(ch->in_room, AFF_ROOM_ESPIRIT)) {
+	&&  ch->in_room && IS_RAFFECTED(ch->in_room, RAFF_ESPIRIT)) {
 		send_to_char("Evil spirits in the area prevents you from leaving.\n\r", ch);
 		return;
 	}

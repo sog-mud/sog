@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.8 1998-06-28 04:47:16 fjoe Exp $
+ * $Id: skills.c,v 1.9 1998-07-03 15:18:46 fjoe Exp $
  */
 
 /***************************************************************************
@@ -51,8 +51,8 @@
 #include "comm.h"
 #include "resource.h"
 #include "update.h"
-#include "tables.h"
 #include "lookup.h"
+#include "tables.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_help		);
@@ -442,8 +442,8 @@ int group_lookup (const char *name)
 {
 	int gr;
 
-	for (gr = 0; group_table[gr] != NULL; gr++)
-		if (str_prefix(name, group_table[gr]) == 0)
+	for (gr = 0; skill_groups[gr].name != NULL; gr++)
+		if (str_prefix(name, skill_groups[gr].name) == 0)
 			return gr;
 
 	return -1;
@@ -467,7 +467,8 @@ void do_glist(CHAR_DATA *ch , char *argument)
 		return;
 	}
 
-	char_printf(ch, "Now listing group %s :\n\r", group_table[group]);
+	char_printf(ch, "Now listing group %s :\n\r",
+		    skill_groups[group].name);
 	buf[0] = '\0';
 	for(count = 0 ; count < MAX_SKILL; count++)
 	{
@@ -503,9 +504,8 @@ void do_slook(CHAR_DATA *ch, char *argument)
 	}
 
 	char_printf(ch, "Skill '%s' in group '%s'.\n\r",
-			    skill_table[sn].name, group_table[skill_table[sn].group]);
-
-	return;
+		    skill_table[sn].name,
+		    flag_name_lookup(skill_groups, skill_table[sn].group));
 }
 
 #define PC_PRACTICER	123

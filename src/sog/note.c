@@ -1,5 +1,5 @@
 /*
- * $Id: note.c,v 1.10 1998-06-24 03:46:49 efdi Exp $
+ * $Id: note.c,v 1.11 1998-07-03 15:18:43 fjoe Exp $
  */
 
 /***************************************************************************
@@ -49,11 +49,11 @@
 #include <ctype.h>
 #include "merc.h"
 #include "recycle.h"
-#include "tables.h"
 #include "db.h"
 #include "comm.h"
 #include "log.h"
 #include "resource.h"
+#include "buffer.h"
 
 /* globals from db.c for load_notes */
 extern  int     _filbuf         args((FILE *));
@@ -752,7 +752,7 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
 		"You already have a different note in progress.\n\r",ch);
 	    return;
 	}
- 	buffer = new_buf();
+ 	buffer = buf_new(0);
 
 	if (strlen(ch->pnote->text)+strlen(argument) >= 4096)
 	{
@@ -760,12 +760,12 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
 	    return;
 	}
 
-	add_buf(buffer,ch->pnote->text);
-	add_buf(buffer,argument);
-	add_buf(buffer,"\n\r");
+	buf_add(buffer,ch->pnote->text);
+	buf_add(buffer,argument);
+	buf_add(buffer,"\n\r");
 	free_string(ch->pnote->text);
 	ch->pnote->text = str_dup(buf_string(buffer));
-	free_buf(buffer);
+	buf_free(buffer);
 	char_nputs(OK, ch);
 	return;
     }

@@ -2,7 +2,7 @@
 #define _DB_H_
 
 /*
- * $Id: db.h,v 1.10 1998-06-30 11:09:49 fjoe Exp $
+ * $Id: db.h,v 1.11 1998-07-03 15:18:41 fjoe Exp $
  */
 
 /***************************************************************************
@@ -53,6 +53,7 @@ extern int		top_obj_index;
 extern int  		top_affect;
 extern int		top_ed; 
 extern AREA_DATA 	*area_first;
+extern AREA_DATA 	*area_last;
 
 void	reset_area      (AREA_DATA * pArea);		/* OLC */
 void	reset_room	(ROOM_INDEX_DATA *pRoom);	/* OLC */

@@ -1,5 +1,5 @@
 /*
- * $Id: olc_mpcode.c,v 1.1 1998-06-28 04:47:16 fjoe Exp $
+ * $Id: olc_mpcode.c,v 1.2 1998-07-03 15:18:46 fjoe Exp $
  */
 
 /* The following code is based on ILAB OLC by Jason Dinkel */
@@ -12,12 +12,12 @@
 #include <string.h>
 #include <time.h>
 #include "merc.h"
-#include "tables.h"
 #include "olc.h"
 #include "recycle.h"
 #include "comm.h"
 #include "db.h"
 #include "string_edit.h"
+#include "buffer.h"
 
 #define MPEDIT(fun)           bool fun(CHAR_DATA *ch, char*argument)
 
@@ -199,15 +199,11 @@ MPEDIT (mpedit_create)
 MPEDIT(mpedit_show)
 {
     MPROG_CODE *pMcode;
-    char buf[MAX_STRING_LENGTH];
 
     EDIT_MPCODE(ch,pMcode);
 
-    sprintf(buf,
-           "Vnum:       [%d]\n\r"
-           "Code:\n\r%s\n\r",
+    char_printf(ch, "Vnum:       [%d]\n\rCode:\n\r%s\n\r",
            pMcode->vnum, pMcode->code);
-    send_to_char(buf, ch);
 
     return FALSE;
 }
@@ -231,13 +227,12 @@ MPEDIT(mpedit_list)
 {
     int count = 1;
     MPROG_CODE *mprg;
-    char buf[MAX_STRING_LENGTH];
     BUFFER *buffer;
     bool fAll = !str_cmp(argument, "all");
     char blah;
     AREA_DATA *ad;
 
-    buffer = new_buf();
+    buffer = buf_new(0);
 
     for (mprg = mprog_list; mprg !=NULL; mprg = mprg->next)
 	if (fAll || ENTRE(ch->in_room->area->min_vnum, mprg->vnum, ch->in_room->area->max_vnum))
@@ -252,22 +247,20 @@ MPEDIT(mpedit_list)
 		else
 			blah = ' ';
 
-		sprintf(buf, "[%3d] (%c) %5d\n\r", count, blah, mprg->vnum);
-		add_buf(buffer, buf);
-
+		buf_printf(buffer, "[%3d] (%c) %5d\n\r", count, blah, mprg->vnum);
 		count++;
 	}
 
     if (count == 1)
     {
     	if (fAll)
-    		add_buf(buffer, "No existen MobPrograms.\n\r");
+    		buf_add(buffer, "No mobprogs found.\n\r");
     	else
-    		add_buf(buffer, "No existen MobPrograms en esta area.\n\r");
+    		buf_add(buffer, "No mobprogs found in this area.\n\r");
     }
 
     page_to_char(buf_string(buffer), ch);
-    free_buf(buffer);
+    buf_free(buffer);
 
     return FALSE;
 }

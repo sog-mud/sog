@@ -1,5 +1,5 @@
 /*
- * $Id: string_edit.c,v 1.1 1998-06-28 04:47:16 fjoe Exp $
+ * $Id: string_edit.c,v 1.2 1998-07-03 15:18:47 fjoe Exp $
  */
 
 /***************************************************************************
@@ -24,7 +24,6 @@
 #include <time.h>
 
 #include "merc.h"
-#include "tables.h"
 #include "db.h"
 #include "comm.h"
 #include "log.h"

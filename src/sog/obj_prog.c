@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.c,v 1.14 1998-06-28 04:47:16 fjoe Exp $
+ * $Id: obj_prog.c,v 1.15 1998-07-03 15:18:43 fjoe Exp $
  */
 
 /***************************************************************************
@@ -52,6 +52,7 @@
 #include "resource.h"
 #include "fight.h"
 #include "log.h"
+#include "lookup.h"
 
 int one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, bool second);
 

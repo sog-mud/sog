@@ -1,5 +1,5 @@
 /*
- * $Id: db2.c,v 1.11 1998-06-30 11:09:49 fjoe Exp $
+ * $Id: db2.c,v 1.12 1998-07-03 15:18:41 fjoe Exp $
  */
 
 /***************************************************************************
@@ -48,12 +48,12 @@
 #include <sys/time.h>
 
 #include "merc.h"
-#include "tables.h"
 #include "db.h"
 #include "lookup.h"
 #include "magic.h"
 #include "log.h"
 #include "obj_prog.h"
+#include "tables.h"
 
 
 /* values for db2.c */
@@ -246,7 +246,7 @@ void load_mobiles(FILE *fp)
         pMobIndex->long_descr[0]        = UPPER(pMobIndex->long_descr[0]);
         pMobIndex->description[0]       = UPPER(pMobIndex->description[0]);
  
-        pMobIndex->act                  = fread_flags(fp) | ACT_IS_NPC
+        pMobIndex->act                  = fread_flags(fp) | ACT_NPC
 					| race_table[pMobIndex->race].act;
 
         pMobIndex->affected_by          = fread_flags(fp)
@@ -375,18 +375,28 @@ void load_mobiles(FILE *fp)
 		int trigger = 0;
 		
 		pMprog              = alloc_perm(sizeof(*pMprog));
-		word   		    = fread_word( fp );
-		if ( !(trigger = flag_lookup( word, mprog_flags )) )
-		{
-		    bug("MOBprogs: invalid trigger.",0);
-		    exit(1);
+		word   		    = fread_word(fp);
+		if ((trigger = flag_lookup(word, mprog_flags)) == 0) {
+			log_printf("load_mobiles: %s: vnum %d: "
+				   "'%s': invalid mob prog trigger",
+				   area_last->file_name, pMobIndex->vnum, word);
+			exit(1);
 		}
-		SET_BIT( pMobIndex->mprog_flags, trigger );
+		SET_BIT(pMobIndex->mprog_flags, trigger);
 		pMprog->trig_type   = trigger;
-		pMprog->vnum        = fread_number( fp );
-		pMprog->trig_phrase = fread_string( fp );
-		pMprog->next        = pMobIndex->mprogs;
-		pMobIndex->mprogs   = pMprog;
+		pMprog->vnum        = fread_number(fp);
+		pMprog->trig_phrase = fread_string(fp);
+
+		pMprog->next        = NULL;
+		if (pMobIndex->mprogs == NULL)
+		    pMobIndex->mprogs = pMprog;
+		else {
+		    MPROG_LIST *p;
+
+		    for (p = pMobIndex->mprogs; p->next != NULL; p = p->next)
+			;
+		    p->next = pMprog;
+		}
 	     }
 	     else
 	     {
@@ -584,8 +594,10 @@ void load_objects(FILE *fp)
 		    paf->where		= TO_DETECTS;
 		    break;
 		default:
-            	    bug("Load_objects: Bad where on flag set.", 0);
-            	   exit(1);
+            	    log_printf("load_objects: %s: vnum %d: "
+			       "'%c': bad where on flag.",
+			       area_last->file_name, pObjIndex->vnum, letter);
+            		exit(1);
 		}
                 paf->type               = -1;
                 paf->level              = pObjIndex->level;

@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.34 1998-06-28 04:47:15 fjoe Exp $
+ * $Id: interp.c,v 1.35 1998-07-03 15:18:41 fjoe Exp $
  */
 
 /***************************************************************************
@@ -398,8 +398,6 @@ const	struct	cmd_type	cmd_table	[] =
     { "protect",	do_protect,	POS_DEAD,	L1,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "reboo",		do_reboo,	POS_DEAD,	L1,  LOG_NORMAL, 0, CMD_KEEP_HIDE|CMD_GHOST },
     { "reboot",		do_reboot,	POS_DEAD,	L1,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "induct",		do_induct,	POS_DEAD,	 0,  LOG_ALWAYS, 1,0 },
-    { "grant",		do_grant,	POS_DEAD,	L2,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "smite",		do_smite,	POS_DEAD,	L2,  LOG_ALWAYS, 1,0 },
     { "limited",	do_limited,	POS_DEAD,	L2,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "lookup",		do_slookup,	POS_DEAD,	L2,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST },
@@ -713,9 +711,11 @@ bool check_social( CHAR_DATA *ch, char *command, char *argument )
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
+	ROOM_INDEX_DATA *victim_room;
 	int cmd;
 	bool found;
 	found = FALSE;
+
 	for (cmd = 0; social_table[cmd].name[0] != '\0'; cmd++) {
 		if (command[0] == social_table[cmd].name[0]
 		&&  !str_prefix( command, social_table[cmd].name)) {
@@ -786,50 +786,58 @@ bool check_social( CHAR_DATA *ch, char *command, char *argument )
 	if (arg[0] == '\0') {
 		act(social_table[cmd].others_no_arg, ch, NULL, victim, TO_ROOM);
 		act(social_table[cmd].char_no_arg, ch, NULL, victim, TO_CHAR);
-	} else if (!(victim = get_char_world(ch, arg)) || IS_NPC(victim))
-		char_nputs(THEY_ARENT_HERE, ch);
-	else if (victim == ch) {
-		act(social_table[cmd].others_auto, ch, NULL, victim, TO_ROOM);
-		act(social_table[cmd].char_auto, ch, NULL, victim, TO_CHAR);
-	} else {
-		ROOM_INDEX_DATA *victim_room = victim->in_room;
-		char_from_room(victim);
-		char_to_room(victim, ch->in_room);
-		act(social_table[cmd].others_found, ch, NULL, victim, 
-		    TO_NOTVICT);
-		act(social_table[cmd].char_found, ch, NULL, victim, TO_CHAR);
-		act(social_table[cmd].vict_found, ch, NULL, victim, TO_VICT);
-		char_from_room(victim);
-		char_to_room(victim, victim_room);
-
-		if (!IS_NPC(ch) && IS_NPC(victim) 
-		&&  !IS_AFFECTED(victim, AFF_CHARM)
-		&&  IS_AWAKE(victim) && victim->desc == NULL) {
-			switch (number_bits(4)) {
-				case 0:
-
-				case 1: case 2: case 3: case 4:
-				case 5: case 6: case 7: case 8:
-					act(social_table[cmd].others_found,
-					    victim, NULL, ch, TO_NOTVICT);
-					act(social_table[cmd].char_found,
-					    victim, NULL, ch, TO_CHAR);
-					act(social_table[cmd].vict_found,
-					    victim, NULL, ch, TO_VICT);
-					break;
-
-				case 9: case 10: case 11: case 12:
-					act("$n slaps $N.", victim, NULL, ch, 
-					    TO_NOTVICT);
-					act("You slap $N.", victim, NULL, ch, 
-					    TO_CHAR);
-					act("$n slaps you.", victim, NULL, ch, 
-					    TO_VICT);
-					break;
-			}
-		}
+		return TRUE;
 	}
 
+	if ((victim = get_char_world(ch, arg)) == NULL
+	||  (IS_NPC(victim) && victim->in_room != ch->in_room)) {
+		char_nputs(THEY_ARENT_HERE, ch);
+		return TRUE;
+	}
+
+	if (victim == ch) {
+		act(social_table[cmd].others_auto, ch, NULL, victim, TO_ROOM);
+		act(social_table[cmd].char_auto, ch, NULL, victim, TO_CHAR);
+		return TRUE;
+	}
+
+	char_from_room(victim);
+	char_to_room(victim, ch->in_room);
+
+	act(social_table[cmd].others_found, ch, NULL, victim, TO_NOTVICT);
+	act(social_table[cmd].char_found, ch, NULL, victim, TO_CHAR);
+	act(social_table[cmd].vict_found, ch, NULL, victim, TO_VICT);
+
+	victim_room = victim->in_room;
+	char_from_room(victim);
+	char_to_room(victim, victim_room);
+
+	if (!IS_NPC(ch) && IS_NPC(victim) 
+	&&  !IS_AFFECTED(victim, AFF_CHARM)
+	&&  IS_AWAKE(victim) && victim->desc == NULL) {
+		switch (number_bits(4)) {
+			case 0:
+
+			case 1: case 2: case 3: case 4:
+			case 5: case 6: case 7: case 8:
+				act(social_table[cmd].others_found,
+				    victim, NULL, ch, TO_NOTVICT);
+				act(social_table[cmd].char_found,
+					    victim, NULL, ch, TO_CHAR);
+				act(social_table[cmd].vict_found,
+					    victim, NULL, ch, TO_VICT);
+				break;
+
+			case 9: case 10: case 11: case 12:
+				act("$n slaps $N.", victim, NULL, ch, 
+					    TO_NOTVICT);
+				act("You slap $N.", victim, NULL, ch, 
+					    TO_CHAR);
+				act("$n slaps you.", victim, NULL, ch, 
+					    TO_VICT);
+				break;
+		}
+	}
 	return TRUE;
 }
 
@@ -1028,8 +1036,7 @@ void substitute_alias(DESCRIPTOR_DATA *d, char *argument)
 
     if (IS_NPC(ch) || ch->pcdata->alias[0] == NULL
     ||	!str_prefix("alias",argument) || !str_prefix("una",argument) 
-    ||  !str_prefix("prefix",argument)) 
-    {
+    ||  !str_prefix("prefix",argument)) {
 	interpret(d->character, argument);
 	return;
     }

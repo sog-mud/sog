@@ -1,5 +1,5 @@
 /*
- * $Id: mob_cmds.c,v 1.2 1998-06-29 06:48:30 fjoe Exp $
+ * $Id: mob_cmds.c,v 1.3 1998-07-03 15:18:42 fjoe Exp $
  */
 
 /***************************************************************************
@@ -48,10 +48,10 @@
 #include "act_move.h"
 #include "comm.h"
 #include "act_comm.h"
-#include "magic.h"
 #include "log.h"
 #include "interp.h"
 #include "util.h"
+#include "lookup.h"
 
 DECLARE_DO_FUN(do_look 	);
 extern ROOM_INDEX_DATA *find_location(CHAR_DATA *, char *);

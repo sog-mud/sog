@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.45 1998-06-28 04:47:14 fjoe Exp $
+ * $Id: fight.c,v 1.46 1998-07-03 15:18:41 fjoe Exp $
  */
 
 /***************************************************************************
@@ -565,7 +565,7 @@ void mob_hit (CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 		break;
 
 	case (4) :
-		if (IS_SET(ch->off_flags,OFF_KICK_DIRT))
+		if (IS_SET(ch->off_flags,OFF_DIRT_KICK))
 		    do_dirt(ch,"");
 		break;
 
@@ -2934,16 +2934,6 @@ bool check_obj_dodge(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *obj, int bonus)
 	if (number_percent() >= chance &&
 		 (IS_NPC(victim) || victim->clan != CLAN_BATTLE))
 		return FALSE;
-
-	if (!IS_NPC(victim) && victim->clan == CLAN_BATTLE
-		  && IS_SET(victim->act,PLR_CANINDUCT))
-	{
-	 act("You catch $p that had been shot to you.",ch,obj,victim,TO_VICT);
-	 act("$N catches $p that had been shot to $M.",ch,obj,victim,TO_CHAR);
-	 act("$n catches $p that had been shot to $m.",victim,obj,ch,TO_NOTVICT);
-	 obj_to_char(obj,victim);
-	 return TRUE;
-	}
 
 	act("You dodge $p that had been shot to you.",ch,obj,victim,TO_VICT);
 	act("$N dodges $p that had been shot to $M.",ch,obj,victim,TO_CHAR);

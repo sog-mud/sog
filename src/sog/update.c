@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.37 1998-06-28 04:47:17 fjoe Exp $
+ * $Id: update.c,v 1.38 1998-07-03 15:18:47 fjoe Exp $
  */
 
 /***************************************************************************
@@ -58,6 +58,7 @@
 #include "act_move.h"
 #include "mob_prog.h"
 #include "obj_prog.h"
+#include "lookup.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_human		);
@@ -175,7 +176,7 @@ void gain_exp(CHAR_DATA *ch, int gain)
 	if (IS_NPC(ch) || ch->level >= LEVEL_HERO)
 		return;
 
-	if (IS_SET(ch->act,PLR_NO_EXP)) {
+	if (IS_SET(ch->act,PLR_NOEXP)) {
 		send_to_char("You can't gain exp without your spirit.\n\r", ch);
 		return;
 	}
@@ -1910,7 +1911,7 @@ void room_affect_update(void)
 	{
 	room_next = room->aff_next;
 
-	    while (IS_ROOM_AFFECTED(room, AFF_ROOM_PLAGUE) && room->people != NULL)
+	    while (IS_ROOM_AFFECTED(room, RAFF_PLAGUE) && room->people != NULL)
 	    {
 	        AFFECT_DATA *af, plague;
 	        CHAR_DATA *vch;
@@ -1923,7 +1924,7 @@ void room_affect_update(void)
 	    
 	        if (af == NULL)
 	        {
-	        	REMOVE_BIT(room->affected_by,AFF_ROOM_PLAGUE);
+	        	REMOVE_BIT(room->affected_by,RAFF_PLAGUE);
 	        	break;
 	        }
 
@@ -1953,7 +1954,7 @@ void room_affect_update(void)
 	 break;
 	    }
 
-	    while (IS_ROOM_AFFECTED(room, AFF_ROOM_POISON) && room->people != NULL)
+	    while (IS_ROOM_AFFECTED(room, RAFF_POISON) && room->people != NULL)
 	    {
 	        AFFECT_DATA *af, paf;
 	        CHAR_DATA *vch;
@@ -1966,7 +1967,7 @@ void room_affect_update(void)
 	    
 	        if (af == NULL)
 	        {
-	        	REMOVE_BIT(room->affected_by,AFF_ROOM_POISON);
+	        	REMOVE_BIT(room->affected_by,RAFF_POISON);
 	        	break;
 	        }
 
@@ -1996,7 +1997,7 @@ void room_affect_update(void)
 	 break;
 	    }
 
-	    while (IS_ROOM_AFFECTED(room, AFF_ROOM_SLOW) && room->people != NULL)
+	    while (IS_ROOM_AFFECTED(room, RAFF_SLOW) && room->people != NULL)
 	    {
 	        AFFECT_DATA *af, paf;
 	        CHAR_DATA *vch;
@@ -2009,7 +2010,7 @@ void room_affect_update(void)
 	    
 	        if (af == NULL)
 	        {
-	        	REMOVE_BIT(room->affected_by,AFF_ROOM_SLOW);
+	        	REMOVE_BIT(room->affected_by,RAFF_SLOW);
 	        	break;
 	        }
 
@@ -2039,7 +2040,7 @@ void room_affect_update(void)
 	 break;
 	    }
 
-	    while (IS_ROOM_AFFECTED(room, AFF_ROOM_SLEEP) && room->people != NULL)
+	    while (IS_ROOM_AFFECTED(room, RAFF_SLEEP) && room->people != NULL)
 	    {
 	        AFFECT_DATA *af, paf;
 	        CHAR_DATA *vch;
@@ -2052,7 +2053,7 @@ void room_affect_update(void)
 	    
 	        if (af == NULL)
 	        {
-	        	REMOVE_BIT(room->affected_by,AFF_ROOM_SLEEP);
+	        	REMOVE_BIT(room->affected_by,RAFF_SLEEP);
 	        	break;
 	        }
 
@@ -2088,7 +2089,7 @@ void room_affect_update(void)
 	    }
 
 
-	    while (IS_ROOM_AFFECTED(room, AFF_ROOM_ESPIRIT) && room->people != NULL)
+	    while (IS_ROOM_AFFECTED(room, RAFF_ESPIRIT) && room->people != NULL)
 	    {
 	        AFFECT_DATA *af, paf;
 	        CHAR_DATA *vch;
@@ -2101,7 +2102,7 @@ void room_affect_update(void)
 	    
 	        if (af == NULL)
 	        {
-	        	REMOVE_BIT(room->affected_by,AFF_ROOM_ESPIRIT);
+	        	REMOVE_BIT(room->affected_by,RAFF_ESPIRIT);
 	        	break;
 	        }
 
@@ -2132,7 +2133,7 @@ void room_affect_update(void)
 	    }
 
 /* new ones here
-	    while (IS_ROOM_AFFECTED(room, AFF_ROOM_) && room->people != NULL)
+	    while (IS_ROOM_AFFECTED(room, RAFF_) && room->people != NULL)
 	    {
 	        AFFECT_DATA *af, paf;
 	        CHAR_DATA *vch;
@@ -2145,7 +2146,7 @@ void room_affect_update(void)
 	    
 	        if (af == NULL)
 	        {
-	        	REMOVE_BIT(room->affected_by,AFF_ROOM_);
+	        	REMOVE_BIT(room->affected_by,RAFF_);
 	        	break;
 	        }
 

@@ -2,7 +2,7 @@
 #define _LOOKUP_H_
 
 /*
- * $Id: lookup.h,v 1.3 1998-06-28 04:47:15 fjoe Exp $
+ * $Id: lookup.h,v 1.4 1998-07-03 15:18:41 fjoe Exp $
  */
 
 /***************************************************************************
@@ -57,6 +57,9 @@ int	attack_lookup	(const char *name);
 long	wiznet_lookup	(const char *name);
 int	class_lookup	(const char *name);
 int	clan_lookup	(const char *argument);
+int	skill_lookup	(const char *name );
+int	slot_lookup	(int slot );
+char *flag_name_lookup(const struct flag_type *f, int bit);
 
 #endif
 

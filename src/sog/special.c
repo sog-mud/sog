@@ -1,5 +1,5 @@
 /*
- * $Id: special.c,v 1.14 1998-06-29 06:48:31 fjoe Exp $
+ * $Id: special.c,v 1.15 1998-07-03 15:18:46 fjoe Exp $
  */
 
 /***************************************************************************
@@ -54,6 +54,7 @@
 #include "resource.h"
 #include "util.h"
 #include "act_move.h"
+#include "lookup.h"
 
 void	say_spell	args((CHAR_DATA *ch, int sn));
 
@@ -1395,11 +1396,10 @@ bool spec_assassinater(CHAR_DATA *ch)
 bool spec_repairman(CHAR_DATA *ch)
 {
 	if (!IS_AWAKE(ch))
-	    return FALSE;
-	if (number_range(0, 100) == 0) 
-	{
-	    do_say(ch, "Now it is time to repair the other equipments.");
-	    return TRUE;
+		return FALSE;
+	if (number_range(0, 100) == 0) {
+		do_say(ch, "Now it's time to repair the equipment.");
+		return TRUE;
 	}
 	return FALSE;
 }

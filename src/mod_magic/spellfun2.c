@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.18 1998-06-28 04:47:15 fjoe Exp $
+ * $Id: spellfun2.c,v 1.19 1998-07-03 15:18:42 fjoe Exp $
  */
 
 /***************************************************************************
@@ -47,8 +47,6 @@
 #include <time.h>
 
 #include "merc.h"
-#include "tables.h"
-
 #include "magic.h"
 #include "recycle.h"
 #include "db.h"
@@ -1526,12 +1524,6 @@ void spell_stalker(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	if (is_affected(ch,sn))
 	{
 	  send_to_char("This power is used too recently.\n\r", ch);
-	  return;
-	}
-
-	if (!is_safe_nomessage(ch,victim) && !IS_SET(ch->act,PLR_CANINDUCT))
-	{
-	  send_to_char("You better use special guards for this purpose.\n\r", ch);
 	  return;
 	}
 
@@ -3418,7 +3410,7 @@ void spell_lion_help (int sn, int level, CHAR_DATA *ch, void *vo , int target)
 }
 
 
-void spell_magic_jar (int sn, int level, CHAR_DATA *ch, void *vo , int target) 
+void spell_magic_jar(int sn, int level, CHAR_DATA *ch, void *vo , int target) 
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	OBJ_DATA *vial;
@@ -3480,9 +3472,9 @@ void spell_magic_jar (int sn, int level, CHAR_DATA *ch, void *vo , int target)
 	fire->level = ch->level;
 	fire->cost = 0;
 	obj_to_char(fire , ch);    
- SET_BIT(victim->act,PLR_NO_EXP);
- char_printf(ch,"You catch %s's spirit in to your vial.\n\r",victim->name);
- return;
+	SET_BIT(victim->act,PLR_NOEXP);
+	char_printf(ch,"You catch %s's spirit in to your vial.\n\r",
+		    victim->name);
 }
 
 void turn_spell (int sn, int level, CHAR_DATA *ch, void *vo , int target)
@@ -4200,7 +4192,7 @@ void spell_randomizer(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	af.duration  = level / 15;
 	af.location  = APPLY_NONE;
 	af.modifier  = 0;
-	af.bitvector = AFF_ROOM_RANDOMIZER;
+	af.bitvector = RAFF_RANDOMIZER;
 	affect_to_room(ch->in_room, &af);
 
 	af2.where     = TO_AFFECTS;
@@ -4679,31 +4671,31 @@ void spell_sanctify_lands(int sn, int level, CHAR_DATA *ch, void *vo, int target
 	  return;
 	}
 
-	if (IS_RAFFECTED(ch->in_room,AFF_ROOM_CURSE))
+	if (IS_RAFFECTED(ch->in_room,RAFF_CURSE))
 	{
 	 affect_strip_room(ch->in_room,gsn_cursed_lands);
 	 send_to_char("The curse of the land wears off.\n\r",ch);
 	 act("The curse of the land wears off.\n\r",ch,NULL,NULL,TO_ROOM);
 	}
-	if (IS_RAFFECTED(ch->in_room,AFF_ROOM_POISON))
+	if (IS_RAFFECTED(ch->in_room,RAFF_POISON))
 	{
 	 affect_strip_room(ch->in_room,gsn_deadly_venom);
 	 send_to_char("The land seems more healthy.\n\r",ch);
 	 act("The land seems more healthy.\n\r",ch,NULL,NULL,TO_ROOM);
 	}
-	if (IS_RAFFECTED(ch->in_room,AFF_ROOM_SLEEP))
+	if (IS_RAFFECTED(ch->in_room,RAFF_SLEEP))
 	{
 	 send_to_char("The land wake up from mysterious dream.\n\r",ch);
 	 act("The land wake up from mysterious dream.\n\r",ch,NULL,NULL,TO_ROOM);
 	 affect_strip_room(ch->in_room,gsn_mysterious_dream);
 	}
-	if (IS_RAFFECTED(ch->in_room,AFF_ROOM_PLAGUE))
+	if (IS_RAFFECTED(ch->in_room,RAFF_PLAGUE))
 	{
 	 send_to_char("The disease of the land has been treated.\n\r",ch);
 	 act("The disease of the land has been treated.\n\r",ch,NULL,NULL,TO_ROOM);
 	 affect_strip_room(ch->in_room,gsn_black_death);
 	}
-	if (IS_RAFFECTED(ch->in_room,AFF_ROOM_SLOW))
+	if (IS_RAFFECTED(ch->in_room,RAFF_SLOW))
 	{
 	 send_to_char("The lethargic mist dissolves.\n\r",ch);
 	 act("The lethargic mist dissolves.\n\r",ch,NULL,NULL,TO_ROOM);
@@ -4734,7 +4726,7 @@ void spell_deadly_venom(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	af.duration  = level / 15;
 	af.location  = APPLY_NONE;
 	af.modifier  = 0;
-	af.bitvector = AFF_ROOM_POISON;
+	af.bitvector = RAFF_POISON;
 	affect_to_room(ch->in_room, &af);
 
 	send_to_char("The room starts to be filled by poison.\n\r",ch);   
@@ -4763,7 +4755,7 @@ void spell_cursed_lands(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	af.duration  = level / 15;
 	af.location  = APPLY_NONE;
 	af.modifier  = 0;
-	af.bitvector = AFF_ROOM_CURSE;
+	af.bitvector = RAFF_CURSE;
 	affect_to_room(ch->in_room, &af);
 
 	send_to_char("The gods has forsaken the room.\n\r",ch);   
@@ -4792,7 +4784,7 @@ void spell_lethargic_mist(int sn, int level, CHAR_DATA *ch, void *vo, int target
 	af.duration  = level / 15;
 	af.location  = APPLY_NONE;
 	af.modifier  = 0;
-	af.bitvector = AFF_ROOM_SLOW;
+	af.bitvector = RAFF_SLOW;
 	affect_to_room(ch->in_room, &af);
 
 	send_to_char("The air in the room makes you slowing down.\n\r",ch);   
@@ -4821,7 +4813,7 @@ void spell_black_death(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	af.duration  = level / 15;
 	af.location  = APPLY_NONE;
 	af.modifier  = 0;
-	af.bitvector = AFF_ROOM_PLAGUE;
+	af.bitvector = RAFF_PLAGUE;
 	affect_to_room(ch->in_room, &af);
 
 	send_to_char("The room starts to be filled by disease.\n\r",ch);   
@@ -4850,7 +4842,7 @@ void spell_mysterious_dream(int sn, int level, CHAR_DATA *ch, void *vo,int targe
 	af.duration  = level / 15;
 	af.location  = APPLY_NONE;
 	af.modifier  = 0;
-	af.bitvector = AFF_ROOM_SLEEP;
+	af.bitvector = RAFF_SLEEP;
 	affect_to_room(ch->in_room, &af);
 
 	send_to_char("The room starts to be seen good place to sleep.\n\r",ch);   
@@ -5048,7 +5040,7 @@ void spell_evil_spirit(int sn, int level, CHAR_DATA *ch, void *vo , int target)
  AFFECT_DATA af,af2;
  int i;
 
- if (IS_RAFFECTED(ch->in_room, AFF_ROOM_ESPIRIT)
+ if (IS_RAFFECTED(ch->in_room, RAFF_ESPIRIT)
 	|| is_affected_room(ch->in_room,sn))
 	{
 	 send_to_char("The zone is already full of evil spirit.\n\r",ch);
@@ -5083,7 +5075,7 @@ void spell_evil_spirit(int sn, int level, CHAR_DATA *ch, void *vo , int target)
 	af.duration  = level / 25;
 	af.location  = APPLY_NONE;
 	af.modifier  = 0;
-	af.bitvector = AFF_ROOM_ESPIRIT;
+	af.bitvector = RAFF_ESPIRIT;
 
 	for (i=pArea->min_vnum; i<pArea->max_vnum; i++)  
 	{

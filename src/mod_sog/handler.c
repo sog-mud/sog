@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.30 1998-06-29 06:48:30 fjoe Exp $
+ * $Id: handler.c,v 1.31 1998-07-03 15:18:41 fjoe Exp $
  */
 
 /***************************************************************************
@@ -47,7 +47,6 @@
 #include "merc.h"
 #include "magic.h"
 #include "recycle.h"
-#include "tables.h"
 #include "db.h"
 #include "comm.h"
 #include "hometown.h"
@@ -56,11 +55,13 @@
 #include "act_move.h"
 #include "lookup.h"
 #include "obj_prog.h"
+#include "raffects.h"
+#include "interp.h"
+#include "tables.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_return	);
 DECLARE_DO_FUN(do_wake		);
-DECLARE_DO_FUN(do_raffects	);
 DECLARE_DO_FUN(do_say		);
 DECLARE_DO_FUN(do_track		);
 
@@ -71,9 +72,6 @@ DECLARE_DO_FUN(do_track		);
  */
 void	affect_modify	args((CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd));
 int	age_to_num	args((int age));
-void	raffect_to_char	args((ROOM_INDEX_DATA *room, CHAR_DATA *ch));
-void	raffect_back_char	args((ROOM_INDEX_DATA *room, CHAR_DATA *ch));
-bool	is_safe_rspell	args((int level, CHAR_DATA *victim));
 ROOM_INDEX_DATA *	find_location	args((CHAR_DATA *ch, char *arg));
 
 /* friend stuff -- for NPC's mostly */
@@ -1671,14 +1669,12 @@ void char_to_room(CHAR_DATA *ch, ROOM_INDEX_DATA *pRoomIndex)
 		break;
 	}
 
-	if (ch->in_room->affected_by)
-		{
+	if (ch->in_room->affected_by) {
 		 if (IS_IMMORTAL(ch))
 			do_raffects(ch,"");
-		 else raffect_to_char(ch->in_room, ch);
-		}
-
-	return;
+		 else
+			raffect_to_char(ch->in_room, ch);
+	}
 }
 
 
@@ -2137,13 +2133,11 @@ void extract_obj_1(OBJ_DATA *obj, bool count)
 	OBJ_DATA *obj_content;
 	OBJ_DATA *obj_next;
 	int i;
-	char buf[MAX_STRING_LENGTH];
 
 	if (obj->extracted)  /* if the object has already been extracted once */
 	  {
-	    sprintf(buf, "Warning! Extraction of %s, vnum %d.", obj->name,
-	            obj->pIndexData->vnum);
-	    bug(buf, 0);
+	    log_printf("extract_obj_1: %s, vnum %d already extracted",
+			obj->name, obj->pIndexData->vnum);
 	    return; /* if it's already been extracted, something bad is going on */
 	  }
 	else
@@ -2169,27 +2163,22 @@ void extract_obj_1(OBJ_DATA *obj, bool count)
 		extract_obj_1(obj_content, count);
 	}
 
-	if (obj->pIndexData->vnum == OBJ_VNUM_MAGIC_JAR)
-		{
+	if (obj->pIndexData->vnum == OBJ_VNUM_MAGIC_JAR) {
 		 CHAR_DATA *wch;
 		 
-		 for (wch = char_list; wch != NULL ; wch = wch->next)
-		  {
-		   if (IS_NPC(wch)) continue;
-		   if (is_name(obj->name,wch->name))
-			{
-			 REMOVE_BIT(wch->act,PLR_NO_EXP);
-			 send_to_char("Now you catch your spirit.\n\r",wch);
-			 break;
+		 for (wch = char_list; wch != NULL ; wch = wch->next) {
+		 	if (IS_NPC(wch)) continue;
+		 	if (is_name(obj->name, wch->name)) {
+				REMOVE_BIT(wch->act,PLR_NOEXP);
+				char_puts("Now you catch your spirit.\n\r", wch);
+				break;
 			}
-		  }
 		}
-	if (object_list == obj)
-	{
-		object_list = obj->next;
 	}
-	else
-	{
+
+	if (object_list == obj)
+		object_list = obj->next;
+	else {
 		OBJ_DATA *prev;
 
 		for (prev = object_list; prev != NULL; prev = prev->next)
@@ -2208,23 +2197,22 @@ void extract_obj_1(OBJ_DATA *obj, bool count)
 		}
 	}
 	if (count)
-	  --obj->pIndexData->count;
+		--obj->pIndexData->count;
 	free_obj(obj);
-	return;
 }
 
 
 void extract_char(CHAR_DATA *ch, bool fPull)
 {
-  extract_char_org(ch, fPull, TRUE);
-  return;
+	extract_char_org(ch, fPull, TRUE);
+	return;
 }
 
 
 void extract_char_nocount(CHAR_DATA *ch, bool fPull)
 {
-  extract_char_org(ch, fPull, FALSE);
-  return;
+	extract_char_org(ch, fPull, FALSE);
+	return;
 }
 
 
@@ -2971,48 +2959,34 @@ bool can_drop_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 }
 
 
+char *flag_names_raw(const struct flag_type *f, int vector, char* buf)
+{
+	while (f->name != NULL) {
+		if (IS_SET(vector, f->bit)) {
+			strcat(buf, " ");
+			strcat(buf, f->name);
+		}
+		f++;
+	}
+
+	return (buf[0] != '\0') ? buf+1 : "none";
+}
+
+
+char *flag_names(const struct flag_type *f, int vector)
+{
+	static char buf[MAX_STRING_LENGTH];
+	buf[0] = '\0';
+	return flag_names_raw(f, vector, buf);
+}
 
 /*
  * Return ascii name of an item type.
  */
 char *item_type_name(OBJ_DATA *obj)
 {
-	switch (obj->item_type)
-	{
-	case ITEM_LIGHT:		return "light";
-	case ITEM_SCROLL:		return "scroll";
-	case ITEM_WAND:		return "wand";
-	case ITEM_STAFF:		return "staff";
-	case ITEM_WEAPON:		return "weapon";
-	case ITEM_TREASURE:		return "treasure";
-	case ITEM_ARMOR:		return "armor";
-	case ITEM_CLOTHING:		return "clothing";
-	case ITEM_POTION:		return "potion";
-	case ITEM_FURNITURE:	return "furniture";
-	case ITEM_TRASH:		return "trash";
-	case ITEM_CONTAINER:	return "container";
-	case ITEM_DRINK_CON:	return "drink container";
-	case ITEM_KEY:		return "key";
-	case ITEM_FOOD:		return "food";
-	case ITEM_MONEY:		return "money";
-	case ITEM_BOAT:		return "boat";
-	case ITEM_CORPSE_NPC:	return "npc corpse";
-	case ITEM_CORPSE_PC:	return "pc corpse";
-	case ITEM_FOUNTAIN:		return "fountain";
-	case ITEM_PILL:		return "pill";
-	case ITEM_MAP:		return "map";
-	case ITEM_PORTAL:		return "portal";
-	case ITEM_WARP_STONE:	return "warp stone";
-	case ITEM_GEM:		return "gem";
-	case ITEM_JEWELRY:		return "jewelry";
-	case ITEM_JUKEBOX:		return "juke box";
-	case ITEM_TATTOO:		return "tattoo";
-	}
-
-	bug("Item_type_name: unknown type %d.", obj->item_type);
-	return "(unknown)";
+	return flag_name_lookup(type_flags, obj->item_type);
 }
-
 
 
 /*
@@ -3020,39 +2994,8 @@ char *item_type_name(OBJ_DATA *obj)
  */
 char *affect_loc_name(int location)
 {
-	switch (location)
-	{
-	case APPLY_NONE:		return "none";
-	case APPLY_STR:		return "strength";
-	case APPLY_DEX:		return "dexterity";
-	case APPLY_INT:		return "intelligence";
-	case APPLY_WIS:		return "wisdom";
-	case APPLY_CON:		return "constitution";
-	case APPLY_CHA:		return "charisma";
-	case APPLY_CLASS:		return "class";
-	case APPLY_LEVEL:		return "level";
-	case APPLY_AGE:		return "age";
-	case APPLY_MANA:		return "mana";
-	case APPLY_HIT:		return "hp";
-	case APPLY_MOVE:		return "moves";
-	case APPLY_GOLD:		return "gold";
-	case APPLY_EXP:		return "experience";
-	case APPLY_AC:		return "armor class";
-	case APPLY_HITROLL:		return "hit roll";
-	case APPLY_DAMROLL:		return "damage roll";
-	case APPLY_SIZE:		return "size";
-	case APPLY_SAVES:		return "saves";
-	case APPLY_SAVING_ROD:	return "save vs rod";
-	case APPLY_SAVING_PETRI:	return "save vs petrification";
-	case APPLY_SAVING_BREATH:	return "save vs breath";
-	case APPLY_SAVING_SPELL:	return "save vs spell";
-	case APPLY_SPELL_AFFECT:	return "none";
-	}
-
-	bug("Affect_location_name: unknown location %d.", location);
-	return "(unknown)";
+	return flag_name_lookup(apply_flags, location);
 }
-
 
 
 /*
@@ -3060,39 +3003,7 @@ char *affect_loc_name(int location)
  */
 char *affect_bit_name(int vector)
 {
-	static char buf[512];
-
-	buf[0] = '\0';
-	if (vector & AFF_BLIND        ) strcat(buf, " blind"        );
-	if (vector & AFF_INVISIBLE    ) strcat(buf, " invisible"    );
-	if (vector & AFF_IMP_INVIS    ) strcat(buf, " imp_invis"    );    
-	if (vector & AFF_FADE	   ) strcat(buf, " fade"     	   );    
-	if (vector & AFF_SCREAM	   ) strcat(buf, " scream"       );    
-	if (vector & AFF_BLOODTHIRST  ) strcat(buf, " bloodthirst"  );    
-	if (vector & AFF_STUN	   ) strcat(buf, " stun"  );    
-	if (vector & AFF_SANCTUARY    ) strcat(buf, " sanctuary"    );
-	if (vector & AFF_FAERIE_FIRE  ) strcat(buf, " faerie_fire"  );
-	if (vector & AFF_INFRARED     ) strcat(buf, " infrared"     );
-	if (vector & AFF_CURSE        ) strcat(buf, " curse"        );
-	if (vector & AFF_POISON       ) strcat(buf, " poison"       );
-	if (vector & AFF_PROTECT_EVIL ) strcat(buf, " prot_evil"    );
-	if (vector & AFF_PROTECT_GOOD ) strcat(buf, " prot_good"    );
-	if (vector & AFF_SLEEP        ) strcat(buf, " sleep"        );
-	if (vector & AFF_SNEAK        ) strcat(buf, " sneak"        );
-	if (vector & AFF_HIDE         ) strcat(buf, " hide"         );
-	if (vector & AFF_CHARM        ) strcat(buf, " charm"        );
-	if (vector & AFF_FLYING       ) strcat(buf, " flying"       );
-	if (vector & AFF_PASS_DOOR    ) strcat(buf, " pass_door"    );
-	if (vector & AFF_BERSERK	   ) strcat(buf, " berserk"	   );
-	if (vector & AFF_CALM	   ) strcat(buf, " calm"	   );
-	if (vector & AFF_HASTE	   ) strcat(buf, " haste"	   );
-	if (vector & AFF_SLOW         ) strcat(buf, " slow"         );
-	if (vector & AFF_WEAKEN       ) strcat(buf, " weaken"       );
-	if (vector & AFF_PLAGUE	   ) strcat(buf, " plague" 	   );
-	if (vector & AFF_REGENERATION ) strcat(buf, " regeneration" );
-	if (vector & AFF_CAMOUFLAGE   ) strcat(buf, " camouflage"   );
-	if (vector & AFF_SWIM         ) strcat(buf, " swim"         );
-	return (buf[0] != '\0') ? buf+1 : "none";
+	return flag_names(affect_flags, vector);
 }
 
 
@@ -3101,24 +3012,7 @@ char *affect_bit_name(int vector)
  */
 char *detect_bit_name(int vector)
 {
-	static char buf[512];
-
-	buf[0] = '\0';
-	if (vector & DETECT_IMP_INVIS  ) strcat(buf, " detect_imp_inv"  );
-	if (vector & DETECT_EVIL  ) strcat(buf, " detect_evil"  );
-	if (vector & DETECT_GOOD  ) strcat(buf, " detect_good"  );
-	if (vector & DETECT_INVIS ) strcat(buf, " detect_invis" );
-	if (vector & DETECT_MAGIC ) strcat(buf, " detect_magic" );
-	if (vector & DETECT_HIDDEN) strcat(buf, " detect_hidden");
-	if (vector & DARK_VISION  ) strcat(buf, " dark_vision"  );
-	if (vector & ACUTE_VISION ) strcat(buf, " acute_vision"  );
-	if (vector & ADET_FEAR  	) strcat(buf, " fear"  );
-	if (vector & ADET_FORM_TREE ) strcat(buf, " form_tree"  );
-	if (vector & ADET_FORM_GRASS) strcat(buf, " form_grass"  );
-	if (vector & ADET_WEB	) strcat(buf, " web"  );
-	if (vector & DETECT_LIFE 	) strcat(buf, " life"  );
-	if (vector & DETECT_SNEAK 	) strcat(buf, " detect_sneak"  );
-	return (buf[0] != '\0') ? buf+1 : "none";
+	return flag_names(detect_flags, vector);
 }
 
 
@@ -3126,303 +3020,69 @@ char *detect_bit_name(int vector)
 /*
  * Return ascii name of extra flags vector.
  */
-char *extra_bit_name(int extra_flags)
+char *extra_bit_name(int vector)
 {
-	static char buf[512];
-
-	buf[0] = '\0';
-	if (extra_flags & ITEM_GLOW        ) strcat(buf, " glow"        );
-	if (extra_flags & ITEM_HUM         ) strcat(buf, " hum"         );
-	if (extra_flags & ITEM_DARK        ) strcat(buf, " dark"        );
-	if (extra_flags & ITEM_LOCK        ) strcat(buf, " lock"        );
-	if (extra_flags & ITEM_EVIL        ) strcat(buf, " evil"        );
-	if (extra_flags & ITEM_INVIS       ) strcat(buf, " invis"       );
-	if (extra_flags & ITEM_MAGIC       ) strcat(buf, " magic"       );
-	if (extra_flags & ITEM_NODROP      ) strcat(buf, " nodrop"      );
-	if (extra_flags & ITEM_BLESS       ) strcat(buf, " bless"       );
-	if (extra_flags & ITEM_ANTI_GOOD   ) strcat(buf, " anti-good"   );
-	if (extra_flags & ITEM_ANTI_EVIL   ) strcat(buf, " anti-evil"   );
-	if (extra_flags & ITEM_ANTI_NEUTRAL) strcat(buf, " anti-neutral");
-	if (extra_flags & ITEM_NOREMOVE    ) strcat(buf, " noremove"    );
-	if (extra_flags & ITEM_INVENTORY   ) strcat(buf, " inventory"   );
-	if (extra_flags & ITEM_NOPURGE	) strcat(buf, " nopurge"	);
-	if (extra_flags & ITEM_VIS_DEATH	) strcat(buf, " vis_death"	);
-	if (extra_flags & ITEM_ROT_DEATH	) strcat(buf, " rot_death"	);
-	if (extra_flags & ITEM_NOLOCATE	) strcat(buf, " no_locate"	);
-	if (extra_flags & ITEM_SELL_EXTRACT) strcat(buf, " sell_extract");
-	if (extra_flags & ITEM_BURN_PROOF	) strcat(buf, " burn_proof"	);
-	if (extra_flags & ITEM_NOUNCURSE	) strcat(buf, " no_uncurse"	);
-	return (buf[0] != '\0') ? buf+1 : "none";
+	return flag_names(extra_flags, vector);
 }
 
 /* return ascii name of an act vector */
-char *act_bit_name(int act_flags)
+char *act_bit_name(int vector)
 {
-	static char buf[512];
+	char buf[MAX_STRING_LENGTH];
 
-	buf[0] = '\0';
-
-	if (IS_SET(act_flags,ACT_IS_NPC))
-	{ 
- 	strcat(buf," npc");
-		if (act_flags & ACT_SENTINEL 	) strcat(buf, " sentinel");
-		if (act_flags & ACT_SCAVENGER	) strcat(buf, " scavenger");
-		if (act_flags & ACT_AGGRESSIVE	) strcat(buf, " aggressive");
-		if (act_flags & ACT_STAY_AREA	) strcat(buf, " stay_area");
-		if (act_flags & ACT_WIMPY	) strcat(buf, " wimpy");
-		if (act_flags & ACT_PET		) strcat(buf, " pet");
-		if (act_flags & ACT_TRAIN	) strcat(buf, " train");
-		if (act_flags & ACT_PRACTICE	) strcat(buf, " practice");
-		if (act_flags & ACT_UNDEAD	) strcat(buf, " undead");
-		if (act_flags & ACT_HUNTER	) strcat(buf, " hunter");
-		if (act_flags & ACT_CLERIC	) strcat(buf, " cleric");
-		if (act_flags & ACT_MAGE	) strcat(buf, " mage");
-		if (act_flags & ACT_THIEF	) strcat(buf, " thief");
-		if (act_flags & ACT_WARRIOR	) strcat(buf, " warrior");
-		if (act_flags & ACT_NOALIGN	) strcat(buf, " no_align");
-		if (act_flags & ACT_NOPURGE	) strcat(buf, " no_purge");
-		if (act_flags & ACT_QUESTOR	) strcat(buf, " questor");
-		if (act_flags & ACT_HEALER	) strcat(buf, " healer");
-		if (act_flags & ACT_CHANGER ) strcat(buf, " changer");
-		if (act_flags & ACT_GAIN	) strcat(buf, " skill_train");
-		if (act_flags & ACT_UPDATE_ALWAYS) strcat(buf," update_always");
+	if (IS_SET(vector, ACT_NPC)) { 
+ 		strcpy(buf,"npc");
+		return flag_names_raw(act_flags, vector, buf);
 	}
-	else
-	{
-		strcat(buf," player");
-		if (act_flags & PLR_AUTOASSIST	) strcat(buf, " autoassist");
-		if (act_flags & PLR_AUTOEXIT	) strcat(buf, " autoexit");
-		if (act_flags & PLR_AUTOLOOT	) strcat(buf, " autoloot");
-		if (act_flags & PLR_AUTOSAC	) strcat(buf, " autosac");
-		if (act_flags & PLR_AUTOGOLD	) strcat(buf, " autogold");
-		if (act_flags & PLR_AUTOSPLIT	) strcat(buf, " autosplit");
-		if (act_flags & PLR_HOLYLIGHT	) strcat(buf, " holy_light");
-		if (act_flags & PLR_CANLOOT	) strcat(buf, " loot_corpse");
-		if (act_flags & PLR_NOSUMMON	) strcat(buf, " no_summon");
-		if (act_flags & PLR_NOFOLLOW	) strcat(buf, " no_follow");
-		if (act_flags & PLR_FREEZE	) strcat(buf, " frozen");
-		if (act_flags & PLR_COLOR	) strcat(buf, " color");
-		if (act_flags & PLR_WANTED	) strcat(buf, " WANTED");
-		if (act_flags & PLR_GHOST	) strcat(buf, " GHOST");
-		if (act_flags & PLR_CANINDUCT	) strcat(buf, " Cabal_LEADER");
-		if (act_flags & PLR_VAMPIRE	) strcat(buf, " VAMPIRE");
+	else {
+		strcpy(buf,"player");
+		return flag_names_raw(plr_flags, vector, buf);
 	}
-	return (buf[0] != '\0') ? buf+1 : "none";
 }
 
-char *comm_bit_name(int comm_flags)
+char *comm_bit_name(int vector)
 {
-	static char buf[512];
-
-	buf[0] = '\0';
-
-	if (comm_flags & COMM_QUIET		) strcat(buf, " quiet");
-	if (comm_flags & COMM_DEAF		) strcat(buf, " deaf");
-	if (comm_flags & COMM_NOWIZ		) strcat(buf, " no_wiz");
-	if (comm_flags & COMM_NOAUCTION	) strcat(buf, " no_auction");
-	if (comm_flags & COMM_NOGOSSIP	) strcat(buf, " no_gossip");
-	if (comm_flags & COMM_NOQUESTION	) strcat(buf, " no_question");
-	if (comm_flags & COMM_NOMUSIC	) strcat(buf, " no_music");
-	if (comm_flags & COMM_NOQUOTE	) strcat(buf, " no_quote");
-	if (comm_flags & COMM_COMPACT	) strcat(buf, " compact");
-	if (comm_flags & COMM_BRIEF		) strcat(buf, " brief");
-	if (comm_flags & COMM_LONG		) strcat(buf, " long");
-	if (comm_flags & COMM_PROMPT	) strcat(buf, " prompt");
-	if (comm_flags & COMM_COMBINE	) strcat(buf, " combine");
-	if (comm_flags & COMM_NOEMOTE	) strcat(buf, " no_emote");
-	if (comm_flags & COMM_NOSHOUT	) strcat(buf, " no_shout");
-	if (comm_flags & COMM_NOTELL	) strcat(buf, " no_tell");
-	if (comm_flags & COMM_NOCHANNELS	) strcat(buf, " no_channels");
-	
-
-	return (buf[0] != '\0') ? buf+1 : "none";
-}
-
-char *imm_bit_name(int imm_flags)
-{
-	static char buf[512];
-
-	buf[0] = '\0';
-
-	if (imm_flags & IMM_SUMMON		) strcat(buf, " summon");
-	if (imm_flags & IMM_CHARM		) strcat(buf, " charm");
-	if (imm_flags & IMM_MAGIC		) strcat(buf, " magic");
-	if (imm_flags & IMM_WEAPON		) strcat(buf, " weapon");
-	if (imm_flags & IMM_BASH		) strcat(buf, " blunt");
-	if (imm_flags & IMM_PIERCE		) strcat(buf, " piercing");
-	if (imm_flags & IMM_SLASH		) strcat(buf, " slashing");
-	if (imm_flags & IMM_FIRE		) strcat(buf, " fire");
-	if (imm_flags & IMM_COLD		) strcat(buf, " cold");
-	if (imm_flags & IMM_LIGHTNING	) strcat(buf, " lightning");
-	if (imm_flags & IMM_ACID		) strcat(buf, " acid");
-	if (imm_flags & IMM_POISON		) strcat(buf, " poison");
-	if (imm_flags & IMM_NEGATIVE	) strcat(buf, " negative");
-	if (imm_flags & IMM_HOLY		) strcat(buf, " holy");
-	if (imm_flags & IMM_ENERGY		) strcat(buf, " energy");
-	if (imm_flags & IMM_MENTAL		) strcat(buf, " mental");
-	if (imm_flags & IMM_DISEASE	) strcat(buf, " disease");
-	if (imm_flags & IMM_DROWNING	) strcat(buf, " drowning");
-	if (imm_flags & IMM_LIGHT		) strcat(buf, " light");
-	if (imm_flags & VULN_IRON		) strcat(buf, " iron");
-	if (imm_flags & VULN_WOOD		) strcat(buf, " wood");
-	if (imm_flags & VULN_SILVER	) strcat(buf, " silver");
-
-	return (buf[0] != '\0') ? buf+1 : "none";
-}
-
-char *wear_bit_name(int wear_flags)
-{
-	static char buf[512];
-
-	buf [0] = '\0';
-	if (wear_flags & ITEM_TAKE		) strcat(buf, " take");
-	if (wear_flags & ITEM_WEAR_FINGER	) strcat(buf, " finger");
-	if (wear_flags & ITEM_WEAR_NECK	) strcat(buf, " neck");
-	if (wear_flags & ITEM_WEAR_BODY	) strcat(buf, " torso");
-	if (wear_flags & ITEM_WEAR_HEAD	) strcat(buf, " head");
-	if (wear_flags & ITEM_WEAR_LEGS	) strcat(buf, " legs");
-	if (wear_flags & ITEM_WEAR_FEET	) strcat(buf, " feet");
-	if (wear_flags & ITEM_WEAR_HANDS	) strcat(buf, " hands");
-	if (wear_flags & ITEM_WEAR_ARMS	) strcat(buf, " arms");
-	if (wear_flags & ITEM_WEAR_SHIELD	) strcat(buf, " shield");
-	if (wear_flags & ITEM_WEAR_ABOUT	) strcat(buf, " body");
-	if (wear_flags & ITEM_WEAR_WAIST	) strcat(buf, " waist");
-	if (wear_flags & ITEM_WEAR_WRIST	) strcat(buf, " wrist");
-	if (wear_flags & ITEM_WIELD		) strcat(buf, " wield");
-	if (wear_flags & ITEM_HOLD		) strcat(buf, " hold");
-	if (wear_flags & ITEM_WEAR_FLOAT	) strcat(buf, " float");
-	if (wear_flags & ITEM_WEAR_TATTOO	) strcat(buf, " tattoo");
-
-	return (buf[0] != '\0') ? buf+1 : "none";
-}
-
-char *form_bit_name(int form_flags)
-{
-	static char buf[512];
-
-	buf[0] = '\0';
-	if (form_flags & FORM_POISON	) strcat(buf, " poison");
-	else if (form_flags & FORM_EDIBLE	) strcat(buf, " edible");
-	if (form_flags & FORM_MAGICAL	) strcat(buf, " magical");
-	if (form_flags & FORM_INSTANT_DECAY	) strcat(buf, " instant_rot");
-	if (form_flags & FORM_OTHER		) strcat(buf, " other");
-	if (form_flags & FORM_ANIMAL	) strcat(buf, " animal");
-	if (form_flags & FORM_SENTIENT	) strcat(buf, " sentient");
-	if (form_flags & FORM_UNDEAD	) strcat(buf, " undead");
-	if (form_flags & FORM_CONSTRUCT	) strcat(buf, " construct");
-	if (form_flags & FORM_MIST		) strcat(buf, " mist");
-	if (form_flags & FORM_INTANGIBLE	) strcat(buf, " intangible");
-	if (form_flags & FORM_BIPED		) strcat(buf, " biped");
-	if (form_flags & FORM_CENTAUR	) strcat(buf, " centaur");
-	if (form_flags & FORM_INSECT	) strcat(buf, " insect");
-	if (form_flags & FORM_SPIDER	) strcat(buf, " spider");
-	if (form_flags & FORM_CRUSTACEAN	) strcat(buf, " crustacean");
-	if (form_flags & FORM_WORM		) strcat(buf, " worm");
-	if (form_flags & FORM_BLOB		) strcat(buf, " blob");
-	if (form_flags & FORM_MAMMAL	) strcat(buf, " mammal");
-	if (form_flags & FORM_BIRD		) strcat(buf, " bird");
-	if (form_flags & FORM_REPTILE	) strcat(buf, " reptile");
-	if (form_flags & FORM_SNAKE		) strcat(buf, " snake");
-	if (form_flags & FORM_DRAGON	) strcat(buf, " dragon");
-	if (form_flags & FORM_AMPHIBIAN	) strcat(buf, " amphibian");
-	if (form_flags & FORM_FISH		) strcat(buf, " fish");
-	if (form_flags & FORM_COLD_BLOOD 	) strcat(buf, " cold_blooded");
-
-	return (buf[0] != '\0') ? buf+1 : "none";
-}
-
-char *part_bit_name(int part_flags)
-{
-	static char buf[512];
-
-	buf[0] = '\0';
-	if (part_flags & PART_HEAD		) strcat(buf, " head");
-	if (part_flags & PART_ARMS		) strcat(buf, " arms");
-	if (part_flags & PART_LEGS		) strcat(buf, " legs");
-	if (part_flags & PART_HEART		) strcat(buf, " heart");
-	if (part_flags & PART_BRAINS	) strcat(buf, " brains");
-	if (part_flags & PART_GUTS		) strcat(buf, " guts");
-	if (part_flags & PART_HANDS		) strcat(buf, " hands");
-	if (part_flags & PART_FEET		) strcat(buf, " feet");
-	if (part_flags & PART_FINGERS	) strcat(buf, " fingers");
-	if (part_flags & PART_EAR		) strcat(buf, " ears");
-	if (part_flags & PART_EYE		) strcat(buf, " eyes");
-	if (part_flags & PART_LONG_TONGUE	) strcat(buf, " long_tongue");
-	if (part_flags & PART_EYESTALKS	) strcat(buf, " eyestalks");
-	if (part_flags & PART_TENTACLES	) strcat(buf, " tentacles");
-	if (part_flags & PART_FINS		) strcat(buf, " fins");
-	if (part_flags & PART_WINGS		) strcat(buf, " wings");
-	if (part_flags & PART_TAIL		) strcat(buf, " tail");
-	if (part_flags & PART_CLAWS		) strcat(buf, " claws");
-	if (part_flags & PART_FANGS		) strcat(buf, " fangs");
-	if (part_flags & PART_HORNS		) strcat(buf, " horns");
-	if (part_flags & PART_SCALES	) strcat(buf, " scales");
-
-	return (buf[0] != '\0') ? buf+1 : "none";
-}
-
-char *weapon_bit_name(int weapon_flags)
-{
-	static char buf[512];
-
-	buf[0] = '\0';
-	if (weapon_flags & WEAPON_FLAMING	) strcat(buf, " flaming");
-	if (weapon_flags & WEAPON_FROST	) strcat(buf, " frost");
-	if (weapon_flags & WEAPON_VAMPIRIC	) strcat(buf, " vampiric");
-	if (weapon_flags & WEAPON_SHARP	) strcat(buf, " sharp");
-	if (weapon_flags & WEAPON_VORPAL	) strcat(buf, " vorpal");
-	if (weapon_flags & WEAPON_TWO_HANDS) strcat(buf, " two-handed");
-	if (weapon_flags & WEAPON_SHOCKING 	) strcat(buf, " shocking");
-	if (weapon_flags & WEAPON_POISON	) strcat(buf, " poison");
-	if (weapon_flags & WEAPON_HOLY	) strcat(buf, " holy");
-
-	return (buf[0] != '\0') ? buf+1 : "none";
-}
-
-char *cont_bit_name(int cont_flags)
-{
-	static char buf[512];
-
-	buf[0] = '\0';
-
-	if (cont_flags & CONT_CLOSEABLE	) strcat(buf, " closable");
-	if (cont_flags & CONT_PICKPROOF	) strcat(buf, " pickproof");
-	if (cont_flags & CONT_CLOSED	) strcat(buf, " closed");
-	if (cont_flags & CONT_LOCKED	) strcat(buf, " locked");
-
-	return (buf[0] != '\0') ? buf+1 : "none";
+	return flag_names(comm_flags, vector);
 }
 
 
-char *off_bit_name(int off_flags)
+char *imm_bit_name(int vector)
 {
-	static char buf[512];
+	return flag_names(imm_flags, vector);
+}
 
-	buf[0] = '\0';
 
-	if (off_flags & OFF_AREA_ATTACK	) strcat(buf, " area attack");
-	if (off_flags & OFF_BACKSTAB	) strcat(buf, " backstab");
-	if (off_flags & OFF_BASH		) strcat(buf, " bash");
-	if (off_flags & OFF_BERSERK		) strcat(buf, " berserk");
-	if (off_flags & OFF_DISARM		) strcat(buf, " disarm");
-	if (off_flags & OFF_DODGE		) strcat(buf, " dodge");
-	if (off_flags & OFF_FADE		) strcat(buf, " fade");
-	if (off_flags & OFF_FAST		) strcat(buf, " fast");
-	if (off_flags & OFF_KICK		) strcat(buf, " kick");
-	if (off_flags & OFF_KICK_DIRT	) strcat(buf, " kick_dirt");
-	if (off_flags & OFF_PARRY		) strcat(buf, " parry");
-	if (off_flags & OFF_RESCUE		) strcat(buf, " rescue");
-	if (off_flags & OFF_TAIL		) strcat(buf, " tail");
-	if (off_flags & OFF_TRIP		) strcat(buf, " trip");
-	if (off_flags & OFF_CRUSH		) strcat(buf, " crush");
-	if (off_flags & ASSIST_ALL		) strcat(buf, " assist_all");
-	if (off_flags & ASSIST_ALIGN	) strcat(buf, " assist_align");
-	if (off_flags & ASSIST_RACE		) strcat(buf, " assist_race");
-	if (off_flags & ASSIST_PLAYERS	) strcat(buf, " assist_players");
-	if (off_flags & ASSIST_GUARD	) strcat(buf, " assist_guard");
-	if (off_flags & ASSIST_VNUM		) strcat(buf, " assist_vnum");
+char *wear_bit_name(int vector)
+{
+	return flag_names(wear_flags, vector);
+}
 
-	return (buf[0] != '\0') ? buf+1 : "none";
+
+char *form_bit_name(int vector)
+{
+	return flag_names(form_flags, vector);
+}
+
+
+char *part_bit_name(int vector)
+{
+	return flag_names(part_flags, vector);
+}
+
+
+char *weapon_bit_name(int vector)
+{
+	return flag_names(weapon_type2, vector);
+}
+
+char *cont_bit_name(int vector)
+{
+	return flag_names(cont_flags, vector);
+}
+
+char *off_bit_name(int vector)
+{
+	return flag_names(off_flags, vector);
 }
 
 
@@ -3458,497 +3118,40 @@ bool isn_dark_safe(CHAR_DATA *ch)
 
 int ch_skill_nok(CHAR_DATA *ch, int skill)
 {
-		if (IS_NPC(ch) || !SKILL_OK(ch, skill)) {
-			send_to_char("Huh?\n\r",ch);
-			return 1;
-		}
-		return 0;
+	if (IS_NPC(ch) || !SKILL_OK(ch, skill)) {
+		send_to_char("Huh?\n\r",ch);
+		return 1;
+	}
+	return 0;
 }
 
 int skill_is_native(CHAR_DATA* ch, int sn)
 {
-		int i;
+	int i;
 
-		if (IS_NPC(ch))
-			return 0;
-
-		for (i = 0; i < 5; i++) {
-			int csn;
-
-			csn = skill_lookup(pc_race_table[ch->pcdata->race].skills[i]);
-			if (csn < 0)
-				break;
-			if (csn == sn)
-				return 1;
-		}
-
+	if (IS_NPC(ch))
 		return 0;
-}
 
-/* room affects by chronos */
-void	affect_modify_room	args((ROOM_INDEX_DATA *room, AFFECT_DATA *paf, bool fAdd)); 
+	for (i = 0; i < 5; i++) {
+		int csn;
 
-/*
- * Apply or remove an affect to a room.
- */
-void affect_modify_room(ROOM_INDEX_DATA *room, AFFECT_DATA *paf, bool fAdd)
-{
-	int mod;
-
-	mod = paf->modifier;
-
-	if (fAdd)
-	{
-		switch (paf->where)
-		{
-		case TO_ROOM_AFFECTS:
-		      SET_BIT(room->affected_by, paf->bitvector);
-		    break;
-		case TO_ROOM_FLAGS:
-		      SET_BIT(room->room_flags, paf->bitvector);
-		    break;
-		case TO_ROOM_CONST:
-		    break;
-		}
-	}
-	else
-	{
-	    switch (paf->where)
-	    {
-	    case TO_ROOM_AFFECTS:
-	          REMOVE_BIT(room->affected_by, paf->bitvector);
-	        break;
-		case TO_ROOM_FLAGS:
-		      REMOVE_BIT(room->room_flags, paf->bitvector);
-		    break;
-	    case TO_ROOM_CONST:
-	        break;
-	    }
-		mod = 0 - mod;
-	}
-
-	switch (paf->location)
-	{
-	default:
-		bug("Affect_modify_room: unknown location %d.", paf->location);
-		return;
-
-	case APPLY_ROOM_NONE:					break;
-	case APPLY_ROOM_HEAL:	room->heal_rate += mod;		break;
-	case APPLY_ROOM_MANA:	room->mana_rate += mod;		break;
-	}
-
-	return;
-}
-
-/*
- * Give an affect to a room.
- */
-void affect_to_room(ROOM_INDEX_DATA *room, AFFECT_DATA *paf)
-{
-	AFFECT_DATA *paf_new;
-	ROOM_INDEX_DATA *pRoomIndex;
-
-	if (! room->affected)
-	{
-	 if (top_affected_room)
-	 {
-	  for (pRoomIndex  = top_affected_room;
-		  pRoomIndex->aff_next != NULL;
-		  pRoomIndex  = pRoomIndex->aff_next)
-				continue;
-	  pRoomIndex->aff_next = room;	
-	 }
-	 else top_affected_room = room;
-	 room->aff_next = NULL;
-	}
-
-	paf_new = new_affect();
-
-	*paf_new		= *paf;
-	paf_new->next	= room->affected;
-	room->affected	= paf_new;
-
-	affect_modify_room(room , paf_new, TRUE);
-	return;
-}
-
-void affect_check_room(ROOM_INDEX_DATA *room,int where,int vector)
-{
-	AFFECT_DATA *paf;
-
-	if (vector == 0)
-		return;
-
-	for (paf = room->affected; paf != NULL; paf = paf->next)
-		if (paf->where == where && paf->bitvector == vector)
-		{
-		    switch (where)
-		    {
-		        case TO_ROOM_AFFECTS:
-			      SET_BIT(room->affected_by,vector);
-			    break;
-			case TO_ROOM_FLAGS:
-		      	      SET_BIT(room->room_flags, vector);
-		    	    break;
-		        case TO_ROOM_CONST:
-			    break;
-		    }
-		    return;
-		}
-}
-
-/*
- * Remove an affect from a room.
- */
-void affect_remove_room(ROOM_INDEX_DATA *room, AFFECT_DATA *paf)
-{
-	int where;
-	int vector;
-
-
-	if (room->affected == NULL)
-	{
-		bug("Affect_remove_room: no affect.", 0);
-		return;
-	}
-
-	affect_modify_room(room, paf, FALSE);
-	where = paf->where;
-	vector = paf->bitvector;
-
-	if (paf == room->affected)
-	{
-		room->affected	= paf->next;
-	}
-	else
-	{
-		AFFECT_DATA *prev;
-
-		for (prev = room->affected; prev != NULL; prev = prev->next)
-		{
-		    if (prev->next == paf)
-		    {
-			prev->next = paf->next;
+		csn = skill_lookup(pc_race_table[ch->pcdata->race].skills[i]);
+		if (csn < 0)
 			break;
-		    }
-		}
-
-		if (prev == NULL)
-		{
-		    bug("Affect_remove_room: cannot find paf.", 0);
-		    return;
-		}
+		if (csn == sn)
+			return 1;
 	}
 
-	if (!room->affected)
-	{
-	 ROOM_INDEX_DATA *prev;
-
-	 if (top_affected_room  == room)
-		{
-		 top_affected_room = room->aff_next;
-		}
-	 else
-	    {
-	     for(prev = top_affected_room; prev->aff_next; prev = prev->aff_next)
-		  {
-		    if (prev->aff_next == room)
-		    {
-			prev->aff_next = room->aff_next;
-			break;
-		    }
-		  }
-		 if (prev == NULL)
-		  {
-		    bug("Affect_remove_room: cannot find room.", 0);
-		    return;
-		  }
-	    }
-	  room->aff_next = NULL;
-
-	 }
-
-	free_affect(paf);
-
-	affect_check_room(room,where,vector);
-	return;
+	return 0;
 }
-
-/*
- * Strip all affects of a given sn.
- */
-void affect_strip_room(ROOM_INDEX_DATA *room, int sn)
-{
-	AFFECT_DATA *paf;
-	AFFECT_DATA *paf_next;
-
-	for (paf = room->affected; paf != NULL; paf = paf_next)
-	{
-		paf_next = paf->next;
-		if (paf->type == sn)
-		    affect_remove_room(room, paf);
-	}
-
-	return;
-}
-
-
-
-/*
- * Return true if a room is affected by a spell.
- */
-bool is_affected_room(ROOM_INDEX_DATA *room, int sn)
-{
-	AFFECT_DATA *paf;
-
-	for (paf = room->affected; paf != NULL; paf = paf->next)
-	{
-		if (paf->type == sn)
-		    return TRUE;
-	}
-
-	return FALSE;
-}
-
-
-
-/*
- * Add or enhance an affect.
- */
-void affect_join_room(ROOM_INDEX_DATA *room, AFFECT_DATA *paf)
-{
-	AFFECT_DATA *paf_old;
-	bool found;
-
-	found = FALSE;
-	for (paf_old = room->affected; paf_old != NULL; paf_old = paf_old->next)
-	{
-		if (paf_old->type == paf->type)
-		{
-		    paf->level = (paf->level += paf_old->level) / 2;
-		    paf->duration += paf_old->duration;
-		    paf->modifier += paf_old->modifier;
-		    affect_remove_room(room, paf_old);
-		    break;
-		}
-	}
-
-	affect_to_room(room, paf);
-	return;
-}
-
-/*
- * Return ascii name of an raffect location.
- */
-char *raffect_loc_name(int location)
-{
-	switch (location)
-	{
-	case APPLY_ROOM_NONE:	return "none";
-	case APPLY_ROOM_HEAL:	return "heal rate";
-	case APPLY_ROOM_MANA:	return "mana rate";
-	}
-
-	bug("Affect_location_name: unknown location %d.", location);
-	return "(unknown)";
-}
-
-	 
-/*
- * Return ascii name of an affect bit vector.
- */
-char *raffect_bit_name(int vector)
-{
-	static char buf[512];
-
-	buf[0] = '\0';
-	if (vector & AFF_ROOM_SHOCKING ) strcat(buf, " shocking"       );
-	if (vector & AFF_ROOM_L_SHIELD ) strcat(buf, " lightning_shield");
-	if (vector & AFF_ROOM_THIEF_TRAP) strcat(buf, " thief_trap"     );
-	if (vector & AFF_ROOM_CURSE    ) strcat(buf, " curse"          );
-	if (vector & AFF_ROOM_POISON   ) strcat(buf, " poison"         );
-	if (vector & AFF_ROOM_PLAGUE   ) strcat(buf, " plague"         );
-	if (vector & AFF_ROOM_SLEEP    ) strcat(buf, " sleep"          );
-	if (vector & AFF_ROOM_SLOW     ) strcat(buf, " slow"           );
-	return (buf[0] != '\0') ? buf+1 : "none";
-}
-
-
-bool is_safe_rspell_nom(int level, CHAR_DATA *victim)
-{
-  /* ghosts are safe */
-  if (!IS_NPC(victim) && IS_SET(victim->act, PLR_GHOST))
-	return TRUE;
- 
-  /* link dead players who do not have rushing adrenalin are safe */
-  if (!IS_NPC(victim) && ((victim->last_fight_time == -1) || 
-		((current_time - victim->last_fight_time) > FIGHT_DELAY_TIME)) && 
-		victim->desc == NULL) 
-	return TRUE;
-
-  if  (victim->level < 5  && !IS_NPC(victim))
-	return TRUE;
-
-  if (!IS_NPC(victim) &&
-	  (victim->last_death_time != -1 && current_time - 	victim->last_death_time < 600))
-	return TRUE;
-
-
-  if (!IS_NPC(victim) &&
-	  ((level >= victim->level + 5) || (victim->level >= level + 5)))
-	return TRUE;
-
-  return FALSE;
-}
-
-
-bool is_safe_rspell(int level, CHAR_DATA *victim)
-{
-  if (is_safe_rspell_nom(level,victim))
-	{
-	  act("The gods protect $n.",victim,NULL,NULL,TO_CHAR);
-	  act("The gods protect $n from the spell of room.",victim,NULL,NULL,TO_ROOM);
-	  return TRUE;
-	}
-  else return FALSE;
-}
-	  
-		
-void raffect_to_char(ROOM_INDEX_DATA *room, CHAR_DATA *ch)
- {
-  AFFECT_DATA *paf;
-
-  if (IS_ROOM_AFFECTED(room, AFF_ROOM_L_SHIELD))
-  {
-	 int sn;
-	 CHAR_DATA *vch;
-
-	 if ((sn = skill_lookup("lightning shield")) == -1)
-		{ bug("Bad sn for lightning shield",0); return; }
-
-	 for (vch=room->people;vch;vch=vch->next_in_room)
-		{
-		 if (is_room_owner(vch,room)) break;
-		}
-
-	if (!vch)
-		{
-		 bug("Owner of lightning shield left the room.",0);
-		 free_string(room->owner);
-		 room->owner = str_dup("");	 
-		 affect_strip_room(room,sn); 
-		}
-	 else 
-	 {
-	  send_to_char("The protective shield of room blocks you.\n\r",ch);
-	  act("$N has entered the room.",vch,NULL,ch,TO_CHAR);
-	  do_wake(vch,"");
-
-	  if ((paf = affect_find(room->affected,sn)) == NULL)
-		 { bug("Bad paf for lightning shield",0); return; }
-
-	  if (!is_safe_rspell(paf->level,ch)) 
-		{
-		 damage(vch,ch,dice(paf->level,4)+12,sn,DAM_LIGHTNING, TRUE);
-		 free_string(room->owner);
-		 room->owner = str_dup("");	 
-		 affect_remove_room(room , paf);
-		}
-	 }
-   }
-
-  if (IS_ROOM_AFFECTED(room, AFF_ROOM_SHOCKING))
-  {
-	 int sn;
-
-	 if ((sn = skill_lookup("shocking trap")) == -1)
-		{ bug("Bad sn for shocking shield",0); return; }
-
-	 send_to_char("The shocking waves of room shocks you.\n\r",ch);
-
-	 if ((paf = affect_find(room->affected,sn)) == NULL)
-		 { bug("Bad paf for shocking shield",0); return; }
-
-	 if (!is_safe_rspell(paf->level,ch)) 
-		{
-		 if (check_immune(ch, DAM_LIGHTNING) != IS_IMMUNE)
-		 damage(ch,ch,dice(paf->level,4)+12,TYPE_HUNGER,DAM_TRAP_ROOM, TRUE);
-		 affect_remove_room(room , paf);
-		}
-   }
-
-  if (IS_ROOM_AFFECTED(room, AFF_ROOM_THIEF_TRAP))
-  {
-	 send_to_char("The trap ,set by someone, blocks you.\n\r",ch);
-
-	 if ((paf = affect_find(room->affected,gsn_settraps)) == NULL)
-		 { bug("Bad paf for settraps",0); return; }
-
-	 if (!is_safe_rspell(paf->level,ch)) 
-		{
-		 if (check_immune(ch, DAM_PIERCE) != IS_IMMUNE)
-		 damage(ch,ch,dice(paf->level,5)+12,TYPE_HUNGER,DAM_TRAP_ROOM, TRUE);
-		 affect_remove_room(room , paf);
-		}
-   }
-
-  if (IS_ROOM_AFFECTED(room, AFF_ROOM_SLOW)
-		|| IS_ROOM_AFFECTED(room, AFF_ROOM_SLEEP))
-	 char_puts("There is some mist flowing in the air.\n\r",ch);
-
-  return;
- }
-
-void raffect_back_char(ROOM_INDEX_DATA *room, CHAR_DATA *ch)
- {
-  if (IS_ROOM_AFFECTED(room, AFF_ROOM_L_SHIELD))
-  {
-   int sn;
-
-	if ((sn = skill_lookup("lightning shield")) == -1)
-		{ bug("Bad sn for lightning shield",0); return; }
-	if (is_room_owner(ch,room)) 
-		{
-		 free_string(room->owner);
-		 room->owner = str_dup("");	 
-		 affect_strip_room(room,sn); 
-		}
-   }
-  return;
- }
-
 
 /*
  * Return ascii name of an affect bit vector.
  */
 char *flag_room_name(int vector)
 {
-	static char buf[512];
-
-	buf[0] = '\0';
-	if (vector & ROOM_DARK        ) strcat(buf, " dark"        );
-	if (vector & ROOM_NO_MOB      ) strcat(buf, " nomob"       );
-	if (vector & ROOM_INDOORS     ) strcat(buf, " indoors"     );
-	if (vector & ROOM_PRIVATE     ) strcat(buf, " private"     );
-	if (vector & ROOM_SAFE        ) strcat(buf, " safe"        );
-	if (vector & ROOM_SOLITARY    ) strcat(buf, " solitary"    );
-	if (vector & ROOM_PET_SHOP    ) strcat(buf, " petshop"     );
-	if (vector & ROOM_NO_RECALL   ) strcat(buf, " norecall"    );
-	if (vector & ROOM_IMP_ONLY    ) strcat(buf, " imp_only"    );
-	if (vector & ROOM_GODS_ONLY   ) strcat(buf, " god_only"    );
-	if (vector & ROOM_HEROES_ONLY ) strcat(buf, " heroes"      );
-	if (vector & ROOM_NEWBIES_ONLY) strcat(buf, " newbies"     );
-	if (vector & ROOM_LAW         ) strcat(buf, " law"         );
-	if (vector & ROOM_NOWHERE     ) strcat(buf, " nowhere"     );
-	if (vector & ROOM_BANK        ) strcat(buf, " bank"        );
-	if (vector & ROOM_NO_MAGIC    ) strcat(buf, " nomagic"     );
-	if (vector & ROOM_NOSUMMON    ) strcat(buf, " nosummon"    );
-	if (vector & ROOM_REGISTRY    ) strcat(buf, " registry"    );
-	if (vector & ROOM_BATTLE_ARENA) strcat(buf, " battle_arena");
-	return (buf[0] != '\0') ? buf+1 : "none";
+	return flag_names(room_flags, vector);
 }
-
 
 int affect_check_obj(CHAR_DATA *ch,int vector)
 {
@@ -4019,74 +3222,75 @@ void add_mind(CHAR_DATA *ch, char *str)
  */
 void remove_mind(CHAR_DATA *ch, char *str)
 {
-		char buf[MAX_STRING_LENGTH];
-		char buff[MAX_STRING_LENGTH];
-		char arg[MAX_INPUT_LENGTH];
-		char *mind = ch->in_mind;
+	char buf[MAX_STRING_LENGTH];
+	char buff[MAX_STRING_LENGTH];
+	char arg[MAX_INPUT_LENGTH];
+	char *mind = ch->in_mind;
 
-		if (!IS_NPC(ch) || ch->in_room == NULL 
-		||  mind == NULL || !is_name(str, mind)) return;
+	if (!IS_NPC(ch) || ch->in_room == NULL 
+	||  mind == NULL || !is_name(str, mind)) return;
 
-		buf[0] = '\0';
-		do { 
-			mind = one_argument(mind, arg);
-			if (!is_name(str,arg))  {
-				if (buf[0] == '\0')
-					strcpy(buff, arg);
-				else
-					snprintf(buff, sizeof(buff), "%s %s", buf, arg);
-				strcpy(buf,buff);
-			}
-		} while (mind[0] != '\0');
- 
-		free_string(ch->in_mind);
-		if (is_number(buf)) {
-			do_say(ch, "At last, I took my revenge!"); 
-			back_home(ch);
-			ch->in_mind = NULL;
+	buf[0] = '\0';
+	do { 
+		mind = one_argument(mind, arg);
+		if (!is_name(str,arg))  {
+			if (buf[0] == '\0')
+				strcpy(buff, arg);
+			else
+				snprintf(buff, sizeof(buff), "%s %s", buf, arg);
+			strcpy(buf,buff);
 		}
-		else
-			ch->in_mind = str_dup(buf);
+	} while (mind[0] != '\0');
+ 
+	free_string(ch->in_mind);
+	if (is_number(buf)) {
+		do_say(ch, "At last, I took my revenge!"); 
+		back_home(ch);
+		ch->in_mind = NULL;
+	}
+	else
+		ch->in_mind = str_dup(buf);
 }
 
 int opposite_door(int door)
 {
-  int opdoor;
+	int opdoor;
 
-  switch (door)
-   {
+	switch (door) {
 	case 0: opdoor=2;	break;
 	case 1: opdoor=3;	break;
 	case 2: opdoor=0;	break;
 	case 3: opdoor=1;	break;
 	case 4: opdoor=5;	break;
 	case 5: opdoor=4;	break;
-	default: opdoor=-1; break;
-  }
-  return opdoor;
+	default: opdoor=-1;	break;
+	}
+
+	return opdoor;
 }
 
 void back_home(CHAR_DATA *ch)
 {
-		ROOM_INDEX_DATA *location;
-		char arg[MAX_INPUT_LENGTH];
+	ROOM_INDEX_DATA *location;
+	char arg[MAX_INPUT_LENGTH];
 
-		if (!IS_NPC(ch) || ch->in_mind == NULL)
-			return;
+	if (!IS_NPC(ch) || ch->in_mind == NULL)
+		return;
 
-		one_argument(ch->in_mind, arg);
-		if ((location = find_location(ch, arg)) == NULL) {
-			bug("Mob cannot return to reset place", 0);
-			return;
-		}
+	one_argument(ch->in_mind, arg);
+	if ((location = find_location(ch, arg)) == NULL) {
+		log("back_home: reset place not found");
+		return;
+	}
 
-		if (ch->fighting == NULL && location != ch->in_room) {
-			act("$n prays for transportation.",ch,NULL,NULL,TO_ROOM);
-			char_from_room(ch);
-			char_to_room(ch, location);
-			act("$n appears in the room.",ch,NULL,NULL,TO_ROOM);
-		}
+	if (ch->fighting == NULL && location != ch->in_room) {
+		act("$n prays for transportation.",ch,NULL,NULL,TO_ROOM);
+		char_from_room(ch);
+		char_to_room(ch, location);
+		act("$n appears in the room.",ch,NULL,NULL,TO_ROOM);
+	}
 }
+
 
 CHAR_DATA * find_char(CHAR_DATA *ch, char *argument,int door, int range) 
 {
@@ -4134,7 +3338,7 @@ int check_exit(char *arg)
 {
 	int door = -1;
 
-		 if (!str_cmp(arg, "n") || !str_cmp(arg, "north")) door = 0;
+	     if (!str_cmp(arg, "n") || !str_cmp(arg, "north")) door = 0;
 	else if (!str_cmp(arg, "e") || !str_cmp(arg, "east" )) door = 1;
 	else if (!str_cmp(arg, "s") || !str_cmp(arg, "south")) door = 2;
 	else if (!str_cmp(arg, "w") || !str_cmp(arg, "west" )) door = 3;
@@ -4249,8 +3453,10 @@ bool can_gate_to(CHAR_DATA *ch, CHAR_DATA *victim)
 	||  (IS_SET(ch->in_room->room_flags, ROOM_NO_MOB) && IS_NPC(victim))
 	||  saves_spell(ch->level, victim, DAM_OTHER)
 	||  (!IS_NPC(victim) && IS_IMMORTAL(victim))
-	||  (IS_NPC(victim) && is_safe_nomessage(ch, victim) && IS_SET(victim->imm_flags, IMM_SUMMON))
-	||  (!IS_NPC(victim) && is_safe_nomessage(ch, victim) && IS_SET(victim->act, PLR_NOSUMMON))
+	||  (IS_NPC(victim) && is_safe_nomessage(ch, victim) &&
+	     IS_SET(victim->imm_flags, IMM_SUMMON))
+	||  (!IS_NPC(victim) && is_safe_nomessage(ch, victim) &&
+	     IS_SET(victim->act, PLR_NOSUMMON))
 	||  (!IS_NPC(victim) && ch->in_room->area != victim->in_room->area)
 	||  guild_check(ch, victim->in_room) < 0)
 		return FALSE;
@@ -4271,5 +3477,30 @@ char *PERS(CHAR_DATA *ch, CHAR_DATA *looker)
 		return "an immortal";
 
 	return "someone";
+}
+
+/*
+ * Return ascii name of an raffect location.
+ */
+char *raffect_loc_name(int location)
+{
+	switch (location)
+	{
+	case APPLY_ROOM_NONE:	return "none";
+	case APPLY_ROOM_HEAL:	return "heal rate";
+	case APPLY_ROOM_MANA:	return "mana rate";
+	}
+
+	bug("Affect_location_name: unknown location %d.", location);
+	return "(unknown)";
+}
+
+	 
+/*
+ * Return ascii name of an affect bit vector.
+ */
+char *raffect_bit_name(int vector)
+{
+	return flag_names(raff_flags, vector);
 }
 

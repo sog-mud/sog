@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.20 1998-06-24 19:55:40 efdi Exp $
+ * $Id: spellfun.c,v 1.21 1998-07-03 15:18:41 fjoe Exp $
  */
 
 /***************************************************************************
@@ -55,6 +55,8 @@
 #include "update.h"
 #include "util.h"
 #include "log.h"
+#include "buffer.h"
+#include "lookup.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_look		);
@@ -72,28 +74,6 @@ void	say_spell	args((CHAR_DATA *ch, int sn));
 bool    remove_obj      args((CHAR_DATA *ch, int iWear, bool fReplace));
 void 	wear_obj	args((CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace));
 
-
-
-/*
- * Lookup a skill by name.
- */
-int skill_lookup(const char *name)
-{
-	int sn;
-
-	if (name == NULL)
-		return -1;
-
-	for (sn = 0; sn < MAX_SKILL; sn++) {
-		if (skill_table[sn].name == NULL)
-			break;
-		if (LOWER(name[0]) == LOWER(skill_table[sn].name[0])
-		&&  !str_prefix(name, skill_table[sn].name))
-			return sn;
-	}
-
-	return -1;
-}
 
 int find_spell(CHAR_DATA *ch, const char *name)
 {
@@ -114,36 +94,6 @@ int find_spell(CHAR_DATA *ch, const char *name)
 	}
 	return -1;
 }
-
-
-
-/*
- * Lookup a skill by slot number.
- * Used for object loading.
- */
-int slot_lookup(int slot)
-{
-	extern bool fBootDb;
-	int sn;
-
-	if (slot <= 0)
-		return -1;
-
-	for (sn = 0; sn < MAX_SKILL; sn++)
-	{
-		if (slot == skill_table[sn].slot)
-		    return sn;
-	}
-
-	if (fBootDb)
-	{
-		bug("Slot_lookup: bad slot %d.", slot);
-		abort();
-	}
-
-	return -1;
-}
-
 
 
 /*
@@ -3993,63 +3943,54 @@ void spell_lightning_bolt(int sn,int level,CHAR_DATA *ch,void *vo,int target)
 
 void spell_locate_object(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 {
-	char buf[MAX_INPUT_LENGTH];
-	BUFFER *buffer;
+	BUFFER *buffer = NULL;
 	OBJ_DATA *obj;
 	OBJ_DATA *in_obj;
-	bool found;
 	int number = 0, max_found;
 
-	found = FALSE;
 	number = 0;
 	max_found = IS_IMMORTAL(ch) ? 200 : 2 * level;
 
-	buffer = new_buf();
-
-	for (obj = object_list; obj != NULL; obj = obj->next)
-	{
+	for (obj = object_list; obj != NULL; obj = obj->next) {
 		if (!can_see_obj(ch, obj) || !is_name(target_name, obj->name)
-		||   IS_OBJ_STAT(obj,ITEM_NOLOCATE) || number_percent() > 2 * level
-		||   ch->level < obj->level)
-		    continue;
+		||  IS_OBJ_STAT(obj,ITEM_NOLOCATE)
+		||  number_percent() > 2 * level
+		||  ch->level < obj->level)
+			continue;
 
-		found = TRUE;
+		if (buffer == NULL)
+			buffer = buf_new(0);
 		number++;
 
-		for (in_obj = obj; in_obj->in_obj != NULL; in_obj = in_obj->in_obj)
-		    ;
+		for (in_obj = obj; in_obj->in_obj != NULL;
+						in_obj = in_obj->in_obj)
+			;
 
-		if (in_obj->carried_by != NULL && can_see(ch,in_obj->carried_by))
-		{
-		    sprintf(buf, "one is carried by %s\n\r",
+		if (in_obj->carried_by != NULL
+		&&  can_see(ch,in_obj->carried_by))
+		    buf_printf(buffer, "One is carried by %s\n\r",
 			PERS(in_obj->carried_by, ch));
-		}
 		else
 		{
 		    if (IS_IMMORTAL(ch) && in_obj->in_room != NULL)
-			sprintf(buf, "one is in %s [Room %d]\n\r",
+			buf_printf(buffer, "One is in %s [Room %d]\n\r",
 			    in_obj->in_room->name, in_obj->in_room->vnum);
 		    else
-			sprintf(buf, "one is in %s\n\r",
+			buf_printf(buffer, "One is in %s\n\r",
 			    in_obj->in_room == NULL
 				? "somewhere" : in_obj->in_room->name);
 		}
 
-		buf[0] = UPPER(buf[0]);
-		add_buf(buffer,buf);
-
 		if (number >= max_found)
-		    break;
+			break;
 	}
 
-	if (!found)
+	if (buffer == NULL)
 		send_to_char("Nothing like that in heaven or earth.\n\r", ch);
-	else
+	else {
 		page_to_char(buf_string(buffer),ch);
-
-	free_buf(buffer);
-
-	return;
+		buf_free(buffer);
+	}
 }
 
 
@@ -4929,7 +4870,7 @@ void spell_word_of_recall(int sn, int level, CHAR_DATA *ch,void *vo,int target)
 
 	if (IS_SET(victim->in_room->room_flags,ROOM_NO_RECALL) ||
 		IS_AFFECTED(victim,AFF_CURSE) ||
-		IS_RAFFECTED(victim->in_room,AFF_ROOM_CURSE))
+		IS_RAFFECTED(victim->in_room,RAFF_CURSE))
 	{
 		send_to_char("Spell failed.\n\r",victim);
 		return;
@@ -5213,63 +5154,54 @@ void spell_high_explosive(int sn,int level,CHAR_DATA *ch,void *vo,int target)
 
 void spell_find_object(int sn, int level, CHAR_DATA *ch, void *vo,int target) 
 {
-	char buf[MAX_INPUT_LENGTH];
-	BUFFER *buffer;
+	BUFFER *buffer = NULL;
 	OBJ_DATA *obj;
 	OBJ_DATA *in_obj;
-	bool found;
 	int number = 0, max_found;
 
-	found = FALSE;
 	number = 0;
 	max_found = IS_IMMORTAL(ch) ? 200 : 2 * level;
 
-	buffer = new_buf();
 
-	for (obj = object_list; obj != NULL; obj = obj->next)
-	{
+	for (obj = object_list; obj != NULL; obj = obj->next) {
 		if (!can_see_obj(ch, obj) || !is_name(target_name, obj->name)
 			|| number_percent() > 2 * level
 			||   ch->level < obj->level)
 		    continue;
 
-		found = TRUE;
+		if (buffer == NULL)
+			buffer = buf_new(0);
 		number++;
 
-		for (in_obj = obj; in_obj->in_obj != NULL; in_obj = in_obj->in_obj)
-		    ;
+		for (in_obj = obj; in_obj->in_obj != NULL;
+						in_obj = in_obj->in_obj)
+			;
 
-		if (in_obj->carried_by != NULL && can_see(ch,in_obj->carried_by))
-		{
-		    sprintf(buf, "one is carried by %s\n\r",
-			PERS(in_obj->carried_by, ch));
+		if (in_obj->carried_by != NULL
+		&&  can_see(ch,in_obj->carried_by))
+			buf_printf(buffer, "One is carried by %s\n\r",
+				PERS(in_obj->carried_by, ch));
+		else {
+			if (IS_IMMORTAL(ch) && in_obj->in_room != NULL)
+				buf_printf(buffer, "One is in %s [Room %d]\n\r",
+					   in_obj->in_room->name,
+					   in_obj->in_room->vnum);
+			else
+				buf_printf(buffer, "One is in %s\n\r",
+					   in_obj->in_room == NULL ?
+					   "somewhere" : in_obj->in_room->name);
 		}
-		else
-		{
-		    if (IS_IMMORTAL(ch) && in_obj->in_room != NULL)
-			sprintf(buf, "one is in %s [Room %d]\n\r",
-			    in_obj->in_room->name, in_obj->in_room->vnum);
-		    else
-			sprintf(buf, "one is in %s\n\r",
-			    in_obj->in_room == NULL
-				? "somewhere" : in_obj->in_room->name);
-		}
-
-		buf[0] = UPPER(buf[0]);
-		add_buf(buffer,buf);
 
 		if (number >= max_found)
-		    break;
+			break;
 	}
 
-	if (!found)
+	if (buffer == NULL)
 		send_to_char("Nothing like that in heaven or earth.\n\r", ch);
-	else
+	else {
 		page_to_char(buf_string(buffer),ch);
-
-	free_buf(buffer);
-
-	return;
+		buf_free(buffer);
+	}
 }
 
 void spell_lightning_shield(int sn, int level, CHAR_DATA *ch, void *vo,int target) 
@@ -5294,7 +5226,7 @@ void spell_lightning_shield(int sn, int level, CHAR_DATA *ch, void *vo,int targe
 	af.duration  = level / 40;
 	af.location  = APPLY_NONE;
 	af.modifier  = 0;
-	af.bitvector = AFF_ROOM_L_SHIELD;
+	af.bitvector = RAFF_LSHIELD;
 	affect_to_room(ch->in_room, &af);
 
 	af2.where     = TO_AFFECTS;
@@ -5334,7 +5266,7 @@ void spell_shocking_trap(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	af.duration  = level / 40;
 	af.location  = APPLY_NONE;
 	af.modifier  = 0;
-	af.bitvector = AFF_ROOM_SHOCKING;
+	af.bitvector = RAFF_SHOCKING;
 	affect_to_room(ch->in_room, &af);
 
 	af2.where     = TO_AFFECTS;

@@ -1,5 +1,5 @@
 /*
- * $Id: quest.c,v 1.42 1998-06-29 06:48:30 fjoe Exp $
+ * $Id: quest.c,v 1.43 1998-07-03 15:18:46 fjoe Exp $
  */
 
 /***************************************************************************
@@ -72,6 +72,7 @@
 #include "log.h"
 #include "magic.h"
 #include "quest.h"
+#include "lookup.h"
 
 #ifdef SUNOS
 #	include <stdarg.h>

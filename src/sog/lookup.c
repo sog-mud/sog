@@ -1,5 +1,5 @@
 /*
- * $Id: lookup.c,v 1.4 1998-06-28 04:47:15 fjoe Exp $
+ * $Id: lookup.c,v 1.5 1998-07-03 15:18:41 fjoe Exp $
  */
 
 /***************************************************************************
@@ -45,20 +45,18 @@
 #include <time.h>
 #include "merc.h"
 #include "tables.h"
+#include "lookup.h"
 #include "db.h"
+#include "log.h"
 
-int flag_lookup (const char *name, const struct flag_type *flag_table)
+int flag_lookup (const char *name, const struct flag_type *f)
 {
-    int flag;
-
-    for (flag = 0; flag_table[flag].name != NULL; flag++)
-    {
-	if (LOWER(name[0]) == LOWER(flag_table[flag].name[0])
-	&&  !str_prefix(name,flag_table[flag].name))
-	    return flag_table[flag].bit;
-    }
-
-    return 0;
+	while (f->name != NULL) {
+		if (str_prefix(name, f->name) == 0)
+			return f->bit;
+		f++;
+	}
+	return 0;
 }
 
 
@@ -250,5 +248,65 @@ int clan_lookup (const char *argument)
    }
  
    return -1;
+}
+
+
+/*
+ * Lookup a skill by name.
+ */
+int skill_lookup(const char *name)
+{
+	int sn;
+
+	if (name == NULL)
+		return -1;
+
+	for (sn = 0; sn < MAX_SKILL; sn++) {
+		if (skill_table[sn].name == NULL)
+			break;
+		if (LOWER(name[0]) == LOWER(skill_table[sn].name[0])
+		&&  !str_prefix(name, skill_table[sn].name))
+			return sn;
+	}
+
+	return -1;
+}
+
+/*
+ * Lookup a skill by slot number.
+ * Used for object loading.
+ */
+int slot_lookup(int slot)
+{
+	extern bool fBootDb;
+	int sn;
+
+	if (slot <= 0)
+		return -1;
+
+	for (sn = 0; sn < MAX_SKILL; sn++)
+	{
+		if (slot == skill_table[sn].slot)
+		    return sn;
+	}
+
+	if (fBootDb)
+	{
+		bug("Slot_lookup: bad slot %d.", slot);
+		abort();
+	}
+
+	return -1;
+}
+
+
+char *flag_name_lookup(const struct flag_type *f, int bit)
+{
+	while (f->name != NULL) {
+		if (bit == f->bit)
+			return f->name;
+		f++;
+	}
+	return "(unknown)";
 }
 

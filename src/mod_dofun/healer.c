@@ -1,5 +1,5 @@
 /*
- * $Id: healer.c,v 1.5 1998-06-29 06:48:30 fjoe Exp $
+ * $Id: healer.c,v 1.6 1998-07-03 15:18:41 fjoe Exp $
  */
 
 /***************************************************************************
@@ -49,6 +49,7 @@
 #include "magic.h"
 #include "db.h"
 #include "comm.h"
+#include "lookup.h"
 
 DECLARE_DO_FUN(	do_say	);
 

@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.30 1998-06-28 04:47:13 fjoe Exp $
+ * $Id: act_wiz.c,v 1.31 1998-07-03 15:18:39 fjoe Exp $
  */
 
 /***************************************************************************
@@ -49,7 +49,6 @@
 #include <unistd.h>
 #include "merc.h"
 #include "recycle.h"
-#include "tables.h"
 #include "lookup.h"
 #include "db.h"
 #include "comm.h"
@@ -64,6 +63,8 @@
 #include "log.h"
 #include "act_move.h"
 #include "obj_prog.h"
+#include "buffer.h"
+#include "tables.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_rstat		);
@@ -358,34 +359,23 @@ void do_wiznet(CHAR_DATA *ch, char *argument)
 
 	if (argument[0] == '\0') {
 		/* show wiznet status */
-
 		BUFFER *output;
 
-		output = new_buf();
-		add_buf(output, "Wiznet status:\n\r");
-		if (!IS_SET(ch->wiznet, WIZ_ON))
-			add_buf(output, " OFF");
-		else
-			add_buf(output, " ON");
+		output = buf_new(0);
+		buf_printf(output, "Wiznet status: %s\n\r",
+			   IS_SET(ch->wiznet, WIZ_ON) ? "ON" : "OFF");
 
-		add_buf(output, "\n\rchannel    | status");
-		add_buf(output, "\n\r-----------|-------\n\r");
-		for (flag = 0; wiznet_table[flag].name != NULL; flag++) {
-			char buf2[MAX_STRING_LENGTH];
-			snprintf(buf2, sizeof(buf2), "%-11s|  ", wiznet_table[flag].name);
-			add_buf(output, buf2);
-			if (wiznet_table[flag].level > get_trust(ch)) {
-				add_buf(output, "N/A\n\r");
-				continue;	
-			}
-			if (IS_SET(ch->wiznet,wiznet_table[flag].flag))
-				add_buf(output, "ON\n\r");
-			else
-				add_buf(output, "OFF\n\r");
-		}
-		add_buf(output, "\n\r");
+		buf_add(output, "\n\rchannel    | status");
+		buf_add(output, "\n\r-----------|-------\n\r");
+		for (flag = 0; wiznet_table[flag].name != NULL; flag++)
+			buf_printf(output, "%-11s|  %s\n\r",
+				   wiznet_table[flag].name,
+				   wiznet_table[flag].level > get_trust(ch) ?
+				   "N/A" :
+				   IS_SET(ch->wiznet, wiznet_table[flag].flag) ?
+				   "ON" : "OFF");
 		page_to_char(buf_string(output), ch);
-		free_buf(output);
+		buf_free(output);
 		return;
 	}
 
@@ -1420,9 +1410,8 @@ void do_ostat(CHAR_DATA *ch, char *argument)
 	char_printf(ch, "Short description: %s\n\rLong description: %s\n\r",
 		obj->short_descr, obj->description);
 
-	char_printf(ch, "Wear bits: %s\n\rExtra bits: %s\n\r",
-		wear_bit_name(obj->wear_flags), extra_bit_name(obj->extra_flags));
-
+	char_printf(ch, "Wear bits: %s\n\r", wear_bit_name(obj->wear_flags));
+	char_printf(ch, "Extra bits: %s\n\r", extra_bit_name(obj->extra_flags));
 	char_printf(ch, "Number: %d/%d  Weight: %d/%d/%d (10th pounds)\n\r",
 		1,           get_obj_number(obj),
 		obj->weight, get_obj_weight(obj),get_true_weight(obj));
@@ -1694,21 +1683,15 @@ void do_ostat(CHAR_DATA *ch, char *argument)
 	    }
 	}
 
-	output = new_buf();
-	add_buf(output, "Object progs: ");
+	output = buf_new(0);
+	buf_add(output, "Object progs:\n");
 	for (i = 0; i < OPROG_MAX; i++)
-		if (obj->pIndexData->oprogs[i] != NULL) {
-			char buf[MAX_STRING_LENGTH];
-
-			snprintf(buf, sizeof(buf),
-				 "\n%s: %s",
+		if (obj->pIndexData->oprogs[i] != NULL)
+			buf_printf(output, "%s: %s\n",
 				 optype_table[i],
 				 oprog_name_lookup(obj->pIndexData->oprogs[i]));
-			add_buf(output, buf);
-		}
-	add_buf(output, "\n\r");
 	send_to_char(buf_string(output), ch);
-	free_buf(output);
+	buf_free(output);
 
 	char_printf(ch,"Damage condition : %d (%s)\n\r", obj->condition,
 				get_cond_alias(obj, ch));	
@@ -2046,80 +2029,70 @@ void do_ofind(CHAR_DATA *ch, char *argument)
 
 void do_owhere(CHAR_DATA *ch, char *argument)
 {
-	char buf[MAX_INPUT_LENGTH];
-	BUFFER *buffer;
+	BUFFER *buffer = NULL;
 	OBJ_DATA *obj;
 	OBJ_DATA *in_obj;
-	bool found;
-	int number = 0, max_found;
+	int number = 0, max_found = 200;
 
-	found = FALSE;
-	number = 0;
-	max_found = 200;
-
-	buffer = new_buf();
-
-	if (argument[0] == '\0')
-	{
+	if (argument[0] == '\0') {
 		send_to_char("Find what?\n\r",ch);
 		return;
 	}
 	
-	for (obj = object_list; obj != NULL; obj = obj->next)
-	{
-	    if (!can_see_obj(ch, obj) || !is_name(argument, obj->name)
-	    ||   ch->level < obj->level)
-	        continue;
+	for (obj = object_list; obj != NULL; obj = obj->next) {
+		if (!can_see_obj(ch, obj) || !is_name(argument, obj->name)
+		||  ch->level < obj->level)
+	        	continue;
 	
-	    found = TRUE;
-	    number++;
+		if (buffer == NULL)
+			buffer = buf_new(0);
+		number++;
 	
-	    for (in_obj = obj; in_obj->in_obj != NULL; in_obj = in_obj->in_obj)
-	        ;
+		for (in_obj = obj; in_obj->in_obj != NULL;
+		     in_obj = in_obj->in_obj)
+	        	;
 	
-	    if (in_obj->carried_by != NULL && can_see(ch,in_obj->carried_by)
-		&&   in_obj->carried_by->in_room != NULL)
-	        sprintf(buf, "%3d) %s is carried by %s [Room %d]\n\r",
-	            number, obj->short_descr,PERS(in_obj->carried_by, ch),
-			in_obj->carried_by->in_room->vnum);
-	    else if (in_obj->in_room != NULL && can_see_room(ch,in_obj->in_room))
-	        sprintf(buf, "%3d) %s is in %s [Room %d]\n\r",
-	            number, obj->short_descr,in_obj->in_room->name, 
-		   	in_obj->in_room->vnum);
+		if (in_obj->carried_by != NULL
+		&&  can_see(ch,in_obj->carried_by)
+		&&  in_obj->carried_by->in_room != NULL)
+			buf_printf(buffer,
+				   "%3d) %s is carried by %s [Room %d]\n\r",
+				number,
+				obj->short_descr,PERS(in_obj->carried_by, ch),
+				in_obj->carried_by->in_room->vnum);
+		else if (in_obj->in_room != NULL
+		     &&  can_see_room(ch, in_obj->in_room))
+	        	buf_printf(buffer, "%3d) %s is in %s [Room %d]\n\r",
+	        		number, obj->short_descr,in_obj->in_room->name, 
+				in_obj->in_room->vnum);
 		else
-	        sprintf(buf, "%3d) %s is somewhere\n\r",number, obj->short_descr);
-	
-	    buf[0] = UPPER(buf[0]);
-	    add_buf(buffer,buf);
+			buf_printf(buffer, "%3d) %s is somewhere\n\r",number, obj->short_descr);
 	
 	    if (number >= max_found)
 	        break;
 	}
 	
-	if (!found)
-	    send_to_char("Nothing like that in heaven or earth.\n\r", ch);
-	else
-	    page_to_char(buf_string(buffer),ch);
-
-	free_buf(buffer);
+	if (buffer == NULL)
+		send_to_char("Nothing like that in heaven or earth.\n\r", ch);
+	else {
+		page_to_char(buf_string(buffer),ch);
+		buf_free(buffer);
+	}
 }
 
 
 void do_mwhere(CHAR_DATA *ch, char *argument)
 {
-	char buf[MAX_STRING_LENGTH];
 	BUFFER *buffer;
 	CHAR_DATA *victim;
-	bool found;
 	int count = 0;
 
-	if (argument[0] == '\0')
-	{
+	if (argument[0] == '\0') {
 		DESCRIPTOR_DATA *d;
 
 		/* show characters logged */
 
-		buffer = new_buf();
+		buffer = buf_new(0);
 		for (d = descriptor_list; d != NULL; d = d->next)
 		{
 		    if (d->character != NULL && d->connected == CON_PLAYING
@@ -2129,48 +2102,45 @@ void do_mwhere(CHAR_DATA *ch, char *argument)
 			victim = d->character;
 			count++;
 			if (d->original != NULL)
-			    sprintf(buf,"%3d) %s (in the body of %s) is in %s [%d]\n\r",
+			    buf_printf(buffer,"%3d) %s (in the body of %s) is in %s [%d]\n\r",
 				count, d->original->name,victim->short_descr,
 				victim->in_room->name,victim->in_room->vnum);
 			else
-			    sprintf(buf,"%3d) %s is in %s [%d]\n\r",
+			    buf_printf(buffer,"%3d) %s is in %s [%d]\n\r",
 				count, victim->name,victim->in_room->name,
 				victim->in_room->vnum);
-			add_buf(buffer,buf);
 		    }
 		}
 
 	    page_to_char(buf_string(buffer),ch);
-		free_buf(buffer);
+		buf_free(buffer);
 		return;
 	}
 
-	found = FALSE;
-	buffer = new_buf();
+	buffer = NULL;
 	for (victim = char_list; victim != NULL; victim = victim->next)
 	{
 		if (victim->in_room != NULL
 		&&   is_name(argument, victim->name))
 		{
-		    found = TRUE;
+			if (buffer == NULL)
+				buffer = buf_new(0);
+
 		    count++;
-		    sprintf(buf, "%3d) [%5d] %-28s [%5d] %s\n\r", count,
+		    buf_printf(buffer, "%3d) [%5d] %-28s [%5d] %s\n\r", count,
 			IS_NPC(victim) ? victim->pIndexData->vnum : 0,
 			IS_NPC(victim) ? victim->short_descr : victim->name,
 			victim->in_room->vnum,
 			victim->in_room->name);
-		    add_buf(buffer,buf);
 		}
 	}
 
-	if (!found)
+	if (buffer == NULL)
 		act("You didn't find any $T.", ch, NULL, argument, TO_CHAR);
-	else
+	else {
 		page_to_char(buf_string(buffer),ch);
-
-	free_buf(buffer);
-
-	return;
+		buf_free(buffer);
+	}
 }
 
 
@@ -2198,7 +2168,7 @@ void do_shutdown(CHAR_DATA *ch, char *argument)
 	DESCRIPTOR_DATA *d,*d_next;
 
 	if (ch->invis_level < LEVEL_HERO)
-	sprintf(buf, "Shutdown by %s.", ch->name);
+	snprintf(buf, sizeof(buf), "Shutdown by %s.", ch->name);
 	append_file(ch, SHUTDOWN_FILE, buf);
 	strcat(buf, "\n\r");
 	if (ch->invis_level < LEVEL_HERO)
@@ -2218,8 +2188,7 @@ void do_protect(CHAR_DATA *ch, char *argument)
 {
 	CHAR_DATA *victim;
 
-	if (argument[0] == '\0')
-	{
+	if (argument[0] == '\0') {
 		send_to_char("Protect whom from snooping?\n\r",ch);
 		return;
 	}
@@ -4059,44 +4028,6 @@ void do_prefix (CHAR_DATA *ch, char *argument)
 }
 
 
-
-/* RT nochannels command, for those spammers */
-void do_grant(CHAR_DATA *ch, char *argument)
-{
-	char arg[MAX_INPUT_LENGTH];
-	CHAR_DATA *victim;
-	
-	one_argument(argument, arg);
-	
-	if (arg[0] == '\0')
-	{
-	    send_to_char("Grant whom induct privileges?", ch);
-	    return;
-	}
-	
-	if ((victim = get_char_world(ch, arg)) == NULL)
-	{
-	    send_to_char("They aren't here.\n\r", ch);
-	    return;
-	}
-	
-	if (IS_SET(victim->act,PLR_CANINDUCT))
-	{
-	  REMOVE_BIT(victim->act, PLR_CANINDUCT);
-	  send_to_char("You have the lost the power to INDUCT.\n\r",victim);
-	  send_to_char("INDUCT powers removed.\n\r", ch);
-	}
-	else {
-	  SET_BIT(victim->act, PLR_CANINDUCT);
-	  send_to_char("You have been given the power to INDUCT.\n\r",victim);
-	  send_to_char("INDUCT powers given.\n\r", ch);
-	}
-
-	return;
-}
-
-
-
 void do_advance(CHAR_DATA *ch, char *argument)
 {
 	char arg1[MAX_INPUT_LENGTH];
@@ -4108,32 +4039,27 @@ void do_advance(CHAR_DATA *ch, char *argument)
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
 
-	if (arg1[0] == '\0' || arg2[0] == '\0' || !is_number(arg2))
-	{
+	if (arg1[0] == '\0' || arg2[0] == '\0' || !is_number(arg2)) {
 		send_to_char("Syntax: advance <char> <level>.\n\r", ch);
 		return;
 	}
 
-	if ((victim = get_char_room(ch, arg1)) == NULL)
-	{
+	if ((victim = get_char_room(ch, arg1)) == NULL) {
 		send_to_char("That player is not here.\n\r", ch);
 		return;
 	}
 
-	if (IS_NPC(victim))
-	{
+	if (IS_NPC(victim)) {
 		send_to_char("Not on NPC's.\n\r", ch);
 		return;
 	}
 
-	if ((level = atoi(arg2)) < 1 || level > 100)
-	{
+	if ((level = atoi(arg2)) < 1 || level > MAX_LEVEL) {
 		send_to_char("Level must be 1 to 100.\n\r", ch);
 		return;
 	}
 
-	if (level > get_trust(ch))
-	{
+	if (level > get_trust(ch)) {
 		send_to_char("Limited to your trust level.\n\r", ch);
 		return;
 	}
@@ -4398,18 +4324,18 @@ void do_mset(CHAR_DATA *ch, char *argument)
 		if (class == -1) {
 			BUFFER *output;
 
-			output = new_buf();
+			output = buf_new(0);
 
-			add_buf(output, "Possible classes are: ");
+			buf_add(output, "Possible classes are: ");
 	    		for (class = 0; class < MAX_CLASS; class++) {
 	        		if (class > 0)
-	                		add_buf(output, " ");
-	        		add_buf(output, class_table[class].name);
+	                		buf_add(output, " ");
+	        		buf_add(output, class_table[class].name);
 	    		}
-	        	add_buf(output, ".\n\r");
+	        	buf_add(output, ".\n\r");
 
 			send_to_char(buf_string(output), ch);
-			free_buf(output);
+			buf_free(output);
 			return;
 		}
 
@@ -4696,127 +4622,6 @@ void do_mset(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-void do_induct(CHAR_DATA *ch, char *argument)
-{
-	char arg1[MAX_INPUT_LENGTH];
-	char *arg2;
-	char *clan;
-	CHAR_DATA *victim;
-	int sn;
-	int i, prev_clan=0;
-
-	clan = NULL; 
-	argument = one_argument(argument, arg1);
-	arg2 = argument;
-
-	if (arg1[0] == '\0'|| *arg2 == '\0')
-	{
-	  send_to_char("Usage: induct <player> <clan>\n\r", ch);
-	  return;
-	}
-	
-
-	if ((victim = get_char_world(ch, arg1)) == NULL) 
-	{
-	  send_to_char("That player isn't on.\n\r", ch);
-	  return;
-	}
-
-	if (IS_NPC(victim))
-	{
-	  act("$N is not smart enough to join a clan.",ch,NULL,victim,TO_CHAR);
-	  return;
-	}
-	
-	if (CANT_CHANGE_TITLE(victim))
-	 {
-	 act("$N has tried to join a clan, but failed.",ch,NULL,victim,TO_CHAR);
-	 return;
-	 }
-
-	if ((i = clan_lookup(arg2)) == -1)
-		{
-	  send_to_char("I've never heard of that clan.\n\r",ch);
-	  return;
-		}
-
-	if (victim->class == 3  && i == CLAN_SHALAFI)
-	{
-	act("But $N is a filthy warrior!",ch,NULL,victim,TO_CHAR);
-	return;
-	}
-
-	if (i == CLAN_RULER && get_curr_stat(victim,STAT_INT) < 20)
-	{
-	 act("$N is not clever enough to become a Ruler!",ch,NULL,victim,TO_CHAR);
-	 return;
-	}
-
-	if (IS_TRUSTED(ch,LEVEL_IMMORTAL) ||  
-		(IS_SET(ch->act,PLR_CANINDUCT) && 
-		      ((i==CLAN_NONE && (ch->clan == victim->clan))
-		       || 
-		       (i!=CLAN_NONE && ch->clan==i && victim->clan==CLAN_NONE))))
-		    {
-		      prev_clan = victim->clan;
-		      victim->clan = i;
-		      REMOVE_BIT(victim->act,PLR_CANINDUCT);
-		      clan = clan_table[i].long_name;
-		    }
-	else {
-		    send_to_char("You do not have that power.\n\r",ch);
-		    return;
-		}
-
-	/* set clan skills to 70, remove other clan skills */
-	for (sn = 0; sn < MAX_SKILL; sn++)
-	{
-	  if ((victim->clan) && (skill_table[sn].clan == victim->clan))
-		victim->pcdata->learned[sn] = 70;
-	  else if (skill_table[sn].clan != CLAN_NONE &&
-		       victim->clan != skill_table[sn].clan)
-		victim->pcdata->learned[sn] = 0;
-	}
-
-
-	act_printf(victim, NULL, NULL, TO_NOTVICT, POS_RESTING,
-		   "$n has been inducted into %s.", clan);
-	act_printf(victim, NULL, NULL, TO_CHAR, POS_RESTING,
-		   "You have been inducted into %s.", clan);
-	if (ch->in_room != victim->in_room)
-		char_printf(ch, "%s has been inducted into %s.\n\r",
-			    IS_NPC(victim) ?	victim->short_descr :
-						victim->name,
-			    clan);
-	if (victim->clan == CLAN_NONE && prev_clan != CLAN_NONE)
-	{
-	 	char name[100];
-		
-		switch(prev_clan)
-		{
-		 default: 
-		  return;
-		 case CLAN_BATTLE:
-		  sprintf(name,"The LOVER OF MAGIC.");
-		  break;
-		 case CLAN_SHALAFI:
-		  sprintf(name,"The HATER OF MAGIC.");
-		  break;
-		 case CLAN_KNIGHT:
-		  sprintf(name,"The UNHONOURABLE FIGHTER.");
-		  break;
-		 case CLAN_INVADER:
-		 case CLAN_CHAOS:
-		 case CLAN_LIONS:
-		 case CLAN_HUNTER:
-		 case CLAN_RULER:
-		  sprintf(name,"NO MORE CLANS.");
-		  break;
-		}
-		set_title(victim, name);
-		SET_BIT(victim->act, PLR_NO_TITLE);
-	}
-}
 
 void do_desocket(CHAR_DATA *ch, char *argument)
 {
@@ -4914,21 +4719,18 @@ void do_popularity(CHAR_DATA *ch, char *argument)
 	extern AREA_DATA *area_first;
 	int i;
 
-	output = new_buf();
-	add_buf(output, "Area popularity statistics (in char * ticks)\n\r");
+	output = buf_new(0);
+	buf_add(output, "Area popularity statistics (in char * ticks)\n\r");
 
 	for (area = area_first,i=0; area != NULL; area = area->next,i++) {
-		char buf2[MAX_STRING_LENGTH];
-
-		snprintf(buf2, sizeof(buf2),
-			 "%-20s %-8lu       ", area->name, area->count);
 		if (i % 2 == 0) 
-			add_buf(output, "\n\r");
-		add_buf(output, buf2);
+			buf_add(output, "\n\r");
+		buf_printf(output, "%-20s %-8lu       ",
+			   area->name, area->count);
 	}
-	add_buf(output, "\n\r\n\r");
+	buf_add(output, "\n\r\n\r");
 	page_to_char(buf_string(output), ch);
-	free_buf(output);
+	buf_free(output);
 }
 
 void do_ititle(CHAR_DATA *ch, char *argument)
@@ -5092,27 +4894,24 @@ void do_notitle(CHAR_DATA *ch, char *argument)
 
 	if (!IS_IMMORTAL(ch))
 	    return;
+
 	argument = one_argument(argument,arg);
 
-	if ((victim = get_char_world(ch ,arg)) == NULL)
-	{
-	    send_to_char("He is not currently playing.\n\r", ch);
-	    return;
+	if ((victim = get_char_world(ch ,arg)) == NULL) {
+		send_to_char("He is not currently playing.\n\r", ch);
+		return;
 	}
 	 
-	 if (IS_SET(victim->act, PLR_NO_TITLE))
-		{
-	 REMOVE_BIT(victim->act,PLR_NO_TITLE);
-	 send_to_char("You can change your title again.\n\r",victim);
-	 send_to_char("Ok.\n\r", ch);
-		}
-	 else 
-		{		       
-	 SET_BIT(victim->act,PLR_NO_TITLE);
-	 send_to_char("You won't be able to change your title anymore.\n\r",victim);
-	 send_to_char("Ok.\n\r", ch);
-		}
-	 return;
+	if (IS_SET(victim->act, PLR_NOTITLE)) {
+	 	REMOVE_BIT(victim->act,PLR_NOTITLE);
+	 	send_to_char("You can change your title again.\n\r",victim);
+	 	send_to_char("Ok.\n\r", ch);
+	}
+	else {		       
+		SET_BIT(victim->act,PLR_NOTITLE);
+		send_to_char("You won't be able to change your title anymore.\n\r",victim);
+		send_to_char("Ok.\n\r", ch);
+	}
 }
 	   
 
@@ -5122,17 +4921,16 @@ void do_noaffect(CHAR_DATA *ch, char * argument)
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
 
-		 if (!IS_IMMORTAL(ch))
-	    	return;
+	if (!IS_IMMORTAL(ch))
+		return;
 
-		 argument = one_argument(argument,arg);
+	argument = one_argument(argument,arg);
 
 
-	     if ((victim = get_char_world(ch ,arg)) == NULL)
-	     {
-	      send_to_char("He is not currently playing.\n\r", ch);
-	      return;
-	     }
+	if ((victim = get_char_world(ch ,arg)) == NULL) {
+		send_to_char("He is not currently playing.\n\r", ch);
+		return;
+	}
 	 
 	
 		for (paf = victim->affected; paf != NULL; paf = paf_next)

@@ -1,5 +1,5 @@
 /*
- * $Id: const.c,v 1.13 1998-06-27 21:37:00 efdi Exp $
+ * $Id: const.c,v 1.14 1998-07-03 15:18:40 fjoe Exp $
  */
 
 /***************************************************************************
@@ -765,7 +765,7 @@ const 	struct	race_type	race_table	[]		=
 
     {  /* 62 */
 	"centaur",	FALSE,		0,
-	0,		0, OFF_BASH|OFF_KICK|OFF_KICK_DIRT|OFF_DODGE,
+	0,		0, OFF_BASH|OFF_KICK|OFF_DIRT_KICK|OFF_DODGE,
 	0,		RES_WEAPON,		0,
 	A|G|N|V,		A|B|C|D|E|F|G|H|I|J|K|Q
     },

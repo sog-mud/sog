@@ -1,5 +1,5 @@
 /*
- * $Id: ban.c,v 1.7 1998-06-28 04:47:14 fjoe Exp $
+ * $Id: ban.c,v 1.8 1998-07-03 15:18:40 fjoe Exp $
  */
 
 /***************************************************************************
@@ -53,6 +53,7 @@
 #include "act_obj.h"
 #include "util.h"
 #include "log.h"
+#include "buffer.h"
 
 BAN_DATA *ban_list;
 
@@ -157,7 +158,6 @@ bool check_ban(char *site,int type)
 
 void ban_site(CHAR_DATA *ch, char *argument, bool fPerm)
 {
-    char buf[MAX_STRING_LENGTH],buf2[MAX_STRING_LENGTH];
     char arg1[MAX_INPUT_LENGTH], arg2[MAX_INPUT_LENGTH];
     char *name;
     BUFFER *buffer;
@@ -168,36 +168,41 @@ void ban_site(CHAR_DATA *ch, char *argument, bool fPerm)
     argument = one_argument(argument,arg1);
     argument = one_argument(argument,arg2);
 
-    if ( arg1[0] == '\0' )
-    {
-	if (ban_list == NULL)
-	{
-	    send_to_char("No sites banned at this time.\n\r",ch);
-	    return;
-  	}
-	buffer = new_buf();
+	if (arg1[0] == '\0') {
+		if (ban_list == NULL) {
+			send_to_char("No sites banned at this time.\n\r",ch);
+			return;
+  		}
 
-        add_buf(buffer,"Banned sites  level  type     status\n\r");
-        for (pban = ban_list;pban != NULL;pban = pban->next)
-        {
-	    sprintf(buf2,"%s%s%s",
-		IS_SET(pban->ban_flags,BAN_PREFIX) ? "*" : "",
-		pban->name,
-		IS_SET(pban->ban_flags,BAN_SUFFIX) ? "*" : "");
-	    sprintf(buf,"%-12s    %-3d  %-7s  %s\n\r",
-		buf2, pban->level,
-		IS_SET(pban->ban_flags,BAN_NEWBIES) ? "newbies" :
-		IS_SET(pban->ban_flags,BAN_PLAYER)  ? "player" :
-		IS_SET(pban->ban_flags,BAN_PERMIT)  ? "permit"  :
-		IS_SET(pban->ban_flags,BAN_ALL)     ? "all"	: "",
-	    	IS_SET(pban->ban_flags,BAN_PERMANENT) ? "perm" : "temp");
-	    add_buf(buffer,buf);
-        }
+		buffer = buf_new(0);
 
-        page_to_char( buf_string(buffer), ch );
-	free_buf(buffer);
-        return;
-    }
+        	buf_add(buffer, "Banned sites  level  type     status\n\r");
+		for (pban = ban_list;pban != NULL;pban = pban->next) {
+			char buf2[MAX_STRING_LENGTH];
+
+			snprintf(buf2, sizeof(buf2), "%s%s%s",
+				IS_SET(pban->ban_flags,BAN_PREFIX) ? "*" : "",
+				pban->name,
+				IS_SET(pban->ban_flags,BAN_SUFFIX) ? "*" : "");
+
+			buf_printf(buffer,"%-12s    %-3d  %-7s  %s\n\r",
+				buf2, pban->level,
+				IS_SET(pban->ban_flags,BAN_NEWBIES) ?
+					"newbies" :
+				IS_SET(pban->ban_flags,BAN_PLAYER)  ?
+					"player" :
+				IS_SET(pban->ban_flags,BAN_PERMIT)  ?
+					"permit" :
+				IS_SET(pban->ban_flags,BAN_ALL)     ?
+					"all"	: "",
+	    			IS_SET(pban->ban_flags,BAN_PERMANENT) ?
+					"perm" : "temp");
+		}
+
+        	page_to_char(buf_string(buffer), ch);
+		buf_free(buffer);
+        	return;
+	}
 
     /* find out what type of ban */
     if (arg2[0] == '\0' || !str_prefix(arg2,"all"))

@@ -1,5 +1,5 @@
 /*
- * $Id: olc_save.c,v 1.1 1998-06-28 04:47:16 fjoe Exp $
+ * $Id: olc_save.c,v 1.2 1998-07-03 15:18:46 fjoe Exp $
  */
 
 /**************************************************************************
@@ -30,12 +30,12 @@
 #include <string.h>
 #include <time.h>
 #include "merc.h"
-#include "tables.h"
 #include "olc.h"
 #include "log.h"
 #include "db.h"
 #include "comm.h"
 #include "obj_prog.h"
+#include "tables.h"
 
 #define DIF(a,b) (~((~a)|(b)))
 
@@ -449,8 +449,12 @@ void save_object(FILE *fp, OBJ_INDEX_DATA *pObjIndex)
 			case TO_VULN:
 				fprintf(fp, "V ");
 				break;
+			case TO_DETECTS:
+				fprintf(fp, "D ");
 			default:
-				bug("olc_save: Invalid Affect->where", 0);
+				log_printf("olc_save: vnum %d: "
+					   "invalid affect->where: %d",
+					   pObjIndex->vnum, pAf->where);
 				break;
 		}
 		
@@ -935,13 +939,13 @@ void save_omprogs(FILE *fp, AREA_DATA *pArea)
 
 void save_practicer(FILE *fp, MOB_INDEX_DATA *pMobIndex)
 {
-	int i;
+	const struct flag_type *f;
 
-	for (i = 0; i < 32; i++)
-		if (IS_SET(pMobIndex->practicer, (1 << i)))
-    			fprintf(fp, "M %d group_%s\t* %s\n",
+	for (f = skill_groups; f->name != NULL; f++)
+		if (IS_SET(pMobIndex->practicer, f->bit))
+    			fprintf(fp, "M %d %s\t* %s\n",
 				pMobIndex->vnum,
-				group_table[i],
+				f->name,
 				pMobIndex->short_descr);
 }
 

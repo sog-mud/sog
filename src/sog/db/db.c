@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.30 1998-06-30 11:09:49 fjoe Exp $
+ * $Id: db.c,v 1.31 1998-07-03 15:18:40 fjoe Exp $
  */
 
 /***************************************************************************
@@ -53,7 +53,6 @@
 #include <dirent.h>
 
 #include "merc.h"
-#include "tables.h"
 #include "db.h"
 #include "recycle.h"
 #include "lookup.h"
@@ -64,6 +63,8 @@
 #include "rating.h"
 #include "update.h"
 #include "log.h"
+#include "tables.h"
+#include "buffer.h"
 
 #ifdef SUNOS
 #include "compat.h"
@@ -929,7 +930,7 @@ void load_old_mob(FILE *fp)
 		pMobIndex->long_descr[0]  = UPPER(pMobIndex->long_descr[0]);
 		pMobIndex->description[0] = UPPER(pMobIndex->description[0]);
 
-		pMobIndex->act		  = fread_flags(fp) | ACT_IS_NPC;
+		pMobIndex->act		  = fread_flags(fp) | ACT_NPC;
 		pMobIndex->affected_by	  = fread_flags(fp);
 		pMobIndex->practicer	  = 0;
 
@@ -2675,7 +2676,7 @@ CHAR_DATA *create_mobile(MOB_INDEX_DATA *pMobIndex)
 		/* load in new style */
 		/* read from prototype */
  		mob->group		= pMobIndex->group;
-		mob->act 		= pMobIndex->act | ACT_IS_NPC;
+		mob->act 		= pMobIndex->act | ACT_NPC;
 		mob->comm		= COMM_NOCHANNELS|COMM_NOSHOUT|COMM_NOTELL;
 		mob->affected_by	= pMobIndex->affected_by;
 		mob->detection		= pMobIndex->detection;
@@ -3956,13 +3957,11 @@ void str_printf(char** pstr, const char* fmt, ...)
 
 void do_areas(CHAR_DATA *ch, char *argument)
 {
-	char bufpage[6 * MAX_STRING_LENGTH];
-	char buf[MAX_STRING_LENGTH];
-	char buf2[MAX_STRING_LENGTH];
 	AREA_DATA *pArea1;
 	AREA_DATA *pArea2;
 	int iArea;
 	int iAreaHalf;
+	BUFFER *output;
 
 	if (argument[0] != '\0') {
 		send_to_char("No argument is used with this command.\n\r",ch);
@@ -3975,31 +3974,29 @@ void do_areas(CHAR_DATA *ch, char *argument)
 	for (iArea = 0; iArea < iAreaHalf; iArea++)
 		pArea2 = pArea2->next;
 
-	sprintf(bufpage,"Current areas of Muddy MUD: \n\r");
+	output = buf_new(0);
+	buf_add(output, "Current areas of Muddy MUD: \n\r");
 	for (iArea = 0; iArea < iAreaHalf; iArea++) {
-		sprintf(buf2,"{W{{{x%2d %3d{W} {B%s {C%s{x",
+		buf_printf(output,"{W{{{x%2d %3d{W} {B%-20s {C%8s{x ",
 			pArea1->low_range,pArea1->high_range,
-			pArea1->writer,
+			pArea1->name,
 			pArea1->credits);
-		sprintf(buf, "%-51s", buf2);
 
-		if (pArea2 != NULL) {
-			sprintf(buf2,"{W{{{x%2d %3d{W} {B%s {C%s{x",
+		if (pArea2 != NULL) 
+			buf_printf(output,"{W{{{x%2d %3d{W} {B%-20s {C%8s{x",
 				pArea2->low_range,pArea2->high_range,
-				pArea2->writer,
+				pArea2->name,
 				pArea2->credits);
-			strcat(buf, buf2);
-	 	}
-		strcat(buf, "\n\r");
-		strcat(bufpage,buf); 
+		buf_add(output, "\n\r");
 
 		pArea1 = pArea1->next;
 		if (pArea2 != NULL)
 			pArea2 = pArea2->next;
 	}
 
-	strcat(bufpage,"\n\r");	
-	page_to_char(bufpage, ch);	
+	buf_add(output,"\n\r");	
+	page_to_char(buf_string(output), ch);	
+	buf_free(output);
 }
 
 
@@ -4677,54 +4674,40 @@ void load_limited_objects()
 	closedir(dirp);
 }
 
-
-/*
- * Given a name, return the appropriate prac fun.
- */
-long prac_lookup(const char *name)
-{
-	int i;
- 
-	for (i = 0; group_table[i] != NULL; i++) {
-		if (strncmp(name, "group_", 6) == 0
-		&&  str_prefix(name+6, group_table[i]) == 0)
-			return (1 << i);
-	}
- 
-	return 0;
-}
-
 /*
  * Snarf can prac declarations.
  */
 void load_practicer(FILE *fp)
 {
-	for (; ;)
-	{
+	for (; ;) {
 		MOB_INDEX_DATA *pMobIndex;
 		char letter;
+		char *gname;
+		int group;
 
-		switch (letter = fread_letter(fp))
-		{
+		switch (letter = fread_letter(fp)) {
 		default:
-		    bug("Load_specials: letter '%c' not *MS.", letter);
-		    exit(1);
+			log_printf("load_practicer: letter '%c' not *MS.",
+				   letter);
+			exit(1);
 
 		case 'S':
-		    return;
+			return;
 
 		case '*':
-		    break;
+			break;
 
 		case 'M':
-		    pMobIndex	= get_mob_index	(fread_number (fp));
-		    SET_BIT(pMobIndex->practicer,prac_lookup(fread_word(fp)));
-		    if (pMobIndex->practicer == 0)
-		    {
-			bug("Load_practicers: 'M': vnum %d.", pMobIndex->vnum);
-			exit(1);
-		    }
-		    break;
+			pMobIndex = get_mob_index(fread_number(fp));
+			gname = fread_word(fp);
+			if ((group = flag_lookup(gname, skill_groups)) == 0) {
+				log_printf("load_practicer: 'M': vnum %d: "
+					   "unknown group '%s'",
+					   pMobIndex->vnum, gname);
+				exit(1);
+			}
+			SET_BIT(pMobIndex->practicer, group);
+			break;
 		}
 
 		fread_to_eol(fp);

@@ -1,5 +1,5 @@
 /*
- * $Id: mob_prog.c,v 1.17 1998-06-28 04:47:15 fjoe Exp $
+ * $Id: mob_prog.c,v 1.18 1998-07-03 15:18:42 fjoe Exp $
  */
 
 /***************************************************************************
@@ -46,7 +46,6 @@
 #include <sys/types.h>
 #include <ctype.h>
 #include "merc.h"
-#include "tables.h"
 #include "lookup.h"
 #include "db.h"
 #include "mob_cmds.h"
@@ -54,6 +53,7 @@
 #include "act_comm.h"
 #include "log.h"
 #include "interp.h"
+#include "tables.h"
 
 extern int flag_lookup(const char *word, const struct flag_type *flag_table);
 
@@ -61,58 +61,67 @@ extern int flag_lookup(const char *word, const struct flag_type *flag_table);
  * These defines correspond to the entries in fn_keyword[] table.
  * If you add a new if_check, you must also add a #define here.
  */
-#define CHK_RAND   	(0)
-#define CHK_MOBHERE     (1)
-#define CHK_OBJHERE     (2)
-#define CHK_MOBEXISTS   (3)
-#define CHK_OBJEXISTS   (4)
-#define CHK_PEOPLE      (5)
-#define CHK_PLAYERS     (6)
-#define CHK_MOBS        (7)
-#define CHK_CLONES      (8)
-#define CHK_ORDER       (9)
-#define CHK_HOUR        (10)
-#define CHK_ISPC        (11)
-#define CHK_ISNPC       (12)
-#define CHK_ISGOOD      (13)
-#define CHK_ISEVIL      (14)
-#define CHK_ISNEUTRAL   (15)
-#define CHK_ISIMMORT    (16)
-#define CHK_ISCHARM     (17)
-#define CHK_ISFOLLOW    (18)
-#define CHK_ISACTIVE    (19)
-#define CHK_ISDELAY     (20)
-#define CHK_ISVISIBLE   (21)
-#define CHK_HASTARGET   (22)
-#define CHK_ISTARGET    (23)
-#define CHK_EXISTS      (24)
-#define CHK_AFFECTED    (25)
-#define CHK_ACT         (26)
-#define CHK_OFF         (27)
-#define CHK_IMM         (28)
-#define CHK_CARRIES     (29)
-#define CHK_WEARS       (30)
-#define CHK_HAS         (31)
-#define CHK_USES        (32)
-#define CHK_NAME        (33)
-#define CHK_POS         (34)
-#define CHK_CLAN        (35)
-#define CHK_RACE        (36)
-#define CHK_CLASS       (37)
-#define CHK_OBJTYPE     (38)
-#define CHK_VNUM        (39)
-#define CHK_HPCNT       (40)
-#define CHK_ROOM        (41)
-#define CHK_SEX         (42)
-#define CHK_LEVEL       (43)
-#define CHK_ALIGN       (44)
-#define CHK_MONEY       (45)
-#define CHK_OBJVAL0     (46)
-#define CHK_OBJVAL1     (47)
-#define CHK_OBJVAL2     (48)
-#define CHK_OBJVAL3     (49)
-#define CHK_OBJVAL4     (50)
-#define CHK_GRPSIZE     (51)
+enum {
+	CHK_RAND,
+	CHK_MOBHERE,
+	CHK_OBJHERE,
+	CHK_MOBEXISTS,
+	CHK_OBJEXISTS,
+	CHK_PEOPLE,
+	CHK_PLAYERS,
+	CHK_MOBS,
+	CHK_CLONES,
+	CHK_ORDER,
+	CHK_HOUR,
+	CHK_ISPC,
+	CHK_ISNPC,
+	CHK_ISGOOD,
+	CHK_ISEVIL,
+	CHK_ISNEUTRAL,
+	CHK_ISIMMORT,
+	CHK_ISCHARM,
+	CHK_ISFOLLOW,
+	CHK_ISACTIVE,
+	CHK_ISDELAY,
+	CHK_ISVISIBLE,
+	CHK_HASTARGET,
+	CHK_ISTARGET,
+	CHK_EXISTS,
+	CHK_AFFECTED,
+	CHK_ACT,
+	CHK_OFF,
+	CHK_IMM,
+	CHK_CARRIES,
+	CHK_WEARS,
+	CHK_HAS,
+	CHK_USES,
+	CHK_NAME,
+	CHK_POS,
+	CHK_CLAN,
+	CHK_RACE,
+	CHK_CLASS,
+	CHK_OBJTYPE,
+	CHK_VNUM,
+	CHK_HPCNT,
+	CHK_ROOM,
+	CHK_SEX,
+	CHK_LEVEL,
+	CHK_ALIGN,
+	CHK_MONEY,
+	CHK_OBJVAL0,
+	CHK_OBJVAL1,
+	CHK_OBJVAL2,
+	CHK_OBJVAL3,
+	CHK_OBJVAL4,
+	CHK_GRPSIZE,
+	CHK_STR,
+	CHK_INT,
+	CHK_WIS,
+	CHK_DEX,
+	CHK_CON,
+	CHK_CHA,
+	CHK_DETECT,
+};
 
 /*
  * These defines correspond to the entries in fn_evals[] table.
@@ -190,6 +199,13 @@ const char * fn_keyword[] =
     "objval3",
     "objval4",
     "grpsize",		/* if grpsize $n > 6	- group size check */
+    "str",
+    "int",
+    "wis",
+    "dex",
+    "con",
+    "cha",
+    "candetect",
 
     "\n"		/* Table terminator */
 };
@@ -546,6 +562,9 @@ int cmd_eval(int vnum, char *line, int check,
 	case CHK_AFFECTED:
 	    return(lval_char != NULL 
 		&&  IS_SET(lval_char->affected_by, flag_lookup(buf, affect_flags)));
+	case CHK_DETECT:
+	    return (lval_char != NULL
+		&& IS_SET(lval_char->detection, flag_lookup(buf, detect_flags)));  	
 	case CHK_ACT:
 	    return(lval_char != NULL 
 		&&  IS_SET(lval_char->act, flag_lookup(buf, act_flags)));
@@ -652,7 +671,17 @@ int cmd_eval(int vnum, char *line, int check,
 	case CHK_OBJVAL4:
 	    if (lval_obj != NULL) lval = lval_obj->value[4]; break;
 	case CHK_GRPSIZE:
-	    if(lval_char != NULL) lval = count_people_room(lval_char, 4); break;
+	    if (lval_char != NULL) lval = count_people_room(lval_char, 4);
+	    break;
+	case CHK_STR:
+	case CHK_INT:
+	case CHK_WIS:
+	case CHK_DEX:
+	case CHK_CON:
+	case CHK_CHA:
+	    if (lval_char != NULL)
+		lval = get_curr_stat(lval_char, check - CHK_STR);
+	    break;
 	default:
             return FALSE;
     }

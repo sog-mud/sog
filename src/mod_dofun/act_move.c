@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.59 1998-06-28 04:47:13 fjoe Exp $
+ * $Id: act_move.c,v 1.60 1998-07-03 15:18:39 fjoe Exp $
  */
 
 /***************************************************************************
@@ -176,7 +176,7 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 		return;
 	}
 
-	if (IS_ROOM_AFFECTED(in_room,AFF_ROOM_RANDOMIZER))
+	if (IS_ROOM_AFFECTED(in_room,RAFF_RANDOMIZER))
 		{
 		 int d0;
 		 while (1)
@@ -1958,7 +1958,7 @@ void do_recall(CHAR_DATA *ch, char *argument)
 
 	if (IS_SET(ch->in_room->room_flags, ROOM_NO_RECALL)
 	||   IS_AFFECTED(ch, AFF_CURSE) 
-	||   IS_RAFFECTED(ch->in_room, AFF_ROOM_CURSE))
+	||   IS_RAFFECTED(ch->in_room, RAFF_CURSE))
 	{
 		char_nputs(GODS_FORSAKEN_YOU, ch);
 		return;
@@ -2564,57 +2564,54 @@ void do_blink(CHAR_DATA *ch, char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 
-	argument = one_argument(argument , arg);
+	argument = one_argument(argument, arg);
 
 	if (!IS_NPC(ch)
-	&&   ch->level < skill_table[gsn_blink].skill_level[ch->class]) {
+	&&  ch->level < skill_table[gsn_blink].skill_level[ch->class]) {
 		char_nputs(HUH, ch);
 		return;
 	}
 
 	if (arg[0] == '\0') {
-	 char_nprintf(ch, CURRENT_BLINK, IS_BLINK_ON(ch) ? "ON" : "OFF");
-	 return;
+		char_nprintf(ch, CURRENT_BLINK,
+			     IS_SET(ch->act, PLR_BLINK) ? "ON" : "OFF");
+		return;
 	}
 
 	if (!str_cmp(arg,"ON")) {
-		 SET_BIT(ch->act,PLR_BLINK_ON);
-		 char_nputs(BLINK_ON, ch);
-		 return;
-		}
+		SET_BIT(ch->act, PLR_BLINK);
+		char_nputs(BLINK_ON, ch);
+		return;
+	}
 
 	if (!str_cmp(arg,"OFF")) {
-		 REMOVE_BIT(ch->act,PLR_BLINK_ON);
-		 char_nputs(BLINK_OFF, ch);
-		 return;
-		}
+		REMOVE_BIT(ch->act, PLR_BLINK);
+		char_nputs(BLINK_OFF, ch);
+		return;
+	}
 
-   char_nprintf(ch, IS_S_A_STATUS, arg);
-   return;
+	char_nprintf(ch, IS_S_A_STATUS, arg);
+	return;
 }
 
 void do_vanish(CHAR_DATA *ch, char *argument)
 {
-  ROOM_INDEX_DATA *pRoomIndex;
+	ROOM_INDEX_DATA *pRoomIndex;
 
-  if (!IS_NPC(ch)
-		&& ch->level < skill_table[gsn_vanish].skill_level[ch->class])
-		{
-		 char_nputs(HUH, ch);
-		 return;
-		}
+	if (!IS_NPC(ch)
+	    && ch->level < skill_table[gsn_vanish].skill_level[ch->class]) {
+		char_nputs(HUH, ch);
+		return;
+	}
 
 
-  if (ch->mana < 25)
-		{
-		 char_nputs(DONT_HAVE_POWER, ch);
-		 return;
-		}
+	if (ch->mana < 25) {
+		char_nputs(DONT_HAVE_POWER, ch);
+		return;
+	}
+	ch->mana -= 25;
 
-  ch->mana -= 25;
-
-  if (number_percent() > get_skill(ch,gsn_vanish))
-	{
+	if (number_percent() > get_skill(ch,gsn_vanish)) {
 		char_nputs(YOU_FAILED, ch);
 		WAIT_STATE(ch, skill_table[gsn_vanish].beats);
 		check_improve(ch,gsn_vanish,FALSE,1);
@@ -3018,7 +3015,7 @@ void do_crecall(CHAR_DATA *ch, char *argument)
 
 	if (IS_SET(ch->in_room->room_flags, ROOM_NO_RECALL)
 	||   IS_AFFECTED(ch, AFF_CURSE) 
-	||   IS_RAFFECTED(ch->in_room, AFF_ROOM_CURSE)) {
+	||   IS_RAFFECTED(ch->in_room, RAFF_CURSE)) {
 		char_nputs(GODS_FORSAKEN_YOU, ch);
 		return;
 	}

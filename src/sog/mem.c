@@ -1,5 +1,5 @@
 /*
- * $Id: mem.c,v 1.1 1998-06-28 04:47:15 fjoe Exp $
+ * $Id: mem.c,v 1.2 1998-07-03 15:18:42 fjoe Exp $
  */
 
 /***************************************************************************
@@ -25,7 +25,6 @@
 #include <time.h>
 #include "merc.h"
 #include "db.h"
-#include "tables.h"
 #include "lookup.h"
 #include "recycle.h"
 
@@ -330,6 +329,7 @@ OBJ_INDEX_DATA *new_obj_index( void )
     pObj->cost          =   0;
     pObj->material      =   str_dup( "unknown" );      /* ROM */
     pObj->condition     =   100;                        /* ROM */
+    pObj->limit		=   -1;
     for ( value = 0; value < 5; value++ )               /* 5 - ROM */
         pObj->value[value]  =   0;
 
@@ -394,7 +394,7 @@ MOB_INDEX_DATA *new_mob_index( void )
     pMob->killed        =   0;
     pMob->sex           =   0;
     pMob->level         =   0;
-    pMob->act           =   ACT_IS_NPC;
+    pMob->act           =   ACT_NPC;
     pMob->affected_by   =   0;
     pMob->alignment     =   0;
     pMob->hitroll	=   0;

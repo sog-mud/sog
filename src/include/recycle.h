@@ -2,7 +2,7 @@
 #define _RECYCLE_H_
 
 /*
- * $Id: recycle.h,v 1.3 1998-06-28 04:47:16 fjoe Exp $
+ * $Id: recycle.h,v 1.4 1998-07-03 15:18:46 fjoe Exp $
  */
 
 /***************************************************************************
@@ -47,17 +47,6 @@
 extern char str_empty[1];
 extern int mobile_count;
 
-/* stuff for providing a crash-proof buffer */
-
-#define MAX_BUF		16384
-#define MAX_BUF_LIST 	10
-#define BASE_BUF 	1024
-
-/* valid states */
-#define BUFFER_SAFE	0
-#define BUFFER_OVERFLOW	1
-#define BUFFER_FREED 	2
-
 /* note recycling */
 #define ND NOTE_DATA
 ND	*new_note  (void);
@@ -100,21 +89,9 @@ void	free_char  (CHAR_DATA *ch);
 PC_DATA	*new_pcdata  (void);
 void	free_pcdata  (PC_DATA *pcdata);
 
-
 /* mob id and memory procedures */
 long 	get_pc_id  (void);
 long	get_mob_id  (void);
-MEM_DATA *new_mem_data  (void);
-void	free_mem_data  (MEM_DATA *memory);
-MEM_DATA *find_memory  (MEM_DATA *memory, long id);
-
-/* buffer procedures */
-BUFFER	*new_buf  (void);
-BUFFER  *new_buf_size  (int size);
-void	free_buf  (BUFFER *buffer);
-bool	add_buf  (BUFFER *buffer, char *string);
-void	clear_buf  (BUFFER *buffer);
-char	*buf_string  (BUFFER *buffer);
 
 HELP_AREA *	new_had		 (void);
 HELP_DATA *	new_help	 (void);

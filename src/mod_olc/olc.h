@@ -2,7 +2,7 @@
 #define _OLC_H_
 
 /*
- * $Id: olc.h,v 1.2 1998-06-30 17:45:45 fjoe Exp $
+ * $Id: olc.h,v 1.3 1998-07-03 15:18:46 fjoe Exp $
  */
 
 /***************************************************************************
@@ -211,6 +211,7 @@ DECLARE_OLC_FUN(oedit_value2		);
 DECLARE_OLC_FUN(oedit_value3		);
 DECLARE_OLC_FUN(oedit_value4		);  /* ROM */
 DECLARE_OLC_FUN(oedit_weight		);
+DECLARE_OLC_FUN(oedit_limit		);
 DECLARE_OLC_FUN(oedit_cost		);
 DECLARE_OLC_FUN(oedit_ed		);
 
@@ -259,6 +260,8 @@ DECLARE_OLC_FUN(medit_damtype		);  /* ROM */
 DECLARE_OLC_FUN(medit_group		);  /* ROM */
 DECLARE_OLC_FUN(medit_mpadd		);  /* ROM */
 DECLARE_OLC_FUN(medit_mpdel		);  /* ROM */
+DECLARE_OLC_FUN(medit_detect		); 
+DECLARE_OLC_FUN(medit_prac		); 
 
 /* Mobprog editor */
 DECLARE_OLC_FUN(mpedit_create		);

@@ -2,7 +2,7 @@
 #define _MERC_H_
 
 /*
- * $Id: merc.h,v 1.40 1998-06-29 06:48:30 fjoe Exp $
+ * $Id: merc.h,v 1.41 1998-07-03 15:18:42 fjoe Exp $
  */
 
 /***************************************************************************
@@ -68,7 +68,7 @@ typedef int bool;
 typedef struct	affect_data		AFFECT_DATA;
 typedef struct	area_data		AREA_DATA;
 typedef struct	ban_data		BAN_DATA;
-typedef struct	buf_type		BUFFER;
+typedef struct	buf_data		BUFFER;
 typedef struct	char_data		CHAR_DATA;
 typedef struct	descriptor_data 	DESCRIPTOR_DATA;
 typedef struct	exit_data		EXIT_DATA;
@@ -76,7 +76,6 @@ typedef struct	extra_descr_data	EXTRA_DESCR_DATA;
 typedef struct	help_data		HELP_DATA;
 typedef struct	help_area_data		HELP_AREA;
 typedef struct	kill_data		KILL_DATA;
-typedef struct	mem_data		MEM_DATA;
 typedef struct	mob_index_data		MOB_INDEX_DATA;
 typedef struct	note_data		NOTE_DATA;
 typedef struct	obj_data		OBJ_DATA;
@@ -263,15 +262,6 @@ struct	ban_data
 	int		ban_flags;
 	int		level;
 	char *		name;
-};
-
-struct buf_type
-{
-	BUFFER *	next;
-	bool		valid;
-	int		state;	/* error state of the buffer */
-	int		size;	/* size in k */
-	char *		string; /* buffer's string */
 };
 
 
@@ -775,59 +765,32 @@ struct	kill_data
 
 
 
-/* group number for mobs */
+/* skills group numbers*/
 #define GROUP_NONE		0
-#define GROUP_WEAPONSMASTER	1
-#define GROUP_ATTACK		2
-#define GROUP_BEGUILING 	3
-#define GROUP_BENEDICTIONS	4
-#define GROUP_COMBAT		5
-#define GROUP_CREATION		6
-#define GROUP_CURATIVE		7
-#define GROUP_DETECTION 	8
-#define GROUP_DRACONIAN 	9
-#define GROUP_ENCHANTMENT	10
-#define GROUP_ENHANCEMENT	11
-#define GROUP_HARMFUL		12
-#define GROUP_HEALING		13
-#define GROUP_ILLUSION		14
-#define GROUP_MALADICTIONS	15
-#define GROUP_PROTECTIVE	16
-#define GROUP_TRANSPORTATION	17
-#define GROUP_WEATHER		18
-#define GROUP_FIGHTMASTER	19
-#define GROUP_SUDDENDEATH	20
-#define GROUP_MEDITATION	21
-#define GROUP_CLAN		22
-#define GROUP_DEFENSIVE 	23
-#define GROUP_WIZARD		24
-
-/* group bits for mobs */
-#define GFLAG_NONE		0
-#define GFLAG_WEAPONSMASTER	(A)
-#define GFLAG_ATTACK		(B)
-#define GFLAG_BEGUILING 	(C)
-#define GFLAG_BENEDICTIONS	(D)
-#define GFLAG_COMBAT		(E)
-#define GFLAG_CREATION		(F)
-#define GFLAG_CURATIVE		(G)
-#define GFLAG_DETECTION 	(H)
-#define GFLAG_DRACONIAN 	(I)
-#define GFLAG_ENCHANTMENT	(J)
-#define GFLAG_ENHANCEMENT	(K)
-#define GFLAG_HARMFUL		(L)
-#define GFLAG_HEALING		(M)
-#define GFLAG_ILLUSION		(N)
-#define GFLAG_MALADICTIONS	(O)
-#define GFLAG_PROTECTIVE	(P)
-#define GFLAG_TRANSPORTATION	(Q)
-#define GFLAG_WEATHER		(R)
-#define GFLAG_FIGHTMASTER	(S)
-#define GFLAG_SUDDENDEATH	(T)
-#define GFLAG_MEDITATION	(U)
-#define GFLAG_CLAN		(V)
-#define GFLAG_DEFENSIVE 	(W)
-#define GFLAG_WIZARD		(X)
+#define GROUP_WEAPONSMASTER	(A)
+#define GROUP_ATTACK		(B)
+#define GROUP_BEGUILING 	(C)
+#define GROUP_BENEDICTIONS	(D)
+#define GROUP_COMBAT		(E)
+#define GROUP_CREATION		(F)
+#define GROUP_CURATIVE		(G)
+#define GROUP_DETECTION 	(H)
+#define GROUP_DRACONIAN 	(I)
+#define GROUP_ENCHANTMENT	(J)
+#define GROUP_ENHANCEMENT	(K)
+#define GROUP_HARMFUL		(L)
+#define GROUP_HEALING		(M)
+#define GROUP_ILLUSION		(N)
+#define GROUP_MALADICTIONS	(O)
+#define GROUP_PROTECTIVE	(P)
+#define GROUP_TRANSPORTATION	(Q)
+#define GROUP_WEATHER		(R)
+#define GROUP_FIGHTMASTER	(S)
+#define GROUP_SUDDENDEATH	(T)
+#define GROUP_MEDITATION	(U)
+#define GROUP_CLAN		(V)
+#define GROUP_DEFENSIVE 	(W)
+#define GROUP_WIZARD		(X)
 
 /*
  * AREA FLAGS
@@ -839,7 +802,7 @@ struct	kill_data
  * ACT bits for mobs.  *ACT*
  * Used in #MOBILES.
  */
-#define ACT_IS_NPC		(A)		/* Auto set for mobs	*/
+#define ACT_NPC			(A)		/* Auto set for mobs	*/
 #define ACT_SENTINEL		(B)		/* Stays in one room	*/
 #define ACT_SCAVENGER		(C)		/* Picks up objects	*/
 #define ACT_AGGRESSIVE		(F)		/* Attacks PC's 	*/
@@ -902,7 +865,7 @@ struct	kill_data
 #define OFF_FADE		(G)
 #define OFF_FAST		(H)
 #define OFF_KICK		(I)
-#define OFF_KICK_DIRT		(J)
+#define OFF_DIRT_KICK		(J)
 #define OFF_PARRY		(K)
 #define OFF_RESCUE		(L)
 #define OFF_TAIL		(M)
@@ -1094,16 +1057,16 @@ struct	kill_data
 /*
  * *AFF* bits for rooms
  */
-#define AFF_ROOM_SHOCKING		(A)
-#define AFF_ROOM_L_SHIELD		(B)
-#define AFF_ROOM_THIEF_TRAP		(C)
-#define AFF_ROOM_RANDOMIZER		(D)
-#define AFF_ROOM_ESPIRIT		(E)
-#define AFF_ROOM_CURSE			(K)
-#define AFF_ROOM_POISON 		(M)
-#define AFF_ROOM_SLEEP			(R)
-#define AFF_ROOM_PLAGUE 		(X)
-#define AFF_ROOM_SLOW			(dd)
+#define RAFF_SHOCKING		(A)
+#define RAFF_LSHIELD		(B)
+#define RAFF_THIEF_TRAP		(C)
+#define RAFF_RANDOMIZER		(D)
+#define RAFF_ESPIRIT		(E)
+#define RAFF_CURSE			(K)
+#define RAFF_POISON 		(M)
+#define RAFF_SLEEP			(R)
+#define RAFF_PLAGUE 		(X)
+#define RAFF_SLOW			(dd)
 
 /*
  * Bits for 'detection'.  *DETECT*
@@ -1315,7 +1278,7 @@ struct	kill_data
 #define ITEM_JEWELRY		     33
 #define ITEM_JUKEBOX		     34
 #define ITEM_TATTOO		     35
-
+ 
 
 /*
  * Extra flags.  *EXT*
@@ -1469,7 +1432,6 @@ struct	kill_data
 #define CONT_LOCKED		      8
 #define CONT_PUT_ON		     16
 #define CONT_FOR_ARROW		     32
-
 
 
 /*
@@ -1635,7 +1597,7 @@ struct	kill_data
 /*
  * ACT bits for players.
  */
-#define PLR_IS_NPC		(A)		/* Don't EVER set.	*/
+#define PLR_NPC			ACT_NPC		/* Don't EVER set.	*/
 #define PLR_BOUGHT_PET		(B)
 
 /* RT auto flags */
@@ -1647,15 +1609,14 @@ struct	kill_data
 #define PLR_AUTOSPLIT		(H)
 #define PLR_COLOR		(I)
 #define PLR_WANTED		(J)
-#define PLR_NO_TITLE		(K)
+#define PLR_NOTITLE		(K)
 /* RT personal flags */
-#define PLR_NO_EXP		(L)
+#define PLR_NOEXP		(L)
 #define PLR_CHANGED_AFF 	(M)
 #define PLR_HOLYLIGHT		(N)
 #define PLR_CANLOOT		(P)
 #define PLR_NOSUMMON		(Q)
 #define PLR_NOFOLLOW		(R)
-#define PLR_CANINDUCT		(S)
 #define PLR_GHOST		(T)
 
 /* penalty flags */
@@ -1663,18 +1624,18 @@ struct	kill_data
 #define PLR_LOG 		(W)
 #define PLR_DENY		(X)
 #define PLR_FREEZE		(Y)
+
 /* #define PLR_QUESTOR		(bb) */
 #define PLR_VAMPIRE		(cc)
 #define PLR_HARA_KIRI		(dd)
-#define PLR_BLINK_ON		(ee)
+#define PLR_BLINK		(ee)
 
 
-/* quest done by chronos */
 #define IS_VAMPIRE(ch)	(!IS_NPC(ch) && IS_SET((ch)->act , PLR_VAMPIRE))
 #define IS_HARA_KIRI(ch) (IS_SET((ch)->act , PLR_HARA_KIRI))
-#define CANT_CHANGE_TITLE(ch) (IS_SET(ch->act , PLR_NO_TITLE))
-#define IS_BLINK_ON(ch) (IS_SET((ch)->act , PLR_BLINK_ON))
-#define CANT_GAIN_EXP(ch) (IS_SET((ch)->act , PLR_NO_EXP))
+#define CANT_CHANGE_TITLE(ch) (IS_SET(ch->act , PLR_NOTITLE))
+#define IS_BLINK_ON(ch) (IS_SET((ch)->act , PLR_BLINK))
+#define CANT_GAIN_EXP(ch) (IS_SET((ch)->act , PLR_NOEXP))
 
 /* RT comm flags -- may be used on both mobs and chars */
 #define COMM_QUIET		(A)
@@ -1815,25 +1776,6 @@ struct	mob_index_data
 };
 
 
-
-
-/* memory settings */
-#define MEM_CUSTOMER	A
-#define MEM_SELLER	B
-#define MEM_HOSTILE	C
-#define MEM_AFRAID	D
-
-/* memory for mobs */
-struct mem_data
-{
-	MEM_DATA	*next;
-	bool	valid;
-	int 	id;
-	int 	reaction;
-	time_t	when;
-};
-
-
 /*
  * One character (PC or NPC). *CHAR_DATA*
  */
@@ -1852,7 +1794,6 @@ struct	char_data
 	CHAR_DATA *		mprog_target;
 	CHAR_DATA *	 	guarding;
 	CHAR_DATA * 		guarded_by;
-	MEM_DATA *		memory;
 	SPEC_FUN *		spec_fun;
 	MOB_INDEX_DATA *	pIndexData;
 	DESCRIPTOR_DATA *	desc;
@@ -2573,6 +2514,7 @@ extern int  gsn_judge;
 				 ((var)->sector_type == SECT_WATER_NOSWIM))
 #define PERCENT(cur, max)	(max==0?0:((cur)*100)/(max))
 #define IS_NULLSTR(str)		((str) == NULL || (str)[0] == '\0')
+#define strend(s) (strchr(s, '\0'))
 #define ENTRE(min,num,max)	( ((min) < (num)) && ((num) < (max)) )
 #define CHECK_POS(a, b, c)						\
 		{							\
@@ -2584,7 +2526,7 @@ extern int  gsn_judge;
 /*
  * Character macros.
  */
-#define IS_NPC(ch)		(IS_SET((ch)->act, ACT_IS_NPC))
+#define IS_NPC(ch)		(IS_SET((ch)->act, ACT_NPC))
 #define IS_IMMORTAL(ch) 	(get_trust(ch) >= LEVEL_IMMORTAL)
 #define IS_HERO(ch)		(get_trust(ch) >= LEVEL_HERO)
 #define IS_TRUSTED(ch,level)	(get_trust((ch)) >= (level))
@@ -2714,7 +2656,6 @@ extern		struct	clan_type	clan_table	[];
 extern	const	struct	color_type	color_table	[];
 extern	const	struct	religion_type	religion_table	[];
 extern	const	struct	spec_type	spec_table	[];
-extern  const	char*			group_table	[];
 extern	const	struct	liq_type	liq_table	[];
 extern	const	struct	skill_type	skill_table	[MAX_SKILL];
 extern	const	struct	ethos_type	ethos_table	[];
@@ -3099,6 +3040,35 @@ extern		char			str_empty       [1];
 extern		MOB_INDEX_DATA *	mob_index_hash  [MAX_KEY_HASH];
 extern		OBJ_INDEX_DATA *	obj_index_hash  [MAX_KEY_HASH];
 extern		ROOM_INDEX_DATA *	room_index_hash [MAX_KEY_HASH];
+
+struct flag_type
+{
+    char *name;
+    int bit;
+    bool settable;
+};
+
+struct position_type
+{
+    char *name;
+    char *short_name;
+};
+
+struct sex_type
+{
+    char *name;
+};
+
+struct size_type
+{
+    char *name;
+};
+
+struct	bit_type
+{
+	const	struct	flag_type *	table;
+	char *				help;
+};
 
 #endif
 
