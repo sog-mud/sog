@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.122 1999-02-19 09:47:57 fjoe Exp $
+ * $Id: spellfun.c,v 1.123 1999-02-19 18:45:49 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3445,7 +3445,7 @@ void spell_magic_missile(int sn, int level, CHAR_DATA *ch,void *vo, int target)
 
 	int dam;
 
-	if (is_affected(ch, gsn_protective_shield))  {
+	if (is_affected(victim, gsn_protective_shield))  {
 		const char *text = ch->level > 4 ? "missiles" : "missile";
 
 		act("Your magic $t fizzle out near your victim.",
@@ -3455,7 +3455,6 @@ void spell_magic_missile(int sn, int level, CHAR_DATA *ch,void *vo, int target)
 		return;
 	}
 
-  
 	level = UMIN(level, sizeof(dam_each)/sizeof(dam_each[0]) - 1);
 	level = UMAX(0, level);
 	if (ch->level > 50)
