@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.187.2.1 1999-11-27 11:06:23 fjoe Exp $
+ * $Id: act_comm.c,v 1.187.2.2 1999-12-14 11:23:10 fjoe Exp $
  */
 
 /***************************************************************************
@@ -702,7 +702,7 @@ void do_quit(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	quit_char(ch, 0);
+	quit_char(ch, XC_F_NOCOUNT);
 }
 
 void do_save(CHAR_DATA *ch, const char *argument)

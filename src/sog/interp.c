@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.164 1999-09-08 10:40:10 fjoe Exp $
+ * $Id: interp.c,v 1.164.2.1 1999-12-14 11:23:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -536,8 +536,13 @@ void substitute_alias(DESCRIPTOR_DATA *d, const char *argument)
 			/*
 			 * found an alias
 			 */
-			snprintf(buf, sizeof(buf), "%s %s",
-				 d->dvdata->alias_sub[i], point);
+			if (!IS_NULLSTR(point)) {
+				snprintf(buf, sizeof(buf), "%s %s",
+					 d->dvdata->alias_sub[i], point);
+			} else {
+				strnzcpy(buf, sizeof(buf),
+					 d->dvdata->alias_sub[i]);
+			}
 			if (strlen(buf) > MAX_INPUT_LENGTH) {
 				char_puts("Alias substitution too long. "
 					  "Truncated.\n", d->character);

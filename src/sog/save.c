@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.126.2.4 1999-11-28 12:56:15 fjoe Exp $
+ * $Id: save.c,v 1.126.2.5 1999-12-14 11:23:22 fjoe Exp $
  */
 
 /***************************************************************************
@@ -123,7 +123,7 @@ void delete_player(CHAR_DATA *victim, char* msg)
 
 	RESET_FIGHT_TIME(victim);
 	name = capitalize(victim->name);
-	quit_char(victim, XC_F_COUNT);
+	quit_char(victim, 0);
 	dunlink(PLAYER_PATH, name);
 }
 

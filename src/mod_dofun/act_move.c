@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.202 1999-09-14 17:42:39 avn Exp $
+ * $Id: act_move.c,v 1.202.2.1 1999-12-14 11:23:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -508,57 +508,78 @@ void do_pick(CHAR_DATA *ch, const char *argument)
 		}
 	}
 
-	if (!IS_NPC(ch) && number_percent() > chance) {
-		char_puts("You failed.\n", ch);
-		check_improve(ch, gsn_pick, FALSE, 2);
-		return;
-	}
-
 	if ((obj = get_obj_here(ch, arg)) != NULL) {
 		/* portal stuff */
 		if (obj->pObjIndex->item_type == ITEM_PORTAL) {
-		    if (!IS_SET(obj->value[1],EX_ISDOOR)) {	
-			char_puts("You can't do that.\n", ch);
-			return;
-		    }
+			if (!IS_SET(obj->value[1], EX_ISDOOR)) {	
+				char_puts("You can't do that.\n", ch);
+				return;
+			}
 
-		    if (!IS_SET(obj->value[1],EX_CLOSED)) {
-			char_puts("It's not closed.\n", ch);
-			return;
-		    }
+			if (!IS_SET(obj->value[1], EX_CLOSED)) {
+				char_puts("It's not closed.\n", ch);
+				return;
+			}
 
-		    if (obj->value[4] < 0) {
-			char_puts("It can't be unlocked.\n", ch);
-			return;
-		    }
+			if (obj->value[4] < 0) {
+				char_puts("It can't be unlocked.\n", ch);
+				return;
+			}
 
-		    if (IS_SET(obj->value[1],EX_PICKPROOF)) {
-			char_puts("You failed.\n", ch);
-			return;
-		    }
+			if (IS_SET(obj->value[1], EX_PICKPROOF)) {
+				char_puts("You failed.\n", ch);
+				return;
+			}
 
-		    REMOVE_BIT(obj->value[1],EX_LOCKED);
-		    act_puts("You pick the lock on $p.", ch, obj, NULL, TO_CHAR, POS_DEAD);
-		    act("$n picks the lock on $p.", ch, obj, NULL, TO_ROOM);
-		    check_improve(ch, gsn_pick, TRUE, 2);
-		    return;
+			if (number_percent() > chance) {
+				char_puts("You failed.\n", ch);
+				check_improve(ch, gsn_pick, FALSE, 2);
+				return;
+			}
+
+			REMOVE_BIT(obj->value[1], EX_LOCKED);
+			act_puts("You pick the lock on $p.",
+				 ch, obj, NULL, TO_CHAR, POS_DEAD);
+			act("$n picks the lock on $p.", ch, obj, NULL, TO_ROOM);
+			check_improve(ch, gsn_pick, TRUE, 2);
+			return;
 		}
 
-		
 		/* 'pick object' */
-		if (obj->pObjIndex->item_type != ITEM_CONTAINER)
-		    { char_puts("That's not a container.\n", ch); return; }
-		if (!IS_SET(obj->value[1], CONT_CLOSED))
-		    { char_puts("It's not closed.\n", ch); return; }
-		if (obj->value[2] < 0)
-		    { char_puts("It can't be unlocked.\n", ch); return; }
-		if (!IS_SET(obj->value[1], CONT_LOCKED))
-		    { char_puts("It's already unlocked.\n", ch); return; }
-		if (IS_SET(obj->value[1], CONT_PICKPROOF))
-		    { char_puts("You failed.\n", ch); return; }
+		if (obj->pObjIndex->item_type != ITEM_CONTAINER) {
+			char_puts("That's not a container.\n", ch);
+			return;
+		}
+
+		if (!IS_SET(obj->value[1], CONT_CLOSED)) {
+			char_puts("It's not closed.\n", ch);
+			return;
+		}
+
+		if (obj->value[2] < 0) {
+			char_puts("It can't be unlocked.\n", ch);
+			return;
+		}
+
+		if (!IS_SET(obj->value[1], CONT_LOCKED)) {
+			char_puts("It's already unlocked.\n", ch);
+			return;
+		}
+
+		if (IS_SET(obj->value[1], CONT_PICKPROOF)) {
+			char_puts("You failed.\n", ch);
+			return;
+		}
+
+		if (number_percent() > chance) {
+			char_puts("You failed.\n", ch);
+			check_improve(ch, gsn_pick, FALSE, 2);
+			return;
+		}
 
 		REMOVE_BIT(obj->value[1], CONT_LOCKED);
-		act_puts("You pick the lock on $p.", ch, obj, NULL, TO_CHAR, POS_DEAD);
+		act_puts("You pick the lock on $p.",
+			 ch, obj, NULL, TO_CHAR, POS_DEAD);
 		act("$n picks the lock on $p.", ch, obj, NULL, TO_ROOM);
 		check_improve(ch, gsn_pick, TRUE, 2);
 		return;
@@ -571,25 +592,46 @@ void do_pick(CHAR_DATA *ch, const char *argument)
 		EXIT_DATA *pexit_rev;
 
 		pexit = ch->in_room->exit[door];
-		if (!IS_SET(pexit->exit_info, EX_CLOSED) && !IS_IMMORTAL(ch))
-		    { char_puts("It's not closed.\n", ch); return; }
-		if (pexit->key < 0 && !IS_IMMORTAL(ch))
-		    { char_puts("It can't be picked.\n", ch); return; }
-		if (!IS_SET(pexit->exit_info, EX_LOCKED))
-		    { char_puts("It's already unlocked.\n", ch); return; }
-		if (IS_SET(pexit->exit_info, EX_PICKPROOF) && !IS_IMMORTAL(ch))
-		    { char_puts("You failed.\n", ch); return; }
+		if (!IS_SET(pexit->exit_info, EX_CLOSED) && !IS_IMMORTAL(ch)) {
+			char_puts("It's not closed.\n", ch);
+			return;
+		}
+
+		if (pexit->key < 0 && !IS_IMMORTAL(ch)) {
+			char_puts("It can't be picked.\n", ch);
+			return;
+		}
+
+		if (!IS_SET(pexit->exit_info, EX_LOCKED)) {
+			char_puts("It's already unlocked.\n", ch);
+			return;
+		}
+
+		if (IS_SET(pexit->exit_info, EX_PICKPROOF)
+		&&  !IS_IMMORTAL(ch)) {
+			char_puts("You failed.\n", ch);
+			return;
+		}
+
+		if (number_percent() > chance) {
+			char_puts("You failed.\n", ch);
+			check_improve(ch, gsn_pick, FALSE, 2);
+			return;
+		}
 
 		REMOVE_BIT(pexit->exit_info, EX_LOCKED);
+
+		/*
+		 * pick the other side
+		 */
+		if ((to_room = pexit->to_room.r) != NULL
+		&&  (pexit_rev = to_room->exit[rev_dir[door]]) != NULL
+		&&  pexit_rev->to_room.r == ch->in_room)
+			REMOVE_BIT(pexit_rev->exit_info, EX_LOCKED);
+
 		char_puts("*Click*\n", ch);
 		act("$n picks the $d.", ch, NULL, pexit->keyword, TO_ROOM);
 		check_improve(ch, gsn_pick, TRUE, 2);
-
-		/* pick the other side */
-		if ((to_room   = pexit->to_room.r           ) != NULL
-		&&   (pexit_rev = to_room->exit[rev_dir[door]]) != NULL
-		&&   pexit_rev->to_room.r == ch->in_room)
-			REMOVE_BIT(pexit_rev->exit_info, EX_LOCKED);
 	}
 }
 

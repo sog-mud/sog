@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.182.2.9 1999-12-02 13:32:28 fjoe Exp $
+ * $Id: handler.c,v 1.182.2.10 1999-12-14 11:23:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1702,7 +1702,7 @@ void extract_char(CHAR_DATA *ch, int flags)
 	if ((wield = get_eq_char(ch, WEAR_WIELD)) != NULL)
 		unequip_char(ch, wield); 
 
-	extract_obj_flags = (IS_SET(flags, XC_F_COUNT) ? 0 : XO_F_NOCOUNT);
+	extract_obj_flags = (IS_SET(flags, XC_F_NOCOUNT) ? XO_F_NOCOUNT : 0);
 	for (obj = ch->carrying; obj != NULL; obj = obj_next) {
 		obj_next = obj->next_content;
 		extract_obj(obj, extract_obj_flags);

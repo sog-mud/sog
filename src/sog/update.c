@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.157.2.4 1999-12-02 13:32:30 fjoe Exp $
+ * $Id: update.c,v 1.157.2.5 1999-12-14 11:23:23 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1416,7 +1416,7 @@ void char_update(void)
 		for (ch = char_list; ch && !IS_NPC(ch); ch = ch_next) {
 			ch_next = ch->next;
 			if (PC(ch)->idle_timer > 20)
-				quit_char(ch, 0);
+				quit_char(ch, XC_F_NOCOUNT);
 			else
 				char_save(ch, 0);
 		}

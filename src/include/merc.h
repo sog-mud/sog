@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.234.2.4 1999-11-19 14:31:22 fjoe Exp $
+ * $Id: merc.h,v 1.234.2.5 1999-12-14 11:23:15 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2068,7 +2068,7 @@ void	obj_from_obj	(OBJ_DATA *obj);
 				   and is always recursive		*/
 
 /* quit_char/extract_char */
-#define XC_F_COUNT	(A)	/* update obj count			*/
+#define XC_F_NOCOUNT	(A)	/* update obj count			*/
 #define XC_F_INCOMPLETE	(B)	/* do not extract char from char_list	*/
 
 /*
