@@ -24,11 +24,12 @@
 # OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
 # SUCH DAMAGE.
 #
-# $Id: who.cgi,v 1.3 2000-01-04 11:53:40 avn Exp $
+# $Id: who.cgi,v 1.4 2001-04-26 09:12:47 avn Exp $
 #
 
 $netcat = "/usr/local/bin/nc";
 $port = 4001;
+$host = "sog.me.ru";
 
 print << "EOF";
 Content-type: text/HTML
@@ -43,7 +44,7 @@ List of players, who are online now in the Shades of Gray"
 <pre>
 EOF
 
-open(LIST, "echo who html | $netcat localhost $port |") || die "Cannot connect to server.";
+open(LIST, "echo who html | $netcat $host $port |") || die "Cannot connect to server.";
 
 $max = <LIST>;
 $found = 0;
