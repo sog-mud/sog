@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.346 2001-12-08 00:08:43 tatyana Exp $
+ * $Id: handler.c,v 1.347 2001-12-10 19:14:33 tatyana Exp $
  */
 
 /***************************************************************************
@@ -177,6 +177,11 @@ obj_from_char(OBJ_DATA *obj)
 
 	obj->carried_by		= NULL;
 	obj->next_content	= NULL;
+
+	if (CAN_WEAR(obj, ITEM_WEAR_CLANMARK)
+	||  obj->pObjIndex->item_type == ITEM_TATTOO)
+		return;
+
 	ch->carry_number	-= get_obj_number(obj);
 	ch->carry_weight	-= get_obj_weight(obj);
 }
@@ -200,6 +205,10 @@ obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch)
 
 	if (!IS_NPC(ch))
 		obj->last_owner		= ch;
+
+	if (CAN_WEAR(obj, ITEM_WEAR_CLANMARK)
+	||  obj->pObjIndex->item_type == ITEM_TATTOO)
+		return;
 
 	ch->carry_number	+= get_obj_number(obj);
 	ch->carry_weight	+= get_obj_weight(obj);
