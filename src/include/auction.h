@@ -1,5 +1,5 @@
 /*
- * $Id: auction.h,v 1.2 1998-09-17 15:51:18 fjoe Exp $
+ * $Id: auction.h,v 1.3 1999-05-26 12:44:49 fjoe Exp $
  */
 
 /***************************************************************************
@@ -60,5 +60,6 @@ struct auction_data
 };
 
 extern AUCTION_DATA auction;
+#define IS_AUCTIONED(obj) (auction.item == obj)
 
 #endif

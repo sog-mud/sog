@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_obj.c,v 1.47 1999-05-22 13:37:32 fjoe Exp $
+ * $Id: olc_obj.c,v 1.48 1999-05-26 12:44:50 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -426,7 +426,8 @@ OLC_FUN(objed_del)
 		return FALSE;
 
 /* delete all the instances of obj index */
-	chquest_delete(pObj);
+	if (!chquest_delete(ch, pObj))
+		return FALSE;
 
 	for (obj = object_list; obj; obj = obj_next) {
 		obj_next = obj->next;

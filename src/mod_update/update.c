@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.133 1999-05-24 06:49:56 fjoe Exp $
+ * $Id: update.c,v 1.134 1999-05-26 12:44:49 fjoe Exp $
  */
 
 /***************************************************************************
@@ -50,6 +50,7 @@
 #include "obj_prog.h"
 #include "fight.h"
 #include "chquest.h"
+#include "auction.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_human		);
@@ -1544,6 +1545,9 @@ void update_one_obj(OBJ_DATA *obj)
 	OBJ_DATA *t_obj;
 	CHAR_DATA *rch;
 	char *message;
+
+	if (IS_AUCTIONED(obj))
+		return;
 
 	update_obj_affects(obj);
 

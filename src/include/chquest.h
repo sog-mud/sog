@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: chquest.h,v 1.2 1999-05-24 07:52:48 fjoe Exp $
+ * $Id: chquest.h,v 1.3 1999-05-26 12:44:49 fjoe Exp $
  */
 
 #ifndef _CHQUEST_H_
@@ -51,7 +51,7 @@ void chquest_start(int flags);
 void chquest_update(void);
 
 void chquest_add(OBJ_INDEX_DATA *obj_index);
-void chquest_delete(OBJ_INDEX_DATA *obj_index);
+bool chquest_delete(CHAR_DATA *ch, OBJ_INDEX_DATA *obj_index);
 
 void chquest_extract(OBJ_DATA *obj);
 

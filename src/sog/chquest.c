@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: chquest.c,v 1.5 1999-05-25 12:13:03 fjoe Exp $
+ * $Id: chquest.c,v 1.6 1999-05-26 12:44:49 fjoe Exp $
  */
 
 /*
@@ -45,16 +45,16 @@
 
 #include "merc.h"
 #include "chquest.h"
+#include "auction.h"
 
 DECLARE_DO_FUN(do_help);
 
-#define STOP_F_NOEXTRACT (A)
-
 static void chquest_startq(chquest_t *q);
-static void chquest_stopq(chquest_t *q, int flags);
+static void chquest_stopq(chquest_t *q);
 static inline void chquest_status(CHAR_DATA *ch);
 
 static chquest_t *chquest_lookup(OBJ_INDEX_DATA *obj_index);
+static chquest_t *chquest_lookup_obj(OBJ_DATA *obj);
 
 chquest_t *chquest_list;
 
@@ -99,7 +99,7 @@ void do_chquest(CHAR_DATA *ch, const char *argument)
 		}
 
 		if (!str_prefix(arg, "delete")) {
-			chquest_delete(obj_index);
+			chquest_delete(ch, obj_index);
 			return;
 		}
 
@@ -124,7 +124,13 @@ void do_chquest(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
-		chquest_stopq(q, 0);
+		if (!q->delay && IS_AUCTIONED(q->obj)) {
+			act("$p is on auction right now.",
+			    ch, q->obj, NULL, TO_CHAR);
+			return;
+		}
+
+		chquest_stopq(q);
 		return;
 	}
 
@@ -139,8 +145,7 @@ void chquest_start(int flags)
 	chquest_t *q;
 
 	for (q = chquest_list; q; q = q->next) {
-		if (q->obj 
-		||  !q->delay
+		if (!q->delay
 		||  (!IS_SET(flags, CHQUEST_F_NODELAY) && q->delay > 0))
 			continue;
 
@@ -180,7 +185,11 @@ void chquest_add(OBJ_INDEX_DATA *obj_index)
 	chquest_list = q;
 }
 
-void chquest_delete(OBJ_INDEX_DATA *obj_index)
+/*
+ * chquest_delete -- delete obj_index from list of challenge quests
+ *		     returns TRUE on success, FALSE on error
+ */
+bool chquest_delete(CHAR_DATA *ch, OBJ_INDEX_DATA *obj_index)
 {
 	chquest_t *q;
 	chquest_t *q_prev = NULL;
@@ -191,19 +200,25 @@ void chquest_delete(OBJ_INDEX_DATA *obj_index)
 	}
 
 	if (q == NULL)
-		return;
+		return TRUE;
+
+	if (!q->delay && IS_AUCTIONED(q->obj)) {
+		act("$p is on auction right now.",
+		    ch, q->obj, NULL, TO_CHAR);
+		return FALSE;
+	}
 
 	if (q_prev)
 		q_prev->next = q->next;
 	else
 		chquest_list = chquest_list->next;
 
-	if (q->obj)
-		extract_obj(q->obj, 0);
+	chquest_stopq(q);
 	free(q);
 
 	log_printf("chquest_delete: deleted '%s' (vnum %d)",
 		   mlstr_mval(obj_index->short_descr), obj_index->vnum);
+	return TRUE;
 }
 
 /*
@@ -215,11 +230,11 @@ void chquest_extract(OBJ_DATA *obj)
 {
 	chquest_t *q;
 
-	if ((q = chquest_lookup(obj->pIndexData)) == NULL
-	||  q->obj != obj)
+	if ((q = chquest_lookup_obj(obj)) == NULL)
 		return;
 
-	chquest_stopq(q, STOP_F_NOEXTRACT);
+	log_printf("chquest_extract: finished quest for '%s' (vnum %d)",
+		   mlstr_mval(q->obj_index->short_descr), q->obj_index->vnum);
 	q->delay = number_range(15, 20);
 }
 
@@ -227,8 +242,7 @@ CHAR_DATA *chquest_carried_by(OBJ_DATA *obj)
 {
 	chquest_t *q;
 
-	if ((q = chquest_lookup(obj->pIndexData)) == NULL
-	||  q->obj != obj)
+	if ((q = chquest_lookup_obj(obj)) == NULL)
 		return NULL;
 
 	/* find the uppest obj container */
@@ -254,6 +268,15 @@ static chquest_t *chquest_lookup(OBJ_INDEX_DATA *obj_index)
 	return NULL;
 }
 
+static chquest_t *chquest_lookup_obj(OBJ_DATA *obj)
+{
+	chquest_t *q = chquest_lookup(obj->pIndexData);
+
+	if (q == NULL || q->delay || q->obj != obj)
+		return NULL;
+	return q;
+}
+
 /*
  * chquest_startq - start given chquest
  */
@@ -275,13 +298,12 @@ static void chquest_startq(chquest_t *q)
 	obj_to_room(q->obj, room);
 }
 
-static void chquest_stopq(chquest_t *q, int flags)
+static void chquest_stopq(chquest_t *q)
 {
 	log_printf("chquest_stopq: stopped quest for '%s' (vnum %d)",
 		   mlstr_mval(q->obj_index->short_descr), q->obj_index->vnum);
 	if (q->obj != NULL) {
-		if (!IS_SET(flags, STOP_F_NOEXTRACT))
-			extract_obj(q->obj, XO_F_NOCHQUEST);
+		extract_obj(q->obj, XO_F_NOCHQUEST);
 		q->obj = NULL;
 	}
 	q->delay = -1;
