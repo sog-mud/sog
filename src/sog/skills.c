@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.37 1998-11-11 10:34:02 fjoe Exp $
+ * $Id: skills.c,v 1.38 1998-11-12 12:35:27 fjoe Exp $
  */
 
 /***************************************************************************
@@ -412,7 +412,7 @@ void update_skills(CHAR_DATA *ch)
 /* remove not matched skills */
 	for (i = 0; i < ch->pcdata->learned.nused; i++) {
 		PC_SKILL *ps = VARR_GET(&ch->pcdata->learned, i);
-		if (skill_level(ch, ps->sn) > LEVEL_HERO)
+		if (skill_level(ch, ps->sn) > LEVEL_HERO && !IS_IMMORTAL(ch))
 			ps->percent = 0;
 	}
 }

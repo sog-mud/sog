@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.108 1998-11-11 05:46:55 fjoe Exp $
+ * $Id: act_comm.c,v 1.109 1998-11-12 12:35:27 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1515,14 +1515,10 @@ void do_group(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if ((HAS_SKILL(ch, gsn_ruler_badge) &&
-	     HAS_SKILL(victim, gsn_disperse))
-	||  (HAS_SKILL(ch, gsn_disperse) &&
-	     HAS_SKILL(victim, gsn_ruler_badge))
-	||  (HAS_SKILL(ch, gsn_evil_spirit) &&
-	     HAS_SKILL(victim, gsn_riding))
-	||  (HAS_SKILL(ch, gsn_riding) &&
-	     HAS_SKILL(victim, gsn_evil_spirit))
+	if ((HAS_SKILL(ch, gsn_ruler_badge) && HAS_SKILL(victim, gsn_disperse))
+	||  (HAS_SKILL(ch, gsn_disperse) && HAS_SKILL(victim, gsn_ruler_badge))
+	||  (HAS_SKILL(ch, gsn_evil_spirit) && HAS_SKILL(victim, gsn_riding))
+	||  (HAS_SKILL(ch, gsn_riding) && HAS_SKILL(victim, gsn_evil_spirit))
 	||  (HAS_SKILL(ch, gsn_mastering_spell) &&
 	     HAS_SKILL(victim, gsn_spellbane))
 	||  (HAS_SKILL(ch, gsn_spellbane) &&
