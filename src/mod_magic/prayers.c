@@ -1,5 +1,5 @@
 /*
- * $Id: prayers.c,v 1.21 2001-10-21 22:13:23 fjoe Exp $
+ * $Id: prayers.c,v 1.22 2001-11-06 07:22:52 kostik Exp $
  */
 
 /***************************************************************************
@@ -69,7 +69,7 @@ DECLARE_SPELL_FUN(prayer_cure_critical_wounds);
 DECLARE_SPELL_FUN(prayer_cure_blindness);
 DECLARE_SPELL_FUN(prayer_cure_poison);
 DECLARE_SPELL_FUN(prayer_cure_disease);
-DECLARE_SPELL_FUN(prayer_group_defense);
+DECLARE_SPELL_FUN(prayer_group_defence);
 DECLARE_SPELL_FUN(prayer_turn);
 DECLARE_SPELL_FUN(prayer_mana_restore);
 DECLARE_SPELL_FUN(prayer_severity_force);
@@ -125,6 +125,8 @@ DECLARE_SPELL_FUN(prayer_remove_curse);
 DECLARE_SPELL_FUN(prayer_flamestrike);
 DECLARE_SPELL_FUN(prayer_know_alignment);
 DECLARE_SPELL_FUN(prayer_frenzy);
+DECLARE_SPELL_FUN(prayer_awaken);
+DECLARE_SPELL_FUN(prayer_shapechange);
 
 SPELL_FUN(prayer_detect_good, sn, level, ch, vo)
 {
@@ -540,7 +542,7 @@ SPELL_FUN(prayer_cure_disease, sn, level, ch, vo)
 }
 
 static void *
-group_defense_cb(void *vo, va_list ap)
+group_defence_cb(void *vo, va_list ap)
 {
 	CHAR_DATA *gch = (CHAR_DATA *) vo;
 
@@ -605,9 +607,9 @@ group_defense_cb(void *vo, va_list ap)
 	return NULL;
 }
 
-SPELL_FUN(prayer_group_defense, sn, level, ch, vo)
+SPELL_FUN(prayer_group_defence, sn, level, ch, vo)
 {
-	vo_foreach(ch->in_room, &iter_char_room, group_defense_cb, level, ch);
+	vo_foreach(ch->in_room, &iter_char_room, group_defence_cb, level, ch);
 }
 
 static void *
@@ -2362,4 +2364,69 @@ SPELL_FUN(prayer_frenzy, sn, level, ch, vo)
 
 	act_char("You are filled with holy wrath!", victim);
 	act("$n gets a wild look in $s eyes!", victim, NULL, NULL, TO_ROOM);
+}
+
+SPELL_FUN(prayer_awaken, sn, level, ch, vo)
+{
+	CHAR_DATA *victim = (CHAR_DATA *) vo;
+
+	if (victim->position != POS_SLEEPING) {
+		if (victim != ch)
+			act("But $N isn't sleeping!", ch, NULL, victim,
+			    TO_CHAR);
+		else
+			act_char("You are already awake, aren't you?", ch);
+
+		return;
+	}
+
+	if (IS_AFFECTED(victim, AFF_SLEEP)) {
+		REMOVE_BIT(victim->affected_by, AFF_SLEEP);
+		affect_bit_strip(victim, TO_AFFECTS, AFF_SLEEP);
+	}
+
+	dofun("wake", ch, victim->name);
+}
+
+SPELL_FUN(prayer_shapechange, sn, level, ch, vo)
+{
+	AFFECT_DATA *paf;
+	char arg[MAX_INPUT_LENGTH];
+	int req_level;
+	const char *form_name;
+
+	if (is_sn_affected(ch, sn) || ch->shapeform) {
+		act_char("You must return to your natural form first.", ch);
+		return;
+	}
+
+	if (IS_NULLSTR(target_name)) {
+		act_char("How do you wish to change your shape?", ch);
+		return;
+	}
+
+	target_name = one_argument(target_name, arg, sizeof(arg));
+	if (!str_cmp(arg, "wolf")) {
+		req_level = 0;
+		form_name = "wolf";
+	} else if (!str_cmp(arg, "bear")) {
+		req_level = MAX_LEVEL * 3 / 5;
+		form_name = "bear";
+	} else {
+		act_char("You do not know how to change your shape to that.",
+		    ch);
+		return;
+	}
+
+	if (ch->level < req_level) {
+		act_char("You are too unexpierenced.", ch);
+		return;
+	}
+
+	paf = aff_new(TO_FORM, sn);
+	paf->level	= level;
+	paf->duration	= -1;
+	paf->location.s	= str_dup(form_name);
+	affect_to_char(ch, paf);
+	aff_free(paf);
 }

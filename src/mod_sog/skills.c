@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: skills.c,v 1.131 2001-09-17 18:42:32 fjoe Exp $
+ * $Id: skills.c,v 1.132 2001-11-06 07:22:55 kostik Exp $
  */
 
 #include <stdio.h>
@@ -114,7 +114,8 @@ get_skill(CHAR_DATA *ch, const char *sn)
 		if (!IS_NULLSTR(ch->shapeform->index->skill_spec)) {
 			spec_skill_t *sp_sk;
 			spec_t * fsp;
-			if (!(fsp=spec_lookup(ch->shapeform->index->skill_spec))) {
+			if (!(fsp=spec_lookup(
+			    ch->shapeform->index->skill_spec))) {
 				log(LOG_BUG, "get_skill: bad form (%s) spec (%s).\n",
 					ch->shapeform->index->name,
 					ch->shapeform->index->skill_spec);
@@ -123,7 +124,8 @@ get_skill(CHAR_DATA *ch, const char *sn)
 
 			if ((sp_sk = spec_skill_lookup(fsp, sn)) != NULL)
 				return sp_sk->adept;
-			}
+		}
+
 		if (sk->skill_type == ST_SKILL
 		&&  !IS_SET(sk->skill_flags, SKILL_FORM))
 			return 0;

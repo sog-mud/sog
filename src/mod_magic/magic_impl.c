@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: magic_impl.c,v 1.9 2001-09-12 19:42:53 fjoe Exp $
+ * $Id: magic_impl.c,v 1.10 2001-11-06 07:22:52 kostik Exp $
  */
 
 #include <stdio.h>
@@ -164,6 +164,11 @@ get_cpdata(CHAR_DATA *ch, const char *argument, int skill_type, cpdata_t *cp)
 		}
 	} else {
 		pc_skill_t *pc_sk = NULL;
+
+		/* Allow some sugar */
+		if (skill_type == ST_PRAYER && !str_cmp(arg1, "for"))
+			target_name = one_argument(target_name, arg1,
+			    sizeof(arg1));
 
 		if (IS_NPC(ch)) {
 			if (!str_cmp(arg1, "nowait")) {

@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.281 2001-09-16 18:14:14 fjoe Exp $
+ * $Id: act_move.c,v 1.282 2001-11-06 07:22:49 kostik Exp $
  */
 
 /***************************************************************************
@@ -3059,7 +3059,7 @@ DO_FUN(do_forest, ch, argument)
 		}
 	}
 
-	if (!str_prefix(arg, "defense"))
+	if (!str_prefix(arg, "defence"))
 		attack = FALSE;
 	else if (!str_prefix(arg, "attack"))
 		attack = TRUE;

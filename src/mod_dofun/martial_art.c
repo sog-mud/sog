@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.203 2001-09-30 20:38:11 fjoe Exp $
+ * $Id: martial_art.c,v 1.204 2001-11-06 07:22:50 kostik Exp $
  */
 
 /***************************************************************************
@@ -108,6 +108,7 @@ DECLARE_DO_FUN(do_poison_smoke);
 DECLARE_DO_FUN(do_blindness_dust);
 DECLARE_DO_FUN(do_dishonor);
 DECLARE_DO_FUN(do_surrender);
+DECLARE_DO_FUN(do_rake);
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_yell);
@@ -1069,7 +1070,7 @@ DO_FUN(do_feint, ch, argument)
 	if (number_percent() < chance) {
 		switch(number_bits(1)) {
 		case 0:
-			act("You press at $N's defenses and manage to slip in "
+			act("You press at $N's defences and manage to slip in "
 				"another attack!", ch, NULL, victim, TO_CHAR);
 			act("$n maneuvers dextrously and you miss an incoming "
 				"attack!", ch, NULL, victim, TO_VICT);
@@ -1334,7 +1335,7 @@ DO_FUN(do_bash, ch, argument)
 		act("But $N is your friend!", ch, NULL, victim, TO_CHAR);
 		return;
 	}
-	
+
 	if (is_sn_affected(victim, "protective shield")) {
 		act_puts("Your bash seems to slide around $N.",
 			 ch, NULL, victim, TO_CHAR, POS_FIGHTING);
@@ -4645,6 +4646,134 @@ DO_FUN(do_dishonor, ch, argument)
 
 	act_char("PANIC! You couldn't escape!", ch);
 	check_improve(ch, "dishonor", FALSE, 1);
+}
+
+DO_FUN(do_rake, ch, argument)
+{
+	char arg[MAX_INPUT_LENGTH];
+	CHAR_DATA *victim;
+	int chance, wait;
+	bool attack = FALSE;
+
+	if (MOUNTED(ch)) {
+		act_char("You can't rake while riding!", ch);
+		return;
+	}
+
+	argument = one_argument(argument, arg, sizeof(arg));
+
+	if ((chance = get_skill(ch, "bash")) == 0) {
+		act_char("Huh?", ch);
+		return;
+	}
+
+	if (arg[0] == '\0') {
+		victim = ch->fighting;
+		if ((victim = ch->fighting) == NULL) {
+			act_char("But you aren't fighting anyone!", ch);
+			return;
+		}
+	} else
+		victim = get_char_here(ch, arg);
+
+	if (!victim || victim->in_room != ch->in_room) {
+		WAIT_STATE(ch, MISSING_TARGET_DELAY);
+		act_char("They aren't here.", ch);
+		return;
+	}
+
+	WAIT_STATE(ch, skill_beats("rake"));
+
+	if (victim->position < POS_FIGHTING) {
+		act("You'll have to let $M get back up first.",
+			  ch, NULL, victim, TO_CHAR);
+		return;
+	}
+
+	if (victim == ch) {
+		act_char("You grab yourself.", ch);
+		WAIT_STATE(ch, skill_beats("rake"));
+		return;
+	}
+
+	if (MOUNTED(victim)) {
+		act_char("You can't rake a riding one!", ch);
+		return;
+	}
+
+	if (IS_AFFECTED(ch,AFF_CHARM) && ch->master == victim) {
+		act("But $N is your friend!", ch, NULL, victim, TO_CHAR);
+		return;
+	}
+
+	if (is_safe(ch, victim))
+		return;
+
+	/* modifiers */
+
+	/* size  and weight */
+
+	if (ch->size < victim->size)
+		chance += (ch->size - victim->size) * 25;
+	else
+		chance += (ch->size - victim->size) * 10;
+
+	/* stats */
+	chance += get_curr_stat(ch, STAT_STR);
+	chance -= get_curr_stat(victim, STAT_DEX) * 4/3;
+
+	if (is_sn_affected(victim, "protective shield"))
+		chance /= 2;
+
+	/* speed */
+	if (IS_NPC(ch) && IS_SET(ch->pMobIndex->off_flags, OFF_FAST))
+		chance += 10;
+	if (IS_NPC(victim) && IS_SET(victim->pMobIndex->off_flags, OFF_FAST))
+		chance -= 20;
+
+	/* level */
+	chance += (LEVEL(ch) - LEVEL(victim)) * 2;
+
+	RESET_WAIT_STATE(ch);
+	attack = !(ch->fighting == victim);
+
+	if (check_close(ch, victim)
+	|| distance_check(ch, victim))
+		return;
+
+	/* now the attack */
+	if (number_percent() < chance) {
+		check_improve(ch, "rake", TRUE, 1);
+
+		wait = 3;
+
+		switch(number_bits(2)) {
+			case 0: wait = 1; break;
+			case 1: wait = 2; break;
+			case 2: wait = 4; break;
+			case 3: wait = 3; break;
+		}
+
+		WAIT_STATE(victim, wait * get_pulse("violence"));
+		WAIT_STATE(ch, skill_beats("rake"));
+		victim->position = POS_RESTING;
+		damage(ch, victim, get_curr_stat(ch, STAT_STR) +
+		    number_range(1, GET_DAMROLL(ch)), "rake",
+		    DAM_BASH, DAMF_SHOW);
+		check_downstrike(victim);
+	} else {
+		damage(ch, victim, 0, "bash", DAM_BASH, DAMF_SHOW);
+		act_puts("You fail grab your opponent",
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+		act("$n fails to grab you.", ch, NULL, victim, TO_VICT);
+		check_improve(ch, "rake", FALSE, 1);
+		ch->position = POS_RESTING;
+		WAIT_STATE(ch, skill_beats("rake") * 3/2);
+		check_downstrike(ch);
+	}
+
+	if (attack)
+		yell(victim, ch, "Help! $lu{$N} is raking me!");
 }
 
 static inline bool

@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.410 2001-09-24 13:13:37 kostik Exp $
+ * $Id: act_info.c,v 1.411 2001-11-06 07:22:48 kostik Exp $
  */
 
 /***************************************************************************
@@ -149,6 +149,7 @@ static void	show_char_to_char_0	(CHAR_DATA *victim,
 					 CHAR_DATA *ch);
 static void	show_char_to_char	(CHAR_DATA *list, CHAR_DATA *ch);
 static void	list_spells(flag_t type, CHAR_DATA *ch, const char *argument);
+static bool	list_form_skills(CHAR_DATA *ch, BUFFER *output);
 
 DO_FUN(do_clear, ch, argument)
 {
@@ -1335,6 +1336,14 @@ DO_FUN(do_equipment, ch, argument)
 	bool found;
 
 	act_char("You are using:", ch);
+	if (ch->shapeform) {
+		/* Don't show empty slots, because we mean there is no
+		 * slots at all
+		 */
+		act_char("Nothing.", ch);
+		return;
+	}
+
 	found = FALSE;
 	for (i = 0; show_order[i] >= 0; i++) {
 		if ((obj = get_eq_char(ch, show_order[i])) == NULL
@@ -2615,7 +2624,7 @@ DO_FUN(do_oscore, ch, argument)
 					   ac_name[i]);
 			else if (GET_AC(ch,i) >= 80)
 				buf_printf(output, BUF_END,
-					   "{cdefenseless against{x %s.\n",
+					   "{cdefenceless against{x %s.\n",
 					   ac_name[i]);
 			else if (GET_AC(ch,i) >= 60)
 				buf_printf(output, BUF_END, "{cbarely protected{x from %s.\n",
@@ -3371,6 +3380,43 @@ list_spells(flag_t type, CHAR_DATA *ch,
 	buf_free(output);
 }
 
+static void *
+show_form_skill_cb(void *p, va_list ap)
+{
+	spec_skill_t *ssk = (spec_skill_t *) p;
+	BUFFER *output = va_arg(ap, BUFFER *);
+	if (!IS_NULLSTR(ssk->sn)) {
+		buf_printf(output, BUF_END, "%s\n", ssk->sn);
+	}
+
+	return NULL;
+}
+
+static bool
+list_form_skills(CHAR_DATA *ch, BUFFER *output)
+{
+	spec_t * fsp;
+
+	if (!ch->shapeform)
+		return FALSE;
+
+	if (IS_NULLSTR(ch->shapeform->index->skill_spec))
+		return FALSE;
+
+	if (!(fsp=spec_lookup(ch->shapeform->index->skill_spec))) {
+		log(LOG_BUG, "get_skill: bad form (%s) spec (%s).\n",
+		    ch->shapeform->index->name,
+		    ch->shapeform->index->skill_spec);
+		return FALSE;
+	} else if (fsp->spec_skills.nused) {
+		buf_printf(output, BUF_END, "Your form skills:\n");
+		c_foreach(&fsp->spec_skills, show_form_skill_cb, output);
+		return TRUE;
+	} else {
+		return FALSE;
+	}
+}
+
 DO_FUN(do_skills, ch, argument)
 {
 	BUFFER *skill_list[LEVEL_IMMORTAL+1];
@@ -3401,6 +3447,10 @@ DO_FUN(do_skills, ch, argument)
 		||  sk->skill_type != ST_SKILL)
 			continue;
 
+		/* Don't show skills in form if they wouldn't work anyway */
+		if (ch->shapeform && !IS_SET(sk->skill_flags, SKILL_FORM))
+			continue;
+
 		knowledge = skill_knowledge_alias(ch, pc_sk, &spec_sk);
 		if (knowledge == NULL)
 			continue;
@@ -3424,21 +3474,25 @@ DO_FUN(do_skills, ch, argument)
 		}
 	}
 
+
 	/* return results */
 
-	if (!found) {
-		act_char("You know no skills.", ch);
-		return;
-	}
-
 	output = buf_new(GET_LANG(ch));
-	for (lev = 0; lev <= UMIN(ch->level, LEVEL_IMMORTAL); lev++)
-		if (skill_list[lev] != NULL) {
-			buf_append(output, buf_string(skill_list[lev]));
-			buf_free(skill_list[lev]);
-		}
-	buf_append(output, "\n");
-	page_to_char(buf_string(output), ch);
+	if (found) {
+		for (lev = 0; lev <= UMIN(ch->level, LEVEL_IMMORTAL); lev++)
+			if (skill_list[lev] != NULL) {
+				buf_append(output, buf_string(skill_list[lev]));
+				buf_free(skill_list[lev]);
+			}
+		buf_append(output, "\n");
+	}
+	found = list_form_skills(ch, output) || found;
+
+	if (found)
+		page_to_char(buf_string(output), ch);
+	else
+		act_char("You don't know any skills.", ch);
+
 	buf_free(output);
 }
 

@@ -1,5 +1,5 @@
 /*
- * $Id: mob_fight_githyanki_queen.mpc,v 1.1 2001-09-23 16:51:10 fjoe Exp $
+ * $Id: mob_fight_githyanki_queen.mpc,v 1.2 2001-11-06 07:22:47 kostik Exp $
  */
 
 if (number_percent() <= 10) {
@@ -20,9 +20,9 @@ if (number_percent() <= 10) {
         if (obj_vnum(flail) != 7711)
                 return 0;
 
-        act("$n curls her $p past $N's defenses, mauling $gN{him}!",
+        act("$n curls her $p past $N's defences, mauling $gN{him}!",
             $n, flail, victim, TO_NOTVICT);
-        act("$n curls her $p past your defenses, mauling you!",
+        act("$n curls her $p past your defences, mauling you!",
             $n, flail, victim, TO_VICT);
 
         int dam = 80;

@@ -3382,7 +3382,7 @@ Return to questmaster before your time runs out!@rus Ты почти $gn{выполнил} свое
 @eng You pray the gods of the storm to help you.@rus Ты молишь покровителей бурь и штормов о помощи.~
 @eng You prepare yourself for magical encounters.@rus Помедитировав, ты усиливаешь свою устойчивость к магическим атакам.~
 @eng You prepare yourself for swimming.@rus Ты задерживаешь дыхание, собираясь под воду.~
-@eng You press at $N's defenses and manage to slip in another attack!@rus Прорвав защиту $c1{$N}, ты ухитряешься нанести еще один дополнительный урар!~
+@eng You press at $N's defences and manage to slip in another attack!@rus Прорвав защиту $c1{$N}, ты ухитряешься нанести еще один дополнительный урар!~
 @eng You press the wrong points and fail.@rus Ты $gn{оказал} давление не в том месте, а потому это не имело эффекта.~
 @eng You protect $p from fire.@rus Ты ограждаешь $c3{$p} от воздействия огня.~
 @eng You push $N to $t.@rus Ты выталкиваешь $c6{$N} $t.~

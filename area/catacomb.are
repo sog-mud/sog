@@ -354,8 +354,8 @@ armor A 0 AC
 f object hitroll 1 0
 g @rus none~
 #2011
-shield defense~
-the shield of defense~
+shield defence~
+the shield of defence~
 A large shield lies protecting the ground.~
 iron~
 armor G 0 AJ
@@ -2063,7 +2063,7 @@ M 0 2011 4 2053 1	* zombie (Fresh graves)
 M 0 2004 4 2055 2	* a graverobber (Scene of ghastly horror)
 M 0 2004 4 2055 2	* a graverobber (Scene of ghastly horror)
 M 0 2014 1 2055 1	* the evil necromancer (Scene of ghastly horror)
-E 0 2011 0 11		*	the evil necromancer<as a shield>: the shield of defense
+E 0 2011 0 11		*	the evil necromancer<as a shield>: the shield of defence
 M 0 2003 2 2064 1	* a spelunker (Tunnel)
 S
 

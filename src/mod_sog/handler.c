@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.338 2001-10-21 22:13:27 fjoe Exp $
+ * $Id: handler.c,v 1.339 2001-11-06 07:22:54 kostik Exp $
  */
 
 /***************************************************************************
@@ -2317,7 +2317,8 @@ get_char_room_raw(CHAR_DATA *ch, const char *name,
 			if (!IS_NPC(vch) || vnum != vch->pMobIndex->vnum)
 				continue;
 		} else if ((!IS_IMMORTAL(ch) || name[0])
-		       &&  !is_name(name, vch->name))
+		       &&  !is_name(name, vch->shapeform != NULL ?
+		       vch->shapeform->index->name :  vch->name))
 			continue;
 
 		if (!--(*number))

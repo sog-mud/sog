@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: affect.c,v 1.67 2001-09-13 16:22:19 fjoe Exp $
+ * $Id: affect.c,v 1.68 2001-11-06 07:22:56 kostik Exp $
  */
 
 #include <stdio.h>
@@ -134,6 +134,7 @@ where_t where_table[] =
 	{ TO_FORMAFFECTS,apply_flags,	affect_flags,	"modifies {c%s{x by {c%d{x",		"adds '{c%s{x' affect"		},
 	{ TO_SKILLS,	NULL,		sk_aff_flags,	str_empty,				str_empty			},
 	{ TO_RACE,	NULL,		NULL,		"changes race to '{c%s{x'",		str_empty			},
+	{ TO_FORM,	NULL,		NULL,		"changes form to '{c%s{x'",		str_empty			},
 	{ TO_DETECTS,	apply_flags,	id_flags,	"modifies {c%s{x by {c%d{x",		"adds '{c%s{x' detection"	},
 	{ TO_INVIS,	apply_flags,	id_flags,	"modifies {c%s{x by {c%d{x",		"adds '{c%s{x'"			},
 	{ TO_RESISTS,	dam_classes,	NULL,		"modifies {c%s resistance{x by {c%d{x",	str_empty			},
