@@ -1454,7 +1454,7 @@ Type 'heal' to see a listing of spells.
 ~
 human~
 ABQVae DFH 1000 0
-80 10 1d1+26999 1d1+999 2d4+30 divine
+120 10 1d1+26999 1d1+999 2d4+30 divine
 -45 -45 -45 -45
 FHIK ABC D 0
 stand stand male 5000
@@ -1762,7 +1762,7 @@ an oil lamp~
 An oil lamp lies here~
 glass~
 light 0 A
-0 0 CFG 0 0
+0 0 100 0 0
 0 10 50 P
 #9536
 backpack back pack~
@@ -1794,7 +1794,7 @@ a candle~
 A candle lies here~
 parafin~
 light 0 AO
-0 0 BEF 0 0
+0 0 50 0 0
 0 10 4 P
 #9540
 cheese~
@@ -4168,7 +4168,7 @@ D3
 D4
 ~
 secret~
-1 -1 9670
+0 -1 9670
 S
 #9592
 Underground~
@@ -4214,11 +4214,11 @@ hang large tapestries paying homage to their leader Conner MacCleod.
 D0
 ~
 iron gate~
-1 -1 9599
+0 -1 9599
 D1
 ~
 door east~
-1 -1 9596
+0 -1 9596
 D2
 ~
 drawbridge draw bridge door~
@@ -4226,15 +4226,15 @@ drawbridge draw bridge door~
 D3
 ~
 door west~
-1 -1 9597
+0 -1 9597
 D4
 ~
 door up~
-1 -1 9595
+0 -1 9595
 D5
 ~
 door down~
-1 -1 9598
+0 -1 9598
 S
 #9595
 Zippoii's Room~
@@ -4248,7 +4248,7 @@ head of the Demi-Lich.
 D5
 ~
 door~
-1 -1 9594
+0 -1 9594
 S
 #9596
 Ice's Room~
@@ -4263,7 +4263,7 @@ of Kalas stares past you into emptiness.
 D3
 ~
 door~
-1 -1 9594
+0 -1 9594
 S
 #9597
 Naazgul's Room~
@@ -4285,7 +4285,7 @@ D0
 D1
 ~
 door~
-1 -1 9594
+0 -1 9594
 S
 #9598
 Tank's Room~
@@ -4300,7 +4300,7 @@ place in this happy-go-lucky room is mounted head of Crimson Death.
 D4
 ~
 door~
-1 -1 9594
+0 -1 9594
 S
 #9599
 Inside the Castle of Clan MacCleod~
@@ -4312,7 +4312,7 @@ drafting table.
 D2
 ~
 iron gate~
-1 -1 9594
+0 -1 9594
 S
 #9600
 Underground~
@@ -4874,7 +4874,7 @@ D2
 D3
 ~
 secret door~
-1 -1 9630
+0 -1 9630
 S
 #9633
 The Whet Stone~
@@ -5419,7 +5419,7 @@ The Holy Shrine of God
 D0
 ~
 door~
-1 -1 9666
+0 -1 9666
 D3
 ~
 ~
@@ -5436,7 +5436,7 @@ almighty being.
 D2
 ~
 door~
-1 -1 9665
+0 -1 9665
 S
 #9667
 Outside the Northern Gate of New Thalos~
@@ -5482,7 +5482,7 @@ in that direction and the road to Midgaard lies west.
 D1
 ~
 gate~
-1 9501 9523
+0 9501 9523
 D3
 ~
 ~
@@ -5535,7 +5535,7 @@ D1
 D2
 ~
 double doors~
-1 -1 9671
+0 -1 9671
 D3
 ~
 ~
@@ -5573,7 +5573,7 @@ continue east, west and south. There is a large iron door to the north.
 D0
 ~
 iron heavy~
-1 -1 9675
+0 -1 9675
 D1
 ~
 ~
@@ -5598,7 +5598,7 @@ returns you to the hallway.
 D2
 ~
 iron~
-1 -1 9674
+0 -1 9674
 D5
 ~
 steel~
@@ -5641,7 +5641,7 @@ D1
 D2
 ~
 door~
-1 -1 9676
+0 -1 9676
 D3
 ~
 ~
@@ -5706,7 +5706,7 @@ ART EXHIBIT
 D0
 ~
 door~
-1 -1 9680
+0 -1 9680
 D1
 ~
 ~
@@ -5729,7 +5729,7 @@ eyes, however, are pulled towards a painting that dominates the far wall.
 D2
 ~
 door~
-1 -1 9679
+0 -1 9679
 S
 #9681
 Guest Room~
@@ -5756,7 +5756,7 @@ D1
 D2
 ~
 door south~
-1 -1 9681
+0 -1 9681
 D3
 ~
 door west~
@@ -5783,7 +5783,7 @@ walls here, one to the north, another to the west.
 D0
 ~
 door north~
-1 -1 9685
+0 -1 9685
 D1
 ~
 ~
@@ -5791,7 +5791,7 @@ D1
 D3
 ~
 door west~
-1 -1 9689
+0 -1 9689
 S
 #9685
 Guard Room~
@@ -5803,7 +5803,7 @@ palace grounds with special permission. The only exit is to the south.
 D2
 ~
 door~
-1 -1 9684
+0 -1 9684
 S
 #9686
 Guard Room~
@@ -5830,7 +5830,7 @@ unfortunate for you that only the Sultan is allowed in here.
 D0
 ~
 secret door~
-1 -1 9688
+0 -1 9688
 D1
 ~
 ~
@@ -5870,12 +5870,12 @@ secret throne~
 D1
 ~
 door~
-1 -1 9684
+0 -1 9684
 D2
 ~
 secret door
 ~
-1 -1 9688
+0 -1 9688
 S
 #9690
 Treasure Room~
@@ -6902,7 +6902,7 @@ that direction.
 D3
 ~
 grate~
-1 1 9799
+0 1 9799
 S
 #9799
 Lair of the Ixitxachitl~
@@ -6914,7 +6914,7 @@ its meal the large sting ray attacks!
 D1
 ~
 grate~
-1 -1 9798
+0 -1 9798
 S
 #9800
 The weaponsmaster's room~
@@ -7011,19 +7011,19 @@ D 0 9704 0 2	* Cell: door to the north: closed and locked
 D 0 9750 4 2	* Igor's Secret Chamber: door to the up: closed and locked
 M 0 9504 1 9501 1	* the receptionist (The Reception Area)
 M 0 9505 1 9502 1	* the withered mage/bartender (The Dancing Daemon Inn)
-G 0 9569 0		*	A bottle of grog
-G 0 9568 0		*	A glass of wine
-G 0 9567 0		*	A glass of blue oasis
+G 0 9569 0		*	a bottle of grog
+G 0 9568 0		*	a glass of wine
+G 0 9567 0		*	a glass of blue oasis
 M 0 9506 1 9502 1	* Brother John (The Dancing Daemon Inn)
 M 0 9507 1 9503 1	* a panhandler (The Medina)
 M 0 9508 1 9504 1	* a panhandler (The Medina)
 M 0 9539 1 9505 1	* Caramon (The Southern Market Square)
-E 0 9515 0 5		*	A suit of banded mail: on the body
-E 0 9600 0 16		*	The halberd: wielded
+E 0 9515 0 5		*	a suit of banded mail: on the body
+E 0 9600 0 16		*	the halberd: wielded
 M 0 9537 2 9506 2	* the tax collector (The Center of Market Square)
-G 0 9500 0		*	The palace key of new thalos
+G 0 9500 0		*	the palace key of New Thalos
 M 0 9540 1 9506 1	* Raistlin (The Center of Market Square)
-O 0 9601 0 9506		* A fountain (The Center of Market Square)
+O 0 9601 0 9506		* a fountain (The Center of Market Square)
 M 0 9582 16 9507 2	* The Royal Guard (The Southeastern Market Square)
 M 0 9582 16 9508 2	* The Royal Guard (The Southwestern Market Square)
 M 0 9592 14 9509 2	* the bodyguard (The Western Market Square)
@@ -7035,17 +7035,17 @@ M 0 9547 1 9511 1	* the dirt devil (Outside the Southern Gate of New Thalos)
 M 0 9549 1 9511 1	* the raggety dervish (Outside the Southern Gate of New Thalos)
 M 0 9548 1 9511 1	* the lamia (Outside the Southern Gate of New Thalos)
 M 0 9561 32 9512 2	* the sultan's guard (The Southern Bridge)
-E 0 9513 0 16		*	A scimitar: wielded
-E 0 9519 0 5		*	A suit of splintmail: on the body
-E 0 9521 0 11		*	A splinted shield: as a shield
+E 0 9513 0 16		*	a scimitar: wielded
+E 0 9519 0 5		*	a suit of splintmail: on the body
+E 0 9521 0 11		*	a splinted shield: as a shield
 M 0 9562 20 9513 5	* the sultans guard (Inside the South Gate of New Thalos)
-E 0 9513 0 16		*	A scimitar: wielded
-E 0 9519 0 5		*	A suit of splintmail: on the body
-E 0 9521 0 11		*	A splinted shield: as a shield
+E 0 9513 0 16		*	a scimitar: wielded
+E 0 9519 0 5		*	a suit of splintmail: on the body
+E 0 9521 0 11		*	a splinted shield: as a shield
 M 0 9562 20 9513 5	* the sultans guard (Inside the South Gate of New Thalos)
-E 0 9513 0 16		*	A scimitar: wielded
-E 0 9519 0 5		*	A suit of splintmail: on the body
-E 0 9521 0 11		*	A splinted shield: as a shield
+E 0 9513 0 16		*	a scimitar: wielded
+E 0 9519 0 5		*	a suit of splintmail: on the body
+E 0 9521 0 11		*	a splinted shield: as a shield
 M 0 9582 16 9514 2	* The Royal Guard (The Northwestern Market Square)
 M 0 9541 1 9515 1	* Curley GreenLeaf (The Northern Market Square)
 M 0 9538 1 9515 1	* Gord (The Northern Market Square)
@@ -7054,52 +7054,52 @@ M 0 9592 14 9517 4	* the bodyguard (The Eastern Market Square)
 M 0 9592 14 9517 4	* the bodyguard (The Eastern Market Square)
 M 0 9533 20 9517 1	* a nomad merchant (The Eastern Market Square)
 M 0 9561 32 9518 2	* the sultan's guard (Sultan's Walk)
-E 0 9519 0 5		*	A suit of splintmail: on the body
-E 0 9521 0 11		*	A splinted shield: as a shield
+E 0 9519 0 5		*	a suit of splintmail: on the body
+E 0 9521 0 11		*	a splinted shield: as a shield
 M 0 9561 32 9519 2	* the sultan's guard (Sultan's Walk)
-E 0 9513 0 16		*	A scimitar: wielded
-E 0 9519 0 5		*	A suit of splintmail: on the body
-E 0 9521 0 11		*	A splinted shield: as a shield
+E 0 9513 0 16		*	a scimitar: wielded
+E 0 9519 0 5		*	a suit of splintmail: on the body
+E 0 9521 0 11		*	a splinted shield: as a shield
 M 0 9561 32 9520 2	* the sultan's guard (Sultan's Walk)
-E 0 9513 0 16		*	A scimitar: wielded
-E 0 9519 0 5		*	A suit of splintmail: on the body
-E 0 9521 0 11		*	A splinted shield: as a shield
+E 0 9513 0 16		*	a scimitar: wielded
+E 0 9519 0 5		*	a suit of splintmail: on the body
+E 0 9521 0 11		*	a splinted shield: as a shield
 M 0 9562 20 9522 5	* the sultans guard (Inside the Northern Gate of New Thalos)
-E 0 9513 0 16		*	A scimitar: wielded
-E 0 9519 0 5		*	A suit of splintmail: on the body
-E 0 9521 0 11		*	A splinted shield: as a shield
+E 0 9513 0 16		*	a scimitar: wielded
+E 0 9519 0 5		*	a suit of splintmail: on the body
+E 0 9521 0 11		*	a splinted shield: as a shield
 M 0 9562 20 9522 5	* the sultans guard (Inside the Northern Gate of New Thalos)
-E 0 9513 0 16		*	A scimitar: wielded
-E 0 9519 0 5		*	A suit of splintmail: on the body
-E 0 9521 0 11		*	A splinted shield: as a shield
+E 0 9513 0 16		*	a scimitar: wielded
+E 0 9519 0 5		*	a suit of splintmail: on the body
+E 0 9521 0 11		*	a splinted shield: as a shield
 M 0 9562 20 9523 5	* the sultans guard (Inside the West Gate of New Thalos)
-E 0 9513 0 16		*	A scimitar: wielded
-E 0 9519 0 5		*	A suit of splintmail: on the body
-E 0 9521 0 11		*	A splinted shield: as a shield
+E 0 9513 0 16		*	a scimitar: wielded
+E 0 9519 0 5		*	a suit of splintmail: on the body
+E 0 9521 0 11		*	a splinted shield: as a shield
 M 0 9562 20 9523 5	* the sultans guard (Inside the West Gate of New Thalos)
-E 0 9513 0 16		*	A scimitar: wielded
-E 0 9519 0 5		*	A suit of splintmail: on the body
-E 0 9521 0 11		*	A splinted shield: as a shield
+E 0 9513 0 16		*	a scimitar: wielded
+E 0 9519 0 5		*	a suit of splintmail: on the body
+E 0 9521 0 11		*	a splinted shield: as a shield
 M 0 9542 22 9524 4	* the wandering prophet (West Main Street)
 M 0 9520 2 9525 2	* a construction worker (West Main Street)
-E 0 9586 0 16		*	A sledge hammer: wielded
+E 0 9586 0 16		*	a sledge hammer: wielded
 M 0 9520 2 9525 2	* a construction worker (West Main Street)
-E 0 9586 0 16		*	A sledge hammer: wielded
+E 0 9586 0 16		*	a sledge hammer: wielded
 M 0 9519 1 9525 1	* the foreman (West Main Street)
-E 0 9585 0 16		*	A fountain pen: wielded
+E 0 9585 0 16		*	a fountain pen: wielded
 M 0 9568 15 9527 8	* a tourist (East Main Street)
 M 0 9568 15 9528 8	* a tourist (East Main Street)
 M 0 9544 20 9529 2	* the vulture (East Main Street)
 M 0 9544 20 9530 2	* the vulture (East Main Street)
 M 0 9562 20 9531 5	* the sultans guard (Inside the Eastern Gate of New Thalos)
-E 0 9519 0 5		*	A suit of splintmail: on the body
-E 0 9521 0 11		*	A splinted shield: as a shield
+E 0 9519 0 5		*	a suit of splintmail: on the body
+E 0 9521 0 11		*	a splinted shield: as a shield
 M 0 9562 20 9531 5	* the sultans guard (Inside the Eastern Gate of New Thalos)
-E 0 9519 0 5		*	A suit of splintmail: on the body
-E 0 9521 0 11		*	A splinted shield: as a shield
+E 0 9519 0 5		*	a suit of splintmail: on the body
+E 0 9521 0 11		*	a splinted shield: as a shield
 M 0 9518 1 9532 1	* Cassandra (Cassandra's Catch of the Day)
-G 0 9564 0		*	A salted herring
-G 0 9565 0		*	A mussel
+G 0 9564 0		*	a salted herring
+G 0 9565 0		*	a mussel
 M 0 9536 18 9533 6	* the dockworker (West Ishtar Drive)
 M 0 9536 18 9533 6	* the dockworker (West Ishtar Drive)
 M 0 9536 18 9533 6	* the dockworker (West Ishtar Drive)
@@ -7117,9 +7117,9 @@ M 0 9582 16 9550 2	* The Royal Guard (The Casbah)
 M 0 9582 16 9552 2	* The Royal Guard (The Casbah)
 M 0 9544 20 9553 2	* the vulture (The Casbah)
 M 0 9545 2 9555 2	* the old man (Kali Row)
-E 0 9590 0 16		*	A chessboard: wielded
+E 0 9590 0 16		*	a chessboard: wielded
 M 0 9545 2 9555 2	* the old man (Kali Row)
-E 0 9590 0 16		*	A chessboard: wielded
+E 0 9590 0 16		*	a chessboard: wielded
 M 0 9544 20 9563 1	* the vulture (Guildsman's Row)
 M 0 9543 13 9565 1	* the alley cat (Alley)
 M 0 9530 1 9566 1	* Mustafah (Alley)
@@ -7135,6 +7135,8 @@ M 0 9543 13 9573 3	* the alley cat (Alley)
 M 0 9569 1 9599 1	* Shelbye (Inside the Castle of Clan MacCleod)
 M 0 9501 1 9603 1	* the guildmaster (Cleric's Sanctum)
 M 0 9581 1 9604 1	* the high priest (Chamber of the High Priest)
+M 0 9593 1 9605 1	* the healer (By the Altar)
+O 0 3010 0 9605		* the donation pit (By the Altar)
 M 0 9544 20 9607 2	* the vulture (The Craftsman's Guild)
 M 0 9542 22 9608 2	* the wandering prophet (Inside the Temple)
 M 0 9542 22 9609 2	* the wandering prophet (Inside the Temple)
@@ -7152,114 +7154,114 @@ M 0 9542 22 9613 6	* the wandering prophet (The Temple Gates)
 M 0 9543 13 9614 3	* the alley cat (Ahkeem's Stuff)
 M 0 9542 22 9614 3	* the wandering prophet (Ahkeem's Stuff)
 M 0 9513 1 9614 1	* Ahkeem the tailor (Ahkeem's Stuff)
-E 0 9583 0 16		*	A pair of sewing shears: wielded
-G 0 9555 0		*	A silk jacket
-G 0 9554 0		*	A sash
-G 0 9553 0		*	A pair of sandles
-G 0 9552 0		*	An embroidered robe
-G 0 9551 0		*	A common robe
-G 0 9550 0		*	A pair of hose
-G 0 9549 0		*	A girdle
-G 0 9548 0		*	A fur cloak
-G 0 9547 0		*	A pair of hiking boots
-G 0 9546 0		*	A belt
+E 0 9583 0 16		*	a pair of sewing shears: wielded
+G 0 9555 0		*	a silk jacket
+G 0 9554 0		*	a sash
+G 0 9553 0		*	a pair of sandles
+G 0 9552 0		*	an embroidered robe
+G 0 9551 0		*	a common robe
+G 0 9550 0		*	a pair of hose
+G 0 9549 0		*	a girdle
+G 0 9548 0		*	a fur cloak
+G 0 9547 0		*	a pair of hiking boots
+G 0 9546 0		*	a belt
 M 0 9592 14 9615 2	* the bodyguard (Vera's Veggies)
 M 0 9514 1 9615 1	* Vera the veggie lady (Vera's Veggies)
-G 0 9560 0		*	Some dates
-G 0 9559 0		*	A fig
-G 0 9558 0		*	A tomato
-G 0 9557 0		*	A carrot
-G 0 9556 0		*	An egg
+G 0 9560 0		*	some dates
+G 0 9559 0		*	a fig
+G 0 9558 0		*	a tomato
+G 0 9557 0		*	a carrot
+G 0 9556 0		*	an egg
 M 0 9523 1 9616 1	* the statue of Zump (The Museum of the Greater Gods)
 M 0 9522 1 9616 1	* the statue of Alander (The Museum of the Greater Gods)
 M 0 9527 1 9616 1	* the statue of Furey (The Museum of the Greater Gods)
 M 0 9525 1 9616 1	* the statue of Satin (The Museum of the Greater Gods)
 M 0 9544 20 9622 2	* the vulture (The Butchary)
 M 0 9515 1 9622 1	* Butch the meatcutter (The Butchary)
-E 0 9584 0 16		*	A meat cleaver: wielded
-G 0 9563 0		*	A whole chicken
-G 0 9562 0		*	A side of beef
-G 0 9561 0		*	A leg of lamb
+E 0 9584 0 16		*	a meat cleaver: wielded
+G 0 9563 0		*	a whole chicken
+G 0 9562 0		*	a side of beef
+G 0 9561 0		*	a leg of lamb
 M 0 9544 20 9623 2	* the vulture (The Witch's Brew)
 M 0 9579 1 9623 1	* Elvira (The Witch's Brew)
-G 0 9574 0		*	A dark blue potion
-G 0 9572 0		*	A crystal clear potion
-G 0 9571 0		*	A deep-green potion
-G 0 9570 0		*	A glowing blue vial
+G 0 9574 0		*	a dark blue potion
+G 0 9572 0		*	a crystal clear potion
+G 0 9571 0		*	a deep-green potion
+G 0 9570 0		*	a glowing blue vial
 M 0 9544 20 9624 2	* the vulture (Braheem's Magic Shop)
 M 0 9592 14 9624 2	* the bodyguard (Braheem's Magic Shop)
 M 0 9580 1 9624 1	* Braheem (Braheem's Magic Shop)
-G 0 9582 0		*	A pink wand
-G 0 9581 0		*	A wand of oak
-G 0 9579 0		*	A grey-silver wand
-G 0 9578 0		*	A scroll of recall
+G 0 9582 0		*	a pink wand
+G 0 9581 0		*	a wand of oak
+G 0 9579 0		*	a grey-silver wand
+G 0 9578 0		*	a scroll of recall
 M 0 9556 1 9625 1	* the guildguard (Entrance to the Mage's Tower)
 M 0 9533 20 9626 2	* a nomad merchant (Entrance to the Guild of Warriors')
 M 0 9558 1 9626 1	* the guildguard (Entrance to the Guild of Warriors')
 M 0 9511 1 9628 1	* the shopkeeper (The General Store)
-G 0 9538 0		*	A belt pouch
-G 0 9539 0		*	A candle
-G 0 9537 0		*	A basket
-G 0 9536 0		*	A backpack
-G 0 9535 0		*	An oil lamp
-G 0 9534 0		*	A sack
+G 0 9538 0		*	a belt pouch
+G 0 9539 0		*	a candle
+G 0 9537 0		*	a basket
+G 0 9536 0		*	a backpack
+G 0 9535 0		*	an oil lamp
+G 0 9534 0		*	a sack
 M 0 9516 1 9629 1	* Abdul the armorer (Abdul's Armor)
-G 0 9521 0		*	A splinted shield
-G 0 9520 0		*	A wooden shield
-G 0 9519 0		*	A suit of splintmail
-G 0 9518 0		*	A suit of ringmail
-G 0 9517 0		*	A suit of field plate
-G 0 9516 0		*	A suit of brigandine
-G 0 9515 0		*	A suit of banded mail
+G 0 9521 0		*	a splinted shield
+G 0 9520 0		*	a wooden shield
+G 0 9519 0		*	a suit of splintmail
+G 0 9518 0		*	a suit of ringmail
+G 0 9517 0		*	a suit of field plate
+G 0 9516 0		*	a suit of brigandine
+G 0 9515 0		*	a suit of banded mail
 M 0 9564 1 9631 1	* the mercenary (The Mercenary's Guild)
 M 0 9544 20 9632 2	* the vulture (Entrance to the Thieves' Guild)
 M 0 9559 1 9632 1	* the guildguard (Entrance to the Thieves' Guild)
 M 0 9502 1 9634 1	* the guildmaster (Tournament and Practice Yard)
 M 0 9510 1 9635 1	* the baker (The Bread Stand)
-G 0 9545 0		*	Some nuts
-G 0 9543 0		*	Some iron rations
-G 0 9542 0		*	Some dry rations
-G 0 9541 0		*	A bread
-G 0 9540 0		*	A hunk of cheese
+G 0 9545 0		*	some nuts
+G 0 9543 0		*	some iron rations
+G 0 9542 0		*	some dry rations
+G 0 9541 0		*	a bread
+G 0 9540 0		*	a hunk of cheese
 M 0 9533 20 9636 2	* a nomad merchant (Igor's Implements of Destruction)
 M 0 9517 1 9636 1	* Igor the weaponsmith (Igor's Implements of Destruction)
-E 0 9591 0 17		*	A sesame seed: held in the hands
-G 0 9514 0		*	A rapier
-G 0 9513 0		*	A scimitar
-G 0 9512 0		*	A two-handed bastard sword
-G 0 9511 0		*	A sickle
-G 0 9510 0		*	A guisarme
-G 0 9509 0		*	A glaive
-G 0 9508 0		*	A fauchard
-G 0 9507 0		*	A bill-guisarme
-G 0 9506 0		*	A bec de corbine
-G 0 9505 0		*	A bardiche
-G 0 9504 0		*	An awl-pike
-G 0 9503 0		*	A morningstar
+E 0 9591 0 17		*	a sesame seed: held in the hands
+G 0 9514 0		*	a rapier
+G 0 9513 0		*	a scimitar
+G 0 9512 0		*	a two-handed bastard sword
+G 0 9511 0		*	a sickle
+G 0 9510 0		*	a guisarme
+G 0 9509 0		*	a glaive
+G 0 9508 0		*	a fauchard
+G 0 9507 0		*	a bill-guisarme
+G 0 9506 0		*	a bec de corbine
+G 0 9505 0		*	a bardiche
+G 0 9504 0		*	an awl-pike
+G 0 9503 0		*	a morningstar
 M 0 9584 1 9637 1	* Stitch, the leather dude. (Ye Old Leather Shoppe)
-G 0 9533 0		*	A leather shield
-G 0 9532 0		*	A pair of studded leather gloves
-G 0 9531 0		*	A pair of studded leather pants
-G 0 9530 0		*	A pair of studded leather sleeves
-G 0 9529 0		*	A studded leather jacket
-G 0 9528 0		*	A pair of padded leather boots
-G 0 9527 0		*	A pair of leather gloves
-G 0 9526 0		*	A pair of leather pants
-G 0 9525 0		*	A leather cap
-G 0 9524 0		*	A pair of leather sleeves
-G 0 9523 0		*	A leather jacket
-G 0 9522 0		*	A buckler
+G 0 9533 0		*	a leather shield
+G 0 9532 0		*	a pair of studded leather gloves
+G 0 9531 0		*	a pair of studded leather pants
+G 0 9530 0		*	a pair of studded leather sleeves
+G 0 9529 0		*	a studded leather jacket
+G 0 9528 0		*	a pair of padded leather boots
+G 0 9527 0		*	a pair of leather gloves
+G 0 9526 0		*	a pair of leather pants
+G 0 9525 0		*	a leather cap
+G 0 9524 0		*	a pair of leather sleeves
+G 0 9523 0		*	a leather jacket
+G 0 9522 0		*	a buckler
 M 0 9583 1 9638 1	* Patch the bartender (Smuggler's Inn)
-G 0 9577 0		*	A shot
-G 0 9576 0		*	A barrel of beer
-G 0 9575 0		*	A flaming scorpion
+G 0 9577 0		*	a shot
+G 0 9576 0		*	a barrel of beer
+G 0 9575 0		*	a flaming scorpion
 M 0 9565 1 9642 1	* the shipwright (Shipwright)
-G 0 3061 0		*	A leather cap
-G 0 3060 0		*	A leather jerkin
+G 0 3061 0		*	a leather cap
+G 0 3060 0		*	a leather jerkin
 M 0 9566 1 9644 1	* the blacksmith (The Forge)
-G 0 9589 0		*	A riding crop
-G 0 9588 0		*	A saddle
-G 0 9587 0		*	A horse shoe
+G 0 9589 0		*	a riding crop
+G 0 9588 0		*	a saddle
+G 0 9587 0		*	a horse shoe
 M 0 9567 6 9645 6	* a horse (The Royal Stables)
 M 0 9567 6 9645 6	* a horse (The Royal Stables)
 M 0 9567 6 9645 6	* a horse (The Royal Stables)
@@ -7270,7 +7272,7 @@ M 0 9503 1 9646 1	* the guildmaster (The Secret Yard)
 M 0 9500 1 9648 1	* the guildmaster (The Mage's Laboratory)
 M 0 9544 20 9649 2	* the vulture (The Hay Loft)
 M 0 9589 1 9654 1	* the mayor (City Hall)
-G 0 9501 0		*	The key to the city of new thalos
+G 0 9501 0		*	the Key to the City of New Thalos
 M 0 9544 20 9655 1	* the vulture (The Boyer/Fletcher's)
 M 0 9560 2 9661 2	* a servant boy (Kitchen)
 M 0 9560 2 9661 2	* a servant boy (Kitchen)
@@ -7303,9 +7305,9 @@ M 0 9551 8 9687 8	* a harem girl (Harem)
 M 0 9561 32 9688 5	* the sultan's guard (Small room)
 M 0 9550 1 9689 1	* The Sultan (Throne Room)
 M 0 9552 1 9691 1	* the jailer (Jailer's Room)
-G 0 9593 0		*	The jail key
+G 0 9593 0		*	the jail key
 M 0 9587 1 9696 1	* the wolverine (Secret Cell)
-E 0 9599 0 16		*	The wolverine claw: wielded
+E 0 9599 0 16		*	the wolverine claw: wielded
 M 0 9575 1 9697 1	* the chimera (Cell)
 M 0 9574 1 9698 1	* the behir (Cell)
 M 0 9572 5 9699 5	* the death dog (Cell)
@@ -7318,12 +7320,10 @@ M 0 9577 1 9701 1	* the giant hornet (Cell)
 M 0 9576 1 9702 1	* the couatl (Cell)
 M 0 9573 1 9703 1	* the spotted lion (Cell)
 M 0 9571 1 9704 1	* the minotaur lizard (Cell)
-O 0 9598 0 9750		* The daemon claw (Igor's Secret Chamber)
+O 0 9598 0 9750		* the Daemon Claw (Igor's Secret Chamber)
 M 0 9591 1 9799 1	* the Ixitxachitl (Lair of the Ixitxachitl)
-G 0 9602 0		*	A beautiful white pearl
+G 0 9602 0		*	a beautiful white pearl
 M 0 9594 1 9800 1	* The Samurai Weaponsmaster (The weaponsmaster's room)
-M 0 9593 1 9605 1	*
-O 0 3010 0 9605		* 
 S
 
 
@@ -7386,6 +7386,7 @@ S
 
 #OMPROGS
 S
+
 
 
 #$

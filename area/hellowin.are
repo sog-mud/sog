@@ -3,7 +3,7 @@ Name Небольшой изврат~
 Builders Askold~
 VNUMs 34000 34499
 Credits Askold~
-Security 9
+Security 1
 LevelRange 0 0
 End
 
@@ -152,7 +152,7 @@ food~
 @eng Appetizing looking roasted bite of meat.@rus Аппетитно выглядящий шашлык нанизан на шампур.~
 баранина~
 food SY A
-AC AC 0 0 0
+CE CE 0 0 0
 1 1 1 P
 #34407
 glass vodka~
@@ -176,6 +176,22 @@ A
 18 15
 A
 19 15
+#34409
+ring portal~
+@eng {Wring of repatriation{w@rus {Wk0льц0 b0зbpaщeHuЯ дomоu{x~
+@eng Abnormal rIng which sucks you in.@rus Ненормальное k0льц0, оно затягивает тебя внутрь.~
+unknown~
+portal ARTYa ABP
+A A AB 34400 0
+96 1 2147483647 P
+#34410
+karmael statue piss~
+@eng Pissed Karmael@rus {YСтатуя писающего Кармаеля стоит здесь!{\{Y    Он одет в форму штандартенфюрера СС фон{\{Y    Штирлица, глаза дико выпучены!  Он рад!{x~
+@eng {YStatue of Karmael stay there , him eye blob and worry , Karmael pissed at pool. You noise like scent white wine ...{x@rus {YСтатуя писающего Кармаеля стоит здесь!!{\Он одет в форму штандартенфюрера СС фон{\Штирлица, глаза дико выпучены!  Он рад!{x~
+sand~
+fountain RTYa AP
+-1 -1 'salt water' 0 0
+1 20000 2147483647 P
 #0
 
 
@@ -224,6 +240,7 @@ O 34400 1	* {W0==][ {YHeliacal Fire {W>>{w
 O 34401 1	* {Wfrom Russia with love{x
 O 34403 1	* {DCosily armchair{w
 O 34408 1	* {WThe Real Hero helm of Oleg{x
+O 34410 1	* Pissed Karmael
 S
 
 

@@ -11,21 +11,19 @@ End
 
 #MOBILES
 #15000
-Avatar~
+avatar avatara~
 Avatar of abrazak~
 Avatar of abrazak is here.
 ~
 You see a huge man. He looks very strong and wise. You'd better never mess with him.
 ~
-human~
-ABGc H 0 0
+dragon~
+ABGOc H 0 0
 200 0 5d5000+5000 1d1+666 5d300+1 none
 0 0 0 0
 0 ABDFGIJLMOPQRTXYZ 0 0
 stand stand male 2147483647
-CK 0 medium unknown
-F for AHMV
-F par ABCDEFGHIJK
+CIK 0 huge unknown
 M RANDOM 15000 2~
 M RANDOM 15000 1~
 M BRIBE 15000 1~
@@ -50,6 +48,22 @@ unknown~
 food 0 A
 HJKMPTUX 0 0 0 0
 0 0 0 P
+#15010
+eng kosa~
+{DScythe{x~
+{DScythe{x~
+unknown~
+weapon RYa ANP
+exotic 1000 1000 none ABCDEGHI
+99 0 0 P
+#15011
+horn~
+{DHorns{x~
+{DHorns{x~
+unknown~
+armor 0 AEP
+DEKLMNOPQRSTUVWXYZabcdef DEKLMNOPQRSTUVWXYZabcdef DEKLMNOPQRSTUVWXYZabcdef DEKLMNOPQRSTUVWXYZabcdef 0
+99 0 0 P
 #15100
 cheburator~
 @eng a dwarven golden ring@rus ~
@@ -104,11 +118,17 @@ A
 @eng You are in Abrazak's office..  Hmmm...  It's very strange place.  
 @rus Ты попал в офис абразака..... Достаточно странное место... 
 ~
-0 C 0
+0 C 3
 D2
 ~
 ~
 0 0 34400
+S
+#15010
+@eng {DThe room of Death{x@rus {DКомната Смерти{x~
+@eng @rus  
+~
+0 C 0
 S
 #15100
 ~
@@ -137,6 +157,8 @@ S
 
 
 #OLIMITS
+O 15010 0	* {DScythe{x
+O 15011 0	* {DHorns{x
 O 15100 1	* a dwarven golden ring
 O 15112 1	* {W'{CAenis + Leo{W' ring{w
 S
@@ -146,7 +168,6 @@ S
 #MOBPROGS
 #15000
 if mobexists junkseller
-smile
 else
 mob mload 50
 mob vforce 50 mob oload 15000

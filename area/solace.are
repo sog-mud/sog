@@ -88,7 +88,7 @@ stand stand male 1000
 0 0 medium 0
 #10206
 citizen solace~
-Citizen of Solace.~
+Citizen of Solace~
 A citizen of Solace stands here.
 ~
 He is one of the wealthy citizens of Solace.
@@ -102,7 +102,7 @@ stand stand male 1000
 0 0 medium 0
 #10207
 woman~
-woman.~
+woman~
 a woman is here.
 ~
 She is a beautiful woman.
@@ -292,7 +292,7 @@ stand stand male 1000
 0 0 medium 0
 #10220
 Krista~
-Krista the fruit peddler.~
+Krista the fruit peddler~
 Krista the fruit peddler is here.
 ~
 a pretty woman who works hard for her money. Travelling every year
@@ -558,7 +558,7 @@ stand stand none 1000
 0 0 medium 0
 #10238
 child~
-child.~
+child~
 a child is here eating bugs off the ground.
 ~
 ~
@@ -882,7 +882,7 @@ A
 19 3
 #10209
 amulet solace~
-the amulet of Solace.~
+the amulet of Solace~
 A shiny black amulet with a gold symbol is here.~
 ~
 9 64|1024 1|4
@@ -1320,7 +1320,7 @@ A Mcbagel has been left here.~
 #10244
 mcpastry~
 Mcpastry~
-A Mcpastry has been left here.~
+A Mcpastry has been left here~
 ~
 19 0 1
 12 0 0 0
@@ -1328,7 +1328,7 @@ A Mcpastry has been left here.~
 #10245
 chocolate chip cookie~
 chocolate chip cookie~
-A chocoalte chip cookie has been left here.~
+A chocolate chip cookie has been left here~
 ~
 19 0 1
 7 0 0 0
@@ -1475,7 +1475,7 @@ A pear has been left here.~
 2 100 10
 #10263
 charm solace~
-the charm of Solace.~
+the charm of Solace~
 A shiny black charm with a gold symbol is here.~
 ~
 9 0 1|4
@@ -1483,7 +1483,7 @@ A shiny black charm with a gold symbol is here.~
 15 10000 100
 #10264
 ring solace~
-the ring of Solace.~
+the ring of Solace~
 A shiny black ring with a gold symbol is here.~
 ~
 9 0 1|2
@@ -1491,7 +1491,7 @@ A shiny black ring with a gold symbol is here.~
 5 10000 100
 #10265
 earrings solace~
-the earrings of Solace.~
+the earrings of Solace~
 A pair of shiny black earrings with a gold symbols is here.~
 ~
 9 0 1|16
@@ -1831,7 +1831,7 @@ You see a strong metal box used to keep the town deposits in.
 ~
 #10303
 gold coins~
-alot of gold coins.~
+a lot of gold coins~
 A lot of gold is here.~
 Looks like at least 10,000 coins.
 ~
@@ -1860,7 +1860,7 @@ A shiny depository key is here.~
 5 10000 100
 #10306
 city key gold solace~
-Key to the City of Solace.~
+Key to the City of Solace~
 A shiny gold city key is here.~
 ~
 18 0 1
@@ -1876,7 +1876,7 @@ a drink called, "a Flaming homer" is here.~
 3 300 100
 #10308
 jello shot~
-a jello shot.~
+a jello shot~
 a jello shot is wiggling here.~
 ~
 17 0 1

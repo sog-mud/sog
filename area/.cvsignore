@@ -4,3 +4,5 @@
 muddy
 *.lang
 lang.lst
+core.*
+muddy.[1-9]*

@@ -3295,7 +3295,7 @@ to the others, but their probabities is much lower.
 	To you : Heal
 	To you : Group Heal
 ~
--1 STAT STATS~
+-2 STAT STATS~
 	There are currently 6 stats, which are STR,INT,WIS,DEX,CON,CHA. Each
 has special importance in your mud life, while fighting, gaining hitpoint 
 mana at each tick, gaining hitpoint,mana and movement at gaining level,etc.

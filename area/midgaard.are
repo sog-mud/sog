@@ -574,9 +574,8 @@ stand stand either 500
 0 0 medium unknown
 #3070
 shopkeeper old man~
-the ancient potion-brewer~
+An old man~
 An old man eyes you greedily.
-The old man says, 'Would you like to buy a nice love potion?'
 ~
 He looks very dangerous.  I wouldn't try to rob him.
 ~
@@ -587,6 +586,7 @@ ABQRV DEFHV 1000 0
 FGH AB CD 0
 stand stand male 5000
 0 0 medium unknown
+M GREET 3023 100~
 #3071
 cityguard guard~
 the cityguard~
@@ -1008,7 +1008,7 @@ the altar, and concentrating, to cure the others wounds.
 ~
 human~
 ABKQRVae DEFHZ 1000 0
-36 0 1d1+1700 1d1+2000 7d4+50 divine
+120 0 1d1+1700 1d1+2000 7d4+50 divine
 0 0 0 0
 FG ABC ABCD 0
 stand stand female 0
@@ -7703,7 +7703,7 @@ M 3062 spec_fido	* the beastly fido
 M 3067 spec_guard	* the cityguard
 M 3068 spec_guard	* the cityguard
 M 3069 spec_guard	* the cityguard
-M 3070 spec_cast_mage	* the ancient potion-brewer
+M 3070 spec_cast_mage	* An old man
 S
 
 
@@ -8071,7 +8071,7 @@ G 0 3051 0		*	a canoe
 M 0 3007 1 3050 1	* the sailor (Abandoned Warehouse)
 O 0 3010 0 3054		* the donation pit (By the Temple Altar)
 M 0 3012 5 3054 1	* the healer (By the Temple Altar)
-M 0 3070 1 3056 1	* the ancient potion-brewer (The Fountain of Youth Apothecary)
+M 0 3070 1 3056 1	* An old man (The Fountain of Youth Apothecary)
 G 0 3041 0		*	a swirling potion of return
 G 0 3080 0		*	a potion of healing
 G 0 3081 0		*	a potion of sanctuary
@@ -8227,6 +8227,9 @@ MOB OLOAD 3009
 give pie $n
 say It's tasty.
 endif
+~
+#3023
+say Would you like to buy a nice love potion?
 ~
 #0
 

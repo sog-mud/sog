@@ -3101,19 +3101,19 @@ whips and whistles in fierce blasting gusts sending you in all
 directions.
 ~
 0 P 9
-D3
+D0
 In the air~
 ~
-0 -1 17243
+0 -1 17244
 D1
 In the air~
 ~
 0 -1 17242
-D2
+D3
 In the air~
 ~
-0 -1 17244
-D0
+0 -1 17243
+D2
 In the air~
 ~
 0 -1 17244
@@ -3133,23 +3133,11 @@ whips and whistles in fierce blasting gusts sending you in all
 directions.
 ~
 0 Q 9
-D3
-In the air~
-~
-0 -1 17241
-D0
-In the air~
-~
-0 -1 17245
-D5
-In the air~
-~
-0 -1 17244
 D4
 In the air~
 ~
 0 -1 17246
-D2
+D0
 In the air~
 ~
 0 -1 17245
@@ -3157,6 +3145,18 @@ D1
 In the air~
 ~
 0 -1 17243
+D5
+In the air~
+~
+0 -1 17244
+D2
+In the air~
+~
+0 -1 17245
+D3
+In the air~
+~
+0 -1 17241
 S
 #17243
 In the Air Beneath the Flying Mountain~
@@ -3165,23 +3165,7 @@ whips and whistles in fierce blasting gusts sending you in all
 directions.
 ~
 0 T 9
-D1
-In the air~
-~
-0 -1 17241
-D5
-In the air~
-~
-0 -1 17245
-D4
-In the air~
-~
-0 -1 17244
 D0
-In the air~
-~
-0 -1 17246
-D2
 In the air~
 ~
 0 -1 17246
@@ -3189,6 +3173,22 @@ D3
 In the air~
 ~
 0 -1 17242
+D1
+In the air~
+~
+0 -1 17241
+D2
+In the air~
+~
+0 -1 17246
+D4
+In the air~
+~
+0 -1 17244
+D5
+In the air~
+~
+0 -1 17245
 S
 #17244
 In the Air Beneath the Flying Mountain~
@@ -3205,10 +3205,6 @@ D0
 In the air~
 ~
 0 -1 17241
-D2
-In the air~
-~
-0 -1 17241
 D1
 In the air~
 ~
@@ -3217,6 +3213,10 @@ D4
 In the air~
 ~
 0 -1 17242
+D2
+In the air~
+~
+0 -1 17241
 D5
 In the air~
 ~
@@ -3229,6 +3229,10 @@ whips and whistles in fierce blasting gusts sending you in all
 directions.
 ~
 0 S 9
+D1
+In the air~
+~
+0 -1 17246
 D5
 In the air~
 ~
@@ -3237,22 +3241,18 @@ D4
 In the air~
 ~
 0 -1 17243
-D0
-In the air~
-~
-0 -1 17242
-D2
-In the air~
-~
-0 -1 17242
-D1
-In the air~
-~
-0 -1 17246
 D3
 In the air~
 ~
 0 -1 17244
+D2
+In the air~
+~
+0 -1 17242
+D0
+In the air~
+~
+0 -1 17242
 S
 #17246
 In the Air Beneath the Flying Mountain~
@@ -3261,7 +3261,15 @@ whips and whistles in fierce blasting gusts sending you in all
 directions.
 ~
 0 U 9
+D3
+In the air~
+~
+0 -1 17245
 D2
+In the air~
+~
+0 -1 17243
+D0
 In the air~
 ~
 0 -1 17243
@@ -3269,14 +3277,6 @@ D1
 In the air~
 ~
 0 -1 17244
-D3
-In the air~
-~
-0 -1 17245
-D0
-In the air~
-~
-0 -1 17243
 D4
 In the calm air~
 ~
@@ -4466,6 +4466,10 @@ S
 
 
 #MOBPROGS
+#17000
+say NONE SHALL PASS
+MOB KILL $n
+~
 #0
 
 #PRACTICERS

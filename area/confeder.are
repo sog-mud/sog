@@ -3,7 +3,7 @@ Name Confederacy~
 Builders Eros~
 VNUMs 33000 33099
 Credits Eros~
-Security 9
+Security 5
 LevelRange 1 100
 End
 
@@ -36,10 +36,10 @@ fafhrd guard~
 недоброжелательно скользит по тебе, он готов к бою.
 ~
 human~
-ABSTe BCDFHPQTVZce 1000 0
-96 333 10d5000+25000 1d1+999 10d100+1000 divine
--66 -66 -66 -66
-ABCEFHJKL ABHILMQ CDJKPTYZ R
+ABGSTe BCDFHPQTVZe 1000 0
+91 100 2d500+25000 1d1+3999 1d1+200 divine
+-10 -10 -10 -10
+ABCEFHJKL AB CDJKPTYZ R
 stand stand male 0
 0 0 large unknown
 F for AM
@@ -58,10 +58,10 @@ and dangerous and he's smirking while loking at you.
 тебя пробирает дрожь.
 ~
 human~
-ABCGRSTd BCDFGHNOPQTVZce 0 0
-99 999 666d666+26764 1d3000+3000 1d100+999 acbite
--99 -66 -99 -66
-ABEFHJKO ABLMNOPQ CDEFGHIJK 0
+ABCGRST BCDFGHNOPQTVZe 0 0
+91 100 2d500+25000 1d1+3999 1d1+200 acbite
+-10 -10 -10 -10
+ABEFHJKO AB CDEFGHIJK 0
 stand stand none 0
 0 0 medium unknown
 F par BCDEFGHI
@@ -220,9 +220,6 @@ S
 
 #MOBPROGS
 #33000
-if istarget $n
-end
-endif
 if isghost $n
 mob transfer $n 33000
 end
@@ -236,6 +233,7 @@ yell Die, $n, you dirty bitch!!!
 endif
 mob kill $n
 endif
+ 
 ~
 #0
 

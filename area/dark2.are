@@ -1,17 +1,13 @@
-#AREA
-dark2.are~
-Dark Continent~
-{ 5 35} Mort    Dark Continent~
-14500 14599
+#AREADATA
+Name Dark Continent~
+Builders None~
+VNUMs 14500 14599
+Credits Mort~
+Security 9
+LevelRange 5 35
+End
 
-#HELPS
-0 DARK CONTINENT~
 
-Created by Mort for 5-35 level players. Converted to ROM 2.4 format by Gapcio.
-Enhanced and balanced by jaceks.Checked and beta tested by Quartz.
-After them by Asena.
-~
-0 $~
 
 #MOBILES
 #14501
@@ -28,7 +24,7 @@ AF c -500 0
 1 1 1 8
 BKP 0 0 C
 stand stand female 0
-AB ACBCDH large 0
+B 0 large unknown
 #14502
 merchant elf elven~
 the Elven Merchant~
@@ -38,12 +34,12 @@ This Elf does not appear to be very prosperous. His violet eyes look you
 over as he tries to decide if you are a client or a salesman.
 ~
 elf~
-BG J -1 0
+ABG 0 -1 0
 12 0 2d10+150 119d1+1 1d10+3 pound
 0 0 0 8
-DE 0 B Z
+DE 0 0 0
 stand stand male 300000
-AHMV ABCDEFGHIJ medium 0
+0 0 medium unknown
 #14503
 merchant dwarven~
 the Dwarven Merchant~
@@ -52,12 +48,12 @@ The Dwarven Merchant greets you, "Welcome!"
 This merchant has the Eye of the Tiger. "Welcome my friend," he says.
 ~
 dwarf~
-BG J -1 0
+ABG 0 -1 0
 12 0 2d10+150 119d1+1 1d10+3 pound
 0 0 0 8
-DE 0 LQ R
+DE 0 0 0
 stand stand male 300000
-AHMV ABCDEFGHIJ medium 0
+0 0 medium unknown
 #14504
 merchant halfdwarf~
 the Halfdwarf Merchant~
@@ -72,7 +68,7 @@ AGH 0 90 0
 0 0 0 8
 NU 0 0 C
 stand stand either 300000
-AHMV ABCDEFGHIJ small 0
+0 0 small unknown
 #14505
 merchant human~
 the Human Merchant~
@@ -86,7 +82,7 @@ ACS 0 -200 0
 7 5 5 10
 BJNQ 0 0 C
 stand stand male 300000
-AHMV ABCDEFGHIJ medium 0
+0 0 medium unknown
 #14506
 adventurer madboy~
 Madboy the Adventurer~
@@ -101,7 +97,7 @@ ACHS 0 -200 0
 4 4 4 9
 BJNQ 0 0 C
 stand stand male 140
-AHMV ABCDEFGHIJ medium 0
+0 0 medium unknown
 #14507
 soldier bearded~
 the Bearded Soldier~
@@ -116,7 +112,7 @@ ABT 0 1000 3000
 0 0 0 8
 CDELU 0 C 0
 stand stand male 2200
-AHMV ABCDEFGHIJ medium 0
+0 0 medium unknown
 #14508
 soldier alert~
 the Alert Soldier~
@@ -131,7 +127,7 @@ ABT 0 1000 3000
 0 0 0 8
 CDEKLTU 0 C 0
 stand stand male 1530
-AHMV ABCDEFGHIJ medium 0
+0 0 medium unknown
 #14509
 soldier sleepy~
 the Sleepy Soldier~
@@ -145,7 +141,7 @@ ABT 0 1000 3000
 -3 -3 -3 7
 CDEKLTU 0 C 0
 sleep sleep male 2502
-AHMV ABCDEFGHIJ medium 0
+0 0 medium unknown
 #14510
 Watcher~
 the Watcher~
@@ -160,7 +156,7 @@ ABT JN 1000 3000
 -4 -6 -6 0
 CDEHKLTU 0 C 0
 stand stand female 3200
-AHMV ABCDEFGHIJ medium 0
+0 0 medium unknown
 #14511
 pig fat~
 the fat pig~
@@ -174,7 +170,7 @@ ACGH Gb 500 0
 5 5 5 9
 BDEI 0 0 0
 stand stand either 35
-ABGV ACDEFJKV medium 0
+B V medium unknown
 #14512
 dog~
 the dog~
@@ -189,7 +185,7 @@ AB F 400 0
 4 4 4 8
 CDL 0 C 0
 stand stand either 0
-0 ACDEFHJKUVo medium 0
+0 0 medium unknown
 #14513
 chicken~
 the chicken~
@@ -199,12 +195,12 @@ This chicken is so skinny it WOULDN'T provide enough meat for a soup.
         ************ IT ESCAPE FROM KFC BAR !!! *************
 ~
 song bird~
-CG NOT 0 0
+ACG NO 0 0
 35 0 10d10+1300 349d1+1 4d7+11 peck
 -11 -11 -11 5
 ADIJ C C GL
 stand stand female 5000
-AW ACDFKP small 0
+0 0 small unknown
 #14514
 human man~
 the Human Man~
@@ -219,7 +215,7 @@ ACS 0 -200 0
 7 5 5 10
 BJNQ 0 0 C
 stand stand male 181
-AHMV ABCDEFGHIJ medium 0
+0 0 medium unknown
 #14515
 woman human~
 the Human Woman~
@@ -234,7 +230,7 @@ ACS 0 -200 0
 3 3 3 9
 BJNQ 0 0 C
 stand stand female 223
-AHMV ABCDEFGHIJ medium 0
+0 0 medium unknown
 #14516
 man elven~
 the Elven Man~
@@ -246,9 +242,9 @@ elf~
 ABR DEFZ 500 0
 13 0 2d10+170 129d1+1 2d5+3 magic
 -1 -1 -1 8
-FG A B Z
+FG A 0 0
 stand stand male 513
-AHMV ABCDEFGHIJ medium 0
+0 0 medium unknown
 #14517
 woman elven~
 the Elven Woman~
@@ -260,9 +256,9 @@ elf~
 ABR DEFZ 500 0
 16 0 3d9+233 159d1+1 2d6+4 magic
 -2 -2 -2 7
-FG A B Z
+FG A 0 0
 stand stand female 300
-AHMV ABCDEFGHIJ medium 0
+0 0 medium unknown
 #14518
 woman dwarven~
 the Dwarven Woman~
@@ -270,13 +266,13 @@ The Dwarven Woman is smacking her fist in her hand.
 ~
 Stand back!  She's about to blow!!!
 ~
-dwarven~
+unique~
 ABT DF 900 0
 16 0 3d9+233 159d1+1 2d6+4 beating
 -2 -2 -2 7
 CDEIK A LQ R
 stand stand female 122
-AHMV ABCDEFGHIJ medium 930
+AHMV ABCDEFGHIJ medium unknown
 #14519
 man dwarven~
 the Dwarven Man~
@@ -284,13 +280,13 @@ A large Dwarven Man walks by you.
 ~
 He looks back at you, then dismisses you as unimportant.
 ~
-dwarven~
+unique~
 ABT DF 900 0
 19 0 3d9+308 189d1+1 2d7+5 punch
 -4 -4 -4 7
 CDEIK A LQ R
 stand stand male 444
-AHMV ABCDEFGHIJ medium 348
+AHMV ABCDEFGHIJ medium unknown
 #14520
 warrior goblin~
 the Goblin Warrior~
@@ -302,13 +298,14 @@ armed and armored, doesn't wear boots, and has claws and talons with which
 to fight.
 ~
 goblin~
-AFG J -300 0
+AFG 0 -300 0
 12 0 2d10+150 119d1+1 1d10+3 slash
 0 0 0 8
-CI 0 LQ C
+CI 0 L 0
 stand stand male 123
-AHMV ABCDEFGHIJ huge 666
+0 0 huge unknown
 #0
+
 
 
 #OBJECTS
@@ -326,13 +323,13 @@ an Elven Necklace~
 An Elven Necklace has been dropped here.~
 steal~
 armor 0 AC
-7 7 7 0 2
+ABC ABC ABC 0 B
 19 50 4700 P
+A
+17 -10
 E
 necklace elven~
 Engraved on the back are the words: "Protect that which is important"~
-A
-17 -10
 #14503
 potion elven~
 an Elven potion~
@@ -378,7 +375,7 @@ Dwarven Adventurer Bread~
 A fine example of Dwarven Adventurer Bread lies here.~
 food~
 food 0 A
-48 20 0 0 0
+EF CE 0 0 0
 1 1 50 P
 #14508
 hip pack alligator skin~
@@ -402,7 +399,7 @@ a Treasure Map~
 A Treasure Map has been dropped here.~
 paper~
 map 0 A
-1 0 0 0 0
+A 0 0 0 0
 1 10 500 P
 E
 map~
@@ -450,7 +447,7 @@ sword madboy~
 madboy's sword~
 Madboy's sword has been dropped here.~
 iron~
-weapon BIG AN
+weapon BGI AN
 sword 1 12 slash 0
 7 50 500 P
 A
@@ -471,7 +468,7 @@ an Island Helmet~
 An Island Helmet is lying here.~
 silver~
 armor AGK AE
-6 6 6 1 4
+BC BC BC A C
 15 5 1500 G
 A
 3 2
@@ -487,7 +484,7 @@ an Island Shield~
 An Island Shield has been dropped here.~
 steel~
 armor G AJ
-6 6 6 1 5
+BC BC BC A AC
 15 100 2000 G
 E
 shield island~
@@ -523,7 +520,7 @@ a Watcher's Black Cape~
 A Watcher's Black Cape has been dropped onto the floor.~
 cloth~
 armor GK AK
-6 8 7 1 3
+BC D ABC A AB
 20 200 4600 G
 A
 24 3
@@ -559,7 +556,7 @@ a reed basket~
 A reed basket rests here.~
 softwood~
 container 0 AO
-50 1 0 10 100
+50 A 0 10 100
 1 10 40 G
 #14525
 chair woven~
@@ -567,7 +564,7 @@ a woven chair~
 A woven chair sits here.~
 wool~
 furniture 0 0
-1 40 BEHKN 250 250
+A DF BEHKN BDEFGH BDEFGH
 0 0 0 P
 #14526
 basket fruit~
@@ -575,7 +572,7 @@ a basket of fruit~
 A basket full of fruit lies here.~
 food~
 food 0 A
-24 12 0 0 0
+DE CD 0 0 0
 15 50 200 P
 #14527
 hat straw~
@@ -583,7 +580,7 @@ a straw hat~
 A straw hat has been dropped here.~
 bamboo~
 armor 0 AE
-6 6 6 0 1
+BC BC BC 0 A
 16 10 700 G
 #14528
 stone well~
@@ -599,7 +596,7 @@ a featherbed~
 A featherbed sits here.~
 feathers~
 furniture 0 0
-2 40 CFILO 400 400
+B DF CFILO EHI EHI
 0 500 0 P
 #14530
 wooden table~
@@ -607,7 +604,7 @@ a wooden table~
 A wooden table sits here.~
 wood~
 furniture 0 0
-10 40 BEHN 400 400
+BD DF BEHN EHI EHI
 0 500 0 P
 #14531
 portrait~
@@ -632,7 +629,7 @@ a toy bow~
 A toy bow has been dropped here.~
 wood~
 weapon 0 AN
-bow 1 1 hit 0
+bow 1 1 none 0
 5 10 100 P
 #14533
 wheelbarrow~
@@ -640,7 +637,7 @@ a wheelbarrow~
 A wheelbarrow rests here.~
 steel~
 container 0 AO
-1000 1 0 200 50
+1000 A 0 200 50
 35 50 4000 G
 #14534
 chest~
@@ -664,7 +661,7 @@ a Goblin Loincloth~
 A Goblin Loincloth has been discarded here.~
 snakeskin~
 armor G AD
-7 7 7 0 2
+ABC ABC ABC 0 B
 12 20 2456 G
 A
 1 -1
@@ -673,24 +670,25 @@ A
 A
 4 -1
 #14537
-dwarwen flail~
-a Dwarwen Flail~
-A Dwarwen Flail is lying on the floor.~
+dwarven flail~
+A Dwarven Flail~
+A Dwarven Flail is lying on the floor.~
 wood~
 weapon AG AN
 flail 5 5 pound D
 17 250 3400 P
 #14538
-dwarwen shield~
-an Dwarwen Shield~
-A Dwarwen Shield has been dropped here.~
+dwarven shield~
+a Dwarven Shield~
+A Dwarven Shield has been dropped here.~
 wood~
 armor AG AJ
-6 6 6 1 5
+BC BC BC A AC
 17 190 4500 G
 A
 5 4
 #0
+
 
 
 #ROOMS
@@ -703,18 +701,6 @@ high above the land beyond the beach.
      There is a small (Glowing) (Humming) tablet.
 ~
 0 C 7
-D1
-~
-~
-0 -1 29201
-D2
-~
-~
-0 -1 14502
-D3
-~
-~
-0 -1 9797
 E
 small tablet~
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -729,6 +715,18 @@ small tablet~
 +                                                          july'96 +
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ~
+D1
+~
+~
+0 -1 29201
+D2
+~
+~
+0 -1 14502
+D3
+~
+~
+0 -1 9797
 S
 #14502
 Approaching land~
@@ -1811,6 +1809,10 @@ the ancient road it guards.  A close look at the door reveals
 a tiny, hand written sign attached to the gate.
 ~
 0 0 1
+E
+sign~
+BEWARE.  This gate is to remain closed at all times.  The evil must be
+controlled.  The evil must be contained.~
 D0
 ~
 ~
@@ -1819,10 +1821,6 @@ D2
 This massive steel gate has spears along it's top.~
 gate~
 1 -1 14566
-E
-sign~
-BEWARE.  This gate is to remain closed at all times.  The evil must be
-controlled.  The evil must be contained.~
 S
 #14566
 Other side of the gate~
@@ -2178,6 +2176,12 @@ trampled and there's nothing here but a large mud patch.  A large
 mud patch with scores of tracks.
 ~
 0 C 2
+E
+tracks track~
+The tracks you see are well defined and
+were obviously made by an unshod foot.
+The toes are extremely long and end with
+curved talons.~
 D1
 ~
 ~
@@ -2186,12 +2190,6 @@ D3
 ~
 ~
 0 -1 9901
-E
-tracks track~
-The tracks you see are well defined and
-were obviously made by an unshod foot.
-The toes are extremely long and end with
-curved talons.~
 S
 #14589
 Outside the West Tower~
@@ -2371,137 +2369,141 @@ S
 #0
 
 
-#RESETS
-* ver 1.01
-* a few bad flags (K) removed
-*
-D 0 14539 0 1                   * Malo Main Close North
-D 0 14540 2 1                   * Stone house Close South
-D 0 14541 0 1                   * Gray Stone house Close North
-D 0 14539 2 1                   * Malo Main Close South
-D 0 14544 2 1                   * Brown House Close South
-D 0 14543 0 1                   * Village street Close North
-D 0 14545 0 1                   * Green house Close North
-D 0 14543 2 1                   * Village street Close South
-D 0 14548 2 1                   * Simple home Close South
-D 0 14547 0 1                   * End of the street Close North
-D 0 14549 1 1                   * Last house Close East
-D 0 14547 3 1                   * End of the street Close West
-D 0 14550 0 1                   * A general store Close North
-D 0 14547 2 1                   * End of the street Close South
-D 0 14566 0 1                   * Other side of the gate Close North
-D 0 14565 2 1                   * Before the gate Close South
-D 0 14596 3 1                   * Outside the East Tower Close West
-D 0 14563 1 1                   * East Tower Close East
 
-M 0 14501 3 14508 1                    * the BIG monkey to Palm path
-G 1 14501 -1                             * a monkey paw                     
-
-M 0 14502 1 14578 1                    * the Elven Merchant to Large Warehouse
-G 1 14502 -1                             * an Elven Necklace
-G 1 14503 -1                             * an Elven potion
-G 1 14504 -1                             * elven Water Walking Boots
-                                         
-M 0 14503 1 14577 1                    * the Dwarven Merchant to Oceanview Home
-G 1 14505 -1                             * a keg of Dwarven Go Juice
-G 1 14506 -1                             * a Dwarven Everlasting Lantern
-G 1 14507 -1                             * dwarven adventurer bread
-
-M 0 14504 1 14580 1                    * the Halfdwarf Merchant to Small home
-G 1 14508 -1                             * an Alligator skin hip pack
-G 1 14509 -1                             * a magical emergency wafer
-
-M 0 14505 1 14579 1                    * the Human Merchant to Largest Warehouse
-G 1 14510 -1                             * a Treasure Map
-G 1 14511 -1                             * a candlestick
-G 1 14512 -1                             * a Quest Note
-G 1 14513 -1                             * a Water Urn
-
-M 0 14506 1 14574 1                    * Madboy the Adventurer to Entrance to Land's End
-E 1 14515 -1 16                          * madboy's Head
-G 1 14514 -1                             * madboy's sword
-
-M 0 14507 3 14520 1                    * the Bearded Soldier to Clearing
-E 1 14517 -1 16                          * an Island Sword
-E 1 14518 -1 11                          * an Island Helmet
-E 1 14516 -1 6                           * an Island Shield
-
-M 0 14508 4 14523 1                    * the Alert Soldier to Clearing's Center
-E 1 14517 -1 16                          * an Island Sword
-E 1 14518 -1 11                          * an Island Helmet
-E 1 14516 -1 6                           * an Island Shield
-                          
-M 0 14509 2 14527 1                    * the Sleepy Soldier to Mountain trail
-E 1 14520 -1 16                          * an Island Mace
-E 1 14519 -1 17                          * a Glowing Scroll
-
-M 0 14510 1 14536 1                    * the Watcher to Mountain top
-E 1 14523 -1 1                           * a Watcher Signet Ring
-E 1 14521 -1 12                          * a Watcher's Black Cape
-E 1 14522 -1 16                          * a Watcher's Thrusting Dagger
-
-M 0 14511 3 14538 1                    * the fat pig to Malo Village
-
-M 0 14512 2 14543 1                    * the dog to Village street
-
-*M 0 14513 6 14546 2                    * the chicken to Village well
-
-M 0 14514 4 14547 1                    * the Human Man to End of the street
-
-M 0 14515 5 14547 1                    * the Human Woman to End of the street
-
-M 0 14516 4 14543 1                    * the Elven Man to Village street
-
-M 0 14517 4 14543 1                    * the Elven Woman to Village street
-
-M 0 14518 5 14582 1                    * the Dwarven Woman to Garden path
-E 1 14527 -1 6                           * a straw hat
-G 1 14526 -1                             * a basket of fruit
-
-M 0 14519 4 14582 1                    * the Dwarven Man to Garden path
-E 1 14537 -1 16                          * a Dwarwen Flail
-E 1 14538 -1 6                           * an Dwarwen Shield
-
-M 0 14520 10 14570 1                   * the Goblin Warrior to A path
-E 1 14536 -1 5                            * a Goblin Loincloth
-E 1 14535 -1 16                           * a Goblin Spear
-
-O 0 14528 1 14546                    * a stone well to Village well
-O 0 14528 1 14537                    * a stone well to Village entrance
-O 0 14524 1 14539                    * a reed basket to Malo Main
-O 0 14533 1 14539                    * a wheelbarrow to Malo Main
-O 0 14525 1 14540                    * a woven chair to Stone house
-O 0 14529 1 14540                    * a featherbed to Stone house
-O 0 14530 1 14540                    * a wooden table to Stone house
-O 0 14529 1 14541                    * a featherbed to Gray Stone house
-O 0 14534 1 14541                    * a chest to Gray Stone house
-O 0 14532 1 14541                    * a toy bow to Gray Stone house
-O 0 14525 1 14544                    * a woven chair to Brown House
-O 0 14529 1 14544                    * a featherbed to Brown House
-O 0 14531 1 14545                    * a portrait to Green house
-O 0 14530 1 14545                    * a wooden table to Green house
-O 0 14534 1 14545                    * a chest to Green house
-O 0 14529 1 14548                    * a featherbed to Simple home
-O 0 14530 1 14548                    * a wooden table to Simple home
-O 0 14525 1 14549                    * a woven chair to Last house
-O 0 14529 1 14549                    * a featherbed to Last house
-O 0 14524 1 14550                    * a reed basket to A general store
-O 0 14534 1 14550                    * a chest to A general store
+#SPECIALS
+M 14510 spec_cast_mage	* the Watcher
 S
+
+
+
+#RESETS
+D 0 14539 0 1	* Malo Main: door to the north: closed
+D 0 14539 2 1	* Malo Main: door to the south: closed
+D 0 14540 2 1	* Stone house: door to the south: closed
+D 0 14541 0 1	* Gray Stone house: door to the north: closed
+D 0 14543 0 1	* Village street: door to the north: closed
+D 0 14543 2 1	* Village street: door to the south: closed
+D 0 14544 2 1	* Brown House: door to the south: closed
+D 0 14545 0 1	* Green house: door to the north: closed
+D 0 14547 0 1	* End of the street: door to the north: closed
+D 0 14547 2 1	* End of the street: door to the south: closed
+D 0 14547 3 1	* End of the street: door to the west: closed
+D 0 14548 2 1	* Simple home: door to the south: closed
+D 0 14549 1 1	* Last house: door to the east: closed
+D 0 14550 0 1	* A general store: door to the north: closed
+D 0 14563 1 1	* East Tower: door to the east: closed
+D 0 14565 2 1	* Before the gate: door to the south: closed
+D 0 14566 0 1	* Other side of the gate: door to the north: closed
+D 0 14596 3 1	* Outside the East Tower: door to the west: closed
+M 0 14501 3 14508 1	* the BIG monkey (Palm path)
+G 0 14501 0		*	a monkey paw
+M 0 14507 3 14520 1	* the Bearded Soldier (Clearing)
+E 0 14517 0 16		*	an Island Helmet: wielded
+E 0 14518 0 11		*	an Island Shield: as a shield
+E 0 14516 0 6		*	an Island Sword: over the head
+M 0 14508 4 14523 1	* the Alert Soldier (Clearing's Center)
+E 0 14517 0 16		*	an Island Helmet: wielded
+E 0 14518 0 11		*	an Island Shield: as a shield
+E 0 14516 0 6		*	an Island Sword: over the head
+M 0 14509 2 14527 1	* the Sleepy Soldier (Mountain trail)
+E 0 14520 0 17		*	a Glowing Scroll: held in the hands
+E 0 14519 0 16		*	an Island Mace: wielded
+M 0 14510 1 14536 1	* the Watcher (Mountain top)
+E 0 14523 0 1		*	a Watcher Signet Ring: on the left finger
+E 0 14521 0 12		*	a Watcher's Black Cape: about the shoulders
+E 0 14522 0 16		*	a Watcher's Thrusting Dagger: wielded
+O 0 14528 0 14537		* a stone well (Village entrance)
+M 0 14511 3 14538 1	* the fat pig (Malo Village)
+O 0 14524 0 14539		* a reed basket (Malo Main)
+O 0 14533 0 14539		* a wheelbarrow (Malo Main)
+O 0 14525 0 14540		* a woven chair (Stone house)
+O 0 14529 0 14540		* a featherbed (Stone house)
+O 0 14530 0 14540		* a wooden table (Stone house)
+O 0 14529 0 14541		* a featherbed (Gray Stone house)
+O 0 14534 0 14541		* a chest (Gray Stone house)
+O 0 14532 0 14541		* a toy bow (Gray Stone house)
+M 0 14512 2 14543 1	* the dog (Village street)
+M 0 14516 4 14543 1	* the Elven Man (Village street)
+M 0 14517 4 14543 1	* the Elven Woman (Village street)
+O 0 14525 0 14544		* a woven chair (Brown House)
+O 0 14529 0 14544		* a featherbed (Brown House)
+O 0 14531 0 14545		* a portrait (Green house)
+O 0 14530 0 14545		* a wooden table (Green house)
+O 0 14534 0 14545		* a chest (Green house)
+O 0 14528 0 14546		* a stone well (Village well)
+M 0 14514 4 14547 1	* the Human Man (End of the street)
+M 0 14515 5 14547 1	* the Human Woman (End of the street)
+O 0 14529 0 14548		* a featherbed (Simple home)
+O 0 14530 0 14548		* a wooden table (Simple home)
+O 0 14525 0 14549		* a woven chair (Last house)
+O 0 14529 0 14549		* a featherbed (Last house)
+O 0 14524 0 14550		* a reed basket (A general store)
+O 0 14534 0 14550		* a chest (A general store)
+M 0 14520 10 14570 1	* the Goblin Warrior (A path)
+E 0 14536 0 5		*	a Goblin Loincloth: on the body
+E 0 14535 0 16		*	a Goblin Spear: wielded
+M 0 14506 1 14574 1	* Madboy the Adventurer (Entrance to Land's End)
+E 0 14515 0 16		*	madboy's sword: wielded
+G 0 14514 0		*	madboy's Head
+M 0 14503 1 14577 1	* the Dwarven Merchant (Oceanview Home)
+G 0 14505 0		*	a keg of Dwarven Go Juice
+G 0 14506 0		*	a Dwarven Everlasting Lantern
+G 0 14507 0		*	Dwarven Adventurer Bread
+M 0 14502 1 14578 1	* the Elven Merchant (Large Warehouse)
+G 0 14502 0		*	an Elven Necklace
+G 0 14503 0		*	an Elven potion
+G 0 14504 0		*	elven Water Walking Boots
+M 0 14505 1 14579 1	* the Human Merchant (Largest Warehouse)
+G 0 14510 0		*	a Treasure Map
+G 0 14511 0		*	a candlestick
+G 0 14512 0		*	a Quest Note 
+G 0 14513 0		*	a Water Urn
+M 0 14504 1 14580 1	* the Halfdwarf Merchant (Small home)
+G 0 14508 0		*	an Alligator skin hip pack
+G 0 14509 0		*	a magical emergency wafer
+M 0 14518 5 14582 1	* the Dwarven Woman (Garden path)
+E 0 14527 0 6		*	a straw hat: over the head
+G 0 14526 0		*	a basket of fruit
+M 0 14519 4 14582 1	* the Dwarven Man (Garden path)
+E 0 14537 0 16		*	A Dwarven Flail: wielded
+E 0 14538 0 6		*	a Dwarven Shield: over the head
+S
+
 
 
 #SHOPS
-14502 8 9 10 22 0   50 150   8 21   * the Elven Merchant        
-14503 17 1 19 0 0   50 175   8 20   * the Dwarven Merchant
-14504 15 26 0 0 0   25 175   9 18   * the Halfdwarf Merchant
-14505 8 17 0 0 0    50 175   8 21   * the Human Merchant
+14502 8 9 10 22 0 50 150 8 21
+14503 17 1 19 0 0 50 175 8 20
+14504 15 26 0 0 0 25 175 9 18
+14505 8 17 0 0 0 50 175 8 21
 0
 
-#SPECIALS
-M  14510 spec_cast_mage                * the Watcher
+
+
+#OLIMITS
 S
 
 
+
+#MOBPROGS
+#0
+
+#PRACTICERS
+S
+
+
+
+#OMPROGS
+S
+
+
+
+#HELPS
+0 DARK CONTINENT~
+Created by Mort for 5-35 level players. Converted to ROM 2.4 format by Gapcio.
+Enhanced and balanced by jaceks.Checked and beta tested by Quartz.
+After them by Asena.
+~
+-1 $~
+
 #$
-
-
