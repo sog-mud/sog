@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.38 1998-07-19 01:03:45 efdi Exp $
+ * $Id: handler.c,v 1.39 1998-07-19 17:05:07 efdi Exp $
  */
 
 /***************************************************************************
@@ -241,11 +241,7 @@ char *weapon_name(int weapon_type)
  */
 bool check_material(OBJ_DATA *obj, char *material)
 {
-	if (strstr(obj->material, material) != NULL)
-		return TRUE;
-	else
-	    return FALSE;
-
+	return strstr(obj->material, material) ? TRUE : FALSE;
 }
 
 bool is_metal(OBJ_DATA *obj)

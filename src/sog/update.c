@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.45 1998-07-19 01:03:45 efdi Exp $
+ * $Id: update.c,v 1.46 1998-07-19 17:05:08 efdi Exp $
  */
 
 /***************************************************************************
@@ -1403,6 +1403,236 @@ bool fChar;
 
 }
 
+void update_obj_affects(OBJ_DATA *obj)
+{
+	AFFECT_DATA *paf, *paf_next;
+	CHAR_DATA *rch;
+
+	/* go through affects and decrement */
+	for (paf = obj->affected; paf != NULL; paf = paf_next) {
+		paf_next    = paf->next;
+		if (paf->duration > 0) {
+        		paf->duration--;
+			/* spell strength fades with time */
+        		if (number_range(0,4) == 0 && paf->level > 0)
+				paf->level--;
+
+        	} else if (paf->duration >= 0) {
+			if (paf_next == NULL
+			||  paf_next->type != paf->type
+			||  paf_next->duration > 0) {
+                		if (paf->type > 0
+				&&  skill_table[paf->type].msg_obj) {
+					if (obj->carried_by != NULL) {
+						rch = obj->carried_by;
+						act(skill_table[
+						     paf->type].msg_obj,
+						    rch, obj, NULL, TO_CHAR);
+					}
+
+					if (obj->in_room != NULL 
+					&& obj->in_room->people) {
+						rch = obj->in_room->people;
+						act(skill_table[paf->type].
+									msg_obj,
+						     rch,obj,NULL,TO_ALL);
+					}
+                		}
+            		}
+			affect_remove_obj(obj, paf);
+        	}
+	}
+}
+
+bool update_ice_obj(OBJ_DATA *obj)
+{
+	if (obj->carried_by != NULL) {
+		if (obj->carried_by->in_room->sector_type == SECT_DESERT
+		&&  number_percent() < 40) {
+			act("The extreme heat melts $p.",
+			    obj->carried_by, obj, NULL,
+			    TO_CHAR);
+			extract_obj(obj);
+			return TRUE;
+		}
+	} else if (obj->in_room != NULL)
+		if (obj->in_room->sector_type == SECT_DESERT
+		&&  number_percent() < 50)  {
+			if (obj->in_room->people) {
+				act("The extreme heat melts $p.",
+				    obj->in_room->people, obj, NULL, TO_ROOM);
+				act("The extreme heat melts $p.",
+				    obj->in_room->people, obj, NULL, TO_CHAR);
+			}
+			extract_obj(obj);
+			return TRUE;
+		}
+	return FALSE;
+}
+
+bool update_glass_obj(OBJ_DATA *obj)
+{
+	if (obj->carried_by)  {
+		if (obj->carried_by->in_room->sector_type == SECT_DESERT
+		&&  !IS_NPC(obj->carried_by)
+		&&  number_percent() < 20)  {
+			act("$p evaporates.", obj->carried_by, obj, NULL,
+			    TO_CHAR);
+			extract_obj(obj);
+			return TRUE;
+		}
+	} else if (obj->in_room)
+		if (obj->in_room->sector_type == SECT_DESERT
+		&&  number_percent() < 30)  {
+			act("$p evaporates by the extream heat.",
+			    obj->in_room->people, obj, NULL, TO_ROOM);
+			act("$p evaporates by the extream heat.",
+			    obj->in_room->people, obj, NULL, TO_CHAR);
+			extract_obj(obj);
+			return TRUE;
+		}
+	return FALSE;
+}
+
+void update_pit(OBJ_DATA *obj)
+{
+	OBJ_DATA *t_obj, *next_obj;
+	static int pit_count = 1;
+	/* more or less an hour */
+	pit_count = ++pit_count % 120;
+
+	if (obj_is_pit(obj) && !pit_count)
+		for (t_obj = obj->contains; t_obj != NULL; t_obj = next_obj) {
+			next_obj = t_obj->next_content;
+			obj_from_obj(t_obj);
+			extract_obj(t_obj);
+		}
+}
+
+void update_one_obj(OBJ_DATA *obj)
+{
+	OBJ_DATA *pit, *t_obj;
+	CHAR_DATA *rch;
+	char *message;
+
+	update_obj_affects(obj);
+
+	/* find the uppest obj container */
+	for(t_obj = obj; t_obj->in_obj; t_obj = t_obj->in_obj)
+		;
+
+	if ((t_obj->in_room != NULL &&
+	     t_obj->in_room->area->nplayer > 0)
+        ||  (t_obj->carried_by &&
+	     t_obj->carried_by->in_room &&
+	     t_obj->carried_by->in_room->area->nplayer > 0))
+		oprog_call(OPROG_AREA, obj, NULL, NULL);
+
+	if (check_material(obj, "ice")) 
+		if (update_ice_obj(obj))
+			return;
+
+	if (check_material(obj, "glass")
+	&&  obj->item_type == ITEM_POTION) 
+		if (update_glass_obj(obj))
+			return;
+
+	if (obj->condition > -1
+	&&  (obj->timer <= 0 || --obj->timer > 0))
+		return;
+
+	switch (obj->item_type) {
+	default:
+		message = "$p crumbles into dust.";
+		break;
+	case ITEM_FOUNTAIN:
+		message = "$p dries up.";
+		break;
+	case ITEM_CORPSE_NPC:
+		message = "$p decays into dust.";
+		break;
+	case ITEM_CORPSE_PC:
+		message = "$p decays into dust.";
+		break;
+	case ITEM_FOOD:
+		message = "$p decomposes.";
+		break;
+	case ITEM_POTION:
+		message = "$p has evaporated from disuse.";	
+		break;
+	case ITEM_PORTAL:
+		message = "$p fades out of existence.";
+		break;
+	case ITEM_CONTAINER: 
+		if (CAN_WEAR(obj, ITEM_WEAR_FLOAT))
+			if (obj->contains)
+				message = "$p flickers and vanishes, spilling "
+					  "its contents on the floor.";
+			else
+				message = "$p flickers and vanishes.";
+		else
+			message = "$p crumbles into dust.";
+			break;
+	}
+
+	if (obj->carried_by != NULL) {
+		if (IS_NPC(obj->carried_by) 
+		&&  obj->carried_by->pIndexData->pShop != NULL)
+			obj->carried_by->silver += obj->cost/5;
+		else {
+			act(message, obj->carried_by, obj, NULL, TO_CHAR);
+			if (obj->wear_loc == WEAR_FLOAT)
+				act(message, obj->carried_by, obj, NULL,
+				    TO_ROOM);
+		}
+	} else if (obj->in_room != NULL && (rch = obj->in_room->people) != NULL)
+		if (!(obj->in_obj && obj_is_pit(obj->in_obj)
+		&&  !CAN_WEAR(obj->in_obj, ITEM_TAKE))) {
+			act(message, rch, obj, NULL, TO_ROOM);
+			act(message, rch, obj, NULL, TO_CHAR);
+		}
+
+	if ((obj->item_type == ITEM_CORPSE_PC
+	||  obj->wear_loc == WEAR_FLOAT)
+	&&  obj->contains) {
+		/* save the contents */
+		OBJ_DATA *t_obj, *next_obj;
+
+		for (t_obj = obj->contains; t_obj != NULL; t_obj = next_obj) {
+			next_obj = t_obj->next_content;
+			obj_from_obj(t_obj);
+
+			/* in another object */
+			if (obj->in_obj)
+				obj_to_obj(t_obj, obj->in_obj);
+			/* carried */
+			else if (obj->carried_by)
+				if (obj->wear_loc == WEAR_FLOAT)
+					if (!obj->carried_by->in_room)
+						extract_obj(t_obj);
+					else
+						obj_to_room(t_obj,
+						      obj->carried_by->in_room);
+				else
+					obj_to_char(t_obj, obj->carried_by);
+			/* destroy it */
+			else if (obj->in_room == NULL)
+				extract_obj(t_obj);
+			/* to the pit */
+			else {
+				for (pit = get_room_index(obj->altar)->contents;
+				     pit && pit->pIndexData->vnum != obj->pit;
+				     pit = pit->next);
+					if (pit)
+						obj_to_obj(t_obj, pit);
+					else
+						obj_to_room(t_obj,obj->in_room);
+			}
+		}
+	}
+	extract_obj(obj);
+}
+
 /*
  * Update all objs.
  * This function is performance sensitive.
@@ -1411,216 +1641,12 @@ void obj_update(void)
 {   
 	OBJ_DATA *obj;
 	OBJ_DATA *obj_next;
-	OBJ_DATA *t_obj, *pit, *next_obj;
  
-	AFFECT_DATA *paf, *paf_next;
-	static int pit_count = 1;
-
 	for (obj = object_list; obj != NULL; obj = obj_next) {
-		CHAR_DATA *rch;
-		char *message;
-
 		obj_next = obj->next;
-
-		/* go through affects and decrement */
-		for (paf = obj->affected; paf != NULL; paf = paf_next) {
-			paf_next    = paf->next;
-			if (paf->duration > 0) {
-	        		paf->duration--;
-				/* spell strength fades with time */
-	        		if (number_range(0,4) == 0 && paf->level > 0)
-					paf->level--;
-
-	        	}
-	        	else if (paf->duration < 0)
-				;
-			else {
-				if (paf_next == NULL
-				||  paf_next->type != paf->type
-				||  paf_next->duration > 0) {
-	                		if (paf->type > 0
-					&&  skill_table[paf->type].msg_obj) {
-						if (obj->carried_by != NULL) {
-							rch = obj->carried_by;
-							act(skill_table[
-							     paf->type].msg_obj,
-							    rch,obj,NULL,
-							    TO_CHAR);
-						}
-
-						if (obj->in_room != NULL 
-						&& obj->in_room->people) {
-						    rch = obj->in_room->people;
-						    act(skill_table[
-							     paf->type].msg_obj,
-							rch,obj,NULL,TO_ALL);
-						}
-	                		}
-	            		}
-
-				affect_remove_obj(obj, paf);
-	        	}
-		}
-
-
-		for(t_obj = obj; t_obj->in_obj; t_obj = t_obj->in_obj);
-			if ((t_obj->in_room != NULL &&
-			     t_obj->in_room->area->nplayer > 0)
-		        ||  (t_obj->carried_by &&
-	        	     t_obj->carried_by->in_room &&
-			     t_obj->carried_by->in_room->area->nplayer > 0))
-				oprog_call(OPROG_AREA, obj, NULL, NULL);
-
-		if (check_material(obj, "ice")) {
-			if (obj->carried_by != NULL) {
-				if (obj->carried_by->in_room->sector_type
-				     == SECT_DESERT)
-				if (number_percent() < 40) {
-					act("The extreme heat melts $p.",
-					    obj->carried_by, obj, NULL,
-					    TO_CHAR);
-					extract_obj(obj);
-					continue;
-				}
-			} else if (obj->in_room != NULL)
-			    if (obj->in_room->sector_type == SECT_DESERT)
-			    	if (number_percent() < 50)  {
-			    	     if (obj->in_room->people) {
-					  act("The extreme heat melts $p.",
-			    			obj->in_room->people,
-			    			obj, NULL, TO_ROOM);
-					  act("The extreme heat melts $p.",
-			    			obj->in_room->people,
-			    			obj, NULL, TO_CHAR);
-			    	    }
-				    extract_obj(obj);
-				    continue;
-				}
-			    }
-
-			    if (!check_material(obj, "glass")
-			    &&  obj->item_type == ITEM_POTION)  {
-				if (obj->carried_by != NULL)  {
-				    if (obj->carried_by->in_room->sector_type
-					== SECT_DESERT
-				    &&  !IS_NPC(obj->carried_by)
-				    &&  number_percent() < 20)  {
-					act("$p evaporates.", obj->carried_by,
-					    obj, NULL, TO_CHAR);
-					extract_obj(obj);
-					continue;
-				    }
-				} else if (obj->in_room != NULL)
-				    if (obj->in_room->sector_type == SECT_DESERT
-				    &&  number_percent() < 30)  {
-					if (obj->in_room->people != NULL)  {
-					    act("$p evaporates by the extream heat.", obj->in_room->people, obj, NULL, TO_ROOM);
-		  act("$p evaporates by the extream heat.", obj->in_room->people, obj, NULL, TO_CHAR);
-	        }
-	        extract_obj(obj);
-	        continue;
-	       }
-	}
-	
-	if (obj->condition > -1 && (obj->timer <= 0 || --obj->timer > 0))
-	    continue;
-
-	switch (obj->item_type)
-	{
-	default:              message = "$p crumbles into dust.";  break;
-	case ITEM_FOUNTAIN:   message = "$p dries up.";         break;
-	case ITEM_CORPSE_NPC: message = "$p decays into dust."; break;
-	case ITEM_CORPSE_PC:  message = "$p decays into dust."; break;
-	case ITEM_FOOD:       message = "$p decomposes.";	break;
-	case ITEM_POTION:     message = "$p has evaporated from disuse.";	
-								break;
-	case ITEM_PORTAL:     message = "$p fades out of existence."; break;
-	case ITEM_CONTAINER: 
-	    if (CAN_WEAR(obj,ITEM_WEAR_FLOAT))
-		if (obj->contains)
-		    message = 
-		"$p flickers and vanishes, spilling its contents on the floor.";
-		else
-		    message = "$p flickers and vanishes.";
-	    else
-		message = "$p crumbles into dust.";
-	    break;
-	}
-
-	if (obj->carried_by != NULL)
-	{
-	    if (IS_NPC(obj->carried_by) 
-	    &&  obj->carried_by->pIndexData->pShop != NULL)
-		obj->carried_by->silver += obj->cost/5;
-	    else
-	    {
-	    	act(message, obj->carried_by, obj, NULL, TO_CHAR);
-		if (obj->wear_loc == WEAR_FLOAT)
-		    act(message,obj->carried_by,obj,NULL,TO_ROOM);
-	    }
-	}
-	else if (obj->in_room != NULL
-	&&      (rch = obj->in_room->people) != NULL)
-	{
-	    if (!(obj->in_obj && obj_is_pit(obj->in_obj)
-	           && !CAN_WEAR(obj->in_obj,ITEM_TAKE)))
-	    {
-	    	act(message, rch, obj, NULL, TO_ROOM);
-	    	act(message, rch, obj, NULL, TO_CHAR);
-	    }
-	}
-
-	    pit_count = ++pit_count % 120; /* more or less an hour */
-	    if (obj_is_pit(obj) && pit_count == 121) {
-	      for (t_obj = obj->contains; t_obj != NULL; t_obj = next_obj) {
-	        next_obj = t_obj->next_content;
-	        obj_from_obj(t_obj);
-	        extract_obj(t_obj);
-	      }
-	    }
-
-
-	    if ((obj->item_type == ITEM_CORPSE_PC || obj->wear_loc == WEAR_FLOAT)
-	&&  obj->contains)
-	{   /* save the contents */
-	 	    OBJ_DATA *t_obj, *next_obj;
-
-	    for (t_obj = obj->contains; t_obj != NULL; t_obj = next_obj)
-	    {
-		next_obj = t_obj->next_content;
-		obj_from_obj(t_obj);
-
-		if (obj->in_obj) /* in another object */
-		    obj_to_obj(t_obj,obj->in_obj);
-
-		else if (obj->carried_by)  /* carried */
-		    if (obj->wear_loc == WEAR_FLOAT)
-			if (obj->carried_by->in_room == NULL)
-			    extract_obj(t_obj);
-			else
-			    obj_to_room(t_obj,obj->carried_by->in_room);
-		    else
-		    	obj_to_char(t_obj,obj->carried_by);
-
-		else if (obj->in_room == NULL)  /* destroy it */
-		    extract_obj(t_obj);
-
-	            else { /* to the pit */
-	              for (pit = get_room_index(obj->altar)->contents;
-	                   pit != NULL && pit->pIndexData->vnum != obj->pit;
-	                   pit = pit->next);
-
-	              if (pit == NULL)
-	                obj_to_room(t_obj,obj->in_room);
-	              else obj_to_obj(t_obj,pit);
-	            }
-	    }
-	}
-
-		extract_obj(obj);
+		update_one_obj(obj);
 	}
 }
-
 
 
 /*
