@@ -1,14 +1,27 @@
 #
-# $Id: mprogs.txt,v 1.2 2001-09-12 08:22:09 fjoe Exp $
+# $Id: mprogs.txt,v 1.3 2001-09-13 16:42:37 fjoe Exp $
 #
 
 MP functions:
 -------------
+act(string msg, char ch, void arg1, void arg2, int act_flags)
+  выводит сообщение msg
+  act_flags: TO_CHAR    -- чару ch
+             TO_ROOM    -- всем в комнате кроме чара ch
+	     TO_ALL     -- всем в комнате
+	     TO_VICT    -- жертве (arg2)
+	     TO_NOTVICT -- всем к комнате кроме чара ch и жертвы (arg2)
 
-act(
-act_char(
-act_say(
-act_yell(
+act_char(string msg, char ch)
+  выводит сообщение msg чару ch
+
+act_say(char ch, string msg, void arg)
+  чаром ch говорится ("say") сообщение msg, в которое подставляется
+  arg как параметр ($N, $P, $T, $K etc)
+
+act_yell(char ch, string msg, void arg, string format)
+  чаром ch выкрикивается сообщение msg, в котором могут быть использованы
+  различные параметры ($N, $T etc)
 
 affect_char(char ch, int where, string sn, int level, int duration,
             int loc, int mod, int bits)
@@ -36,6 +49,9 @@ string char_clan(char ch)
 char char_fighting(char ch)
   возвращает чара, с которым дерется ch
 
+int char_gold(char ch)
+  возвращает кол-во золотых монет у чара ch
+
 int char_hit(char ch)
   возвращает текущее кол-во hp чара ch
 
@@ -48,11 +64,20 @@ int char_max_hit(char ch)
 int char_position(char ch)
   позиция ch (POS_RESTING, POS_FIGHTING etc.)
 
+string char_race(char ch)
+  возвращает расу чара ch
+
 room char_room(char ch)
   возвращает комнату в которой находится чар ch
 
 int char_sex(char ch)
   возвращает пол чара ch
+
+int char_silver(char ch)
+  возвращает количество серебряных монет у чара ch
+
+int char_size(char ch)
+  возвращает размер чара ch
 
 bool close_door(char ch, string door)
   чар ch закрывает (пытается) дверь
@@ -76,7 +101,7 @@ int dice(int num, int size)
   бросает num раз кубик с числом граней size
 
 dofun(string name, char ch, string arg)
-  выполнить do-функцию 'name'
+  чар ch выполняет do-функцию 'name'
 
 fire_effect(char ch, int num, int dam)
   вешает (пытается повесить) на чара fire_effect
@@ -84,15 +109,18 @@ fire_effect(char ch, int num, int dam)
 
 char get_char_area(char ch, string arg)
   чаром ch в арии, где он находится, ищется чар с именем arg
+  (arg может быть vnum'ом)
 
 char get_char_here(char ch, string arg)
   чаром ch в комнате, где он находится, ищется чар с именем arg
+  (arg может быть vnum'ом)
 
 char get_char_room(char ch, room r, string arg)
   чаром ch в комнате r ищется чар с именем arg
+  (arg может быть vnum'ом)
 
 char get_char_world(char ch, string arg)
-  чаром ch в мире ищется чар с именем arg
+  чаром ch в мире ищется чар с именем arg (arg может быть vnum'ом)
 
 obj get_eq_char(char ch, int iWear)
   возвращается объект, одетый у чара ch в слоте iWear
@@ -104,24 +132,27 @@ bool get_obj(char ch, obj p, obj container, string msg_others)
 
 obj get_obj_carry(char ch, char victim, string arg)
   чаром ch смотрится у чара victim, есть ли у последнего обьект c 
-  именем arg
+  именем arg, arg может быть vnum'ом
 
 obj get_obj_here(char ch, string arg)
   чаром ch смотрится есть ли в комнате, где находится чар ch, объект
-  с именем arg (ищется на полу и у находящихся в комнате)
+  с именем arg (ищется на полу и у находящихся в комнате), arg может
+  быть vnum'ом
 
 obj get_obj_obj(char ch, obj p, string arg)
-  чаром ch смотрится есть ли в объекте p объект с именем arg
+  чаром ch смотрится есть ли в объекте p объект с именем arg, arg может
+  быть vnum'ом
 
 obj get_obj_room(char ch, string arg)
   чаром ch смотрится есть ли в комнате, где находится чар ch, объект
-  c именем arg (ищется только на полу)
+  c именем arg (ищется только на полу), arg может быть vnum'ом
 
 obj get_obj_wear(char ch, char victim, string arg)
-  чаром ch смотрится, одет ли на чаре victim объект с именем arg
+  чаром ch смотрится, одет ли на чаре victim объект с именем arg,
+  arg может быть vnum'ом
 
 obj get_obj_world(char ch, string arg)
-  чаром ch ищется в мире объект с именем arg
+  чаром ch ищется в мире объект с именем arg, arg может быть vnum'ом
 
 get_pulse(
 
@@ -129,16 +160,19 @@ char get_random_fighting(char ch)
   возвращает случайного чара в одной комнате с ch, который сражается
   с ch или который сражается с чаром, который сидит верхом на ch
 
-get_room_index(
+room get_room_index(int vnum)
+  возвращает комнату по ее внуму (NULL, если комнаты с таким внумом нет)
 
 bool give_obj(char ch, char victim, obj p)
   чаром ch чару victim дается объект p (пытается)
 
 handle_death(char ch, char victim)
+  зовется функция handle_death чару ch для умершего чара victim
 
 int has_sp(char ch, string spn, string spn_add, string spn_rm)
 
 bool is_affected(char ch, int aff)
+  наложен ли на чара ch аффект aff (e.g AFF_POISON)
 
 bool is_awake(ch)
   char_position(ch) > POS_SLEEPING
@@ -168,6 +202,7 @@ bool is_owner(char ch, obj p)
   является ли чар ch owner'ом обьекта p
 
 bool is_sn_affected(char ch, string sn)
+  наложен ли на чара аффект sn (e.g. "berserk")
 
 bool is_wanted(char ch)
   является лм чар ch WANTED
@@ -185,10 +220,14 @@ look_char(char ch, char victim)
   чар ch смотрит на чара victim (делает "look")
 
 mob_interpret(char ch, string arg)
+  чаром ch выполняется команда arg (без параметров)
 
 multi_hit(char ch, char victim, string dt)
+  зовется функция multi_hit (один battle round) для чара ch по жертве,
+  чару victim)
 
 int number_bits(int width)
+  возвращает случайное число в диапазоне от 0 до 2^width (включительно)
 
 int number_percent()
   возвращает случайное число от 1 до 100 (процент)
@@ -216,10 +255,14 @@ obj_to_obj(obj p, obj obj_to)
 obj_to_room(obj p, room r)
   объект p помещается в комнату r
 
+int obj_vnum(obj p)
+  возвращает vnum объекта p
+
 int obj_wear_loc(obj p)
   возвращается слот, где одет объект p
 
 one_hit(char ch, char victim, string dt, bool secondary)
+  наносится один удар чаром ch по чару victim
 
 bool open_door(char ch, string door)
   чар ch открывает (пытается) дверь door 
@@ -267,7 +310,7 @@ set_weapon_dice_type(obj p, int dice_type)
   оружию p ставится dice_type (v2)
 
 shock_effect(char ch, int num, int dam)
-  вешает (пытается повесить) на чара ch scream_effect
+  вешает (пытается повесить) на чара ch shock effect
   уровня num, наносится урон dam
 
 social_char(string name, char ch, char victim)
@@ -276,6 +319,8 @@ social_char(string name, char ch, char victim)
 spclass_count(char ch, string spn, string spn_add, string spn_rm)
 
 spellfun_call(string fn_sn, string sn, int level, char ch, void vo)
+  зовется спеллфункция fn_sn уровня level на аргумент vo (char/obj)
+  для чара ch, sn в подавляющем большинстве случаев NULL
 
 int time_hour(char ch)
   текущий час (по времени мира)
@@ -330,7 +375,7 @@ to mprog triggers for corresponding mobiles using the following table
 
 ROM 2.4 spec		| SoG mprogs
 ------------------------+---------------------------
-spec_assassinater	| mob_fight_assassinater
+spec_assassinater	| mob_random_assassinater
 spec_breath_any		| mob_fight_breath_any
 spec_breath_acid	| mob_fight_breath_acid
 spec_breath_fire	| mob_fight_breath_fire
