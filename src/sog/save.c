@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.179 2001-06-24 21:12:50 avn Exp $
+ * $Id: save.c,v 1.180 2001-07-08 17:22:14 fjoe Exp $
  */
 
 /***************************************************************************
@@ -165,7 +165,7 @@ void char_nuke(CHAR_DATA *ch)
 void char_save(CHAR_DATA *ch, int flags)
 {
 	FILE           *fp;
-	const char 	*name;
+	const char	*name;
 	CHAR_DATA *	pet;
 
 	if (IS_NPC(ch) || ch->level < 2)
@@ -231,7 +231,7 @@ static FOREACH_CB_FUN(spn_save_cb, p, ap)
 /*
  * Write the char.
  */
-static void 
+static void
 fwrite_char(CHAR_DATA *ch, FILE *fp, int flags)
 {
 	AFFECT_DATA    *paf;
@@ -322,7 +322,7 @@ fwrite_char(CHAR_DATA *ch, FILE *fp, int flags)
 
 		if (!IS_NULLSTR(ch->clan))
 			fprintf(fp, "ClanStatus %d\n", pc->clan_status);
-		else 
+		else
 			fwrite_word(fp, "Peti", pc->petition);
 
 		if (pc->practice != 0)
@@ -415,7 +415,7 @@ fwrite_char(CHAR_DATA *ch, FILE *fp, int flags)
 
 /* write a pet */
 /* flags do not affect pet saving, reserved for future use */
-static void 
+static void
 fwrite_pet(CHAR_DATA * pet, FILE * fp, int flags __attribute__((unused)))
 {
 	fprintf(fp, "#PET\n");
@@ -469,7 +469,7 @@ fwrite_pet(CHAR_DATA * pet, FILE * fp, int flags __attribute__((unused)))
 /*
  * Write an object and its contents.
  */
-static void 
+static void
 fwrite_obj(CHAR_DATA * ch, OBJ_DATA * obj, FILE * fp, int iNest)
 {
 	ED_DATA *ed;
@@ -492,12 +492,12 @@ fwrite_obj(CHAR_DATA * ch, OBJ_DATA * obj, FILE * fp, int iNest)
 		extract_obj(obj, 0);
 		return;
 	}
-	
+
 	if (OBJ_IS(obj, OBJ_CLAN | OBJ_QUIT_DROP | OBJ_CHQUEST))
 		return;
 
 /* Do not save limited eq if player is not in PK */
-	if (ch->level < LEVEL_PK && obj->pObjIndex->limit != -1) 
+	if (ch->level < LEVEL_PK && obj->pObjIndex->limit != -1)
 		return;
 
 	fprintf(fp, "#O\n");
@@ -641,7 +641,7 @@ CHAR_DATA *char_load(const char *name, int flags)
 /*
  * Read in a char.
  */
-static void 
+static void
 fread_char(CHAR_DATA * ch, rfile_t * fp, int flags)
 {
 	int count = 0;
@@ -764,7 +764,7 @@ fread_char(CHAR_DATA * ch, rfile_t * fp, int flags)
 				/* XXX update clan lists */
 				if ((clan = clan_lookup(ch->clan)) == NULL)
 					return;
-				
+
 				touched = !name_add(&clan->member_list, ch->name, NULL, NULL);
 				switch (PC(ch)->clan_status) {
 				case CLAN_LEADER:
@@ -952,7 +952,7 @@ fread_char(CHAR_DATA * ch, rfile_t * fp, int flags)
 }
 
 /* load a pet from the forgotten reaches */
-static void 
+static void
 fread_pet(CHAR_DATA * ch, rfile_t * fp, int flags)
 {
 	CHAR_DATA *pet = NULL;
@@ -965,7 +965,7 @@ fread_pet(CHAR_DATA * ch, rfile_t * fp, int flags)
 
 		if (IS_SET(flags, LOAD_F_MOVE))
 			MOVE(vnum);
-		
+
 		if ((pMobIndex = get_mob_index(vnum)) != NULL)
 			pet = create_mob(pMobIndex, CM_F_NOLIST);
 	}
@@ -1113,7 +1113,7 @@ fread_pet(CHAR_DATA * ch, rfile_t * fp, int flags)
 	}
 }
 
-static void 
+static void
 fread_obj(CHAR_DATA * ch, rfile_t * fp, int flags)
 {
 	OBJ_DATA       *obj = NULL;
@@ -1283,4 +1283,3 @@ fread_obj(CHAR_DATA * ch, rfile_t * fp, int flags)
 		}
 	}
 }
-
