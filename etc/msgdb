@@ -1087,6 +1087,7 @@ $n takes advantage of your fall, stabbing you down."~
 @eng $p is too powerful for you to eat.@rus Аура силы, излучаемая $c5{$p}, не позволяет тебе это съесть.~
 @eng $p looks better than $P.@rus $p $gp{выглядит} лучше $c1{$P}.~
 @eng $p looks delicious.@rus $p $gp{выглядит} очень аппетитно.~
+@eng $p looks really beautiful! You decide to chip a part of it.@rus $p $gp{такой} $gp{красивый}! Ты $gn{решил} отколоть себе кусочек!~
 @eng $p looks worse than $P.@rus $p $gp{выглядит} хуже, чем $c3{$P}.~
 @eng $p makes a huge arc in the air, chopping $n's head OFF!@rus Описав широкую дугу, $p сносит голову $c1{$n}!~
 @eng $p makes bubbles on the water.@rus $p $gp{покачивается} на водной глади, пуская пузыри.~
@@ -1792,6 +1793,7 @@ $t~
 @eng Now you catch your spirit.@rus Тебе удалось вернуть назад свою душу.~
 @eng Now you got the path to death.@rus Ты $gn{вступил} на дорогу к смерти.~
 @eng Now you have a god-like sight.@rus Ты $gn{приобрел} зрение, подобное тому, каким обладают боги.~
+@eng Now you knew nothing about everything.@rus теперь ты знаешь ничего обо всем.~
 @eng Now you speak $t.@rus Теперь ты разговариваешь на $c5{$t}.~
 @eng Now you will see verbose messages.@rus Теперь ты будешь видеть все сообщения.~
 @eng Now your character is $t.@rus Твой персонаж отныне $t.~
@@ -2056,7 +2058,7 @@ $t~
 @eng Text will be sent to you unmodified.@rus Текс будет посылаться без каких-либо изменений.~
 @eng Thank you, come again.@rus Спасибо, приходи еще.~
 @eng That alias is not defined.@rus Такое сокращение не определено.~
-@eng That beast is too powerful for you to ride.@rus на восток (east)~
+@eng That beast is too powerful for you to ride.@rus Сила этого монстра столь велика, что ты не можешь его оседлать.~
 @eng That can't be transformed into a potion.@rus Ты не можешь изготовить зелье из этого.~
 @eng That character is already playing.
 @rus Этот персонаж уже в игре.
@@ -2912,6 +2914,7 @@ and hands you $p.@rus Из клуба дыма перед тобой появился маленький человечек
 @eng You catch $N's spirit into your vial.@rus Ты $gn{лишил} $c6{$N} души, заточив ее в свой сосуд.~
 @eng You change form to look like $N.@rus Ты $gn{изменил} внешний вид и $gn{стал} выглядеть также, как и $N.~
 @eng You change your target to $N!@rus Теперь твоя цель -- $N!~
+@eng You chip off a small stone from the larger one.@rus Ты $gn{отколол} маленький камешек от большого.~
 @eng You choke and gag.@rus Ты мучаешься от удушья.~
 @eng You cleaved $N's shield into two.@rus Ты {расколол} щит $c1{$N} надвое.~
 @eng You cleaved $N's weapon into two.@rus Ты $gn{расколол} оружие $c1{$N} надвое.~
@@ -3222,7 +3225,7 @@ and hands you $p.@rus Из клуба дыма перед тобой появился маленький человечек
 @eng You have almost completed your QUEST!
 Return to questmaster before your time runs out!@rus Ты почти $gn{выполнил} свое задание!
 Вернись к тому, кто тебе его дал, до того, как истечет отведенное тебе время!~
-@eng You have an unfinished $t in progress.@rus У тебя нет $gt{незаконченного} $c1{$t}.~
+@eng You have an unfinished $t in progress.@rus У тебя есть $gt{неоконченное} $t.~
 @eng You have been KILLED!@rus Тебя УБИЛИ!~
 @eng You have been KILLED!!@rus Ты $gn{УБИТ}!!~
 @eng You have been equipped by gods.@rus Боги даруют тебе обмундирование.~
@@ -3922,6 +3925,7 @@ Return to questmaster before your time runs out!@rus Ты почти $gn{выполнил} свое
 @eng non-neutrals@rus не нейтральных~
 @eng north@rus на север~
 @eng not learned@rus не изучено~
+@eng note@rus объявление~
 @eng off@rus выключено~
 @eng on@rus установлено~
 @eng on the dirt@rus на земле~
