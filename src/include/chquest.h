@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: chquest.h,v 1.1 1999-05-22 13:38:34 fjoe Exp $
+ * $Id: chquest.h,v 1.2 1999-05-24 07:52:48 fjoe Exp $
  */
 
 #ifndef _CHQUEST_H_
@@ -35,8 +35,10 @@ struct chquest_t {
 
 	OBJ_DATA *obj;			/* NULL if this quest is not running */
 
-	int delay;			/* delay before next repop 	     */
-					/* (in area ticks)		     */
+	int delay;			/* > 0  - delay before next repop    */
+					/*        (in area ticks)	     */
+					/* == 0 - quest is running	     */
+					/* < 0  - quest is stopped	     */
 	chquest_t *next;
 };
 

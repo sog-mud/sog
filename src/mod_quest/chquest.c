@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: chquest.c,v 1.2 1999-05-23 17:51:24 fjoe Exp $
+ * $Id: chquest.c,v 1.3 1999-05-24 07:52:48 fjoe Exp $
  */
 
 /*
@@ -112,6 +112,12 @@ void do_chquest(CHAR_DATA *ch, const char *argument)
 		}
 
 		if (!str_prefix(arg, "start")) {
+			if (!q->delay) {
+				char_printf(ch, "do_chquest: quest vnum %d "
+						"already running.\n",
+						q->obj_index->vnum);
+				return;
+			}
 			chquest_startq(q);
 			return;
 		}
@@ -132,7 +138,8 @@ void chquest_start(int flags)
 
 	for (q = chquest_list; q; q = q->next) {
 		if (q->obj 
-		||  (!IS_SET(flags, CHQUEST_F_NODELAY) && q->delay))
+		||  !q->delay
+		||  (!IS_SET(flags, CHQUEST_F_NODELAY) && q->delay > 0))
 			continue;
 
 		chquest_startq(q);
@@ -166,6 +173,7 @@ void chquest_add(OBJ_INDEX_DATA *obj_index)
 
 	q = calloc(1, sizeof(*q));
 	q->obj_index = obj_index;
+	q->delay = -1;
 	q->next = chquest_list;
 	chquest_list = q;
 }
@@ -269,6 +277,7 @@ static void chquest_stopq(chquest_t *q)
 {
 	log_printf("chquest_stopq: stopped quest for '%s' (vnum %d)",
 		   mlstr_mval(q->obj_index->short_descr), q->obj_index->vnum);
+	extract_obj(q->obj, XO_F_NOCHQUEST);
 	q->obj = NULL;
 	q->delay = -1;
 }

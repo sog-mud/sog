@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.196 1999-05-23 18:07:14 fjoe Exp $
+ * $Id: merc.h,v 1.197 1999-05-24 07:52:49 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1973,6 +1973,7 @@ void	obj_from_obj	(OBJ_DATA *obj);
 /* extract obj flags */
 #define XO_F_NOCOUNT	(A)	/* do not update obj count		*/
 #define XO_F_NORECURSE	(B)	/* do not extract contained in objs	*/
+#define XO_F_NOCHQUEST	(C)	/* do not check for chquest objs	*/
 
 /* quit_char/extract_char */
 #define XC_F_COUNT	(A)	/* update obj count			*/
