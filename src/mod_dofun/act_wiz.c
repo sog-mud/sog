@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.97 1998-12-09 10:19:17 fjoe Exp $
+ * $Id: act_wiz.c,v 1.98 1998-12-09 11:57:49 fjoe Exp $
  */
 
 /***************************************************************************
@@ -814,7 +814,6 @@ void do_goto(CHAR_DATA *ch, const char *argument)
 {
 	ROOM_INDEX_DATA *location;
 	CHAR_DATA *rch;
-	int count = 0;
 
 	if (argument[0] == '\0') {
 		char_puts("Goto where?\n", ch);
@@ -826,9 +825,31 @@ void do_goto(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	count = 0;
-	for (rch = location->people; rch != NULL; rch = rch->next_in_room)
-	    count++;
+	if (ch->level < LEVEL_IMMORTAL) {
+		AREA_DATA *area;
+
+		if (ch->fighting) {
+			char_puts("No way! You are fighting.\n", ch);
+			return;
+		}
+
+		if (IS_PUMPED(ch)) {
+			char_puts("You are too pumped to pray now.\n", ch);
+			return;
+		}
+
+		if (!IS_SET(ch->in_room->room_flags, ROOM_SAFE)) {
+			char_puts("You must be in a safe place in order "
+				  "to make a transportation.\n", ch);
+			return;
+		}
+
+		if ((area = area_vnum_lookup(location->vnum)) == NULL
+		||  !IS_BUILDER(ch, area)) {
+			char_puts("You cannot transfer yourself there.\n", ch);
+			return;
+		}
+	}
 
 	if (ch->fighting != NULL)
 		stop_fighting(ch, TRUE);
@@ -845,7 +866,6 @@ void do_goto(CHAR_DATA *ch, const char *argument)
 
 	char_from_room(ch);
 	char_to_room(ch, location);
-
 
 	for (rch = ch->in_room->people; rch != NULL; rch = rch->next_in_room)
 		if (IS_TRUSTED(rch, ch->invis_level))
@@ -3956,10 +3976,10 @@ void do_rename(CHAR_DATA* ch, const char *argument)
 	char strsave[PATH_MAX];
 	char *file_name;
 
-	CHAR_DATA* victim;
+	CHAR_DATA *victim;
 	FILE* file;
 		
-	argument = one_argument(argument, old_name); 
+	argument = first_arg(argument, old_name, FALSE); 
 		   first_arg(argument, new_name, FALSE);
 		
 	if (!old_name[0]) {
@@ -3979,7 +3999,7 @@ void do_rename(CHAR_DATA* ch, const char *argument)
 		return;
 	}
 
-	if ((victim != ch) && (victim->level >= ch->level)) {
+	if (victim != ch && victim->level >= ch->level) {
 		char_puts("You failed.\n",ch);
 		return;
 	}
@@ -3994,42 +4014,47 @@ void do_rename(CHAR_DATA* ch, const char *argument)
 		return;
 	}
 		
-	if (victim->clan) {
-		char_puts("This player is member of a clan, remove him from the clan first.\n",ch);
-		return;
-	}
-
 	if (!check_parse_name(new_name)) {
 		char_puts("The new name is illegal.\n",ch);
 		return;
 	}
 
-	file_name = capitalize(new_name);
-	fclose(fpReserve); 
-	file = dfopen (PLAYER_PATH, file_name, "r"); 
-	if (file) {
-		fclose(file);
-		fpReserve = fopen(NULL_FILE, "r"); 
-		char_puts("A player with that name already exists!\n",ch);
-		return;		
-	}
+/* delete old pfile */
+	if (str_cmp(new_name, old_name)) {
+		DESCRIPTOR_DATA *d;
 
-/* check .gz file ! */
-	snprintf(strsave, sizeof(strsave), "%s%s.gz", PLAYER_PATH, file_name);
-	file = dfopen(PLAYER_PATH, strsave, "r"); 
-	if (file) {
-		char_puts ("A player with that name already exists in a compressed file!\n",ch);
-		fclose (file);
-		fpReserve = fopen(NULL_FILE, "r"); 
-		return;		
-	}
-	fpReserve = fopen(NULL_FILE, "r");  
+		for (d = descriptor_list; d; d = d->next)
+			if (d->character
+			&&  !str_cmp(d->character->name, new_name)) {
+				char_puts ("A player with the name you specified already exists!\n",ch);
+				return;
+			}
 
-	if (get_char_world(ch, new_name)) {
-		char_puts ("A player with the name you specified already exists!\n",ch);
-		return;
-	}
+		/* check pfile */
+		file_name = capitalize(new_name);
+		fclose(fpReserve); 
+		file = dfopen (PLAYER_PATH, file_name, "r"); 
+		if (file) {
+			fclose(file);
+			fpReserve = fopen(NULL_FILE, "r"); 
+			char_puts("A player with that name already exists!\n",ch);
+			return;		
+		}
 
+		/* check .gz pfile */
+		snprintf(strsave, sizeof(strsave), "%s%s.gz",
+			 PLAYER_PATH, file_name);
+		file = dfopen(PLAYER_PATH, strsave, "r"); 
+		if (file) {
+			char_puts ("A player with that name already exists in a compressed file!\n",ch);
+			fclose (file);
+			fpReserve = fopen(NULL_FILE, "r"); 
+			return;		
+		}
+		fpReserve = fopen(NULL_FILE, "r");  
+
+		dunlink(PLAYER_PATH, capitalize(old_name)); 
+	}
 /*
  * NOTE: Players who are level 1 do NOT get saved under a new name 
  */
@@ -4037,10 +4062,9 @@ void do_rename(CHAR_DATA* ch, const char *argument)
 	victim->name = str_dup(new_name);
 	save_char_obj(victim, FALSE);
 		
-	dunlink(PLAYER_PATH, capitalize(old_name)); 
-	char_puts ("Character renamed.\n",ch);
-	victim->position = POS_STANDING; 
-	act ("$n has renamed you to $N!",ch,NULL,victim,TO_VICT);
+	char_puts("Character renamed.\n", ch);
+	act_puts("$n has renamed you to $N!",
+		 ch, NULL, victim, TO_VICT, POS_DEAD);
 } 
 
 void do_notitle(CHAR_DATA *ch, const char *argument)

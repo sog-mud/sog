@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.123 1998-12-02 13:32:11 fjoe Exp $
+ * $Id: merc.h,v 1.124 1998-12-09 11:57:53 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1127,7 +1127,7 @@ enum {
 #define COMM_NOQUESTION 	(F)
 #define COMM_NOMUSIC		(G)
 #define COMM_NOQUOTE		(I)
-#define COMM_SHOUTSOFF		(J)
+#define COMM_NOCLAN		(J)
 
 /* display flags */
 #define COMM_TRUE_TRUST 	(K)

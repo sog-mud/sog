@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.121 1998-12-09 10:33:01 fjoe Exp $
+ * $Id: act_comm.c,v 1.122 1998-12-09 11:57:48 fjoe Exp $
  */
 
 /***************************************************************************
@@ -484,23 +484,21 @@ void do_immtalk(CHAR_DATA *ch, const char *argument)
 	DESCRIPTOR_DATA *d;
 
 	if (argument[0] == '\0') {
-		 if (IS_SET(ch->comm,COMM_NOWIZ)) {
-			char_puts("Immortal channel is now ON\n",ch);
-			REMOVE_BIT(ch->comm, COMM_NOWIZ);
-		 }
-		 else {
+		TOGGLE_BIT(ch->comm, COMM_NOWIZ);
+		if (IS_SET(ch->comm, COMM_NOWIZ))
 			char_puts("Immortal channel is now OFF\n",ch);
-			SET_BIT(ch->comm, COMM_NOWIZ);
-		 } 
-		 return;
+		else
+			char_puts("Immortal channel is now ON\n",ch);
+		return;
 	}
 
 	if (IS_SET(ch->comm, COMM_NOCHANNELS)) {
-		 char_puts("The gods have revoked your channel privileges.\n", ch);
-		 return;
+		char_puts("The gods have revoked your channel privileges.\n", ch);
+		return;
 	}
 	
-	REMOVE_BIT(ch->comm, COMM_NOWIZ);
+	if (IS_SET(ch->comm, COMM_NOWIZ))
+		do_immtalk(ch, str_empty);
 
 	act_puts("{W$n{x: {B$t{x", ch, argument, NULL, TO_CHAR, POS_DEAD);
 	for (d = descriptor_list; d; d = d->next) {
@@ -555,16 +553,11 @@ void do_shout(CHAR_DATA *ch, const char *argument)
 		return;
 
 	if (argument[0] == '\0') {
-		if (IS_SET(ch->comm, COMM_NOSHOUT)) {
-			REMOVE_BIT(ch->comm, COMM_NOSHOUT);
-			char_puts("You will now hear shouts.\n", ch);
-			return;
-		}
-		else {
-			SET_BIT(ch->comm, COMM_NOSHOUT);
+		TOGGLE_BIT(ch->comm, COMM_NOSHOUT);
+		if (IS_SET(ch->comm, COMM_NOSHOUT))
 			char_puts("You will no longer hear shouts.\n",ch);
-			return;
-		}
+		else 
+			char_puts("You will now hear shouts.\n", ch);
 		return;
 	}
 
@@ -573,7 +566,8 @@ void do_shout(CHAR_DATA *ch, const char *argument)
 		 return;
 	}
 	
-	REMOVE_BIT(ch->comm, COMM_NOSHOUT);
+	if (IS_SET(ch->comm, COMM_NOSHOUT))
+		do_shout(ch, str_empty);
 	WAIT_STATE(ch, PULSE_VIOLENCE);
 
 	argument = garble(ch, argument);
@@ -601,16 +595,12 @@ void do_music(CHAR_DATA *ch, const char *argument)
 		return;
 
 	if (argument[0] == '\0') {
-		if (IS_SET(ch->comm, COMM_NOMUSIC)) {
-			REMOVE_BIT(ch->comm, COMM_NOMUSIC);
-			char_puts("You will now hear music.\n", ch);
-			return;
-		}
-		else {
-			SET_BIT(ch->comm, COMM_NOMUSIC);
+		TOGGLE_BIT(ch->comm, COMM_NOMUSIC);
+		if (IS_SET(ch->comm, COMM_NOMUSIC))
 			char_puts("You will no longer hear music.\n",ch);
-			return;
-		}
+		else 
+			char_puts("You will now hear music.\n", ch);
+		return;
 	}
 
 	if (IS_SET(ch->comm, COMM_NOCHANNELS)) {
@@ -618,7 +608,8 @@ void do_music(CHAR_DATA *ch, const char *argument)
 		 return;
 	}
 	
-	REMOVE_BIT(ch->comm, COMM_NOMUSIC);
+	if (IS_SET(ch->comm, COMM_NOMUSIC))
+		do_music(ch, str_empty);
 	WAIT_STATE(ch, PULSE_VIOLENCE);
 
 	argument = garble(ch, argument);
@@ -696,6 +687,18 @@ void do_clan(CHAR_DATA *ch, const char *argument)
 		char_puts("Your clan is closed.\n", ch);
 		return;
 	}
+
+	if (argument[0] == '\0') {
+		TOGGLE_BIT(ch->comm, COMM_NOCLAN);
+		if (IS_SET(ch->comm, COMM_NOCLAN))
+			char_puts("You will no longer hear clan talks.\n",ch);
+		else 
+			char_puts("You will now hear clan talks.\n", ch);
+		return;
+	}
+
+	if (IS_SET(ch->comm, COMM_NOCLAN))
+		do_clan(ch, str_empty);
 
 	argument = garble(ch, argument);
 	act_puts("[CLAN] $n: {C$t{x",

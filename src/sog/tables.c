@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.29 1998-12-03 14:08:11 fjoe Exp $
+ * $Id: tables.c,v 1.30 1998-12-09 11:57:54 fjoe Exp $
  */
 
 /***************************************************************************
@@ -308,7 +308,7 @@ FLAG comm_flags[] =
 	{ "noauction",		COMM_NOAUCTION,		TRUE	},
 	{ "nomusic",		COMM_NOMUSIC,		TRUE	},
 	{ "noquote",		COMM_NOQUOTE,		TRUE	},
-	{ "shoutsoff",		COMM_SHOUTSOFF,		TRUE	},
+	{ "noclan",		COMM_NOCLAN,		TRUE	},
 	{ "true_trust",		COMM_TRUE_TRUST,	TRUE	},
 	{ "compact",		COMM_COMPACT,		TRUE	},
 	{ "brief",		COMM_BRIEF,		TRUE	},

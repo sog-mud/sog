@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.119 1998-12-01 10:53:49 fjoe Exp $
+ * $Id: act_move.c,v 1.120 1998-12-09 11:57:49 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1722,7 +1722,7 @@ void do_recall(CHAR_DATA *ch, const char *argument)
 	ROOM_INDEX_DATA *location;
 	int point;
  
-	if (IS_NPC(ch) && !IS_SET(ch->act, ACT_PET)) {
+	if (IS_NPC(ch)) {
 		char_puts("Only players can recall.\n", ch);
 		return;
 	}
@@ -1732,19 +1732,14 @@ void do_recall(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (ch->desc != NULL && IS_PUMPED(ch)) {
-		char_nputs(MSG_TOO_PUMPED_TO_PRAY, ch);
-		return;
+	if (ch->desc) {
+		if (IS_PUMPED(ch)) {
+			char_nputs(MSG_TOO_PUMPED_TO_PRAY, ch);
+			return;
+		}
+		point = get_recall(ch);
 	}
-
-	if (IS_GOOD(ch)) 
-		point = hometown_table[ch->hometown].recall[0];
-	else if (IS_EVIL(ch))
-		point = hometown_table[ch->hometown].recall[2];
-	else
-		point = hometown_table[ch->hometown].recall[1];
-
-	if (ch->desc == NULL && !IS_NPC(ch)) 
+	else 
 		point =	hometown_table[number_range(0, 4)].recall[number_range(0,2)];
 
 	act("$n prays for transportation!", ch, NULL, NULL, TO_ROOM);

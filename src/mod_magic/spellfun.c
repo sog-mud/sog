@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.89 1998-12-01 10:53:52 fjoe Exp $
+ * $Id: spellfun.c,v 1.90 1998-12-09 11:57:52 fjoe Exp $
  */
 
 /***************************************************************************
@@ -4232,7 +4232,7 @@ void spell_word_of_recall(int sn, int level, CHAR_DATA *ch,void *vo,int target)
 	if (IS_NPC(victim))
 		return;
 
-	to_room_vnum = hometown_table[victim->hometown].recall[IS_GOOD(victim)?0:IS_NEUTRAL(victim)?1:IS_EVIL(victim)?2:1];
+	to_room_vnum = get_recall(victim);
 
 	if ((location = get_room_index(to_room_vnum)) == NULL) {
 		char_puts("You are completely lost.\n",victim);
@@ -4242,32 +4242,35 @@ void spell_word_of_recall(int sn, int level, CHAR_DATA *ch,void *vo,int target)
 	if (victim->desc != NULL && IS_PUMPED(victim)) {
 		char_puts("You are too pumped to pray now.\n",victim);
 		return;
-	  }
+	}
 
-	if (IS_SET(victim->in_room->room_flags,ROOM_NORECALL) ||
-		IS_AFFECTED(victim,AFF_CURSE) ||
-		IS_RAFFECTED(victim->in_room,RAFF_CURSE))
-	{
-		char_puts("Spell failed.\n",victim);
+	act("$n prays for transportation!", ch, NULL, NULL, TO_ROOM);
+
+	if (IS_SET(victim->in_room->room_flags, ROOM_NORECALL)
+	||  IS_AFFECTED(victim, AFF_CURSE)
+	||  IS_RAFFECTED(victim->in_room, RAFF_CURSE)) {
+		char_puts("Spell failed.\n", victim);
 		return;
 	}
 
-	if (victim->fighting != NULL)
-		{
-		if (victim == ch)  gain_exp(victim,0 -(victim->level + 25));
-		stop_fighting(victim,TRUE);
-		}
+	if (victim->fighting) {
+		if (victim == ch)
+			gain_exp(victim, 0 - (victim->level + 25));
+		stop_fighting(victim, TRUE);
+	}
 
 	ch->move /= 2;
-	act("$n disappears.",victim,NULL,NULL,TO_ROOM);
+	act("$n disappears.", victim, NULL, NULL, TO_ROOM);
 	char_from_room(victim);
-	char_to_room(victim,location);
-	act("$n appears in the room.",victim,NULL,NULL,TO_ROOM);
-	do_look(victim,"auto");
+	char_to_room(victim, location);
+	act("$n appears in the room.", victim, NULL, NULL, TO_ROOM);
+	do_look(victim, "auto");
 
-	if (victim->pet != NULL) {
+	if (victim->pet) {
+		act("$n disappears.", ch->pet, NULL, NULL, TO_ROOM);
  		char_from_room(victim->pet);
 		char_to_room(victim->pet, location);
+		act("$n appears in the room.", ch->pet, NULL, NULL, TO_ROOM);
 		do_look(victim->pet, "auto");
 	}
 }
