@@ -61,7 +61,7 @@ song bird~
 AZ 0 1000 0
 1 0 1d1+1 0d0+0 1d1+1 bite
 0 0 0 0
-0 BD 0 0
+0 B 0 0
 stand stand either 0
 0 0 small unknown
 F aff T
@@ -601,6 +601,54 @@ container GRYa AOP
 100 0 0 0 0
 0 0 0 P
 G none
+#15038
+ring кольцо~
+@eng {Yt{Wh{Ye {Ww{Ye{Wd{Yd{Wi{Yn{Wg {Yr{Wi{Yn{Wg{x@rus {YО{Wб{Yр{Wу{Yч{Wа{Yл{Wь{Yн{Wо{Yе Кольцо{W Багиры{x~
+@eng The wedding ring is lying here.@rus Чье-то {YО{Wб{Yр{Wу{Yч{Wа{Yл{Wь{Yн{Wо{Yе Кольцо{x (ring) лежит здесь и ждет свою {Wхозяйку{x.~
+gold~
+jewelry AR ABP
+0 0 0 0 0
+1 0 0 P
+A
+12 10
+A
+13 10
+A
+20 -1
+A
+19 1
+A
+18 1
+E
+ring кольцо~
+@eng {WGarsen{x presented this precious ring to {WBagira{x.
+@rus Это драгоценное {Yк{Wо{Yл{Wе{Yч{Wк{Yо {WГарсен{x подарил {WБагире{x в День их Свадьбы.
+~
+G none
+#15039
+ring кольцо~
+@eng {Yt{Wh{Ye {Ww{Ye{Wd{Yd{Wi{Yn{Wg {Yr{Wi{Yn{Wg{x@rus {YО{Wб{Yр{Wу{Yч{Wа{Yл{Wь{Yн{Wо{Yе Кольцо{W Гарсена{x~
+@eng The wedding ring is lying here.@rus Чье-то {YО{Wб{Yр{Wу{Yч{Wа{Yл{Wь{Yн{Wо{Yе Кольцо{x (ring) лежит здесь и ждет своего {Wхозяина{x.~
+gold~
+jewelry AR ABP
+0 0 0 0 0
+1 0 0 P
+A
+12 10
+A
+13 10
+A
+20 -1
+A
+19 1
+A
+18 1
+E
+ring кольцо~
+@eng {WBagira{x presented this precious ring to {WGarsen{x.
+@rus Это драгоценное {Yк{Wо{Yл{Wе{Yч{Wк{Yо {WБагира{x подарила {WГарсену{x в День их Свадьбы.
+~
+G none
 #15040
 chair~
 ancient chair~
@@ -778,6 +826,32 @@ armor ABCGRTi AK
 500 500 500 500 0
 99 1 100000 P
 F I 8 4000 CD
+G none
+#15191
+grandelven quiver~
+GrandElven Quiver~
+Bright colored quiver lies here.~
+leather~
+container ABGY AK
+100 F 0 100 100
+91 10 1000 P
+A
+24 -10
+A
+13 50
+A
+18 10
+A
+19 10
+G none
+#15192
+sandwich~
+@eng Sandwich with Red Caviar@rus Бутерброд с красной икрой~
+@eng The sandwich with red caviar waits.. When by him will have a snack?@rus Бутерброд с красной икрой ждет..когда же им закусят?~
+unknown~
+food 0 A
+ABCD ABCD 0 0 0
+0 10 10 P
 G none
 #15197
 pit яма~
