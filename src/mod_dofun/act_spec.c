@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_spec.c,v 1.30 2003-09-29 23:11:29 fjoe Exp $
+ * $Id: act_spec.c,v 1.31 2003-10-10 16:45:27 fjoe Exp $
  */
 
 #include <sys/time.h>
@@ -40,7 +40,6 @@
 #include <merc.h>
 
 #include <sog.h>
-#include <quest.h>
 
 DECLARE_DO_FUN(do_read);
 DECLARE_DO_FUN(do_specialize);
