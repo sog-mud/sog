@@ -19,7 +19,7 @@ their creatures of the night.
 и других порождений ночи.
 ~
 centaur~
-ABGT DEFJ 1000 0
+ABGT DEF 1000 0
 32 1 10d10+1140 1d1+100 6d4+10 pierce
 -10 -10 -10 0
 DEKOU 0 0 0
@@ -37,7 +37,7 @@ battle to drive back the anti-rangers and their darkfriends.
 @rus Этот мощный кентавр разминает мускулы, готовясь к сражению против Темных Ренджеров и их друзей.
 ~
 centaur~
-AGT DEFJ 1000 0
+AGT DEF 1000 0
 44 3 25d10+3000 1d1+2000 32d4+8 slash
 -15 -15 -15 -6
 DEKOU 0 0 0
@@ -57,7 +57,7 @@ battle to drive back the anti-rangers and their darkfriends.
  
 ~
 centaur~
-AGT DEFJ 1000 0
+AGT DEF 1000 0
 50 1 50d10+4500 1d1+2000 10d5+20 slash
 -20 -20 -20 -14
 DEKOU 0 0 0
@@ -75,7 +75,7 @@ battle to drive back the anti-rangers and their darkfriends.
 Ренджеров и их друзей.
 ~
 centaur~
-AGRT DEFJ 1000 0
+AGRT DEF 1000 0
 59 2 50d10+9000 1d1+2000 10d6+30 slash
 -25 -25 -25 -16
 DEKORU 0 0 0
@@ -224,7 +224,7 @@ it.
 уничтожают природу.
 ~
 centaur~
-AGT DEFJ 1000 0
+AGT DEF 1000 0
 38 2 10d10+1600 1d1+100 5d6+14 none
 -13 -13 -13 -4
 DEKOU 0 0 0
@@ -250,7 +250,7 @@ stand stand female 0
 #24314
 centaur кентавр~
 @eng a centaur@rus ~~кентавр~~~
-@eng A centaur is here tending to the forest.
+@eng A large guardian centaur is here tending the dying foliage.
 @rus Кентавр (centaur) скачет по лесу, спасаясь от армии Тьмы.
 ~
 @eng This is one of the lowly centaurs who helps maintain the forest. With
@@ -259,7 +259,7 @@ the invasion of the evil creatures it's job has become far more involved.
 его работа стала бесполезной.
 ~
 centaur~
-AGT DEFJ 1000 0
+AGT DEF 1000 0
 30 1 5d10+550 1d1+100 2d10+8 none
 -6 -7 -7 1
 DEKU 0 0 0

@@ -1212,7 +1212,7 @@ ABGQ BDFUZ 0 0
 -55 -57 -56 -20
 F 0 MN HIJ
 stand stand none 0
-DL 0 medium unknown
+L 0 medium unknown
 #11874
 drakyri laerkai flame mage~
 The Flame~
@@ -1986,7 +1986,7 @@ ancient tome~
 an ancient tome~
 An ancient tome is here, covered with dust.~
 parchment~
-staff BFGKL AO
+staff BFG AO
 95 11 11 'detect hidden' 0
 79 50 10000 P
 A

@@ -325,7 +325,7 @@ key Ti AO
 E
 key~
 Дверцу, которую может отпереть этот ключик, ты можешь
-найти у продавца зелени.
+у бакалейщика.
 ~
 G none
 #34416
@@ -386,7 +386,7 @@ key violet фиолетовый ключ~
 @eng {mthe violet key{x@rus {m~~фиолетовый~~ ~~ключ~~{x~
 @eng A small violet key lies here.@rus Маленький фиолетовый ключ (key) лежит здесь.~
 silvery~
-key Ti 0
+key Ti A
 0 0 0 0 0
 1 1 100 P
 E
@@ -408,7 +408,7 @@ amulet fiery амулет огненный~
 @eng fiery amulet@rus ~~огненный~~ ~~амулет~~~
 @eng Sparkling fiery amulet lies here.@rus Сверкающий огненный амулет (amulet) лежит здесь.~
 fire~
-jewelry 0 AC
+jewelry Ti AC
 0 0 0 0 0
 0 1 15000 P
 F R 0 0 H
@@ -418,7 +418,7 @@ amulet amber амулет янтарный~
 @eng amber amulet@rus ~~янтарный~~ ~~амулет~~~
 @eng Sparkling amber amulet lies here.@rus Сверкающий янтарный амулет (amulet) лежит здесь.~
 amber~
-jewelry 0 AC
+jewelry Ti AC
 0 0 0 0 0
 0 1 16000 P
 F R 0 0 K
@@ -428,7 +428,7 @@ amulet sunlight солнечный амулет~
 @eng sunlight amulet@rus ~~солнечный~~ ~~амулет~~~
 @eng Sparkling sunlight amulet lies here.@rus Сверкающий солнечный амулет (amulet) lies here.~
 sunlight~
-jewelry 0 AC
+jewelry Ti AC
 0 0 0 0 0
 0 1 15000 P
 F R 0 0 S
@@ -438,7 +438,7 @@ amulet green leaf зеленый амулет~
 @eng green leaf shaped amulet@rus ~~амулет~~ в форме зеленого листа~
 @eng Sparkling green amulet lies here.@rus Сверкающий зеленый амулет (amulet) lies here.~
 leaf~
-jewelry 0 AC
+jewelry Ti AC
 0 0 0 0 0
 0 1 15000 P
 F R 0 0 Q
@@ -449,7 +449,7 @@ amulet light-blue небесно-голубой амулет~
 @eng light-blue amulet@rus ~~небесно-голубой~~ ~~амулет~~~
 @eng Sparkling light-blue amulet lies here.@rus Сверкающий небесно-голубой амулет (amulet) lies here.~
 sky~
-jewelry 0 AC
+jewelry Ti AC
 0 0 0 0 0
 0 1 15000 P
 F R 0 0 P
@@ -459,7 +459,7 @@ amulet sapphire сапфировый амулет~
 @eng sapphire amulet@rus ~~сапфировый~~ ~~амулет~~~
 @eng Sparkling sapphire amulet lies here.@rus Сверкающий сапфировый амулет (amulet) lies here.~
 sapphire~
-jewelry 0 AC
+jewelry Ti AC
 0 0 0 0 0
 0 1 15000 P
 F R 0 0 O
@@ -470,7 +470,7 @@ amulet violet фиотеловый амулет~
 @eng violet amulet@rus ~~фиолетовый~~ ~~амулет~~~
 @eng Sparkling violet amulet lies here.@rus Сверкающий фиолетовый амулет (amulet) lies here.~
 unknown~
-jewelry 0 AC
+jewelry Ti AC
 0 0 0 0 0
 0 1 15000 P
 F R 0 0 B
@@ -1258,16 +1258,16 @@ mob oload 34416
 give key $n
 ~
 #34421
-mod oload 34416
+mob oload 34416
 ~
 #34422
 'Нужен ключ? Забирай его и уходи! Ты мне мешаешь!
-mod oload 34417
+mob oload 34417
 give key $n
 ~
 #34423
 'Забирай. Не нужно это мне.
-mod oload 34418
+mob oload 34418
 give key $n
 ~
 #0

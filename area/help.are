@@ -3491,28 +3491,28 @@ P.P.S.    Exp требуемый для перехода с уровня на уровень растет - подробней
           в справке по EXPERIENCE.
 ~
 -2 'RACETABLE'~
-Shades Of Gray is the home for the following races:
-
-RACE       ACRONYM   GOOD_AT  BAD_AT   EXTRA    COMMENTS
------      -------   -------  ------   -----    -------------------
-Human       Human     None     None      0      average race
-Elf          Elf     Int,Dex  Str,Con   500     good, "mastering bow"
-Half-Elf    H-Elf    Int,Dex  Str,Con   200     half human, half elf
-Dark-Elf    D-Elf    Int,Dex  Str,Con   500     evil
-Rockseer    Rocks    Int,Dex  Str,Con   500     neutral, "wand", "meld into s."
-Dwarf       Dwarf    Wis,Con    Dex     250     "berserk"
-Svirfnebli  Svirf      Wis      Int     250     "lore", "identify"
-Duergar     Duerg    Str,Con  Int,Wis   250     "berserk", "pick lock"
-Arial       Arial    Int,Dex  Str,Con   250     can fly
-Gnome       Gnome    Int,Wis  Str,Con   300     "identify"
-Storm Giant StGia    Str,Con  Wis,Dex   600     good, "bash","enh. damage"
-Cloud Giant ClGia    Str,Con  Int,Dex   500     neutral, "bash","enh. damage"
-Fire Giant  FiGia    Str,Con  Int,Dex   500     evil, "bash","enh. damage"
-Frost Giant FrGia    Str,Con  Int,Dex   500     evil, "bash","enh. damage"
-Githyanki   Githy    Int,Dex  Wis,Con   250     evil, "sword", "dagger"
-Satyr       Satyr      Dex      Int     250     neutral, "camouf.", "ambush"
-Felar       Felar    Dex,Con  Str,Int   250     "hand to hand", "tail"
-Troll       Troll    Str,Con  Int,Dex   400     evil, regen., "fast healing"
+RACE       ACRONYM GOOD_AT BAD_AT EXTRA COMMENTS
+----       ------- ------- ------ ----- ---------------------------------------
+Human       Human   None   None     0   average race
+Elf          Elf  Int,Dex Str,Con  500  good, "mastering bow",sneak,infravision
+Half-Elf    H-Elf Int,Dex Str,Con  200  half elf, half human; infravision
+Dark-Elf    D-Elf Int,Dex Str,Con  500  evil, sneak, infravision
+Rockseer    Rocks Int,Dex Str,Con  500  neut,"wand",sneak,pass door,infravision
+Dwarf       Dwarf Wis,Con   Dex    250  "berserk", "axe", "mace", infravision
+Svirfnebli  Svirf   Wis     Int    250  neutral, "lore", "identify",infravision
+Duergar     Duerg Str,Con Int,Wis  250  evil, "berserk","pick lock",infravision
+Arial       Arial Int,Dex Str,Con  250  can fly
+Gnome       Gnome Int,Wis Str,Con  300  neutral, "identify", infravision
+Storm Giant StGia Str,Con Wis,Dex  600  good, "bash","enh. dam.","sword", fly
+Cloud Giant ClGia Str,Con Int,Dex  500  neutral, "bash","enh. dam", "sword",fly
+Fire Giant  FiGia Str,Con Int,Dex  500  evil, "bash", "enh. damage", "sword"
+Frost Giant FrGia Str,Con Int,Dex  500  evil, "bash", "enh. damage", "axe"
+Githyanki   Githy Int,Dex Wis,Con  250  evil, "sword", "dagger", infravision
+Satyr       Satyr   Dex     Int    250  neutral, "camo.","ambush","steal",infra
+Felar       Felar Dex,Con Str,Int  250  "hand to hand", "tail", "claws", infra
+Troll       Troll Str,Con Int,Dex  400  evil, regen,"fast heal","trance", infra
+Wyrm        Wyrm  Con,Wis Int,Dex  600  !good, "claws", "tail",fly, infravision
+Centaur     Centa Str,Con Int,Dex  400  !evil, "mastering bow", invfavision
 ~
 -1 GNOME GNOMES~
 Gnomes are a race of small, wiry, but tough creatures.  They live a very
@@ -4122,7 +4122,7 @@ may be done without warning, notice, or even evidence of sanity.
   6. MULTICHARRING: Ты можешь иметь более одного персонажа, но не разрешено
      заходить ими одновременно, передавать вещи и т.д. И ты не можешь иметь
      больше одного кланового персонажа. Наказание за нарушение этого правила
-     уничтожение персонажа его нарушевшего. Любой, кто помогает
+     уничтожение персонажа его нарушившего. Любой, кто помогает
      в multicharing (хранит вещи, например) также будет наказан.
 
   7. Ни в коем случае не используй баги. Если ты нашел ошибку, сообщи о
@@ -5390,7 +5390,7 @@ sometimes the outlawers and innocents as well...
 ideals. Scattered by the Darkness, they rose again and again to stand in the 
 way of Death, Chaos and Terror...
  
-  Check out our homepage at http://www.hart.narod.ru.
+  Check out our homepage at http://knightsofsog.narod.ru.
 @rus ... Хаос воцарился в мире.  Мир разделился  на семь частей.  Хаос,  Террор  и 
 Беспорядок встали с одной стороны, Закон, Порядок и Справедливость - с другой.
 Приверженцы Равновесия  поставили себя вне Закона,  но отказались подчиниться 
@@ -5410,7 +5410,7 @@ way of Death, Chaos and Terror...
 и что бы ты не делал,  всегда помни:  отныне и навсегда звание твое - Рыцарь, 
 имя тебе - Честь!
  
-  Посетить нашу домашнюю страницу можно по http://www.hart.narod.ru.
+  Посетить нашу домашнюю страницу можно по http://knightsofsog.narod.ru.
 ~
 0 'OLC ROOM CLONE'~
 Syntax: clone [all] vnum
@@ -8006,6 +8006,42 @@ dies it will rise from the dead and his health will be fully restored.
 (affect resurrection). Если 'убить' такого вампира, то он не умрет, а
 наоборот полностью восстановится. Скилл срабатывает автоматически.
   Однако у воскресшего вампира уменьшается харизма...
+~
+0 NOGIVE~
+@eng Syntax: {cnogive{x
+ 
+NOGIVE toggles whether you accept or deny giving objects to you.
+Use {cauto{x to see current status.
+See also:{C HELP AUTO{x, {CHELP GIVE{x.
+@rus Синтаксис:{c nogive{x
+ 
+С помощью этой команды можно запретить другим персонажам давать (give)
+что-либо твоему. Посмотреть статус можно при помощи команды {cauto{x.
+См. также {CHELP AUTO{x, {CHELP GIVE{x.
+~
+-2 CENTAUR~
+Among their own kind, centaurs are sociable creatures, but they have
+been known to become rowdy, boorish, and aggressive when under the
+influence of alcohol.
+ 
+The typical centaur lair is located deep within a forest. In consists
+of a large hidden glade and pastures, with a good suply of running
+water.
+~
+0 WYRM~
+Wyrms is the kind of the dragons. Theirs scale defence them from slash
+blows, but they are vulnirable to pierce attack. Wyrms are large and
+can fly.
+~
+-1 CLAWS~
+@eng `Claws' is autoskill for creatures which have claws: felars
+and wyrms. If felar or wyrm fight without any weapon it have
+a change to make higher damage on its opponent whith sharp
+claws.
+@rus `Claws' -- это умение работающее автоматически. Им обладают
+существа у когорых есть когти: фелары и вырмы. Если вырм или
+фелар сражается без оружия у него есть шанс нанести противнику
+более сильный урон своими когтями.
 ~
 -1 $~
 

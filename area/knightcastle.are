@@ -87,7 +87,7 @@ ABIWZ FHJV 1000 0
 -10 -10 -10 -5
 N AB 0 0
 stand stand male 0
-0 0 medium unknown
+0 0 small unknown
 #95204
 horse mount конь white~
 @eng the white horse@rus ~~белогривый~~ ~~конь~~~
@@ -121,7 +121,7 @@ ABIWZ FHJPV 1000 0
 -30 -30 -30 -20
 JN AB CLQ 0
 stand stand male 0
-0 0 medium unknown
+0 0 large unknown
 #95206
 pegasus mount пегас~
 @eng the pegasus@rus пегас~
@@ -142,7 +142,7 @@ ABIWZ BDFHJPTUV 1000 0
 -40 -40 -40 -30
 N AB CLQ 0
 stand stand male 0
-0 0 medium unknown
+0 0 large unknown
 #95207
 dragon golden дракон mount~
 @eng the golden dragon@rus ~~золотой~~ ~~дракон~~~
@@ -159,13 +159,13 @@ to see in that deepness anymore...
 мудрости его глаз, не в силах выдержать груз тысячелетий,
 мерцающих в этой бездне...
 ~
-dragon~
+gold dragon~
 ABIWZ DFHUValt 1000 0
 85 50 100d12+16250 1d20+1600 6d15+50 wrath
 -50 -50 -50 -40
-DNO AB CIJKLMNPQS 0
+DNO AB CIJKMNPQS 0
 stand stand male 0
-0 0 medium unknown
+0 0 gargantuan unknown
 #0
 
 #OBJECTS
@@ -231,6 +231,41 @@ of beastly looking invader a spring of sweet mead belches forth.
 жажду, добрый путник.
 ~
 G male
+#95206
+plaque~
+@eng Artegal's Codex@rus ~~наставление~~ Артегаля~
+~
+gold~
+scroll AIKLORTYai 0
+100 'benediction' 'bless' 'restoring light' 'golden aura'
+91 13691547 -1 P
+E
+plaque scroll codex artegal fionn~
+Если ты имеешь намерение стать рыцарем, веди себя тихо в доме великого
+человека; будь тверд на узком пути. Hе бей свою собаку без повода; не
+наказывай свою жену не убедившись в ее виновности; не рази в бою дурака,
+ибо он безумен. Hе ищи недостатков в стоящих выше тебя; не поднимайся с
+места, чтобы принять участие в перебранке; не имей дела с людьми глупыми и
+дурными. Покажи две трети своего добросердечия женщинам, и малым детям,
+ползающим на полу, и ученым мужам, что слагают стихи, и не обращайся грубо
+с простым людом. Hе проявляй почтение ко всем и каждому; не будь готов
+разделить одну постель со своими товарищами. Hе угрожай впустую и не
+говори громких слов, поскольку позорно произносить суровые речи, если не
+сможешь в последствии их осуществить. Hе покидай своего господина, покуда
+ты жив; не выдавай любого человека, который отдался под твою защиту, хотя
+бы даже за все сокровища мира. Hе оговаривай других перед лицом их
+господина; это дело не достойно хорошего человека. Hе распространяй лживые
+слухи, и не рассказывай сказок, которые всегда - лишь пустая болтовня. Hе
+говори слишком много; поспешно не указывай на виноватых; каким бы храбрым
+бы ты ни был, не навлекай раздоры на свою голову. Hе посещай питейные
+дома, не придирайся к старикам; не суй свой нос в дела мелкого люда:
+таковы правильные наставления, что я говорю тебе. Hе отказывайся поделится
+своим мясом; не выставляй дураками друзей; не противопоставляй себя
+великому человеку и не давай ему повода говорить против тебя. Быстро
+хватайся за оружие до тех пор, пока не будет выиграна последняя схватка.
+Hе упускай счастливый случай, но вместе с тем следуй за своей добротой.
+~
+G none
 #95209
 holy lance~
 {WHoly blessed Lance{x~
@@ -259,7 +294,7 @@ G male
 
 #ROOMS
 #95200
-@eng The Enterance of Castle@rus Вход в замок~
+@eng Entrance of Castle@rus Вход в Замок~
 @eng You are standing in the entrance of the Knights' castle. You can see the
 greater hall lying towards north. South leaves the entrance into the castle.
 You see two long swords against the wall here, one is on the east wall and
@@ -600,20 +635,26 @@ S
 #0
 
 #SPECIALS
-M 95205 spec_cast_mage	* the unicorn
+M 95205 spec_cast_cleric	* the unicorn
 M 95206 spec_cast_cleric	* the pegasus
-M 95207 spec_breath_lightning	* the golden dragon
+M 95207 spec_cast_mage	* the golden dragon
 S
 
 #RESETS
 D 0 95215 3 1	* Inner yard: door to the west: closed
-M 0 95201 1 95200 1	* the protector (The Enterance of Castle)
+M 0 95201 1 95200 1	* the protector (Entrance of Castle)
 E 0 95200 0 17		*	a golden key: held in the hands
+O 0 95206 0 95200	* Artegal's Codex (Entrance of Castle)
 O 0 95203 0 95201	* Round Table (Inside the Great Hall)
+O 0 95206 0 95201	* Artegal's Codex (Inside the Great Hall)
+O 0 95206 0 95202	* Artegal's Codex (Squire Barracks)
+O 0 95206 0 95203	* Artegal's Codex (Storage Room)
 M 0 95200 1 95204 1	* A healer (The Altar)
 O 0 95201 0 95204	* the altar (The Altar)
 P 0 95202 1 95201 1	* the altar: Large medal of honor
+O 0 95206 0 95204	* Artegal's Codex (The Altar)
 M 0 95202 1 95205 1	* the stable keeper (Stables)
+O 0 95206 0 95205	* Artegal's Codex (Stables)
 M 0 95203 1 95206 1	* the grey donkey (Horse room)
 M 0 95204 1 95206 1	* the white horse (Horse room)
 M 0 95205 1 95206 1	* the unicorn (Horse room)
@@ -621,8 +662,13 @@ M 0 95206 1 95206 1	* the pegasus (Horse room)
 M 0 95207 1 95206 1	* the golden dragon (Horse room)
 O 0 95205 0 95207	* fountain (Winter garden)
 O 0 95204 0 95207	* statue of King Arthur (Winter garden)
+O 0 95206 0 95207	* Artegal's Codex (Winter garden)
 M 0 95202 2 95213 1	* the stable keeper (Stables)
 M 0 95200 2 95217 1	* A healer (Altar)
+O 0 95206 0 95219	* Artegal's Codex (Gallery of Valour)
+O 0 95206 0 95220	* Artegal's Codex (Gallery of Valour)
+O 0 95206 0 95221	* Artegal's Codex (Gallery of Valour)
+O 0 95206 0 95222	* Artegal's Codex (Gallery of Valour)
 S
 
 #SHOPS

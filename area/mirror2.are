@@ -66,6 +66,9 @@ ABGT DFJNU 0 0
 CDEFIJKN 0 0 0
 stand stand male 0
 0 0 medium unknown
+M greet 19000 100~
+M give 19001 19129~
+M give 19002 19128~
 #19004
 caerlin bard~
 Caerlin~
@@ -1025,12 +1028,17 @@ feathers intertwined with a few golden ones; its silvery beak glistens in the
 light, with faint sparkles shining on its razor-sharp edges.
 ~
 unique~
-ABCFG DFIN 0 0
+ABCG DFIN 0 0
 50 0 50d10+4250 5d5+5000 5d8+19 pierce
 -20 -20 -20 0
 FH 0 0 0
 stand stand none 0
 0 0 medium unknown
+M greet 34419 100~
+M speech 34420 500~
+M speech 34420 1460~
+M speech 34420 12954~
+M death 19003 100~
 #19063
 mandeep beekeeper bee keeper~
 Mandeep the Beekeeper~
@@ -2732,7 +2740,7 @@ A book lies here.~
 paper~
 trash 0 A
 0 0 0 0 0
-2 0 0 P
+2 0 1000 P
 E
 history book mirror realm~
 Long ago, a small town flourished at the edge of the River Satyr: open-air
@@ -2788,7 +2796,7 @@ A book lies here.~
 paper~
 trash 0 A
 0 0 0 0 0
-5 0 0 P
+5 0 1000 P
 E
 book legends~
 Most of the book has faded to illegibility, but one page still has a few clear
@@ -2822,7 +2830,7 @@ A book lies on the ground.~
 paper~
 trash 0 A
 0 0 0 0 0
-2 0 0 P
+2 0 1000 P
 E
 midgaard history book~
 (You flip through the book...)
@@ -2877,7 +2885,7 @@ topaz sigil~
 the yellow topaz sigil~
 A small piece of topaz lies here.~
 unknown~
-trash 0 BD
+trash 0 AO
 0 0 0 0 0
 5 0 0 P
 A
@@ -4113,7 +4121,7 @@ preventing you from seeing inside.  A strange, mirrored spiral staircase
 leads upwards into a tower; it looks rough and unworn, and the metal 
 joints lack the smooth ruts that you'd expect to see in a well-used stairway.
 ~
-0 DO inside
+0 D inside
 D0
 ~
 ~
@@ -6330,6 +6338,8 @@ This is the hideout of Bear D. Bear....a VERY weird creature if there ever
 was one.  You're not supposed to be here....trust me.  I know.  I wrote this
 area :-).  Anyway, better recall or get someone to transfer you out of here,
 'cause this is just a room used by mobprogs.....
+ 
+(P.S.  Bear D. Bear is Merriman's sister's teddy bear.....*cackle*)
 ~
 0 CO inside
 S
@@ -6390,7 +6400,7 @@ narrow windows, giving the room a bright, almost cheerful air.  Bits of twigs
 and branches cover the floor, piled into a large nest in the center of the room
 by some sort of bird....
 ~
-0 D inside
+0 DX inside
 D5
 ~
 ~
@@ -6839,7 +6849,9 @@ M 0 19005 1 19050 1	* the young man (Corner of the Path)
 E 0 19015 0 16		*	a small steel knife: wielded
 G 0 19020 0		*	some coins
 O 0 19094 0 19050	* a nectarine tree (Corner of the Path)
+P 0 34415 100 19094 10	* a nectarine tree: {ythe orange key{x
 O 0 19035 0 19051	* a grove of apple trees (A Grove of Trees)
+P 0 34415 100 19035 1	* a grove of apple trees: {ythe orange key{x
 P 0 19036 100 19035 1	* a grove of apple trees: an apple
 P 0 19036 100 19035 1	* a grove of apple trees: an apple
 M 0 19037 1 19051 1	* the young boy (A Grove of Trees)
@@ -6857,6 +6869,7 @@ E 0 19089 0 16		*	a gaff: wielded
 G 0 19091 0		*	a dinghy
 O 0 19057 0 19059	* the white goldfish (The pond)
 O 0 19037 0 19060	* a grove of plum trees (A Grove of Trees)
+P 0 34415 100 19037 1	* a grove of plum trees: {ythe orange key{x
 P 0 19038 100 19037 1	* a grove of plum trees: a plum
 P 0 19038 100 19037 1	* a grove of plum trees: a plum
 M 0 19020 1 19061 1	* the Blue Lord (Bend in the Path)
@@ -7074,7 +7087,7 @@ S
 19026 0 0 0 0 0 100 100 0 23
 19027 0 0 0 0 0 100 100 0 23
 19029 9 5 15 1 0 150 50 0 23
-19030 0 0 0 0 0 100 100 0 23
+19030 13 0 0 0 0 100 100 0 23
 19035 2 3 4 10 26 175 25 0 23
 19043 0 0 0 0 0 100 100 0 23
 19044 23 19 12 13 15 200 25 0 23
@@ -7088,5 +7101,43 @@ O 19062 1	* a sea-blue robe
 O 19110 1	* an eclipse sword
 O 19127 1	* a blood-red dagger
 S
+
+#MOBPROGS
+#19000
+emote sighs gently.
+say Do you desire the sword Taliesin and the Sunrise Shield?
+say If you do, you must bring me the two Sigils of the Light and Dark.....
+say Only then will you have proven yourself worthy....
+~
+#19001
+bow $n
+say You have proven your worthiness...here is the sword Taliesin.
+mob oload 19157
+give taliesin $n
+mob goto 19147
+drop all
+mob purge
+mob goto 19020
+~
+#19002
+bow $n
+say You have proven your worthiness...here is the Sunrise Shield.
+mob oload 19158
+give shield $n
+mob goto 19147
+drop all
+mob purge
+mob goto 19020
+~
+#19003
+mob oload 34416
+drop key
+mob echo The Phoenix begins to glow...and then suddenly explodes in a fireball!
+mob echo A pile of ashes drifts to the floor....
+mob echo As you peer closer, you see a small phoenix amidst the ashes.
+mob mload 19062
+mob goto 19147
+~
+#0
 
 #$

@@ -26,7 +26,6 @@ stand stand male 27425
 CIK 0 huge unknown
 M random 15000 2~
 M random 15000 1~
-M bribe 15000 1~
 M speech 15001 shadow~
 M speech 15002 demon~
 M random 34409 2~
@@ -794,7 +793,7 @@ altar алтарь~
 @eng White stone altar is here.@rus Алтарь (altar) из белого камня предстал твоему взору.~
 magic~
 container AGIRTi 0
-500 E 0 10 100
+500 E 0 65 100
 0 10 0 P
 G male
 #15053
@@ -820,7 +819,7 @@ scroll misfortune~
 @eng scroll of {bMisfortune{x@rus свиток {bНевезения{x~
 @eng A piece of leprous lesbian virgin's skin is lying here.@rus Кусок кожи прокаженной девственницы-лесбиянки валяется тут.~
 virgin's skin~
-scroll ABCEFGJLRTVYZi A
+scroll ABCEFGKLRTVYZi A
 666 'anathema' 'deathen' 'magic jar' 'abolish undead'
 13 13 -13 P
 G none

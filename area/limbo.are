@@ -144,7 +144,8 @@ AB 0 0 0
 0 0 0 0
 EFN EKL H IN
 stand stand male 0
-0 0 medium unknown
+D 0 medium unknown
+F par ABCDEFGHIJK
 #18
 undead~
 the undead body of %s~
@@ -501,7 +502,7 @@ corpse труп~
 flesh~
 pc_corpse OR AP
 0 0 0 A 0
-0 1000 0 D
+0 1000 150 D
 G male
 #12
 head голова~
@@ -1266,6 +1267,15 @@ trash HMTZ AS
 0 0 0 0 0
 1 0 0 P
 G none
+#79
+golden staff посох~
+@eng a golden staff@rus ~~золотистый~~ посох~
+@eng A shiny gold staff is on the ground.@rus Блестящий золотой посох (staff) лежит на земле.~
+gold~
+weapon AIPTW AN
+staff 11 1 crush 0
+20 200 0 P
+G none
 #80
 golden dagger кинжал~
 @eng a golden dagger@rus ~~золотистый~~ ~~кинжал~~~
@@ -1532,7 +1542,7 @@ a katana sword~
 A katana sword is forgotten here.~
 iron~
 weapon a AN
-sword 10 1 slash D
+sword 10 1 slash DJ
 15 60 0 P
 E
 katana~
@@ -1579,6 +1589,13 @@ Supermob office~
 Supermob lives here. Don't bother him.
 ~
 0 ACHLNOX inside
+S
+#13
+@eng {bIsle of Misfortune{x@rus {bОстров Невезения{x~
+@rus Весь покрытый {Gзеленью{x, абсолютно весь.
+~
+0 BHKNSUb forest
+M 13 H 13
 S
 #0
 
@@ -1670,6 +1687,11 @@ cast nowait 'lightning breath'
 ~
 #2
 clan yes, sir?
+~
+#3
+mob oload 34467
+say Take this tablet. It's my part of the key.
+give tablet $n
 ~
 #32
 if isimmort $n

@@ -5727,6 +5727,10 @@ Eternal Winter.
 ~
 ~
 Z -1 12151
+D4
+~
+~
+ABCGZ 34418 34412
 D5
 Hope.
 ~
@@ -5916,6 +5920,7 @@ D 0 12146 0 1	* The Throne of the Seelie Fae: door to the north: closed
 D 0 12147 5 2	* Behind the Royal Drapes: door to the down: closed and locked
 D 0 12149 3 2	* The Hidden Court: door to the west: closed and locked
 D 0 12150 3 2	* The Hidden Court: door to the west: closed and locked
+D 0 12151 4 2	* Eternal Winter: door to the up: closed and locked
 D 0 12151 5 1	* Eternal Winter: door to the down: closed
 D 0 12152 5 1	* Eternal Autumn: door to the down: closed
 D 0 12153 5 1	* Eternal Summer: door to the down: closed
