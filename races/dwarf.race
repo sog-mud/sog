@@ -1,8 +1,9 @@
 #RACE
 Name dwarf~
 Aff infrared~
-Res poison disease~
 Vuln drowning~
+Resist disease 80
+Resist bash 5
 Form edible sentient biped mammal~
 Parts head arms legs heart brains guts hands feet fingers ear eye~
 End

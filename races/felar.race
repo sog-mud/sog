@@ -2,8 +2,10 @@
 Name felar~
 Aff infrared~
 Off tail~
-Res cold light~
-Vuln fire drowning~
+Res light~
+Vuln drowning~
+Resist cold 50
+Resist fire -30
 Form edible sentient biped mammal~
 Parts head legs heart brains guts feet ear eye tail claws fangs~
 End

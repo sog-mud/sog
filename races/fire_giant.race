@@ -1,8 +1,12 @@
 #RACE
 Name fire giant~
-Res fire~
-Vuln cold lightning mental~
-Resist cold -30
+Resist fire 50
+Resist bash 23
+Resist slash 23
+Resist pierce 23
+Resist cold -40
+Resist lightning -30
+Resist mental -30
 Form edible sentient biped mammal~
 Parts head arms legs heart brains guts hands feet fingers ear eye~
 Flags noch~

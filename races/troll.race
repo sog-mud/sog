@@ -2,8 +2,12 @@
 Name troll~
 Aff infrared regeneration~
 Off berserk~
-Res charm bash~
-Vuln fire acid~
+Res charm~
+Resist bash 26
+Resist slash 11
+Resist pierce 11
+Resist fire -35
+Resist acid -30
 Form edible poison sentient biped mammal~
 Parts head arms legs heart brains guts hands feet fingers ear eye claws fangs~
 End

@@ -2,7 +2,7 @@
 Name gnome~
 Aff infrared~
 Res poison~
-Vuln bash~
+Resist bash -20
 Form edible sentient biped mammal~
 Parts head arms legs heart brains guts hands feet fingers ear eye~
 End

@@ -1,8 +1,12 @@
 #RACE
 Name cloud giant~
 Aff flying~
-Res weapon~
 Vuln lightning mental~
+Resist bash 33
+Resist slash 32
+Resist pierce 31
+Resist mental -30
+Resist lightning -31
 Form edible sentient biped mammal~
 Parts head arms legs heart brains guts hands feet fingers ear eye~
 Flags noch~

@@ -1,8 +1,13 @@
 #RACE
 Name storm giant~
 Aff flying~
-Res lightning~
-Vuln fire cold mental~
+Resist lightning 50
+Resist bash 23
+Resist slash 23
+Resist pierce 23
+Resist fire -30
+Resist cold -30
+Resist mental -30
 Form edible sentient biped mammal~
 Parts head arms legs heart brains guts hands feet fingers ear eye~
 Flags noch~
