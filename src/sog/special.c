@@ -1,5 +1,5 @@
 /*
- * $Id: special.c,v 1.5 1998-05-11 20:46:54 fjoe Exp $
+ * $Id: special.c,v 1.6 1998-05-21 22:13:47 efdi Exp $
  */
 
 /***************************************************************************
@@ -50,6 +50,7 @@
 #include "db.h"
 #include "comm.h"
 #include "hometown.h"
+#include "resource.h"
 
 void	say_spell	args((CHAR_DATA *ch, int sn));
 
@@ -827,7 +828,8 @@ bool spec_fido(CHAR_DATA *ch)
 	if (corpse->item_type != ITEM_CORPSE_NPC)
 	    continue;
 
-	act("$n savagely devours a corpse.", ch, NULL, NULL, TO_ROOM);
+	act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING, 
+			SPECIAL_SAVAGELY_DEVOURS_CORPSE);
 	for (obj = corpse->contains; obj; obj = obj_next)
 	{
 	    obj_next = obj->next_content;
@@ -859,7 +861,8 @@ bool spec_janitor(CHAR_DATA *ch)
 	||   trash->item_type == ITEM_TRASH
 	||   trash->cost < 10)
 	{
-	    act("$n picks up some trash.", ch, NULL, NULL, TO_ROOM);
+	    act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING, 
+			SPECIAL_PICKS_SOME_TRASH);
 	    obj_from_room(trash);
 	    obj_to_char(trash, ch);
 	    return TRUE;
@@ -991,13 +994,12 @@ bool spec_poison(CHAR_DATA *ch)
     ||   number_percent() > 2 * ch->level)
 	return FALSE;
 
-    act("You bite $N!",  ch, NULL, victim, TO_CHAR   );
-    act("$n bites $N!",  ch, NULL, victim, TO_NOTVICT);
-    act("$n bites you!", ch, NULL, victim, TO_VICT   );
+    act_printf(ch, NULL, victim, TO_CHAR, POS_DEAD, SPECIAL_YOU_BITE_N);
+    act_printf(ch, NULL, victim, TO_NOTVICT, POS_RESTING, SPECIAL_N_BITES_N);
+    act_printf(ch, NULL, victim, TO_VICT, POS_DEAD, SPECIAL_N_BITES_YOU);
     spell_poison(gsn_poison, ch->level, ch, victim,TARGET_CHAR);
     return TRUE;
 }
-
 
 
 bool spec_thief(CHAR_DATA *ch)
@@ -1128,12 +1130,15 @@ bool spec_guard(CHAR_DATA *ch)
 	
 	if (IS_SET(ch->in_room->area->area_flag,AREA_HOMETOWN) 
 		&& number_percent() < 2 && !IS_IMMORTAL(victim)) {
-	  do_say(ch, "Do i know you?.");
+	  act_printf(ch, NULL, victim, TO_ROOM, POS_RESTING, 
+			SPECIAL_DO_I_KNOW_YOU);
  	  if (str_cmp(ch->in_room->area->name,
 		hometown_table[victim->hometown].name))
-		 do_say(ch, "I don't remember you. Go away!");
+		act_printf(ch, NULL, victim, TO_ROOM, POS_RESTING, 
+				SPECIAL_DONT_REMEMBER_YOU);
 	  else {
-		 do_say(ch, "Ok, my dear. I have just remembered.");
+		act_printf(ch, NULL, victim, TO_ROOM, POS_RESTING, 
+				SPECIAL_OK_MY_DEAR);
 		 interpret(ch, "smile",FALSE);
 	   }
 	 }
