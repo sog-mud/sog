@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: eventfun.c,v 1.2 1999-10-23 10:20:14 fjoe Exp $
+ * $Id: eventfun.c,v 1.3 1999-12-01 09:07:08 fjoe Exp $
  */
 
 
@@ -157,15 +157,15 @@ EVENT_FUN(event_update_espirit)
 
 	if (af->level < 1) af->level = 2;
 	if (!is_safe_rspell(af, ch)
-	&& !IS_IMMORTAL(ch)
-	&& !saves_spell(af->level + 2, ch, DAM_MENTAL)
-	&& !is_affected(ch, "evil spirit")
-	&& number_bits(3) == 0) {
+	&&  !IS_IMMORTAL(ch)
+	&&  !saves_spell(af->level + 2, ch, DAM_MENTAL)
+	&&  !is_affected(ch, "evil spirit")
+	&&  number_bits(3) == 0) {
 		af2.where	= TO_AFFECTS;
 		af2.level	= af->level;
 		af2.type	= "evil spirit";
 		af2.duration	= number_range(1, af->level/30);
-		af2.location	= APPLY_NONE;
+		INT(af2.location) = APPLY_NONE;
 		af2.modifier	= 0;
 		af2.bitvector	= 0;
 		affect_join(ch, &af2);
@@ -253,7 +253,7 @@ EVENT_FUN(event_updatechar_plague)
 	plague.type 	 = "plague";
 	plague.level 	 = af->level - 1; 
 	plague.duration	 = number_range(1,2 * plague.level);
-	plague.location	 = APPLY_STR;
+	INT(plague.location) = APPLY_STR;
 	plague.modifier	 = -5;
 	plague.bitvector = AFF_PLAGUE;
 	    

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_area.c,v 1.60 1999-11-24 07:22:24 fjoe Exp $
+ * $Id: olc_area.c,v 1.61 1999-12-01 09:07:09 fjoe Exp $
  */
 
 #include "olc.h"
@@ -713,21 +713,21 @@ static void move_obj(OBJ_INDEX_DATA *obj, AREA_DATA *pArea, int delta)
 
 	switch (obj->item_type) {
 	case ITEM_CONTAINER:
-		MOVE(INT_VAL(obj->value[2])); /* container key */
+		MOVE(INT(obj->value[2])); /* container key */
 		if (touched) {
 			for (o = object_list; o; o = o->next)
 				if (o->pObjIndex == obj)
-					INT_VAL(o->value[2]) += delta;
+					INT(o->value[2]) += delta;
 		}
 		break;
 	case ITEM_PORTAL:
-		MOVE(INT_VAL(obj->value[3])); /* portal exit */
-		MOVE(INT_VAL(obj->value[4])); /* portal key */
+		MOVE(INT(obj->value[3])); /* portal exit */
+		MOVE(INT(obj->value[4])); /* portal key */
 		if (touched) {
 			for (o = object_list; o; o = o->next)
 				if (o->pObjIndex == obj) {
-					INT_VAL(o->value[3]) += delta;
-					INT_VAL(o->value[4]) += delta;
+					INT(o->value[3]) += delta;
+					INT(o->value[4]) += delta;
 				}
 		}
 		break;
@@ -995,12 +995,12 @@ static void save_object(FILE *fp, OBJ_INDEX_DATA *pObjIndex)
 	for (pAf = pObjIndex->affected; pAf; pAf = pAf->next) {
 		if (pAf->where == TO_SKILLS) {
 			fprintf(fp, "S '%s' %d %s\n",
-				STR_VAL(pAf->location),
+				STR(pAf->location),
 				pAf->modifier,
 				format_flags(pAf->bitvector));
 		} else if (pAf->where == TO_OBJECT || !pAf->bitvector) {
 			fprintf(fp, "A\n%d %d\n",
-				INT_VAL(pAf->location), pAf->modifier);
+				INT(pAf->location), pAf->modifier);
 		} else {
 			int letter;
 
@@ -1025,7 +1025,7 @@ static void save_object(FILE *fp, OBJ_INDEX_DATA *pObjIndex)
 			}
 		
 			fprintf(fp, "F %c %d %d %s\n",
-				letter, INT_VAL(pAf->location), pAf->modifier,
+				letter, INT(pAf->location), pAf->modifier,
 				format_flags(pAf->bitvector));
 		}
 	}

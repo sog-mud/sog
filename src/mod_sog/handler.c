@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.208 1999-11-28 12:40:38 fjoe Exp $
+ * $Id: handler.c,v 1.209 1999-12-01 09:07:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -258,7 +258,7 @@ void char_from_room(CHAR_DATA *ch)
 
 	if ((obj = get_eq_char(ch, WEAR_LIGHT)) != NULL
 	&&   obj->pObjIndex->item_type == ITEM_LIGHT
-	&&   INT_VAL(obj->value[2]) != 0
+	&&   INT(obj->value[2]) != 0
 	&&   ch->in_room->light > 0)
 		--ch->in_room->light;
 
@@ -335,7 +335,7 @@ void char_to_room(CHAR_DATA *ch, ROOM_INDEX_DATA *pRoomIndex)
 
 	if ((obj = get_eq_char(ch, WEAR_LIGHT)) != NULL
 	&&   obj->pObjIndex->item_type == ITEM_LIGHT
-	&&   INT_VAL(obj->value[2]) != 0)
+	&&   INT(obj->value[2]) != 0)
 		++ch->in_room->light;
 		
 	while (IS_AFFECTED(ch,AFF_PLAGUE))
@@ -362,7 +362,7 @@ void char_to_room(CHAR_DATA *ch, ROOM_INDEX_DATA *pRoomIndex)
 	    plague.type 		= "plague";
 	    plague.level 		= af->level - 1; 
 	    plague.duration 	= number_range(1,2 * plague.level);
-	    plague.location		= APPLY_STR;
+	    INT(plague.location) = APPLY_STR;
 	    plague.modifier 	= -5;
 	    plague.bitvector 	= AFF_PLAGUE;
 	    
@@ -380,7 +380,7 @@ void char_to_room(CHAR_DATA *ch, ROOM_INDEX_DATA *pRoomIndex)
 		break;
 	}
 
-	if (pRoomIndex->affected)
+	if (pRoomIndex->affected) {
 		if (IS_IMMORTAL(ch))
 			dofun("raffects", ch, str_empty);
 		else {
@@ -389,6 +389,7 @@ void char_to_room(CHAR_DATA *ch, ROOM_INDEX_DATA *pRoomIndex)
 			if (IS_EXTRACTED(ch))
 				return;
 		}
+	}
 
 	if (ch->desc != NULL
 	&&  (olced = OLCED(ch)) != NULL
@@ -466,22 +467,22 @@ int apply_ac(OBJ_DATA *obj, int iWear, int type)
 		return 0;
 
 	switch (iWear) {
-	case WEAR_BODY:		return 3 * INT_VAL(obj->value[type]);
-	case WEAR_HEAD:		return 2 * INT_VAL(obj->value[type]);
-	case WEAR_LEGS:		return 2 * INT_VAL(obj->value[type]);
-	case WEAR_FEET:		return	INT_VAL(obj->value[type]);
-	case WEAR_HANDS:	return	INT_VAL(obj->value[type]);
-	case WEAR_ARMS:		return	INT_VAL(obj->value[type]);
-	case WEAR_SHIELD:	return	INT_VAL(obj->value[type]);
+	case WEAR_BODY:		return 3 * INT(obj->value[type]);
+	case WEAR_HEAD:		return 2 * INT(obj->value[type]);
+	case WEAR_LEGS:		return 2 * INT(obj->value[type]);
+	case WEAR_FEET:		return	INT(obj->value[type]);
+	case WEAR_HANDS:	return	INT(obj->value[type]);
+	case WEAR_ARMS:		return	INT(obj->value[type]);
+	case WEAR_SHIELD:	return	INT(obj->value[type]);
 	case WEAR_FINGER_L:	return	0;
-	case WEAR_FINGER_R:	return	INT_VAL(obj->value[type]);
-	case WEAR_NECK_1:	return	INT_VAL(obj->value[type]);
-	case WEAR_NECK_2:	return	INT_VAL(obj->value[type]);
-	case WEAR_ABOUT:	return 2 * INT_VAL(obj->value[type]);
-	case WEAR_WAIST:	return	INT_VAL(obj->value[type]);
-	case WEAR_WRIST_L:	return	INT_VAL(obj->value[type]);
-	case WEAR_WRIST_R:	return	INT_VAL(obj->value[type]);
-	case WEAR_HOLD:		return	INT_VAL(obj->value[type]);
+	case WEAR_FINGER_R:	return	INT(obj->value[type]);
+	case WEAR_NECK_1:	return	INT(obj->value[type]);
+	case WEAR_NECK_2:	return	INT(obj->value[type]);
+	case WEAR_ABOUT:	return 2 * INT(obj->value[type]);
+	case WEAR_WAIST:	return	INT(obj->value[type]);
+	case WEAR_WRIST_L:	return	INT(obj->value[type]);
+	case WEAR_WRIST_R:	return	INT(obj->value[type]);
+	case WEAR_HOLD:		return	INT(obj->value[type]);
 	}
 
 	return 0;
@@ -568,7 +569,7 @@ OBJ_DATA * equip_char(CHAR_DATA *ch, OBJ_DATA *obj, int iWear)
 	_equip_char(ch, obj);
 
 	if (obj->pObjIndex->item_type == ITEM_LIGHT
-	&&  INT_VAL(obj->value[2]) != 0
+	&&  INT(obj->value[2]) != 0
 	&&  ch->in_room != NULL)
 		++ch->in_room->light;
 
@@ -610,7 +611,7 @@ void unequip_char(CHAR_DATA *ch, OBJ_DATA *obj)
 	strip_obj_affects(ch, obj, obj->affected);
 
 	if (obj->pObjIndex->item_type == ITEM_LIGHT
-	&&  INT_VAL(obj->value[2]) != 0
+	&&  INT(obj->value[2]) != 0
 	&&  ch->in_room != NULL
 	&&  ch->in_room->light > 0)
 		--ch->in_room->light;
@@ -1471,7 +1472,7 @@ OBJ_DATA *create_money(int gold, int silver)
 		pObjIndex = get_obj_index(OBJ_VNUM_GOLD_SOME);
 		obj = create_obj(pObjIndex, 0);
 		money_descr(&obj->short_descr, gold, "gold coins", -1, NULL);
-		obj->value[1]	= gold;
+		INT(obj->value[1]) = gold;
 		obj->cost	= 100*gold;
 		obj->weight	= gold/5;
 	}
@@ -1480,7 +1481,7 @@ OBJ_DATA *create_money(int gold, int silver)
 		obj = create_obj(pObjIndex, 0);
 		money_descr(&obj->short_descr,
 			    silver, "silver coins", -1, NULL);
-		obj->value[0]	= silver;
+		INT(obj->value[0]) = silver;
 		obj->cost	= silver;
 		obj->weight	= silver/20;
 	}
@@ -1489,8 +1490,8 @@ OBJ_DATA *create_money(int gold, int silver)
 		obj = create_obj(pObjIndex, 0);
 		money_descr(&obj->short_descr,
 			    silver, "silver coins", gold, "gold coins");
-		obj->value[0]	= silver;
-		obj->value[1]	= gold;
+		INT(obj->value[0]) = silver;
+		INT(obj->value[1]) = gold;
 		obj->cost	= 100*gold + silver;
 		obj->weight	= gold/5 + silver/20;
 	}
@@ -1751,7 +1752,7 @@ bool can_see_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 		return FALSE;
 
 	if (obj->pObjIndex->item_type == ITEM_LIGHT
-	&&  INT_VAL(obj->value[2]) != 0)
+	&&  INT(obj->value[2]) != 0)
 		return TRUE;
 
 	if (IS_SET(obj->extra_flags, ITEM_INVIS)
@@ -1798,7 +1799,7 @@ int isn_dark_safe(CHAR_DATA *ch)
 	light_exist = 0;
 	for (rch = ch->in_room->people; rch; rch = rch->next_in_room) {
 		if ((light = get_eq_char(rch, WEAR_LIGHT))
-		&&  INT_VAL(light->value[2]) != 0) {
+		&&  INT(light->value[2]) != 0) {
 			light_exist = 1;
 			break;
 		}
@@ -2039,7 +2040,7 @@ void look_at(CHAR_DATA *ch, ROOM_INDEX_DATA *room)
 
 	if ((obj = get_eq_char(ch, WEAR_LIGHT))
 	&&  obj->pObjIndex->item_type == ITEM_LIGHT
-	&&  INT_VAL(obj->value[2])) {
+	&&  INT(obj->value[2])) {
 		adjust_light = TRUE;
 		room->light++;
 	}
@@ -2127,7 +2128,7 @@ void format_obj(BUFFER *output, OBJ_DATA *obj)
 	case ITEM_WAND: 
 	case ITEM_STAFF: 
 		buf_printf(output, "Has %d charges of level %d",
-			   INT_VAL(obj->value[2]), INT_VAL(obj->value[0]));
+			   INT(obj->value[2]), INT(obj->value[0]));
 	  
 		if (!IS_NULLSTR(obj->value[3].s))
 			buf_printf(output, " '%s'", obj->value[3].s);
@@ -2136,7 +2137,7 @@ void format_obj(BUFFER *output, OBJ_DATA *obj)
 		break;
 
 	case ITEM_DRINK_CON:
-		if ((lq = liquid_lookup(STR_VAL(obj->value[2]))) == NULL)
+		if ((lq = liquid_lookup(STR(obj->value[2]))) == NULL)
 			break;
 		buf_printf(output, "It holds %s-colored %s.\n",
 			   lq->color, lq->name);
@@ -2146,28 +2147,28 @@ void format_obj(BUFFER *output, OBJ_DATA *obj)
 		buf_printf(output,
 			   "Capacity: %d#  Maximum weight: %d#  flags: %s\n",
 			   obj->value[0], obj->value[3],
-			   SFLAGS_VAL(cont_flags, obj->value[1]));
-		if (INT_VAL(obj->value[4]) != 100)
+			   SFLAGS(cont_flags, obj->value[1]));
+		if (INT(obj->value[4]) != 100)
 			buf_printf(output, "Weight multiplier: %d%%\n",
-				   INT_VAL(obj->value[4]));
+				   INT(obj->value[4]));
 		break;
 			
 	case ITEM_WEAPON:
 		buf_printf(output, "Weapon type is %s.\n",
-			   SFLAGS_VAL(weapon_class, obj->value[0]));
+			   SFLAGS(weapon_class, obj->value[0]));
 		buf_printf(output, "Damage is %dd%d (average %d).\n",
-			   INT_VAL(obj->value[1]), INT_VAL(obj->value[2]),
-			   (1 + INT_VAL(obj->value[2])) * INT_VAL(obj->value[1]) / 2);
-		if (INT_VAL(obj->value[4]))
+			   INT(obj->value[1]), INT(obj->value[2]),
+			   (1 + INT(obj->value[2])) * INT(obj->value[1]) / 2);
+		if (INT(obj->value[4]))
 	        	buf_printf(output, "Weapons flags: %s\n",
-				   SFLAGS_VAL(weapon_type2, obj->value[4]));
+				   SFLAGS(weapon_type2, obj->value[4]));
 		break;
 
 	case ITEM_ARMOR:
 		buf_printf(output, "Armor class is %d pierce, "
 				   "%d bash, %d slash, and %d vs. magic.\n", 
-			   INT_VAL(obj->value[0]), INT_VAL(obj->value[1]),
-			   INT_VAL(obj->value[2]), INT_VAL(obj->value[3]));
+			   INT(obj->value[0]), INT(obj->value[1]),
+			   INT(obj->value[2]), INT(obj->value[3]));
 		break;
 	}
 }
@@ -2179,10 +2180,10 @@ void format_obj_affects(BUFFER *output, AFFECT_DATA *paf, int flags)
 
 		if (paf->where != TO_SKILLS
 		&&  paf->where != TO_RACE
-		&&  INT_VAL(paf->location) != APPLY_NONE
+		&&  INT(paf->location) != APPLY_NONE
 		&&  paf->modifier) { 
 			buf_printf(output, "Affects %s by %d",
-				   SFLAGS_VAL(apply_flags, paf->location),
+				   SFLAGS(apply_flags, paf->location),
 				   paf->modifier);
 			if (!IS_SET(flags, FOA_F_NODURATION)
 			&&  paf->duration > -1)
@@ -2201,7 +2202,7 @@ void format_obj_affects(BUFFER *output, AFFECT_DATA *paf, int flags)
 		||  paf->where == TO_RACE) {
 			buf_add(output, "Affects ");
 			buf_printf(output, w->format,
-				STR_VAL(paf->location),
+				STR(paf->location),
 				paf->modifier,
 				flag_string(w->table, paf->bitvector));
 			buf_add(output, ".\n");
@@ -3681,8 +3682,8 @@ void get_obj(CHAR_DATA * ch, OBJ_DATA * obj, OBJ_DATA * container,
 	}
 
 	if (obj->pObjIndex->item_type == ITEM_MONEY) {
-		ch->silver += INT_VAL(obj->value[0]);
-		ch->gold += INT_VAL(obj->value[1]);
+		ch->silver += INT(obj->value[0]);
+		ch->gold += INT(obj->value[1]);
 		if (!IS_NPC(ch)
 		&&  IS_SET(PC(ch)->plr_flags, PLR_AUTOSPLIT)) {
 			/* AUTOSPLIT code */
@@ -3695,8 +3696,8 @@ void get_obj(CHAR_DATA * ch, OBJ_DATA * obj, OBJ_DATA * container,
 			}
 
 			if (members > 1
-			&&  (INT_VAL(obj->value[0]) > 1 ||
-			     INT_VAL(obj->value[1]))) {
+			&&  (INT(obj->value[0]) > 1 ||
+			     INT(obj->value[1]))) {
 				dofun("split", ch, "%d %d", obj->value[0],
 				       obj->value[1]);
 			}
@@ -3718,16 +3719,16 @@ void quaff_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 
 	obj_to_char(create_obj(get_obj_index(OBJ_VNUM_POTION_VIAL), 0), ch);
 
-	obj_cast_spell(obj->value[1].s, INT_VAL(obj->value[0]), ch, ch);
+	obj_cast_spell(obj->value[1].s, INT(obj->value[0]), ch, ch);
 
 	if (!IS_EXTRACTED(ch))
-		obj_cast_spell(obj->value[2].s, INT_VAL(obj->value[0]), ch, ch);
+		obj_cast_spell(obj->value[2].s, INT(obj->value[0]), ch, ch);
 
 	if (!IS_EXTRACTED(ch))
-		obj_cast_spell(obj->value[3].s, INT_VAL(obj->value[0]), ch, ch);
+		obj_cast_spell(obj->value[3].s, INT(obj->value[0]), ch, ch);
 
 	if (!IS_EXTRACTED(ch))
-		obj_cast_spell(obj->value[4].s, INT_VAL(obj->value[0]), ch, ch);
+		obj_cast_spell(obj->value[4].s, INT(obj->value[0]), ch, ch);
 
 	extract_obj(obj, 0);
 }

@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.203 1999-11-27 11:06:11 fjoe Exp $
+ * $Id: act_wiz.c,v 1.204 1999-12-01 09:07:06 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1086,7 +1086,7 @@ void do_ostat(CHAR_DATA *ch, const char *argument)
 	case ITEM_SCROLL: 
 	case ITEM_POTION:
 	case ITEM_PILL:
-		buf_printf(output, "Level %d spells of:", INT_VAL(obj->value[0]));
+		buf_printf(output, "Level %d spells of:", INT(obj->value[0]));
 
 		for (i = 1; i < 5; i++)
 			if (!IS_NULLSTR(obj->value[i].s)) 
@@ -1097,7 +1097,7 @@ void do_ostat(CHAR_DATA *ch, const char *argument)
 	case ITEM_WAND: 
 	case ITEM_STAFF: 
 		buf_printf(output, "Has %d(%d) charges of level %d",
-			   INT_VAL(obj->value[1]), INT_VAL(obj->value[2]), INT_VAL(obj->value[0]));
+			   INT(obj->value[1]), INT(obj->value[2]), INT(obj->value[0]));
 	  
 		if (!IS_NULLSTR(obj->value[3].s))
 			buf_printf(output, " '%s'", obj->value[3].s);
@@ -1105,7 +1105,7 @@ void do_ostat(CHAR_DATA *ch, const char *argument)
 		break;
 
 	case ITEM_DRINK_CON:
-		if ((lq = liquid_lookup(STR_VAL(obj->value[2]))) == NULL)
+		if ((lq = liquid_lookup(STR(obj->value[2]))) == NULL)
 			break;
 		buf_printf(output, "It holds %s-colored %s.\n",
 			   lq->color,
@@ -1114,32 +1114,32 @@ void do_ostat(CHAR_DATA *ch, const char *argument)
 	  
 	case ITEM_WEAPON:
 		buf_printf(output, "%s\n",
-			   flag_string(weapon_class, INT_VAL(obj->value[0])));
+			   flag_string(weapon_class, INT(obj->value[0])));
 		buf_printf(output,"Damage is %dd%d (average %d)\n",
-			   INT_VAL(obj->value[1]), INT_VAL(obj->value[2]),
-			   (1 + INT_VAL(obj->value[2])) * INT_VAL(obj->value[1]) / 2);
+			   INT(obj->value[1]), INT(obj->value[2]),
+			   (1 + INT(obj->value[2])) * INT(obj->value[1]) / 2);
 		buf_printf(output, "Damage noun is %s.\n",
 			   damtype_noun(obj->value[3].s));
 		    
-		if (INT_VAL(obj->value[4]))  /* weapon flags */
+		if (INT(obj->value[4]))  /* weapon flags */
 		        buf_printf(output,"Weapons flags: %s\n",
-				   flag_string(weapon_type2, INT_VAL(obj->value[4])));
+				   flag_string(weapon_type2, INT(obj->value[4])));
 		break;
 
 	case ITEM_ARMOR:
 		buf_printf(output, 
 		    "Armor class is %d pierce, %d bash, %d slash, and %d vs. magic\n",
-		        INT_VAL(obj->value[0]), INT_VAL(obj->value[1]), INT_VAL(obj->value[2]),
-			INT_VAL(obj->value[3]));
+		        INT(obj->value[0]), INT(obj->value[1]), INT(obj->value[2]),
+			INT(obj->value[3]));
 		break;
 
 	case ITEM_CONTAINER:
 	        buf_printf(output,"Capacity: %d#  Maximum weight: %d#  flags: %s\n",
-	        	   INT_VAL(obj->value[0]), INT_VAL(obj->value[3]),
-			   flag_string(cont_flags, INT_VAL(obj->value[1])));
-	        if (INT_VAL(obj->value[4]) != 100)
+	        	   INT(obj->value[0]), INT(obj->value[3]),
+			   flag_string(cont_flags, INT(obj->value[1])));
+	        if (INT(obj->value[4]) != 100)
 	        	buf_printf(output,"Weight multiplier: %d%%\n",
-				   INT_VAL(obj->value[4]));
+				   INT(obj->value[4]));
 		break;
 	}
 
@@ -1386,12 +1386,12 @@ void do_mstat(CHAR_DATA *ch, const char *argument)
 		buf_printf(output, "Spell: '{c%s{x'", paf->type);
 		if (paf->where == TO_RACE) {
 			buf_printf(output, " changes race to '{c%s{x'",
-				   STR_VAL(paf->location));
+				   STR(paf->location));
 		} else {
 			buf_printf(output, " modifies '{c%s{x' by {c%d{x",
 				paf->where == TO_SKILLS ?
-					STR_VAL(paf->location) :
-					SFLAGS_VAL(apply_flags, paf->location),
+					STR(paf->location) :
+					SFLAGS(apply_flags, paf->location),
 				paf->modifier);
 		}
 
@@ -2407,7 +2407,7 @@ void do_peace(CHAR_DATA *ch, const char *argument)
 			af.type = "calm";
 			af.level = MAX_LEVEL;
 			af.duration = 15;
-			af.location = APPLY_NONE;
+			INT(af.location) = APPLY_NONE;
 			af.modifier = 0;
 			af.bitvector = AFF_CALM;
 			affect_to_char(rch, &af);
@@ -2721,34 +2721,6 @@ void do_oset(CHAR_DATA *ch, const char *argument)
 	}
 
 	value = atoi(arg3);
-
-	/*
-	 * Set something.
-	 */
-	if (!str_cmp(arg2, "value0") || !str_cmp(arg2, "v0")) {
-		obj->value[0] = value;
-		return;
-	}
-
-	if (!str_cmp(arg2, "value1") || !str_cmp(arg2, "v1")) {
-		obj->value[1] = value;
-		return;
-	}
-
-	if (!str_cmp(arg2, "value2") || !str_cmp(arg2, "v2")) {
-		obj->value[2] = value;
-		return;
-	}
-
-	if (!str_cmp(arg2, "value3") || !str_cmp(arg2, "v3")) {
-		obj->value[3] = value;
-		return;
-	}
-
-	if (!str_cmp(arg2, "value4") || !str_cmp(arg2, "v4")) {
-		obj->value[4] = value;
-		return;
-	}
 
 	if (!str_prefix(arg2, "level")) {
 		obj->level = value;
@@ -4184,7 +4156,7 @@ void do_qtarget(CHAR_DATA *ch, const char *argument)
 	af.duration	= -1;
 	af.modifier	= high;
 	af.bitvector	= AFF_QUESTTARGET;
-	af.location	= APPLY_NONE;
+	INT(af.location)= APPLY_NONE;
 	affect_to_char(vch, &af);
 }
 

@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.171 1999-11-27 08:24:21 fjoe Exp $
+ * $Id: update.c,v 1.172 1999-12-01 09:07:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -326,7 +326,7 @@ int hit_gain(CHAR_DATA *ch)
 	gain = gain * ch->in_room->heal_rate / 100;
 	
 	if (ch->on != NULL && ch->on->pObjIndex->item_type == ITEM_FURNITURE)
-		gain = gain * INT_VAL(ch->on->value[3]) / 100;
+		gain = gain * INT(ch->on->value[3]) / 100;
 
 	if (IS_AFFECTED(ch, AFF_POISON))
 		gain /= 4;
@@ -402,7 +402,7 @@ int mana_gain(CHAR_DATA *ch)
 	gain = gain * ch->in_room->mana_rate / 100;
 
 	if (ch->on != NULL && ch->on->pObjIndex->item_type == ITEM_FURNITURE)
-		gain = gain * INT_VAL(ch->on->value[4]) / 100;
+		gain = gain * INT(ch->on->value[4]) / 100;
 
 	if (IS_AFFECTED(ch, AFF_POISON))
 		gain /= 4;
@@ -458,7 +458,7 @@ int move_gain(CHAR_DATA *ch)
 	gain = gain * ch->in_room->heal_rate/100;
 
 	if (ch->on != NULL && ch->on->pObjIndex->item_type == ITEM_FURNITURE)
-		gain = gain * INT_VAL(ch->on->value[3]) / 100;
+		gain = gain * INT(ch->on->value[3]) / 100;
 
 	if (IS_AFFECTED(ch, AFF_POISON))
 		gain /= 4;
@@ -1204,8 +1204,8 @@ void char_update(void)
 
 			if ((obj = get_eq_char(ch, WEAR_LIGHT))
 			&&  obj->pObjIndex->item_type == ITEM_LIGHT
-			&&  INT_VAL(obj->value[2]) > 0) {
-				if (--INT_VAL(obj->value[2]) == 0) {
+			&&  INT(obj->value[2]) > 0) {
+				if (--INT(obj->value[2]) == 0) {
 					if (ch->in_room->light > 0)
 						--ch->in_room->light;
 					act("$p goes out.",
@@ -1213,7 +1213,7 @@ void char_update(void)
 					act("$p flickers and goes out.",
 					    ch, obj, NULL, TO_CHAR);
 					extract_obj(obj, 0);
-				} else if (INT_VAL(obj->value[2]) <= 5)
+				} else if (INT(obj->value[2]) <= 5)
 					act("$p flickers.",
 					    ch, obj, NULL, TO_CHAR);
 			}
@@ -1322,15 +1322,15 @@ void water_float_update(void)
 						obj->water_float - 1 : -1;
 
 		if (obj->pObjIndex->item_type == ITEM_DRINK_CON) {
-			INT_VAL(obj->value[1]) =
-				URANGE(1, INT_VAL(obj->value[1]) + 8,
-				       INT_VAL(obj->value[0]));
+			INT(obj->value[1]) =
+				URANGE(1, INT(obj->value[1]) + 8,
+				       INT(obj->value[0]));
 			if ((ch = obj->in_room->people))
 				act("$p makes bubbles on the water.", ch, obj,
 				    NULL, TO_ALL);
-			obj->water_float = INT_VAL(obj->value[0]) -
-					   INT_VAL(obj->value[1]);
-			obj->value[2] = 0;
+			obj->water_float = INT(obj->value[0]) -
+					   INT(obj->value[1]);
+			INT(obj->value[2]) = 0;
 		}
 		if (obj->water_float == 0) {
 			if((ch = obj->in_room->people))
@@ -1426,7 +1426,7 @@ bool update_drinkcon(OBJ_DATA *obj)
 	&&  number_percent() < 20)  {
 		act("Liquid in $p evaporates.",
 			obj->carried_by, obj, NULL, TO_CHAR);
-		INT_VAL(obj->value[1]) = 0;
+		INT(obj->value[1]) = 0;
 		return TRUE;
 	}
 	if (obj->in_room
@@ -1434,7 +1434,7 @@ bool update_drinkcon(OBJ_DATA *obj)
 	&&  number_percent() < 30) {
 		act("$p evaporates by the extream heat.", obj->in_room->people,
 		    obj, NULL, TO_ALL);
-		INT_VAL(obj->value[1]) = 0;
+		INT(obj->value[1]) = 0;
 		return TRUE;
 	}
 	return FALSE;
@@ -1588,7 +1588,7 @@ void update_one_obj(OBJ_DATA *obj)
 			break;
 	}
 
-	if (obj->carried_by)
+	if (obj->carried_by) {
 		if (IS_NPC(obj->carried_by) 
 		&&  obj->carried_by->pMobIndex->pShop != NULL)
 			obj->carried_by->silver += obj->cost/5;
@@ -1598,6 +1598,7 @@ void update_one_obj(OBJ_DATA *obj)
 				act(message, obj->carried_by, obj, NULL,
 				    TO_ROOM);
 		}
+	}
 
 	if (obj->in_room && (rch = obj->in_room->people)
 	&&  !IS_SET(obj->pObjIndex->extra_flags, ITEM_PIT))
@@ -1985,16 +1986,19 @@ void check_reboot(void)
 	case 5:
 	case 10:
 	case 15:
-		for (d = descriptor_list; d != NULL; d = d->next) 
-			if (d->character != NULL)
-				if (rebooter || !IS_IMMORTAL(d->character))
+		for (d = descriptor_list; d != NULL; d = d->next) {
+			if (d->character != NULL) {
+				if (rebooter || !IS_IMMORTAL(d->character)) {
 					char_printf(d->character, 
 						    "{*{W*****{R rEBOOT IN {W%d{R MIN. {W*****{x\n",
 					    	    reboot_counter);
-				else
+				} else {
 					char_printf(d->character, 
 						    "{*{W*****{R AUTOMAGIC rEBOOT IN {W%d{R MIN. {W*****{x\n",
 					    	    reboot_counter);
+				}
+			}
+		}
 
 		/* FALLTHRU */
 	default: 

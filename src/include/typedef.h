@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: typedef.h,v 1.33 1999-10-25 12:05:21 fjoe Exp $
+ * $Id: typedef.h,v 1.34 1999-12-01 09:07:09 fjoe Exp $
  */
 
 #ifndef _TYPEDEF_H_
@@ -104,12 +104,12 @@ union vo_t {
 	MOB_INDEX_DATA *m;
 };
 
-#define INT_VAL(v)		((v).i)
-#define STR_VAL(v)		(IS_NULLSTR((v).s) ? str_empty: (v).s)
-#define STR_VAL1(v)		(IS_NULLSTR((v).s) ? "none" : (v).s)
-#define FLAGS_VAL(v)		(format_flags(INT_VAL(v)))
-#define SFLAGS_VAL(t, v)	(flag_string((t), INT_VAL(v)))
-#define STR_VAL_ASSIGN(v, str)			\
+#define INT(v)		((v).i)
+#define STR(v)		(IS_NULLSTR((v).s) ? str_empty: (v).s)
+#define STR1(v)		(IS_NULLSTR((v).s) ? "none" : (v).s)
+#define FLAGS(v)		(format_flags(INT(v)))
+#define SFLAGS(t, v)	(flag_string((t), INT(v)))
+#define STR_ASSIGN(v, str)			\
 	do {					\
 		free_string((v).s);		\
 		(v).s = (str);			\

@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.140 1999-11-28 12:48:41 fjoe Exp $
+ * $Id: save.c,v 1.141 1999-12-01 09:07:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -504,11 +504,11 @@ fwrite_obj(CHAR_DATA * ch, OBJ_DATA * obj, FILE * fp, int iNest)
 		fprintf(fp, "Time %d\n", obj->timer);
 	fprintf(fp, "Cost %d\n", obj->cost);
 
-	if (INT_VAL(obj->value[0]) != INT_VAL(obj->pObjIndex->value[0])
-	||  INT_VAL(obj->value[1]) != INT_VAL(obj->pObjIndex->value[1])
-	||  INT_VAL(obj->value[2]) != INT_VAL(obj->pObjIndex->value[2])
-	||  INT_VAL(obj->value[3]) != INT_VAL(obj->pObjIndex->value[3])
-	||  INT_VAL(obj->value[4]) != INT_VAL(obj->pObjIndex->value[4])) {
+	if (INT(obj->value[0]) != INT(obj->pObjIndex->value[0])
+	||  INT(obj->value[1]) != INT(obj->pObjIndex->value[1])
+	||  INT(obj->value[2]) != INT(obj->pObjIndex->value[2])
+	||  INT(obj->value[3]) != INT(obj->pObjIndex->value[3])
+	||  INT(obj->value[4]) != INT(obj->pObjIndex->value[4])) {
 		fprintf(fp, "Values ");
 		fwrite_objval(obj->pObjIndex->item_type, obj->value, fp);
 	}
@@ -1116,7 +1116,7 @@ fread_obj(CHAR_DATA * ch, rfile_t * fp, int flags)
 					log("fread_obj: %s: %d: bad iValue", ch->name, iValue);
 					free_string(sn);
 				} else
-					STR_VAL_ASSIGN(obj->value[iValue], sn);
+					STR_ASSIGN(obj->value[iValue], sn);
 				fMatch = TRUE;
 				break;
 			}
@@ -1131,7 +1131,7 @@ fread_obj(CHAR_DATA * ch, rfile_t * fp, int flags)
 				fread_objval(obj->pObjIndex->item_type,
 					     obj->value, fp);
 				if (obj->pObjIndex->item_type == ITEM_WEAPON
-				&&  INT_VAL(obj->value[0]) == 0)
+				&&  INT(obj->value[0]) == 0)
 					obj->value[0] = obj->pObjIndex->value[0];
 				fMatch = TRUE;
 			}

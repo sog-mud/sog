@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.c,v 1.70 1999-11-25 08:14:38 fjoe Exp $
+ * $Id: obj_prog.c,v 1.71 1999-12-01 09:07:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -318,16 +318,21 @@ void oprog_set(OBJ_INDEX_DATA *pObjIndex,const char *progtype, const char *name)
 
 int wear_prog_excalibur(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 {
+	int v2;
+
 	act("$p begins to shine a bright white.",ch,obj,NULL,TO_CHAR);
 	act("$p begins to shine a bright white.",ch,obj,NULL,TO_ROOM);
-	if (			   LEVEL(ch) <= 20)	obj->value[2] = 3;
-	else if (LEVEL(ch) > 20 && LEVEL(ch) <= 30)	obj->value[2] = 4;
-	else if (LEVEL(ch) > 30 && LEVEL(ch) <= 40)	obj->value[2] = 5;
-	else if (LEVEL(ch) > 40 && LEVEL(ch) <= 50)	obj->value[2] = 6;
-	else if (LEVEL(ch) > 50 && LEVEL(ch) <= 60)	obj->value[2] = 8;
-	else if (LEVEL(ch) > 60 && LEVEL(ch) <= 70)	obj->value[2] = 10;
-	else if (LEVEL(ch) > 70 && LEVEL(ch) <= 80)	obj->value[2] = 11;
-	else						obj->value[2] = 12;
+
+	if (			   LEVEL(ch) <= 20)	v2 = 3;
+	else if (LEVEL(ch) > 20 && LEVEL(ch) <= 30)	v2 = 4;
+	else if (LEVEL(ch) > 30 && LEVEL(ch) <= 40)	v2 = 5;
+	else if (LEVEL(ch) > 40 && LEVEL(ch) <= 50)	v2 = 6;
+	else if (LEVEL(ch) > 50 && LEVEL(ch) <= 60)	v2 = 8;
+	else if (LEVEL(ch) > 60 && LEVEL(ch) <= 70)	v2 = 10;
+	else if (LEVEL(ch) > 70 && LEVEL(ch) <= 80)	v2 = 11;
+	else						v2 = 12;
+
+	INT(obj->value[2]) = v2;
 	return 0;
 }
 
@@ -345,7 +350,7 @@ int wear_prog_bracer(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 	  af.duration = -2;
 	  af.level = LEVEL(ch);
 	  af.bitvector = AFF_HASTE;
-	  af.location = APPLY_DEX;
+	  INT(af.location) = APPLY_DEX;
 	  af.modifier = 1 + (LEVEL(ch) >= 18) + (LEVEL(ch) >= 30) + (LEVEL(ch) >= 45);
 	  affect_to_char(ch, &af);
 	}
@@ -821,14 +826,14 @@ int fight_prog_tattoo_ares(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 			af.modifier = LEVEL(ch) / 5;
 			af.bitvector = AFF_BERSERK;
 
-			af.location = APPLY_HITROLL;
+			INT(af.location) = APPLY_HITROLL;
 			affect_to_char(ch, &af);
 
-			af.location = APPLY_DAMROLL;
+			INT(af.location) = APPLY_DAMROLL;
 			affect_to_char(ch, &af);
 
 			af.modifier = 10 * (LEVEL(ch) / 10);
-			af.location = APPLY_AC;
+			INT(af.location) = APPLY_AC;
 			affect_to_char(ch, &af);
 		  
 			ch->hit += LEVEL(ch) * 2;
@@ -1270,7 +1275,7 @@ int wear_prog_wind_boots(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 	  af.duration = -2;
 	  af.level = LEVEL(ch);
 	  af.bitvector = AFF_FLYING;
-	  af.location = 0;
+	  INT(af.location) = 0;
 	  af.modifier = 0;
 	  affect_to_char(ch, &af);
 	}
@@ -1302,7 +1307,7 @@ int wear_prog_boots_flying(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 	  af.duration = -2;
 	  af.level = LEVEL(ch);
 	  af.bitvector = AFF_FLYING;
-	  af.location = 0;
+	  INT(af.location) = 0;
 	  af.modifier = 0;
 	  affect_to_char(ch, &af);
 	}
@@ -1334,7 +1339,7 @@ int wear_prog_arm_hercules(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 	  af.duration = -2;
 	  af.level = LEVEL(ch);
 	  af.bitvector = 0;
-	  af.location = APPLY_STR;
+	  INT(af.location) = APPLY_STR;
 	  af.modifier = 1 + (LEVEL(ch) >= 18) + (LEVEL(ch) >= 30) + (LEVEL(ch) >= 45);
 	  affect_to_char(ch, &af);
 	}
@@ -1365,7 +1370,7 @@ int wear_prog_girdle_giant(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 	  af.duration = -2;
 	  af.level = LEVEL(ch);
 	  af.bitvector = 0;
-	  af.location = APPLY_STR;
+	  INT(af.location) = APPLY_STR;
 	  af.modifier = 1 + (LEVEL(ch) >= 18) + (LEVEL(ch) >= 30) + (LEVEL(ch) >= 45);
 	  affect_to_char(ch, &af);
 	}
@@ -1396,7 +1401,7 @@ int wear_prog_breastplate_strength(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg
 	  af.duration = -2;
 	  af.level = LEVEL(ch);
 	  af.bitvector = 0;
-	  af.location = APPLY_STR;
+	  INT(af.location) = APPLY_STR;
 	  af.modifier = 1 + (LEVEL(ch) >= 18) + (LEVEL(ch) >= 30) + (LEVEL(ch) >= 45);
 	  affect_to_char(ch, &af);
 	}
@@ -1482,17 +1487,22 @@ int speech_prog_ring_ra(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 
 int wear_prog_eyed_sword(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 {
+	int v2;
+
 	act("$p's eye opens.",ch,obj,NULL,TO_CHAR);
 	act("$p's eye opens.",ch,obj,NULL,TO_ROOM);
-	if (LEVEL(ch) <= 10)			obj->value[2] = 3;
-	else if (LEVEL(ch) > 10 && LEVEL(ch) <= 20)   obj->value[2] = 4;
-	else if (LEVEL(ch) > 20 && LEVEL(ch) <= 30)   obj->value[2] = 5;
-	else if (LEVEL(ch) > 30 && LEVEL(ch) <= 40)   obj->value[2] = 6;
-	else if (LEVEL(ch) > 40 && LEVEL(ch) <= 50)   obj->value[2] = 7;
-	else if (LEVEL(ch) > 50 && LEVEL(ch) <= 60)   obj->value[2] = 8;
-	else if (LEVEL(ch) > 60 && LEVEL(ch) <= 70)   obj->value[2] = 9;
-	else if (LEVEL(ch) > 70 && LEVEL(ch) <= 80)   obj->value[2] = 10;
-	else obj->value[2] = 11;
+
+	if (LEVEL(ch) <= 10)				v2 = 3;
+	else if (LEVEL(ch) > 10 && LEVEL(ch) <= 20)	v2 = 4;
+	else if (LEVEL(ch) > 20 && LEVEL(ch) <= 30)	v2 = 5;
+	else if (LEVEL(ch) > 30 && LEVEL(ch) <= 40)	v2 = 6;
+	else if (LEVEL(ch) > 40 && LEVEL(ch) <= 50)	v2 = 7;
+	else if (LEVEL(ch) > 50 && LEVEL(ch) <= 60)	v2 = 8;
+	else if (LEVEL(ch) > 60 && LEVEL(ch) <= 70)	v2 = 9;
+	else if (LEVEL(ch) > 70 && LEVEL(ch) <= 80)	v2 = 10;
+	else						v2 = 11;
+
+	INT(obj->value[2]) = v2;
 	obj->level = LEVEL(ch);
 	return 0;
 }
@@ -1502,24 +1512,28 @@ int wear_prog_katana_sword(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 	if (obj->pObjIndex->item_type == ITEM_WEAPON 
 	&&  IS_WEAPON_STAT(obj, WEAPON_KATANA)
 	&&  IS_OWNER(ch, obj)) {
+		int v2;
+
 		if (LEVEL(ch) <= 10)
-			obj->value[2] = 3;
+			v2 = 3;
 		else if (LEVEL(ch) > 10 && LEVEL(ch) <= 20)
-			obj->value[2] = 4;
+			v2 = 4;
 		else if (LEVEL(ch) > 20 && LEVEL(ch) <= 30)
-			obj->value[2] = 5;
+			v2 = 5;
 		else if (LEVEL(ch) > 30 && LEVEL(ch) <= 40)
-			obj->value[2] = 6;
+			v2 = 6;
 		else if (LEVEL(ch) > 40 && LEVEL(ch) <= 50)
-			obj->value[2] = 7;
+			v2 = 7;
 		else if (LEVEL(ch) > 50 && LEVEL(ch) <= 60)
-			obj->value[2] = 8;
+			v2 = 8;
 		else if (LEVEL(ch) > 60 && LEVEL(ch) <= 70)
-			obj->value[2] = 9;
+			v2 = 9;
 		else if (LEVEL(ch) > 70 && LEVEL(ch) <= 80)
-			obj->value[2] = 11;
+			v2 = 11;
 		else
-			obj->value[2] = 12;
+			v2 = 12;
+
+		INT(obj->value[2]) = v2;
 		obj->level = LEVEL(ch);
 		char_puts("You feel your katana like a part of you!\n", ch);
 	}
@@ -1543,19 +1557,24 @@ int fight_prog_tattoo_goktengri(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 
 int wear_prog_snake(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 {
+	int v2;
+
 	act_puts("Snakes of whip starts to breath a poisonous air.",
 			ch,obj,NULL,TO_CHAR,POS_DEAD);
 	act_puts("Snakes of whip starts to breath a poisonous air.",
 			ch,obj,NULL,TO_ROOM,POS_DEAD);
-	if (LEVEL(ch) <= 10)			obj->value[2] = 3;
-	else if (LEVEL(ch) > 10 && LEVEL(ch) <= 20)   obj->value[2] = 4;
-	else if (LEVEL(ch) > 20 && LEVEL(ch) <= 30)   obj->value[2] = 5;
-	else if (LEVEL(ch) > 30 && LEVEL(ch) <= 40)   obj->value[2] = 6;
-	else if (LEVEL(ch) > 40 && LEVEL(ch) <= 50)   obj->value[2] = 7;
-	else if (LEVEL(ch) > 50 && LEVEL(ch) <= 60)   obj->value[2] = 8;
-	else if (LEVEL(ch) > 60 && LEVEL(ch) <= 70)   obj->value[2] = 9;
-	else if (LEVEL(ch) > 70 && LEVEL(ch) <= 80)   obj->value[2] = 10;
-	else obj->value[2] = 11;
+
+	if (LEVEL(ch) <= 10)				v2 = 3;
+	else if (LEVEL(ch) > 10 && LEVEL(ch) <= 20)	v2 = 4;
+	else if (LEVEL(ch) > 20 && LEVEL(ch) <= 30)	v2 = 5;
+	else if (LEVEL(ch) > 30 && LEVEL(ch) <= 40)	v2 = 6;
+	else if (LEVEL(ch) > 40 && LEVEL(ch) <= 50)	v2 = 7;
+	else if (LEVEL(ch) > 50 && LEVEL(ch) <= 60)	v2 = 8;
+	else if (LEVEL(ch) > 60 && LEVEL(ch) <= 70)	v2 = 9;
+	else if (LEVEL(ch) > 70 && LEVEL(ch) <= 80)	v2 = 10;
+	else						v2 = 11;
+
+	INT(obj->value[2]) = v2;
 	return 0;
 }
 
@@ -1589,7 +1608,7 @@ int wear_prog_fire_shield(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 	  af.duration = -2;
 	  af.level = LEVEL(ch);
 	  af.bitvector = RES_COLD;
-	  af.location = 0;
+	  INT(af.location) = 0;
 	  af.modifier = 0;
 	  affect_to_char(ch, &af);
 	}
@@ -1605,7 +1624,7 @@ int wear_prog_fire_shield(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 	  af.duration = -2;
 	  af.level = LEVEL(ch);
 	  af.bitvector = RES_FIRE;
-	  af.location = 0;
+	  INT(af.location) = 0;
 	  af.modifier = 0;
 	  affect_to_char(ch, &af);
 	}
@@ -1628,16 +1647,21 @@ int remove_prog_fire_shield(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 int wear_prog_quest_weapon(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 {
 	if (IS_OWNER(ch, obj)) {
+		int v2;
+
 		act_puts("Your weapon starts glowing.",
 			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
-		     if (                  LEVEL(ch) <= 20) obj->value[2] = 3;
-		else if (LEVEL(ch) > 20 && LEVEL(ch) <= 30) obj->value[2] = 4;
-		else if (LEVEL(ch) > 30 && LEVEL(ch) <= 40) obj->value[2] = 5;
-		else if (LEVEL(ch) > 40 && LEVEL(ch) <= 50) obj->value[2] = 6;
-		else if (LEVEL(ch) > 50 && LEVEL(ch) <= 60) obj->value[2] = 8;
-		else if (LEVEL(ch) > 60 && LEVEL(ch) <= 70) obj->value[2] = 10;
-		else if (LEVEL(ch) > 70 && LEVEL(ch) <= 80) obj->value[2] = 11;
-		else					    obj->value[2] = 12;
+
+		     if (                  LEVEL(ch) <= 20) v2 = 3;
+		else if (LEVEL(ch) > 20 && LEVEL(ch) <= 30) v2 = 4;
+		else if (LEVEL(ch) > 30 && LEVEL(ch) <= 40) v2 = 5;
+		else if (LEVEL(ch) > 40 && LEVEL(ch) <= 50) v2 = 6;
+		else if (LEVEL(ch) > 50 && LEVEL(ch) <= 60) v2 = 8;
+		else if (LEVEL(ch) > 60 && LEVEL(ch) <= 70) v2 = 10;
+		else if (LEVEL(ch) > 70 && LEVEL(ch) <= 80) v2 = 11;
+		else					    v2 = 12;
+
+		INT(obj->value[2]) = 12;
 		obj->level = LEVEL(ch);
 		return 0;
 	}

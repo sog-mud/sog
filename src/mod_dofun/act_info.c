@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.291 1999-11-27 11:06:09 fjoe Exp $
+ * $Id: act_info.c,v 1.292 1999-12-01 09:07:03 fjoe Exp $
  */
 
 /***************************************************************************
@@ -490,22 +490,22 @@ static void do_look_in(CHAR_DATA* ch, const char *argument)
 		char_puts("That is not a container.\n", ch);
 		break;
 	case ITEM_DRINK_CON:
-		if ((lq = liquid_lookup(STR_VAL(obj->value[2]))) == NULL) {
-			bug("Do_look_in: bad liquid %s.", STR_VAL(obj->value[2]));
+		if ((lq = liquid_lookup(STR(obj->value[2]))) == NULL) {
+			bug("Do_look_in: bad liquid %s.", STR(obj->value[2]));
 			break;
 		}
-		if (INT_VAL(obj->value[1]) == 0) {
+		if (INT(obj->value[1]) == 0) {
 			char_puts("It is empty.\n", ch);
 			break;
 		}
 
 		act_puts3("It's $ufilled with a $U liquid.",
 			  ch,
-			  INT_VAL(obj->value[1]) < 0 ?
+			  INT(obj->value[1]) < 0 ?
 				"" :
-			  INT_VAL(obj->value[1]) < INT_VAL(obj->value[0]) / 4 ?
+			  INT(obj->value[1]) < INT(obj->value[0]) / 4 ?
 				"less than half-" :
-			  INT_VAL(obj->value[1]) < 3 * INT_VAL(obj->value[0]) / 4 ?
+			  INT(obj->value[1]) < 3 * INT(obj->value[0]) / 4 ?
 			 	"about half-" :
 			 	"more than half-",
 			  obj, lq->color, TO_CHAR, POS_DEAD);
@@ -514,7 +514,7 @@ static void do_look_in(CHAR_DATA* ch, const char *argument)
 	case ITEM_CONTAINER:
 	case ITEM_CORPSE_NPC:
 	case ITEM_CORPSE_PC:
-		if (IS_SET(INT_VAL(obj->value[1]), CONT_CLOSED) 
+		if (IS_SET(INT(obj->value[1]), CONT_CLOSED) 
 		&&  ((clan = clan_lookup(ch->clan)) == NULL ||
 		      clan->altar_ptr != obj)) {
 			act("It is closed.", ch, obj, NULL, TO_CHAR);
@@ -645,7 +645,7 @@ void do_look(CHAR_DATA *ch, const char *argument)
 			af.duration =  number_fuzzy(victim->level / 4);
 			af.bitvector = AFF_CHARM;
 			af.modifier = 0;
-			af.location = 0;
+			INT(af.location) = 0;
 			affect_to_char(ch, &af);
 
 			act("Isn't $n just so nice?",
@@ -663,27 +663,27 @@ void do_look(CHAR_DATA *ch, const char *argument)
 		if (can_see_obj(ch, obj)) {
 			/* player can see object */
 			ed = ed_lookup(arg3, obj->ed);
-			if (ed != NULL)
+			if (ed != NULL) {
 				if (++count == number) {
 					act_puts(mlstr_cval(&ed->description, ch),
 						 ch, NULL, NULL,
 						 TO_CHAR | ACT_NOLF, POS_DEAD);
 					return;
-				}
-				else
+				} else
 					continue;
+			}
 
 			ed = ed_lookup(arg3, obj->pObjIndex->ed);
 
-			if (ed != NULL)
+			if (ed != NULL) {
 				if (++count == number) {
 					act_puts(mlstr_cval(&ed->description, ch),
 						 ch, NULL, NULL,
 						 TO_CHAR | ACT_NOLF, POS_DEAD);
 					return;
-				}
-				else
+				} else
 					continue;
+			}
 
 			if (is_name(arg3, obj->name))
 				if (++count == number) {
@@ -817,15 +817,15 @@ void do_examine(CHAR_DATA *ch, const char *argument)
 	case ITEM_MONEY: {
 		const char *msg;
 
-		if (INT_VAL(obj->value[0]) == 0) {
-			if (INT_VAL(obj->value[1]) == 0)
+		if (INT(obj->value[0]) == 0) {
+			if (INT(obj->value[1]) == 0)
 				msg = "Odd...there's no coins in the pile.";
-			else if (INT_VAL(obj->value[1]) == 1)
+			else if (INT(obj->value[1]) == 1)
 				msg = "Wow. One gold coin.";
 			else
 				msg = "There are $J $qJ{gold coins} in this pile.";
-		} else if (INT_VAL(obj->value[1]) == 0) {
-			if (INT_VAL(obj->value[0]) == 1)
+		} else if (INT(obj->value[1]) == 0) {
+			if (INT(obj->value[0]) == 1)
 				msg = "Wow. One silver coin.";
 			else
 				msg = "There are $j $qj{silver coins} in the pile.";
@@ -833,8 +833,8 @@ void do_examine(CHAR_DATA *ch, const char *argument)
 			msg = "There are $J gold and $j $qj{silver coins} in the pile."; 
 		}
 		act_puts3(msg, ch,
-			  (const void*) INT_VAL(obj->value[0]), NULL,
-			  (const void*) INT_VAL(obj->value[1]),
+			  (const void*) INT(obj->value[0]), NULL,
+			  (const void*) INT(obj->value[1]),
 			  TO_CHAR, POS_DEAD);
 		break;
 	}
@@ -1366,28 +1366,29 @@ void do_compare(CHAR_DATA *ch, const char *argument)
 			break;
 
 		case ITEM_ARMOR:
-			value1 = INT_VAL(obj1->value[0]) +
-				 INT_VAL(obj1->value[1]) +
-				 INT_VAL(obj1->value[2]);
-			value2 = INT_VAL(obj2->value[0]) +
-				 INT_VAL(obj2->value[1]) +
-				 INT_VAL(obj2->value[2]);
+			value1 = INT(obj1->value[0]) +
+				 INT(obj1->value[1]) +
+				 INT(obj1->value[2]);
+			value2 = INT(obj2->value[0]) +
+				 INT(obj2->value[1]) +
+				 INT(obj2->value[2]);
 			break;
 
 		case ITEM_WEAPON:
-			value1 = (1 + INT_VAL(obj1->value[2])) * INT_VAL(obj1->value[1]);
-			value2 = (1 + INT_VAL(obj2->value[2])) * INT_VAL(obj2->value[1]);
+			value1 = (1 + INT(obj1->value[2])) * INT(obj1->value[1]);
+			value2 = (1 + INT(obj2->value[2])) * INT(obj2->value[1]);
 			break;
 		}
 	}
 
-	if (cmsg == NULL)
+	if (cmsg == NULL) {
 		if (value1 == value2)
 			cmsg = "$p and $P look about the same.";
 		else if (value1  > value2)
 			cmsg = "$p looks better than $P.";
 		else
 			cmsg = "$p looks worse than $P.";
+	}
 
 	act(cmsg, ch, obj1, obj2, TO_CHAR);
 }
@@ -1928,7 +1929,7 @@ void do_request(CHAR_DATA *ch, const char *argument)
 	af.where = TO_AFFECTS;
 	af.level = ch->level;
 	af.duration = ch->level / 10;
-	af.location = APPLY_NONE;
+	INT(af.location) = APPLY_NONE;
 	af.modifier = 0;
 	af.bitvector = 0;
 	affect_to_char(ch, &af);
@@ -2032,7 +2033,7 @@ void do_detect_hidden(CHAR_DATA *ch, const char *argument)
 	af.type      = "detect hide";
 	af.level     = LEVEL(ch);
 	af.duration  = LEVEL(ch);
-	af.location  = APPLY_NONE;
+	INT(af.location) = APPLY_NONE;
 	af.modifier  = 0;
 	af.bitvector = AFF_DETECT_HIDDEN;
 	affect_to_char(ch, &af);
@@ -2066,7 +2067,7 @@ void do_awareness(CHAR_DATA *ch, const char *argument)
 	af.type      = "awareness";
 	af.level     = LEVEL(ch);
 	af.duration  = LEVEL(ch);
-	af.location  = APPLY_NONE;
+	INT(af.location) = APPLY_NONE;
 	af.modifier  = 0;
 	af.bitvector = AFF_AWARENESS;
 	affect_to_char(ch, &af);
@@ -2178,7 +2179,7 @@ void do_bear_call(CHAR_DATA *ch, const char *argument)
 	af.duration	= skill_beats("bear call");
 	af.bitvector	= 0;
 	af.modifier	= 0;
-	af.location	= APPLY_NONE;
+	INT(af.location)= APPLY_NONE;
 	affect_to_char(ch, &af);
 
 	char_to_room(bear, ch->in_room);
@@ -2712,7 +2713,7 @@ void do_raffects(CHAR_DATA *ch, const char *argument)
 
 		if (ch->level >= 20) {
 			char_printf(ch, ": modifies {c%s{x by {c%d{x ",
-				    SFLAGS_VAL(rapply_flags, paf->location),
+				    SFLAGS(rapply_flags, paf->location),
 				    paf->modifier);
 			if (paf->duration == -1 || paf->duration == -2)
 				char_puts("permanently.", ch);
@@ -2824,7 +2825,7 @@ void do_lion_call(CHAR_DATA *ch, const char *argument)
 	af.duration	= skill_beats("lion call");
 	af.bitvector	= 0;
 	af.modifier	= 0;
-	af.location	= APPLY_NONE;
+	INT(af.location)= APPLY_NONE;
 	affect_to_char(ch, &af);
 
 	char_to_room(lion, ch->in_room);
@@ -3455,7 +3456,7 @@ void do_camp(CHAR_DATA *ch, const char *argument)
 	af.duration	= 12;
 	af.bitvector	= 0;
 	af.modifier	= 0;
-	af.location	= APPLY_NONE;
+	INT(af.location)= APPLY_NONE;
 	affect_to_char(ch, &af);
 
 	af.where	= TO_ROOM_CONST;
@@ -3464,13 +3465,13 @@ void do_camp(CHAR_DATA *ch, const char *argument)
 	af.duration	= ch->level / 20;
 	af.bitvector	= 0;
 	af.modifier	= 2 * LEVEL(ch);
-	af.location	= APPLY_ROOM_HEAL;
+	INT(af.location)= APPLY_ROOM_HEAL;
 	af.owner	= ch;
 	af.events	= 0;
 	affect_to_room(ch->in_room, &af);
 
 	af.modifier	= LEVEL(ch);
-	af.location	= APPLY_ROOM_MANA;
+	INT(af.location)= APPLY_ROOM_MANA;
 	affect_to_room(ch->in_room, &af);
 }
 
@@ -3729,19 +3730,19 @@ void do_make_arrow(CHAR_DATA *ch, const char *argument)
 
 		arrow = create_obj(pObjIndex, 0);
 		arrow->level = ch->level;
-		arrow->value[1] = 4 + LEVEL(ch) / 10;
-		arrow->value[2] = 4 + LEVEL(ch) / 10;
+		INT(arrow->value[1]) = 4 + LEVEL(ch) / 10;
+		INT(arrow->value[2]) = 4 + LEVEL(ch) / 10;
 
 		af.where	 = TO_OBJECT;
 		af.type		 = "make arrow";
 		af.level	 = ch->level;
 		af.duration	 = -1;
-		af.location	 = APPLY_HITROLL;
+		INT(af.location) = APPLY_HITROLL;
 		af.modifier	 = LEVEL(ch) / 10;
 		af.bitvector 	 = 0;
 		affect_to_obj(arrow, &af);
 
-		af.location	= APPLY_DAMROLL;
+		INT(af.location) = APPLY_DAMROLL;
 		affect_to_obj(arrow, &af);
 
 		obj_to_char(arrow, ch);
@@ -3791,19 +3792,19 @@ void do_make_bow(CHAR_DATA *ch, const char *argument)
 
 	bow = create_obj(get_obj_index(OBJ_VNUM_RANGER_BOW), 0);
 	bow->level = ch->level;
-	bow->value[1] = 4 + ch->level / 15;
-	bow->value[2] = 4 + ch->level / 15;
+	INT(bow->value[1]) = 4 + ch->level / 15;
+	INT(bow->value[2]) = 4 + ch->level / 15;
 
 	af.where	= TO_OBJECT;
 	af.type		= "make bow";
 	af.level	= ch->level;
 	af.duration	= -1;
-	af.location	= APPLY_HITROLL;
+	INT(af.location)= APPLY_HITROLL;
 	af.modifier	= LEVEL(ch) / 10;
 	af.bitvector 	= 0;
 	affect_to_obj(bow, &af);
 
-	af.location	= APPLY_DAMROLL;
+	INT(af.location)= APPLY_DAMROLL;
 	affect_to_obj(bow, &af);
 
 	obj_to_char(bow, ch);
@@ -3882,7 +3883,7 @@ void do_homepoint(CHAR_DATA *ch, const char *argument)
         af.duration     = 100;
         af.bitvector    = 0;
         af.modifier     = 0;
-        af.location     = APPLY_NONE;
+        INT(af.location)= APPLY_NONE;
         affect_to_char(ch, &af);
 
         argument = one_argument(argument, arg, sizeof(arg));
@@ -4234,9 +4235,9 @@ static void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 		}
 	
 		arg = victim->on;
-		if (IS_SET(INT_VAL(victim->on->value[2]), SLEEP_AT))
+		if (IS_SET(INT(victim->on->value[2]), SLEEP_AT))
 			msg = "$N {xis sleeping at $p.";
-		else if (IS_SET(INT_VAL(victim->on->value[2]), SLEEP_ON))
+		else if (IS_SET(INT(victim->on->value[2]), SLEEP_ON))
 			msg = "$N {xis sleeping on $p.";
 		else
 			msg = "$N {xis sleeping in $p.";
@@ -4249,9 +4250,9 @@ static void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 		}
 
 		arg = victim->on;
-		if (IS_SET(INT_VAL(victim->on->value[2]), REST_AT))
+		if (IS_SET(INT(victim->on->value[2]), REST_AT))
 			msg = "$N {xis resting at $p.";
-		else if (IS_SET(INT_VAL(victim->on->value[2]), REST_ON))
+		else if (IS_SET(INT(victim->on->value[2]), REST_ON))
 			msg = "$N {xis resting on $p.";
 		else
 			msg = "$N {xis resting in $p.";
@@ -4264,9 +4265,9 @@ static void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 		}
 	
 		arg = victim->on;
-		if (IS_SET(INT_VAL(victim->on->value[2]), SIT_AT))
+		if (IS_SET(INT(victim->on->value[2]), SIT_AT))
 			msg = "$N {xis sitting at $p.";
-		else if (IS_SET(INT_VAL(victim->on->value[2]), SIT_ON))
+		else if (IS_SET(INT(victim->on->value[2]), SIT_ON))
 			msg = "$N {xis sitting on $p.";
 		else
 			msg = "$N {xis sitting in $p.";
@@ -4290,9 +4291,9 @@ static void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 		}
 	
 		arg = victim->on;
-		if (IS_SET(INT_VAL(victim->on->value[2]), STAND_AT))
+		if (IS_SET(INT(victim->on->value[2]), STAND_AT))
 			msg = "$N {xis standing at $p.";
-		else if (IS_SET(INT_VAL(victim->on->value[2]), STAND_ON))
+		else if (IS_SET(INT(victim->on->value[2]), STAND_ON))
 			msg = "$N {xis standing on $p.";
 		else
 			msg = "$N {xis standing in $p.";

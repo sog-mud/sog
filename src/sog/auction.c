@@ -1,5 +1,5 @@
 /*
- * $Id: auction.c,v 1.46 1999-11-23 12:14:31 fjoe Exp $
+ * $Id: auction.c,v 1.47 1999-12-01 09:07:10 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -162,15 +162,14 @@ int parsebet(const int currentbet, const char *argument)
 	      newbet = (currentbet * 125) / 100; /* default: add 25% */
 	    else
 	      newbet = (currentbet * (100 + atoi (++stringptr))) / 100; /* cut off the first char */
-	  }
-	  else
-	    {
-	    if ((*stringptr == '*') || (*stringptr == 'x')) /* multiply */
+	  } else {
+	    if ((*stringptr == '*') || (*stringptr == 'x')) { /* multiply */
 	      if (strlen (stringptr) == 1) /* only x specified, assume default */
 	        newbet = currentbet * 2 ; /* default: twice */
 	      else /* user specified a number */
 	        newbet = currentbet * atoi (++stringptr); /* cut off the first char */
 	    }
+	 }
   }
 
   return newbet;        /* return the calculated bet */

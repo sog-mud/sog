@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.89 1999-11-30 14:50:34 kostik Exp $
+ * $Id: skills.c,v 1.90 1999-12-01 09:07:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -271,7 +271,7 @@ const char* get_weapon_sn(OBJ_DATA *wield)
 	if (wield->pObjIndex->item_type != ITEM_WEAPON)
 		return NULL;
 
-	switch (INT_VAL(wield->value[0])) {
+	switch (INT(wield->value[0])) {
 	default :               return NULL;
 	case(WEAPON_SWORD):     return "sword";
 	case(WEAPON_DAGGER):    return "dagger";

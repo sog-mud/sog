@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.187 1999-11-26 08:25:23 kostik Exp $
+ * $Id: db.c,v 1.188 1999-12-01 09:07:15 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1280,7 +1280,7 @@ CHAR_DATA *create_mob(MOB_INDEX_DATA *pMobIndex)
 		af.type		= "sanctuary";
 		af.level	= mob->level;
 		af.duration	= -1;
-		af.location	= APPLY_NONE;
+		INT(af.location)= APPLY_NONE;
 		af.modifier	= 0;
 		af.bitvector	= AFF_SANCTUARY;
 		affect_to_char(mob, &af);
@@ -1291,7 +1291,7 @@ CHAR_DATA *create_mob(MOB_INDEX_DATA *pMobIndex)
 		af.type		= "haste";
 		af.level	= mob->level;
 	  	af.duration	= -1;
-		af.location	= APPLY_DEX;
+		INT(af.location)= APPLY_DEX;
 		af.modifier	= 1 + (mob->level >= 18) + (mob->level >= 25) + 
 				  (mob->level >= 32);
 		af.bitvector	= AFF_HASTE;
@@ -1303,7 +1303,7 @@ CHAR_DATA *create_mob(MOB_INDEX_DATA *pMobIndex)
 		af.type		= "protection evil";
 		af.level	= mob->level;
 		af.duration	= -1;
-		af.location	= APPLY_SAVES;
+		INT(af.location)= APPLY_SAVES;
 		af.modifier	= -1;
 		af.bitvector	= AFF_PROTECT_EVIL;
 		affect_to_char(mob, &af);
@@ -1314,7 +1314,7 @@ CHAR_DATA *create_mob(MOB_INDEX_DATA *pMobIndex)
 		af.type		= "protection good";
 		af.level	= mob->level;
 		af.duration	= -1;
-		af.location	= APPLY_SAVES;
+		INT(af.location)= APPLY_SAVES;
 		af.modifier	= -1;
 		af.bitvector	= AFF_PROTECT_GOOD;
 		affect_to_char(mob, &af);
@@ -1453,13 +1453,13 @@ OBJ_DATA *create_obj(OBJ_INDEX_DATA *pObjIndex, int flags)
 	 */
 	switch (pObjIndex->item_type) {
 	case ITEM_LIGHT:
-		if (INT_VAL(obj->value[2]) == 999)
-			INT_VAL(obj->value[2]) = -1;
+		if (INT(obj->value[2]) == 999)
+			INT(obj->value[2]) = -1;
 		break;
 
 	case ITEM_JUKEBOX:
 		for (i = 0; i < 5; i++)
-			INT_VAL(obj->value[i]) = -1;
+			INT(obj->value[i]) = -1;
 		break;
 	}
 	
@@ -2101,8 +2101,8 @@ void convert_object(OBJ_INDEX_DATA *pObjIndex)
             break;
 
         case ITEM_LIGHT:
-		if (INT_VAL(pObjIndex->value[2]) == 999)
-			INT_VAL(pObjIndex->value[2]) = -1;
+		if (INT(pObjIndex->value[2]) == 999)
+			INT(pObjIndex->value[2]) = -1;
 		break;
         case ITEM_TREASURE:
         case ITEM_FURNITURE:
@@ -2155,12 +2155,12 @@ void convert_object(OBJ_INDEX_DATA *pObjIndex)
 	    number = UMIN(level/4 + 1, 5);
 	    type   = (level + 7)/number;
 
-            pObjIndex->value[1] = number;
-            pObjIndex->value[2] = type;
+            INT(pObjIndex->value[1]) = number;
+            INT(pObjIndex->value[2]) = type;
 	    break;
 
         case ITEM_ARMOR:
-            pObjIndex->value[0] = level / 5 + 3;
+            INT(pObjIndex->value[0]) = level / 5 + 3;
             pObjIndex->value[1] = pObjIndex->value[0];
             pObjIndex->value[2] = pObjIndex->value[0];
 	    break;
@@ -2170,7 +2170,7 @@ void convert_object(OBJ_INDEX_DATA *pObjIndex)
             break;
 
         case ITEM_MONEY:
-	    INT_VAL(pObjIndex->value[0]) = pObjIndex->cost;
+	    INT(pObjIndex->value[0]) = pObjIndex->cost;
 	    break;
     }
 

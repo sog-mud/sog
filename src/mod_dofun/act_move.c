@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.206 1999-10-23 10:20:07 fjoe Exp $
+ * $Id: act_move.c,v 1.207 1999-12-01 09:07:05 fjoe Exp $
  */
 
 /***************************************************************************
@@ -106,23 +106,23 @@ void do_open(CHAR_DATA *ch, const char *argument)
  	/* open portal */
 		if (obj->pObjIndex->item_type == ITEM_PORTAL)
 		{
-		    if (!IS_SET(INT_VAL(obj->value[1]), EX_ISDOOR))
+		    if (!IS_SET(INT(obj->value[1]), EX_ISDOOR))
 		    {
 			char_puts("You can't do that.\n", ch);
 			return;
 		    }
 
-		    if (!IS_SET(INT_VAL(obj->value[1]), EX_CLOSED)) {
+		    if (!IS_SET(INT(obj->value[1]), EX_CLOSED)) {
 			char_puts("It's already open.\n", ch);
 			return;
 		    }
 
-		    if (IS_SET(INT_VAL(obj->value[1]), EX_LOCKED)) {
+		    if (IS_SET(INT(obj->value[1]), EX_LOCKED)) {
 			char_puts("It's locked.\n", ch);
 			return;
 		    }
 
-		    REMOVE_BIT(INT_VAL(obj->value[1]), EX_CLOSED);
+		    REMOVE_BIT(INT(obj->value[1]), EX_CLOSED);
 		    act_puts("You open $p.", ch, obj, NULL, TO_CHAR, POS_DEAD);
 		    act("$n opens $p.", ch, obj, NULL, TO_ROOM);
 		    return;
@@ -131,14 +131,14 @@ void do_open(CHAR_DATA *ch, const char *argument)
 		/* 'open object' */
 		if (obj->pObjIndex->item_type != ITEM_CONTAINER)
 		    { char_puts("That's not a container.\n", ch); return; }
-		if (!IS_SET(INT_VAL(obj->value[1]), CONT_CLOSED))
+		if (!IS_SET(INT(obj->value[1]), CONT_CLOSED))
 		    { char_puts("It's already open.\n", ch); return; }
-		if (!IS_SET(INT_VAL(obj->value[1]), CONT_CLOSEABLE))
+		if (!IS_SET(INT(obj->value[1]), CONT_CLOSEABLE))
 		    { char_puts("You can't do that.\n", ch); return; }
-		if (IS_SET(INT_VAL(obj->value[1]), CONT_LOCKED))
+		if (IS_SET(INT(obj->value[1]), CONT_LOCKED))
 		    { char_puts("It's locked.\n", ch); return; }
 
-		REMOVE_BIT(INT_VAL(obj->value[1]), CONT_CLOSED);
+		REMOVE_BIT(INT(obj->value[1]), CONT_CLOSED);
 		act_puts("You open $p.", ch, obj, NULL, TO_CHAR, POS_DEAD);
 		act("$n opens $p.", ch, obj, NULL, TO_ROOM);
 		return;
@@ -196,19 +196,19 @@ void do_close(CHAR_DATA *ch, const char *argument)
 		if (obj->pObjIndex->item_type == ITEM_PORTAL)
 		{
 
-		    if (!IS_SET(INT_VAL(obj->value[1]),EX_ISDOOR)
-		    ||   IS_SET(INT_VAL(obj->value[1]),EX_NOCLOSE))
+		    if (!IS_SET(INT(obj->value[1]),EX_ISDOOR)
+		    ||   IS_SET(INT(obj->value[1]),EX_NOCLOSE))
 		    {
 			char_puts("You can't do that.\n", ch);
 			return;
 		    }
 
-		    if (IS_SET(INT_VAL(obj->value[1]),EX_CLOSED)) {
+		    if (IS_SET(INT(obj->value[1]),EX_CLOSED)) {
 			char_puts("It's already closed.\n", ch);
 			return;
 		    }
 
-		    SET_BIT(INT_VAL(obj->value[1]),EX_CLOSED);
+		    SET_BIT(INT(obj->value[1]),EX_CLOSED);
 		    act_puts("You close $p.", ch, obj, NULL, TO_CHAR, POS_DEAD);
 		    act("$n closes $p.", ch, obj, NULL, TO_ROOM);
 		    return;
@@ -217,12 +217,12 @@ void do_close(CHAR_DATA *ch, const char *argument)
 		/* 'close object' */
 		if (obj->pObjIndex->item_type != ITEM_CONTAINER)
 		    { char_puts("That's not a container.\n", ch); return; }
-		if (IS_SET(INT_VAL(obj->value[1]), CONT_CLOSED))
+		if (IS_SET(INT(obj->value[1]), CONT_CLOSED))
 		    { char_puts("It's already closed.\n", ch); return; }
-		if (!IS_SET(INT_VAL(obj->value[1]), CONT_CLOSEABLE))
+		if (!IS_SET(INT(obj->value[1]), CONT_CLOSEABLE))
 		    { char_puts("You can't do that.\n", ch); return; }
 
-		SET_BIT(INT_VAL(obj->value[1]), CONT_CLOSED);
+		SET_BIT(INT(obj->value[1]), CONT_CLOSED);
 		act_puts("You close $p.", ch, obj, NULL, TO_CHAR, POS_DEAD);
 		act("$n closes $p.", ch, obj, NULL, TO_ROOM);
 		return;
@@ -275,32 +275,32 @@ void do_lock(CHAR_DATA *ch, const char *argument)
 	if ((obj = get_obj_here(ch, arg)) != NULL) {
 		/* portal stuff */
 		if (obj->pObjIndex->item_type == ITEM_PORTAL) {
-		    if (!IS_SET(INT_VAL(obj->value[1]), EX_ISDOOR)
-		    ||  IS_SET(INT_VAL(obj->value[1]), EX_NOCLOSE)) {
+		    if (!IS_SET(INT(obj->value[1]), EX_ISDOOR)
+		    ||  IS_SET(INT(obj->value[1]), EX_NOCLOSE)) {
 			char_puts("You can't do that.\n", ch);
 			return;
 		    }
-		    if (!IS_SET(INT_VAL(obj->value[1]), EX_CLOSED)) {
+		    if (!IS_SET(INT(obj->value[1]), EX_CLOSED)) {
 			char_puts("It's not closed.\n", ch);
 		 	return;
 		    }
 
-		    if (INT_VAL(obj->value[4]) < 0 || IS_SET(INT_VAL(obj->value[1]), EX_NOLOCK)) {
+		    if (INT(obj->value[4]) < 0 || IS_SET(INT(obj->value[1]), EX_NOLOCK)) {
 			char_puts("It can't be locked.\n", ch);
 			return;
 		    }
 
-		    if (!has_key(ch, INT_VAL(obj->value[4]))) {
+		    if (!has_key(ch, INT(obj->value[4]))) {
 			char_puts("You lack the key.\n", ch);
 			return;
 		    }
 
-		    if (IS_SET(INT_VAL(obj->value[1]), EX_LOCKED)) {
+		    if (IS_SET(INT(obj->value[1]), EX_LOCKED)) {
 			char_puts("It's already locked.\n", ch);
 			return;
 		    }
 
-		    SET_BIT(INT_VAL(obj->value[1]), EX_LOCKED);
+		    SET_BIT(INT(obj->value[1]), EX_LOCKED);
 		    act_puts("You lock $p.", ch, obj, NULL, TO_CHAR, POS_DEAD);
 		    act("$n locks $p.", ch, obj, NULL, TO_ROOM);
 		    return;
@@ -309,16 +309,16 @@ void do_lock(CHAR_DATA *ch, const char *argument)
 		/* 'lock object' */
 		if (obj->pObjIndex->item_type != ITEM_CONTAINER)
 		    { char_puts("That's not a container.\n", ch); return; }
-		if (!IS_SET(INT_VAL(obj->value[1]), CONT_CLOSED))
+		if (!IS_SET(INT(obj->value[1]), CONT_CLOSED))
 		    { char_puts("It's not closed.\n", ch); return; }
-		if (INT_VAL(obj->value[2]) < 0)
+		if (INT(obj->value[2]) < 0)
 		    { char_puts("It can't be locked.\n", ch); return; }
-		if (!has_key(ch, INT_VAL(obj->value[2])))
+		if (!has_key(ch, INT(obj->value[2])))
 		    { char_puts("You lack the key.\n", ch); return; }
-		if (IS_SET(INT_VAL(obj->value[1]), CONT_LOCKED))
+		if (IS_SET(INT(obj->value[1]), CONT_LOCKED))
 		    { char_puts("It's already locked.\n", ch); return; }
 
-		SET_BIT(INT_VAL(obj->value[1]), CONT_LOCKED);
+		SET_BIT(INT(obj->value[1]), CONT_LOCKED);
 		act_puts("You lock $p.", ch, obj, NULL, TO_CHAR, POS_DEAD);
 		act("$n locks $p.", ch, obj, NULL, TO_ROOM);
 		return;
@@ -380,32 +380,32 @@ void do_unlock(CHAR_DATA *ch, const char *argument)
 	if ((obj = get_obj_here(ch, arg)) != NULL) {
  	/* portal stuff */
 		if (obj->pObjIndex->item_type == ITEM_PORTAL) {
-		    if (IS_SET(INT_VAL(obj->value[1]),EX_ISDOOR)) {
+		    if (IS_SET(INT(obj->value[1]),EX_ISDOOR)) {
 			char_puts("You can't do that.\n", ch);
 			return;
 		    }
 
-		    if (!IS_SET(INT_VAL(obj->value[1]),EX_CLOSED)) {
+		    if (!IS_SET(INT(obj->value[1]),EX_CLOSED)) {
 			char_puts("It's not closed.\n", ch);
 			return;
 		    }
 
-		    if (INT_VAL(obj->value[4]) < 0) {
+		    if (INT(obj->value[4]) < 0) {
 			char_puts("It can't be unlocked.\n", ch);
 			return;
 		    }
 
-		    if (!has_key(ch,INT_VAL(obj->value[4]))) {
+		    if (!has_key(ch,INT(obj->value[4]))) {
 			char_puts("You lack the key.\n", ch);
 			return;
 		    }
 
-		    if (!IS_SET(INT_VAL(obj->value[1]),EX_LOCKED)) {
+		    if (!IS_SET(INT(obj->value[1]),EX_LOCKED)) {
 			char_puts("It's already unlocked.\n", ch);
 			return;
 		    }
 
-		    REMOVE_BIT(INT_VAL(obj->value[1]),EX_LOCKED);
+		    REMOVE_BIT(INT(obj->value[1]),EX_LOCKED);
 		    act_puts("You unlock $p.", ch, obj, NULL, TO_CHAR, POS_DEAD);
 		    act("$n unlocks $p.", ch, obj, NULL, TO_ROOM);
 		    return;
@@ -414,16 +414,16 @@ void do_unlock(CHAR_DATA *ch, const char *argument)
 		/* 'unlock object' */
 		if (obj->pObjIndex->item_type != ITEM_CONTAINER)
 		    { char_puts("That's not a container.\n", ch); return; }
-		if (!IS_SET(INT_VAL(obj->value[1]), CONT_CLOSED))
+		if (!IS_SET(INT(obj->value[1]), CONT_CLOSED))
 		    { char_puts("It's not closed.\n", ch); return; }
-		if (INT_VAL(obj->value[2]) < 0)
+		if (INT(obj->value[2]) < 0)
 		    { char_puts("It can't be unlocked.\n", ch); return; }
-		if (!has_key(ch, INT_VAL(obj->value[2])))
+		if (!has_key(ch, INT(obj->value[2])))
 		    { char_puts("You lack the key.\n", ch); return; }
-		if (!IS_SET(INT_VAL(obj->value[1]), CONT_LOCKED))
+		if (!IS_SET(INT(obj->value[1]), CONT_LOCKED))
 		    { char_puts("It's already unlocked.\n", ch); return; }
 
-		REMOVE_BIT(INT_VAL(obj->value[1]), CONT_LOCKED);
+		REMOVE_BIT(INT(obj->value[1]), CONT_LOCKED);
 		act_puts("You unlock $p.", ch, obj, NULL, TO_CHAR, POS_DEAD);
 		act("$n unlocks $p.", ch, obj, NULL, TO_ROOM);
 		return;
@@ -517,27 +517,27 @@ void do_pick(CHAR_DATA *ch, const char *argument)
 	if ((obj = get_obj_here(ch, arg)) != NULL) {
 		/* portal stuff */
 		if (obj->pObjIndex->item_type == ITEM_PORTAL) {
-		    if (!IS_SET(INT_VAL(obj->value[1]),EX_ISDOOR)) {	
+		    if (!IS_SET(INT(obj->value[1]),EX_ISDOOR)) {	
 			char_puts("You can't do that.\n", ch);
 			return;
 		    }
 
-		    if (!IS_SET(INT_VAL(obj->value[1]),EX_CLOSED)) {
+		    if (!IS_SET(INT(obj->value[1]),EX_CLOSED)) {
 			char_puts("It's not closed.\n", ch);
 			return;
 		    }
 
-		    if (INT_VAL(obj->value[4]) < 0) {
+		    if (INT(obj->value[4]) < 0) {
 			char_puts("It can't be unlocked.\n", ch);
 			return;
 		    }
 
-		    if (IS_SET(INT_VAL(obj->value[1]),EX_PICKPROOF)) {
+		    if (IS_SET(INT(obj->value[1]),EX_PICKPROOF)) {
 			char_puts("You failed.\n", ch);
 			return;
 		    }
 
-		    REMOVE_BIT(INT_VAL(obj->value[1]),EX_LOCKED);
+		    REMOVE_BIT(INT(obj->value[1]),EX_LOCKED);
 		    act_puts("You pick the lock on $p.", ch, obj, NULL, TO_CHAR, POS_DEAD);
 		    act("$n picks the lock on $p.", ch, obj, NULL, TO_ROOM);
 		    check_improve(ch, "pick", TRUE, 2);
@@ -548,16 +548,16 @@ void do_pick(CHAR_DATA *ch, const char *argument)
 		/* 'pick object' */
 		if (obj->pObjIndex->item_type != ITEM_CONTAINER)
 		    { char_puts("That's not a container.\n", ch); return; }
-		if (!IS_SET(INT_VAL(obj->value[1]), CONT_CLOSED))
+		if (!IS_SET(INT(obj->value[1]), CONT_CLOSED))
 		    { char_puts("It's not closed.\n", ch); return; }
-		if (INT_VAL(obj->value[2]) < 0)
+		if (INT(obj->value[2]) < 0)
 		    { char_puts("It can't be unlocked.\n", ch); return; }
-		if (!IS_SET(INT_VAL(obj->value[1]), CONT_LOCKED))
+		if (!IS_SET(INT(obj->value[1]), CONT_LOCKED))
 		    { char_puts("It's already unlocked.\n", ch); return; }
-		if (IS_SET(INT_VAL(obj->value[1]), CONT_PICKPROOF))
+		if (IS_SET(INT(obj->value[1]), CONT_PICKPROOF))
 		    { char_puts("You failed.\n", ch); return; }
 
-		REMOVE_BIT(INT_VAL(obj->value[1]), CONT_LOCKED);
+		REMOVE_BIT(INT(obj->value[1]), CONT_LOCKED);
 		act_puts("You pick the lock on $p.", ch, obj, NULL, TO_CHAR, POS_DEAD);
 		act("$n picks the lock on $p.", ch, obj, NULL, TO_ROOM);
 		check_improve(ch, "pick", TRUE, 2);
@@ -611,15 +611,15 @@ void do_stand(CHAR_DATA *ch, const char *argument)
 		}
 
 		if (obj->pObjIndex->item_type != ITEM_FURNITURE
-		||  (!IS_SET(INT_VAL(obj->value[2]), STAND_AT) &&
-		     !IS_SET(INT_VAL(obj->value[2]), STAND_ON) &&
-		     !IS_SET(INT_VAL(obj->value[2]), STAND_IN))) {
+		||  (!IS_SET(INT(obj->value[2]), STAND_AT) &&
+		     !IS_SET(INT(obj->value[2]), STAND_ON) &&
+		     !IS_SET(INT(obj->value[2]), STAND_IN))) {
 			char_puts("You can't seem to find a place to stand.\n",
 				  ch);
 			return;
 		}
 
-		if (ch->on != obj && count_users(obj) >= INT_VAL(obj->value[0])) {
+		if (ch->on != obj && count_users(obj) >= INT(obj->value[0])) {
 			act_puts("There's no room to stand on $p.",
 				 ch, obj, NULL, TO_ROOM, POS_DEAD);
 			return;
@@ -637,14 +637,14 @@ void do_stand(CHAR_DATA *ch, const char *argument)
 				
 		    ch->on = NULL;
 		}
-		else if (IS_SET(INT_VAL(obj->value[2]),STAND_AT))
+		else if (IS_SET(INT(obj->value[2]),STAND_AT))
 		{
 		   act_puts("You wake and stand at $p.",
 			    ch, obj, NULL, TO_CHAR, POS_DEAD);
 		   act("$n wakes and stands at $p.", ch, obj, NULL, TO_ROOM);
 				
 		}
-		else if (IS_SET(INT_VAL(obj->value[2]),STAND_ON))
+		else if (IS_SET(INT(obj->value[2]),STAND_ON))
 		{
 		   act_puts("You wake and stand on $p.",
 			    ch, obj, NULL, TO_CHAR, POS_DEAD);
@@ -673,12 +673,12 @@ void do_stand(CHAR_DATA *ch, const char *argument)
 		    act("$n stands up.", ch, NULL, NULL, TO_ROOM);
 		    ch->on = NULL;
 		}
-		else if (IS_SET(INT_VAL(obj->value[2]),STAND_AT))
+		else if (IS_SET(INT(obj->value[2]),STAND_AT))
 		{
 		    act_puts("You stand at $p.", ch, obj, NULL, TO_CHAR, POS_DEAD);
 		    act("$n stands at $p.", ch, obj, NULL, TO_ROOM);
 		}
-		else if (IS_SET(INT_VAL(obj->value[2]),STAND_ON))
+		else if (IS_SET(INT(obj->value[2]),STAND_ON))
 		{
 		    act_puts("You stand on $p.", ch, obj, NULL, TO_CHAR, POS_DEAD);
 		    act("$n stands on $p.", ch, obj, NULL, TO_ROOM);
@@ -735,15 +735,15 @@ void do_rest(CHAR_DATA *ch, const char *argument)
 
 	if (obj != NULL) {
 		if (obj->pObjIndex->item_type != ITEM_FURNITURE 
-		||  (!IS_SET(INT_VAL(obj->value[2]), REST_ON) &&
-		     !IS_SET(INT_VAL(obj->value[2]), REST_IN) &&
-		     !IS_SET(INT_VAL(obj->value[2]), REST_AT))) {
+		||  (!IS_SET(INT(obj->value[2]), REST_ON) &&
+		     !IS_SET(INT(obj->value[2]), REST_IN) &&
+		     !IS_SET(INT(obj->value[2]), REST_AT))) {
 		    char_puts("You can't rest on that.\n", ch);
 		    return;
 		}
 
 		if (obj != NULL && ch->on != obj
-		&&  count_users(obj) >= INT_VAL(obj->value[0])) {
+		&&  count_users(obj) >= INT(obj->value[0])) {
 			act_puts("There's no more room on $p.",
 				 ch, obj, NULL, TO_CHAR, POS_DEAD);
 			return;
@@ -760,13 +760,13 @@ void do_rest(CHAR_DATA *ch, const char *argument)
 			ch, NULL, NULL, TO_ROOM);
 				
 		}
-		else if (IS_SET(INT_VAL(obj->value[2]),REST_AT)) {
+		else if (IS_SET(INT(obj->value[2]),REST_AT)) {
 			act_puts("You wake up and rest at $p.",
 				 ch, obj, NULL, TO_CHAR, POS_DEAD);
 			act("$n wakes up and rests at $p.",
 			    ch, obj, NULL, TO_ROOM);
 		}
-		else if (IS_SET(INT_VAL(obj->value[2]),REST_ON)) {
+		else if (IS_SET(INT(obj->value[2]),REST_ON)) {
 			act_puts("You wake up and rest on $p.",
 				 ch, obj, NULL, TO_CHAR, POS_DEAD);
 			act("$n wakes up and rests on $p.",
@@ -790,12 +790,12 @@ void do_rest(CHAR_DATA *ch, const char *argument)
 			char_puts("You rest.\n", ch);
 			act("$n sits down and rests.",
 			    ch, NULL, NULL, TO_ROOM);
-		} else if (IS_SET(INT_VAL(obj->value[2]), REST_AT)) {
+		} else if (IS_SET(INT(obj->value[2]), REST_AT)) {
 			act_puts("You sit down at $p and rest.",
 			    ch, obj, NULL, TO_CHAR, POS_DEAD);
 			act("$n sits down at $p and rests.",
 			    ch, obj, NULL, TO_ROOM);
-		} else if (IS_SET(INT_VAL(obj->value[2]), REST_ON)) {
+		} else if (IS_SET(INT(obj->value[2]), REST_ON)) {
 			act_puts("You sit down on $p and rest.",
 			    ch, obj, NULL, TO_CHAR, POS_DEAD);
 			act("$n sits down on $p and rests.",
@@ -813,11 +813,11 @@ void do_rest(CHAR_DATA *ch, const char *argument)
 		if (obj == NULL) {
 			char_puts("You rest.\n", ch);
 			act("$n rests.", ch, NULL, NULL, TO_ROOM);
-		} else if (IS_SET(INT_VAL(obj->value[2]),REST_AT)) {
+		} else if (IS_SET(INT(obj->value[2]),REST_AT)) {
 			act_puts("You rest at $p.",
 				 ch, obj, NULL, TO_CHAR, POS_DEAD);
 			act("$n rests at $p.", ch, obj, NULL, TO_ROOM);
-		} else if (IS_SET(INT_VAL(obj->value[2]),REST_ON)) {
+		} else if (IS_SET(INT(obj->value[2]),REST_ON)) {
 			act_puts("You rest on $p.",
 				 ch, obj, NULL, TO_CHAR, POS_DEAD);
 			act("$n rests on $p.", ch, obj, NULL, TO_ROOM);
@@ -872,16 +872,16 @@ void do_sit(CHAR_DATA *ch, const char *argument)
 
 	if (obj != NULL) {
 		if (obj->pObjIndex->item_type != ITEM_FURNITURE
-		||  (!IS_SET(INT_VAL(obj->value[2]), SIT_ON) &&
-		     !IS_SET(INT_VAL(obj->value[2]), SIT_IN) &&
-		     !IS_SET(INT_VAL(obj->value[2]), SIT_AT))) {
+		||  (!IS_SET(INT(obj->value[2]), SIT_ON) &&
+		     !IS_SET(INT(obj->value[2]), SIT_IN) &&
+		     !IS_SET(INT(obj->value[2]), SIT_AT))) {
 			char_puts("You can't sit on that.\n", ch);
 			return;
 		}
 
 		if (obj != NULL
 		&&  ch->on != obj
-		&&  count_users(obj) >= INT_VAL(obj->value[0])) {
+		&&  count_users(obj) >= INT(obj->value[0])) {
 			act_puts("There's no more room on $p.",
 				 ch, obj, NULL, TO_CHAR, POS_DEAD);
 			return;
@@ -895,11 +895,11 @@ void do_sit(CHAR_DATA *ch, const char *argument)
 		if (obj == NULL) {
 			char_puts("You wake and sit up.\n", ch);
 			act("$n wakes and sits up.", ch, NULL, NULL, TO_ROOM);
-		} else if (IS_SET(INT_VAL(obj->value[2]),SIT_AT)) {
+		} else if (IS_SET(INT(obj->value[2]),SIT_AT)) {
 			act_puts("You wake and sit at $p.",
 				 ch, obj, NULL, TO_CHAR, POS_DEAD);
 			act("$n wakes and sits at $p.", ch, obj, NULL, TO_ROOM);
-		} else if (IS_SET(INT_VAL(obj->value[2]),SIT_ON)) {
+		} else if (IS_SET(INT(obj->value[2]),SIT_ON)) {
 			act_puts("You wake and sit on $p.",
 				 ch, obj, NULL, TO_CHAR, POS_DEAD);
 			act("$n wakes and sits on $p.", ch, obj, NULL, TO_ROOM);
@@ -915,11 +915,11 @@ void do_sit(CHAR_DATA *ch, const char *argument)
 	case POS_RESTING:
 		if (obj == NULL)
 			char_puts("You stop resting.\n", ch);
-		else if (IS_SET(INT_VAL(obj->value[2]),SIT_AT)) {
+		else if (IS_SET(INT(obj->value[2]),SIT_AT)) {
 			act_puts("You sit at $p.",
 				 ch, obj, NULL, TO_CHAR, POS_DEAD);
 			act("$n sits at $p.", ch, obj, NULL, TO_ROOM);
-		} else if (IS_SET(INT_VAL(obj->value[2]),SIT_ON)) {
+		} else if (IS_SET(INT(obj->value[2]),SIT_ON)) {
 			act_puts("You sit on $p.",
 				 ch, obj, NULL, TO_CHAR, POS_DEAD);
 			act("$n sits on $p.", ch, obj, NULL, TO_ROOM);
@@ -940,11 +940,11 @@ void do_sit(CHAR_DATA *ch, const char *argument)
 			char_puts("You sit down.\n", ch);
 			act("$n sits down on the ground.",
 			    ch, NULL, NULL, TO_ROOM);
-		} else if (IS_SET(INT_VAL(obj->value[2]), SIT_AT)) {
+		} else if (IS_SET(INT(obj->value[2]), SIT_AT)) {
 			act_puts("You sit down at $p.",
 				 ch, obj, NULL, TO_CHAR, POS_DEAD);
 			act("$n sits down at $p.", ch, obj, NULL, TO_ROOM);
-		} else if (IS_SET(INT_VAL(obj->value[2]),SIT_ON)) {
+		} else if (IS_SET(INT(obj->value[2]),SIT_ON)) {
 			act_puts("You sit down on $p.",
 				 ch, obj, NULL, TO_CHAR, POS_DEAD);
 			act("$n sits down on $p.", ch, obj, NULL, TO_ROOM);
@@ -1002,27 +1002,27 @@ void do_sleep(CHAR_DATA *ch, const char *argument)
 			}
 
 			if (obj->pObjIndex->item_type != ITEM_FURNITURE
-			||  (!IS_SET(INT_VAL(obj->value[2]), SLEEP_ON) &&
-			     !IS_SET(INT_VAL(obj->value[2]), SLEEP_IN) &&
-			     !IS_SET(INT_VAL(obj->value[2]), SLEEP_AT))) {
+			||  (!IS_SET(INT(obj->value[2]), SLEEP_ON) &&
+			     !IS_SET(INT(obj->value[2]), SLEEP_IN) &&
+			     !IS_SET(INT(obj->value[2]), SLEEP_AT))) {
 				char_puts("You can't sleep on that.\n", ch);
 				return;
 			}
 
 			if (ch->on != obj
-			&&  count_users(obj) >= INT_VAL(obj->value[0])) {
+			&&  count_users(obj) >= INT(obj->value[0])) {
 				act_puts("There's no room on $p for you.",
 					 ch, obj, NULL, TO_CHAR, POS_DEAD);
 				return;
 			}
 
 			ch->on = obj;
-			if (IS_SET(INT_VAL(obj->value[2]), SLEEP_AT)) {
+			if (IS_SET(INT(obj->value[2]), SLEEP_AT)) {
 				act_puts("You go to sleep at $p.",
 					 ch, obj, NULL, TO_CHAR, POS_DEAD);
 				act("$n goes to sleep at $p.",
 				    ch, obj, NULL, TO_ROOM);
-			} else if (IS_SET(INT_VAL(obj->value[2]), SLEEP_ON)) {
+			} else if (IS_SET(INT(obj->value[2]), SLEEP_ON)) {
 				act_puts("You go to sleep on $p.",
 					 ch, obj, NULL, TO_CHAR, POS_DEAD);
 				act("$n goes to sleep on $p.",
@@ -1100,12 +1100,11 @@ void do_sneak(CHAR_DATA *ch, const char *argument)
 		af.type      = "sneak";
 		af.level     = LEVEL(ch); 
 		af.duration  = LEVEL(ch);
-		af.location  = APPLY_NONE;
+		INT(af.location) = APPLY_NONE;
 		af.modifier  = 0;
 		af.bitvector = AFF_SNEAK;
 		affect_to_char(ch, &af);
-	}
-	else
+	} else
 		check_improve(ch, "sneak", FALSE, 3);
 }
 
@@ -1243,13 +1242,12 @@ void do_blend(CHAR_DATA *ch, const char *argument)
 		af.where 	= TO_AFFECTS;
 		af.type		= "forest blending";
 		af.level	= LEVEL(ch);
-		af.location	= APPLY_NONE;
+		INT(af.location)= APPLY_NONE;
 		af.modifier	= 0;
 		af.bitvector	= AFF_BLEND;
 		affect_to_char(ch, &af);
 		check_improve(ch, "forest blending", 2, TRUE);
-	}
-	else {
+	} else {
 		check_improve(ch, "forest blending", 2, FALSE);
 	}
 }
@@ -1516,37 +1514,37 @@ void do_vampire(CHAR_DATA *ch, const char *argument)
 
 /* negative immunity */
 	af.where = TO_IMMUNE;
-	af.location = APPLY_NONE;
+	INT(af.location) = APPLY_NONE;
 	af.modifier = 0;
 	af.bitvector = IMM_NEGATIVE;
 	affect_to_char(ch, &af);
 
 /* haste */
 	af.where     = TO_AFFECTS;
-	af.location  = APPLY_DEX;
+	INT(af.location) = APPLY_DEX;
 	af.modifier  = 1 + (level /20);
 	af.bitvector = AFF_HASTE | AFF_BERSERK;
 	affect_to_char(ch, &af);
 
 /* giant strength + infrared */
-	af.location  = APPLY_STR;
+	INT(af.location) = APPLY_STR;
 	af.modifier  = 1 + (level / 20);
 	af.bitvector = 0;
 	affect_to_char(ch, &af);
 
 /* size */
-	af.location  = APPLY_SIZE;
+	INT(af.location) = APPLY_SIZE;
 	af.modifier  = 1 + (level / 50);
 	affect_to_char(ch, &af);
 
 /* damroll */
-	af.location  = APPLY_DAMROLL;
+	INT(af.location) = APPLY_DAMROLL;
 	af.modifier  = ch->damroll;
 	affect_to_char(ch, &af);
 
 /* flying, infrared */
 	af.where     = TO_AFFECTS;
-	af.location  = 0;
+	INT(af.location) = 0;
 	af.modifier  = 0;
 	af.bitvector = AFF_SNEAK | AFF_FLYING | AFF_INFRARED | AFF_TURNED;
 	affect_to_char(ch, &af);
@@ -1628,7 +1626,7 @@ void do_vbite(CHAR_DATA *ch, const char *argument)
 			af.type		= "resurrection";
 			af.level	= LEVEL(ch);
 			af.duration	= number_fuzzy(4);
-			af.location	= APPLY_NONE;
+			INT(af.location)= APPLY_NONE;
 			af.modifier	= 0;
 			af.bitvector	= 0;
 			affect_join(ch, &af);
@@ -1798,7 +1796,7 @@ void do_blink(CHAR_DATA *ch, const char *argument)
 		af.where 	= TO_AFFECTS;
 		af.type		= "blink";
 		af.level	= LEVEL(ch);
-		af.location	= APPLY_NONE;
+		INT(af.location)= APPLY_NONE;
 		af.modifier	= 0;
 		af.bitvector	= 0;
 		af.duration	= -1;
@@ -2024,7 +2022,7 @@ void do_vtouch(CHAR_DATA *ch, const char *argument)
 		af.where = TO_AFFECTS;
 		af.level = ch->level;
 		af.duration = LEVEL(ch) / 20 + 1;
-		af.location = APPLY_NONE;
+		INT(af.location) = APPLY_NONE;
 		af.modifier = 0;
 		af.bitvector = AFF_SLEEP;
 		affect_join(victim,&af);
@@ -2270,7 +2268,7 @@ void do_crecall(CHAR_DATA *ch, const char *argument)
 	af.type      = "clan recall";
 	af.level     = ch->level;
 	af.duration  = skill_beats("clan recall");
-	af.location  = APPLY_NONE;
+	INT(af.location) = APPLY_NONE;
 	af.modifier  = 0;
 	af.bitvector = 0;
 	affect_to_char(ch, &af);
@@ -2404,7 +2402,7 @@ void do_layhands(CHAR_DATA *ch, const char *argument)
 	af.where = TO_AFFECTS;
 	af.level = ch->level;
 	af.duration = 2;
-	af.location = APPLY_NONE;
+	INT(af.location) = APPLY_NONE;
 	af.modifier = 0;
 	af.bitvector = 0;
 	affect_to_char (ch, &af);
@@ -2559,9 +2557,9 @@ int send_arrow(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *arrow,
 		sn = "throw weapon";
 
 	for (paf = arrow->affected; paf != NULL; paf = paf->next) {
-		if (INT_VAL(paf->location) == APPLY_DAMROLL)
+		if (INT(paf->location) == APPLY_DAMROLL)
 			damroll += paf->modifier;
-		if (INT_VAL(paf->location) == APPLY_HITROLL)
+		if (INT(paf->location) == APPLY_HITROLL)
 			hitroll += paf->modifier;
 	}
 
@@ -2605,8 +2603,8 @@ int send_arrow(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *arrow,
 				else {
 					int dam;
 
-					dam = dice(INT_VAL(arrow->value[1]),
-						   INT_VAL(arrow->value[2]));
+					dam = dice(INT(arrow->value[1]),
+						   INT(arrow->value[2]));
 					dam = number_range(dam, 2 * dam);
 					dam += damroll + bonus + (10 * str_app[get_curr_stat(ch, STAT_STR)].todam);
 					if (IS_WEAPON_STAT(arrow,
@@ -2629,7 +2627,7 @@ int send_arrow(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *arrow,
 		            af.type      = "poison";
 		            af.level     = level * 3/4;
 		            af.duration  = level / 2;
-		            af.location  = APPLY_STR;
+		            INT(af.location) = APPLY_STR;
 		            af.modifier  = -1;
 		            af.bitvector = AFF_POISON;
 			    af.events    = EVENT_CHAR_UPDATE;
@@ -2664,7 +2662,7 @@ int send_arrow(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *arrow,
 			  af.type      = sn;
 			  af.level     = ch->level; 
 			  af.duration  = -1;
-			  af.location  = APPLY_HITROLL;
+			  INT(af.location) = APPLY_HITROLL;
 			  af.modifier  = - (dam / 20);
 			  if (IS_NPC(victim))
 				af.bitvector = 0;
@@ -2716,7 +2714,7 @@ static OBJ_DATA *find_arrow(CHAR_DATA *ch)
 	for (obj = ch->carrying; obj; obj = obj->next_content) {
 		if (obj->wear_loc == WEAR_NONE
 		||  obj->pObjIndex->item_type != ITEM_CONTAINER
-		||  !IS_SET(INT_VAL(obj->value[1]), CONT_QUIVER)
+		||  !IS_SET(INT(obj->value[1]), CONT_QUIVER)
 		||  !obj->contains)
 			continue;
 		return obj->contains;
@@ -2940,8 +2938,8 @@ void do_shoot(CHAR_DATA *ch, const char *argument)
 		obj_from_obj(arrow);
 
 	success = send_arrow(ch, victim, arrow, direction, chance,
-			     dice(INT_VAL(wield->value[1]),
-				  INT_VAL(wield->value[2])));
+			     dice(INT(wield->value[1]),
+				  INT(wield->value[2])));
 	check_improve(ch, "bow", TRUE, 1);
 	yell(victim, ch, "Help! $lu{$i} is trying to shoot me!");
 }
@@ -3059,7 +3057,7 @@ void do_throw_weapon(CHAR_DATA *ch, const char *argument)
 
 	obj_from_char(obj);
 	success = send_arrow(ch,victim,obj,direction,chance,
-			dice(INT_VAL(obj->value[1]),INT_VAL(obj->value[2])));
+			dice(INT(obj->value[1]),INT(obj->value[2])));
 	check_improve(ch, "throw weapon", TRUE, 1);
 }
 
@@ -3089,13 +3087,13 @@ void do_enter(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (portal->pObjIndex->item_type != ITEM_PORTAL 
-	||  (IS_SET(INT_VAL(portal->value[1]), EX_CLOSED) &&
+	||  (IS_SET(INT(portal->value[1]), EX_CLOSED) &&
 	     !IS_TRUSTED(ch, LEVEL_IMMORTAL))) {
 		char_puts("You can't seem to find a way in.\n", ch);
 		return;
 	}
 
-	if (IS_SET(INT_VAL(portal->value[2]), GATE_NOCURSE)
+	if (IS_SET(INT(portal->value[2]), GATE_NOCURSE)
 	&&  !IS_TRUSTED(ch, LEVEL_IMMORTAL)
 	&&  (IS_AFFECTED(ch, AFF_CURSE) ||
 	     IS_SET(old_room->room_flags, ROOM_NORECALL) ||
@@ -3104,15 +3102,15 @@ void do_enter(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (IS_SET(INT_VAL(portal->value[2]), GATE_RANDOM)
-	||  INT_VAL(portal->value[3]) == -1) {
+	if (IS_SET(INT(portal->value[2]), GATE_RANDOM)
+	||  INT(portal->value[3]) == -1) {
 		location = get_random_room(ch, NULL);
-		INT_VAL(portal->value[3]) = location->vnum; /* keeps record */
-	} else if (IS_SET(INT_VAL(portal->value[2]), GATE_BUGGY)
+		INT(portal->value[3]) = location->vnum; /* keeps record */
+	} else if (IS_SET(INT(portal->value[2]), GATE_BUGGY)
 	       &&  (number_percent() < 5))
 		location = get_random_room(ch, NULL);
 	else
-		location = get_room_index(INT_VAL(portal->value[3]));
+		location = get_room_index(INT(portal->value[3]));
 
 	if (location == NULL
 	||  location == old_room
@@ -3132,7 +3130,7 @@ void do_enter(CHAR_DATA *ch, const char *argument)
 			  "$n steps into $p.",
 	    ch, portal, MOUNTED(ch), TO_ROOM);
 	
-	act(IS_SET(INT_VAL(portal->value[2]), GATE_NORMAL_EXIT) ?
+	act(IS_SET(INT(portal->value[2]), GATE_NORMAL_EXIT) ?
 	    "You enter $p." :
 	    "You walk through $p and find yourself somewhere else...",
 	    ch, portal, NULL, TO_CHAR); 
@@ -3140,13 +3138,13 @@ void do_enter(CHAR_DATA *ch, const char *argument)
 	mount = MOUNTED(ch);
 	char_from_room(ch);
 
-	if (IS_SET(INT_VAL(portal->value[2]), GATE_GOWITH)) {
+	if (IS_SET(INT(portal->value[2]), GATE_GOWITH)) {
 		/* take the gate along */
 		obj_from_room(portal);
 		obj_to_room(portal, location);
 	}
 
-	if (IS_SET(INT_VAL(portal->value[2]), GATE_NORMAL_EXIT))
+	if (IS_SET(INT(portal->value[2]), GATE_NORMAL_EXIT))
 		act_puts3(mount ? "$i has arrived, riding $I" :
 				  "$i has arrived.",
 			  location->people, ch, portal, mount,
@@ -3170,10 +3168,10 @@ void do_enter(CHAR_DATA *ch, const char *argument)
 		do_look(ch,"auto");
 
 	/* charges */
-	if (INT_VAL(portal->value[0]) > 0) {
-		INT_VAL(portal->value[0])--;
-		if (INT_VAL(portal->value[0]) == 0)
-			INT_VAL(portal->value[0]) = -1;
+	if (INT(portal->value[0]) > 0) {
+		INT(portal->value[0])--;
+		if (INT(portal->value[0]) == 0)
+			INT(portal->value[0]) = -1;
 	}
 
 	/* protect against circular follows */
@@ -3184,7 +3182,7 @@ void do_enter(CHAR_DATA *ch, const char *argument)
 	        fch_next = fch->next_in_room;
 
 		/* no following through dead portals */
-	        if (portal == NULL || INT_VAL(portal->value[0]) == -1) 
+	        if (portal == NULL || INT(portal->value[0]) == -1) 
 	        	continue;
  
 	        if (fch->master != ch || fch->position != POS_STANDING)
@@ -3204,7 +3202,7 @@ void do_enter(CHAR_DATA *ch, const char *argument)
 		do_enter(fch,argument);
 	}
 
- 	if (portal != NULL && INT_VAL(portal->value[0]) == -1) {
+ 	if (portal != NULL && INT(portal->value[0]) == -1) {
 		act("$p fades out of existence.", ch, portal, NULL, TO_CHAR);
 		if (ch->in_room == old_room)
 			act("$p fades out of existence.",
@@ -3273,7 +3271,7 @@ void do_settraps(CHAR_DATA *ch, const char *argument)
 	  af.type	= "settraps";
 	  af.level	= ch->level;
 	  af.duration	= ch->level / 40;
-	  af.location	= APPLY_NONE;
+	  INT(af.location) = APPLY_NONE;
 	  af.modifier	= 0;
 	  af.bitvector	= 0;
 	  af.owner	= ch;
@@ -3290,7 +3288,7 @@ void do_settraps(CHAR_DATA *ch, const char *argument)
 		af2.duration = ch->level / 10;
 
 	  af2.modifier  = 0;
-	  af2.location  = APPLY_NONE;
+	  INT(af2.location) = APPLY_NONE;
 	  af2.bitvector = 0;
 	  affect_to_char(ch, &af2);
 	  char_puts("You set the room with your trap.\n", ch);
@@ -3358,13 +3356,12 @@ void do_thumbling(CHAR_DATA *ch, const char *argument)
 
 	if (attack) {
 		af.modifier	= ch->level / 3;
-		af.location	= APPLY_HITROLL;
+		INT(af.location)= APPLY_HITROLL;
 		affect_to_char(ch, &af);
-		af.location	= APPLY_DAMROLL;
-	}
-	else {
+		INT(af.location)= APPLY_DAMROLL;
+	} else {
 		af.modifier	= - ch->level * 2;
-		af.location	= APPLY_AC;
+		INT(af.location)= APPLY_AC;
 	}
 	affect_to_char(ch, &af);
 
@@ -3424,15 +3421,15 @@ void do_forest(CHAR_DATA* ch, const char* argument)
 
 	if (attack) {
 		af.modifier	= ch->level/8;
-		af.location	= APPLY_HITROLL;
+		INT(af.location)= APPLY_HITROLL;
 		affect_to_char(ch, &af);
-		af.location	= APPLY_DAMROLL;
+		INT(af.location)= APPLY_DAMROLL;
 		act_puts("You feel yourself wild.",
 			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		act("$n looks wild.", ch, NULL, NULL, TO_ROOM);
 	} else {
 		af.modifier	= -ch->level;
-		af.location	= APPLY_AC;
+		INT(af.location)= APPLY_AC;
 		act_puts("You feel yourself protected.",
 			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		act("$n looks protected.", ch, NULL, NULL, TO_ROOM);
@@ -3473,7 +3470,7 @@ void do_breathhold(CHAR_DATA *ch, const char *argument)
 	af.type		= "hold breath";
 	af.level	= LEVEL(ch); 
 	af.duration	= LEVEL(ch) / 46;
-	af.location	= APPLY_NONE;
+	INT(af.location)= APPLY_NONE;
 	af.modifier	= 0;
 	affect_to_char(ch, &af); 
 }

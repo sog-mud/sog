@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_obj.c,v 1.65 1999-11-24 07:22:24 fjoe Exp $
+ * $Id: olc_obj.c,v 1.66 1999-12-01 09:07:09 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -296,8 +296,8 @@ OLC_FUN(objed_show)
 				   "\n",
 			   cnt,
 			   paf->where == TO_SKILLS ?
-				STR_VAL(paf->location) :
-				SFLAGS_VAL(apply_flags, paf->location),
+				STR(paf->location) :
+				SFLAGS(apply_flags, paf->location),
 			   paf->modifier,
 			   flag_string(apply_types, paf->where),
 			   w ? flag_string(w->table, paf->bitvector) : "none");
@@ -519,16 +519,16 @@ OLC_FUN(objed_addaffect)
 			return FALSE;
 		}
 
-		location = sk->name;
+		location.s = sk->name;
 		argument = one_argument(argument, arg2, sizeof(arg2));
 		break;
 	}
 	default:
 		if (!str_cmp(arg2, "none")) {
-			location = APPLY_NONE;
+			INT(location) = APPLY_NONE;
 			modifier = -1;
 		} else {
-			if ((location.i = flag_value(apply_flags, arg2)) < 0) {
+			if ((INT(location) = flag_value(apply_flags, arg2)) < 0) {
 				char_puts("Valid locations are:\n", ch);
 				show_flags(ch, apply_flags);
 				return FALSE;
@@ -637,7 +637,7 @@ OLC_FUN(objed_addapply)
 	}
 
 	pAf             = aff_new();
-	pAf->location   = location;
+	INT(pAf->location) = location;
 	pAf->modifier   = atoi(mod);
 	pAf->where	= where;
 	pAf->type	= str_empty;
@@ -962,11 +962,11 @@ void show_obj_values(BUFFER *output, OBJ_INDEX_DATA *pObj)
 		break;
 		     
 	case ITEM_LIGHT:
-		if (INT_VAL(pObj->value[2]) < 0)
+		if (INT(pObj->value[2]) < 0)
 			buf_printf(output, "[v2] Light:  Infinite[-1]\n");
 		else
 			buf_printf(output, "[v2] Light:  [%d]\n",
-				   INT_VAL(pObj->value[2]));
+				   INT(pObj->value[2]));
 		break;
 
 	case ITEM_WAND:
@@ -976,10 +976,10 @@ void show_obj_values(BUFFER *output, OBJ_INDEX_DATA *pObj)
 			"[v1] Charges Total:  [%d]\n"
 			"[v2] Charges Left:   [%d]\n"
 			"[v3] Spell:          %s\n",
-			INT_VAL(pObj->value[0]),
-			INT_VAL(pObj->value[1]),
-			INT_VAL(pObj->value[2]),
-			STR_VAL1(pObj->value[3]));
+			INT(pObj->value[0]),
+			INT(pObj->value[1]),
+			INT(pObj->value[2]),
+			STR1(pObj->value[3]));
 		break;
 
 	case ITEM_PORTAL:
@@ -989,11 +989,11 @@ void show_obj_values(BUFFER *output, OBJ_INDEX_DATA *pObj)
 			    "[v2] Portal Flags:   %s\n"
 			    "[v3] Goes to (vnum): [%d]\n"
 			    "[v4] Portal key:     [%d]\n",
-			    INT_VAL(pObj->value[0]),
-			    SFLAGS_VAL(exit_flags, pObj->value[1]),
-			    SFLAGS_VAL(portal_flags , pObj->value[2]),
-			    INT_VAL(pObj->value[3]),
-			    INT_VAL(pObj->value[4]));
+			    INT(pObj->value[0]),
+			    SFLAGS(exit_flags, pObj->value[1]),
+			    SFLAGS(portal_flags , pObj->value[2]),
+			    INT(pObj->value[3]),
+			    INT(pObj->value[4]));
 		break;
 			
 	case ITEM_FURNITURE:          
@@ -1003,11 +1003,11 @@ void show_obj_values(BUFFER *output, OBJ_INDEX_DATA *pObj)
 			    "[v2] Furniture Flags: %s\n"
 			    "[v3] Heal bonus:      [%d]\n"
 			    "[v4] Mana bonus:      [%d]\n",
-			    INT_VAL(pObj->value[0]),
-			    INT_VAL(pObj->value[1]),
-			    SFLAGS_VAL(furniture_flags, pObj->value[2]),
-			    INT_VAL(pObj->value[3]),
-			    INT_VAL(pObj->value[4]));
+			    INT(pObj->value[0]),
+			    INT(pObj->value[1]),
+			    SFLAGS(furniture_flags, pObj->value[2]),
+			    INT(pObj->value[3]),
+			    INT(pObj->value[4]));
 		break;
 
 	case ITEM_SCROLL:
@@ -1019,11 +1019,11 @@ void show_obj_values(BUFFER *output, OBJ_INDEX_DATA *pObj)
 			"[v2] Spell:  %s\n"
 			"[v3] Spell:  %s\n"
 			"[v4] Spell:  %s\n",
-			INT_VAL(pObj->value[0]),
-			STR_VAL1(pObj->value[1]),
-			STR_VAL1(pObj->value[2]),
-			STR_VAL1(pObj->value[3]),
-			STR_VAL1(pObj->value[4]));
+			INT(pObj->value[0]),
+			STR1(pObj->value[1]),
+			STR1(pObj->value[2]),
+			STR1(pObj->value[3]),
+			STR1(pObj->value[4]));
 		break;
 
 /* ARMOR for ROM */
@@ -1034,10 +1034,10 @@ void show_obj_values(BUFFER *output, OBJ_INDEX_DATA *pObj)
 			"[v1] Ac bash         [%d]\n"
 			"[v2] Ac slash        [%d]\n"
 			"[v3] Ac exotic       [%d]\n",
-			INT_VAL(pObj->value[0]),
-			INT_VAL(pObj->value[1]),
-			INT_VAL(pObj->value[2]),
-			INT_VAL(pObj->value[3]));
+			INT(pObj->value[0]),
+			INT(pObj->value[1]),
+			INT(pObj->value[2]),
+			INT(pObj->value[3]));
 			break;
 
 /* WEAPON changed in ROM: */
@@ -1045,15 +1045,15 @@ void show_obj_values(BUFFER *output, OBJ_INDEX_DATA *pObj)
 /* It somehow fixed a bug in showing scroll/pill/potions too ?! */
 	case ITEM_WEAPON:
 		buf_printf(output, "[v0] Weapon class:   %s\n",
-			   SFLAGS_VAL(weapon_class, pObj->value[0]));
+			   SFLAGS(weapon_class, pObj->value[0]));
 		buf_printf(output, "[v1] Number of dice: [%d]\n",
-			   INT_VAL(pObj->value[1]));
+			   INT(pObj->value[1]));
 		buf_printf(output, "[v2] Type of dice:   [%d]\n",
-			   INT_VAL(pObj->value[2]));
+			   INT(pObj->value[2]));
 		buf_printf(output, "[v3] Type:           %s\n",
-			   STR_VAL(pObj->value[3]));
+			   STR(pObj->value[3]));
 		buf_printf(output, "[v4] Special type:   %s\n",
-			   SFLAGS_VAL(weapon_type2,  pObj->value[4]));
+			   SFLAGS(weapon_type2,  pObj->value[4]));
 		break;
 
 	case ITEM_CONTAINER:
@@ -1063,14 +1063,14 @@ void show_obj_values(BUFFER *output, OBJ_INDEX_DATA *pObj)
 			"[v2] Key:     %s [%d]\n"
 			"[v3] Capacity    [%d]\n"
 			"[v4] Weight Mult [%d]\n",
-			INT_VAL(pObj->value[0]),
-			SFLAGS_VAL(cont_flags, pObj->value[1]),
-		        get_obj_index(INT_VAL(pObj->value[2])) ?
-			mlstr_mval(&get_obj_index(INT_VAL(pObj->value[2]))->short_descr) :
+			INT(pObj->value[0]),
+			SFLAGS(cont_flags, pObj->value[1]),
+		        get_obj_index(INT(pObj->value[2])) ?
+			mlstr_mval(&get_obj_index(INT(pObj->value[2]))->short_descr) :
 			"none",
-		        INT_VAL(pObj->value[2]),
-		        INT_VAL(pObj->value[3]),
-		        INT_VAL(pObj->value[4]));
+		        INT(pObj->value[2]),
+		        INT(pObj->value[3]),
+		        INT(pObj->value[4]));
 		break;
 
 	case ITEM_DRINK_CON:
@@ -1079,10 +1079,10 @@ void show_obj_values(BUFFER *output, OBJ_INDEX_DATA *pObj)
 			    "[v1] Liquid Left:  [%d]\n"
 			    "[v2] Liquid:       %s\n"
 			    "[v3] Poisoned:     %s\n",
-			    INT_VAL(pObj->value[0]),
-			    INT_VAL(pObj->value[1]),
-			    STR_VAL(pObj->value[2]),
-			    INT_VAL(pObj->value[3]) ? "Yes" : "No");
+			    INT(pObj->value[0]),
+			    INT(pObj->value[1]),
+			    STR(pObj->value[2]),
+			    INT(pObj->value[3]) ? "Yes" : "No");
 		break;
 
 	case ITEM_FOUNTAIN:
@@ -1090,9 +1090,9 @@ void show_obj_values(BUFFER *output, OBJ_INDEX_DATA *pObj)
 			    "[v0] Liquid Total: [%d]\n"
 			    "[v1] Liquid Left:  [%d]\n"
 			    "[v2] Liquid:	    %s\n",
-			    INT_VAL(pObj->value[0]),
-			    INT_VAL(pObj->value[1]),
-			    STR_VAL(pObj->value[2]));
+			    INT(pObj->value[0]),
+			    INT(pObj->value[1]),
+			    STR(pObj->value[2]));
 		break;
 			    
 	case ITEM_FOOD:
@@ -1100,15 +1100,15 @@ void show_obj_values(BUFFER *output, OBJ_INDEX_DATA *pObj)
 			"[v0] Food hours: [%d]\n"
 			"[v1] Full hours: [%d]\n"
 			"[v3] Poisoned:   %s\n",
-			INT_VAL(pObj->value[0]),
-			INT_VAL(pObj->value[1]),
-			INT_VAL(pObj->value[3]) ? "Yes" : "No");
+			INT(pObj->value[0]),
+			INT(pObj->value[1]),
+			INT(pObj->value[3]) ? "Yes" : "No");
 		break;
 
 	case ITEM_MONEY:
 		buf_printf(output, "[v0] Silver: [%d]\n"
 				   "[v1] Gold:   [%d]\n",
-			   INT_VAL(pObj->value[0]), INT_VAL(pObj->value[1]));
+			   INT(pObj->value[0]), INT(pObj->value[1]));
 		break;
 	}
 }
@@ -1137,7 +1137,7 @@ int set_obj_values(BUFFER *output, OBJ_INDEX_DATA *pObj,
 			return 1;
 		case 2:
 			buf_add(output, "HOURS OF LIGHT SET.\n\n");
-			INT_VAL(pObj->value[2]) = atoi(argument);
+			INT(pObj->value[2]) = atoi(argument);
 			break;
 		}
 		break;
@@ -1149,19 +1149,19 @@ int set_obj_values(BUFFER *output, OBJ_INDEX_DATA *pObj,
 			return 1;
 		case 0:
 			buf_add(output, "SPELL LEVEL SET.\n\n");
-			INT_VAL(pObj->value[0]) = atoi(argument);
+			INT(pObj->value[0]) = atoi(argument);
 			break;
 		case 1:
 			buf_add(output, "TOTAL NUMBER OF CHARGES SET.\n\n");
-			INT_VAL(pObj->value[1]) = atoi(argument);
+			INT(pObj->value[1]) = atoi(argument);
 			break;
 		case 2:
 			buf_add(output, "CURRENT NUMBER OF CHARGES SET.\n\n");
-			INT_VAL(pObj->value[2]) = atoi(argument);
+			INT(pObj->value[2]) = atoi(argument);
 			break;
 		case 3:
 			if (!str_cmp(argument, "none")) {
-				STR_VAL_ASSIGN(pObj->value[3], str_empty);
+				STR_ASSIGN(pObj->value[3], str_empty);
 				break;
 			}
 			if (!str_cmp(argument, "?") 
@@ -1171,7 +1171,7 @@ int set_obj_values(BUFFER *output, OBJ_INDEX_DATA *pObj,
 				return 2;
 			}
 			buf_add(output, "SPELL TYPE SET.\n");
-			STR_VAL_ASSIGN(pObj->value[3], str_qdup(sk->name));
+			STR_ASSIGN(pObj->value[3], str_qdup(sk->name));
 			break;
 		}
 		break;
@@ -1182,14 +1182,14 @@ int set_obj_values(BUFFER *output, OBJ_INDEX_DATA *pObj,
 		switch (value_num) {
 		case 0:
 			buf_add(output, "SPELL LEVEL SET.\n\n");
-			INT_VAL(pObj->value[0]) = atoi(argument);
+			INT(pObj->value[0]) = atoi(argument);
 			break;
 		case 1:
 		case 2:
 		case 3:
 		case 4:
 			if (!str_cmp(argument, "none")) {
-				STR_VAL_ASSIGN(pObj->value[value_num],
+				STR_ASSIGN(pObj->value[value_num],
 					       str_empty);
 				break;
 			}
@@ -1200,7 +1200,7 @@ int set_obj_values(BUFFER *output, OBJ_INDEX_DATA *pObj,
 				return 2;
 			}
 			buf_printf(output, "SPELL TYPE %d SET.\n\n", value_num);
-			STR_VAL_ASSIGN(pObj->value[value_num],
+			STR_ASSIGN(pObj->value[value_num],
 				       str_qdup(sk->name));
 			break;
  		}
@@ -1214,19 +1214,19 @@ int set_obj_values(BUFFER *output, OBJ_INDEX_DATA *pObj,
 			return 1;
 		case 0:
 			buf_add(output, "AC PIERCE SET.\n\n");
-			INT_VAL(pObj->value[0]) = atoi(argument);
+			INT(pObj->value[0]) = atoi(argument);
 			break;
 		case 1:
 			buf_add(output, "AC BASH SET.\n\n");
-			INT_VAL(pObj->value[1]) = atoi(argument);
+			INT(pObj->value[1]) = atoi(argument);
 			break;
 		case 2:
 			buf_add(output, "AC SLASH SET.\n\n");
-			INT_VAL(pObj->value[2]) = atoi(argument);
+			INT(pObj->value[2]) = atoi(argument);
 			break;
 		case 3:
 			buf_add(output, "AC EXOTIC SET.\n\n");
-			INT_VAL(pObj->value[3]) = atoi(argument);
+			INT(pObj->value[3]) = atoi(argument);
 			break;
 		}
 		break;
@@ -1242,15 +1242,15 @@ int set_obj_values(BUFFER *output, OBJ_INDEX_DATA *pObj,
 				return 2;
 			}
 			buf_add(output, "WEAPON CLASS SET.\n\n");
-			INT_VAL(pObj->value[0]) = val;
+			INT(pObj->value[0]) = val;
 			break;
 		case 1:
 			buf_add(output, "NUMBER OF DICE SET.\n\n");
-			INT_VAL(pObj->value[1]) = atoi(argument);
+			INT(pObj->value[1]) = atoi(argument);
 			break;
 		case 2:
 			buf_add(output, "TYPE OF DICE SET.\n\n");
-			INT_VAL(pObj->value[2]) = atoi(argument);
+			INT(pObj->value[2]) = atoi(argument);
 			break;
 		case 3:
 			if (!str_cmp(argument, "?")
@@ -1259,7 +1259,7 @@ int set_obj_values(BUFFER *output, OBJ_INDEX_DATA *pObj,
 				return 2;
 			}
 			buf_add(output, "WEAPON TYPE SET.\n\n");
-			STR_VAL_ASSIGN(pObj->value[3], str_qdup(d->dam_name));
+			STR_ASSIGN(pObj->value[3], str_qdup(d->dam_name));
 			break;
 		case 4:
 			if (!str_cmp(argument, "?")
@@ -1268,7 +1268,7 @@ int set_obj_values(BUFFER *output, OBJ_INDEX_DATA *pObj,
 				return 2;
 			}
 			buf_add(output, "SPECIAL WEAPON TYPE TOGGLED.\n\n");
-			TOGGLE_BIT(INT_VAL(pObj->value[4]), val);
+			TOGGLE_BIT(INT(pObj->value[4]), val);
 			break;
 		}
 		break;
@@ -1279,7 +1279,7 @@ int set_obj_values(BUFFER *output, OBJ_INDEX_DATA *pObj,
 			return 1;
 		case 0:
 			buf_add(output, "CHARGES SET.\n\n");
-			INT_VAL(pObj->value[0]) = atoi(argument);
+			INT(pObj->value[0]) = atoi(argument);
 			break;
 		case 1:
 			if (!str_cmp(argument, "?")
@@ -1288,7 +1288,7 @@ int set_obj_values(BUFFER *output, OBJ_INDEX_DATA *pObj,
 				return 2;
 			}
 			buf_add(output, "EXIT FLAGS TOGGLED.\n\n");
-			TOGGLE_BIT(INT_VAL(pObj->value[1]), val);
+			TOGGLE_BIT(INT(pObj->value[1]), val);
 			break;
 		case 2:
 			if (!str_cmp(argument, "?")
@@ -1297,15 +1297,15 @@ int set_obj_values(BUFFER *output, OBJ_INDEX_DATA *pObj,
 				return 2;
 			}
 			buf_add(output, "PORTAL FLAGS TOGGLED.\n\n");
-			TOGGLE_BIT(INT_VAL(pObj->value[2]), val);
+			TOGGLE_BIT(INT(pObj->value[2]), val);
 			break;
 		case 3:
 			buf_add(output, "EXIT VNUM SET.\n\n");
-			INT_VAL(pObj->value[3]) = atoi(argument);
+			INT(pObj->value[3]) = atoi(argument);
 			break;
 		case 4:
 			buf_add(output, "PORTAL KEY SET.\n\n");
-			INT_VAL(pObj->value[4]) = atoi(argument);
+			INT(pObj->value[4]) = atoi(argument);
 		}
 		break;
 
@@ -1313,11 +1313,11 @@ int set_obj_values(BUFFER *output, OBJ_INDEX_DATA *pObj,
 		switch (value_num) {
 		case 0:
 			buf_add(output, "NUMBER OF PEOPLE SET.\n\n");
-			INT_VAL(pObj->value[0]) = atoi(argument);
+			INT(pObj->value[0]) = atoi(argument);
 			break;
 		case 1:
 			buf_add(output, "MAX WEIGHT SET.\n\n");
-			INT_VAL(pObj->value[1]) = atoi(argument);
+			INT(pObj->value[1]) = atoi(argument);
 			break;
 		case 2:
 			if (!str_cmp(argument, "?")
@@ -1326,15 +1326,15 @@ int set_obj_values(BUFFER *output, OBJ_INDEX_DATA *pObj,
 				return 2;
 			}
 		        buf_add(output, "FURNITURE FLAGS TOGGLED.\n\n");
-			TOGGLE_BIT(INT_VAL(pObj->value[2]), val);
+			TOGGLE_BIT(INT(pObj->value[2]), val);
 			break;
 		case 3:
 			buf_add(output, "HEAL BONUS SET.\n\n");
-			INT_VAL(pObj->value[3]) = atoi(argument);
+			INT(pObj->value[3]) = atoi(argument);
 			break;
 		case 4:
 			buf_add(output, "MANA BONUS SET.\n\n");
-			INT_VAL(pObj->value[4]) = atoi(argument);
+			INT(pObj->value[4]) = atoi(argument);
 			break;
 		}
 		break;
@@ -1343,7 +1343,7 @@ int set_obj_values(BUFFER *output, OBJ_INDEX_DATA *pObj,
 		switch (value_num) {
 		case 0:
 			buf_add(output, "WEIGHT CAPACITY SET.\n\n");
-			INT_VAL(pObj->value[0]) = atoi(argument);
+			INT(pObj->value[0]) = atoi(argument);
 			break;
 		case 1:
 			if (!str_cmp(argument, "?")
@@ -1352,7 +1352,7 @@ int set_obj_values(BUFFER *output, OBJ_INDEX_DATA *pObj,
 				return 2;
 			}
 			buf_add(output, "CONTAINER TYPE SET.\n\n");
-			TOGGLE_BIT(INT_VAL(pObj->value[1]), val);
+			TOGGLE_BIT(INT(pObj->value[1]), val);
 			break;
 		case 2:
 			if (atoi(argument) != 0) {
@@ -1367,15 +1367,15 @@ int set_obj_values(BUFFER *output, OBJ_INDEX_DATA *pObj,
 				}
 			}
 			buf_add(output, "CONTAINER KEY SET.\n\n");
-			INT_VAL(pObj->value[2]) = atoi(argument);
+			INT(pObj->value[2]) = atoi(argument);
 			break;
 		case 3:
 			buf_add(output, "CONTAINER MAX WEIGHT SET.\n");
-			INT_VAL(pObj->value[3]) = atoi(argument);
+			INT(pObj->value[3]) = atoi(argument);
 			break;
 		case 4:
 			buf_add(output, "WEIGHT MULTIPLIER SET.\n\n");
-			INT_VAL(pObj->value[4]) = atoi(argument);
+			INT(pObj->value[4]) = atoi(argument);
 			break;
 		}
 		break;
@@ -1386,11 +1386,11 @@ int set_obj_values(BUFFER *output, OBJ_INDEX_DATA *pObj,
 			return 1;
 		case 0:
 			buf_add(output, "MAXIMUM AMOUT OF LIQUID HOURS SET.\n\n");
-			INT_VAL(pObj->value[0]) = atoi(argument);
+			INT(pObj->value[0]) = atoi(argument);
 			break;
 		case 1:
 			buf_add(output, "CURRENT AMOUNT OF LIQUID HOURS SET.\n\n");
-			INT_VAL(pObj->value[1]) = atoi(argument);
+			INT(pObj->value[1]) = atoi(argument);
 			break;
 		case 2: 
 			if (!str_cmp(argument, "?")
@@ -1400,11 +1400,11 @@ int set_obj_values(BUFFER *output, OBJ_INDEX_DATA *pObj,
 			}
 
 			buf_add(output, "LIQUID TYPE SET.\n\n");
-			STR_VAL_ASSIGN(pObj->value[2], str_qdup(liq->name));
+			STR_ASSIGN(pObj->value[2], str_qdup(liq->name));
 			break;
 		case 3:
 			buf_add(output, "POISON VALUE TOGGLED.\n\n");
-			INT_VAL(pObj->value[3]) = !INT_VAL(pObj->value[3]);
+			INT(pObj->value[3]) = !INT(pObj->value[3]);
 			break;
 		}
 		break;
@@ -1415,11 +1415,11 @@ int set_obj_values(BUFFER *output, OBJ_INDEX_DATA *pObj,
 			return 1;
 		case 0:
 			buf_add(output, "MAXIMUM AMOUT OF LIQUID HOURS SET.\n\n");
-			INT_VAL(pObj->value[0]) = atoi(argument);
+			INT(pObj->value[0]) = atoi(argument);
 			break;
 		case 1:
 			buf_add(output, "CURRENT AMOUNT OF LIQUID HOURS SET.\n\n");
-			INT_VAL(pObj->value[1]) = atoi(argument);
+			INT(pObj->value[1]) = atoi(argument);
 			break;
 		case 2: 
 			if (!str_cmp(argument, "?")
@@ -1428,7 +1428,7 @@ int set_obj_values(BUFFER *output, OBJ_INDEX_DATA *pObj,
 				return 2;
 			}
 			buf_add(output, "LIQUID TYPE SET.\n\n");
-			STR_VAL_ASSIGN(pObj->value[2], str_qdup(liq->name));
+			STR_ASSIGN(pObj->value[2], str_qdup(liq->name));
 			break;
 		}
 		break;
@@ -1439,15 +1439,15 @@ int set_obj_values(BUFFER *output, OBJ_INDEX_DATA *pObj,
 			return 1;
 		case 0:
 			buf_add(output, "HOURS OF FOOD SET.\n\n");
-			INT_VAL(pObj->value[0]) = atoi(argument);
+			INT(pObj->value[0]) = atoi(argument);
 			break;
 		case 1:
 			buf_add(output, "HOURS OF FULL SET.\n\n");
-			INT_VAL(pObj->value[1]) = atoi(argument);
+			INT(pObj->value[1]) = atoi(argument);
 			break;
 		case 3:
 			buf_add(output, "POISON VALUE TOGGLED.\n\n");
-			INT_VAL(pObj->value[3]) = !INT_VAL(pObj->value[3]);
+			INT(pObj->value[3]) = !INT(pObj->value[3]);
 			break;
 		}
 		break;
@@ -1458,11 +1458,11 @@ int set_obj_values(BUFFER *output, OBJ_INDEX_DATA *pObj,
 			return 1;
 		case 0:
 			buf_add(output, "SILVER AMOUNT SET.\n\n");
-			INT_VAL(pObj->value[0]) = atoi(argument);
+			INT(pObj->value[0]) = atoi(argument);
 			break;
 		case 1:
 			buf_add(output, "GOLD AMOUNT SET.\n\n");
-			INT_VAL(pObj->value[1]) = atoi(argument);
+			INT(pObj->value[1]) = atoi(argument);
 			break;
 		}
 		break;

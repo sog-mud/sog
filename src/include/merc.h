@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.260 1999-11-30 14:50:33 kostik Exp $
+ * $Id: merc.h,v 1.261 1999-12-01 09:07:08 fjoe Exp $
  */
 
 /***************************************************************************
@@ -822,7 +822,7 @@ struct spec_type
 #define WEAPON_LANCE		11
 #define	WEAPON_STAFF		12
 
-#define WEAPON_IS(obj, wclass)	(INT_VAL(obj->value[0]) == (wclass))
+#define WEAPON_IS(obj, wclass)	(INT(obj->value[0]) == (wclass))
 #define WEAPON_IS_LONG(obj) (WEAPON_IS((obj), WEAPON_STAFF) || WEAPON_IS((obj), WEAPON_SPEAR) || WEAPON_IS((obj), WEAPON_POLEARM) || WEAPON_IS((obj), WEAPON_LANCE))
 
 /* weapon types */
@@ -1780,8 +1780,8 @@ int trust_level(CHAR_DATA *ch);
 #define COINS_WEIGHT(gold, silver) ((silver) / 10 + (gold) * 2 / 5)
 #define get_carry_weight(ch)	((ch)->carry_weight +			\
 				 COINS_WEIGHT((ch)->silver, (ch)->gold))
-#define MONEY_WEIGHT(obj)	COINS_WEIGHT(INT_VAL(obj->value[0]),	\
-					     INT_VAL(obj->value[1]))
+#define MONEY_WEIGHT(obj)	COINS_WEIGHT(INT(obj->value[0]),	\
+					     INT(obj->value[1]))
 
 #define HAS_TRIGGER(ch,trig)	(IS_SET((ch)->pMobIndex->mptrig_types, (trig)))
 #define IS_SWITCHED( ch )       (ch->desc && ch->desc->original)
@@ -1802,9 +1802,9 @@ int trust_level(CHAR_DATA *ch);
  */
 #define CAN_WEAR(obj, part)	(IS_SET((obj)->wear_flags,  (part)))
 #define IS_OBJ_STAT(obj, stat)	(IS_SET((obj)->extra_flags, (stat)))
-#define IS_WEAPON_STAT(obj,stat)(IS_SET(INT_VAL((obj)->value[4]), (stat)))
+#define IS_WEAPON_STAT(obj,stat)(IS_SET(INT((obj)->value[4]), (stat)))
 #define WEIGHT_MULT(obj)	((obj)->pObjIndex->item_type == ITEM_CONTAINER ? \
-	INT_VAL((obj)->value[4]) : 100)
+	INT((obj)->value[4]) : 100)
 
 /*
  * Description macros.

@@ -1,5 +1,5 @@
 /*
- * $Id: affects.c,v 1.11 1999-11-26 07:11:14 fjoe Exp $
+ * $Id: affects.c,v 1.12 1999-12-01 09:07:10 fjoe Exp $
  */
 
 /***************************************************************************
@@ -61,10 +61,10 @@ AFFECT_DATA *aff_dup(const AFFECT_DATA *paf)
 	switch (paf->where) {
 	case TO_RACE:
 	case TO_SKILLS:
-		naf->location = str_dup(paf->location.s);
+		naf->location.s = str_dup(paf->location.s);
 		break;
 	default:
-		naf->location = paf->location;
+		INT(naf->location) = INT(paf->location);
 		break;
 	}
 	naf->modifier	= paf->modifier;
@@ -230,7 +230,7 @@ void affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd)
 		mod = 0 - mod;
 	}
 
-	switch (INT_VAL(paf->location)) {
+	switch (INT(paf->location)) {
 	case APPLY_NONE:
 	case APPLY_HEIGHT:
 	case APPLY_WEIGHT:
@@ -409,7 +409,7 @@ void affect_to_obj(OBJ_DATA *obj, AFFECT_DATA *paf)
 			break;
 		case TO_WEAPON:
 			if (obj->pObjIndex->item_type == ITEM_WEAPON)
-		        	SET_BIT(INT_VAL(obj->value[4]), paf->bitvector);
+		        	SET_BIT(INT(obj->value[4]), paf->bitvector);
 			break;
 		}
 	}
@@ -475,7 +475,7 @@ void affect_remove_obj(OBJ_DATA *obj, AFFECT_DATA *paf)
 			break;
 		case TO_WEAPON:
 			if (obj->pObjIndex->item_type == ITEM_WEAPON)
-				REMOVE_BIT(INT_VAL(obj->value[4]),
+				REMOVE_BIT(INT(obj->value[4]),
 					   paf->bitvector);
 			break;
 		}
@@ -640,7 +640,7 @@ void affect_modify_room(ROOM_INDEX_DATA *room, AFFECT_DATA *paf, bool fAdd)
 		mod = 0 - mod;
 	}
 
-	switch (INT_VAL(paf->location))
+	switch (INT(paf->location))
 	{
 	default:
 		bug("Affect_modify_room: unknown location %d.", paf->location);
@@ -839,7 +839,7 @@ void show_duration(BUFFER *output, AFFECT_DATA *paf)
 void show_loc_affect(CHAR_DATA *ch, BUFFER *output,
 		 AFFECT_DATA *paf, AFFECT_DATA **ppaf)
 {
-	if (INT_VAL(paf->location) == APPLY_NONE
+	if (INT(paf->location) == APPLY_NONE
 	&&  paf->bitvector)
 		return;
 
@@ -849,7 +849,7 @@ void show_loc_affect(CHAR_DATA *ch, BUFFER *output,
 		buf_add(output, ": ");
 	else {
 		buf_printf(output, ": modifies {c%s{x by {c%d{x ",
-			   SFLAGS_VAL(apply_flags, paf->location),
+			   SFLAGS(apply_flags, paf->location),
 			   paf->modifier);
 	}
 	show_duration(output, paf);
@@ -928,13 +928,13 @@ void fwrite_affect(AFFECT_DATA *paf, FILE *fp)
 		fprintf(fp, "'%s' %3d %3d %3d %3d '%s' %s\n",
 			paf->type,
 			paf->where, paf->level, paf->duration, paf->modifier,
-			STR_VAL(paf->location), format_flags(paf->bitvector));
+			STR(paf->location), format_flags(paf->bitvector));
 		break;
 	default:
 		fprintf(fp, "'%s' %3d %3d %3d %3d %3d %s\n",
 			paf->type,
 			paf->where, paf->level, paf->duration, paf->modifier,
-			INT_VAL(paf->location), format_flags(paf->bitvector));
+			INT(paf->location), format_flags(paf->bitvector));
 		break;
 	}
 }
@@ -950,13 +950,13 @@ AFFECT_DATA *fread_affect(rfile_t *fp)
 	paf->modifier = fread_number(fp);
 	switch (paf->where) {
 	case TO_SKILLS:
-		paf->location = fread_strkey(fp, &skills, "fread_affect");
+		paf->location.s = fread_strkey(fp, &skills, "fread_affect");
 		break;
 	case TO_RACE:
-		paf->location = fread_strkey(fp, &races, "fread_affect");
+		paf->location.s = fread_strkey(fp, &races, "fread_affect");
 		break;
 	default:
-		INT_VAL(paf->location) = fread_number(fp);
+		INT(paf->location) = fread_number(fp);
 		break;
 	}
 	paf->bitvector = fread_flags(fp);

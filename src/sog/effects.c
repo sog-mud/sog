@@ -1,5 +1,5 @@
 /*
- * $Id: effects.c,v 1.22 1999-11-25 12:26:24 fjoe Exp $
+ * $Id: effects.c,v 1.23 1999-12-01 09:07:10 fjoe Exp $
  */
 
 /***************************************************************************
@@ -147,7 +147,7 @@ void acid_effect(void *vo, int level, int dam)
 		||  paf->where == TO_RACE)
 			continue;
 
-                if (INT_VAL(paf->location) == APPLY_AC)
+                if (INT(paf->location) == APPLY_AC)
                 {
                     af_found = TRUE;
                     paf->type = NULL;
@@ -165,7 +165,7 @@ void acid_effect(void *vo, int level, int dam)
                 paf->type       = NULL;
                 paf->level      = level;
                 paf->duration   = -1;
-                paf->location   = APPLY_AC;
+                INT(paf->location) = APPLY_AC;
                 paf->modifier   =  1;
                 paf->bitvector  = 0;
                 paf->next       = obj->affected;
@@ -233,7 +233,7 @@ void cold_effect(void *vo, int level, int dam)
             af.type      = "chill touch";
             af.level     = level;
             af.duration  = 6;
-            af.location  = APPLY_STR;
+            INT(af.location) = APPLY_STR;
             af.modifier  = -1;
             af.bitvector = 0;
             affect_join( victim, &af );
@@ -336,7 +336,7 @@ void fire_effect(void *vo, int level, int dam)
             af.type         = "fire breath";
             af.level        = level;
             af.duration     = number_range(0,level/10);
-            af.location     = APPLY_HITROLL;
+            INT(af.location) = APPLY_HITROLL;
             af.modifier     = -4;
             af.bitvector    = AFF_BLIND;
  
@@ -472,7 +472,7 @@ void poison_effect(void *vo,int level, int dam)
             af.type      = "poison";
             af.level     = level;
             af.duration  = level / 2;
-            af.location  = APPLY_STR;
+            INT(af.location) = APPLY_STR;
             af.modifier  = -1;
             af.bitvector = AFF_POISON;
 	    af.events    = EVENT_CHAR_UPDATE;
@@ -512,7 +512,7 @@ void poison_effect(void *vo,int level, int dam)
 	    case ITEM_FOOD:
 		break;
 	    case ITEM_DRINK_CON:
-		if (INT_VAL(obj->value[0]) == INT_VAL(obj->value[1]))
+		if (INT(obj->value[0]) == INT(obj->value[1]))
 		    return;
 		break;
 	}
@@ -522,7 +522,7 @@ void poison_effect(void *vo,int level, int dam)
 	if (number_percent() > chance)
 	    return;
 
-	obj->value[3] = 1;
+	INT(obj->value[3]) = 1;
 	return;
     }
 }
@@ -643,7 +643,7 @@ void sand_effect(void *vo, int level, int dam)
             af.type         = "sand storm";
             af.level        = level;
             af.duration     = number_range(0,level/10);
-            af.location     = APPLY_HITROLL;
+            INT(af.location) = APPLY_HITROLL;
             af.modifier     = -4;
             af.bitvector    = AFF_BLIND;
  
@@ -737,7 +737,7 @@ void sand_effect(void *vo, int level, int dam)
 		||  paf->where == TO_RACE)
 			continue;
 
-                if (INT_VAL(paf->location) == APPLY_AC)
+                if (INT(paf->location) == APPLY_AC)
                 {
                     af_found = TRUE;
                     paf->type = NULL;
@@ -755,7 +755,7 @@ void sand_effect(void *vo, int level, int dam)
                 paf->type       = NULL;
                 paf->level      = level;
                 paf->duration   = level;
-                paf->location   = APPLY_AC;
+                INT(paf->location) = APPLY_AC;
                 paf->modifier   =  1;
                 paf->bitvector  = 0;
                 paf->next       = obj->affected;
@@ -821,7 +821,7 @@ void scream_effect(void *vo, int level, int dam)
             af.type         = "scream";
             af.level        = level;
             af.duration     = 0;
-            af.location     = APPLY_NONE;
+            INT(af.location) = APPLY_NONE;
             af.modifier     = 0;
             af.bitvector    = AFF_SCREAM;
  

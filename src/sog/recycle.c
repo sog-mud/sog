@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.80 1999-11-26 08:25:12 kostik Exp $
+ * $Id: recycle.c,v 1.81 1999-12-01 09:07:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -757,31 +757,31 @@ void objval_init(flag32_t item_type, vo_t *v)
 	switch (item_type) {
 	default:
 		for (i = 0; i < 5; i++)
-			v[i] = 0;
+			INT(v[i]) = 0;
 		break;
 
 	case ITEM_DRINK_CON:
 	case ITEM_FOUNTAIN:
-		v[0] = 0;
-		v[1] = 0;
+		INT(v[0]) = 0;
+		INT(v[1]) = 0;
 		v[2].s = str_empty;
-		v[3] = 0;
-		v[4] = 0;
+		INT(v[3]) = 0;
+		INT(v[4]) = 0;
 		
 	case ITEM_WEAPON:
 	case ITEM_STAFF:
 	case ITEM_WAND:
-		v[0] = 0;
-		v[1] = 0;
-		v[2] = 0;
+		INT(v[0]) = 0;
+		INT(v[1]) = 0;
+		INT(v[2]) = 0;
 		v[3].s = str_empty;
-		v[4] = 0;
+		INT(v[4]) = 0;
 		break;
 
 	case ITEM_PILL:
 	case ITEM_POTION:
 	case ITEM_SCROLL:
-		v[0] = 0;
+		INT(v[0]) = 0;
 		for (i = 1; i < 5; i++)
 			v[i].s = str_empty;
 		break;
@@ -802,7 +802,7 @@ void objval_cpy(flag32_t item_type, vo_t *dst, vo_t *src)
 	case ITEM_FOUNTAIN:
 		dst[0] = src[0];
 		dst[1] = src[1];
-		STR_VAL_ASSIGN(dst[2], str_qdup(src[2].s));
+		STR_ASSIGN(dst[2], str_qdup(src[2].s));
 		dst[3] = src[3];
 		dst[4] = src[4];
 		break;
@@ -813,7 +813,7 @@ void objval_cpy(flag32_t item_type, vo_t *dst, vo_t *src)
 		dst[0] = src[0];
 		dst[1] = src[1];
 		dst[2] = src[2];
-		STR_VAL_ASSIGN(dst[3], str_qdup(src[3].s));
+		STR_ASSIGN(dst[3], str_qdup(src[3].s));
 		dst[4] = src[4];
 		break;
 
@@ -822,7 +822,7 @@ void objval_cpy(flag32_t item_type, vo_t *dst, vo_t *src)
 	case ITEM_SCROLL:
 		dst[0] = src[0];
 		for (i = 1; i < 5; i++)
-			STR_VAL_ASSIGN(dst[i], str_qdup(src[i].s));
+			STR_ASSIGN(dst[i], str_qdup(src[i].s));
 		break;
 	}
 }
@@ -863,49 +863,49 @@ void fwrite_objval(flag32_t item_type, vo_t *v, FILE *fp)
 	switch (item_type) {
 	default:
 		fprintf(fp, "%s %s %s %s %s\n",
-			FLAGS_VAL(v[0]),
-	    		FLAGS_VAL(v[1]),
-	    		FLAGS_VAL(v[2]),
-	    		FLAGS_VAL(v[3]),
-	    		FLAGS_VAL(v[4]));
+			FLAGS(v[0]),
+	    		FLAGS(v[1]),
+	    		FLAGS(v[2]),
+	    		FLAGS(v[3]),
+	    		FLAGS(v[4]));
 		break;
 
 	case ITEM_MONEY:
 	case ITEM_ARMOR:
 		fprintf(fp, "%d %d %d %d %d\n",
-			INT_VAL(v[0]),
-	    		INT_VAL(v[1]),
-	    		INT_VAL(v[2]),
-	    		INT_VAL(v[3]),
-	    		INT_VAL(v[4]));
+			INT(v[0]),
+	    		INT(v[1]),
+	    		INT(v[2]),
+	    		INT(v[3]),
+	    		INT(v[4]));
 		break;
 
         case ITEM_DRINK_CON:
         case ITEM_FOUNTAIN:
 		fprintf(fp, "%d %d '%s' %d %d\n",
-			INT_VAL(v[0]),
-			INT_VAL(v[1]),
-			STR_VAL(v[2]),
-			INT_VAL(v[3]),
-			INT_VAL(v[4]));
+			INT(v[0]),
+			INT(v[1]),
+			STR(v[2]),
+			INT(v[3]),
+			INT(v[4]));
 		break;
 
         case ITEM_CONTAINER:
 		fprintf(fp, "%d %s %d %d %d\n",
-			INT_VAL(v[0]),
-			FLAGS_VAL(v[1]),
-			INT_VAL(v[2]),
-			INT_VAL(v[3]),
-			INT_VAL(v[4]));
+			INT(v[0]),
+			FLAGS(v[1]),
+			INT(v[2]),
+			INT(v[3]),
+			INT(v[4]));
 		break;
 
         case ITEM_WEAPON:
 		fprintf(fp, "%s %d %d '%s' %s\n",
-			SFLAGS_VAL(weapon_class, v[0]),
-			INT_VAL(v[1]),
-			INT_VAL(v[2]),
-			STR_VAL(v[3]),
-			FLAGS_VAL(v[4]));
+			SFLAGS(weapon_class, v[0]),
+			INT(v[1]),
+			INT(v[2]),
+			STR(v[3]),
+			FLAGS(v[4]));
 		break;
             
         case ITEM_PILL:
@@ -913,41 +913,41 @@ void fwrite_objval(flag32_t item_type, vo_t *v, FILE *fp)
         case ITEM_SCROLL:
 		/* no negative numbers */
 		fprintf(fp, "%d '%s' '%s' '%s' '%s'\n",
-			UMAX(0, INT_VAL(v[0])),
-			STR_VAL(v[1]),
-			STR_VAL(v[2]),
-			STR_VAL(v[3]),
-			STR_VAL(v[4]));
+			UMAX(0, INT(v[0])),
+			STR(v[1]),
+			STR(v[2]),
+			STR(v[3]),
+			STR(v[4]));
 		break;
 
         case ITEM_STAFF:
         case ITEM_WAND:
 		fprintf(fp, "%d %d %d '%s' %d\n",
-			INT_VAL(v[0]),
-			INT_VAL(v[1]),
-			INT_VAL(v[2]),
-			STR_VAL(v[3]),
-			INT_VAL(v[4]));
+			INT(v[0]),
+			INT(v[1]),
+			INT(v[2]),
+			STR(v[3]),
+			INT(v[4]));
 		break;
 
 	case ITEM_PORTAL:
 		fprintf(fp, "%s %s %s %d %d\n",
-			FLAGS_VAL(v[0]),
-			FLAGS_VAL(v[1]),
-			FLAGS_VAL(v[2]),
-			INT_VAL(v[3]),
-			INT_VAL(v[4]));
+			FLAGS(v[0]),
+			FLAGS(v[1]),
+			FLAGS(v[2]),
+			INT(v[3]),
+			INT(v[4]));
 		break;
 
 	case ITEM_LIGHT:
 	case ITEM_TATTOO:
 	case ITEM_TREASURE:
 		fprintf(fp, "%s %s %d %s %s\n",
-			FLAGS_VAL(v[0]),
-			FLAGS_VAL(v[1]),
-			INT_VAL(v[2]),
-			FLAGS_VAL(v[3]),
-			FLAGS_VAL(v[4]));
+			FLAGS(v[0]),
+			FLAGS(v[1]),
+			INT(v[2]),
+			FLAGS(v[3]),
+			FLAGS(v[4]));
 		break;
 	}
 }
@@ -958,45 +958,45 @@ void fread_objval(flag32_t item_type, vo_t *v, rfile_t *fp)
 
 	switch(item_type) {
 	default:
-		INT_VAL(v[0]) = fread_flags(fp);
-		INT_VAL(v[1]) = fread_flags(fp);
-		INT_VAL(v[2]) = fread_flags(fp);
-		INT_VAL(v[3]) = fread_flags(fp);
-		INT_VAL(v[4]) = fread_flags(fp);
+		INT(v[0]) = fread_flags(fp);
+		INT(v[1]) = fread_flags(fp);
+		INT(v[2]) = fread_flags(fp);
+		INT(v[3]) = fread_flags(fp);
+		INT(v[4]) = fread_flags(fp);
 		break;
 
 	case ITEM_DRINK_CON:
 	case ITEM_FOUNTAIN:
-		INT_VAL(v[0]) = fread_number(fp);
-		INT_VAL(v[1]) = fread_number(fp);
-		STR_VAL_ASSIGN(v[2], fread_strkey(fp, &liquids, "fread_obj_val"));
-		INT_VAL(v[3]) = fread_number(fp);
-		INT_VAL(v[4]) = fread_number(fp);
+		INT(v[0]) = fread_number(fp);
+		INT(v[1]) = fread_number(fp);
+		STR_ASSIGN(v[2], fread_strkey(fp, &liquids, "fread_obj_val"));
+		INT(v[3]) = fread_number(fp);
+		INT(v[4]) = fread_number(fp);
 		break;
 
 	case ITEM_WEAPON:
-		INT_VAL(v[0]) = fread_fword(weapon_class, fp);
-		INT_VAL(v[1]) = fread_number(fp);
-		INT_VAL(v[2]) = fread_number(fp);
-		STR_VAL_ASSIGN(v[3], fread_strkey(fp, &damtypes, "fread_obj_val"));
-		INT_VAL(v[4]) = fread_flags(fp);
+		INT(v[0]) = fread_fword(weapon_class, fp);
+		INT(v[1]) = fread_number(fp);
+		INT(v[2]) = fread_number(fp);
+		STR_ASSIGN(v[3], fread_strkey(fp, &damtypes, "fread_obj_val"));
+		INT(v[4]) = fread_flags(fp);
 		break;
 
 	case ITEM_WAND:
 	case ITEM_STAFF:
-		INT_VAL(v[0]) = fread_number(fp);
-		INT_VAL(v[1]) = fread_number(fp);
-		INT_VAL(v[2]) = fread_number(fp);
-		STR_VAL_ASSIGN(v[3], fread_strkey(fp, &skills, "fread_obj_val"));
-		INT_VAL(v[4]) = fread_number(fp);
+		INT(v[0]) = fread_number(fp);
+		INT(v[1]) = fread_number(fp);
+		INT(v[2]) = fread_number(fp);
+		STR_ASSIGN(v[3], fread_strkey(fp, &skills, "fread_obj_val"));
+		INT(v[4]) = fread_number(fp);
 		break;
 
 	case ITEM_PILL:
 	case ITEM_POTION:
 	case ITEM_SCROLL:
-		INT_VAL(v[0]) = fread_number(fp);
+		INT(v[0]) = fread_number(fp);
 		for (i = 1; i < 5; i++)
-			STR_VAL_ASSIGN(v[i], fread_strkey(fp, &skills, "fread_obj_val"));
+			STR_ASSIGN(v[i], fread_strkey(fp, &skills, "fread_obj_val"));
 		break;
 	}
 }

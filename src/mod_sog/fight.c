@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.222 1999-11-30 14:50:33 kostik Exp $
+ * $Id: fight.c,v 1.223 1999-12-01 09:07:10 fjoe Exp $
  */
 
 /***************************************************************************
@@ -115,7 +115,7 @@ int check_forest(CHAR_DATA* ch)
 	if ((paf = is_affected(ch, "forest fighting")) == NULL)
 		return FOREST_NONE;
 
-	if (INT_VAL(paf->location) == APPLY_AC) 
+	if (INT(paf->location) == APPLY_AC) 
 		return FOREST_DEFENCE;
 	else 
 		return FOREST_ATTACK;
@@ -763,8 +763,8 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 		if (weapon_sn != NULL)
 			check_improve(ch, weapon_sn, TRUE, 5);
 		if (wield != NULL) {
-			dam = dice(INT_VAL(wield->value[1]),
-				   INT_VAL(wield->value[2])) * sk / 100;
+			dam = dice(INT(wield->value[1]),
+				   INT(wield->value[2])) * sk / 100;
 
 /* no shield = more */
 			if (get_eq_char(ch, WEAR_SHIELD) == NULL)
@@ -1068,7 +1068,7 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 				af.type      = "poison";
 				af.level     = level * 3/4;
 				af.duration  = level / 2;
-				af.location  = APPLY_STR;
+				INT(af.location) = APPLY_STR;
 				af.modifier  = -1;
 				af.bitvector = AFF_POISON;
 				af.events    = EVENT_CHAR_UPDATE;
@@ -1190,12 +1190,14 @@ void handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
 
 		if (IS_SET(plr_flags, PLR_AUTOLOOK))
 			dofun("examine", ch, "corpse");
-		if (corpse->contains)
+
+		if (corpse->contains) {
 			/* corpse exists and not empty */
 			if (IS_SET(plr_flags, PLR_AUTOLOOT))
 				dofun("get", ch, "all corpse");
 			else if (IS_SET(plr_flags, PLR_AUTOGOLD))
 				get_gold_corpse(ch, corpse);
+		}
 
 		if (IS_SET(plr_flags, PLR_AUTOSAC))
 			dofun("sacrifice", ch, "corpse");
@@ -1678,7 +1680,7 @@ bool check_distance(CHAR_DATA *ch, CHAR_DATA *victim, int loc) {
 	if (!ch_weapon) {
 		chance /= 3; 
 	} else {
-		switch(INT_VAL(ch_weapon->value[1])) {
+		switch(INT(ch_weapon->value[1])) {
 		case WEAPON_DAGGER:
 			chance /= 2;
 			break;
@@ -1728,7 +1730,7 @@ bool check_parry(CHAR_DATA *ch, CHAR_DATA *victim, int loc)
 	ch_weapon = get_eq_char(ch, loc);
 	
 	if (v_weapon) {
-		switch (INT_VAL(v_weapon->value[1])) {
+		switch (INT(v_weapon->value[1])) {
 		case WEAPON_WHIP:
 		case WEAPON_FLAIL:
 			chance /= 2;
@@ -2226,8 +2228,8 @@ void death_cry(CHAR_DATA *ch)
 		obj->timer = number_range(4, 7);
 
 		if (obj->pObjIndex->item_type == ITEM_FOOD) {
-			if (IS_SET(ch->form,FORM_POISON))
-				obj->value[3] = 1;
+			if (IS_SET(ch->form, FORM_POISON))
+				INT(obj->value[3]) = 1;
 			if (IS_SET(ch->form, FORM_MAGICAL))
 				SET_BIT(obj->extra_flags, ITEM_MAGIC);
 			if (!IS_SET(ch->form,FORM_EDIBLE))
@@ -2895,7 +2897,7 @@ int critical_strike(CHAR_DATA *ch, CHAR_DATA *victim, int dam)
 			baf.where = TO_AFFECTS;
 			baf.type = "critical strike";
 			baf.level = ch->level; 
-			baf.location = APPLY_HITROLL; 
+			INT(baf.location) = APPLY_HITROLL; 
 			baf.modifier = -4;
 			baf.duration = number_range(1, 3); 
 			baf.bitvector = AFF_BLIND;

@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.68 1999-11-24 07:22:28 fjoe Exp $
+ * $Id: db_area.c,v 1.69 1999-12-01 09:07:16 fjoe Exp $
  */
 
 /***************************************************************************
@@ -505,11 +505,11 @@ DBLOAD_FUN(load_old_obj)
 		pObjIndex->item_type	= fread_number(fp);
 		pObjIndex->extra_flags	= fread_flags(fp) | ITEM_OLDSTYLE;
 		pObjIndex->wear_flags	= fread_flags(fp);
-		pObjIndex->value[0]	= fread_number(fp);
-		pObjIndex->value[1]	= fread_number(fp);
-		pObjIndex->value[2]	= fread_number(fp);
-		pObjIndex->value[3]	= fread_number(fp);
-		pObjIndex->value[4]	= 0;
+		INT(pObjIndex->value[0])= fread_number(fp);
+		INT(pObjIndex->value[1])= fread_number(fp);
+		INT(pObjIndex->value[2])= fread_number(fp);
+		INT(pObjIndex->value[3])= fread_number(fp);
+		INT(pObjIndex->value[4])= 0;
 		pObjIndex->level	= 0;
 		pObjIndex->condition 	= 100;
 		pObjIndex->weight	= fread_number(fp);
@@ -529,7 +529,7 @@ DBLOAD_FUN(load_old_obj)
 				paf->type	= str_empty;
 				paf->level	= 20; /* RT temp fix */
 				paf->duration	= -1;
-				paf->location	= fread_number(fp);
+				INT(paf->location)= fread_number(fp);
 				paf->modifier	= fread_number(fp);
 				paf->bitvector	= 0;
 				SLIST_ADD(AFFECT_DATA,
@@ -558,14 +558,14 @@ DBLOAD_FUN(load_old_obj)
 		case ITEM_POTION:
 		case ITEM_SCROLL:
 			for (i = 1; i < 5; i++) {
-				STR_VAL_ASSIGN(pObjIndex->value[i],
+				STR_ASSIGN(pObjIndex->value[i],
 					skill_slot_lookup(pObjIndex->value[i].i));
 			}
 			break;
 
 		case ITEM_STAFF:
 		case ITEM_WAND:
-			STR_VAL_ASSIGN(pObjIndex->value[3],
+			STR_ASSIGN(pObjIndex->value[3],
 				skill_slot_lookup(pObjIndex->value[3].i));
 			break;
 
@@ -573,12 +573,12 @@ DBLOAD_FUN(load_old_obj)
 			if (is_name("two", pObjIndex->name) 
 			||  is_name("two-handed", pObjIndex->name) 
 			||  is_name("claymore", pObjIndex->name)) {
-				SET_BIT(INT_VAL(pObjIndex->value[4]),
+				SET_BIT(INT(pObjIndex->value[4]),
 					WEAPON_TWO_HANDS);
 				TOUCH_AREA(area_current);
 			}
 
-			STR_VAL_ASSIGN(pObjIndex->value[3],
+			STR_ASSIGN(pObjIndex->value[3],
 				damtype_slot_lookup(pObjIndex->value[3].i));
 			break;
 		}
@@ -1304,7 +1304,7 @@ DBLOAD_FUN(load_objects)
 				paf->type               = str_empty;
 				paf->level              = pObjIndex->level;
 				paf->duration           = -1;
-				paf->location           = fread_number(fp);
+				INT(paf->location)	= fread_number(fp);
 				paf->modifier           = fread_number(fp);
 				paf->bitvector          = 0;
 				SLIST_ADD(AFFECT_DATA, pObjIndex->affected, paf);
@@ -1343,7 +1343,7 @@ DBLOAD_FUN(load_objects)
 				paf->type               = str_empty;
 				paf->level              = pObjIndex->level;
 				paf->duration           = -1;
-				paf->location		= fread_number(fp);
+				INT(paf->location)	= fread_number(fp);
 				paf->modifier           = fread_number(fp);
 				paf->bitvector          = fread_flags(fp);
 				SLIST_ADD(AFFECT_DATA, pObjIndex->affected, paf);
@@ -1363,7 +1363,7 @@ DBLOAD_FUN(load_objects)
 				paf->type = str_empty;
 				paf->level = pObjIndex->level;
 				paf->duration = -1;
-				paf->location = fread_strkey(fp, &skills, "load_objects");
+				paf->location.s = fread_strkey(fp, &skills, "load_objects");
 				paf->modifier = fread_number(fp);
 				paf->bitvector = fread_flags(fp);
 				SLIST_ADD(AFFECT_DATA, pObjIndex->affected, paf);

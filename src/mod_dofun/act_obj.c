@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.181 1999-11-28 07:41:19 fjoe Exp $
+ * $Id: act_obj.c,v 1.182 1999-12-01 09:07:05 fjoe Exp $
  */
 
 /***************************************************************************
@@ -155,7 +155,7 @@ void do_get(CHAR_DATA * ch, const char *argument)
 		}
 	}
 
-	if (IS_SET(INT_VAL(container->value[1]), CONT_CLOSED)) {
+	if (IS_SET(INT(container->value[1]), CONT_CLOSED)) {
 		act_puts("The $d is closed.",
 			 ch, NULL, container->name, TO_CHAR, POS_DEAD);
 		return;
@@ -242,7 +242,7 @@ void do_put(CHAR_DATA * ch, const char *argument)
 	 * clan members can put item into clan altar even if it is closed
 	 * check that obj is clan item is done in put_obj
 	 */
-	if (IS_SET(INT_VAL(container->value[1]), CONT_CLOSED) 
+	if (IS_SET(INT(container->value[1]), CONT_CLOSED) 
 	&&  ((clan = clan_lookup(ch->clan)) == NULL ||
 	     clan->altar_ptr != container)) {
 		act_puts("$P is closed.",
@@ -279,8 +279,8 @@ void do_put(CHAR_DATA * ch, const char *argument)
 		}
 
 		if (get_obj_weight(obj) + get_true_weight(container) >
-		    (INT_VAL(container->value[0]) * 10)
-		||  get_obj_weight(obj) > (INT_VAL(container->value[3]) * 10)) {
+		    (INT(container->value[0]) * 10)
+		||  get_obj_weight(obj) > (INT(container->value[3]) * 10)) {
 			char_puts("It won't fit.\n", ch);
 			return;
 		}
@@ -311,8 +311,8 @@ void do_put(CHAR_DATA * ch, const char *argument)
 			&&  obj != container
 			&&  can_drop_obj(ch, obj)
 			&&  get_obj_weight(obj) + get_true_weight(container) <=
-			    INT_VAL(container->value[0]) * 10
-			&&  get_obj_weight(obj) < INT_VAL(container->value[3]) * 10
+			    INT(container->value[0]) * 10
+			&&  get_obj_weight(obj) < INT(container->value[3]) * 10
 			&&  !put_obj(ch, container, obj, &count))
 				break;
 		}
@@ -369,8 +369,8 @@ void do_drop(CHAR_DATA * ch, const char *argument)
 			case OBJ_VNUM_COINS:
 			case OBJ_VNUM_GOLD_SOME:
 			case OBJ_VNUM_SILVER_SOME:
-				silver += INT_VAL(obj->value[0]);
-				gold += INT_VAL(obj->value[1]);
+				silver += INT(obj->value[0]);
+				gold += INT(obj->value[1]);
 				extract_obj(obj, 0);
 				break;
 			}
@@ -673,14 +673,14 @@ void do_envenom(CHAR_DATA * ch, const char *argument)
 			    ch, obj, NULL, TO_ROOM);
 			act("You treat $p with deadly poison.",
 			    ch, obj, NULL, TO_CHAR);
-			if (!INT_VAL(obj->value[3])) {
-				INT_VAL(obj->value[3]) = 1;
+			if (!INT(obj->value[3])) {
+				INT(obj->value[3]) = 1;
 				check_improve(ch, "envenom", TRUE, 4);
 			}
 			return;
 		}
 		act("You fail to poison $p.", ch, obj, NULL, TO_CHAR);
-		if (!INT_VAL(obj->value[3]))
+		if (!INT(obj->value[3]))
 			check_improve(ch, "envenom", FALSE, 4);
 		return;
 	} else if (obj->pObjIndex->item_type == ITEM_WEAPON) {
@@ -717,7 +717,7 @@ void do_envenom(CHAR_DATA * ch, const char *argument)
 			af.type = "poison";
 			af.level = LEVEL(ch) * percent / 100;
 			af.duration = LEVEL(ch) * percent / 100;
-			af.location = 0;
+			INT(af.location) = 0;
 			af.modifier = 0;
 			af.bitvector = WEAPON_POISON;
 			affect_to_obj(obj, &af);
@@ -795,7 +795,7 @@ void do_feed(CHAR_DATA *ch, const char *argument)
 		af.type		= "bone dragon";
 		af.level	= obj->level;
 		af.modifier	= 0;
-		af.location	= 0;
+		INT(af.location)= 0;
 
 		if (what < 10) {
 			af.where	= TO_IMMUNE;
@@ -827,7 +827,7 @@ void do_feed(CHAR_DATA *ch, const char *argument)
 
 		af.where	= TO_AFFECTS;
 		af.bitvector	= 0;
-		af.location	= APPLY_NONE;
+		INT(af.location)= APPLY_NONE;
 		af.duration	= 3;
 		affect_to_char(ch, &af);
 		extract_obj(obj, 0);
@@ -854,7 +854,7 @@ void do_feed(CHAR_DATA *ch, const char *argument)
 	af.duration	= 2;
 	af.modifier	= 0;
 	af.bitvector	= 0;
-	af.location	= APPLY_NONE;
+	INT(af.location)= APPLY_NONE;
 	affect_to_char(ch, &af);
 	extract_obj(obj, 0);
 }
@@ -896,27 +896,27 @@ void do_fill(CHAR_DATA * ch, const char *argument)
 		return;
 	}
 
-	if (INT_VAL(obj->value[1]) != 0
-	&&  str_cmp(STR_VAL(obj->value[2]), STR_VAL(fountain->value[2]))) {
+	if (INT(obj->value[1]) != 0
+	&&  str_cmp(STR(obj->value[2]), STR(fountain->value[2]))) {
 		char_puts("There is already another liquid in it.\n", ch);
 		return;
 	}
 
-	if (INT_VAL(obj->value[1]) >= INT_VAL(obj->value[0])
-	&&  INT_VAL(obj->value[0]) >= 0) {
+	if (INT(obj->value[1]) >= INT(obj->value[0])
+	&&  INT(obj->value[0]) >= 0) {
 		char_puts("Your container is full.\n", ch);
 		return;
 	}
-        if ((lq = liquid_lookup(STR_VAL(fountain->value[2]))) == NULL) {
-		bug("Unknown liquid: %s", STR_VAL(fountain->value[2]));
+        if ((lq = liquid_lookup(STR(fountain->value[2]))) == NULL) {
+		bug("Unknown liquid: %s", STR(fountain->value[2]));
 		return;
 	}
 	act_puts3("You fill $p with $U from $P.",
 		   ch, obj, fountain, lq->name, TO_CHAR, POS_DEAD);
 	act_puts3("$n fills $p with $U from $P.",
 		   ch, obj, fountain, lq->name, TO_ROOM, POS_RESTING);
-	STR_VAL_ASSIGN(obj->value[2], str_qdup(fountain->value[2].s));
-	INT_VAL(obj->value[1]) = INT_VAL(obj->value[0]);
+	STR_ASSIGN(obj->value[2], str_qdup(fountain->value[2].s));
+	INT(obj->value[1]) = INT(obj->value[0]);
 
 }
 
@@ -941,17 +941,17 @@ void do_pour(CHAR_DATA * ch, const char *argument)
 		char_puts("That's not a drink container.\n", ch);
 		return;
 	}
-        if ((lq = liquid_lookup(STR_VAL(out->value[2]))) == NULL) {
-		bug("Unknown liquid: %s", STR_VAL(out->value[2]));
+        if ((lq = liquid_lookup(STR(out->value[2]))) == NULL) {
+		bug("Unknown liquid: %s", STR(out->value[2]));
 		return;
 	}
 	if (!str_cmp(argument, "out")) {
-		if (INT_VAL(out->value[1]) == 0) {
+		if (INT(out->value[1]) == 0) {
 			char_puts("It is empty.\n", ch);
 			return;
 		}
-		INT_VAL(out->value[1]) = 0;
-		INT_VAL(out->value[3]) = 0;
+		INT(out->value[1]) = 0;
+		INT(out->value[3]) = 0;
 		act_puts3("You invert $p, spilling $T $U.",
 			  ch, out, lq->name,
 			  IS_WATER(ch->in_room) ? "in to the water" :
@@ -986,29 +986,29 @@ void do_pour(CHAR_DATA * ch, const char *argument)
 		char_puts("You cannot change the laws of physics!\n", ch);
 		return;
 	}
-	if (INT_VAL(in->value[1]) != 0
-	&& str_cmp(STR_VAL(in->value[2]), STR_VAL(out->value[2]))) {
+	if (INT(in->value[1]) != 0
+	&& str_cmp(STR(in->value[2]), STR(out->value[2]))) {
 		char_puts("They don't hold the same liquid.\n", ch);
 		return;
 	}
-	if (INT_VAL(out->value[1]) == 0) {
+	if (INT(out->value[1]) == 0) {
 		act("There's nothing in $p to pour.", ch, out, NULL, TO_CHAR);
 		return;
 	}
-	if (INT_VAL(in->value[0]) < 0) {
+	if (INT(in->value[0]) < 0) {
 		act("You cannot fill $p.", ch, in, NULL, TO_CHAR);
 		return;
 	}
-	if (INT_VAL(in->value[1]) >= INT_VAL(in->value[0])) {
+	if (INT(in->value[1]) >= INT(in->value[0])) {
 		act("$p is already filled to the top.", ch, in, NULL, TO_CHAR);
 		return;
 	}
-	amount = UMIN(INT_VAL(out->value[1]), INT_VAL(in->value[0]) - INT_VAL(in->value[1]));
+	amount = UMIN(INT(out->value[1]), INT(in->value[0]) - INT(in->value[1]));
 
-	INT_VAL(in->value[1]) += amount;
-	if (INT_VAL(out->value[0]) > 0)
-		INT_VAL(out->value[1]) -= amount;
-	INT_VAL(in->value[2]) = INT_VAL(out->value[2]);
+	INT(in->value[1]) += amount;
+	if (INT(out->value[0]) > 0)
+		INT(out->value[1]) -= amount;
+	INT(in->value[2]) = INT(out->value[2]);
 
 	if (vch == NULL) {
 		act_puts3("You pour $U from $p into $P.",
@@ -1069,7 +1069,7 @@ void do_drink(CHAR_DATA * ch, const char *argument)
 		break;
 
 	case ITEM_DRINK_CON:
-		if (INT_VAL(obj->value[1]) == 0) {
+		if (INT(obj->value[1]) == 0) {
 			char_puts("It is empty.\n", ch);
 			return;
 		}
@@ -1077,8 +1077,8 @@ void do_drink(CHAR_DATA * ch, const char *argument)
 		break;
 	}
 
-	if ((lq = liquid_lookup(STR_VAL(obj->value[2]))) == NULL) {
-		bug("Do_drink: bad liquid %s.", STR_VAL(obj->value[2]));
+	if ((lq = liquid_lookup(STR(obj->value[2]))) == NULL) {
+		bug("Do_drink: bad liquid %s.", STR(obj->value[2]));
 		return;
 	}
 
@@ -1103,7 +1103,7 @@ void do_drink(CHAR_DATA * ch, const char *argument)
 	if (!IS_NPC(ch) && PC(ch)->condition[COND_THIRST] > 60)
 		char_puts("Your thirst is quenched.\n", ch);
 
-	if (INT_VAL(obj->value[3]) != 0) {
+	if (INT(obj->value[3]) != 0) {
 		/* The drink was poisoned ! */
 		AFFECT_DATA     af;
 
@@ -1113,14 +1113,14 @@ void do_drink(CHAR_DATA * ch, const char *argument)
 		af.type = "poison";
 		af.level = number_fuzzy(lq->sip);
 		af.duration = 3 * amount;
-		af.location = APPLY_NONE;
+		INT(af.location) = APPLY_NONE;
 		af.modifier = 0;
 		af.bitvector = AFF_POISON;
 		af.events    = EVENT_CHAR_UPDATE;
 		affect_join(ch, &af);
 	}
-	if (INT_VAL(obj->value[0]) > 0)
-		INT_VAL(obj->value[1]) = UMAX(INT_VAL(obj->value[1]) - lq->sip, 0);
+	if (INT(obj->value[0]) > 0)
+		INT(obj->value[1]) = UMAX(INT(obj->value[1]) - lq->sip, 0);
 }
 
 void do_eat(CHAR_DATA * ch, const char *argument)
@@ -1160,8 +1160,8 @@ void do_eat(CHAR_DATA * ch, const char *argument)
 		if (!IS_NPC(ch)) {
 			int             condition;
 			condition = PC(ch)->condition[COND_HUNGER];
-			gain_condition(ch, COND_FULL, INT_VAL(obj->value[0]) * 2);
-			gain_condition(ch, COND_HUNGER, INT_VAL(obj->value[1]) * 2);
+			gain_condition(ch, COND_FULL, INT(obj->value[0]) * 2);
+			gain_condition(ch, COND_HUNGER, INT(obj->value[1]) * 2);
 			if (!condition
 			&& PC(ch)->condition[COND_HUNGER] > 0)
 				char_puts("You are no longer hungry.\n", ch);
@@ -1172,7 +1172,7 @@ void do_eat(CHAR_DATA * ch, const char *argument)
 				char_puts("You feel empowered from the blood of your foe.\n",ch);
 			};
 		}
-		if (INT_VAL(obj->value[3]) != 0) {
+		if (INT(obj->value[3]) != 0) {
 			/* The food was poisoned! */
 			AFFECT_DATA     af;
 
@@ -1181,9 +1181,9 @@ void do_eat(CHAR_DATA * ch, const char *argument)
 
 			af.where = TO_AFFECTS;
 			af.type = "poison";
-			af.level = number_fuzzy(INT_VAL(obj->value[0]));
-			af.duration = 2 * INT_VAL(obj->value[0]);
-			af.location = APPLY_NONE;
+			af.level = number_fuzzy(INT(obj->value[0]));
+			af.duration = 2 * INT(obj->value[0]);
+			INT(af.location) = APPLY_NONE;
 			af.modifier = 0;
 			af.bitvector = AFF_POISON;
 			af.events    = EVENT_CHAR_UPDATE;
@@ -1201,7 +1201,7 @@ void do_eat(CHAR_DATA * ch, const char *argument)
 				af.type = "blindness";
 				af.level = number_fuzzy(obj->level);
 				af.duration = obj->level / 25 + 1;
-				af.location = APPLY_HITROLL;
+				INT(af.location) = APPLY_HITROLL;
 				af.modifier = -4;
 				af.bitvector = AFF_BLIND;
 				affect_join(ch, &af);
@@ -1210,19 +1210,19 @@ void do_eat(CHAR_DATA * ch, const char *argument)
 		break;
 
 	case ITEM_PILL:
-		obj_cast_spell(obj->value[1].s, INT_VAL(obj->value[0]), ch, ch);
+		obj_cast_spell(obj->value[1].s, INT(obj->value[0]), ch, ch);
 		if (IS_EXTRACTED(ch))
 			break;
 
-		obj_cast_spell(obj->value[2].s, INT_VAL(obj->value[0]), ch, ch);
+		obj_cast_spell(obj->value[2].s, INT(obj->value[0]), ch, ch);
 		if (IS_EXTRACTED(ch))
 			break;
 
-		obj_cast_spell(obj->value[3].s, INT_VAL(obj->value[0]), ch, ch);
+		obj_cast_spell(obj->value[3].s, INT(obj->value[0]), ch, ch);
 		if (IS_EXTRACTED(ch))
 			break;
 
-		obj_cast_spell(obj->value[4].s, INT_VAL(obj->value[0]), ch, ch);
+		obj_cast_spell(obj->value[4].s, INT(obj->value[0]), ch, ch);
 		break;
 	}
 
@@ -1405,19 +1405,19 @@ void do_recite(CHAR_DATA * ch, const char *argument)
 			WAIT_STATE(ch, 2 * PULSE_VIOLENCE);
 
 		do {
-			obj_cast_spell(scroll->value[1].s, INT_VAL(scroll->value[0]), ch, vo);
+			obj_cast_spell(scroll->value[1].s, INT(scroll->value[0]), ch, vo);
 			if (IS_EXTRACTED(ch))
 				break;
 
-			obj_cast_spell(scroll->value[2].s, INT_VAL(scroll->value[0]), ch, vo);
+			obj_cast_spell(scroll->value[2].s, INT(scroll->value[0]), ch, vo);
 			if (IS_EXTRACTED(ch))
 				break;
 				
-			obj_cast_spell(scroll->value[3].s, INT_VAL(scroll->value[0]), ch, vo);
+			obj_cast_spell(scroll->value[3].s, INT(scroll->value[0]), ch, vo);
 			if (IS_EXTRACTED(ch))
 				break;
 
-			obj_cast_spell(scroll->value[4].s, INT_VAL(scroll->value[0]), ch, vo);
+			obj_cast_spell(scroll->value[4].s, INT(scroll->value[0]), ch, vo);
 		} while (0);
 	}
 
@@ -1451,7 +1451,7 @@ void do_brandish(CHAR_DATA * ch, const char *argument)
 
 	WAIT_STATE(ch, 2 * PULSE_VIOLENCE);
 
-	if (INT_VAL(staff->value[2]) > 0) {
+	if (INT(staff->value[2]) > 0) {
 		act("$n brandishes $p.", ch, staff, NULL, TO_ROOM);
 		act("You brandish $p.", ch, staff, NULL, TO_CHAR);
 		if (ch->level + 3 < staff->level
@@ -1494,7 +1494,7 @@ void do_brandish(CHAR_DATA * ch, const char *argument)
 				}
 
 				obj_cast_spell(staff->value[3].s,
-					       INT_VAL(staff->value[0]), ch, vch);
+					       INT(staff->value[0]), ch, vch);
 				if (IS_EXTRACTED(ch)
 				||  IS_SET(sk->skill_flags, SKILL_AREA_ATTACK))
 					break;
@@ -1502,7 +1502,7 @@ void do_brandish(CHAR_DATA * ch, const char *argument)
 		}
 	}
 
-	if (--INT_VAL(staff->value[2]) <= 0) {
+	if (--INT(staff->value[2]) <= 0) {
 		act("$n's $p blazes bright and is gone.",
 		    ch, staff, NULL, TO_ROOM);
 		act("Your $p blazes bright and is gone.",
@@ -1548,7 +1548,7 @@ void do_zap(CHAR_DATA * ch, const char *argument)
 
 	WAIT_STATE(ch, 2 * PULSE_VIOLENCE);
 
-	if (INT_VAL(wand->value[2]) > 0) {
+	if (INT(wand->value[2]) > 0) {
 		if (mem_is(vo, MT_CHAR)) {
 			if (vo == ch) {
 				act("$n zaps $mself with $p.",
@@ -1577,11 +1577,11 @@ void do_zap(CHAR_DATA * ch, const char *argument)
 			check_improve(ch, "wands", FALSE, 2);
 		} else {
 			check_improve(ch, "wands", TRUE, 2);
-			obj_cast_spell(wand->value[3].s, INT_VAL(wand->value[0]), ch, vo);
+			obj_cast_spell(wand->value[3].s, INT(wand->value[0]), ch, vo);
 		}
 	}
 
-	if (--INT_VAL(wand->value[2]) <= 0) {
+	if (--INT(wand->value[2]) <= 0) {
 		act("$n's $p explodes into fragments.",
 		    ch, wand, NULL, TO_ROOM);
 		act("Your $p explodes into fragments.",
@@ -2225,7 +2225,7 @@ void do_herbs(CHAR_DATA * ch, const char *argument)
 		af.type = "herbs";
 		af.level = ch->level;
 		af.duration = 5;
-		af.location = APPLY_NONE;
+		INT(af.location) = APPLY_NONE;
 		af.modifier = 0;
 		af.bitvector = 0;
 
@@ -2377,7 +2377,7 @@ void do_lore_raw(CHAR_DATA *ch, OBJ_DATA *obj, BUFFER *output)
 	case ITEM_POTION:
 	case ITEM_PILL:
 		if (percent < 85) {
-			INT_VAL(v0) = number_range(1, 60);
+			INT(v0) = number_range(1, 60);
 			if (chance > 40) {
 				v1.s = random_spell();
 				if (chance > 60) {
@@ -2397,7 +2397,7 @@ void do_lore_raw(CHAR_DATA *ch, OBJ_DATA *obj, BUFFER *output)
 			}
 		}
 
-		buf_printf(output, "Level %d spells of:", INT_VAL(v0));
+		buf_printf(output, "Level %d spells of:", INT(v0));
 		if (!IS_NULLSTR(v1.s))
 			buf_printf(output, " '%s'", v1.s);
 		if (!IS_NULLSTR(v2.s))
@@ -2412,75 +2412,75 @@ void do_lore_raw(CHAR_DATA *ch, OBJ_DATA *obj, BUFFER *output)
 	case ITEM_WAND:
 	case ITEM_STAFF:
 		if (percent < 85) {
-			INT_VAL(v0) = number_range(1, 60);
+			INT(v0) = number_range(1, 60);
 			if (chance > 40) {
 				v3.s = random_spell();
 				if (chance > 60) {
-					INT_VAL(v2) = number_range(0, 2 * INT_VAL(v2));
+					INT(v2) = number_range(0, 2 * INT(v2));
 					if (chance > 80)
-						INT_VAL(v1) = number_range(0, INT_VAL(v2));
+						INT(v1) = number_range(0, INT(v2));
 				}
 			}
 		} else {
 			if (chance > 60) {
 				v3.s = random_spell();
 				if (chance > 80) {
-					INT_VAL(v2) = number_range(0, 2 * INT_VAL(v2));
+					INT(v2) = number_range(0, 2 * INT(v2));
 					if (chance > 95)
-						INT_VAL(v1) = number_range(0, INT_VAL(v2));
+						INT(v1) = number_range(0, INT(v2));
 				}
 			}
 		}
 
 		buf_printf(output, "Has %d(%d) charges of level %d '%s'.\n",
-			    INT_VAL(v1), INT_VAL(v2), INT_VAL(v0), v3.s);
+			    INT(v1), INT(v2), INT(v0), v3.s);
 		break;
 
 	case ITEM_WEAPON:
 		buf_add(output, "Weapon type is ");
 		if (percent < 85) {
-			INT_VAL(v0) = number_range(0, 8);
+			INT(v0) = number_range(0, 8);
 			if (chance > 33) {
-				INT_VAL(v1) = number_range(1, 2 * INT_VAL(v1));
+				INT(v1) = number_range(1, 2 * INT(v1));
 				if (chance > 66)
-					INT_VAL(v2) = number_range(1, 2 * INT_VAL(v2));
+					INT(v2) = number_range(1, 2 * INT(v2));
 			}
 		} else {
 			if (chance > 50) {
-				INT_VAL(v1) = number_range(1, 2 * INT_VAL(v1));
+				INT(v1) = number_range(1, 2 * INT(v1));
 				if (chance > 75)
-					INT_VAL(v2) = number_range(1, 2 * INT_VAL(v2));
+					INT(v2) = number_range(1, 2 * INT(v2));
 			}
 		}
 
-		buf_printf(output, "%s.\n", flag_string(weapon_class, INT_VAL(v0)));
+		buf_printf(output, "%s.\n", flag_string(weapon_class, INT(v0)));
 
 		buf_printf(output, "Damage is %dd%d (average %d).\n",
-			    INT_VAL(v1), INT_VAL(v2), (1 + INT_VAL(v2)) * INT_VAL(v1) / 2);
+			    INT(v1), INT(v2), (1 + INT(v2)) * INT(v1) / 2);
 		break;
 
 	case ITEM_ARMOR:
 		if (percent < 85) {
 			if (chance > 25) {
-				INT_VAL(v2) = number_range(0, 2 * INT_VAL(v2));
+				INT(v2) = number_range(0, 2 * INT(v2));
 				if (chance > 45) {
-					INT_VAL(v0) = number_range(0, 2 * INT_VAL(v0));
+					INT(v0) = number_range(0, 2 * INT(v0));
 					if (chance > 65) {
-						INT_VAL(v3) = number_range(0, 2 * INT_VAL(v3));
+						INT(v3) = number_range(0, 2 * INT(v3));
 						if (chance > 85)
-							INT_VAL(v1) = number_range(0, 2 * INT_VAL(v1));
+							INT(v1) = number_range(0, 2 * INT(v1));
 					}
 				}
 			}
 		} else {
 			if (chance > 45) {
-				INT_VAL(v2) = number_range(0, 2 * INT_VAL(v2));
+				INT(v2) = number_range(0, 2 * INT(v2));
 				if (chance > 65) {
-					INT_VAL(v0) = number_range(0, 2 * INT_VAL(v0));
+					INT(v0) = number_range(0, 2 * INT(v0));
 					if (chance > 85) {
-						INT_VAL(v3) = number_range(0, 2 * INT_VAL(v3));
+						INT(v3) = number_range(0, 2 * INT(v3));
 						if (chance > 95)
-							INT_VAL(v1) = number_range(0, 2 * INT_VAL(v1));
+							INT(v1) = number_range(0, 2 * INT(v1));
 					}
 				}
 			}
@@ -2488,7 +2488,7 @@ void do_lore_raw(CHAR_DATA *ch, OBJ_DATA *obj, BUFFER *output)
 
 		buf_printf(output,
 			    "Armor class is %d pierce, %d bash, %d slash, and %d vs. magic.\n",
-			    INT_VAL(v0), INT_VAL(v1), INT_VAL(v2), INT_VAL(v3));
+			    INT(v0), INT(v1), INT(v2), INT(v3));
 		break;
 	}
 
@@ -2669,16 +2669,16 @@ void do_crucify(CHAR_DATA *ch, const char *argument)
 		af.modifier	= UMAX(1, obj->level/8);
 		af.bitvector	= AFF_BERSERK;
 
-		af.location	= APPLY_HITROLL;
+		INT(af.location)= APPLY_HITROLL;
 		affect_to_char(ch, &af);
 
-		af.location	= APPLY_DAMROLL;
+		INT(af.location)= APPLY_DAMROLL;
 		affect_to_char(ch, &af);
 
 		af.modifier 	= UMAX(10, obj->level);
-		af.location	= APPLY_AC;
-
+		INT(af.location)= APPLY_AC;
 		affect_to_char(ch, &af);
+
 		extract_obj(obj, 0);
 		check_improve(ch, "crucify", TRUE, 1);
 	}
@@ -3430,10 +3430,10 @@ static uint get_cost(CHAR_DATA *keeper, OBJ_DATA *obj, bool fBuy)
 
 	if (obj->pObjIndex->item_type == ITEM_STAFF
 	||  obj->pObjIndex->item_type == ITEM_WAND) {
-		if (INT_VAL(obj->value[1]) == 0)
+		if (INT(obj->value[1]) == 0)
 			cost /= 4;
 		else
-			cost = cost * INT_VAL(obj->value[2]) / INT_VAL(obj->value[1]);
+			cost = cost * INT(obj->value[2]) / INT(obj->value[1]);
 	}
 	return cost;
 }
@@ -3563,7 +3563,7 @@ static bool put_obj(CHAR_DATA *ch, OBJ_DATA *container,
 	 * clan members can put item into clan altar even if it is closed
 	 * check that container is clan altar is done in do_put
 	 */
-	if (IS_SET(INT_VAL(container->value[1]), CONT_CLOSED) 
+	if (IS_SET(INT(container->value[1]), CONT_CLOSED) 
 	&&  ((clan = clan_lookup(ch->clan)) == NULL ||
 	     clan->obj_ptr != obj)) {
 		act_puts("$P is closed.",
@@ -3571,7 +3571,7 @@ static bool put_obj(CHAR_DATA *ch, OBJ_DATA *container,
 		return FALSE;
 	}
 
-	if (IS_SET(INT_VAL(container->value[1]), CONT_QUIVER)
+	if (IS_SET(INT(container->value[1]), CONT_QUIVER)
 	&&  (obj->pObjIndex->item_type != ITEM_WEAPON ||
 	     !WEAPON_IS(obj, WEAPON_ARROW))) {
 		act_puts("You can only put arrows in $p.",
@@ -3608,7 +3608,7 @@ static bool put_obj(CHAR_DATA *ch, OBJ_DATA *container,
 	}
 
 	(*count)++;
-	if (*count > INT_VAL(container->value[0])) {
+	if (*count > INT(container->value[0])) {
 		act_puts("It's not safe to put that much items into $p.",
 			 ch, container, NULL, TO_CHAR, POS_DEAD);
 		return FALSE;
@@ -3617,7 +3617,7 @@ static bool put_obj(CHAR_DATA *ch, OBJ_DATA *container,
 	obj_from_char(obj);
 	obj_to_obj(obj, container);
 
-	if (IS_SET(INT_VAL(container->value[1]), CONT_PUT_ON)) {
+	if (IS_SET(INT(container->value[1]), CONT_PUT_ON)) {
 		act("$n puts $p on $P.", ch, obj, container, TO_ROOM);
 		act_puts("You put $p on $P.",
 			 ch, obj, container, TO_CHAR, POS_DEAD);
@@ -3783,7 +3783,7 @@ void do_auction(CHAR_DATA *ch, const char *argument)
 		}
 	}
 
-	if (IS_IMMORTAL(ch) && !str_cmp(arg1, "stop"))
+	if (IS_IMMORTAL(ch) && !str_cmp(arg1, "stop")) {
 		if (auction.item == NULL) {
 			char_puts("There is no auction going on "
 				  "you can stop.\n",ch);
@@ -3813,6 +3813,7 @@ void do_auction(CHAR_DATA *ch, const char *argument)
 			}
 	    		return;
 		}
+	}
 
 	if (!str_cmp(arg1, "bet")) {
 	        int newbet;

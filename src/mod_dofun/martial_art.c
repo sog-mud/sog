@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.131 1999-11-30 14:50:32 kostik Exp $
+ * $Id: martial_art.c,v 1.132 1999-12-01 09:07:07 fjoe Exp $
  */
 
 /***************************************************************************
@@ -704,15 +704,15 @@ void do_berserk(CHAR_DATA *ch, const char *argument)
 		af.duration	= number_fuzzy(ch->level / 8);
 		af.modifier	= UMAX(1,LEVEL(ch)/5);
 		af.bitvector 	= AFF_BERSERK;
-		af.location	= APPLY_HITROLL;
+		INT(af.location)= APPLY_HITROLL;
 		affect_to_char(ch,&af);
 
-		af.location	= APPLY_DAMROLL;
 		af.bitvector	= 0;
+		INT(af.location)= APPLY_DAMROLL;
 		affect_to_char(ch,&af);
 
 		af.modifier	= UMAX(10,10 * (LEVEL(ch)/5));
-		af.location	= APPLY_AC;
+		INT(af.location)= APPLY_AC;
 		affect_to_char(ch,&af);
 	} else {
 		WAIT_STATE(ch,2 * PULSE_VIOLENCE);
@@ -1047,7 +1047,7 @@ void do_dirt(CHAR_DATA *ch, const char *argument)
 		af.type 	= "dirt kicking";
 		af.level 	= ch->level;
 		af.duration	= 0;
-		af.location	= APPLY_HITROLL;
+		INT(af.location)= APPLY_HITROLL;
 		af.modifier	= -4;
 		af.bitvector 	= AFF_BLIND;
 
@@ -1883,7 +1883,7 @@ void do_nerve(CHAR_DATA *ch, const char *argument)
 		af.type 	= "nerve";
 		af.level 	= ch->level;
 		af.duration	= LEVEL(ch) * PULSE_VIOLENCE/PULSE_TICK;
-		af.location	= APPLY_STR;
+		INT(af.location)= APPLY_STR;
 		af.modifier	= -3;
 		af.bitvector	= 0;
 
@@ -1935,7 +1935,7 @@ void do_endure(CHAR_DATA *ch, const char *argument)
 	af.type 	= "endure";
 	af.level 	= ch->level;
 	af.duration	= ch->level / 4;
-	af.location	= APPLY_SAVING_SPELL;
+	INT(af.location)= APPLY_SAVING_SPELL;
 	af.modifier	= - chance / 10; 
 	af.bitvector	= 0;
 
@@ -2134,33 +2134,22 @@ void do_caltrops(CHAR_DATA *ch, const char *argument)
 		return;
 
 	if (!is_affected(victim, "caltrops")) {
-		AFFECT_DATA tohit, todam, todex;
+		AFFECT_DATA af;
 
-		tohit.where     = TO_AFFECTS;
-		tohit.type      = "caltrops";
-		tohit.level     = ch->level;
-		tohit.duration  = -1; 
-		tohit.location  = APPLY_HITROLL;
-		tohit.modifier  = -5;
-		tohit.bitvector = 0;
-		affect_to_char(victim, &tohit);
+		af.where	= TO_AFFECTS;
+		af.type		= "caltrops";
+		af.level	= ch->level;
+		af.duration	= -1; 
+		af.modifier	= -5;
+		af.bitvector	= 0;
+		INT(af.location)= APPLY_HITROLL;
+		affect_to_char(victim, &af);
 
-		todam.where = TO_AFFECTS;
-		todam.type = "caltrops";
-		todam.level = ch->level;
-		todam.duration = -1;
-		todam.location = APPLY_DAMROLL;
-		todam.modifier = -5;
-		todam.bitvector = 0;
-		affect_to_char(victim, &todam);
+		INT(af.location)= APPLY_DAMROLL;
+		affect_to_char(victim, &af);
 
-		todex.type = "caltrops";
-		todex.level = ch->level;
-		todex.duration = -1;
-		todex.location = APPLY_DEX;
-		todex.modifier = -5;
-		todex.bitvector = 0;
-		affect_to_char(victim, &todex);
+		INT(af.location)= APPLY_DEX;
+		affect_to_char(victim, &af);
 
 		act("$N starts limping.", ch, NULL, victim, TO_CHAR);
 		act("You start to limp.", ch, NULL, victim, TO_VICT);
@@ -2362,7 +2351,7 @@ void do_strangle(CHAR_DATA *ch, const char *argument)
 		af.where = TO_AFFECTS;
 		af.level = ch->level;
 		af.duration = LEVEL(ch) / 20 + 1;
-		af.location = APPLY_NONE;
+		INT(af.location) = APPLY_NONE;
 		af.modifier = 0;
 		af.bitvector = AFF_SLEEP;
 		affect_join (victim,&af);
@@ -2471,7 +2460,7 @@ void do_headcrush(CHAR_DATA *ch, const char *argument)
 		af.where	= TO_AFFECTS;
 		af.level	= ch->level;
 		af.duration	= LEVEL(ch) / 20 + 1;
-		af.location	= APPLY_NONE;
+		INT(af.location)= APPLY_NONE;
 		af.modifier	= 0;
 		af.bitvector	= AFF_SLEEP;
 		affect_join (victim,&af);
@@ -2570,7 +2559,7 @@ void do_blackjack(CHAR_DATA *ch, const char *argument)
 		af.where	= TO_AFFECTS;
 		af.level	= ch->level;
 		af.duration	= LEVEL(ch) / 15 + 1;
-		af.location	= APPLY_NONE;
+		INT(af.location)= APPLY_NONE;
 		af.modifier	= 0;
 		af.bitvector	= AFF_SLEEP;
 		affect_join (victim,&af);
@@ -2634,14 +2623,14 @@ void do_bloodthirst(CHAR_DATA *ch, const char *argument)
 		af.modifier	= 5 + LEVEL(ch) / 4;
 		af.bitvector 	= AFF_BLOODTHIRST;
 
-		af.location	= APPLY_HITROLL;
+		INT(af.location)= APPLY_HITROLL;
 		affect_to_char(ch, &af);
 
-		af.location	= APPLY_DAMROLL;
+		INT(af.location)= APPLY_DAMROLL;
 		affect_to_char(ch, &af);
 
 		af.modifier	= - UMIN(LEVEL(ch) - 5, 35);
-		af.location	= APPLY_AC;
+		INT(af.location)= APPLY_AC;
 		affect_to_char(ch, &af);
 	}
 	else {
@@ -2681,7 +2670,7 @@ void do_resistance(CHAR_DATA *ch, const char *argument)
 		af.type 	= "resistance";
 		af.level 	= ch->level;
 		af.duration	= LEVEL(ch) / 6;
-		af.location	= APPLY_SAVES;
+		INT(af.location)= APPLY_SAVES;
 		af.modifier	= -LEVEL(ch)/4;
 		af.bitvector	= 0;
 
@@ -2776,8 +2765,7 @@ void do_trophy(CHAR_DATA *ch, const char *argument)
 		af.duration	= ch->level/2;
 		af.modifier	= 0;
 		af.bitvector 	= 0;
-		
-		af.location	= 0;
+		INT(af.location)= 0;
 		affect_to_char(ch,&af);
 	
 		if (trophy_vnum != 0) {
@@ -2793,28 +2781,28 @@ void do_trophy(CHAR_DATA *ch, const char *argument)
 			af.type 	= "trophy";
 			af.level	= level;
 			af.duration	= -1;
-			af.location	= APPLY_DAMROLL;
+			INT(af.location)= APPLY_DAMROLL;
 			af.modifier  = LEVEL(ch) / 5;
 			af.bitvector	= 0;
 			affect_to_obj(trophy, &af);
 
-			af.location	= APPLY_HITROLL;
+			INT(af.location)= APPLY_HITROLL;
 			af.modifier  = LEVEL(ch) / 5;
 			af.bitvector	= 0;
 			affect_to_obj(trophy, &af);
 
-			af.location	= APPLY_INT;
+			INT(af.location)= APPLY_INT;
 			af.modifier	= level>20?-2:-1;
 			affect_to_obj(trophy, &af);
 
-			af.location	= APPLY_STR;
+			INT(af.location)= APPLY_STR;
 			af.modifier	= level>20?2:1;
 			affect_to_obj(trophy, &af);
 
-			INT_VAL(trophy->value[0]) = LEVEL(ch);
-			INT_VAL(trophy->value[1]) = LEVEL(ch);
-			INT_VAL(trophy->value[2]) = LEVEL(ch);
-			INT_VAL(trophy->value[3]) = LEVEL(ch);
+			INT(trophy->value[0]) = LEVEL(ch);
+			INT(trophy->value[1]) = LEVEL(ch);
+			INT(trophy->value[2]) = LEVEL(ch);
+			INT(trophy->value[3]) = LEVEL(ch);
 			
 			obj_to_char(trophy, ch);
 			  check_improve(ch, "trophy", TRUE, 1);
@@ -2859,7 +2847,7 @@ void do_truesight(CHAR_DATA *ch, const char *argument)
 		af.type     = "truesight";
 		af.level    = ch->level;
 		af.duration = LEVEL(ch)/2 + 5;
-		af.location = APPLY_NONE;
+		INT(af.location) = APPLY_NONE;
 		af.modifier = 0;
 		af.bitvector = AFF_DETECT_HIDDEN;
 		affect_to_char(ch, &af);
@@ -2928,12 +2916,12 @@ void do_warcry(CHAR_DATA *ch, const char *argument)
 	af.type		= "warcry";
 	af.level	= ch->level;
 	af.duration	= 6 + ch->level;
-	af.location	= APPLY_HITROLL;
+	INT(af.location)= APPLY_HITROLL;
 	af.modifier	= LEVEL(ch) / 8;
 	af.bitvector	= 0;
 	affect_to_char(ch, &af);
 	
-	af.location	= APPLY_SAVING_SPELL;
+	INT(af.location)= APPLY_SAVING_SPELL;
 	af.modifier	= 0 - LEVEL(ch) / 8;
 	affect_to_char(ch, &af);
 	char_puts("You feel righteous as you yell out your warcry.\n", ch);
@@ -3245,17 +3233,16 @@ void do_tiger(CHAR_DATA *ch, const char *argument)
 		af.modifier	= UMAX(1, LEVEL(ch)/5);
 		af.bitvector 	= AFF_BERSERK;
 
-		af.location	= APPLY_HITROLL;
+		INT(af.location)= APPLY_HITROLL;
 		affect_to_char(ch,&af);
 
-		af.location	= APPLY_DAMROLL;
+		INT(af.location)= APPLY_DAMROLL;
 		affect_to_char(ch,&af);
 
 		af.modifier	= UMAX(10,10 * (LEVEL(ch)/5));
-		af.location	= APPLY_AC;
+		INT(af.location)= APPLY_AC;
 		affect_to_char(ch,&af);
-	}
-	else {
+	} else {
 		WAIT_STATE(ch, 2 * skill_beats("tiger power"));
 		ch->mana -= mana/2;
 		char_puts("Your feel stregthen up, but nothing happens.\n",
@@ -3316,19 +3303,18 @@ void do_hara(CHAR_DATA *ch, const char *argument)
 		af.type      = "hara kiri";
 		af.level     = ch->level;
 		af.duration  = 10;
-		af.location  = APPLY_NONE;
+		INT(af.location) = APPLY_NONE;
 		af.modifier  = 0;
 		af.bitvector = 0;
 		affect_to_char(ch, &af);
-	}
-	else {
+	} else {
 		WAIT_STATE(ch, 2 * skill_beats("hara kiri"));
 
 		af.where     = TO_AFFECTS;
 		af.type      = "hara kiri";
 		af.level     = ch->level;
 		af.duration  = 0;
-		af.location  = APPLY_NONE;
+		INT(af.location) = APPLY_NONE;
 		af.modifier  = 0;
 		af.bitvector = 0;
 		affect_to_char(ch, &af);
@@ -3706,17 +3692,16 @@ void do_concentrate(CHAR_DATA *ch, const char *argument)
 		af.modifier	= UMAX(1, LEVEL(ch)/8);
 		af.bitvector 	= 0;
 
-		af.location	= APPLY_HITROLL;
+		INT(af.location)= APPLY_HITROLL;
 		affect_to_char(ch,&af);
 
-		af.location	= APPLY_DAMROLL;
+		INT(af.location)= APPLY_DAMROLL;
 		affect_to_char(ch,&af);
 
 		af.modifier	= UMAX(1,ch->level/10);
-		af.location	= APPLY_AC;
+		INT(af.location)= APPLY_AC;
 		affect_to_char(ch,&af);
-	}
-	else {
+	} else {
 		ch->mana -= mana/2;
 		char_puts("You try to concentrate for the next fight but fail.\n",
 			  ch);
@@ -3759,10 +3744,9 @@ void do_bandage(CHAR_DATA *ch, const char *argument)
 		af.duration	= ch->level / 10;
 		af.modifier	= UMIN(15,ch->level/2);
 		af.bitvector 	= AFF_REGENERATION;
-		af.location	= 0;
+		INT(af.location)= 0;
 		affect_to_char(ch,&af);
-	}
-	else {
+	} else {
 		char_puts("You failed to place your bandage to your shoulder.\n",
 			  ch);
 		check_improve(ch, "bandage", FALSE, 2);
@@ -3827,7 +3811,7 @@ void do_katana(CHAR_DATA *ch, const char *argument)
 		af.duration	= ch->level;
 		af.modifier	= 0;
 		af.bitvector 	= 0;      
-		af.location	= 0;
+		INT(af.location)= 0;
 		affect_to_char(ch,&af);
 	
 		katana = create_obj(get_obj_index(OBJ_VNUM_KATANA_SWORD), 0);
@@ -3840,15 +3824,15 @@ void do_katana(CHAR_DATA *ch, const char *argument)
 		af.type 	= "katana";
 		af.level	= ch->level;
 		af.duration	= -1;
-		af.location	= APPLY_DAMROLL;
+		INT(af.location)= APPLY_DAMROLL;
 		af.modifier	= ch->level / 10;
 		af.bitvector	= 0;
 		affect_to_obj(katana, &af);
 
-		af.location	= APPLY_HITROLL;
+		INT(af.location)= APPLY_HITROLL;
 		affect_to_obj(katana, &af);
 
-		INT_VAL(katana->value[2]) = ch->level / 10;
+		INT(katana->value[2]) = ch->level / 10;
 		katana->ed = ed_new2(katana->pObjIndex->ed, ch->name);
 			
 		obj_to_char(katana, ch);
@@ -4001,7 +3985,7 @@ void do_sense(CHAR_DATA *ch, const char *argument)
 		af.type 	= "sense life";
 		af.level 	= ch->level;
 		af.duration	= ch->level;
-		af.location	= APPLY_NONE;
+		INT(af.location)= APPLY_NONE;
 		af.modifier	= 0;
 		af.bitvector	= AFF_DETECT_LIFE;
 		affect_to_char(ch, &af);
