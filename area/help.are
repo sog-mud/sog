@@ -899,7 +899,7 @@ note list можно использовать с расширенным синтаксисом для фильтрования
 Существует еще четыре доски обьявлений, это {cideas{x, {cnews{x, {cchanges{x и 
 {cpenalties{x (только для богов). Они используются точно так же.
 Написание обьявлений на доски news и changes доступно только богам.
-С помощью команды {cunread{x ты можешь сколько непрочитанных у тебя
+С помощью команды {cunread{x ты можешь узнать сколько непрочитанных у тебя
 сообщений.
 ~
 0 SHOUT YELL GOSSIP MUSIC~
@@ -3059,10 +3059,10 @@ MANA DRAIN is rather self explaining - it saps mana from victim.
 Синтаксис: {ccast 'mana drain'{x <жертва>
  
 Эти заклинания не только наносят ущерб врагу, но и делают еще что-либо.
-ENERGY DRAIN отнимает ману и шаги (moves). DRAINING TOUCH и HAND OF UNDED
-действуют похоже, передавая здоровье от жертвы к чародею. , но DRAINING TOUCH
-еще и ухудшает способности к бою.
-MANA DRAIN вытягивает ману из жертвы и передает ее чародею.
+ENERGY DRAIN отнимает ману и шаги (moves). DRAINING TOUCH и HAND OF UNDEAD
+действуют похоже, передавая здоровье от жертвы к чародею, но DRAINING TOUCH
+еще и ухудшает способности к бою. MANA DRAIN вытягивает ману из жертвы и
+передает ее чародею.
 ~
 0 'FAERIE FIRE'~
 @eng Syntax: {ccast 'faerie fire'{x <victim>

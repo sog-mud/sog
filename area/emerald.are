@@ -3428,7 +3428,7 @@ a ranger's knapsack~
 A knapsack made from the finest leather rests here.~
 leather~
 container 0 0 AK
-650 A 0 0 0
+650 A 0 10 0
 1 2 90 P
 a '' to_object 1 -1 -4 17 0
 E
