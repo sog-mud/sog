@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.3 1998-04-26 17:08:07 efdi Exp $
+ * $Id: spellfun2.c,v 1.4 1998-04-29 11:01:25 fjoe Exp $
  */
 
 /***************************************************************************
@@ -50,6 +50,7 @@
 #include "recycle.h"
 #include "db.h"
 #include "comm.h"
+#include "hometown.h"
 
 DECLARE_DO_FUN(do_scan2);
 /* command procedures needed */

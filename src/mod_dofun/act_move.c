@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.26 1998-04-29 09:42:44 efdi Exp $
+ * $Id: act_move.c,v 1.27 1998-04-29 11:01:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -49,6 +49,7 @@
 #include "db.h"
 #include "comm.h"
 #include "resource.h"
+#include "hometown.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_look		);

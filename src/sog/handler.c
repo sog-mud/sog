@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.4 1998-04-26 17:08:05 efdi Exp $
+ * $Id: handler.c,v 1.5 1998-04-29 11:01:24 fjoe Exp $
  */
 
 /***************************************************************************
@@ -50,6 +50,7 @@
 #include "tables.h"
 #include "db.h"
 #include "comm.h"
+#include "hometown.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_return	);

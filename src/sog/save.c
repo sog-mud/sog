@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.10 1998-04-26 17:08:08 efdi Exp $
+ * $Id: save.c,v 1.11 1998-04-29 11:01:26 fjoe Exp $
  */
 
 /***************************************************************************
@@ -58,6 +58,7 @@
 #include "const.h"
 #include "act_info.h"
 #include "resource.h"
+#include "hometown.h"
  
 extern  int     _filbuf         args( (FILE *) );
 

@@ -2,7 +2,7 @@
 #define _MERC_H_
 
 /*
- * $Id: merc.h,v 1.8 1998-04-26 17:08:07 efdi Exp $
+ * $Id: merc.h,v 1.9 1998-04-29 11:01:26 fjoe Exp $
  */
 
 /***************************************************************************
@@ -369,15 +369,6 @@ struct religion_type
 #define BAN_PERMIT		E
 #define BAN_PERMANENT		F
 #define BAN_PLAYER		G
-
-struct hometown_type 
-{
-  char *name;
-  int altar[3];
-  int recall[3];
-  int pit[3];
-  /* good, neutral, evil */
-};
 
 struct ethos_type {
   char *name;
@@ -2789,7 +2780,6 @@ extern  const	struct	spec_type	spec_table	[];
 extern  const	struct	prac_type	prac_table	[];
 extern	const	struct	liq_type	liq_table	[];
 extern	const	struct	skill_type	skill_table	[MAX_SKILL];
-extern  const   struct  hometown_type   hometown_table  [];
 extern  const   struct  ethos_type      ethos_table     [];
 extern          struct social_type      social_table	[MAX_SOCIALS];
 extern	char *	const			title_table	[MAX_CLASS]

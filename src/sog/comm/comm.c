@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.17 1998-04-26 17:08:03 efdi Exp $
+ * $Id: comm.c,v 1.18 1998-04-29 11:01:22 fjoe Exp $
  */
 
 /***************************************************************************
@@ -80,6 +80,7 @@
 #include "db.h"
 #include "resource.h"
 #include "charset.h"
+#include "hometown.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_help		);

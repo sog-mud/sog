@@ -1,5 +1,5 @@
 /*
- * $Id: quest.c,v 1.5 1998-04-22 06:12:49 efdi Exp $
+ * $Id: quest.c,v 1.6 1998-04-29 11:01:26 fjoe Exp $
  */
 
 /***************************************************************************
@@ -66,6 +66,7 @@
 #include "db.h"
 #include "comm.h"
 #include "resource.h"
+#include "hometown.h"
 
 void do_tell_quest( CHAR_DATA *ch, CHAR_DATA *victim, char *argument);
 extern	MOB_INDEX_DATA	*mob_index_hash	[MAX_KEY_HASH];

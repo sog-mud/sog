@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.3 1998-04-26 17:08:08 efdi Exp $
+ * $Id: recycle.c,v 1.4 1998-04-29 11:01:26 fjoe Exp $
  */
 
 /***************************************************************************
@@ -49,6 +49,7 @@
 #include "recycle.h"
 #include "db.h"
 #include "comm.h"
+#include "hometown.h"
 
 /* stuff for recyling notes */
 NOTE_DATA *note_free;
