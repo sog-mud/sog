@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.182.2.12 2000-03-21 13:52:53 fjoe Exp $
+ * $Id: handler.c,v 1.182.2.13 2000-03-23 10:38:30 osya Exp $
  */
 
 /***************************************************************************
@@ -4361,7 +4361,7 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 	}
 
 	/* room record for tracking */
-	if (!IS_NPC(ch))
+	if (!IS_NPC(ch) && !is_affected(ch, gsn_notrack))
 		room_record(ch->name, in_room, door);
 
 	/*

@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.202.2.1 1999-12-14 11:23:11 fjoe Exp $
+ * $Id: act_move.c,v 1.202.2.2 2000-03-23 10:38:25 osya Exp $
  */
 
 /***************************************************************************
@@ -51,6 +51,8 @@
 
 DECLARE_DO_FUN(do_look		);
 DECLARE_DO_FUN(do_yell		);
+
+DECLARE_DO_FUN(do_notrack	);
 
 /*
  * Local functions.
@@ -3595,5 +3597,39 @@ static bool has_key_ground(CHAR_DATA *ch, int key)
 		    return TRUE;
 
 	return FALSE;
+}
+
+void do_notrack(CHAR_DATA *ch, const char *argument)
+{
+        AFFECT_DATA     af;
+        int             chance;
+
+        if ((chance = get_skill(ch, gsn_notrack)) == 0)
+                return;
+
+        if (MOUNTED(ch)) {
+                  char_puts("You can't moves without tracks while mounted.\n", ch);
+                  return;
+        }
+
+        char_puts("You attempt to move without tracks.\n", ch);
+        affect_strip(ch, gsn_notrack);
+
+        if (is_affected(ch, gsn_notrack))
+                return;
+
+        if (number_percent() < chance) {
+                check_improve(ch, gsn_sneak, TRUE, 3);
+                af.where     = TO_AFFECTS;
+                af.type      = gsn_notrack;
+                af.level     = LEVEL(ch);
+                af.duration  = LEVEL(ch);
+                af.location  = APPLY_NONE;
+                af.modifier  = 0;
+                af.bitvector = 0;
+                affect_to_char(ch, &af);
+        }
+        else
+                check_improve(ch, gsn_notrack, FALSE, 3);
 }
 

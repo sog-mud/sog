@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: gsn.c,v 1.32.2.3 2000-03-22 14:51:41 fjoe Exp $
+ * $Id: gsn.c,v 1.32.2.4 2000-03-23 10:38:30 osya Exp $
  */
 
 #include <stdio.h>
@@ -251,6 +251,7 @@ int gsn_herbs;
 int gsn_fence;
 int gsn_resurrection;
 int gsn_free_action;
+int gsn_notrack;
 
 /* special gsns */
 int gsn_qtarget;
@@ -469,6 +470,7 @@ namedp_t gsn_table[] =
         { "gsn_deathen",                &gsn_deathen                    },
         { "gsn_death_ripple",           &gsn_death_ripple               },
         { "gsn_death_wave",             &gsn_death_wave                 },
+        { "gsn_notrack",             &gsn_notrack  	                },
 	{ NULL }
 };
 
