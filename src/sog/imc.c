@@ -28,7 +28,7 @@
  * along with this program (see the file COPYING); if not, write to the
  * Free Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  *
- * $Id: imc.c,v 1.1.2.4 2003-09-19 18:45:55 matrim Exp $
+ * $Id: imc.c,v 1.1.2.5 2003-09-21 14:18:21 matrim Exp $
  */
 
 #include <stdlib.h>
@@ -351,6 +351,9 @@ imccolor_struct imccolor_table[] =
 	{ "{W", "", "~W" }, // White
 
 	/* There are no IMC2 color codes for anything beyond this point - yet */
+	{ "{z", "", "" },
+	{ "{*", "", "" },
+	
 	{NULL, NULL, NULL}
 };
 
@@ -4236,8 +4239,9 @@ void imc_idle_select( fd_set *iread, fd_set *iwrite, fd_set *exc, time_t now )
 			getsockopt(this_imcmud->desc, SOL_SOCKET,
 				   SO_ERROR, &error, &error_len);
 		if (error) {
-			imcbug( "Coulnd't connect to host %s, reason = %d",
-				this_imcmud->hubname, error);
+			imcbug("Coulnd't connect to host %s:%d, reason: %s",
+				this_imcmud->host, this_imcmud->port,
+				strerror(error));
 		imc_shutdown(TRUE);
 		return;
 		}
