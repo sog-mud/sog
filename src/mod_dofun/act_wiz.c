@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.186.2.40 2004-02-19 17:23:07 fjoe Exp $
+ * $Id: act_wiz.c,v 1.186.2.41 2004-02-19 20:44:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3638,9 +3638,14 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 		goto cleanup;
 	}
 
-	if (!str_prefix(arg2, "gold"))
-	{
+	if (!str_prefix(arg2, "gold")) {
 		victim->gold = value;
+		altered = TRUE;
+		goto cleanup;
+	}
+
+	if (!str_prefix(arg2, "silver")) {
+		victim->silver = value;
 		altered = TRUE;
 		goto cleanup;
 	}
