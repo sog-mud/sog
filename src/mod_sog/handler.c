@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.384 2004-02-19 15:19:32 fjoe Exp $
+ * $Id: handler.c,v 1.385 2004-02-19 15:23:31 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3081,7 +3081,7 @@ quaff_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 
 	if ((vial = create_obj(OBJ_VNUM_POTION_VIAL, 0)) != NULL) {
 		vial->label = str_qdup(obj->label);
-		obj_to_char(vial, ch);
+		obj_to_char_check(vial, ch);
 	}
 
 	obj_cast_spell(obj->value[1].s, INT(obj->value[0]), ch, ch);
