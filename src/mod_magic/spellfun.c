@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.27 1998-07-11 22:09:11 fjoe Exp $
+ * $Id: spellfun.c,v 1.28 1998-07-12 07:01:56 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1780,10 +1780,13 @@ void spell_create_water(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	if (water > 0) {
 		obj->value[2] = LIQ_WATER;
 		obj->value[1] += water;
-/* XXX
-		if (!is_name("water", obj->name))
-			str_printf(&obj->name, "%s water", obj->name);
-*/
+
+		if (!is_name("water", obj->name)) {
+			char *p = obj->name;
+			obj->name = str_add(obj->name, " water", NULL);
+			free_string(p);
+		}
+
 		act("$p is filled.", ch, obj, NULL, TO_CHAR);
 	}
 }
