@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.122 1998-11-11 05:47:00 fjoe Exp $
+ * $Id: comm.c,v 1.123 1998-11-12 12:35:57 fjoe Exp $
  */
 
 /***************************************************************************
@@ -711,7 +711,7 @@ static void cp_print(DESCRIPTOR_DATA* d)
 	write_to_buffer(d, "\n\rSelect your codepage (non-russian players should choose translit): ", 0);
 }
 
-extern const char *help_greeting;
+extern const HELP_DATA *help_greeting;
 
 void init_descriptor(int control)
 {
@@ -719,6 +719,7 @@ void init_descriptor(int control)
 	struct sockaddr_in sock;
 	int desc;
 	int size;
+	const char *text;
 
 	size = sizeof(sock);
 	getsockname(control, (struct sockaddr *) &sock, &size);
@@ -782,7 +783,8 @@ void init_descriptor(int control)
 	/*
 	 * Send the greeting.
 	 */
-	write_to_buffer(dnew, help_greeting + (help_greeting[0] == '.'), 0);
+	text = mlstr_mval(help_greeting->text);
+	write_to_buffer(dnew, text + (text[0] == '.'), 0);
 	cp_print(dnew);
 }
 

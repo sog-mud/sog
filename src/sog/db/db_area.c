@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.18 1998-11-07 09:09:12 fjoe Exp $
+ * $Id: db_area.c,v 1.19 1998-11-12 12:36:00 fjoe Exp $
  */
 
 /***************************************************************************
@@ -88,8 +88,8 @@ DBFUN db_load_areas[] = {
 	{ NULL }
 };
 
-AREA_DATA *	area_current;
-const char *	help_greeting;
+AREA_DATA *		area_current;
+const HELP_DATA *	help_greeting;
 
 struct		social_type	social_table		[MAX_SOCIALS];
 int		social_count;
@@ -263,7 +263,7 @@ DBLOAD_FUN(load_helps)
 		pHelp->text	= mlstr_fread(fp);
 
 		if (!str_cmp(pHelp->keyword, "greeting"))
-			help_greeting = mlstr_mval(pHelp->text);
+			help_greeting = pHelp;
 
 		help_add(area_current, pHelp);
 	}
