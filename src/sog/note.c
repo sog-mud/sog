@@ -1,5 +1,5 @@
 /*
- * $Id: note.c,v 1.39 1999-02-11 16:40:30 fjoe Exp $
+ * $Id: note.c,v 1.40 1999-02-11 18:36:28 fjoe Exp $
  */
 
 /***************************************************************************
@@ -760,19 +760,20 @@ void parse_note(CHAR_DATA *ch, const char *argument, int type)
 		vnum = 0;
 		for (pnote = *list; pnote != NULL; pnote = pnote->next) {
 			if (is_note_to(ch, pnote)) {
+				vnum++;
+
 				if (IS_SET(flags, CHECK_TO)
 				&&  !is_name(to, pnote->to_list))
 					continue;
 
 				if (IS_SET(flags, CHECK_FROM)
-				&&  !str_cmp(from, pnote->sender))
+				&&  str_prefix(from, pnote->sender))
 					continue;
 
 				char_printf(ch, "[%3d%c] %s: %s\n{x",
 					    vnum,
 					    hide_note(ch, pnote) ? ' ' : 'N', 
 					    pnote->sender, pnote->subject);
-				vnum++;
 			}
 		}
 		return;
