@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.38 1998-07-26 01:32:22 efdi Exp $
+ * $Id: spellfun.c,v 1.39 1998-07-29 11:36:53 fjoe Exp $
  */
 
 /***************************************************************************
@@ -4730,7 +4730,7 @@ void spell_summon(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	}
 	else {
 		if (victim->level >= LEVEL_HERO
-		||  (in_PK(ch, victim) && IS_SET(victim->act, PLR_NOSUMMON))
+		||  (!in_PK(ch, victim) && IS_SET(victim->act, PLR_NOSUMMON))
 		||  ch->in_room->area != victim->in_room->area
 		||  guild_check(ch, victim->in_room) < 0)
 			failed = TRUE;
