@@ -1,5 +1,5 @@
 #
-# $Id: english.lang,v 1.27 1998-05-27 20:05:39 fjoe Exp $
+# $Id: english.lang,v 1.28 1998-05-30 16:01:31 efdi Exp $
 #
 
 INFO_NOTHING		"Nothing.\n\r"
@@ -554,3 +554,4 @@ MOVE_YOU_DONT_LIKE_N	"You don't like the way $n has been treating you."
 MOVE_N_SNARLS_YOU	"$N snarls and attacks you!"
 MOVE_N_SNARLS_N		"$N snarls and attacks $n!"
 MOVE_YOU_SNARL_N	"You snarl and attack $n!"
+INFO_FIGHTING_YOU	"YOU!"
