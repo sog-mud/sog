@@ -1323,6 +1323,14 @@ Form 3 -им~
 End
 
 #RULE
+Name отколол~
+BaseLen 6
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
 Name рассекает~
 BaseLen 7
 Form 1 -ет~

@@ -78,6 +78,14 @@ Form 4 -ы~
 End
 
 #RULE
+Name раз~
+BaseLen 3
+Form 2 -а~
+Form 3 -а~
+Form 4 -а~
+End
+
+#RULE
 Name золотых~
 Form 1 золотой~
 End
