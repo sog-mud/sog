@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.150 2002-03-21 14:19:12 fjoe Exp $
+ * $Id: recycle.c,v 1.151 2002-03-21 15:47:36 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1307,23 +1307,6 @@ avltree_info_t c_info_effects =
 
 	MT_PVOID, sizeof(effect_t), ke_cmp_str
 };
-
-void
-inflict_effect(const char *name, void *vo, int level, int dam)
-{
-	effect_t *eff;
-
-	C_STRKEY_CHECK(__FUNCTION__, &effects, name);
-	if ((eff = effect_lookup(name)) == NULL)
-		return;
-
-	if (eff->fun == NULL) {
-		log(LOG_ERROR, "%s: %s: NULL fun", __FUNCTION__, eff->name);
-		return;
-	}
-
-	eff->fun(vo, level, dam);
-}
 
 /*--------------------------------------------------------------------
  * skill_t

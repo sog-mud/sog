@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: sog.h,v 1.36 2002-03-21 13:30:30 fjoe Exp $
+ * $Id: sog.h,v 1.37 2002-03-21 15:47:31 fjoe Exp $
  */
 
 #ifndef _SOG_H_
@@ -456,6 +456,10 @@ DECLARE_PROC3(show_affects,
 DECLARE_PROC3(format_obj_affects,
 	      ARG(BUFFER), output, NULLABLE_ARG(AFFECT_DATA), paf,
 	      ARG(int), flags)
+
+DECLARE_PROC4(inflict_effect,
+	      ARG(cchar_t), name, ARG(pvoid_t), vo,
+	      ARG(int), level, ARG(int), dam)
 
 /*--- fight.c */
 

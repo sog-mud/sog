@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_mpc.c,v 1.47 2002-01-21 07:16:15 fjoe Exp $
+ * $Id: init_mpc.c,v 1.48 2002-03-21 15:47:33 fjoe Exp $
  */
 
 #include <dlfcn.h>
@@ -282,7 +282,6 @@ MODINIT_FUN(_module_unload, m)
  */
 const char *mpc_dynafuns[] = {
 #if !defined(MPC)
-	"acid_effect",
 	"act",
 	"act_around",
 	"act_char",
@@ -329,7 +328,6 @@ const char *mpc_dynafuns[] = {
 	"char_wis",
 	"close_door",
 	"close_obj",
-	"cold_effect",
 	"create_mob",
 	"create_obj",
 	"damage",
@@ -337,7 +335,6 @@ const char *mpc_dynafuns[] = {
 	"dofun",
 	"drop_obj",
 	"extract_obj",
-	"fire_effect",
 	"get_char_area",
 	"get_char_here",
 	"get_char_room",
@@ -359,6 +356,7 @@ const char *mpc_dynafuns[] = {
 	"has_detect",
 	"has_invis",
 	"has_sp",
+	"inflict_effect",
 	"is_act",
 	"is_affected",
 	"is_awake",
@@ -404,15 +402,12 @@ const char *mpc_dynafuns[] = {
 	"one_hit",
 	"open_door",
 	"open_obj",
-	"poison_effect",
 	"raw_kill",
 	"real_char_level",
 	"room_is",
 	"room_sector",
 	"room_vnum",
 	"say_spell",
-	"sand_effect",
-	"scream_effect",
 	"set_char_gold",
 	"set_char_hit",
 	"set_char_mana",
@@ -422,7 +417,6 @@ const char *mpc_dynafuns[] = {
 	"set_obj_owner",
 	"set_obj_timer",
 	"set_weapon_dice_type",
-	"shock_effect",
 	"social_char",
 	"spclass_count",
 	"spellfun_call",

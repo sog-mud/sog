@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.391 2002-03-21 13:46:37 fjoe Exp $
+ * $Id: merc.h,v 1.392 2002-03-21 15:47:31 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2193,8 +2193,6 @@ extern avltree_info_t c_info_effects;
 
 #define effect_lookup(en) ((effect_t*) c_strkey_lookup(&effects, (en)))
 #define effect_search(en) ((effect_t*) c_strkey_search(&effects, (en)))
-
-void inflict_effect(const char *name, void *vo, int level, int dam);
 
 /*----------------------------------------------------------------------
  * skills stuff

@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.353 2002-03-21 13:30:40 fjoe Exp $
+ * $Id: handler.c,v 1.354 2002-03-21 15:47:34 fjoe Exp $
  */
 
 /***************************************************************************
@@ -6356,6 +6356,23 @@ show_obj_to_char(CHAR_DATA *ch, OBJ_DATA *obj, flag_t wear_loc)
 	    can_see_it ? format_obj_to_char(obj, ch, FO_F_SHORT) :
 	    obj == NULL ? "nothing" : "something",
 	    NULL, TO_CHAR | (can_see_it ? ACT_NOTRANS : 0));
+}
+
+void
+inflict_effect(const char *name, void *vo, int level, int dam)
+{
+	effect_t *eff;
+
+	C_STRKEY_CHECK(__FUNCTION__, &effects, name);
+	if ((eff = effect_lookup(name)) == NULL)
+		return;
+
+	if (eff->fun == NULL) {
+		log(LOG_ERROR, "%s: %s: NULL fun", __FUNCTION__, eff->name);
+		return;
+	}
+
+	eff->fun(vo, level, dam);
 }
 
 /*--------------------------------------------------------------------
