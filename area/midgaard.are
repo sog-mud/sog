@@ -1395,6 +1395,20 @@ M speech 3015 lessa~
 M speech 3016 vilirna~
 M speech 3017 calamir~
 M speech 3018 cariel~
+#3173
+croupier girl девушка крупье~
+croupier~
+Croupier stands near roulette wheel.
+~
+You see young beautiful girl.
+~
+dragon~
+AMef DEFHNOUVYc 0 0
+150 250 1d1+28000 1d1+25000 50d60+100 kiss
+-66 -66 -66 -66
+CDEFHIKNO ABCDU 0 0
+stand stand female 0
+0 0 huge unknown
 #0
 
 #OBJECTS
@@ -5131,6 +5145,10 @@ D3
 ~
 ~
 Z -1 3006
+D4
+~
+~
+Z 0 3360
 S
 #3008
 @eng The bank@rus Банк~
@@ -9605,6 +9623,17 @@ D5
 ~
 Z -1 3356
 S
+#3360
+@eng Casino@rus Казино~
+@eng Welcome to Casino!
+@rus Добро пожаловать в наше Казино.
+~
+0 HKa inside
+D5
+~
+~
+Z 0 3007
+S
 #0
 
 #SPECIALS
@@ -9632,6 +9661,7 @@ M 3120 spec_cast_cleric	* the sexton
 M 3163 spec_nasty	* the thief
 M 3166 spec_cast_adept	* Nacya
 M 3172 spec_cast_adept	* the templeman
+M 3173 spec_breath_any	* croupier
 S
 
 #RESETS
@@ -10029,6 +10059,7 @@ E 0 3353 0 5		*	a standard issue vest: on the body
 E 0 3354 0 11		*	a standard issue shield: as a shield
 O 0 3118 0 3313	* an anvil (Smithery)
 M 0 3162 1 3334 1	* Otho the Changer (A Money Changer's Room)
+M 0 3173 1 3360 1	* croupier (Casino)
 S
 
 #SHOPS

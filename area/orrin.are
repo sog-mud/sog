@@ -35,10 +35,10 @@ F for AHMV
 F par ABCDEFGHIJK
 M grall 34800 100~
 #34801
-peyrifoy пейрифой~
+peyriphoy пейрифой~
 @eng Peyrifoy@rus Пейрифой~
-@eng The powerful hero Peyrifoy sits here revited to throne.
-@rus Могучий герой Пейрифой сидит здесь прикованный к трону.
+@eng The powerful hero Peyriphoy sits here revited to throne.
+@rus Могучий герой Пейрифой (Peyriphoy) сидит здесь прикованный к трону.
 ~
 ~
 human~
@@ -101,7 +101,7 @@ M grall 34804 100~
 aides аид~
 @eng Aides@rus Аид~
 @eng The greate god Aides sits here, on golden throne.
-@rus Великий бог Аид сидит здесь, на золотом троне.
+@rus Великий бог Аид (Aides) сидит здесь, на золотом троне.
 ~
 ~
 human~
@@ -113,6 +113,173 @@ stand stand male 0
 0 0 huge unknown
 F for AHMV
 F par ABCDEFGHIJK
+#34805
+achilles soul ахилл душа~
+@eng Achilles' soul@rus ~~душа~~ Ахилла~
+@eng The soul Achilles has found here rest.
+@rus Душа Ахилла (Achilles) нашла здесь покой.
+~
+~
+human~
+ABTe HV 0 0
+0 0 0d0+0 0d0+0 0d0+0 none
+0 0 0 0
+ACDI CD 0 0
+stand stand male 0
+0 0 medium unknown
+F for AHMV
+F par ABCDEFGHIJK
+#34806
+minos минос~
+@eng Minos@rus Минос~
+@eng The judge Minos here, tries to achieve validity.
+@rus Судья Минос (Minos) здесь, пытается добиться справедливости.
+~
+~
+human~
+ABe 0 0 0
+0 0 0d0+0 0d0+0 0d0+0 none
+0 0 0 0
+0 0 0 0
+stand stand male 0
+0 0 medium unknown
+F for AHMV
+F par ABCDEFGHIJK
+#34807
+hypnosis гипнос~
+@eng Hypnosis@rus Гипнос~
+@eng The god of dream Hypnosis sits here and is played with his wand.
+@rus Бог сна Гипнос (Hypnosis) сидит тут и играется со своим жезлом.
+~
+~
+human~
+ABe 0 0 0
+0 0 0d0+0 0d0+0 0d0+0 none
+0 0 0 0
+0 0 0 0
+stand stand male 0
+0 0 medium unknown
+F for AHMV
+F par ABCDEFGHIJK
+#34808
+radamant радамант~
+@eng Radamant@rus Радамант~
+@eng The judge Radamant here, tries to achieve validity.
+@rus Судья Радамант (Radamant) здесь, пытается добиться справедливости.
+~
+~
+human~
+ABe 0 0 0
+0 0 0d0+0 0d0+0 0d0+0 none
+0 0 0 0
+0 0 0 0
+stand stand male 0
+0 0 medium unknown
+F for AHMV
+F par ABCDEFGHIJK
+#34809
+tanatus танат~
+@eng Tanatus@rus Танат~
+@eng The god of death Tanatus stands here.
+@rus Бог смерти Танат (Tanatus) стоит здесь.
+~
+~
+human~
+ABe 0 0 0
+0 0 0d0+0 0d0+0 0d0+0 none
+0 0 0 0
+0 0 0 0
+stand stand male 0
+0 0 medium unknown
+F for AHMV
+F par ABCDEFGHIJK
+#34810
+persiphona персифона~
+@eng Persiphona@rus Персифона~
+@eng Persiphona sits here, near to the husband Aides.
+@rus Персифона (Persiphona) сидит тут, рядом со своим мужем Аидом.
+~
+@eng Before you young Persiphona - daughter of the goddess of a nature
+Demetras and Zeus. Her destiny is heavy. She eternally should wander
+between light and shadow. A third part of year Persiphona lives here
+with the husband Aides, and two thirt part of year comes back to
+ground to the mother.
+@rus Перед тобой вечно юная Персифона - дочь богини природы Деметры и Зевса.
+Тяжела ее судьба. Она вечно должна скитаться между светом и тенью. Треть
+года Персифона живет здесь со своим мужем Аидом, а на остальные две трети
+возвращается на землю к своей матери.
+~
+human~
+ABe H 0 0
+0 0 0d0+0 0d0+0 0d0+0 none
+0 0 0 0
+0 0 0 0
+stand stand none 0
+0 0 medium unknown
+F for AHMV
+F par ABCDEFGHIJK
+#34811
+erinis эриния~
+@eng Erinis@rus Эриния~
+@eng The goddess of revenge Erinis is ready to pursue by a criminal.
+@rus Богиня мести Эриния (Erinis) готова отправиться за преступником.
+~
+~
+human~
+A 0 0 0
+0 0 0d0+0 0d0+0 0d0+0 none
+0 0 0 0
+0 0 0 0
+stand stand none 0
+0 0 medium unknown
+F for AHMV
+F par ABCDEFGHIJK
+#34812
+kerghus кер~
+@eng Kerghus@rus Кер~
+@eng Kerghus flies here searches for fresh blood.
+@rus Кер (Kerghus) летает тут в поисках свежей крови.
+~
+~
+human~
+A 0 0 0
+0 0 0d0+0 0d0+0 0d0+0 none
+0 0 0 0
+0 0 0 0
+stand stand none 0
+0 0 medium unknown
+F for AHMV
+F par ABCDEFGHIJK
+#34813
+antilochus soul душа антилох~
+@eng Antilochus' soul@rus ~~душа~~ Антилоха~
+@eng The soul great warrior Antilochus has found here rest.
+@rus Душа великого воина Антилоха (Antilochus) нашла тут покой.
+~
+~
+human~
+ABe 0 0 0
+0 0 0d0+0 0d0+0 0d0+0 none
+0 0 0 0
+0 0 0 0
+stand stand male 0
+0 0 medium unknown
+F for AHMV
+F par ABCDEFGHIJK
+#34814
+soul fiery душа огненная~
+@eng fiery soul@rus ~~огненная~~ ~~душа~~~
+@eng The fiery soul runs around of you.
+@rus Вокруг тебя бегает пылающая (fiery) фигура.
+~
+~
+ghost~
+AR IUV 0 0
+0 0 0d0+0 0d0+0 0d0+0 punch
+0 0 0 0
+0 0 I H
+stand stand either 0
+0 0 medium unknown
 #34999
 avatar~
 avatar of Orrin~
@@ -685,12 +852,12 @@ S
 @eng Courtroom@rus Зал Суда~
 @eng Here, on left from Aides, sits the judge Minos on his throne. He
 tells to Aides about all good deals and brave actions of the person.
-Here sits always young god of dream - Gipnos.
+Here sits always young god of dream - Hypnosis.
 @rus Здесь по левую руку от Аида на своем троне сидит судья Минос. Он
 рассказывает Аиду о всех добрых делах и храбрых поступках человека.
 Тут сидит и вечно юный бог сна Гипнос.
 ~
-0 0 inside
+0 DN inside
 D1
 ~
 ~
@@ -1045,10 +1212,10 @@ Z 0 34823
 S
 #34835
 @eng Hall of Calm@rus Зал Покоя~
-@eng Here get soul one, at life was good, brave and has doed much good
-deals. Such people, centainly, deserve happiness and joys after death.
-But Aides is created not for revelry. So, their conditions is limited
-by tranquillity.
+@eng Here souls of those who at life was kind get, brave and has made a lot
+a lot of good. Such people, certainly, deserve happiness and pleasure
+after death. But empire Aides not that place where it is possible has
+fun. Therefore, their condition is limited to rest.
 @rus Сюда попадают души тех, кто при жизни был добрым, храбрым и сделал
 много хорошего. Такие люди, безусловно, заслуживают счастья и радости
 после смерти. Но царство Аида не то место, где можно веселится. Поэто-
@@ -1529,14 +1696,17 @@ Z 0 34815
 S
 #34859
 @eng Riverside of Kocitus@rus Берег реки Коцит~
-@eng You go on field, on which grow the pale flowerses of wild tulip. Near
-by you fly the incorporeal light shadows of deceased. They bemoan on its
-joyless life without light and without desires. Quietly hear their moans,
-hardly perceptible, like a rustle sheets.
-@rus Ты идешь по полю заросшему бледными цветами асфодела. Рядом носятся
-бесплотные легкие тени умерших. Они сетуют на свою безрадостную жизнь
-без света и без желаний. Тихо раздаются их стоны, едва уловимые, по-
-добные шелесту увядших листьев, гонимых осенним ветром.
+@eng You go on trail along ravine. It's a riverside of Kocitus. Her
+tempestuous water already so have washed away the ground that was
+formed enormous ravine. The trail passed on most his edge. Having
+looked downwards, you feel itself small and difenseless, in contrast
+with this power element.
+The river lasts on north. West lowering is seen to river.
+@rus Ты идешь по тропинке вдоль обрыва. Это берег реки Коцит. Ее бурные
+воды уже настолько размыли землю, что образовался огромный овраг.
+Тропинка проходит по самому его краю. Посмотрев вниз, ты чуствуешь
+себя маленьким и беззащитным, по сравнению с этой силой стихии.
+Река продолжается на север, на западе виден спуск к реке.
 ~
 0 ADN field
 D0
@@ -1554,14 +1724,15 @@ Z 0 34858
 S
 #34860
 @eng Riverside of Kocitus@rus Берег реки Коцит~
-@eng You go on field, on which grow the pale flowerses of wild tulip. Near
-by you fly the incorporeal light shadows of deceased. They bemoan on its
-joyless life without light and without desires. Quietly hear their moans,
-hardly perceptible, like a rustle sheets.
-@rus Ты идешь по полю заросшему бледными цветами асфодела. Рядом носятся
-бесплотные легкие тени умерших. Они сетуют на свою безрадостную жизнь
-без света и без желаний. Тихо раздаются их стоны, едва уловимые, по-
-добные шелесту увядших листьев, гонимых осенним ветром.
+@eng You go on trail along ravine. It's a riverside of Kocitus. Her
+tempestuous water already so have washed away the ground that was
+formed enormous ravine. The trail passed on most his edge. Having
+looked downwards, you feel itself small and difenseless, in contrast
+with this power element.
+@rus Ты идешь по тропинке вдоль обрыва. Это берег реки Коцит. Ее бурные
+воды уже настолько размыли землю, что образовался огромный овраг.
+Тропинка проходит по самому его краю. Посмотрев вниз, ты чуствуешь
+себя маленьким и беззащитным, по сравнению с этой силой стихии.
 ~
 0 ADN field
 D1
@@ -1595,15 +1766,17 @@ D3
 Z 0 34860
 S
 #34862
-@eng Riverside of Acheront@rus Берег реки Ахеронт~
+@eng Gloomy field of Aides@rus Поле подземного царства~
 @eng You go on field, on which grow the pale flowerses of wild tulip. Near
 by you fly the incorporeal light shadows of deceased. They bemoan on its
 joyless life without light and without desires. Quietly hear their moans,
 hardly perceptible, like a rustle sheets.
+In the south passage is seen between hills.
 @rus Ты идешь по полю заросшему бледными цветами асфодела. Рядом носятся
 бесплотные легкие тени умерших. Они сетуют на свою безрадостную жизнь
 без света и без желаний. Тихо раздаются их стоны, едва уловимые, по-
 добные шелесту увядших листьев, гонимых осенним ветром.
+На юге виднеется проход между холмами.
 ~
 0 ADN field
 D0
@@ -1637,15 +1810,17 @@ D3
 Z 0 34880
 S
 #34864
-@eng Riverside of Acheront@rus Берег реки Ахеронт~
+@eng Gloomy field of Aides@rus Поле подземного царства~
 @eng You go on field, on which grow the pale flowerses of wild tulip. Near
 by you fly the incorporeal light shadows of deceased. They bemoan on its
 joyless life without light and without desires. Quietly hear their moans,
 hardly perceptible, like a rustle sheets.
+Passage is seen on north between hills.
 @rus Ты идешь по полю заросшему бледными цветами асфодела. Рядом носятся
 бесплотные легкие тени умерших. Они сетуют на свою безрадостную жизнь
 без света и без желаний. Тихо раздаются их стоны, едва уловимые, по-
 добные шелесту увядших листьев, гонимых осенним ветром.
+На севере виднеется проход между холмами.
 ~
 0 ADN field
 D0
@@ -2055,6 +2230,15 @@ M 0 34800 1 34804 1	* Tesey (Entrance to the Aides)
 M 0 34802 1 34807 1	* Haron (Riverside Styx)
 M 0 34803 1 34818 1	* Cerber (Intersection three rivers)
 M 0 34804 1 34820 1	* Aides (Courtroom)
+M 0 34810 1 34820 1	* Persiphona (Courtroom)
+M 0 34811 3 34820 1	* Erinis (Courtroom)
+M 0 34812 2 34821 1	* Kerghus (Courtroom)
+M 0 34806 1 34821 1	* Minos (Courtroom)
+M 0 34807 1 34821 1	* Hypnosis (Courtroom)
+M 0 34812 2 34822 1	* Kerghus (Courtroom)
+M 0 34808 1 34822 1	* Radamant (Courtroom)
+M 0 34809 1 34822 1	* Tanatus (Courtroom)
+M 0 34814 10 34824 2	* fiery soul (Hall of Nightmare)
 O 0 34998 0 34999	* enormous sofa (Orrin's room)
 S
 
