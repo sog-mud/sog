@@ -82,7 +82,7 @@ a gray bone~
 An ancient animal's bone is left on the floor here.
 ~
 bone~
-key CEORVY A
+key CEORYf A
 0 0 0 0 0
 40 4 0 P
 #0
@@ -93,7 +93,7 @@ The Well~
 You are standing near a shiny gold well blocked by a big boulder on
 the well mouth. A golden aura fills your body.
 ~
-0 ACD inside
+0 ACDK inside
 D2
 ~
 ~
@@ -108,7 +108,7 @@ Bottom of the Well~
 This place is dimly lit by a flickering torch from a doorway leading north.
 The guardians are  keeping the hunters from enemies.
 ~
-0 ACD inside
+0 ACDK inside
 D0
 ~
 ~
@@ -124,7 +124,7 @@ You are inside well lit chamber, with golden plates on the walls.
 All three corridors connecting this hall, proves how easy hunters can
 find their way.
 ~
-0 AD inside
+0 ADK inside
 D0
 ~
 ~
@@ -147,7 +147,7 @@ Main chambers of Hunt~
 The room is lit by many shiny gold pieces surrounding the room. On the
 north wall is a large skin sheet with blood script on it.
 ~
-0 AD inside
+0 ADK inside
 D2
 ~
 ~

@@ -64,7 +64,7 @@ roll paper rolled~
 a rolled paper~
 A rolled paper is left on the ground.~
 paper~
-key ORVY AO
+key ORYf AO
 0 0 0 0 0
 40 4 0 P
 E
@@ -91,7 +91,7 @@ carvings, bright armors and ceramonial shields. On the ceiling you read
   The floor is very clean. The floor is made up of marbles, shine with the
 light of the sun coming from the windows.
 ~
-0 DX inside
+0 DKX inside
 D0
 ~
 ~
@@ -108,7 +108,7 @@ on the walls or floor. A golden carved figures are on the ceiling. To the
 north you see the room of laws. To the eat you see the resting room for
 the rulers. And to the west you see the chapel.
 ~
-0 DX inside
+0 DKX inside
 D0
 ~
 ~
@@ -133,7 +133,7 @@ the Anatolia and young rulers study the laws. There is a bookstand put in
 front of the east wall of the room. The written form of laws are written
 in a book that stands inside of the bookstand.
 ~
-0 DX inside
+0 DKX inside
 D2
 ~
 ~
@@ -146,7 +146,7 @@ of laws to heal and to pray to their gods. There is no windows inside the
 the chapel. The chapel is lighted by the hundrets of candles placed on the
 each side of the room. The mystical air freshens your mind.
 ~
-0 DX inside
+0 DKX inside
 D1
 ~
 ~
@@ -158,7 +158,7 @@ You are in the resting room of the Rulers. There is a silk sofa in the
 room for the rulers to sit, rest and relax. Since they study hard to rule
 the Anatolia, you think that they need such kind of rooms.
 ~
-0 DX inside
+0 DKX inside
 D3
 ~
 ~

@@ -32,7 +32,7 @@ Although his old age, he is still good enough in all martial arts. His
 bright body armor is shining upon you.
 ~
 human~
-ABJKWef DFHJVZelmt 0 0
+ABJKWef DFHJVZlmt 0 0
 92 40 2d500+25000 1d200+1600 10d40+50 slash
 -90 -90 -90 -50
 ACDEFKNU AB 0 0
@@ -105,7 +105,7 @@ key golden~
 a golden key~
 A golden key is left on the floor.~
 gold~
-key ORVY AO
+key ORYf AO
 0 0 0 0 0
 40 4 0 P
 #95201
@@ -134,7 +134,7 @@ greater hall lying towards north. South leaves the entrance into the castle.
 You see two long swords against the wall here, one is on the east wall and
 the other one is on the west wall.
 ~
-0 DX inside
+0 DKX inside
 D0
 ~
 ~
@@ -151,7 +151,7 @@ the shrine, to the east you see Squire Barracks, to the south you see
 enterance and to the west you see a storage room. On the walls you see
 bright knight armors hung, indicating that this a protected area.
 ~
-0 DX inside
+0 DKX inside
 D0
 ~
 ~
@@ -174,7 +174,7 @@ Squire Barracks~
 You see some squires either resting or sleeping. You notice that this
 room is the squire traniee room.
 ~
-0 DX inside
+0 DKX inside
 D1
 ~
 ~
@@ -190,7 +190,7 @@ You see some swords and armors are tossed aside in the storage of the
 Knights of Anatolia. This room is used by Knights, especially in cabal
 wars or for helping young knights.
 ~
-0 DX inside
+0 DKX inside
 D1
 ~
 ~
@@ -203,7 +203,7 @@ special signs carved with adamantite letters. When you look up to the
 ceiling you notice that a big model of the same sign is carved with golden
 material. 
 ~
-0 DX inside
+0 DKX inside
 D2
 ~
 ~
@@ -214,7 +214,7 @@ Stables~
 You see some horses either resting or eating. You notice that this
 room is the used for maintainance of horses for Knights.
 ~
-0 DMX inside
+0 DKMX inside
 D3
 ~
 ~

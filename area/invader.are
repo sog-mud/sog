@@ -67,7 +67,7 @@ skull grayish jaw~
 grayish jaw of a skull~
 A gray jaw of a skull.~
 bone~
-key CEORVY A
+key CEORYf A
 0 0 0 0 0
 40 2 0 P
 #95603
@@ -111,7 +111,7 @@ You are standing near a ruined stone well blocked by a big boulder on
 the well mouth. A cold breeze of fear, sweeps your face, as you feel the 
 shadows watching you!
 ~
-0 ACD inside
+0 ACDK inside
 D0
 ~
 ~
@@ -130,7 +130,7 @@ A shadow from fire light dances on the far northern wall, which seems to
 belong a strong human. Better consider going further, and climb back the 
 well.
 ~
-0 ACD inside
+0 ACDK inside
 D0
 The doorway leads to a well lit chamber. On the wall is a huge shadow.
 ~
@@ -206,7 +206,7 @@ nothingness as you do downward. What awaits you at the bottom? Will you
 ever reach it? Desperately you pray for deliverence- you dont know if you
 have been heard.
 ~
-0 AD inside
+0 ADK inside
 D5
 Falling further into the black pit or to the death.
 ~
@@ -220,7 +220,7 @@ almost black in colour. It's as if it has been burnt by a powerful spell.
 The walls has small cracks along it and there are many symbols on them,
 mostly about death, eg. skulls, demon claws, fangs...
 ~
-0 AD inside
+0 ADK inside
 D0
 It's dark to tell anything.
 ~
@@ -253,7 +253,7 @@ letters reads ' The Brotherhood of Invader's '. On the west wall there is
 a black stone with blood script on it. The title with big letters reads  
 'Death Angel'.
 ~
-0 AD inside
+0 ADK inside
 D2
 You see the dark corridor.
 ~

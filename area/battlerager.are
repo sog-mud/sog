@@ -66,7 +66,7 @@ key~
 a bone key~
 A key, made of bone, is lying on the ground.~
 bone~
-key ORVY AO
+key ORYf AO
 0 0 0 0 0
 40 4 0 P
 #95401
@@ -139,7 +139,7 @@ Beyond the water fall, you are in the caven. Things getting darker. You
 seek for the light but you couldn't find. But the light coming from the
 water fall still can light the enterance of the caven.
 ~
-0 WXY city
+0 KWX city
 D1
 ~
 ~
@@ -156,7 +156,7 @@ the caven more noticable. You see lots of weapon and blood tracks on the
 wall. There are several bones on the ground. You notice that the huge man
 looking over you before you moving on.
 ~
-0 WXY city
+0 KWX city
 D1
 ~
 ~
@@ -172,7 +172,7 @@ In spite of the low level light, you notice that the caven continues to
 the west. You see lots of bones again on the ground. You observe that
 there seems no way from the west of the caven.
 ~
-0 WXY city
+0 KWX city
 D1
 ~
 ~
@@ -190,7 +190,7 @@ and one to the south. To the north you see a large white throne. To the
 south you see some clothes and weapons left on the ground. It seems that
 the south is something like a donation room.
 ~
-0 WXY city
+0 KWX city
 D0
 ~
 ~
@@ -213,7 +213,7 @@ Then you change your mind, and want to put some good clothing and weapon
 here for all other cabal members to strengten themselves, and to destroy
 magicians.
 ~
-0 WXY city
+0 KWX city
 D0
 ~
 ~
@@ -227,7 +227,7 @@ all directions. To the east you see the continuing of bones on the floor,
 to the north you see the shrine of battleragers, to the west you see the a
 Gordall's weapon house, to the very south you see the donation room.
 ~
-0 WXY city
+0 KWX city
 D0
 ~
 ~
@@ -252,7 +252,7 @@ the floor. You read the following on the wall:
     "After you kill your first magician, you become a BattleRager."
 
 ~
-0 WXY city
+0 KWX city
 D3
 ~
 ~
@@ -265,7 +265,7 @@ probably they are the materials that Gordall use to produce his weapons.
 And to the higher portion of the wall you see the newly finished weapons,
 daggers, swords and axes.
 ~
-0 WXY city
+0 KWX city
 D1
 ~
 ~
@@ -278,7 +278,7 @@ shelves line the walls, upon them there are many jars inside of which are
 blood and heads of magicians. 
   A stone tabled placed on the wall, here.
 ~
-0 WXY city
+0 KWX city
 E
 tablet~
 *******************************************************************

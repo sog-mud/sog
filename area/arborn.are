@@ -7,6 +7,24 @@ LevelRange 0 0
 Flags noquest~
 End
 
+#MOBILES
+#36100
+healer~
+Healer~
+Ahellair's personal healer stands here.
+~
+~
+human~
+Aa H 1000 0
+200 0 1d1+1 1d1+1 1d1+1 magic
+0 0 0 0
+0 CD 0 0
+stand stand female 0
+0 0 medium unknown
+F for AHMV
+F par ABCDEFGHIJK
+#0
+
 #OBJECTS
 #36100
 sofa~
@@ -42,6 +60,8 @@ unknown~
 armor 0 AE
 100 100 100 100 0
 100 0 0 P
+F
+A 0 0 t
 F
 A 0 0 E
 F
@@ -108,6 +128,30 @@ F
 R 0 0 D
 A
 19 20
+#36106
+gloves universal~
+Universal Gloves.~
+Really universal gloves.~
+unknown~
+armor A AH
+100 100 100 100 0
+99 0 0 P
+A
+6 20
+A
+5 20
+A
+4 20
+A
+3 20
+A
+2 20
+A
+1 20
+A
+19 500
+A
+18 500
 #0
 
 #ROOMS
@@ -120,11 +164,64 @@ You feel completely relaxed...
 Небольшой водопад тихо журчит у стены...
 Вы расслабляетесь ...
 ~
-0 KX inside
+0 CKX inside
+D1
+~
+~
+Z 0 36101
+S
+#36101
+~
+~
+0 0 inside
+D2
+~
+~
+Z 0 36102
+D3
+~
+~
+Z 0 36100
+S
+#36102
+~
+~
+0 0 inside
+D0
+~
+~
+Z 0 36101
+D2
+~
+~
+Z 0 36103
+S
+#36103
+~
+~
+0 0 inside
+D0
+~
+~
+Z 0 36102
+D2
+~
+~
+Z 0 36104
+S
+#36104
+~
+~
+0 0 inside
+D0
+~
+~
+Z 0 36103
 S
 #0
 
 #RESETS
+M 0 36100 1 36100 1	* Healer (Arborn's home)
 O 0 36100 0 36100	* sofa (Arborn's home)
 S
 

@@ -394,19 +394,24 @@ is handy for talking to invisible or switched immortal players.
 The notes on Muddy replace the bulletin boards and mail systems found
 on many other mud.  The following options are usable:
 
-reading notes:
+{creading notes{x:
 note list       : show all notes (unread notes are marked with an N)
 note read       : either by number, or read next to read unread notes
 note remove     : removes a note that you wrote or are the target of
 note catchup    : markes all notes as read
 
-writing new notes:
-note to        	: set the to line (playername, clanname, immortal, or all)
+'note read' can accept number of note to read.
+'note list' has extended syntax: note list [from name] [to name]
+
+{cwriting notes{x:
+note to         : set the 'To:' line (player name, clan name, immortal or all)
 note subject    : set the subject for a new note
 note edit       : edit note
 note clear      : erase a note in progress
 note show       : show the note you are working on
 note post       : post a new note. This MUST be done to post a note.
+note forward num: forward note number 'num'
+note quote num  : quote note number 'num'
 
 When you log in, you will be informed if there are unread notes waiting. Type
 note read to scroll through them one at a time.
@@ -416,6 +421,7 @@ penalties (gods only).  They are used the exact same way, for example
 idea read 5 will read idea #5.  Posting to the news and changes boards is
 restricted. The 'unread' command can be used to show your unread notes on
 all the note spools.
+ 
 ~
 0 SHOUT YELL~
 Syntax: shout   <message>
@@ -2649,7 +2655,11 @@ command. Old midgaard is not a holy town.
 области непосредственно в комнату с агрессивными мобами, который приведет к
 смерти рассматривается как нападение на игрока в защищенной области.
  
-6. Нападение на стражей закона - нарушение закона.
+6. Использование garble на членов клана Ruler запрещено, так как мешает
+нормальному выполнению их обязанностей и потому рассматривается как нарушение
+закона.
+ 
+ПРИМЕЧАНИЕ. Старый Мидгард не является защищенной областью.
 ~
 1 WANTED ~
 Syntax: WANTED <player> <Y or N>

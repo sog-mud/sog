@@ -49,7 +49,7 @@ key black marble~
 a black marble key~
 A black marble key is on the ground.~
 marble~
-key ORVY AO
+key ORYf AO
 0 0 0 0 0
 40 4 0 P
 #95501
@@ -84,7 +84,7 @@ The Enterance~
 Welcome to Paradise of the Chaos Realms. There is neither rule nor law
 here. 
 ~
-0 DX inside
+0 DKX inside
 D0
 ~
 ~
@@ -99,7 +99,7 @@ Inside the Great Hall~
 There is a long hall covered with the embles of the Lords of the Chaos
 Realms. The smooth wooden floors are well polished. 
 ~
-0 DX inside
+0 DKX inside
 D0
 ~
 ~
@@ -122,7 +122,7 @@ Squire Barracs~
 This room serves as a barracks of the squires of this chaos realms. The
 room is gloomy, wet and in a state of disorder. 
 ~
-0 DX inside
+0 DKX inside
 D3
 ~
 ~
@@ -134,7 +134,7 @@ You see many boxes before you, apparently this is a storage room some
 sort. This is where the lords of chaos realms store all theirspare
 clothing, armor and weapon.
 ~
-0 DX inside
+0 DKX inside
 D1
 ~
 ~
@@ -144,7 +144,7 @@ S
 The Altar~
 There is only one rule: the more powerful you are the longer you live.
 ~
-0 DX inside
+0 DKX inside
 D2
 ~
 ~
