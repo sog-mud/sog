@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: trig.c,v 1.25 2001-12-03 22:28:48 fjoe Exp $
+ * $Id: trig.c,v 1.26 2001-12-03 22:37:46 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -404,19 +404,13 @@ pull_trigger_list(int trig_type, varr *v, int mp_type,
 {
 	trig_t *trig;
 	int rv = MPC_ERR_NOTFOUND;
-	size_t i;
 	bool seen_good = FALSE;
 
 	trig = varr_bsearch_lower(v, &trig_type, cmpint);
 	if (trig == NULL)
 		return MPC_ERR_NOTFOUND;
 
-	/*
-	 * XXX varr_eforeach
-	 */
-	for (i = varr_index(v, trig); i < c_size(v); i++) {
-		trig = VARR_GET(v, i);
-
+	VARR_EFOREACH(trig, trig, v) {
 		if (trig->trig_type != trig_type)
 			break;
 
