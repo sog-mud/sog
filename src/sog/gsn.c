@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: gsn.c,v 1.6 1998-11-24 08:30:10 kostik Exp $
+ * $Id: gsn.c,v 1.7 1998-11-26 13:19:37 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -57,9 +57,6 @@ int gsn_plague;
 int gsn_sleep;
 int gsn_sanctuary;
 int gsn_fly;
-int gsn_wanted;
-int gsn_judge;
-int gsn_shield_ruler;
 int gsn_fourth_attack;
 int gsn_dual_backstab;
 int gsn_cleave;
@@ -256,9 +253,6 @@ NAMEDP gsn_table[] =
 	{ "gsn_sleep",			&gsn_sleep			},
 	{ "gsn_sanctuary",		&gsn_sanctuary			},
 	{ "gsn_fly",			&gsn_fly			},
-	{ "gsn_wanted",			&gsn_wanted			},
-	{ "gsn_judge",			&gsn_judge			},
-	{ "gsn_shield_ruler",		&gsn_shield_ruler		},
 	{ "gsn_fourth_attack",		&gsn_fourth_attack		},
 	{ "gsn_dual_backstab",		&gsn_dual_backstab		},
 	{ "gsn_cleave",			&gsn_cleave			},

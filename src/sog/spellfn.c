@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: spellfn.c,v 1.7 1998-11-24 08:30:10 kostik Exp $
+ * $Id: spellfn.c,v 1.8 1998-11-26 13:19:37 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -163,7 +163,6 @@ NAMEDP spellfn_table[] =
 	{ "spell_shadowlife",		spell_shadowlife		},
 	{ "spell_ruler_badge",		spell_ruler_badge		},
 	{ "spell_remove_badge",		spell_remove_badge		},
-	{ "spell_shield_ruler",		spell_shield_ruler		},
 	{ "spell_dragon_strength",	spell_dragon_strength		},
 	{ "spell_dragon_breath",	spell_dragon_breath		},
 	{ "spell_golden_aura",		spell_golden_aura		},
