@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.19 1998-06-21 11:38:38 fjoe Exp $
+ * $Id: spellfun.c,v 1.20 1998-06-24 19:55:40 efdi Exp $
  */
 
 /***************************************************************************
@@ -1778,10 +1778,28 @@ void spell_create_food(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 void spell_create_rose(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 {
 	OBJ_DATA *rose;
+	if (target_name[0] == '\0') {
+		char_puts("What rose do you want to create?\n\r", ch);
+		return;
+	}
 	rose = create_object(get_obj_index(OBJ_VNUM_ROSE), 0);
-	act("$n has created a beautiful red rose.",ch,rose,NULL,TO_ROOM);
-	send_to_char("You create a beautiful red rose.\n\r",ch);
-	obj_to_char(rose,ch);
+	str_printf(&rose->short_descr,
+		   rose->pIndexData->short_descr,
+		   target_name);
+	str_printf(&rose->description,
+		   rose->pIndexData->description,
+		   target_name);
+	rose->extra_descr = new_extra_descr();
+	str_printf(&rose->extra_descr->description,
+		   rose->pIndexData->extra_descr->description,
+		   target_name);
+	rose->extra_descr->keyword =                            
+		str_dup(rose->pIndexData->extra_descr->keyword);
+	rose->extra_descr->next = NULL;                         
+                                                          
+	act("$n has created $p", ch, rose, NULL, TO_ROOM);
+	char_printf(ch, "You create %s.\n\r", rose->short_descr);
+	obj_to_char(rose, ch);
 	return;
 }
 

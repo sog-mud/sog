@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.35 1998-06-24 06:29:50 fjoe Exp $
+ * $Id: update.c,v 1.36 1998-06-24 19:55:40 efdi Exp $
  */
 
 /***************************************************************************
@@ -189,7 +189,6 @@ void gain_exp(CHAR_DATA *ch, int gain)
 		send_to_char(msg(YOU_RAISE_A_LEVEL, ch), ch);
 		ch->level += 1;
 
-		/* added for samurais by chronos */
 		if ((ch->class == CLASS_SAMURAI) && (ch->level == 10))
 			ch->wimpy = 0;
 
