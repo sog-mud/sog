@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.78 1998-10-23 09:22:24 fjoe Exp $
+ * $Id: save.c,v 1.79 1998-10-29 07:24:43 fjoe Exp $
  */
 
 /***************************************************************************
@@ -413,7 +413,7 @@ fwrite_obj(CHAR_DATA * ch, OBJ_DATA * obj, FILE * fp, int iNest)
 	if (!IS_IMMORTAL(ch)
 	&&  ((get_wear_level(ch, obj) < obj->level &&
 	      obj->pIndexData->item_type != ITEM_CONTAINER) ||
-	     (ch->level > obj->level + 20 && obj->pIndexData->limit > 1))) {
+	     (ch->level > obj->level + 20 && obj->pIndexData->limit > 0))) {
 		extract_obj(obj);
 		return;
 	}

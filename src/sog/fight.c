@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.93 1998-10-27 08:17:56 fjoe Exp $
+ * $Id: fight.c,v 1.94 1998-10-29 07:24:42 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1095,13 +1095,6 @@ void handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
 
 	if (vnpc || victim->position == POS_STANDING)
 		return;
-
-	if ((!IS_NPC(ch) || ch->master != NULL || ch->leader != NULL)
-	&&  ch != victim
-	&&  !IS_SET(victim->act, PLR_WANTED))
-		return;
-
-/* handle PC death (from NPC or being PLR_WANTED) */
 
 	/* Dying penalty: 2/3 way back. */
 	if (victim->exp_tl > 0)
