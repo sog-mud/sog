@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.114.2.25 2002-08-14 15:42:19 tatyana Exp $
+ * $Id: martial_art.c,v 1.114.2.26 2002-08-24 13:58:18 tatyana Exp $
  */
 
 /***************************************************************************
@@ -1660,6 +1660,7 @@ void do_assassinate(CHAR_DATA *ch, const char *argument)
 	}
  
 	if ((get_eq_char(ch, WEAR_WIELD) != NULL)
+	||  (get_eq_char(ch, WEAR_SHIELD) != NULL)
 	||  (get_eq_char(ch, WEAR_HOLD ) != NULL))  {
 		char_puts("You need both hands free to assassinate somebody.\n",
 			  ch);
