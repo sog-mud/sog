@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.64.2.7 2002-01-04 16:38:11 matrim Exp $
+ * $Id: recycle.c,v 1.64.2.8 2002-02-19 20:43:12 tatyana Exp $
  */
 
 /***************************************************************************
@@ -316,6 +316,9 @@ CHAR_DATA *char_new(MOB_INDEX_DATA *pMobIndex)
 		pc->bank_s = 0;
 		pc->bank_g = 0;
 		ch->comm = COMM_COMBINE | COMM_PROMPT;
+		pc->ll_time = current_time;
+		pc->ll_host = str_empty;
+		pc->ll_ip = str_empty;
 	}
 	RESET_FIGHT_TIME(ch);
 	return ch;
@@ -362,6 +365,8 @@ void char_free(CHAR_DATA *ch)
 		free_string(pc->granted);
 		free_string(pc->wanted_by);
 		buf_free(pc->buffer);
+		free_string(pc->ll_host);
+		free_string(pc->ll_ip);
 		dvdata_free(pc->dvdata);
 
 		nuke_pets(ch);

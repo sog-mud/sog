@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.234.2.28 2002-02-01 02:41:06 tatyana Exp $
+ * $Id: merc.h,v 1.234.2.29 2002-02-19 20:43:11 tatyana Exp $
  */
 
 /***************************************************************************
@@ -1498,6 +1498,9 @@ struct pc_data
 	time_t			last_penalty;
 	time_t			last_news;
 	time_t			last_changes;
+	time_t			ll_time;
+	const char *		ll_host;
+	const char *		ll_ip;
 	flag32_t		trust;
 	flag32_t		plr_flags;
 	flag32_t		wiznet; /* wiz stuff */

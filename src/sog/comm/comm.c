@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.200.2.24 2002-02-07 17:19:44 tatyana Exp $
+ * $Id: comm.c,v 1.200.2.25 2002-02-19 20:43:13 tatyana Exp $
  */
 
 /***************************************************************************
@@ -17,7 +17,7 @@
  *  Original Diku Mud copyright (C) 1990, 1991 by Sebastian Hammer,        *
  *  Michael Seifert, Hans Henrik St{rfeldt, Tom Madsen, and Katja Nyboe.   *
  *                                                                         *
- *  Merc Diku vMud improvments copyright (C) 1992, 1993 by Michael          *
+ *  Merc Diku Mud improvments copyright (C) 1992, 1993 by Michael          *
  *  Chastain, Michael Quan, and Mitchell Tse.                              *
  *                                                                         *
  *  In order to use any part of this Merc Diku Mud, you must comply with   *
@@ -2400,6 +2400,22 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 	case CON_READ_MOTD:
 		char_puts("Welcome to Shades of Gray! Enjoy!\n\n", ch);
 
+		if (ch->level == 0)
+			char_puts("This is your first login.\n", ch);
+		else if (IS_NULLSTR(PC(ch)->ll_ip)
+		     ||  IS_NULLSTR(PC(ch)->ll_host))
+			char_puts("Last login was from nowhere.\n", ch);
+		else {
+			act_puts3("Last login was from $U($T) at $t.\n", ch,
+				  strtime(PC(ch)->ll_time),
+				  PC(ch)->ll_ip, PC(ch)->ll_host,
+				  TO_CHAR | ACT_NOTRANS, POS_DEAD);
+		}
+
+		PC(ch)->ll_host	= str_qdup(d->host);
+		PC(ch)->ll_ip	= str_qdup(d->ip);
+		PC(ch)->ll_time	= current_time;
+
 		update_skills(ch);
 		ch->next	= char_list;
 		char_list	= ch;
@@ -2571,6 +2587,11 @@ bool check_reconnect(DESCRIPTOR_DATA *d, const char *name, bool fConn)
 				PC(ch)->idle_timer	= 0;
 				dvdata_free(d->dvdata);
 				d->dvdata = dvdata_dup(PC(ch)->dvdata);
+
+				PC(ch)->ll_host	= str_qdup(d->host);
+				PC(ch)->ll_ip	= str_qdup(d->ip);
+				PC(ch)->ll_time	= current_time;
+
 				char_puts("Reconnecting. Type replay to see missed tells.\n", ch);
 				act("$n has reconnected.",
 				    ch, NULL, NULL, TO_ROOM);

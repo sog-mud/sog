@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.126.2.13 2002-02-01 02:41:08 tatyana Exp $
+ * $Id: save.c,v 1.126.2.14 2002-02-19 20:43:13 tatyana Exp $
  */
 
 /***************************************************************************
@@ -350,6 +350,9 @@ fwrite_char(CHAR_DATA *ch, FILE *fp, int flags)
 		fprintf(fp, "Antkilled %d\n", pc->anti_killed);
 		fwrite_string(fp, "Twitlist", pc->twitlist);
 		fwrite_string(fp, "Granted", pc->granted);
+		fwrite_string(fp, "LLHost", pc->ll_host);
+		fwrite_string(fp, "LLIp", pc->ll_ip);
+		fprintf(fp, "LLTime %ld\n", pc->ll_time);
 	}
 
 	for (paf = ch->affected; paf != NULL; paf = paf->next) {
@@ -816,6 +819,10 @@ fread_char(CHAR_DATA * ch, FILE * fp, int flags)
 			KEY("Levl", ch->level, fread_number(fp));
 			KEY("LogO", PC(ch)->logoff, fread_number(fp));
 			KEY("Lang", PC(ch)->dvdata->lang, fread_number(fp));
+			SKEY("LLHost", PC(ch)->ll_host);
+			SKEY("LLIp", PC(ch)->ll_ip);
+			KEY("LLTime", PC(ch)->ll_time,
+			    fread_number(fp));
 			break;
 
 		case 'N':
