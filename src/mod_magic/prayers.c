@@ -1,5 +1,5 @@
 /*
- * $Id: prayers.c,v 1.85 2004-07-15 08:14:07 tatyana Exp $
+ * $Id: prayers.c,v 1.86 2004-10-27 12:38:10 sg Exp $
  */
 
 /***************************************************************************
@@ -4660,10 +4660,10 @@ SPELL_FUN(prayer_blasphemy, sn, level, ch, vo)
 
 	paf = aff_new(TO_AFFECTS, sn);
 	paf->bitvector	= AFF_WEAKEN;
-	
+
 	if (level >= LEVEL_HERO / 3)
 		paf->bitvector |= AFF_PLAGUE;
-		
+
 	if (level >= 2 * LEVEL_HERO / 3
 	&& number_percent() < 70) {
 		act("You feel so bad, you cann't do anything!.",
