@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.73 1998-10-07 08:36:36 fjoe Exp $
+ * $Id: db.c,v 1.74 1998-10-08 02:46:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -182,7 +182,7 @@ void db_parse_file(const char *path, const char *file,
 {
 	FILE *fp;
 
-	snprintf(filename, sizeof(filename), "%s%s", path, file);
+	snprintf(filename, sizeof(filename), "%s/%s", path, file);
 
 	if ((fp = fopen(filename, "r")) == NULL) {
 		perror(filename);
@@ -301,7 +301,7 @@ void boot_db(void)
 
 	fBootDb = TRUE;
 
-	db_load_list(ETC_PATH, LANG_LIST, db_load_langs, NULL);
+	db_load_list(LANG_PATH, LANG_LIST, db_load_langs, NULL);
 	load_oldmsgdb();
 	load_msgdb();
 	db_load_file(ETC_PATH, SKILLS_CONF, db_load_skills, NULL);
