@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.142 1999-05-22 16:21:08 avn Exp $
+ * $Id: db.c,v 1.143 1999-05-23 08:44:33 fjoe Exp $
  */
 
 /***************************************************************************
@@ -124,8 +124,7 @@ const char SKILLS_CONF		[] = "skills.conf";	/* skills */
 const char SOCIALS_CONF		[] = "socials.conf";	/* socials */
 const char SYSTEM_CONF		[] = "system.conf";	/* system conf */
 const char LANG_CONF		[] = "lang.conf";	/* lang definitions */
-const char MSG_FILE		[] = "msgdb.txt";	/* old msg db */
-const char MSGDB_FILE		[] = "msgdb";		/* msgdb */
+const char MSGDB_CONF		[] = "msgdb.conf";	/* msgdb */
 
 const char AREA_LIST		[] = "area.lst";	/* list of areas */
 const char CLAN_LIST		[] = "clan.lst";	/* list of clans */
@@ -386,12 +385,7 @@ void boot_db(void)
 	reboot_counter = 1440;	/* 24 hours */
 
 	db_load_list(&db_langs, LANG_PATH, LANG_LIST);
-	if (dfexist(ETC_PATH, MSGDB_FILE)) {
-		log_printf("boot_db: loading new-style msgdb");
-		db_load_file(&db_msg, ETC_PATH, MSGDB_FILE);
-	}
-	else
-		load_msgdb();
+	db_load_file(&db_msg, ETC_PATH, MSGDB_CONF);
 	db_load_file(&db_socials, ETC_PATH, SOCIALS_CONF);
 	db_load_file(&db_skills, ETC_PATH, SKILLS_CONF);
 	namedp_check(gsn_table);

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: msg.c,v 1.18 1999-05-21 22:49:34 fjoe Exp $
+ * $Id: msg.c,v 1.19 1999-05-23 08:44:34 fjoe Exp $
  */
 
 #if	defined (LINUX) || defined (WIN32)
@@ -48,44 +48,6 @@ varr msg_hash_table[MAX_MSG_HASH];
 #define msghash(s) hashstr(s, 32, MAX_MSG_HASH)
 static int cmpmsgname(const void*, const void*);
 static int cmpmsg(const void*, const void*);
-
-void load_msgdb(void)
-{
-	int i;
-	FILE *fp;
-
-	line_number = 0;
-
-	if ((fp = dfopen(ETC_PATH, MSG_FILE, "r")) == NULL)
-		exit(1);
-
-	for (i = 0; i < MAX_MSG_HASH; i++) {
-		varr *v = msg_hash_table+i;
-		v->nsize = sizeof(msg_t);
-		v->nstep = 4;
-	}
-
-	for (;;) {
-		msg_t m;
-		mlstring *ml = mlstr_fread(fp);
-
-		if (mlstr_null(ml)) {
-			db_error("msgdb_load", "no '$' found");
-			exit(1);
-		}
-
-		if (!strcmp(mlstr_mval(ml), "$")) {
-			mlstr_free(ml);
-			break;
-		}
-
-		m.ml = ml;
-		m.gender = 0;
-		msg_add(&m);
-	}
-
-	fclose(fp);
-}
 
 msg_t *msg_add(msg_t *m)
 {

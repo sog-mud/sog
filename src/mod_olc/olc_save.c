@@ -1,5 +1,5 @@
 /*
- * $Id: olc_save.c,v 1.68 1999-05-21 22:49:34 fjoe Exp $
+ * $Id: olc_save.c,v 1.69 1999-05-23 08:44:39 fjoe Exp $
  */
 
 /**************************************************************************
@@ -1030,9 +1030,9 @@ void save_msgdb(CHAR_DATA *ch)
 		return;
 	}
 
-	if ((fp = dfopen(ETC_PATH, MSGDB_FILE, "w")) == NULL) {
+	if ((fp = dfopen(ETC_PATH, MSGDB_CONF, "w")) == NULL) {
 		save_print(ch, "%s%c%s: %s",
-			   ETC_PATH, PATH_SEPARATOR, MSG_FILE,
+			   ETC_PATH, PATH_SEPARATOR, MSGDB_CONF,
 			   strerror(errno));
 		return;
 	}
