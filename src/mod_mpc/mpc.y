@@ -25,7 +25,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc.y,v 1.54 2004-02-11 22:56:16 fjoe Exp $
+ * $Id: mpc.y,v 1.55 2004-02-11 23:08:52 fjoe Exp $
  */
 
 /*
@@ -1565,7 +1565,7 @@ _mprog_compile(mprog_t *mp)
 			return MPC_ERR_COMPILE;
 		if (var_add(mpc, "arg", MT_STR) < 0)
 			return MPC_ERR_COMPILE;
-		if (var_add(mpc, "owner", MT_STR) < 0)
+		if (var_add(mpc, "affowner", MT_STR) < 0)
 			return MPC_ERR_COMPILE;
 		break;
 
@@ -1578,7 +1578,7 @@ _mprog_compile(mprog_t *mp)
 			return MPC_ERR_COMPILE;
 		if (var_add(mpc, "arg", MT_STR) < 0)
 			return MPC_ERR_COMPILE;
-		if (var_add(mpc, "owner", MT_STR) < 0)
+		if (var_add(mpc, "affowner", MT_STR) < 0)
 			return MPC_ERR_COMPILE;
 		break;
 
@@ -1589,7 +1589,7 @@ _mprog_compile(mprog_t *mp)
 			return MPC_ERR_COMPILE;
 		if (var_add(mpc, "arg", MT_STR) < 0)
 			return MPC_ERR_COMPILE;
-		if (var_add(mpc, "owner", MT_STR) < 0)
+		if (var_add(mpc, "affowner", MT_STR) < 0)
 			return MPC_ERR_COMPILE;
 		break;
 
@@ -1660,7 +1660,7 @@ _mprog_execute(mprog_t *mp, void *arg1, void *arg2, void *arg3, void *arg4,
 			execerr(MPC_ERR_RUNTIME);
 		if (var_assign(mpc, "arg", MT_STR, arg4) < 0)
 			execerr(MPC_ERR_RUNTIME);
-		if (var_assign(mpc, "owner", MT_CHAR, arg5) < 0)
+		if (var_assign(mpc, "affowner", MT_CHAR, arg5) < 0)
 			execerr(MPC_ERR_RUNTIME);
 		break;
 
@@ -1673,7 +1673,7 @@ _mprog_execute(mprog_t *mp, void *arg1, void *arg2, void *arg3, void *arg4,
 			execerr(MPC_ERR_RUNTIME);
 		if (var_assign(mpc, "arg", MT_STR, arg4) < 0)
 			execerr(MPC_ERR_RUNTIME);
-		if (var_assign(mpc, "owner", MT_CHAR, arg5) < 0)
+		if (var_assign(mpc, "affowner", MT_CHAR, arg5) < 0)
 			execerr(MPC_ERR_RUNTIME);
 		break;
 
@@ -1684,7 +1684,7 @@ _mprog_execute(mprog_t *mp, void *arg1, void *arg2, void *arg3, void *arg4,
 			execerr(MPC_ERR_RUNTIME);
 		if (var_assign(mpc, "arg", MT_STR, arg4) < 0)
 			execerr(MPC_ERR_RUNTIME);
-		if (var_assign(mpc, "owner", MT_CHAR, arg5) < 0)
+		if (var_assign(mpc, "affowner", MT_CHAR, arg5) < 0)
 			execerr(MPC_ERR_RUNTIME);
 		break;
 
