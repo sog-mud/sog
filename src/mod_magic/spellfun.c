@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.277 2001-11-15 13:51:46 tatyana Exp $
+ * $Id: spellfun.c,v 1.278 2001-11-26 12:51:08 kostik Exp $
  */
 
 /***************************************************************************
@@ -1570,6 +1570,11 @@ SPELL_FUN(spell_identify, sn, level, ch, vo)
 	OBJ_DATA *obj = (OBJ_DATA *) vo;
 	BUFFER *output;
 
+	if (OBJ_IS(obj, OBJ_NOIDENT)) {
+		act("You failed to determine the true nature of the $P.",
+		    ch, NULL, obj, TO_CHAR);
+	}
+
 	output = buf_new(GET_LANG(ch));
 	format_obj(output, obj);
 	if (!IS_OBJ_STAT(obj, ITEM_ENCHANTED))
@@ -1584,6 +1589,11 @@ SPELL_FUN(spell_improved_identify, sn, level, ch, vo)
 {
 	OBJ_DATA *obj = (OBJ_DATA *) vo;
 	BUFFER *output;
+
+	if (OBJ_IS(obj, OBJ_NOIDENT)) {
+		act("You failed to determine the true nature of the $P.",
+		    ch, NULL, obj, TO_CHAR);
+	}
 
 	output = buf_new(0);
 	format_obj(output, obj);

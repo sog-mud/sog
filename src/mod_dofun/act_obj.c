@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.271 2001-11-12 09:43:36 kostik Exp $
+ * $Id: act_obj.c,v 1.272 2001-11-26 12:51:06 kostik Exp $
  */
 
 /***************************************************************************
@@ -2435,6 +2435,12 @@ do_lore_raw(CHAR_DATA *ch, OBJ_DATA *obj, BUFFER *output)
 	int percent;
 	vo_t v0, v1, v2, v3, v4;
 	int mana;
+
+	if (OBJ_IS(obj, OBJ_NOIDENT)) {
+		buf_append(output,
+		   "You aren't able to determine true nature of the object.\n");
+		return;
+	}
 
 	if ((percent = get_skill(ch, "lore")) < 10) {
 		buf_append(output, "The meaning of this object escapes you for the moment.\n");

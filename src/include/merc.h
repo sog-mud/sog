@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.376 2001-11-21 14:33:21 kostik Exp $
+ * $Id: merc.h,v 1.377 2001-11-26 12:51:04 kostik Exp $
  */
 
 /***************************************************************************
@@ -815,6 +815,7 @@ struct wiznet_type
 #define OBJ_PIT			(J)
 #define OBJ_CHQUEST		(K)
 #define OBJ_NOFIND		(L)
+#define OBJ_NOIDENT		(M)
 
 #define OBJ_IS(obj, f)		(IS_SET((obj)->pObjIndex->obj_flags, (f)))
 

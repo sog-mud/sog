@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.178 2001-11-21 14:33:35 kostik Exp $
+ * $Id: tables.c,v 1.179 2001-11-26 12:51:09 kostik Exp $
  */
 
 /***************************************************************************
@@ -582,6 +582,7 @@ flaginfo_t obj_flags[] =
 	{ "pit",		OBJ_PIT,		TRUE	},
 	{ "chquest",		OBJ_CHQUEST,		TRUE	},
 	{ "nofind",		OBJ_NOFIND,		TRUE	},
+	{ "noident",		OBJ_NOIDENT,		TRUE	},
 
 	{ NULL, 0, FALSE }
 };
