@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: vo_iter.c,v 1.7 2001-08-05 16:37:05 fjoe Exp $
+ * $Id: vo_iter.c,v 1.8 2001-08-26 16:15:44 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -213,4 +213,3 @@ restart:
 	cnt--;
 	return rv;
 }
-
