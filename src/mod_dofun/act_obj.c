@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.280 2002-11-22 15:20:50 fjoe Exp $
+ * $Id: act_obj.c,v 1.281 2002-11-23 15:27:29 fjoe Exp $
  */
 
 /***************************************************************************
@@ -660,26 +660,23 @@ DO_FUN(do_give, ch, argument)
 /* for poisoning weapons and food/drink */
 DO_FUN(do_envenom, ch, argument)
 {
-	OBJ_DATA       *obj;
-	int		percent, chance;
+	OBJ_DATA *obj;
+	int percent;
+	int chance;
 
 	/* find out what */
 	if (argument == '\0') {
 		act_char("Envenom what item?", ch);
 		return;
 	}
-	obj = get_obj_list(ch, argument, ch->carrying, GETOBJ_F_ANY);
 
+	obj = get_obj_list(ch, argument, ch->carrying, GETOBJ_F_ANY);
 	if (obj == NULL) {
 		act_char("You don't have that item.", ch);
 		return;
 	}
 
-	if ((chance = get_skill(ch, "envenom")) == 0) {
-		act_char("Are you crazy? You'd poison yourself!", ch);
-		return;
-	}
-
+	chance = get_skill(ch, "envenom");
 	if (obj->item_type == ITEM_FOOD || obj->item_type == ITEM_DRINK_CON) {
 		if (IS_OBJ_STAT(obj, ITEM_BLESS)
 		||  IS_OBJ_STAT(obj, ITEM_BURN_PROOF)) {
@@ -2430,8 +2427,8 @@ DO_FUN(do_herbs, ch, argument)
 {
 	CHAR_DATA *victim;
 	char arg[MAX_INPUT_LENGTH];
-	int chance;
 	bool is_healer;
+	int chance;
 
 	one_argument(argument, arg, sizeof(arg));
 
@@ -2802,7 +2799,6 @@ DO_FUN(do_butcher, ch, argument)
 	char            arg[MAX_STRING_LENGTH];
 	OBJ_DATA       *tmp_obj;
 	OBJ_DATA       *tmp_next;
-	int		chance;
 
 	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
@@ -2829,17 +2825,12 @@ DO_FUN(do_butcher, ch, argument)
 		return;
 	}
 
-	if ((chance = get_skill(ch, "butcher")) == 0) {
-		act_char("You don't have the instruments for that.", ch);
-		return;
-	}
-
 	for (tmp_obj = obj->contains; tmp_obj != NULL; tmp_obj = tmp_next) {
 		tmp_next = tmp_obj->next_content;
 		obj_to_room(tmp_obj, ch->in_room);
 	}
 
-	if (number_percent() < chance) {
+	if (number_percent() < get_skill(ch, "butcher")) {
 		int             numsteaks;
 		int             i;
 		OBJ_DATA       *steak;
@@ -2877,12 +2868,6 @@ DO_FUN(do_crucify, ch, argument)
 	char arg[MAX_STRING_LENGTH];
 	OBJ_DATA *obj2, *next;
 	OBJ_DATA *cross;
-	int chance;
-
-	if ((chance = get_skill(ch, "crucify")) == 0) {
-		act_char("Oh no, you can't do that.", ch);
-		return;
-	}
 
 	if (is_sn_affected(ch, "crucify")) {
 		act_char("You are not yet ready to make a sacrifice.", ch);
@@ -2901,7 +2886,6 @@ DO_FUN(do_crucify, ch, argument)
 	}
 
 	one_argument(argument, arg, sizeof(arg));
-
 	if (arg == '\0') {
 		act_char("Crucify what?", ch);
 		return;
@@ -2928,7 +2912,7 @@ DO_FUN(do_crucify, ch, argument)
 		obj_to_room(obj2, ch->in_room);
 	}
 
-	if (number_percent() > chance) {
+	if (number_percent() >= get_skill(ch, "crucify")) {
 		act("You attempt a ritual crucification of $p, "
 		   "but fail and ruin it.", ch, obj, NULL, TO_CHAR);
 		act("$n attempts to crucify $p, but fails and ruins it.",
@@ -3143,11 +3127,6 @@ DO_FUN(do_deposit, ch, argument)
 DO_FUN(do_second_wield, ch, argument)
 {
 	OBJ_DATA *obj;
-
-	if (get_skill(ch, "dual wield") == 0) {
-		act_char("You don't know how to wield a second weapon.", ch);
-		return;
-	}
 
 	if (argument[0] == '\0') {
 		act_char("Wear which weapon in your off-hand?", ch);

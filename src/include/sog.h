@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: sog.h,v 1.40 2002-11-20 20:14:44 fjoe Exp $
+ * $Id: sog.h,v 1.41 2002-11-23 15:27:06 fjoe Exp $
  */
 
 #ifndef _SOG_H_
@@ -534,10 +534,10 @@ DECLARE_PROC4(focus_negative_energy,
 	      ARG(CHAR_DATA), ch, ARG(CHAR_DATA), victim, ARG(cchar_t), sn,
 	      ARG(int), amount)
 
-DECLARE_FUN1(int, backstab_chance,
+DECLARE_FUN1(bool, can_backstab,
 	     ARG(CHAR_DATA), ch)
-DECLARE_PROC3(backstab_char,
-	      ARG(CHAR_DATA), ch, ARG(CHAR_DATA), victim, ARG(int), chance)
+DECLARE_PROC2(backstab_char,
+	      ARG(CHAR_DATA), ch, ARG(CHAR_DATA), victim)
 
 /*--- save.c */
 

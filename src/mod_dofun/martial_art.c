@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.217 2002-11-22 15:20:50 fjoe Exp $
+ * $Id: martial_art.c,v 1.218 2002-11-23 15:27:30 fjoe Exp $
  */
 
 /***************************************************************************
@@ -604,12 +604,6 @@ DO_FUN(do_entangle, ch, argument)
 		return;
 	}
 
-	if ((chance = get_skill(ch, "entanglement")) == 0) {
-		act("You lack the skill to entangle people with your whip.",
-			ch, NULL, NULL, TO_CHAR);
-		return;
-	}
-
 	if (is_sn_affected(ch, "entanglement")
 	||  is_sn_affected(victim, "entanglement"))
 		return;
@@ -621,6 +615,7 @@ DO_FUN(do_entangle, ch, argument)
 		return;
 	}
 
+	chance = get_skill(ch, "entanglement");
 	chance += get_curr_stat(ch, STAT_DEX) - get_curr_stat(victim, STAT_DEX);
 	chance = chance * 2 / 3;
 
@@ -1109,12 +1104,9 @@ disarm(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *obj)
 
 DO_FUN(do_berserk, ch, argument)
 {
-	int chance, hp_percent;
-
-	if ((chance = get_skill(ch, "berserk")) == 0) {
-		act_char("You turn red in the face, but nothing happens.", ch);
-		return;
-	}
+	int hp_percent;
+	int mana;
+	int chance;
 
 	if (IS_AFFECTED(ch, AFF_BERSERK)
 	||  is_sn_affected(ch, "berserk")
@@ -1128,7 +1120,8 @@ DO_FUN(do_berserk, ch, argument)
 		return;
 	}
 
-	if (ch->mana < 50) {
+	mana = skill_mana(ch, "berserk");
+	if (ch->mana < mana) {
 		act_char("You can't get up enough energy.", ch);
 		return;
 	}
@@ -1136,6 +1129,7 @@ DO_FUN(do_berserk, ch, argument)
 	/* modifiers */
 
 	/* fighting */
+	chance = get_skill(ch, "berkserk");
 	if (ch->position == POS_FIGHTING)
 		chance += 10;
 
@@ -1147,7 +1141,7 @@ DO_FUN(do_berserk, ch, argument)
 		AFFECT_DATA *paf;
 
 		WAIT_STATE(ch, get_pulse("violence"));
-		ch->mana -= 50;
+		ch->mana -= mana;
 		ch->move /= 2;
 
 		/* heal a little damage */
@@ -1177,7 +1171,7 @@ DO_FUN(do_berserk, ch, argument)
 		aff_free(paf);
 	} else {
 		WAIT_STATE(ch,2 * get_pulse("violence"));
-		ch->mana -= 25;
+		ch->mana -= mana / 2;
 		ch->move /= 2;
 
 		act_char("Your pulse speeds up, but nothing happens.", ch);
@@ -1242,12 +1236,6 @@ DO_FUN(do_bash, ch, argument)
 	}
 
 	argument = one_argument(argument, arg, sizeof(arg));
-
-	if ((chance = get_skill(ch, "bash")) == 0) {
-		act_char("Bashing? What's that?", ch);
-		return;
-	}
-
 	if (arg[0] != '\0' && !str_cmp(arg, "door")) {
 		do_bash_door(ch, argument);
 		return;
@@ -1259,11 +1247,10 @@ DO_FUN(do_bash, ch, argument)
 			act_char("But you aren't fighting anyone!", ch);
 			return;
 		}
-	}
-	else
+	} else
 		victim = get_char_here(ch, arg);
 
-	if (!victim || victim->in_room != ch->in_room) {
+	if (victim == NULL || victim->in_room != ch->in_room) {
 		WAIT_STATE(ch, MISSING_TARGET_DELAY);
 		act_char("They aren't here.", ch);
 		return;
@@ -1308,6 +1295,7 @@ DO_FUN(do_bash, ch, argument)
 	/* modifiers */
 
 	/* size  and weight */
+	chance = get_skill(ch, "bash");
 	chance += get_carry_weight(ch) / 25;
 	chance -= get_carry_weight(victim) / 20;
 
@@ -1396,23 +1384,16 @@ DO_FUN(do_dirt, ch, argument)
 	}
 
 	one_argument(argument, arg, sizeof(arg));
-
-	if ((chance = get_skill(ch, "dirt kicking")) == 0) {
-		act_char("You get your feet dirty.", ch);
-		return;
-	}
-
 	if (arg[0] == '\0') {
 		victim = ch->fighting;
 		if (victim == NULL) {
 			act_char("But you aren't in combat!", ch);
 			return;
 		}
-	}
-	else
+	} else
 		victim = get_char_here(ch, arg);
 
-	if (!victim || victim->in_room != ch->in_room) {
+	if (victim == NULL || victim->in_room != ch->in_room) {
 		WAIT_STATE(ch, MISSING_TARGET_DELAY);
 		act_char("They aren't here.", ch);
 		return;
@@ -1452,6 +1433,7 @@ DO_FUN(do_dirt, ch, argument)
 	/* modifiers */
 
 	/* dexterity */
+	chance = get_skill(ch, "dirt kicking");
 	chance += get_curr_stat(ch, STAT_DEX);
 	chance -= 2 * get_curr_stat(victim, STAT_DEX);
 
@@ -1480,7 +1462,7 @@ DO_FUN(do_dirt, ch, argument)
 	case(SECT_MOUNTAIN):		chance -= 10;	break;
 	case(SECT_WATER_SWIM):		chance  =  0;	break;
 	case(SECT_WATER_NOSWIM):	chance  =  0;	break;
-	case(SECT_AIR):			chance  =  0;  	break;
+	case(SECT_AIR):			chance  =  0;	break;
 	case(SECT_DESERT):		chance += 10;   break;
 	}
 
@@ -1533,23 +1515,16 @@ DO_FUN(do_trip, ch, argument)
 	}
 
 	one_argument(argument, arg, sizeof(arg));
-
-	if ((chance = get_skill(ch, "trip")) == 0) {
-		act_char("Tripping? What's that?", ch);
-		return;
-	}
-
 	if (arg[0] == '\0') {
 		victim = ch->fighting;
 		if (victim == NULL) {
 			act_char("But you aren't fighting anyone!", ch);
 			return;
- 		}
-	}
-	else
+		}
+	} else
 		victim = get_char_here(ch, arg);
 
-	if (!victim || victim->in_room != ch->in_room) {
+	if (victim == NULL || victim->in_room != ch->in_room) {
 		WAIT_STATE(ch, MISSING_TARGET_DELAY);
 		act_char("They aren't here.", ch);
 		return;
@@ -1589,6 +1564,7 @@ DO_FUN(do_trip, ch, argument)
 		return;
 
 	/* modifiers */
+	chance = get_skill(ch, "trip");
 
 	/* size */
 	if (ch->size < victim->size)
@@ -1617,7 +1593,7 @@ DO_FUN(do_trip, ch, argument)
 	attack = (ch->fighting != victim);
 
 	if (check_close(ch, victim)
-	|| distance_check(ch, victim))
+	||  distance_check(ch, victim))
 		return;
 
 	/* now the attack */
@@ -1650,13 +1626,11 @@ DO_FUN(do_backstab, ch, argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
-	int chance;
 
-	one_argument(argument, arg, sizeof(arg));
-
-	if ((chance = backstab_chance(ch)) == 0)
+	if (!can_backstab(ch))
 		return;
 
+	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
 		act_char("Backstab whom?", ch);
 		return;
@@ -1668,7 +1642,7 @@ DO_FUN(do_backstab, ch, argument)
 		return;
 	}
 
-	backstab_char(ch, victim, chance);
+	backstab_char(ch, victim);
 }
 
 DO_FUN(do_knife, ch, argument)
@@ -1735,23 +1709,16 @@ DO_FUN(do_cleave, ch, argument)
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
 	OBJ_DATA *obj;
-	int chance;
 
 	if (MOUNTED(ch)) {
 		act_char("You can't cleave while riding!", ch);
 		return;
 	}
 
-	one_argument(argument, arg, sizeof(arg));
-
 	if (ch->master != NULL && IS_NPC(ch))
 		return;
 
-	if ((chance = get_skill(ch, "cleave")) == 0) {
-		act_char("You don't know how to cleave.", ch);
-		return;
-	}
-
+	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
 		act_char("Cleave whom?", ch);
 		return;
@@ -1784,8 +1751,8 @@ DO_FUN(do_cleave, ch, argument)
 		return;
 	}
 
-	if ((victim->hit < (0.9 * victim->max_hit))
-	&&  (IS_AWAKE(victim))) {
+	if ((victim->hit < victim->max_hit * 9 / 10)
+	&&  IS_AWAKE(victim)) {
 		act("$N is hurt and suspicious ... you can't sneak up.",
 		    ch, NULL, victim, TO_CHAR);
 		return;
@@ -1798,7 +1765,7 @@ DO_FUN(do_cleave, ch, argument)
 
 	if (!IS_AWAKE(victim)
 	||  IS_NPC(ch)
-	||  number_percent() < chance) {
+	||  number_percent() < get_skill(ch, "cleave")) {
 		one_hit(ch, victim, "cleave", WEAR_WIELD);
 	} else {
 		check_improve(ch, "cleave", FALSE, 1);
@@ -1812,18 +1779,11 @@ DO_FUN(do_impale, ch, argument)
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
 	OBJ_DATA *obj;
-	int chance;
-
-	one_argument(argument, arg, sizeof(arg));
 
 	if (ch->master != NULL && IS_NPC(ch))
 		return;
 
-	if ((chance = get_skill(ch, "impale")) == 0) {
-		act_char("You don't know how to impale the opponent with a spear.", ch);
-		return;
-	}
-
+	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
 		act_char("Impale whom?", ch);
 		return;
@@ -1856,8 +1816,8 @@ DO_FUN(do_impale, ch, argument)
 		return;
 	}
 
-	if ((victim->hit < (0.9 * victim->max_hit))
-	&&  (IS_AWAKE(victim))) {
+	if (victim->hit < victim->max_hit * 9 / 10
+	&&  IS_AWAKE(victim)) {
 		act("$N is hurt and suspicious ... you can't sneak up.",
 		    ch, NULL, victim, TO_CHAR);
 		return;
@@ -1870,7 +1830,7 @@ DO_FUN(do_impale, ch, argument)
 
 	if (!IS_AWAKE(victim)
 	||  IS_NPC(ch)
-	||  number_percent() < chance) {
+	||  number_percent() < get_skill(ch, "impale")) {
 		one_hit(ch, victim, "impale", WEAR_WIELD);
 	} else {
 		check_improve(ch, "impale", FALSE, 1);
@@ -1883,7 +1843,6 @@ DO_FUN(do_ambush, ch, argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
-	int chance;
 
 	if (MOUNTED(ch)) {
 		act_char("You can't ambush while riding!", ch);
@@ -1891,12 +1850,6 @@ DO_FUN(do_ambush, ch, argument)
 	}
 
 	one_argument(argument, arg, sizeof(arg));
-
-	if ((chance = get_skill(ch, "ambush")) == 0) {
-		act_char("You don't know how to ambush.", ch);
-		return;
-	}
-
 	if (arg[0] == '\0') {
 		act_char("Ambush whom?", ch);
 		return;
@@ -1933,7 +1886,7 @@ DO_FUN(do_ambush, ch, argument)
 
 	if (!IS_AWAKE(victim)
 	||  IS_NPC(ch)
-	||  number_percent() < chance) {
+	||  number_percent() < get_skill(ch, "ambush")) {
 		check_improve(ch, "ambush", TRUE, 1);
 		one_hit(ch, victim, "ambush", WEAR_WIELD);
 	} else {
@@ -1993,7 +1946,7 @@ DO_FUN(do_rescue, ch, argument)
 	if (is_safe(ch, fch))
 		return;
 
-	if (number_percent() > get_skill(ch, "rescue")) {
+	if (number_percent() >= get_skill(ch, "rescue")) {
 		act_char("You fail the rescue.", ch);
 		check_improve(ch, "rescue", FALSE, 1);
 		return;
@@ -2023,16 +1976,12 @@ DO_FUN(do_kick, ch, argument)
 		return;
 	}
 
-	if ((chance = get_skill(ch, "kick")) == 0) {
-		act_char("You better leave the martial arts to fighters.", ch);
-		return;
-	}
-
 	if ((victim = ch->fighting) == NULL) {
 		act_char("You aren't fighting anyone.", ch);
 		return;
 	}
 
+	chance = get_skill(ch, "kick");
 	if (IS_AFFECTED(ch, AFF_FLYING))
 		chance = chance * 110 / 100;
 
@@ -2075,16 +2024,10 @@ DO_FUN(do_circle, ch, argument)
 {
 	CHAR_DATA *victim;
 	CHAR_DATA *rch;
-	int chance;
 	OBJ_DATA *obj;
 
 	if (MOUNTED(ch)) {
 		act_char("You can't circle while riding!", ch);
-		return;
-	}
-
-	if ((chance = get_skill(ch, "circle")) == 0) {
-		act_char("You don't know how to circle.", ch);
 		return;
 	}
 
@@ -2111,7 +2054,7 @@ DO_FUN(do_circle, ch, argument)
 		}
 	}
 
-	if (number_percent() < chance) {
+	if (number_percent() < get_skill(ch, "circle")) {
 		one_hit(ch, victim, "circle", WEAR_WIELD);
 	} else {
 		damage(ch, victim, 0, "circle", DAM_F_SHOW);
@@ -2131,11 +2074,6 @@ DO_FUN(do_disarm, ch, argument)
 
 	if (ch->master != NULL && IS_NPC(ch))
 		return;
-
-	if ((chance = get_skill(ch, "disarm")) == 0) {
-		act_char("You don't know how to disarm opponents.", ch);
-		return;
-	}
 
 	if ((wield = get_eq_char(ch, WEAR_WIELD)) == NULL
 	&&  (hth = get_skill(ch, "hand to hand")) == 0) {
@@ -2164,12 +2102,13 @@ DO_FUN(do_disarm, ch, argument)
 	/* modifiers */
 
 	/* skill */
+	chance = get_skill(ch, "disarm");
 	if (wield == NULL)
-		chance = chance * hth/150;
+		chance = chance * hth / 150;
 	else
-		chance = chance * ch_weapon/100;
+		chance = chance * ch_weapon / 100;
 
-	chance += (ch_weapon/2 - vict_weapon) / 2;
+	chance += (ch_weapon / 2 - vict_weapon) / 2;
 
 	if (wield && WEAPON_IS_LONG(wield))
 		chance += 30;
@@ -2188,8 +2127,7 @@ DO_FUN(do_disarm, ch, argument)
 	if (number_percent() < chance) {
 		disarm(ch, victim, vwield);
 		check_improve(ch, "disarm", TRUE, 1);
-	}
-	else {
+	} else {
 		act("You fail to disarm $N.", ch, NULL, victim, TO_CHAR);
 		act("$n tries to disarm you, but fails.",
 		    ch, NULL, victim, TO_VICT);
@@ -2211,13 +2149,8 @@ DO_FUN(do_strip, ch, argument)
 	if (ch->master != NULL && IS_NPC(ch))
 		return;
 
-	if ((chance = get_skill(ch, "weapon strip")) == 0) {
-		act_char("You don't know how to disarm opponents.", ch);
-		return;
-	}
-
-	if ((wield = get_eq_char(ch, WEAR_WIELD)) == NULL ||
-	!(WEAPON_IS(wield, WEAPON_WHIP) || WEAPON_IS(wield, WEAPON_FLAIL))) {
+	if ((wield = get_eq_char(ch, WEAR_WIELD)) == NULL
+	||  !(WEAPON_IS(wield, WEAPON_WHIP) || WEAPON_IS(wield, WEAPON_FLAIL))) {
 		act_char("You must wield a whip or flail to strip enemy weapon.", ch);
 		return;
 	}
@@ -2241,6 +2174,7 @@ DO_FUN(do_strip, ch, argument)
 	vict_weapon = get_weapon_skill(victim, get_weapon_sn(vwield));
 
 	/* modifiers */
+	chance = get_skill(ch, "weapon strip");
 
 	/* skill */
 	chance = chance * ch_weapon/100;
@@ -2375,15 +2309,9 @@ DO_FUN(do_nerve, ch, argument)
 DO_FUN(do_endure, ch, argument)
 {
 	AFFECT_DATA *paf;
-	int chance;
 
 	if (IS_NPC(ch)) {
 		act_char("You have no endurance whatsoever.", ch);
-		return;
-	}
-
-	if ((chance = get_skill(ch, "endure")) == 0) {
-		act_char("You lack the concentration.", ch);
 		return;
 	}
 
@@ -2398,7 +2326,7 @@ DO_FUN(do_endure, ch, argument)
 	paf->level	= ch->level;
 	paf->duration	= ch->level / 4;
 	INT(paf->location)= APPLY_SAVING_SPELL;
-	paf->modifier	= - chance / 10;
+	paf->modifier	= -get_skill(ch, "endure") / 10;
 	affect_to_char(ch, paf);
 	aff_free(paf);
 
@@ -2465,22 +2393,14 @@ DO_FUN(do_assassinate, ch, argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
-	int chance;
 
 	if (MOUNTED(ch)) {
 		act_char("You can't assassinate while riding!", ch);
 		return;
 	}
 
-	one_argument(argument, arg, sizeof(arg));
-
 	if (ch->master != NULL && IS_NPC(ch))
 		return;
-
-	if ((chance = get_skill(ch, "assassinate")) == 0) {
-		act_char("You don't know how to assassinate.", ch);
-		return;
-	}
 
 	if (IS_AFFECTED(ch, AFF_CHARM) && ch->master != NULL)  {
 		act("You don't want to kill your beloved master.",
@@ -2488,6 +2408,7 @@ DO_FUN(do_assassinate, ch, argument)
 		return;
 	}
 
+	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
 		act_char("Assassinate whom?", ch);
 		return;
@@ -2532,7 +2453,7 @@ DO_FUN(do_assassinate, ch, argument)
 
 	WAIT_STATE(ch, skill_beats("assassinate"));
 
-	if (number_percent() < chance
+	if (number_percent() < get_skill(ch, "assassinate")
 	&&  !IS_CLAN_GUARD(victim)
 	&&  !IS_IMMORTAL(victim))
 		one_hit(ch, victim, "assassinate", WEAR_WIELD);
@@ -2546,12 +2467,6 @@ DO_FUN(do_assassinate, ch, argument)
 DO_FUN(do_caltrops, ch, argument)
 {
 	CHAR_DATA *victim = ch->fighting;
-	int chance;
-
-	if ((chance = get_skill(ch, "caltrops")) == 0) {
-		act_char("Caltrops? Is that a dance step?", ch);
-		return;
-	}
 
 	if (victim == NULL) {
 		act_char("You must be in combat.", ch);
@@ -2568,7 +2483,7 @@ DO_FUN(do_caltrops, ch, argument)
 
 	WAIT_STATE(ch, skill_beats("caltrops"));
 
-	if (!IS_NPC(ch) && number_percent() >= chance) {
+	if (!IS_NPC(ch) && number_percent() >= get_skill(ch, "caltrops")) {
 		damage(ch, victim, 0, "caltrops", DAM_F_SHOW);
 		check_improve(ch, "caltrops", FALSE, 1);
 		return;
@@ -2728,12 +2643,6 @@ DO_FUN(do_strangle, ch, argument)
 		return;
 	}
 
-	if ((chance = get_skill(ch, "strangle")) == 0) {
-		act_char("You lack the skill to strangle.", ch);
-		return;
-	}
-
-
 	if (IS_AFFECTED(ch, AFF_CHARM))  {
 		act("You don't want to grap your beloved masters' neck.", ch, NULL, ch->master, TO_CHAR);
 		return;
@@ -2766,6 +2675,7 @@ DO_FUN(do_strangle, ch, argument)
 	if (is_safe(ch, victim))
 		return;
 
+	chance = get_skill(ch, "strangle");
 	if (is_sn_affected(victim, "free action"))
 		chance -= 15;
 
@@ -2811,21 +2721,14 @@ DO_FUN(do_headcrush, ch, argument)
 	OBJ_DATA *wield;
 	int chance;
 
-	if ((chance = get_skill(ch, "head crush")) == 0) {
-		act("You lack the skill to crush people heads.",
-			ch, NULL, NULL, TO_CHAR);
-		return;
-	}
-
-
 	if ((victim = get_char_here(ch,argument)) == NULL) {
 		WAIT_STATE(ch, MISSING_TARGET_DELAY);
 		act_char("You do not see that person here.", ch);
 		return;
 	}
 
-	if ((wield=get_eq_char(ch, WEAR_WIELD)) == NULL
-	|| !WEAPON_IS(wield, WEAPON_MACE)) {
+	if ((wield = get_eq_char(ch, WEAR_WIELD)) == NULL
+	||  !WEAPON_IS(wield, WEAPON_MACE)) {
 		act("You need to wield a mace for that.",
 			ch, NULL, NULL, TO_CHAR);
 		return;
@@ -2844,7 +2747,6 @@ DO_FUN(do_headcrush, ch, argument)
 		return;
 	}
 
-
 	if (victim->fighting) {
 		act("$E is moving too quickly.", ch, NULL, victim, TO_CHAR);
 		return;
@@ -2858,6 +2760,7 @@ DO_FUN(do_headcrush, ch, argument)
 
 	WAIT_STATE(ch, skill_beats("head crush"));
 
+	chance = get_skill(ch, "head crush");
 	chance += get_curr_stat(victim, STAT_INT);
 	chance += get_curr_stat(victim, STAT_WIS);
 	chance -= get_curr_stat(victim, STAT_DEX);
@@ -3005,12 +2908,8 @@ DO_FUN(do_blackjack, ch, argument)
 
 DO_FUN(do_bloodthirst, ch, argument)
 {
-	int chance, hp_percent;
-
-	if ((chance = get_skill(ch, "bloodthirst")) == 0) {
-		act_char("You're not that thirsty.", ch);
-		return;
-	}
+	int hp_percent;
+	int chance;
 
 	if (IS_AFFECTED(ch, AFF_BLOODTHIRST)) {
 		act_char("Your thirst for blood continues.", ch);
@@ -3029,7 +2928,8 @@ DO_FUN(do_bloodthirst, ch, argument)
 
 	/* modifiers */
 
-	hp_percent = 100 * ch->hit/ch->max_hit;
+	hp_percent = 100 * ch->hit / ch->max_hit;
+	chance = get_skill(ch, "bloodthirst");
 	chance += 25 - hp_percent/2;
 
 	if (number_percent() < chance) {
@@ -3427,12 +3327,6 @@ DO_FUN(do_explode, ch, argument)
 	CHAR_DATA *victim = ch->fighting;
 	int dam, hp_dam, hpch, dice_dam, mana;
 	char arg[MAX_INPUT_LENGTH];
-	int chance;
-
-	if ((chance = get_skill(ch, "explode")) == 0) {
-		act_char("Flame? What is that?", ch);
-		return;
-	}
 
 	if (ch->fighting)
 		victim = ch->fighting;
@@ -3444,7 +3338,7 @@ DO_FUN(do_explode, ch, argument)
 		}
 	}
 
-	if (!victim || victim->in_room != ch->in_room) {
+	if (victim == NULL || victim->in_room != ch->in_room) {
 		WAIT_STATE(ch, MISSING_TARGET_DELAY);
 		act_char("They aren't here.", ch);
 		return;
@@ -3455,7 +3349,6 @@ DO_FUN(do_explode, ch, argument)
 		act_char("You can't find that much energy to fire.", ch);
 		return;
 	}
-
 	ch->mana -= mana;
 	WAIT_STATE(ch, skill_beats("explode"));
 
@@ -3464,7 +3357,7 @@ DO_FUN(do_explode, ch, argument)
 	    ch, NULL, victim, TO_VICT);
 	act("Burn them all!", ch, NULL, NULL, TO_CHAR);
 
-	if (number_percent() >= chance) {
+	if (number_percent() >= get_skill(ch, "explode")) {
 		damage(ch, victim, 0, "explode", DAM_F_SHOW);
 		check_improve(ch, "explode", FALSE, 1);
 		return;
@@ -3479,7 +3372,7 @@ DO_FUN(do_explode, ch, argument)
 	vo_foreach(victim->in_room, &iter_char_room, explode_cb,
 		   ch, victim, dam);
 
-	if (number_percent() >= chance) {
+	if (number_percent() >= get_skill(ch, "explode")) {
 		inflict_effect("fire", ch, LEVEL(ch)/4, dam/10);
 		damage(ch, ch, (ch->hit / 10), "explode", DAM_F_SHOW);
 	}
@@ -3488,12 +3381,6 @@ DO_FUN(do_explode, ch, argument)
 DO_FUN(do_target, ch, argument)
 {
 	CHAR_DATA *victim;
-	int chance;
-
-	if ((chance = get_skill(ch, "target")) == 0) {
-		act_char("You don't know how to change the target while fighting a group.", ch);
-		return;
-	}
 
 	if (ch->fighting == NULL) {
 		act_char("You aren't fighting yet.", ch);
@@ -3519,7 +3406,7 @@ DO_FUN(do_target, ch, argument)
 
 	WAIT_STATE(ch, skill_beats("target"));
 
-	if (number_percent() < chance / 2) {
+	if (number_percent() < get_skill(ch, "target") / 2) {
 		check_improve(ch, "target", TRUE, 1);
 
 		ch->fighting = victim;
@@ -3621,15 +3508,8 @@ DO_FUN(do_tiger, ch, argument)
 
 DO_FUN(do_hara, ch, argument)
 {
-	int chance;
-
 	if (MOUNTED(ch)) {
 		act_char("You can't harakiri while riding!", ch);
-		return;
-	}
-
-	if ((chance = get_skill(ch, "hara kiri")) == 0) {
-		act_char("You try to kill yourself, but you can't resist this ache.", ch);
 		return;
 	}
 
@@ -3644,7 +3524,7 @@ DO_FUN(do_hara, ch, argument)
 		return;
 	}
 
-	if (number_percent() < chance) {
+	if (number_percent() < get_skill(ch, "hara kiri")) {
 		AFFECT_DATA *paf;
 
 		WAIT_STATE(ch, skill_beats("hara kiri"));
@@ -3698,19 +3578,14 @@ DO_FUN(do_shield, ch, argument)
 		act_char("You aren't fighting anyone.", ch);
 		return;
 	}
-	
+
 	if (victim->in_room != ch->in_room) {
 		act_char("They aren't here.", ch);
 		return;
 	}
 
-	if ((axe = get_eq_char(ch,WEAR_WIELD)) == NULL) {
+	if ((axe = get_eq_char(ch, WEAR_WIELD)) == NULL) {
 		act_char("You must be wielding a weapon.", ch);
-		return;
-	}
-
-	if ((chance = get_skill(ch, "shield cleave")) == 0) {
-		act_char("You don't know how to cleave opponents's shield.", ch);
 		return;
 	}
 
@@ -3723,7 +3598,7 @@ DO_FUN(do_shield, ch, argument)
 		return;
 
 	if (WEAPON_IS(axe, WEAPON_AXE))
-		chance *= 1.2;
+		chance = chance * 12 / 10;
 	else if (!WEAPON_IS(axe, WEAPON_SWORD)) {
 		act_char("Your weapon must be an axe or a sword.", ch);
 		return;
@@ -3735,7 +3610,7 @@ DO_FUN(do_shield, ch, argument)
 	/* modifiers */
 
 	/* skill */
-	chance = chance * ch_weapon / 200;
+	chance = get_skill(ch, "shield cleave") * ch_weapon / 200;
 	if (vict_shield)
 		chance = chance * 100 / vict_shield;
 
@@ -3760,8 +3635,7 @@ DO_FUN(do_shield, ch, argument)
 		    ch, NULL, victim, TO_NOTVICT);
 		check_improve(ch, "shield cleave", TRUE, 1);
 		extract_obj(get_eq_char(victim, WEAR_SHIELD), 0);
-	}
-	else {
+	} else {
 		act("You fail to cleave $N's shield.",
 		    ch, NULL, victim, TO_CHAR);
 		act("$n tries to cleave your shield, but fails.",
@@ -3775,8 +3649,8 @@ DO_FUN(do_shield, ch, argument)
 DO_FUN(do_weapon, ch, argument)
 {
 	CHAR_DATA *victim;
-	OBJ_DATA *wield,*axe;
-	int chance,ch_weapon,vict_weapon;
+	OBJ_DATA *wield, *axe;
+	int chance, ch_weapon, vict_weapon;
 
 	if (IS_NPC(ch))
 		return;
@@ -3791,11 +3665,6 @@ DO_FUN(do_weapon, ch, argument)
 		return;
 	}
 
-	if ((chance = get_skill(ch, "weapon cleave")) == 0) {
-		act_char("You don't know how to cleave opponents's weapon.", ch);
-		return;
-	}
-
 	if ((wield = get_eq_char(victim, WEAR_WIELD)) == NULL) {
 		act_char("Your opponent must wield a weapon.", ch);
 		return;
@@ -3804,8 +3673,9 @@ DO_FUN(do_weapon, ch, argument)
 	if (material_is(wield, MATERIAL_INDESTRUCT))
 		return;
 
+	chance = get_skill(ch, "weapon cleave");
 	if (WEAPON_IS(axe, WEAPON_AXE))
-		chance *= 1.2;
+		chance = chance * 12 / 10;
 	else if (!WEAPON_IS(axe, WEAPON_SWORD)) {
 		act_char("Your weapon must be an axe or a sword.", ch);
 		return;
@@ -3818,7 +3688,7 @@ DO_FUN(do_weapon, ch, argument)
 
 	/* skill */
 	chance = chance * ch_weapon / 200;
-	chance = chance * 101 / (vict_weapon+1);
+	chance = chance * 101 / (vict_weapon + 1);
 
 	/* dex vs. strength */
 	chance += get_curr_stat(ch, STAT_DEX) + get_curr_stat(ch, STAT_STR);
@@ -3840,8 +3710,7 @@ DO_FUN(do_weapon, ch, argument)
 		    ch, NULL, victim, TO_NOTVICT);
 		check_improve(ch, "weapon cleave", TRUE, 1);
 		extract_obj(get_eq_char(victim, WEAR_WIELD), 0);
-	}
-	else {
+	} else {
 		act("You fail to cleave $N's weapon.",
 		    ch, NULL, victim, TO_CHAR);
 		act("$n tries to cleave your weapon, but fails.",
@@ -3990,16 +3859,10 @@ DO_FUN(do_tail, ch, argument)
 
 DO_FUN(do_concentrate, ch, argument)
 {
-	int chance;
 	int mana;
 
 	if (MOUNTED(ch)) {
 		act_char("You can't concentrate while riding!", ch);
-		return;
-	}
-
-	if ((chance = get_skill(ch, "concentrate")) == 0) {
-		act_char("You try to concentrate on what is going on.", ch);
 		return;
 	}
 
@@ -4015,13 +3878,13 @@ DO_FUN(do_concentrate, ch, argument)
 	}
 
 	/* fighting */
-	if (ch->fighting) {
+	if (ch->fighting != NULL) {
 		act_char("Concentrate on your fighting!", ch);
 		return;
 	}
 
 	WAIT_STATE(ch, skill_beats("concentrate"));
-	if (number_percent() < chance) {
+	if (number_percent() < get_skill(ch, "concentrate")) {
 		AFFECT_DATA *paf;
 
 		ch->mana -= mana;
@@ -4193,11 +4056,6 @@ DO_FUN(do_crush, ch, argument)
 	if (MOUNTED(ch))
 		return;
 
-	if ((chance = get_skill(ch, "crush")) == 0) {
-		act_char("You don't know how to crush.", ch);
-		return;
-	}
-
 	if ((victim = ch->fighting) == NULL || victim->in_room != ch->in_room)
 		return;
 
@@ -4206,7 +4064,7 @@ DO_FUN(do_crush, ch, argument)
 
 	if (IS_AFFECTED(ch,AFF_CHARM) && ch->master == victim)
 		return;
-	
+
 	if (is_sn_affected(victim, "protective shield")) {
 		act_puts("Your crush seems to slide around $N.",
 			 ch, NULL, victim, TO_CHAR, POS_FIGHTING);
@@ -4216,17 +4074,18 @@ DO_FUN(do_crush, ch, argument)
 			 ch, NULL, victim, TO_NOTVICT, POS_FIGHTING);
 		return;
 	}
-	
+
 	if (is_safe(ch, victim))
 		return;
 
 	if (check_close(ch, victim)
-	|| distance_check(ch, victim))
+	||  distance_check(ch, victim))
 		return;
 
 	/* modifiers */
 
 	/* size  and weight */
+	chance = get_skill(ch, "crush");
 	chance += get_carry_weight(ch) / 25;
 	chance -= get_carry_weight(victim) / 20;
 
@@ -4441,15 +4300,9 @@ DO_FUN(do_dishonor, ch, argument)
 	ROOM_INDEX_DATA *now_in;
 	CHAR_DATA *gch;
 	int attempt, level = 0;
-	int chance;
 
 	if (RIDDEN(ch)) {
 		act_char("You should ask to your rider!", ch);
-		return;
-	}
-
-	if ((chance = get_skill(ch, "dishonor")) == 0) {
-		act_char("Which honor?", ch);
 		return;
 	}
 
@@ -4474,7 +4327,7 @@ DO_FUN(do_dishonor, ch, argument)
 		EXIT_DATA *pexit;
 		int door;
 
-		if (number_percent() >= chance)
+		if (number_percent() >= get_skill(ch, "dishonor"))
 			continue;
 
 		door = number_door();
@@ -4507,8 +4360,7 @@ DO_FUN(do_dishonor, ch, argument)
 					 TO_CHAR, POS_DEAD);
 				gain_exp(ch, -exp);
 			}
-		}
-		else {
+		} else {
 			/* Once fled, the mob will not go after */
 			NPC(ch)->last_fought = NULL;
 		}
@@ -4547,7 +4399,7 @@ DO_FUN(do_rake, ch, argument)
 	} else
 		victim = get_char_here(ch, arg);
 
-	if (!victim || victim->in_room != ch->in_room) {
+	if (victim == NULL || victim->in_room != ch->in_room) {
 		WAIT_STATE(ch, MISSING_TARGET_DELAY);
 		act_char("They aren't here.", ch);
 		return;

@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.424 2002-11-22 16:22:36 fjoe Exp $
+ * $Id: act_info.c,v 1.425 2002-11-23 15:27:25 fjoe Exp $
  */
 
 /***************************************************************************
@@ -114,7 +114,7 @@ DECLARE_DO_FUN(do_score);
 DECLARE_DO_FUN(do_oscore);
 DECLARE_DO_FUN(do_affects);
 DECLARE_DO_FUN(do_raffects);
-DECLARE_DO_FUN(do_resistances);
+DECLARE_DO_FUN(do_resists);
 DECLARE_DO_FUN(do_lion_call);
 DECLARE_DO_FUN(do_practice);
 DECLARE_DO_FUN(do_learn);
@@ -2808,10 +2808,9 @@ get_resist_alias(int resist)
 		return "immune to";
 }
 
-DO_FUN(do_resistances, ch, argument)
+DO_FUN(do_resists, ch, argument)
 {
 	int i;
-
 	bool found = FALSE;
 
 	for (i = 0; i < MAX_RESIST; i++) {
@@ -3630,12 +3629,11 @@ DO_FUN(do_demand, ch, argument)
 	int chance;
 	int carry_w, carry_n;
 
-	argument = one_argument(argument, arg1, sizeof(arg1));
-	argument = one_argument(argument, arg2, sizeof(arg2));
-
 	if (IS_NPC(ch))
 		return;
 
+	argument = one_argument(argument, arg1, sizeof(arg1));
+	argument = one_argument(argument, arg2, sizeof(arg2));
 	if (arg1[0] == '\0' || arg2[0] == '\0') {
 		act_char("Demand what from whom?", ch);
 		return;
@@ -3670,7 +3668,7 @@ DO_FUN(do_demand, ch, argument)
 	WAIT_STATE(ch, get_pulse("violence"));
 
 	chance = IS_EVIL(victim) ? 10 : IS_GOOD(victim) ? -5 : 0;
-	chance += (get_curr_stat(ch,STAT_CHA) - 15) * 10;
+	chance += (get_curr_stat(ch, STAT_CHA) - 15) * 10;
 	chance += LEVEL(ch) - LEVEL(victim);
 	chance = get_skill(ch, "demand") * chance / 100;
 

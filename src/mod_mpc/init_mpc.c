@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_mpc.c,v 1.49 2002-11-20 14:28:48 fjoe Exp $
+ * $Id: init_mpc.c,v 1.50 2002-11-23 15:27:56 fjoe Exp $
  */
 
 #include <dlfcn.h>
@@ -290,8 +290,8 @@ const char *mpc_dynafuns[] = {
 	"act_yell",
 	"affect_char",
 	"affect_strip",
-	"backstab_chance",
 	"backstab_char",
+	"can_backstab",
 	"can_loot",
 	"can_see",
 	"can_wear",

@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.355 2002-10-10 13:32:58 kostik Exp $
+ * $Id: fight.c,v 1.356 2002-11-23 15:28:02 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1900,41 +1900,40 @@ inflict_spell_damage(CHAR_DATA *ch, CHAR_DATA *victim, int level,
 	damage(ch, victim, dam, sn, DAM_F_SHOW);
 }
 
-int
-backstab_chance(CHAR_DATA *ch)
+bool
+can_backstab(CHAR_DATA *ch)
 {
-	int chance;
 	OBJ_DATA *weapon;
 
-	if ((chance = get_skill(ch, "backstab")) == 0) {
+	if (get_skill(ch, "backstab") == 0) {
 		act_char("You don't know how to backstab.", ch);
-		return 0;
+		return FALSE;
 	}
 
 	if (MOUNTED(ch)) {
 		act_char("You can't backstab while riding!", ch);
-		return 0;
+		return FALSE;
 	}
 
 	weapon = get_eq_char(ch, WEAR_WIELD);
 	if (IS_NPC(ch)) {
 		if (get_dam_class(ch, weapon) != DAM_PIERCE) {
 			act_char("You need piercing weapon to backstab.", ch);
-			return 0;
+			return FALSE;
 		}
 	} else {
 		if (weapon == NULL
 		||  !WEAPON_IS(weapon, WEAPON_DAGGER)) {
 			act_char("You need a dagger for backstab.", ch);
-			return 0;
+			return FALSE;
 		}
 	}
 
-	return chance;
+	return TRUE;
 }
 
 void
-backstab_char(CHAR_DATA *ch, CHAR_DATA *victim, int chance)
+backstab_char(CHAR_DATA *ch, CHAR_DATA *victim)
 {
 	WAIT_STATE(ch, skill_beats("backstab"));
 
@@ -1957,7 +1956,7 @@ backstab_char(CHAR_DATA *ch, CHAR_DATA *victim, int chance)
 		return;
 	}
 
-	if (!IS_AWAKE(victim) ||  number_percent() < chance) {
+	if (!IS_AWAKE(victim) || number_percent() < get_skill(ch, "backstab")) {
 		one_hit(ch, victim, "backstab", WEAR_WIELD);
 		if (number_percent() < get_skill(ch, "dual backstab") * 8 / 10) {
 			check_improve(ch, "dual backstab", TRUE, 1);

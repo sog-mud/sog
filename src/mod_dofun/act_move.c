@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.290 2002-11-22 17:09:19 fjoe Exp $
+ * $Id: act_move.c,v 1.291 2002-11-23 15:27:27 fjoe Exp $
  */
 
 /***************************************************************************
@@ -952,7 +952,6 @@ DO_FUN(do_hide, ch, argument)
 
 DO_FUN(do_camouflage, ch, argument)
 {
-	int chance;
 	flag_t sector;
 
 	if (MOUNTED(ch)) {
@@ -967,11 +966,6 @@ DO_FUN(do_camouflage, ch, argument)
 
 	if (IS_AFFECTED(ch, AFF_FAERIE_FIRE))  {
 		act_char("You can't camouflage yourself while glowing.", ch);
-		return;
-	}
-
-	if ((chance = get_skill(ch, "camouflage")) == 0) {
-		act_char("You don't know how to camouflage yourself.", ch);
 		return;
 	}
 
@@ -991,7 +985,7 @@ DO_FUN(do_camouflage, ch, argument)
 	if (HAS_INVIS(ch, ID_CAMOUFLAGE))
 		REMOVE_INVIS(ch, ID_CAMOUFLAGE);
 
-	if (IS_NPC(ch) || number_percent() < chance) {
+	if (IS_NPC(ch) || number_percent() < get_skill(ch, "camouflage")) {
 		SET_INVIS(ch, ID_CAMOUFLAGE);
 		check_improve(ch, "camouflage", TRUE, 1);
 	} else
@@ -1000,14 +994,7 @@ DO_FUN(do_camouflage, ch, argument)
 
 DO_FUN(do_blend, ch, argument)
 {
-	int chance;
 	flag_t sector;
-
-	if ((chance = get_skill(ch, "forest blending")) == 0) {
-		act_puts("You do not know how to blend in the forests.",
-			ch, NULL, NULL, TO_CHAR, POS_DEAD);
-		return;
-	}
 
 	if (IS_AFFECTED(ch, AFF_FAERIE_FIRE)) {
 		act_puts("You can't blend while glowing.",
@@ -1022,7 +1009,6 @@ DO_FUN(do_blend, ch, argument)
 	}
 
 	sector = ch->in_room->sector_type;
-
 	if (sector != SECT_FOREST) {
 		act_puts("You are not in the forest.",
 			ch, NULL, NULL, TO_CHAR, POS_DEAD);
@@ -1033,7 +1019,7 @@ DO_FUN(do_blend, ch, argument)
 		ch, NULL, NULL, TO_CHAR, POS_DEAD);
 	act_puts("$n attempts to blend in the forest.",
 		ch, NULL, NULL, TO_ROOM, POS_RESTING);
-	if (number_percent() < chance) {
+	if (number_percent() < get_skill(ch, "forest blending")) {
 		AFFECT_DATA *paf;
 
 		paf = aff_new(TO_INVIS, "forest blending");
@@ -1248,20 +1234,9 @@ DO_FUN(do_track, ch, argument)
 DO_FUN(do_vampire, ch, argument)
 {
 	AFFECT_DATA *paf;
-	int chance;
 
 	if (is_sn_affected(ch, "vampire")) {
 		act_char("But you are already vampire. Kill them! Kill them!", ch);
-		return;
-	}
-
-	if ((chance = get_skill(ch, "vampire")) == 0) {
-		act_char("You try to show yourself even more ugly.", ch);
-		return;
-	}
-
-	if (chance < 100) {
-		act_char("Go and ask the questor. He'll help you.", ch);
 		return;
 	}
 
@@ -1327,20 +1302,13 @@ DO_FUN(do_vbite, ch, argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
-	int chance;
-
-	one_argument(argument, arg, sizeof(arg));
-
-	if ((chance = get_skill(ch, "vampiric bite")) == 0) {
-		act_char("You don't know how to bite creatures.", ch);
-		return;
-	}
 
 	if (!is_sn_affected(ch, "vampire")) {
 		act_char("You must transform vampire before biting.", ch);
 		return;
 	}
 
+	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
 		act_char("Bite whom?", ch);
 		return;
@@ -1383,12 +1351,12 @@ DO_FUN(do_vbite, ch, argument)
 
 	if (!IS_AWAKE(victim)
 	&&  (IS_NPC(ch) ||
-	     number_percent() < ((chance * 7 / 10) +
-		(2 * (LEVEL(ch) - LEVEL(victim))) ))) {
+	     number_percent() < get_skill(ch, "vampiric bite") * 7 / 10 +
+		2 * (LEVEL(ch) - LEVEL(victim)))) {
 		one_hit(ch, victim, "vampiric bite", WEAR_WIELD);
 		if (LEVEL(victim) > LEVEL(ch)
-		&&  number_percent() < (get_skill(ch, "resurrection") / 10 *
-					(LEVEL(victim) - LEVEL(ch)))) {
+		&&  number_percent() < get_skill(ch, "resurrection") / 10 *
+					(LEVEL(victim) - LEVEL(ch))) {
 			AFFECT_DATA *paf;
 
 			paf = aff_new(TO_AFFECTS, "resurrection");
@@ -1420,13 +1388,6 @@ DO_FUN(do_bash_door, ch, argument)
 	EXIT_DATA *pexit;
 	EXIT_DATA *pexit_rev;
 
-	one_argument(argument, arg, sizeof(arg));
-
-	if ((chance = get_skill(ch, "bash door")) == 0) {
-		act_char("Bashing? What's that?", ch);
-		return;
-	}
-
 	if (MOUNTED(ch)) {
 		act_char("You can't bash doors while mounted.", ch);
 		return;
@@ -1437,8 +1398,9 @@ DO_FUN(do_bash_door, ch, argument)
 		return;
 	}
 
+	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
-		act_char("Bash wich door or direction?", ch);
+		act_char("Bash which door or direction?", ch);
 		return;
 	}
 
@@ -1476,6 +1438,7 @@ DO_FUN(do_bash_door, ch, argument)
 		return;
 	}
 
+	chance = get_skill(ch, "bash door");
 	chance -= 90;
 
 	/* modifiers */
@@ -1631,28 +1594,22 @@ DO_FUN(do_kidnap, ch, argument)
 	char arg[MAX_INPUT_LENGTH];
 	ROOM_INDEX_DATA* to_room;
 	AFFECT_DATA *paf;
-	int chance;
 	int mana;
-
-	if ((chance = get_skill(ch, "kidnap")) == 0) {
-		act("Oh, no. You can't do that.", ch, NULL, NULL, TO_CHAR);
-		return;
-	}
+	int chance;
 
 	if (is_sn_affected(ch, "kidnap")) {
 		act("You feel too exhausted from previous kidnap attempt.",
-			ch, NULL, NULL, TO_CHAR);
+		    ch, NULL, NULL, TO_CHAR);
 		return;
 	}
 
 	one_argument(argument, arg, sizeof(arg));
-
 	if (arg[0] =='\0') {
 		act("Kidnap whom?", ch, NULL, NULL, TO_CHAR);
 		return;
 	}
 
-	if (!(ch->in_room))
+	if (ch->in_room == NULL)
 		return;
 
 	if ((victim = get_char_here(ch, arg)) == NULL) {
@@ -1674,6 +1631,7 @@ DO_FUN(do_kidnap, ch, argument)
 	if (is_safe(ch, victim))
 		return;
 
+	chance = get_skill(ch, "kidnap");
 	chance -= get_curr_stat(victim, STAT_WIS) +
 		  get_curr_stat(victim, STAT_DEX) -
 		  get_curr_stat(ch, STAT_DEX);
@@ -1698,18 +1656,18 @@ DO_FUN(do_kidnap, ch, argument)
 
 	WAIT_STATE(ch, skill_beats("kidnap"));
 
-	if (number_percent()<chance) {
+	if (number_percent() < chance) {
 		to_room = get_random_room(ch, NULL);
 		act("You grab $N and take $m away.",
-			ch, NULL, victim, TO_CHAR);
+		    ch, NULL, victim, TO_CHAR);
 		act("$n grabs you and takes you away.",
-			ch, NULL, victim, TO_VICT);
+		    ch, NULL, victim, TO_VICT);
 		act("$n grabs $N and takes $m away.",
-			ch, NULL, victim, TO_NOTVICT);
+		    ch, NULL, victim, TO_NOTVICT);
 		teleport_char(ch, NULL, to_room,
-			"$n disappears.", NULL, "$n appears from nowhere.");
+		    "$n disappears.", NULL, "$n appears from nowhere.");
 		teleport_char(victim, NULL, to_room,
-			"$n disappears.", NULL, "$n appears from nowhere.");
+		    "$n disappears.", NULL, "$n appears from nowhere.");
 		check_improve(ch, "kidnap", TRUE, 1);
 		yell(victim, ch, "Help! $lu{$N} just kidnapped me!");
 		multi_hit(victim, ch, NULL);
@@ -1726,14 +1684,8 @@ DO_FUN(do_kidnap, ch, argument)
 	}
 }
 
-
 DO_FUN(do_fade, ch, argument)
 {
-	int chance;
-
-	if ((chance = get_skill(ch, "fade")) == 0)
-		return;
-
 	if (MOUNTED(ch)) {
 		  act_char("You can't fade while mounted.", ch);
 		  return;
@@ -1745,7 +1697,7 @@ DO_FUN(do_fade, ch, argument)
 	}
 
 	act_char("You attempt to fade.", ch);
-	if (number_percent() <= chance) {
+	if (number_percent() < get_skill(ch, "fade")) {
 		SET_INVIS(ch, ID_FADE);
 		check_improve(ch, "fade", TRUE, 3);
 	} else
@@ -1756,11 +1708,6 @@ DO_FUN(do_vtouch, ch, argument)
 {
 	CHAR_DATA *victim;
 	int chance;
-
-	if ((chance = get_skill(ch, "vampiric touch")) == 0) {
-		act_char("You lack the skill to draining touch.", ch);
-		return;
-	}
 
 	if (!is_sn_affected(ch, "vampire")) {
 		act_char("Let it be.", ch);
@@ -1797,7 +1744,7 @@ DO_FUN(do_vtouch, ch, argument)
 	SET_FIGHT_TIME(victim);
 	SET_FIGHT_TIME(ch);
 
-	if (number_percent() < chance * 85 / 100
+	if (number_percent() < get_skill(ch, "vampiric touch") * 85 / 100
 	&&  !IS_CLAN_GUARD(victim)
 	&&  !IS_IMMORTAL(victim)) {
 		AFFECT_DATA *paf;
@@ -1836,7 +1783,7 @@ DO_FUN(do_fly, ch, argument)
 
 	argument = one_argument(argument, arg, sizeof(arg));
 
-	if (!str_cmp(arg,"up")) {
+	if (!str_cmp(arg, "up")) {
 		race_t *r;
 
 		if (IS_AFFECTED(ch, AFF_FLYING)) {
@@ -1882,7 +1829,6 @@ DO_FUN(do_push, ch, argument)
 
 	argument = one_argument(argument, arg1, sizeof(arg1));
 	argument = one_argument(argument, arg2, sizeof(arg2));
-
 	if (arg1[0] == '\0' || arg2[0] == '\0') {
 		act_char("Push whom to what direction?", ch);
 		return;
@@ -2077,7 +2023,6 @@ DO_FUN(do_escape, ch, argument)
 	CHAR_DATA *victim;
 	char arg[MAX_INPUT_LENGTH];
 	int door;
-	int chance;
 
 	if ((victim = ch->fighting) == NULL) {
 		if (ch->position == POS_FIGHTING)
@@ -2087,7 +2032,6 @@ DO_FUN(do_escape, ch, argument)
 	}
 
 	argument = one_argument(argument, arg, sizeof(arg));
-
 	if (arg[0] == '\0') {
 		act_char("Escape to what direction?", ch);
 		return;
@@ -2103,13 +2047,7 @@ DO_FUN(do_escape, ch, argument)
 		  return;
 	}
 
-	if ((chance = get_skill(ch, "escape")) == 0) {
-		act_char("Try flee. It may fit better to you.", ch);
-		return;
-	}
-
 	was_in = ch->in_room;
-
 	if ((door = find_exit(ch, arg)) < 0 || door >= MAX_DIR) {
 		act_char("PANIC! You couldn't escape!", ch);
 		return;
@@ -2128,7 +2066,7 @@ DO_FUN(do_escape, ch, argument)
 		return;
 	}
 
-	if (number_percent() > chance) {
+	if (number_percent() >= get_skill(ch, "escape")) {
 		act_puts("You failed to escape.",
 			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		check_improve(ch, "escape", FALSE, 1);
@@ -2168,11 +2106,6 @@ DO_FUN(do_layhands, ch, argument)
 {
 	CHAR_DATA *victim;
 	AFFECT_DATA *paf;
-
-	if (get_skill(ch, "lay hands") == 0) {
-		act_char("You lack the skill to heal others with touching.", ch);
-		return;
-	}
 
 	WAIT_STATE(ch, skill_beats("lay hands"));
 
@@ -2216,7 +2149,6 @@ DO_FUN(do_mount, ch, argument)
 	CHAR_DATA *	mount;
 
 	argument = one_argument(argument, arg, sizeof(arg));
-
 	if (arg[0] == '\0') {
 		if (ch->mount && ch->mount->in_room == ch->in_room)
 			mount = ch->mount;
@@ -2224,8 +2156,7 @@ DO_FUN(do_mount, ch, argument)
 			act_char("Mount what?", ch);
 			return;
 		}
-	}
-	else if ((mount = get_char_here(ch, arg)) == NULL) {
+	} else if ((mount = get_char_here(ch, arg)) == NULL) {
 		act_char("You don't see that here.", ch);
 		return;
 	}
@@ -2293,14 +2224,14 @@ DO_FUN(do_dismount, ch, argument)
 
 		ch->riding = FALSE;
 		mount->riding = FALSE;
-	}
-	else {
+	} else {
 		act_char("You aren't mounted.", ch);
 		return;
 	}
 }
 
-static OBJ_DATA *find_arrow(CHAR_DATA *ch)
+static OBJ_DATA *
+find_arrow(CHAR_DATA *ch)
 {
 	OBJ_DATA *arrow;
 	OBJ_DATA *obj;
@@ -2430,20 +2361,14 @@ DO_FUN(do_shoot, ch, argument)
 	int chance, direction;
 	int range = (LEVEL(ch) / 10) + 1;
 
-	if ((chance = get_skill(ch, "bow")) == 0) {
-		act_char("You don't know how to shoot.", ch);
-		return;
-	}
-
 	argument = one_argument(argument, arg1, sizeof(arg1));
 	one_argument(argument, arg2, sizeof(arg2));
-
 	if (arg1[0] == '\0' || arg2[0] == '\0') {
 		act_char("Shoot what direction and whom?", ch);
 		return;
 	}
 
-	if (ch->fighting) {
+	if (ch->fighting != NULL) {
 		CHAR_DATA *vch;
 
 		for (vch = ch->in_room->people; vch; vch = vch->next_in_room)
@@ -2507,6 +2432,7 @@ DO_FUN(do_shoot, ch, argument)
 
 	WAIT_STATE(ch, skill_beats("bow"));
 
+	chance = get_skill(ch, "bow");
 	chance = (chance - 50) * 2;
 	if (ch->position == POS_SLEEPING)
 		chance += 20;
@@ -2574,7 +2500,6 @@ DO_FUN(do_throw_weapon, ch, argument)
 
 	argument = one_argument(argument, arg1, sizeof(arg1));
 	one_argument(argument, arg2, sizeof(arg2));
-
 	if (arg1[0] == '\0' || arg2[0] == '\0') {
 		act_char("Throw which direction and whom?", ch);
 		return;
@@ -2820,24 +2745,16 @@ DO_FUN(do_enter, ch, argument)
 
 DO_FUN(do_settraps, ch, argument)
 {
-	int chance;
-
-	if ((chance = get_skill(ch, "settraps")) == 0) {
-		act_char("You don't know how to set traps.", ch);
-		return;
-	}
-
-	if (!ch->in_room)
-		return;
-
-	if (IS_SET(ch->in_room->room_flags, ROOM_LAW)) {
+	if (ch->in_room == NULL
+	||  IS_SET(ch->in_room->room_flags, ROOM_LAW)) {
 		act_char("A mystical power protects the room.", ch);
 		return;
 	}
 
 	WAIT_STATE(ch, skill_beats("settraps"));
 
-	if (IS_NPC(ch) || number_percent() <  chance * 7 / 10) {
+	if (IS_NPC(ch)
+	||  number_percent() < get_skill(ch, "settraps") * 7 / 10) {
 		AFFECT_DATA *paf;
 
 		check_improve(ch, "settraps", TRUE, 1);

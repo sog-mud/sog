@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: healer.c,v 1.57 2001-09-12 12:32:26 fjoe Exp $
+ * $Id: healer.c,v 1.58 2002-11-23 15:27:30 fjoe Exp $
  */
 
 #include <sys/time.h>
@@ -155,7 +155,7 @@ DO_FUN(do_heal, ch, argument)
 
 	for (h = heal_table; h->keyword; h++) {
 		if (!str_prefix(arg, h->keyword))
-			break; 
+			break;
 	}
 
 	if (h->keyword == NULL)	{
