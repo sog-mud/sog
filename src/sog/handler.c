@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.14 1998-06-13 11:32:41 efdi Exp $
+ * $Id: handler.c,v 1.15 1998-06-15 14:19:24 efdi Exp $
  */
 
 /***************************************************************************
@@ -1014,7 +1014,9 @@ bool is_name(char *str, char *namelist)
 {
     char name[MAX_INPUT_LENGTH], part[MAX_INPUT_LENGTH];
     char *list, *string;
-
+    
+    if (!namelist)
+	return FALSE;
 
     string = str;
     /* we need ALL parts of string to match part of namelist */
