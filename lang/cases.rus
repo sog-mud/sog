@@ -2644,6 +2644,17 @@ Form 6 -е~
 End
 
 #RULE
+Name лента~
+BaseLen 4
+Form 1 -ы~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ой~
+Form 5 -е~
+Form 6 -у~
+End
+
+#RULE
 Name величественный~
 BaseLen 12
 Form 1 -ого~
@@ -3248,6 +3259,17 @@ Form 6 -ого~
 End
 
 #RULE
+Name магия~
+BaseLen 4
+Form 1 -и~
+Form 2 -и~
+Form 3 -ю~
+Form 4 -ей~
+Form 5 -и~
+Form 6 -ю~
+End
+
+#RULE
 Name сокровище~
 BaseLen 8
 Form 1 -а~
@@ -3726,6 +3748,17 @@ Form 3 -ь~
 Form 4 -ью~
 Form 5 -и~
 Form 6 -ь~
+End
+
+#RULE
+Name шишка~
+BaseLen 4
+Form 1 -и~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ой~
+Form 5 -е~
+Form 6 -у~
 End
 
 #RULE

@@ -340,6 +340,22 @@ AIgj S 0 0
 0 AB I H
 stand stand female 0
 0 0 medium unknown
+#32
+crypt thing~
+a crypt thing~
+A Crypt Thing cackles evilly and taunts you.
+~
+This fell creature will not attack you, despite its evil- it will merely
+taunt you, though it will not hesitate to defend itself.
+~
+undead~
+ABGO 0 -1000 0
+0 0 1d1+0 1d1+0 1d1+0 pierce
+-25 -25 -25 0
+EFN AB 0 0
+stand stand none 5300
+0 0 medium unknown
+F aff U
 #50
 junkseller junk seller~
 Junkseller~
@@ -1546,6 +1562,7 @@ S
 M 11 spec_special_guard	* the guard
 M 13 spec_cast_mage	* a fiery demon
 M 28 spec_cast_undead	* bone dragon
+M 32 spec_cast_undead	* a crypt thing
 M 50 spec_breath_any	* Junkseller
 S
 

@@ -113,19 +113,21 @@ stand stand male 0
 белочка серая squirrel~
 @eng gray squirrel@rus ~~серая~~ ~~белочка~~~
 @eng A small squirell is sitting here.
-@rus Маленькая серая белочка (squirell) скачет вогруг своей любимой хозяйки.
+@rus Маленькая серая белочка (squirell) сидит здесь, чего-то ожидая.
 ~
 @eng A small gray squirrel.
 @rus Маленький серый зверек с большими влажными глазами и очень пушистым 
 хвостом.
 ~
 unique~
-ABIX BFHPQTVZcefglm 1000 0
+ABX FHPTVZclm 1000 0
 95 1000 10d10+500 10d10+500 15d15+500 bite
 0 0 0 0
-ACDEFGHIJKNO ACD 0 0
+ACDEFHIJKNO ACDEU 0 0
 stand stand female 50
 G ABCQ medium unknown
+M give 15006 15034~
+I 99
 #15016
 старая сосна pine~
 @eng pine@rus ~~старая~~ ~~сосна~~~
@@ -159,23 +161,6 @@ stand stand none 0
 0 0 medium unknown
 F for AHMV
 F par ABCDEFGHIJK
-#15030
-crypt thing~
-a crypt thing~
-A Crypt Thing cackles evilly and taunts you.
-~
-This fell creature will not attack you, despite its evil- it will merely
-taunt you, though it will not hesitate to defend itself.
-~
-undead~
-ABCOe 0 -1000 0
-0 0 1d1+0 1d1+0 1d1+0 pierce
--25 -25 -25 0
-EFN AB 0 0
-stand stand none 0
-0 0 medium unknown
-F aff U
-M grall 15030 100~
 #0
 
 #OBJECTS
@@ -495,6 +480,36 @@ furniture RYa AP
 AC EIJKN HK CFG CFG
 0 0 0 P
 G none
+#15032
+nut орех~
+@eng the gold nut@rus ~~золотой~~ ~~орех~~~
+@eng The gold nut.@rus Золотой орех (nut).~
+gold~
+pill G A
+100 'frenzy' 'sanctuary' 'heal' 'improved invis'
+1 10 1000 P
+G male
+#15033
+cone шишка~
+@eng the gold cone@rus ~~золотая~~ ~~шишка~~~
+@eng The gold cone is here.@rus Золотая шишка (cone) блестит на солнце.~
+gold~
+container G AO
+600 A 0 100 10
+1 10 10000 P
+A
+20 -10
+S 'blindness' 100 A
+G female
+#15034
+ribbon лента~
+@eng the green silk ribbon@rus ~~зеленая~~ ~~шелковая~~ ~~лента~~~
+@eng The green silk ribbon is here.@rus Зеленая шелковая лента (ribbon) лежит здесь, слегка шевелимая ветром.~
+silk~
+jewelry T AE
+0 0 0 0 0
+1 10 10000 P
+G female
 #15035
 bottle champagne~
 @eng {ga bottle of champagne{x@rus {gбутылка шампанского{x~
@@ -801,6 +816,18 @@ S
 @eng East end of the cavern~
 ~
 0 0 inside
+D0
+~
+~
+Z 0 15026
+D1
+~
+~
+Z 0 15027
+D2
+~
+~
+Z 0 15028
 D3
 ~
 ~
@@ -816,6 +843,33 @@ D0
 ~
 Z 0 3005
 M 200 H 200
+S
+#15026
+~
+~
+0 0 inside
+D2
+~
+~
+Z 0 15024
+S
+#15027
+~
+~
+0 0 inside
+D3
+~
+~
+Z 0 15024
+S
+#15028
+~
+~
+0 0 inside
+D0
+~
+~
+Z 0 15024
 S
 #15100
 ~
@@ -922,12 +976,10 @@ flex $r
 end
 endif
 ~
-#15030
-mob sechoat $a Warning, my master!
-wake $a 
-if inpk $a $n
-      mob kill $n
-endif
+#15006
+say Спасибо тебе за помощь, $n. Вот твоя награда.
+give cone $n
+mob goto 34400
 ~
 #15100
 ~

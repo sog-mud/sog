@@ -1209,7 +1209,7 @@ A small moss and lichen nest is here.~
 plant~
 container 0 A
 5 0 0 1 100
-3 20 90 P
+3 1 90 P
 G none
 #1839
 bush small~
@@ -1217,7 +1217,7 @@ a small bush~
 A small bush is here.~
 plant~
 container 0 0
-10 0 0 10 100
+500 0 0 10 100
 0 300 0 P
 G none
 #1840

@@ -1,7 +1,13 @@
-Sender Iluvatar~
-Date Tue Feb 16 06:29:32 1999~
-Stamp 919124972
-To all~
-Subject empty~
-Text  
+Sender  Arborn~
+Date    Sat Mar 25 22:46:07 2000~
+Stamp   954013567
+To      all~
+Subject bone dragon, throw weapon~
+Text
+Исправлено заклинание `bone dragon', теперь он сохраняется при выходе.
+Также сохраняется снаряжение у него.
+Исправлено умение `throw weapon' (ранее при некоторых условиях жертва
+получала перманентный corruption)
+ 
+{WArborn{x.
 ~
