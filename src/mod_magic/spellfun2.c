@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.139.2.35 2001-03-15 09:54:09 cs Exp $
+ * $Id: spellfun2.c,v 1.139.2.36 2001-04-23 13:57:29 cs Exp $
  */
 
 /***************************************************************************
@@ -1603,7 +1603,7 @@ void spell_remove_badge(int sn, int level, CHAR_DATA *ch, void *vo)
 	{
 	  act("Your $p vanishes.",ch, badge, NULL, TO_CHAR);
 	  act("$n's $p vanishes.", ch, badge, NULL, TO_ROOM);
-	  
+
 	  obj_from_char(badge);
 	  extract_obj(badge, 0);
 	  continue;
@@ -1629,15 +1629,15 @@ void spell_dragon_strength(int sn, int level, CHAR_DATA *ch, void *vo)
 	af.duration = level / 3;
 	af.bitvector = 0;
 
-	af.modifier = 2;
+	af.modifier = level / 6 + 1;
 	af.location = APPLY_HITROLL;
 	affect_to_char(ch, &af);
 
-	af.modifier = 2;
+	af.modifier = level / 6 + 1;
 	af.location = APPLY_DAMROLL;
 	affect_to_char(ch, &af);
 
-	af.modifier = 10;
+	af.modifier = 10 + level / 3;
 	af.location = APPLY_AC;
 	affect_to_char(ch, &af);
 
