@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.186.2.14 2000-03-31 13:56:47 fjoe Exp $
+ * $Id: act_wiz.c,v 1.186.2.15 2000-04-03 15:13:54 osya Exp $
  */
 
 /***************************************************************************
@@ -147,7 +147,9 @@ void do_chwealth(CHAR_DATA *ch, const char *argument)
 		for (i = pArea->min_vnum; i < pArea->max_vnum; i++) {
 			pMobIndex = get_mob_index(i);
 			
-			if (pMobIndex == NULL || pMobIndex->wealth == 0)
+			if (pMobIndex == NULL 
+			|| pMobIndex->wealth == 0
+			|| pMobIndex->pShop != NULL)
 				continue;
 			if (lowWealth == 0) { 
 				lowWealth = pMobIndex->wealth;
@@ -169,7 +171,7 @@ void do_chwealth(CHAR_DATA *ch, const char *argument)
 
 			middleWealth += pMobIndex->wealth;
 				
-                        }
+		}
 
 		
 		middleWealth = mobCounter ? middleWealth/aveLev : 0;
@@ -183,50 +185,77 @@ void do_chwealth(CHAR_DATA *ch, const char *argument)
 void
 do_maintenance(CHAR_DATA *ch, const char *argument)
 {
-	const char *animals_table[] =
-	{
-		"bear",
-		"bat",
-		"cat",
-		"air elemental",
-		"dog",
-		"lizard",
-		"centipede",
-		"earth elemental",
-		"fox",
-		"pig",
-		"fido",
-		"water elemental",
-		"water fowl",
-		"snake",
-		"rabbit",
-		"fire elemental",
-		"tiger",
-		"wolf",
-		"song bird",
-		"fish",
-		"lion",
-		"wyvern",
-		"golem",
-		"horse",
-		NULL
-	};
 	AREA_DATA *pArea;
 	MOB_INDEX_DATA *pMobIndex;
-	int i, j;
-
+	int i, mobCounter;
+	float middleWealth, aveLev, koef;
+	
 	for (pArea = area_first; pArea != NULL; pArea = pArea->next) {
+		aveLev = 0;
+		mobCounter = 0;
+		middleWealth = 0;
+                for (i = pArea->min_vnum; i < pArea->max_vnum; i++) {
+                        pMobIndex = get_mob_index(i);
+
+                        if (pMobIndex == NULL
+                        || pMobIndex->wealth == 0
+                        || pMobIndex->pShop != NULL)
+                                continue;
+
+                        mobCounter++;
+                        aveLev += pMobIndex->level + 1;
+
+                        middleWealth += pMobIndex->wealth;
+
+                }
+
+
+                middleWealth = mobCounter ? middleWealth/aveLev : 0;
+		koef = middleWealth / 50.0;
+
 		for (i = pArea->min_vnum; i < pArea->max_vnum; i++) {
+			koef = middleWealth / 50.0;	
 			pMobIndex = get_mob_index(i);
-			if (pMobIndex == NULL || pMobIndex->wealth == 0)
+			if (pMobIndex == NULL 
+			|| pMobIndex->wealth == 0)
 				continue;
-			for (j = 0; animals_table[j]; j++) {
-				if (pMobIndex->race != rn_lookup(animals_table[j])
-				&& pArea->vnum != 1)
+			
+			if (pMobIndex->pShop == NULL) {
+ 				if (middleWealth < 50)
 					continue;
-				pMobIndex->wealth = 0;
-				TOUCH_VNUM(pMobIndex->vnum);
-				break;
+
+				if (pMobIndex->wealth < 500)
+					continue;
+
+				if (pMobIndex->wealth >= 500
+				&& pMobIndex->wealth < 1000) {
+					pMobIndex->wealth = (int) (pMobIndex->wealth/(0.5 * koef > 1 ? 0.5 * koef : 1.1));
+					TOUCH_VNUM(pMobIndex->vnum);
+					continue;
+				}
+				if (pMobIndex->wealth >= 1000
+				&& pMobIndex->wealth < 2500) {
+					pMobIndex->wealth = (int) (pMobIndex->wealth/(koef > 1 ? koef : 1.1));
+					TOUCH_VNUM(pMobIndex->vnum);
+					continue;
+				}
+				if (pMobIndex->wealth >= 2500
+				&& pMobIndex->wealth < 5000) {
+					pMobIndex->wealth = (int) (pMobIndex->wealth/(1.5 * koef > 1 ? 1.5 * koef : 1.1));
+					TOUCH_VNUM(pMobIndex->vnum);
+					continue;
+				}
+				if (pMobIndex->wealth >= 5000) {
+					 pMobIndex->wealth = (int) (pMobIndex->wealth/(2 * koef > 1 ? 2 * koef : 1.1));
+					TOUCH_VNUM(pMobIndex->vnum);
+					continue;
+ 				}
+
+			} else
+			
+				if (pMobIndex->wealth > 5000) {
+					pMobIndex->wealth = 5000;
+					TOUCH_VNUM(pMobIndex->vnum);
 			}
 		}
 	}
