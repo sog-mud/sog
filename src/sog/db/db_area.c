@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.14 1998-10-14 18:33:43 fjoe Exp $
+ * $Id: db_area.c,v 1.15 1998-10-15 08:21:46 fjoe Exp $
  */
 
 /***************************************************************************
@@ -116,6 +116,7 @@ DBLOAD_FUN(load_area)
 	pArea->help_last	= NULL;
 	free_string(fread_string(fp));		/* file name */
 	pArea->file_name	= get_filename(filename);
+	pArea->builders		= str_empty;
 
 	pArea->security		= 9;
 	pArea->vnum		= top_area;
@@ -168,6 +169,7 @@ DBLOAD_FUN(load_areadata)
 	pArea->age		= 15;
 	pArea->nplayer		= 0;
 	pArea->file_name	= get_filename(filename);
+	pArea->builders		= str_empty;
 	pArea->vnum		= top_area;
 	pArea->name		= str_dup("New Area");
 	pArea->security		= 9;                    /* 9 -- Hugin */
