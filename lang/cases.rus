@@ -466,6 +466,17 @@ Form 6 -а~
 End
 
 #RULE
+Name прекрасная~
+BaseLen 8
+Form 1 -ой~
+Form 2 -ой~
+Form 3 -ую~
+Form 4 -ой~
+Form 5 -ой~
+Form 6 -ую~
+End
+
+#RULE
 Name серебряная~
 BaseLen 8
 Form 1 -ой~

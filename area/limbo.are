@@ -1263,6 +1263,7 @@ S
 #MOBPROGS
 #1
 if affected $n 'sanctuary'
+or affected $n 'black shroud' 
 cast nowait 'dispel magic' 
 end
 endif

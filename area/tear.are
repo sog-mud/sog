@@ -380,12 +380,12 @@ F
 R 19 6 D
 G none
 #110002
-~
+harp~
 @eng harp@rus harp~
 @eng harp@rus harp~
 glass~
-armor PTU ANO
-0 0 0 0 0
+wand PTU AO
+100 100 100 'enchant weapon' 0
 58 10 100 P
 G none
 #110003

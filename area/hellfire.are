@@ -23,9 +23,8 @@ AJKTbef DFOPUVlmrtu -1000 0
 ACEFIJKLN CD D 0
 stand stand male 1000000
 0 0 huge unknown
-M speech 18799 Urukhay!~
-M speech 18798 Как тебя зовут?~
-M act 18797 sleep~
+M act 18799 arrives~
+M act 18799 slowly fades into existence.~
 C BattleRager~
 #18701
 griswold грисвольд~
@@ -66,7 +65,7 @@ cain кейн~
 ~
 ~
 human~
-ABJKRbdef DFHV 367 0
+ABJKRXbdef DFHV 367 0
 70 50 1d1+29999 1d1+499 6d14+100 chill
 -100 -100 -100 -100
 EFKT ABEQ CDL 0
@@ -74,7 +73,6 @@ stand stand male 1000
 0 0 medium unknown
 F for AHMV
 F par ABCDEFGHIJK
-M act 18701 disarm~
 #18704
 healer лекарь пепин pepin~
 @eng healer Pepin@rus ~~лекарь~~ ~~Пепин~~~
@@ -151,14 +149,13 @@ bank~
 ~
 human~
 ABe 0 0 0
-0 0 1d1+29999 0d0+0 0d0+0 none
+100 0 1d1+29999 0d0+0 0d0+0 slash
 0 0 0 0
-0 CD 0 0
+0 0 0 P
 stand stand none 0
 0 0 medium unknown
 F for AHMV
 F par ABCDEFGHIJK
-M speech 18703 Хорошая штука, правда?~
 #0
 
 #OBJECTS
@@ -253,7 +250,7 @@ pill~
 pill~
 unknown~
 pill 0 A
-2147483647 'cure poison' 'cure disease' 'cure blindness' 'heal'
+2147483647 'restoring light' 'cure disease' 'cure blindness' 'remove curse'
 0 0 100 P
 G none
 #18706
@@ -385,7 +382,7 @@ rusty nail~
 Rusty nail lies on the ground.~
 iron~
 weapon 0 AN
-exotic 2 9 scratch 0
+whip 2 9 scratch 0
 3 0 900 P
 G none
 #18718
@@ -403,13 +400,63 @@ A
 A
 19 1
 G none
+#18719
+dagger ice~
+ice dagger~
+A small graceful dagger lies here.~
+ice~
+weapon 0 AN
+dagger 5 7 chill B
+20 0 25678 P
+G none
+#18720
+mace flaming~
+flaming mace~
+flaming mace lies here.~
+fire~
+weapon AB AN
+mace 7 5 flame AD
+25 0 32536 P
+G none
+#18721
+slime~
+slime~
+A big piece of slime passes here.~
+acid~
+weapon BCM AN
+exotic 8 6 slime DH
+35 0 150000 P
+A
+18 5
+A
+19 7
+G none
+#18722
+blackjade head~
+Blackjade's head~
+Blackjade's head float in the air.~
+flesh~
+weapon EHZ AN
+exotic 13 10 kiss DG
+80 200 100000 P
+A
+8 2
+F
+A 0 0 G
+F
+A 0 0 K
+A
+19 20
+A
+18 20
+G none
 #18750
 thron трон~
 @eng Orrin's throne@rus ~~Золотой~~ ~~трон~~ ~~Орина~~~
 @eng Orrin's throne is here, waiting his master.@rus Золотой трон Орина стоит здесь ожидая своего хозяина.~
 unknown~
 furniture A 0
-A CFG HK ABCDEFGHIJKLMNOPQRSTUVWXYZabcde ABCDEFGHIJKLMNOPQRSTUVWXYZabcde
+A JLOPRTUXYZbcd HK ABCDEFGHIJKLMNOPQRSTUVWXYZabcde ABCDEFGHIJKLMNOPQRSTUVWXYZabcde
 0 0 0 P
 G none
 #18751
@@ -1472,8 +1519,20 @@ Z 0 18762
 S
 #18799
 @eng Armory chamber@rus Оружейная палата~
+Ты попал в огромный зал наполненный золотистым светом.
+На стенах развешанно много оружия и доспехов сденанных из чистого золота.
+Так вот откуда этот ослепительный золотой свет,тебе хочется подойти поближе
+рассмотреть эти вещи, но нельзя, ты же не за этим сюда пришел, правда?
+Подойдя поближе в северной стене ты увидел большой золотой трон
+сделаный из золота и драгоценных камней. Около трона стоит огромный воин,
+который должно быть охраняет его хозяина от непрошеных гостей... интересно,
+а тебя сюда звали? Может лучше стоит побыстрее отсюда уйти пока никто
+незаметил? Но позно, ты подошел слишком близко к трону и этот воин в 
+одно мгновение оказался у тебя за спиной, и теперь твоя судьба зависит от 
+хозяина этого зала - великого {WОрина{x - бога-покровителя войнов.
+ 
 ~
-0 NUWZ forest
+0 UZ forest
 M 2147483555 H 2147483463
 S
 #0
@@ -1498,7 +1557,8 @@ G 0 18716 0		*	sword
 G 0 18714 0		*	axe
 G 0 18718 0		*	strong skin of fox
 G 0 18713 0		*	club
-G 0 18709 0		*	spellbane
+G 0 18719 0		*	ice dagger
+O 0 18722 0 18710	* Blackjade's head (Forge)
 M 0 18707 1 18729 1	* Wirt (Hut)
 G 0 18713 0		*	club
 G 0 18714 0		*	axe
@@ -1514,8 +1574,6 @@ E 0 18700 0 16		*	{YHuge Flaming Axe{x: wielded
 E 0 18701 0 2		*	ring of power: on the right finger
 E 0 18702 0 12		*	tanned troll skin: about the shoulders
 E 0 18701 0 1		*	ring of power: on the left finger
-O 0 18787 0 18799	* a poncho from the carcass of Seneschal (Armory chamber)
-O 0 18787 0 18799	* a poncho from the carcass of Seneschal (Armory chamber)
 S
 
 #SHOPS
@@ -1530,6 +1588,7 @@ O 18700 1	* {YHuge Flaming Axe{x
 O 18701 2	* ring of power
 O 18702 2	* tanned troll skin
 O 18709 1	* spellbane
+O 18722 1	* Blackjade's head
 S
 
 #MOBPROGS
@@ -1628,7 +1687,7 @@ say Хозяин будет недоволен
 tell $n Урукхай
 ~
 #18799
-tell $n Чего тебе?
+say Что тебе здесь надо!
 ~
 #0
 
