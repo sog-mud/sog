@@ -1,8 +1,4 @@
 #LANG
-Name eng
-End
-
-#LANG
 Name rus
 GendersFile genders.rus~
 CasesFile cases.rus~

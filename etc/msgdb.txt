@@ -291,8 +291,8 @@ Get back to questor before your time runs out!
 @rus Заглянуть во что?
 ~
 @eng Vile pilferers have stolen {W%s{z from the royal treasury!@rus Подлые жулики украли {W%s{z из королевской сокровищницы!~
-@eng You begin to sneak again.
-@rus Ты начинаешь красться.
+@eng You move silently again.
+@rus Ты опять двигаешься бесшумно.
 ~
 @eng You can't rest on that.
 @rus Ты не можешь на этом отдыхать.
