@@ -398,7 +398,7 @@ armor AB 0 AD
 f object damroll 6 0
 f object dex -3 0
 f object saves -10 0
-g @rus male~
+g @rus female~
 #13009
 spiked adamantite helm шипастый адамантитовый шлем~
 @eng a spiked adamantite battle helm@rus ~~адамантитовый~~ ~~шлем~~ с шипами~
@@ -550,7 +550,7 @@ money 0 0 A
 g @rus plural~
 #13021
 bracelet copper медный браслет капитана~
-@eng a fine copper bracelet@rus ~~медный~~ ~~браслет~~ капитана~
+@eng a fine copper bracelet@rus ~~медный~~ ~~браслет~~~
 @eng A shiny piece of fine copper is here.@rus Начищенный до блеска медный браслет (bracelet).~
 copper~
 armor B 0 AM
