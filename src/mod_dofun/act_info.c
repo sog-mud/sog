@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.86 1998-07-03 15:18:39 fjoe Exp $
+ * $Id: act_info.c,v 1.87 1998-07-04 11:28:19 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3579,7 +3579,6 @@ char *get_cond_alias(OBJ_DATA *obj, CHAR_DATA *ch)
 /* new practice */
 void do_practice(CHAR_DATA *ch, char *argument)
 {
-	char buf2[20000];
 	int sn;
 	CHAR_DATA *mob;
 	int adept;
@@ -3588,29 +3587,30 @@ void do_practice(CHAR_DATA *ch, char *argument)
 		return;
 
 	if (argument[0] == '\0') {
+		BUFFER *output;
 		int col = 0;
 
-		buf2[0] = '\0';
+		output = buf_new(0);
 		for (sn = 0; sn < MAX_SKILL; sn++) {
 			if (skill_table[sn].name == NULL)
 				break;
 			if (!SKILL_OK(ch, sn))
 				continue;
 
-			sprintf(strend(buf2), "%-18s %3d%%  ",
+			buf_printf(output, "%-18s %3d%%  ",
 				skill_table[sn].name, ch->pcdata->learned[sn]);
 			if (++col % 3 == 0)
-				strcat(buf2, "\n\r");
+				buf_add(output, "\n\r");
 		}
 
 		if (col % 3 != 0)
-			strcat(buf2, "\n\r");
+			buf_add(output, "\n\r");
 
-		sprintf(strend(buf2),
-			"You have %d practice sessions left.\n\r",
+		buf_printf(output, "You have %d practice sessions left.\n\r",
 			ch->practice);
 
-		page_to_char(buf2, ch);
+		page_to_char(buf_string(output), ch);
+		buf_free(output);
 		return;
 	}
 
@@ -3652,7 +3652,7 @@ void do_practice(CHAR_DATA *ch, char *argument)
 		||   skill_table[sn].group == GROUP_PROTECTIVE
 		||   skill_table[sn].group == GROUP_DETECTION
 		||   skill_table[sn].group == GROUP_WEATHER))
-		||  (mob->pIndexData->practicer & (1 << skill_table[sn].group)))
+		||  (mob->pIndexData->practicer & skill_table[sn].group))
 			break;
 	}
 
@@ -3670,8 +3670,12 @@ void do_practice(CHAR_DATA *ch, char *argument)
 		return;
 	}
 
-	if (!ch->pcdata->learned[sn])
+	if (!ch->pcdata->learned[sn]) {
+		log_printf("do_practice: %s: %s (0%%)",
+			ch->name, skill_table[sn].name);
 		ch->pcdata->learned[sn] = 1;
+	}
+
 	ch->practice--;
 	ch->pcdata->learned[sn] += int_app[get_curr_stat(ch,STAT_INT)].learn /
 				   UMAX(skill_table[sn].rating[ch->class],1);
@@ -3688,7 +3692,6 @@ void do_practice(CHAR_DATA *ch, char *argument)
 		act("$n is now learned at $T.",
 		    ch, NULL, skill_table[sn].name, TO_ROOM);
 	}
-	return;
 }
 
 

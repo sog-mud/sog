@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.32 1998-07-03 15:18:46 fjoe Exp $
+ * $Id: save.c,v 1.33 1998-07-04 11:28:20 fjoe Exp $
  */
 
 /***************************************************************************
@@ -588,6 +588,7 @@ load_char_obj(DESCRIPTOR_DATA * d, char *name)
 	FILE           *fp;
 	bool            found;
 	int             stat;
+	int		sn;
 	ch = new_char();
 	ch->pcdata = new_pcdata();
 
@@ -624,6 +625,8 @@ load_char_obj(DESCRIPTOR_DATA * d, char *name)
 	ch->pcdata->title = str_dup("");
 	for (stat = 0; stat < MAX_STATS; stat++)
 		ch->perm_stat[stat] = 13;
+	for (sn = 0; sn < MAX_SKILL; sn++)
+		ch->pcdata->learned[sn] = 0;
 	ch->pcdata->condition[COND_THIRST] = 48;
 	ch->pcdata->condition[COND_FULL] = 48;
 	ch->pcdata->condition[COND_HUNGER] = 48;

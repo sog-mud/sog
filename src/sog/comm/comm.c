@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.58 1998-07-04 02:34:06 fjoe Exp $
+ * $Id: comm.c,v 1.59 1998-07-04 11:28:19 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1842,6 +1842,9 @@ void nanny(DESCRIPTOR_DATA *d, char *argument)
 	/* Add race stat modifiers 
 	for (i = 0; i < MAX_STATS; i++)
 	    ch->mod_stat[i] += pc_race_table[race].stats[i];	*/
+
+	for (i = 0; i < MAX_SKILL; i++)
+		ch->pcdata->learned[i] = 0;
 
 	/* Add race modifiers */
 	ch->max_hit += pc_race_table[race].hp_bonus;

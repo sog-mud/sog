@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.9 1998-07-03 15:18:46 fjoe Exp $
+ * $Id: skills.c,v 1.10 1998-07-04 11:28:20 fjoe Exp $
  */
 
 /***************************************************************************
@@ -142,7 +142,7 @@ void do_spells(CHAR_DATA *ch, char *argument)
 	if (IS_NPC(ch))
 		return;
 	
-	/* initilize data */
+	/* initialize data */
 	output[0] = '\0';
 	for (lev = 0; lev < LEVEL_HERO; lev++) {
 			spell_columns[lev] = 0;
