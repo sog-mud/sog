@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.77 2000-04-06 05:40:50 fjoe Exp $
+ * $Id: olc_room.c,v 1.78 2000-04-11 06:47:01 fjoe Exp $
  */
 
 #include "olc.h"
@@ -52,7 +52,6 @@ DECLARE_OLC_FUN(roomed_heal		);
 DECLARE_OLC_FUN(roomed_mana		);
 DECLARE_OLC_FUN(roomed_room		);
 DECLARE_OLC_FUN(roomed_sector		);
-DECLARE_OLC_FUN(roomed_reset		);
 DECLARE_OLC_FUN(roomed_clone		);
 DECLARE_OLC_FUN(roomed_del		);
 
@@ -83,7 +82,6 @@ olc_cmd_t olc_cmds_room[] =
 
 	{ "room",	roomed_room,	NULL,		room_flags	},
 	{ "sector",	roomed_sector,	NULL,		sector_types	},
-	{ "reset",	roomed_reset					},
 
 	{ "delete_roo",	olced_spell_out					},
 	{ "delete_room",roomed_del					},
@@ -431,15 +429,6 @@ OLC_FUN(roomed_sector)
 	ROOM_INDEX_DATA *room;
 	EDIT_ROOM(ch, room);
 	return olced_flag(ch, argument, cmd, &room->sector_type);
-}
-
-OLC_FUN(roomed_reset)
-{
-	ROOM_INDEX_DATA *pRoom;
-	EDIT_ROOM(ch, pRoom);
-	reset_room(pRoom, RESET_F_NOPCHECK);
-	char_puts("RoomEd: Room reset.\n", ch);
-	return FALSE;
 }
 
 OLC_FUN(roomed_clone)
@@ -1254,6 +1243,15 @@ void do_resets(CHAR_DATA *ch, const char *argument)
 		}
 
 		return;
+	}
+
+	if (!str_prefix(arg1, "now")) {
+		if (!IS_BUILDER(ch, ch->in_room->area)) {
+			char_puts("Insufficient security.\n", ch);
+			return;
+		}
+		reset_room(ch->in_room, RESET_F_NOPCHECK);
+		char_puts("Room reset.\n", ch);
 	}
 
 	do_resets(ch, "?");
