@@ -1,5 +1,5 @@
 #
-# $Id: mprogs.txt,v 1.15 2002-11-23 15:39:36 fjoe Exp $
+# $Id: mprogs.txt,v 1.16 2002-11-27 14:12:52 tatyana Exp $
 #
 
 MPC code style
@@ -409,6 +409,9 @@ obj get_obj_wear(char ch, char victim, string arg)
 
 obj get_obj_world(char ch, string arg)
   чаром ch ищется в мире объект с именем arg, arg может быть vnum'ом
+
+char get_pet(char ch)
+  возвращает pet'а чара ch, если пета нет, возвращает NULL
 
 get_pulse(
 
