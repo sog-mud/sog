@@ -1098,78 +1098,79 @@ S
 
 #MOBPROGS
 #1
+say !
 if affected $n 'sanctuary'
-cast 'dispel magic' $n
+cast nowait 'dispel magic' $n
 end
 endif
 if rand 25
 if rand 10 
-cast 'plague' $n
+cast nowait 'plague' $n
 end
 endif
 if rand 11
-cast 'poison' $n
+cast nowait 'poison' $n
 end 
 endif
 if rand 14
 if affected $n 'blindness'
 else
-cast 'blindness' $n
+cast nowait 'blindness' $n
 end
 endif
 endif
 if rand 16
 if affected 'weaken' $n
 else
-cast 'weaken' $n
+cast nowait 'weaken' $n
 end
 endif
 endif
 if rand 18
 if affected 'slow' $n
 else
-cast 'slow' $n
+cast nowait 'slow' $n
 endif
 endif
 if rand 18
 if affected 'curse' $n
 else
-cast 'curse' $n
+cast nowait 'curse' $n
 end
 endif
 endif
 if rand 18
 if affected 'corruption' $n
 else
-cast 'corruption' $n
+cast nowait 'corruption' $n
 end
 endif
 endif
 if rand 18
 if affected 'faerie fire' $n
 else
-cast 'faerie fire' $n
+cast nowait 'faerie fire' $n
 end
 endif
 endif
 endif
 if rand 25 
-cast 'acid blast' $n
+cast nowait 'acid blast' $n
 end
 endif
 if rand 25 
-cast 'fireball' $n
+cast nowait 'fireball' $n
 end
 endif
 if rand 25
-cast 'frost breath' $n
+cast nowait 'frost breath' $n
 end
 endif
 if rand 30 
-cast 'heat metal' $n
+cast nowait 'heat metal' $n
 end
 endif
-cast 'lightning breath' $n
+cast nowait 'lightning breath' $n
 ~
 #2
 clan yes, sir?

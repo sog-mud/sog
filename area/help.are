@@ -9,9 +9,9 @@ End
 #HELPS
 -1 MUDDY~
 Muddy is based on Anatolia MUD -- see help anatolia.
-		Original idea, concept and coding:
-	Farmer Joe                    [Someone] (fjoe@@iclub.nsu.ru)
-	Alexander Morokhovets            [Eros] (efdi@@iclub.nsu.ru)
+                     Original idea, concept and coding:
+        Farmer Joe                   [Iluvatar] (fjoe@@iclub.nsu.ru)
+        Alexander Morokhovets            [Eros] (efdi@@iclub.nsu.ru)
 
 ~
 -1 DIKU~
@@ -70,19 +70,19 @@ PROMPT <%*> where the %* are the various variables you may set yourself.
         %v :  Display your current moves
         %V :  Display your maximum moves
         %x :  Display your current experience
-	%X :  Display experience to level
+        %X :  Display experience to level
         %g :  Display your gold held
-	%s :  Display silver carried
+        %s :  Display silver carried
         %a :  Display your alignment
-	%y :  Display your percent hit
+        %y :  Display your percent hit
         %o :  Display opponents percent hit
         %r :  Display the room name you are in
-	%e :  Display the exits from the room in NESWDU style
+        %e :  Display the exits from the room in NESWDU style
         %R :  Display the vnum you are in (IMMORTAL ONLY)
         %z :  Display the area name you are in (IMMORTAL ONLY)
-	%n :  Display your name
-	%S :  Display your sex
-	%t :  Display current MUD time
+        %n :  Display your name
+        %S :  Display your sex
+        %t :  Display current MUD time
 
 Example:  PROMPT <%hhp %mm %vmv>
         Will set your prompt to "<10hp 100m 100mv>"
@@ -392,18 +392,18 @@ The notes on Muddy replace the bulletin boards and mail systems found
 on many other mud.  The following options are usable:
 
 reading notes:
-note list	: show all notes (unread notes are marked with an N)
-note read	: either by number, or read next to read unread notes
-note remove	: removes a note that you wrote or are the target of
-note catchup	: markes all notes as read
+note list       : show all notes (unread notes are marked with an N)
+note read       : either by number, or read next to read unread notes
+note remove     : removes a note that you wrote or are the target of
+note catchup    : markes all notes as read
 
 writing new notes:
-note to		: set the to line (playername, clanname, immortal, or all)
-note subject	: set the subject for a new note
-note edit	: edit note
-note clear	: erase a note in progress
-note show	: show the note you are working on
-note post	: post a new note. This MUST be done to post a note.
+note to        	: set the to line (playername, clanname, immortal, or all)
+note subject    : set the subject for a new note
+note edit       : edit note
+note clear      : erase a note in progress
+note show       : show the note you are working on
+note post       : post a new note. This MUST be done to post a note.
 
 When you log in, you will be informed if there are unread notes waiting. Type
 note read to scroll through them one at a time.
@@ -521,10 +521,10 @@ With arguments, WHO can show players of certain classes or levels.
 For example:
  
 who immortal    lists all immortals playing
-who pk		lists all characters in your PK range
+who pk          lists all characters in your PK range
 who elf         lists all elven clerics
-who entropy pk  lists all characters in entropy clan, (if you are a mamber) 
-		which are in your PK range
+who entropy pk  lists all characters in entropy clan, (if you are a member) 
+                which are in your PK range
 
 Races may be abbreviated.
 ~
@@ -569,34 +569,34 @@ holding the hammer which you can find it in dwarven area.
 0 TRACK~
 Syntax: track
 
-	While you are fighting if your opponent fleds you can follow 
+        While you are fighting if your opponent fleds you can follow 
 it/his/her just typing track.
 ~
 0 LINK~
 Syntax: cast link <character>
 
-	You transfer all of your mana to the character that you linked.
+        You transfer all of your mana to the character that you linked.
 ~
 0 PROTECTION HEAT~
 Syntax: cast 'protection heat' 
 
-	This spell makes you resistive against fire attacks.
+        This spell makes you resistive against fire attacks.
 ~
 0 SHIELDING~
 Syntax: cast 'shielding' <character>
 
-	The player which is affected by this spell cannot reach the true 
+        The player which is affected by this spell cannot reach the true 
 source  to cast. Thus cannot cast any spell.
 ~
 0 PROTECTION COLD~
 Syntax: cast 'protection cold'
 
-	This spell makes you resistive against the cold attacks.
+        This spell makes you resistive against the cold attacks.
 ~
 0 KNOCK~
 Syntax: cast 'knock' <door>
  
-	Knock is similar to pick, you can open a lock without having the
+        Knock is similar to pick, you can open a lock without having the
  key. This spell fails against no-pass doors.
 ~
 0 BASH DOOR~
@@ -607,45 +607,45 @@ Syntax: bashdoor <direction>
 Syntax: cast 'fire shield' cold
 Syntax: cast 'fire shield' fire 
 
-	You can create a resistive shield against the fire or cold attacks
+        You can create a resistive shield against the fire or cold attacks
 which makes you resistive against the fire or cold attacks.
 ~
 0 WEB~
 Syntax: cast 'web' <victim>
-	
-	This spell is disables char moving in any direction. Also web
+
+        This spell is disables char moving in any direction. Also web
 decreases the hit probability and dexerity of the victim.
 ~
 0 MAGIC RESISTANCE~
 Syntax: cast 'magic resistance'
 
-	This spell makes you resistive against the magical attacks.
+        This spell makes you resistive against the magical attacks.
 ~
 0 DISINTEGRATE~
 Syntax: cast 'disintegrate' <victim>
 
-	Very high level warlocks can learn to kill in one cast.This 
+        Very high level warlocks can learn to kill in one cast.This 
 surprise attack doesn't has to be on a fully healed target.Save spell is the
 only one way to protect from this attack.
 ~
 0 WITCH CURSE~
 Syntax: cast 'witch curse' <victim>
 
-	This spell means certain death to the target, but it takes some time
+        This spell means certain death to the target, but it takes some time
 related to the hp the target has. Each round  victim's hit point decreases
 by 100 till the end, death.
 ~
 0 ANIMATE DEATH~
 Syntax: cast 'animate death' <corpse>
 
-	This spell allows the caster to give life to a corpse and force the
+        This spell allows the caster to give life to a corpse and force the
 zombie that is newly born to aid him.
 ~
 0 TAIL~
 Syntax: tail 
 Syntax: tail <opponent>
 
-	This skill enables tailed creatures to hit its opponent with its
+        This skill enables tailed creatures to hit its opponent with its
 tail. The chance to hit with tail is very small. But when hits gives great 
 damage to victim.
 
@@ -653,41 +653,41 @@ damage to victim.
 0 'DARGON SKIN' DRAGONSKIN~
 Syntax: cast 'dragon skin'
 
-	This spell enables dragons to increase its AC so that they can
+        This spell enables dragons to increase its AC so that they can
 fight more easily. 
 
 ~
 0 FEAR~
 Syntax: cast 'fear' <victim>
  
-  	This spell allows the caster to touch the victim with the fingers of 
+        This spell allows the caster to touch the victim with the fingers of 
 fear and force him to flee.
 ~
 0 MAGIC JAR~
 Syntax: cast 'magic jar' <victim>
 
-	This spell allows the caster to catch the spirit of the victim 
+        This spell allows the caster to catch the spirit of the victim 
 and thus victim cannot get exp.
-	Don't forget to carry an empty vial in your inventory to put the
+        Don't forget to carry an empty vial in your inventory to put the
 spirit.
 ~
 0 POWER WORD KILL~
 Syntax: cast 'power word kill' <victim>
 
-	Very high level necromancers can learn to kill in one cast.This 
+        Very high level necromancers can learn to kill in one cast.This 
 surprise attack doesn't has to be on a fully healed target.Save spell is the
 only one way to protect from this attack.
 ~
 0 'POWER WORD STUN' STUN~
 Syntax: cast 'power word stun' <victim>
 
-	Only powerful anti-paladins can learn the secret of this spell 
+        Only powerful anti-paladins can learn the secret of this spell 
 to stun their victims. Victims cannot do anything for a while.
 ~
 0 HELLFIRE~
 Syntax: cast 'hellfire' <victim>
 
-	This spell inflicts fire damage on your victim.  The higher-levels
+        This spell inflicts fire damage on your victim.  The higher-levels
 spell do more damage.
 ~
 0 MASTERING SWORD~
@@ -699,10 +699,10 @@ A trained ninja has get the secret of pound usage. His/her pound
 would become more damageful on his/her opponents.
 ~
 0 AREA ATTACK~
-Warriors and samurai's have the secret of the area attack to
+        Warriors and samurai's have the secret of the area attack to
 destroy to their enemies. At the beginning, they can fight with two
 opponents and as they trained enough they can increase the opponets.
-	Usage of this skill is automatic. To fight with a new enemy as you
+        Usage of this skill is automatic. To fight with a new enemy as you
 are fighting, try to attack it/his/her with another attack such as dirt
 kick.
 ~
@@ -720,14 +720,14 @@ increase your damroll and hitroll respectively.......
 0 TURN~
 Syntax: cast 'turn' <victim>
 
-	This area attack spell is a gift from the gods to the paladin due to
+        This area attack spell is a gift from the gods to the paladin due to
 their holy mission. A powerful holy energy flows through the fingers of 
 paladin and this energy force the evil victims to flee.
 ~
 0 'VAMPIRIC TOUCH'~
 Syntax: vampiric touch <victim>
 
-	You deadly touch your victim's neck and put it/him/her to nightmares.
+        You deadly touch your victim's neck and put it/him/her to nightmares.
 
 ~
 0 KATANA~
@@ -981,9 +981,9 @@ group who are in the same room as you.  It's customary to SPLIT
 the loot after a kill.  The first argument is the amount of silver
 the split (0 is acceptable), and the second gold (optional).
 Examples:
-split 30 	--> split 30 silver
-split 20 50	--> split 20 silver, 50 gold
-split  0 10	--> split 10 gold
+split 30        --> split 30 silver
+split 20 50     --> split 20 silver, 50 gold
+split  0 10     --> split 10 gold
 ~
 0 STEAL~
 Syntax: STEAL coins <character>
@@ -1051,41 +1051,42 @@ Example: glist meditation, glist defensive.....
 0 SLOOK~
 Syntax: slook <skill or spell>
 
-	Gives group of corresponding spell or skill.
+        Gives group of corresponding spell or skill.
 
 Example: slook armor, slook meditation.....Then go to the master of that
 skill or spell to learn 
 ~
 0 TEACH~
 Syntax:  teach 
-	
-	It allows the hero to teach his/her 100% skills to the players
-in the room. It holds hero teach mode.
+
+        Allows the hero to teach his/her 100% skills to the players
+in the room. Puts hero in teach mode.
 
 ~
 0 LEARN~
 Syntax: learn <spell | skill> <hero>
 
-	It allows player to learn any group of skills or spells from
-a hero.But the hero's corresponding skills must be 100% and hero must
-be teach mode.
+        Allows player to learn any group of skills or spells from
+a hero. But the hero's corresponding skills must be 100% and hero must
+be in teach mode.
 
 ~
 0 TRAIN~
-Syntax: train <str int wis dex con hp mana>
+Syntax: train <str int wis dex con>
 
 TRAIN increases one of your attributes.  When you start the game, your
 character has standard attributes based on your class, and several
 initial training sessions.  You can increase your attributes by
 using these sessions at a trainer (there are several in town).
 
-It takes one training session to improve an attribute, or to increase
-mana or hp by 10.  You receive one session per five levels.
+It takes one training session to improve an attribute.
+You receive one session per five levels.
 
 The best attributes to train first are WIS and CON.  WIS gives you more
 practice when you gain a level.  CON gives you more hit points.
 In the long run, your character will be most powerful if you train
 WIS and CON both to 18 before practising or training anything else.
+ 
 ~
 100 ADVANCE~
 Syntax: advance <character> <level>
@@ -1108,8 +1109,8 @@ A trust of 0 means to use the character's natural level again.
 ~
 98 ALLOW BAN PERMBAN~
 Syntax: allow   <site>
-	ban     <site> <newbies|all|permit>
-	ban
+        ban     <site> <newbies|all|permit>
+        ban
 
 BAN <site> prohibits players from that site from logging in.  BAN with
 no arguments lists the banned sites.  ALLOW <site> removes a site from
@@ -1123,7 +1124,7 @@ sites with a wildcard.  Bans do not save unless the permban command is used.
 ~
 99 REBOOT SHUTDOWN~
 Syntax: reboot
-	shutdown
+        shutdown
 
 Reboot shuts down the server.  When the normal 'startup' script is used
 to control the server, a delay of fifteen seconds will ensue (to allow
@@ -1483,10 +1484,10 @@ Syntax: cast blindness <victim>
 This spell renders the target character blind.
 ~
 0 'ACID BLAST' 'ACID ARROW' 'CAUSTIC FONT' 'SULFURUS SPRAY' 'QUANTUM SPIKE'
-'BURNING HANDS' 'ACETUM PRIMUS' 'SONIC RESONANCE' 'HAND OF UNDEAD'
-'ETHERAL FIST' 'COLOUR SPRAY' 'FIREBALL' 'LIGHTNING BOLT' 'MAGIC MISSILE'
-'SHOCKING GRASP' 'ICEBALL' 'MIND WRENCH' 'MIND WRACK'
-~
+'BURNING HANDS' 'ACETUM PRIMUS' 'SONIC RESONANCE' 'HAND OF UNDEAD'
+'ETHERAL FIST' 'COLOUR SPRAY' 'FIREBALL' 'LIGHTNING BOLT' 'MAGIC MISSILE'
+'SHOCKING GRASP' 'ICEBALL' 'MIND WRENCH' 'MIND WRACK'
+~
 Syntax: cast 'acid blast'     <victim>
 Syntax: cast 'burning hands'  <victim>
 Syntax: cast 'color spray'   <victim>
@@ -2301,7 +2302,7 @@ chance for an instant kill.
 
 ~
 0 'QUIET MOVEMENT' HERBS TAME BUTCHER BARKSKIN 'BARK SKIN' 'BEAR CALL'
-  'RANGER STAFF'~
+  'RANGER STAFF'~
 Syntax: HERBS <victim> or HERBS
         TAME <victim>
         BUTCHER <corpse>
@@ -3670,10 +3671,11 @@ riding -- skill - самый что ни на есть riding.
  
 ~
 0 'OLC EXD'~
-Syntax: ed add keyword lang
-        ed edit keyword lang
-        ed delete keyword
-        ed format keyword
+Syntax: exd add keyword lang
+        exd edit keyword lang
+        exd delete keyword
+        exd format keyword
+ 
 ~
 0 'CLAN Scum' Scum~
 @rus Страх и гордыня, ненависть и лицемерие, подлость и жадность - вот та сила,
@@ -3869,7 +3871,7 @@ Syntax: edit room [vnum]
 Syntax: edit mobile vnum
 Syntax: edit object vnum
 Syntax: edit mpcode vnum
-Syntax: edit help keyword
+Syntax: edit help [num.]keyword
 Syntax: edit clan name
 Syntax: edit msg substr
  
@@ -3886,12 +3888,16 @@ Syntax: ashow msg [msg]
 The defaults are:
 - currently edited area, the area the char is in (in that order)
   (for 'ashow area')
-- currently edit room, the room the char is in (in that order)
+- currently edited room, the room the char is in (in that order)
   (for 'ashow room')
 - currently edited object for other objects
  
 This function is available in shortened form from OLC editors
 (command {Cshow{x, or by pressing enter on empty line)
+ 
+~
+0 'OLC ADDAFFECT'~
+Syntax: addaffect <location | none> <modifier> [<bitloc> bitvector]
  
 ~
 -1 $~

@@ -25,12 +25,12 @@ End
 /<<>>\/<<>>\/<<>>\/<<>>\                            /<<>>\/<<>>\/<<>>\/<<>>\
 \<<>>/\<<>>/\<<>>/\<<>>/      Supremacies [98]      \<<>>/\<<>>/\<<>>/\<<>>/
        |.  /  . |             ****************             |.  /  . |
-       | .//\.  |            	  abrazak                  | .//\.  |
-       |.  /  . |            	                           |.  /  . |
+       | .//\.  |                 abrazak                  | .//\.  |
+       |.  /  . |                                          |.  /  . |
        | .//\.  |                                          | .//\.  |
        |.  /  . |               Deities [97]               |.  /  . |
        | .//\.  |               ************               | .//\.  |
-       |.  /  . |           	                           |.  /  . |
+       |.  /  . |                                          |.  /  . |
        | .//\.  |                                          | .//\.  |
        | .//\.  |                Gods [96]                 | .//\.  |
        |.  /  . |                *********                 |.  /  . |
@@ -46,8 +46,8 @@ End
        |.  /  . |                                          |.  /  . |
        | .//\.  |               Angels [93]                | .//\.  |
        |.  /  . |               ***********                |.  /  . |
-       | .//\.  |             	                           | .//\.  |
-       | .//\.  |             	                           | .//\.  |
+       | .//\.  |                                          | .//\.  |
+       | .//\.  |                                          | .//\.  |
        | .//\.  |                                          | .//\.  |
        |.  /  . |               Avatars [92]               |.  /  . |
        | .//\.  |               ************               | .//\.  |
@@ -72,30 +72,29 @@ The following people contributed to the ANATOLIA flavor of the ROM base
 code:
 
 Addition of New Areas --
-	Ibrahim Canpunar, Serdar Bulut and Murat Bicer
+        Ibrahim Canpunar, Serdar Bulut and Murat Bicer
 
 Revision of New Areas --
-	Ibrahim Canpunar
+        Ibrahim Canpunar
 
 Revision and Addition of New Helps --
-	Ibrahim Canpunar and Serdar Bulut
+        Ibrahim Canpunar and Serdar Bulut
 
 Additional Maps --
-	Ibrahim Canpunar
+        Ibrahim Canpunar
 
 Ideas and playtesting --
     So many dedicated mudders around the world. Especially Amac Ural,
 Mustafa Ongel, Ibrahim Uzel, Rasit Gumus, David Heide.
 
 Complete C Code --
-	chiefly by Serdar Bulut,
+        chiefly by Serdar Bulut,
         with major contributions by Murat Bicer,
         and also Ibrahim Canpunar and Devrim Baris Acar. 
 
 Used snippets (Available on internet) --
-	Quest Code (c) 1996 Ryan Addams (moongate@@moongate.ams.com)
-	Some snippets by Erwin S. Andreasen. 
-		erwin@@pip.dknet.dk
+        Quest Code (c) 1996 Ryan Addams (moongate@@moongate.ams.com)
+        Some snippets by Erwin S. Andreasen. erwin@@pip.dknet.dk
 ~
 -1 ROM~
 ROM started in early February 1993, using Merc 1.0 code. In July of 1993,  
@@ -211,10 +210,10 @@ strip        stroke      strut        sulk          swoon       tackle
 tease        thank       threaten     tickle        tip         tongue
 twiddle      type        undress      view          wave        whine
 whistle      wiggle      wince        wink          wonder      worry
-worship      yawn        yeehaw       yodel         rose	laces
-tank	     starve	 aargh	      homework	    puff	differ
-yae	     lightbulb   voodoo       ogg	    confused	beam
-bite	     discodance  scuff        whap	    lag		chortle
+worship      yawn        yeehaw       yodel         rose        laces
+tank         starve      aargh        homework      puff        differ
+yae          lightbulb   voodoo       ogg           confused    beam
+bite         discodance  scuff        whap          lag         chortle
 zerbert      twitch
  
 ~
@@ -406,19 +405,21 @@ The outfit command, usable by levels 5 and below, equips your character with
 a new set of sub issue gear (banner, weapon, helmet, shield, and vest), 
 courtesy of the Mayor's warehouses.  Only empty equipment slots are affected.
 ~
-0 AUTO AUTOLIST AUTOLOOT AUTOGOLD AUTOSAC AUTOEXIT AUTOASSIST AUTOSPLIT~
+0 AUTO AUTOLIST AUTOLOOT AUTOGOLD AUTOLOOK AUTOSAC AUTOEXIT AUTOASSIST AUTOSPLIT~
 ROM uses varies automatic actions, to ease the boredom of always splitting
 gold and sacrificing corpses.  The commands are as follows:
 
 autolist  : list all automatic actions
 autoloot  : take all equipment from dead mobiles
 autogold  : take all gold from dead mobiles
-autosac	  : sacrifice dead monsters (if autoloot is on, only empty corpes)
+autolook  : automagically look in corpse after combat
+autosac   : sacrifice dead monsters (if autoloot is on, only empty corpses)
 autoexit  : display room exits upon entering a room
 autosplit : split up spoils from combat among your group members
 autoassit : makes you help group members in combat
 
 Typing a command sets the action , typing it again removes it. 
+ 
 ~
 -1 COUNT~
 The count command displays the number of people (that you can see) logged

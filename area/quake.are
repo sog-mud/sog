@@ -1,5 +1,5 @@
 #AREADATA
-Name Polygon~
+Name Quake castle~
 VNUMs 35200 35300
 Credits Phobos~
 Security 1
@@ -17,7 +17,7 @@ Shambler~
 @rus Гигантская белая фигура с широко расставленными огромными "ручищами" увенчанными окровавленными когтями. Душа уходит в пятки при виде огромных зубов в безгубой пасти. На лице этой твари не видно глаз -- от этого она кажется еще мертвее, чем этот мертвый мир. Все ее существо дышит безмолвием и "спокойствием". Однако она легко убедит тебя в том, что спокойствие это лишь твоя мечта. НЕСБЫТОЧНАЯ!!!
 ~
 giant~
-ACFT DFHPad -1000 0
+ABCFTY DFHPad -1000 0
 98 100 90d12+25000 9d10+10000 20d10+100 claw
 -90 -90 -90 -50
 CO B G Y
@@ -123,20 +123,178 @@ kalarit~
 key AC AC
 0 0 0 0 0
 70 10 20 P
+#35258
+torch~
+@eng Massive torch@rus Массивный факел~
+@eng Massive torch is suspended on the wall. It lights up all around.@rus Массивный факел висит на стене, освещая все вокруг мертвенным мерцающим светом.~
+wood~
+light CG A
+0 0 50 0 0
+70 50 20 P
+A
+19 30
+A
+1 -3
+A
+12 300
+#35259
+anchar~
+@eng Anchar@rus Анчар~
+@eng Anchar spreads its gloomy gray branches above you@rus Анчар распростер над тобой свои мрачные серые ветви~
+Poisoned wood~
+fountain CNY P
+-1 -1 'vodka' 0 0
+0 0 0 P
+#35260
+chainsaw~
+@eng chainsaw@rus бензопиза~
+@eng A little stained but very good chainsaw@rus Слегка тронутая ржавчиной, но отлично пилящая бензопила~
+unknown~
+weapon CE AN
+exotic 5 14 slash 0
+70 35 250 P
 #0
 
 #ROOMS
 #35200
-@eng Phobos' polygon.@rus Полигон Фобоса.~
+@eng Plateau@rus Плато~
 @eng Huge place under the pale violet sky. Nobody. Only you and noise of the wind. There's no grass -- yo  understand here may be nothing alive.
+Why don't you stay at home???
 @rus Громадная пустошь под фиолетовым небом. Никого.. только ты и свист ветра.
 Под ногами не трава -- ты понимаешь, что на этой земле ни хрена расти не может.
-Смотри под ноги  -- если на кого наступишь, тебе этого не простят.
- 
- 
+Ну чего тебе не сиделось дома???
 ~
-0 CN desert
+0 AN desert
+D0
+~
+~
+Z 35257 35201
+D2
+~
+~
+Z 0 35202
 O Phobos~
+S
+#35201
+@eng The door to {DChton{x@rus Дверь к {DХтону{x~
+~
+0 AN desert
+D0
+~
+~
+ABCGZ 35257 35203
+D2
+~
+~
+Z 0 35200
+S
+#35202
+~
+~
+0 0 inside
+D0
+~
+~
+Z 0 35200
+S
+#35203
+@eng Before the abode of {DChton{x@rus Рядом с обителью {DХтона{x~
+@eng Silent sounds of falling drops pacifies you. You looks on the walls and see usual cave. But this spots and skeletons in the dust...
+The air slowly wawes as if it will be somethings' heavy breathing. 
+@rus Тихий звук падающих капель умиротворяет тебя. Ты смотришь на стены -- обычная пещера, если бы не эти недвусмысленные пятна на стенах и скелеты, полузарытые в пыль. Воздух медленно колышется, словно в такт чьему-то дыханию. Но каким же должен быть этот кто-то, если его дыхание даже здесь колыхает тебя как пушинку?  
+~
+0 AN inside
+D5
+~
+~
+Z 0 35204
+S
+#35204
+@eng The dark hallway@rus Темный коридор~
+~
+0 AN inside
+D4
+~
+~
+Z 0 35203
+D5
+~
+~
+Z 0 35205
+S
+#35205
+@eng The dark hallway@rus Темный коридор~
+~
+0 AN inside
+D0
+~
+~
+Z 0 35206
+D3
+~
+~
+ABZ 0 35207
+D4
+~
+~
+Z 0 35204
+S
+#35206
+@eng The house of {DChton{x@rus Обитель {DХтона{x~
+~
+0 AN inside
+D2
+~
+~
+Z 0 35205
+S
+#35207
+~
+~
+0 AN inside
+D1
+~
+~
+ABZ 0 35205
+D2
+~
+~
+Z 0 35208
+S
+#35208
+~
+~
+0 AN inside
+D0
+~
+~
+Z 0 35207
+D4
+~
+~
+Z 0 35209
+S
+#35209
+~
+~
+0 0 inside
+D4
+~
+~
+Z 0 35210
+D5
+~
+~
+Z 0 35208
+S
+#35210
+~
+~
+0 0 inside
+D5
+~
+~
+Z 0 35209
 S
 #0
 
@@ -146,7 +304,13 @@ M 35261 spec_patrolman	* Fiend
 S
 
 #RESETS
-M 0 35260 1 35200 1	* Shambler (Phobos' polygon.)
+D 0 35201 0 2	* The door to {DChton{x: door to the north: closed and locked
+D 0 35205 3 1	* The dark hallway: door to the west: closed
+D 0 35207 1 1	* : door to the east: closed
+O 0 35259 0 35200	* Anchar (Plateau)
+M 0 35260 1 35201 1	* Shambler (The door to {DChton{x)
+E 0 35257 0 3		*	Kalarit key: around the neck (1)
+O 0 35258 0 35203	* Massive torch (Before the abode of {DChton{x)
 S
 
 #$

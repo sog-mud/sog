@@ -219,6 +219,30 @@ unknown~
 furniture RYa AP
 AC EIJKN HK CFG CFG
 0 0 0 P
+#15035
+bottle champagne~
+@eng {ga bottle of champagne{x@rus {gбутылка шампанского{x~
+@eng Bottle of champagne is here.@rus Бутылка шампанского оставлена кем-то здесь.~
+стекло~
+drink GRYa AOP
+-1 2147483647 'champagne' 0 0
+0 0 0 P
+#15036
+chocolate sweet~
+@eng {ychocolate sweet{x@rus {yшоколадная конфета{x~
+@eng Chocolate sweet is here.@rus Шоколадная конфета валяется тут.~
+шоколад~
+pill GRYa AOP
+30 'haste' 'frenzy' 'enhanced armor' 'sanctuary'
+0 0 0 P
+#15037
+box~
+@eng {ra box of chocolate sweets{x@rus {rкоробка шоколадных конфет{x~
+@eng Box of chocolate sweets is here.@rus Коробка шоколадных кофет лежит тут.~
+картон~
+container GRYa AOP
+100 0 0 0 0
+0 0 0 P
 #15040
 chair~
 ancient chair~

@@ -21,6 +21,22 @@ stand stand none 32000
 0 0 medium unknown
 F for AHMV
 F par ABCDEFGHIJK
+#38200
+barman~
+@eng barman@rus бармэн~
+@eng Barman
+@rus Бармэн
+~
+~
+human~
+ABCGV 0 0 0
+100 0 0d0+0 0d0+0 0d0+0 none
+-10 -10 -10 -10
+0 0 0 0
+stand stand male 1000000
+0 0 medium unknown
+F for AHMV
+F par ABCDEFGHIJK
 #0
 
 #OBJECTS
@@ -56,6 +72,38 @@ wood~
 furniture G 0
 0 EIJKN NO 0 0
 92 1 1 P
+#38005
+Setepios Sword~
+@eng weapon@rus тыкалка~
+@eng Big sword@rus Большая тыкалка~
+steal~
+weapon 0 AN
+mace 1000 1000 slash H
+92 10 100000 P
+A
+18 1000
+A
+19 1000
+A
+5 10
+A
+6 10
+A
+4 10
+A
+2 10
+A
+3 10
+A
+1 10
+#38006
+armor~
+@rus armor~
+@eng Armor@rus Халат~
+unknown~
+armor AIc AK
+1000 1000 1000 1000 0
+0 10 10000 P
 #38095
 {rБольшой пионерский БАРАБАН{w~
 @eng drum@rus барабан~
@@ -64,6 +112,14 @@ wood~
 armor G J
 0 0 0 0 0
 92 1 1 P
+#38200
+bartable~
+@eng long wooden table@rus длинный деревынный стол~
+@eng Long wooden table@rus Длинный деревянный стол~
+wood~
+furniture 0 0
+BD EIJKN KN CFG CFG
+0 100000 0 P
 #0
 
 #ROOMS
@@ -143,6 +199,18 @@ D3
 ~
 Z 0 38101
 S
+#38200
+@eng Budy's@rus У Бадди~
+@eng Buddy's beer bar. You see heads of animals & weapons on the walls.
+Wooden floor is clearned by barmen. The room is lighted by tourches.
+@rus Знаменитая пивная у Бадди ... Прекрасный паркетный пол, стойка из красного
+дерева, позолоченные кружки, красавицы официантки и крепыш бармэн.
+Большая деревянная люстра освещает бар светом своих свечей, а на стенах
+вы видите редчайшее оружие и доспехи. Портрет весельчака Бадди висит
+над входом. Тут всегда можно отдохнуть, развлечься, выпить и закусить.
+~
+0 CK inside
+S
 #0
 
 #RESETS
@@ -150,6 +218,7 @@ O 0 38003 0 38101	* fountain (Coridor)
 O 0 38001 0 38102	* big bed (Bedroom)
 O 0 38002 0 38103	* armchair (Cabinet)
 O 0 38004 0 38103	* table (Cabinet)
+O 0 38200 0 38200	* long wooden table (Budy's)
 S
 
 #SHOPS

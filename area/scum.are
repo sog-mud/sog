@@ -119,7 +119,7 @@ girl~
 ~
 ~
 human~
-ABGH 0 1000 0
+ABGHe 0 1000 0
 1 0 1d1+100 0d0+0 0d0+0 pound
 -10 -10 -10 -10
 0 AB 0 0
@@ -135,7 +135,7 @@ boy~
 ~
 ~
 human~
-ABGH 0 0 0
+ABGHe 0 0 0
 1 0 1d1+100 0d0+0 0d0+0 pound
 0 0 0 0
 0 AB 0 0
@@ -312,8 +312,6 @@ O 0 40001 0 40002	* unholy altar ({DDark cave{x)
 M 0 40007 1 40003 1	* Tanatos ({DUnholy treasury{x )
 G 0 40010 0		*	{rpuddle of blood{x
 M 0 40004 1 40003 1	* Blackman ({DUnholy treasury{x )
-M 0 40011 1 40004 1	* boy ({DVampires Lair{x)
-M 0 40010 8 40004 8	* girl ({DVampires Lair{x)
 M 0 40010 4 40004 4	* girl ({DVampires Lair{x)
 M 0 40011 4 40004 4	* boy ({DVampires Lair{x)
 M 0 40010 4 40004 4	* girl ({DVampires Lair{x)

@@ -8236,18 +8236,18 @@ endif
 #3026
 grumble
 ' Litterbugs.
-if rand 80
+if rand 90
 end
 endif
 ' I do not get paid enough
 if rand 20
 ' All I do each day is cleanup other people's messes.
 else
-if rand 80
+if rand 90
 end
 endif
 ' Day in, day out. This is all I do in 24 hours a day.
-if rand 10
+if rand 5
 yell I want a vacation!
 endif
 endif
