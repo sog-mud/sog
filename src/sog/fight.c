@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.72 1998-09-22 18:07:15 fjoe Exp $
+ * $Id: fight.c,v 1.73 1998-09-22 18:10:44 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2604,7 +2604,7 @@ void do_flee(CHAR_DATA *ch, const char *argument)
 		if (!IS_NPC(ch)) {
 			char_nputs(MSG_YOU_FLED_FROM_COMBAT, ch);
 			if (ch->level < LEVEL_HERO) {
-				char_nprintf(ch, "You lose %d exps.\n\r", 10);
+				char_printf(ch, "You lose %d exps.\n\r", 10);
 				gain_exp(ch, -10);
 			}
 		} else
@@ -2757,7 +2757,8 @@ void do_dishonor(CHAR_DATA *ch, const char *argument)
 			char_puts("You dishonored yourself "
 				     "and flee from combat.\n\r",ch);
 			if (ch->level < LEVEL_HERO) {
-				char_nprintf(ch, "You lose %d exps.\n\r", ch->level);
+				char_printf(ch, "You lose %d exps.\n\r",
+					    ch->level);
 				gain_exp(ch, -(ch->level));
 			}
 		}
