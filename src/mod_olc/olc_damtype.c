@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_damtype.c,v 1.14 2002-03-20 19:39:43 fjoe Exp $
+ * $Id: olc_damtype.c,v 1.15 2002-03-21 13:46:39 fjoe Exp $
  */
 
 /*
@@ -145,7 +145,7 @@ OLC_FUN(damted_save)
 		act_char("Damage types are not changed.", ch);
 		return FALSE;
 	}
-	fp = olc_fopen(ETC_PATH, DAMTYPE_CONF, ch, SECURITY_MATERIAL);
+	fp = olc_fopen(ETC_PATH, DAMTYPES_CONF, ch, SECURITY_MATERIAL);
 	if (fp == NULL)
 		return FALSE;
 

@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.148 2002-03-21 13:30:43 fjoe Exp $
+ * $Id: recycle.c,v 1.149 2002-03-21 13:46:40 fjoe Exp $
  */
 
 /***************************************************************************
@@ -136,12 +136,10 @@ const char HOMETOWNS_CONF	[] = "hometowns.conf";	// notrans
 const char SKILLS_CONF		[] = "skills.conf";	// notrans
 const char SOCIALS_CONF		[] = "socials.conf";	// notrans
 const char SYSTEM_CONF		[] = "system.conf";	// notrans
-const char LANG_CONF		[] = "lang.conf";	// notrans
 const char CMD_CONF		[] = "cmd.conf";	// notrans
-const char DAMTYPE_CONF		[] = "damtype.conf";	// notrans
+const char DAMTYPES_CONF	[] = "damtypes.conf";	// notrans
 const char MATERIALS_CONF	[] = "materials.conf";	// notrans
 const char LIQUIDS_CONF		[] = "liquids.conf";	// notrans
-const char CC_EXPR_CONF		[] = "cc_expr.conf";	// notrans
 const char UHANDLERS_CONF	[] = "uhandlers.conf";	// notrans
 const char FORMS_CONF		[] = "forms.conf";	// notrans
 const char EFFECTS_CONF		[] = "effects.conf";	// notrans

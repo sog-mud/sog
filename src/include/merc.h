@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.390 2002-03-21 13:30:30 fjoe Exp $
+ * $Id: merc.h,v 1.391 2002-03-21 13:46:37 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2533,12 +2533,10 @@ extern const char HOMETOWNS_CONF[];
 extern const char SKILLS_CONF	[];
 extern const char SOCIALS_CONF	[];
 extern const char SYSTEM_CONF	[];
-extern const char LANG_CONF	[];
 extern const char CMD_CONF	[];
-extern const char DAMTYPE_CONF	[];
+extern const char DAMTYPES_CONF	[];
 extern const char MATERIALS_CONF[];
 extern const char LIQUIDS_CONF	[];
-extern const char CC_EXPR_CONF	[];
 extern const char UHANDLERS_CONF[];
 extern const char FORMS_CONF	[];
 extern const char EFFECTS_CONF	[];
