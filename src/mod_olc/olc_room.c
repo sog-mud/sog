@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.101 2001-11-15 21:19:50 avn Exp $
+ * $Id: olc_room.c,v 1.102 2001-11-15 22:21:24 avn Exp $
  */
 
 #include "olc.h"
@@ -1102,6 +1102,7 @@ DO_FUN(do_resets, ch, argument)
 		 */
 		RESET_DATA *reset, *reset_next;
 		int deleted = 0;
+		const char *dlt;	/* which reset commands depend on it */
 
 		if (!is_number(arg2)) {
 			do_resets(ch, "?");
@@ -1120,13 +1121,27 @@ DO_FUN(do_resets, ch, argument)
 			return;
 		}
 
+		switch (reset->command) {
+		case 'M':
+			dlt = "GEP";
+			break;
+		case 'O':
+		case 'E':
+		case 'G':
+			dlt = "P";
+			break;
+		default:
+			dlt = "";
+			break;
+		}
+
 		do {
 			reset_next = reset->next;
 			reset_del(room, reset);
 			reset_free(reset);
 			deleted++;
 			reset = reset_next;
-		} while (reset != NULL && strchr("GEP", reset->command) != NULL);
+		} while (reset != NULL && strchr(dlt, reset->command) != NULL);
 
 		TOUCH_AREA(room->area);
 		act_puts("Deleted $j reset(s).", ch, (void*)deleted, NULL,
