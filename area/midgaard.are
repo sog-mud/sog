@@ -197,7 +197,7 @@ healer лекарь~
 ~
 @eng Although retired from adventuring, the healer still lends a hand.
 Type 'heal' to see a listing of spells.
-@rus Несмотря на то, что лекарь уже давно на пенсии, он всегда готов подзаработать
+@rus Несмотря на то, что лекарь уже давно на пенсии, он всегда готов подзаработать,
 вылечив парочку раненых искателей приключений.
 Напиши "HEAL" чтобы получить список услуг.
 ~
@@ -4415,7 +4415,7 @@ leather~
 container 0 AK
 50 F 0 20 100
 1 10 9 G
-G none
+G male
 #3398
 map canyon elemental~
 @eng a map of elemental canyon@rus карта elemental canyon'а~

@@ -145,7 +145,7 @@ stand stand female 300
 0 0 medium unknown
 #10008
 fisherman man рыбак мужчина~
-@eng a fisherman@rus ~~рыбак~~~
+@eng a fisherman@rus рыбак~
 @eng You see a clam fisherman waiting for his catch of the day.
 @rus Задумчивый рыбак (fisherman) спокойно занимается своим обычным делом.
 ~
@@ -206,7 +206,7 @@ stand stand male 300
 0 0 huge unknown
 #10011
 speaker оратор~
-@eng a speaker@rus ~~оратор~~~
+@eng a speaker@rus оратор~
 @eng There is a speaker giving a speech to the crowd of listeners.
 @rus Оратор (speaker) собрал вокруг себя кружок единомышленников.
 ~
@@ -250,7 +250,7 @@ stand stand male 300
 0 0 medium unknown
 #10013
 healer доктор~
-@eng a healer@rus ~~доктор~~~
+@eng a healer@rus доктор~
 @eng The town healer is here.
 @rus Городской доктор (healer) задремал в ожидании посетителей.
 ~
@@ -292,7 +292,7 @@ stand stand male 300
 0 0 large unknown
 #10015
 thief воришка~
-@eng a thief@rus ~~воришка~~~
+@eng a thief@rus воришка~
 @eng A small thief is here trying to steal your money.
 @rus Маленький воришка (thief) пытается срезать у тебя кошелек.
 ~
@@ -313,7 +313,7 @@ stand stand male 300
 0 0 small unknown
 #10016
 beggar попрошайка~
-@eng a beggar@rus ~~попрошайка~~~
+@eng a beggar@rus попрошайка~
 @eng There is a ugly little beggar asking for your money here.
 @rus Оборванный уличный попрошайка (beggar) дергает тебя за рукав, выпрашивая пару монет.
 ~
@@ -334,7 +334,7 @@ stand stand male 300
 0 0 medium unknown
 #10017
 bone woman женщина эди~
-@eng The Bone Woman@rus ~~Эди~~~
+@eng The Bone Woman@rus Эди~
 @eng A interesting woman is here fooling around with some bones.
 @rus Странная женщина (woman) стоит неподалеку от тебя.
 ~
@@ -357,7 +357,7 @@ stand stand female 11300
 0 0 medium unknown
 #10018
 gripper хватало~
-@eng a nasty gripper@rus ~~хватало~~~
+@eng a nasty gripper@rus хватало~
 @eng There is a nasty, little gripper waiting to attack you.
 @rus Хватало (gripper) поджидает удобного момента, чтобы напасть на тебя.
 ~
@@ -422,7 +422,7 @@ stand stand male 300
 0 0 medium unknown
 #10021
 great red dragon дракон красный скарлет scarlet~
-@eng Scarlet@rus ~~Скарлет~~~
+@eng Scarlet@rus Скарлет~
 @eng You see a giant dragon that Darken Rahl uses to fly around.
 @rus Большой красный дракон (dragon) лежит в стороне от дороги.
 ~
@@ -444,7 +444,7 @@ stand stand female 300
 c L giant unknown
 #10022
 shadow people призрак~
-@eng an evil shadow person@rus ~~призрак~~~
+@eng an evil shadow person@rus призрак~
 @eng An evil shadow person is here.
 @rus Призрак (shadow) смотрит на тебя, ожидая твоих действий.
 ~
@@ -461,7 +461,7 @@ stand stand male 300
 0 0 medium unknown
 #10023
 bar tender бармен человечек толстый маленький~
-@eng the bar tender@rus ~~бармен~~~
+@eng the bar tender@rus бармен~
 @eng A fat little bar tender is here serving drinks.
 @rus Толстый маленький человечек (bar tender) суетится вокруг.
 ~
@@ -573,9 +573,9 @@ stand stand none 300
 0 0 small unknown
 #10029
 mord sith морд-сит сит~
-@eng a evil mord-sith@rus ~~морд-сит~~~
+@eng Mord-Sith@rus Морд-Сит~
 @eng Here sands the dreadful Mord-Sith waiting to take you as her pet.
-@rus Морд-сит (sith) ждет момента, когда сможет подчинить тебя своей воле.
+@rus Морд-Сит (Mord-Sith) ждет момента, когда сможет подчинить тебя своей воле.
 ~
 @eng This Mord-Sith does not seem to be afraid of you. She has an item
 about her neck that is gleaming in a white aura. This creature is
@@ -652,6 +652,26 @@ ABFT Vbu -1000 0
 BCDEFIKMN AB IJKO HQY
 stand stand male 350
 c L giant unknown
+#10033
+mord sith морд-сит denna денна woman женщина~
+@eng Denna@rus Денна~
+@eng Here sands the dreadful Mord-Sith waiting to take you as her pet.
+@rus Женщина (woman), в забрызганном кровью платье, глядит в твою сторону.
+~
+@eng This Mord-Sith does not seem to be afraid of you. She has an item
+about her neck that is gleaming in a white aura. This creature is
+very frightening. You better leave quick.
+@rus Красивая девушка с толстой косой, перекинутой через плечо. Но мрачный огонь,
+горящий в ее глазах, мягко говоря, пугает. Ее одежда забрызгана кровью. Надо
+полагать, она недавно занималась со своим воспитанником.
+~
+human~
+ABCGT GJV -1000 0
+120 0 50d10+30000 10d10+10203 20d15+95 wrath
+-77 -77 -70 -40
+CDEFIKN IP I M
+stand stand female 300
+0 0 large unknown
 #0
 
 #OBJECTS
@@ -952,9 +972,9 @@ A
 18 3
 G none
 #10023
-agiel sword weapon~
-a Mord-Sith's Agiel~
-A magical weapon has been left here.~
+agiel weapon эйджил оружие~
+@eng a mord-sith agiel@rus эйджил~
+@eng A magical weapon has been left here.@rus Странное магическое оружие (agiel) оставлено здесь своей хозяйкой.~
 unknown~
 weapon ABCEGM AN
 exotic 18 7 slash 0
@@ -969,9 +989,9 @@ A
 12 20
 G none
 #10024
-bracer power~
-the Bracer of Power~
-There is a bracer in the mud here.~
+bracer power браслет магический рала~
+@eng the bracer of power@rus ~~магический~~ ~~браслет~~ Рала~
+@eng There is a bracer in the mud here.@rus Браслет (bracer), сделанный из какого-то темного материала, валяется около твоих ног.~
 unknown~
 armor ABC AM
 32 32 33 25 0
@@ -1861,13 +1881,18 @@ Back the way you came.
 Z 0 10034
 S
 #10036
-The Peoples Palace.~
-Finally you're at the Peoples Palace. This palace sure is
+@eng The Peoples palace@rus Народный дворец~
+@eng Finally you're at the Peoples Palace. This palace sure is
 big. Bigger then anything you have ever seen. The doors are ten
 times as big as you, yet they stand open..as if you're being
 expected. The stairs are made from white marble and are spotless.
 The exits are north into the palace or south to the BIG scary
 DRaGoN.
+@rus Наконец, ты достиг Народного дворца. Он действительно оказался большим.
+Гораздо большим, чем ты предполагал. Справедливости ради, надо признать,
+что это самое большое строение, виденное тобой за всю жизнь. Одни лишь
+двери в десять раз больше, чем ты. И, как ни странно, они открыты. К дверям
+ведет лестница из великолепного белого мрамора.
 ~
 0 0 field
 D0
@@ -1882,13 +1907,21 @@ The big scary DRaGoN.
 Z 0 10035
 S
 #10038
-The Long Hallway.~
-You enter the Palace and head down a long hallway. There are
+@eng The long hallway@rus В коридоре~
+@eng You enter the Palace and head down a long hallway. There are
 many people wandering about this castle and others are praying or
 chanting about Darken Ralh. You pass one Devotion Room afilled
 with these people. You decide not to stop and keep on going. The
 exits are to the north, south and to the east there is a room
 filled with devoters.
+@rus Войдя в Народный дворец, ты просто потерялся в обилии и великолепии его 
+внутренних помещений. Бесчисленные залы с мраморными изваяниями, огромные 
+изысканно украшенные комнаты, многолюдные площадки для посвящений, мраморные 
+лестницы и темные коридоры. И повсюду огромное количество людей, занятых своими
+делами и необращающих на тебя никакого внимания. До тебя долетают обрывки 
+разговоров о Магистре Рале, повелителе этих мест. Среди празднично одетых людей
+выделяются молодые женщины в кожаных одеяниях. Это Морд-Сит -- одни из самых
+верных слуг Магистра.
 ~
 0 0 inside
 D0
@@ -1908,13 +1941,18 @@ Back to the gates.
 Z 0 10036
 S
 #10039
-The Devotion Room.~
-This room is filled with people, heads bowed to the floor
+@eng The devotion room@rus Площадка для посвящений~
+@eng This room is filled with people, heads bowed to the floor
 chanting a harmonic tune. There is a giant pool in the center of
 the room filled with water. The place looks like an indoor
 garden. You get shivers up your spine just at the sight of all
 these people devoted to Darken Rahl. The exits are north and back
 west.
+@rus Огромная комната с мраморными колоннами и затейливо украшенным лепниной 
+потолком. Пол выложен разноцветными плитками, а в ее центре -- огромный
+бассейн, наполненный кристально чистой водой.Помещение полно коленоприклоненных
+людей, распевно произносящих какие-то слова. Прислушавшись, ты понимаешь что
+именно они говорят. Это слова посвящения Магистру Ралу.
 ~
 0 0 inside
 D0
@@ -1929,12 +1967,18 @@ Back to the hallway.
 Z 0 10038
 S
 #10040
-The Room of the Mord-Siths.~
-This room is filled with the horid smell of blood and sweat
+@eng The room of the Mord-Siths@rus Комната Морд-Сит~
+@eng This room is filled with the horid smell of blood and sweat
 combined. There are people chained to beams and women dressed in
 red leather torturing them. The floors are covered in blood. The
 moment you enter this room you regret it. The Mord-Siths have
 spotted you and are heading in your direction. Better run FAST!
+@rus Кажется все в комнате прпиталось запахом крови и пота прикованных к стене
+узников. Прямо таки физически ощущается как их страдание, так и наслаждение 
+мучающих их женщин в красных кожанных одеяниях. Выложенный мраморной плиткой
+пол сплошь покрыт лужами крови. Ты еще не успел зайти, а Морд-сит уже обратили
+на тебя внимание. Они с удовольствием добавят тебя к уже имеющимся в их
+распоряжении "воспитанникам".
 ~
 0 0 inside
 D2
@@ -1944,14 +1988,19 @@ Back to the Devotion room.
 Z 0 10039
 S
 #10041
-The End of The Hallway.~
-You have reached the end of the hallway..on this floor.
+@eng The end of the hallway@rus Конец коридора~
+@eng You have reached the end of the hallway..on this floor.
 Before you are giant doors with gold doorknobs. There is the
 sound of birds tweeting from within. You feel the the magic
 surrounding this room...
 
 You have found Darken Rahl! The door opens automatically before
 you. You may enter or go back to the Mord-Siths.
+@rus Наконец коридор, по которому ты шел, закончился, и твоему взору предстала
+массивная дверь с золотой ручкой. Тишина коридора нарушилась пением птиц
+доносящимся из-за нее.
+  Дверь распахивается перед тобой и теперь ты окончательно убеждаешься, что
+именно это место было главной твоей целью. 
 ~
 0 0 inside
 D0
@@ -1966,8 +2015,8 @@ The long hallway.
 Z 0 10038
 S
 #10042
-@eng The Garden of Life.@rus Сад жизни.~
-This is a cavernous room filled with wonders sorts of
+@eng The garden of life@rus Сад жизни~
+@eng This is a cavernous room filled with wonders sorts of
 magical plants. Leaded windows high overhead let in the light for
 the lush plants. Around the outside of the room are flowers set
 in beds, with walkways winding through. Beyond the flowers are
@@ -1983,7 +2032,16 @@ Beyond the slab stands a polished stone block set next to a fire
 pit.  In the centre of the lawn lies a round area of white
 sorcerer's sand, ringed with torches that burn with fluid flames.
 
-The only exit is south.
+@rus Огромная пещероподобная комната, вся наполненная зеленью. Солнечные лучи,
+струясь через стеклянный купол, создают нежный рисунок света и тени. Меж клумб
+с цветами, собранными со всех концов света, проложены песочные дорожки.
+Среди этого цветущего великолепия в художественном беспорядке разбросаны
+небольшие деревца и мраморные статуи, обвитые виноградной лозой. В центре
+сада небольная зеленая лужайка со свежевыкошенной травой. Там, из-под земли
+бьет источник с кристально чистой водой.
+  Среди цветущего великолепия этого сада кажется неуместным белый мраморный
+алтарь, с выгравированными на нем непонятными символами и круг белого 
+магического песка подле него.
 ~
 0 0 inside
 D2
@@ -2093,12 +2151,15 @@ M 0 10027 2 10032 1	* an underworld beast (The Azrith Plains.)
 M 0 10022 4 10034 1	* an evil shadow person (The Azrith Plains.)
 M 0 10022 4 10034 1	* an evil shadow person (The Azrith Plains.)
 M 0 10021 1 10035 1	* Scarlet (At the BIG scary DRaGoN!)
-M 0 10029 2 10038 1	* a evil mord-sith (The Long Hallway.)
-E 0 10023 0 16		*	a Mord-Sith's Agiel: wielded
-M 0 10029 2 10040 1	* a evil mord-sith (The Room of the Mord-Siths.)
-M 0 10030 2 10041 1	* a devoter of Darken Rahl (The End of The Hallway.)
-M 0 10031 1 10042 1	* The Evil Darken Rahl (The Garden of Life.)
-E 0 10024 0 14		*	the Bracer of Power: on the left wrist
+M 0 10029 2 10038 1	* Mord-Sith (The long hallway)
+E 0 10023 0 16		*	a mord-sith agiel: wielded
+M 0 10033 1 10040 1	* Denna (The room of the Mord-Siths)
+E 0 10023 0 16		*	a mord-sith agiel: wielded
+M 0 10029 1 10040 1	* Mord-Sith (The room of the Mord-Siths)
+E 0 10023 0 16		*	a mord-sith agiel: wielded
+M 0 10030 2 10041 1	* a devoter of Darken Rahl (The end of the hallway)
+M 0 10031 1 10042 1	* The Evil Darken Rahl (The garden of life)
+E 0 10024 0 14		*	the bracer of power: on the left wrist
 S
 
 #SHOPS

@@ -149,10 +149,13 @@ G none
 
 #ROOMS
 #95400
-In the caven~
-Beyond the water fall, you are in the caven. Things getting darker. You
+@eng In the caven@rus В пещере~
+@eng Beyond the water fall, you are in the caven. Things getting darker. You
 seek for the light but you couldn't find. But the light coming from the
 water fall still can light the enterance of the caven.
+@rus Пройдя сквозь водопад, ты оказался в пещере. Тут темно, и ты пытаешься найти
+какой-нибудь светильник, но не можешь. Однако, света, проходящего сквозь 
+водопад, достаточно для освещения входа.
 ~
 0 KWX city
 D1
@@ -179,7 +182,7 @@ Z -1 95400
 D3
 ~
 ~
-Z -1 95402
+DZ -1 95402
 S
 #95402
 @eng Inside the Caven@rus В пещере~
@@ -191,7 +194,7 @@ there seems no way from the west of the caven.
 D1
 ~
 ~
-Z -1 95401
+DZ -1 95401
 D3
 w
 ~

@@ -1,4 +1,16 @@
 #WORD
+Name твой~
+BaseLen 2
+Form 1 -оя~
+Form 2 -ое~
+End
+
+#WORD
+Name видимый~
+Form 1 видимая~
+End
+
+#WORD
 Name МЕРТВ~
 Form 1 МЕРТВА~
 Form 2 МЕРТВО~

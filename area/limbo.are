@@ -341,7 +341,7 @@ wood~
 weapon 0 AO
 arrow 1 1 pierce 0
 1 5 10 P
-G none
+G female
 #7
 wooden bow~
 a wooden bow~
@@ -610,7 +610,7 @@ wood~
 weapon 0 AO
 arrow 1 1 pierce H
 1 5 10 P
-G none
+G female
 #35
 arrow red стрела багровая~
 @eng red arrow@rus ~~багровая~~ ~~стрела~~~
@@ -619,7 +619,7 @@ wood~
 weapon 0 AO
 arrow 1 1 pierce A
 1 5 10 P
-G none
+G female
 #36
 arrow white стрела белая~
 @eng white arrow@rus ~~белая~~ ~~стрела~~~
@@ -628,7 +628,7 @@ wood~
 weapon 0 AO
 arrow 1 1 pierce B
 1 5 10 P
-G none
+G female
 #37
 arrow стрела blue голубая~
 @eng blue arrow@rus ~~голубая~~ ~~стрела~~~
@@ -637,7 +637,7 @@ wood~
 weapon 0 AO
 arrow 1 1 pierce G
 1 5 10 P
-G none
+G female
 #40
 song hero~
 the %s Song of %s~
@@ -669,8 +669,8 @@ A
 G none
 #42
 vial potion~
-a potion vial~
-@eng A vial of a potion is left here.@rus Пустая бутылка (vial) выброшена кем-то.~
+@eng a potion vial@rus ~~пустой~~ ~~пузырек~~~
+@eng A vial of a potion is left here.@rus Пустой бутылек (vial) выброшен кем-то.~
 glass~
 drink 0 AO
 5 0 'water' 0 0
@@ -679,7 +679,7 @@ E
 vial~
 It's a glass vial used to hold magical potions. It looks fragile.
 ~
-G none
+G male
 #43
 potion silver~
 a silver potion~

@@ -55,6 +55,24 @@ A 0 0 0
 sit sit male 0
 0 0 medium unknown
 M random 94103 7~
+#94105
+dragon~
+@eng Tiny beautiful dragon@rus Прекрасный дракон~
+@eng Beautiful dragon flying here.
+@rus {WПрекрасный дракон{x летает в воздухе.
+~
+~
+human~
+A B 1000 0
+50 50 1000d4+200 0d0+0 10d4+5 slash
+0 0 0 0
+0 BD 0 H
+stand stand none 0
+D X tiny unknown
+F for AHMV
+F par BCDEGHIJK
+M random 94104 2~
+M random 94105 1~
 #0
 
 #OBJECTS
@@ -66,6 +84,7 @@ air~
 container 0 0
 10000 ABCD 94101 10000 0
 0 0 0 P
+G none
 #94101
 key~
 @eng {WGlowing {xkey@rus {WСияющий {xключ~
@@ -74,6 +93,7 @@ light~
 key G APQ
 0 0 0 0 0
 25 10 10 P
+G none
 #94102
 statue~
 @eng Statue the God of Sun@rus Статуэтка Бога Солнца~
@@ -82,6 +102,7 @@ unknown~
 wand IT AO
 40 10 10 'lightning breath' 0
 25 0 0 P
+G none
 #94103
 resting place~
 @eng resting place@rus месте отдыха~
@@ -90,6 +111,7 @@ unknown~
 furniture 0 0
 AC FJKLO FIL BCEH DGH
 0 0 0 P
+G none
 #94104
 portal gate~
 @eng Portal@rus Портал~
@@ -98,6 +120,7 @@ unknown~
 portal RY 0
 0 0 A 94101 0
 0 0 0 P
+G none
 #94105
 dagger~
 @eng dagger@rus Ножичек~
@@ -108,6 +131,7 @@ dagger 300 30 pierce D
 0 0 0 P
 A
 18 500
+G none
 #94106
 kotel~
 @eng kotel@rus Котел~
@@ -116,6 +140,7 @@ unknown~
 fountain FIR 0
 0 0 'local specialty' 0 0
 0 0 0 P
+G none
 #94107
 disease potion~
 @eng potion of many cure possibilities@rus Снадобье от многих болезней~
@@ -124,14 +149,16 @@ glass~
 potion T AO
 50 'cure poison' 'cure disease' 'cure blindness' 'reserved'
 30 50 80 P
+G none
 #94108
 apple~
 @eng apple@rus яблоко~
 @eng Magic apple glowing brightly.@rus Волшебное яблоко ярко светиться.~
 meet~
 pill R AO
-30 'slow' 'sleep' 'sleep' 'sleep'
+20 'refresh' 'heal' 'sleep' 'sanctuary'
 0 0 0 P
+G none
 #94109
 barrel~
 @eng barrel@rus бочонок~
@@ -140,6 +167,16 @@ wood~
 drink R A
 1000 0 'water' 0 0
 0 0 0 P
+G none
+#94110
+holy spear~
+@eng holy spear@rus копьё святого Георгия~
+@eng Holy spear lying on the ground.@rus Копьишко валяется на земле.~
+unknown~
+weapon 0 AN
+spear 10 100 chill ABCDEGHI
+105 0 0 P
+G none
 #0
 
 #ROOMS
@@ -205,6 +242,7 @@ M 0 94100 1 94100 1	* Very HUGE {WWhite {xdragon ()
 E 0 94101 0 3		*	{WGlowing {xkey: around the neck (1)
 O 0 94103 0 94100	* resting place ()
 O 0 94104 0 94100	* Portal ()
+M 0 94105 1 94100 1	* Tiny beautiful dragon ()
 O 0 94106 0 94102	* kotel (Inside the mighty oak)
 M 0 94101 1 94102 1	* Druid (Inside the mighty oak)
 G 0 94107 0		*	potion of many cure possibilities
@@ -250,6 +288,15 @@ endif
 if rand 5
 emote корчиться в агонии.
 endif
+~
+#94104
+say Hi, stranger
+cast teleport
+mob load 94108
+drop apple
+~
+#94105
+mob goto 94100
 ~
 #0
 

@@ -8,7 +8,7 @@
 @eng No lines left to remove.
 @rus Больше нечего удалять.
 ~
-@eng $p looks worse than $P.@rus $p выглядит хуже $P.~
+@eng $p looks worse than $P.@rus $p выглядит хуже, чем $c3{$P}.~
 @eng good@rus хорошее~
 @eng You have {W%d{z minutes to complete this quest.@rus У тебя есть {W%d{z мин. на выполнение этого задания.~
 @eng You can't see a thing!
@@ -27,7 +27,7 @@
 @eng  is resting on %s.@rus  отдыхает на %s.~
 @eng the most so far today@rus это максимум на сегодня~
 @eng gold coins@rus золотые монеты~
-@eng You hold $p in your hand.@rus Ты берешь $p в руку.~
+@eng You hold $p in your hand.@rus Ты берешь $c3{$p} в руку.~
 @eng Time left for current quest: {W%d{x.
 @rus У тебя осталось {W%d{x мин. на выполнение текущего задания.
 ~
@@ -40,7 +40,7 @@
 @rus Попробуй просто открыть.
 ~
 @eng $n's spell fizzles out and fails.@rus Заклинание $n не произвело видимого эффекта.~
-@eng $n lights $p and holds it.@rus $n берет $p и зажигает его.~
+@eng $n lights $p and holds it.@rus $n берет $c3{$p} и зажигает $gp{его}.~
 @eng {Mis writhing in agony{x.@rus {Mбьется в агонии{x.~
 @eng tea@rus чай~
 @eng Your description is:
@@ -54,16 +54,16 @@ Use 'desc edit' to edit your description.
 @eng Your gain is {C%d{x hp, {C%d{x mana, {C%d{x mv {C%d{x prac.
 @rus Ты получаешь {C%d{x hp, {C%d{x mana, {C%d{x mv {C%d{x prac.
 ~
-@eng You stand on $p.@rus Ты встаешь на $p.~
+@eng You stand on $p.@rus Ты встаешь на $c3{$p}.~
 @eng You have %d gold, %d silver@rus У тебя %d золотых (gold), %d серебрянных (silver) монет~
 @eng <worn about body>   $t@rus <накинуто сверху>      $t~
 @eng <scratched tattoo>  $t@rus <татуировка>           $t~
-@eng $n locks $p.@rus $n замыкает $p.~
+@eng $n locks $p.@rus $n замыкает $c3{$p}.~
 @eng Don't even think about it.
 @rus Даже не думай об этом.
 ~
 @eng {csitting{x@rus {cсидишь{x~
-@eng You drop $p.@rus Ты выбрасываешь $c3{$p}.~
+@eng You drop $p.@rus $n бросает $c3{$p}.~
 @eng Pick what?
 @rus Взломать что?
 ~
@@ -75,7 +75,7 @@ Use 'desc edit' to edit your description.
 ~
 @eng $n prays for transportation!@rus $n молит о возвращении домой!~
 @eng $n appears in the room.@rus Здесь появляется $n.~
-@eng You wear $p on your left finger.@rus Ты надеваешь $p на палец левой руки.~
+@eng You wear $p on your left finger.@rus Ты надеваешь $c3{$p} на палец левой руки.~
 @eng You can't sleep on that.
 @rus Ты не можешь на этом спать.
 ~
@@ -87,7 +87,7 @@ Use 'desc edit' to edit your description.
 ~
 @eng You dodge $n's attack.@rus Ты $gN{уклонился} от атаки $c1{$n}.~
 @eng As you wield it, you will feel that its power will increase continuosly.@rus Взяв катану в руку, ты почувствуешь, как ее мощь постоянно растет.~
-@eng You wake and sit in $p.@rus Ты просыпаешься и садишься в $p.~
+@eng You wake and sit in $p.@rus Ты просыпаешься и садишься в $c3{$p}.~
 @eng $p flickers and goes out.@rus $p прогорел и погас.~
 @eng The rain stopped.@rus Дождь прекратился.~
 @eng I see no door $T here.@rus Я не вижу здесь дверей на $T.~
@@ -106,17 +106,17 @@ Use 'desc edit' to edit your description.
 @eng I'm sorry, but i don't have any quests for you at this time.@rus Мне очень жаль, но у меня нет сейчас заданий для тебя.~
 @eng As a reward, I am giving you %d quest points, and %d gold.@rus В награду я даю тебе %d quest points и %d gold.~
 @eng {Rfighting{x@rus {Rсражаешься{x~
-@eng You feel quite confident with $p.@rus Ты чувствуешь себя уверенно с $p.~
+@eng You feel quite confident with $p.@rus Ты достаточно уверенно владеешь $c3{$p}.~
 @eng You can't sleep while mounted.
 @rus Ты не можешь спать верхом.
 ~
 @eng You can't push while mounted.
 @rus Ты не можешь толкаться верхом.
 ~
-@eng $n picks the lock on $p.@rus $n взламывает замок в $p.~
+@eng $n picks the lock on $p.@rus $n подбирает отмычку к $c2{$p}.~
 @eng $n has arrived.@rus $n прибывает.~
 @eng north@rus на север (north)~
-@eng You rest in $p.@rus Ты садишься отдыхать в $p.~
+@eng You rest in $p.@rus Ты садишься отдыхать в $c3{$p}.~
 @eng Something prevents you to escape that direction.
 @rus Что-то не дает тебе убежать в том направлении.
 ~
@@ -142,7 +142,7 @@ Use 'desc edit' to edit your description.
 @eng You wake up and start resting.
 @rus Ты просыпаешься и садишься отдыхать.
 ~
-@eng You wake up and rest at $p.@rus Ты просыпаешься и садишься отдыхать около $p.~
+@eng You wake up and rest at $p.@rus Ты просыпаешься и садишься отдыхать около $c1{$p}.~
 @eng You don't have that much gold.
 @rus У тебя нет столько золота.
 ~
@@ -151,17 +151,18 @@ Use 'desc edit' to edit your description.
 ~
 @eng $n orders you to '%s', you do.@rus $n приказывает тебе '%s', ты подчиняешься.~
 @eng ({cTranslucent{x) @rus ({cПрозрачно{x) ~
+@eng $n shoots $p to $T.@rus $n выпускает $c3{$p} $T.~
 @eng $n asks $N for a quest.@rus $n просит задание у $N.~
 @eng lemonade@rus лимонад~
 @eng $n's $U $u you.@rus $U $c1{$n} $u тебя.~
-@eng $n sacrifices $p to gods.@rus $n приносит $p в жертву богам.~
+@eng $n sacrifices $p to gods.@rus $n приносит $c3{$p} в жертву богам.~
 @eng $n has created $N!@rus $n $gn{создал} $c3{$N}!~
 @eng There are $J gold and $j $qj{silver coins} in the pile.@rus Ты $gn{насчитал} $J $c3{$qJ{золотых}} и $j $c3{$qj{серебряных монет}}.~
-@eng $n wears $p around $s neck.@rus $n надевает $p на шею.~
+@eng $n wears $p around $s neck.@rus $n надевает $c3{$p} на шею.~
 @eng $n drops some coins.@rus $n выбрасывает несколько монет.~
 @eng $N deflects your attack with $S shield.@rus $N блокирует щитом твою атаку.~
 @eng You sell $P for $j silver $qj{pieces}.@rus Ты продаешь $c3{$P} за $j $c3{$qj{серебряных монет}}.~
-@eng You rest on $p.@rus Ты садишься отдыхать на $p.~
+@eng You rest on $p.@rus Ты садишься отдыхать на $c3{$p}.~
 @eng The $d clicks.@rus $d щелкает.~
 @eng Don't you want a quest?@rus Не хочешь ли получить задание?~
 @eng You already wear two rings.
@@ -182,7 +183,7 @@ Use 'desc edit' to edit your description.
 @eng You can't sit while being ridden.
 @rus Ты не можешь сесть оседланным.
 ~
-@eng $p strikes $n!@rus $p ударяет $n!~
+@eng $p strikes $n!@rus $p попадает в $c3{$n}!~
 @eng $n buys $P.@rus $n покупает $c3{$P}.~
 @eng $N dodges your attack.@rus $N $gN{уклонился} от твоей атаки.~
 @eng  is sleeping in %s.@rus  спит в %s.~
@@ -201,7 +202,7 @@ Use 'desc edit' to edit your description.
 @eng $n wears $p around $s right wrist.@rus $n надевает $p на правое запястье.~
 @eng $n pushes $N to %s.@rus $n выталкивает $N на %s.~
 @eng for {c%d{x hours.@rus на {c%d{x часов.~
-@eng Your $p strikes $N!@rus Твой $p ударяет $N!~
+@eng Your $p strikes $N!@rus $gp{Твой} $p попадает в $c3{$N}!~
 @eng You recall from combat! You lose %d exps.
 @rus Боги вернули тебя домой из битвы! Ты теряешь %d очков опыта.
 ~
@@ -315,6 +316,7 @@ Use 'desc edit' to edit your description.
 ~
 @eng $n's severed head plops on the ground.@rus Отрубленная голова $c1{$n} покатилась по земле.~
 @eng $n steps into $p.@rus $n входит в $p.~
+@eng {cscratches{x@rus {cцарапает{x~
 @eng scatter over the water.~
 @eng The witch curse makes you feeling your life slipping away.
 @rus Ведьмовское проклятие вытягивает из тебя жизнь.
@@ -352,7 +354,7 @@ Use 'desc edit' to edit your description.
 @eng As $n sacrifices the corpse, @rus На жертвенном костре $n осталось лежать ~
 @eng $n tries to camouflage $mself against the lone leaf on the ground.@rus $n пытается замаскироваться под одинокий лист на дороге.~
 @eng You can't cast this spell to $N at this distance.@rus Ты не можешь читать заклинания на $N на таком расстоянии.~
-@eng $p strikes you!@rus $p ударяет тебя!~
+@eng $p strikes you!@rus $p попадает в тебя!~
 @eng water@rus вода~
 @eng dawn@rus рассветает~
 @eng You don't see that here.
@@ -489,7 +491,7 @@ Use 'desc edit' to edit your description.
 ~
 @eng <floating nearby>   $t@rus <кружится поблизости>  $t~
 @eng $n wears $p on $s torso.@rus $n надевает $p.~
-@eng $n puts $p in $P.@rus $n кладет $p в $P.~
+@eng $n puts $p in $P.@rus $n кладет $c3{$p} в $c3{$P}.~
 @eng 
 Players found: %d. Most so far today: %d.
 @rus 
@@ -671,6 +673,7 @@ You peek at the inventory:
 @eng Go and ask the questor. He'll help you.
 @rus Иди к квестору и попроси у него помощи.
 ~
+@eng misses@rus не задевает~
 @eng You eat $p.@rus Ты ешь $c3{$p}.~
 @eng Wow. One gold coin.
 @rus Ух ты. Целый золотой.
@@ -888,7 +891,7 @@ Get back to questor before your time runs out!
 @eng cordial@rus ликер~
 @eng You wake and stand in $p.@rus Ты просыпаешься и встаешь в $p.~
 @eng You don't even know which end is up on $p.@rus Ты даже не знаешь с какой стороны нужно браться за $p.~
-@eng $n's $p strikes $N!@rus $p $n ударяет $N!~
+@eng $n's $p strikes $N!@rus $p $c1{$n} попадает в $c3{$N}!~
 @eng $N smiles happily.@rus $N улыбается.~
 @eng You feel too bloody to go in there now.@rus Ты чувствуешь, что $gn{способен} осквернить это место еще свежей кровью на твоих руках.~
 @eng You are already sleeping.
@@ -1015,12 +1018,12 @@ Get back to questor before your time runs out!
 @eng ({MPink Aura{x) @rus ({MРозовая Аура{x) ~
 @eng $n's durability increases!@rus Стойкость $n увеличивается!~
 @eng You wake and sit on $p.@rus Ты просыпаешься и садишься на $p.~
-@eng You put $p in $P.@rus Ты кладешь $p в $P.~
+@eng You put $p in $P.@rus Ты кладешь $c3{$p} в $c3{$P}.~
 @eng I do not have that item, {W%s{z.@rus У меня этого нет, {W%s{z.~
 @eng $d: you can't carry that many items.@rus $d: ты не можешь унести так много вещей.~
 @eng  is standing here.@rus  стоит здесь.~
 @eng ({bImproved{x) @rus ({bУл. Невидимость{x) ~
-@eng $n puts $p on $P.@rus $n кладет $p на $P.~
+@eng $n puts $p on $P.@rus $n кладет $c3{$p} на $c3{$P}.~
 @eng You're totally frozen!
 @rus Ты заморожен!
 ~
@@ -1047,7 +1050,7 @@ Get back to questor before your time runs out!
 @eng Maybe you should finish fighting first?
 @rus Может для начала перестанешь драться?
 ~
-@eng $n drops $p.@rus $n выбрасывает $c3{$p}.~
+@eng $n drops $p.@rus $n бросает $c3{$p}.~
 @eng You wake and stand up.
 @rus Ты просыпаешься и встаешь.
 ~
@@ -1075,6 +1078,7 @@ Get back to questor before your time runs out!
 @eng You step back into the shadows.
 @rus Ты опять скрываешься в тени.
 ~
+@eng You shoot $p to $T.@rus Ты выпускаешь $c3{$p} $T.~
 @eng You have run out of time for your quest!
 @rus У тебя вышло время, отведенное на задание!
 ~
@@ -1400,6 +1404,7 @@ Get back to questor before your time runs out!
 @eng You butcher $P and create $j $qj{steaks}.@rus Ты $gn{разделал} $c3{$P} и $gn{приготовил} $j $c3{$qj{бифштексов}}.~
 @eng But you are already on a quest!@rus У тебя уже есть задание!~
 @eng $n stands at $p.@rus $n встает около $p.~
+@eng bite@rus укус~
 @eng That's not a container.
 @rus Это не контейнер.
 ~

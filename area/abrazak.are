@@ -1,5 +1,6 @@
 #AREADATA
 Name Heaven~
+Builders arwen~
 VNUMs 15000 15199
 Credits abrazak~
 Security 7
@@ -199,7 +200,7 @@ weapon 0 AN
 mace 2000 2000 stab BCDEGHI
 100 0 0 P
 F
-A 18 10000 HIV
+A 18 10000 u
 F
 I 19 10000 CD
 G none
@@ -247,6 +248,64 @@ darkness~
 treasure ABCEG AS
 0 0 0 0 0
 100 0 0 P
+G none
+#15015
+dress платье~
+@eng a green dress@rus {G~~платье~~ из зеленого муслина{x~
+@eng Beautiful green dress is lying here.@rus Очаровательнейшее муслиновое платье (dress) оставлено своей хозяйкой.~
+unknown~
+clothing GITY AD
+0 0 0 0 0
+95 0 0 P
+G none
+#15016
+диадема diadem~
+@eng a silver diadem@rus ~~серебряная~~ ~~диадема~~~
+@eng A silver diadem is lying here.@rus Очаровательная диадема (diadem) оставлена своей хозяйкой.~
+unknown~
+clothing GITY AE
+0 0 0 0 0
+95 0 0 P
+F
+I 20 -10 CD
+F
+A 20 -10 E
+F
+A 20 -10 C
+F
+A 20 -10 G
+F
+A 20 -10 m
+F
+A 20 -10 F
+F
+A 20 -10 l
+F
+A 20 -10 D
+F
+A 20 -10 t
+G none
+#15017
+посох staff~
+@eng a wooden staff@rus ~~посох~~, обвитый лианами~
+@eng A strange staff is lying here.@rus Странного вида посох (staff) оставлен кем-то.~
+wood~
+weapon GI AN
+spear 10 20 none 0
+95 0 0 P
+G none
+#15018
+ожерелье necklace~
+@eng a pearl necklace@rus ~~жемчужное~~ ~~ожерелье~~~
+@eng A pearl necklace is lying here.@rus Ожерелье (necklace) из черного жемчуга забыто здесь своей хозяйкой.~
+pearl~
+jewelry GIT AC
+0 0 0 0 0
+95 0 0 P
+A
+19 250
+A
+18 250
 G none
 #15020
 box~

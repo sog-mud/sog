@@ -58,6 +58,26 @@ Form 5 -е~
 End
 
 #WORD
+Name платье~
+BaseLen 5
+Form 1 -я~
+Form 2 -ю~
+Form 3 -е~
+Form 4 -ем~
+Form 5 -е~
+End
+
+#WORD
+Name видимый~
+BaseLen 5
+Form 1 -ого~
+Form 2 -ому~
+Form 3 -ого~
+Form 4 -ым~
+Form 5 -ом~
+End
+
+#WORD
 Name странная~
 BaseLen 6
 Form 1 -ой~
@@ -83,6 +103,16 @@ BaseLen 10
 Form 1 -а~
 Form 2 -у~
 Form 3 -а~
+Form 4 -ом~
+Form 5 -е~
+End
+
+#WORD
+Name посох~
+BaseLen 5
+Form 1 -а~
+Form 2 -у~
+Form 3 -~
 Form 4 -ом~
 Form 5 -е~
 End
@@ -130,6 +160,16 @@ Form 2 -ому~
 Form 3 -ого~
 Form 4 -ым~
 Form 5 -ом~
+End
+
+#WORD
+Name видимая~
+BaseLen 5
+Form 1 -ой~
+Form 2 -ой~
+Form 3 -ую~
+Form 4 -ой~
+Form 5 -ой~
 End
 
 #WORD
@@ -195,6 +235,16 @@ Form 2 -ому~
 Form 3 -ого~
 Form 4 -ым~
 Form 5 -ом~
+End
+
+#WORD
+Name эйджил~
+BaseLen 6
+Form 1 -а~
+Form 2 -у~
+Form 3 -~
+Form 4 -ом~
+Form 5 -е~
 End
 
 #WORD
@@ -269,6 +319,16 @@ Form 1 -а~
 Form 2 -у~
 Form 3 -а~
 Form 4 -ом~
+Form 5 -е~
+End
+
+#WORD
+Name денна~
+BaseLen 4
+Form 1 -ы~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ой~
 Form 5 -е~
 End
 
@@ -461,6 +521,16 @@ Form 4 -ем~
 End
 
 #WORD
+Name диадема~
+BaseLen 6
+Form 1 -ы~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ой~
+Form 5 -е~
+End
+
+#WORD
 Name серебряная монета~
 Form 3 серебряную монету~
 End
@@ -501,6 +571,15 @@ Form 2 -у~
 Form 3 -а~
 Form 4 -ом~
 Form 5 -е~
+End
+
+#WORD
+Name пустой~
+BaseLen 4
+Form 1 -ого~
+Form 2 -ому~
+Form 4 -ым~
+Form 5 -ом~
 End
 
 #WORD
@@ -590,6 +669,16 @@ Form 2 -ой~
 Form 3 -ую~
 Form 4 -ой~
 Form 5 -ой~
+End
+
+#WORD
+Name ожерелье~
+BaseLen 7
+Form 1 -я~
+Form 2 -ю~
+Form 3 -е~
+Form 4 -ем~
+Form 5 -е~
 End
 
 #WORD
@@ -919,6 +1008,16 @@ Form 5 -е~
 End
 
 #WORD
+Name жемчужное~
+BaseLen 7
+Form 1 -ого~
+Form 2 -ому~
+Form 3 -ое~
+Form 4 -ым~
+Form 5 -ом~
+End
+
+#WORD
 Name стрела~
 BaseLen 5
 Form 1 -ы~
@@ -1030,11 +1129,29 @@ Form 5 -е~
 End
 
 #WORD
+Name пузырек~
+BaseLen 5
+Form 1 -ька~
+Form 2 -ьку~
+Form 4 -ьком~
+Form 5 -ьке~
+End
+
+#WORD
 Name волк~
 BaseLen 4
 Form 1 -а~
 Form 2 -у~
 Form 3 -а~
+Form 4 -ом~
+Form 5 -е~
+End
+
+#WORD
+Name колчан~
+BaseLen 6
+Form 1 -а~
+Form 2 -у~
 Form 4 -ом~
 Form 5 -е~
 End
