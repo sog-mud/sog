@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.357 2002-10-24 07:54:47 tatyana Exp $
+ * $Id: handler.c,v 1.358 2002-10-27 06:48:10 tatyana Exp $
  */
 
 /***************************************************************************
@@ -628,6 +628,8 @@ extract_char(CHAR_DATA *ch, int flags)
 	for (wch = char_list; wch && !IS_NPC(wch); wch = wch->next) {
 		if (PC(wch)->reply == ch)
 			PC(wch)->reply = NULL;
+		if (PC(wch)->retell == ch)
+			PC(wch)->retell = NULL;
 	}
 
 	/*

@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.393 2002-08-30 09:01:54 avn Exp $
+ * $Id: merc.h,v 1.394 2002-10-27 06:48:04 tatyana Exp $
  */
 
 /***************************************************************************
@@ -1600,6 +1600,7 @@ struct pc_data
 
 	const char *		wanted_by;
 	CHAR_DATA *		reply;		/* for do_reply */
+	CHAR_DATA *		retell;		/* for do_retell */
 	note_t *		pnote;
 
 	int			exp;		/* total exp */

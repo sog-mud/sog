@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.266 2002-10-10 13:32:49 kostik Exp $
+ * $Id: act_comm.c,v 1.267 2002-10-27 06:48:06 tatyana Exp $
  */
 
 /***************************************************************************
@@ -67,6 +67,7 @@ DECLARE_DO_FUN(do_replay);
 DECLARE_DO_FUN(do_say);
 DECLARE_DO_FUN(do_tell);
 DECLARE_DO_FUN(do_reply);
+DECLARE_DO_FUN(do_retell);
 DECLARE_DO_FUN(do_gtell);
 DECLARE_DO_FUN(do_emote);
 DECLARE_DO_FUN(do_pmote);
@@ -2351,6 +2352,22 @@ DO_FUN(do_toggle, ch, argument)
 		act_puts(IS_SET(*bits, t->bit) ? t->msg_on : t->msg_off,
 			 ch, t->desc, NULL, TO_CHAR, POS_DEAD);
 	}
+}
+
+DO_FUN(do_retell, ch, argument)
+{
+	if (IS_NPC(ch)) {
+		act_char("Huh?", ch);
+		return;
+	}
+
+	if (IS_SET(ch->in_room->room_flags, ROOM_SILENT)
+	&&  !IS_IMMORTAL(ch)
+	&&  !IS_IMMORTAL(PC(ch)->retell)) {
+		act_char("You are in silent room, you can't tell.", ch);
+		return;
+	}
+	tell_char(ch, PC(ch)->retell, argument);
 }
 
 static toggle_t *

@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.310 2002-03-20 19:39:34 fjoe Exp $
+ * $Id: act_wiz.c,v 1.311 2002-10-27 06:48:07 tatyana Exp $
  */
 
 /***************************************************************************
@@ -1728,7 +1728,11 @@ DO_FUN(do_owhere, ch, argument)
 				number, mlstr_mval(&obj->short_descr),
 				mlstr_cval(&in_obj->in_room->name, ch),
 				in_obj->in_room->vnum);
-		else
+		else if (IS_AUCTIONED(in_obj)) {
+			buf_printf(buffer, BUF_END,
+				   "%3d) %s is auction\n", number, // notrans
+				   mlstr_mval(&obj->short_descr));
+		}
 			buf_printf(buffer, BUF_END, "%3d) %s is somewhere\n", number, // notrans
 				mlstr_mval(&obj->short_descr));
 

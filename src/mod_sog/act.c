@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act.c,v 1.93 2002-08-26 16:13:37 fjoe Exp $
+ * $Id: act.c,v 1.94 2002-10-27 06:48:09 tatyana Exp $
  */
 
 #include <stdio.h>
@@ -1332,6 +1332,7 @@ tell_char(CHAR_DATA *ch, CHAR_DATA *victim, const char *msg)
 				 "when $E returns.",
 				 ch, NULL, victim, TO_CHAR, POS_DEAD);
 		PC(victim)->reply = ch;
+		PC(ch)->retell = victim;
 	}
 }
 
