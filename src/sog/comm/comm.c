@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.160 1999-03-10 17:52:28 fjoe Exp $
+ * $Id: comm.c,v 1.161 1999-03-10 17:55:52 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2041,13 +2041,13 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		if (argument[0] == '\0'
 		||  (htn = htn_lookup(argument)) < 0
 		||  hometown_restrict(HOMETOWN(htn), ch)) {
-			char_puts("That's not a valid hometown.\n", ch);
+			char_puts("That's not a valid hometown.\n\n", ch);
 			print_hometown(ch);
 			return;
 		}
 
 		ch->hometown = htn; 
-		char_printf(ch, "Now your hometown is %s.\n"
+		char_printf(ch, "\nNow your hometown is %s.\n"
 				"[Hit Return to continue]\n",
 			    hometown_name(htn));
 		ch->endur = 100;
