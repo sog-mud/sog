@@ -1,11 +1,12 @@
 /*
- * $Id: mob_random_janitor.mpc,v 1.1 2001-09-16 11:57:32 fjoe Exp $
+ * $Id: mob_random_janitor.mpc,v 1.2 2001-12-04 17:01:32 tatyana Exp $
  */
 
 obj trash;
 foreach (trash, obj_in_room(char_room($n))) {
         if (!can_wear(trash, ITEM_TAKE)
-        ||  !can_loot($n, trash))
+        ||  !can_loot($n, trash)
+	||  obj_item_type(trash) == ITEM_CORPSE_PC)
                 continue;
  
         if (obj_item_type(trash) == ITEM_DRINK_CON
