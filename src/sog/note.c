@@ -1,5 +1,5 @@
 /*
- * $Id: note.c,v 1.20 1998-09-10 22:07:54 fjoe Exp $
+ * $Id: note.c,v 1.21 1998-09-17 10:57:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -112,11 +112,11 @@ void free_note(NOTE_DATA *note)
     if (!IS_VALID(note))
 	return;
 
-    free_string( note->text    );
-    free_string( note->subject );
-    free_string( note->to_list );
-    free_string( note->date    );
-    free_string( note->sender  );
+    free_string(note->text  );
+    free_string(note->subject);
+    free_string(note->to_list);
+    free_string(note->date  );
+    free_string(note->sender);
     INVALIDATE(note);
 
     note->next = note_free;
@@ -175,7 +175,7 @@ void do_unread(CHAR_DATA *ch, const char *argument)
     }
 
     if (!found && str_cmp(argument, "login"))
-	send_to_char("You have no unread notes.\n\r",ch);
+	char_puts("You have no unread notes.\n\r",ch);
 }
 
 void do_note(CHAR_DATA *ch,const char *argument)
@@ -417,22 +417,21 @@ bool is_note_to(CHAR_DATA *ch, NOTE_DATA *pnote)
 
 void note_attach(CHAR_DATA *ch, int type)
 {
-    NOTE_DATA *pnote;
+	NOTE_DATA *pnote;
 
-    if (ch->pnote != NULL)
+	if (ch->pnote != NULL)
+		return;
+
+	pnote = new_note();
+	pnote->next	= NULL;
+	pnote->sender	= str_dup(ch->name);
+	pnote->date	= str_empty;
+	pnote->to_list	= str_empty;
+	pnote->subject	= str_empty;
+	pnote->text	= str_empty;
+	pnote->type	= type;
+	ch->pnote	= pnote;
 	return;
-
-    pnote = new_note();
-
-    pnote->next		= NULL;
-    pnote->sender	= str_dup(ch->name);
-    pnote->date		= str_dup("");
-    pnote->to_list	= str_dup("");
-    pnote->subject	= str_dup("");
-    pnote->text		= str_dup("");
-    pnote->type		= type;
-    ch->pnote		= pnote;
-    return;
 }
 
 void note_remove(CHAR_DATA *ch, NOTE_DATA *pnote, bool delete)
@@ -590,319 +589,324 @@ void update_read(CHAR_DATA *ch, NOTE_DATA *pnote)
 
 void parse_note(CHAR_DATA *ch, const char *argument, int type)
 {
-    char arg[MAX_INPUT_LENGTH];
-    NOTE_DATA *pnote;
-    NOTE_DATA **list;
-    char *list_name;
-    int vnum;
-    int anum;
-    DESCRIPTOR_DATA *d;
+	char arg[MAX_INPUT_LENGTH];
+	NOTE_DATA *pnote;
+	NOTE_DATA **list;
+	char *list_name;
+	int vnum;
+	int anum;
+	DESCRIPTOR_DATA *d;
 
-    if (IS_NPC(ch))
-	return;
+	if (IS_NPC(ch))
+		return;
 
-    switch(type)
-    {
+	switch(type) {
 	default:
-	    return;
-        case NOTE_NOTE:
-            list = &note_list;
-	    list_name = "notes";
-            break;
-        case NOTE_IDEA:
-            list = &idea_list;
-	    list_name = "ideas";
-            break;
-        case NOTE_PENALTY:
-            list = &penalty_list;
-	    list_name = "penalties";
-            break;
-        case NOTE_NEWS:
-            list = &news_list;
-	    list_name = "news";
-            break;
-        case NOTE_CHANGES:
-            list = &changes_list;
-	    list_name = "changes";
-            break;
-    }
-
-    argument = one_argument(argument, arg);
-
-    if (arg[0] == '\0' || !str_prefix(arg, "read"))
-    {
-        bool fAll;
- 
-        if (!str_cmp(argument, "all"))
-        {
-            fAll = TRUE;
-            anum = 0;
-        }
- 
-        else if (argument[0] == '\0' || !str_prefix(argument, "next"))
-        /* read next unread note */
-        {
-            vnum = 0;
-            for (pnote = *list; pnote != NULL; pnote = pnote->next)
-            {
-                if (!hide_note(ch,pnote))
-                {
-                    char_printf(ch, "[%3d] %s: %s\n\r%s\n\rTo: %s\n\r",
-                        vnum,
-                        pnote->sender,
-                        pnote->subject,
-                        pnote->date,
-                        pnote->to_list);
-                    page_to_char(pnote->text, ch);
-                    update_read(ch,pnote);
-                    return;
-                }
-                else if (is_note_to(ch,pnote))
-                    vnum++;
-            }
-	    char_printf(ch,"You have no unread %s.\n\r",list_name);
-            return;
-        }
- 
-        else if (is_number(argument))
-        {
-            fAll = FALSE;
-            anum = atoi(argument);
-        }
-        else
-        {
-            send_to_char("Read which number?\n\r", ch);
-            return;
-        }
- 
-        vnum = 0;
-        for (pnote = *list; pnote != NULL; pnote = pnote->next)
-        {
-            if (is_note_to(ch, pnote) && (vnum++ == anum || fAll))
-            {
-                char_printf(ch, "[%3d] %s: %s\n\r%s\n\rTo: %s\n\r",
-                    vnum - 1,
-                    pnote->sender,
-                    pnote->subject,
-                    pnote->date,
-                    pnote->to_list
-                   );
-                page_to_char(pnote->text, ch);
-                return;
-            }
-        }
- 
-	char_printf(ch,"There aren't that many %s.\n\r",list_name);
-        return;
-    }
-
-    if (!str_prefix(arg, "edit")) {
-	note_attach(ch,type);
-	if (ch->pnote->type != type)
-	{
-	    send_to_char(
-		"You already have a different note in progress.\n\r",ch);
-	    return;
-	}
-
-	string_append(ch, &ch->pnote->text);
-	return;
-    }
-
-    if (!str_prefix(arg, "list"))
-    {
-	vnum = 0;
-	for (pnote = *list; pnote != NULL; pnote = pnote->next)
-	{
-	    if (is_note_to(ch, pnote))
-	    {
-		char_printf(ch, "[%3d%s] %s: %s\n\r",
-		    vnum, hide_note(ch,pnote) ? " " : "N", 
-		    pnote->sender, pnote->subject);
-		vnum++;
-	    }
-	}
-	return;
-    }
-
-    if (!str_prefix(arg, "remove"))
-    {
-        if (!is_number(argument))
-        {
-            send_to_char("Note remove which number?\n\r", ch);
-            return;
-        }
- 
-        anum = atoi(argument);
-        vnum = 0;
-        for (pnote = *list; pnote != NULL; pnote = pnote->next) {
-            if (is_note_to(ch, pnote) && vnum++ == anum) {
-                note_remove(ch, pnote, FALSE);
-                char_nputs(MSG_OK, ch);
-                return;
-            }
-        }
- 
-	char_printf(ch, "There aren't that many %s.",list_name);
-        return;
-    }
- 
-    if (!str_prefix(arg, "delete") && get_trust(ch) >= MAX_LEVEL - 1) {
-        if (!is_number(argument)) {
-            send_to_char("Note delete which number?\n\r", ch);
-            return;
-        }
- 
-        anum = atoi(argument);
-        vnum = 0;
-        for (pnote = *list; pnote != NULL; pnote = pnote->next) {
-            if (is_note_to(ch, pnote) && vnum++ == anum) {
-                note_remove(ch, pnote,TRUE);
-                char_nputs(MSG_OK, ch);
-                return;
-            }
-        }
-
- 	char_printf(ch,"There aren't that many %s.",list_name);
-        return;
-    }
-
-    if (!str_prefix(arg,"catchup"))
-    {
-	switch(type)
-	{
-	    case NOTE_NOTE:	
-		ch->pcdata->last_note = current_time;
+		return;
+	case NOTE_NOTE:
+		list = &note_list;
+		list_name = "notes";
 		break;
-	    case NOTE_IDEA:
-		ch->pcdata->last_idea = current_time;
+	case NOTE_IDEA:
+		list = &idea_list;
+		list_name = "ideas";
 		break;
-	    case NOTE_PENALTY:
-		ch->pcdata->last_penalty = current_time;
+	case NOTE_PENALTY:
+		list = &penalty_list;
+		list_name = "penalties";
 		break;
-	    case NOTE_NEWS:
-		ch->pcdata->last_news = current_time;
+	case NOTE_NEWS:
+		list = &news_list;
+		list_name = "news";
 		break;
-	    case NOTE_CHANGES:
-		ch->pcdata->last_changes = current_time;
+	case NOTE_CHANGES:
+		list = &changes_list;
+		list_name = "changes";
 		break;
 	}
-	return;
-    }
 
-    /* below this point only certain people can edit notes */
-    if ((type == NOTE_NEWS && !IS_TRUSTED(ch,ANGEL))
-    ||  (type == NOTE_CHANGES && !IS_TRUSTED(ch,CREATOR)))
-    {
-	char_printf(ch,"You aren't high enough level to write %s.",list_name);
-	return;
-    }
+	argument = one_argument(argument, arg);
 
-    if (!str_prefix(arg, "subject")) {
-	note_attach(ch,type);
-        if (ch->pnote->type != type) {
-            send_to_char(
-                "You already have a different note in progress.\n\r",ch);
-            return;
-        }
+	if (arg[0] == '\0' || !str_prefix(arg, "read")) {
+        	bool fAll;
+		BUFFER *output;
 
-	free_string(ch->pnote->subject);
-	ch->pnote->subject = str_dup(argument);
-	char_nputs(MSG_OK, ch);
-	return;
-    }
+		if (!str_cmp(argument, "all")) {
+			fAll = TRUE;
+			anum = 0;
+		}
+		else if (argument[0] == '\0' || !str_prefix(argument, "next")) {
+			/* read next unread note */
 
-    if (!str_prefix(arg, "to")) {
-	note_attach(ch,type);
-        if (ch->pnote->type != type) {
-            send_to_char(
-                "You already have a different note in progress.\n\r",ch);
-            return;
-        }
-	free_string(ch->pnote->to_list);
-	ch->pnote->to_list = str_dup(argument);
-	char_nputs(MSG_OK, ch);
-	return;
-    }
-
-    if (!str_prefix(arg, "clear")) {
-	if (ch->pnote != NULL) {
-	    free_note(ch->pnote);
-	    ch->pnote = NULL;
+			vnum = 0;
+			for (pnote = *list; pnote; pnote = pnote->next) {
+				if (!hide_note(ch, pnote)) {
+					output = buf_new(0);
+					buf_printf(output, "[%3d] %s: %s\n\r"
+							   "{x%s\n\r"
+							   "{xTo: %s\n\r"
+							   "{x%s\n\r"
+							   "{x",
+						    vnum,
+						    pnote->sender,
+						    pnote->subject,
+						    pnote->date,
+						    pnote->to_list,
+						    pnote->text);
+					page_to_char(buf_string(output), ch);
+					buf_free(output);
+					update_read(ch, pnote);
+					return;
+				}
+				else if (is_note_to(ch, pnote))
+					vnum++;
+			}
+			char_printf(ch,"You have no unread %s.\n\r",list_name);
+			return;
+        	}
+		else if (is_number(argument)) {
+			fAll = FALSE;
+			anum = atoi(argument);
+		}
+		else {
+			char_puts("Read which number?\n\r", ch);
+			return;
+		}
+ 
+		vnum = 0;
+		for (pnote = *list; pnote != NULL; pnote = pnote->next) {
+			if (is_note_to(ch, pnote) && (vnum++ == anum || fAll)) {
+				output = buf_new(0);
+				buf_printf(output, "[%3d] %s: %s\n\r"
+						   "{x%s\n\r"
+						   "{xTo: %s\n\r"
+						   "{x%s\n\r"
+						   "{x",
+					    vnum-1,
+					    pnote->sender,
+					    pnote->subject,
+					    pnote->date,
+					    pnote->to_list,
+					    pnote->text);
+				page_to_char(buf_string(output), ch);
+				buf_free(output);
+				if (!fAll)
+					return;
+			}
+		}
+ 
+		char_printf(ch,"There aren't that many %s.\n\r",list_name);
+		return;
 	}
 
-	char_nputs(MSG_OK, ch);
-	return;
-    }
-
-    if (!str_prefix(arg, "show")) {
-	if (ch->pnote == NULL) {
-	    send_to_char("You have no note in progress.\n\r", ch);
-	    return;
+	if (!str_prefix(arg, "list")) {
+		vnum = 0;
+		for (pnote = *list; pnote != NULL; pnote = pnote->next) {
+			if (is_note_to(ch, pnote)) {
+				char_printf(ch, "[%3d%s] %s: %s\n\r{x",
+					    vnum,
+					    hide_note(ch,pnote) ? " " : "N", 
+					    pnote->sender, pnote->subject);
+				vnum++;
+			}
+		}
+		return;
 	}
 
-	if (ch->pnote->type != type) {
-	    send_to_char("You aren't working on that kind of note.\n\r",ch);
-	    return;
+	if (!str_prefix(arg, "remove")) {
+		if (!is_number(argument)) {
+			char_puts("Note remove which number?\n\r", ch);
+			return;
+		}
+ 
+		anum = atoi(argument);
+		vnum = 0;
+		for (pnote = *list; pnote != NULL; pnote = pnote->next) {
+			if (is_note_to(ch, pnote) && vnum++ == anum) {
+				note_remove(ch, pnote, FALSE);
+				char_nputs(MSG_OK, ch);
+				return;
+			}
+		}
+ 
+		char_printf(ch, "There aren't that many %s.", list_name);
+		return;
+	}
+ 
+	if (!str_prefix(arg, "delete") && get_trust(ch) >= MAX_LEVEL - 1) {
+		if (!is_number(argument)) {
+			char_puts("Note delete which number?\n\r", ch);
+			return;
+		}
+ 
+		anum = atoi(argument);
+		vnum = 0;
+		for (pnote = *list; pnote != NULL; pnote = pnote->next) {
+			if (is_note_to(ch, pnote) && vnum++ == anum) {
+				note_remove(ch, pnote, TRUE);
+				char_nputs(MSG_OK, ch);
+				return;
+			}
+		}
+
+		char_printf(ch,"There aren't that many %s.", list_name);
+		return;
 	}
 
-	char_printf(ch, "%s: %s\n\rTo: %s\n\r",
-	    ch->pnote->sender,
-	    ch->pnote->subject,
-	    ch->pnote->to_list
-	   );
-	send_to_char(ch->pnote->text, ch);
-	return;
-    }
-
-    if (!str_prefix(arg, "post") || !str_prefix(arg, "send")) {
-	char *strtime;
-
-	if (ch->pnote == NULL) {
-	    send_to_char("You have no note in progress.\n\r", ch);
-	    return;
+	if (!str_prefix(arg,"catchup")) {
+		switch(type) {
+		case NOTE_NOTE:	
+			ch->pcdata->last_note = current_time;
+			break;
+		case NOTE_IDEA:
+			ch->pcdata->last_idea = current_time;
+			break;
+		case NOTE_PENALTY:
+			ch->pcdata->last_penalty = current_time;
+			break;
+		case NOTE_NEWS:
+			ch->pcdata->last_news = current_time;
+			break;
+		case NOTE_CHANGES:
+			ch->pcdata->last_changes = current_time;
+			break;
+		}
+		return;
 	}
 
-        if (ch->pnote->type != type) {
-            send_to_char("You aren't working on that kind of note.\n\r",ch);
-            return;
-        }
+/* below this point only certain people can edit notes */
 
-	if (!str_cmp(ch->pnote->to_list,"")) {
-	    send_to_char(
-		"You need to provide a recipient (name, all, or immortal).\n\r",
-		ch);
-	    return;
+	if ((type == NOTE_NEWS && !IS_TRUSTED(ch,ANGEL))
+	||  (type == NOTE_CHANGES && !IS_TRUSTED(ch,CREATOR))) {
+		char_printf(ch, "You aren't high enough level to write %s.",
+			    list_name);
+		return;
 	}
 
-	if (!str_cmp(ch->pnote->subject,"")) {
-	    send_to_char("You need to provide a subject.\n\r",ch);
-	    return;
+	if (!str_prefix(arg, "edit")) {
+		note_attach(ch,type);
+		if (ch->pnote->type != type) {
+			char_puts("You already have a different note "
+				  "in progress.\n\r", ch);
+			return;
+		}
+
+		string_append(ch, &ch->pnote->text);
+		return;
 	}
 
-	ch->pnote->next			= NULL;
-	strtime				= ctime(&current_time);
-	strtime[strlen(strtime)-1]	= '\0';
-	ch->pnote->date			= str_dup(strtime);
-	ch->pnote->date_stamp		= current_time;
+	if (!str_prefix(arg, "subject")) {
+		note_attach(ch, type);
+       		if (ch->pnote->type != type) {
+			char_puts("You already have a different note "
+				  "in progress.\n\r", ch);
+			return;
+		}
 
-	append_note(ch->pnote);
-
-	/* Show new note message */
-	for (d = descriptor_list; d; d = d->next) {
-		CHAR_DATA *fch = d->character;
-		if (fch != NULL
-		&&  fch != ch
-		&&  is_note_to(fch, ch->pnote)
-		&&  d->connected == CON_PLAYING)
-			do_unread(fch, "login");
+		free_string(ch->pnote->subject);
+		ch->pnote->subject = str_dup(argument);
+		char_nputs(MSG_OK, ch);
+		return;
 	}
 
-	ch->pnote = NULL;
-	return;
-    }
+	if (!str_prefix(arg, "to")) {
+		note_attach(ch, type);
+		if (ch->pnote->type != type) {
+			char_puts("You already have a different note "
+				  "in progress.\n\r", ch);
+			return;
+		}
+		free_string(ch->pnote->to_list);
+		ch->pnote->to_list = str_dup(argument);
+		char_nputs(MSG_OK, ch);
+		return;
+	}
 
-    char_nputs(MSG_YOU_CANT_DO_THAT, ch);
-    return;
+	if (!str_prefix(arg, "clear") || !str_prefix(arg, "cancel")) {
+		if (ch->pnote != NULL) {
+			free_note(ch->pnote);
+			ch->pnote = NULL;
+		}
+
+		char_nputs(MSG_OK, ch);
+		return;
+	}
+
+	if (!str_prefix(arg, "show")) {
+		BUFFER *output;
+
+		if (ch->pnote == NULL) {
+			char_puts("You have no note in progress.\n\r", ch);
+			return;
+		}
+
+		if (ch->pnote->type != type) {
+			char_puts("You aren't working on that kind of note.\n\r",ch);
+			return;
+		}
+
+		output = buf_new(0);
+		buf_printf(output, "{x%s: %s\n\r"
+				   "{xTo: %s\n\r"
+				   "{x%s\n\r"
+				   "{x",
+			   ch->pnote->sender, ch->pnote->subject,
+			   ch->pnote->to_list,
+			   ch->pnote->text);
+		page_to_char(buf_string(output), ch);
+		buf_free(output);
+
+		return;
+	}
+
+	if (!str_prefix(arg, "post") || !str_prefix(arg, "send")) {
+		char *strtime;
+
+		if (ch->pnote == NULL) {
+			char_puts("You have no note in progress.\n\r", ch);
+			return;
+		}
+
+		if (ch->pnote->type != type) {
+			char_puts("You aren't working on that kind of note.\n\r",
+				  ch);
+			return;
+		}
+
+		if (!str_cmp(ch->pnote->to_list,"")) {
+			char_puts("You need to provide a recipient "
+				  "(name, clan name, all, or immortal).\n\r",
+				  ch);
+			return;
+		}
+
+		if (IS_NULLSTR(ch->pnote->subject)) {
+			char_puts("You need to provide a subject.\n\r", ch);
+			return;
+		}
+
+		ch->pnote->next			= NULL;
+		strtime				= ctime(&current_time);
+		strtime[strlen(strtime)-1]	= '\0';
+		ch->pnote->date			= str_dup(strtime);
+		ch->pnote->date_stamp		= current_time;
+
+		append_note(ch->pnote);
+
+		/* Show new note message */
+		for (d = descriptor_list; d; d = d->next) {
+			CHAR_DATA *fch = d->character;
+			if (fch != NULL
+			&&  fch != ch
+			&&  is_note_to(fch, ch->pnote)
+			&&  d->connected == CON_PLAYING)
+				do_unread(fch, "login");
+		}
+
+		ch->pnote = NULL;
+		return;
+	}
+
+	char_nputs(MSG_YOU_CANT_DO_THAT, ch);
 }
 
