@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.424 2004-03-21 20:40:01 fjoe Exp $
+ * $Id: merc.h,v 1.425 2004-04-08 11:46:45 kets Exp $
  */
 
 /***************************************************************************
@@ -136,6 +136,7 @@ enum {
 #define DAM_EARTH	19
 #define DAM_AIR		20
 #define DAM_WATER	21
+#define DAM_EVIL	22
 
 /* material damtypes */
 #define DAM_IRON	22

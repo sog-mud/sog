@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.150 2003-09-30 00:31:03 fjoe Exp $
+ * $Id: db_area.c,v 1.151 2004-04-08 11:47:11 kets Exp $
  */
 
 /***************************************************************************
@@ -207,6 +207,7 @@ set_percent_resistances(flag_t imm, flag_t res, flag_t vul, int16_t *resist)
 	resist[DAM_AIR]		= RES_UNDEF;
 	resist[DAM_WATER]	= RES_UNDEF;
 	resist[DAM_HARM]	= RES_UNDEF;
+	resist[DAM_EVIL]	= RES_UNDEF;
 	resist[DAM_OTHER]	= RES_UNDEF;
 
 	/*
