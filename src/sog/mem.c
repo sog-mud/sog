@@ -1,5 +1,5 @@
 /*
- * $Id: mem.c,v 1.26 1999-02-27 07:26:15 fjoe Exp $
+ * $Id: mem.c,v 1.27 1999-03-29 15:01:02 fjoe Exp $
  */
 
 /***************************************************************************
@@ -206,7 +206,7 @@ OBJ_INDEX_DATA *new_obj_index(void)
 
 void free_obj_index(OBJ_INDEX_DATA *pObj)
 {
-	AFFECT_DATA *pAf;
+	AFFECT_DATA *paf, paf_next;
 
 	if (!pObj)
 		return;
@@ -216,8 +216,10 @@ void free_obj_index(OBJ_INDEX_DATA *pObj)
 	mlstr_free(pObj->short_descr);
 	mlstr_free(pObj->description);
 
-	for (pAf = pObj->affected; pAf; pAf = pAf->next)
-		aff_free(pAf);
+	for (paf = pObj->affected; paf; paf = paf_next) {
+		paf_next = paf->next;
+		aff_free(paf);
+	}
 
 	ed_free(pObj->ed);
     
