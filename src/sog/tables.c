@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.65 1999-05-22 13:37:30 fjoe Exp $
+ * $Id: tables.c,v 1.66 1999-05-26 06:47:58 fjoe Exp $
  */
 
 /***************************************************************************
@@ -403,6 +403,7 @@ flag_t sex_table[] =
 	{ "either",		SEX_EITHER,		TRUE	},
 	{ "random",		SEX_EITHER,		TRUE    },
 	{ "neutral",		SEX_NEUTRAL,		TRUE	},
+	{ "plural",		SEX_PLURAL,		TRUE	},
 
 	{ NULL	}
 };

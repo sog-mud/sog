@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: const.h,v 1.34 1999-05-23 08:44:23 fjoe Exp $
+ * $Id: const.h,v 1.35 1999-05-26 06:47:57 fjoe Exp $
  */
 
 #ifndef _CONST_H_
@@ -105,7 +105,7 @@ enum {
 	SEX_FEMALE,
 	SEX_EITHER,		/* used only for NPC, means random sex
 				   in create_mob */
-	SEX_PLURAL = SEX_EITHER /* used in obj genders */
+	SEX_PLURAL
 };
 
 /* align numbers */
