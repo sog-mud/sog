@@ -1,5 +1,5 @@
 /*
- * $Id: resource.c,v 1.27 1998-07-11 20:55:15 fjoe Exp $
+ * $Id: resource.c,v 1.28 1998-07-14 11:16:06 fjoe Exp $
  */
 
 #include <limits.h>
@@ -10,6 +10,7 @@
 #include "db.h"
 #include "comm.h"
 #include "log.h"
+#include "interp.h"
 
 #ifdef SUNOS
 #	include <stdarg.h>
@@ -112,6 +113,7 @@ void do_lang(CHAR_DATA *ch, const char *argument)
 
 	ch->lang = lang;
 	do_lang(ch, "");
+	do_look(ch, "");
 }
 
 /*

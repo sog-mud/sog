@@ -1,5 +1,5 @@
 /*
- * $Id: olc_save.c,v 1.9 1998-07-14 07:47:49 fjoe Exp $
+ * $Id: olc_save.c,v 1.10 1998-07-14 11:16:06 fjoe Exp $
  */
 
 /**************************************************************************
@@ -1012,7 +1012,7 @@ void save_area(AREA_DATA *pArea)
     fprintf(fp, "Credits %s~\n",	pArea->credits);
     fprintf(fp, "Security %d\n",	pArea->security);
     fprintf(fp, "LevelRange %d %d\n",	pArea->low_range, pArea->high_range);
-    if (pArea->resetmsg != NULL)
+    if (!mlstr_null(pArea->resetmsg))
 	mlstr_fwrite(fp, "ResetMessage", pArea->resetmsg);
     if (pArea->area_flag)
     	fprintf(fp, "Flags %s\n",	fwrite_flag(pArea->area_flag, buf));

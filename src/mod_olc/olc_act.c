@@ -1,5 +1,5 @@
 /*
- * $Id: olc_act.c,v 1.7 1998-07-14 07:47:49 fjoe Exp $
+ * $Id: olc_act.c,v 1.8 1998-07-14 11:16:06 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3347,7 +3347,7 @@ MEDIT(medit_show)
 
 	buf_printf(buf, "Affected by: [%s]\n\r",
 		flag_string(affect_flags, pMob->affected_by));
-	buf_printf(buf, "Can detect: [%s]\n\r",
+	buf_printf(buf, "Can detect:  [%s]\n\r",
 		flag_string(detect_flags, pMob->detection));
 
 /* ROM values: */

@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.95 1998-07-14 07:47:40 fjoe Exp $
+ * $Id: act_info.c,v 1.96 1998-07-14 11:16:05 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1132,7 +1132,6 @@ void do_look(CHAR_DATA *ch, const char *argument)
 	CHAR_DATA *victim;
 	OBJ_DATA *obj;
 	ED_DATA *ed;
-	char *p;
 	int door;
 	int number,count;
 
@@ -1326,8 +1325,8 @@ void do_look(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (!IS_NULLSTR(p = mlstr_mval(pexit->description)))
-		char_puts(p, ch);
+	if (!IS_NULLSTR(mlstr_mval(pexit->description)))
+		char_mlputs(pexit->description, ch);
 	else
 		char_nputs(NOTHING_SPECIAL_THERE, ch);
 

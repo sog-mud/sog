@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.42 1998-07-14 07:47:42 fjoe Exp $
+ * $Id: db.c,v 1.43 1998-07-14 11:16:05 fjoe Exp $
  */
 
 /***************************************************************************
@@ -374,6 +374,7 @@ char *			string_hash		[MAX_KEY_HASH];
 AREA_DATA *		area_first;
 AREA_DATA *		area_last;
 AREA_DATA *		current_area;
+int			line_number;
 
 char *			string_space;
 char *			top_string;
@@ -456,6 +457,9 @@ void	fix_exits	(void);
 void    fix_mobprogs	(void);
 
 void	reset_area	(AREA_DATA * pArea);
+
+static int xgetc(FILE *fp);
+static void xungetc(int c, FILE *fp);
 
 /*
  * Big mama top level function.
@@ -547,6 +551,7 @@ void boot_db(void)
 		}
 
 		current_area = NULL;
+		line_number = 1;
 
 		for (; ;) {
 			char *word;
@@ -587,9 +592,10 @@ void boot_db(void)
 			fclose(fpArea);
 		fpArea = NULL;
 
-		if (area_last != NULL) 
-			REMOVE_BIT(area_last->area_flags, AREA_LOADING);
-
+		if (current_area != NULL) {
+			REMOVE_BIT(current_area->area_flags, AREA_LOADING);
+			current_area = NULL;
+		}
 	}
 	fclose(fpList);
 
@@ -1128,13 +1134,12 @@ void load_old_obj(FILE *fp)
 				ed		= alloc_perm(sizeof(*ed));
 				ed->keyword	= fread_string(fp);
 				ed->description	= mlstr_fread(fp);
-				SLIST_ADD(ED_DATA,
-					  pObjIndex->ed, ed);
+				SLIST_ADD(ED_DATA, pObjIndex->ed, ed);
 				top_ed++;
 			}
 
 			else {
-				ungetc(letter, fp);
+				xungetc(letter, fp);
 				break;
 			}
 		}
@@ -1470,8 +1475,7 @@ void load_rooms(FILE *fp)
 				ed		= alloc_perm(sizeof(*ed));
 				ed->keyword	= fread_string(fp);
 				ed->description	= mlstr_fread(fp);
-				SLIST_ADD(ED_DATA,
-					  pRoomIndex->ed, ed);
+				SLIST_ADD(ED_DATA, pRoomIndex->ed, ed);
 				top_ed++;
 			}
 
@@ -3354,6 +3358,22 @@ ROOM_INDEX_DATA *get_room_index(int vnum)
 }
 
 
+static int xgetc(FILE *fp)
+{
+	int c;
+
+	c = getc(fp);
+	if (c == '\n')
+		line_number++;
+	return c;
+}
+
+static void xungetc(int c, FILE *fp)
+{
+	if (c == '\n')
+		line_number--;
+	ungetc(c, fp);
+}
 
 /*
  * Read a letter from a file.
@@ -3364,10 +3384,9 @@ char fread_letter(FILE *fp)
 
 	do
 	{
-		c = getc(fp);
+		c = xgetc(fp);
 	}
 	while (isspace(c));
-
 	return c;
 }
 
@@ -3384,7 +3403,7 @@ int fread_number(FILE *fp)
 
 	do
 	{
-		c = getc(fp);
+		c = xgetc(fp);
 	}
 	while (isspace(c));
 
@@ -3393,24 +3412,22 @@ int fread_number(FILE *fp)
 	sign   = FALSE;
 	if (c == '+')
 	{
-		c = getc(fp);
+		c = xgetc(fp);
 	}
 	else if (c == '-')
 	{
 		sign = TRUE;
-		c = getc(fp);
+		c = xgetc(fp);
 	}
 
-	if (!isdigit(c))
-	{
-		bug("Fread_number: bad format.", 0);
+	if (!isdigit(c)) {
+		db_error("fread_number", "bad format");
 		exit(1);
 	}
 
-	while (isdigit(c))
-	{
+	while (isdigit(c)) {
 		number = number * 10 + c - '0';
-		c      = getc(fp);
+		c      = xgetc(fp);
 	}
 
 	if (sign)
@@ -3419,7 +3436,7 @@ int fread_number(FILE *fp)
 	if (c == '|')
 		number += fread_number(fp);
 	else if (c != ' ')
-		ungetc(c, fp);
+		xungetc(c, fp);
 
 	return number;
 }
@@ -3432,14 +3449,14 @@ long fread_flags(FILE *fp)
 
 	do
 	{
-		c = getc(fp);
+		c = xgetc(fp);
 	}
 	while (isspace(c));
 
 	if (c == '-')
 	{
 		negative = TRUE;
-		c = getc(fp);
+		c = xgetc(fp);
 	}
 
 	number = 0;
@@ -3449,21 +3466,21 @@ long fread_flags(FILE *fp)
 		while (('A' <= c && c <= 'Z') || ('a' <= c && c <= 'z'))
 		{
 		    number += flag_convert(c);
-		    c = getc(fp);
+		    c = xgetc(fp);
 		}
 	}
 
 	while (isdigit(c))
 	{
 		number = number * 10 + c - '0';
-		c = getc(fp);
+		c = xgetc(fp);
 	}
 
 	if (c == '|')
 		number += fread_flags(fp);
 
 	else if  (c != ' ')
-		ungetc(c,fp);
+		xungetc(c,fp);
 
 	if (negative)
 		return -1 * number;
@@ -3521,7 +3538,7 @@ char *fread_string(FILE *fp)
 	 */
 	do
 	{
-		c = getc(fp);
+		c = xgetc(fp);
 	}
 	while (isspace(c));
 
@@ -3536,17 +3553,15 @@ char *fread_string(FILE *fp)
 		 *   -- Furey
 		 */
 
-		switch (*plast = getc(fp))
+		switch (*plast = xgetc(fp))
 		{
 		default:
 		    plast++;
 		    break;
  
 		case EOF:
-		/* temp fix */
 		    bug("Fread_string: EOF", 0);
-		    return NULL;
-		    /* exit(1); */
+		    return str_empty;
 		    break;
  
 		case '\n':
@@ -3633,7 +3648,7 @@ char *fread_string_eol(FILE *fp)
 	 */
 	do
 	{
-		c = getc(fp);
+		c = xgetc(fp);
 	}
 	while (isspace(c));
  
@@ -3642,7 +3657,7 @@ char *fread_string_eol(FILE *fp)
  
 	for (;;)
 	{
-		if (!char_special[ (*plast++ = getc(fp)) - EOF ])
+		if (!char_special[ (*plast++ = xgetc(fp)) - EOF ])
 		    continue;
  
 		switch (plast[-1])
@@ -3714,18 +3729,14 @@ void fread_to_eol(FILE *fp)
 	char c;
 
 	do
-	{
-		c = getc(fp);
-	}
+		c = xgetc(fp);
 	while (c != '\n' && c != '\r');
 
 	do
-	{
-		c = getc(fp);
-	}
+		c = xgetc(fp);
 	while (c == '\n' || c == '\r');
 
-	ungetc(c, fp);
+	xungetc(c, fp);
 	return;
 }
 
@@ -3741,17 +3752,12 @@ char *fread_word(FILE *fp)
 	char cEnd;
 
 	do
-	{
-		cEnd = getc(fp);
-	}
+		cEnd = xgetc(fp);
 	while (isspace(cEnd));
 
 	if (cEnd == '\'' || cEnd == '"')
-	{
 		pword   = word;
-	}
-	else
-	{
+	else {
 		word[0] = cEnd;
 		pword   = word+1;
 		cEnd    = ' ';
@@ -3759,11 +3765,11 @@ char *fread_word(FILE *fp)
 
 	for (; pword < word + MAX_INPUT_LENGTH; pword++)
 	{
-		*pword = getc(fp);
+		*pword = xgetc(fp);
 		if (cEnd == ' ' ? isspace(*pword) : *pword == cEnd)
 		{
 		    if (cEnd == ' ')
-			ungetc(*pword, fp);
+			xungetc(*pword, fp);
 		    *pword = '\0';
 		    return word;
 		}
@@ -4741,6 +4747,7 @@ void load_practicer(FILE *fp)
 
 void load_resetmsg(FILE *fp)
 {
+	mlstr_free(current_area->resetmsg);
 	current_area->resetmsg = mlstr_fread(fp);
 }
 
@@ -4798,7 +4805,9 @@ void db_error(const char* fn, const char* fmt,...)
 	vsnprintf(buf, sizeof(buf), fmt, ap);
 	va_end(ap);
 
-	log_printf("%s: %s", fn, buf);
+	log_printf("%s: line %d: %s: %s",
+		   current_area == NULL ? "???" : current_area->file_name,
+		   line_number, fn, buf);
 	exit(1);
 }
 

@@ -1,5 +1,5 @@
 /*
- * $Id: mlstring.c,v 1.3 1998-07-14 07:47:48 fjoe Exp $
+ * $Id: mlstring.c,v 1.4 1998-07-14 11:16:06 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -12,6 +12,7 @@
 #include "string_edit.h"
 #include "buffer.h"
 #include "mlstring.h"
+#include "util.h"
 
 /*
  * multi-language string implementation
@@ -30,6 +31,9 @@ struct mlstring {
 	} u;
 	int nlang;
 };
+
+static void smash_a(char *s);
+static char* fix_mlstring(const char* s);
 
 mlstring *mlstr_new(void)
 {
@@ -50,8 +54,9 @@ mlstring *mlstr_fread(FILE *fp)
 
 	ml = alloc_mem(sizeof(*ml));
 	p = fread_string(fp);
-	if (*p != '@') {
+	if (*p != '@' || *(p+1) == '@') {
 		ml->nlang = 0;
+		smash_a(p);
 		ml->u.str = p;
 		return ml;
 	}
@@ -79,19 +84,23 @@ mlstring *mlstr_fread(FILE *fp)
 			db_error("mlstr_fread", "lang %s: redefined", s);
 
 		/* q points at msg */
-		ml->u.lstr[lang] = str_dup(q);
 
 		/* find next '@', skip "@@" */
+		s = q;
 		while (TRUE) {
-			s = strchr(q, '@');
+			s = strchr(s, '@');
 			if (s == NULL) {
 				s = strchr(q, '\0');
 				break;
 			}
-			if (*++s != '@')
+			if (*(s+1) != '@') {
+				*s++ = '\0';
 				break;
-			q = s+1;
+			}
+			s += 2;
 		}
+		smash_a(q);
+		ml->u.lstr[lang] = str_dup(q);
 	}
 
 	/* some diagnostics */
@@ -111,13 +120,13 @@ void mlstr_fwrite(FILE *fp, const char* name, const mlstring *ml)
 		fprintf(fp, "%s ", name);
 
 	if (ml->nlang == 0) {
-		fprintf(fp, "%s~\n", fix_string(ml->u.str));
+		fprintf(fp, "%s~\n", fix_mlstring(ml->u.str));
 		return;
 	}
 
-	for (lang = 0; lang < ml->nlang; lang++)
+	for (lang = 0; lang < ml->nlang; lang++) 
 		fprintf(fp, "@%s %s",
-			lang_table[lang], fix_string(ml->u.lstr[lang]));
+			lang_table[lang], fix_mlstring(ml->u.lstr[lang]));
 	fputs("~\n", fp);
 }
 
@@ -329,5 +338,36 @@ void mlstr_dump(BUFFER *buf, const char *name, const mlstring *ml)
 	for (lang = 1; lang < ml->nlang; lang++)
 		buf_printf(buf, FORMAT,
 			   space, lang_table[lang], ml->u.lstr[lang]);
+}
+
+static void smash_a(char *s)
+{
+	while ((s = strchr(s, '@')) != NULL) {
+		strcpy(s, s+1);
+		if (*s == '\0')
+			break;
+		s++;
+	}
+}
+
+static char * fix_mlstring(const char *s)
+{
+	char *p;
+	static char buf[MAX_STRING_LENGTH*2];
+
+	buf[0] = '\0';
+
+	if (s == NULL)
+		return buf;
+
+	s = fix_string(s);
+	while((p = strchr(s, '@')) != NULL) {
+		*p = '\0';
+		strnzcat(buf, s, sizeof(buf));
+		strnzcat(buf, "@@", sizeof(buf));
+		s = p+1;
+	}
+	strnzcat(buf, s, sizeof(buf));
+	return buf;
 }
 
