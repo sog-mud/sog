@@ -53,7 +53,6 @@ stand stand male 900
 AHMVXd ABCDEFGHIJKP medium unknown
 r fire 33
 r cold 33
-r negative 0
 r holy 33
 r charm 100
 #14003
@@ -410,7 +409,6 @@ r negative 100
 r holy -50
 r energy -50
 r charm 100
-r iron 0
 #14020
 prophet false лжепророк~
 @eng The false prophet@rus лжепророк~

@@ -720,7 +720,6 @@ BCDEFGHIJLMNO
 stand stand male 0
 0 0 large unknown
 r cold 33
-r lightning 0
 r acid -50
 r poison 100
 r mental 33
@@ -1024,7 +1023,6 @@ stand stand male 0
 0 0 large unknown
 r slash 33
 r fire 100
-r cold 0
 r lightning 33
 r acid 33
 r negative 100

@@ -661,7 +661,6 @@ DF
 stand stand either 3500
 0 0 medium unknown
 r fire -50
-r holy 0
 r disease 33
 r light -50
 #11633
