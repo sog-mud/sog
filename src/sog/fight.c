@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.202.2.38 2001-10-25 18:53:11 tatyana Exp $
+ * $Id: fight.c,v 1.202.2.39 2001-10-29 11:55:14 kostik Exp $
  */
 
 /***************************************************************************
@@ -2892,7 +2892,7 @@ bool check_obj_dodge(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *obj, int bonus)
 	return TRUE;
 }
 
-/*  
+/*
  * critical strike
  */
 int critical_strike(CHAR_DATA *ch, CHAR_DATA *victim, int dam)
@@ -2901,24 +2901,19 @@ int critical_strike(CHAR_DATA *ch, CHAR_DATA *victim, int dam)
 	AFFECT_DATA baf;
 	int chance;
 
-	if (get_eq_char(ch, WEAR_WIELD) != NULL 
-	&&  get_eq_char(ch, WEAR_SECOND_WIELD) != NULL
-	&&  number_percent() > ((ch->hit * 100) / ch->max_hit)) 
-		return 0;
-
 	if ((chance = get_skill(ch, gsn_critical)) == 0)
 		return dam;
-	
+
 	diceroll = number_range(0, 100);
 	if (LEVEL(victim) > LEVEL(ch))
 		diceroll += (LEVEL(victim) - LEVEL(ch)) * 2;
 	else
 		diceroll -= (LEVEL(ch) - LEVEL(victim));
- 
-	if (diceroll <= chance /2)  {  
+
+	if (diceroll <= chance /2)  {
 		check_improve(ch, gsn_critical, TRUE, 2);
 		dam += dam * diceroll/200;
-	}  
+	}
 
 	if (diceroll > chance / 13)
 		return dam;
