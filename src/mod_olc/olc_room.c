@@ -1,5 +1,5 @@
 /*
- * $Id: olc_room.c,v 1.6 1998-09-15 02:52:14 fjoe Exp $
+ * $Id: olc_room.c,v 1.7 1998-09-17 11:07:35 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -10,7 +10,7 @@
 #include "act_move.h"
 #include "interp.h"
 
-#define EDIT_ROOM(Ch, Room)	(Room = Ch->in_room)
+#define EDIT_ROOM(ch, room)	(room = (ROOM_INDEX_DATA*) ch->desc->pEdit)
 
 /*
  * Room Editor Prototypes
