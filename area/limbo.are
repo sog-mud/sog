@@ -7,6 +7,23 @@ LevelRange 99 100
 End
 
 #MOBILES
+#3
+supermob~
+supermob~
+Supermob is here.
+~
+You see nothing.
+~
+human~
+A 0 0 0
+0 0 0d0+0 0d0+0 0d0+0 none
+0 0 0 0
+0 0 0 0
+stand stand none 0
+0 0 medium unknown
+F for AHMV
+F par ABCDEFGHIJK
+I 100
 #10
 shadow %s~
 the shadow of %s~
@@ -1102,6 +1119,12 @@ D4
 ~
 ~
 Z -1 3001
+S
+#3
+Supermob office~
+Supermob lives here. Don't bother him.
+~
+0 AHLNOX inside
 S
 #0
 
