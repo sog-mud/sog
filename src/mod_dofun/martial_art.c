@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.64 1999-01-05 08:12:00 kostik Exp $
+ * $Id: martial_art.c,v 1.65 1999-02-03 08:41:23 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1746,11 +1746,8 @@ void do_spellbane(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (is_affected(ch, gsn_spellbane)) {
-#if 0
 		char_puts("You are already deflecting spells.\n", ch);
 		return;
-#endif
-		affect_strip(ch, gsn_spellbane);
 	}
 
 	WAIT_STATE(ch, SKILL(gsn_spellbane)->beats);
@@ -1758,7 +1755,7 @@ void do_spellbane(CHAR_DATA *ch, const char *argument)
 	af.where	= TO_AFFECTS;
 	af.type 	= gsn_spellbane;
 	af.level 	= ch->level;
-	af.duration	= -1;
+	af.duration	= ch->level / 3;
 	af.location	= APPLY_SAVING_SPELL;
 	af.modifier	= -ch->level/4;
 	af.bitvector	= 0;
@@ -2687,7 +2684,7 @@ void do_weapon(CHAR_DATA *ch, const char *argument)
 
 	/* skill */
 	chance = chance * ch_weapon / 200;
-	chance = chance * 100 / vict_weapon;
+	chance = chance * 101 / (vict_weapon+1);
 
 	/* dex vs. strength */
 	chance += get_curr_stat(ch, STAT_DEX) + get_curr_stat(ch, STAT_STR);
