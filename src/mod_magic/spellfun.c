@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.181.2.40 2002-10-24 08:44:37 tatyana Exp $
+ * $Id: spellfun.c,v 1.181.2.41 2002-10-24 08:58:10 tatyana Exp $
  */
 
 /***************************************************************************
@@ -49,6 +49,7 @@
 #include "chquest.h"
 #include "fight.h"
 #include "auction.h"
+#include "bm.h"
 
 void spell_acid_blast(int sn, int level, CHAR_DATA *ch, void *vo)
 {
@@ -3051,6 +3052,11 @@ void spell_locate_object(int sn, int level, CHAR_DATA *ch, void *vo)
 						   "right now.\n");
 					number++;
 				}
+				if (is_on_black_market(in_obj)) {
+					buf_printf(buffer, "One is on black "
+						   "market right now.\n");
+					number++;
+				}
 				continue;
 			}
 
@@ -4334,8 +4340,9 @@ void spell_find_object(int sn, int level, CHAR_DATA *ch, void *vo)
 						   " right now.\n");
 					number++;
 				}
+
 				if (is_on_black_market(in_obj)) {
-					buf_printf(buffer "One is on black "
+					buf_printf(buffer, "One is on black "
 						   "market now.\n");
 					number++;
 				}

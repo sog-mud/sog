@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.186.2.33 2002-10-22 21:14:50 tatyana Exp $
+ * $Id: act_wiz.c,v 1.186.2.34 2002-10-24 08:58:05 tatyana Exp $
  */
 
 /***************************************************************************
@@ -71,6 +71,8 @@
 #include "ban.h"
 #include "socials.h"
 #include "mob_prog.h"
+#include "auction.h"
+#include "bm.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_rstat	);
@@ -1811,46 +1813,53 @@ void do_owhere(CHAR_DATA *ch, const char *argument)
 		do_help(ch, "'WIZ OWHERE'");
 		return;
 	}
-	
+
 	if (is_number(argument)) vnum = atoi(argument);
 
 	for (obj = object_list; obj != NULL; obj = obj->next) {
 		if (!can_see_obj(ch, obj)
 		|| (vnum > 0 && obj->pObjIndex->vnum != vnum) 
 		|| (vnum < 0 && !is_name(argument, obj->name)))
-	        	continue;
-	
+			continue;
+
 		if (buffer == NULL)
 			buffer = buf_new(-1);
 		number++;
-	
+
 		for (in_obj = obj; in_obj->in_obj != NULL;
 		     in_obj = in_obj->in_obj)
-	        	;
-	
+			;
+
 		if (in_obj->carried_by != NULL
 		&&  can_see(ch,in_obj->carried_by)
-		&&  in_obj->carried_by->in_room != NULL)
+		&&  in_obj->carried_by->in_room != NULL) {
 			buf_printf(buffer,
 				   "%3d) %s is carried by %s [Room %d]\n",
-				number,
-				mlstr_mval(&obj->short_descr),
-				PERS(in_obj->carried_by, ch),
-				in_obj->carried_by->in_room->vnum);
-		else if (in_obj->in_room != NULL
-		     &&  can_see_room(ch, in_obj->in_room))
-	        	buf_printf(buffer, "%3d) %s is in %s [Room %d]\n",
-	        		number, mlstr_mval(&obj->short_descr),
-				mlstr_cval(&in_obj->in_room->name, ch), 
-				in_obj->in_room->vnum);
-		else
-			buf_printf(buffer, "%3d) %s is somewhere\n",number,
-				mlstr_mval(&obj->short_descr));
-	
+				   number,
+				   mlstr_mval(&obj->short_descr),
+				   PERS(in_obj->carried_by, ch),
+				   in_obj->carried_by->in_room->vnum);
+		} else if (in_obj->in_room != NULL
+		     &&  can_see_room(ch, in_obj->in_room)) {
+			buf_printf(buffer, "%3d) %s is in %s [Room %d]\n",
+				   number, mlstr_mval(&obj->short_descr),
+				   mlstr_cval(&in_obj->in_room->name, ch),
+				   in_obj->in_room->vnum);
+		} else if (IS_AUCTIONED(in_obj)) {
+			buf_printf(buffer, "%3d) %s is on auction\n", number,
+				   mlstr_mval(&obj->short_descr));
+		} else if (is_on_black_market(in_obj)) {
+			buf_printf(buffer, "%3d) %s is on black market\n",
+				   number, mlstr_mval(&obj->short_descr));
+		} else {
+			buf_printf(buffer, "%3d) %s is somewhere\n", number,
+				   mlstr_mval(&obj->short_descr));
+		}
+
 	    if (number >= max_found)
 	        break;
 	}
-	
+
 	if (buffer == NULL)
 		char_puts("Nothing like that in heaven or earth.\n", ch);
 	else {
