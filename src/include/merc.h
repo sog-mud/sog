@@ -2,7 +2,7 @@
 #define _MERC_H_
 
 /*
- * $Id: merc.h,v 1.34 1998-06-21 11:38:40 fjoe Exp $
+ * $Id: merc.h,v 1.35 1998-06-23 18:50:29 efdi Exp $
  */
 
 /***************************************************************************
@@ -185,7 +185,7 @@ typedef void OPROG_FUN_AREA (OBJ_DATA *obj);
  */
 #define MAX_SOCIALS		  256
 #define MAX_SKILL		  378
-#define MAX_ALIAS		   20
+#define MAX_ALIAS		   50
 #define MAX_CLASS		   13
 #define MAX_PC_RACE		   19	/* 18 */
 #define MAX_CLAN		    9
