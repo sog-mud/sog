@@ -1,5 +1,5 @@
 /*
- * $Id: ban.c,v 1.54 2003-09-29 23:11:48 fjoe Exp $
+ * $Id: ban.c,v 1.55 2003-09-30 00:05:09 fjoe Exp $
  */
 
 /***************************************************************************
@@ -44,7 +44,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#if!defined (WIN32)
+#if !defined (WIN32)
 #include <unistd.h>
 #endif
 #include <stdio.h>
