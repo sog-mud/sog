@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.211 2000-06-01 17:57:32 fjoe Exp $
+ * $Id: act_obj.c,v 1.212 2000-06-07 08:55:29 fjoe Exp $
  */
 
 /***************************************************************************
@@ -868,7 +868,7 @@ void do_feed(CHAR_DATA *ch, const char *argument)
 			break;
 
 	if (!paf) {
-		log(LOG_ERROR, "do_feed: bone dragon w/o affect");
+		log(LOG_BUG, "do_feed: bone dragon w/o affect");
 		return;
 	}
 
@@ -938,7 +938,7 @@ void do_fill(CHAR_DATA * ch, const char *argument)
 		return;
 	}
         if ((lq = liquid_lookup(STR(fountain->value[2]))) == NULL) {
-		log(LOG_ERROR, "Unknown liquid: %s", STR(fountain->value[2]));
+		log(LOG_BUG, "Unknown liquid: %s", STR(fountain->value[2]));
 		return;
 	}
 	act_puts3("You fill $p with $V from $P.",
@@ -972,7 +972,7 @@ void do_pour(CHAR_DATA * ch, const char *argument)
 		return;
 	}
         if ((lq = liquid_lookup(STR(out->value[2]))) == NULL) {
-		log(LOG_ERROR, "Unknown liquid: %s", STR(out->value[2]));
+		log(LOG_BUG, "Unknown liquid: %s", STR(out->value[2]));
 		return;
 	}
 	if (!str_cmp(argument, "out")) {
@@ -1121,7 +1121,7 @@ void do_drink(CHAR_DATA * ch, const char *argument)
 	}
 
 	if ((lq = liquid_lookup(STR(obj->value[2]))) == NULL) {
-		log(LOG_ERROR, "Do_drink: bad liquid %s.", STR(obj->value[2]));
+		log(LOG_BUG, "Do_drink: bad liquid %s.", STR(obj->value[2]));
 		return;
 	}
 
@@ -1881,7 +1881,7 @@ void do_buy_pet(CHAR_DATA * ch, const char *argument)
 
 	pRoomIndexNext = get_room_index(ch->in_room->vnum + 1);
 	if (pRoomIndexNext == NULL) {
-		log(LOG_ERROR, "Do_buy: bad pet shop at vnum %d.", ch->in_room->vnum);
+		log(LOG_BUG, "Do_buy: bad pet shop at vnum %d.", ch->in_room->vnum);
 		char_puts("Sorry, you can't buy that here.\n", ch);
 		return;
 	}
@@ -2101,7 +2101,7 @@ void do_list(CHAR_DATA * ch, const char *argument)
 
 		pRoomIndexNext = get_room_index(ch->in_room->vnum + 1);
 		if (pRoomIndexNext == NULL) {
-			log(LOG_ERROR, "Do_list: bad pet shop at vnum %d.", ch->in_room->vnum);
+			log(LOG_BUG, "Do_list: bad pet shop at vnum %d.", ch->in_room->vnum);
 			char_puts("You can't do that here.\n", ch);
 			return;
 		}

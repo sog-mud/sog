@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: quest.c,v 1.9 2000-06-02 16:41:01 fjoe Exp $
+ * $Id: quest.c,v 1.10 2000-06-07 08:55:47 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -38,7 +38,7 @@ quest_handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
 	CHAR_DATA *hunter;
 
 	if (!IS_NPC(victim)) {
-		log(LOG_ERROR, "quest_handle_death: victim is PC");
+		log(LOG_BUG, "quest_handle_death: victim is PC");
 		return NULL;
 	}
 
@@ -74,7 +74,7 @@ quest_cancel(CHAR_DATA *ch)
 	CHAR_DATA *fch;
 
 	if (IS_NPC(ch)) {
-		log(LOG_ERROR, "quest_cancel: called for NPC");
+		log(LOG_BUG, "quest_cancel: called for NPC");
 		return NULL;
 	}
 
@@ -104,7 +104,7 @@ qtrouble_set(CHAR_DATA *ch, int vnum, int count)
 	qtrouble_t *qt;
 
 	if (IS_NPC(ch)) {
-		log(LOG_ERROR, "qtrouble_set: called for NPC");
+		log(LOG_BUG, "qtrouble_set: called for NPC");
 		return NULL;
 	}
 
@@ -127,7 +127,7 @@ qtrouble_dump(BUFFER *output, CHAR_DATA *victim)
 	qtrouble_t *qt;
 
 	if (IS_NPC(victim)) {
-		log(LOG_ERROR, "qtrouble_dump: called for NPC");
+		log(LOG_BUG, "qtrouble_dump: called for NPC");
 		return NULL;
 	}
 

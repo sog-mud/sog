@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 use strict;
-require "../makeutil.pl";
+require "../mkutil.pl";
 
 if ($#ARGV < 3) {
 	print STDERR "Syntax: makedep.pl <mod_name> <depfile> <cdepfile> <modules>...\n";
@@ -33,6 +33,6 @@ my @depslist = keys %deps;
 print "Creating $cdepfile\n";
 open(OUT, ">$cdepfile") || die "$!: can't open $cdepfile";
 print OUT << "__END__";
-const char *_depend = "@depslist";
+const char _depend[] = "@depslist";
 __END__
 close(OUT);

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: cmd.c,v 1.14 2000-06-01 17:57:53 fjoe Exp $
+ * $Id: cmd.c,v 1.15 2000-06-07 08:55:55 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -99,7 +99,7 @@ dofun(const char *name, CHAR_DATA *ch, const char *fmt, ...)
 	va_list ap;
 
 	if ((cmd = cmd_lookup(name)) == NULL) {
-		log(LOG_ERROR, "dofun: %s: unknown dofun", name);
+		log(LOG_BUG, "dofun: %s: unknown dofun", name);
 		return;
 	}
 
@@ -108,7 +108,7 @@ dofun(const char *name, CHAR_DATA *ch, const char *fmt, ...)
 	va_end(ap);
 
 	if (cmd->do_fun == NULL)
-		log(LOG_ERROR, "dofun: %s: NULL do_fun", cmd->name);
+		log(LOG_BUG, "dofun: %s: NULL do_fun", cmd->name);
 	else
 		cmd->do_fun(ch, buf);
 }

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: forms.c,v 1.6 2000-02-10 14:08:46 fjoe Exp $
+ * $Id: forms.c,v 1.7 2000-06-07 08:55:56 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -94,7 +94,7 @@ bool shapeshift(CHAR_DATA* ch, const char* shapeform)
 	int i;
 
 	if (!(form_index = form_lookup(shapeform))) {
-		log(LOG_ERROR, "shapeshift: unknown form %s.\n", shapeform);
+		log(LOG_BUG, "shapeshift: unknown form %s.\n", shapeform);
 		return FALSE;
 	}
 
@@ -124,7 +124,7 @@ bool revert(CHAR_DATA* ch)
 	}
 
 	if (!ch->shapeform) {
-		log(LOG_ERROR, "Revert: character is not shapeshifted.\n");
+		log(LOG_BUG, "Revert: character is not shapeshifted.\n");
 		return FALSE;
 	}
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_update.c,v 1.6 2000-06-06 09:47:45 fjoe Exp $
+ * $Id: init_update.c,v 1.7 2000-06-07 08:55:49 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -57,7 +57,8 @@ DBFUN dbfun_uhandlers[] =
 
 DBDATA db_uhandlers = { dbfun_uhandlers };
 
-int _module_load(module_t *m)
+int
+_module_load(module_t *m)
 {
 	hash_init(&uhandlers, &h_uhandlers);
 	db_load_file(&db_uhandlers, ETC_PATH, UHANDLERS_CONF);
@@ -68,11 +69,12 @@ int _module_load(module_t *m)
 	return 0;
 }
 
-int _module_unload(module_t *m)
+int
+_module_unload(module_t *m)
 {
 	update_unregister();
 	uhandler_unload(m->name);
-	varr_foreach(&commands, cmd_unload_cb, MODULE, m);
+	varr_foreach(&commands, cmd_unload_cb, MODULE);
 	hash_destroy(&uhandlers);
 	return 0;
 }

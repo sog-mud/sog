@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.242 2000-06-02 16:40:46 fjoe Exp $
+ * $Id: act_wiz.c,v 1.243 2000-06-07 08:55:31 fjoe Exp $
  */
 
 /***************************************************************************
@@ -505,7 +505,7 @@ void do_disconnect(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
-	log(LOG_ERROR, "do_disconnect: desc not found");
+	log(LOG_BUG, "do_disconnect: desc not found");
 	char_puts("Descriptor not found!\n", ch);
 }
 

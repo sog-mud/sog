@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.256 2000-06-02 16:41:05 fjoe Exp $
+ * $Id: handler.c,v 1.257 2000-06-07 08:55:56 fjoe Exp $
  */
 
 /***************************************************************************
@@ -162,7 +162,7 @@ void char_from_room(CHAR_DATA *ch)
 	CHAR_DATA *vch;
 
 	if (ch->in_room == NULL) {
-		log(LOG_ERROR, "char_from_room: NULL");
+		log(LOG_BUG, "char_from_room: NULL");
 		return;
 	}
 
@@ -185,7 +185,7 @@ void char_from_room(CHAR_DATA *ch)
 	}
 
 	if (vch == NULL)
-		log(LOG_ERROR, "char_from_room: ch not found");
+		log(LOG_BUG, "char_from_room: ch not found");
 	else if (prev == NULL)
 		ch->in_room->people = ch->next_in_room;
 	else 
@@ -212,7 +212,7 @@ void char_to_room(CHAR_DATA *ch, ROOM_INDEX_DATA *pRoomIndex)
 	if (pRoomIndex == NULL) {
 		ROOM_INDEX_DATA *room;
 
-		log(LOG_ERROR, "char_to_room: NULL");
+		log(LOG_BUG, "char_to_room: NULL");
 		
 		if ((room = get_room_index(ROOM_VNUM_TEMPLE)) != NULL)
 			char_to_room(ch, room);
@@ -285,7 +285,7 @@ void obj_from_char(OBJ_DATA *obj)
 	CHAR_DATA *ch;
 
 	if ((ch = obj->carried_by) == NULL) {
-		log(LOG_ERROR, "obj_from_char: null ch (obj->name  = '%s')",
+		log(LOG_BUG, "obj_from_char: null ch (obj->name  = '%s')",
 		    obj->name);
 		return;
 	}
@@ -304,7 +304,7 @@ void obj_from_char(OBJ_DATA *obj)
 		}
 
 		if (prev == NULL)
-			log(LOG_ERROR, "obj_from_char: obj not in list");
+			log(LOG_BUG, "obj_from_char: obj not in list");
 		else
 			prev->next_content = obj->next_content;
 	}
@@ -415,7 +415,7 @@ OBJ_DATA * equip_char(CHAR_DATA *ch, OBJ_DATA *obj, int iWear)
 
 	if (get_eq_char(ch, iWear)) {
 		if (IS_NPC(ch)) {
-			log(LOG_ERROR, "equip_char: vnum %d: in_room %d: "
+			log(LOG_BUG, "equip_char: vnum %d: in_room %d: "
 			   "obj vnum %d: location %s: "
 			   "already equipped.",
 			   ch->pMobIndex->vnum,
@@ -423,7 +423,7 @@ OBJ_DATA * equip_char(CHAR_DATA *ch, OBJ_DATA *obj, int iWear)
 			   obj->pObjIndex->vnum,
 			   flag_string(wear_loc_flags, iWear));
 		} else {
-			log(LOG_ERROR, "equip_char: %s: location %s: "
+			log(LOG_BUG, "equip_char: %s: location %s: "
 			   "already equipped.",
 			   ch->name,
 			   flag_string(wear_loc_flags, iWear));
@@ -475,7 +475,7 @@ void unequip_char(CHAR_DATA *ch, OBJ_DATA *obj)
 		return;
 
 	if (obj->wear_loc == WEAR_NONE) {
-		log(LOG_ERROR, "unequip_char: already unequipped");
+		log(LOG_BUG, "unequip_char: already unequipped");
 		return;
 	}
 
@@ -557,7 +557,7 @@ void obj_from_room(OBJ_DATA *obj)
 		}
 
 		if (prev == NULL)
-			log(LOG_ERROR, "obj_from_room: obj not found");
+			log(LOG_BUG, "obj_from_room: obj not found");
 		else
 			prev->next_content = obj->next_content;
 	}
@@ -619,7 +619,7 @@ void obj_from_obj(OBJ_DATA *obj)
 	OBJ_DATA *obj_from;
 
 	if ((obj_from = obj->in_obj) == NULL) {
-		log(LOG_ERROR, "obj_from_obj: null obj_from");
+		log(LOG_BUG, "obj_from_obj: null obj_from");
 		return;
 	}
 
@@ -634,7 +634,7 @@ void obj_from_obj(OBJ_DATA *obj)
 		}
 
 		if (prev == NULL)
-			log(LOG_ERROR, "obj_from_obj: obj not found");
+			log(LOG_BUG, "obj_from_obj: obj not found");
 		else
 			prev->next_content = obj->next_content;
 	}
@@ -658,7 +658,7 @@ void extract_obj(OBJ_DATA *obj, int flags)
 	OBJ_DATA *obj_next;
 
 	if (!mem_is(obj, MT_OBJ)) {
-		log(LOG_ERROR, "extract_obj: obj is not MT_OBJ");
+		log(LOG_BUG, "extract_obj: obj is not MT_OBJ");
 		return;
 	}
 
@@ -725,7 +725,7 @@ void extract_obj(OBJ_DATA *obj, int flags)
 		}
 
 		if (prev == NULL) {
-			log(LOG_ERROR, "extract_obj: obj %d not found.",
+			log(LOG_BUG, "extract_obj: obj %d not found.",
 			    obj->pObjIndex->vnum);
 			return;
 		}
@@ -766,7 +766,7 @@ void extract_char(CHAR_DATA *ch, int flags)
 	int extract_obj_flags;
 
 	if (!mem_is(ch, MT_CHAR)) {
-		log(LOG_ERROR, "extract_char: ch is not MT_CHAR");
+		log(LOG_BUG, "extract_char: ch is not MT_CHAR");
 		return;
 	}
 	
@@ -837,7 +837,7 @@ void extract_char(CHAR_DATA *ch, int flags)
 		}
 
 		if (prev == NULL)
-			log(LOG_ERROR, "Extract_char: char not found");
+			log(LOG_BUG, "Extract_char: char not found");
 		else
 			prev->next = ch->next;
 		if (ch == char_list_lastpc)
@@ -1015,7 +1015,7 @@ CHAR_DATA *find_char(CHAR_DATA *ch, const char *argument, int door, int range)
 		return target;
 
 	if ((opdoor = opposite_door(door)) == -1) {
-		log(LOG_ERROR, "In find_char wrong door: %d", door);
+		log(LOG_BUG, "In find_char wrong door: %d", door);
 		char_puts("You don't see that there.\n", ch);
 		return NULL;
 	}
@@ -1549,7 +1549,7 @@ bool can_see(CHAR_DATA *ch, CHAR_DATA *victim)
 	CHAR_DATA *vch;
 
 	if (ch == NULL || victim == NULL) {
-		log(LOG_ERROR, "can_see: ch = %p, victim = %p", ch, victim);
+		log(LOG_BUG, "can_see: ch = %p, victim = %p", ch, victim);
 		return FALSE;
 	}
 	
@@ -1774,7 +1774,7 @@ void path_to_track(CHAR_DATA *ch, CHAR_DATA *victim, int door)
 	NPC(victim)->last_fought = ch;
 
 	if ((opdoor = opposite_door(door)) == -1) {
-		log(LOG_ERROR, "In path_to_track wrong door: %d",door);
+		log(LOG_BUG, "In path_to_track wrong door: %d",door);
 		return;
 	}
 
@@ -1785,13 +1785,13 @@ void path_to_track(CHAR_DATA *ch, CHAR_DATA *victim, int door)
 			break;
 		if ((pExit = temp->exit[ door ]) == NULL
 		||  (temp = pExit->to_room.r) == NULL) {
-			log(LOG_ERROR, "path_to_track: couldn't calculate range %d",
+			log(LOG_BUG, "path_to_track: couldn't calculate range %d",
 			    range);
 			return;
 		}
 
 		if (range > 100) {
-			log(LOG_ERROR, "path_to_track: range exceeded 100");
+			log(LOG_BUG, "path_to_track: range exceeded 100");
 			return;
 		}
 	}
@@ -1801,7 +1801,7 @@ void path_to_track(CHAR_DATA *ch, CHAR_DATA *victim, int door)
 		room_record(ch->name, temp, opdoor);
 		if ((pExit = temp->exit[opdoor]) == NULL
 		||  (temp = pExit->to_room.r) == NULL) {
-			log(LOG_ERROR, "path_to_track: Range: %d Room: %d opdoor:%d",
+			log(LOG_BUG, "path_to_track: Range: %d Room: %d opdoor:%d",
 			     range, temp->vnum, opdoor); 
 			return;
 		}
@@ -2693,7 +2693,7 @@ void add_follower(CHAR_DATA *ch, CHAR_DATA *master)
 void stop_follower(CHAR_DATA *ch)
 {
 	if (ch->master == NULL) {
-		log(LOG_ERROR, "stop_follower: null master");
+		log(LOG_BUG, "stop_follower: null master");
 		return;
 	}
 
@@ -2989,7 +2989,7 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 	}
 
 	if (door < 0 || door >= MAX_DIR) {
-		log(LOG_ERROR, "move_char_org: bad door %d.", door);
+		log(LOG_BUG, "move_char_org: bad door %d.", door);
 		return FALSE;
 	}
 
@@ -3702,7 +3702,7 @@ void wear_obj(CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace)
 			return;
 		}
 
-		log(LOG_ERROR, "wear_obj: no free finger");
+		log(LOG_BUG, "wear_obj: no free finger");
 		char_puts("You already wear two rings.\n", ch);
 		return;
 	}
@@ -3847,7 +3847,7 @@ void wear_obj(CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace)
 			return;
 		}
 
-		log(LOG_ERROR, "wear_obj: no free wrist");
+		log(LOG_BUG, "wear_obj: no free wrist");
 		char_puts("You already wear two wrist items.\n", ch);
 		return;
 	}
@@ -4305,7 +4305,7 @@ void advance_level(CHAR_DATA *ch)
 	class_t *cl;
 
 	if (IS_NPC(ch)) {
-		log(LOG_ERROR, "advance_level: a mob to advance");
+		log(LOG_BUG, "advance_level: a mob to advance");
 		return;
 	}
 
@@ -4347,7 +4347,7 @@ void delevel(CHAR_DATA *ch)
 	class_t *cl;
 
 	if (IS_NPC(ch)) {
-		log(LOG_ERROR, "delevel: a mob to delevel");
+		log(LOG_BUG, "delevel: a mob to delevel");
 		return;
 	}
 

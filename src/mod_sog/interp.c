@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.172 2000-03-28 06:18:32 fjoe Exp $
+ * $Id: interp.c,v 1.173 2000-06-07 08:55:58 fjoe Exp $
  */
 
 /***************************************************************************
@@ -311,7 +311,7 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 	 * Dispatch the command.
 	 */
 	if (cmd->do_fun == NULL)
-		log(LOG_ERROR, "interpret: %s: NULL do_fun", cmd->name);
+		log(LOG_BUG, "interpret: %s: NULL do_fun", cmd->name);
 	else
 		cmd->do_fun(ch, argument);
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: log.c,v 1.25 2000-04-16 09:21:55 fjoe Exp $
+ * $Id: log.c,v 1.26 2000-06-07 08:55:59 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -35,6 +35,7 @@
 #include "str.h"
 #include "log.h"
 #include "util.h"
+#include "comm.h"
 
 #ifdef SUNOS
 #	include "compat/compat.h"
@@ -46,6 +47,7 @@
 
 typedef struct logdata_t {
 	int llevel;
+	const char *alias;
 	logger_t logger;
 	logger_t logger_default;
 } logdata_t;
@@ -54,11 +56,14 @@ typedef struct logdata_t {
  * this list must be sorted by llevel (asc)
  */
 static logdata_t logtab[] = {
-	{ LOG_INFO,	logger_default,	logger_default	},
-	{ LOG_WARN,	logger_default, logger_default	},
-	{ LOG_ERROR,	logger_error,	logger_error	},
+	{ LOG_INFO,	"INFO",		logger_default,	logger_default	},
+	{ LOG_WARN,	"WARN",		logger_default, logger_default	},
+	{ LOG_ERROR,	"ERROR",	logger_default,	logger_default	},
+	{ LOG_BUG,	"BUG",		logger_bug,	logger_bug	},
 };
 #define NLOG (sizeof(logtab) / sizeof(logdata_t))
+
+static CHAR_DATA *log_char;
 
 /*
  * Writes a string to the log.
@@ -78,6 +83,21 @@ log(int llevel, const char *format, ...)
 	if (ld == NULL)
 		ld = logtab;
 	ld->logger(buf);
+
+	if (log_char) 
+		char_printf(log_char, "%s: %s\n", ld->alias, buf);
+}
+
+void
+log_setchar(CHAR_DATA *ch)
+{
+	log_char = ch;
+}
+
+void
+log_unsetchar(void)
+{
+	log_char = NULL;
 }
 
 logger_t
@@ -118,7 +138,7 @@ logger_default(const char *buf)
 }
 
 void
-logger_error(const char *buf)
+logger_bug(const char *buf)
 {
 	char buf2[MAX_STRING_LENGTH];
 	snprintf(buf2, sizeof(buf2), "[*****] BUG: %s", buf);

@@ -23,11 +23,11 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: module.c,v 1.15 2000-06-06 09:43:50 fjoe Exp $
+ * $Id: module.c,v 1.16 2000-06-07 08:56:00 fjoe Exp $
  */
 
 /*
- * .so libraries support functions
+ * .so modules support functions
  */
 
 #include <sys/param.h>
@@ -45,61 +45,87 @@
 
 varr modules;
 
-int mod_load(module_t* m)
+static void *mod_load_cb	(void *arg, va_list ap);
+static void *mod_unload_cb	(void *arg, va_list ap);
+
+static int	modset_add	(varr *v, module_t *m, time_t curr_time);
+static module_t *modset_search	(varr *v, const char *name);
+static int	modset_elem_cmp	(const void *, const void *);
+
+static varrdata_t v_modset = {
+	sizeof(module_t*), 4
+};
+
+int
+mod_load(module_t* m, time_t curr_time)
 {
-	struct stat s;
+	varr v;
+
+	varr_init(&v, &v_modset);
+
+	if (modset_add(&v, m, curr_time) < 0) {
+		varr_destroy(&v);
+		return -1;
+	}
+
+	varr_qsort(&v, modset_elem_cmp);
+	varr_rforeach(&v, mod_unload_cb);
+	varr_foreach(&v, mod_load_cb);
+
+	varr_destroy(&v);
+	return 0;
+}
+
+static void *
+mod_lookup_cb(void *p, va_list ap)
+{
+	module_t *m = (module_t *) p;
+
+	const char *name = va_arg(ap, const char *);
+
+	if (!str_prefix(name, m->name))
+		return m;
+
+	return NULL;
+}
+
+module_t *
+mod_lookup(const char *name)
+{
+	return varr_foreach(&modules, mod_lookup_cb, name);
+}
+
+/*--------------------------------------------------------------------
+ * static functions
+ */
+
+/*
+ * load module
+ */
+static void *
+mod_load_cb(void *arg, va_list ap)
+{
+	module_t *m = *(module_t **) arg;
+
+	int (*callback)(module_t *);
 	void *dlh;
-	int (*callback)(module_t*);
-	char buf[PATH_MAX];
+	const char *_depend;
 
-	/*
-	 * sanity checking
-	 */
-	if (stat(m->file_name, &s) < 0) {
-		log(LOG_INFO, "mod_load: %s: %s", m->file_name, strerror(errno));
-		return -1;
-	}
-
-	snprintf(buf, sizeof(buf), "%s~", m->file_name);
-	if (!stat(buf, &s))
-		unlink(buf);
-	if (link(m->file_name, buf) < 0) {
-		log(LOG_INFO, "mod_load: %s: %s", buf, strerror(errno));
-		return -1;
-	}
-
-	dlh = dlopen(buf, RTLD_NOW);
-	unlink(buf);
-	if (dlh == NULL) {
-		log(LOG_INFO, "mod_load: %s", dlerror());
-		return -1;
-	}
-	dlclose(dlh);
-
-	/*
-	 * try to unload previously loaded module
-	 */
-	if (m->dlh != NULL) {
-		if ((callback = dlsym(m->dlh, "_module_unload")) != NULL
-		&&  callback(m) < 0)
-			return -1;
-
-		dlclose(m->dlh);
-		m->dlh = NULL;
-	}
+	if (m->dlh != NULL)
+		return NULL;
 
 	/*
 	 * open .so
 	 */
 	dlh = dlopen(m->file_name, RTLD_NOW);
 	if (dlh == NULL) {
-		log(LOG_INFO, "mod_load: %s", dlerror());
-		return -1;
+		log(LOG_ERROR, "mod_load: %s", dlerror());
+		return NULL;
 	}
 
 	/*
 	 * call on-load callback.
-	 * note that m->dlh should be set before
+	 * m->dlh should be set before
 	 */
 	m->dlh = dlh;
 
@@ -107,23 +133,135 @@ int mod_load(module_t* m)
 	&&  callback(m) < 0) {
 		dlclose(m->dlh);
 		m->dlh = NULL;
+		return NULL;
+	}
+
+	/*
+	 * update dependencies
+	 */
+	free_string(m->mod_deps);
+	_depend = dlsym(m->dlh, "_depend");
+	m->mod_deps = str_dup(_depend);
+
+	/*
+	 * update `last_reload' time
+	 */
+	time(&m->last_reload);
+	log(LOG_INFO, "loaded module `%s' (%s)", m->name, m->file_name);
+	return NULL;
+}
+
+/*
+ * unload previously loaded module
+ */
+static void *
+mod_unload_cb(void *arg, va_list ap)
+{
+	module_t *m = *(module_t **) arg;
+
+	int (*callback)(module_t *);
+
+	if (m->dlh == NULL)
+		return NULL;
+
+	if ((callback = dlsym(m->dlh, "_module_unload")) != NULL
+	&&  callback(m) < 0)
+		return NULL;
+
+	dlclose(m->dlh);
+	m->dlh = NULL;
+
+	return NULL;
+}
+
+static void *
+modset_add_cb(void *p, va_list ap)
+{
+	module_t *m = (module_t *) p;
+
+	varr *v = va_arg(ap, varr *);
+	const char *name = va_arg(ap, const char *);
+	time_t curr_time = va_arg(ap, time_t);
+
+	if (is_sname(name, m->mod_deps)
+	&&  !modset_search(v, m->name)
+	&&  m->last_reload < curr_time
+	&&  modset_add(v, m, curr_time) < 0)
+		return m;
+
+	return NULL;
+}
+
+static int
+modset_add(varr *v, module_t *m, time_t curr_time)
+{
+	struct stat s;
+	void *dlh;
+	module_t **mp;
+	char buf[PATH_MAX];
+
+	/*
+	 * sanity checking
+	 */
+	if (stat(m->file_name, &s) < 0) {
+		log(LOG_ERROR, "mod_load: %s: %s", m->file_name, strerror(errno));
 		return -1;
 	}
 
-	time(&m->last_reload);
-	log(LOG_INFO, "mod_load: loaded module `%s' (%s)", m->name, m->file_name);
+	snprintf(buf, sizeof(buf), "%s~", m->file_name);
+	if (!stat(buf, &s))
+		unlink(buf);
+	if (link(m->file_name, buf) < 0) {
+		log(LOG_ERROR, "mod_load: %s: %s", buf, strerror(errno));
+		return -1;
+	}
+
+	dlh = dlopen(buf, RTLD_NOW);
+	unlink(buf);
+	if (dlh == NULL) {
+		log(LOG_ERROR, "mod_load: %s", dlerror());
+		return -1;
+	}
+
+	if (dlsym(dlh, "_depend") == NULL) {
+		dlclose(dlh);
+		log(LOG_ERROR, "mod_load: %s", dlerror());
+		return -1;
+	}
+
+	dlclose(dlh);
+
+	mp = (module_t **) varr_enew(v);
+	*mp = m;
+	if (varr_foreach(&modules, modset_add_cb, v, m->name, curr_time))
+		return -1;
 	return 0;
 }
 
-module_t *mod_lookup(const char *name)
+static void *
+modset_search_cb(void *p, va_list ap)
 {
-	int i;
+	module_t *m = *(module_t **) p;
 
-	for (i = 0; i < modules.nused; i++) {
-		module_t *m = VARR_GET(&modules, i);
-		if (!str_prefix(name, m->name))
-			return m;
-	}
+	const char *name = va_arg(ap, const char *);
+
+	if (!str_cmp(name, m->name))
+		return m;
 
 	return NULL;
+}
+
+static module_t *
+modset_search(varr *v, const char *name)
+{
+	return varr_foreach(v, modset_search_cb, name);
+}
+
+static int
+modset_elem_cmp(const void *p, const void *q)
+{
+	module_t *m1 = *(module_t **) p;
+	module_t *m2 = *(module_t **) q;
+
+	return m2->mod_prio - m1->mod_prio;
 }

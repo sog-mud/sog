@@ -1,5 +1,5 @@
 /*
- * $Id: affects.c,v 1.42 2000-06-01 18:40:39 fjoe Exp $
+ * $Id: affects.c,v 1.43 2000-06-07 08:55:54 fjoe Exp $
  */
 
 /***************************************************************************
@@ -489,7 +489,7 @@ void affect_remove(CHAR_DATA *ch, AFFECT_DATA *paf)
 	bool hadowner;
 
 	if (ch->affected == NULL) {
-		log(LOG_ERROR, "affect_remove: no affect");
+		log(LOG_BUG, "affect_remove: no affect");
 		return;
 	}
 
@@ -511,7 +511,7 @@ void affect_remove(CHAR_DATA *ch, AFFECT_DATA *paf)
 		}
 
 		if (prev == NULL) {
-			log(LOG_ERROR, "affect_remove: cannot find paf");
+			log(LOG_BUG, "affect_remove: cannot find paf");
 			return;
 		}
 	}
@@ -531,7 +531,7 @@ void affect_remove(CHAR_DATA *ch, AFFECT_DATA *paf)
 					prev->aff_next && prev->aff_next != ch;
 					prev = prev->aff_next);
 				if (prev == NULL) {
-					log(LOG_ERROR, "affect_remove: cannot find char");
+					log(LOG_BUG, "affect_remove: cannot find char");
 					return;
 				}
 				prev->aff_next = ch->aff_next;
@@ -590,7 +590,7 @@ void affect_remove_obj(OBJ_DATA *obj, AFFECT_DATA *paf)
 
 	    if (prev == NULL)
 	    {
-	        log(LOG_ERROR, "affect_remove_obj: cannot find paf");
+	        log(LOG_BUG, "affect_remove_obj: cannot find paf");
 	        return;
 	    }
 	}
@@ -610,7 +610,7 @@ void affect_remove_obj(OBJ_DATA *obj, AFFECT_DATA *paf)
 					prev->aff_next && prev->aff_next != obj;
 					prev = prev->aff_next);
 				if (prev == NULL) {
-					log(LOG_ERROR, "affect_remove_obj: cannot find obj");
+					log(LOG_BUG, "affect_remove_obj: cannot find obj");
 					return;
 				}
 				prev->aff_next = obj->aff_next;
@@ -748,7 +748,7 @@ affect_modify_room(ROOM_INDEX_DATA *room, AFFECT_DATA *paf, bool fAdd)
 
 	switch (INT(paf->location)) {
 	default:
-		log(LOG_ERROR, "affect_modify_room: unknown location %d",
+		log(LOG_BUG, "affect_modify_room: unknown location %d",
 		    INT(paf->location));
 		break;
 	case APPLY_ROOM_NONE:
@@ -771,7 +771,7 @@ affect_to_room(ROOM_INDEX_DATA *room, AFFECT_DATA *paf)
 	AFFECT_DATA *paf_new;
 
 	if (paf->owner == NULL) {
-		log(LOG_ERROR, "affect_to_room: NULL owner");
+		log(LOG_BUG, "affect_to_room: NULL owner");
 		return;
 	}
 
@@ -820,7 +820,7 @@ affect_remove_room(ROOM_INDEX_DATA *room, AFFECT_DATA *paf)
 	}
 
 	if (af == NULL) {
-		log(LOG_ERROR, "affect_remove_room: cannot find paf");
+		log(LOG_BUG, "affect_remove_room: cannot find paf");
 		return;
 	}
 

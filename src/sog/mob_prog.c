@@ -1,5 +1,5 @@
 /*
- * $Id: mob_prog.c,v 1.59 2000-02-10 14:08:50 fjoe Exp $
+ * $Id: mob_prog.c,v 1.60 2000-06-07 08:55:59 fjoe Exp $
  */
 
 /***************************************************************************
@@ -254,7 +254,7 @@ int num_eval(int lval, int oper, int rval)
         case EVAL_LT:
              return (lval < rval);
         default:
-             log(LOG_ERROR, "num_eval: invalid oper");
+             log(LOG_BUG, "num_eval: invalid oper");
              return 0;
     }
 }
@@ -740,7 +740,7 @@ void expand_arg(char *buf,
 
         switch (*str)
         {
-            default:  log(LOG_ERROR, "Expand_arg: bad code %d.", *str);
+            default:  log(LOG_BUG, "Expand_arg: bad code %d.", *str);
                           i = " <@@@> ";                        break;
             case 'i':
 		one_argument(mob->name, fname, sizeof(fname));

@@ -23,31 +23,35 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: core.c,v 1.11 2000-06-06 09:43:47 fjoe Exp $
+ * $Id: core.c,v 1.12 2000-06-07 08:55:24 fjoe Exp $
  */
 
 #include <errno.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 
 #include "merc.h"
 #include "db.h"
 #include "module.h"
 
-int _module_load(module_t *m)
+int
+_module_load(module_t *m)
 {
-	varr_foreach(&commands, cmd_load_cb, MOD_CORE, m);
+	varr_foreach(&commands, cmd_load_cb, MODULE, m);
 	return 0;
 }
 
-int _module_unload(module_t *m)
+int
+_module_unload(module_t *m)
 {
-	log(LOG_INFO, "_module_unload: core dofuns module could not be unloaded");
+	log(LOG_INFO, "_module_unload(core): core module could not be unloaded");
 	return -1;
 }
 
-void do_modules(CHAR_DATA *ch, const char *argument)
+void
+do_modules(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 
@@ -60,6 +64,7 @@ void do_modules(CHAR_DATA *ch, const char *argument)
 	if (!str_prefix(arg, "reload")
 	||  !str_prefix(arg, "load")) {
 		module_t *m;
+		time_t curr_time;
 
 		one_argument(argument, arg, sizeof(arg));
 		if (arg[0] == '\0') {
@@ -73,9 +78,14 @@ void do_modules(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
-		if (mod_load(m) == 0)
-			char_puts("Ok.\n", ch);
+		log(LOG_INFO, "do_modules: reloading module '%s'", m->name);
+		char_printf(ch, "Reloading module '%s'\n", m->name);
 
+		log_setchar(ch);
+		time(&curr_time);
+		if (!mod_load(m, curr_time))
+			char_puts("Ok.\n", ch);
+		log_unsetchar();
 		return;
 	}
 
@@ -88,11 +98,16 @@ void do_modules(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
+		char_puts("  Module  Prio          Load time         Deps\n", ch);
+		char_puts("--------- ---- -------------------------- -----------------------------------\n", ch);
 		for (i = 0; i < modules.nused; i++) {
 			module_t *m = VARR_GET(&modules, i);
-			char_printf(ch, "Module: %s, Loaded: %s\n",
-				    m->name, m->last_reload ?
-					strtime(m->last_reload) : "never");
+			char_printf(ch, "%9s %4d [%24s] %s\n",
+				    m->name,
+				    m->mod_prio,
+				    m->last_reload ? 
+					strtime(m->last_reload) : "never",
+				    m->mod_deps);
 		}
 		return;
 	}
@@ -100,12 +115,14 @@ void do_modules(CHAR_DATA *ch, const char *argument)
 	do_modules(ch, str_empty);
 }
 
-void do_shutdow(CHAR_DATA *ch, const char *argument)
+void
+do_shutdow(CHAR_DATA *ch, const char *argument)
 {
 	char_puts("If you want to SHUTDOWN, spell it out.\n", ch);
 }
 
-void do_shutdown(CHAR_DATA *ch, const char *argument)
+void
+do_shutdown(CHAR_DATA *ch, const char *argument)
 {
 	bool active;
 	char arg[MAX_INPUT_LENGTH];
@@ -160,12 +177,14 @@ void do_shutdown(CHAR_DATA *ch, const char *argument)
 	do_shutdown(ch, str_empty);
 }
 
-void do_reboo(CHAR_DATA *ch, const char *argument)
+void
+do_reboo(CHAR_DATA *ch, const char *argument)
 {
 	char_puts("If you want to REBOOT, spell it out.\n", ch);
 }
 
-void do_reboot(CHAR_DATA *ch, const char *argument)
+void
+do_reboot(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 

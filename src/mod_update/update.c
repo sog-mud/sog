@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: update.c,v 1.191 2000-06-01 18:53:18 fjoe Exp $
+ * $Id: update.c,v 1.192 2000-06-07 08:55:49 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -93,7 +93,7 @@ get_pulse(const char *hdlr_name)
 	uhandler_t *hdlr = uhandler_lookup(hdlr_name);
 
 	if (!hdlr) {
-		log(LOG_ERROR, "get_pulse: %s: unknown update handler",
+		log(LOG_BUG, "get_pulse: %s: unknown update handler",
 		    hdlr_name);
 		return 0;
 	}

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: varr.h,v 1.16 1999-12-28 08:58:54 fjoe Exp $
+ * $Id: varr.h,v 1.17 2000-06-07 08:55:20 fjoe Exp $
  */
 
 #ifndef _VARR_H_
@@ -66,10 +66,21 @@ void *	varr_bsearch	(varr*, const void *e,
 
 typedef void *(*foreach_cb_t)(void *, va_list);
 
+/*
+ * iterators
+ */
 void *	varr_foreach	(varr *, foreach_cb_t, ...);
 void *	varr_eforeach	(varr *, void *, foreach_cb_t, ...);
 void *	varr_nforeach	(varr *, size_t i, foreach_cb_t, ...);
 void *	varr_anforeach	(varr *, size_t i, foreach_cb_t, va_list ap);
+
+/*
+ * reverse iterators
+ */
+void *	varr_rforeach	(varr *, foreach_cb_t, ...);
+void *	varr_reforeach	(varr *, void *, foreach_cb_t, ...);
+void *	varr_rnforeach	(varr *, size_t i, foreach_cb_t, ...);
+void *	varr_arnforeach	(varr *, size_t i, foreach_cb_t, va_list ap);
 
 #define varr_enew(v)	(varr_touch((v), (v)->nused))
 #define VARR_GET(v, i)	((void*) (((char*) (v)->p) + (i)*(v)->v_data->nsize))

@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.225 2000-06-02 16:41:10 fjoe Exp $
+ * $Id: db.c,v 1.226 2000-06-07 08:56:08 fjoe Exp $
  */
 
 /***************************************************************************
@@ -423,6 +423,15 @@ void boot_db_system(void)
 	db_load_file(&db_system, ETC_PATH, SYSTEM_CONF);
 }
 
+static int
+module_cmp(const void *p, const void *q)
+{
+	module_t *m1 = (module_t *) p;
+	module_t *m2 = (module_t *) q;
+
+	return m2->mod_prio - m1->mod_prio;
+}
+
 /*
  * Big mama top level function.
  */
@@ -430,6 +439,7 @@ void boot_db(void)
 {
 	long lhour, lday, lmonth;
 	int i;
+	time_t curr_time;
 
 #ifdef __FreeBSD__
 	extern char* malloc_options;
@@ -463,8 +473,10 @@ void boot_db(void)
 	/*
 	 * load modules
 	 */
+	varr_qsort(&modules, module_cmp);
+	time(&curr_time);
 	for (i = 0; i < modules.nused; i++) {
-		if (mod_load(VARR_GET(&modules, i)) < 0)
+		if (mod_load(VARR_GET(&modules, i), curr_time) < 0)
 			exit(1);
 	}
 
@@ -564,7 +576,7 @@ void reset_add(ROOM_INDEX_DATA *room, RESET_DATA *reset, RESET_DATA *after)
 	}
 
 	if (r == NULL) {
-		log(LOG_ERROR, "reset_add: `after' reset not found");
+		log(LOG_BUG, "reset_add: `after' reset not found");
 		return;
 	}
 
@@ -730,7 +742,7 @@ restart:
 			}
 
 			if (to_room == NULL) {
-				log(LOG_ERROR, "fix_resets_room: no 'E', 'G' or 'O' reset for obj vnum %d in area", r->arg3);
+				log(LOG_BUG, "fix_resets_room: no 'E', 'G' or 'O' reset for obj vnum %d in area", r->arg3);
 				continue;
 			}
 		} else if (reset_in_EGO(after, r)) {
@@ -818,7 +830,7 @@ void reset_room(ROOM_INDEX_DATA *pRoom, int flags)
 	}
 
 	reset_room_vnum = pRoom->vnum;
-	logger_old = logger_set(LOG_ERROR, logger_reset);
+	logger_old = logger_set(LOG_BUG, logger_reset);
 
 	for (reset_num = 0, pReset = pRoom->reset_first; pReset != NULL;
 					pReset = pReset->next, reset_num++) {
@@ -831,7 +843,7 @@ void reset_room(ROOM_INDEX_DATA *pRoom, int flags)
 
 		switch (pReset->command) {
 		default:
-			log(LOG_ERROR, "bad command %c", pReset->command);
+			log(LOG_BUG, "bad command %c", pReset->command);
 			break;
 
 		case 'M':
@@ -843,7 +855,7 @@ void reset_room(ROOM_INDEX_DATA *pRoom, int flags)
 			 *	arg4 - mob count limit (in room)
 			 */
 			if ((pMobIndex = get_mob_index(pReset->arg1)) == NULL) {
-				log(LOG_ERROR, "%d: no such mob", pReset->arg1);
+				log(LOG_BUG, "%d: no such mob", pReset->arg1);
 				lmob = FALSE;
 				break;
 			}
@@ -887,13 +899,13 @@ void reset_room(ROOM_INDEX_DATA *pRoom, int flags)
 				break;
 
 			if (last_mob == NULL) {
-				log(LOG_ERROR, "no previous mob");
+				log(LOG_BUG, "no previous mob");
 				lobj = FALSE;
 				break;
 			}
 
 			if ((pObjIndex = get_obj_index(pReset->arg1)) == NULL) {
-				log(LOG_ERROR, "%d: no such obj", pReset->arg1);
+				log(LOG_BUG, "%d: no such obj", pReset->arg1);
 				lobj = FALSE;
 				break;
 			}
@@ -930,7 +942,7 @@ void reset_room(ROOM_INDEX_DATA *pRoom, int flags)
 			 * obj limits are checked
 			 */
 			if ((pObjIndex = get_obj_index(pReset->arg1)) == NULL) {
-				log(LOG_ERROR, "%d: no such obj", pReset->arg1);
+				log(LOG_BUG, "%d: no such obj", pReset->arg1);
 				lobj = FALSE;
 				break;
 			}
@@ -969,12 +981,12 @@ void reset_room(ROOM_INDEX_DATA *pRoom, int flags)
 				break;
 
 			if (last_obj == NULL) {
-				log(LOG_ERROR, "no previous obj");
+				log(LOG_BUG, "no previous obj");
 				break;
 			}
 
 			if ((pObjIndex = get_obj_index(pReset->arg1)) == NULL) {
-				log(LOG_ERROR, "%d: no such obj", pReset->arg1);
+				log(LOG_BUG, "%d: no such obj", pReset->arg1);
 				break;
 			}
 	    
@@ -1038,7 +1050,7 @@ void reset_room(ROOM_INDEX_DATA *pRoom, int flags)
 		} /* switch */
 	} /* for */
 
-	logger_set(LOG_ERROR, logger_old);
+	logger_set(LOG_BUG, logger_old);
 }
 
 /*
@@ -1083,7 +1095,7 @@ CHAR_DATA *create_mob(MOB_INDEX_DATA *pMobIndex)
 	AFFECT_DATA *paf;
 
 	if (pMobIndex == NULL) {
-		log(LOG_ERROR, "create_mob: NULL pMobIndex.");
+		log(LOG_BUG, "create_mob: NULL pMobIndex.");
 		exit(1);
 	}
 
@@ -1384,7 +1396,7 @@ OBJ_DATA *create_obj(OBJ_INDEX_DATA *pObjIndex, int flags)
 	int i;
 
 	if (pObjIndex == NULL) {
-		log(LOG_ERROR, "create_obj: NULL pObjIndex");
+		log(LOG_BUG, "create_obj: NULL pObjIndex");
 		exit(1);
 	}
 

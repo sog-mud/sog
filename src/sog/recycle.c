@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.102 2000-06-02 16:41:07 fjoe Exp $
+ * $Id: recycle.c,v 1.103 2000-06-07 08:56:00 fjoe Exp $
  */
 
 /***************************************************************************
@@ -148,7 +148,7 @@ void free_obj(OBJ_DATA *obj)
 		return;
 
 	if (!mem_is(obj, MT_OBJ)) {
-		log(LOG_ERROR, "free_obj: obj is not MT_OBJ");
+		log(LOG_BUG, "free_obj: obj is not MT_OBJ");
 		return;
 	}
 	mem_invalidate(obj);
@@ -322,7 +322,7 @@ void char_free(CHAR_DATA *ch)
 	int *free_count;
 
 	if (!mem_is(ch, MT_CHAR)) {
-		log(LOG_ERROR, "free_char: ch is not MT_CHAR");
+		log(LOG_BUG, "free_char: ch is not MT_CHAR");
 		return;
 	}
 	mem_invalidate(ch);

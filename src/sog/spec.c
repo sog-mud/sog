@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: spec.c,v 1.20 2000-03-21 14:57:36 fjoe Exp $
+ * $Id: spec.c,v 1.21 2000-06-07 08:56:01 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -259,7 +259,7 @@ void spec_stats(CHAR_DATA *ch, spec_skill_t *spec_sk)
 /* noone can use ill-defined skills */
 	if ((sk = skill_lookup(spec_sk->sn)) == NULL) {
 #ifdef STRKEY_STRICT_CHECKS
-		log(LOG_ERROR, "spec_stats: %s: unknown skill", spec_sk->sn);
+		log(LOG_BUG, "spec_stats: %s: unknown skill", spec_sk->sn);
 #endif
 		goto bailout;
 	}

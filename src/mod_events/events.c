@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: events.c,v 1.7 2000-04-16 09:21:45 fjoe Exp $
+ * $Id: events.c,v 1.8 2000-06-07 08:55:36 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -41,13 +41,15 @@
 static void *load_cb(void *p, va_list ap);
 static void *unload_cb(void *p, va_list ap);
 
-int _module_load(module_t* m)
+int
+_module_load(module_t* m)
 {
 	hash_foreach(&skills, load_cb, m);
 	return 0;
 }
 
-int _module_unload(module_t *m)
+int
+_module_unload(module_t *m)
 {
 	hash_foreach(&skills, unload_cb);
 	return 0;

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_cc_fun.c,v 1.4 2000-02-10 14:08:42 fjoe Exp $
+ * $Id: init_cc_fun.c,v 1.5 2000-06-07 08:55:22 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -40,13 +40,15 @@
 static void *load_cb(void *p, va_list ap);
 static void *unload_cb(void *p, va_list ap);
 
-int _module_load(module_t* m)
+int
+_module_load(module_t* m)
 {
 	varr_foreach(&cc_eclasses, load_cb, m);
 	return 0;
 }
 
-int _module_unload(module_t *m)
+int
+_module_unload(module_t *m)
 {
 	varr_foreach(&cc_eclasses, unload_cb);
 	return 0;
@@ -61,7 +63,7 @@ efun_load_cb(void *p, va_list ap)
 
 	efun->fun = dlsym(m->dlh, efun->fun_name);
 	if (efun->fun == NULL) 
-		log(LOG_ERROR, "_module_load(mod_cc_efun): %s", dlerror());
+		log(LOG_ERROR, "_module_load(mod_cc_fun): %s", dlerror());
 	return NULL;
 }
 

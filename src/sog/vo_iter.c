@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: vo_iter.c,v 1.4 2000-02-10 14:08:55 fjoe Exp $
+ * $Id: vo_iter.c,v 1.5 2000-06-07 08:56:01 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -159,7 +159,7 @@ vo_foreach(void *cont, vo_iter_t *iter, vo_foreach_cb_t cb, ...)
 	static int cnt;
 
 	if (cnt < 0 || cnt > 7) {
-		log(LOG_ERROR, "vo_foreach: cnt overflow (%d)", cnt);
+		log(LOG_BUG, "vo_foreach: cnt overflow (%d)", cnt);
 		return NULL;
 	}
 
@@ -171,7 +171,7 @@ vo_foreach(void *cont, vo_iter_t *iter, vo_foreach_cb_t cb, ...)
 		return NULL;	/* short circuit */
 
 	if (!mem_is(vo, iter->mem_type)) {
-		log(LOG_ERROR, "vo_foreach: bad mt (expect %d)", iter->mem_type);
+		log(LOG_BUG, "vo_foreach: bad mt (expect %d)", iter->mem_type);
 		return NULL;
 	}
 

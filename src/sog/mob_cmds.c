@@ -1,5 +1,5 @@
 /*
- * $Id: mob_cmds.c,v 1.47 2000-04-03 14:24:28 fjoe Exp $
+ * $Id: mob_cmds.c,v 1.48 2000-06-07 08:55:59 fjoe Exp $
  */
 
 /***************************************************************************
@@ -123,7 +123,7 @@ void do_mpgecho(CHAR_DATA *ch, const char *argument)
 
     if (argument[0] == '\0')
     {
-	log(LOG_ERROR, "MpGEcho: missing argument from vnum %d",
+	log(LOG_BUG, "MpGEcho: missing argument from vnum %d",
 	    IS_NPC(ch) ? ch->pMobIndex->vnum : 0);
 	return;
     }
@@ -151,7 +151,7 @@ void do_mpzecho(CHAR_DATA *ch, const char *argument)
 
     if (argument[0] == '\0')
     {
-	log(LOG_ERROR, "MpZEcho: missing argument from vnum %d",
+	log(LOG_BUG, "MpZEcho: missing argument from vnum %d",
 	    IS_NPC(ch) ? ch->pMobIndex->vnum : 0);
 	return;
     }
@@ -228,7 +228,7 @@ void do_mpkill(CHAR_DATA *ch, const char *argument)
 
     if (IS_AFFECTED(ch, AFF_CHARM) && ch->master == victim)
     {
-	log(LOG_ERROR, "MpKill - Charmed mob attacking master from vnum %d.",
+	log(LOG_BUG, "MpKill - Charmed mob attacking master from vnum %d.",
 	    IS_NPC(ch) ? ch->pMobIndex->vnum : 0);
 	return;
     }
@@ -426,7 +426,7 @@ void do_mpoload(CHAR_DATA *ch, const char *argument)
 
     if (arg1[0] == '\0' || !is_number(arg1))
     {
-        log(LOG_ERROR, "Mpoload - Bad syntax from vnum %d.",
+        log(LOG_BUG, "Mpoload - Bad syntax from vnum %d.",
 	    IS_NPC(ch) ? ch->pMobIndex->vnum : 0);
         return;
     }
@@ -443,7 +443,7 @@ void do_mpoload(CHAR_DATA *ch, const char *argument)
 
     if ((pObjIndex = get_obj_index(atoi(arg1))) == NULL)
     {
-	log(LOG_ERROR, "Mpoload - Bad vnum arg from vnum %d.", 
+	log(LOG_BUG, "Mpoload - Bad vnum arg from vnum %d.", 
 		IS_NPC(ch) ? ch->pMobIndex->vnum : 0);
 	return;
     }
@@ -506,7 +506,7 @@ void do_mppurge(CHAR_DATA *ch, const char *argument)
 	}
 	else
 	{
-	    log(LOG_ERROR, "Mppurge - Bad argument from vnum %d.",
+	    log(LOG_BUG, "Mppurge - Bad argument from vnum %d.",
 		IS_NPC(ch) ? ch->pMobIndex->vnum : 0);
 	}
 	return;
@@ -514,7 +514,7 @@ void do_mppurge(CHAR_DATA *ch, const char *argument)
 
     if (!IS_NPC(victim))
     {
-	log(LOG_ERROR, "Mppurge - Purging a PC from vnum %d.", 
+	log(LOG_BUG, "Mppurge - Purging a PC from vnum %d.", 
 		IS_NPC(ch) ? ch->pMobIndex->vnum : 0);
 	return;
     }
@@ -534,14 +534,14 @@ void do_mpgoto(CHAR_DATA *ch, const char *argument)
     one_argument(argument, arg, sizeof(arg));
     if (arg[0] == '\0')
     {
-	log(LOG_ERROR, "Mpgoto - No argument from vnum %d.", 
+	log(LOG_BUG, "Mpgoto - No argument from vnum %d.", 
 		IS_NPC(ch) ? ch->pMobIndex->vnum : 0);
 	return;
     }
 
     if ((location = find_location(ch, arg)) == NULL)
     {
-	log(LOG_ERROR, "Mpgoto - No such location from vnum %d.", 
+	log(LOG_BUG, "Mpgoto - No such location from vnum %d.", 
 		IS_NPC(ch) ? ch->pMobIndex->vnum : 0);
 	return;
     }
@@ -569,14 +569,14 @@ void do_mpat(CHAR_DATA *ch, const char *argument)
 
     if (arg[0] == '\0' || argument[0] == '\0')
     {
-	log(LOG_ERROR, "Mpat - Bad argument from vnum %d.", 
+	log(LOG_BUG, "Mpat - Bad argument from vnum %d.", 
 		IS_NPC(ch) ? ch->pMobIndex->vnum : 0);
 	return;
     }
 
     if ((location = find_location(ch, arg)) == NULL)
     {
-	log(LOG_ERROR, "Mpat - No such location from vnum %d.",
+	log(LOG_BUG, "Mpat - No such location from vnum %d.",
 		IS_NPC(ch) ? ch->pMobIndex->vnum : 0);
 	return;
     }
@@ -617,7 +617,7 @@ void do_mptransfer(CHAR_DATA *ch, const char *argument)
 
     if (arg1[0] == '\0')
     {
-	log(LOG_ERROR, "Mptransfer - Bad syntax from vnum %d.", 
+	log(LOG_BUG, "Mptransfer - Bad syntax from vnum %d.", 
 		IS_NPC(ch) ? ch->pMobIndex->vnum : 0);
 	return;
     }
@@ -646,7 +646,7 @@ void do_mptransfer(CHAR_DATA *ch, const char *argument)
     {
 	if ((location = find_location(ch, arg2)) == NULL)
 	{
-	    log(LOG_ERROR, "Mptransfer - No such location from vnum %d.",
+	    log(LOG_BUG, "Mptransfer - No such location from vnum %d.",
 	        IS_NPC(ch) ? ch->pMobIndex->vnum : 0);
 	    return;
 	}
@@ -685,7 +685,7 @@ void do_mpgtransfer(CHAR_DATA *ch, const char *argument)
 
     if (arg1[0] == '\0')
     {
-	log(LOG_ERROR, "Mpgtransfer - Bad syntax from vnum %d.", 
+	log(LOG_BUG, "Mpgtransfer - Bad syntax from vnum %d.", 
 		IS_NPC(ch) ? ch->pMobIndex->vnum : 0);
 	return;
     }
@@ -715,7 +715,7 @@ void do_mpforce(CHAR_DATA *ch, const char *argument)
 
     if (arg[0] == '\0' || argument[0] == '\0')
     {
-	log(LOG_ERROR, "Mpforce - Bad syntax from vnum %d.", 
+	log(LOG_BUG, "Mpforce - Bad syntax from vnum %d.", 
 		IS_NPC(ch) ? ch->pMobIndex->vnum : 0);
 	return;
     }
@@ -765,7 +765,7 @@ void do_mpgforce(CHAR_DATA *ch, const char *argument)
 
     if (arg[0] == '\0' || argument[0] == '\0')
     {
-	log(LOG_ERROR, "MpGforce - Bad syntax from vnum %d.", 
+	log(LOG_BUG, "MpGforce - Bad syntax from vnum %d.", 
 		IS_NPC(ch) ? ch->pMobIndex->vnum : 0);
 	return;
     }
@@ -803,14 +803,14 @@ void do_mpvforce(CHAR_DATA *ch, const char *argument)
 
     if (arg[0] == '\0' || argument[0] == '\0')
     {
-	log(LOG_ERROR, "MpVforce - Bad syntax from vnum %d.", 
+	log(LOG_BUG, "MpVforce - Bad syntax from vnum %d.", 
 		IS_NPC(ch) ? ch->pMobIndex->vnum : 0);
 	return;
     }
 
     if (!is_number(arg))
     {
-	log(LOG_ERROR, "MpVforce - Non-number argument vnum %d.", 
+	log(LOG_BUG, "MpVforce - Non-number argument vnum %d.", 
 		IS_NPC(ch) ? ch->pMobIndex->vnum : 0);
 	return;
     }
@@ -848,7 +848,7 @@ void do_mpdamage(CHAR_DATA *ch, const char *argument)
 
     if (target[0] == '\0')
     {
-	log(LOG_ERROR, "MpDamage - Bad syntax from vnum %d.", 
+	log(LOG_BUG, "MpDamage - Bad syntax from vnum %d.", 
 		IS_NPC(ch) ? ch->pMobIndex->vnum : 0);
 	return;
     }
@@ -861,7 +861,7 @@ void do_mpdamage(CHAR_DATA *ch, const char *argument)
 	low = atoi(min);
     else
     {
-	log(LOG_ERROR, "MpDamage - Bad damage min vnum %d.", 
+	log(LOG_BUG, "MpDamage - Bad damage min vnum %d.", 
 		IS_NPC(ch) ? ch->pMobIndex->vnum : 0);
 	return;
     }
@@ -869,7 +869,7 @@ void do_mpdamage(CHAR_DATA *ch, const char *argument)
 	high = atoi(max);
     else
     {
-	log(LOG_ERROR, "MpDamage - Bad damage max vnum %d.", 
+	log(LOG_BUG, "MpDamage - Bad damage max vnum %d.", 
 		IS_NPC(ch) ? ch->pMobIndex->vnum : 0);
 	return;
     }
@@ -916,7 +916,7 @@ void do_mpremember(CHAR_DATA *ch, const char *argument)
 	if (arg[0] != '\0')
 		NPC(ch)->mprog_target = get_char_world(ch, arg);
 	else {
-		log(LOG_ERROR, "do_mpremember: missing argument from vnum %d.", 
+		log(LOG_BUG, "do_mpremember: missing argument from vnum %d.", 
 		    IS_NPC(ch) ? ch->pMobIndex->vnum : 0);
 	}
 }
@@ -944,7 +944,7 @@ void do_mpdelay(CHAR_DATA *ch, const char *argument)
 
 	one_argument(argument, arg, sizeof(arg));
 	if (!is_number(arg)) {
-		log(LOG_ERROR, "do_mpdelay: invalid arg from vnum %d.", 
+		log(LOG_BUG, "do_mpdelay: invalid arg from vnum %d.", 
 		    IS_NPC(ch) ? ch->pMobIndex->vnum : 0);
 		return;
 	}
@@ -979,7 +979,7 @@ void do_mpcall(CHAR_DATA *ch, const char *argument)
 
 	argument = one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
-		log(LOG_ERROR, "MpCall: missing arguments from vnum %d.", 
+		log(LOG_BUG, "MpCall: missing arguments from vnum %d.", 
 			IS_NPC(ch) ? ch->pMobIndex->vnum : 0);
 		return;
 	}
@@ -1050,14 +1050,14 @@ void do_mpotransfer(CHAR_DATA *ch, const char *argument)
     argument = one_argument(argument, arg, sizeof(arg));
     if (arg[0] == '\0')
     {
-	log(LOG_ERROR, "MpOTransfer - Missing argument from vnum %d.", 
+	log(LOG_BUG, "MpOTransfer - Missing argument from vnum %d.", 
 		IS_NPC(ch) ? ch->pMobIndex->vnum : 0);
 	return;
     }
     one_argument(argument, buf, sizeof(buf));
     if ((location = find_location(ch, buf)) == NULL)
     {
-	log(LOG_ERROR, "MpOTransfer - No such location from vnum %d.", 
+	log(LOG_BUG, "MpOTransfer - No such location from vnum %d.", 
 		IS_NPC(ch) ? ch->pMobIndex->vnum : 0);
 	return;
     }
@@ -1097,7 +1097,7 @@ void do_mpremove(CHAR_DATA *ch, const char *argument)
 	fAll = TRUE;
     else if (!is_number(arg))
     {
-	log(LOG_ERROR, "MpRemove: Invalid object from vnum %d.", 
+	log(LOG_BUG, "MpRemove: Invalid object from vnum %d.", 
 		IS_NPC(ch) ? ch->pMobIndex->vnum : 0);
 	return;
     }

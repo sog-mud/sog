@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.228 2000-06-01 17:57:59 fjoe Exp $
+ * $Id: comm.c,v 1.229 2000-06-07 08:56:05 fjoe Exp $
  */
 
 /***************************************************************************
@@ -243,13 +243,6 @@ int main(int argc, char **argv)
 	WORD	wVersionRequested = MAKEWORD(1, 1);
 	WSADATA	wsaData;
 	int err;
-#endif
-
-	/*
-	 * Memory debugging if needed.
-	 */
-#if defined(MALLOC_DEBUG)
-	malloc_delog(LOG_ERROR, 2);
 #endif
 
 	setlocale(LC_ALL, "");
@@ -927,7 +920,7 @@ void close_descriptor(DESCRIPTOR_DATA *dclose, int save_flags)
 		if (d != NULL)
 			d->next = dclose->next;
 		else
-			log(LOG_ERROR, "close_socket: dclose not found.");
+			log(LOG_BUG, "close_socket: dclose not found.");
 	}
 
 #if !defined( WIN32 )
@@ -1799,7 +1792,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 
 	switch (d->connected) {
 	default:
-		log(LOG_ERROR, "Nanny: bad d->connected %d.", d->connected);
+		log(LOG_BUG, "Nanny: bad d->connected %d.", d->connected);
 		close_descriptor(d, SAVE_F_NONE);
 		return;
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: updfun.c,v 1.9 2000-06-02 16:41:03 fjoe Exp $
+ * $Id: updfun.c,v 1.10 2000-06-07 08:55:50 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -457,7 +457,7 @@ weather_update(void)
 
 	switch (weather_info.sky) {
 	default: 
-		log(LOG_ERROR, "Weather_update: bad sky %d.", weather_info.sky);
+		log(LOG_BUG, "Weather_update: bad sky %d.", weather_info.sky);
 		weather_info.sky = SKY_CLOUDLESS;
 		break;
 
@@ -1892,7 +1892,7 @@ clan_item_update_cb(void *p, va_list ap)
 		return NULL;
 
 	if (clan->altar_ptr == NULL) {
-		log(LOG_ERROR, "clan_item_update_cb: clan %s: no altar_ptr", clan->name);
+		log(LOG_BUG, "clan_item_update_cb: clan %s: no altar_ptr", clan->name);
 		return NULL;
 	}
 

@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 use strict;
-require "makeutil.pl";
+require "mkutil.pl";
 
 my $module_decl = "module_decl";
 my @modules = get_modules("", @ARGV);	# siz^H^H^Horder does matter

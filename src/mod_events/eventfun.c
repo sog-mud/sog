@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: eventfun.c,v 1.17 2000-06-01 17:57:40 fjoe Exp $
+ * $Id: eventfun.c,v 1.18 2000-06-07 08:55:36 fjoe Exp $
  */
 
 
@@ -51,7 +51,7 @@ void show_owner(CHAR_DATA *ch, AFFECT_DATA *af)
 EVENT_FUN(event_enter_lshield)
 {
 	if (af->owner->in_room != ch->in_room) {
-		log(LOG_ERROR, "event_enter_lshield: owner of lightning shield left the room");
+		log(LOG_BUG, "event_enter_lshield: owner of lightning shield left the room");
 		affect_remove_room(ch->in_room, af); 
 		return;
 	}

@@ -1,5 +1,5 @@
 #
-# $Id: Makefile,v 1.74 2000-06-06 10:27:15 fjoe Exp $
+# $Id: Makefile,v 1.75 2000-06-07 08:55:17 fjoe Exp $
 #
 
 .include "${.CURDIR}/Makefile.modules"
@@ -17,8 +17,8 @@ abi_version.h: Makefile.inc
 	@echo Creating abi_version.h
 	@echo "#define" `grep ^ABI_VERSION Makefile.inc | sed s/=//` > abi_version.h
 
-module_decl.h: Makefile.modules makedecl.pl makeutil.pl
-	@${.CURDIR}/makedecl.pl ${MODULES}
+module_decl.h: Makefile.modules mkdecl.pl mkutil.pl
+	@${.CURDIR}/mkdecl.pl ${MODULES}
 
 ctags:
 	ctags -dtw include/*.h sog/*.[ch] sog/*/*.[ch] mod_*/*.[ch]

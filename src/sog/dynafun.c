@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: dynafun.c,v 1.3 2000-06-02 16:41:05 fjoe Exp $
+ * $Id: dynafun.c,v 1.4 2000-06-07 08:55:55 fjoe Exp $
  */
 
 #include <stdlib.h>
@@ -119,17 +119,17 @@ dynafun_call(cchar_t name, int nargs, ...)
 	va_list args_ap = args.p;
 
 	if ((d = (dynafun_data_t *) hash_lookup(&dynafuns, name)) == NULL) {
-		log(LOG_ERROR, "dynafun_call: %s: not found", name);
+		log(LOG_BUG, "dynafun_call: %s: not found", name);
 		return NULL;
 	}
 
 	if (d->fun == NULL) {
-		log(LOG_ERROR, "dynafun_call: %s: NULL fun", d->name);
+		log(LOG_BUG, "dynafun_call: %s: NULL fun", d->name);
 		return NULL;
 	}
 
 	if (nargs != d->nargs) {
-		log(LOG_ERROR, "dynafun_call: %s: called with %d args (expected %d)", d->name, nargs, d->nargs);
+		log(LOG_BUG, "dynafun_call: %s: called with %d args (expected %d)", d->name, nargs, d->nargs);
 		return NULL;
 	}
 
@@ -173,14 +173,14 @@ dynafun_call(cchar_t name, int nargs, ...)
 
 		default:
 			va_end(ap);
-			log(LOG_ERROR, "dynafun_call: %s: %d: unknown type in arg list", d->name, d->argtype[i]);
+			log(LOG_BUG, "dynafun_call: %s: %d: unknown type in arg list", d->name, d->argtype[i]);
 			return NULL;
 		}
 
 		arg = va_arg(ap, void *);
 		if (!mem_is(arg, d->argtype[i])) {
 			va_end(ap);
-			log(LOG_ERROR, "dynafun_call: %s: arg[%d] type is not %d", d->name, i, d->argtype[i]);
+			log(LOG_BUG, "dynafun_call: %s: arg[%d] type is not %d", d->name, i, d->argtype[i]);
 			return NULL;
 		}
 
@@ -258,12 +258,12 @@ dynafun_register(dynafun_data_t *d, void *arg)
 	module_t *m = (module_t *) arg;
 
 	if ((d = hash_insert(&dynafuns, d->name, d)) == NULL) {
-		log(LOG_ERROR, "dynafun_register: %s: duplicate dynafun name",
+		log(LOG_BUG, "dynafun_register: %s: duplicate dynafun name",
 		    d->name);
 	}
 
 	if ((d->fun = dlsym(m->dlh, d->name)) == NULL) {
-		log(LOG_ERROR, "dynafun_register: %s: not found",
+		log(LOG_BUG, "dynafun_register: %s: not found",
 		    d->name);
 	}
 }

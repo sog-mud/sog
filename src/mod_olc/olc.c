@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.116 2000-06-01 17:57:49 fjoe Exp $
+ * $Id: olc.c,v 1.117 2000-06-07 08:55:43 fjoe Exp $
  */
 
 /***************************************************************************
@@ -122,17 +122,19 @@ static void do_olc(CHAR_DATA *ch, const char *argument, int fun);
 const char *skip_commands[] = { "n", "w", "e", "s", "u", "d" };
 #define NSKIP_COMMANDS (sizeof(skip_commands) / sizeof(*skip_commands))
 
-int _module_load(module_t *m)
+int
+_module_load(module_t *m)
 {
-	varr_foreach(&commands, cmd_load_cb, MOD_OLC, m);
+	varr_foreach(&commands, cmd_load_cb, MODULE, m);
 	olc_interpret = dlsym(m->dlh, "_olc_interpret");
 	if (olc_interpret == NULL)
-		log(LOG_INFO, "_module_load: %s", dlerror());
+		log(LOG_INFO, "_module_load(olc): %s", dlerror());
 	qsort(skip_commands, NSKIP_COMMANDS, sizeof(*skip_commands), cmpstr);
 	return 0;
 }
 
-int _module_unload(module_t *m)
+int
+_module_unload(module_t *m)
 {
 	DESCRIPTOR_DATA *d;
 
@@ -147,7 +149,7 @@ int _module_unload(module_t *m)
 		edit_done(d);
 	}
 
-	varr_foreach(&commands, cmd_unload_cb, MOD_OLC);
+	varr_foreach(&commands, cmd_unload_cb, MODULE);
 	olc_interpret = NULL;
 	return 0;
 }

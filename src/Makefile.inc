@@ -1,5 +1,5 @@
 #
-# $Id: Makefile.inc,v 1.12 2000-06-06 10:28:31 fjoe Exp $
+# $Id: Makefile.inc,v 1.13 2000-06-07 08:55:17 fjoe Exp $
 #
 
 #
@@ -62,8 +62,8 @@ DEPCLEANFILES+=	${CDEPFILE}
 .endif
 
 ${CDEPFILE}: ${DEPENDFILE} ${.CURDIR}/../Makefile.modules\
-	     ${.CURDIR}/../makedep.pl ${.CURDIR}/../makeutil.pl
-	@${.CURDIR}/../makedep.pl ${MODULE} ${DEPENDFILE} ${CDEPFILE} ${MODULES}
+	     ${.CURDIR}/../mkdep.pl ${.CURDIR}/../mkutil.pl
+	@${.CURDIR}/../mkdep.pl ${MODULE} ${DEPENDFILE} ${CDEPFILE} ${MODULES}
 
 .include "${.CURDIR}/../Makefile.modules"
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_magic.c,v 1.26 2000-06-01 17:57:44 fjoe Exp $
+ * $Id: act_magic.c,v 1.27 2000-06-07 08:55:41 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -177,7 +177,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 
 	switch (spell->target) {
 	default:
-		log(LOG_ERROR, "do_cast: %s: bad target %d.", sn, spell->target);
+		log(LOG_BUG, "do_cast: %s: bad target %d.", sn, spell->target);
 		return;
 
 	case TAR_IGNORE:
@@ -572,7 +572,7 @@ void do_pray(CHAR_DATA *ch, const char *argument)
 
 	switch (prayer->target) {
 	default:
-		log(LOG_ERROR, "do_pray: %s: bad target %d.", sn, prayer->target);
+		log(LOG_BUG, "do_pray: %s: bad target %d.", sn, prayer->target);
 		return;
 
 	case TAR_IGNORE:

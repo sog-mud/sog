@@ -1,5 +1,5 @@
 /*
- * $Id: log.h,v 1.7 2000-02-10 14:08:41 fjoe Exp $
+ * $Id: log.h,v 1.8 2000-06-07 08:55:19 fjoe Exp $
  */
 
 /***************************************************************************
@@ -47,11 +47,15 @@ enum {
 	LOG_INFO,
 	LOG_WARN,
 	LOG_ERROR,
+	LOG_BUG,
 
 	LOG_MAX
 };
 
-void	log(int llevel, const char *str, ...) __attribute__((format(printf, 2, 3)));
+void	log(int llevel,
+	    const char *fmt, ...) __attribute__((format(printf, 2, 3)));
+void	log_setchar(CHAR_DATA *ch);
+void	log_unsetchar(void);
 
 /*
  * each log level has its own logger
@@ -68,6 +72,6 @@ logger_t logger_set(int llevel, logger_t logger_new);
  * some standard loggers
  */
 void logger_default	(const char *buf);
-void logger_error	(const char *buf);
+void logger_bug		(const char *buf);
 
 #endif

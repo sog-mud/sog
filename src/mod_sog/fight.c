@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.274 2000-06-02 16:40:51 fjoe Exp $
+ * $Id: fight.c,v 1.275 2000-06-07 08:55:38 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1282,7 +1282,7 @@ void *
 set_fighting(CHAR_DATA *ch, CHAR_DATA *victim)
 {
 	if (ch->fighting != NULL) {
-		log(LOG_ERROR, "set_fighting: already fighting");
+		log(LOG_BUG, "set_fighting: already fighting");
 		return NULL;
 	}
 
@@ -1694,7 +1694,7 @@ bool is_safe_rspell_nom(AFFECT_DATA *af, CHAR_DATA *victim)
 {
 	if (af->owner)
 		return is_safe_nomessage(victim, af->owner);
-	log(LOG_ERROR, "is_safe_rspell_nom: no affect owner");
+	log(LOG_BUG, "is_safe_rspell_nom: no affect owner");
 	affect_remove_room(victim->in_room, af);
 	return TRUE; /* protected from broken room affects */ 
 }
@@ -2894,7 +2894,7 @@ dam_message(CHAR_DATA *ch, CHAR_DATA *victim, int dam,
 
 	dam_alias(dam, &vs, &vp);
 	if (ch != victim && IS_SET(dam_flags, DAMF_LIGHT_V | DAMF_HUNGER | DAMF_THIRST)) {
-		log(LOG_ERROR, "dam_message: ch != victim, damf=%d", dam_flags);
+		log(LOG_BUG, "dam_message: ch != victim, damf=%d", dam_flags);
 		msg_char = NULL;
 		msg_notvict = NULL;
 	}

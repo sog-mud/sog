@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: varr.c,v 1.21 2000-03-28 21:59:38 fjoe Exp $
+ * $Id: varr.c,v 1.22 2000-06-07 08:56:01 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -209,6 +209,69 @@ varr_anforeach(varr *v, size_t from, foreach_cb_t cb, va_list ap)
 		void *p;
 		if ((p = cb(VARR_GET(v, i), ap)) != NULL)
 			return p;
+	}
+
+	return NULL;
+}
+
+void *varr_rforeach(varr *v, foreach_cb_t cb, ...)
+{
+	void *rv;
+	va_list ap;
+
+	if (!v->nused)
+		return NULL;
+
+	va_start(ap, cb);
+	rv = varr_arnforeach(v, v->nused - 1, cb, ap);
+	va_end(ap);
+
+	return rv;
+}
+
+void *varr_reforeach(varr *v, void *e, foreach_cb_t cb, ...)
+{
+	void *rv;
+	va_list ap;
+
+	if (!v->nused)
+		return NULL;
+
+	va_start(ap, cb);
+	rv = varr_arnforeach(v, e ? varr_index(v, e) : v->nused - 1, cb, ap);
+	va_end(ap);
+
+	return rv;
+}
+
+void *
+varr_rnforeach(varr *v, size_t from, foreach_cb_t cb, ...)
+{
+	void *rv;
+	va_list ap;
+
+	va_start(ap, cb);
+	rv = varr_arnforeach(v, from, cb, ap);
+	va_end(ap);
+
+	return rv;
+}
+
+void *
+varr_arnforeach(varr *v, size_t from, foreach_cb_t cb, va_list ap)
+{
+	size_t i;
+
+	if (from > v->nused)
+		from = v->nused;
+
+	i = UMIN(from, v->nused);
+	for (;;) {
+		void *p;
+		if ((p = cb(VARR_GET(v, i), ap)) != NULL)
+			return p;
+		if (!i--)
+			break;
 	}
 
 	return NULL;

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: module.h,v 1.9 2000-06-06 09:43:44 fjoe Exp $
+ * $Id: module.h,v 1.10 2000-06-07 08:55:20 fjoe Exp $
  */
 
 #ifndef _MODULE_H_
@@ -45,11 +45,13 @@ struct module_t {
 				/* module `b' priority if		*/
 				/* a.mod_prio > b.mod_prio		*/
 
+	const char *mod_deps;	/* modules this mod depends on		*/
+
 	void *dlh;		/* module handle			*/
 	time_t last_reload;	/* last [re]load time			*/
 };
 
-int		mod_load	(module_t *m);
+int		mod_load	(module_t *m, time_t curr_time);
 module_t *	mod_lookup	(const char *name);
 
 extern varr modules;

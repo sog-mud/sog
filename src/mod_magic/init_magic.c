@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_magic.c,v 1.11 2000-06-05 12:06:21 fjoe Exp $
+ * $Id: init_magic.c,v 1.12 2000-06-07 08:55:41 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -46,7 +46,8 @@
 static void *load_cb(void *p, va_list ap);
 static void *unload_cb(void *p, va_list ap);
 
-int _module_load(module_t* m)
+int
+_module_load(module_t* m)
 {
 	varr_foreach(&commands, cmd_load_cb, MODULE, m);
 	hash_foreach(&skills, load_cb, m);
@@ -54,7 +55,8 @@ int _module_load(module_t* m)
 	return 0;
 }
 
-int _module_unload(module_t *m)
+int
+_module_unload(module_t *m)
 {
 	dynafun_tab_unregister(__mod_tab(MODULE));
 	hash_foreach(&skills, unload_cb, NULL);
@@ -73,7 +75,7 @@ load_cb(void *p, va_list ap)
 	||  sk->skill_type == ST_PRAYER) {
 		sk->fun = dlsym(m->dlh, sk->fun_name);
 		if (sk->fun == NULL) 
-			log(LOG_INFO, "_module_load(spellfun): %s", dlerror());
+			log(LOG_INFO, "_module_load(magic): %s", dlerror());
 	}
 	return NULL;
 }

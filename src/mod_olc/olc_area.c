@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_area.c,v 1.81 2000-04-06 05:40:50 fjoe Exp $
+ * $Id: olc_area.c,v 1.82 2000-06-07 08:55:44 fjoe Exp $
  */
 
 #include "olc.h"
@@ -1201,7 +1201,7 @@ save_resets_room(FILE *fp, ROOM_INDEX_DATA *pRoomIndex, bool *pfound)
 
 		switch (r->command) {
 		default:
-			log(LOG_ERROR, "Save_resets: bad command %c.", r->command);
+			log(LOG_BUG, "Save_resets: bad command %c.", r->command);
 			break;
 
 #if defined(VERBOSE)
