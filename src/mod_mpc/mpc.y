@@ -25,7 +25,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc.y,v 1.48 2003-04-25 12:49:32 fjoe Exp $
+ * $Id: mpc.y,v 1.49 2003-04-25 13:36:45 fjoe Exp $
  */
 
 /*
@@ -886,9 +886,20 @@ expr:	lvalue assign expr %prec '=' {
 		argtype_popn(mpc, $3);
 	}
 	| lvalue {
+		bool optimized = FALSE;
 		int addr;
 		POP_ADDR(addr);
-		code(mpc, c_push_lvalue);
+		if ((c_fun) CODE(addr)[0] == c_push_var) {
+			sym_t *sym;
+			const char *name = (const char *) CODE(addr)[1];
+			SYM_LOOKUP(sym, name, SYM_VAR);
+			if ((optimized = sym->s.var.is_const)) {
+				mpc->code.nused = addr;
+				code2(mpc, c_push_const, sym->s.var.data.p);
+			}
+		}
+		if (!optimized)
+			code(mpc, c_push_lvalue);
 	}
 	| L_STRING {
 		code2(mpc, c_push_const, $1);
