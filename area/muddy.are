@@ -270,7 +270,7 @@ _____,*-'   `==
 * Read helps of WHATSNEW(ROM2ANATOLIA), FROM20TO21 and ALIGNORCABAL.
 * Added multi-language support command. See '{Clanguage{x' command.
 * Added short mode for flags. See '{Clong{x' command.
-* {CGossip{x channel added.
+* {CGossip{x and {Cmusic{x channels added.
 
 [Hit Return to continue]
 ~ 

@@ -8,6 +8,7 @@ void	nuke_pets	(CHAR_DATA *ch);
 void	die_follower	(CHAR_DATA *ch);
 bool	is_same_group	(CHAR_DATA *ach, CHAR_DATA *bch);
 void	do_ilang	(CHAR_DATA *ch, char *argument);
+void    do_music	(CHAR_DATA *ch, char *argument);
 void    do_gossip	(CHAR_DATA *ch, char *argument);
 
 #endif

@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.13 1998-05-19 14:10:39 efdi Exp $
+ * $Id: interp.c,v 1.14 1998-05-24 15:41:46 efdi Exp $
  */
 
 /***************************************************************************
@@ -155,7 +155,6 @@ const	struct	cmd_type	cmd_table	[] =
     { "examine",	do_examine,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_GHOST }, 
     { "help",		do_help,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "idea",		do_idea,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "motd",		do_motd,	POS_DEAD,        0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "news",		do_news,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "raffects",	do_raffects,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "read",		do_read,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
@@ -236,8 +235,10 @@ const	struct	cmd_type	cmd_table	[] =
     { "say",		do_say,		POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
     { "'",		do_say,		POS_RESTING,	 0,  LOG_NORMAL, 0, CMD_GHOST },
     { "shout",		do_shout,	POS_RESTING,	 3,  LOG_NORMAL, 1, CMD_GHOST },
+    { "music",		do_music,	POS_DEAD,	 3,  LOG_NORMAL, 1, CMD_GHOST },
     { "gossip",		do_gossip,	POS_DEAD,	 3,  LOG_NORMAL, 1, CMD_GHOST },
     { ".",		do_gossip,	POS_DEAD,	 3,  LOG_NORMAL, 1, CMD_GHOST },
+    { "motd",		do_motd,	POS_DEAD,        0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "warcry",         do_warcry,      POS_FIGHTING,    0,  LOG_NORMAL, 1,0},
     { "unread",		do_unread,	POS_SLEEPING,    0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "yell",		do_yell,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_GHOST },

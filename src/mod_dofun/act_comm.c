@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.24 1998-05-21 10:14:44 efdi Exp $
+ * $Id: act_comm.c,v 1.25 1998-05-24 15:41:45 efdi Exp $
  */
 
 /***************************************************************************
@@ -66,6 +66,49 @@ void do_quit_org	args((CHAR_DATA *ch, char *argument, bool Count));
 bool proper_order	args((CHAR_DATA *ch, char *argument));
 char *translate(CHAR_DATA *ch, CHAR_DATA *victim, char *argument);
 int lang_lookup		args((const char *name));
+
+void do_music(CHAR_DATA *ch, char *argument)
+{
+	DESCRIPTOR_DATA *d;
+	char buf[MAX_INPUT_LENGTH];
+	char trans[MAX_STRING_LENGTH];
+
+	if (argument[0] == '\0')
+	{
+		/* send_to_char("Music what?.\n\r",ch);
+		   return;
+		*/
+		if (IS_SET(ch->comm, COMM_NOMUSIC)) {
+			REMOVE_BIT(ch->comm, COMM_NOGOSSIP);
+			send_to_char("You will now hear music.\n\r", ch);
+			return;
+		} else {
+			SET_BIT(ch->comm, COMM_NOMUSIC);
+			send_to_char("You will no longer hear music.\n\r",ch);
+			return;
+		}
+	}
+
+	strcpy(buf,argument);
+
+	if (!is_affected(ch, gsn_deafen))
+		act_puts("You music '{Y$T{x'",
+		       ch, NULL, buf, TO_CHAR,POS_DEAD);
+
+	for (d = descriptor_list; d != NULL; d = d->next) {
+		CHAR_DATA *victim;
+
+		victim = d->original ? d->original : d->character;
+
+		if (d->connected == CON_PLAYING && d->character != ch) {
+			strcpy(trans, translate(ch,d->character,buf));
+			act_puts("{W$n{x music '{Y$t{x'",
+		        	 ch, trans, d->character, TO_VICT, POS_DEAD);
+		}
+	}
+
+	return;
+}
 
 void do_gossip(CHAR_DATA *ch, char *argument)
 {
@@ -191,6 +234,12 @@ void do_channels(CHAR_DATA *ch, char *argument)
 	send_to_char("   channel     status\n\r",ch);
 	send_to_char("---------------------\n\r",ch);
 	
+	send_to_char("music         ", ch);
+	if (!IS_SET(ch->comm,COMM_NOMUSIC))
+		 send_to_char("ON\n\r",ch);
+	else
+		 send_to_char("OFF\n\r",ch);
+
 	send_to_char("gossip         ", ch);
 	if (!IS_SET(ch->comm,COMM_NOGOSSIP))
 		 send_to_char("ON\n\r",ch);
