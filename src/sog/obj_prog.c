@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.c,v 1.66.2.4 2000-06-09 12:00:45 fjoe Exp $
+ * $Id: obj_prog.c,v 1.66.2.5 2000-06-14 15:05:29 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1262,12 +1262,12 @@ int fight_prog_vorpalblade(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 		char_puts("Your weapon swings at your victim's neck "
 			     "without your control!\n", ch);
 		if (number_percent() < 40)  {
-		act("It makes an huge arc in the air, chopping $N's head OFF!",
+		act("Your weapon makes a huge arc in the air, chopping $N's head OFF!",
 		     ch, NULL, victim, TO_CHAR);
-		act("$N's weapon whistles in the air, chopping your head OFF!",
-		     ch, NULL, victim, TO_NOTVICT);
+		act("$n's weapon whistles in the air, chopping your head OFF!",
+		     ch, NULL, victim, TO_VICT);
 		act("$n's weapon whistles in the air, chopping $N's head OFF!",
-		     ch, NULL, victim, TO_ROOM);
+		     ch, NULL, victim, TO_NOTVICT);
 		act("$n is DEAD!!", victim, NULL, NULL, TO_ROOM);
 		act("$n is DEAD!!", victim, NULL, NULL, TO_CHAR);
 		handle_death(ch, victim);
