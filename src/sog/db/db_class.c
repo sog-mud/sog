@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_class.c,v 1.9 1998-10-30 06:56:55 fjoe Exp $
+ * $Id: db_class.c,v 1.10 1999-02-08 16:34:13 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -67,6 +67,11 @@ DBLOAD_FUN(load_class)
 		switch(UPPER(word[0])) {
 		case 'A':
 			KEY("AddExp", class_curr->points, fread_number(fp));
+			break;
+
+		case 'D':
+			KEY("DeathLimit", class_curr->death_limit,
+			    fread_number(fp));
 			break;
 
 		case 'E':
@@ -117,6 +122,7 @@ DBLOAD_FUN(load_class)
 			    fread_fword(align_names, fp));
 			KEY("RestrictSex", class_curr->restrict_sex,
 			    fread_fword(sex_table, fp));
+			SKEY("RestrictHometown", class_curr->restrict_hometown);
 			break;
 
 		case 'S':

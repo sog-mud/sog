@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_race.c,v 1.1 1998-10-30 07:02:26 fjoe Exp $
+ * $Id: db_race.c,v 1.2 1999-02-08 16:34:14 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -182,6 +182,7 @@ DBLOAD_FUN(load_pcrace)
 			    fread_fword(align_names, fp));
 			KEY("RestrictSex", pcr->restrict_sex,
 			    fread_fword(sex_table, fp));
+			SKEY("RestrictHometown", pcr->restrict_hometown);
 			break;
 
 		case 'S':
