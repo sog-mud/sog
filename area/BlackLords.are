@@ -1,0 +1,153 @@
+#AREADATA
+Name BlackLords~
+Builders None~
+VNUMs 46000 46099
+Credits (null)~
+Security 5
+LevelRange 0 0
+End
+
+#MOBILES
+#46000
+guildmaster CHIUN~
+@eng Mater Chiun@rus Мастер Чиун~
+@eng Mater Chiun are standing here.
+@rus Мастер Чиун стоит здесь.
+~
+~
+human~
+ABGKe 0 0 0
+0 200 1d1+100000 0d0+0 1d1+1000000 pound
+0 0 0 0
+0 AB 0 0
+stand stand male 0
+0 0 medium unknown
+F for AHMV
+F par ABCDEFGHIJK
+C BlackLords~
+#46001
+hassan~
+@eng Hassan@rus Хассан~
+@eng Greater Warrior stand here.
+@rus Огромный воин стоит здесь.
+~
+@eng Greater Warrior stand here.Powerfull Lord of Jusice  -  Hassan! He's ready to de
+fend thier brothers always . if you're not one of the Blacklords, you'll be dest
+royed!
+@rus Огромный воин стоит здесь.Величайший Лорд , защитник справедливости Хассан. Он г
+отов защищать своих собратьев любой ценой. 
+Он сокрушит любого кто нарушит покой Лордов!
+~
+human~
+ABGTe DFHJNOVZa -1000 0
+91 200 1d1+25000 1d1+4000 1d1+200 pound
+-10 -10 -10 -10
+ACEFJKLNO AB 0 0
+stand stand male 0
+0 0 medium unknown
+F for AHMV
+F par ABCDEFGHIJK
+M grall 46001 100~
+#0
+
+#ROOMS
+#46000
+Entrance to castle of Black Lords~
+@eng Stop.
+Don't go up , if you want be alive. You may penetrate borders of Justice and you
+'ll die.Nobody want your death but now you must go away.
+Aliens will destoy!
+@rus Стой.
+Не смей ходить дальше,если не хочешь умереть.Это не просто угрозы , нехотя ты мо
+жешь пересечь границы справедливости и жестоко за это поплатиться.Никто не желае
+т тебе зла , но идти дальше опасно.
+Чужаки будут уничтожены.
+~
+0 N inside
+D4
+~
+~
+Z 0 46001
+D5
+~
+~
+Z 0 3138
+S
+#46001
+Greater Hall~
+@eng Great hall of meeting in the castle of Blacklord's clan. Judgement and justice f
+ells everything. You are standing in large light room with tall columns high dom
+e and wide windows. You go through a soft carpet of picteresque work, warm feeli
+ng calms you and make you comfortable.Armor and weapon are hangling on the walls
+, you see your battle weapon with honour. Pictures of wins of our glorious clan 
+stronger your feelings of honour, and you want to fight more and more.  
+In the middle of the room the meeting chamber is standing, where lords have eat 
+after bloody wins.You see girls - servants making fun for us, here a beautifully
+smelting deer filled with spicies and cooking as a whole. The beer and shampan 
+are on the table.  
+In this comfortable place Lords can relax.The  great warrior guards us there . H
+assan the Greatest Lord -  
+no one will pass!! 
+YOU ARE UNDER JUSTICE HERE. DON'T BE AFRAID!!   
+@rus Огромный зал совещаний в великолепном замке Черных Лордов. Правосудие и справедл
+ивость пронизывают здесь каждую вещь каждый  уголок. Ты находишься в большой све
+тлом помещении с громадными колоннами , высоким потолком и широкими окнами .На п
+олу мягкий ковер , необычайно тонкой работы , тепло исходящее от него успокаива
+ет тебя и создает ощущение уюта.Стены увешаны доспехами и оружием
+среди них ты с
+гордостью видишь и свои трофеи , отвоеванные в жестоких битвах. Картины побед н
+ашего славного клана усиливают чувство гордости,и ты готов снова и снова соверша
+ть подвиги в его честь. 
+В середине зала стоит круглый стол заседаний,но лорды обычно пируют за ним после
+своих ошеломительных побед.Вокруг них суетятся милые девушки-служанки,развлекаю
+щие их , тут же готовится восхитительно пахнущий олень , набитый пряностями и жа
+рящийся целиком.    
+На столе холодное пиво и шампанское. этом месте тепла и уюта Лордам не нужно заб
+отиться о своей безопасности - Hassan -Величайший Лорд , не оставит ни малейшего
+щанса чужакам .ТЫ ПОД ЗАЩИТОЙ СПРАВЕДЛИВОСТИ ЗДЕСЬ. БУДЬ СПОКОЕН
+~
+0 N inside
+D5
+~
+~
+Z 0 46000
+S
+#0
+
+#SPECIALS
+M 46001 spec_breath_lightning	* Hassan
+S
+
+#RESETS
+M 0 46000 1 46001 1	* Mater Chiun (Greater Hall)
+M 0 46001 1 46001 1	* Hassan (Greater Hall)
+S
+
+#MOBPROGS
+#46001
+if isimmort $n
+bow $n
+end 
+endif
+if clan $n blacklords
+end 
+endif
+if isghost $n
+mob transfer $n 46000
+end 
+endif
+if ischarm $n
+say Charmies are not allowed here
+mob transfer $n 46000
+end 
+endif
+clan We are attacked by $n!
+mob kill $n
+~
+#0
+
+#PRACTICERS
+M 46000 clan	* Mater Chiun
+S
+
+#$
