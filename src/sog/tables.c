@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.201 2004-02-09 21:16:55 fjoe Exp $
+ * $Id: tables.c,v 1.202 2004-02-17 20:54:25 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1416,6 +1416,17 @@ flaginfo_t cond_table[] =
 	{ NULL, 0, FALSE }
 };
 
+/*
+ * Creating TO_XXX affects in OLC, where TO_XXX has settable == FALSE
+ * in this table is forbidden.
+ * 
+ * Such affects are not saved to any configuration files (areas, .conf files).
+ * The only exception are TO_OBJECT affects which are still saved to areas
+ * for historical reasons (this may be changed in near future, because
+ * the only TO_OBJECT affects that existed in ROM were affects
+ * with bitvector == 0 and they do not differ from TO_AFFECT affects
+ * with bitvector == 0 in any way).
+ */
 flaginfo_t affect_where_types[] =
 {
 	{ "",			TABLE_INTVAL,			FALSE	},
