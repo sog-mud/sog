@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.186.2.37 2003-02-27 16:55:18 tatyana Exp $
+ * $Id: act_wiz.c,v 1.186.2.38 2003-09-30 01:10:06 fjoe Exp $
  */
 
 /***************************************************************************
@@ -53,12 +53,7 @@
 #include <unistd.h>
 #endif
 #include <limits.h>
-
-#if defined(BSD44)
-#	include <fnmatch.h>
-#else
-#	include "../compat/fnmatch.h"
-#endif
+#include <compat/fnmatch.h>
 
 #include "merc.h"
 #include "quest.h"

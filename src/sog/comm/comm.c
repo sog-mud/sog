@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.200.2.34 2003-09-11 13:41:26 matrim Exp $
+ * $Id: comm.c,v 1.200.2.35 2003-09-30 01:10:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1973,7 +1973,6 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		 *
 		 * Furey: added suffix check by request of Nickel of
 		 *	HiddenWorlds.
-		 * fjoe: replaced suffix/prefix checks with fnmatch check
 		 */
 		if (check_ban(d, BCL_ALL)) 
 			return;
