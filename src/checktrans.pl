@@ -1,8 +1,12 @@
 #!/usr/bin/perl -w
 use strict;
 
+# path to msgdb
 my $msgdb_path = "../etc/msgdb";
 #my $msgdb_path = "foo";
+
+# print unused messages
+my $print_unused = 0;
 
 #
 # msgdb: msgdb (read from <STDIN>)
@@ -207,18 +211,25 @@ close(IN);
 #print "All english msgdb messages:\n";
 #print "@msgdb_eng\n";
 
+if ($ARGV[0] eq '-u') {
+	$print_unused = 1;
+	shift @ARGV;
+}
+
 #
 # process input files
 foreach my $i (@ARGV) {
 	process_file($i);
 }
 
-print "===> Unused messages:\n";
-foreach my $i (keys %msgdb) {
-	next if (%{$msgdb{$i}});
-	print "\t'$i'\n";
+if ($print_unused) {
+	print "===> Unused messages:\n";
+	foreach my $i (keys %msgdb) {
+		next if (%{$msgdb{$i}});
+		print "\t'$i'\n";
+	}
+	print "\n";
 }
-print "\n";
 
 dump_messages("===> Messages used with '\\n' added", \%msgdb_nl);
 dump_messages("===> Messages used with '\\n' stripped", \%msgdb_nonl);
