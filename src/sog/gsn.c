@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: gsn.c,v 1.11 1999-02-15 16:02:18 fjoe Exp $
+ * $Id: gsn.c,v 1.12 1999-02-18 12:01:19 kostik Exp $
  */
 
 #include <stdio.h>
@@ -191,6 +191,7 @@ int gsn_bash_door;
 int gsn_katana;
 int gsn_bluefire;
 int gsn_crush;
+int gsn_charge;
 int gsn_perception;
 int gsn_deadly_venom;
 int gsn_cursed_lands;
@@ -395,6 +396,7 @@ NAMEDP gsn_table[] =
 	{ "gsn_katana",			&gsn_katana			},
 	{ "gsn_bluefire",		&gsn_bluefire			},
 	{ "gsn_crush",			&gsn_crush			},
+	{ "gsn_charge",			&gsn_charge			},
 	{ "gsn_perception",		&gsn_perception			},
 	{ "gsn_deadly_venom",		&gsn_deadly_venom		},
 	{ "gsn_cursed_lands",		&gsn_cursed_lands		},

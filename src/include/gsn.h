@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: gsn.h,v 1.11 1999-02-15 16:02:18 fjoe Exp $
+ * $Id: gsn.h,v 1.12 1999-02-18 12:01:19 kostik Exp $
  */
 
 #ifndef _GSN_H_
@@ -193,6 +193,7 @@ extern int gsn_bash_door;
 extern int gsn_katana;
 extern int gsn_bluefire;
 extern int gsn_crush;
+extern int gsn_charge;
 extern int gsn_perception;
 extern int gsn_deadly_venom;
 extern int gsn_cursed_lands;
