@@ -1,0 +1,16 @@
+int i;
+int j;
+if (0 && (j = 1))
+	i = 1;
+print2(i, j);
+if (1 && (j = 2))
+	i = 2;
+print2(i, j);
+
+if (0 || (j = 3))
+	i = 3;
+print2(i, j);
+
+if (1 || (j = 4))
+	i = 4;
+print2(i, j);

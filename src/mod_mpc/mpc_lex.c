@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_lex.c,v 1.1 2001-06-22 15:28:48 fjoe Exp $
+ * $Id: mpc_lex.c,v 1.2 2001-06-22 16:57:29 fjoe Exp $
  */
 
 #include <ctype.h>
@@ -121,7 +121,7 @@ skip_line(prog_t *prog)
 	do {								\
 		if (yyp - yytext >= sizeof(yytext)) {			\
 			compile_error(prog, "Line too long");		\
-			return ' ';					\
+			goto nextch;					\
 		}							\
 									\
 		*yyp++ = (c);						\
@@ -348,7 +348,7 @@ mpc_lex(prog_t *prog)
 			if (*yyp != '\0') {
 				compile_error(prog,
 				    "Invalid number '%s'", yytext);
-				return ' ';
+				return L_INT;
 			}
 			return L_INT;
 			/* NOTREACHED */
@@ -383,6 +383,8 @@ mpc_lex(prog_t *prog)
 			return L_IDENT;
 			/* NOTREACHED */
 		}
+
+nextch:
 	}
 
 badch:

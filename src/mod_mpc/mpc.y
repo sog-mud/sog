@@ -25,7 +25,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc.y,v 1.8 2001-06-22 15:28:47 fjoe Exp $
+ * $Id: mpc.y,v 1.9 2001-06-22 16:57:29 fjoe Exp $
  */
 
 /*
@@ -69,7 +69,7 @@
 #define YYPARSE_PARAM prog
 #define YYPARSE_PARAM_TYPE prog_t *
 
-#if 1
+#if 0
 #if defined(MPC)
 #define YYDEBUG 1
 #endif
@@ -287,7 +287,7 @@ code3(prog_t *prog,
 %right L_NOT '~'
 %nonassoc L_INC L_DEC
 
-%type <type_tag> expr cond L_TYPE
+%type <type_tag> expr comma_expr cond L_TYPE
 %type <number> expr_list expr_list_ne L_INT int_const
 %type <string> L_IDENT L_STRING
 %type <cfun> assign
@@ -331,7 +331,7 @@ stmt:	';'
 		}
 		sym_destroy(&sym);
 	}
-	| L_TYPE L_IDENT '=' expr ';' {
+	| L_TYPE L_IDENT '=' comma_expr ';' {
 		const void *p;
 		sym_t sym;
 
@@ -359,7 +359,7 @@ stmt:	';'
 		code2(prog, c_assign, sym.name);
 		sym_destroy(&sym);
 	}
-	| expr ';' {
+	| comma_expr ';' {
 		/*
 		 * pop calculated value from stack
 		 */
@@ -369,7 +369,7 @@ stmt:	';'
 	| '{' stmt_list '}'
 	;
 
-cond:	expr	{ code(prog, c_stop); }
+cond:	comma_expr	{ code(prog, c_stop); }
 	;
 
 statement: stmt { code(prog, c_stop); }
@@ -635,11 +635,35 @@ expr:	L_IDENT assign expr %prec '=' {
 		code2(prog, c_push_const, (const void *) $1);
 		$$ = MT_INT;
 	}
-	| expr L_LOR expr {
-		INT_BOP("||", c_bop_lor, $1, $3, $$);
+	| expr L_LOR {
+		INT_OP("||", $1, c_bop_lor);
+		PUSH_ADDR();
+		code(prog, (const void *) INVALID_ADDR);
+	} expr {
+		int addr;
+
+		POP_ADDR(addr);
+		CODE(addr)[0] = varr_size(&prog->code);
+
+		BOP_CHECK_TYPES("||", $1, $4);
+
+		code(prog, c_stop);
+		$$ = MT_INT;
 	}
-	| expr L_LAND expr {
-		INT_BOP("&&", c_bop_land, $1, $3, $$);
+	| expr L_LAND {
+		INT_OP("&&", $1, c_bop_land);
+		PUSH_ADDR();
+		code(prog, (const void *) INVALID_ADDR);
+	} expr {
+		int addr;
+
+		POP_ADDR(addr);
+		CODE(addr)[0] = varr_size(&prog->code);
+
+		BOP_CHECK_TYPES("&&", $1, $4);
+
+		code(prog, c_stop);
+		$$ = MT_INT;
 	}
 	| expr '|' expr {
 		INT_BOP("|", c_bop_or, $1, $3, $$);
@@ -743,6 +767,11 @@ expr:	L_IDENT assign expr %prec '=' {
 	}
 	;
 
+comma_expr: expr	{ $$ = $1; }
+	| comma_expr	{ code2(prog, c_pop, (const void *) $1);
+	} ',' expr	{ $$ = $4; }
+	;
+
 assign:	'='		{ $$ = c_assign; }
 	| L_ADD_EQ	{ $$ = c_add_eq; }
 	| L_SUB_EQ	{ $$ = c_sub_eq; }
@@ -780,8 +809,8 @@ struct codeinfo_t codetab[] = {
 	{ c_jmp,		"c_jmp",		1 },
 	{ c_if,			"c_if",			3 },
 	{ c_switch,		"c_switch",		2 },
-	{ c_bop_lor,		"c_bop_lor",		0 },
-	{ c_bop_land,		"c_bop_land",		0 },
+	{ c_bop_lor,		"c_bop_lor",		1 },
+	{ c_bop_land,		"c_bop_land",		1 },
 	{ c_bop_or,		"c_bop_or",		0 },
 	{ c_bop_xor,		"c_bop_xor",		0 },
 	{ c_bop_and,		"c_bop_and",		0 },
@@ -1059,7 +1088,7 @@ prog_dump(prog_t *prog)
 		} else if (p == c_push_retval) {
 			fprintf(stderr, " %s", (const char *) CODE(ip)[1]);
 			ip += CODE(ip)[3];
-		} else if (p == c_jmp) {
+		} else if (p == c_jmp || p == c_bop_lor || p == c_bop_land) {
 			fprintf(stderr, " 0x%08x", CODE(ip)[1]);
 		} else if (p == c_switch) {
 			int jt_offset = CODE(ip)[1];

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_c.c,v 1.6 2001-06-22 15:28:47 fjoe Exp $
+ * $Id: mpc_c.c,v 1.7 2001-06-22 16:57:29 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -285,8 +285,57 @@ c_switch(prog_t *prog)
 		INT_BOP_TAIL(op);					\
 	}
 
-INT_BOP(c_bop_lor, ||)
-INT_BOP(c_bop_land, &&)
+/*
+ * special case - '||' and '&&'
+ */
+void
+c_bop_lor(prog_t *prog)
+{
+	vo_t *v1;
+	vo_t v;
+	int next_addr;
+
+	next_addr = (int) code_get(prog);
+
+	v1 = pop(prog);
+	if (v1->i) {
+		v.i = 1;
+		prog->ip = next_addr;
+	} else {
+		vo_t *v2;
+
+		execute(prog, prog->ip);
+		v2 = pop(prog);
+		v.i = v1->i || v2->i;
+	}
+
+	push(prog, v);
+}
+
+void
+c_bop_land(prog_t *prog)
+{
+	vo_t *v1;
+	vo_t v;
+	int next_addr;
+
+	next_addr = (int) code_get(prog);
+
+	v1 = pop(prog);
+	if (!v1->i) {
+		v.i = 0;
+		prog->ip = next_addr;
+	} else {
+		vo_t *v2;
+
+		execute(prog, prog->ip);
+		v2 = pop(prog);
+		v.i = v1->i && v2->i;
+	}
+
+	push(prog, v);
+}
+
 INT_BOP(c_bop_or, |)
 INT_BOP(c_bop_xor, ^)
 INT_BOP(c_bop_and, &)
