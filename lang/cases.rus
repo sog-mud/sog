@@ -2249,6 +2249,14 @@ Form 6 -а~
 End
 
 #RULE
+Name обнаружил~
+BaseLen 9
+Form 1 -а~
+Form 2 -о~
+Form 3 -и~
+End
+
+#RULE
 Name расщелина~
 BaseLen 8
 Form 1 -ы~
@@ -3029,6 +3037,14 @@ Form 3 -ое~
 Form 4 -ым~
 Form 5 -ом~
 Form 6 -ое~
+End
+
+#RULE
+Name взглянул~
+BaseLen 8
+Form 1 -а~
+Form 2 -о~
+Form 3 -и~
 End
 
 #RULE
@@ -13913,6 +13929,14 @@ Form 1 -ев~
 Form 2 -ям~
 Form 4 -ями~
 Form 5 -ях~
+End
+
+#RULE
+Name исчез~
+BaseLen 5
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
 End
 
 #RULE

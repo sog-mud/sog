@@ -1236,6 +1236,7 @@ $t~
 @eng A fist of black, otherworldly ether rams into $N, leaving $M looking stunned!@rus Сгусток черного потустороннего эфира врезался в $c6{$N}, оглушив $gN{его}!~
 @eng A fountain of caustic liquid forms below $N. The smell of $S degenerating tissues is revolting!@rus Фонтан разъедающей жидкости возник под $N. Запах $gN{его} разлагающейся плоти просто ужасен.~
 @eng A golden aura surrounds $N.@rus Золотая аура окружила $c6{$N}.~
+@eng A huge, poisonous spider drops from above!@rus Огромный ядовитый паук падает на тебя сверху!~
 @eng A hunter lion comes to kill $n's victim!@rus Лев явился на зов $c1{$n}, чтобы убить $gn{его} жертву!~
 @eng A hunter lion comes to kill your victim!@rus Лев явился на твой зов, чтобы убить твою жертву!~
 @eng A large rock falls on you from the sky.@rus Огромная скала упала на тебя с небес.~
@@ -1306,6 +1307,7 @@ $t~
 @eng As $N moves you lose your position and fall down!@rus $N $gN{увернулся}, и ты $gn{потерял} равновесие и $gn{упал}!~
 @eng As $n sacrifices the corpse, $t on it scatter $T.@rus После того, как $n $gn{принес} труп в жертву, $T осталось $c3{$t}.~
 @eng As long as you don't attack anything.@rus Или до тех пор, пока не нападешь на кого-нибудь.~
+@eng As you look at $p you feel as darkness enshrouds you.@rus Когда ты $gn{взглянул} на $c3{$p}, тебя окутала тьма.~
 @eng As you sacrifice the corpse, $t on it scatter $T.@rus После того, как ты $gn{принес} труп в жертву, $T осталось $c3{$t}.~
 @eng Assassinate whom?@rus Покончить с кем?~
 @eng At last, I took my revenge!@rus Моя месть свершилась!~
@@ -2150,6 +2152,8 @@ and hands you $p.@rus Из клуба дыма перед тобой появился маленький человечек
 @eng The gods protect you from the spell of room.@rus Боги хранят тебя от действия заклинаний, наложенных на это место.~
 @eng The gods refuse to listen to you right now.@rus Боги не расположены выслушивать тебя.~
 @eng The holy aura of $p is too powerful for you to overcome.@rus Светлое начало в $c5{$p} слишком сильно.~
+@eng The huge, poisonous spider stings you! You are poisoned!@rus Огромный ядовитый паук ЖАЛИТ тебя! Паучий яд проникает в кровь!~
+@eng The huge, poisonous spider stings you! You resist the poison!@rus Огромный ядовитый паук ЖАЛИТ тебя! Но его яд не действует!~
 @eng The item must be carried to be blessed.@rus Для того чтобы благословить вещь нужно ее иметь.~
 @eng The item must be carried to be brewed.@rus Чтобы приготовить из обьекта зелье, его нужно иметь.~
 @eng The item must be carried to be cursed.@rus Вещь нужно нести, чтобы наложить на нее проклятие.~
@@ -2216,6 +2220,7 @@ and hands you $p.@rus Из клуба дыма перед тобой появился маленький человечек
 @eng The world spins around you!@rus Мир завертелся вокруг тебя!~
 @eng The zone is already full of evil spirit.@rus В этом месте уже обитает злой дух.~
 @eng The zone is starts to be filled with evil spirit.@rus Теперь в этом районе обитает злой дух.~
+@eng Then darkness dissapears but $n vanishes.@rus Когда же тьма рассеялась, оказалось, что $n $gn{исчез}.~
 @eng There $qj{are} $j $qj{changes} waiting to be read.@rus Тебя ожидает знакомство с $j $qj{изменениями}.~
 @eng There are $J $qJ{gold coins} in this pile.@rus Ты $gn{насчитал} $J $c3{$qJ{золотых монет}}.~
 @eng There are $J gold and $j $qj{silver coins} in the pile.@rus Ты $gn{насчитал} $J $c3{$qJ{золотых}} и $j $c3{$qj{серебряных монет}}.~
@@ -2391,6 +2396,8 @@ and hands you $p.@rus Из клуба дыма перед тобой появился маленький человечек
 @eng What? And leave your beloved master?@rus Что? Ты уйдешь от своего любимого хозяина?~
 @eng What? I'm not good enough?@rus А что? Я не достаточно $gn{хорош}?~
 @eng What? Try sell instead.@rus Что? Может ты сначала это продашь?~
+@eng When $n looks at $p cloud of darkness enshrouds $gn{his}.@rus Когда $n $gn{взглянул} на $c3{$p}, $gn{его} окутало темное облако.~
+@eng When cloud of darkness dissapers you find yourself on the chessboard.@rus Затем тьма рассеялась, и ты $gn{обнаружил}, что находишься на шахматной доске, среди фигур.~
 @eng When you attempt to leave the room, you break the webs holding you tight.@rus Тебе удалось разорвать паутину, удерживавшую тебя.~
 @eng Which direction?@rus В каком направлении?~
 @eng Which honor?@rus Хм. О какой бесчестии речь?~
@@ -3639,6 +3646,7 @@ Return to questmaster before your time runs out!@rus Ты почти $gn{выполнил} свое
 @eng You're too full to drink more.@rus Ты больше не можешь сделать ни глоточка.~
 @eng You're totally frozen!@rus Ты заморожен!~
 @eng You're webbed, and want to do WHAT?!?@rus Ты застрял в паутине, и ты еще ЧТО-ТО хочешь сделать?!?~
+@eng You've fallen, and you can't get up!!!!!@rus Тебе не выбраться!!!~
 @eng You've lost all your ability to move.@rus Ты $gn{потерял} способность двигаться.~
 @eng You've lost all your life power.@rus Ты $gn{потерял} все свои жизненные силы.~
 @eng You've lost all your power.@rus Ты $gn{потерял} всю свою силу.~
