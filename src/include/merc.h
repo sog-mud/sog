@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.159 1999-02-20 16:44:22 fjoe Exp $
+ * $Id: merc.h,v 1.160 1999-02-21 19:19:26 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2142,6 +2142,7 @@ void 		do_tell_raw	(CHAR_DATA *ch, CHAR_DATA *victim,
 void	set_title	(CHAR_DATA *ch, const char *title);
 char	*get_cond_alias	(OBJ_DATA *obj);
 void	do_who_raw	(CHAR_DATA *ch, CHAR_DATA *vch, BUFFER *output);
+const char *fix_short	(const char *short_descr);
 const char *format_short(mlstring *mshort, const char *name, CHAR_DATA *looker);
 const char *format_descr(mlstring *desc, CHAR_DATA *looker);
 

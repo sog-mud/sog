@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.69 1999-02-19 09:47:59 fjoe Exp $
+ * $Id: martial_art.c,v 1.70 1999-02-21 19:19:25 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3034,6 +3034,7 @@ void do_katana(CHAR_DATA *ch, const char *argument)
 	
 		katana = create_obj(get_obj_index(OBJ_VNUM_KATANA_SWORD),
 				    ch->level);
+		katana->owner = mlstr_dup(ch->short_descr);
 		katana->cost  = 0;
 		katana->level = ch->level;
 		ch->mana -= mana;

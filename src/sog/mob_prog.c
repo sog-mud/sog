@@ -1,5 +1,5 @@
 /*
- * $Id: mob_prog.c,v 1.43 1999-02-19 09:48:02 fjoe Exp $
+ * $Id: mob_prog.c,v 1.44 1999-02-21 19:19:26 fjoe Exp $
  */
 
 /***************************************************************************
@@ -50,8 +50,6 @@
 #include "merc.h"
 #include "mob_cmds.h"
 #include "mob_prog.h"
-
-#include "db/word.h"	/* fix_short */
 
 /*
  * These defines correspond to the entries in fn_keyword[] table.

@@ -1,5 +1,5 @@
 /*
- * $Id: auction_impl.c,v 1.26 1999-02-19 09:47:54 fjoe Exp $
+ * $Id: auction_impl.c,v 1.27 1999-02-21 19:19:23 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -9,8 +9,6 @@
 #include <string.h>
 #include "merc.h"
 #include "auction.h"
-
-#include "db/word.h"	/* fix_short */
 
 AUCTION_DATA auction = { NULL };
 

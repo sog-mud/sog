@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.148 1999-02-20 16:44:21 fjoe Exp $
+ * $Id: act_comm.c,v 1.149 1999-02-21 19:19:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1336,19 +1336,14 @@ void nuke_pets(CHAR_DATA *ch)
 {    
 	CHAR_DATA *pet;
 
-	if ((pet = ch->pet) != NULL)
-	{
+	if ((pet = ch->pet)) {
 		stop_follower(pet);
-		if (pet->in_room != NULL)
-		    act("$N slowly fades away.",ch,NULL,pet,TO_NOTVICT);
-		extract_char_nocount(pet,TRUE);
+		if (pet->in_room)
+			act("$n slowly fades away.", pet, NULL, NULL, TO_ROOM);
+		extract_char_nocount(pet, TRUE);
 	}
 	ch->pet = NULL;
-
-	return;
 }
-
-
 
 void die_follower(CHAR_DATA *ch)
 {
@@ -1454,20 +1449,22 @@ void do_group(CHAR_DATA *ch, const char *argument)
 	if (arg[0] == '\0') {
 		CHAR_DATA *gch;
 
-		char_printf(ch, "%s's group:\n", PERS(leader_lookup(ch), ch));
+		act_puts("$N's group:", ch, NULL, leader_lookup(ch),
+			 TO_CHAR, POS_DEAD);
 
-		for (gch = char_list; gch != NULL; gch = gch->next)
+		for (gch = char_list; gch; gch = gch->next) {
 			if (is_same_group(gch, ch))
 				char_printf(ch,
 					    "[%2d %s] %-16s %d/%d hp "
 					    "%d/%d mana %d/%d mv   %5d xp\n",
 					    gch->level,
 					    class_who_name(gch),
-					    PERS(gch, ch),
+					    fix_short(PERS(gch, ch)),
 					    gch->hit,   gch->max_hit,
 					    gch->mana,  gch->max_mana,
 					    gch->move,  gch->max_move,
 					    gch->exp);
+		}
 		return;
 	}
 

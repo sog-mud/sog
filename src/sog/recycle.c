@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.40 1999-02-19 09:48:04 fjoe Exp $
+ * $Id: recycle.c,v 1.41 1999-02-21 19:19:27 fjoe Exp $
  */
 
 /***************************************************************************
@@ -241,6 +241,8 @@ void free_char(CHAR_DATA *ch)
 
 	if (!ch)
 		return;
+
+	nuke_pets(ch);
 
 	for (obj = ch->carrying; obj; obj = obj_next) {
 		obj_next = obj->next_content;

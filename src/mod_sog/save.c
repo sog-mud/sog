@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.101 1999-02-20 16:44:22 fjoe Exp $
+ * $Id: save.c,v 1.102 1999-02-21 19:19:27 fjoe Exp $
  */
 
 /***************************************************************************
@@ -55,6 +55,8 @@
 #include "hometown.h"
 #include "quest.h"
 #include "db/db.h"
+
+DECLARE_DO_FUN(do_quit_count);
 
 /*
  * Array of containers read for proper re-nesting of objects.
@@ -422,7 +424,7 @@ fwrite_pet(CHAR_DATA * pet, FILE * fp)
 	for (paf = pet->affected; paf != NULL; paf = paf->next)
 		fwrite_affect(paf, fp);
 
-	fprintf(fp, "End\n");
+	fprintf(fp, "End\n\n");
 }
 
 /*

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.45 1999-02-20 16:29:19 fjoe Exp $
+ * $Id: olc.c,v 1.46 1999-02-21 19:19:29 fjoe Exp $
  */
 
 /***************************************************************************
@@ -354,7 +354,7 @@ bool olced_exd(CHAR_DATA *ch, const char* argument, ED_DATA **ped)
 	ED_DATA *ed;
 	char command[MAX_INPUT_LENGTH];
 	char keyword[MAX_INPUT_LENGTH];
-	char lang[MAX_INPUT_LENGTH];
+	char arg[MAX_INPUT_LENGTH];
 	OLCED_DATA *olced;
 
 	if ((olced = olced_lookup(ch->desc->editor)) == NULL)
@@ -362,7 +362,7 @@ bool olced_exd(CHAR_DATA *ch, const char* argument, ED_DATA **ped)
 
 	argument = one_argument(argument, command, sizeof(command));
 	argument = one_argument(argument, keyword, sizeof(keyword));
-	argument = one_argument(argument, lang, sizeof(lang));
+	argument = one_argument(argument, arg, sizeof(arg));
 
 	if (command[0] == '\0' || keyword[0] == '\0') {
 		do_help(ch, "'OLC EXD'");
@@ -373,7 +373,7 @@ bool olced_exd(CHAR_DATA *ch, const char* argument, ED_DATA **ped)
 		ed		= ed_new();
 		ed->keyword	= str_dup(keyword);
 
-		if (!mlstr_append(ch, &ed->description, lang)) {
+		if (!mlstr_append(ch, &ed->description, arg)) {
 			ed_free(ed);
 			do_help(ch, "'OLC EXD'");
 			return FALSE;
@@ -385,6 +385,23 @@ bool olced_exd(CHAR_DATA *ch, const char* argument, ED_DATA **ped)
 		return TRUE;
 	}
 
+	if (!str_cmp(command, "name")) {
+		ed = ed_lookup(keyword, *ped);
+		if (ed == NULL) {
+			char_printf(ch, "%s: Extra description keyword not found.\n", olced->name);
+			return FALSE;
+		}
+
+		if (!str_cmp(arg, "none")
+		||  !str_cmp(arg, "all")) {
+			char_printf(ch, "%s: %s: Illegal keyword.\n",
+				    olced->name, arg);
+			return FALSE;
+		}
+		name_toggle(&ed->keyword, arg, ch, olced->name);
+		return TRUE;
+	}
+
 	if (!str_cmp(command, "edit")) {
 		ed = ed_lookup(keyword, *ped);
 		if (ed == NULL) {
@@ -392,7 +409,7 @@ bool olced_exd(CHAR_DATA *ch, const char* argument, ED_DATA **ped)
 			return FALSE;
 		}
 
-		if (!mlstr_append(ch, &ed->description, lang)) {
+		if (!mlstr_append(ch, &ed->description, arg)) {
 			do_help(ch, "'OLC EXD'");
 			return FALSE;
 		}

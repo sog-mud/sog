@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.124 1999-02-20 16:29:15 fjoe Exp $
+ * $Id: spellfun.c,v 1.125 1999-02-21 19:19:24 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2159,6 +2159,14 @@ void spell_dispel_magic(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 		found = TRUE;
 	}
  
+	if (IS_AFFECTED(victim, AFF_BLACK_SHROUD)
+	&&  !saves_dispel(level, victim->level, -1)
+	&&  !is_affected(victim, gsn_black_shroud)) {
+		REMOVE_BIT(victim->affected_by, AFF_BLACK_SHROUD);
+		act("The black aura around $n's body vanishes.",
+		    victim, NULL, NULL, TO_ROOM);
+	}
+
 	if (check_dispel(level,victim,sn_lookup("shield")))
 	{
 	    act("The shield protecting $n vanishes.",victim,NULL,NULL,TO_ROOM);
@@ -3403,7 +3411,7 @@ void spell_locate_object(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 		if (in_obj->carried_by != NULL
 		&&  can_see(ch,in_obj->carried_by))
 		    buf_printf(buffer, "One is carried by %s\n",
-			PERS(in_obj->carried_by, ch));
+			fix_short(PERS(in_obj->carried_by, ch)));
 		else
 		{
 		    if (IS_IMMORTAL(ch) && in_obj->in_room != NULL)
@@ -4679,7 +4687,7 @@ void spell_find_object(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 		if (in_obj->carried_by != NULL
 		&&  can_see(ch,in_obj->carried_by))
 			buf_printf(buffer, "One is carried by %s\n",
-				PERS(in_obj->carried_by, ch));
+				fix_short(PERS(in_obj->carried_by, ch)));
 		else {
 			if (IS_IMMORTAL(ch) && in_obj->in_room != NULL)
 				buf_printf(buffer, "One is in %s [Room %d]\n",

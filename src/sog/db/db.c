@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.111 1999-02-20 12:54:30 fjoe Exp $
+ * $Id: db.c,v 1.112 1999-02-21 19:19:28 fjoe Exp $
  */
 
 /***************************************************************************
@@ -63,6 +63,7 @@
 #include "update.h"
 #include "db.h"
 #include "db/word.h"
+#include "olc/olc.h"
 
 #ifdef SUNOS
 #	include "compat.h"
@@ -425,22 +426,19 @@ void new_reset(ROOM_INDEX_DATA *pR, RESET_DATA *pReset)
  */
 void check_mob_progs(void)
 {
-    MOB_INDEX_DATA *pMobIndex;
+    MOB_INDEX_DATA *mob;
     MPTRIG        *mptrig;
     int iHash;
 
     for (iHash = 0; iHash < MAX_KEY_HASH; iHash++)
     {
-	for (pMobIndex   = mob_index_hash[iHash];
-	      pMobIndex   != NULL;
-	      pMobIndex   = pMobIndex->next)
+	for (mob = mob_index_hash[iHash]; mob; mob = mob->next)
 	{
-	    for(mptrig = pMobIndex->mptrig_list; mptrig; mptrig = mptrig->next)
+	    for(mptrig = mob->mptrig_list; mptrig; mptrig = mptrig->next)
 	    {
 		if (mpcode_lookup(mptrig->vnum) == NULL) {
-		    log_printf("check_mob_progs: code vnum %d not found.",
-			       mptrig->vnum);
-		    exit(1);
+		    db_error("check_mob_progs", "code vnum %d not found.",
+			     mptrig->vnum);
 		}
 	    }
 	}
@@ -1466,6 +1464,27 @@ char *fix_string(const char *s)
 	return buf;
 }
 
+/*
+ * smash '~'
+ */
+const char *fix_short(const char *s)
+{
+	char *p;
+	static char buf[MAX_STRING_LENGTH];
+
+	if (!strchr(s, '~'))
+		return s;
+
+	for (p = buf; *s && p-buf < sizeof(buf)-1; s++) {
+		if (*s == '~')
+			continue;
+		*p++ = *s;
+	}
+
+	*p = '\0';
+	return buf;
+}
+
 const char *fread_string(FILE *fp)
 {
 	char buf[MAX_STRING_LENGTH];
@@ -2378,6 +2397,7 @@ void convert_object(OBJ_INDEX_DATA *pObjIndex)
     }
 
     REMOVE_BIT(pObjIndex->extra_flags, ITEM_OLDSTYLE);
+    touch_vnum(pObjIndex->vnum);
     ++newobjs;
 }
 

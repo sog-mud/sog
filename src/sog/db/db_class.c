@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_class.c,v 1.12 1999-02-12 16:22:41 fjoe Exp $
+ * $Id: db_class.c,v 1.13 1999-02-21 19:19:29 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -162,12 +162,16 @@ DBLOAD_FUN(load_class)
 				int sex;
 
 				level = fread_number(fp);
-				if (level < 0 || level > MAX_LEVEL)
+				if (level < 0 || level > MAX_LEVEL) {
 					db_error("load_class",
 						 "invalid level %d", level);
+					continue;
+				}
 				sex = fread_fword(sex_table, fp);
-				if (sex < 1 || sex > 2)
+				if (sex != SEX_MALE && sex != SEX_FEMALE) {
 					db_error("load_class", "invalid sex");
+					continue;
+				}
 				class->titles[level][sex-1] =
 							fread_string(fp);
 				fMatch = TRUE;

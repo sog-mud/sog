@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: word.c,v 1.17 1999-02-19 19:30:40 fjoe Exp $
+ * $Id: word.c,v 1.18 1999-02-21 19:19:29 fjoe Exp $
  */
 
 #include <limits.h>
@@ -147,27 +147,6 @@ const char *word_quantity(int lang, const char *word, int num)
 
 	num %= 100;
 	return word_form_lookup(l->hash_qtys, word, num < 15 ? num : num % 10);
-}
-
-/*
- * smash '~'
- */
-const char *fix_short(const char *s)
-{
-	char *p;
-	static char buf[MAX_STRING_LENGTH];
-
-	if (!strchr(s, '~'))
-		return s;
-
-	for (p = buf; *s && p-buf < sizeof(buf)-1; s++) {
-		if (*s == '~')
-			continue;
-		*p++ = *s;
-	}
-
-	*p = '\0';
-	return buf;
 }
 
 /* local functions */

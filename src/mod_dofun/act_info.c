@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.207 1999-02-20 12:54:26 fjoe Exp $
+ * $Id: act_info.c,v 1.208 1999-02-21 19:19:22 fjoe Exp $
  */
 
 /***************************************************************************
@@ -59,8 +59,6 @@
 #include "quest.h"
 #include "obj_prog.h"
 #include "fight.h"
-
-#include "db/word.h"	/* fix_short */
 
 #if defined(SUNOS) || defined(SVR4)
 #	include <crypt.h>
@@ -693,7 +691,7 @@ void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 
 	char_printf(ch, "%s%s%s %s\n",
 		    IS_IMMORTAL(victim) ? "{W" : str_empty,
-		    PERS(victim, ch),
+		    fix_short(PERS(victim, ch)),
 		    IS_IMMORTAL(victim) ? "{x" : str_empty,
 		    GETMSG(msg, ch->lang));
 
@@ -1046,13 +1044,15 @@ void do_look_in(CHAR_DATA* ch, const char *argument)
 			break;
 		}
 
-		char_printf(ch, "It's %sfilled with a %s liquid.\n",
-			    obj->value[1] < obj->value[0] / 4 ?
-			    GETMSG("less than half-", ch->lang) :
-			    obj->value[1] < 3 * obj->value[0] / 4 ?
-			    GETMSG("about half-", ch->lang) :
-			    GETMSG("more than half-", ch->lang),
-			    liq_table[obj->value[2]].liq_color);
+		act_puts("It's $tfilled with a $T liquid.",
+			 ch,
+			 obj->value[1] < obj->value[0] / 4 ?
+				"less than half-" :
+			 obj->value[1] < 3 * obj->value[0] / 4 ?
+			 	"about half-" :
+			 	"more than half-",
+			 liq_table[obj->value[2]].liq_color,
+			 TO_CHAR | ACT_TRANS, POS_DEAD);
 		break;
 
 	case ITEM_CONTAINER:
@@ -1239,8 +1239,9 @@ void do_look(CHAR_DATA *ch, const char *argument)
 
 		if (is_name(arg3, obj->name))
 			if (++count == number) {
-				char_mlputs(obj->description, ch);
-				char_puts("\n",ch);
+				char_puts(format_descr(obj->description, ch),
+					  ch);
+				char_puts("\n", ch);
 				return;
 			}
 	}
@@ -1255,9 +1256,12 @@ void do_look(CHAR_DATA *ch, const char *argument)
 
 	if (count > 0 && count != number) {
 		if (count == 1)
-			char_printf(ch, "You only see one %s here.\n", arg3);
+			act_puts("You only see one $t here.",
+				 ch, arg3, NULL, TO_CHAR, POS_DEAD);
 		else
-			char_printf(ch, "You only see %d of those here.\n", count);
+			act_puts("You only see $j of those here.",
+				 ch, (const void*) count, NULL,
+				 TO_CHAR, POS_DEAD);
 		return;
 	}
 
@@ -1445,16 +1449,20 @@ void do_worth(CHAR_DATA *ch, const char *argument)
 			    ch->exp, exp_to_level(ch));
 	char_puts(".\n", ch);
 
-	if (!IS_NPC(ch))
-		char_printf(ch, "You have killed %d %s and %d %s.\n",
-			    ch->pcdata->has_killed,
-			    IS_GOOD(ch) ? GETMSG("non-goods", ch->lang) :
-			    IS_EVIL(ch) ? GETMSG("non-evils", ch->lang) : 
-					  GETMSG("non-neutrals", ch->lang),
-			    ch->pcdata->anti_killed,
-			    IS_GOOD(ch) ? GETMSG("goods", ch->lang) :
-			    IS_EVIL(ch) ? GETMSG("evils", ch->lang) : 
-					  GETMSG("neutrals", ch->lang));
+	if (!IS_NPC(ch)) {
+		act_puts("You have killed $j $T",
+			 ch, (const void*) ch->pcdata->has_killed,
+			 IS_GOOD(ch) ? "non-goods" :
+			 IS_EVIL(ch) ? "non-evils" : 
+				       "non-neutrals",
+			 TO_CHAR | ACT_NOLF | ACT_TRANS, POS_DEAD);
+		act_puts(" and $j $T.",
+			 ch, (const void*) ch->pcdata->anti_killed,
+			 IS_GOOD(ch) ? "goods" :
+			 IS_EVIL(ch) ? "evils" : 
+				       "neutrals",
+			 TO_CHAR | ACT_TRANS, POS_DEAD);
+	}
 }
 
 char *	const	day_name	[] =
@@ -2040,7 +2048,7 @@ void do_where(CHAR_DATA *ch, const char *argument)
 			&&  is_name(arg, victim->name)) {
 				found = TRUE;
 				char_printf(ch, "%-28s %s\n",
-					PERS(victim, ch),
+					fix_short(PERS(victim, ch)),
 					mlstr_mval(victim->in_room->name));
 				break;
 			}

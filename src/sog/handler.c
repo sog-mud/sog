@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.120 1999-02-20 12:54:29 fjoe Exp $
+ * $Id: handler.c,v 1.121 1999-02-21 19:19:24 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1259,8 +1259,7 @@ void char_from_room(CHAR_DATA *ch)
 	OBJ_DATA *obj;
 	ROOM_INDEX_DATA *prev_room = ch->in_room;
 
-	if (ch->in_room == NULL)
-	{
+	if (ch->in_room == NULL) {
 		bug("Char_from_room: NULL.", 0);
 		return;
 	}
@@ -1906,15 +1905,7 @@ void extract_char_org(CHAR_DATA *ch, bool fPull, bool Count)
 		}
 	}
 
-
-	if (ch->in_room == NULL)
-	{
-		bug("Extract_char: NULL.", 0);
-		return;
-	}
-	
 	nuke_pets(ch);
-	ch->pet = NULL; /* just in case */
 
 	if (fPull)
 		die_follower(ch);
@@ -1922,7 +1913,7 @@ void extract_char_org(CHAR_DATA *ch, bool fPull, bool Count)
 	stop_fighting(ch, TRUE);
 
 	if ((wield = get_eq_char(ch, WEAR_WIELD)) != NULL)
-		      unequip_char(ch, wield); 
+		unequip_char(ch, wield); 
 	
 	for (obj = ch->carrying; obj != NULL; obj = obj_next)
 	{
@@ -1933,7 +1924,8 @@ void extract_char_org(CHAR_DATA *ch, bool fPull, bool Count)
 		  extract_obj_nocount(obj);
 	}
 	
-	char_from_room(ch);
+	if (ch->in_room)
+		char_from_room(ch);
 
 	if (!fPull)
 	{

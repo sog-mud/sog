@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.142 1999-02-20 21:24:38 fjoe Exp $
+ * $Id: comm.c,v 1.143 1999-02-21 19:19:27 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1026,7 +1026,6 @@ void battle_prompt(CHAR_DATA *ch, CHAR_DATA *victim)
 {
 	int percent;
 	char* msg;
-	char buf[MAX_STRING_LENGTH];
  
         if (victim->max_hit > 0)
 		percent = victim->hit * 100 / victim->max_hit;
@@ -1050,10 +1049,7 @@ void battle_prompt(CHAR_DATA *ch, CHAR_DATA *victim)
         else
 		msg = "{Ris nearly dead{x.";
 
-	snprintf(buf, sizeof(buf), "%s %s\n", 
-		 fix_short(PERS(victim, ch)), GETMSG(msg, ch->lang));
-	buf[0] = UPPER(buf[0]);
-	send_to_char(buf, ch);
+	act_puts("$N $t", ch, msg, victim, TO_CHAR | ACT_TRANS, POS_DEAD);
 }
 
 /*

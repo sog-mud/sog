@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.124 1999-02-20 16:29:14 fjoe Exp $
+ * $Id: act_wiz.c,v 1.125 1999-02-21 19:19:22 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1208,24 +1208,29 @@ void do_ostat(CHAR_DATA *ch, const char *argument)
 		break;
 	}
 
-
-	if (obj->ed != NULL || obj->pIndexData->ed != NULL) {
+	if (obj->ed) {
 		ED_DATA *ed;
 
 		buf_add(output, "Extra description keywords: '");
 
-		for (ed = obj->ed; ed != NULL; ed = ed->next)
-		{
-		    buf_add(output, ed->keyword);
-		    if (ed->next != NULL)
-		    	buf_add(output, " ");
+		for (ed = obj->ed; ed; ed = ed->next) {
+			buf_add(output, ed->keyword);
+			if (ed->next)
+				buf_add(output, " ");
 		}
 
-		for (ed = obj->pIndexData->ed; ed != NULL; ed = ed->next)
-		{
-		    buf_add(output, ed->keyword);
-		    if (ed->next != NULL)
-			buf_add(output, " ");
+		buf_add(output, "'\n");
+	}
+
+	if (obj->pIndexData->ed) {
+		ED_DATA *ed;
+
+		buf_add(output, "pIndexData extra description keywords: '");
+
+		for (ed = obj->pIndexData->ed; ed; ed = ed->next) {
+			buf_add(output, ed->keyword);
+			if (ed->next)
+				buf_add(output, " ");
 		}
 
 		buf_add(output, "'\n");
@@ -1620,7 +1625,7 @@ void do_owhere(CHAR_DATA *ch, const char *argument)
 				   "%3d) %s is carried by %s [Room %d]\n",
 				number,
 				mlstr_mval(obj->short_descr),
-				PERS(in_obj->carried_by, ch),
+				fix_short(PERS(in_obj->carried_by, ch)),
 				in_obj->carried_by->in_room->vnum);
 		else if (in_obj->in_room != NULL
 		     &&  can_see_room(ch, in_obj->in_room))
