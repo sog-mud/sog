@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.91 1998-11-21 06:00:35 fjoe Exp $
+ * $Id: act_wiz.c,v 1.92 1998-11-23 06:38:02 fjoe Exp $
  */
 
 /***************************************************************************
@@ -494,7 +494,6 @@ void do_bamfin(CHAR_DATA *ch, const char *argument)
 		     
 		free_string(ch->pcdata->bamfin);
 		ch->pcdata->bamfin = str_dup(argument);
-		smash_tilde(ch->pcdata->bamfin);
 
 		char_printf(ch, "Your poofin is now '%s'\n\r",
 			    ch->pcdata->bamfin);
@@ -517,7 +516,6 @@ void do_bamfout(CHAR_DATA *ch, const char *argument)
 	
 		free_string(ch->pcdata->bamfout);
 		ch->pcdata->bamfout = str_dup(argument);
-		smash_tilde(ch->pcdata->bamfout);
 	
 		char_printf(ch, "Your poofout is now '%s'\n\r",
 			    ch->pcdata->bamfout);
@@ -2617,7 +2615,6 @@ void do_string(CHAR_DATA *ch, const char *argument)
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
 	strcpy(arg3, argument);
-	smash_tilde(arg3);
 
 	if (type[0] == '\0' || arg1[0] == '\0'
 	||  arg2[0] == '\0' || arg3[0] == '\0') {

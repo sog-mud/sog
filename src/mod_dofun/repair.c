@@ -1,5 +1,5 @@
 /*
- * $Id: repair.c,v 1.11 1998-10-27 08:17:56 fjoe Exp $
+ * $Id: repair.c,v 1.12 1998-11-23 06:38:04 fjoe Exp $
  */
 
 /***************************************************************************
@@ -232,7 +232,6 @@ void do_restring(CHAR_DATA *ch, const char *argument)
 	argument = one_argument(argument, arg);
 	argument = one_argument(argument, arg1);
 	strcpy(arg2, argument);
-	smash_tilde(arg2);
 
 	if (arg[0] == '\0' || arg1[0] == '\0' || arg2[0] == '\0')
 	{

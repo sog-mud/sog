@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.105 1998-11-21 06:32:53 fjoe Exp $
+ * $Id: fight.c,v 1.106 1998-11-23 06:38:02 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1131,7 +1131,7 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim,
 	int dam2;
 	int loc;
 
-	if (victim->position == POS_DEAD)
+	if (JUST_KILLED(victim))
 		return FALSE;
 
 	if (victim != ch) {
@@ -1184,7 +1184,7 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim,
 			stop_follower(victim);
 
 		if (MOUNTED(victim) == ch || RIDDEN(victim) == ch)
-			victim->riding = ch->riding = FALSE;
+			victim->riding = ch->riding = NULL;
 	}
 
 	/*
@@ -2022,73 +2022,45 @@ void group_gain(CHAR_DATA *ch, CHAR_DATA *victim)
 	int members;
 	int group_levels;
 
-	if (victim == ch
-	||  (IS_NPC(victim) && victim->pIndexData->vnum < 100))
+	if (!IS_NPC(victim) || victim == ch)
 		return;
 
-	if (!IS_NPC(victim))
+	if (IS_SET(victim->act, ACT_PET)
+	||  victim->pIndexData->vnum < 100
+	||  victim->master
+	||  victim->leader)
 		return;
 
-	if (IS_NPC(victim)
-	&&  (victim->master != NULL || victim->leader != NULL))
-		return;
+	lch = ch->leader ? ch->leader : ch;
 
-	members = 1;
+	members = 0;
 	group_levels = 0;
-	for (gch = ch->in_room->people; gch != NULL; gch = gch->next_in_room)
-	{
-		if (is_same_group(gch, ch))
-		{
-		    if (!IS_NPC(gch) && gch != ch)
-		      members++;
-		    group_levels += gch->level;
+	for (gch = ch->in_room->people; gch; gch = gch->next_in_room) {
+		if (is_same_group(gch, ch)) {
+			if (!IS_NPC(gch)
+			&&  abs(gch->level - lch->level) <= 8)
+				members++;
+			group_levels += gch->level;
 		}
 	}
 
-	lch = (ch->leader != NULL) ? ch->leader : ch;
-
-	for (gch = ch->in_room->people; gch != NULL; gch = gch->next_in_room)
-	{
-		OBJ_DATA *obj;
-		OBJ_DATA *obj_next;
-
+	for (gch = ch->in_room->people; gch; gch = gch->next_in_room) {
 		if (!is_same_group(gch, ch) || IS_NPC(gch))
-		    continue;
-
-
-		if (gch->level - lch->level > 8)
-		{
-		    char_puts("You are too high for this group.\n\r", gch);
-		    continue;
-		}
-
-		if (gch->level - lch->level < -8)
-		{
-		    char_puts("You are too low for this group.\n\r", gch);
-		    continue;
-		}
-
-
-		xp = xp_compute(gch, victim, group_levels,members);
-		char_printf(gch, "You receive %d experience points.\n\r", xp);
-		gain_exp(gch, xp);
-
-		for (obj = ch->carrying; obj != NULL; obj = obj_next)
-		{
-		    obj_next = obj->next_content;
-		    if (obj->wear_loc == WEAR_NONE)
 			continue;
 
-		    if ((IS_OBJ_STAT(obj, ITEM_ANTI_EVIL)    && IS_EVIL(ch)	)
-		    ||	 (IS_OBJ_STAT(obj, ITEM_ANTI_GOOD)    && IS_GOOD(ch)	)
-		    ||	 (IS_OBJ_STAT(obj, ITEM_ANTI_NEUTRAL) && IS_NEUTRAL(ch)))
-		    {
-			act("You are zapped by $p.", ch, obj, NULL, TO_CHAR);
-			act("$n is zapped by $p.",   ch, obj, NULL, TO_ROOM);
-			obj_from_char(obj);
-			obj_to_room(obj, ch->in_room);
-		    }
+		if (gch->level - lch->level > 8) {
+			char_puts("You are too high for this group.\n\r", gch);
+			continue;
 		}
+
+		if (gch->level - lch->level < -8) {
+			char_puts("You are too low for this group.\n\r", gch);
+			continue;
+		}
+
+		xp = xp_compute(gch, victim, group_levels, members);
+		char_printf(gch, "You receive %d experience points.\n\r", xp);
+		gain_exp(gch, xp);
 	}
 }
 
@@ -2097,135 +2069,152 @@ void group_gain(CHAR_DATA *ch, CHAR_DATA *victim)
  * Also adjust alignment of killer.
  * Edit this function to change xp computations.
  */
-int xp_compute(CHAR_DATA *gch, CHAR_DATA *victim, int total_levels,int members)
+int xp_compute(CHAR_DATA *gch, CHAR_DATA *victim, int total_levels, int members)
 {
-  int xp;
-  int base_exp;
-  int level_range;
-  int neg_cha=0, pos_cha=0;
+	int xp;
+	int base_exp;
+	int level_range = victim->level - gch->level;
+	int neg_cha = 0, pos_cha = 0;
 
-  level_range = victim->level - gch->level;
+/* base exp */
+	switch (level_range) {
+	case -9:	base_exp =   1; 	break;
+	case -8:	base_exp =   2; 	break;
+	case -7:	base_exp =   5; 	break;
+	case -6:	base_exp =   9; 	break;
+	case -5:	base_exp =  11; 	break;
+	case -4:	base_exp =  22; 	break;
+	case -3:	base_exp =  33; 	break;
+	case -2:	base_exp =  43; 	break;
+	case -1:	base_exp =  60; 	break;
+	case  0:	base_exp =  74; 	break;
+	case  1:	base_exp =  84; 	break;
+	case  2:	base_exp =  99; 	break;
+	case  3:	base_exp = 121; 	break;
+	case  4:	base_exp = 143; 	break;
+	default:
+		if (level_range > 4)
+			base_exp = 140 + 20 * (level_range - 4);
+		else
+			base_exp = 0;
+	}
 
-  switch (level_range)
-	{
-	default :	base_exp =   0; 	break;
-  case -9 :	base_exp =   1; 	break;
-  case -8 :	base_exp =   2; 	break;
-  case -7 :	base_exp =   5; 	break;
-  case -6 :	base_exp =   9; 	break;
-  case -5 :	base_exp =  11; 	break;
-  case -4 :	base_exp =  22; 	break;
-  case -3 :	base_exp =  33; 	break;
-  case -2 :	base_exp =  43; 	break;
-  case -1 :	base_exp =  60; 	break;
-  case	0 :	base_exp =  74; 	break;
-  case	1 :	base_exp =  84; 	break;
-  case	2 :	base_exp =  99; 	break;
-  case	3 :	base_exp = 121; 	break;
-  case	4 :	base_exp = 143; 	break;
-  }
-
-  if (level_range > 4)
-	base_exp = 140 + 20 * (level_range - 4);
-
-
-  /* calculate exp multiplier */
-  if (IS_SET(victim->act,ACT_NOALIGN))
-	xp = base_exp;
-
-  /* alignment */
-  else if ((IS_EVIL(gch) && IS_GOOD(victim)) || (IS_EVIL(victim) && IS_GOOD(gch)))
-	xp = base_exp * 8/5;
-
-  else if (IS_GOOD(gch) && IS_GOOD(victim))
-	xp = 0;
-
-  else if (!IS_NEUTRAL(gch) && IS_NEUTRAL(victim))
-	xp = base_exp * 1.1;
-
-  else if (IS_NEUTRAL(gch) && !IS_NEUTRAL(victim))
-	xp = base_exp * 1.3;
-
-  else xp = base_exp;
+/* calculate exp multiplier */
+#if 0
+	if (IS_SET(victim->act, ACT_NOALIGN))
+		xp = base_exp;
+	else
+#endif
+	if ((IS_EVIL(gch) && IS_GOOD(victim))
+	||  (IS_EVIL(victim) && IS_GOOD(gch)))
+		xp = base_exp * 8/5;
+	else if (IS_GOOD(gch) && IS_GOOD(victim))
+		xp = 0;
+	else if (!IS_NEUTRAL(gch) && IS_NEUTRAL(victim))
+		xp = base_exp * 1.1;
+	else if (IS_NEUTRAL(gch) && !IS_NEUTRAL(victim))
+		xp = base_exp * 1.3;
+	else
+		xp = base_exp;
 
 	/* more exp at the low levels */
 	if (gch->level < 6)
 		xp = 15 * xp / (gch->level + 4);
 
 	/* randomize the rewards */
-	xp = number_range (xp * 3/4, xp * 5/4);
+	xp = number_range(xp * 3/4, xp * 5/4);
 
-	/* adjust for grouping */
+/* adjust for grouping */
 	xp = xp * gch->level/total_levels;
+	if (members == 2 || members == 3) {
+		xp *= members;
+		if (members == 2)
+			xp = xp * 120 / 100;
+		else
+			xp = xp * 125 / 100;
+	}
 
-	if (members == 2 || members == 3)
-	  xp *= (3 / 2);
-
+#if 0
 	xp += (xp * (gch->max_hit - gch->hit)) / (gch->max_hit * 5);
+#endif
 
-	if (IS_GOOD(gch))
-		{
-		 if (IS_GOOD(victim)) { gch->pcdata->anti_killed++; neg_cha = 1; }
-		 else if (IS_NEUTRAL(victim)) {gch->pcdata->has_killed++; pos_cha =1;}
-		 else if (IS_EVIL(victim)) {gch->pcdata->has_killed++; pos_cha = 1;}
+	if (xp > 0) {
+		if (IS_GOOD(gch)) {
+			if (IS_GOOD(victim)) {
+				gch->pcdata->anti_killed++;
+				neg_cha = 1;
+			}
+			else if (IS_NEUTRAL(victim)) {
+				gch->pcdata->has_killed++;
+				pos_cha = 1;
+			}
+			else if (IS_EVIL(victim)) {
+				gch->pcdata->has_killed++;
+				pos_cha = 1;
+			}
 		}
+		else if (IS_NEUTRAL(gch)) {
+			if (IS_GOOD(victim)) {
+				gch->pcdata->has_killed++;
+				pos_cha = 1;
+			}
+			else if (IS_NEUTRAL(victim)) {
+				gch->pcdata->anti_killed++;
+				neg_cha = 1;
+			}
+			else if (IS_EVIL(victim)) {
+				gch->pcdata->has_killed++;
+				pos_cha =1;
+			}
+		}
+		else if (IS_EVIL(gch)) {
+			if (IS_GOOD(victim)) {
+				gch->pcdata->has_killed++;
+				pos_cha = 1;
+			}
+			else if (IS_NEUTRAL(victim)) {
+				gch->pcdata->has_killed++;
+				pos_cha = 1;
+			}
+			else if (IS_EVIL(victim)) {
+				gch->pcdata->anti_killed++;
+				neg_cha = 1;
+			}
+		}
+	}
 
-	if (IS_NEUTRAL(gch))
-		{
-		 if (xp > 0)
-		 {
-		  if (IS_GOOD(victim)) {gch->pcdata->has_killed++; pos_cha = 1;}
-		  else if (IS_NEUTRAL(victim)) {gch->pcdata->anti_killed++; neg_cha = 1;}
-		  else if (IS_EVIL(victim)) {gch->pcdata->has_killed++; pos_cha =1;}
-		 }
+	if (neg_cha) {
+		if ((gch->pcdata->anti_killed % 100) == 99) {
+			char_printf(gch, "You have killed %d %s up to now.\n\r",
+				    gch->pcdata->anti_killed,
+				    IS_GOOD(gch) ?	"goods" :
+				    IS_EVIL(gch) ?	"evils" :
+							"neutrals");
+			if (gch->perm_stat[STAT_CHA] > 3 && IS_GOOD(gch)) {
+				char_puts("So your charisma "
+					  "has reduced by one.\n\r", gch);
+				gch->perm_stat[STAT_CHA] -= 1;
+			}
 		}
-
-	if (IS_EVIL(gch))
-		{
-		 if (xp > 0)
-		 {
-		  if (IS_GOOD(victim)) {gch->pcdata->has_killed++; pos_cha = 1;}
-		  else if (IS_NEUTRAL(victim)) {gch->pcdata->has_killed++; pos_cha = 1;}
-		  else if (IS_EVIL(victim)) {gch->pcdata->anti_killed++; neg_cha = 1;}
-		 }
+	}
+	else if (pos_cha) {
+		if ((gch->pcdata->has_killed % 200) == 199) {
+			char_printf(gch, "You have killed %d %s up to now.\n\r",
+				    gch->pcdata->anti_killed,
+				    IS_GOOD(gch) ?	"anti-goods" :
+				    IS_EVIL(gch) ?	"anti-evils" :
+							"anti-neutrals");
+			if (gch->perm_stat[STAT_CHA] <
+						get_max_train(gch, STAT_CHA)
+			&&  IS_GOOD(gch)) {
+				char_puts("So your charisma "
+					  "has increased by one.\n\r", gch);
+				gch->perm_stat[STAT_CHA] += 1;
+			}
 		}
-
- if (neg_cha)
-  {
-	if ((gch->pcdata->anti_killed % 100) == 99)
-		{
-		 char_printf(gch,"You have killed %d %s up to now.\n\r",
-				gch->pcdata->anti_killed,
-			IS_GOOD(gch) ? "goods" :
-			IS_NEUTRAL(gch) ? "neutrals" :
-			IS_EVIL(gch) ? "evils" : "nones");
-		 if (gch->perm_stat[STAT_CHA] > 3 && IS_GOOD(gch))
-		 {
-		  char_puts("So your charisma has reduced by one.\n\r", gch);
-		  gch->perm_stat[STAT_CHA] -= 1;
-		 }
-		}
-   }
-  else if (pos_cha)
-   {
-	if ((gch->pcdata->has_killed % 200) == 199)
-		{
-		 char_printf(gch,"You have killed %d %s up to now.\n\r",
-				gch->pcdata->anti_killed,
-			IS_GOOD(gch) ? "anti-goods" :
-			IS_NEUTRAL(gch) ? "anti-neutrals" :
-			IS_EVIL(gch) ? "anti-evils" : "nones");
-		  if (gch->perm_stat[STAT_CHA] < get_max_train(gch, STAT_CHA)
-			&& IS_GOOD(gch))
-		  {
-		   char_puts("So your charisma has increased by one.\n\r", gch);
-		   gch->perm_stat[STAT_CHA] += 1;
-		  }
-		 }
-   }
+	}
 	return xp;
 }
-
 
 void dam_message(CHAR_DATA *ch, CHAR_DATA *victim,
 		 int dam, int dt, bool immune, int dam_type)

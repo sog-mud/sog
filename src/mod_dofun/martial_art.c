@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.54 1998-11-21 06:00:36 fjoe Exp $
+ * $Id: martial_art.c,v 1.55 1998-11-23 06:38:03 fjoe Exp $
  */
 
 /***************************************************************************
@@ -446,8 +446,6 @@ void do_dirt(CHAR_DATA *ch, const char *argument)
 		AFFECT_DATA af;
 		act("$n is blinded by the dirt in $s eyes!",
 		    victim, NULL, NULL, TO_ROOM);
-		damage(ch, victim, number_range(2, 5),
-		       gsn_dirt, DAM_NONE, FALSE);
 		char_puts("You can't see a thing!\n\r", victim);
 		check_improve(ch, gsn_dirt, TRUE, 2);
 
@@ -460,6 +458,8 @@ void do_dirt(CHAR_DATA *ch, const char *argument)
 		af.bitvector 	= AFF_BLIND;
 
 		affect_to_char(victim, &af);
+		damage(ch, victim, number_range(2, 5),
+		       gsn_dirt, DAM_NONE, FALSE);
 	}
 	else {
 		damage(ch, victim, 0, gsn_dirt, DAM_NONE, TRUE);
@@ -1332,6 +1332,8 @@ void do_caltrops(CHAR_DATA *ch, const char *argument)
 	}
 
 	damage(ch, victim, ch->level, gsn_caltrops, DAM_PIERCE, TRUE);
+	if (JUST_KILLED(victim))
+		return;
 
 	if (!is_affected(victim, gsn_caltrops)) {
 		AFFECT_DATA tohit, todam, todex;

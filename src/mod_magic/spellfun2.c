@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.56 1998-11-20 10:12:20 fjoe Exp $
+ * $Id: spellfun2.c,v 1.57 1998-11-23 06:38:03 fjoe Exp $
  */
 
 /***************************************************************************
@@ -383,8 +383,8 @@ void spell_mana_transfer(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	if (ch->hit < 50)
 	damage(ch,ch,50,sn,DAM_NONE, TRUE);
 	else {
-	damage(ch,ch,50,sn,DAM_NONE, TRUE);
 	victim->mana = UMIN(victim->max_mana, victim->mana + number_range(20,120));
+	damage(ch,ch,50,sn,DAM_NONE, TRUE);
 	}
 }
 	
@@ -403,6 +403,8 @@ void spell_mental_knife(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	if (saves_spell(level,victim, DAM_MENTAL))
 	      dam /= 2;
 	damage(ch,victim,dam,sn,DAM_MENTAL, TRUE);
+	if (JUST_KILLED(victim))
+		return;
 
 	if (!is_affected(victim,sn) && !saves_spell(level, victim, DAM_MENTAL))
 	{
@@ -825,48 +827,50 @@ void spell_shadow_cloak(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 void spell_nightfall(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 {
 	CHAR_DATA *vch;
-	OBJ_DATA  *light;
+	OBJ_DATA  *obj;
 	AFFECT_DATA af;
 	
-	if (is_affected(ch, sn))
-	{
-	char_puts("You can't find the power to control lights.\n\r", ch);
-	return;
+	if (is_affected(ch, sn)) {
+		char_puts("You can't find the power to control objs.\n\r",
+			  ch);
+		return;
 	}
 
-	for (vch = ch->in_room->people; vch != NULL; vch = vch->next_in_room)
-	for (light = vch->carrying; light != NULL; light = light->next_content)
-	  {
-	if (light->pIndexData->item_type == ITEM_LIGHT && light->value[2] != 0
-		&& !is_same_group(ch, vch)) {  
-	  if (/*light->value[2] != -1 ||*/ saves_spell(level, vch, DAM_ENERGY)) {
-	    act("$p flickers and goes out!",ch,light,NULL,TO_CHAR);
-	    act("$p flickers and goes out!",ch,light,NULL,TO_ROOM);
-	    light->value[2] = 0; 
-	    ch->in_room->light--;
-	  }
-/*	  else {
-	    act("$p momentarily dims.",ch,light,NULL,TO_CHAR);
-	    act("$p momentarily dims.",ch,light,NULL,TO_ROOM);
-	  } */
-	}
-	  }  
+	for (vch = ch->in_room->people; vch; vch = vch->next_in_room) {
+		if (is_same_group(ch, vch))
+			continue;
 
-	for (light = ch->in_room->contents;light != NULL; light=light->next_content)
-	if (light->pIndexData->item_type == ITEM_LIGHT && light->value[2] != 0) {  
-	  act("$p flickers and goes out!",ch,light,NULL,TO_CHAR);
-	  act("$p flickers and goes out!",ch,light,NULL,TO_ROOM);
-	  light->value[2] = 0; 
-	  ch->in_room->light--;
+		for (obj = vch->carrying; obj; obj = obj->next_content) {
+			if (obj->pIndexData->item_type != ITEM_LIGHT
+			||  obj->value[2] == 0
+			||  saves_spell(level, vch, DAM_ENERGY))
+				continue;
+
+			act("$p flickers and goes out!", ch, obj, NULL, TO_ALL);
+			obj->value[2] = 0; 
+
+			if (obj->wear_loc == WEAR_LIGHT
+			&&  ch->in_room->light > 0)
+				ch->in_room->light--;
+		}
 	}
 
-	af.where	 = TO_AFFECTS;
-	af.type      = sn;
-	af.level	 = level;
-	af.duration  = 2;
-	af.modifier  = 0;
-	af.location  = APPLY_NONE;
-	af.bitvector = 0;
+	for (obj = ch->in_room->contents; obj; obj = obj->next_content) {
+		if (obj->pIndexData->item_type != ITEM_LIGHT
+		||  obj->value[2] == 0)
+			continue;
+
+		act("$p flickers and goes out!", ch, obj, NULL, TO_ALL);
+		obj->value[2] = 0; 
+	}
+
+	af.where	= TO_AFFECTS;
+	af.type		= sn;
+	af.level	= level;
+	af.duration	= 2;
+	af.modifier	= 0;
+	af.location	= APPLY_NONE;
+	af.bitvector	= 0;
 	affect_to_char(ch, &af);
 }
 	      
@@ -1190,7 +1194,9 @@ void spell_wrath(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	if (saves_spell(level, victim, DAM_HOLY))
 		dam /= 2;
 	damage(ch, victim, dam, sn, DAM_HOLY, TRUE);
-	
+	if (JUST_KILLED(victim))
+		return;
+
 	if (IS_AFFECTED(victim, AFF_CURSE)
 	||  saves_spell(level, victim, DAM_HOLY))
 		return;
@@ -1884,6 +1890,8 @@ void spell_entangle(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	dam /= 2;
 	
 	damage(ch,victim,ch->level,gsn_entangle,DAM_PIERCE, TRUE);
+	if (JUST_KILLED(victim))
+		return;
 	
 	act("The thorny plants spring up around $n, entangling $s legs!", victim, 
 	  NULL, NULL, TO_ROOM);
@@ -1903,7 +1911,6 @@ void spell_entangle(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	  affect_to_char(victim, &todex);
 	  
 	}
-	return;
 }
 
 void spell_holy_armor(int sn, int level, CHAR_DATA *ch, void *vo, int target) 
@@ -3055,107 +3062,75 @@ void spell_magic_jar(int sn, int level, CHAR_DATA *ch, void *vo , int target)
 		    victim->name);
 }
 
-void turn_spell (int sn, int level, CHAR_DATA *ch, void *vo , int target)
+DO_FUN(do_flee);
+
+void turn_spell(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	int dam, align;
 
-	if (IS_EVIL(ch))
-	{
-	victim = ch;
-	char_puts("The energy explodes inside you!\n\r",ch);
+	if (IS_EVIL(ch)) {
+		victim = ch;
+		char_puts("The energy explodes inside you!\n\r", ch);
 	}
 
-	if (victim != ch)
-	{
-	act("$n raises $s hand, and a blinding ray of light shoots forth!",
-	    ch,NULL,NULL,TO_ROOM);
-	char_puts(
-	   "You raise your hand and a blinding ray of light shoots forth!\n\r",
-	   ch);
+	if (victim != ch) {
+		act("$n raises $s hand, and a blinding ray of light "
+		    "shoots forth!",
+		    ch, NULL, NULL, TO_ROOM);
+		char_puts("You raise your hand and a blinding ray of light "
+			  "shoots forth!\n\r", ch);
 	}
 
-	if (IS_GOOD(victim) || IS_NEUTRAL(victim))
-	{
-	act("$n seems unharmed by the light.",victim,NULL,victim,TO_ROOM);
-	char_puts("The light seems powerless to affect you.\n\r",victim);
-	return;
+	if (IS_GOOD(victim) || IS_NEUTRAL(victim)) {
+		act("$n seems unharmed by the light.",
+		    victim, NULL, victim, TO_ROOM);
+		char_puts("The light seems powerless to affect you.\n\r",
+			  victim);
+		return;
 	}
 
 	dam = dice(level, 10);
-	if (saves_spell(level, victim,DAM_HOLY))
-	dam /= 2;
+	if (saves_spell(level, victim, DAM_HOLY))
+		dam /= 2;
 
 	align = victim->alignment;
 	align -= 350;
 
 	if (align < -1000)
-	align = -1000 + (align + 1000) / 3;
+		align = -1000 + (align + 1000) / 3;
 
 	dam = (dam * align * align) / 1000000;
 
-	damage(ch, victim, dam, sn, DAM_HOLY ,TRUE);
-
-{
-	ROOM_INDEX_DATA *was_in;
-	ROOM_INDEX_DATA *now_in;
-	int door;
-
-	was_in = victim->in_room;
-	for (door = 0; door < 6; door++)
-	{
-	EXIT_DATA *pexit;
-
-	if ((pexit = was_in->exit[door]) == 0
-	||   pexit->u1.to_room == NULL
-	||   IS_SET(pexit->exit_info, EX_CLOSED)
-	|| (IS_NPC(ch)
-	&&   IS_SET(pexit->u1.to_room->room_flags, ROOM_NOMOB)))
-	    continue;
-
-	move_char(victim, door, FALSE);
-	if ((now_in = victim->in_room) == was_in)
-	    continue;
-
-	victim->in_room = was_in;
-	act("$n has fled!", victim, NULL, NULL, TO_ROOM);
-	victim->in_room = now_in;
-
-	if (IS_NPC(victim))  victim->last_fought = NULL;  
-
-	stop_fighting(victim, TRUE);
-	return;
-	}
-
-}
-return;
+	damage(ch, victim, dam, sn, DAM_HOLY, TRUE);
+	if (!JUST_KILLED(victim))
+		do_flee(victim, str_empty);
 }
 
-void spell_turn (int sn, int level, CHAR_DATA *ch, void *vo , int target)
+void spell_turn(int sn, int level, CHAR_DATA *ch, void *vo , int target)
 {
 	CHAR_DATA *vch;
 	CHAR_DATA *vch_next;
-
 	AFFECT_DATA af;
 
-	if (is_affected(ch, sn))
-	{
-	char_puts("This power is used too recently.",ch);
-	return;
+	if (is_affected(ch, sn)) {
+		char_puts("This power is used too recently.",ch);
+		return;
 	}
-	af.where	 = TO_AFFECTS;
-	af.type      = sn;
-	af.level	 = level;
-	af.duration  = 5;
-	af.modifier  = 0;
-	af.location  = 0;
-	af.bitvector = 0;
+
+	af.where	= TO_AFFECTS;
+	af.type		= sn;
+	af.level	= level;
+	af.duration	= 5;
+	af.modifier	= 0;
+	af.location	= 0;
+	af.bitvector	= 0;
 	affect_to_char(ch, &af);
 
-	for (vch = ch->in_room->people; vch != NULL; vch = vch_next) {
+	for (vch = ch->in_room->people; vch; vch = vch_next) {
 		vch_next = vch->next_in_room;
 
-		if (is_safe_spell(ch,vch,TRUE))
+		if (is_safe_spell(ch, vch, TRUE))
 			continue;
 		turn_spell(sn, ch->level, ch, vch, target);
 	}
@@ -3716,7 +3691,6 @@ void spell_severity_force(int sn, int level, CHAR_DATA *ch, void *vo,int target
 	act("$n cracked the ground towards you!.", ch, NULL, victim, TO_VICT);
 	dam = dice(level , 12);
 	damage(ch,victim,dam,sn,DAM_NONE,TRUE);
-	return;
 }
 
 void spell_randomizer(int sn, int level, CHAR_DATA *ch, void *vo, int target)
@@ -4867,8 +4841,8 @@ void spell_desert_fist(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	act("An existing parcel of sand rises up and forms a fist and pummels you.",
 	    victim, NULL, NULL, TO_CHAR);
 	dam = dice(level, 14);
-	damage(ch, victim, dam, sn, DAM_OTHER, TRUE);
 	sand_effect(victim, level, dam, TARGET_CHAR);
+	damage(ch, victim, dam, sn, DAM_OTHER, TRUE);
 }
 
 void spell_mirror(int sn, int level, CHAR_DATA *ch, void *vo, int target)	

@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.119 1998-11-21 06:00:36 fjoe Exp $
+ * $Id: merc.h,v 1.120 1998-11-23 06:38:04 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1755,6 +1755,8 @@ void SET_ORG_RACE(CHAR_DATA *ch, int race);
 				 || ch->pIndexData->vnum==MOB_VNUM_STONE_GOLEM \
 				 || ch->pIndexData->vnum==MOB_VNUM_IRON_GOLEM \
 				 || ch->pIndexData->vnum==MOB_VNUM_ADAMANTITE_GOLEM))
+#define JUST_KILLED(ch)		(ch->last_death_time >= current_time)
+
 /*
  * Object macros.
  */
@@ -2089,7 +2091,6 @@ int	number_bits	(int width);
 long	number_mm	(void);
 int	dice		(int number, int size);
 int	interpolate	(int level, int value_00, int value_32);
-char *	smash_tilde	(const char *str);
 char *	capitalize	(const char *str);
 void	append_file	(CHAR_DATA *ch, const char *file, const char *str);
 void	tail_chain	(void);

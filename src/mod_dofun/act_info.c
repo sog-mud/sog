@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.166 1998-11-21 09:03:59 fjoe Exp $
+ * $Id: act_info.c,v 1.167 1998-11-23 06:38:01 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2183,7 +2183,6 @@ void set_title(CHAR_DATA *ch, const char *title)
 		}
 
 		strnzcat(buf, title, sizeof(buf));
-		smash_tilde(buf);
 	}
 
 	free_string(ch->pcdata->title);

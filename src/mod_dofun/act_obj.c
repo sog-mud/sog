@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.95 1998-11-21 06:00:35 fjoe Exp $
+ * $Id: act_obj.c,v 1.96 1998-11-23 06:38:01 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2467,7 +2467,6 @@ void do_buy_pet(CHAR_DATA * ch, const char *argument)
 		char_puts("Buy what?\n\r", ch);
 		return;
 	}
-	smash_tilde(arg);
 
 	pRoomIndexNext = get_room_index(ch->in_room->vnum + 1);
 	if (pRoomIndexNext == NULL) {

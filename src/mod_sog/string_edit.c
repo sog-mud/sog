@@ -1,5 +1,5 @@
 /*
- * $Id: string_edit.c,v 1.20 1998-11-06 09:04:04 fjoe Exp $
+ * $Id: string_edit.c,v 1.21 1998-11-23 06:38:04 fjoe Exp $
  */
 
 /***************************************************************************
@@ -119,9 +119,7 @@ void string_add(CHAR_DATA *ch, const char *argument)
         argument = one_argument(argument, arg1);
         argument = first_arg(argument, arg2, FALSE);
 	strcpy(tmparg3, argument);
-	smash_tilde(tmparg3);
         argument = first_arg(argument, arg3, FALSE);
-	smash_tilde(arg3);
 
         if (!str_cmp(arg1+1, "c"))
         {
@@ -147,7 +145,6 @@ void string_add(CHAR_DATA *ch, const char *argument)
                 return;
             }
 
-	    smash_tilde(arg3);
             *ch->desc->pString =
                 string_replace(*ch->desc->pString, arg2, arg3);
             char_printf(ch, "'%s' replaced with '%s'.\n\r", arg2, arg3);
@@ -233,19 +230,13 @@ void string_add(CHAR_DATA *ch, const char *argument)
         return;
     }
 
-    /*
-     * Ensure no tilde's inside string.
-     * --------------------------------
-     */
-
 	p = *ch->desc->pString;
-	*ch->desc->pString = str_add(*ch->desc->pString, argument,
-				     "\n\r", NULL);
-	smash_tilde(*ch->desc->pString);
-	free_string(p);
+	if (p[strlen(p)-1] != '\\') {
+		*ch->desc->pString = str_add(*ch->desc->pString, argument,
+					     "\n\r", NULL);
+		free_string(p);
+	}
 }
-
-
 
 /*
  * Thanks to Kalgen for the new procedure (no more bug!)

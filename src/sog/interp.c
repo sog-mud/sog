@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.90 1998-11-21 06:00:35 fjoe Exp $
+ * $Id: interp.c,v 1.91 1998-11-23 06:38:02 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1150,7 +1150,6 @@ void do_alias(CHAR_DATA *ch, const char *argument)
 	{
 	    free_string(rch->pcdata->alias_sub[pos]);
 	    rch->pcdata->alias_sub[pos] = str_dup(argument);
-	    smash_tilde(rch->pcdata->alias_sub[pos]);
 	    char_printf(ch,"%s is now realiased to '%s'.\n\r",arg,argument);
 	    return;
 	}
@@ -1165,7 +1164,6 @@ void do_alias(CHAR_DATA *ch, const char *argument)
      /* make a new alias */
      rch->pcdata->alias[pos]		= str_dup(arg);
      rch->pcdata->alias_sub[pos]	= str_dup(argument);
-     smash_tilde(rch->pcdata->alias_sub[pos]);
      char_printf(ch,"%s is now aliased to '%s'.\n\r",arg,argument);
 }
 

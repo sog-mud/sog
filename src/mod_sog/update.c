@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.89 1998-11-18 10:28:46 fjoe Exp $
+ * $Id: update.c,v 1.90 1998-11-23 06:38:04 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1110,16 +1110,19 @@ void char_update(void)
 		&&  ch->in_room != NULL) {
 			OBJ_DATA *obj;
 
-			if ((obj = get_eq_char(ch, WEAR_LIGHT)) != NULL
-			&& obj->pIndexData->item_type == ITEM_LIGHT && obj->value[2] > 0) {
+			if ((obj = get_eq_char(ch, WEAR_LIGHT))
+			&&  obj->pIndexData->item_type == ITEM_LIGHT
+			&&  obj->value[2] > 0) {
 				if (--obj->value[2] == 0) {
-					--ch->in_room->light;
+					if (ch->in_room->light > 0)
+						--ch->in_room->light;
 					act("$p goes out.",
 					    ch, obj, NULL, TO_ROOM);
 					act("$p flickers and goes out.",
 					    ch, obj, NULL, TO_CHAR);
 					extract_obj(obj);
-				} else if (obj->value[2] <= 5)
+				}
+				else if (obj->value[2] <= 5)
 					act("$p flickers.",
 					    ch, obj, NULL, TO_CHAR);
 			}
@@ -1131,7 +1134,8 @@ void char_update(void)
 						stop_fighting(ch, TRUE);
 					act("$n disappears into the void.",
 					    ch, NULL, NULL, TO_ROOM);
-					char_puts("You disappear into the void.\n\r", ch);
+					char_puts("You disappear "
+						  "into the void.\n\r", ch);
 					if (ch->level > 1)
 						save_char_obj(ch, FALSE);
   					char_from_room(ch);
