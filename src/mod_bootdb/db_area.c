@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.138 2001-11-09 16:09:11 kostik Exp $
+ * $Id: db_area.c,v 1.139 2001-12-07 22:20:27 fjoe Exp $
  */
 
 /***************************************************************************
@@ -47,6 +47,7 @@
 #include <merc.h>
 #include <db.h>
 #include <rwfile.h>
+#include <mprog.h>
 
 DECLARE_DBLOAD_FUN(load_area);
 DECLARE_DBLOAD_FUN(load_areadata);
@@ -560,7 +561,9 @@ DBLOAD_FUN(load_rooms)
 				break;
 
 			if (letter == 'm') {
-				if (trig_fread_list(&pRoomIndex->mp_trigs, fp))
+				if (trig_fread_list(&pRoomIndex->mp_trigs,
+						    pRoomIndex->vnum,
+						    MP_T_ROOM, fp))
 					x_room_add(pRoomIndex);
 			} else if (letter == 'H') /* healing room */
 				pRoomIndex->heal_rate = fread_number(fp);
@@ -1217,7 +1220,9 @@ DBLOAD_FUN(load_mobiles)
 				SLIST_ADD(
 				    AFFECT_DATA, pMobIndex->affected, paf);
 			} else if (letter == 'm') {
-				trig_fread_list(&pMobIndex->mp_trigs, fp);
+				trig_fread_list(
+				    &pMobIndex->mp_trigs, pMobIndex->vnum,
+				    MP_T_MOB, fp);
 			} else if (letter == 'f') {
 				AFFECT_DATA *paf = aff_fread(
 				    fp, AFF_X_NOTYPE | AFF_X_NOLD);
@@ -1533,7 +1538,9 @@ DBLOAD_FUN(load_objects)
 				break;
 
 			case 'm':
-				trig_fread_list(&pObjIndex->mp_trigs, fp);
+				trig_fread_list(
+				    &pObjIndex->mp_trigs, pObjIndex->vnum,
+				    MP_T_OBJ, fp);
 				break;
 
 			case 'A':

@@ -23,10 +23,11 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_spec.c,v 1.20 2001-12-03 22:28:36 fjoe Exp $
+ * $Id: olc_spec.c,v 1.21 2001-12-07 22:20:29 fjoe Exp $
  */
 
 #include "olc.h"
+#include <mprog.h>
 
 #define EDIT_SPEC(ch, spec)	(spec = (spec_t *) ch->desc->pEdit)
 
@@ -133,6 +134,7 @@ OLC_FUN(speced_save)
 		FILE *fp;
 		const char *filename;
 		spec_skill_t *spec_sk;
+		mprog_t *mp;
 
 		if (!IS_SET(spec->spec_flags, SPF_CHANGED))
 			continue;
@@ -147,7 +149,13 @@ OLC_FUN(speced_save)
 		fwrite_string(fp, "Name", spec->spec_name);
 		fprintf(fp, "Class %s\n",
 			flag_string(spec_classes, spec->spec_class));
-		fwrite_string(fp, "Trigger", spec->mp_trig.trig_prog);
+		if ((mp = mprog_lookup(spec->mp_trig.trig_prog)) == NULL) {
+			olc_printf(ch, "%s: %s: mprog %s: no such mprog",
+				   __FUNCTION__, spec->spec_name,
+				   spec->mp_trig.trig_prog);
+		} else
+			fwrite_string(fp, "Trigger", mp->text);
+
 		if (spec->spec_flags) {
 			fprintf(fp, "Flags %s~\n",
 				flag_string(spec_flags, spec->spec_flags));

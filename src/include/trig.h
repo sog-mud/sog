@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: trig.h,v 1.16 2001-10-21 21:33:51 fjoe Exp $
+ * $Id: trig.h,v 1.17 2001-12-07 22:20:26 fjoe Exp $
  */
 
 #ifndef _TRIG_H_
@@ -131,7 +131,7 @@ void trig_destroy(trig_t *trig);
 /**
  * Read trigger from file
  */
-void trig_fread(trig_t *trig, rfile_t *fp);
+void trig_fread(trig_t *trig, const char *name, int mp_type, rfile_t *fp);
 
 /**
  * Write trigger to file
@@ -151,7 +151,7 @@ void trig_destroy_list(varr *v);
 /**
  * Read trigger from file and insert it into trigger list
  */
-bool trig_fread_list(varr *v, rfile_t *fp);
+bool trig_fread_list(varr *v, int vnum, int mp_type, rfile_t *fp);
 
 /**
  * Write list of triggers to file

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: trig.c,v 1.26 2001-12-03 22:37:46 fjoe Exp $
+ * $Id: trig.c,v 1.27 2001-12-07 22:20:29 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -40,6 +40,8 @@ static int pull_one_trigger(trig_t *trig, int mp_type,
 			    void *arg1, void *arg2, void *arg3);
 static int pull_trigger_list(int trig_type, varr *v, int mp_type,
 			     void *arg1, void *arg2, void *arg3);
+static bool trig_fread_prog(trig_t *trig, const char *name, int mp_type,
+			    rfile_t *fp);
 
 void
 trig_init(trig_t *trig)
@@ -64,7 +66,7 @@ trig_destroy(trig_t *trig)
 }
 
 void
-trig_fread(trig_t *trig, rfile_t *fp)
+trig_fread(trig_t *trig, const char *name, int mp_type, rfile_t *fp)
 {
 	trig->trig_type = fread_fword(mptrig_types, fp);
 	if (trig->trig_type < 0) {
@@ -74,16 +76,33 @@ trig_fread(trig_t *trig, rfile_t *fp)
 		return;
 	}
 
-	trig->trig_prog = fread_strkey(fp, &mprogs);
-	trig_set_arg(trig, fread_string(fp));
+	trig_fread_prog(trig, name, mp_type, fp);
 }
 
 void
 trig_fwrite(const char *pre, trig_t *trig, FILE *fp)
 {
+	const char *trig_prog = trig->trig_prog;
+
+	if (trig_prog[0] == '@')
+		trig_prog = "@";
+
 	fprintf(fp, "%s %s %s %s~\n",
 		pre, flag_string(mptrig_types, trig->trig_type),
-		trig->trig_prog, trig->trig_arg);
+		trig_prog, trig->trig_arg);
+
+	if (trig_prog[0] == '@') {
+		mprog_t *mp = mprog_lookup(trig->trig_prog);
+		const char *text;
+
+		if (mp == NULL) {
+			log(LOG_ERROR, "%s: %s: mprog not found",
+			    __FUNCTION__, trig->trig_prog);
+			text = str_empty;
+		} else
+			text = mp->text;
+		fwrite_string(fp, NULL, text);
+	}
 }
 
 static varr_info_t c_info_trigs = {
@@ -112,9 +131,10 @@ trig_destroy_list(varr *v)
 }
 
 bool
-trig_fread_list(varr *v, rfile_t *fp)
+trig_fread_list(varr *v, int vnum, int mp_type, rfile_t *fp)
 {
 	trig_t *trig;
+	char name[MAX_INPUT_LENGTH];
 
 	int trig_type = fread_fword(mptrig_types, fp);
 	if (trig_type < 0) {
@@ -125,9 +145,8 @@ trig_fread_list(varr *v, rfile_t *fp)
 	}
 
 	trig = trig_new(v, trig_type);
-	trig->trig_prog = fread_strkey(fp, &mprogs);
-	trig_set_arg(trig, fread_string(fp));
-	return TRUE;
+	snprintf(name, sizeof(name), "#%d#%d", vnum, varr_index(v, trig));
+	return trig_fread_prog(trig, name, mp_type, fp);
 }
 
 void
@@ -425,4 +444,35 @@ pull_trigger_list(int trig_type, varr *v, int mp_type,
 		return 0;
 
 	return rv;
+}
+
+static bool
+trig_fread_prog(trig_t *trig, const char *name, int mp_type, rfile_t *fp)
+{
+	trig->trig_prog = fread_sword(fp);
+	trig_set_arg(trig, fread_string(fp));
+
+	if (!str_cmp(trig->trig_prog, "@")) {
+		mprog_t *mp;
+		char mp_name[MAX_INPUT_LENGTH];
+
+		snprintf(mp_name, sizeof(mp_name), "@%s%s",
+			 flag_string(mprog_types, mp_type), name);
+
+		if ((mp = (mprog_t *) c_insert(&mprogs, mp_name)) == NULL) {
+			log(LOG_ERROR, "%s: %s: duplicate mprog",
+			    __FUNCTION__, mp_name);
+			return FALSE;
+		}
+
+		mp->name = str_dup(mp_name);
+		mp->type = mp_type;
+		mp->text = fread_string(fp);
+
+		free_string(trig->trig_prog);
+		trig->trig_prog = str_qdup(mp->name);
+	} else
+		C_STRKEY_CHECK(__FUNCTION__, &mprogs, trig->trig_prog);
+
+	return TRUE;
 }

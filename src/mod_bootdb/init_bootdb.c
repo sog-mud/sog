@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_bootdb.c,v 1.12 2001-09-15 17:12:37 fjoe Exp $
+ * $Id: init_bootdb.c,v 1.13 2001-12-07 22:20:28 fjoe Exp $
  */
 
 #include <sys/stat.h>
@@ -54,6 +54,7 @@ static void load_mprogs(void);
 
 static void fix_resets(void);
 static void fix_exits(void);
+static void fix_mprogs(void);
 
 MODINIT_FUN(_module_load, m)
 {
@@ -93,6 +94,7 @@ MODINIT_FUN(_module_load, m)
 
 	fix_resets();
 	fix_exits();
+	fix_mprogs();
 
 	return 0;
 }
@@ -223,7 +225,7 @@ load_mprog(const char *name)
 	}
 
 	if ((mp = (mprog_t *) c_insert(&mprogs, mp_name)) == NULL) {
-		fprintf(stderr, "load_mprog: %s: duplicate mprog", mp_name);
+		log(LOG_ERROR, "load_mprog: %s: duplicate mprog", mp_name);
 		free_string(mp_name);
 		goto bailout;
 	}
@@ -414,4 +416,190 @@ fix_resets(void)
 				fix_resets_room(room);
 		}
 	}
+}
+
+static trig_t *
+trig_lookup_v(varr *v, const char *name, int *ptrigvnum)
+{
+	trig_t *trig;
+
+	C_FOREACH(trig, v) {
+		if (!strcmp(trig->trig_prog, name)) {
+			*ptrigvnum = varr_index(v, trig);
+			return trig;
+		}
+	}
+
+	return NULL;
+}
+
+static trig_t *
+trig_lookup_mob(const char *name, int *pvnum, int *ptrigvnum)
+{
+	int i;
+	trig_t *rv = NULL;
+
+	for (i = 0; i < MAX_KEY_HASH; i++) {
+		MOB_INDEX_DATA *mob;
+
+		for (mob = mob_index_hash[i]; mob != NULL; mob = mob->next) {
+			trig_t *trig;
+
+			trig = trig_lookup_v(&mob->mp_trigs, name, ptrigvnum);
+			if (trig != NULL) {
+				if (rv != NULL)
+					return NULL;
+
+				*pvnum = mob->vnum;
+				rv = trig;
+			}
+		}
+	}
+
+	return rv;
+}
+
+static trig_t *
+trig_lookup_obj(const char *name, int *pvnum, int *ptrigvnum)
+{
+	int i;
+	trig_t *rv = NULL;
+
+	for (i = 0; i < MAX_KEY_HASH; i++) {
+		OBJ_INDEX_DATA *obj;
+
+		for (obj = obj_index_hash[i]; obj != NULL; obj = obj->next) {
+			trig_t *trig;
+
+			trig = trig_lookup_v(&obj->mp_trigs, name, ptrigvnum);
+			if (trig != NULL) {
+				if (rv != NULL)
+					return NULL;
+
+				*pvnum = obj->vnum;
+				rv = trig;
+			}
+		}
+	}
+
+	return rv;
+}
+
+static trig_t *
+trig_lookup_room(const char *name, int *pvnum, int *ptrigvnum)
+{
+	int i;
+	trig_t *rv = NULL;
+
+	for (i = 0; i < MAX_KEY_HASH; i++) {
+		ROOM_INDEX_DATA *room;
+
+		for (room = room_index_hash[i]; room != NULL; room = room->next) {
+			trig_t *trig;
+
+			trig = trig_lookup_v(&room->mp_trigs, name, ptrigvnum);
+			if (trig != NULL) {
+				if (rv != NULL)
+					return NULL;
+
+				*pvnum = room->vnum;
+				rv = trig;
+			}
+		}
+	}
+
+	return rv;
+}
+
+static void
+fix_mprogs(void)
+{
+	FILE *fp;
+	mprog_t *mp;
+
+	if ((fp = dfopen(TMP_PATH, "mprogs", "a")) == NULL) {
+		log(LOG_ERROR, "%s: %s", __FUNCTION__, strerror(errno));
+		return;
+	}
+
+	do {
+		C_FOREACH(mp, &mprogs) {
+			trig_t *trig;
+			spec_t *spec = NULL;
+			int vnum;
+			int trignum;
+			char name[MAX_INPUT_LENGTH];
+
+			switch (mp->type) {
+			case MP_T_MOB:
+				trig = trig_lookup_mob(
+				    mp->name, &vnum, &trignum);
+				break;
+
+			case MP_T_OBJ:
+				trig = trig_lookup_obj(
+				    mp->name, &vnum, &trignum);
+				break;
+
+			case MP_T_ROOM:
+				trig = trig_lookup_room(
+				    mp->name, &vnum, &trignum);
+				break;
+
+			case MP_T_SPEC:
+				C_FOREACH(spec, &specs) {
+					if (!strcmp(spec->mp_trig.trig_prog, mp->name))
+						break;
+				}
+
+				if (spec == NULL) {
+					log(LOG_ERROR, "%s: mprog %s: spec not found",
+					    __FUNCTION__, mp->name);
+					continue;
+				}
+
+				trig = &spec->mp_trig;
+
+			default:
+				continue;
+			}
+
+			if (trig == NULL)
+				continue;
+
+			if (trig->trig_prog[0] == '@')
+				continue;
+
+			if (spec != NULL) {
+				snprintf(name, sizeof(name), "@%s$%s",
+					 flag_string(mprog_types, mp->type),
+					 spec->spec_name);
+			} else {
+				snprintf(name, sizeof(name), "@%s#%d#%d",
+					 flag_string(mprog_types, mp->type),
+					 vnum, trignum);
+			}
+
+
+			if (mprog_lookup(name) != NULL) {
+				log(LOG_ERROR, "%s: %s: duplicate mprog",
+				    __FUNCTION__, name);
+				continue;
+			}
+
+			c_move(&mprogs, mp->name, name);
+			free_string(mp->name);
+			mp->name = str_dup(name);
+
+			log(LOG_INFO, "%s: %s -> %s",
+			    __FUNCTION__, trig->trig_prog, mp->name);
+			fprintf(fp, "mpc/%s.mpc\n", trig->trig_prog);
+
+			free_string(trig->trig_prog);
+			trig->trig_prog = str_qdup(mp->name);
+			break;
+		}
+	} while (mp != NULL);
+
+	fclose(fp);
 }
