@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.144 2000-10-07 18:14:50 fjoe Exp $
+ * $Id: tables.c,v 1.145 2000-10-15 17:19:33 fjoe Exp $
  */
 
 /***************************************************************************
@@ -970,7 +970,7 @@ flaginfo_t skill_targets[] =
 	{ NULL }
 };
 
-flaginfo_t stat_names[] =
+flaginfo_t stat_aliases[] =
 {
 	{ "",			TABLE_INTVAL			},
 
@@ -980,6 +980,20 @@ flaginfo_t stat_names[] =
 	{ "wis",		STAT_WIS,		TRUE	},
 	{ "con",		STAT_CON,		TRUE	},
 	{ "cha",		STAT_CHA,		TRUE	},
+
+	{ NULL }
+};
+
+flaginfo_t stat_names[] =
+{
+	{ "",			TABLE_INTVAL			},
+
+	{ "strength",		STAT_STR,		TRUE	},
+	{ "intelligence",	STAT_INT,		TRUE	},
+	{ "dexterity",		STAT_DEX,		TRUE	},
+	{ "wisdom",		STAT_WIS,		TRUE	},
+	{ "constitution",	STAT_CON,		TRUE	},
+	{ "charisma",		STAT_CHA,		TRUE	},
 
 	{ NULL }
 };

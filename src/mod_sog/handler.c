@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.264 2000-10-07 18:14:49 fjoe Exp $
+ * $Id: handler.c,v 1.265 2000-10-15 17:19:32 fjoe Exp $
  */
 
 /***************************************************************************
@@ -113,6 +113,16 @@ int age_to_num(int age)
 }
 
 DECLARE_SPEC_FUN(spec_janitor);
+
+static
+const char *
+format_hmv(int hp, int mana, int move)
+{
+	static char buf[MAX_STRING_LENGTH];
+	snprintf(buf, sizeof(buf), "{C%d{x hp, {C%d{x mana, {C%d{x mv",
+		 hp, mana, move);
+	return buf;
+}
 
 /*
  * Retrieve a character's carry capacity.
@@ -2207,7 +2217,7 @@ bool pc_name_ok(const char *name)
 	return TRUE;
 }
 
-const char *stat_aliases[MAX_STAT][6] =
+const char *stat_val_aliases[MAX_STAT][6] =
 {
 	{ "Titanic", "Herculian", "Strong", "Average", "Poor", "Weak"	},
 	{ "Genious", "Clever", "Good", "Average", "Poor", "Hopeless"	},
@@ -2232,7 +2242,7 @@ const char *get_stat_alias(CHAR_DATA *ch, int stat)
 	else if (val >= 14)	i = 3;
 	else if (val >= 10)	i = 4;
 	else			i = 5;
-	return stat_aliases[stat][i];
+	return stat_val_aliases[stat][i];
 }
 
 /*
@@ -4336,8 +4346,10 @@ void advance_level(CHAR_DATA *ch)
 		PC(ch)->practice += add_prac;
 	}
 
-	char_printf(ch, "Your gain is {C%d{x hp, {C%d{x mana, {C%d{x mv {C%d{x prac.\n",
-			add_hp, add_mana, add_move, add_prac);
+	act_puts("Your gain is $T {C$j{x prac.",
+		 ch, (const void *) add_prac,
+		 format_hmv(add_hp, add_mana, add_move),
+		 TO_CHAR, POS_DEAD);
 }   
 
 void delevel(CHAR_DATA *ch)
@@ -4376,8 +4388,9 @@ void delevel(CHAR_DATA *ch)
 
 	PC(ch)->plevels++;
 
-	char_printf(ch, "You loose {C%d{x hp, {C%d{x mana, {C%d{x mv.\n",
-			lost_hitp, lost_mana, lost_move);
+	act_puts("You loose $t.",
+		 ch, format_hmv(lost_hitp, lost_mana, lost_move), NULL,
+		 TO_CHAR, POS_DEAD);
 
 	if(ch->perm_hit <= 0) {
 		act("You've lost your life power.", ch, NULL, NULL, TO_CHAR);

@@ -1,5 +1,5 @@
 /*
- * $Id: string_edit.c,v 1.42 2000-10-07 20:41:10 fjoe Exp $
+ * $Id: string_edit.c,v 1.43 2000-10-15 17:19:33 fjoe Exp $
  */
 
 /***************************************************************************
@@ -157,16 +157,19 @@ void string_add(CHAR_DATA *ch, const char *argument)
 		 */
 		if (!str_cmp(arg1+1, "r")) {
 			if (arg2[0] == '\0') {
-				char_printf(ch, "Usage:  :%c \"old string\" \"new string\"\n", arg1[1]);
+				arg1[2] = '\0';
+				act_puts("Usage:  :$t \"old string\" \"new string\"",
+					 ch, arg1+1, NULL,
+					 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 				return;
 			}
 
 			*ch->desc->pString =
 				string_replace(*ch->desc->pString, arg2, arg3,
 					       arg1[1] == 'r' ? 0 : SR_F_ALL);
-			char_printf(ch, "%s'%s' replaced with '%s'.\n",
-				    arg1[1] == 'r' ? str_empty : "All ",
-				    arg2, arg3);
+			act_puts3("$t'$T' replaced with '$U'.",
+				  ch, arg1[1] == 'r' ? str_empty : "All ", arg2,
+				  arg3, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 			return;
 		}
 

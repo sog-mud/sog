@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.121 2000-10-07 20:41:06 fjoe Exp $
+ * $Id: olc.c,v 1.122 2000-10-15 17:19:31 fjoe Exp $
  */
 
 /***************************************************************************
@@ -895,7 +895,12 @@ bool olced_flag(CHAR_DATA *ch, const char *argument,
 		/* NOT REACHED */
 
 	default:
-		char_printf(ch, "%s: %s: %s: table type %d unknown (report it to implementors).\n", OLCED(ch)->name, cmd->name, tname, ttype);
+		act_puts3("$t: $T: $U: ",
+			  ch, OLCED(ch)->name, cmd->name, tname,
+			  TO_CHAR | ACT_NOTRANS | ACT_NOUCASE | ACT_NOLF,
+			  POS_DEAD);
+		act_puts("table type $j unknown (report it to implementors).",
+			 ch, (const void *) ttype, NULL, TO_CHAR, POS_DEAD);
 		return FALSE;
 		/* NOT REACHED */
 	}
@@ -926,7 +931,9 @@ bool olced_dice(CHAR_DATA *ch, const char *argument,
 	dice[DICE_TYPE]   = type;
 	dice[DICE_BONUS]  = bonus;
 
-	char_printf(ch, "%s set to %dd%d+%d.\n", cmd->name, num, type, bonus);
+	act_puts("$t set to $T.",
+		 ch, cmd->name, format_dice(dice),
+		 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 	return TRUE;
 
 bail_out:
@@ -1600,6 +1607,15 @@ show_obj_resets(int vnum)
 		}
 	}
 
+	return buf;
+}
+
+const char *
+format_dice(int *dice)
+{
+	static char buf[MAX_STRING_LENGTH];
+	snprintf(buf, sizeof(buf), "%dd%d+%d",
+		 dice[DICE_NUMBER], dice[DICE_TYPE], dice[DICE_BONUS]);
 	return buf;
 }
 

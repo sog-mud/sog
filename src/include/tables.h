@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: tables.h,v 1.35 2000-10-07 18:14:53 fjoe Exp $
+ * $Id: tables.h,v 1.36 2000-10-15 17:19:29 fjoe Exp $
  */
 
 #ifndef _TABLES_H_
@@ -73,6 +73,7 @@ extern flaginfo_t	mptrig_types[];
 extern flaginfo_t	mptrig_flags[];
 extern flaginfo_t	skill_targets[];
 extern flaginfo_t	stat_names[];
+extern flaginfo_t	stat_aliases[];
 extern flaginfo_t	material_flags[];
 extern flaginfo_t	skill_flags[];
 extern flaginfo_t	skill_types[];

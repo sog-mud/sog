@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.233 2000-10-07 20:41:11 fjoe Exp $
+ * $Id: comm.c,v 1.234 2000-10-15 17:19:34 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1221,12 +1221,8 @@ bool process_output(DESCRIPTOR_DATA *d, bool fPrompt)
 				if (!IS_SET(ch->comm, COMM_COMPACT))
 					send_to_char("\n", ch);
 
-				if (IS_SET(ch->comm, COMM_PROMPT)) {
-					if (IS_SET(ch->comm, COMM_AFK)) 
-						char_printf(ch, "{c<AFK>{x %s", d->dvdata->prefix);
-					else
-						bust_a_prompt(d);
-				}
+				if (IS_SET(ch->comm, COMM_PROMPT))
+					bust_a_prompt(d);
 				ga = TRUE;
 			}
 		}
@@ -1296,23 +1292,28 @@ void percent_hp(CHAR_DATA *ch, char buf[MAX_STRING_LENGTH])
 void bust_a_prompt(DESCRIPTOR_DATA *d)
 {
 	char buf[MAX_STRING_LENGTH];
-	char buf2[MAX_STRING_LENGTH];
-	const char *str;
-	const char *i;
-	char *point;
+	char *point = buf;
+	const char *str = d->dvdata->prompt;
 	CHAR_DATA *ch = d->character;
-	CHAR_DATA *victim;
-	EXIT_DATA *pexit;
-	bool found;
-	const char *dir_name[] = {"N","E","S","W","U","D"};
-	int door;
- 
-	point = buf;
-	str = d->dvdata->prompt;
+
+	if (IS_SET(ch->comm, COMM_AFK)) {
+		act_puts("{c<AFK>{x $t", ch, d->dvdata->prefix, NULL,
+			 TO_CHAR | ACT_NOLF, POS_DEAD);
+		return;
+	}
+
 	if (IS_NULLSTR(str))
 		str = DEFAULT_PROMPT;
 
 	while (*str != '\0') {
+		const char *i;
+		char buf2[MAX_STRING_LENGTH];
+		CHAR_DATA *victim;
+		EXIT_DATA *pexit;
+		bool found;
+		const char *dir_name[] = {"N","E","S","W","U","D"};
+		int door;
+ 
 		if (*str != '%') {
 			*point++ = *str++;
 			continue;
@@ -1533,8 +1534,10 @@ void bust_a_prompt(DESCRIPTOR_DATA *d)
 	*point = '\0';
 	send_to_char(buf, ch);
 
-	if (d->dvdata->prefix[0] != '\0')
-		char_printf(ch, "%s ", d->dvdata->prefix);
+	if (d->dvdata->prefix[0] != '\0') {
+		send_to_char(d->dvdata->prefix, ch);
+		send_to_char(" ", ch);
+	}
 }
 
 /*
@@ -1714,7 +1717,8 @@ print_cb(const char *s, CHAR_DATA *ch, int *pcol)
 		*pcol = 0;
 	}
 
-	char_printf(ch, "(%s) ", s);
+	act_puts("($t) ", ch, s, NULL,
+		 TO_CHAR | ACT_NOTRANS | ACT_NOLF, POS_DEAD);
 	*pcol += strlen(s) + 3;
 }
 
@@ -2004,7 +2008,8 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		switch (*argument) {
 		case 'y': case 'Y':
 			act_char("New character.", ch);
-			char_printf(ch, "Give me a password for %s: ", ch->name);
+			act_puts("Give me a password for $n: ",
+				 ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
 			write_to_descriptor(d->descriptor, echo_off_str, 0);
 			d->connected = CON_GET_NEW_PASSWORD;
 			break;
@@ -2376,8 +2381,11 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		}
 
 		if (ch->gold > 6000 && !IS_IMMORTAL(ch)) {
-			char_printf(ch, "You are taxed %d gold to pay for the Mayor's bar.\n", (ch->gold - 6000) / 2);
-			ch->gold -= (ch->gold - 6000) / 2;
+			int tax = (ch->gold - 6000) / 2;
+			act_puts("You are taxed $j gold to pay for the Mayor's bar.",
+				 ch, (const void *) tax, NULL,
+				 TO_CHAR, POS_DEAD);
+			ch->gold -= tax;
 		}
 	
 		if (ch->level == 0) {
@@ -2573,17 +2581,6 @@ stop_idling(DESCRIPTOR_DATA *d)
 		    to_room->people, NULL, pc->pet, TO_ALL);
 		char_to_room(pc->pet, to_room);
 	}
-}
-
-void char_printf(CHAR_DATA *ch, const char *format, ...)
-{
-	char buf[MAX_STRING_LENGTH];
-	va_list ap;
-
-	va_start(ap, format);
-	vsnprintf(buf, sizeof(buf), GETMSG(format, GET_LANG(ch)), ap);
-	va_end(ap);     
-	send_to_char(buf, ch);
 }
 
 /*

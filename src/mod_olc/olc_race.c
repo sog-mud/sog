@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_race.c,v 1.38 2000-10-07 18:15:00 fjoe Exp $
+ * $Id: olc_race.c,v 1.39 2000-10-15 17:19:32 fjoe Exp $
  */
 
 #include "olc.h"
@@ -305,7 +305,7 @@ OLC_FUN(raceed_show)
 		buf_append(output, "Stats mod:     [");
 		for (i = 0; i < MAX_STAT; i++)
 			buf_printf(output, BUF_END, "%s: %2d ",
-				   flag_string(stat_names, i),
+				   flag_string(stat_aliases, i),
 				   r->race_pcdata->mod_stat[i]);
 		buf_append(output, "]\n");
 	}
@@ -315,7 +315,7 @@ OLC_FUN(raceed_show)
 		buf_append(output, "Max stats:     [");
 		for (i = 0; i < MAX_STAT; i++)
 			buf_printf(output, BUF_END, "%s: %2d ",
-				   flag_string(stat_names, i),
+				   flag_string(stat_aliases, i),
 				   r->race_pcdata->max_stat[i]);
 		buf_append(output, "]\n");
 	}

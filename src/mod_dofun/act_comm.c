@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.215 2000-10-09 19:16:04 fjoe Exp $
+ * $Id: act_comm.c,v 1.216 2000-10-15 17:19:29 fjoe Exp $
  */
 
 /***************************************************************************
@@ -869,15 +869,16 @@ void do_group(CHAR_DATA *ch, const char *argument)
 
 	if (arg[0] == '\0') {
 		CHAR_DATA *gch;
+		BUFFER *buf;
 
-		act_puts("$N's group:", ch, NULL, leader_lookup(ch),
-			 TO_CHAR, POS_DEAD);
+		buf = buf_new(GET_LANG(ch));
+		buf_act(buf, BUF_END, "$N's group:",
+			ch, NULL, leader_lookup(ch), NULL, TO_CHAR);
 
 		for (gch = char_list; gch; gch = gch->next) {
 			if (is_same_group(gch, ch)) {
-				char_printf(ch,
-					    "[%2d %s] %-16s %d/%d hp "
-					    "%d/%d mana %d/%d mv   %5d xp\n",
+				buf_printf(buf, BUF_END, 
+					   "[%2d %s] %-16s %d/%d hp %d/%d mana %d/%d mv %d xp\n",
 					    gch->level,
 					    class_who_name(gch),
 					    PERS(gch, ch),
@@ -887,6 +888,9 @@ void do_group(CHAR_DATA *ch, const char *argument)
 					    GET_EXP(gch));
 			}
 		}
+
+		send_to_char(buf_string(buf), ch);
+		buf_free(buf);
 		return;
 	}
 
@@ -1180,7 +1184,9 @@ void do_twit(CHAR_DATA *ch, const char *argument)
 	one_argument(argument, arg, sizeof(arg));
 
 	if (arg[0] == '\0') {
-		char_printf(ch, "Current twitlist is [%s]\n", PC(ch)->twitlist);
+		act_puts("Current twitlist is [$t]",
+			 ch, PC(ch)->twitlist, NULL,
+			 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return;
 	}
 
@@ -1211,7 +1217,8 @@ void do_lang(CHAR_DATA *ch, const char *argument)
 				   ch->name, d->dvdata->lang);
 			l = VARR_GET(&langs, d->dvdata->lang = 0);
 		}
-		char_printf(ch, "Interface language is '%s'.\n", l->name);
+		act_puts("Interface language is '$t'.",
+			 ch, l->name, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return;
 	}
 
@@ -1464,7 +1471,11 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 	if (IS_NULLSTR(arg1)) {
 		if (pc->clan_status == CLAN_LEADER
 		||  pc->clan_status == CLAN_SECOND) {
-			char_printf(ch, "Usage: petition %s<accept | reject> <char name>\n", IS_IMMORTAL(ch) ? "<clan name> " : str_empty);
+			if (IS_IMMORTAL(ch)) {
+				act_char("Usage: petition <clan name> <accept | reject> <char name>", ch);
+			} else {
+				act_char("Usage: petition <accept | reject> <char name>", ch);
+			}
 		} else if (IS_NULLSTR(ch->clan))
 			act_char("Usage: petition <clan name>", ch);
 		return;
@@ -1475,7 +1486,8 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 	 */
 	if (IS_IMMORTAL(ch)) {
 		if ((clan = clan_search(arg1)) == NULL) {
-			char_printf(ch, "%s: unknown clan\n", arg1);
+			act_puts("$t: unknown clan", ch, arg1, NULL,
+				 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 			do_petition(ch, str_empty);
 			return;
 		}
@@ -1671,13 +1683,18 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 
 			if (!found) {
 				found = TRUE;
-				char_printf(ch, "List of players petitioned to %s:\n", clan->name);
+				act_puts("List of players petitioned to $t:",
+					 ch, clan->name, NULL,
+					 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 			}
-			char_printf(ch, "%s\n", vch->name);
+			act_puts("$t", ch, vch->name, NULL,
+				 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		}
 
 		if (!found) {
-			char_printf(ch, "Noone has petitioned to %s.\n", clan->name);
+			act_puts("Noone has petitioned to $t.",
+				 ch, clan->name, NULL,
+				 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		}
 		return;
 	}
@@ -1866,7 +1883,9 @@ void do_alias(CHAR_DATA *ch, const char *argument)
 			||  d->dvdata->alias_sub[pos] == NULL)
 				break;
 
-			char_printf(ch,"    %s:  %s\n", d->dvdata->alias[pos], d->dvdata->alias_sub[pos]);
+			act_puts("    $t: $T", ch, d->dvdata->alias[pos],
+				 d->dvdata->alias_sub[pos],
+				 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		}
 		return;
 	}
@@ -1883,7 +1902,11 @@ void do_alias(CHAR_DATA *ch, const char *argument)
 				break;
 
 			if (!str_cmp(arg, d->dvdata->alias[pos])) {
-				char_printf(ch, "%s aliases to '%s'.\n", d->dvdata->alias[pos], d->dvdata->alias_sub[pos]);
+				act_puts("$t aliases to '$T'.",
+					 ch, d->dvdata->alias[pos],
+					 d->dvdata->alias_sub[pos],
+					 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE,
+					 POS_DEAD);
 				return;
 			}
 		}
@@ -2113,7 +2136,9 @@ void do_toggle(CHAR_DATA *ch, const char *argument)
 
 		if ((t = toggle_lookup(arg)) == NULL
 		||  (bits = toggle_bits(ch, t)) == NULL) {
-			char_printf(ch, "%s: no such toggle.\n", arg);
+			act_puts("$t: no such toggle.",
+				 ch, arg, NULL,
+				 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 			continue;
 		}
 

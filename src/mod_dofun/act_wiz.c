@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.256 2000-10-09 19:16:05 fjoe Exp $
+ * $Id: act_wiz.c,v 1.257 2000-10-15 17:19:30 fjoe Exp $
  */
 
 /***************************************************************************
@@ -262,9 +262,13 @@ void do_wiznet(CHAR_DATA *ch, const char *argument)
 	 
 	TOGGLE_BIT(PC(vch)->wiznet, wiznet_table[flag].flag);
 	if (!IS_SET(PC(vch)->wiznet, wiznet_table[flag].flag)) {
-		char_printf(ch,"You will no longer see %s on wiznet.\n", wiznet_table[flag].name);
+		act_puts("You will no longer see $t on wiznet.",
+			 ch, wiznet_table[flag].name, NULL,
+			 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 	} else {
-		char_printf(ch, "You will now see %s on wiznet.\n", wiznet_table[flag].name);
+		act_puts("You will now see $t on wiznet.",
+			 ch, wiznet_table[flag].name, NULL,
+			 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 	}
 }
 
@@ -2955,7 +2959,9 @@ void do_holylight(CHAR_DATA *ch, const char *argument)
 		return;
 
 	TOGGLE_BIT(PC(vch)->plr_flags, PLR_HOLYLIGHT);
-	char_printf(ch, "Holy light mode %s.\n", IS_SET(PC(vch)->plr_flags, PLR_HOLYLIGHT) ?  "on" : "off");
+	act_puts("Holy light mode $t.",
+		 ch, IS_SET(PC(vch)->plr_flags, PLR_HOLYLIGHT) ?  "on" : "off",
+		 NULL, TO_CHAR, POS_DEAD);
 }
 
 /* prefix command: it will put the string typed on each line typed */
@@ -3042,7 +3048,8 @@ cleanup:
 	}
 }
 
-void do_mset(CHAR_DATA *ch, const char *argument)
+void
+do_mset(CHAR_DATA *ch, const char *argument)
 {
 	char arg1 [MAX_INPUT_LENGTH];
 	char arg2 [MAX_INPUT_LENGTH];
@@ -3050,6 +3057,7 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 	char arg4 [MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
 	int value, val2;
+	int stat;
 	const char *p;
 	bool loaded = FALSE;
 	bool altered = FALSE;
@@ -3081,17 +3089,6 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 	/*
 	 * Set something.
 	 */
-	if (!str_cmp(arg2, "str")) {
-		if (value < 3 || value > get_max_train(victim,STAT_STR)) {
-			char_printf(ch, "Strength range is 3 to %d\n.", get_max_train(victim, STAT_STR));
-			goto cleanup;
-		}
-
-		victim->perm_stat[STAT_STR] = value;
-		altered = TRUE;
-		goto cleanup;
-	}
-
 	if (!str_cmp(arg2, "trouble")) {
 		if (IS_NPC(victim)) {
 			act_char("Not on NPC's.", ch);
@@ -3135,29 +3132,18 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 		goto cleanup;
 	}
 
-	if (!str_cmp(arg2, "int"))
-	{
-	    if (value < 3 || value > get_max_train(victim,STAT_INT))
-	    {
-	        char_printf(ch, "Intelligence range is 3 to %d.\n", get_max_train(victim, STAT_INT));
-	        goto cleanup;
-	    }
-	
-	    victim->perm_stat[STAT_INT] = value;
-		altered = TRUE;
-	    goto cleanup;
-	}
+	if ((stat = flag_svalue(stat_aliases, arg2)) >= 0) {
+		int max_value = get_max_train(victim, stat);
 
-	if (!str_cmp(arg2, "wis"))
-	{
-		if (value < 3 || value > get_max_train(victim,STAT_WIS))
-		{
-		    char_printf(ch,
-			"Wisdom range is 3 to %d.\n",get_max_train(victim,STAT_WIS));
-		    goto cleanup;
+		if (value < 3 || value > max_value) {
+			act_puts("$T range is 3..$j.",
+				 ch, (const void *) max_value,
+				 flag_string(stat_names, stat),
+				 TO_CHAR, POS_DEAD);
+			goto cleanup;
 		}
 
-		victim->perm_stat[STAT_WIS] = value;
+		victim->perm_stat[stat] = value;
 		altered = TRUE;
 		goto cleanup;
 	}
@@ -3186,44 +3172,6 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 			value = 30;
 		PC(victim)->questtime = value;
 		altered = TRUE;
-		goto cleanup;
-	}
-
-	if (!str_cmp(arg2, "dex"))
-	{
-		if (value < 3 || value > get_max_train(victim,STAT_DEX))
-		{
-		    char_printf(ch, "Dexterity ranges is 3 to %d.\n", get_max_train(victim,STAT_DEX));
-		    goto cleanup;
-		}
-
-		victim->perm_stat[STAT_DEX] = value;
-		 altered = TRUE;
-		goto cleanup;
-	}
-
-	if (!str_cmp(arg2, "con"))
-	{
-		if (value < 3 || value > get_max_train(victim,STAT_CON))
-		{
-		    char_printf(ch, "Constitution range is 3 to %d.\n", get_max_train(victim,STAT_CON));
-		    goto cleanup;
-		}
-
-		victim->perm_stat[STAT_CON] = value;
-		 altered = TRUE;
-		goto cleanup;
-	}
-	if (!str_cmp(arg2, "cha"))
-	{
-		if (value < 3 || value > get_max_train(victim,STAT_CHA))
-		{
-		    char_printf(ch, "Constitution range is 3 to %d.\n", get_max_train(victim,STAT_CHA));
-		    goto cleanup;
-		}
-
-		victim->perm_stat[STAT_CHA] = value;
-		 altered = TRUE;
 		goto cleanup;
 	}
 
@@ -4177,8 +4125,10 @@ void do_grant(CHAR_DATA *ch, const char *argument)
 			CHAR_DATA *vch = GET_ORIGINAL(ch);
 
 			if (cmd->min_level < LEVEL_IMMORTAL) {
-				char_printf(ch, "%s: not a wizard command.\n",
-					    arg2);
+				act_puts("$t: not a wizard command.",
+					 ch, arg2, NULL,
+					 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE,
+					 POS_DEAD);
 				continue;
 			}
 
@@ -4633,6 +4583,7 @@ void do_mpstat(CHAR_DATA *ch, const char *argument)
 	CHAR_DATA *victim;
 	NPC_DATA *npc;
 	int i;
+	BUFFER *buf;
 
 	one_argument(argument, arg, sizeof(arg));
 
@@ -4651,24 +4602,31 @@ void do_mpstat(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	char_printf(ch, "Mobile #%-6d [%s]\n",
-		victim->pMobIndex->vnum, mlstr_mval(&victim->short_descr));
+	buf = buf_new(-1);
+	buf_printf(buf, BUF_END, "Mobile #%-6d [%s]\n",
+		   victim->pMobIndex->vnum, mlstr_mval(&victim->short_descr));
 
 	npc = NPC(victim);
-	char_printf(ch, "Delay   %-6d [%s]\n",
-		npc->mprog_delay,
-		npc->mprog_target == NULL ?
-		"No target" : npc->mprog_target->name);
+	buf_printf(buf, BUF_END, "Delay   %-6d [%s]\n",
+		   npc->mprog_delay,
+		   npc->mprog_target == NULL ?
+			"No target" : npc->mprog_target->name);
 
-	if (!victim->pMobIndex->mptrig_types) {
-		act_char("[No programs set]", ch);
-		return;
+	if (!victim->pMobIndex->mptrig_types)
+		buf_append(buf, "[No programs set]");
+	else {
+		i = 0;
+		for (mptrig = victim->pMobIndex->mptrig_list; mptrig != NULL;
+							mptrig = mptrig->next) {
+			buf_printf(buf, BUF_END,
+				   "[%2d] Trigger [%-8s] Program [%4d] Phrase [%s]\n",
+				   ++i, flag_string(mptrig_types, mptrig->type),
+				   mptrig->vnum, mptrig->phrase);
+		}
 	}
 
-	for (i = 0, mptrig = victim->pMobIndex->mptrig_list; mptrig != NULL;
-						mptrig = mptrig->next) {
-		char_printf(ch, "[%2d] Trigger [%-8s] Program [%4d] Phrase [%s]\n", ++i, flag_string(mptrig_types, mptrig->type), mptrig->vnum, mptrig->phrase);
-	}
+	page_to_char(buf_string(buf), ch);
+	buf_free(buf);
 }
 
 extern int max_rnd_cnt;

@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.244 2000-10-07 20:41:04 fjoe Exp $
+ * $Id: act_move.c,v 1.245 2000-10-15 17:19:30 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1473,8 +1473,7 @@ void do_train(CHAR_DATA *ch, const char *argument)
 {
 	char buf[MAX_STRING_LENGTH];
 	CHAR_DATA *mob;
-	int stat = - 1;
-	const char *stat_name;
+	int stat;
 	PC_DATA *pc;
 
 	if (IS_NPC(ch))
@@ -1501,25 +1500,8 @@ void do_train(CHAR_DATA *ch, const char *argument)
 		argument = "foo";
 	}
 
-	if (!str_cmp(argument, "str")) {
-		stat		= STAT_STR;
-		stat_name	= "strength";
-	} else if (!str_cmp(argument, "int")) {
-		stat		= STAT_INT;
-		stat_name	= "intelligence";
-	} else if (!str_cmp(argument, "wis")) {
-		stat		= STAT_WIS;
-		stat_name	= "wisdom";
-	} else if (!str_cmp(argument, "dex")) {
-		stat		= STAT_DEX;
-		stat_name	= "dexterity";
-	} else if (!str_cmp(argument, "con")) {
-		stat		= STAT_CON;
-		stat_name	= "constitution";
-	} else if (!str_cmp(argument, "cha")) {
-		stat		= STAT_CHA;
-		stat_name	= "charisma";
-	} else {
+	stat = flag_svalue(stat_aliases, argument);
+	if (stat < 0) {
 		snprintf(buf, sizeof(buf),
 			 GETMSG("You can train: %s%s%s%s%s%s", GET_LANG(ch)),
 			 ch->perm_stat[STAT_STR] < get_max_train(ch, STAT_STR) ?
@@ -1545,9 +1527,10 @@ void do_train(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (ch->perm_stat[stat] >= get_max_train(ch,stat)) {
+	if (ch->perm_stat[stat] >= get_max_train(ch, stat)) {
 		act_puts("Your $w is already at maximum.",
-			 ch, stat_name, NULL, TO_CHAR, POS_DEAD);
+			 ch, flag_string(stat_names, stat), NULL,
+			 TO_CHAR, POS_DEAD);
 		return;
 	}
 
@@ -1559,8 +1542,9 @@ void do_train(CHAR_DATA *ch, const char *argument)
 	pc->train--;
 	ch->perm_stat[stat] += 1;
 	act_puts("Your $w increases!",
-		 ch, stat_name, NULL, TO_CHAR, POS_DEAD);
-	act("$n's $w increases!", ch, stat_name, NULL, TO_ROOM);
+		 ch, flag_string(stat_names, stat), NULL, TO_CHAR, POS_DEAD);
+	act("$n's $w increases!",
+	    ch, flag_string(stat_names, stat), NULL, TO_ROOM);
 }
 
 void do_track(CHAR_DATA *ch, const char *argument)
@@ -1588,8 +1572,8 @@ void do_track(CHAR_DATA *ch, const char *argument)
 				check_improve(ch, "track", TRUE, 1);
 			if ((d = rh->went) == -1)
 				continue;
-			char_printf(ch, "%s's tracks lead %s.\n",
-				     rh->name, door[d]);
+			act_puts("$t's tracks lead $T.",
+				 ch, rh->name, door[d], TO_CHAR, POS_DEAD);
 			if ((pexit = ch->in_room->exit[d]) != NULL
 			&&  IS_SET(pexit->exit_info, EX_ISDOOR)
 			&&  pexit->keyword != NULL)

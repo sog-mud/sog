@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.308 2000-10-07 18:14:52 fjoe Exp $
+ * $Id: merc.h,v 1.309 2000-10-15 17:19:28 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1895,11 +1895,17 @@ int trust_level(CHAR_DATA *ch);
 #define RESET_WAIT_STATE(ch)	((ch)->wait = 1)
 #define DAZE_STATE(ch, npulse)	((ch)->daze = UMAX((ch)->daze, (npulse)))
 
-#define COINS_WEIGHT(gold, silver) ((silver) / 10 + (gold) * 2 / 5)
+#define GOLD_WEIGHT(gold)	((gold) * 2 / 5)
+#define SILVER_WEIGHT(silver)	((silver) / 10)
+
+#define COINS_WEIGHT(is_gold, amount)	((is_gold) ? 			\
+				GOLD_WEIGHT(amount) :			\
+				SILVER_WEIGHT(amount))
 #define get_carry_weight(ch)	((ch)->carry_weight +			\
-				 COINS_WEIGHT((ch)->silver, (ch)->gold))
-#define MONEY_WEIGHT(obj)	COINS_WEIGHT(INT(obj->value[0]),	\
-					     INT(obj->value[1]))
+				 SILVER_WEIGHT((ch)->silver) +		\
+				 GOLD_WEIGHT((ch)->gold))
+#define MONEY_WEIGHT(obj)	(SILVER_WEIGHT(INT(obj->value[0])) +	\
+				 GOLD_WEIGHT(INT(obj->value[1])))
 
 #define HAS_TRIGGER(ch,trig)	(IS_SET((ch)->pMobIndex->mptrig_types, (trig)))
 #define IS_SWITCHED( ch )       (ch->desc && ch->desc->original)

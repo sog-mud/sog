@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.355 2000-10-13 09:39:27 fjoe Exp $
+ * $Id: act_info.c,v 1.356 2000-10-15 17:19:29 fjoe Exp $
  */
 
 /***************************************************************************
@@ -135,7 +135,9 @@ void do_scroll(CHAR_DATA *ch, const char *argument)
 	one_argument(argument, arg, sizeof(arg));
 
 	if (arg[0] == '\0') {
-		char_printf(ch, "You currently display %d pagelen per page.\n", d->dvdata->pagelen + 2);
+		act_puts("You currently display $j $qj{lines} per page.",
+			 ch, (const void *) (d->dvdata->pagelen + 2), NULL,
+			 TO_CHAR, POS_DEAD);
 		return;
 	}
 
@@ -146,7 +148,9 @@ void do_scroll(CHAR_DATA *ch, const char *argument)
 
 	pagelen = atoi(arg);
 	if (pagelen < MIN_PAGELEN || pagelen > MAX_PAGELEN) {
-		char_printf(ch, "Valid scroll range is %d..%d.\n", MIN_PAGELEN, MAX_PAGELEN);
+		act_puts3("Valid scroll range is $j..$J.",
+			  ch, (const void *) MIN_PAGELEN, NULL,
+			  (const void *) MAX_PAGELEN, TO_CHAR, POS_DEAD);
 		return;
 	}
 
@@ -361,6 +365,9 @@ void do_prompt(CHAR_DATA *ch, const char *argument)
 	if ((d = ch->desc) == NULL)
 		return;
 
+	if (IS_SET(ch->comm, COMM_AFK))
+		dofun("afk", ch, str_empty);
+
 	if (argument[0] == '\0') {
 		bust_a_prompt(d);
 		send_to_char("\n", ch);
@@ -478,17 +485,21 @@ static void do_look_room(CHAR_DATA *ch, int flags)
 
 		name = mlstr_cval(&ch->in_room->name, ch);
 		engname = mlstr_mval(&ch->in_room->name);
-		char_printf(ch, "{W%s", name);
-		if (GET_LANG(ch) && name != engname)
-			char_printf(ch, " (%s){x", engname);
-		else {
-			act_puts("{x", ch, NULL, NULL,
-				 TO_CHAR | ACT_NOLF, POS_DEAD);
+		act_puts("{W$t", ch, name, NULL,
+			 TO_CHAR | ACT_NOTRANS | ACT_NOLF, POS_DEAD);
+		if (GET_LANG(ch) && name != engname) {
+			act_puts(" ($t){x", ch, engname, NULL,
+				 TO_CHAR | ACT_NOTRANS | ACT_NOLF, POS_DEAD);
+		} else {
+			send_to_char("{x", ch);
 		}
 		
 		if (IS_IMMORTAL(ch)
-		||  IS_BUILDER(ch, ch->in_room->area))
-			char_printf(ch, " [Room %d]",ch->in_room->vnum);
+		||  IS_BUILDER(ch, ch->in_room->area)) {
+			act_puts(" [Room $j]", ch,
+				 (const void *) ch->in_room->vnum, NULL,
+				 TO_CHAR | ACT_NOLF, POS_DEAD);
+		}
 
 		send_to_char("\n", ch);
 
@@ -792,18 +803,18 @@ void do_exits(CHAR_DATA *ch, const char *argument)
 	bool found;
 	bool fAuto;
 	int door;
+	BUFFER *buf;
 
 	fAuto  = !str_cmp(argument, "auto");
+	buf = buf_new(GET_LANG(ch));
 
-	if (fAuto) {
-		act_puts("{C[Exits:",
-			 ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
-	} else if (IS_IMMORTAL(ch) || IS_BUILDER(ch, ch->in_room->area)) {
-		act_puts("Obvious exits from room $j:",
-			 ch, (const void *) ch->in_room->vnum, NULL,
-			 TO_CHAR, POS_DEAD);
+	if (fAuto)
+		buf_append(buf, "{C[Exits:");
+	else if (IS_IMMORTAL(ch) || IS_BUILDER(ch, ch->in_room->area)) {
+		buf_printf(buf, BUF_END, "Obvious exits from room %d:\n",
+			   ch->in_room->vnum);
 	} else
-		act_char("Obvious exits:", ch);
+		buf_append(buf, "Obvious exits:\n");
 
 	found = FALSE;
 	for (door = 0; door < MAX_DIR; door++) {
@@ -824,40 +835,45 @@ void do_exits(CHAR_DATA *ch, const char *argument)
 						show_closed = TRUE;
 					}
 				}
+
 				if (!show_closed)
 					continue;
 			}
 
 			found = TRUE;
 			if (fAuto)
-				char_printf(ch, " %s%s", dir_name[door],
-					    show_closed ? "*" : str_empty);
+				buf_printf(buf, BUF_END, " %s%s",
+					   dir_name[door],
+					   show_closed ? "*" : str_empty);
 			else {
-				char_printf(ch, "{C%-5s%s{x - %s",
-					    capitalize(dir_name[door]),
-					    show_closed ? "*" : str_empty,
-					    room_dark(pexit->to_room.r) ?
-					    GETMSG("Too dark to tell", GET_LANG(ch)) :
-					    mlstr_cval(&pexit->to_room.r->name, ch));
+				buf_printf(buf, BUF_END, "{C%-5s%s{x - %s",
+					   capitalize(dir_name[door]),
+					   show_closed ? "*" : str_empty,
+					   room_dark(pexit->to_room.r) ?
+						GETMSG("Too dark to tell", GET_LANG(ch)) : mlstr_cval(&pexit->to_room.r->name, ch));
+
 				if (IS_IMMORTAL(ch)
-				||  IS_BUILDER(ch, pexit->to_room.r->area))
-					char_printf(ch, " (room %d)",
-						    pexit->to_room.r->vnum);
-				send_to_char("\n", ch);
+				||  IS_BUILDER(ch, pexit->to_room.r->area)) {
+					buf_printf(buf, BUF_END, " (room %d)",
+						   pexit->to_room.r->vnum);
+				}
+				buf_append(buf, "\n");
 			}
 		}
 	}
 
 	if (!found) {
 		if (fAuto) {
-			act_puts(" none",
-				 ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
+			buf_append(buf, " none");
 		} else
-			act_char("None.", ch);
+			buf_append(buf, "None.\n");
 	}
 
 	if (fAuto)
-		act_char("]{x", ch);
+		buf_append(buf, "]{x\n");
+
+	send_to_char(buf_string(buf), ch);
+	buf_free(buf);
 }
 
 void do_worth(CHAR_DATA *ch, const char *argument)
@@ -910,40 +926,44 @@ static const char* month_name[] =
 void do_time(CHAR_DATA *ch, const char *argument)
 {
 	extern char str_boot_time[];
-	char *suf;
-	int day;
+	int day = time_info.day + 1;
+	int hour;
 
-	day	= time_info.day + 1;
+	hour = time_info.hour % 12;
+	if (!hour)
+		hour = 12;
+	act_puts("It is $j o'clock $T, ",
+		 ch, (const void *) hour, time_info.hour >= 12 ? "pm" : "am",
+		 TO_CHAR | ACT_NOTRANS | ACT_NOLF, POS_DEAD);
+	act_puts3("Day of $t, $J$qJ{th} the Month of $T.",
+		  ch, day_name[day % 7], month_name[time_info.month],
+		  (const void *) day, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 
-	     if (day > 4 && day <  20) suf = "th";
-	else if (day % 10 ==  1      ) suf = "st";
-	else if (day % 10 ==  2      ) suf = "nd";
-	else if (day % 10 ==  3      ) suf = "rd";
-	else			       suf = "th";
-
-	char_printf(ch,
-		    "It is %d o'clock %s, Day of %s, %d%s the Month of %s.\n",
-		    (time_info.hour % 12 == 0) ? 12 : time_info.hour %12,
-		    time_info.hour >= 12 ? "pm" : "am",
-		    day_name[day % 7],
-		    day, suf, month_name[time_info.month]);
-
-	if (!IS_SET(ch->in_room->room_flags, ROOM_INDOORS) || IS_IMMORTAL(ch))
+	if (!IS_SET(ch->in_room->room_flags, ROOM_INDOORS) || IS_IMMORTAL(ch)) {
 		act_puts("It's $T.", ch, NULL,
-			(time_info.hour>=5 && time_info.hour<9) ?   "dawn"    :
-			(time_info.hour>=9 && time_info.hour<12) ?  "morning" :
-			(time_info.hour>=12 && time_info.hour<18) ? "mid-day" :
-			(time_info.hour>=18 && time_info.hour<21) ? "evening" :
-								    "night",
+			 time_info.hour >=  5 && time_info.hour < 9 ?
+				"dawn"	  :
+			 time_info.hour >=  9 && time_info.hour < 12 ?
+				"morning" :
+			 time_info.hour >= 12 && time_info.hour < 18 ?
+				"mid-day" :
+			 time_info.hour >= 18 && time_info.hour < 21 ?
+				"evening" :
+				"night",
 			TO_CHAR, POS_DEAD);
+	}
 
 	if (!IS_IMMORTAL(ch))
 		return;
 
-	char_printf(ch, "\nSoG started up at %s.\n"
-			"The system time is %s.\n"
-			"Reboot in %d minutes.\n",
-			str_boot_time, strtime(time(NULL)),reboot_counter);
+	send_to_char("\n", ch);
+	act_puts("SoG started up at $t.",
+		 ch, str_boot_time, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
+	act_puts("The system time is $t.",
+		 ch, strtime(time(NULL)), NULL,
+		 TO_CHAR | ACT_NOTRANS, POS_DEAD);
+	act_puts("Reboot in $j minutes.",
+		 ch, (const void *) reboot_counter, NULL, TO_CHAR, POS_DEAD);
 }
 
 void do_date(CHAR_DATA *ch, const char *argument)
@@ -966,11 +986,12 @@ void do_weather(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	char_printf(ch, "The sky is %s and %s.\n",
-		    sky_look[weather_info.sky],
-		    weather_info.change >= 0 ?
-		    "a warm southerly breeze blows" :
-		    "a cold northern gust blows");
+	act_puts("The sky is $t and $T.",
+		 ch, sky_look[weather_info.sky],
+		 weather_info.change >= 0 ?
+		 	"a warm southerly breeze blows" :
+		 	"a cold northern gust blows",
+		 TO_CHAR, POS_DEAD);
 }
 
 void do_help(CHAR_DATA *ch, const char *argument)
@@ -1395,12 +1416,19 @@ void do_where(CHAR_DATA *ch, const char *argument)
 				else
 					doppel = victim;
 
-				char_printf(ch, "%s%-28s %s\n",
-					(in_PK(ch, doppel) &&
-					!IS_IMMORTAL(ch)) ?
-					"{r[{RPK{r]{x " : "     ",
-					PERS(victim, ch),
-					mlstr_mval(&victim->in_room->name));
+				if (in_PK(ch, doppel)) {
+					act_puts("{r[{RPK{r]{x ",
+						 ch, NULL, NULL,
+						 TO_CHAR | ACT_NOLF, POS_DEAD);
+				} else {
+					act_puts("     ", ch, NULL, NULL,
+						 TO_CHAR | ACT_NOLF, POS_DEAD);
+				}
+
+				act_puts("$f-28{$N} $t", ch,
+					 mlstr_mval(&victim->in_room->name),
+					 victim,
+					 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 			}
 		}
 		if (!found)
@@ -1413,15 +1441,17 @@ void do_where(CHAR_DATA *ch, const char *argument)
 			&&  can_see(ch, victim)
 			&&  is_name(arg, victim->name)) {
 				found = TRUE;
-				char_printf(ch, "%-28s %s\n",
-					PERS(victim, ch),
-					mlstr_mval(&victim->in_room->name));
+				act_puts("$f-28{$N} $t", ch,
+					 mlstr_mval(&victim->in_room->name),
+					 victim,
+					 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 				break;
 			}
 		}
+
 		if (!found) {
-			act_puts("You didn't find any $T.",
-				 ch, NULL, arg, TO_CHAR, POS_DEAD);
+			act_puts("You didn't find any $T.", ch, NULL, arg,
+				 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		}
 	}
 }
@@ -1598,8 +1628,7 @@ void do_password(CHAR_DATA *ch, const char *argument)
 	act_char("Ok.", ch);
 }
 
-static void scan_list(ROOM_INDEX_DATA *scan_room, CHAR_DATA *ch, 
-		      int depth, int door)
+static void scan_list(ROOM_INDEX_DATA *scan_room, CHAR_DATA *ch)
 {
 	CHAR_DATA *rch;
 
@@ -1609,7 +1638,7 @@ static void scan_list(ROOM_INDEX_DATA *scan_room, CHAR_DATA *ch,
 	for (rch = scan_room->people; rch; rch = rch->next_in_room) {
 		if (rch == ch || !can_see(ch, rch))
 			continue;
-		char_printf(ch, "	%s.\n", PERS(rch, ch));
+		act_puts("    $N.", ch, NULL, rch, TO_CHAR, POS_DEAD);
 	}
 }
 
@@ -1625,18 +1654,19 @@ static void scan_all(CHAR_DATA *ch)
 	act_char("Looking around you see:", ch);
 
 	act_char("{Chere{x:", ch);
-	scan_list(ch->in_room, ch, 0, -1);
+	scan_list(ch->in_room, ch);
 	for (door = 0; door < 6; door++) {
 		if ((pExit = ch->in_room->exit[door]) == NULL
 		|| !pExit->to_room.r
 		|| !can_see_room(ch,pExit->to_room.r))
 			continue;
-		char_printf(ch, "{C%s{x:\n", dir_name[door]);
+		act_puts("{C$t{x:", ch, dir_name[door], NULL,
+			 TO_CHAR, POS_DEAD);
 		if (IS_SET(pExit->exit_info, EX_CLOSED)) {
-			act_char("	You see closed door.", ch);
+			act_char("    You see closed door.", ch);
 			continue;
 		}
-		scan_list(pExit->to_room.r, ch, 1, door);
+		scan_list(pExit->to_room.r, ch);
 	}
 }
 
@@ -2632,21 +2662,27 @@ void do_raffects(CHAR_DATA *ch, const char *argument)
 					 TO_CHAR | ACT_NOLF, POS_DEAD);
 			} else
 				continue;
-		} else
-			char_printf(ch, "Spell: {c%-15s{x", paf->type);
+		} else {
+			act_puts("Spell: {c$F-15{$t}{x",
+				 ch, paf->type, NULL,
+				 TO_CHAR | ACT_NOTRANS | ACT_NOLF, POS_DEAD);
+		}
 
 		if (ch->level >= 20) {
-			char_printf(ch, ": modifies {c%s{x by {c%d{x ",
-				    SFLAGS(rapply_flags, paf->location),
-				    paf->modifier);
+			act_puts(": modifies {c$T{x by {c$j{x ",
+				 ch, (const void *) paf->modifier,
+				 SFLAGS(rapply_flags, paf->location),
+				 TO_CHAR | ACT_NOTRANS | ACT_NOLF, POS_DEAD);
 			if (paf->duration == -1 || paf->duration == -2) {
 				act_puts("permanently.",
 					 ch, NULL, NULL,
 					 TO_CHAR | ACT_NOLF | ACT_NOUCASE,
 					 POS_DEAD);
-			} else
-				char_printf(ch, "for {c%d{x hours.",
-					    paf->duration);
+			} else {
+				act_puts("for {c$j{x $qj{hours}.",
+					 ch, (const void *) paf->duration, NULL,
+					 TO_CHAR | ACT_NOLF, POS_DEAD);
+			}
 		}
 		send_to_char("\n", ch);
 		paf_last = paf;
@@ -2697,9 +2733,16 @@ void do_resistances(CHAR_DATA *ch, const char *argument)
 
 		found = TRUE;
 		if (ch->level < MAX_LEVEL / 3) {
-			char_printf(ch, "You are %s %s.\n", get_resist_alias(res), flag_string(resist_info_flags, i));
+			act_puts("You are $t $T.",
+				 ch, get_resist_alias(res),
+				 flag_string(resist_info_flags, i),
+				 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		} else {
-			char_printf(ch, "You are %s %s (%d%%).\n", get_resist_alias(res), flag_string(resist_info_flags, i), res);
+			act_puts3("You are $t $T ($J%).",
+				  ch, get_resist_alias(res),
+				  flag_string(resist_info_flags, i),
+				  (const void *) res,
+				  TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		}
 	}
 
@@ -3330,7 +3373,9 @@ glist_cb(void *p, va_list ap)
 
 	if (group == sk->group) {
 		const char *sn = gmlstr_mval(&sk->sk_name);
-		char_printf(ch, "%c%-18s", pc_skill_lookup(ch, sn) ?  '*' : ' ', sn);
+		act_puts("$t$f-18{$T}", ch,
+			 pc_skill_lookup(ch, sn) ?  "*" : " ", sn,
+			 TO_CHAR | ACT_NOTRANS | ACT_NOLF, POS_DEAD);
 		if (*pcol)
 			send_to_char("\n", ch);
 		*pcol = 1 - *pcol;
@@ -3398,7 +3443,10 @@ void do_slook(CHAR_DATA *ch, const char *argument)
 		return; 
 	}
 
-	char_printf(ch, "Skill '%s' in group '%s'.\n", gmlstr_mval(&sk->sk_name), flag_string(skill_groups, sk->group));
+	act_puts("Skill '$t' in group '$T'.",
+		 ch, gmlstr_mval(&sk->sk_name),
+		 flag_string(skill_groups, sk->group),
+		 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 }
 
 void do_camp(CHAR_DATA *ch, const char *argument)
@@ -4457,19 +4505,23 @@ static void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 		gain_condition(ch, COND_BLOODLUST, -1);
 
 	if (!IS_IMMORTAL(doppel)) {
-		char_printf(ch, "(%s) ", doppel->race);
+		act_puts("($t) ", ch, doppel->race, NULL,
+			 TO_CHAR | ACT_NOTRANS | ACT_NOLF, POS_DEAD);
 		if (!IS_NPC(doppel)) {
-			char_printf(ch, "(%s) (%s) ", doppel->class, mlstr_mval(&doppel->gender));
+			act_puts("($t) ($T) ", ch,
+				 doppel->class, mlstr_mval(&doppel->gender),
+				 TO_CHAR | ACT_NOTRANS | ACT_NOLF, POS_DEAD);
 		}
 	}
 
 	strnzcpy(buf, sizeof(buf), PERS(victim, ch));
 	buf[0] = UPPER(buf[0]);
-	char_printf(ch, "%s%s%s %s\n",
-		    IS_IMMORTAL(victim) ? "{W" : str_empty,
-		    buf,
-		    IS_IMMORTAL(victim) ? "{x" : str_empty,
-		    GETMSG(msg, GET_LANG(ch)));
+	if (IS_IMMORTAL(victim))
+		send_to_char("{W", ch);
+	act_puts("$N", ch, NULL, victim, TO_CHAR | ACT_NOLF, POS_DEAD);
+	if (IS_IMMORTAL(victim))
+		send_to_char("{x", ch);
+	act_char(msg, ch);
 
 	found = FALSE;
 	for (i = 0; show_order[i] != -1; i++)
@@ -4562,7 +4614,8 @@ void do_commands(CHAR_DATA *ch, const char *argument)
 		if (cmd->min_level < LEVEL_HERO
 		&&  cmd->min_level <= ch->level 
 		&&  !IS_SET(cmd->cmd_flags, CMD_HIDDEN)) {
-			char_printf(ch, "%-12s", cmd->name);
+			act_puts("$f-12{$t}", ch, cmd->name, NULL,
+				 TO_CHAR | ACT_NOTRANS | ACT_NOLF, POS_DEAD);
 			if (++col % 6 == 0)
 				send_to_char("\n", ch);
 		}
@@ -4593,7 +4646,8 @@ void do_wizhelp(CHAR_DATA *ch, const char *argument)
 		&&  !is_name(cmd->name, PC(ch)->granted))
 			continue;
 
-		char_printf(ch, "%-12s", cmd->name);
+		act_puts("$f-12{$t}", ch, cmd->name, NULL,
+			 TO_CHAR | ACT_NOTRANS | ACT_NOLF, POS_DEAD);
 		if (++col % 6 == 0)
 			send_to_char("\n", ch);
 	}
@@ -4764,8 +4818,10 @@ void do_rating(CHAR_DATA *ch, const char *argument)
 	for (i = 0; i < RATING_TABLE_SIZE; i++) {
 		if (rating_table[i].name == NULL)
 			continue;
-		char_printf(ch, "%-24s| %d\n",
-			    rating_table[i].name, rating_table[i].pc_killed);
+		act_puts("$f-24{$T}| $j", ch,
+			 (const void *) rating_table[i].pc_killed,
+			 rating_table[i].name,
+			 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 	}
 }
 

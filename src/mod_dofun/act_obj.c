@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.220 2000-10-07 20:41:04 fjoe Exp $
+ * $Id: act_obj.c,v 1.221 2000-10-15 17:19:30 fjoe Exp $
  */
 
 /***************************************************************************
@@ -504,8 +504,7 @@ void do_give(CHAR_DATA * ch, const char *argument)
 
 		if ((carry_w = can_carry_w(victim)) >= 0
 		&&  get_carry_weight(victim) +
-		    COINS_WEIGHT(silver ? 0 : amount, silver ? amount : 0) >
-								carry_w) {
+		    COINS_WEIGHT(!silver, amount) > carry_w) {
 			act("$N can't carry that much weight.",
 			    ch, NULL, victim, TO_CHAR);
 			return;
@@ -1792,40 +1791,50 @@ void do_steal(CHAR_DATA * ch, const char *argument)
 		}
 		return;
 	}
-	if (!str_cmp(arg1, "coin")
-	    || !str_cmp(arg1, "coins")
-	    || !str_cmp(arg1, "silver")
-	    || !str_cmp(arg1, "gold")) {
-		int             amount_s = 0;
-		int             amount_g = 0;
-		if (!str_cmp(arg1, "silver") ||
-		    !str_cmp(arg1, "coin") ||
-		    !str_cmp(arg1, "coins"))
-			amount_s = victim->silver * number_range(1, 20) / 100;
-		else if (!str_cmp(arg1, "gold"))
-			amount_g = victim->gold * number_range(1, 7) / 100;
 
-		if (amount_s <= 0 && amount_g <= 0) {
+	if (!str_cmp(arg1, "coin")
+	||  !str_cmp(arg1, "coins")
+	||  !str_cmp(arg1, "silver")
+	||  !str_cmp(arg1, "gold")) {
+		int amount;
+		bool is_gold = FALSE;
+
+		if (!str_cmp(arg1, "gold")) {
+			is_gold = TRUE;
+			amount = victim->gold * number_range(1, 7) / 100;
+		} else
+			amount = victim->silver * number_range(1, 20) / 100;
+
+		if (amount <= 0) {
 			act_char("You couldn't get any coins.", ch);
 			return;
 		}
 
 		if ((carry_w = can_carry_w(ch)) >= 0
 		&&  get_carry_weight(ch) +
-		    COINS_WEIGHT(amount_g, amount_s) > carry_w) {
+		    COINS_WEIGHT(is_gold, amount) > carry_w) {
 			act_char("You can't carry that weight.", ch);
 			return;
 		}
 
-		ch->gold += amount_g;
-		victim->gold -= amount_g;
+		if (is_gold) {
+			ch->gold += amount;
+			victim->gold -= amount;
+		} else {
+			ch->silver += amount;
+			victim->silver -= amount;
+		}
 
-		ch->silver += amount_s;
-		victim->silver -= amount_s;
+		if (is_gold) {
+			act_puts("Bingo!  You got $j $qj{gold coins}.",
+				 ch, (const void *) amount, NULL,
+				 TO_CHAR, POS_DEAD);
+		} else {
+			act_puts("Bingo!  You got $j $qj{silver coins}.",
+				 ch, (const void *) amount, NULL,
+				 TO_CHAR, POS_DEAD);
+		}
 
-		char_printf(ch, "Bingo!  You got %d %s coins.\n",
-			    amount_s != 0 ? amount_s : amount_g,
-			    amount_s != 0 ? "silver" : "gold");
 		check_improve(ch, "steal", TRUE, 2);
 		return;
 	}
@@ -1952,8 +1961,8 @@ void do_buy_pet(CHAR_DATA * ch, const char *argument)
 	roll = number_percent();
 	if (roll < get_skill(ch, "haggle")) {
 		cost -= cost / 2 * roll / 100;
-		char_printf(ch, "You haggle the price down to %d coins.\n",
-			    cost);
+		act_puts("You haggle the price down to $j $qj{coins}.",
+			 ch, (const void *) cost, NULL, TO_CHAR, POS_DEAD);
 		check_improve(ch, "haggle", TRUE, 4);
 	}
 	deduct_cost(ch, cost);
@@ -2105,8 +2114,8 @@ void do_list(CHAR_DATA * ch, const char *argument)
 {
 	if (IS_SET(ch->in_room->room_flags, ROOM_PET_SHOP)) {
 		ROOM_INDEX_DATA *pRoomIndexNext;
-		CHAR_DATA      *pet;
-		bool            found;
+		CHAR_DATA	*pet;
+		BUFFER		*buf;
 
 		pRoomIndexNext = get_room_index(ch->in_room->vnum + 1);
 		if (pRoomIndexNext == NULL) {
@@ -2114,50 +2123,61 @@ void do_list(CHAR_DATA * ch, const char *argument)
 			act_char("You can't do that here.", ch);
 			return;
 		}
-		found = FALSE;
+
+		buf = NULL;
 		for (pet = pRoomIndexNext->people; pet; pet = pet->next_in_room) {
 			if (!IS_NPC(pet))
 				continue;	/* :) */
+
 			if (IS_SET(pet->pMobIndex->act, ACT_PET)) {
-				if (!found) {
-					found = TRUE;
-					act_char("Pets for sale:", ch);
+				if (!buf) {
+					buf = buf_new(GET_LANG(ch));
+					buf_append(buf, "Pets for sale:\n");
 				}
-				char_printf(ch, "[%2d] %8d - %s\n",
-					    pet->level,
-					    10 * pet->level * pet->level,
-					    PERS(pet, ch));
+				buf_printf(buf, BUF_END, "[%2d] %8d - %s\n",
+					   pet->level,
+					   10 * pet->level * pet->level,
+					   PERS(pet, ch));
 			}
 		}
-		if (!found)
+
+		if (!buf)
 			act_char("Sorry, we're out of pets right now.", ch);
+		else {
+			page_to_char(buf_string(buf), ch);
+			buf_free(buf);
+		}
+
 		return;
 	} else {
 		CHAR_DATA      *keeper;
 		OBJ_DATA       *obj;
 		int             cost, count;
-		bool            found;
+		BUFFER		*buf;
 		char            arg[MAX_INPUT_LENGTH];
+
 		if ((keeper = find_keeper(ch)) == NULL)
 			return;
 		one_argument(argument, arg, sizeof(arg));
 
-		found = FALSE;
+		buf = NULL;
 		for (obj = keeper->carrying; obj; obj = obj->next_content) {
 			if (obj->wear_loc == WEAR_NONE
 			    && can_see_obj(ch, obj)
 			    && (cost = get_cost(keeper, obj, TRUE)) > 0
-			    && (arg[0] == '\0'
-				|| is_name(arg, obj->name))) {
-				if (!found) {
-					found = TRUE;
-					act_char("[Lv Price Qty] Item", ch);
+			    && (arg[0] == '\0' ||
+				is_name(arg, obj->name))) {
+
+				if (!buf) {
+					buf = buf_new(GET_LANG(ch));
+					buf_append(buf, "[Lv Price Qty] Item\n");
 				}
+
 				if (IS_OBJ_STAT(obj, ITEM_INVENTORY))
-					char_printf(ch, "[%2d %5d -- ] %s\n",
-						obj->level, cost,
-						format_short(&obj->short_descr,
-							     obj->name, ch));
+					buf_printf(buf, BUF_END,
+						   "[%2d %5d -- ] %s\n",
+						   obj->level, cost,
+						   format_short(&obj->short_descr, obj->name, ch));
 				else {
 					count = 1;
 
@@ -2168,16 +2188,21 @@ void do_list(CHAR_DATA * ch, const char *argument)
 						obj = obj->next_content;
 						count++;
 					}
-					char_printf(ch, "[%2d %5d %2d ] %s\n",
-						obj->level, cost, count,
-						format_short(&obj->short_descr,
-							     obj->name, ch));
+
+					buf_printf(buf, BUF_END,
+						   "[%2d %5d %2d ] %s\n",
+						   obj->level, cost, count,
+						   format_short(&obj->short_descr, obj->name, ch));
 				}
 			}
 		}
 
-		if (!found)
+		if (!buf)
 			act_char("You can't buy anything here.", ch);
+		else {
+			page_to_char(buf_string(buf), ch);
+			buf_free(buf);
+		}
 		return;
 	}
 }
@@ -2826,7 +2851,6 @@ void do_crucify(CHAR_DATA *ch, const char *argument)
 
 void do_balance(CHAR_DATA * ch, const char *argument)
 {
-	char buf[160];
 	int bank_g;
 	int bank_s;
 
@@ -2834,27 +2858,28 @@ void do_balance(CHAR_DATA * ch, const char *argument)
 		act_char("You don't have a bank account.", ch);
 		return;
 	}
+
 	if (!IS_SET(ch->in_room->room_flags, ROOM_BANK)) {
 		act_char("You are not in a bank.", ch);
 		return;
 	}
 
-	if (PC(ch)->bank_s + PC(ch)->bank_g == 0) {
-		act_char("You don't have any money in the bank.", ch);
-		return;
-	}
-
 	bank_g = PC(ch)->bank_g;
 	bank_s = PC(ch)->bank_s;
-	snprintf(buf, sizeof(buf), "You have %s%s%s coin%s in the bank.\n",
-		bank_g ? "%ld gold" : str_empty,
-		(bank_g) && (bank_s) ? " and " : str_empty,
-		bank_s ? "%ld silver" : str_empty,
-		bank_s + bank_g > 1 ? "s" : str_empty);
-	if (bank_g == 0)
-		char_printf(ch, buf, bank_s);
-	else
-		char_printf(ch, buf, bank_g, bank_s);
+
+	if (bank_s + bank_g == 0)
+		act_char("You don't have any money in the bank.", ch);
+	else if (bank_s == 0) {
+		act_puts("You have $j $qj{gold coins} in the bank.",
+			 ch, (const void *) bank_g, NULL, TO_CHAR, POS_DEAD);
+	} else if (bank_g == 0) {
+		act_puts("You have $j $qj{silver coins} in the bank.",
+			 ch, (const void *) bank_s, NULL, TO_CHAR, POS_DEAD);
+	} else {
+		act_puts3("You have $j gold and $J $qJ{silver coins} in the bank.",
+			  ch, (const void *) bank_g, NULL, (const void *) bank_s,
+			  TO_CHAR, POS_DEAD);
+	}
 }
 
 void do_withdraw(CHAR_DATA * ch, const char *argument)
@@ -2904,8 +2929,7 @@ void do_withdraw(CHAR_DATA * ch, const char *argument)
 	
 	if ((carry_w = can_carry_w(ch)) >= 0
 	&&  get_carry_weight(ch) +
-	    COINS_WEIGHT(silver ? 0 : (amount - fee),
-			 silver ? (amount - fee) : 0) > carry_w) {
+	    COINS_WEIGHT(!silver, amount - fee) > carry_w) {
 		act_char("You can't carry that weight.", ch);
 		return;
 	}
@@ -2913,15 +2937,20 @@ void do_withdraw(CHAR_DATA * ch, const char *argument)
 	if (silver) {
 		ch->silver += amount - fee;
 		PC(ch)->bank_s -= amount;
+		act_puts("Here are your $j $qj{silver coins}",
+			 ch, (const void *) amount, NULL,
+			 TO_CHAR | ACT_NOLF, POS_DEAD);
 	} else {
 		ch->gold += amount - fee;
 		PC(ch)->bank_g -= amount;
+		act_puts("Here are your $j $qj{gold coins}",
+			 ch, (const void *) amount, NULL,
+			 TO_CHAR | ACT_NOLF, POS_DEAD);
 	}
 
-	char_printf(ch,
-		    "Here are your %d %s coin(s), "
-		    "minus a %d coin(s) withdrawal fee.\n",
-		    amount, silver ? "silver" : "gold", fee);
+	act_puts(", minus a $j $qj{coins} withdrawal fee.",
+		 ch, (const void *) fee, NULL, TO_CHAR, POS_DEAD);
+
 	act("$n steps up to the teller window.", ch, NULL, NULL, TO_ROOM);
 }
 
@@ -2969,18 +2998,25 @@ void do_deposit(CHAR_DATA * ch, const char *argument)
 	if (silver) {
 		PC(ch)->bank_s += amount;
 		ch->silver -= amount;
-	}
-	else {
+		if (amount == 1) 
+			act_char("Oh $gn{boy}! One silver coin!", ch);
+		else {
+			act_puts("$j $qj{silver coins} deposited. Come again soon!",
+				 ch, (const void *) amount, NULL,
+				 TO_CHAR, POS_DEAD);
+		}
+	} else {
 		PC(ch)->bank_g += amount;
 		ch->gold -= amount;
+		if (amount == 1) 
+			act_char("Oh $gn{boy}! One gold coin!", ch);
+		else {
+			act_puts("$j $qj{gold coins} deposited. Come again soon!",
+				 ch, (const void *) amount, NULL,
+				 TO_CHAR, POS_DEAD);
+		}
 	}
 
-	if (amount == 1)
-		char_printf(ch, "Oh boy! One %s coin!\n",
-			    silver ? "silver" : "gold");
-	else
-		char_printf(ch, "%d %s coins deposited. Come again soon!\n",
-			    amount, silver ? "silver" : "gold");
 	act("$n steps up to the teller window.", ch, NULL, NULL, TO_ROOM);
 }
 
@@ -3077,8 +3113,9 @@ void do_enchant(CHAR_DATA * ch, const char *argument)
 	}
 
 	if (ch->level < obj->level) {
-		char_printf(ch, "You must be level %d to be able to enchant this object.\n",
-			    obj->level);
+		act_puts("You must be level $j to be able to enchant this object.",
+			 ch, (const void *) obj->level, NULL,
+			 TO_CHAR, POS_DEAD);
 		act("$n tries to enchant $p, but is too inexperienced.",
 		    ch, obj, NULL, TO_ROOM);
 		return;

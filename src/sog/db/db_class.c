@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_class.c,v 1.33 2000-08-04 14:12:50 cs Exp $
+ * $Id: db_class.c,v 1.34 2000-10-15 17:19:34 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -127,7 +127,7 @@ DBLOAD_FUN(load_class)
 			break;
 		case 'P':
 			KEY("PrimeStat", class.attr_prime,
-			    fread_fword(stat_names, fp));
+			    fread_fword(stat_aliases, fp));
 			break;
 		case 'R':
 			KEY("RestrictAlign", class.restrict_align,

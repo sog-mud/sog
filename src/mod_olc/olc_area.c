@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_area.c,v 1.85 2000-10-07 20:41:06 fjoe Exp $
+ * $Id: olc_area.c,v 1.86 2000-10-15 17:19:31 fjoe Exp $
  */
 
 #include "olc.h"
@@ -518,8 +518,9 @@ VALIDATE_FUN(validate_move)
 	int new_min = *(int*) arg;
 	int delta, oldmin, oldmax;
 	bool touched = FALSE;
-	AREA_DATA *pArea;
 	MPCODE *mpc;
+	BUFFER *buf;
+	AREA_DATA *pArea;
 	EDIT_AREA(ch, pArea);
 
 	if (PC(ch)->security < SECURITY_AREA_CREATE) {
@@ -657,14 +658,18 @@ VALIDATE_FUN(validate_move)
 	pArea->max_vnum += delta;
 	TOUCH_AREA(pArea);
 
-	act_char("AreaEd: Changed areas:", ch);
-	for (pArea = area_first; pArea; pArea = pArea->next)
-		if (IS_SET(pArea->area_flags, AREA_CHANGED))
-			char_printf(ch, "[%3d] %s (%s)\n",
-				    pArea->vnum, pArea->name, pArea->file_name);
+	buf = buf_new(-1);
+	buf_append(buf, "AreaEd: Changed areas:");
+	for (pArea = area_first; pArea; pArea = pArea->next) {
+		if (IS_SET(pArea->area_flags, AREA_CHANGED)) {
+			buf_printf(buf, BUF_END, "[%3d] %s (%s)\n",
+				   pArea->vnum, pArea->name, pArea->file_name);
+		}
+	}
+	page_to_char(buf_string(buf), ch);
+	buf_free(buf);
 
 	move_pfiles(oldmin, oldmax, delta);
-
 	return TRUE;
 }
 
@@ -873,15 +878,9 @@ static void save_mobile(FILE *fp, MOB_INDEX_DATA *pMobIndex)
 	fprintf(fp, "%d %d\n",	pMobIndex->alignment , pMobIndex->group);
 	fprintf(fp, "%d ",	pMobIndex->level);
 	fprintf(fp, "%d ",	pMobIndex->hitroll);
-	fprintf(fp, "%dd%d+%d ",pMobIndex->hit[DICE_NUMBER], 
-				pMobIndex->hit[DICE_TYPE], 
-				pMobIndex->hit[DICE_BONUS]);
-	fprintf(fp, "%dd%d+%d ",pMobIndex->mana[DICE_NUMBER], 
-				pMobIndex->mana[DICE_TYPE], 
-				pMobIndex->mana[DICE_BONUS]);
-	fprintf(fp, "%dd%d+%d ",pMobIndex->damage[DICE_NUMBER], 
-				pMobIndex->damage[DICE_TYPE], 
-				pMobIndex->damage[DICE_BONUS]);
+	fprintf(fp, "%s ",	format_dice(pMobIndex->hit));
+	fprintf(fp, "%s ",	format_dice(pMobIndex->mana));
+	fprintf(fp, "%s ",	format_dice(pMobIndex->damage));
 	fprintf(fp, "'%s'\n",	pMobIndex->damtype);
 	fprintf(fp, "%d %d %d %d\n",
 				pMobIndex->ac[AC_PIERCE] / 10, 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_class.c,v 1.25 2000-10-07 20:41:06 fjoe Exp $
+ * $Id: olc_class.c,v 1.26 2000-10-15 17:19:31 fjoe Exp $
  */
 
 #include "olc.h"
@@ -74,7 +74,7 @@ olc_cmd_t olc_cmds_class[] =
 
 	{ "name",	olced_strkey,		NULL,	&strkey_classes	},
 	{ "whoname",	classed_whoname,	validate_whoname	},
-	{ "primary",	classed_primary,	NULL,	stat_names	},
+	{ "primary",	classed_primary,	NULL,	stat_aliases	},
 	{ "weapon",	classed_weapon					},
 	{ "thac00",	classed_thac00					},
 	{ "thac32",	classed_thac32					},
@@ -204,7 +204,7 @@ OLC_FUN(classed_show)
 	buf_printf(output, BUF_END, "Name:           [%3s] [%s]\n",
 		   class->who_name, class->name);
 	buf_printf(output, BUF_END, "Primary attr:   [%s]\n",
-		   flag_string(stat_names, class->attr_prime));
+		   flag_string(stat_aliases, class->attr_prime));
 	if (!IS_NULLSTR(class->skill_spec))
 		buf_printf(output, BUF_END, "SkillSpec:      [%s]\n", class->skill_spec);
 	if (class->weapon)
@@ -229,7 +229,7 @@ OLC_FUN(classed_show)
 		buf_append(output, "Stats mod:      [");
 		for (i = 0; i < MAX_STAT; i++)
 			buf_printf(output, BUF_END, "%s: %2d ",
-				   flag_string(stat_names, i),
+				   flag_string(stat_aliases, i),
 				   class->mod_stat[i]);
 		buf_append(output, "]\n");
 	}
@@ -659,7 +659,7 @@ save_class_cb(void *p, va_list ap)
 	fprintf(fp, "#CLASS\n");
 	fprintf(fp, "Name %s~\n", cl->name);
 	fprintf(fp, "ShortName %s~\n", cl->who_name);
-	fprintf(fp, "PrimeStat %s\n", flag_string(stat_names, cl->attr_prime));
+	fprintf(fp, "PrimeStat %s\n", flag_string(stat_aliases, cl->attr_prime));
 	if (!IS_NULLSTR(cl->skill_spec))
 		fprintf(fp, "SkillSpec '%s'\n", cl->skill_spec);
 	fprintf(fp, "SchoolWeapon %d\n", cl->weapon);

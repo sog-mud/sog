@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: log.c,v 1.26 2000-06-07 08:55:59 fjoe Exp $
+ * $Id: log.c,v 1.27 2000-10-15 17:19:33 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -31,11 +31,7 @@
 #include <stdarg.h>
 #include <time.h>
 
-#include "typedef.h"
-#include "str.h"
-#include "log.h"
-#include "util.h"
-#include "comm.h"
+#include "merc.h"
 
 #ifdef SUNOS
 #	include "compat/compat.h"
@@ -84,8 +80,10 @@ log(int llevel, const char *format, ...)
 		ld = logtab;
 	ld->logger(buf);
 
-	if (log_char) 
-		char_printf(log_char, "%s: %s\n", ld->alias, buf);
+	if (log_char) {
+		act_puts("$t: $T", log_char, ld->alias, buf,
+			 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
+	}
 }
 
 void
