@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.139.2.56 2002-08-05 17:52:17 tatyana Exp $
+ * $Id: spellfun2.c,v 1.139.2.57 2002-08-23 10:15:02 tatyana Exp $
  */
 
 /***************************************************************************
@@ -193,11 +193,11 @@ void spell_disintegrate(int sn, int level, CHAR_DATA *ch, void *vo)
 		return;
 	}
 
-	act_puts("$n's thin light ray ###DISINTEGRATES### you!",
+	act_puts("$n's thin light ray {G###DISINTEGRATES###{x you!",
 	      ch, NULL, victim, TO_VICT, POS_RESTING);
-	act_puts("$n's thin light ray ###DISINTEGRATES### $N!",
+	act_puts("$n's thin light ray {G###DISINTEGRATES###{x $N!",
 	      ch, NULL, victim, TO_NOTVICT, POS_RESTING);
-	act_puts("Your thin light ray ###DISINTEGRATES### $N!",
+	act_puts("Your thin light ray {G###DISINTEGRATES###{x $N!",
 	      ch, NULL, victim, TO_CHAR, POS_RESTING);
 	char_puts("You have been KILLED!\n", victim);
 
