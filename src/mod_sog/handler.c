@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.45 1998-08-08 06:40:01 fjoe Exp $
+ * $Id: handler.c,v 1.46 1998-08-10 10:37:54 fjoe Exp $
  */
 
 /***************************************************************************
@@ -828,7 +828,7 @@ int get_curr_stat(CHAR_DATA *ch, int stat)
 {
 	int max;
 
-	if (IS_NPC(ch) || ch->level > LEVEL_IMMORTAL)
+	if (IS_NPC(ch) || ch->level >= LEVEL_IMMORTAL)
 		max = 25;
 
 	else
@@ -846,7 +846,7 @@ int get_max_train(CHAR_DATA *ch, int stat)
 {
 	int max;
 
-	if (IS_NPC(ch) || ch->level > LEVEL_IMMORTAL)
+	if (IS_NPC(ch) || ch->level >= LEVEL_IMMORTAL)
 		return 25;
 
 	max = (20 + pc_race_table[ORG_RACE(ch)].stats[stat] + /* ORG_RACE && RACE serdar*/
@@ -863,7 +863,7 @@ int get_max_train2(CHAR_DATA *ch, int stat)
 {
 	int max;
 
-	if (IS_NPC(ch) || ch->level > LEVEL_IMMORTAL)
+	if (IS_NPC(ch) || ch->level >= LEVEL_IMMORTAL)
 		return 25;
 
 	max = (20 + pc_race_table[ORG_RACE(ch)].stats[stat] + 
@@ -878,7 +878,7 @@ int get_max_train2(CHAR_DATA *ch, int stat)
  */
 int can_carry_n(CHAR_DATA *ch)
 {
-	if (!IS_NPC(ch) && ch->level >= LEVEL_IMMORTAL)
+	if (IS_IMMORTAL(ch))
 		return 1000;
 
 	if (IS_NPC(ch) && IS_SET(ch->act, ACT_PET))
@@ -894,7 +894,7 @@ int can_carry_n(CHAR_DATA *ch)
  */
 int can_carry_w(CHAR_DATA *ch)
 {
-	if (!IS_NPC(ch) && ch->level >= LEVEL_IMMORTAL)
+	if (IS_IMMORTAL(ch))
 		return 10000000;
 
 	if (IS_NPC(ch) && IS_SET(ch->act, ACT_PET))
@@ -2968,7 +2968,7 @@ bool can_drop_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 	if (!IS_SET(obj->extra_flags, ITEM_NODROP))
 		return TRUE;
 
-	if (!IS_NPC(ch) && ch->level >= LEVEL_IMMORTAL)
+	if (IS_IMMORTAL(ch))
 		return TRUE;
 
 	return FALSE;
@@ -3046,10 +3046,8 @@ char *act_bit_name(int vector)
 {
 	char buf[MAX_STRING_LENGTH];
 
-	if (IS_SET(vector, ACT_NPC)) { 
- 		strcpy(buf," npc");
+	if (IS_SET(vector, ACT_NPC)) 
 		return flag_names_raw(act_flags, vector, buf);
-	}
 	else {
 		strcpy(buf," player");
 		return flag_names_raw(plr_flags, vector, buf);
@@ -3501,7 +3499,7 @@ char *PERS(CHAR_DATA *ch, CHAR_DATA *looker)
 		return ch->name;
 	}
 
-	if (!IS_NPC(ch) && ch->level >= LEVEL_IMMORTAL)
+	if (IS_IMMORTAL(ch))
 		return "an immortal";
 
 	return "someone";

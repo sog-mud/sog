@@ -1,10 +1,11 @@
 /*
- * $Id: mlstring.c,v 1.6 1998-07-25 15:02:40 fjoe Exp $
+ * $Id: mlstring.c,v 1.7 1998-08-10 10:37:55 fjoe Exp $
  */
 
-#include <stdio.h>
-#include <string.h>
 #include <stdarg.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 #include "merc.h"
 #include "db.h"
 #include "resource.h"
@@ -57,7 +58,7 @@ void mlstr_fread(FILE *fp, mlstring *ml)
 		if (ml->nlang)
 			mlstr_clear(ml);
 		else
-			free_string(ml->u.str);
+			free(ml->u.str);
 		smash_a(p);
 		ml->u.str = p;
 		return;
@@ -72,7 +73,7 @@ void mlstr_fread(FILE *fp, mlstring *ml)
 		if (resize)
 			ml->u.lstr[lang] = NULL;
 		else 
-			free_string(ml->u.lstr[lang]);
+			free(ml->u.lstr[lang]);
 	if (resize)
 		ml->nlang = nlang;
 
@@ -110,7 +111,7 @@ void mlstr_fread(FILE *fp, mlstring *ml)
 			s += 2;
 		}
 		smash_a(q);
-		ml->u.lstr[lang] = str_dup(q);
+		ml->u.lstr[lang] = strdup(q);
 	}
 
 	/* some diagnostics */
@@ -142,12 +143,12 @@ void mlstr_fwrite(FILE *fp, const char* name, const mlstring *ml)
 void mlstr_clear(mlstring *ml)
 {
 	if (ml->nlang == 0)
-		free_string(ml->u.str);
+		free(ml->u.str);
 	else {
 		int lang;
 
 		for (lang = 0; lang < ml->nlang; lang++)
-			free_string(ml->u.lstr[lang]);
+			free(ml->u.lstr[lang]);
 		free_mem(ml->u.lstr, sizeof(char*) * ml->nlang);
 		ml->nlang = 0;
 	}
@@ -163,8 +164,8 @@ void mlstr_cpy(mlstring *dest, const mlstring *src)
 		if (resize)
 			mlstr_clear(dest);
 		else
-			free_string(dest->u.str);
-		dest->u.str = str_dup(src->u.str);
+			free(dest->u.str);
+		dest->u.str = strdup(src->u.str);
 		return;
 	}
 
@@ -175,8 +176,8 @@ void mlstr_cpy(mlstring *dest, const mlstring *src)
 
 	for (lang = 0; lang < src->nlang; lang++) {
 		if (!resize)
-			free_string(dest->u.lstr[lang]);
-		dest->u.lstr[lang] = str_dup(src->u.lstr[lang]);
+			free(dest->u.lstr[lang]);
+		dest->u.lstr[lang] = strdup(src->u.lstr[lang]);
 	}
 
 	if (resize)
@@ -191,16 +192,16 @@ void mlstr_printf(mlstring *ml,...)
 	va_start(ap, ml);
 	if (ml->nlang == 0) {
 		vsnprintf(buf, sizeof(buf), ml->u.str, ap);
-		free_string(ml->u.str);
-		ml->u.str = str_dup(buf);
+		free(ml->u.str);
+		ml->u.str = strdup(buf);
 	}
 	else {
 		int lang;
 
 		for (lang = 0; lang < ml->nlang; lang++) {
 			vsnprintf(buf, sizeof(buf), ml->u.lstr[lang], ap);
-			free_string(ml->u.lstr[lang]);
-			ml->u.lstr[lang] = str_dup(buf);
+			free(ml->u.lstr[lang]);
+			ml->u.lstr[lang] = strdup(buf);
 		}
 	}
 	va_end(ap);
@@ -251,7 +252,7 @@ char** mlstr_convert(mlstring *ml, int newlang)
 		if (ml->nlang) {
 			old = ml->u.lstr[0];
 			for (lang = 1; lang < ml->nlang; lang++)
-				free_string(ml->u.lstr[lang]);
+				free(ml->u.lstr[lang]);
 			free_mem(ml->u.lstr, sizeof(char*) * ml->nlang);
 			ml->nlang = 0;
 			ml->u.str = old;
@@ -308,8 +309,8 @@ bool mlstr_change(mlstring *ml, const char *argument)
 		return FALSE;
 
 	p = mlstr_convert(ml, lang);
-	free_string(*p);
-	*p = str_dup(argument);
+	free(*p);
+	*p = strdup(argument);
 	return TRUE;
 }
 
@@ -329,7 +330,7 @@ bool mlstr_change_desc(mlstring *ml, const char *argument)
 		return FALSE;
 
 	p = mlstr_convert(ml, lang);
-	free_string(*p);
+	free(*p);
 	*p = str_add(argument, "\n\r", NULL);
 	**p = UPPER(**p);
 	return TRUE;

@@ -1,5 +1,5 @@
 /*
- * $Id: util.c,v 1.3 1998-07-14 18:26:24 fjoe Exp $
+ * $Id: util.c,v 1.4 1998-08-10 10:37:57 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -44,4 +44,12 @@ char *strnzcat(char *dest, const char *src, size_t len)
 
 	strncat(dest, src, len - old_len - 1);
 	return dest;
+}
+
+char *strlwr(char *s)
+{
+	char *p;
+	for (p = s; *p; p++)
+		*p = LOWER(*p);
+	return s;
 }

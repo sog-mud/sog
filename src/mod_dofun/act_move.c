@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.78 1998-08-07 04:24:46 fjoe Exp $
+ * $Id: act_move.c,v 1.79 1998-08-10 10:37:51 fjoe Exp $
  */
 
 /***************************************************************************
@@ -250,7 +250,7 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 			return;
 		}
 
-		if (ch->level < LEVEL_IMMORTAL && IS_PUMPED(ch)
+		if (!IS_IMMORTAL(ch) && IS_PUMPED(ch)
 		&&  IS_SET(to_room->room_flags, ROOM_SAFE)) {
 			char_nputs(YOU_FEEL_TOO_BLOODY, ch);
 			return;

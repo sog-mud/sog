@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.60 1998-08-03 00:22:30 efdi Exp $
+ * $Id: fight.c,v 1.61 1998-08-10 10:37:54 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1447,8 +1447,7 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim,
 	 * Inform the victim of his new state.
 	 */
 	victim->hit -= dam;
-	if (!IS_NPC(victim)
-	&&  victim->level >= LEVEL_IMMORTAL &&  victim->hit < 1)
+	if (IS_IMMORTAL(victim) && victim->hit < 1)
 		victim->hit = 1;
 
 	update_pos(victim);
@@ -1562,7 +1561,7 @@ bool is_safe_nomessage(CHAR_DATA *ch, CHAR_DATA *victim)
 {
 	if (victim->fighting == ch
 	||  ch == victim
-	||  ch->level >= LEVEL_IMMORTAL)
+	||  IS_IMMORTAL(ch))
 		return FALSE;
 
 	/* Ghosts are safe */

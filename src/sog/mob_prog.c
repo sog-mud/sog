@@ -1,5 +1,5 @@
 /*
- * $Id: mob_prog.c,v 1.23 1998-08-07 07:48:53 fjoe Exp $
+ * $Id: mob_prog.c,v 1.24 1998-08-10 10:37:55 fjoe Exp $
  */
 
 /***************************************************************************
@@ -55,6 +55,7 @@
 #include "interp.h"
 #include "tables.h"
 #include "mlstring.h"
+#include "util.h"
 
 extern int flag_lookup(const char *word, const struct flag_type *flag_table);
 
@@ -1122,11 +1123,9 @@ void mp_act_trigger(const char *argument, CHAR_DATA *mob, CHAR_DATA *ch,
 {
 	MPROG_LIST *prg;
 	char *lowered;
-	char *p;
 
-	lowered = str_dup(argument);
-	for (p = lowered; *p; p++)
-		*p = LOWER(*p);
+	lowered = strdup(argument);
+	strlwr(lowered);
 
 	for (prg = mob->pIndexData->mprogs; prg != NULL; prg = prg->next) {
  		if (prg->trig_type == type 
@@ -1136,7 +1135,7 @@ void mp_act_trigger(const char *argument, CHAR_DATA *mob, CHAR_DATA *ch,
 			break;
 		}
 	}
-	free_string(lowered);
+	free(lowered);
 }
 
 /*

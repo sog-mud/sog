@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.68 1998-07-30 08:26:38 fjoe Exp $
+ * $Id: act_comm.c,v 1.69 1998-08-10 10:37:50 fjoe Exp $
  */
 
 /***************************************************************************
@@ -82,7 +82,7 @@ void do_afk(CHAR_DATA *ch, const char *argument)
 		do_replay(ch, "");
 	} else {
 		if (!IS_SET(ch->in_room->room_flags, ROOM_SAFE)
-		&&  ch->level < LEVEL_IMMORTAL) {
+		&&  !IS_IMMORTAL(ch)) {
 			char_puts("You may be in AFK only in safe room.\n\r",
 				  ch);
 			return;
@@ -90,8 +90,8 @@ void do_afk(CHAR_DATA *ch, const char *argument)
 		SET_BIT(ch->comm, COMM_AFK);
 		char_puts("You are now in AFK mode.\n\r", ch);
 	}
-	
 }
+
 void do_music(CHAR_DATA *ch, const char *argument)
 {
 	DESCRIPTOR_DATA *d;

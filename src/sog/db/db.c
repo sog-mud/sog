@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.51 1998-08-06 21:44:48 fjoe Exp $
+ * $Id: db.c,v 1.52 1998-08-10 10:37:54 fjoe Exp $
  */
 
 /***************************************************************************
@@ -108,6 +108,7 @@ HELP_DATA *		help_first;
 HELP_DATA *		help_last;
 
 HELP_AREA *		had_list;
+HELP_AREA *		had_last;
 
 SHOP_DATA *		shop_first;
 SHOP_DATA *		shop_last;
@@ -418,12 +419,13 @@ const int		rgSizeList	[MAX_MEM_LIST]	=
 	16, 32, 64, 128, 256, 1024, 2048, 4096, 8192, 16384, 32768-64
 };
 
-int			nAllocString;
-int			sAllocString;
-int			nAllocPerm;
-int			sAllocPerm;
+int	nAllocString;
+int	sAllocString;
+int	nAllocPerm;
+int	sAllocPerm;
 
-
+int	nAllocBuf;
+int	sAllocBuf;
 
 /*
  * Semi-locals.
@@ -834,26 +836,21 @@ void load_helps(FILE *fp, char *fname)
 		if (keyword[0] == '$')
 			break;
 	
-		if (!had_list) {
+		if (had_list == NULL || strcmp(fname, had_last->filename)) {
 			had			= new_had();
 			had->filename		= str_dup(fname);
 			had->area		= current_area;
+			had->next = NULL;
 			if (current_area)
 				current_area->helps	= had;
-			had_list		= had;
+			if (had_list == NULL)
+				had_list = had;
+			if (had_last != NULL)
+				had_last->next = had;
+			had_last = had;
 		}
 		else
-		if (str_cmp(fname, had_list->filename)) {
-			had			= new_had();
-			had->filename		= str_dup(fname);
-			had->area		= current_area;
-			if (current_area)
-				current_area->helps	= had;
-			had->next		= had_list;
-			had_list		= had;
-		}
-		else
-			had			= had_list;
+			had			= had_last;
 	
 		pHelp		= new_help();
 		pHelp->level	= level;
@@ -1413,40 +1410,42 @@ void load_rooms(FILE *fp)
 				pexit->keyword		= fread_string(fp);
 				pexit->exit_info	= 0;
 				pexit->rs_flags		= 0;	/* OLC */
-				locks			= fread_number(fp);
+				locks			= fread_flags(fp);
 				pexit->key		= fread_number(fp);
 				pexit->u1.vnum		= fread_number(fp);
 				pexit->orig_door	= door;	/* OLC */
-	
-				switch (locks) {
-				case 1:
-					pexit->exit_info = EX_ISDOOR;
-					pexit->rs_flags  = EX_ISDOOR;
-					break;
-				case 2:
-					pexit->exit_info = EX_ISDOOR |
-							   EX_PICKPROOF;
-					pexit->rs_flags  = EX_ISDOOR |
-							   EX_PICKPROOF;
-					break;
-				case 3:
-					pexit->exit_info = EX_ISDOOR |
-							   EX_NOPASS;
-					pexit->rs_flags  = EX_ISDOOR |
-							   EX_NOPASS;
-					break;
-				case 4:
-					pexit->exit_info = EX_ISDOOR |
-							   EX_NOPASS |
-							   EX_PICKPROOF;
-					pexit->rs_flags  = EX_ISDOOR |
-							   EX_NOPASS |
-							   EX_PICKPROOF;
-					break;
-				case 5:
-					pexit->exit_info = EX_NOFLEE;
-					pexit->rs_flags  = EX_NOFLEE;
-					break;
+
+				if (!IS_SET(locks, EX_BITVAL)) {
+					switch (locks) {
+					case 1:
+						pexit->exit_info = EX_ISDOOR;
+						pexit->rs_flags  = EX_ISDOOR;
+						break;
+					case 2:
+						pexit->exit_info = EX_ISDOOR |
+								   EX_PICKPROOF;
+						pexit->rs_flags  = EX_ISDOOR |
+								   EX_PICKPROOF;
+						break;
+					case 3:
+						pexit->exit_info = EX_ISDOOR |
+								   EX_NOPASS;
+						pexit->rs_flags  = EX_ISDOOR |
+								   EX_NOPASS;
+						break;
+					case 4:
+						pexit->exit_info = EX_ISDOOR |
+								   EX_NOPASS |
+								   EX_PICKPROOF;
+						pexit->rs_flags  = EX_ISDOOR |
+								   EX_NOPASS |
+								   EX_PICKPROOF;
+						break;
+					}
+				}
+				else {
+					pexit->exit_info = locks;
+					pexit->rs_flags = locks;
 				}
 	
 				pRoomIndex->exit[door] = pexit;
@@ -2623,7 +2622,7 @@ CHAR_DATA *create_mobile(MOB_INDEX_DATA *pMobIndex)
 		/* read from prototype */
  		mob->group		= pMobIndex->group;
 		mob->act 		= pMobIndex->act | ACT_NPC;
-		mob->comm		= COMM_NOCHANNELS|COMM_NOSHOUT|COMM_NOTELL;
+		mob->comm		= COMM_NOCHANNELS | COMM_NOSHOUT;
 		mob->affected_by	= pMobIndex->affected_by;
 		mob->detection		= pMobIndex->detection;
 		mob->alignment		= pMobIndex->alignment;
@@ -3961,8 +3960,8 @@ void do_memory(CHAR_DATA *ch, const char *argument)
 		nAllocString, sAllocString, MAX_STRING);
 	char_printf(ch, "Perms   %5d blocks  of %7d bytes.\n\r",
 		nAllocPerm, sAllocPerm);
-
-	return;
+	char_printf(ch, "Buffers %d blocks of %d bytes.\n\r",
+		nAllocBuf, sAllocBuf);
 }
 
 void do_dump(CHAR_DATA *ch, const char *argument)

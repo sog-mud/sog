@@ -1,5 +1,5 @@
 /*
- * $Id: olc.c,v 1.7 1998-07-20 02:50:01 efdi Exp $
+ * $Id: olc.c,v 1.8 1998-08-10 10:37:55 fjoe Exp $
  */
 
 /***************************************************************************
@@ -31,6 +31,7 @@
 #include "tables.h"
 #include "buffer.h"
 #include "mlstring.h"
+#include "util.h"
 
 /*
  * Local functions.
@@ -1429,26 +1430,43 @@ void do_resets(CHAR_DATA *ch, const char *argument)
  ****************************************************************************/
 void do_alist(CHAR_DATA *ch, const char *argument)
 {
-    char buf    [ MAX_STRING_LENGTH ];
-    char result [ MAX_STRING_LENGTH*2 ];	/* May need tweaking. */
-    AREA_DATA *pArea;
+	char arg[MAX_STRING_LENGTH];
+	AREA_DATA *pArea;
+	BUFFER *output = NULL;
 
-    sprintf(result, "[%3s] [%-27s] (%-5s-%5s) [%-10s] %3s [%-10s]\n\r",
-       "Num", "Area Name", "lvnum", "uvnum", "Filename", "Sec", "Builders");
+	one_argument(argument, arg);
 
-    for (pArea = area_first; pArea; pArea = pArea->next)
-    {
-	sprintf(buf, "[%3d] %-29.29s (%-5d-%5d) %-12.12s [%d] [%-10.10s]\n\r",
-	     pArea->vnum,
-	     pArea->name,
-	     pArea->min_vnum,
-	     pArea->max_vnum,
-	     pArea->file_name,
-	     pArea->security,
-	     pArea->builders);
-	     strcat(result, buf);
-    }
+	for (pArea = area_first; pArea; pArea = pArea->next) {
+		if (arg[0] != '\0') {
+			char *lowered;
+			bool match;
 
-    send_to_char(result, ch);
-    return;
+			lowered = strdup(pArea->name);
+			strlwr(lowered);
+			match = strstr(lowered, arg) != NULL;
+			free(lowered);
+
+			if (!match)
+				continue;
+		}
+
+		if (output == NULL) {
+			output = buf_new(0);
+    			buf_printf(output, "[%3s] [%-27s] (%-5s-%5s) [%-10s] %3s [%-10s]\n\r",
+				   "Num", "Area Name", "lvnum", "uvnum",
+				   "Filename", "Sec", "Builders");
+		}
+
+		buf_printf(output, "[%3d] %-29.29s (%-5d-%5d) %-12.12s [%d] [%-10.10s]\n\r",
+			   pArea->vnum, pArea->name,
+			   pArea->min_vnum, pArea->max_vnum,
+			   pArea->file_name, pArea->security, pArea->builders);
+    	}
+
+	if (output != NULL) {
+		char_puts(buf_string(output), ch);
+		buf_free(output);
+	}
+	else
+		char_puts("No areas with that name found.\n\r", ch);
 }

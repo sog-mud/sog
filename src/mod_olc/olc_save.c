@@ -1,5 +1,5 @@
 /*
- * $Id: olc_save.c,v 1.14 1998-08-07 13:08:37 fjoe Exp $
+ * $Id: olc_save.c,v 1.15 1998-08-10 10:37:56 fjoe Exp $
  */
 
 /**************************************************************************
@@ -502,12 +502,7 @@ static int find_exit(EXIT_DATA **exit, int door)
 void save_rooms(FILE *fp, AREA_DATA *pArea)
 {
     ROOM_INDEX_DATA *pRoomIndex;
-    ED_DATA *pEd;
-    EXIT_DATA *pExit;
-    EXIT_DATA **exit;
     int iHash;
-    int door;
-    int i = 0;
 
     fprintf(fp, "#ROOMS\n");
     for(iHash = 0; iHash < MAX_KEY_HASH; iHash++)
@@ -516,6 +511,11 @@ void save_rooms(FILE *fp, AREA_DATA *pArea)
         {
             if (pRoomIndex->area == pArea)
             {
+		int door;
+		ED_DATA *pEd;
+		EXIT_DATA *pExit;
+		EXIT_DATA **exit;
+		int i = 0;
     		char buf[MAX_STRING_LENGTH];
 
                 fprintf(fp, "#%d\n",	pRoomIndex->vnum);
@@ -545,9 +545,7 @@ void save_rooms(FILE *fp, AREA_DATA *pArea)
                 for(door = 0; door < MAX_DIR; door++)	/* I hate this! */
                 {
                     if ((pExit = pRoomIndex->exit[door])
-                          && pExit->u1.to_room)
-                    {
-			int locks = 0;
+                          && pExit->u1.to_room) {
  
  			/* HACK : TO PREVENT EX_LOCKED etc without EX_ISDOOR
  			   to stop booting the mud */
@@ -564,31 +562,13 @@ void save_rooms(FILE *fp, AREA_DATA *pArea)
  			else
  				REMOVE_BIT(pExit->rs_flags, EX_ISDOOR);
  
- 			/* THIS SUCKS but it's backwards compatible */
- 			/* NOTE THAT EX_NOCLOSE NOLOCK etc aren't being saved */
-			if (IS_SET(pExit->rs_flags, EX_ISDOOR) 
-			&& (!IS_SET(pExit->rs_flags, EX_PICKPROOF)) 
-		    	&& (!IS_SET(pExit->rs_flags, EX_NOPASS)))
-			    locks = 1;
-			if (IS_SET(pExit->rs_flags, EX_ISDOOR)
-			&& (IS_SET(pExit->rs_flags, EX_PICKPROOF))
-		        && (!IS_SET(pExit->rs_flags, EX_NOPASS)))
-			    locks = 2;
-			if (IS_SET(pExit->rs_flags, EX_ISDOOR)
-			&& (!IS_SET(pExit->rs_flags, EX_PICKPROOF))
-		        && (IS_SET(pExit->rs_flags, EX_NOPASS)))
-			    locks = 3;
-			if (IS_SET(pExit->rs_flags, EX_ISDOOR)
-			&& (IS_SET(pExit->rs_flags, EX_PICKPROOF))
-		        && (IS_SET(pExit->rs_flags, EX_NOPASS)))
-			    locks = 4;
-
                         fprintf(fp, "D%d\n",      pExit->orig_door);
 			mlstr_fwrite(fp, NULL,	  pExit->description);
                         fprintf(fp, "%s~\n",      pExit->keyword);
-                        fprintf(fp, "%d %d %d\n", locks,
-                                                  pExit->key,
-                                                  pExit->u1.to_room->vnum);
+                        fprintf(fp, "%s %d %d\n",
+				fwrite_flag(pExit->rs_flags | EX_BITVAL, buf),
+				pExit->key,
+				pExit->u1.to_room->vnum);
                     }
                 }
 		if (pRoomIndex->mana_rate != 100 || pRoomIndex->heal_rate != 100)

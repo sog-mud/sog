@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.80 1998-08-04 13:40:40 efdi Exp $
+ * $Id: comm.c,v 1.81 1998-08-10 10:37:52 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1584,25 +1584,21 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 	fOld = load_char_obj(d, argument);
 	ch   = d->character;
 
-	   if (get_trust(ch) < LEVEL_IMMORTAL) 
-	{
-	      if (check_ban(d->host,BAN_PLAYER))
-	        {
-	     write_to_buffer(d,"Your site has been banned for players.\n\r",0);
-	     close_socket(d);
-	     return;
+	if (!IS_IMMORTAL(ch)) {
+		if (check_ban(d->host,BAN_PLAYER)) {
+			write_to_buffer(d,"Your site has been banned for players.\n\r",0);
+			close_socket(d);
+			return;
 	        }
 
 #undef NO_PLAYING_TWICE
 #ifdef NO_PLAYING_TWICE
-	     if(search_sockets(d))
-	        {
-	    	  write_to_buffer(d, "Playing twice is restricted...\n\r", 0);
-	          close_socket(d);
-	          return;
+		if(search_sockets(d)) {
+			write_to_buffer(d, "Playing twice is restricted...\n\r", 0);
+			close_socket(d);
+			return;
 		} 
 #endif
-
 	}      
 
 		if (!IS_IMMORTAL(ch)) {

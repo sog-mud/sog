@@ -2,7 +2,7 @@
 #define _MERC_H_
 
 /*
- * $Id: merc.h,v 1.65 1998-08-07 09:21:29 fjoe Exp $
+ * $Id: merc.h,v 1.66 1998-08-10 10:37:55 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1512,18 +1512,18 @@ enum {
  * Exit flags.
  * Used in #ROOMS.
  */
-#define EX_ISDOOR		      (A)
-#define EX_CLOSED		      (B)
-#define EX_LOCKED		      (C)
-#define EX_NOFLEE		      (D)
-#define EX_PICKPROOF		      (F)
-#define EX_NOPASS		      (G)
-#define EX_EASY 		      (H)
-#define EX_HARD 		      (I)
-#define EX_INFURIATING		      (J)
-#define EX_NOCLOSE		      (K)
-#define EX_NOLOCK		      (L)
-
+#define EX_ISDOOR	(A)
+#define EX_CLOSED	(B)
+#define EX_LOCKED	(C)
+#define EX_NOFLEE	(D)
+#define EX_PICKPROOF	(F)
+#define EX_NOPASS	(G)
+#define EX_EASY 	(H)
+#define EX_HARD 	(I)
+#define EX_INFURIATING	(J)
+#define EX_NOCLOSE	(K)
+#define EX_NOLOCK	(L)
+#define EX_BITVAL	(Z)
 
 
 /*
@@ -2560,8 +2560,8 @@ extern int gsn_thumbling;
  * Character macros.
  */
 #define IS_NPC(ch)		(IS_SET((ch)->act, ACT_NPC))
-#define IS_IMMORTAL(ch) 	(get_trust(ch) >= LEVEL_IMMORTAL)
-#define IS_HERO(ch)		(get_trust(ch) >= LEVEL_HERO)
+#define IS_IMMORTAL(ch) 	(!IS_NPC(ch) && (ch)->level >= LEVEL_IMMORTAL)
+#define IS_HERO(ch)		(!IS_NPC(ch) && (ch)->level >= LEVEL_HERO)
 #define IS_TRUSTED(ch,level)	(get_trust((ch)) >= (level))
 #define IS_AFFECTED(ch, sn)	(IS_SET((ch)->affected_by, (sn)))
 #define CAN_DETECT(ch, sn)	(IS_SET((ch)->detection, (sn)))

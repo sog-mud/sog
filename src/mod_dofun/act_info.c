@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.114 1998-08-07 11:35:37 fjoe Exp $
+ * $Id: act_info.c,v 1.115 1998-08-10 10:37:50 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1697,7 +1697,7 @@ void do_help(CHAR_DATA *ch, const char *argument)
 static void do_who_raw(CHAR_DATA* ch, CHAR_DATA *wch, BUFFER* output)
 {
 	buf_add(output, "[");
-	if (ch->level >= LEVEL_IMMORTAL || ch == wch
+	if (IS_IMMORTAL(ch) || ch == wch
 	||  wch->level >= LEVEL_HERO || get_curr_stat(wch, STAT_CHA) < 18)
 		buf_printf(output, "{C%3d{x ", wch->level);
 	else
@@ -1725,7 +1725,7 @@ static void do_who_raw(CHAR_DATA* ch, CHAR_DATA *wch, BUFFER* output)
 			buf_add(output, "     ");
 
 		buf_add(output, " {Y");
-		if (ch->level >= LEVEL_IMMORTAL || ch == wch)
+		if (IS_IMMORTAL(ch) || ch == wch)
 			buf_add(output, class_table[wch->class].who_name);
 		else
 			buf_add(output, "   ");
@@ -1734,7 +1734,7 @@ static void do_who_raw(CHAR_DATA* ch, CHAR_DATA *wch, BUFFER* output)
 	buf_add(output, "{x] ");
 
 	if (wch->clan != CLAN_NONE
-	&&  (wch->clan == ch->clan || ch->level >= LEVEL_IMMORTAL))
+	&&  (wch->clan == ch->clan || IS_IMMORTAL(ch)))
 		buf_printf(output, "[{c%s{x] ",
 			   clan_table[wch->clan].short_name);
 
@@ -1744,7 +1744,7 @@ static void do_who_raw(CHAR_DATA* ch, CHAR_DATA *wch, BUFFER* output)
 	if (wch->invis_level >= LEVEL_HERO)
 		buf_add(output, "[{WWizi{x] ");
 
-	if (in_PK(ch, wch) && ch->level < LEVEL_IMMORTAL)
+	if (in_PK(ch, wch) && !IS_IMMORTAL(ch))
 		buf_add(output, "{r[{RPK{r]{x ");
 
 	if (IS_SET(wch->act, PLR_WANTED))
@@ -1846,24 +1846,22 @@ void do_who(CHAR_DATA *ch, const char *argument)
 		if (arg[0] == 'i')
 			fImmortalOnly = TRUE;
 		else {
-			iClass = class_lookup(arg);
-			if (iClass == -1) {
-				iRace = race_lookup(arg);
+			iRace = race_lookup(arg);
 
-				if (iRace == 0 || iRace >= MAX_PC_RACE) {
+			if (iRace == 0 || iRace >= MAX_PC_RACE) {
+				iClass = class_lookup(arg);
+				if (iClass == -1 || !IS_IMMORTAL(ch)) {
 					send_to_char("That's not a "
 						     "valid race.\n\r",
 						     ch);
 					return;
 				}
-				else {
-					fRaceRestrict = TRUE;
-					rgfRace[iRace] = TRUE;
-				}
-			}
-			else {
 				fClassRestrict = TRUE;
 				rgfClass[iClass] = TRUE;
+			}
+			else {
+				fRaceRestrict = TRUE;
+				rgfRace[iRace] = TRUE;
 			}
 		}
 	}
@@ -2163,7 +2161,7 @@ void do_where(CHAR_DATA *ch, const char *argument)
 				found = TRUE;
 				char_printf(ch, "%s%-28s %s\n\r",
 					(in_PK(ch, victim) &&
-					ch->level < LEVEL_IMMORTAL) ?
+					!IS_IMMORTAL(ch)) ?
 					"{r[{RPK{r]{x " : "     ",
 					PERS(victim, ch),
 					mlstr_cval(victim->in_room->name, ch));

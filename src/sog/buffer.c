@@ -1,5 +1,5 @@
 /*
- * $Id: buffer.c,v 1.2 1998-07-10 10:39:39 fjoe Exp $
+ * $Id: buffer.c,v 1.3 1998-08-10 10:37:52 fjoe Exp $
  */
 #include <stdio.h>
 #include <stdarg.h>
@@ -12,6 +12,9 @@
 
 #define BUF_LIST_MAX		10
 #define BUF_DEFAULT_SIZE 	1024
+
+extern int nAllocBuf;
+extern int sAllocBuf;
 
 /* valid states */
 enum {
@@ -46,8 +49,10 @@ BUFFER *buf_new(int size)
 {
 	BUFFER *buffer;
  
-	if (free_list == NULL)
+	if (free_list == NULL) {
 		buffer = alloc_perm(sizeof(*buffer));
+		nAllocBuf++;
+	}
 	else {
 		buffer = free_list;
 		free_list = free_list->next;
@@ -67,6 +72,8 @@ BUFFER *buf_new(int size)
 	buffer->string[0]   = '\0';
 	VALIDATE(buffer);
  
+	sAllocBuf += buffer->size;
+
 	return buffer;
 }
 
@@ -75,6 +82,8 @@ void buf_free(BUFFER *buffer)
 {
 	if (!IS_VALID(buffer))
 		return;
+
+	sAllocBuf -= buffer->size;
 
 	free_mem(buffer->string, buffer->size);
 	buffer->string = NULL;
@@ -116,6 +125,7 @@ bool buf_add(BUFFER *buffer, const char *string)
 		buffer->string	= alloc_mem(buffer->size);
 		strcpy(buffer->string, oldstr);
 		free_mem(oldstr, oldsize);
+		sAllocBuf += buffer->size - oldsize;
 	}
 
 	strcat(buffer->string, string);
