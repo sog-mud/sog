@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.141 1999-05-20 06:24:55 avn Exp $
+ * $Id: interp.c,v 1.142 1999-05-20 11:02:58 fjoe Exp $
  */
 
 /***************************************************************************
@@ -112,6 +112,7 @@ cmd_t cmd_table[] =
     { "inventory",	do_inventory,	POS_DEAD,	 0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_CHARMED_OK },
     { "kill",		do_kill,	POS_FIGHTING,	 0,  LOG_NORMAL	},
     { "look",		do_look,	POS_RESTING,	 0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_CHARMED_OK },
+    { "glance",		do_glance,	POS_RESTING,	 0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_CHARMED_OK },
     { "order",		do_order,	POS_RESTING,	 0,  LOG_NORMAL	},
     { "practice",       do_practice,	POS_SLEEPING,    0,  LOG_NORMAL, CMD_KEEP_HIDE },
     { "rest",		do_rest,	POS_SLEEPING,	 0,  LOG_NORMAL, CMD_KEEP_HIDE },

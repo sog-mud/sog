@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.106 1999-05-20 05:04:26 kostik Exp $
+ * $Id: spellfun2.c,v 1.107 1999-05-20 11:02:58 fjoe Exp $
  */
 
 /***************************************************************************
@@ -967,40 +967,46 @@ void spell_confuse(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA af;
 	CHAR_DATA *rch;
-	int count=0;
+	int count;
 
-	if (is_affected(victim,gsn_confuse)) {
-	act("$N is already thoroughly confused.",ch,NULL,victim,TO_CHAR);
-	return;
+	if (is_affected(victim, gsn_confuse)) {
+		act("$N is already thoroughly confused.",
+		    ch, NULL, victim, TO_CHAR);
+		return;
 	}
 
-	if (saves_spell(level,victim, DAM_MENTAL))
-	return;
+	if (saves_spell(level, victim, DAM_MENTAL))
+		return;
 
-	af.where		= TO_AFFECTS;
-	af.type      = sn;
-	af.level     = level;
-	af.duration  = 10;
-	af.modifier  = 0;
-	af.location  = 0;
-	af.bitvector = 0;
-	affect_to_char(victim,&af);
+	af.where	= TO_AFFECTS;
+	af.type		= sn;
+	af.level	= level;
+	af.duration	= 10;
+	af.modifier	= 0;
+	af.location	= 0;
+	af.bitvector	= 0;
+	affect_to_char(victim, &af);
 
-	for (rch = ch->in_room->people; rch; rch = rch->next_in_room)
-		if (rch == ch 
-		&&  !can_see(ch, rch))
+	count = 0;
+	for (rch = ch->in_room->people; rch; rch = rch->next_in_room) {
+		if (rch != ch
+		&&  can_see(ch, rch)
+		&&  !is_safe(ch, rch))
 			count++;
+	}
 
 	for (rch = ch->in_room->people; rch; rch = rch->next_in_room) {
-		if (rch != ch 
-		&&  can_see(ch, rch) 
+		if (rch != ch
+		&&  can_see(ch, rch)
+		&&  !is_safe(ch, rch)
 		&&  number_range(1, count) == 1)
 			break;
 	}
 
 	if (rch)
 		do_murder(victim, rch->name); 
-	do_murder(victim, ch->name);
+	else
+		do_murder(victim, ch->name);
 }
 
 void spell_terangreal(int sn, int level, CHAR_DATA *ch, void *vo, int target)

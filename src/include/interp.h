@@ -1,5 +1,5 @@
 /*
- * $Id: interp.h,v 1.48 1999-05-17 14:10:17 fjoe Exp $
+ * $Id: interp.h,v 1.49 1999-05-20 11:02:58 fjoe Exp $
  */
 
 /***************************************************************************
@@ -158,6 +158,7 @@ DECLARE_DO_FUN(do_gain		);
 DECLARE_DO_FUN(do_grant		);
 DECLARE_DO_FUN(do_get		);
 DECLARE_DO_FUN(do_give		);
+DECLARE_DO_FUN(do_glance	);
 DECLARE_DO_FUN(do_glist		);
 DECLARE_DO_FUN(do_goto		);
 DECLARE_DO_FUN(do_group		);

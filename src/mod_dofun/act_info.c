@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.234 1999-05-19 06:00:51 fjoe Exp $
+ * $Id: act_info.c,v 1.235 1999-05-20 11:02:57 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1029,6 +1029,49 @@ void do_look_in(CHAR_DATA* ch, const char *argument)
 	}
 }
 
+#define LOOK_F_NORDESC	(A)
+
+void do_look_room(CHAR_DATA *ch, int flags)
+{
+	if (!room_is_dark(ch) && check_blind_raw(ch)) {
+		const char *name;
+		const char *engname;
+
+		name = mlstr_cval(ch->in_room->name, ch);
+		engname = mlstr_mval(ch->in_room->name);
+		char_printf(ch, "{W%s", name);
+		if (ch->lang && name != engname)
+			char_printf(ch, " (%s){x", engname);
+		else
+			char_puts("{x", ch);
+		
+		if (IS_IMMORTAL(ch)
+		||  IS_BUILDER(ch, ch->in_room->area))
+			char_printf(ch, " [Room %d]",ch->in_room->vnum);
+
+		char_puts("\n", ch);
+
+ 		if (!IS_SET(flags, LOOK_F_NORDESC))
+			char_printf(ch, "  %s",
+				    mlstr_cval(ch->in_room->description, ch));
+
+		if (!IS_NPC(ch) && IS_SET(ch->plr_flags, PLR_AUTOEXIT)) {
+			char_puts("\n", ch);
+			do_exits(ch, "auto");
+		}
+	}
+	else 
+		char_puts("It is pitch black...\n", ch);
+
+	show_list_to_char(ch->in_room->contents, ch, FALSE, FALSE);
+	show_char_to_char(ch->in_room->people, ch);
+}
+
+DO_FUN(do_glance)
+{
+	do_look_room(ch, LOOK_F_NORDESC);
+}
+
 void do_look(CHAR_DATA *ch, const char *argument)
 {
 	char arg1 [MAX_INPUT_LENGTH];
@@ -1060,42 +1103,10 @@ void do_look(CHAR_DATA *ch, const char *argument)
 	count = 0;
 
 	if (arg1[0] == '\0' || !str_cmp(arg1, "auto")) {
-
 		/* 'look' or 'look auto' */
-
-		if (!room_is_dark(ch) && check_blind_raw(ch)) {
-			const char *name;
-			const char *engname;
-
-			name = mlstr_cval(ch->in_room->name, ch);
-			engname = mlstr_mval(ch->in_room->name);
-			char_printf(ch, "{W%s", name);
-			if (ch->lang && name != engname)
-				char_printf(ch, " (%s){x", engname);
-			else
-				char_puts("{x", ch);
-		
-			if (IS_IMMORTAL(ch)
-			||  IS_BUILDER(ch, ch->in_room->area))
-				char_printf(ch, " [Room %d]",ch->in_room->vnum);
-
-			char_puts("\n", ch);
-
-			if (arg1[0] == '\0'
-			||  (!IS_NPC(ch) && !IS_SET(ch->comm, COMM_BRIEF)))
-				char_printf(ch, "  %s",
-					    mlstr_cval(ch->in_room->description, ch));
-
-			if (!IS_NPC(ch) && IS_SET(ch->plr_flags, PLR_AUTOEXIT)) {
-				char_puts("\n", ch);
-				do_exits(ch, "auto");
-			}
-		}
-		else 
-			char_puts("It is pitch black...\n", ch);
-
-		show_list_to_char(ch->in_room->contents, ch, FALSE, FALSE);
-		show_char_to_char(ch->in_room->people, ch);
+		do_look_room(ch, arg1[0] == '\0' ||
+			 	 (!IS_NPC(ch) && !IS_SET(ch->comm, COMM_BRIEF)) ?
+				  0 : LOOK_F_NORDESC);
 		return;
 	}
 
