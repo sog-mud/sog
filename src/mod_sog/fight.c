@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.24 1998-06-02 18:21:22 fjoe Exp $
+ * $Id: fight.c,v 1.25 1998-06-02 21:49:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -54,6 +54,8 @@
 #include "magic.h"
 #include "resource.h"
 #include "quest.h"
+#include "fight.h"
+#include "rating.h"
 
 #define MAX_DAMAGE_MESSAGE 34
 
@@ -81,7 +83,6 @@ extern void do_visible(CHAR_DATA *ch, char *argument);
 /*
  * Local functions.
  */
-void	rating_update	args((CHAR_DATA *ch, CHAR_DATA *victim));
 void	check_assist	args((CHAR_DATA *ch, CHAR_DATA *victim));
 bool	check_dodge	args((CHAR_DATA *ch, CHAR_DATA *victim));
 bool	check_parry	args((CHAR_DATA *ch, CHAR_DATA *victim));
@@ -98,8 +99,6 @@ bool	is_safe 	args((CHAR_DATA *ch, CHAR_DATA *victim));
 void	make_corpse	args((CHAR_DATA *ch));
 void	one_hit 	args((CHAR_DATA *ch, CHAR_DATA *victim, int dt ,bool secondary));
 void	mob_hit 	args((CHAR_DATA *ch, CHAR_DATA *victim, int dt));
-void	raw_kill	args((CHAR_DATA *victim));
-void	raw_kill_org	args((CHAR_DATA *victim, int part));
 void	set_fighting	args((CHAR_DATA *ch, CHAR_DATA *victim));
 void	disarm		args((CHAR_DATA *ch, CHAR_DATA *victim ,int disarm_second));
 void	check_weapon_destroy	args((CHAR_DATA *ch, CHAR_DATA *victim, bool second));
@@ -121,35 +120,6 @@ void get_gold_corpse(CHAR_DATA *ch, OBJ_DATA *corpse)
 	}
 }
 
-
-/*
- * Updates player's rating.
- * Should be called every death.
- */
-void rating_update(CHAR_DATA *ch, CHAR_DATA *victim)
-{
-	int i, minnum;
-	if (IS_NPC(ch) || IS_NPC(victim) || ch == victim)
-		return;
-
-	ch->pcdata->pc_killed++;
-	
-	minnum = 0;
-	for (i = 0; i < RATE_TABLE_SIZE; ++i) {
-		if (str_cmp(ch->name, rate_table[i].name) == 0) {
-			rate_table[i].pc_killed = ch->pcdata->pc_killed;
-			return;
-		}
-		if (rate_table[i].pc_killed < rate_table[minnum].pc_killed)
-			minnum = i;
-	}
-
-	if (rate_table[minnum].pc_killed < ch->pcdata->pc_killed) {
-		if (rate_table[minnum].name != NULL)
-			free_string(rate_table[minnum].name);
-		rate_table[minnum].name = str_dup(ch->name);
-	} 	
-}
 
 
 /*
@@ -982,10 +952,8 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt ,bool secondary)
 	else if (dt == gsn_vampiric_bite && IS_VAMPIRE(ch))
 	  dam = (ch->level/20 + 1) * dam + ch->level;
 
-	else if (dt == gsn_cleave && wield != NULL)
-	  {
-		if (number_percent() < URANGE(4, 5+(ch->level-victim->level),10) && !counter)
-		  {
+	else if (dt == gsn_cleave && wield != NULL) {
+		if (number_percent() < URANGE(4, 5+(ch->level-victim->level),10) && !counter && !IS_IMMORTAL(victim)) {
 		    act_puts("Your cleave chops $N IN HALF!",
 			      ch,NULL,victim,TO_CHAR,POS_RESTING);
 		    act_puts("$n's cleave chops you IN HALF!",
@@ -995,8 +963,7 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt ,bool secondary)
 		    send_to_char("You have been KILLED!\n\r",victim);
 		    act("$n is DEAD!",victim,NULL,NULL,TO_ROOM);
 		    WAIT_STATE(ch, 2);
-		    rating_update(ch, victim);
-		    raw_kill(victim);
+		    raw_kill(ch, victim);
 		    if (!IS_NPC(ch) && IS_NPC(victim))
 		      {
 			corpse = get_obj_list(ch, "corpse", ch->in_room->contents);
@@ -1036,8 +1003,7 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt ,bool secondary)
 			      TO_VICT,POS_DEAD);
 		    send_to_char("You have been KILLED!\n\r",victim);
 		    check_improve(ch,gsn_assassinate,TRUE,1);
-		    rating_update(ch, victim);
-		    raw_kill(victim);
+		    raw_kill(ch, victim);
 		    if (!IS_NPC(ch) && IS_NPC(victim))
 		      {
 			corpse = get_obj_list(ch, "corpse", ch->in_room->contents);
@@ -1440,7 +1406,6 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt, int dam_type, boo
 	if (victim->position == POS_DEAD)
 	{
 		group_gain(ch, victim);
-		rating_update(ch, victim);
 
 		if (IS_NPC(ch) && ch->pIndexData->vnum == MOB_VNUM_STALKER)
 			ch->status = 10;
@@ -1462,6 +1427,8 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt, int dam_type, boo
 		   gain_exp(victim , lost_exp);
 		  }
 		}
+
+		raw_kill(ch, victim);
 
 		/*
 		 *  Die too much and deleted ... :(
@@ -1516,8 +1483,6 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt, int dam_type, boo
 			}
 		      }
 	  }
-
-		raw_kill(victim);
 
 		/* don't remember killed victims anymore */
 
@@ -2210,21 +2175,15 @@ void death_cry_org(CHAR_DATA *ch, int part)
 }
 
 
-void raw_kill(CHAR_DATA *victim)
+void raw_kill_org(CHAR_DATA *ch, CHAR_DATA *victim, int part)
 {
-  raw_kill_org(victim, -1);
-  return;
-}
+	CHAR_DATA *tmp_ch;
+	OBJ_DATA *obj,*obj_next;
+	int i;
+	OBJ_DATA *tattoo;
 
-void raw_kill_org(CHAR_DATA *victim, int part)
-{
-
-  CHAR_DATA *tmp_ch;
-  OBJ_DATA *obj,*obj_next;
-  int i;
-  OBJ_DATA *tattoo;
-
-  stop_fighting(victim, TRUE);
+	stop_fighting(victim, TRUE);
+	rating_update(ch, victim);
 
   for (obj = victim->carrying;obj != NULL;obj = obj_next)
 	{
@@ -3009,34 +2968,31 @@ void do_slay(CHAR_DATA *ch, char *argument)
 	char arg[MAX_INPUT_LENGTH];
 
 	one_argument(argument, arg);
-	if (arg[0] == '\0')
-	{
+	if (arg[0] == '\0') {
 		send_to_char("Slay whom?\n\r", ch);
 		return;
 	}
 
-	if ((victim = get_char_room(ch, arg)) == NULL)
-	{
+	if ((victim = get_char_room(ch, arg)) == NULL) {
 		send_to_char("They aren't here.\n\r", ch);
 		return;
 	}
 
-	if (ch == victim)
-	{
+	if (ch == victim) {
 		send_to_char("Suicide is a mortal sin.\n\r", ch);
 		return;
 	}
 
-	if (!IS_NPC(victim) && victim->level >= get_trust(ch))
-	{
+	if ((!IS_NPC(victim) && victim->level >= get_trust(ch))
+	||  IS_IMMORTAL(victim)) {
 		send_to_char("You failed.\n\r", ch);
 		return;
 	}
 
-	act("You slay $M in cold blood!",	ch, NULL, victim, TO_CHAR   );
-	act("$n slays you in cold blood!", ch, NULL, victim, TO_VICT   );
-	act("$n slays $N in cold blood!",	ch, NULL, victim, TO_NOTVICT);
-	raw_kill(victim);
+	act("You slay $M in cold blood!", ch, NULL, victim, TO_CHAR);
+	act("$n slays you in cold blood!", ch, NULL, victim, TO_VICT);
+	act("$n slays $N in cold blood!", ch, NULL, victim, TO_NOTVICT);
+	raw_kill(ch, victim);
 	return;
 }
 

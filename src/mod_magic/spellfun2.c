@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.8 1998-06-02 18:21:22 fjoe Exp $
+ * $Id: spellfun2.c,v 1.9 1998-06-02 21:49:19 fjoe Exp $
  */
 
 /***************************************************************************
@@ -52,6 +52,8 @@
 #include "comm.h"
 #include "hometown.h"
 #include "act_comm.h"
+#include "fight.h"
+#include "rating.h"
 
 DECLARE_DO_FUN(do_scan2);
 /* command procedures needed */
@@ -60,7 +62,6 @@ DECLARE_DO_FUN(do_yell		);
 DECLARE_DO_FUN(do_say		);
 DECLARE_DO_FUN(do_murder	);
 DECLARE_DO_FUN(do_kill		);
-void	raw_kill(CHAR_DATA *victim);
 int	find_door	args((CHAR_DATA *ch, char *arg));
 int	check_exit	args((char *argument));
 
@@ -220,11 +221,10 @@ void spell_disintegrate(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	int i,dam=0;
 	OBJ_DATA *tattoo; 
 	
-
 	if (saves_spell(level,victim,DAM_MENTAL)
 	||  number_bits(1) == 0
 	||  IS_IMMORTAL(victim)) {
-		dam = dice(level , 24) ;
+		dam = dice(level, 24) ;
 		damage(ch, victim , dam , sn, DAM_MENTAL, TRUE);
 		return;
 	}
@@ -247,32 +247,31 @@ void spell_disintegrate(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	/*  disintegrate the objects... */
 	tattoo = get_eq_char(victim, WEAR_TATTOO); /* keep tattoos for later */
 	if (tattoo != NULL)
-	  obj_from_char(tattoo);
+		obj_from_char(tattoo);
 
 	victim->gold = 0;
 	victim->silver = 0;
 
-	for (obj = victim->carrying; obj != NULL; obj = obj_next)
-	{
-	    obj_next = obj->next_content;
-	extract_obj(obj);
+	for (obj = victim->carrying; obj != NULL; obj = obj_next) {
+		obj_next = obj->next_content;
+		extract_obj(obj);
 	}
 
-	if (IS_NPC(victim))
-	{
-	  victim->pIndexData->killed++;
-	  kill_table[URANGE(0, victim->level, MAX_LEVEL-1)].killed++;
-	  extract_char(victim, TRUE);
-	  return;
+	if (IS_NPC(victim)) {
+		victim->pIndexData->killed++;
+		kill_table[URANGE(0, victim->level, MAX_LEVEL-1)].killed++;
+		extract_char(victim, TRUE);
+		return;
 	}
 	
+	rating_update(ch, victim);
 	extract_char(victim, FALSE);
 
 	while (victim->affected)
-	  affect_remove(victim, victim->affected);
+		affect_remove(victim, victim->affected);
 	victim->affected_by   = 0;
 	for (i = 0; i < 4; i++)
-	  victim->armor[i]= 100;
+		victim->armor[i]= 100;
 	victim->position      = POS_RESTING;
 	victim->hit           = 1;
 	victim->mana  	  = 1;
@@ -286,15 +285,14 @@ void spell_disintegrate(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	victim->pcdata->condition[COND_BLOODLUST] = 40;
 	victim->pcdata->condition[COND_DESIRE] = 40;
 
-	if (tattoo != NULL)
-	{
-	  obj_to_char(tattoo, victim);
-	  equip_char(victim, tattoo, WEAR_TATTOO);
+	if (tattoo != NULL) {
+		obj_to_char(tattoo, victim);
+		equip_char(victim, tattoo, WEAR_TATTOO);
 	}
 
 	for (tmp_ch = char_list; tmp_ch != NULL; tmp_ch = tmp_ch->next)
-	  if (tmp_ch->last_fought == victim)
-	    tmp_ch->last_fought = NULL;
+		if (tmp_ch->last_fought == victim)
+			tmp_ch->last_fought = NULL;
 
 	return;
 }
@@ -3454,7 +3452,7 @@ void spell_shielding(int sn, int level, CHAR_DATA *ch, void *vo ,int target)
 }
 
 
-void spell_link (int sn, int level, CHAR_DATA *ch, void *vo , int target)
+void spell_link(int sn, int level, CHAR_DATA *ch, void *vo , int target)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	int random, tmpmana;
@@ -3468,12 +3466,11 @@ void spell_link (int sn, int level, CHAR_DATA *ch, void *vo , int target)
 	victim->mana = victim->mana + tmpmana;    
 }
 
-void spell_power_kill (int sn, int level, CHAR_DATA *ch, void *vo , int target)
+void spell_power_kill(int sn, int level, CHAR_DATA *ch, void *vo , int target)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	int dam;
 
-	 
 	act_puts("A stream of darkness from your finger surrounds $N.", 
 		ch, NULL, victim, TO_CHAR, POS_RESTING);
 	act_puts("A stream of darkness from $n's finger surrounds $N.", 
@@ -3493,7 +3490,7 @@ void spell_power_kill (int sn, int level, CHAR_DATA *ch, void *vo , int target)
 	act("$N has been killed!\n\r", ch, NULL, victim, TO_CHAR);
 	act("$N has been killed!\n\r", ch, NULL, victim, TO_ROOM);
 
-	raw_kill(victim);
+	raw_kill(ch, victim);
 	return;
 }
 

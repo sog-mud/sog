@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.14 1998-06-02 18:21:22 fjoe Exp $
+ * $Id: db.c,v 1.15 1998-06-02 21:49:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -60,6 +60,7 @@
 #include "comm.h"
 #include "magic.h"
 #include "act_comm.h"
+#include "rating.h"
 
 void load_limited_objects();
 
@@ -447,9 +448,6 @@ void	reset_area	args((AREA_DATA * pArea));
  */
 void boot_db(void)
 {
-	char buf[MAX_STRING_LENGTH];
-	int i;
-
 	/*
 	 * Init some data space stuff.
 	 */
@@ -521,14 +519,6 @@ void boot_db(void)
 		
 		/* reboot counter */
 		reboot_counter = 1440;	/* 12 hours */
-
-	/* 
-	 * Initialize rate_table 
-	 */
-	for (i = 0; i < RATE_TABLE_SIZE; ++i) {
-		rate_table[i].name = NULL;
-		rate_table[i].pc_killed = 0;
-	}
 
 	/*
 	 * Assign gsn's for skills which have them.
@@ -627,8 +617,7 @@ void boot_db(void)
 	{
 		fix_exits();
 		load_limited_objects();
-		sprintf(buf,"Total non-immortal levels > 5: %li",total_levels);
-		log_string(buf);
+		log_printf("Total non-immortal levels > 5: %d", total_levels);
 
 		fBootDb	= FALSE;
 		area_update();
@@ -3908,7 +3897,7 @@ void load_limited_objects()
 {
 	struct direct *dp;
 
-	int i, killed;
+	int i;
 	DIR *dirp;
 	FILE *pfile;
 	char letter;
@@ -3916,7 +3905,6 @@ void load_limited_objects()
 	char buf[PATH_MAX]; 
 	bool fReadLevel;
 	char buf2[160];
-	int minnum;
 	int vnum;
 
 	total_levels = 0;
@@ -3977,8 +3965,7 @@ void load_limited_objects()
 				  fBootDb = TRUE;
 				}
 			} else if (letter == 'P') {
-				word = fread_word(pfile);
-				if (!strcmp(word, "C_Killed")) {
+				if (!strcmp(fread_word(pfile), "C_Killed")) {
 					if (pname == NULL) {
 						bug("load_limited_objects: "
 						    "PC_Killed before Name "
@@ -3986,31 +3973,17 @@ void load_limited_objects()
 						exit(1);
 					}
 
-					killed = fread_number(pfile);
-
-					minnum = 0;
-					for (i = 1; i < RATE_TABLE_SIZE; ++i)
-						if (rate_table[i].pc_killed <
-						    rate_table[minnum].pc_killed)
-							minnum = i;
-
-					if (rate_table[minnum].pc_killed <
-								killed) {
-						if (rate_table[minnum].name !=
-								NULL)
-							free_string(rate_table[minnum].name);
-						rate_table[minnum].name = pname;
-						rate_table[minnum].pc_killed = 
-							killed;
-					}	
+					rating_add(pname, fread_number(pfile));
 				}	
 			} 
 			else if (letter == 'N') {
-				if (strcmp(fread_word(pfile), "ame") == 0)
+				if (strcmp(fread_word(pfile), "ame") == 0
+				&&  pname == NULL)
 					pname = fread_string(pfile);
 			}
 		}
 
+		free_string(pname);
 		fclose(pfile);
 	}
 	closedir(dirp);

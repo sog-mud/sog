@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.23 1998-06-02 19:13:56 fjoe Exp $
+ * $Id: update.c,v 1.24 1998-06-02 21:49:20 fjoe Exp $
  */
 
 /***************************************************************************
@@ -64,7 +64,6 @@ DECLARE_DO_FUN(do_stand		);
 DECLARE_DO_FUN(do_track		);
 DECLARE_DO_FUN(do_yell		);
 
-void	raw_kill		args((CHAR_DATA *victim));
 void	back_home		args((CHAR_DATA *ch));
 
 #include <unistd.h>     

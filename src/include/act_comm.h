@@ -12,13 +12,4 @@ void    do_music	(CHAR_DATA *ch, char *argument);
 void    do_gossip	(CHAR_DATA *ch, char *argument);
 void	do_rating	(CHAR_DATA *ch, char *argument);
 
-#define RATE_TABLE_SIZE 20
-
-typedef struct {
-	char *name;
-	int pc_killed;
-} tag_rate_table;
-
-extern tag_rate_table rate_table[RATE_TABLE_SIZE];
-
 #endif

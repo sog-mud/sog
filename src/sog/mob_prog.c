@@ -1,5 +1,5 @@
 /*
- * $Id: mob_prog.c,v 1.9 1998-05-27 08:47:27 fjoe Exp $
+ * $Id: mob_prog.c,v 1.10 1998-06-02 21:49:19 fjoe Exp $
  */
 
 /***************************************************************************
@@ -55,7 +55,6 @@
 #include "resource.h"
 #include "quest.h"
 
-void raw_kill args( (CHAR_DATA *victim) );
 DECLARE_DO_FUN(do_yell);
 DECLARE_DO_FUN(do_cb);
 DECLARE_DO_FUN(do_murder);

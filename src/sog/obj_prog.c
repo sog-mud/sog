@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.c,v 1.6 1998-05-27 15:38:59 fjoe Exp $
+ * $Id: obj_prog.c,v 1.7 1998-06-02 21:49:19 fjoe Exp $
  */
 
 /***************************************************************************
@@ -50,6 +50,7 @@
 #include "db.h"
 #include "comm.h"
 #include "resource.h"
+#include "fight.h"
 
 void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, bool second);
 
@@ -117,7 +118,7 @@ DECLARE_OPROG_FUN_FIGHT(fight_prog_demonfireshield);
 DECLARE_OPROG_FUN_WEAR(wear_prog_demonfireshield);
 DECLARE_OPROG_FUN_REMOVE(remove_prog_demonfireshield);
 
-DECLARE_OPROG_FUN_FIGHT(fight_prog_vorbalblade	);
+DECLARE_OPROG_FUN_FIGHT(fight_prog_vorpalblade	);
 DECLARE_OPROG_FUN_GET(get_prog_spec_weapon	);
 DECLARE_OPROG_FUN_GET(get_prog_quest_obj	);
 DECLARE_OPROG_FUN_FIGHT(fight_prog_shockwave	);
@@ -153,9 +154,6 @@ DECLARE_OPROG_FUN_WEAR(wear_prog_fire_shield 	);
 DECLARE_OPROG_FUN_REMOVE(remove_prog_fire_shield);
 DECLARE_OPROG_FUN_WEAR(wear_prog_quest_weapon);
 DECLARE_OPROG_FUN_GET(get_prog_quest_reward	);
-
-void    raw_kill        args((CHAR_DATA *victim));
-void    raw_kill_org    args((CHAR_DATA *victim, int part));
 
 
 void oprog_set(OBJ_INDEX_DATA *objindex,const char *progtype, const char *name)
@@ -398,8 +396,8 @@ void oprog_set(OBJ_INDEX_DATA *objindex,const char *progtype, const char *name)
 		 objindex->oprogs->fight_prog = fight_prog_armbands;
 	   else if (!str_cmp(name, "fight_prog_demonfireshield"))
 		 objindex->oprogs->fight_prog = fight_prog_demonfireshield;
-	   else if (!str_cmp(name, "fight_prog_vorbalblade"))
-		 objindex->oprogs->fight_prog = fight_prog_vorbalblade;
+	   else if (!str_cmp(name, "fight_prog_vorpalblade"))
+		 objindex->oprogs->fight_prog = fight_prog_vorpalblade;
 	   else if (!str_cmp(name, "fight_prog_rose_shield"))
 		 objindex->oprogs->fight_prog = fight_prog_rose_shield;
 	   else if (!str_cmp(name, "fight_prog_lion_claw"))
@@ -1469,23 +1467,23 @@ void remove_prog_demonfireshield(OBJ_DATA *obj, CHAR_DATA *ch)
 		send_to_char("Your hands cool down.\n\r", ch);
 		return;
 }
-void fight_prog_vorbalblade(OBJ_DATA *obj, CHAR_DATA *ch)
+void fight_prog_vorpalblade(OBJ_DATA *obj, CHAR_DATA *ch)
 {
-CHAR_DATA *victim;
+	CHAR_DATA *victim;
 
 	if (IS_NPC(ch)) 
 		return;
 
-	if ((get_eq_char(ch, WEAR_WIELD) != obj) ||
-		(get_eq_char(ch, WEAR_SECOND_WIELD) !=obj))
-	return;
+	if ((get_eq_char(ch, WEAR_WIELD) != obj)
+	||  (get_eq_char(ch, WEAR_SECOND_WIELD) !=obj))
+		return;
 
 	victim = ch->fighting;
-
-	if (number_percent() < 5)  {
-	send_to_char(
-		"Your weapon swings at your victim's neck without your control!\n\r", ch);
-	if (number_percent() < 40)  {
+	if (number_percent() < 5
+	&&  !IS_IMMORTAL(victim))  {
+		send_to_char("Your weapon swings at your victim's neck "
+			     "without your control!\n\r", ch);
+		if (number_percent() < 40)  {
 		act("It makes an huge arc in the air, chopping $N's head OFF!",
 		     ch, NULL, victim, TO_CHAR);
 		act("$N's weapon whistles in the air, chopping your head OFF!",
@@ -1494,12 +1492,11 @@ CHAR_DATA *victim;
 		     ch, NULL, victim, TO_ROOM);
 		act("$n is DEAD!!", victim, NULL, NULL, TO_ROOM);
 		act("$n is DEAD!!", victim, NULL, NULL, TO_CHAR);
-		raw_kill_org(victim, 3);
+		raw_kill_org(ch, victim, 3);
 		send_to_char("You have been KILLED!!\n\r", victim);
 		return;
+		}
 	}
-	}
-	return;
 }
 
 void wear_prog_wind_boots(OBJ_DATA *obj, CHAR_DATA *ch)

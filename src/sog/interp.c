@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.16 1998-05-28 20:54:41 efdi Exp $
+ * $Id: interp.c,v 1.17 1998-06-02 21:49:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -216,6 +216,39 @@ const	struct	cmd_type	cmd_table	[] =
 
 
     /*
+     * Miscellaneous commands.
+     */
+    { "endure",         do_endure,      POS_STANDING,    0,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
+    { "enter", 		do_enter, 	POS_STANDING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
+    { "follow",		do_follow,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
+    { "gain",		do_gain,	POS_STANDING,	 0,  LOG_NORMAL, 1,0 },
+    { "go",		do_enter,	POS_STANDING,	 0,  LOG_NORMAL, 0, CMD_GHOST },
+    { "fade",		do_fade,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
+    { "herbs",          do_herbs,       POS_STANDING,    0,  LOG_NORMAL, 1,0 },
+    { "hara",           do_hara,        POS_STANDING,    0,  LOG_NORMAL,1,0 },
+
+    { "hide",		do_hide,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
+    { "human",          do_human,       POS_STANDING,    0,  LOG_NORMAL,1,0 },
+    { "hunt",           do_hunt,        POS_STANDING,    0,  LOG_NORMAL,1,0 },
+    { "leave", 		do_enter, 	POS_STANDING,	 0,  LOG_NORMAL,1, CMD_GHOST },
+    { "qui",		do_qui,		POS_DEAD,	 0,  LOG_NORMAL, 0, CMD_KEEP_HIDE|CMD_GHOST },
+    { "quit",		do_quit,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
+    { "recall",		do_recall,	POS_FIGHTING,	 0,  LOG_NORMAL, 1,0 },
+    { "/",		do_recall,	POS_FIGHTING,	 0,  LOG_NORMAL, 0,0 },
+    { "rent",		do_rent,	POS_DEAD,	 0,  LOG_NORMAL, 0,0 },
+    { "save",		do_save,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_GHOST },
+    { "sleep",		do_sleep,	POS_SLEEPING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
+    { "slist",		do_slist,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
+    { "sneak",		do_sneak,	POS_STANDING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
+    { "split",		do_split,	POS_RESTING,	 0,  LOG_NORMAL, 1,0 },
+    { "steal",		do_steal,	POS_STANDING,	 0,  LOG_NORMAL, 1,0 },
+    { "train",		do_train,	POS_RESTING,	 0,  LOG_NORMAL, 1,0 },
+    { "visible",	do_visible,	POS_SLEEPING,	 0,  LOG_NORMAL, 1,0 },
+    { "wake",		do_wake,	POS_SLEEPING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
+    { "wanted",         do_wanted,      POS_STANDING,    0,  LOG_ALWAYS, 1,0 },
+    { "where",		do_where,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
+
+    /*
      * Communication commands.
      */
     { "bearcall",       do_bear_call,   POS_FIGHTING,    0,  LOG_NORMAL, 1,0},
@@ -332,40 +365,6 @@ const	struct	cmd_type	cmd_table	[] =
     { "vanish",		do_vanish,	POS_FIGHTING,    0,  LOG_NORMAL, 1,0 },
     { "weapon",		do_weapon,	POS_FIGHTING,	 0,  LOG_NORMAL, 1,0 },
     { "blink",		do_blink,	POS_FIGHTING,    0,  LOG_NORMAL, 1,CMD_KEEP_HIDE },
-
-    /*
-     * Miscellaneous commands.
-     */
-    { "endure",         do_endure,      POS_STANDING,    0,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
-    { "enter", 		do_enter, 	POS_STANDING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
-    { "follow",		do_follow,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
-    { "gain",		do_gain,	POS_STANDING,	 0,  LOG_NORMAL, 1,0 },
-    { "go",		do_enter,	POS_STANDING,	 0,  LOG_NORMAL, 0, CMD_GHOST },
-    { "fade",		do_fade,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
-    { "herbs",          do_herbs,       POS_STANDING,    0,  LOG_NORMAL, 1,0 },
-    { "hara",           do_hara,        POS_STANDING,    0,  LOG_NORMAL,1,0 },
-
-    { "hide",		do_hide,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
-    { "human",          do_human,       POS_STANDING,    0,  LOG_NORMAL,1,0 },
-    { "hunt",           do_hunt,        POS_STANDING,    0,  LOG_NORMAL,1,0 },
-    { "leave", 		do_enter, 	POS_STANDING,	 0,  LOG_NORMAL,1, CMD_GHOST },
-    { "qui",		do_qui,		POS_DEAD,	 0,  LOG_NORMAL, 0, CMD_KEEP_HIDE|CMD_GHOST },
-    { "quit",		do_quit,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "recall",		do_recall,	POS_FIGHTING,	 0,  LOG_NORMAL, 1,0 },
-    { "/",		do_recall,	POS_FIGHTING,	 0,  LOG_NORMAL, 0,0 },
-    { "rent",		do_rent,	POS_DEAD,	 0,  LOG_NORMAL, 0,0 },
-    { "save",		do_save,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_GHOST },
-    { "sleep",		do_sleep,	POS_SLEEPING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
-    { "slist",		do_slist,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "sneak",		do_sneak,	POS_STANDING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
-    { "split",		do_split,	POS_RESTING,	 0,  LOG_NORMAL, 1,0 },
-    { "steal",		do_steal,	POS_STANDING,	 0,  LOG_NORMAL, 1,0 },
-    { "train",		do_train,	POS_RESTING,	 0,  LOG_NORMAL, 1,0 },
-    { "visible",	do_visible,	POS_SLEEPING,	 0,  LOG_NORMAL, 1,0 },
-    { "wake",		do_wake,	POS_SLEEPING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
-    { "wanted",         do_wanted,      POS_STANDING,    0,  LOG_ALWAYS, 1,0 },
-    { "where",		do_where,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-
 
 
     /*
