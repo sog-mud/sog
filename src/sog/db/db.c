@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.113 1999-02-22 13:33:18 fjoe Exp $
+ * $Id: db.c,v 1.114 1999-02-23 22:06:49 fjoe Exp $
  */
 
 /***************************************************************************
@@ -214,7 +214,7 @@ void db_parse_file(DBDATA *dbdata, const char *path, const char *file)
 	int linenum;
 	FILE *fp;
 
-	strnzcpy(buf, filename, sizeof(buf));
+	strnzcpy(buf, sizeof(buf), filename);
 	linenum = line_number;
 	line_number = 0;
 	snprintf(filename, sizeof(filename), "%s%c%s",
@@ -222,7 +222,7 @@ void db_parse_file(DBDATA *dbdata, const char *path, const char *file)
 
 	if ((fp = fopen(filename, "r")) == NULL) {
 		db_error("db_parse_file", strerror(errno));
-		strnzcpy(filename, buf, sizeof(filename));
+		strnzcpy(filename, sizeof(filename), buf);
 		line_number = linenum;
 		return;
 	}
@@ -250,7 +250,7 @@ void db_parse_file(DBDATA *dbdata, const char *path, const char *file)
 	}
 	fclose(fp);
 
-	strnzcpy(filename, buf, sizeof(filename));
+	strnzcpy(filename, sizeof(filename), buf);
 	line_number = linenum;
 }
 
@@ -267,10 +267,8 @@ void db_load_list(DBDATA *dbdata, const char *path, const char *file)
 {
 	FILE *fp;
 
-	if ((fp = dfopen(path, file, "r")) == NULL) {
-		perror(file);
+	if ((fp = dfopen(path, file, "r")) == NULL)
 		exit(1);
-	}
 
 	if (!dbdata->tab_sz)
 		dbdata_init(dbdata);
@@ -283,7 +281,7 @@ void db_load_list(DBDATA *dbdata, const char *path, const char *file)
 			dbdata->dbinit(dbdata);
 		db_parse_file(dbdata, path, name);
 	}
-	fclose(fp);
+	dfclose(fp);
 }
 
 /*
@@ -1828,9 +1826,8 @@ void do_dump(CHAR_DATA *ch, const char *argument)
 	FILE *fp;
 	int vnum,nMatch = 0;
 
-	/* open file */
-	fclose(fpReserve);
-	fp = dfopen(TMP_PATH, "mem.dmp", "w");
+	if ((fp = dfopen(TMP_PATH, "mem.dmp", "w")) == NULL)
+		return;
 
 	/* report use of data structures */
 	
@@ -1903,10 +1900,11 @@ void do_dump(CHAR_DATA *ch, const char *argument)
 	fprintf(fp,"Exits	%4d (%8d bytes)\n",
 		top_exit, top_exit * (sizeof(*exit)));
 
-	fclose(fp);
+	dfclose(fp);
 
 	/* start printing out mobile data */
-	fp = dfopen(TMP_PATH, "mob.dmp", "w");
+	if ((fp = dfopen(TMP_PATH, "mob.dmp", "w")) == NULL)
+		return;
 
 	fprintf(fp,"\nMobile Analysis\n");
 	fprintf(fp,  "---------------\n");
@@ -1919,10 +1917,11 @@ void do_dump(CHAR_DATA *ch, const char *argument)
 			pMobIndex->vnum,pMobIndex->count,
 			pMobIndex->killed,mlstr_mval(pMobIndex->short_descr));
 		}
-	fclose(fp);
+	dfclose(fp);
 
 	/* start printing out object data */
-	fp = dfopen(TMP_PATH, "obj.dmp", "w");
+	if ((fp = dfopen(TMP_PATH, "obj.dmp", "w")) == NULL)
+		return;
 
 	fprintf(fp,"\nObject Analysis\n");
 	fprintf(fp,  "---------------\n");
@@ -1938,8 +1937,7 @@ void do_dump(CHAR_DATA *ch, const char *argument)
 		}
 
 	/* close file */
-	fclose(fp);
-	fpReserve = fopen(NULL_FILE, "r");
+	dfclose(fp);
 }
 
 /*
@@ -2128,19 +2126,13 @@ void append_file(CHAR_DATA *ch, const char *file, const char *str)
 	if (IS_NPC(ch) || str[0] == '\0')
 		return;
 
-	fclose(fpReserve);
-	if ((fp = dfopen(TMP_PATH, file, "a")) == NULL) {
-		perror(file);
+	if ((fp = dfopen(TMP_PATH, file, "a")) == NULL)
 		char_puts("Could not open the file!\n", ch);
-	}
 	else {
 		fprintf(fp, "[%5d] %s: %s\n",
 		    ch->in_room ? ch->in_room->vnum : 0, ch->name, str);
-		fclose(fp);
+		dfclose(fp);
 	}
-
-	fpReserve = fopen(NULL_FILE, "r");
-	return;
 }
 
 /*
@@ -2193,10 +2185,8 @@ void load_limited_objects()
 			continue;
 #endif
 		fReadLevel = FALSE;
-		if ((pfile = dfopen(PLAYER_PATH, dp->d_name, "r")) == NULL) {
-			bug("Load_limited_objects: Can't open player file.", 0);
+		if ((pfile = dfopen(PLAYER_PATH, dp->d_name, "r")) == NULL)
 			continue;
-		}
 
 		pname = NULL;
 		for (letter = fread_letter(pfile); letter != EOF;
@@ -2234,7 +2224,7 @@ void load_limited_objects()
 		}
 
 		free_string(pname);
-		fclose(pfile);
+		dfclose(pfile);
 	}
 	closedir(dirp);
 }

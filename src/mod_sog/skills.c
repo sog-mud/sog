@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.55 1999-02-23 12:29:52 kostik Exp $
+ * $Id: skills.c,v 1.56 1999-02-23 22:06:47 fjoe Exp $
  */
 
 /***************************************************************************
@@ -165,9 +165,11 @@ void do_spells(CHAR_DATA *ch, const char *argument)
 				 "\nLevel %2d: %s", lev, buf);
 		else { /* append */
 			if (++spell_columns[lev] % 2 == 0)
-				strnzcat(spell_list[lev], "\n          ",
-					 sizeof(spell_list[lev]));
-			strnzcat(spell_list[lev], buf, sizeof(spell_list[lev]));
+				strnzcat(spell_list[lev],
+					 sizeof(spell_list[lev]),
+					 "\n          ");
+			strnzcat(spell_list[lev], sizeof(spell_list[lev]),
+				 buf);
 		}
 	}
 
@@ -231,9 +233,10 @@ void do_skills(CHAR_DATA *ch, const char *argument)
 				 "\nLevel %2d: %s", lev, buf);
 		else { /* append */
 			if (++skill_columns[lev] % 2 == 0)
-				strnzcat(skill_list[lev], "\n          ",
-					 sizeof(skill_list[lev]));
-			strnzcat(skill_list[lev], buf, sizeof(skill_list[lev]));
+				strnzcat(skill_list[lev],
+					 sizeof(skill_list[lev]),
+					 "\n          ");
+			strnzcat(skill_list[lev], sizeof(skill_list[lev]), buf);
 		}
 	}
 	
@@ -875,7 +878,7 @@ void say_spell(CHAR_DATA *ch, int sn)
 	for (pName = skill_name(sn); *pName != '\0'; pName += length) {
 		for (iSyl = 0; (length = strlen(syl_table[iSyl].old)); iSyl++) {
 			if (!str_prefix(syl_table[iSyl].old, pName)) {
-				strnzcat(buf, syl_table[iSyl].new, sizeof(buf));
+				strnzcat(buf, sizeof(buf), syl_table[iSyl].new);
 				break;
 			}
 		}

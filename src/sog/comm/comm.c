@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.146 1999-02-22 14:33:33 fjoe Exp $
+ * $Id: comm.c,v 1.147 1999-02-23 22:06:48 fjoe Exp $
  */
 
 /***************************************************************************
@@ -178,14 +178,11 @@ char	echo_off_str	[] = { IAC, WILL, TELOPT_ECHO, '\0' };
 char	echo_on_str	[] = { IAC, WONT, TELOPT_ECHO, '\0' };
 char 	go_ahead_str	[] = { IAC, GA, '\0' };
 
-char *get_stat_alias		(CHAR_DATA* ch, int which);
-
 /*
  * Global variables.
  */
 DESCRIPTOR_DATA *   descriptor_list;	/* All open descriptors		*/
 DESCRIPTOR_DATA *   d_next;		/* Next descriptor in loop	*/
-FILE *		    fpReserve;		/* Reserved file handle		*/
 bool		    merc_down;		/* Shutdown			*/
 bool		    wizlock;		/* Game is wizlocked		*/
 bool		    newlock;		/* Game is newlocked		*/
@@ -220,7 +217,7 @@ bool	process_output		(DESCRIPTOR_DATA *d, bool fPrompt);
 void	read_from_buffer	(DESCRIPTOR_DATA *d);
 void	stop_idling		(CHAR_DATA *ch);
 void    bust_a_prompt           (CHAR_DATA *ch);
-int 	log_area_popularity(void);
+void 	log_area_popularity(void);
 
 int main(int argc, char **argv)
 {
@@ -249,15 +246,7 @@ int main(int argc, char **argv)
 	 */
 	gettimeofday(&now_time, NULL);
 	current_time 	= (time_t) now_time.tv_sec;
-	strnzcpy(str_boot_time, strtime(current_time), sizeof(str_boot_time));
-
-	/*
-	 * Reserve one channel for our use.
-	 */
-	if ((fpReserve = fopen(NULL_FILE, "r")) == NULL) {
-		perror(NULL_FILE);
-		exit(1);
-	}
+	strnzcpy(str_boot_time, sizeof(str_boot_time), strtime(current_time));
 
 	/*
 	 * Get the port number.
@@ -284,7 +273,7 @@ int main(int argc, char **argv)
 	srand((unsigned) time(NULL));
 	err = WSAStartup(wVersionRequested, &wsaData); 
 	if (err) {
-		perror("WINSOCK.DLL");
+		log_printf("winsock.dll: %s", strerror(errno));
 		exit(1);
 	}
 #else
@@ -295,6 +284,15 @@ int main(int argc, char **argv)
 	infofd	= init_socket(port+1);
 
 	boot_db();
+
+	/*
+	 * Reserve one channel for our use.
+	 */
+	if ((fpReserve = fopen(NULL_FILE, "r")) == NULL) {
+		log_printf("%s: %s", NULL_FILE, strerror(errno));
+		exit(1);
+	}
+
 	log_printf("ready to rock on port %d.", port);
 	log_printf("info service started on port %d.", port+1);
 	game_loop_unix(control, infofd);
@@ -362,13 +360,14 @@ int init_socket(int port)
 #else
 	if ((fd = socket(AF_INET, SOCK_STREAM, 0)) < 0) {
 #endif
-		perror("init_socket: socket");
+		log_printf("init_socket: socket: %s", strerror(errno));
 		exit(1);
 	}
 
 	if (setsockopt(fd, SOL_SOCKET, SO_REUSEADDR,
 		       (char *) &x, sizeof(x)) < 0) {
-		perror("Init_socket: SO_REUSEADDR");
+		log_printf("init_socket: setsockopt: SO_REUSEADDR: %s",
+			   strerror(errno));
 #if defined (WIN32)
 		closesocket(fd);
 #else
@@ -382,7 +381,8 @@ int init_socket(int port)
 
 	if (setsockopt(fd, SOL_SOCKET, SO_LINGER,
 		       (char *) &ld, sizeof(ld)) < 0) {
-		perror("init_socket: SO_LINGER");
+		log_printf("init_socket: setsockopt: SO_LINGER: %s",
+			   strerror(errno));
 #if defined (WIN32)
 		closesocket(fd);
 #else
@@ -400,7 +400,7 @@ int init_socket(int port)
 	sa.sin_port	= htons(port);
 
 	if (bind(fd, (struct sockaddr *) &sa, sizeof(sa)) < 0) {
-		perror("init_socket: bind");
+		log_printf("init_socket: bind: %s", strerror(errno));
 #if defined (WIN32)
 		closesocket(fd);
 #else
@@ -410,7 +410,7 @@ int init_socket(int port)
 	}
 
 	if (listen(fd, 3) < 0) {
-		perror("init_socket: listen");
+		log_printf("init_socket: listen: %s", strerror(errno));
 #if defined (WIN32)
 		closesocket(fd);
 #else
@@ -477,7 +477,7 @@ void game_loop_unix(int control, int infofd)
 
 		if (select(maxdesc+1,
 			   &in_set, &out_set, &exc_set, &null_time) < 0) {
-			perror("game_loop: select");
+			log_printf("game_loop: select: %s", strerror(errno));
 			exit(1);
 		}
 
@@ -625,9 +625,8 @@ void game_loop_unix(int control, int infofd)
 
 		stall_time.tv_usec = usecDelta;
 		stall_time.tv_sec  = secDelta;
-		if (select(0, NULL, NULL, NULL, &stall_time) < 0)
-		{
-		    perror("Game_loop: select: stall");
+		if (select(0, NULL, NULL, NULL, &stall_time) < 0) {
+		    log_printf("game_loop: select: stall: %s", strerror(errno));
 		    exit(1);
 		}
 	    }
@@ -693,13 +692,14 @@ void init_descriptor(int control)
 	size = sizeof(sock);
 	getsockname(control, (struct sockaddr *) &sock, &size);
 	if ((desc = accept(control, (struct sockaddr *) &sock, &size)) < 0) {
-		perror("new_descriptor: accept");
+		log_printf("init_descriptor: accept: %s", strerror(errno));
 		return;
 	}
 
 #if !defined (WIN32)
 	if (fcntl(desc, F_SETFL, FNDELAY) < 0) {
-		perror("new_descriptor: fcntl: FNDELAY");
+		log_printf("init_descriptor: fcntl: FNDELAY: %s",
+			   strerror(errno));
 		return;
 	}
 #endif
@@ -724,7 +724,8 @@ void init_descriptor(int control)
 
 	size = sizeof(sock);
 	if (getpeername(desc, (struct sockaddr *) &sock, &size) < 0) {
-		perror("new_descriptor: getpeername");
+		log_printf("init_descriptor: getpeername: %s",
+			   strerror(errno));
 		return;
 	}
 #if defined (WIN32)
@@ -856,7 +857,7 @@ bool read_from_descriptor(DESCRIPTOR_DATA *d)
 	    break;
 #endif
 		else {
-			perror("Read_from_descriptor");
+			log_printf("read_from_descriptor: %s", strerror(errno));
 			return FALSE;
 		}
 	}
@@ -987,7 +988,7 @@ void read_from_buffer(DESCRIPTOR_DATA *d)
 					d->repeat = 0;
 
 					write_to_descriptor(d->descriptor, "\n\r*** PUT A LID ON IT!!! ***\n\r", 0);
-/*		strnzcpy(d->incomm, "quit", sizeof(d->incomm));	*/
+/*		strnzcpy(d->incomm, sizeof(d->incomm), "quit");	*/
 					close_descriptor(d);	
 					return;
 				}
@@ -999,9 +1000,9 @@ void read_from_buffer(DESCRIPTOR_DATA *d)
 	 * Do '!' substitution.
 	 */
 	if (d->incomm[0] == '!')
-		strnzcpy(d->incomm, d->inlast, sizeof(d->incomm));
+		strnzcpy(d->incomm, sizeof(d->incomm), d->inlast);
 	else
-		strnzcpy(d->inlast, d->incomm, sizeof(d->inlast));
+		strnzcpy(d->inlast, sizeof(d->inlast), d->incomm);
 
 	/*
 	 * Shift the input buffer.
@@ -1119,7 +1120,7 @@ void percent_hp(CHAR_DATA *ch, char buf[MAX_STRING_LENGTH])
 		snprintf(buf, sizeof(buf), "%d%%",
 			 ((100 * ch->hit) / UMAX(1,ch->max_hit)));
 	else
-		strnzcpy(buf, "BAD!", sizeof(buf));
+		strnzcpy(buf, sizeof(buf), "BAD!");
 }
 
 /*
@@ -1180,14 +1181,14 @@ void bust_a_prompt(CHAR_DATA *ch)
 				&&  (!IS_SET(pexit->exit_info, EX_CLOSED) ||
 				     IS_IMMORTAL(ch))) {
 					found = TRUE;
-					strnzcat(buf2, dir_name[door],
-						 sizeof(buf2));
+					strnzcat(buf2, sizeof(buf2),
+						 dir_name[door]);
 					if (IS_SET(pexit->exit_info, EX_CLOSED))
-						strnzcat(buf2, "*",
-							 sizeof(buf2));
+						strnzcat(buf2, sizeof(buf2),
+							 "*");
 				}
 			if (buf2[0])
-				strnzcat(buf2, " ", sizeof(buf2));
+				strnzcat(buf2, sizeof(buf2), " ");
 			i = buf2;
 			break;
 
@@ -1442,7 +1443,7 @@ bool write_to_descriptor(int desc, char *txt, uint length)
 #else
 		if ((nWrite = send(desc, txt + iStart, nBlock, 0)) < 0) {
 #endif
-			perror("write_to_descriptor");
+			log_printf("write_to_descriptor: %s", strerror(errno));
 			return FALSE;
 		}
 	} 
@@ -1836,7 +1837,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 	
 	do_help(ch,"class help");
 
-	strnzcpy(buf, "Select a class:\n\r[ ", sizeof(buf));
+	strnzcpy(buf, sizeof(buf), "Select a class:\n\r[ ");
 	snprintf(buf1, sizeof(buf), "  (Continuing:) ");
 	for (iClass = 0; iClass < classes.nused; iClass++)
 	{
@@ -1844,18 +1845,18 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 	    {
 	     if (iClass < 7)
 	      {
-	      	strnzcat(buf, CLASS(iClass)->name, sizeof(buf));
-	      	strnzcat(buf, " ", sizeof(buf));
+	      	strnzcat(buf, sizeof(buf), CLASS(iClass)->name);
+	      	strnzcat(buf, sizeof(buf), " ");
 	      }
 	     else
 	      {
-	      	strnzcat(buf1, CLASS(iClass)->name, sizeof(buf1));
-	      	strnzcat(buf1, " ", sizeof(buf1));
+	      	strnzcat(buf1, sizeof(buf), CLASS(iClass)->name);
+	      	strnzcat(buf1, sizeof(buf), " ");
 	      }
 	    }
 	}
-	strnzcat(buf, "\n\r", sizeof(buf));
-	strnzcat(buf1, "]:\n\r", sizeof(buf));
+	strnzcat(buf, sizeof(buf), "\n\r");
+	strnzcat(buf1, sizeof(buf), "]:\n\r");
 	write_to_buffer(d, buf, 0);
 	write_to_buffer(d, buf1, 0);
 	        write_to_buffer(d,
@@ -2210,22 +2211,15 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 				if (d->connected == CON_PLAYING)
 			       		count++;
 			max_on = UMAX(count, max_on);
-			if(!(max_on_file = dfopen(TMP_PATH, MAXON_FILE, "r")))
-				log_printf("nanny: couldn't open %s for reading",
-					   MAXON_FILE);
-			else {
+			if ((max_on_file = dfopen(TMP_PATH, MAXON_FILE, "r"))) {
 				fscanf(max_on_file, "%d", &tmp);
-				fclose(max_on_file);
+				dfclose(max_on_file);
 			}
-			if (tmp < max_on) {
-				if(!(max_on_file = dfopen(TMP_PATH, MAXON_FILE, "w")))
-					log_printf("nanny: couldn't open %s "
-						   "for writing", MAXON_FILE);
-				else {
-					fprintf(max_on_file, "%d", max_on);
-					log("Global max_on changed.");
-					fclose(max_on_file);
-				}
+			if (tmp < max_on
+			&&  (max_on_file = dfopen(TMP_PATH, MAXON_FILE, "w"))) {
+				fprintf(max_on_file, "%d", max_on);
+				log("Global max_on changed.");
+				dfclose(max_on_file);
 			}
 		}
 
@@ -2551,13 +2545,14 @@ void show_string(struct descriptor_data *d, char *input)
 	}
 }
 
-int log_area_popularity(void)
+void log_area_popularity(void)
 {
 	FILE *fp;
 	AREA_DATA *area;
 	extern AREA_DATA *area_first;
 
-	fp = dfopen(TMP_PATH, AREASTAT_FILE, "w");
+	if ((fp = dfopen(TMP_PATH, AREASTAT_FILE, "w")) == NULL)
+		return;
 	fprintf(fp,"\nBooted %sArea popularity statistics (in char * ticks)\n",
 	        str_boot_time);
 
@@ -2567,85 +2562,7 @@ int log_area_popularity(void)
 		else
 			fprintf(fp,"%-60s %u\n",area->name,area->count);
 
-	fclose(fp);
-
-	return 1;
-}
-
-char *get_stat_alias(CHAR_DATA *ch, int where)
-{
-	char *stat;
-	int istat;
-
-	if (where == STAT_STR)  {
-	  istat=get_curr_stat(ch,STAT_STR);
-	  if      (istat >  22) stat = "Titantic";
-	  else if (istat >= 20) stat = "Herculian";
-	  else if (istat >= 18) stat = "Strong";
-	  else if (istat >= 14) stat = "Average";
-	  else if (istat >= 10) stat = "Poor";
-	  else                    stat = "Weak";
-	  return(stat);
-	}
-	
-	if (where == STAT_WIS)  {
-	  istat=get_curr_stat(ch,STAT_WIS);
-	  if      (istat >  22) stat = "Excellent";
-	  else if (istat >= 20) stat = "Wise";
-	  else if (istat >= 18) stat = "Good";
-	  else if (istat >= 14) stat = "Average";
-	  else if (istat >= 10) stat = "Dim";
-	  else                    stat = "Fool";
-	  return(stat);
-	}
-
-	if (where == STAT_CON)  {
-	  istat=get_curr_stat(ch,STAT_CON);
-	  if      (istat >  22) stat = "Iron";
-	  else if (istat >= 20) stat = "Hearty";
-	  else if (istat >= 18) stat = "Healthy";
-	  else if (istat >= 14) stat = "Average";
-	  else if (istat >= 10) stat = "Poor";
-	  else                    stat = "Fragile";
-	  return(stat);
-	}
-
-	if (where == STAT_INT)  {
-	  istat=get_curr_stat(ch,STAT_INT);
-	  if      (istat >  22) stat = "Genious";
-	  else if (istat >= 20) stat = "Clever";
-	  else if (istat >= 18) stat = "Good";
-	  else if (istat >= 14) stat = "Average";
-	  else if (istat >= 10) stat = "Poor";
-	  else                    stat = "Hopeless";
-	  return(stat);
-	}
-	
-	if (where == STAT_DEX)  {
-	  istat=get_curr_stat(ch,STAT_DEX);
-	  if      (istat >  22) stat = "Fast";
-	  else if (istat >= 20) stat = "Quick";
-	  else if (istat >= 18) stat = "Dextrous";
-	  else if (istat >= 14) stat = "Average";
-	  else if (istat >= 10) stat = "Clumsy";
-	  else                    stat = "Slow";
-	  return(stat);
-	}
-
-	if (where == STAT_CHA)  {
-	  istat=get_curr_stat(ch,STAT_CHA);
-	  if      (istat >  22) stat = "Charismatic";
-	  else if (istat >= 20) stat = "Familier";
-	  else if (istat >= 18) stat = "Good";
-	  else if (istat >= 14) stat = "Average";
-	  else if (istat >= 10) stat = "Poor";
-	  else                    stat = "Mongol";
-	  return(stat);
-	}
-
-   bug("stat_alias: Bad stat number.", 0);
-   return(NULL);
-
+	dfclose(fp);
 }
 
 bool class_ok(CHAR_DATA *ch, int class)
@@ -2748,7 +2665,6 @@ void resolv_done()
 	char *p;
 	DESCRIPTOR_DATA *d;
 
-	log_printf("resolv_done: in");
 	while (fgets(buf, sizeof(buf), rfin)) {
 		if ((p = strchr(buf, '\n')) == NULL) {
 			log_printf("rfin: line too long, skipping to '\\n'");
@@ -2772,7 +2688,6 @@ void resolv_done()
 			d->host = str_dup(host);
 		}
 	}
-	log_printf("resolv_done: out");
 }
 #endif
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_class.c,v 1.13 1999-02-21 19:19:29 fjoe Exp $
+ * $Id: db_class.c,v 1.14 1999-02-23 22:06:50 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -120,9 +120,11 @@ DBLOAD_FUN(load_class)
 
 		case 'R':
 			KEY("RestrictAlign", class->restrict_align,
-			    fread_fword(align_names, fp));
+			    fread_fstring(align_names, fp));
 			KEY("RestrictSex", class->restrict_sex,
-			    fread_fword(sex_table, fp));
+			    fread_fstring(sex_table, fp));
+			KEY("RestrictEthos", class->restrict_ethos,
+			    fread_fstring(ethos_table, fp));
 			SKEY("RestrictHometown", class->restrict_hometown);
 			break;
 
@@ -133,8 +135,8 @@ DBLOAD_FUN(load_class)
 			    fread_number(fp));
 			if (!str_cmp(word, "ShortName")) {
 				const char *p = fread_string(fp);
-				strnzcpy(class->who_name, p,
-					 sizeof(class->who_name));
+				strnzcpy(class->who_name,
+					 sizeof(class->who_name), p);
 				free_string(p);
 				fMatch = TRUE;
 			}

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_race.c,v 1.3 1999-02-12 16:22:41 fjoe Exp $
+ * $Id: db_race.c,v 1.4 1999-02-23 22:06:50 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -186,9 +186,9 @@ DBLOAD_FUN(load_pcrace)
 
 		case 'R':
 			KEY("RestrictAlign", pcr->restrict_align,
-			    fread_fword(align_names, fp));
-			KEY("RestrictSex", pcr->restrict_sex,
-			    fread_fword(sex_table, fp));
+			    fread_fstring(align_names, fp));
+			KEY("RestrictEthos", pcr->restrict_ethos,
+			    fread_fstring(ethos_table, fp));
 			SKEY("RestrictHometown", pcr->restrict_hometown);
 			break;
 
@@ -197,8 +197,8 @@ DBLOAD_FUN(load_pcrace)
 			KEY("Slang", pcr->slang, fread_fword(slang_table, fp));
 			if (!str_cmp(word, "ShortName")) {
 				const char *p = fread_string(fp);
-				strnzcpy(pcr->who_name, p,
-					 sizeof(pcr->who_name));
+				strnzcpy(pcr->who_name, sizeof(pcr->who_name),
+					 p);
 				free_string(p);
 				fMatch = TRUE;
 			}

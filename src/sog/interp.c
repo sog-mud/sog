@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.123 1999-02-22 15:56:54 kostik Exp $
+ * $Id: interp.c,v 1.124 1999-02-23 22:06:44 fjoe Exp $
  */
 
 /***************************************************************************
@@ -534,13 +534,11 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 
 #ifdef IMMORTALS_LOGS
  	if (IS_IMMORTAL(ch)) {
-		if ((imm_log = dfopen(GODS_PATH, IMMLOG_FILE, "a+")) == NULL)
-			bug("cannot open imm_log_file", 0);
-		else {
+		if ((imm_log = dfopen(GODS_PATH, IMMLOG_FILE, "a+"))) {
 			fprintf(imm_log, "%s [%s] %s\n",
 				strtime(time(NULL)), ch->name, logline);
 			fprintf(imm_log, buf);
-			fclose(imm_log);
+			dfclose(imm_log);
 		}
 	}
 #endif
@@ -829,7 +827,7 @@ static uint x_argument(const char *argument, char c, char *arg, size_t len)
 
 	p = strchr(argument, c);
 	if (p == NULL) {
-		strnzcpy(arg, argument, len);
+		strnzcpy(arg, len, argument);
 		return 1;
 	}
 
@@ -838,7 +836,7 @@ static uint x_argument(const char *argument, char c, char *arg, size_t len)
 		argument = p+1;
 	else 
 		number = 1;
-	strnzcpy(arg, argument, MAX_INPUT_LENGTH);
+	strnzcpy(arg, len, argument);
 	return number;
 }
 
@@ -989,7 +987,7 @@ void substitute_alias(DESCRIPTOR_DATA *d, const char *argument)
 	return;
     }
 
-    strnzcpy(buf, argument, sizeof(buf));
+    strnzcpy(buf, sizeof(buf), argument);
 
     for (alias = 0; alias < MAX_ALIAS; alias++)	 /* go through the aliases */
     {

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_lang.c,v 1.11 1999-02-22 04:27:40 fjoe Exp $
+ * $Id: db_lang.c,v 1.12 1999-02-23 22:06:50 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -85,9 +85,8 @@ DBLOAD_FUN(load_lang)
 
 				s = strrchr(filename, PATH_SEPARATOR);
 				if (s)
-					strnzcpy(path, filename,
-						 UMIN(s - filename + 1,
-						      sizeof(path)));
+					strnzncpy(path, sizeof(path), filename,
+						  s - filename);
 				else
 					path[0] = '\0';
 

@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.128 1999-02-23 12:29:50 kostik Exp $
+ * $Id: spellfun.c,v 1.129 1999-02-23 22:06:45 fjoe Exp $
  */
 
 /***************************************************************************
@@ -177,10 +177,8 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 			if (ch->wait)
 				ch->wait = 0;
 		}
-		else if (ch->wait) {
-			log_printf("%s: wait state %d", ch->name, ch->wait);
+		else if (ch->wait) 
 			return;
-		}
 		sn = sn_lookup(arg1);
 	}
 	else {
@@ -1724,12 +1722,14 @@ void spell_anathema(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 		strength = (IS_GOOD(ch) || IS_EVIL(ch)) ? 1:0;
 
 	if (!strength) {
-		act("Oh, no. Your god seems to like $N", ch, NULL, victim, TO_CHAR);
+		act_puts("Oh, no. Your god seems to like $N.",
+			 ch, NULL, victim, TO_CHAR, POS_DEAD);
 		return;
 	}
 
 	if (is_affected(victim, sn)) {
-		act("$N is already cursed.", ch, NULL, victim, TO_CHAR);
+		act_puts("$N is already cursed.",
+			 ch, NULL, victim, TO_CHAR, POS_DEAD);
 		return;
 	}
 
@@ -1762,8 +1762,8 @@ void spell_anathema(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	
 	act("$n looks very uncomfortable.", victim, NULL, NULL, TO_ROOM);
 	char_puts("You feel unclean.\n", victim);
-	return;
 }
+
 /* RT replacement demonfire spell */
 
 void spell_demonfire(int sn, int level, CHAR_DATA *ch, void *vo, int target)

@@ -1,5 +1,5 @@
 /*
- * $Id: string_edit.c,v 1.29 1999-02-19 09:48:04 fjoe Exp $
+ * $Id: string_edit.c,v 1.30 1999-02-23 22:06:47 fjoe Exp $
  */
 
 /***************************************************************************
@@ -59,12 +59,12 @@ const char * string_replace(const char * orig, char * old, char * new)
 	char xbuf[MAX_STRING_LENGTH];
 	char *p;
 
-	strnzcpy(xbuf, orig, sizeof(xbuf));
+	strnzcpy(xbuf, sizeof(xbuf), orig);
 
 	if ((p = strstr(xbuf, old))) {
 		*p = '\0';
-		strnzcat(xbuf, new, sizeof(xbuf));
-		strnzcat(xbuf, orig + (p - xbuf) + strlen(old), sizeof(xbuf));
+		strnzcat(xbuf, sizeof(xbuf), new);
+		strnzcat(xbuf, sizeof(xbuf), orig + (p - xbuf) + strlen(old));
 	}
 
 	free_string(orig);
@@ -94,7 +94,7 @@ void string_add(CHAR_DATA *ch, const char *argument)
 
         argument = one_argument(argument, arg1, sizeof(arg1));
         argument = first_arg(argument, arg2, sizeof(arg2), FALSE);
-	strnzcpy(tmparg3, argument, sizeof(tmparg3));
+	strnzcpy(tmparg3, sizeof(tmparg3), argument);
         argument = first_arg(argument, arg3, sizeof(arg3), FALSE);
 
         if (!str_cmp(arg1+1, "c"))
@@ -215,7 +215,7 @@ void string_add(CHAR_DATA *ch, const char *argument)
 
 	p = *ch->desc->pString;
 	if (argument[len-1] == '\\') {
-		strnzcpy(arg1, argument, UMIN(len, sizeof(arg1)));
+		strnzncpy(arg1, sizeof(arg1), argument, len-1);
 		*ch->desc->pString = str_printf("%s%s",
 						*ch->desc->pString, arg1);
 	}
@@ -335,7 +335,7 @@ const char *format_string(const char *oldstring /*, bool fSpace */)
     }
   }
   xbuf[i]=0;
-  strnzcpy(xbuf2, xbuf, sizeof(xbuf2));
+  strnzcpy(xbuf2, sizeof(xbuf2), xbuf);
   
   rdesc=xbuf2;
   
@@ -357,16 +357,16 @@ const char *format_string(const char *oldstring /*, bool fSpace */)
     }
     if (i)
     {
-      strnzncat(xbuf, rdesc, sizeof(xbuf), i);
-      strnzcat(xbuf, "\n", sizeof(xbuf));
+      strnzncat(xbuf, sizeof(xbuf), rdesc, i);
+      strnzcat(xbuf, sizeof(xbuf), "\n");
       rdesc += i+1;
       while (*rdesc == ' ') rdesc++;
     }
     else
     {
       bug ("No spaces", 0);
-      strnzncat(xbuf, rdesc, sizeof(xbuf), 75);
-      strnzcat(xbuf, "-\n", sizeof(xbuf));
+      strnzncat(xbuf, sizeof(xbuf), rdesc, 75);
+      strnzcat(xbuf, sizeof(xbuf), "-\n");
       rdesc += 76;
     }
   }
@@ -374,9 +374,9 @@ const char *format_string(const char *oldstring /*, bool fSpace */)
                         *(rdesc+i)=='\n'||
                         *(rdesc+i)=='\r'))
     i--;
-  strnzncat(xbuf,rdesc, sizeof(xbuf), i+1);
+  strnzncat(xbuf, sizeof(xbuf), rdesc, i+1);
   if (xbuf[strlen(xbuf)-2] != '\n')
-    strnzcat(xbuf, "\n", sizeof(xbuf));
+    strnzcat(xbuf, sizeof(xbuf), "\n");
 
   free_string(oldstring);
   return(str_dup(xbuf));
@@ -418,8 +418,8 @@ const char *string_lineadd(const char *string, char *newstr, int line)
 
 	for (; *strtmp != '\0' || (!done && cnt == line); strtmp++) {
 		if (cnt == line && !done) {
-			strnzcat(buf, newstr, sizeof(buf));
-			strnzcat(buf, "\n", sizeof(buf));
+			strnzcat(buf, sizeof(buf), newstr);
+			strnzcat(buf, sizeof(buf), "\n");
 			tmp += strlen(newstr) + 1;
 			cnt++;
 			done = TRUE;
@@ -451,7 +451,7 @@ const char *getline(const char *str, char *buf, size_t len)
 	if (!p) 
 		p = strchr(str, '\0');
 
-	strnzcpy(buf, str, UMIN(p - str + 1, len));
+	strnzncpy(buf, len, str, p - str);
 
 	if (*p == '\n') {
 		p++;
@@ -474,7 +474,7 @@ char *numlines(const char *string)
 		string = getline(string, tmpb, sizeof(tmpb));
 		snprintf(buf2, sizeof(buf2),
 			 "%2d. %s\n", cnt++, tmpb);
-		strnzcat(buf, buf2, sizeof(buf));
+		strnzcat(buf, sizeof(buf), buf2);
 	}
 
 	return buf;

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: msg.c,v 1.14 1999-02-11 16:40:32 fjoe Exp $
+ * $Id: msg.c,v 1.15 1999-02-23 22:06:50 fjoe Exp $
  */
 
 #if	defined (LINUX) || defined (WIN32)
@@ -55,14 +55,10 @@ void load_msgdb(void)
 	FILE *fp;
 	mlstring *ml;
 
-	snprintf(filename, sizeof(filename), "%s%c%s", ETC_PATH, PATH_SEPARATOR, MSG_FILE);
 	line_number = 0;
 
-	fp = fopen(filename, "r");
-	if (fp == NULL) {
-		perror(filename);
+	if ((fp = dfopen(ETC_PATH, MSG_FILE, "r")) == NULL)
 		exit(1);
-	}
 
 	for (i = 0; i < MAX_MSG_HASH; i++) {
 		varr *v = msg_hash_table+i;

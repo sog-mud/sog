@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: colors.c,v 1.2 1998-11-26 10:49:04 fjoe Exp $
+ * $Id: colors.c,v 1.3 1999-02-23 22:06:49 fjoe Exp $
  */
 
 #include <string.h>
@@ -168,8 +168,8 @@ void parse_colors(const char *i, char *o, size_t len, int format)
 		if (*i == '\r'
 		||  *i == '\n'
 		||  (*i == '{' && *(i+1))) {
-			strnzcpy(p, color(*i == '{' ? *++i : *i, format),
-				 len - 1 - (p - o));
+			strnzcpy(p, len - 1 - (p - o),
+				 color(*i == '{' ? *++i : *i, format));
 			p = strchr(p, '\0');
 			continue;
 		}

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.36 1999-02-17 07:53:30 fjoe Exp $
+ * $Id: olc_room.c,v 1.37 1999-02-23 22:06:50 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -294,9 +294,8 @@ OLC_FUN(roomed_show)
 			 * Format up the exit info.
 			 * Capitalize all flags that are not part of the reset info.
 			 */
-			strnzcpy(reset_state,
-				 flag_string(exit_flags, pexit->rs_flags),
-				 sizeof(reset_state));
+			strnzcpy(reset_state, sizeof(reset_state),
+				 flag_string(exit_flags, pexit->rs_flags));
 			state = flag_string(exit_flags, pexit->exit_info);
 			buf_add(output, " Exit flags: [");
 			for (; ;) {

@@ -1,5 +1,5 @@
 /*
- * $Id: ban.c,v 1.27 1999-02-17 07:53:27 fjoe Exp $
+ * $Id: ban.c,v 1.28 1999-02-23 22:06:48 fjoe Exp $
  */
 
 /***************************************************************************
@@ -107,11 +107,8 @@ void save_bans(void)
     FILE *fp;
     bool found = FALSE;
 
-    fclose(fpReserve); 
     if ((fp = dfopen(ETC_PATH, BAN_FILE, "w")) == NULL)
-    {
-        perror(BAN_FILE);
-    }
+		return;
 
     for (pban = ban_list; pban != NULL; pban = pban->next)
     {
@@ -125,13 +122,10 @@ void save_bans(void)
 	}
      }
 
-     fclose(fp);
-     fpReserve = fopen(NULL_FILE, "r");
+     dfclose(fp);
+
      if (!found)
 	dunlink(ETC_PATH, BAN_FILE);
-
-     if (fpReserve == NULL)
-	bug("ban_save: can't open null file.", 0);
 }
 
 void load_bans(void)
@@ -148,7 +142,7 @@ void load_bans(void)
         BAN_DATA *pban;
         if (feof(fp))
         {
-            fclose(fp);
+            dfclose(fp);
             return;
         }
  
@@ -172,7 +166,7 @@ bool check_ban(const char *site, int type)
     BAN_DATA *pban;
     char host[MAX_STRING_LENGTH];
 
-    strnzcpy(host, capitalize(site), sizeof(host));
+    strnzcpy(host, sizeof(host), capitalize(site));
     host[0] = LOWER(host[0]);
 
     for (pban = ban_list; pban != NULL; pban = pban->next) 

@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.208 1999-02-21 19:19:22 fjoe Exp $
+ * $Id: act_info.c,v 1.209 1999-02-23 22:06:41 fjoe Exp $
  */
 
 /***************************************************************************
@@ -73,8 +73,6 @@ DECLARE_DO_FUN(do_murder	);
 DECLARE_DO_FUN(do_say		);
 DECLARE_DO_FUN(do_alist		);
 
-char *get_stat_alias(CHAR_DATA *ch, int which);
-
 static int show_order[] = {
 	WEAR_LIGHT,
 	WEAR_FINGER_L,
@@ -120,7 +118,7 @@ const char *format_short(mlstring *mlshort, const char *name, CHAR_DATA *looker)
         const char *sshort;
 
         sshort = fix_short(mlstr_cval(mlshort, looker));
-	strnzcpy(buf, sshort, sizeof(buf));
+	strnzcpy(buf, sizeof(buf), sshort);
 
         if (!IS_SET(looker->comm, COMM_NOENG)
 	&&  sshort != mlstr_mval(mlshort)) {
@@ -129,7 +127,7 @@ const char *format_short(mlstring *mlshort, const char *name, CHAR_DATA *looker)
 
         	one_argument(name, buf3, sizeof(buf3));
 		snprintf(buf2, sizeof(buf2), " (%s)", buf3);
-		strnzcat(buf, buf2, sizeof(buf));
+		strnzcat(buf, sizeof(buf), buf2);
 	}
 
         return buf;
@@ -157,8 +155,8 @@ const char *format_descr(mlstring *ml, CHAR_DATA *looker)
 	if (p != s && *(p-1) == ' ')
 		p--;
 
-	strnzcpy(buf, s, UMIN(p-s+1, sizeof(buf)));
-	strnzcat(buf, q+1, sizeof(buf));
+	strnzncpy(buf, sizeof(buf), s, p-s);
+	strnzcat(buf, sizeof(buf), q+1);
 	return buf;
 }
 
@@ -173,33 +171,33 @@ char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 
 	if (IS_SET(ch->comm, COMM_LONG)) {
 		if (IS_OBJ_STAT(obj, ITEM_INVIS))
-			strnzcat(buf, GETMSG("({yInvis{x) ", ch->lang),
-				 sizeof(buf));
+			strnzcat(buf, sizeof(buf),
+				 GETMSG("({yInvis{x) ", ch->lang));
 		if (IS_OBJ_STAT(obj, ITEM_DARK))
-			strnzcat(buf, GETMSG("({DDark{x) ", ch->lang),
-				 sizeof(buf));
+			strnzcat(buf, sizeof(buf),
+				 GETMSG("({DDark{x) ", ch->lang));
 		if (IS_AFFECTED(ch, AFF_DETECT_EVIL)
 		&&  IS_OBJ_STAT(obj, ITEM_EVIL))
-			strnzcat(buf, GETMSG("({RRed Aura{x) ", ch->lang),
-				 sizeof(buf));
+			strnzcat(buf, sizeof(buf),
+				 GETMSG("({RRed Aura{x) ", ch->lang));
 		if (IS_AFFECTED(ch, AFF_DETECT_GOOD)
 		&&  IS_OBJ_STAT(obj, ITEM_BLESS))
-			strnzcat(buf, GETMSG("({BBlue Aura{x) ", ch->lang),
-				 sizeof(buf));
+			strnzcat(buf, sizeof(buf),
+				 GETMSG("({BBlue Aura{x) ", ch->lang));
 		if (IS_AFFECTED(ch, AFF_DETECT_MAGIC)
 		&&  IS_OBJ_STAT(obj, ITEM_MAGIC))
-			strnzcat(buf, GETMSG("({MMagical{x) ", ch->lang),
-				 sizeof(buf));
+			strnzcat(buf, sizeof(buf),
+				 GETMSG("({MMagical{x) ", ch->lang));
 		if (IS_OBJ_STAT(obj, ITEM_GLOW))
-			strnzcat(buf, GETMSG("({WGlowing{x) ", ch->lang),
-				 sizeof(buf));
+			strnzcat(buf, sizeof(buf),
+				 GETMSG("({WGlowing{x) ", ch->lang));
 		if (IS_OBJ_STAT(obj, ITEM_HUM))
-			strnzcat(buf, GETMSG("({YHumming{x) ", ch->lang),
-				 sizeof(buf));
+			strnzcat(buf, sizeof(buf),
+				 GETMSG("({YHumming{x) ", ch->lang));
 	}
 	else {
 		static char FLAGS[] = "{x[{y.{D.{R.{B.{M.{W.{Y.{x] ";
-		strnzcpy(buf, FLAGS, sizeof(buf));
+		strnzcpy(buf, sizeof(buf), FLAGS);
 		if (IS_OBJ_STAT(obj, ITEM_INVIS)	)   buf[5] = 'I';
 		if (IS_OBJ_STAT(obj, ITEM_DARK)		)   buf[8] = 'D';
 		if (IS_AFFECTED(ch, AFF_DETECT_EVIL)
@@ -215,15 +213,15 @@ char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 	}
 
 	if (fShort) {
-		strnzcat(buf, format_short(obj->short_descr, obj->name, ch),
-			 sizeof(buf));
+		strnzcat(buf, sizeof(buf),
+			 format_short(obj->short_descr, obj->name, ch));
 		if (obj->pIndexData->vnum > 5 /* not money, gold, etc */
 		&&  (obj->condition < COND_EXCELLENT ||
 		     !IS_SET(ch->comm, COMM_NOVERBOSE))) {
 			char buf2[MAX_STRING_LENGTH];
 			snprintf(buf2, sizeof(buf2), " [{g%s{x]",
 				 GETMSG(get_cond_alias(obj), ch->lang));
-			strnzcat(buf, buf2, sizeof(buf));
+			strnzcat(buf, sizeof(buf), buf2);
 		}
 		return buf;
 	}
@@ -232,26 +230,26 @@ char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 		char* p;
 
 		p = strchr(buf, '\0');
-		strnzcat(buf, format_short(obj->short_descr, obj->name, ch),
-			 sizeof(buf));
+		strnzcat(buf, sizeof(buf),
+			 format_short(obj->short_descr, obj->name, ch));
 		p[0] = UPPER(p[0]);
-		switch(dice(1,3)) {
+		switch(number_range(1, 3)) {
 		case 1:
-			strnzcat(buf, " is floating gently on the water.",
-				 sizeof(buf));
+			strnzcat(buf, sizeof(buf),
+				 " is floating gently on the water.");
 			break;
 		case 2:
-			strnzcat(buf, " is making it's way on the water.",
-				 sizeof(buf));
+			strnzcat(buf, sizeof(buf),
+				 " is making it's way on the water.");
 			break;
 		case 3:
-			strnzcat(buf, " is getting wet by the water.",
-				 sizeof(buf));
+			strnzcat(buf, sizeof(buf),
+				 " is getting wet by the water.");
 			break;
 		}
 	}
 	else
-		strnzcat(buf, format_descr(obj->description, ch), sizeof(buf));
+		strnzcat(buf, sizeof(buf), format_descr(obj->description, ch));
 	return buf;
 }
 
@@ -2134,7 +2132,7 @@ void set_title(CHAR_DATA *ch, const char *title)
 			buf[1] = '\0';
 		}
 
-		strnzcat(buf, title, sizeof(buf));
+		strnzcat(buf, sizeof(buf), title);
 	}
 
 	free_string(ch->pcdata->title);
@@ -2794,6 +2792,16 @@ void do_identify(CHAR_DATA *ch, const char *argument)
 	spell_identify(0, 0, ch, obj ,0);
 }
 
+static void format_stat(char *buf, size_t len, CHAR_DATA *ch, int stat)
+{
+	if (ch->level > 20 || IS_NPC(ch))
+		snprintf(buf, len, "%2d (%2d)",
+			 ch->perm_stat[stat],
+			 get_curr_stat(ch, stat));
+	else
+		strnzcpy(buf, len, get_stat_alias(ch, stat));
+}
+
 void do_score(CHAR_DATA *ch, const char *argument)
 {
 	char buf2[MAX_INPUT_LENGTH];
@@ -2811,9 +2819,8 @@ void do_score(CHAR_DATA *ch, const char *argument)
 	output = buf_new(ch->lang);
 	buf_add(output, "\n      {G/~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~/~~\\{x\n");
 
-	strnzcpy(title,
-		 IS_NPC(ch) ? " Believer of Chronos." : ch->pcdata->title,
-		 sizeof(title));
+	strnzcpy(title, sizeof(title),
+		 IS_NPC(ch) ? " Believer of Chronos." : ch->pcdata->title);
 	name = IS_NPC(ch) ? capitalize(mlstr_val(ch->short_descr, ch->lang)) :
 			    ch->name;
 	delta = strlen(title) - cstrlen(title) + MAX_CHAR_NAME - strlen(name);
@@ -2823,51 +2830,56 @@ void do_score(CHAR_DATA *ch, const char *argument)
 
 	buf_add(output, "     {G|{C+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+{G|{x\n");
 
-	buf_printf(output, "     {G| {RLevel:  {x%3d          {C|  {RStr:  {x%2d (%2d) {C| {RReligion  :  {x%-10.10s {G|{x\n",
+	format_stat(buf2, sizeof(buf2), ch, STAT_STR);
+	buf_printf(output, "     {G| {RLevel: {x%-3d          {C| {RStr: {x%-11.11s {C| {RReligion  : {x%-10.10s {G|{x\n",
 		   ch->level,
-		   ch->perm_stat[STAT_STR],
-		   get_curr_stat(ch,STAT_STR),
+		   buf2,
 		   religion_name(ch->religion));
 
+	format_stat(buf2, sizeof(buf2), ch, STAT_INT);
 	buf_printf(output,
-"     {G| {RRace :  {x%-11.11s  {C|  {RInt:  {x%2d (%2d) {C| {RPractice  :  {x%4d       {G|{x\n",
+"     {G| {RRace : {x%-11.11s  {C| {RInt: {x%-11.11s {C| {RPractice  : {x%-3d        {G|{x\n",
 		race_name(ch->race),
-		ch->perm_stat[STAT_INT],
-		get_curr_stat(ch, STAT_INT),
+		buf2,
 		ch->practice);
 
+	format_stat(buf2, sizeof(buf2), ch, STAT_WIS);
 	buf_printf(output,
-"     {G| {RSex  :  {x%-11.11s  {C|  {RWis:  {x%2d (%2d) {C| {RTrain     :  {x%4d       {G|{x\n",
-		   ch->sex == 0 ? "sexless" : ch->sex == 1 ? "male" : "female",
-		   ch->perm_stat[STAT_WIS],
-		   get_curr_stat(ch,STAT_WIS),
+"     {G| {RSex  : {x%-11.11s  {C| {RWis: {x%-11.11s {C| {RTrain     : {x%-3d        {G|{x\n",
+		   ch->sex == 0 ?	"sexless" :
+		   ch->sex == 1 ?	"male" :
+					"female",
+		   buf2,
 		   ch->train);
 
+	format_stat(buf2, sizeof(buf2), ch, STAT_DEX);
 	buf_printf(output,
-"     {G| {RClass:  {x%-12.12s {C|  {RDex:  {x%2d (%2d) {C| {RQuest Pnts: {x%5d       {G|{x\n",
+"     {G| {RClass: {x%-12.12s {C| {RDex: {x%-11.11s {C| {RQuest Pnts: {x%-5d      {G|{x\n",
 		IS_NPC(ch) ? "mobile" : cl->name,
-		ch->perm_stat[STAT_DEX], get_curr_stat(ch,STAT_DEX),
+		buf2,
 		IS_NPC(ch) ? 0 : ch->pcdata->questpoints);
 
+	format_stat(buf2, sizeof(buf2), ch, STAT_CON);
 	buf_printf(output,
-"     {G| {RAlign:  {x%-12.12s {C|  {RCon:  {x%2d (%2d) {C| {R%-10.10s:   {x%3d       {G|{x\n",
+"     {G| {RAlign: {x%-12.12s {C| {RCon: {x%-11.11s {C| {R%-10.10s: {x%-3d        {G|{x\n",
 		IS_GOOD(ch) ? "good" : IS_EVIL(ch) ? "evil" : "neutral",
-		ch->perm_stat[STAT_CON], get_curr_stat(ch,STAT_CON),
+		buf2,
 		IS_NPC(ch) ? "Quest?" : (IS_ON_QUEST(ch) ? "Quest Time" : "Next Quest"),
 		IS_NPC(ch) ? 0 : abs(ch->pcdata->questtime));
 	can_flee = CAN_FLEE(ch, cl);
+	format_stat(buf2, sizeof(buf2), ch, STAT_CHA);
 	buf_printf(output,
-"     {G| {REthos:  {x%-12.12s {C|  {RCha:  {x%2d (%2d) {C| {R%s     :  {x%4d       {G|{x\n",
-		IS_NPC(ch) ? "mobile" : ch->ethos == 1 ? "lawful" :
-	ch->ethos == 2 ? "neutral" : ch->ethos == 3 ? "chaotic" : "none",
-		ch->perm_stat[STAT_CHA], get_curr_stat(ch,STAT_CHA),
+"     {G| {REthos: {x%-12.12s {C| {RCha: {x%-11.11s {C| {R%s     : {x%-5d      {G|{x\n",
+		IS_NPC(ch) ? "mobile" : ch->ethos == ETHOS_LAWFUL ? "lawful" :
+	ch->ethos == ETHOS_NEUTRAL ? "neutral" : ch->ethos == ETHOS_CHAOTIC ? "chaotic" : "none",
+		buf2,
 		can_flee ? "Wimpy" : "Death",
 		can_flee ? ch->wimpy : ch->pcdata->death);
 
 	snprintf(buf2, sizeof(buf2), "%s %s.",
 		 GETMSG("You are", ch->lang),
 		 GETMSG(flag_string(position_names, ch->position), ch->lang));
-	buf_printf(output, "     {G| {RHome :  {x%-29.29s {C|{x %-23.23s {G|{x\n",
+	buf_printf(output, "     {G| {RHome : {x%-31.31s {C|{x %-22.22s {G|{x\n",
 		IS_NPC(ch) ? "Midgaard" : hometown_table[ch->hometown].name,
 		buf2);
 
@@ -3204,13 +3216,13 @@ DO_FUN(do_oscore)
 		buf_add(output, "neutral.");
 
 	switch (ch->ethos) {
-	case 1:
+	case ETHOS_LAWFUL:
 		buf_add(output, "  You have a lawful ethos.\n");
 		break;
-	case 2:
+	case ETHOS_NEUTRAL:
 		buf_add(output, "  You have a neutral ethos.\n");
 		break;
-	case 3:
+	case ETHOS_CHAOTIC:
 		buf_add(output, "  You have a chaotic ethos.\n");
 		break;
 	default:

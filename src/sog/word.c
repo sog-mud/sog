@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: word.c,v 1.19 1999-02-22 04:27:40 fjoe Exp $
+ * $Id: word.c,v 1.20 1999-02-23 22:06:50 fjoe Exp $
  */
 
 #include <limits.h>
@@ -169,7 +169,7 @@ const char* word_form_lookup(varr *hash, const char *word, int num)
 		const char *r;
 
 		/* copy prefix */
-		strnzcpy(buf2, word, UMIN(q-word+1, sizeof(buf2)));
+		strnzncpy(buf2, sizeof(buf2), word, q-word);
 
 		/*
 		 * translate infix, translation must be done
@@ -179,18 +179,18 @@ const char* word_form_lookup(varr *hash, const char *word, int num)
 		r = strchr(q+1, '~');
 		if (!r)
 			r = strchr(q+1, '\0');
-		strnzcpy(buf3, q+1, UMIN(*r ? r-q : r-q+1, sizeof(buf3)));
-		strnzcat(buf2, word_form_lookup(hash, buf3, num), sizeof(buf2));
+		strnzncpy(buf3, sizeof(buf3), q+1, *r ? r-q-1 : r-q);
+		strnzcat(buf2, sizeof(buf2), word_form_lookup(hash, buf3, num));
 
 		/* translate the rest */
 		if (*r) {
-			strnzcpy(buf3, word_form_lookup(hash, r+1, num),
-				 sizeof(buf3));
-			strnzcpy(buf, buf2, sizeof(buf));
-			strnzcat(buf, buf3, sizeof(buf));
+			strnzcpy(buf3, sizeof(buf3),
+				 word_form_lookup(hash, r+1, num));
+			strnzcpy(buf, sizeof(buf), buf2);
+			strnzcat(buf, sizeof(buf), buf3);
 		}
 		else
-			strnzcpy(buf, buf2, sizeof(buf));
+			strnzcpy(buf, sizeof(buf), buf2);
 
 		return buf;
 	}
@@ -203,8 +203,8 @@ const char* word_form_lookup(varr *hash, const char *word, int num)
 	if (!w->base_len || **p != '-')
 		return *p;
 
-	strnzcpy(buf, word, sizeof(buf));
-	strnzcpy(buf + w->base_len, *p + 1, sizeof(buf) - w->base_len);
+	strnzcpy(buf, sizeof(buf), word);
+	strnzcpy(buf + w->base_len, sizeof(buf) - w->base_len, *p + 1);
 	return buf;
 }
 

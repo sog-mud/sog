@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.160 1999-02-21 19:19:26 fjoe Exp $
+ * $Id: merc.h,v 1.161 1999-02-23 22:06:46 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1062,12 +1062,10 @@ enum {
 #define POS_FIGHTING		      7
 #define POS_STANDING		      8
 
-enum {
-	ETHOS_NONE,
-	ETHOS_LAWFUL,
-	ETHOS_NEUTRAL,
-	ETHOS_CHAOTIC
-};
+#define ETHOS_NONE	0
+#define ETHOS_LAWFUL	(A)
+#define ETHOS_NEUTRAL	(B)
+#define ETHOS_CHAOTIC	(C)
 
 /*
  * ACT bits for players.
@@ -1819,7 +1817,6 @@ extern		ROOM_INDEX_DATA   *	top_affected_room;
 extern		char			bug_buf 	[];
 extern		time_t			current_time;
 extern		bool			fLogAll;
-extern		FILE *			fpReserve;
 extern		KILL_DATA		kill_table	[];
 extern		char			log_buf 	[];
 extern		TIME_INFO_DATA		time_info;
@@ -1863,6 +1860,7 @@ void	sand_effect	(void *vo, int level, int dam, int target);
 void	scream_effect	(void *vo, int level, int dam, int target);
 
 /* handler.c */
+const char *get_stat_alias(CHAR_DATA *ch, int stat);
 AFFECT_DATA	*affect_find (AFFECT_DATA *paf, int sn);
 void	affect_check	(CHAR_DATA *ch, int where, flag64_t vector);
 int	count_users	(OBJ_DATA *obj);

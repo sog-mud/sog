@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mlstring.c,v 1.32 1999-02-20 12:54:30 fjoe Exp $
+ * $Id: mlstring.c,v 1.33 1999-02-23 22:06:46 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -461,11 +461,11 @@ static char *fix_mlstring(const char *s)
 	s = fix_string(s);
 	while((p = strchr(s, '@')) != NULL) {
 		*p = '\0';
-		strnzcat(buf, s, sizeof(buf));
-		strnzcat(buf, "@@", sizeof(buf));
+		strnzcat(buf, sizeof(buf), s);
+		strnzcat(buf, sizeof(buf), "@@");
 		s = p+1;
 	}
-	strnzcat(buf, s, sizeof(buf));
+	strnzcat(buf, sizeof(buf), s);
 	return buf;
 }
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_form.c,v 1.20 1999-02-22 13:30:29 fjoe Exp $
+ * $Id: olc_form.c,v 1.21 1999-02-23 22:06:50 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -259,7 +259,7 @@ OLC_FUN(formed_show)
 		    ch->desc->editor == ED_QTY ?	"qty" :
 							"unknown");
 
-	strnzcpy(buf, w->name, UMIN(w->base_len+1, sizeof(buf)));
+	strnzncpy(buf, sizeof(buf), w->name, w->base_len);
 	char_printf(ch, "Base: [%s] (%d)\n", buf, w->base_len);
 
 	for (i = 0; i < w->f.nused; i++) {

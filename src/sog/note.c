@@ -1,5 +1,5 @@
 /*
- * $Id: note.c,v 1.47 1999-02-19 19:35:01 fjoe Exp $
+ * $Id: note.c,v 1.48 1999-02-23 22:06:46 fjoe Exp $
  */
 
 /***************************************************************************
@@ -234,14 +234,12 @@ void save_notes(int type)
 		break;
 	}
 
-	if ((fp = dfopen(NOTES_PATH, name, "w")) == NULL) {
-		perror(name);
+	if ((fp = dfopen(NOTES_PATH, name, "w")) == NULL)
 		return;
-	}
 
 	for (; pnote; pnote = pnote->next) 
 		fwrite_note(fp, pnote);
-	fclose(fp);
+	dfclose(fp);
 }
 
 void load_notes(void)
@@ -273,7 +271,7 @@ void load_thread(char *name, NOTE_DATA **list, int type, time_t free_time)
 	    letter = getc(fp);
             if (feof(fp))
             {
-                fclose(fp);
+                dfclose(fp);
                 return;
             }
         }
@@ -364,14 +362,10 @@ void append_note(NOTE_DATA *pnote)
 			last->next = pnote;
 	}
 
-	fclose(fpReserve);
-	if ((fp = dfopen(NOTES_PATH, name, "a")) == NULL) {
-        	perror(name);
+	if ((fp = dfopen(NOTES_PATH, name, "a")) == NULL) 
 		return;
-	}
 	fwrite_note(fp, pnote);
-        fclose(fp);
-	fpReserve = fopen(NULL_FILE, "r");
+        dfclose(fp);
 }
 
 bool is_note_to(CHAR_DATA *ch, NOTE_DATA *pnote)
@@ -449,8 +443,8 @@ void note_remove(CHAR_DATA *ch, NOTE_DATA *pnote, bool delete)
     	    to_list	= one_argument(to_list, to_one, sizeof(to_one));
     	    if (to_one[0] != '\0' && str_cmp(ch->name, to_one))
 	    {
-	        strnzcat(to_new, " ", sizeof(to_new));
-	        strnzcat(to_new, to_one, sizeof(to_new));
+	        strnzcat(to_new, sizeof(to_new), " ");
+	        strnzcat(to_new, sizeof(to_new), to_one);
 	    }
         }
         /* Just a simple recipient removal? */

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: race.h,v 1.3 1999-02-15 18:19:41 fjoe Exp $
+ * $Id: race.h,v 1.4 1999-02-23 22:06:47 fjoe Exp $
  */
 
 #ifndef _RACE_H_
@@ -41,6 +41,7 @@ struct race_data
 	flag32_t	vuln;		/* vuln bits			*/
 	flag32_t	form;		/* default form flag		*/
 	flag32_t	parts;		/* default body parts		*/
+	flag32_t	flags;		/* race flags			*/
 	RACE_PCDATA *	pcdata;		/* additional data for pc races */
 };
 
@@ -59,8 +60,8 @@ struct race_pcdata
 	int 	mana_bonus;		/* initial mana bonus		*/
 	int 	prac_bonus;		/* initial practice bonus	*/
 	int	slang;			/* spoken language		*/
-	int	restrict_align;		/* alignment restrictions	*/
-	int	restrict_sex;		/* sex restrictions		*/
+	flag32_t	restrict_align;	/* alignment restrictions	*/
+	flag32_t	restrict_ethos;	/* ethos restrictions		*/
 	const char *restrict_hometown;	/* hometown restrictions	*/
 };
 

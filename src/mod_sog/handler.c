@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.121 1999-02-21 19:19:24 fjoe Exp $
+ * $Id: handler.c,v 1.122 1999-02-23 22:06:44 fjoe Exp $
  */
 
 /***************************************************************************
@@ -644,12 +644,12 @@ void cat_name(char *buf, const char *name, size_t len)
 	bool have_spaces = strpbrk(name, " \t") != NULL;
 
 	if (buf[0])
-		strnzcat(buf, " ", len);
+		strnzcat(buf, len, " ");
 	if (have_spaces)
-		strnzcat(buf, "'", len);
-	strnzcat(buf, name, len);
+		strnzcat(buf, len, "'");
+	strnzcat(buf, len, name);
 	if (have_spaces)
-		strnzcat(buf, "'", len);
+		strnzcat(buf, len, "'");
 }
 
 /* 
@@ -2192,7 +2192,7 @@ CHAR_DATA *get_char_spell(CHAR_DATA *ch, const char *argument,
 		return get_char_room(ch, argument);
 	}
 
-	strnzcpy(buf, argument, UMIN(p-argument+1, sizeof(buf)));
+	strnzncpy(buf, sizeof(buf), argument, p-argument);
 	if ((*door = check_exit(buf)) < 0)
 		return get_char_room(ch, argument);
 
@@ -2444,8 +2444,8 @@ money_form(int lang, char *buf, size_t len, int num, const char *name)
 	if (num < 0)
 		return;
 
-	strnzcpy(tmp, word_case(lang, GETMSG(name, lang), 1), sizeof(tmp));
-	strnzcpy(buf, word_quantity(lang, tmp, num), len);
+	strnzcpy(tmp, sizeof(tmp), word_case(lang, GETMSG(name, lang), 1));
+	strnzcpy(buf, len, word_quantity(lang, tmp, num));
 }
 
 struct _data {
@@ -2904,10 +2904,10 @@ void remove_mind(CHAR_DATA *ch, const char *str)
 		mind = one_argument(mind, arg, sizeof(arg));
 		if (!is_name(str,arg))  {
 			if (buf[0] == '\0')
-				strnzcpy(buf, arg, sizeof(buf));
+				strnzcpy(buf, sizeof(buf), arg);
 			else {
 				snprintf(buff, sizeof(buff), "%s %s", buf, arg);
-				strnzcpy(buf, buff, sizeof(buf));
+				strnzcpy(buf, sizeof(buf), buff);
 			}
 		}
 	}
@@ -3543,6 +3543,34 @@ bool pc_name_ok(const char *name)
 	return TRUE;
 }
 
+const char *stat_aliases[MAX_STATS][6] =
+{
+	{ "Titanic", "Herculian", "Strong", "Average", "Poor", "Weak"	},
+	{ "Genious", "Clever", "Good", "Average", "Poor", "Hopeless"	},
+	{ "Excellent", "Wise", "Good", "Average", "Dim", "Fool"		}, 	
+	{ "Fast", "Quick", "Dextrous", "Average", "Clumsy", "Slow"	},
+	{ "Iron", "Hearty", "Healthy", "Average", "Poor", "Fragile"	},
+	{ "Charismatic", "Familier", "Good", "Average", "Poor", "Mongol"}
+};
+
+const char *get_stat_alias(CHAR_DATA *ch, int stat)
+{
+	int val;
+	int i;
+
+	if (stat >= MAX_STATS)
+		return "Unknown";
+
+	val = get_curr_stat(ch, stat);
+	     if (val >  22)	i = 0;
+	else if (val >= 20)	i = 1;
+	else if (val >= 18)	i = 2;
+	else if (val >= 14)	i = 3;
+	else if (val >= 10)	i = 4;
+	else			i = 5;
+	return stat_aliases[stat][i];
+}
+	
 #ifdef WIN32
 void SET_ORG_RACE(CHAR_DATA *ch, int race)
 {

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: util.c,v 1.18 1999-02-17 18:58:04 fjoe Exp $
+ * $Id: util.c,v 1.19 1999-02-23 22:06:48 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -32,6 +32,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <time.h>
+#include <errno.h>
 #if !defined (WIN32)
 #include <unistd.h>
 #endif
@@ -57,11 +58,32 @@ void doprintf(DO_FUN *fn, CHAR_DATA* ch, const char* fmt, ...)
 	va_end(ap);
 }
 
+FILE *fpReserve;		/* Reserved file handle */
+
 FILE *dfopen(const char *dir, const char *file, const char *mode)
 {
 	char name[PATH_MAX];
+	FILE *f;
+
 	snprintf(name, sizeof(name), "%s%c%s", dir, PATH_SEPARATOR, file);
-	return fopen(name, mode);
+
+	if (fpReserve)
+		fclose(fpReserve);
+
+	if ((f = fopen(name, mode)) == NULL) {
+		log_printf("%s: %s", name, strerror(errno));
+		if (fpReserve && (fpReserve == fopen(NULL_FILE, "r")) == NULL)
+			log_printf("%s: %s", NULL_FILE, strerror(errno));
+	}
+	return f;
+}
+
+int dfclose(FILE *f)
+{
+	int res = fclose(f);
+	if (fpReserve && (fpReserve == fopen(NULL_FILE, "r")) == NULL)
+		log_printf("%s: %s", NULL_FILE, strerror(errno));
+	return res;
 }
 
 int dunlink(const char *dir, const char *file)

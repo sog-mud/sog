@@ -1,5 +1,5 @@
 /*
- * $Id: flag.c,v 1.21 1999-02-17 07:53:20 fjoe Exp $
+ * $Id: flag.c,v 1.22 1999-02-23 22:06:44 fjoe Exp $
  */
 
 /***************************************************************************
@@ -123,16 +123,16 @@ const char *flag_string(const FLAG *flag64_table, flag64_t bits)
 		switch (ttype) {
 		case TABLE_BITVAL:
 			if (IS_SET(bits, flag64_table[flag].bit)) {
-				strnzcat(buf[cnt], " ", BUFSZ);
-				strnzcat(buf[cnt], flag64_table[flag].name,
-					 BUFSZ);
+				strnzcat(buf[cnt], BUFSZ, " ");
+				strnzcat(buf[cnt], BUFSZ,
+					 flag64_table[flag].name);
 			}
 			break;
 
 		case TABLE_INTVAL:
 			if (flag64_table[flag].bit == bits) {
-				strnzcpy(buf[cnt], flag64_table[flag].name,
-					 BUFSZ);
+				strnzcpy(buf[cnt], BUFSZ,
+					 flag64_table[flag].name);
 				return buf[cnt];
 			}
 			break;

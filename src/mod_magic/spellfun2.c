@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.87 1999-02-23 12:29:51 kostik Exp $
+ * $Id: spellfun2.c,v 1.88 1999-02-23 22:06:45 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2454,7 +2454,7 @@ cb_strip(int lang, const char **p, void *arg)
 	||  (q = strstr(r, "%s")) == NULL)
 		return;
 
-	strnzcpy(buf, r, UMIN(q-r+1, sizeof(buf)));
+	strnzncpy(buf, sizeof(buf), r, q-r);
 	if (!str_prefix(buf, *p)) {
 		const char *s = strdup(*p + strlen(buf));
 		free_string(*p);

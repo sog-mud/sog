@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act.c,v 1.12 1999-02-20 17:41:08 fjoe Exp $
+ * $Id: act.c,v 1.13 1999-02-23 22:06:49 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -98,7 +98,7 @@ static char *translate(CHAR_DATA *ch, CHAR_DATA *victim, const char *i)
 			snprintf(trans, sizeof(trans), "[%s] %s",
 				 flag_string(slang_table, ch->slang), i);
 		else
-			strnzcpy(trans, i, sizeof(trans));
+			strnzcpy(trans, sizeof(trans), i);
 		return trans;
 	}
 
@@ -317,8 +317,9 @@ static void act_raw(CHAR_DATA *ch, CHAR_DATA *to,
 					break;
 				}
 
-				strnzcpy(tstack[sp].p, tr,
-					 sizeof(buf) - (tstack[sp].p - buf));
+				strnzcpy(tstack[sp].p, 
+					 sizeof(buf) - (tstack[sp].p - buf),
+					 tr);
 				point = strchr(tstack[sp].p, '\0');
 			}
 

@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.149 1999-02-21 19:19:21 fjoe Exp $
+ * $Id: act_comm.c,v 1.150 1999-02-23 22:06:41 fjoe Exp $
  */
 
 /***************************************************************************
@@ -432,14 +432,14 @@ void do_pmote(CHAR_DATA *ch, const char *argument)
 			continue;
 		}
 
-		strnzcpy(temp, argument, sizeof(temp));
+		strnzcpy(temp, sizeof(temp), argument);
 		temp[strlen(argument) - strlen(letter)] = '\0';
 		last[0] = '\0';
 		name = vch->name;
 	
 		for (; *letter != '\0'; letter++) { 
 			if (*letter == '\'' && matches == strlen(vch->name)) {
-				strnzcat(temp, "r", sizeof(temp));
+				strnzcat(temp, sizeof(temp), "r");
 				continue;
 			}
 
@@ -455,18 +455,18 @@ void do_pmote(CHAR_DATA *ch, const char *argument)
 				matches++;
 				name++;
 				if (matches == strlen(vch->name)) {
-					strnzcat(temp, "you", sizeof(temp));
+					strnzcat(temp, sizeof(temp), "you");
 					last[0] = '\0';
 					name = vch->name;
 					continue;
 				}
-				strnzncat(last, letter, sizeof(last), 1);
+				strnzncat(last, sizeof(last), letter, 1);
 				continue;
 			}
 
 			matches = 0;
-			strnzcat(temp, last, sizeof(temp));
-			strnzncat(temp, letter, sizeof(temp), 1);
+			strnzcat(temp, sizeof(temp), last);
+			strnzncat(temp, sizeof(temp), letter, 1);
 			last[0] = '\0';
 			name = vch->name;
 		}

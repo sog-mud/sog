@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.31 1999-02-21 19:19:28 fjoe Exp $
+ * $Id: db_area.c,v 1.32 1999-02-23 22:06:49 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1558,8 +1558,8 @@ DBLOAD_FUN(load_omprogs)
 	    
         case 'O':
 	    pObjIndex = get_obj_index (fread_number (fp));
-	    strnzcpy(progtype, fread_word(fp), sizeof(progtype));
-	    strnzcpy(progname, fread_word(fp), sizeof(progname));
+	    strnzcpy(progtype, sizeof(progtype), fread_word(fp));
+	    strnzcpy(progname, sizeof(progname), fread_word(fp));
 	    oprog_set(pObjIndex, progtype, progname);
 	    break;
 	

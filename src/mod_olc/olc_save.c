@@ -1,5 +1,5 @@
 /*
- * $Id: olc_save.c,v 1.59 1999-02-19 18:49:38 fjoe Exp $
+ * $Id: olc_save.c,v 1.60 1999-02-23 22:06:50 fjoe Exp $
  */
 
 /**************************************************************************
@@ -57,17 +57,14 @@ void save_area_list()
 	FILE *fp;
 	AREA_DATA *pArea;
 
-	if ((fp = dfopen(AREA_PATH, AREA_LIST, "w")) == NULL) {
-		bug("Save_area_list: fopen", 0);
-		perror(AREA_LIST);
+	if ((fp = dfopen(AREA_PATH, AREA_LIST, "w")) == NULL)
 		return;
-	}
 
 	for (pArea = area_first; pArea; pArea = pArea->next)
 		fprintf(fp, "%s\n", pArea->file_name);
 
 	fprintf(fp, "$\n");
-	fclose(fp);
+	dfclose(fp);
 }
 
 void save_mobprogs(FILE *fp, AREA_DATA *pArea)
@@ -874,12 +871,8 @@ void save_area(AREA_DATA *pArea)
 	FILE *fp;
 	int flags;
 
-	fclose(fpReserve);
-	if ((fp = dfopen(AREA_PATH, pArea->file_name, "w")) == NULL) {
-		bug("Open_area: fopen", 0);
-		perror(pArea->file_name);
+	if ((fp = dfopen(AREA_PATH, pArea->file_name, "w")) == NULL)
 		return;
-	}
 
 	fprintf(fp, "#AREADATA\n");
 	fprintf(fp, "Name %s~\n",	pArea->name);
@@ -914,8 +907,7 @@ void save_area(AREA_DATA *pArea)
 
 	fprintf(fp, "#$\n");
 
-	fclose(fp);
-	fpReserve = fopen(NULL_FILE, "r");
+	dfclose(fp);
 }
 
 void save_skills()
@@ -928,8 +920,7 @@ void save_clan(CHAR_DATA *ch, CLAN_DATA *clan)
 	FILE *fp;
 
 /* save clan data */
-	fp = dfopen(CLANS_PATH, clan->file_name, "w");
-	if (fp == NULL) {
+	if ((fp = dfopen(CLANS_PATH, clan->file_name, "w")) == NULL) {
 		save_print(ch, "%s%c%s: %s",
 			   CLANS_PATH, PATH_SEPARATOR, clan->file_name,
 			   strerror(errno));
@@ -965,11 +956,10 @@ void save_clan(CHAR_DATA *ch, CLAN_DATA *clan)
 
 	fprintf(fp, "End\n\n"
 		    "#$\n");
-	fclose(fp);
+	dfclose(fp);
 
 /* save plists */
-	fp = dfopen(PLISTS_PATH, clan->file_name, "w");
-	if (fp == NULL) {
+	if ((fp = dfopen(PLISTS_PATH, clan->file_name, "w")) == NULL) {
 		save_print(ch, "%s%c%s: %s", PLISTS_PATH,
 			   PATH_SEPARATOR, clan->file_name,
 			   strerror(errno));
@@ -984,7 +974,7 @@ void save_clan(CHAR_DATA *ch, CLAN_DATA *clan)
 
 	fprintf(fp, "End\n\n"
 		    "#$\n");
-	fclose(fp);
+	dfclose(fp);
 
 	save_print(ch, "    %s (%s)", clan->name, clan->file_name);
 }
@@ -1001,9 +991,9 @@ void save_clans(CHAR_DATA *ch)
 		return;
 	}
 
-	fp = dfopen(CLANS_PATH, CLAN_LIST, "w");
-	if (fp == NULL) {
-		save_print(ch, "%s%c%s: %s", CLANS_PATH, PATH_SEPARATOR, CLAN_LIST,
+	if ((fp = dfopen(CLANS_PATH, CLAN_LIST, "w")) == NULL) {
+		save_print(ch, "%s%c%s: %s",
+			   CLANS_PATH, PATH_SEPARATOR, CLAN_LIST,
 			   strerror(errno));
 		return;
 	}
@@ -1019,7 +1009,7 @@ void save_clans(CHAR_DATA *ch)
 	}
 
 	fprintf(fp, "$\n");
-	fclose(fp);
+	dfclose(fp);
 
 	if (!found)
 		save_print(ch, "    None.");
@@ -1036,9 +1026,9 @@ void save_msgdb(CHAR_DATA *ch)
 		return;
 	}
 
-	fp = dfopen(ETC_PATH, MSG_FILE, "w");
-	if (fp == NULL) {
-		save_print(ch, "%s%c%s: %s", ETC_PATH, PATH_SEPARATOR, MSG_FILE,
+	if ((fp = dfopen(ETC_PATH, MSG_FILE, "w")) == NULL) {
+		save_print(ch, "%s%c%s: %s",
+			   ETC_PATH, PATH_SEPARATOR, MSG_FILE,
 			   strerror(errno));
 		return;
 	}
@@ -1056,7 +1046,7 @@ void save_msgdb(CHAR_DATA *ch)
 	}
 
 	fprintf(fp, "$~\n");
-	fclose(fp);
+	dfclose(fp);
 	save_print(ch, "Msgdb saved.");
 }
 
@@ -1088,9 +1078,9 @@ bool save_words(CHAR_DATA *ch, const char *filename, varr *hash)
 		return FALSE;
 	}
 
-	fp = dfopen(LANG_PATH, filename, "w");
-	if (fp == NULL) {
-		save_print(ch, "%s%c%s: %s", LANG_PATH, PATH_SEPARATOR, filename,
+	if ((fp = dfopen(LANG_PATH, filename, "w")) == NULL) {
+		save_print(ch, "%s%c%s: %s",
+			   LANG_PATH, PATH_SEPARATOR, filename,
 			   strerror(errno));
 		return FALSE;
 	}
@@ -1105,7 +1095,7 @@ bool save_words(CHAR_DATA *ch, const char *filename, varr *hash)
 	}
 
 	fprintf(fp, "#$\n");
-	fclose(fp);
+	dfclose(fp);
 	return TRUE;
 }
 
@@ -1121,9 +1111,9 @@ bool save_lang(CHAR_DATA *ch, LANG_DATA *l)
 		return FALSE;
 	}
 
-	fp = dfopen(LANG_PATH, l->file_name, "w");
-	if (fp == NULL) {
-		save_print(ch, "%s%c%s: %s", LANG_PATH, PATH_SEPARATOR, l->file_name,
+	if ((fp = dfopen(LANG_PATH, l->file_name, "w")) == NULL) {
+		save_print(ch, "%s%c%s: %s",
+			   LANG_PATH, PATH_SEPARATOR, l->file_name,
 			   strerror(errno));
 		return FALSE;
 	}
@@ -1141,7 +1131,7 @@ bool save_lang(CHAR_DATA *ch, LANG_DATA *l)
 	fwrite_string(fp, "QtysFile", l->file_qtys);
 	fprintf(fp, "End\n\n"
 		    "#$\n");
-	fclose(fp);
+	dfclose(fp);
 	return TRUE;
 }
 
@@ -1187,7 +1177,8 @@ void save_langs(CHAR_DATA *ch)
 		FILE *fp;
 
 		if ((fp = dfopen(LANG_PATH, LANG_LIST, "w")) == NULL) {
-			save_print(ch, "%s%c%s: %s", LANG_PATH, PATH_SEPARATOR, LANG_LIST,
+			save_print(ch, "%s%c%s: %s",
+				   LANG_PATH, PATH_SEPARATOR, LANG_LIST,
 				   strerror(errno));
 			return;
 		}
@@ -1197,7 +1188,7 @@ void save_langs(CHAR_DATA *ch)
 			fprintf(fp, "%s\n", l->file_name);
 		}
 		fprintf(fp, "$\n");
-		fclose(fp);
+		dfclose(fp);
 	}
 }
 
@@ -1229,8 +1220,7 @@ void save_socials(CHAR_DATA *ch)
 		return;
 	}
 
-	fp = dfopen(ETC_PATH, SOCIALS_CONF, "w");
-	if (fp == NULL) {
+	if ((fp = dfopen(ETC_PATH, SOCIALS_CONF, "w")) == NULL) {
 		save_print(ch, "%s%c%s: %s",
 			   ETC_PATH, PATH_SEPARATOR, SOCIALS_CONF,
 			   strerror(errno));
@@ -1243,7 +1233,7 @@ void save_socials(CHAR_DATA *ch)
 	}
 
 	fprintf(fp, "#$\n");
-	fclose(fp);
+	dfclose(fp);
 	save_print(ch, "Socials saved.");
 }
 

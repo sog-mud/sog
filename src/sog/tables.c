@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.46 1999-02-19 18:48:53 fjoe Exp $
+ * $Id: tables.c,v 1.47 1999-02-23 22:06:47 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1043,7 +1043,7 @@ FLAG lang_flags[] =
 
 FLAG ethos_table[] =
 {
-	{ "",			TABLE_INTVAL			},
+	{ "",			TABLE_BITVAL			},
 
 	{ "lawful",		ETHOS_LAWFUL,		TRUE	},
 	{ "neutral",		ETHOS_NEUTRAL,		TRUE	},

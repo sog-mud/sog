@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.127 1999-02-23 07:55:32 kostik Exp $
+ * $Id: act_wiz.c,v 1.128 1999-02-23 22:06:43 fjoe Exp $
  */
 
 /***************************************************************************
@@ -114,7 +114,7 @@ void do_objlist(CHAR_DATA *ch, const char *argument)
 		fprintf(fp, "%s", fix_string(buf_string(buf)));
 	}
 	buf_free(buf);
-	fclose(fp);
+	dfclose(fp);
 }
 
 void do_limited(CHAR_DATA *ch, const char *argument)
@@ -431,14 +431,14 @@ void do_smote(CHAR_DATA *ch, const char *argument)
 			continue;
 		}
 
-		strnzcpy(temp, argument, sizeof(temp));
+		strnzcpy(temp, sizeof(temp), argument);
 		temp[strlen(argument) - strlen(letter)] = '\0';
 		last[0] = '\0';
 		name = vch->name;
 
 		for (; *letter != '\0'; letter++) {
 			if (*letter == '\'' && matches == strlen(vch->name)) {
-				strnzcat(temp, "r", sizeof(temp));
+				strnzcat(temp, sizeof(temp), "r");
 				continue;
 			}
 
@@ -454,18 +454,18 @@ void do_smote(CHAR_DATA *ch, const char *argument)
 				matches++;
 				name++;
 				if (matches == strlen(vch->name)) {
-					strnzcat(temp, "you", sizeof(temp));
+					strnzcat(temp, sizeof(temp), "you");
 					last[0] = '\0';
 					name = vch->name;
 					continue;
 				}
-				strnzncat(last, letter, sizeof(last), 1);
+				strnzncat(last, sizeof(last), letter, 1);
 				continue;
 			}
 
 			matches = 0;
-			strnzcat(temp, last, sizeof(temp));
-			strnzncat(temp, letter, sizeof(temp), 1);
+			strnzcat(temp, sizeof(temp), last);
+			strnzncat(temp, sizeof(temp), letter, 1);
 			last[0] = '\0';
 			name = vch->name;
 		}
@@ -1749,7 +1749,7 @@ void do_shutdown(CHAR_DATA *ch, const char *argument)
 					    strerror(errno));
 				return;
 			}
-			fclose(fp);
+			dfclose(fp);
 			wiznet("$N has activated shutdown", ch, NULL, 0, 0, 0);
 			char_puts("Shutdown activated.\n", ch);
 		}
@@ -2696,7 +2696,7 @@ void do_string(CHAR_DATA *ch, const char *argument)
 	argument = one_argument(argument, type, sizeof(type));
 	argument = one_argument(argument, arg1, sizeof(arg1));
 	argument = one_argument(argument, arg2, sizeof(arg2));
-	strnzcpy(arg3, argument, sizeof(arg3));
+	strnzcpy(arg3, sizeof(arg3), argument);
 
 	if (type[0] == '\0' || arg1[0] == '\0'
 	||  arg2[0] == '\0' || arg3[0] == '\0') {
@@ -4060,7 +4060,6 @@ void do_rename(CHAR_DATA* ch, const char *argument)
 
 	CHAR_DATA *victim;
 	CLAN_DATA *clan;
-	FILE* file;
 		
 	argument = first_arg(argument, old_name, sizeof(old_name), FALSE); 
 		   first_arg(argument, new_name, sizeof(new_name), FALSE);
@@ -4135,26 +4134,18 @@ void do_rename(CHAR_DATA* ch, const char *argument)
 
 		/* check pfile */
 		file_name = capitalize(new_name);
-		fclose(fpReserve); 
-		file = dfopen (PLAYER_PATH, file_name, "r"); 
-		if (file) {
-			fclose(file);
-			fpReserve = fopen(NULL_FILE, "r"); 
-			char_puts("A player with that name already exists!\n",ch);
+		if (dfexist(PLAYER_PATH, file_name)) {
+			char_puts("A player with that name already exists!\n",
+				  ch);
 			return;		
 		}
 
 		/* check .gz pfile */
-		snprintf(strsave, sizeof(strsave), "%s%s.gz",
-			 PLAYER_PATH, file_name);
-		file = dfopen(PLAYER_PATH, strsave, "r"); 
-		if (file) {
+		snprintf(strsave, sizeof(strsave), "%s.gz", file_name);
+		if (dfexist(PLAYER_PATH, strsave)) {
 			char_puts ("A player with that name already exists in a compressed file!\n",ch);
-			fclose (file);
-			fpReserve = fopen(NULL_FILE, "r"); 
 			return;		
 		}
-		fpReserve = fopen(NULL_FILE, "r");  
 
 		/* change object owners */
 		for (obj = object_list; obj; obj = obj->next)

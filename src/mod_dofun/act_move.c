@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.149 1999-02-23 14:13:14 fjoe Exp $
+ * $Id: act_move.c,v 1.150 1999-02-23 22:06:42 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3399,23 +3399,23 @@ char *find_way(CHAR_DATA *ch,ROOM_INDEX_DATA *rstart, ROOM_INDEX_DATA *rend)
 
 		if ((direction = find_path(rstart->vnum, rend->vnum,
 					   ch, -40000, 0)) == -1) {
-			strnzcat(buf," BUGGY", sizeof(buf));
+			strnzcat(buf, sizeof(buf), " BUGGY");
 			return buf;
 		}
 
 		if (direction < 0 || direction > 5) {
-			strnzcat(buf," VERY BUGGY", sizeof(buf));
+			strnzcat(buf, sizeof(buf), " VERY BUGGY");
 			return buf;
 		}
 
 		buf2[0] = dir_name[direction][0];
 		buf2[1] = '\0';
-		strnzcat(buf, buf2, sizeof(buf));
+		strnzcat(buf, sizeof(buf), buf2);
 
 		/* find target room */
 		pExit = rstart->exit[ direction ];
 		if (!pExit)  {
-			strnzcat(buf, " VERY VERY BUGGY", sizeof(buf));
+			strnzcat(buf, sizeof(buf), " VERY VERY BUGGY");
 			return buf;
 		}
 		else

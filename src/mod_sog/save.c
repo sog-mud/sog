@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.103 1999-02-23 19:32:49 fjoe Exp $
+ * $Id: save.c,v 1.104 1999-02-23 22:06:47 fjoe Exp $
  */
 
 /***************************************************************************
@@ -128,42 +128,30 @@ void save_char_obj(CHAR_DATA * ch, bool reboot)
 		ch = ch->desc->original;
 
 	name = capitalize(ch->name);
+
 	/* create god log */
 	if (IS_IMMORTAL(ch)) {
-		fclose(fpReserve);
-		if ((fp = dfopen(GODS_PATH, name, "w")) == NULL) {
-			bug("Save_char_obj: fopen", 0);
-			perror(ch->name);
-		}
+		if ((fp = dfopen(GODS_PATH, name, "w")) == NULL)
+			return;
 		fprintf(fp, "Lev %2d %s%s\n",
 		      ch->level, ch->name, ch->pcdata->title);
-		fclose(fp);
-		fpReserve = fopen(NULL_FILE, "r");
-		if (fpReserve == NULL)
-			bug("save_char_obj: Can't open null file.", 0);
+		dfclose(fp);
+	}
 
-	}
-	fclose(fpReserve);
-	if ((fp = dfopen(PLAYER_PATH, TMP_FILE, "w")) == NULL) {
-		bug("Save_char_obj: fopen", 0);
-		perror(TMP_FILE);
+	if ((fp = dfopen(PLAYER_PATH, TMP_FILE, "w")) == NULL)
 		return;
-	}
-	else {
-		act_puts("Saving.", ch, NULL, NULL, TO_CHAR, POS_DEAD);
-		fwrite_char(ch, fp, reboot);
-		if (ch->carrying != NULL)
-			fwrite_obj(ch, ch->carrying, fp, 0);
-		/* save the pets */
-		if (ch->pet != NULL && ch->pet->in_room == ch->in_room)
-			fwrite_pet(ch->pet, fp);
-		fprintf(fp, "#END\n");
-	}
-	fclose(fp);
+
+	act_puts("Saving.", ch, NULL, NULL, TO_CHAR, POS_DEAD);
+	fwrite_char(ch, fp, reboot);
+	if (ch->carrying)
+		fwrite_obj(ch, ch->carrying, fp, 0);
+
+	/* save the pets */
+	if (ch->pet && ch->pet->in_room == ch->in_room)
+		fwrite_pet(ch->pet, fp);
+	fprintf(fp, "#END\n");
+	dfclose(fp);
 	d2rename(PLAYER_PATH, TMP_FILE, PLAYER_PATH, name);
-	fpReserve = fopen(NULL_FILE, "r");
-	if (fpReserve == NULL)
-		bug("save_char_obj: Can't open null file.", 0);
 }
 
 /*
@@ -182,7 +170,7 @@ fwrite_char(CHAR_DATA * ch, FILE * fp, bool reboot)
 	fprintf(fp, "Id   %d\n", ch->id);
 	fprintf(fp, "LogO %ld\n", current_time);
 	fprintf(fp, "Vers %d\n", 6);
-	fprintf(fp, "Etho %d\n", ch->ethos);
+	fprintf(fp, "Ethos %s\n", flag_string(ethos_table, ch->ethos));
 	fprintf(fp, "Home %d\n", ch->hometown);
 
 	if (ch->clan) {
@@ -583,14 +571,13 @@ void load_char_obj(DESCRIPTOR_DATA * d, const char *name)
 	ch->pcdata->condition[COND_DESIRE] = 48;
 
 	found = FALSE;
-	fclose(fpReserve);
 
 	name = capitalize(name);
-	snprintf(filename, sizeof(filename), "%s%c%s.gz", PLAYER_PATH, PATH_SEPARATOR, name);
-	if ((fp = fopen(filename, "r")) != NULL) {
+	snprintf(filename, sizeof(filename), "%s.gz", name);
+	if (dfexist(PLAYER_PATH, filename)) {
 		char buf[PATH_MAX * 2];
-		fclose(fp);
-		snprintf(buf, sizeof(buf), "gzip -dfq %s", filename);
+		snprintf(buf, sizeof(buf), "gzip -dfq %s%c%s",
+			 PLAYER_PATH, PATH_SEPARATOR, filename);
 		system(buf);
 	}
 	if ((fp = dfopen(PLAYER_PATH, name, "r")) != NULL) {
@@ -627,12 +614,8 @@ void load_char_obj(DESCRIPTOR_DATA * d, const char *name)
 				break;
 			}
 		}
-		fclose(fp);
+		dfclose(fp);
 	}
-
-	fpReserve = fopen(NULL_FILE, "r");
-	if (fpReserve == NULL)
-		bug("load_char: Can't open null file.", 0);
 
 	/* initialize race */
 	if (found) {
@@ -906,7 +889,8 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 			}
 			KEY("Exp", ch->exp, fread_number(fp));
 			KEY("ExpTL", ch->exp_tl, fread_number(fp));
-			KEY("Etho", ch->ethos, fread_number(fp));
+			KEY("Etho", ch->ethos, (1 << (fread_number(fp)-1)));
+			KEY("Ethos", ch->ethos, fread_fword(ethos_table, fp));
 			break;
 
 		case 'G':

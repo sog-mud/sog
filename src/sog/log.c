@@ -1,5 +1,5 @@
 /*
- * $Id: log.c,v 1.11 1999-02-16 16:41:34 fjoe Exp $
+ * $Id: log.c,v 1.12 1999-02-23 22:06:45 fjoe Exp $
  */
 
 /***************************************************************************
@@ -78,11 +78,10 @@ void log_printf(const char *format, ...)
 
 #if defined (WIN32)
 	/* Also add to logfile */
-	logfile = fopen ("muddy.log", "a+b");
-	if (logfile!=NULL)
-	{
+	logfile = fopen("muddy.log", "a+b");
+	if (logfile) {
 		fprintf(logfile, "%s :: %s\n", strtime(current_time), buf);
-		fclose (logfile);
+		fclose(logfile);
 	}
 #endif
 }
