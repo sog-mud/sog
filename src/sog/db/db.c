@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.241 2001-06-18 15:03:35 fjoe Exp $
+ * $Id: db.c,v 1.242 2001-06-22 07:13:56 avn Exp $
  */
 
 /***************************************************************************
@@ -1073,8 +1073,7 @@ void reset_area(AREA_DATA *pArea)
 			reset_room(pRoom, 0);
 }
 
-static const char *
-cb_xxx_of(int lang, const char **p, va_list ap)
+static MLSTR_FOREACH_FUN(cb_xxx_of)
 {
 	mlstring *owner = va_arg(ap, mlstring *);
 	const char *q;
@@ -2271,10 +2270,11 @@ load_hints(void)
 	rfile_close(fp);
 }
 
-const char *GETMSG(const char *msg, int lang)
+const char *GETMSG(const char *msg, size_t lang)
 {
-	mlstring *ml = msg_lookup(msg);
-	if (ml == NULL)
+	mlstring *ml;
+
+	if (lang == 0 || (ml = msg_lookup(msg)) == NULL)
 		return msg;
 	return mlstr_val(ml, lang);
 }

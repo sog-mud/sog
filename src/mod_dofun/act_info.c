@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.373 2001-05-21 19:06:26 fjoe Exp $
+ * $Id: act_info.c,v 1.374 2001-06-22 07:13:34 avn Exp $
  */
 
 /***************************************************************************
@@ -1270,7 +1270,7 @@ void do_whois(CHAR_DATA *ch, const char *argument)
 
 		if (!str_prefix(arg, wch->name)) {
 			if (output == NULL)
-				output = buf_new(-1);
+				output = buf_new(0);
 			count++;
 			do_who_raw(ch, wch, output);
 		}
@@ -3307,7 +3307,7 @@ static void list_spells(flag_t type, CHAR_DATA *ch, const char *argument)
 			 pc_sk->sn, knowledge, skill_mana(ch, pc_sk->sn));
 			
 		if (list[lev] == NULL) {
-			list[lev] = buf_new(-1);
+			list[lev] = buf_new(0);
 			buf_printf(list[lev], BUF_END,
 				   "\nLevel %2d: %s", lev, buf);
 		} else
@@ -3328,7 +3328,7 @@ static void list_spells(flag_t type, CHAR_DATA *ch, const char *argument)
 		}
 	}
 	
-	output = buf_new(-1);
+	output = buf_new(0);
 	for (lev = 0; lev <= UMIN(ch->level, LEVEL_IMMORTAL); lev++)
 		if (list[lev] != NULL) {
 			buf_append(output, buf_string(list[lev]));
@@ -3380,7 +3380,7 @@ void do_skills(CHAR_DATA *ch, const char *argument)
 			pc_sk->sn, knowledge);
 
 		if (skill_list[lev] == NULL) {
-			skill_list[lev] = buf_new(-1);
+			skill_list[lev] = buf_new(0);
 			buf_printf(skill_list[lev], BUF_END,
 				   "\nLevel %2d: %s", lev, buf);
 		} else {
@@ -3399,7 +3399,7 @@ void do_skills(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 	
-	output = buf_new(-1);
+	output = buf_new(0);
 	for (lev = 0; lev <= UMIN(ch->level, LEVEL_IMMORTAL); lev++)
 		if (skill_list[lev] != NULL) {
 			buf_append(output, buf_string(skill_list[lev]));
@@ -4123,7 +4123,7 @@ static void show_list_to_char(OBJ_DATA *list, CHAR_DATA *ch,
 	/*
 	 * Alloc space for output lines.
 	 */
-	output = buf_new(-1);
+	output = buf_new(0);
 
 	count = 0;
 	for (obj = list; obj != NULL; obj = obj->next_content)
@@ -4221,7 +4221,7 @@ static void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 	if (is_affected(ch, "hallucination") && !IS_NPC(ch))
 		victim = nth_char(victim, PC(ch)->random_value);
 
-	output = buf_new(-1);
+	output = buf_new(0);
 	if (IS_NPC(victim)) {
 		if (!IS_NPC(ch) && PC(ch)->questmob > 0
 		&&  NPC(victim)->hunter == ch)
@@ -4752,7 +4752,7 @@ show_clanlist(CHAR_DATA *ch, clan_t *clan,
 	int cnt = 0;
 	CHAR_DATA *vch;
 
-	output = buf_new(-1);
+	output = buf_new(0);
 	buf_printf(output, BUF_END, "List of %s of %s:\n", name_list, clan->name);
 	buf_append(output, "Status   Level Race  Class   Ethos-align   Name\n");
 	buf_append(output, "-------- ----- ----- ----- --------------- -------------\n");	// notrans

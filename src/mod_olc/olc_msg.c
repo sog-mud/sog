@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_msg.c,v 1.49 2001-02-11 14:35:42 fjoe Exp $
+ * $Id: olc_msg.c,v 1.50 2001-06-22 07:13:45 avn Exp $
  */
 
 #include "olc.h"
@@ -203,7 +203,7 @@ OLC_FUN(msged_show)
 		}
 	}
 
-	output = buf_new(-1);
+	output = buf_new(0);
 	mlstr_dump(output, "Msg: ", mlp, DL_ALL);
 	page_to_char(buf_string(output), ch);
 	buf_free(output);
@@ -238,7 +238,7 @@ OLC_FUN(msged_list)
 		OLC_ERROR("'OLC ALIST'");
 	
 	argument = atomsg(argument);
-	output = buf_new(-1);
+	output = buf_new(0);
 	hash_foreach(&msgdb, msged_list_cb, atomsg(argument), &num, output);
 	if (num)
 		page_to_char(buf_string(output), ch);

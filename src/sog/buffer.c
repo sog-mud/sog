@@ -1,5 +1,5 @@
 /*
- * $Id: buffer.c,v 1.29 2001-06-20 06:37:43 avn Exp $
+ * $Id: buffer.c,v 1.30 2001-06-22 07:13:51 avn Exp $
  */
 
 /***************************************************************************
@@ -61,7 +61,7 @@
 struct buf_data
 {
 	BUFFER *	next;
-	int		lang;	/* buffer language, -1 == none */
+	size_t		lang;	/* buffer language, 0 is main lang */
 	size_t		size;	/* buffer size in bytes */
 	char *		string; /* buffer's string */
 };
@@ -80,7 +80,7 @@ static bool buf_copy(BUFFER *buffer, int where, const char *string);
 static size_t get_size (size_t val);
 
 BUFFER *
-buf_new(int lang)
+buf_new(size_t lang)
 {
 	BUFFER *buffer;
 
@@ -123,8 +123,7 @@ buf_prepend(BUFFER *buffer, const char *string)
 	if (IS_NULLSTR(string))
 		return TRUE;
 
-	return buf_copy(buffer, BUF_START, buffer->lang < 0 ?
-				string : GETMSG(string, buffer->lang));
+	return buf_copy(buffer, BUF_START, GETMSG(string, buffer->lang));
 }
 
 bool
@@ -133,8 +132,7 @@ buf_append(BUFFER *buffer, const char *string)
 	if (IS_NULLSTR(string))
 		return TRUE;
 
-	return buf_copy(buffer, BUF_END, buffer->lang < 0 ?
-				string : GETMSG(string, buffer->lang));
+	return buf_copy(buffer, BUF_END, GETMSG(string, buffer->lang));
 }
 
 bool
@@ -154,8 +152,7 @@ bool
 buf_vprintf(BUFFER *buffer, int where, const char *format, va_list ap)
 {
 	char buf[MAX_STRING_LENGTH];
-	vsnprintf(buf, sizeof(buf),
-		  buffer->lang < 0 ? format : GETMSG(format, buffer->lang), ap);
+	vsnprintf(buf, sizeof(buf), GETMSG(format, buffer->lang), ap);
 	return buf_copy(buffer, where, buf);
 }
 
@@ -167,7 +164,7 @@ buf_act3(BUFFER *buffer, int where, const char *format, CHAR_DATA *ch,
 	actopt_t opt;
 	char tmp[MAX_STRING_LENGTH];
 
-	opt.to_lang = UMAX(0, buffer->lang);
+	opt.to_lang = buffer->lang;
 	opt.act_flags = act_flags;
 
 	act_buf(format, ch, ch, arg1, arg2, arg3, &opt, tmp, sizeof(tmp));
@@ -188,7 +185,7 @@ buf_string(BUFFER *buffer)
 	return buffer->string;
 }
 
-int
+size_t
 buf_lang(BUFFER *buffer)
 {
 	return buffer->lang;

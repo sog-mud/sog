@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_cmd.c,v 1.15 2001-02-11 18:07:22 fjoe Exp $
+ * $Id: olc_cmd.c,v 1.16 2001-06-22 07:13:43 avn Exp $
  */
 
 #include "olc.h"
@@ -187,7 +187,7 @@ OLC_FUN(cmded_show)
 		}
 	}
 
-	output = buf_new(-1);
+	output = buf_new(0);
 
 	buf_printf(output, BUF_END,
 		   "[%3d]Name  [%s]\nDofun      [%s]\n",
@@ -223,7 +223,7 @@ OLC_FUN(cmded_list)
 	BUFFER *output;
 
 	one_argument(argument, arg, sizeof(arg));
-	output = buf_new(-1);
+	output = buf_new(0);
 
 	for (i = 0; i < commands.nused; i++) {
 		cmd_t *cmnd = (cmd_t*) VARR_GET(&commands, i);
@@ -422,7 +422,7 @@ static void check_shadow(CHAR_DATA *ch, const char *name)
 	int i;
 	bool found = FALSE;
 
-	output = buf_new(-1);
+	output = buf_new(0);
 
 	for (i = 0; i < socials.nused; i++) {
 		soc = (social_t *)VARR_GET(&socials, i);

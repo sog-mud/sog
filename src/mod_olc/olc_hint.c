@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_hint.c,v 1.2 2000-10-22 17:53:44 fjoe Exp $
+ * $Id: olc_hint.c,v 1.3 2001-06-22 07:13:44 avn Exp $
  */
 
 #include "olc.h"
@@ -153,7 +153,7 @@ OLC_FUN(hinted_show)
 		}
 	}
 
-	output = buf_new(-1);
+	output = buf_new(0);
 
 	buf_printf(output, BUF_END,
 		   "Level: [%s]\n",
@@ -170,7 +170,7 @@ OLC_FUN(hinted_list)
 {
 	BUFFER *output;
 
-	output = buf_new(-1);
+	output = buf_new(0);
 
 	varr_foreach(&hints, hint_list_cb, argument, output);
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_spec.c,v 1.8 2000-10-07 20:41:08 fjoe Exp $
+ * $Id: olc_spec.c,v 1.9 2001-06-22 07:13:48 avn Exp $
  */
 
 #include "olc.h"
@@ -170,7 +170,7 @@ OLC_FUN(speced_show)
 		}
 	}
 
-	output = buf_new(-1);
+	output = buf_new(0);
 	buf_printf(output, BUF_END, "Name:          [%s]\n", s->spec_name);
 	buf_printf(output, BUF_END, "Class:         [%s]   Flags: [%s]\n",
 			flag_string(spec_classes, s->spec_class),
@@ -192,7 +192,7 @@ OLC_FUN(speced_show)
 
 OLC_FUN(speced_list)
 {
-	BUFFER	*buffer = buf_new(-1);
+	BUFFER	*buffer = buf_new(0);
 	strkey_printall(&specs, buffer);
 	page_to_char(buf_string(buffer), ch);
 	buf_free(buffer);

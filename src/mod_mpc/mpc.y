@@ -25,7 +25,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc.y,v 1.6 2001-06-19 11:46:03 fjoe Exp $
+ * $Id: mpc.y,v 1.7 2001-06-22 07:13:40 avn Exp $
  */
 
 /*
@@ -1041,7 +1041,7 @@ prog_init(prog_t *prog)
 	prog->textlen = 0;
 
 	prog->cp = prog->text;
-	prog->errbuf = buf_new(-1);
+	prog->errbuf = buf_new(0);
 	prog->lineno = 0;
 
 	varr_init(&prog->code, &v_ints);

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_damtype.c,v 1.5 2000-10-22 17:53:44 fjoe Exp $
+ * $Id: olc_damtype.c,v 1.6 2001-06-22 07:13:43 avn Exp $
  */
 
 /*
@@ -205,7 +205,7 @@ OLC_FUN(damted_show)
 			return FALSE;
 	}
 	
-	buf = buf_new(-1);
+	buf = buf_new(0);
 	buf_printf(buf, BUF_END, "Name:       [%s]\n", dt->dam_name);
 	mlstr_dump(buf, "NounDamage: ", &dt->dam_noun.ml, DUMP_LEVEL(ch));
 	mlstr_dump(buf, "Gender:     ", &dt->dam_noun.gender, DL_NONE);
@@ -223,7 +223,7 @@ OLC_FUN(damted_list)
 {
 	BUFFER	*buffer;
 
-	buffer = buf_new(-1);
+	buffer = buf_new(0);
 	strkey_printall(&damtypes, buffer);
 	page_to_char(buf_string(buffer), ch);
 	buf_free(buffer);

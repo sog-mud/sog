@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_skill.c,v 1.21 2001-03-16 12:41:29 cs Exp $
+ * $Id: olc_skill.c,v 1.22 2001-06-22 07:13:47 avn Exp $
  */
 
 #include "olc.h"
@@ -258,7 +258,7 @@ OLC_FUN(skilled_show)
 		}
 	}
 
-	buf = buf_new(-1);
+	buf = buf_new(0);
 	mlstr_dump(buf, "Name       ", &sk->sk_name.ml, DL_NONE);
 	mlstr_dump(buf, "Gender:    ", &sk->sk_name.gender, DL_NONE);
 	buf_printf(buf, BUF_END, "Type       [%s]     Group       [%s]\n",
@@ -296,7 +296,7 @@ OLC_FUN(skilled_list)
 {
 	BUFFER	*buffer;
 
-	buffer = buf_new(-1);
+	buffer = buf_new(0);
 	mlstrkey_printall(&skills, buffer);
 	page_to_char(buf_string(buffer), ch);
 	buf_free(buffer);

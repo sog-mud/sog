@@ -1,5 +1,5 @@
 /*
- * $Id: note.c,v 1.16 2001-02-11 14:35:39 fjoe Exp $
+ * $Id: note.c,v 1.17 2001-06-22 07:13:37 avn Exp $
  */
 
 /***************************************************************************
@@ -480,7 +480,7 @@ static void parse_note(CHAR_DATA *ch, const char *argument, int type)
 			vnum = 0;
 			for (pnote = *list; pnote; pnote = pnote->next) {
 				if (!hide_note(ch, pnote)) {
-					output = buf_new(-1);
+					output = buf_new(0);
 					note_show(output, pnote, vnum);
 					page_to_char(buf_string(output), ch);
 					buf_free(output);
@@ -505,7 +505,7 @@ static void parse_note(CHAR_DATA *ch, const char *argument, int type)
 		vnum = 0;
 		for (pnote = *list; pnote != NULL; pnote = pnote->next) {
 			if (is_note_to(ch, pnote) && (vnum++ == anum || fAll)) {
-				output = buf_new(-1);
+				output = buf_new(0);
 				note_show(output, pnote, vnum-1);
 				page_to_char(buf_string(output), ch);
 				buf_free(output);
@@ -556,7 +556,7 @@ static void parse_note(CHAR_DATA *ch, const char *argument, int type)
 		}
 
 		vnum = 0;
-		output = buf_new(-1);
+		output = buf_new(0);
 		for (pnote = *list; pnote != NULL; pnote = pnote->next) {
 			if (is_note_to(ch, pnote)) {
 				vnum++;
@@ -858,7 +858,7 @@ static void parse_note(CHAR_DATA *ch, const char *argument, int type)
 			return;
 		}
 
-		output = buf_new(-1);
+		output = buf_new(0);
 		buf_printf(output, BUF_END, "{xFrom: %s\n"
 				   "{xTo  : %s\n"
 				   "{xSubj: %s\n"

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: lang.c,v 1.27 2001-06-21 16:16:59 avn Exp $
+ * $Id: lang.c,v 1.28 2001-06-22 07:13:53 avn Exp $
  */
 
 #include <string.h>
@@ -115,12 +115,12 @@ word_form_lookup(lang_t *l, rulecl_t *rcl, const char *word, uint fnum)
 	return buf;
 }
 
-const char *word_form(const char *word, uint fnum, int lang, int rulecl)
+const char *word_form(const char *word, uint fnum, size_t lang, int rulecl)
 {
 	lang_t *l;
 
 	if ((rulecl < 0 || rulecl >= MAX_RULECL)
-	||  (l = varr_get(&langs, (unsigned)lang)) == NULL)
+	||  (l = varr_get(&langs, lang)) == NULL)
 		return word;
 
 	switch (rulecl) {
@@ -311,7 +311,7 @@ static varrdata_t v_rule =
 	NULL
 };
 
-static void rulecl_init(lang_t *l, int rulecl)
+static void rulecl_init(lang_t *l, size_t rulecl)
 {
 	int i;
 	rulecl_t *rcl = l->rules + rulecl;
@@ -332,15 +332,27 @@ varr langs;
 
 void lang_init(lang_t *l)
 {
-	int i;
+	size_t i;
 
 	l->name = str_empty;
 	l->file_name = str_empty;
 	l->lang_flags = 0;
-	l->slang_of = -1;
+	l->slang_of = varr_index(&langs, l);
 
 	for (i = 0; i < MAX_RULECL; i++)
 		rulecl_init(l, i);
+}
+
+void lang_destroy(lang_t *l)
+{
+	size_t i;
+
+	/* decrement all slang_of references in langs after this */
+	for (i = varr_index(&langs, l); i < langs.nused; i++) {
+		lang_t *ll;
+		ll = VARR_GET(&langs, i);
+		ll->slang_of--;
+	}
 }
 
 int lang_lookup(const char *name)

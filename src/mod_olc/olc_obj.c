@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_obj.c,v 1.89 2000-10-22 17:53:45 fjoe Exp $
+ * $Id: olc_obj.c,v 1.90 2001-06-22 07:13:46 avn Exp $
  */
 
 #include <sys/types.h>
@@ -226,7 +226,7 @@ OLC_FUN(objed_show)
 
 	pArea = area_vnum_lookup(pObj->vnum);
 
-	output = buf_new(-1);
+	output = buf_new(0);
 	buf_printf(output, BUF_END,
 		   "Name:        [%s]\n"
 		   "Area:        [%5d] %s\n",
@@ -313,7 +313,7 @@ OLC_FUN(objed_list)
 	if ((pArea = get_edited_area(ch)) == NULL)
 		pArea = ch->in_room->area;
 
-	buffer  = buf_new(-1);
+	buffer  = buf_new(0);
 	fAll    = !str_cmp(arg, "all");
 	found   = FALSE;
 
@@ -450,7 +450,7 @@ bool objed_values(CHAR_DATA *ch, const char *argument, int val_num)
 	OBJ_INDEX_DATA *pObj;
 	EDIT_OBJ(ch, pObj);
 
-	output = buf_new(-1);
+	output = buf_new(0);
 	if (argument[0] == '\0'
 	||  (errcode = objval_set(output, pObj->item_type, pObj->value,
 				  val_num, argument)) < 2)

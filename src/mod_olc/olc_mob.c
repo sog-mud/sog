@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_mob.c,v 1.73 2001-06-20 06:37:42 avn Exp $
+ * $Id: olc_mob.c,v 1.74 2001-06-22 07:13:45 avn Exp $
  */
 
 #include "olc.h"
@@ -256,7 +256,7 @@ OLC_FUN(mobed_show)
 		}
 	}
 
-	buf = buf_new(-1);
+	buf = buf_new(0);
 
 	pArea = area_vnum_lookup(pMob->vnum);
 	buf_printf(buf, BUF_END, 
@@ -455,7 +455,7 @@ OLC_FUN(mobed_list)
 	if ((pArea = get_edited_area(ch)) == NULL)
 		pArea = ch->in_room->area;
 
-	buffer = buf_new(-1);
+	buffer = buf_new(0);
 	fAll    = !str_cmp(arg, "all");
 	found   = FALSE;
 
@@ -532,7 +532,7 @@ OLC_FUN(mobed_damtype)
 	}
 
 	if (!str_cmp(arg, "?")) {
-		BUFFER *output = buf_new(-1);
+		BUFFER *output = buf_new(0);
 		strkey_printall(&damtypes, output);
 		page_to_char(buf_string(output), ch);
 		buf_free(output);
@@ -987,7 +987,7 @@ OLC_FUN(mobed_race)
 	}
 
 	if (argument[0] == '?') {
-		BUFFER *buf = buf_new(-1);
+		BUFFER *buf = buf_new(0);
 		buf_append(buf, "Available races are:\n");
 		strkey_printall(&races, buf);
 		page_to_char(buf_string(buf), ch);
@@ -1060,7 +1060,7 @@ OLC_FUN(mobed_group)
 			return FALSE;
 		}
 
-		buffer = buf_new(-1);
+		buffer = buf_new(0);
 
 		for (temp = 0; temp < 65536; temp++) {
 			pMTemp = get_mob_index(temp);
@@ -1386,7 +1386,7 @@ static void show_spec_cmds(CHAR_DATA *ch)
 	int  col;
 	BUFFER *output;
 
-	output = buf_new(-1);
+	output = buf_new(0);
 	col = 0;
 	buf_append(output, "Preceed special functions with 'spec_'\n\n");
 	for (spec = 0; spec_table[spec].function != NULL; spec++) {

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm_act.h,v 1.26 2001-02-12 19:07:16 fjoe Exp $
+ * $Id: comm_act.h,v 1.27 2001-06-22 07:13:32 avn Exp $
  */
 
 #ifndef _COMM_ACT_H_
@@ -76,7 +76,7 @@ const char* PERS2(CHAR_DATA *ch, CHAR_DATA *to, int to_lang, int act_flags);
  */
 
 typedef struct actopt_t {
-	int to_lang;
+	size_t to_lang;
 	int to_sex;
 	int act_flags;
 } actopt_t;

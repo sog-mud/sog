@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mlstring.c,v 1.56 2001-01-23 21:47:00 fjoe Exp $
+ * $Id: mlstring.c,v 1.57 2001-06-22 07:13:54 avn Exp $
  */
 
 #include <stdio.h>
@@ -63,7 +63,7 @@ void mlstr_destroy(mlstring *mlp)
 	if (mlp->nlang == 0)
 		free_string(mlp->u.str);
 	else {
-		int lang;
+		size_t lang;
 
 		for (lang = 0; lang < mlp->nlang; lang++)
 			free_string(mlp->u.lstr[lang]);
@@ -109,7 +109,7 @@ void mlstr_fread(rfile_t *fp, mlstring *mlp)
 			return;
 		}
 
-		if ((lang = lang_nlookup(s, q-s)) < 0) {
+		if ((lang = lang_nlookup(s, (unsigned)(q-s))) < 0) {
 			log(LOG_ERROR, "mlstr_fread: %s: unknown language", s);
 			return;
 		}
@@ -137,7 +137,7 @@ void mlstr_fread(rfile_t *fp, mlstring *mlp)
 
 void mlstr_fwrite(FILE *fp, const char* name, const mlstring *mlp)
 {
-	int lang;
+	size_t lang;
 
 	if (!IS_NULLSTR(name)) {
 		if (mlstr_null(mlp))
@@ -177,7 +177,7 @@ mlstr_cpy(mlstring *dst, const mlstring *src)
 	if (src->nlang == 0)
 		dst->u.str = str_dup(src->u.str);
 	else {
-		int lang;
+		size_t lang;
 
 		dst->u.lstr = calloc(1, sizeof(char*) * src->nlang);
 		for (lang = 0; lang < src->nlang; lang++) {
@@ -208,7 +208,7 @@ void mlstr_printf(mlstring *dst, const mlstring *format,...)
 		dst->u.str = str_dup(buf);
 	}
 	else {
-		int lang;
+		size_t lang;
 
 		dst->u.lstr = calloc(1, sizeof(char*) * format->nlang);
 		for (lang = 0; lang < format->nlang; lang++) {
@@ -228,7 +228,7 @@ int mlstr_nlang(const mlstring *mlp)
 	return mlp->nlang;
 }
 
-const char * mlstr_val(const mlstring *mlp, int lang)
+const char * mlstr_val(const mlstring *mlp, size_t lang)
 {
 	const char *p;
 
@@ -241,12 +241,11 @@ const char * mlstr_val(const mlstring *mlp, int lang)
 	}
 
 	if (lang >= mlp->nlang
-	||  lang < 0
 	||  IS_NULLSTR(mlp->u.lstr[lang])) {
 		lang_t *l;
 
 		if ((l = varr_get(&langs, lang))
-		&&  l->slang_of >= 0
+		&&  l->slang_of != lang
 		&&  l->slang_of < mlp->nlang)
 			lang = l->slang_of;
 		else
@@ -257,8 +256,7 @@ const char * mlstr_val(const mlstring *mlp, int lang)
 	return (p ? p : str_empty);
 }
 
-static const char *
-mlstr_null_cb(int lang, const char **p, va_list ap)
+static MLSTR_FOREACH_FUN(mlstr_null_cb)
 {
 	if (!IS_NULLSTR(*p))
 		return *p;
@@ -270,8 +268,7 @@ bool mlstr_null(const mlstring *mlp)
 	return mlstr_foreach((mlstring *) mlp, mlstr_null_cb) == NULL;
 }
 
-static const char *
-mlstr_valid_cb(int lang, const char **p, va_list ap)
+static MLSTR_FOREACH_FUN(mlstr_valid_cb)
 {
 	if (!IS_NULLSTR(*p) && !mem_is(*p, MT_STR))
 		return *p;
@@ -280,7 +277,7 @@ mlstr_valid_cb(int lang, const char **p, va_list ap)
 
 bool mlstr_valid(const mlstring *mlp)
 {
-	if (mlp->nlang < 0 || mlp->nlang > langs.nused)
+	if (mlp->nlang > langs.nused)
 		return FALSE;
 
 	return mlstr_foreach((mlstring *) mlp, mlstr_valid_cb) == NULL;
@@ -356,7 +353,7 @@ bool mlstr_append(CHAR_DATA *ch, mlstring *mlp, const char *arg)
 
 const char *
 mlstr_foreach(mlstring *mlp, 
-	      const char * (*cb)(int lang, const char **p, va_list ap), ...)
+	      mlstr_foreach_cb_t cb, ...)
 {
 	int lang;
 	const char *rv = NULL;
@@ -457,8 +454,7 @@ void mlstr_dump(BUFFER *buf, const char *name, const mlstring *mlp,
 	}
 }
 
-static const char *
-cb_addnl(int lang, const char **p, va_list ap)
+static MLSTR_FOREACH_FUN(cb_addnl)
 {
 	char buf[MAX_STRING_LENGTH];
 	size_t len;
@@ -479,8 +475,7 @@ cb_addnl(int lang, const char **p, va_list ap)
 	return NULL;
 }
 
-static const char *
-cb_stripnl(int lang, const char **p, va_list ap)
+static MLSTR_FOREACH_FUN(cb_stripnl)
 {
 	char buf[MAX_STRING_LENGTH];
 	size_t len;

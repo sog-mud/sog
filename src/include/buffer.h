@@ -1,5 +1,5 @@
 /*
- * $Id: buffer.h,v 1.15 2001-06-16 18:40:08 fjoe Exp $
+ * $Id: buffer.h,v 1.16 2001-06-22 07:13:32 avn Exp $
  */
 
 /***************************************************************************
@@ -46,7 +46,7 @@
 #define BUF_START	1
 #define BUF_END		0
 
-BUFFER *buf_new		(int lang);
+BUFFER *buf_new		(size_t lang);
 void	buf_free	(BUFFER *buffer);
 
 bool	buf_prepend	(BUFFER *buffer, const char *string);
@@ -66,7 +66,7 @@ bool	buf_act3	(BUFFER *buffer, int where, const char *format,
 
 void	buf_clear	(BUFFER *buffer);
 char *	buf_string	(BUFFER *buffer);
-int	buf_lang	(BUFFER *buffer);
+size_t	buf_lang	(BUFFER *buffer);
 
 extern int nAllocBuf;
 extern int sAllocBuf;

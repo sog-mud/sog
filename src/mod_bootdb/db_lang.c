@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_lang.c,v 1.28 2001-01-23 21:47:04 fjoe Exp $
+ * $Id: db_lang.c,v 1.29 2001-06-22 07:13:57 avn Exp $
  */
 
 #include <stdio.h>
@@ -83,7 +83,8 @@ fread_lang(rfile_t *fp)
 static varrdata_t v_langs =
 {
 	sizeof(lang_t), 2,
-	(e_init_t) lang_init
+	(e_init_t) lang_init,
+	(e_destroy_t) lang_destroy
 };
 
 DBINIT_FUN(init_lang)

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db.h,v 1.77 2001-06-16 18:40:08 fjoe Exp $
+ * $Id: db.h,v 1.78 2001-06-22 07:13:32 avn Exp $
  */
 
 #ifndef _DB_H_
@@ -139,7 +139,7 @@ extern hash_t glob_gmlstr;	/* gmlstr_t globals */
 extern hash_t msgdb;		/* msgdb */
 #define msg_lookup(m)	((mlstring *) strkey_lookup(&msgdb, (m)))
 #if !defined(MPC)
-const char *GETMSG	(const char *txt, int lang);
+const char *GETMSG	(const char *txt, size_t lang);
 #else
 #define	GETMSG(txt, lang)	(txt)
 #endif

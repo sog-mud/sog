@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.88 2001-02-11 21:19:39 fjoe Exp $
+ * $Id: olc_room.c,v 1.89 2001-06-22 07:13:47 avn Exp $
  */
 
 #include "olc.h"
@@ -187,7 +187,7 @@ OLC_FUN(roomed_show)
 		return FALSE;
 	}
 
-	output = buf_new(-1);
+	output = buf_new(0);
 	
 	buf_printf(output, BUF_END, "Vnum:       [%5d]\n", pRoom->vnum);
 	buf_printf(output, BUF_END, "Area:       [%5d] %s\n",
@@ -304,7 +304,7 @@ OLC_FUN(roomed_list)
 	if ((pArea = get_edited_area(ch)) == NULL)
 		pArea = ch->in_room->area;
 
-	buffer = buf_new(-1);
+	buffer = buf_new(0);
 	found   = FALSE;
 
 	for (vnum = pArea->min_vnum; vnum <= pArea->max_vnum; vnum++) {
@@ -562,7 +562,7 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 
 		if (argument[0] == '\0'
 		||  !str_cmp(argument, "?")) {
-			BUFFER *buf = buf_new(-1);
+			BUFFER *buf = buf_new(0);
 			buf_printf(buf, BUF_END, "Valid exit flags are:\n");
 			show_flags_buf(buf, exit_flags);
 			page_to_char(buf_string(buf), ch);
@@ -841,7 +841,7 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 		if (arg[0] == '?') {
 			BUFFER *output;
 
-			output = buf_new(-1);
+			output = buf_new(0);
 			buf_printf(output, BUF_END, "Valid size values are:\n");
 			show_flags_buf(output, size_table);
 			page_to_char(buf_string(output), ch);
@@ -869,7 +869,7 @@ void display_resets(CHAR_DATA *ch)
 	static char tab2[] = "        ";
 	int d;
 
-	buf = buf_new(-1);
+	buf = buf_new(0);
 
 	for (r = in_room->reset_first; r; r = r->next) {
 		OBJ_INDEX_DATA *obj;

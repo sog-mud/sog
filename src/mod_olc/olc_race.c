@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_race.c,v 1.43 2001-06-20 06:37:42 avn Exp $
+ * $Id: olc_race.c,v 1.44 2001-06-22 07:13:46 avn Exp $
  */
 
 #include "olc.h"
@@ -229,7 +229,7 @@ OLC_FUN(raceed_show)
 		}
 	}
 
-	output = buf_new(-1);
+	output = buf_new(0);
 	buf_printf(output, BUF_END, "Name:          [%s]\n", r->name);
 	if (r->act)
 		buf_printf(output, BUF_END, "Act flags:     [%s]\n",
@@ -364,7 +364,7 @@ OLC_FUN(raceed_show)
 
 OLC_FUN(raceed_list)
 {
-	BUFFER *buffer = buf_new(-1);
+	BUFFER *buffer = buf_new(0);
 	hash_printall(&races, buffer, print_race_cb);
 	page_to_char(buf_string(buffer), ch);
 	buf_free(buffer);
@@ -688,7 +688,7 @@ OLC_FUN(raceed_damtype)
 	}
 
 	if (!str_cmp(arg, "?")) {
-		BUFFER *output = buf_new(-1);
+		BUFFER *output = buf_new(0);
 		strkey_printall(&damtypes, output);
 		page_to_char(buf_string(output), ch);
 		buf_free(output);

@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.104 2001-04-03 14:44:36 cs Exp $
+ * $Id: db_area.c,v 1.105 2001-06-22 07:13:56 avn Exp $
  */
 
 /***************************************************************************
@@ -336,8 +336,7 @@ DBLOAD_FUN(load_areadata)
 	}
 }
 
-static const char *
-cb_strip_nl(int lang, const char **p, va_list ap)
+static MLSTR_FOREACH_FUN(cb_strip_nl)
 {
 	char buf[MAX_STRING_LENGTH];
 	size_t len, oldlen;

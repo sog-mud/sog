@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_class.c,v 1.26 2000-10-15 17:19:31 fjoe Exp $
+ * $Id: olc_class.c,v 1.27 2001-06-22 07:13:42 avn Exp $
  */
 
 #include "olc.h"
@@ -200,7 +200,7 @@ OLC_FUN(classed_show)
 		}
 	}
 
-	output = buf_new(-1);
+	output = buf_new(0);
 	buf_printf(output, BUF_END, "Name:           [%3s] [%s]\n",
 		   class->who_name, class->name);
 	buf_printf(output, BUF_END, "Primary attr:   [%s]\n",
@@ -253,7 +253,7 @@ OLC_FUN(classed_show)
 
 OLC_FUN(classed_list)
 {
-	BUFFER *buffer = buf_new(-1);
+	BUFFER *buffer = buf_new(0);
 	strkey_printall(&classes, buffer);
 	page_to_char(buf_string(buffer), ch);
 	buf_free(buffer);
@@ -419,7 +419,7 @@ OLC_FUN(classed_poses)
 		BUFFER	*buffer;
 		bool st = FALSE;
 
-		buffer = buf_new(-1);
+		buffer = buf_new(0);
 		for (i = 0; i < class->poses.nused; i++) {
 			pose = VARR_GET(&class->poses, i);
 			if (IS_NULLSTR(pose->self) && IS_NULLSTR(pose->others))
@@ -522,7 +522,7 @@ OLC_FUN(classed_guilds)
 		BUFFER	*buffer;
 		bool st = FALSE;
 
-		buffer = buf_new(-1);
+		buffer = buf_new(0);
 		for (i = 0; i < class->guilds.nused; i++) {
 			vnum = *(int*) VARR_GET(&class->guilds, i);
 			if (!vnum)

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_liquid.c,v 1.15 2001-01-16 19:48:51 fjoe Exp $
+ * $Id: olc_liquid.c,v 1.16 2001-06-22 07:13:44 avn Exp $
  */
 
 #include "olc.h"
@@ -195,7 +195,7 @@ OLC_FUN(liqed_show)
 			return FALSE;
 	}
 	
-	buf = buf_new(-1);
+	buf = buf_new(0);
 	mlstr_dump(buf, "Name:   ", &lq->lq_name.ml, DUMP_LEVEL(ch));
 	mlstr_dump(buf, "Gender: ", &lq->lq_name.gender, DUMP_LEVEL(ch));
 	mlstr_dump(buf, "Color:  ", &lq->lq_color, DUMP_LEVEL(ch));
@@ -218,7 +218,7 @@ OLC_FUN(liqed_list)
 {
 	BUFFER	*buffer;
 
-	buffer = buf_new(-1);
+	buffer = buf_new(0);
 	mlstrkey_printall(&liquids, buffer);
 	page_to_char(buf_string(buffer), ch);
 	buf_free(buffer);

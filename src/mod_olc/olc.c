@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.126 2000-10-29 19:49:24 fjoe Exp $
+ * $Id: olc.c,v 1.127 2001-06-22 07:13:41 avn Exp $
  */
 
 /***************************************************************************
@@ -500,7 +500,7 @@ bool olced_foreign_strkey(CHAR_DATA *ch, const char *argument,
 
 	h = cmd->arg1;
 	if (!str_cmp(argument, "?")) {
-		BUFFER *out = buf_new(-1);
+		BUFFER *out = buf_new(0);
 		buf_printf(out, BUF_END, "Valid %ss are:\n", cmd->name);
 		strkey_printall(h, out);
 		page_to_char(buf_string(out), ch);
@@ -546,7 +546,7 @@ bool olced_foreign_mlstrkey(CHAR_DATA *ch, const char *argument,
 
 	h = cmd->arg1;
 	if (!str_cmp(argument, "?")) {
-		BUFFER *out = buf_new(-1);
+		BUFFER *out = buf_new(0);
 		buf_printf(out, BUF_END, "Valid %ss are:\n", cmd->name);
 		mlstrkey_printall(h, out);
 		page_to_char(buf_string(out), ch);
@@ -632,9 +632,10 @@ bool olced_mlstr_text(CHAR_DATA *ch, const char *argument,
 	return FALSE;
 }
 
-static void cb_format(int lang, const char **p, void *arg)
+static MLSTR_FOREACH_FUN(cb_format)
 {
 	*p = format_string(*p);
+	return NULL;
 }
 
 bool olced_exd(CHAR_DATA *ch, const char* argument,
@@ -763,7 +764,7 @@ bool olced_exd(CHAR_DATA *ch, const char* argument,
 			return FALSE;
 		}
 
-		output = buf_new(-1);
+		output = buf_new(0);
 		buf_printf(output, BUF_END, "Keyword:     [%s]\n", ed->keyword);
 		buf_append(output, "Description:\n");
 		mlstr_dump(output, str_empty, &ed->description, DUMP_LEVEL(ch));
@@ -781,7 +782,7 @@ bool olced_exd(CHAR_DATA *ch, const char* argument,
 			return FALSE;
 		}
 
-		mlstr_foreach(&ed->description, NULL, cb_format);
+		mlstr_foreach(&ed->description, cb_format);
 		act_char("Extra description formatted.", ch);
 		return TRUE;
 	}
@@ -1082,7 +1083,7 @@ olced_cc_vexpr(CHAR_DATA *ch, const char *argument, olc_cmd_t *cmd,
 		OLC_ERROR("'OLC CC_EXPR'");
 
 	if (!str_prefix(arg, "show")) {
-		BUFFER *buf = buf_new(-1);
+		BUFFER *buf = buf_new(0);
 		print_cc_vexpr(v, "Restrictions:", buf);
 		page_to_char(buf_string(buf), ch);
 		buf_free(buf);
@@ -1165,7 +1166,7 @@ olced_addaffect(CHAR_DATA *ch, const char *argument, olc_cmd_t *cmd,
 	argument = one_argument(argument, arg2, sizeof(arg2));
 
 	if (arg[0] != '\0' && skill_lookup(arg) == NULL) {
-		BUFFER *output = buf_new(-1);
+		BUFFER *output = buf_new(0);
 		buf_append(output, "Valid types are spell/prayer names (listed below) and empty type (''):\n");
 		skills_dump(output, -1);
 		page_to_char(buf_string(output), ch);
@@ -1208,7 +1209,7 @@ olced_addaffect(CHAR_DATA *ch, const char *argument, olc_cmd_t *cmd,
 		skill_t *sk;
 
 		if ((sk = skill_lookup(arg2)) == NULL) {
-			BUFFER *output = buf_new(-1);
+			BUFFER *output = buf_new(0);
 			buf_append(output, "Valid skills are:\n");
 			skills_dump(output, -1);
 			page_to_char(buf_string(output), ch);
@@ -1410,7 +1411,7 @@ OLC_FUN(show_commands)
 	BUFFER *	output;
 	int		col;
 
-	output = buf_new(-1); 
+	output = buf_new(0); 
 
 	col = 0;
 	for (cmd = OLCED(ch)->cmd_table+FUN_FIRST; cmd->name; cmd++) {
@@ -1559,7 +1560,7 @@ show_mob_resets(int vnum)
 					continue;
 
 				if (!buf)
-					buf = buf_new(-1);
+					buf = buf_new(0);
 
 				buf_printf(buf, BUF_END, "        room %d, reset %d\n",
 					   room->vnum, j);
@@ -1607,7 +1608,7 @@ show_obj_resets(int vnum)
 					continue;
 
 				if (!buf)
-					buf = buf_new(-1);
+					buf = buf_new(0);
 
 				buf_printf(buf, BUF_END, "        room %d, reset %d\n",
 					   room->vnum, j);

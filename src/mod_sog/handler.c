@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.286 2001-06-21 16:16:58 avn Exp $
+ * $Id: handler.c,v 1.287 2001-06-22 07:13:52 avn Exp $
  */
 
 /***************************************************************************
@@ -1319,7 +1319,7 @@ void deduct_cost(CHAR_DATA *ch, int cost)
 } 
 
 static inline void
-money_form(int lang, char *buf, size_t len, uint num, const char *name)
+money_form(size_t lang, char *buf, size_t len, uint num, const char *name)
 {
 	char tmp[MAX_STRING_LENGTH];
 
@@ -1328,8 +1328,7 @@ money_form(int lang, char *buf, size_t len, uint num, const char *name)
 	strnzcpy(buf, len, word_form(tmp, num, lang, RULES_QTY));
 }
 
-static const char *
-money_descr_cb(int lang, const char **p, va_list ap)
+static MLSTR_FOREACH_FUN(money_descr_cb)
 {
 	uint num1 = va_arg(ap, uint);
 	const char *name1 = va_arg(ap, const char *);

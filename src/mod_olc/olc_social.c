@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_social.c,v 1.29 2000-10-22 17:53:45 fjoe Exp $
+ * $Id: olc_social.c,v 1.30 2001-06-22 07:13:48 avn Exp $
  */
 
 /* I never wanted to be
@@ -207,7 +207,7 @@ OLC_FUN(soced_show)
 		}
 	}
 
-	output = buf_new(-1);
+	output = buf_new(0);
 
 	buf_printf(output, BUF_END,
 		   "Name:          [%s]\n",
@@ -240,7 +240,7 @@ OLC_FUN(soced_list)
 	BUFFER *output;
 
 	one_argument(argument, arg, sizeof(arg));
-	output = buf_new(-1);
+	output = buf_new(0);
 
 	for (i = 0; i < socials.nused; i++) {
 		social_t *soc = (social_t*) VARR_GET(&socials, i);
@@ -478,7 +478,7 @@ shadow_dump_cmds(BUFFER *output, const char *name)
 static void
 shadow_print_cmds(CHAR_DATA *ch, const char *name)
 {
-	BUFFER *output = buf_new(-1);
+	BUFFER *output = buf_new(0);
 	shadow_dump_cmds(output, name);
 	page_to_char(buf_string(output), ch);
 	buf_free(output);

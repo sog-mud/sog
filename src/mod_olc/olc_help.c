@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_help.c,v 1.45 2000-10-22 17:53:44 fjoe Exp $
+ * $Id: olc_help.c,v 1.46 2001-06-22 07:13:43 avn Exp $
  */
 
 #include "olc.h"
@@ -155,7 +155,7 @@ OLC_FUN(helped_show)
 		}
 	}
 
-	output = buf_new(-1);
+	output = buf_new(0);
 	buf_printf(output, BUF_END,
 		   "Level:    [%s]\n"
 		   "Keywords: [%s]\n",
@@ -183,7 +183,7 @@ OLC_FUN(helped_list)
 			OLC_ERROR("'OLC ALIST'");
 	}
 
-	output = buf_new(-1);
+	output = buf_new(0);
 
 	if (pArea) {
 		buf_printf(output, BUF_END, "Available help topics in area '%s' [%d]:\n",

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_area.c,v 1.88 2001-04-03 14:44:35 cs Exp $
+ * $Id: olc_area.c,v 1.89 2001-06-22 07:13:42 avn Exp $
  */
 
 #include "olc.h"
@@ -224,7 +224,7 @@ OLC_FUN(areaed_show)
 		return FALSE;
 	}
 
-	buf = buf_new(-1);
+	buf = buf_new(0);
 	buf_printf(buf, BUF_END, "Name:     [%5d] %s\n", pArea->vnum, pArea->name);
 	buf_printf(buf, BUF_END, "File:     %s\n", pArea->file_name);
 	buf_printf(buf, BUF_END, "Vnums:    [%d-%d]\n",
@@ -260,7 +260,7 @@ OLC_FUN(areaed_list)
 			continue;
 
 		if (output == NULL) {
-			output = buf_new(-1);
+			output = buf_new(0);
     			buf_printf(output, BUF_END, "[%3s] [%-27s] (%-5s-%5s) [%-10s] %3s [%-10s]\n",
 				   "Num", "Area Name", "lvnum", "uvnum",
 				   "Filename", "Sec", "Builders");
@@ -658,7 +658,7 @@ VALIDATE_FUN(validate_move)
 	pArea->max_vnum += delta;
 	TOUCH_AREA(pArea);
 
-	buf = buf_new(-1);
+	buf = buf_new(0);
 	buf_append(buf, "AreaEd: Changed areas:");
 	for (pArea = area_first; pArea; pArea = pArea->next) {
 		if (IS_SET(pArea->area_flags, AREA_CHANGED)) {

@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.327 2001-06-21 16:16:55 avn Exp $
+ * $Id: merc.h,v 1.328 2001-06-22 07:13:33 avn Exp $
  */
 
 /***************************************************************************
@@ -327,7 +327,7 @@ typedef struct dvdata_t dvdata_t;
 struct dvdata_t {
 	int		refcnt;		/* reference count */
 
-	int		lang;		/* interface language	*/
+	size_t		lang;		/* interface language	*/
 	int		pagelen;	/* pager lines		*/
 	flag_t		olc_flags;	/* olc flags		*/
 
@@ -2222,7 +2222,7 @@ void		help_add	(AREA_DATA*, HELP_DATA*);
 HELP_DATA *	help_lookup	(int num, const char *keyword);
 void		help_show	(CHAR_DATA *ch, BUFFER *output,
 				 const char *keyword);
-void		help_show_raw	(int level, int lang, BUFFER *output,
+void		help_show_raw	(int level, size_t lang, BUFFER *output,
 				 const char *keyword);
 void		help_free	(HELP_DATA*);
 

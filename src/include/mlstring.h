@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mlstring.h,v 1.26 2001-06-21 16:16:56 avn Exp $
+ * $Id: mlstring.h,v 1.27 2001-06-22 07:13:33 avn Exp $
  */
 
 #ifndef _MLSTRING_H_
@@ -36,6 +36,12 @@
  * the size of array is equal to 'nlang'
  * 'ref' = number of references (COW semantics)
  */
+
+typedef const char *(*mlstr_foreach_cb_t)(size_t, const char **, va_list);
+#define MLSTR_FOREACH_FUN(fun)						\
+		const char *fun(size_t lang __attribute__((unused)),	\
+		const char **p __attribute__((unused)),			\
+		va_list ap __attribute__((unused)))
 typedef struct mlstring {
 	union {
 		const char* str;
@@ -56,7 +62,7 @@ mlstring *	mlstr_cpy	(mlstring *dst, const mlstring *src);
 void		mlstr_printf	(mlstring *dst, const mlstring *format, ...);
 
 int		mlstr_nlang	(const mlstring *ml);
-const char *	mlstr_val	(const mlstring *ml, int lang);
+const char *	mlstr_val	(const mlstring *ml, size_t lang);
 #define		mlstr_mval(ml)		mlstr_val(ml, 0)
 #define		mlstr_cval(ml, ch)	mlstr_val(ml, GET_LANG(ch))
 bool		mlstr_null	(const mlstring *ml);
@@ -72,9 +78,7 @@ bool	mlstr_editnl	(mlstring *mlp, const char *arg);
 void	mlstr_dump	(BUFFER *buf, const char *name, const mlstring *ml,
 			 int dump_level);
 
-const char *mlstr_foreach(mlstring *mlp,
-			  const char * (*cb)(int lang, const char **p, va_list),
-			  ...);
+const char *mlstr_foreach(mlstring *mlp, mlstr_foreach_cb_t cb, ...);
 bool	mlstr_addnl	(mlstring *mlp);
 bool	mlstr_stripnl	(mlstring *mlp);
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_lang.c,v 1.28 2000-10-07 20:41:07 fjoe Exp $
+ * $Id: olc_lang.c,v 1.29 2001-06-22 07:13:44 avn Exp $
  */
 
 #include "olc.h"
@@ -316,7 +316,8 @@ static bool save_lang(CHAR_DATA *ch, lang_t *l)
 
 	fprintf(fp, "#LANG\n"
 		    "Name %s\n", l->name);
-	if ((sl = varr_get(&langs, l->slang_of)))
+	if ((sl = varr_get(&langs, l->slang_of)) != NULL
+	&& varr_index(&langs, l) != l->slang_of)
 		fprintf(fp, "SlangOf %s\n", sl->name);
 	flags = l->lang_flags & ~LANG_CHANGED;
 	if (flags)

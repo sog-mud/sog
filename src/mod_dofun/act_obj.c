@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.235 2001-05-09 14:20:06 fjoe Exp $
+ * $Id: act_obj.c,v 1.236 2001-06-22 07:13:35 avn Exp $
  */
 
 /***************************************************************************
@@ -2681,7 +2681,7 @@ void do_lore(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	output = buf_new(-1);
+	output = buf_new(0);
 	do_lore_raw(ch, obj, output);
 	page_to_char(buf_string(output), ch);
 	buf_free(output);

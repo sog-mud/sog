@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.271 2001-06-20 06:37:40 avn Exp $
+ * $Id: act_wiz.c,v 1.272 2001-06-22 07:13:36 avn Exp $
  */
 
 /***************************************************************************
@@ -105,7 +105,7 @@ void do_objlist(CHAR_DATA *ch, const char *argument)
 	 	return;
 	}
 
-	buf = buf_new(-1);
+	buf = buf_new(0);
 	for(obj = object_list; obj != NULL; obj = obj->next) {
 		if (obj->pObjIndex->affected == NULL)
 			continue;
@@ -147,7 +147,7 @@ void do_limited(CHAR_DATA *ch, const char *argument)
 		}
 
 		nMatch = 0;
-		buf = buf_new(-1);
+		buf = buf_new(0);
 		buf_printf(buf, BUF_END,
 			   "%-35s [%5d]  Limit: %3d  Current: %3d\n", 
 			   mlstr_mval(&obj_index->short_descr), 
@@ -185,7 +185,7 @@ void do_limited(CHAR_DATA *ch, const char *argument)
 		int i;
 		nMatch = 0;
 
-		buf = buf_new(-1);
+		buf = buf_new(0);
 		for (i = 0; i < MAX_KEY_HASH; i++) {
 			for (obj_index = obj_index_hash[i]; obj_index; obj_index = obj_index->next) {
 				nMatch++;
@@ -936,7 +936,7 @@ void do_rstat(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	output = buf_new(-1);
+	output = buf_new(0);
 
 	if (ch->in_room->affected_by) {
 		buf_printf(output, BUF_END, "Affected by %s\n", 
@@ -1035,7 +1035,7 @@ void do_ostat(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	output = buf_new(-1);
+	output = buf_new(0);
 	buf_printf(output, BUF_END, "Name:  [%s]\n", obj->pObjIndex->name);
 	if (!IS_NULLSTR(obj->label))
 		buf_printf(output, BUF_END, "Label: [%s]\n", obj->label+1);
@@ -1186,7 +1186,7 @@ void do_mstat(CHAR_DATA *ch, const char *argument)
 		goto cleanup;
 	}
 
-	output = buf_new(-1);
+	output = buf_new(0);
 
 	buf_printf(output, BUF_END, "Name: [%s]  ", victim->name);
 	if (IS_NPC(victim)) {
@@ -1440,7 +1440,7 @@ void do_dstat(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	output = buf_new(-1);
+	output = buf_new(0);
 
 	buf_printf(output, BUF_END, "Desc: [%d]  Conn: [%d]  "
 			   "Outsize: [%d]  Outtop:  [%d]\n"
@@ -1514,7 +1514,7 @@ void do_mfind(CHAR_DATA *ch, const char *argument)
 				continue;
 
 			if (buf == NULL)
-				buf = buf_new(-1);
+				buf = buf_new(0);
 
 			buf_printf(buf, BUF_END, "[%5d] %s\n",	// notrans
 				   mob_index->vnum,
@@ -1550,7 +1550,7 @@ void do_ofind(CHAR_DATA *ch, const char *argument)
 				continue;
 
 			if (buf == NULL)
-				buf = buf_new(-1);
+				buf = buf_new(0);
 
 			buf_printf(buf, BUF_END, "[%5d] %s\n", 	// notrans
 				   obj_index->vnum,
@@ -1587,7 +1587,7 @@ void do_owhere(CHAR_DATA *ch, const char *argument)
 	        	continue;
 	
 		if (buffer == NULL)
-			buffer = buf_new(-1);
+			buffer = buf_new(0);
 		number++;
 	
 		for (in_obj = obj; in_obj->in_obj != NULL;
@@ -1636,7 +1636,7 @@ void do_mwhere(CHAR_DATA *ch, const char *argument)
 
 		/* show characters logged */
 
-		buffer = buf_new(-1);
+		buffer = buf_new(0);
 		for (d = descriptor_list; d != NULL; d = d->next) {
 			if (d->character == NULL
 			||  d->connected != CON_PLAYING
@@ -1680,7 +1680,7 @@ void do_mwhere(CHAR_DATA *ch, const char *argument)
 		&&  (is_name(argument, victim->name) ||
 		     (IS_NPC(victim) && victim->pMobIndex->vnum == vnum))) {
 			if (buffer == NULL)
-				buffer = buf_new(-1);
+				buffer = buf_new(0);
 
 			count++;
 			buf_printf(buffer, BUF_END,
@@ -3290,7 +3290,7 @@ do_mset(CHAR_DATA *ch, const char *argument)
 		}
 
 		if ((cl = class_search(arg3)) == NULL) {
-			BUFFER *output = buf_new(-1);
+			BUFFER *output = buf_new(0);
 			buf_append(output, "Possible classes are:\n");
 			strkey_printall(&classes, output);
 			send_to_char(buf_string(output), ch);
@@ -3312,7 +3312,7 @@ do_mset(CHAR_DATA *ch, const char *argument)
 		bool same_clan;
 
 		if ((cl = clan_search(arg3)) == NULL) {
-			BUFFER *output = buf_new(-1);
+			BUFFER *output = buf_new(0);
 			buf_append(output, "Valid clan names are: ");
 			strkey_printall(&clans, output);
 			send_to_char(buf_string(output), ch);
@@ -3713,7 +3713,7 @@ void do_popularity(CHAR_DATA *ch, const char *argument)
 	extern AREA_DATA *area_first;
 	int i;
 
-	output = buf_new(-1);
+	output = buf_new(0);
 	buf_append(output, "Area popularity statistics (in char * ticks)\n");
 
 	for (area = area_first,i=0; area != NULL; area = area->next,i++) {
@@ -4419,7 +4419,7 @@ void do_memory(CHAR_DATA *ch, const char *argument)
 
 	BUFFER *buf;
 
-	buf = buf_new(-1);
+	buf = buf_new(0);
 	buf_printf(buf, BUF_END, "Affects  : %d (%d bytes)\n",
 		    top_affect, top_affect * sizeof(AFFECT_DATA));
 	buf_printf(buf, BUF_END, "Areas    : %d (%d bytes)\n",
@@ -4681,7 +4681,7 @@ void do_mpstat(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	buf = buf_new(-1);
+	buf = buf_new(0);
 	buf_printf(buf, BUF_END, "Mobile #%-6d [%s]\n",
 		   victim->pMobIndex->vnum, mlstr_mval(&victim->short_descr));
 

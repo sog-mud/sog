@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm_info.c,v 1.21 2001-01-23 21:47:03 fjoe Exp $
+ * $Id: comm_info.c,v 1.22 2001-06-22 07:13:55 avn Exp $
  */
 
 #include <sys/types.h>
@@ -247,7 +247,7 @@ void	cmd_who(const char *argument)
 
 	one_argument(argument, arg, sizeof(arg));
 
-	output = buf_new(-1);
+	output = buf_new(0);
 
 	buf_printf(output, BUF_END, "%d\n", top_player);
 
@@ -305,7 +305,7 @@ void	cmd_help(const char *argument)
 	argument = one_argument(argument, arg, sizeof(arg));
 	lev = atoi(arg);
 	
-	output = buf_new(-1);
+	output = buf_new(0);
 	help_show_raw(lev, lang, output, argument);
 	parse_colors(buf_string(output), buf, sizeof(buf), format);
 	buf_free(output);
@@ -330,7 +330,7 @@ void	cmd_show(const char *argument)
 
 	buf[0] = '\0';
 
-	output = buf_new(-1);
+	output = buf_new(0);
 	buf_printf(output, BUF_END, "%s\n%s\n%s %s\n%d\n%s\n%s\n%s\n%s\n%d\n%d %d\n%d\n%s\n%s\n%d\n%s\n",
 		IS_SET(PC(ch)->www_show_flags, WSHOW_RACE) ? PC(ch)->race : "Unknown",
 		IS_SET(PC(ch)->www_show_flags, WSHOW_CLASS) ? ch->class : "Unknown",

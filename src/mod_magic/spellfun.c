@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.237 2001-05-21 19:06:31 fjoe Exp $
+ * $Id: spellfun.c,v 1.238 2001-06-22 07:13:38 avn Exp $
  */
 
 /***************************************************************************
@@ -1395,7 +1395,7 @@ void spell_identify(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	OBJ_DATA *obj = (OBJ_DATA *) vo;
 	BUFFER *output;
 
-	output = buf_new(-1);
+	output = buf_new(0);
 	format_obj(output, obj);
 	if (!IS_OBJ_STAT(obj, ITEM_ENCHANTED))
 		format_obj_affects(output, obj->pObjIndex->affected,
@@ -1410,7 +1410,7 @@ void spell_improved_identify(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	OBJ_DATA *obj = (OBJ_DATA *) vo;
 	BUFFER *output;
 
-	output = buf_new(-1);
+	output = buf_new(0);
 	format_obj(output, obj);
 	if (!IS_OBJ_STAT(obj, ITEM_ENCHANTED))
 		format_obj_affects(output, obj->pObjIndex->affected,
@@ -1518,7 +1518,7 @@ void spell_locate_object(const char *sn, int level, CHAR_DATA *ch, void *vo)
 			continue;
 
 		if (buffer == NULL)
-			buffer = buf_new(-1);
+			buffer = buf_new(0);
 		number++;
 
 		for (in_obj = obj; in_obj->in_obj != NULL;
@@ -2414,7 +2414,7 @@ void spell_find_object(const char *sn, int level, CHAR_DATA *ch, void *vo)
 			continue;
 
 		if (buffer == NULL)
-			buffer = buf_new(-1);
+			buffer = buf_new(0);
 		number++;
 
 		for (in_obj = obj; in_obj->in_obj != NULL;
@@ -5207,8 +5207,7 @@ void spell_attract_other(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	spellfun_call("charm person", sn, level+2, ch, vo);
 }
 
-static const char *
-cb_strip(int lang, const char **p, va_list ap)
+static MLSTR_FOREACH_FUN(cb_strip)
 {
 	char buf[MAX_STRING_LENGTH];
 	mlstring *mlp = va_arg(ap, mlstring *);
