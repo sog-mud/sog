@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.348 2002-01-04 06:37:54 kostik Exp $
+ * $Id: handler.c,v 1.349 2002-01-11 20:13:21 tatyana Exp $
  */
 
 /***************************************************************************
@@ -63,8 +63,8 @@ static int		max_hit_gain	(CHAR_DATA *ch, class_t *cl);
 static int		min_hit_gain	(CHAR_DATA *ch, class_t *cl);
 static int		max_mana_gain	(CHAR_DATA *ch, class_t *cl);
 static int		min_mana_gain	(CHAR_DATA *ch, class_t *cl);
-static int		max_move_gain	(CHAR_DATA *ch);
-static int		min_move_gain	(CHAR_DATA *ch);
+static int		max_move_gain	(CHAR_DATA *ch, race_t *r);
+static int		min_move_gain	(CHAR_DATA *ch, race_t *r);
 
 static void drop_objs(CHAR_DATA *ch, OBJ_DATA *obj_list);
 static OBJ_DATA *get_obj_list_raw(CHAR_DATA *ch, const char *name, uint *number,
@@ -2647,6 +2647,7 @@ advance_level(CHAR_DATA *ch)
 	int add_move;
 	int add_prac=0;
 	class_t *cl;
+	race_t *r;
 
 	if (IS_NPC(ch)) {
 		log(LOG_BUG, "advance_level: IS_NPC");
@@ -2659,9 +2660,14 @@ advance_level(CHAR_DATA *ch)
 		return;
 	}
 
+	if ((r = race_lookup(ch->race)) == NULL) {
+		log(LOG_INFO, "advance_level: %s: unknown race %s",
+		    ch->name, ch->race);
+		return;
+	}
 	add_hp = number_range(min_hit_gain(ch, cl), max_hit_gain(ch, cl));
 	add_mana = number_range(min_mana_gain(ch, cl), max_mana_gain(ch, cl));
-	add_move = number_range(min_move_gain(ch), max_move_gain(ch));
+	add_move = number_range(min_move_gain(ch, r), max_move_gain(ch, r));
 
 	ch->max_hit += add_hp;
 	ch->max_mana += add_mana;
@@ -2692,6 +2698,7 @@ delevel(CHAR_DATA *ch)
 	int lost_mana;
 	int lost_move;
 	class_t *cl;
+	race_t *r;
 
 	if (IS_NPC(ch)) {
 		log(LOG_BUG, "delevel: IS_NPC");
@@ -2704,13 +2711,18 @@ delevel(CHAR_DATA *ch)
 		return;
 	}
 
+	if ((r = race_lookup(ch->race)) == NULL) {
+		log(LOG_INFO, "delevel: %s: unknown race %s",
+		    ch->name, ch->race);
+		return;
+	}
 	act("You loose a level!", ch, NULL, NULL, TO_CHAR);
 	ch->level--;
 	update_skills(ch);
 
 	lost_hitp = max_hit_gain(ch, cl);
 	lost_mana = max_mana_gain(ch, cl);
-	lost_move = max_move_gain(ch);
+	lost_move = max_move_gain(ch, r);
 
 	ch->max_hit  -= lost_hitp;
 	ch->max_mana -= lost_mana;
@@ -6500,15 +6512,21 @@ min_mana_gain(CHAR_DATA *ch, class_t *cl)
 }
 
 static int
-max_move_gain(CHAR_DATA *ch)
+max_move_gain(CHAR_DATA *ch, race_t *r)
 {
-	return UMAX(6, get_max_train(ch, STAT_DEX)/4+get_max_train(ch, STAT_CON)/6);
+	int gain = (get_max_train(ch, STAT_DEX) / 4 +
+		    get_max_train(ch, STAT_CON) / 6) *
+		    r->race_pcdata->moves_rate / 100;
+	return UMAX(6, gain);
 }
 
 static int
-min_move_gain(CHAR_DATA *ch)
+min_move_gain(CHAR_DATA *ch, race_t *r)
 {
-	return UMAX(6, get_curr_stat(ch, STAT_DEX)/5 + get_curr_stat(ch, STAT_CON)/7);
+	int gain = (get_max_train(ch, STAT_DEX) / 5 +
+		    get_max_train(ch, STAT_CON) / 7) *
+		    r->race_pcdata->moves_rate / 100;
+	return UMAX(6, gain);
 }
 
 static void

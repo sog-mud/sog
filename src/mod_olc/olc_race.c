@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_race.c,v 1.60 2001-12-03 22:28:35 fjoe Exp $
+ * $Id: olc_race.c,v 1.61 2002-01-11 20:13:20 tatyana Exp $
  */
 
 #include "olc.h"
@@ -60,6 +60,7 @@ DECLARE_OLC_FUN(raceed_maxstats		);
 DECLARE_OLC_FUN(raceed_size		);
 DECLARE_OLC_FUN(raceed_hpbonus		);
 DECLARE_OLC_FUN(raceed_manabonus	);
+DECLARE_OLC_FUN(raceed_movesrate	);
 DECLARE_OLC_FUN(raceed_pracbonus	);
 DECLARE_OLC_FUN(raceed_luckbonus	);
 DECLARE_OLC_FUN(raceed_slang		);
@@ -111,6 +112,7 @@ olc_cmd_t olc_cmds_race[] =
 	{ "size",	raceed_size,	validate_haspc, size_table	},
 	{ "hpbonus",	raceed_hpbonus,	validate_haspc,	NULL		},
 	{ "manabonus",	raceed_manabonus, validate_haspc, NULL		},
+	{ "movesrate",	raceed_movesrate, validate_haspc, NULL		},
 	{ "pracbonus",	raceed_pracbonus, validate_haspc, NULL		},
 	{ "luckbonus",	raceed_luckbonus, NULL,		NULL		},
 	{ "slang",	raceed_slang,	validate_haspc,	slang_table	},
@@ -400,6 +402,9 @@ OLC_FUN(raceed_show)
 	buf_printf(output, BUF_END, "Hunger Rate:   [%d]%%\n",
 		   r->race_pcdata->hunger_rate);
 
+	buf_printf(output, BUF_END, "Moves Rate:    [%d]%%\n",
+		   r->race_pcdata->moves_rate);
+
 	if (r->race_pcdata->mana_bonus) {
 		buf_printf(output, BUF_END, "Mana bonus:    [%d]\n",
 			   r->race_pcdata->mana_bonus);
@@ -537,7 +542,7 @@ OLC_FUN(raceed_addpcdata)
 		strnzcpy(race->race_pcdata->who_name,
 			 sizeof(race->race_pcdata->who_name), str);
 		free_string(str);
-		act_char("race PC data created.", ch);
+		act_char("Race PC data created.", ch);
 		return TRUE;
 	}
 
@@ -559,7 +564,7 @@ OLC_FUN(raceed_delpcdata)
 
 	pcrace_free(race->race_pcdata);
 	race->race_pcdata = NULL;
-	act_char("race PC data deleted.", ch);
+	act_char("Race PC data deleted.", ch);
 	return TRUE;
 }
 
@@ -716,6 +721,13 @@ OLC_FUN(raceed_manabonus)
 	}
 
 	return olced_number(ch, argument, cmd, &race->race_pcdata->mana_bonus);
+}
+
+OLC_FUN(raceed_movesrate)
+{
+	race_t *race;
+	EDIT_RACE(ch, race);
+	return olced_number(ch, argument, cmd, &race->race_pcdata->moves_rate);
 }
 
 OLC_FUN(raceed_pracbonus)
@@ -1004,6 +1016,8 @@ save_race_pcdata(pcrace_t *pcr, FILE *fp)
 	fwrite_number(fp, "PracBonus", pcr->prac_bonus);
 	if (pcr->hunger_rate != 100)
 		fwrite_number(fp, "HungerRate", pcr->hunger_rate);
+	if (pcr->hunger_rate != 100)
+		fwrite_number(fp, "MovesRate", pcr->moves_rate);
 	if (pcr->restrict_align) {
 		fprintf(fp, "RestrictAlign %s~\n",
 			flag_string(ralign_names, pcr->restrict_align));

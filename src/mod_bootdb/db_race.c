@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_race.c,v 1.41 2001-09-13 16:21:59 fjoe Exp $
+ * $Id: db_race.c,v 1.42 2002-01-11 20:13:20 tatyana Exp $
  */
 
 #include <stdio.h>
@@ -215,6 +215,7 @@ DBLOAD_FUN(load_pcrace)
 				fMatch = TRUE;
 				break;
 			}
+			KEY("MovesRate", pcr->moves_rate, fread_number(fp));
 			break;
 
 		case 'P':

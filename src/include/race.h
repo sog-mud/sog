@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: race.h,v 1.36 2001-09-13 16:21:54 fjoe Exp $
+ * $Id: race.h,v 1.37 2002-01-11 20:13:18 tatyana Exp $
  */
 
 #ifndef _RACE_H_
@@ -67,6 +67,7 @@ struct pcrace_t
 	int	hp_bonus;		/* initial hp bonus		*/
 	int	mana_bonus;		/* initial mana bonus		*/
 	int	prac_bonus;		/* initial practice bonus	*/
+	int	moves_rate;		/* moves rate (when gaining level) */
 	int	slang;			/* spoken language		*/
 	flag_t	restrict_align;		/* alignment restrictions	*/
 	flag_t	restrict_ethos;		/* ethos restrictions		*/

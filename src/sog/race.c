@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: race.c,v 1.35 2001-11-21 14:33:34 kostik Exp $
+ * $Id: race.c,v 1.36 2002-01-11 20:13:22 tatyana Exp $
  */
 
 #include <stdio.h>
@@ -91,6 +91,7 @@ pcrace_new(void)
 	pcr = calloc(1, sizeof(*pcr));
 	pcr->skill_spec = str_empty;
 	pcr->hunger_rate = 100;
+	pcr->moves_rate	= 100;
 	c_init(&pcr->classes, &c_info_rclasses);
 	pcr->refcnt = 1;
 	return pcr;
