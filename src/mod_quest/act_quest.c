@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_quest.c,v 1.89 1998-12-29 16:43:32 fjoe Exp $
+ * $Id: act_quest.c,v 1.90 1999-01-04 07:39:44 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -843,13 +843,17 @@ static bool quest_give_item(CHAR_DATA *ch, CHAR_DATA *questor,
 
 	/* ok, give him requested item */
 
-	reward->owner = str_dup(ch->name);
-	mlstr_free(reward->short_descr);
-	reward->short_descr = mlstr_printf(reward->pIndexData->short_descr,
-			IS_GOOD(ch) ?		"holy" :
-			IS_NEUTRAL(ch) ?	"blue-green" : 
-						"evil", 
-			ch->name);
+	if (IS_SET(pObjIndex->extra_flags, ITEM_QUEST)) {
+		reward->owner = str_dup(ch->name);
+		mlstr_free(reward->short_descr);
+		reward->short_descr =
+			mlstr_printf(reward->pIndexData->short_descr,
+				     IS_GOOD(ch) ?	"holy" :
+				     IS_NEUTRAL(ch) ?	"blue-green" : 
+							"evil", 
+				     ch->name);
+	}
+
 	obj_to_char(reward, ch);
 
 	act("$N gives {W$p{x to $n.", ch, reward, questor, TO_ROOM);
