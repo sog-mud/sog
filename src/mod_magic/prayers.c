@@ -1,5 +1,5 @@
 /*
- * $Id: prayers.c,v 1.46 2003-04-18 17:45:24 tatyana Exp $
+ * $Id: prayers.c,v 1.47 2003-04-18 20:28:36 tatyana Exp $
  */
 
 /***************************************************************************
@@ -48,6 +48,7 @@
 #include <quest.h>
 
 #include <magic.h>
+#include <update.h>
 #include "magic_impl.h"
 
 DECLARE_SPELL_FUN(prayer_detect_good);
@@ -144,6 +145,7 @@ DECLARE_SPELL_FUN(prayer_golden_aura);
 DECLARE_SPELL_FUN(prayer_fire_sphere);
 DECLARE_SPELL_FUN(prayer_sunburst);
 DECLARE_SPELL_FUN(prayer_cone_of_cold);
+DECLARE_SPELL_FUN(prayer_power_word_fear);
 
 static void
 hold(CHAR_DATA *ch, CHAR_DATA *victim, int duration, int dex_modifier, int
@@ -3112,4 +3114,125 @@ SPELL_FUN(prayer_cone_of_cold, sn, level, ch, vo)
 	act_char("You draw heat from the room to create a blast of freezing air!", ch);
 	vo_foreach(ch->in_room, &iter_char_room, cone_of_cold_cb,
 		   sn, level, ch, &dam, number_range(level, 2 * level));
+}
+
+SPELL_FUN(prayer_power_word_fear, sn, level, ch, vo)
+{
+	CHAR_DATA *victim = (CHAR_DATA *) vo;
+	AFFECT_DATA *paf;
+	bool bad_fail, utter_fail;
+	int range;
+
+	bad_fail = utter_fail = FALSE;
+
+	if (victim == ch)
+		act_char("That wouldn't work.", ch);
+
+	if (IS_SET(victim->in_room->room_flags, ROOM_BATTLE_ARENA)) {
+		act_char("You cann't use this power here.", ch);
+		return;
+	}
+
+	if (IS_IMMORTAL(victim)) {
+		act_char("You is not powerful enough.", ch);
+		return;
+	}
+
+	act("$n points at $N and utters the word 'Fear!'",
+	    ch, NULL, victim, TO_NOTVICT);
+	act("$n points at you and utters the word 'Fear!'",
+	    ch, NULL, victim, TO_VICT);
+	act("You point at $N and utter the word 'Fear!'",
+	    ch, NULL, victim, TO_CHAR);
+
+	if (!IS_AWAKE(victim)) {
+		act("$n shivers momentarily but it passes.",
+		    victim, NULL, NULL, TO_ROOM);
+		act_char("You feel a brief terror, but it passes away "
+			 "in your dreams.", victim);
+		return;
+	}
+
+	if (is_sn_affected(victim, sn)) {
+		act("$N is already affected by a word of power.",
+		    ch, NULL, victim, TO_CHAR);
+		act_char("You feel a shiver pass through you but it has "
+			 "no further affect.", victim);
+		return;
+	}
+
+	if (IS_NPC(victim)
+	&&  IS_CLAN_GUARD(victim)) {
+		act("$N shivers momentarily but it passes.",
+		    ch, NULL, NULL, TO_NOTVICT);
+		return;
+	}
+
+	if (saves_spell(level, victim, DAM_NEGATIVE)) {
+		act("$n shivers momentarily but it passes.",
+		    victim, NULL, NULL, TO_ROOM);
+		act("You feel a brief terror, but it passes.",
+		    victim, NULL, NULL, TO_CHAR);
+		return;
+	}
+
+	if (!saves_spell(level - 2, victim, DAM_NEGATIVE)) {
+		bad_fail = TRUE;
+		if (!saves_spell(level - 5, victim, DAM_NEGATIVE))
+		utter_fail = TRUE;
+	}
+
+	if (utter_fail) {
+		act("$n's eyes widen and $gn{his} heart ruptures from shock!",
+		    victim, NULL, NULL, TO_ROOM);
+		act("You feel a terror so intense your heart stops dead!",
+		    victim, NULL, NULL, TO_CHAR);
+		raw_kill(ch, victim);
+		return;
+	}
+
+	act("$n's eyes widen in shock and $gn{his} entire body freezes in "
+	    "momentary terror.", victim, NULL, NULL, TO_ROOM);
+	act("You feel an overwhelming terror and you shudder in momentary "
+	    "shock.", victim, NULL, NULL, TO_CHAR);
+
+	range = UMAX(1, level / 10);
+
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->level	= level;
+	paf->duration	= number_range(1, 5) + range;
+
+	INT(paf->location)= APPLY_CON;
+	paf->modifier	= - number_range (2, range + 1);
+	affect_to_char(victim, paf);
+
+	INT(paf->location)= APPLY_STR;
+	paf->modifier	= - number_range (2, range + 1);
+	affect_to_char(victim, paf);
+
+	INT(paf->location)= APPLY_DEX;
+	paf->modifier	= - number_range (1, range);
+	affect_to_char(victim, paf);
+
+	INT(paf->location)= APPLY_HITROLL;
+	paf->modifier	= - 2 * number_range (2, range + 1);
+	affect_to_char(victim, paf);
+
+	INT(paf->location)= APPLY_DAMROLL;
+	paf->modifier	= - 2 * number_range (2, range + 1);
+	affect_to_char(victim, paf);
+	aff_free(paf);
+
+	if (victim->position == POS_FIGHTING)
+		dofun("flee", victim, str_empty);
+
+	if (victim->position == POS_FIGHTING)
+		dofun("flee", victim, str_empty);
+
+	if (victim->position == POS_FIGHTING)
+		dofun("flee", victim, str_empty);
+
+	if (bad_fail)
+		WAIT_STATE(ch, 3 * get_pulse("violence"));
+
 }
