@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.274 1999-12-16 11:38:37 kostik Exp $
+ * $Id: merc.h,v 1.275 1999-12-17 09:00:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -392,13 +392,15 @@ struct spec_type
 /*
  * area flags
  */
-#define AREA_CLOSED		(B)	/* transportation does not work,
-					   no quests			*/
+#define AREA_CLOSED		(B)	/* transportation does not work,*/
+					/* no quests			*/
 #define AREA_NOQUEST		(C)	/* no quests in this area	*/
 #define AREA_UPDATE_ALWAYS	(D)	/* always update area (even if  */
 					/* there are players in it)	*/
 #define AREA_UPDATE_FREQUENTLY	(E)	/* update area more frequently	*/
 					/* (every 3 ticks)		*/   
+#define AREA_TAGGED		(Y)	/* area is tagged (for		*/
+					/* conversion or whatever)	*/
 #define AREA_CHANGED		(Z)	/* area has been modified	*/
 
 /*
