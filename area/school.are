@@ -471,7 +471,7 @@ Merc Industries
 ~
 #3707
 leggings sub merc~
-@eng a pair of sub issue leggings@rus {wСемейные трусы в {GгОрОшек{w (leggings){x~
+@eng a pair of sub issue leggings@rus Семейные трусы в {GгОрОшек{x~
 You see a pair of sub issue leggings here.~
 leather~
 armor U AF
@@ -741,8 +741,6 @@ go south.
 
 A sign warns 'You may not pass these doors once you have passed level 5.'
 
-P.S. {RUse 'LANG rus' command, if you want russian language!!!{x
-P.P.S. {BUse 'COLOR' to enable full ansi color support.{x
 @rus Это вход в МУД школу. Иди на север (north), чтоб пройти курс обучения
 в школе. Если ты там уже был и хочешь попасть на арену, то иди на юг (south).
 На востоке (east) ты видишь вход в музей.
@@ -783,7 +781,7 @@ Light fluoresces off the ceiling in soft white tones.  Of course, there is a
 sign on the wall.  The exits are west and south.  A small plaque is on the
 wall.
 @rus Ты находишься в белой квадратной комнате. Стены чистые, окон нет. Мягкий
-свет исходит из потолка. {MНу конечно, на стене ты видишь знак (sign).{x
+свет исходит из потолка. Ну конечно, на стене ты видишь {Mзнак (sign){x.
 Выходы ведут на юг (south) и на запад (west). Ты замечаешь табличку (plague)
 на стене.
 ~
@@ -842,7 +840,7 @@ S
 Light fluoresces off the ceiling in soft white tones.  Of course, there is a
 sign on the wall.  Exits lead in ALL directions.
 @rus Ты находишься в белой квадратной комнате. Стены чистые, окон нет. Мягкий
-свет исходит из потолка. {MНу конечно, на стене ты видишь знак (sign).{x
+свет исходит из потолка. Ну конечно, на стене ты видишь {Mзнак (sign){x.
 Выходы ведут во ВСЕХ направлениях.
 ~
 0 CDR 0
@@ -913,7 +911,7 @@ S
 Light fluoresces off the ceiling in soft white tones.  Of course, there is a
 sign on the wall.  Exits lead north and south.
 @rus Ты находишься в белой квадратной комнате. Стены чистые, окон нет. Мягкий
-свет исходит из потолка. {MНу конечно, на стене ты видишь знак (sign).{x 
+свет исходит из потолка. Ну конечно, на стене ты видишь {Mзнак (sign){x.
 Выходы ведут на север (north) и на юг (south).
 ~
 0 CDR 0
@@ -947,7 +945,7 @@ S
 Light fluoresces off the ceiling in soft white tones.  Of course, there is a
 sign on the wall.  The only exit is east.
 @rus Ты находишься в белой квадратной комнате. Стены чистые, окон нет. Мягкий
-свет исходит из потолка. {MНу конечно, на стене ты видишь знак (sign).{x 
+свет исходит из потолка. Ну конечно, на стене ты видишь {Mзнак (sign){x.
 Единственный выход на востоке (east).
 ~
 0 CDR 0
@@ -969,7 +967,7 @@ S
 Light fluoresces off the ceiling in soft white tones.  Of course, there is a
 sign on the wall.  The only exit is north.
 @rus Ты находишься в белой квадратной комнате. Стены чистые, окон нет. Мягкий
-свет исходит из потолка. {MНу конечно, на стене ты видишь знак (sign).{x 
+свет исходит из потолка. Ну конечно, на стене ты видишь {Mзнак (sign){x.
 Единственный выход на севере (north).
 ~
 0 CDR 0
@@ -991,7 +989,7 @@ S
 Light fluoresces off the ceiling in soft white tones.  Of course, there is a
 sign on the wall.  The only exit is up.
 @rus Ты находишься в белой квадратной комнате. Стены чистые, окон нет. Мягкий
-свет исходит из потолка. {MНу конечно, на стене ты видишь знак (sign).{x 
+свет исходит из потолка. Ну конечно, на стене ты видишь {Mзнак (sign){x.
 Единственный выход вверху (up).
 ~
 0 CDR 0
@@ -1013,7 +1011,7 @@ S
 Light fluoresces off the ceiling in soft white tones.  Of course, there is a
 sign on the wall.  The only exit is down.
 @rus Ты находишься в белой квадратной комнате. Стены чистые, окон нет. Мягкий
-свет исходит из потолка. {MНу конечно, на стене ты видишь знак (sign).{x
+свет исходит из потолка. Ну конечно, на стене ты видишь {Mзнак (sign){x.
 Единственный выход внизу (down).
 ~
 0 CDR 0
@@ -1035,7 +1033,7 @@ S
 Light fluoresces off the ceiling in soft white tones.  Of course, there is a
 sign on the wall.  Exits reach west and down.
 @rus Ты находишься в белой квадратной комнате. Стены чистые, окон нет. Мягкий
-свет исходит из потолка. {MНу конечно, на стене ты видишь знак (sign).{x
+свет исходит из потолка. Ну конечно, на стене ты видишь {Mзнак (sign){x.
 Выходы ведут на запад (west) и вниз (down).
 ~
 0 CDR 0
@@ -1092,7 +1090,7 @@ S
 @eng You are in a smelly cage.  Strangely, the walls are still clean!
 You see a sign here.  The only exit is up.
 @rus Ты находишься в вонючей клетке. Странно, но стены все еще чистые!
-{MТы видишь знак (sign) тут.{x Единственный выход на верху (up).
+Ты видишь {Mзнак (sign) тут{x. Единственный выход -- наверх (up).
 ~
 0 DR 0
 E
@@ -1115,7 +1113,7 @@ S
 Light fluoresces off the ceiling in soft white tones.  Of course, there is a
 sign on the wall.
 @rus Ты находишься в белой квадратной комнате. Стены чистые, окон нет. Мягкий
-свет исходит из потолка. {MНу конечно, на стене ты видишь знак (sign).{x
+свет исходит из потолка. Ну конечно, на стене ты видишь {Mзнак (sign){x.
 ~
 0 CDR 0
 E
@@ -1148,8 +1146,8 @@ S
 ceiling in soft white tones.  Of course, there is a big sign on the wall.
 Exits lead into the cardinal directions plus down.
 @rus Ты находишься в комнате с клетками. Вокруг всего 4 клетки. Мягкий свет
-исходит из потолка. {MТы видишь большой знак (sign) на стене.{x Выходы ведут во
-всех направления.
+исходит из потолка. Ты видишь {Mбольшой знак (sign) на стене{x. Выходы ведут во
+всех направлениях.
 ~
 0 CDR 0
 E
@@ -1220,7 +1218,7 @@ S
 @eng You are in a cage.  Blood and gore are everywhere.  The keepers must be lax
 in the upkeep here!  There is a sign on the wall.  The only exit is south.
 @rus Ты в клетке. Кровь повсюду. Тут давно никто не прибирася.
-{Mна стене ты видишь знак (sign).{x Единственный выход на юге (south).
+На стене ты видишь {Mзнак (sign){x. Единственный выход на юг (south).
 ~
 0 DR 0
 E
@@ -1242,7 +1240,7 @@ S
 @eng You are in a cage.  Blood and gore are everywhere.  The keepers must be lax
 in the upkeep here!  There is a sign on the wall.  The only exit is east.
 @rus Ты в клетке. Кровь повсюду. Тут давно никто не прибирася.
-{Mна стене ты видишь знак (sign).{x Единственный выход на востоке (east).
+На стене ты видишь {Mзнак (sign){x. Единственный выход на востоке (east).
 ~
 0 DR 0
 E
@@ -1264,7 +1262,7 @@ S
 @eng You are in a cage.  Blood and gore are everywhere.  The keepers must be lax
 in the upkeep here!  There is a sign on the wall.  The only exit is north.
 @rus Ты в клетке. Кровь повсюду. Тут давно никто не прибирася.
-{Mна стене ты видишь знак (sign).{x Единственный выход на севере (north).
+На стене ты видишь {Mзнак (sign){x. Единственный выход на севере (north).
 ~
 0 DR 0
 E
@@ -1286,7 +1284,7 @@ S
 @eng You are in a cage.  Blood and gore are everywhere.  The keepers must be lax
 in the upkeep here!  There is a sign on the wall.  The only exit is west.
 @rus Ты в клетке. Кровь повсюду. Тут давно никто не прибирася.
-{Mна стене ты видишь знак (sign).{x Единственный выход на западе (west).
+На стене ты видишь {Mзнак (sign){x. Единственный выход на западе (west).
 ~
 0 DR 0
 E
@@ -1309,8 +1307,8 @@ S
 Light fluoresces off the ceiling in soft white tones.  Of course, there is a
 sign on the wall.  Find your own exit here.
 @rus Ты находишься в белой квадратной комнате. Стены чистые, окон нет. Мягкий
-свет исходит из потолка. {MНу конечно, на стене ты видишь знак (sign).{x
-Найди свой выход сам.
+свет исходит из потолка. Ну конечно, на стене ты видишь {Mзнак (sign){x.
+Найди выход сам.
 ~
 0 CDR 0
 E
@@ -1354,7 +1352,7 @@ S
 and packages.  Light fluoresces off the ceiling in soft white tones.  Of
 course, there is a sign on the wall.  The only exit is north.
 @rus Ты находишься в маленькой комнате. На полках аккуратно сложены различные вещи
-и свертки. Потолок испускает ровный белый свет. {MНа стене - знак (sign).{x
+и свертки. Потолок испускает ровный белый свет. На стене - {Mзнак (sign){x.
 Единственный выход на севере (north).
 ~
 0 DR 0
@@ -1387,7 +1385,7 @@ S
 Light fluoresces off the ceiling in soft white tones.  Of course, there is a
 sign on the wall.  The exits are north and west, with a door to the east.
 @rus Ты находишься в белой квадратной комнате. Стены чистые, окон нет. Мягкий
-свет исходит из потолка. {MНу конечно, на стене ты видишь знак (sign).{x
+свет исходит из потолка. Ну конечно, на стене ты видишь {Mзнак (sign){x.
 Выходы ведут на север (north) и запад (west), на востоке (east) ты видишь
 закрытую дверь (door). 
 ~
@@ -1451,7 +1449,8 @@ The only exit is on the other side of the gate north of you.
 @rus Это очень ярко освещенная комната, посреди нее ты видишь мраморную колонну.
 За колонной ты замечаешь фигуру закутанную в серебро. На каждой стене висят
 прекрасные гобелены. Ты очень счастлив, что находишься здесь и сейчас.
-{MТы видишь большой знак тут.{x Единственный выход это ворота на севере (north).
+Ты видишь {Mбольшой знак (sign) тут{x. Единственный выход -- это ворота
+на севере (north).
 ~
 0 DR 0
 E
@@ -1855,6 +1854,7 @@ being watched by some divine being.  There is a BIG SIGN here.
 @rus Ты на арене. Помни, что если ты захочешь отсюда выйти, просто пойди на
 верх (up). Потолок гигантской арены едва различим в высоте. Ты чувствуешь себя
 так, как будто за тобой наблюдает божественное существо.
+Ты видишь {MБОЛЬШОЙ ЗНАК (sign){x.
 ~
 0 D 0
 E
@@ -2495,7 +2495,7 @@ There is a sign on the wall (type 'LOOK SIGN' to read it).
 @rus Ты находишься в комнате МУД школы. Портреты знаменитых выпускников школы
 покрывают стены. На западе (west) ты видишь комнату тренировок Фьюри, на
 востоке (east) - гильдия Зуки, на севере (north) - другая комната. 
-{MНа стене ты видишь знак (sign) - набери 'LOOK SIGN' для прочтения!{x
+На стене ты видишь {Mзнак (sign) - набери 'LOOK SIGN' для прочтения!{x
 ~
 0 CDR 1
 E
@@ -2549,7 +2549,7 @@ and mental training tools.  The whole room is filled with magic, holiness,
 and sweat.  There is a sign on the wall.
 @rus Ты находишься в тренировочной комнате Фьюри. Вокруг себя ты видишь все
 виды тренажеров, для физических и умственных упражнений. Комната наполнена
-магией, святостью и запахом пота. {MНа стене ты видишь знак (sign).{x
+магией, святостью и запахом пота. На стене ты видишь {Mзнак (sign){x.
 ~
 0 CDR 1
 E
@@ -2580,7 +2580,7 @@ sweat and an aura of magic.  There is a sign on the wall.
 @rus Ты в комнате наполненой оружием, различными книжками и множеством чучел для
 тренировки, некоторые из них порублены и проткнуты много раз, другие опалены до
 черноты. Комната наполнена запахом пота и ты чувствуешь ауру магии. 
-{MНа стене ты видишь знак (sign).{x
+На стене ты видишь {Mзнак (sign){x.
 ~
 0 CDR 1
 E
