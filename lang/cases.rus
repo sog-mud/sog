@@ -8354,6 +8354,17 @@ Form 6 -ого~
 End
 
 #RULE
+Name корзина~
+BaseLen 6
+Form 1 -ы~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ой~
+Form 5 -е~
+Form 6 -у~
+End
+
+#RULE
 Name гром~
 BaseLen 4
 Form 1 -а~

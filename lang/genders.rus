@@ -342,6 +342,14 @@ Form 3 -ы~
 End
 
 #RULE
+Name замахнулся~
+BaseLen 8
+Form 1 -ась~
+Form 2 -ось~
+Form 3 -ись~
+End
+
+#RULE
 Name пересох~
 BaseLen 7
 Form 1 -ла~
@@ -998,6 +1006,14 @@ BaseLen 10
 Form 1 -а~
 Form 2 -о~
 Form 3 -ы~
+End
+
+#RULE
+Name начал~
+BaseLen 4
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
 End
 
 #RULE
@@ -1854,6 +1870,14 @@ Form 3 -ют~
 End
 
 #RULE
+Name тянет~
+BaseLen 3
+Form 1 -ет~
+Form 2 -ет~
+Form 3 -ут~
+End
+
+#RULE
 Name провел~
 BaseLen 5
 Form 1 -ла~
@@ -2137,6 +2161,14 @@ End
 #RULE
 Name снял~
 BaseLen 3
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name забросил~
+BaseLen 7
 Form 1 -ла~
 Form 2 -ло~
 Form 3 -ли~

@@ -3473,7 +3473,6 @@ Stamp   999765776
 To      all~
 Subject Help names~
 Text
- 
 'help name' is changed. Some new clauses are added.
  
 happy mudding!
@@ -3528,7 +3527,6 @@ Stamp   1000950150
 To      all~
 Subject ranger staff~
 Text
- 
 *subj* has now type of damage: 'crush'
  
 {GDiogen{x
@@ -3876,4 +3874,101 @@ hi, there!
 промпте по %e.
  
 {WPhrinn{x.
+~
+Sender  Diogen~
+Date    Sat Jul 20 16:34:13 2002~
+Stamp   1027168453
+To      imm~
+Subject help.are~
+Text
+ 
+Some typo corrections in help claws.
+~
+Sender  Diogen~
+Date    Sat Jul 20 18:33:24 2002~
+Stamp   1027175604
+To      imm~
+Subject New Thalos~
+Text
+Починил ворота в Новом Талосе, спасибо Линортис.
+Там фигня была - односторонние линки
+~
+Sender  Phrinn~
+Date    Tue Aug 20 16:03:45 2002~
+Stamp   1029845025
+To      all~
+Subject изменения в группах умений~
+Text
+Привет.
+Обнаружилось, что очень многие умения и заклинания входят в группу none,
+хотя делать им там совершенно нечего. Поэтому они из нее исключены и
+рассортированы по другим. Соответственно, некоторые из них станут работать
+лучше у тех, кто имеет соответствующий improved skill (например у тех
+кто имеет сочетание improved protective+enforcers aura)
+Вот список умений/заклинаний и их новые группы:
+- в группу 'detection' добавились: acute eye, acute vision
+- в группу 'creation' добавились: adamantite golem, fire shield, floating
+disc, iron golem, lesser golem, holy hammer, ranger staff, stone golem,
+make arrow, make bow, blue/red/green/white arrow, katana
+- в группу 'protective' добавились: bark skin, improved protective,
+evil spirit, enforcers aura, prismatic sphere
+- в группу 'benedictions' добавились: mind light, improved benediction,
+turn, lay hands, abolish undead
+- в группу 'combat' добавились: desert fist, hurricane, sand storm,
+severity force, improved combat
+- в группу 'curative' добавились: remove fear, improved curative
+- в группу 'fightmaster' добавились: circle, knife, critical strike,
+dual backstab, throw, target, mortal strike
+- в группу 'enhancement' добавились: warcry, tiger power, berserk
+- в группу 'attack' добавились: backstab, improved attack, ambush
+а также: 'mastering bow' -> weaponsmaster;
+         'improved beguiling' -> beguiling
+         'improved maladiction' -> maladiction
+         'enchant sword' -> enchantment
+         'blink' -> illusion
+ 
+{WФринн{x.
+ 
+PS. изменения вступят в силу после ребута
+~
+Sender  Phrinn~
+Date    Sat Aug 24 20:10:38 2002~
+Stamp   1030205438
+To      all~
+Subject minor changes~
+Text
+hi, there!
+ 
+- assasinate не делается с одетым щитом
+- путем хитрых манипуляций нельзя теперь одеть twohands weapon + hold
+и twohands primary weapon + second weapon (исключение гиганты)
+ 
+{WФринн{x.
+~
+Sender  Phrinn~
+Date    Sat Aug 24 20:11:20 2002~
+Stamp   1030205480
+To      imm~
+Subject echo~
+Text
+hi, there!
+ 
+remove extra local in echo
+ 
+{WPhrinn{x.
+~
+Sender  Phrinn~
+Date    Sat Aug 31 00:31:41 2002~
+Stamp   1030739501
+To      all~
+Subject slow and quests~
+Text
+Привет!
+ 
+-- Если вы доверяете (help trust) колдующему на вас 'slow', saves не
+проверяются. 
+-- При получении квестов больше не будет никаких someone. Врага вы
+всегда сможете знать если не в лицо, то по имени =)
+ 
+{WФринн{x.
 ~
