@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: quest.c,v 1.101 1999-03-10 17:23:31 fjoe Exp $
+ * $Id: quest.c,v 1.102 1999-04-15 09:14:17 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -564,9 +564,9 @@ static void quest_request(CHAR_DATA *ch, char *arg)
 			i = 1;
 
 		obj_vnum = number_range(QUEST_OBJ_FIRST, QUEST_OBJ_LAST);
-		eyed = create_obj(get_obj_index(obj_vnum), ch->level);
-		eyed->owner = mlstr_dup(ch->short_descr);
+		eyed = create_obj(get_obj_index(obj_vnum), 0);
 		eyed->level = ch->level;
+		eyed->owner = mlstr_dup(ch->short_descr);
 		eyed->ed = ed_new2(eyed->pIndexData->ed, ch->name);
 		eyed->cost = 0;
 		eyed->timer = 30;
@@ -669,7 +669,7 @@ static void quest_complete(CHAR_DATA *ch, char *arg)
 					 ch, obj, questor, TO_CHAR, POS_DEAD);
 				act("$n hands {W$p{x to $N.",
 				    ch, obj, questor, TO_ROOM);
-				extract_obj(obj);
+				extract_obj(obj, 0);
 
 				if (chance(15))
 					prac_reward = number_range(1, 6);
@@ -797,11 +797,11 @@ static bool quest_give_item(CHAR_DATA *ch, CHAR_DATA *questor,
 		}
 	}
 
-	reward = create_obj(pObjIndex, ch->level);
+	reward = create_obj(pObjIndex, 0);
 	if (get_wear_level(ch, reward) < reward->level) {
 		quest_tell(ch, questor,
 			   "This item is too powerful for you.\n");
-		extract_obj(reward);
+		extract_obj(reward, 0);
 		return FALSE;
 	}
 
@@ -816,7 +816,7 @@ static bool quest_give_item(CHAR_DATA *ch, CHAR_DATA *questor,
 			obj_next = obj->next;
 			if (obj->pIndexData->vnum == item_vnum 
 			&&  IS_OWNER(ch, obj)) {
-				extract_obj(obj);
+				extract_obj(obj, 0);
 				break;
 			}
 		}
@@ -900,8 +900,7 @@ static bool buy_tattoo(CHAR_DATA *ch, CHAR_DATA *questor)
 		return FALSE;
 	}
 
-	tattoo = create_obj(get_obj_index(religion_table[ch->religion].vnum),
-			       100);
+	tattoo = create_obj(get_obj_index(religion_table[ch->religion].vnum), 0);
 
 	obj_to_char(tattoo, ch);
 	equip_char(ch, tattoo, WEAR_TATTOO);

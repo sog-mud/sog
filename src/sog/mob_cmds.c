@@ -1,5 +1,5 @@
 /*
- * $Id: mob_cmds.c,v 1.32 1999-03-16 10:30:34 fjoe Exp $
+ * $Id: mob_cmds.c,v 1.33 1999-04-15 09:14:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -376,12 +376,12 @@ void do_mpjunk(CHAR_DATA *ch, const char *argument)
     	if ((obj = get_obj_wear(ch, arg)) != NULL)
       	{
       	    unequip_char(ch, obj);
-	    extract_obj(obj);
+	    extract_obj(obj, 0);
     	    return;
       	}
       	if ((obj = get_obj_carry(ch, arg)) == NULL)
 	    return; 
-	extract_obj(obj);
+	extract_obj(obj, 0);
     }
     else
       	for (obj = ch->carrying; obj != NULL; obj = obj_next)
@@ -391,7 +391,7 @@ void do_mpjunk(CHAR_DATA *ch, const char *argument)
             {
           	if (obj->wear_loc != WEAR_NONE)
 	    	unequip_char(ch, obj);
-          	extract_obj(obj);
+          	extract_obj(obj, 0);
             } 
       	}
 
@@ -485,7 +485,7 @@ void do_mpmload(CHAR_DATA *ch, const char *argument)
 /*
  * Lets the mobile load an object
  *
- * Syntax: mob oload [vnum] [level] {R}
+ * Syntax: mob oload [vnum] {R}
  */
 void do_mpoload(CHAR_DATA *ch, const char *argument)
 {
@@ -493,12 +493,11 @@ void do_mpoload(CHAR_DATA *ch, const char *argument)
     char arg2[ MAX_INPUT_LENGTH ];
     OBJ_INDEX_DATA *pObjIndex;
     OBJ_DATA       *obj;
-    int             level = 0;
     bool            fToroom = FALSE, fWear = FALSE;
 
     argument = one_argument(argument, arg1, sizeof(arg1));
                one_argument(argument, arg2, sizeof(arg2));
- 
+
     if (arg1[0] == '\0' || !is_number(arg1))
     {
         bug("Mpoload - Bad syntax from vnum %d.",
@@ -523,7 +522,7 @@ void do_mpoload(CHAR_DATA *ch, const char *argument)
 	return;
     }
 
-    obj = create_obj(pObjIndex, level);
+    obj = create_obj(pObjIndex, 0);
     if ((fWear || !fToroom) && CAN_WEAR(obj, ITEM_TAKE))
     {
 	obj_to_char(obj, ch);
@@ -560,14 +559,14 @@ void do_mppurge(CHAR_DATA *ch, const char *argument)
 	    vnext = victim->next_in_room;
 	    if (IS_NPC(victim) && victim != ch 
 	    &&   !IS_SET(victim->pIndexData->act, ACT_NOPURGE))
-		extract_char(victim, TRUE);
+		extract_char(victim, 0);
 	}
 
 	for (obj = ch->in_room->contents; obj != NULL; obj = obj_next)
 	{
 	    obj_next = obj->next_content;
 	    if (!IS_SET(obj->extra_flags, ITEM_NOPURGE))
-		extract_obj(obj);
+		extract_obj(obj, 0);
 	}
 
 	return;
@@ -577,7 +576,7 @@ void do_mppurge(CHAR_DATA *ch, const char *argument)
     {
 	if ((obj = get_obj_here(ch, arg)))
 	{
-	    extract_obj(obj);
+	    extract_obj(obj, 0);
 	}
 	else
 	{
@@ -593,10 +592,8 @@ void do_mppurge(CHAR_DATA *ch, const char *argument)
 		IS_NPC(ch) ? ch->pIndexData->vnum : 0);
 	return;
     }
-    extract_char(victim, TRUE);
-    return;
+    extract_char(victim, 0);
 }
-
 
 /*
  * Lets the mobile goto any location it wishes that is not private.
@@ -1187,7 +1184,7 @@ void do_mpremove(CHAR_DATA *ch, const char *argument)
 	{
 	     unequip_char(ch, obj);
 	     obj_from_char(obj);
-	     extract_obj(obj);
+	     extract_obj(obj, 0);
 	}
     }
 }

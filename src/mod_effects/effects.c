@@ -1,5 +1,5 @@
 /*
- * $Id: effects.c,v 1.14 1999-03-16 10:30:32 fjoe Exp $
+ * $Id: effects.c,v 1.15 1999-04-15 09:14:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -191,7 +191,7 @@ void acid_effect(void *vo, int level, int dam, int target)
 		    obj_to_room(t_obj,obj->carried_by->in_room);
 		else
 		{
-		    extract_obj(t_obj);
+		    extract_obj(t_obj, 0);
 		    continue;
 		}
 
@@ -199,7 +199,7 @@ void acid_effect(void *vo, int level, int dam, int target)
 	    }
  	}
 
-	extract_obj(obj);
+	extract_obj(obj, 0);
 	return;
     }
 }
@@ -302,7 +302,7 @@ void cold_effect(void *vo, int level, int dam, int target)
 	else if (obj->in_room != NULL && obj->in_room->people != NULL)
 	    act(msg,obj->in_room->people,obj,NULL,TO_ALL);
 
-	extract_obj(obj);
+	extract_obj(obj, 0);
 	return;
     }
 }
@@ -445,14 +445,14 @@ void fire_effect(void *vo, int level, int dam, int target)
 		    obj_to_room(t_obj,obj->carried_by->in_room);
 		else
 		{
-		    extract_obj(t_obj);
+		    extract_obj(t_obj, 0);
 		    continue;
 		}
 		fire_effect(t_obj,level/2,dam/2,TARGET_OBJ);
             }
         }
  
-        extract_obj( obj );
+        extract_obj(obj, 0);
 	return;
     }
 }
@@ -630,7 +630,7 @@ void shock_effect(void *vo,int level, int dam, int target)
 	else if (obj->in_room != NULL && obj->in_room->people != NULL)
 	    act(msg,obj->in_room->people,obj,NULL,TO_ALL);
 
-	extract_obj(obj);
+	extract_obj(obj, 0);
 	return;
     }
 }
@@ -802,7 +802,7 @@ void sand_effect(void *vo, int level, int dam, int target)
 		    obj_to_room(t_obj,obj->carried_by->in_room);
 		else
 		{
-		    extract_obj(t_obj);
+		    extract_obj(t_obj, 0);
 		    continue;
 		}
 
@@ -810,7 +810,7 @@ void sand_effect(void *vo, int level, int dam, int target)
 	    }
  	}
 
-	extract_obj(obj);
+	extract_obj(obj, 0);
 	return;
     }
 }
@@ -954,14 +954,14 @@ void scream_effect(void *vo, int level, int dam, int target)
 		    obj_to_room(t_obj,obj->carried_by->in_room);
 		else
 		{
-		    extract_obj(t_obj);
+		    extract_obj(t_obj, 0);
 		    continue;
 		}
 		scream_effect(t_obj,level/2,dam/2,TARGET_OBJ);
             }
         }
  
-        extract_obj( obj );
+        extract_obj(obj, 0);
 	return;
     }
 }

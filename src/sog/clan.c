@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: clan.c,v 1.35 1999-02-20 16:29:15 fjoe Exp $
+ * $Id: clan.c,v 1.36 1999-04-15 09:14:13 fjoe Exp $
  */
 
 #include <sys/time.h>
@@ -213,7 +213,7 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 				    clan->name);
 			if ((mark = get_eq_char(victim, WEAR_CLANMARK)) != NULL) {
 				obj_from_char(mark);
-				extract_obj(mark);
+				extract_obj(mark, 0);
 			}
 			if (clan->mark_vnum) {
 				mark = create_obj(get_obj_index(clan->mark_vnum), 0);
@@ -246,7 +246,7 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 
 			if ((mark = get_eq_char(victim, WEAR_CLANMARK))) {
 				obj_from_char(mark);
-				extract_obj(mark);
+				extract_obj(mark, 0);
 			}
 
 			return;

@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.157 1999-04-14 05:31:35 kostik Exp $
+ * $Id: fight.c,v 1.158 1999-04-15 09:14:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -59,7 +59,6 @@
 #include "mob_prog.h"
 #include "obj_prog.h"
 
-DECLARE_DO_FUN(do_quit_count	);
 DECLARE_DO_FUN(do_crush		);
 DECLARE_DO_FUN(do_emote		);
 DECLARE_DO_FUN(do_dismount	);
@@ -1294,7 +1293,7 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim,
 		if (is_affected(victim, gsn_mirror)) {
 			act("$n shatters into tiny fragments of glass.",
 			    victim, NULL, NULL, TO_ROOM);
-			extract_char(victim, TRUE);
+			extract_char(victim, 0);
 			return FALSE;
 		}
 
@@ -1940,10 +1939,11 @@ void make_corpse(CHAR_DATA *ch)
 			obj_to_obj(create_money(ch->gold, ch->silver), corpse);
 	}
 
-	ch->gold = 0;
-	ch->silver = 0;
 	corpse->owner = mlstr_dup(ch->short_descr);
 	corpse->level = ch->level;
+
+	ch->gold = 0;
+	ch->silver = 0;
 
 	for (obj = ch->carrying; obj != NULL; obj = obj_next) {
 		obj_next = obj->next_content;
@@ -1964,7 +1964,7 @@ void make_corpse(CHAR_DATA *ch)
 		    (obj->pIndexData->limit != -1 &&
 			(obj->pIndexData->count > obj->pIndexData->limit)))
 		  {
-		    extract_obj(obj);
+		    extract_obj(obj, 0);
 		    continue;
 		  }
 		else if (IS_SET(ch->form,FORM_INSTANT_DECAY))
@@ -2052,9 +2052,9 @@ void death_cry_org(CHAR_DATA *ch, int part)
 		OBJ_DATA *obj;
 
 		obj = create_obj_of(get_obj_index(vnum), ch->short_descr);
+		obj->level = ch->level;
 		obj->owner = mlstr_dup(ch->short_descr);
 		obj->timer = number_range(4, 7);
-		obj->level = ch->level;
 
 		if (obj->pIndexData->item_type == ITEM_FOOD) {
 			if (IS_SET(ch->form,FORM_POISON))
@@ -2124,7 +2124,7 @@ void raw_kill_org(CHAR_DATA *ch, CHAR_DATA *victim, int part)
 	if (IS_NPC(victim)) {
 		victim->pIndexData->killed++;
 		kill_table[URANGE(0, victim->level, MAX_LEVEL-1)].killed++;
-		extract_char(victim, TRUE);
+		extract_char(victim, 0);
 		return;
 	}
 
@@ -2133,7 +2133,7 @@ void raw_kill_org(CHAR_DATA *ch, CHAR_DATA *victim, int part)
 		  "As long as you don't attack anything.\n",
 		  victim);
 
-	extract_char(victim, FALSE);
+	extract_char(victim, XC_F_INCOMPLETE);
 
 	while (victim->affected)
 		affect_remove(victim, victim->affected);
@@ -2180,7 +2180,7 @@ void raw_kill_org(CHAR_DATA *ch, CHAR_DATA *victim, int part)
 			doprintf(do_clan, tmp_ch,
 				"%s is dead and I can leave the realm.",
 				PERS(victim, tmp_ch));
-			extract_char(tmp_ch, TRUE);
+			extract_char(tmp_ch, 0);
 		}
 	}
 }

@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.130 1999-04-09 08:39:30 kostik Exp $
+ * $Id: handler.c,v 1.131 1999-04-15 09:14:14 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1782,13 +1782,13 @@ void obj_from_obj(OBJ_DATA *obj)
 /*
  * Extract an obj from the world.
  */
-void extract_obj_raw(OBJ_DATA *obj, int flags)
+void extract_obj(OBJ_DATA *obj, int flags)
 {
 	OBJ_DATA *obj_content;
 	OBJ_DATA *obj_next;
 
 	if (obj->extracted) {
-		log_printf("extract_obj_raw: %s, vnum %d: already extracted",
+		log_printf("extract_obj: %s, vnum %d: already extracted",
 			   obj->name, obj->pIndexData->vnum);
 		return;
 	}
@@ -1799,8 +1799,8 @@ void extract_obj_raw(OBJ_DATA *obj, int flags)
 	for (obj_content = obj->contains; obj_content; obj_content = obj_next) {
 		obj_next = obj_content->next_content;
 
-		if (!IS_SET(flags, X_F_NORECURSE)) {
-			extract_obj_raw(obj_content, flags);
+		if (!IS_SET(flags, XO_F_NORECURSE)) {
+			extract_obj(obj_content, flags);
 			continue;
 		}
 
@@ -1812,7 +1812,7 @@ void extract_obj_raw(OBJ_DATA *obj, int flags)
 		else if (obj->in_obj)
 			obj_to_obj(obj_content, obj->in_obj);
 		else
-			extract_obj(obj_content);
+			extract_obj(obj_content, 0);
 	}
 
 	if (obj->in_room)
@@ -1855,37 +1855,23 @@ void extract_obj_raw(OBJ_DATA *obj, int flags)
 		}
 	}
 
-	if (!IS_SET(flags, X_F_NOCOUNT))
+	if (!IS_SET(flags, XO_F_NOCOUNT))
 		--obj->pIndexData->count;
 	free_obj(obj);
 }
 
-
-void extract_char(CHAR_DATA *ch, bool fPull)
-{
-	extract_char_org(ch, fPull, TRUE);
-	return;
-}
-
-
-void extract_char_nocount(CHAR_DATA *ch, bool fPull)
-{
-	extract_char_org(ch, fPull, FALSE);
-	return;
-}
-
-
 /*
  * Extract a char from the world.
  */
-void extract_char_org(CHAR_DATA *ch, bool fPull, bool Count)
+void extract_char(CHAR_DATA *ch, int flags)
 {
 	CHAR_DATA *wch;
 	OBJ_DATA *obj;
 	OBJ_DATA *obj_next;
 	OBJ_DATA *wield;
+	int extract_obj_flags;
 
-	if (fPull) {
+	if (!IS_SET(flags, XC_F_INCOMPLETE)) {
 		/*
 		 * only for total extractions should it check
 		 */
@@ -1908,27 +1894,24 @@ void extract_char_org(CHAR_DATA *ch, bool fPull, bool Count)
 
 	nuke_pets(ch);
 
-	if (fPull)
+	if (!IS_SET(flags, XC_F_INCOMPLETE))
 		die_follower(ch);
 	
 	stop_fighting(ch, TRUE);
 
 	if ((wield = get_eq_char(ch, WEAR_WIELD)) != NULL)
 		unequip_char(ch, wield); 
-	
-	for (obj = ch->carrying; obj != NULL; obj = obj_next)
-	{
+
+	extract_obj_flags = (IS_SET(flags, XC_F_COUNT) ? 0 : XO_F_NOCOUNT);
+	for (obj = ch->carrying; obj != NULL; obj = obj_next) {
 		obj_next = obj->next_content;
-		if (Count)
-  	  extract_obj(obj);
-		else
-		  extract_obj_nocount(obj);
+		extract_obj(obj, extract_obj_flags);
 	}
 	
 	if (ch->in_room)
 		char_from_room(ch);
 
-	if (!fPull) {
+	if (IS_SET(flags, XC_F_INCOMPLETE)) {
 		char_to_room(ch, get_altar(ch)->room);
 		return;
 	}

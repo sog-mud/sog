@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.222 1999-03-25 13:12:22 kostik Exp $
+ * $Id: act_info.c,v 1.223 1999-04-15 09:14:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3827,7 +3827,6 @@ void do_make_arrow(CHAR_DATA *ch, const char *argument)
 			check_improve(ch, color, TRUE, 3);
 
 		arrow = create_obj(pObjIndex, 0);
-
 		arrow->level = ch->level;
 		arrow->value[1] = 4 + ch->level / 10;
 		arrow->value[2] = 4 + ch->level / 10;
@@ -3897,7 +3896,7 @@ void do_make_bow(CHAR_DATA *ch, const char *argument)
 	}
 	check_improve(ch, sn, TRUE, 1);
 
-	bow = create_obj(get_obj_index(OBJ_VNUM_RANGER_BOW), ch->level);
+	bow = create_obj(get_obj_index(OBJ_VNUM_RANGER_BOW), 0);
 	bow->level = ch->level;
 	bow->value[1] = 4 + ch->level / 15;
 	bow->value[2] = 4 + ch->level / 15;

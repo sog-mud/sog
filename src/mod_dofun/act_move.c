@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.162 1999-04-15 06:51:05 fjoe Exp $
+ * $Id: act_move.c,v 1.163 1999-04-15 09:14:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3661,7 +3661,7 @@ void do_enter(CHAR_DATA *ch, const char *argument)
 			act("$p fades out of existence.",
 			    old_room->people,portal,NULL,TO_ROOM);
 		}
-		extract_obj(portal);
+		extract_obj(portal, 0);
 	}
 
 	if (JUST_KILLED(ch))

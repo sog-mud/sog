@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.133 1999-03-25 13:12:23 kostik Exp $
+ * $Id: act_obj.c,v 1.134 1999-04-15 09:14:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -182,7 +182,7 @@ void get_obj(CHAR_DATA * ch, OBJ_DATA * obj, OBJ_DATA * container)
 				doprintf(do_split, ch, "%d %d", obj->value[0],
 					 obj->value[1]);
 		}
-		extract_obj(obj);
+		extract_obj(obj, 0);
 	}
 	else {
 		obj_to_char(obj, ch);
@@ -515,7 +515,7 @@ void drop_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 			    ch, obj, NULL, TO_ROOM);
 			act("$p cracks and shaters into tiny pieces.",
 			    ch, obj, NULL, TO_CHAR);
-			extract_obj(obj);
+			extract_obj(obj, 0);
 			return;
 		}
 
@@ -525,13 +525,13 @@ void drop_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 		act("$p sinks down the water.", ch, obj, NULL,
 		    TO_ROOM | (IS_AFFECTED(ch, AFF_SNEAK) ? ACT_NOMORTAL : 0));
 		act("$p sinks down the water.", ch, obj, NULL, TO_CHAR);
-		extract_obj(obj);
+		extract_obj(obj, 0);
 	}
 	else if (IS_OBJ_STAT(obj, ITEM_MELT_DROP)) {
 		act("$p dissolves into smoke.", ch, obj, NULL,
 		    TO_ROOM | (IS_AFFECTED(ch, AFF_SNEAK) ? ACT_NOMORTAL : 0));
 		act("$p dissolves into smoke.", ch, obj, NULL, TO_CHAR);
-		extract_obj(obj);
+		extract_obj(obj, 0);
 	}
 }
 
@@ -587,7 +587,7 @@ void do_drop(CHAR_DATA * ch, const char *argument)
 			case OBJ_VNUM_SILVER_SOME:
 				silver += obj->value[0];
 				gold += obj->value[1];
-				extract_obj(obj);
+				extract_obj(obj, 0);
 				break;
 			}
 		}
@@ -598,7 +598,7 @@ void do_drop(CHAR_DATA * ch, const char *argument)
 		    TO_ROOM | (IS_AFFECTED(ch, AFF_SNEAK) ? ACT_NOMORTAL : 0));
 		char_puts("Ok.\n", ch);
 		if (IS_WATER(ch->in_room)) {
-			extract_obj(obj);
+			extract_obj(obj, 0);
 			act("The coins sink down, and disapear in the water.",
 			    ch, NULL, NULL,
 			    TO_ROOM | (IS_AFFECTED(ch, AFF_SNEAK) ? ACT_NOMORTAL : 0));
@@ -1285,7 +1285,7 @@ void do_eat(CHAR_DATA * ch, const char *argument)
 		break;
 	}
 
-	extract_obj(obj);
+	extract_obj(obj, 0);
 	return;
 }
 
@@ -1855,7 +1855,7 @@ void sac_obj(CHAR_DATA * ch, OBJ_DATA *obj)
 			break;
 		}
 	}
-	extract_obj(obj);
+	extract_obj(obj, 0);
 }
 
 void quaff_obj(CHAR_DATA *ch, OBJ_DATA *obj)
@@ -1871,7 +1871,7 @@ void quaff_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 	if (IS_PUMPED(ch) || ch->fighting != NULL)
 		WAIT_STATE(ch, 2 * PULSE_VIOLENCE);
 
-	extract_obj(obj);
+	extract_obj(obj, 0);
 	obj_to_char(create_obj(get_obj_index(OBJ_VNUM_POTION_VIAL), 0), ch);
 }
 
@@ -1973,7 +1973,7 @@ void do_recite(CHAR_DATA * ch, const char *argument)
 			WAIT_STATE(ch, 2 * PULSE_VIOLENCE);
 	}
 
-	extract_obj(scroll);
+	extract_obj(scroll, 0);
 }
 
 void do_brandish(CHAR_DATA * ch, const char *argument)
@@ -2059,9 +2059,11 @@ void do_brandish(CHAR_DATA * ch, const char *argument)
 	}
 
 	if (--staff->value[2] <= 0) {
-		act("$n's $p blazes bright and is gone.", ch, staff, NULL, TO_ROOM);
-		act("Your $p blazes bright and is gone.", ch, staff, NULL, TO_CHAR);
-		extract_obj(staff);
+		act("$n's $p blazes bright and is gone.",
+		    ch, staff, NULL, TO_ROOM);
+		act("Your $p blazes bright and is gone.",
+		    ch, staff, NULL, TO_CHAR);
+		extract_obj(staff, 0);
 	}
 }
 
@@ -2134,9 +2136,11 @@ void do_zap(CHAR_DATA * ch, const char *argument)
 		}
 	}
 	if (--wand->value[2] <= 0) {
-		act("$n's $p explodes into fragments.", ch, wand, NULL, TO_ROOM);
-		act("Your $p explodes into fragments.", ch, wand, NULL, TO_CHAR);
-		extract_obj(wand);
+		act("$n's $p explodes into fragments.",
+		    ch, wand, NULL, TO_ROOM);
+		act("Your $p explodes into fragments.",
+		    ch, wand, NULL, TO_CHAR);
+		extract_obj(wand, 0);
 	}
 }
 
@@ -2367,7 +2371,7 @@ void obj_to_keeper(OBJ_DATA * obj, CHAR_DATA * ch)
 		if (obj->pIndexData == t_obj->pIndexData
 		&& !mlstr_cmp(obj->short_descr, t_obj->short_descr)) {
 			if (IS_OBJ_STAT(t_obj, ITEM_INVENTORY)) {
-				extract_obj(obj);
+				extract_obj(obj, 0);
 				return;
 			}
 			obj->cost = t_obj->cost;	/* keep it standard */
@@ -2676,7 +2680,7 @@ void do_buy(CHAR_DATA * ch, const char *argument)
 
 	for (count = 0; count < number; count++) {
 		if (IS_SET(obj->extra_flags, ITEM_INVENTORY))
-			t_obj = create_obj(obj->pIndexData, obj->level);
+			t_obj = create_obj(obj->pIndexData, 0);
 		else {
 			t_obj = obj;
 			obj = obj->next_content;
@@ -2847,7 +2851,7 @@ void do_sell(CHAR_DATA * ch, const char *argument)
 
 	if (obj->pIndexData->item_type == ITEM_TRASH
 	||  IS_OBJ_STAT(obj, ITEM_SELL_EXTRACT))
-		extract_obj(obj);
+		extract_obj(obj, 0);
 	else {
 		obj_from_char(obj);
 		if (obj->timer)
@@ -3293,7 +3297,7 @@ void do_butcher(CHAR_DATA * ch, const char *argument)
 
 		check_improve(ch, sn, FALSE, 1);
 	}
-	extract_obj(obj);
+	extract_obj(obj, 0);
 }
 
 void do_crucify(CHAR_DATA *ch, const char *argument)
@@ -3360,12 +3364,12 @@ void do_crucify(CHAR_DATA *ch, const char *argument)
 		   "but fail and ruin it.", ch, obj, NULL, TO_CHAR);
 		act("$n attempts to crucify $p, but fails and ruins it.",
 		    ch, obj, NULL, TO_ROOM);
-		extract_obj(obj);
+		extract_obj(obj, 0);
 		check_improve(ch, sn, FALSE, 1);
 	}
 	else {
 		cross = create_obj_of(get_obj_index(OBJ_VNUM_CROSS),
-			obj->owner);
+				      obj->owner);
 		obj_to_room(cross, ch->in_room);
 		act("With a crunch of bone and splash of blood you nail "
 		    "$p to a sacrificial cross.", ch, obj, NULL, TO_CHAR);
@@ -3390,7 +3394,7 @@ void do_crucify(CHAR_DATA *ch, const char *argument)
 		af.location	= APPLY_AC;
 
 		affect_to_char(ch, &af);
-		extract_obj(obj);
+		extract_obj(obj, 0);
 		check_improve(ch, sn, TRUE, 1);
 	}
 }

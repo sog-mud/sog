@@ -1,5 +1,5 @@
 /*
- * $Id: special.c,v 1.41 1999-03-10 17:23:32 fjoe Exp $
+ * $Id: special.c,v 1.42 1999-04-15 09:14:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -727,7 +727,7 @@ bool spec_fido(CHAR_DATA *ch)
 			obj_from_obj(obj);
 			obj_to_room(obj, ch->in_room);
 		}
-		extract_obj(corpse);
+		extract_obj(corpse, 0);
 		return TRUE;
 	}
 

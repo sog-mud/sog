@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.79 1999-04-13 04:17:34 kostik Exp $
+ * $Id: martial_art.c,v 1.80 1999-04-15 09:14:16 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1947,7 +1947,7 @@ void do_trophy(CHAR_DATA *ch, const char *argument)
 
 	if (number_percent() < chance * 2 / 3) {
 		char_puts("You failed and destroyed it.\n", ch);
-		extract_obj(part);
+		extract_obj(part, 0);
 		return;
 	} 
 
@@ -1989,9 +1989,9 @@ void do_trophy(CHAR_DATA *ch, const char *argument)
  
 			trophy = create_obj_of(get_obj_index(trophy_vnum),
 					       part->owner);
+			trophy->level = ch->level;
 			trophy->timer = ch->level * 2;
 			trophy->cost  = 0;
-			trophy->level = ch->level;
 			ch->mana -= mana;
 			af.where	= TO_OBJECT;
 			af.type 	= gsn_trophy;
@@ -2029,13 +2029,13 @@ void do_trophy(CHAR_DATA *ch, const char *argument)
 			act("$n makes a poncho from $p!",
 			    ch, part, NULL, TO_ROOM);
 			
-			extract_obj(part);
+			extract_obj(part, 0);
 			return;
 		}
 	}
 	else {
 		char_puts("You destroyed it.\n", ch);
-		extract_obj(part);
+		extract_obj(part, 0);
 		ch->mana -= mana/2;
 		check_improve(ch, gsn_trophy, FALSE, 1);
 	}
@@ -2719,7 +2719,7 @@ void do_shield(CHAR_DATA *ch, const char *argument)
 		act("$n cleaved $N's shield into two.",
 		    ch, NULL, victim, TO_NOTVICT);
 		check_improve(ch, gsn_shield_cleave, TRUE, 1);
-		extract_obj(get_eq_char(victim, WEAR_SHIELD));
+		extract_obj(get_eq_char(victim, WEAR_SHIELD), 0);
 	}
 	else {
 		act("You fail to cleave $N's shield.",
@@ -2800,7 +2800,7 @@ void do_weapon(CHAR_DATA *ch, const char *argument)
 		act("$n cleaved $N's weapon into two.",
 		    ch, NULL, victim, TO_NOTVICT);
 		check_improve(ch, gsn_weapon_cleave, TRUE, 1);
-		extract_obj(get_eq_char(victim, WEAR_WIELD));
+		extract_obj(get_eq_char(victim, WEAR_WIELD), 0);
 	}
 	else {
 		act("You fail to cleave $N's weapon.",
@@ -3113,7 +3113,7 @@ void do_katana(CHAR_DATA *ch, const char *argument)
 
 	if (number_percent() < chance / 3 * 2) {
 		char_puts("You failed and destroyed it.\n", ch);
-		extract_obj(part);
+		extract_obj(part, 0);
 		return;
 	} 
 
@@ -3129,11 +3129,10 @@ void do_katana(CHAR_DATA *ch, const char *argument)
 		af.location	= 0;
 		affect_to_char(ch,&af);
 	
-		katana = create_obj(get_obj_index(OBJ_VNUM_KATANA_SWORD),
-				    ch->level);
+		katana = create_obj(get_obj_index(OBJ_VNUM_KATANA_SWORD), 0);
+		katana->level = ch->level;
 		katana->owner = mlstr_dup(ch->short_descr);
 		katana->cost  = 0;
-		katana->level = ch->level;
 		ch->mana -= mana;
 
 		af.where	= TO_OBJECT;
@@ -3157,12 +3156,12 @@ void do_katana(CHAR_DATA *ch, const char *argument)
 		act("You make a katana from $p!",ch,part,NULL,TO_CHAR);
 		act("$n makes a katana from $p!",ch,part,NULL,TO_ROOM);
 			
-		extract_obj(part);
+		extract_obj(part, 0);
 		return;
 	}
 	else {
 		char_puts("You destroyed it.\n", ch);
-		extract_obj(part);
+		extract_obj(part, 0);
 		ch->mana -= mana/2;
 		check_improve(ch, gsn_katana, FALSE, 1);
 	}

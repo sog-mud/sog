@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.174 1999-04-15 06:51:05 fjoe Exp $
+ * $Id: merc.h,v 1.175 1999-04-15 09:14:16 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1940,18 +1940,18 @@ void	obj_to_room	(OBJ_DATA *obj, ROOM_INDEX_DATA *pRoomIndex);
 void	obj_to_obj	(OBJ_DATA *obj, OBJ_DATA *obj_to);
 void	obj_from_obj	(OBJ_DATA *obj);
 
-/* extract flags */
-#define X_F_NOCOUNT	(A)	/* do not count */
-#define X_F_NORECURSE	(B)	/* do not extract contained in objs */
+/* extract obj flags */
+#define XO_F_NOCOUNT	(A)	/* do not update obj count		*/
+#define XO_F_NORECURSE	(B)	/* do not extract contained in objs	*/
 
-#define extract_obj(obj)		extract_obj_raw(obj, 0)
-#define extract_obj_nocount(obj)	extract_obj_raw(obj, X_F_NOCOUNT)
+/* quit_char/extract_char */
+#define XC_F_COUNT	(A)	/* update obj count			*/
+#define XC_F_INCOMPLETE	(B)	/* do not extract char from char_list	*/
 
-void	extract_obj_raw		(OBJ_DATA *obj, int flags);
+void	extract_obj(OBJ_DATA *obj, int flags);
+void	extract_char(CHAR_DATA *ch, int flags);
+void	quit_char(CHAR_DATA *ch, int flags);
 
-void	extract_char	(CHAR_DATA *ch, bool fPull);
-void	extract_char_nocount	(CHAR_DATA *ch, bool fPull);
-void	extract_char_org	(CHAR_DATA *ch, bool fPull, bool Count);
 CHAR_DATA *	get_char_room	(CHAR_DATA *ch, const char *argument);
 CHAR_DATA *	get_char_world	(CHAR_DATA *ch, const char *argument);
 CHAR_DATA *	get_char_area	(CHAR_DATA *ch, const char *argument);
@@ -2117,10 +2117,14 @@ void		boot_db		(void);
 CHAR_DATA *	create_mob	(MOB_INDEX_DATA *pMobIndex);
 CHAR_DATA *	create_mob_of	(MOB_INDEX_DATA *pMobIndex, mlstring *owner);
 void		clone_mob	(CHAR_DATA *parent, CHAR_DATA *clone);
-OBJ_DATA *	create_obj	(OBJ_INDEX_DATA *pObjIndex, int level);
-OBJ_DATA *	create_obj_nocount (OBJ_INDEX_DATA *pObjIndex, int level);
-OBJ_DATA *	create_obj_of(OBJ_INDEX_DATA *pObjIndex, mlstring *owner);
-void	clone_obj	(OBJ_DATA *parent, OBJ_DATA *clone); 
+
+/* create_obj flags */
+#define CO_F_NOCOUNT	(A)	/* do not update obj count */
+
+OBJ_DATA *	create_obj	(OBJ_INDEX_DATA *pObjIndex, int flags);
+OBJ_DATA *	create_obj_of	(OBJ_INDEX_DATA *pObjIndex, mlstring *owner);
+void		clone_obj	(OBJ_DATA *parent, OBJ_DATA *clone); 
+
 void	clear_char	(CHAR_DATA *ch);
 ED_DATA * ed_lookup(const char *name, ED_DATA *ed);
 MOB_INDEX_DATA *	get_mob_index	(int vnum);

@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.157 1999-04-15 06:51:04 fjoe Exp $
+ * $Id: act_comm.c,v 1.158 1999-04-15 09:14:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -61,12 +61,8 @@
 #include "db/gsn.h"
 
 /* command procedures needed */
-DECLARE_DO_FUN(do_quit		);
-DECLARE_DO_FUN(do_quit_count	);
 DECLARE_DO_FUN(do_replay	);
 DECLARE_DO_FUN(do_look		);
-
-void do_quit_org	(CHAR_DATA *ch, const char *argument, bool Count);
 
 void do_afk(CHAR_DATA *ch, const char *argument)
 {
@@ -783,27 +779,19 @@ void do_rent(CHAR_DATA *ch, const char *argument)
 	return;
 }
 
-
 void do_qui(CHAR_DATA *ch, const char *argument)
 {
 	char_puts("If you want to QUIT, you have to spell it out.\n", ch);
 	return;
 }
 
-
 void do_quit(CHAR_DATA *ch, const char *argument)
 {
-	do_quit_org(ch, argument, FALSE);
+	quit_char(ch, 0);
 	return;
 }
 
-void do_quit_count(CHAR_DATA *ch, const char *argument)
-{
-	do_quit_org(ch, argument, TRUE);
-	return;
-}
-
-void do_quit_org(CHAR_DATA *ch, const char *argument, bool Count)
+void quit_char(CHAR_DATA *ch, int flags)
 {
 	DESCRIPTOR_DATA *d, *d_next;
 	CHAR_DATA *vch, *vch_next;
@@ -892,7 +880,7 @@ void do_quit_org(CHAR_DATA *ch, const char *argument, bool Count)
 			if (obj->ed == NULL ||
 			    strstr(mlstr_mval(obj->ed->description),
 							ch->name) != NULL)
-				extract_obj(obj);
+				extract_obj(obj, 0);
 			else if (obj->carried_by == ch) {
 				obj_from_char(obj);
 				obj_to_room(obj,ch->in_room);
@@ -911,7 +899,7 @@ void do_quit_org(CHAR_DATA *ch, const char *argument, bool Count)
 				if (ch->in_room != NULL) 
 					obj_to_room(obj, ch->in_room);
 				else 
-					extract_obj(obj);
+					extract_obj(obj, 0);
 			}
 			else for (cn=0; cn < clans.nused; cn++)
 			    if (obj == clan_lookup(cn)->obj_ptr) 
@@ -952,7 +940,7 @@ void do_quit_org(CHAR_DATA *ch, const char *argument, bool Count)
 			  && vch->pIndexData->vnum == MOB_VNUM_SHADOW) {
 				act ("$n slowly fades away.",
 				vch, NULL, NULL, TO_ROOM);
-				extract_char(vch, TRUE);
+				extract_char(vch, 0);
 				continue;
 			}
 			if (IS_NPC(vch)
@@ -962,7 +950,7 @@ void do_quit_org(CHAR_DATA *ch, const char *argument, bool Count)
 					PERS(ch, vch));
 				act ("$n slowly fades away.", vch, NULL, NULL,
 					TO_ROOM);
-				extract_char(vch, TRUE);
+				extract_char(vch, 0);
 			  }
 		}
 	}
@@ -978,10 +966,7 @@ void do_quit_org(CHAR_DATA *ch, const char *argument, bool Count)
 	save_char_obj(ch, FALSE);
 	name = str_qdup(ch->name);
 	d = ch->desc;
-	if (Count)
-		 extract_char(ch, TRUE);
-	else
-		 extract_char_nocount(ch, TRUE);
+	extract_char(ch, flags);
 
 	if (d)
 		close_descriptor(d);
@@ -1001,7 +986,7 @@ void do_quit_org(CHAR_DATA *ch, const char *argument, bool Count)
 		tch = d->original ? d->original : d->character;
 		if (tch && !str_cmp(name, tch->name)) {
 			if (d->connected == CON_PLAYING)
-				extract_char_nocount(tch, TRUE);
+				extract_char(tch, 0);
 			close_descriptor(d);
 		} 
 	}
@@ -1120,7 +1105,7 @@ void nuke_pets(CHAR_DATA *ch)
 		stop_follower(pet);
 		if (pet->in_room)
 			act("$n slowly fades away.", pet, NULL, NULL, TO_ROOM);
-		extract_char_nocount(pet, TRUE);
+		extract_char(pet, 0);
 	}
 	ch->pet = NULL;
 }

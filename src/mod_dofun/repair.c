@@ -1,5 +1,5 @@
 /*
- * $Id: repair.c,v 1.18 1999-02-17 07:53:26 fjoe Exp $
+ * $Id: repair.c,v 1.19 1999-04-15 09:14:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -58,7 +58,7 @@ void damage_to_obj(CHAR_DATA *ch, OBJ_DATA *wield, OBJ_DATA *worn, int damage)
 	if (worn->condition < 1) {
 		act_puts("{gThe {r$P{g breaks into pieces.{x",
 			 ch, wield, worn, TO_ROOM, POS_RESTING);
-		extract_obj(worn);
+		extract_obj(worn, 0);
 		return;
 	}
  
@@ -355,7 +355,7 @@ void do_smithing(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (hammer->condition < 1)
-		extract_obj(hammer);
+		extract_obj(hammer, 0);
 }
 
 /*----------------------------------------------------------------------------

@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.137 1999-03-19 18:59:19 fjoe Exp $
+ * $Id: act_wiz.c,v 1.138 1999-04-15 09:14:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -75,7 +75,6 @@ DECLARE_DO_FUN(do_mfind	);
 DECLARE_DO_FUN(do_ofind	);
 DECLARE_DO_FUN(do_mload	);
 DECLARE_DO_FUN(do_oload	);
-DECLARE_DO_FUN(do_quit	);
 DECLARE_DO_FUN(do_save	);
 DECLARE_DO_FUN(do_look	);
 DECLARE_DO_FUN(do_stand	);
@@ -550,7 +549,7 @@ void do_deny(CHAR_DATA *ch, const char *argument)
 	char_puts("Ok.\n", ch);
 	save_char_obj(victim, FALSE);
 	stop_fighting(victim, TRUE);
-	do_quit(victim, str_empty);
+	quit_char(victim, 0);
 }
 
 void do_disconnect(CHAR_DATA *ch, const char *argument)
@@ -2211,7 +2210,6 @@ void do_oload(CHAR_DATA *ch, const char *argument)
 	char arg1[MAX_INPUT_LENGTH] ,arg2[MAX_INPUT_LENGTH];
 	OBJ_INDEX_DATA *pObjIndex;
 	OBJ_DATA *obj;
-	int level = 0;
 	int vnum;
 	
 	argument = one_argument(argument, arg1, sizeof(arg1));
@@ -2228,7 +2226,7 @@ void do_oload(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	obj = create_obj(pObjIndex, level);
+	obj = create_obj(pObjIndex, 0);
 	if (CAN_WEAR(obj, ITEM_TAKE))
 		obj_to_char(obj, ch);
 	else
@@ -2257,13 +2255,13 @@ void do_purge(CHAR_DATA *ch, const char *argument)
 			if (IS_NPC(victim)
 			&&  !IS_SET(victim->pIndexData->act, ACT_NOPURGE) 
 			&&  victim != ch /* safety precaution */)
-				extract_char(victim, TRUE);
+				extract_char(victim, 0);
 		}
 
 		for (obj = ch->in_room->contents; obj != NULL; obj = obj_next) {
 			obj_next = obj->next_content;
 			if (!IS_OBJ_STAT(obj, ITEM_NOPURGE))
-				extract_obj(obj);
+				extract_obj(obj, 0);
 		}
 
 		act("$n purges the room!", ch, NULL, NULL, TO_ROOM);
@@ -2293,14 +2291,14 @@ void do_purge(CHAR_DATA *ch, const char *argument)
 		if (victim->level > 1)
 			save_char_obj(victim, FALSE);
 		d = victim->desc;
-		extract_char(victim, TRUE);
+		extract_char(victim, 0);
 		if (d)
 			close_descriptor(d);
 		return;
 	}
 
 	act("$n purges $N.", ch, NULL, victim, TO_NOTVICT);
-	extract_char(victim, TRUE);
+	extract_char(victim, 0);
 }
 
 void do_restore(CHAR_DATA *ch, const char *argument)

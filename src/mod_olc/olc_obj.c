@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_obj.c,v 1.43 1999-03-11 09:04:34 fjoe Exp $
+ * $Id: olc_obj.c,v 1.44 1999-04-15 09:14:19 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -427,7 +427,7 @@ OLC_FUN(objed_del)
 		obj_next = obj->next;
 
 		if (obj->pIndexData == pObj)
-			extract_obj_raw(obj, X_F_NORECURSE);
+			extract_obj(obj, XO_F_NORECURSE);
 	}
 
 	if ((area = area_vnum_lookup(pObj->vnum)))

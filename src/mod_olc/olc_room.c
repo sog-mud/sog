@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.44 1999-03-22 09:52:26 fjoe Exp $
+ * $Id: olc_room.c,v 1.45 1999-04-15 09:14:19 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -620,7 +620,7 @@ OLC_FUN(roomed_oreset)
 		pReset->arg4	= 0;
 		add_reset(pRoom, pReset, 0/* Last slot*/);
 
-		newobj = create_obj(pObjIndex, number_fuzzy(olevel));
+		newobj = create_obj(pObjIndex, 0);
 		obj_to_room(newobj, pRoom);
 
 		char_printf(ch, "%s (%d) has been loaded and added to resets.\n",
@@ -642,7 +642,7 @@ OLC_FUN(roomed_oreset)
 		pReset->arg4	= 1;
 		add_reset(pRoom, pReset, 0/* Last slot*/);
 
-		newobj = create_obj(pObjIndex, number_fuzzy(olevel));
+		newobj = create_obj(pObjIndex, 0);
 		newobj->cost = 0;
 		obj_to_obj(newobj, to_obj);
 
@@ -699,7 +699,7 @@ OLC_FUN(roomed_oreset)
 		add_reset(pRoom, pReset, 0/* Last slot*/);
 
 		olevel  = URANGE(0, to_mob->level - 2, LEVEL_HERO);
-		 newobj = create_obj(pObjIndex, number_fuzzy(olevel));
+		 newobj = create_obj(pObjIndex, 0);
 
 		if (to_mob->pIndexData->pShop) {	/* Shop-keeper? */
 			switch (pObjIndex->item_type) {
@@ -717,12 +717,12 @@ OLC_FUN(roomed_oreset)
 			break;
 			}
 
-			newobj = create_obj(pObjIndex, olevel);
+			newobj = create_obj(pObjIndex, 0);
 			if (pReset->arg2 == WEAR_NONE)
 			SET_BIT(newobj->extra_flags, ITEM_INVENTORY);
 		}
 		else
-			newobj = create_obj(pObjIndex, number_fuzzy(olevel));
+			newobj = create_obj(pObjIndex, 0);
 
 		obj_to_char(newobj, to_mob);
 		if (pReset->command == 'E')

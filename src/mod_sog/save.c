@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.109 1999-04-15 06:51:05 fjoe Exp $
+ * $Id: save.c,v 1.110 1999-04-15 09:14:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -55,8 +55,6 @@
 #include "quest.h"
 #include "db/db.h"
 
-DECLARE_DO_FUN(do_quit_count);
-
 /*
  * Array of containers read for proper re-nesting of objects.
  */
@@ -107,7 +105,7 @@ void delete_player(CHAR_DATA *victim, char* msg)
 
 	RESET_FIGHT_TIME(victim);
 	name = capitalize(victim->name);
-	do_quit_count(victim, str_empty);
+	quit_char(victim, XC_F_COUNT);
 	dunlink(PLAYER_PATH, name);
 }
 
@@ -443,7 +441,7 @@ fwrite_obj(CHAR_DATA * ch, OBJ_DATA * obj, FILE * fp, int iNest)
 		     obj->pIndexData->limit > 0)
 		||  (IS_SET(obj->pIndexData->extra_flags, ITEM_QUEST) &&
 		     ch->level < obj->pIndexData->level)) {
-			extract_obj_raw(obj, X_F_NORECURSE);
+			extract_obj(obj, XO_F_NORECURSE);
 			return;
 		}
 	}
@@ -456,7 +454,7 @@ fwrite_obj(CHAR_DATA * ch, OBJ_DATA * obj, FILE * fp, int iNest)
 			   ch->name, obj->name,
 			   mlstr_mval(obj->owner));
 		act("$p vanishes!", ch, obj, NULL, TO_CHAR);
-		extract_obj(obj);
+		extract_obj(obj, 0);
 		return;
 	}
 	
@@ -1320,7 +1318,7 @@ fread_obj(CHAR_DATA * ch, FILE * fp)
 		if (get_obj_index(vnum) == NULL)
 			bug("Fread_obj: bad vnum %d.", vnum);
 		else 
-			obj = create_obj_nocount(get_obj_index(vnum), -1);
+			obj = create_obj(get_obj_index(vnum), CO_F_NOCOUNT);
 	}
 	if (obj == NULL) {	/* either not found or old style */
 		obj = new_obj();

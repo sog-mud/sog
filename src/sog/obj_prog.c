@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.c,v 1.55 1999-02-20 16:29:18 fjoe Exp $
+ * $Id: obj_prog.c,v 1.56 1999-04-15 09:14:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -448,7 +448,7 @@ bool death_prog_ranger_staff(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 {
 	char_puts("Your ranger's staff disappears.\n",ch);
 	act("$n's ranger's staff disappears.",ch,NULL,NULL,TO_ROOM);
-	extract_obj(obj);
+	extract_obj(obj, 0);
 	return 0;
 }
 
@@ -587,7 +587,7 @@ bool death_prog_chaos_blade(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 {
 	char_puts("Your chaotic blade disappears.\n",ch);
 	act("$n's chaotic blade disappears.",ch,NULL,NULL,TO_ROOM);
-	extract_obj(obj);
+	extract_obj(obj, 0);
 	return 0;
 }
 
@@ -1020,7 +1020,7 @@ bool death_prog_golden_weapon(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 {
 	char_puts("Your golden weapon disappears.\n",ch);
 	act("$n's golden weapon disappears.",ch,NULL,NULL,TO_ROOM);
-	extract_obj(obj);
+	extract_obj(obj, 0);
 	ch->hit = 1;
 	while (ch->affected)
 		affect_remove(ch, ch->affected);
@@ -1494,7 +1494,7 @@ int fight_prog_lion_claw(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 		(obj == get_eq_char(ch,WEAR_SECOND_WIELD)))
 {
 	char_puts("The nails of your claw appears from its fingers.\n",ch);
-	act_puts("the nails of $n's claw appears for an instant.",
+	act_puts("The nails of $n's claw appears for an instant.",
 			ch,NULL,NULL,TO_ROOM,POS_DEAD);
 	one_hit(ch, ch->fighting, TYPE_HIT, WEAR_WIELD);
 	one_hit(ch, ch->fighting, TYPE_HIT, WEAR_WIELD);
@@ -1742,7 +1742,7 @@ int fight_prog_swordbreaker(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
                 act("$n {Wcleaved{x $N's sword into two.",
                     ch, NULL, victim, TO_NOTVICT);
                 check_improve(ch, gsn_weapon_cleave, TRUE, 1);
-                extract_obj(get_eq_char(victim, WEAR_WIELD));
+                extract_obj(get_eq_char(victim, WEAR_WIELD), 0);
         }
         return 0;
 }

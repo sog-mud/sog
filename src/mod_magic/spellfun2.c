@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.96 1999-03-26 20:04:44 kostik Exp $
+ * $Id: spellfun2.c,v 1.97 1999-04-15 09:14:16 fjoe Exp $
  */
 
 /***************************************************************************
@@ -116,7 +116,7 @@ void spell_portal(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	{
 	 	act("You draw upon the power of $p.",ch,stone,NULL,TO_CHAR);
 	 	act("It flares brightly and vanishes!",ch,stone,NULL,TO_CHAR);
-	 	extract_obj(stone);
+	 	extract_obj(stone, 0);
 	}
 
 	portal = create_obj(get_obj_index(OBJ_VNUM_PORTAL),0);
@@ -158,7 +158,7 @@ void spell_nexus(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	if (stone != NULL && stone->pIndexData->item_type == ITEM_WARP_STONE) {
 		act("You draw upon the power of $p.",ch,stone,NULL,TO_CHAR);
 		act("It flares brightly and vanishes!",ch,stone,NULL,TO_CHAR);
-		extract_obj(stone);
+		extract_obj(stone, 0);
 	}
 
 	/* portal one */ 
@@ -235,18 +235,18 @@ void spell_disintegrate(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 
 	for (obj = victim->carrying; obj != NULL; obj = obj_next) {
 		obj_next = obj->next_content;
-		extract_obj(obj);
+		extract_obj(obj, 0);
 	}
 
 	if (IS_NPC(victim)) {
 		victim->pIndexData->killed++;
 		kill_table[URANGE(0, victim->level, MAX_LEVEL-1)].killed++;
-		extract_char(victim, TRUE);
+		extract_char(victim, 0);
 		return;
 	}
 	
 	rating_update(ch, victim);
-	extract_char(victim, FALSE);
+	extract_char(victim, XC_F_INCOMPLETE);
 
 	while (victim->affected)
 		affect_remove(victim, victim->affected);
@@ -311,12 +311,13 @@ void spell_ranger_staff(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	AFFECT_DATA tohit;
 	AFFECT_DATA todam;
 
-	staff = create_obj(get_obj_index(OBJ_VNUM_RANGER_STAFF),level);
-	char_puts("You create a ranger's staff!\n",ch);
-	act("$n creates a ranger's staff!",ch,NULL,NULL,TO_ROOM);
-
+	staff = create_obj(get_obj_index(OBJ_VNUM_RANGER_STAFF), 0);
+	staff->level = ch->level;
 	staff->value[1] = 4 + level / 15;
 	staff->value[2] = 4 + level / 15;
+
+	char_puts("You create a ranger's staff!\n",ch);
+	act("$n creates a ranger's staff!",ch,NULL,NULL,TO_ROOM);
 
 	tohit.where		   = TO_OBJECT;
 	tohit.type               = sn;
@@ -647,7 +648,8 @@ void spell_shield_of_ruler(int sn, int level,
 	else
 		shield_vnum = OBJ_VNUM_RULER_SHIELD1;
 
-	shield = create_obj(get_obj_index(shield_vnum), level);
+	shield = create_obj(get_obj_index(shield_vnum), 0);
+	shield->level = ch->level;
 	shield->timer = level;
 	shield->cost  = 0;
 	obj_to_char(shield, ch);
@@ -1131,13 +1133,13 @@ void spell_chaos_blade(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	OBJ_DATA *blade;
 	AFFECT_DATA af;
 	
-	blade = create_obj(get_obj_index(OBJ_VNUM_CHAOS_BLADE), level);
-	char_puts("You create a blade of chaos!\n",ch);
-	act("$n creates a blade of chaos!",ch,NULL,NULL,TO_ROOM);
-
+	blade = create_obj(get_obj_index(OBJ_VNUM_CHAOS_BLADE), 0);
+	blade->level = ch->level;
 	blade->timer = level * 2;
 	blade->value[2] = (ch->level / 10) + 3;  
-	blade->level = ch->level;
+
+	char_puts("You create a blade of chaos!\n",ch);
+	act("$n creates a blade of chaos!",ch,NULL,NULL,TO_ROOM);
 
 	af.where        = TO_OBJECT;
 	af.type         = sn;
@@ -1184,7 +1186,7 @@ void spell_tattoo(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 		    }
 		  else
 		    { 
-	  	      tattoo = create_obj(get_obj_index(religion_table[i].vnum),60);
+	  	      tattoo = create_obj(get_obj_index(religion_table[i].vnum),0);
 	   	      act("You tattoo $N with $p!",ch, tattoo, victim, TO_CHAR);
 	  	      act("$n tattoos $N with $p!",ch,tattoo,victim,TO_NOTVICT);
 	  	      act("$n tattoos you with $p!",ch,tattoo,victim,TO_VICT);
@@ -1207,7 +1209,7 @@ void spell_remove_tattoo(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	tattoo = get_eq_char(victim, WEAR_TATTOO);
 	if (tattoo != NULL)
 	{
-	  extract_obj(tattoo);
+	  extract_obj(tattoo, 0);
 	  act("Through a painful process, your tattoo has been destroyed by $n.",
 	ch, NULL, victim, TO_VICT);
 	  act("You remove the tattoo from $N.", ch, NULL, victim, TO_CHAR);
@@ -1416,20 +1418,20 @@ void spell_brew(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	if (number_percent() < 50)
 	  { 
 	char_puts("You failed and destroyed it.\n", ch);
-	extract_obj(obj);
+	extract_obj(obj, 0);
 	return;
 	  }
 	
 	if (obj->pIndexData->item_type == ITEM_TRASH)
-	  potion = create_obj(get_obj_index(OBJ_VNUM_POTION_SILVER), level);
+		potion = create_obj(get_obj_index(OBJ_VNUM_POTION_SILVER), 0);
 	else if (obj->pIndexData->item_type == ITEM_TREASURE)
-	  potion = create_obj(get_obj_index(OBJ_VNUM_POTION_GOLDEN), level);
+		potion = create_obj(get_obj_index(OBJ_VNUM_POTION_GOLDEN), 0);
 	else
-	  potion = create_obj(get_obj_index(OBJ_VNUM_POTION_SWIRLING), level);
+		potion = create_obj(get_obj_index(OBJ_VNUM_POTION_SWIRLING), 0);
+	potion->level = ch->level;
+	potion->value[0] = level;
 
 	spell = 0;
-
-	potion->value[0] = level;
 
 	switch (obj->pIndexData->item_type) {
 	 case ITEM_TRASH:
@@ -1517,13 +1519,12 @@ void spell_brew(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	  };
 	};
 	potion->value[1] = spell;
-	extract_obj(obj);
+	extract_obj(obj, 0);
 	act("You brew $p from your resources!", ch, potion, NULL, TO_CHAR);
 	act("$n brews $p from $s resources!", ch, potion, NULL, TO_ROOM);
 
 	obj_to_char(potion, ch);
-	extract_obj(vial);
-
+	extract_obj(vial, 0);
 }
 
 
@@ -1607,13 +1608,13 @@ void spell_ruler_badge(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	{
 	  act("Your $p vanishes.",ch, badge, NULL, TO_CHAR);
 	  obj_from_char(badge);
-	  extract_obj(badge);
+	  extract_obj(badge, 0);
 	  continue;
 	}
 	}
 
-
-	badge = create_obj(get_obj_index(OBJ_VNUM_RULER_BADGE),level);
+	badge = create_obj(get_obj_index(OBJ_VNUM_RULER_BADGE), 0);
+	badge->level = ch->level;
 
 	af.where        = TO_OBJECT;
 	af.type         = sn;
@@ -1678,7 +1679,7 @@ void spell_remove_badge(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	  act("$n's $p vanishes.", ch, badge, NULL, TO_ROOM);
 	  
 	  obj_from_char(badge);
-	  extract_obj(badge);
+	  extract_obj(badge, 0);
 	  continue;
 	}
 	}
@@ -1695,7 +1696,8 @@ void spell_shield_ruler(int sn,int level,CHAR_DATA* ch,void *vo, int target)
 	else if (level >= 31) shield_vnum = OBJ_VNUM_RULER_SHIELD2;
 	else shield_vnum = OBJ_VNUM_RULER_SHIELD1;
 
-	shield = create_obj(get_obj_index(shield_vnum),level);
+	shield = create_obj(get_obj_index(shield_vnum), 0);
+	shield->level = ch->level;
 	shield->timer = level;
 	shield->cost  = 0;
 	obj_to_char(shield, ch);
@@ -1836,13 +1838,11 @@ void spell_golden_aura(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 
 void spell_dragonplate(int sn, int level, CHAR_DATA *ch, void *vo, int target)	
 {
-	int plate_vnum;
 	OBJ_DATA *plate;
 	AFFECT_DATA af;
 	
-	plate_vnum = OBJ_VNUM_PLATE;
-
-	plate = create_obj(get_obj_index(plate_vnum), level + 5);
+	plate = create_obj(get_obj_index(OBJ_VNUM_PLATE), 0);
+	plate->level = ch->level;
 	plate->timer = 2 * level;
 	plate->cost  = 0;
 	plate->level  = ch->level;
@@ -1949,7 +1949,8 @@ void spell_dragonsword(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	  return;
 	}
 
-	sword = create_obj(get_obj_index(sword_vnum), level);
+	sword = create_obj(get_obj_index(sword_vnum), 0);
+	sword->level = ch->level;
 	sword->timer = level * 2;
 	sword->cost  = 0;
 	if (ch->level  < 50)
@@ -2557,7 +2558,7 @@ void spell_animate_dead(int sn,int level, CHAR_DATA *ch, void *vo, int target)
 				obj_from_obj(obj2);
 				obj_to_room(obj2, ch->in_room);
 			}
-			extract_obj(obj);
+			extract_obj(obj, 0);
 			return;
 		}
 
@@ -2621,7 +2622,7 @@ void spell_animate_dead(int sn,int level, CHAR_DATA *ch, void *vo, int target)
 			 "pay for distrurbing its rest!",
 			 ch, NULL, undead, TO_CHAR, POS_DEAD);
 
-		extract_obj(obj);
+		extract_obj(obj, 0);
 		char_to_room(undead, ch->in_room);
 		if (!JUST_KILLED(undead))
 			do_wear(undead, "all");
@@ -2896,7 +2897,7 @@ void spell_mend(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	{
 	act("$p flares blindingly... and evaporates!",ch,obj,NULL,TO_CHAR);
 	act("$p flares blindingly... and evaporates!",ch,obj,NULL,TO_ROOM);
-	extract_obj(obj);
+	extract_obj(obj, 0);
 	return;
 	}
 }
@@ -3005,16 +3006,14 @@ void spell_eyed_sword(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	
 	eyed	= create_obj_of(get_obj_index(OBJ_VNUM_EYED_SWORD),
 				ch->short_descr);
-	eyed->owner = mlstr_dup(ch->short_descr);
 	eyed->level = ch->level;
+	eyed->owner = mlstr_dup(ch->short_descr);
 	eyed->ed = ed_new2(eyed->pIndexData->ed, ch->name);
 	eyed->value[2] = (ch->level / 10) + 3;  
-	eyed->level = ch->level;
 	eyed->cost = 0;
 	obj_to_char(eyed, ch);
 	char_puts("You create YOUR sword with your name.\n",ch);
 	char_puts("Don't forget that you won't be able to create this weapon anymore.\n",ch);
-	return;
 }
 
 void spell_lion_help(int sn, int level, CHAR_DATA *ch, void *vo, int target) 
@@ -3145,7 +3144,7 @@ void spell_magic_jar(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 			, ch);
 	return;
 	}
-	extract_obj(vial);
+	extract_obj(vial, 0);
 	if (IS_GOOD(ch))
 		i=0;
 	else if (IS_EVIL(ch))
@@ -3154,12 +3153,11 @@ void spell_magic_jar(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	
 	fire	= create_obj_of(get_obj_index(OBJ_VNUM_MAGIC_JAR),
 				victim->short_descr);
-	fire->owner = mlstr_dup(ch->short_descr);
 	fire->level = ch->level;
+	fire->owner = mlstr_dup(ch->short_descr);
 
 	fire->ed = ed_new2(fire->pIndexData->ed, victim->name);
 
-	fire->level = ch->level;
 	fire->cost = 0;
 	obj_to_char(fire , ch);    
 	SET_BIT(victim->plr_flags, PLR_NOEXP);
@@ -3385,13 +3383,12 @@ void spell_fire_shield (int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	
 	pObjIndex = get_obj_index(OBJ_VNUM_FIRE_SHIELD);
 	fire	= create_obj(pObjIndex, 0);
+	fire->level = ch->level;
 	name_add(&fire->name, arg, NULL, NULL);
 
 	fire->owner = mlstr_dup(ch->short_descr);
-	fire->level = ch->level;
 	fire->ed = ed_new2(fire->pIndexData->ed, arg);
 
-	fire->level = ch->level;
 	fire->cost = 0;
 	fire->timer = 5 * ch->level ;
 	if (IS_GOOD(ch))

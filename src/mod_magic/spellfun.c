@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.139 1999-04-05 11:38:49 fjoe Exp $
+ * $Id: spellfun.c,v 1.140 1999-04-15 09:14:15 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2406,7 +2406,7 @@ void spell_enchant_armor(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	{
 		act("$p flares blindingly... and evaporates!",ch,obj,NULL,TO_CHAR);
 		act("$p flares blindingly... and evaporates!",ch,obj,NULL,TO_ROOM);
-		extract_obj(obj);
+		extract_obj(obj, 0);
 		return;
 	}
 
@@ -2593,7 +2593,7 @@ void spell_enchant_weapon(int sn,int level,CHAR_DATA *ch, void *vo, int target)
 	{
 		act("$p shivers violently and explodes!",ch,obj,NULL,TO_CHAR);
 		act("$p shivers violently and explodeds!",ch,obj,NULL,TO_ROOM);
-		extract_obj(obj);
+		extract_obj(obj, 0);
 		return;
 	}
 
@@ -3935,7 +3935,7 @@ void spell_recharge(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	{
 		act("$p glows brightly and explodes!",ch,obj,NULL,TO_CHAR);
 		act("$p glows brightly and explodes!",ch,obj,NULL,TO_ROOM);
-		extract_obj(obj);
+		extract_obj(obj, 0);
 	}
 }
 

@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.125 1999-04-15 06:51:06 fjoe Exp $
+ * $Id: db.c,v 1.126 1999-04-15 09:14:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -164,8 +164,6 @@ void	fix_exits	(void);
 void    check_mob_progs	(void);
 
 void	reset_area	(AREA_DATA * pArea);
-
-#define CREATE_NOCOUNT	(A)
 
 int dbfuncmp(const void *p1, const void *p2)
 {
@@ -706,8 +704,7 @@ void reset_room(ROOM_INDEX_DATA *pRoom)
 		        break;
 		      }
 
-            pObj = create_obj(pObjIndex,              /* UMIN - ROM OLC */
-				  UMIN(number_fuzzy(level), LEVEL_HERO -1));
+            pObj = create_obj(pObjIndex, 0);
             pObj->cost = 0;
             obj_to_room(pObj, pRoom);
 	    last = TRUE;
@@ -764,7 +761,7 @@ void reset_room(ROOM_INDEX_DATA *pRoom)
 			if(pObjIndex->vnum == clan_lookup(cn)->obj_vnum)
 				clan=clan_lookup(cn);
 		if (clan != NULL && clan->obj_ptr == NULL) {
-			pObj = create_obj(pObjIndex, number_fuzzy(LastObj->level));
+			pObj = create_obj(pObjIndex, 0);
 			clan->obj_ptr = pObj;
 			clan->altar_ptr = LastObj;
 			obj_to_obj(pObj,LastObj);
@@ -774,7 +771,7 @@ void reset_room(ROOM_INDEX_DATA *pRoom)
 
 	    while (count < pReset->arg4)
 	    {
-            pObj = create_obj(pObjIndex, number_fuzzy(LastObj->level));
+            pObj = create_obj(pObjIndex, 0);
             obj_to_obj(pObj, LastObj);
 		count++;
 		if (pObjIndex->count >= limit)
@@ -805,57 +802,13 @@ void reset_room(ROOM_INDEX_DATA *pRoom)
                 break;
             }
 
-            if (LastMob->pIndexData->pShop)   /* Shop-keeper? */
-            {
-                int olevel=0;
-
-                pObj = create_obj(pObjIndex, olevel);
-		SET_BIT(pObj->extra_flags, ITEM_INVENTORY);  /* ROM OLC */
+            if (LastMob->pIndexData->pShop) {  /* Shop-keeper? */
+                pObj = create_obj(pObjIndex, 0);
             }
-#if 0
-	    else   /* ROM OLC else version */
-	    {
-		int limit;
-		if (pReset->arg2 > 50)  /* old format */
-		    limit = 6;
-		else if (pReset->arg2 == -1 || pReset->arg2 == 0)  /* no limit */
-		    limit = 999;
-		else
-		    limit = pReset->arg2;
-
-		if (pObjIndex->count < limit || number_range(0,4) == 0)
-		{
-		    pObj = create_obj(pObjIndex, 
-			   UMIN(number_fuzzy(level), LEVEL_HERO - 1));
-		    /* error message if it is too high */
-		    if (pObj->level > LastMob->level + 3
-		    ||  (pObjIndex->item_type == ITEM_WEAPON 
-		    &&   pReset->command == 'E' 
-		    &&   pObj->level < LastMob->level -5 && pObj->level < 45))
-			fprintf(stderr,
-				"Err: obj %s (%d) -- %d, mob %s (%d) -- %d\n",
-				mlstr_mval(pObj->short_descr),
-				pObj->pIndexData->vnum,pObj->level,
-				mlstr_mval(LastMob->short_descr),
-				LastMob->pIndexData->vnum,LastMob->level);
-		}
-		else
-		    break;
-	    }
-#endif									 
-#if 0 /* envy else version */
-            else
-            {
-                pObj = create_obj(pObjIndex, number_fuzzy(level));
-            }
-#endif /* envy else version */
-
-/* Anatolia else version */
 		else {
 		        if ((pObjIndex->limit == -1)  ||
 		          (pObjIndex->count < pObjIndex->limit))
-		          pObj=create_obj(pObjIndex,UMIN(number_fuzzy(level),
-		                                           LEVEL_HERO - 1));
+		          pObj=create_obj(pObjIndex, 0);
 		        else break;
 
 		}
@@ -1218,7 +1171,7 @@ void clone_mob(CHAR_DATA *parent, CHAR_DATA *clone)
 /*
  * Create an instance of an object.
  */
-OBJ_DATA *create_obj_org(OBJ_INDEX_DATA *pObjIndex, int level, int flags)
+OBJ_DATA *create_obj(OBJ_INDEX_DATA *pObjIndex, int flags)
 {
 	AFFECT_DATA *paf;
 	OBJ_DATA *obj;
@@ -1272,31 +1225,14 @@ OBJ_DATA *create_obj_org(OBJ_INDEX_DATA *pObjIndex, int level, int flags)
 	
 	obj->next	= object_list;
 	object_list	= obj;
-	if (!IS_SET(flags, CREATE_NOCOUNT))
+	if (!IS_SET(flags, CO_F_NOCOUNT))
 		pObjIndex->count++;
 	return obj;
 }
 
-/* 
- * Create an object with modifying the count 
- */
-OBJ_DATA *create_obj(OBJ_INDEX_DATA *pObjIndex, int level)
-{
-	return create_obj_org(pObjIndex, level, 0);
-}
-
-/*
- * for player load/quit
- * Create an object and do not modify the count 
- */
-OBJ_DATA *create_obj_nocount(OBJ_INDEX_DATA *pObjIndex, int level)
-{
-	return create_obj_org(pObjIndex, level, CREATE_NOCOUNT);
-}
-
 OBJ_DATA *create_obj_of(OBJ_INDEX_DATA *pObjIndex, mlstring *owner)
 {
-	OBJ_DATA *obj = create_obj_org(pObjIndex, 0, 0);
+	OBJ_DATA *obj = create_obj(pObjIndex, 0);
 
 	mlstr_for_each(&obj->short_descr, owner, obj_of_callback);
 	mlstr_for_each(&obj->description, owner, obj_of_callback);

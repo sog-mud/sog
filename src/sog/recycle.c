@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.43 1999-03-10 17:23:31 fjoe Exp $
+ * $Id: recycle.c,v 1.44 1999-04-15 09:14:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -248,7 +248,7 @@ void free_char(CHAR_DATA *ch)
 
 	for (obj = ch->carrying; obj; obj = obj_next) {
 		obj_next = obj->next_content;
-		extract_obj_nocount(obj);
+		extract_obj(obj, XO_F_NOCOUNT);
 	}
 
 	for (paf = ch->affected; paf; paf = paf_next) {

@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.116 1999-04-05 11:40:41 fjoe Exp $
+ * $Id: update.c,v 1.117 1999-04-15 09:14:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -54,8 +54,6 @@
 DECLARE_DO_FUN(do_human		);
 DECLARE_DO_FUN(do_murder	);
 DECLARE_DO_FUN(do_rescue	);
-DECLARE_DO_FUN(do_quit		);
-DECLARE_DO_FUN(do_quit_count	);
 DECLARE_DO_FUN(do_spellbane	);
 DECLARE_DO_FUN(do_stand		);
 DECLARE_DO_FUN(do_track		);
@@ -1085,7 +1083,7 @@ void char_update(void)
 				else {
 					act("$n wanders on home.",
 					    ch, NULL, NULL, TO_ROOM);
-					extract_char(ch, TRUE);
+					extract_char(ch, 0);
 				}
 				continue;
 			}
@@ -1131,7 +1129,7 @@ void char_update(void)
 					    ch, obj, NULL, TO_ROOM);
 					act("$p flickers and goes out.",
 					    ch, obj, NULL, TO_CHAR);
-					extract_obj(obj);
+					extract_obj(obj, 0);
 				}
 				else if (obj->value[2] <= 5)
 					act("$p flickers.",
@@ -1325,7 +1323,7 @@ void char_update(void)
 		for (ch = char_list; ch && !IS_NPC(ch); ch = ch_next) {
 			ch_next = ch->next;
 			if (ch->timer > 20)
-				do_quit(ch, str_empty);
+				quit_char(ch, 0);
 			else
 				save_char_obj(ch, FALSE);
 		}
@@ -1360,7 +1358,7 @@ void water_float_update(void)
 			if((ch = obj->in_room->people))
 				act("$p sinks down the water.", ch, obj, NULL,
 				    TO_ALL); 
-			extract_obj(obj);
+			extract_obj(obj, 0);
 		}
 	}
 }
@@ -1407,7 +1405,7 @@ bool update_ice_obj(OBJ_DATA *obj)
 	&&  number_percent() < 40) {
 		act("The extreme heat melts $p.", obj->carried_by, obj, NULL,
 		    TO_CHAR);
-		extract_obj(obj);
+		extract_obj(obj, 0);
 		return TRUE;
 	}
 	if (obj->in_room != NULL
@@ -1415,7 +1413,7 @@ bool update_ice_obj(OBJ_DATA *obj)
 	&&  number_percent() < 50) {
 		act("The extreme heat melts $p.", obj->in_room->people, obj,
 		    NULL, TO_ALL);
-		extract_obj(obj);
+		extract_obj(obj, 0);
 		return TRUE;
 	}
 	return FALSE;
@@ -1428,7 +1426,7 @@ bool update_glass_obj(OBJ_DATA *obj)
 	&&  !IS_NPC(obj->carried_by)
 	&&  number_percent() < 20)  {
 		act("$p evaporates.", obj->carried_by, obj, NULL, TO_CHAR);
-		extract_obj(obj);
+		extract_obj(obj, 0);
 		return TRUE;
 	}
 	if (obj->in_room
@@ -1438,7 +1436,7 @@ bool update_glass_obj(OBJ_DATA *obj)
 		    obj, NULL, TO_ROOM);
 		act("$p evaporates by the extream heat.", obj->in_room->people,
 		    obj, NULL, TO_CHAR);
-		extract_obj(obj);
+		extract_obj(obj, 0);
 		return TRUE;
 	}
 	return FALSE;
@@ -1458,7 +1456,7 @@ void update_pit(OBJ_DATA *obj)
 	for (t_obj = obj->contains; t_obj; t_obj = next_obj) {
 		next_obj = t_obj->next_content;
 		obj_from_obj(t_obj);
-		extract_obj(t_obj);
+		extract_obj(t_obj, 0);
 	}
 }
 
@@ -1600,7 +1598,7 @@ void update_one_obj(OBJ_DATA *obj)
 
 	if (obj->pIndexData->item_type == ITEM_CORPSE_PC && obj->contains)
 		save_corpse_contents(obj);
-	extract_obj(obj);
+	extract_obj(obj, 0);
 }
 
 OBJ_DATA *last_updated_obj;
