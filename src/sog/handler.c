@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.182.2.6 1999-11-27 08:24:34 fjoe Exp $
+ * $Id: handler.c,v 1.182.2.7 1999-11-27 11:06:29 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3519,7 +3519,7 @@ void yell(CHAR_DATA *victim, CHAR_DATA* ch, const char* text)
 		return;
 
 	act_puts("You yell '{M$t{x'", victim,
-		 act_speech(victim, ch, text, ch), NULL,
+		 act_speech(victim, victim, text, ch), NULL,
 		 TO_CHAR | ACT_SPEECH(ch), POS_DEAD);
 	act_yell(victim, text, ch, "$n yells in panic '{M$t{x'");
 }

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm_act.c,v 1.40 1999-09-11 12:50:05 fjoe Exp $
+ * $Id: comm_act.c,v 1.40.2.1 1999-11-27 11:06:32 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -67,12 +67,13 @@ const char *fix_short(const char *s)
  * name expected to be eng equiv. and is appended in form " (name)"
  * if ACT_NOENG is not set
  */
-const char *format_short(mlstring *mlshort, const char *name, CHAR_DATA *to,
-			 int act_flags)
+const char *
+_format_short(mlstring *mlshort, const char *name, CHAR_DATA *to,
+	      int to_lang, int act_flags)
 {
         const char *sshort;
 
-        sshort = mlstr_cval(mlshort, to);
+        sshort = mlstr_val(mlshort, to_lang);
 
         if (!IS_SET(to->comm, COMM_NOENG)
 	&&  sshort != mlstr_mval(mlshort)) {
@@ -102,13 +103,14 @@ const char *format_short(mlstring *mlshort, const char *name, CHAR_DATA *to,
  * eng name expected to be in form " (foo)" and is stripped
  * if ACT_NOENG is set
  */
-const char *format_long(mlstring *ml, CHAR_DATA *to)
+const char *
+_format_long(mlstring *ml, CHAR_DATA *to, int to_lang)
 {
 	const char *s;
 	const char *p, *q;
 	static char buf[MAX_STRING_LENGTH];
 
-	s = mlstr_cval(ml, to);
+	s = mlstr_val(ml, to_lang);
 	if (IS_NULLSTR(s)
 	||  !IS_SET(to->comm, COMM_NOENG)
 	||  (p = strchr(s, '(')) == NULL
@@ -126,42 +128,39 @@ const char *format_long(mlstring *ml, CHAR_DATA *to)
 /*
  * PERS formatting stuff
  */
-const char *PERS2(CHAR_DATA *ch, CHAR_DATA *looker, int act_flags)
+const char *PERS2(CHAR_DATA *ch, CHAR_DATA *to, int to_lang, int act_flags)
 {
 	if (is_affected(ch, gsn_doppelganger)
-	&&  (IS_NPC(looker) ||
-	     !IS_SET(PC(looker)->plr_flags, PLR_HOLYLIGHT)))
+	&&  (IS_NPC(to) ||
+	     !IS_SET(PC(to)->plr_flags, PLR_HOLYLIGHT)))
 		ch = ch->doppel;
 
-	if (can_see(looker, ch)) {
+	if (can_see(to, ch)) {
 		if (IS_NPC(ch)) {
 			const char *descr;
 
 			if (IS_SET(act_flags, ACT_FORMSH)) {
-				return format_short(&ch->short_descr, ch->name,
-						    looker, act_flags);
+				return _format_short(&ch->short_descr, ch->name,
+						     to, to_lang, act_flags);
 			}
 
-			descr = mlstr_cval(&ch->short_descr, looker);
+			descr = mlstr_val(&ch->short_descr, to_lang);
 			if (IS_SET(act_flags, ACT_NOFIXSH))
 				return descr;
 			return fix_short(descr);
-		}
-		else if (IS_AFFECTED(ch, AFF_TURNED) && !IS_IMMORTAL(looker)) {
-			return word_form(GETMSG(PC(ch)->form_name,
-						GET_LANG(looker)),
-					 ch->sex, GET_LANG(looker),
-					 RULES_GENDER);
+		} else if (IS_AFFECTED(ch, AFF_TURNED) && !IS_IMMORTAL(to)) {
+			return word_form(GETMSG(PC(ch)->form_name, to_lang),
+					 ch->sex, to_lang, RULES_GENDER);
 		}
 		return ch->name;
 	}
 
 	if (IS_IMMORTAL(ch)) {
-		return word_form(GETMSG("an immortal", GET_LANG(looker)),
-				 ch->sex, GET_LANG(looker), RULES_GENDER);
+		return word_form(GETMSG("an immortal", to_lang),
+				 ch->sex, to_lang, RULES_GENDER);
 	}
 
-	return GETMSG("someone", GET_LANG(looker));
+	return GETMSG("someone", to_lang);
 }
 
 /* common and slang should have the same size */
@@ -242,19 +241,19 @@ act_format_text(const char *text, CHAR_DATA *ch, CHAR_DATA *to,
 }
 	
 static const char *
-act_format_obj(OBJ_DATA *obj, CHAR_DATA *looker, int act_flags)
+act_format_obj(OBJ_DATA *obj, CHAR_DATA *to, int to_lang, int act_flags)
 {
 	const char *descr;
 
-	if (!can_see_obj(looker, obj))
-		return GETMSG("something", GET_LANG(looker));
+	if (!can_see_obj(to, obj))
+		return GETMSG("something", to_lang);
 
 	if (IS_SET(act_flags, ACT_FORMSH)) {
-		return format_short(&obj->short_descr, obj->name,
-				    looker, act_flags);
+		return _format_short(&obj->short_descr, obj->name,
+				     to, to_lang, act_flags);
 	}
 
-	descr = mlstr_cval(&obj->short_descr, looker);
+	descr = mlstr_val(&obj->short_descr, to_lang);
 	if (IS_SET(act_flags, ACT_NOFIXSH))
 		return descr;
 	return fix_short(descr);
@@ -304,17 +303,16 @@ door_name(const char *name)
 		break;						\
 	}
 
-#define ACT_FLAGS(flags, sp)	((flags) | ((sp) < 0 ? 0 : ACT_NOFIXSH))
+#define ACT_FLAGS(flags)	((flags) | (inside_wform > 0 ? ACT_NOFIXSH : 0))
 
 #define CHAR_ARG(vch)							\
 	{								\
 		if (vch == NULL) {					\
 			i = GETMSG("Noone", opt->to_lang);		\
 		} else {						\
-			int flags;					\
 			CHECK_TYPE(vch, MT_CHAR);			\
-			flags = ACT_FLAGS(opt->act_flags, sp);		\
-			i = PERS2(vch, to, flags);			\
+			i = PERS2(vch, to, opt->to_lang,		\
+				  ACT_FLAGS(opt->act_flags));		\
 		}							\
 	}
 
@@ -323,10 +321,9 @@ door_name(const char *name)
 		if (obj == NULL) {					\
 			i = GETMSG("Nothing", opt->to_lang);		\
 		} else {						\
-			int flags;					\
 			CHECK_TYPE(obj, MT_OBJ);			\
-			flags = ACT_FLAGS(opt->act_flags, sp);		\
-			i = act_format_obj(obj,	to, flags);		\
+			i = act_format_obj(obj,	to, opt->to_lang,	\
+					   ACT_FLAGS(opt->act_flags));	\
 		}							\
 	}
 
@@ -334,7 +331,7 @@ door_name(const char *name)
 	{								\
 		CHECK_STRING(text);					\
 		i = act_format_text(text, ch, to, opt->to_lang,		\
-				    ACT_FLAGS(flags, sp));		\
+				    ACT_FLAGS(flags));			\
 	}
 
 /*
@@ -439,6 +436,7 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 
 	struct tdata	tstack[TSTACK_SZ];
 	int		sp = -1;
+	int		inside_wform = 0;
 
 	s = format = GETMSG(format, opt->to_lang);
 
@@ -482,6 +480,7 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 					 word_form(tstack[sp].p, tstack[sp].arg,
 						   opt->to_lang, rulecl));
 				point = strchr(tstack[sp].p, '\0');
+				inside_wform--;
 				break;
 			}
 
@@ -625,7 +624,7 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 /* door arguments */
 			case 'd':
 				CHECK_STRING(arg2);
-				i = GETMSG(door_name(arg2), GET_LANG(to));
+				i = GETMSG(door_name(arg2), opt->to_lang);
 				break;
 
 /* $gx{...}, $cx{...}, $qx{...} arguments */
@@ -669,6 +668,7 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 
 				case 'c':
 					tstack[sp].arg = *s++ - '0';
+					inside_wform++;
 					break;
 
 				case 'g':
@@ -748,6 +748,7 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 						sp--;
 						continue;
 					}
+					inside_wform++;
 					break;
 
 				case 'q':
@@ -768,6 +769,7 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 						sp--;
 						continue;
 					}
+					inside_wform++;
 					break;
 				}
 

@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.271.2.1 1999-11-10 09:52:35 fjoe Exp $
+ * $Id: act_info.c,v 1.271.2.2 1999-11-27 11:06:24 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1439,7 +1439,7 @@ void do_where(CHAR_DATA *ch, const char *argument)
 					(in_PK(ch, doppel) &&
 					!IS_IMMORTAL(ch)) ?
 					"{r[{RPK{r]{x " : "     ",
-					PERS2(victim, ch, ACT_FORMSH),
+					PERS(victim, ch),
 					mlstr_mval(&victim->in_room->name));
 			}
 		}
@@ -1455,7 +1455,7 @@ void do_where(CHAR_DATA *ch, const char *argument)
 			&&  is_name(arg, victim->name)) {
 				found = TRUE;
 				char_printf(ch, "%-28s %s\n",
-					PERS2(victim, ch, ACT_FORMSH),
+					PERS(victim, ch),
 					mlstr_mval(&victim->in_room->name));
 				break;
 			}
@@ -1679,7 +1679,7 @@ static void scan_list(ROOM_INDEX_DATA *scan_room, CHAR_DATA *ch,
 	for (rch = scan_room->people; rch; rch = rch->next_in_room) {
 		if (rch == ch || !can_see(ch, rch))
 			continue;
-		char_printf(ch, "	%s.\n", PERS2(rch, ch, ACT_FORMSH));
+		char_printf(ch, "	%s.\n", PERS(rch, ch));
 	}
 }
 
@@ -3949,7 +3949,7 @@ static char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 
 	if (fShort) {
 		strnzcat(buf, sizeof(buf),
-			 format_short(&obj->short_descr, obj->name, ch, 0));
+			 format_short(&obj->short_descr, obj->name, ch));
 		if (obj->pObjIndex->vnum > 5 /* not money, gold, etc */
 		&&  (obj->condition < COND_EXCELLENT ||
 		     !IS_SET(ch->comm, COMM_NOVERBOSE))) {
@@ -3966,7 +3966,7 @@ static char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 
 		p = strchr(buf, '\0');
 		strnzcat(buf, sizeof(buf),
-			 format_short(&obj->short_descr, obj->name, ch, 0));
+			 format_short(&obj->short_descr, obj->name, ch));
 		p[0] = UPPER(p[0]);
 		switch(number_range(1, 3)) {
 		case 1:
@@ -4439,7 +4439,7 @@ static void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 		char_printf(ch, "(%s) ", flag_string(sex_table, doppel->sex));
 	}
 
-	strnzcpy(buf, sizeof(buf), fix_short(PERS(victim, ch)));
+	strnzcpy(buf, sizeof(buf), PERS(victim, ch));
 	buf[0] = UPPER(buf[0]);
 	char_printf(ch, "%s%s%s %s\n",
 		    IS_IMMORTAL(victim) ? "{W" : str_empty,

@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.165.2.1 1999-11-27 09:06:00 fjoe Exp $
+ * $Id: act_obj.c,v 1.165.2.2 1999-11-27 11:06:26 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2035,7 +2035,7 @@ void do_list(CHAR_DATA * ch, const char *argument)
 				char_printf(ch, "[%2d] %8d - %s\n",
 					    pet->level,
 					    10 * pet->level * pet->level,
-					    PERS2(pet, ch, ACT_FORMSH));
+					    PERS(pet, ch));
 			}
 		}
 		if (!found)
@@ -2066,7 +2066,7 @@ void do_list(CHAR_DATA * ch, const char *argument)
 					char_printf(ch, "[%2d %5d -- ] %s\n",
 						obj->level, cost,
 						format_short(&obj->short_descr,
-							     obj->name, ch, 0));
+							     obj->name, ch));
 				else {
 					count = 1;
 
@@ -2080,7 +2080,7 @@ void do_list(CHAR_DATA * ch, const char *argument)
 					char_printf(ch, "[%2d %5d %2d ] %s\n",
 						obj->level, cost, count,
 						format_short(&obj->short_descr,
-							     obj->name, ch, 0));
+							     obj->name, ch));
 				}
 			}
 		}

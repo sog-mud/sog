@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.181.2.1 1999-11-19 11:36:18 fjoe Exp $
+ * $Id: spellfun.c,v 1.181.2.2 1999-11-27 11:06:32 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2958,7 +2958,7 @@ void spell_locate_object(int sn, int level, CHAR_DATA *ch, void *vo)
 		if (in_obj->carried_by != NULL
 		&&  can_see(ch, in_obj->carried_by)) {
 			buf_printf(buffer, "One is carried by %s\n",
-				   PERS2(in_obj->carried_by, ch, ACT_FORMSH));
+				   PERS(in_obj->carried_by, ch));
 		}
 		else {
 			if (IS_IMMORTAL(ch) && in_obj->in_room != NULL) {
@@ -4152,7 +4152,7 @@ void spell_find_object(int sn, int level, CHAR_DATA *ch, void *vo)
 		if (in_obj->carried_by != NULL
 		&&  can_see(ch,in_obj->carried_by)) {
 			buf_printf(buffer, "One is carried by %s\n",
-				   PERS2(in_obj->carried_by, ch, ACT_FORMSH));
+				   PERS(in_obj->carried_by, ch));
 		} else {
 			if (IS_IMMORTAL(ch) && in_obj->in_room != NULL)
 				buf_printf(buffer, "One is in %s [Room %d]\n",

@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.186.2.3 1999-11-19 14:31:20 fjoe Exp $
+ * $Id: act_wiz.c,v 1.186.2.4 1999-11-27 11:06:28 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1649,7 +1649,7 @@ void do_owhere(CHAR_DATA *ch, const char *argument)
 				   "%3d) %s is carried by %s [Room %d]\n",
 				number,
 				mlstr_mval(&obj->short_descr),
-				fix_short(PERS(in_obj->carried_by, ch)),
+				PERS(in_obj->carried_by, ch),
 				in_obj->carried_by->in_room->vnum);
 		else if (in_obj->in_room != NULL
 		     &&  can_see_room(ch, in_obj->in_room))
