@@ -1,5 +1,5 @@
 #
-# $Id: english.lang,v 1.19 1998-05-21 14:56:11 efdi Exp $
+# $Id: english.lang,v 1.20 1998-05-21 22:14:16 efdi Exp $
 #
 
 INFO_NOTHING		"Nothing.\n\r"
@@ -499,3 +499,11 @@ MOVE_OOPS	"Oops.\n\r"
 MOVE_N_TRIED_PUSH_YOU	"$n tried to push you.\n\r"
 MOVE_N_TRIED_PUSH_N	"$n tried to push $N.\n\r"
 MOVE_KEEP_HANDS_OUT	"Keep your hands out of me, %s!"
+SPECIAL_SAVAGELY_DEVOURS_CORPSE	"$n savagely devours a corpse."
+SPECIAL_PICKS_SOME_TRASH	"$n picks up some trash."
+SPECIAL_YOU_BITE_N	"You bite $N!"
+SPECIAL_N_BITES_N	"$n bites $N!"
+SPECIAL_N_BITES_YOU	"$n bites you!"
+SPECIAL_DO_I_KNOW_YOU	"{Wthe cityguard{x says '{GDo i know you?{x'"
+SPECIAL_DONT_REMEMBER_YOU	"{Wthe cityguard{x says '{GI don't remember you. Go away!{x'"
+SPECIAL_OK_MY_DEAR	"{Wthe cityguard{x says '{GOk, my dear. I have just remembered{x.'"
