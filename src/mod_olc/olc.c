@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.159 2003-05-14 17:42:17 fjoe Exp $
+ * $Id: olc.c,v 1.160 2003-05-14 19:20:03 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1295,6 +1295,75 @@ olced_resists(CHAR_DATA *ch, const char *argument, olc_cmd_t *cmd,
 	return TRUE;
 }
 
+int
+olced_one_trig(CHAR_DATA *ch, const char *arg, const char *argument,
+	       olc_cmd_t *cmd, trig_t *trig)
+{
+	mprog_t *mp;
+
+	/*
+	 * lookup inline mprog
+	 */
+	if ((mp = mprog_lookup(trig->trig_prog)) == NULL) {
+		act_puts("$t: $T: no such mprog.",
+		     ch, OLCED(ch)->name, trig->trig_prog,
+		     TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
+		return FALSE;
+	}
+
+	if (!str_prefix(arg, "show")) {
+		BUFFER *buf = buf_new(-1);
+
+		buf_append(buf, strdump(mp->text, DL_COLOR));
+		page_to_char(buf_string(buf), ch);
+		buf_free(buf);
+		return FALSE;
+	}
+
+	if (!str_prefix(arg, "edit")) {
+		OLCED2(ch) = olced_lookup(ED_MPROG);
+		ch->desc->pEdit2 = mp;
+		string_append(ch, &mp->text);
+		return mp->name[0] == '@';
+	}
+
+	if (!str_prefix(arg, "compile")) {
+		MPROG_COMPILE(ch, mp);
+		return FALSE;
+	}
+
+	if (!str_prefix(arg, "flags")) {
+		void *save_arg1 = cmd->arg1;
+
+		cmd->arg1 = mprog_flags;
+		olced_flag(ch, argument, cmd, &mp->flags);
+		cmd->arg1 = save_arg1;
+
+		/* flags are not saved */
+		return FALSE;
+	}
+
+	return -1;
+}
+
+void
+olced_remove_one_trig(CHAR_DATA *ch, trig_t *trig)
+{
+	mprog_t *mp;
+
+	if ((mp = mprog_lookup(trig->trig_prog)) == NULL) {
+		act_puts("$t: warning: $T: no such mprog.",
+		     ch, OLCED(ch)->name, trig->trig_prog,
+		     TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
+	} else if (mp->name[0] == '@') {
+		/*
+		 * mpcode will remain in memory till mod_mpc is
+		 * reloaded
+		 */
+		c_delete(&mprogs, trig->trig_prog);
+	}
+}
+
 bool
 olced_trig(CHAR_DATA *ch, const char *argument, olc_cmd_t *cmd,
 	   varr *v, int mp_type, int vnum, void *vo)
@@ -1303,7 +1372,7 @@ olced_trig(CHAR_DATA *ch, const char *argument, olc_cmd_t *cmd,
 	char arg[MAX_INPUT_LENGTH];
 	char arg2[MAX_INPUT_LENGTH];
 	trig_t *trig;
-	mprog_t *mp;
+	int rv;
 
 	argument = one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
@@ -1312,6 +1381,7 @@ olced_trig(CHAR_DATA *ch, const char *argument, olc_cmd_t *cmd,
 	}
 
 	if (!str_prefix(arg, "add")) {
+		mprog_t *mp;
 		int trig_type;
 
 		argument = one_argument(argument, arg2, sizeof(arg2));
@@ -1401,16 +1471,8 @@ olced_trig(CHAR_DATA *ch, const char *argument, olc_cmd_t *cmd,
 		return FALSE;
 	}
 
-	if (!str_prefix(arg, "delete")) {
-#if NOTYET
-		if ((mp = mprog_lookup(trig->trig_prog)) == NULL) {
-			act_puts("$t: warning: $T: no such mprog.",
-			     ch, OLCED(ch)->name, trig->trig_prog,
-			     TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
-		} else
-			c_delete(&mprogs, trig->trig_prog);
-#endif
-
+	if (!str_cmp(arg, "delete")) {
+		olced_remove_one_trig(ch, trig);
 		if (mp_type == MP_T_ROOM)
 			x_room_del(vo);
 		varr_edelete(v, trig);
@@ -1427,49 +1489,9 @@ olced_trig(CHAR_DATA *ch, const char *argument, olc_cmd_t *cmd,
 		return TRUE;
 	}
 
-	/*
-	 * lookup inline mprog
-	 */
-	if ((mp = mprog_lookup(trig->trig_prog)) == NULL) {
-		act_puts("$t: $T: no such mprog.",
-		     ch, OLCED(ch)->name, trig->trig_prog,
-		     TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
-		return FALSE;
-	}
-
-	if (!str_prefix(arg, "show")) {
-		BUFFER *buf = buf_new(-1);
-
-		buf_append(buf, strdump(mp->text, DL_COLOR));
-		page_to_char(buf_string(buf), ch);
-		buf_free(buf);
-		return FALSE;
-	}
-
-	if (!str_prefix(arg, "edit")) {
-		OLCED2(ch) = olced_lookup(ED_MPROG);
-		ch->desc->pEdit2 = mp;
-		string_append(ch, &mp->text);
-		return FALSE;
-	}
-
-	if (!str_prefix(arg, "compile")) {
-		MPROG_COMPILE(ch, mp);
-		return FALSE;
-	}
-
-	if (!str_prefix(arg, "flags")) {
-		void *save_arg1 = cmd->arg1;
-
-		cmd->arg1 = mprog_flags;
-		olced_flag(ch, argument, cmd, &mp->flags);
-		cmd->arg1 = save_arg1;
-
-		/* flags are not saved */
-		return FALSE;
-	}
-
-	return olced_trig(ch, str_empty, cmd, v, mp_type, vnum, vo);
+	if ((rv = olced_one_trig(ch, arg, argument, cmd, trig)) < 0)
+		return olced_trig(ch, str_empty, cmd, v, mp_type, vnum, vo);
+	return rv;
 }
 
 bool

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_spec.c,v 1.28 2002-03-21 13:54:00 fjoe Exp $
+ * $Id: db_spec.c,v 1.29 2003-05-14 19:19:54 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -31,6 +31,7 @@
 
 #include <merc.h>
 #include <db.h>
+#include <mprog.h>
 #include <rwfile.h>
 
 DECLARE_DBLOAD_FUN(load_spec);
@@ -78,6 +79,15 @@ DBLOAD_FUN(load_spec)
 
 			KEY("Class", sp->spec_class,
 			    fread_fword(spec_classes, fp));
+			if (IS_TOKEN(fp, "Check")) {
+				const char *mp_name =
+				    genmpname_str(MP_T_SPEC, sp->spec_name);
+
+				fread_to_eol(fp);
+				trig_fread_inline_prog(
+				    &sp->mp_trig, MP_T_SPEC, mp_name, fp);
+				fMatch = TRUE;
+			}
 			break;
 
 		case 'F':
@@ -89,13 +99,6 @@ DBLOAD_FUN(load_spec)
 		case 'N':
 			SPKEY("Name", sp->spec_name, fread_string(fp),
 			      &specs, sp);
-			break;
-
-		case 'T':
-			CHECK_VAR(sp, "Name");
-
-			SKEY("Trigger", sp->mp_trig.trig_prog,
-			     fread_string(fp));
 			break;
 		}
 

@@ -1,7 +1,19 @@
 #SPEC
 Name minor_illusion~
 Class minor_school
-Trigger spec_minor_illusion~
+Check
+if (has_sp($n, "major_illusion", $rm, $add)) {
+	act_char("You already have illusion as your major magic school", $n);
+	return 1;
+}
+
+if (!has_sp($n, "class_wizard", $rm, $add)) {
+	act_char("You are not even wizard, how can you have magic school?", $n);
+	return 1;
+}
+
+return 0;
+~
 End
 
 #SKILL

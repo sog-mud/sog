@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_spec.c,v 1.21 2001-12-07 22:20:29 fjoe Exp $
+ * $Id: olc_spec.c,v 1.22 2003-05-14 19:20:05 fjoe Exp $
  */
 
 #include "olc.h"
@@ -40,7 +40,7 @@ DECLARE_OLC_FUN(speced_list		);
 
 DECLARE_OLC_FUN(speced_class		);
 DECLARE_OLC_FUN(speced_skill		);
-DECLARE_OLC_FUN(speced_trigger		);
+DECLARE_OLC_FUN(speced_check		);
 DECLARE_OLC_FUN(speced_flags		);
 
 DECLARE_OLC_FUN(olc_skill_update	);
@@ -59,7 +59,7 @@ olc_cmd_t olc_cmds_spec[] =
 	{ "name",	olced_strkey,	NULL,		&strkey_specs	},
 	{ "class",	speced_class,	NULL,		spec_classes	},
 	{ "skill",	speced_skill,	NULL,		&skills		},
-	{ "trigger",	speced_trigger,	NULL,		NULL		},
+	{ "check",	speced_check,	NULL,		NULL		},
 	{ "flags",	speced_flags,	NULL,		spec_flags	},
 
 	{ "update",	olc_skill_update, NULL,		NULL		},
@@ -134,7 +134,6 @@ OLC_FUN(speced_save)
 		FILE *fp;
 		const char *filename;
 		spec_skill_t *spec_sk;
-		mprog_t *mp;
 
 		if (!IS_SET(spec->spec_flags, SPF_CHANGED))
 			continue;
@@ -149,12 +148,17 @@ OLC_FUN(speced_save)
 		fwrite_string(fp, "Name", spec->spec_name);
 		fprintf(fp, "Class %s\n",
 			flag_string(spec_classes, spec->spec_class));
-		if ((mp = mprog_lookup(spec->mp_trig.trig_prog)) == NULL) {
-			olc_printf(ch, "%s: %s: mprog %s: no such mprog",
-				   __FUNCTION__, spec->spec_name,
-				   spec->mp_trig.trig_prog);
-		} else
-			fwrite_string(fp, "Trigger", mp->text);
+		if (spec->mp_trig.trig_type != TRIG_NONE) {
+			mprog_t *mp = mprog_lookup(spec->mp_trig.trig_prog);
+
+			if (mp == NULL) {
+				olc_printf(ch,
+				    "%s: %s: mprog %s: no such mprog",
+				    __FUNCTION__, spec->spec_name,
+				    spec->mp_trig.trig_prog);
+			} else
+				fwrite_string(fp, "Check\n", mp->text);
+		}
 
 		if (spec->spec_flags) {
 			fprintf(fp, "Flags %s~\n",
@@ -222,7 +226,7 @@ OLC_FUN(speced_show)
 			flag_string(spec_classes, spec->spec_class),
 			flag_string(spec_flags, spec->spec_flags));
 	if (spec->mp_trig.trig_type != TRIG_NONE) {
-		buf_printf(output, BUF_END, "Trigger:       [%s]\n",
+		buf_printf(output, BUF_END, "Check:         [%s]\n",
 			   spec->mp_trig.trig_prog);
 	}
 
@@ -337,14 +341,26 @@ OLC_FUN(speced_skill)
 	return FALSE;
 }
 
-OLC_FUN(speced_trigger)
+OLC_FUN(speced_check)
 {
+	char arg[MAX_INPUT_LENGTH];
+	int rv;
+
 	spec_t *spec;
 	EDIT_SPEC(ch, spec);
-#if 0
-	XXX MPC
-	return olced_cc_vexpr(ch, argument, cmd, &spec->spec_deps, "spec");
-#endif
+
+	argument = one_argument(argument, arg, sizeof(arg));
+	if (!str_cmp(arg, "delete")) {
+		olced_remove_one_trig(ch, &spec->mp_trig);
+		trig_destroy(&spec->mp_trig);
+		trig_init(&spec->mp_trig);
+	}
+
+	if ((rv = olced_one_trig(ch, arg, argument, cmd, &spec->mp_trig)) < 0) {
+		dofun("help", ch, "'OLC SPEC CHECK'");
+		return FALSE;
+	}
+
 	return FALSE;
 }
 

@@ -1,5 +1,5 @@
 /*
- * $Id: olc_mprog.c,v 1.15 2003-05-08 14:00:10 fjoe Exp $
+ * $Id: olc_mprog.c,v 1.16 2003-05-14 19:20:05 fjoe Exp $
  */
 
 #include <ctype.h>
@@ -57,6 +57,8 @@ olc_cmd_t olc_cmds_mprog[] =
 static void mprog_update_type(CHAR_DATA *ch, mprog_t *mp);
 static void mptrig_dump(BUFFER *buf, mprog_t *mp, varr *v, void *vo);
 
+#define INVALID_MPNAME(name) ((name)[0] == '@' || !str_prefix("spec_", (name)))
+
 OLC_FUN(mped_create)
 {
 	mprog_t *mp;
@@ -71,7 +73,7 @@ OLC_FUN(mped_create)
 	if (arg[0] == '\0')
 		OLC_ERROR("'OLC CREATE'");
 
-	if (arg[0] == '@') {
+	if (INVALID_MPNAME(arg)) {
 		act_puts("MProgEd: $t: invalid mprog name.",
 			 ch, arg, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return FALSE;
@@ -333,7 +335,7 @@ VALIDATE_FUN(validate_name)
 {
 	const char *name = (const char *) arg;
 
-	if (name[0] == '@') {
+	if (INVALID_MPNAME(name)) {
 		act_puts("MprogEd: $t: invalid mprog name.",
 			 ch, name, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return FALSE;

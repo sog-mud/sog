@@ -1,7 +1,19 @@
 #SPEC
 Name minor_charm~
 Class minor_school
-Trigger spec_minor_charm~
+Check
+if (has_sp($n, "major_charm", $rm, $add)) {
+	act_char("You already have enchantment as your major magic school", $n);
+	return 1;
+}
+
+if (!has_sp($n, "class_wizard", $rm, $add)) {
+	act_char("You are not even wizard, how can you have magic school?", $n);
+	return 1;
+}
+
+return 0;
+~
 End
 
 #SKILL

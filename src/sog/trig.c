@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: trig.c,v 1.30 2003-05-14 17:42:23 fjoe Exp $
+ * $Id: trig.c,v 1.31 2003-05-14 19:20:14 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -77,6 +77,27 @@ trig_fread(trig_t *trig, int mp_type, const char *mp_name, rfile_t *fp)
 	}
 
 	trig_fread_prog(trig, mp_type, mp_name, fp);
+}
+
+bool
+trig_fread_inline_prog(trig_t *trig, int mp_type, const char *mp_name,
+		       rfile_t *fp)
+{
+	mprog_t *mp;
+
+	if ((mp = (mprog_t *) c_insert(&mprogs, mp_name)) == NULL) {
+		log(LOG_ERROR, "%s: %s: duplicate mprog",
+		    __FUNCTION__, mp_name);
+		return FALSE;
+	}
+
+	mp->name = str_dup(mp_name);
+	mp->type = mp_type;
+	mp->text = fread_string(fp);
+
+	free_string(trig->trig_prog);
+	trig->trig_prog = str_qdup(mp->name);
+	return TRUE;
 }
 
 void
@@ -548,22 +569,9 @@ trig_fread_prog(trig_t *trig, int mp_type, const char *mp_name, rfile_t *fp)
 	trig->trig_prog = fread_sword(fp);
 	trig_set_arg(trig, fread_string(fp));
 
-	if (!str_cmp(trig->trig_prog, "@")) {
-		mprog_t *mp;
-
-		if ((mp = (mprog_t *) c_insert(&mprogs, mp_name)) == NULL) {
-			log(LOG_ERROR, "%s: %s: duplicate mprog",
-			    __FUNCTION__, mp_name);
-			return FALSE;
-		}
-
-		mp->name = str_dup(mp_name);
-		mp->type = mp_type;
-		mp->text = fread_string(fp);
-
-		free_string(trig->trig_prog);
-		trig->trig_prog = str_qdup(mp->name);
-	} else
+	if (!str_cmp(trig->trig_prog, "@"))
+		return trig_fread_inline_prog(trig, mp_type, mp_name, fp);
+	else
 		C_STRKEY_CHECK(__FUNCTION__, &mprogs, trig->trig_prog);
 
 	return TRUE;

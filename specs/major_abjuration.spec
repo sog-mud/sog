@@ -1,16 +1,19 @@
 #SPEC
 Name major_abjuration~
 Class major_school
-Trigger spec_major_abjuration~
-End
+Check
+if (!has_sp($n, "class_wizard", $rm, $add)) {
+	act_char("You are not even wizard, how can you have major school?", $n);
+	return 1;
+}
 
-#SKILL
-Skill 'protection from missiles'
-Level 26
-Rating 1
-Min 1
-Adept 75
-Max 100
+if (has_sp($n, "minor_abjuration", $rm, $add)) {
+	act_char("You have already chosen abjuration as your minor magic school", $n);
+	return 1;
+}
+
+return 0;
+~
 End
 
 #SKILL
@@ -52,6 +55,15 @@ End
 #SKILL
 Skill 'protection cold'
 Level 21
+Rating 1
+Min 1
+Adept 75
+Max 100
+End
+
+#SKILL
+Skill 'protection from missiles'
+Level 26
 Rating 1
 Min 1
 Adept 75

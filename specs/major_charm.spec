@@ -1,13 +1,25 @@
 #SPEC
 Name major_charm~
 Class major_school
-Trigger spec_major_charm~
+Check
+if (has_sp($n, "minor_charm", $rm, $add)) {
+	act_char("You already have enchantment as your minor magic school", $n);
+	return 1;
+}
+
+if (!has_sp($n, "class_wizard", $rm, $add)) {
+	act_char("You are not even wizard, how can you have major school?", $n);
+	return 1;
+}
+
+return 0;
+~
 End
 
 #SKILL
-Skill 'charm person'
-Level 35
-Rating 2
+Skill 'adamantite golem'
+Level 44
+Rating 1
 Min 1
 Adept 75
 Max 100
@@ -23,9 +35,18 @@ Max 100
 End
 
 #SKILL
-Skill 'enchant weapon'
-Level 17
+Skill 'charm person'
+Level 35
 Rating 2
+Min 1
+Adept 75
+Max 100
+End
+
+#SKILL
+Skill 'enchant armor'
+Level 19
+Rating 1
 Min 1
 Adept 75
 Max 100
@@ -41,9 +62,36 @@ Max 100
 End
 
 #SKILL
-Skill 'sleep'
-Level 12
+Skill 'enchant weapon'
+Level 22
 Rating 1
+Min 1
+Adept 75
+Max 100
+End
+
+#SKILL
+Skill 'enchant weapon'
+Level 17
+Rating 2
+Min 1
+Adept 75
+Max 100
+End
+
+#SKILL
+Skill 'fireproof'
+Level 20
+Rating 1
+Min 1
+Adept 75
+Max 100
+End
+
+#SKILL
+Skill 'insanity'
+Level 40
+Rating 2
 Min 1
 Adept 75
 Max 100
@@ -59,9 +107,9 @@ Max 100
 End
 
 #SKILL
-Skill 'insanity'
+Skill 'mend'
 Level 40
-Rating 2
+Rating 1
 Min 1
 Adept 75
 Max 100
@@ -86,44 +134,8 @@ Max 100
 End
 
 #SKILL
-Skill 'fireproof'
-Level 20
-Rating 1
-Min 1
-Adept 75
-Max 100
-End
-
-#SKILL
-Skill 'adamantite golem'
-Level 44
-Rating 1
-Min 1
-Adept 75
-Max 100
-End
-
-#SKILL
-Skill 'enchant armor'
-Level 19
-Rating 1
-Min 1
-Adept 75
-Max 100
-End
-
-#SKILL
-Skill 'enchant weapon'
-Level 22
-Rating 1
-Min 1
-Adept 75
-Max 100
-End
-
-#SKILL
-Skill 'mend'
-Level 40
+Skill 'sleep'
+Level 12
 Rating 1
 Min 1
 Adept 75

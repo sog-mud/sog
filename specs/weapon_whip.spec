@@ -1,7 +1,14 @@
 #SPEC
 Name weapon_whip~
 Class weapon
-Trigger spec_weapon~
+Check
+if (!has_sp($n, "class_warrior", $rm, $add)) {
+	act_char("You aren't professional warrior.", $n);
+	return 1;
+}
+
+return 0;
+~
 End
 
 #SKILL

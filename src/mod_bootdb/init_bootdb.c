@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_bootdb.c,v 1.24 2003-05-14 17:42:01 fjoe Exp $
+ * $Id: init_bootdb.c,v 1.25 2003-05-14 19:19:54 fjoe Exp $
  */
 
 #include <sys/stat.h>
@@ -54,14 +54,14 @@ static void load_mprogs(void);
 
 static void fix_resets(void);
 static void fix_exits(void);
-#if FIX_MPROGS
 static void fix_mprogs(void);
-#endif
 static void fix_practicers(void);
 
 MODINIT_FUN(_module_load, m)
 {
 	bootdb_errors = 0;
+
+	c_init(&mprogs, &c_info_mprogs);
 
 	db_load_file(&db_system, ETC_PATH, SYSTEM_CONF);
 
@@ -98,9 +98,7 @@ MODINIT_FUN(_module_load, m)
 
 	fix_resets();
 	fix_exits();
-#if FIX_MPROGS
 	fix_mprogs();
-#endif
 	fix_practicers();
 
 	msgq_init(&msgq_immtalk, MSGQ_LEN_CHAN);
@@ -253,8 +251,6 @@ load_mprogs()
 	struct dirent *dp;
 	DIR *dirp;
 	char mask[PATH_MAX];
-
-	c_init(&mprogs, &c_info_mprogs);
 
 	if ((dirp = opendir(MPC_PATH)) == NULL) {
 		log(LOG_ERROR, "load_mprogs: %s: %s",
@@ -505,10 +501,12 @@ trig_lookup_room(const char *name, int *pvnum, int *ptrigvnum)
 
 	return rv;
 }
+#endif
 
 static void
 fix_mprogs(void)
 {
+#ifdef FIX_MPROGS
 	FILE *fp;
 	mprog_t *mp;
 
@@ -521,8 +519,8 @@ fix_mprogs(void)
 		C_FOREACH(mp, &mprogs) {
 			trig_t *trig;
 			spec_t *spec = NULL;
-			int vnum;
-			int trignum;
+			int vnum = 0;
+			int trignum = 0;
 			const char *mp_name;
 
 			switch (mp->type) {
@@ -554,6 +552,7 @@ fix_mprogs(void)
 				}
 
 				trig = &spec->mp_trig;
+				break;
 
 			default:
 				continue;
@@ -568,6 +567,7 @@ fix_mprogs(void)
 			if (spec != NULL) {
 				mp_name = genmpname_str(
 				    mp->type, spec->spec_name);
+				SET_BIT(spec->spec_flags, SPF_CHANGED);
 			} else {
 				mp_name = genmpname_vnum(
 				    mp->type, vnum, trignum);
@@ -594,8 +594,8 @@ fix_mprogs(void)
 	} while (mp != NULL);
 
 	fclose(fp);
-}
 #endif
+}
 
 #define V7_MOB_PRACTICE	(D)
 

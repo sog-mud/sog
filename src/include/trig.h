@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: trig.h,v 1.19 2003-05-14 17:41:48 fjoe Exp $
+ * $Id: trig.h,v 1.20 2003-05-14 19:19:48 fjoe Exp $
  */
 
 #ifndef _TRIG_H_
@@ -132,6 +132,12 @@ void trig_destroy(trig_t *trig);
  * Read trigger from file
  */
 void trig_fread(trig_t *trig, int mp_type, const char *mp_name, rfile_t *fp);
+
+/**
+ * Read inline prog for trigger from file
+ */
+bool trig_fread_inline_prog(trig_t *trig, int mp_type, const char *mp_name,
+			    rfile_t *fp);
 
 /**
  * Write trigger to file
