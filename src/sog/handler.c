@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.149 1999-05-23 18:07:14 fjoe Exp $
+ * $Id: handler.c,v 1.150 1999-05-23 20:14:49 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2539,12 +2539,8 @@ bool can_see(CHAR_DATA *ch, CHAR_DATA *victim)
 		return FALSE;
 	}
 	
-	if (!IS_NPC(victim) && !IS_TRUSTED(ch, victim->invis_level)) {
-		AREA_DATA *pArea = area_vnum_lookup(victim->pIndexData->vnum);
-		if (pArea == NULL
-		||  !IS_BUILDER(ch, pArea))
-			return FALSE;
-	}
+	if (!IS_NPC(victim) && !IS_TRUSTED(ch, victim->invis_level))
+		return FALSE;
 
 	if (IS_CLAN_GUARD(ch)) return TRUE;
 
@@ -2554,6 +2550,13 @@ bool can_see(CHAR_DATA *ch, CHAR_DATA *victim)
 
 	if (!IS_NPC(ch) && IS_SET(ch->plr_flags, PLR_HOLYLIGHT))
 		return TRUE;
+
+	if (IS_NPC(victim) && !IS_TRUSTED(ch, victim->invis_level)) {
+		AREA_DATA *pArea = area_vnum_lookup(victim->pIndexData->vnum);
+		if (pArea == NULL
+		||  !IS_BUILDER(ch, pArea))
+			return FALSE;
+	}
 
 	if (IS_AFFECTED(ch, AFF_BLIND))
 		return FALSE;
