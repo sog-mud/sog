@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.271.2.64 2002-09-25 06:12:58 tatyana Exp $
+ * $Id: act_info.c,v 1.271.2.65 2002-10-30 18:07:55 tatyana Exp $
  */
 
 /***************************************************************************
@@ -3095,13 +3095,13 @@ void do_spells(CHAR_DATA *ch, const char *argument)
 
 	if (IS_NPC(ch))
 		return;
-	
+
 	/* initialize data */
 	for (lev = 0; lev <= LEVEL_IMMORTAL; lev++) {
 		spell_columns[lev] = 0;
 		spell_list[lev][0] = '\0';
 	}
-	
+
 	for (i = 0; i < PC(ch)->learned.nused; i++) {
 		pcskill_t *ps = VARR_GET(&PC(ch)->learned, i);
 		skill_t *sk;
@@ -3118,16 +3118,16 @@ void do_spells(CHAR_DATA *ch, const char *argument)
 			continue;
 
 		if (ch->level < lev)
-			snprintf(buf, sizeof(buf), "%-19s n/a       ",
+			snprintf(buf, sizeof(buf), "%-23s n/a       ",
 				 sk->name);
 		else
-			snprintf(buf, sizeof(buf), "%-19s %4d mana  ",
-				 sk->name, mana_cost(ch, ps->sn));
-			
+			snprintf(buf, sizeof(buf), "%-18s %4d mana %3d%% ",
+				 sk->name, mana_cost(ch, ps->sn), ps->percent);
+
 		if (spell_list[lev][0] == '\0')
 			snprintf(spell_list[lev], sizeof(spell_list[lev]),
 				 "\nLevel %2d: %s", lev, buf);
-		else { /* append */
+		else {
 			if (++spell_columns[lev] % 2 == 0)
 				strnzcat(spell_list[lev],
 					 sizeof(spell_list[lev]),
@@ -3138,12 +3138,12 @@ void do_spells(CHAR_DATA *ch, const char *argument)
 	}
 
 	/* return results */
-	
+
 	if (!found) {
 		char_puts("You know no spells.\n",ch);
 		return;
 	}
-	
+
 	output = buf_new(-1);
 	for (lev = 0; lev <= LEVEL_IMMORTAL; lev++)
 		if (spell_list[lev][0] != '\0')

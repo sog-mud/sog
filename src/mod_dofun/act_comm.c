@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.187.2.38 2002-10-27 06:48:59 tatyana Exp $
+ * $Id: act_comm.c,v 1.187.2.39 2002-10-30 18:07:54 tatyana Exp $
  */
 
 /***************************************************************************
@@ -1745,10 +1745,8 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 		if (loaded) {
 			char_save(victim, SAVE_F_PSCAN);
 			char_nuke(victim);
-		}
-		else
-			dofun("save", victim, str_empty);
-				
+		} else
+			char_save(victim, 0);
 		return;
 	}
 

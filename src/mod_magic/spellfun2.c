@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.139.2.57 2002-08-23 10:15:02 tatyana Exp $
+ * $Id: spellfun2.c,v 1.139.2.58 2002-10-30 18:08:00 tatyana Exp $
  */
 
 /***************************************************************************
@@ -4214,14 +4214,9 @@ void spell_bless_weapon(int sn, int level,CHAR_DATA *ch, void *vo)
 		return;
 	}
 
-	if (IS_WEAPON_STAT(obj, WEAPON_FLAMING)
-	||  IS_WEAPON_STAT(obj, WEAPON_FROST)
-	||  IS_WEAPON_STAT(obj, WEAPON_VAMPIRIC)
-	||  IS_WEAPON_STAT(obj, WEAPON_SHARP)
+	if (IS_WEAPON_STAT(obj, WEAPON_VAMPIRIC)
 	||  IS_WEAPON_STAT(obj, WEAPON_VORPAL)
-	||  IS_WEAPON_STAT(obj, WEAPON_SHOCKING)
-	||  IS_OBJ_STAT(obj, ITEM_BLESS) 
-	||  IS_OBJ_STAT(obj, ITEM_BURN_PROOF)) {
+	||  IS_OBJ_STAT(obj, ITEM_ANTI_GOOD)) {
 		act("You can't seem to bless $p.", ch, obj, NULL, TO_CHAR);
 		return;
 	}
@@ -5526,12 +5521,6 @@ void spell_hunger_weapon(int sn, int level, CHAR_DATA *ch, void *vo)
 
 	chance = get_skill(ch, sn);	
 
-	if (IS_WEAPON_STAT(obj, WEAPON_FLAMING))	chance /= 2;
-	if (IS_WEAPON_STAT(obj, WEAPON_FROST))		chance /= 2;
-	if (IS_WEAPON_STAT(obj, WEAPON_SHARP))		chance /= 2;
-	if (IS_WEAPON_STAT(obj, WEAPON_VORPAL))		chance /= 2;
-	if (IS_WEAPON_STAT(obj, WEAPON_SHOCKING))	chance /= 2;
-	 
         if (number_percent() < chance) {    
 		af.where	= TO_WEAPON;
 		af.type 	= sn;
