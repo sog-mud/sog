@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.186.2.23 2000-12-05 09:32:37 avn Exp $
+ * $Id: act_wiz.c,v 1.186.2.24 2000-12-07 07:54:23 avn Exp $
  */
 
 /***************************************************************************
@@ -4093,7 +4093,7 @@ void do_rename(CHAR_DATA* ch, const char *argument)
 		   first_arg(argument, new_name, sizeof(new_name), FALSE);
 		
 	if (!old_name[0]) {
-		do_help(ch, "'WIZ ITITLE'");
+		do_help(ch, "'WIZ RENAME'");
 		return;
 	}
 		
@@ -4261,14 +4261,15 @@ void do_wizpass(CHAR_DATA *ch, const char *argument)
 	free_string(PC(victim)->pwd);
 	PC(victim)->pwd = str_dup(pwdnew);
 	char_printf(ch, "%s: password changed to '%s'.\n", victim->name, arg2);
+	if (!loaded)
+		act_puts("$N sets your password to '$t'.",
+			 victim, arg2, ch, TO_CHAR, POS_DEAD);
 
 cleanup:
 	if (loaded) {
 		char_save(victim, SAVE_F_PSCAN);
 		char_nuke(victim);
 	} else {
-		act_puts("$N sets your password to '$t'.",
-			 ch, arg2, victim, TO_CHAR, POS_DEAD);
 		char_save(victim, 0);
 	}
 }
