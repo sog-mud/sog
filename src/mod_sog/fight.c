@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.109 1998-12-07 09:10:23 kostik Exp $
+ * $Id: fight.c,v 1.110 1998-12-09 14:06:45 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2048,6 +2048,12 @@ void group_gain(CHAR_DATA *ch, CHAR_DATA *victim)
 	group_levels = 0;
 	for (gch = ch->in_room->people; gch; gch = gch->next_in_room) {
 		if (is_same_group(gch, ch)) {
+			if (IS_NPC(gch)
+			&&  (gch->pIndexData->vnum == MOB_VNUM_LESSER_GOLEM ||
+			     gch->pIndexData->vnum == MOB_VNUM_STONE_GOLEM ||
+			     gch->pIndexData->vnum == MOB_VNUM_IRON_GOLEM ||
+			     gch->pIndexData->vnum == MOB_VNUM_ADAMANTITE_GOLEM))
+				continue;
 			if (!IS_NPC(gch)
 			&&  abs(gch->level - lch->level) <= 8)
 				members++;

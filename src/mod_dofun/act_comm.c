@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.123 1998-12-09 12:09:20 fjoe Exp $
+ * $Id: act_comm.c,v 1.124 1998-12-09 14:06:44 fjoe Exp $
  */
 
 /***************************************************************************
@@ -500,7 +500,7 @@ void do_immtalk(CHAR_DATA *ch, const char *argument)
 	if (IS_SET(ch->comm, COMM_NOWIZ))
 		do_immtalk(ch, str_empty);
 
-	act_puts("{W$n{x: {B$t{x", ch, argument, NULL, TO_CHAR, POS_DEAD);
+	act_puts("$n: {R$t{x", ch, argument, NULL, TO_CHAR, POS_DEAD);
 	for (d = descriptor_list; d; d = d->next) {
 		CHAR_DATA *victim = d->original ? d->original : d->character;
 

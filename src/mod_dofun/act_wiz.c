@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.98 1998-12-09 11:57:49 fjoe Exp $
+ * $Id: act_wiz.c,v 1.99 1998-12-09 14:06:44 fjoe Exp $
  */
 
 /***************************************************************************
@@ -4022,6 +4022,7 @@ void do_rename(CHAR_DATA* ch, const char *argument)
 /* delete old pfile */
 	if (str_cmp(new_name, old_name)) {
 		DESCRIPTOR_DATA *d;
+		OBJ_DATA *obj;
 
 		for (d = descriptor_list; d; d = d->next)
 			if (d->character
@@ -4052,6 +4053,13 @@ void do_rename(CHAR_DATA* ch, const char *argument)
 			return;		
 		}
 		fpReserve = fopen(NULL_FILE, "r");  
+
+		/* change object owners */
+		for (obj = object_list; obj; obj = obj->next)
+			if (obj->owner && !str_cmp(obj->owner, old_name)) {
+				free_string(obj->owner);
+				obj->owner = str_dup(new_name);
+			}
 
 		dunlink(PLAYER_PATH, capitalize(old_name)); 
 	}
