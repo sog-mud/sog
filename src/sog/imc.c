@@ -28,7 +28,7 @@
  * along with this program (see the file COPYING); if not, write to the
  * Free Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  *
- * $Id: imc.c,v 1.1.2.1 2003-09-11 13:41:21 matrim Exp $
+ * $Id: imc.c,v 1.1.2.2 2003-09-12 09:37:52 fjoe Exp $
  */
 
 #include <stdlib.h>
@@ -4393,6 +4393,9 @@ void imc_loop( void )
    fd_set in_set, out_set, exc_set;
    static struct timeval null_time;
    int maxdesc = 0;
+
+	if (!this_imcmud)
+		return;
 
    /* Reconnect in case of a network error */
    if( imcwait > 1 )
