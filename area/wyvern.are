@@ -225,7 +225,7 @@ A spectre has begun to materialize in front of you!
 Terror fills your heart as you view this master of the undead.
 ~
 human~
-ACFG BDHJ -1000 0
+ACFG BDJu -1000 0
 19 0 3d9+308 9d9+100 2d7+5 none
 -4 -4 -4 7
 EFNU 0 0 0
@@ -410,6 +410,7 @@ iron~
 weapon 0 AN
 dagger 1 6 chop 0
 1 20 230 P
+G none
 #1602
 fine mace~
 the fine mace~
@@ -420,6 +421,7 @@ mace 2 6 pound 0
 10 110 570 P
 A
 18 1
+G none
 #1603
 elven dagger~
 a long elven dagger~
@@ -430,6 +432,7 @@ dagger 2 5 pierce 0
 8 20 700 P
 A
 18 2
+G none
 #1604
 steel broad sword~
 a steel broad sword~
@@ -442,6 +445,7 @@ A
 19 1
 A
 18 1
+G none
 #1605
 steel broad sword~
 a steel broad sword~
@@ -454,6 +458,7 @@ A
 19 2
 A
 18 2
+G none
 #1606
 rod might~
 the rod of might~
@@ -466,6 +471,7 @@ A
 1 1
 A
 18 2
+G none
 #1612
 black kite shield~
 a black kite shield~
@@ -476,6 +482,7 @@ armor AG AJ
 13 80 1530 P
 A
 20 1
+G none
 #1614
 helm~
 a commander's helm~
@@ -489,6 +496,7 @@ A
 E
 helm~
 This elegant helm is plated in mithril and silver.~
+G none
 #1615
 bracer~
 a mithril bracer~
@@ -499,6 +507,7 @@ armor BG AM
 12 20 1540 P
 A
 1 1
+G none
 #1616
 dark blue cloak~
 a dark blue cloak~
@@ -509,6 +518,7 @@ clothing AG AC
 0 20 100 P
 A
 17 6
+G none
 #1621
 dark red potion~
 a dark red potion~
@@ -517,6 +527,7 @@ glass~
 potion AG AO
 9 'cure blindness' 'cure critical' '' ''
 5 10 320 P
+G none
 #1651
 bronze chest~
 a bronze chest~
@@ -525,6 +536,7 @@ bronze~
 container 0 A
 30 AC 0 10 100
 0 100 100 P
+G none
 #1652
 ale barrel~
 a barrel of ale~
@@ -533,6 +545,7 @@ wood~
 drink 0 A
 150 2 'ale' 0 0
 0 80 10 P
+G none
 #1691
 key twin towers~
 the twin towers key~
@@ -541,6 +554,7 @@ unknown~
 key 0 A
 A 0 0 0 0
 0 10 0 P
+G none
 #1692
 strange key~
 a strange key~
@@ -554,6 +568,7 @@ A
 E
 strange key~
 This key is of an unusual shape ... must go to an unusual lock!~
+G none
 #1701
 short bow~
 a short bow~
@@ -566,6 +581,7 @@ E
 short bow~
 It looks like the bows used by rustin hunters.
 ~
+G none
 #1702
 long bow~
 a long bow~
@@ -576,6 +592,7 @@ bow 3 6 pound 0
 12 70 220 P
 A
 13 5
+G none
 #1704
 ancient sword~
 an ancient long sword~
@@ -588,6 +605,7 @@ A
 19 4
 A
 18 3
+G none
 #1711
 fur cap~
 a fur cap~
@@ -596,6 +614,7 @@ fur~
 armor 0 AE
 2 2 2 0 0
 0 10 168 P
+G none
 #1712
 travelling boots~
 a pair of travelling boots~
@@ -606,6 +625,7 @@ armor G AG
 12 20 880 P
 A
 14 10
+G none
 #1713
 bronze ring~
 a bronze ring~
@@ -616,6 +636,7 @@ jewelry G AB
 5 10 55 P
 A
 12 5
+G none
 #0
 
 #ROOMS

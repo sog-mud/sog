@@ -234,7 +234,7 @@ A mazekeeper is here.
 He looks VERY tough.
 ~
 human~
-ABF HJ -1000 0
+ABF Ju -1000 0
 29 0 6d12+778 14d9+100 2d12+8 none
 -9 -9 -9 6
 EFNU 0 0 0
@@ -279,6 +279,7 @@ wood~
 key 0 A
 0 0 0 0 0
 0 10 0 P
+G none
 #6504
 dwarven hammer~
 a hammer~
@@ -287,6 +288,7 @@ iron wood~
 weapon 0 AN
 mace 4 5 pound 0
 17 30 880 P
+G none
 #6505
 dwarven plate~
 dwarven plate mail~
@@ -295,6 +297,7 @@ iron~
 armor 0 AD
 7 7 7 0 0
 20 40 2900 P
+G none
 #6506
 stick~
 long, black stick~
@@ -303,6 +306,7 @@ wood cloth~
 staff 0 AO
 4 10 10 'cure critical' 0
 11 10 4800 P
+G none
 #6507
 stick~
 long, black stick~
@@ -311,6 +315,7 @@ wood cloth~
 light 0 AO
 0 0 50 0 0
 0 10 0 P
+G none
 #6508
 club~
 dwarven club~
@@ -319,6 +324,7 @@ wood~
 weapon 0 AN
 mace 2 7 pound 0
 10 10 510 P
+G none
 #6509
 two-handed dwarven axe~
 a two-handed dwarven axe~
@@ -333,6 +339,7 @@ A
 18 2
 A
 19 2
+G none
 #6510
 helmet~
 a dwarven helmet~
@@ -341,6 +348,7 @@ iron~
 armor 0 AE
 7 7 7 0 0
 20 40 1450 P
+G none
 #6511
 ring golden dwarven~
 a dwarven golden ring~
@@ -353,6 +361,7 @@ A
 19 1
 A
 18 1
+G none
 #6512
 gloves~
 dwarven gloves~
@@ -365,6 +374,7 @@ A
 2 1
 A
 1 1
+G none
 #6513
 note~
 a note~
@@ -378,6 +388,7 @@ note letter letters~
 It seems to be a hot love letter from the Queen.  Unfortunately,
 it's not suitable for transmission across a public data network.
 ~
+G none
 #6514
 castle key~
 a castle key~
@@ -386,6 +397,7 @@ iron~
 key 0 A
 0 0 0 0 0
 0 0 0 P
+G none
 #6516
 key mine~
 a mine key~
@@ -394,6 +406,7 @@ iron~
 key 0 A
 0 0 0 0 0
 0 0 0 P
+G none
 #6517
 coal~
 a chunk of coal~
@@ -402,6 +415,7 @@ coal~
 trash T AO
 0 0 0 0 0
 0 10 0 P
+G none
 #6518
 pick~
 a mining pick~
@@ -410,6 +424,7 @@ iron wood~
 weapon I AN
 mace 2 3 pierce 0
 3 10 240 P
+G none
 #6519
 pills~
 a box of birth control pills~
@@ -424,6 +439,7 @@ They are in a circular container, and there are numbers corresponding
 to the day that they are to be taken.  You can tell they haven't been
 used for a while.
 ~
+G none
 #6520
 map castle strangelove~
 a map of Castle Strangelove~
@@ -473,6 +489,7 @@ map castle strangelove~
                            To Dwarven
                              Kingdom
 ~
+G none
 #6521
 iron bars~
 a chunk of iron bars~
@@ -481,6 +498,7 @@ iron~
 trash T AO
 0 0 0 0 0
 0 30 0 P
+G none
 #6522
 dwarven hammer~
 a hammer~
@@ -489,6 +507,7 @@ iron~
 trash T AO
 0 0 0 0 0
 0 30 0 P
+G none
 #0
 
 #ROOMS

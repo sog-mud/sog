@@ -49,7 +49,7 @@ defend his castle. You notice a dark look in his eyes as he hungers for
 your blood.
 ~
 giant~
-ABFGT DFGHO -1000 0
+ABFGT DFGOu -1000 0
 60 -1 1d1+5000 1d1+100 10d10+25 crush
 -20 -20 -20 -5
 AFIJKNRVX 0 0 0
@@ -253,6 +253,7 @@ A
 1 2
 A
 13 10
+G none
 #13001
 dagger thiulor~
 the Barbed Dagger of Thiulor~
@@ -265,6 +266,7 @@ A
 18 3
 A
 19 3
+G none
 #13002
 cloak stealth~
 the cloak of stealth~
@@ -275,6 +277,7 @@ armor T AK
 45 30 8000 P
 F
 A 0 0 P
+G none
 #13003
 mask spy~
 a Spy Mask~
@@ -287,6 +290,7 @@ F
 A 0 0 D
 F
 A 0 0 F
+G none
 #13004
 banner~
 the Banner of the Castle of Giants~
@@ -299,6 +303,7 @@ A
 1 3
 A
 13 50
+G none
 #13005
 ring glory~
 the Ring of Glory~
@@ -317,6 +322,7 @@ A
 17 -10
 A
 24 -4
+G none
 #13006
 huge broadsword~
 the huge broadsword of Destruction~
@@ -331,6 +337,7 @@ A
 18 1
 A
 19 6
+G none
 #13007
 small spiked ring~
 a small spiked ring~
@@ -343,6 +350,7 @@ A
 19 4
 A
 2 -1
+G none
 #13008
 spiked adamantite platemail~
 a suit of spiked adamantite platemail~
@@ -357,6 +365,7 @@ A
 2 -3
 A
 20 -10
+G none
 #13009
 spiked adamantite helm~
 a spiked adamantite battle helm~
@@ -371,6 +380,7 @@ A
 2 -2
 A
 20 -5
+G none
 #13010
 spiked adamantite leggings~
 some spiked adamantite battle leggings~
@@ -385,6 +395,7 @@ A
 2 -2
 A
 20 -5
+G none
 #13011
 spiked adamantite boots~
 spiked adamantite battle boots~
@@ -399,6 +410,7 @@ A
 2 -2
 A
 20 -5
+G none
 #13012
 robe~
 Robe of the Healer~
@@ -413,6 +425,7 @@ A
 4 3
 A
 12 75
+G none
 #13013
 hammer power~
 the Hammer of Power~
@@ -425,6 +438,7 @@ A
 1 4
 A
 12 50
+G none
 #13014
 ring signet~
 the Captain's Signet Ring~
@@ -439,6 +453,7 @@ A
 19 1
 A
 13 10
+G none
 #13015
 fine copper chainmail~
 a suit of fine copper chainmail~
@@ -453,6 +468,7 @@ A
 19 4
 A
 13 15
+G none
 #13016
 fine copper helmet~
 a fine copper helmet~
@@ -467,6 +483,7 @@ A
 19 2
 A
 13 20
+G none
 #13017
 fine copper leggings~
 a set of fine copper leggings~
@@ -481,6 +498,7 @@ A
 19 3
 A
 13 15
+G none
 #13018
 fine copper boots~
 a pair of fine copper boots~
@@ -495,6 +513,7 @@ A
 19 3
 A
 13 15
+G none
 #13019
 badge order~
 the Badge of Order~
@@ -511,6 +530,7 @@ A
 12 15
 A
 18 3
+G none
 #13020
 gold treasure~
 vast treasure of gold~
@@ -519,6 +539,7 @@ gold~
 money 0 A
 0 10000 0 0 0
 0 0 0 P
+G none
 #13021
 bracelet copper~
 a fine copper bracelet~
@@ -533,6 +554,7 @@ A
 19 3
 A
 2 1
+G none
 #13022
 gloves bloody skin~
 some bloody gloves of elven skin~
@@ -545,6 +567,7 @@ A
 19 3
 A
 2 3
+G none
 #13023
 skin giant~
 Skin of the Giant Lord~
@@ -559,6 +582,7 @@ A
 19 3
 A
 13 100
+G none
 #13024
 fur cloak~
 fine fur cloak~
@@ -577,6 +601,7 @@ A
 13 20
 A
 17 -10
+G none
 #13025
 spiked adamantite sleeves~
 some spiked adamantite sleeves~
@@ -591,6 +616,7 @@ A
 19 5
 A
 20 -10
+G none
 #13026
 ring black torturer~
 a ring of the torturer~
@@ -605,6 +631,7 @@ A
 19 2
 A
 13 30
+G none
 #0
 
 #ROOMS

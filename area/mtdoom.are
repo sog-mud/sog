@@ -18,7 +18,7 @@ rend the very earth asunder if he is angered. It is small wonder the dark
 powers have chosen him as their fell agent on Anon.
 ~
 human~
-ABG CDEHJN -1000 0
+ABG CDEJNu -1000 0
 65 0 50d10+8250 5d5+5000 11d5+35 pound
 -35 -35 -35 -5
 EFHIJKNU B C 0
@@ -36,7 +36,7 @@ presence in honor of the alliance he has forged with the dark powers to
 facilitate the conquest of Anon.
 ~
 human~
-ABG DHJ -1000 0
+ABG DJu -1000 0
 56 0 50d10+5750 5d5+5000 10d4+24 punch
 -26 -26 -26 -2
 BCEGK AB D H
@@ -70,7 +70,7 @@ Krothgar performs. This does not mean that he will fail to defend himself
 to the best of his considerable abilities if the need arises.
 ~
 unique~
-ABG CDEFHJ -1000 0
+ABG CDEFJu -1000 0
 60 0 50d10+6750 5d5+5000 8d6+28 pierce
 -30 -30 -30 -3
 EFIKU 0 H N
@@ -86,7 +86,7 @@ and in charge of the dark lord's impressive force of mages. He is infuriated
 at your untimely interruption and reacts aggressively.
 ~
 human~
-ABFGH DEHJ -1000 0
+ABFGH DEJu -1000 0
 54 0 50d10+5250 5d5+5000 7d6+22 punch
 -24 -24 -24 -1
 EFIKNU B C D
@@ -102,7 +102,7 @@ critical ceremony! He is extremely angry, and so will his worshippers be...
 He is a total fanatic and will battle to the death.
 ~
 human~
-ABFG DHJ -1000 0
+ABFG DJu -1000 0
 54 0 50d10+5250 5d5+5000 7d6+22 pound
 -24 -24 -24 -1
 CDEFIJKNQ 0 0 0
@@ -198,7 +198,7 @@ and baleful eyes gleam dangerously from above this maw directly at you. You
 regret your intrusion.
 ~
 red dragon~
-ABFG DFH -1000 0
+ABFG DFu -1000 0
 57 0 50d10+6000 5d5+5000 6d8+24 claw
 -27 -27 -27 -2
 CEFM 0 0 0
@@ -215,7 +215,7 @@ and baleful eyes gleam dangerously from above this maw directly at you. You
 regret your intrusion.
 ~
 black dragon~
-ABFG CFH -1000 0
+ABFG CFu -1000 0
 48 0 25d10+3750 5d5+1000 6d6+18 claw
 -18 -18 -18 1
 CEFM 0 0 0
@@ -232,7 +232,7 @@ and baleful eyes gleam dangerously from above this maw directly at you. You
 regret your intrusion.
 ~
 white dragon~
-ABFG DFH -1000 0
+ABFG DFu -1000 0
 45 0 25d10+3000 5d5+1000 8d4+16 claw
 -15 -15 -15 2
 CEFM 0 0 0
@@ -249,7 +249,7 @@ and baleful eyes gleam dangerously from above this maw directly at you. You
 regret your intrusion.
 ~
 blue dragon~
-ABFG DFH -1000 0
+ABFG DFu -1000 0
 54 0 50d10+5250 5d5+5000 7d6+22 claw
 -24 -24 -24 -1
 CEFM 0 0 0
@@ -266,7 +266,7 @@ and baleful eyes gleam dangerously from above this maw directly at you. You
 regret your intrusion.
 ~
 green dragon~
-ABFG DFH -1000 0
+ABFG DFu -1000 0
 51 0 50d10+4500 5d5+5000 5d8+20 claw
 -21 -21 -21 0
 CEFM 0 0 0
@@ -422,7 +422,7 @@ appetite is insatiable and she is always on the lookout for new prey... err
 ... lovers.
 ~
 unique~
-ABGH DHJT -1000 0
+ABGH DJTu -1000 0
 49 0 50d10+4000 5d5+1000 4d10+18 pound
 -19 -19 -19 1
 EFIU 0 0 0
@@ -574,7 +574,7 @@ suspicious of the arrangement, however, and view all comers with the same
 degree of caution, but not aggression.
 ~
 human~
-ABG DEHJ -1000 0
+ABG DEJu -1000 0
 49 0 50d10+4000 5d5+1000 4d10+18 punch
 -19 -19 -19 1
 EFIKQ 0 0 0
@@ -650,7 +650,7 @@ This priestess is here to secure an alliance between her people and Krothgar's
 forces. She is not happy about your intrusion into this matter.
 ~
 human~
-ABFGH DEHJ -1000 0
+ABFGH DEJu -1000 0
 50 0 50d10+4250 5d5+5000 5d8+19 pound
 -20 -20 -20 0
 CEFIKQ 0 0 0
@@ -693,7 +693,7 @@ This vamp is treacherous and deadly. You can see why Krothgar likes having
 her around...
 ~
 human~
-ABGH DHJTU -1000 0
+ABGH DJTUu -1000 0
 52 0 50d10+4750 5d5+5000 6d7+20 drain
 -22 -22 -22 0
 EFIKNQ 0 0 0
@@ -710,7 +710,7 @@ by the forces of Good ages ago. And now you have woken him up. Way to go
 slick.
 ~
 human~
-ABG CDEFHJNT -1000 0
+ABG CDEFJNTu -1000 0
 60 0 50d10+6750 5d5+5000 8d6+28 punch
 -30 -30 -30 -3
 CEFIKQ 0 0 0
@@ -755,7 +755,7 @@ she refrains from attacking, hoping that the guards of the castle will see
 to you so she doesn't have to expend energy fighting.
 ~
 snake~
-ABDG DHJ -1000 0
+ABDG DJu -1000 0
 51 0 50d10+4500 5d5+5000 5d8+20 punch
 -21 -21 -21 0
 EFIK L Q 0
@@ -786,6 +786,7 @@ A
 23 -1
 A
 24 -1
+G none
 #14701
 krothgar sword~
 the sword of Lord Krothgar~
@@ -800,6 +801,7 @@ A
 18 10
 A
 19 10
+G none
 #14702
 krothgar shield~
 the shield of Lord Krothgar~
@@ -814,6 +816,7 @@ A
 23 -3
 A
 24 -3
+G none
 #14703
 krothgar helm~
 the cursed helm of Lord Krothgar~
@@ -826,6 +829,7 @@ A
 3 -5
 A
 4 -5
+G none
 #14704
 two handed sword~
 a two-handed sword~
@@ -842,6 +846,7 @@ A
 18 6
 A
 19 6
+G none
 #14705
 burnt helm~
 a burnt helm~
@@ -858,6 +863,7 @@ A
 14 20
 A
 17 -10
+G none
 #14706
 iron fist~
 the iron fist~
@@ -872,6 +878,7 @@ A
 17 10
 A
 19 8
+G none
 #14707
 barbed flail~
 a demon's barbed flail~
@@ -884,6 +891,7 @@ A
 18 6
 A
 19 6
+G none
 #14708
 flaming spear~
 a flaming spear~
@@ -894,6 +902,7 @@ furniture ABEGJQ AO
 20 5 0 P
 A
 18 4
+G none
 #14709
 staff power~
 a staff of power~
@@ -908,6 +917,7 @@ A
 4 2
 A
 17 -20
+G none
 #14710
 robes archmage~
 robes of the archmage~
@@ -918,6 +928,7 @@ armor AG AK
 54 5 1000 P
 A
 12 50
+G none
 #14711
 vial dust~
 a vial of magic dust~
@@ -926,6 +937,7 @@ glass~
 potion AG AO
 54 'heal' 'heal' 'heal' 'heal'
 20 3 20000 P
+G none
 #14712
 dagger~
 a sacrifical dagger~
@@ -934,6 +946,7 @@ steel~
 weapon EJ AN
 dagger 5 11 pierce 0
 54 5 1000 P
+G none
 #14713
 robes~
 the high priest's robes~
@@ -944,6 +957,7 @@ armor EJ AK
 54 5 5000 P
 A
 4 4
+G none
 #14714
 mask~
 the high priest's death mask~
@@ -956,6 +970,7 @@ A
 5 3
 A
 13 20
+G none
 #14715
 spiked plate mail~
 a suit of spiked plate mail~
@@ -966,6 +981,7 @@ armor BEJ AD
 50 20 2000 P
 A
 17 -15
+G none
 #14716
 morning star~
 a huge morning star~
@@ -978,6 +994,7 @@ A
 18 -5
 A
 19 10
+G none
 #14717
 helm~
 a dark helm~
@@ -986,6 +1003,7 @@ steel~
 armor BEJ AE
 16 17 17 8 0
 50 5 2000 P
+G none
 #14718
 dagger~
 a sacrifical dagger~
@@ -994,6 +1012,7 @@ steel~
 weapon EJ AN
 dagger 4 10 pierce 0
 40 5 2000 P
+G none
 #14719
 robes~
 the priest's robes~
@@ -1002,6 +1021,7 @@ cloth~
 armor EJ AK
 13 13 13 6 0
 40 5 1000 P
+G none
 #14720
 mask~
 the priest's death mask~
@@ -1010,6 +1030,7 @@ cloth~
 armor EJ AE
 13 13 13 6 0
 40 3 1000 P
+G none
 #14721
 mage robes~
 the mage's robes~
@@ -1018,6 +1039,7 @@ cloth~
 armor 0 AK
 15 15 14 7 0
 45 1 1000 P
+G none
 #14722
 wand~
 a magic wand~
@@ -1026,6 +1048,7 @@ unknown~
 wand AG AO
 45 9 9 'cure critical' 0
 25 4 4000 P
+G none
 #14723
 elixir chemicals~
 an elixir of noxious chemicals~
@@ -1034,6 +1057,7 @@ glass~
 potion B AO
 45 'poison' 'weaken' 'acid blast' ''
 40 4 0 P
+G none
 #14724
 dragon scale~
 a dragon scale~
@@ -1046,6 +1070,7 @@ A
 17 -18
 A
 23 -5
+G none
 #14725
 tooth~
 a dragon tooth~
@@ -1058,6 +1083,7 @@ A
 18 5
 A
 19 5
+G none
 #14726
 claw~
 dragon claws~
@@ -1072,6 +1098,7 @@ A
 18 4
 A
 19 4
+G none
 #14727
 hide~
 a dragon hide~
@@ -1088,6 +1115,7 @@ A
 23 -2
 A
 24 -2
+G none
 #14728
 brazier~
 a bronze brazier~
@@ -1096,6 +1124,7 @@ bronze~
 staff G AO
 53 1 1 'summon' 0
 40 4 3000 P
+G none
 #14729
 flask~
 an empty flask~
@@ -1104,6 +1133,7 @@ unknown~
 container 0 AO
 1 0 0 0 100
 1 500 0 P
+G none
 #14730
 manacles~
 a pair of manacles~
@@ -1116,6 +1146,7 @@ A
 2 -3
 A
 17 10
+G none
 #14731
 robes~
 an illithid's robes~
@@ -1126,6 +1157,7 @@ armor G AK
 50 1 3000 P
 A
 12 25
+G none
 #14732
 gem~
 a gem~
@@ -1142,6 +1174,7 @@ A
 12 20
 A
 17 -10
+G none
 #14733
 chest~
 a chest~
@@ -1150,6 +1183,7 @@ steel~
 container 0 0
 10000 A 0 0 0
 1 0 0 P
+G none
 #14734
 treasure~
 a great treasure~
@@ -1158,6 +1192,7 @@ gold~
 money A A
 0 0 0 0 0
 0 100 50000 P
+G none
 #14735
 bed~
 a luxurious bed~
@@ -1166,6 +1201,7 @@ silver~
 furniture 0 0
 0 0 0 0 0
 1 0 0 P
+G none
 #14736
 silk~
 some expensive silk~
@@ -1174,6 +1210,7 @@ silver~
 treasure 0 AK
 0 0 0 0 0
 10 1 15000 P
+G none
 #14737
 stone~
 a stone~
@@ -1182,6 +1219,7 @@ stone~
 staff G AO
 53 1 1 'summon' 0
 45 5 0 P
+G none
 #14738
 bowl~
 a bowl~
@@ -1190,6 +1228,7 @@ unknown~
 staff G AO
 53 1 1 'summon' 0
 45 5 0 P
+G none
 #14739
 censer~
 a censer~
@@ -1198,6 +1237,7 @@ unknown~
 staff G AO
 53 1 1 'summon' 0
 45 5 0 P
+G none
 #14740
 spiked collar~
 a spiked collar~
@@ -1208,6 +1248,7 @@ armor EM AC
 42 5 1000 P
 A
 19 4
+G none
 #14741
 sword~
 a giant sword~
@@ -1218,6 +1259,7 @@ sword 4 11 crush 0
 45 25 2000 P
 A
 19 4
+G none
 #14742
 rock~
 a throwing rock~
@@ -1230,6 +1272,7 @@ A
 18 -4
 A
 19 4
+G none
 #14743
 club~
 a wooden club~
@@ -1238,6 +1281,7 @@ wood~
 weapon 0 AN
 mace 4 11 pound 0
 45 5 2000 P
+G none
 #14744
 collar~
 a slave collar~
@@ -1254,6 +1298,7 @@ A
 13 -10
 A
 17 10
+G none
 #14745
 glaive~
 a glaive~
@@ -1266,6 +1311,7 @@ A
 18 3
 A
 19 3
+G none
 #14746
 potion~
 a magical potion~
@@ -1274,6 +1320,7 @@ glass~
 potion G AO
 49 'armor' 'bless' 'shield' ''
 30 3 3000 P
+G none
 #14747
 pole arm~
 a pole arm~
@@ -1286,6 +1333,7 @@ A
 18 -2
 A
 19 6
+G none
 #14748
 chainmail~
 a suit of black chainmail~
@@ -1298,6 +1346,7 @@ A
 2 -2
 A
 17 -20
+G none
 #14749
 black sword~
 the black sword~
@@ -1308,6 +1357,7 @@ sword 5 11 slash 0
 53 5 3000 P
 A
 18 8
+G none
 #14750
 blue sword~
 the blue sword~
@@ -1318,6 +1368,7 @@ sword 5 11 slash 0
 53 5 0 P
 A
 19 8
+G none
 #14751
 black robes~
 black robes~
@@ -1330,6 +1381,7 @@ E
 robes~
 They look extraordinarily unencumbering.
 ~
+G none
 #14752
 vial poison~
 a vial of poison~
@@ -1342,6 +1394,7 @@ E
 vial poison~
 It looks very deadly.
 ~
+G none
 #14753
 drow cloak~
 a drow cloak~
@@ -1358,6 +1411,7 @@ A
 23 -1
 A
 24 -1
+G none
 #14754
 drow boots~
 a pair of drow boots~
@@ -1372,6 +1426,7 @@ A
 14 50
 A
 17 -5
+G none
 #14755
 drow chain chainmail~
 a suit of drow chainmail~
@@ -1386,6 +1441,7 @@ A
 13 10
 A
 17 -10
+G none
 #14756
 tentacle whip~
 a greater tentacle whip~
@@ -1399,6 +1455,7 @@ A
 18 4
 A
 19 6
+G none
 #14757
 tiara~
 a tiara~
@@ -1413,6 +1470,7 @@ A
 4 2
 A
 12 25
+G none
 #14758
 key~
 a door key~
@@ -1421,6 +1479,7 @@ iron~
 key 0 AO
 0 0 0 0 0
 0 0 0 P
+G none
 #0
 
 #ROOMS

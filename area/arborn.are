@@ -37,6 +37,35 @@ AB JP 0 0
 0 0 B Z
 stand stand none 0
 0 0 medium unknown
+#36102
+training~
+training mob~
+training mob is here, backstab him!
+~
+~
+human~
+ABT AHV 0 0
+1 0 1d1+29999 1d1+1 1d1+1 none
+0 0 0 0
+H 0 D 0
+stand stand none 0
+0 0 medium unknown
+F for AHMV
+F par ABCDEFGHIJK
+#36104
+ruhabor son child~
+~
+~
+~
+human~
+A 0 0 0
+0 0 0d0+0 0d0+0 0d0+0 none
+0 0 0 0
+0 0 0 0
+stand stand none 0
+0 0 medium unknown
+F for AHMV
+F par ABCDEFGHIJK
 #36105
 no name ruhanor ruhabor rumak~
 Rumak~
@@ -44,7 +73,7 @@ Rumak is here, aiding criminals.
 ~
 ~
 minotaur~
-Qa HV -1000 0
+AQa Vu -1000 0
 30 10 1d1+20000 20d100+25000 5d5+18 punch
 0 0 0 0
 0 0 0 0
@@ -348,6 +377,10 @@ S
 #RESETS
 M 0 36100 1 36100 1	* Healer (Arborn's home)
 O 0 36100 0 36100	* sofa (Arborn's home)
+M 0 36102 4 36101 4	* training mob (Shooting place)
+M 0 36102 4 36101 4	* training mob (Shooting place)
+M 0 36102 4 36101 4	* training mob (Shooting place)
+M 0 36102 4 36101 4	* training mob (Shooting place)
 M 0 36101 4 36111 4	* TARGET (At the targets)
 M 0 36101 4 36111 4	* TARGET (At the targets)
 M 0 36101 4 36111 4	* TARGET (At the targets)

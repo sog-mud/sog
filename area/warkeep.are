@@ -21,7 +21,7 @@ He would appear to be almost angelic were it not for the diabolical gleam
 to his eyes, and the evil grin on his thin, cruel lips.
 ~
 human~
-ABDGH CDEFHJNT -1000 0
+ABDGH CDEFJNTu -1000 0
 30 0 6d12+853 5d5+1000 4d6+8 pound
 -9 -9 -9 3
 FHIJKN 0 0 0
@@ -55,7 +55,7 @@ it again. And now you're in here with this eight foot tall, four armed,
 green skinned monstrosity from the lower planes. Great.
 ~
 unique~
-ABDFG DHJT -1000 0
+ABDFG DJTu -1000 0
 35 0 10d10+1300 5d5+1000 4d7+11 slash
 -11 -11 -11 3
 EIKQ 0 0 0
@@ -129,7 +129,7 @@ This angry dragonkin has been roused from its nap by you, and it isn't happy
 about it...
 ~
 unique~
-ABFG DHJ -500 0
+ABFG DJu -500 0
 28 0 6d12+703 5d5+1000 2d12+8 charge
 -8 -8 -8 4
 EFNU 0 0 0
@@ -357,6 +357,7 @@ A
 3 2
 A
 12 50
+G none
 #15701
 staff~
 a bone staff~
@@ -367,6 +368,7 @@ staff AGJ AO
 30 2 300 P
 A
 4 2
+G none
 #15702
 sword~
 a bone sword~
@@ -379,6 +381,7 @@ A
 18 4
 A
 19 4
+G none
 #15703
 helm~
 a bronze helm~
@@ -393,6 +396,7 @@ A
 23 -3
 A
 24 -3
+G none
 #15704
 bandolier~
 a leather bandolier~
@@ -403,6 +407,7 @@ container 0 AD
 28 4 280 P
 A
 5 1
+G none
 #15705
 potion~
 a green potion~
@@ -411,6 +416,7 @@ copper~
 potion BG AO
 28 'stone skin' 'protection evil' 'cause light' ''
 28 1 280 P
+G none
 #15706
 potion~
 a red potion~
@@ -419,6 +425,7 @@ copper~
 potion BG AO
 28 'curse' 'armor' 'cure serious' ''
 28 1 280 P
+G none
 #15707
 scroll~
 a lightning scroll~
@@ -427,6 +434,7 @@ copper~
 scroll 0 AO
 28 'call lightning' 'lightning bolt' 'lightning breath' ''
 28 1 280 P
+G none
 #15708
 scroll~
 a fire scroll~
@@ -435,6 +443,7 @@ copper~
 scroll 0 AO
 28 'fire breath' 'flamestrike' 'fireball' ''
 28 1 280 P
+G none
 #15709
 wand~
 a wand~
@@ -443,6 +452,7 @@ copper~
 wand AGJ AO
 28 7 7 'cause critical' 0
 28 1 280 P
+G none
 #15710
 dagger~
 a dagger~
@@ -453,6 +463,7 @@ exotic 5 7 pierce 0
 28 5 280 P
 A
 18 6
+G none
 #15711
 staff~
 a garthalanium staff~
@@ -463,6 +474,7 @@ staff BEGJ AO
 28 5 280 P
 A
 12 25
+G none
 #15712
 pentagram~
 a pentagram~
@@ -471,6 +483,7 @@ copper~
 furniture 0 0
 0 0 0 0 0
 33 1 330 P
+G none
 #15713
 spiked club~
 a spiked club~
@@ -483,6 +496,7 @@ A
 18 -4
 A
 19 6
+G none
 #15714
 leather hauberk~
 a leather hauberk~
@@ -491,6 +505,7 @@ copper~
 armor 0 AD
 8 8 8 0 0
 25 10 250 P
+G none
 #15715
 drake hide~
 a fire drake hide~
@@ -501,6 +516,7 @@ armor BJ AK
 28 25 280 P
 A
 17 -25
+G none
 #15716
 bronze plate~
 a suit of bronze plate~
@@ -509,6 +525,7 @@ copper~
 armor 0 AD
 6 6 6 0 0
 18 15 180 P
+G none
 #15717
 bronze shield~
 a bronze shield~
@@ -517,6 +534,7 @@ copper~
 armor 0 AJ
 6 6 6 0 0
 18 10 180 P
+G none
 #15718
 bronze helm~
 a bronze helm~
@@ -525,6 +543,7 @@ copper~
 armor 0 AE
 6 6 6 0 0
 18 6 180 P
+G none
 #15719
 bronze sword~
 a bronze sword~
@@ -533,6 +552,7 @@ copper~
 weapon 0 AN
 exotic 5 5 slash 0
 18 12 180 P
+G none
 #15720
 robes~
 some green robes~
@@ -545,6 +565,7 @@ A
 12 20
 A
 24 -3
+G none
 #15721
 staff~
 a wooden staff~
@@ -555,6 +576,7 @@ exotic 5 5 pound 0
 21 9 210 P
 A
 19 3
+G none
 #15722
 spellbook~
 a spellbook~
@@ -563,6 +585,7 @@ copper~
 scroll BGJ AO
 21 'blindness' 'weaken' 'word of recall' ''
 21 4 210 P
+G none
 #15723
 pit~
 a deep pit~
@@ -571,6 +594,7 @@ copper~
 container S 0
 1000 A 0 0 0
 20 1 200 P
+G none
 #15724
 collar~
 a spiked collar~
@@ -583,6 +607,7 @@ A
 18 2
 A
 19 2
+G none
 #15725
 assassin robes~
 the robes of an assassin~
@@ -595,6 +620,7 @@ A
 2 2
 A
 17 -5
+G none
 #15726
 dagger~
 a throwing dagger~
@@ -605,6 +631,7 @@ warp_stone 0 ANO
 20 3 200 P
 A
 18 2
+G none
 #15727
 sword~
 a steel sword~
@@ -617,6 +644,7 @@ A
 18 4
 A
 19 4
+G none
 #15728
 ring~
 a magic ring~
@@ -631,6 +659,7 @@ A
 23 -1
 A
 24 -1
+G none
 #15729
 boots~
 elven boots~
@@ -643,6 +672,7 @@ A
 2 2
 A
 14 25
+G none
 #15730
 elven cloak~
 a green elven cloak~
@@ -657,6 +687,7 @@ A
 13 10
 A
 17 -5
+G none
 #15731
 pick~
 a pick~
@@ -665,6 +696,7 @@ copper~
 weapon 0 AP
 exotic 4 4 stab 0
 12 10 120 P
+G none
 #15732
 shovel~
 a shovel~
@@ -673,6 +705,7 @@ copper~
 weapon 0 AP
 exotic 4 4 pound 0
 12 10 120 P
+G none
 #15733
 rubble~
 a pile of rubble~
@@ -681,6 +714,7 @@ copper~
 trash 0 A
 0 0 0 0 0
 10 75 100 P
+G none
 #15734
 whip~
 a whip~
@@ -689,6 +723,7 @@ copper~
 weapon 0 AN
 exotic 5 5 whip 0
 20 5 200 P
+G none
 #15735
 flind bar~
 a flind bar~
@@ -699,6 +734,7 @@ armor J AO
 20 5 200 P
 A
 19 5
+G none
 #15736
 rubbish~
 a huge pile of rubbish~
@@ -707,6 +743,7 @@ copper~
 trash 0 A
 0 0 0 0 0
 20 150 200 P
+G none
 #15737
 rack~
 a torturer's rack~
@@ -720,6 +757,7 @@ rack~
 It is not currently in use. The warlock enjoys executions, so people he
 captures rarely live long enough to be tortured.
 ~
+G none
 #15738
 gallows~
 a gallows~
@@ -732,6 +770,7 @@ E
 gallows~
 They are used regularly to hang those who piss off the warlock.
 ~
+G none
 #15739
 stocks~
 the stocks~
@@ -744,6 +783,7 @@ E
 stocks gnoll~
 This unfortunate has been left here for a week for insubordination.
 ~
+G none
 #15740
 pot boiling oil~
 a pot of boiling oil~
@@ -756,6 +796,7 @@ E
 pot boiling oil~
 The warlock enjoys immersing insubordinate or irritating lackeys in here.
 ~
+G none
 #15741
 flag~
 a black flag~
@@ -768,6 +809,7 @@ E
 flag~
 It is plain black. The warlock isn't very imaginative.
 ~
+G none
 #15742
 leg irons~
 a set of leg irons~
@@ -780,6 +822,7 @@ A
 2 -3
 A
 14 -100
+G none
 #0
 
 #ROOMS

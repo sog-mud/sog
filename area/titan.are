@@ -508,7 +508,7 @@ If I were you, I wouldn't talk to this fella. He's to busy
 dancing to the music.
 ~
 giant~
-ABT CDEFHJ -1000 0
+ABT CDEFJu -1000 0
 30 0 6d12+953 299d1+1 4d6+8 punch
 -9 -9 -9 6
 CDEFIKN ABL N K
@@ -523,7 +523,7 @@ To busy keeping the warriors fighting with the magical monster,
 he doesn't have any time to speak to you.
 ~
 giant~
-ABT CDEFHJ -1000 0
+ABT CDEFJu -1000 0
 48 0 25d10+4750 1d1+120 6d6+18 crush
 -18 -18 -18 3
 CDEFIN ABL N K
@@ -537,7 +537,7 @@ The tournament warrior is here, practicing his skills.
 *SLICE* *BASH* *BLAM* He looks to be just a tad too busy to socialize.
 ~
 giant~
-ABT CDEFHJ -1000 0
+ABT CDEFJu -1000 0
 38 0 10d10+1800 1d1+100 5d6+12 slash
 -12 -12 -12 4
 CDEFIKN ABL N K
@@ -552,7 +552,7 @@ A tournament anti-paladin utters the words 'Algetharb'! She is far to busy
 perfecting her spells to speak with you. Maybe later.
 ~
 giant~
-ABR CDEFHJ -1000 0
+ABR CDEFJu -1000 0
 38 0 10d10+1900 1d1+200 5d6+12 pierce
 -12 -12 -12 4
 CDEFIKN ABL N K
@@ -567,7 +567,7 @@ She's very busy using her magical talents to speak with you. Remember, she is
 fighting real mobs, deadly mobs. You'd hate to get her killed!
 ~
 giant~
-ABQ CDEFHJ -1000 0
+ABQ CDEFJu -1000 0
 38 0 10d10+1900 1d1+200 5d6+12 pierce
 -12 -12 -12 4
 CDEFIKN ABL N K
@@ -581,7 +581,7 @@ A tournament ranger is here, stealing money from his foe.
 Better not talk to this rascal, he may kick your ass!
 ~
 giant~
-ABS CDEFHJ -1000 0
+ABS CDEFJu -1000 0
 38 0 10d10+1900 1d1+200 5d6+12 pierce
 -12 -12 -12 4
 CDEFIKN ABL N K
@@ -992,7 +992,7 @@ She seems to be quite busy, yet manages to have the time to enjoy
 the calm breeze and bright warm sunshine.
 ~
 giant~
-ABT DFHJ -1000 0
+ABT DFJu -1000 0
 28 0 6d12+703 1d1+504 2d12+8 pierce
 -8 -8 -8 6
 CDEFGKNO ABL N K
@@ -1339,6 +1339,7 @@ glass~
 drink A AO
 40 40 'elvish wine' 0 0
 2 10 140 G
+G none
 #18001
 bottle wine chablis~
 a bottle of Chablis Wine~
@@ -1347,6 +1348,7 @@ glass~
 drink A AO
 40 40 'white wine' 0 0
 2 10 130 G
+G none
 #18002
 bottle wine liebfraumilch~
 a bottle of Liebfraumilch~
@@ -1355,6 +1357,7 @@ glass~
 drink A AO
 40 40 'red wine' 0 0
 2 10 130 G
+G none
 #18003
 bottle wine austrian red~
 a bottle of Austrian Red~
@@ -1363,6 +1366,7 @@ glass~
 drink A AO
 40 40 'red wine' 0 0
 2 10 100 G
+G none
 #18004
 bottle wine sauvignon blanc~
 a bottle of Sauvignon Blanc~
@@ -1371,6 +1375,7 @@ glass~
 drink A AO
 40 40 'white wine' 0 0
 2 10 100 G
+G none
 #18005
 bottle wine tanqueray~
 a bottle of Tanqueray~
@@ -1379,6 +1384,7 @@ glass~
 drink A AO
 40 40 'sherry' 0 0
 2 10 100 G
+G none
 #18006
 slice ham meat~
 a slice of ham~
@@ -1387,6 +1393,7 @@ meat~
 food A A
 CDF BCDE 0 0 0
 20 50 244 P
+G none
 #18007
 side beef~
 a side of beef~
@@ -1395,6 +1402,7 @@ meat~
 food A A
 AF BCDE 0 0 0
 20 20 260 P
+G none
 #18008
 chicken wing~
 a chicken wing~
@@ -1403,6 +1411,7 @@ meat~
 food A A
 BCDE BCDE 0 0 0
 20 20 230 P
+G none
 #18009
 leg lamb~
 a leg of lamb~
@@ -1411,6 +1420,7 @@ meat~
 food A A
 BCDE BCDE 0 0 0
 20 20 203 P
+G none
 #18010
 bongo drum~
 a groovy Bong Drum~
@@ -1425,6 +1435,7 @@ A
 19 3
 A
 18 2
+G none
 #18011
 guitar~
 a groovy Guitar~
@@ -1437,6 +1448,7 @@ A
 19 3
 A
 18 2
+G none
 #18012
 pipe wind windpipe~
 a groovy Wind-Pipe~
@@ -1449,6 +1461,7 @@ A
 19 4
 A
 18 3
+G none
 #18013
 striped bodysuit~
 a Prisoner's Strip-Suit~
@@ -1461,6 +1474,7 @@ A
 14 -30
 A
 18 4
+G none
 #18014
 bread~
 a fresh baked bread~
@@ -1469,6 +1483,7 @@ meat~
 food A A
 AC AC 0 0 0
 20 20 22 P
+G none
 #18015
 batch cookies~
 a batch of cookies~
@@ -1477,6 +1492,7 @@ meat~
 food A A
 CE CE 0 0 0
 20 20 100 P
+G none
 #18016
 bread stick~
 a fresh breadstick~
@@ -1485,6 +1501,7 @@ meat~
 food A A
 ACDF ACDF 0 0 0
 20 2 400 P
+G none
 #18017
 pie peach~
 a peach pie~
@@ -1493,6 +1510,7 @@ meat~
 food A A
 AF BCDE 0 0 0
 20 20 100 P
+G none
 #18018
 pie blueberry~
 a blueberry pie~
@@ -1501,6 +1519,7 @@ meat~
 food A A
 F F 0 0 0
 20 20 600 P
+G none
 #18019
 honey comb~
 a honey comb~
@@ -1509,6 +1528,7 @@ meat~
 food A A
 ABCDF ABCDF 0 0 0
 20 20 300 P
+G none
 #18020
 honey mead~
 a bottle of honey mead~
@@ -1517,6 +1537,7 @@ meat~
 food A A
 CE 0 0 0 0
 20 20 210 P
+G none
 #18021
 honey jar~
 a jar of honey~
@@ -1525,6 +1546,7 @@ meat~
 food A A
 CE CE 0 0 0
 20 20 231 P
+G none
 #18022
 standard weapon combat tournament~
 a Standard Tournament Combat Weapon~
@@ -1539,6 +1561,7 @@ A
 19 1
 A
 18 2
+G none
 #18023
 scribler~
 a tourists' scribler~
@@ -1547,6 +1570,7 @@ cloth~
 trash A A
 0 0 0 0 0
 20 20 1206 P
+G none
 #18024
 fish bones~
 a fish bone~
@@ -1555,6 +1579,7 @@ stone~
 trash A A
 0 0 0 0 0
 10 20 1260 P
+G none
 #18025
 broken wine bottle~
 a broken wine bottle~
@@ -1563,6 +1588,7 @@ glass~
 trash A A
 0 0 0 0 0
 10 20 1260 P
+G none
 #18026
 patch townguard crest~
 a townguard crest~
@@ -1575,6 +1601,7 @@ A
 19 3
 A
 18 2
+G none
 #18027
 bottle rum~
 a bottle of Rum~
@@ -1583,6 +1610,7 @@ glass~
 drink A A
 10 10 'rum' 0 0
 20 2 400 P
+G none
 #18028
 potion invisibility~
 a Magical Potion of Invisibility.~
@@ -1591,6 +1619,7 @@ glass~
 potion AB AO
 50 'invisibility' 'pass door' '' ''
 20 2 1660 P
+G none
 #18029
 potion teleportation~
 a Magical Potion of Teleportation.~
@@ -1599,6 +1628,7 @@ glass~
 potion AB AO
 50 'teleport' 'teleport' 'teleport' 'teleport'
 20 50 13000 P
+G none
 #18030
 potion holy touch~
 a Magical Potion of The Holy Touch.~
@@ -1607,6 +1637,7 @@ glass~
 potion AB A
 50 'bless' 'sanctuary' 'haste' 'shield'
 20 100 25000 P
+G none
 #18031
 potion deadly combat~
 a Magical Potion of Deadly Combat.~
@@ -1615,6 +1646,7 @@ glass~
 potion AB A
 50 'sanctuary' 'stone skin' 'giant strength' 'armor'
 20 100 19000 P
+G none
 #18032
 potion cure battle wounds~
 a Magical Potion to Cure Battle Wounds~
@@ -1623,6 +1655,7 @@ glass~
 potion AB A
 40 'cure serious' 'cure critical' 'heal' ''
 20 50 10500 P
+G none
 #18033
 breast plate titan~
 the silver breast plate of the Titans~
@@ -1635,6 +1668,7 @@ A
 17 -30
 A
 19 2
+G none
 #18034
 bracer titan silver~
 the silver bracer of the Titans~
@@ -1647,6 +1681,7 @@ A
 19 2
 A
 1 1
+G none
 #18035
 legging silver titan~
 the silver leggings of the Titans~
@@ -1657,6 +1692,7 @@ armor G AF
 25 200 9954 G
 A
 22 -1
+G none
 #18036
 silver boots boot titan~
 the silver boots of the Titans~
@@ -1669,6 +1705,7 @@ A
 14 30
 A
 17 -10
+G none
 #18037
 silver helm titan~
 the silver helm of the Titans~
@@ -1677,6 +1714,7 @@ silver~
 armor AD AE
 9 10 9 0 2
 25 20 9906 G
+G none
 #18038
 carrot~
 a Titan grown carrot~
@@ -1685,6 +1723,7 @@ meat~
 food A A
 BEF BEF 0 0 0
 20 20 350 P
+G none
 #18039
 spinich~
 a Titan grown head of spinich~
@@ -1693,6 +1732,7 @@ meat~
 food A A
 BEF BEF 0 0 0
 20 20 300 P
+G none
 #18040
 apple~
 a Titan grown apple~
@@ -1701,6 +1741,7 @@ meat~
 food A A
 CE CE 0 0 0
 20 20 250 P
+G none
 #18041
 orange~
 a Titan grown orange~
@@ -1709,6 +1750,7 @@ meat~
 food A A
 F F 0 0 0
 20 20 100 P
+G none
 #18042
 cherry~
 a Titan grown cherry~
@@ -1717,6 +1759,7 @@ meat~
 food A A
 CF CF 0 0 0
 30 20 440 P
+G none
 #18043
 titan dagger silver~
 a Silver Dagger of The Titans~
@@ -1729,6 +1772,7 @@ A
 19 1
 A
 18 1
+G none
 #18044
 titan sword silver~
 a Silver Sword of The Titans~
@@ -1739,6 +1783,7 @@ sword 5 6 pierce 0
 25 250 5100 P
 A
 19 1
+G none
 #18045
 titan mace silver~
 a Silver Mace of The Titans~
@@ -1749,6 +1794,7 @@ mace 6 5 pound 0
 25 250 5660 P
 A
 18 1
+G none
 #18046
 titan axe silver~
 a Silver Axe of The Titans~
@@ -1761,6 +1807,7 @@ A
 17 1
 A
 1 -1
+G none
 #18047
 titan silver spear~
 a Silver Spear of The Titans~
@@ -1771,6 +1818,7 @@ spear 5 7 pierce 0
 25 250 5250 P
 A
 18 4
+G none
 #18048
 titan silver whip~
 a Silver-Linked Whip of The Titans~
@@ -1783,6 +1831,7 @@ A
 19 1
 A
 18 2
+G none
 #18049
 book titan lore~
 a Leather Bound Book on Titan Lore~
@@ -1791,6 +1840,7 @@ leather~
 wand A AO
 50 20 20 'sleep' 0
 25 80 10620 P
+G none
 #18050
 tulip yellow~
 a Bright Yellow Tulip~
@@ -1799,6 +1849,7 @@ wood~
 treasure A A
 0 0 0 0 0
 10 1 1004 P
+G none
 #18051
 tulip red~
 a Bright Red Tulip~
@@ -1807,6 +1858,7 @@ wood~
 treasure A A
 0 0 0 0 0
 10 0 1330 P
+G none
 #18052
 white rose~
 a Beautiful Single White Rose~
@@ -1819,6 +1871,7 @@ A
 18 1
 A
 17 -1
+G none
 #18053
 red rose dozen~
 One Dozen Red Roses~
@@ -1827,6 +1880,7 @@ wood~
 treasure A A
 0 0 0 0 0
 10 0 1003 P
+G none
 #18054
 chrysanthemum yellow~
 Twenty-Two Bright Yellow Chrysanthemums~
@@ -1835,6 +1889,7 @@ wood~
 treasure A A
 0 0 0 0 0
 10 0 1000 G
+G none
 #18055
 cook hat~
 the Cook's Hat~
@@ -1847,6 +1902,7 @@ A
 19 1
 A
 18 1
+G none
 #18056
 cook pot~
 the Cook's Pot~
@@ -1859,6 +1915,7 @@ A
 13 10
 A
 1 1
+G none
 #18057
 serf shoes serfs shoe~
 the little serfs shoes~
@@ -1871,6 +1928,7 @@ A
 13 20
 A
 1 -1
+G none
 #18058
 pouch beggar money~
 a little beggar's money pouch~
@@ -1879,6 +1937,7 @@ leather~
 container AG A
 200 A 0 100 50
 24 20 1500 P
+G none
 #18059
 staff knight templar~
 the Staff of The Knight Templar~
@@ -1893,6 +1952,7 @@ A
 19 2
 A
 13 75
+G none
 #18060
 leather boot boots titan~
 a Titan Citizen's Leather Boots.~
@@ -1903,6 +1963,7 @@ armor ABG AG
 25 250 4700 G
 A
 3 3
+G none
 #18061
 patrol guard club~
 a patrol guard's club~
@@ -1913,6 +1974,7 @@ mace 5 8 pound 0
 39 250 4570 P
 A
 1 -1
+G none
 #18062
 key town~
 the Golden Key to The  Valley of The Titans~
@@ -1921,6 +1983,7 @@ gold~
 trash A AO
 0 0 0 0 0
 25 20 10000 P
+G none
 #18063
 long dagger golden~
 a Long Golden Dagger~
@@ -1931,6 +1994,7 @@ dagger 5 6 cleave D
 25 120 4500 P
 A
 12 10
+G none
 #18064
 wooden carved music box~
 a beautifully carved music box~
@@ -1939,6 +2003,7 @@ wood~
 container A A
 500 A 0 500 60
 20 20 3340 P
+G none
 #18065
 small steel box~
 a small steel box~
@@ -1947,6 +2012,7 @@ wood~
 container A A
 500 A 0 500 50
 20 20 4500 P
+G none
 #18066
 backpack~
 a Designer Backpack~
@@ -1955,6 +2021,7 @@ leather~
 container AGH A
 1000 A 0 1000 25
 20 25 15000 P
+G none
 #18067
 wand titans titan magic~
 a Wand of Titan Magic~
@@ -1963,6 +2030,7 @@ wood~
 wand A AO
 50 19 19 'calm' 0
 25 200 17080 P
+G none
 #18068
 wand elven magic~
 a Wand of Elven Magic~
@@ -1971,6 +2039,7 @@ wood~
 wand A AO
 50 60 60 'know alignment' 0
 25 200 11980 P
+G none
 #18069
 wand druid magic~
 a Wand of Druid Magic~
@@ -1979,6 +2048,7 @@ wood~
 wand A AO
 25 10 10 'acid blast' 0
 25 200 49706 P
+G none
 #18070
 wand pixie magic~
 a Wand of Pixie Magic~
@@ -1987,6 +2057,7 @@ wood~
 wand A AO
 50 15 15 'faerie fire' 0
 25 200 12204 P
+G none
 #18071
 wand avian magic~
 a Wand of Avian Magic~
@@ -1995,6 +2066,7 @@ wood~
 wand A AO
 30 5 5 'fireball' 0
 25 20 14356 P
+G none
 #18072
 wand drow magic~
 a Wand of Drow Magic~
@@ -2003,6 +2075,7 @@ wood~
 wand A AO
 50 16 16 'curse' 0
 25 20 13490 P
+G none
 #18073
 chocolate icecream~
 a Double Scoop of Chocolate Icecream~
@@ -2011,6 +2084,7 @@ food~
 food A A
 BEF BEF 0 0 0
 3 110 340 P
+G none
 #18074
 blueberry icecream~
 a Tripple Scoop of Blueberry Icecream~
@@ -2019,6 +2093,7 @@ food~
 food A A
 ABCEF ABCEF 0 0 0
 3 110 500 P
+G none
 #18075
 fudge icecream~
 a Single Scoop of Fudge Icecream~
@@ -2027,6 +2102,7 @@ food~
 food A A
 CDEF CDEF 0 0 0
 3 110 200 P
+G none
 #18076
 chocolate covered almonds~
 some chocolate covered almonds~
@@ -2035,6 +2111,7 @@ food~
 food A A
 AG AG 0 0 0
 4 120 500 P
+G none
 #18077
 chocolate fudge~
 some chocolate fudge~
@@ -2043,6 +2120,7 @@ food~
 food A A
 BCG BCG 0 0 0
 4 120 600 P
+G none
 #18078
 chocolate brittle~
 some chocolate brittle~
@@ -2051,6 +2129,7 @@ food~
 food A A
 BD BD 0 0 0
 4 120 100 P
+G none
 #18079
 chocolate mint~
 some chocolate mint~
@@ -2059,6 +2138,7 @@ food~
 food A A
 BEF BEF 0 0 0
 2 120 100 P
+G none
 #18080
 black suede boot boots~
 a pair of black suede boots~
@@ -2067,6 +2147,7 @@ leather~
 armor A AG
 9 9 9 0 1
 25 200 4400 G
+G none
 #18081
 navy blue skirt~
 a long navy blue skirt~
@@ -2079,6 +2160,7 @@ A
 19 2
 A
 18 1
+G none
 #18082
 silver white cloak~
 a beautiful silver and white cloak~
@@ -2091,6 +2173,7 @@ A
 2 2
 A
 1 1
+G none
 #18083
 emerald studded bracer~
 an emerald-studded bracer~
@@ -2101,6 +2184,7 @@ armor AG AK
 25 10 7600 G
 A
 13 10
+G none
 #18084
 fountain marble~
 a beautiful large marble fountain.~
@@ -2109,6 +2193,7 @@ marble~
 fountain AO 0
 10000 10000 'water' 0 0
 0 0 0 P
+G none
 #18085
 standard weapon~
 a Standard Demon Weapon~
@@ -2123,6 +2208,7 @@ A
 19 2
 A
 18 2
+G none
 #18086
 weapon combat tournament~
 an Enhanced Tournament Combat Weapon~
@@ -2137,6 +2223,7 @@ A
 19 3
 A
 18 3
+G none
 #18099
 potion cure sickness~
 a Magical Potion of Cure Sickness.~
@@ -2145,6 +2232,7 @@ glass~
 potion AB A
 90 'remove curse' 'cure blindness' 'cure poison' 'cure disease'
 20 50 50333 P
+G none
 #18100
 pie apple~
 an apple pie~
@@ -2153,6 +2241,7 @@ food~
 food A A
 CE CE 0 0 0
 20 20 50 P
+G none
 #18101
 pit~
 the donation pit~
@@ -2161,6 +2250,7 @@ A pit for sacrifices is in front of the altar.~
 container O 0
 10000 0 0 1000 100
 0 0 0 P
+G none
 #18102
 fountain~
 a fountain~
@@ -2169,6 +2259,7 @@ unknown~
 fountain A P
 0 0 'water' 0 0
 0 0 0 P
+G none
 #0
 
 #ROOMS

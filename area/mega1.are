@@ -1,5 +1,6 @@
 #AREADATA
 Name Mega City One~
+Builders beedell~
 VNUMs 8000 8099
 Credits Glop~
 Security 9
@@ -132,11 +133,15 @@ stand stand male 0
 #8008
 Pinkerton Throt~
 Pinkerton Throt~
-Pinky Throt is here Wringing his hands.
+@eng Pinky Throt is here Wringing his hands.
+@rus Пинки Трот (Pinky Throt) стоит тут выкручивая свои руки.
 ~
-He is a thin angular crook, pretty close to everyone's idea of Ebeneezer
+@eng He is a thin angular crook, pretty close to everyone's idea of Ebeneezer
 Scrooge.  Indeed, the only thing guaranteed to bring a spark to his dead
 eyes is the mention of money.
+@rus Вы видите худого угловатого жулика, напоминающего всем известного Ебенизира
+Скрягу. На самом деле, единственная вешь которая может принести искру в его мёртвые
+глаза, это деньги.
 ~
 human~
 ABCF DF -900 0
@@ -211,8 +216,8 @@ stand stand male 0
 #OBJECTS
 #8000
 spitgun spit gun~
-a spit gun~
-There is a spit gun laying here.~
+@eng a spit gun@rus плевательный пистолет~
+@eng There is a spit gun laying here.@rus Плевательный пистолет (gun) лежит тут.~
 steel~
 wand 0 AO
 20 10 10 'general purpose' 0
@@ -222,10 +227,11 @@ spit gun~
 A standard weapon in Mega-City One.  It uses general
 purpose ammunition.
 ~
+G none
 #8001
 knee pads~
-a set of knee pads~
-There are some knee pads laying here.~
+@eng a set of knee pads@rus наколенники (pads)~
+@eng There are some knee pads laying here.@rus Наколенники (pads) лежат тут.~
 steel~
 armor 0 AF
 4 4 4 0 0
@@ -235,6 +241,7 @@ knee pads~
 It is a set of Grak Brothers knee pads.  They are currently
 popular with the juve and punk gangs.
 ~
+G none
 #8002
 stooky gland~
 a stooky gland~
@@ -247,10 +254,11 @@ E
 stooky gland~
 Stooky glands are known for the restorative properties.
 ~
+G none
 #8003
 lawgiver~
-a lawgiver~
-There is a lawgiver laying here.~
+@eng a lawgiver@rus законник~
+@eng There is a lawgiver laying here.@rus законник (lawgiver) лежит тут.~
 steel~
 wand 0 AO
 30 10 10 'high explosive' 0
@@ -260,10 +268,11 @@ lawgiver gun~
 The standard weapon for the city's Judges.  It uses general
 high explosive ammunition.
 ~
+G none
 #8004
 safe~
-the magnetically shielded safe~
-A indestructible, immobile safe is here.~
+@eng the magnetically shielded safe@rus магнетически-защищённый сейф~
+@eng A indestructible, immobile safe is here.@rus Неразрушимый, неподвижный сейф (safe) находится тут.~
 iron~
 container B 0
 1005 ACD 8005 200 100
@@ -273,6 +282,7 @@ safe~
 This safe looks like not even a Sov-Cit Nuke could open it.
 You better find the code box.
 ~
+G none
 #8005
 code box~
 a code box~
@@ -285,10 +295,11 @@ E
 code box~
 The box looks like some kind of access device.
 ~
+G none
 #8006
 bashball bat two-handed~
-a bashball bat~
-A bashball bat is laying here.~
+@eng a bashball bat@rus бита~
+@eng A bashball bat is laying here.@rus Бита (bashball) лежит тут.~
 wood~
 weapon 0 AN
 mace 4 5 pound F
@@ -300,10 +311,11 @@ bashball bat~
 This is the same type of bat used by the little spuggers
 to play bashball.
 ~
+G none
 #8007
 vibroblade~
-the vibroblade~
-The vibroblade is here.~
+@eng the vibroblade@rus вибро-клинок (vibroblade)~
+@eng The vibroblade is here.@rus Вибро-клинок (vibroblade) лежит тут.~
 adamantite~
 weapon ABF AN
 dagger 6 5 slash 0
@@ -321,6 +333,7 @@ vibroblade~
 Obviously of alien manufacture, this blade enhances fighting
 and survival skills.
 ~
+G none
 #8008
 vacuum cleaner two-handed~
 a Hoover vacuum cleaner~
@@ -334,10 +347,11 @@ vacuum cleaner~
 This vacuum looks well built and will last you many years of
 cleaning pleasure.
 ~
+G none
 #8009
 knife~
-a knife~
-A knife is sitting here...contemplating life.~
+@eng a knife@rus Нож (knife)~
+@eng A knife is sitting here...contemplating life.@rus Нож (knife) лежит тут...созерцающий жизнь.~
 steel~
 weapon 0 AN
 dagger 2 4 slice 0
@@ -346,10 +360,11 @@ E
 knife~
 It is a knife. 'Nuff said. (Marvel joke).
 ~
+G none
 #8010
 wet noodle~
-a wet noodle~
-A wet noodle is laying here with clam sauce on it.~
+@eng a wet noodle@rus лапша (noodle)~
+@eng A wet noodle is laying here with clam sauce on it.@rus Сырая лапша (noodle) лежит тут, с холодным соусом на ней.~
 iron~
 weapon 0 AN
 whip 1 4 whip 0
@@ -360,6 +375,7 @@ E
 noodle~
 It looks like a noodle freshly made at the Olive Garden.
 ~
+G none
 #8011
 judge club~
 a Judge's club~
@@ -375,10 +391,11 @@ judge club~
 It is a standard Justice Hall issue club.  Many a Perp's
 head has been bashed with this baby.
 ~
+G none
 #8012
 vault key~
-a vault key~
-A vault key is here.~
+@eng a vault key@rus ключ от погреба~
+@eng A vault key is here.@rus Ключ от погреба (vault) лежит тут.~
 iron~
 key B AO
 0 0 0 0 0
@@ -387,6 +404,7 @@ E
 vault key~
 The key looks like it could be useful.
 ~
+G none
 #8013
 key card~
 a key card~
@@ -399,6 +417,7 @@ E
 key card~
 It looks like it fits a slot somewhere.
 ~
+G none
 #8014
 judge club~
 a Judge's club~
@@ -414,22 +433,25 @@ judge club~
 It is a head judge Justice Hall issue club.  Many a Perp's
 head has been bashed with this baby.
 ~
+G none
 #8015
 club electric shock~
-a shock club~
-A sparking electric club is here.~
+@eng a shock club@rus шоковая дубинка (club)~
+@eng A sparking electric club is here.@rus Искрящаяся электрическая дубинка (club) лежит тут.~
 steel~
 weapon A AN
 mace 4 5 shock 0
 15 30 750 P
+G none
 #8016
 stunner police stick~
-a police stun stick~
-A police issue stunner is here, must be stolen.~
+@eng a police stun stick@rus Полицейская дубинка~
+@eng A police issue stunner is here, must be stolen.@rus Казённая полицейская дубинка (stunner) лежит тут, должно быть ворованная.~
 wood~
 weapon 0 AN
 mace 3 9 pound G
 23 20 1160 P
+G none
 #0
 
 #ROOMS
@@ -952,8 +974,9 @@ door~
 ABCFZ 8013 8026
 S
 #8028
-Throt & Gleep's Vault~
-The vault is musty with a slight smell of ozone in the air.
+@eng Throt & Gleep's Vault@rus Погреб Трота и Глипа~
+@eng The vault is musty with a slight smell of ozone in the air.
+@rus Ты находишься в затхлом погребе с запахом озона в воздухе.
 ~
 0 D inside
 D2

@@ -493,7 +493,7 @@ place! With that Lord Mourning draws his saber and eats a blue lizard
 tongue.
 ~
 human~
-ABCE H -1000 0
+ABCE u -1000 0
 52 0 50d10+4750 5d5+5000 6d7+20 slash
 -22 -22 -22 0
 EFNU 0 0 0
@@ -527,6 +527,7 @@ iron~
 key 0 A
 0 0 0 0 0
 44 1 440 P
+G none
 #29202
 tongue blue lizard~
 a blue lizard tongue~
@@ -535,6 +536,7 @@ flesh~
 pill 0 A
 30 'sanctuary' '' '' ''
 8 1 450 P
+G none
 #29203
 tongue red lizard~
 a red lizard tongue~
@@ -543,6 +545,7 @@ flesh~
 pill 0 A
 30 'poison' '' '' ''
 9 1 90 P
+G none
 #29204
 tongue green lizard~
 a green lizard tongue~
@@ -551,6 +554,7 @@ flesh~
 pill 0 A
 30 'curse' '' '' ''
 8 1 80 P
+G none
 #29205
 watchfire~
 a watchfire~
@@ -559,6 +563,7 @@ unknown~
 light A AO
 0 0 999 0 0
 10 20 100 P
+G none
 #29206
 pole fishing~
 a fishing pole~
@@ -567,6 +572,7 @@ wood~
 weapon 0 AN
 exotic 3 5 none 0
 10 3 100 P
+G none
 #29207
 notebook~
 a notebook~
@@ -575,6 +581,7 @@ vellum~
 treasure G AO
 0 0 0 0 0
 29 4 290 P
+G none
 #29208
 globe patrol~
 a patrol globe~
@@ -585,6 +592,7 @@ light A AO
 20 5 200 P
 A
 24 -5
+G none
 #29209
 mail scale~
 scale mail~
@@ -593,6 +601,7 @@ iron~
 armor G AD
 7 7 7 0 0
 20 20 200 P
+G none
 #29210
 trident~
 a trident~
@@ -603,6 +612,7 @@ exotic 5 5 none 0
 20 9 200 P
 A
 19 3
+G none
 #29211
 pie meat~
 a steaming meat pie~
@@ -611,6 +621,7 @@ flesh~
 food 0 A
 D D 0 0 0
 0 2 5 P
+G none
 #29212
 grog sailor's~
 a mug of sailor's grog~
@@ -619,6 +630,7 @@ glass~
 drink 0 A
 2 2 'water' 0 0
 0 2 10 P
+G none
 #29213
 wafer holy~
 a holy wafer~
@@ -627,6 +639,7 @@ flesh~
 pill G A
 50 'bless' '' '' ''
 5 1 50 P
+G none
 #29214
 plate silver~
 a silver plate~
@@ -635,6 +648,7 @@ silver~
 treasure 0 A
 0 0 0 0 0
 15 8 300 P
+G none
 #29215
 tapestry~
 a tapestry~
@@ -648,6 +662,7 @@ tapestry~
 The tapestry is of knights locked in battle in the Battleplain
 of Arden.
 ~
+G none
 #29216
 armor emerald~
 emerald armor~
@@ -658,6 +673,7 @@ armor G AD
 46 40 2000 P
 A
 17 -30
+G none
 #29217
 hammer dwarven thrower~
 a dwarven thrower~
@@ -670,6 +686,7 @@ A
 18 4
 A
 19 4
+G none
 #29218
 sleeves elven chainmail~
 elven chainmail sleeves~
@@ -678,6 +695,7 @@ mithril~
 armor G AI
 5 5 5 5 0
 10 4 100 P
+G none
 #29219
 leggings elven chainmail~
 elven chainmail leggings~
@@ -686,6 +704,7 @@ mithril~
 armor GQ AF
 5 5 5 5 0
 10 5 100 P
+G none
 #29220
 wine red~
 a glass of Freeport burgundy~
@@ -694,6 +713,7 @@ leather~
 drink 0 A
 1 1 'red wine' 0 0
 0 1 10 P
+G none
 #29221
 wine white~
 a glass of Freeport chablis~
@@ -702,6 +722,7 @@ glass~
 drink 0 A
 1 1 'white wine' 0 0
 46 1 20 P
+G none
 #29222
 dumplings plate gravy~
 a plate of gravy and dumplings~
@@ -710,6 +731,7 @@ flesh~
 food 0 A
 AC AC 0 0 0
 0 2 14 P
+G none
 #29223
 crate~
 a huge box crate~
@@ -718,6 +740,7 @@ wood~
 trash 0 A
 0 0 0 0 0
 7 100 70 P
+G none
 #29224
 ship moored~
 a moored ship~
@@ -726,6 +749,7 @@ wood~
 boat 0 0
 0 0 0 0 0
 7 100 70 P
+G none
 #29225
 wristguard emerald~
 an emerald wristguard~
@@ -736,6 +760,7 @@ armor G AM
 46 10 3500 P
 A
 17 -20
+G none
 #29226
 longsword emerald~
 an emerald longsword~
@@ -746,6 +771,7 @@ exotic 5 10 none 0
 46 10 3200 P
 A
 17 -10
+G none
 #29227
 helm emerald~
 an emerald helm~
@@ -756,6 +782,7 @@ armor G AE
 46 15 1800 P
 A
 17 -10
+G none
 #29228
 weed devil's~
 a pinch of devil's weed~
@@ -764,6 +791,7 @@ cloth~
 pill G A
 40 'poison' '' '' ''
 45 1 450 P
+G none
 #29229
 cape admiral's~
 an admiral's cape~
@@ -782,6 +810,7 @@ A
 23 -5
 A
 24 -5
+G none
 #29230
 signet ring freeport~
 an admiral's signet~
@@ -796,6 +825,7 @@ A
 18 6
 A
 19 3
+G none
 #29231
 purse heavy~
 a very heavy purse~
@@ -804,6 +834,7 @@ leather~
 money 0 A
 800 0 0 0 0
 47 100 470 P
+G none
 #29232
 boots bladed~
 bladed boots~
@@ -816,6 +847,7 @@ A
 19 5
 A
 18 5
+G none
 #29233
 cape dimensional~
 a dimensional cape~
@@ -840,6 +872,7 @@ A
 13 20
 A
 19 5
+G none
 #29234
 stone troll~
 the troll stone~
@@ -848,6 +881,7 @@ glass~
 staff FG AO
 55 10 8 'sanctuary' 0
 52 1 3000 P
+G none
 #0
 
 #ROOMS

@@ -193,7 +193,7 @@ M greet 3019 10~
 healer лекарь~
 @eng the healer@rus лекарь~
 @eng A healer is here, selling spells.
-@rus Лекарь (healer) готов вылечить тебя за плату.
+@rus Лекарь (healer) готов вылечить тебя за небольшое вознаграждение.
 ~
 @eng Although retired from adventuring, the healer still lends a hand.
 Type 'heal' to see a listing of spells.

@@ -265,7 +265,7 @@ A beautiful female smiles charmingly at you, revealing sharp fangs...
 OUCH! Its a Succubus. She will charm you, then waste you. FIGHT!
 ~
 undead~
-ABGO HT -1000 0
+ABGO Tu -1000 0
 50 0 50d10+4250 10d10+1000 5d8+19 slash
 -20 -20 -20 2
 EFNQ 0 0 0
@@ -314,7 +314,7 @@ after the weak Xantharus lost control of his creations. He is a powerful,
 diabolically evil mage, and will not hesitate to destroy you.
 ~
 human~
-ABFGHO CDEFH -1000 0
+ABFGHO CDEFu -1000 0
 60 0 50d10+6750 10d10+1000 8d6+28 pierce
 -30 -30 -30 0
 EFNQ 0 0 0
@@ -500,7 +500,7 @@ He is not really meant to be here, and thus will avoid attracting attention
 of the powers of the Prime Material Plane by avoiding combat.
 ~
 undead~
-ABGHO BEHN -1000 0
+ABGHO BENu -1000 0
 65 0 50d10+8250 10d10+1000 11d5+35 pierce
 -35 -35 -35 -4
 EFNQ 0 0 0
@@ -584,6 +584,7 @@ A
 23 -10
 A
 24 -10
+G none
 #8101
 hand vecna~
 the Hand of Vecna~
@@ -605,6 +606,7 @@ A
 19 3
 A
 24 -3
+G none
 #8102
 eye vecna~
 the Eye of Vecna~
@@ -620,6 +622,7 @@ A
 4 3
 A
 12 50
+G none
 #8103
 sword kas~
 the Sword of Kas~
@@ -635,6 +638,7 @@ A
 18 5
 A
 19 5
+G none
 #8104
 circlet~
 a circlet~
@@ -648,6 +652,7 @@ A
 3 -3
 A
 4 -3
+G none
 #8105
 hoard~
 a treasure hoard~
@@ -657,6 +662,7 @@ leather~
 container 0 AO
 400 0 0 50 50
 1 150 0 P
+G none
 #8106
 chest~
 a chest~
@@ -666,6 +672,7 @@ steel~
 container 0 A
 150 0 0 20 100
 48 100 0 P
+G none
 #8107
 robes flesh~
 robes of Flesh~
@@ -679,6 +686,7 @@ A
 12 150
 A
 13 25
+G none
 #8108
 rod bone~
 a Rod of Bone~
@@ -696,6 +704,7 @@ A
 18 4
 A
 19 4
+G none
 #8109
 bones~
 a pile of bones~
@@ -705,6 +714,7 @@ silver~
 trash 0 A
 0 0 0 0 0
 1 50 0 P
+G none
 #8110
 gem~
 a Power Gem~
@@ -716,6 +726,7 @@ staff AG AO
 58 10 40000 P
 A
 12 50
+G none
 #8111
 cloak~
 a black cloak~
@@ -725,6 +736,7 @@ unknown~
 armor 0 AK
 17 17 17 11 0
 51 10 0 P
+G none
 #8112
 sword~
 (Diabolical) a Dark Sword~
@@ -744,6 +756,7 @@ A
 18 2
 A
 19 4
+G none
 #8113
 armor~
 a Suit of Dark Armor~
@@ -759,6 +772,7 @@ A
 18 4
 A
 19 7
+G none
 #8114
 helm~
 a Dark Helm~
@@ -772,6 +786,7 @@ A
 3 -3
 A
 4 -3
+G none
 #8115
 jar~
 a jar~
@@ -781,6 +796,7 @@ glass~
 container 0 AO
 25 0 0 10 100
 48 10 0 P
+G none
 #8116
 poison~
 some poison~
@@ -790,6 +806,7 @@ food~
 food 0 A
 A 0 0 A 0
 1 0 0 P
+G none
 #8117
 unholy symbol~
 an Unholy Symbol~
@@ -801,6 +818,7 @@ light EJ A
 48 5 500 P
 A
 2 3
+G none
 #8118
 holy symbol~
 a holy Symbol~
@@ -812,6 +830,7 @@ light AK A
 48 5 500 P
 A
 5 3
+G none
 #8119
 corpse~
 a corpse~
@@ -821,6 +840,7 @@ meat~
 furniture 0 0
 0 0 0 0 0
 0 75 0 P
+G none
 #8120
 key~
 a key~
@@ -830,6 +850,7 @@ iron~
 key B AO
 B 0 0 0 0
 0 5 0 P
+G none
 #8121
 jar blood~
 a jar of human blood~
@@ -839,6 +860,7 @@ glass~
 potion BEJ AO
 60 'poison' 'weaken' 'curse' ''
 45 10 300 P
+G none
 #0
 
 #ROOMS

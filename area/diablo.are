@@ -16,7 +16,7 @@ spider dirty~
 ~
 ~
 undead~
-ABFLR HPQVaclmt -1000 0
+ABFLR PQVaclmtu -1000 0
 80 200 1d1+15000 1d1+10000 1d1+150 claw
 -40 -40 -40 -40
 ACEFK ABK 0 0
@@ -58,7 +58,7 @@ octopus~
 ~
 ~
 snake~
-ABRT DFHQVflt -1000 0
+ABRT DFQVfltu -1000 0
 85 500 1d1+20000 1d1+20000 1d1+250 pound
 -50 -50 -50 -50
 ADEFK AB 0 0
@@ -91,6 +91,7 @@ unknown~
 wand CGHMY AO
 91 5 5 'web' 0
 80 100 1000 P
+G none
 #33301
 tooth~
 @eng a tooth of piranha@rus зуб пираньи~
@@ -99,6 +100,7 @@ unknown~
 weapon FH AN
 spear 10 11 pierce DH
 75 150 1000 P
+G none
 #33302
 wings moth~
 @eng a pair of moth wings@rus крылья мотылька~
@@ -115,6 +117,7 @@ A
 12 300
 A
 2 5
+G none
 #33303
 pole fishing~
 @eng a fishing pole@rus удочка~
@@ -123,6 +126,7 @@ wood~
 weapon 0 AN
 mace 11 10 pound 0
 75 50 324 P
+G none
 #33304
 boots worn~
 @eng a pair of worn boots@rus рваные ботинки~
@@ -153,6 +157,7 @@ A
 22 -2
 A
 21 -2
+G none
 #0
 
 #ROOMS

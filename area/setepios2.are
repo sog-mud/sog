@@ -17,7 +17,7 @@ He is praying Iluvator to grant freedom for his mistress Hera.
  
 ~
 troll~
-ABGQa H -1000 0
+ABGQa u -1000 0
 50 300 1d1+10000 1d1+10000 0d0+0 divine
 -99 -99 -99 -99
 0 C 0 0
@@ -48,6 +48,7 @@ unknown~
 furniture C 0
 0 0 0 0 0
 0 1 1 P
+G none
 #95801
 armchair~
 armchair~
@@ -56,6 +57,7 @@ unknown~
 furniture C A
 A 0 FI DGH DGH
 92 1 1 P
+G none
 #0
 
 #ROOMS

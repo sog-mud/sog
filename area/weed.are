@@ -16,7 +16,7 @@ This giant plant is covered with bud. It looks like it could
 smoke you.
 ~
 human~
-AGH DHT -500 0
+AGH DTu -500 0
 55 0 50d10+5500 5d5+5000 10d4+23 charge
 -25 -25 -25 -1
 EK 0 0 0
@@ -32,7 +32,7 @@ It is a blend of beautiful orange, red, and blue hairs. Just a
 fraction of this plant would be enough to keep you happy for a year.
 ~
 human~
-ABG DHT -500 0
+ABG DTu -500 0
 60 0 50d10+6750 5d5+5000 8d6+28 charge
 -30 -30 -30 -3
 EK 0 0 0
@@ -161,6 +161,7 @@ A
 19 10
 A
 3 -1
+G none
 #30233
 hit joint~
 a Hit from the Joint~
@@ -169,6 +170,7 @@ A few of these while playing and you're having more fun than most mudders!~
 potion A A
 40 'heal' 'invisibility' 'sanctuary' ''
 25 1 2000 P
+G none
 #30234
 brownie weed~
 a Brownie~
@@ -177,6 +179,7 @@ A Brownie cooked with THC oil awaits your bite.~
 pill A A
 30 'armor' 'fly' 'infravision' ''
 25 1 2000 P
+G none
 #30235
 badge dea~
 a Badge~
@@ -187,6 +190,7 @@ armor G AO
 50 2 1300 P
 A
 1 2
+G none
 #30236
 bowl~
 a Bowl~
@@ -201,6 +205,7 @@ A
 19 10
 A
 12 35
+G none
 #30237
 joint everburning~
 an Everburning Joint~
@@ -213,6 +218,7 @@ A
 12 25
 A
 2 2
+G none
 #30238
 plate wings~
 a plate of Buffalo Wings~
@@ -221,6 +227,7 @@ When you've got the munchies, what better snack than buffalo wings.~
 food 0 A
 DE DE 0 0 0
 0 5 10 P
+G none
 #0
 
 #ROOMS

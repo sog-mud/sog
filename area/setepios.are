@@ -4,6 +4,7 @@ VNUMs 38000 38999
 Credits Setepios~
 Security 1
 LevelRange 0 0
+Flags under_construction noquest~
 End
 
 #MOBILES
@@ -31,7 +32,7 @@ Grapadij is snooping for his victims here ...
 Wow !!! It's a kind of mutant troll ...
 ~
 troll~
-BGRT DFHV -1000 0
+ABGRT DFVu -1000 0
 85 1000 100d1+30000 100d1+10000 1d1+400 pound
 -100 -100 -100 -100
 AH BJLPUX 0 0
@@ -335,6 +336,8 @@ armor AITa AE
 32 32 32 30 0
 85 5 100000 P
 A
+13 220
+A
 19 10
 A
 18 10
@@ -348,8 +351,6 @@ A
 1 1
 A
 4 1
-A
-13 100
 G none
 #38095
 {rБольшой пионерский БАРАБАН{w dark glass~
@@ -804,8 +805,6 @@ O 0 38003 0 38101	* fountain (Coridor)
 O 0 38002 0 38101	* armchair (Coridor)
 O 0 38001 0 38102	* big bed (Bedroom)
 M 0 38001 1 38102 1	* Bargan (Bedroom)
-O 0 38018 0 38102	* {YBlessed {WHelm {xof Honor (Bedroom)
-M 0 38002 1 38102 1	* Grapadij (Bedroom)
 O 0 38002 0 38103	* armchair (Cabinet)
 O 0 38004 0 38103	* table (Cabinet)
 O 0 38200 0 38200	* long wooden table (Budy's)

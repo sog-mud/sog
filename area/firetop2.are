@@ -82,7 +82,7 @@ and he is glad for a more challenging foe. He is the leader of the Orcs in
 this area, and as such will be a tough foe.
 ~
 orc~
-ABCFG H -400 5701
+ABCFG u -400 5701
 12 0 2d10+150 119d1+1 1d10+2 slice
 0 0 0 8
 CFI AB K P
@@ -386,7 +386,7 @@ including its long, sharp, poisoned fangs and claws, its resistance to
 physical blows, and its nauseating stench.
 ~
 human~
-ABCFGO DHJNO -1000 0
+ABCFGO DJNOu -1000 0
 14 0 2d10+190 139d1+1 1d12+3 slap
 -1 -1 -1 8
 IR AB 0 K
@@ -465,7 +465,7 @@ towards you, attempting to make eye contact with you, so that it can charm
 you and then feat upon you at its leisure.
 ~
 human~
-ABCFGO DFHJT -1000 0
+ABCFGO DFJTu -1000 0
 17 0 3d9+258 169d1+1 3d4+4 smash
 -3 -3 -3 7
 IR AB K 0
@@ -523,7 +523,7 @@ You have been KILLED!!!
 BATTLE UPDATE : adventurer killed by an enormous red dragon.
 ~
 dragon~
-ABCFG CDEFHNO -1000 0
+ABCFG CDEFNOu -1000 0
 20 0 4d10+360 199d1+1 2d8+5 beating
 -4 -4 -4 7
 R AB 0 K
@@ -539,7 +539,7 @@ Velvet and Gold. Sparks fly from his gloved hands as he stares grimly at you,
 waiting for you to move. Already, you know you are in for a heck of a fight...
 ~
 human~
-ABCGR CDEFHJNOU -1000 0
+ABCGR CDEFJNOUu -1000 0
 23 0 5d10+450 229d1+1 3d6+6 pierce
 -6 -6 -6 6
 R AB 0 K
@@ -583,7 +583,7 @@ This horrid creature is little more than a gas cloud with a will of its own,
 and as such is very hard to kill.
 ~
 human~
-ABFG DFHJNOT -1000 0
+ABFG DFJNOTu -1000 0
 15 0 3d9+208 149d1+1 1d12+3 punch
 -2 -2 -2 7
 0 0 0 0
@@ -605,6 +605,7 @@ armor leather~
 This armor has been worn by a filthy Orc sentry. it is vermin-infested, moldy
 and covered with dried ale, blood and various food stains.
 ~
+G none
 #5736
 polearm~
 a polearm~
@@ -621,6 +622,7 @@ E
 polearm~
 This polearm is old, rusty and in bad need of repair.
 ~
+G none
 #5737
 grog bottle~
 a bottle of Orc grog~
@@ -633,6 +635,7 @@ E
 grog~
 This is the staple drink of the Orcs of Firetop Mountain and it is FOUL.
 ~
+G none
 #5738
 box cache~
 an Orc's box~
@@ -645,6 +648,7 @@ E
 box~
 This box contains all the Orc's personal possessions.
 ~
+G none
 #5739
 gold~
 a single gold piece~
@@ -653,6 +657,7 @@ gold~
 money 0 A
 1 0 0 0 0
 0 0 0 P
+G none
 #5740
 mouse~
 a dead mouse~
@@ -666,6 +671,7 @@ mouse~
 The Orc who put this in the box thought it'd be a good place for it to live,
 but forgot about things like food, water, oxygen, love, etc...
 ~
+G none
 #5741
 key~
 a bronze-coloured key~
@@ -679,6 +685,7 @@ key~
 Upon closer examination, you notice that this key has the number 99 carved 
 into it.
 ~
+G none
 #5742
 box~
 a small wooden box with crude hinges~
@@ -692,6 +699,7 @@ box~
 A brass name plate on the lid of this box is inscribed with then name 
 "Farrio Di Maggio".
 ~
+G none
 #5743
 book tome small~
 a small leather-bound book~
@@ -711,6 +719,7 @@ significant amounts of damage to them, by speaking the words-
    Erif Erif,
    Di Maggio"
 ~
+G none
 #5744
 chest~
 a sturdy chest~
@@ -724,6 +733,7 @@ chest~
 This chest looks extremely heavy and you are quite sure you couldn't budge 
 it.
 ~
+G none
 #5745
 gold~
 a fair number of gold pieces~
@@ -732,6 +742,7 @@ silver~
 money 0 A
 250 0 0 0 0
 0 0 0 P
+G none
 #5746
 potion vial~
 a small black bottle with a tight glass stopper~
@@ -745,6 +756,7 @@ E
 vial~
 The liquid in the vial looks vile but is in fact quite palatable.
 ~
+G none
 #5747
 glove~
 a black velvet glove~
@@ -759,6 +771,7 @@ E
 glove~
 You have no idea what this glove may do...
 ~
+G none
 #5748
 mattress~
 a staw mattress~
@@ -771,6 +784,7 @@ E
 mattress~
 This foul bed serves as the resting place for an Orc...
 ~
+G none
 #5749
 case leather~
 a tattered leather case~
@@ -786,6 +800,7 @@ This case looks like it could hold a short bow. It is inscribed-
 "The giver of sleep to those who never can..."
 
 ~
+G none
 #5750
 bow~
 a bow and a single silver arrow~
@@ -799,6 +814,7 @@ bow~
 This bow and silver arrow can inflict damage upon any foe it is used against,
 especially the undead.
 ~
+G none
 #5751
 leg club~
 a chair leg~
@@ -815,6 +831,7 @@ E
 leg~
 This really is a pathetic attempt at a weapon...
 ~
+G none
 #5752
 rack~
 a torture rack~
@@ -828,6 +845,7 @@ rack~
 This wicked-looking rack is surrounded by a variety of evil-looking tools,
 all guaranteed to inflict excruciating pain.
 ~
+G none
 #5753
 knife~
 a wicked-looking knife~
@@ -842,6 +860,7 @@ E
 knife~
 This vicious little Goblin weapon would make a GREAT backstabbing weapon...
 ~
+G none
 #5754
 cheese~
 a piece of sweet-smelling cheese~
@@ -854,6 +873,7 @@ E
 cheese~
 Must be the Goblin's lunch...
 ~
+G none
 #5755
 shield~
 a shield~
@@ -874,6 +894,7 @@ E
 shield~
 This shield seems to be a very good one, if rather large and cumbersome.
 ~
+G none
 #5756
 gem jewel~
 an expensive-looking jewel~
@@ -889,6 +910,7 @@ jewel~
 This Jewel once served as the eye of an Iron Cyclops, and as such has potent
 magical properties...
 ~
+G none
 #5757
 key~
 a small key~
@@ -902,6 +924,7 @@ key~
 Upon cloer inspection, you notice that this key as the number 111 engraved
 on it.
 ~
+G none
 #5758
 box~
 an old box~
@@ -914,6 +937,7 @@ E
 box~
 This box looks like it once contained carpentry tools.
 ~
+G none
 #5759
 mallet~
 a wooden mallet~
@@ -926,6 +950,7 @@ E
 mallet~
 This mallet looks PERFECT for driving wooden stakes...
 ~
+G none
 #5760
 stump stake~
 a stump of wood~
@@ -939,6 +964,7 @@ stump stake~
 This stump has a nasty point which could cause a LOT of damage if rammed 
 into someone's back...
 ~
+G none
 #5761
 painting~
 a painting of the Warlock~
@@ -957,6 +983,7 @@ E
 painting~
 Just looking at this painting makes you feel sick and uneasy.
 ~
+G none
 #5762
 candle~
 a blue candle~
@@ -971,6 +998,7 @@ This candle is an exceptional one, flaming on command as it does. It used to
 be a LOT cheaper, but since the Long Dark Night candlewax prices have 
 soared...
 ~
+G none
 #5763
 club~
 a crude stone club~
@@ -987,6 +1015,7 @@ E
 club~
 The Neanderthal who owns this doubtless would like it back...
 ~
+G none
 #5764
 wood~
 a piece of y-shaped wood~
@@ -1002,6 +1031,7 @@ wood~
 This piece of Y-shaped wood is so fashioned that you could use it for a
 slingshot once you fitted a rubber band...
 ~
+G none
 #5765
 rope~
 a piece of rope~
@@ -1018,6 +1048,7 @@ E
 rope~
 This rope is magically cursed!
 ~
+G none
 #5766
 sword~
 a magnificent-looking sword~
@@ -1038,6 +1069,7 @@ E
 sword~
 This sword looks as if it would GREATLY aid you in combat...
 ~
+G none
 #5767
 boots~
 a pair of boots~
@@ -1052,6 +1084,7 @@ E
 boots~
 These boots are finely crafted from deep red leather.
 ~
+G none
 #5768
 chisel~
 a chisel with a silver blade~
@@ -1066,6 +1099,7 @@ E
 chisel~
 This chisel has been enchanted to make it a decent weapon.
 ~
+G none
 #5769
 helmet~
 a bronze helmet~
@@ -1082,6 +1116,7 @@ E
 helmet~
 This helmet looks like it would be a good fit.
 ~
+G none
 #5770
 helmet~
 an iron helmet~
@@ -1098,6 +1133,7 @@ E
 helmet~
 This helmet looks like it would be a good fit.
 ~
+G none
 #5771
 table~
 a sturdy oak table~
@@ -1110,6 +1146,7 @@ E
 table~
 This table looks quite sturdy, as I said previously.
 ~
+G none
 #5772
 armor leather~
 a suit of leather armor~
@@ -1122,6 +1159,7 @@ E
 armor~
 By the look of it, this armor didnt do its previous owner much good...
 ~
+G none
 #5773
 shield~
 a wooden shield~
@@ -1134,6 +1172,7 @@ E
 shield~
 This shield probably isn't much use for anything beyond practice sessions...
 ~
+G none
 #5774
 sword~
 a steel sword~
@@ -1146,6 +1185,7 @@ E
 sword~
 Although in good condition, this is by all accounts an unremarkable blade...
 ~
+G none
 #5775
 crucifix~
 a silver crucifix~
@@ -1160,6 +1200,7 @@ E
 crucifix~
 This crucifix is dedicated to St. Christopher, patron saint of travellers.
 ~
+G none
 #5776
 corpse~
 a decaying corpse~
@@ -1172,6 +1213,7 @@ E
 corpse~
 Although decayed, the corpse still looks cumbersome...
 ~
+G none
 #5777
 gold~
 gold!~
@@ -1180,6 +1222,7 @@ gold~
 money 0 A
 100 0 0 0 0
 0 0 0 P
+G none
 #5778
 barrel rum~
 a barrel of rum~
@@ -1192,6 +1235,7 @@ E
 rum~
 This is tasty stuff!
 ~
+G none
 #5779
 key keys bunch~
 a bunch of keys~
@@ -1204,6 +1248,7 @@ E
 key keys bunch~
 One of these keys is labelled "Boat House"...
 ~
+G none
 #5780
 boots~
 a pair of unlaced boots~
@@ -1219,6 +1264,7 @@ boots~
 These boots, once laced up properly, would make a great pair of hiking 
 boots.
 ~
+G none
 #5781
 eggs~
 some pickled eggs~
@@ -1231,6 +1277,7 @@ E
 eggs~
 Whew! Whoever eats these will fart up a storm!
 ~
+G none
 #5782
 jar~
 a jar~
@@ -1243,6 +1290,7 @@ E
 jar~
 A label on the side says "Rumblebottom's Fine Foods".
 ~
+G none
 #5783
 earrings~
 a pair of cheap earrings~
@@ -1256,6 +1304,7 @@ earrings~
 They look tacky and worthless, but one man's trash is another man's 
 treasure, so...
 ~
+G none
 #5784
 liquid~
 a vial of liquid~
@@ -1272,6 +1321,7 @@ This vial actually contains Holy Water, blessed by the Overpriest of
 Kaynlesh-Ma. It will cure your injuries, including any inflicted by the 
 poisonous touch of its undead owner, and bless you.
 ~
+G none
 #5785
 parchment~
 a badly-damaged sheet of parchment~
@@ -1286,6 +1336,7 @@ This parchment is almost illegible, but you can make out a map of this area,
 with one section to the north of here marked "THE MAZE OF ZAGOR", with two
 rooms marked "...GER" and "SM... P...LE".
 ~
+G none
 #5786
 book~
 the Warlock's spellbook~
@@ -1301,6 +1352,7 @@ book~
 The Warlock entrusted this book to his faithful Vampire Guardian to guard
 for him.
 ~
+G none
 #5787
 cards~
 a deck of cards~
@@ -1313,6 +1365,7 @@ E
 cards~
 This is an unremarkable deck of Dwarven playing cards.
 ~
+G none
 #5788
 pipe~
 a Dwarven pipe~
@@ -1326,6 +1379,7 @@ pipe~
 The smoke that this pipe belches forth can detect magically concealed
 creatures.
 ~
+G none
 #5789
 vase~
 a vase full of liquid~
@@ -1338,6 +1392,7 @@ E
 vase~
 This vase is only half-full.
 ~
+G none
 #5790
 bowl~
 a red clay bowl~
@@ -1350,6 +1405,7 @@ E
 bowl~
 This red clay bowl is used to store coins.
 ~
+G none
 #5791
 coins~
 some coins~
@@ -1358,6 +1414,7 @@ silver~
 money 0 AO
 20 0 0 0 0
 0 0 0 P
+G none
 #5792
 fountain~
 a fountain~
@@ -1371,6 +1428,7 @@ fountain~
 This fountain bears a sign, written in the Goblin tongue, which reads "DO
 NOT DRINK!".
 ~
+G none
 #5793
 cards~
 a deck of magical cards~
@@ -1389,6 +1447,7 @@ E
 cards~
 These cards serve as a focus of the Warlock's power.
 ~
+G none
 #5794
 robes~
 the Warlock's robes~
@@ -1409,6 +1468,7 @@ E
 robes~
 These robes contain a portion of the Warlock's power.
 ~
+G none
 #5795
 sword~
 the Warlock's sword~
@@ -1431,6 +1491,7 @@ E
 sword~
 This sword looks quite sharp.
 ~
+G none
 #5796
 chest~
 a solid iron-bound oak chest~
@@ -1443,6 +1504,7 @@ E
 chest~
 This chest is securely locked.
 ~
+G none
 #5797
 loot~
 loot!~
@@ -1455,6 +1517,7 @@ E
 loot~
 This is part of the Warlock's wealth.
 ~
+G none
 #5798
 gold~
 gold!~
@@ -1463,6 +1526,7 @@ gold~
 money 0 A
 50345 0 0 0 0
 0 0 0 P
+G none
 #5799
 key~
 a red key~
@@ -1475,6 +1539,7 @@ E
 key~
 This key looks like it must open a BIG lock.
 ~
+G none
 #5800
 bullwhip whip~
 a bullwhip~
@@ -1490,6 +1555,7 @@ bullwhip whip~
 This bullwhip once belonged to the Orc Chieftain of Firetop Mountain...
 Perhaps it still does.
 ~
+G none
 #5801
 cloak~
 an Orcish cloak~
@@ -1504,6 +1570,7 @@ E
 cloak~
 Despite its owner, this cloak is in reasonably good shape.
 ~
+G none
 #5802
 belt pouch~
 a pouch belt~
@@ -1512,6 +1579,7 @@ iron~
 container 0 AL
 25 A 0 5 90
 11 10 450 G
+G none
 #5803
 bench~
 a wooden bench~
@@ -1526,6 +1594,7 @@ The inscription says-
 
      "REST YE HERE YE WEARY TRAVELLER"
 ~
+G none
 #5804
 boat punt~
 a punt~
@@ -1538,6 +1607,7 @@ E
 punt boat~
 This punt is a servicable enough boat.
 ~
+G none
 #5805
 ale jack~
 a jack of ale~
@@ -1550,6 +1620,7 @@ E
 jack ale~
 This jack of ale is very big but it holds a LOT of wine.
 ~
+G none
 #5806
 key~
 a gold key~
@@ -1562,6 +1633,7 @@ E
 key~
 This key has the number 125 inscribed upon it.
 ~
+G none
 #5807
 key~
 a copper key~
@@ -1574,6 +1646,7 @@ E
 key~
 This key has the number 66 inscribed upon it.
 ~
+G none
 #5808
 key~
 a red key~
@@ -1586,6 +1659,7 @@ E
 key~
 This key has the number 66 inscribed upon it.
 ~
+G none
 #5809
 cabinet glass~
 a glass cabinet~
@@ -1598,6 +1672,7 @@ E
 cabinet~
 This cabinet contains the various mementoes of the Warlock.
 ~
+G none
 #5810
 mementoes curios curio~
 one of the Warlock's curios~
@@ -1611,6 +1686,7 @@ curio~
 You are lookign at one of the curios of the Warlock of Firetop Mountain, 
 which may be of value to someone.
 ~
+G none
 #5811
 book~
 a book~
@@ -1623,6 +1699,7 @@ E
 book~
 This heavy book deals with the magical science of Abjuration.
 ~
+G none
 #5812
 desk~
 a massive desk~
@@ -1636,6 +1713,7 @@ desk~
 This desk is a magnificently carved oak affair, made with exquisite detail
 by the OOkers of NarHn.
 ~
+G none
 #5813
 chair~
 a comfortable-looking chair~
@@ -1654,6 +1732,7 @@ E
 chair~
 This chair is actually quite beneficial if held.
 ~
+G none
 #5830
 box~
 big box~
@@ -1662,6 +1741,7 @@ wood~
 container 0 0
 10 0 0 100 0
 0 0 0 P
+G none
 #0
 
 #ROOMS

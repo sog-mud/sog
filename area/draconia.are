@@ -64,7 +64,7 @@ surprised at the fact that he is human, and realize that he must be very
 powerful to have been accepted by the creatures which live here.
 ~
 human~
-ABR BDH -900 0
+ABR BDu -900 0
 22 0 4d10+360 22d9+100 2d7+5 none
 -5 -5 -5 3
 FU 0 0 0
@@ -79,7 +79,7 @@ A Draconian stands here, dressed in simple robes.  Around his neck you
 notice a golden medallion in the shape of a five headed dragon.  
 ~
 human~
-ABCFQ DH -900 0
+ABCFQ Du -900 0
 22 0 5d10+400 22d9+100 2d8+6 none
 -5 -5 -5 5
 EIKU 0 0 0
@@ -95,7 +95,7 @@ though he could crush your head with a single blow.  Yet you sense that he
 is controlled by a greater power. 
 ~
 human~
-ABC DH -900 0
+ABC Du -900 0
 26 0 5d10+600 13d9+100 3d7+7 none
 -7 -7 -7 6
 EFNU 0 0 0
@@ -299,7 +299,7 @@ This draconian looks VERY busy as she orders her slaves around.  You think
 it might be a good idea to leave her alone. 
 ~
 human~
-ABC DFH -600 0
+ABC DFu -600 0
 20 0 3d9+333 10d9+100 2d8+5 none
 -4 -4 -4 7
 EFNU 0 0 0
@@ -316,6 +316,7 @@ wood steel~
 weapon 0 AN
 spear 2 7 thrust 0
 10 150 153 P
+G none
 #2201
 dagger silver~
 a silver dagger~
@@ -326,6 +327,7 @@ dagger 4 7 pierce 0
 22 10 2000 P
 A
 20 -2
+G none
 #2202
 knife tooth dragon~
 a dragon's tooth knife~
@@ -338,6 +340,7 @@ A
 19 4
 A
 2 1
+G none
 #2203
 bracelet dragon~
 a dragon skin bracelet~
@@ -346,6 +349,7 @@ dragonskin~
 armor 0 AM
 6 6 6 3 0
 15 100 1170 P
+G none
 #2204
 belt silk black~
 a black silk belt~
@@ -356,6 +360,7 @@ armor 0 AL
 17 250 3900 P
 A
 5 2
+G none
 #2210
 belt silk white~
 a white silk belt~
@@ -366,6 +371,7 @@ armor 0 AL
 17 250 3900 P
 A
 1 2
+G none
 #2211
 bracelet platinum~
 a platinum bracelet.~
@@ -374,6 +380,7 @@ platinium~
 armor A AM
 7 7 7 0 0
 20 50 1450 P
+G none
 #2220
 symbol holy~
 a holy symbol~
@@ -384,6 +391,7 @@ jewelry A ACO
 10 20 270 P
 A
 12 15
+G none
 #2221
 robe black~
 a plain black robe~
@@ -394,6 +402,7 @@ armor 0 AK
 21 30 2000 P
 A
 19 2
+G none
 #2222
 sword emerald~
 an emerald sword~
@@ -404,6 +413,7 @@ sword 5 6 slash D
 28 240 2300 P
 A
 19 2
+G none
 #2223
 club stone~
 a stone club~
@@ -412,6 +422,7 @@ stone~
 weapon 0 AN
 mace 3 6 crush 0
 18 180 940 P
+G none
 #2224
 ring diamond~
 a diamond ring~
@@ -424,6 +435,7 @@ A
 19 3
 A
 18 3
+G none
 #2230
 ring copper~
 a copper ring~
@@ -434,6 +446,7 @@ jewelry 0 AB
 15 10 2600 P
 A
 4 2
+G none
 #2231
 key steel~
 a steel key~
@@ -442,6 +455,7 @@ steel~
 key 0 A
 0 0 0 0 0
 0 10 0 P
+G none
 #2232
 key ruby~
 a ruby key~
@@ -450,6 +464,7 @@ ruby~
 key 0 A
 0 0 0 0 0
 0 10 0 P
+G none
 #2233
 key white~
 a white key~
@@ -458,6 +473,7 @@ ivory~
 key 0 A
 0 0 0 0 0
 0 10 0 P
+G none
 #2234
 key grey~
 a grey key~
@@ -466,6 +482,7 @@ wood~
 key 0 A
 0 0 0 0 0
 0 10 0 P
+G none
 #2237
 key stone~
 a stone key~
@@ -474,6 +491,7 @@ stone~
 key 0 A
 0 0 0 0 0
 0 10 0 P
+G none
 #2240
 key black~
 a black key~
@@ -482,6 +500,7 @@ onyx~
 key 0 A
 0 0 0 0 0
 0 10 0 P
+G none
 #2241
 key platinum~
 a platinum key~
@@ -490,6 +509,7 @@ platinium~
 key 0 A
 0 0 0 0 0
 0 10 0 P
+G none
 #2242
 shield crested~
 a crested shield~
@@ -500,6 +520,7 @@ armor 0 AJ
 25 200 3900 P
 A
 5 1
+G none
 #2243
 wand golden~
 a golden wand~
@@ -508,6 +529,7 @@ gold~
 wand A AO
 25 10 10 'dispel magic' 0
 14 50 5500 P
+G none
 #2244
 staff silver~
 a silver staff~
@@ -516,6 +538,7 @@ silver~
 staff AG AO
 25 20 20 'faerie fog' 0
 14 50 11700 P
+G none
 #2245
 staff dragon~
 the staff of the dragon~
@@ -524,6 +547,7 @@ oak~
 staff AG AO
 25 10 10 'call lightning' 0
 15 50 10200 P
+G none
 #2246
 mail scale~
 scale mail~
@@ -532,6 +556,7 @@ steel~
 armor A AD
 8 8 8 0 0
 25 200 3900 P
+G none
 #2250
 staff black~
 a black staff~
@@ -540,6 +565,7 @@ onyx~
 staff AJ AO
 30 3 3 'energy drain' 0
 14 250 5300 P
+G none
 #2251
 potion cyan~
 a cyan potion~
@@ -548,6 +574,7 @@ glass~
 potion 0 A
 30 'blindness' 'harm' '' ''
 9 10 1060 P
+G none
 #2252
 potion magenta~
 a magenta potion~
@@ -556,6 +583,7 @@ glass~
 potion H A
 30 'cure critical' 'protection evil' '' ''
 7 10 600 P
+G none
 #2254
 gauntlets spiked~
 a pair of spiked gauntlets~
@@ -568,6 +596,7 @@ A
 1 1
 A
 19 2
+G none
 #2260
 scimitar golden~
 a golden scimitar~
@@ -580,6 +609,7 @@ A
 4 1
 A
 3 1
+G none
 #2261
 brooch diamond~
 a diamond brooch~
@@ -590,6 +620,7 @@ jewelry G AC
 25 20 980 P
 A
 12 25
+G none
 #2270
 scroll~
 a runed scroll~
@@ -598,6 +629,7 @@ vellum~
 scroll G AO
 30 'armor' 'protection evil' 'shield' ''
 12 10 1960 P
+G none
 #2271
 gloves dragon~
 a pair of dragon skin gloves~
@@ -608,6 +640,7 @@ armor 0 AH
 17 50 4000 P
 A
 2 2
+G none
 #2275
 helm dragon~
 a helm of dragon kind~
@@ -618,6 +651,7 @@ armor 0 AE
 35 150 4100 P
 A
 13 15
+G none
 #2276
 fur cloak~
 a fur cloak~
@@ -630,6 +664,7 @@ A
 13 10
 A
 1 1
+G none
 #2280
 leggings dragon scale~
 a pair of dragon scale leggings~
@@ -638,6 +673,7 @@ dragonskin~
 armor 0 AF
 7 7 7 3 0
 20 150 1590 P
+G none
 #2281
 sleeves dragon scale~
 a set of dragon scale sleeves~
@@ -646,6 +682,7 @@ dragonskin~
 armor 0 AI
 7 7 7 3 0
 20 120 1590 P
+G none
 #2285
 whip dragon tail~
 a dragon tailed whip~
@@ -658,6 +695,7 @@ A
 19 3
 A
 18 3
+G none
 #2286
 hammer copper~
 a copper hammer~
@@ -666,6 +704,7 @@ copper wood~
 weapon 0 AN
 mace 4 5 crush 0
 15 120 750 P
+G none
 #2287
 dagger silver~
 a silver dagger~
@@ -674,6 +713,7 @@ silver~
 weapon 0 AN
 dagger 2 4 pierce 0
 5 10 360 P
+G none
 #2299
 key gold tarnished~
 a tarnished gold key~
@@ -682,6 +722,7 @@ gold~
 key 0 A
 0 0 0 0 0
 0 10 0 P
+G none
 #0
 
 #ROOMS

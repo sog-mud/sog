@@ -91,7 +91,7 @@ a skeleton with a black leather jumpsuit on.  He is constantly searching
 for flesh to eat.
 ~
 human~
-AG H -1000 2905
+AG u -1000 2905
 15 0 3d9+208 149d1+1 2d6+3 punch
 -2 -2 -2 7
 EF 0 0 0
@@ -121,7 +121,7 @@ Kostchtchie a powerful demon lord is here.  Obviously derived from giant stock,
 he is very powerful.  And he does not like to be interrupted.
 ~
 human~
-ABEFG DFH -1000 2907
+ABEFG DFu -1000 2907
 40 0 15d10+1800 399d1+1 4d8+11 chill
 -13 -13 -13 4
 FI AB 0 0
@@ -243,6 +243,7 @@ steel~
 weapon 0 AN
 polearm 5 6 cleave 0
 23 270 6334 G
+G none
 #2901
 hammer iron~
 a huge hammer of cold iron~
@@ -251,6 +252,7 @@ iron~
 weapon EJ AN
 mace 5 9 pound 0
 38 250 16400 G
+G none
 #2902
 bastard sword~
 a holy bastard sword~
@@ -267,6 +269,7 @@ A
 19 4
 A
 24 2
+G none
 #2903
 looking glass~
 a looking glass~
@@ -275,6 +278,7 @@ glass~
 wand G AO
 20 7 7 'identify' 0
 8 20 1219 G
+G none
 #2904
 cloudy staff~
 a cloudy glass staff~
@@ -283,6 +287,7 @@ glass~
 staff F AO
 40 8 8 'sleep' 0
 23 60 7580 G
+G none
 #2905
 crystal sleeves~
 a set of sleeves of crystal~
@@ -295,6 +300,7 @@ A
 19 3
 A
 20 2
+G none
 #2906
 sparkling green~
 a sparkling green potion~
@@ -303,6 +309,7 @@ energy~
 potion AG AO
 10 'detect invis' 'detect magic' 'detect poison' 'detect evil'
 23 10 4580 G
+G none
 #2907
 paper triangle~
 a paper triangle~
@@ -311,6 +318,7 @@ paper~
 scroll F A
 50 'armor' 'bless' 'fly' 'stone skin'
 22 12 6700 G
+G none
 #2908
 hollyphant tusk~
 a hollyphant tusk~
@@ -319,6 +327,7 @@ bone~
 wand AGK AO
 25 3 3 'haste' 0
 14 10 2160 G
+G none
 #2909
 girth cast iron~
 a cast iron girth~
@@ -329,6 +338,7 @@ armor BG AL
 23 180 11230 G
 A
 3 -4
+G none
 #2910
 sparkling pink~
 a sparkling pink potion~
@@ -337,6 +347,7 @@ energy~
 potion AG A
 10 'detect invis' 'detect magic' 'detect poison' 'detect good'
 13 10 4580 G
+G none
 #0
 
 #ROOMS

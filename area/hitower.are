@@ -856,7 +856,7 @@ The master of the black robes is here plotting vile deeds.
 The master glares at you.
 ~
 human~
-ABCGR DHJ -1000 0
+ABCGR DJu -1000 0
 30 0 6d12+778 30d9+100 5d4+7 none
 -9 -9 -9 1
 FU 0 0 0
@@ -961,6 +961,7 @@ iron~
 container A 0
 1000 AC 0 1000 100
 0 0 0 P
+G none
 #1302
 locker~
 a meat locker~
@@ -973,6 +974,7 @@ E
 locker~
 You just had the horrid thought that a cadaver might be in there.
 ~
+G none
 #1304
 pizza slice~
 a slice of pizza~
@@ -985,6 +987,7 @@ E
 pizza slice~
 Ahh!  Round Table pizza!  How appropriate.  Any root beer?
 ~
+G none
 #1305
 chunk meat~
 a large chunk of meat~
@@ -993,6 +996,7 @@ meat~
 food 0 A
 DE DE 0 A 0
 0 20 24 P
+G none
 #1306
 sandwich~
 a finger sandwich~
@@ -1005,6 +1009,7 @@ E
 sandwich finger~
 It would look quite tasty if someone had first removed the fingernails!
 ~
+G none
 #1307
 broom straw~
 a straw broom~
@@ -1017,6 +1022,7 @@ E
 broom straw~
 A magical flying broomstick?  Nah!  Not here.
 ~
+G none
 #1308
 machine coffee~
 a coffee machine~
@@ -1025,6 +1031,7 @@ glass~
 container B 0
 10000 0 0 1000 100
 0 0 0 P
+G none
 #1309
 cabinet~
 a cabinet~
@@ -1033,6 +1040,7 @@ bronze~
 container 0 0
 5000 AC 0 5000 100
 0 0 0 P
+G none
 #1310
 bar silver~
 a bar of silver~
@@ -1041,6 +1049,7 @@ silver~
 treasure 0 A
 0 0 0 0 0
 0 60 100 P
+G none
 #1311
 bar gold~
 a bar of gold~
@@ -1049,6 +1058,7 @@ gold~
 treasure 0 A
 0 0 0 0 0
 0 60 5000 P
+G none
 #1312
 bar mithril~
 a bar of mithril~
@@ -1057,6 +1067,7 @@ mithril~
 treasure 0 A
 0 0 0 0 0
 0 120 5000 P
+G none
 #1313
 bar adamantite~
 a bar of adamantite~
@@ -1065,6 +1076,7 @@ adamantite~
 treasure 0 A
 0 0 0 0 0
 0 150 5000 P
+G none
 #1314
 hammer mithril~
 a mithril hammer~
@@ -1077,6 +1089,7 @@ A
 18 2
 A
 1 1
+G none
 #1315
 chest~
 a chest~
@@ -1085,6 +1098,7 @@ wood~
 container A 0
 5000 ABCD 1316 100 100
 0 0 0 P
+G none
 #1316
 key~
 a small key~
@@ -1093,6 +1107,7 @@ iron~
 key 0 A
 ABFIK 0 0 0 0
 0 10 0 P
+G none
 #1317
 long sword~
 a long sword~
@@ -1105,6 +1120,7 @@ A
 18 1
 A
 19 2
+G none
 #1318
 dagger silver~
 a silver dagger~
@@ -1117,6 +1133,7 @@ A
 18 2
 A
 19 2
+G none
 #1319
 scimitar~
 a curved scimitar~
@@ -1127,6 +1144,7 @@ sword 3 7 slash 0
 13 100 990 P
 A
 13 3
+G none
 #1320
 staff wooden~
 a wooden staff~
@@ -1135,6 +1153,7 @@ wood~
 weapon 0 AN
 spear 1 4 crush 0
 0 60 42 P
+G none
 #1321
 cabinet silver~
 a silver chased cabinet~
@@ -1143,6 +1162,7 @@ silver~
 container 0 0
 5000 ABCD 1325 100 100
 0 0 0 P
+G none
 #1322
 cabinet silver~
 a silver chased cabinet~
@@ -1151,6 +1171,7 @@ silver~
 container 0 0
 5000 ABCD 1325 100 100
 0 0 0 P
+G none
 #1323
 key old~
 an old key~
@@ -1159,6 +1180,7 @@ brass~
 key 0 A
 0 0 0 0 0
 0 10 0 P
+G none
 #1324
 silvery key~
 a silvery key~
@@ -1167,6 +1189,7 @@ silver~
 key 0 A
 ADFIK 0 0 0 0
 0 10 0 P
+G none
 #1325
 silvery key~
 a silvery key~
@@ -1175,6 +1198,7 @@ silver~
 key 0 A
 BDFIK 0 0 0 0
 0 10 0 P
+G none
 #1326
 staff red white~
 a red and white staff~
@@ -1183,6 +1207,7 @@ ivory~
 staff 0 AO
 20 3 3 'heal' 0
 15 80 5600 P
+G none
 #1327
 staff burnt~
 a burnt staff~
@@ -1191,6 +1216,7 @@ oak~
 staff 0 AO
 20 4 4 'blindness' 0
 6 60 1720 P
+G none
 #1328
 rod black~
 a black rod~
@@ -1199,6 +1225,7 @@ onyx~
 wand 0 AO
 20 3 3 'dispel evil' 0
 11 40 2200 P
+G none
 #1329
 wand wooden~
 a wooden stick~
@@ -1207,6 +1234,7 @@ ebony~
 wand 0 AO
 20 10 10 'bless' 0
 7 40 1640 P
+G none
 #1330
 wand metal~
 a metal wand~
@@ -1215,6 +1243,7 @@ steel~
 wand 0 AO
 20 20 4 'energy drain' 0
 14 50 3200 P
+G none
 #1331
 cauldron black~
 a black cauldron~
@@ -1223,6 +1252,7 @@ iron~
 container 0 0
 1000 0 0 1000 100
 0 0 0 P
+G none
 #1332
 wings~
 a small pair of bat wings~
@@ -1231,6 +1261,7 @@ flesh~
 trash 0 A
 0 0 0 0 0
 0 20 0 P
+G none
 #1333
 eye eyeball~
 an eyeball~
@@ -1239,6 +1270,7 @@ flesh~
 trash 0 AO
 0 0 0 0 0
 0 10 0 P
+G none
 #1334
 book tome~
 the book of magic~
@@ -1247,6 +1279,7 @@ paper~
 container A 0
 500 0 0 500 100
 0 0 0 P
+G none
 #1335
 spectacles glasses~
 a pair of spectacles~
@@ -1259,6 +1292,7 @@ A
 3 1
 A
 4 1
+G none
 #1336
 altar~
 a golden altar~
@@ -1267,6 +1301,7 @@ gold~
 container 0 0
 1000 AC 0 100 100
 0 0 0 P
+G none
 #1337
 medallion heart~
 a heart shaped medallion~
@@ -1279,6 +1314,7 @@ A
 4 2
 A
 5 -1
+G none
 #1338
 chest~
 a large chest~
@@ -1287,6 +1323,7 @@ brass~
 container AG 0
 2000 ABCD 1339 200 100
 0 0 0 P
+G none
 #1339
 key intricate~
 an intricately carved key~
@@ -1297,6 +1334,7 @@ BDEFIK 0 0 0 0
 0 10 150 P
 A
 20 -1
+G none
 #1340
 a pile of coins~
 a pile of coins~
@@ -1305,6 +1343,7 @@ silver~
 money 0 A
 237 11 0 0 0
 0 10 0 P
+G none
 #1341
 cloak brown~
 a brown cloak~
@@ -1317,6 +1356,7 @@ A
 17 -5
 A
 20 -3
+G none
 #1342
 chameleon poncho~
 a chameleon poncho~
@@ -1329,6 +1369,7 @@ A
 2 2
 A
 17 -3
+G none
 #1343
 boots worn~
 a pair of old boots~
@@ -1339,6 +1380,7 @@ clothing G AG
 10 20 270 P
 A
 14 15
+G none
 #1344
 ring seashell~
 a seashell ring~
@@ -1347,6 +1389,7 @@ bone~
 boat G AB
 0 0 0 0 0
 0 20 1000 P
+G none
 #1345
 backpack leather~
 a leather backpack~
@@ -1355,6 +1398,7 @@ leather~
 container GY AKO
 300 0 0 50 50
 0 90 1000 P
+G none
 #1351
 cup brew herbal~
 a herbal brew~
@@ -1363,6 +1407,7 @@ silver~
 drink 0 A
 6 6 'tea' 1 0
 0 10 12 P
+G none
 #1352
 waybread~
 a waybread~
@@ -1371,6 +1416,7 @@ food~
 food 0 A
 ADE F 0 0 0
 0 10 50 P
+G none
 #1355
 cleaver~
 a meat cleaver~
@@ -1379,6 +1425,7 @@ mithril~
 weapon 0 AN
 dagger 4 5 cleave D
 17 20 840 P
+G none
 #1356
 shackles chain~
 some chain shackles~
@@ -1391,6 +1438,7 @@ A
 12 -100
 A
 14 -82
+G none
 #1357
 dagger silvery~
 a silvery dagger~
@@ -1401,6 +1449,7 @@ dagger 4 5 pierce 0
 15 10 910 P
 A
 18 1
+G none
 #1359
 scroll~
 a scroll~
@@ -1409,6 +1458,7 @@ vellum~
 scroll 0 A
 21 'blindness' 'curse' 'sleep' ''
 11 50 1570 P
+G none
 #1360
 scroll bound~
 a bound scroll~
@@ -1419,6 +1469,7 @@ scroll G AO
 24 30 3000 P
 A
 17 -6
+G none
 #1361
 tube~
 a long cylindrical tube~
@@ -1427,6 +1478,7 @@ crystal~
 container GY A
 100 AC -1 2 90
 0 10 50 P
+G none
 #1362
 scroll old~
 an old scroll~
@@ -1435,6 +1487,7 @@ vellum~
 scroll 0 A
 10 'create food' '' '' ''
 0 20 400 P
+G none
 #1363
 scroll blue~
 a scroll written on blue paper~
@@ -1443,6 +1496,7 @@ vellum~
 scroll G A
 35 'enchant weapon' '' '' ''
 8 50 1530 P
+G none
 #1364
 pouch leather~
 a leather pouch~
@@ -1451,6 +1505,7 @@ leather~
 container GY AO
 150 0 0 5 20
 0 20 100 P
+G none
 #1365
 spoon silver~
 a silver stirring spoon~
@@ -1461,6 +1516,7 @@ furniture G AO
 0 10 150 P
 A
 20 -1
+G none
 #1366
 potion blue~
 a blue potion~
@@ -1469,6 +1525,7 @@ glass~
 potion G A
 24 'harm' 'harm' 'harm' ''
 11 20 2100 P
+G none
 #1367
 potion red~
 a bright red potion~
@@ -1477,6 +1534,7 @@ glass~
 potion G A
 15 'cure critical' '' '' ''
 5 20 390 P
+G none
 #1368
 potion green~
 a green potion~
@@ -1485,6 +1543,7 @@ glass~
 potion G A
 20 'blindness' 'teleport' 'cure blindness' ''
 5 20 470 P
+G none
 #1369
 potion effervescent~
 an effervescent potion~
@@ -1497,6 +1556,7 @@ E
 potion effervescent~
 Ahh!  Schwepes Sparkling Soda a refreshing drink.
 ~
+G none
 #1370
 white milky potion~
 a milky white potion~
@@ -1505,6 +1565,7 @@ glass~
 potion 0 A
 14 'word of recall' '' '' ''
 17 20 1350 P
+G none
 #1371
 staff black~
 a black staff~
@@ -1513,6 +1574,7 @@ obsidian~
 staff G AO
 18 2 2 'teleport' 0
 9 50 2600 P
+G none
 #1372
 flute golden~
 a golden flute~
@@ -1523,6 +1585,7 @@ staff FG AO
 1 40 1000 P
 A
 3 -6
+G none
 #1373
 figurine~
 a small figurine~
@@ -1531,6 +1594,7 @@ ivory~
 staff G AO
 21 15 15 'cure serious' 0
 8 40 3400 P
+G none
 #1374
 belt holster~
 a holstered belt~
@@ -1539,6 +1603,7 @@ cloth~
 container 0 AL
 20 0 0 4 100
 0 40 100 P
+G none
 #1375
 wand~
 a blackened wand~
@@ -1547,6 +1612,7 @@ lead~
 wand G AO
 17 5 1 'fireball' 0
 14 40 3800 P
+G none
 #1376
 chisel runed~
 a runed chisel~
@@ -1559,6 +1625,7 @@ A
 2 1
 A
 19 2
+G none
 #1377
 pouch belt beltpouch~
 a beltpouch~
@@ -1567,6 +1634,7 @@ cloth~
 container 0 AL
 25 0 0 5 100
 0 50 50 P
+G none
 #1378
 dust~
 some sparkling dust~
@@ -1575,6 +1643,7 @@ unknown~
 staff 0 AO
 20 1 1 'sleep' 0
 5 20 1930 P
+G none
 #1379
 cowl dark~
 a dark cowl~
@@ -1587,6 +1656,7 @@ A
 17 -6
 A
 20 -2
+G none
 #1380
 wand ashen~
 an ashen wand~
@@ -1595,6 +1665,7 @@ wood~
 wand J AO
 20 4 4 'cause critical' 0
 9 40 1860 P
+G none
 #1381
 club~
 a huge spiked club~
@@ -1603,6 +1674,7 @@ oak~
 weapon 0 AN
 mace 3 5 crush 0
 15 290 750 P
+G none
 #1382
 robe grey~
 a grey robe~
@@ -1621,6 +1693,7 @@ A
 18 3
 A
 2 4
+G none
 #1383
 cloak grey~
 a long grey cloak~
@@ -1633,6 +1706,7 @@ A
 17 -7
 A
 20 -2
+G none
 #1384
 bracelet silver~
 a glinting silver bracelet~
@@ -1645,6 +1719,7 @@ A
 6 1
 A
 17 -5
+G none
 #1385
 staff~
 an iron shod staff~
@@ -1655,6 +1730,7 @@ spear 4 8 pound F
 27 70 1280 P
 A
 18 3
+G none
 #1386
 minor ward cube clear~
 a ward minor~
@@ -1665,6 +1741,7 @@ gem AG AO
 20 50 1440 P
 A
 17 -5
+G none
 #1387
 robe black~
 a black robe~
@@ -1677,6 +1754,7 @@ A
 17 -5
 A
 20 -2
+G none
 #1388
 bracelet onyx~
 an onyx bracelet~
@@ -1687,6 +1765,7 @@ jewelry G AM
 20 60 1150 P
 A
 19 2
+G none
 #1389
 cloak black dark~
 a dark black cloak~
@@ -1699,6 +1778,7 @@ A
 17 -7
 A
 20 -2
+G none
 #1390
 shard black obsidian~
 a sharp shard of obsidian~
@@ -1709,6 +1789,7 @@ dagger 4 8 slice 0
 29 80 2500 P
 A
 19 3
+G none
 #1391
 robe white~
 a white robe~
@@ -1721,6 +1802,7 @@ A
 17 -5
 A
 20 -2
+G none
 #1392
 bracelet white gold~
 a white gold bracelet~
@@ -1731,6 +1813,7 @@ jewelry G AM
 20 50 1150 P
 A
 18 2
+G none
 #1393
 cloak white~
 a white cloak~
@@ -1743,6 +1826,7 @@ A
 17 -7
 A
 20 -2
+G none
 #1394
 ivory dagger~
 an ivory hilted dagger~
@@ -1755,6 +1839,7 @@ A
 18 1
 A
 19 2
+G none
 #1395
 collar spiked~
 a spiked collar~
@@ -1767,6 +1852,7 @@ A
 17 -2
 A
 19 2
+G none
 #1396
 cloak shimmering~
 a shimmering cloak of many colors~
@@ -1779,6 +1865,7 @@ A
 17 -12
 A
 20 -4
+G none
 #1397
 emerald ring~
 a small emerald ring~
@@ -1789,6 +1876,7 @@ jewelry G AB
 20 50 580 P
 A
 12 20
+G none
 #1398
 bracelet emerald~
 an emerald bracelet~
@@ -1801,6 +1889,7 @@ A
 17 -5
 A
 3 1
+G none
 #1399
 ward major clear crystal~
 a ward major~
@@ -1815,6 +1904,7 @@ A
 17 -10
 A
 20 -2
+G none
 #1400
 ebony kris~
 the ebony kris~
@@ -1829,6 +1919,7 @@ A
 19 7
 A
 18 5
+G none
 #1401
 green scale shirt~
 a tight fitting green dragon scale shirt~
@@ -1845,6 +1936,7 @@ E
 green scale shirt~
 Green dragon scale shirt was made from a poor unfortunate green dragon.
 ~
+G none
 #1402
 fridge refrigerator~
 a fridge~
@@ -1853,6 +1945,7 @@ steel~
 container B 0
 500 AC 0 100 100
 0 0 0 P
+G none
 #1403
 bottle vodka~
 a bottle of Absolut vodka~
@@ -1861,6 +1954,7 @@ glass~
 drink 0 AO
 25 25 'vodka' 0 0
 0 250 100 P
+G none
 #1404
 juice bottle~
 a bottle of cranberry juice~
@@ -1869,6 +1963,7 @@ glass~
 drink 0 AO
 25 25 'cranberry juice' 0 0
 0 250 100 P
+G none
 #0
 
 #ROOMS

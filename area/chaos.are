@@ -112,7 +112,7 @@ seth lord chaos~
 ~
 ~
 human~
-ABGRSTVe CDEFGHNOPQUVZacefgilmnst -1000 0
+ABGRSTVe CDEFGNOPQUVZacefgilmnstu -1000 0
 200 500 1d300000+50000 1d1+10000 1d1+300 wrath
 -66 -66 -66 -66
 ABDEFGHJK ABHIKLMOQTUXYZ CDEFGNP 0
@@ -184,6 +184,7 @@ A
 19 16
 A
 18 16
+G none
 #33102
 Millennium~
 @eng {WMillennium{x@rus {WMillennium{x~
@@ -200,6 +201,7 @@ A
 9 1000
 A
 4 100
+G none
 #33103
 lifebane~
 @eng Lifebane@rus Lifebane~
@@ -218,6 +220,7 @@ F
 V 19 10 H
 F
 V 19 10 P
+G none
 #33104
 love~
 @eng {CLove{x@rus {CLove{x~
@@ -228,6 +231,7 @@ light ABFGHIMORSTYZ A
 100 1 1000000000 P
 F
 I 6 100 B
+G none
 #33105
 tattoo reykaris~
 @eng a dark ->*<- tattoo@rus a dark ->*<- tattoo@rusoff ->*<-~
@@ -236,6 +240,7 @@ skin~
 armor CEHJLMOYZ AR
 666 666 666 666 0
 91 1 2147483647 P
+G none
 #33106
 wand assistance~
 wand of assistance~
@@ -244,6 +249,7 @@ help~
 wand 0 AO
 180 10000 10000 'assist' 0
 40 0 1000 P
+G none
 #33107
 polearm~
 polearm~
@@ -254,6 +260,7 @@ polearm 8 8 bite 0
 48 0 0 P
 F
 A 19 25 V
+G none
 #33108
 pill~
 pill~
@@ -262,6 +269,7 @@ hope~
 pill 0 A
 100 'sanctuary' 'haste' 'frenzy' 'disintegrate'
 40 0 1 P
+G none
 #33110
 spirt fountain~
 The meaning of life~
@@ -270,6 +278,7 @@ spirt~
 fountain CE 0
 -1 -1 'vodka' 0 0
 100 0 2147483647 P
+G none
 #33111
 bed~
 Looooooong wiiiiiide warm bed.~
@@ -278,6 +287,7 @@ love~
 furniture 0 0
 AB FHJKPQ DGJ DFGHIJ 0
 0 0 0 P
+G none
 #33112
 tea~
 @eng root's indian tea.@rus Чай.~
@@ -286,6 +296,7 @@ tea~
 drink 0 A
 100 100 'tea' 0 0
 1 0 2147483647 P
+G none
 #33113
 light lada~
 @eng root's Green lamp@rus Лампочка Ильича, подаренная root'ом Ладе.~
@@ -294,6 +305,7 @@ love~
 light ATY A
 0 0 -1 0 0
 1 0 1000 P
+G none
 #33114
 rose chaos black~
 {DBlack Rose of Chaos~
@@ -302,6 +314,7 @@ chaos~
 treasure CEMYZ AO
 0 0 0 0 0
 2 0 0 P
+G none
 #33120
 ring chaos~
 a chaos ring~
@@ -323,6 +336,7 @@ A
 A
 12 300
 C Chaos~
+G none
 #33121
 chaos bracelet bracer~
 a chaos bracelet~
@@ -334,6 +348,7 @@ armor AIPTW AM
 F
 R 13 300 C
 C Chaos~
+G none
 #33122
 chaos cloak~
 a cloak of hallucinations~
@@ -343,6 +358,7 @@ weapon 0 0
 exotic 8 6 kiss 0
 31 0 0 P
 C Chaos~
+G none
 #33169
 slot empty~
 ~
@@ -351,6 +367,7 @@ paper~
 trash 0 A
 0 0 0 0 0
 5 0 1500 P
+G none
 #33200
 scroll~
 satanic scroll~
@@ -359,6 +376,7 @@ paper~
 scroll 0 A
 40 'identify' 'bless' 'continual light' 'enchant armor'
 45 0 0 P
+G none
 #0
 
 #ROOMS

@@ -143,7 +143,7 @@ dark hair that crowns her head like a black cloud.  If looks could kill, you
 would already be dead.
 ~
 human~
-ABFH DFH -750 4210
+ABFH DFu -750 4210
 32 0 10d10+1000 1d1+319 6d4+9 magic
 -10 -10 -10 5
 AFJK A 0 0
@@ -175,7 +175,7 @@ The Black King is a menacing figure.  You can easily understand why he
 is the king and you are not.
 ~
 human~
-ABH DFHU -999 0
+ABH DFUu -999 0
 36 0 10d10+1400 1d35+99 3d10+12 beating
 -12 -12 -12 4
 BCDEF A 0 0
@@ -223,6 +223,7 @@ steel~
 armor J AD
 5 5 5 0 2
 10 75 600 G
+G none
 #4201
 armour white pawn~
 some White Pawn Armour~
@@ -231,6 +232,7 @@ steel~
 armor K AD
 5 5 5 0 2
 10 75 600 G
+G none
 #4202
 axe black pawn~
 a Black Pawn's Axe~
@@ -239,6 +241,7 @@ steel~
 weapon J AN
 axe 2 7 chomp 0
 10 100 750 G
+G none
 #4203
 axe white pawn~
 a White Pawn's Axe~
@@ -247,6 +250,7 @@ steel~
 weapon K AN
 axe 2 7 chomp 0
 10 100 750 G
+G none
 #4204
 armour black rook~
 some Black Rook Armour~
@@ -259,6 +263,7 @@ A
 17 2
 A
 5 1
+G none
 #4205
 armour white rook~
 some White Rook Armour~
@@ -271,6 +276,7 @@ A
 17 2
 A
 5 1
+G none
 #4206
 lance black knight~
 the Lance of the Black Knight~
@@ -283,6 +289,7 @@ A
 19 3
 A
 23 5
+G none
 #4207
 lance white knight~
 the Lance of the White Knight~
@@ -295,6 +302,7 @@ A
 19 3
 A
 23 5
+G none
 #4208
 staff black bishop~
 the Staff of the Black Bishop~
@@ -303,6 +311,7 @@ wood~
 staff GJL AO
 20 5 5 'energy drain' 0
 23 20 3523 P
+G none
 #4209
 staff white bishop~
 the Staff of the White Bishop~
@@ -311,6 +320,7 @@ wood~
 staff GKL AO
 20 5 5 'sanctuary' 0
 23 20 3879 P
+G none
 #4210
 crown black queen~
 the Crown of the Black Queen~
@@ -323,6 +333,7 @@ A
 3 1
 A
 4 1
+G none
 #4211
 crown white queen~
 the Crown of the White Queen~
@@ -335,6 +346,7 @@ A
 3 1
 A
 4 1
+G none
 #4212
 sceptre black king~
 the Black King's Sceptre~
@@ -347,6 +359,7 @@ A
 1 1
 A
 18 1
+G none
 #4213
 sceptre white king~
 the White King's Sceptre~
@@ -359,6 +372,7 @@ A
 1 1
 A
 18 1
+G none
 #4214
 key black treasury~
 the Key to the Black Treasury~
@@ -367,6 +381,7 @@ metal~
 key FH AO
 0 0 0 0 0
 6 20 1 G
+G none
 #4215
 key white treasury~
 the Key to the White Treasury~
@@ -375,6 +390,7 @@ metal~
 key FH AO
 0 0 0 0 0
 6 20 1 G
+G none
 #4216
 coins gold black royal treasure~
 the Black Royal Treasure~
@@ -383,6 +399,7 @@ silver~
 money 0 A
 10000 0 0 0 0
 0 0 0 P
+G none
 #4217
 coins gold white royal treasure~
 the White Royal Treasure~
@@ -391,6 +408,7 @@ silver~
 money 0 A
 10000 0 0 0 0
 0 0 0 P
+G none
 #4218
 flail black pawn~
 a Black Pawn's Flail~
@@ -399,6 +417,7 @@ steel~
 weapon J AN
 flail 2 7 blast 0
 10 100 750 G
+G none
 #4219
 flail white pawn~
 a White Pawn's Flail~
@@ -407,6 +426,7 @@ steel~
 weapon K AN
 flail 2 6 blast 0
 10 100 750 G
+G none
 #4220
 whip black pawn~
 a Black Pawn's Whip~
@@ -415,6 +435,7 @@ steel~
 weapon J AN
 whip 2 7 whip 0
 10 100 750 G
+G none
 #4221
 whip white pawn~
 a White Pawn's Whip~
@@ -423,6 +444,7 @@ steel~
 weapon K AN
 whip 2 6 whip 0
 10 100 750 G
+G none
 #4222
 spear black pawn~
 a Black Pawn's Spear~
@@ -431,6 +453,7 @@ steel~
 weapon J AN
 spear 2 7 thrust 0
 10 100 750 G
+G none
 #4223
 spear white pawn~
 a White Pawn's Spear~
@@ -439,6 +462,7 @@ steel~
 weapon K AN
 spear 2 7 thrust 0
 10 100 750 G
+G none
 #4224
 halberd black pawn~
 a Black Pawn's Halberd~
@@ -447,6 +471,7 @@ steel~
 weapon J AN
 polearm 2 7 pierce 0
 10 100 750 G
+G none
 #4225
 halberd white pawn~
 a White Pawn's Halberd~
@@ -455,6 +480,7 @@ steel~
 weapon K AN
 polearm 2 7 pierce 0
 10 100 750 G
+G none
 #4226
 rapier black pawn~
 a Black Pawn's Rapier~
@@ -463,6 +489,7 @@ steel~
 weapon J AN
 sword 2 7 pierce 0
 10 100 750 G
+G none
 #4227
 rapier white pawn~
 a White Pawn's Rapier~
@@ -471,6 +498,7 @@ steel~
 weapon K AN
 sword 2 7 pierce 0
 10 100 750 G
+G none
 #4228
 kris black pawn~
 a Black Pawn's Kris~
@@ -479,6 +507,7 @@ steel~
 weapon J AN
 dagger 2 7 pierce 0
 10 100 750 G
+G none
 #4229
 kris white pawn~
 a White Pawn's Kris~
@@ -487,6 +516,7 @@ steel~
 weapon K AN
 dagger 2 7 pierce 0
 10 100 750 G
+G none
 #4230
 crossbow black pawn~
 a Black Pawn's Crossbow~
@@ -495,6 +525,7 @@ steel~
 weapon J AN
 exotic 2 7 blast 0
 10 100 750 G
+G none
 #4231
 crossbow white pawn~
 a White Pawn's Crossbow~
@@ -503,6 +534,7 @@ steel~
 weapon K AN
 exotic 2 7 blast 0
 10 100 750 G
+G none
 #4232
 shield black pawn~
 a Black Pawn's Shield ~
@@ -511,6 +543,7 @@ steel~
 armor J AJ
 8 7 7 2 2
 10 30 1210 P
+G none
 #4233
 shield white pawn~
 a White Pawn's Shield ~
@@ -519,6 +552,7 @@ steel~
 armor K AJ
 8 7 7 2 2
 10 30 1210 P
+G none
 #4234
 cloak black pawn~
 a Black Pawn's Cloak~
@@ -527,6 +561,7 @@ cloth~
 armor J AC
 5 7 7 1 1
 10 40 1510 P
+G none
 #4235
 cloak white pawn~
 a White Pawn's Cloak~
@@ -535,6 +570,7 @@ cloth~
 armor K AC
 5 7 7 1 1
 10 40 1510 P
+G none
 #4236
 helmet black pawn~
 a Black Pawn's Helmet~
@@ -543,6 +579,7 @@ leather~
 armor J AE
 6 6 7 1 1
 10 50 1150 P
+G none
 #4237
 helmet white pawn~
 a White Pawn's Helmet~
@@ -551,6 +588,7 @@ leather~
 armor K AE
 6 6 7 1 1
 10 50 1150 P
+G none
 #4238
 leggings black pawn~
 a pair of Black Pawn's Leggings~
@@ -559,6 +597,7 @@ leather~
 armor J AF
 6 6 6 1 1
 10 30 1350 P
+G none
 #4239
 leggings white pawn~
 a pair of White Pawn's Leggings~
@@ -567,6 +606,7 @@ leather~
 armor K AF
 6 6 6 1 1
 10 30 1350 P
+G none
 #4240
 boots black pawn~
 a pair of Black Pawn's Boots~
@@ -575,6 +615,7 @@ leather~
 armor J AG
 7 6 7 1 1
 10 130 1450 P
+G none
 #4241
 boots white pawn~
 a pair of White Pawn's Boots~
@@ -583,6 +624,7 @@ leather~
 armor K AG
 7 6 7 1 1
 10 130 1450 P
+G none
 #4242
 gloves black pawn~
 a pair of Black Pawn's Gloves~
@@ -591,6 +633,7 @@ leather~
 armor J AH
 6 6 5 1 1
 10 80 950 P
+G none
 #4243
 gloves white pawn~
 a pair of White Pawn's Gloves~
@@ -599,6 +642,7 @@ leather~
 armor K AH
 6 6 5 1 1
 10 80 950 P
+G none
 #4244
 sleeves black pawn~
 a pair of Black Pawn's Sleeves~
@@ -607,6 +651,7 @@ leather~
 armor J AI
 6 5 6 1 1
 10 90 1150 P
+G none
 #4245
 sleeves white pawn~
 a pair of White Pawn's Sleeves~
@@ -615,6 +660,7 @@ leather~
 armor K AI
 6 5 6 1 1
 10 90 1150 P
+G none
 #4246
 cape black pawn~
 a Black Pawn's Cape~
@@ -623,6 +669,7 @@ cloth~
 armor J AK
 7 5 7 1 1
 10 80 1380 P
+G none
 #4247
 cape white pawn~
 a White Pawn's Cape~
@@ -631,6 +678,7 @@ cloth~
 armor K AK
 7 5 7 1 1
 10 80 1380 P
+G none
 #4248
 belt black pawn~
 a Black Pawn's Belt~
@@ -639,6 +687,7 @@ bronze~
 armor J AL
 4 6 6 1 1
 10 70 990 P
+G none
 #4249
 belt white pawn~
 a White Pawn's Belt~
@@ -647,6 +696,7 @@ bronze~
 armor K AL
 4 6 6 1 1
 10 20 990 P
+G none
 #4250
 bracer black pawn~
 a Black Pawn's Bracer~
@@ -655,6 +705,7 @@ bronze~
 armor J AM
 7 5 5 1 0
 10 60 1390 P
+G none
 #4251
 bracer white pawn~
 a White Pawn's Bracer~
@@ -663,6 +714,7 @@ bronze~
 armor K AM
 7 5 5 1 0
 10 60 1390 P
+G none
 #4260
 small chessboard~
 the Magic Chessboard~
@@ -673,6 +725,7 @@ armor ABFJK AQ
 51 60 55390 P
 F
 A 13 95 AT
+G none
 #4261
 shield black pawn~
 a Black Knight's Shield ~
@@ -681,6 +734,7 @@ steel~
 armor J AJ
 8 9 9 2 2
 18 90 2210 P
+G none
 #4262
 shield white pawn~
 a White Knight's Shield ~
@@ -689,6 +743,7 @@ steel~
 armor K AJ
 8 9 9 2 2
 18 90 2210 P
+G none
 #4263
 cloak black pawn~
 a Black Knight's Cloak~
@@ -697,6 +752,7 @@ cloth~
 armor J AC
 6 8 7 1 1
 18 70 2610 P
+G none
 #4264
 cloak white pawn~
 a White Knight's Cloak~
@@ -705,6 +761,7 @@ cloth~
 armor K AC
 6 8 7 1 1
 18 70 2610 P
+G none
 #4265
 helmet black pawn~
 a Black Knight's Helmet~
@@ -713,6 +770,7 @@ leather~
 armor J AE
 7 7 8 1 1
 18 70 1950 P
+G none
 #4266
 helmet white pawn~
 a White Knight's Helmet~
@@ -721,6 +779,7 @@ leather~
 armor K AE
 7 7 8 1 1
 18 70 1950 P
+G none
 #4267
 leggings black pawn~
 a pair of Black Knight's Leggings~
@@ -729,6 +788,7 @@ leather~
 armor J AF
 7 7 7 1 1
 18 80 1350 P
+G none
 #4268
 leggings white pawn~
 a pair of White Knight's Leggings~
@@ -737,6 +797,7 @@ leather~
 armor K AF
 7 7 7 1 1
 18 80 1350 P
+G none
 #4269
 boots black pawn~
 a pair of Black Knight's Boots~
@@ -745,6 +806,7 @@ leather~
 armor J AG
 8 7 7 1 1
 18 110 2850 P
+G none
 #4270
 boots white pawn~
 a pair of White Knight's Boots~
@@ -753,6 +815,7 @@ leather~
 armor K AG
 8 7 7 1 1
 18 110 2850 P
+G none
 #4271
 gloves black pawn~
 a pair of Black Knight's Gloves~
@@ -761,6 +824,7 @@ leather~
 armor J AH
 6 7 6 1 1
 18 80 2250 P
+G none
 #4272
 gloves white pawn~
 a pair of White Knight's Gloves~
@@ -769,6 +833,7 @@ leather~
 armor K AH
 6 7 6 1 1
 18 80 2250 P
+G none
 #4273
 sleeves black pawn~
 a pair of Black Knight's Sleeves~
@@ -777,6 +842,7 @@ leather~
 armor J AI
 7 6 7 1 1
 18 100 2150 P
+G none
 #4274
 sleeves white pawn~
 a pair of White Knight's Sleeves~
@@ -785,6 +851,7 @@ leather~
 armor K AI
 7 6 7 1 1
 18 100 2150 P
+G none
 #4275
 cape black knight~
 a Black Knight's Cape~
@@ -793,6 +860,7 @@ cloth~
 armor J AK
 7 7 7 1 1
 18 70 1380 P
+G none
 #4276
 cape white knight~
 a White Knight's Cape~
@@ -801,6 +869,7 @@ cloth~
 armor K AK
 7 7 7 1 1
 18 70 1380 P
+G none
 #4277
 belt black pawn~
 a Black Knight's Belt~
@@ -809,6 +878,7 @@ bronze~
 armor J AL
 6 6 6 1 1
 18 60 1990 P
+G none
 #4278
 belt white pawn~
 a White Knight's Belt~
@@ -817,6 +887,7 @@ bronze~
 armor K AL
 6 6 6 1 1
 18 60 1990 P
+G none
 #4279
 bracer black pawn~
 a Black Knight's Bracer~
@@ -825,6 +896,7 @@ bronze~
 armor J AM
 7 7 6 1 0
 18 40 2390 P
+G none
 #4280
 bracer white pawn~
 a White Knight's Bracer~
@@ -833,6 +905,7 @@ bronze~
 armor K AM
 7 7 6 1 0
 18 40 2390 P
+G none
 #0
 
 #ROOMS

@@ -48,7 +48,7 @@ and answer only to the abbot himself. They are if anything more diabolical
 than their demented pupils, and twice as deadly.
 ~
 human~
-AFG DFHJ -800 0
+AFG DFJu -800 0
 63 0 50d10+7500 5d5+5000 7d8+33 pound
 -33 -33 -33 -4
 EFHIJKNQ L B J
@@ -80,7 +80,7 @@ an iron fist and a lust for conquest and death bordering on the maniacal.
 He may be a shrivelled old man, but he is still immensely powerful.
 ~
 human~
-ABFG CDEFHJN -1000 0
+ABFG CDEFJNu -1000 0
 65 0 50d10+8250 5d5+5000 11d5+35 pound
 -35 -35 -35 -5
 EFHIJKNQ L B J
@@ -189,7 +189,7 @@ a black dragon~
 They aren't called the dragon clan for nothing, pal.
 ~
 black dragon~
-ABG CDEFHN -1000 0
+ABG CDEFNu -1000 0
 70 0 50d10+9750 5d5+5000 8d10+40 claw
 -40 -40 -40 -6
 CDEFQ 0 0 0
@@ -271,6 +271,7 @@ A long brown monk's robe stained with blood lies crumpled on the floor.~
 armor 0 AK
 20 20 20 10 0
 60 5 200 P
+G none
 #30801
 master robe habit~
 a master's habit~
@@ -281,6 +282,7 @@ armor 0 AK
 61 5 36600 P
 A
 12 60
+G none
 #30802
 necromancer robes~
 necromancer's robes~
@@ -293,6 +295,7 @@ A
 3 4
 A
 12 50
+G none
 #30803
 dagger~
 a mithril dagger~
@@ -305,6 +308,7 @@ A
 18 12
 A
 19 12
+G none
 #30804
 altar~
 a bloodstained altar~
@@ -313,6 +317,7 @@ A large marble bloodstained altar rests in the center of the chapel.~
 furniture 0 0
 0 0 0 0 0
 0 0 0 P
+G none
 #30805
 abbot ring~
 the abbot's ring~
@@ -327,6 +332,7 @@ A
 18 6
 A
 19 6
+G none
 #30806
 abbot robes~
 the abbot's robes~
@@ -339,6 +345,7 @@ A
 13 60
 A
 23 -6
+G none
 #30807
 bracers might~
 bracers of might~
@@ -353,6 +360,7 @@ A
 18 2
 A
 19 6
+G none
 #30808
 sword elven~
 an elven longsword~
@@ -365,6 +373,7 @@ A
 2 4
 A
 18 12
+G none
 #30809
 suit elven chainmail~
 a suit of elven chainmail~
@@ -375,6 +384,7 @@ armor AG AD
 63 5 25000 P
 A
 17 -30
+G none
 #30810
 shield~
 a rune-covered shield~
@@ -387,6 +397,7 @@ A
 5 5
 A
 17 -30
+G none
 #30811
 tattered cloak~
 a tattered cloak~
@@ -395,6 +406,7 @@ A tattered old cloak lies here.~
 armor 0 AC
 20 20 20 20 0
 63 1 1000 P
+G none
 #30812
 scythe~
 a scythe~
@@ -407,6 +419,7 @@ A
 18 15
 A
 19 15
+G none
 #30813
 manacles~
 a pair of manacles~
@@ -417,6 +430,7 @@ armor M AI
 55 15 0 P
 A
 2 -4
+G none
 #30814
 pick~
 a mining pick~
@@ -425,6 +439,7 @@ A pick is lying here.~
 weapon 0 AN
 exotic 6 9 pierce 0
 60 5 0 P
+G none
 #30815
 whip~
 a whip~
@@ -433,6 +448,7 @@ A whip is curled up on the floor here.~
 weapon 0 AN
 whip 7 9 whip 0
 61 10 7000 P
+G none
 #30816
 iron key~
 an iron key~
@@ -441,6 +457,7 @@ iron~
 key 0 AO
 0 0 0 0 0
 0 1 0 P
+G none
 #30817
 silver key~
 a silver key~
@@ -449,6 +466,7 @@ silver~
 key 0 AO
 0 0 0 0 0
 0 1 0 P
+G none
 #30818
 gold key~
 a gold key~
@@ -457,6 +475,7 @@ A gold key is lying here.~
 key 0 AO
 0 0 0 0 0
 0 1 0 P
+G none
 #30819
 chest key~
 a chest key~
@@ -465,6 +484,7 @@ A chest key is lying here.~
 key 0 AO
 0 0 0 0 0
 0 1 0 P
+G none
 #30820
 chest~
 an iron chest~
@@ -473,6 +493,7 @@ iron~
 container 0 0
 1500 0 30819 50 100
 0 0 0 P
+G none
 #30821
 suit unholy armor~
 a suit of unholy armor~
@@ -499,6 +520,7 @@ A
 23 -3
 A
 24 -3
+G none
 #30822
 sack~
 a sack~
@@ -507,6 +529,7 @@ A sack lies here.~
 container 0 AO
 25 0 0 5 100
 60 1 0 P
+G none
 #30823
 gold~
 some gold~
@@ -515,6 +538,7 @@ Some gold has been scattered here. Quite a lot actually.~
 money 0 A
 25000 0 0 0 0
 0 10 25000 P
+G none
 #30824
 bellows~
 a bellows~
@@ -523,6 +547,7 @@ A bellows sits here.~
 furniture 0 0
 0 0 0 0 0
 0 4 0 P
+G none
 #30825
 green amulet~
 a bright green amulet~
@@ -535,6 +560,7 @@ E
 amulet~
 It has "DRAGON CLAN" scribed upon it.
 ~
+G none
 #30826
 portal~
 a glowing green portal~
@@ -543,6 +569,7 @@ A green portal floats here.~
 portal A 0
 0 0 A 30827 0
 0 0 0 P
+G none
 #30827
 portal~
 a glowing green portal~
@@ -551,6 +578,7 @@ A green portal floats here.~
 portal A 0
 0 0 A 30825 0
 0 0 0 P
+G none
 #30828
 portal~
 a glowing red portal~
@@ -559,6 +587,7 @@ A red portal floats here.~
 portal A 0
 0 0 A 30839 0
 0 0 0 P
+G none
 #30829
 sack~
 a sack~
@@ -567,6 +596,7 @@ A sack lies on the floor here.~
 container 0 AO
 15 0 0 10 100
 1 1 0 P
+G none
 #30830
 lantern~
 a lantern~
@@ -575,6 +605,7 @@ A lantern in excellent condition sits here.~
 light 0 AO
 0 0 100 0 0
 1 1 0 P
+G none
 #30831
 chest~
 a small chest~
@@ -583,6 +614,7 @@ A small chest sits here.~
 container 0 A
 50 0 0 20 100
 5 5 0 P
+G none
 #30832
 wineskin~
 a wineskin~
@@ -591,6 +623,7 @@ A wineskin hangs from a hook on one wall.~
 drink 0 AO
 5 5 'red wine' 0 0
 0 2 0 P
+G none
 #30833
 waterskin~
 a waterskin~
@@ -599,6 +632,7 @@ A waterskin hangs from a hook on one wall.~
 drink 0 AO
 5 5 'water' 0 0
 0 2 0 P
+G none
 #30834
 iron rations~
 some iron rations~
@@ -607,6 +641,7 @@ Some unopened iron rations sit here.~
 food 0 AO
 DE DE 0 0 0
 0 2 20 P
+G none
 #30835
 backpack~
 a backpack~
@@ -615,6 +650,7 @@ A backpack sits here.~
 container 0 AD
 25 0 0 10 100
 0 3 0 P
+G none
 #30836
 hand axe~
 a hand axe~
@@ -623,6 +659,7 @@ A hand axe hangs by a thong from a hook on one wall.~
 weapon 0 AN
 axe 6 8 chop 0
 59 5 2500 P
+G none
 #30837
 throwing axe~
 a throwing axe~
@@ -631,6 +668,7 @@ A throwing axe hangs by a thong from a hook on one wall.~
 warp_stone 0 AO
 0 0 0 0 0
 60 5 2500 P
+G none
 #30838
 bo stick~
 a bo stick~
@@ -639,6 +677,7 @@ A bo stick rests against one wall here.~
 weapon 0 AN
 mace 6 8 pound 0
 61 5 1500 P
+G none
 #30839
 jo stick~
 a jo stick~
@@ -647,6 +686,7 @@ A bo stick rests against one wall here.~
 weapon 0 AN
 mace 6 8 pound 0
 61 5 1500 P
+G none
 #30840
 quarterstaff~
 a quarterstaff~
@@ -655,6 +695,7 @@ A quarterstaff is lying on the floor here.~
 weapon 0 AN
 spear 6 8 crush 0
 59 5 2500 P
+G none
 #30841
 crossbow~
 a crossbow~
@@ -663,6 +704,7 @@ A crossbow is resting against one wall here.~
 weapon 0 AN
 bow 6 8 pierce 0
 59 10 2350 P
+G none
 #30842
 quiver~
 a quiver~
@@ -671,6 +713,7 @@ A large quiver is hanging from a hook opposite the door.~
 portal 0 AD
 BEF 0 0 0 0
 3 100 0 P
+G none
 #30843
 shield~
 a white shield~
@@ -689,6 +732,7 @@ A
 23 -3
 A
 24 -3
+G none
 #30844
 surcoat~
 a white surcoat~
@@ -703,6 +747,7 @@ A
 18 5
 A
 19 5
+G none
 #30845
 throne~
 a throne~
@@ -715,6 +760,7 @@ E
 throne~
 You think you can see a secret door beneath it...
 ~
+G none
 #30846
 skeleton~
 a skeleton~
@@ -730,6 +776,7 @@ This skeleton appears to be humanoid...
 E
 .trigo_dooropen~
 down~
+G none
 #30847
 sarcophagus~
 a massive sarcophagus~
@@ -738,6 +785,7 @@ A masive sarcophagus rests here.~
 container 0 0
 15000 0 0 0 0
 0 15000 0 P
+G none
 #30848
 red amulet~
 a glowing red amulet~
@@ -746,6 +794,7 @@ A glowing red amulet lies here.~
 key 0 AC
 0 0 0 0 0
 0 1 0 P
+G none
 #30849
 portal~
 a glowing red portal~
@@ -754,6 +803,7 @@ A red portal floats here.~
 portal A 0
 0 0 A 30827 0
 0 0 0 P
+G none
 #30850
 desk~
 a small desk~
@@ -762,6 +812,7 @@ A small desk sits in front of the shelves.~
 furniture 0 0
 0 0 0 0 0
 0 100 0 P
+G none
 #30851
 letter~
 a partially-drafted letter~
@@ -779,6 +830,7 @@ of our presence, and are seeking to stop us! Oh but when we call upon the
 power of the DRAGON, how they will suffer! If only the Demon Lord could offer
 us more -"
 ~
+G none
 #30852
 book~
 a book on ritual sacrifice~
@@ -793,6 +845,7 @@ A
 4 -3
 A
 12 -50
+G none
 #30853
 portal~
 a glowing blue portal~
@@ -801,6 +854,7 @@ A blue portal floats here.~
 portal A 0
 0 0 A 30883 0
 0 0 0 P
+G none
 #30854
 portal~
 a glowing blue portal~
@@ -809,6 +863,7 @@ A blue portal floats here.~
 portal A 0
 0 0 A 30839 0
 0 0 0 P
+G none
 #30855
 portal~
 a glowing black portal~
@@ -817,6 +872,7 @@ A black portal floats here.~
 portal A 0
 0 0 A 30819 0
 0 0 0 P
+G none
 #30856
 bath~
 a bath~
@@ -825,6 +881,7 @@ A bath is slowly filling with natural spring water here.~
 fountain 0 0
 10 10 'water' 0 0
 0 30800 0 P
+G none
 #30857
 blue amulet~
 a blue amulet~
@@ -833,6 +890,7 @@ A blue amulet glows with an unearthly light here.~
 key 0 AC
 0 0 0 0 0
 0 1 0 P
+G none
 #0
 
 #ROOMS

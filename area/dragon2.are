@@ -32,7 +32,7 @@ A intimidating Dragon stands before you.  The icy glare blinds you long enough
 for the Ice Dragon to devour you.
 ~
 white dragon~
-ABFGHT DFHZ -350 0
+ABFGHT DFZu -350 0
 40 0 15d10+1850 5d5+1000 4d8+13 charge
 -13 -13 -13 -2
 CFM AB 0 I
@@ -161,7 +161,7 @@ at you maliciously.  The Staff he carries seems familiar, but you are not
 sure from where you remember it.
 ~
 elf~
-ACGHR DH -500 0
+ACGHR Du -500 0
 58 0 50d10+6000 34d10+100 5d10+25 pound
 -27 -27 -27 -10
 FHN 0 0 D
@@ -208,7 +208,7 @@ for many years and in working for three years in midgaard he retired. And
 found this job.
 ~
 human~
-ABHS DEHJPZ -500 2402
+ABHS DEJPZu -500 2402
 91 0 10d30+19000 100d10+100 15d15+10 pound
 -81 -81 -81 -30
 FHKN 0 0 D
@@ -269,6 +269,7 @@ pixie~
 This elegant sword appears to have served its previous owner very well, but
 you aren't sure how well a weapon this small would serve you.
 ~
+G none
 #2401
 white dragon claw key~
 a small white key shaped like a claw~
@@ -282,6 +283,7 @@ key claw white dragon~
 This key appears to have been fashioned from the claw of a dragon.  You are
 glad you weren't the locksmith assigned to getting the materials.
 ~
+G none
 #2402
 door key~
 a door key~
@@ -294,6 +296,7 @@ E
 key door~
 This is a small nondescript key, with nothing special about it.
 bronze~
+G none
 #2403
 gate keeper key~
 the gatekeeper's key~
@@ -307,6 +310,7 @@ gate keeper key~
 This is the key to the gate.  It belongs to the gatekeeper, and he is probably
 looking for it.
 ~
+G none
 #2404
 copper dragon claw key~
 a small copper key shaped like a claw~
@@ -320,6 +324,7 @@ copper dragon claw key~
 This key appears to have been fashioned from a dragon's claw.  It is quite
 large.
 ~
+G none
 #2405
 pixie king key~
 a very small key~
@@ -332,6 +337,7 @@ E
 pixie king key~
 This is a very small key, you cannot imagine what door this would go to.
 ~
+G none
 #2406
 white pendant dragon scale~
 a white dragon scale pendant~
@@ -351,6 +357,7 @@ white pendant dragon scale~
 This pendant appears to be very ancient.  It is solid white, with a blue 
 diamond set in the center.  You feel chilled whenever it touches open flesh.
 ~
+G none
 #2407
 copper pendant dragon scale~
 a copper dragon scale pendant~
@@ -372,6 +379,7 @@ The pendant you now own appears to be very new, in fact it looks freshly
 forged. It is solid copper, white a streak of gold shaped like an hourglass
 in the center.  When you look back up, hours have passed.
 ~
+G none
 #2408
 pixie wings~
 a pair of pixie wings~
@@ -391,6 +399,7 @@ E
 pixie wings~
 Just what they are called.  You feel sorry for the pixie who used to own these.
 ~
+G none
 #2409
 pendant eternity~
 the pendant of eternity~
@@ -407,6 +416,7 @@ pendant eternity~
 As you stare at the pendant, you begin to feel as if you are being sucked in.
 It is all you can do to look away.
 ~
+G none
 #2410
 white dragon scale breast plate~
 a white dragonscale breast plate~
@@ -424,6 +434,7 @@ white dragon scale breast plate~
 This is a very quickly strewn together breast plate.  It looks like it was
 fashioned from the breast of a real dragon, minutes after it was slain.
 ~
+G none
 #2411
 copper dragon scale breast plate~
 a copper dragonscale breast plate~
@@ -443,6 +454,7 @@ copper dragon scale breast plate~
 This is a very hastely strewn together breast plate.  It looks like it was
 made from the breast of a real dragon, minutes after it was slain.
 ~
+G none
 #2412
 corpse~
 a corpse~
@@ -457,6 +469,7 @@ This corpse appears to be that of an adventurer who wasn't as lucky as you.
 Looking around, you can't see anything that could have destroyed his body
 this badly, but then again, you probably wouldn't want to.
 ~
+G none
 #2413
 spray paint can~
 a can of spraypaint~
@@ -465,6 +478,7 @@ metal~
 weapon 0 AN
 exotic 1 1 pierce 0
 1 1 1 G
+G none
 #2414
 pixie stick~
 a Pixie Stick~
@@ -481,6 +495,7 @@ E
 pixie stick~
 This is a Pixie Stick.  While you may be used to eating these "sugar sticks",
 the Pixies use them, quite well, as weapons.~
+G none
 #2415
 pixie plate breast~
 a Pixie breast plate~
@@ -497,6 +512,7 @@ E
 plate pixie breast~
 This is a piece of Pixie armor.  It looks very well crafted, but has an odd
 aura about it.~
+G none
 #2416
 pixie greaves~
 a pair of Pixie greaves~
@@ -513,6 +529,7 @@ E
 pixie greaves~
 These are VERY small pants....although they do seem fairly stretchy.....
 ~
+G none
 #2417
 pixie arm plates~
 a pair of Pixie armplates~
@@ -531,6 +548,7 @@ E
 pixie arm plates~
 These arm plates would be a tad bit to small for you.....IF YOU WERE A
 FREAKING SMURF!!!!~
+G none
 #2418
 wisp dragon fire~
 a wisp of DragonFyre~
@@ -547,6 +565,7 @@ E
 flame wisp dragon fyre fire~
 You aren't quite sure how it is, but the DragonFyre is existing without its
 dragon.~
+G none
 #2419
 helm dragon~
 a white dragon scale helm~
@@ -565,6 +584,7 @@ E
 helm dragon~
 This helm appears to have been created from the scales of a freshly dead dragon.
 The plume is made from the mane of said dragon.~
+G none
 #2420
 helm dragon~
 a copper dragon scale helm~
@@ -585,6 +605,7 @@ This helm appears to be made from the scales of a recently dead dragon.
 The plume appears to be made from the plume of said dragon.  It has a
 copper sheen to it.
 ~
+G none
 #2421
 staff magius~
 the Staff of the Magius~
@@ -607,6 +628,7 @@ This is the Staff of the Magius.  Rumored to bring untold mystical
 power to the one who owns it, it is also rumored to completely destroy 
 the person physically.
 ~
+G none
 #2422
 dagger~
 a Pixie dagger~
@@ -619,6 +641,7 @@ A
 14 20
 A
 19 4
+G none
 #2423
 diamond gem~
 a large diamond~
@@ -627,6 +650,7 @@ gem~
 gem W AO
 0 0 0 0 0
 0 1 25000 P
+G none
 #2424
 red ruby gem~
 a red ruby~
@@ -635,6 +659,7 @@ gem~
 gem W AO
 0 0 0 0 0
 0 1 22000 P
+G none
 #2425
 flaming quartz gem~
 a flaming quartz~
@@ -643,6 +668,7 @@ gem~
 gem AW AO
 0 0 0 0 0
 0 1 19000 P
+G none
 #2426
 bar platinum~
 a bar of platinum~
@@ -651,6 +677,7 @@ platinum~
 treasure AW AO
 0 0 0 0 0
 0 500 12000 P
+G none
 #2427
 piece duranium~
 a piece of duranium~
@@ -659,6 +686,7 @@ gem~
 gem AW AO
 0 0 0 0 0
 0 1 300 P
+G none
 #2428
 piece neutronium~
 a piece of neutronium~
@@ -667,6 +695,7 @@ gem~
 gem AW AO
 0 0 0 0 0
 0 1 500 P
+G none
 #2429
 black pearl~
 a black pearl~
@@ -675,6 +704,7 @@ gem~
 gem AW AO
 0 0 0 0 0
 0 1 5000 P
+G none
 #2430
 blue pearl~
 a blue pearl~
@@ -683,6 +713,7 @@ gem~
 gem AW AO
 0 0 0 0 0
 0 1 5000 P
+G none
 #2431
 scarlet ribbon~
 scarlet ribbon~
@@ -693,6 +724,7 @@ armor AG AQ
 45 20 4717 G
 A
 17 -30
+G none
 #2432
 rabbit's foot magic~
 rabbit's foot~
@@ -703,6 +735,7 @@ armor AG AQ
 33 20 617 G
 A
 17 -20
+G none
 #2433
 pixie shield~
 a Pixie shield~
@@ -711,6 +744,7 @@ steel~
 armor A AJ
 10 10 10 6 0
 30 30 981 G
+G none
 #2434
 old dragon captain key~
 a small white finger~
@@ -719,6 +753,7 @@ steel~
 key M AO
 0 0 0 0 0
 18 10 0 G
+G none
 #2435
 key~
 an old seal~
@@ -727,6 +762,7 @@ stone~
 key 0 A
 BCDE 0 0 0 0
 0 20 0 P
+G none
 #2436
 box~
 box~
@@ -735,6 +771,7 @@ wood~
 container 0 0
 100 ACD 2435 100 100
 0 0 0 P
+G none
 #2437
 paper papers~
 abridged papers~
@@ -752,6 +789,7 @@ Now he retired and needs something that will comfort him. And  that is an
 eastern rug used by Turkish woman.
 
 ~
+G none
 #2438
 xxx~
 an old key carved on 'xxx'~
@@ -760,6 +798,7 @@ stone~
 key 0 A
 BCDE 0 0 0 0
 0 20 0 P
+G none
 #0
 
 #ROOMS

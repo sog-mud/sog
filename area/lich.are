@@ -32,7 +32,7 @@ uses its magical abilities to keep its victims alive while it's torturing
 them.  
 ~
 human~
-ABOQ Hc -1000 0
+ABOQ cu -1000 0
 50 0 15d10+4250 45d10+950 5d8+19 magic
 -20 -20 -20 -2
 CN ILQ P HN
@@ -65,7 +65,7 @@ His black scaled skin gleams in the firelight The burning flames in his eyes
 corrupt your soul.  Fear him mortal for you are about to die.  
 ~
 dragon~
-ABOT H -1000 0
+ABOT u -1000 0
 65 0 50d10+8250 45d10+950 11d5+35 magic
 -35 -35 -35 -10
 CFKM HLQ DIJK CN
@@ -82,7 +82,7 @@ before you, a rotting representation of what the wizard used to be.  Myzelak
 now spends his time searching for ways to end all life in StormFront.  
 ~
 human~
-ABQR HJ -1000 0
+ABQR Ju -1000 0
 75 0 50d10+11000 45d10+1950 9d11+45 magic
 -45 -45 -45 -14
 FIJN 0 CDHIJ N
@@ -132,6 +132,7 @@ iron~
 weapon B AN
 mace 6 7 pound 0
 40 25 1000 P
+G none
 #29351
 glowing skull~
 a Flaming Skull~
@@ -152,6 +153,7 @@ A
 19 2
 A
 3 2
+G none
 #29352
 wand golden~
 a golden wand~
@@ -160,6 +162,7 @@ gold~
 wand 0 AO
 50 10 10 'shield' 0
 50 3 500 P
+G none
 #29353
 staff crystal~
 a crystal staff~
@@ -168,6 +171,7 @@ stone~
 staff G AO
 70 5 5 'heal' 0
 60 10 800 P
+G none
 #29354
 garnet ring~
 a Garnet Ring~
@@ -184,6 +188,7 @@ A
 3 2
 A
 18 2
+G none
 #29355
 bracer night~
 the Bracer of the Night~
@@ -198,6 +203,7 @@ A
 19 2
 A
 5 1
+G none
 #29356
 amulet night~
 the Amulet of the Night~
@@ -214,6 +220,7 @@ A
 3 1
 A
 4 1
+G none
 #29357
 ancient longsword sword~
 an Ancient Longsword~
@@ -226,6 +233,7 @@ A
 19 3
 A
 18 3
+G none
 #29358
 black scale dragon~
 a black dragon scale~
@@ -244,6 +252,7 @@ A
 1 2
 A
 3 -2
+G none
 #29359
 hell sword wraith~
 the Hell's Wraith~
@@ -264,6 +273,7 @@ A
 4 -1
 A
 3 -1
+G none
 #29360
 robes sorceror~
 sorceror's robes~
@@ -276,6 +286,7 @@ A
 3 3
 A
 12 150
+G none
 #29361
 infinity scroll~
 the Infinity Scroll~
@@ -300,6 +311,7 @@ A
 13 50
 A
 12 50
+G none
 #29362
 silvery potion~
 a silvery potion ~
@@ -308,6 +320,7 @@ glass~
 potion AG AO
 40 'invisibility' 'detect invis' 'detect magic' 'detect poison'
 40 2 1000 P
+G none
 #29363
 key golden~
 a golden key~
@@ -316,6 +329,7 @@ gold~
 key 0 A
 0 0 0 0 0
 40 1 0 P
+G none
 #29364
 boots water walking waterwalking~
 boots of waterwalking~
@@ -330,6 +344,7 @@ A
 2 1
 A
 17 -5
+G none
 #29365
 thieve's tunic~
 a Thieve's Tunic~
@@ -342,6 +357,7 @@ A
 18 3
 A
 2 3
+G none
 #29366
 paper blank~
 a blank piece of paper~
@@ -350,6 +366,7 @@ paper~
 gem 0 AO
 0 0 0 0 AB
 35 1 2000 P
+G none
 #29367
 chair wooden~
 a large wooden chair~
@@ -358,6 +375,7 @@ wood~
 furniture 0 0
 0 0 0 0 0
 30 50 0 P
+G none
 #29368
 table dining~
 a huge dining table~
@@ -366,6 +384,7 @@ wood~
 furniture 0 0
 0 0 0 0 0
 30 100 0 P
+G none
 #29369
 book shelf bookshelf~
 an old wooden bookshelf~
@@ -374,6 +393,7 @@ wood~
 container 0 0
 10 0 0 0 75
 40 200 0 P
+G none
 #29370
 desk mahogany~
 a large mahogany desk~
@@ -382,6 +402,7 @@ wood~
 container 0 0
 999 0 22001 499 75
 40 150 0 P
+G none
 #29371
 closet~
 a closet carved into the wall~
@@ -390,6 +411,7 @@ stone~
 container 0 0
 999 0 29363 499 75
 40 999 0 P
+G none
 #29372
 grimoire~
 a powerful grimoire~
@@ -398,6 +420,7 @@ leather~
 container AG 0
 100 0 0 50 75
 40 50 0 P
+G none
 #29373
 cross obsidian~
 a large obsidian cross~
@@ -420,6 +443,7 @@ mobs.  However, as this area is the only way to get to a few others, the
 mobs do NOT detect invis, so as long as you are invis you should be able to
 get where you want to go, Alive.  ===> RYZEN <=== 
 ~
+G none
 #0
 
 #ROOMS

@@ -63,7 +63,7 @@ The creature would probably not hurt a fly.  Actually, it is unaware of its own
 existence.
 ~
 human~
-AB HJNO -1000 0
+AB JNOu -1000 0
 45 0 25d10+3000 349d1+100 8d4+16 pierce
 -15 -15 -15 5
 HO BEJ PS K
@@ -139,7 +139,7 @@ enough time at night to feed properly.  He is VERY happy that you walked in
 on him.
 ~
 human~
-ABF BDFHJ -1000 0
+ABF BDFJu -1000 0
 47 0 25d10+3500 369d1+100 6d6+17 none
 -17 -17 -17 2
 BEF AB 0 K
@@ -217,7 +217,7 @@ A blackened creature stands here, ready to cause you excruciating pain.
 You'd better not look to close, he may charm you.
 ~
 human~
-ABF HJ -1000 0
+ABF Ju -1000 0
 51 0 50d10+4800 409d1+100 5d8+20 pierce
 -22 -22 -22 2
 B AB 0 K
@@ -231,7 +231,7 @@ Ciquala's undead pet dragon is here, snacking on a fresh corpse.
 This skeletal dragon is an ancient red dragon preserved through arcane magic.
 ~
 dragon~
-ABF DFH -1000 0
+ABF DFu -1000 0
 60 0 50d10+7600 499d1+100 6d8+24 beating
 -30 -30 -30 -10
 B AB 0 K
@@ -247,7 +247,7 @@ Ciquala still looks majestic after all these thousands of years.  But you can
 see the menace in her eye as she looks at you, and prepares her first spell.
 ~
 human~
-ABF DFHJT -1000 0
+ABF DFJTu -1000 0
 62 0 50d15+10000 519d1+100 6d9+29 pierce
 -35 -35 -35 -1
 BCDEH AB T K
@@ -323,6 +323,7 @@ A
 1 2
 A
 5 2
+G none
 #13401
 ciquala's robe~
 Ciquala's robe~
@@ -337,6 +338,7 @@ A
 2 2
 A
 24 -10
+G none
 #13402
 Ciquala's staff~
 ciquala's staff~
@@ -351,6 +353,7 @@ A
 3 3
 A
 4 -2
+G none
 #13403
 crate~
 crate~
@@ -359,6 +362,7 @@ iron~
 furniture 0 A
 B EGHIJK NO CFG CFG
 0 0 0 P
+G none
 #13404
 key~
 a key~
@@ -367,6 +371,7 @@ iron~
 key 0 A
 0 0 0 0 0
 1 0 0 P
+G none
 #13405
 key~
 a iron key~
@@ -375,6 +380,7 @@ iron~
 key 0 A
 0 0 0 0 0
 1 0 0 P
+G none
 #13406
 key large~
 a large key~
@@ -383,6 +389,7 @@ iron~
 key 0 A
 0 0 0 0 0
 1 0 0 P
+G none
 #13407
 blue potion~
 a blue potion~
@@ -391,6 +398,7 @@ glass~
 potion H A
 38 'acid blast' 'acute vision' 'detect hidden' 'detect invis'
 20 20 3200 P
+G none
 #13408
 emerald vial~
 an emerald vial~
@@ -399,6 +407,7 @@ glass~
 potion 0 A
 25 'heal' 'heal' 'blindness' ''
 20 20 3350 P
+G none
 #13410
 testube clear~
 a clear testube~
@@ -407,6 +416,7 @@ glass~
 potion H A
 38 'burning hands' 'colour spray' 'protection evil' 'giant strength'
 20 20 3300 P
+G none
 #13411
 vial green~
 a green vial~
@@ -415,6 +425,7 @@ glass~
 potion 0 A
 28 'create spring' 'energy drain' 'poison' 'armor'
 20 20 2300 P
+G none
 #13412
 gold liquid vial~
 a vial with gold liquid~
@@ -423,6 +434,7 @@ glas~
 potion 0 A
 30 'weaken' 'poison' 'teleport' 'curse'
 20 20 4300 P
+G none
 #13413
 milky liquid vial~
 a vial with milky liquid~
@@ -431,6 +443,7 @@ glas~
 potion 0 A
 30 'heal' 'pass door' 'teleport' 'sanctuary'
 20 20 4400 P
+G none
 #13414
 black potion~
 a black potion~
@@ -439,6 +452,7 @@ glass~
 potion 0 A
 30 'shield' 'infravision' 'cause critical' 'protection good'
 20 20 4900 P
+G none
 #13415
 beaker yellow~
 a beaker with yellow liquid~
@@ -447,6 +461,7 @@ glass~
 potion 0 A
 30 'harm' 'poison' 'weaken' 'sleep'
 20 20 3400 P
+G none
 #13416
 iron maiden~
 an iron maiden~
@@ -463,6 +478,7 @@ A
 1 -5
 A
 2 -1
+G none
 #13417
 torturer's whip~
 the torturer's whip~
@@ -477,6 +493,7 @@ A
 19 10
 A
 17 -20
+G none
 #13418
 treasure coins gold~
 a humongous pile of gold~
@@ -485,6 +502,7 @@ gold~
 money 0 A
 10000 0 0 0 0
 0 0 0 P
+G none
 #13419
 gems pile~
 a pile of gems~
@@ -493,6 +511,7 @@ iron~
 money A A
 20000 0 0 0 0
 0 0 0 P
+G none
 #13420
 crate~
 crate~
@@ -501,6 +520,7 @@ iron~
 furniture 0 A
 B EGHIJK NO CFG CFG
 0 0 0 P
+G none
 #13421
 crate~
 crate~
@@ -509,6 +529,7 @@ iron~
 furniture 0 A
 B EGHIJK NO CFG CFG
 0 0 0 P
+G none
 #13422
 crate~
 crate~
@@ -517,6 +538,7 @@ iron~
 furniture 0 A
 B EGHIJK NO CFG CFG
 0 0 0 P
+G none
 #13423
 crate~
 crate~
@@ -525,6 +547,7 @@ iron~
 furniture 0 A
 B EGHIJK NO CFG CFG
 0 0 0 P
+G none
 #13424
 fizzing bottle~
 a fizzing bottle~
@@ -533,6 +556,7 @@ glass~
 potion 0 A
 28 'word of recall' 'sleep' 'poison' ''
 20 20 1000 P
+G none
 #13425
 grey potion~
 a grey potion~
@@ -541,6 +565,7 @@ glass~
 potion 0 A
 30 'energy drain' 'energy drain' 'create food' 'create spring'
 20 20 1000 P
+G none
 #0
 
 #ROOMS

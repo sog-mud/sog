@@ -724,7 +724,7 @@ build.  The dark silver eyes, shadowed with pain, are strangely at odds with
 the cruel smile that seems to have permanently twisted the human lips.
 ~
 human~
-ABFGRT CDHJO -1000 11644
+ABFGRT CDJOu -1000 11644
 85 0 100d12+16500 1d10+1000 9d10+50 smash
 -50 -53 -55 -53
 EIK BEJM GIK N
@@ -1982,6 +1982,7 @@ seem to twist and change even as you look at them.  A large gap is visible in
 the western face of the object, shifting occasionally with the movement of 
 the bones.
 ~
+G none
 #11601
 mirror pool water~
 Mirror pool~
@@ -1998,6 +1999,7 @@ you reflection seems to twist and darken.  Grinning, it beckons, and you feel
 drawn towards the pool.  The pool ripples and clears, and your reflection 
 returns to normal.  Or did it ever really change.. ?
 ~
+G none
 #11602
 shadow shadows~
 the shadows~
@@ -2010,6 +2012,7 @@ E
 shadow shadows~
 The shadows seem to beckon..
 ~
+G none
 #11603
 leering stone face mouth~
 the mouth of the leering face~
@@ -2024,6 +2027,7 @@ The face has been carved twisted and waving, as if reflected in a bent
 mirror.  The open mouth reveals a gaping, toothless void.  The stone tongue
 hangs slightly out of the mouth like a ramp.
 ~
+G none
 #11604
 dark pool water~
 the dark pool~
@@ -2039,6 +2043,7 @@ they appear to wrap around your reflection, dissolving it for a moment
 into glitters of light.  Something about the pool is both frightening
 and appealing..
 ~
+G none
 #11605
 pine coffin~
 a pine coffin~
@@ -2053,6 +2058,7 @@ Tattered black felt lines the inside of the coffin.  Dark splotches of dried
 blood harden the felt in places.  Strips of felt, obviously rent by sharp 
 claws, hang loosely revealing the bare pine underneath.
 ~
+G none
 #11606
 darkness~
 the darkness~
@@ -2066,6 +2072,7 @@ darkness~
 The darkness seems almost tangible.  As you concentrate on it, it seems
 to pull you towards it..
 ~
+G none
 #11607
 white bone altar~
 a white altar~
@@ -2079,6 +2086,7 @@ altar white~
 Upon closer examination, you notice that the altar is made of a smooth, 
 slightly off white substance similar to bone..
 ~
+G none
 #11608
 bloody black obsidian altar~
 a bloody obsidian altar~
@@ -2093,6 +2101,7 @@ Streamers of wet blood spatter the obsidian altar.  The blood seems to
 blend in with the black stone, giving it the appearance of some twisted
 form of red-streaked marble.
 ~
+G none
 #11609
 gleaming white throne~
 a gleaming white throne~
@@ -2106,6 +2115,7 @@ gleaming white throne~
 It appears to be made of some weird glowing substance.. strangely like
 polished bone.
 ~
+G none
 #11610
 forbidding dark black throne~
 a forbidding black throne~
@@ -2119,6 +2129,7 @@ forbidding dark black throne~
 The throne seems to be made of a polished black substance similar to
 blackened bone.
 ~
+G none
 #11611
 white oak tree~
 an ancient white oak~
@@ -2133,6 +2144,7 @@ A huge white oak looms here.  As you gaze at it, a rectangular area in this
 face of the tree -- about the height of a man -- shimmers momentarily, as
 if not entirely there.
 ~
+G none
 #11612
 black oak tree~
 an ancient black oak~
@@ -2146,6 +2158,7 @@ black oak tree~
 A large gap opens into the base of the black oak, slightly charred as if
 burned by fire.
 ~
+G none
 #11613
 signpost sign post~
 a signpost~
@@ -2161,6 +2174,7 @@ decide which way they should point and made arrows in all directions just
 to be safe.  Which makes it pretty useless as a signpost.. but it looks
 like a mighty comfy bench anyway :)
 ~
+G none
 #11614
 leather couch~
 a long leather couch~
@@ -2175,6 +2189,7 @@ The couch seems to hum continuously.  Under your scrutiny, you think you
 hear it mutter something about "..neuro deficiency leading to..", but
 maybe it's just your imagination..  Need a seat?
 ~
+G none
 #11615
 neon green throne~
 a neon green throne~
@@ -2183,6 +2198,7 @@ plastic~
 furniture A 0
 B EGHIJK BEHKN CFG CFG
 0 0 0 P
+G none
 #11616
 parrot perch~
 a parrot perch~
@@ -2191,6 +2207,7 @@ steel~
 furniture 0 0
 AB DEFHIJL EH CFG CFG
 0 0 0 P
+G none
 #11617
 tassled jester hat~
 a tassled jester's hat~
@@ -2207,6 +2224,7 @@ A
 13 50
 A
 12 50
+G none
 #11618
 circlets wonder arm bands~
 circlets of wonder~
@@ -2251,6 +2269,7 @@ shimmering letters are visible amidst the swirling matter of the circlets:
   we are lost
   and we are found.
 ~
+G none
 #11619
 bubbling indigo potion~
 a bubbling indigo potion~
@@ -2259,6 +2278,7 @@ crystal~
 potion A AO
 80 'detect magic' 'heal' 'bless' ''
 70 10 1000 P
+G none
 #11620
 moonbeam moon beam shaft moonlight light~
 a moonbeam~
@@ -2275,6 +2295,7 @@ A
 12 85
 A
 4 2
+G none
 #11621
 innocent dreams~
 innocent dreams~
@@ -2293,6 +2314,7 @@ A
 12 95
 A
 3 -1
+G none
 #11622
 gleaming white cross~
 a gleaming white cross~
@@ -2309,6 +2331,7 @@ A
 12 75
 A
 4 2
+G none
 #11623
 white kid gloves~
 a pair of white kid gloves~
@@ -2325,6 +2348,7 @@ A
 12 85
 A
 2 3
+G none
 #11624
 mark gabrian white insignia hair~
 Mark of Gabrian~
@@ -2369,6 +2393,7 @@ an inscription is woven in gold around edge of the mark:
   Echoing in my ears,
   The golden roar of a lion.
 ~
+G none
 #11625
 white grey feather breast plate~
 a white grey breast plate~
@@ -2383,6 +2408,7 @@ A
 19 6
 A
 1 2
+G none
 #11626
 song nightingale~
 song of the nightingale~
@@ -2397,6 +2423,7 @@ A
 12 45
 A
 4 2
+G none
 #11627
 scroll enlightenment white~
 a scroll of enlightenment~
@@ -2409,6 +2436,7 @@ A
 5 -4
 A
 3 -5
+G none
 #11628
 sparkling wand~
 a sparkling wand~
@@ -2417,6 +2445,7 @@ mithril~
 wand AF AO
 69 12 12 'colour spray' 0
 61 10 3250 P
+G none
 #11629
 glowing silvery hooves~
 glowing silvery hooves~
@@ -2431,6 +2460,7 @@ A
 3 3
 A
 2 3
+G none
 #11630
 golden bell silver neckchain chain~
 A golden bell on a silver neckchain~
@@ -2445,6 +2475,7 @@ A
 12 50
 A
 4 3
+G none
 #11631
 rose tinted shades~
 a pair of rose tinted shades~
@@ -2459,6 +2490,7 @@ A
 12 100
 A
 4 -4
+G none
 #11632
 breastplate plate white cross~
 a breastplate emblazoned with a white cross~
@@ -2471,6 +2503,7 @@ A
 19 5
 A
 1 3
+G none
 #11633
 white legplates~
 white legplates~
@@ -2485,6 +2518,7 @@ A
 18 2
 A
 5 2
+G none
 #11634
 diamond longsword sword~
 a diamond longsword~
@@ -2497,6 +2531,7 @@ A
 19 4
 A
 18 3
+G none
 #11635
 ivory scales~
 A pair of ivory scales~
@@ -2513,6 +2548,7 @@ A
 4 2
 A
 3 2
+G none
 #11636
 pruning shears~
 a pair of pruning shears~
@@ -2525,6 +2561,7 @@ A
 19 3
 A
 18 3
+G none
 #11637
 grass stained jumpsuit leather~
 A grass stained jumpsuit~
@@ -2537,6 +2574,7 @@ A
 6 -1
 A
 2 3
+G none
 #11638
 sculptor's chisel~
 a sculptor's chisel~
@@ -2549,6 +2587,7 @@ A
 19 3
 A
 18 3
+G none
 #11639
 polished bone chip~
 a chip of polished bone~
@@ -2557,6 +2596,7 @@ bone~
 warp_stone AT AO
 0 0 0 0 0
 0 10 2200 P
+G none
 #11640
 flowing white priest robes~
 flowing white priest's robes~
@@ -2575,6 +2615,7 @@ E
 flowing white priest robes~
 A glowing white cross is emblazoned across the front of the robes.
 ~
+G none
 #11641
 blind devotion~
 blind devotion~
@@ -2589,6 +2630,7 @@ A
 4 -8
 A
 2 -6
+G none
 #11642
 silver neckchain chain~
 a silver neckchain~
@@ -2603,6 +2645,7 @@ A
 12 40
 A
 5 3
+G none
 #11643
 broken watch~
 a broken watch~
@@ -2617,6 +2660,7 @@ A
 13 35
 A
 9 3
+G none
 #11644
 fluffy white tail~
 a fluffy white tail~
@@ -2631,6 +2675,7 @@ A
 12 40
 A
 2 2
+G none
 #11645
 rabbit food pellet~
 a pellet of rabbit food~
@@ -2639,6 +2684,7 @@ food~
 pill 0 A
 55 'haste' '' '' ''
 45 10 500 P
+G none
 #11646
 weeping angel white~
 a weeping angel~
@@ -2653,6 +2699,7 @@ A
 12 50
 A
 4 3
+G none
 #11647
 shattered dreams pieces~
 shattered dreams~
@@ -2667,6 +2714,7 @@ A
 13 75
 A
 12 -15
+G none
 #11648
 ice mask~
 ice mask~
@@ -2700,6 +2748,7 @@ A poem is engraved on the inside of the mask:
   to freeze the tears
   to ice.
 ~
+G none
 #11649
 hellhawk hawk feather black~
 a hellhawk feather~
@@ -2714,6 +2763,7 @@ A
 13 50
 A
 1 3
+G none
 #11650
 bloody cowl~
 a bloody cowl~
@@ -2730,6 +2780,7 @@ A
 3 4
 A
 1 -2
+G none
 #11651
 dark eye nightmare~
 eye of the nightmare~
@@ -2746,6 +2797,7 @@ A
 13 50
 A
 1 4
+G none
 #11652
 nightmare breath dark cloud~
 nightmare's breath~
@@ -2760,6 +2812,7 @@ A
 18 4
 A
 13 50
+G none
 #11653
 sacrificial robes bloody~
 sacrificial robes~
@@ -2774,6 +2827,7 @@ A
 18 3
 A
 12 55
+G none
 #11654
 deathblade blade~
 a deathblade~
@@ -2786,6 +2840,7 @@ A
 19 2
 A
 18 2
+G none
 #11655
 gauntlets night black~
 gauntlets of the night~
@@ -2798,6 +2853,7 @@ A
 19 6
 A
 18 4
+G none
 #11656
 blood drenched dagger~
 a blood drenched dagger~
@@ -2810,6 +2866,7 @@ A
 19 4
 A
 18 3
+G none
 #11657
 hole~
 a hole~
@@ -2818,6 +2875,7 @@ nothingness~
 container Y AO
 350 0 0 40 50
 55 0 9540 P
+G none
 #11658
 furry gloves~
 some furry gloves~
@@ -2832,6 +2890,7 @@ A
 13 30
 A
 12 40
+G none
 #11659
 blood spattered shield obsidian~
 a blood spattered shield~
@@ -2848,6 +2907,7 @@ A
 13 50
 A
 1 2
+G none
 #11660
 bloody fang vampire~
 fang of the vampire~
@@ -2860,6 +2920,7 @@ A
 19 4
 A
 18 3
+G none
 #11661
 tattered cloak black~
 a tattered cloak~
@@ -2876,6 +2937,7 @@ A
 13 60
 A
 1 2
+G none
 #11662
 mark daemias black hair~
 Mark of Daemias~
@@ -2908,6 +2970,7 @@ silver threads interwoven with the black form the words:
   Take my hand
   and cry no more..
 ~
+G none
 #11663
 flame darkness~
 a Flame of Darkness~
@@ -2924,6 +2987,7 @@ A
 13 75
 A
 12 75
+G none
 #11664
 circle tears~
 a circle of tears~
@@ -2940,6 +3004,7 @@ A
 13 75
 A
 2 3
+G none
 #11665
 ashes lost~
 ashes of the lost~
@@ -2958,6 +3023,7 @@ A
 12 75
 A
 5 -1
+G none
 #11666
 broken bible~
 a broken bible~
@@ -2974,6 +3040,7 @@ A
 13 75
 A
 12 -10
+G none
 #11667
 bloodstained platter silver~
 a bloodstained platter~
@@ -2988,6 +3055,7 @@ A
 12 65
 A
 5 2
+G none
 #11668
 razor claws~
 razor claws~
@@ -3002,6 +3070,7 @@ A
 18 5
 A
 13 50
+G none
 #11669
 mark ykres shadow black~
 Mark of Ykres~
@@ -3018,6 +3087,7 @@ A
 12 25
 A
 2 3
+G none
 #11670
 bracelet night darkness~
 bracelet of night~
@@ -3032,6 +3102,7 @@ A
 13 45
 A
 2 4
+G none
 #11671
 onyx owl ring~
 an owl ring~
@@ -3046,6 +3117,7 @@ A
 12 50
 A
 4 2
+G none
 #11672
 sliver darkness~
 a sliver of darkness~
@@ -3058,6 +3130,7 @@ A
 19 4
 A
 18 3
+G none
 #11673
 mask deception grey~
 mask of deception~
@@ -3074,6 +3147,7 @@ A
 13 65
 A
 2 4
+G none
 #11674
 cloak shadows~
 cloak of shadows~
@@ -3088,6 +3162,7 @@ A
 17 -12
 A
 2 4
+G none
 #11675
 ice candle~
 an ice candle~
@@ -3102,6 +3177,7 @@ A
 18 4
 A
 3 4
+G none
 #11676
 stiletto shadow shadow's edge~
 Shadow's Edge~
@@ -3114,6 +3190,7 @@ A
 19 6
 A
 18 16
+G none
 #11677
 silhouette~
 a silhouette~
@@ -3130,6 +3207,7 @@ A
 12 75
 A
 2 3
+G none
 #11678
 silence~
 silence~
@@ -3146,6 +3224,7 @@ A
 12 80
 A
 2 4
+G none
 #11679
 black shadowhawk hawk talons~
 shadowhawk talons~
@@ -3162,6 +3241,7 @@ A
 13 75
 A
 1 3
+G none
 #11680
 bracers energy~
 bracers of energy~
@@ -3178,6 +3258,7 @@ A
 12 90
 A
 2 3
+G none
 #11681
 whirling disc energy~
 whirling disc~
@@ -3192,6 +3273,7 @@ A
 18 5
 A
 12 80
+G none
 #11682
 brain cell~
 a brain cell~
@@ -3204,6 +3286,7 @@ A
 12 60
 A
 3 4
+G none
 #11683
 pink pig wings~
 a pink pair of pig wings~
@@ -3218,6 +3301,7 @@ A
 18 4
 A
 2 2
+G none
 #11684
 effigy barney purple dinosaur~
 an effigy of a purple dinosaur~
@@ -3234,6 +3318,7 @@ A
 4 -2
 A
 3 -2
+G none
 #11685
 white lab coat~
 a white lab coat~
@@ -3246,6 +3331,7 @@ A
 4 4
 A
 3 4
+G none
 #11686
 trendy suit~
 a trendy suit~
@@ -3262,6 +3348,7 @@ A
 4 -2
 A
 3 -3
+G none
 #11687
 energy shimmering circlet~
 a shimmering circlet~
@@ -3276,6 +3363,7 @@ A
 18 4
 A
 12 70
+G none
 #11688
 bracelet delusions~
 bracelet of delusions~
@@ -3290,6 +3378,7 @@ A
 12 110
 A
 4 -3
+G none
 #11689
 idea~
 an idea~
@@ -3306,6 +3395,7 @@ A
 12 90
 A
 3 3
+G none
 #11690
 energy mail chainmail chain~
 energy mail~
@@ -3322,6 +3412,7 @@ A
 13 50
 A
 12 75
+G none
 #11691
 red feather leggings~
 some red feather leggings~
@@ -3336,6 +3427,7 @@ A
 18 4
 A
 13 50
+G none
 #11692
 brilliant red tailfeather feather~
 a brilliant red tailfeather~
@@ -3348,6 +3440,7 @@ A
 19 5
 A
 18 5
+G none
 #11693
 musical bracers black feather~
 musical bracers~
@@ -3362,6 +3455,7 @@ A
 12 45
 A
 2 3
+G none
 #11694
 silent flame dark~
 a silent flame~
@@ -3376,6 +3470,7 @@ A
 13 35
 A
 2 3
+G none
 #11695
 shadowy handprints prints~
 shadowy handprints~
@@ -3390,6 +3485,7 @@ A
 12 65
 A
 2 3
+G none
 #11696
 dark owl feather blanket~
 a blanket of dark owl feathers~
@@ -3398,6 +3494,7 @@ feathers~
 furniture CG AO
 B EFHK BEHKN ABEFG ABEFG
 65 70 5500 P
+G none
 #11697
 hole ground~
 a hole in the ground~
@@ -3406,6 +3503,7 @@ nothingness~
 portal 0 0
 0 0 D 11646 0
 0 0 0 P
+G none
 #11698
 rip void~
 a rip in the void~
@@ -3414,6 +3512,7 @@ etherealness~
 portal A 0
 0 0 D 11612 0
 0 0 0 P
+G none
 #11699
 vacuum nothing~
 a vacuum~
@@ -3422,6 +3521,7 @@ nothingness~
 portal B AO
 0 0 BCE 2 0
 75 0 0 P
+G none
 #11700
 oaken door~
 an oaken door~
@@ -3437,6 +3537,7 @@ Engraved in the face of the door are the words:
 
             Zeinia International
 ~
+G none
 #11701
 oaken door~
 an oaken door~
@@ -3445,6 +3546,7 @@ oak~
 portal 0 0
 0 A A 11687 0
 0 0 0 P
+G none
 #11702
 onyx key chain~
 a small onyx key on a silver chain~
@@ -3457,6 +3559,7 @@ A
 5 1
 A
 2 1
+G none
 #11703
 steel key~
 a long steel key~
@@ -3465,6 +3568,7 @@ steel~
 key 0 A
 0 0 0 0 0
 0 10 0 P
+G none
 #11704
 dark stone key~
 a dark stone key~
@@ -3473,6 +3577,7 @@ stone~
 key 0 A
 0 0 0 0 0
 0 10 0 P
+G none
 #11705
 black key~
 a black key~
@@ -3481,6 +3586,7 @@ stone~
 key 0 A
 0 0 0 0 0
 0 10 0 P
+G none
 #11706
 adamantite key~
 a long adamantite key~
@@ -3489,6 +3595,7 @@ adamantite~
 key 0 A
 0 0 0 0 0
 0 10 0 P
+G none
 #11707
 decaying bodyparts body parts~
 some decaying bodyparts~
@@ -3506,6 +3613,7 @@ as humanoid.  Scrawled in blood above the gory artwork are the words:
 
 A chill creeps up the back of your neck.
 ~
+G none
 #11708
 dark crimson armbands arm bands pair~
 dark crimson armbands~
@@ -3533,6 +3641,7 @@ dark crimson armbands arm bands pair circles blood~
 Engraved in the blood red metal is the inscription:  "Ir'vekire zai'Zdreni",
 above an engraving of a stooping hawk over two crossed daggers.
 ~
+G none
 #11709
 oath vengeance band adamantite ruby~
 Oath of Vengeance~
@@ -3579,6 +3688,7 @@ Engraved along the inside of the band, you notice the words:
 
 The ruby is carved with the form of a stooping hawk over two crossed daggers.
 ~
+G none
 #11710
 crimson hilted stiletto~
 a crimson hilted stiletto~
@@ -3591,6 +3701,7 @@ A
 19 25
 A
 18 25
+G none
 #11711
 midnight black insignia onyx ring~
 a midnight black insignia~
@@ -3609,6 +3720,7 @@ A
 12 65
 A
 1 2
+G none
 #11712
 dark grey insignia chainmail chain mail~
 a suit of drow chainmail with a dark grey insignia~
@@ -3628,6 +3740,7 @@ dark grey insignia chainmail chain mail~
 An engraving of two crossed daggers shimmers above the left shoulder of
 the chainmail.
 ~
+G none
 #11713
 dark blue sash green~
 a dark blue sash with a green insignia~
@@ -3640,6 +3753,7 @@ A
 19 5
 A
 13 50
+G none
 #11714
 dark blue sash purple~
 a dark blue sash with a purple insignia~
@@ -3654,6 +3768,7 @@ A
 12 65
 A
 3 2
+G none
 #11715
 smokey blue insignia cloak~
 a dark cloak embroidered with a smokey blue insignia~
@@ -3670,6 +3785,7 @@ A
 5 2
 A
 2 2
+G none
 #11716
 indigo insignia pair gloves~
 a pair of leather gloves with an indigo insignia~
@@ -3686,6 +3802,7 @@ A
 12 65
 A
 2 2
+G none
 #11717
 dark green insignia boots~
 a pair of boots with a dark green insignia~
@@ -3702,6 +3819,7 @@ A
 12 60
 A
 2 2
+G none
 #11718
 grey insignia leggings~
 leather leggings with a grey insignia~
@@ -3720,6 +3838,7 @@ A
 2 2
 A
 1 1
+G none
 #11719
 tan insignia bracer~
 a bracer engraved with a tan insignia~
@@ -3736,6 +3855,7 @@ A
 5 1
 A
 3 1
+G none
 #11720
 applicants ring adamantite~
 an applicant's ring~
@@ -3759,6 +3879,7 @@ its wearer to guild members, leaving them safe from attack.  If the ring's
 magic does not resonate with its wearer, the wearer is automatically
 marked as an intruder and subject to attack.
 ~
+G none
 #11721
 manual bladework blade work black~
 a manual of bladework~
@@ -3767,6 +3888,7 @@ leather~
 scroll 0 A
 82 'bless' 'frenzy' '' ''
 73 10 1000 P
+G none
 #11722
 dark blue scroll~
 a dark blue scroll~
@@ -3775,6 +3897,7 @@ vellum~
 scroll B A
 82 'enchant weapon' '' '' ''
 73 10 1000 P
+G none
 #11723
 simmering green potion~
 a simmering green potion~
@@ -3783,6 +3906,7 @@ glass~
 potion 0 A
 67 'poison' 'blindness' 'plague' 'curse'
 60 10 1000 P
+G none
 #11724
 dark elven chainmail chain mail suit adamantite~
 a suit of dark elven chainmail~
@@ -3797,6 +3921,7 @@ A
 18 3
 A
 2 2
+G none
 #11725
 adamantite shortsword short sword~
 an adamantite shortsword~
@@ -3809,6 +3934,7 @@ A
 19 6
 A
 18 6
+G none
 #11726
 adamantite kris~
 an adamantite kris~
@@ -3821,6 +3947,7 @@ A
 19 5
 A
 18 5
+G none
 #11727
 adamantite stiletto~
 an adamantite stiletto~
@@ -3833,6 +3960,7 @@ A
 19 5
 A
 18 5
+G none
 #11728
 adamantite throwing knife blue black~
 an adamantite throwing knife~
@@ -3845,6 +3973,7 @@ A
 19 4
 A
 18 5
+G none
 #11729
 adamantite dagger~
 an adamantite dagger~
@@ -3857,6 +3986,7 @@ A
 19 4
 A
 18 4
+G none
 #0
 
 #ROOMS
