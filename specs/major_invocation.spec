@@ -3,11 +3,6 @@ Name major_invocation~
 Class major_school
 End
 
-#R
-deny has_spec has_spec("minor_invocation")~
-deny has_spec !has_spec("class_wizard")~
-end
-
 #SKILL
 Skill 'acid blast'
 Level 35

@@ -3,10 +3,6 @@ Name weapon_sword~
 Class weapon
 End
 
-#R
-deny has_spec !has_spec("class_warrior")~
-end
-
 #SKILL
 Skill 'fence'
 Level 15

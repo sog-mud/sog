@@ -3,11 +3,6 @@ Name class_wizard~
 Class class
 End
 
-#R
-deny spclass_limit !spclass_limit("major_school 1")~
-deny spclass_limit !spclass_limit("minor_school 2")~
-end
-
 #SKILL
 Skill 'whip'
 Level 1

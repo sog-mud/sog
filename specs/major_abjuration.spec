@@ -3,10 +3,6 @@ Name major_abjuration~
 Class major_school
 End
 
-#R
-deny has_spec !has_spec("class_wizard")~
-end
-
 #SKILL
 Skill 'protection from missiles'
 Level 26

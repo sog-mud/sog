@@ -3,11 +3,6 @@ Name major_charm~
 Class major_school
 End
 
-#R
-deny has_spec has_spec("minor_charm")~
-deny has_spec !has_spec("class_wizard")~
-end
-
 #SKILL
 Skill 'charm person'
 Level 35

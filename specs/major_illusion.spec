@@ -3,11 +3,6 @@ Name major_illusion~
 Class major_school
 End
 
-#R
-deny has_spec has_spec("minor_illusion")~
-deny has_spec !has_spec("class_wizard")~
-end
-
 #SKILL
 Skill 'improved invis'
 Level 25

@@ -3,10 +3,6 @@ Name weapon_whip~
 Class weapon
 End
 
-#R
-deny has_spec !has_spec("class_warrior")~
-end
-
 #SKILL
 Skill 'weapon strip'
 Level 25

@@ -3,11 +3,6 @@ Name minor_summonning~
 Class minor_school
 End
 
-#R
-deny has_spec has_spec("major_summonning")~
-deny has_spec !has_spec("class_wizard")~
-end
-
 #SKILL
 Skill 'demon summon'
 Level 15

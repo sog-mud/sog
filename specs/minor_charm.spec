@@ -3,11 +3,6 @@ Name minor_charm~
 Class minor_school
 End
 
-#R
-deny has_spec has_spec("major_charm")~
-deny has_spec !has_spec("class_wizard")~
-end
-
 #SKILL
 Skill 'enchant weapon'
 Level 15

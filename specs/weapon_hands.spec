@@ -3,10 +3,6 @@ Name weapon_hands~
 Class weapon
 End
 
-#R
-deny has_spec !has_spec("all")~
-end
-
 #SKILL
 Skill 'throw'
 Level 20

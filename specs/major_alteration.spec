@@ -3,11 +3,6 @@ Name major_alteration~
 Class major_school
 End
 
-#R
-deny has_spec has_spec("minor_alteration")~
-deny has_spec !has_spec("class_wizard")~
-end
-
 #SKILL
 Skill 'portal'
 Level 35

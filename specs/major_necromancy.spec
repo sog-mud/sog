@@ -3,11 +3,6 @@ Name major_necromancy~
 Class major_school
 End
 
-#R
-deny has_spec has_spec("minor_necromancy")~
-deny has_spec !has_spec("class_wizard")~
-end
-
 #SKILL
 Skill 'power word kill'
 Level 38

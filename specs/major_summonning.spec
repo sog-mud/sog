@@ -3,11 +3,6 @@ Name major_summonning~
 Class major_school
 End
 
-#R
-deny has_spec has_spec("minor_summonning")~
-deny has_spec !has_spec("class_wizard")~
-end
-
 #SKILL
 Skill 'summon shadow'
 Level 35

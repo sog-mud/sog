@@ -3,11 +3,6 @@ Name minor_invocation~
 Class minor_school
 End
 
-#R
-deny has_spec has_spec("major_invocation")~
-deny has_spec !has_spec("class_wizard")~
-end
-
 #SKILL
 Skill 'acid arrow'
 Level 20

@@ -3,11 +3,6 @@ Name minor_alteration~
 Class minor_school
 End
 
-#R
-deny has_spec has_spec("major_alteration")~
-deny has_spec !has_spec("class_wizard")~
-end
-
 #SKILL
 Skill 'enlarge'
 Level 15
