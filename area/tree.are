@@ -1,8 +1,13 @@
-#AREA
-tree.are~
-Yggdrasil~
-{15 50} Glop    Yggdrasil~
-2900 2999
+#AREADATA
+Name Yggdrasil~
+Builders None~
+VNUMs 2900 2999
+Credits Glop~
+Security 9
+LevelRange 15 50
+End
+
+
 
 #MOBILES
 #2900
@@ -16,9 +21,9 @@ dragon~
 AG D 1000 2900
 16 0 3d9+233 159d1+1 1d12+3 crush
 -2 -2 -2 5
-CDF 0 0 0 
+CDF 0 0 0
 stand stand either 2000
-0 0 medium 0
+0 0 medium unknown
 #2901
 planetar~
 a planetar~
@@ -33,7 +38,7 @@ ABG BCDH 900 2901
 -9 -9 -9 6
 CDFK 0 0 0
 stand stand either 4500
-0 0 medium 0
+0 0 medium unknown
 #2902
 shedu~
 a Shedu~
@@ -48,7 +53,7 @@ AG F 850 2902
 -7 -7 -7 6
 CDFJ 0 0 0
 stand stand either 500
-0 0 medium 0
+0 0 medium unknown
 #2903
 dretch demon~
 a dretch~
@@ -61,9 +66,9 @@ bear~
 ABGH DF -800 2903
 10 0 2d7+121 99d1+1 2d4+2 punch
 1 1 1 8
-CDF 0 0 0
+CF 0 0 0
 stand stand either 800
-0 0 medium 0
+0 0 medium unknown
 #2904
 chasme fly demon~
 a chasme~
@@ -78,7 +83,7 @@ ACG DF -900 2904
 -4 -4 -4 2
 CDEFIKN 0 0 C
 stand stand either 2000
-0 0 medium 0
+0 0 medium unknown
 #2905
 babau ebony~
 a babau~
@@ -94,7 +99,7 @@ AG H -1000 2905
 -2 -2 -2 7
 EF 0 0 0
 stand stand either 1400
-0 0 medium 0
+0 0 medium unknown
 #2906
 yagnodemon demon~
 a yagnodemon~
@@ -109,7 +114,7 @@ ACG DEF -950 2906
 -7 -7 -7 8
 DFJ 0 0 0
 stand stand either 2900
-0 0 medium 0
+0 0 medium unknown
 #2907
 kostchtchie demon kost~
 Kostchtchie~
@@ -124,7 +129,7 @@ ABEFG DFH -1000 2907
 -13 -13 -13 4
 FI AB 0 0
 stand stand either 6900
-0 0 medium 0
+0 0 medium unknown
 #2908
 nabassu demon~
 a nabassu~
@@ -139,7 +144,7 @@ ACG D -950 2908
 -1 -1 -1 2
 FI 0 0 D
 stand stand either 1120
-0 0 medium 0
+0 0 medium unknown
 #2909
 dragon cloud~
 a cloud dragon~
@@ -154,7 +159,7 @@ ABG DFH 0 2909
 -11 -11 -11 5
 FIKLN 0 0 0
 stand stand either 8000
-0 0 large 0
+0 0 large unknown
 #2910
 solar~
 a solar~
@@ -167,9 +172,9 @@ human~
 ABG CDFH 1000 2910
 47 0 25d10+3500 469d1+1 8d4+16 slash
 -17 -17 -17 0
-FI 0  0 0
+FI 0 0 0
 stand stand either 8000
-0 0 medium 0
+0 0 medium unknown
 #2911
 wemic~
 a wemic~
@@ -184,7 +189,7 @@ AC F 100 2911
 1 1 1 8
 ABC 0 0 0
 stand stand either 800
-0 0 medium 0
+0 0 medium unknown
 #2912
 frost giant~
 a frost giant~
@@ -199,7 +204,7 @@ ABFG DF -300 2912
 -7 -7 -7 6
 FJKN AB 0 0
 stand stand male 3400
-0 0 large 0
+0 0 large unknown
 #2913
 gorgimera~
 a gorgimera~
@@ -214,7 +219,7 @@ ABFG D -750 2913
 -4 -4 -4 7
 FIKN AB 0 0
 stand stand either 2500
-0 0 large 0
+0 0 large unknown
 #2914
 ratatosk~
 Ratatosk~
@@ -229,11 +234,12 @@ ACG CDFH 200 2914
 -11 -11 -11 5
 CDEFJKN 0 0 0
 stand stand male 6700
-0 0 large 0
+0 0 large unknown
 #0
 
-#OBJECTS
 
+
+#OBJECTS
 #2900
 polearm body wrecker~
 a body-wrecker~
@@ -288,7 +294,7 @@ a set of sleeves of crystal~
 Some sleeves made of crystal lie here.~
 quartz~
 armor AFK AI
-13 13 13 2 2
+ACD ACD ACD B B
 46 100 22500 G
 A
 19 3
@@ -324,7 +330,7 @@ a cast iron girth~
 A cast iron girth lies here.~
 iron~
 armor BG AL
-9 9 9 1 3
+AD AD AD A AB
 23 180 11230 G
 A
 3 -4
@@ -338,6 +344,8 @@ potion AG A
 13 10 4580 G
 #0
 
+
+
 #ROOMS
 #2900
 The Entrance to Yggdrasil~
@@ -346,20 +354,6 @@ this tree are conduits to many other planes of existence.
      There is a small (Glowing) (Huming) tablet.
 ~
 0 0 3
-D2
-~
-~
-1 -1 6346
-D4
-You see the trunk rising up into the sky.
-~
-~
-1 -1 2901
-D5
-You see the trunk descending down into the depths of the earth.
-~
-~
-1 -1 2907
 E
 small tablet~
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -370,6 +364,20 @@ small tablet~
 +                                                                    +
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ~
+D2
+~
+~
+0 -1 6346
+D4
+You see the trunk rising up into the sky.
+~
+~
+0 -1 2901
+D5
+You see the trunk descending down into the depths of the earth.
+~
+~
+0 -1 2907
 S
 #2901
 The Trunk of Yggdrasil~
@@ -423,7 +431,6 @@ D5
 The way down the tree is this way.
 ~
 ~
-
 0 -1 2901
 S
 #2903
@@ -746,68 +753,77 @@ The roots continue in this direction.
 S
 #0
 
-#RESETS
 
-M 0 2900 6 2914 2 *
-G 1 2908 80 2
-*
-M 0 2901 1 2922 1
-E 1 2902 99 16
-*
-M 0 2902 6 2920 1
-G 1 2904 99
-M 0 2902 6 2913 1
-*
-M 0 2903 9 2907 2
-*
-M 0 2904 8 2906 2
-*
-M 0 2905 9 2903 2
-*
-M 0 2906 4 2923 2
-E 1 2900 99 16
-*
-M 0 2907 1 2908 1
-E 1 2901 30 16
-*
-M 0 2908 8 2911 2
-G 1 2910 99
-*
-M 0 2909 1 2915 1
-*
-M 0 2910 1 2921 1
-G 1 2905 80
-*
-M 0 2911 9 2901 1
-G 1 2903 99
-M 0 2911 9 2917 1
-*
-M 0 2912 6 2910 2
-G 1 2909 99
-M 0 2912 6 2916 2
-G 1 2907 99
-*
-M 0 2913 2 2912 2
-*
-M 0 2914 1 2918 1
-
-S
 
 #SPECIALS
-
-M 2900 spec_cast_cleric
-M 2901 spec_cast_mage
-M 2904 spec_cast_mage
-M 2906 spec_cast_mage
-M 2907 spec_cast_undead
-M 2908 spec_cast_mage
-M 2909 spec_breath_gas
-M 2910 spec_cast_cleric
-M 2911 spec_thief
-M 2913 spec_breath_any
-
+M 2900 spec_cast_cleric	* a Hollyphant
+M 2901 spec_cast_mage	* a planetar
+M 2904 spec_cast_mage	* a chasme
+M 2906 spec_cast_mage	* a yagnodemon
+M 2907 spec_cast_undead	* Kostchtchie
+M 2908 spec_cast_mage	* a nabassu
+M 2909 spec_breath_gas	* a cloud dragon
+M 2910 spec_cast_cleric	* a solar
+M 2911 spec_thief	* a wemic
+M 2913 spec_breath_any	* a gorgimera
 S
 
+
+
+#RESETS
+M 0 2911 9 2901 1	* a wemic (The Trunk of Yggdrasil)
+G 0 2903 0		*	a looking glass
+M 0 2905 9 2903 2	* a babau (A Lower Branch of Yggdrasil)
+M 0 2904 8 2906 2	* a chasme (A Lower Branch of Yggdrasil)
+M 0 2903 9 2907 2	* a dretch (The Roots of Yggdrasil)
+M 0 2907 1 2908 1	* Kostchtchie (The Roots of Yggdrasil)
+E 0 2901 0 16		*	a huge hammer of cold iron: wielded
+M 0 2912 6 2910 2	* a frost giant (The Roots of Yggdrasil)
+G 0 2909 0		*	a cast iron girth
+M 0 2908 8 2911 2	* a nabassu (A Lower Branch of Yggdrasil)
+G 0 2910 0		*	a sparkling pink potion
+M 0 2913 2 2912 2	* a gorgimera (The Deepest Roots of Yggdrasil)
+M 0 2902 6 2913 1	* a Shedu (A Middle Branch of Yggdrasil)
+M 0 2900 6 2914 2	* a Hollyphant (A Middle Branch of Yggdrasil)
+G 0 2908 0		*	a hollyphant tusk
+M 0 2909 1 2915 1	* a cloud dragon (A Middle Branch of Yggdrasil)
+M 0 2912 6 2916 2	* a frost giant (A Middle Branch of Yggdrasil)
+G 0 2907 0		*	a paper triangle
+M 0 2911 9 2917 1	* a wemic (The Middle Trunk of Yggrasil)
+M 0 2914 1 2918 1	* Ratatosk (The Upper Trunk of Yggrasil)
+M 0 2902 6 2920 1	* a Shedu (An Upper Branch of Yggdrasil)
+G 0 2904 0		*	a cloudy glass staff
+M 0 2910 1 2921 1	* a solar (An Upper Branch of Yggdrasil)
+G 0 2905 0		*	a set of sleeves of crystal
+M 0 2901 1 2922 1	* a planetar (An Upper Branch of Yggdrasil)
+E 0 2902 0 16		*	a holy bastard sword: wielded
+M 0 2906 4 2923 2	* a yagnodemon (The Roots of Yggdrasil)
+E 0 2900 0 16		*	a body-wrecker: wielded
+S
+
+
+
+#SHOPS
+0
+
+
+
+#OLIMITS
+S
+
+
+
+#MOBPROGS
+#0
+
+#PRACTICERS
+S
+
+
+
+#OMPROGS
+S
+
+
+
 #$
-
-

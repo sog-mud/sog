@@ -167,9 +167,7 @@ The duties of immortals, and even the very reasons for their existence,
 are topics of continual and heated debate in various MUD forums, and are
 fraught with misconceptions, poor examples, and outrageous hypocrisies. :)
 ~
-
 -1 SOCIALS~
- 
 This is a complete list of socials for this MUD:
 Compiled originally by: Sara
 accuse       adjust      air          apologize     applaud     babble
@@ -209,7 +207,6 @@ bite	     discodance  scuff        whap	    lag		chortle
 zerbert      twitch
  
 ~
-
 -1 MERC~
 This mud is based on Merc 2.2, created by Furey, Hatchet, and Kahn.  
 Merc 2.1 is available as Merc_22.tar.gz from ftp.game.org 
@@ -234,7 +231,6 @@ Thanks to ...
 -1 MAP MAPS~
 Thanks to Ezra for drawing the originals of several maps on ROM.
 ~
-
 -1 GREETING~
 .
         /                                                          \
@@ -259,9 +255,8 @@ _____,*-'   `==
              `---'        -\___;-'         ,'   
                                            \  
                                            | 
-~ 
-
--2 MOTD~ 
+~
+-2 MOTD~
 * This is a Roleplaying, PlayerKilling and Adventure MUD.
 * You are responsible for knowing the rules (type 'rules').  Ignorance of 
   the rules is no excuse.
@@ -274,8 +269,7 @@ _____,*-'   `==
   and suggestions.
 * '{Crating{x' command added.
 * win1251 users, see '{CHELP WIN1251{x'.
-~ 
- 
+~
 92 IMOTD~
 Welcome Immortal!
 
@@ -287,7 +281,6 @@ be found by typing 'help laws' or 'help commandments'.
 * Type 'help jobs' to get some idea of what you should be doing.
 * Remember you can RENAME players with unwanted nick names.
 ~
-
 92 JOBS~
 This is a partial list of what a god of any given level should be doing. It is
 not complete yet.
@@ -317,7 +310,6 @@ to help make the mud run more smoothly, power trips are strictly verbotten.
 
 Not fulfilling the roles of your office can result in demotion or deletion.
 ~
-
 92 COMMANDMENTS LAWS 'GOD RULES' GODS~
 .
                           The Rules of ANATOLIA 
@@ -359,7 +351,6 @@ Not fulfilling the roles of your office can result in demotion or deletion.
 11) Take care of limited objects and quests.
 
 ~
-
 0 SUICIDE DELETE~
 Use the delete command to erase unwanted characters, so the name will be
 available for use.  This command must be typed twice to delete a character,
@@ -367,15 +358,12 @@ and you cannot be forced to delete.  Typing delete with an argument will
 return your character to 'safe' status if you change your mind after the
 first delete.
 ~
- 
 0 HEALER~
 The healer decided to grab a quick buck, and now charges for his heals.  Some
 services are still free to players of level 10 or below, however.  To see
 a full listing of the healer's services, type 'heal' at his residence. To
 receive healing, bring plenty of money, and type 'heal <spell>'.
-~ 
-
-
+~
 -1 GAIN~
 The gain command is used to learn new skills, once the proper trainer has 
 been found. The following options can be used with gain:
@@ -384,7 +372,6 @@ gain revert : turns one training session into 10 practice session
 gain convert: turns 10 practices into one training session
 
 ~
-
 92 CLONE~
 Syntax:
   clone obj <object>
@@ -398,22 +385,17 @@ preserved by clone, as well as any spell effects and container contents or
 mobile inventory, except for items which are too high for you to clone.  
 Strung extended descriptions on objects are not kept, however.
 ~
-
-
 0 SKILLS SPELLS~
 The skills and spells commands are used to display your character's list
 of available skills (or spells, as the case may be).  They are listed in
 order of level, with mana cost (for spells) or percentage (for skills)
 listed where applicable.
 ~
-
-
 0 OUTFIT~
 The outfit command, usable by levels 5 and below, equips your character with
 a new set of sub issue gear (banner, weapon, helmet, shield, and vest), 
 courtesy of the Mayor's warehouses.  Only empty equipment slots are affected.
 ~
-
 0 AUTO AUTOLIST AUTOLOOT AUTOGOLD AUTOSAC AUTOEXIT AUTOASSIST AUTOSPLIT~
 ROM uses varies automatic actions, to ease the boredom of always splitting
 gold and sacrificing corpses.  The commands are as follows:
@@ -427,14 +409,12 @@ autosplit : split up spoils from combat among your group members
 autoassit : makes you help group members in combat
 
 Typing a command sets the action , typing it again removes it. 
-~ 
-
+~
 -1 COUNT~
 The count command displays the number of people (that you can see) logged
 into the mud.  It also displays the highest number observed that day, if
 it is higher.
-~ 
- 
+~
 -1 GATE~
 The gate spell is a powerful transportation magic that opens up a portal 
 between your character and another person or creature somewhere else in the
@@ -495,6 +475,6 @@ are no longer shown on score (this can be changed by using 'show' command).
 Language command is used to switch native language.
 Use 'language help' to list supported languages.
 ~
+-1 $~
 
-0 $~
 #$

@@ -1,14 +1,13 @@
-#AREA   
-firetop2.are~
-Firetop Mountain~
-{10 20} Yaegar  Firetop Mountain~
-5735 5835
+#AREADATA
+Name Firetop Mountain~
+Builders None~
+VNUMs 5735 5835
+Credits Yaegar~
+Security 9
+LevelRange 10 20
+End
 
-#HELPS
--1 firetop~
-Debugged to standard Merc 2.x by Jason Huang (god@@sure.net)
-Further conversion to Rom 2.4 by Jaceks and Chicken's Den Staff~
-0 $~
+
 
 #MOBILES
 #5735
@@ -26,7 +25,7 @@ ABCFG R -400 5701
 1 1 1 8
 CFI AB K P
 stand stand male 20
-0 0 medium 0
+0 0 medium unknown
 #5736
 orc~
 a sleeping Orc~
@@ -42,7 +41,7 @@ ABCFG R -400 5701
 1 1 1 8
 CFI AB K P
 sleep sleep male 20
-0 0 medium 0
+0 0 medium unknown
 #5737
 snake~
 a small snake~
@@ -58,7 +57,7 @@ ABFG J 0 0
 1 1 1 8
 CFI AB K P
 stand stand either 20
-0 0 medium 0
+0 0 medium unknown
 #5738
 orc~
 a drunken Orc~
@@ -75,7 +74,7 @@ ABCFG M -400 5701
 1 1 1 8
 CFI AB K P
 stand stand either 20
-0 0 medium 0
+0 0 medium unknown
 #5739
 orc chieftain~
 an Orcish chieftain~
@@ -86,12 +85,12 @@ and he is glad for a more challenging foe. He is the leader of the Orcs in
 this area, and as such will be a tough foe.
 ~
 orc~
-ABCFG HJ -400 5701
+ABCFG H -400 5701
 12 0 2d10+150 119d1+1 1d10+2 slice
 0 0 0 8
 CFI AB K P
 stand stand male 100
-0 0 medium 0
+0 0 medium unknown
 #5740
 orc servant~
 an orcish servant~
@@ -107,7 +106,7 @@ ABCFH 0 0 5701
 1 1 1 8
 CFI AB K P
 stand stand male 20
-0 0 medium 0
+0 0 medium unknown
 #5741
 orc~
 an eating Orc~
@@ -123,7 +122,7 @@ ABCG 0 -400 5701
 1 1 1 8
 CFI AB K P
 stand stand male 20
-0 0 medium 0
+0 0 medium unknown
 #5742
 prisoner~
 A deranged prisoner~
@@ -140,7 +139,7 @@ ABCH X 0 0
 3 3 3 9
 IR A 0 Y
 stand stand male 10
-0 0 medium 0
+0 0 medium unknown
 #5743
 goblin torturer~
 a Goblin torturer~
@@ -151,12 +150,12 @@ and the Dwarf died moments later. The creature is angered, and blames you
 for the Dwarf's premature death!
 ~
 goblin~
-ABCFG J -600 0
+ABCFG 0 -600 0
 10 0 2d7+121 99d1+1 2d4+2 smash
 1 1 1 8
 IR A 0 Y
 stand stand male 10
-0 0 medium 0
+0 0 medium unknown
 #5744
 cyclops iron~
 an iron Cyclops~
@@ -171,7 +170,7 @@ ABG DHNO 0 0
 -2 -2 -2 7
 IR A 0 Y
 stand stand male 10
-0 0 huge 0
+0 0 huge unknown
 #5745
 barbarian~
 an insane Barbarian~
@@ -187,7 +186,7 @@ ABFG NO 0 0
 0 0 0 8
 IR A 0 Y
 stand stand male 10
-0 0 huge 0
+0 0 huge unknown
 #5746
 old man~
 an old man~
@@ -203,7 +202,7 @@ ABCGR CDEFHNO 400 0
 -9 -9 -9 6
 0 0 0 0
 stand stand male 500
-0 0 medium 0
+0 0 medium unknown
 #5747
 old man wererat~
 an old man who is a Wererat~
@@ -218,7 +217,7 @@ ABCG DFHNO 0 0
 -1 -1 -1 8
 IR A 0 P
 stand stand male 20
-0 0 medium 0
+0 0 medium unknown
 #5748
 neanderthal caveman man~
 A lumbering Neanderthal~
@@ -234,7 +233,7 @@ ABCFG EFJNO 0 0
 0 0 0 8
 IR AB 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #5749
 bat giant~
 a giant Bat~
@@ -245,12 +244,12 @@ pointy fangs dripping potent venom, it is quite a formidable sight. Better
 be careful with this one.
 ~
 bat~
-ABCFG DNOT -400 0
+ABCFG DNO -400 0
 11 0 2d8+134 109d1+1 1d10+2 beating
 1 1 1 8
 IR AB 0 0
 stand stand either 0
-0 0 medium 0
+0 0 medium unknown
 #5750
 spider giant~
 a giant Spider~
@@ -267,7 +266,7 @@ ABFG D -400 0
 0 0 0 8
 IR AB 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #5751
 ogre~
 an Ogre~
@@ -281,9 +280,9 @@ troll~
 ABCG NO 0 5702
 13 0 2d10+170 129d1+1 2d5+3 pierce
 -1 -1 -1 8
-IR 0 0 K
+IR 0 0 0
 stand stand male 20
-0 0 medium 0
+0 0 medium unknown
 #5752
 troll~
 a Troll~
@@ -295,12 +294,12 @@ mucous drips from the fevered beast's slavering maw, and you shudder to
 think fo the germs you could be infecte dwith by this grotesque.
 ~
 troll~
-AQBCFG NO -500 5702
+ABCFGQ NO -500 5702
 13 0 2d10+170 129d1+1 2d5+3 pierce
 -1 -1 -1 8
-IR 0 0 K
+IR 0 0 0
 stand stand male 20
-0 0 medium 0
+0 0 medium unknown
 #5753
 rat giant~
 a giant Rat~
@@ -316,7 +315,7 @@ ABFG D -400 0
 1 1 1 8
 0 0 AB 0
 stand stand male 30
-0 0 medium 0
+0 0 medium unknown
 #5754
 giant~
 a burly Giant~
@@ -331,7 +330,7 @@ ABFG NO 0 0
 -2 -2 -2 7
 IR AB 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #5755
 piranha~
 a vicious Piranha~
@@ -347,7 +346,7 @@ ABFG 0 0 0
 1 1 1 8
 IR 0 0 P
 stand stand either 30
-0 0 medium 0
+0 0 medium unknown
 #5756
 sandworm giant~
 a giant Sandworm~
@@ -362,7 +361,7 @@ ABFG DNO 0 0
 -2 -2 -2 7
 IR 0 0 0
 stand stand male 10
-0 0 huge 0
+0 0 huge unknown
 #5757
 skeleton~
 a Skeleton worker~
@@ -377,8 +376,8 @@ ABCG DNO 0 0
 12 0 2d10+150 119d1+1 2d5+3 pound
 0 0 0 8
 R 0 0 0
-stand satnd male 10
-0 0 medium 0
+stand hèº male 10
+0 0 medium unknown
 #5758
 wight~
 a Wight~
@@ -395,7 +394,7 @@ ABCFGO DHJNO -1000 0
 -1 -1 -1 8
 IR AB 0 K
 stand stand male 100
-0 0 medium 0
+0 0 medium unknown
 #5759
 zombie~
 a Zombie~
@@ -411,7 +410,7 @@ ABFG J 0 0
 1 1 1 8
 R A 0 0
 stand stand male 30
-0 0 medium 0
+0 0 medium unknown
 #5760
 dog~
 a Guard Dog~
@@ -422,12 +421,12 @@ you may find that it is not like msot other Dogs, in that it is very tough
 and has certain abilities that may catch you by surprise...
 ~
 dog~
-ABG DFNO 0 0 
+ABG DFNO 0 0
 12 0 2d10+150 119d1+1 1d10+3 cleave
 0 0 0 8
 0 0 0 0
 stand stand male 10
-0 0 medium 0
+0 0 medium unknown
 #5761
 werewolf man~
 a Werewolf~
@@ -443,7 +442,7 @@ ABG HNOR 0 0
 -1 -1 -1 8
 I AB 0 P
 stand stand male 50
-0 0 medium 0
+0 0 medium unknown
 #5762
 ghoul~
 a Ghoul~
@@ -458,7 +457,7 @@ ABFG DNO -500 0
 -1 -1 -1 8
 I AB 0 0
 stand stand male 10
-0 0 medium 0
+0 0 medium unknown
 #5763
 vampire~
 an evil Vampire~
@@ -474,7 +473,7 @@ ABCFGO DFHJT -1000 0
 -3 -3 -3 7
 IR AB K 0
 stand stand male 200
-0 0 medium 0
+0 0 medium unknown
 #5764
 dwarf~
 a Dwarf~
@@ -485,12 +484,12 @@ Dwarfs playing Five Card Stud. He draws deeply on a long pipe, exhaling some
 noxious smoke, and invites you to join in.
 ~
 dwarf~
-ABCG J 400 0
+ABCG 0 400 0
 12 0 2d10+150 119d1+1 1d10+3 bite
 0 0 0 8
 0 AB P 0
 stand stand male 40
-0 0 medium 0
+0 0 medium unknown
 #5765
 minotaur~
 a mighty Minotaur~
@@ -504,9 +503,9 @@ human~
 ABFG J -400 0
 14 0 2d10+190 139d1+1 1d12+3 bite
 -1 -1 -1 8
-R AB 0 0 
+R AB 0 0
 stand stand male 40
-0 0 medium 0
+0 0 medium unknown
 #5766
 dragon~
 an enormous Red Dragon~
@@ -527,12 +526,12 @@ You have been KILLED!!!
 BATTLE UPDATE : adventurer killed by an enormous red dragon.
 ~
 dragon~
-ABCFG CDEFHJNOT -1000 0
+ABCFG CDEFHNO -1000 0
 20 0 4d10+360 199d1+1 2d8+5 beating
 -4 -4 -4 7
 R AB 0 K
 stand stand male 500
-0 0 medium 0
+0 0 medium unknown
 #5767
 warlock~
 the Warlock of Firetop Mountain~
@@ -548,7 +547,7 @@ ABCGR CDEFHJNOU -1000 0
 -6 -6 -6 6
 R AB 0 K
 stand stand male 800
-0 0 medium 0
+0 0 medium unknown
 #5768
 hand~
 a hand~
@@ -562,7 +561,7 @@ ABCFGS D 0 0
 1 1 1 8
 0 0 0 0
 stand stand either 0
-0 0 medium 0
+0 0 medium unknown
 #5769
 crocodile croc~
 a crocodile~
@@ -577,7 +576,7 @@ ABFG D 0 0
 0 0 0 8
 0 0 0 0
 stand stand either 0
-0 0 medium 0
+0 0 medium unknown
 #5770
 gas beast~
 a gas beast~
@@ -592,8 +591,9 @@ ABFG DFHJNOT -1000 0
 -2 -2 -2 7
 0 0 0 0
 stand stand either 10
-0 0 medium 0
+0 0 medium unknown
 #0
+
 
 
 #OBJECTS
@@ -603,7 +603,7 @@ a suit of leather armor~
 A suit of dirty Orcish leather armor has been (intentionally?) left here.~
 iron~
 armor 0 AD
-5 5 5 0 0  
+AC AC AC 0 0
 10 50 400 G
 E
 armor leather~
@@ -616,7 +616,7 @@ a polearm~
 A battered Orcish polearm is here.~
 iron~
 weapon 0 AN
-polearm 2 9 slash 0 
+polearm 2 9 slash 0
 10 130 350 P
 A
 18 -2
@@ -632,7 +632,7 @@ a bottle of Orc grog~
 A bottle of Orc grog is here.~
 glass~
 drink 0 AO
-5 5 'ale' 0 0 
+5 5 'ale' 0 0
 1 5 250 G
 E
 grog~
@@ -644,7 +644,7 @@ an Orc's box~
 This box serves as the Orc's cache.~
 iron~
 container 0 AO
-20 0 0 5 80 
+20 0 0 5 80
 0 10 100 G
 E
 box~
@@ -656,7 +656,7 @@ a single gold piece~
 A single gold piece rests here.~
 gold~
 money 0 A
-1 0 0 0 0
+A 0 0 0 0
 0 0 0 P
 #5740
 mouse~
@@ -690,7 +690,7 @@ a small wooden box with crude hinges~
 A small wooden box with crude hinges rests here.~
 wood~
 container 0 AO
-50 0 0 50 120 
+50 0 0 50 120
 0 10 100 G
 E
 box~
@@ -703,7 +703,7 @@ a small leather-bound book~
 A small leather-bound book entitled "The Making and Casting of Dragonfire".~
 paper~
 scroll G AO
-40 'lightning breath' 'gas breath' 'fire breath' 'acid breath' 
+40 'lightning breath' 'gas breath' 'fire breath' 'acid breath'
 12 50 300 P
 E
 book~
@@ -722,7 +722,7 @@ a sturdy chest~
 A sturdy chest made of oak and iron rests here.~
 meat~
 container 0 0
-500 0 0 500 100 
+500 0 0 500 100
 0 10 0 G
 E
 chest~
@@ -735,7 +735,7 @@ a fair number of gold pieces~
 A fair number of Gold pieces are scattered here.~
 silver~
 money 0 A
-250 0 0 0 0 
+BDEFGH 0 0 0 0
 0 0 0 P
 #5746
 potion vial~
@@ -744,7 +744,7 @@ A small black bottle with a tight glass stopper containing black liquid is
 here.~
 glass~
 potion 0 AO
-8 'invis' '' '' '' 
+8 'invisibility' '' '' ''
 10 10 200 P
 E
 vial~
@@ -756,7 +756,7 @@ a black velvet glove~
 A black velvet glove is here.~
 velvet~
 armor C AH
-7 7 7 2 0 
+ABC ABC ABC B 0
 10 20 0 G
 A
 2 2
@@ -770,7 +770,7 @@ a staw mattress~
 A straw mattress stained with various substances is here.~
 wood~
 furniture 0 0
-2 400 EHK0 100 100 
+B EHI FHIKLN CFG CFG
 0 0 0 P
 E
 mattress~
@@ -782,7 +782,7 @@ a tattered leather case~
 A tattered leather case half a metre long is here.~
 leather~
 container 0 AO
-10 0 0 5 60 
+10 0 0 5 60
 10 10 0 G
 E
 case~
@@ -797,7 +797,7 @@ a bow and a single silver arrow~
 A bow and a single arrow rests here.~
 silver~
 wand AG AO
-50 1 1 'lightning bolt' 0 
+50 1 1 'lightning bolt' 0
 10 38 110 P
 E
 bow~
@@ -810,7 +810,7 @@ a chair leg~
 A chair leg that has been fashioned into a crude club is here.~
 iron~
 weapon 0 AN
-exotic 3 5 chop 0 
+exotic 3 5 chop 0
 7 10 10 P
 A
 18 -1
@@ -826,7 +826,7 @@ a torture rack~
 A torture rack holds a dead Dwarf here.~
 iron~
 furniture 0 0
-1 300 BEHK 100 100 
+A CDFI BEHK CFG CFG
 0 0 0 P
 E
 rack~
@@ -839,7 +839,7 @@ a wicked-looking knife~
 A wicked-looking knife is here.~
 iron~
 weapon 0 AN
-dagger 3 5 pierce 0 
+dagger 3 5 pierce 0
 9 130 570 P
 A
 19 4
@@ -853,7 +853,7 @@ a piece of sweet-smelling cheese~
 A piece of sweet-smelling cheese is here.~
 food~
 food 0 AO
-5 5 0 0 0 
+AC AC 0 0 0
 0 10 5 P
 E
 cheese~
@@ -865,7 +865,7 @@ a shield~
 A bronze shield bearing a crescent moon device has been left here.~
 iron~
 armor A AJ
-5 5 5 -1 0 
+AC AC AC ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef 0
 12 150 1000 G
 A
 2 -1
@@ -885,7 +885,7 @@ an expensive-looking jewel~
 This Jewel looks VERY valuable...~
 gold~
 staff A AO
-10 5 5 'blindness' 0 
+10 5 5 'blindness' 0
 10 10 5000 P
 A
 12 25
@@ -925,7 +925,7 @@ a wooden mallet~
 A wooden mallet is here.~
 wood~
 weapon 0 AN
-exotic 3 5 slash 0  
+exotic 3 5 slash 0
 12 75 10 P
 E
 mallet~
@@ -937,7 +937,7 @@ a stump of wood~
 A stump of wood sharpened into a stake is here.~
 wood~
 weapon 0 AN
-exotic 2 8 cleave 0 
+exotic 2 8 cleave 0
 11 15 10 P
 E
 stump stake~
@@ -982,7 +982,7 @@ a crude stone club~
 A crude stone club lies here.~
 stone~
 weapon 0 AN
-mace 3 6 crush 0 
+mace 3 6 crush 0
 12 130 1500 P
 A
 18 -4
@@ -998,7 +998,7 @@ a piece of y-shaped wood~
 This would make an excellent frame for a slingshot. ~
 wood~
 weapon 0 AO
-exotic 2 6 crush 0 
+exotic 2 6 crush 0
 10 25 100 P
 A
 18 -1
@@ -1029,7 +1029,7 @@ a magnificent-looking sword~
 A magnificent-looking sword is here. Pick it up!~
 iron~
 weapon AG AO
-sword 5 5 slash 0 
+sword 5 5 slash 0
 15 125 700 P
 A
 1 1
@@ -1049,7 +1049,7 @@ a pair of boots~
 A pair of red boots sit innocently here.~
 leather~
 armor M AG
-2 2 2 0 0 
+B B B 0 0
 10 50 100 G
 A
 14 -150
@@ -1063,7 +1063,7 @@ a chisel with a silver blade~
 A chisel with a silver blade is here.~
 iron~
 weapon AG AN
-dagger 4 4 pierce 0 
+dagger 4 4 pierce 0
 12 40 600 P
 A
 19 2
@@ -1077,7 +1077,7 @@ a bronze helmet~
 A bronze helmet is here.~
 bronze~
 armor EM AE
-8 8 8 -2 0 
+D D D BCDEFGHIJKLMNOPQRSTUVWXYZabcdef 0
 10 120 1000 G
 A
 3 -2
@@ -1093,7 +1093,7 @@ an iron helmet~
 An Iron helmet is here.~
 iron~
 armor K AE
-7 7 7 0 0 
+ABC ABC ABC 0 0
 12 158 1000 G
 A
 3 2
@@ -1121,7 +1121,7 @@ a suit of leather armor~
 A suit of leather armor is here.~
 leather~
 armor 0 AD
-5 5 6 0 0 
+AC AC BC 0 0
 10 120 550 G
 E
 armor~
@@ -1133,7 +1133,7 @@ a wooden shield~
 A simple wooden shield has been abandoned here.~
 wood~
 armor 0 AJ
-6 5 5 0 0 
+BC AC AC 0 0
 10 100 700 G
 E
 shield~
@@ -1145,7 +1145,7 @@ a steel sword~
 This sword doesn't look any better than your own weapon...~
 steel~
 weapon 0 AN
-sword 4 4 slice 0 
+sword 4 4 slice 0
 10 250 50 P
 E
 sword~
@@ -1183,7 +1183,7 @@ gold!~
 Gold!~
 gold~
 money 0 A
-100 0 0 0 0 
+CFG 0 0 0 0
 0 0 0 P
 #5778
 barrel rum~
@@ -1191,7 +1191,7 @@ a barrel of rum~
 A barrel of good rum is here.~
 wood~
 drink 0 AO
-8 8 'rum' 0 0 
+8 8 'rum' 0 0
 0 20 0 G
 E
 rum~
@@ -1215,7 +1215,7 @@ a pair of unlaced boots~
 Someone forgot to tie their laces up on these boots...~
 plastic~
 armor 0 AG
-7 7 7 0 0 
+ABC ABC ABC 0 0
 11 50 100 G
 A
 14 50
@@ -1230,7 +1230,7 @@ some pickled eggs~
 Some pickled eggs have fallen out of their jar.~
 food~
 food 0 A
-5 5 0 0 0 
+AC AC 0 0 0
 0 5 10 P
 E
 eggs~
@@ -1242,7 +1242,7 @@ a jar~
 This jar is commonly used to hold pickled eggs and other preserved foods.~
 paper~
 container 0 AO
-10 0 0 10 100 
+10 0 0 10 100
 5 20 10 G
 E
 jar~
@@ -1254,7 +1254,7 @@ a pair of cheap earrings~
 Someone's cheap earrings have been left here.~
 wool~
 armor 0 AE
-6 7 5 0 0
+BC ABC AC 0 0
 12 40 570 P
 E
 earrings~
@@ -1267,7 +1267,7 @@ a vial of liquid~
 A vial of liquid glows strangely here...~
 glass~
 potion A AO
-10 'bless' 'cure serious' 'cure poison' 'refresh' 
+10 'bless' 'cure serious' 'cure poison' 'refresh'
 10 10 100 P
 A
 4 2
@@ -1297,7 +1297,7 @@ the Warlock's spellbook~
 The Warlock's spellbook has been lost by its guardian.~
 paper~
 scroll EGJ AO
-20 'dispel magic' 'fly' 'charm person' 'sleep' 
+20 'dispel magic' 'fly' 'charm person' 'sleep'
 10 10 100 P
 A
 12 50
@@ -1324,7 +1324,7 @@ a Dwarven pipe~
 A Dwarven pipe has been left here.~
 wood~
 wand G AO
-8 4 4 'faerie fog' 0 
+8 4 4 'faerie fog' 0
 10 75 1650 P
 E
 pipe~
@@ -1349,7 +1349,7 @@ a red clay bowl~
 A red clay bowl rests here.~
 clay~
 container 0 AO
-100 0 0 50 50 
+100 0 0 50 50
 10 10 0 G
 E
 bowl~
@@ -1361,7 +1361,7 @@ some coins~
 Some coins have been scattered here.~
 silver~
 money 0 AO
-20 0 0 0 0
+CE 0 0 0 0
 0 0 0 P
 #5792
 fountain~
@@ -1400,7 +1400,7 @@ the Warlock's robes~
 The Warlock's robes have been torn from his body.~
 wool~
 armor GJ AK
-7 7 7 0 0 
+ABC ABC ABC 0 0
 21 90 3500 G
 A
 3 1
@@ -1420,7 +1420,7 @@ the Warlock's sword~
 The Warlock's sword has been dropped here.~
 iron~
 weapon GJ AN
-sword 5 6 slice C 
+sword 5 6 slice C
 21 120 5300 P
 A
 5 -2
@@ -1442,7 +1442,7 @@ a solid iron-bound oak chest~
 A solid iron-bound oak chest rests in a corner.~
 meat~
 container 0 0
-100 1 0 50 90 
+100 A 0 50 90
 10 30 100 G
 E
 chest~
@@ -1466,7 +1466,7 @@ gold!~
 The Warlock's Gold!~
 gold~
 money 0 A
-50345 0 0 0 0
+ADFHKOP 0 0 0 0
 0 0 0 P
 #5799
 key~
@@ -1486,7 +1486,7 @@ a bullwhip~
 A piece of leather nearly ten feet long has been curled up here.~
 linen~
 weapon 0 AN
-whip 3 5 whip 0 
+whip 3 5 whip 0
 12 90 370 P
 A
 18 -2
@@ -1501,7 +1501,7 @@ an Orcish cloak~
 An Orc chieftain's cloak is crumpled up into a ball here.~
 iron~
 armor 0 AC
-6 6 6 0 0 
+BC BC BC 0 0
 12 120 650 G
 A
 5 1
@@ -1515,7 +1515,7 @@ a pouch belt~
 A small pouch belt is here.~
 iron~
 container 0 AL
-25 1 0 5 90
+25 A 0 5 90
 11 10 450 G
 #5803
 bench~
@@ -1523,7 +1523,7 @@ a wooden bench~
 A wooden bench is here. It has a small inscription carved into it.~
 wood~
 furniture A 0
-2 400 EHK 100 100 
+B EHI EHK CFG CFG
 0 0 0 P
 E
 inscription bench~
@@ -1597,7 +1597,7 @@ a glass cabinet~
 A glass cabinet full of curios rests against one wall.~
 glass~
 container 0 0
-10000 1 0 10000 100
+10000 A 0 10000 100
 0 0 0 G
 E
 cabinet~
@@ -1622,7 +1622,7 @@ a book~
 A book is here.~
 paper~
 scroll AG AO
-20 'armor' 'bless' 'stone skin' 'haste' 
+20 'armor' 'bless' 'stone skin' 'haste'
 15 10 10 P
 E
 book~
@@ -1662,6 +1662,7 @@ This chair is actually quite beneficial if held.
 #0
 
 
+
 #ROOMS
 #5735
 Path to Firetop Mountain~
@@ -1674,15 +1675,6 @@ You see a small sign stuck to a nearby withered tree.
      There is a small (Glowing) (Humming) tablet.
 ~
 0 C 3
-D0
-inside the mountain
-~
-~
-0 0 5736
-D2
-~
-~
-0 0 8854
 E
 sign~
 The sign says-
@@ -1711,6 +1703,15 @@ small tablet~
 +                                                          july'96 +
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ~
+D0
+inside the mountain
+~
+~
+0 0 5736
+D2
+~
+~
+0 0 8854
 S
 #5736
 Inside the Mountain~
@@ -1761,15 +1762,15 @@ sides are smooth and unscaleable, and for some reason your magic doesn't
 seem to work here. Looks like you might need to recall.
 ~
 0 ACD 0
+D3
+~
+~
+0 -1 5737
 D5
 a trapdoor
 ~
 ~
 1 -1 13400
-D3
-~
-~
-1 -1 5737
 S
 #5739
 A Guard Post~
@@ -1828,7 +1829,7 @@ D1
 a corridor
 ~
 ~
-1 0 5740
+0 0 5740
 S
 #5742
 A Corridor~
@@ -1866,7 +1867,7 @@ D1
 a corridor
 ~
 ~
-1 0 5742
+0 0 5742
 S
 #5744
 A Corridor~
@@ -1906,7 +1907,7 @@ D1
 a corridor
 ~
 ~
-1 0 5744
+0 0 5744
 S
 #5746
 A Junction~
@@ -2032,7 +2033,7 @@ D3
 a corridor
 ~
 ~
-1 0 5750
+0 0 5750
 S
 #5752
 A Corridor~
@@ -2070,7 +2071,7 @@ D3
 a corridor
 ~
 ~
-1 0 5752
+0 0 5752
 S
 #5754
 A Corridor~
@@ -2109,7 +2110,7 @@ D3
 a corridor
 ~
 ~
-1 0 5754
+0 0 5754
 S
 #5756
 A Junction~
@@ -2129,7 +2130,7 @@ D2
 a corridor
 ~
 portcullis~
-1 0 5754
+0 0 5754
 D3
 a long passageway~
 ~
@@ -2147,7 +2148,7 @@ D0
 a junction
 ~
 ~
-1 0 5758
+0 0 5758
 D3
 a junction
 ~
@@ -2214,7 +2215,7 @@ D3
 a junction
 ~
 ~
-1 0 5759
+0 0 5759
 S
 #5761
 A Bend~
@@ -2243,6 +2244,16 @@ themself, behind the east door. There is another, pitch-black portal to
 the north. It looks ominous...
 ~
 0 AD 0
+E
+sign~
+The sign says, in large, neatly-scribed letters-
+
+       "T H E     H O U S E     O F      C A N D L E S"
+     
+     Visitors welcome. Please leave your children and pets outside.
+     No Hawkers or Canvassers. Shoplifters WILL be prosecuted.
+
+~
 D0
 a pitch-black portal
 ~
@@ -2263,16 +2274,6 @@ a door
 ~
 ~
 1 0 5763
-E
-sign~
-The sign says, in large, neatly-scribed letters-
-
-       "T H E     H O U S E     O F      C A N D L E S"
-     
-     Visitors welcome. Please leave your children and pets outside.
-     No Hawkers or Canvassers. Shoplifters WILL be prosecuted.
-
-~
 S
 #5763
 A Cavern~
@@ -2286,7 +2287,7 @@ D1
 outside three doors
 ~
 ~
-1 0 5762
+0 0 5762
 S
 #5764
 A Shop~
@@ -2300,7 +2301,7 @@ D3
 outside three doors
 ~
 ~
-1 0 5762
+0 0 5762
 S
 #5765
 A Barbarian!~
@@ -2314,12 +2315,12 @@ D0
 a short passage
 ~
 ~
-1 0 5801
+0 0 5801
 D2
 a door
 ~
 ~
-1 0 5759
+0 0 5759
 S
 #5766
 A Black Corridor~
@@ -2353,12 +2354,12 @@ D0
 a short corridor
 ~
 ~
-1 0 5802
+0 0 5802
 D2
 a short corridor
 ~
 ~
-1 0 5801
+0 0 5801
 S
 #5768
 A Fountain~
@@ -2431,7 +2432,7 @@ D3
 a corridor
 ~
 ~
-1 0 5770
+0 0 5770
 S
 #5772
 A Junction~
@@ -2483,7 +2484,7 @@ D2
 pear room
 ~
 ~
-1 0 5769
+0 0 5769
 D3
 river
 ~
@@ -2627,15 +2628,15 @@ retch, he leaps forward to attack. A traveller once told you that he found
 a gateway to another dimension in an Ogre cave in these parts...
 ~
 0 AD 0
+E
+floor ground~
+There is a circular scorch mark on the floor here.
+~
 D2
 entrance to a cave
 ~
 ~
 0 0 5780
-E
-floor ground~
-There is a circular scorch mark on the floor here.
-~
 S
 #5782
 A Bend~
@@ -2824,7 +2825,7 @@ D1
 a junction
 ~
 ~
-1 0 5793
+0 0 5793
 S
 #5792
 A Giant Room~
@@ -2837,7 +2838,7 @@ D2
 rat room
 ~
 ~
-1 0 5791
+0 0 5791
 S
 #5793
 A Junction~
@@ -2979,7 +2980,7 @@ D1
 a westward corridor
 ~
 ~
-1 0 5747
+0 0 5747
 S
 #5800
 The Orc Kitchen~
@@ -3024,7 +3025,7 @@ D0
 a pear-shaped room
 ~
 ~
-1 0 5769
+0 0 5769
 D2
 a gallery
 ~
@@ -3080,7 +3081,7 @@ D2
 outside a door
 ~
 ~
-1 0 5804
+0 0 5804
 D3
 a pantry
 ~
@@ -3098,7 +3099,7 @@ D1
 the shipbuilder's quarters
 ~
 ~
-1 0 5805
+0 0 5805
 S
 #5807
 A Short Dark Corridor~
@@ -3114,7 +3115,7 @@ D2
 a junction on the north bank near a bridge
 ~
 ~
-1 0 5798
+0 0 5798
 S
 #5808
 A Zombie Room~
@@ -3134,7 +3135,7 @@ D2
 a short dark corridor
 ~
 ~
-1 0 5807
+0 0 5807
 S
 #5809
 A Crypt~
@@ -3147,7 +3148,7 @@ D2
 a zombie room
 ~
 ~
-1 0 5808
+0 0 5808
 D3
 a junction
 ~
@@ -3322,7 +3323,7 @@ D2
 a boathouse
 ~
 ~
-1 0 5816
+0 0 5816
 S
 #5818
 A Room~
@@ -3342,7 +3343,7 @@ D2
 a corridor
 ~
 ~
-1 0 5817
+0 0 5817
 S
 #5819
 A Corridor~
@@ -3360,7 +3361,7 @@ D2
 a room
 ~
 ~
-1 0 5818
+0 0 5818
 S
 #5820
 A Junction~
@@ -3511,7 +3512,7 @@ D2
 a junction
 ~
 ~
-1 0 5826
+0 0 5826
 S
 #5828
 Another Door~
@@ -3548,7 +3549,7 @@ D2
 another door
 ~
 ~
-1 0 5828
+0 0 5828
 S
 #5830
 A Bend~
@@ -3646,274 +3647,201 @@ S
 #0
 
 
-#RESETS
-* this area is connected with:
-*    5735 <>  8854  (mirkwood)
-*    5738 <> 13400  (ciquala )
-*
-* ver 1.00 by Kajko
-* this area has been converted to ROM 2.4 format by Kajko
-* checked and balanced by jaceks
-*                                 Mon Jul 29 03:13:37 MET DST 1996 
-D 0 5754 0 1
-D 0 5738 5 1      
-D 0 5737 1 1      
-*
-M 0 5735 2 5739 2  *LOADS ORC SENTRY (11)
-E 1 5735 -1 8          *EQUIPS LEATHER ARMOR
-E 1 5736 -1 16         *EQUIPS POLEARM
-*
-O 1 5737 -1 5739    *LOADS GROG
-*
-D 0 5740 3 1      
-*
-M 0 5736 4 5741 1   *LOADS SLEEPING ORC (11)
-*
-O 1 5738 -1 5741     *LOADS BOX
-P 1 5740 -1 5738 1       *LOADS MOUSE IN BOX
-*
-O 1 5748 -1 5741      *LOADS MATTRESS
-*
-D 0 5742 3 1     
-*
-M 1 5737 1 5743 1    * LOADS SNAKE (1)
-G 1 5741 -1               *GIVES KEY
-*
-O 1 5748 -1 5743     *LOADS MATTRESS
-*
-D 0 5744 3 1    
-*
-M 0 5738 3 5745 3       *LOADS DRUNK ORC (10)
-E 1 5735 -1 8                *EQUIPS LEATHER ARMOR
-G 1 5737 -1                  *GIVES GROG
-*
-O 1 5742 -1 5745       *LOADS BOX
-P 1 5743 -1 5742 1            *PUTS TOME IN BOX
-*
-O 1 5748 -1 5745       *LOADS MATTRESS
-*
-D 0 5747 3 1 
-D 0 5749 1 1 
-D 0 5750 1 1 
-*
-M 0 5742 1 5751 1       *LOADS PRISONER (8)
-E 1 5751 -1 16                 *WIELDS CHAIR LEG
-*
-D 0 5752 1 1   
-*
-O 1 5755 -1 5753       *LOADS SHIELD
-*
-D 0 5754 1 1     
-*
-M 0 5743 2 5755 2      *LOADS TORTURER (10)
-E 1 5753 -1 16                *WIELDS KNIFE
-G 1 5754 -1                   *GIVES CHEESE
-*
-O 1 5752 1 5755         *LOADS TORTURE RACK 
-O 1 5803 1 5757         *LOADS BENCH
-*
-D 0 5759 0 1   
-D 0 5759 1 1   
-*
-M 0 5744 1 5760 1       *LOADS IRON CYCLOPS (15)
-G 1 5756 -1                    *GIVES JEVEL
-G 1 5757 -1                    *GIVES KEY
-*
-D 0 5762 0 1   
-D 0 5762 1 1    
-D 0 5762 3 1    
-*
-M 0 5750 1 5763 1       *LOADS SPIDER (12)
-*
-O 1 5767 -1 5763        *LOADS BOOTS
-*
-M 0 5746 1 5764 1       *LOADS OLD MAN (S)
-G 1 5762 -1                    *GIVES CANDLE
-*
-M 0 5745 1 5765 1       *LOADS BARBARIAN (12)
-*
-O 1 5758 -1 5765        *LOADS BOX
-P 1 5759 -1 5758 1             *PUTS MALLET IN BOX
-P 1 5760 -1 5758 1              *PUTS STUMP IN BOX
-*
-D 0 5766 0 1     
-D 0 5766 2 1     
-*
-O 1 5761 -1 5767        *LOADS PAINTING
-*
-D 0 5768 2 1      
-*
-O 1 5792 -1 5768        *LOADS FOUNTAIN
-*
-D 0 5769 0 1      
-*
-O 1 5764 -1 5769        *LOADS WOOD
-O 1 5765 -1 5769        *LOADS ROPE
-*
-D 0 5770 0 1     
-D 0 5770 1 1     
-*
-O 1 5771 -1 5771         *LOADS TABLE
-O 1 5769 -1 5771         *LOADS BRONZE HELMET
-O 1 5770 -1 5771         *LOADS IRON HELMET
-*
-M 0 5747 1 5773 1        *LOADS FERRYMAN (13)
-*
-O 1 5804 -1 5773         *LOADS BOAT
-*
-D 0 5772 2 1    
-*
-M 0 5749 2 5774 2        *LOADS GIANT BAT (11)
-*
-M 0 5748 2 5775 2        *LOADS CAVEMEN (12)
-E 1 5763 -1 16                  *WIELDS CLUB
-*
-M 1 5769 1 5776 1        *LOADS CROCODILE (12)
-*
-O 1 5766 -1 5777         *LOADS SWORD
-*
-M 0 5755 3 5778 3        *LOADS PIRANHA (10)
-*
-M 0 5751 1 5781 1        *LOADS OGRE (13)
-M 0 5752 1 5789 1        *LOADS TROLL (13)
-*
-D 0 5790 0 1    
-*
-M 0 5753 3 5791 3        *LOADS GIANT RATS (10)
-*
-D 0 5791 0 1      
-*
-M 0 5754 1 5792 1        *LOADS GIANT (15)
-G 1 5805 -1                     *GIVES ALE GIANT
-*
-D 0 5793 3 1 
-D 0 5794 0 1 
-*
-M 0 5770 1 5795 1        *LOADS GAS BEAST (15)
-*
-O 1 5806 -1 5795         *LOADS KEY IN GAS ROOM
-*
-M 0 5756 1 5797 1        *LOADS GIANT SANDWORM (16)
-D 0 5798 0 1      
-*
-M 0 5739 1 5799 1        *LOADS CHIEFTAIN (12)
-E 1 5800 -1 16                  *WIELDS WHIP
-E 1 5801 -1 3                   *WEARS CLOAK
-E 1 5802 -1 13                  *WEARS POUCH BELT
-*
-M 0 5740 1 5799 1         *LOADS SERVANT (10)
-*
-O 1 5744 -1 5799          *LOADS CHEST
-P 1 5745 -1 5744 1              *PUTS GOLD
-P 1 5746 -1 5744 1              *PUTS POTION OF INVISIBILITY
-P 1 5747 -1 5744 1              *PUTS GLOVE
-*
-O 1 5748 -1 5799          *LOADS MATTRESS (12)
-*
-M 0 5741 4 5800 4         *LOADS EATING ORC (11)
-*
-O 1 5749 -1 5800          *LOADS CASE
-P 1 5750 -1 5749 2               *LOADS BOW IN CASE
-*
-D 0 5801 0 1      
-D 0 5802 2 1      
-D 0 5803 0 1      
-D 0 5803 2 1      
-*
-M 0 5768 5 5803 5         *LOADS HAND (1)
-*
-D 0 5804 0 1   
-*
-M 0 5760 1 5805 1         *LOADS DOG (12)
-*
-M 0 5761 1 5805 1       *LOADS WEREWOLF (13)
-E 1 5780 -1 8                   *WEARS BOOTS
-G 1 5779 -1                     *GIVES KEYS TO BOATHOUSE
-*
-D 0 5805 3 1 
-*
-O 1 5782 -1 5806        *LOADS JAR
-P 1 5781 -1 5782 2             *LOADS EGG INTO JAR
-*
-D 0 5807 0 1     
-*
-M 0 5759 4 5808 4       *LOADS ZOMBIES (11)
-E 1 5772 -1 5                   *WEARS ARMOR
-E 1 5773 -1 11                  *HOLDS SHIELD
-E 1 5774 -1 16                  *WIELDS SWORD
-*
-O 1 5775 -1 5808        *LOADS CRUCIFIX
-O 1 5776 -1 5808        *LOADS CORPSE
-O 1 5777 -1 5808        *LOADS GOLD
-O 1 5778 -1 5808        *LOADS RUM
-*
-D 0 5808 0 1     
-D 0 5809 3 1     
-D 0 5810 1 1     
-D 0 5815 1 2     
-*
-M 0 5763 1 5809 1       *LOADS VAMPIRE (17)
-G 1 5786 -1                      *GIVES BOOK
-*
-M 0 5757 5 5816 5       *LOADS SKELETONS (12)
-*
-O 1 5768 -1 5816        *LOADS CHISEL
-O 1 5759 -1 5816        *LOADS MALLET
-O 1 5807 -1 5816        *LOADS COPPER KEY
-*
-D 0 5816 0 1     
-D 0 5817 0 1     
-*
-M 1 5758 1 5818 1       *LOADS WIGHT (14)
-*
-O 1 5748 -1 5818        *LOADS MATTRESS
-*
-D 0 5818 0 1     
-D 0 5821 2 2    
-*
-O 1 5796 -1 5822        *LOADS CHEST
-P 1 5797 -1 5796 1              *PUTS LOOT IN CHEST
-P 1 5798 -1 5796 1              *PUTS GOLD IN CHEST
-*
-M 0 5762 1 5823 1       *LOADS GHOUL (13)
-E 1 5783 -1 6           *WEARS EARRINGS
-G 1 5784 -1                     *GIVES LIQUID
-G 1 5785 -1                     *GIVES PARCHMENT
-*
-D 0 5826 0 1    
-D 0 5825 3 2    
-*
-M 1 5764 4 5827 4       *LOADS DWARVE (12)
-G 1 5788 -1                      *GIVES PIPE
-*
-O 1 5771 -1 5827        *LOADS TABLE
-O 1 5793 -1 5827        *LOADS CARDS
-*
-D 1 5828 0 1   
-*
-M 0 5765 1 5829 1       *LOADS MINOTAUR (14)
-G 1 5808 -1                      *GIVES PORTCULLIS RED KEY
-*
-O 1 5789 -1 5829        *LOADS LIQUID
-O 1 5790 -1 5829        *LOADS BOWL
-P 1 5791 -1 5790 1              *LOADS GOLD IN BOWL
-*
-M 0 5766 1 5832 1       *LOADS DRAGON (20)
-*
-D 0 5833 1 2 
-*
-M 0 5767 1 5834 1       *LOADS WIZARD (23)
-E 1 5794 -1 12                  *WEARS ROBES
-E 1 5795 -1 16                  *WIELDS SWORD
-G 1 5799 -1                     *GIVES KEY TO CHEST
-*
-O 1 5809 -1 5834        *LOADS CABINET
-P 1 5810 -1 5809 1              *LOADS CURIO IN CABINET
-*
-O 1 5811 -1 5834        *LOADS BOOK
-O 1 5812 -1 5834        *LOADS DESK
-O 1 5813 -1 5834        *LOADS CHAIR
+
+#SPECIALS
+M 5737 spec_poison	* a small snake
+M 5742 spec_fido	* A deranged prisoner
+M 5744 spec_cast_judge	* an iron Cyclops
+M 5746 spec_cast_mage	* an old man
+M 5747 spec_poison	* an old man who is a Wererat
+M 5749 spec_poison	* a giant Bat
+M 5750 spec_poison	* a giant Spider
+M 5752 spec_poison	* a Troll
+M 5753 spec_poison	* a giant Rat
+M 5758 spec_cast_undead	* a Wight
+M 5760 spec_breath_fire	* a Guard Dog
+M 5761 spec_executioner	* a Werewolf
+M 5762 spec_poison	* a Ghoul
+M 5763 spec_cast_undead	* an evil Vampire
+M 5766 spec_breath_any	* an enormous Red Dragon
+M 5767 spec_cast_mage	* the Warlock of Firetop Mountain
+M 5768 spec_thief	* a hand
+M 5770 spec_breath_gas	* a gas beast
 S
+
+
+
+#RESETS
+D 0 5737 1 1	* A Door: door to the east: closed
+D 0 5738 5 1	* A Pit: door to the down: closed
+D 0 5740 3 1	* A Corridor: door to the west: closed
+D 0 5742 3 1	* A Corridor: door to the west: closed
+D 0 5744 3 1	* A Corridor: door to the west: closed
+D 0 5747 3 1	* A Westward Corridor: door to the west: closed
+D 0 5749 1 1	* Outside the Kitchen: door to the east: closed
+D 0 5750 1 1	* A Corridor: door to the east: closed
+D 0 5752 1 1	* A Corridor: door to the east: closed
+D 0 5754 0 1	* A Corridor: door to the north: closed
+D 0 5754 1 1	* A Corridor: door to the east: closed
+D 0 5759 0 1	* A Junction: door to the north: closed
+D 0 5759 1 1	* A Junction: door to the east: closed
+D 0 5762 0 1	* Outside Three Doors: door to the north: closed
+D 0 5762 1 1	* Outside Three Doors: door to the east: closed
+D 0 5762 3 1	* Outside Three Doors: door to the west: closed
+D 0 5766 0 1	* A Black Corridor: door to the north: closed
+D 0 5766 2 1	* A Black Corridor: door to the south: closed
+D 0 5768 2 1	* A Fountain: door to the south: closed
+D 0 5769 0 1	* A Pear-Shaped Room: door to the north: closed
+D 0 5770 0 1	* A Corridor: door to the north: closed
+D 0 5770 1 1	* A Corridor: door to the east: closed
+D 0 5772 2 1	* A Junction: door to the south: closed
+D 0 5790 0 1	* A Rough Cavern: door to the north: closed
+D 0 5791 0 1	* Rat Room: door to the north: closed
+D 0 5793 3 1	* A Junction: door to the west: closed
+D 0 5794 0 1	* A Bend: door to the north: closed
+D 0 5798 0 1	* The Other Side: door to the north: closed
+D 0 5801 0 1	* A Short Corridor: door to the north: closed
+D 0 5802 2 1	* A Short Corridor: door to the south: closed
+D 0 5803 0 1	* Room of Hands and Stars: door to the north: closed
+D 0 5803 2 1	* Room of Hands and Stars: door to the south: closed
+D 0 5804 0 1	* Outside a Door: door to the north: closed
+D 0 5805 3 1	* Inside the Shipbuilder's Quarters: door to the west: closed
+D 0 5807 0 1	* A Short Dark Corridor: door to the north: closed
+D 0 5808 0 1	* A Zombie Room: door to the north: closed
+D 0 5809 3 1	* A Crypt: door to the west: closed
+D 0 5810 1 1	* A Junction: door to the east: closed
+D 0 5815 1 2	* A Door: door to the east: closed and locked
+D 0 5816 0 1	* A Shipbuilding Room: door to the north: closed
+D 0 5817 0 1	* A Corridor: door to the north: closed
+D 0 5818 0 1	* A Room: door to the north: closed
+D 0 5821 2 2	* A Door: door to the south: closed and locked
+D 0 5825 3 2	* A Widening in the Passage: door to the west: closed and locked
+D 0 5826 0 1	* A Junction: door to the north: closed
+D 0 5828 0 1	* Another Door: door to the north: closed
+D 0 5833 1 2	* A Locked Steel Door: door to the east: closed and locked
+M 0 5735 2 5739 2	* an Orc sentry (A Guard Post)
+E 0 5735 0 8		*	a suit of leather armor: on the feet
+E 0 5736 0 16		*	a polearm: wielded
+O 0 5737 0 5739		* a bottle of Orc grog (A Guard Post)
+M 0 5736 4 5741 1	* a sleeping Orc (Orc Sleeping Quarters)
+O 0 5738 0 5741		* an Orc's box (Orc Sleeping Quarters)
+P 0 5740 -1 5738 1	* an Orc's box: a dead mouse
+O 0 5748 0 5741		* a staw mattress (Orc Sleeping Quarters)
+M 0 5737 1 5743 1	* a small snake (Guards' Quarters)
+G 0 5741 0		*	a bronze-coloured key
+O 0 5748 0 5743		* a staw mattress (Guards' Quarters)
+M 0 5738 3 5745 3	* a drunken Orc (A Party)
+E 0 5735 0 8		*	a suit of leather armor: on the feet
+G 0 5737 0		*	a bottle of Orc grog
+O 0 5742 0 5745		* a small wooden box with crude hinges (A Party)
+P 0 5743 -1 5742 1	* a small wooden box with crude hinges: a small leather-bound book
+O 0 5748 0 5745		* a staw mattress (A Party)
+M 0 5742 1 5751 1	* A deranged prisoner (A Cell)
+E 0 5751 0 16		*	a chair leg: wielded
+O 0 5755 0 5753		* a shield (Armory)
+M 0 5743 2 5755 2	* a Goblin torturer (A Torture Chamber)
+E 0 5753 0 16		*	a wicked-looking knife: wielded
+G 0 5754 0		*	a piece of sweet-smelling cheese
+O 0 5752 0 5755		* a torture rack (A Torture Chamber)
+O 0 5803 0 5757		* a wooden bench (A Bend in the Corridor)
+M 0 5744 1 5760 1	* an iron Cyclops (An Ornate Room)
+G 0 5756 0		*	an expensive-looking jewel
+G 0 5757 0		*	a small key
+M 0 5750 1 5763 1	* a giant Spider (A Cavern)
+O 0 5767 0 5763		* a pair of boots (A Cavern)
+M 0 5746 1 5764 1	* an old man (A Shop)
+G 0 5762 0		*	a blue candle
+M 0 5745 1 5765 1	* an insane Barbarian (A Barbarian!)
+O 0 5758 0 5765		* an old box (A Barbarian!)
+P 0 5759 -1 5758 1	* an old box: a wooden mallet
+P 0 5760 -1 5758 1	* an old box: a stump of wood
+O 0 5761 0 5767		* a painting of the Warlock (A Gallery)
+O 0 5792 0 5768		* a fountain (A Fountain)
+O 0 5764 0 5769		* a piece of y-shaped wood (A Pear-Shaped Room)
+O 0 5765 0 5769		* a piece of rope (A Pear-Shaped Room)
+O 0 5771 0 5771		* a sturdy oak table (A Bare Room)
+O 0 5769 0 5771		* a bronze helmet (A Bare Room)
+O 0 5770 0 5771		* an iron helmet (A Bare Room)
+M 0 5747 1 5773 1	* an old man who is a Wererat (A Ferryman and a Bridge)
+O 0 5804 0 5773		* a punt (A Ferryman and a Bridge)
+M 0 5749 2 5774 2	* a giant Bat (On the Banks of the River)
+M 0 5748 2 5775 2	* A lumbering Neanderthal (A Cave)
+E 0 5763 0 16		*	a crude stone club: wielded
+M 0 5769 1 5776 1	* a crocodile (The River)
+O 0 5766 0 5777		* a magnificent-looking sword (The River)
+M 0 5755 3 5778 3	* a vicious Piranha (The River)
+M 0 5751 1 5781 1	* an Ogre (Ogre Cave)
+M 0 5752 1 5789 1	* a Troll (The Troll Den)
+M 0 5753 3 5791 3	* a giant Rat (Rat Room)
+M 0 5754 1 5792 1	* a burly Giant (A Giant Room)
+G 0 5805 0		*	a jack of ale
+M 0 5770 1 5795 1	* a gas beast (A Gas Room!)
+O 0 5806 0 5795		* a gold key (A Gas Room!)
+M 0 5756 1 5797 1	* a giant Sandworm (A Rocky Beach)
+M 0 5739 1 5799 1	* an Orcish chieftain (The Chieftain's Quarters)
+E 0 5800 0 16		*	a bullwhip: wielded
+E 0 5801 0 3		*	an Orcish cloak: around the neck (1)
+E 0 5802 0 13		*	a pouch belt: around the waist
+M 0 5740 1 5799 1	* an orcish servant (The Chieftain's Quarters)
+O 0 5744 0 5799		* a sturdy chest (The Chieftain's Quarters)
+P 0 5745 -1 5744 1	* a sturdy chest: a fair number of gold pieces
+P 0 5746 -1 5744 1	* a sturdy chest: a small black bottle with a tight glass stopper
+P 0 5747 -1 5744 1	* a sturdy chest: a black velvet glove
+O 0 5748 0 5799		* a staw mattress (The Chieftain's Quarters)
+M 0 5741 4 5800 4	* an eating Orc (The Orc Kitchen)
+O 0 5749 0 5800		* a tattered leather case (The Orc Kitchen)
+P 0 5750 -1 5749 2	* a tattered leather case: a bow and a single silver arrow
+M 0 5768 5 5803 5	* a hand (Room of Hands and Stars)
+M 0 5760 1 5805 1	* a Guard Dog (Inside the Shipbuilder's Quarters)
+M 0 5761 1 5805 1	* a Werewolf (Inside the Shipbuilder's Quarters)
+E 0 5780 0 8		*	a pair of unlaced boots: on the feet
+G 0 5779 0		*	a bunch of keys
+O 0 5782 0 5806		* a jar (Pantry)
+P 0 5781 -1 5782 2	* a jar: some pickled eggs
+M 0 5759 4 5808 4	* a Zombie (A Zombie Room)
+E 0 5772 0 5		*	a suit of leather armor: on the body
+E 0 5773 0 11		*	a wooden shield: as a shield
+E 0 5774 0 16		*	a steel sword: wielded
+O 0 5775 0 5808		* a silver crucifix (A Zombie Room)
+O 0 5776 0 5808		* a decaying corpse (A Zombie Room)
+O 0 5777 0 5808		* gold! (A Zombie Room)
+O 0 5778 0 5808		* a barrel of rum (A Zombie Room)
+M 0 5763 1 5809 1	* an evil Vampire (A Crypt)
+G 0 5786 0		*	the Warlock's spellbook
+M 0 5757 5 5816 5	* a Skeleton worker (A Shipbuilding Room)
+O 0 5768 0 5816		* a chisel with a silver blade (A Shipbuilding Room)
+O 0 5759 0 5816		* a wooden mallet (A Shipbuilding Room)
+O 0 5807 0 5816		* a copper key (A Shipbuilding Room)
+M 0 5758 1 5818 1	* a Wight (A Room)
+O 0 5748 0 5818		* a staw mattress (A Room)
+O 0 5796 0 5822		* a solid iron-bound oak chest (Loot Room)
+P 0 5797 -1 5796 1	* a solid iron-bound oak chest: loot!
+P 0 5798 -1 5796 1	* a solid iron-bound oak chest: gold!
+M 0 5762 1 5823 1	* a Ghoul (A Creepy Room)
+E 0 5783 0 6		*	a pair of cheap earrings: over the head
+G 0 5784 0		*	a vial of liquid
+G 0 5785 0		*	a badly-damaged sheet of parchment
+M 0 5764 4 5827 4	* a Dwarf (The Dwarf Room)
+G 0 5788 0		*	a Dwarven pipe
+O 0 5771 0 5827		* a sturdy oak table (The Dwarf Room)
+O 0 5793 0 5827		* a deck of magical cards (The Dwarf Room)
+M 0 5765 1 5829 1	* a mighty Minotaur (A Minotaur Room)
+G 0 5808 0		*	a red key
+O 0 5789 0 5829		* a vase full of liquid (A Minotaur Room)
+O 0 5790 0 5829		* a red clay bowl (A Minotaur Room)
+P 0 5791 -1 5790 1	* a red clay bowl: some coins
+M 0 5766 1 5832 1	* an enormous Red Dragon (A Dragon Cave)
+M 0 5767 1 5834 1	* the Warlock of Firetop Mountain (The Warlock's Chambers)
+E 0 5794 0 12		*	the Warlock's robes: about the shoulders
+E 0 5795 0 16		*	the Warlock's sword: wielded
+G 0 5799 0		*	a red key
+O 0 5809 0 5834		* a glass cabinet (The Warlock's Chambers)
+P 0 5810 -1 5809 1	* a glass cabinet: one of the Warlock's curios
+O 0 5811 0 5834		* a book (The Warlock's Chambers)
+O 0 5812 0 5834		* a massive desk (The Warlock's Chambers)
+O 0 5813 0 5834		* a comfortable-looking chair (The Warlock's Chambers)
+S
+
 
 
 #SHOPS
@@ -3921,27 +3849,29 @@ S
 0
 
 
-#SPECIALS
-M  5737 spec_poison                     *a small snake
-M  5742 spec_fido                       *A deranged prisoner
-M  5744 spec_cast_judge                 *an iron Cyclops
-M  5746 spec_cast_mage                  *an old man
-M  5747 spec_poison                     *an old man who is a Wererat
-M  5749 spec_poison                     *a giant Bat
-M  5750 spec_poison                     *a giant Spider
-M  5752 spec_poison                     *a Troll
-M  5753 spec_poison                     *a giant Rat
-M  5758 spec_cast_undead                        *a Wight
-M  5760 spec_breath_fire                        *a Guard Dog
-M  5761 spec_executioner                        *a Werewolf
-M  5762 spec_poison                     *a Ghoul
-M  5763 spec_cast_undead                        *an evil Vampire
-M  5766 spec_breath_any                 *an enormous Red Dragon
-M  5767 spec_cast_mage                  *the Warlock of Firetop Mountain
-M  5768 spec_thief                      *a hand
-M  5770 spec_breath_gas                 *a gas beast
+
+#OLIMITS
 S
 
 
-#$
 
+#MOBPROGS
+#0
+
+#PRACTICERS
+S
+
+
+
+#OMPROGS
+S
+
+
+
+#HELPS
+-1 firetop~
+Debugged to standard Merc 2.x by Jason Huang (god@@sure.net)
+Further conversion to Rom 2.4 by Jaceks and Chicken's Den Staff~
+-1 $~
+
+#$

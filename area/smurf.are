@@ -1,8 +1,14 @@
-#AREA
-smurf.are~
-Smurfville~
-{ 1 10} Generic Smurf Village~
-100 199
+#AREADATA
+Name Smurfville~
+Builders None~
+VNUMs 100 199
+Credits Generic~
+Security 9
+LevelRange 1 10
+End
+
+
+
 #MOBILES
 #101
 oldstyle smurf~
@@ -18,7 +24,7 @@ AGHS DF 100 0
 10 10 10 10
 BEFJNU 0 0 0
 stand stand male 1
-0 0 medium 0
+0 0 medium unknown
 #102
 oldstyle smurf~
 a smurf~
@@ -32,7 +38,7 @@ ABHS DF 100 0
 10 10 10 10
 BEFJNU 0 0 0
 stand stand male 1
-0 0 medium 0
+0 0 medium unknown
 #103
 oldstyle brainy smurf~
 Brainy Smurf~
@@ -47,7 +53,7 @@ AGHS DF 100 0
 8 8 8 10
 BEFJNU 0 0 0
 stand stand male 1
-0 0 medium 0
+0 0 medium unknown
 #104
 oldstyle handy smurf~
 Handy Smurf~
@@ -62,7 +68,7 @@ AGHS DF 100 0
 8 8 8 10
 BEFJNU 0 0 0
 stand stand male 1
-0 0 medium 0
+0 0 medium unknown
 #105
 oldstyle sleepy smurf~
 Sleepy Smurf~
@@ -77,7 +83,7 @@ AGHS DF 100 0
 8 8 8 10
 BEFJNU 0 0 0
 stand stand male 1
-0 0 medium 0
+0 0 medium unknown
 #106
 oldstyle hefty smurf~
 Hefty Smurf~
@@ -92,7 +98,7 @@ AGHS DF 100 0
 8 8 8 10
 BEFJNU 0 0 0
 stand stand male 1
-0 0 medium 0
+0 0 medium unknown
 #107
 oldstyle grumpy smurf~
 Grumpy Smurf~
@@ -106,7 +112,7 @@ AGHS DF 100 0
 8 8 8 10
 BEFJNU 0 0 0
 stand stand male 1
-0 0 medium 0
+0 0 medium unknown
 #108
 oldstyle jokey smurf~
 Jokey Smurf~
@@ -121,7 +127,7 @@ AGHS DF 100 0
 8 8 8 10
 BEFJNU 0 0 0
 stand stand male 1
-0 0 medium 0
+0 0 medium unknown
 #109
 oldstyle smurfette~
 Smurfette~
@@ -136,7 +142,7 @@ AGHS DF 100 0
 8 8 8 10
 BEFJNU 0 0 0
 stand stand female 1
-0 0 medium 0
+0 0 medium unknown
 #110
 oldstyle papa smurf~
 Papa Smurf~
@@ -152,7 +158,7 @@ AGHR 0 100 0
 2 2 2 6
 FU 0 0 0
 stand stand male 2
-0 0 medium 0
+0 0 medium unknown
 #111
 oldstyle gargamel~
 Gargamel~
@@ -167,7 +173,7 @@ ABHQ 0 -100 0
 1 1 1 7
 EIKU 0 0 0
 stand stand male 2
-0 0 medium 0
+0 0 medium unknown
 #112
 oldstyle azreal cat~
 Azreal~
@@ -182,8 +188,11 @@ ABH 0 -100 0
 3 3 3 9
 EFNU 0 0 0
 stand stand male 1
-0 0 medium 0
+0 0 medium unknown
 #0
+
+
+
 #OBJECTS
 #100
 bunch berries smurfberries~
@@ -211,7 +220,7 @@ a smurf hat~
 A smurf hat has been left here.~
 cloth~
 armor 0 AE
-3 3 3 0 0
+AB AB AB 0 0
 3 20 310 P
 #103
 axe small~
@@ -253,7 +262,7 @@ a tiny key~
 A tiny key is lying on the ground.~
 wood~
 key 0 A
-2 0 0 0 0
+B 0 0 0 0
 0 20 0 P
 #108
 well~
@@ -269,9 +278,11 @@ a small key~
 A key to Gargamel's door lies here.~
 wood~
 key 0 A
-2 0 0 0 0
+B 0 0 0 0
 0 20 0 P
 #0
+
+
 
 #ROOMS
 #101
@@ -464,6 +475,11 @@ the smurfs from harm to the north.  A berry patch is to the east.  Smurfy
 Road continues to to the south and west.
 ~
 0 0 1
+E
+smurfy well~
+A small well is here.  Just the right size if you're a smurf.  But big
+enough for you to get some water from.  I'm sure the smurfs wont mind.
+~
 D1
 Smurfberry Patch
 ~
@@ -479,11 +495,6 @@ Smurfy Road
 ~
 ~
 0 -1 114
-E
-smurfy well~
-A small well is here.  Just the right size if you're a smurf.  But big
-enough for you to get some water from.  I'm sure the smurfs wont mind.
-~
 S
 #110
 Smurfy Road~
@@ -565,7 +576,7 @@ D2
 Papa Smurf's House
 ~
 door~
-1 107 125
+0 107 125
 D3
 Smurfy House
 ~
@@ -763,7 +774,7 @@ D0
 Stone Path
 ~
 door~
-1 107 113
+0 107 113
 S
 #126
 Path to Gargamel's Castle~
@@ -793,7 +804,7 @@ D0
 Gargamel's Castle
 ~
 door~
-1 109 128
+0 109 128
 D2
 Path to Gargamel's Castle
 ~
@@ -810,7 +821,7 @@ D2
 Outside Gargamel's Castle
 ~
 door~
-1 109 127
+0 109 127
 S
 #129
 Smurfette's House~
@@ -826,59 +837,89 @@ Smurfy Road
 0 -1 107
 S
 #0
-#RESETS
-O 0  108   1  109	* a smurf well
-M 0  102   3  118  1	* a smurf
-G 1  100  10     	*   a bunch of smurfberries
-M 0  102   3  117  1	* a smurf
-G 1  100  10     	*   a bunch of smurfberries
-M 0  102   3  116  1	* a smurf
-G 1  100  10     	*   a bunch of smurfberries
-M 0  101   8  105  1	* a smurf
-M 0  101   8  110  1	* a smurf
-G 1  102  10     	*   a smurf hat
-M 0  101   8  111  1	* a smurf
-M 0  101   8  112  1	* a smurf
-G 1  102  10     	*   a smurf hat
-M 0  101   8  107  1	* a smurf
-M 0  101   8  108  1	* a smurf
-G 1  102  10     	*   a smurf hat
-M 0  101   8  109  1	* a smurf
-M 0  101   8  104  1	* a smurf
-G 1  102  10     	*   a smurf hat
-M 0  103   1  119  1	* Brainy Smurf
-E 1  101   8    6	*   a pair of glasses
-M 0  104   1  120  1	* Handy Smurf
-E 1  103   8   16	*   a small axe
-M 0  105   1  122  1	* Sleepy Smurf
-M 0  106   1  121  1	* Hefty Smurf
-E 1  103   8   16	*   a small axe
-M 0  107   1  123  1	* Grumpy Smurf
-M 0  108   1  124  1	* Jokey Smurf
-M 0  109   1  129  1	* Smurfette
-E 1  104   8    3	*   a small necklace
-G 1  107   8     	*   a tiny key
-M 0  110   1  125  1	* Papa Smurf
-G 1  105  10     	*   a pink potion
-G 1  109   8     	*   a small key
-M 0  111   1  128  1	* Gargamel
-E 1  106   8   17	*   a small wand
-M 0  112   1  128  1	* Azreal
+
+
+
+#SPECIALS
+M 101 spec_thief	* a smurf
+M 102 spec_thief	* a smurf
+M 103 spec_thief	* Brainy Smurf
+M 104 spec_thief	* Handy Smurf
+M 105 spec_thief	* Sleepy Smurf
+M 106 spec_thief	* Hefty Smurf
+M 107 spec_thief	* Grumpy Smurf
+M 108 spec_thief	* Jokey Smurf
+M 109 spec_thief	* Smurfette
+M 110 spec_cast_mage	* Papa Smurf
+M 111 spec_cast_cleric	* Gargamel
+M 112 spec_poison	* Azreal
 S
+
+
+
+#RESETS
+M 0 101 8 104 1	* a smurf (Entrance to Smurf Village)
+G 0 102 0		*	a smurf hat
+M 0 101 8 105 1	* a smurf (Smurfy Road)
+M 0 101 8 107 1	* a smurf (Smurfy Road)
+M 0 101 8 108 1	* a smurf (Smurfy Road)
+G 0 102 0		*	a smurf hat
+O 0 108 0 109		* a smurf well (Smurfy Road)
+M 0 101 8 109 1	* a smurf (Smurfy Road)
+M 0 101 8 110 1	* a smurf (Smurfy Road)
+G 0 102 0		*	a smurf hat
+M 0 101 8 111 1	* a smurf (Smurfy Road)
+M 0 101 8 112 1	* a smurf (Smurfy Road)
+G 0 102 0		*	a smurf hat
+M 0 102 3 116 1	* a smurf (Smurfberry Patch)
+G 0 100 0		*	a bunch of smurfberries
+M 0 102 3 117 1	* a smurf (Smurfberry Patch)
+G 0 100 0		*	a bunch of smurfberries
+M 0 102 3 118 1	* a smurf (Smurfberry Patch)
+G 0 100 0		*	a bunch of smurfberries
+M 0 103 1 119 1	* Brainy Smurf (Brainy Smurf's Home)
+E 0 101 0 6		*	a pair of glasses: over the head
+M 0 104 1 120 1	* Handy Smurf (Handy Smurf's Home)
+E 0 103 0 16		*	a small axe: wielded
+M 0 106 1 121 1	* Hefty Smurf (Hefty Smurf's Home)
+E 0 103 0 16		*	a small axe: wielded
+M 0 105 1 122 1	* Sleepy Smurf (Sleepy Smurf's Home)
+M 0 107 1 123 1	* Grumpy Smurf (Grumpy Smurf's Home)
+M 0 108 1 124 1	* Jokey Smurf (Jokey Smurf's Home)
+M 0 110 1 125 1	* Papa Smurf (Papa Smurf's Home)
+G 0 105 0		*	a pink potion
+G 0 109 0		*	a small key
+M 0 111 1 128 1	* Gargamel (Gargamel's Castle)
+E 0 106 0 17		*	a small wand: held in the hands
+M 0 112 1 128 1	* Azreal (Gargamel's Castle)
+M 0 109 1 129 1	* Smurfette (Smurfette's House)
+E 0 104 0 3		*	a small necklace: around the neck (1)
+G 0 107 0		*	a tiny key
+S
+
+
+
 #SHOPS
 0
-#SPECIALS
-M 101 spec_thief          	* a smurf
-M 102 spec_thief          	* a smurf
-M 103 spec_thief          	* Brainy Smurf
-M 104 spec_thief          	* Handy Smurf
-M 105 spec_thief          	* Sleepy Smurf
-M 106 spec_thief          	* Hefty Smurf
-M 107 spec_thief          	* Grumpy Smurf
-M 108 spec_thief          	* Jokey Smurf
-M 109 spec_thief          	* Smurfette
-M 110 spec_cast_mage      	* Papa Smurf
-M 111 spec_cast_cleric    	* Gargamel
-M 112 spec_poison         	* Azreal
+
+
+
+#OLIMITS
 S
+
+
+
+#MOBPROGS
+#0
+
+#PRACTICERS
+S
+
+
+
+#OMPROGS
+S
+
+
+
 #$

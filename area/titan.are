@@ -2188,7 +2188,7 @@ making the end of the road, or what it will bring to, impossible to see.
 A large sign is here, demanding your attention. (look sign)
      There is a small (Glowing) (Humming) tablet.
 ~
-0 A 3
+0 AS 3
 E
 small tablet~
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -2247,7 +2247,7 @@ adds to the quaint scene. A rustle in the trees above you finally shows life
 in the dreary forests. The path turns and continues west, north  and south
 back to the lighter forests. To the north you see a nice lake.
 ~
-0 A 3
+0 AS 3
 D0
 Path by a lake.
 ~
@@ -2275,7 +2275,7 @@ Bird. A soft mist whisps slowly past, cascading over the brook, creating
 a beautiful soft atmosphere. 
 The path continues west and east.
 ~
-0 A 3
+0 AS 3
 D1
 back to the dusty trail.
 ~
@@ -2296,7 +2296,7 @@ high above you, creating a wonderous view of the lands. The crisp cool air
 seems to add new strength to your sore old bones. The path continues west 
 and back east.
 ~
-0 A 3
+0 AS 3
 D1
 The path continues...
 ~
@@ -2321,7 +2321,7 @@ soft brown pine neddles, matting you heavy footsteps. Several large boulders
 are scattered here and there throughout the woods. The path continues west and 
 back east.
 ~
-0 A 3
+0 AS 3
 D1
 The path continues...
 ~
@@ -2337,7 +2337,7 @@ S
 Void~
 Void.
 ~
-0 C 1
+0 CS 1
 S
 #18007
 A Sharp Bend in the Road~
@@ -2349,7 +2349,7 @@ curves around the mountain, almost like a deer trail. Perhaps you should
 follow it to see where it takes you. The path continues north, through the 
 deer trail, and east, where you came from.
 ~
-0 A 3
+0 AS 3
 D0
 The matted deer trail.
 ~
@@ -2371,7 +2371,7 @@ little spider webs seem to stick to your face and clothes, making this trip
 very much unejoyable. Up ahead you see that the path widens. The path 
 continues west and south.
 ~
-0 A 3
+0 AS 3
 D2
 The path south.
 ~
@@ -2391,7 +2391,7 @@ to a lose gravel and begins to be flater than before. The masssive wall of
 the mountain suddenly looms up to your left, and up a head you notice that 
 it juts out, almost creating a dead end. The path continues west and east.
 ~
-0 A 3
+0 AS 3
 D1
 The way back.
 ~
@@ -2412,7 +2412,7 @@ trickles slowly underneath the small bridge, creating a relaxing sound. The
 forest seems to be more lush on the other side of the brook. The path continues
 north, across thr bridge, or east, back to the path.
 ~
-0 A 3
+0 AS 3
 D0
 On the bridge.
 ~
@@ -2432,7 +2432,7 @@ A small rainbow trout jumps out of the water, landing with a splash so big it
 gets your shoes wet. This sure is a nice spot. The trail continues north, off 
 of the bridge, and south, back to the path.
 ~
-0 A 3
+0 AS 3
 D0
 The path continues.
 ~
@@ -2455,7 +2455,7 @@ forest floor a wider variety of color and beauty. In the distance you hear the
 rushing of a waterfall, and the loud soulfull cry of the Black Crane. The path 
 continues west and back to the bridge south.
 ~
-0 A 3
+0 AS 3
 D2
 Back to the bridge.
 ~
@@ -2479,7 +2479,7 @@ your hair and brings you the fresh scent of Golden Wildflowers, making you
 wish you were in a sunny field, rolling in them. But you still would much 
 rather be here. The path continues west and east.
 ~
-0 A 3
+0 AS 3
 D1
 The path continues.
 ~
@@ -2501,7 +2501,7 @@ crafted bridge swings the span of the cliff, right in front of the waterfall.
 You would hate to make a mistake and take a step off the bridge. The path 
 continues out south across the bridge, or back east to the trail.
 ~
-0 A 3
+0 AS 3
 D1
 Back to the path.
 ~
@@ -2522,7 +2522,7 @@ brings a cool, freesh breeze. Just being this high up is so exhilerating, you
 could stay here for ever! The bridge continues south or back to the solid 
 grounds, north.
 ~
-0 A 3
+0 AS 3
 D0
 Back to solid ground.
 ~
@@ -2546,7 +2546,7 @@ to the falls that a cool, fine mist is blown about. You notice that there
 is not a cloud in the sky. This has just been the most perfect day! 
 The bridge continues south, and north.
 ~
-0 A 3
+0 AS 3
 D0
 The beginning of the bridge.
 ~
@@ -2577,7 +2577,7 @@ floats magically in the top-most center of the cave. Magic just seems to flow
 through this cave, magic beyond your wildest wonders. You wonder where the 
 exits are.
 ~
-0 ADQ 0
+0 ADQS 0
 D3
 Back to the bridge.
 ~
@@ -2592,7 +2592,7 @@ above. Ahead the deep green trees and plants welcome you joyfully. You cannot
 wait to get on solid ground again. The exits are south to the road and north 
 to the middle of the bridge.
 ~
-0 A 3
+0 AS 3
 D0
 Back to the middle of the bridge.
 ~
@@ -2617,7 +2617,7 @@ some sort. The land about you appears as though it was formed ages ago, due
 to earthquakes and storms. The path continues north to the bridge, or south 
 to the main road.
 ~
-0 A 3
+0 AS 3
 D0
 Back to the bridge.
 ~
@@ -2638,7 +2638,7 @@ in a wonderous valley. It would be interesting to see what this place is
 like. The exits are north to the bridge, west along the road as well as 
 east. A large sign is here, demanding your attention.
 ~
-0 A 3
+0 AS 3
 E
 sign valley~
 __________________________________________________________
@@ -2679,7 +2679,7 @@ or a Lady, or someone with LOTS of money. You wonder who would live in such
 an extravagent house. The exits are east to the house, or west to the main 
 road.
 ~
-0 A 3
+0 AS 3
 D1
 Inside the front foyer
 ~
@@ -2700,7 +2700,7 @@ dirt to be found. A house like this must have many maids and cleaning people
 to keep it so neat and tidy. You do not wish to intrude so you mine aswell 
 leave this house alone. Your only exit is west, back to the road.
 ~
-0 A 0
+0 AS 0
 D3
 Back to the road.
 ~
@@ -2716,7 +2716,7 @@ find and Inn, in this..The Valley of The Titans. Heavens knows what type of
 beasts lurke in these forests at night. The path continues in an east-west 
 direction.
 ~
-0 A 3
+0 AS 3
 D1
 The path continues.
 ~
@@ -2736,7 +2736,7 @@ up again. You hope that you will find a village soon, or you will have to
 spend the night with those rich people back east. To the north you see
 a giant plate. The exits are in an east-west and north directions.
 ~
-0 A 3
+0 AS 3
 D0
 ~
 ~
@@ -2761,7 +2761,7 @@ peace and beauty, you could hardly ask for anything more. It is starting to
 get dark and if you do not find a village soon, well, you're stuck outside
 for the evening. The exits are in an east-west direction
 ~
-0 A 3
+0 AS 3
 D1
 The path continues.
 ~
@@ -2782,7 +2782,7 @@ this village, adding to the glorious beauty. You are almost quite sure that
 there are more than one Inn on this island. You better hurry, they may be
 closing this bridges soon. The exits are east and south, to the village.
 ~
-0 A 3
+0 AS 3
 D1
 Back to the main road.
 ~
@@ -2803,7 +2803,7 @@ head on up through the bridges, across to the island, protected by the long
 water moat, and tall stone walls. The city looks to be as safe as any city 
 could possibly get. The exits are south and north.
 ~
-0 A 3
+0 AS 3
 D0
 Back to the path.
 ~
@@ -2825,7 +2825,7 @@ floor. Crystal clear windows are along the side walls and several torches
 light the ceiling above. The smell of pitch burning reminds you of your 
 grandmothers cottage, in the early Winter. The path continues north and south.
 ~
-0 A 0
+0 AS 0
 D0
 Back to the road.
 ~
@@ -2845,7 +2845,7 @@ the central city. You have never seen so many different races of people mixed
 together at once. It truely is wonderful to see so many races getting along 
 with eachother. The road of the Bridges continues north and south.
 ~
-0 A 0
+0 AS 0
 D0
 Back to the beggining of the bridge.
 ~
@@ -2865,7 +2865,7 @@ enough light to show you your way. The ivory walls seem to glow bright white
 in the dim light. You wonder just how long it will take to get to this city. 
 The path continues north and south.
 ~
-0 A 0
+0 AS 0
 D0
 Back from where you came.
 ~
@@ -2886,7 +2886,7 @@ is dress neatly. You feel a little out of place, wearing your traveling gear
 and battle armor. Maybe in town you can by yourself some descent clothes, that 
 is if they will accept your gold. The path continues north and south.
 ~
-0 A 0
+0 AS 0
 D0
 The Bridge continues.
 ~
@@ -2907,7 +2907,7 @@ find an imm with a nice, cozy bed and room. A piping hot meal wouldn't be bad
 either. The bridge continues south to the town entrance, and north, back to 
 the center of the bridge.
 ~
-0 A 0
+0 AS 0
 D0
 Back to the Bridge.
 ~
@@ -2927,7 +2927,7 @@ kick of your hiking boots and site down to a warm fire and a long, enjoyable
 pipe. Better start looking for an Inn. The exits are west and east to the 
 stables, north to the bridge, and south to the city.
 ~
-0 A 1
+0 AS 1
 D0
 ~
 ~
@@ -2956,7 +2956,7 @@ the horse up, you can pay them in the morning. It seems to be a nice place
 for horses to rest awhile; fresh hay, lots of water, and clean stalls. 
 The exit is west back to the main road.
 ~
-0 A 0
+0 AS 0
 D3
 Back to the main road.
 ~
@@ -2971,7 +2971,7 @@ horse up, you can pay them tomorrow. It seems to be a nice place for horses
 to res awhile; fresh hay, lots of water, and clean stalls. 
 The exit is east back to the main road.
 ~
-0 A 0
+0 AS 0
 D1
 Back to the main road.
 ~
@@ -2986,7 +2986,7 @@ shops. The roads are paved with stones, very neat and tidy, with narrow
 sidewalks along each side, and torch posts at every 50 feet or so. 
 The road continues south and back north.
 ~
-0 A 1
+0 AS 1
 D0
 The road continues.
 ~
@@ -3005,7 +3005,7 @@ brick, this prison looks to be one that is heavily guarded. You cannot belive
 that there can be people in such a town that would even think of commiting 
 crime! The road continues south, north and east to the prison.
 ~
-0 A 1
+0 AS 1
 D0
 The main road continues.
 ~
@@ -3030,7 +3030,7 @@ You see some guards and some sherriffs here, but they are too busy to pay any
 attention to you. The exits are north to the stairwell, and back west to the
 road.
 ~
-0 A 1
+0 AS 1
 D0
 The stairwell.
 ~
@@ -3050,7 +3050,7 @@ light the path down, making it seem scarier than it really is. You wonder what
 is at the base of the stairs; of what you will find and what will happen. 
 The exits are back to the main office south, and down to the Cell room.
 ~
-0 A 1
+0 AS 1
 D2
 Back to the main office.
 ~
@@ -3070,7 +3070,7 @@ the odd sound of snoring. To both sides of you there are empty Cells, but
 you cannot be so sure of what lies ahead. The exits are up to the stairwell 
 and north through the corridor.
 ~
-0 A 1
+0 AS 1
 D0
 Through the corridor.
 ~
@@ -3089,7 +3089,7 @@ your left and right. A musty smell fills the air. Drat! Drows! You recognize
 the foul scent anywhere. The exits are east and west to the cells, north and 
 south to the corridor exits.
 ~
-0 A 1
+0 AS 1
 D0
 The corridor continues.
 ~
@@ -3120,7 +3120,7 @@ They may question about why you were in the cells, perhaps think you were
 trying to free one of those stinky...DROWS! The corridor has only one exit, 
 and its south.
 ~
-0 A 1
+0 AS 1
 D2
 Back to the cells.
 ~
@@ -3135,7 +3135,7 @@ be on your way, before someone comes. Besides, this place smells awefully bad.
 The stench of the drows makes it very hard to breath. The only exit is back 
 west to the main corridor.
 ~
-0 A 1
+0 AS 1
 D3
 To the main corridor.
 ~
@@ -3150,7 +3150,7 @@ be on your way, before someone comes. Besides, this place smells awefully bad.
 The stench of the drows makes it very hard to breath. The only exit is back 
 east to the main corridor.
 ~
-0 A 1
+0 AS 1
 D1
 To the main corridor.
 ~
@@ -3165,7 +3165,7 @@ You cannot chose which you want to see first. But wait.. You wanted to find
 an Inn! Perhaps the chocolate and the drinks can wait for another day... 
 Maybe not! The exits are in all directions: north, south, east, and west.
 ~
-0 A 0
+0 AS 0
 D0
 ~
 ~
@@ -3190,7 +3190,7 @@ S
 Void~
 Void.
 ~
-0 C 1
+0 CS 1
 S
 #18047
 The Blue Rabbit Bar~
@@ -3200,7 +3200,7 @@ tables drinking their wine, with waiters rushing madly around, to make sure
 everyone is served. A tall man walks up to you calmly and asks if he can help 
 you. The only exit is west, back to the road.
 ~
-0 A 0
+0 AS 0
 D3
 To the road.
 ~
@@ -3215,7 +3215,7 @@ heaven!  You do not know which you want to try first, perhaps you have enough
 to try them all! Mountains and Mountains of chocolate! The only exit is east 
 back to the road, but who says you'll ever leave??!!
 ~
-0 A 0
+0 AS 0
 D1
 To the road.
 ~
@@ -3230,7 +3230,7 @@ it would take you to the palace, south would take you along the southern main
 roads, and east would take you to several other intersections and shops. Which
 way shall you chose? North, East, South or West?
 ~
-0 A 1
+0 AS 1
 D0
 The road you came from.
 ~
@@ -3258,7 +3258,7 @@ the glorious day. To the east there is an icecream shoppe. To the west you
 see an brightly colored store called The Red Dragon. You wonder what sorts of 
 things you may find there! Exits are north, east, west, and south.
 ~
-0 A 3
+0 AS 3
 D0
 Back to the town square.
 ~
@@ -3291,7 +3291,7 @@ trends at the Red Dragon. Straight to the west there are two little doors
 that say 'Employees only.' This is a really nice shoppe and you would really 
 like to buy something here. The only exit is west to the street.
 ~
-0 A 3
+0 AS 3
 D3
 Back to the main street.
 ~
@@ -3310,7 +3310,7 @@ cover the floor; light blue pain covers the walls. To the north you notice
 a back room. You wonder what could be there? The exits are north to the back 
 room, and east back to the Southern Main Street.
 ~
-0 A 3
+0 AS 3
 D0
 To the back room.
 ~
@@ -3330,7 +3330,7 @@ all. Many people rush around working very hard, trying to beat the demand of
 clothes needed for this time of year. The exit is back south to the Red Dragon
 store.
 ~
-0 A 3
+0 AS 3
 D2
 The Red Dragon.
 ~
@@ -3344,7 +3344,7 @@ to the west. To the east you see a beautiful Florist shop, selling the most
 beautiful flowers you have ever seen. To street continues in a north south 
 direction, with to the east a Florist and to the west and Apiarist.
 ~
-0 A 3
+0 AS 3
 D0
 Back to the Southern Main Street.
 ~
@@ -3375,7 +3375,7 @@ A young lady is behind a vine-covered counter, humming to herself while she
 repots an Aloe Vera plant. Several rows of flowers line the wooden floors, 
 making it look almost like a jungle. The only exit is west, back to the road.
 ~
-0 A 3
+0 AS 3
 D0
 To the hidden greenhouse.
 ~
@@ -3396,7 +3396,7 @@ this room with a wonderous glow. A small pond sits in the corner, feeding many
 water-bound plants such as the Water Lily. The exits to this room are back 
 south to the Florists' Shop, and east to an outside garden.
 ~
-0 A 3
+0 AS 3
 D1
 The Outside Garden.
 ~
@@ -3417,7 +3417,7 @@ along a small stone garden to your left. A little wooden table is here, with
 an empty cup of coffee and an abandoned chair. The only exit is west to the
 GreenHouse.
 ~
-0 A 3
+0 AS 3
 D3
 The GreenHouse.
 ~
@@ -3433,7 +3433,7 @@ heat to the west. Behind a strange counter is a young lady, pooring bright
 yello honey into a jar. You wonder at just what you can buy. The only exit is
 west to the main street.
 ~
-0 A 3
+0 AS 3
 D1
 Back to the Main Street.
 ~
@@ -3450,7 +3450,7 @@ the south you see that the road continues, to several Inns. All the way west
 you notice that a wide road takes you down to a grocer store and many others. 
 To the east in the far distance, you see a giant Castle.
 ~
-0 A 3
+0 AS 3
 D0
 Back to the Southern Main Streets.
 ~
@@ -3483,7 +3483,7 @@ walks up an down the road, passing between the villagers. Tall green trees
 lie in garden beds infront or beside the buildings. The exits are
 north, east, south, and west.
 ~
-0 A 3
+0 AS 3
 D0
 Back to the market square.
 ~
@@ -3515,7 +3515,7 @@ far back right corner of this room. There is a large stone fireplace to your
 right, giving the room some added heat. The exits are north to the stairways, 
 and east to the side-street.
 ~
-0 A 3
+0 AS 3
 D0
 A Large Spiral Staircase.
 ~
@@ -3536,7 +3536,7 @@ a large furnace, you think, and much more. You wonder what could be in the
 bowls of this building. The exits are down to the unknown, and back south 
 the the side streets.
 ~
-0 A 3
+0 AS 3
 D2
 Back to the Large Armoury.
 ~
@@ -3558,7 +3558,7 @@ It seems that this part is open to the public so I guess you wouldn't be in
 trouble if you got caught. The exits are up the stairwell and west to the 
 Blacksmith.
 ~
-0 A 3
+0 AS 3
 D3
 A Large Workroom.
 ~
@@ -3580,7 +3580,7 @@ It seems that this part is open to the public so I guess you wouldn't be in
 trouble if you got caught. The exits are up the stairwell and east to the 
 Armoury.
 ~
-0 A 3
+0 AS 3
 D1
 The Large Workroom.
 ~
@@ -3601,7 +3601,7 @@ trying desparately to let in some light. The faint smell of pitch catch your
 sense with surprise. The exits are down to the unknown and south the The
 Weapon Shop.
 ~
-0 A 3
+0 AS 3
 D2
 ~
 ~
@@ -3619,7 +3619,7 @@ are sure that there are many fine articles for sale in this store. It seems
 as though this weaponsmith supplies to the royal armies. The exits are north 
 to a stairwell, and east to the side streets.
 ~
-0 A 3
+0 AS 3
 D0
 ~
 ~
@@ -3640,7 +3640,7 @@ grocer. To the west there is an Apothecary. The exits are north to the
 side-streets, south the the yard of the house, east to the very large grocer 
 and west to the Apothecary.
 ~
-0 A 3
+0 AS 3
 D0
 The side-street.
 ~
@@ -3671,7 +3671,7 @@ a dark green and light yellow potions. Many runes and scrolls cover the walls,
 where there is not shelves. A white bear rug is under your feet, giving the 
 room a strange appearance. The only exit is east to the Cul-De-Sac.
 ~
-0 A 3
+0 AS 3
 D1
 Back to the Cul-De-Sac.
 ~
@@ -3687,7 +3687,7 @@ removed, the extra long grass in the yard, and the window that needs to be
 replaced are just some of the give-aways. The only exits is north, back 
 to the road.
 ~
-0 A 3
+0 AS 3
 D0
 The Cul-De-Sac.
 ~
@@ -3703,7 +3703,7 @@ department, aswell as the dairy products. The exits are north to the produce
 sections, south to the meat and fish department, and west to the Cul-De-Sac, 
 and east to the canned goods ect.
 ~
-0 A 3
+0 AS 3
 D0
 The produce section.
 ~
@@ -3732,7 +3732,7 @@ sides of this room. The bright torch light makes you able to see clearly on
 what there is to get. A tall young man stands here, ready to help you with 
 your purchase. The only exit is south to the main entrance.
 ~
-0 A 3
+0 AS 3
 D2
 The main enterance.
 ~
@@ -3748,7 +3748,7 @@ the bright special torches above you. Too bad there isn't anyone here to help
 you with your purchase; those cookies sure do look good! The only exit is 
 west back to the main entrance.
 ~
-0 A 3
+0 AS 3
 D3
 The main enterance.
 ~
@@ -3762,7 +3762,7 @@ fish. A large butcher is working behind one of these tables, carving what looks
 like lamb into a wonderful roast. I am sure he will help you with anything you 
 could want to buy. The only exit is north to the main enterance.
 ~
-0 A 3
+0 AS 3
 D0
 The main enterance.
 ~
@@ -3779,7 +3779,7 @@ Ofcol, this would be considered one of the richer parts of town. Grey stones
 pave the road and sidewalks. The exits are east to the Southern main road, 
 west to the end of this road, north to a pub and south to a back alley.
 ~
-0 A 3
+0 AS 3
 D0
 ~
 ~
@@ -3810,7 +3810,7 @@ over to your right, with several people sitting at the tables talking to each
 other. You notice that there is a second room to your left. The exits are south 
 to the western road, and west to a second room.
 ~
-0 A 3
+0 AS 3
 D2
 ~
 ~
@@ -3830,7 +3830,7 @@ away their savings. A thin cloud of smoke lies in the air, dimming the light
 of the torches just a bit. You see to the north a stairwell leading into yet 
 another room. The exits are east to the pub and north to the unknown.
 ~
-0 A 3
+0 AS 3
 D0
 The unknown.
 ~
@@ -3850,7 +3850,7 @@ for a drink. Soft music is played in this room, almost lovely enough to make
 you forget of the Game Room. You see a set of stairwells to your north leading
 upwards.
 ~
-0 A 3
+0 AS 3
 D0
 The stairwell.
 ~
@@ -3870,7 +3870,7 @@ You wonder what could be up on the wall that the bar would have access to.
 You see to your left a small door that says 'cooking hall' on it. Your exits 
 are up to the top of the wall, and south to the Lounge.
 ~
-0 A 3
+0 AS 3
 D2
 The Lounge.
 ~
@@ -3894,7 +3894,7 @@ the Valley. Beautiful green forests suround the outer walls, making it seem
 as though you are in a private heaven. There is a small dance floor to the 
 east and the stairwell down.
 ~
-0 A 3
+0 AS 3
 D1
 The Dance Floor.
 ~
@@ -3914,7 +3914,7 @@ Soft music plays in the background and you have an urge to dance. Perhaps one
 day you should bring your special "someone" here and show them the city from 
 one of the finest views. The only exit is west.
 ~
-0 A 3
+0 AS 3
 D3
 The Dining Lounge.
 ~
@@ -3928,7 +3928,7 @@ usual, for this town. You notice that a fair smell is in the air. An unsual
 smell.. Almost like rotting... Food. Garbage! A Garbage dump lies to the west. 
 The exits are west to the garbage dump and north to the Western Roads.
 ~
-0 A 3
+0 AS 3
 D0
 ~
 ~
@@ -3946,7 +3946,7 @@ place of the whole city. Little ally cats rumage through the garbage, in hopes
 of finding something good to eat. You wish to leave this place as soon as you 
 possibly can. The only exits are east, and south to the sewers under the dump.
 ~
-0 A 3
+0 AS 3
 D1
 The Ally.
 ~
@@ -3966,7 +3966,7 @@ rest of the city, yet makes you more loney here. What used to be a container
 shop is all borded up an vacant. The only exit is east back to the western 
 road.
 ~
-0 A 3
+0 AS 3
 D1
 The Western Road.
 ~
@@ -3981,7 +3981,7 @@ called The Green Dragon Inn to your left, and a second called The Blue
 Crossings Inn to your right. To road continues west and east to the main 
 square, north and south to the Inns.
 ~
-0 A 3
+0 AS 3
 D0
 The Green Dragon Inn.
 ~
@@ -4013,7 +4013,7 @@ help anyone with their suitcases and luggage. The manager of the Inn beams a
 big smile at you. The exits are north to the western road, and east 
 to the stairwell.
 ~
-0 A 3
+0 AS 3
 D0
 The Western Main Street.
 ~
@@ -4032,7 +4032,7 @@ of the Inn. Large windows follow the stairs, adding to the beauty and quality
 of the Inn. You can hardly wait to see what one of the rooms look like in such 
 a classy Inn. The exits are west to the lobby and up to the second floor.
 ~
-0 A 3
+0 AS 3
 D3
 The Lobby.
 ~
@@ -4054,7 +4054,7 @@ Inns you have ever been in. You can hardly wait to tell people back home
 about this glorious place. The only exit is down the stairwell, since you 
 have not paid for a room.
 ~
-0 A 3
+0 AS 3
 D5
 The Stairwell.
 ~
@@ -4068,7 +4068,7 @@ name. Glorious silver stairs lead up to the second floor. This sure does
 look like an expensive and wonderful Inn. The name surely does suit it. 
 The only exit from this wonderful Inn is south to the Western Main Road.
 ~
-0 A 3
+0 AS 3
 D2
 The Western Street.
 ~
@@ -4086,7 +4086,7 @@ quaint little container shop. To the south and old-fashioned library.
 To the west the road continues, and the east will take you back to the market 
 square, eventually.
 ~
-0 A 3
+0 AS 3
 D0
 A Quaint Little Shop.
 ~
@@ -4116,7 +4116,7 @@ the walls, filled with containers of many different sizes. You see a large
 table with a man standing behind it, selling his grade A containers. 
 The only exit is south to the main road.
 ~
-0 A 3
+0 AS 3
 D2
 The Western Road.
 ~
@@ -4132,7 +4132,7 @@ set of stairs with a bookshelf lining it, leads to an upstairs balcony.
 A large sign overhead says "Shhhhh....Its a Library...." informing you to 
 keep quiet. The exits are north to the western road, and west to the stairwell.
 ~
-0 A 3
+0 AS 3
 D0
 The Western Road.
 ~
@@ -4153,7 +4153,7 @@ carpet rests underfoot, softening the thuds of yours and others boots. From
 up here you notice how big and wonderful this library really is. Your exits
 are east to the main room in the library, and up to the balcony.
 ~
-0 A 3
+0 AS 3
 D1
 The main room.
 ~
@@ -4174,7 +4174,7 @@ window a then other end. A dark red carpet is under the tables, protecting the
 wooden floor from scratches. You wonder what book you would like to read 
 first! The only level is down the stairwell.
 ~
-0 A 3
+0 AS 3
 D2
 You see nothing special there.
 ~
@@ -4196,7 +4196,7 @@ a key to get back into the library. You wonder what mysterious things lie
 ahead, where does the path lead to, where shall you end up? The only exit is 
 west, and back north to the balcony.
 ~
-0 A 5
+0 AS 5
 D0
 Back to the balcony.
 ~
@@ -4217,7 +4217,7 @@ You can always head back, in hopes someone will open the door, like you did.
 But the chances of that happening are very slim. The only exits are west
 and east.
 ~
-0 A 5
+0 AS 5
 D1
 The passage continues.
 ~
@@ -4236,7 +4236,7 @@ heading slightly downwards. The passage also continues on to the west and east,
 into dark forbidding chambers. You hope to your wonderful deity that you find 
 an exit soon. Light lead the way!
 ~
-0 A 5
+0 AS 5
 D0
 The passage continues.
 ~
@@ -4265,7 +4265,7 @@ wish there was another way but, 'Que sera, sera'...'whap happens, happens.'
 The exits are north, through the grate to the garbage dump and south to the 
 three-way passage.
 ~
-0 A 3
+0 AS 3
 D0
 The dirty grate.
 ~
@@ -4285,7 +4285,7 @@ a rugged shaved face walks up to you and shows you his pet collection. Such
 wild beasts made tame for fighting purposes! It would be neat to see what they 
 can really do! The only exit is back east to the three-way passage.
 ~
-0 A 3
+0 AS 3
 D0
 You see eee...... nothing special there.
 ~
@@ -4306,7 +4306,7 @@ covering the second half. There is a baker, a wands shop, and a small pet shop.
 The exits are west to the pet shop, east to the western main road, north
 to the baker and south to the wand shop.
 ~
-0 A 3
+0 AS 3
 D0
 The baker.
 ~
@@ -4336,7 +4336,7 @@ in front of you, with a small little girl humming to herself. She seems to
 enjoy playing with the animals and running her little shop. You wonder how much
 each of the pets will cost. The only exit is east back to the main road.
 ~
-0 DM 0
+0 DMS 0
 D0
 The forbidden store room.
 ~
@@ -4372,7 +4372,7 @@ at making bread and cakes. There is a large baker here, selling the goodies
 around you. You would sure like to buy something! The only exit is south 
 to the main street.
 ~
-0 A 3
+0 AS 3
 D2
 The main street.
 ~
@@ -4386,7 +4386,7 @@ to be glowing with magic and power. A large wizard is behind the counter,
 enchanting the latest wands with magical spells. You wonder what magical 
 things you can get in this store. The only exit is north to the main street.
 ~
-0 A 3
+0 AS 3
 D0
 The main street.
 ~
@@ -4405,7 +4405,7 @@ lieutenant commander. *Sigh* Perhaps they are all just dreams but someday
 you really do hope to meet them. The street continues south to the Northern 
 Royal Avenue, and west to the southern town square.
 ~
-0 A 3
+0 AS 3
 D2
 The Northern Royal Ave.
 ~
@@ -4428,7 +4428,7 @@ lieutenant commander. *Sigh* Perhaps they are all just dreams but someday
 you really do hope to meet them. The street coninues north to the Southern 
 Royal Avenue, and west to the Market Square.
 ~
-0 A 3
+0 AS 3
 D0
 The Southern Royal Ave.
 ~
@@ -4449,7 +4449,7 @@ sides of the roads, nestled in packs of trees and shrubs. This is truely one
 of the most gloryious streets in all of the Valley. The exits are north to
 the Eastern Boulevard and south to the Royal Square.
 ~
-0 A 3
+0 AS 3
 D0
 The Eastern Boulevard.
 ~
@@ -4470,7 +4470,7 @@ sides of the roads, nestled in packs of trees and shrubs. This is truely one
 of the most gloryious streets in all of the Valley. The exits are north to
 the Royal Square and south to the Eastern Boulevard.
 ~
-0 A 3
+0 AS 3
 D0
 The Royal Square.
 ~
@@ -4491,7 +4491,7 @@ universe to save the city and protect it. This is truely a sacred place and
 it is said that no wrong can happen here. The exits are north to the Northern 
 Royal Avenue, south to the Southern Royal Avenue and east to The Royal Gates.
 ~
-0 A 1
+0 AS 1
 D0
 The Northern Ave.
 ~
@@ -4521,7 +4521,7 @@ golden and silver symbol of the Titans is large on the door, seeming almost
 magical and protective. The exits are east to the palace grounds, and west 
 back to the Royal Square.
 ~
-0 A 1
+0 AS 1
 D0
 Temple of titans.
 ~
@@ -4547,7 +4547,7 @@ all centered here! You do not know what you want to see first. The exits
 are south to warriors and clerics guild, north to the training grounds, 
 east on to the palace, and west back through the gates.
 ~
-0 A 1
+0 AS 1
 D0
 The Training Grounds.
 ~
@@ -4578,7 +4578,7 @@ and warriors alike, are busy learning their skills to their maximum possible
 experties. Perhaps you can sharpen your skills and become a far better
 warrior or cleric. The only exit is north, back to the road.
 ~
-0 A 1
+0 AS 1
 D0
 The Great Doors.
 ~
@@ -4595,7 +4595,7 @@ here, being the finest city in the world, their guildmasters must be the
 best. The exits are north to the training grounds, south to the guild, 
 east to the palace, and west to the road to the gates.
 ~
-0 A 3
+0 AS 3
 D0
 The Training Grounds.
 ~
@@ -4625,7 +4625,7 @@ are here, teaching their students to be the best they can be. A couple of
 guildguards guard the doors, making sure no one who does not belong enters.
 The only exit is north, back to the road.
 ~
-0 A 3
+0 AS 3
 D0
 The Great Doors.
 ~
@@ -4642,7 +4642,7 @@ his finest students. The ground is barren and empty. The only exits are
 north, to the training grounds south-center, south to the road, and east 
 to the training grounds center.
 ~
-0 A 3
+0 AS 3
 D0
 The Training Grounds.
 ~
@@ -4667,7 +4667,7 @@ into the palace for this test. The barren grounds are covered with the odd
 stain of blood, broken sword, and torn cloth. The exits are north east and 
 south, all to training grounds.
 ~
-0 A 3
+0 AS 3
 D0
 The training grounds.
 ~
@@ -4692,7 +4692,7 @@ cloth lieing about on the ground. You had best leave before you are asked
 to take part and join the never ending conquest for glory. The exits are 
 south and east to the training grounds.
 ~
-0 A 3
+0 AS 3
 D1
 The training grounds.
 ~
@@ -4714,7 +4714,7 @@ grounds have several blood stains streaking across them. The exits are in
 three directions, north, south, and west. All going to training grounds, 
 save south which takes you to the road.
 ~
-0 A 3
+0 AS 3
 D0
 The training grounds.
 ~
@@ -4739,7 +4739,7 @@ about, making this a very gruesome scene. There are several fine weaponmasters
 in all classes, fighting for their life, killing evil deamons and beasts from 
 hell. The exits are north, south and west, all leading to the training grounds.
 ~
-0 A 3
+0 AS 3
 D0
 The training grounds.
 ~
@@ -4764,7 +4764,7 @@ rangers,anti-ps and clerics all fight for their lives here, against the demons
 of hell, shadowspawn. You have a choice of south or west, both  leading to 
 training grounds. You really do wish to leave here as fast as you may.
 ~
-0 A 3
+0 AS 3
 D2
 The training grounds.
 ~
@@ -4786,7 +4786,7 @@ please the royal family. You notice a giant stairway leading to a second floor
 belcany. The exits are east, through a giant hall, and west, through 
 the palace doors.
 ~
-0 A 3
+0 AS 3
 D1
 The Massive Hall.
 ~
@@ -4808,7 +4808,7 @@ ancient rulers and the wise ones line the hall, creating a historical look.
 A giantdoorway to the east leads into the beautiful throne room. To the
 west of this room lies the doorway you came through.
 ~
-0 A 3
+0 AS 3
 D1
 The Throne Room.
 ~
@@ -4831,7 +4831,7 @@ look as though they have never aged. The queen's advisors are about you,
 aiding her with the disisions of the future of the caslte. The only exit to 
 this room is west, back to the massive hall.
 ~
-0 A 3
+0 AS 3
 D1
 The Throne.
 ~
@@ -4850,7 +4850,7 @@ there is an assassin here, stalking the king and queen! You better report him,
 and this room, or kill him yourself! I am sure the king and queen will pay 
 highly for his head. This assassin appears to be very talented.
 ~
-0 A 3
+0 AS 3
 D3
 The Throne.
 ~
@@ -4870,7 +4870,7 @@ A sign is on the wall, writen in blood. It reads:
      The Keeper of The Deadly Pets.
 Freaky! There is no exit! Aaaahahhhhhhh.h........h.......!
 ~
-0 M 1
+0 MS 1
 D2
 You see nothing special there.
 ~
@@ -4881,7 +4881,7 @@ S
 Store of the deadly beast~
 Store of the deadly beast
 ~
-0 C 1
+0 CS 1
 S
 #18126
 Temple of Titans Valley~
@@ -4907,7 +4907,7 @@ You are by the temple of titansin the middle of valley of titans. A huge
 altar made from white polished marble is standing in front of you and 
 behind it is a ten foot tall sitting statute of GODS of TITANS.
 ~
-0 CDKN 0
+0 CDKNS 0
 D2
 Healer's temple.
 ~

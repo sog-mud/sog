@@ -1,8 +1,14 @@
-#AREA
-galaxy.are~
-Galaxy~
-{20 30} Doctor  Galaxy~
-9300 9399
+#AREADATA
+Name Galaxy~
+Builders None~
+VNUMs 9300 9399
+Credits Doctor~
+Security 9
+LevelRange 20 30
+End
+
+
+
 #MOBILES
 #9301
 oldstyle poor mudder~
@@ -17,7 +23,7 @@ ACGS DF 0 0
 7 7 7 9
 BEFJNU 0 0 0
 stand stand male 5
-0 0 medium 0
+0 0 medium unknown
 #9302
 oldstyle star~
 a beautiful star~
@@ -31,7 +37,7 @@ ABG 0 500 0
 3 3 3 9
 EFNU 0 0 0
 stand stand female 25
-0 0 medium 0
+0 0 medium unknown
 #9303
 oldstyle nebula young~
 a young nebula~
@@ -45,7 +51,7 @@ AG 0 200 0
 1 1 1 8
 EFNU 0 0 0
 stand stand female 50
-0 0 medium 0
+0 0 medium unknown
 #9304
 oldstyle comet speedy~
 a speedy comet~
@@ -59,7 +65,7 @@ ACFG 0 -500 0
 1 1 1 8
 EFNU 0 0 0
 stand stand male 75
-0 0 medium 0
+0 0 medium unknown
 #9305
 oldstyle red supergiant~
 a red supergiant~
@@ -74,7 +80,7 @@ ABGH 0 0 0
 -2 -2 -2 7
 EFNU 0 0 0
 sleep sleep male 100
-0 0 medium 0
+0 0 medium unknown
 #9306
 oldstyle white dwarf~
 a white dwarf~
@@ -89,7 +95,7 @@ ACG 0 0 0
 -2 -2 -2 7
 EFNU 0 0 0
 stand stand male 100
-0 0 medium 0
+0 0 medium unknown
 #9307
 oldstyle horsehead nebula~
 a horsehead nebula~
@@ -104,7 +110,7 @@ ABG PQ -1000 0
 -3 -3 -3 7
 EFNU 0 0 0
 sit sit male 300
-0 0 medium 0
+0 0 medium unknown
 #9308
 oldstyle andromeda~
 poor Andromeda~
@@ -119,7 +125,7 @@ ABEG H 1000 0
 -3 -3 -3 7
 EFNU 0 0 0
 stand stand female 375
-0 0 medium 0
+0 0 medium unknown
 #9309
 oldstyle hercules~
 the mighty Hercules~
@@ -135,7 +141,7 @@ ABG H 1000 0
 -4 -4 -4 7
 EFNU 0 0 0
 stand stand male 375
-0 0 medium 0
+0 0 medium unknown
 #9310
 oldstyle pegasus~
 the wild Pegasus~
@@ -149,7 +155,7 @@ ABGH 0 300 0
 -3 -3 -3 7
 EFNU 0 0 0
 stand stand none 250
-0 0 medium 0
+0 0 medium unknown
 #9311
 oldstyle orion~
 Orion the hunter~
@@ -166,7 +172,7 @@ ABG H 300 0
 -4 -4 -4 7
 EFNU 0 0 0
 stand stand male 375
-0 0 medium 0
+0 0 medium unknown
 #9312
 oldstyle pleiades~
 the Pleiades~
@@ -181,7 +187,7 @@ ABG 0 300 0
 1 1 1 8
 EFNU 0 0 0
 stand stand female 150
-0 0 medium 0
+0 0 medium unknown
 #9313
 oldstyle draco head~
 the Head of Draco~
@@ -197,7 +203,7 @@ ABFG DH -1000 0
 -7 -7 -7 6
 EFNU 0 0 0
 stand stand none 750
-0 0 medium 0
+0 0 medium unknown
 #9314
 oldstyle draco baby~
 a baby draco~
@@ -213,7 +219,7 @@ ACGH 0 -700 0
 2 2 2 8
 EFNU 0 0 0
 stand stand none 200
-0 0 medium 0
+0 0 medium unknown
 #9315
 oldstyle aries~
 Aries~
@@ -228,7 +234,7 @@ ABGQ H 700 0
 -5 -5 -5 5
 EIKU 0 0 0
 sit sit male 500
-0 0 medium 0
+0 0 medium unknown
 #9316
 oldstyle taurus~
 Taurus~
@@ -243,7 +249,7 @@ ABFGQ DH -100 0
 -5 -5 -5 5
 EIKU 0 0 0
 stand stand male 500
-0 0 medium 0
+0 0 medium unknown
 #9317
 oldstyle gemini~
 Gemini~
@@ -258,7 +264,7 @@ ABGQ H 1000 0
 -5 -5 -5 5
 EIKU 0 0 0
 stand stand male 500
-0 0 medium 0
+0 0 medium unknown
 #9318
 oldstyle gemini~
 Gemini~
@@ -273,7 +279,7 @@ ABCFGHQ DHU -1000 0
 -2 -2 -2 6
 EIKU 0 0 0
 stand stand male 250
-0 0 medium 0
+0 0 medium unknown
 #9319
 oldstyle cancer~
 Cancer~
@@ -289,7 +295,7 @@ ABGQ H 0 0
 -5 -5 -5 5
 EIKU 0 0 0
 stand stand male 600
-0 0 medium 0
+0 0 medium unknown
 #9320
 oldstyle leo~
 Leo~
@@ -305,7 +311,7 @@ ABFGQ DH -100 0
 -5 -5 -5 5
 EIKU 0 0 0
 stand stand male 500
-0 0 medium 0
+0 0 medium unknown
 #9321
 oldstyle virgo~
 Virgo~
@@ -321,7 +327,7 @@ ABGQ H 1000 0
 -5 -5 -5 5
 EIKU 0 0 0
 sit sit female 500
-0 0 medium 0
+0 0 medium unknown
 #9322
 oldstyle libra~
 Libra~
@@ -336,7 +342,7 @@ ABGQ H 1000 0
 -5 -5 -5 5
 EIKU 0 0 0
 stand stand male 500
-0 0 medium 0
+0 0 medium unknown
 #9323
 oldstyle scorpio~
 Scorpio~
@@ -351,7 +357,7 @@ ABFGQ DH -200 0
 -5 -5 -5 5
 EIKU 0 0 0
 stand stand male 500
-0 0 medium 0
+0 0 medium unknown
 #9324
 oldstyle sagittarius~
 Sagittarius~
@@ -365,7 +371,7 @@ ABGQ H 1000 0
 -5 -5 -5 5
 EIKU 0 0 0
 stand stand male 500
-0 0 medium 0
+0 0 medium unknown
 #9325
 oldstyle capricorn~
 Capricorn~
@@ -381,7 +387,7 @@ ABGQ H 700 0
 -5 -5 -5 5
 EIKU 0 0 0
 stand stand male 500
-0 0 medium 0
+0 0 medium unknown
 #9326
 oldstyle aquarius~
 Aquarius~
@@ -396,7 +402,7 @@ ABGQ H 1000 0
 -5 -5 -5 5
 EIKU 0 0 0
 stand stand female 500
-0 0 medium 0
+0 0 medium unknown
 #9327
 oldstyle pisces mermaid~
 Pisces the mermaid~
@@ -411,7 +417,7 @@ ABGQ H 1000 0
 -5 -5 -5 5
 EIKU 0 0 0
 sit sit female 500
-0 0 medium 0
+0 0 medium unknown
 #9328
 oldstyle pisces fish~
 Pisces the fish~
@@ -426,7 +432,7 @@ ABFGQ H -1000 0
 -5 -5 -5 5
 EIKU 0 0 0
 stand stand male 500
-0 0 medium 0
+0 0 medium unknown
 #9329
 oldstyle bear ursa major~
 Ursa Major the bear~
@@ -441,7 +447,7 @@ ABFGQ DH 0 0
 -8 -8 -8 4
 IKR 0 0 0
 stand stand none 750
-0 0 medium 0
+0 0 medium unknown
 #9330
 oldstyle cassiopeia queen~
 Cassiopeia the Queen~
@@ -455,7 +461,7 @@ ABGR DH 700 0
 -7 -7 -7 2
 FU 0 0 0
 sit sit female 600
-0 0 medium 0
+0 0 medium unknown
 #9331
 oldstyle cepheus king~
 Cepheus the King~
@@ -470,7 +476,7 @@ ABGR H 700 0
 -7 -7 -7 2
 FU 0 0 0
 sit sit male 600
-0 0 medium 0
+0 0 medium unknown
 #9332
 oldstyle polaris polar star~
 Polaris, the polar star~
@@ -487,8 +493,11 @@ ABG BDH 1000 0
 -9 -9 -9 6
 EFNU 0 0 0
 stand stand male 1000
-0 0 medium 0
+0 0 medium unknown
 #0
+
+
+
 #OBJECTS
 #9301
 comet's tail~
@@ -504,7 +513,7 @@ the Titanic Arm plates of Hercules~
 Arm plates of the Zodiac lie here.~
 titanium~
 armor AGK AI
-6 6 6 0 0
+BC BC BC 0 0
 22 100 3100 P
 A
 19 2
@@ -518,7 +527,7 @@ the Titanic Belt of Orion~
 A belt of the Zodiac lies here.~
 titanium~
 armor AGK AL
-6 6 6 0 0
+BC BC BC 0 0
 17 70 3800 P
 A
 5 2
@@ -541,7 +550,7 @@ the Titanic Fleece of Aries~
 A fleece of the Zodiac lies here.~
 titanium~
 armor AGK AC
-7 7 7 0 0
+ABC ABC ABC 0 0
 20 90 2000 P
 A
 17 -2
@@ -555,7 +564,7 @@ the Titanic Hoof of Taurus~
 A hoof of the Zodiac lies here.~
 titanium~
 armor AGK AG
-3 3 3 0 0
+AB AB AB 0 0
 20 100 1280 P
 A
 19 2
@@ -571,7 +580,7 @@ the Titanic Mask of Gemini~
 A mask of the Zodiac lies here.~
 titanium~
 armor AGHK AE
-2 2 2 0 0
+B B B 0 0
 16 70 3600 P
 A
 2 2
@@ -588,7 +597,7 @@ the Titanic Shell of Cancer~
 A shell of the Zodiac lies here.~
 bone~
 armor AGK AD
-7 7 7 3 0
+ABC ABC ABC AB 0
 20 150 3800 P
 A
 17 -2
@@ -603,7 +612,7 @@ the Titanic Skin of Leo~
 A skin of the Zodiac lies here.~
 skin~
 armor AGK AK
-7 7 7 5 0
+ABC ABC ABC AC 0
 20 150 1740 P
 E
 skin~
@@ -629,7 +638,7 @@ the Titanic Scale of Libra~
 A shield of the Zodiac lies here.~
 titanium~
 armor AGK AJ
-8 8 8 0 0
+D D D 0 0
 25 250 3900 P
 A
 13 5
@@ -645,7 +654,7 @@ the Titanic Scale of Libra~
 A shield of the Zodiac lies here.~
 titanium~
 armor BGH AJ
-1 1 1 0 0
+A A A 0 0
 0 250 0 P
 A
 13 -30
@@ -705,7 +714,7 @@ the Titanic Horns of Capricorn~
 A pair of horns of the Zodiac lies here.~
 titanium~
 armor AGK AH
-4 4 4 0 0
+C C C 0 0
 22 60 3000 P
 A
 19 2
@@ -735,7 +744,7 @@ the Titanic Tail of Pisces~
 A fish tail of the Zodiac lies here.~
 titanium~
 armor AGK AF
-8 8 8 0 0
+D D D 0 0
 21 100 950 P
 A
 2 -2
@@ -852,6 +861,8 @@ chains~
 They certainly look important!
 ~
 #0
+
+
 
 #ROOMS
 #9301
@@ -1877,137 +1888,159 @@ D0
 0 0 9370
 S
 #0
-#RESETS
-M 0 9301   3 9313  1	* a poor mudder
-M 0 9301   3 9322  1	* a poor mudder
-M 0 9301   3 9323  1	* a poor mudder
-M 0 9302   9 9304  1	* a beautiful star
-M 0 9302   9 9308  1	* a beautiful star
-M 0 9302   9 9312  1	* a beautiful star
-M 0 9302   9 9321  4	* a beautiful star
-M 0 9302   9 9321  4	* a beautiful star
-M 0 9302   9 9321  4	* a beautiful star
-M 0 9302   9 9321  4	* a beautiful star
-M 0 9302   9 9333  1	* a beautiful star
-M 0 9302   9 9355  1	* a beautiful star
-M 0 9303   5 9310  3	* a young nebula
-M 0 9303   5 9310  3	* a young nebula
-M 0 9303   5 9310  3	* a young nebula
-M 0 9303   5 9318  1	* a young nebula
-M 0 9303   5 9322  1	* a young nebula
-M 0 9304   4 9322  2	* a speedy comet
-E 1 9301  50   16	*   a comet's tail
-M 0 9304   4 9322  2	* a speedy comet
-E 1 9301  50   16	*   a comet's tail
-M 0 9304   4 9317  2	* a speedy comet
-E 1 9301  50   16	*   a comet's tail
-M 0 9304   4 9317  2	* a speedy comet
-E 1 9301  50   16	*   a comet's tail
-M 0 9305   4 9304  1	* a red supergiant
-M 0 9305   4 9308  1	* a red supergiant
-M 0 9305   4 9309  1	* a red supergiant
-M 0 9305   4 9313  1	* a red supergiant
-M 0 9306   3 9306  1	* a white dwarf
-M 0 9306   3 9314  1	* a white dwarf
-M 0 9306   3 9322  1	* a white dwarf
-M 0 9307   1 9310  1	* a horsehead nebula
-M 0 9308   1 9330  1	* poor Andromeda
-E 1 9328   1   17	*   chains of Andromeda
-M 0 9309   1 9332  1	* the mighty Hercules
-E 1 9302   1   10	*   the Titanic Arm plates of Hercules
-M 0 9310   1 9317  1	* the wild Pegasus
-M 0 9311   1 9328  1	* Orion the hunter
-E 1 9304   1   13	*   the Titanic Belt of Orion
-M 0 9312   7 9326  7	* the Pleiades
-M 0 9312   7 9326  7	* the Pleiades
-M 0 9312   7 9326  7	* the Pleiades
-M 0 9312   7 9326  7	* the Pleiades
-M 0 9312   7 9326  7	* the Pleiades
-M 0 9312   7 9326  7	* the Pleiades
-M 0 9312   7 9326  7	* the Pleiades
-M 0 9313   1 9363  1	* the Head of Draco
-G 1 9305   1     	*   an ugly skull of Draco
-M 0 9314   2 9358  1	* a baby draco
-M 0 9314   2 9360  1	* a baby draco
-M 0 9315   1 9342  1	* Aries
-G 1 9324   1     	*   a spring shoot
-E 1 9306   1    3	*   the Titanic Fleece of Aries
-M 0 9316   1 9343  1	* Taurus
-E 1 9307   1    8	*   the Titanic Hoof of Taurus
-M 0 9317   1 9344  1	* Gemini
-E 1 9308   1    6	*   the Titanic Mask of Gemini
-M 0 9318   1 9344  1	* Gemini
-M 0 9319   1 9345  1	* Cancer
-G 1 9325   1     	*   a summer flower
-E 1 9309   1    5	*   the Titanic Shell of Cancer
-M 0 9320   1 9346  1	* Leo
-E 1 9310   1   12	*   the Titanic Skin of Leo
-M 0 9321   1 9347  1	* Virgo
-E 1 9311   1   14	*   the Titanic Bracelet of Virgo
-M 0 9322   1 9348  1	* Libra
-G 1 9326   1     	*   an autumn leaf
-G 1 9312   1     	*   the Titanic Scale of Libra
-E 1 9313   1   11	*   the Titanic Scale of Libra
-M 0 9323   1 9349  1	* Scorpio
-E 1 9314   1   16	*   the Sting of Scorpio
-M 0 9324   1 9350  1	* Sagittarius
-E 1 9315   1   17	*   the Arrow of Sagittarius
-E 1 9316   1   16	*   the Titanic Bow of Sagittarius
-M 0 9325   1 9351  1	* Capricorn
-G 1 9327   1     	*   a winter branch
-E 1 9317   1    9	*   the Titanic Horns of Capricon
-M 0 9326   1 9352  1	* Aquarius
-E 1 9318   1   17	*   the Ancient Vessel of Aquarius
-M 0 9327   1 9353  1	* Pisces the mermaid
-E 1 9319   1    7	*   the Titanic Tail of Pisces
-M 0 9328   1 9353  1	* Pisces the fish
-M 0 9329   1 9370  1	* Ursa Major the bear
-M 0 9330   1 9365  1	* Cassiopeia the Queen
-E 1 9320   1    1	*   the Ring of Dignity
-M 0 9331   1 9367  1	* Cepheus the King
-E 1 9321   1    0	*   the Sceptre of Might
-M 0 9332   1 9371  1	* Polaris, the polar star
-E 1 9322   1    2	*   the ring of the universe
-E 1 9323   1   16	*   the Great Dipper of the Skies
-D 0 9339   4    2	* On the Mystic Chains up
-D 0 9354   4    2	* End of the Mystic Chains up
-D 0 9359   1    2	* On the Back of Draco east
-D 0 9363   2    2	* Approaching the Head of Draco south
+
+
+
+#SPECIALS
+M 9301 spec_thief	* a poor mudder
+M 9313 spec_breath_fire	* the Head of Draco
+M 9314 spec_breath_fire	* a baby draco
+M 9315 spec_cast_cleric	* Aries
+M 9316 spec_cast_cleric	* Taurus
+M 9317 spec_cast_cleric	* Gemini
+M 9318 spec_cast_cleric	* Gemini
+M 9319 spec_cast_cleric	* Cancer
+M 9320 spec_cast_cleric	* Leo
+M 9321 spec_cast_cleric	* Virgo
+M 9322 spec_cast_cleric	* Libra
+M 9323 spec_cast_cleric	* Scorpio
+M 9324 spec_cast_cleric	* Sagittarius
+M 9325 spec_cast_cleric	* Capricorn
+M 9326 spec_cast_cleric	* Aquarius
+M 9327 spec_cast_cleric	* Pisces the mermaid
+M 9328 spec_cast_cleric	* Pisces the fish
+M 9329 spec_cast_cleric	* Ursa Major the bear
+M 9330 spec_cast_mage	* Cassiopeia the Queen
+M 9331 spec_cast_mage	* Cepheus the King
+M 9332 spec_breath_acid	* Polaris, the polar star
 S
+
+
+
+#RESETS
+D 0 9339 4 2	* On the Mystic Chains: door to the up: closed and locked
+D 0 9354 4 2	* End of the Mystic Chains: door to the up: closed and locked
+D 0 9359 1 2	* On the Back of Draco: door to the east: closed and locked
+D 0 9363 2 2	* Approaching the Head of Draco: door to the south: closed and locked
+M 0 9302 9 9304 1	* a beautiful star (On an InterGalactic Walkway)
+M 0 9305 4 9304 1	* a red supergiant (On an InterGalactic Walkway)
+M 0 9306 3 9306 1	* a white dwarf (At the Undeveloped Part of the Galaxy)
+M 0 9302 9 9308 1	* a beautiful star (On the Bridge of Stars)
+M 0 9305 4 9308 1	* a red supergiant (On the Bridge of Stars)
+M 0 9305 4 9309 1	* a red supergiant (On the Bridge of Nebulae)
+M 0 9303 5 9310 3	* a young nebula (The Throne Room of the Nebula King)
+M 0 9303 5 9310 3	* a young nebula (The Throne Room of the Nebula King)
+M 0 9303 5 9310 3	* a young nebula (The Throne Room of the Nebula King)
+M 0 9307 1 9310 1	* a horsehead nebula (The Throne Room of the Nebula King)
+M 0 9302 9 9312 1	* a beautiful star (At the Start of the Milky Way)
+M 0 9301 3 9313 1	* a poor mudder (Along the Milky Way)
+M 0 9305 4 9313 1	* a red supergiant (Along the Milky Way)
+M 0 9306 3 9314 1	* a white dwarf (At the End of the Milky Way)
+M 0 9304 4 9317 2	* a speedy comet (A Small Clearing)
+E 0 9301 0 16		*	a comet's tail: wielded
+M 0 9304 4 9317 2	* a speedy comet (A Small Clearing)
+E 0 9301 0 16		*	a comet's tail: wielded
+M 0 9310 1 9317 1	* the wild Pegasus (A Small Clearing)
+M 0 9303 5 9318 1	* a young nebula (An Edge of the Galaxy)
+M 0 9302 9 9321 4	* a beautiful star (The Star Cluster)
+M 0 9302 9 9321 4	* a beautiful star (The Star Cluster)
+M 0 9302 9 9321 4	* a beautiful star (The Star Cluster)
+M 0 9302 9 9321 4	* a beautiful star (The Star Cluster)
+M 0 9301 3 9322 1	* a poor mudder (Another Edge of the Galaxy)
+M 0 9303 5 9322 1	* a young nebula (Another Edge of the Galaxy)
+M 0 9304 4 9322 2	* a speedy comet (Another Edge of the Galaxy)
+E 0 9301 0 16		*	a comet's tail: wielded
+M 0 9304 4 9322 2	* a speedy comet (Another Edge of the Galaxy)
+E 0 9301 0 16		*	a comet's tail: wielded
+M 0 9306 3 9322 1	* a white dwarf (Another Edge of the Galaxy)
+M 0 9301 3 9323 1	* a poor mudder (Corner of the Galaxy)
+M 0 9312 7 9326 7	* the Pleiades (The Homes of the Pleiades)
+M 0 9312 7 9326 7	* the Pleiades (The Homes of the Pleiades)
+M 0 9312 7 9326 7	* the Pleiades (The Homes of the Pleiades)
+M 0 9312 7 9326 7	* the Pleiades (The Homes of the Pleiades)
+M 0 9312 7 9326 7	* the Pleiades (The Homes of the Pleiades)
+M 0 9312 7 9326 7	* the Pleiades (The Homes of the Pleiades)
+M 0 9312 7 9326 7	* the Pleiades (The Homes of the Pleiades)
+M 0 9311 1 9328 1	* Orion the hunter (Orion's Hunting Lodge)
+E 0 9304 0 13		*	the Titanic Belt of Orion: around the waist
+M 0 9308 1 9330 1	* poor Andromeda (The Offering Chamber)
+E 0 9328 0 17		*	chains of Andromeda: held in the hands
+M 0 9309 1 9332 1	* the mighty Hercules (Hercules' Mighty Throne)
+E 0 9302 0 10		*	the Titanic Arm plates of Hercules: on the arms
+M 0 9302 9 9333 1	* a beautiful star (Eastern Side of the Temple)
+M 0 9315 1 9342 1	* Aries (On a Hill)
+G 0 9324 0		*	a spring shoot
+E 0 9306 0 3		*	the Titanic Fleece of Aries: around the neck (1)
+M 0 9316 1 9343 1	* Taurus (Inside a Spanish Bull-Ring)
+E 0 9307 0 8		*	the Titanic Hoof of Taurus: on the feet
+M 0 9317 1 9344 1	* Gemini (Inside a study)
+E 0 9308 0 6		*	the Titanic Mask of Gemini: over the head
+M 0 9318 1 9344 1	* Gemini (Inside a study)
+M 0 9319 1 9345 1	* Cancer (Along the seashore)
+G 0 9325 0		*	a summer flower
+E 0 9309 0 5		*	the Titanic Shell of Cancer: on the body
+M 0 9320 1 9346 1	* Leo (Within the Deep Jungle)
+E 0 9310 0 12		*	the Titanic Skin of Leo: about the shoulders
+M 0 9321 1 9347 1	* Virgo (Inside a Luxurious Bedroom)
+E 0 9311 0 14		*	the Titanic Bracelet of Virgo: on the left wrist
+M 0 9322 1 9348 1	* Libra (The Supreme Court)
+G 0 9326 0		*	an autumn leaf
+G 0 9312 0		*	the Titanic Scale of Libra
+E 0 9313 0 11		*	the Titanic Scale of Libra: as a shield
+M 0 9323 1 9349 1	* Scorpio (In the Dry Desert)
+E 0 9314 0 16		*	the Sting of Scorpio: wielded
+M 0 9324 1 9350 1	* Sagittarius (In the Woods)
+E 0 9315 0 17		*	the Arrow of Sagittarius: held in the hands
+E 0 9316 0 16		*	the Titanic Bow of Sagittarius: wielded
+M 0 9325 1 9351 1	* Capricorn (On a Mountain Peak)
+G 0 9327 0		*	a winter branch
+E 0 9317 0 9		*	the Titanic Horns of Capricorn: on the hands
+M 0 9326 1 9352 1	* Aquarius (Inside a Waterfall)
+E 0 9318 0 17		*	the Ancient Vessel of Aquarius: held in the hands
+M 0 9327 1 9353 1	* Pisces the mermaid (Inside a Gigantic Clam)
+E 0 9319 0 7		*	the Titanic Tail of Pisces: on the legs
+M 0 9328 1 9353 1	* Pisces the fish (Inside a Gigantic Clam)
+M 0 9302 9 9355 1	* a beautiful star (On the Draco)
+M 0 9314 2 9358 1	* a baby draco (Near the Legs of Draco)
+M 0 9314 2 9360 1	* a baby draco (Between the Wings of Draco)
+M 0 9313 1 9363 1	* the Head of Draco (Approaching the Head of Draco)
+G 0 9305 0		*	an ugly skull of Draco
+M 0 9330 1 9365 1	* Cassiopeia the Queen (Cassiopeia's Throne)
+E 0 9320 0 1		*	the Ring of Dignity: on the left finger
+M 0 9331 1 9367 1	* Cepheus the King (Cepheus' Throne)
+E 0 9321 0 0		*	the Sceptre of Might: as a light
+M 0 9329 1 9370 1	* Ursa Major the bear (End of the Dipper)
+M 0 9332 1 9371 1	* Polaris, the polar star (The Polar Star)
+E 0 9322 0 2		*	the ring of the universe: on the right finger
+E 0 9323 0 16		*	the Great Dipper of the Skies: wielded
+S
+
+
+
 #SHOPS
 0
-#SPECIALS
-M 9301 spec_thief          	* a poor mudder
-M 9313 spec_breath_fire    	* the Head of Draco
-M 9314 spec_breath_fire    	* a baby draco
-M 9315 spec_cast_cleric    	* Aries
-M 9316 spec_cast_cleric    	* Taurus
-M 9317 spec_cast_cleric    	* Gemini
-M 9318 spec_cast_cleric    	* Gemini
-M 9319 spec_cast_cleric    	* Cancer
-M 9320 spec_cast_cleric    	* Leo
-M 9321 spec_cast_cleric    	* Virgo
-M 9322 spec_cast_cleric    	* Libra
-M 9323 spec_cast_cleric    	* Scorpio
-M 9324 spec_cast_cleric    	* Sagittarius
-M 9325 spec_cast_cleric    	* Capricorn
-M 9326 spec_cast_cleric    	* Aquarius
-M 9327 spec_cast_cleric    	* Pisces the mermaid
-M 9328 spec_cast_cleric    	* Pisces the fish
-M 9329 spec_cast_cleric    	* Ursa Major the bear
-M 9330 spec_cast_mage      	* Cassiopeia the Queen
-M 9331 spec_cast_mage      	* Cepheus the King
-M 9332 spec_breath_acid    	* Polaris, the polar star
-S
 
-#OMPROGS
-O 9302 wear_prog wear_prog_arm_hercules
-O 9302 remove_prog remove_prog_arm_hercules
-S
+
 
 #OLIMITS
-O 9302 3
-
+O 9302 3	* the Titanic Arm plates of Hercules
 S
+
+
+
+#MOBPROGS
+#0
+
+#PRACTICERS
+S
+
+
+
+#OMPROGS
+O 9302 wear_prog wear_prog_arm_hercules	* `the Titanic Arm plates of Hercules'
+O 9302 remove_prog remove_prog_arm_hercules	* `the Titanic Arm plates of Hercules'
+S
+
+
 
 #$

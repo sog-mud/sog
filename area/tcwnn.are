@@ -1059,7 +1059,7 @@ a torch~
 A large torch.~
 wood~
 light 0 AO
-0 0 DE 0 0
+0 0 24 0 0
 0 1 10 P
 #31008
 lantern~
@@ -1067,7 +1067,7 @@ a hooded brass lantern~
 A hooded brass lantern has been left here.~
 brass~
 light 0 AO
-0 0 CFG 0 0
+0 0 100 0 0
 0 4 60 P
 E
 letters~
@@ -2875,7 +2875,7 @@ runs past the Temple.
 D0
 The Interior of the Temple~
 ~
-1 0 31001
+0 0 31001
 D1
 Victory Parade East~
 ~
@@ -2912,7 +2912,7 @@ D1
 D2
 The Temple of Anon~
 ~
-1 0 31000
+0 0 31000
 S
 #31002
 The Chamber of Donations~
@@ -3257,7 +3257,7 @@ D2
 D3
 Outside the Gates~
 ~
-1 31000 31018
+0 31000 31018
 S
 #31017
 Inside the Victory Parade East Gate~
@@ -3279,7 +3279,7 @@ D0
 D1
 Outside the Gates~
 ~
-1 31000 31019
+0 31000 31019
 D2
 ~
 ~
@@ -3307,7 +3307,7 @@ The Circuit Road~
 D1
 Victory Parade West~
 ~
-1 31000 31016
+0 31000 31016
 D2
 The Circuit Road~
 ~
@@ -3343,7 +3343,7 @@ The Circuit Road~
 D3
 Victory Parade East~
 ~
-1 31000 31017
+0 31000 31017
 S
 #31020
 The Circuit Road~
@@ -3589,7 +3589,7 @@ Glory Avenue~
 D2
 Inside the Dryad Guild~
 ~
-1 0 31035
+0 0 31035
 S
 #31035
 Inside the Dryad Guild~
@@ -3606,7 +3606,7 @@ A pleasant-looking garden lies to the south.
 D0
 Outside the Dryad Guild~
 ~
-1 0 31034
+0 0 31034
 D1
 The Dryad Bar~
 ~
@@ -3661,7 +3661,7 @@ Victory Parade~
 D3
 Castellan's Office~
 ~
-1 0 31039
+0 0 31039
 S
 #31039
 The Castellan's Office~
@@ -3673,7 +3673,7 @@ job, too.
 D1
 Liberty Lane~
 ~
-1 0 31038
+0 0 31038
 S
 #31040
 Liberty Lane~
@@ -4319,7 +4319,7 @@ Valiant Street~
 D2
 The Dwarven Guild~
 ~
-1 0 31076
+0 0 31076
 S
 #31076
 The Dwarven Guild~
@@ -4332,7 +4332,7 @@ to the south.
 D0
 Valiant Street~
 ~
-1 0 31075
+0 0 31075
 D1
 The Dwarven Bar~
 ~
@@ -4453,7 +4453,7 @@ to the south, while there is a Bar to the west...
 D0
 Valiant Street~
 ~
-1 0 31082
+0 0 31082
 D2
 The Guildmaster~
 ~
@@ -4930,73 +4930,73 @@ D 0 31081 5 1	* A Bend in Valiant Street: door to the down: closed
 D 0 31082 2 1	* Outside the Kender Guild: door to the south: closed
 D 0 31195 0 2	* The Portal Chambers: door to the north: closed and locked
 M 0 31024 1 31000 1	* Cuervo the headsman (The Temple of Anon)
-E 0 31030 0 6		*	A headsman's black face mask: over the head
-O 0 31029 0 31000		* A nasty guillotine (The Temple of Anon)
-O 0 31021 0 31000		* A city fountain (The Temple of Anon)
+E 0 31030 0 6		*	a Headsman's Black Face Mask: over the head
+O 0 31029 0 31000		* a nasty guillotine (The Temple of Anon)
+O 0 31021 0 31000		* a city fountain (The Temple of Anon)
 M 0 31044 8 31000 1	* a City Guard (The Temple of Anon)
-E 0 31033 0 16		*	An ornate longsword: wielded
-E 0 31034 0 5		*	An ornate breastplate: on the body
-E 0 31035 0 14		*	An ornate bracer: on the left wrist
-E 0 31035 0 15		*	An ornate bracer: on the right wrist
-E 0 31036 0 3		*	A black cloak with gold trim: around the neck (1)
-E 0 31037 0 6		*	An ornate helm: over the head
-E 0 31038 0 11		*	An ornate shield: as a shield
-E 0 31039 0 17		*	A throwing spear: held in the hands
+E 0 31033 0 16		*	an Ornate Longsword: wielded
+E 0 31034 0 5		*	an Ornate Breastplate: on the body
+E 0 31035 0 14		*	an Ornate Bracer: on the left wrist
+E 0 31035 0 15		*	an Ornate Bracer: on the right wrist
+E 0 31036 0 3		*	a black cloak with gold trim: around the neck (1)
+E 0 31037 0 6		*	an Ornate Helm: over the head
+E 0 31038 0 11		*	an Ornate Shield: as a shield
+E 0 31039 0 17		*	a Throwing Spear: held in the hands
 M 0 31000 1 31001 1	* Gath the Healer (The Interior of the Temple)
 M 0 31043 6 31007 1	* a cat (Corner of Valiant Street and Glory Avenue)
-O 0 31021 0 31012		* A city fountain (Victory Parade West)
+O 0 31021 0 31012		* a city fountain (Victory Parade West)
 M 0 31039 3 31012 1	* a beggar (Victory Parade West)
 M 0 31035 3 31013 1	* a child (Victory Parade East)
 M 0 31034 3 31014 1	* a citizen (Approaching Gate at Victory Parade West)
 M 0 31046 5 31016 1	* a City Guard (Inside the Victory Parade West Gate)
-E 0 31033 0 16		*	An ornate longsword: wielded
-E 0 31034 0 5		*	An ornate breastplate: on the body
-E 0 31035 0 14		*	An ornate bracer: on the left wrist
-E 0 31035 0 15		*	An ornate bracer: on the right wrist
-E 0 31036 0 3		*	A black cloak with gold trim: around the neck (1)
-E 0 31037 0 6		*	An ornate helm: over the head
-E 0 31038 0 11		*	An ornate shield: as a shield
-E 0 31039 0 17		*	A throwing spear: held in the hands
+E 0 31033 0 16		*	an Ornate Longsword: wielded
+E 0 31034 0 5		*	an Ornate Breastplate: on the body
+E 0 31035 0 14		*	an Ornate Bracer: on the left wrist
+E 0 31035 0 15		*	an Ornate Bracer: on the right wrist
+E 0 31036 0 3		*	a black cloak with gold trim: around the neck (1)
+E 0 31037 0 6		*	an Ornate Helm: over the head
+E 0 31038 0 11		*	an Ornate Shield: as a shield
+E 0 31039 0 17		*	a Throwing Spear: held in the hands
 M 0 31054 8 31017 1	* a City Guard (Inside the Victory Parade East Gate)
-E 0 31033 0 16		*	An ornate longsword: wielded
-E 0 31034 0 5		*	An ornate breastplate: on the body
-E 0 31035 0 14		*	An ornate bracer: on the left wrist
-E 0 31035 0 15		*	An ornate bracer: on the right wrist
-E 0 31036 0 3		*	A black cloak with gold trim: around the neck (1)
-E 0 31037 0 6		*	An ornate helm: over the head
-E 0 31038 0 11		*	An ornate shield: as a shield
-E 0 31039 0 17		*	A throwing spear: held in the hands
+E 0 31033 0 16		*	an Ornate Longsword: wielded
+E 0 31034 0 5		*	an Ornate Breastplate: on the body
+E 0 31035 0 14		*	an Ornate Bracer: on the left wrist
+E 0 31035 0 15		*	an Ornate Bracer: on the right wrist
+E 0 31036 0 3		*	a black cloak with gold trim: around the neck (1)
+E 0 31037 0 6		*	an Ornate Helm: over the head
+E 0 31038 0 11		*	an Ornate Shield: as a shield
+E 0 31039 0 17		*	a Throwing Spear: held in the hands
 M 0 31001 1 31036 1	* the Dryad Guildmaster (The Guildmaster)
 M 0 31015 1 31037 1	* a Dryad Waiter (The Dryad Bar)
-G 0 31002 0		*	A barrel of argh's beer
-G 0 31003 0		*	A bottle of yaegar (tm) beer
-G 0 31004 0		*	A bottle of marius (tm) ale
-G 0 31005 0		*	A bottle of rainman firebreather
-G 0 31006 0		*	A bottle of muddymud specialty
+G 0 31002 0		*	a Barrel of Argh's beer
+G 0 31003 0		*	a bottle of Yaegar (TM) beer
+G 0 31004 0		*	a Bottle of Marius (TM) ale
+G 0 31005 0		*	a Bottle of Rainman firebreather
+G 0 31006 0		*	a bottle of MuddyMUD specialty
 M 0 31032 1 31039 1	* the Castellan of Anon (The Castellan's Office)
-E 0 31031 0 16		*	The castellan's longsword: wielded
-G 0 31001 0		*	A bronze key
+E 0 31031 0 16		*	the Castellan's Longsword: wielded
+G 0 31001 0		*	a bronze key
 M 0 31002 1 31041 1	* Jolob the Blacksmith (The Smithy)
 M 0 31003 1 31043 1	* the Armorer (The Armory)
-G 0 31017 0		*	A pair of tough leather boots
-G 0 31018 0		*	A narrow leather belt
-G 0 31019 0		*	A kamikaze headband
-G 0 31020 0		*	A wwi aviator's scarf
-G 0 31022 0		*	A gold ring
+G 0 31017 0		*	a pair of tough leather boots
+G 0 31018 0		*	a narrow leather belt
+G 0 31019 0		*	a kamikaze headband
+G 0 31020 0		*	a WWI Aviator's Scarf
+G 0 31022 0		*	a gold ring
 M 0 31004 1 31045 1	* the Weaponsmith (The Weaponsmith)
-G 0 31013 0		*	A heavy lead-sheathed club
-G 0 31014 0		*	A sturdy mace
-G 0 31015 0		*	A dagger
-G 0 31016 0		*	A wickedly-curved scimitar
+G 0 31013 0		*	a heavy lead-sheathed club
+G 0 31014 0		*	a Sturdy Mace
+G 0 31015 0		*	a Dagger
+G 0 31016 0		*	a Wickedly-Curved Scimitar
 M 0 31044 8 31046 1	* a City Guard (Corner of Liberty Lane and Justice Street)
-E 0 31033 0 16		*	An ornate longsword: wielded
-E 0 31034 0 5		*	An ornate breastplate: on the body
-E 0 31035 0 14		*	An ornate bracer: on the left wrist
-E 0 31035 0 15		*	An ornate bracer: on the right wrist
-E 0 31036 0 3		*	A black cloak with gold trim: around the neck (1)
-E 0 31037 0 6		*	An ornate helm: over the head
-E 0 31038 0 11		*	An ornate shield: as a shield
-E 0 31039 0 17		*	A throwing spear: held in the hands
+E 0 31033 0 16		*	an Ornate Longsword: wielded
+E 0 31034 0 5		*	an Ornate Breastplate: on the body
+E 0 31035 0 14		*	an Ornate Bracer: on the left wrist
+E 0 31035 0 15		*	an Ornate Bracer: on the right wrist
+E 0 31036 0 3		*	a black cloak with gold trim: around the neck (1)
+E 0 31037 0 6		*	an Ornate Helm: over the head
+E 0 31038 0 11		*	an Ornate Shield: as a shield
+E 0 31039 0 17		*	a Throwing Spear: held in the hands
 M 0 31005 1 31047 1	* the Mercenary Master (Mercenaries Unlimited)
 M 0 31047 1 31048 1	* Hobbit Mercenary (Merc Store)
 M 0 31048 1 31048 1	* Elven Mercenary (Merc Store)
@@ -5005,22 +5005,22 @@ M 0 31050 1 31048 1	* Trollish Mercenary (Merc Store)
 M 0 31051 1 31048 1	* Hill Giant Mercenary (Merc Store)
 M 0 31052 1 31048 1	* Half-Dragon Mercenary (Merc Store)
 M 0 31006 1 31050 1	* the Mage (The Magic Shop)
-G 0 31009 0		*	A scroll of identify
-G 0 31010 0		*	A yellow potion of see invisible
-G 0 31028 0		*	A psychedelic potion
-G 0 31040 0		*	A blank scroll
-G 0 31041 0		*	A shimmering potion
+G 0 31009 0		*	a scroll of identify
+G 0 31010 0		*	a yellow potion of see invisible
+G 0 31028 0		*	a psychedelic potion
+G 0 31040 0		*	a blank scroll
+G 0 31041 0		*	a shimmering potion
 M 0 31041 8 31051 1	* a beastly fido (Corner of Honor Avenue and Justice Street)
 M 0 31007 1 31053 1	* Mitzak the Sage (The Sage's Residence)
 M 0 31045 8 31054 1	* a City Guard (Justice Street)
-E 0 31033 0 16		*	An ornate longsword: wielded
-E 0 31034 0 5		*	An ornate breastplate: on the body
-E 0 31035 0 14		*	An ornate bracer: on the left wrist
-E 0 31035 0 15		*	An ornate bracer: on the right wrist
-E 0 31036 0 3		*	A black cloak with gold trim: around the neck (1)
-E 0 31037 0 6		*	An ornate helm: over the head
-E 0 31038 0 11		*	An ornate shield: as a shield
-E 0 31039 0 17		*	A throwing spear: held in the hands
+E 0 31033 0 16		*	an Ornate Longsword: wielded
+E 0 31034 0 5		*	an Ornate Breastplate: on the body
+E 0 31035 0 14		*	an Ornate Bracer: on the left wrist
+E 0 31035 0 15		*	an Ornate Bracer: on the right wrist
+E 0 31036 0 3		*	a black cloak with gold trim: around the neck (1)
+E 0 31037 0 6		*	an Ornate Helm: over the head
+E 0 31038 0 11		*	an Ornate Shield: as a shield
+E 0 31039 0 17		*	a Throwing Spear: held in the hands
 M 0 31008 1 31055 1	* the Pet Shop Owner (The Pet Shop)
 M 0 31019 1 31056 1	* the mouse (Pet Store Storage)
 M 0 31020 1 31056 1	* the badger (Pet Store Storage)
@@ -5029,128 +5029,128 @@ M 0 31022 1 31056 1	* the grizzly bear (Pet Store Storage)
 M 0 31023 1 31056 1	* the elephant (Pet Store Storage)
 M 0 31009 1 31060 1	* the Elven Guildmaster (The Office of the Elven Guildmaster)
 M 0 31016 1 31061 1	* an Elven Waiter (The Elven Bar)
-G 0 31002 0		*	A barrel of argh's beer
-G 0 31003 0		*	A bottle of yaegar (tm) beer
-G 0 31004 0		*	A bottle of marius (tm) ale
-G 0 31005 0		*	A bottle of rainman firebreather
-G 0 31006 0		*	A bottle of muddymud specialty
+G 0 31002 0		*	a Barrel of Argh's beer
+G 0 31003 0		*	a bottle of Yaegar (TM) beer
+G 0 31004 0		*	a Bottle of Marius (TM) ale
+G 0 31005 0		*	a Bottle of Rainman firebreather
+G 0 31006 0		*	a bottle of MuddyMUD specialty
 M 0 31034 3 31065 1	* a citizen (Valiant Street)
 M 0 31010 1 31066 1	* the Grocer (The Grocery Store)
-G 0 31007 0		*	A torch
-G 0 31008 0		*	A hooded brass lantern
-G 0 31011 0		*	A buffalo water skin
-G 0 31012 0		*	A jug of water
-G 0 31043 0		*	A sturdy canvas tent
-G 0 31044 0		*	A sturdy wooden rowboat
+G 0 31007 0		*	a torch
+G 0 31008 0		*	a hooded brass lantern
+G 0 31011 0		*	a buffalo water skin
+G 0 31012 0		*	a jug of water
+G 0 31043 0		*	a sturdy canvas tent
+G 0 31044 0		*	a sturdy wooden rowboat
 M 0 31011 1 31068 1	* the Baker (The Bakery)
-G 0 31023 0		*	A sweet cake
-G 0 31024 0		*	A roll
-G 0 31025 0		*	A sandwich
-G 0 31026 0		*	A huge loaf of bread
+G 0 31023 0		*	a sweet cake
+G 0 31024 0		*	a roll
+G 0 31025 0		*	a sandwich
+G 0 31026 0		*	a HUGE loaf of bread
 M 0 31044 8 31069 1	* a City Guard (The Corner of Stalwart Lane and Valiant Street)
-E 0 31033 0 16		*	An ornate longsword: wielded
-E 0 31034 0 5		*	An ornate breastplate: on the body
-E 0 31035 0 14		*	An ornate bracer: on the left wrist
-E 0 31035 0 15		*	An ornate bracer: on the right wrist
-E 0 31036 0 3		*	A black cloak with gold trim: around the neck (1)
-E 0 31037 0 6		*	An ornate helm: over the head
-E 0 31038 0 11		*	An ornate shield: as a shield
-E 0 31039 0 17		*	A throwing spear: held in the hands
+E 0 31033 0 16		*	an Ornate Longsword: wielded
+E 0 31034 0 5		*	an Ornate Breastplate: on the body
+E 0 31035 0 14		*	an Ornate Bracer: on the left wrist
+E 0 31035 0 15		*	an Ornate Bracer: on the right wrist
+E 0 31036 0 3		*	a black cloak with gold trim: around the neck (1)
+E 0 31037 0 6		*	an Ornate Helm: over the head
+E 0 31038 0 11		*	an Ornate Shield: as a shield
+E 0 31039 0 17		*	a Throwing Spear: held in the hands
 M 0 31012 1 31070 1	* the Bartender (The Bar)
-G 0 31002 0		*	A barrel of argh's beer
-G 0 31003 0		*	A bottle of yaegar (tm) beer
-G 0 31004 0		*	A bottle of marius (tm) ale
-G 0 31005 0		*	A bottle of rainman firebreather
-G 0 31006 0		*	A bottle of muddymud specialty
-G 0 31027 0		*	A cup of coffee
+G 0 31002 0		*	a Barrel of Argh's beer
+G 0 31003 0		*	a bottle of Yaegar (TM) beer
+G 0 31004 0		*	a Bottle of Marius (TM) ale
+G 0 31005 0		*	a Bottle of Rainman firebreather
+G 0 31006 0		*	a bottle of MuddyMUD specialty
+G 0 31027 0		*	a cup of coffee
 M 0 31038 6 31071 1	* a drunk (Private Booths)
 M 0 31062 1 31071 1	* Pharlas (Private Booths)
 M 0 31036 6 31073 1	* the janitor (Valiant Street)
 M 0 31033 3 31074 1	* a citizen (A Bend in Valiant Street)
 M 0 31013 1 31077 1	* the Dwarven Guildmaster (The Guildmaster's Room)
 M 0 31017 1 31078 1	* a Dwarven Waiter (The Dwarven Bar)
-G 0 31002 0		*	A barrel of argh's beer
-G 0 31003 0		*	A bottle of yaegar (tm) beer
-G 0 31004 0		*	A bottle of marius (tm) ale
-G 0 31005 0		*	A bottle of rainman firebreather
-G 0 31006 0		*	A bottle of muddymud specialty
+G 0 31002 0		*	a Barrel of Argh's beer
+G 0 31003 0		*	a bottle of Yaegar (TM) beer
+G 0 31004 0		*	a Bottle of Marius (TM) ale
+G 0 31005 0		*	a Bottle of Rainman firebreather
+G 0 31006 0		*	a bottle of MuddyMUD specialty
 M 0 31025 1 31079 1	* Aod the dealer (Valiant Street)
-G 0 31028 0		*	A psychedelic potion
+G 0 31028 0		*	a psychedelic potion
 M 0 31037 8 31080 1	* a footpad (Valiant Street)
-E 0 31032 0 16		*	A sap: wielded
+E 0 31032 0 16		*	a sap: wielded
 M 0 31042 6 31081 1	* a huge sewer rat (A Bend in Valiant Street)
 M 0 31040 2 31082 1	* a thief (Outside the Kender Guild)
 M 0 31014 1 31084 1	* the Kender Guildmaster (The Guildmaster)
 M 0 31018 1 31085 1	* a Greasy Bartender (The Bar)
-G 0 31002 0		*	A barrel of argh's beer
-G 0 31003 0		*	A bottle of yaegar (tm) beer
-G 0 31004 0		*	A bottle of marius (tm) ale
-G 0 31005 0		*	A bottle of rainman firebreather
-G 0 31006 0		*	A bottle of muddymud specialty
+G 0 31002 0		*	a Barrel of Argh's beer
+G 0 31003 0		*	a bottle of Yaegar (TM) beer
+G 0 31004 0		*	a Bottle of Marius (TM) ale
+G 0 31005 0		*	a Bottle of Rainman firebreather
+G 0 31006 0		*	a bottle of MuddyMUD specialty
 M 0 31027 1 31088 1	* the Human Guildmaster (The Guildmaster's Room)
 M 0 31030 1 31089 1	* a Human Waiter (The Relaxation Room)
-G 0 31002 0		*	A barrel of argh's beer
-G 0 31003 0		*	A bottle of yaegar (tm) beer
-G 0 31004 0		*	A bottle of marius (tm) ale
-G 0 31005 0		*	A bottle of rainman firebreather
-G 0 31006 0		*	A bottle of muddymud specialty
+G 0 31002 0		*	a Barrel of Argh's beer
+G 0 31003 0		*	a bottle of Yaegar (TM) beer
+G 0 31004 0		*	a Bottle of Marius (TM) ale
+G 0 31005 0		*	a Bottle of Rainman firebreather
+G 0 31006 0		*	a bottle of MuddyMUD specialty
 M 0 31029 1 31091 1	* an Illithid Waiter (The Illithids' Bar)
-G 0 31002 0		*	A barrel of argh's beer
-G 0 31003 0		*	A bottle of yaegar (tm) beer
-G 0 31004 0		*	A bottle of marius (tm) ale
-G 0 31005 0		*	A bottle of rainman firebreather
-G 0 31006 0		*	A bottle of muddymud specialty
+G 0 31002 0		*	a Barrel of Argh's beer
+G 0 31003 0		*	a bottle of Yaegar (TM) beer
+G 0 31004 0		*	a Bottle of Marius (TM) ale
+G 0 31005 0		*	a Bottle of Rainman firebreather
+G 0 31006 0		*	a bottle of MuddyMUD specialty
 M 0 31026 1 31092 1	* the Illithid Guildmaster (The Guildmaster)
 M 0 31033 3 31094 1	* a citizen (Justice Street)
 M 0 31031 1 31098 1	* an Avian Waitress (The Bar)
-G 0 31002 0		*	A barrel of argh's beer
-G 0 31003 0		*	A bottle of yaegar (tm) beer
-G 0 31004 0		*	A bottle of marius (tm) ale
-G 0 31005 0		*	A bottle of rainman firebreather
-G 0 31006 0		*	A bottle of muddymud specialty
+G 0 31002 0		*	a Barrel of Argh's beer
+G 0 31003 0		*	a bottle of Yaegar (TM) beer
+G 0 31004 0		*	a Bottle of Marius (TM) ale
+G 0 31005 0		*	a Bottle of Rainman firebreather
+G 0 31006 0		*	a bottle of MuddyMUD specialty
 M 0 31028 1 31099 1	* the Avian Guildmaster (The Aerie)
 M 0 31053 1 31190 1	* Salvatore (Inside the Chippy)
-G 0 31045 0		*	A piece of battered fried fish
-G 0 31046 0		*	A pile of steaming chips
-G 0 31047 0		*	Chips with salt and sauce
-G 0 31048 0		*	A black pudding
-G 0 31049 0		*	A white pudding
-G 0 31050 0		*	A piece of pizza
-G 0 31051 0		*	A lump of lard
-G 0 31052 0		*	A potato scallop
-G 0 31053 0		*	Some curry sauce
-G 0 31054 0		*	Chicken kiev
-G 0 31055 0		*	A crumbed drumstick
-G 0 31056 0		*	A battered sav
-G 0 31057 0		*	A kabana
-G 0 31058 0		*	A fish cake
-G 0 31059 0		*	It's... haggis
+G 0 31045 0		*	a piece of battered fried fish
+G 0 31046 0		*	a pile of steaming chips
+G 0 31047 0		*	chips with salt and sauce
+G 0 31048 0		*	a black pudding
+G 0 31049 0		*	a white pudding
+G 0 31050 0		*	a piece of pizza
+G 0 31051 0		*	a lump of lard
+G 0 31052 0		*	a potato scallop
+G 0 31053 0		*	some curry sauce
+G 0 31054 0		*	chicken kiev
+G 0 31055 0		*	a crumbed drumstick
+G 0 31056 0		*	a battered sav
+G 0 31057 0		*	a kabana
+G 0 31058 0		*	a fish cake
+G 0 31059 0		*	it's... HAGGIS
 M 0 31055 1 31191 1	* the co-owner Tracey (Inside Tracey's Cafe)
 G 0 31060 0		*	Tetley's tea
 G 0 31061 0		*	Kenco coffee
-G 0 31062 0		*	A shandy
-G 0 31063 0		*	Barr's irn bru
-G 0 31064 0		*	A chocolate milk
-G 0 31065 0		*	A strawberry milk
-G 0 31066 0		*	A caramel milk
-G 0 31067 0		*	A sticky bun
-G 0 31068 0		*	A fruit scone
-G 0 31069 0		*	A spamburger
-G 0 31070 0		*	A steak burger
-G 0 31071 0		*	A hamburger
-G 0 31072 0		*	A ploughman's sandwich
-G 0 31073 0		*	A cheese and onion sandwich
-G 0 31074 0		*	A chicken tikka sandwich
-G 0 31075 0		*	A baked potato with cheese and coleslaw
-G 0 31076 0		*	A baked potato with chicken curry
-G 0 31077 0		*	Bacon and eggs
-G 0 31078 0		*	Steak eggs and chips
-G 0 31079 0		*	Spam and eggs
-G 0 31080 0		*	Bacon, spam and eggs
+G 0 31062 0		*	a shandy
+G 0 31063 0		*	Barr's Irn Bru
+G 0 31064 0		*	a chocolate milk
+G 0 31065 0		*	a strawberry milk
+G 0 31066 0		*	a caramel milk
+G 0 31067 0		*	a sticky bun
+G 0 31068 0		*	a fruit scone
+G 0 31069 0		*	a spamburger
+G 0 31070 0		*	a steak burger
+G 0 31071 0		*	a hamburger
+G 0 31072 0		*	a ploughman's sandwich
+G 0 31073 0		*	a cheese and onion sandwich
+G 0 31074 0		*	a chicken tikka sandwich
+G 0 31075 0		*	a baked potato with cheese and coleslaw
+G 0 31076 0		*	a baked potato with chicken curry
+G 0 31077 0		*	bacon and eggs
+G 0 31078 0		*	steak eggs and chips
+G 0 31079 0		*	spam and eggs
+G 0 31080 0		*	bacon, spam and eggs
 M 0 31056 1 31194 1	* Mengrabbazoah (The Guildhall)
-O 0 31082 0 31196		* A portal to the past (A Bare Room)
-O 0 31083 0 31197		* A portal to the future (A Steel Chamber)
-O 0 31084 0 31198		* A portal to the surreal (A Bizarre Room)
+O 0 31082 0 31196		* a portal to the past (A Bare Room)
+O 0 31083 0 31197		* a portal to the future (A Steel Chamber)
+O 0 31084 0 31198		* a portal to the surreal (A Bizarre Room)
 M 0 31057 1 31199 1	* Alix the Thaumaturgist (The Thaumaturgist's Shop)
 S
 
@@ -5227,7 +5227,6 @@ Dungeon_|                        Dryad                       |
      Guild                   Insect Garden                 Guild
 
 ~
-
 -1 $~
 
 #$

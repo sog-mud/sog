@@ -1,8 +1,13 @@
-#AREA	
-nation.are~
-Goblin Nation~
-{10 25} Mort  Goblin Nation~
-9901 9999
+#AREADATA
+Name Goblin Nation~
+Builders None~
+VNUMs 9901 9999
+Credits Mort~
+Security 9
+LevelRange 10 25
+End
+
+
 
 #MOBILES
 #9901
@@ -17,12 +22,12 @@ As you approach he says, "Beware the Goblins!  They
 swarm like flies upon the unwary.  Beware!"
 ~
 human~
-2|64 0 0 0
-25 0 5d10+550 5d5+1000 2d10+7 punch    
+ABG 0 0 0
+25 0 5d10+550 5d5+1000 2d10+7 punch
 -7 -7 -7 4
 EN 0 0 0
 stand stand male 10
-0 0 medium 0
+0 0 medium unknown
 #9902
 dwarf eyeless~
 the Eyeless Dwarf~
@@ -31,12 +36,12 @@ An Eyeless Dwarf bumps into you then ATTACKS!
 This Dwarf has been horribly mutilated.
 ~
 dwarf~
-32|64 0 0 0
-5 0 2d6+60 5d5+100 1d6+1 punch        
+AFG 0 0 0
+5 0 2d6+60 5d5+100 1d6+1 punch
 5 5 5 9
 E 0 0 0
 stand stand male 10
-0 0 small 0
+0 0 small unknown
 #9903
 elf deranged~
 the Deranged Elf~
@@ -45,13 +50,13 @@ A deranged Elf looks at you, then attacks with a scream!
 This elf is a young adult.  Obviously driven mad by
 his capture and torture.
 ~
-Elf~
-32|64 0 0 0
-5 0 2d6+60 5d5+100 1d6+1 punch        
+elf~
+AFG 0 0 0
+5 0 2d6+60 5d5+100 1d6+1 punch
 5 5 5 9
 EN 0 0 0
 stand stand male 10
-0 0 medium 0
+0 0 medium unknown
 #9904
 confused human youth~
 the Confused Human~
@@ -60,12 +65,12 @@ A confused human youth attacks you!
 This youngster is walking around in a daze.
 ~
 human~
-32|64 0 0 0
-5 0 2d6+60 5d5+100 1d6+1 punch        
+AFG 0 0 0
+5 0 2d6+60 5d5+100 1d6+1 punch
 5 5 5 9
 EN 0 0 0
 stand stand male 10
-0 0 medium 0
+0 0 medium unknown
 #9905
 goblin child~
 the Goblin child~
@@ -76,12 +81,12 @@ It's hair is mussed, it smells, and has little
 to no clothes on.
 ~
 goblin~
-64 0 0 0
-5 0 2d6+60 5d5+100 1d6+1 punch        
+AG 0 0 0
+5 0 2d6+60 5d5+100 1d6+1 punch
 5 5 5 9
-EN 0 0 C
+EN 0 0 0
 stand stand male 10
-0 0 small 0
+0 0 small unknown
 #9906
 male goblin~
 the Male Goblin~
@@ -93,12 +98,12 @@ some painted symbols on his chest.  They look like
 circles with dots in the middle.
 ~
 goblin~
-64 0 0 0
-8 0 2d7+96 5d5+100 1d7+2 punch          
+AG 0 0 0
+8 0 2d7+96 5d5+100 1d7+2 punch
 3 3 3 8
-EN 0 0 C
+EN 0 0 0
 stand stand male 10
-0 0 medium 0
+0 0 medium unknown
 #9907
 goblin female~
 the Female Goblin~
@@ -108,12 +113,12 @@ She is very short..only 3 1/2 feet tall.  Long oily
 black hair and a green complexion completes the image.
 ~
 goblin~
-64 0 0 0
-8 0 2d7+96 5d5+100 1d7+2 punch         
+AG 0 0 0
+8 0 2d7+96 5d5+100 1d7+2 punch
 3 3 3 8
-EN 0 0 C
+EN 0 0 0
 stand stand female 10
-0 0 medium 0
+0 0 medium unknown
 #9908
 goblin guard ~
 the Goblin Guard~
@@ -123,12 +128,12 @@ The guard is lightly armed.  He relies
 upon his claws and fangs to do his work.
 ~
 goblin~
-64 0 -300 0
-15 0 3d9+208 5d5+100 2d6+3 punch     
+AG 0 -300 0
+15 0 3d9+208 5d5+100 2d6+3 punch
 -2 -2 -2 6
-EN 0 0 C
+EN 0 0 0
 stand stand male 10
-0 0 medium 0
+0 0 medium unknown
 #9909
 goblin shaman~
 the Goblin Shaman~
@@ -139,12 +144,12 @@ covered in symbols from his religion.
 He doesn't notice your intense stare.
 ~
 goblin~
-64 0 0 0
-20 0  3d9+333 5d5+1000 2d8+5 punch      
+AG 0 0 0
+20 0 3d9+333 5d5+1000 2d8+5 punch
 -4 -4 -4 5
-EN 0 0 C
+EN 0 0 0
 stand stand male 10
-0 0 medium 0
+0 0 medium unknown
 #9910
 warrior goblin~
 the Goblin Warrior~
@@ -154,13 +159,14 @@ This warrior is without armor or weapons.  He also is
 covered in blue circles with dots in the center.
 ~
 goblin~
-64 0 -500 0
-10 0  2d7+121 5d5+100 2d4+2 punch        
+AG 0 -500 0
+10 0 2d7+121 5d5+100 2d4+2 punch
 1 1 1 7
-EFN 0 0 C
+EFN 0 0 0
 stand stand male 10
-0 0 medium 0
+0 0 medium unknown
 #0
+
 
 
 #OBJECTS
@@ -170,7 +176,7 @@ a sign~
 A floating sign draws your attention.~
 ~
 furniture 0 0
-0 0 0 0 0 
+0 0 0 0 0
 0 0 0 P
 E
 sign~
@@ -183,8 +189,8 @@ lost quest note~
 a lost quest note~
 A lost quest note is lying here.~
 ~
-treasure 0 1
-0 0 0 0 0 
+treasure 0 A
+0 0 0 0 0
 0 1 0 P
 E
 quest note lost~
@@ -197,8 +203,8 @@ note reward~
 a reward note~
 A reward note has been dropped here.~
 ~
-furniture 0 1
-0 0 0 0 0  
+furniture 0 A
+0 0 0 0 0
 0 1 0 P
 E
 reward note~
@@ -212,8 +218,8 @@ necklace~
 a Necklace~
 A Necklace lies here.~
 ~
-armor 0 1|4
-2 2 2 2 0 
+armor 0 AC
+B B B B 0
 5 1 0 P
 E
 necklace~
@@ -223,8 +229,8 @@ necklace~
 a Necklace~
 A necklace has been dropped here.~
 ~
-armor 0 1|4
-2 2 2 2 0 
+armor 0 AC
+B B B B 0
 5 5 0 P
 E
 necklace~
@@ -234,8 +240,8 @@ necklace~
 a Necklace~
 A Necklace lies here.~
 ~
-armor 0 1|4
-2 2 2 2 2 
+armor 0 AC
+B B B B B
 5 5 0 P
 E
 necklace~
@@ -245,8 +251,8 @@ ring elven elf~
 an Elven Ring~
 An Elven ring has been dropped here.~
 ~
-armor 0 1|2
-0 0 0 0 0 
+armor 0 AB
+0 0 0 0 0
 5 1 0 P
 E
 ring~
@@ -256,8 +262,8 @@ ring elven elf~
 an Elven Ring~
 An Elven ring has been dropped here.~
 ~
-armor 0 1|2
-0 0 0 0 0  
+armor 0 AB
+0 0 0 0 0
 5 1 0 P
 E
 ring~
@@ -267,8 +273,8 @@ ring elven elf~
 an Elven Ring~
 An Elven ring is lying here.~
 ~
-armor 0 1|2
-0 0 0 0 0  
+armor 0 AB
+0 0 0 0 0
 5 5 0 P
 E
 ring elven elf~
@@ -278,8 +284,8 @@ child childs toy~
 a Childs toy~
 A childs toy lies here.~
 ~
-armor 0 1|16384
-0 0 0 0 0  
+armor 0 AO
+0 0 0 0 0
 5 5 0 P
 E
 toy child~
@@ -289,8 +295,8 @@ toy child childs~
 a Childs toy~
 A childs toy is lying here.~
 ~
-armor 0 1|16384
-0 0 0 0 0 
+armor 0 AO
+0 0 0 0 0
 5 1 0 P
 E
 child toy childs~
@@ -300,8 +306,8 @@ child childs toy~
 a Childs toy~
 A childs toy has been dropped here.~
 ~
-armor 0 1|16384
-0 0 0 0 0 
+armor 0 AO
+0 0 0 0 0
 5 1 0 P
 E
 child toy childs~
@@ -311,18 +317,19 @@ loincloth~
 a loincloth~
 A loincloth has been wadded up and dropped here.~
 ~
-armor 0 1|8
-2 3 2 2 0 
+armor 0 AD
+B AB B B 0
 8 5 0 P
 #9914
 bangle goblin~
 a pair of Goblin Bangles~
 A pair of Goblin Bangles have been dropped here.~
 ~
-armor 0 1|4096
-3 2 3 2 0 
+armor 0 AM
+AB B AB B 0
 8 1 0 P
 #0
+
 
 
 #ROOMS
@@ -332,7 +339,7 @@ The river flows to the west, through the huge hole in the the
 wall which encircles Malo Village.  The village is on the
 north shore of the river to your east.
 ~
-0 4 7
+0 C 7
 D1
 ~
 ~
@@ -578,7 +585,7 @@ This bedrock landing is concealed by a woven grass wall.  Matted
 grasses cover the ground.  To the north a path through the high
 grasses leads to danger.
 ~
-0 4 2
+0 C 2
 D0
 ~
 ~
@@ -658,7 +665,7 @@ The grasses have been woven into a small tunnel...all light from
 above has been cut out.  The tunnel is extremely small and will
 only admit two or three persons at a time.
 ~
-0 8|512 0
+0 DJ 0
 D1
 ~
 ~
@@ -753,7 +760,7 @@ Grass hut~
 This tiny grass hut is filthy.  Small pieces of food, ripped
 clothing and broken pottery litter the floor.
 ~
-0 8 0
+0 D 0
 D0
 ~
 ~
@@ -782,7 +789,7 @@ The grass was cut instead of bent and has now died.  It's
 ugly brown color indicates it's dryness and begs to be 
 set on fire.
 ~
-0 8 0
+0 D 0
 D3
 ~
 ~
@@ -794,7 +801,7 @@ You are standing in a hut which has been smeared with
 blue berries.  The walls are caked with bits and pieces of
 several different fruits but blueberry is the dominant color.
 ~
-0 8 0
+0 D 0
 D2
 ~
 ~
@@ -893,6 +900,11 @@ compacted by thousands of footsteps.  A small hole has been
 dug in the earth and something is jammed into the ground.
 ~
 0 0 2
+E
+something~
+The "something" in the hole is appears to be a small white
+skull.  Too small to be a Goblin or Human skull, this skull
+appears to be an Elven skull.~
 D0
 ~
 ~
@@ -905,11 +917,6 @@ D2
 ~
 ~
 0 -1 9935
-E
-something~
-The "something" in the hole is appears to be a small white
-skull.  Too small to be a Goblin or Human skull, this skull
-appears to be an Elven skull.~
 S
 #9935
 Stick hut~
@@ -917,31 +924,31 @@ This stick hut is very small, dark and barren.  How odd the
 walls appear to you now that you are inside.  Several of sticks
 appear to be very smooth.
 ~
-0 8 0
-D0
-~
-~
-0 -1 9934
+0 D 0
 E
 stick sticks~
 The "sticks" are yellowing bones, collected from the
 dead children of Malo Village.~
+D0
+~
+~
+0 -1 9934
 S
 #9936
 Stick and grass hut~
 This hut is made from sticks and grass crudely woven together
 into a weak semblance of a home.
 ~
-0 8 0
-D3
-~
-~
-0 -1 9934
+0 D 0
 E
 stick sticks~
 The "sticks" are actually bones.  They appear to be the bones
 of several different races.  Looking closely you can see that
 they have been gnawed.~
+D3
+~
+~
+0 -1 9934
 S
 #9937
 Rocky spot~
@@ -951,6 +958,10 @@ A hollow sound can be heard when you step here and when you
 look down you see a small hole.
 ~
 0 0 2
+E
+hole~
+Putting your eye to this small hole reveals that beneath
+your feet is a huge cavern.~
 D0
 ~
 ~
@@ -967,10 +978,6 @@ D3
 ~
 ~
 0 -1 9947
-E
-hole~
-Putting your eye to this small hole reveals that beneath
-your feet is a huge cavern.~
 S
 #9938
 Grass hut with window~
@@ -978,16 +985,16 @@ This tiny grass hut is cleaner than you expected and the
 window comes as a great surprise.  Upon closer examination 
 the window is explained.
 ~
-0 8 0
-D0
-~
-~
-0 -1 9937
+0 D 0
 E
 examination window~
 The window has no frame.  It appears that someone clawed 
 their way through the wall of the hut.  Tiny pieces of nail
 are still embedded into the frame of the hut.~
+D0
+~
+~
+0 -1 9937
 S
 #9939
 Rocky ground~
@@ -1056,7 +1063,7 @@ Bloody hut~
 This was the location of a bloody killing.  There is blood
 everywhere; on the floor, walls and ceiling.
 ~
-0 8 0
+0 D 0
 D0
 ~
 ~
@@ -1109,7 +1116,7 @@ Looking around you see signs that lead you to believe that this
 hut is for children.  Several small piles of grass, looking much
 like beds, are lying about the floor.
 ~
-0 8 0
+0 D 0
 D1
 ~
 ~
@@ -1236,7 +1243,7 @@ This hut is unlike many of the others in the area.  It is
 constructed of wooden poles with tightly stretched animal skins
 fashioned into walls and ceiling.
 ~
-0 8 0
+0 D 0
 D2
 ~
 ~
@@ -1289,15 +1296,15 @@ This wooden hut is well built from the planks of a sailing ship.
 The weathered wood, the round windows, and a figurine of great
 artistry makes this hut much more than you expected.
 ~
-0 8 0
-D2
-~
-~
-0 -1 9955
+0 D 0
 E
 figurine~
 The figurine is of a busty woman whose sly smile reminds you
 of the forbidden fruit.  She's a real siren.~
+D2
+~
+~
+0 -1 9955
 S
 #9957
 Pebbles in the dirt~
@@ -1305,6 +1312,10 @@ Small white pebbles in the dirt catch your attention.  The dirt
 path is narrow but shows signs of heavy use.
 ~
 0 0 2
+E
+pebble pebbles~
+The pebbles are small and white.  Upon closer examination
+you discover that they are teeth!~
 D0
 ~
 ~
@@ -1317,10 +1328,6 @@ D3
 ~
 ~
 0 -1 9958
-E
-pebble pebbles~
-The pebbles are small and white.  Upon closer examination
-you discover that they are teeth!~
 S
 #9958
 Dirty path~
@@ -1372,14 +1379,6 @@ You are standing at the northern end of a twelve foot deep pit.
 A large hut has been built along the south wall of the village.
 ~
 0 0 2
-D0
-~
-~
-0 -1 9959
-D3
-~
-~
-0 -1 9961
 E
 pit~
 The pit has been dug into the ground twelve feet down.  Several
@@ -1388,6 +1387,14 @@ A large clump of refuge at the southern end attracts your attention.~
 E
 refuge~
 You cannot see the refuge from here.~
+D0
+~
+~
+0 -1 9959
+D3
+~
+~
+0 -1 9961
 S
 #9961
 Dirt path~
@@ -1415,6 +1422,14 @@ stakes have been driven into the ground along the edge of the
 pit.  Ropes are coiled near the stakes.
 ~
 0 0 2
+E
+pit~
+The pit is very deep here.  A rope is hanging down the side
+of the pit and at the end of the rope hangs a body.~
+E
+body~
+The body is of a soldier from Malo Village.  His throat has been
+slit and his toes and fingers cut off.~
 D0
 ~
 ~
@@ -1427,14 +1442,6 @@ D3
 ~
 ~
 0 -1 9966
-E
-pit~
-The pit is very deep here.  A rope is hanging down the side
-of the pit and at the end of the rope hangs a body.~
-E
-body~
-The body is of a soldier from Malo Village.  His throat has been
-slit and his toes and fingers cut off.~
 S
 #9963
 Alongside the pit~
@@ -1443,14 +1450,6 @@ A swarm of flies hovers above the pit.  A few of them come to you
 to feast on your sweat.
 ~
 0 0 2
-D0
-~
-~
-0 -1 9962
-D3
-~
-~
-0 -1 9964
 E
 pit~
 The pit is very deep.  Wooden poles support the walls.  Refuge
@@ -1478,6 +1477,14 @@ the corpse you see that it was a man..and that he had gold
 teeth.  If you know the identity of this pirate's brother,
 please inform someone on the wizlist.  You will need to know
 if the nature of the quest and the identity of this body.~
+D0
+~
+~
+0 -1 9962
+D3
+~
+~
+0 -1 9964
 S
 #9964
 Dirty grass path~
@@ -1504,11 +1511,7 @@ The wooden hut is built from the planks of a sailing ship.
 Several round windows allow light and air to enter.  Carved
 into the floor of the hut is a map of the continent.
 ~
-0 8 0
-D0
-~
-~
-0 -1 9964
+0 D 0
 E
 map~
 The map shows that the continent is shaped much like a cloud.
@@ -1522,6 +1525,10 @@ inland sea.  The left branch continues in a southern direction
 and cuts across the continent to the south west corner of the 
 continent.  In the center of the continent is a huge pyramid
 shaped mountain.~
+D0
+~
+~
+0 -1 9964
 S
 #9966
 Grassy patch~
@@ -1570,7 +1577,7 @@ Looking around you discover several articles of children's
 clothing tacked to the walls.  Some of the clothing is covered
 in blood, while others look brand new.
 ~
-0 8 0
+0 D 0
 D1
 ~
 ~
@@ -1757,14 +1764,14 @@ This hut is made of wooden poles with a layer of grass woven
 inbetween them.  A thick thatch roof keeps out the rain.
 Written in blood, on the wall of the hut is a phrase.
 ~
-0 8 0
+0 D 0
+E
+phrase~
+Made by the children of Malo Village.~
 D0
 ~
 ~
 0 -1 9978
-E
-phrase~
-Made by the children of Malo Village.~
 S
 #9980
 North path~
@@ -1822,14 +1829,14 @@ Small hut~
 This small hut is well built and has a fire pit in the center 
 of it.  Several small hands are hanging on the walls.
 ~
-0 8 0
+0 D 0
+E
+hand hands~
+The hands are from several small children of different races.~
 D0
 ~
 ~
 0 -1 9982
-E
-hand hands~
-The hands are from several small children of different races.~
 S
 #9984
 Grassy path~
@@ -1866,7 +1873,7 @@ Singlefile path~
 The wall comes very close to one of the Goblin huts.  You will
 have to travel in singlefile to get by.
 ~
-0 512 2
+0 J 2
 D0
 ~
 ~
@@ -1886,7 +1893,7 @@ You are standing in a very small hut near the northern wall.
 Some of the belongings in this hut were made by goblins, some
 were stolen from Malo Village.
 ~
-0 8 0
+0 D 0
 D1
 ~
 ~
@@ -1898,7 +1905,7 @@ The grass wall is squeezing you into a very small path.  Some of
 the grasses are hanging down into your path.  They brush against
 your face as you walk under them.
 ~
-0 512 2
+0 J 2
 D1
 ~
 ~
@@ -1920,7 +1927,7 @@ possessions you have seen in quantity have belonged to the
 Malo Villagers.  What is going on?  Where did these goblins
 come from?  Where are they going?  What are they doing here?
 ~
-0 8 0
+0 D 0
 D0
 ~
 ~
@@ -1931,7 +1938,7 @@ Tiny grass path~
 This kneehigh grass path leads toward Bald Mountain.  The length
 of the grass indicates that few Goblins come in this direction.
 ~
-0 512 2
+0 J 2
 D1
 ~
 ~
@@ -1951,15 +1958,15 @@ This hut has been built from the wood of a sailing vessel.  The
 weathered boards have iron rings embedded in them and a small bell
 in the corner is very dull.
 ~
-0 8 0
-D3
-~
-~
-0 -1 9990
+0 D 0
 E
 bell~
 Carved into the bell's stand is the name of the ship from 
 which it came:   "The Squid".~
+D3
+~
+~
+0 -1 9990
 S
 #9992
 Lonely path~
@@ -2054,7 +2061,7 @@ Grass hut~
 This grass hut is no different than any of the others.  Again the
 question of "where are their possessions?" comes to mind.
 ~
-0 8 0
+0 D 0
 D2
 ~
 ~
@@ -2066,7 +2073,7 @@ The grass hut was built somewhere else and moved to this location.
 The grass is silver, and appears to be collecting light.  Looking
 at the hut is hard to do...the light is so bright.
 ~
-0 8 0
+0 D 0
 D0
 ~
 ~
@@ -2078,7 +2085,7 @@ You are standing in the entrance of a cave within Bald Mountain.
 Several small offerings are scattered about the room.  To the
 rear of the room is a door.  A door which doesn't open.
 ~
-0 8 0
+0 D 0
 D3
 ~
 ~
@@ -2087,121 +2094,103 @@ S
 #0
 
 
-#RESETS
-D 1 9916 2 1                 ; Grassy landing Close South
-D 1 9912 0 1                 ; Southern turn Close North
-*
-M 1 9901 1 9902 1*			the Villager to On the river
-G 1 9902 100
-G 1 9903 100
-O 1 9901 100 9902			a sign to On the river
-*
-M 1 9902 3 9997	 2*		the Eyeless Dwarf to Grass hut
-E 1 9904 100 3
-*
-M 1 9902 3 9977	2*		the Eyeless Dwarf to Northern path
-E 1 9905 100 3
-*
-M 1 9902 3 9959	1*		the Eyeless Dwarf to Village path
-E 1 9906 100 3
-*
-M 1 9903 3 9991	1*		the Deranged Elf to Wooden hut
-E 1 9907 100 1
-*
-M 1 9903 3 9929	1*		the Deranged Elf to A blue hut
-E 1 9908 100 1
-*
-M 1 9903 3 9976	1*		the Deranged Elf to Stick hut
-E 1 9909 100 1
-*
-M 1 9904 3 9965	1*		the Confused Human to Large wood hut
-E 1 9910 100 17
-*
-M 1 9904 3 9989	1*		the Confused Human to Grass shack
-E 1 9911 100 17
-*
-M 1 9904 3 9950	1*		the Confused Human to Grass hut
-E 1 9912 100 17
-*
-M 1 9905 15 9981 1*			the Goblin child to Grass hut
-*
-M 1 9905 15 9983 1*			the Goblin child to Small hut
-*
-M 1 9905 15 9979 1*			the Goblin child to Grass hut
-*
-M 1 9905 15 9976 1*			the Goblin child to Stick hut
-*
-M 1 9905 15 9945 1*			the Goblin child to Grass hut
-*
-M 1 9905 15 9935 1*			the Goblin child to Stick hut
-*
-M 1 9905 15 9942 1*			the Goblin child to Bloody hut
-*
-M 1 9906 10 9938 1*			the Male Goblin to Grass hut withwindow
-E 1 9913 100 5
-*
-M 1 9906 10 9953 1*			the Male Goblin to Goblin hut
-E 1 9913 100 5
-*
-M 1 9906 10 9971 1*			the Male Goblin to Silky grass hut
-E 1 9913 100 5
-*
-M 1 9906 10 9968 1*			the Male Goblin to Grass hut
-*
-M 1 9906 10 9928 1*			the Male Goblin to Dead grass hut
-*
-M 1 9907 12 9938 1*			the Female Goblin to Grass hutwith window
-E 1 9913 100 5
-E 1 9914 100 14
-*
-M 1 9907 12 9953 1*			the Female Goblin to Goblin hut
-E 1 9913 100 5
-E 1 9914 100 14
-*
-M 1 9907 12 9971 1*			the Female Goblin to Silky grasshut
-E 1 9913 100 5
-E 1 9914 100 14
-*
-M 1 9907 12 9968 1*			the Female Goblin to Grass hut
-*
-M 1 9907 12 9928 1*			the Female Goblin to Dead grasshut
-*
-M 1 9908 10 9996 1*			the Goblin Guard to Before thecave
-*
-M 1 9908 10 9959 1*			the Goblin Guard to Village path
-*
-M 1 9908 10 9961 1*			the Goblin Guard to Dirt path
-*
-M 1 9908 10 9933 1*			the Goblin Guard to Crushed grass
-*
-M 1 9909 5 9950	 1*		the Goblin Shaman to Grass hut
-*
-M 1 9909 5 9965	 1*		the Goblin Shaman to Large wood hut
-*
-M 1 9909 5 9987	 1*		the Goblin Shaman to Grass shack
-*
-M 1 9909 5 9998	1*		the Goblin Shaman to Grass hut
-*
-M 1 9910 15 9932 1*			the Goblin Warrior to Village path
-*
-M 1 9910 15 9964 1*			the Goblin Warrior to Dirty grasspath
-*
-M 1 9910 15 9974 1*			the Goblin Warrior to Kneehighgrass
-*
-M 1 9910 15 9988 1*			the Goblin Warrior to Tiny path
-*
-M 1 9910 15 9946 1*			the Goblin Warrior to Southernpath
+
+#SPECIALS
+M 9909 spec_cast_cleric	* the Goblin Shaman
 S
+
+
+
+#RESETS
+D 0 9912 0 1	* Southern turn: door to the north: closed
+D 0 9916 2 1	* Grassy landing: door to the south: closed
+M 0 9901 1 9902 1	* the Villager (On the river)
+G 0 9902 0		*	a lost quest note
+G 0 9903 0		*	a reward note
+O 0 9901 0 9902		* a sign (On the river)
+M 0 9906 10 9928 1	* the Male Goblin (Dead grass hut)
+M 0 9907 12 9928 1	* the Female Goblin (Dead grass hut)
+M 0 9903 3 9929 1	* the Deranged Elf (A blue hut)
+E 0 9908 0 1		*	an Elven Ring: on the left finger
+M 0 9910 15 9932 1	* the Goblin Warrior (Village path)
+M 0 9908 10 9933 1	* the Goblin Guard (Crushed grass)
+M 0 9905 15 9935 1	* the Goblin child (Stick hut)
+M 0 9906 10 9938 1	* the Male Goblin (Grass hut with window)
+E 0 9913 0 5		*	a loincloth: on the body
+M 0 9907 12 9938 1	* the Female Goblin (Grass hut with window)
+E 0 9913 0 5		*	a loincloth: on the body
+E 0 9914 0 14		*	a pair of Goblin Bangles: on the left wrist
+M 0 9905 15 9942 1	* the Goblin child (Bloody hut)
+M 0 9905 15 9945 1	* the Goblin child (Grass hut)
+M 0 9910 15 9946 1	* the Goblin Warrior (Southern path)
+M 0 9904 3 9950 1	* the Confused Human (Grass hut)
+E 0 9912 0 17		*	a Childs toy: held in the hands
+M 0 9909 5 9950 1	* the Goblin Shaman (Grass hut)
+M 0 9906 10 9953 1	* the Male Goblin (Goblin hut)
+E 0 9913 0 5		*	a loincloth: on the body
+M 0 9907 12 9953 1	* the Female Goblin (Goblin hut)
+E 0 9913 0 5		*	a loincloth: on the body
+E 0 9914 0 14		*	a pair of Goblin Bangles: on the left wrist
+M 0 9902 3 9959 1	* the Eyeless Dwarf (Village path)
+E 0 9906 0 3		*	a Necklace: around the neck (1)
+M 0 9908 10 9959 1	* the Goblin Guard (Village path)
+M 0 9908 10 9961 1	* the Goblin Guard (Dirt path)
+M 0 9910 15 9964 1	* the Goblin Warrior (Dirty grass path)
+M 0 9904 3 9965 1	* the Confused Human (Large wood hut)
+E 0 9910 0 17		*	a Childs toy: held in the hands
+M 0 9909 5 9965 1	* the Goblin Shaman (Large wood hut)
+M 0 9906 10 9968 1	* the Male Goblin (Grass hut)
+M 0 9907 12 9968 1	* the Female Goblin (Grass hut)
+M 0 9906 10 9971 1	* the Male Goblin (Silky grass hut)
+E 0 9913 0 5		*	a loincloth: on the body
+M 0 9907 12 9971 1	* the Female Goblin (Silky grass hut)
+E 0 9913 0 5		*	a loincloth: on the body
+E 0 9914 0 14		*	a pair of Goblin Bangles: on the left wrist
+M 0 9910 15 9974 1	* the Goblin Warrior (Kneehigh grass)
+M 0 9903 3 9976 1	* the Deranged Elf (Stick hut)
+E 0 9909 0 1		*	an Elven Ring: on the left finger
+M 0 9905 15 9976 1	* the Goblin child (Stick hut)
+M 0 9902 3 9977 2	* the Eyeless Dwarf (Northern path)
+E 0 9905 0 3		*	a Necklace: around the neck (1)
+M 0 9905 15 9979 1	* the Goblin child (Grass hut)
+M 0 9905 15 9981 1	* the Goblin child (Grass hut)
+M 0 9905 15 9983 1	* the Goblin child (Small hut)
+M 0 9909 5 9987 1	* the Goblin Shaman (Grass shack)
+M 0 9910 15 9988 1	* the Goblin Warrior (Tiny path)
+M 0 9904 3 9989 1	* the Confused Human (Grass shack)
+E 0 9911 0 17		*	a Childs toy: held in the hands
+M 0 9903 3 9991 1	* the Deranged Elf (Wooden hut)
+E 0 9907 0 1		*	an Elven Ring: on the left finger
+M 0 9908 10 9996 1	* the Goblin Guard (Before the cave)
+M 0 9902 3 9997 2	* the Eyeless Dwarf (Grass hut)
+E 0 9904 0 3		*	a Necklace: around the neck (1)
+M 0 9909 5 9998 1	* the Goblin Shaman (Grass hut)
+S
+
 
 
 #SHOPS
-9901 8 5 9 12 13 65 150 0 23			Mobile sells quest clues
+9901 8 5 9 12 13 65 150 0 23
 0
 
 
-#SPECIALS
-M  9909 spec_cast_cleric			the Goblin Shaman
+
+#OLIMITS
 S
+
+
+
+#MOBPROGS
+#0
+
+#PRACTICERS
+S
+
+
+
+#OMPROGS
+S
+
 
 
 #$

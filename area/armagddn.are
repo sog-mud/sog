@@ -1,8 +1,12 @@
-#AREA
-armagddn.are~
-Armageddon~
-{70 95} Lok     Armageddon~
-14001 14199
+#AREADATA
+Name Armageddon~
+Builders None~
+VNUMs 14001 14199
+Credits Lok~
+Security 9
+LevelRange 70 95
+End
+
 
 
 #MOBILES
@@ -20,9 +24,9 @@ unique~
 AFT DFJ -1000 0
 91 0 90d20+19000 91d10+9500 10d15+61 bite
 -63 -63 -63 -26
-FIKW B M NS 
+FIKW B M NS
 stand stand none 900
-AGHNO ACDEFHKQV large 0
+AGHNO ACDEFHKQV large unknown
 #14002
 abaddon king angel~
 Abaddon~
@@ -34,13 +38,13 @@ He promises you great power and position in the world to
 come. His appearance is to your liking, whatever that may be,
 and you find his voice pleasant and reasonable.
 ~
-angel~
+unique~
 ABT ABITX -1000 0
 95 0 90d20+23000 91d10+9500 16d10+65 crush
 -66 -66 -66 -28
-FV BN HIM MN 
+FV BN HIM MN
 stand stand male 900
-AHMVXd ABCDEFGHIJKP medium 0
+AHMVXd ABCDEFGHIJKP medium unknown
 #14003
 babylon whore woman harlot~
 Babylon~
@@ -57,7 +61,7 @@ AHQ c -1000 0
 -60 -60 -60 -25
 FN 0 0 0
 stand stand female 900
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #14004
 angel water waters~
 The angel of the waters~
@@ -66,13 +70,13 @@ An angel is here, holding down the watery corner of the world.
 The angel looks you over and tells you that you are too late.
 He has already cast the second vial of wrath into the sea.
 ~
-angel~
+unique~
 ABT BNT 1000 0
 85 0 90d20+16000 91d10+9500 10d13+55 smash
 -58 -58 -58 -24
 CEFKPX BNQR HIN M
 stand stand male 10
-ADHLMV ABCDEFGHIJKP large 0
+ADHLMV ABCDEFGHIJKP large unknown
 #14005
 angel earth~
 The angel of the earth~
@@ -81,13 +85,13 @@ An angel is here, shaking the earthen corner of the world!
 The angel looks you over and tells you that you are too late.
 The 6th seal already has been broken.
 ~
-angel~
+unique~
 ABT BNT 1000 0
 85 0 90d20+16000 91d10+9500 10d13+55 smash
 -58 -58 -58 -24
-CEFKPX BNQR HIN M 
+CEFKPX BNQR HIN M
 stand stand male 900
-ADHLMV ABCDEFGHIJKP large 0
+ADHLMV ABCDEFGHIJKP large unknown
 #14006
 angel air~
 The angel of the air~
@@ -96,13 +100,13 @@ An angel is here, holding down the airy corner of the world.
 The angel looks you over and tells you that you are too late.
 He has already scattered the seventh vial of wrath on the wind.
 ~
-angel~
+unique~
 ABT BNT 1000 0
 85 0 90d20+16000 91d10+9500 10d13+55 divine
 -58 -58 -58 -24
 CEFKPX BNQR HIN M
 stand stand male 900
-ADHLMV ABCDEFGHIJKP large 0
+ADHLMV ABCDEFGHIJKP large unknown
 #14007
 angel fire~
 The angel with the fiery censer~
@@ -111,13 +115,13 @@ An angel is here, containing the fiery corner of the world.
 The angel looks you over and tells you that you are too late.
 He has already poured the fourth vial of wrath upon the sun.
 ~
-angel~
+unique~
 ABT BNT 1000 0
 85 0 90d20+16000 91d10+9500 10d13+55 divine
 -58 -58 -58 -24
-CEFKPX BNQR HIN M 
+CEFKPX BNQR HIN M
 stand stand male 900
-ADHLMV ABCDEFGHIJKP large 0
+ADHLMV ABCDEFGHIJKP large unknown
 #14008
 angel harvesting~
 The harvesting angel~
@@ -125,13 +129,13 @@ An angel is here, harvesting sinners with his sickle.
 ~
 The angel has no mercy for those without seals.
 ~
-angel~
+unique~
 AT BCDFNT 1000 0
 80 0 50d20+13500 91d10+9500 13d9+50 pound
 -54 -54 -54 -22
-CEFKPX BNQR HIN M 
+CEFKPX BNQR HIN M
 stand stand male 900
-ADHLMV ABCDEFGHIJKP large 0
+ADHLMV ABCDEFGHIJKP large unknown
 #14009
 army heaven~
 An army of heaven~
@@ -144,9 +148,9 @@ human~
 AT N 1000 0
 75 0 50d20+11000 91d10+9000 9d11+45 slice
 -50 -50 -50 -20
-CEP E N M 
+CEP E N M
 stand stand none 900
-AHMSV ABCDEFGHIJK huge 0
+S 0 huge unknown
 #14010
 horseman white~
 The white horseman~
@@ -159,9 +163,9 @@ human~
 AFT DFJ -1000 0
 85 0 90d20+16000 91d10+9500 10d13+55 pound
 -58 -58 -58 -24
-CDEFK B MZ N 
+CDEFK B MZ N
 stand stand male 900
-ABCHMNV ABCDEFGHIJK large 0
+BCN 0 large unknown
 #14011
 horseman red~
 The red horseman~
@@ -174,9 +178,9 @@ human~
 AFT DFJ -1000 0
 85 0 90d20+16000 91d10+9500 10d13+55 pound
 -58 -58 -58 -24
-CDEFK B MZ N 
+CDEFK B MZ N
 stand stand male 900
-ABCHMNV ABCDEFGHIJK large 0
+BCN 0 large unknown
 #14012
 horseman black~
 The black horseman~
@@ -189,9 +193,9 @@ human~
 AFT DFJ -1000 0
 85 0 90d20+16000 91d10+9500 10d13+55 magic
 -58 -58 -58 -24
-CDEFK B MZ N 
+CDEFK B MZ N
 stand stand male 900
-ABCHMNV ABCDEFGHIJK large 0
+BCN 0 large unknown
 #14013
 horseman pale~
 The pale horseman~
@@ -204,9 +208,9 @@ human~
 AFT DFJ -1000 0
 85 0 90d20+16000 91d10+9500 10d13+55 magic
 -58 -58 -58 -24
-CDEFK B MZ N 
+CDEFK B MZ N
 stand stand male 900
-ABCHMNV ABCDEFGHIJK large 0
+BCN 0 large unknown
 #14014
 michael archangel~
 The archangel Michael~
@@ -215,13 +219,13 @@ Michael, Archangel of war is here, fighting the dragon.
 Michael towers some 18', and is dressed in the blinding
 white of heaven. His voice booms in a deep base laugh.
 ~
-angel~
+unique~
 ABT BDFNTVd 1000 0
 91 0 90d20+19000 91d10+9500 10d15+61 divine
 -63 -63 -63 -30
 CEFKPX BNQS EHIN M
 stand stand male 900
-ACDHLMV ABCDEFGHIJKP huge 0
+ACDHLMV ABCDEFGHIJKP huge unknown
 #14015
 dragon~
 The dragon~
@@ -232,12 +236,12 @@ ten horns are ten crowns, and upon the 7 heads are
 blasphemy.
 ~
 dragon~
-ABR DFJT -1000 0
+ABR DF -1000 0
 91 0 90d20+19000 91d10+9500 10d15+61 flame
 -63 -63 -63 -32
-IMPWX 0 BEHIJKM FN
+IMPWX 0 IJKM N
 stand stand male 900
-ABCHZcd ACDEFIKLPQUVX huge 0
+BCcd L huge unknown
 #14016
 jezebel woman~
 Jezebel the prophetess~
@@ -248,12 +252,12 @@ and the eating of food sacrificed to idols. She will
 gladly try to sway you to her point of view.
 ~
 human~
-AQ  0 -1000 0
+AQ 0 -1000 0
 80 0 50d20+13500 91d10+9000 9d12+48 charge
 -54 -54 -54 -22
 FN 0 0 0
 sit sit female 900
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #14017
 Balaam teacher man~
 Balaam the teacher of Balac~
@@ -269,7 +273,7 @@ AR 0 -1000 0
 -54 -54 -54 -22
 FN 0 0 0
 sit sit male 900
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #14018
 balac disciple man~
 Balac, disciple of Balaam~
@@ -285,7 +289,7 @@ AQ 0 -1000 0
 -54 -54 -54 -22
 FN 0 0 0
 sit sit male 900
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #14019
 spirit unclean frog~
 The unclean spirit~
@@ -297,13 +301,13 @@ performs a series of miracles to impress you
 with its power and sway you to fight on the 
 side of the dragon.
 ~
-demon~
+unique~
 AR BCDJKPT -1000 0
 83 0 50d20+15000 91d10+9000 10d12+52 acbite
 -56 -56 -56 -23
-F BMR FHIZ NOZ 
+F BMR FHIZ NOZ
 stand stand none 0
-ACDHILMV ABCDEFGHIJKQ medium 0
+ACDHILMV ABCDEFGHIJKQ medium unknown
 #14020
 prophet false~
 The false prophet~
@@ -324,7 +328,7 @@ AR 0 -1000 0
 -58 -58 -58 -24
 FN 0 0 N
 stand stand male 900
-AHMV ABCDEFGHIJKW medium 0
+0 W medium unknown
 #14021
 woman sun~
 The woman clothed with the sun~
@@ -336,12 +340,12 @@ to behold. She tells you to run, for a
 great dragon is hunting her.
 ~
 human~
-ABT  N 1000 0
+ABT N 1000 0
 89 0 90d20+18000 91d10+9500 12d12+58 wrath
 -61 -61 -61 -25
 EFKLS BLQR ANP M
 stand stand female 900
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #14022
 word god~
 The word of God~
@@ -354,13 +358,13 @@ in blood, and he treadeth the winepress and
 fierceness and wrath of Almighty God. On his 
 thigh is written King of Kings and Lord of Lords.
 ~
-angel~
+unique~
 ABT BCDEFHJNTVd 1000 0
 95 0 90d20+23000 91d10+9500 16d10+65 wrath
 -66 -66 -66 -28
-CEFHKLP ABLNQRS HIOPZ JM 
+CEFHKLP ABLNQRS HIOPZ JM
 stand stand male 39000
-ACDHMV ABCDEFGHIJKP giant 0
+ACDHMV ABCDEFGHIJKP giant unknown
 #14023
 one sealed~
 The sealed one~
@@ -374,9 +378,9 @@ human~
 AT 0 1000 0
 70 0 50d20+9750 91d10+9500 10d15+61 pound
 -46 -46 -46 -18
-FI 0 0 0 
+FI 0 0 0
 stand stand male 900
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #14024
 one marked~
 The marked one~
@@ -389,9 +393,9 @@ human~
 AT X -1000 0
 70 0 50d20+9750 91d10+9500 10d15+61 pound
 -46 -46 -46 -18
-FJ 0 0 0 
+FJ 0 0 0
 stand stand male 900
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #14025
 beast~
 The beast~
@@ -403,13 +407,13 @@ feet like a bear and the mouth of a lion. A huge
 scar runs across one head, where it was mortally
 wounded and healed.
 ~
-demon~
+unique~
 ABT CTZbd -1000 0
 88 0 90d20+17500 91d10+9500 13d10+56 claw
 -60 -60 -60 -25
-AM M HI N 
+AM M HI N
 stand stand male 100
-ABGHMV ABCDEFGHIJKQU huge 0
+ABGHMV ABCDEFGHIJKQU huge unknown
 #14026
 idolator man~
 The idolator~
@@ -422,9 +426,9 @@ human~
 AHT 0 -1000 0
 75 0 50d20+11000 91d10+9000 9d11+45 pound
 -50 -50 -50 -20
-FJ 0 0 0 
+FJ 0 0 0
 stand stand male 900
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #14027
 whoremonger man~
 The whoremonger~
@@ -439,7 +443,7 @@ AHT 0 -1000 0
 -50 -50 -50 -20
 FJ 0 0 0
 stand stand male 900
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #14028
 murderer~
 The murderer~
@@ -455,7 +459,7 @@ AHT 0 -1000 0
 -50 -50 -50 -20
 FJ 0 0 0
 stand stand male 900
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #14029
 harlot woman~
 The harlot~
@@ -472,7 +476,7 @@ AHT 0 -1000 0
 -50 -50 -50 -20
 FJ 0 0 0
 stand stand female 900
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #14030
 thief~
 The thief~
@@ -488,7 +492,7 @@ AHS 0 -1000 0
 -50 -50 -50 -20
 FJ 0 0 0
 stand stand male 900
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #14031
 man rich~
 The rich man~
@@ -502,9 +506,9 @@ human~
 AHT 0 -1000 0
 75 0 50d20+11000 91d10+9000 9d11+45 pound
 -50 -50 -50 -20
-FJ 0 0 0 
+FJ 0 0 0
 stand stand male 900
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #14032
 man mighty~
 The mighty man~
@@ -519,9 +523,9 @@ human~
 AHT 0 -1000 0
 75 0 50d20+11000 91d10+9000 9d11+45 pound
 -50 -50 -50 -20
-FJ 0 0 0 
+FJ 0 0 0
 stand stand male 900
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #14033
 king~
 The former king~
@@ -537,9 +541,9 @@ human~
 AHT 0 -1000 0
 75 0 50d20+11000 91d10+9000 9d11+45 pound
 -50 -50 -50 -20
-FJ 0 0 0 
+FJ 0 0 0
 stand stand male 900
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #14034
 bondsman~
 The bondsman~
@@ -552,9 +556,9 @@ human~
 AHT 0 -1000 0
 75 0 50d20+11000 91d10+9000 9d11+45 pound
 -50 -50 -50 -20
-FJ 0 0 0 
+FJ 0 0 0
 stand stand male 900
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #14035
 freeman~
 The freeman~
@@ -567,9 +571,9 @@ human~
 AHT 0 -1000 0
 75 0 50d20+11000 91d10+9000 9d11+45 pound
 -50 -50 -50 -20
-FJ 0 0 0 
+FJ 0 0 0
 stand stand male 900
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #14036
 captain chief~
 The chief captain~
@@ -582,9 +586,9 @@ human~
 AHT 0 -1000 0
 75 0 50d20+11000 91d10+9000 9d11+45 pound
 -50 -50 -50 -20
-FJ 0 0 0 
+FJ 0 0 0
 stand stand male 900
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #14037
 he sits~
 He who sits at the throne~
@@ -593,13 +597,13 @@ He who sits says "I am the alpha and the omega".
 He is like jasper and carnelian. You better do as
 he says.
 ~
-angel~
+unique~
 ABT BCDEFHJNTVd 1000 0
 100 0 90d20+30000 91d10+9500 18d16+90 divine
 -150 -150 -150 -150
 FGHKLO ABCDFGHIJKLMNOPQRSZ HI M
 sit sit male 900
-ACDHLMV ABCDEFGHIJKP giant 0
+ACDHLMV ABCDEFGHIJKP giant unknown
 #14038
 lamb~
 The lamb~
@@ -607,13 +611,13 @@ A Lamb as it had been slain stands here.
 ~
 The lamb has seven horns and seven eyes.
 ~
-angel~
+unique~
 ABJKTc BCDEFHJNTWd 1000 0
 100 0 90d20+30000 91d10+9500 18d16+90 divine
 -150 -150 -150 -150
-FGHKLO ABCDFGHIJKLMNOPQRSZ HI M 
+FGHKLO ABCDFGHIJKLMNOPQRSZ HI M
 sit sit male 900
-ACDHLMV ABCDEFGHIJKP giant 0
+ACDHLMV ABCDEFGHIJKP giant unknown
 #14039
 elders four twenty~
 Four and twenty elders~
@@ -622,13 +626,13 @@ Four and twenty elders sit at four and twenty thrones.
 The elders are in white robes with golden crowns. They
 play harps, and swing golden bowls filled with incense.
 ~
-angel~
+unique~
 ABQ BNT 1000 0
 75 0 50d20+11000 91d10+9000 9d11+45 divine
 -50 -50 -50 -20
-F NQ HI M 
+F NQ HI M
 sit stand none 900
-ACDHLMV ABCDEFGHIJKP medium 0
+ACDHLMV ABCDEFGHIJKP medium unknown
 #14040
 lion creature~
 The lion creature~
@@ -637,13 +641,13 @@ A lion creature sings, "Holy, Holy, Holy, The Lord..."
 The lion creature is full of eyes in front and behind.
 It has 6 wings, and even eyes inside.
 ~
-lupus~
+unique~
 ABT CDEFJNZ 1000 0
 91 0 90d20+19000 91d10+9500 10d15+61 claw
 -63 -63 -63 -26
-FIMPV NQ 0 Y 
+FIMPV NQ 0 Y
 stand stand none 0
-BCDGHLMV ABCDEFGHIJKPQUV large 0
+BCDGHLMV ABCDEFGHIJKPQUV large unknown
 #14041
 ox creature~
 The ox creature~
@@ -658,7 +662,7 @@ ABT CDEFJNZ 1000 0
 -63 -63 -63 -26
 CDPV NQ 0 0
 stand stand none 900
-CDGHLV ACDEFJKPQW large 0
+CDGHLV ACDEFJKPQW large unknown
 #14042
 human face faced creature~
 The creature with a human face~
@@ -673,7 +677,7 @@ ABT CDEFJNZ 1000 0
 -63 -63 -63 -26
 EFIK NQ 0 0
 stand stand none 900
-ACDGHLMV ABCDEFGHIJKLP large 0
+CDGL LP large unknown
 #14043
 eagle creature~
 The eagle creature~
@@ -688,7 +692,7 @@ ABT CDEFJNTZ 1000 0
 -63 -63 -63 -26
 EFIK NQ 0 0
 stand stand none 900
-CDGHLW ADEFKPU large 0
+CDGHLW ADEFKPU large unknown
 #0
 
 
@@ -710,7 +714,7 @@ A huge, iron breastplate is here.
 ~
 iron~
 armor 0 AD
-42 42 42 15 0
+BDF BDF BDF ABCD 0
 91 350 3000 P
 A
 19 15
@@ -764,7 +768,7 @@ A golden girdle~
 A golden girdle is here.~
 gold~
 armor GIKL AL
-28 28 28 0 0
+CDE CDE CDE 0 0
 80 1 8000 P
 A
 24 -5
@@ -806,7 +810,7 @@ The white crown of the conquerer~
 A white crown lies here.~
 admantite~
 armor EJ AE
-28 28 28 14 0
+CDE CDE CDE BCD 0
 85 35 10000 P
 A
 19 7
@@ -834,7 +838,7 @@ A breastplate of fire~
 A breastplate of fire smoulders here.~
 unknown~
 armor EJW AD
-28 28 28 15 0
+CDE CDE CDE ABCD 0
 85 20 14000 P
 A
 19 7
@@ -858,7 +862,7 @@ A breastplate of jacinth~
 A breastplate of jacinth glitters here.~
 unknown~
 armor EJW AD
-28 28 28 10 0
+CDE CDE CDE BD 0
 85 10 14000 P
 A
 12 100
@@ -870,7 +874,7 @@ A breastplate of brimstone~
 A breastplate of brimstone smokes here.~
 unknown~
 armor EJW AD
-28 28 28 10 0
+CDE CDE CDE BD 0
 85 20 14000 P
 A
 24 -15
@@ -897,7 +901,7 @@ Death's cloak~
 A cloak, black as oblivion devours the light.~
 mithril~
 armor CEFGQ AK
-30 30 30 10 0
+BCDE BCDE BCDE BD 0
 85 10 14000 P
 #14018
 scythe reaper grim~
@@ -929,7 +933,7 @@ The mark of the beast~
 A branded patch of skin lies on the ground.~
 flesh~
 armor EJLM AC
-23 23 23 23 0
+ABCE ABCE ABCE ABCE 0
 70 10 0 P
 A
 24 -5
@@ -947,7 +951,7 @@ The wings of eagles~
 A giant pair of eagle wings lie here.~
 unknown~
 armor GIKS AI
-30 30 30 17 0
+BCDE BCDE BCDE AE 0
 89 50 19000 P
 A
 2 3
@@ -961,7 +965,7 @@ A crown with twelve stars~
 A crown with twelve stars lies here.~
 stone~
 armor AIK AE
-30 30 30 20 0
+BCDE BCDE BCDE CE 0
 89 5 19000 P
 A
 4 4
@@ -973,7 +977,7 @@ Clothing of the sun~
 A shirt glowing like the sun lies here.~
 unknown~
 armor AIK AD
-30 30 30 10 0
+BCDE BCDE BCDE BD 0
 89 10 19000 P
 A
 13 50
@@ -989,7 +993,7 @@ Clothing of the sun~
 A skirt glowing like the sun lies here.~
 unknown~
 armor AIK AF
-30 30 30 10 0
+BCDE BCDE BCDE BD 0
 89 10 19000 P
 A
 24 -10
@@ -1003,7 +1007,7 @@ The moon under your feet~
 A glowing piece of the moon is here.~
 unknown~
 armor AIK AG
-30 30 30 10 0
+BCDE BCDE BCDE BD 0
 89 10 19000 P
 #14026
 manna hidden~
@@ -1029,7 +1033,7 @@ White raiment~
 White raiment gleams brightly.~
 unknown~
 armor AGIKLS AC
-30 30 30 10 0
+BCDE BCDE BCDE BD 0
 91 10 25000 P
 #14029
 stone white~
@@ -1037,7 +1041,7 @@ A white stone~
 A white stone the size of a shield lies here.~
 stone~
 armor IKLS AJ
-30 30 30 10 0
+BCDE BCDE BCDE BD 0
 91 10 15000 P
 A
 19 8
@@ -1060,7 +1064,7 @@ A white robe~
 A white robe lies here~
 unknown~
 armor IKLS AK
-23 23 23 23 0
+ABCE ABCE ABCE ABCE 0
 70 10 5000 P
 A
 17 -10
@@ -1070,7 +1074,7 @@ A seal~
 A seal lies here.~
 unknown~
 armor IKLS AE
-23 23 23 23 0
+ABCE ABCE ABCE ABCE 0
 70 0 5000 P
 A
 18 -1
@@ -1104,7 +1108,7 @@ An emerald throne~
 An emerald throne surrounded by a rainbow is here.~
 unknown~
 furniture AGKLSW 0
-1 10000 AEHK 200 200
+A EIJKN AEHK DGH DGH
 92 500 18000 P
 E
 throne emerald rainbow~
@@ -1117,7 +1121,7 @@ Four and twenty thrones~
 Four and twenty thrones are here.~
 unknown~
 furniture AGKLSW 0
-24 24000 AEHK 150 150
+DE GHIKLMO AEHK BCEH BCEH
 75 50 45000 P
 E
 thrones four twenty~
@@ -1169,7 +1173,11 @@ devoted to fire. The vapors of your burning flesh reach your
 nose. Beyond the corner is only the blackness. There is
 an unstoppered vial glowing orange red in the flames.
 ~
-0 0 7 
+0 0 7
+E
+vial~
+4th vial of wrath: fire for blasphemers.
+~
 D0
 Lake of fire
 ~
@@ -1184,10 +1192,6 @@ D3
 ~
 ~
 0 0 29236
-E
-vial~
-4th vial of wrath: fire for blasphemers.
-~
 S
 #14002
 On the lake of fire~
@@ -1229,7 +1233,7 @@ You walk through the wreteched, fetid wreak of the plagued lands.
 Once fine tall grass has withered into a lifeless desert. About you
 flies lay eggs in the rotting flesh of the plagued.
 ~
-0 0 10 
+0 0 10
 D0
 The  plagued lands
 ~
@@ -1247,7 +1251,7 @@ You walk through the wreteched, fetid wreak of the plagued lands.
 Once fine tall grass has withered into a lifeless desert. About you
 flies lay eggs in the rotting flesh of the plagued.
 ~
-0 0 10  
+0 0 10
 D0
 The  plagued lands
 ~
@@ -1265,7 +1269,7 @@ You are in Satan's city of MaGog. About you writhe and covort sinners in
 a final frolic before destruction.Refuse and ofcol are the perfume of the city. 
 Deterioration and decay claim every building you view.
 ~
-0 0 1  
+0 0 1
 D0
 MaGog
 ~
@@ -1283,7 +1287,7 @@ You are in Satan's city of MaGog. About you writhe and covort sinners in
 a final frolic before destruction.Refuse and ofcol are the perfume of the city. 
 Deterioration and decay claim every building you view.
 ~
-0 0 1 
+0 0 1
 D0
 MaGog
 ~
@@ -1308,7 +1312,7 @@ Deterioration and decay claim every building you view. Here the evil is so
 strong you can almost feel it caress you. To the south lead a series of stairs
 to a solid adamantite gate emblazoned with the seals of heaven.
 ~
-0 C 1  
+0 C 1
 D0
 MaGog
 ~
@@ -1323,7 +1327,7 @@ D2
 Into the bottomless pit
 ~
 gate adamantite south
-~
+~
 2 14001 14183
 D3
 MaGog
@@ -1337,7 +1341,7 @@ You are in Satan's city of MaGog. About you writhe and covort sinners in
 a final frolic before destruction.Refuse and ofcol are the perfume of the city. 
 Deterioration and decay claim every building you view.
 ~
-0 0 1  
+0 0 1
 D0
 MaGog
 ~
@@ -1360,7 +1364,7 @@ You are in Satan's city of MaGog. About you writhe and covort sinners in
 a final frolic before destruction.Refuse and ofcol are the perfume of the city. 
 Deterioration and decay claim every building you view.
 ~
-0 0 1 
+0 0 1
 D0
 MaGog
 ~
@@ -1377,7 +1381,7 @@ The many waters~
 You are on a vast sea of blood. Vultures soar in the red sky in search of 
 carrion. Wreckage of many ships litters the waters, an ill omen indeed.
 ~
-0 0 7 
+0 0 7
 D0
 More blood
 ~
@@ -1394,7 +1398,7 @@ The many waters~
 You are on a vast sea of blood. Vultures soar in the red sky in search of 
 carrion. Wreckage of many ships litters the waters, an ill omen indeed.
 ~
-0 0 7  
+0 0 7
 D0
 More blood
 ~
@@ -1416,7 +1420,7 @@ The many waters~
 You are on a vast sea of blood. Vultures soar in the red sky in search of 
 carrion. Wreckage of many ships litters the waters, an ill omen indeed.
 ~
-0 0 7  
+0 0 7
 D0
 More blood
 ~
@@ -1439,7 +1443,7 @@ You are at the corner of the world, floating on a vast sea of blood.
 An unstoppered vial floats in the water here. Beyond the corner is 
 an endless stretch of empty black.
 ~
-0 0 7  
+0 0 7
 E
 runes strange~
 2nd vial of wrath: Turning of the seas to blood.
@@ -1464,7 +1468,7 @@ On the lake of fire~
 You are upon a vast lake of fire burning with brimstone. About
 you the wrath of God is visited upon the sinful.
 ~
-0 0 7  
+0 0 7
 D0
 Lake of fire
 ~
@@ -1486,7 +1490,7 @@ On the lake of fire~
 You are upon a vast lake of fire burning with brimstone. About
 you the wrath of God is visited upon the sinful.
 ~
-0 0 7  
+0 0 7
 D1
 The plagued lands
 ~
@@ -1509,7 +1513,7 @@ You walk through the wreteched, fetid wreak of the plagued lands.
 Once fine tall grass has withered into a lifeless desert. About you
 flies lay eggs in the rotting flesh of the plagued.
 ~
-0 C 10 
+0 C 10
 D0
 The  plagued lands
 ~
@@ -1532,7 +1536,7 @@ You walk through the wreteched, fetid wreak of the plagued lands.
 Once fine tall grass has withered into a lifeless desert. About you
 flies lay eggs in the rotting flesh of the plagued.
 ~
-0 0 10 
+0 0 10
 D0
 The  plagued lands
 ~
@@ -1560,7 +1564,7 @@ You walk through the wreteched, fetid wreak of the plagued lands.
 Once fine tall grass has withered into a lifeless desert. About you
 flies lay eggs in the rotting flesh of the plagued.
 ~
-0 0 10 
+0 0 10
 D0
 The  plagued lands
 ~
@@ -1583,7 +1587,7 @@ You are in Satan's city of MaGog. About you writhe and covort sinners in
 a final frolic before destruction.Refuse and ofcol are the perfume of the city. 
 Deterioration and decay claim every building you view.
 ~
-0 0 1  
+0 0 1
 D0
 MaGog
 ~
@@ -1606,7 +1610,7 @@ You are in Satan's city of MaGog. About you writhe and covort sinners in
 a final frolic before destruction.Refuse and ofcol are the perfume of the city. 
 Deterioration and decay claim every building you view.
 ~
-0 0 1  
+0 0 1
 D0
 MaGog
 ~
@@ -1636,7 +1640,7 @@ Deterioration and decay claim every building you view. South of you
 is the 'Synagogue of Satan' where people claiming to be Jews fornicate
 and eat food sacrificed to idols.
 ~
-0 0 1 
+0 0 1
 D0
 MaGog
 ~
@@ -1664,7 +1668,7 @@ You are in Satan's city of MaGog. About you writhe and covort sinners in
 a final frolic before destruction.Refuse and ofcol are the perfume of the city. 
 Deterioration and decay claim every building you view.
 ~
-0 0 1  
+0 0 1
 D0
 MaGog
 ~
@@ -1693,7 +1697,7 @@ a final frolic before destruction.Refuse and ofcol are the perfume of the city.
 Deterioration and decay claim every building you view. A Nicolaitane walks
 by- why dont you stone him?
 ~
-0 0 1  
+0 0 1
 D0
 MaGog
 ~
@@ -1715,7 +1719,7 @@ The many waters~
 You are on a vast sea of blood. Vultures soar in the red sky in search of 
 carrion. Wreckage of many ships litters the waters, an ill omen indeed.
 ~
-0 0 7 
+0 0 7
 D0
 More blood
 ~
@@ -1737,7 +1741,7 @@ The many waters~
 You are on a vast sea of blood. Vultures soar in the red sky in search of 
 carrion. Wreckage of many ships litters the waters, an ill omen indeed.
 ~
-0 0 7  
+0 0 7
 D0
 More blood
 ~
@@ -1764,7 +1768,7 @@ The many waters~
 You are on a vast sea of blood. Vultures soar in the red sky in search of 
 carrion. Wreckage of many ships litters the waters, an ill omen indeed.
 ~
-0 0 7 
+0 0 7
 D0
 More blood
 ~
@@ -1791,7 +1795,7 @@ The many waters~
 You are on a vast sea of blood. Vultures soar in the red sky in search of 
 carrion. Wreckage of many ships litters the waters, an ill omen indeed.
 ~
-0 0 7  
+0 0 7
 D0
 More blood
 ~
@@ -1813,7 +1817,7 @@ On the lake of fire~
 You are upon a vast lake of fire burning with brimstone. About
 you the wrath of God is visited upon the sinful.
 ~
-0 0 7 
+0 0 7
 D2
 Lake of fire
 ~
@@ -1826,7 +1830,7 @@ You walk through the wreteched, fetid wreak of the plagued lands.
 Once fine tall grass has withered into a lifeless desert. About you
 flies lay eggs in the rotting flesh of the plagued.
 ~
-0 0 10 
+0 0 10
 D0
 The  plagued lands
 ~
@@ -1844,7 +1848,7 @@ You walk through the wreteched, fetid wreak of the plagued lands.
 Once fine tall grass has withered into a lifeless desert. About you
 flies lay eggs in the rotting flesh of the plagued.
 ~
-0 0 10 
+0 0 10
 D0
 The  plagued lands
 ~
@@ -1872,7 +1876,7 @@ You walk through the wreteched, fetid wreak of the plagued lands.
 Once fine tall grass has withered into a lifeless desert. About you
 flies lay eggs in the rotting flesh of the plagued.
 ~
-0 0 10 
+0 0 10
 D2
 The  plagued lands
 ~
@@ -1904,7 +1908,7 @@ a final frolic before destruction.Refuse and ofcol are the perfume of the city.
 Deterioration and decay claim every building you view. A lukewarm worshipper
 is here to be spewed out of the mouth of the one to come.
 ~
-0 0 1 
+0 0 1
 D1
 MaGog
 ~
@@ -1922,7 +1926,7 @@ You are in Satan's city of MaGog. About you writhe and covort sinners in
 a final frolic before destruction.Refuse and ofcol are the perfume of the city. 
 Deterioration and decay claim every building you view.
 ~
-0 0 1 
+0 0 1
 D1
 MaGog
 ~
@@ -1946,7 +1950,7 @@ a final frolic before destruction.Refuse and ofcol are the perfume of the city.
 Deterioration and decay claim every building you view. Nobody seems
 to mind the open gate.
 ~
-0 C 1  
+0 C 1
 D0
 Armageddon
 ~
@@ -1974,7 +1978,7 @@ You are in Satan's city of MaGog. About you writhe and covort sinners in
 a final frolic before destruction.Refuse and ofcol are the perfume of the city. 
 Deterioration and decay claim every building you view.
 ~
-0 0 1  
+0 0 1
 D1
 MaGog
 ~
@@ -1997,7 +2001,7 @@ You are in Satan's city of MaGog. About you writhe and covort sinners in
 a final frolic before destruction.Refuse and ofcol are the perfume of the city. 
 Deterioration and decay claim every building you view.
 ~
-0 0 1  
+0 0 1
 D2
 MaGog
 ~
@@ -2014,7 +2018,7 @@ The many waters~
 You are on a vast sea of blood. Vultures soar in the red sky in search of 
 carrion. Wreckage of many ships litters the waters, an ill omen indeed.
 ~
-0 0 7 
+0 0 7
 D0
 More blood
 ~
@@ -2036,7 +2040,7 @@ The many waters~
 You are on a vast sea of blood. Vultures soar in the red sky in search of 
 carrion. Wreckage of many ships litters the waters, an ill omen indeed.
 ~
-0 0 7  
+0 0 7
 D0
 More blood
 ~
@@ -2063,7 +2067,7 @@ The many waters~
 You are on a vast sea of blood. Vultures soar in the red sky in search of 
 carrion. Wreckage of many ships litters the waters, an ill omen indeed.
 ~
-0 0 7 
+0 0 7
 D0
 A cloud of steam
 ~
@@ -2090,7 +2094,7 @@ The many waters~
 You are on a vast sea of blood. Vultures soar in the red sky in search of 
 carrion. Wreckage of many ships litters the waters, an ill omen indeed.
 ~
-0 0 7 
+0 0 7
 D0
 More blood
 ~
@@ -2131,7 +2135,7 @@ You walk through the wreteched, fetid wreak of the plagued lands.
 Once fine tall grass has withered into a lifeless desert. About you
 flies lay eggs in the rotting flesh of the plagued.
 ~
-0 0 10  
+0 0 10
 D0
 The  plagued lands
 ~
@@ -2159,7 +2163,7 @@ You walk through the wreteched, fetid wreak of the plagued lands.
 Once fine tall grass has withered into a lifeless desert. About you
 flies lay eggs in the rotting flesh of the plagued.
 ~
-0 0 10 
+0 0 10
 D0
 The plagued lands
 ~
@@ -2183,7 +2187,7 @@ sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
 ~
-0 0 2 
+0 0 2
 D0
 Armageddon
 ~
@@ -2202,7 +2206,7 @@ sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
 ~
-0 0 2  
+0 0 2
 D0
 Armageddon
 ~
@@ -2226,7 +2230,7 @@ sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
 ~
-0 0 2  
+0 0 2
 D0
 Armageddon
 ~
@@ -2250,7 +2254,7 @@ sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
 ~
-0 0 2  
+0 0 2
 D0
 Armageddon
 ~
@@ -2274,7 +2278,7 @@ sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
 ~
-0 0 2 
+0 0 2
 D0
 Armageddon
 ~
@@ -2303,7 +2307,7 @@ sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
 ~
-0 0 2 
+0 0 2
 D0
 Armageddon
 ~
@@ -2327,7 +2331,7 @@ sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
 ~
-0 0 2  
+0 0 2
 D0
 Armageddon
 ~
@@ -2344,7 +2348,7 @@ The many waters~
 You are on a vast sea of blood. Vultures soar in the red sky in search of 
 carrion. Wreckage of many ships litters the waters, an ill omen indeed.
 ~
-0 0 7 
+0 0 7
 D0
 More blood
 ~
@@ -2366,7 +2370,7 @@ The many waters~
 You are on a vast sea of blood. Vultures soar in the red sky in search of 
 carrion. Wreckage of many ships litters the waters, an ill omen indeed.
 ~
-0 0 7 
+0 0 7
 D0
 More blood
 ~
@@ -2395,7 +2399,7 @@ by an angel flying above. You watch as the volcanic island
 and all of its inhabitants sink into the many waters.
 You are enveloped in clouds of blood steam.
 ~
-0 0 7 
+0 0 7
 D0
 More blood
 ~
@@ -2422,7 +2426,7 @@ The many waters~
 You are on a vast sea of blood. Vultures soar in the red sky in search of 
 carrion. Wreckage of many ships litters the waters, an ill omen indeed.
 ~
-0 0 7 
+0 0 7
 D0
 More blood
 ~
@@ -2445,7 +2449,7 @@ You walk through the wreteched, fetid wreak of the plagued lands.
 Once fine tall grass has withered into a lifeless desert. About you
 flies lay eggs in the rotting flesh of the plagued.
 ~
-0 0 10 
+0 0 10
 D1
 The plagued lands
 ~
@@ -2463,7 +2467,7 @@ You walk through the wreteched, fetid wreak of the plagued lands.
 Once fine tall grass has withered into a lifeless desert. About you
 flies lay eggs in the rotting flesh of the plagued.
 ~
-0 0 10 
+0 0 10
 D1
 The  plagued lands
 ~
@@ -2486,7 +2490,7 @@ You walk through the wreteched, fetid wreak of the plagued lands.
 Once fine tall grass has withered into a lifeless desert. About you
 flies lay eggs in the rotting flesh of the plagued.
 ~
-0 0 10 
+0 0 10
 D0
 Wormwood
 ~
@@ -2510,7 +2514,7 @@ sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
 ~
-0 0 2 
+0 0 2
 D0
 Armageddon
 ~
@@ -2534,7 +2538,7 @@ sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
 ~
-0 0 2 
+0 0 2
 D0
 Armageddon
 ~
@@ -2563,7 +2567,7 @@ sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
 ~
-0 0 2 
+0 0 2
 D0
 Armageddon
 ~
@@ -2621,7 +2625,7 @@ sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
 ~
-0 0 2 
+0 0 2
 D0
 Armageddon
 ~
@@ -2679,7 +2683,7 @@ sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
 ~
-0 0 2 
+0 0 2
 D0
 Armageddon
 ~
@@ -2701,7 +2705,7 @@ The many waters~
 You are on a vast sea of blood. Vultures soar in the red sky in search of 
 carrion. Wreckage of many ships litters the waters, an ill omen indeed.
 ~
-0 C 7  
+0 C 7
 D0
 Armageddon
 ~
@@ -2723,7 +2727,7 @@ The many waters~
 You are on a vast sea of blood. Vultures soar in the red sky in search of 
 carrion. Wreckage of many ships litters the waters, an ill omen indeed.
 ~
-0 0 7 
+0 0 7
 D0
 More blood
 ~
@@ -2750,7 +2754,7 @@ The many waters~
 You are on a vast sea of blood. Vultures soar in the red sky in search of 
 carrion. Wreckage of many ships litters the waters, an ill omen indeed.
 ~
-0 0 7  
+0 0 7
 D0
 More blood
 ~
@@ -2777,7 +2781,7 @@ The many waters~
 You are on a vast sea of blood. Vultures soar in the red sky in search of 
 carrion. Wreckage of many ships litters the waters, an ill omen indeed.
 ~
-0 0 7 
+0 0 7
 D0
 More blood
 ~
@@ -2801,7 +2805,7 @@ stars fall earthward to land with  resounding explosions. The
 smoke is thick. You hear the wail, and smell the seared flesh
 of the dying from all around you.
 ~
-0 0 3  
+0 0 3
 D0
 Wormwood
 ~
@@ -2820,7 +2824,7 @@ stars fall earthward to land with  resounding explosions. The
 smoke is thick. You hear the wail, and smell the seared flesh
 of the dying from all around you.
 ~
-0 0 3  
+0 0 3
 D0
 Wormwood
 ~
@@ -2844,7 +2848,7 @@ stars fall earthward to land with  resounding explosions. The
 smoke is thick. You hear the wail, and smell the seared flesh
 of the dying from all around you.
 ~
-0 C 3 
+0 C 3
 D1
 Armageddon
 ~
@@ -2868,7 +2872,7 @@ sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
 ~
-0 0 2  
+0 0 2
 D1
 Armageddon
 ~
@@ -2892,7 +2896,7 @@ sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
 ~
-0 0 2  
+0 0 2
 D1
 Armageddon
 ~
@@ -2916,7 +2920,7 @@ sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
 ~
-0 0 2 
+0 0 2
 D1
 Armageddon
 ~
@@ -2940,7 +2944,7 @@ sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
 ~
-0 0 2 
+0 0 2
 D0
 Armageddon
 ~
@@ -2969,7 +2973,7 @@ sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
 ~
-0 0 2 
+0 0 2
 D0
 Armageddon
 ~
@@ -2998,7 +3002,7 @@ sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
 ~
-0 0 2 
+0 0 2
 D0
 Armageddon
 ~
@@ -3027,7 +3031,7 @@ sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
 ~
-0 0 2 
+0 0 2
 D0
 Armageddon
 ~
@@ -3056,7 +3060,7 @@ sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
 ~
-0 0 2  
+0 0 2
 D0
 Armageddon
 ~
@@ -3078,7 +3082,7 @@ The many waters~
 You are on a vast sea of blood. Vultures soar in the red sky in search of 
 carrion. Wreckage of many ships litters the waters, an ill omen indeed.
 ~
-0 0 7 
+0 0 7
 D1
 More blood
 ~
@@ -3095,7 +3099,7 @@ The many waters~
 You are on a vast sea of blood. Vultures soar in the red sky in search of 
 carrion. Wreckage of many ships litters the waters, an ill omen indeed.
 ~
-0 0 7 
+0 0 7
 D0
 More blood
 ~
@@ -3122,7 +3126,7 @@ The many waters~
 You are on a vast sea of blood. Vultures soar in the red sky in search of 
 carrion. Wreckage of many ships litters the waters, an ill omen indeed.
 ~
-0 0 7 
+0 0 7
 D0
 More blood
 ~
@@ -3146,7 +3150,7 @@ stars fall earthward to land with  resounding explosions. The
 smoke is thick. You hear the wail, and smell the seared flesh
 of the dying from all around you.
 ~
-0 0 3  
+0 0 3
 D0
 The Euphrates
 ~
@@ -3170,7 +3174,7 @@ stars fall earthward to land with  resounding explosions. The
 smoke is thick. You hear the wail, and smell the seared flesh
 of the dying from all around you.
 ~
-0 0 3  
+0 0 3
 D2
 Wormwood
 ~
@@ -3189,7 +3193,7 @@ flow. All that is left of the once mighty river are scattered red pools of
 blood. A terrible wind blows from down stream, bringing the smell
 of death to your nose.
 ~
-0 0 4 
+0 0 4
 D0
 The Euphrates
 ~
@@ -3208,7 +3212,7 @@ flow. All that is left of the once mighty river are scattered red pools of
 blood. A terrible wind blows from down stream, bringing the smell
 of death to your nose.
 ~
-0 0 4 
+0 0 4
 D1
 The Euphrates
 ~
@@ -3227,7 +3231,7 @@ flow. All that is left of the once mighty river are scattered red pools of
 blood. A terrible wind blows from down stream, bringing the smell
 of death to your nose.
 ~
-0 0 4  
+0 0 4
 D1
 The Euphrates
 ~
@@ -3246,7 +3250,7 @@ flow. All that is left of the once mighty river are scattered red pools of
 blood. A terrible wind blows from down stream, bringing the smell
 of death to your nose.
 ~
-0 0 4 
+0 0 4
 D0
 The Euphrates
 ~
@@ -3265,7 +3269,7 @@ sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
 ~
-0 0 2  
+0 0 2
 D0
 A bridge over the Euprhates
 ~
@@ -3289,7 +3293,7 @@ sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
 ~
-0 0 2  
+0 0 2
 D1
 Armageddon
 ~
@@ -3313,7 +3317,7 @@ sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
 ~
-0 0 2 
+0 0 2
 D0
 Armageddon
 ~
@@ -3342,7 +3346,7 @@ sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
 ~
-0 0 2 
+0 0 2
 D0
 Armageddon
 ~
@@ -3371,7 +3375,7 @@ sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
 ~
-0 0 2  
+0 0 2
 D1
 Armageddon
 ~
@@ -3395,7 +3399,7 @@ sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
 ~
-0 0 2  
+0 0 2
 D3
 Armageddon
 ~
@@ -3407,7 +3411,7 @@ The many waters~
 You are on a vast sea of blood. Vultures soar in the red sky in search of 
 carrion. Wreckage of many ships litters the waters, an ill omen indeed.
 ~
-0 0 7  
+0 0 7
 D0
 The Euprates river
 ~
@@ -3429,7 +3433,7 @@ The many waters~
 You are on a vast sea of blood. Vultures soar in the red sky in search of 
 carrion. Wreckage of many ships litters the waters, an ill omen indeed.
 ~
-0 0 7 
+0 0 7
 D0
 More blood
 ~
@@ -3453,7 +3457,7 @@ wind blows across what is left of the once mighty river. Now all
 you see are occasional puddles of bloody water. There is a vial 
 floating in the largest puddle of blood.
 ~
-0 C 4  
+0 C 4
 E
 lettering~
 The 3rd vial of wrath: rivers and fountains to blood.
@@ -3488,7 +3492,7 @@ flow. All that is left of the once mighty river are scattered red pools of
 blood. A terrible wind blows from down stream, bringing the smell
 of death to your nose.
 ~
-0 0 4  
+0 0 4
 D1
 The Euphrates
 ~
@@ -3507,7 +3511,7 @@ flow. All that is left of the once mighty river are scattered red pools of
 blood. A terrible wind blows from down stream, bringing the smell
 of death to your nose.
 ~
-0 0 4  
+0 0 4
 D2
 The Euphrates
 ~
@@ -3526,7 +3530,7 @@ stars fall earthward to land with  resounding explosions. The
 smoke is thick. You hear the wail, and smell the seared flesh
 of the dying from all around you.
 ~
-0 0 3  
+0 0 3
 D0
 Wormwood
 ~
@@ -3540,7 +3544,7 @@ sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
 ~
-0 0 2 
+0 0 2
 D0
 Armageddon
 ~
@@ -3554,7 +3558,7 @@ flow. All that is left of the once mighty river are scattered red pools of
 blood. A terrible wind blows from down stream, bringing the smell
 of death to your nose.
 ~
-0 0 4  
+0 0 4
 D1
 The Euphrates
 ~
@@ -3575,7 +3579,7 @@ to the canyon. From the bridge you may go north
 and south into the plain of Armageddon, or you
 may follow The Euphrates east and west.
 ~
-0 C 4 
+0 C 4
 D0
 Armageddon
 ~
@@ -3604,7 +3608,7 @@ flow. All that is left of the once mighty river are scattered red pools of
 blood. A terrible wind blows from down stream, bringing the smell
 of death to your nose.
 ~
-0 0 4 
+0 0 4
 D0
 The Euphrates
 ~
@@ -3623,7 +3627,7 @@ sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
 ~
-0 0 2 
+0 0 2
 D1
 Armageddon
 ~
@@ -3642,7 +3646,7 @@ sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
 ~
-0 0 2  
+0 0 2
 D2
 Armageddon
 ~
@@ -3661,7 +3665,7 @@ flow. All that is left of the once mighty river are scattered red pools of
 blood. A terrible wind blows from down stream, bringing the smell
 of death to your nose.
 ~
-0 0 4 
+0 0 4
 D0
 The Euphrates
 ~
@@ -3680,7 +3684,7 @@ flow. All that is left of the once mighty river are scattered red pools of
 blood. A terrible wind blows from down stream, bringing the smell
 of death to your nose.
 ~
-0 0 4  
+0 0 4
 D1
 The Euphrates
 ~
@@ -3699,7 +3703,7 @@ flow. All that is left of the once mighty river are scattered red pools of
 blood. A terrible wind blows from down stream, bringing the smell
 of death to your nose.
 ~
-0 0 4  
+0 0 4
 D2
 The Euphrates
 ~
@@ -3716,7 +3720,7 @@ The many waters~
 You are on a vast sea of blood. Vultures soar in the red sky in search of 
 carrion. Wreckage of many ships litters the waters, an ill omen indeed.
 ~
-0 0 7  
+0 0 7
 D0
 Armageddon
 ~
@@ -3735,7 +3739,7 @@ stars fall earthward to land with  resounding explosions. The
 smoke is thick. You hear the wail, and smell the seared flesh
 of the dying from all around you.
 ~
-0 0 3  
+0 0 3
 D0
 Wormwood
 ~
@@ -3762,7 +3766,7 @@ says that an angel came, sounded a horn, and the star fell from
 the sky. He was told that someone would come by the 5th horn to
 get the key of david to unlock the pit.
 ~
-0 0 3 
+0 0 3
 D0
 Wormwood
 ~
@@ -3786,7 +3790,7 @@ stars fall earthward to land with  resounding explosions. The
 smoke is thick. You hear the wail, and smell the seared flesh
 of the dying from all around you.
 ~
-0 0 3  
+0 0 3
 D0
 Wormwood
 ~
@@ -3810,7 +3814,7 @@ stars fall earthward to land with  resounding explosions. The
 smoke is thick. You hear the wail, and smell the seared flesh
 of the dying from all around you.
 ~
-0 0 3 
+0 0 3
 D2
 Wormwood
 ~
@@ -3829,7 +3833,7 @@ sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
 ~
-0 0 2  
+0 0 2
 D0
 Armageddon
 ~
@@ -3853,7 +3857,7 @@ sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
 ~
-0 0 2  
+0 0 2
 D0
 Armageddon
 ~
@@ -3877,7 +3881,7 @@ sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
 ~
-0 0 2  
+0 0 2
 D0
 Armageddon
 ~
@@ -3901,7 +3905,7 @@ flow. All that is left of the once mighty river are scattered red pools of
 blood. A terrible wind blows from down stream, bringing the smell
 of death to your nose.
 ~
-0 0 4 
+0 0 4
 D1
 The Euphrates
 ~
@@ -3920,7 +3924,7 @@ flow. All that is left of the once mighty river are scattered red pools of
 blood. A terrible wind blows from down stream, bringing the smell
 of death to your nose.
 ~
-0 0 4  
+0 0 4
 D1
 The Euphrates
 ~
@@ -3939,7 +3943,7 @@ flow. All that is left of the once mighty river are scattered red pools of
 blood. A terrible wind blows from down stream, bringing the smell
 of death to your nose.
 ~
-0 0 4 
+0 0 4
 D1
 The Euphrates
 ~
@@ -3958,7 +3962,7 @@ flow. All that is left of the once mighty river are scattered red pools of
 blood. A terrible wind blows from down stream, bringing the smell
 of death to your nose.
 ~
-0 0 4 
+0 0 4
 D2
 The Euphrates
 ~
@@ -3977,7 +3981,7 @@ sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
 ~
-0 0 2  
+0 0 2
 D0
 Armageddon
 ~
@@ -3996,7 +4000,7 @@ sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
 ~
-0 0 2  
+0 0 2
 D0
 Armageddon
 ~
@@ -4020,7 +4024,7 @@ sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
 ~
-0 0 2  
+0 0 2
 D0
 Armageddon
 ~
@@ -4039,7 +4043,7 @@ stars fall earthward to land with  resounding explosions. The
 smoke is thick. You hear the wail, and smell the seared flesh
 of the dying from all around you.
 ~
-0 0 3 
+0 0 3
 D1
 Wormwood
 ~
@@ -4058,7 +4062,7 @@ stars fall earthward to land with  resounding explosions. The
 smoke is thick. You hear the wail, and smell the seared flesh
 of the dying from all around you.
 ~
-0 0 3  
+0 0 3
 D1
 Wormwood
 ~
@@ -4082,7 +4086,7 @@ stars fall earthward to land with  resounding explosions. The
 smoke is thick. You hear the wail, and smell the seared flesh
 of the dying from all around you.
 ~
-0 0 3 
+0 0 3
 D2
 Wormwood
 ~
@@ -4101,7 +4105,7 @@ sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
 ~
-0 0 2 
+0 0 2
 D0
 Armageddon
 ~
@@ -4120,7 +4124,7 @@ sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
 ~
-0 0 2  
+0 0 2
 D1
 Armageddon
 ~
@@ -4144,7 +4148,7 @@ sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
 ~
-0 0 2  
+0 0 2
 D1
 Armageddon
 ~
@@ -4168,7 +4172,7 @@ sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
 ~
-0 0 2  
+0 0 2
 D0
 Gog
 ~
@@ -4197,7 +4201,7 @@ sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
 ~
-0 0 2  
+0 0 2
 D1
 Armageddon
 ~
@@ -4216,7 +4220,7 @@ sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
 ~
-0 0 2 
+0 0 2
 D1
 Armageddon
 ~
@@ -4235,7 +4239,7 @@ sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
 ~
-0 0 2  
+0 0 2
 D0
 Armageddon
 ~
@@ -4259,7 +4263,7 @@ sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
 ~
-0 0 2 
+0 0 2
 D0
 Armageddon
 ~
@@ -4283,7 +4287,7 @@ sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
 ~
-0 0 2  
+0 0 2
 D0
 Into the heavens
 ~
@@ -4312,7 +4316,7 @@ sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
 ~
-0 0 2  
+0 0 2
 D1
 Armageddon
 ~
@@ -4336,7 +4340,7 @@ sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
 ~
-0 0 2  
+0 0 2
 D2
 Armageddon
 ~
@@ -4354,7 +4358,7 @@ Around you the earth moves violently. Mile deep fissures open and
 close like giant mouthes trying to bite you. It is all you can
 do to make headway on all fours.
 ~
-0 0 5  
+0 0 5
 D0
 The shaking lands
 ~
@@ -4372,7 +4376,7 @@ Around you the earth moves violently. Mile deep fissures open and
 close like giant mouthes trying to bite you. It is all you can
 do to make headway on all fours.
 ~
-0 0 5  
+0 0 5
 D0
 The shaking lands
 ~
@@ -4395,7 +4399,7 @@ Around you the earth moves violently. Mile deep fissures open and
 close like giant mouthes trying to bite you. It is all you can
 do to make headway on all fours.
 ~
-0 0 5  
+0 0 5
 D0
 The shaking lands
 ~
@@ -4414,7 +4418,7 @@ sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
 ~
-0 0 2 
+0 0 2
 D0
 Armageddon
 ~
@@ -4434,7 +4438,7 @@ to your presence. An unholy shrine towers above all in the
 center of the city. On the ground you see a girl worshipping
 a devil idol.
 ~
-0 AD 1 
+0 AD 1
 D0
 Gog
 ~
@@ -4453,7 +4457,7 @@ teem and chant the idealogy of the beast. They seem oblivious
 to your presence. An unholy shrine towers above all in the
 center of the city.
 ~
-0 AD 1  
+0 AD 1
 D0
 Gog
 ~
@@ -4477,7 +4481,7 @@ teem and chant the idealogy of the beast. They seem oblivious
 to your presence. An unholy shrine towers above all in the
 center of the city.
 ~
-0 ACD 1 
+0 ACD 1
 D0
 Gog
 ~
@@ -4507,7 +4511,7 @@ to your presence. An unholy shrine towers above all in the
 center of the city. Here you witness a sorcerer draining the
 blood of a boy for a spell component.
 ~
-0 AD 1 
+0 AD 1
 D0
 Gog
 ~
@@ -4531,7 +4535,7 @@ teem and chant the idealogy of the beast. They seem oblivious
 to your presence. An unholy shrine towers above all in the
 center of the city. A discarded vial lies here.
 ~
-0 AD 1 
+0 AD 1
 E
 vial~
 5th vial of wrath: the darkening.
@@ -4554,7 +4558,7 @@ sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
 ~
-0 0 2  
+0 0 2
 D0
 Armageddon
 ~
@@ -4578,7 +4582,7 @@ sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
 ~
-0 0 2  
+0 0 2
 D0
 Armageddon
 ~
@@ -4626,7 +4630,7 @@ as you fly upwards into the sky. About you lightning arcs in
 great sizzling bolts, followed by the deafening boom of thunder.
 Rain beats hard against your face, making it difficult to see.
 ~
-0 A 9 
+0 A 9
 D0
 The heavens
 ~
@@ -4650,7 +4654,7 @@ as you fly upwards into the sky. About you lightning arcs in
 great sizzling bolts, followed by the deafening boom of thunder.
 Rain beats hard against your face, making it difficult to see.
 ~
-0 A 9  
+0 A 9
 D0
 The heavens
 ~
@@ -4668,7 +4672,7 @@ Around you the earth moves violently. Mile deep fissures open and
 close like giant mouthes trying to bite you. It is all you can
 do to make headway on all fours.
 ~
-0 0 5 
+0 0 5
 D0
 The corner of the world
 ~
@@ -4691,7 +4695,7 @@ Around you the earth moves violently. Mile deep fissures open and
 close like giant mouthes trying to bite you. It is all you can
 do to make headway on all fours.
 ~
-0 0 5 
+0 0 5
 D0
 The shaking lands
 ~
@@ -4719,7 +4723,7 @@ Around you the earth moves violently. Mile deep fissures open and
 close like giant mouthes trying to bite you. It is all you can
 do to make headway on all fours.
 ~
-0 C 5  
+0 C 5
 D0
 The shaking lands
 ~
@@ -4748,7 +4752,7 @@ sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
 ~
-0 0 2  
+0 0 2
 D0
 Armageddon
 ~
@@ -4796,7 +4800,7 @@ teem and chant the idealogy of the beast. They seem oblivious
 to your presence. An unholy shrine towers above all in the
 center of the city.
 ~
-0 AD 1 
+0 AD 1
 D0
 Gog
 ~
@@ -4825,7 +4829,7 @@ teem and chant the idealogy of the beast. They seem oblivious
 to your presence. An unholy shrine towers above all in the
 center of the city. You see a vial floating in the fountain.
 ~
-0 AD 1 
+0 AD 1
 E
 Vial~
 First vial of Divine wrath: the pox.
@@ -4859,7 +4863,7 @@ to your presence. An unholy shrine towers above all in the
 center of the city. Here you see a rich merchant besotted with
 wine.
 ~
-0 AD 1 
+0 AD 1
 D0
 Gog
 ~
@@ -4888,7 +4892,7 @@ teem and chant the idealogy of the beast. They seem oblivious
 to your presence. An unholy shrine towers above all in the
 center of the city.
 ~
-0 AD 1 
+0 AD 1
 D0
 Gog
 ~
@@ -4912,7 +4916,7 @@ sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
 ~
-0 AD 2 
+0 AD 2
 D0
 Armageddon
 ~
@@ -4936,7 +4940,7 @@ sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
 ~
-0 AD 2 
+0 AD 2
 D0
 Armageddon
 ~
@@ -4960,7 +4964,7 @@ as you fly upwards into the sky. About you lightning arcs in
 great sizzling bolts, followed by the deafening boom of thunder.
 Rain beats hard against your face, making it difficult to see.
 ~
-0 A 9  
+0 A 9
 D0
 The heavens
 ~
@@ -4985,7 +4989,7 @@ great sizzling bolts, followed by the deafening boom of thunder.
 Rain beats hard against your face, making it difficult to see.
 Great hail the size of talents pelts you.
 ~
-0 A 9  
+0 A 9
 D0
 The heavens
 ~
@@ -5014,7 +5018,7 @@ as you fly upwards into the sky. About you lightning arcs in
 great sizzling bolts, followed by the deafening boom of thunder.
 Rain beats hard against your face, making it difficult to see.
 ~
-0 A 9 
+0 A 9
 D0
 The corner of the world
 ~
@@ -5038,7 +5042,7 @@ tell you, the world has 4 corners, one devoted to each element, and
 held in place by angels. You are at the earth corner. Beyond the
 corner stretches the infinite black nothing.
 ~
-0 0 5  
+0 0 5
 D1
 The shaking lands
 ~
@@ -5056,7 +5060,7 @@ Around you the earth moves violently. Mile deep fissures open and
 close like giant mouthes trying to bite you. It is all you can
 do to make headway on all fours.
 ~
-0 0 5  
+0 0 5
 D1
 The shaking lands
 ~
@@ -5079,7 +5083,7 @@ Around you the earth moves violently. Mile deep fissures open and
 close like giant mouthes trying to bite you. It is all you can
 do to make headway on all fours.
 ~
-0 0 5  
+0 0 5
 D2
 The shaking lands
 ~
@@ -5098,7 +5102,7 @@ sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
 ~
-0 0 2 
+0 0 2
 D2
 Armageddon
 ~
@@ -5112,7 +5116,7 @@ teem and chant the idealogy of the beast. They seem oblivious
 to your presence. An unholy shrine towers above all in the
 center of the city.
 ~
-0 AD 1  
+0 AD 1
 D1
 Gog
 ~
@@ -5131,7 +5135,7 @@ teem and chant the idealogy of the beast. They seem oblivious
 to your presence. An unholy shrine towers above all in the
 center of the city.
 ~
-0 AD 1  
+0 AD 1
 D1
 The unholy shrine
 ~
@@ -5156,7 +5160,7 @@ the miracle where the beast's head healed after a severe
 sword wound. There is a giant mound of offerings near
 the throne where the beast rests.
 ~
-0 AD 1 
+0 AD 1
 D1
 Gog
 ~
@@ -5180,7 +5184,7 @@ teem and chant the idealogy of the beast. They seem oblivious
 to your presence. An unholy shrine towers above all in the
 center of the city.
 ~
-0 AD 1 
+0 AD 1
 D1
 Gog
 ~
@@ -5204,7 +5208,7 @@ teem and chant the idealogy of the beast. They seem oblivious
 to your presence. An unholy shrine towers above all in the
 center of the city.
 ~
-0 AD 1  
+0 AD 1
 D2
 Gog
 ~
@@ -5223,7 +5227,7 @@ sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
 ~
-0 0 2 
+0 0 2
 D1
 Armageddon
 ~
@@ -5242,7 +5246,7 @@ sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
 ~
-0 0 2 
+0 0 2
 D2
 Armageddon
 ~
@@ -5261,7 +5265,7 @@ as you fly upwards into the sky. About you lightning arcs in
 great sizzling bolts, followed by the deafening boom of thunder.
 Rain beats hard against your face, making it difficult to see.
 ~
-0 A 9 
+0 A 9
 D1
 The heavens
 ~
@@ -5305,7 +5309,7 @@ corner is the infinite nothing. You feel at peace here. As you
 relax you hear the 7th horn and a SIGHT unfolds before your eyes.
 Floating in the wind is a vial.
 ~
-0 ATU 20  
+0 ATU 20
 E
 sight~
 You look skyward, and see the temple of God opening.
@@ -5335,7 +5339,7 @@ S
 The bottomless pit~
 You fall, forever downwards into the bottomless pit. 
 ~
-0 ADN 0  
+0 ADN 0
 D5
 Falling further into the black pit
 ~
@@ -5346,7 +5350,7 @@ S
 The bottomless pit~
 You fall, forever downwards into the bottomless pit. 
 ~
-0 ADN 0  
+0 ADN 0
 D5
 Falling further into the black pit
 ~
@@ -5357,7 +5361,7 @@ S
 The bottomless pit~
 You fall, forever downwards into the bottomless pit. 
 ~
-0 ADN 0  
+0 ADN 0
 D5
 Falling further into the black pit
 ~
@@ -5368,7 +5372,7 @@ S
 The bottomless pit~
 You fall, forever downwards into the bottomless pit. 
 ~
-0 ADN 0 
+0 ADN 0
 D5
 Falling further into the black pit
 ~
@@ -5379,7 +5383,7 @@ S
 The bottomless pit~
 You fall, forever downwards into the bottomless pit. 
 ~
-0 ADN 0 
+0 ADN 0
 D5
 Falling further into the black pit
 ~
@@ -5390,7 +5394,7 @@ S
 The bottomless pit~
 You fall, forever downwards into the bottomless pit.
 ~
-0 ADN 0 
+0 ADN 0
 D5
 Falling further into the black pit
 ~
@@ -5401,7 +5405,7 @@ S
 The bottomless pit~
 You fall, forever downwards into the bottomless pit. 
 ~
-0 AD 0 
+0 AD 0
 D5
 Falling further into the black pit
 ~
@@ -5412,7 +5416,7 @@ S
 The bottomless pit~
 You fall, forever downwards into the bottomless pit. 
 ~
-0 ADN 0 
+0 ADN 0
 D5
 Falling further into the black pit
 ~
@@ -5425,7 +5429,7 @@ You stand in a magnificant throne room. Multitudes and multitudes
 of angles are here singing praise to the one who sits on the throne.
 About you are the souls of the dead shuffling foward to be judged.
 ~
-0 NVW 0 
+0 NVW 0
 D0
 The throne room
 ~
@@ -5443,7 +5447,7 @@ You stand in a magnificant throne room. Multitudes and multitudes
 of angles are here singing praise to the one who sits on the throne.
 About you are the souls of the dead shuffling foward to be judged.
 ~
-0 NVW 0 
+0 NVW 0
 D0
 The throne room
 ~
@@ -5466,7 +5470,7 @@ You stand in a magnificant throne room. Multitudes and multitudes
 of angles are here singing praise to the one who sits on the throne.
 About you are the souls of the dead shuffling foward to be judged.
 ~
-0 NVW 0 
+0 NVW 0
 D0
 The throne room
 ~
@@ -5558,7 +5562,7 @@ You stand in a magnificant throne room. Multitudes and multitudes
 of angles are here singing praise to the one who sits on the throne.
 About you are the souls of the dead shuffling foward to be judged.
 ~
-0 NVW 0 
+0 NVW 0
 D1
 At the throne
 ~
@@ -5576,7 +5580,7 @@ You grovel before the throne. He who sits at the throne
 tells you 'Now is your time'. With a gesture a black
 hole appears at your feet. He motions for you to go into
 the hole, and resumes his Judgement.~
-0 NVW 0 
+0 NVW 0
 D1
 The throne room
 ~
@@ -5604,7 +5608,7 @@ You stand in a magnificant throne room. Multitudes and multitudes
 of angles are here singing praise to the one who sits on the throne.
 About you are the souls of the dead shuffling foward to be judged.
 ~
-0 NVW 0 
+0 NVW 0
 D2
 The throne room
 ~
@@ -5621,169 +5625,169 @@ S
 
 
 #SPECIALS
-M 14010 spec_breath_fire Load to: The white horseman
-M 14011 spec_breath_acid Load to: The red horseman
-M 14012 spec_breath_gas Load to: The black horseman
-M 14015 spec_cast_mage Load to: The dragon
-M 14016 spec_cast_cleric Load to: Jezebel the prophetess
-M 14017 spec_cast_mage Load to: Balaam the teacher of Balac
-M 14019 spec_cast_mage Load to: The unclean spirit
-M 14020 spec_cast_mage Load to: The false prophet
-M 14030 spec_thief Load to: The thief
+M 14010 spec_breath_fire	* The white horseman
+M 14011 spec_breath_acid	* The red horseman
+M 14012 spec_breath_gas	* The black horseman
+M 14015 spec_cast_mage	* The dragon
+M 14016 spec_cast_cleric	* Jezebel the prophetess
+M 14017 spec_cast_mage	* Balaam the teacher of Balac
+M 14019 spec_cast_mage	* The unclean spirit
+M 14020 spec_cast_mage	* The false prophet
+M 14030 spec_thief	* The thief
 S
 
 
 
 #RESETS
-D 0 14008 2 2 *The south door of MaGog is closed and locked
-M 0 14007 1 14001 1*Load The angel with the fiery censer
-E 0 14006 0 13 A golden girdle is loaded around the waist of The angel with the fiery censer
-E 0 14007 0 16 A golden sickle is loaded wielded of The angel with the fiery censer
-G 0 14009 0 A censer is given to The angel with the fiery censer
-G 0 14008 0 The prayers of saints is given to The angel with the fiery censer
-M 0 14017 1 14006 1*Load Balaam the teacher of Balac
-M 0 14016 1 14010 1*Load Jezebel the prophetess
-M 0 14004 1 14014 1*Load The angel of the waters
-E 0 14006 0 13 A golden girdle is loaded around the waist of The angel of the waters
-E 0 14007 0 16 A golden sickle is loaded wielded of The angel of the waters
-G 0 14008 0 The prayers of saints is given to The angel of the waters
-M 0 14032 2 14018 1 *Load The mighty man
-M 0 14027 1 14021 1*Load The whoremonger
-M 0 14029 1 14022 1*Load The harlot
-O 0 14035 0 14022 *A fountain of blood loaded to MaGog
-M 0 14028 1 14023 1*Load The murderer
-M 0 14018 1 14034 1*Load Balac, disciple of Balaam
-M 0 14003 1 14039 1*Load Babylon
-E 0 14005 0 17 The golden cup of babylon is loaded held in the hands of Babylon
-M 0 14035 2 14043 1*Load The freeman
-M 0 14009 4 14052 1*Load An army of heaven
-M 0 14031 2 14057 1*Load The rich man
-M 0 14008 4 14061 1*Load The harvesting angel
-E 0 14006 0 13 A golden girdle is loaded around the waist of The harvesting angel
-E 0 14007 0 16 A golden sickle is loaded wielded of The harvesting angel
-G 0 14008 0 The prayers of saints is given to The harvesting angel
-M 0 14036 1 14061 1*Load The chief captain
-M 0 14035 2 14071 1*Load The freeman
-M 0 14023 4 14075 1*Load The sealed one
-E 0 14031 0 12 A white robe is loaded about the shoulders of The sealed one
-E 0 14032 0 6 A seal is loaded over the head of The sealed one
-M 0 14009 4 14076 1*Load An army of heaven
-M 0 14022 1 14078 1*Load The word of God
-E 0 14026 0 2 Hidden manna is loaded on the right finger of The word of God
-E 0 14027 0 17 A rod of iron is loaded held in the hands of The word of God
-E 0 14028 0 3 White raiment is loaded around the neck (1) of The word of God
-E 0 14029 0 11 A white stone is loaded as a shield of The word of God
-E 0 14030 0 16 The sharp, two-edged sword of the mouth is loaded wielded of The word of God
-M 0 14023 4 14079 1*Load The sealed one
-E 0 14031 0 12 A white robe is loaded about the shoulders of The sealed one
-E 0 14032 0 6 A seal is loaded over the head of The sealed one
-M 0 14019 3 14087 1*Load The unclean spirit
-O 0 14034 0 14087 A puddle of blood loaded to The Euphrates
-M 0 14012 1 14090 1*Load The black horseman
-E 0 14015 0 5 A breastplate of brimstone is loaded on the body of The black horseman
-E 0 14016 0 17 A pair of engraved balances is loaded held in the hands of The black horseman
-O 0 14034 0 14090 A puddle of blood loaded to The Euphrates
-M 0 14034 2 14093 1*Load The bondsman
-M 0 14008 4 14095 1*Load The harvesting angel
-E 0 14006 0 13 A golden girdle is loaded around the waist of The harvesting angel
-E 0 14007 0 16 A golden sickle is loaded wielded of The harvesting angel
-G 0 14008 0 The prayers of saints is given to The harvesting angel
-M 0 14033 2 14098 1*Load The former king
-O 0 14034 0 14099 A puddle of blood loaded to The source of the Euphrates
-M 0 14013 1 14100 1*Load The pale horseman
-E 0 14017 0 12 Death's cloak is loaded about the shoulders of The pale horseman
-E 0 14018 0 16 The scythe of the grim reaper is loaded wielded of The pale horseman
-M 0 14021 1 14102 1*Load The woman clothed with the sun
-E 0 14021 0 10 The wings of eagles is loaded on the arms of The woman clothed with the sun
-E 0 14022 0 6 A crown with twelve stars is loaded over the head of The woman clothed with the sun
-E 0 14023 0 5 Clothing of the sun is loaded on the body of The woman clothed with the sun
-E 0 14024 0 7 Clothing of the sun is loaded on the legs of The woman clothed with the sun
-E 0 14025 0 8 The moon under your feet is loaded on the feet of The woman clothed with the sun
-M 0 14019 3 14109 1*Load The unclean spirit
-M 0 14010 1 14110 1*Load The white horseman
-E 0 14010 0 6 The white crown of the conquerer is loaded over the head of The white horseman
-E 0 14011 0 16 The white bow of the conquerer is loaded wielded of The white horseman
-E 0 14012 0 5 A breastplate of fire is loaded on the body of The white horseman
-O 0 14034 0 14111 A puddle of blood loaded to The Euphrates
-O 0 14033 0 14114 The morning star loaded to Wormwood
-P 0 14001 0 14033 1*The key of david put inside The key of David
-M 0 14011 1 14121 1*Load The red horseman
-E 0 14013 0 16 The sword of war is loaded wielded of The red horseman
-E 0 14014 0 5 A breastplate of jacinth is loaded on the body of The red horseman
-M 0 14019 3 14122 1*Load The unclean spirit
-O 0 14034 0 14122 A puddle of blood loaded to The Euphrates
-M 0 14033 2 14127 1*Load The former king
-M 0 14023 4 14130 1*Load The sealed one
-E 0 14031 0 12 A white robe is loaded about the shoulders of The sealed one
-E 0 14032 0 6 A seal is loaded over the head of The sealed one
-M 0 14034 2 14130 1*Load The bondsman
-M 0 14009 4 14131 1*Load An army of heaven
-M 0 14031 2 14134 1*Load The rich man
-M 0 14008 4 14144 1*Load The harvesting angel
-E 0 14006 0 13 A golden girdle is loaded around the waist of The harvesting angel
-E 0 14007 0 16 A golden sickle is loaded wielded of The harvesting angel
-G 0 14008 0 The prayers of saints is given to The harvesting angel
-M 0 14024 4 14145 1*Load The marked one
-E 0 14020 0 3 The mark of the beast is loaded around the neck (1) of The marked one
-M 0 14024 4 14149 1*Load The marked one
-E 0 14020 0 3 The mark of the beast is loaded around the neck (1) of The marked one
-M 0 14008 4 14151 1*Load The harvesting angel
-E 0 14006 0 13 A golden girdle is loaded around the waist of The harvesting angel
-E 0 14007 0 16 A golden sickle is loaded wielded of The harvesting angel
-G 0 14008 0 The prayers of saints is given to The harvesting angel
-M 0 14032 2 14152 1*Load The mighty man
-M 0 14030 1 14160 1*Load The thief
-E 0 14020 0 3 The mark of the beast is loaded around the neck (1) of The thief
-M 0 14020 1 14161 1*Load The false prophet
-E 0 14020 0 3 The mark of the beast is loaded around the neck (1) of The false prophet
-O 0 14035 0 14161 A fountain of blood loaded to Gog
-M 0 14026 1 14162 1*Load The idolator
-E 0 14020 0 3 The mark of the beast is loaded around the neck (1) of The idolator
-M 0 14009 4 14164 1*Load An army of heaven
-M 0 14023 4 14165 1*Load The sealed one
-E 0 14031 0 12 A white robe is loaded about the shoulders of The sealed one
-E 0 14032 0 6 A seal is loaded over the head of The sealed one
-M 0 14005 1 14169 1*Load The angel of the earth
-E 0 14006 0 13 A golden girdle is loaded around the waist of The angel of the earth
-E 0 14007 0 16 A golden sickle is loaded wielded of The angel of the earth
-G 0 14008 0 The prayers of saints is given to The angel of the earth
-M 0 14024 4 14173 1*Load The marked one
-E 0 14020 0 3 The mark of the beast is loaded around the neck (1) of The marked one
-M 0 14025 3 14175 3*Load The beast
-M 0 14025 3 14175 3*Load The beast
-M 0 14025 3 14175 3*Load The beast
-M 0 14024 4 14177 1*Load The marked one
-E 0 14020 0 3 The mark of the beast is loaded around the neck (1) of The marked one
-M 0 14014 1 14180 1*Load The archangel Michael
-E 0 14019 0 16 The holy lance of archangel michael is loaded wielded of The archangel Michael
-M 0 14015 1 14180 1*Load The dragon
-M 0 14006 1 14182 1*Load The angel of the air
-E 0 14006 0 13 A golden girdle is loaded around the waist of The angel of the air
-E 0 14007 0 16 A golden sickle is loaded wielded of The angel of the air
-G 0 14008 0 The prayers of saints is given to The angel of the air
-M 0 14001 3 14184 1*Load The giant locust
-E 0 14002 0 5 An iron breastplate is loaded on the body of The giant locust
-E 0 14003 0 16 A locust stinger is loaded wielded of The giant locust
-M 0 14001 3 14186 1*Load The giant locust
-E 0 14002 0 5 An iron breastplate is loaded on the body of The giant locust
-E 0 14003 0 16 A locust stinger is loaded wielded of The giant locust
-M 0 14001 3 14188 1*Load The giant locust
-E 0 14002 0 5 An iron breastplate is loaded on the body of The giant locust
-E 0 14003 0 16 A locust stinger is loaded wielded of The giant locust
-M 0 14002 1 14190 1*Load Abaddon
-E 0 14004 0 5 The chain of binding is loaded on the body of Abaddon
-M 0 14043 1 14192 1*Load The eagle creature
-M 0 14040 1 14194 1*Load The lion creature
-M 0 14041 1 14195 1*Load The ox creature
-M 0 14042 1 14196 1*Load The creature with a human face
-O 0 14039 0 14197 A scroll of seven broken seals loaded to In the throne room
-M 0 14038 1 14197 1*Load The lamb
-O 0 14036 0 14198 An emerald throne loaded to At the throne
-M 0 14037 1 14198 1*Load He who sits at the throne
-E 0 14040 0 17 The book of life is loaded held in the hands of He who sits at the throne
-O 0 14037 0 14199 Four and twenty thrones loaded to In the throne room
-M 0 14039 1 14199 1*Load Four and twenty elders
-E 0 14041 0 17 A golden bowl of incense is loaded held in the hands of Four and twenty elders
+D 0 14008 2 2	* MaGog: door to the south: closed and locked
+M 0 14007 1 14001 1	* The angel with the fiery censer (At the corner of the world)
+E 0 14006 0 13		*	A golden girdle: around the waist
+E 0 14007 0 16		*	A golden sickle: wielded
+G 0 14009 0		*	A censer
+G 0 14008 0		*	The prayers of saints
+M 0 14017 1 14006 1	* Balaam the teacher of Balac (MaGog)
+M 0 14016 1 14010 1	* Jezebel the prophetess (MaGog)
+M 0 14004 1 14014 1	* The angel of the waters (The corner of the world)
+E 0 14006 0 13		*	A golden girdle: around the waist
+E 0 14007 0 16		*	A golden sickle: wielded
+G 0 14008 0		*	The prayers of saints
+M 0 14032 2 14018 1	* The mighty man (The plagued lands)
+M 0 14027 1 14021 1	* The whoremonger (MaGog)
+M 0 14029 1 14022 1	* The harlot (MaGog)
+O 0 14035 0 14022		* A fountain of blood (MaGog)
+M 0 14028 1 14023 1	* The murderer (MaGog)
+M 0 14018 1 14034 1	* Balac, disciple of Balaam (MaGog)
+M 0 14003 1 14039 1	* Babylon (The many waters)
+E 0 14005 0 17		*	The golden cup of Babylon: held in the hands
+M 0 14035 2 14043 1	* The freeman (The plagued lands)
+M 0 14009 4 14052 1	* An army of heaven (Armageddon)
+M 0 14031 2 14057 1	* The rich man (The plagued lands)
+M 0 14008 4 14061 1	* The harvesting angel (Armageddon)
+E 0 14006 0 13		*	A golden girdle: around the waist
+E 0 14007 0 16		*	A golden sickle: wielded
+G 0 14008 0		*	The prayers of saints
+M 0 14036 1 14061 1	* The chief captain (Armageddon)
+M 0 14035 2 14071 1	* The freeman (Wormwood)
+M 0 14023 4 14075 1	* The sealed one (Armageddon)
+E 0 14031 0 12		*	A white robe: about the shoulders
+E 0 14032 0 6		*	A seal: over the head
+M 0 14009 4 14076 1	* An army of heaven (Armageddon)
+M 0 14022 1 14078 1	* The word of God (Armageddon)
+E 0 14026 0 2		*	Hidden manna: on the right finger
+E 0 14027 0 17		*	A rod of iron: held in the hands
+E 0 14028 0 3		*	White raiment: around the neck (1)
+E 0 14029 0 11		*	A white stone: as a shield
+E 0 14030 0 16		*	The sharp, two-edged sword of the mouth: wielded
+M 0 14023 4 14079 1	* The sealed one (Armageddon)
+E 0 14031 0 12		*	A white robe: about the shoulders
+E 0 14032 0 6		*	A seal: over the head
+M 0 14019 3 14087 1	* The unclean spirit (The Euphrates)
+O 0 14034 0 14087		* A puddle of blood (The Euphrates)
+M 0 14012 1 14090 1	* The black horseman (The Euphrates)
+E 0 14015 0 5		*	A breastplate of brimstone: on the body
+E 0 14016 0 17		*	A pair of engraved balances: held in the hands
+O 0 14034 0 14090		* A puddle of blood (The Euphrates)
+M 0 14034 2 14093 1	* The bondsman (Armageddon)
+M 0 14008 4 14095 1	* The harvesting angel (Armageddon)
+E 0 14006 0 13		*	A golden girdle: around the waist
+E 0 14007 0 16		*	A golden sickle: wielded
+G 0 14008 0		*	The prayers of saints
+M 0 14033 2 14098 1	* The former king (The many waters)
+O 0 14034 0 14099		* A puddle of blood (The source of the Euphrates)
+M 0 14013 1 14100 1	* The pale horseman (The Euphrates)
+E 0 14017 0 12		*	Death's cloak: about the shoulders
+E 0 14018 0 16		*	The scythe of the Grim reaper: wielded
+M 0 14021 1 14102 1	* The woman clothed with the sun (Wormwood)
+E 0 14021 0 10		*	The wings of eagles: on the arms
+E 0 14022 0 6		*	A crown with twelve stars: over the head
+E 0 14023 0 5		*	Clothing of the sun: on the body
+E 0 14024 0 7		*	Clothing of the sun: on the legs
+E 0 14025 0 8		*	The moon under your feet: on the feet
+M 0 14019 3 14109 1	* The unclean spirit (The Euphrates)
+M 0 14010 1 14110 1	* The white horseman (The Euphrates)
+E 0 14010 0 6		*	The white crown of the conquerer: over the head
+E 0 14011 0 16		*	The white bow of the conquerer: wielded
+E 0 14012 0 5		*	A breastplate of fire: on the body
+O 0 14034 0 14111		* A puddle of blood (The Euphrates)
+O 0 14033 0 14114		* The morning star (Wormwood)
+P 0 14001 0 14033 1	* The morning star: The key of David
+M 0 14011 1 14121 1	* The red horseman (The Euphrates)
+E 0 14013 0 16		*	The sword of war: wielded
+E 0 14014 0 5		*	A breastplate of jacinth: on the body
+M 0 14019 3 14122 1	* The unclean spirit (The Euphrates)
+O 0 14034 0 14122		* A puddle of blood (The Euphrates)
+M 0 14033 2 14127 1	* The former king (Wormwood)
+M 0 14023 4 14130 1	* The sealed one (Armageddon)
+E 0 14031 0 12		*	A white robe: about the shoulders
+E 0 14032 0 6		*	A seal: over the head
+M 0 14034 2 14130 1	* The bondsman (Armageddon)
+M 0 14009 4 14131 1	* An army of heaven (Armageddon)
+M 0 14031 2 14134 1	* The rich man (Armageddon)
+M 0 14008 4 14144 1	* The harvesting angel (Armageddon)
+E 0 14006 0 13		*	A golden girdle: around the waist
+E 0 14007 0 16		*	A golden sickle: wielded
+G 0 14008 0		*	The prayers of saints
+M 0 14024 4 14145 1	* The marked one (Gog)
+E 0 14020 0 3		*	The mark of the beast: around the neck (1)
+M 0 14024 4 14149 1	* The marked one (Gog)
+E 0 14020 0 3		*	The mark of the beast: around the neck (1)
+M 0 14008 4 14151 1	* The harvesting angel (Armageddon)
+E 0 14006 0 13		*	A golden girdle: around the waist
+E 0 14007 0 16		*	A golden sickle: wielded
+G 0 14008 0		*	The prayers of saints
+M 0 14032 2 14152 1	* The mighty man (The heavens)
+M 0 14030 1 14160 1	* The thief (Gog)
+E 0 14020 0 3		*	The mark of the beast: around the neck (1)
+M 0 14020 1 14161 1	* The false prophet (Gog)
+E 0 14020 0 3		*	The mark of the beast: around the neck (1)
+O 0 14035 0 14161		* A fountain of blood (Gog)
+M 0 14026 1 14162 1	* The idolator (Gog)
+E 0 14020 0 3		*	The mark of the beast: around the neck (1)
+M 0 14009 4 14164 1	* An army of heaven (Armageddon)
+M 0 14023 4 14165 1	* The sealed one (Armageddon)
+E 0 14031 0 12		*	A white robe: about the shoulders
+E 0 14032 0 6		*	A seal: over the head
+M 0 14005 1 14169 1	* The angel of the earth (The corner of the world)
+E 0 14006 0 13		*	A golden girdle: around the waist
+E 0 14007 0 16		*	A golden sickle: wielded
+G 0 14008 0		*	The prayers of saints
+M 0 14024 4 14173 1	* The marked one (Gog)
+E 0 14020 0 3		*	The mark of the beast: around the neck (1)
+M 0 14025 3 14175 3	* The beast (The unholy shrine)
+M 0 14025 3 14175 3	* The beast (The unholy shrine)
+M 0 14025 3 14175 3	* The beast (The unholy shrine)
+M 0 14024 4 14177 1	* The marked one (Gog)
+E 0 14020 0 3		*	The mark of the beast: around the neck (1)
+M 0 14014 1 14180 1	* The archangel Michael (The heavens)
+E 0 14019 0 16		*	The holy lance of archangel Michael: wielded
+M 0 14015 1 14180 1	* The dragon (The heavens)
+M 0 14006 1 14182 1	* The angel of the air (The corner of the world)
+E 0 14006 0 13		*	A golden girdle: around the waist
+E 0 14007 0 16		*	A golden sickle: wielded
+G 0 14008 0		*	The prayers of saints
+M 0 14001 3 14184 1	* The giant locust (The bottomless pit)
+E 0 14002 0 5		*	An iron breastplate: on the body
+E 0 14003 0 16		*	A locust stinger: wielded
+M 0 14001 3 14186 1	* The giant locust (The bottomless pit)
+E 0 14002 0 5		*	An iron breastplate: on the body
+E 0 14003 0 16		*	A locust stinger: wielded
+M 0 14001 3 14188 1	* The giant locust (The bottomless pit)
+E 0 14002 0 5		*	An iron breastplate: on the body
+E 0 14003 0 16		*	A locust stinger: wielded
+M 0 14002 1 14190 1	* Abaddon (The bottomless pit)
+E 0 14004 0 5		*	The chain of binding: on the body
+M 0 14043 1 14192 1	* The eagle creature (In the throne room)
+M 0 14040 1 14194 1	* The lion creature (In the throne room)
+M 0 14041 1 14195 1	* The ox creature (In the throne room)
+M 0 14042 1 14196 1	* The creature with a human face (In the throne room)
+O 0 14039 0 14197		* A scroll of seven broken seals (In the throne room)
+M 0 14038 1 14197 1	* The lamb (In the throne room)
+O 0 14036 0 14198		* An emerald throne (At the throne)
+M 0 14037 1 14198 1	* He who sits at the throne (At the throne)
+E 0 14040 0 17		*	The book of life: held in the hands
+O 0 14037 0 14199		* Four and twenty thrones (In the throne room)
+M 0 14039 1 14199 1	* Four and twenty elders (In the throne room)
+E 0 14041 0 17		*	A golden bowl of incense: held in the hands
 S
 
 
@@ -5791,11 +5795,28 @@ S
 #SHOPS
 0
 
+
+
 #OLIMITS
-O 14002 2 
-O 14013 1
-O 14018 1
-O 14019 1
+O 14002 2	* An iron breastplate
+O 14013 1	* The sword of war
+O 14018 1	* The scythe of the Grim reaper
+O 14019 1	* The holy lance of archangel Michael
 S
+
+
+
+#MOBPROGS
+#0
+
+#PRACTICERS
+S
+
+
+
+#OMPROGS
+S
+
+
 
 #$

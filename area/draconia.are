@@ -1,8 +1,14 @@
-#AREA
-draconia.are~
-Dragon Tower~
-{ 5 30} Wench   Dragon Tower~
-2200 2299
+#AREADATA
+Name Dragon Tower~
+Builders None~
+VNUMs 2200 2299
+Credits Wench~
+Security 9
+LevelRange 5 30
+End
+
+
+
 #MOBILES
 #2200
 oldstyle hatchling dragon baby~
@@ -18,7 +24,7 @@ ABG 0 -900 0
 4 4 4 9
 EFNU 0 0 0
 stand stand none 100
-0 0 medium 0
+0 0 medium unknown
 F res H
 F vul I
 #2201
@@ -36,7 +42,7 @@ ABCF D -900 0
 -1 -1 -1 8
 EFNU 0 0 0
 stand stand male 100
-0 0 medium 0
+0 0 medium unknown
 #2202
 oldstyle lord crypt master~
 the dragon master~
@@ -50,7 +56,7 @@ ABCF T -1000 0
 -8 -8 -8 6
 EFNU 0 0 0
 stand stand male 1750
-0 0 medium 0
+0 0 medium unknown
 #2203
 oldstyle man mage wizard~
 a powerful mage~
@@ -66,7 +72,7 @@ ABR BDH -900 0
 -5 -5 -5 3
 FU 0 0 0
 stand stand male 30
-0 0 medium 0
+0 0 medium unknown
 #2204
 oldstyle cleric draconian~
 the holy Draconian~
@@ -81,7 +87,7 @@ ABCFQ DH -900 0
 -5 -5 -5 5
 EIKU 0 0 0
 stand stand male 20
-0 0 medium 0
+0 0 medium unknown
 #2205
 oldstyle king draconian~
 the Draconian King~
@@ -97,7 +103,7 @@ ABC DH -900 0
 -7 -7 -7 6
 EFNU 0 0 0
 stand stand male 40
-0 0 medium 0
+0 0 medium unknown
 #2206
 oldstyle concubine draconian~
 a concubine~
@@ -113,7 +119,7 @@ AB 0 -500 0
 4 4 4 9
 EFNU 0 0 0
 stand stand female 5
-0 0 medium 0
+0 0 medium unknown
 #2207
 oldstyle bodyguard draconian~
 A bodyguard~
@@ -128,7 +134,7 @@ ABF CDF -800 0
 -3 -3 -3 7
 EFNU 0 0 0
 stand stand male 250
-0 0 medium 0
+0 0 medium unknown
 #2220
 oldstyle tiamat dragon~
 Tiamat~
@@ -143,7 +149,7 @@ ABCF DFTV -1000 0
 -22 -22 -22 2
 EFNU AB CD 0
 stand stand female 2500
-0 0 medium 0
+0 0 medium unknown
 #2221
 dragon red~
 the Great Red Dragon~
@@ -158,7 +164,7 @@ ABCF DF -1000 0
 -85 -85 -85 -24
 EFNR H 0 0
 stand stand male 8000
-0 0 medium 0
+0 0 medium unknown
 F res H
 #2222
 dragon black~
@@ -174,7 +180,7 @@ ABCF DF -900 0
 -19 -19 -19 -1
 EFNR K 0 J
 stand stand male 1000
-0 0 medium 0
+0 0 medium unknown
 F res H
 F vul I
 #2223
@@ -192,7 +198,7 @@ ABCF DF -1000 0
 -12 -12 -12 5
 EFNR I 0 H
 stand stand female 1750
-0 0 medium 0
+0 0 medium unknown
 F res H
 F vul I
 #2225
@@ -210,7 +216,7 @@ ABCF DF -1000 0
 -34 -34 -34 -10
 EFNR L 0 P
 stand stand female 1000
-0 0 medium 0
+0 0 medium unknown
 F res H
 F vul I
 #2226
@@ -227,7 +233,7 @@ ABCF DF -800 0
 -3 -3 -3 7
 EFNU 0 0 0
 stand stand none 250
-0 0 medium 0
+0 0 medium unknown
 #2227
 oldstyle slave human~
 A human slave~
@@ -242,7 +248,7 @@ ABS DF 0 0
 6 6 6 9
 BEFJNU 0 0 0
 stand stand male 5
-0 0 medium 0
+0 0 medium unknown
 #2240
 oldstyle zombie draconian~
 a Draconian zombie~
@@ -257,7 +263,7 @@ ABCF DF -400 0
 2 2 2 8
 EFNU 0 0 0
 stand stand none 75
-0 0 medium 0
+0 0 medium unknown
 #2241
 oldstyle dragon phase~
 the phase dragon~
@@ -271,7 +277,7 @@ ACFGH DF -300 0
 1 1 1 8
 EFNR 0 0 0
 stand stand male 250
-0 0 medium 0
+0 0 medium unknown
 #2242
 oldstyle fool draconian~
 the draconian fool~
@@ -286,7 +292,7 @@ AGHS DF 0 0
 6 6 6 9
 BEFJNU 0 0 0
 stand stand male 25
-0 0 medium 0
+0 0 medium unknown
 #2243
 oldstyle queen draconian~
 the Draconian Queen~
@@ -301,8 +307,11 @@ ABC DFH -600 0
 -4 -4 -4 7
 EFNU 0 0 0
 stand stand female 500
-0 0 medium 0
+0 0 medium unknown
 #0
+
+
+
 #OBJECTS
 #2200
 spear jagged~
@@ -340,7 +349,7 @@ a dragon skin bracelet~
 A scaly bracelet lies on the ground.~
 dragonskin~
 armor 0 AM
-6 6 6 3 0
+BC BC BC AB 0
 15 100 1170 P
 #2204
 belt silk black~
@@ -348,7 +357,7 @@ a black silk belt~
 A black belt made of the finest silk is hanging here.~
 silk~
 armor 0 AL
-6 6 6 2 0
+BC BC BC B 0
 17 250 3900 P
 A
 5 2
@@ -358,7 +367,7 @@ a white silk belt~
 A white belt made of the finest silk is hanging here.~
 silk~
 armor 0 AL
-6 6 6 2 0
+BC BC BC B 0
 17 250 3900 P
 A
 1 2
@@ -368,7 +377,7 @@ a platinum bracelet.~
 A tarnished platinum bracelet has been dropped here.~
 platinium~
 armor A AM
-7 7 7 0 0
+ABC ABC ABC 0 0
 20 50 1450 P
 #2220
 symbol holy~
@@ -386,7 +395,7 @@ a plain black robe~
 A black robe is hanging on a hook on the wall.~
 leather~
 armor 0 AK
-5 5 5 0 0
+AC AC AC 0 0
 21 30 2000 P
 A
 19 2
@@ -492,7 +501,7 @@ a crested shield~
 A large crested shield draws your attention.~
 steel~
 armor 0 AJ
-8 8 8 3 0
+D D D AB 0
 25 200 3900 P
 A
 5 1
@@ -526,7 +535,7 @@ scale mail~
 A set of scale mail has been abandoned here.~
 steel~
 armor A AD
-8 8 8 0 0
+D D D 0 0
 25 200 3900 P
 #2250
 staff black~
@@ -558,7 +567,7 @@ a pair of spiked gauntlets~
 A pair of spiked gauntlets.~
 iron~
 armor AG AH
-4 4 4 0 0
+C C C 0 0
 20 100 2500 P
 A
 1 1
@@ -600,7 +609,7 @@ a pair of dragon skin gloves~
 A pair of dragon skin gloves are lying on the ground.~
 dragonskin~
 armor 0 AH
-6 6 6 3 0
+BC BC BC AB 0
 17 50 4000 P
 A
 2 2
@@ -610,7 +619,7 @@ a helm of dragon kind~
 A helm made of a dragon's skull is lying on the ground.~
 dragonskin~
 armor 0 AE
-10 10 10 5 0
+BD BD BD AC 0
 35 150 4100 P
 A
 13 15
@@ -620,7 +629,7 @@ a fur cloak~
 A large mound of fur is lying here.~
 fur~
 armor 0 AK
-6 6 6 1 0
+BC BC BC A 0
 16 100 1910 P
 A
 13 10
@@ -632,7 +641,7 @@ a pair of dragon scale leggings~
 A pair of dragon scale leggings is lying on the ground.~
 dragonskin~
 armor 0 AF
-7 7 7 3 0
+ABC ABC ABC AB 0
 20 150 1590 P
 #2281
 sleeves dragon scale~
@@ -640,7 +649,7 @@ a set of dragon scale sleeves~
 A set of dragon scale sleeves is lying on the ground.~
 dragonskin~
 armor 0 AI
-7 7 7 3 0
+ABC ABC ABC AB 0
 20 120 1590 P
 #2285
 whip dragon tail~
@@ -680,6 +689,8 @@ key 0 A
 0 10 0 P
 #0
 
+
+
 #ROOMS
 #2201
 The Tower Gates~
@@ -687,6 +698,10 @@ You are at the entrance to a tall tower.  Lightning flashes periodically and
 it is raining.  You think it might be a good idea to turn back into the grove.
 ~
 0 A 1
+E
+gate~
+The gate is tall and secure.  Whoever built it values privacy.
+~
 D0
 You see a large steel gate.  Beyond is the Foyer of the Tower.
 ~
@@ -697,10 +712,6 @@ The shadows cloud your vision.
 ~
 ~
 0 0 1304
-E
-gate~
-The gate is tall and secure.  Whoever built it values privacy.
-~
 S
 #2202
 The Foyer~
@@ -709,6 +720,11 @@ leading towards a staircase.  You notice a grim painting on the wall,  and
 quickly look away.
 ~
 0 CD 0
+E
+painting~
+This painting depicts the grisly death of a foolish human.  You hope you do 
+not share his fate.
+~
 D0
 You see a long hallway. 
 ~
@@ -719,11 +735,6 @@ You see the gate.
 ~
 ~
 0 -1 2201
-E
-painting~
-This painting depicts the grisly death of a foolish human.  You hope you do 
-not share his fate.
-~
 S
 #2203
 Hallway~
@@ -747,6 +758,14 @@ Hallway~
 You trudge down the hallway.  You notice doors to the east and west. 
 ~
 0 D 0
+E
+inscription~
+It says "STORAGE"
+~
+E
+sign~
+The sign says "NURSERY" in bold letters.     
+~
 D0
 The hall continues. 
 ~
@@ -756,7 +775,7 @@ D1
 You see a door.  You notice a sign. 
 ~
 door~
-1 -1 2205
+0 -1 2205
 D2
 The hall continues.
 ~
@@ -766,15 +785,7 @@ D3
 You see an oak door.  There is an inscription on it. 
 ~
 oak~
-1 -1 2206
-E
-inscription~
-It says "STORAGE"
-~
-E
-sign~
-The sign says "NURSERY" in bold letters.     
-~
+0 -1 2206
 S
 #2205
 Nursery~
@@ -791,27 +802,27 @@ D3
 You see the hallway. 
 ~
 ~
-1 -1 2204
+0 -1 2204
 S
 #2206
 Storage Room~
 This room is covered with dust, it looks as if no one has been here in ages.
 ~
 0 D 1
-D1
-You see the hallway. 
-~
-~
-1 -1 2204
-D5
-You see nothing special. 
-~
-trapdoor~
-1 -1 2208
 E
 dust~
 As you look closely at the dust, you notice the outline of a trapdoor!       
 ~
+D1
+You see the hallway. 
+~
+~
+0 -1 2204
+D5
+You see nothing special. 
+~
+trapdoor~
+0 -1 2208
 S
 #2207
 End of the Hallway~
@@ -819,6 +830,13 @@ You have finally reached the end of the hallway.  A huge staircase leads up.
 You see a sign at the base of the staircase. 
 ~
 0 D 0
+E
+sign~
+The sign reads:
+    This area is kind of tough.  You probably shouldn't go up these stairs 
+    alone if you are under 18th level, or at all if you under 14th level.  
+    Have fun! -- Wench
+~
 D2
 The hall continues. 
 ~
@@ -829,13 +847,6 @@ The second floor.
 ~
 ~
 0 -1 2210
-E
-sign~
-The sign reads:
-    This area is kind of tough.  You probably shouldn't go up these stairs 
-    alone if you are under 18th level, or at all if you under 14th level.  
-    Have fun! -- Wench
-~
 S
 #2208
 Guardian's Room~
@@ -847,12 +858,12 @@ D2
 A large grey door.
 ~
 grey~
-1 2234 2209
+0 2234 2209
 D4
 You see the storage room. 
 ~
 door trap trapdoor~
-1 -1 2206
+0 -1 2206
 S
 #2209
 The Treasure Room~
@@ -904,7 +915,7 @@ D1
 You see a wooden door. 
 ~
 door wooden~
-1 -1 2212
+0 -1 2212
 D2
 You see the court.
 ~
@@ -937,7 +948,7 @@ D1
 You see a black door.
 ~
 door black~
-1 2240 2214
+0 2240 2214
 D2
 You see the court.
 ~
@@ -947,7 +958,7 @@ D3
 You see a white door.
 ~
 door white~
-1 2233 2215
+0 2233 2215
 S
 #2214
 The Library~
@@ -959,7 +970,7 @@ D3
 You see the court.
 ~
 door black~
-1 2240 2213
+0 2240 2213
 S
 #2215
 The Sanctum~
@@ -971,7 +982,7 @@ D1
 You see the Court.
 ~
 door white~
-1 2233 2213
+0 2233 2213
 S
 #2216
 The Court Ends~
@@ -1067,6 +1078,10 @@ You have come to the end of the Crypt.  It seems deserted.  There is a
 strange coffin lying against the wall.
 ~
 0 D 1
+E
+coffin~
+A coffin lies a against the east wall.  It is closed.
+~
 D1
 You see the Crypt.
 ~
@@ -1076,10 +1091,6 @@ D3
 ~
 coffin~
 1 0 2232
-E
-coffin~
-A coffin lies a against the east wall.  It is closed.
-~
 S
 #2223
 Entrance to the Great Hall~
@@ -1097,7 +1108,7 @@ D3
 You see the Nursery.
 ~
 door stone~
-1 2297 2205
+0 2297 2205
 S
 #2224
 The Great Hall~
@@ -1148,7 +1159,7 @@ D5
 You see a trap door.
 ~
 door trap trapdoor~
-1 -1 2227
+0 -1 2227
 S
 #2227
 Underground Tunnel~
@@ -1165,7 +1176,7 @@ D4
 You see the red dragon's lair.
 ~
 door trap trapdoor~
-1 -1 2226
+0 -1 2226
 S
 #2228
 Underground Tunnel~
@@ -1185,6 +1196,11 @@ golden door, it must be at least twenty feet tall!  It has beautiful etchings
 of dragons.  You see a sign on the door.
 ~
 0 D 1
+E
+sign~
+Congratulations on making it this far!  Watch out, it gets a little
+    nasty here... :) - Wench
+~
 D1
 You see a great golden door.
 ~
@@ -1195,11 +1211,6 @@ You see the hall.
 ~
 ~
 0 -1 2224
-E
-sign~
-Congratulations on making it this far!  Watch out, it gets a little
-    nasty here... :) - Wench
-~
 S
 #2230
 THE Lair~
@@ -1366,6 +1377,19 @@ well in the middle of the clearing.  Lying against the well is a sign.  A
 path leads up the mountain.  The small opening is back to the north.
 ~
 0 0 2
+E
+sign~
+The sign reads:
+         This is a bottomless pit cleverly disguised as a well.  People have
+fallen in and never been heard from again.  Trust me, you don't want to go 
+down there.
+                        The All Powerful Well Keeper
+~
+E
+well~
+You peer over the side of the well.  It looks VERY, VERY deep.  It appears
+to be ENDLESS.
+~
 D0
 the small opening
 ~
@@ -1381,19 +1405,6 @@ The well
 ~
 ~
 0 0 2244
-E
-sign~
-The sign reads:
-         This is a bottomless pit cleverly disguised as a well.  People have
-fallen in and never been heard from again.  Trust me, you don't want to go 
-down there.
-                        The All Powerful Well Keeper
-~
-E
-well~
-You peer over the side of the well.  It looks VERY, VERY deep.  It appears
-to be ENDLESS.
-~
 S
 #2240
 A path~
@@ -1463,6 +1474,9 @@ Headed dragon Tiamat was imprisoned here by the gods.  But who believes in
 fairy tales.  Well, if you're scared, you can always go down the mountain.
 ~
 0 0 2
+E
+door platinum~
+A huge platinum door separates you from harm~
 D0
 The platinum door
 ~
@@ -1473,9 +1487,6 @@ The path continues
 ~
 ~
 0 0 2242
-E
-door platinum~
-A huge platinum door separates you from harm~
 S
 #2244
 Well~
@@ -1492,132 +1503,162 @@ to listen to the God of Laughs.
 0 BC 0
 S
 #0
-#RESETS
-M 0 2200  12 2241  1	* the dragon hatchling
-M 0 2200  12 2239  1	* the dragon hatchling
-M 0 2200  12 2201  1	* the dragon hatchling
-G 1 2231  -1     	*   a steel key
-M 0 2200  12 2202  1	* the dragon hatchling
-M 0 2200  12 2203  2	* the dragon hatchling
-M 0 2200  12 2203  2	* the dragon hatchling
-M 0 2200  12 2205  4	* the dragon hatchling
-M 0 2200  12 2205  4	* the dragon hatchling
-M 0 2200  12 2205  4	* the dragon hatchling
-M 0 2200  12 2205  4	* the dragon hatchling
-M 0 2201   7 2203  2	* the Draconian
-E 1 2200  20   16	*   a jagged spear
-M 0 2201   7 2204  3	* the Draconian
-E 1 2200  20   16	*   a jagged spear
-M 0 2201   7 2204  3	* the Draconian
-E 1 2200  20   16	*   a jagged spear
-M 0 2201   7 2204  3	* the Draconian
-E 1 2200  20   16	*   a jagged spear
-M 0 2200  12 2207  1	* the dragon hatchling
-M 0 2227   5 2207  2	* A human slave
-M 0 2200  12 2206  1	* the dragon hatchling
-M 0 2226   1 2208  1	* a large hydra
-G 1 2234   1     	*   a grey key
-G 1 2243   9     	*   a golden wand
-G 1 2223  20     	*   a stone club
-E 1 2244   5   17	*   a silver staff
-D 0 2230   3    2	* THE Lair west
-D 0 2218   1    2	* Entrance to the Crypt east
-D 0 2201   0    2	* The Tower Gates north
-D 0 2229   1    2	* The Great Hall Ends. east
-D 0 2243   0    2	* The top of the mountain north
-D 0 2209   3    2	* The Treasure Room west
-D 0 2222   3    2	* The Crypt Ends west
-M 0 2201   7 2210  2	* the Draconian
-E 1 2200  20   16	*   a jagged spear
-M 0 2207  20 2210  5	* A bodyguard
-E 1 2286  20   16	*   a copper hammer
-M 0 2207  20 2211  5	* A bodyguard
-E 1 2286  -1   16	*   a copper hammer
-M 0 2207  20 2211  5	* A bodyguard
-E 1 2260  10   16	*   a golden scimitar
-M 0 2206   5 2212  5	* a concubine
-E 1 2287  10   16	*   a silver dagger
-M 0 2206   5 2212  5	* a concubine
-G 1 2233   2     	*   a white key
-E 1 2287  10   16	*   a silver dagger
-M 0 2206   5 2212  5	* a concubine
-G 1 2240   2     	*   a black key
-E 1 2287  10   16	*   a silver dagger
-M 0 2206   5 2212  5	* a concubine
-E 1 2287  10   16	*   a silver dagger
-M 0 2203   1 2214  1	* a powerful mage
-E 1 2223  10   12	*   a stone club
-E 1 2250  10   17	*   a black staff
-G 1 2251  10     	*   a cyan potion
-E 1 2261   3    3	*   a diamond brooch
-M 0 2242   5 2214  1	* the draconian fool
-M 0 2204   1 2214  1	* the holy Draconian
-E 1 2220  -1    3	*   a holy symbol
-E 1 2211  10   14	*   a platinum bracelet.
-E 1 2210  10   13	*   a white silk belt
-G 1 2270  10     	*   a runed scroll
-G 1 2252  10     	*   a magenta potion
-M 0 2205   1 2216  1	* the Draconian King
-E 1 2222   8   16	*   an emerald sword
-E 1 2276  -1   12	*   a fur cloak
-E 1 2242  -1   11	*   a crested shield
-E 1 2254  -1    9	*   a pair of spiked gauntlets
-G 1 2232   2     	*   a ruby key
-M 0 2207  20 2216  5	* A bodyguard
-M 0 2207  20 2216  5	* A bodyguard
-M 0 2207  20 2216  5	* A bodyguard
-M 0 2242   5 2216  4	* the draconian fool
-M 0 2242   5 2216  4	* the draconian fool
-M 0 2243   1 2217  1	* the Draconian Queen
-E 1 2203  -1   14	*   a dragon skin bracelet
-E 1 2204   5   13	*   a black silk belt
-E 1 2201  -1   16	*   a silver dagger
-M 0 2227   5 2217  4	* A human slave
-M 0 2227   5 2217  4	* A human slave
-M 0 2241   2 2217  2	* the phase dragon
-M 0 2240   8 2218  2	* a Draconian zombie
-M 0 2240   8 2218  2	* a Draconian zombie
-M 0 2240   8 2219  2	* a Draconian zombie
-M 0 2240   8 2219  2	* a Draconian zombie
-M 0 2240   8 2232  1	* a Draconian zombie
-M 0 2240   8 2233  1	* a Draconian zombie
-M 0 2240   8 2234  1	* a Draconian zombie
-M 0 2240   8 2236  1	* a Draconian zombie
-M 0 2223   1 2220  1	* the Great White Dragon
-E 1 2246  10    5	*   scale mail
-M 0 2222   1 2221  1	* the Great Black Dragon
-E 1 2280  10    7	*   a pair of dragon scale leggings
-M 0 2202   1 2222  1	* the dragon master
-E 1 2202  -1   16	*   a dragon's tooth knife
-E 1 2281  -1   10	*   a set of dragon scale sleeves
-E 1 2271  -1    9	*   a pair of dragon skin gloves
-M 0 2221   1 2226  1	* the Great Red Dragon
-E 1 2275   5    6	*   a helm of dragon kind
-E 1 2245   5   17	*   the staff of the dragon
-G 1 2299   2     	*   a tarnished gold key
-M 0 2225   1 2230  1	* the Ancient Green Dragon
-G 1 2241   2     	*   a platinum key
-G 1 2285   5     	*   a dragon tailed whip
-E 1 2261   3    3	*   a diamond brooch
-M 0 2220   1 2231  1	* Tiamat
+
+
+
+#SPECIALS
+M 2200 spec_breath_any	* the dragon hatchling
+M 2203 spec_cast_mage	* a powerful mage
+M 2204 spec_cast_cleric	* the holy Draconian
+M 2205 spec_breath_any	* the Draconian King
+M 2220 spec_breath_any	* Tiamat
+M 2221 spec_breath_fire	* the Great Red Dragon
+M 2222 spec_breath_acid	* the Great Black Dragon
+M 2223 spec_breath_frost	* the Great White Dragon
+M 2225 spec_breath_gas	* the Ancient Green Dragon
+M 2226 spec_poison	* a large hydra
+M 2227 spec_thief	* A human slave
+M 2240 spec_cast_undead	* a Draconian zombie
+M 2241 spec_breath_gas	* the phase dragon
+M 2242 spec_thief	* the draconian fool
+M 2243 spec_breath_any	* the Draconian Queen
 S
+
+
+
+#RESETS
+D 0 2201 0 2	* The Tower Gates: door to the north: closed and locked
+D 0 2209 3 2	* The Treasure Room: door to the west: closed and locked
+D 0 2218 1 2	* Entrance to the Crypt: door to the east: closed and locked
+D 0 2222 3 2	* The Crypt Ends: door to the west: closed and locked
+D 0 2229 1 2	* The Great Hall Ends.: door to the east: closed and locked
+D 0 2230 3 2	* THE Lair: door to the west: closed and locked
+D 0 2243 0 2	* The top of the mountain: door to the north: closed and locked
+M 0 2200 12 2201 1	* the dragon hatchling (The Tower Gates)
+G 0 2231 0		*	a steel key
+M 0 2200 12 2202 1	* the dragon hatchling (The Foyer)
+M 0 2200 12 2203 2	* the dragon hatchling (Hallway)
+M 0 2200 12 2203 2	* the dragon hatchling (Hallway)
+M 0 2201 7 2203 2	* the Draconian (Hallway)
+E 0 2200 0 16		*	a jagged spear: wielded
+M 0 2201 7 2204 3	* the Draconian (Hallway)
+E 0 2200 0 16		*	a jagged spear: wielded
+M 0 2201 7 2204 3	* the Draconian (Hallway)
+E 0 2200 0 16		*	a jagged spear: wielded
+M 0 2201 7 2204 3	* the Draconian (Hallway)
+E 0 2200 0 16		*	a jagged spear: wielded
+M 0 2200 12 2205 4	* the dragon hatchling (Nursery)
+M 0 2200 12 2205 4	* the dragon hatchling (Nursery)
+M 0 2200 12 2205 4	* the dragon hatchling (Nursery)
+M 0 2200 12 2205 4	* the dragon hatchling (Nursery)
+M 0 2200 12 2206 1	* the dragon hatchling (Storage Room)
+M 0 2200 12 2207 1	* the dragon hatchling (End of the Hallway)
+M 0 2227 5 2207 2	* A human slave (End of the Hallway)
+M 0 2226 1 2208 1	* a large hydra (Guardian's Room)
+G 0 2234 0		*	a grey key
+G 0 2243 0		*	a golden wand
+G 0 2223 0		*	a stone club
+E 0 2244 0 17		*	a silver staff: held in the hands
+M 0 2201 7 2210 2	* the Draconian (The Second Floor)
+E 0 2200 0 16		*	a jagged spear: wielded
+M 0 2207 20 2210 5	* A bodyguard (The Second Floor)
+E 0 2286 0 16		*	a copper hammer: wielded
+M 0 2207 20 2211 5	* A bodyguard (The Court)
+E 0 2286 0 16		*	a copper hammer: wielded
+M 0 2207 20 2211 5	* A bodyguard (The Court)
+E 0 2260 0 16		*	a golden scimitar: wielded
+M 0 2206 5 2212 5	* a concubine (Hall O' Pleasure)
+E 0 2287 0 16		*	a silver dagger: wielded
+M 0 2206 5 2212 5	* a concubine (Hall O' Pleasure)
+G 0 2233 0		*	a white key
+E 0 2287 0 16		*	a silver dagger: wielded
+M 0 2206 5 2212 5	* a concubine (Hall O' Pleasure)
+G 0 2240 0		*	a black key
+E 0 2287 0 16		*	a silver dagger: wielded
+M 0 2206 5 2212 5	* a concubine (Hall O' Pleasure)
+E 0 2287 0 16		*	a silver dagger: wielded
+M 0 2203 1 2214 1	* a powerful mage (The Library)
+E 0 2223 0 12		*	a stone club: about the shoulders
+E 0 2250 0 17		*	a black staff: held in the hands
+G 0 2251 0		*	a cyan potion
+E 0 2261 0 3		*	a diamond brooch: around the neck (1)
+M 0 2242 5 2214 1	* the draconian fool (The Library)
+M 0 2204 1 2214 1	* the holy Draconian (The Library)
+E 0 2220 0 3		*	a holy symbol: around the neck (1)
+E 0 2211 0 14		*	a platinum bracelet.: on the left wrist
+E 0 2210 0 13		*	a white silk belt: around the waist
+G 0 2270 0		*	a runed scroll
+G 0 2252 0		*	a magenta potion
+M 0 2205 1 2216 1	* the Draconian King (The Court Ends)
+E 0 2222 0 16		*	an emerald sword: wielded
+E 0 2276 0 12		*	a fur cloak: about the shoulders
+E 0 2242 0 11		*	a crested shield: as a shield
+E 0 2254 0 9		*	a pair of spiked gauntlets: on the hands
+G 0 2232 0		*	a ruby key
+M 0 2207 20 2216 5	* A bodyguard (The Court Ends)
+M 0 2207 20 2216 5	* A bodyguard (The Court Ends)
+M 0 2207 20 2216 5	* A bodyguard (The Court Ends)
+M 0 2242 5 2216 4	* the draconian fool (The Court Ends)
+M 0 2242 5 2216 4	* the draconian fool (The Court Ends)
+M 0 2243 1 2217 1	* the Draconian Queen (bedroom)
+E 0 2203 0 14		*	a dragon skin bracelet: on the left wrist
+E 0 2204 0 13		*	a black silk belt: around the waist
+E 0 2201 0 16		*	a silver dagger: wielded
+M 0 2227 5 2217 4	* A human slave (bedroom)
+M 0 2227 5 2217 4	* A human slave (bedroom)
+M 0 2241 2 2217 2	* the phase dragon (bedroom)
+M 0 2240 8 2218 2	* a Draconian zombie (Entrance to the Crypt)
+M 0 2240 8 2218 2	* a Draconian zombie (Entrance to the Crypt)
+M 0 2240 8 2219 2	* a Draconian zombie (Crypt)
+M 0 2240 8 2219 2	* a Draconian zombie (Crypt)
+M 0 2223 1 2220 1	* the Great White Dragon (The Lair)
+E 0 2246 0 5		*	scale mail: on the body
+M 0 2222 1 2221 1	* the Great Black Dragon (A Lair)
+E 0 2280 0 7		*	a pair of dragon scale leggings: on the legs
+M 0 2202 1 2222 1	* the dragon master (The Crypt Ends)
+E 0 2202 0 16		*	a dragon's tooth knife: wielded
+E 0 2281 0 10		*	a set of dragon scale sleeves: on the arms
+E 0 2271 0 9		*	a pair of dragon skin gloves: on the hands
+M 0 2221 1 2226 1	* the Great Red Dragon (Lair)
+E 0 2275 0 6		*	a helm of dragon kind: over the head
+E 0 2245 0 17		*	the staff of the dragon: held in the hands
+G 0 2299 0		*	a tarnished gold key
+M 0 2225 1 2230 1	* the Ancient Green Dragon (THE Lair)
+G 0 2241 0		*	a platinum key
+G 0 2285 0		*	a dragon tailed whip
+E 0 2261 0 3		*	a diamond brooch: around the neck (1)
+M 0 2220 1 2231 1	* Tiamat (The End...)
+M 0 2240 8 2232 1	* a Draconian zombie (Stairwell)
+M 0 2240 8 2233 1	* a Draconian zombie (Wine cellar)
+M 0 2240 8 2234 1	* a Draconian zombie (Tunnel)
+M 0 2240 8 2236 1	* a Draconian zombie (The End of the tunnel)
+M 0 2200 12 2239 1	* the dragon hatchling (Clearing)
+M 0 2200 12 2241 1	* the dragon hatchling (A cave opening)
+S
+
+
+
 #SHOPS
 0
-#SPECIALS
-M 2200 spec_breath_any     	* the dragon hatchling
-M 2203 spec_cast_mage      	* a powerful mage
-M 2204 spec_cast_cleric    	* the holy Draconian
-M 2205 spec_breath_any     	* the Draconian King
-M 2220 spec_breath_any     	* Tiamat
-M 2221 spec_breath_fire    	* the Great Red Dragon
-M 2222 spec_breath_acid    	* the Great Black Dragon
-M 2223 spec_breath_frost   	* the Great White Dragon
-M 2225 spec_breath_gas     	* the Ancient Green Dragon
-M 2226 spec_poison         	* a large hydra
-M 2227 spec_thief          	* A human slave
-M 2240 spec_cast_undead    	* a Draconian zombie
-M 2241 spec_breath_gas     	* the phase dragon
-M 2242 spec_thief          	* the draconian fool
-M 2243 spec_breath_any     	* the Draconian Queen
+
+
+
+#OLIMITS
 S
+
+
+
+#MOBPROGS
+#0
+
+#PRACTICERS
+S
+
+
+
+#OMPROGS
+S
+
+
+
 #$

@@ -1,8 +1,13 @@
-#AREA	
-villa.are~
-The Village of Anon~
-{ 1 65} Yaegar  The Village of Anon~
-24100 24200
+#AREADATA
+Name The Village of Anon~
+Builders None~
+VNUMs 24100 24200
+Credits Yaegar~
+Security 9
+LevelRange 1 65
+End
+
+
 
 #MOBILES
 #24100
@@ -15,12 +20,12 @@ time curing the ailments of the inhabitants of this village, or those of any
 strangers that may pass by.
 ~
 human~
-2|8|64 128|8192 1000 0
+ABDG HN 1000 0
 93 0 50d10+20500 5d5+5000 17d10+64 divine
 -66 -66 -66 -33
 FHKN 0 0 0
 stand stand male 1000
-0 0 medium 0
+0 0 medium unknown
 #24101
 flint knapper flint-knapper~
 the village flint-knapper~
@@ -33,12 +38,12 @@ remarkably conversant with the properties of metals such as copper and silver
 and alloys such as bronze.
 ~
 human~
-2|64 128|8192 1000 0
+ABG HN 1000 0
 73 0 50d10+20500 5d5+5000 17d10+64 pound
 -66 -66 -66 -33
-FHKIN 0 0 0
+FHIKN 0 0 0
 stand stand male 1000
-0 0 medium 0
+0 0 medium unknown
 #24102
 trader~
 a swarthy southern trader~
@@ -50,12 +55,12 @@ has brought with him a variety of bronze arms and armor, as well as the
 occasional crude iron oddity.
 ~
 human~
-2|64 128|8192 1000 0
+ABG HN 1000 0
 80 0 50d10+20500 5d5+5000 17d10+64 pound
 -66 -66 -66 -33
 FHIKN 0 0 0
 stand stand male 1000
-0 0 medium 0
+0 0 medium unknown
 #24103
 merc~
 a mercenary~
@@ -64,12 +69,12 @@ A tough mercenary offers to hire out his men to you.
 Type list to see what he has to offer.
 ~
 human~
-2|64 128|8192 1000 0
+ABG HN 1000 0
 93 0 50d10+20500 5d5+5000 17d10+64 slash
 -66 -66 -66 -33
-FHKIN 0 0 0
+FHIKN 0 0 0
 stand stand male 1000
-0 0 medium 0
+0 0 medium unknown
 #24104
 witchdoctor~
 the village witchdoctor~
@@ -80,12 +85,12 @@ wide, and gathered a variety of exotic herbs and roots that she blends into
 marvellous potions. They taste even worse than they smell...
 ~
 human~
-2|64 128|8192 1000 0
+ABG HN 1000 0
 83 0 50d10+20500 5d5+5000 17d10+64 pound
 -66 -66 -66 -33
-FHKIN 0 0 0
+FHIKN 0 0 0
 stand stand female 1000
-0 0 medium 0
+0 0 medium unknown
 #24105
 wise woman~
 the village wise woman~
@@ -98,12 +103,12 @@ much. In fact, to these villagers it is about as far as you can see on a
 clear day).
 ~
 human~
-2|64 128|8192 1000 0
+ABG HN 1000 0
 83 0 50d10+20500 5d5+5000 17d10+64 pound
 -66 -66 -66 -33
-FHKIN 0 0 0
+FHIKN 0 0 0
 stand stand female 1000
-0 0 medium 0
+0 0 medium unknown
 #24106
 beastmaster~
 the village beastmaster~
@@ -114,12 +119,12 @@ that he has domesticated, though from the look of it you may have doubts
 in his ability to exact obedience. That bear sure doesn't look tame...
 ~
 human~
-2|64 128|8192 1000 0
+ABG HN 1000 0
 80 0 50d10+20500 5d5+5000 17d10+64 pound
 -66 -66 -66 -33
-FHKIN 0 0 0
+FHIKN 0 0 0
 stand stand male 1000
-0 0 medium 0
+0 0 medium unknown
 #24107
 trader northerner~
 a northern trader~
@@ -129,12 +134,12 @@ This stout hunter spends six months of the year trapping for fur, and the rest
 of the year fashioning and selling basic equipment.
 ~
 human~
-2|64 128|8192 1000 0
+ABG HN 1000 0
 83 0 50d10+20500 5d5+5000 17d10+64 pound
 -66 -66 -66 -33
-FKIN 0 0 0
+FIKN 0 0 0
 stand stand male 1000
-0 0 medium 0
+0 0 medium unknown
 #24108
 daughter woman girl~
 a daughter of the tribe~
@@ -144,12 +149,12 @@ The crop was good this year, and the villagers have sufficient to sell to
 travellers and other villagers.
 ~
 human~
-2|64 128|8192 1000 0
+ABG HN 1000 0
 80 0 50d10+20500 5d5+5000 17d10+64 pound
 -66 -66 -66 -33
 FIKN 0 0 0
 stand stand female 1000
-0 0 medium 0
+0 0 medium unknown
 #24109
 brewer~
 the village brewer~
@@ -162,12 +167,12 @@ no real cost, a small "donation" to the sacred coffer is expected. And when
 the brewer is the size of a grizzly bear, few refuse.
 ~
 human~
-2|64 128|8192 1000 0
+ABG HN 1000 0
 85 0 50d10+20500 5d5+5000 17d10+64 pound
 -66 -66 -66 -33
 FIKN 0 0 0
 stand stand male 1000
-0 0 medium 0
+0 0 medium unknown
 #24110
 hedgehog~
 the hedgehog~
@@ -176,12 +181,12 @@ A hedgehog, well, does nothing at you.
 The hedgehog looks like a cute, little, fierce fighter.
 ~
 unique~
-256 0 400 0
-4 0 2d7+46 5d5+100 1d5+1 charge        
+AI 0 400 0
+4 0 2d7+46 5d5+100 1d5+1 charge
 6 6 6 9
 F 0 0 0
 stand stand none 1000
-0 0 medium 0
+0 0 medium unknown
 #24111
 otter~
 the otter~
@@ -190,12 +195,12 @@ A loyal, sleek growls at you.
 The otter looks like a fierce fighter.
 ~
 unique~
-256 0 400 0
-10 0  2d7+121 5d5+100 2d4+2 claw        
+AI 0 400 0
+10 0 2d7+121 5d5+100 2d4+2 claw
 1 1 1 7
 F 0 0 0
 stand stand either 1000
-0 0 medium 0
+0 0 medium unknown
 #24112
 hawk~
 the hawk~
@@ -204,12 +209,12 @@ A fierce but loyal hawk is here.
 The hawk looks like a fierce fighter.
 ~
 song bird~
-256 524288 400 0
-15 0 3d9+208 5d5+100 2d6+3 claw     
+AI 0 400 0
+15 0 3d9+208 5d5+100 2d6+3 claw
 -2 -2 -2 6
-F 0 0 0
+0 0 0 0
 stand stand either 1000
-0 0 medium 0
+0 0 medium unknown
 #24113
 grizzly bear~
 the grizzly bear~
@@ -218,12 +223,12 @@ A large, loyal grizzly bear is here.
 The grizzly bear looks like a strong, fierce fighter.
 ~
 bear~
-256 0 0 0
-20 0  3d9+333 5d5+1000 2d8+5 claw      
+AI 0 0 0
+20 0 3d9+333 5d5+1000 2d8+5 claw
 -4 -4 -4 5
 CF 0 0 0
 stand stand either 1000
-0 0 medium 0
+0 0 medium unknown
 #24114
 aurochs~
 the aurochs~
@@ -232,12 +237,12 @@ A HUGE Aurochs stomps its feet and lowers its head to charge.
 The aurochs is a BAD ASS.
 ~
 unique~
-256 0 0 0
-30 0 6d12+853 5d5+1000 4d6+8 charge     
+AI 0 0 0
+30 0 6d12+853 5d5+1000 4d6+8 charge
 -9 -9 -9 3
 F 0 0 0
 stand stand none 1000
-0 0 medium 0
+0 0 medium unknown
 #24115
 champion~
 the village champion~
@@ -247,12 +252,12 @@ The village champion once tore the head off a rabid Mastodon with his thumbs.
 Imagine what he could do to you...
 ~
 human~
-2|8|64 128|512|8192 0 0
+ABDG HJN 0 0
 93 0 50d10+20500 5d5+5000 18d10+64 crush
 -76 -76 -76 -33
 0 0 0 0
 stand stand male 1000
-FHIKN 0 medium 0
+FIKN 0 medium unknown
 #24116
 merchant~
 a hook-nosed merchant~
@@ -262,12 +267,12 @@ This fellow may not speak your language well, but the language he does know
 very well makes conversation suddenly become much simpler- MONEY.
 ~
 human~
-4|64|128 8|32|8192 0 0
+ACGH DFN 0 0
 60 0 50d10+6750 5d5+5000 8d6+28 pound
 -30 -30 -30 -3
 FHIKN 0 0 0
 stand stand male 1000
-0 0 medium 0
+0 0 medium unknown
 #24117
 chieftain~
 the village chieftain~
@@ -281,12 +286,12 @@ well-muscled frame - she is still a very attractive woman, and the men of the
 village (and some women too) vie for her favours.
 ~
 human~
-64 4|8|128|512|8192 1000 0
+AG CDHJN 1000 0
 60 0 50d10+6750 5d5+5000 8d6+28 pound
 -30 -30 -30 -3
 FIKN 0 0 0
 stand stand male 1000
-0 0 medium 0
+0 0 medium unknown
 #24118
 villager~
 a villager~
@@ -296,12 +301,12 @@ The villagers are a hardy lot, toughened by their environment and their
 rugged lifestyle, and you marvel at their good condition as they pass.
 ~
 human~
-1|64 0 0 0
-4 0 2d7+46 5d5+100 1d5+1 punch         
+AG 0 0 0
+4 0 2d7+46 5d5+100 1d5+1 punch
 6 6 6 9
 F 0 0 0
 stand stand male 1000
-0 0 medium 0
+0 0 medium unknown
 #24119
 villager~
 a villager~
@@ -311,12 +316,12 @@ The villagers are a hardy lot, toughened by their environment and their
 rugged lifestyle, and you marvel at their good condition as they pass.
 ~
 human~
-1|64 0 0 0
-4 0 2d7+46 5d5+100 1d5+1 punch        
+AG 0 0 0
+4 0 2d7+46 5d5+100 1d5+1 punch
 6 6 6 9
 F 0 0 0
 stand stand female 1000
-0 0 medium 0
+0 0 medium unknown
 #24120
 child~
 a child~
@@ -326,12 +331,12 @@ The children of the village are a rough and tumble lot, used to working hard
 and playing harder.
 ~
 human~
-1|64 0 0 0
-3 0 2d7+46 5d5+100 1d5+1 punch        
+AG 0 0 0
+3 0 2d7+46 5d5+100 1d5+1 punch
 6 6 6 9
 F 0 0 0
 stand stand male 1000
-0 0 medium 0
+0 0 medium unknown
 #24121
 idiot~
 the village idiot~
@@ -340,12 +345,12 @@ The village idiot gawks at you.
 When he was young, this poor fellow had his skull staved in by a horse kick.
 ~
 human~
-4|64|128 0 0 0
-4 0 2d7+46 5d5+100 1d5+1 punch        
+ACGH 0 0 0
+4 0 2d7+46 5d5+100 1d5+1 punch
 6 6 6 9
 0 0 0 0
 stand stand male 1000
-0 0 medium 0
+0 0 medium unknown
 #24122
 drunk~
 a village drunk~
@@ -354,12 +359,12 @@ A village drunk.
 This fellow has evidently made many generous donations to the village brewer.
 ~
 human~
-64 0 400 0
-4 0 2d7+46 5d5+100 1d5+1 punch         
+AG 0 400 0
+4 0 2d7+46 5d5+100 1d5+1 punch
 6 6 6 9
 0 0 0 0
 stand stand male 1000
-0 0 medium 0
+0 0 medium unknown
 #24123
 beggar~
 a beggar~
@@ -370,12 +375,12 @@ is likely that this fellow will have a roof over his head soon, provided by
 one of the more prosperous villagers.
 ~
 human~
-2|64 0 400 0
-3 0 2d7+46 5d5+100 1d5+1 punch        
+ABG 0 400 0
+3 0 2d7+46 5d5+100 1d5+1 punch
 6 6 6 9
 F 0 0 0
 stand stand male 1000
-0 0 medium 0
+0 0 medium unknown
 #24124
 thief~
 a thief~
@@ -384,12 +389,12 @@ A thief adroitly cuts the strings of another fat merchant's purse.
 This unsavory fellow preys on the rich foreign merchants from the south.
 ~
 human~
-64|128 2|32768|65536|1048576 0 0
-10 0 2d7+121 5d5+100 2d4+2 punch        
+AGH BPQU 0 0
+10 0 2d7+121 5d5+100 2d4+2 punch
 1 1 1 7
 FIN 0 0 0
 stand stand male 1000
-0 0 medium 0
+0 0 medium unknown
 #24125
 wolf~
 a scrawny wolf~
@@ -400,12 +405,12 @@ quick to repel such unwelcome wildlife, and it is only a matter of time
 before the militia run it off.
 ~
 wolf~
-64|128 0 0 0
-5 0 2d7+46 5d5+100 1d5+1 bite        
+AGH 0 0 0
+5 0 2d7+46 5d5+100 1d5+1 bite
 6 6 6 9
-F 0 0 0
+0 0 0 0
 stand stand either 1000
-0 0 medium 0
+0 0 medium unknown
 #24126
 rat~
 a rat~
@@ -415,13 +420,13 @@ These mangy black rodents came with the merchants from the south, hidden
 amongst their goods, and have quickly become a nuisance, being scavengers
 and carriers of disease.
 ~
-rat~
-64|128 0 0 0
-2 0 2d7+26 5d5+100 1d5+1 charge         
+unique~
+AGH 0 0 0
+2 0 2d7+26 5d5+100 1d5+1 charge
 6 6 6 9
 F 0 0 0
 stand stand none 1000
-0 0 medium 0
+0 0 medium unknown
 #24127
 dog~
 a dog~
@@ -431,12 +436,12 @@ This mongrel is the unwanted offspring of some hunter's sled dogs, left to
 fend for itself here in the village.
 ~
 fido~
-64|128 0 0 0
-3 0 2d7+46 5d5+100 1d5+1 bite        
+AGH 0 0 0
+3 0 2d7+46 5d5+100 1d5+1 bite
 6 6 6 9
-F 0 0 0
+0 0 0 0
 stand stand female 1000
-0 0 medium 0
+0 0 medium unknown
 #24128
 militia member~
 a member of the village militia~
@@ -447,12 +452,12 @@ standing military or police force. However, the recent influx of foreigners
 and bandits has necessitated the introduction of a militia to keep the peace.
 ~
 human~
-8|64 4|128|8192 1000 0
+ADG CHN 1000 0
 50 0 50d10+4250 5d5+5000 5d8+19 pound
 -20 -20 -20 0
 EFIKN 0 0 0
 stand stand male 1000
-0 0 medium 0
+0 0 medium unknown
 #24129
 militia member~
 a member of the village militia~
@@ -463,12 +468,12 @@ standing military or police force. However, the recent influx of foreigners
 and bandits has necessitated the introduction of a militia to keep the peace.
 ~
 human~
-8|64 4|128|8192 1000 0
-50 0 50d10+4250 5d5+5000 5d8+19 pound 
+ADG CHN 1000 0
+50 0 50d10+4250 5d5+5000 5d8+19 pound
 -20 -20 -20 0
 CEFIKN 0 0 0
 stand stand male 1000
-0 0 medium 0
+0 0 medium unknown
 #24130
 militia member~
 a member of the village militia~
@@ -479,12 +484,12 @@ standing military or police force. However, the recent influx of foreigners
 and bandits has necessitated the introduction of a militia to keep the peace.
 ~
 human~
-2|8|64 4|128|8192 1000 0
+ABDG CHN 1000 0
 50 0 50d10+4250 5d5+5000 5d8+19 pound
 -20 -20 -20 0
 CEFIKN 0 0 0
 stand stand male 1000
-0 0 medium 0
+0 0 medium unknown
 #24131
 minoan merc merc1~
 minoan mercenary~
@@ -493,12 +498,12 @@ A Minoan mercenary scowls menacingly at you.
 This Merc looks big and tough. Better be careful.
 ~
 human~
-256 32|512 0 0
-15 0 3d9+208 5d5+100 2d6+3 pound     
+AI FJ 0 0
+15 0 3d9+208 5d5+100 2d6+3 pound
 -2 -2 -2 6
-CDFKIJ 0 0 0
+CDFIJK 0 0 0
 stand stand female 1000
-0 0 medium 0
+0 0 medium unknown
 #24132
 assyrian merc merc2~
 Assyrian mercenary~
@@ -507,12 +512,12 @@ An Assyrian Mercenary scowls menacingly at you.
 This Merc looks big and tough. Better be careful.
 ~
 human~
-256 8|512 0 0
-20 0  3d9+333 5d5+1000 2d8+5 pound     
+AI DJ 0 0
+20 0 3d9+333 5d5+1000 2d8+5 pound
 -4 -4 -4 5
-FKNIJ 0 0 0
+FIJKN 0 0 0
 stand stand male 1000
-0 0 medium 0
+0 0 medium unknown
 #24133
 egyptian merc merc3~
 Egyptian mercenary~
@@ -521,12 +526,12 @@ An Egyptian mercenary scowls menacingly at you.
 This Merc looks big and tough. Better be careful.
 ~
 human~
-256 512|8192 0 0
-25 0 5d10+550 5d5+1000 2d10+7 pound    
+AI JN 0 0
+25 0 5d10+550 5d5+1000 2d10+7 pound
 -7 -7 -7 4
 FIKN 0 0 0
 stand stand male 1000
-0 0 medium 0
+0 0 medium unknown
 #24134
 trojan merc merc4~
 Trojan mercenary~
@@ -535,12 +540,12 @@ A Trojan mercenary scowls menacingly at you.
 This Merc looks big and tough. Better be careful.
 ~
 human~
-256 512|8192 0 0
-30 0 6d12+853 5d5+1000 4d6+8 slash 
+AI JN 0 0
+30 0 6d12+853 5d5+1000 4d6+8 slash
 -9 -9 -9 3
-FKIJ 0 0 0
+FIJK 0 0 0
 stand stand male 1000
-0 0 medium 0
+0 0 medium unknown
 #24135
 nubian merc merc5~
 nubian Mercenary~
@@ -549,12 +554,12 @@ A Nubian mercenary scowls menacingly at you.
 This Merc looks big and tough. Better be careful.
 ~
 human~
-256 8192 0 0
+AI N 0 0
 35 0 10d10+1300 5d5+1000 4d7+11 slash
 -11 -11 -11 3
 FIKN 0 0 0
 stand stand male 1000
-0 0 medium 0
+0 0 medium unknown
 #24136
 mycenaean merc merc6~
 Mycenaean mercenary~
@@ -563,114 +568,115 @@ A Mycenaean mercenary scowls menacingly at you.
 This Merc looks big and tough. Better be careful.
 ~
 human~
-256 8|32|512|524288 0 0
+AI DFJT 0 0
 40 0 15d10+1850 5d5+1000 4d8+13 slash
 -13 -13 -13 3
 FIKN 0 0 0
 stand stand male 1000
-0 0 medium 0
+0 0 medium unknown
 #0
 
 
-#OBJOLD
+
+#OBJECTS
 #24100
 key~
 a bone key~
 The key to the village gates.
 ~
-~
-18 0 1|16384
-0 0 0 0 
-1 0 0
+copper~
+key 0 AO
+0 0 0 0 0
+0 1 0 P
 #24101
 barrel beer~
 a barrel of beer~
 A beer barrel has been left here.
 ~
-~
-17 0 1
-30 30 1 0 
-60 300 0
+copper~
+drink 0 A
+30 30 'beer' 0 0
+0 60 0 P
 #24102
 bottle beer~
 a bottle of rough beer~
 A beer bottle has been left here.~
-~
-17 0 1
-4 4 1 0 
-10 20 0
+copper~
+drink 0 A
+4 4 'beer' 0 0
+0 10 0 P
 #24103
 bottle ale~
 a bottle of home brew ale~
 A dark bottle of ale has been left here.~
-~
-17 0 1
-5 5 3 0 
-10 10 0
+copper~
+drink 0 A
+5 5 'ale' 0 0
+0 10 0 P
 #24104
 bottle firebreather~
 a bottle of rough spirits~
 A firebreather has been left here.~
-~
-17 0 1
-8 8 7 0 
-10 50 0
+copper~
+drink 0 A
+8 8 'firebreather' 0 0
+0 10 0 P
 #24105
 bottle local~
 a bottle of brewer's specialty ("Holy Water")~
 A dark bottle has been left here.~
-~
-17 0 1
-8 8 8 0 
-10 20 0
+copper~
+drink 0 A
+8 8 'local specialty' 0 0
+0 10 0 P
 #24106
 torch~
 a torch~
 A large torch.~
-~
-1 0 1|65536
-0 0 24 0 
-1 10 0
+copper~
+light 0 AQ
+0 0 24 0 0
+0 1 0 P
 #24107
 lamp~
 a stone lamp~
 A stone lamp that uses animal fat as fuel has been left here.~
-~
-1 0 1|16384
-0 0 100 0 
-4 60 0
+copper~
+light 0 AO
+0 0 100 0 0
+0 4 0 P
 #24108
 brew yellow~
 a yellow brew~
 A yellow brew.~
-~
-10 64 1
-12 3 -1 -1 
-1 400 0
+copper~
+potion G A
+12 'bless' '' '' ''
+5 1 50 P
 #24109
 skin water buffalo~
 a buffalo water skin~
 A buffalo water skin is on the floor.~
-~
-17 0 1
-25 25 0 0 
-5 30 0
+copper~
+drink 0 A
+25 25 'water' 0 0
+0 5 0 P
 #24110
 jug water~
 a jug of water~
 A large jug of water sloshes on the floor.~
-~
-17 1 1
-60 60 0 0 
-85 0 0
+copper~
+drink A A
+60 60 'water' 0 0
+0 85 0 P
 #24111
 club~
 a heavy lead-sheathed club~
 A heavy club sheathed in lead lies here.~
-~
-5 0 1|8192
-0 0 0 8 
-30 0 0
+copper~
+weapon 0 AN
+exotic 3 5 crush 0
+10 30 100 P
 A
 18 -2
 A
@@ -679,10 +685,10 @@ A
 mace~
 a bone mace~
 A bone mace lies here.~
-~
-5 0 1|8192
-0 0 0 7 
-20 0 0
+copper~
+weapon 0 AN
+exotic 3 5 pound 0
+10 20 100 P
 A
 18 -1
 A
@@ -691,10 +697,10 @@ A
 dagger~
 a bronze dagger~
 A bronze dagger lies here.~
-~
-5 0 1|8192
-0 0 0 11 
-15 0 0
+copper~
+weapon 0 AN
+exotic 3 5 pierce 0
+10 15 100 P
 A
 18 -1
 A
@@ -703,10 +709,10 @@ A
 blade sword~
 a bronze sword~
 A broad, heavy bronze blade lies here.~
-~
-5 0 1|8192
-0 0 0 3 
-25 0 0
+copper~
+weapon 0 AN
+exotic 3 5 slash 0
+10 25 100 P
 A
 18 -2
 A
@@ -715,26 +721,26 @@ A
 sandals~
 a pair of sandals~
 A pair of sandals lies here.~
-~
-9 0 1|64
-0 0 0 0 
-15 0 0
+copper~
+armor 0 AG
+AC AC AC 0 0
+10 15 100 P
 #24116
 belt~
 a hide belt~
 A belt crafted of hide is curled up here.~
-~
-9 0 1|2048
-0 0 0 0 
-20 0 0
+copper~
+armor 0 AL
+AC AC AC 0 0
+10 20 100 P
 #24117
 bronze helm~
 a bronze helm~
 A bronze helm.~
-~
-9 0 1|16
-0 0 0 0 
-5 0 0
+copper~
+armor 0 AE
+AC AC AC 0 0
+10 5 100 P
 A
 17 -2
 A
@@ -743,10 +749,10 @@ A
 cloak~
 a rough fur cloak~
 A rough fur cloak is here.~
-~
-9 0 1|4
-0 0 0 0 
-5 0 0
+copper~
+armor 0 AC
+AC AC AC 0 0
+10 5 100 P
 A
 17 -5
 A
@@ -755,67 +761,67 @@ A
 ring~
 a bronze ring~
 A bronze ring.~
-~
-18 1 1|2
-0 0 0 0 
-1 0 0
+copper~
+key A AB
+0 0 0 0 0
+0 1 0 P
 #24120
 black bread~
 black bread~
 Black bread.~
-~
-19 0 1
-5 0 0 0 
-3 0 0
+copper~
+food 0 A
+AC 0 0 0 0
+0 3 0 P
 #24121
 cheese~
 cheese~
 A sour cheese.~
-~
-19 0 1
-8 0 0 0 
-5 0 0
+copper~
+food 0 A
+D 0 0 0 0
+0 5 0 P
 #24122
 dried meat~
 a strip of dried meat~
 A strip of unidentifiable dried meat.~
-~
-19 0 1
-10 0 0 0 
-5 0 0
+copper~
+food 0 A
+BD 0 0 0 0
+0 5 0 P
 #24123
 egg~
 an egg~
 An egg (raw), warm from the nest.~
-~
-19 0 1
-4 0 0 0 
-5 0 0
+copper~
+food 0 A
+C 0 0 0 0
+0 5 0 P
 #24124
 potion~
 a foul potion~
 A foul potion rolls around here.~
-~
-10 1|2|64 1
-10 29 28 56 
-2 400 0
+copper~
+potion ABG A
+10 'invisibility' 'heal' 'fly' ''
+5 2 50 P
 #24125
 totem~
 the village totem~
 The village totem stands here.~
-~
-12 0 0
-0 0 0 0 
-1000 0 0
+copper~
+furniture 0 0
+0 0 0 0 0
+91 1000 910 P
 #24126
 wolf head~
 a wolf's head~
 The champion's wolf's head is here.
 ~
-~
-9 0 1|16
-0 0 0 0 
-75 0 0
+copper~
+armor 0 AE
+ACE ACE ACE 0 0
+93 75 930 P
 A
 13 250
 #24127
@@ -823,10 +829,10 @@ club~
 the chief's club~
 The chief's oak club is lying here in the dirt.
 ~
-~
-5 64 1|8192
-0 10 100 8 
-25 0 0
+copper~
+weapon G AN
+exotic 5 13 crush 0
+60 25 600 P
 A
 17 -15
 A
@@ -837,28 +843,28 @@ A
 stick~
 a stick~
 A wooden stick.~
-~
-5 0 1|8192
-0 0 0 7 
-15 0 0
+copper~
+weapon 0 AN
+exotic 2 5 pound 0
+4 15 40 P
 #24129
 wooden club~
 a wooden club~
 A wooden club is lying here.~
-~
-5 64 1|8192
-0 0 0 8 
-15 0 0
+copper~
+weapon G AN
+exotic 5 11 crush 0
+50 15 500 P
 A
 19 6
 #24130
 boiled leather jerkin~
 a boiled leather jerkin~
 A boiled leather jerkin is lying here.~
-~
-9 0 1|8
-0 0 0 0 
-10 0 0
+copper~
+armor 0 AD
+ACD ACD ACD 0 0
+50 10 500 P
 A
 5 2
 A
@@ -867,10 +873,10 @@ A
 bone bracelet~
 a rune-covered bone bracelet~
 A rune-covered bone bracelet is lying here.~
-~
-9 0 1|4096
-0 0 0 0 
-5 0 0
+copper~
+armor 0 AM
+ACD ACD ACD 0 0
+50 5 500 P
 A
 2 1
 A
@@ -879,10 +885,10 @@ A
 fur cloak~
 a fur cloak~
 A fur cloak is lying here.~
-~
-9 0 1|4
-0 0 0 0 
-10 0 0
+copper~
+armor 0 AC
+ACD ACD ACD 0 0
+50 10 500 P
 A
 12 25
 A
@@ -891,10 +897,10 @@ A
 helm~
 a boar tusk helm~
 A boar tusk helm lies here.~
-~
-9 0 1|16
-0 0 0 0 
-10 0 0
+copper~
+armor 0 AE
+ACD ACD ACD 0 0
+50 10 500 P
 A
 17 -10
 #24134
@@ -902,10 +908,10 @@ shield~
 an ox-hide shield~
 An ox-hide shield lies here.
 ~
-~
-9 0 1|512
-0 0 0 0 
-20 0 0
+copper~
+armor 0 AJ
+ACD ACD ACD 0 0
+50 20 500 P
 A
 17 -20
 A
@@ -917,10 +923,10 @@ spear~
 a throwing spear~
 A sturdy throwing spear has been thrust into the ground here.
 ~
-~
-30 64 1|8192|16384
-0 0 0 0 
-20 0 0
+copper~
+warp_stone G ANO
+0 0 0 0 0
+50 20 500 P
 A
 18 2
 A
@@ -930,28 +936,29 @@ papyrus~
 a blank papyrus~
 A blank papyrus is here.
 ~
-~
-2 0 1|16384
-0 0 0 0 
-1 0 0
+copper~
+scroll 0 AO
+0 '' '' '' ''
+10 1 100 P
 #24137
 potion~
 a shimmering potion~
 A shimmering potion is here.
 ~
-~
-10 64 1|16384
-5 82 43 17 
-1 400 0
+copper~
+potion G AO
+5 'mind light' 'cure poison' 'curse' ''
+5 1 50 P
 #24138
 gate~
 a stone gate~
 A magical stone gate allows one to pass through to other worlds.~
-~
-33 0 0
-31144 0 0 0
-1 0 0
+copper~
+jewelry 0 0
+DFHILMNO 0 0 0 0
+48 1 480 P
 #0
+
 
 
 #ROOMS
@@ -964,7 +971,7 @@ resides. Paths stretch out to the east, south and west from here.
 D0
 ~
 ~
-1 0 24101
+0 0 24101
 D1
 ~
 ~
@@ -986,11 +993,11 @@ toward you. In the center of this hut the shaman awaits, quietly meditating.
 A variety of furs, bones, charms and trinkets line the walls, doubtless
 serving as focii for the shaman's mystic powers.
 ~
-0 8|1024 0
+0 DK 0
 D2
 ~
 ~
-1 0 24100
+0 0 24100
 S
 #24102
 A Path in the Village~
@@ -999,7 +1006,7 @@ about on the hard ground by a chill northern breeze that blows in from the
 icy mountains far to the north. You hope that you will be able to find
 a hot meal and a comfortable bed this evening.
 ~
-0 8 0
+0 D 0
 D1
 ~
 ~
@@ -1014,7 +1021,7 @@ A Path in the Village~
 You are walking along a path of packed earth that heads north toward the
 Shaman's hut.
 ~
-0 8 0
+0 D 0
 D0
 ~
 ~
@@ -1031,7 +1038,7 @@ about on the hard ground by a chill northern breeze that blows in from the
 icy mountains far to the north. You hope that you will be able to find
 a hot meal and a comfortable bed this evening.
 ~
-0 8 0
+0 D 0
 D1
 ~
 ~
@@ -1048,7 +1055,7 @@ about on the hard ground by a chill northern breeze that blows in from the
 icy mountains far to the north. You hope that you will be able to find
 a hot meal and a comfortable bed this evening.
 ~
-0 8 0
+0 D 0
 D0
 ~
 ~
@@ -1073,7 +1080,7 @@ about on the hard ground by a chill northern breeze that blows in from the
 icy mountains far to the north. You hope that you will be able to find
 a hot meal and a comfortable bed this evening.
 ~
-0 8 0
+0 D 0
 D0
 ~
 ~
@@ -1098,7 +1105,7 @@ about on the hard ground by a chill northern breeze that blows in from the
 icy mountains far to the north. You hope that you will be able to find
 a hot meal and a comfortable bed this evening.
 ~
-0 8 0
+0 D 0
 D0
 ~
 ~
@@ -1123,7 +1130,7 @@ about on the hard ground by a chill northern breeze that blows in from the
 icy mountains far to the north. You hope that you will be able to find
 a hot meal and a comfortable bed this evening.
 ~
-0 8 0
+0 D 0
 D1
 ~
 ~
@@ -1141,7 +1148,7 @@ icy mountains far to the north. You hope that you will be able to find
 a hot meal and a comfortable bed this evening. The village square outside
 the Shaman's hut lies a short way to the north of here.
 ~
-0 8 0
+0 D 0
 D0
 ~
 ~
@@ -1158,7 +1165,7 @@ about on the hard ground by a chill northern breeze that blows in from the
 icy mountains far to the north. You hope that you will be able to find
 a hot meal and a comfortable bed this evening.
 ~
-0 8 0
+0 D 0
 D1
 ~
 ~
@@ -1175,7 +1182,7 @@ about on the hard ground by a chill northern breeze that blows in from the
 icy mountains far to the north. You hope that you will be able to find
 a hot meal and a comfortable bed this evening.
 ~
-0 8 0
+0 D 0
 D1
 ~
 ~
@@ -1194,7 +1201,7 @@ a hot meal and a comfortable bed this evening. Several children suddenly
 rush by, immersed in some strange activity, the rules of which are quite
 unfathomable to you.
 ~
-0 8 0
+0 D 0
 D1
 ~
 ~
@@ -1210,7 +1217,7 @@ You are approaching the western gates of the village, which are constantly
 patrolled by the militia. There is no-one else about here, as the 
 concentration of residences and shops is nearer to the center of the village.
 ~
-0 8 0
+0 D 0
 D1
 ~
 ~
@@ -1226,7 +1233,7 @@ You are approaching the eastern gates of the village, which are constantly
 patrolled by the militia. There is no-one else about here, as the 
 concentration of residences and shops is nearer to the center of the village.
 ~
-0 8 0
+0 D 0
 D1
 ~
 ~
@@ -1243,7 +1250,7 @@ stout wooden gates, set in the wooden barrier that surrounds the village.
 Members of the militia, on the lookout for bandits and wolves, grant you
 a cursory nod as they go about their duties.
 ~
-0 8 0
+0 D 0
 D1
 ~
 ~
@@ -1251,7 +1258,7 @@ D1
 D3
 ~
 ~
-1 24100 24117
+0 24100 24117
 S
 #24116
 Inside the Eastern Gates~
@@ -1260,11 +1267,11 @@ stout wooden gates, set in the wooden barrier that surrounds the village.
 Members of the militia, on the lookout for bandits and wolves, grant you
 a cursory nod as they go about their duties.
 ~
-0 8 0
+0 D 0
 D1
 ~
 ~
-1 24100 24118
+0 24100 24118
 D3
 ~
 ~
@@ -1277,7 +1284,7 @@ stand open, but the militia are ready at a moment's notice to slam them shut
 and bar them with heavy wooden crossbeams bound with rare iron imported from
 the south.
 ~
-0 4 2
+0 C 2
 D0
 ~
 ~
@@ -1285,7 +1292,7 @@ D0
 D1
 ~
 ~
-1 24100 24115
+0 24100 24115
 D2
 ~
 ~
@@ -1298,7 +1305,7 @@ stand open, but the militia are ready at a moment's notice to slam them shut
 and bar them with heavy wooden crossbeams bound with rare iron imported from
 the south.
 ~
-0 4 2
+0 C 2
 D0
 ~
 ~
@@ -1314,7 +1321,7 @@ D2
 D3
 ~
 ~
-1 24100 24116
+0 24100 24116
 S
 #24119
 A Dirt Path~
@@ -1376,7 +1383,7 @@ the larger structures within.
 
 There is a path running up a hill here which you may ascend.
 ~
-0 4 2
+0 C 2
 D1
 ~
 ~
@@ -1571,7 +1578,7 @@ D0
 D2
 ~
 ~
-1 0 24134
+0 0 24134
 S
 #24134
 Inside the Hut~
@@ -1580,11 +1587,11 @@ from the east, while quiet conversation can be heard to the west. You feel
 slightly nervous about intruding upon this clan, but then again that's
 what your profession is all about, really. Intruding.
 ~
-0 8 0
+0 D 0
 D0
 ~
 ~
-1 0 24133
+0 0 24133
 D1
 ~
 ~
@@ -1601,7 +1608,7 @@ sipping at their ales and chatting quietly with each other. As you enter
 they smile and bid you welcome, and ask you to stay and enjoy some good
 conversation for a while.
 ~
-0 8 0
+0 D 0
 D1
 ~
 ~
@@ -1613,7 +1620,7 @@ In here several teenagers of both sexes rush about preparing the evening
 meal under the watchful eye of a hefty cook, who helps them along with the
 occasional shout or cuff on the ear.
 ~
-0 8 0
+0 D 0
 D3
 ~
 ~
@@ -1640,7 +1647,7 @@ D2
 D3
 ~
 ~
-1 0 24138
+0 0 24138
 S
 #24138
 The Chieftain's Lodge~
@@ -1649,11 +1656,11 @@ for a figure of such importance, but it should be remembered that she has
 it to herself, while most other villagers live with their clans in groups of
 up to thirty, residing in three room lodges.
 ~
-0 8 0
+0 D 0
 D1
 ~
 ~
-1 0 24137
+0 0 24137
 S
 #24139
 A Path in the Village~
@@ -1688,7 +1695,7 @@ suit of rather battered-looking bronze plate. The flint-knepper has learnt
 skills far more advanced than his contemporaries, thanks to the many
 visitors this village attracts, and his forge shows evidence of this.
 ~
-0 8 0
+0 D 0
 D1
 ~
 ~
@@ -1721,7 +1728,7 @@ This hut is used to store the goods of the many merchants that come to this
 village. It currently holds little of interest, being filled largely with
 bales of hay and coils of hemp rope.
 ~
-0 8 0
+0 D 0
 D3
 ~
 ~
@@ -1754,7 +1761,7 @@ This hut has been loaned by the chieftain to a travelling arms specialist,
 who is currently doing a roaring trade with the locals, who are eager to
 acquire the rare metal weapons he has bought with him from the south.
 ~
-0 8 0
+0 D 0
 D3
 ~
 ~
@@ -1791,7 +1798,7 @@ Here the foreign mercenaries who have come to the north looking for
 employment gather. You may take advantage of their services for a sizeable
 sum of gold should you wish to.
 ~
-0 8|4096 0
+0 DM 0
 D2
 ~
 ~
@@ -1804,7 +1811,7 @@ You shouldn't be here. Go Away. Or I'll Tell.
 Oh look- a garbled transmission from Outer Space-
 and a large fries.
 ~
-0 8 0
+0 CD 0
 S
 #24148
 A Path in the Village~
@@ -1836,7 +1843,7 @@ of every type imaginable (and several unimaginable). Forcing your way through
 the clutter, you eventually find an assistant, a raven-haired witch doctor who 
 smiles sweetly and welcomes you to her hut.
 ~
-0 8 0
+0 D 0
 D2
 ~
 ~
@@ -1892,7 +1899,7 @@ The Wise Woman of the village lives in this run-down old hut. People come
 to her to avail themselves of her remarkable ability to determine the nature
 of items of all types (there's no other reason to come here, really).
 ~
-0 4|8 0
+0 CD 0
 D2
 ~
 ~
@@ -1932,7 +1939,7 @@ sells them to the merchants from the south. It is a very profitable but
 extremely dangerous profession, as the many scars on his brawny body
 suggest.
 ~
-0 8|4096 0
+0 DM 0
 D2
 ~
 ~
@@ -1950,7 +1957,7 @@ You shouldn't be here. Go Away. Or I'll Tell.
 
 NOW!
 ~
-0 8 0
+0 CD 0
 S
 #24156
 Outside a Village Clan Hut~
@@ -1976,7 +1983,7 @@ from the east, while quiet conversation can be heard to the west. You feel
 slightly nervous about intruding upon this clan, but then again that's
 what your profession is all about, really. Intruding.
 ~
-0 8 0
+0 D 0
 D1
 ~
 ~
@@ -1997,7 +2004,7 @@ sipping at their ales and chatting quietly with each other. As you enter
 they smile and bid you welcome, and ask you to stay and enjoy some good
 conversation for a while.
 ~
-0 8 0
+0 D 0
 D3
 ~
 ~
@@ -2009,7 +2016,7 @@ In here several teenagers of both sexes rush about preparing the evening
 meal under the watchful eye of a hefty cook, who helps them along with the
 occasional shout or cuff on the ear.
 ~
-0 8 0
+0 D 0
 D1
 ~
 ~
@@ -2065,7 +2072,7 @@ A trapper has set up a business here, where he sells goods that he has
 fashioned or acquired during his expeditions into the wilds. His stock is
 usually rather low, as the villagers quickly buy up for the winter.
 ~
-0 8 0
+0 D 0
 D0
 ~
 ~
@@ -2100,7 +2107,7 @@ Some enterprising young women have set up a small shop here, where they
 sell off the surplus food that is not required to provision their Clans.
 You may purchase supplies for your travels here.
 ~
-0 8 0
+0 D 0
 D0
 ~
 ~
@@ -2139,7 +2146,7 @@ It is here that the village Brewer practices his holy trade. Should you
 wish to indulge, you may obtain alcohol from the Brewer, though a small
 donation is in order.
 ~
-0 8 0
+0 D 0
 D0
 ~
 ~
@@ -2211,7 +2218,7 @@ D0
 D2
 ~
 ~
-1 0 24171
+0 0 24171
 S
 #24171
 Inside the Hut~
@@ -2224,7 +2231,7 @@ what your profession is all about, really. Intruding.
 D0
 ~
 ~
-1 0 24170
+0 0 24170
 D1
 ~
 ~
@@ -2241,7 +2248,7 @@ sipping at their ales and chatting quietly with each other. As you enter
 they smile and bid you welcome, and ask you to stay and enjoy some good
 conversation for a while.
 ~
-0 8 0
+0 D 0
 D1
 ~
 ~
@@ -2253,7 +2260,7 @@ In here several teenagers of both sexes rush about preparing the evening
 meal under the watchful eye of a hefty cook, who helps them along with the
 occasional shout or cuff on the ear.
 ~
-0 8 0
+0 D 0
 D3
 ~
 ~
@@ -2325,7 +2332,7 @@ D0
 D2
 ~
 ~
-1 0 24178
+0 0 24178
 S
 #24178
 Inside the Hut~
@@ -2334,11 +2341,11 @@ from the east, while quiet conversation can be heard to the west. You feel
 slightly nervous about intruding upon this clan, but then again that's
 what your profession is all about, really. Intruding.
 ~
-0 8 0
+0 D 0
 D0
 ~
 ~
-1 0 24177
+0 0 24177
 D1
 ~
 ~
@@ -2354,7 +2361,7 @@ In here several teenagers of both sexes rush about preparing the evening
 meal under the watchful eye of a hefty cook, who helps them along with the
 occasional shout or cuff on the ear.
 ~
-0 8 0
+0 D 0
 D3
 ~
 ~
@@ -2367,7 +2374,7 @@ sipping at their ales and chatting quietly with each other. As you enter
 they smile and bid you welcome, and ask you to stay and enjoy some good
 conversation for a while.
 ~
-0 8 0
+0 D 0
 D1
 ~
 ~
@@ -2384,7 +2391,7 @@ upon the doors of this hut marks it as the Boar Clan hut.
 D0
 ~
 ~
-1 -1 24185
+0 -1 24185
 D1
 ~
 ~
@@ -2395,7 +2402,7 @@ The Common Hall~
 These rooms are used by locals and foreigners alike to relax, sing songs and
 enjoy each other's company. Feel free to stay as long as you wish.
 ~
-0 8 0
+0 D 0
 D0
 ~
 ~
@@ -2414,7 +2421,7 @@ The Common Hall~
 These rooms are used by locals and foreigners alike to relax, sing songs and
 enjoy each other's company. Feel free to stay as long as you wish.
 ~
-0 8 0
+0 D 0
 D2
 ~
 ~
@@ -2425,7 +2432,7 @@ The Common Hall~
 These rooms are used by locals and foreigners alike to relax, sing songs and
 enjoy each other's company. Feel free to stay as long as you wish.
 ~
-0 8 0
+0 D 0
 D0
 ~
 ~
@@ -2438,7 +2445,7 @@ from the east, while quiet conversation can be heard to the west. You feel
 slightly nervous about intruding upon this clan, but then again that's
 what your profession is all about, really. Intruding.
 ~
-0 8 0
+0 D 0
 D1
 ~
 ~
@@ -2446,7 +2453,7 @@ D1
 D2
 ~
 ~
-1 -1 24181
+0 -1 24181
 D3
 ~
 ~
@@ -2459,7 +2466,7 @@ sipping at their ales and chatting quietly with each other. As you enter
 they smile and bid you welcome, and ask you to stay and enjoy some good
 conversation for a while.
 ~
-0 8 0
+0 D 0
 D1
 ~
 ~
@@ -2471,7 +2478,7 @@ In here several teenagers of both sexes rush about preparing the evening
 meal under the watchful eye of a hefty cook, who helps them along with the
 occasional shout or cuff on the ear.
 ~
-0 8 0
+0 D 0
 D3
 ~
 ~
@@ -2558,7 +2565,7 @@ from the east, while quiet conversation can be heard to the west. You feel
 slightly nervous about intruding upon this clan, but then again that's
 what your profession is all about, really. Intruding.
 ~
-0 8 0
+0 D 0
 D1
 ~
 ~
@@ -2579,7 +2586,7 @@ sipping at their ales and chatting quietly with each other. As you enter
 they smile and bid you welcome, and ask you to stay and enjoy some good
 conversation for a while.
 ~
-0 8 0
+0 D 0
 D1
 ~
 ~
@@ -2591,7 +2598,7 @@ In here several teenagers of both sexes rush about preparing the evening
 meal under the watchful eye of a hefty cook, who helps them along with the
 occasional shout or cuff on the ear.
 ~
-0 8 0
+0 D 0
 D3
 ~
 ~
@@ -2600,169 +2607,155 @@ S
 #0
 
 
-#RESETS
-*
-O 1 24138 1 24101
-*
-M 1 24100 1 24101 1 *  shaman
-*
-M 1 24117 1 24138 1 *  chief 
-E 1 24127 0 16     *  
-*
-M 1 24101 1 24140 1  
-*
-M 1 24102 1 24144 1 *  trader
-G 1 24115 0	*		0
-G 1 24116 0	*		0
-G 1 24117 0	*		0
-G 1 24118 0	*		0
-G 1 24119 0	*		0
-G 1 24111 0	*		0
-G 1 24112 0	*		0
-G 1 24113 0	*		0
-G 1 24114 0	*		0
-*
-M 1 24103 1 24146 1*     LOADS MERC MASTER
-M 1 24131 1 24147 1 *  LOADS MERCS
-M 1 24132 1 24147 1
-M 1 24133 1 24147 1   
-M 1 24134 1 24147 1
-M 1 24135 1 24147 1   
-M 1 24136 1 24147 1
-*
-M 1 24104 1 24149  1 *  witchdoctor
-G 1 24108 0	*		0
-G 1 24124 0	*		0
-G 1 24136 0	*		0
-G 1 24137 0	*		0
-*
-M 1 24105 1 24152 1 *     LOADS MITZAK THE SAGE
-*
-M 1 24106 1 24154 1 *    LOADS PET SHOP OWNER
-*
-M 1 24110 1 24155 1 *    pets
-M 1 24111 1 24155 1
-M 1 24112 1 24155 1 
-M 1 24113 1 24155 1
-M 1 24114 1 24155 1
-*
-M 1 24107 1 24162 1 *    LOADS GROCER
-G 1 24106 0			0
-G 1 24107 0			0
-G 1 24109 0			0
-G 1 24110 0			0
-*
-M 1 24108 1 24164 1 *     LOADS BAKER
-G 1 24120 0			0
-G 1 24121 0			0
-G 1 24122 0			0
-G 1 24123 0			0
-*
-M 1 24109 1 24166 1 *     LOADS BARTENDER
-G 1 24101 0			0
-G 1 24102 0			0
-G 1 24103 0			0
-G 1 24104 0			0
-G 1 24105 0			0
-*
-M 1 24115 1 24100 1 *    LOADS CLAUDE
-E 1 24126 0 6       *  WEARS MASK
-O 1 24125 0 24100    * LOADS GUILLOTINE
-*
-M 1 24116 1 24174 1 *    LOADS AOD
-G 1 24124 0	*		0          GIVES AOD PSYCHEDELIC POTION
-*
-M 1 24118 3 24169 1 *    LOADS CITIZENS
-M 1 24118 3 24189 1 *   LOADS CITIZENS
-M 1 24119 3 24161 1   * LOADS CITIZENS
-M 1 24119 3 24113 1  *  LOADS CITIZENS
-M 1 24120 3 24112 1 *   LOADS KIDS
-*
-M 1 24121 2 24175 1 *     LOADS FOOTPADS
-E 1 24128 0 16      *  WIELDS SAP
-*
-M 1 24122 6 24171 1*     LOADS DRUNKS
-*
-M 1 24123 3 24111 1*    LOADS BEGGARS
-*
-M 1 24124 1 24177 1 *    LOADS THIEVES
-*
-M 1 24125 5 24150 1 *    LOADS FIDOS
-*
-M 1 24126 6 24176 1 *    LOADS RATS
-*
-M 1 24127 6 24106 1*    LOADS CATS
-*
-M 1 24128 8 24100 1 *       LOADS GUARDS TO 31000
-E 1 24129 0 16     *      WIELDS SWORD        
-E 1 24130 0 5       *     WEARS BREASTPLATE        
-E 1 24131 0 14      *     WEARS BRACER
-E 1 24131 0 15      *     WEARS BRACER
-E 1 24132 0 3       *     WEARS CLOAK
-E 1 24133 0 6       *     WEARS HELM
-E 1 24134 0 11      *     HOLDS SHIELD
-E 1 24135 0 17      *     HOLDS SPEAR
-*
-M 1 24130 8 24115  1 *     LOADS SENTINEL GUARDS TO INSIDE WEST GATE     
-E 1 24129 0 16      *     WIELDS SWORD        
-E 1 24130 0 5       *     WEARS BREASTPLATE        
-E 1 24131 0 14      *     WEARS BRACER
-E 1 24131 0 15      *     WEARS BRACER
-E 1 24132 0 3       *     WEARS CLOAK
-E 1 24133 0 6       *     WEARS HELM
-E 1 24134 0 11      *     HOLDS SHIELD
-E 1 24135 0 17      *     HOLDS SPEAR
-*
-M 1 24130 8 24116   1*     LOADS SENTINELS TO INSIDE EAST GATE
-E 1 24129 0 16      *     WIELDS SWORD        
-E 1 24130 0 5       *     WEARS BREASTPLATE        
-E 1 24131 0 14      *     WEARS BRACER
-E 1 24131 0 15       *    WEARS BRACER
-E 1 24132 0 3         *   WEARS CLOAK
-E 1 24133 0 6          *  WEARS HELM
-E 1 24134 0 11          * HOLDS SHIELD
-E 1 24135 0 17          * HOLDS SPEAR
-*
-M 1 24129 8 24169 1*      LOADS SENTINELS TO NEAR PRISON
-E 1 24129 0 16      *     WIELDS SWORD        
-E 1 24130 0 5        *    WEARS BREASTPLATE        
-E 1 24131 0 14        *   WEARS BRACER
-E 1 24131 0 15         *  WEARS BRACER
-E 1 24132 0 3          *  WEARS CLOAK
-E 1 24133 0 6           * WEARS HELM
-E 1 24134 0 11          * HOLDS SHIELD
-E 1 24135 0 17          * HOLDS SPEAR
-*
-M 1 24128 8 24145 1 *       LOADS GUARDS TO NEAR MERC
-E 1 24129 0 16       *    WIELDS SWORD        
-E 1 24130 0 5         *   WEARS BREASTPLATE        
-E 1 24131 0 14     *      WEARS BRACER
-E 1 24131 0 15      *     WEARS BRACER
-E 1 24132 0 3        *    WEARS CLOAK
-E 1 24133 0 6         *   WEARS HELM
-E 1 24134 0 11         *  HOLDS SHIELD
-E 1 24135 0 17          * HOLDS SPEAR
-*
-M 1 24129 8 24153 1*       LOADS GUARDS TO NEAR PET SHOP
-E 1 24129 0 16      *     WIELDS SWORD        
-E 1 24130 0 5        *    WEARS BREASTPLATE        
-E 1 24131 0 14        *   WEARS BRACER
-E 1 24131 0 15         *  WEARS BRACER
-E 1 24132 0 3           * WEARS CLOAK
-E 1 24133 0 6      *      WEARS HELM
-E 1 24134 0 11      *     HOLDS SHIELD
-E 1 24135 0 17       *    HOLDS SPEAR
-*
-M 1 24128 8 24165 1*       LOADS GUARDS NEAR POOR DISTRICT
-E 1 24129 0 16      *     WIELDS SWORD        
-E 1 24130 0 5        *    WEARS BREASTPLATE        
-E 1 24131 0 14        *   WEARS BRACER
-E 1 24131 0 15         *  WEARS BRACER
-E 1 24132 0 3      *      WEARS CLOAK
-E 1 24133 0 6       *     WEARS HELM
-E 1 24134 0 11 0     *    HOLDS SHIELD
-E 1 24135 0 17        *   HOLDS SPEAR
+
+#SPECIALS
+M 24100 spec_cast_adept	* the village shaman
+M 24115 spec_executioner	* the village champion
+M 24124 spec_thief	* a thief
+M 24125 spec_fido	* a scrawny wolf
+M 24126 spec_fido	* a rat
+M 24127 spec_fido	* a dog
+M 24128 spec_guard	* a member of the village militia
+M 24129 spec_guard	* a member of the village militia
+M 24130 spec_guard	* a member of the village militia
 S
+
+
+
+#RESETS
+M 0 24115 1 24100 1	* the village champion (Outside the Shaman's Hut)
+E 0 24126 0 6		*	a wolf's head: over the head
+O 0 24125 0 24100		* the village totem (Outside the Shaman's Hut)
+M 0 24128 8 24100 1	* a member of the village militia (Outside the Shaman's Hut)
+E 0 24129 0 16		*	a wooden club: wielded
+E 0 24130 0 5		*	a boiled leather jerkin: on the body
+E 0 24131 0 14		*	a rune-covered bone bracelet: on the left wrist
+E 0 24131 0 15		*	a rune-covered bone bracelet: on the right wrist
+E 0 24132 0 3		*	a fur cloak: around the neck (1)
+E 0 24133 0 6		*	a boar tusk helm: over the head
+E 0 24134 0 11		*	an ox-hide shield: as a shield
+E 0 24135 0 17		*	a throwing spear: held in the hands
+O 0 24138 0 24101		* a stone gate (The Interior of the Shaman's Hut)
+M 0 24100 1 24101 1	* the village shaman (The Interior of the Shaman's Hut)
+M 0 24127 6 24106 1	* a dog (A Path in the Village)
+M 0 24123 3 24111 1	* a beggar (A Path in the Village)
+M 0 24120 3 24112 1	* a child (A Path in the Village)
+M 0 24119 3 24113 1	* a villager (Approaching the Western Gate)
+M 0 24130 8 24115 1	* a member of the village militia (Inside the Western Gates)
+E 0 24129 0 16		*	a wooden club: wielded
+E 0 24130 0 5		*	a boiled leather jerkin: on the body
+E 0 24131 0 14		*	a rune-covered bone bracelet: on the left wrist
+E 0 24131 0 15		*	a rune-covered bone bracelet: on the right wrist
+E 0 24132 0 3		*	a fur cloak: around the neck (1)
+E 0 24133 0 6		*	a boar tusk helm: over the head
+E 0 24134 0 11		*	an ox-hide shield: as a shield
+E 0 24135 0 17		*	a throwing spear: held in the hands
+M 0 24130 8 24116 1	* a member of the village militia (Inside the Eastern Gates)
+E 0 24129 0 16		*	a wooden club: wielded
+E 0 24130 0 5		*	a boiled leather jerkin: on the body
+E 0 24131 0 14		*	a rune-covered bone bracelet: on the left wrist
+E 0 24131 0 15		*	a rune-covered bone bracelet: on the right wrist
+E 0 24132 0 3		*	a fur cloak: around the neck (1)
+E 0 24133 0 6		*	a boar tusk helm: over the head
+E 0 24134 0 11		*	an ox-hide shield: as a shield
+E 0 24135 0 17		*	a throwing spear: held in the hands
+M 0 24117 1 24138 1	* the village chieftain (The Chieftain's Lodge)
+E 0 24127 0 16		*	the chief's club: wielded
+M 0 24101 1 24140 1	* the village flint-knapper (The Flint-Knepper)
+M 0 24102 1 24144 1	* a swarthy southern trader (A Trader's Den)
+G 0 24115 0		*	a pair of sandals
+G 0 24116 0		*	a hide belt
+G 0 24117 0		*	a bronze helm
+G 0 24118 0		*	a rough fur cloak
+G 0 24119 0		*	a bronze ring
+G 0 24111 0		*	a heavy lead-sheathed club
+G 0 24112 0		*	a bone mace
+G 0 24113 0		*	a bronze dagger
+G 0 24114 0		*	a bronze sword
+M 0 24128 8 24145 1	* a member of the village militia (A Path in the Village)
+E 0 24129 0 16		*	a wooden club: wielded
+E 0 24130 0 5		*	a boiled leather jerkin: on the body
+E 0 24131 0 14		*	a rune-covered bone bracelet: on the left wrist
+E 0 24131 0 15		*	a rune-covered bone bracelet: on the right wrist
+E 0 24132 0 3		*	a fur cloak: around the neck (1)
+E 0 24133 0 6		*	a boar tusk helm: over the head
+E 0 24134 0 11		*	an ox-hide shield: as a shield
+E 0 24135 0 17		*	a throwing spear: held in the hands
+M 0 24103 1 24146 1	* a mercenary (Militia Hut)
+M 0 24131 1 24147 1	* minoan mercenary (Merc Store)
+M 0 24132 1 24147 1	* Assyrian mercenary (Merc Store)
+M 0 24133 1 24147 1	* Egyptian mercenary (Merc Store)
+M 0 24134 1 24147 1	* Trojan mercenary (Merc Store)
+M 0 24135 1 24147 1	* nubian Mercenary (Merc Store)
+M 0 24136 1 24147 1	* Mycenaean mercenary (Merc Store)
+M 0 24104 1 24149 1	* the village witchdoctor (The Witch Doctor's Hut)
+G 0 24108 0		*	a yellow brew
+G 0 24124 0		*	a foul potion
+G 0 24136 0		*	a blank papyrus
+G 0 24137 0		*	a shimmering potion
+M 0 24125 5 24150 1	* a scrawny wolf (A Path in the Village)
+M 0 24105 1 24152 1	* the village wise woman (The Wise Woman's Residence)
+M 0 24129 8 24153 1	* a member of the village militia (A Path in the Village)
+E 0 24129 0 16		*	a wooden club: wielded
+E 0 24130 0 5		*	a boiled leather jerkin: on the body
+E 0 24131 0 14		*	a rune-covered bone bracelet: on the left wrist
+E 0 24131 0 15		*	a rune-covered bone bracelet: on the right wrist
+E 0 24132 0 3		*	a fur cloak: around the neck (1)
+E 0 24133 0 6		*	a boar tusk helm: over the head
+E 0 24134 0 11		*	an ox-hide shield: as a shield
+E 0 24135 0 17		*	a throwing spear: held in the hands
+M 0 24106 1 24154 1	* the village beastmaster (The Beastmaster's Hut)
+M 0 24110 1 24155 1	* the hedgehog (Pet Store Storage)
+M 0 24111 1 24155 1	* the otter (Pet Store Storage)
+M 0 24112 1 24155 1	* the hawk (Pet Store Storage)
+M 0 24113 1 24155 1	* the grizzly bear (Pet Store Storage)
+M 0 24114 1 24155 1	* the aurochs (Pet Store Storage)
+M 0 24119 3 24161 1	* a villager (A Path in the Village)
+M 0 24107 1 24162 1	* a northern trader (A Hut)
+G 0 24106 0		*	a torch
+G 0 24107 0		*	a stone lamp
+G 0 24109 0		*	a buffalo water skin
+G 0 24110 0		*	a jug of water
+M 0 24108 1 24164 1	* a daughter of the tribe (A Supply Hut)
+G 0 24120 0		*	black bread
+G 0 24121 0		*	cheese
+G 0 24122 0		*	a strip of dried meat
+G 0 24123 0		*	an egg
+M 0 24128 8 24165 1	* a member of the village militia (A Path in the Village)
+E 0 24129 0 16		*	a wooden club: wielded
+E 0 24130 0 5		*	a boiled leather jerkin: on the body
+E 0 24131 0 14		*	a rune-covered bone bracelet: on the left wrist
+E 0 24131 0 15		*	a rune-covered bone bracelet: on the right wrist
+E 0 24132 0 3		*	a fur cloak: around the neck (1)
+E 0 24133 0 6		*	a boar tusk helm: over the head
+E 0 24134 0 11		*	an ox-hide shield: as a shield
+E 0 24135 0 17		*	a throwing spear: held in the hands
+M 0 24109 1 24166 1	* the village brewer (The Brewer's Hut)
+G 0 24101 0		*	a barrel of beer
+G 0 24102 0		*	a bottle of rough beer
+G 0 24103 0		*	a bottle of home brew ale
+G 0 24104 0		*	a bottle of rough spirits
+G 0 24105 0		*	a bottle of brewer's specialty ("Holy Water")
+M 0 24118 3 24169 1	* a villager (A Path in the Village)
+M 0 24129 8 24169 1	* a member of the village militia (A Path in the Village)
+E 0 24129 0 16		*	a wooden club: wielded
+E 0 24130 0 5		*	a boiled leather jerkin: on the body
+E 0 24131 0 14		*	a rune-covered bone bracelet: on the left wrist
+E 0 24131 0 15		*	a rune-covered bone bracelet: on the right wrist
+E 0 24132 0 3		*	a fur cloak: around the neck (1)
+E 0 24133 0 6		*	a boar tusk helm: over the head
+E 0 24134 0 11		*	an ox-hide shield: as a shield
+E 0 24135 0 17		*	a throwing spear: held in the hands
+M 0 24122 6 24171 1	* a village drunk (Inside the Hut)
+M 0 24116 1 24174 1	* a hook-nosed merchant (A Path in the Village)
+G 0 24124 0		*	a foul potion
+M 0 24121 2 24175 1	* the village idiot (A Path in the Village)
+E 0 24128 0 16		*	a stick: wielded
+M 0 24126 6 24176 1	* a rat (A Path in the Village)
+M 0 24124 1 24177 1	* a thief (Outside a Village Clan Hut)
+M 0 24118 3 24189 1	* a villager (A Path in the Village)
+S
+
 
 
 #SHOPS
@@ -2777,16 +2770,23 @@ S
 0
 
 
-#SPECIALS
-M  24100 spec_cast_adept *			the village shaman
-M  24115 spec_executioner *			the village champion
-M  24124 spec_thief	*		a thief
-M  24125 spec_fido	*		a scrawny wolf
-M  24126 spec_fido	*		a rat
-M  24127 spec_fido	*		a dog
-M  24128 spec_guard	*		a member of the village militia
-M  24129 spec_guard	*		a member of the village militia
-M  24130 spec_guard	*		a member of the village militia
+
+#OLIMITS
 S
+
+
+
+#MOBPROGS
+#0
+
+#PRACTICERS
+S
+
+
+
+#OMPROGS
+S
+
+
 
 #$

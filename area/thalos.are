@@ -1,8 +1,14 @@
-#AREA
-thalos.are~
-Thalos~
-{10 25} Drkside Thalos~
-5200 5299
+#AREADATA
+Name Thalos~
+Builders None~
+VNUMs 5200 5299
+Credits Drkside~
+Security 9
+LevelRange 10 25
+End
+
+
+
 #MOBILES
 #5200
 oldstyle beholder~
@@ -19,7 +25,7 @@ ABHKRe D -870 0
 -16 -16 -16 -2
 F ABC 0 0
 stand stand none 1128
-0 0 medium 0
+0 0 medium unknown
 #5201
 oldstyle lamia beast~
 The lamia~
@@ -34,7 +40,7 @@ ACFG 0 -999 0
 2 2 2 8
 EFNU 0 0 0
 stand stand female 50
-0 0 medium 0
+0 0 medium unknown
 #5202
 oldstyle mimic chest~
 The mimic~
@@ -49,7 +55,7 @@ ABCFGH P 10 0
 1 1 1 8
 EFNU 0 0 0
 stand stand none 0
-0 0 medium 0
+0 0 medium unknown
 #5203
 oldstyle mimic boulder~
 The mimic~
@@ -62,7 +68,7 @@ ABCFGH P -10 0
 1 1 1 8
 EFNU 0 0 0
 stand stand none 0
-0 0 medium 0
+0 0 medium unknown
 #5204
 oldstyle mimic floor~
 The mimic~
@@ -75,7 +81,7 @@ ABCFGH P -140 0
 1 1 1 8
 EFNU 0 0 0
 stand stand none 0
-0 0 medium 0
+0 0 medium unknown
 #5205
 oldstyle mimic pottery~
 The mimic~
@@ -88,7 +94,7 @@ ABCFGH P 200 0
 1 1 1 8
 EFNU 0 0 0
 stand stand none 0
-0 0 medium 0
+0 0 medium unknown
 #5206
 oldstyle mimic planks~
 The mimic~
@@ -101,7 +107,7 @@ ABCFGH P 0 0
 1 1 1 8
 EFNU 0 0 0
 stand stand none 0
-0 0 medium 0
+0 0 medium unknown
 #5207
 oldstyle lizard horned~
 The horned lizard~
@@ -115,7 +121,7 @@ AH 0 0 0
 7 7 7 10
 EFNR 0 0 0
 stand stand none 0
-0 0 medium 0
+0 0 medium unknown
 #5208
 oldstyle golem stone~
 The stone golem~
@@ -130,8 +136,11 @@ AB N 600 0
 -7 -7 -7 6
 EFNU 0 0 0
 stand stand none 212
-0 0 medium 0
+0 0 medium unknown
 #0
+
+
+
 #OBJECTS
 #5200
 mithril vest~
@@ -139,7 +148,7 @@ a mithril vest~
 A vest made of mithril plates lies heaped on the floor.~
 mithril~
 armor GK AD
-8 8 8 2 0
+D D D B 0
 26 300 7600 P
 A
 1 2
@@ -151,7 +160,7 @@ a mithril helm~
 Here lies a large mithril helm.~
 mithril~
 armor GK AE
-8 8 8 2 0
+D D D B 0
 27 100 3400 P
 A
 18 2
@@ -161,7 +170,7 @@ a pair of mithril gauntlets~
 A pair of mithril gauntlets rests on the ground.~
 mithril~
 armor GK AH
-8 8 8 2 0
+D D D B 0
 25 100 2700 P
 A
 19 1
@@ -173,7 +182,7 @@ some mithril sleeves~
 A set of mithril sleeves lies on the ground.~
 mithril~
 armor GK AI
-8 8 8 2 0
+D D D B 0
 25 100 2700 P
 A
 19 1
@@ -185,7 +194,7 @@ a pair of mithril boots~
 A pair of mithril boots stands has been left here.~
 mithril~
 armor GK AG
-8 8 8 2 0
+D D D B 0
 25 60 3100 P
 A
 2 1
@@ -197,7 +206,7 @@ a set of mithril leggings~
 A set of mithril leggings lie here unattended.~
 mithril~
 armor GK AF
-8 8 8 2 0
+D D D B 0
 25 100 3100 P
 A
 2 1
@@ -209,7 +218,7 @@ a mithril girth~
 A large iron girth lies at your feet.~
 mithril~
 armor GK AL
-8 8 8 2 0
+D D D B 0
 26 60 5200 P
 A
 5 2
@@ -219,7 +228,7 @@ a battered iron breast plate~
 A battered iron breast plate lies here.~
 iron~
 armor 0 AD
-5 5 5 0 0
+AC AC AC 0 0
 4 450 9100 P
 A
 18 -6
@@ -229,13 +238,14 @@ a sturdy iron shield~
 A small, but sturdy, iron shield has been left here.~
 iron~
 armor GJ AJ
-7 7 7 3 0
+ABC ABC ABC AB 0
 24 100 4400 P
 A
 20 -2
 A
 20 -2
-F I 0 0 B
+F
+I 0 0 B
 #5210
 potion black~
 a black potion~
@@ -304,7 +314,7 @@ a chunk of venison~
 A large chunk of venison sits here ready to be eaten.~
 food~
 food 0 A
-24 24 0 0 0
+DE DE 0 0 0
 0 200 0 P
 #5220
 fountain water~
@@ -332,7 +342,7 @@ a black silk robe~
 A black silk robe lies heaped in one corner.~
 silk~
 armor 0 AK
-1 1 1 5 0
+A A A AC 0
 5 60 410 P
 A
 12 10
@@ -342,7 +352,7 @@ a dark green cloak~
 A beautiful dark green cloak has been dropped by someone.~
 cloth~
 armor GJ AC
-7 7 7 2 0
+ABC ABC ABC B 0
 20 120 1600 P
 A
 13 5
@@ -352,7 +362,7 @@ an engraved ebony seal~
 A small, engraved ebony seal is here.~
 ebony~
 key 0 A
-30 0 0 0 0
+BCDE 0 0 0 0
 0 20 0 P
 #5225
 desk curved~
@@ -368,7 +378,7 @@ an engraved ivory seal~
 A small, engraved ivory seal lies here.~
 ivory~
 key 0 A
-31 0 0 0 0
+ABCDE 0 0 0 0
 0 20 0 P
 #5227
 cabinet glass~
@@ -384,7 +394,7 @@ a rotten arm~
 A rotted arm floats lazily by your feet.~
 flesh~
 food 0 A
-50 50 0 1 0
+BEF BEF 0 A 0
 0 200 0 P
 #5230
 stone pale blue~
@@ -524,6 +534,8 @@ portal AO 0
 0 0 B 540 0
 0 0 0 P
 #0
+
+
 
 #ROOMS
 #5200
@@ -779,7 +791,7 @@ D1
 A small doorway leads into a partially collapsed house.
 ~
 ~
-1 -1 5244
+0 -1 5244
 D2
 ~
 ~
@@ -1575,17 +1587,17 @@ south the desert stretches to the horizon. No wonder this place stood
 for so long.  There is a small plaque on the stones.
 ~
 0 0 1
-D5
-The city lies below.
-~
-~
-0 0 5252
 E
 sign plaque~
 This extension to Thalos, along with the dwarf forest, is made by Hatchet for
 any Merc Mud.
 copyright 1992
 ~
+D5
+The city lies below.
+~
+~
+0 0 5252
 S
 #5255
 A back alley~
@@ -1847,6 +1859,11 @@ Obviously, no fox lives here!  The oppression makes you want to leave and
 vomit.
 ~
 0 A 3
+E
+skeleton skeletons~
+Something is strange about these skeletons.  Upon further investigation, these
+skeletons appear illusionary.
+~
 D1
 You see the exit from here!
 ~
@@ -1857,11 +1874,6 @@ You see more of the cave.
 ~
 ~
 0 0 5269
-E
-skeleton skeletons~
-Something is strange about these skeletons.  Upon further investigation, these
-skeletons appear illusionary.
-~
 S
 #5269
 A small ugly cave~
@@ -1870,16 +1882,6 @@ that the owner doesn't want you here.  The exit north is still visible.
 Some writings are on this wall.
 ~
 0 A 3
-D0
-You see more of the cave.
-~
-~
-0 0 5268
-D5
-You see a path leading down into the dark gloom.
-~
-~
-0 0 5270
 E
 skeleton skeletons~
 Something is strange about these skeletons.  Upon further investigation, these
@@ -1891,6 +1893,16 @@ This cave along with the valley and dwarf forest is made by Hatchet for any
 Merc Mud.
 copyright 1992
 ~
+D0
+You see more of the cave.
+~
+~
+0 0 5268
+D5
+You see a path leading down into the dark gloom.
+~
+~
+0 0 5270
 S
 #5270
 Down the path into a dead end~
@@ -1898,6 +1910,12 @@ You are down the path.  There is no obvious exit in this place, exit the
 one back up north.  All around you, you see skeletons.
 ~
 0 A 3
+E
+skeleton skeletons~
+Something is strange about these skeletons.  Upon further investigation, these
+skeletons appear illusionary.  In fact, through the skeletons, you see a
+secret door!!
+~
 D4
 You see your only way back up.
 ~
@@ -1908,12 +1926,6 @@ You see nothing on the floor except skeletons.
 ~
 secret~
 1 -1 5100
-E
-skeleton skeletons~
-Something is strange about these skeletons.  Upon further investigation, these
-skeletons appear illusionary.  In fact, through the skeletons, you see a
-secret door!!
-~
 S
 #5271
 The Valley in the dark dwarf forest~
@@ -2113,115 +2125,135 @@ You see the trail leading north.
 S
 #0
 
-#RESETS
-M 0 5200   1 5250  1	* The mighty beholder
-E 1 5208   3   11	*   a sturdy iron shield
-E 1 5223  10    3	*   a dark green cloak
-M 0 5201  12 5234  1	* The lamia
-E 1 5232   1   17	*   an incandescent blue stone
-E 1 5252  -1   16	*   a long slim dagger
-M 0 5201  12 5232  1	* The lamia
-E 1 5217   2   17	*   a silver flute
-E 1 5252  -1   16	*   a long slim dagger
-M 0 5201  12 5236  1	* The lamia
-E 1 5237   1   17	*   a lavender and green stone
-E 1 5252  -1   16	*   a long slim dagger
-M 0 5201  12 5240  1	* The lamia
-E 1 5241   1   17	*   a pink and green stone
-E 1 5252  -1   16	*   a long slim dagger
-M 0 5201  12 5218  1	* The lamia
-E 1 5250   2   17	*   a mandolin
-E 1 5252  -1   16	*   a long slim dagger
-M 0 5201  12 5216  1	* The lamia
-E 1 5233   1   17	*   a deep red stone
-E 1 5252  -1   16	*   a long slim dagger
-M 0 5201  12 5219  1	* The lamia
-E 1 5231   1   17	*   a scarlet and blue stone
-E 1 5252  -1   16	*   a long slim dagger
-M 0 5201  12 5220  1	* The lamia
-E 1 5252  -1   16	*   a long slim dagger
-M 0 5201  12 5226  1	* The lamia
-E 1 5235   1   17	*   a pearly white stone
-E 1 5252  -1   16	*   a long slim dagger
-M 0 5201  12 5224  1	* The lamia
-E 1 5243   1   17	*   a clear stone
-E 1 5252  -1   16	*   a long slim dagger
-M 0 5201  12 5204  1	* The lamia
-E 1 5251   2   17	*   a golden harp
-E 1 5252  -1   16	*   a long slim dagger
-M 0 5201  12 5205  1	* The lamia
-E 1 5230   1   17	*   a pale blue stone
-E 1 5252  -1   16	*   a long slim dagger
-O 0 5228  10 5242	* a rotten arm
-O 0 5219   5 5217	* a chunk of venison
-O 0 5220   1 5234	* a large cracked fountain
-O 0 5207   5 5229	* a battered iron breast plate
-M 0 5202   1 5229  1	* The mimic
-G 1 5210  -1     	*   a black potion
-E 1 5214   4   17	*   a smooth quartz ball
-M 0 5203   1 5226  1	* The mimic
-G 1 5215   8     	*   a tattered scroll
-G 1 5239   1     	*   a dull grey stone
-M 0 5204   1 5219  1	* The mimic
-G 1 5218   8     	*   a demon-faced talisman
-G 1 5211  -1     	*   an orange potion
-M 0 5205   1 5238  1	* The mimic
-E 1 5214   4   17	*   a smooth quartz ball
-M 0 5206   1 5236  1	* The mimic
-E 1 5222   8   12	*   a black silk robe
-M 0 5207   4 5232  2	* The horned lizard
-M 0 5207   4 5217  2	* The horned lizard
-M 0 5207   4 5227  2	* The horned lizard
-M 0 5207   4 5244  1	* The horned lizard
-M 0 5208   8 5247  2	* The stone golem
-E 1 5221  80   16	*   a two-handed sword
-E 1 5224   8   17	*   an engraved ebony seal
-E 1 5200   8    5	*   a mithril vest
-E 1 5204   8    8	*   a pair of mithril boots
-M 0 5208   8 5246  2	* The stone golem
-E 1 5221  80   16	*   a two-handed sword
-E 1 5226   8   17	*   an engraved ivory seal
-E 1 5203   8   10	*   some mithril sleeves
-M 0 5208   8 5248  2	* The stone golem
-E 1 5221  80   16	*   a two-handed sword
-E 1 5205   8    7	*   a set of mithril leggings
-E 1 5206   8   13	*   a mithril girth
-M 0 5208   8 5254  2	* The stone golem
-E 1 5221  80   16	*   a two-handed sword
-E 1 5201   8    6	*   a mithril helm
-E 1 5202   8    9	*   a pair of mithril gauntlets
-O 0 5225   1 5231	* the desk
-P 1 5215   4 5225  1	*   a tattered scroll
-P 1 5216   4 5225  1	*   a bound scroll
-O 0 5227   1 5233	* the glass cabinet
-P 1 3105   8 5227  1	*   a bronze bracer
-D 0 5267   3    1	* A valley in the dark dwarf forest west
-D 0 5268   1    1	* A small ugly cave east
-D 0 5270   5    1	* Down the path into a dead end down
-M 0 5110   2 5270  2	* the drow guard
-E 1 5100  99   16	*   a commoner's longsword
-M 0 5110   2 5270  2	* the drow guard
-E 1 5100  99   16	*   a commoner's longsword
-M 0 5111   2 5267  1	* the drow scout
-E 1 5100  99   16	*   a commoner's longsword
-M 0 5111   2 5272  1	* the drow scout
-E 1 5100  99   16	*   a commoner's longsword
-O 0 5253  10 5281	* a water fall
+
+
+#SPECIALS
+M 5200 spec_cast_mage	* The mighty beholder
 S
+
+
+
+#RESETS
+D 0 5267 3 1	* A valley in the dark dwarf forest: door to the west: closed
+D 0 5268 1 1	* A small ugly cave: door to the east: closed
+D 0 5270 5 1	* Down the path into a dead end: door to the down: closed
+M 0 5201 12 5204 1	* The lamia (A Garden Path)
+E 0 5251 0 17		*	a golden harp: held in the hands
+E 0 5252 0 16		*	a long slim dagger: wielded
+M 0 5201 12 5205 1	* The lamia (A Garden Path)
+E 0 5230 0 17		*	a pale blue stone: held in the hands
+E 0 5252 0 16		*	a long slim dagger: wielded
+M 0 5201 12 5216 1	* The lamia (A back alley)
+E 0 5233 0 17		*	a deep red stone: held in the hands
+E 0 5252 0 16		*	a long slim dagger: wielded
+O 0 5219 0 5217		* a chunk of venison (The meat stand)
+M 0 5207 4 5217 2	* The horned lizard (The meat stand)
+M 0 5201 12 5218 1	* The lamia (A back alley)
+E 0 5250 0 17		*	a mandolin: held in the hands
+E 0 5252 0 16		*	a long slim dagger: wielded
+M 0 5201 12 5219 1	* The lamia (The guild house)
+E 0 5231 0 17		*	a scarlet and blue stone: held in the hands
+E 0 5252 0 16		*	a long slim dagger: wielded
+M 0 5204 1 5219 1	* The mimic (The guild house)
+G 0 5218 0		*	a demon-faced talisman
+G 0 5211 0		*	an orange potion
+M 0 5201 12 5220 1	* The lamia (The produce stand)
+E 0 5252 0 16		*	a long slim dagger: wielded
+M 0 5201 12 5224 1	* The lamia (Under the watchtower)
+E 0 5243 0 17		*	a clear stone: held in the hands
+E 0 5252 0 16		*	a long slim dagger: wielded
+M 0 5201 12 5226 1	* The lamia (A ruined clay dwelling)
+E 0 5235 0 17		*	a pearly white stone: held in the hands
+E 0 5252 0 16		*	a long slim dagger: wielded
+M 0 5203 1 5226 1	* The mimic (A ruined clay dwelling)
+G 0 5215 0		*	a tattered scroll
+G 0 5239 0		*	a dull grey stone
+M 0 5207 4 5227 2	* The horned lizard (A collapsed stone dwelling)
+O 0 5207 0 5229		* a battered iron breast plate (An abandoned shop)
+M 0 5202 1 5229 1	* The mimic (An abandoned shop)
+G 0 5210 0		*	a black potion
+E 0 5214 0 17		*	a smooth quartz ball: held in the hands
+O 0 5225 0 5231		* the desk (South wing of the city hall)
+P 0 5215 4 5225 1	* the desk: a tattered scroll
+P 0 5216 4 5225 1	* the desk: a bound scroll
+M 0 5201 12 5232 1	* The lamia (The city hall)
+E 0 5217 0 17		*	a silver flute: held in the hands
+E 0 5252 0 16		*	a long slim dagger: wielded
+M 0 5207 4 5232 2	* The horned lizard (The city hall)
+O 0 5227 0 5233		* the glass cabinet (East wing of the city hall)
+P 0 3105 8 5227 1	* the glass cabinet: a bronze bracer
+M 0 5201 12 5234 1	* The lamia (The private gardens and courtyard of Thalos)
+E 0 5232 0 17		*	an incandescent blue stone: held in the hands
+E 0 5252 0 16		*	a long slim dagger: wielded
+O 0 5220 0 5234		* a large cracked fountain (The private gardens and courtyard of Thalos)
+M 0 5201 12 5236 1	* The lamia (A collapsed home)
+E 0 5237 0 17		*	a lavender and green stone: held in the hands
+E 0 5252 0 16		*	a long slim dagger: wielded
+M 0 5206 1 5236 1	* The mimic (A collapsed home)
+E 0 5222 0 12		*	a black silk robe: about the shoulders
+M 0 5205 1 5238 1	* The mimic (A small shack)
+E 0 5214 0 17		*	a smooth quartz ball: held in the hands
+M 0 5201 12 5240 1	* The lamia (A back alley)
+E 0 5241 0 17		*	a pink and green stone: held in the hands
+E 0 5252 0 16		*	a long slim dagger: wielded
+O 0 5228 0 5242		* a rotten arm (A bath house)
+M 0 5207 4 5244 1	* The horned lizard (An upright house)
+M 0 5208 8 5246 2	* The stone golem (The north-west watchtower)
+E 0 5221 0 16		*	a two-handed sword: wielded
+E 0 5226 0 17		*	an engraved ivory seal: held in the hands
+E 0 5203 0 10		*	some mithril sleeves: on the arms
+M 0 5208 8 5247 2	* The stone golem (The south-west watchtower)
+E 0 5221 0 16		*	a two-handed sword: wielded
+E 0 5224 0 17		*	an engraved ebony seal: held in the hands
+E 0 5200 0 5		*	a mithril vest: on the body
+E 0 5204 0 8		*	a pair of mithril boots: on the feet
+M 0 5208 8 5248 2	* The stone golem (The north-east watchtower)
+E 0 5221 0 16		*	a two-handed sword: wielded
+E 0 5205 0 7		*	a set of mithril leggings: on the legs
+E 0 5206 0 13		*	a mithril girth: around the waist
+M 0 5200 1 5250 1	* The mighty beholder (The Temple of Thalos)
+E 0 5208 0 11		*	a sturdy iron shield: as a shield
+E 0 5223 0 3		*	a dark green cloak: around the neck (1)
+M 0 5208 8 5254 2	* The stone golem (The south-east watchtower)
+E 0 5221 0 16		*	a two-handed sword: wielded
+E 0 5201 0 6		*	a mithril helm: over the head
+E 0 5202 0 9		*	a pair of mithril gauntlets: on the hands
+M 0 5111 2 5267 1	* the drow scout (A valley in the dark dwarf forest)
+E 0 5100 0 16		*	a commoner's longsword: wielded
+M 0 5110 2 5270 2	* the drow guard (Down the path into a dead end)
+E 0 5100 0 16		*	a commoner's longsword: wielded
+M 0 5110 2 5270 2	* the drow guard (Down the path into a dead end)
+E 0 5100 0 16		*	a commoner's longsword: wielded
+M 0 5111 2 5272 1	* the drow scout (A dim trail in the dwarf forest)
+E 0 5100 0 16		*	a commoner's longsword: wielded
+O 0 5253 0 5281		* Waterfall (By the beautiful waterfall)
+S
+
+
 
 #SHOPS
 0
 
-#SPECIALS
-M 5200 spec_cast_mage      	* The mighty beholder
-S
+
 
 #OLIMITS
-O 5208 1
+O 5208 1	* a sturdy iron shield
 S
 
+
+
+#MOBPROGS
+#0
+
 #PRACTICERS
-M 5200 beguiling	* beholder
+M 5200 beguiling	* The mighty beholder
 S
+
+
+
+#OMPROGS
+S
+
+
 
 #$

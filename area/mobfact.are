@@ -1,8 +1,13 @@
-#AREA
-mobfact.are~
-Mob Factory~
-{ 5 15} PinkF   Mob Factory~
-9400 9499
+#AREADATA
+Name Mob Factory~
+Builders None~
+VNUMs 9400 9499
+Credits PinkF~
+Security 9
+LevelRange 5 15
+End
+
+
 
 #MOBILES
 #9401
@@ -19,7 +24,7 @@ AFGH D -700 0
 4 4 4 9
 EN 0 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #9402
 oldstyle foreman floyd~
 Foreman Floyd~
@@ -35,7 +40,7 @@ ABG DFH 2 0
 0 0 0 8
 EFNU 0 0 0
 sit stand male 50
-0 0 medium 0
+0 0 medium unknown
 #9403
 oldstyle cityguard guard head~
 The Cityguard head~
@@ -51,7 +56,7 @@ AG T 0 0
 2 2 2 8
 EFNU 0 0 0
 stand stand none 0
-AHV AEJK medium 0
+AHV AEJK medium unknown
 #9404
 oldstyle revolving drunk~
 The revolving drunk~
@@ -66,7 +71,7 @@ ACGH 0 1 0
 8 8 8 10
 EFNU 0 0 0
 stand stand male 2
-0 0 medium 0
+0 0 medium unknown
 #9405
 oldstyle toxic slime~
 The toxic slime~
@@ -81,7 +86,7 @@ ABC 0 0 0
 6 6 6 9
 EFNU 0 0 0
 sit sit none 0
-0 0 medium 0
+0 0 medium unknown
 #9406
 oldstyle worker~
 The factory worker~
@@ -96,7 +101,7 @@ AGH 0 100 0
 7 7 7 10
 EFNU 0 0 0
 stand stand male 2
-0 0 medium 0
+0 0 medium unknown
 #9407
 oldstyle worker~
 The factory worker~
@@ -111,11 +116,15 @@ ABH 0 150 0
 7 7 7 10
 EFNU 0 0 0
 sleep sit female 3
-0 0 medium 0
+0 0 medium unknown
 #0
+
+
 
 #OBJECTS
 #0
+
+
 
 #ROOMS
 #9400
@@ -656,46 +665,72 @@ D3
 S
 #0
 
-#RESETS
-M 0 9405   7 9401  1	* The toxic slime
-M 0 9401   5 9402  1	* The mutant beastly fido
-M 0 9402   1 9403  1	* Foreman Floyd
-M 0 9405   7 9404  1	* The toxic slime
-M 0 9403   7 9406  1	* The Cityguard head
-M 0 9405   7 9408  1	* The toxic slime
-M 0 9401   5 9408  1	* The mutant beastly fido
-M 0 9405   7 9409  1	* The toxic slime
-M 0 9407   3 9410  1	* The factory worker
-M 0 9404   4 9410  2	* The revolving drunk
-M 0 9403   7 9410  1	* The Cityguard head
-M 0 9407   3 9411  1	* The factory worker
-M 0 9401   5 9411  1	* The mutant beastly fido
-M 0 9404   4 9413  2	* The revolving drunk
-M 0 9403   7 9414  1	* The Cityguard head
-M 0 9405   7 9415  1	* The toxic slime
-M 0 9406   8 9415  1	* The factory worker
-M 0 9406   8 9416  1	* The factory worker
-M 0 9406   8 9417  1	* The factory worker
-M 0 9406   8 9418  1	* The factory worker
-M 0 9401   5 9418  1	* The mutant beastly fido
-M 0 9406   8 9419  1	* The factory worker
-M 0 9406   8 9420  1	* The factory worker
-M 0 9407   3 9420  1	* The factory worker
-M 0 9405   7 9421  1	* The toxic slime
-M 0 9403   7 9421  1	* The Cityguard head
-M 0 9401   5 9422  1	* The mutant beastly fido
-M 0 9403   7 9422  1	* The Cityguard head
-M 0 9406   8 9423  1	* The factory worker
-M 0 9403   7 9423  1	* The Cityguard head
-M 0 9403   7 9424  1	* The Cityguard head
-M 0 9406   8 9424  1	* The factory worker
-M 0 9405   7 9424  1	* The toxic slime
+
+
+#SPECIALS
 S
+
+
+
+#RESETS
+M 0 9405 7 9401 1	* The toxic slime (Mob Factory Storage Area)
+M 0 9401 5 9402 1	* The mutant beastly fido (Mob Factory Storage Area)
+M 0 9402 1 9403 1	* Foreman Floyd (Foreman's Office)
+M 0 9405 7 9404 1	* The toxic slime (Foreman's Bathroom)
+M 0 9403 7 9406 1	* The Cityguard head (Mob Factory Storage Area)
+M 0 9405 7 9408 1	* The toxic slime (Mob Factory Cafeteria)
+M 0 9401 5 9408 1	* The mutant beastly fido (Mob Factory Cafeteria)
+M 0 9405 7 9409 1	* The toxic slime (Mob Factory Cafeteria)
+M 0 9407 3 9410 1	* The factory worker (Mob Factory Inspection Room)
+M 0 9404 4 9410 2	* The revolving drunk (Mob Factory Inspection Room)
+M 0 9403 7 9410 1	* The Cityguard head (Mob Factory Inspection Room)
+M 0 9407 3 9411 1	* The factory worker (Mob Factory Inspection Room)
+M 0 9401 5 9411 1	* The mutant beastly fido (Mob Factory Inspection Room)
+M 0 9404 4 9413 2	* The revolving drunk (Mob Factory Reject Room)
+M 0 9403 7 9414 1	* The Cityguard head (Mob Factory Reject Room)
+M 0 9405 7 9415 1	* The toxic slime (Primary Assembly Line)
+M 0 9406 8 9415 1	* The factory worker (Primary Assembly Line)
+M 0 9406 8 9416 1	* The factory worker (Primary Assembly Line)
+M 0 9406 8 9417 1	* The factory worker (Primary Assembly Line)
+M 0 9406 8 9418 1	* The factory worker (Primary Assembly Line)
+M 0 9401 5 9418 1	* The mutant beastly fido (Primary Assembly Line)
+M 0 9406 8 9419 1	* The factory worker (Primary Assembly Line)
+M 0 9406 8 9420 1	* The factory worker (Secondary Assembly Line)
+M 0 9407 3 9420 1	* The factory worker (Secondary Assembly Line)
+M 0 9405 7 9421 1	* The toxic slime (Secondary Assembly Line)
+M 0 9403 7 9421 1	* The Cityguard head (Secondary Assembly Line)
+M 0 9401 5 9422 1	* The mutant beastly fido (Secondary Assembly Line)
+M 0 9403 7 9422 1	* The Cityguard head (Secondary Assembly Line)
+M 0 9406 8 9423 1	* The factory worker (Secondary Assembly Line)
+M 0 9403 7 9423 1	* The Cityguard head (Secondary Assembly Line)
+M 0 9403 7 9424 1	* The Cityguard head (Secondary Assembly Line)
+M 0 9406 8 9424 1	* The factory worker (Secondary Assembly Line)
+M 0 9405 7 9424 1	* The toxic slime (Secondary Assembly Line)
+S
+
+
 
 #SHOPS
 0
 
-#SPECIALS
+
+
+#OLIMITS
 S
+
+
+
+#MOBPROGS
+#0
+
+#PRACTICERS
+S
+
+
+
+#OMPROGS
+S
+
+
 
 #$

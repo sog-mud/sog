@@ -1,8 +1,14 @@
-#AREA
-mega1.are~
-Mega City One~
-{ 5 35} Glop    Mega-City One ~
-8000 8099
+#AREADATA
+Name Mega City One~
+Builders None~
+VNUMs 8000 8099
+Credits Glop~
+Security 9
+LevelRange 5 35
+End
+
+
+
 #MOBILES
 #8000
 oldstyle juve~
@@ -19,7 +25,7 @@ AC 0 -400 0
 5 5 5 9
 EFNU 0 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #8001
 oldstyle punk~
 a punk~
@@ -34,7 +40,7 @@ ACG 0 -500 0
 1 1 1 8
 EFNU 0 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #8002
 oldstyle Futsie~
 a Futsie~
@@ -50,7 +56,7 @@ ABF D 0 0
 -3 -3 -3 7
 EFNU 0 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #8003
 oldstyle Citi-Def Militiaman~
 a Citi-Def Militiaman~
@@ -65,7 +71,7 @@ ACG J 0 0
 -2 -2 -2 7
 EFNU 0 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #8004
 oldstyle dunk~
 a dunk~
@@ -79,7 +85,7 @@ ACGHS DF -150 0
 2 2 2 8
 BEFJNU 0 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #8005
 oldstyle tap~
 a tap~
@@ -94,7 +100,7 @@ ACG 0 -400 0
 -1 -1 -1 8
 EFNU 0 0 0
 stand stand female 0
-0 0 medium 0
+0 0 medium unknown
 #8006
 oldstyle rookie judge~
 a rookie judge~
@@ -110,7 +116,7 @@ AG DF 300 0
 -4 -4 -4 7
 EFNU 0 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #8007
 oldstyle Wallaby Gleep~
 Wallaby Gleep~
@@ -125,7 +131,7 @@ ABC DFJ -600 0
 -5 -5 -5 7
 EFNU 0 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #8008
 oldstyle Pinkerton Throt~
 Pinkerton Throt~
@@ -141,7 +147,7 @@ ABCF DF -900 0
 -7 -7 -7 6
 EFNU 0 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #8009
 oldstyle Ernie Ramirez~
 Ernie Ramirez~
@@ -157,7 +163,7 @@ ABC 0 -400 0
 -4 -4 -4 7
 EFNU 0 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #8010
 oldstyle Judge Eckersely~
 Judge Eckersely~
@@ -172,7 +178,7 @@ AG DFH 300 0
 -9 -9 -9 6
 EFNU 0 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #8011
 oldstyle Judge Beddows~
 Judge Beddows~
@@ -188,7 +194,7 @@ AG DF 500 0
 -7 -7 -7 6
 EFNU 0 0 0
 stand stand female 0
-0 0 medium 0
+0 0 medium unknown
 #8012
 oldstyle bite fighter~
 a bite fighter~
@@ -202,8 +208,11 @@ ABF 0 -400 0
 -4 -4 -4 7
 EFNU 0 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #0
+
+
+
 #OBJECTS
 #8000
 spitgun spit gun~
@@ -224,7 +233,7 @@ a set of knee pads~
 There are some knee pads laying here.~
 steel~
 armor 0 AF
-4 4 4 0 0
+C C C 0 0
 5 30 480 P
 E
 knee pads~
@@ -427,6 +436,8 @@ weapon 0 AN
 mace 3 9 pound G
 23 20 1160 P
 #0
+
+
 
 #ROOMS
 #8001
@@ -749,6 +760,10 @@ Threep Lane continues north and south.  There is a building to the east
 with a sign next to the door.
 ~
 0 0 1
+E
+sign~
+Throt and Gleep's Megger Store est. 2107
+~
 D0
 An intersection is ahead.
 ~
@@ -764,10 +779,6 @@ Threep Lane continues south.
 ~
 ~
 0 0 8017
-E
-sign~
-Throt and Gleep's Megger Store est. 2107
-~
 S
 #8017
 Threep Lane~
@@ -914,6 +925,10 @@ bound to succeed.  There is a door to the north with a slot next to it.
 There is also a sign next to the slot.
 ~
 0 D 0
+E
+sign~
+To open insert card.
+~
 D0
 ~
 door~
@@ -922,10 +937,6 @@ D3
 ~
 door~
 1 0 8016
-E
-sign~
-To open insert card.
-~
 S
 #8027
 Stockroom of Throt & Gleep's Megger Store~
@@ -933,6 +944,11 @@ Many useless items stock the shelves of this stockroom.  A door leads
 south and large vault door is to the north.
 ~
 0 D 0
+E
+vault door~
+This vault seems impervious to breaking.  There is a keyhole in the lock
+however.
+~
 D0
 ~
 vault door~
@@ -941,11 +957,6 @@ D2
 ~
 door~
 2 8013 8026
-E
-vault door~
-This vault seems impervious to breaking.  There is a keyhole in the lock
-however.
-~
 S
 #8028
 Throt & Gleep's Vault~
@@ -958,79 +969,109 @@ vault door~
 2 8012 8027
 S
 #0
-#RESETS
-M 0 8000   4 8004  2    * a juve
-E 1 8009  40   16       *   a knife
-M 0 8000   4 8004  2    * a juve
-E 1 8009  40   16       *   a knife
-M 0 8000   4 8006  1    * a juve
-E 1 8009  40   16       *   a knife
-M 0 8000   4 8015  1    * a juve
-E 1 8009  40   16       *   a knife
-E 1 8001  40    7       *   a set of knee pads
-M 0 8001   5 8006  2    * a punk
-E 1 8009  40   16       *   a knife
-M 0 8001   5 8009  1    * a punk
-E 1 8009  40   16       *   a knife
-E 1 8001  40    7       *   a set of knee pads
-M 0 8001   5 8011  2    * a punk
-E 1 8009  40   16       *   a knife
-M 0 8003   4 8013  2    * a Citi-Def Militiaman
-E 1 8001  40    7       *   a set of knee pads
-M 0 8003   4 8014  2    * a Citi-Def Militiaman
-G 1 8000  10            *   a spit gun
-M 0 8002   4 8023  2    * a Futsie
-E 1 8008  40   16       *   a Hoover vacuum cleaner
-M 0 8002   4 8024  2    * a Futsie
-E 1 8010  40   16       *   a wet noodle
-M 0 8004   3 8003  1    * a dunk
-M 0 8004   3 8006  1    * a dunk
-M 0 8004   3 8005  1    * a dunk
-M 0 8005   3 8010  1    * a tap
-E 1 8006  40   16       *   a bashball bat
-M 0 8005   3 8017  1    * a tap
-E 1 8015  40   16       *   a shock club
-M 0 8005   3 8019  1    * a tap
-M 0 8006   3 8018  1    * a rookie judge
-E 1 8011  40   16       *   a Judge's club
-M 0 8006   3 8012  1    * a rookie judge
-E 1 8011  40   16       *   a Judge's club
-M 0 8006   3 8025  1    * a rookie judge
-E 1 8011  40   16       *   a Judge's club
-M 0 8007   1 8027  1    * Wallaby Gleep
-E 1 8016  40   16       *   a police stun stick
-G 1 8012  10            *   a vault key
-M 0 8009   1 8021  1    * Ernie Ramirez
-E 1 8006  40   16       *   a bashball bat
-G 1 8002  10            *   a stooky gland
-G 1 8013   5            *   a key card
-M 0 8010   1 8007  1    * Judge Eckersely
-E 1 8014  40   16       *   a Judge's club
-G 1 8003  20            *   a lawgiver
-M 0 8011   1 8009  1    * Judge Beddows
-E 1 8014  40   16       *   a Judge's club
-G 1 8003  20            *   a lawgiver
-M 0 8012   2 8011  2    * a bite fighter
-M 0 8012   2 8011  2    * a bite fighter
-O 0 8004   1 8028       * the magnetically shielded safe
-M 0 8008   1 8028  1    * Pinkerton Throt
-E 1 8016  40   16       *   a police stun stick
-G 1 8005  10            *   a code box
-P 1 8007  10 8004  1    *   the vibroblade
-D 0 8016   1    1       * Threep Lane east
-D 0 8026   3    1       * Throt & Gleep's Megger Store west
-D 0 8026   0    2       * Throt & Gleep's Megger Store north
-D 0 8027   2    2       * Stockroom of Throt & Gleep's Megger Store south
-D 0 8027   0    2       * Stockroom of Throt & Gleep's Megger Store north
-D 0 8028   2    2       * Throt & Gleep's Vault south
+
+
+
+#SPECIALS
+M 8003 spec_cast_judge	* a Citi-Def Militiaman
+M 8004 spec_thief	* a dunk
+M 8006 spec_cast_judge	* a rookie judge
+M 8010 spec_cast_judge	* Judge Eckersely
+M 8011 spec_cast_judge	* Judge Beddows
 S
+
+
+
+#RESETS
+D 0 8016 1 1	* Threep Lane: door to the east: closed
+D 0 8026 0 2	* Throt & Gleep's Megger Store: door to the north: closed and locked
+D 0 8026 3 1	* Throt & Gleep's Megger Store: door to the west: closed
+D 0 8027 0 2	* Stockroom of Throt & Gleep's Megger Store: door to the north: closed and locked
+D 0 8027 2 2	* Stockroom of Throt & Gleep's Megger Store: door to the south: closed and locked
+D 0 8028 2 2	* Throt & Gleep's Vault: door to the south: closed and locked
+M 0 8004 3 8003 1	* a dunk (Intersection of Junket Way and Megway)
+M 0 8000 4 8004 2	* a juve (Mahmount Allesh Megway)
+E 0 8009 0 16		*	a knife: wielded
+M 0 8000 4 8004 2	* a juve (Mahmount Allesh Megway)
+E 0 8009 0 16		*	a knife: wielded
+M 0 8004 3 8005 1	* a dunk (Mahmount Allesh Megway)
+M 0 8000 4 8006 1	* a juve (Central Plaza)
+E 0 8009 0 16		*	a knife: wielded
+M 0 8001 5 8006 2	* a punk (Central Plaza)
+E 0 8009 0 16		*	a knife: wielded
+M 0 8004 3 8006 1	* a dunk (Central Plaza)
+M 0 8010 1 8007 1	* Judge Eckersely (Corner of Ed Hilldreth Memorial Parkway and Megway)
+E 0 8014 0 16		*	a Judge's club: wielded
+G 0 8003 0		*	a lawgiver
+M 0 8001 5 8009 1	* a punk (Mahmount Allesh Megway)
+E 0 8009 0 16		*	a knife: wielded
+E 0 8001 0 7		*	a set of knee pads: on the legs
+M 0 8011 1 8009 1	* Judge Beddows (Mahmount Allesh Megway)
+E 0 8014 0 16		*	a Judge's club: wielded
+G 0 8003 0		*	a lawgiver
+M 0 8005 3 8010 1	* a tap (Junket Way)
+E 0 8006 0 16		*	a bashball bat: wielded
+M 0 8001 5 8011 2	* a punk (Davies Alley)
+E 0 8009 0 16		*	a knife: wielded
+M 0 8012 2 8011 2	* a bite fighter (Davies Alley)
+M 0 8012 2 8011 2	* a bite fighter (Davies Alley)
+M 0 8006 3 8012 1	* a rookie judge (Max Jaffa Boulevard)
+E 0 8011 0 16		*	a Judge's club: wielded
+M 0 8003 4 8013 2	* a Citi-Def Militiaman (Ed Hilldreth Memorial Parkway )
+E 0 8001 0 7		*	a set of knee pads: on the legs
+M 0 8003 4 8014 2	* a Citi-Def Militiaman (Construction site of the Harold Finkelbaum Block.)
+G 0 8000 0		*	a spit gun
+M 0 8000 4 8015 1	* a juve (Corner of Junket Way and Threep Lane)
+E 0 8009 0 16		*	a knife: wielded
+E 0 8001 0 7		*	a set of knee pads: on the legs
+M 0 8005 3 8017 1	* a tap (Threep Lane)
+E 0 8015 0 16		*	a shock club: wielded
+M 0 8006 3 8018 1	* a rookie judge (Corner of Max Jaffa Blvd and Threep Way)
+E 0 8011 0 16		*	a Judge's club: wielded
+M 0 8005 3 8019 1	* a tap (Corner of Ed Hilldreth Mem. Prkwy and Threep Lane)
+M 0 8009 1 8021 1	* Ernie Ramirez (Pustule Palace Cafe)
+E 0 8006 0 16		*	a bashball bat: wielded
+G 0 8002 0		*	a stooky gland
+G 0 8013 0		*	a key card
+M 0 8002 4 8023 2	* a Futsie (Bazza's Home for the Terminally Sarky)
+E 0 8008 0 16		*	a Hoover vacuum cleaner: wielded
+M 0 8002 4 8024 2	* a Futsie (Nu Phisog Parlour)
+E 0 8010 0 16		*	a wet noodle: wielded
+M 0 8006 3 8025 1	* a rookie judge (Ziggi Piggi's Home for the Semi-Stiff)
+E 0 8011 0 16		*	a Judge's club: wielded
+M 0 8007 1 8027 1	* Wallaby Gleep (Stockroom of Throt & Gleep's Megger Store)
+E 0 8016 0 16		*	a police stun stick: wielded
+G 0 8012 0		*	a vault key
+O 0 8004 0 8028		* the magnetically shielded safe (Throt & Gleep's Vault)
+M 0 8008 1 8028 1	* Pinkerton Throt (Throt & Gleep's Vault)
+E 0 8016 0 16		*	a police stun stick: wielded
+G 0 8005 0		*	a code box
+P 0 8007 10 8004 1	* the magnetically shielded safe: the vibroblade
+S
+
+
+
 #SHOPS
 0
-#SPECIALS
-M 8003 spec_cast_judge          * a Citi-Def Militiaman
-M 8004 spec_thief               * a dunk
-M 8006 spec_cast_judge          * a rookie judge
-M 8010 spec_cast_judge          * Judge Eckersely
-M 8011 spec_cast_judge          * Judge Beddows
+
+
+
+#OLIMITS
 S
+
+
+
+#MOBPROGS
+#0
+
+#PRACTICERS
+S
+
+
+
+#OMPROGS
+S
+
+
+
 #$

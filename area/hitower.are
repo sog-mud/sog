@@ -1906,16 +1906,16 @@ sounds of moaning and growling come from all directions.
   All exits lead into shadows, you are very confused.
 ~
 0 AN 3
-D2
-The shadows cloud your vision.
-~
-~
-0 -1 1304
 D3
 The shadows cloud your vision.
 ~
 ~
 0 -1 1303
+D2
+The shadows cloud your vision.
+~
+~
+0 -1 1304
 D1
 The shadows cloud your vision.
 ~
@@ -1935,26 +1935,26 @@ sounds moaning and growling come from all directions.
   All exits lead into shadows, you are very confused.
 ~
 0 AN 3
-D0
-You see a small clearing in the shadows.
-~
-~
-0 -1 1311
-D3
-The shadows cloud your vision.
-~
-~
-0 -1 1301
-D2
-The shadows cloud your vision.
-~
-~
-0 -1 1305
 D1
 The shadows cloud your vision.
 ~
 ~
 0 -1 1303
+D0
+You see a small clearing in the shadows.
+~
+~
+0 -1 1311
+D2
+The shadows cloud your vision.
+~
+~
+0 -1 1305
+D3
+The shadows cloud your vision.
+~
+~
+0 -1 1301
 S
 #1303
 The Shadow Grove~
@@ -1964,11 +1964,6 @@ sounds of moaning and growling come from all directions.
   All exits lead into shadows, you are very confused.
 ~
 0 AN 3
-D2
-The shadows cloud your vision.
-~
-~
-0 -1 1306
 D1
 The shadows cloud your vision.
 ~
@@ -1979,6 +1974,11 @@ The shadows cloud your vision.
 ~
 ~
 0 -1 1302
+D2
+The shadows cloud your vision.
+~
+~
+0 -1 1306
 D0
 The shadows cloud your vision.
 ~
@@ -1993,26 +1993,26 @@ sounds of moaning and growling come from all directions.
   All exits lead into shadows, you are very confused.
 ~
 0 AN 3
-D3
-Dark gates loom in the mist.
-~
-~
-0 -1 2201
 D1
 The shadows cloud your vision.
 ~
 ~
 0 -1 1305
-D0
-The shadows cloud your vision.
-~
-~
-0 -1 1301
 D2
 The shadows cloud your vision.
 ~
 ~
 0 -1 1307
+D0
+The shadows cloud your vision.
+~
+~
+0 -1 1301
+D3
+Dark gates loom in the mist.
+~
+~
+0 -1 2201
 S
 #1305
 The Shadow Grove~
@@ -2022,26 +2022,26 @@ sounds of moaning and growling come from all directions.
   All exits lead into shadows, you are very confused.
 ~
 0 AN 3
-D0
-The shadows cloud your vision.
-~
-~
-0 -1 1302
 D2
 The shadows cloud your vision.
 ~
 ~
 0 -1 1308
-D3
-The shadows cloud your vision.
-~
-~
-0 -1 1304
 D1
 The shadows cloud your vision.
 ~
 ~
 0 -1 1306
+D3
+The shadows cloud your vision.
+~
+~
+0 -1 1304
+D0
+The shadows cloud your vision.
+~
+~
+0 -1 1302
 S
 #1306
 The Shadow Grove~
@@ -2051,6 +2051,11 @@ sounds of moaning and growling come from all directions.
   All exits lead into shadows, you are very confused.
 ~
 0 AN 3
+D3
+The shadows cloud your vision.
+~
+~
+0 -1 1305
 D2
 The shadows cloud your vision.
 ~
@@ -2061,11 +2066,6 @@ The shadows cloud your vision.
 ~
 ~
 0 -1 1303
-D3
-The shadows cloud your vision.
-~
-~
-0 -1 1305
 D1
 You see a shadowy tavern.
 ~
@@ -2080,6 +2080,16 @@ sounds of moaning and growling come from all directions.
   All exits lead into shadows, you are very confused.
 ~
 0 AN 3
+D0
+The shadows cloud your vision.
+~
+~
+0 -1 1304
+D1
+The shadows cloud your vision.
+~
+~
+0 -1 1308
 D2
 The shadows cloud your vision.
 ~
@@ -2090,16 +2100,6 @@ The shadows cloud your vision.
 ~
 ~
 0 -1 1309
-D1
-The shadows cloud your vision.
-~
-~
-0 -1 1308
-D0
-The shadows cloud your vision.
-~
-~
-0 -1 1304
 S
 #1308
 The Shadow Grove~
@@ -2109,11 +2109,6 @@ sounds of moaning and growling come from all directions.
   All exits lead into shadows, you are very confused.
 ~
 0 AN 3
-D3
-The shadows cloud your vision.
-~
-~
-0 -1 1307
 D2
 The shadows cloud your vision.
 ~
@@ -2129,6 +2124,11 @@ The shadows cloud your vision.
 ~
 ~
 0 -1 1309
+D3
+The shadows cloud your vision.
+~
+~
+0 -1 1307
 S
 #1309
 The Shadow Grove~
@@ -2138,26 +2138,26 @@ sounds of moaning and growling come from all directions.
   All directions lead into shadows, you are very confused.
 ~
 0 AN 3
-D3
-The shadows cloud your vision.
-~
-~
-0 -1 1308
-D2
-The shadows cloud your vision.
-~
-~
-0 -1 1303
 D0
 The shadows cloud your vision.
 ~
 ~
 0 -1 1306
+D2
+The shadows cloud your vision.
+~
+~
+0 -1 1303
 D1
 The shadows cloud your vision.
 ~
 ~
 0 -1 1307
+D3
+The shadows cloud your vision.
+~
+~
+0 -1 1308
 S
 #1311
 A small clearing~
@@ -3547,10 +3547,10 @@ Nice going!  You might as well wait here until the wizard who built this
 trap comes back to imprison your soul as well as your body.
 ~
 0 DN 0
-D1
+D3
 ~
 ~
-0 0 5113
+0 0 7428
 D5
 ~
 ~
@@ -3559,14 +3559,14 @@ D4
 ~
 ~
 0 0 938
+D1
+~
+~
+0 0 5113
 D2
 ~
 ~
 0 0 9141
-D3
-~
-~
-0 0 7428
 S
 #1393
 A hallway~

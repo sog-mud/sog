@@ -1,8 +1,12 @@
-#AREA
-arcadia.are~
-Arcadia~
-{30 90} Cernunn Arcadia~
-12000 12157
+#AREADATA
+Name Arcadia~
+Builders None~
+VNUMs 12000 12157
+Credits Cernunn~
+Security 9
+LevelRange 30 90
+End
+
 
 
 #MOBILES
@@ -17,12 +21,12 @@ exemplefies what it is to be nobility.  He is the embodyment of the
 Seelie way, light, love, celebration, honor and wisdom.
 ~
 elf~
-ABT CDEFHJ 1000 0
+ABT CDEFH 1000 0
 86 0 50d20+16500 10d20+2000 13d10+56 bite
 -56 -53 -51 -26
-EFHIKN BLQ 0 NZ 
+EFHIKN BLQ 0 N
 stand stand male 5000
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #12001
 titania queen~
 Queen Titania~
@@ -34,12 +38,12 @@ sparkling of water off of a stream and her smile is the dazzling radiance
 of the sun.
 ~
 elf~
-ABQ CDEHJT 1000 0
+ABQ CDEHT 1000 0
 84 0 50d20+15500 10d20+2000 9d14+51 bite
 -53 -50 -52 -23
-FKN BLQ C NZ 
+FKN BLQ C N
 stand stand female 5000
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #12002
 puck~
 Puck~
@@ -52,9 +56,9 @@ human~
 AGHS BNPQTUe 0 0
 94 0 50d20+22000 10d20+2000 13d10+56 bite
 -55 -56 -54 -26
-BEFHIJKNY BLQ C NZ 
+BEFHIJKNY BLQ C NZ
 sit sit male 100
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #12003
 thomas~
 True Thomas~
@@ -64,12 +68,12 @@ Thomas is an old Fae but he retains the power of his position still.  His
 voice is clear and strong and his mind is much quicker than yours.
 ~
 elf~
-ABR ACDEFJZ  850 0
+ABR ACDEFZ 850 0
 78 0 50d20+12500 10d20+2000 9d12+48 bite
 -40 -40 -42 -18
-BEFHIJKNY BLQ C NZ
+BEFHIJKNY BLQ C N
 stand stand male 500
-AHMV ABCDEFGHIJK medium 0 
+0 0 medium unknown
 #12004
 king gwyn nudd~
 Gwyn ap Nudd~
@@ -82,12 +86,12 @@ a chill and yet you get a strange feeling of exhillaration.  Gwyn
 embodies not only the terror of death but the seductive beauty of night.
 ~
 elf~
-ABT JZ -1000 0
+ABT Z -1000 0
 86 0 50d20+16500 10d20+2000 13d10+56 slash
 -56 -53 -51 -26
-EFHIKN BLQ 0 NZ 
+EFHIKN BLQ 0 N
 stand stand male 500
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #12005
 morrigan queen~
 The Morrigan~
@@ -101,9 +105,9 @@ unique~
 ACFGOT CDEFZ -1000 0
 84 0 50d20+15500 10d20+2000 9d14+51 pierce
 -53 -50 -52 -23
-ABDHNY BLQ 0 NSZ 
+ABDHNY BLQ 0 NSZ
 stand stand female 5050
-0 0 medium 0
+0 0 medium unknown
 #12006
 sidhe noble~
 a sidhe noble~
@@ -113,12 +117,12 @@ This sidhe, like all others of his kind, is a study in perfection.  He
 radiates strength, beauty, and nobility.
 ~
 elf~
-AGT J 800 0
+AGT 0 800 0
 77 0 50d20+12000 10d20+2000 9d12+47 pound
 -55 -53 -52 -25
-CFIU 0 BLQ MZ 
+CFIU 0 LQ M
 stand stand male 500
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #12007
 sidhe noble~
 a sidhe noble~
@@ -128,12 +132,12 @@ This sidhe, like all others of her kind, is a study in perfection.
 She radiates strength, beauty, and nobility.
 ~
 elf~
-AGT J 800 0
+AGT 0 800 0
 77 0 50d20+12000 10d20+2000 9d12+47 pound
 -55 -53 -52 -25
-CFIU 0 BLQ MZ 
+CFIU 0 LQ M
 stand stand female 500
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #12008
 sidhe noble~
 a sidhe noble~
@@ -144,12 +148,12 @@ radiates strength, beauty, and nobility. There is an air of pompus
 superiority about him that makes you want to slit his throat.
 ~
 elf~
-AGT J -800 0
+AGT 0 -800 0
 77 0 50d20+12000 10d20+2000 9d12+47 pound
 -55 -53 -52 -25
-CFIU 0 BLQ NZ 
+CFIU 0 LQ N
 stand stand male 500
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #12009
 sidhe noble~
 a sidhe noble~
@@ -160,12 +164,12 @@ radiates strength, beauty, and nobility.  However you sense a tired
 air of decadence about her.
 ~
 elf~
-AGT J -800 0
+AGT 0 -800 0
 77 0 50d20+12000 10d20+2000 9d12+47 pound
 -55 -53 -52 -25
-CFIU 0 BLQ NZ 
+CFIU 0 LQ N
 stand stand female 500
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #12010
 sidhe guard~
 a sidhe guard~
@@ -175,12 +179,12 @@ This captain leads his men with all the charisma and natural born
 leadership that graces all of the sidhe.
 ~
 elf~
-ABT JN 900 0
+ABT N 900 0
 66 0 50d20+8500 10d20+2000 7d9+36 pound
 -22 -25 -23 -5
-EIKLQRTU 0 BLQ MZ 
+EIKLQRTU 0 LQ M
 stand stand male 500
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #12011
 sidhe guard~
 a sidhe guard~
@@ -190,12 +194,12 @@ This captain leads his men with a cunning and skill that is immpossible
 not to admire.
 ~
 elf~
-ABT JN -900 0
+ABT N -900 0
 65 0 50d20+8250 10d20+2000 11d5+35 pound
 -22 -25 -23 -5
-EIKLQRTU 0 BLQ NZ 
+EIKLQRTU 0 LQ N
 stand stand male 500
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #12012
 sidhe knight~
 a noble sidhe knight~
@@ -205,12 +209,12 @@ This knight is the epitome of chivalry.  The embodyment of honor,
 loyalty, courage and skill in battle.
 ~
 elf~
-AGT GJ 1000 0
+AGT G 1000 0
 72 0 50d20+10250 10d20+2000 8d11+42 slash
 -43 -41 -39 -10
-CDEFIKLS 0 BLQ MZ 
+CDEFIKLS 0 LQ M
 stand stand male 500
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #12013
 sidhe knight~
 a noble sidhe knight~
@@ -220,12 +224,12 @@ This knight is the epitome of chivalry.  The embodyment of honor,
 loyalty, courage and skill in battle.
 ~
 elf~
-AGT GJ 1000 0
+AGT G 1000 0
 75 0 50d20+11000 10d20+2000 9d11+45 slash
 -43 -41 -39 -10
-CDEFIKLS N BLQ MZ 
+CDEFIKLS N LQ M
 stand stand female 500
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #12014
 sidhe knight~
 a noble sidhe knight~
@@ -235,12 +239,12 @@ This knight is the epitome of chivalry.  The embodyment of power and
 skill in battle.
 ~
 elf~
-AGT GJ -1000 0
+AGT G -1000 0
 75 0 50d20+11000 10d20+2000 9d11+45 slash
 -43 -41 -39 -10
-CDEFIKLS M BLQ NZ
+CDEFIKLS M LQ N
 stand stand male 500
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #12015
 sidhe knight~
 a noble sidhe knight~
@@ -250,12 +254,12 @@ This knight is the epitome of chivalry.  The embodyment of power and
 skill in battle.
 ~
 elf~
-AGT GJ 1000 0
+AGT G 1000 0
 75 0 50d20+11000 10d20+2000 9d11+45 slash
 -43 -41 -39 -10
-CDEFIKLS N BLQ MZ
+CDEFIKLS N LQ M
 stand stand female 500
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #12016
 sidhe knight~
 a noble sidhe knight~
@@ -265,12 +269,12 @@ This knight is the epitome of chivalry.  The embodyment of honor,
 loyalty, courage and skill in battle.
 ~
 elf~
-ABT GJ 1000 0
+ABT G 1000 0
 75 0 50d20+11000 10d20+2000 9d11+45 slash
 -43 -41 -39 -10
-CDEFIKLS N BLQ MZ
+CDEFIKLS N LQ M
 stand stand male 500
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #12017
 sidhe knight~
 a noble sidhe knight~
@@ -280,12 +284,12 @@ This knight is the epitome of chivalry.  The embodyment of power and
 skill in battle.
 ~
 elf~
-ABT GJ -1000 0
+ABT G -1000 0
 75 0 50d20+11000 10d20+2000 9d11+45 slash
 -43 -41 -39 -10
-CDEFIKLS M BLQ NZ
+CDEFIKLS M LQ N
 stand stand male 500
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #12018
 sidhe knight~
 a noble sidhe knight~
@@ -295,12 +299,12 @@ This knight is the epitome of chivalry.  The embodyment of power and
 skill in battle. 
 ~
 elf~
-ABT GJ -1000 0
+ABT G -1000 0
 75 0 50d20+11000 10d20+2000 9d11+45 slash
 -43 -41 -39 -10
-CDEFIKLS M BLQ NZ
+CDEFIKLS M LQ N
 stand stand female 500
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #12019
 troll guard~
 a troll guard~
@@ -314,9 +318,9 @@ giant~
 ABT Nbcd 1000 0
 69 0 50d20+9500 10d20+2000 7d11+39 pierce
 -39 -39 -39 -9
-CDIKNQU B 0 NPZ 
+CDIKNQU B 0 NZ
 stand stand male 500
-AHMV ABCDEFGHIJK giant 0
+0 0 giant unknown
 #12020
 troll guard~
 a troll guard~
@@ -327,12 +331,12 @@ stone.  Once the rulers of Arcadia trolls such as this one now serve the
 sidhe as faithfull warriors.
 ~
 troll~
-ABT Nbcd -1000 0
+ABT Nbd -1000 0
 71 0 50d20+10000 10d20+2000 9d9+49 pierce
 -62 -63 -59 -29
-CDIKNQU B 0 JNPZ
+CIKNQU B 0 JNPZ
 stand stand male 500
-AHMV ABCDEFGHIJK giant 0
+0 0 giant unknown
 #12021
 pooka jester~
 a pooka jester~
@@ -347,9 +351,9 @@ human~
 AGHS P 100 0
 60 0 50d20+6750 10d20+2000 8d6+28 slash
 -32 -33 -33 -15
-BEFHJN 0 BX NZ 
+BEFHJN 0 BX NZ
 stand stand male 500
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #12022
 pooka jester~
 a pooka jester~
@@ -366,7 +370,7 @@ AGHS PQ -100 0
 -32 -33 -33 -5
 BEFHJN 0 BX NZ
 stand stand male 500
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #12023
 satyr drinker drunk~
 a satyr drinker~
@@ -381,7 +385,7 @@ ABS d -100 0
 -30 -35 -32 -10
 CDIN LQ C NZ
 sit sit male 1000
-0 0 medium 0
+0 0 medium unknown
 #12024
 satyr piper~
 a satyr piper~
@@ -396,7 +400,7 @@ AGR d 100 0
 -29 -28 -25 -10
 EHN B C NZ
 stand stand male 500
-0 0 medium 0
+0 0 medium unknown
 #12025
 satyr singer~
 a satyr singer~
@@ -412,9 +416,9 @@ satyr~
 AGR d 100 0
 62 0 50d20+7250 10d20+2000 6d9+32 slash
 -30 -26 -28 -1
-FHJ B 0 NZ 
+FHJ B 0 NZ
 stand stand female 500
-0 0 medium 0
+0 0 medium unknown
 #12026
 satyr lusty~
 a lusty satyr~
@@ -425,12 +429,12 @@ nymph.  You can tell by the look in his eyes that it would be a BAD idea
 to get in his way.
 ~
 satyr~
-ABT JVbd -100 0
+ABT Vbd -100 0
 60 0 50d20+6750 10d20+2000 8d6+28 slash
 -28 -28 -20 -2
-CDR P BLQ NZ
+CDR P BL NZ
 stand stand male 500
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #12027
 boggan craftsman shoe maker~
 a boggan craftsman~
@@ -441,12 +445,12 @@ and a dark brown cap.  He holds in his hands what will be a finely
 wrought item when he is finished.
 ~
 dwarf~
-ABT JZ 300 0
+ABT Z 300 0
 52 0 50d20+4750 10d20+2000 6d7+20 slash
 -34 -35 -34 -2
-C LQ C NRZ 
+C LQ C NZ
 sit sit male 320
-AHMV ABCDEFGHIJK small 0
+0 0 small unknown
 #12028
 boggan smith~
 a boggan smith~
@@ -456,12 +460,12 @@ This little smith is dressed in a dark leather apron  with bright red pants.
 He is working on a dark, rough-looking piece of armor.
 ~
 dwarf~
-ABT JZ 300 0
+ABT Z 300 0
 52 0 50d20+4750 10d20+2000 6d7+20 slash
 -34 -35 -34 -2
-C LQ C NRZ 
+C LQ C NZ
 sit sit male 320
-AHMV ABCDEFGHIJK small 0
+0 0 small unknown
 #12029
 eshu adventurer~
 an adventurous eshu~
@@ -474,9 +478,9 @@ human~
 AT TU 0 0
 58 0 50d20+6250 10d20+2000 5d10+25 pierce
 -30 -30 -31 -10
-CDEI 0 C NZ 
+CDEI 0 C NZ
 stand stand male 500
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #12030
 eshu storyteller~
 an eshu~
@@ -492,7 +496,7 @@ AT TU 0 0
 -30 -30 -31 -10
 CDEI 0 0 NZ
 stand stand male 500
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #12031
 eshu drinker drunk~
 a drunken eshu~
@@ -506,7 +510,7 @@ AT TU -200 0
 -30 -30 -31 -10
 CDEI 0 0 NZ
 stand stand male 500
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #12032
 redcap thug~
 a savage redcap~
@@ -515,13 +519,13 @@ A redcap jumps out of a hole and starts chewing on your leg.
 This nasty little creature is a blood-stained mouth with sharp-clawed 
 appendages dressed in a brown tunic with a blood red hat.
 ~
-halfling~
+unique~
 ACFGS JVb -850 0
 38 0 10d20+1600 10d20+2000 5d6+12 pierce
 -16 -20 -18 -6
 BDJVY M LQ NZ
 stand stand male 500
-AHMV ABCDEFGHIJK small 0
+AHMV ABCDEFGHIJK small unknown
 #12033
 redcap murderer~
 a murderous redcap~
@@ -529,13 +533,13 @@ A murderous redcap attacks from behind.
 ~
 This redcap is a killing machine.  All sharp teeth, claws, and talons.
 ~
-halfling~
+unique~
 ACFGS JVb -850 0
 43 0 10d20+2500 10d20+2000 8d4+15 pierce
 -20 -18 -20 0
 BDJVY M LQ NZ
 stand stand male 500
-AHMV ABCDEFGHIJK small 0
+AHMV ABCDEFGHIJK small unknown
 #12034
 sluagh watcher~
 a sluagh watcher~
@@ -545,13 +549,13 @@ While not ugly this dark creature bears no resemblance to the other fae you
 have seen. Even the Unseelie don't rival the natural repulsion you feel towards
 this creature.
 ~
-urlock~
+unique~
 AHS BCDEFJNPQUZ -20 0
 36 0 10d20+1400 10d20+2000 3d10+11 pound
 -12 -12 -13 -1
-EFHJK M LQ NSZ 
+EFHJK M LQ NSZ
 stand stand female 500
-AHMV ABCDEFGHIJK small 0
+AHMV ABCDEFGHIJK small unknown
 #12035
 sluagh guardian~
 a sluagh guardian~
@@ -560,13 +564,13 @@ A sluagh guardian sees you and moves to protect it's home.
 This dark fae is not willing to let you in on it's secrets, you had best 
 leave now.
 ~
-urlock~
+unique~
 AHS BCDEFJNPQUZ -20 0
 36 0 10d20+1400 10d20+2000 3d10+11 pierce
 -12 -12 -13 -1
-EFHJK M LQ NSZ 
+EFHJK M LQ NSZ
 stand stand female 500
-AHMV ABCDEFGHIJK small 0 
+AHMV ABCDEFGHIJK small unknown
 #12036
 pixie~
 a pixie~
@@ -574,13 +578,13 @@ A small pixie is here looking for a few sylphs.
 ~
 He looks like a little elf about 3 inches tall with small insect wings.
 ~
-pixie~
+unique~
 AGR BTY 100 0
 29 0 10d20+800 10d20+2000 4d6+7 pound
 -20 -20 -20 -1
 FHKR 0 D Z
 stand stand male 500
-AHMV ABCDEFGHIJK tiny 0
+AHMV ABCDEFGHIJK tiny unknown
 #12037
 sprite~
 a sprite~
@@ -589,13 +593,13 @@ A small sprite notices you and decides to have some fun.
 This sprite looks like a little man with butterfly wings and a mishcevous 
 smile on his face.
 ~
-quickling~
+unique~
 AFHW BTV -300 0
 32 0 10d20+1000 10d20+2000 6d4+9 pierce
 -18 -18 -18 -1
-EFIK 0 D NZ 
+EFIK 0 D NZ
 stand stand male 500
-AHMV ABCDEFGHIJK tiny 0
+AHMV ABCDEFGHIJK tiny unknown
 #12038
 sylph~
 a sylph~
@@ -604,13 +608,13 @@ A lovely, gossamer winged sylph floats upon the wind.
 This beautiful and elusive creature is like the wind itself.  Her grace 
 and form amaze and beguile you.
 ~
-pixie~
+unique~
 AGHQ BNT 300 0
 32 0 10d20+1000 10d20+2000 6d4+9 slash
 -20 -18 -16 -1
 FH 0 LQ NZ
 stand stand female 500
-AHMV ABCDEFGHIJK tiny 0
+AHMV ABCDEFGHIJK tiny unknown
 #12039
 nymph~
 a beautiful nymph~
@@ -619,12 +623,12 @@ A beautiful nymph plays in the water.
 A scantily clad nymph stands here half in the water.
 ~
 elf~
-ABHQ J 100 0
+ABHQ 0 100 0
 30 0 10d20+853 10d20+2000 4d6+8 slash
 -20 -15 -18 -1
-FN R B NZ 
+FN R 0 N
 stand stand female 500
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #12040
 dryad~
 a playful dryad~
@@ -634,12 +638,12 @@ This beautiful brown skinned maiden with dark eyes, clothed in a few
 leaves runs among the trees darting in and out of sight.
 ~
 elf~
-AGHQ J 100 0
+AGHQ 0 100 0
 30 0 10d20+853 10d20+2000 4d6+8 slash
 -20 -15 -18 -1
-FN R B NZ 
+FN R 0 N
 stand stand female 500
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #12041
 mermaid~
 an exotic mermaid~
@@ -652,9 +656,9 @@ unique~
 ABHT Tc 250 0
 30 0 10d20+853 10d20+2000 4d6+8 pierce
 -20 -15 -18 -1
-FMW R 0 JNZ 
+FMW R 0 JNZ
 stand stand female 500
-0 0 medium 0
+0 0 medium unknown
 #12042
 merman~
 an strange merman~
@@ -669,7 +673,7 @@ ABHT Tc 250 0
 -20 -15 -18 -1
 FMW R 0 JNZ
 stand stand male 500
-0 0 medium 0
+0 0 medium unknown
 #12043
 flower fae~
 a flower faery~
@@ -678,13 +682,13 @@ A beautiful flower grows here.
 Something seems quite strange about this flower.  It almost seems to be 
 alive.
 ~
-quickling~
+unique~
 ACGU PVd 100 0
 22 0 5d10+400 10d20+2000 4d4+6 none
 -12 -10 -12 -1
 FNU ABES D GHNZ
 stand stand none 0
-AHMV ABCDEFGHIJK tiny 0
+AHMV ABCDEFGHIJK tiny unknown
 #12044
 acorn fae~
 an acorn faery~
@@ -692,13 +696,13 @@ A small acorn lies here.
 ~
 Looks like an ordinary acorn...only it keeps moving.....
 ~
-quickling~
+unique~
 ACGU PVd 100 0
 22 0 5d10+400 10d20+2000 4d4+6 pound
 -12 -10 -12 -1
 FNU ABES D GHNZ
 stand stand none 0
-AHMV ABCDEFGHIJK tiny 0
+AHMV ABCDEFGHIJK tiny unknown
 #12045
 boy charmer~
 A little boy~
@@ -707,13 +711,13 @@ A little boy with a set of small pipes.
 This little boy has seemingly charmed several forest creatures with his 
 strange music.  He holds a small set of glowing pipes in his hands.
 ~
-quickling~
+unique~
 ABCU PVd 100 0
 22 0 5d10+400 10d20+2000 4d4+6 pound
 -12 -10 -12 -1
 FNU ABES D GHNZ
 stand stand none 0
-AHMV ABCDEFGHIJK tiny 0
+AHMV ABCDEFGHIJK tiny unknown
 #12046
 cusidhe pet~
 A CuSidhe~
@@ -722,13 +726,13 @@ A large white hound with blood red ears.
 This hound is strangely quiet and well behaved, it's eyes contain a 
 measure of intelligence rarely seen in a normal animal.
 ~
-lupus~
+unique~
 ATU DFPZ 0 0
 22 0 5d10+550 10d20+2000 2d10+7 claw
 -7 -7 -7 -1
 CDFLN 0 0 NYZ
 stand stand male 0
-BHMV ABCDEFGHIJKQV tiny 0
+BHMV ABCDEFGHIJKQV tiny unknown
 #12047
 bosidhe pet~
 A BoSidhe~
@@ -737,13 +741,13 @@ A large white bull with blood red horns.
 This large bull is pure white with red horns.  Its eyes hold an 
 intelligence that is not common in one of it's species.
 ~
-lupus~
+unique~
 ATU DFPZ 0 0
 40 0 10d20+2000 10d20+2000 4d8+13 pierce
 -21 -20 -21 -2
 CDILN 0 0 YZ
 stand stand male 0
-BHMV ABCDEFGHIJKQV huge 0
+BHMV ABCDEFGHIJKQV huge unknown
 #12048
 catsidhe pet~
 A CatSidhe~
@@ -756,9 +760,9 @@ cat~
 ARU DFPZ 0 0
 50 0 20d20+4250 10d20+2000 5d8+19 claw
 -24 -25 -23 -2
-BEFHJKNV 0 0 Z 
+BEJKNV 0 0 Z
 stand stand female 0
-AGV ACDEFHJKQUV medium 0
+0 0 medium unknown
 #12049
 bransidhe pet~
 A BranSidhe~
@@ -768,13 +772,13 @@ This Sidhe bird is the messenger that travels between the world of the
 living and the dead, both Seelie and Unseelie.  It looks like a raven 
 only its the size of a small child.
 ~
-avian~
+unique~
 AIQU DEFTZe 0 0
 70 0 50d20+9750 10d20+2000 8d10+40 claw
 -32 -32 -32 -3
 BEFHJKNX 0 F ENZ
 stand stand none 0
-AHMV ABCDEFGHIJKPU small 0
+AHMV ABCDEFGHIJKPU small unknown
 #0
 
 
@@ -786,7 +790,7 @@ An acorn hat~
 A small brown cap lies here.~
 wood~
 armor G AE
-5 6 5 3 0
+AC BC AC AB 0
 22 3 30 P
 #12001
 nectar~
@@ -810,7 +814,7 @@ an opal bracelet~
 A gleeming opal bracelet shines faintly from the floor.~
 silver~
 armor AG AM
-10 7 9 0 0
+BD ABC AD 0 0
 30 5 400 P
 A
 19 3
@@ -820,7 +824,7 @@ A light gossamer gown~
 This see through gossamer gown leaves little to the imagination.~
 cloth~
 armor AFG AD
-10 10 10 0 0
+BD BD BD 0 0
 30 1 600 P
 A
 14 50
@@ -842,7 +846,7 @@ A pair of grey boots~
 A pair boots made of some grey material you haven't seen before.~
 leather~
 armor G AG
-10 11 8 8 0
+BD ABD D D 0
 32 5 500 P
 A
 2 2
@@ -890,7 +894,7 @@ A red cap~
 This hat looks as if it were dyed with the blood of several animals.~
 cloth~
 armor EGJ AE
-12 12 13 4 0
+CD CD ACD C 0
 38 4 20 G
 A
 19 3
@@ -934,7 +938,7 @@ An unfinished helmet~
 This helmet looks to be of unparalleled craftsmanship, too bad it was never finished.~
 unknown~
 armor G AEO
-14 14 12 12 0
+BCD BCD CD CD 0
 51 15 800 G
 #12015
 unfinished boots~
@@ -943,7 +947,7 @@ These boots would be the best pair you had ever seen if their maker had
 ever finished them.~
 leather~
 armor G AGO
-14 14 12 10 0
+BCD BCD CD BD 0
 52 8 1000 G
 A
 5 4
@@ -963,7 +967,7 @@ A scorched leather apron~
 A thick leather apron marked by many burns lies here.~
 leather~
 armor 0 AK
-14 14 14 8 0
+BCD BCD BCD D 0
 51 20 100 A
 A
 13 30
@@ -993,7 +997,7 @@ A jester's cap~
 A multi-colored cap with four parts, each ending in a large silver bell.~
 cloth~
 armor BGHI AE
-17 17 18 10 0
+AE AE BE BD 0
 59 6 800 P
 A
 17 -10
@@ -1105,7 +1109,7 @@ A bit of slime~
 A small bit of purple slime with luminescent blue streaks.~
 unknown~
 pill A A
-30 'know alignment' 'armor' 'detect invisibility' ''
+30 'know alignment' 'armor' '' ''
 28 2 0 G
 #12030
 bookshelf~
@@ -1220,7 +1224,7 @@ A
 5 2
 A
 1 2
-A 
+A
 19 7
 #12038
 ice shield~
@@ -1228,7 +1232,7 @@ An ice shield~
 A large shield made of pure ice.~
 ice~
 armor G AJ
-23 23 22 16 0
+ABCE ABCE BCE E 0
 70 25 1200 P
 A
 17 -10
@@ -1252,7 +1256,7 @@ A noble's cape~
 A long well made cape of some rich purple cloth.~
 unknown~
 armor G AC
-22 22 22 16 0
+BCE BCE BCE E 0
 72 5 1200 P
 #12041
 noble sword~
@@ -1268,7 +1272,7 @@ A sidhe breastplate~
 A well made sidhe noble's breastplate with fine engraving.~
 unknown~
 armor G AD
-22 22 21 17 0
+BCE BCE ACE AE 0
 72 9 1200 P
 A
 4 2
@@ -1278,7 +1282,7 @@ A pair of sidhe armguards~
 A pair of bright silver armguards of fine craftsmanship.~
 unknown~
 armor G AI
-22 23 21 16 0
+BCE ABCE ACE E 0
 68 6 1100 P
 A
 1 1
@@ -1288,7 +1292,7 @@ A pair of sidhe greaves~
 A set of bright silver leg armor.~
 unknown~
 armor G AF
-23 23 21 16 0
+ABCE ABCE ACE E 0
 68 6 800 P
 A
 14 50
@@ -1298,7 +1302,7 @@ An engraved sidhe bracer~
 A light metal bracer of intricate design.~
 unknown~
 armor G AM
-22 21 23 16 0
+BCE ACE ABCE E 0
 68 3 960 P
 A
 19 5
@@ -1310,7 +1314,7 @@ A noble's circlet~
 This silver circlet is covered in sidhe designs and pale green gems.~
 unknown~
 armor G AE
-23 23 23 17 0
+ABCE ABCE ABCE AE 0
 73 3 980 P
 A
 3 3
@@ -1362,7 +1366,7 @@ A stag horned helmet~
 This dark helm has two silver antlers of seven tines on the top.~
 unknown~
 armor G AE
-28 28 28 11 0
+CDE CDE CDE ABD 0
 86 11 2800 P
 A
 18 6
@@ -1372,7 +1376,7 @@ A silver torc~
 The silver torc of the Unseelie King.~
 silver~
 armor G AC
-28 28 28 10 0
+CDE CDE CDE BD 0
 86 11 2900 P
 A
 4 3
@@ -1390,7 +1394,7 @@ A poet's robe~
 A heay blue poet's robe.~
 unknown~
 armor G AK
-25 25 25 18 0
+ADE ADE ADE BE 0
 78 7 2000 P
 A
 3 4
@@ -1400,7 +1404,7 @@ An embroidered gown~
 A finely embroidered court gown.~
 unknown~
 armor G AK
-28 29 29 22 0
+CDE ACDE ACDE BCE 0
 84 8 2000 P
 A
 12 100
@@ -1410,7 +1414,7 @@ A summer locket~
 A golden locket that contains the essence of summer.~
 unknown~
 armor G AC
-28 28 29 22 0
+CDE CDE ACDE BCE 0
 84 4 1750 P
 A
 12 50
@@ -1424,7 +1428,7 @@ A golden torc~
 The torc of Rulership of the Seelie Court.~
 gold~
 armor G AC
-28 28 28 20 0
+CDE CDE CDE CE 0
 86 7 2500 P
 A
 13 50
@@ -1438,7 +1442,7 @@ The cloak of shadows~
 A cloak made of shifting formless shadows.~
 unknown~
 armor CG AC
-27 28 28 21 0
+ABDE CDE CDE ACE 0
 84 2 3000 P
 A
 2 3
@@ -1476,7 +1480,7 @@ A bit of slime~
 A small bit of blue slime with luminescent green streaks.~
 unknown~
 boat A A
-30 0 0 600 0
+BCDE 0 0 DEGJ 0
 28 2 0 G
 #12062
 bed~
@@ -1540,7 +1544,7 @@ A crested shield~
 This shield bears the crest of one of the sidhe noble houses.~
 unknown~
 armor G AJ
-24 24 25 17 0
+DE DE ADE AE 0
 74 13 1200 P
 A
 17 -10
@@ -1557,7 +1561,7 @@ catch faint glimpses of what looks to be a large castle.  To the east and
 south is the hillside and to the west and north tangled brush prevents 
 any movement.
 ~
-0 0 2 
+0 0 2
 D1
 Toward the hillside.
 ~
@@ -1576,7 +1580,7 @@ obscures the top but you can no longer recapture the glimpses of the
 building through the mist.  You can head south up the hill, west to the 
 field or east around the hill.  To the north brambles block all movement.
 ~
-0 0 4 
+0 0 4
 D1
 On the Hillside.
 ~
@@ -1600,7 +1604,7 @@ obscures the top but you can no longer recapture the glimpses of the
 building through the mist.  You can head south up the hill, east to the
 field or west around the hill.  To the north brambles block all movement.
 ~
-0 0 4 
+0 0 4
 D1
 In a Field.
 ~
@@ -1625,7 +1629,7 @@ catch faint glimpses of what looks to be a large castle.  To the west and
 south is the hillside and to the east and north tangled brush prevents
 any movement.
 ~
-0 0 2 
+0 0 2
 D2
 Toward the hillside.
 ~
@@ -1644,7 +1648,7 @@ obscures the top but you can no longer recapture the glimpses of the
 building through the mist.  You can head east up the hill, north to the
 field or south around the hill.  To the west brambles block all movement.
 ~
-0 0 4 
+0 0 4
 D0
 In a Field.
 ~
@@ -1697,7 +1701,7 @@ Further up the Hillside.~
 You are almost to the top of this hill.  Above you is the top of the
 hill and in all other directions the hill extends. You could't find a
 path to the up.~
-0 0 4 
+0 0 4
 D0
 On the Hillside.
 ~
@@ -1726,7 +1730,7 @@ obscures the top but you can no longer recapture the glimpses of the
 building through the mist.  You can head west up the hill, north to the
 field or south around the hill.  To the east brambles block all movement.
 ~
-0 0 4 
+0 0 4
 D0
 In a Field.
 ~
@@ -1773,7 +1777,7 @@ You are almost to the top of this hill.  Above you is the top of the
 hill and in all other directions the hill extends.You could't find a
 path to the up.
 ~
-0 0 4 
+0 0 4
 D0
 On the Hillside.
 ~
@@ -1801,7 +1805,7 @@ You are almost to the top of this hill.  Above you is the top of the
 hill and in all other directions the hill extends.You could't find a
 path to the up.
 ~
-0 0 4 
+0 0 4
 D0
 On the Hillside.
 ~
@@ -1830,7 +1834,7 @@ obscures the top but you can no longer recapture the glimpses of the
 building through the mist.  You can head west up the hill, south to the
 field or north around the hill.  To the east brambles block all movement.
 ~
-0 0 4 
+0 0 4
 D0
 On the Hillside.
 ~
@@ -1874,7 +1878,7 @@ obscures the top but you can no longer recapture the glimpses of the
 building through the mist.  You can head north up the hill, west to the 
 field or east around the hill.
 ~
-0 0 4 
+0 0 4
 D0
 Further up the Hill.
 ~
@@ -1898,7 +1902,7 @@ obscures the top but you can no longer recapture the glimpses of the
 building through the mist.  You can head north up the hill, south or
 east to the field or west around the hill.
 ~
-0 0 4 
+0 0 4
 D0
 Further up the Hill.
 ~
@@ -1928,7 +1932,7 @@ catch faint glimpses of what looks to be a large castle.  To the west and
 north is the hillside, to the south is more field and to the east tangled 
 brush prevents any movement.
 ~
-0 0 2 
+0 0 2
 D0
 On a Hillside.
 ~
@@ -1972,7 +1976,7 @@ continues and to the north you see a path of grass that is noticeably
 darker than the rest which circles around the hill.  To the south are
 more plentiful trail.
 ~
-0 VW 2  
+0 VW 2
 D0
 Along the Path
 ~
@@ -2002,7 +2006,7 @@ catch faint glimpses of what looks to be a large castle.  To the west and
 east is more field, to the north you can head up the hill and to the 
 south you see a path.
 ~
-0 0 2  
+0 0 2
 D0
 On a Hillside.
 ~
@@ -2027,7 +2031,7 @@ catch faint glimpses of what looks to be a large castle.  To the west and
 north is more field and to the east and south tangled brush prevents any
 movement.
 ~
-0 0 2 
+0 0 2
 D0
 In a Field.
 ~
@@ -2046,7 +2050,7 @@ combination of the light, the mist and your imagination because there is
 not castle here.  There is however a small standing stone with some worn 
 engravings on it.  The only exit is down.
 ~
-0 0 2 
+0 0 2
 E
 standing stone engravings~
 The engravings on the stone are very worn but you can barely make out the 
@@ -2080,7 +2084,7 @@ Along the path~
 You are standing on the path of dark grass. The path continues to
 the north but all other directions are hazy.
 ~
-0 VW 2 
+0 VW 2
 D0
 Further along the Path
 ~
@@ -2120,7 +2124,7 @@ You are standing on the path of dark grass. The path continues to
 the north but all other directions are hazy. To the east brambles 
 block all movement.
 ~
-0 VW 2 
+0 VW 2
 D0
 Further along the Path
 ~
@@ -2137,7 +2141,7 @@ Along the path~
 You are standing on the path of dark grass. The path continues to
 the north but all other directions are hazy.
 ~
-0 VW 2 
+0 VW 2
 D0
 Further along the Path
 ~
@@ -2198,7 +2202,7 @@ Along the path~
 You are standing on the path of dark grass. The path continues to
 the east but all other directions are hazy.
 ~
-0 VW 2 
+0 VW 2
 D1
 Further along the Path
 ~
@@ -2220,7 +2224,7 @@ Along the path~
 You are standing on the path of dark grass. The path continues to
 the south but all other directions are hazy.
 ~
-0 VW 2 
+0 VW 2
 D2
 Further along the Path
 ~
@@ -2238,7 +2242,7 @@ You are standing on the path of dark grass. The path continues to
 the south but all other directions are hazy. To the west brambles block 
 all movement.
 ~
-0 VW 2 
+0 VW 2
 D0
 Along the Path
 ~
@@ -2256,7 +2260,7 @@ You are standing on the path of dark grass. The path continues to
 the south but all other directions are hazy.  To the east brambles block 
 all movement.
 ~
-0 VW 2  
+0 VW 2
 D0
 Along the Path
 ~
@@ -2274,7 +2278,7 @@ You are standing on the path of dark grass. The path continues to
 the west but all other directions are hazy.  To the south brambles block 
 all movement.
 ~
-0 VW 2 
+0 VW 2
 D0
 Along the Path
 ~
@@ -2292,7 +2296,7 @@ You are standing on the path of dark grass. The path continues to
 the west but all other directions are hazy.  To the south brambles block 
 all movement.
 ~
-0 VW 2 
+0 VW 2
 D0
 Off the Path
 ~
@@ -2315,7 +2319,7 @@ You are standing on the path of dark grass. The path continues to
 the north but all other directions are hazy. To the west and south 
 brambles block all movement.
 ~
-0 VW 2  
+0 VW 2
 D0
 Further along the Path
 ~
@@ -2333,7 +2337,7 @@ You are standing on the path of dark grass. The path continues to
 the north but all other directions are hazy. To the east and west brambles
 block all movement.
 ~
-0 VW 2 
+0 VW 2
 D0
 Further along the Path
 ~
@@ -2351,7 +2355,7 @@ You are standing on the path of dark grass. The path continues to
 the east but all other directions are hazy. To the west brambles block all
 movement.
 ~
-0 VW 2 
+0 VW 2
 D0
 Off the Path
 ~
@@ -2374,7 +2378,7 @@ You are standing on the path of dark grass. The path continues to
 the south but all other directions are hazy. To the east and north 
 brambles block all movement.
 ~
-0 VW 2 
+0 VW 2
 D2
 Along the Path
 ~
@@ -2392,7 +2396,7 @@ You are standing on the path of dark grass. The path continues to
 the west but all other directions are hazy.  To the east and south 
 brambles block all movement.
 ~
-0 VW 2  
+0 VW 2
 D0
 Along the Path
 ~
@@ -2410,12 +2414,12 @@ You stand at the end of what you now know to be a faery trod.
 To the north stands the open gate to Arcadia.  From beyond the gates 
 strains of music and laughter catch your ear and draw you forward.
 ~
-0 VW 2 
+0 VW 2
 D0
 Arcadia
 ~
 ~
-1 0 12044
+0 0 12044
 D1
 Along the Path
 ~
@@ -2448,7 +2452,7 @@ and inviting and you catch glimpses of what look like swimmers farther
 out in the lake to the west.  To the south a rock face blocks all 
 movement and to the north is more of the shore.
 ~
-0 0 6 
+0 0 6
 D0
 The Lake Shore
 ~
@@ -2472,7 +2476,7 @@ bark.  The forest floor is covered in flowers and soft mosses.  Sunlight
 filters softly through the canopy above lighting the world with a soft 
 difused glow.
 ~
-0 0 3 
+0 0 3
 D0
 An Enchanted Forest
 ~
@@ -2496,7 +2500,7 @@ bark.  The forest floor is covered in flowers and soft mosses.  Sunlight
 filters softly through the canopy above lighting the world with a soft
 difused glow.
 ~
-0 0 3 
+0 0 3
 D0
 An Enchanted Forest
 ~
@@ -2525,7 +2529,7 @@ bark.  The forest floor is covered in flowers and soft mosses.  Sunlight
 filters softly through the canopy above lighting the world with a soft
 difused glow.
 ~
-0 0 3 
+0 0 3
 D0
 An Enchanted Forest
 ~
@@ -2549,7 +2553,7 @@ bark.  The forest floor is covered in flowers and soft mosses.  Sunlight
 filters softly through the canopy above lighting the world with a soft
 difused glow.
 ~
-0 0 3 
+0 0 3
 D0
 An Enchanted Forest
 ~
@@ -2573,7 +2577,7 @@ bark.  The forest floor is covered in flowers and soft mosses.  Sunlight
 filters softly through the canopy above lighting the world with a soft
 difused glow.
 ~
-0 0 3 
+0 0 3
 D0
 An Enchanted Forest
 ~
@@ -2616,7 +2620,7 @@ bark.  The forest floor is covered in flowers and soft mosses.  Sunlight
 filters softly through the canopy above lighting the world with a soft
 difused glow.
 ~
-0 0 3 
+0 0 3
 D0
 An Enchanted Forest
 ~
@@ -2645,7 +2649,7 @@ bark.  The forest floor is covered in flowers and soft mosses.  Sunlight
 filters softly through the canopy above lighting the world with a soft
 difused glow.
 ~
-0 0 3 
+0 0 3
 D0
 An Enchanted Forest
 ~
@@ -2674,7 +2678,7 @@ bark.  The forest floor is covered in flowers and soft mosses.  Sunlight
 filters softly through the canopy above lighting the world with a soft
 difused glow.
 ~
-0 0 3 
+0 0 3
 D0
 An Enchanted Forest
 ~
@@ -2703,7 +2707,7 @@ bark.  The forest floor is covered in flowers and soft mosses.  Sunlight
 filters softly through the canopy above lighting the world with a soft
 difused glow.
 ~
-0 0 3 
+0 0 3
 D0
 An Enchanted Forest
 ~
@@ -2732,7 +2736,7 @@ and inviting and you catch glimpses of what look like swimmers farther
 out in the lake to the west.  To the south and to the north is more of the 
 shore and the Forest lies east..
 ~
-0 0 6 
+0 0 6
 D0
 The Lake Shore
 ~
@@ -2785,7 +2789,7 @@ and inviting and you catch glimpses of what look like swimmers farther
 out in the lake to the south.  To the west a rock face blocks all
 movement to the east is more of the shore and the Forest is north.
 ~
-0 0 6 
+0 0 6
 D0
 An Enchanted Forest
 ~
@@ -2838,7 +2842,7 @@ bark.  The forest floor is covered in flowers and soft mosses.  Sunlight
 filters softly through the canopy above lighting the world with a soft
 difused glow.
 ~
-0 0 3 
+0 0 3
 D0
 An Enchanted Forest
 ~
@@ -2867,7 +2871,7 @@ bark.  The forest floor is covered in flowers and soft mosses.  Sunlight
 filters softly through the canopy above lighting the world with a soft
 difused glow.
 ~
-0 0 3 
+0 0 3
 D0
 An Enchanted Forest
 ~
@@ -2896,7 +2900,7 @@ bark.  The forest floor is covered in flowers and soft mosses.  Sunlight
 filters softly through the canopy above lighting the world with a soft
 difused glow.
 ~
-0 0 3 
+0 0 3
 D0
 An Enchanted Forest
 ~
@@ -2925,7 +2929,7 @@ bark.  The forest floor is covered in flowers and soft mosses.  Sunlight
 filters softly through the canopy above lighting the world with a soft
 difused glow.
 ~
-0 0 3 
+0 0 3
 D0
 An Enchanted Forest
 ~
@@ -2954,7 +2958,7 @@ bark.  The forest floor is covered in flowers and soft mosses.  Sunlight
 filters softly through the canopy above lighting the world with a soft
 difused glow.
 ~
-0 0 3 
+0 0 3
 D0
 The Forest Edge
 ~
@@ -2979,7 +2983,7 @@ Further into the forest it seems as if the sky is the trees as the canopy
 above obscures all but fleeting glimpses of blue skies.  A meadow extends 
 to the north and the forest extends to the south and west.
 ~
-0 0 3 
+0 0 3
 D0
 The Flower Meadow
 ~
@@ -3004,7 +3008,7 @@ Further into the forest it seems as if the sky is the trees as the canopy
 above obscures all but fleeting glimpses of blue skies.  A meadow extends
 to the north and the forest extends in all other directions.
 ~
-0 0 3 
+0 0 3
 D0
 The Flower Meadow
 ~
@@ -3064,7 +3068,7 @@ Further into the forest it seems as if the sky is the trees as the canopy
 above obscures all but fleeting glimpses of blue skies.  A meadow extends
 to the north and the forest extends in all other directions.
 ~
-0 0 3 
+0 0 3
 D0
 The Flower Meadow
 ~
@@ -3094,7 +3098,7 @@ Further into the forest it seems as if the sky is the trees as the canopy
 above obscures all but fleeting glimpses of blue skies.  A meadow extends
 to the north and the forest extends in all other directions.
 ~
-0 0 3 
+0 0 3
 D0
 The Flower Meadow
 ~
@@ -3124,7 +3128,7 @@ Further into the forest it seems as if the sky is the trees as the canopy
 above obscures all but fleeting glimpses of blue skies. The forest extends in
 all  directions.
 ~
-0 0 3 
+0 0 3
 D0
 The Flower Meadow
 ~
@@ -3178,7 +3182,7 @@ Further into the forest it seems as if the sky is the trees as the canopy
 above obscures all but fleeting glimpses of blue skies. The wall of an 
 Inn lies to the north and the forest extends in all other directions.
 ~
-0 0 3 
+0 0 3
 D1
 The Forest Edge
 ~
@@ -3199,7 +3203,7 @@ above obscures all but fleeting glimpses of blue skies.  A dirt road is
 to the north, a meadow to the east and the forest extends in all other 
 directions.
 ~
-0 0 3 
+0 0 3
 D0
 The Dirt Trod
 ~
@@ -3229,7 +3233,7 @@ swirl of colors as the flowers sway in the breeze doesn't help you
 concentrate.  To the north there is a dirt road and off to the north east 
 you see a hill with a glorious castle on top.
 ~
-0 0 2 
+0 0 2
 D0
 The Dirt Trod
 ~
@@ -3259,7 +3263,7 @@ swirl of colors as the flowers sway in the breeze doesn't help you
 concentrate.  To the north there is a dirt road and to the north
 you see a hill with a glorious castle on top.
 ~
-0 0 2 
+0 0 2
 D0
 Before the Castle Gates
 ~
@@ -3289,7 +3293,7 @@ swirl of colors as the flowers sway in the breeze doesn't help you
 concentrate.  Off to the north west you see a hill with a glorious castle 
 on top and the meadow extends northward. 
 ~
-0 0 2 
+0 0 2
 D0
 The Flower Meadow
 ~
@@ -3319,7 +3323,7 @@ swirl of colors as the flowers sway in the breeze doesn't help you
 concentrate.  Off to the north west you see a hill with a glorious castle 
 on top. 
 ~
-0 0 2 
+0 0 2
 D0
 The Flower Meadow
 ~
@@ -3349,7 +3353,7 @@ swirl of colors as the flowers sway in the breeze doesn't help you
 concentrate.  Off to the north west you see a hill with a glorious castle 
 on top. 
 ~
-0 0 2 
+0 0 2
 D0
 The Flower Meadow
 ~
@@ -3397,7 +3401,7 @@ array of flowers.  The miasma of scents makes you slightly dizzy and the
 swirl of colors as the flowers sway in the breeze doesn't help you
 concentrate. Off to the west you see a hill with a glorious castle on top.
 ~
-0 0 2 
+0 0 2
 D0
 The Flower Meadow
 ~
@@ -3461,7 +3465,7 @@ D0
 Inside the Gate
 ~
 ~
-1 0 12119
+0 0 12119
 D1
 The Flower Field
 ~
@@ -3484,7 +3488,7 @@ You are on a dirt road that cuts through a field of flowers from an
 inn and the Sidhe castle.  The field extends to the north and south while 
 the castle is east and the inn west.
 ~
-0 0 1 
+0 0 1
 D0
 The Flower Field
 ~
@@ -3532,7 +3536,7 @@ D3
 The Dog Tail Inn
 ~
 ~
-1 0 12084
+0 0 12084
 S
 #12084
 The Dog Tail Inn~
@@ -3540,12 +3544,12 @@ This bustling inn is full of inhabitants.  There are several tables
 full of customers but you can't seem to find the proprieter.  The only 
 exit is back to the east.
 ~
-0 D 0 
+0 D 0
 D1
 The Dirt Trod
 ~
 ~
-1 0 12083
+0 0 12083
 S
 #12085
 The Flower Meadow~
@@ -3555,7 +3559,7 @@ swirl of colors as the flowers sway in the breeze doesn't help you
 concentrate. Off to the south east you see a hill with a glorious castle on 
 top and to the south is the wall of an inn.
 ~
-0 0 2 
+0 0 2
 D0
 The Flower Meadow
 ~
@@ -3665,7 +3669,7 @@ swirl of colors as the flowers sway in the breeze doesn't help you
 concentrate. Off to the south west you see a hill with a glorious castle on 
 top. 
 ~
-0 0 2 
+0 0 2
 D0
 The Flower Meadow
 ~
@@ -3694,7 +3698,7 @@ array of flowers.  The miasma of scents makes you slightly dizzy and the
 swirl of colors as the flowers sway in the breeze doesn't help you
 concentrate. Off to the west you see a hill with a glorious castle on top.
 ~
-0 0 2 
+0 0 2
 D0
 The Flower Meadow
 ~
@@ -3739,7 +3743,7 @@ swirl of colors as the flowers sway in the breeze doesn't help you
 concentrate. Off to the south west you see a hill with a glorious castle on
 top. To the north mountains rise sharply out of the ground.
 ~
-0 0 2 
+0 0 2
 D1
 The Flower Meadow
 ~
@@ -3794,7 +3798,7 @@ swirl of colors as the flowers sway in the breeze doesn't help you
 concentrate. Off to the south  you see a hill with a glorious castle on
 top. To the north a path leads up the mountain. 
 ~
-0 0 2 
+0 0 2
 D0
 Path up the Mountains
 ~
@@ -3824,7 +3828,7 @@ swirl of colors as the flowers sway in the breeze doesn't help you
 concentrate. Off to the south east you see a hill with a glorious castle on
 top. To the north a steep path leads up the mountain.
 ~
-0 0 2 
+0 0 2
 D0
 Path up the Mountains
 ~
@@ -3879,7 +3883,7 @@ swirl of colors as the flowers sway in the breeze doesn't help you
 concentrate. Off to the south east you see a hill with a glorious castle on
 top. To the north mountains rise sharply out of the ground.
 ~
-0 0 2 
+0 0 2
 D1
 The Flower Meadow
 ~
@@ -3898,7 +3902,7 @@ rest.  The warm lights in the other parts of the caves are not found here
 and the place seems sort of slimy and eerie.  The only exit is back to 
 the east toward the lighter part of the cave.
 ~
-0 AD 5 
+0 AD 5
 D1
 The Lighter Part of the Caves.
 ~
@@ -3908,7 +3912,7 @@ D5
 A Dark Abyss.
 ~
 Abyss~
-1 0 12113
+0 0 12113
 S
 #12100
 The Great Stone Forge~
@@ -3918,7 +3922,7 @@ this one is well lit and dry.  The air is much warmer here but amazingly
 free of smoke. You see a small dark space behind the forge to the west.  
 The only other exit is back into the main caves.
 ~
-0 D 0  
+0 D 0
 D1
 The Workplace Before the Forge
 ~
@@ -3937,7 +3941,7 @@ metalworking tools.  The area is covered by a rock overhang and to the
 north it looks as if caves extend into the mountains.  From a cave chamber 
 to the west you hear the sounds of a forge.  The path to the meadow is south.
 ~
-0 D 0 
+0 D 0
 D0
 The Boggan Caverns
 ~
@@ -3965,7 +3969,7 @@ You stand on a path that leads from the meadow into the mountains
 all around you.  To the north you see caves, from the west you hear 
 the sounds of metalworking and from the east you hear deep voices.
 ~
-0 D 0  
+0 D 0
 D0
 The Boggan Caverns.
 ~
@@ -3993,7 +3997,7 @@ There is absolutely nothing of interest on this small rock shelf.
 To the north are some cave entrances, from the east you hear voices and 
 to the west you hear the sound of metal banging on metal.
 ~
-0 D 0  
+0 D 0
 D0
 The Boggan Caverns.
 ~
@@ -4021,7 +4025,7 @@ This room is a workplace for some sort of craftsmen.  There are
 tools for leatherworking, and sweing strewn all over the room.  To the 
 east and north the cavern extends and to the west is a rock ledge.
 ~
-0 D 0  
+0 D 0
 D0
 A Cluttered Room.
 ~
@@ -4044,7 +4048,7 @@ This room is filled with shelves and chests containing cloth and
 pins and patterns.  There are small boxes on several shelves that contain 
 several little metal tols you can't even identify.
 ~
-0 D 0  
+0 D 0
 D3
 The Crafts Shoppe.
 ~
@@ -4056,7 +4060,7 @@ A Cluttered Chamber~
 This room is cluttered with various objects of little value.  It 
 looks as if it is a place kept by several absent minded bachelors.
 ~
-0 D 0  
+0 D 0
 D2
 The Crafts Shoppe.
 ~
@@ -4077,7 +4081,7 @@ and warm and you get the feeling that if it weren't so dirty this
 cavern might actually be a nice place to live.  There is what looks to be 
 a bedroom to the north and some kind of hall to the east.
 ~
-0 D 0 
+0 D 0
 D0
 A Small Bedroom.
 ~
@@ -4108,7 +4112,7 @@ various places around the room.  To the north is a bedroom, the south
 the path to the meadow, the east the kitchen and the trophy room is to 
 the west.
 ~
-0 D 0 
+0 D 0
 D0
 A Small Bedroom.
 ~
@@ -4140,7 +4144,7 @@ interlocking spiral beadwork.  The treasured creations of some of the
 realm's finest craftsmen lay in these cases just beyond your grasp.  To 
 the north is a bedroom and to the south you hear sounds of metalworking.
 ~
-0 D 0 
+0 D 0
 D0
 A Small Bedroom.
 ~
@@ -4164,7 +4168,7 @@ unmade and dirty clothes are strewn all about.  A deck of cards is
 scattered about the room and several layers of dust cover everything.  
 The inhabitant of this room must never sleep.
 ~
-0 D 0 
+0 D 0
 D2
 The Trophy Room.
 ~
@@ -4178,7 +4182,7 @@ unmade and dirty clothes are strewn all about.  A deck of cards is
 scattered about the room and several layers of dust cover everything.
 The inhabitant of this room must never sleep.
 ~
-0 D 0  
+0 D 0
 D2
 The Welcoming Hall.
 ~
@@ -4192,7 +4196,7 @@ all the items on the dressers are meticulously arranged in some
 indecipherable order.  Despite it's order the room is still rather dusty 
 and it seems as if no one has used it in a long time.
 ~
-0 D 0  
+0 D 0
 D2
 The Kitchen.
 ~
@@ -4205,7 +4209,7 @@ This dark hole is slimy and wet.  There is a strange stench about
 the place and the air is still and cold.  The hole extends to the north 
 and the way out is up.
 ~
-0 AD 5 
+0 AD 5
 D0
 More Darkness and Slime.
 ~
@@ -4215,7 +4219,7 @@ D4
 The Dark Space Behind the Forge.
 ~
 ~
-1 0 12099
+0 0 12099
 S
 #12114
 More Darkness and Slime~
@@ -4224,7 +4228,7 @@ increasingly covered in slime that seems to trickle down the walls and
 onto your skin.  There is a rough wooden door with blood traced in 
 strange designs on it to the west.
 ~
-0 AD 5 
+0 AD 5
 D2
 A Dark Abyss.
 ~
@@ -4243,12 +4247,12 @@ color of dried blood) on all of the walls.  There is a pile of rags in
 one corner and some papers with scrawled markings on them on the floor.  
 You get the feeling you shouldn't be here.
 ~
-0 AD 5 
+0 AD 5
 D1
 More Darkness and Slime.
 ~
 ~
-1 0 12114
+0 0 12114
 S
 #12116
 Top of the Western Guard Tower~
@@ -4256,7 +4260,7 @@ You are at the top of the western guard tower.  You can look out
 upon the land from here and see a beautiful forest to the south, a 
 flowered meadow all around the castle and dark mountains to the north.
 ~
-0 D 0 
+0 D 0
 D5
 In the Guard Tower.
 ~
@@ -4269,7 +4273,7 @@ You are inside one of the guard towers of this wondrous castle.  The
 room is well gloomy and rather unkempt.  There is a table in the room 
 where the guards obviously sit to play cards and drink.
 ~
-0 D 0 
+0 D 0
 D4
 The Top of the Western Tower.
 ~
@@ -4287,12 +4291,12 @@ This room serves as a barracks for the guards of this majestic
 castle.  There are several large beds and a few tables.  The room is 
 gloomy, wet, and in a state of disorder.
 ~
-0 D 0 
+0 D 0
 D1
 The Gates of the Fae Stronghold.
 ~
 ~
-1 0 12119
+0 0 12119
 D4
 In the Guard Tower.
 ~
@@ -4308,7 +4312,7 @@ long hallway draped with many tapestries with swimming vivid colors and
 complex patterns. To the south you see a field of green grass out side 
 the gates.
 ~
-0 D 0 
+0 D 0
 D0
 The Entryway.
 ~
@@ -4318,17 +4322,17 @@ D1
 The East Tower
 ~
 gold~
-1 0 12120
+0 0 12120
 D2
 Outside the Gates.
 ~
 gate~
-1 12065 12081
+0 12065 12081
 D3
 The West Tower
 ~
 silver~
-1 0 12118
+0 0 12118
 S
 #12120
 The East Tower~
@@ -4337,12 +4341,12 @@ wel disiplined ones because the room is in perfect order.  All the beds
 are made and the tables clear.  There is a stairway up into the tower and 
 a door to the west.
 ~
-0 D 0  
+0 D 0
 D3
 The Gates of the Fae Stronghold.
 ~
 gold~
-1 0 12119
+0 0 12119
 D4
 Inside the East Tower
 ~
@@ -4356,7 +4360,7 @@ this chamber a soft glow.  This room is used by the guards for recreation
 when they are off duty.  There are several dartboards on the walls with 
 knives stuck in them.  Also a new deck of cards sits on one of the tables.
 ~
-0 D 0 
+0 D 0
 D4
 The Top of the Eastern Guard Tower.
 ~
@@ -4374,7 +4378,7 @@ You are at the top of the eastern guard tower.  You can look out
 upon the land from here and see a beautiful forest to the south, a
 flowered meadow all around the castle and dark mountains to the north.
 ~
-0 D 0  
+0 D 0
 D5
 Inside the East Tower.
 ~
@@ -4388,7 +4392,7 @@ depicting beautiful nymphs, saytrs, sprites and Sidhe dancing in glades,
 ponds, caves and castles.  The castle hallway extends to the north and 
 back south to the gates.
 ~
-0 D 0  
+0 D 0
 D0
 The Hall of Spring.
 ~
@@ -4410,7 +4414,7 @@ girl.  For a moment you long for the lost innocence of that youth and you
 yearn to enter the tapestry, but then you pull yourself away from it's 
 strange lure.  The hall continues north and south.
 ~
-0 D 0 
+0 D 0
 D0
 The Hall of Summer.
 ~
@@ -4438,7 +4442,7 @@ tapestry you too would be forever young and beautiful, unchanging and
 untouchable.  The tapestry dims and you hear laughter in the distance.  
 The hall continues to the north and south.
 ~
-0 D 0 
+0 D 0
 D0
 The Hall of Autumn.
 ~
@@ -4502,7 +4506,7 @@ desire to seek it out by joining them in the tapestry. Then you hear a
 high pitched cackling and you shiver with the cold.  The Hall continues 
 to the north and south.
 ~
-0 D 0 
+0 D 0
 D0
 An Intersection of Hallways.
 ~
@@ -4595,7 +4599,7 @@ You are at the base of a tall guard tower at the western end of the
 castle.  The room is bare and rather dusty.  To the east is a hallway 
 leading back to the main chambers and there is a stairway up into the tower.
 ~
-0 D 0 
+0 D 0
 D1
 A Hallway.
 ~
@@ -4687,7 +4691,7 @@ This hallway connects the eastern tower to the main chambers of the
 castle.  To the north and south are two chambers and to the west is the 
 courtyard.  The east tower lies to the east.
 ~
-0 D 0 
+0 D 0
 D0
 The Chamber of Samhain.
 ~
@@ -4714,7 +4718,7 @@ A Hallway~
 This Hallway connects the eastern tower to the main chambers of the 
 castle.  To the east is the tower base and to the west is another hallway.
 ~
-0 D 0 
+0 D 0
 D1
 The Base of the Eastern Tower.
 ~
@@ -4733,7 +4737,7 @@ not ordinary soldiers.  The walls of the tower are bright and sparkiling
 golden.  To the west is a hallway leading to the main chambers of the 
 castle and there is a staircase going up the tower.
 ~
-0 D 0 
+0 D 0
 D3
 A Hallway.
 ~
@@ -4758,7 +4762,7 @@ D4
 The Top of the Eastern Guard Tower.
 ~
 trapdoor~
-1 12065 12145
+0 12065 12145
 D5
 The Base of the Eastern Tower.
 ~
@@ -4792,7 +4796,7 @@ the wall depicting various court scenes, many of which are dominated by a
 fiery King and a shining Queen.  To the south is a courtyard and to the 
 east and west are some large decorated chambers.
 ~
-0 D 0 
+0 D 0
 D0
 The Court of the Fae.
 ~
@@ -4820,7 +4824,7 @@ This chamber holds several tapestries that depict times of harvest
 on the walls.  There are several sickle like objects on the walls and 
 there is, strangely out of place a bookcase along the northern wall.
 ~
-0 D 0 
+0 D 0
 D1
 The Audience Chamber.
 ~
@@ -4840,12 +4844,12 @@ weapons because the weapons racks are empty of all but a few broken
 shafts, handles and shards of blades.  The staircase leads back down or 
 up to the top of the tower.
 ~
-0 D 0 
+0 D 0
 D4
 The Top of the Western Guard Tower.
 ~
 trapdoor~
-1 12065 12143
+0 12065 12143
 D5
 The Base of the Western Tower.
 ~
@@ -4860,7 +4864,7 @@ flowered meadow all around the castle and dark mountains to the north.  A
 large brass brazier filled with coals stands here giving off a good bit 
 of smoke.
 ~
-0 D 0 
+0 D 0
 D5
 In the Guard Tower.
 ~
@@ -4875,7 +4879,7 @@ either services, conversations, dancing or games.  Rich purple draperies
 hang high above to the north and angle down towards the large golden 
 throne that sits farther to the north.
 ~
-0 D 0 
+0 D 0
 D0
 The Throne of the Seelie Fae.
 ~
@@ -4895,7 +4899,7 @@ and a forest are to the south while dark mountains can be seen to the north.
 A large brass brazier burns brightly here, giving off a great amount of 
 light and heat.  The trapdoor leads back down into the tower.
 ~
-0 D 0 
+0 D 0
 D5
 Inside the Eastern Tower.
 ~
@@ -4927,12 +4931,12 @@ You are standing in a small space hidden behind the large purple
 drapes.  You can stand here unobserved and still hear the goings on of 
 the court outside quite well.
 ~
-0 D 0 
+0 D 0
 D2
 The Throne of the Seelie Fae.
 ~
 drapes~
-1 0 12146
+0 0 12146
 D5
 The Watcher's Home.
 ~
@@ -4960,7 +4964,7 @@ the currently Seelie castle. There is a large dark throne cloaked in darkness
 here. You can't quite make out if it is occupied.  To the south is more 
 of the Dark court.
 ~
-0 D 0 
+0 D 0
 D2
 The Hidden Court.
 ~
@@ -4980,7 +4984,7 @@ the currently Seelie castle. There is a large dark throne cloaked in darkness
 here. You can't quite make out if it is occupied.  To the north is more
 of the Dark court.
 ~
-0 D 0 
+0 D 0
 D0
 The Hidden Court.
 ~
@@ -5030,7 +5034,7 @@ Eternal Autumn~
 You find yourself growing more and more lethargic.  You seem so 
 comfortable that you really don't ever want to leave this place.
 ~
-0 DLNTUVW 0 
+0 DLNTUVW 0
 D0
 Eternal Autumn.
 ~
@@ -5132,7 +5136,7 @@ Hope~
 Just as you glimpsed eternity trapped in eternity your mortality has 
 let you grasp onto your hope and escape from your own actions.
 ~
-0 CD 0  
+0 CD 0
 S
 #12156
 Behind the Hill~
@@ -5182,411 +5186,429 @@ S
 
 
 #SPECIALS
-M 12001 spec_cast_cleric *Load to: Queen Titania
-M 12005 spec_cast_undead *Load to: The Morrigan
-M 12048 spec_cast_mage *Load to: A CatSidhe
-M 12049 spec_cast_cleric *Load to: A BranSidhe
+M 12001 spec_cast_cleric	* Queen Titania
+M 12005 spec_cast_undead	* The Morrigan
+M 12048 spec_cast_mage	* A CatSidhe
+M 12049 spec_cast_cleric	* A BranSidhe
 S
 
 
 
 #RESETS
-D 0 12114 3 1 The west door of More Darkness and Slime is closed
-D 0 12124 1 1 The east door of The Hall of Spring is closed
-D 0 12125 1 1 The east door of The Hall of Summer is closed
-D 0 12126 1 2 The east door of The Hall of Autumn is closed and locked
-D 0 12126 3 1 The west door of The Hall of Autumn is closed
-D 0 12127 1 2 The east door of The Hall of Winter is closed and locked
-D 0 12127 3 1 The west door of The Hall of Winter is closed
-D 0 12143 5 1 The down door of Top of the Western Guard Tower is closed
-D 0 12145 5 1 The down door of The Top of the Eastern Guard Tower is closed
-D 0 12146 0 1 The north door of The Throne of the Seelie Fae is closed
-D 0 12147 5 2 The down door of Behind the Royal Drapes is closed and locked
-D 0 12149 3 2 The west door of The Hidden Court is closed and locked
-D 0 12150 3 2 The west door of The Hidden Court is closed and locked
-D 0 12151 5 1 The down door of Eternal Winter is closed
-D 0 12152 5 1 The down door of Eternal Autumn is closed
-D 0 12153 5 1 The down door of Eternal Summer is closed
-D 0 12154 5 1 The down door of Eternal Spring is closed
-D 0 12156 2 2 The south door of Behind the Hill is closed and locked
-D 0 12157 0 1 The north door of Under the Hill is closed
-M 0 12043 25 12001 1*Load a flower faery
-G 0 12001 0 A drop of nectar is given to a flower faery
-M 0 12036 13 12039 1*Load a pixie
-G 0 12007 0 A pixie bow is given to a pixie
-E 0 12006 0 8 A pair of grey boots is loaded on the feet of a pixie
-M 0 12041 3 12041 1*Load an exotic mermaid
-M 0 12036 13 12043 1*Load a pixie
-G 0 12007 0 A pixie bow is given to a pixie
-E 0 12006 0 8 A pair of grey boots is loaded on the feet of a pixie
-M 0 12044 12 12043 1*Load an acorn faery
-E 0 12000 0 6 An acorn hat is loaded over the head of an acorn faery
-M 0 12013 2 12044 1*Load a noble sidhe knight
-E 0 12042 0 5 A sidhe breastplate is loaded on the body of a noble sidhe knight
-E 0 12041 0 16 A sidhe broadsword is loaded wielded of a noble sidhe knight
-E 0 12040 0 3 A noble's cape is loaded around the neck (1) of a noble sidhe knight
-M 0 12034 6 12044 1*Load a sluagh watcher
-M 0 12044 12 12046 1*Load an acorn faery
-E 0 12000 0 6 An acorn hat is loaded over the head of an acorn faery
-M 0 12025 5 12048 1*Load a satyr singer
-M 0 12025 5 12093 1*Load a satyr singer
-M 0 12025 5 12089 1*Load a satyr singer
-M 0 12025 5 12095 1*Load a satyr singer
-M 0 12029 4 12048 1*Load an adventurous eshu
-E 0 12013 0 16 A gleaming khopesh is loaded wielded of an adventurous eshu
-M 0 12038 5 12050 1*Load a sylph
-E 0 12004 0 12 A light gossamer gown is loaded about the shoulders of a sylph
-M 0 12037 10 12051 1*Load a sprite
-E 0 12005 0 16 A small slender sword is loaded wielded of a sprite
-E 0 12006 0 8 A pair of grey boots is loaded on the feet of a sprite
-M 0 12037 10 12052 1*Load a sprite
-E 0 12005 0 16 A small slender sword is loaded wielded of a sprite
-E 0 12006 0 8 A pair of grey boots is loaded on the feet of a sprite
-M 0 12044 12 12052 1*Load an acorn faery
-E 0 12000 0 6 An acorn hat is loaded over the head of an acorn faery
-M 0 12044 12 12053 1*Load an acorn faery
-E 0 12000 0 6 An acorn hat is loaded over the head of an acorn faery
-M 0 12015 2 12054 1*Load a noble sidhe knight
-E 0 12042 0 5 A sidhe breastplate is loaded on the body of a noble sidhe knight
-E 0 12041 0 16 A sidhe broadsword is loaded wielded of a noble sidhe knight
-E 0 12040 0 3 A noble's cape is loaded around the neck (1) of a noble sidhe knight
-M 0 12039 2 12054 1*Load a beautiful nymph
-E 0 12003 0 15 An opal bracelet is loaded on the right wrist of a beautiful nymph
-M 0 12041 3 12055 1*Load an exotic mermaid
-M 0 12042 1 12055 1*Load an strange merman
-E 0 12002 0 16 A silver trident is loaded wielded of an strange merman
-M 0 12039 2 12056 1*Load a beautiful nymph
-E 0 12003 0 15 An opal bracelet is loaded on the right wrist of a beautiful nymph
-M 0 12036 13 12057 1*Load a pixie
-G 0 12007 0 A pixie bow is given to a pixie
-E 0 12006 0 8 A pair of grey boots is loaded on the feet of a pixie
-M 0 12026 1 12060 1*Load a lusty satyr
-M 0 12037 10 12060 1*Load a sprite
-E 0 12005 0 16 A small slender sword is loaded wielded of a sprite
-E 0 12006 0 8 A pair of grey boots is loaded on the feet of a sprite
-M 0 12038 5 12060 1*Load a sylph
-E 0 12004 0 12 A light gossamer gown is loaded about the shoulders of a sylph
-M 0 12040 5 12060 1*Load a playful dryad
-M 0 12024 6 12052 1*Load a satyr piper
-M 0 12024 6 12059 1*Load a satyr piper
-M 0 12024 6 12061 1*Load a satyr piper
-M 0 12024 6 12062 1*Load a satyr piper
-E 0 12018 0 17 Pan pipes is loaded held in the hands of a satyr piper
-M 0 12044 12 12062 1*Load an acorn faery
-E 0 12000 0 6 An acorn hat is loaded over the head of an acorn faery
-M 0 12006 3 12066 1*Load a sidhe noble
-E 0 12047 0 11 A noble's rapier is loaded as a shield of a sidhe noble
-E 0 12069 0 16 A crested shield is loaded wielded of a sidhe noble
-E 0 12046 0 6 A noble's circlet is loaded over the head of a sidhe noble
-M 0 12036 13 12066 1*Load a pixie
-G 0 12007 0 A pixie bow is given to a pixie
-E 0 12006 0 8 A pair of grey boots is loaded on the feet of a pixie
-M 0 12038 5 12066 1*Load a sylph
-E 0 12004 0 12 A light gossamer gown is loaded about the shoulders of a sylph
-M 0 12036 13 12068 1*Load a pixie
-G 0 12007 0 A pixie bow is given to a pixie
-E 0 12006 0 8 A pair of grey boots is loaded on the feet of a pixie
-M 0 12044 12 12069 1*Load an acorn faery
-E 0 12000 0 6 An acorn hat is loaded over the head of an acorn faery
-M 0 12029 4 12070 1*Load an adventurous eshu
-E 0 12013 0 16 A gleaming khopesh is loaded wielded of an adventurous eshu
-M 0 12037 10 12071 1*Load a sprite
-E 0 12005 0 16 A small slender sword is loaded wielded of a sprite
-E 0 12006 0 8 A pair of grey boots is loaded on the feet of a sprite
-M 0 12038 5 12072 1*Load a sylph
-E 0 12004 0 12 A light gossamer gown is loaded about the shoulders of a sylph
-M 0 12043 25 12073 1*Load a flower faery
-G 0 12001 0 A drop of nectar is given to a flower faery
-M 0 12034 6 12074 1*Load a sluagh watcher
-M 0 12037 10 12074 1*Load a sprite
-E 0 12005 0 16 A small slender sword is loaded wielded of a sprite
-E 0 12006 0 8 A pair of grey boots is loaded on the feet of a sprite
-M 0 12043 25 12075 1*Load a flower faery
-G 0 12001 0 A drop of nectar is given to a flower faery
-M 0 12043 25 12077 1*Load a flower faery
-G 0 12001 0 A drop of nectar is given to a flower faery
-M 0 12007 3 12080 1*Load a sidhe noble
-E 0 12047 0 11 A noble's rapier is loaded as a shield of a sidhe noble
-E 0 12069 0 16 A crested shield is loaded wielded of a sidhe noble
-E 0 12046 0 6 A noble's circlet is loaded over the head of a sidhe noble
-M 0 12036 13 12080 1*Load a pixie
-G 0 12007 0 A pixie bow is given to a pixie
-E 0 12006 0 8 A pair of grey boots is loaded on the feet of a pixie
-M 0 12038 5 12080 1*Load a sylph
-E 0 12004 0 12 A light gossamer gown is loaded about the shoulders of a sylph
-M 0 12037 10 12081 1*Load a sprite
-E 0 12005 0 16 A small slender sword is loaded wielded of a sprite
-E 0 12006 0 8 A pair of grey boots is loaded on the feet of a sprite
-M 0 12008 3 12083 1*Load a sidhe noble
-E 0 12047 0 11 A noble's rapier is loaded as a shield of a sidhe noble
-E 0 12069 0 16 A crested shield is loaded wielded of a sidhe noble
-E 0 12046 0 6 A noble's circlet is loaded over the head of a sidhe noble
-M 0 12040 5 12083 1*Load a playful dryad
-M 0 12023 3 12084 1
-G 0 12019 0 A flagon of dark ale is given to a satyr drinker
-M 0 12023 3 12082 1
-M 0 12023 3 12083 1
-M 0 12024 6 12084 1*Load a satyr piper
-E 0 12018 0 17 Pan pipes is loaded held in the hands of a satyr piper
-M 0 12030 3 12084 1*Load an eshu
-G 0 12007 0 A pixie bow is given to an eshu
-M 0 12031 2 12084 1*Load a drunken eshu
-G 0 12019 0 A flagon of dark ale is given to a drunken eshu
-M 0 12037 10 12085 1*Load a sprite
-E 0 12005 0 16 A small slender sword is loaded wielded of a sprite
-E 0 12006 0 8 A pair of grey boots is loaded on the feet of a sprite
-M 0 12043 25 12085 1*Load a flower faery
-G 0 12001 0 A drop of nectar is given to a flower faery
-M 0 12036 13 12086 1*Load a pixie
-G 0 12007 0 A pixie bow is given to a pixie
-E 0 12006 0 8 A pair of grey boots is loaded on the feet of a pixie
-M 0 12040 5 12086 1*Load a playful dryad
-M 0 12043 25 12087 1*Load a flower faery
-G 0 12001 0 A drop of nectar is given to a flower faery
-M 0 12014 2 12089 1*Load a noble sidhe knight
-E 0 12042 0 5 A sidhe breastplate is loaded on the body of a noble sidhe knight
-E 0 12041 0 16 A sidhe broadsword is loaded wielded of a noble sidhe knight
-E 0 12040 0 3 A noble's cape is loaded around the neck (1) of a noble sidhe knight
-M 0 12036 13 12089 1*Load a pixie
-G 0 12007 0 A pixie bow is given to a pixie
-E 0 12006 0 8 A pair of grey boots is loaded on the feet of a pixie
-M 0 12037 10 12089 1*Load a sprite
-E 0 12005 0 16 A small slender sword is loaded wielded of a sprite
-E 0 12006 0 8 A pair of grey boots is loaded on the feet of a sprite
-M 0 12040 5 12089 1*Load a playful dryad
-M 0 12025 5 12094 1*Load a satyr singer
-M 0 12043 25 12094 1*Load a flower faery
-G 0 12001 0 A drop of nectar is given to a flower faery
-M 0 12034 6 12095 1*Load a sluagh watcher
-M 0 12036 13 12095 1*Load a pixie
-G 0 12007 0 A pixie bow is given to a pixie
-E 0 12006 0 8 A pair of grey boots is loaded on the feet of a pixie
-M 0 12029 4 12096 1*Load an adventurous eshu
-E 0 12013 0 16 A gleaming khopesh is loaded wielded of an adventurous eshu
-M 0 12043 25 12096 1*Load a flower faery
-G 0 12001 0 A drop of nectar is given to a flower faery
-M 0 12043 25 12097 1*Load a flower faery
-G 0 12001 0 A drop of nectar is given to a flower faery
-O 0 12027 0 12100 A wooden bucket loaded to The Great Stone Forge
-O 0 12024 0 12100 A huge stone forge loaded to The Great Stone Forge
-P 0 12022 0 12024 1*A fiery ember put inside A fiery ember
-O 0 12023 0 12100 A pile of coals loaded to The Great Stone Forge
-O 0 12023 0 12100 A pile of coals loaded to The Great Stone Forge
-P 0 12025 0 12023 1*A crude, dark sword put inside A crude, dark sword
-M 0 12028 3 12100 1*Load a boggan smith
-G 0 12021 0 An unfinished axe is given to a boggan smith
-E 0 12017 0 12 A scorched leather apron is loaded about the shoulders of a boggan smith
-M 0 12028 3 12100 1*Load a boggan smith
-G 0 12014 0 An unfinished helmet is given to a boggan smith
-E 0 12017 0 12 A scorched leather apron is loaded about the shoulders of a boggan smith
-M 0 12012 2 12102 1*Load a noble sidhe knight
-E 0 12042 0 5 A sidhe breastplate is loaded on the body of a noble sidhe knight
-E 0 12041 0 16 A sidhe broadsword is loaded wielded of a noble sidhe knight
-E 0 12040 0 3 A noble's cape is loaded around the neck (1) of a noble sidhe knight
-M 0 12027 1 12104 1*Load a boggan craftsman
-G 0 12015 0 An unfinished pair of boots is given to a boggan craftsman
-E 0 12016 0 16 A stitching needle is loaded wielded of a boggan craftsman
-M 0 12034 6 12109 1*Load a sluagh watcher
-O 0 12062 0 12110 An unmade bed loaded to A Small Bedroom
-O 0 12062 0 12111 An unmade bed loaded to A Small Bedroom
-O 0 12063 0 12112 A well made bed loaded to A Small Bedroom
-P 0 12064 0 12063 1*A scroll of armor making put inside A scroll of armor making
-M 0 12032 4 12113 1*Load a savage redcap
-E 0 12011 0 16 A blood stained club is loaded wielded of a savage redcap
-E 0 12010 0 6 A red cap is loaded over the head of a savage redcap
-M 0 12032 4 12114 1*Load a savage redcap
-E 0 12011 0 16 A blood stained club is loaded wielded of a savage redcap
-E 0 12010 0 6 A red cap is loaded over the head of a savage redcap
-O 0 12028 0 12115 Slime pool loaded to The Forbiden Room
-P 0 12029 0 12028 1*A bit of slime put inside A bit of slime
-P 0 12061 0 12028 1*A bit of slime put inside A bit of slime
-M 0 12035 2 12115 1*Load a sluagh guardian
-G 0 12067 0 A small black key is given to a sluagh guardian
-E 0 12008 0 16 A dull kris blade is loaded wielded of a sluagh guardian
-M 0 12020 5 12116 1*Load a troll guard
-E 0 12039 0 1 An oath ring is loaded on the left finger of a troll guard
-E 0 12038 0 11 An ice shield is loaded as a shield of a troll guard
-E 0 12037 0 16 A twisted spiked club is loaded wielded of a troll guard
-M 0 12037 10 12116 1*Load a sprite
-E 0 12005 0 16 A small slender sword is loaded wielded of a sprite
-E 0 12006 0 8 A pair of grey boots is loaded on the feet of a sprite
-M 0 12011 2 12118 1*Load a sidhe guard
-E 0 12045 0 14 An engraved sidhe bracer is loaded on the left wrist of a sidhe guard
-E 0 12045 0 15 An engraved sidhe bracer is loaded on the right wrist of a sidhe guard
-E 0 12044 0 7 A pair of sidhe greaves is loaded on the legs of a sidhe guard
-E 0 12043 0 10 A pair of sidhe armguards is loaded on the arms of a sidhe guard
-M 0 12020 5 12118 1*Load a troll guard
-E 0 12039 0 1 An oath ring is loaded on the left finger of a troll guard
-E 0 12038 0 11 An ice shield is loaded as a shield of a troll guard
-E 0 12037 0 16 A twisted spiked club is loaded wielded of a troll guard
-M 0 12019 6 12120 2 *Load a troll guard
-G 0 12065 0 A small oak key is given to a troll guard
-E 0 12039 0 1 An oath ring is loaded on the left finger of a troll guard
-E 0 12038 0 11 An ice shield is loaded as a shield of a troll guard
-E 0 12036 0 16 A white  mace is loaded wielded of a troll guard
-M 0 12034 6 12119 1*Load a sluagh watcher
-M 0 12036 13 12119 1*Load a pixie
-G 0 12007 0 A pixie bow is given to a pixie
-E 0 12006 0 8 A pair of grey boots is loaded on the feet of a pixie
-M 0 12019 6 12120 2*Load a troll guard
-E 0 12039 0 1 An oath ring is loaded on the left finger of a troll guard
-E 0 12038 0 11 An ice shield is loaded as a shield of a troll guard
-E 0 12036 0 16 A white  mace is loaded wielded of a troll guard
-M 0 12019 6 12134 1*Load a troll guard
-E 0 12039 0 1 An oath ring is loaded on the left finger of a troll guard
-E 0 12038 0 11 An ice shield is loaded as a shield of a troll guard
-E 0 12036 0 16 A white  mace is loaded wielded of a troll guard
-M 0 12010 3 12121 1*Load a sidhe guard
-E 0 12045 0 14 An engraved sidhe bracer is loaded on the left wrist of a sidhe guard
-E 0 12045 0 15 An engraved sidhe bracer is loaded on the right wrist of a sidhe guard
-E 0 12044 0 7 A pair of sidhe greaves is loaded on the legs of a sidhe guard
-E 0 12043 0 10 A pair of sidhe armguards is loaded on the arms of a sidhe guard
-M 0 12029 4 12125 1*Load an adventurous eshu
-E 0 12013 0 16 A gleaming khopesh is loaded wielded of an adventurous eshu
-M 0 12020 8 12131 1*Load a troll guard
-E 0 12039 0 1 An oath ring is loaded on the left finger of a troll guard
-E 0 12038 0 11 An ice shield is loaded as a shield of a troll guard
-E 0 12037 0 16 A twisted spiked club is loaded wielded of a troll guard
-M 0 12020 8 12123 1*Load a troll guard
-E 0 12039 0 1 An oath ring is loaded on the left finger of a troll guard
-E 0 12038 0 11 An ice shield is loaded as a shield of a troll guard
-E 0 12037 0 16 A twisted spiked club is loaded wielded of a troll guard
-M 0 12031 2 12131 1*Load a drunken eshu
-G 0 12019 0 A flagon of dark ale is given to a drunken eshu
-M 0 12037 10 12132 1*Load a sprite
-E 0 12005 0 16 A small slender sword is loaded wielded of a sprite
-E 0 12006 0 8 A pair of grey boots is loaded on the feet of a sprite
-M 0 12003 1 12134 1*Load True Thomas
-G 0 12052 0 Poetry is given to True Thomas
-E 0 12053 0 12 A poet's robe is loaded about the shoulders of True Thomas
-M 0 12022 2 12134 1*Load a pooka jester
-G 0 12033 0 A jester's stick is given to a pooka jester
-E 0 12020 0 6 A jester's cap is loaded over the head of a pooka jester
-O 0 12026 0 12134 A beautiful crystal fountain loaded to The Courtyard
-M 0 12024 6 12134 1*Load a satyr piper
-E 0 12018 0 17 Pan pipes is loaded held in the hands of a satyr piper
-M 0 12030 3 12134 1*Load an eshu
-G 0 12007 0 A pixie bow is given to an eshu
-M 0 12040 5 12134 1*Load a playful dryad
-M 0 12019 6 12135 1*Load a troll guard
-E 0 12039 0 1 An oath ring is loaded on the left finger of a troll guard
-E 0 12038 0 11 An ice shield is loaded as a shield of a troll guard
-E 0 12036 0 16 A white  mace is loaded wielded of a troll guard
-M 0 12036 13 12136 1*Load a pixie
-G 0 12007 0 A pixie bow is given to a pixie
-E 0 12006 0 8 A pair of grey boots is loaded on the feet of a pixie
-M 0 12019 6 12138 1*Load a troll guard
-E 0 12039 0 1 An oath ring is loaded on the left finger of a troll guard
-E 0 12038 0 11 An ice shield is loaded as a shield of a troll guard
-E 0 12036 0 16 A white  mace is loaded wielded of a troll guard
-O 0 12030 0 12141 A large oak bookshelf loaded to The Chamber of Lughnasadh
-P 0 12031 0 12030 1*An ancient manuscript put inside An ancient manuscript
-P 0 12032 0 12030 1*An ancient manuscript put inside An ancient manuscript
-P 0 12066 0 12030 1*A page of glowing script put inside A page of glowing script
-M 0 12011 2 12142 1*Load a sidhe guard
-E 0 12045 0 14 An engraved sidhe bracer is loaded on the left wrist of a sidhe guard
-E 0 12045 0 15 An engraved sidhe bracer is loaded on the right wrist of a sidhe guard
-E 0 12044 0 7 A pair of sidhe greaves is loaded on the legs of a sidhe guard
-E 0 12043 0 10 A pair of sidhe armguards is loaded on the arms of a sidhe guard
-M 0 12008 3 12143 1*Load a sidhe noble
-E 0 12047 0 11 A noble's rapier is loaded as a shield of a sidhe noble
-E 0 12069 0 16 A crested shield is loaded wielded of a sidhe noble
-E 0 12046 0 6 A noble's circlet is loaded over the head of a sidhe noble
-M 0 12032 4 12143 1*Load a savage redcap
-E 0 12011 0 16 A blood stained club is loaded wielded of a savage redcap
-E 0 12010 0 6 A red cap is loaded over the head of a savage redcap
-*M 0 12002 1 12144 1*Load Puck
-G 0 12058 0 A bag of tricks is given to Puck
-E 0 12057 0 3 The cloak of shadows is loaded around the neck (1) of Puck
-P 0 12068 0 12058 1*Some glowing dust put inside Some glowing dust
-P 0 12059 0 12058 1*An orange put inside An orange
-P 0 12060 0 12058 1*A small pebble put inside A small pebble
-M 0 12006 3 12144 1*Load a sidhe noble
-E 0 12047 0 11 A noble's rapier is loaded as a shield of a sidhe noble
-E 0 12069 0 16 A crested shield is loaded wielded of a sidhe noble
-E 0 12046 0 6 A noble's circlet is loaded over the head of a sidhe noble
-M 0 12009 3 12144 1*Load a sidhe noble
-E 0 12047 0 11 A noble's rapier is loaded as a shield of a sidhe noble
-E 0 12069 0 16 A crested shield is loaded wielded of a sidhe noble
-E 0 12046 0 6 A noble's circlet is loaded over the head of a sidhe noble
-M 0 12016 2 12144 1*Load a noble sidhe knight
-E 0 12042 0 5 A sidhe breastplate is loaded on the body of a noble sidhe knight
-E 0 12041 0 16 A sidhe broadsword is loaded wielded of a noble sidhe knight
-E 0 12040 0 3 A noble's cape is loaded around the neck (1) of a noble sidhe knight
-M 0 12017 2 12144 1*Load a noble sidhe knight
-E 0 12042 0 5 A sidhe breastplate is loaded on the body of a noble sidhe knight
-E 0 12041 0 16 A sidhe broadsword is loaded wielded of a noble sidhe knight
-E 0 12040 0 3 A noble's cape is loaded around the neck (1) of a noble sidhe knight
-M 0 12018 2 12144 1*Load a noble sidhe knight
-E 0 12042 0 5 A sidhe breastplate is loaded on the body of a noble sidhe knight
-E 0 12041 0 16 A sidhe broadsword is loaded wielded of a noble sidhe knight
-E 0 12040 0 3 A noble's cape is loaded around the neck (1) of a noble sidhe knight
-M 0 12019 6 12144 1*Load a troll guard
-E 0 12039 0 1 An oath ring is loaded on the left finger of a troll guard
-E 0 12038 0 11 An ice shield is loaded as a shield of a troll guard
-E 0 12036 0 16 A white  mace is loaded wielded of a troll guard
-M 0 12021 1 12144 1*Load a pooka jester
-G 0 12035 0 A jester's stick is given to a pooka jester
-E 0 12020 0 6 A jester's cap is loaded over the head of a pooka jester
-M 0 12022 2 12144 1*Load a pooka jester
-G 0 12034 0 A jester's stick is given to a pooka jester
-M 0 12030 3 12144 1*Load an eshu
-G 0 12007 0 A pixie bow is given to an eshu
-M 0 12034 6 12144 1*Load a sluagh watcher
-M 0 12006 3 12145 1*Load a sidhe noble
-E 0 12047 0 11 A noble's rapier is loaded as a shield of a sidhe noble
-E 0 12069 0 16 A crested shield is loaded wielded of a sidhe noble
-E 0 12046 0 6 A noble's circlet is loaded over the head of a sidhe noble
-M 0 12010 3 12145 1*Load a sidhe guard
-E 0 12045 0 14 An engraved sidhe bracer is loaded on the left wrist of a sidhe guard
-E 0 12045 0 15 An engraved sidhe bracer is loaded on the right wrist of a sidhe guard
-E 0 12044 0 7 A pair of sidhe greaves is loaded on the legs of a sidhe guard
-E 0 12043 0 10 A pair of sidhe armguards is loaded on the arms of a sidhe guard
-M 0 12000 1 12146 1*Load Oberon
-E 0 12056 0 3 A golden torc is loaded around the neck (1) of Oberon
-M 0 12001 1 12146 1*Load Queen Titania
-E 0 12054 0 5 An embroidered gown is loaded on the body of Queen Titania
-E 0 12055 0 3 A summer locket is loaded around the neck (1) of Queen Titania
-M 0 12010 3 12146 1*Load a sidhe guard
-E 0 12045 0 14 An engraved sidhe bracer is loaded on the left wrist of a sidhe guard
-E 0 12045 0 15 An engraved sidhe bracer is loaded on the right wrist of a sidhe guard
-E 0 12044 0 7 A pair of sidhe greaves is loaded on the legs of a sidhe guard
-E 0 12043 0 10 A pair of sidhe armguards is loaded on the arms of a sidhe guard
-O 0 12028 0 12148 Slime pool loaded to The Watcher's Home
-P 0 12029 0 12028 1*A bit of slime put inside A bit of slime
-P 0 12061 0 12028 1*A bit of slime put inside A bit of slime
-M 0 12032 4 12148 1*Load a savage redcap
-E 0 12011 0 16 A blood stained club is loaded wielded of a savage redcap
-E 0 12010 0 6 A red cap is loaded over the head of a savage redcap
-M 0 12033 3 12148 1*Load a murderous redcap
-E 0 12009 0 16 A jagged blade is loaded wielded of a murderous redcap
-E 0 12010 0 6 A red cap is loaded over the head of a murderous redcap
-M 0 12035 2 12148 1*Load a sluagh guardian
-E 0 12008 0 16 A dull kris blade is loaded wielded of a sluagh guardian
-M 0 12004 1 12149 1*Load Gwyn ap Nudd
-E 0 12051 0 3 A silver torc is loaded around the neck (1) of Gwyn ap Nudd
-E 0 12050 0 6 A stag horned helmet is loaded over the head of Gwyn ap Nudd
-M 0 12020 5 12149 1*Load a troll guard
-E 0 12039 0 1 An oath ring is loaded on the left finger of a troll guard
-E 0 12038 0 11 An ice shield is loaded as a shield of a troll guard
-E 0 12037 0 16 A twisted spiked club is loaded wielded of a troll guard
-M 0 12005 1 12150 1*Load The Morrigan
-G 0 12049 0 Night's blood is given to The Morrigan
-G 0 12048 0 The heart of night is given to The Morrigan
-M 0 12033 3 12150 1*Load a murderous redcap
-E 0 12009 0 16 A jagged blade is loaded wielded of a murderous redcap
-E 0 12010 0 6 A red cap is loaded over the head of a murderous redcap
-M 0 12045 1 12156 1*Load A little boy
-M 0 12046 1 12157 1*Load A CuSidhe
-M 0 12047 1 12157 1*Load A BoSidhe
-M 0 12048 1 12157 1*Load A CatSidhe
-M 0 12049 1 12157 1*Load A BranSidhe
+D 0 12114 3 1	* More Darkness and Slime: door to the west: closed
+D 0 12124 1 1	* The Hall of Spring: door to the east: closed
+D 0 12125 1 1	* The Hall of Summer: door to the east: closed
+D 0 12126 1 2	* The Hall of Autumn: door to the east: closed and locked
+D 0 12126 3 1	* The Hall of Autumn: door to the west: closed
+D 0 12127 1 2	* The Hall of Winter: door to the east: closed and locked
+D 0 12127 3 1	* The Hall of Winter: door to the west: closed
+D 0 12143 5 1	* Top of the Western Guard Tower: door to the down: closed
+D 0 12145 5 1	* The Top of the Eastern Guard Tower: door to the down: closed
+D 0 12146 0 1	* The Throne of the Seelie Fae: door to the north: closed
+D 0 12147 5 2	* Behind the Royal Drapes: door to the down: closed and locked
+D 0 12149 3 2	* The Hidden Court: door to the west: closed and locked
+D 0 12150 3 2	* The Hidden Court: door to the west: closed and locked
+D 0 12151 5 1	* Eternal Winter: door to the down: closed
+D 0 12152 5 1	* Eternal Autumn: door to the down: closed
+D 0 12153 5 1	* Eternal Summer: door to the down: closed
+D 0 12154 5 1	* Eternal Spring: door to the down: closed
+D 0 12156 2 2	* Behind the Hill: door to the south: closed and locked
+D 0 12157 0 1	* Under the Hill: door to the north: closed
+M 0 12043 25 12001 1	* a flower faery (In a Field)
+G 0 12001 0		*	A drop of nectar
+M 0 12036 13 12039 1	* a pixie (Along the path)
+G 0 12007 0		*	A pixie bow
+E 0 12006 0 8		*	A pair of grey boots: on the feet
+M 0 12041 3 12041 1	* an exotic mermaid (The Deep end of the Lake)
+M 0 12036 13 12043 1	* a pixie (An Enchanted Forest)
+G 0 12007 0		*	A pixie bow
+E 0 12006 0 8		*	A pair of grey boots: on the feet
+M 0 12044 12 12043 1	* an acorn faery (An Enchanted Forest)
+E 0 12000 0 6		*	An acorn hat: over the head
+M 0 12013 2 12044 1	* a noble sidhe knight (An Enchanted Forest)
+E 0 12042 0 5		*	A sidhe breastplate: on the body
+E 0 12041 0 16		*	A sidhe broadsword: wielded
+E 0 12040 0 3		*	A noble's cape: around the neck (1)
+M 0 12034 6 12044 1	* a sluagh watcher (An Enchanted Forest)
+M 0 12044 12 12046 1	* an acorn faery (An Enchanted Forest)
+E 0 12000 0 6		*	An acorn hat: over the head
+M 0 12025 5 12048 1	* a satyr singer (An Enchanted Forest)
+M 0 12029 4 12048 1	* an adventurous eshu (An Enchanted Forest)
+E 0 12013 0 16		*	A gleaming khopesh: wielded
+M 0 12038 5 12050 1	* a sylph (An Enchanted Forest)
+E 0 12004 0 12		*	A light gossamer gown: about the shoulders
+M 0 12037 10 12051 1	* a sprite (An Enchanted Forest)
+E 0 12005 0 16		*	A small slender sword: wielded
+E 0 12006 0 8		*	A pair of grey boots: on the feet
+M 0 12037 10 12052 1	* a sprite (An Enchanted Forest)
+E 0 12005 0 16		*	A small slender sword: wielded
+E 0 12006 0 8		*	A pair of grey boots: on the feet
+M 0 12044 12 12052 1	* an acorn faery (An Enchanted Forest)
+E 0 12000 0 6		*	An acorn hat: over the head
+M 0 12024 6 12052 1	* a satyr piper (An Enchanted Forest)
+M 0 12044 12 12053 1	* an acorn faery (An Enchanted Forest)
+E 0 12000 0 6		*	An acorn hat: over the head
+M 0 12015 2 12054 1	* a noble sidhe knight (The Lake Shore)
+E 0 12042 0 5		*	A sidhe breastplate: on the body
+E 0 12041 0 16		*	A sidhe broadsword: wielded
+E 0 12040 0 3		*	A noble's cape: around the neck (1)
+M 0 12039 2 12054 1	* a beautiful nymph (The Lake Shore)
+E 0 12003 0 15		*	an opal bracelet: on the right wrist
+M 0 12041 3 12055 1	* an exotic mermaid (The Deep end of the Lake)
+M 0 12042 1 12055 1	* an strange merman (The Deep end of the Lake)
+E 0 12002 0 16		*	A silver trident: wielded
+M 0 12039 2 12056 1	* a beautiful nymph (The Lake Shore)
+E 0 12003 0 15		*	an opal bracelet: on the right wrist
+M 0 12036 13 12057 1	* a pixie (The Lake Shore)
+G 0 12007 0		*	A pixie bow
+E 0 12006 0 8		*	A pair of grey boots: on the feet
+M 0 12024 6 12059 1	* a satyr piper (An Enchanted Forest)
+M 0 12026 1 12060 1	* a lusty satyr (An Enchanted Forest)
+M 0 12037 10 12060 1	* a sprite (An Enchanted Forest)
+E 0 12005 0 16		*	A small slender sword: wielded
+E 0 12006 0 8		*	A pair of grey boots: on the feet
+M 0 12038 5 12060 1	* a sylph (An Enchanted Forest)
+E 0 12004 0 12		*	A light gossamer gown: about the shoulders
+M 0 12040 5 12060 1	* a playful dryad (An Enchanted Forest)
+M 0 12024 6 12061 1	* a satyr piper (An Enchanted Forest)
+M 0 12024 6 12062 1	* a satyr piper (An Enchanted Forest)
+E 0 12018 0 17		*	Pan pipes: held in the hands
+M 0 12044 12 12062 1	* an acorn faery (An Enchanted Forest)
+E 0 12000 0 6		*	An acorn hat: over the head
+M 0 12006 3 12066 1	* a sidhe noble (The Forest Edge)
+E 0 12047 0 11		*	A noble's rapier: as a shield
+E 0 12069 0 16		*	A crested shield: wielded
+E 0 12046 0 6		*	A noble's circlet: over the head
+M 0 12036 13 12066 1	* a pixie (The Forest Edge)
+G 0 12007 0		*	A pixie bow
+E 0 12006 0 8		*	A pair of grey boots: on the feet
+M 0 12038 5 12066 1	* a sylph (The Forest Edge)
+E 0 12004 0 12		*	A light gossamer gown: about the shoulders
+M 0 12036 13 12068 1	* a pixie (The Forest Edge)
+G 0 12007 0		*	A pixie bow
+E 0 12006 0 8		*	A pair of grey boots: on the feet
+M 0 12044 12 12069 1	* an acorn faery (The Forest Edge)
+E 0 12000 0 6		*	An acorn hat: over the head
+M 0 12029 4 12070 1	* an adventurous eshu (An Enchanted Forest)
+E 0 12013 0 16		*	A gleaming khopesh: wielded
+M 0 12037 10 12071 1	* a sprite (The Forest Edge)
+E 0 12005 0 16		*	A small slender sword: wielded
+E 0 12006 0 8		*	A pair of grey boots: on the feet
+M 0 12038 5 12072 1	* a sylph (The Forest Edge)
+E 0 12004 0 12		*	A light gossamer gown: about the shoulders
+M 0 12043 25 12073 1	* a flower faery (The Flower Meadow)
+G 0 12001 0		*	A drop of nectar
+M 0 12034 6 12074 1	* a sluagh watcher (The Flower Meadow)
+M 0 12037 10 12074 1	* a sprite (The Flower Meadow)
+E 0 12005 0 16		*	A small slender sword: wielded
+E 0 12006 0 8		*	A pair of grey boots: on the feet
+M 0 12043 25 12075 1	* a flower faery (The Flower Meadow)
+G 0 12001 0		*	A drop of nectar
+M 0 12043 25 12077 1	* a flower faery (The Flower Meadow)
+G 0 12001 0		*	A drop of nectar
+M 0 12007 3 12080 1	* a sidhe noble (The Flower Meadow)
+E 0 12047 0 11		*	A noble's rapier: as a shield
+E 0 12069 0 16		*	A crested shield: wielded
+E 0 12046 0 6		*	A noble's circlet: over the head
+M 0 12036 13 12080 1	* a pixie (The Flower Meadow)
+G 0 12007 0		*	A pixie bow
+E 0 12006 0 8		*	A pair of grey boots: on the feet
+M 0 12038 5 12080 1	* a sylph (The Flower Meadow)
+E 0 12004 0 12		*	A light gossamer gown: about the shoulders
+M 0 12037 10 12081 1	* a sprite (Before the Castle Gates)
+E 0 12005 0 16		*	A small slender sword: wielded
+E 0 12006 0 8		*	A pair of grey boots: on the feet
+M 0 12023 3 12082 1	* a satyr drinker (On the Dirt Trod)
+M 0 12008 3 12083 1	* a sidhe noble (On the Dirt Trod)
+E 0 12047 0 11		*	A noble's rapier: as a shield
+E 0 12069 0 16		*	A crested shield: wielded
+E 0 12046 0 6		*	A noble's circlet: over the head
+M 0 12040 5 12083 1	* a playful dryad (On the Dirt Trod)
+M 0 12023 3 12083 1	* a satyr drinker (On the Dirt Trod)
+M 0 12023 3 12084 1	* a satyr drinker (The Dog Tail Inn)
+G 0 12019 0		*	A flagon of dark ale
+M 0 12024 6 12084 1	* a satyr piper (The Dog Tail Inn)
+E 0 12018 0 17		*	Pan pipes: held in the hands
+M 0 12030 3 12084 1	* an eshu (The Dog Tail Inn)
+G 0 12007 0		*	A pixie bow
+M 0 12031 2 12084 1	* a drunken eshu (The Dog Tail Inn)
+G 0 12019 0		*	A flagon of dark ale
+M 0 12037 10 12085 1	* a sprite (The Flower Meadow)
+E 0 12005 0 16		*	A small slender sword: wielded
+E 0 12006 0 8		*	A pair of grey boots: on the feet
+M 0 12043 25 12085 1	* a flower faery (The Flower Meadow)
+G 0 12001 0		*	A drop of nectar
+M 0 12036 13 12086 1	* a pixie (The Flower Meadow)
+G 0 12007 0		*	A pixie bow
+E 0 12006 0 8		*	A pair of grey boots: on the feet
+M 0 12040 5 12086 1	* a playful dryad (The Flower Meadow)
+M 0 12043 25 12087 1	* a flower faery (The Flower Meadow)
+G 0 12001 0		*	A drop of nectar
+M 0 12025 5 12089 1	* a satyr singer (The Flower Meadow)
+M 0 12014 2 12089 1	* a noble sidhe knight (The Flower Meadow)
+E 0 12042 0 5		*	A sidhe breastplate: on the body
+E 0 12041 0 16		*	A sidhe broadsword: wielded
+E 0 12040 0 3		*	A noble's cape: around the neck (1)
+M 0 12036 13 12089 1	* a pixie (The Flower Meadow)
+G 0 12007 0		*	A pixie bow
+E 0 12006 0 8		*	A pair of grey boots: on the feet
+M 0 12037 10 12089 1	* a sprite (The Flower Meadow)
+E 0 12005 0 16		*	A small slender sword: wielded
+E 0 12006 0 8		*	A pair of grey boots: on the feet
+M 0 12040 5 12089 1	* a playful dryad (The Flower Meadow)
+M 0 12025 5 12093 1	* a satyr singer (The Flower Meadow)
+M 0 12025 5 12094 1	* a satyr singer (The Flower Meadow)
+M 0 12043 25 12094 1	* a flower faery (The Flower Meadow)
+G 0 12001 0		*	A drop of nectar
+M 0 12025 5 12095 1	* a satyr singer (The Flower Meadow)
+M 0 12034 6 12095 1	* a sluagh watcher (The Flower Meadow)
+M 0 12036 13 12095 1	* a pixie (The Flower Meadow)
+G 0 12007 0		*	A pixie bow
+E 0 12006 0 8		*	A pair of grey boots: on the feet
+M 0 12029 4 12096 1	* an adventurous eshu (The Flower Meadow)
+E 0 12013 0 16		*	A gleaming khopesh: wielded
+M 0 12043 25 12096 1	* a flower faery (The Flower Meadow)
+G 0 12001 0		*	A drop of nectar
+M 0 12043 25 12097 1	* a flower faery (The Flower Meadow)
+G 0 12001 0		*	A drop of nectar
+O 0 12027 0 12100		* A wooden bucket (The Great Stone Forge)
+O 0 12024 0 12100		* A HUGE stone forge (The Great Stone Forge)
+P 0 12022 0 12024 1	* A HUGE stone forge: A fiery ember
+O 0 12023 0 12100		* A pile of coals (The Great Stone Forge)
+O 0 12023 0 12100		* A pile of coals (The Great Stone Forge)
+P 0 12025 0 12023 1	* A pile of coals: A crude, dark sword
+M 0 12028 3 12100 1	* a boggan smith (The Great Stone Forge)
+G 0 12021 0		*	An unfinished axe
+E 0 12017 0 12		*	A scorched leather apron: about the shoulders
+M 0 12028 3 12100 1	* a boggan smith (The Great Stone Forge)
+G 0 12014 0		*	An unfinished helmet
+E 0 12017 0 12		*	A scorched leather apron: about the shoulders
+M 0 12012 2 12102 1	* a noble sidhe knight (Up on a Path in the Mountains)
+E 0 12042 0 5		*	A sidhe breastplate: on the body
+E 0 12041 0 16		*	A sidhe broadsword: wielded
+E 0 12040 0 3		*	A noble's cape: around the neck (1)
+M 0 12027 1 12104 1	* a boggan craftsman (The Crafts Shoppe)
+G 0 12015 0		*	An unfinished pair of boots
+E 0 12016 0 16		*	A stitching needle: wielded
+M 0 12034 6 12109 1	* a sluagh watcher (The Trophy Room)
+O 0 12062 0 12110		* An unmade bed (A Small Bedroom)
+O 0 12062 0 12111		* An unmade bed (A Small Bedroom)
+O 0 12063 0 12112		* A well made bed (A Small Bedroom)
+P 0 12064 0 12063 1	* A well made bed: A scroll of armor making
+M 0 12032 4 12113 1	* a savage redcap (A Dark Abyss)
+E 0 12011 0 16		*	A blood stained club: wielded
+E 0 12010 0 6		*	A red cap: over the head
+M 0 12032 4 12114 1	* a savage redcap (More Darkness and Slime)
+E 0 12011 0 16		*	A blood stained club: wielded
+E 0 12010 0 6		*	A red cap: over the head
+O 0 12028 0 12115		* slime pool (The Forbiden Room)
+P 0 12029 0 12028 1	* slime pool: A bit of slime
+P 0 12061 0 12028 1	* slime pool: A bit of slime
+M 0 12035 2 12115 1	* a sluagh guardian (The Forbiden Room)
+G 0 12067 0		*	A small Black key
+E 0 12008 0 16		*	A dull kris blade: wielded
+M 0 12020 5 12116 1	* a troll guard (Top of the Western Guard Tower)
+E 0 12039 0 1		*	An oath ring: on the left finger
+E 0 12038 0 11		*	An ice shield: as a shield
+E 0 12037 0 16		*	A twisted spiked club: wielded
+M 0 12037 10 12116 1	* a sprite (Top of the Western Guard Tower)
+E 0 12005 0 16		*	A small slender sword: wielded
+E 0 12006 0 8		*	A pair of grey boots: on the feet
+M 0 12011 2 12118 1	* a sidhe guard (The Guard Barracks)
+E 0 12045 0 14		*	An engraved sidhe bracer: on the left wrist
+E 0 12045 0 15		*	An engraved sidhe bracer: on the right wrist
+E 0 12044 0 7		*	A pair of sidhe greaves: on the legs
+E 0 12043 0 10		*	A pair of sidhe armguards: on the arms
+M 0 12020 5 12118 1	* a troll guard (The Guard Barracks)
+E 0 12039 0 1		*	An oath ring: on the left finger
+E 0 12038 0 11		*	An ice shield: as a shield
+E 0 12037 0 16		*	A twisted spiked club: wielded
+M 0 12034 6 12119 1	* a sluagh watcher (The Gates of the Fae Stronghold)
+M 0 12036 13 12119 1	* a pixie (The Gates of the Fae Stronghold)
+G 0 12007 0		*	A pixie bow
+E 0 12006 0 8		*	A pair of grey boots: on the feet
+M 0 12019 6 12120 2	* a troll guard (The East Tower)
+G 0 12065 0		*	A small oak key
+E 0 12039 0 1		*	An oath ring: on the left finger
+E 0 12038 0 11		*	An ice shield: as a shield
+E 0 12036 0 16		*	A white  mace: wielded
+M 0 12019 6 12120 2	* a troll guard (The East Tower)
+E 0 12039 0 1		*	An oath ring: on the left finger
+E 0 12038 0 11		*	An ice shield: as a shield
+E 0 12036 0 16		*	A white  mace: wielded
+M 0 12010 3 12121 1	* a sidhe guard (Inside the East Tower)
+E 0 12045 0 14		*	An engraved sidhe bracer: on the left wrist
+E 0 12045 0 15		*	An engraved sidhe bracer: on the right wrist
+E 0 12044 0 7		*	A pair of sidhe greaves: on the legs
+E 0 12043 0 10		*	A pair of sidhe armguards: on the arms
+M 0 12020 8 12123 1	* a troll guard (The Entryway)
+E 0 12039 0 1		*	An oath ring: on the left finger
+E 0 12038 0 11		*	An ice shield: as a shield
+E 0 12037 0 16		*	A twisted spiked club: wielded
+M 0 12029 4 12125 1	* an adventurous eshu (The Hall of Summer)
+E 0 12013 0 16		*	A gleaming khopesh: wielded
+M 0 12020 8 12131 1	* a troll guard (The Base of the Tower)
+E 0 12039 0 1		*	An oath ring: on the left finger
+E 0 12038 0 11		*	An ice shield: as a shield
+E 0 12037 0 16		*	A twisted spiked club: wielded
+M 0 12031 2 12131 1	* a drunken eshu (The Base of the Tower)
+G 0 12019 0		*	A flagon of dark ale
+M 0 12037 10 12132 1	* a sprite (A Hallway)
+E 0 12005 0 16		*	A small slender sword: wielded
+E 0 12006 0 8		*	A pair of grey boots: on the feet
+M 0 12019 6 12134 1	* a troll guard (The Courtyard)
+E 0 12039 0 1		*	An oath ring: on the left finger
+E 0 12038 0 11		*	An ice shield: as a shield
+E 0 12036 0 16		*	A white  mace: wielded
+M 0 12003 1 12134 1	* True Thomas (The Courtyard)
+G 0 12052 0		*	poetry
+E 0 12053 0 12		*	A poet's robe: about the shoulders
+M 0 12022 2 12134 1	* a pooka jester (The Courtyard)
+G 0 12033 0		*	A jester's stick
+E 0 12020 0 6		*	A jester's cap: over the head
+O 0 12026 0 12134		* A beautiful crystal fountain (The Courtyard)
+M 0 12024 6 12134 1	* a satyr piper (The Courtyard)
+E 0 12018 0 17		*	Pan pipes: held in the hands
+M 0 12030 3 12134 1	* an eshu (The Courtyard)
+G 0 12007 0		*	A pixie bow
+M 0 12040 5 12134 1	* a playful dryad (The Courtyard)
+M 0 12019 6 12135 1	* a troll guard (A Hallway)
+E 0 12039 0 1		*	An oath ring: on the left finger
+E 0 12038 0 11		*	An ice shield: as a shield
+E 0 12036 0 16		*	A white  mace: wielded
+M 0 12036 13 12136 1	* a pixie (A Hallway)
+G 0 12007 0		*	A pixie bow
+E 0 12006 0 8		*	A pair of grey boots: on the feet
+M 0 12019 6 12138 1	* a troll guard (Inside the Eastern Tower)
+E 0 12039 0 1		*	An oath ring: on the left finger
+E 0 12038 0 11		*	An ice shield: as a shield
+E 0 12036 0 16		*	A white  mace: wielded
+O 0 12030 0 12141		* A large oak bookshelf (The Chamber of Lughnasadh)
+P 0 12031 0 12030 1	* A large oak bookshelf: An ancient manuscript
+P 0 12032 0 12030 1	* A large oak bookshelf: An ancient manuscript
+P 0 12066 0 12030 1	* A large oak bookshelf: A page of glowing script
+M 0 12011 2 12142 1	* a sidhe guard (Inside the Western Guard Tower)
+E 0 12045 0 14		*	An engraved sidhe bracer: on the left wrist
+E 0 12045 0 15		*	An engraved sidhe bracer: on the right wrist
+E 0 12044 0 7		*	A pair of sidhe greaves: on the legs
+E 0 12043 0 10		*	A pair of sidhe armguards: on the arms
+M 0 12008 3 12143 1	* a sidhe noble (Top of the Western Guard Tower)
+E 0 12047 0 11		*	A noble's rapier: as a shield
+E 0 12069 0 16		*	A crested shield: wielded
+E 0 12046 0 6		*	A noble's circlet: over the head
+M 0 12032 4 12143 1	* a savage redcap (Top of the Western Guard Tower)
+E 0 12011 0 16		*	A blood stained club: wielded
+E 0 12010 0 6		*	A red cap: over the head
+G 0 12058 0		*	A bag of tricks
+E 0 12057 0 3		*	The cloak of shadows: around the neck (1)
+P 0 12068 0 12058 1	* A bag of tricks: Some glowing dust
+P 0 12059 0 12058 1	* A bag of tricks: An orange
+P 0 12060 0 12058 1	* A bag of tricks: A small pebble
+M 0 12006 3 12144 1	* a sidhe noble (The Court of the Fae)
+E 0 12047 0 11		*	A noble's rapier: as a shield
+E 0 12069 0 16		*	A crested shield: wielded
+E 0 12046 0 6		*	A noble's circlet: over the head
+M 0 12009 3 12144 1	* a sidhe noble (The Court of the Fae)
+E 0 12047 0 11		*	A noble's rapier: as a shield
+E 0 12069 0 16		*	A crested shield: wielded
+E 0 12046 0 6		*	A noble's circlet: over the head
+M 0 12016 2 12144 1	* a noble sidhe knight (The Court of the Fae)
+E 0 12042 0 5		*	A sidhe breastplate: on the body
+E 0 12041 0 16		*	A sidhe broadsword: wielded
+E 0 12040 0 3		*	A noble's cape: around the neck (1)
+M 0 12017 2 12144 1	* a noble sidhe knight (The Court of the Fae)
+E 0 12042 0 5		*	A sidhe breastplate: on the body
+E 0 12041 0 16		*	A sidhe broadsword: wielded
+E 0 12040 0 3		*	A noble's cape: around the neck (1)
+M 0 12018 2 12144 1	* a noble sidhe knight (The Court of the Fae)
+E 0 12042 0 5		*	A sidhe breastplate: on the body
+E 0 12041 0 16		*	A sidhe broadsword: wielded
+E 0 12040 0 3		*	A noble's cape: around the neck (1)
+M 0 12019 6 12144 1	* a troll guard (The Court of the Fae)
+E 0 12039 0 1		*	An oath ring: on the left finger
+E 0 12038 0 11		*	An ice shield: as a shield
+E 0 12036 0 16		*	A white  mace: wielded
+M 0 12021 1 12144 1	* a pooka jester (The Court of the Fae)
+G 0 12035 0		*	A jester's stick
+E 0 12020 0 6		*	A jester's cap: over the head
+M 0 12022 2 12144 1	* a pooka jester (The Court of the Fae)
+G 0 12034 0		*	A jester's stick
+M 0 12030 3 12144 1	* an eshu (The Court of the Fae)
+G 0 12007 0		*	A pixie bow
+M 0 12034 6 12144 1	* a sluagh watcher (The Court of the Fae)
+M 0 12006 3 12145 1	* a sidhe noble (The Top of the Eastern Guard Tower)
+E 0 12047 0 11		*	A noble's rapier: as a shield
+E 0 12069 0 16		*	A crested shield: wielded
+E 0 12046 0 6		*	A noble's circlet: over the head
+M 0 12010 3 12145 1	* a sidhe guard (The Top of the Eastern Guard Tower)
+E 0 12045 0 14		*	An engraved sidhe bracer: on the left wrist
+E 0 12045 0 15		*	An engraved sidhe bracer: on the right wrist
+E 0 12044 0 7		*	A pair of sidhe greaves: on the legs
+E 0 12043 0 10		*	A pair of sidhe armguards: on the arms
+M 0 12000 1 12146 1	* Oberon (The Throne of the Seelie Fae)
+E 0 12056 0 3		*	A golden torc: around the neck (1)
+M 0 12001 1 12146 1	* Queen Titania (The Throne of the Seelie Fae)
+E 0 12054 0 5		*	An embroidered gown: on the body
+E 0 12055 0 3		*	A summer locket: around the neck (1)
+M 0 12010 3 12146 1	* a sidhe guard (The Throne of the Seelie Fae)
+E 0 12045 0 14		*	An engraved sidhe bracer: on the left wrist
+E 0 12045 0 15		*	An engraved sidhe bracer: on the right wrist
+E 0 12044 0 7		*	A pair of sidhe greaves: on the legs
+E 0 12043 0 10		*	A pair of sidhe armguards: on the arms
+O 0 12028 0 12148		* slime pool (The Watcher's Home)
+P 0 12029 0 12028 1	* slime pool: A bit of slime
+P 0 12061 0 12028 1	* slime pool: A bit of slime
+M 0 12032 4 12148 1	* a savage redcap (The Watcher's Home)
+E 0 12011 0 16		*	A blood stained club: wielded
+E 0 12010 0 6		*	A red cap: over the head
+M 0 12033 3 12148 1	* a murderous redcap (The Watcher's Home)
+E 0 12009 0 16		*	A jagged blade: wielded
+E 0 12010 0 6		*	A red cap: over the head
+M 0 12035 2 12148 1	* a sluagh guardian (The Watcher's Home)
+E 0 12008 0 16		*	A dull kris blade: wielded
+M 0 12004 1 12149 1	* Gwyn ap Nudd (The Hidden Court)
+E 0 12051 0 3		*	A silver torc: around the neck (1)
+E 0 12050 0 6		*	A stag horned helmet: over the head
+M 0 12020 5 12149 1	* a troll guard (The Hidden Court)
+E 0 12039 0 1		*	An oath ring: on the left finger
+E 0 12038 0 11		*	An ice shield: as a shield
+E 0 12037 0 16		*	A twisted spiked club: wielded
+M 0 12005 1 12150 1	* The Morrigan (The Hidden Court)
+G 0 12049 0		*	night's blood
+G 0 12048 0		*	The heart of Night
+M 0 12033 3 12150 1	* a murderous redcap (The Hidden Court)
+E 0 12009 0 16		*	A jagged blade: wielded
+E 0 12010 0 6		*	A red cap: over the head
+M 0 12045 1 12156 1	* A little boy (Behind the Hill)
+M 0 12046 1 12157 1	* A CuSidhe (Under the Hill)
+M 0 12047 1 12157 1	* A BoSidhe (Under the Hill)
+M 0 12048 1 12157 1	* A CatSidhe (Under the Hill)
+M 0 12049 1 12157 1	* A BranSidhe (Under the Hill)
 S
 
 
 
 #SHOPS
 0
+
+
+
+#OLIMITS
+S
+
+
+
+#MOBPROGS
+#0
+
+#PRACTICERS
+S
+
+
+
+#OMPROGS
+S
+
 
 
 #$

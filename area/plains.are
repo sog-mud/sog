@@ -1,8 +1,14 @@
-#AREA
-plains.are~
-Plains~
-{ 1 20} Copper  Plains of the North~
-300 399
+#AREADATA
+Name Plains~
+Builders None~
+VNUMs 300 399
+Credits Copper~
+Security 9
+LevelRange 1 20
+End
+
+
+
 #MOBILES
 #300
 oldstyle druid Aruncus~
@@ -18,7 +24,7 @@ AGH D -500 0
 -1 -1 -1 8
 EFNU 0 0 0
 stand stand male 25
-0 0 medium 0
+0 0 medium unknown
 #301
 oldstyle hermit sorbus~
 Sorbus the Hermit~
@@ -34,7 +40,7 @@ AB 0 0 0
 6 6 6 9
 EFNU 0 0 0
 sit sit male 0
-0 0 medium 0
+0 0 medium unknown
 #303
 oldstyle citizen~
 the citizen~
@@ -49,7 +55,7 @@ ACG 0 0 0
 4 4 4 9
 EFNU 0 0 0
 stand stand male 10
-0 0 medium 0
+0 0 medium unknown
 #304
 oldstyle citizen~
 the citizen~
@@ -64,7 +70,7 @@ ACG 0 0 0
 5 5 5 9
 EFNU 0 0 0
 stand stand female 5
-0 0 medium 0
+0 0 medium unknown
 #305
 oldstyle worm Shudde-M'ell~
 Shudde-M'ell~
@@ -80,7 +86,7 @@ ABF D -1000 0
 -6 -6 -6 6
 EFNU 0 0 0
 stand stand male 683
-0 0 medium 0
+0 0 medium unknown
 #306
 oldstyle luxan shopkeeper~
 Luxan~
@@ -97,7 +103,7 @@ ABC 0 400 0
 -6 -6 -6 6
 EFNU 0 0 0
 stand stand male 400
-0 0 medium 0
+0 0 medium unknown
 #308
 oldstyle keeper innkeeper~
 the Innkeeper~
@@ -112,7 +118,7 @@ AB 0 -100 0
 -6 -6 -6 6
 EFNU 0 0 0
 stand stand male 5
-0 0 medium 0
+0 0 medium unknown
 #309
 oldstyle rabbit~
 the cute rabbit~
@@ -126,7 +132,7 @@ AG 0 0 0
 9 9 9 10
 ENR 0 0 0
 stand stand none 0
-0 0 medium 0
+0 0 medium unknown
 #350
 oldstyle dragon pet~
 the pet dragon~
@@ -142,8 +148,11 @@ ABHR DH 1000 0
 2 2 2 6
 FR 0 0 0
 stand stand female 0
-0 0 medium 0
+0 0 medium unknown
 #0
+
+
+
 #OBJECTS
 #300
 herbs herb timian~
@@ -151,7 +160,7 @@ a small dusk of timian herbs~
 Some herbs are lying here, small green leaves and tiny pink flowers.~
 plant_organism~
 food 0 A
-1 1 0 0 0
+A A 0 0 0
 0 10 10 P
 E
 herbs herb timian~
@@ -164,7 +173,7 @@ Some black gyvel is lying here, dark green with black leaves and tiny
 blood red flowers.~
 food~
 food 0 A
-1 1 0 0 0
+A A 0 0 0
 0 10 10 P
 E
 herbs herb gyvel~
@@ -176,7 +185,7 @@ a small dusk of poison ivy~
 Some poison ivy is growing here.~
 plant_organism~
 food 0 A
-1 1 0 1 0
+A A 0 A 0
 0 10 0 P
 E
 plant ivy~
@@ -242,7 +251,7 @@ a rabbit roast~
 You see a deliciously looking rabbit roast.~
 meat~
 food 0 A
-24 24 0 0 0
+DE DE 0 0 0
 0 50 0 P
 E
 roast rabbit wabbit~
@@ -305,6 +314,8 @@ As you examine it closer you notice primitive drawings of
 men doing some kind of a ritual.
 ~
 #0
+
+
 
 #ROOMS
 #300
@@ -653,6 +664,15 @@ two gallows, with rotting human tissue hanging from the ropes.
 There is a sign here.
 ~
 0 0 4
+E
+sign~
+The sign says:
+  Loyal citizens of Midgaard.  These are the earthly remains of the
+  two heretics 'Dim' and 'Gamma' of this world. Having forged them-
+  selves to immortality, they called upon themselves the anger of the
+  implementators.  Let this be a lesson too all .....
+                                    -- the Powers that Be.
+~
 D0
 The plains extend far to the north.
 ~
@@ -673,15 +693,6 @@ The plains extend far to the west.
 ~
 ~
 0 -1 318
-E
-sign~
-The sign says:
-  Loyal citizens of Midgaard.  These are the earthly remains of the
-  two heretics 'Dim' and 'Gamma' of this world. Having forged them-
-  selves to immortality, they called upon themselves the anger of the
-  implementators.  Let this be a lesson too all .....
-                                    -- the Powers that Be.
-~
 S
 #316
 Grassy plains~
@@ -867,6 +878,15 @@ To the north you can see the mountains towering over you.  Pine trees
 grow here.
 ~
 0 0 4
+E
+pine tree trees pines~
+The all too quiet trees suggest that something roams these woods.
+~
+E
+mountains~
+The mountains seems dark and all most alive, as they contrast against
+the sky.
+~
 D0
 The path continues up the mountain.
 ~
@@ -888,15 +908,6 @@ The foothills extend far to the west.
 ~
 ~
 0 -1 323
-E
-pine tree trees pines~
-The all too quiet trees suggest that something roams these woods.
-~
-E
-mountains~
-The mountains seems dark and all most alive, as they contrast against
-the sky.
-~
 S
 #325
 The steep foothills~
@@ -928,6 +939,11 @@ A steep slope rises up into the foothills to the north. Behind them ...
 the mountains.
 ~
 0 0 4
+E
+pool~
+The pool is crystal clear, but as you look into it you notice that
+you can't see the bottom of it ... it must be pretty deep.
+~
 D1
 To the east you notice a small path in the foothills.
 ~
@@ -943,11 +959,6 @@ The foothills extend far to the west.
 ~
 ~
 0 -1 325
-E
-pool~
-The pool is crystal clear, but as you look into it you notice that
-you can't see the bottom of it ... it must be pretty deep.
-~
 S
 #327
 The foothills~
@@ -993,7 +1004,7 @@ D3
 You see a small crumbled hut here, must be a hermit living here.
 ~
 door~
-1 -1 331
+0 -1 331
 S
 #331
 Hermit's hut~
@@ -1002,15 +1013,15 @@ It keeps its habitant from the rough winds and dangerous beasts of the
 plains and foothills. There is a small fireplace here.
 ~
 0 D 0
-D1
-Through the door you can see the foothills.
-~
-door~
-1 -1 330
 E
 fireplace~
 The hermit cooks here.
 ~
+D1
+Through the door you can see the foothills.
+~
+door~
+0 -1 330
 S
 #332
 The ancient path~
@@ -1075,6 +1086,11 @@ The path runs north and east from here.  You notice some markers placed
 along the side of the path.
 ~
 0 0 3
+E
+markers~
+The markers seems like normal stones, but the way they are
+arranged makes you think there is something special about them.
+~
 D0
 You see the ancient path winding its way north from here. Looks safe.
 ~
@@ -1089,11 +1105,6 @@ D3
 The jungle~
 ~
 0 -1 17171
-E
-markers~
-The markers seems like normal stones, but the way they are
-arranged makes you think there is something special about them.
-~
 S
 #336
 The wooden bridge~
@@ -1101,6 +1112,12 @@ You have stepped upon a wooden bridge. It looks old but safe to cross.
 It is made of a wood you haven't seen before.
 ~
 0 0 2
+E
+rock formation formations~
+The rock formations are made of 7 huge, monolith like stones, placed
+in a symbolic circle.
+You notice it's possible to enter the ring.
+~
 D1
 The path continues, further ahead you notice some rock formations.
 ~
@@ -1111,12 +1128,6 @@ The ancient path leads west and turns north further ahead.
 ~
 ~
 0 -1 335
-E
-rock formation formations~
-The rock formations are made of 7 huge, monolith like stones, placed
-in a symbolic circle.
-You notice it's possible to enter the ring.
-~
 S
 #337
 The ancient path~
@@ -1126,6 +1137,11 @@ them, about 15 feet tall and almost perfect rectangular shape.
 You feel impressed with the awesome sight.
 ~
 0 0 3
+E
+rock formation formations~
+The rock formations are made of seven huge monolith placed in a circle.
+You notice it's possible to enter the ring.
+~
 D1
 To the east you enter the ring of stones. You wonder if it's safe.
 ~
@@ -1136,11 +1152,6 @@ To the west the ancient path leads across the wooden bridge.
 ~
 ~
 0 -1 336
-E
-rock formation formations~
-The rock formations are made of seven huge monolith placed in a circle.
-You notice it's possible to enter the ring.
-~
 S
 #338
 Grassy plains~
@@ -1172,16 +1183,6 @@ noticing a big sacrifice altar. The ground is covered with dirt, but the
 altar shows no sign of such. West of here is the ancient path.
 ~
 0 0 2
-D3
-You see the ancient path and the wooden bridge here.
-~
-~
-0 -1 337
-D5
-You see a tunnel down there.
-~
-~
-0 -1 340
 E
 death rituals worms engraving picture~
 The pictures are depicting evil rituals.
@@ -1200,6 +1201,16 @@ The stones of G'harne tower fifteen feet over you.
 The giant stones are made of a material you haven't seen before.
 It resembles black marble, but somehow feels different.
 ~
+D3
+You see the ancient path and the wooden bridge here.
+~
+~
+0 -1 337
+D5
+You see a tunnel down there.
+~
+~
+0 -1 340
 S
 #340
 Dark smelly tunnels~
@@ -1209,6 +1220,12 @@ rotting pieces of a meat like substance, fills the air with an unbearable
 stench.  You might be able to force your way up into fresh air from here.
 ~
 0 ADI 0
+E
+meat rotting slime substance~
+You try to examine the substance closer, but must refrain from this
+as all you really want to do is puke.
+You puke.
+~
 D2
 ~
 ~
@@ -1222,12 +1239,6 @@ You welcome the sight of fresh air.
 ~
 ~
 0 -1 339
-E
-meat rotting slime substance~
-You try to examine the substance closer, but must refrain from this
-as all you really want to do is puke.
-You puke.
-~
 S
 #341
 Dead end of tunnel~
@@ -1247,6 +1258,12 @@ The walls are covered with a smelly slime and small rotting pieces of a
 meat like substance, fills the air with an unbearable stench.
 ~
 0 ADI 0
+E
+meat rotting slime substance~
+You try to examine the substance closer, but must refrain from this
+as all you really want to do is puke.
+You puke.
+~
 D1
 The tunnel continues in this direction.
 ~
@@ -1257,12 +1274,6 @@ The tunnel continues in this direction.
 ~
 ~
 0 -1 343
-E
-meat rotting slime substance~
-You try to examine the substance closer, but must refrain from this
-as all you really want to do is puke.
-You puke.
-~
 S
 #343
 Dark smelly tunnels~
@@ -1271,6 +1282,10 @@ The smell is growing stronger to the west, so is the density of the
 slime and other undeterminable substances ...
 ~
 0 I 0
+E
+slime substance~
+BWADR! ...
+~
 D1
 The unbearable stench is less intensive in this direction.
 ~
@@ -1281,10 +1296,6 @@ The tunnel seems to extend into some kind of cave.
 ~
 ~
 0 -1 344
-E
-slime substance~
-BWADR! ...
-~
 S
 #344
 The Hall of G'harne~
@@ -1293,15 +1304,15 @@ carving, symbolizing human sacrifice and people worshipping giant worms.
 Disgusting slime and gore are also very dominant in your view of this room.
 ~
 0 ADI 0
+E
+slime gore~
+You puke.
+~
 D1
 It looks like a good idea just to run in this direction.
 ~
 ~
 0 -1 343
-E
-slime gore~
-You puke.
-~
 S
 #345
 Steep slope~
@@ -1316,32 +1327,62 @@ You've fallen, and you can't get up!
 0 C 2
 S
 #0
-#RESETS
-O 0  300  10  327	* a small dusk of timian herbs
-O 0  301  10  319	* a small dusk of black gyvel
-O 0  304   3  316	* wild flowers
-O 0  304   3  323	* wild flowers
-O 0  304   3  338	* wild flowers
-M 0  305   1  344  1	* Shudde-M'ell
-G 1  310   5     	*   a strange template
-G 1  311  -1     	*   a clear potion
-M 0  309  10  324  4	* the cute rabbit
-M 0  309  10  318  4	* the cute rabbit
-M 0  309  10  334  4	* the cute rabbit
-M 0  300   1  323  1	* Aruncus the Druid
-E 1  308   2   17	*   a druish staff
-E 1  307   2    3	*   a strange amulet
-G 1  312   1     	*   a scroll titled 'jhyfrdow'
-G 1  302  10     	*   a small dusk of poison ivy
-M 0  301   1  331  1	* Sorbus the Hermit
-G 1  303   2     	*   a dark red jar
-O 0  309  30  331	* a rabbit roast
-S
-#SHOPS
- 306  1 10 11 19  0 	 120  60 	 0 23 	* Luxan
- 308  0  0  0  0  0 	 110 100 	 0 23 	* the Innkeeper
-0
+
+
+
 #SPECIALS
-M 350 spec_cast_mage      	* the pet dragon
+M 350 spec_cast_mage	* the pet dragon
 S
+
+
+
+#RESETS
+O 0 304 0 316		* wild flowers (Grassy plains)
+M 0 309 10 318 4	* the cute rabbit (Grassy plains)
+O 0 301 0 319		* a small dusk of black gyvel (Grassy plains)
+O 0 304 0 323		* wild flowers (The steep foothills)
+M 0 300 1 323 1	* Aruncus the Druid (The steep foothills)
+E 0 308 0 17		*	a druish staff: held in the hands
+E 0 307 0 3		*	a strange amulet: around the neck (1)
+G 0 312 0		*	a scroll titled 'jhyfrdow'
+G 0 302 0		*	a small dusk of poison ivy
+M 0 309 10 324 4	* the cute rabbit (The steep foothills)
+O 0 300 0 327		* a small dusk of timian herbs (The foothills)
+M 0 301 1 331 1	* Sorbus the Hermit (Hermit's hut)
+G 0 303 0		*	a dark red jar
+O 0 309 0 331		* a rabbit roast (Hermit's hut)
+M 0 309 10 334 4	* the cute rabbit (The ancient path)
+O 0 304 0 338		* wild flowers (Grassy plains)
+M 0 305 1 344 1	* Shudde-M'ell (The Hall of G'harne)
+G 0 310 0		*	a strange template
+G 0 311 0		*	a clear potion
+S
+
+
+
+#SHOPS
+306 1 10 11 19 0 120 60 0 23
+308 0 0 0 0 0 110 100 0 23
+0
+
+
+
+#OLIMITS
+S
+
+
+
+#MOBPROGS
+#0
+
+#PRACTICERS
+S
+
+
+
+#OMPROGS
+S
+
+
+
 #$

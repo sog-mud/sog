@@ -3781,10 +3781,10 @@ The mirror hall surrounds and envelops you; you can see nothing but yourself
 in every direction.
 ~
 0 D 0
-D2
+D0
 ~
 ~
-0 -1 19031
+0 -1 19036
 D3
 ~
 ~
@@ -3793,10 +3793,10 @@ D1
 ~
 ~
 0 -1 19033
-D0
+D2
 ~
 ~
-0 -1 19036
+0 -1 19031
 S
 #19033
 Mirrors~
@@ -3808,14 +3808,14 @@ D1
 ~
 ~
 0 -1 19034
-D3
-~
-~
-0 -1 19032
 D0
 ~
 ~
 0 -1 19035
+D3
+~
+~
+0 -1 19032
 S
 #19034
 Mirrors~
@@ -3823,14 +3823,14 @@ The mirror hall surrounds and envelops you; you can see nothing but yourself
 in every direction.
 ~
 0 D 0
-D0
-~
-~
-0 -1 19037
 D3
 ~
 ~
 0 -1 19033
+D0
+~
+~
+0 -1 19037
 D1
 ~
 ~
@@ -3865,22 +3865,22 @@ The mirror hall surrounds and envelops you; you can see nothing but yourself
 in every direction.
 ~
 0 D 0
-D3
-~
-~
-0 -1 19037
-D1
-~
-~
-0 -1 19035
-D0
-~
-~
-0 -1 19040
 D2
 ~
 ~
 0 -1 19032
+D3
+~
+~
+0 -1 19037
+D0
+~
+~
+0 -1 19040
+D1
+~
+~
+0 -1 19035
 S
 #19037
 Mirrors~
@@ -3892,6 +3892,10 @@ D2
 ~
 ~
 0 -1 19034
+D0
+~
+~
+0 -1 19039
 D3
 ~
 ~
@@ -3900,10 +3904,6 @@ D1
 ~
 ~
 0 -1 19036
-D0
-~
-~
-0 -1 19039
 S
 #19038
 Mirrors~
@@ -3911,6 +3911,10 @@ The mirror hall surrounds and envelops you; you can see nothing but yourself
 in every direction.
 ~
 0 D 0
+D2
+~
+~
+0 -1 19035
 D1
 ~
 ~
@@ -3919,10 +3923,6 @@ D3
 ~
 ~
 0 -1 19040
-D2
-~
-~
-0 -1 19035
 S
 #19039
 Mirrors~
@@ -3930,18 +3930,18 @@ The mirror hall surrounds and envelops you; you can see nothing but yourself
 in every direction.
 ~
 0 D 0
-D1
-~
-~
-0 -1 19040
-D2
-~
-~
-0 -1 19037
 D3
 ~
 ~
 0 -1 19038
+D2
+~
+~
+0 -1 19037
+D1
+~
+~
+0 -1 19040
 S
 #19040
 Mirrors~
@@ -3949,14 +3949,6 @@ The mirror hall surrounds and envelops you; you can see nothing but yourself
 in every direction.
 ~
 0 D 0
-D3
-~
-~
-0 -1 19039
-D0
-~
-~
-0 -1 19041
 D2
 ~
 ~
@@ -3965,6 +3957,14 @@ D1
 ~
 ~
 0 -1 19038
+D0
+~
+~
+0 -1 19041
+D3
+~
+~
+0 -1 19039
 S
 #19041
 Intersection~

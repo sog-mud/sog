@@ -1,8 +1,12 @@
-#AREA
-zoology.are~
-zoology~
-{ 1 10} Og      MudSchool FieldTrip~
-400 499
+#AREADATA
+Name zoology~
+Builders None~
+VNUMs 400 499
+Credits Og~
+Security 9
+LevelRange 1 10
+End
+
 
 
 #MOBILES
@@ -17,9 +21,9 @@ human~
 ABC 0 0 0
 1 0 2d2+4 1d1+99 1d2+0 bite
 10 10 10 100
-0 0 0 0 
+0 0 0 0
 stand stand either 15
-0 0 flesh 0
+0 0 tiny unknown
 #401
 man gorilla~
 A gorilla~
@@ -34,7 +38,7 @@ ABH 0 -333 0
 2 2 2 0
 0 0 0 0
 stand stand male 45
-0 0 medium 0
+0 0 medium unknown
 #402
 pubic lice~
 A pubic lice~
@@ -49,7 +53,7 @@ ABH 0 -300 0
 7 4 8 10
 K 0 0 0
 stand stand female 25
-0 0 medium 0
+0 0 medium unknown
 #403
 john shopkeeper~
 John the shopkeeper~
@@ -63,7 +67,7 @@ ABV 0 200 0
 4 4 4 7
 CEIK ABCD 0 0
 stand stand male 250
-0 0 medium 0
+0 0 medium unknown
 #404
 shark~
 a shark~
@@ -78,7 +82,7 @@ ABF 0 -300 0
 3 3 3 5
 DKMV AR LQ 0
 stand stand male 250
-0 0 large 0
+0 0 large unknown
 #405
 jellyfish man war man-o-war~
 A Man-of-war~
@@ -89,12 +93,12 @@ blob with tenticles.  It doesn't even have pretty colors in it.  Just a
 ugly gray color.
 ~
 human~
-ACG 0 0 0 
+ACG 0 0 0
 5 0 4d5+30 1d10+100 1d6+1 bite
 8 0 8 8
 0 L 0 0
 stand stand female 250
-0 0 large 0
+0 0 large unknown
 #406
 child~
 a child~
@@ -109,7 +113,7 @@ AG 0 400 0
 8 8 8 10
 0 0 0 0
 stand stand male 110
-0 0 small 0
+0 0 small unknown
 #407
 teacher~
 Your teacher~
@@ -121,9 +125,9 @@ troll~
 AGR 0 -500 0
 5 0 2d5+40 5d10+100 2d3+1 pierce
 6 6 6 8
-D BE HK 0
+0 BE HK 0
 stand stand female 320
-0 0 medium 0
+0 0 medium unknown
 #408
 gorilla~
 A gorilla~
@@ -136,9 +140,9 @@ bear~
 AG 0 50 0
 4 0 1d10+30 1d1+100 2d2+1 beating
 7 5 7 8
-CDEOU 0 EI 0
+CU 0 0 0
 stand stand female 90
-0 0 large 0
+0 0 large unknown
 #409
 janitor~
 A janitor~
@@ -153,7 +157,7 @@ ACG 0 200 0
 7 8 8 9
 EN 0 0 0
 stand stand either 110
-0 0 medium 0
+0 0 medium unknown
 #410
 emu~
 an emu~
@@ -170,7 +174,7 @@ AG 0 500 0
 7 7 7 9
 I 0 0 0
 stand stand either 150
-0 0 large 0
+0 0 large unknown
 #0
 
 
@@ -182,7 +186,7 @@ Some popcorn~
 Some popcorn to feed the animals lies here.~
 food~
 food 0 A
-3 3 0 0 0
+AB AB 0 0 0
 0 3 4 P
 #401
 key~
@@ -200,7 +204,7 @@ A wire with a shark tooth has been left here.
 ~
 coral~
 armor G AC
-1 1 1 3 0
+A A A AB 0
 4 20 300 P
 A
 19 1
@@ -254,7 +258,6 @@ E
 golden blue light~
 It is flaming and frosting sabre - it is reason of lights.
 ~
-
 #0
 
 
@@ -267,7 +270,7 @@ and now is your chance! Through these doors is a great new exhibit about
 the evolution of life as we know it.  You're so excited you think you're 
 about to wet your armor! So just head right on in to the south.
 ~
-0 C 0 
+0 C 0
 D2
 The entrance lies just ahead of you! What are you waiting for?
 ~
@@ -287,7 +290,7 @@ upstairs you see a souviniere shop.  To the south is the Hall of the Beefed
 up Tinsy Animals, while to the west is the Wide World of Chordates.  Finally
 to the east you see the special marine section of the museum.  
 ~
-0 D 0 
+0 D 0
 D0
 The entrance to the museum.~
 ~
@@ -315,7 +318,7 @@ This is the Hall of Chordates.  All around you are really boring
 examples of what a chordate is.  A beastly fido is a chordate, as is the 
 mayor of Midgaard.  This is boring, you think.
 ~
-0 D 0  
+0 D 0
 D1
 ~
 ~
@@ -331,7 +334,7 @@ This is the underwater exhibit of the museum.  Through the aid of
 magic, these underwater creatures have been enabled to breathe air and 
 come out and visit you.
 ~
-0 D 0  
+0 D 0
 D2
 ~
 ~
@@ -346,7 +349,7 @@ Tinsy Animal Exhibit~
 All the tinsy animals here have been made bigger so that you can see 
 them.  You sure hope they forgot to magnify the pubic lice!
 ~
-0 D 0 
+0 D 0
 D0
 ~
 ~
@@ -363,7 +366,7 @@ you've been on.  All around you are slime molds, and tardigradas, all
 sized up for your conveyence.  You thank the Gods that you think you see 
 the exit to the south.
 ~
-0 D 0 
+0 D 0
 D0
 ~
 ~
@@ -380,7 +383,7 @@ grows in between your toes.  Oh, that's in another hall in this museum.
 Silly you.  You contemplate pulling a fire alarm to make this trip a 
 little more interesting.  The hall of chordates continues to the south.  
 ~
-0 D 0 
+0 D 0
 D0
 ~
 ~
@@ -396,7 +399,7 @@ You are now pulling your hair out!  This is so boring!  Type recall and
 end it all!!!  The gorilla cage is to the west, if you want to inflict 
 more punishment on yourself.  Wait!  Over there, to the south, is the exit!
 ~
-0 D 0 
+0 D 0
 D0
 ~
 ~
@@ -417,7 +420,7 @@ garbage, oil coated ducks; it's so realistic you think!  Only problem is,
 you don't have an ounce of interest.  You spot the shark tank to the east 
 and the hall continues to the south.
 ~
-0 D 0 
+0 D 0
 D0
 ~
 ~
@@ -438,7 +441,7 @@ Wow look at all the sharks in here!  Now this is neat, since of course,
 you're not supposed to be here.  There are sand sharks, hammer-head sharks,
 and many more sharks to play with!  
 ~
-0 D 0 
+0 D 0
 D3
 ~
 tank~
@@ -467,7 +470,7 @@ with your classmates as you pass through the turnstyle with your
 classmates and head on the bus.  To you south you can return to the 
 M.U.D.U. arena.
 ~
-0 CD 0 
+0 CD 0
 D2
 ~
 ~
@@ -478,7 +481,7 @@ The Gorilla Cage~
 Heres where all the gorillas are kept.  It smells really bad in here.  
 You feel sorry for the guy who has to clean up after all of these gorillas.
 ~
-0 D 0 
+0 D 0
 D1
 ~
 cage~
@@ -490,7 +493,7 @@ Wow, look at all the souvenires.  Too bad you can't afford half of it.
 Uh oh, you'd better get out of here, you think you hear your M.U.D.U. 
 teacher coming up the stairs to bring you back together with the class.
 ~
-0 D 0 
+0 D 0
 D5
 ~
 ~
@@ -501,32 +504,32 @@ S
 
 
 #SPECIALS
-M 407 spec_cast_mage Load to: Your teacher
-M 409 spec_janitor Load to: A janitor
+M 407 spec_cast_mage	* Your teacher
+M 409 spec_janitor	* A janitor
 S
 
 
 
 #RESETS
-D 0 407  3 1     * The west door of Hall of Chordates is closed
-D 0 408  1 2     * The east door of Marine Exhibit is closed and locked
-D 0 409  3 2     * The west door of The Shark Tank is closed and locked
-D 0 412  1 1     * The east door of The Gorilla Cage is closed
-M 0 401  1 400 1 * Load A gorilla
-M 0 407  1 401 1 * Load Your teacher
-M 0 406  1 403 1 * Load a child
-M 0 400  2 404 2 * Load ameoba
-M 0 402  1 405 1 * Load A pubic lice
-M 0 410  2 406 2 * Load an emu
-M 0 406  1 407 1 * Load a child
-M 0 404  1 409 1 * Load a shark
-G 1 402  1       * A shark tooth necklace is given to a shark
-M 0 405  2 410 2 * Load A Man-of-war
-M 0 409  1 412 1 * Load A janitor
-E 1 401 -1 17   * The key to the tank is given to A janitor
-M 0 408  2 412 2 * Load A gorilla
-M 0 403  1 413 1 * Load John the shopkeeper
-G 1 400 -1       * Some popcorn is given to John the shopkeeper
+D 0 407 3 1	* Hall of Chordates: door to the west: closed
+D 0 408 1 2	* Marine Exhibit: door to the east: closed and locked
+D 0 409 3 2	* The Shark Tank: door to the west: closed and locked
+D 0 412 1 1	* The Gorilla Cage: door to the east: closed
+M 0 401 1 400 1	* A gorilla (Entrance to the Museum)
+M 0 407 1 401 1	* Your teacher (Atrium of the Museum)
+M 0 406 1 403 1	* a child (Under the Sea)
+M 0 400 2 404 2	* ameoba (Tinsy Animal Exhibit)
+M 0 402 1 405 1	* A pubic lice (Hall of Tinsy Things)
+M 0 410 2 406 2	* an emu (Hall of Chordates)
+M 0 406 1 407 1	* a child (Hall of Chordates)
+M 0 404 1 409 1	* a shark (The Shark Tank)
+G 0 402 0		*	A shark tooth necklace
+M 0 405 2 410 2	* A Man-of-war (Marine Exhibit)
+M 0 409 1 412 1	* A janitor (The Gorilla Cage)
+E 0 401 0 17		*	The key to the tank: held in the hands
+M 0 408 2 412 2	* A gorilla (The Gorilla Cage)
+M 0 403 1 413 1	* John the shopkeeper (Souvenire Shop)
+G 0 400 0		*	Some popcorn
 S
 
 
@@ -537,5 +540,22 @@ S
 
 
 
-#$
+#OLIMITS
+S
 
+
+
+#MOBPROGS
+#0
+
+#PRACTICERS
+S
+
+
+
+#OMPROGS
+S
+
+
+
+#$

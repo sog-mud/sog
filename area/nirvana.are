@@ -1,8 +1,14 @@
-#AREA
-nirvana.are~
-Nirvana~
-{30 35} Fstall  Nirvana~
-9000 9099
+#AREADATA
+Name Nirvana~
+Builders None~
+VNUMs 9000 9099
+Credits Fstall~
+Security 9
+LevelRange 30 35
+End
+
+
+
 #MOBILES
 #9000
 tridrone~
@@ -17,7 +23,7 @@ ACG 0 300 0
 4 3 4 5
 N 0 0 0
 stand stand none 0
-0 I medium 0
+0 I medium unknown
 #9001
 quadrone~
 the quadrone~
@@ -31,7 +37,7 @@ AFGT D 300 0
 1 0 1 2
 CEK 0 0 0
 stand stand none 0
-0 I medium 0
+0 I medium unknown
 #9002
 pentadrone~
 the pentadrone~
@@ -45,7 +51,7 @@ ABFGT D 300 0
 -2 -2 0 -1
 CEFLN R 0 0
 stand stand none 0
-0 N medium 0
+0 N medium unknown
 #9003
 decaton~
 the decaton~
@@ -59,7 +65,7 @@ ABFGQT D 300 0
 -4 -4 0 -2
 ACEKN R 0 0
 stand stand none 0
-M N medium 0
+M N medium unknown
 #9004
 nonaton~
 the nonaton~
@@ -73,7 +79,7 @@ ABFGQT DH 300 0
 -4 -4 -2 -3
 AEFN R 0 G
 stand stand none 0
-M N large 0
+M N large unknown
 #9005
 octon~
 the octon~
@@ -88,7 +94,7 @@ ABFGQ D 300 0
 -5 -5 -3 -4
 ACEHK R 0 G
 stand stand none 0
-M N large 0
+M N large unknown
 #9006
 septon~
 the septon~
@@ -103,7 +109,7 @@ ABFGQR D 300 0
 -6 -6 -6 -4
 AFKO R 0 0
 stand stand none 0
-M IN medium 0
+M IN medium unknown
 #9007
 hexton~
 the hexton~
@@ -118,7 +124,7 @@ ABFGQT DFH 300 0
 -8 -8 -8 -4
 ACEFHIKLN AR C 0
 stand stand none 0
-M INP large 0
+M INP large unknown
 #9008
 quinton~
 the quinton~
@@ -134,7 +140,7 @@ ABFGQ D 300 0
 -7 -8 -6 -8
 AKMO AR 0 0
 stand stand none 0
-M INPQ large 0
+M INPQ large unknown
 #9009
 tertian~
 the tertian~
@@ -150,7 +156,7 @@ ABFGQRT D 300 0
 -11 -13 -10 -9
 CEF AR C 0
 stand stand none 0
-M IW huge 0
+M IW huge unknown
 #9010
 secundus~
 secundus~
@@ -165,7 +171,7 @@ ABFGQRT DFH 0 0
 -11 -14 -11 -12
 EFHIKN AHIKR C 0
 stand stand none 0
-M I huge 0
+M I huge unknown
 #9011
 Primus~
 Primus~
@@ -181,8 +187,11 @@ ABFGQRT DFH 0 0
 -15 -15 -15 -15
 AH AHIKRS C 0
 stand stand none 0
-M I giant 0
+M I giant unknown
 #0
+
+
+
 #OBJECTS
 #9000
 sword long the~
@@ -207,7 +216,7 @@ a luminescent moonstone~
 A softly glowing white stone rests on the floor.~
 stone~
 warp_stone AT AO
-24 0 0 0 0
+DE 0 0 0 0
 0 0 500 P
 E
 moonstone moon stone white~
@@ -215,6 +224,8 @@ Looking into the smooth surface of this moonstone, you feel strangely at
 peace and balance with the world around you.
 ~
 #0
+
+
 
 #ROOMS
 #9000
@@ -435,6 +446,13 @@ The plane also continues north and southward.  There is a large sign on the
 door.
 ~
 0 0 2
+E
+sign~
+The sign reads:
+                     WARNING
+Only those brave of heart and high of level should
+enter the Tower of Nirvana.
+~
 D0
 The plane continues northward as far as the eye can see.
 ~
@@ -450,13 +468,6 @@ A mighty door lies to the west
 ~
 door~
 2 -1 9008
-E
-sign~
-The sign reads:
-                     WARNING
-Only those brave of heart and high of level should
-enter the Tower of Nirvana.
-~
 S
 #9013
 At the door to the Tower of Nirvana~
@@ -464,6 +475,13 @@ The plane continue to the north and south, while a mighty door lies to the
 east.  There is a sign on the door.
 ~
 0 0 2
+E
+sign~
+The sign reads:
+                  WARNING!
+Only those brave of heart and high of level
+should attempt to enter the Tower of Nirvana.
+~
 D0
 The plane stretches to the north as far as the eye can see.
 ~
@@ -479,13 +497,6 @@ The plane continues to the south as far as the eye can see
 ~
 ~
 0 -1 9006
-E
-sign~
-The sign reads:
-                  WARNING!
-Only those brave of heart and high of level
-should attempt to enter the Tower of Nirvana.
-~
 S
 #9014
 A north-south area of the Plane of Nirvana~
@@ -1255,55 +1266,85 @@ To the west, lies a monstrous room.
 0 -1 9058
 S
 #0
-#RESETS
-M 0 9000  10 9002  2	* the tridrone
-M 0 9000  10 9013  2	* the tridrone
-M 0 9000  10 9029  2	* the tridrone
-M 0 9000  10 9027  2	* the tridrone
-M 0 9000  10 9003  2	* the tridrone
-M 0 9001   9 9001  3	* the quadrone
-M 0 9001   9 9028  3	* the quadrone
-M 0 9001   9 9012  3	* the quadrone
-M 0 9002   6 9011  1	* the pentadrone
-M 0 9002   6 9031  1	* the pentadrone
-M 0 9002   6 9038  1	* the pentadrone
-M 0 9002   6 9045  1	* the pentadrone
-M 0 9002   6 9058  1	* the pentadrone
-M 0 9002   6 9052  1	* the pentadrone
-M 0 9003   1 9055  1	* the decaton
-M 0 9004   1 9048  1	* the nonaton
-G 1 9001  -1     	*   a luminescent moonstone
-M 0 9005   4 9040  1	* the octon
-M 0 9005   4 9033  1	* the octon
-M 0 9005   4 9054  1	* the octon
-M 0 9005   4 9047  1	* the octon
-M 0 9006   2 9041  1	* the septon
-M 0 9006   2 9034  1	* the septon
-M 0 9007   8 9043  1	* the hexton
-M 0 9007   8 9044  1	* the hexton
-M 0 9007   8 9036  1	* the hexton
-M 0 9007   8 9037  1	* the hexton
-M 0 9007   8 9050  1	* the hexton
-M 0 9007   8 9051  1	* the hexton
-M 0 9007   8 9056  1	* the hexton
-M 0 9007   8 9057  1	* the hexton
-M 0 9008   4 9022  1	* the quinton
-M 0 9008   4 9016  1	* the quinton
-M 0 9008   4 9025  1	* the quinton
-M 0 9008   4 9017  1	* the quinton
-M 0 9009   4 9019  1	* the tertian
-M 0 9009   4 9024  1	* the tertian
-M 0 9009   4 9018  1	* the tertian
-M 0 9009   4 9021  1	* the tertian
-M 0 9010   4 9038  1	* secundus
-M 0 9010   4 9045  1	* secundus
-M 0 9010   4 9058  1	* secundus
-M 0 9010   4 9052  1	* secundus
-M 0 9011   1 9020  1	* Primus
-E 1 9000   2   16	*   THE long sword
-S
-#SHOPS
-0
+
+
+
 #SPECIALS
 S
+
+
+
+#RESETS
+M 0 9001 9 9001 3	* the quadrone (The Plane of Nirvana)
+M 0 9000 10 9002 2	* the tridrone (The Plane of Nirvana)
+M 0 9000 10 9003 2	* the tridrone (A Change in Direction)
+M 0 9002 6 9011 1	* the pentadrone (An intersection in the Tower of Nirvana)
+M 0 9001 9 9012 3	* the quadrone (At the door to the Tower of Nirvana)
+M 0 9000 10 9013 2	* the tridrone (At the door to the Tower of Nirvana)
+M 0 9008 4 9016 1	* the quinton (Dead End)
+M 0 9008 4 9017 1	* the quinton (Dead End)
+M 0 9009 4 9018 1	* the tertian (A Tertain's lair)
+M 0 9009 4 9019 1	* the tertian (A Tertian's lair)
+M 0 9011 1 9020 1	* Primus (The Lair of Primus)
+E 0 9000 0 16		*	THE long sword: wielded
+M 0 9009 4 9021 1	* the tertian (A Tertian's lair)
+M 0 9008 4 9022 1	* the quinton (The office of a Quinton)
+M 0 9009 4 9024 1	* the tertian (A Tertian's lair)
+M 0 9008 4 9025 1	* the quinton (A north south tunnel)
+M 0 9000 10 9027 2	* the tridrone (A change of direction)
+M 0 9001 9 9028 3	* the quadrone (A change of direction)
+M 0 9000 10 9029 2	* the tridrone (An east-west route on the Plane of Nirvana)
+M 0 9002 6 9031 1	* the pentadrone (A large door in the passage)
+M 0 9005 4 9033 1	* the octon (The office of the Octon)
+M 0 9006 2 9034 1	* the septon (A small room)
+M 0 9007 8 9036 1	* the hexton (Lair of a Hexton)
+M 0 9007 8 9037 1	* the hexton (Office of a Hexton)
+M 0 9002 6 9038 1	* the pentadrone (Office of a Secundus)
+M 0 9010 4 9038 1	* secundus (Office of a Secundus)
+M 0 9005 4 9040 1	* the octon (Office of an Octon)
+M 0 9006 2 9041 1	* the septon (Office of a Septon)
+M 0 9007 8 9043 1	* the hexton (The Barracks)
+M 0 9007 8 9044 1	* the hexton (The Commander's Post)
+M 0 9002 6 9045 1	* the pentadrone (The chamber of the second Secundus)
+M 0 9010 4 9045 1	* secundus (The chamber of the second Secundus)
+M 0 9005 4 9047 1	* the octon (Chamber of the Octon)
+M 0 9004 1 9048 1	* the nonaton (Chamber of the Nonaton)
+G 0 9001 0		*	a luminescent moonstone
+M 0 9007 8 9050 1	* the hexton (Chamber of a Hexton)
+M 0 9007 8 9051 1	* the hexton (Chamber of a Hexton)
+M 0 9002 6 9052 1	* the pentadrone (Chamber of the Secudus)
+M 0 9010 4 9052 1	* secundus (Chamber of the Secudus)
+M 0 9005 4 9054 1	* the octon (A small chamber)
+M 0 9003 1 9055 1	* the decaton (A cramped room)
+M 0 9007 8 9056 1	* the hexton (A large room)
+M 0 9007 8 9057 1	* the hexton (A room)
+M 0 9002 6 9058 1	* the pentadrone (Chamber of The First Secundus)
+M 0 9010 4 9058 1	* secundus (Chamber of The First Secundus)
+S
+
+
+
+#SHOPS
+0
+
+
+
+#OLIMITS
+S
+
+
+
+#MOBPROGS
+#0
+
+#PRACTICERS
+S
+
+
+
+#OMPROGS
+S
+
+
+
 #$

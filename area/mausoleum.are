@@ -73,12 +73,12 @@ She looks a bit hungry after having a full day of reanimating corpses,
 perhaps you will be her dinner?
 ~
 elf~
-ABFO DFHJUZ -1000 0
+ABFO DFHUZ -1000 0
 56 30 100d5+6500 100d4+600 7d5+40 magic
 -10 -10 -10 -10
-EFIK AI BIM FHNSYZ
+EFIK AI IM FHNSY
 stand stand none 17000
-ABCDHIMVc ABCDEFGHIJK medium unknown
+BCDIc 0 medium unknown
 #4604
 vampire shadar lunn~
 the Vampire, Shadar Lunn~
@@ -121,9 +121,9 @@ dog~
 AFT BDFHJPQZ -1000 0
 45 30 10d50+2000 1d1+200 8d3+23 acbite
 -1 -1 -1 -1
-ADEFH A BHM IN
+ADEF A BHM IN
 stand stand none 1
-ACGV ABCDEFHJKUV medium unknown
+C B medium unknown
 #4608
 bat vampire~
 the vampire bat~
@@ -702,7 +702,7 @@ a potion of healing~
 A crystal-clear potion lies here... it looks refreshing.~
 glass~
 potion A AO
-35 'change sex' 'acid blast' 'plague' ''
+35 '' 'acid blast' 'plague' ''
 5 0 15000 P
 #4641
 potion life~
@@ -729,7 +729,7 @@ in the graveyard surrounding you. Suddenly, it dawns on you that
 entering here may be a very bad idea...
 A sign is posted, urging caution.
 ~
-0 524288 0
+0 T 0
 E
 sign~
 This area is for high level characters only... 25 to 50+, and most
@@ -746,7 +746,7 @@ D0
 D2
 ~
 door~
-1 4600 4602
+0 4600 4602
 S
 #4601
 A grisly scene, NW corner of Mausoleum.~
@@ -755,7 +755,7 @@ with a ravenous appetite. Maybe it would be a good idea to find the way
 back outside now...
 A door leads back out to the south.
 ~
-0 8201 0
+0 ADN 0
 D2
 ~
 door~
@@ -771,7 +771,7 @@ the main area of the mausoleum.
  Corpses litter the ground, obviously being dragged here for some vile
 purpose. You have an urge to leave this place now.
 ~
-0 8201 0
+0 ADN 0
 D0
 ~
 door~
@@ -788,7 +788,7 @@ with a ravenous appetite. Maybe it would be a good idea to find the way
 back outside now...
 A door to the south leaves this carnage.
 ~
-0 8201 0
+0 ADN 0
 D2
 ~
 door~
@@ -802,7 +802,7 @@ horrible process to create the zombies you see roaming around here.
 To the south is a black wooden doorway, and to the east you may go back
 out to the main mausoleum area.
 ~
-0 8201 0
+0 ADN 0
 D1
 ~
 door~
@@ -820,7 +820,7 @@ a few of the unoccupied ones seem to have taken an interest in your life.
 There are doors to the north and west, and the mausoleum extends to the
 east and south.
 ~
-0 8201 0
+0 ADN 0
 D0
 ~
 door~
@@ -846,7 +846,7 @@ a few of the unoccupied ones seem to have taken an interest in your life.
 There is a door to the north, and the mausoleum extends to the west, east,
 and south.
 ~
-0 8201 0
+0 ADN 0
 D0
 ~
 door~
@@ -872,7 +872,7 @@ a few of the unoccupied ones seem to have taken an interest in your life.
 There is a door to the north and east, and the mausoleum extends to the
 west and south.
 ~
-0 8201 0
+0 ADN 0
 D0
 ~
 door~
@@ -898,7 +898,7 @@ horrible process to create the zombies you see roaming around here.
 To the south is a black wooden doorway, and to the west you may go back
 out to the main mausoleum area.
 ~
-0 8201 0
+0 ADN 0
 D2
 ~
 door~
@@ -911,7 +911,7 @@ S
 #4609
 The Kharzandra's coffin room~
 ~
-0 8201 0
+0 ADN 0
 D1
 ~
 ~
@@ -920,7 +920,7 @@ S
 #4610
 The workroom of Kharzandra.~
 ~
-0 8201 0
+0 ADN 0
 D0
 ~
 door~
@@ -938,7 +938,7 @@ a few of the unoccupied ones seem to have taken an interest in your life.
 There is a wall to the west, and the mausoleum extends to the north, east,
 and south.
 ~
-0 8201 0
+0 ADN 0
 D0
 ~
 ~
@@ -959,7 +959,7 @@ about their business of hauling corpses from one area to another, but
 a few of the unoccupied ones seem to have taken an interest in your life.
 The mausoleum extends to the west, east, north and south.
 ~
-0 8201 0
+0 ADN 0
 D0
 ~
 ~
@@ -985,7 +985,7 @@ a few of the unoccupied ones seem to have taken an interest in your life.
 There is a wall to the east, and the mausoleum extends to the north, west,
 and south.
 ~
-0 8201 0
+0 ADN 0
 D0
 ~
 ~
@@ -1006,7 +1006,7 @@ parts against the far wall.  Weapons are displayed neatly in cases, and a
 suit of armor lies ready to be donned at a moment's notice.  The occupant is
 obviously a very organized, however twisted, individual.
 ~
-0 8201 0
+0 ADN 0
 D0
 ~
 door~
@@ -1022,18 +1022,18 @@ This room has several black candles burning, and a small shrine to the
 god of Chaotic Evil, Loki. There is not much more worth noticing, besides
 the rancid odor coming from the opened crypts nearby.
 ~
-0 8201 0
+0 ADN 0
 D1
 ~
 hidden~
-1 0 4616
+0 0 4616
 S
 #4616
 The dark priest's workroom.~
 There is obviously an unholy resident that works in this room, judging by
 the evil and accursed relics strewn about.
 ~
-0 8201 0
+0 ADN 0
 D1
 ~
 door~
@@ -1041,7 +1041,7 @@ door~
 D3
 ~
 hidden~
-1 0 4615
+0 0 4615
 S
 #4617
 Western check point.~
@@ -1049,7 +1049,7 @@ A pile of bodies lies by the doorway here, while burdened zombies dump
 more corpses slowly in with the rest. To the west appears to be some
 sort of important room in the building.
 ~
-0 8201 0
+0 ADN 0
 D0
 ~
 ~
@@ -1074,7 +1074,7 @@ about their business of hauling corpses from one area to another, but
 a few of the unoccupied ones seem to have taken an interest in your life.
 The mausoleum extends to the west, east, north and south.
 ~
-0 8201 0
+0 ADN 0
 D0
 ~
 ~
@@ -1098,7 +1098,7 @@ A pile of bodies lies by the doorway here, while burdened zombies dump
 more corpses slowly in with the rest. To the east appears to be some
 sort of important room in the building.
 ~
-0 8201 0
+0 ADN 0
 D0
 ~
 ~
@@ -1121,7 +1121,7 @@ A vacant workroom.~
 This crypt area is seemingly undisturbed by the undead pillagers roaming
 around outside. Maybe this would be a good place to rest.
 ~
-0 8201 0
+0 ADN 0
 D3
 ~
 door~
@@ -1133,7 +1133,7 @@ This room has several jungle-type plants in pots against the far wall,
 giving it a bit of scenery, despite the unspeakable things that have taken
 place to the dead bodies which lie piled up in the corner.
 ~
-0 8201 0
+0 ADN 0
 D2
 ~
 door~
@@ -1141,7 +1141,7 @@ door~
 D3
 ~
 hidden~
-1 0 4636
+0 0 4636
 S
 #4622
 Western main area of the Mausoleum.~
@@ -1151,7 +1151,7 @@ a few of the unoccupied ones seem to have taken an interest in your life.
 There is a wall to the west, and the mausoleum extends to the north, east,
 and south.
 ~
-0 8201 0
+0 ADN 0
 D0
 ~
 ~
@@ -1172,7 +1172,7 @@ about their business of hauling corpses from one area to another, but
 a few of the unoccupied ones seem to have taken an interest in your life.
 The mausoleum extends to the west, east, north and south.
 ~
-0 8201 0
+0 ADN 0
 D0
 ~
 ~
@@ -1198,7 +1198,7 @@ a few of the unoccupied ones seem to have taken an interest in your life.
 There is a wall to the east, and the mausoleum extends to the north, west,
 and south.
 ~
-0 8201 0
+0 ADN 0
 D0
 ~
 ~
@@ -1217,7 +1217,7 @@ Roaming ground for the Demon.~
 A small demon has taken up residence in this room, and is hard at work in
 raising a small force of undead troops to please it's master.
 ~
-0 8201 0
+0 ADN 0
 D1
 ~
 hidden~
@@ -1235,7 +1235,7 @@ horrible process to create the zombies you see roaming around here.
 To the north is a black wooden doorway, and to the east you may go back
 out to the main mausoleum area.
 ~
-0 8201 0
+0 ADN 0
 D0
 ~
 door~
@@ -1253,7 +1253,7 @@ a few of the unoccupied ones seem to have taken an interest in your life.
 There are doors to the south and west, and the mausoleum extends to the
 east and north.
 ~
-0 8201 0
+0 ADN 0
 D0
 ~
 ~
@@ -1278,7 +1278,7 @@ about their business of hauling corpses from one area to another, but
 a few of the unoccupied ones seem to have taken an interest in your life.
 The mausoleum extends to the west, east, north and south.
 ~
-0 8201 0
+0 ADN 0
 D0
 ~
 ~
@@ -1304,7 +1304,7 @@ a few of the unoccupied ones seem to have taken an interest in your life.
 There are doors to the south and east, and the mausoleum extends to the
 west and north.
 ~
-0 8201 0
+0 ADN 0
 D0
 ~
 ~
@@ -1330,7 +1330,7 @@ horrible process to create the zombies you see roaming around here.
 To the north is a black wooden doorway, and to the west you may go back
 out to the main mausoleum area.
 ~
-0 8201 0
+0 ADN 0
 D0
 ~
 door~
@@ -1347,7 +1347,7 @@ with a ravenous appetite. Maybe it would be a good idea to find the way
 back outside now...
 A door leads back out to the nouth.
 ~
-0 8201 0
+0 ADN 0
 D0
 ~
 door~
@@ -1359,7 +1359,7 @@ A large hole has been smashed into the south end of the Mausoleum's wall,
 to allow something easier access in and out of the complex. To the south,
 a large crater is vaguely visible through the patches of fog and smoke.
 ~
-0 8201 0
+0 ADN 0
 D0
 ~
 ~
@@ -1372,7 +1372,7 @@ with a ravenous appetite. Maybe it would be a good idea to find the way
 back outside now...
 A door leads back out to the nouth.
 ~
-0 8201 0
+0 ADN 0
 D0
 ~
 door~
@@ -1381,7 +1381,7 @@ S
 #4634
 Shadar Lunn's coffin room~
 ~
-0 8201 0
+0 ADN 0
 D3
 ~
 ~
@@ -1390,7 +1390,7 @@ S
 #4635
 Lost in the graveyard fog.~
 ~
-0 8201 0
+0 ADN 0
 D0
 ~
 ~
@@ -1403,7 +1403,7 @@ by way of personal belongings around. A few polished skulls, a couple of
 silver chains, and perhaps a coin or two from a country you have never
 heard of.
 ~
-0 8201 0
+0 ADN 0
 D1
 ~
 hidden~
@@ -1415,177 +1415,177 @@ The walls of this crypt chamber have been covered in ash and cinder,
 leading you to believe there has been a large fire recently. In the
 far corner of the room, 3 huddled, burnt corpses lie resting.
 ~
-0 8201 0
+0 ADN 0
 D3
 ~
 hidden~
-1 0 4625
+0 0 4625
 S
 #0
 
 
 
 #SPECIALS
-M 4603 spec_cast_mage
-M 4604 spec_cast_undead
-M 4605 spec_fido
-M 4606 spec_breath_fire
-M 4611 spec_cast_cleric
-M 4612 spec_cast_undead
+M 4603 spec_cast_mage	* Kharzandra, the Dark-elf Vampire
+M 4604 spec_cast_undead	* the Vampire, Shadar Lunn
+M 4605 spec_fido	* a hungry ghoul
+M 4606 spec_breath_fire	* the hell hound
+M 4611 spec_cast_cleric	* the dark priest vampire
+M 4612 spec_cast_undead	* the dark spectre
 S
 
 
 
 #RESETS
-D 0 4601 2 1
-D 0 4602 0 2
-D 0 4602 2 1
-D 0 4603 2 1
-D 0 4604 1 1
-D 0 4604 2 2
-D 0 4605 0 1
-D 0 4605 3 1
-D 0 4606 0 1
-D 0 4607 0 1
-D 0 4607 1 1
-D 0 4608 2 2
-D 0 4608 3 1
-D 0 4609 1 1
-D 0 4610 0 2
-D 0 4614 0 2
-D 0 4616 1 2
-D 0 4617 3 2
-D 0 4619 1 2
-D 0 4620 3 2
-D 0 4621 2 2
-D 0 4625 1 1
-D 0 4625 2 2
-D 0 4626 0 2
-D 0 4626 1 1
-D 0 4627 2 1
-D 0 4627 3 1
-D 0 4629 1 1
-D 0 4629 2 1
-D 0 4630 0 2
-D 0 4630 3 1
-D 0 4631 0 1
-D 0 4633 0 1
-D 0 4634 3 1
-D 0 4636 1 1
-O 0 4603 0 4600
-M 0 4601 40 4600 10
-G 0 4600 0
-M 0 4605 12 4601 6
-M 0 4605 12 4603 6
-M 0 4601 40 4604 10
-G 0 4600 0
-O 0 4603 0 4605
-M 0 4600 35 4605 9
-O 0 4603 0 4606
-M 0 4600 35 4606 9
-G 0 4603 0
-O 0 4603 0 4607
-O 0 4615 0 4607
-M 0 4600 35 4607 9
-M 0 4600 35 4608 9
-M 0 4605 12 4608 4
-M 0 4601 40 4608 10
-G 0 4600 0
-O 0 4625 0 4609
-O 0 4603 0 4610
-O 0 4610 0 4610
-M 0 4603 1 4610 1
-E 0 4622 0 16
-G 0 4623 0
-G 0 4628 0
-G 0 4629 0
-G 0 4627 0
-P 0 4613 0 4627 1
-P 0 4630 0 4627 1
-P 0 4631 0 4627 1
-P 0 4632 0 4627 1
-P 0 4633 0 4627 1
-P 0 4634 0 4627 1
-P 0 4635 0 4627 1
-P 0 4636 0 4627 1
-P 0 4637 0 4627 1
-P 0 4638 0 4627 1
-P 0 4639 0 4627 1
-O 0 4603 0 4611
-O 0 4603 0 4612
-O 0 4618 0 4612
-M 0 4600 35 4612 9
-M 0 4600 35 4612 9
-G 0 4603 0
-O 0 4603 0 4614
-M 0 4604 1 4614 1
-E 0 4604 0 8
-E 0 4605 0 6
-E 0 4606 0 7
-E 0 4607 0 1
-E 0 4609 0 16
-G 0 4608 0
-M 0 4611 1 4615 1
-E 0 4626 0 16
-E 0 4602 0 3
-O 0 4625 0 4615
-P 0 4611 0 4625 1
-M 0 4602 2 4616 2
-E 0 4601 0 16
-E 0 4617 0 12
-M 0 4600 35 4617 9
-M 0 4601 40 4617 10
-G 0 4600 0
-O 0 4615 0 4618
-M 0 4600 35 4618 9
-G 0 4603 0
-M 0 4600 35 4619 9
-M 0 4600 35 4619 9
-M 0 4601 40 4619 10
-G 0 4600 0
-M 0 4600 35 4620 9
-M 0 4612 1 4620 1
-G 0 4619 0
-G 0 4619 0
-M 0 4600 35 4622 9
-M 0 4605 12 4622 4
-M 0 4600 35 4623 9
-M 0 4600 35 4623 9
-G 0 4603 0
-M 0 4605 12 4623 4
-M 0 4600 35 4624 9
-M 0 4605 12 4624 4
-O 0 4618 0 4625
-M 0 4602 2 4625 2
-E 0 4601 0 16
-E 0 4617 0 12
-M 0 4609 1 4625 1
-E 0 4616 0 16
-E 0 4621 0 13
-M 0 4605 12 4626 4
-M 0 4601 40 4626 10
-G 0 4600 0
-O 0 4620 0 4627
-M 0 4600 35 4627 9
-M 0 4600 35 4628 9
-G 0 4603 0
-M 0 4600 35 4629 9
-M 0 4605 12 4630 4
-M 0 4601 40 4630 10
-G 0 4600 0
-M 0 4605 12 4631 4
-O 0 4603 0 4632
-O 0 4619 0 4633
-M 0 4605 12 4633 4
-O 0 4610 0 4634
-O 0 4625 0 4634
-P 0 4640 0 4625 1
-O 0 4618 0 4635
-O 0 4625 0 4636
-O 0 4625 0 4637
-P 0 4640 0 4625 1
-P 0 4611 0 4625 1
-P 0 4641 0 4625 1
+D 0 4601 2 1	* A grisly scene, NW corner of Mausoleum.: door to the south: closed
+D 0 4602 0 2	* Foyer of the mausoleum.: door to the north: closed and locked
+D 0 4602 2 1	* Foyer of the mausoleum.: door to the south: closed
+D 0 4603 2 1	* A grisly scene, NE corner of Mausoleum.: door to the south: closed
+D 0 4604 1 1	* A small room.: door to the east: closed
+D 0 4604 2 2	* A small room.: door to the south: closed and locked
+D 0 4605 0 1	* Northwest main area of the Mausoleum.: door to the north: closed
+D 0 4605 3 1	* Northwest main area of the Mausoleum.: door to the west: closed
+D 0 4606 0 1	* Northern main area of the Mausoleum.: door to the north: closed
+D 0 4607 0 1	* Northeastern main area of the Mausoleum.: door to the north: closed
+D 0 4607 1 1	* Northeastern main area of the Mausoleum.: door to the east: closed
+D 0 4608 2 2	* A small room.: door to the south: closed and locked
+D 0 4608 3 1	* A small room.: door to the west: closed
+D 0 4609 1 1	* The Kharzandra's coffin room: door to the east: closed
+D 0 4610 0 2	* The workroom of Kharzandra.: door to the north: closed and locked
+D 0 4614 0 2	* The workroom of Shadar Lunn: door to the north: closed and locked
+D 0 4616 1 2	* The dark priest's workroom.: door to the east: closed and locked
+D 0 4617 3 2	* Western check point.: door to the west: closed and locked
+D 0 4619 1 2	* Eastern check point.: door to the east: closed and locked
+D 0 4620 3 2	* A vacant workroom.: door to the west: closed and locked
+D 0 4621 2 2	* The Rakshaka's workspace.: door to the south: closed and locked
+D 0 4625 1 1	* Roaming ground for the Demon.: door to the east: closed
+D 0 4625 2 2	* Roaming ground for the Demon.: door to the south: closed and locked
+D 0 4626 0 2	* A small room.: door to the north: closed and locked
+D 0 4626 1 1	* A small room.: door to the east: closed
+D 0 4627 2 1	* Southwest main area of the Mausoleum.: door to the south: closed
+D 0 4627 3 1	* Southwest main area of the Mausoleum.: door to the west: closed
+D 0 4629 1 1	* Southeast main area of the Mausoleum.: door to the east: closed
+D 0 4629 2 1	* Southeast main area of the Mausoleum.: door to the south: closed
+D 0 4630 0 2	* A small room.: door to the north: closed and locked
+D 0 4630 3 1	* A small room.: door to the west: closed
+D 0 4631 0 1	* A grisly scene, SW corner of Mausoleum.: door to the north: closed
+D 0 4633 0 1	* A grisly scene, SE corner of Mausoleum.: door to the north: closed
+D 0 4634 3 1	* Shadar Lunn's coffin room: door to the west: closed
+D 0 4636 1 1	* A Rakshaka's lair.: door to the east: closed
+O 0 4603 0 4600		* a smelly humanoid corpse (Outside of the mausoleum)
+M 0 4601 40 4600 10	* the Juju zombie (Outside of the mausoleum)
+G 0 4600 0		*	a small black skeleton key
+M 0 4605 12 4601 6	* a hungry ghoul (A grisly scene, NW corner of Mausoleum.)
+M 0 4605 12 4603 6	* a hungry ghoul (A grisly scene, NE corner of Mausoleum.)
+M 0 4601 40 4604 10	* the Juju zombie (A small room.)
+G 0 4600 0		*	a small black skeleton key
+O 0 4603 0 4605		* a smelly humanoid corpse (Northwest main area of the Mausoleum.)
+M 0 4600 35 4605 9	* a disgusting, rotting Zombie (Northwest main area of the Mausoleum.)
+O 0 4603 0 4606		* a smelly humanoid corpse (Northern main area of the Mausoleum.)
+M 0 4600 35 4606 9	* a disgusting, rotting Zombie (Northern main area of the Mausoleum.)
+G 0 4603 0		*	a smelly humanoid corpse
+O 0 4603 0 4607		* a smelly humanoid corpse (Northeastern main area of the Mausoleum.)
+O 0 4615 0 4607		* a corpse of an elfin wizard (Northeastern main area of the Mausoleum.)
+M 0 4600 35 4607 9	* a disgusting, rotting Zombie (Northeastern main area of the Mausoleum.)
+M 0 4600 35 4608 9	* a disgusting, rotting Zombie (A small room.)
+M 0 4605 12 4608 4	* a hungry ghoul (A small room.)
+M 0 4601 40 4608 10	* the Juju zombie (A small room.)
+G 0 4600 0		*	a small black skeleton key
+O 0 4625 0 4609		* a coffin (The Kharzandra's coffin room)
+O 0 4603 0 4610		* a smelly humanoid corpse (The workroom of Kharzandra.)
+O 0 4610 0 4610		* a potion of healing (The workroom of Kharzandra.)
+M 0 4603 1 4610 1	* Kharzandra, the Dark-elf Vampire (The workroom of Kharzandra.)
+E 0 4622 0 16		*	the Shadow Dagger: wielded
+G 0 4623 0		*	the Shadow Dagger
+G 0 4628 0		*	a potion of divine protection
+G 0 4629 0		*	the cloak of wizardry
+G 0 4627 0		*	the Libram of Gainful Conjuration
+P 0 4613 0 4627 1	* the Libram of Gainful Conjuration: an ancient yellow parchment
+P 0 4630 0 4627 1	* the Libram of Gainful Conjuration: a scroll of ultimate overkill
+P 0 4631 0 4627 1	* the Libram of Gainful Conjuration: a scroll of truimph
+P 0 4632 0 4627 1	* the Libram of Gainful Conjuration: a scroll of feasting
+P 0 4633 0 4627 1	* the Libram of Gainful Conjuration: a scroll of room-redecoration
+P 0 4634 0 4627 1	* the Libram of Gainful Conjuration: a scroll of protection
+P 0 4635 0 4627 1	* the Libram of Gainful Conjuration: a scroll of invulnerability
+P 0 4636 0 4627 1	* the Libram of Gainful Conjuration: a scroll of the Wolverine
+P 0 4637 0 4627 1	* the Libram of Gainful Conjuration: a scroll of lifebane
+P 0 4638 0 4627 1	* the Libram of Gainful Conjuration: a scroll of destruction
+P 0 4639 0 4627 1	* the Libram of Gainful Conjuration: a scroll of chaos
+O 0 4603 0 4611		* a smelly humanoid corpse (Western main area of the Mausoleum.)
+O 0 4603 0 4612		* a smelly humanoid corpse (Central main area of the Mausoleum.)
+O 0 4618 0 4612		* a half-eaten corpse (Central main area of the Mausoleum.)
+M 0 4600 35 4612 9	* a disgusting, rotting Zombie (Central main area of the Mausoleum.)
+M 0 4600 35 4612 9	* a disgusting, rotting Zombie (Central main area of the Mausoleum.)
+G 0 4603 0		*	a smelly humanoid corpse
+O 0 4603 0 4614		* a smelly humanoid corpse (The workroom of Shadar Lunn)
+M 0 4604 1 4614 1	* the Vampire, Shadar Lunn (The workroom of Shadar Lunn)
+E 0 4604 0 8		*	a pair of darkened boots: on the feet
+E 0 4605 0 6		*	a darkened helmet: over the head
+E 0 4606 0 7		*	a pair of darkened leggings: on the legs
+E 0 4607 0 1		*	the Arkham signet ring: on the left finger
+E 0 4609 0 16		*	a guardian sword: wielded
+G 0 4608 0		*	a darkened shield
+M 0 4611 1 4615 1	* the dark priest vampire (The dark priest's coffin room.)
+E 0 4626 0 16		*	the flaming sceptre of Chaos: wielded
+E 0 4602 0 3		*	an unholy symbol of Lloth: around the neck (1)
+O 0 4625 0 4615		* a coffin (The dark priest's coffin room.)
+P 0 4611 0 4625 1	* a coffin: a staff of wrath
+M 0 4602 2 4616 2	* a young vampire (The dark priest's workroom.)
+E 0 4601 0 16		*	a Frostbrand sword: wielded
+E 0 4617 0 12		*	a rat-eaten poncho: about the shoulders
+M 0 4600 35 4617 9	* a disgusting, rotting Zombie (Western check point.)
+M 0 4601 40 4617 10	* the Juju zombie (Western check point.)
+G 0 4600 0		*	a small black skeleton key
+O 0 4615 0 4618		* a corpse of an elfin wizard (Central main area of the Mausoleum.)
+M 0 4600 35 4618 9	* a disgusting, rotting Zombie (Central main area of the Mausoleum.)
+G 0 4603 0		*	a smelly humanoid corpse
+M 0 4600 35 4619 9	* a disgusting, rotting Zombie (Eastern check point.)
+M 0 4600 35 4619 9	* a disgusting, rotting Zombie (Eastern check point.)
+M 0 4601 40 4619 10	* the Juju zombie (Eastern check point.)
+G 0 4600 0		*	a small black skeleton key
+M 0 4600 35 4620 9	* a disgusting, rotting Zombie (A vacant workroom.)
+M 0 4612 1 4620 1	* the dark spectre (A vacant workroom.)
+G 0 4619 0		*	an emerald potion
+G 0 4619 0		*	an emerald potion
+M 0 4600 35 4622 9	* a disgusting, rotting Zombie (Western main area of the Mausoleum.)
+M 0 4605 12 4622 4	* a hungry ghoul (Western main area of the Mausoleum.)
+M 0 4600 35 4623 9	* a disgusting, rotting Zombie (Central main area of the Mausoleum.)
+M 0 4600 35 4623 9	* a disgusting, rotting Zombie (Central main area of the Mausoleum.)
+G 0 4603 0		*	a smelly humanoid corpse
+M 0 4605 12 4623 4	* a hungry ghoul (Central main area of the Mausoleum.)
+M 0 4600 35 4624 9	* a disgusting, rotting Zombie (Eastern main area of the Mausoleum.)
+M 0 4605 12 4624 4	* a hungry ghoul (Eastern main area of the Mausoleum.)
+O 0 4618 0 4625		* a half-eaten corpse (Roaming ground for the Demon.)
+M 0 4602 2 4625 2	* a young vampire (Roaming ground for the Demon.)
+E 0 4601 0 16		*	a Frostbrand sword: wielded
+E 0 4617 0 12		*	a rat-eaten poncho: about the shoulders
+M 0 4609 1 4625 1	* the demon familiar (Roaming ground for the Demon.)
+E 0 4616 0 16		*	the flail of Pestilance: wielded
+E 0 4621 0 13		*	an ulrician belt: around the waist
+M 0 4605 12 4626 4	* a hungry ghoul (A small room.)
+M 0 4601 40 4626 10	* the Juju zombie (A small room.)
+G 0 4600 0		*	a small black skeleton key
+O 0 4620 0 4627		* a peaceful corpse (Southwest main area of the Mausoleum.)
+M 0 4600 35 4627 9	* a disgusting, rotting Zombie (Southwest main area of the Mausoleum.)
+M 0 4600 35 4628 9	* a disgusting, rotting Zombie (Central main area of the Mausoleum.)
+G 0 4603 0		*	a smelly humanoid corpse
+M 0 4600 35 4629 9	* a disgusting, rotting Zombie (Southeast main area of the Mausoleum.)
+M 0 4605 12 4630 4	* a hungry ghoul (A small room.)
+M 0 4601 40 4630 10	* the Juju zombie (A small room.)
+G 0 4600 0		*	a small black skeleton key
+M 0 4605 12 4631 4	* a hungry ghoul (A grisly scene, SW corner of Mausoleum.)
+O 0 4603 0 4632		* a smelly humanoid corpse (A hole in the southern wall.)
+O 0 4619 0 4633		* an emerald potion (A grisly scene, SE corner of Mausoleum.)
+M 0 4605 12 4633 4	* a hungry ghoul (A grisly scene, SE corner of Mausoleum.)
+O 0 4610 0 4634		* a potion of healing (Shadar Lunn's coffin room)
+O 0 4625 0 4634		* a coffin (Shadar Lunn's coffin room)
+P 0 4640 0 4625 1	* a coffin: a potion of healing
+O 0 4618 0 4635		* a half-eaten corpse (Lost in the graveyard fog.)
+O 0 4625 0 4636		* a coffin (A Rakshaka's lair.)
+O 0 4625 0 4637		* a coffin (A burnt room.)
+P 0 4640 0 4625 1	* a coffin: a potion of healing
+P 0 4611 0 4625 1	* a coffin: a staff of wrath
+P 0 4641 0 4625 1	* a coffin: a potion of life
 S
 
 
@@ -1595,7 +1595,22 @@ S
 
 
 
+#OLIMITS
+S
+
+
+
 #MOBPROGS
 #0
+
+#PRACTICERS
+S
+
+
+
+#OMPROGS
+S
+
+
 
 #$

@@ -1,8 +1,11 @@
-#AREA
-freeport.are~
-Freeport~
-{ 8 53} Lok     Freeport~
-29201 29276
+#AREADATA
+Name Freeport~
+Builders None~
+VNUMs 29201 29276
+Credits Lok~
+Security 9
+LevelRange 8 53
+End
 
 
 
@@ -16,12 +19,12 @@ The blue-tongued lizard measures some 18" from head to tail,
 is very quick, and has sharp pointy teeth.
 ~
 lizard~
-ACEHX 0 0 0 
-8 0 2d7+96 5d5+100 1d7+2 bite         
+ACEHX 0 0 0
+8 0 2d7+96 5d5+100 1d7+2 bite
 3 3 3 8
-FHMR 0 L I 
+FHMR 0 0 0
 stand stand none 0
-AGXc ACDEFHKPQV small 0
+0 P small unknown
 #29202
 lizard red-tongued~
 the red-tongued lizard~
@@ -31,12 +34,12 @@ The red-tongued lizard measures some 18" from head to tail,
 is very quick, and has sharp pointy teeth.
 ~
 lizard~
-ACEHX 0 0 0 
-9 0 2d6+110 5d5+100 1d8+2 bite        
+ACEHX 0 0 0
+9 0 2d6+110 5d5+100 1d8+2 bite
 2 2 2 7
-HMR 0 L I
+HMR 0 0 0
 stand stand none 0
-AGXc ACDEFHKQV small 0
+0 0 small unknown
 #29203
 lizard green-tongued~
 the green-tongued lizard~
@@ -46,12 +49,12 @@ The green-tongued lizard measures some 18" from head to tail,
 is very quick, and has sharp pointy teeth.
 ~
 lizard~
-ACEHX 0 0 0 
-8 0 2d7+96 5d5+100 1d7+2 bite         
+ACEHX 0 0 0
+8 0 2d7+96 5d5+100 1d7+2 bite
 3 3 3 8
-FHMR 0 L I
+FHMR 0 0 0
 stand stand none 0
-AGXc ACDEFHKQV small 0
+0 0 small unknown
 #29204
 watchman man old sailor~
 the watchman of Widow's Cape~
@@ -63,11 +66,11 @@ at night, but when he reported it, nobody seemed to care.
 ~
 human~
 ABCEX 0 300 0
-12 0 2d10+150 5d5+100 1d10+3 slash   
+12 0 2d10+150 5d5+100 1d10+3 slash
 0 0 0 7
 EFNU 0 0 0
 stand stand male 100
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #29205
 fisherman man~
 the fisherman~
@@ -79,11 +82,11 @@ jetty rocks.
 ~
 human~
 ABCEX 0 200 0
-10 0  2d7+121 5d5+100 2d4+2 pierce        
+10 0 2d7+121 5d5+100 2d4+2 pierce
 1 1 1 7
 EFNU 0 0 0
 stand stand male 10
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #29206
 longshoreman worker dock man~
 the longshoreman~
@@ -94,11 +97,11 @@ a rope to lift the heavy crate.
 ~
 human~
 ACEX 0 0 0
-9 0 2d6+110 5d5+100 1d8+2 slash        
+9 0 2d6+110 5d5+100 1d8+2 slash
 2 2 2 7
 EFNU 0 0 0
 stand stand male 10
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #29207
 harbormaster man~
 the harbormaster~
@@ -109,11 +112,11 @@ any crap from you. Give him his list or go to the brig.
 ~
 human~
 ABCE 0 0 0
-29 0 6d12+778 5d5+1000 2d12+8 slash    
+29 0 6d12+778 5d5+1000 2d12+8 slash
 -9 -9 -9 3
 EFNU 0 0 0
 stand stand male 300
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #29208
 citizen freeport~
 the citizen of Freeport~
@@ -123,11 +126,11 @@ The citizen is dressed in light cotton clothing and sandals.
 ~
 human~
 ACEX 0 200 0
-10 0  2d7+121 5d5+100 2d4+2 pierce         
+10 0 2d7+121 5d5+100 2d4+2 pierce
 1 1 1 7
-EFNU 0 0 0 
+EFNU 0 0 0
 stand stand male 15
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #29209
 child laughing~
 the laughing child~
@@ -137,11 +140,11 @@ The child is dressed in a white cotton shirt.
 ~
 human~
 ACEX 0 500 0
-7 0 2d6+85 5d5+100 1d8+1 pierce        
+7 0 2d6+85 5d5+100 1d8+1 pierce
 4 4 4 8
-EFNU 0 0 0 
+EFNU 0 0 0
 stand stand female 1
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #29210
 wife sailor's~
 the sailor's wife~
@@ -153,11 +156,11 @@ and has hair bleached blond by the sun and the sea.
 ~
 human~
 ACEX 0 100 0
-9 0 2d6+110 5d5+100 1d8+2 slash        
+9 0 2d6+110 5d5+100 1d8+2 slash
 2 2 2 7
-EFNU 0 0 0 
+EFNU 0 0 0
 stand stand female 3
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #29211
 shipbuilder master~
 the master shipbuilder~
@@ -172,9 +175,9 @@ human~
 ABCE 0 300 0
 95 0 50d10+22500 5d5+5000 12d15+68 slash
 -71 -71 -71 -37
-EFNU 0 0 0 
+EFNU 0 0 0
 stand stand male 8000
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #29212
 apprentice shipbuilder~
 the apprentice shipbuilder~
@@ -185,11 +188,11 @@ grey smock.
 ~
 human~
 ABCE 0 300 0
-7 0 2d6+85 5d5+100 1d8+1 slash         
+7 0 2d6+85 5d5+100 1d8+1 slash
 4 4 4 8
-EFNU 0 0 0 
+EFNU 0 0 0
 stand stand male 18
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #29213
 overseer warehouse~
 the warehouse overseer~
@@ -203,9 +206,9 @@ human~
 ABCE 0 300 0
 34 0 10d10+1200 5d5+1000 4d7+10 slash
 -11 -11 -11 3
-EFNU 0 0 0 
+EFNU 0 0 0
 stand stand male 340
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #29214
 patrolman harbor~
 the harbor patrolman~
@@ -216,11 +219,11 @@ though, and looks like he is in no mood for your crap.
 ~
 human~
 ACEX 0 500 0
-20 0 3d9+333 5d5+1000 2d8+5 pound     
+20 0 3d9+333 5d5+1000 2d8+5 pound
 -4 -4 -4 5
-EFNU 0 0 0 
+EFNU 0 0 0
 stand stand male 100
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #29215
 teamster~
 the teamster~
@@ -229,12 +232,12 @@ A teamster is here, taking a wagonload of cargo to the wharf.
 The teamster drives his single mule with a long whip and foul language.
 ~
 human~
-ACEX 0 0 0 
-13 0 2d10+170 5d5+100 2d5+3 slash    
+ACEX 0 0 0
+13 0 2d10+170 5d5+100 2d5+3 slash
 -1 -1 -1 6
-EFNU 0 0 0 
+EFNU 0 0 0
 stand stand male 70
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #29216
 lefty~
 Lefty, owner of the Sunken Pirate~
@@ -248,9 +251,9 @@ human~
 ABCDE 0 600 0
 95 0 50d10+22500 5d5+5000 12d15+68 slash
 -71 -71 -71 -37
-EFNU 0 0 0 
+EFNU 0 0 0
 stand stand male 10000
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #29217
 anwar~
 Anwar, proprietor of the Emporium~
@@ -262,12 +265,12 @@ very cheap in which you might be interested. When you scoff at his
 fenced goods, Anwar clams up.
 ~
 elf~
-ABCEV J -300 0
+ABCEV 0 -300 0
 95 0 50d10+22500 5d5+5000 12d15+68 slash
 -71 -71 -71 -37
-EFNU 0 B Z
+EFNU 0 0 0
 stand stand male 15000
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #29218
 raedner dwarf dwarven smith~
 Raedner the dwarven smith~
@@ -279,12 +282,12 @@ nobody he had talked to voted for Mayor Friendly. He offers to repair your
 armor.
 ~
 dwarf~
-ABCESV J 700 0
+ABCESV 0 700 0
 94 0 50d10+21500 5d5+5000 10d18+66 slash
 -69 -69 -69 -35
-EFNU 0 CLQ R
+EFNU 0 C 0
 stand stand male 15000
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #29219
 samantha~
 Samantha, witch of the Mystic Eye~
@@ -301,7 +304,7 @@ ABCERV 0 -700 0
 -69 -69 -69 -35
 EFNU 0 0 0
 stand stand female 15000
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #29220
 apprentice merchant~
 the apprentice merchant~
@@ -312,11 +315,11 @@ wears a simple yellow smock.
 ~
 human~
 ABCE 0 200 0
-7 0 2d6+85 5d5+100 1d8+1 pierce        
+7 0 2d6+85 5d5+100 1d8+1 pierce
 4 4 4 8
 EFNU 0 0 0
 stand stand male 300
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #29221
 ceres merchant~
 Ceres, merchant of the 3rd chair~
@@ -332,7 +335,7 @@ ABCEN 0 400 0
 -16 -16 -16 2
 EFNU 0 0 0
 stand stand male 1000
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #29222
 elken banker~
 Elken, banker of Freeport~
@@ -346,9 +349,9 @@ human~
 ABCE 0 -500 0
 49 0 50d10+4000 5d5+1000 4d10+18 pierce
 -19 -19 -19 1
-EFNU 0 0 0 
+EFNU 0 0 0
 stand stand male 1000
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #29224
 cadet young~
 the young cadet~
@@ -362,11 +365,11 @@ the final race.
 ~
 human~
 ABCE 0 400 0
-14 0  2d10+190 5d5+100 1d12+3 pound   
+14 0 2d10+190 5d5+100 1d12+3 pound
 -1 -1 -1 6
-EFNU 0 0 0 
+EFNU 0 0 0
 stand stand male 10
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #29225
 whitecap old salt~
 Whitecap, 8th Admiral of Freeport~
@@ -382,9 +385,9 @@ human~
 ABCEPQ 0 900 0
 49 0 50d10+4000 5d5+1000 4d10+18 pierce
 -19 -19 -19 1
-EFNU 0 0 0 
+EFNU 0 0 0
 stand stand male 500
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #29226
 mayor friendly~
 Mayor Friendly~
@@ -398,9 +401,9 @@ human~
 ABCE 0 -700 0
 44 0 25d10+2750 5d5+1000 8d4+15 pierce
 -15 -15 -15 2
-EFNU 0 0 0 
+EFNU 0 0 0
 stand stand male 6000
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #29227
 midge innkeeper~
 Midge, the innkeeper of the Crew's Quarters~
@@ -415,9 +418,9 @@ human~
 ABCE 0 400 0
 94 0 50d10+21500 5d5+5000 10d18+66 pound
 -69 -69 -69 -35
-EFNU 0 0 0 
+EFNU 0 0 0
 stand stand female 9000
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #29228
 sailor scruffy pirate~
 the scruffy pirate~
@@ -429,9 +432,9 @@ human~
 ACEX 0 -200 0
 45 0 25d10+3000 5d5+1000 8d4+16 slash
 -15 -15 -15 2
-EFNU 0 0 0 
+EFNU 0 0 0
 stand stand male 45
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #29229
 guard stoic pirate~
 the pirate guard~
@@ -444,9 +447,9 @@ human~
 ABCEF 0 -600 0
 46 0 25d10+3250 5d5+1000 6d6+16 pierce
 -16 -16 -16 2
-EFNU 0 0 0 
+EFNU 0 0 0
 stand stand male 150
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #29230
 blacksail admiral~
 Admiral Blacksail~
@@ -461,9 +464,9 @@ human~
 ABCE 0 -200 0
 47 0 25d10+3500 5d5+1000 6d6+17 slash
 -17 -17 -17 2
-EFNU 0 0 0 
+EFNU 0 0 0
 stand stand male 250
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #29231
 oglethorpe master merchant~
 Oglethorpe, 1st Master Merchant of Freeport~
@@ -478,9 +481,9 @@ human~
 ABCE 0 -1000 0
 47 0 25d10+3500 5d5+1000 6d6+17 slash
 -17 -17 -17 2
-EFNU 0 0 0 
+EFNU 0 0 0
 stand stand male 1500
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #29232
 mourning lord~
 Lord Mourning~
@@ -496,9 +499,9 @@ human~
 ABCE H -1000 0
 52 0 50d10+4750 5d5+5000 6d7+20 slash
 -22 -22 -22 0
-EFNU 0 0 0 
+EFNU 0 0 0
 stand stand male 500
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #29233
 sailor drunken~
 the drunken sailor~
@@ -511,11 +514,11 @@ the meat he had for lunch.
 ~
 human~
 ACEX 0 0 0
-8 0 2d7+96 5d5+100 1d7+2 pound         
+8 0 2d7+96 5d5+100 1d7+2 pound
 3 3 3 8
-EFNU 0 0 0 
+EFNU 0 0 0
 stand stand male 10
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #0
 
 
@@ -573,7 +576,7 @@ A fishing pole is here, hooked and baited.
 ~
 wood~
 weapon 0 AN
-0 3 5 4 0
+exotic 3 5 none 0
 10 3 100 P
 #29207
 notebook~
@@ -602,7 +605,7 @@ A suit of scale mail is here.
 ~
 iron~
 armor G AD
-7 7 7 0 0
+ABC ABC ABC 0 0
 20 20 200 P
 #29210
 trident~
@@ -611,7 +614,7 @@ A trident has been left here.
 ~
 wood~
 weapon G AN
-3 5 5 2 0
+exotic 5 5 none 0
 20 9 200 P
 A
 19 3
@@ -622,7 +625,7 @@ A steaming meat pie is here.
 ~
 flesh~
 food 0 A
-8 8 0 0 0
+D D 0 0 0
 0 2 5 P
 #29212
 grog sailor's~
@@ -672,7 +675,7 @@ A suit of emerald armor is here.
 ~
 stone~
 armor G AD
-13 13 13 10 0
+ACD ACD ACD BD 0
 46 40 2000 P
 A
 17 -30
@@ -683,7 +686,7 @@ A dwarven throwing hammer is here.
 ~
 unknown~
 weapon GP AN
-4 9 5 0 0
+exotic 9 5 none 0
 40 20 1500 P
 A
 18 4
@@ -696,7 +699,7 @@ A set of elven chainmail sleeves is here.
 ~
 mithril~
 armor G AI
-5 5 5 5 0
+AC AC AC AC 0
 10 4 100 P
 #29219
 leggings elven chainmail~
@@ -705,7 +708,7 @@ A pair of elven chainmail leggings is here.
 ~
 mithril~
 armor GQ AF
-5 5 5 5 0
+AC AC AC AC 0
 10 5 100 P
 #29220
 wine red~
@@ -732,7 +735,7 @@ A plate of gravy and dumplings is here.
 ~
 flesh~
 food 0 A
-5 5 0 0 0
+AC AC 0 0 0
 0 2 14 P
 #29223
 crate~
@@ -759,7 +762,7 @@ An emerald wristguard is here.
 ~
 stone~
 armor G AM
-12 12 12 6 0
+CD CD CD BC 0
 46 10 3500 P
 A
 17 -20
@@ -770,7 +773,7 @@ An emerald longsword is here.
 ~
 stone~
 weapon G AN
-1 5 10 3 0
+exotic 5 10 none 0
 46 10 3200 P
 A
 17 -10
@@ -781,7 +784,7 @@ An emerald helm is here.
 ~
 stone~
 armor G AE
-12 12 12 6 0
+CD CD CD BC 0
 46 15 1800 P
 A
 17 -10
@@ -801,7 +804,7 @@ A cape with the emblem of Freeport is here.
 ~
 cloth~
 armor GI ACD
-12 12 12 6 0
+CD CD CD BC 0
 45 10 3200 P
 A
 18 2
@@ -820,7 +823,7 @@ A ring with the seal of Freeport is here.
 ~
 gold~
 armor G AB
-12 12 12 6 0
+CD CD CD BC 0
 45 1 1800 P
 A
 14 100
@@ -835,7 +838,7 @@ A very heavy purse is here.
 ~
 leather~
 money 0 A
-800 0 0 0 0
+FIJ 0 0 0 0
 47 100 470 P
 #29232
 boots bladed~
@@ -844,7 +847,7 @@ A pair of boots with a spring action blade lie here.
 ~
 leather~
 armor 0 AG
-17 17 17 9 0
+AE AE AE AD 0
 52 5 3900 P
 A
 19 5
@@ -857,7 +860,7 @@ A hole in reality lies here.
 ~
 unknown~
 armor G AC
-13 13 13 13 0
+ACD ACD ACD ACD 0
 52 3 5000 P
 A
 1 1
@@ -894,7 +897,7 @@ You have reached the point of Freeport isle, a place locals
 call Dusk's edge. There is an ivory statue of a dolphin entering the 
 water from a great leap is here.
 ~
-0 0 5  
+0 0 5
 E
 statue~
 The statue shows the Dolphin as it is entering the water. The inscription 
@@ -917,7 +920,7 @@ You walk along the rock jetty of the isle of Freeport. The waves crash and
 spray a salt mist into the air. Gulls wheel in the sky above you, having 
 flown from their perches upon seeing you.
 ~
-0 0 4  
+0 0 4
 D2
 On the rock jetty~
 ~
@@ -933,7 +936,7 @@ You walk along the rock jetty of the isle of Freeport. The waves crash and
 spray a salt mist into the air. Gulls wheel in the sky above you, having 
 flown from their perches upon seeing you.
 ~
-0 0 4  
+0 0 4
 D0
 On the rock jetty~
 ~
@@ -949,7 +952,7 @@ You walk along the rock jetty of the isle of Freeport. The waves crash and
 spray a salt mist into the air. Gulls wheel in the sky above you, having 
 flown from their perches upon seeing you.
 ~
-0 0 4  
+0 0 4
 D0
 On the rock jetty~
 ~
@@ -969,7 +972,7 @@ You are on the stone paved wharf road. To your south is a rock jetty upon
 which the waves crash. Traffic from the warehouse to the west travels to
 the wharf via wharf road.
 ~
-0 0 1  
+0 0 1
 D0
 On the rock jetty~
 ~
@@ -985,7 +988,7 @@ You are on the wharf of Freeport, where ships dock and load. The docks
 are busy today as any day, for the commerce of the seas knows no holiday.
 To the north of you the harbor of Freeport stretches.
 ~
-0 0 2  
+0 0 2
 D1
 On the wharf~
 ~
@@ -1005,7 +1008,7 @@ You are on the stone paved wharf road. To your south is a rock jetty upon
 which the waves crash. Traffic from the warehouse to the west travels to
 the wharf via wharf road.
 ~
-0 0 1  
+0 0 1
 D0
 On the wharf~
 ~
@@ -1025,7 +1028,7 @@ You are on the wharf of Freeport, where ships dock and load. The docks
 are busy today as any day, for the commerce of the seas knows no holiday.
 To the north of you the harbor of Freeport stretches.
 ~
-0 0 2 
+0 0 2
 D1
 On the wharf~
 ~
@@ -1045,7 +1048,7 @@ You are on the stone paved wharf road. To your south is a rock jetty upon
 which the waves crash. Traffic from the warehouse to the west travels to
 the wharf via wharf road.
 ~
-0 0 1  
+0 0 1
 D0
 On the wharf~
 ~
@@ -1069,7 +1072,7 @@ You walk along the rock jetty of the isle of Freeport. The waves crash
 and spray a salt mist into the air. Gulls wheel in the sky above you, 
 having flown from their perches upon seeing you.
 ~
-0 0 4  
+0 0 4
 D0
 Wharf road~
 ~
@@ -1085,7 +1088,7 @@ You are on the wharf of Freeport, where ships dock and load. The docks
 are busy today as any day, for the commerce of the seas knows no holiday.
 To the north of you the harbor of Freeport stretches.
 ~
-0 0 2 
+0 0 2
 D1
 On the wharf~
 ~
@@ -1101,7 +1104,7 @@ You are on the wharf of Freeport, where ships dock and load. The docks
 are busy today as any day, for the commerce of the seas knows no holiday.
 To the north of you the harbor of Freeport stretches.
 ~
-0 0 2  
+0 0 2
 D0
 On the wharf~
 ~
@@ -1125,7 +1128,7 @@ You are on the stone paved wharf road. To your south is a rock jetty upon
 which the waves crash. Traffic from the warehouse to the west travels to
 the wharf via wharf road.
 ~
-0 0 1  
+0 0 1
 D0
 On the wharf~
 ~
@@ -1149,7 +1152,7 @@ You walk along the rock jetty of the isle of Freeport. The waves crash
 and spray a salt mist into the air. Gulls wheel in the sky above you, 
 having flown from their perches upon seeing you.
 ~
-0 0 4  
+0 0 4
 D0
 Wharf road~
 ~
@@ -1169,7 +1172,7 @@ You have climbed the rocks of widows cape, and can see the violent southern
 shoals which have claimed many a ship. A watchfire is kept burning here at 
 night to warn sailors.
 ~
-0 0 5  
+0 0 5
 D0
 On the rock jetty~
 ~
@@ -1180,7 +1183,7 @@ On the Wharf~
 You are on the wharf of Freeport, where ships dock and load. The docks 
 are busy today as any day, for the commerce of the seas knows no holiday.
 ~
-0 0 2  
+0 0 2
 D1
 On the wharf~
 ~
@@ -1196,7 +1199,7 @@ You are on the wharf of Freeport, where ships dock and load. The docks
 are busy today as any day, for the commerce of the seas knows no holiday.
 To the north of you the harbor of Freeport stretches.
 ~
-0 0 2  
+0 0 2
 D0
 On the wharf~
 ~
@@ -1220,7 +1223,7 @@ You are on the stone paved wharf road. Here you see a ship being hauled up
 to dry dock for repairs. Traffic from the warehouse to the west travels to
 the wharf via wharf road.
 ~
-0 0 1  
+0 0 1
 D0
 On the wharf~
 ~
@@ -1244,7 +1247,7 @@ You are on the stone paved wharf road. To your south is a rock jetty upon
 which the waves crash. Traffic from the warehouse to the west travels to
 the wharf via wharf road.
 ~
-0 0 1  
+0 0 1
 D0
 Wharf road~
 ~
@@ -1264,7 +1267,7 @@ You are on the wharf of Freeport, where ships dock and load. The docks
 are busy today as any day, for the commerce of the seas knows no holiday.
 To the north of you the harbor of Freeport stretches.
 ~
-0 0 2  
+0 0 2
 D1
 On the rock jetty~
 ~
@@ -1280,7 +1283,7 @@ You are on the stone paved wharf road. Traffic from the warehouse to the
 west travels to the wharf via wharf road. To your immediate east is the
 shipyards, where you can hear the sounds of construction.
 ~
-0 0 1  
+0 0 1
 D0
 On the wharf~
 ~
@@ -1304,7 +1307,7 @@ You are on the stone paved wharf road. Traffic from the warehouse to the
 west travels to the wharf via wharf road. To your immediate east you see
 the road to the city of Freeport.
 ~
-0 0 1  
+0 0 1
 D0
 Wharf road~
 ~
@@ -1328,7 +1331,7 @@ You are on the stone paved wharf road. Traffic from the warehouse to the west tr
 the wharf via wharf road. Immediately to the east you see the mercantile
 warehouse, where crates of goods are in temporary storage for shipping.
 ~
-0 0 1  
+0 0 1
 D0
 Wharf road~
 ~
@@ -1355,7 +1358,7 @@ become. Down next to the jetty where flooding is likely, live the poorest
 families, in temporary shacks which are prone to flooding. A small road leads
 east into the village.
 ~
-0 C 4  
+0 C 4
 D0
 Wharf road~
 ~
@@ -1375,7 +1378,7 @@ You walk along the rock jetty of the isle of Freeport. The waves crash and
 spray a salt mist into the air. Gulls wheel in the sky above you, having 
 flown from their perches upon seeing you.
 ~
-0 0 4  
+0 0 4
 D0
 On the Rock Jetty~
 ~
@@ -1391,7 +1394,7 @@ You walk along the rock jetty of the isle of Freeport. The waves crash and
 spray a salt mist into the air. Gulls wheel in the sky above you, having 
 flown from their perches upon seeing you.
 ~
-0 0 4  
+0 0 4
 D0
 On the rock jetty~
 ~
@@ -1418,7 +1421,7 @@ You get the sense that sailing as you know it is about to change. Many of
 the islanders are employed here, and ages range from the youthful 12 year
 old apprentice, to the grizzled old shipwrights.
 ~
-0 0 0  
+0 0 0
 D0
 On the rock jetty~
 ~
@@ -1444,7 +1447,7 @@ has walls, made of the local slate and a mortar joint. Roads stretch off
 north to the shipyards, east to Freeport village, south to the mercantile
 warehouse, and westward wharf road continues along the harbor.
 ~
-0 C 1  
+0 C 1
 D0
 The shipyards~
 ~
@@ -1475,7 +1478,7 @@ signals to his apprentices in a strange sign language of the merchants
 guild. You get caught up in the excitement of the warehouse, and lend a
 hand to two struggling boys.
 ~
-0 0 0  
+0 0 0
 D0
 The road to the city of Freeport~
 ~
@@ -1491,7 +1494,7 @@ You walk along the rock jetty of the isle of Freeport. The waves crash and
 spray a salt mist into the air. Gulls wheel in the sky above you, having 
 flown from their perches upon seeing you.
 ~
-0 0 4  
+0 0 4
 D2
 On the rock jetty~
 ~
@@ -1507,7 +1510,7 @@ You walk along the rock jetty of the isle of Freeport. The waves crash and
 spray a salt mist into the air. Gulls wheel in the sky above you, having 
 flown from their perches upon seeing you.
 ~
-0 0 4  
+0 0 4
 D0
 On the rock jetty~
 ~
@@ -1534,7 +1537,7 @@ become. Down next to the jetty where flooding is likely, live the poorest
 families, in temporary shacks which are prone to flooding. The road to the
 city of Freeport is to your west.
 ~
-0 C 4  
+0 C 4
 D0
 On the rock jetty~
 ~
@@ -1554,7 +1557,7 @@ You walk along the rock jetty of the isle of Freeport. The waves crash and
 spray a salt mist into the air. Gulls wheel in the sky above you, having 
 flown from their perches upon seeing you.
 ~
-0 0 4 
+0 0 4
 D1
 On the rock jetty~
 ~
@@ -1570,7 +1573,7 @@ You walk along the rock jetty of the isle of Freeport. The waves crash and
 spray a salt mist into the air. Gulls wheel in the sky above you, having 
 flown from their perches upon seeing you.
 ~
-0 0 4  
+0 0 4
 D2
 On the rock jetty~
 ~
@@ -1586,7 +1589,7 @@ You walk along the rock jetty of the isle of Freeport. The waves crash and
 spray a salt mist into the air. Gulls wheel in the sky above you, having 
 flown from their perches upon seeing you.
 ~
-0 0 4  
+0 0 4
 D0
 On the rock jetty~
 ~
@@ -1602,7 +1605,7 @@ You have reached the easternmost point of Freeport isle, a place locals call
 Dawn's edge. There is an ivory statue of a dolphin leaping out of the water 
 here. To the east you see the corner of the world.
 ~
-0 0 5  
+0 0 5
 E
 statue~
 The statue shows the Dolphin as it is rising out of the water. The 
@@ -1625,7 +1628,7 @@ You walk along the rock jetty of the isle of Freeport. The waves crash and
 spray a salt mist into the air. Gulls wheel in the sky above you, having 
 flown from their perches upon seeing you.
 ~
-0 0 4  
+0 0 4
 D2
 On the Rock Jetty~
 ~
@@ -1641,7 +1644,7 @@ You walk along the rock jetty of the isle of Freeport. The waves crash and
 spray a salt mist into the air. Gulls wheel in the sky above you, having 
 flown from their perches upon seeing you.
 ~
-0 0 4  
+0 0 4
 D0
 On the rock jetty~
 ~
@@ -1657,7 +1660,7 @@ You walk along the rock jetty of the isle of Freeport. The waves crash and
 spray a salt mist into the air. Gulls wheel in the sky above you, having 
 flown from their perches upon seeing you.
 ~
-0 0 4  
+0 0 4
 D2
 On the rock jetty~
 ~
@@ -1673,7 +1676,7 @@ You walk along the rock jetty of the isle of Freeport. The waves crash and
 spray a salt mist into the air. Gulls wheel in the sky above you, having 
 flown from their perches upon seeing you.
 ~
-0 0 4  
+0 0 4
 D1
 On the rock jetty~
 ~
@@ -1689,7 +1692,7 @@ You walk along the rock jetty of the isle of Freeport. The waves crash and
 spray a salt mist into the air. Gulls wheel in the sky above you, having 
 flown from their perches upon seeing you.
 ~
-0 0 4  
+0 0 4
 D0
 On the rock jetty~
 ~
@@ -1706,7 +1709,7 @@ long swells from the northeast crash with great force upon the island. You
 see why the island has been reinforced with a rock jetty- without it, it 
 would rapidly erode.
 ~
-0 0 5  
+0 0 5
 D2
 On the rock jetty~
 ~
@@ -1721,7 +1724,7 @@ become. Down next to the jetty where flooding is likely, live the poorest
 families, in temporary shacks which are prone to flooding. To the north is 
 the mercantile warehouse.
 ~
-0 0 4  
+0 0 4
 D1
 Freeport village~
 ~
@@ -1738,7 +1741,7 @@ you and ask you to join them for tea. Children run along the main street
 playing sailors and pirates. There is a small church here at the point
 on the shore.
 ~
-0 0 4  
+0 0 4
 D0
 Freeport village~
 ~
@@ -1757,7 +1760,7 @@ become. Down next to the jetty where flooding is likely, live the poorest
 families, in temporary shacks which are prone to flooding. To the west is 
 the mercantile warehouse.
 ~
-0 0 4 
+0 0 4
 D0
 Freeport village~
 ~
@@ -1776,11 +1779,11 @@ and sail off with her cargo into the seas. Yes, you think you could get
 used to life here on Freeport. Commerce lane goes south through the city
 gates.
 ~
-0 C 1  
+0 C 1
 D2
 Commerce lane~
 gates bronze~
-1 -1 29247
+0 -1 29247
 D5
 The road to the island~
 ~
@@ -1794,7 +1797,7 @@ To your east is the Sunken Pirate, the local watering hole, and to the
 west is the Emporium, a store of exotic goods. Commerce street continues
 south.
 ~
-0 0 1  
+0 0 1
 D0
 The gates of Freeport~
 ~
@@ -1822,7 +1825,7 @@ the packed tables to the delight of their naval and mercantile clientele.
 An unleavened spiced bread called Pilas is served hot and in generous portions
 in wicker baskets.
 ~
-0 D 0  
+0 D 0
 D3
 Commerce Street~
 ~
@@ -1835,7 +1838,7 @@ several lands. Bolts of cloth, silver plates and utensils, lanterns
 candles, rugs, etc. dazzle you. Several store boys work the floor, helping
 their customers.
 ~
-0 D 0  
+0 D 0
 D1
 Commerce Street~
 ~
@@ -1849,7 +1852,7 @@ To the east is the Bronze Scabbard, the shop of the armourer of Freeport.
 To the west is the Mystic Eye, a famed magic shop. Commerce street continues
 north and south.
 ~
-0 0 1  
+0 0 1
 D0
 Commerce Street~
 ~
@@ -1875,7 +1878,7 @@ Captains guild and the shipyards, where most of the arms of Freeport
 are made. In their spare time the metalworkers make various trinkets
 for the local citizenry and tourists.
 ~
-0 D 0  
+0 D 0
 D3
 Commerce Street~
 ~
@@ -1888,7 +1891,7 @@ Several lamps on display change from color to color, in addition to the
 everlasting variety. Scrolls and books are stored in a glass cabinet behind
 the counter.
 ~
-0 D 0  
+0 D 0
 D1
 Commerce Street~
 ~
@@ -1904,7 +1907,7 @@ guild every hour. To the east, Naval street runs to the Captains guild at
 the end, and to the west Shippers Lane goes to the Merchants guild. Commerce
 street leads northwards out of the city.
 ~
-0 K 1  
+0 K 1
 D0
 Commerce Street~
 ~
@@ -1929,7 +1932,7 @@ each stone commemorating a naval engagement in the city's history. Cadets
 drill at the end of the street, marching up and down, over and over in
 tight formation. To the south is an inn called The Crew's Quarters.
 ~
-0 0 1  
+0 0 1
 D1
 Naval Street~
 ~
@@ -1949,7 +1952,7 @@ You walk Shippers lane. Two story houses press closely to the to the
 street and people bustle back and forth. To the south is the bank of 
 Freeport.
 ~
-0 0 1  
+0 0 1
 D1
 Town square~
 ~
@@ -1974,7 +1977,7 @@ participate in the meetings. The role of the mayor is as arbitrator, and
 he is freely elected by popular vote. White marble statues are displayed
 in alcoves about the hall.
 ~
-0 D 0  
+0 D 0
 E
 statues~
 The statues are of past mayors of the city. As you examine them more
@@ -2000,7 +2003,7 @@ and dark stained oak, the walls are paneled, and the windows facing the
 street resemble portholes. This is a popular meeting place for the captains
 when they have foreign visitors.
 ~
-0 D 0  
+0 D 0
 D0
 Naval Street~
 ~
@@ -2013,7 +2016,7 @@ continual stream of customers entering and depositing vast sums of money in
 the well guarded vault. The bank is faring well, as you can judge by
 the amount of gilding inside the building.
 ~
-0 CD 0 
+0 CD 0
 D0
 ~
 ~
@@ -2025,7 +2028,7 @@ You walk Shippers lane. Two story houses press closely to the to the
 street and people bustle back and forth. To the north is the mercantile
 school, and to the south is the merchant's guild.
 ~
-0 0 1  
+0 0 1
 D0
 The mercantile school~
 ~
@@ -2047,7 +2050,7 @@ record the latest buy and sell rates of commodities around the world upon
 the rolls of the school. This school is one of the main reasons for the
 economic dominance of Freeport of world trade.
 ~
-0 D 0  
+0 D 0
 D2
 Shipper's Lane~
 ~
@@ -2067,7 +2070,7 @@ the guilds behalf in contractual negotiations in town meetings. It has been
 said that the council of 5 collectively owns one quarter of the world's 
 wealth.
 ~
-0 D 0  
+0 D 0
 D0
 Shipper's Lane~
 ~
@@ -2082,7 +2085,7 @@ actual military vessels. The academy has a long tradition of turning out
 fine sailors. Most cadets eventually become captains of their own vessels
 and under contract to the Merchants guild.
 ~
-0 D 0  
+0 D 0
 D2
 Naval Street~
 ~
@@ -2099,7 +2102,7 @@ the number of vessels the captain has. The richest men with the most ships
 fill the 9 seats of honor in the guild, and are called the Admirals. It has
 been said that they control one third of the world's shipping.
 ~
-0 D 0  
+0 D 0
 D0
 Naval Street~
 ~
@@ -2112,7 +2115,7 @@ are wet and mossy. Far below you hear the sounds of men loading a ship.
 The old torch sconces on the wall have not been used in years. There is 
 a sign on the wall.
 ~
-0 AD 4 
+0 AD 4
 E
 sign wall~
 {45 53} Lok  Hall of the 6th Pirate Lord
@@ -2132,7 +2135,7 @@ You follow a secret staircase south and downward underground. The stairs
 are wet and mossy. Far below you hear the sounds of men loading a ship.
 The old torch sconces on the wall have not been used in years.
 ~
-0 AD 4  
+0 AD 4
 D0
 On a secret staircase~
 ~
@@ -2149,7 +2152,7 @@ room is a deep pool in which several triremes have been moored.
 Laughing sailors are unloading cargo from one of the ships. You quickly
 disguise yourself as one of the sailors.
 ~
-0 D 0  
+0 D 0
 D0
 On a secret staircase~
 ~
@@ -2169,7 +2172,7 @@ You walk along the shore of an underground water cave in which several
 triremes have been moored, one of which is being unloaded. You sneak
 unnoticed behind several CRATES which have been recently off-loaded.
 ~
-0 D 0  
+0 D 0
 E
 crates~
 These crates are marked with a destination of Solace. That's funny. What
@@ -2195,7 +2198,7 @@ triremes have been moored, one of which is being unloaded. You sneak
 unnoticed behind several CRATES which have been recently off-loaded. To
 the north of you is a guarded door.
 ~
-0 D 0  
+0 D 0
 E
 crates~
 These crates are marked with a destination of Antharia. That's funny. What
@@ -2229,11 +2232,11 @@ a rich noble. Yes you have discovered the kingpin of the pirate lords,
 the man who has terrorized commerce for a decade. What will you do about 
 it?
 ~
-0 D 0  
+0 D 0
 D2
 Through the door~
 door~
-1 -1 29269
+0 -1 29269
 S
 #29271
 In the Hidden Cavern~
@@ -2241,7 +2244,7 @@ You walk along the shore of an underground water cave in which several
 triremes have been moored, one of which is being unloaded. You sneak
 unnoticed behind several CRATES which have been recently off-loaded.
 ~
-0 D 0  
+0 D 0
 E
 crates~
 These crates are marked with a destination of the Shire. That's funny. What
@@ -2262,7 +2265,7 @@ You walk along the shore of an underground water cave in which several
 triremes have been moored, one of which is being unloaded. You sneak
 unnoticed behind several CRATES which have been recently off-loaded.
 ~
-0 D 0  
+0 D 0
 E
 crates~
 These crates are marked with a destination of Camelot. That's funny. What
@@ -2289,7 +2292,7 @@ unnoticed behind several CRATES which have been recently off-loaded. To
 the south of you the waterway leaves the cavern through a tunnel which
 U's in a long curve.
 ~
-0 D 0  
+0 D 0
 E
 crates~
 These crates are marked with a destination of Dunkeldorf. That's funny. What
@@ -2306,7 +2309,7 @@ You walk along the shore of an underground water cave in which several
 triremes have been moored, one of which is being unloaded. You sneak
 unnoticed behind several CRATES which have been recently off-loaded.
 ~
-0 D 0  
+0 D 0
 E
 crates~
 These crates are marked with a destination of Malancandra. That's funny. What
@@ -2324,7 +2327,7 @@ You can dock in any cardinal direction except south, where the harbor
 turns into a dark tunnel which bends around to the west. There is a small
 buoy floating here.
 ~
-0 0 7  
+0 0 7
 E
 buoy~
 {45 53} Lok   The hall of the 6th Pirate Lord
@@ -2350,7 +2353,7 @@ drill at the end of the street, marching up and down, over and over in
 tight formation. To the north is the Naval Academy, and to the south
 is the Captains guild.
 ~
-0 0 1  
+0 0 1
 D0
 The naval academy~
 ~
@@ -2369,126 +2372,125 @@ S
 
 
 #SPECIALS
-M 29230 spec_poison Load to: Admiral Blacksail
-M 29231 spec_poison Load to: Oglethorpe, 1st Master Merchant of Freeport
-M 29232 spec_poison Load to: Lord Mourning
+M 29230 spec_poison	* Admiral Blacksail
+M 29231 spec_poison	* Oglethorpe, 1st Master Merchant of Freeport
+M 29232 spec_poison	* Lord Mourning
 S
 
 
 
 #RESETS
-D 0 29256 5 2 The down door of Town Hall is closed and locked
-D 0 29264 4 2 The up door of On a Secret Staircase is closed and locked
-D 0 29269 0 1 The north door of In the Hidden Cavern is closed
-*D 0 29275 4 1 The up door of On the Hidden Harbor is closed
-M 0 29202 2 29203 1*Load the red-tongued lizard
-G 0 29203 0 A red lizard tongue is given to the red-tongued lizard
-M 0 29206 5 29206 1*Load the longshoreman
-O 0 29223 0 29206 A huge box crate loaded to On the Wharf
-O 0 29224 0 29206 A moored ship loaded to On the Wharf
-M 0 29208 5 29207 1*Load the citizen of Freeport
-M 0 29208 5 29208 1*Load the citizen of Freeport
-O 0 29223 0 29208 A huge box crate loaded to On the Wharf
-O 0 29223 0 29208 A huge box crate loaded to On the Wharf
-O 0 29224 0 29208 A moored ship loaded to On the Wharf
-M 0 29203 2 29210 1*Load the green-tongued lizard
-G 0 29204 0 A green lizard tongue is given to the green-tongued lizard
-M 0 29206 5 29211 1*Load the longshoreman
-M 0 29214 3 29213 1*Load the harbor patrolman
-E 0 29208 0 0 A patrol globe is loaded as a light of the harbor patrolman
-E 0 29209 0 5 Scale mail is loaded on the body of the harbor patrolman
-E 0 29210 0 16 A trident is loaded wielded of the harbor patrolman
-M 0 29204 1 29215 1*Load the watchman of Widow's Cape
-O 0 29205 0 29215 A watchfire loaded to Widow's Cape
-M 0 29207 1 29216 1*Load the harbormaster
-G 0 29207 0 A notebook is given to the harbormaster
-M 0 29214 3 29217 1*Load the harbor patrolman
-E 0 29208 0 0 A patrol globe is loaded as a light of the harbor patrolman
-E 0 29209 0 5 Scale mail is loaded on the body of the harbor patrolman
-E 0 29210 0 16 A trident is loaded wielded of the harbor patrolman
-M 0 29206 5 29220 1*Load the longshoreman
-O 0 29223 0 29220 A huge box crate loaded to On the Wharf
-O 0 29224 0 29220 A moored ship loaded to On the Wharf
-M 0 29215 2 29223 1*Load the teamster
-M 0 29211 1 29227 1*Load the master shipbuilder
-M 0 29212 1 29227 1*Load the apprentice shipbuilder
-M 0 29206 5 29229 1*Load the longshoreman
-M 0 29213 1 29229 1*Load the warehouse overseer
-G 0 29207 0 A notebook is given to the warehouse overseer
-O 0 29223 0 29229 A huge box crate loaded to The Mercantile Warehouse
-O 0 29223 0 29229 A huge box crate loaded to The Mercantile Warehouse
-M 0 29202 2 29230 1*Load the red-tongued lizard
-G 0 29203 0 A red lizard tongue is given to the red-tongued lizard
-M 0 29203 2 29235 1*Load the green-tongued lizard
-G 0 29204 0 A green lizard tongue is given to the green-tongued lizard
-M 0 29201 2 29240 1*Load the blue-tongued lizard
-G 0 29202 0 A blue lizard tongue is given to the blue-tongued lizard
-M 0 29205 1 29242 1*Load the fisherman
-E 0 29206 0 16 A fishing pole is loaded wielded of the fisherman
-M 0 29208 5 29243 1*Load the citizen of Freeport
-M 0 29210 2 29244 1*Load the sailor's wife
-M 0 29209 2 29245 1*Load the laughing child
-M 0 29233 2 29248 1*Load the drunken sailor
-M 0 29216 1 29248 1*Load Lefty, owner of the Sunken Pirate
-G 0 29211 0 A steaming meat pie is given to Lefty, owner of the Sunken Pirate
-G 0 29212 0 A mug of sailor's grog is given to Lefty, owner of the Sunken Pirate
-M 0 29217 1 29249 1*Load Anwar, proprietor of the Emporium
-G 0 29213 0 A holy wafer is given to Anwar, proprietor of the Emporium
-G 0 29214 0 A silver plate is given to Anwar, proprietor of the Emporium
-G 0 29215 0 A tapestry is given to Anwar, proprietor of the Emporium
-M 0 29214 3 29250 1*Load the harbor patrolman
-E 0 29208 0 0 A patrol globe is loaded as a light of the harbor patrolman
-E 0 29209 0 5 Scale mail is loaded on the body of the harbor patrolman
-E 0 29210 0 16 A trident is loaded wielded of the harbor patrolman
-M 0 29218 1 29251 1*Load Raedner the dwarven smith
-G 0 29216 0 Emerald armor is given to Raedner the dwarven smith
-G 0 29217 0 A dwarven thrower is given to Raedner the dwarven smith
-M 0 29208 5 29252 1*Load the citizen of Freeport
-M 0 29219 1 29252 1*Load Samantha, witch of the Mystic Eye
-G 0 29218 0 Elven chainmail sleeves is given to Samantha, witch of the Mystic Eye
-G 0 29219 0 Elven chainmail leggings is given to Samantha, witch of the Mystic Eye
-M 0 29208 5 29253 1*Load the citizen of Freeport
-M 0 29209 2 29253 1*Load the laughing child
-M 0 29210 2 29255 1*Load the sailor's wife
-M 0 29226 1 29256 1*Load Mayor Friendly
-G 0 29201 0 An old key is given to Mayor Friendly
-M 0 29227 1 29257 1*Load Midge, the innkeeper of the Crew's Quarters
-G 0 29220 0 A glass of freeport burgundy is given to Midge, the innkeeper of the Crew's Quarters
-G 0 29221 0 A glass of freeport chablis is given to Midge, the innkeeper of the Crew's Quarters
-G 0 29222 0 A plate of gravy and dumplings is given to Midge, the innkeeper of the Crew's Quarters
-M 0 29233 2 29257 1*Load the drunken sailor
-M 0 29222 1 29258 1*Load Elken, banker of Freeport
-M 0 29220 1 29260 1*Load the apprentice merchant
-M 0 29221 1 29261 1*Load Ceres, merchant of the 3rd chair
-G 0 29221 0 A glass of freeport chablis is given to Ceres, merchant of the 3rd chair
-M 0 29224 1 29262 1*Load the young cadet
-M 0 29225 1 29263 1*Load Whitecap, 8th Admiral of Freeport
-E 0 29229 0 12 An admiral's cape is loaded about the shoulders of Whitecap, 8th Admiral of Freeport
-E 0 29230 0 2 An admiral's signet is loaded on the right finger of Whitecap, 8th Admiral of Freeport
-M 0 29229 2 29265 1*Load the pirate guard
-E 0 29225 0 14 An emerald wristguard is loaded on the left wrist of the pirate guard
-E 0 29226 0 16 An emerald longsword is loaded wielded of the pirate guard
-E 0 29227 0 6 An emerald helm is loaded over the head of the pirate guard
-O 0 29223 0 29268 A huge box crate loaded to In the Hidden Cavern
-M 0 29229 2 29269 1*Load the pirate guard
-E 0 29225 0 14 An emerald wristguard is loaded on the left wrist of the pirate guard
-E 0 29226 0 16 An emerald longsword is loaded wielded of the pirate guard
-E 0 29227 0 6 An emerald helm is loaded over the head of the pirate guard
-O 0 29223 0 29269 A huge box crate loaded to In the Hidden Cavern
-M 0 29231 1 29270 1*Load Oglethorpe, 1st Master Merchant of Freeport
-G 0 29231 0 A very heavy purse is given to Oglethorpe, 1st Master Merchant of Freeport
-M 0 29232 1 29270 1*Load Lord Mourning
-E 0 29232 0 8 Bladed boots is loaded on the feet of Lord Mourning
-E 0 29233 0 3 A dimensional cape is loaded around the neck (1) of Lord Mourning
-E 0 29234 0 17 The troll stone is loaded held in the hands of Lord Mourning
-M 0 29228 1 29272 1*Load the scruffy pirate
-E 0 29229 0 12 An admiral's cape is loaded about the shoulders of the scruffy pirate
-E 0 29230 0 2 An admiral's signet is loaded on the right finger of the scruffy pirate
-G 0 29228 0 A pinch of devil's weed is given to the scruffy pirate
-O 0 29223 0 29272 A huge box crate loaded to In the Hidden Cavern
-M 0 29228 2 29273 1*Load the scruffy pirate
-M 0 29228 2 29274 1*Load the scruffy pirate
-O 0 29224 0 29275 A moored ship loaded to On the Hidden Harbor
+D 0 29256 5 2	* Town Hall: door to the down: closed and locked
+D 0 29264 4 2	* On a Secret Staircase: door to the up: closed and locked
+D 0 29269 0 1	* In the Hidden Cavern: door to the north: closed
+M 0 29202 2 29203 1	* the red-tongued lizard (On the Rock Jetty)
+G 0 29203 0		*	a red lizard tongue
+M 0 29206 5 29206 1	* the longshoreman (On the Wharf)
+O 0 29223 0 29206		* a huge box crate (On the Wharf)
+O 0 29224 0 29206		* a moored ship (On the Wharf)
+M 0 29208 5 29207 1	* the citizen of Freeport (Wharf Road)
+M 0 29208 5 29208 1	* the citizen of Freeport (On the Wharf)
+O 0 29223 0 29208		* a huge box crate (On the Wharf)
+O 0 29223 0 29208		* a huge box crate (On the Wharf)
+O 0 29224 0 29208		* a moored ship (On the Wharf)
+M 0 29203 2 29210 1	* the green-tongued lizard (On the Rock Jetty)
+G 0 29204 0		*	a green lizard tongue
+M 0 29206 5 29211 1	* the longshoreman (On the Wharf)
+M 0 29214 3 29213 1	* the harbor patrolman (Wharf Road)
+E 0 29208 0 0		*	a patrol globe: as a light
+E 0 29209 0 5		*	scale mail: on the body
+E 0 29210 0 16		*	a trident: wielded
+M 0 29204 1 29215 1	* the watchman of Widow's Cape (Widow's Cape)
+O 0 29205 0 29215		* a watchfire (Widow's Cape)
+M 0 29207 1 29216 1	* the harbormaster (On the Wharf)
+G 0 29207 0		*	a notebook
+M 0 29214 3 29217 1	* the harbor patrolman (On the Wharf)
+E 0 29208 0 0		*	a patrol globe: as a light
+E 0 29209 0 5		*	scale mail: on the body
+E 0 29210 0 16		*	a trident: wielded
+M 0 29206 5 29220 1	* the longshoreman (On the Wharf)
+O 0 29223 0 29220		* a huge box crate (On the Wharf)
+O 0 29224 0 29220		* a moored ship (On the Wharf)
+M 0 29215 2 29223 1	* the teamster (Wharf Road)
+M 0 29211 1 29227 1	* the master shipbuilder (The Shipyards)
+M 0 29212 1 29227 1	* the apprentice shipbuilder (The Shipyards)
+M 0 29206 5 29229 1	* the longshoreman (The Mercantile Warehouse)
+M 0 29213 1 29229 1	* the warehouse overseer (The Mercantile Warehouse)
+G 0 29207 0		*	a notebook
+O 0 29223 0 29229		* a huge box crate (The Mercantile Warehouse)
+O 0 29223 0 29229		* a huge box crate (The Mercantile Warehouse)
+M 0 29202 2 29230 1	* the red-tongued lizard (On the Rock Jetty)
+G 0 29203 0		*	a red lizard tongue
+M 0 29203 2 29235 1	* the green-tongued lizard (On the Rock Jetty)
+G 0 29204 0		*	a green lizard tongue
+M 0 29201 2 29240 1	* the blue-tongued lizard (On the Rock Jetty)
+G 0 29202 0		*	a blue lizard tongue
+M 0 29205 1 29242 1	* the fisherman (Northpoint)
+E 0 29206 0 16		*	a fishing pole: wielded
+M 0 29208 5 29243 1	* the citizen of Freeport (Freeport Village)
+M 0 29210 2 29244 1	* the sailor's wife (Freeport Village)
+M 0 29209 2 29245 1	* the laughing child (Freeport Village)
+M 0 29233 2 29248 1	* the drunken sailor (The Sunken Pirate)
+M 0 29216 1 29248 1	* Lefty, owner of the Sunken Pirate (The Sunken Pirate)
+G 0 29211 0		*	a steaming meat pie
+G 0 29212 0		*	a mug of sailor's grog
+M 0 29217 1 29249 1	* Anwar, proprietor of the Emporium (The Emporium)
+G 0 29213 0		*	a holy wafer
+G 0 29214 0		*	a silver plate
+G 0 29215 0		*	a tapestry
+M 0 29214 3 29250 1	* the harbor patrolman (Commerce Street)
+E 0 29208 0 0		*	a patrol globe: as a light
+E 0 29209 0 5		*	scale mail: on the body
+E 0 29210 0 16		*	a trident: wielded
+M 0 29218 1 29251 1	* Raedner the dwarven smith (The Bronze Scabbard)
+G 0 29216 0		*	emerald armor
+G 0 29217 0		*	a dwarven thrower
+M 0 29208 5 29252 1	* the citizen of Freeport (The Mystic Eye)
+M 0 29219 1 29252 1	* Samantha, witch of the Mystic Eye (The Mystic Eye)
+G 0 29218 0		*	elven chainmail sleeves
+G 0 29219 0		*	elven chainmail leggings
+M 0 29208 5 29253 1	* the citizen of Freeport (The Town Square of Freeport)
+M 0 29209 2 29253 1	* the laughing child (The Town Square of Freeport)
+M 0 29210 2 29255 1	* the sailor's wife (Shipper's Lane)
+M 0 29226 1 29256 1	* Mayor Friendly (Town Hall)
+G 0 29201 0		*	an old key
+M 0 29227 1 29257 1	* Midge, the innkeeper of the Crew's Quarters (The Crew's Quarters)
+G 0 29220 0		*	a glass of Freeport burgundy
+G 0 29221 0		*	a glass of Freeport chablis
+G 0 29222 0		*	a plate of gravy and dumplings
+M 0 29233 2 29257 1	* the drunken sailor (The Crew's Quarters)
+M 0 29222 1 29258 1	* Elken, banker of Freeport (The Bank of Freeport)
+M 0 29220 1 29260 1	* the apprentice merchant (The Mercantile School)
+M 0 29221 1 29261 1	* Ceres, merchant of the 3rd chair (The Merchant's Guild)
+G 0 29221 0		*	a glass of Freeport chablis
+M 0 29224 1 29262 1	* the young cadet (The Naval Academy)
+M 0 29225 1 29263 1	* Whitecap, 8th Admiral of Freeport (The Captains Guild)
+E 0 29229 0 12		*	an admiral's cape: about the shoulders
+E 0 29230 0 2		*	an admiral's signet: on the right finger
+M 0 29229 2 29265 1	* the pirate guard (On a Secret Staircase)
+E 0 29225 0 14		*	an emerald wristguard: on the left wrist
+E 0 29226 0 16		*	an emerald longsword: wielded
+E 0 29227 0 6		*	an emerald helm: over the head
+O 0 29223 0 29268		* a huge box crate (In the Hidden Cavern)
+M 0 29229 2 29269 1	* the pirate guard (In the Hidden Cavern)
+E 0 29225 0 14		*	an emerald wristguard: on the left wrist
+E 0 29226 0 16		*	an emerald longsword: wielded
+E 0 29227 0 6		*	an emerald helm: over the head
+O 0 29223 0 29269		* a huge box crate (In the Hidden Cavern)
+M 0 29231 1 29270 1	* Oglethorpe, 1st Master Merchant of Freeport (In The Secret Cave of the 6th Pirate Lord)
+G 0 29231 0		*	a very heavy purse
+M 0 29232 1 29270 1	* Lord Mourning (In The Secret Cave of the 6th Pirate Lord)
+E 0 29232 0 8		*	bladed boots: on the feet
+E 0 29233 0 3		*	a dimensional cape: around the neck (1)
+E 0 29234 0 17		*	the troll stone: held in the hands
+M 0 29228 1 29272 1	* the scruffy pirate (In the Hidden Cavern)
+E 0 29229 0 12		*	an admiral's cape: about the shoulders
+E 0 29230 0 2		*	an admiral's signet: on the right finger
+G 0 29228 0		*	a pinch of devil's weed
+O 0 29223 0 29272		* a huge box crate (In the Hidden Cavern)
+M 0 29228 2 29273 1	* the scruffy pirate (In the Hidden Cavern)
+M 0 29228 2 29274 1	* the scruffy pirate (In the Hidden Cavern)
+O 0 29224 0 29275		* a moored ship (On the Hidden Harbor)
 S
 
 
@@ -2501,6 +2503,24 @@ S
 29219 9 2 3 4 28 140 60 17 23
 29227 17 19 0 0 0 110 90 0 23
 0
+
+
+
+#OLIMITS
+S
+
+
+
+#MOBPROGS
+#0
+
+#PRACTICERS
+S
+
+
+
+#OMPROGS
+S
 
 
 

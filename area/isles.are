@@ -3105,18 +3105,18 @@ D0
 In the air~
 ~
 0 -1 17244
-D1
-In the air~
-~
-0 -1 17242
-D3
-In the air~
-~
-0 -1 17243
 D2
 In the air~
 ~
 0 -1 17244
+D3
+In the air~
+~
+0 -1 17243
+D1
+In the air~
+~
+0 -1 17242
 D4
 In the air~
 ~
@@ -3137,10 +3137,6 @@ D4
 In the air~
 ~
 0 -1 17246
-D0
-In the air~
-~
-0 -1 17245
 D1
 In the air~
 ~
@@ -3149,6 +3145,10 @@ D5
 In the air~
 ~
 0 -1 17244
+D0
+In the air~
+~
+0 -1 17245
 D2
 In the air~
 ~
@@ -3165,30 +3165,30 @@ whips and whistles in fierce blasting gusts sending you in all
 directions.
 ~
 0 T 9
-D0
-In the air~
-~
-0 -1 17246
-D3
-In the air~
-~
-0 -1 17242
-D1
-In the air~
-~
-0 -1 17241
-D2
-In the air~
-~
-0 -1 17246
-D4
-In the air~
-~
-0 -1 17244
 D5
 In the air~
 ~
 0 -1 17245
+D3
+In the air~
+~
+0 -1 17242
+D2
+In the air~
+~
+0 -1 17246
+D0
+In the air~
+~
+0 -1 17246
+D1
+In the air~
+~
+0 -1 17241
+D4
+In the air~
+~
+0 -1 17244
 S
 #17244
 In the Air Beneath the Flying Mountain~
@@ -3197,11 +3197,11 @@ whips and whistles in fierce blasting gusts sending you in all
 directions.
 ~
 0 R 9
-D3
+D0
 In the air~
 ~
-0 -1 17246
-D0
+0 -1 17241
+D2
 In the air~
 ~
 0 -1 17241
@@ -3213,10 +3213,10 @@ D4
 In the air~
 ~
 0 -1 17242
-D2
+D3
 In the air~
 ~
-0 -1 17241
+0 -1 17246
 D5
 In the air~
 ~
@@ -3229,18 +3229,6 @@ whips and whistles in fierce blasting gusts sending you in all
 directions.
 ~
 0 S 9
-D1
-In the air~
-~
-0 -1 17246
-D5
-In the air~
-~
-0 -1 17241
-D4
-In the air~
-~
-0 -1 17243
 D3
 In the air~
 ~
@@ -3249,6 +3237,18 @@ D2
 In the air~
 ~
 0 -1 17242
+D5
+In the air~
+~
+0 -1 17241
+D4
+In the air~
+~
+0 -1 17243
+D1
+In the air~
+~
+0 -1 17246
 D0
 In the air~
 ~
@@ -3261,15 +3261,7 @@ whips and whistles in fierce blasting gusts sending you in all
 directions.
 ~
 0 U 9
-D3
-In the air~
-~
-0 -1 17245
 D2
-In the air~
-~
-0 -1 17243
-D0
 In the air~
 ~
 0 -1 17243
@@ -3277,6 +3269,14 @@ D1
 In the air~
 ~
 0 -1 17244
+D0
+In the air~
+~
+0 -1 17243
+D3
+In the air~
+~
+0 -1 17245
 D4
 In the calm air~
 ~

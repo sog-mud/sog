@@ -1,8 +1,11 @@
-#AREA
-lich.are~
-Lich Tower~
-{45 75} Ryzen   Lich Tower~
-29350 29399
+#AREADATA
+Name Lich Tower~
+Builders None~
+VNUMs 29350 29399
+Credits Ryzen~
+Security 9
+LevelRange 45 75
+End
 
 
 
@@ -19,9 +22,9 @@ human~
 AFGO c -750 0
 40 0 15d10+1850 45d10+950 4d8+15 magic
 -12 -12 -12 0
-CDEIKU LPQ IJ HN 
+CDEIKU LPQ IJ HN
 stand stand none 800
-AHIMV ABCDEFGHIJK medium 0
+I 0 medium unknown
 #29351
 torturer inquisitor ~
 The Inquisitor~
@@ -37,7 +40,7 @@ ABOQ Hc -1000 0
 -20 -20 -20 -2
 CN ILQ P HN
 stand stand none 800
-AHIMV ABCDEFGHIJK medium 0
+I 0 medium unknown
 #29352
 demon minor~
 A Minor Demon~
@@ -51,9 +54,9 @@ human~
 ABT T -1000 0
 50 0 15d10+4250 45d10+950 5d8+19 magic
 -20 -20 -20 -2
-CDFHK H LPQ IN 
+CDFHK H LPQ IN
 stand stand none 800
-ACHMV ABCDEFGHIJK medium 0
+C 0 medium unknown
 #29353
 demon major~
 A Major Demon~
@@ -65,12 +68,12 @@ His black scaled skin gleams in the firelight The burning flames in his eyes
 corrupt your soul.  Fear him mortal for you are about to die.  
 ~
 dragon~
-ABOT HT -1000 0
+ABOT H -1000 0
 65 0 50d10+8250 45d10+950 11d5+35 magic
 -35 -35 -35 -10
-CFKM HLQ BDHIJK CFIN 
+CFKM HLQ DIJK CN
 stand stand none 800
-ACHZc ADEFIKLPQUVX large 0
+Cc L large unknown
 #29354
 lich lord myzelak~
 Myzelak the Lich Lord~
@@ -85,9 +88,9 @@ human~
 ABQR HJ -1000 0
 75 0 50d10+11000 45d10+1950 9d11+45 magic
 -45 -45 -45 -14
-FIJN 0 CDHIJ N 
+FIJN 0 CDHIJ N
 stand stand none 800
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #29355
 dracolich mount dragon~
 The Dracolich~
@@ -98,12 +101,12 @@ its hollow eye sockets as it growls at you.  The undead dragon is monstrous,
 perhaps you should run now, before you're dead.  ;> 
 ~
 dragon~
-ABOT T -1000 0
+ABOT 0 -1000 0
 60 0 50d10+6750 45d10+1950 8d6+28 magic
 -30 -30 -30 -10
-CDFMO 0 HIJK FKN 
+CDFMO 0 IJK KN
 stand stand none 800
-AHZc ADEFIKLPQUVX giant 0
+c L giant unknown
 #29356
 elite death knight~
 An Elite Death Knight~
@@ -118,9 +121,9 @@ giant~
 ABOT 0 -900 0
 70 0 50d10+9750 45d10+2950 8d10+40 magic
 -40 -40 -40 -10
-CDFIKO 0 CHI HJNP 
+CDFIKO 0 C HN
 stand stand none 800
-AHMV ABCDEFGHIJK large 0
+0 0 large unknown
 #0
 
 
@@ -192,7 +195,7 @@ the Bracer of the Night~
 A black bracer covered in ancient runes lies here.~
 admantite~
 armor BG AM
-18 18 17 8 0
+BE BE AE D 0
 54 5 1500 P
 A
 18 2
@@ -206,7 +209,7 @@ the Amulet of the Night~
 An old amulet lies here glowing in unnatural blue light.~
 silver~
 armor AG AC
-21 21 21 10 0
+ACE ACE ACE BD 0
 64 3 2000 P
 A
 14 25
@@ -234,7 +237,7 @@ a black dragon scale~
 A black dragon scale that's been torn from one of the beasts.~
 admantite~
 armor 0 AJ
-21 22 21 10 0
+ACE BCE ACE BD 0
 65 30 1200 P
 A
 18 3
@@ -272,7 +275,7 @@ sorceror's robes~
 Long black robes covered in moons and stars.~
 unknown~
 armor G AK
-24 24 24 11 0
+DE DE DE ABD 0
 72 10 3000 P
 A
 3 3
@@ -284,7 +287,7 @@ the Infinity Scroll~
 The old scroll rumored to have answers to all questions. (Unfortunately you just killed the last thing in existance that could read it.)~
 silver~
 armor ABG AO
-23 23 24 11 0
+ABCE ABCE DE ABD 0
 74 4 7500 P
 A
 18 2
@@ -338,7 +341,7 @@ a Thieve's Tunic~
 A black shirt with many pockets.~
 admantite~
 armor G AD
-13 13 12 5 0
+ACD ACD CD AC 0
 40 15 900 P
 A
 18 3
@@ -350,7 +353,7 @@ a blank piece of paper~
 A deteriorating piece of blank paper rests here on a shelf.~
 paper~
 gem 0 AO
-0 0 0 0 3
+0 0 0 0 AB
 35 1 2000 P
 #29367
 chair wooden~
@@ -454,7 +457,7 @@ thick entanglements; you find yourself getting scratched in the most
 annoying of places.  From the west comes the faint light of torches, and
 from the north you hear what can only be described as an unholy growl.  
 ~
-0 D 0  
+0 D 0
 D0
 ~
 ~
@@ -477,7 +480,7 @@ are wondering what could possibly fill that saddle, you notice the tremendous
 form of a dracolich towering above you.  The only exit is south, under the
 archway.  
 ~
-0 D 0  
+0 D 0
 D2
 ~
 ~
@@ -492,7 +495,7 @@ from battles long past.  Two exits lead from the room, one south and one
 west.  From where you stand it is impossible to see what type of rooms lie
 beyond.  
 ~
-0 D 0  
+0 D 0
 D1
 ~
 ~
@@ -513,7 +516,7 @@ dust lines the table settings, stating that the hall is never used anymore.
 To the west is the entrance to the kitchen and to your north is the entrance
 hall.  
 ~
-0 D 0  
+0 D 0
 D0
 ~
 ~
@@ -530,7 +533,7 @@ assaults your senses.  You break into a run towards the nearest exit, hoping
 for fresh air.  To the north are the stairs, east is the dining hall, and a
 large storage room lies open to the south.  
 ~
-0 D 0  
+0 D 0
 D0
 ~
 ~
@@ -550,7 +553,7 @@ A flight of stairs winds away into the darkness above you.  A stronger
 sense of evil comes from up the steps.  You can go south to the kitchen,
 east to the entrance hall, or up into the unknown.  
 ~
-0 D 0  
+0 D 0
 D1
 ~
 ~
@@ -571,7 +574,7 @@ of light entering the room from a doorway east.  This whole area seems
 unnaturally quiet scaring you more than any screams of death you have ever
 heard.  
 ~
-0 D 0  
+0 D 0
 D1
 ~
 ~
@@ -591,7 +594,7 @@ You continue your way on the stairs.  Listening intently, you think you
 hear what sounds like the screams of damned and tortured souls to the south
 and east.  
 ~
-0 D 0  
+0 D 0
 D1
 ~
 ~
@@ -614,7 +617,7 @@ The Top of the Stairs~
 You have reached the top of the stairs.  To the south and east are long
 hallways and the stairs lead back down into darkness.  
 ~
-0 D 0  
+0 D 0
 D1
 ~
 ~
@@ -636,7 +639,7 @@ light for the owner of the tower.  A large desk sits near the western wall,
 while a closet has been carved into the wall to the south.  The only exit
 appears to be back into the library to the east.  
 ~
-0 D 0  
+0 D 0
 D1
 ~
 ~
@@ -650,7 +653,7 @@ Various tables line the walls, providing study space for anyone doing
 research here.  The library continues to the north and a small archway leads
 west into a study.  
 ~
-0 D 0  
+0 D 0
 D0
 ~
 ~
@@ -667,7 +670,7 @@ entire length of both the north and east walls.  The collection of books
 accumulated here is amazing.  To the south the library continues, while the
 stairs are back to the west.  
 ~
-0 D 0  
+0 D 0
 D2
 ~
 ~
@@ -683,7 +686,7 @@ Various runes and pentagrams have been scrawled into the stone at your
 feet.  A large golden brazier blasts flames in the middle of the room.  The
 only exits are north, to the stairs, and east, to the torture chamber.  
 ~
-0 D 0  
+0 D 0
 D0
 ~
 ~
@@ -701,7 +704,7 @@ feel a tinge of remorse for the poor men before your heart rises in anger,
 now the only thing that matters to you is to avenge their deaths.  The
 summoning rooms provide exit to the north and west.  
 ~
-0 D 0  
+0 D 0
 D0
 ~
 ~
@@ -718,7 +721,7 @@ feet.  Towards the middle of the room, a large silver brazier spouts fire.
 The only exits are west, back to the stairs, and south, to the torture
 chamber.  
 ~
-0 D 0  
+0 D 0
 D2
 ~
 ~
@@ -733,7 +736,7 @@ A Large Hall~
 You stand in a large, elaborately decorated hallway.  The stairs are back
 to the north and a large set of double doors are to the east.  
 ~
-0 D 0  
+0 D 0
 D0
 ~
 ~
@@ -751,7 +754,7 @@ Ancient grimoires and scrolls catch your eye for a brief second, just long
 enough for Myzelak the Lich Lord to attack.  The only exits are through the
 doors to your north or west.  
 ~
-0 D 0  
+0 D 0
 D0
 ~
 ~
@@ -766,7 +769,7 @@ A Large Hall~
 You stand in a large, elaborately decorated hallway.  The stairs are back
 to the west and a large set of doors block your way south.  
 ~
-0 D 0  
+0 D 0
 D2
 ~
 ~
@@ -783,7 +786,7 @@ old door has been knocked off of its hinges to the south, revealing an
 ancient tunnel sloping down into the ground.  You can go back north to the
 kitchen or south into the dark tunnel.  
 ~
-0 D 0  
+0 D 0
 D0
 ~
 ~
@@ -800,7 +803,7 @@ the floor disappears, leaving a large hole in the ground.  You can go north
 into the storage room, or down an old rope ladder into the blackness of the
 pit.  
 ~
-0 D 0  
+0 D 0
 D0
 ~
 ~
@@ -815,15 +818,15 @@ Under a Pit~
 You stand underneath the pit.  In this pitch black room the only thing
 that you can make out is a tunnel running in a south direction.  
 ~
-0 D 0  
-D4
-~
-~
-0 0 29370
+0 D 0
 D2
 ~
 ~
 0 0 29372
+D4
+~
+~
+0 0 29370
 S
 #29372
 A Darkened Tunnel~
@@ -831,7 +834,7 @@ You stand in an ancient and dark tunnel.  From the south light shines
 into the room.  You may go back north to the pit, or, south towards
 the light.  
 ~
-0 AD 0 
+0 AD 0
 D0
 ~
 ~
@@ -849,75 +852,93 @@ magical glyphs and wards surround it, keeping this realm safe from any
 wandering spirits.  It is said that the only way for a mortal to enter the
 realms of hell is for them to make it through the maze of caverns below you.
 ~
-0 D 0  
-D5
-~
-~
-0 0 22000
+0 D 0
 D0
 ~
 ~
 0 0 29372
+D5
+~
+~
+0 0 22000
 S
 #0
 
 
 
 #SPECIALS
-M 29353 spec_cast_undead Load to: A Major Demon
-M 29354 spec_cast_mage Load to: Myzelak the Lich Lord
+M 29353 spec_cast_undead	* A Major Demon
+M 29354 spec_cast_mage	* Myzelak the Lich Lord
 S
 
 
 
 #RESETS
-D 0 29366 1 1 The east door of A Large Hall is closed
-D 0 29367 0 1 The north door of The Lich's Throne Room is closed
-D 0 29367 3 1 The west door of The Lich's Throne Room is closed
-D 0 29368 2 1 The south door of A Large Hall is closed
-O 0 29373 0 29350 A large obsidian cross loaded to Before the Tower
-M 0 29355 1 29352 1*Load The Dracolich
-M 0 29350 4 29353 1*Load A Death Knight
-E 0 29350 0 16 An old black mace is loaded wielded of A Death Knight
-O 0 29367 0 29354 A large wooden chair loaded to The Dining Hall
-O 0 29368 0 29354 A huge dining table loaded to The Dining Hall
-M 0 29350 4 29360 1*Load A Death Knight
-E 0 29350 0 16 An old black mace is loaded wielded of A Death Knight
-O 0 29370 0 29360 A large mahogany desk loaded to Lich's Study
-O 0 29371 0 29360 A closet carved into the wall loaded to Lich's Study
-P 0 29361 0 29370 1*The infinity scroll put inside the Infinity Scroll
-P 0 29362 0 29370 1*A silvery potion  put inside a silvery potion 
-P 0 29363 0 29372 1*A golden key put inside a golden key
-P 0 29364 0 29371 1*Boots of waterwalking put inside boots of waterwalking
-P 0 29365 0 29371 1*A thieve's tunic put inside a Thieve's Tunic
-P 0 29366 0 29369 1*A blank piece of paper put inside a blank piece of paper
-O 0 29372 0 29361 A powerful grimoire loaded to The Library
-M 0 29350 4 29362 1*Load A Death Knight
-E 0 29350 0 16 An old black mace is loaded wielded of A Death Knight
-O 0 29369 0 29362 An old wooden bookshelf loaded to The Library
-M 0 29353 1 29363 1*Load A Major Demon
-E 0 29356 0 3 The amulet of the night is loaded around the neck (1) of A Major Demon
-M 0 29351 1 29364 1*Load The Inquisitor
-E 0 29351 0 0 A flaming skull is loaded as a light of The Inquisitor
-M 0 29352 1 29365 1*Load A Minor Demon
-E 0 29355 0 14 The bracer of the night is loaded on the left wrist of A Minor Demon
-M 0 29356 2 29366 1*Load An Elite Death Knight
-E 0 29357 0 16 An ancient longsword is loaded wielded of An Elite Death Knight
-E 0 29358 0 11 A black dragon scale is loaded as a shield of An Elite Death Knight
-M 0 29354 1 29367 1*Load Myzelak the Lich Lord
-E 0 29359 0 16 The hell's wraith is loaded wielded of Myzelak the Lich Lord
-E 0 29360 0 12 Sorceror's robes is loaded about the shoulders of Myzelak the Lich Lord
-M 0 29356 2 29368 1*Load An Elite Death Knight
-E 0 29357 0 16 An ancient longsword is loaded wielded of An Elite Death Knight
-E 0 29358 0 11 A black dragon scale is loaded as a shield of An Elite Death Knight
-M 0 29350 4 29369 1*Load A Death Knight
-E 0 29350 0 16 An old black mace is loaded wielded of A Death Knight
+D 0 29366 1 1	* A Large Hall: door to the east: closed
+D 0 29367 0 1	* The Lich's Throne Room: door to the north: closed
+D 0 29367 3 1	* The Lich's Throne Room: door to the west: closed
+D 0 29368 2 1	* A Large Hall: door to the south: closed
+O 0 29373 0 29350		* a large obsidian cross (Before the Tower)
+M 0 29355 1 29352 1	* The Dracolich (The Dracolich's Lair)
+M 0 29350 4 29353 1	* A Death Knight (The Entrance Hall)
+E 0 29350 0 16		*	an old black mace: wielded
+O 0 29367 0 29354		* a large wooden chair (The Dining Hall)
+O 0 29368 0 29354		* a huge dining table (The Dining Hall)
+M 0 29350 4 29360 1	* A Death Knight (Lich's Study)
+E 0 29350 0 16		*	an old black mace: wielded
+O 0 29370 0 29360		* a large mahogany desk (Lich's Study)
+O 0 29371 0 29360		* a closet carved into the wall (Lich's Study)
+P 0 29361 0 29370 1	* a large mahogany desk: the Infinity Scroll
+P 0 29362 0 29370 1	* a large mahogany desk: a silvery potion 
+P 0 29363 0 29372 1	* a powerful grimoire: a golden key
+P 0 29364 0 29371 1	* a closet carved into the wall: boots of waterwalking
+P 0 29365 0 29371 1	* a closet carved into the wall: a Thieve's Tunic
+P 0 29366 0 29369 1	* an old wooden bookshelf: a blank piece of paper
+O 0 29372 0 29361		* a powerful grimoire (The Library)
+M 0 29350 4 29362 1	* A Death Knight (The Library)
+E 0 29350 0 16		*	an old black mace: wielded
+O 0 29369 0 29362		* an old wooden bookshelf (The Library)
+M 0 29353 1 29363 1	* A Major Demon (A Summoning Room)
+E 0 29356 0 3		*	the Amulet of the Night: around the neck (1)
+M 0 29351 1 29364 1	* The Inquisitor (The Torture Chamber)
+E 0 29351 0 0		*	a Flaming Skull: as a light
+M 0 29352 1 29365 1	* A Minor Demon (A Summoning Room)
+E 0 29355 0 14		*	the Bracer of the Night: on the left wrist
+M 0 29356 2 29366 1	* An Elite Death Knight (A Large Hall)
+E 0 29357 0 16		*	an Ancient Longsword: wielded
+E 0 29358 0 11		*	a black dragon scale: as a shield
+M 0 29354 1 29367 1	* Myzelak the Lich Lord (The Lich's Throne Room)
+E 0 29359 0 16		*	the Hell's Wraith: wielded
+E 0 29360 0 12		*	sorceror's robes: about the shoulders
+M 0 29356 2 29368 1	* An Elite Death Knight (A Large Hall)
+E 0 29357 0 16		*	an Ancient Longsword: wielded
+E 0 29358 0 11		*	a black dragon scale: as a shield
+M 0 29350 4 29369 1	* A Death Knight (A Storage Room)
+E 0 29350 0 16		*	an old black mace: wielded
 S
 
 
 
 #SHOPS
 0
+
+
+
+#OLIMITS
+S
+
+
+
+#MOBPROGS
+#0
+
+#PRACTICERS
+S
+
+
+
+#OMPROGS
+S
 
 
 

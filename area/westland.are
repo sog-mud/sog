@@ -1,8 +1,12 @@
-#AREA
-westland.are~
-Westland~
-{40 90} Xavier  Westland~
-10000 10050
+#AREADATA
+Name Westland~
+Builders None~
+VNUMs 10000 10050
+Credits Xavier~
+Security 9
+LevelRange 40 90
+End
+
 
 
 #MOBILES
@@ -16,12 +20,12 @@ smell. Your blood must be sweet because it has spotted you and is
 running in your direction. YOU'D BETTER ACT FAST!
 ~
 dragon~
-ABFT TVb -1000 0
+ABFT Vb -1000 0
 60 0 50d10+6750 10d10+4000 8d6+28 acbite
 -30 -30 -30 0
-BCDEFIKMN AB HIJKO FHQY
+BCDEFIKMN AB IJKO HQY
 stand stand male 300
-AHZc ADEFIKLPQUVX huge 0
+c L huge unknown
 #10002
 gar long tail~
 a long-tailed gar~
@@ -32,12 +36,12 @@ smell. Your blood must be sweet because it has spotted you and is
 running in your direction. YOU'D BETTER ACT FAST!
 ~
 dragon~
-ABFT TVb -1000 0
+ABFT Vb -1000 0
 46 0 25d10+3250 10d10+3000 6d6+16 acbite
 -16 -16 -16 4
-BCDEFIKMN AB HIJKO FHQY
+BCDEFIKMN AB IJKO HQY
 stand stand male 300
-AHZc ADEFIKLPQUVX huge 0
+c L huge unknown
 #10003
 gar long tail~
 a long-tailed gar~
@@ -48,12 +52,12 @@ smell. Your blood must be sweet because it has spotted you and is
 running in your direction. YOU'D BETTER ACT FAST!
 ~
 dragon~
-ABFT TVb -947 0
+ABFT Vb -947 0
 46 0 25d10+3250 10d10+3000 6d6+16 acbite
 -16 -16 -16 4
-BCDEFIKMN AB HIJKO FHQY 
+BCDEFIKMN AB IJKO HQY
 stand stand male 300
-AHZc ADEFIKLPQUVX huge 0
+c L huge unknown
 #10004
 fly blood~
 a blood fly~
@@ -66,9 +70,9 @@ unique~
 ABT BGJTVb -200 0
 40 0 25d10+1850 10d10+3000 4d8+13 shbite
 -13 -13 -13 5
-BCEFKO EJL J KM 
+BCEFKO EJL J KM
 stand stand male 300
-0 0 tiny 0
+0 0 tiny unknown
 #10005
 quad assassin~
 a quad assassin~
@@ -82,9 +86,9 @@ human~
 ABT Vb -1000 0
 55 0 50d10+5500 10d10+3000 10d4+23 wrath
 -25 -25 -25 0
-BCDEFGHIKNV AH BL J 
+BCDEFGHIKNV AH BL J
 stand stand male 300
-AHMV ABCDEFGHIJK large 0
+0 0 large unknown
 #10006
 quad assassin~
 a quad assassin~
@@ -98,9 +102,9 @@ human~
 ABT Vb -1000 0
 56 0 50d10+6000 10d10+3000 10d4+24 wrath
 -25 -25 -25 0
-BCDEFGHIKNV AH BL J 
+BCDEFGHIKNV AH BL J
 stand stand male 300
-AHMV ABCDEFGHIJK large 0
+0 0 large unknown
 #10007
 young lady~
 a young lady~
@@ -114,7 +118,7 @@ ABT Nb 850 0
 -16 -16 -16 4
 BCDEFGHIK AI 0 0
 stand stand female 300
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #10008
 fisherman man~
 a fisherman~
@@ -129,7 +133,7 @@ ABT Nb 1000 0
 -20 -20 -20 0
 BCDEFGHIK AI 0 0
 stand stand male 300
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #10009
 little boy~
 a little boy~
@@ -145,7 +149,7 @@ ABT Nb 1000 0
 -20 -20 -20 0
 BCDEFGHIK AI 0 0
 stand stand male 300
-AHMV ABCDEFGHIJK small 0
+0 0 small unknown
 #10010
 heart hound~
 a heart hound~
@@ -163,7 +167,7 @@ AFGT UVZb -1000 0
 -25 -25 -25 0
 BCDEFGHIKNO 0 0 0
 stand stand male 300
-0 0 huge 0
+0 0 huge unknown
 #10011
 speaker~
 a speaker~
@@ -181,7 +185,7 @@ AFGT UVZb 1000 0
 -30 -30 -30 0
 BCDEFGHIKNO A 0 0
 stand stand male 300
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #10012
 happy villager~
 a happy villager~
@@ -197,7 +201,7 @@ AFGT UVZb 1000 0
 -30 -30 -30 0
 BCDEFGHIKN A 0 0
 stand stand male 300
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #10013
 healer~
 a healer~
@@ -209,12 +213,12 @@ down to the floor. Her head is held up high and she has a nice
 smile on her face.
 ~
 human~
-ABQ HF 1000 0
+ABQ FH 1000 0
 106 0 1d1+29000 1d1+11039 4d50+80 slap
 -99 -99 -99 -40
 KN ABINS BPQR 0
 stand stand female 0
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #10014
 boundary warden~
 a boundary warden~
@@ -229,9 +233,9 @@ human~
 AGT DFHJUVb 1000 0
 70 0 50d10+9750 10d10+4000 8d10+40 acbite
 -40 -40 -40 -10
-BCDEFGHIJKN ABE BH C 
+BCDEFGHIJKN ABE BH C
 stand stand male 300
-AHMV ABCDEFGHIJK large 0
+0 0 large unknown
 #10015
 thief~
 a thief~
@@ -248,7 +252,7 @@ ACT CDGPQVd -902 0
 -13 -13 -13 5
 BCDEFGHIJKN 0 0 0
 stand stand male 300
-AHMV ABCDEFGHIJK small 0
+0 0 small unknown
 #10016
 beggar~
 a beggar~
@@ -265,7 +269,7 @@ ABCH DVb 100 0
 -16 -16 -16 4
 BCDEFGHIJKN AB 0 0
 stand stand male 300
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #10017
 bone woman~
 The Bone Woman~
@@ -284,7 +288,7 @@ ABR CDEFJTV 1000 0
 -93 -93 -90 -43
 CDEFIKN IP E JK
 stand stand female 11300
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #10018
 gripper~
 A nasty gripper~
@@ -300,9 +304,9 @@ human~
 ACGT JV -986 0
 92 0 50d10+19500 10d10+5200 15d10+62 blast
 -62 -62 -62 -29
-CDEFIKN IP E J 
+CDEFIKN IP E J
 stand stand male 300
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #10019
 shadow thing~
 The SCaRy Shadow THinG~
@@ -318,7 +322,7 @@ ABCGT JV -1000 0
 -69 -69 -69 -30
 CDEFIKN IP F JK
 stand stand none 300
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #10020
 spirit king~
 The Spirit King~
@@ -334,9 +338,9 @@ human~
 ABCGT HJV -1000 0
 119 0 50d10+29000 10d10+10203 20d15+100 wrath
 -77 -77 -70 -40
-CDEFIKN IP 0 JK 
+CDEFIKN IP 0 JK
 stand stand male 300
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #10021
 great red dragon~
 The Great Red Dragon~
@@ -349,12 +353,12 @@ ounce of his body. He looks far tougher than any monster you have
 or will ever see.
 ~
 dragon~
-ABCGT GHJT -1000 0
+ABCGT GH -1000 0
 119 0 50d10+29000 10d10+10203 20d15+100 wrath
 -77 -77 -70 -40
-BCEFIKN IP HIJK FJK 
+BCEFIKN IP IJK JK
 stand stand female 300
-AHZc ADEFIKLPQUVX giant 0
+c L giant unknown
 #10022
 shadow people~
 An evil shadow person~
@@ -369,7 +373,7 @@ ACGT GJ -1000 0
 -77 -77 -70 -40
 CDFIKN IP 0 JK
 stand stand male 300
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #10023
 bar tender~
 The bar tender~
@@ -385,7 +389,7 @@ ABCGT GJ 1000 0
 -20 -20 -20 0
 BCDEFIN IP 0 JK
 stand stand male 300
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #10024
 drunken villager~
 A drunken villager~
@@ -398,9 +402,9 @@ human~
 ABCGT GJ 102 0
 50 0 25d10+4250 10d10+3000 5d8+19 wrath
 -20 -20 -20 0
-CDEFIKN IP 0 K  
+CDEFIKN IP 0 K
 stand stand male 300
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #10025
 dark thief~
 A little thief~
@@ -416,7 +420,7 @@ ACGT GJ -1000 0
 -30 -30 -30 0
 CDEFKN IP D 0
 stand stand male 300
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #10026
 snake~
 A yellow snake~
@@ -432,7 +436,7 @@ ABCGT GJ -1000 0
 -9 -9 -9 2
 CDEFIKN IP 0 0
 stand stand male 300
-0 0 small 0
+0 0 small unknown
 #10027
 underworld beast~
 An underworld beast~
@@ -447,7 +451,7 @@ ACGT GJ -1000 0
 -40 -40 -40 -10
 CDEFIKN IP 0 0
 stand stand none 300
-0 0 large 0
+0 0 large unknown
 #10028
 cat dopey~
 A dopey little cat~
@@ -463,7 +467,7 @@ ACGT GJ 1000 0
 1 1 1 9
 CDEFIKN IJP 0 0
 stand stand none 300
-0 0 small 0
+0 0 small unknown
 #10029
 mord sith~
 A Evil Mord-Sith~
@@ -477,9 +481,9 @@ human~
 ABCGT GJ -1000 0
 120 0 50d10+28000 10d10+10203 20d15+95 wrath
 -77 -77 -70 -40
-CDEFIKN IP I M 
+CDEFIKN IP I M
 stand stand female 300
-AHMV ABCDEFGHIJK large 0
+0 0 large unknown
 #10030
 devoter~
 A Devoter of Darken Rahl~
@@ -495,7 +499,7 @@ ABCGT GJ -1000 0
 -77 -77 -70 -40
 BCDEFIKN IP 0 0
 stand stand male 300
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #10031
 darken rahl~
 The Evil Darken Rahl~
@@ -510,9 +514,9 @@ human~
 ABCGT GHJ -1000 0
 125 0 50d10+28000 10d10+10203 20d15+95 wrath
 -77 -77 -70 -40
-BCDEFIJKNO LP N K 
+BCDEFIJKNO LP N K
 stand stand male 300
-AHMV ABCDEFGHIJK large 0
+0 0 large unknown
 #0
 
 
@@ -547,7 +551,7 @@ A Beautiful necklace lies here on the ground.
 ~
 stone~
 armor AB AC
-30 30 30 20 0
+BCDE BCDE BCDE CE 0
 90 10 98504 P
 A
 13 55
@@ -567,7 +571,7 @@ Here are the teeth of the Gripper monster.
 ~
 stone~
 armor ABM AC
-26 26 27 16 0
+BDE BDE ABDE E 0
 80 10 100 P
 A
 19 6
@@ -580,7 +584,7 @@ There is a jug of beer on the ground here.
 ~
 glass~
 drink BC A
-20 20 3 0 0
+20 20 'water' 0 0
 1 1 1 P
 #10005
 thief boot boots black~
@@ -589,7 +593,7 @@ A dark pair of boots lie here soaking up the sun.
 ~
 leather~
 armor BC AG
-20 20 20 10 0
+CE CE CE BD 0
 60 10 3000 P
 A
 13 -10
@@ -604,7 +608,7 @@ A pair of gloves have been left here, waiting to be picked up.
 ~
 unknown~
 armor BC AH
-20 20 20 9 0
+CE CE CE AD 0
 60 10 9684 P
 A
 24 -2
@@ -619,7 +623,7 @@ A pair of boots have been left here.
 ~
 unknown~
 armor BC AG
-21 19 19 10 0
+ACE ABE ABE BD 0
 60 10 9898 P
 A
 22 -3
@@ -634,7 +638,7 @@ A pair of sleeves have been left resting against a tree.
 ~
 unknown~
 armor BC AI
-21 20 19 10 0
+ACE CE ABE BD 0
 60 10 9898 P
 A
 13 20
@@ -649,7 +653,7 @@ A shield made from the finest metal has been left here.
 ~
 unknown~
 armor BC AJ
-20 21 20 15 0
+CE ACE CE ABCD 0
 60 10 9898 P
 A
 13 40
@@ -662,7 +666,7 @@ A tunic made from good leather has been left here.
 ~
 unknown~
 armor BC AK
-20 20 20 10 0
+CE CE CE BD 0
 60 10 9898 P
 A
 17 -21
@@ -673,7 +677,7 @@ A large helmet has been left by its owner...such a shame.
 ~
 unknown~
 armor BC AE
-20 20 20 10 0
+CE CE CE BD 0
 60 10 9898 P
 A
 23 -5
@@ -697,7 +701,7 @@ A pair of leggings have been left here.
 ~
 unknown~
 armor BC AF
-20 20 20 10 0
+CE CE CE BD 0
 60 10 9898 P
 A
 21 -1
@@ -710,7 +714,7 @@ A robe has been left in the shade of a tree here.
 ~
 cloth~
 armor BC AD
-23 23 22 11 0
+ABCE ABCE BCE ABD 0
 70 10 5060 P
 A
 13 25
@@ -724,7 +728,7 @@ field.
 ~
 unknown~
 armor BC AC
-23 22 22 16 0
+ABCE BCE BCE E 0
 70 10 8080 P
 A
 17 -8
@@ -739,7 +743,7 @@ A pouch has been left here in the mud.
 ~
 leather~
 container BC A
-700 1 0 350 72
+700 A 0 350 72
 70 50 1000 P
 #10017
 cookie~
@@ -748,7 +752,7 @@ There is a cookie on the ground, what a shame.
 ~
 unknown~
 food B A
-40 0 0 0 0
+DF 0 0 0 0
 8 10 0 P
 #10018
 cake~
@@ -757,7 +761,7 @@ A Big Yummy piece of CAKE has been left here.
 ~
 unknown~
 food B A
-10 0 0 0 0
+BD 0 0 0 0
 1 10 0 P
 #10019
 boundary sword warden~
@@ -839,7 +843,7 @@ There is a bracer in the mud here.
 ~
 unknown~
 armor ABC AM
-32 32 33 25 0
+F F AF ADE 0
 90 20 9000 P
 A
 19 7
@@ -980,7 +984,7 @@ not much room for the sun to enter into these sacred lands. The
 path continues to the north and, of course, where you came from,
 the south.
 ~
-0 0 3  
+0 0 3
 D0
 To the thick forest.
 ~
@@ -1002,7 +1006,7 @@ take a closer look. There are two exits here by the lake. One
 goes south to the path and the other goes north into the woods
 again.
 ~
-0 0 3  
+0 0 3
 D0
 The entrance to the woods.
 ~
@@ -1022,7 +1026,7 @@ the south if you wish to leave. There are fish jumping in the
 lake, people playing in the sand and picking flowers. This place
 sure is wonderful.
 ~
-0 0 3  
+0 0 3
 D0
 Path down the road.
 ~
@@ -1041,7 +1045,7 @@ road. The trees here are very tall and large. The sun is out
 shining upon you and you start to feel hot. The road continues
 north and south.
 ~
-0 0 3  
+0 0 3
 D0
 Turn in the road.
 ~
@@ -1062,7 +1066,7 @@ rabbit drinking from a small pond infront of you. You wonder
 where such a beeatiful creature came from. You could still go
 back south to the turn in the road. 
 ~
-0 0 3 
+0 0 3
 D2
 The road south.
 ~
@@ -1083,7 +1087,7 @@ overhead. You wonder where such wonderous trees came from. The
 path up the mountain looks like a nice and easy one to take. You
 could retrun to the east or go up the mountain.
 ~
-0 0 5 
+0 0 5
 D1
 The path to the forest.
 ~
@@ -1104,7 +1108,7 @@ The path look quite clear and easy to pass. The rocks are warm in
 the suns' rays and is just gleaming with the heated mirage.  You
 may go north or down.
 ~
-0 0 5 
+0 0 5
 D0
 The path along the cliff.
 ~
@@ -1127,7 +1131,7 @@ they are each worth morth then life itself. The mountaint air is
 freash and cooling and makes you feel like you want to sit down
 and rest. You may go down or south.
 ~
-0 0 5 
+0 0 5
 D2
 The southern trail.
 ~
@@ -1150,7 +1154,7 @@ seen before. You see one plant you recconize, but it is from a
 book. This forest seems to be quite a sanctuary. The trail goes
 north to the outskirts of Hartland or up back to the mountain. 
 ~
-0 0 3 
+0 0 3
 D0
 The out-skirts of Hartland.
 ~
@@ -1174,7 +1178,7 @@ giving a speech about fire. The city looks like its full of happy
 people, all with wonderous jobs and families. The exits are north
 and south.
 ~
-0 0 3 
+0 0 3
 D0
 The town of Hartland.
 ~
@@ -1197,7 +1201,7 @@ could have so much power over all these people. There are little
 homes all around but seem un-welcoming. You can go north to the
 paths in the fields or south back to the woods.
 ~
-0 0 1 
+0 0 1
 D0
 The fields out-side of town.
 ~
@@ -1219,7 +1223,7 @@ are few trees around and even fewer animals. The trail leads
 south to a swamp that steals your breath away with stench, and
 north back to the town you came from.
 ~
-0 0 2 
+0 0 2
 D0
 The path to the swamp.
 ~
@@ -1243,7 +1247,7 @@ hunt. Just when you thought things could get no worse, you spot a
 quad of assassins out in the trail before you. Better be careful.
 The trail leads north and back to the city, south.
 ~
-0 0 3 
+0 0 3
 D0
 Closer to the Swamp.
 ~
@@ -1264,7 +1268,7 @@ and the ground begins to get muddy. The cries of the heart hounds
 are much closer now and you begin to panic. The trail continues
 to the east and south.
 ~
-0 0 3 
+0 0 3
 D1
 Path at the swamp.
 ~
@@ -1308,7 +1312,7 @@ you see them.  Snakes.  Little yellow deadly snakes.  All over the place.
 You start to run as fast as you can towards the island.  You could go east
 to the island or back west.  
 ~
-0 0 6 
+0 0 6
 D1
 On the island.
 ~
@@ -1329,7 +1333,7 @@ doesn't have any trees or plants.  Looking to the east you see the new path
 to SouthHaven.  You wonder when you should attempt to cross the waters
 again.  The exits are to the east, and to the west.  
 ~
-0 0 4 
+0 0 4
 D1
 Over the waters heading south.
 ~
@@ -1349,7 +1353,7 @@ hounds have returned back to their home, in the boundary.  The swamp gets
 shallower as you approach the land again and the sky goes clear.  The exits
 are east the shore or back west to the island.  
 ~
-0 0 6 
+0 0 6
 D1
 On The Shore.
 ~
@@ -1369,7 +1373,7 @@ south towards SouthHaven and you can hear the faint sounds of the
 city life. You continue your hike to SouthHaven. You may go back
 to the swamps (north) or continue south.
 ~
-0 0 3  
+0 0 3
 D1
 Trail through the woods.
 ~
@@ -1390,7 +1394,7 @@ South Haven isn't as bad as you thought. You can see the village
 up ahead. The exits are north to the shore or south to the
 village.
 ~
-0 0 3  
+0 0 3
 D1
 The entrance to the village.
 ~
@@ -1410,7 +1414,7 @@ are children everywhere and people at the stores. The village
 road continues on south and offers you a place to rest for a cup
 of ale. You may go north to the forest or south into the village.
 ~
-0 0 1 
+0 0 1
 D1
 The Road in the Village.
 ~
@@ -1432,7 +1436,7 @@ to do. There is a fresh cool breeze floating through the city.
 The exits are north to the gates, east to the bar, or south to
 the path to the Narrows.
 ~
-0 0 1 
+0 0 1
 D0
 Entrance to the bar.
 ~
@@ -1458,7 +1462,7 @@ number. The drunken men are big and strong but, are covered with
 ale stains on their shirts. The exit is back out to the west onto
 the road again.
 ~
-0 0 0 
+0 0 0
 D2
 Back to the road.
 ~
@@ -1478,7 +1482,7 @@ twenty or so yards ahead and will take no time to reach it. You
 spot the Narrows up ahead. The exits are north to the village or
 south to the Bone Woman.
 ~
-0 0 3 
+0 0 3
 D1
 The path to the Bone Womens.
 ~
@@ -1500,7 +1504,7 @@ Woman. The shack looks nice and cosy. It would be nice to stay and have
 a visit with the old Bone Woman. The exits are north to the
 forest, west to the bone Woman, and south to the Narrows.
 ~
-0 0 3  
+0 0 3
 D0
 The Bone Womans house.
 ~
@@ -1528,7 +1532,7 @@ a big smile on her face and offerse you to stay in her home for
 as long as you wish. The exit is back to the east, out on the
 trail.
 ~
-0 0 0 
+0 0 0
 D2
 Back to the road.
 ~
@@ -1543,7 +1547,7 @@ narrows. You should stay on guard and not fall asleep. The exits
 are west to continue into the narrows, or north to return to the
 bone woman for a cup of tea.
 ~
-0 0 10  
+0 0 10
 D1
 The path through the narrows.
 ~
@@ -1564,7 +1568,7 @@ narrows approaching. Apparently they are the most dangerous part
 of the whole narrows. The exits are west to the center or east to
 the entrance of the narrows.
 ~
-0 0 10 
+0 0 10
 D1
 The center of the Narrows.
 ~
@@ -1585,7 +1589,7 @@ him attack. The sky is getting dark and you still have a little
 ways to go. The exits are in an east-west direction, west being
 the way you want to go.
 ~
-0 0 10  
+0 0 10
 D1
 The path to the end of the Narrows.
 ~
@@ -1606,7 +1610,7 @@ air starts to cool down as the sun sets in the west. You try to
 hurry your way out of the narrows before dark. The exits are of
 course; east and west.
 ~
-0 0 10  
+0 0 10
 D1
 The end of the narrows.
 ~
@@ -1626,7 +1630,7 @@ is not going to let you pass. You must fend off this naughty
 beast and get to Darken Rahl. The exits are to the west and to
 the east.
 ~
-0 0 10 
+0 0 10
 D1
 The Azrith Plains.
 ~
@@ -1648,7 +1652,7 @@ You have to cross the Azrith Plains in order to get to Darken
 Rahl in his massive palace.
 The exits are north and east.
 ~
-0 0 2  
+0 0 2
 D0
 The Azrith Plains.
 ~
@@ -1671,7 +1675,7 @@ and stop Darken Ralh then steel a drink and a bite to eat. The
 way back through the Narrows doesn't seem appealing. The exits
 are north and south.
 ~
-0 0 2 
+0 0 2
 D0
 The Azrith Plains.
 ~
@@ -1692,7 +1696,7 @@ trail. Maybe she will listen to you and move out of the way.
 Maybe she will eat you up for breakfast... Hmmmmmm...Breakfast
 sure would be nice. The exits are north and south.
 ~
-0 0 2 
+0 0 2
 D0
 To the BIG scary DRaGoN.
 ~
@@ -1714,7 +1718,7 @@ just turn around and go back to mommy for some cookies...mmmm
 cookies. STOP THINKING ABOUT FOOD! You must go on and kill Darken
 Rahl. The exits are North and South ass usual.
 ~
-0 0 2  
+0 0 2
 D0
 The entrance to the Peoples Palace.
 ~
@@ -1735,7 +1739,7 @@ expected. The stairs are made from white marble and are spotless.
 The exits are north into the palace or south to the BIG scary
 DRaGoN.
 ~
-0 0 2 
+0 0 2
 D0
 The Palace.
 ~
@@ -1756,7 +1760,7 @@ with these people. You decide not to stop and keep on going. The
 exits are to the north, south and to the east there is a room
 filled with devoters.
 ~
-0 0 0 
+0 0 0
 D0
 The longer hallway.
 ~
@@ -1782,7 +1786,7 @@ garden. You get shivers up your spine just at the sight of all
 these people devoted to Darken Rahl. The exits are north and back
 west.
 ~
-0 0 0  
+0 0 0
 D0
 To the Mord-Sith room.
 ~
@@ -1802,7 +1806,7 @@ red leather torturing them. The floors are covered in blood. The
 moment you enter this room you regret it. The Mord-Siths have
 spotted you and are heading in your direction. Better run FAST!
 ~
-0 0 0  
+0 0 0
 D2
 Back to the Devotion room.
 ~
@@ -1819,7 +1823,7 @@ surrounding this room...
 You have found Darken Rahl! The door opens automatically before
 you. You may enter or go back to the Mord-Siths.
 ~
-0 0 0 
+0 0 0
 D0
 The Garden of Life.
 ~
@@ -1851,7 +1855,7 @@ sorcerer's sand, ringed with torches that burn with fluid flames.
 
 The only exit is south.
 ~
-0 0 0  
+0 0 0
 D2
 ~
 ~
@@ -1862,107 +1866,107 @@ S
 
 
 #SPECIALS
-M 10017 spec_cast_cleric Load to: The Bone Woman
-M 10020 spec_cast_mage Load to: The Spirit King
-M 10021 spec_breath_fire Load to: The Great Red Dragon
-M 10024 spec_breath_any Load to: A drunken villager
-M 10025 spec_thief Load to: A little thief
-M 10031 spec_cast_undead Load to: The Evil Darken Rahl
+M 10017 spec_cast_cleric	* The Bone Woman
+M 10020 spec_cast_mage	* The Spirit King
+M 10021 spec_breath_fire	* The Great Red Dragon
+M 10024 spec_breath_any	* A drunken villager
+M 10025 spec_thief	* A little thief
+M 10031 spec_cast_undead	* The Evil Darken Rahl
 S
 
 
 
 #RESETS
-O 0 10025 0 10001 A sign loaded to Path By a Lake.
-O 0 10026 0 10001 A little sign loaded to Path By a Lake.
-M 0 10007 1 10003 1*Load a young lady
-M 0 10008 1 10003 1*Load a fisherman
-M 0 10009 1 10003 1*Load a little boy
-M 0 10005 4 10005 1*Load a quad assassin
-M 0 10005 4 10005 1*Load a quad assassin
-M 0 10005 4 10005 1*Load a quad assassin
-M 0 10005 4 10005 1*Load a quad assassin
-M 0 10014 2 10006 1*Load a boundary warden
-E 0 10012 0 1 A boundary warden ring is loaded on the left finger of a boundary warden
-E 0 10012 0 2 A boundary warden ring is loaded on the right finger of a boundary warden
-E 0 10013 0 7 Boundary warden leggings is loaded on the legs of a boundary warden
-M 0 10010 4 10008 1*Load a heart hound
-M 0 10010 4 10008 1*Load a heart hound
-M 0 10001 2 10009 1*Load A long-tailed gar
-M 0 10002 2 10009 1*Load a long-tailed gar
-M 0 10004 4 10009 1*Load a blood fly
-M 0 10004 4 10009 1*Load a blood fly
-M 0 10015 1 10010 1*Load a thief
-M 0 10011 1 10011 1*Load a speaker
-M 0 10012 2 10011 1*Load a happy villager
-M 0 10012 2 10011 1*Load a happy villager
-M 0 10013 1 10011 1*Load a healer
-M 0 10003 1 10012 1*Load a long-tailed gar
-M 0 10004 4 10012 1*Load a blood fly
-M 0 10016 2 10012 1*Load a beggar
-M 0 10016 2 10012 1*Load a beggar
-M 0 10001 2 10015 1*Load A long-tailed gar
-M 0 10002 2 10015 1*Load a long-tailed gar
-M 0 10004 4 10015 1*Load a blood fly
-M 0 10010 4 10015 1*Load a heart hound
-M 0 10010 4 10015 1*Load a heart hound
-E 0 10015 0 1 A heart hound collar is loaded on the left finger of a heart hound
-M 0 10026 4 10016 1*Load A yellow snake
-M 0 10026 4 10016 1*Load A yellow snake
-M 0 10026 4 10016 1*Load A yellow snake
-M 0 10026 4 10016 1*Load A yellow snake
-M 0 10014 2 10020 1*Load a boundary warden
-E 0 10001 0 16 A boundary warden's mace is loaded wielded of a boundary warden
-E 0 10006 0 9 Boundary warden gloves is loaded on the hands of a boundary warden
-E 0 10007 0 8 Boundary warden boots is loaded on the feet of a boundary warden
-E 0 10008 0 10 Boundary warden sleeves is loaded on the arms of a boundary warden
-E 0 10009 0 11 Boundary warden's shield is loaded as a shield of a boundary warden
-E 0 10010 0 5 Boundary warden's tunic is loaded on the body of a boundary warden
-E 0 10011 0 6 A boundary warden helmet is loaded over the head of a boundary warden
-G 0 10020 0 A boundary warden flail is given to a boundary warden
-G 0 10021 0 A boundary warden mace is given to a boundary warden
-G 0 10022 0 A boundary warden dagger is given to a boundary warden
-G 0 10019 0 A boundary warden sword is given to a boundary warden
-M 0 10025 1 10022 1*Load A little thief
-G 0 10014 0 A dark robe is given to A little thief
-E 0 10005 0 8 A pair of black boots is loaded on the feet of A little thief
-M 0 10028 1 10022 1*Load A dopey little cat
-G 0 10017 0 A big cookie! is given to A dopey little cat
-M 0 10023 1 10023 1*Load The bar tender
-G 0 10004 0 A jug 'o beer. is given to The bar tender
-G 0 10016 0 A magical leather pouch is given to The bar tender
-M 0 10024 4 10023 1*Load A drunken villager
-G 0 10004 0 A jug 'o beer. is given to A drunken villager
-M 0 10024 4 10023 1*Load A drunken villager
-M 0 10024 4 10023 1*Load A drunken villager
-M 0 10024 4 10023 1*Load A drunken villager
-M 0 10006 4 10025 1*Load a quad assassin
-M 0 10006 4 10025 1*Load a quad assassin
-M 0 10006 4 10025 1*Load a quad assassin
-M 0 10006 4 10025 1*Load a quad assassin
-M 0 10017 1 10026 1*Load The Bone Woman
-E 0 10002 0 4 The bone woman's necklace. is loaded around the neck (2) of The Bone Woman
-M 0 10018 3 10028 1*Load A nasty gripper
-G 0 10003 0 Some grippers teeth is given to A nasty gripper
-M 0 10018 3 10028 1*Load A nasty gripper
-M 0 10018 3 10029 1*Load A nasty gripper
-M 0 10019 2 10029 1*Load The SCaRy Shadow THinG
-M 0 10030 2 10029 1*Load A Devoter of Darken Rahl
-M 0 10019 2 10030 1*Load The SCaRy Shadow THinG
-M 0 10020 1 10031 1*Load The Spirit King
-M 0 10022 4 10032 1*Load An evil shadow person
-M 0 10027 2 10032 1*Load An underworld beast
-G 0 10018 0 A big piece of cake! is given to An underworld beast
-M 0 10027 2 10032 1*Load An underworld beast
-M 0 10022 4 10034 1*Load An evil shadow person
-M 0 10022 4 10034 1*Load An evil shadow person
-M 0 10021 1 10035 1*Load The Great Red Dragon
-M 0 10029 2 10038 1*Load A Evil Mord-Sith
-E 0 10023 0 16 A mord-sith's agiel is loaded wielded of A Evil Mord-Sith
-M 0 10029 2 10040 1*Load A Evil Mord-Sith
-M 0 10030 2 10041 1*Load A Devoter of Darken Rahl
-M 0 10031 1 10042 1*Load The Evil Darken Rahl
-E 0 10024 0 14 The bracer of power is loaded on the left wrist of The Evil Darken Rahl
+O 0 10025 0 10001		* A Sign (Path By a Lake.)
+O 0 10026 0 10001		* A little sign (Path By a Lake.)
+M 0 10007 1 10003 1	* a young lady (Welcome to Westands!)
+M 0 10008 1 10003 1	* a fisherman (Welcome to Westands!)
+M 0 10009 1 10003 1	* a little boy (Welcome to Westands!)
+M 0 10005 4 10005 1	* a quad assassin (A Turn in the Road.)
+M 0 10005 4 10005 1	* a quad assassin (A Turn in the Road.)
+M 0 10005 4 10005 1	* a quad assassin (A Turn in the Road.)
+M 0 10005 4 10005 1	* a quad assassin (A Turn in the Road.)
+M 0 10014 2 10006 1	* a boundary warden (A Path to the Mountains.)
+E 0 10012 0 1		*	A Boundary Warden Ring: on the left finger
+E 0 10012 0 2		*	A Boundary Warden Ring: on the right finger
+E 0 10013 0 7		*	Boundary Warden Leggings: on the legs
+M 0 10010 4 10008 1	* a heart hound (The Edge of Upper Ven.)
+M 0 10010 4 10008 1	* a heart hound (The Edge of Upper Ven.)
+M 0 10001 2 10009 1	* A long-tailed gar (The Trail in the Forest.)
+M 0 10002 2 10009 1	* a long-tailed gar (The Trail in the Forest.)
+M 0 10004 4 10009 1	* a blood fly (The Trail in the Forest.)
+M 0 10004 4 10009 1	* a blood fly (The Trail in the Forest.)
+M 0 10015 1 10010 1	* a thief (The Out-Skirts of Hartland.)
+M 0 10011 1 10011 1	* a speaker (The Town of Hartland.)
+M 0 10012 2 10011 1	* a happy villager (The Town of Hartland.)
+M 0 10012 2 10011 1	* a happy villager (The Town of Hartland.)
+M 0 10013 1 10011 1	* a healer (The Town of Hartland.)
+M 0 10003 1 10012 1	* a long-tailed gar (The Fields of Hartland.)
+M 0 10004 4 10012 1	* a blood fly (The Fields of Hartland.)
+M 0 10016 2 10012 1	* a beggar (The Fields of Hartland.)
+M 0 10016 2 10012 1	* a beggar (The Fields of Hartland.)
+M 0 10001 2 10015 1	* A long-tailed gar (The Path at the swamp.)
+M 0 10002 2 10015 1	* a long-tailed gar (The Path at the swamp.)
+M 0 10004 4 10015 1	* a blood fly (The Path at the swamp.)
+M 0 10010 4 10015 1	* a heart hound (The Path at the swamp.)
+M 0 10010 4 10015 1	* a heart hound (The Path at the swamp.)
+E 0 10015 0 1		*	A Heart Hound Collar: on the left finger
+M 0 10026 4 10016 1	* A yellow snake (Over the Swamp Waters.)
+M 0 10026 4 10016 1	* A yellow snake (Over the Swamp Waters.)
+M 0 10026 4 10016 1	* A yellow snake (Over the Swamp Waters.)
+M 0 10026 4 10016 1	* A yellow snake (Over the Swamp Waters.)
+M 0 10014 2 10020 1	* a boundary warden (The Trail Through the Woods.)
+E 0 10001 0 16		*	A Boundary Warden's Mace: wielded
+E 0 10006 0 9		*	Boundary Warden Gloves: on the hands
+E 0 10007 0 8		*	Boundary Warden Boots: on the feet
+E 0 10008 0 10		*	Boundary Warden Sleeves: on the arms
+E 0 10009 0 11		*	Boundary Warden's Shield: as a shield
+E 0 10010 0 5		*	Boundary Warden's Tunic: on the body
+E 0 10011 0 6		*	A Boundary Warden Helmet: over the head
+G 0 10020 0		*	A Boundary Warden Flail
+G 0 10021 0		*	A Boundary Warden Mace
+G 0 10022 0		*	A Boundary Warden Dagger
+G 0 10019 0		*	A Boundary Warden Sword
+M 0 10025 1 10022 1	* A little thief (The Road Along the Village.)
+G 0 10014 0		*	A Dark Robe
+E 0 10005 0 8		*	A Pair of Black Boots: on the feet
+M 0 10028 1 10022 1	* A dopey little cat (The Road Along the Village.)
+G 0 10017 0		*	A BIG cookie!
+M 0 10023 1 10023 1	* The bar tender (The Bar.)
+G 0 10004 0		*	A Jug 'o Beer.
+G 0 10016 0		*	A Magical Leather Pouch
+M 0 10024 4 10023 1	* A drunken villager (The Bar.)
+G 0 10004 0		*	A Jug 'o Beer.
+M 0 10024 4 10023 1	* A drunken villager (The Bar.)
+M 0 10024 4 10023 1	* A drunken villager (The Bar.)
+M 0 10024 4 10023 1	* A drunken villager (The Bar.)
+M 0 10006 4 10025 1	* a quad assassin (The Path to the Bone Woman's Shack.)
+M 0 10006 4 10025 1	* a quad assassin (The Path to the Bone Woman's Shack.)
+M 0 10006 4 10025 1	* a quad assassin (The Path to the Bone Woman's Shack.)
+M 0 10006 4 10025 1	* a quad assassin (The Path to the Bone Woman's Shack.)
+M 0 10017 1 10026 1	* The Bone Woman (The Bone Woman's Shack.)
+E 0 10002 0 4		*	The Bone Woman's Necklace.: around the neck (2)
+M 0 10018 3 10028 1	* A nasty gripper (The Path Through The Narrows.)
+G 0 10003 0		*	Some grippers teeth
+M 0 10018 3 10028 1	* A nasty gripper (The Path Through The Narrows.)
+M 0 10018 3 10029 1	* A nasty gripper (The Center of the Narrows.)
+M 0 10019 2 10029 1	* The SCaRy Shadow THinG (The Center of the Narrows.)
+M 0 10030 2 10029 1	* A Devoter of Darken Rahl (The Center of the Narrows.)
+M 0 10019 2 10030 1	* The SCaRy Shadow THinG (Near The End of the Narrows.)
+M 0 10020 1 10031 1	* The Spirit King (The End of The Narrows.)
+M 0 10022 4 10032 1	* An evil shadow person (The Azrith Plains.)
+M 0 10027 2 10032 1	* An underworld beast (The Azrith Plains.)
+G 0 10018 0		*	a BIG piece of cake!
+M 0 10027 2 10032 1	* An underworld beast (The Azrith Plains.)
+M 0 10022 4 10034 1	* An evil shadow person (The Azrith Plains.)
+M 0 10022 4 10034 1	* An evil shadow person (The Azrith Plains.)
+M 0 10021 1 10035 1	* The Great Red Dragon (At the BIG scary DRaGoN!)
+M 0 10029 2 10038 1	* A Evil Mord-Sith (The Long Hallway.)
+E 0 10023 0 16		*	A Mord-Sith's Agiel: wielded
+M 0 10029 2 10040 1	* A Evil Mord-Sith (The Room of the Mord-Siths.)
+M 0 10030 2 10041 1	* A Devoter of Darken Rahl (The End of The Hallway.)
+M 0 10031 1 10042 1	* The Evil Darken Rahl (The Garden of Life.)
+E 0 10024 0 14		*	The Bracer of Power: on the left wrist
 S
 
 
@@ -1970,6 +1974,24 @@ S
 #SHOPS
 10023 0 0 0 0 0 100 0 0 23
 0
+
+
+
+#OLIMITS
+S
+
+
+
+#MOBPROGS
+#0
+
+#PRACTICERS
+S
+
+
+
+#OMPROGS
+S
 
 
 

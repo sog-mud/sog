@@ -1874,90 +1874,90 @@ D 0 3460 5 2	* Den of the Vampire: door to the down: closed and locked
 D 0 3464 1 1	* The Catacombs: door to the east: closed
 D 0 3475 4 2	* Inside the coffin: door to the up: closed and locked
 M 0 3405 1 3405 1	* the priest (Inside the Chapel)
-G 0 3430 0		*	A silver key
-O 0 3400 0 3405		* A candlestick (Inside the Chapel)
+G 0 3430 0		*	a silver key
+O 0 3400 0 3405		* a candlestick (Inside the Chapel)
 M 0 3401 7 3409 3	* the undead zombie (The Acolyte's Bedroom)
 M 0 3401 7 3409 3	* the undead zombie (The Acolyte's Bedroom)
 M 0 3401 7 3409 3	* the undead zombie (The Acolyte's Bedroom)
 M 0 3402 10 3409 2	* The ghoul (The Acolyte's Bedroom)
 M 0 3400 8 3410 2	* the bony skeleton (The Lower Chambers and Tombs of the Undead)
-E 0 3421 0 16		*	A rusty curved scimitar: wielded
+E 0 3421 0 16		*	a rusty curved scimitar: wielded
 M 0 3403 1 3411 1	* The wraith (The Lower Chambers and Tombs of the Undead)
-E 0 3425 0 17		*	An auburn-colored orb: held in the hands
+E 0 3425 0 17		*	an auburn-colored orb: held in the hands
 M 0 3416 4 3411 1	* The half-decomposed body (The Lower Chambers and Tombs of the Undead)
 M 0 3401 7 3414 4	* the undead zombie (The Tomb of Shohan)
 M 0 3401 7 3414 4	* the undead zombie (The Tomb of Shohan)
 M 0 3401 7 3414 4	* the undead zombie (The Tomb of Shohan)
 M 0 3401 7 3414 4	* the undead zombie (The Tomb of Shohan)
 M 0 3413 5 3417 1	* the rock slug (The Grand Hall of Kings)
-G 0 3422 0		*	A piece of slime
+G 0 3422 0		*	a piece of slime
 M 0 3413 5 3418 1	* the rock slug (The Shrine of Cristis)
-G 0 3422 0		*	A piece of slime
+G 0 3422 0		*	a piece of slime
 M 0 3400 8 3419 2	* the bony skeleton (The Tomb of Cristis)
-E 0 3421 0 16		*	A rusty curved scimitar: wielded
+E 0 3421 0 16		*	a rusty curved scimitar: wielded
 M 0 3412 1 3424 1	* the spirit of King Crotus (The Tomb of Crotus)
-E 0 3416 0 17		*	A heavy iron key: held in the hands
-O 0 3415 0 3424		* A stone sarcophagus (The Tomb of Crotus)
-P 0 3417 5 3415 1	* A stone sarcophagus: A stone sarcophagus
-P 0 3418 1 3415 1	* A stone sarcophagus: A stone sarcophagus
+E 0 3416 0 17		*	a heavy iron key: held in the hands
+O 0 3415 0 3424		* a stone sarcophagus (The Tomb of Crotus)
+P 0 3417 5 3415 1	* a stone sarcophagus: a wineflask
+P 0 3418 1 3415 1	* a stone sarcophagus: a mound of coins fit for a dead king
 M 0 3409 4 3426 2	* some cave weeds (The Lower Chambers and Tombs of the Undead)
 M 0 3409 4 3426 2	* some cave weeds (The Lower Chambers and Tombs of the Undead)
 M 0 3416 4 3426 1	* The half-decomposed body (The Lower Chambers and Tombs of the Undead)
 M 0 3400 8 3430 2	* the bony skeleton (The Lower Chambers and Tombs of the Undead)
-E 0 3421 0 16		*	A rusty curved scimitar: wielded
+E 0 3421 0 16		*	a rusty curved scimitar: wielded
 M 0 3413 5 3432 1	* the rock slug (The Grand Hall of Kings)
-G 0 3422 0		*	A piece of slime
+G 0 3422 0		*	a piece of slime
 M 0 3411 1 3434 1	* The X-ist flesh eater (The Tomb of Frath)
-E 0 3414 0 16		*	A whisper thin rapier: wielded
-G 0 3412 0		*	The mummified head of jubal the benevolent
-P 0 3413 2 3412 1	* The mummified head of jubal the benevolent: The mummified head of jubal the benevolent
+E 0 3414 0 16		*	a whisper thin rapier: wielded
+G 0 3412 0		*	the mummified head of Jubal the Benevolent
+P 0 3413 2 3412 1	* the mummified head of Jubal the Benevolent: a black marble ring
 M 0 3402 10 3437 2	* The ghoul (The Grand Hall of Kings)
 M 0 3400 8 3441 2	* the bony skeleton (The Lower Chambers and Tombs of the Undead)
-E 0 3421 0 16		*	A rusty curved scimitar: wielded
+E 0 3421 0 16		*	a rusty curved scimitar: wielded
 M 0 3413 5 3441 1	* the rock slug (The Lower Chambers and Tombs of the Undead)
-G 0 3422 0		*	A piece of slime
+G 0 3422 0		*	a piece of slime
 M 0 3416 4 3442 1	* The half-decomposed body (The Lower Chambers and Tombs of the Undead)
 M 0 3409 4 3444 2	* some cave weeds (The Lower Chambers and Tombs of the Undead)
 M 0 3409 4 3444 2	* some cave weeds (The Lower Chambers and Tombs of the Undead)
 M 0 3402 10 3447 2	* The ghoul (The Lower Chambers and Tombs of the Undead)
 M 0 3416 4 3448 1	* The half-decomposed body (The Lower Chambers and Tombs of the Undead)
-O 0 3420 0 3448		* A hidden compartment in the room (The Lower Chambers and Tombs of the Undead)
-P 0 3410 1 3420 1	* A hidden compartment in the room: A hidden compartment in the room
+O 0 3420 0 3448		* a hidden compartment in the room (The Lower Chambers and Tombs of the Undead)
+P 0 3410 1 3420 1	* a hidden compartment in the room: a queerly shaped rod
 M 0 3410 1 3449 1	* Snapper Joe (The Lower Chambers and Tombs of the Undead)
-E 0 3414 0 16		*	A whisper thin rapier: wielded
-E 0 3429 0 5		*	A worn and dented breast plate: on the body
-E 0 3411 0 17		*	A large black dirty key: held in the hands
+E 0 3414 0 16		*	a whisper thin rapier: wielded
+E 0 3429 0 5		*	a worn and dented breast plate: on the body
+E 0 3411 0 17		*	a large black dirty key: held in the hands
 M 0 3413 5 3450 1	* the rock slug (Entrance to the Forbidden Catacombs)
-G 0 3422 0		*	A piece of slime
+G 0 3422 0		*	a piece of slime
 M 0 3407 5 3452 1	* The nightgaunt (The Catacombs)
-E 0 3402 0 16		*	A nightgaunt's tickler: wielded
+E 0 3402 0 16		*	a nightgaunt's tickler: wielded
 M 0 3407 5 3453 1	* The nightgaunt (The Catacombs)
-E 0 3402 0 16		*	A nightgaunt's tickler: wielded
+E 0 3402 0 16		*	a nightgaunt's tickler: wielded
 M 0 3402 10 3454 2	* The ghoul (The Catacombs)
 M 0 3406 3 3455 1	* the Mi-Go (The Catacombs)
-E 0 3403 0 5		*	Disgusting pinkish plasma webbing: on the body
+E 0 3403 0 5		*	disgusting pinkish plasma webbing: on the body
 M 0 3407 5 3457 1	* The nightgaunt (The Catacombs)
-E 0 3402 0 16		*	A nightgaunt's tickler: wielded
+E 0 3402 0 16		*	a nightgaunt's tickler: wielded
 M 0 3404 1 3460 1	* The guardian vampire (Den of the Vampire)
-E 0 3428 0 16		*	The pitch-black flaming longsword: wielded
-E 0 3427 0 12		*	A dark black cape: about the shoulders
-E 0 3419 0 17		*	Key to the coffin: held in the hands
-G 0 3424 0		*	A tightly rolled scroll
+E 0 3428 0 16		*	the pitch-black flaming longsword: wielded
+E 0 3427 0 12		*	a dark black cape: about the shoulders
+E 0 3419 0 17		*	key to the coffin: held in the hands
+G 0 3424 0		*	a tightly rolled scroll
 M 0 3402 10 3462 2	* The ghoul (The Catacombs)
 M 0 3406 3 3463 1	* the Mi-Go (The Catacombs)
-E 0 3403 0 5		*	Disgusting pinkish plasma webbing: on the body
+E 0 3403 0 5		*	disgusting pinkish plasma webbing: on the body
 M 0 3407 5 3465 1	* The nightgaunt (The Gilded Hallway)
-E 0 3402 0 16		*	A nightgaunt's tickler: wielded
+E 0 3402 0 16		*	a nightgaunt's tickler: wielded
 M 0 3407 5 3465 1	* The nightgaunt (The Gilded Hallway)
-E 0 3402 0 16		*	A nightgaunt's tickler: wielded
+E 0 3402 0 16		*	a nightgaunt's tickler: wielded
 M 0 3406 3 3466 1	* the Mi-Go (The Gilded Hallway)
-E 0 3403 0 5		*	Disgusting pinkish plasma webbing: on the body
+E 0 3403 0 5		*	disgusting pinkish plasma webbing: on the body
 M 0 3414 1 3468 1	* The mad etcher (The Gilded Hallway)
-E 0 3423 0 5		*	An artist's smock: on the body
+E 0 3423 0 5		*	an artist's smock: on the body
 M 0 3415 1 3468 1	* The spectral etcher's wife (The Gilded Hallway)
 M 0 3408 1 3471 1	* The hunting horror (A Secret Passageway)
-E 0 3425 0 17		*	An auburn-colored orb: held in the hands
-G 0 3426 0		*	A bar of gold
+E 0 3425 0 17		*	an auburn-colored orb: held in the hands
+G 0 3426 0		*	a bar of gold
 S
 
 

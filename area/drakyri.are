@@ -1,8 +1,13 @@
-#AREA
-drakyri.are~
-Drakyri Isle~
-{65 90} Ydri    Drakyri Isle~
-11800 11899
+#AREADATA
+Name Drakyri Isle~
+Builders None~
+VNUMs 11800 11899
+Credits Ydri~
+Security 9
+LevelRange 65 90
+End
+
+
 
 #MOBILES
 #11800
@@ -22,9 +27,9 @@ elf~
 ABGR DFH 0 0
 93 0 100d12+19000 1d100+15000 13d13+63 magic
 -61 -63 -64 -33
-EFG 0 BJK 0
+EFG 0 JK 0
 stand stand female 55000
-0 0 medium 0
+0 0 medium unknown
 #11801
 drakyri deriki noriek deiayan lord~
 Noriek~
@@ -41,7 +46,7 @@ ABGR DFH 0 0
 -63 -63 -61 -32
 FG 0 J F
 stand stand male 45700
-0 0 medium 0
+0 0 medium unknown
 #11802
 drakyri deriki dyrli sh'aya lady~
 Dyrli~
@@ -58,7 +63,7 @@ ABGR DFH 0 0
 -58 -58 -59 -39
 FG 0 I H
 stand stand female 15000
-0 0 medium 0
+0 0 medium unknown
 #11803
 drakyri deriki roweni sequas~
 Roweni~
@@ -74,7 +79,7 @@ ABGR BDFT 0 0
 -55 -55 -55 -25
 FG 0 I H
 stand stand female 10000
-0 0 medium 0
+0 0 medium unknown
 #11804
 drakyri deriki xanil treye man~
 Xanil~
@@ -90,7 +95,7 @@ ABGR DF 0 0
 -53 -54 -50 -22
 FG 0 K 0
 stand stand male 10000
-0 0 medium 0
+0 0 medium unknown
 #11805
 drakyri deriki tyrena na'deia lady~
 Tyrena~
@@ -108,7 +113,7 @@ ABGR DFH 0 0
 -56 -55 -57 -27
 FGI 0 0 J
 stand stand female 25300
-0 0 medium 0
+0 0 medium unknown
 #11806
 drakyri deriki nalyss ira'deia girl~
 Nalyss~
@@ -119,12 +124,12 @@ her.  A narrow mark along one cheekbone denotes her as one of the
 younger siblings (ira'deia) of the heir.
 ~
 elf~
-ABCGR DFPTV 0 0
+ABCGR DFTV 0 0
 83 0 100d12+14000 1d100+10000 9d14+53 pierce
 -54 -53 -53 -23
 FGJ 0 0 0
 stand stand female 5700
-0 0 medium 0
+0 0 medium unknown
 #11807
 drakyri deriki daeman ira'deian boy~
 Daeman~
@@ -140,7 +145,7 @@ ABGR BDFT 0 0
 -55 -54 -53 -24
 FGHN 0 0 0
 stand stand male 6000
-0 0 medium 0
+0 0 medium unknown
 #11808
 drakyri deriki ykandres ira'deian youth~
 Ykandres~
@@ -157,7 +162,7 @@ ACGR BDFTV 0 0
 -52 -52 -52 -14
 FGJ 0 J K
 stand stand male 7500
-0 0 medium 0
+0 0 medium unknown
 #11809
 zeion snow owl~
 Zeion~
@@ -171,7 +176,7 @@ AC TZ 0 0
 -60 -59 -60 -20
 CDEFG 0 IJ H
 stand stand either 0
-ACHW ACDEFHJKPU large 0
+ACHW ACDEFHJKPU large unknown
 #11810
 drakyri lab assistant~
 the lab assistant~
@@ -185,7 +190,7 @@ ABCGR DT 0 0
 -50 -50 -52 -21
 DFG 0 0 0
 stand stand male 1500
-0 0 medium 0
+0 0 medium unknown
 #11811
 mage training~
 a mage in training~
@@ -203,7 +208,7 @@ ACGR DFT 0 0
 -49 -50 -50 -20
 FG 0 0 0
 stand stand either 5000
-0 0 medium 0
+0 0 medium unknown
 #11812
 writhing form ghostly~
 a writhing form~
@@ -219,7 +224,7 @@ ABGR BITUZ 0 0
 -57 -57 -57 -20
 DFG 0 D MNO
 stand stand none 0
-HL 0 medium mist
+HL 0 medium unknown
 #11813
 glyph warding~
 a glyph of warding~
@@ -234,7 +239,7 @@ ABG BDFQTUZ 0 0
 -60 -60 -60 -28
 DEFG 0 FMN JOP
 stand stand none 0
-HL 0 medium mist
+HL 0 medium unknown
 #11814
 drakyri treniste dosandre deian lord~
 Dosandre~
@@ -249,11 +254,11 @@ A golden symbol shimmers between his brows:
 ~
 elf~
 ABGT CHN 1000 0
-90 0 100d12+19000 1d10+1000 12d12+60 holy
+90 0 100d12+19000 1d10+1000 12d12+60 none
 -60 -58 -58 -26
 CDEIK N Y M
 stand stand male 65000
-0 0 medium 0
+0 0 medium unknown
 #11815
 drakyri treniste denylis deiaya lady~
 Denylis~
@@ -265,11 +270,11 @@ an aura of great power behind the gentle smile.
 ~
 elf~
 ABGQ CHNT 1000 0
-89 0 100d12+17500 1d10+2000 12d11+59 holy
+89 0 100d12+17500 1d10+2000 12d11+59 none
 -59 -59 -58 -25
 DEF 0 N M
 stand stand female 45500
-0 0 medium 0
+0 0 medium unknown
 #11816
 drakyri treniste kaele sh'ayan~
 Kaele~
@@ -285,7 +290,7 @@ ACGT CHNT 1000 0
 -56 -57 -56 -21
 CDEFK 0 N M
 stand stand male 25500
-0 0 medium 0
+0 0 medium unknown
 #11817
 drakyri treniste rexena sequas female~
 Rexena~
@@ -302,7 +307,7 @@ ACGT CNT 900 0
 -54 -53 -54 -20
 CDEIK 0 IN HM
 stand stand female 15500
-0 0 medium 0
+0 0 medium unknown
 #11818
 drakyri treniste deis treye male~
 Deis~
@@ -314,11 +319,11 @@ of house Treniste.
 ~
 elf~
 AGQ CNT 900 0
-80 0 100d12+12500 1d50+5000 9d12+50 holy
+80 0 100d12+12500 1d50+5000 9d12+50 none
 -48 -48 -49 -19
 EFI 0 N M
 stand stand male 10200
-0 0 medium 0
+0 0 medium unknown
 #11819
 drakyri treniste lyrene na'deia girl~
 Lyrene~
@@ -333,9 +338,9 @@ elf~
 AGT CHNT 980 0
 86 1 100d12+17000 1d10+900 13d10+56 slash
 -57 -56 -55 -24
-CDEHIK 0 NJ MI
+CDEHIK 0 JN IM
 stand stand female 21000
-0 0 medium 0
+0 0 medium unknown
 #11820
 drakyri treniste josreke ira'deian youth~
 Josreke~
@@ -349,9 +354,9 @@ elf~
 ACGR CDFNT 920 0
 81 0 100d12+12500 1d100+10000 9d12+51 shock
 -51 -50 -50 -18
-FG 0 NH MI
+FG 0 HN IM
 stand stand male 9400
-0 0 medium 0
+0 0 medium unknown
 #11821
 drakyri treniste rodwen ira'deia girl~
 Rodwen~
@@ -368,7 +373,7 @@ AGT CNT 920 0
 -53 -51 -50 -20
 EFHIK 0 N M
 stand stand female 9500
-0 0 medium 0
+0 0 medium unknown
 #11822
 drakyri white paladin~
 a white clad paladin~
@@ -383,7 +388,7 @@ ABGT CNT 950 0
 -56 -52 -53 -23
 CDFIK 0 N M
 stand stand either 5500
-0 0 medium 0
+0 0 medium unknown
 #11823
 drakyri reykaris rachal deia lady~
 Rachal~
@@ -399,11 +404,11 @@ of house Reykaris:
 ~
 elf~
 ABFGR DFGHOT -1000 0
-90 0 100d12+17000 1d100+12000 13d10+60 negative
+90 0 100d12+17000 1d100+12000 13d10+60 none
 -60 -60 -60 -20
-EFG M H NI
+EFG M H IN
 stand stand female 35500
-0 0 medium 0
+0 0 medium unknown
 #11824
 drakyri reykaris toryan deiayan man~
 Toryan~
@@ -419,7 +424,7 @@ ABFGT GHOT -1000 0
 -58 -58 -59 -27
 CDFK 0 M N
 stand stand male 30000
-0 0 medium 0
+0 0 medium unknown
 #11825
 drakyri reykaris janalis sh'aya lady~
 Janalis~
@@ -436,7 +441,7 @@ AFG GHOT -990 0
 -55 -56 -56 -24
 EFK 0 M N
 stand stand female 21200
-0 0 medium 0
+0 0 medium unknown
 #11826
 drakyri reykaris dreyva sequas~
 Dreyva~
@@ -451,7 +456,7 @@ AFG GOT -975 0
 -54 -52 -53 -21
 FIK 0 M N
 stand stand female 15400
-0 0 medium 0
+0 0 medium unknown
 #11827
 drakyri reykaris delyrus treye man~
 Delyrus~
@@ -465,9 +470,9 @@ elf~
 ACFGQ BGOT -970 0
 81 0 100d12+13000 1d100+9000 9d12+51 crush
 -50 -50 -50 -20
-FI 0 MI NO
+FI 0 IM NO
 stand stand male 11250
-0 0 medium 0
+0 0 medium unknown
 #11828
 drakyri reykaris kranali na'deian~
 Kranali~
@@ -481,9 +486,9 @@ elf~
 ABCFGR BDFGHOT -978 0
 85 0 100d12+15000 1d100+10500 13d9+55 slash
 -56 -56 -55 -25
-EFG 0 MH NIP
+EFG 0 HM INP
 stand stand male 23400
-0 0 medium 0
+0 0 medium unknown
 #11829
 drakyri reykaris sorina ira'deia child~
 Sorina~
@@ -496,12 +501,12 @@ mischieviously.  You notice a dark mark along one cheekbone indicating
 her status as an ira'deia, younger child, of house Reykaris.
 ~
 elf~
-ACG GPTV -500 0
+ACG GTV -500 0
 81 0 100d12+13000 1d10+950 9d12+51 pound
 -50 -51 -50 -20
 FJ 0 0 0
 stand stand female 1000
-0 0 medium 0
+0 0 medium unknown
 #11830
 drakyri reykaris loryn ira'deia girl~
 Loryn~
@@ -513,12 +518,12 @@ a silvery throwing dagger balanced in her palm.  Along one cheekbone
 is the mark of an ira'deia of house Reykaris.
 ~
 elf~
-ABCFGS FGPQTV -900 0
+ABCFGS FGQTV -900 0
 80 0 100d12+12500 1d10+2000 9d12+50 pierce
 -50 -45 -46 -18
 BEFJK 0 M N
 stand stand female 14300
-0 0 medium 0
+0 0 medium unknown
 #11831
 drakyri reykaris chake ira'deian man~
 Chake~
@@ -533,7 +538,7 @@ ABCFG GOT -900 0
 -52 -51 -52 -20
 EFK 0 M N
 stand stand male 14300
-0 0 medium 0
+0 0 medium unknown
 #11832
 hellish guardian~
 the hellish guardian~
@@ -545,9 +550,9 @@ pig~
 ACFG G -950 0
 79 0 100d12+13000 1d50+5000 9d11+49 claw
 -48 -47 -47 -15
-CDJK 0 MH NI
+CDJK 0 HM IN
 stand stand none 1000
-0 0 large 0
+0 0 large unknown
 #11833
 howling beast figure~
 a howling beast~
@@ -564,7 +569,7 @@ ABCFG O -800 0
 -50 -51 -52 -20
 DEFI 0 K P
 stand stand none 0
-0 0 medium 0
+0 0 medium unknown
 #11834
 eyes demonic figure~
 a demonic figure~
@@ -575,12 +580,12 @@ the eyes.  Twisted lips part to reveal cruel white canines.  The
 figure emits a threatening snarl..
 ~
 pig~
-ABCFG GTQ -855 0
+ABCFG GQT -855 0
 81 0 100d12+14250 1d10+950 10d10+51 claw
 -50 -50 -51 -20
 DEFJ 0 DM CN
 stand stand none 1000
-0 0 large 0
+0 0 large unknown
 #11835
 wax statue necromancer black figure~
 the necromancer~
@@ -599,7 +604,7 @@ ABFGR DGOZ -955 0
 -50 -52 -51 -20
 FG 0 M N
 stand stand either 7500
-0 0 medium 0
+0 0 medium unknown
 #11836
 mass writhing tentacles~
 a mass of writhing tentacles~
@@ -610,12 +615,12 @@ menacingly.  The tentacles part momentarily, and you notice a
 round, fanged mouth at the center, dripping blood.
 ~
 unique~
-ABCFG OZV -670 0
+ABCFG OVZ -670 0
 81 0 100d12+14000 1d10+950 10d10+51 slash
 -51 -50 -51 -20
 DEK 0 0 0
 stand stand none 0
-ACGJ ADEFN huge 0
+ACGJ ADEFN huge unknown
 #11837
 figure summoned demon~
 a summoned demon~
@@ -629,7 +634,7 @@ ABG EZc -900 0
 -65 -65 -63 -24
 EFG 0 MQ NSY
 stand stand none 10300
-ACH ABCDEFJKQUV large 0
+ACH ABCDEFJKQUV large unknown
 #11838
 drakyri myrxes jaena deia eyes~
 Jaena~
@@ -642,12 +647,12 @@ silver eyes gleam from a dark, narrow face like twin daggers.
                         -=+)>
 ~
 elf~
-ABFGS FHPQTVZ 0 0
+ABFGS FHQTVZ 0 0
 73 0 100d12+10250 1d10+1000 8d10+43 pierce
 -46 -47 -46 -14
 BEFJK 0 0 0
 stand stand female 65500
-0 0 medium 0
+0 0 medium unknown
 #11839
 drakyri myrxes neraikis deiayan form~
 Neraikis~
@@ -658,12 +663,12 @@ His wary stance betrays a dangerous catlike grace.  You notice
 that he bears the mark of a deiayan of house Myrxes.
 ~
 elf~
-ABFGS FHJPQT 0 0
+ABFGS FHQT 0 0
 73 1 100d12+10250 1d10+900 8d10+43 slash
 -43 -43 -43 -12
 BEFJ 0 0 0
 stand stand male 65000
-0 0 medium 0
+0 0 medium unknown
 #11840
 drakyri myrxes katyre sh'aya figure~
 Katyre~
@@ -674,12 +679,12 @@ eyes seem to follow your every move.  Along one dark collar, you notice
 the mark of the Myrxes sh'aya.
 ~
 elf~
-ACGS FHPQT 0 0
+ACGS FHQT 0 0
 70 0 100d12+9000 1d10+900 8d8+40 pierce
 -40 -40 -40 -11
 BEFJ 0 0 0
 stand stand female 52500
-0 0 medium 0
+0 0 medium unknown
 #11841
 drakyri myrxes ryxis sequen~
 Ryxis~
@@ -691,12 +696,12 @@ merges with them, disappearing from sight.  Along the collar, he
 wears the mark of a sequen, second in command of Myrxes.
 ~
 elf~
-ACGS FPQTV 0 0
+ACGS FQTV 0 0
 66 0 100d10+8000 1d10+800 11d5+36 pierce
 -36 -36 -36 -5
 BEFJ 0 0 0
 stand stand male 41400
-0 0 medium 0
+0 0 medium unknown
 #11842
 drakyri myrxes gydeas treye form~
 Gydeas~
@@ -708,12 +713,12 @@ boned face.  The mark of the Myrxes treye, third in command, is
 emblazoned on his collar.
 ~
 elf~
-ACGS FPQTZ 0 0
+ACGS FQTZ 0 0
 64 0 100d10+7250 1d10+800 6d9+34 slash
 -34 -34 -34 -4
 BEFJ 0 0 0
 stand stand male 15500
-0 0 medium 0
+0 0 medium unknown
 #11843
 drakyri myrxes dyraena na'deia lady~
 Dyraena~
@@ -726,12 +731,12 @@ smooth, silent gait displays a dangerous, well controlled power.
 Between her eyebrows is the mark of the Myrxes heir.
 ~
 elf~
-ABCFGS FHPQTZ 0 0
+ABCFGS FHQTZ 0 0
 71 1 100d12+9500 1d10+1000 7d11+41 slash
 -41 -41 -41 -11
 BEFJK 0 0 0
 stand stand female 25500
-0 0 medium 0
+0 0 medium unknown
 #11844
 drakyri myrxes nyxi ira'deia girl~
 Nyxi~
@@ -742,12 +747,12 @@ Slitted silver eyes pierce the darkness to bore into your own.  Along
 one cheekbone is the mark of an ira'deia of Myrxes.
 ~
 elf~
-ABCGS FPQTZ 0 0
+ABCGS FQTZ 0 0
 68 0 100d10+8500 1d10+870 7d9+38 slice
 -38 -38 -39 -4
 BEFHJ 0 0 0
 stand stand female 15560
-0 0 medium 0
+0 0 medium unknown
 #11845
 drakyri myrxes delise ira'deia~
 Delise~
@@ -756,12 +761,12 @@ A drakyri emerges from the shadows.
 Pale green cat eyes seem to glow with a silent power.
 ~
 elf~
-ABCGS FPQTZ 0 0
+ABCGS FQTZ 0 0
 68 0 100d12+8500 1d10+850 7d9+38 slash
 -39 -40 -41 -10
 BEFJ 0 0 0
 stand stand female 15500
-0 0 medium 0
+0 0 medium unknown
 #11846
 black panther~
 a black panther~
@@ -774,9 +779,9 @@ cat~
 AFG DFPQ 0 0
 63 0 100d10+7500 1d10+750 8d6+33 claw
 -33 -33 -33 -13
-EFHK 0 0 0
+EK 0 0 0
 stand stand male 0
-0 0 large 0
+0 0 large unknown
 #11847
 shadow lynx~
 a shadow lynx~
@@ -789,9 +794,9 @@ cat~
 AFG DFPQ 0 0
 63 0 100d10+7500 1d10+750 8d6+33 claw
 -33 -33 -34 -13
-EFHK 0 0 0
+EK 0 0 0
 stand stand male 0
-0 0 large 0
+0 0 large unknown
 #11848
 night hawk black~
 a night hawk~
@@ -801,12 +806,12 @@ She hovers silently, powerful wings outspread.  Beneath the intelligent
 dark eyes, a cruel black beak opens to emit a shrill scream of challenge!
 ~
 song bird~
-ACFG PQTZ 0 0
+ACFG PQZ 0 0
 75 0 100d10+10500 1d10+800 8d11+45 peck
 -44 -45 -46 -14
-CDEF 0 0 0
+CDE 0 0 0
 stand stand female 0
-0 0 huge 0
+0 0 huge unknown
 #11849
 stalker form~
 the stalker~
@@ -817,12 +822,12 @@ The head turns towards you for a moment, fixing you with a sinister
 silver gaze that sends a chill up your spine.
 ~
 elf~
-ACFGS FPQTZ 0 0
+ACFGS FQTZ 0 0
 71 0 100d10+9500 1d10+750 7d10+41 pierce
 -43 -43 -42 -11
 BEFJ 0 0 0
 stand stand male 5500
-0 0 medium 0
+0 0 medium unknown
 #11850
 hunter arrow~
 the hunter~
@@ -832,12 +837,12 @@ A lithe humanoid form crouches in the shadows, aiming a silvery
 arrow at you with dangerous accuracy.
 ~
 elf~
-ACFG FPQTZ 0 0
+ACFG FQTZ 0 0
 72 0 100d10+10250 1d10+770 7d11+42 slash
 -44 -43 -44 -11
 EFJK 0 0 0
 stand stand female 7000
-0 0 medium 0
+0 0 medium unknown
 #11851
 drakyri xaek dyana deia lady~
 Dyana~
@@ -856,7 +861,7 @@ ABGT HT 0 0
 -48 -48 -47 -15
 CDEFIK 0 0 0
 stand stand female 65500
-0 0 medium 0
+0 0 medium unknown
 #11852
 drakyri xaek ryke deiayan lord~
 Ryke~
@@ -872,7 +877,7 @@ ABGT HT 0 0
 -46 -47 -47 -16
 CDEK 0 0 0
 stand stand male 61000
-0 0 medium 0
+0 0 medium unknown
 #11853
 drakyri xaek nyxil sh'aya~
 Nyxil~
@@ -890,7 +895,7 @@ AGT T 0 0
 -37 -37 -37 -5
 CDEHIK 0 0 0
 stand stand female 22500
-0 0 medium 0
+0 0 medium unknown
 #11854
 drakyri xaek rakael sequas female warrior~
 Rakael~
@@ -907,7 +912,7 @@ AGT T 0 0
 -44 -45 -43 -13
 EFHIK 0 0 0
 stand stand female 17500
-0 0 medium 0
+0 0 medium unknown
 #11855
 drakyri xaek yeven treye man~
 Yeven~
@@ -924,7 +929,7 @@ AGT TZ 0 0
 -38 -39 -40 -8
 CDIK 0 0 0
 stand stand male 12100
-0 0 medium 0
+0 0 medium unknown
 #11856
 drakyri xaek versant na'deian boy~
 Versant~
@@ -941,7 +946,7 @@ ABGT Z 0 0
 -45 -44 -45 -14
 CDEIK 0 0 0
 stand stand male 16000
-0 0 large 0
+0 0 large unknown
 #11857
 drakyri xaek saera ira'deia girl~
 Saera~
@@ -957,7 +962,7 @@ ABGT Z 0 0
 -42 -42 -43 -11
 CEFIK 0 0 0
 stand stand female 12100
-0 0 medium 0
+0 0 medium unknown
 #11858
 grey lion~
 the grey lion~
@@ -972,7 +977,7 @@ AB 0 0 0
 -50 -50 -50 -19
 CDK 0 HO IP
 stand stand male 0
-0 0 large 0
+0 0 large unknown
 #11859
 white lion~
 the white lion~
@@ -985,9 +990,9 @@ cat~
 AB 0 0 0
 81 0 100d10+13000 1d10+700 9d12+51 chomp
 -50 -50 -53 -10
-EFIK 0 IP HO
+EIK 0 IP HO
 stand stand female 0
-0 0 large 0
+0 0 large unknown
 #11860
 guardian knight~
 a guardian knight~
@@ -1001,7 +1006,7 @@ ABT 0 0 0
 -40 -40 -40 -10
 CDIK 0 0 0
 stand stand either 2500
-0 0 large 0
+0 0 large unknown
 #11861
 drakyri warrior training~
 a warrior in training~
@@ -1016,7 +1021,7 @@ ABGT 0 0 0
 -38 -37 -38 -6
 EFK 0 0 0
 stand stand either 1220
-0 0 medium 0
+0 0 medium unknown
 #11862
 drakyri sparring warrior~
 a sparring warrior~
@@ -1030,7 +1035,7 @@ AGT 0 0 0
 -49 -48 -49 -16
 EFIK 0 0 0
 stand stand either 1400
-0 0 medium 0
+0 0 medium unknown
 #11863
 drakyri noriva yxanes deian man~
 Yxanes~
@@ -1048,7 +1053,7 @@ AGQ DFHT 0 0
 -58 -59 -58 -21
 FIK 0 MN HO
 stand stand male 62500
-0 0 medium 0
+0 0 medium unknown
 #11864
 drakyri noriva nerael deiaya lady~
 Nerael~
@@ -1063,9 +1068,9 @@ elf~
 AGQ DFHT 0 0
 84 0 100d12+14500 1d100+5000 13d9+54 pound
 -55 -55 -58 -25
-EFI 0 MNH IO
+EFI 0 HMN IO
 stand stand female 61100
-0 0 medium 0
+0 0 medium unknown
 #11865
 drakyri noriva jorinne sh'aya woman~
 Jorinne~
@@ -1080,7 +1085,7 @@ ABGQ CDFGH 0 0
 -46 -47 -45 -16
 FI 0 HIP KO
 stand stand female 53000
-0 0 medium 0
+0 0 medium unknown
 #11866
 drakyri noriva lerylke sequen paladin~
 Lerylke~
@@ -1097,7 +1102,7 @@ ABGQT DFNOT 0 0
 -43 -44 -44 -12
 CDEK 0 MN J
 rest stand male 25000
-0 0 medium 0
+0 0 medium unknown
 #11867
 drakyri noriva nerr treye male~
 Nerr~
@@ -1113,7 +1118,7 @@ ABGQ DFT 0 0
 -41 -42 -42 -10
 FIK 0 0 0
 rest stand male 15500
-0 0 medium 0
+0 0 medium unknown
 #11868
 drakyri noriva yllyra na'deia lady~
 Yllyra~
@@ -1130,7 +1135,7 @@ ABQ DFH 0 0
 -46 -45 -47 -16
 FIK 0 0 0
 stand stand female 45500
-0 0 medium 0
+0 0 medium unknown
 #11869
 drakyri noriva dryna ira'deia girl~
 Dryna~
@@ -1142,12 +1147,12 @@ with laughter.  Yet beneath the youthful smile, you sense great power.
 On one cheekbone, she bears the mark of an ira'deia of Noriva.
 ~
 elf~
-ACGQ DFPT 0 0
+ACGQ DFT 0 0
 72 0 100d10+9750 1d100+4300 7d11+42 punch
 -40 -42 -43 -11
 EFGHI 0 HIJ E
 stand stand female 10500
-0 0 medium 0
+0 0 medium unknown
 #11870
 drakyri noriva voryl ira'deian boy~
 Voryl~
@@ -1163,7 +1168,7 @@ ACGQ DFT 0 0
 -55 -55 -55 -21
 FI 0 H I
 stand stand male 10500
-0 0 medium 0
+0 0 medium unknown
 #11871
 white cat~
 the white cat~
@@ -1177,9 +1182,9 @@ cat~
 ABC PZ 0 0
 72 0 100d10+9750 1d10+900 7d11+42 claw
 -42 -42 -42 -12
-DF 0 0 0
+D 0 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #11872
 grey cat silvery~
 the grey cat~
@@ -1192,9 +1197,9 @@ cat~
 AB FPZ 0 0
 73 0 100d10+10000 1d10+900 7d11+43 claw
 -44 -43 -43 -12
-FJ 0 0 0
+J 0 0 0
 stand stand female 0
-0 0 medium 0
+0 0 medium unknown
 #11873
 drakyri guardian spirit form ghost~
 the guardian spirit~
@@ -1210,7 +1215,7 @@ ABGQ BDFTUZ 0 0
 -55 -57 -56 -20
 FG 0 MN HIJ
 stand stand none 0
-DHL 0 medium mist
+DHL 0 medium unknown
 #11874
 drakyri laerkai flame mage~
 The Flame~
@@ -1226,7 +1231,7 @@ AGR HT 0 0
 -68 -66 -65 -35
 FG H C I
 stand stand female 65000
-0 0 medium 0
+0 0 medium unknown
 #11875
 drakyri laerkai shield paladin~
 The Shield~
@@ -1239,11 +1244,11 @@ elite force of drakyri, the Laerkai.
 ~
 elf~
 AGT DHNT 1000 0
-92 0 100d12+20000 1d50+7500 15d10+66 holy
+92 0 100d12+20000 1d50+7500 15d10+66 none
 -63 -63 -63 -23
 CDIK N 0 M
 stand stand male 65000
-0 0 medium 0
+0 0 medium unknown
 #11876
 drakyri laerkai claw knight~
 The Claw~
@@ -1254,11 +1259,11 @@ she smiles a cruel not-smile and flexes wickedly sharp taloned hands.
 ~
 elf~
 ACGT DHOT -1000 0
-92 5 100d12+20000 1d50+7000 15d10+62 negative
+92 5 100d12+20000 1d50+7000 15d10+62 none
 -60 -61 -61 -30
 DEFIK M 0 N
 stand stand female 65000
-0 0 medium 0
+0 0 medium unknown
 #11877
 drakyri laerkai shadow shadows~
 The Shadow~
@@ -1270,12 +1275,12 @@ are characterized by a curious catlike grace which betrays extreme
 power and agility, both dangerous.
 ~
 elf~
-ACGS FHPQT 0 0
+ACGS FHQT 0 0
 92 0 100d12+19000 1d50+7000 12d12+62 pierce
 -62 -62 -61 -30
 BEFHJ 0 E O
 stand stand male 65000
-0 0 medium 0
+0 0 medium unknown
 #11878
 drakyri laerkai fist warrior~
 The Fist~
@@ -1292,7 +1297,7 @@ AGT HT 0 0
 -60 -60 -60 -30
 CDEIK 0 D JKP
 stand stand female 65000
-0 0 large 0
+0 0 large unknown
 #11879
 drakyri laerkai hand priest~
 The Hand~
@@ -1303,11 +1308,11 @@ far above you, as if possessed by some divine presense.
 ~
 elf~
 AGQ DFHNOT 0 0
-91 0 100d12+18000 10d101+10000 12d11+61 light
+91 0 100d12+18000 10d101+10000 12d11+61 none
 -61 -60 -59 -30
 FIK 0 MN HO
 stand stand male 65000
-0 0 medium 0
+0 0 medium unknown
 #11880
 drakyri laerkai master~
 the Laerkai Master~
@@ -1322,12 +1327,12 @@ the master comes from a union between the Deriki and Myrxes houses.
 Trained by both, she has become a lethal blend of sorcery and stealth.
 ~
 elf~
-ABCFGRS BDFHPQT 0 0
+ABCFGRS BDFHQT 0 0
 100 12 100d12+29500 1d100+15000 18d11+85 wrath
 -86 -87 -87 -57
 EFGHJK 0 FHIK JOP
 stand stand female 89800
-0 0 medium 0
+0 0 medium unknown
 #11881
 drakyri guardian~
 The Guardian~
@@ -1340,9 +1345,9 @@ elf~
 ABGQT DFHT 0 0
 94 1 100d12+20000 1d100+12500 15d10+64 shock
 -64 -63 -63 -33
-CDEFGK 0 MNI HJP
+CDEFGK 0 IMN HJP
 stand stand female 10000
-0 0 medium 0
+0 0 medium unknown
 #11882
 drakyri mediator light~
 The Mediator~
@@ -1357,11 +1362,11 @@ it passes the final judgment on all issues that affect the race as a whole.
 ~
 unique~
 ABGQRU BCDEFGHTUZ 0 0
-90 16 100d12+16500 1d100+15000 10d13+60 light
+90 16 100d12+16500 1d100+15000 10d13+60 none
 -60 -60 -60 -30
 EFIK BES JKLQ PT
 stand stand none 65000
-HK 0 huge light
+HK 0 huge unknown
 #11883
 drakyri knight protector~
 a drakyri knight protector~
@@ -1376,7 +1381,7 @@ AGT T 0 0
 -34 -33 -34 -1
 CDEK 0 0 0
 stand stand either 5500
-0 0 medium 0
+0 0 medium unknown
 #11884
 drakyri mage protector~
 a drakyri mage protector~
@@ -1391,7 +1396,7 @@ AGR DT 0 0
 -40 -40 -40 -10
 FG 0 0 0
 stand stand either 6000
-0 0 medium 0
+0 0 medium unknown
 #11885
 drakyri healer~
 a drakyri healer~
@@ -1408,7 +1413,7 @@ AGQ DNOT 0 0
 -36 -36 -37 -18
 IK 0 0 0
 stand stand either 6000
-0 0 medium 0
+0 0 medium unknown
 #11886
 drakyri assassin~
 a drakyri assassin~
@@ -1419,12 +1424,12 @@ jobs in the outside world.  The assassin answers mainly to the laerkai
 master, and occasionally to the mediator or warden.
 ~
 elf~
-ACS FPQT 0 0
+ACS FQT 0 0
 67 1 50d10+8250 1d10+700 11d5+37 pierce
 -42 -42 -43 -19
 EFJ 0 0 0
 stand stand either 8000
-0 0 medium 0
+0 0 medium unknown
 #11887
 drakyri shopkeeper frail old man~
 a frail old man~
@@ -1441,7 +1446,7 @@ ABG DFT 0 0
 -35 -35 -35 -10
 EFGJK A 0 0
 stand stand male 500000
-0 0 medium 0
+0 0 medium unknown
 #11888
 drakyri warden~
 The Warden~
@@ -1454,13 +1459,14 @@ very soul.
 ~
 elf~
 ABGT DFHNOTZ 0 0
-88 2 100d12+18500 1d100+8000 15d9+58 lightning
+88 2 100d12+18500 1d100+8000 15d9+58 none
 -58 -58 -58 -28
 CDEFHIK A D HIP
 stand stand female 82000
-0 0 medium 0
-
+0 0 medium unknown
 #0
+
+
 
 #OBJECTS
 #11800
@@ -1469,7 +1475,7 @@ a blue marble fountain~
 A fountain of sculpted marble splashes quietly.~
 marble~
 fountain 0 0
-1000 1000 water 0 0
+1000 1000 'water' 0 0
 0 0 0 P
 E
 blue marble fountain~
@@ -1503,7 +1509,7 @@ the lapis statue~
 A lapis lazuli statue of a praying drakyri kneels here.~
 stone~
 fountain 0 0
-1000 1000 milk 0 0
+1000 1000 'milk' 0 0
 0 0 0 P
 E
 lapis statue~
@@ -1564,7 +1570,7 @@ a shimmering curtain~
 A curtain of shimmering light hangs in midair.~
 light~
 portal A 0
-0 1 A 11801 0
+0 A A 11801 0
 0 0 0 P
 E
 shimmering curtain light~
@@ -1590,7 +1596,7 @@ a mithril ((+*+)) torque~
 An engraved mithril torque glows here.~
 mithril~
 armor AI AC
-28 28 29 23 0
+CDE CDE ACDE ABCE 0
 87 30 10000 P
 A
 3 5
@@ -1601,7 +1607,7 @@ A
 A
 19 6
 E
-mithril ((+*+)) torque deriki~  
+mithril ((+*+)) torque deriki~
 An inscription along the edge reads:
 
                Sh'evale Deriki Lechandre Deia
@@ -1612,7 +1618,7 @@ a shimmering blue robe~
 A blue robe shimmers here.~
 light~
 armor A AK
-28 27 27 25 0
+CDE ABDE ABDE ADE 0
 87 50 10000 P
 A
 3 3
@@ -1642,7 +1648,7 @@ an engraved ((+*+)) ring~
 An intricately engraved ring lies here.~
 mithril~
 armor B AB
-28 28 28 25 0
+CDE CDE CDE ADE 0
 87 10 10000 P
 A
 1 3
@@ -1664,7 +1670,7 @@ a ((+*+)) crest~
 An ornate crest is here.~
 mithril~
 armor A AO
-27 27 28 15 0
+ABDE ABDE CDE ABCD 0
 87 20 10000 P
 A
 2 1
@@ -1688,7 +1694,7 @@ a ((+*+)) bracelet~
 An ornate mithril bracelet is here, gleaming.~
 mithril~
 armor A AM
-27 28 27 25 0
+ABDE CDE ABDE ADE 0
 85 20 9500 P
 A
 12 90
@@ -1700,7 +1706,7 @@ a ((+*+)) chain belt~
 An engraved chain belt glitters here.~
 mithril~
 armor A AL
-27 27 27 24 0
+ABDE ABDE ABDE DE 0
 82 50 9000 P
 A
 5 -2
@@ -1714,7 +1720,7 @@ a pair of ((+*+)) shoes~
 A pair of glittering shoes is here.~
 mithril~
 armor A AG
-26 27 26 24 0
+BDE ABDE BDE DE 0
 80 50 11100 P
 A
 2 2
@@ -1732,7 +1738,7 @@ some ((+*+)) armbands~
 A pair of armbands glitters here.~
 mithril~
 armor AI AF
-27 27 27 23 0
+ABDE ABDE ABDE ABCE 0
 82 50 11000 P
 A
 4 2
@@ -1748,7 +1754,7 @@ a glittering ((+*+)) earring~
 An intricately carved earring glitters here.~
 mithril~
 armor AG AE
-26 26 26 23 0
+BDE BDE BDE ABCE 0
 80 10 12400 P
 A
 1 1
@@ -1766,7 +1772,7 @@ a glowing ((+*+)) sphere~
 A sphere floats here, glowing with an eerie light.~
 light~
 armor ABI AQ
-26 25 26 24 0
+BDE ADE BDE DE 0
 80 10 10000 P
 A
 9 -5
@@ -1782,7 +1788,7 @@ a ((+*+)) tunic~
 A tunic emblazoned with the Deriki crest is here.~
 silk~
 armor 0 AD
-26 26 25 25 0
+BDE BDE ADE ADE 0
 80 40 10000 P
 A
 3 3
@@ -1798,7 +1804,7 @@ Owl eyes~
 A pair of feather rimmed eyes are here.~
 feathers~
 armor GI AE
-28 28 27 24 0
+CDE CDE ABDE DE 0
 85 10 9000 P
 A
 4 4
@@ -1824,7 +1830,7 @@ a gleaming ((-*-)) circlet~
 An engraved golden circlet gleams here.~
 gold~
 armor AIKL AE
-28 27 29 24 0
+CDE ABDE ACDE DE 0
 85 20 10500 P
 A
 3 3
@@ -1840,7 +1846,7 @@ a set of ((-*-)) chain armor~
 A set of engraved armor lies here.~
 gold~
 armor IKL AD
-28 25 27 24 0
+CDE ADE ABDE DE 0
 85 100 15000 P
 A
 1 3
@@ -1854,7 +1860,7 @@ a white ((-*-)) belt~
 A gleaming white belt lies here.~
 leather~
 armor IKL AL
-28 27 25 24 0
+CDE ABDE ADE DE 0
 85 30 10000 P
 A
 4 3
@@ -1870,7 +1876,7 @@ a pair of ((-*-)) gauntlets~
 A pair of engraved gauntlets gleams here.~
 gold~
 armor IKL AH
-26 27 27 24 0
+BDE ABDE ABDE DE 0
 83 50 10150 P
 A
 4 -2
@@ -1886,7 +1892,7 @@ a pair of ((-*-)) leggings~
 A pair of engraved golden leggings lies here.~
 gold~
 armor IKL AF
-26 27 27 23 0
+BDE ABDE ABDE ABCE 0
 82 50 12000 P
 A
 1 3
@@ -1902,7 +1908,7 @@ a white ((-*-)) visor~
 A gleaming white visor is here.~
 gold~
 armor AIKL AE
-26 25 25 23 0
+BDE ADE ADE ABCE 0
 78 30 9000 P
 A
 2 2
@@ -1918,7 +1924,7 @@ a golden ((-*-)) bracer~
 An intricately carved golden bracer lies here.~
 gold~
 armor IKL AM
-28 27 27 24 0
+CDE ABDE ABDE DE 0
 83 20 11000 P
 A
 5 3
@@ -1934,7 +1940,7 @@ an embroidered ((-*-)) cape~
 A beautifully embroidered cape is here.~
 linen~
 armor IKL AK
-26 25 26 23 0
+BDE ADE BDE ABCE 0
 79 40 11200 P
 A
 3 2
@@ -1964,7 +1970,7 @@ an ornate mask~
 An ornately engraved mask is here.~
 wood~
 armor BFI AE
-26 26 26 23 0
+BDE BDE BDE ABCE 0
 78 20 11000 P
 A
 8 2
@@ -1980,7 +1986,7 @@ some ((-*-)) sleeves~
 A pair of engraved golden sleeves lies here.~
 gold~
 armor IKL AI
-25 26 26 25 0
+ADE BDE BDE ADE 0
 79 40 10000 P
 A
 2 2
@@ -2008,7 +2014,7 @@ a gleaming white shield~
 a white shield lies here gleaming.~
 mithril~
 armor IK AJ
-27 27 27 23 0
+ABDE ABDE ABDE ABCE 0
 81 50 10000 P
 A
 1 5
@@ -2030,7 +2036,7 @@ a jet black  ->*<-  helm~
 An engraved black helm absorbs the light.~
 obsidian~
 armor CJL AE
-28 28 28 24 0
+CDE CDE CDE DE 0
 85 40 10000 P
 A
 1 3
@@ -2046,7 +2052,7 @@ a pair of taloned gloves~
 A pair of gloves with long, wicked talons lies here.~
 obsidian~
 armor JL AH
-28 25 27 24 0
+CDE ADE ABDE DE 0
 85 30 10000 P
 A
 12 200
@@ -2062,7 +2068,7 @@ a  ->*<-  breast plate~
 A dark breast plate is here.~
 obsidian~
 armor EJL AD
-27 28 28 24 0
+ABDE CDE CDE DE 0
 85 100 15000 P
 A
 1 2
@@ -2078,7 +2084,7 @@ a dark  ->*<-  orb~
 A dark orb floats here, radiating evil.~
 nothingness~
 armor CEJL AQ
-27 26 28 24 0
+ABDE BDE CDE DE 0
 83 0 10000 P
 A
 3 2
@@ -2094,7 +2100,7 @@ some  ->*<-  legplates~
 Some evil looking legplates are here.~
 obsidian~
 armor EJLM AF
-27 27 27 23 0
+ABDE ABDE ABDE ABCE 0
 82 50 10200 P
 A
 2 2
@@ -2110,7 +2116,7 @@ a carved  ->*<-  ring~
 A dark ring carved with strange symbols lies here.~
 obsidian~
 armor EJLM AB
-16 16 16 13 0
+E E E ACD 0
 79 10 10000 P
 A
 3 3
@@ -2126,7 +2132,7 @@ a cloak of nightmares~
 A shadowy black cloak writhes with agony.~
 shadows~
 armor CEFJ AK
-24 23 23 23 0
+DE ABCE ABCE ABCE 0
 72 20 10000 P
 A
 2 4
@@ -2148,7 +2154,7 @@ an ebony  ->*<-  bracer~
 A carved ebony bracer is here.~
 ebony~
 armor EJL AM
-27 26 24 24 0
+ABDE BDE DE DE 0
 82 20 12500 P
 A
 3 5
@@ -2196,7 +2202,7 @@ a pair of  ->*<-  boots~
 A pair of engraved obsidian boots lies here.~
 obsidian~
 armor EJL AG
-23 23 22 22 0
+ABCE ABCE BCE BCE 0
 85 30 11000 P
 A
 2 4
@@ -2222,7 +2228,7 @@ some  ->*<-  sleeves~
 Some carved obsidian sleeves are here.~
 obsidian~
 armor EJL AI
-29 29 29 23 0
+ACDE ACDE ACDE ABCE 0
 88 30 10000 P
 A
 1 3
@@ -2238,7 +2244,7 @@ a black runed collar~
 A black leather collar engraved with shimmering runes lies here.~
 leather~
 armor BEGHM AC
-27 27 27 22 0
+ABDE ABDE ABDE BCE 0
 85 30 5500 P
 A
 1 2
@@ -2265,7 +2271,7 @@ demon's wings~
 A pair of membranous black wings lie here.~
 leather~
 armor BE AI
-29 29 27 26 0
+ACDE ACDE ABDE BDE 0
 89 50 15000 P
 A
 1 4
@@ -2289,7 +2295,7 @@ an onyx -=+)> earring~
 An earring of polished onyx glimmers in the shadows.~
 stone~
 armor CFI AE
-25 25 25 21 0
+ADE ADE ADE ACE 0
 78 10 10000 P
 A
 2 4
@@ -2311,7 +2317,7 @@ some dark -=+)> gloves~
 A pair of dark gloves absorbs the light.~
 leather~
 armor CFI AH
-25 26 26 21 0
+ADE BDE BDE ACE 0
 78 30 10000 P
 A
 1 2
@@ -2326,7 +2332,7 @@ sharpened stiletto sharp~
 a sharpened stiletto~
 A wickedly sharp stiletto gleams here.~
 silver~
-weapon CIH AN
+weapon CHI AN
 dagger 10 11 pierce DH
 85 200 12500 P
 A
@@ -2353,7 +2359,7 @@ a pair of -=+)> sleeves~
 Dark sleeves disappear in the shadows.~
 leather~
 armor CFI AI
-26 26 26 21 0
+BDE BDE BDE ACE 0
 78 30 9900 P
 A
 2 3
@@ -2369,7 +2375,7 @@ an engraved platinum ][+][ ring~
 An engraved platinum ring lies here.~
 platinum~
 armor G AB
-23 23 20 19 0
+ABCE ABCE CE ABE 0
 69 20 12000 P
 A
 1 3
@@ -2385,7 +2391,7 @@ a -=+)> shroud~
 Deep shadows absorb the light.~
 shadow~
 armor CFI AK
-25 25 24 20 0
+ADE ADE DE CE 0
 75 10 10000 P
 A
 13 50
@@ -2399,7 +2405,7 @@ a slim -=+)> bracer~
 A slender black bracer gleams darkly.~
 stone~
 armor CFI AM
-23 21 24 20 0
+ABCE ACE DE CE 0
 73 20 8000 P
 A
 2 3
@@ -2415,7 +2421,7 @@ a shadowy -=+)> neckchain~
 A dark neckchain is here, shrouded in shadow.~
 adamantite~
 armor CFI AC
-24 24 24 20 0
+DE DE DE CE 0
 72 20 12000 P
 A
 1 2
@@ -2431,7 +2437,7 @@ a pair of black -=+)> leggings~
 A pair of black leather leggings lies here in a pool of shadow.~
 leather~
 armor CFI AF
-24 25 25 21 0
+DE ADE ADE ACE 0
 77 40 10000 P
 A
 2 3
@@ -2447,7 +2453,7 @@ silent -=+)> boots~
 Some silent looking boots lie here.~
 leather~
 armor CFI AG
-25 24 25 20 0
+ADE DE ADE CE 0
 75 20 8900 P
 A
 2 4
@@ -2461,7 +2467,7 @@ a ring of the panther~
 A ring of black panther hair gleams darkly.~
 fur~
 armor CFI AB
-24 24 23 20 0
+DE DE ABCE CE 0
 75 10 10000 P
 A
 2 3
@@ -2477,7 +2483,7 @@ a black -=+)> belt~
 An engraved black belt lies here.~
 leather~
 armor CFI AL
-20 21 20 20 0
+CE ACE CE CE 0
 75 40 7900 P
 A
 1 5
@@ -2493,7 +2499,7 @@ a ring of the lynx~
 A darkly beautiful ring lies here.~
 fur~
 armor CFGI AB
-10 11 11 10 0
+BD ABD ABD BD 0
 75 10 10000 P
 A
 1 3
@@ -2509,7 +2515,7 @@ night hawk talons~
 The sharp talons of a hawk gleam cruelly in the darkness.~
 bone~
 armor CFI AH
-24 24 24 20 0
+DE DE DE CE 0
 73 40 9000 P
 A
 1 3
@@ -2525,7 +2531,7 @@ a hunter's arrow~
 A sharp mithril arrow gleams here.~
 mithril~
 weapon A AN
-spear 7 12 pierce E
+exotic 7 12 pierce E
 70 200 10000 P
 A
 18 10
@@ -2537,7 +2543,7 @@ a set of ][+][ platemail~
 A set of engraved platemail is here.~
 adamantite~
 armor 0 AD
-26 26 26 20 0
+BDE BDE BDE CE 0
 78 100 10000 P
 A
 18 10
@@ -2549,7 +2555,7 @@ a bracer of power~
 A bracer lies here, humming with power.~
 adamantite~
 armor B AM
-26 26 26 20 0
+BDE BDE BDE CE 0
 78 20 9900 P
 A
 1 4
@@ -2567,7 +2573,7 @@ a ][+][ shield~
 An engraved shield is here.~
 adamantite~
 armor 0 AJ
-25 26 25 21 0
+ADE BDE ADE ACE 0
 77 50 10000 P
 A
 1 2
@@ -2581,7 +2587,7 @@ some grey ][+][ legplates~
 A pair of strong grey legplates are here.~
 platinum~
 armor 0 AF
-25 25 25 20 0
+ADE ADE ADE CE 0
 75 90 10000 P
 A
 1 2
@@ -2597,7 +2603,7 @@ a ][+][ helm~
 A sturdy helm lies here.~
 adamantite~
 armor 0 AE
-23 24 23 19 0
+ABCE DE ABCE ABE 0
 71 50 8000 P
 A
 5 2
@@ -2613,7 +2619,7 @@ an engraved ][+][ crest~
 The crest of house Xaek is here, gleaming.~
 platinum~
 armor 0 AO
-22 22 23 19 0
+BCE BCE ABCE ABE 0
 68 50 11000 P
 A
 1 3
@@ -2627,7 +2633,7 @@ strong ][+][ armplates~
 Some strong looking armplates are here.~
 adamantite~
 armor 0 AI
-24 24 24 20 0
+DE DE DE CE 0
 73 50 10000 P
 A
 5 3
@@ -2655,7 +2661,7 @@ a carven -(+)- signet ring~
 A beautiful silver signet ring lies here.~
 silver~
 armor AI AB
-25 25 25 21 0
+ADE ADE ADE ACE 0
 78 10 10000 P
 A
 3 3
@@ -2671,7 +2677,7 @@ a niobium -(+)- circlet~
 A beautiful niobium circlet lies here.~
 silver~
 armor AI AE
-25 25 25 21 0
+ADE ADE ADE ACE 0
 78 20 21500 P
 A
 4 4
@@ -2685,7 +2691,7 @@ a shimmering -(+)- sphere~
 A sphere of shimmering light floats here.~
 light~
 armor ABI AQ
-25 25 26 21 0
+ADE ADE BDE ACE 0
 77 0 15500 P
 A
 3 3
@@ -2701,7 +2707,7 @@ an inlaid silver -(+)- bracelet~
 A silver bracelet inlaid with gold is here.~
 silver~
 armor AI AM
-24 24 24 20 0
+DE DE DE CE 0
 74 20 12200 P
 A
 4 2
@@ -2717,7 +2723,7 @@ a beautiful -(+)- girth~
 A beautifully engraved girth lies here.~
 silver~
 armor AI AL
-23 23 22 19 0
+ABCE ABCE BCE ABE 0
 71 50 10000 P
 A
 1 2
@@ -2733,7 +2739,7 @@ a pair of -(+)- sleeves~
 Some gleaming sleeves lie here.~
 silver~
 armor AI AI
-23 22 22 19 0
+ABCE BCE BCE ABE 0
 69 50 9900 P
 A
 5 3
@@ -2747,7 +2753,7 @@ some finely crafted -(+)- gloves~
 A pair of finely crafted gloves lies here.~
 leather~
 armor I AH
-20 20 20 20 0
+CE CE CE CE 0
 73 30 11250 P
 A
 2 2
@@ -2763,7 +2769,7 @@ a filligree -(+)- necklace~
 A beautiful filligree necklace bearing the crest of myr'vale Noriva is here.~
 silver~
 armor AI AC
-22 22 22 19 0
+BCE BCE BCE ABE 0
 68 20 25500 P
 A
 3 4
@@ -2777,7 +2783,7 @@ some tooled -(+)- boots~
 Some intricately tooled boots stand here.~
 leather~
 armor I AG
-19 19 19 19 0
+ABE ABE ABE ABE 0
 68 60 11200 P
 A
 5 3
@@ -2793,7 +2799,7 @@ laerkai fury~
 A feeling of rage pulses here.~
 fire~
 armor AI AQ
-29 29 29 26 0
+ACDE ACDE ACDE BDE 0
 89 0 50000 P
 A
 3 6
@@ -2807,7 +2813,7 @@ laerkai justice~
 A finely crafted shield is here.~
 mithril~
 armor AI AJ
-29 29 29 26 0
+ACDE ACDE ACDE BDE 0
 89 50 50000 P
 A
 5 6
@@ -2823,7 +2829,7 @@ laerkai pain~
 A wave of pain slams into you!~
 nothingness~
 armor BI AH
-40 40 39 26 0
+DF DF ABCF BDE 0
 89 0 50000 P
 A
 1 4
@@ -2841,7 +2847,7 @@ laerkai stealth~
 The shadows are deep here.~
 shadows~
 armor CI AG
-29 29 28 26 0
+ACDE ACDE CDE BDE 0
 89 0 50000 P
 A
 2 6
@@ -2857,7 +2863,7 @@ laerkai might~
 A set of powerful looking platemail is here, humming.~
 mithril~
 armor BI AD
-28 28 30 26 0
+CDE CDE BCDE BDE 0
 89 100 50000 P
 A
 1 6
@@ -2871,7 +2877,7 @@ laerkai life~
 An aura of health permeates the room.~
 etherealness~
 armor AI AC
-29 29 30 26 0
+ACDE ACDE BCDE BDE 0
 89 0 50000 P
 A
 5 6
@@ -2885,7 +2891,7 @@ laerkai power~
 A presense of tremendous power is here.~
 nothingness~
 armor BI AM
-40 40 40 26 0
+DF DF DF BDE 0
 89 0 55000 P
 A
 1 4
@@ -2977,7 +2983,7 @@ drakyri arm guards~
 A pair of silvery arm guards gleam here.~
 mithril~
 armor A AI
-20 20 21 16 0
+CE CE ACE E 0
 62 40 7500 P
 A
 1 2
@@ -2991,7 +2997,7 @@ a drakyri girth~
 A gleaming silvery girth is here.~
 mithril~
 armor AI AL
-21 20 20 16 0
+ACE CE CE E 0
 62 40 7500 P
 A
 3 3
@@ -3005,7 +3011,7 @@ a drakyri wrist guard~
 A mithril wrist guard gleams here.~
 mithril~
 armor AI AM
-20 21 21 16 0
+CE ACE ACE E 0
 62 20 7500 P
 A
 5 2
@@ -3045,8 +3051,9 @@ food~
 pill B A
 65 'teleport' 'teleport' 'heal' 'invisibility'
 55 10 300 P
-
 #0
+
+
 
 #ROOMS
 #11800
@@ -3075,6 +3082,10 @@ path leads into the forest to the north.  A dark stone plaque lies
 next to the pool, nearly buried in the grass.
 ~
 0 0 3
+E
+dark stone plaque~
+Drakyri Isle written by Ydri,  4/96.
+~
 D0
 A path leads northward between the trees.
 ~
@@ -3085,11 +3096,6 @@ Silvery gates.
 ~
 ~
 0 -1 11802
-E
-dark stone plaque~
-
-Drakyri Isle written by Ydri,  4/96.
-~
 S
 #11802
 Silvery Gates~
@@ -3099,6 +3105,10 @@ interwoven into an intricate, twisting pattern.  Though the bars are
 spaced widely apart in places, you can't seem to see what lays beyond.
 ~
 0 0 1
+E
+gates mithril silvery~
+As you glance at the gates, the pattern seems to writhe and shift.
+~
 D1
 As you glance at the gates, the pattern seems to writhe and shift.
 ~
@@ -3109,10 +3119,6 @@ Strange grow.
 ~
 ~
 0 -1 11801
-E
-gates mithril silvery~
-As you glance at the gates, the pattern seems to writhe and shift.
-~
 S
 #11803
 Shimmering Pathway~
@@ -3216,6 +3222,14 @@ a house which appears to be made entirely of jade.  A gold inscription
 glimmers above the doorway.
 ~
 0 0 3
+E
+inscription gold~
+The inscription reads:
+
+                  - Myr'vale Noriva -
+
+                         -(+)-
+~
 D0
 The path leads north to a larger pathway.
 ~
@@ -3231,14 +3245,6 @@ gold above the doorway is the inscription:
 ~
 door bronze~
 1 -1 11890
-E
-inscription gold~
-The inscription reads:
-
-                  - Myr'vale Noriva -
-
-                         -(+)-
-~
 S
 #11808
 Shimmering pathway~
@@ -3311,7 +3317,7 @@ of the gateway is the inscription:
                        Myr'vale Xaek   ][+][
 ~
 gates wrought iron~
-1 -1 11880
+0 -1 11880
 S
 #11811
 End of the narrow path~
@@ -3416,11 +3422,6 @@ in two outer chairs each.  The inner chair is engraved with a depiction
 of a circle bisected by a cross.
 ~
 0 D 0
-D5
-Double silver doors open onto a descending marble stairwell.
-~
-doors double silver~
-2 11805 11815
 E
 crests~
 The crests represent the six drakyri houses.  The crests of the major
@@ -3428,6 +3429,11 @@ houses mark the six western chairs:  She'valen Deriki, Treniste, and
 Reykaris.  The six eastern chairs bear the minor house crests of
 She'valen Myrxes, Xaek, and Noriva.
 ~
+D5
+Double silver doors open onto a descending marble stairwell.
+~
+doors double silver~
+2 11805 11815
 S
 #11817
 Hidden lane~
@@ -3453,7 +3459,7 @@ You find yourself in a large room enclosed by midnight black onyx
 walls.  In the center of the room is a large stone table encircled
 by 7 dark stone chairs, each inscribed with a different symbol.
 ~
-0 AD 0
+0 ACD 0
 E
 dark chairs stone symbol symbols~
 Carved into the back of each of six of the chairs is a symbol:
@@ -3471,17 +3477,6 @@ of gleaming double doors to the north.  Glittering silver forms a strange
 symbol above the archway.
 ~
 0 0 1
-D0
-Double silver doors lead north into a huge house.  A glittering
-symbol is visible above the archway.
-~
-doors double silver~
-1 -1 11820
-D2
-Wide stone steps descend to a wide clearing to the south.
-~
-~
-0 -1 11806
 E
 glittering silver symbol~
 Silver, inlayed in the dark marble wall, forms the inscription:
@@ -3493,6 +3488,17 @@ Silver, inlayed in the dark marble wall, forms the inscription:
 
                       She'vale Deriki
 ~
+D0
+Double silver doors lead north into a huge house.  A glittering
+symbol is visible above the archway.
+~
+doors double silver~
+1 -1 11820
+D2
+Wide stone steps descend to a wide clearing to the south.
+~
+~
+0 -1 11806
 S
 #11820
 Blue Marble Corridor~
@@ -3532,17 +3538,17 @@ against the darkened wood.  Suspended from the center of the high ceiling
 is an enormous crystal chandelier.
 ~
 0 D 0
-D1
-A blue corridor is visible through the archway to the east.
-~
-~
-0 -1 11820
 E
 crystal chandelier~
 The chandelier is intricately wrought, delicate despite its enormity.
 Suspended from the ceiling, it gives the appearance of some huge,
 fragile snowflake frozen in mid-fall.
 ~
+D1
+A blue corridor is visible through the archway to the east.
+~
+~
+0 -1 11820
 S
 #11822
 Dining Hall~
@@ -3553,6 +3559,11 @@ table top from end to end.  You notice a faint shimmer about a meter
 above the table, encasing the entire top.
 ~
 0 D 0
+E
+faint shimmer~
+It appears to be some sort of magical curtain which serves to both
+preserve the food and protect it from uninvited guests.
+~
 D1
 The odors and sounds of cooking drift through the swinging door to the east.
 ~
@@ -3563,11 +3574,6 @@ A blue corridor is visible through the archway to the west.
 ~
 ~
 0 -1 11820
-E
-faint shimmer~
-It appears to be some sort of magical curtain which serves to both
-preserve the food and protect it from uninvited guests.
-~
 S
 #11823
 Kitchen~
@@ -3639,21 +3645,21 @@ against the eastern and western walls, filling the gaps between shelves.
 A spiral stairwell winds into the light above.
 ~
 0 AD 0
-D4
-Light filters down the stairwell from above.
-~
-~
-0 -1 11825
-D1
-Several tall crates stand against the east wall.
-~
-crate crates~
-1 -1 11827
 E
 crates boxes~
 A faint shimmer above the shelves betrays the presence of a protective
 curtain.
 ~
+D1
+Several tall crates stand against the east wall.
+~
+crate crates~
+1 -1 11827
+D4
+Light filters down the stairwell from above.
+~
+~
+0 -1 11825
 S
 #11827
 Magic Workroom~
@@ -3663,6 +3669,14 @@ and the center of the floor, stacked with strange implements and
 half-written documents.
 ~
 0 AD 0
+E
+tomes parchment shelves shelf~
+A magical barrier shocks you as you reach towards the shelves.
+~
+E
+implements documents~
+It appears that some sort of arcane studies are in progress here.
+~
 D1
 A long bookshelf lines the eastern wall, filled with books.
 ~
@@ -3679,14 +3693,6 @@ and vellum.
 ~
 shelves~
 1 -1 11826
-E
-tomes parchment shelves shelf~
-A magical barrier shocks you as you reach towards the shelves.
-~
-E
-implements documents~
-It appears that some sort of arcane studies are in progress here.
-~
 S
 #11828
 Chemical Lab~
@@ -3712,11 +3718,6 @@ seems to soak up the flickering torchlight.  A long stone shelf runs
 the length of the north and east walls.
 ~
 0 AD 0
-D0
-A long stone shelf runs along the north wall.
-~
-shelf stone~
-1 -1 11827
 E
 stone shelves~
 A continues stone shelf is carved at about waist height from the north
@@ -3725,6 +3726,11 @@ accompanied by thick tomes.  Glancing at the title of one, you can
 make out the words 'summoning' and 'outer planes'.
 A magic curtain glimmers above the shelf, barely visible in the darkness.
 ~
+D0
+A long stone shelf runs along the north wall.
+~
+shelf stone~
+1 -1 11827
 S
 #11830
 Mirrored Hallway~
@@ -3735,6 +3741,11 @@ of its occupants.  A spiral staircase cuts through the northern
 portion of the hall, leading up and down.
 ~
 0 D 0
+E
+mirror mirrors~
+Warped glass mirrors line the walls of the hallway, reflecting strange,
+twisted images of yourself back at you.
+~
 D0
 A tall oaken door is set into the northern end of the hallway.  A large
 square cut ruby lies embedded in the upper portion of the door, above
@@ -3785,11 +3796,6 @@ The staircase disappears below.
 ~
 ~
 0 -1 11825
-E
-mirror mirrors~
-Warped glass mirrors line the walls of the hallway, reflecting strange,
-twisted images of yourself back at you.
-~
 S
 #11831
 Emerald Suite~
@@ -3799,17 +3805,17 @@ the dark ceiling, glittering in the torchlight.  An inscription in
 silver is visible above the door to the east.
 ~
 0 D 0
-D1
-A black oak door exits the suite to the east.
-~
-black oak door emerald~
-1 -1 11830
 E
 silver inscription~
 The silver lettering reads:
 
                 She'vale Deriki Nalyss Ira'deia
 ~
+D1
+A black oak door exits the suite to the east.
+~
+black oak door emerald~
+1 -1 11830
 S
 #11832
 Amethyst Suite~
@@ -3819,17 +3825,17 @@ dozens of glittering amethysts.  Inlayed silver forms an inscription
 in the wood above the northern door.
 ~
 0 D 0
-D0
-A white oak door exits the suite to the north.
-~
-white oak door amethyst~
-1 -1 11830
 E
 silver inscription~
 The inscription reads:
 
                 She'vale Deriki Ykandres Ira'deian
 ~
+D0
+A white oak door exits the suite to the north.
+~
+white oak door amethyst~
+1 -1 11830
 S
 #11833
 Sapphire Suite~
@@ -3840,17 +3846,17 @@ is embedded in the center of the ceiling.  Silver lettering glimmers
 against the redwood framing the doorway to the west.
 ~
 0 D 0
-D3
-A redwood door exits the suite to the west.
-~
-redwood door sapphire~
-1 -1 11830
 E
 silver lettering~
 The silver letters form the words:
 
                 She'vale Deriki Daeman Ira'deian
 ~
+D3
+A redwood door exits the suite to the west.
+~
+redwood door sapphire~
+1 -1 11830
 S
 #11834
 Ruby Suite~
@@ -3860,17 +3866,17 @@ pentagon shape embedded in the center of the ceiling.  Above the
 doorway to the south, a silver inscription gleams against the wood.
 ~
 0 D 0
-D2
-A redwood door exits the suite to the south.
-~
-redwood door ruby~
-1 -1 11830
 E
 silver inscription~
 The inscription reads:
 
                 She'vale Deriki Tyrena Na'deia
 ~
+D2
+A redwood door exits the suite to the south.
+~
+redwood door ruby~
+1 -1 11830
 S
 #11835
 Diamond Suite~
@@ -3881,11 +3887,6 @@ Inlayed diamond lettering forms an inscription across the center of
 the dark marble ceiling.
 ~
 0 D 0
-D5
-A spiral stairwell leads down.
-~
-~
-0 -1 11830
 E
 diamond lettering inscription~
 Glittering diamond picks out an inscription against the dark stone:
@@ -3896,6 +3897,11 @@ Glittering diamond picks out an inscription against the dark stone:
 
                 She'vale Deriki Noriek Deiayan
 ~
+D5
+A spiral stairwell leads down.
+~
+~
+0 -1 11830
 S
 #11836
 Ivory Foyer~
@@ -3908,6 +3914,18 @@ archway, surrounded by silvery lettering.
 An archway opens north, and a hallway leads into the house to the west.
 ~
 0 D 0
+E
+golden crest~
+Sculpted gold forms the symbol:
+
+                           ((-*-))
+~
+E
+silvery lettering~
+The lettering reads:
+
+                    - She'vale Treniste -
+~
 D0
 A large room is visible to the north.
 ~
@@ -3923,18 +3941,6 @@ A hallway leads west.
 ~
 ~
 0 -1 11838
-E
-golden crest~
-Sculpted gold forms the symbol:
-
-                           ((-*-))
-~
-E
-silvery lettering~
-The lettering reads:
-
-                    - She'vale Treniste -
-~
 S
 #11837
 Art Gallery~
@@ -3944,11 +3950,6 @@ valuable and protected behind a glass case.  Low marble pedestals
 support larger sculptures in the center of the floor.
 ~
 0 D 0
-D2
-An ivory foyer is visible through the southern archway.
-~
-~
-0 -1 11836
 E
 figurines sculptures~
 Figurines and larger sculptures, intricately carved from precious metals,
@@ -3959,6 +3960,11 @@ portraits~
 The portraits depict everthing from battle scenes to flowers, all painted
 by the hands of master artists and probably worth a fortune.
 ~
+D2
+An ivory foyer is visible through the southern archway.
+~
+~
+0 -1 11836
 S
 #11838
 White Hallway~
@@ -3968,6 +3974,10 @@ the walls, plays over finely woven tapestries.  Archways open east
 and south, and the hallway continues west.
 ~
 0 D 0
+E
+woven tapestries tapestry~
+The tapestries depict slender winged figures engaged in battle.
+~
 D1
 A white foyer is visible to the east.
 ~
@@ -3983,10 +3993,6 @@ The hallway continues west.
 ~
 ~
 0 -1 11840
-E
-woven tapestries tapestry~
-The tapestries depict slender winged figures engaged in battle.
-~
 S
 #11839
 Dining Hall~
@@ -4149,6 +4155,14 @@ in the torchlight.  A large mahogany door opens northward.  An
 inscription is engraved in the center of the door.
 ~
 0 D 0
+E
+inscription~
+The inscription reads:
+
+              She'vale Treniste Lyrene Na'deia
+
+                    (heir to Treniste)
+~
 D0
 A mahogany door is set into the north wall.  An inscription in the
 center of the door reads:
@@ -4159,14 +4173,6 @@ center of the door reads:
 ~
 mahogany door~
 1 -1 11845
-E
-inscription~
-The inscription reads:
-
-              She'vale Treniste Lyrene Na'deia
-
-                    (heir to Treniste)
-~
 S
 #11847
 Wide Hallway~
@@ -4203,13 +4209,6 @@ To the east, an ashwood door is set into the wall.  Across the top of the
 door is a short inscription.
 ~
 0 D 0
-D1
-Inscribed in the ashwood door to the east are the words:
-
-              She'vale Treniste Josreke Ira'deian
-~
-ashwood door~
-1 -1 11847
 E
 ashwood door inscription~
 Inscribed in the ashwood door to the east are the words:
@@ -4226,6 +4225,13 @@ collection masks~
 Strange masks, carved mostly of dark wood and painted a variety of
 colors.
 ~
+D1
+Inscribed in the ashwood door to the east are the words:
+
+              She'vale Treniste Josreke Ira'deian
+~
+ashwood door~
+1 -1 11847
 S
 #11849
 Dark Oak Panelled Bedroom~
@@ -4236,13 +4242,6 @@ the northern wall.  An inscription is carved into the dark oaken door
 to the south.
 ~
 0 D 0
-D2
-Inscribed in the dark oaken door to the south are the words:
-
-               She'vale Treniste Rodwen Ira'deia
-~
-oaken dark door~
-1 -1 11847
 E
 collection swords~
 The swords all appear finely tempered mithril or silver, each bearing
@@ -4250,7 +4249,7 @@ a different design as well as the Treniste crest.
 ~
 E
 crest~
-                          ((-*-))
+((-*-))
 ~
 E
 oaken dark door inscription~
@@ -4258,6 +4257,13 @@ Inscribed in the dark oaken door to the south are the words:
 
                She'vale Treniste Rodwen Ira'deia
 ~
+D2
+Inscribed in the dark oaken door to the south are the words:
+
+               She'vale Treniste Rodwen Ira'deia
+~
+oaken dark door~
+1 -1 11847
 S
 #11850
 Marble Sitting Room~
@@ -4267,6 +4273,10 @@ room.  A glass enclosed tunnel is visible through the sliding door to
 the east, and a pair of golden doors opens north.
 ~
 0 D 0
+E
+glass tunnel~
+The tunnel crosses above ground to the white tower to the east.
+~
 D0
 A pair of golden double doors opens north.  A crest is inset in the white
 marble above the doors:
@@ -4285,10 +4295,6 @@ An oaken door opens southward.
 ~
 door oak~
 1 -1 11845
-E
-glass tunnel~
-The tunnel crosses above ground to the white tower to the east.
-~
 S
 #11851
 Golden Bedchamber~
@@ -4299,17 +4305,6 @@ Double golden doors open into the south wall.  Ornate letters form an
 inscription across the center of the doors.
 ~
 0 D 0
-D2
-An inscription in the golden doors to the south reads:
-
-              She'vale Treniste Dosandre Deian
-
-                          ((-*-))
-
-              She'vale Treniste Denylis Deiayan
-~
-golden double doors pair~
-1 -1 11850
 E
 double golden doors ornate letters inscription~
 An inscription in the golden doors to the south reads:
@@ -4326,6 +4321,17 @@ The design depicts a winged woman garbed in white wielding a blade in
 one hand and holding a set of scales in the other.  The face, intricately
 carven, is elven in shape.
 ~
+D2
+An inscription in the golden doors to the south reads:
+
+              She'vale Treniste Dosandre Deian
+
+                          ((-*-))
+
+              She'vale Treniste Denylis Deiayan
+~
+golden double doors pair~
+1 -1 11850
 S
 #11852
 Glass Tunnel~
@@ -4354,6 +4360,14 @@ by an inscription in silver.  Tower in the background is a huge black
 stone manor.
 ~
 0 0 1
+E
+silver inscription~
+The inscription reads:
+
+                            ->*<-
+
+                    - She'vale Reykaris -
+~
 D1
 Black gates cut across the path to the east.
 ~
@@ -4364,14 +4378,6 @@ A shimmering path is visible to the west.
 ~
 ~
 0 -1 11811
-E
-silver inscription~
-The inscription reads:
-
-                            ->*<-
-
-                    - She'vale Reykaris -
-~
 S
 #11854
 Black Marble Entryway~
@@ -4380,6 +4386,12 @@ dark gates to the west and a wide archway leading east.  A symbol is
 carved into the stone above the archway.
 ~
 0 AD 0
+E
+symbol~
+Cut into the dark stone, the symbol reads:
+
+                           ->*<-
+~
 D1
 A dark archway opens east.
 ~
@@ -4390,12 +4402,6 @@ Black gates open west.
 ~
 gates black~
 1 -1 11853
-E
-symbol~
-Cut into the dark stone, the symbol reads:
-
-                           ->*<-
-~
 S
 #11855
 Domed Room~
@@ -4456,11 +4462,6 @@ wide black marble pedestal stands in the center of the floor, probably
 designed to display some large object.
 ~
 0 ADJ 0
-D3
-A dark tunnel is visible to the west.
-~
-~
-0 -1 11856
 E
 marble pedestal~
 A low, wide pedestal carved of black marble.  Scratches and worn patches
@@ -4468,6 +4469,11 @@ mar the polished top of the pedestal.  Strangely, along the sides, you
 notice offwhite streaks of what appears to be wax and darker splotches
 of something very like dried blood..
 ~
+D3
+A dark tunnel is visible to the west.
+~
+~
+0 -1 11856
 S
 #11858
 Dark niche~
@@ -4476,11 +4482,6 @@ wide black marble pedestal stands in the center of the floor, probably
 designed to display some large object.
 ~
 0 ADJ 0
-D1
-A dark tunnel is visible to the east.
-~
-~
-0 -1 11856
 E
 marble pedestal~
 A low, wide pedestal carved of black marble.  Scratches and worn patches
@@ -4488,6 +4489,11 @@ mar the polished top of the pedestal.  Strangely, along the sides, you
 notice offwhite streaks of what appears to be wax and darker splotches
 of something very like dried blood..
 ~
+D1
+A dark tunnel is visible to the east.
+~
+~
+0 -1 11856
 S
 #11859
 Dark niche~
@@ -4496,16 +4502,6 @@ wide black marble pedestal stands in the center of the floor, probably
 designed to display some large object.
 ~
 0 AD 0
-D0
-A dark tunnel is visible to the north.
-~
-~
-0 -1 11856
-D5
-Scuff marks are visible in the ground around the pedestal.
-~
-pedestal marble~
-2 11801 11860
 E
 marble pedestal~
 A low, wide pedestal carved of black marble.  Scratches and worn patches
@@ -4519,6 +4515,16 @@ crack~
 Peering through the crack, you can make out a small carved slot, faintly
 resembling a keyhole.
 ~
+D0
+A dark tunnel is visible to the north.
+~
+~
+0 -1 11856
+D5
+Scuff marks are visible in the ground around the pedestal.
+~
+pedestal marble~
+2 11801 11860
 S
 #11860
 Forbidding Doorway~
@@ -4552,11 +4558,6 @@ between the lines in the center of the pentagram.  You notice
 trails of blood streaking the floor between the doors and the altar.
 ~
 0 ADN 0
-D0
-Huge black double doors loom to the north.
-~
-doors black double~
-2 11802 11860
 E
 altar~
 Strange runes are engraved in the sides and face of the altar.  The
@@ -4568,6 +4569,11 @@ pentagram~
 A huge pentagram etched into the floor of the room.  Strange glyphs and
 runes have been carved in the spaces between the defining lines.
 ~
+D0
+Huge black double doors loom to the north.
+~
+doors black double~
+2 11802 11860
 S
 #11862
 Black Marble Corridor~
@@ -4631,13 +4637,6 @@ exits the room to the north.  Golden lettering along the door frame
 glitters reddish in the light.
 ~
 0 D 0
-D0
-Lettering above the doorway reads:
-
-                  She'vale Reykaris Sorina Ira'deia
-~
-ash door~
-1 -1 11863
 E
 candle blood red~
 A single blood red candle balances on a nightstand in the center of the
@@ -4649,6 +4648,13 @@ Lettering above the doorway reads:
 
                   She'vale Reykaris Sorina Ira'deia
 ~
+D0
+Lettering above the doorway reads:
+
+                  She'vale Reykaris Sorina Ira'deia
+~
+ash door~
+1 -1 11863
 S
 #11865
 Black oak bedroom~
@@ -4658,13 +4664,6 @@ glass case against the north wall.  A short golden inscription gleams
 from above the tall oak door to the south.
 ~
 0 D 0
-D2
-A golden inscription above the door reads:
-
-                  She'vale Reykaris Loryn Ira'deia
-~
-oak door~
-1 -1 11863
 E
 golden inscription~
 A golden inscription above the door reads:
@@ -4675,6 +4674,13 @@ E
 braces throwing daggers collection~
 The daggers appear finely tempered and quite lethal..
 ~
+D2
+A golden inscription above the door reads:
+
+                  She'vale Reykaris Loryn Ira'deia
+~
+oak door~
+1 -1 11863
 S
 #11866
 Black Marble Corridor~
@@ -4685,6 +4691,17 @@ a black stone archway.  Embedded in the apex of the archway is a humanoid
 skull, surrounded by gold lettering.
 ~
 0 AD 0
+E
+humanoid skull~
+The skull gleams whitely against the dark marble archway, its mouth
+seemingly fixed in a permanent feral grin.
+~
+E
+gold lettering~
+The lettering reads:
+
+   She'vale Reykaris Rachal Deia  ->*<-  She'vale Reykaris Toryan Deiayan
+~
 D0
 The mahogany door sports streaks of blackened wood.  Engraved above
 the doorway are the words:
@@ -4713,17 +4730,6 @@ The corridor continues west.
 ~
 ~
 0 -1 11863
-E
-humanoid skull~
-The skull gleams whitely against the dark marble archway, its mouth
-seemingly fixed in a permanent feral grin.
-~
-E
-gold lettering~
-The lettering reads:
-
-   She'vale Reykaris Rachal Deia  ->*<-  She'vale Reykaris Toryan Deiayan
-~
 S
 #11867
 Ash bedroom~
@@ -4734,13 +4740,6 @@ room.  To the north, an ash door is set into the wall.  Above the door
 is a short inscription in gold.
 ~
 0 D 0
-D0
-The inscription above the door reads:
-
-                  She'vale Reykaris Chake Ira'deian
-~
-ash door~
-1 -1 11866
 E
 humanoid skull~
 A reddish light glows from within the skull, beaming eerily from the emtpy
@@ -4756,6 +4755,13 @@ The inscription above the door reads:
 
                   She'vale Reykaris Chake Ira'deian
 ~
+D0
+The inscription above the door reads:
+
+                  She'vale Reykaris Chake Ira'deian
+~
+ash door~
+1 -1 11866
 S
 #11868
 Charred mahogany bedroom~
@@ -4766,6 +4772,12 @@ permeates the chamber.  Gold lettering gleams above the blackened
 mahogany door to the south, somewhow untouched the heat.
 ~
 0 AD 0
+E
+gold lettering~
+Inscribed above the doorway are the words:
+
+                  She'vale Reykaris Kranali Na'deian
+~
 D2
 Inscribed above the doorway are the words:
 
@@ -4773,12 +4785,6 @@ Inscribed above the doorway are the words:
 ~
 mahogany door~
 1 -1 11866
-E
-gold lettering~
-Inscribed above the doorway are the words:
-
-                  She'vale Reykaris Kranali Na'deian
-~
 S
 #11869
 Dark Chamber~
@@ -4789,15 +4795,6 @@ black steel doors loom to the west.  Barely visible in the darkness is
 an inscription carved into the stone archway framing the doorway.
 ~
 0 AD 0
-D3
-Above the dark doorway is the inscription:
-
- She'vale Reykaris Rachal Deia
-                                ->*<-
-                                       She'vale Reykaris Toryan Deiayan
-~
-doors black steel double~
-1 -1 11866
 E
 inscription~
 Above the dark doorway is the inscription:
@@ -4811,6 +4808,15 @@ humanoid skeletons~
 You notice bones rising from the shoulder blades, probably to support
 wings.
 ~
+D3
+Above the dark doorway is the inscription:
+
+ She'vale Reykaris Rachal Deia
+                                ->*<-
+                                       She'vale Reykaris Toryan Deiayan
+~
+doors black steel double~
+1 -1 11866
 S
 #11870
 Quiet foyer~
@@ -4821,6 +4827,18 @@ north and south, and an inscription winds around the archway framing the
 entrance door to the west.
 ~
 0 D 0
+E
+inscription~
+Twining around the archway is an inscription:
+
+                       Myr'vale Myrxes
+
+                 swift      -=+)>      silent
+
+                          ..or dead
+
+                   - flight of the dagger -
+~
 D0
 A small alcove is visible to the north.
 ~
@@ -4850,18 +4868,6 @@ Twining around the archway is an inscription:
 ~
 door black oaken~
 1 -1 11817
-E
-inscription~
-Twining around the archway is an inscription:
-
-                       Myr'vale Myrxes
-
-                 swift      -=+)>      silent
-
-                          ..or dead
-
-                   - flight of the dagger -
-~
 S
 #11871
 Alcove~
@@ -4911,6 +4917,13 @@ to the walls bear deep gouges and slash marks.  Empty racks, probably
 for knives, line the upper northern wall.
 ~
 0 AD 0
+E
+wooden targets target~
+Thick slices of wood have been affixed to the stone walls.  Deep gouge
+marks indicate that they have been used for some sort of target
+practice.  An unsettling number of the marks are very close to the target
+centers.
+~
 D1
 You notice a seam in the wall behind one of the targets affixed to the
 east wall.
@@ -4922,13 +4935,6 @@ Light from above picks out a square shaped crack in the ceiling.
 ~
 stone square crack~
 1 -1 11873
-E
-wooden targets target~
-Thick slices of wood have been affixed to the stone walls.  Deep gouge
-marks indicate that they have been used for some sort of target
-practice.  An unsettling number of the marks are very close to the target
-centers.
-~
 S
 #11875
 Dark cavern~
@@ -4938,6 +4944,10 @@ design, amid which a few recongnizable figures.. an archer, a panther,
 a hawk, and a dagger among them.
 ~
 0 AD 0
+E
+design~
+You try to follow the design with your eyes, but it eludes you.
+~
 D0
 A stalking panther is engraved in the northern wall.
 ~
@@ -4958,10 +4968,6 @@ An engraving of a stooping hawk dominates the center of the floor.
 ~
 hawk floor~
 1 -1 11879
-E
-design~
-You try to follow the design with your eyes, but it eludes you.
-~
 S
 #11876
 Chamber of the Panther~
@@ -4993,16 +4999,6 @@ Resting on a low table in the center of the room is a glass case containing
 3 daggers on black cloth.
 ~
 0 AD 0
-D2
-You see smooth grey streaked black marble.
-~
-wall~
-1 -1 11878
-D3
-You see smooth grey streaked black marble.
-~
-wall~
-1 -1 11876
 E
 dagger~
 An engraving of a thrown dagger arcs across the northern wall.
@@ -5021,6 +5017,16 @@ steel forms the third blade, longer than the other two, almost a shortsword.
 Carved above the dark grip is a striking lynx.  The shimmer of some sort
 of protective magic shield surrounds the case and supporting table.
 ~
+D2
+You see smooth grey streaked black marble.
+~
+wall~
+1 -1 11878
+D3
+You see smooth grey streaked black marble.
+~
+wall~
+1 -1 11876
 S
 #11878
 Chamber of the Lynx~
@@ -5052,11 +5058,6 @@ and one stooping for a kill.  A midnight black rug, nearly invisible
 in the darkness, muffles all sound to mere whispers.
 ~
 0 AD 0
-D4
-Darkness shrouds the gleam of the onyx ceiling above.
-~
-ceiling onyx~
-1 -1 11875
 E
 hawk hawks south s~
 Beneath the engraved hawks, you notice an inscription in the dark stone:
@@ -5067,6 +5068,11 @@ Beneath the engraved hawks, you notice an inscription in the dark stone:
 
                  Myr'vale Myrxes Neraikis Deiayan
 ~
+D4
+Darkness shrouds the gleam of the onyx ceiling above.
+~
+ceiling onyx~
+1 -1 11875
 S
 #11880
 Granite Courtyard~
@@ -5081,7 +5087,7 @@ bars are wrought into the shape of a sword in one gate and a shield in the
 other.
 ~
 gates wrought iron~
-1 -1 11810
+0 -1 11810
 D3
 A tall oaken door opens into the mansion to the west.  Carven in the
 face of the door is a design:
@@ -5189,6 +5195,12 @@ inscription in bronze glimmers above the doorway, the only ornamentation
 in the room.
 ~
 0 D 0
+E
+inscription bronze~
+The inscription reads:
+
+                  Myr'vale Xaek Rakael Sequas
+~
 D2
 An oak door exits the room to the south.
 Above the doorway, a bronze inscription reads:
@@ -5197,12 +5209,6 @@ Above the doorway, a bronze inscription reads:
 ~
 door oak~
 1 -1 11884
-E
-inscription bronze~
-The inscription reads:
-
-                  Myr'vale Xaek Rakael Sequas
-~
 S
 #11886
 First Commander's Office~
@@ -5212,6 +5218,12 @@ to the east.  Next to the window stands a beechwood door carved with
 an inscription in burnished bronze.
 ~
 0 D 0
+E
+inscription bronze~
+The inscription reads:
+
+                  Myr'vale Xaek Nyxil Sh'aya
+~
 D1
 A beechwood door leads out of the office to the east.
 Carved in bronze are the words:
@@ -5220,12 +5232,6 @@ Carved in bronze are the words:
 ~
 door beech beechwood~
 1 -1 11884
-E
-inscription bronze~
-The inscription reads:
-
-                  Myr'vale Xaek Nyxil Sh'aya
-~
 S
 #11887
 Third Commander's Office~
@@ -5234,6 +5240,12 @@ in the torchlight.  Darker wood forms a doorframe around the door to
 the north.  Engraved above the door is an inscription in bronze.
 ~
 0 D 0
+E
+inscription bronze~
+The inscription reads:
+
+                  Myr'vale Xaek Yeven Treye
+~
 D0
 Engraved in the dark wood above the door to the north is an
 inscription:
@@ -5242,12 +5254,6 @@ inscription:
 ~
 door mahogany~
 1 -1 11884
-E
-inscription bronze~
-The inscription reads:
-
-                  Myr'vale Xaek Yeven Treye
-~
 S
 #11888
 Iron Hallway~
@@ -5258,6 +5264,13 @@ your every move.  Across the center of the doors, a crest is
 carved into the stone.
 ~
 0 D 0
+E
+crest~
+The crest of house Xaek is engraved in the granite doors, surrounded
+by an inscription:
+
+   Myr'vale Xaek Dyana Deia    ][+][    Myr'vale Xaek Ryke Deiayan
+~
 D0
 Huge double granite doors are set into the north wall.  Engraved
 across the face of the doors is the house crest, surrounded by
@@ -5272,13 +5285,6 @@ The hallway continues south.
 ~
 ~
 0 -1 11881
-E
-crest~
-The crest of house Xaek is engraved in the granite doors, surrounded
-by an inscription:
-
-   Myr'vale Xaek Dyana Deia    ][+][    Myr'vale Xaek Ryke Deiayan
-~
 S
 #11889
 Marble Bedchamber~
@@ -5288,11 +5294,6 @@ of a huge prowling lion.  A white marble archway frames huge double
 granite doors in the south wall.
 ~
 0 D 0
-D2
-Double granite doors lead out of the chamber to the south.
-~
-doors double granite~
-1 -1 11888
 E
 lion engraving~
 The intricate engraving reveals lithe, powerful muscles and a proud
@@ -5305,6 +5306,11 @@ feline head.  Beneath the engraving, you notice the inscription:
                         Wrath
                      of the Lion
 ~
+D2
+Double granite doors lead out of the chamber to the south.
+~
+doors double granite~
+1 -1 11888
 S
 #11890
 Jade Entry Hall~
@@ -5473,14 +5479,6 @@ of an open hand over a glowing ring.  A golden inscription glimmers above
 the door to the south.
 ~
 0 D 0
-D2
-An ashwood doors exits the room to the south.  A golden inscription
-above the door reads:
-
-                 Myr'vale Noriva Dryna Ira'deia
-~
-door ashwood~
-1 -1 11895
 E
 candle white~
 A tall white candle glows brightly.
@@ -5495,6 +5493,14 @@ The inscription reads:
 
                  Myr'vale Noriva Dryna Ira'deia
 ~
+D2
+An ashwood doors exits the room to the south.  A golden inscription
+above the door reads:
+
+                 Myr'vale Noriva Dryna Ira'deia
+~
+door ashwood~
+1 -1 11895
 S
 #11897
 Teak Panelled Bedroom~
@@ -5503,13 +5509,6 @@ Carved above the doorway to the east is a strange, five-pointed leaf.
 Beneath the leaf, you notice an inscription in gold.
 ~
 0 D 0
-D1
-Above the teakwood door to the east is an inscription:
-
-                 Myr'vale Noriva Yllyra Na'deia
-~
-door teakwood~
-1 -1 11895
 E
 leaf~
 A strange five-pointed leaf is carved in the golden wood above the doorway.
@@ -5520,6 +5519,13 @@ The inscription reads:
 
                  Myr'vale Noriva Yllyra Na'deia
 ~
+D1
+Above the teakwood door to the east is an inscription:
+
+                 Myr'vale Noriva Yllyra Na'deia
+~
+door teakwood~
+1 -1 11895
 S
 #11898
 Booklined Bedroom~
@@ -5530,6 +5536,10 @@ in some strange, ornate script.  A redwood door opens northward.  Above
 the doorway, you notice a short inscription in gold.
 ~
 0 D 0
+E
+inscription gold~
+Myr'vale Noriva Voryl Ira'deian
+~
 D0
 Above the redwood door to the north is the inscription:
 
@@ -5537,11 +5547,6 @@ Above the redwood door to the north is the inscription:
 ~
 door redwood~
 1 -1 11895
-E
-inscription gold~
-
-                 Myr'vale Noriva Voryl Ira'deian
-~
 S
 #11899
 Sunlit Bedchamber~
@@ -5551,6 +5556,11 @@ fills the north wall, gleaming gold against the deep green jade.
 Double white oaken doors open onto the stairwell to the floor below.
 ~
 0 D 0
+E
+engraving bear~
+The engraving depicts a huge, shaggy bear, an epitome of strength
+and health.
+~
 D5
 Engraved in gold across the face of the doors is the inscription:
 
@@ -5562,481 +5572,426 @@ Engraved in gold across the face of the doors is the inscription:
 ~
 doors double white oaken~
 1 -1 11895
-E
-engraving bear~
-The engraving depicts a huge, shaggy bear, an epitome of strength
-and health.
-~
 S
 #0
 
-#RESETS
 
-* grove and city
-D 0 11802 1 1  * silvery gates to street
-D 0 11803 3 1  * .. and back
-D 0 11809 0 1  * shimmering pathway to hidden lane
-D 0 11817 2 1  * .. and back
-D 0 11815 4 2  * chamber of the guardian to council chamber
-D 0 11816 5 2  * .. and back
-
-* D 0 11817 2 1  * .. and back
-* [*****] BUG: Load_resets: 'D': exit 2 not door. (fixed)
-
-O 0 11804 0 11801  * pool portal in strange grove (to gates&isle)
-O 0 11806 0 11812  * counter portal in out of space store (to Laerkai HQ)
-O 0 11807 0 11816  * curtain portal in council chamber back to grove
-O 0 11808 0 11818  * table portal in laerkai hq back to store
-
-M 0 11874 1 11812 1  * the Flame
-E 1 11885 1 18         * laerkai fury
-M 0 11875 1 11813 1  * the Shield
-E 1 11886 1 11         * laerkai defense
-M 0 11876 1 11811 1  * the Claw
-E 1 11887 1 9          * laerkai pain
-M 0 11877 1 11817 1  * the Shadow
-E 1 11888 1 8          * laerkai stealth
-M 0 11878 1 11809 1  * the Fist
-E 1 11889 1 5          * laerkai might
-M 0 11879 1 11807 1  * the Hand
-E 1 11890 1 3          * laerkai health
-M 0 11880 1 11818 1  * Laerkai Master
-E 1 11891 1 14         * laerkai power
-E 1 11892 1 16         * shortsword zedraikis
-M 0 11881 1 11815 1  * the Guardian
-G 1 11805 -1           * key to council chamber
-M 0 11882 1 11816 1  * the Mediator
-E 1 11893 1 0          * flame of balance
-M 0 11883 6 11803 2  * drakyri knight protector
-E 1 11894 5 10         * arm guards
-M 0 11883 6 11803 2  * drakyri knight protector
-M 0 11883 6 11805 1  * drakyri knight protector
-M 0 11883 6 11812 1  * drakyri knight protector
-E 1 11894 5 10         * arm guards
-M 0 11883 6 11814 2  * drakyri knight protector
-M 0 11883 6 11814 2  * drakyri knight protector
-E 1 11894 5 10         * arm guards
-M 0 11884 7 11803 1  * drakyri mage protector
-E 1 11895 5 13       * drakyri girth
-M 0 11884 7 11806 2  * drakyri mage protector
-E 1 11895 5 13         * drakyri girth
-M 0 11884 7 11806 2  * drakyri mage protector
-M 0 11884 7 11807 1  * drakyri mage protector
-E 1 11895 5 13         * drakyri girth
-M 0 11884 7 11809 1  * drakyri mage protector
-E 1 11895 -1 13        * drakyri girth
-M 0 11884 7 11812 1  * drakyri mage protector
-M 0 11884 7 11815 1  * drakyri mage protector
-M 0 11885 5 11804 1  * drakyri healer
-M 0 11885 5 11807 1  * drakyri healer
-E 1 11896 5 15         * wrist guard
-M 0 11885 5 11808 1  * drakyri healer
-M 0 11885 5 11810 1  * drakyri healer
-E 1 11896 5 15         * wrist guard
-M 0 11885 5 11814 1  * drakyri healer
-E 1 11896 5 15         * wrist guard
-M 0 11886 3 11811 1  * drakyri assassin
-E 1 11897 5 16         * drakyri dagger
-M 0 11886 3 11812 1  * drakyri assassin
-E 1 11897 5 16         * drakyri dagger
-M 0 11886 3 11817 1  * drakyri assassin
-E 1 11897 5 16         * drakyri dagger
-M 0 11887 1 11812 1  * frail old man (shopkeeper)
-G 1 11836 -1           * indigo pill
-G 1 11898 -1           * energy pill
-G 1 11899 -1           * warp pill
-M 0 11888 1 11802 1  * the Warden
-
-* Deriki
-* D 0 11819 0 1  * courtyard to house
-* [*****] BUG: Load_resets: 'D': exit 1 not door. (fixed)
-
-D 0 11819 0 1  * courtyard to house
-D 0 11820 2 1  * house to courtyard
-D 0 11822 1 1  * dining to kitchen
-D 0 11823 3 1  * kitchen to dining
-D 0 11826 1 1  * storage to workroom
-D 0 11827 3 1  * workroom to storage
-D 0 11827 1 1  * workroom to lab
-D 0 11828 3 1  * lab to workroom
-D 0 11827 2 1  * workroom to summoning
-
-* D 0 11827 2 1  * workroom to summoning
-* [*****] BUG: Load_resets: 'D': exit 2 not door. (fixed)
-
-D 0 11829 0 1  * summoning to workroom
-D 0 11830 3 1  * mirrored hall to emerald
-D 0 11831 1 1  * emerald to mirrored hall
-D 0 11830 2 1  * mirrored hall to amethyst
-D 0 11832 0 1  * amethyst to mirrored hall
-D 0 11830 1 1  * mirrored hall to sapphire
-D 0 11833 3 1  * sapphire to mirrored hall
-D 0 11830 0 1  * mirrored hall to ruby
-D 0 11834 2 1  * ruby to mirrored hall
-
-O 0 11800 1 11819  * fountain in courtyard
-
-M 0 11800 1 11827 1  * lechandre
-E 1 11809 1 3         * torque
-E 1 11810 1 12        * shimmering blue robe
-E 1 11811 1 0         * magic flame
-M 0 11801 1 11835 1  * noriek
-E 1 11812 1 1         * ring
-E 1 11813 1 17        * crest
-M 0 11802 1 11828 1  * dyrli
-E 1 11814 1 14        * bracelet
-M 0 11803 1 11824 1  * roweni
-E 1 11815 1 13        * chain belt
-M 0 11804 1 11828 1  * xanil
-E 1 11816 1 8         * shoes
-M 0 11805 1 11834 1  * tyrena
-E 1 11817 1 10        * armbands
-M 0 11806 1 11831 1  * nalyss
-E 1 11818 1 6         * earring
-M 0 11807 1 11833 1  * daeman
-E 1 11819 1 18        * orb
-M 0 11808 1 11832 1  * ykandres
-E 1 11820 1 5         * tunic
-M 0 11809 1 11835 1  * zeion (snow owl)
-E 1 11821 2 6         * owl eyes
-M 0 11810 1 11828 1  * lab assistant
-M 0 11811 4 11827 1  * mage in training
-M 0 11811 4 11822 2  * mage in training
-M 0 11811 4 11822 2  * mage in training
-M 0 11811 4 11823 1  * mage in training
-M 0 11812 1 11829 1  * writhing form
-M 0 11813 2 11820 1  * glyph of warding
-G 1 11822 10           * staff of guarding
-M 0 11813 2 11826 1  * glyph of warding
-G 1 11822 10           * staff of guarding
-
-* Treniste
-D 0 11836 1 1  * foyer to street
-D 0 11806 3 1  * street to foyer
-D 0 11845 2 1  * second floor to heir's bedroom
-D 0 11846 0 1  * .. and back
-D 0 11845 0 1  * second floor to sitting room
-D 0 11850 2 1  * .. and back
-
-* D 0 11850 2 1  * .. and back
-* [*****] BUG: Load_resets: 'D': exit 2 not door. (fixed)
-
-D 0 11847 3 1  * wide hallway to ashwood bedroom
-D 0 11848 1 1  * .. and back
-D 0 11847 0 1  * wide hallway to dark oak bedroom
-D 0 11849 2 1  * .. and back
-D 0 11850 0 1  * sitting room to golden bedchamber
-D 0 11851 2 1  * .. and back
-D 0 11850 1 1  * sitting room to glass tunnel
-D 0 11852 3 1  * .. and back
-
-M 0 11814 1 11851 1  * dosandre
-E 1 11823 1 6          * circlet
-E 1 11824 1 5          * chainmail
-M 0 11815 1 11843 1  * denylis
-E 1 11825 1 13         * belt
-M 0 11816 1 11843 1  * kaele
-E 1 11826 1 9          * gauntlets
-M 0 11817 1 11837 1  * rexena
-E 1 11827 1 7          * leggings
-M 0 11818 1 11840 1  * deis
-E 1 11828 1 6          * visor
-M 0 11819 1 11846 1  * lyrene
-E 1 11829 1 15         * bracer
-M 0 11820 1 11848 1  * josreke
-E 1 11830 1 12         * cape
-E 1 11831 1 17         * tome
-E 1 11832 1 6          * ornate mask
-M 0 11821 1 11849 1  * rodwen
-E 1 11833 1 10         * sleeves
-E 1 11834 -1 16        * white sword
-M 0 11822 4 11836 2  * paladin
-E 1 11834 -1 16        * white sword
-E 1 11835 -1 11        * white shield
-M 0 11822 4 11836 2  * paladin
-E 1 11834 -1 16        * white sword
-M 0 11822 4 11842 1  * paladin
-E 1 11834 -1 16        * white sword
-E 1 11835 -1 11        * white shield
-M 0 11822 4 11845 1  * paladin
-E 1 11834 -1 16        * white sword
-
-* Reykaris
-D 0 11853 1 1  * gates to entryway
-D 0 11854 3 1  * .. and back
-D 0 11859 5 2  * niche (southern) to forbidding doorway
-D 0 11860 4 2  * .. and back
-D 0 11860 2 2  * forbidding doorway to pentagram chamber
-D 0 11861 0 2  * .. and back
-D 0 11863 2 1  * black corridor to dark ash bedroom
-D 0 11864 0 1  * .. and back
-D 0 11863 0 1  * black corridor to black oak bedroom
-D 0 11865 2 1  * .. and back
-D 0 11866 2 1  * black corridor to ash bedroom
-D 0 11867 0 1  * .. and back
-D 0 11866 0 1  * black corridor to charred mahogany bedroom
-D 0 11868 2 1  * .. and back
-D 0 11866 1 1  * black corridor to dark chamber
-D 0 11869 3 1  * .. and back
-
-M 0 11823 1 11861 1  * rachal
-E 1 11837 1 6          * helm
-E 1 11838 1 9          * taloned gloves
-M 0 11824 1 11869 1  * toryan
-E 1 11839 1 5          * breast plate
-M 0 11825 1 11866 1  * janalis
-E 1 11840 1 18         * orb
-M 0 11826 1 11862 1  * dreyva
-E 1 11841 1 7          * legplates
-M 0 11827 1 11869 1  * delyrus
-E 1 11842 1 1          * ring
-E 1 11843 1 12         * cloak of nightmares
-M 0 11828 1 11868 1  * kranali
-E 1 11844 1 15         * bracer
-M 0 11829 1 11864 1  * sorina
-E 1 11845 1 4          * necklace
-E 1 11846 -1 17        * skull
-M 0 11830 1 11865 1  * loryn
-E 1 11847 1 8          * boots
-E 1 11848 2 16         * throwing dagger
-M 0 11831 1 11867 1  * chake
-E 1 11849 1 10         * sleeves
-M 0 11832 1 11854 1  * hellish guardian
-E 1 11850 -1 3          * collar
-M 0 11833 1 11857 1  * howling beast
-E 1 11850 3 3          * collar
-M 0 11834 1 11858 1  * demonic figure
-E 1 11850 3 3          * collar
-M 0 11835 1 11859 1  * wax statue of a necromancer
-E 1 11850 3 3          * collar
-G 1 11801 -1           * key (to forbidding doorway)
-M 0 11836 1 11860 1  * mass of writhing tentacles
-G 1 11802 -1           * key (to pentagram chamber)
-M 0 11837 1 11861 1  * summoned demon
-E 1 11851 1 10         * demon's wings
-
-* Myrxes
-D 0 11870 3 1  * quiet foyer to street
-D 0 11817 1 1  * .. and back
-D 0 11873 5 1  * alcove (southern) to plain stone room
-D 0 11874 4 1  * .. and back
-D 0 11874 1 1  * plain stone room to dark cavern
-D 0 11875 3 1  * .. and back
-D 0 11875 0 1  * dark cavern to chamber of the panther
-D 0 11876 2 1  * .. and back
-D 0 11875 1 1  * dark cavern to chamber of the lynx
-D 0 11878 3 1  * .. and back
-D 0 11875 5 1  * dark cavern to chamber of shadows
-D 0 11879 4 1  * .. and back
-D 0 11876 1 1  * chamber of the panther to chamber of the dagger
-D 0 11877 3 1  * .. and back
-D 0 11877 2 1  * chamber of the dagger to chamber of the lynx
-D 0 11878 0 1  * .. and back
-
-M 0 11838 1 11879 1  * jaena
-E 1 11852 1 6          * earring
-E 1 11853 1 9          * gloves
-E 1 11854 3 16         * dagger
-E 1 11855 1 0          * invisible flame
-M 0 11839 1 11879 1  * neraikis
-E 1 11854 3 16         * dagger
-E 1 11856 1 10         * sleeves
-M 0 11840 1 11877 1  * katyre
-E 1 11858 1 12         * shroud
-M 0 11841 1 11875 1  * ryxis
-E 1 11859 1 15         * bracer
-M 0 11842 1 11874 1  * gydeas
-E 1 11860 1 3          * neckchain
-M 0 11843 1 11877 1  * dyraena
-E 1 11861 1 7          * leggings
-M 0 11844 1 11876 1  * nyxi
-E 1 11862 1 8          * boots
-E 1 11863 2  2         * ring of the panther
-M 0 11845 1 11878 1  * delise
-E 1 11864 1 13         * belt
-E 1 11865 2  2         * ring of the lynx
-M 0 11846 1 11876 1  * black panther
-M 0 11847 1 11878 1  * shadow lynx
-M 0 11848 1 11879 1  * night hawk
-E 1 11866 1 9          * night hawk talons
-M 0 11849 1 11871 1  * stalker
-M 0 11850 1 11872 1  * hunter
-E 1 11867 -1 16        * hunter's arrow
-
-* Xaek
-D 0 11880 3 1  * courtyard to iron hallway
-D 0 11881 1 1  * .. and back
-D 0 11881 3 1  * iron hallway to practice yard
-D 0 11884 1 1  * .. and back
-D 0 11882 2 1  * granite corridor to arena
-D 0 11883 0 1  * .. and back
-D 0 11884 0 1  * practice yard to rakael's office
-D 0 11885 2 1  * .. and back
-
-* D 0 11885 2 1  * .. and back
-* [*****] BUG: Load_resets: 'D': exit 2 not door. (fixed)
-
-D 0 11884 3 1  * practice yard to nyxil's office
-D 0 11886 1 1  * .. and back
-D 0 11884 2 1  * practice yard to yeven's office
-D 0 11887 0 1  * .. and back
-
-* D 0 11887 0 1  * .. and back
-* [*****] BUG: Load_resets: 'D': exit 0 not door. 
-
-D 0 11888 0 1  * granite doors to bedroom
-D 0 11889 2 1  * .. and back
-
-M 0 11851 1 11889 1  * dyana
-E 1 11868 1 5          * platemail
-E 1 11869 1 15         * bracer of power
-M 0 11852 1 11889 1  * ryke
-E 1 11870 1 11         * shield
-M 0 11853 1 11886 1  * nyxil
-E 1 11871 1 7          * legplates
-M 0 11854 1 11885 1  * rakael
-E 1 11872 1 6          * helm
-M 0 11855 1 11887 1  * yeven
-E 1 11873 1 17         * crest
-M 0 11856 1 11883 1  * versant
-E 1 11874 1 10         * armplates
-E 1 11875 10 16        * adamantite longsword
-M 0 11857 1 11883 1  * saera
-E 1 11857 1 2          * ring (had to switch vnums b/c of double)
-E 1 11875 10 16        * adamantite longsword
-M 0 11858 1 11888 1  * grey lion
-M 0 11859 1 11888 1  * white lion
-M 0 11860 2 11880 2  * guardian knight
-E 1 11875 10 16        * adamantite longsword
-M 0 11860 2 11880 2  * guardian knight
-E 1 11875 10 16        * adamantite longsword
-M 0 11861 2 11882 1  * warrior in training
-E 1 11875 10 16        * adamantite longsword
-M 0 11861 2 11884 1  * warrior in training
-E 1 11875 10 16        * adamantite longsword
-M 0 11862 2 11884 2  * sparring warrior
-E 1 11875 10 16        * adamantite longsword
-M 0 11862 2 11884 2  * sparring warrior
-E 1 11875 10 16        * adamantite longsword
-
-* Noriva
-D 0 11890 0 1  * jade entry hall to street
-D 0 11807 2 1  * .. and back
-D 0 11891 1 1  * jade corridor to shrine
-D 0 11892 3 1  * .. and back
-
-* D 0 11892 3 1  * .. and back
-* [*****] B10: Load_resets: 'D': exit 3 not door. (fixed)
-
-D 0 11891 2 1  * jade corridor to garden path
-D 0 11893 0 1  * .. and back
-D 0 11895 0 1  * jade corridor to candlelit bedroom
-D 0 11896 2 1  * .. and back
-D 0 11895 3 1  * jade corridor to teak panelled bedroom
-D 0 11897 1 1  * .. and back
-D 0 11895 2 1  * jade corridor to booklined bedroom
-D 0 11898 0 1  * .. and back
-D 0 11895 4 1  * jade corridor to sunlit bedchamber
-D 0 11899 5 1  * .. and back
-
-O 0 11803 0 11892  * lapis statue in shrine
-
-M 0 11863 1 11894 1  * yxanes
-E 1 11876 10 1         * ring
-E 1 11877 12 6         * circlet
-M 0 11864 1 11894 1  * nerael
-E 1 11878 10 18        * sphere
-M 0 11865 1 11892 1  * jorinne
-E 1 11879 10 15        * bracelet
-M 0 11866 1 11892 1  * lerylke
-E 1 11880 10 13        * girth
-M 0 11867 1 11893 1  * nerr
-E 1 11881 10 10        * sleeves
-M 0 11868 1 11897 1  * yllyra
-E 1 11882 10 9         * gloves
-M 0 11869 1 11896 1  * dryna
-E 1 11883 10 4         * necklace
-M 0 11870 1 11898 1  * voryl
-E 1 11884 10 8         * boots
-M 0 11871 1 11899 1  * white cat
-M 0 11872 1 11895 1  * grey cat
-M 0 11873 1 11890 1  * guardian spirit
-
-** Boot up bug messages:
-*
-* BUG: Read_object: vnum 11800 bad type. (fixed)
-
-S
 
 #SPECIALS
-M 11800 spec_cast_mage    * lechandre
-M 11801 spec_cast_mage    * noriek
-M 11802 spec_cast_mage    * dyrli
-M 11803 spec_cast_mage    * roweni
-M 11804 spec_cast_mage    * xanil
-M 11805 spec_cast_mage    * tyrena
-M 11806 spec_cast_mage    * nalyss
-M 11807 spec_cast_mage    * daeman
-M 11808 spec_cast_mage    * ykandres
-M 11810 spec_cast_mage    * lab assistant
-M 11811 spec_cast_mage    * mage in training
-M 11812 spec_cast_mage    * writhing form
-
-M 11815 spec_cast_cleric  * denylis
-M 11818 spec_cast_cleric  * deis
-M 11820 spec_cast_mage    * josreke
-
-M 11823 spec_cast_mage    * rachal
-M 11827 spec_cast_cleric  * delyrus
-M 11828 spec_cast_mage    * kranali
-M 11835 spec_cast_mage    * statue of a necromancer
-
-M 11849 spec_thief        * the stalker
-
-M 11863 spec_cast_cleric  * yxanes
-M 11864 spec_cast_cleric  * nerael
-M 11865 spec_cast_cleric  * jorinne
-M 11867 spec_cast_cleric  * nerr
-M 11868 spec_cast_cleric  * yllyra
-M 11869 spec_cast_cleric  * dryna
-M 11870 spec_cast_cleric  * voryl
-M 11873 spec_cast_cleric  * guardian spirit
-
-M 11874 spec_cast_mage    * the Flame
-M 11875 spec_guard        * the Shield
-M 11879 spec_cast_cleric  * the Hand
-M 11880 spec_cast_mage    * the Laerkai Master
-M 11881 spec_cast_cleric  * the Guardian
-M 11882 spec_cast_cleric  * the Mediator
-M 11884 spec_cast_mage    * mage protector
-M 11885 spec_cast_cleric  * drakyri healer
-M 11888 spec_breath_any   * the Warden
-
-* (Fixed These)
-*Tue Apr 16 22:59:11 1996 :: [*****] BUG: Fix_exits: 11805:1 -> 11806:3 -> 11836
-*Tue Apr 16 22:59:11 1996 :: [*****] BUG: Fix_exits: 11826:1 -> 11827:3 -> 11829
-*Tue Apr 16 22:59:11 1996 :: [*****] BUG: Fix_exits: 11835:4 -> 11830:5 -> 11825
-*Tue Apr 16 22:59:11 1996 :: [*****] BUG: Fix_exits: 11858:3 -> 11856:1 -> 11857
-*Tue Apr 16 22:59:11 1996 :: [*****] BUG: Fix_exits: 11859:3 -> 11856:1 -> 11857
-*Tue Apr 16 22:59:11 1996 :: [*****] BUG: Fix_exits: 11885:1 -> 11884:3 -> 11886
-
-
-* CHANGES (since old version)
-* revised eq stats (mostly lowered)
-
+M 11800 spec_cast_mage	* Lechandre
+M 11801 spec_cast_mage	* Noriek
+M 11802 spec_cast_mage	* Dyrli
+M 11803 spec_cast_mage	* Roweni
+M 11804 spec_cast_mage	* Xanil
+M 11805 spec_cast_mage	* Tyrena
+M 11806 spec_cast_mage	* Nalyss
+M 11807 spec_cast_mage	* Daeman
+M 11808 spec_cast_mage	* Ykandres
+M 11810 spec_cast_mage	* the lab assistant
+M 11811 spec_cast_mage	* a mage in training
+M 11812 spec_cast_mage	* a writhing form
+M 11815 spec_cast_cleric	* Denylis
+M 11818 spec_cast_cleric	* Deis
+M 11820 spec_cast_mage	* Josreke
+M 11823 spec_cast_mage	* Rachal
+M 11827 spec_cast_cleric	* Delyrus
+M 11828 spec_cast_mage	* Kranali
+M 11835 spec_cast_mage	* the necromancer
+M 11849 spec_thief	* the stalker
+M 11863 spec_cast_cleric	* Yxanes
+M 11864 spec_cast_cleric	* Nerael
+M 11865 spec_cast_cleric	* Jorinne
+M 11867 spec_cast_cleric	* Nerr
+M 11868 spec_cast_cleric	* Yllyra
+M 11869 spec_cast_cleric	* Dryna
+M 11870 spec_cast_cleric	* Voryl
+M 11873 spec_cast_cleric	* the guardian spirit
+M 11874 spec_cast_mage	* The Flame
+M 11875 spec_guard	* The Shield
+M 11879 spec_cast_cleric	* The Hand
+M 11880 spec_cast_mage	* the Laerkai Master
+M 11881 spec_cast_cleric	* The Guardian
+M 11882 spec_cast_cleric	* The Mediator
+M 11884 spec_cast_mage	* a drakyri mage protector
+M 11885 spec_cast_cleric	* a drakyri healer
+M 11888 spec_breath_any	* The Warden
 S
+
+
+
+#RESETS
+D 0 11802 1 1	* Silvery Gates: door to the east: closed
+D 0 11803 3 1	* Shimmering Pathway: door to the west: closed
+D 0 11806 3 1	* Large clearing: door to the west: closed
+D 0 11807 2 1	* Winding path: door to the south: closed
+D 0 11809 0 1	* Shimmering pathway: door to the north: closed
+D 0 11815 4 2	* Chamber of the Guardian: door to the up: closed and locked
+D 0 11816 5 2	* Council Chamber: door to the down: closed and locked
+D 0 11817 1 1	* Hidden lane: door to the east: closed
+D 0 11817 2 1	* Hidden lane: door to the south: closed
+D 0 11819 0 1	* Blue stone courtyard: door to the north: closed
+D 0 11820 2 1	* Blue Marble Corridor: door to the south: closed
+D 0 11822 1 1	* Dining Hall: door to the east: closed
+D 0 11823 3 1	* Kitchen: door to the west: closed
+D 0 11826 1 1	* Granite storage room: door to the east: closed
+D 0 11827 1 1	* Magic Workroom: door to the east: closed
+D 0 11827 2 1	* Magic Workroom: door to the south: closed
+D 0 11827 3 1	* Magic Workroom: door to the west: closed
+D 0 11828 3 1	* Chemical Lab: door to the west: closed
+D 0 11829 0 1	* Summoning Chamber: door to the north: closed
+D 0 11830 0 1	* Mirrored Hallway: door to the north: closed
+D 0 11830 1 1	* Mirrored Hallway: door to the east: closed
+D 0 11830 2 1	* Mirrored Hallway: door to the south: closed
+D 0 11830 3 1	* Mirrored Hallway: door to the west: closed
+D 0 11831 1 1	* Emerald Suite: door to the east: closed
+D 0 11832 0 1	* Amethyst Suite: door to the north: closed
+D 0 11833 3 1	* Sapphire Suite: door to the west: closed
+D 0 11834 2 1	* Ruby Suite: door to the south: closed
+D 0 11836 1 1	* Ivory Foyer: door to the east: closed
+D 0 11845 0 1	* Second Floor Hallway: door to the north: closed
+D 0 11845 2 1	* Second Floor Hallway: door to the south: closed
+D 0 11846 0 1	* Heir's Bedroom: door to the north: closed
+D 0 11847 0 1	* Wide Hallway: door to the north: closed
+D 0 11847 3 1	* Wide Hallway: door to the west: closed
+D 0 11848 1 1	* Ashwood Panelled Bedroom: door to the east: closed
+D 0 11849 2 1	* Dark Oak Panelled Bedroom: door to the south: closed
+D 0 11850 0 1	* Marble Sitting Room: door to the north: closed
+D 0 11850 1 1	* Marble Sitting Room: door to the east: closed
+D 0 11850 2 1	* Marble Sitting Room: door to the south: closed
+D 0 11851 2 1	* Golden Bedchamber: door to the south: closed
+D 0 11852 3 1	* Glass Tunnel: door to the west: closed
+D 0 11853 1 1	* Before the Black Gates: door to the east: closed
+D 0 11854 3 1	* Black Marble Entryway: door to the west: closed
+D 0 11859 5 2	* Dark niche: door to the down: closed and locked
+D 0 11860 2 2	* Forbidding Doorway: door to the south: closed and locked
+D 0 11860 4 2	* Forbidding Doorway: door to the up: closed and locked
+D 0 11861 0 2	* Pentagram Chamber: door to the north: closed and locked
+D 0 11863 0 1	* Black Marble Corridor: door to the north: closed
+D 0 11863 2 1	* Black Marble Corridor: door to the south: closed
+D 0 11864 0 1	* Dark ash bedroom: door to the north: closed
+D 0 11865 2 1	* Black oak bedroom: door to the south: closed
+D 0 11866 0 1	* Black Marble Corridor: door to the north: closed
+D 0 11866 1 1	* Black Marble Corridor: door to the east: closed
+D 0 11866 2 1	* Black Marble Corridor: door to the south: closed
+D 0 11867 0 1	* Ash bedroom: door to the north: closed
+D 0 11868 2 1	* Charred mahogany bedroom: door to the south: closed
+D 0 11869 3 1	* Dark Chamber: door to the west: closed
+D 0 11870 3 1	* Quiet foyer: door to the west: closed
+D 0 11873 5 1	* Alcove: door to the down: closed
+D 0 11874 1 1	* Plain stone room: door to the east: closed
+D 0 11874 4 1	* Plain stone room: door to the up: closed
+D 0 11875 0 1	* Dark cavern: door to the north: closed
+D 0 11875 1 1	* Dark cavern: door to the east: closed
+D 0 11875 3 1	* Dark cavern: door to the west: closed
+D 0 11875 5 1	* Dark cavern: door to the down: closed
+D 0 11876 1 1	* Chamber of the Panther: door to the east: closed
+D 0 11876 2 1	* Chamber of the Panther: door to the south: closed
+D 0 11877 2 1	* Chamber of the Dagger: door to the south: closed
+D 0 11877 3 1	* Chamber of the Dagger: door to the west: closed
+D 0 11878 0 1	* Chamber of the Lynx: door to the north: closed
+D 0 11878 3 1	* Chamber of the Lynx: door to the west: closed
+D 0 11879 4 1	* Chamber of Shadows: door to the up: closed
+D 0 11880 3 1	* Granite Courtyard: door to the west: closed
+D 0 11881 1 1	* Iron Hallway: door to the east: closed
+D 0 11881 3 1	* Iron Hallway: door to the west: closed
+D 0 11882 2 1	* Iron Hallway: door to the south: closed
+D 0 11883 0 1	* Private Arena: door to the north: closed
+D 0 11884 0 1	* Training and Practice Field: door to the north: closed
+D 0 11884 1 1	* Training and Practice Field: door to the east: closed
+D 0 11884 2 1	* Training and Practice Field: door to the south: closed
+D 0 11884 3 1	* Training and Practice Field: door to the west: closed
+D 0 11885 2 1	* Second Comander's Office: door to the south: closed
+D 0 11886 1 1	* First Commander's Office: door to the east: closed
+D 0 11887 0 1	* Third Commander's Office: door to the north: closed
+D 0 11888 0 1	* Iron Hallway: door to the north: closed
+D 0 11889 2 1	* Marble Bedchamber: door to the south: closed
+D 0 11890 0 1	* Jade Entry Hall: door to the north: closed
+D 0 11891 1 1	* Jade Corridor: door to the east: closed
+D 0 11891 2 1	* Jade Corridor: door to the south: closed
+D 0 11892 3 1	* Shrine of Healing: door to the west: closed
+D 0 11893 0 1	* Garden Path: door to the north: closed
+D 0 11895 0 1	* Jade Corridor: door to the north: closed
+D 0 11895 2 1	* Jade Corridor: door to the south: closed
+D 0 11895 3 1	* Jade Corridor: door to the west: closed
+D 0 11895 4 1	* Jade Corridor: door to the up: closed
+D 0 11896 2 1	* Candlelit Bedroom: door to the south: closed
+D 0 11897 1 1	* Teak Panelled Bedroom: door to the east: closed
+D 0 11898 0 1	* Booklined Bedroom: door to the north: closed
+D 0 11899 5 1	* Sunlit Bedchamber: door to the down: closed
+O 0 11804 0 11801		* a pool of water (Strange Grove)
+M 0 11888 1 11802 1	* The Warden (Silvery Gates)
+M 0 11883 6 11803 2	* a drakyri knight protector (Shimmering Pathway)
+E 0 11894 0 10		*	drakyri arm guards: on the arms
+M 0 11883 6 11803 2	* a drakyri knight protector (Shimmering Pathway)
+M 0 11884 7 11803 1	* a drakyri mage protector (Shimmering Pathway)
+E 0 11895 0 13		*	a drakyri girth: around the waist
+M 0 11885 5 11804 1	* a drakyri healer (Winding path)
+M 0 11883 6 11805 1	* a drakyri knight protector (Winding path)
+M 0 11884 7 11806 2	* a drakyri mage protector (Large clearing)
+E 0 11895 0 13		*	a drakyri girth: around the waist
+M 0 11884 7 11806 2	* a drakyri mage protector (Large clearing)
+M 0 11879 1 11807 1	* The Hand (Winding path)
+E 0 11890 0 3		*	laerkai life: around the neck (1)
+M 0 11884 7 11807 1	* a drakyri mage protector (Winding path)
+E 0 11895 0 13		*	a drakyri girth: around the waist
+M 0 11885 5 11807 1	* a drakyri healer (Winding path)
+E 0 11896 0 15		*	a drakyri wrist guard: on the right wrist
+M 0 11885 5 11808 1	* a drakyri healer (Shimmering pathway)
+M 0 11878 1 11809 1	* The Fist (Shimmering pathway)
+E 0 11889 0 5		*	laerkai might: on the body
+M 0 11884 7 11809 1	* a drakyri mage protector (Shimmering pathway)
+E 0 11895 0 13		*	a drakyri girth: around the waist
+M 0 11885 5 11810 1	* a drakyri healer (Narrow path)
+E 0 11896 0 15		*	a drakyri wrist guard: on the right wrist
+M 0 11876 1 11811 1	* The Claw (End of the narrow path)
+E 0 11887 0 9		*	laerkai pain: on the hands
+M 0 11886 3 11811 1	* a drakyri assassin (End of the narrow path)
+E 0 11897 0 16		*	a drakyri dagger: wielded
+O 0 11806 0 11812		* a black counter (Outside of space)
+M 0 11874 1 11812 1	* The Flame (Outside of space)
+E 0 11885 0 18		*	laerkai fury: floating nearby
+M 0 11883 6 11812 1	* a drakyri knight protector (Outside of space)
+E 0 11894 0 10		*	drakyri arm guards: on the arms
+M 0 11884 7 11812 1	* a drakyri mage protector (Outside of space)
+M 0 11886 3 11812 1	* a drakyri assassin (Outside of space)
+E 0 11897 0 16		*	a drakyri dagger: wielded
+M 0 11887 1 11812 1	* a frail old man (Outside of space)
+G 0 11836 0		*	a deep indigo pill
+G 0 11898 0		*	an energy pill
+G 0 11899 0		*	a warp pill
+M 0 11875 1 11813 1	* The Shield (Shimmering pathway)
+E 0 11886 0 11		*	laerkai justice: as a shield
+M 0 11883 6 11814 2	* a drakyri knight protector (Before the Grey Tower)
+M 0 11883 6 11814 2	* a drakyri knight protector (Before the Grey Tower)
+E 0 11894 0 10		*	drakyri arm guards: on the arms
+M 0 11885 5 11814 1	* a drakyri healer (Before the Grey Tower)
+E 0 11896 0 15		*	a drakyri wrist guard: on the right wrist
+M 0 11881 1 11815 1	* The Guardian (Chamber of the Guardian)
+G 0 11805 0		*	the guardian's key
+M 0 11884 7 11815 1	* a drakyri mage protector (Chamber of the Guardian)
+O 0 11807 0 11816		* a shimmering curtain (Council Chamber)
+M 0 11882 1 11816 1	* The Mediator (Council Chamber)
+E 0 11893 0 0		*	flame of balance: as a light
+M 0 11877 1 11817 1	* The Shadow (Hidden lane)
+E 0 11888 0 8		*	laerkai stealth: on the feet
+M 0 11886 3 11817 1	* a drakyri assassin (Hidden lane)
+E 0 11897 0 16		*	a drakyri dagger: wielded
+O 0 11808 0 11818		* a large stone table (Laerkai Headquarters)
+M 0 11880 1 11818 1	* the Laerkai Master (Laerkai Headquarters)
+E 0 11891 0 14		*	laerkai power: on the left wrist
+E 0 11892 0 16		*	a honed shortsword 'Zedraikis': wielded
+O 0 11800 0 11819		* a blue marble fountain (Blue stone courtyard)
+M 0 11813 2 11820 1	* a glyph of warding (Blue Marble Corridor)
+G 0 11822 0		*	a staff of guarding
+M 0 11811 4 11822 2	* a mage in training (Dining Hall)
+M 0 11811 4 11822 2	* a mage in training (Dining Hall)
+M 0 11811 4 11823 1	* a mage in training (Kitchen)
+M 0 11803 1 11824 1	* Roweni (Blue Marble Corridor)
+E 0 11815 0 13		*	a ((+*+)) chain belt: around the waist
+M 0 11813 2 11826 1	* a glyph of warding (Granite storage room)
+G 0 11822 0		*	a staff of guarding
+M 0 11800 1 11827 1	* Lechandre (Magic Workroom)
+E 0 11809 0 3		*	a mithril ((+*+)) torque: around the neck (1)
+E 0 11810 0 12		*	a shimmering blue robe: about the shoulders
+E 0 11811 0 0		*	a magic flame: as a light
+M 0 11811 4 11827 1	* a mage in training (Magic Workroom)
+M 0 11802 1 11828 1	* Dyrli (Chemical Lab)
+E 0 11814 0 14		*	a ((+*+)) bracelet: on the left wrist
+M 0 11804 1 11828 1	* Xanil (Chemical Lab)
+E 0 11816 0 8		*	a pair of ((+*+)) shoes: on the feet
+M 0 11810 1 11828 1	* the lab assistant (Chemical Lab)
+M 0 11812 1 11829 1	* a writhing form (Summoning Chamber)
+M 0 11806 1 11831 1	* Nalyss (Emerald Suite)
+E 0 11818 0 6		*	a glittering ((+*+)) earring: over the head
+M 0 11808 1 11832 1	* Ykandres (Amethyst Suite)
+E 0 11820 0 5		*	a ((+*+)) tunic: on the body
+M 0 11807 1 11833 1	* Daeman (Sapphire Suite)
+E 0 11819 0 18		*	a glowing ((+*+)) sphere: floating nearby
+M 0 11805 1 11834 1	* Tyrena (Ruby Suite)
+E 0 11817 0 10		*	some ((+*+)) armbands: on the arms
+M 0 11801 1 11835 1	* Noriek (Diamond Suite)
+E 0 11812 0 1		*	an engraved ((+*+)) ring: on the left finger
+E 0 11813 0 17		*	a ((+*+)) crest: held in the hands
+M 0 11809 1 11835 1	* Zeion (Diamond Suite)
+E 0 11821 0 6		*	Owl eyes: over the head
+M 0 11822 4 11836 2	* a white clad paladin (Ivory Foyer)
+E 0 11834 0 16		*	a gleaming white sword: wielded
+E 0 11835 0 11		*	a gleaming white shield: as a shield
+M 0 11822 4 11836 2	* a white clad paladin (Ivory Foyer)
+E 0 11834 0 16		*	a gleaming white sword: wielded
+M 0 11817 1 11837 1	* Rexena (Art Gallery)
+E 0 11827 0 7		*	a pair of ((-*-)) leggings: on the legs
+M 0 11818 1 11840 1	* Deis (White Hallway)
+E 0 11828 0 6		*	a white ((-*-)) visor: over the head
+M 0 11822 4 11842 1	* a white clad paladin (Tower Center)
+E 0 11834 0 16		*	a gleaming white sword: wielded
+E 0 11835 0 11		*	a gleaming white shield: as a shield
+M 0 11815 1 11843 1	* Denylis (Observatory)
+E 0 11825 0 13		*	a white ((-*-)) belt: around the waist
+M 0 11816 1 11843 1	* Kaele (Observatory)
+E 0 11826 0 9		*	a pair of ((-*-)) gauntlets: on the hands
+M 0 11822 4 11845 1	* a white clad paladin (Second Floor Hallway)
+E 0 11834 0 16		*	a gleaming white sword: wielded
+M 0 11819 1 11846 1	* Lyrene (Heir's Bedroom)
+E 0 11829 0 15		*	a golden ((-*-)) bracer: on the right wrist
+M 0 11820 1 11848 1	* Josreke (Ashwood Panelled Bedroom)
+E 0 11830 0 12		*	an embroidered ((-*-)) cape: about the shoulders
+E 0 11831 0 17		*	an ancient tome: held in the hands
+E 0 11832 0 6		*	an ornate mask: over the head
+M 0 11821 1 11849 1	* Rodwen (Dark Oak Panelled Bedroom)
+E 0 11833 0 10		*	some ((-*-)) sleeves: on the arms
+E 0 11834 0 16		*	a gleaming white sword: wielded
+M 0 11814 1 11851 1	* Dosandre (Golden Bedchamber)
+E 0 11823 0 6		*	a gleaming ((-*-)) circlet: over the head
+E 0 11824 0 5		*	a set of ((-*-)) chain armor: on the body
+M 0 11832 1 11854 1	* the hellish guardian (Black Marble Entryway)
+E 0 11850 0 3		*	a black runed collar: around the neck (1)
+M 0 11833 1 11857 1	* a howling beast (Dark niche)
+E 0 11850 0 3		*	a black runed collar: around the neck (1)
+M 0 11834 1 11858 1	* a demonic figure (Dark niche)
+E 0 11850 0 3		*	a black runed collar: around the neck (1)
+M 0 11835 1 11859 1	* the necromancer (Dark niche)
+E 0 11850 0 3		*	a black runed collar: around the neck (1)
+G 0 11801 0		*	a black marble key
+M 0 11836 1 11860 1	* a mass of writhing tentacles (Forbidding Doorway)
+G 0 11802 0		*	a tentacled key
+M 0 11823 1 11861 1	* Rachal (Pentagram Chamber)
+E 0 11837 0 6		*	a jet black  ->*<-  helm: over the head
+E 0 11838 0 9		*	a pair of taloned gloves: on the hands
+M 0 11837 1 11861 1	* a summoned demon (Pentagram Chamber)
+E 0 11851 0 10		*	demon's wings: on the arms
+M 0 11826 1 11862 1	* Dreyva (Black Marble Corridor)
+E 0 11841 0 7		*	some  ->*<-  legplates: on the legs
+M 0 11829 1 11864 1	* Sorina (Dark ash bedroom)
+E 0 11845 0 4		*	a dark  ->*<-  necklace: around the neck (2)
+E 0 11846 0 17		*	a humanoid skull: held in the hands
+M 0 11830 1 11865 1	* Loryn (Black oak bedroom)
+E 0 11847 0 8		*	a pair of  ->*<-  boots: on the feet
+E 0 11848 0 16		*	a tempered throwing dagger: wielded
+M 0 11825 1 11866 1	* Janalis (Black Marble Corridor)
+E 0 11840 0 18		*	a dark  ->*<-  orb: floating nearby
+M 0 11831 1 11867 1	* Chake (Ash bedroom)
+E 0 11849 0 10		*	some  ->*<-  sleeves: on the arms
+M 0 11828 1 11868 1	* Kranali (Charred mahogany bedroom)
+E 0 11844 0 15		*	an ebony  ->*<-  bracer: on the right wrist
+M 0 11824 1 11869 1	* Toryan (Dark Chamber)
+E 0 11839 0 5		*	a  ->*<-  breast plate: on the body
+M 0 11827 1 11869 1	* Delyrus (Dark Chamber)
+E 0 11842 0 1		*	a carved  ->*<-  ring: on the left finger
+E 0 11843 0 12		*	a cloak of nightmares: about the shoulders
+M 0 11849 1 11871 1	* the stalker (Alcove)
+M 0 11850 1 11872 1	* the hunter (Alcove)
+E 0 11867 0 16		*	a hunter's arrow: wielded
+M 0 11842 1 11874 1	* Gydeas (Plain stone room)
+E 0 11860 0 3		*	a shadowy -=+)> neckchain: around the neck (1)
+M 0 11841 1 11875 1	* Ryxis (Dark cavern)
+E 0 11859 0 15		*	a slim -=+)> bracer: on the right wrist
+M 0 11844 1 11876 1	* Nyxi (Chamber of the Panther)
+E 0 11862 0 8		*	silent -=+)> boots: on the feet
+E 0 11863 0 2		*	a ring of the panther: on the right finger
+M 0 11846 1 11876 1	* a black panther (Chamber of the Panther)
+M 0 11840 1 11877 1	* Katyre (Chamber of the Dagger)
+E 0 11858 0 12		*	a -=+)> shroud: about the shoulders
+M 0 11843 1 11877 1	* Dyraena (Chamber of the Dagger)
+E 0 11861 0 7		*	a pair of black -=+)> leggings: on the legs
+M 0 11845 1 11878 1	* Delise (Chamber of the Lynx)
+E 0 11864 0 13		*	a black -=+)> belt: around the waist
+E 0 11865 0 2		*	a ring of the lynx: on the right finger
+M 0 11847 1 11878 1	* a shadow lynx (Chamber of the Lynx)
+M 0 11838 1 11879 1	* Jaena (Chamber of Shadows)
+E 0 11852 0 6		*	an onyx -=+)> earring: over the head
+E 0 11853 0 9		*	some dark -=+)> gloves: on the hands
+E 0 11854 0 16		*	a sharpened stiletto: wielded
+E 0 11855 0 0		*	an invisible flame: as a light
+M 0 11839 1 11879 1	* Neraikis (Chamber of Shadows)
+E 0 11854 0 16		*	a sharpened stiletto: wielded
+E 0 11856 0 10		*	a pair of -=+)> sleeves: on the arms
+M 0 11848 1 11879 1	* a night hawk (Chamber of Shadows)
+E 0 11866 0 9		*	night hawk talons: on the hands
+M 0 11860 2 11880 2	* a guardian knight (Granite Courtyard)
+E 0 11875 0 16		*	a finely balance adamantite longsword: wielded
+M 0 11860 2 11880 2	* a guardian knight (Granite Courtyard)
+E 0 11875 0 16		*	a finely balance adamantite longsword: wielded
+M 0 11861 2 11882 1	* a warrior in training (Iron Hallway)
+E 0 11875 0 16		*	a finely balance adamantite longsword: wielded
+M 0 11856 1 11883 1	* Versant (Private Arena)
+E 0 11874 0 10		*	strong ][+][ armplates: on the arms
+E 0 11875 0 16		*	a finely balance adamantite longsword: wielded
+M 0 11857 1 11883 1	* Saera (Private Arena)
+E 0 11857 0 2		*	an engraved platinum ][+][ ring: on the right finger
+E 0 11875 0 16		*	a finely balance adamantite longsword: wielded
+M 0 11861 2 11884 1	* a warrior in training (Training and Practice Field)
+E 0 11875 0 16		*	a finely balance adamantite longsword: wielded
+M 0 11862 2 11884 2	* a sparring warrior (Training and Practice Field)
+E 0 11875 0 16		*	a finely balance adamantite longsword: wielded
+M 0 11862 2 11884 2	* a sparring warrior (Training and Practice Field)
+E 0 11875 0 16		*	a finely balance adamantite longsword: wielded
+M 0 11854 1 11885 1	* Rakael (Second Comander's Office)
+E 0 11872 0 6		*	a ][+][ helm: over the head
+M 0 11853 1 11886 1	* Nyxil (First Commander's Office)
+E 0 11871 0 7		*	some grey ][+][ legplates: on the legs
+M 0 11855 1 11887 1	* Yeven (Third Commander's Office)
+E 0 11873 0 17		*	an engraved ][+][ crest: held in the hands
+M 0 11858 1 11888 1	* the grey lion (Iron Hallway)
+M 0 11859 1 11888 1	* the white lion (Iron Hallway)
+M 0 11851 1 11889 1	* Dyana (Marble Bedchamber)
+E 0 11868 0 5		*	a set of ][+][ platemail: on the body
+E 0 11869 0 15		*	a bracer of power: on the right wrist
+M 0 11852 1 11889 1	* Ryke (Marble Bedchamber)
+E 0 11870 0 11		*	a ][+][ shield: as a shield
+M 0 11873 1 11890 1	* the guardian spirit (Jade Entry Hall)
+O 0 11803 0 11892		* the lapis statue (Shrine of Healing)
+M 0 11865 1 11892 1	* Jorinne (Shrine of Healing)
+E 0 11879 0 15		*	an inlaid silver -(+)- bracelet: on the right wrist
+M 0 11866 1 11892 1	* Lerylke (Shrine of Healing)
+E 0 11880 0 13		*	a beautiful -(+)- girth: around the waist
+M 0 11867 1 11893 1	* Nerr (Garden Path)
+E 0 11881 0 10		*	a pair of -(+)- sleeves: on the arms
+M 0 11863 1 11894 1	* Yxanes (White Gazebo)
+E 0 11876 0 1		*	a carven -(+)- signet ring: on the left finger
+E 0 11877 0 6		*	a niobium -(+)- circlet: over the head
+M 0 11864 1 11894 1	* Nerael (White Gazebo)
+E 0 11878 0 18		*	a shimmering -(+)- sphere: floating nearby
+M 0 11872 1 11895 1	* the grey cat (Jade Corridor)
+M 0 11869 1 11896 1	* Dryna (Candlelit Bedroom)
+E 0 11883 0 4		*	a filligree -(+)- necklace: around the neck (2)
+M 0 11868 1 11897 1	* Yllyra (Teak Panelled Bedroom)
+E 0 11882 0 9		*	some finely crafted -(+)- gloves: on the hands
+M 0 11870 1 11898 1	* Voryl (Booklined Bedroom)
+E 0 11884 0 8		*	some tooled -(+)- boots: on the feet
+M 0 11871 1 11899 1	* the white cat (Sunlit Bedchamber)
+S
+
+
 
 #SHOPS
-11887   3 8 9 10 26   105 95   0 23  * outside of space shop
+11887 3 8 9 10 26 105 95 0 23
 0
 
+
+
 #OLIMITS
-O 11838 2	* gloves
-O 11845 4	* necklace
-O 11869 2	* power bracer
-O 11887 2	* gloves pain
-O 11891 2	* power presence
-O 11893 2	* light
+O 11838 2	* a pair of taloned gloves
+O 11845 4	* a dark  ->*<-  necklace
+O 11869 2	* a bracer of power
+O 11887 2	* laerkai pain
+O 11891 2	* laerkai power
+O 11893 2	* flame of balance
 S
+
+
+
+#MOBPROGS
+#0
+
+#PRACTICERS
+S
+
+
+
+#OMPROGS
+S
+
+
 
 #$

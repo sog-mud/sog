@@ -1,8 +1,14 @@
-#AREA
-wyvern.are~
-Wyvern's Tower~
-{ 5 30} Tyrst   Wyvern's Tower~
-1600 1799
+#AREADATA
+Name Wyvern's Tower~
+Builders None~
+VNUMs 1600 1799
+Credits Tyrst~
+Security 9
+LevelRange 5 30
+End
+
+
+
 #MOBILES
 #1601
 oldstyle killer frog~
@@ -17,7 +23,7 @@ ABFG 0 -300 0
 5 5 5 9
 EFNU 0 0 0
 stand stand none 1
-0 0 medium 0
+0 0 medium unknown
 #1602
 oldstyle stone gargoyle~
 the stone gargoyle~
@@ -31,7 +37,7 @@ ABFGH 0 -400 0
 2 2 2 8
 EFNU 0 0 0
 stand stand male 20
-0 0 medium 0
+0 0 medium unknown
 #1603
 oldstyle angry gargoyle~
 an angry gargoyle~
@@ -45,7 +51,7 @@ ACFG 0 -600 0
 1 1 1 8
 EFNU 0 0 0
 stand stand male 25
-0 0 medium 0
+0 0 medium unknown
 #1604
 oldstyle elite gargoyle~
 the elite gargoyle~
@@ -59,7 +65,7 @@ ABC 0 -600 0
 0 0 0 8
 EFNU 0 0 0
 stand stand male 40
-0 0 medium 0
+0 0 medium unknown
 #1605
 oldstyle gargoyle shaman~
 the gargoyle shaman~
@@ -73,7 +79,7 @@ ABCGQ DF -900 0
 -1 -1 -1 7
 EIKU 0 0 0
 stand stand female 150
-0 0 medium 0
+0 0 medium unknown
 #1606
 oldstyle carnivorous plant~
 a carnivorous plant~
@@ -87,7 +93,7 @@ ABFG 0 0 0
 2 2 2 8
 EFNU 0 0 0
 stand stand none 0
-0 0 medium 0
+0 0 medium unknown
 #1607
 oldstyle gruesome ogre~
 a gruesome ogre~
@@ -101,7 +107,7 @@ ABCFG 0 -200 0
 1 1 1 8
 EFNU 0 0 0
 sit stand none 60
-0 0 medium 0
+0 0 medium unknown
 #1608
 oldstyle shadow~
 a shadow~
@@ -115,7 +121,7 @@ ACFG BDF -1000 0
 1 1 1 8
 EFNU 0 0 0
 stand stand none 45
-0 0 medium 0
+0 0 medium unknown
 #1609
 oldstyle evil wight~
 an evil wight~
@@ -129,7 +135,7 @@ ABCFG DF -1000 0
 0 0 0 8
 EFNU 0 0 0
 stand stand male 110
-0 0 medium 0
+0 0 medium unknown
 #1610
 oldstyle burly minotaur~
 A burly minotaur~
@@ -143,7 +149,7 @@ ACG D -600 0
 -1 -1 -1 8
 EFNU 0 0 0
 stand stand male 75
-0 0 medium 0
+0 0 medium unknown
 #1612
 oldstyle savage minotaur~
 the savage minotaur~
@@ -157,7 +163,7 @@ ABCFG D -600 0
 -2 -2 -2 7
 EFNU 0 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #1613
 oldstyle minotaur captain~
 the captain~
@@ -171,7 +177,7 @@ ABCFG D -900 0
 -3 -3 -3 7
 EFNU 0 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #1614
 oldstyle black pudding~
 the black pudding~
@@ -185,7 +191,7 @@ ACFG 0 -1000 0
 -2 -2 -2 7
 EFNU 0 0 0
 stand stand none 0
-0 0 medium 0
+0 0 medium unknown
 #1615
 oldstyle lesser golem~
 a lesser golem~
@@ -199,7 +205,7 @@ ABG D 0 0
 -2 -2 -2 7
 EFNU 0 0 0
 stand stand none 0
-0 0 medium 0
+0 0 medium unknown
 #1616
 oldstyle ancient wyvern~
 the ancient wyvern~
@@ -213,7 +219,7 @@ ACFG DF -1000 0
 -3 -3 -3 7
 EFNU 0 0 0
 stand rest male 0
-0 0 medium 0
+0 0 medium unknown
 #1617
 oldstyle spectre~
 the spectre~
@@ -227,7 +233,7 @@ ACFG BDH -1000 0
 -4 -4 -4 7
 EFNU 0 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #1702
 oldstyle trapper~
 a trapper~
@@ -241,7 +247,7 @@ AC 0 0 0
 4 4 4 9
 EFNU 0 0 0
 stand stand male 6
-0 0 medium 0
+0 0 medium unknown
 #1704
 oldstyle hunter~
 a hunter~
@@ -255,7 +261,7 @@ AC 0 0 0
 3 3 3 9
 EFNU 0 0 0
 rest stand male 6
-0 0 medium 0
+0 0 medium unknown
 #1706
 oldstyle ranger~
 a ranger~
@@ -269,7 +275,7 @@ ACG D 200 0
 0 0 0 8
 EFNU 0 0 0
 rest stand male 0
-0 0 medium 0
+0 0 medium unknown
 #1707
 oldstyle ranger leader~
 a ranger leader~
@@ -283,7 +289,7 @@ ABC D 300 0
 -2 -2 -2 7
 EFNU 0 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #1708
 oldstyle ranger lord~
 the Lord of the Rangers~
@@ -296,7 +302,7 @@ ABC D 400 0
 -4 -4 -4 7
 EFNU 0 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #1710
 oldstyle male centaur~
 a centaur~
@@ -310,7 +316,7 @@ AC 0 200 0
 4 4 4 9
 EFNU 0 0 0
 stand stand male 6
-0 0 medium 0
+0 0 medium unknown
 #1711
 oldstyle female centaur~
 a centaur~
@@ -324,7 +330,7 @@ AC 0 200 0
 4 4 4 9
 EFNU 0 0 0
 stand stand female 5
-0 0 medium 0
+0 0 medium unknown
 #1712
 oldstyle old centaur~
 an old centaur~
@@ -338,7 +344,7 @@ AC 0 200 0
 4 4 4 9
 EFNU 0 0 0
 rest rest male 5
-0 0 medium 0
+0 0 medium unknown
 #1714
 oldstyle centaur elder~
 an elder centaur~
@@ -352,7 +358,7 @@ ABC B 200 0
 2 2 2 8
 EFNU 0 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #1715
 oldstyle centaur guard~
 a centaur guard~
@@ -366,7 +372,7 @@ AB B 200 0
 1 1 1 8
 EFNU 0 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #1716
 oldstyle centaur chief~
 the centaur chief~
@@ -381,7 +387,7 @@ ABC B 200 0
 0 0 0 8
 EFNU 0 0 0
 rest stand male 0
-0 0 medium 0
+0 0 medium unknown
 #1720
 oldstyle displacer beast~
 a displacer beast~
@@ -395,8 +401,11 @@ AH 0 0 0
 1 1 1 8
 EFNU 0 0 0
 stand stand none 0
-0 0 medium 0
+0 0 medium unknown
 #0
+
+
+
 #OBJECTS
 #1601
 rusty cleaver~
@@ -468,7 +477,7 @@ a black kite shield~
 There is a large black kite shield lying here.~
 onyx~
 armor AG AJ
-6 6 6 2 0
+BC BC BC B 0
 13 80 1530 P
 A
 20 1
@@ -478,7 +487,7 @@ a commander's helm~
 A commander's helm rests on a table here.~
 steel~
 armor AG AE
-7 7 7 2 0
+ABC ABC ABC B 0
 20 40 2300 P
 A
 4 1
@@ -491,7 +500,7 @@ a mithril bracer~
 A magical bracer made from mithril lies on the ground!~
 mithril~
 armor BG AM
-4 6 6 2 0
+C BC BC B 0
 12 20 1540 P
 A
 1 1
@@ -535,7 +544,7 @@ the twin towers key~
 There is a shiny skeleton key on the ground here.~
 oldstyle~
 key 0 A
-1 0 0 0 0
+A 0 0 0 0
 0 10 0 P
 #1692
 strange key~
@@ -543,7 +552,7 @@ a strange key~
 There is a very strange-looking key on the ground here.~
 oldstyle~
 key AG AO
-2 0 0 0 0
+B 0 0 0 0
 12 10 750 P
 A
 17 -3
@@ -590,7 +599,7 @@ a fur cap~
 A fur cap lies here on the ground.~
 fur~
 armor 0 AE
-2 2 2 0 0
+B B B 0 0
 0 10 168 P
 #1712
 travelling boots~
@@ -598,7 +607,7 @@ a pair of travelling boots~
 A sturdy pair of travelling boots lies here.~
 fur~
 armor G AG
-5 5 5 0 0
+AC AC AC 0 0
 12 20 880 P
 A
 14 10
@@ -613,6 +622,8 @@ jewelry G AB
 A
 12 5
 #0
+
+
 
 #ROOMS
 #1601
@@ -1000,7 +1011,7 @@ D5
 You notice a grate in the bottom of the fire pit.  Maybe it's an opening ...
 ~
 ~
-1 -1 1634
+0 -1 1634
 S
 #1633
 Servant's Quarters~
@@ -1024,7 +1035,7 @@ furniture looms obliquely about the room.
 D4
 ~
 ~
-1 -1 1632
+0 -1 1632
 S
 #1635
 On the First Staircase~
@@ -1164,7 +1175,7 @@ comes a strange inky blackness.  A spiral staircase leads down.
 D1
 ~
 ~
-1 -1 1644
+0 -1 1644
 D5
 ~
 ~
@@ -1177,19 +1188,19 @@ It's too dark to see anything!~
 D0
 ~
 ~
-1 -1 1645
+0 -1 1645
 D1
 ~
 ~
-1 -1 1647
+0 -1 1647
 D2
 ~
 ~
-1 -1 1646
+0 -1 1646
 D3
 ~
 ~
-1 -1 1643
+0 -1 1643
 S
 #1645
 The Armory~
@@ -1201,7 +1212,7 @@ in one corner catches your eye.  The only exit is the way you came in.
 D2
 ~
 ~
-1 -1 1644
+0 -1 1644
 S
 #1646
 The Officer's Quarters~
@@ -1215,7 +1226,7 @@ of authority.  The only door is north.
 D0
 ~
 ~
-1 -1 1644
+0 -1 1644
 S
 #1647
 Third Level of Eastern Tower~
@@ -1228,12 +1239,12 @@ looking keyhole.  There is also a door to the west.
 D3
 ~
 ~
-1 -1 1644
+0 -1 1644
 D4
 The hatchway appears securely fastened.  In it is a strange keyhole.
 ~
 ~
-1 -1 1648
+0 -1 1648
 S
 #1648
 Turret of the Eastern Tower~
@@ -1251,7 +1262,7 @@ There is a small opening this way.
 D5
 ~
 ~
-1 -1 1647
+0 -1 1647
 S
 #1649
 On the Catwalk~
@@ -1641,93 +1652,123 @@ The path continues west through thick forest.
 0 0 1708
 S
 #0
-#RESETS
-R 0 1644   0     	* It's too dark to see anything!
-O 0 1652   2 1608	* a barrel of ale
-O 0 1601   2 1627	* a rusty cleaver
-O 0 1651   1 1645	* a bronze chest
-P 1 1603   1 1651  1	*   a long elven dagger
-M 0 1601   4 1620  2	* a killer frog
-M 0 1601   4 1620  2	* a killer frog
-M 0 1601   4 1621  2	* a killer frog
-M 0 1601   4 1622  2	* a killer frog
-M 0 1602   6 1623  2	* the stone gargoyle
-M 0 1602   6 1623  2	* the stone gargoyle
-M 0 1602   6 1624  2	* the stone gargoyle
-M 0 1602   6 1624  2	* the stone gargoyle
-M 0 1602   6 1625  1	* the stone gargoyle
-M 0 1602   6 1631  1	* the stone gargoyle
-M 0 1603   3 1630  1	* an angry gargoyle
-M 0 1603   3 1632  1	* an angry gargoyle
-M 0 1603   3 1637  1	* an angry gargoyle
-M 0 1604   4 1636  2	* the elite gargoyle
-E 1 1604  10   16	*   a steel broad sword
-M 0 1604   4 1636  2	* the elite gargoyle
-E 1 1604  10   16	*   a steel broad sword
-M 0 1604   4 1639  2	* the elite gargoyle
-M 0 1604   4 1639  2	* the elite gargoyle
-M 0 1605   1 1638  1	* the gargoyle shaman
-E 1 1602   6   16	*   the fine mace
-E 1 1621   3   13	*   a dark red potion
-M 0 1606   1 1628  1	* a carnivorous plant
-M 0 1607   1 1629  1	* a gruesome ogre
-M 0 1608   4 1644  4	* a shadow
-M 0 1609   1 1634  1	* an evil wight
-E 1 1692   1   17	*   a strange key
-M 0 1610   2 1645  2	* A burly minotaur
-M 0 1610   2 1645  2	* A burly minotaur
-M 0 1612   1 1610  1	* the savage minotaur
-E 1 1604   5   16	*   a steel broad sword
-E 1 1612   3   11	*   a black kite shield
-M 0 1613   1 1646  1	* the captain
-E 1 1605   5   16	*   a steel broad sword
-E 1 1614   3    6	*   a commander's helm
-M 0 1614   1 1643  1	* the black pudding
-M 0 1615   2 1647  2	* a lesser golem
-E 1 1606   2   16	*   the rod of might
-M 0 1616   1 1648  1	* the ancient wyvern
-E 1 1615   2   14	*   a mithril bracer
-G 1 1621   5     	*   a dark red potion
-M 0 1617   1 1650  1	* the spectre
-E 1 1616   2    3	*   a dark blue cloak
-M 0 1702   2 1703  2	* a trapper
-E 1 1711   5    6	*   a fur cap
-M 0 1702   2 1703  2	* a trapper
-E 1 1711   5    6	*   a fur cap
-M 0 1704   2 1703  2	* a hunter
-M 0 1704   2 1703  2	* a hunter
-E 1 1701  10   16	*   a short bow
-M 0 1706   1 1703  1	* a ranger
-E 1 1702   5   16	*   a long bow
-G 1 1621   5     	*   a dark red potion
-M 0 1710   3 1704  1	* a centaur
-E 1 1701  10   16	*   a short bow
-M 0 1710   3 1708  1	* a centaur
-E 1 1701  10   16	*   a short bow
-M 0 1710   3 1710  1	* a centaur
-M 0 1711   2 1706  1	* a centaur
-M 0 1711   2 1709  1	* a centaur
-M 0 1712   3 1710  1	* an old centaur
-M 0 1712   3 1712  1	* an old centaur
-M 0 1712   3 1713  1	* an old centaur
-M 0 1714   3 1711  1	* an elder centaur
-M 0 1714   3 1714  1	* an elder centaur
-M 0 1714   3 1715  3	* an elder centaur
-M 0 1715   2 1716  2	* a centaur guard
-E 1 1604  10   16	*   a steel broad sword
-M 0 1715   2 1716  2	* a centaur guard
-E 1 1604  10   16	*   a steel broad sword
-M 0 1716   1 1717  1	* the centaur chief
-E 1 1713   1    2	*   a bronze ring
+
+
+
+#SPECIALS
+M 1605 spec_cast_cleric	* the gargoyle shaman
+M 1609 spec_cast_undead	* an evil wight
+M 1614 spec_breath_acid	* the black pudding
+M 1616 spec_breath_any	* the ancient wyvern
+M 1617 spec_cast_undead	* the spectre
+M 1716 spec_cast_undead	* the centaur chief
 S
+
+
+
+#RESETS
+O 0 1652 0 1608		* a barrel of ale (Old Store Room)
+M 0 1612 1 1610 1	* the savage minotaur (Minotaur's Room)
+E 0 1604 0 16		*	a steel broad sword: wielded
+E 0 1612 0 11		*	a black kite shield: as a shield
+M 0 1601 4 1620 2	* a killer frog (Western Moat)
+M 0 1601 4 1620 2	* a killer frog (Western Moat)
+M 0 1601 4 1621 2	* a killer frog (Northern Moat)
+M 0 1601 4 1622 2	* a killer frog (Southern Moat)
+M 0 1602 6 1623 2	* the stone gargoyle (Tower Foyer)
+M 0 1602 6 1623 2	* the stone gargoyle (Tower Foyer)
+M 0 1602 6 1624 2	* the stone gargoyle (The Grand Lobby)
+M 0 1602 6 1624 2	* the stone gargoyle (The Grand Lobby)
+M 0 1602 6 1625 1	* the stone gargoyle (Base of the Western Tower)
+O 0 1601 0 1627		* a rusty cleaver (Kitchen)
+M 0 1606 1 1628 1	* a carnivorous plant (Conservatory)
+M 0 1607 1 1629 1	* a gruesome ogre (The Dining Hall)
+M 0 1603 3 1630 1	* an angry gargoyle (Art Gallery)
+M 0 1602 6 1631 1	* the stone gargoyle (Base of the Eastern Tower)
+M 0 1603 3 1632 1	* an angry gargoyle (The Common Room)
+M 0 1609 1 1634 1	* an evil wight (A Large Murky Cellar)
+E 0 1692 0 17		*	a strange key: held in the hands
+M 0 1604 4 1636 2	* the elite gargoyle (Second Level of the Eastern Tower)
+E 0 1604 0 16		*	a steel broad sword: wielded
+M 0 1604 4 1636 2	* the elite gargoyle (Second Level of the Eastern Tower)
+E 0 1604 0 16		*	a steel broad sword: wielded
+M 0 1603 3 1637 1	* an angry gargoyle (The Elegant Hall)
+M 0 1605 1 1638 1	* the gargoyle shaman (The Shaman's Room)
+E 0 1602 0 16		*	the fine mace: wielded
+E 0 1621 0 13		*	a dark red potion: around the waist
+M 0 1604 4 1639 2	* the elite gargoyle (The Library)
+M 0 1604 4 1639 2	* the elite gargoyle (The Library)
+M 0 1614 1 1643 1	* the black pudding (Third Level of Western Tower)
+R 0 1644 0	* It's too dark to see anything!: randomize
+M 0 1608 4 1644 4	* a shadow (It's too dark to see anything!)
+O 0 1651 0 1645		* a bronze chest (The Armory)
+P 0 1603 1 1651 1	* a bronze chest: a long elven dagger
+M 0 1610 2 1645 2	* A burly minotaur (The Armory)
+M 0 1610 2 1645 2	* A burly minotaur (The Armory)
+M 0 1613 1 1646 1	* the captain (The Officer's Quarters)
+E 0 1605 0 16		*	a steel broad sword: wielded
+E 0 1614 0 6		*	a commander's helm: over the head
+M 0 1615 2 1647 2	* a lesser golem (Third Level of Eastern Tower)
+E 0 1606 0 16		*	the rod of might: wielded
+M 0 1616 1 1648 1	* the ancient wyvern (Turret of the Eastern Tower)
+E 0 1615 0 14		*	a mithril bracer: on the left wrist
+G 0 1621 0		*	a dark red potion
+M 0 1617 1 1650 1	* the spectre (Turret of the Western Tower)
+E 0 1616 0 3		*	a dark blue cloak: around the neck (1)
+M 0 1702 2 1703 2	* a trapper (Trading Post)
+E 0 1711 0 6		*	a fur cap: over the head
+M 0 1702 2 1703 2	* a trapper (Trading Post)
+E 0 1711 0 6		*	a fur cap: over the head
+M 0 1704 2 1703 2	* a hunter (Trading Post)
+M 0 1704 2 1703 2	* a hunter (Trading Post)
+E 0 1701 0 16		*	a short bow: wielded
+M 0 1706 1 1703 1	* a ranger (Trading Post)
+E 0 1702 0 16		*	a long bow: wielded
+G 0 1621 0		*	a dark red potion
+M 0 1710 3 1704 1	* a centaur (Trail north of crossroads)
+E 0 1701 0 16		*	a short bow: wielded
+M 0 1711 2 1706 1	* a centaur (Entrance to the forest)
+M 0 1710 3 1708 1	* a centaur (Junction in Dark Forest)
+E 0 1701 0 16		*	a short bow: wielded
+M 0 1711 2 1709 1	* a centaur (Path to Centaur Village)
+M 0 1710 3 1710 1	* a centaur (The East side of the Centaur Clearing)
+M 0 1712 3 1710 1	* an old centaur (The East side of the Centaur Clearing)
+M 0 1714 3 1711 1	* an elder centaur (West side of the Centaur Clearing)
+M 0 1712 3 1712 1	* an old centaur (A Centaur's Hut)
+M 0 1712 3 1713 1	* an old centaur (A Centaur's Hut)
+M 0 1714 3 1714 1	* an elder centaur (A Centaur's Hut)
+M 0 1714 3 1715 3	* an elder centaur (A Centaur's Hut)
+M 0 1715 2 1716 2	* a centaur guard (Entrance to a Large Hut)
+E 0 1604 0 16		*	a steel broad sword: wielded
+M 0 1715 2 1716 2	* a centaur guard (Entrance to a Large Hut)
+E 0 1604 0 16		*	a steel broad sword: wielded
+M 0 1716 1 1717 1	* the centaur chief (Back of a Large Hut)
+E 0 1713 0 2		*	a bronze ring: on the right finger
+S
+
+
+
 #SHOPS
 0
-#SPECIALS
-M 1605 spec_cast_cleric    	* the gargoyle shaman
-M 1609 spec_cast_undead    	* an evil wight
-M 1614 spec_breath_acid    	* the black pudding
-M 1616 spec_breath_any     	* the ancient wyvern
-M 1617 spec_cast_undead    	* the spectre
-M 1716 spec_cast_undead    	* the centaur chief
+
+
+
+#OLIMITS
 S
+
+
+
+#MOBPROGS
+#0
+
+#PRACTICERS
+S
+
+
+
+#OMPROGS
+S
+
+
+
 #$

@@ -384,7 +384,7 @@ A pair of translucent wings lie upon the ground, their is an eerie glow about
 them.~
 fire~
 light AG A
-0 0 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef 0 0
+0 0 -1 0 0
 48 60 7500 G
 A
 12 100
@@ -542,7 +542,7 @@ a wisp of DragonFyre~
 There is a nice flame sitting here.~
 fire~
 light AL A
-0 0 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef 0 0
+0 0 -1 0 0
 38 20 2300 G
 A
 18 3
@@ -2822,149 +2822,149 @@ D 0 2494 3 1	* Throne room of the Pixie King: door to the west: closed
 D 0 2500 0 2	* Before the office of retired dragon: door to the north: closed and locked
 M 0 2414 12 2410 1	* A Pixie (Walking through DragonSpyre)
 M 0 2402 30 2412 1	* A Pixie (Walking through DragonSpyre)
-E 0 2400 0 16		*	A tiny sword: wielded
-G 0 2428 0		*	A piece of neutronium
+E 0 2400 0 16		*	a tiny sword: wielded
+G 0 2428 0		*	a piece of neutronium
 M 0 2414 12 2412 1	* A Pixie (Walking through DragonSpyre)
-O 0 2412 0 2413		* A corpse (Walking through DragonSpyre)
+O 0 2412 0 2413		* a corpse (Walking through DragonSpyre)
 M 0 2408 2 2414 1	* A Pixie Guard (Walking through DragonSpyre)
-E 0 2415 0 5		*	A pixie breast plate: on the body
-E 0 2416 0 7		*	A pair of pixie greaves: on the legs
-E 0 2417 0 10		*	A pair of pixie armplates: on the arms
-E 0 2414 0 16		*	A pixie stick: wielded
+E 0 2415 0 5		*	a Pixie breast plate: on the body
+E 0 2416 0 7		*	a pair of Pixie greaves: on the legs
+E 0 2417 0 10		*	a pair of Pixie armplates: on the arms
+E 0 2414 0 16		*	a Pixie Stick: wielded
 M 0 2410 2 2414 1	* A Pixie Guard (Walking through DragonSpyre)
-E 0 2415 0 5		*	A pixie breast plate: on the body
-E 0 2416 0 7		*	A pair of pixie greaves: on the legs
-E 0 2417 0 10		*	A pair of pixie armplates: on the arms
-E 0 2414 0 16		*	A pixie stick: wielded
-E 0 2433 0 11		*	A pixie shield: as a shield
-E 0 2432 0 18		*	Rabbit's foot: floating nearby
+E 0 2415 0 5		*	a Pixie breast plate: on the body
+E 0 2416 0 7		*	a pair of Pixie greaves: on the legs
+E 0 2417 0 10		*	a pair of Pixie armplates: on the arms
+E 0 2414 0 16		*	a Pixie Stick: wielded
+E 0 2433 0 11		*	a Pixie shield: as a shield
+E 0 2432 0 18		*	rabbit's foot: floating nearby
 M 0 2411 11 2414 1	* A Pixie (Walking through DragonSpyre)
-E 0 2422 0 16		*	A pixie dagger: wielded
-G 0 2427 0		*	A piece of duranium
+E 0 2422 0 16		*	a Pixie dagger: wielded
+G 0 2427 0		*	a piece of duranium
 M 0 2414 12 2415 1	* A Pixie (Walking through DragonSpyre)
 M 0 2402 30 2416 1	* A Pixie (Walking through DragonSpyre)
-E 0 2400 0 16		*	A tiny sword: wielded
+E 0 2400 0 16		*	a tiny sword: wielded
 M 0 2402 30 2416 1	* A Pixie (Walking through DragonSpyre)
-E 0 2400 0 16		*	A tiny sword: wielded
+E 0 2400 0 16		*	a tiny sword: wielded
 M 0 2414 12 2417 4	* A Pixie (Walking through DragonSpyre)
 M 0 2411 11 2418 1	* A Pixie (Walking through DragonSpyre)
-E 0 2422 0 16		*	A pixie dagger: wielded
-G 0 2427 0		*	A piece of duranium
+E 0 2422 0 16		*	a Pixie dagger: wielded
+G 0 2427 0		*	a piece of duranium
 M 0 2414 12 2419 1	* A Pixie (Walking through DragonSpyre)
 M 0 2402 30 2420 1	* A Pixie (Walking through DragonSpyre)
-E 0 2400 0 16		*	A tiny sword: wielded
+E 0 2400 0 16		*	a tiny sword: wielded
 M 0 2402 30 2420 1	* A Pixie (Walking through DragonSpyre)
-E 0 2400 0 16		*	A tiny sword: wielded
+E 0 2400 0 16		*	a tiny sword: wielded
 M 0 2414 12 2420 1	* A Pixie (Walking through DragonSpyre)
 M 0 2402 30 2420 1	* A Pixie (Walking through DragonSpyre)
-E 0 2400 0 16		*	A tiny sword: wielded
-G 0 2428 0		*	A piece of neutronium
+E 0 2400 0 16		*	a tiny sword: wielded
+G 0 2428 0		*	a piece of neutronium
 M 0 2414 12 2421 1	* A Pixie (Walking through DragonSpyre)
 M 0 2414 12 2422 1	* A Pixie (Walking through DragonSpyre)
 M 0 2411 11 2422 1	* A Pixie (Walking through DragonSpyre)
-E 0 2422 0 16		*	A pixie dagger: wielded
-G 0 2427 0		*	A piece of duranium
+E 0 2422 0 16		*	a Pixie dagger: wielded
+G 0 2427 0		*	a piece of duranium
 M 0 2414 12 2424 1	* A Pixie (Walking through DragonSpyre)
 M 0 2402 30 2424 1	* A Pixie (Walking through DragonSpyre)
-E 0 2400 0 16		*	A tiny sword: wielded
-G 0 2428 0		*	A piece of neutronium
+E 0 2400 0 16		*	a tiny sword: wielded
+G 0 2428 0		*	a piece of neutronium
 M 0 2414 12 2425 6	* A Pixie (Walking through DragonSpyre)
 M 0 2411 11 2426 1	* A Pixie (Walking through DragonSpyre)
-E 0 2422 0 16		*	A pixie dagger: wielded
-G 0 2427 0		*	A piece of duranium
+E 0 2422 0 16		*	a Pixie dagger: wielded
+G 0 2427 0		*	a piece of duranium
 M 0 2414 12 2427 1	* A Pixie (Walking through DragonSpyre)
 M 0 2402 30 2428 1	* A Pixie (Walking through DragonSpyre)
-E 0 2400 0 16		*	A tiny sword: wielded
-G 0 2428 0		*	A piece of neutronium
+E 0 2400 0 16		*	a tiny sword: wielded
+G 0 2428 0		*	a piece of neutronium
 M 0 2414 12 2429 1	* A Pixie (Walking through DragonSpyre)
 M 0 2411 11 2430 1	* A Pixie (Walking through DragonSpyre)
-E 0 2422 0 16		*	A pixie dagger: wielded
-G 0 2427 0		*	A piece of duranium
+E 0 2422 0 16		*	a Pixie dagger: wielded
+G 0 2427 0		*	a piece of duranium
 M 0 2401 1 2432 1	* The White Dragon (The Lair of the White Dragon)
-E 0 2401 0 17		*	A small white key shaped like a claw: held in the hands
-E 0 2410 0 5		*	A white dragonscale breast plate: on the body
-E 0 2419 0 6		*	A white dragon scale helm: over the head
-E 0 2418 0 0		*	A wisp of dragonfyre: as a light
-E 0 2406 0 3		*	A white dragon scale pendant: around the neck (1)
-G 0 2430 0		*	A blue pearl
+E 0 2401 0 17		*	a small white key shaped like a claw: held in the hands
+E 0 2410 0 5		*	a white dragonscale breast plate: on the body
+E 0 2419 0 6		*	a white dragon scale helm: over the head
+E 0 2418 0 0		*	a wisp of DragonFyre: as a light
+E 0 2406 0 3		*	a white dragon scale pendant: around the neck (1)
+G 0 2430 0		*	a blue pearl
 M 0 2402 30 2434 1	* A Pixie (Walking through DragonSpyre)
-E 0 2400 0 16		*	A tiny sword: wielded
-G 0 2428 0		*	A piece of neutronium
+E 0 2400 0 16		*	a tiny sword: wielded
+G 0 2428 0		*	a piece of neutronium
 M 0 2411 11 2436 1	* A Pixie (Walking through DragonSpyre)
-E 0 2422 0 16		*	A pixie dagger: wielded
-G 0 2427 0		*	A piece of duranium
+E 0 2422 0 16		*	a Pixie dagger: wielded
+G 0 2427 0		*	a piece of duranium
 M 0 2402 30 2438 1	* A Pixie (Walking through DragonSpyre)
-E 0 2400 0 16		*	A tiny sword: wielded
-G 0 2428 0		*	A piece of neutronium
+E 0 2400 0 16		*	a tiny sword: wielded
+G 0 2428 0		*	a piece of neutronium
 M 0 2402 30 2440 1	* A Pixie (Walking through DragonSpyre)
-E 0 2400 0 16		*	A tiny sword: wielded
-G 0 2428 0		*	A piece of neutronium
-O 0 2412 0 2442		* A corpse (Walking through DragonSpyre)
+E 0 2400 0 16		*	a tiny sword: wielded
+G 0 2428 0		*	a piece of neutronium
+O 0 2412 0 2442		* a corpse (Walking through DragonSpyre)
 M 0 2411 11 2444 1	* A Pixie (Walking through DragonSpyre)
-E 0 2422 0 16		*	A pixie dagger: wielded
-G 0 2427 0		*	A piece of duranium
-O 0 2412 0 2447		* A corpse (Walking through DragonSpyre)
+E 0 2422 0 16		*	a Pixie dagger: wielded
+G 0 2427 0		*	a piece of duranium
+O 0 2412 0 2447		* a corpse (Walking through DragonSpyre)
 M 0 2402 30 2450 1	* A Pixie (Treasure Room)
-E 0 2400 0 16		*	A tiny sword: wielded
-G 0 2428 0		*	A piece of neutronium
+E 0 2400 0 16		*	a tiny sword: wielded
+G 0 2428 0		*	a piece of neutronium
 M 0 2404 1 2450 1	* The Spirit of the Ice Dragon (Treasure Room)
-G 0 2425 0		*	A flaming quartz
+G 0 2425 0		*	a flaming quartz
 M 0 2411 11 2455 1	* A Pixie (Walking through DragonSpyre)
-E 0 2422 0 16		*	A pixie dagger: wielded
-G 0 2427 0		*	A piece of duranium
+E 0 2422 0 16		*	a Pixie dagger: wielded
+G 0 2427 0		*	a piece of duranium
 M 0 2402 30 2460 1	* A Pixie (Walking through DragonSpyre)
-E 0 2400 0 16		*	A tiny sword: wielded
-G 0 2428 0		*	A piece of neutronium
+E 0 2400 0 16		*	a tiny sword: wielded
+G 0 2428 0		*	a piece of neutronium
 M 0 2406 1 2465 1	* The GateKeeper (Walking through DragonSpyre)
-E 0 2403 0 17		*	The gatekeeper's key: held in the hands
+E 0 2403 0 17		*	the gatekeeper's key: held in the hands
 M 0 2411 11 2465 1	* A Pixie (Walking through DragonSpyre)
-E 0 2422 0 16		*	A pixie dagger: wielded
-G 0 2427 0		*	A piece of duranium
-O 0 2412 0 2467		* A corpse (Walking through DragonSpyre)
+E 0 2422 0 16		*	a Pixie dagger: wielded
+G 0 2427 0		*	a piece of duranium
+O 0 2412 0 2467		* a corpse (Walking through DragonSpyre)
 M 0 2402 30 2470 1	* A Pixie (Walking through DragonSpyre)
-E 0 2400 0 16		*	A tiny sword: wielded
-G 0 2428 0		*	A piece of neutronium
+E 0 2400 0 16		*	a tiny sword: wielded
+G 0 2428 0		*	a piece of neutronium
 M 0 2400 1 2473 1	* The Copper Dragon (Lair of the Copper Dragon)
-E 0 2404 0 17		*	A small copper key shaped like a claw: held in the hands
-E 0 2411 0 5		*	A copper dragonscale breast plate: on the body
-E 0 2420 0 6		*	A copper dragon scale helm: over the head
-E 0 2418 0 0		*	A wisp of dragonfyre: as a light
-E 0 2407 0 3		*	A copper dragon scale pendant: around the neck (1)
-G 0 2429 0		*	A black pearl
+E 0 2404 0 17		*	a small copper key shaped like a claw: held in the hands
+E 0 2411 0 5		*	a copper dragonscale breast plate: on the body
+E 0 2420 0 6		*	a copper dragon scale helm: over the head
+E 0 2418 0 0		*	a wisp of DragonFyre: as a light
+E 0 2407 0 3		*	a copper dragon scale pendant: around the neck (1)
+G 0 2429 0		*	a black pearl
 M 0 2403 1 2478 1	* The Spirit of the Time Dragon (Treasure Room)
-G 0 2424 0		*	A red ruby
+G 0 2424 0		*	a red ruby
 M 0 2411 11 2480 1	* A Pixie (Walking through DragonSpyre)
-E 0 2422 0 16		*	A pixie dagger: wielded
-G 0 2427 0		*	A piece of duranium
+E 0 2422 0 16		*	a Pixie dagger: wielded
+G 0 2427 0		*	a piece of duranium
 M 0 2409 1 2490 1	* The Master Pixie Mage (Pixie King's Bedroom)
-E 0 2421 0 16		*	The staff of the magius: wielded
-E 0 2408 0 0		*	A pair of pixie wings: as a light
-E 0 2431 0 18		*	Scarlet ribbon: floating nearby
+E 0 2421 0 16		*	the Staff of the Magius: wielded
+E 0 2408 0 0		*	a pair of pixie wings: as a light
+E 0 2431 0 18		*	scarlet ribbon: floating nearby
 M 0 2405 1 2494 1	* The Pixie King (Throne room of the Pixie King)
-E 0 2405 0 17		*	A very small key: held in the hands
-G 0 2426 0		*	A bar of platinum
+E 0 2405 0 17		*	a very small key: held in the hands
+G 0 2426 0		*	a bar of platinum
 M 0 2408 2 2494 1	* A Pixie Guard (Throne room of the Pixie King)
-E 0 2416 0 7		*	A pair of pixie greaves: on the legs
-E 0 2417 0 10		*	A pair of pixie armplates: on the arms
-E 0 2414 0 16		*	A pixie stick: wielded
-E 0 2433 0 11		*	A pixie shield: as a shield
-E 0 2432 0 18		*	Rabbit's foot: floating nearby
+E 0 2416 0 7		*	a pair of Pixie greaves: on the legs
+E 0 2417 0 10		*	a pair of Pixie armplates: on the arms
+E 0 2414 0 16		*	a Pixie Stick: wielded
+E 0 2433 0 11		*	a Pixie shield: as a shield
+E 0 2432 0 18		*	rabbit's foot: floating nearby
 M 0 2410 2 2494 1	* A Pixie Guard (Throne room of the Pixie King)
-E 0 2415 0 5		*	A pixie breast plate: on the body
-E 0 2416 0 7		*	A pair of pixie greaves: on the legs
-E 0 2417 0 10		*	A pair of pixie armplates: on the arms
-E 0 2414 0 16		*	A pixie stick: wielded
-E 0 2433 0 11		*	A pixie shield: as a shield
-E 0 2432 0 18		*	Rabbit's foot: floating nearby
+E 0 2415 0 5		*	a Pixie breast plate: on the body
+E 0 2416 0 7		*	a pair of Pixie greaves: on the legs
+E 0 2417 0 10		*	a pair of Pixie armplates: on the arms
+E 0 2414 0 16		*	a Pixie Stick: wielded
+E 0 2433 0 11		*	a Pixie shield: as a shield
+E 0 2432 0 18		*	rabbit's foot: floating nearby
 M 0 2407 1 2499 1	* The Eternity Dragon (The End of the Hallway)
-E 0 2409 0 3		*	The pendant of eternity: around the neck (1)
-G 0 2423 0		*	A large diamond
+E 0 2409 0 3		*	the pendant of eternity: around the neck (1)
+G 0 2423 0		*	a large diamond
 M 0 2412 1 2500 1	* A Keeper (Before the office of retired dragon)
-E 0 2434 0 17		*	A small white finger: held in the hands
+E 0 2434 0 17		*	a small white finger: held in the hands
 M 0 2413 1 2501 1	* Fireflash (Before the office of retired dragon)
-E 0 2435 0 17		*	An old seal: held in the hands
-O 0 2436 0 2501		* Box (Before the office of retired dragon)
-P 0 2437 4 2436 100	* Box: Box
+E 0 2435 0 17		*	an old seal: held in the hands
+O 0 2436 0 2501		* box (Before the office of retired dragon)
+P 0 2437 4 2436 100	* box: abridged papers
 S
 
 

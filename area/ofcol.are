@@ -1,12 +1,23 @@
-#AREA
-ofcol.are~
-Ofcol~
-{1 100} Alfa    Ofcol~
-5500 5599
+#AREADATA
+Name Ofcol~
+Builders None~
+VNUMs 5500 5599
+Credits Alfa~
+Security 9
+LevelRange 1 100
+End
+
+
+
 #MOBILES
 #0
+
+
+
 #OBJECTS
 #0
+
+
 
 #ROOMS
 #5550
@@ -164,22 +175,52 @@ R.I.P. inscripted underneath them.
 ~
 S
 #0
-#RESETS
-M 0  303   5 5556  3	* the citizen
-M 0  303   5 5550  3	* the citizen
-M 0  304   5 5553  3	* the citizen
-M 0  304   5 5552  3	* the citizen
-E 1 3020  99   16	*   a dagger
-M 0  306   1 5555  1	* Luxan
-G 1  304 100     	*   wild flowers
-G 1 3030 100     	*   a torch
-M 0  308   1 5556  1	* the Innkeeper
-G 1 3000 100     	*   a barrel of beer
-G 1 3001 100     	*   a bottle of beer
-M 0  350   1 5577  1	* the pet dragon
-S
-#SHOPS
-0
+
+
+
 #SPECIALS
 S
+
+
+
+#RESETS
+M 0 303 5 5550 3	* the citizen (Village street)
+M 0 304 5 5552 3	* the citizen (Village square)
+E 0 3020 0 16		*	a dagger: wielded
+M 0 304 5 5553 3	* the citizen (The small alley)
+M 0 306 1 5555 1	* Luxan (Luxan's mixed shop)
+G 0 304 0		*	wild flowers
+G 0 3030 0		*	a torch
+M 0 303 5 5556 3	* the citizen (The Local Inn)
+M 0 308 1 5556 1	* the Innkeeper (The Local Inn)
+G 0 3000 0		*	a barrel of beer
+G 0 3001 0		*	a bottle of beer
+M 0 350 1 5577 1	* the pet dragon (Ravan's hideout)
+S
+
+
+
+#SHOPS
+0
+
+
+
+#OLIMITS
+S
+
+
+
+#MOBPROGS
+#0
+
+#PRACTICERS
+S
+
+
+
+#OMPROGS
+S
+
+
+
 #$

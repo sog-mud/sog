@@ -1,14 +1,13 @@
-#AREA
-ciquala2.are~
-Ciquala's Lair~
-{40 62} Binky   Ciquala's Lair~
-13400 13499
+#AREADATA
+Name Ciquala's Lair~
+Builders None~
+VNUMs 13400 13499
+Credits Binky~
+Security 9
+LevelRange 40 62
+End
 
-#HELPS
--1 ciquala lair~
-Converted to standard Envy 1.x by Jason Huang (god@@sure.net)
-Further conversion to Rom 2.4 by Jaceks and Chicken's Den Staff~
-0 $~
+
 
 #MOBILES
 #13400
@@ -25,7 +24,7 @@ ABCF BJQT -1000 0
 -15 -15 -15 5
 BCDEH AB T K
 stand stand male 4200
-0 0 medium 0
+0 0 medium unknown
 #13401
 vampire assistant~
 the vampire lab assistant~
@@ -41,7 +40,7 @@ ABCFH DFJ -1000 13401
 -13 -13 -13 4
 BCDEH AB T K
 stand stand male 1200
-0 0 medium 0
+0 0 medium unknown
 #13402
 creature nightmare~
 a warped creature from a nightmare~
@@ -57,7 +56,7 @@ AFGH DFT -1000 0
 -20 -20 -20 2
 BCDEH AB T K
 stand stand male 5800
-0 0 medium 0
+0 0 medium unknown
 #13403
 creature docile~
 a docile creature~
@@ -72,7 +71,7 @@ AB HNO -1000 0
 -15 -15 -15 5
 HO BEJ PS K
 stand stand either 5199
-0 0 medium 0
+0 0 medium unknown
 #13404
 black pudding crate~
 the black pudding~
@@ -87,7 +86,7 @@ ABF 0 -1000 0
 -17 -17 -17 3
 BEF ABI 0 K
 stand stand either 0
-0 0 medium 0
+0 0 medium unknown
 #13405
 gigantic automaton~
 a gigantic automaton~
@@ -102,7 +101,7 @@ AB H 0 0
 -30 -30 -30 0
 BEF ABI 0 K
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #13406
 undead guardian~
 the undead guardian~
@@ -117,11 +116,10 @@ ABF BDT -1000 0
 -25 -25 -25 1
 BEF ABI 0 K
 stand stand male 7500
-0 0 medium 0
+0 0 medium unknown
 #13407
 roof ceiling lurker above~
 the lurker above~
-
 ~
 The ceiling appears rather shiny.  Not like dirt at all.  You suddenly realize
 that it isn't a ceiling, but a LURKER ABOVE!  You had better attack before
@@ -133,7 +131,7 @@ ABFH 0 -1000 0
 -12 -12 -12 4
 BCDEH AB T K
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #13408
 vampire servant~
 a vampire servant~
@@ -145,11 +143,11 @@ on him.
 ~
 human~
 ABF BDFH -1000 0
-47 0 25d10+3500 369d1+100 6d6+17 bash
+47 0 25d10+3500 369d1+100 6d6+17 none
 -17 -17 -17 2
 BEF AB 0 K
 stand stand male 5300
-0 0 medium 0
+0 0 medium unknown
 #13409
 human automaton~
 the human automaton~
@@ -165,7 +163,7 @@ ABF NO -1000 0
 -14 -14 -14 4
 BEF AB 0 K
 stand stand male 3400
-0 0 medium 0
+0 0 medium unknown
 #13410
 human automaton~
 the human automaton~
@@ -181,7 +179,7 @@ AB NO -250 0
 -15 -15 -15 4
 BEF AB 0 K
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #13411
 human automaton~
 the human automaton~
@@ -197,7 +195,7 @@ ABF NO 250 0
 -16 -16 -16 4
 BEF AB 0 K
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #13412
 human automaton~
 the human automaton~
@@ -213,7 +211,7 @@ ABF NO 1000 0
 -20 -20 -20 2
 BEF AB 0 K
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #13413
 torturer lich~
 the torturer lich~
@@ -227,7 +225,7 @@ ABF HJ -1000 0
 -22 -22 -22 2
 B AB 0 K
 stand stand male 7500
-0 0 medium 0
+0 0 medium unknown
 #13414
 undead dragon~
 Ciquala's Undead Dragon~
@@ -236,12 +234,12 @@ Ciquala's undead pet dragon is here, snacking on a fresh corpse.
 This skeletal dragon is an ancient red dragon preserved through arcane magic.
 ~
 dragon~
-ABF DFHJ -1000 0
+ABF DFH -1000 0
 60 0 50d10+7600 499d1+100 6d8+24 beating
 -30 -30 -30 -10
 B AB 0 K
 stand stand female 9500
-0 0 medium 0
+0 0 medium unknown
 #13415
 Ciquala lich~
 the lich Ciquala~
@@ -257,7 +255,7 @@ ABF DFHJT -1000 0
 -35 -35 -35 -1
 BCDEH AB T K
 stand stand female 10000
-0 0 medium 0
+0 0 medium unknown
 #13416
 lich~
 Lich~
@@ -272,7 +270,7 @@ ABCF BD -1000 0
 -17 -17 -17 1
 B AB 0 K
 stand stand male 6500
-0 0 medium 0
+0 0 medium unknown
 #13417
 vampire~
 vampire~
@@ -288,7 +286,7 @@ ABCF BDT -1000 0
 -27 -27 -27 1
 B AB 0 K
 stand stand male 7800
-0 0 medium 0
+0 0 medium unknown
 #13418
 vampire assistant~
 the vampire lab assistant~
@@ -304,8 +302,9 @@ ABCFH DFJ -1000 13401
 -10 -10 -10 5
 BCDEH AB T K
 stand stand female 1200
-0 0 medium 0
+0 0 medium unknown
 #0
+
 
 
 #OBJECTS
@@ -335,7 +334,7 @@ Ciquala's robe~
 A heavy pile of black cloth lies in the dust.~
 leather~
 armor GHJM AK
-17 17 17 2 0
+AE AE AE B 0
 51 50 29470 G
 A
 17 -30
@@ -363,7 +362,7 @@ crate~
 A crate stands here.~
 iron~
 furniture 0 A
-2 2000 NO 100 100
+B EGHIJK NO CFG CFG
 0 0 0 P
 #13404
 key~
@@ -459,7 +458,7 @@ an iron maiden~
 An iron maiden sits here, looking rather unused.  Why not try it on?~
 iron~
 armor 0 AD
-20 20 20 5 0
+CE CE CE AC 0
 33 1000 0 G
 A
 13 -400
@@ -489,7 +488,7 @@ a humongous pile of gold~
 A humongous pile of gold is waiting to be picked up.~
 gold~
 money 0 A
-10000 0 0 0 0
+EIJKN 0 0 0 0
 0 0 0 P
 #13419
 gems pile~
@@ -497,7 +496,7 @@ a pile of gems~
 A pile of gems lies on the ground.~
 iron~
 money A A
-20000 0 0 0 0
+FJKLO 0 0 0 0
 0 0 0 P
 #13420
 crate~
@@ -505,7 +504,7 @@ crate~
 A crate stands here.~
 iron~
 furniture 0 A
-2 2000 NO 100 100
+B EGHIJK NO CFG CFG
 0 0 0 P
 #13421
 crate~
@@ -513,7 +512,7 @@ crate~
 A crate stands here.~
 iron~
 furniture 0 A
-2 2000 NO 100 100
+B EGHIJK NO CFG CFG
 0 0 0 P
 #13422
 crate~
@@ -521,7 +520,7 @@ crate~
 A crate stands here.~
 iron~
 furniture 0 A
-2 2000 NO 100 100
+B EGHIJK NO CFG CFG
 0 0 0 P
 #13423
 crate~
@@ -529,7 +528,7 @@ crate~
 A crate stands here.~
 iron~
 furniture 0 A
-2 2000 NO 100 100
+B EGHIJK NO CFG CFG
 0 0 0 P
 #13424
 fizzing bottle~
@@ -537,7 +536,7 @@ a fizzing bottle~
 A bottle of fizzing liquid lies here.~
 glass~
 potion 0 A
-28 'word of recall' 'sleep' 'poison' 'heal disease'
+28 'word of recall' 'sleep' 'poison' ''
 20 20 1000 P
 #13425
 grey potion~
@@ -546,8 +545,9 @@ A grey potion sits on the counter.~
 glass~
 potion 0 A
 30 'energy drain' 'energy drain' 'create food' 'create spring'
-20 20 1000 0
+20 20 1000 P
 #0
+
 
 
 #ROOMS
@@ -558,14 +558,6 @@ breeze rises from the ground.
      There is a small (Glowing) (Humming) tablet.
 ~
 0 0 1
-D2
-~
-hole~
-1 1 6153
-D5
-~
-trapdoor~
-1 -1 13401
 E
 small tablet~
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -584,6 +576,14 @@ small tablet~
 +                                                                  +
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ~
+D2
+~
+hole~
+0 1 6153
+D5
+~
+trapdoor~
+1 -1 13401
 S
 #13401
 A ladder descending into the darkness!~
@@ -643,14 +643,6 @@ many runes and glyphs surrounding it.  The room is lit by torches held in
 sconces.  Each of these items in the room merits more investigation.
 ~
 0 D 0
-D1
-~
-~
-0 -1 13405
-D3
-~
-~
-0 -1 13403
 E
 runes~
 These runes are carved into the rock about the pool.  You think you
@@ -683,6 +675,14 @@ person the image shows.  It is the Avatar!  Apparently this is a pool that
 Ciquala uses to scry upon her enemies. The image is so clear, you almost
 believe you could step into the pool, and appear in Lord British's castle.
 ~
+D1
+~
+~
+0 -1 13405
+D3
+~
+~
+0 -1 13403
 S
 #13405
 Ciquala's Laboratory~
@@ -795,16 +795,16 @@ gain some information on Ciquala's plans, as well as learn your way through
 British's castle if you examine the map more closely.
 ~
 0 AD 0
-D2
-~
-door~
-2 13405 13410
 E
 map~
 As you reach for a map to examine it closer, it bursts into ice cold flames and
 disintegrates before your eyes.  Apparently Ciquala has taken precautions
 against people snooping in her Lair.
 ~
+D2
+~
+door~
+2 13405 13410
 S
 #13412
 Storage Room~
@@ -912,6 +912,10 @@ piles of coins that cover the floor.  A large paving stone in this room seems
 slightly disturbed.
 ~
 0 AD 0
+E
+paving~
+The paving stone seems to be masking a passage down into a pit below this room.
+~
 D0
 ~
 tapestry~
@@ -920,10 +924,6 @@ D5
 The stone appears to hide a secret passage going down.~
 stone~
 1 -1 13419
-E
-paving~
-The paving stone seems to be masking a passage down into a pit below this room.
-~
 S
 #13419
 The hidden crypt of Ciquala~
@@ -939,146 +939,128 @@ S
 #0
 
 
-#RESETS
-* 
-* part of text removed from #13404
-* D5
-* ~
-* pool~
-* 0 -1 2567
-
-*D 0 13400 2 1                   * A large knothole in a tree Close North
-*D 0 6153  0 1
-
-D 0 13400 5 1                   * A large knothole in a tree Close Down
-D 0 13401 4 1                   * A ladder descending into the darkness! Close Up
-*
-D 0 13403 3 1                   * A dusty tunnel deep under the ground Close West
-D 0 13409 1 1                   * Guard room Close East
-*
-D 0 13405 0 2                   * Ciquala's Laboratory Lock North
-D 0 13408 2 2                   * Holding Cell Lock South
-*
-D 0 13405 1 2                   * Ciquala's Laboratory Lock East
-D 0 13407 3 2                   * Holding Cell Lock West
-*
-D 0 13405 2 1                   * Ciquala's Laboratory Close South
-D 0 13406 0 1                   * Supply room Close North
-*
-D 0 13409 3 1                   * Guard room Close West
-D 0 13410 1 1                   * A seemingly empty tunnel Close East
-*
-D 0 13410 0 2                   * A seemingly empty tunnel Lock North
-D 0 13411 2 2                   * The Map Room Lock South
-*
-D 0 13410 2 1                   * A seemingly empty tunnel Close South
-D 0 13412 0 1                   * Storage Room Close North
-*
-D 0 13410 3 1                   * A seemingly empty tunnel Close West
-D 0 13413 1 1                   * A tunnel with a grate in the floor Close East
-*
-D 0 13413 5 1                   * A tunnel with a grate in the floor Close Down
-D 0 13414 4 1                   * The Room of the Automatons Close Up
-*
-D 0 13413 2 1                   * A tunnel with a grate in the floor Close South
-D 0 13416 0 1                   * Entrance to Ciquala's Throne Room Close North
-*
-D 0 13413 0 1                   * A tunnel with a grate in the floor Close North
-D 0 13415 2 1                   * Torture Chamber Close South
-*
-D 0 13417 2 2                   * Ciquala's Throne Room Lock South
-D 0 13418 0 2                   * Treasure Chamber of Ciquala Lock North
-*
-D 0 13418 5 1                   * Treasure Chamber of Ciquala Close Down
-D 0 13419 4 1                   * The hidden crypt of Ciquala Close Up
-*
-M 0 13400 1 13403 1             *Guardian Lich 
-*
-M 0 13401 2 13405 1             *Vampire Assistant, male 
-G 1 13404 1                       *key to holding cells
-G 1 13413 -1                      *potion
-G 1 13414 -1                      *potion
-G 1 13415 -1                      *potion
-G 1 13424 -1                      *potion
-G 1 13425 -1                      *potion
-*
-M 0 13418 2 13405 1             *Vampire Assistant, female 
-G 1 13407 -1                      *potion
-G 1 13408 -1                      *potion
-*G 1 13409 -1                      *potion
-G 1 13410 -1                      *potion
-G 1 13411 -1                      *potion
-G 1 13412 -1                      *potion
-*
-M 0 13402 4 13408 2             *Nightmare creature 
-M 0 13402 4 13407 2             *Nightmare creature
-*
-M 0 13403 4 13408 2             *Docile creature 
-M 0 13403 4 13407 2             *Docile creature
-*
-M 0 13404 4 13412 2             *Black pudding
-M 0 13404 4 13406 2             *Black pudding
-*
-M 0 13405 1 13409 1             *Giant Automaton 
-G 1 13405 1                       *key to war room
-*
-M 0 13406 1 13409 1             *Undead Guardian 
-*
-M 0 13407 1 13410 1             *Lurker Above 
-*
-M 0 13408 1 13411 1             *Vampire servant 
-*
-M 0 13409 1 13414 1             *Human Automaton 
-*
-M 0 13410 1 13414 1             *Human Automaton 
-*
-M 0 13411 1 13414 1             *Human Automaton 
-*
-M 0 13412 1 13414 1             *Human Automaton 
-*
-M 0 13413 1 13415 1             *Torturer 
-E 1 13417 -1 16                   *whip
-*
-M 0 13414 2 13416 2             *Undead Dragon 
-*
-M 0 13415 1 13417 1             *Ciquala 
-E 1 13400 -1 16                   *sword
-E 1 13401 -1 12                   *robe
-E 1 13402 -1 17                   *staff
-G 1 13406 1                       *key to treasury
-*
-M 0 13416 4 13419 2             *Lich (37)
-M 0 13416 4 13419 2             *Lich
-*
-M 0 13417 4 13419 2             *Vampire (47)
-M 0 13417 4 13419 2             *Vampire
-*
-O 1 13403 1 13406 1              *Crate
-O 1 13420 1 13406 1              *Crate
-O 1 13421 1 13406 1              *Crate
-*
-O 1 13416 -1 13415 1             *Iron Maiden
-*
-O 1 13418 -1 13418 1             *Coins
-O 1 13419 -1 13418 1             *Gems
-*
-O 1 13422 1 13412 1              *Crate
-O 1 13423 1 13412 1              *Crate
-S
-
 
 #SPECIALS
-* M  13400 spec_assassin                 *Guardian Lich
-M  13401 spec_cast_undead              *the vampire lab assistant
-M  13403 spec_breath_acid              *a docile creature
-M  13406 spec_cast_undead              *the undead guardian
-M  13408 spec_cast_undead              *a vampire servant
-* M  13413 spec_assassin                 *the torturer lich
-M  13414 spec_breath_gas               *Ciquala's undead pet dragon
-M  13415 spec_cast_undead              *the lich Ciquala
-M  13416 spec_cast_undead              *Lich
+M 13401 spec_cast_undead	* the vampire lab assistant
+M 13403 spec_breath_acid	* a docile creature
+M 13406 spec_cast_undead	* the undead guardian
+M 13408 spec_cast_undead	* a vampire servant
+M 13414 spec_breath_gas	* Ciquala's Undead Dragon
+M 13415 spec_cast_undead	* the lich Ciquala
+M 13416 spec_cast_undead	* Lich
 S
 
 
-#$
 
+#RESETS
+D 0 13400 5 1	* A large knothole in a tree: door to the down: closed
+D 0 13401 4 1	* A ladder descending into the darkness!: door to the up: closed
+D 0 13403 3 1	* A dusty tunnel deep under the ground: door to the west: closed
+D 0 13405 0 2	* Ciquala's Laboratory: door to the north: closed and locked
+D 0 13405 1 2	* Ciquala's Laboratory: door to the east: closed and locked
+D 0 13405 2 1	* Ciquala's Laboratory: door to the south: closed
+D 0 13406 0 1	* Supply room: door to the north: closed
+D 0 13407 3 2	* Holding Cell: door to the west: closed and locked
+D 0 13408 2 2	* Holding Cell: door to the south: closed and locked
+D 0 13409 1 1	* Guard room: door to the east: closed
+D 0 13409 3 1	* Guard room: door to the west: closed
+D 0 13410 0 2	* A seemingly empty tunnel: door to the north: closed and locked
+D 0 13410 1 1	* A seemingly empty tunnel: door to the east: closed
+D 0 13410 2 1	* A seemingly empty tunnel: door to the south: closed
+D 0 13410 3 1	* A seemingly empty tunnel: door to the west: closed
+D 0 13411 2 2	* The Map Room: door to the south: closed and locked
+D 0 13412 0 1	* Storage Room: door to the north: closed
+D 0 13413 0 1	* A tunnel with a grate in the floor: door to the north: closed
+D 0 13413 1 1	* A tunnel with a grate in the floor: door to the east: closed
+D 0 13413 2 1	* A tunnel with a grate in the floor: door to the south: closed
+D 0 13413 5 1	* A tunnel with a grate in the floor: door to the down: closed
+D 0 13414 4 1	* The Room of the Automatons: door to the up: closed
+D 0 13415 2 1	* Torture Chamber: door to the south: closed
+D 0 13416 0 1	* Entrance to Ciquala's Throne Room: door to the north: closed
+D 0 13417 2 2	* Ciquala's Throne Room: door to the south: closed and locked
+D 0 13418 0 2	* Treasure Chamber of Ciquala: door to the north: closed and locked
+D 0 13418 5 1	* Treasure Chamber of Ciquala: door to the down: closed
+D 0 13419 4 1	* The hidden crypt of Ciquala: door to the up: closed
+M 0 13400 1 13403 1	* Guardian Lich (A dusty tunnel deep under the ground)
+M 0 13401 2 13405 1	* the vampire lab assistant (Ciquala's Laboratory)
+G 0 13404 0		*	a key
+G 0 13413 0		*	a vial with milky liquid
+G 0 13414 0		*	a black potion
+G 0 13415 0		*	a beaker with yellow liquid
+G 0 13424 0		*	a fizzing bottle
+G 0 13425 0		*	a grey potion
+M 0 13418 2 13405 1	* the vampire lab assistant (Ciquala's Laboratory)
+G 0 13407 0		*	a blue potion
+G 0 13408 0		*	an emerald vial
+G 0 13410 0		*	a clear testube
+G 0 13411 0		*	a green vial
+G 0 13412 0		*	a vial with gold liquid
+M 0 13404 4 13406 2	* the black pudding (Supply room)
+O 0 13403 0 13406		* crate (Supply room)
+O 0 13420 0 13406		* crate (Supply room)
+O 0 13421 0 13406		* crate (Supply room)
+M 0 13402 4 13407 2	* a warped creature from a nightmare (Holding Cell)
+M 0 13403 4 13407 2	* a docile creature (Holding Cell)
+M 0 13402 4 13408 2	* a warped creature from a nightmare (Holding Cell)
+M 0 13403 4 13408 2	* a docile creature (Holding Cell)
+M 0 13405 1 13409 1	* a gigantic automaton (Guard room)
+G 0 13405 0		*	a iron key
+M 0 13406 1 13409 1	* the undead guardian (Guard room)
+M 0 13407 1 13410 1	* the lurker above (A seemingly empty tunnel)
+M 0 13408 1 13411 1	* a vampire servant (The Map Room)
+M 0 13404 4 13412 2	* the black pudding (Storage Room)
+O 0 13422 0 13412		* crate (Storage Room)
+O 0 13423 0 13412		* crate (Storage Room)
+M 0 13409 1 13414 1	* the human automaton (The Room of the Automatons)
+M 0 13410 1 13414 1	* the human automaton (The Room of the Automatons)
+M 0 13411 1 13414 1	* the human automaton (The Room of the Automatons)
+M 0 13412 1 13414 1	* the human automaton (The Room of the Automatons)
+M 0 13413 1 13415 1	* the torturer lich (Torture Chamber)
+E 0 13417 0 16		*	the torturer's whip: wielded
+O 0 13416 0 13415		* an iron maiden (Torture Chamber)
+M 0 13414 2 13416 2	* Ciquala's Undead Dragon (Entrance to Ciquala's Throne Room)
+M 0 13415 1 13417 1	* the lich Ciquala (Ciquala's Throne Room)
+E 0 13400 0 16		*	Ciquala's sword: wielded
+E 0 13401 0 12		*	Ciquala's robe: about the shoulders
+E 0 13402 0 17		*	ciquala's staff: held in the hands
+G 0 13406 0		*	a large key
+O 0 13418 0 13418		* a humongous pile of gold (Treasure Chamber of Ciquala)
+O 0 13419 0 13418		* a pile of gems (Treasure Chamber of Ciquala)
+M 0 13416 4 13419 2	* Lich (The hidden crypt of Ciquala)
+M 0 13416 4 13419 2	* Lich (The hidden crypt of Ciquala)
+M 0 13417 4 13419 2	* vampire (The hidden crypt of Ciquala)
+M 0 13417 4 13419 2	* vampire (The hidden crypt of Ciquala)
+S
+
+
+
+#SHOPS
+0
+
+
+
+#OLIMITS
+S
+
+
+
+#MOBPROGS
+#0
+
+#PRACTICERS
+S
+
+
+
+#OMPROGS
+S
+
+
+
+#HELPS
+-1 ciquala lair~
+Converted to standard Envy 1.x by Jason Huang (god@@sure.net)
+Further conversion to Rom 2.4 by Jaceks and Chicken's Den Staff~
+-1 $~
+
+#$

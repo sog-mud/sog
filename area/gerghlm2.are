@@ -1,14 +1,13 @@
-#AREA
-gerghlm2.are~
-Greater Gerighelm~
-{ 1 30} Zarchon Greater Gerighelm~
-7500 7699
+#AREADATA
+Name Greater Gerighelm~
+Builders None~
+VNUMs 7500 7699
+Credits Zarchon~
+Security 9
+LevelRange 1 30
+End
 
-#HELPS
--1 greater gerighelm~
-Converted to standard Merc 2.x by Jason Huang (god@@sure.net)
-Further conversion to Rom 2.4 by Jaceks and Chicken's Den Staff~
-0 $~
+
 
 #MOBILES
 #7500
@@ -24,7 +23,7 @@ AG 0 0 7500
 9 9 9 10
 EKN 0 0 0
 stand stand male 10
-0 0 small 0
+0 0 small unknown
 #7501
 chipmunk tiny~
 a tiny chipmunk~
@@ -39,7 +38,7 @@ AG 0 0 7501
 9 9 9 1
 EKN 0 0 0
 stand stand male 10
-0 0 small 0
+0 0 small unknown
 #7502
 snake green small~
 a small green snake~
@@ -54,7 +53,7 @@ AG 0 0 0
 9 9 9 10
 EKN 0 0 0
 stand stand male 0
-0 0 small 0
+0 0 small unknown
 #7503
 swallow bird small~
 a swallow~
@@ -68,7 +67,7 @@ AG 0 0 0
 9 9 9 10
 EKN 0 0 0
 stand stand male 0
-0 0 snall 0
+0 0 tiny unknown
 #7504
 african swallow small bird~
 an African Swallow~
@@ -82,7 +81,7 @@ AG 0 0 0
 8 8 8 10
 EKN 0 0 0
 stand stand male 0
-0 0 small 0
+0 0 small unknown
 #7505
 raccoon brown black~
 a brown and black raccoon~
@@ -96,7 +95,7 @@ AG 0 0 0
 8 8 8 10
 EKN 0 0 0
 stand stand male 10
-0 0 medium 0
+0 0 medium unknown
 #7506
 ground hog groundhog~
 a ground-hog~
@@ -110,7 +109,7 @@ AG 0 0 0
 8 8 8 10
 EKN 0 0 0
 stand stand male 44
-0 0 medium 0
+0 0 medium unknown
 #7507
 field mouse fieldmouse small~
 a field mouse~
@@ -124,7 +123,7 @@ AG 0 0 0
 9 9 9 10
 EKN 0 0 0
 stand stand male 10
-0 0 tiny 0
+0 0 tiny unknown
 #7508
 flying squirrel~
 a flying squirrel~
@@ -134,12 +133,12 @@ He's small, furry, and brown.  Makes you wish you could step on him-except
 he's flying, and you're not.  We should fix this...
 ~
 song bird~
-AG T 0 0
+AG 0 0 0
 2 0 2d7+21 19d1+1 1d5+0 punch
 8 8 8 10
 EKN 0 0 0
 stand stand male 40
-0 0 small 0
+0 0 small unknown
 #7509
 starryeyed starry eyed lover~
 a starry eyed lover~
@@ -154,7 +153,7 @@ AG 0 300 0
 6 6 6 9
 EKN 0 0 0
 stand stand male 350
-0 0 medium 0
+0 0 medium unknown
 #7510
 starryeyed starry eyed lover~
 a starry eyed lover~
@@ -169,7 +168,7 @@ AG 0 300 0
 6 6 6 9
 EKN 0 0 0
 stand stand female 60
-0 0 medium 0
+0 0 medium unknown
 #7511
 herbalist helper young~
 a herbalists helper~
@@ -183,7 +182,7 @@ AG 0 0 0
 4 4 4 9
 EKN 0 0 0
 stand stand male 90
-0 0 medium 0
+0 0 medium unknown
 #7512
 water snake~
 water snake~
@@ -197,7 +196,7 @@ AG 0 0 0
 4 4 4 9
 EKN 0 0 0
 stand stand male 110
-0 0 medium 0
+0 0 medium unknown
 #7513
 fish pointy teeth small~
 a small fish with pointy teeth~
@@ -211,7 +210,7 @@ AG 0 0 0
 4 4 4 9
 EKN 0 0 0
 stand stand male 133
-0 0 medium 0
+0 0 medium unknown
 #7514
 fish pointy medium teeth~
 a medium fish will pointy teeth~
@@ -225,7 +224,7 @@ AG 0 0 0
 4 4 4 9
 EKN 0 0 0
 stand stand male 150
-0 0 medium 0
+0 0 medium unknown
 #7515
 fish pointy teeth large~
 a large fish with pointy teeth~
@@ -239,7 +238,7 @@ AG 0 0 0
 3 3 3 9
 EKN 0 0 0
 stand stand male 170
-0 0 medium 0
+0 0 medium unknown
 #7516
 goldfish small happy~
 a goldfish~
@@ -254,7 +253,7 @@ AG 0 0 0
 5 5 5 9
 EKN 0 0 0
 stand stand male 170
-0 0 medium 0
+0 0 medium unknown
 #7517
 guppy small happy~
 a guppy~
@@ -268,7 +267,7 @@ AG 0 0 0
 5 5 5 9
 EKN 0 0 0
 stand stand male 134
-0 0 medium 0
+0 0 medium unknown
 #7518
 fish teeth blunted~
 a fish with blunted teeth~
@@ -284,7 +283,7 @@ AG 0 0 0
 4 4 4 9
 EKN 0 0 0
 stand stand male 130
-0 0 medium 0
+0 0 medium unknown
 #7519
 bugbear ugly~
 a bugbear~
@@ -296,9 +295,9 @@ bear~
 AG 0 -500 0
 9 0 2d6+110 89d1+1 1d8+2 pierce
 2 2 2 9
-EKN 0 0 0
+KN 0 0 0
 stand stand male 170
-0 0 medium 0
+0 0 medium unknown
 #7520
 worm cleaner large~
 a cleaner worm~
@@ -307,12 +306,12 @@ A LARGE Cleaner Worm is here!
 Now you know why these tunnels are so clean.
 ~
 snake~
-96 552 0 0
+AFG DFJ 0 0
 10 0 2d7+121 99d1+1 2d4+2 grep
 1 1 1 8
 EKN 0 0 0
 stand stand male 200
-0 0 medium 0
+0 0 medium unknown
 #7521
 citizen man~
 a citizen of Gerighelm~
@@ -321,12 +320,12 @@ A citizen of the fine city or Gerighelm is here, going to and from his errands
 The citizen of Gerighelm looks happy, and contented.
 ~
 human~
-AGE 0 0 7521
+AEG 0 0 7521
 6 0 2d7+71 59d1+1 1d7+1 punch
 4 4 4 9
 EKN 0 0 0
 stand stand male 120
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #7522
 citizen woman~
 a citizen of Gerighelm~
@@ -341,7 +340,7 @@ A G 0 7521
 4 4 4 9
 EKN 0 0 0
 stand stand female 140
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #7523
 troubadour bard~
 a troubadour~
@@ -356,7 +355,7 @@ AG 0 0 0
 1 1 1 8
 EKN 0 0 0
 stand stand male 200
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #7524
 biddy old~
 an old biddy~
@@ -370,7 +369,7 @@ AG 0 0 0
 1 1 1 8
 EKN 0 0 C
 stand stand female 280
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #7525
 coot old~
 an old coot~
@@ -385,7 +384,7 @@ AG 0 0 7525
 -1 -1 -1 8
 EKN 0 0 C
 stand stand male 360
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #7526
 child little boy~
 a little boy~
@@ -400,7 +399,7 @@ AG 0 0 0
 6 6 6 9
 EKN 0 0 C
 stand stand male 100
-AHMV ABCDEFGHIJK small 90
+0 0 small unknown
 #7527
 child little girl~
 a little girl~
@@ -414,7 +413,7 @@ AG 0 0 0
 6 6 6 9
 EKN 0 0 C
 stand stand female 100
-AHMV ABCDEFGHIJK small 110
+0 0 small unknown
 #7528
 junior guard~
 a junior guard~
@@ -429,7 +428,7 @@ AGT 0 1000 7528
 -2 -2 -2 7
 CDEKLT 0 0 C
 stand stand male 600
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #7529
 young woman~
 a young woman~
@@ -443,7 +442,7 @@ AGT 0 1000 0
 -1 -1 -1 8
 CDEKL 0 0 C
 stand stand male 520
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #7530
 cityguard guard gerighelm~
 a Gerighelm cityguard~
@@ -457,7 +456,7 @@ AGT 0 1000 7530
 -2 -2 -2 7
 CDEKLT 0 0 C
 stand stand male 600
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #7531
 cityguard guard gerighelm~
 a Gerighelm cityguard~
@@ -471,7 +470,7 @@ AGT 0 1000 7530
 -2 -2 -2 7
 CDEKLT 0 0 C
 stand stand male 680
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #7532
 cityguard guard gerighelm~
 a Gerighelm cityguard~
@@ -485,7 +484,7 @@ AGT 0 1000 7530
 -3 -3 -3 7
 CDEKLT 0 0 C
 stand stand male 740
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #7533
 ale-conner ale conner~
 the ale-conner~
@@ -500,7 +499,7 @@ AG 0 0 0
 -3 -3 -3 7
 CDEKLT 0 0 C
 stand stand male 740
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #7534
 defender gerighelm~
 a Defender of Gerighelm~
@@ -514,7 +513,7 @@ AGT 0 1000 7534
 -4 -4 -4 7
 CDEKLT 0 0 C
 stand stand male 920
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #7535
 defender gerighelm~
 a Defender of Gerighelm~
@@ -528,7 +527,7 @@ AGT 0 1000 7534
 -4 -4 -4 7
 CDEKLT 0 0 C
 stand stand male 1000
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #7536
 palace guard~
 a palace guard~
@@ -542,7 +541,7 @@ AGT 0 1000 7536
 -4 -4 -4 7
 CDEKLT 0 0 C
 stand stand male 1000
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #7537
 palace guard~
 a palace guard~
@@ -556,7 +555,7 @@ AGT 0 1000 7536
 -5 -5 -5 7
 CDEKLT 0 0 C
 stand stand male 1300
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #7538
 cook~
 the cook~
@@ -570,7 +569,7 @@ AGT 0 1000 0
 -5 -5 -5 7
 CDEKL 0 0 C
 stand stand male 1600
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #7539
 palace mage~
 the palace mage~
@@ -584,7 +583,7 @@ AGHR B 1000 0
 -6 -6 -6 6
 N B 0 E
 stand stand male 2000
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #7540
 palace priest~
 the palace priest~
@@ -598,7 +597,7 @@ ABGR BH 1000 0
 -6 -6 -6 6
 EFK 0 0 E
 stand stand male 2000
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #7550
 head guard~
 the head of the guard~
@@ -612,7 +611,7 @@ AGT 0 1000 7550
 -6 -6 -6 6
 CDEKLT 0 0 C
 stand stand male 2000
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #7551
 palace gardener~
 the palace gardener~
@@ -626,7 +625,7 @@ AGT 0 1000 0
 -6 -6 -6 6
 CDEKL 0 0 C
 stand stand male 2000
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #7552
 bodyguard body guard~
 a bodyguard~
@@ -640,7 +639,7 @@ AGT 0 1000 0
 -6 -6 -6 6
 CDEKLT 0 0 C
 stand stand male 2200
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #7553
 bodyguard body guard~
 a bodyguard~
@@ -654,7 +653,7 @@ AGT 0 1000 0
 -7 -7 -7 6
 CDEKLT 0 0 C
 stand stand male 2500
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #7554
 duke gerighelm~
 the Duke of Gerighelm~
@@ -668,7 +667,7 @@ ABGRT 0 1000 7550
 -9 -9 -9 6
 CDEFJKLNU AB 0 E
 stand stand male 4000
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #7555
 duchess gerighelm~
 the Duchess of Gerighelm~
@@ -682,7 +681,7 @@ ABGR 0 1000 0
 -7 -7 -7 6
 FKN AB 0 E
 stand stand female 2500
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #7590
 servant~
 a servant~
@@ -696,7 +695,7 @@ AG 0 1000 0
 -4 -4 -4 7
 CDEKL 0 0 C
 stand stand male 1000
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #7591
 cutpurse~
 a cutpurse~
@@ -710,7 +709,7 @@ ACHS PQ -100 0
 1 1 1 8
 EFJN 0 0 0
 stand stand either 200
-0 0 medium 0
+0 0 medium unknown
 #7592
 baker~
 a baker~
@@ -724,7 +723,7 @@ ABV 0 900 0
 -25 -25 -25 -25
 CDF ABCD 0 0
 stand stand male 100000
-0 0 medium 0
+0 0 medium unknown
 #7593
 blacksmith vendy~
 the blacksmith Vendy~
@@ -739,7 +738,7 @@ ABTV 0 900 0
 -25 -25 -25 -25
 CEIK ABCD 0 0
 stand stand female 250000
-0 0 medium 0
+0 0 medium unknown
 #7594
 mage~
 the mage~
@@ -753,7 +752,7 @@ ABV D 900 0
 -15 -15 -15 -15
 AF ABCD 0 0
 stand stand male 150000
-0 0 medium 0
+0 0 medium unknown
 #7595
 pawn shop runner~
 the pawn shop owner~
@@ -767,7 +766,7 @@ ABV 0 900 0
 -15 -15 -15 -15
 EFJ ABCD 0 0
 stand stand male 130000
-0 0 medium 0
+0 0 medium unknown
 #7597
 merchant~
 the merchant~
@@ -781,7 +780,7 @@ AV 0 900 0
 -15 -15 -15 -15
 EFJ ABCD 0 0
 stand stand male 80000
-0 0 medium 0
+0 0 medium unknown
 #7604
 herbalist~
 the herbalist~
@@ -795,7 +794,7 @@ ABV 0 900 0
 -15 -15 -15 -15
 EFJ ABCD 0 0
 stand stand female 150000
-0 0 medium 0
+0 0 medium unknown
 #7609
 animal man~
 the animal man~
@@ -809,7 +808,7 @@ ABV 0 900 0
 -15 -15 -15 -15
 0 ABC 0 0
 stand stand male 9000
-0 0 medium 0
+0 0 medium unknown
 #7610
 witch hag~
 the old witch~
@@ -823,7 +822,7 @@ ABV D 900 7006
 -15 -15 -15 -15
 AF ABCD 0 0
 stand stand male 20000
-0 0 medium 0
+0 0 medium unknown
 #7698
 hawk~
 a hawk~
@@ -837,7 +836,7 @@ AG 0 1000 0
 -4 -4 -4 7
 EKN 0 0 0
 stand stand male 10
-0 0 medium 0
+0 0 medium unknown
 #7699
 death~
 the Death~
@@ -852,19 +851,19 @@ ABGT CDF 100 0
 -30 -30 -30 0
 A 0 0 C
 stand stand either 0
-AHMV ABCDEFGHIJK medium 0
-
+0 0 medium unknown
 #0
 
-#OBJECTS
 
+
+#OBJECTS
 #7500
 apple~
 an apple~
 An apple is here.~
 food~
 food 0 A
-20 20 0 0 0
+CE CE 0 0 0
 1 1 2 P
 #7501
 apple pie~
@@ -872,7 +871,7 @@ an apple pie~
 An apple pie is here.~
 food~
 food 0 A
-40 40 0 0 0
+DF DF 0 0 0
 1 4 10 P
 #7502
 beet~
@@ -880,7 +879,7 @@ a beet~
 A beet is growing here.~
 food~
 food 0 A
-50 50 0 A 0
+BEF BEF 0 A 0
 1 4 40 P
 #7503
 carrot~
@@ -888,7 +887,7 @@ a carrot~
 A carrot is lieing here.~
 food~
 food 0 A
-20 20 0 0 0
+CE CE 0 0 0
 1 4 10 P
 #7504
 beer bottle~
@@ -936,7 +935,7 @@ corpse of a guppy~
 The corpse of a guppy is here.  Just sitting and being dead.~
 food~
 food 0 A
-4 4 0 0 0
+C C 0 0 0
 1 10 0 P
 #7512
 corpse goldfish~
@@ -944,7 +943,7 @@ corpse of a goldfish~
 The corpse of a goldfish is here.  It has been dead for a while..~
 food~
 food 0 A
-5 5 0 0 0
+AC AC 0 0 0
 1 10 0 P
 #7513
 lute~
@@ -1025,7 +1024,7 @@ a junior guard vest~
 A junior guard vest is here. forgotten.~
 leather~
 armor G AD
-6 6 6 0 1
+BC BC BC 0 A
 14 60 2448 P
 A
 17 -10
@@ -1040,7 +1039,7 @@ a junior guard shield~
 A junior guard shield is here.  Forgotten.~
 leather~
 armor G AJ
-6 6 6 0 1
+BC BC BC 0 A
 14 60 2400 P
 A
 2 2
@@ -1089,7 +1088,7 @@ a Gerighelm guard helmet~
 A Gerighelm guard helmet is here.~
 bronze~
 armor 0 AE
-3 3 3 0 2
+AB AB AB 0 B
 17 20 10 P
 #7526
 sleeves guard gerighelm~
@@ -1097,7 +1096,7 @@ a pair of Gerighelm guard sleeves~
 A set of Sleeves are here.~
 bronze~
 armor 0 AI
-6 6 6 0 2
+BC BC BC 0 B
 17 40 2295 P
 #7527
 leggings guard gerighelm~
@@ -1105,7 +1104,7 @@ a pair of Gerighelm guard leggings~
 A set of leggings is here.~
 bronze~
 armor 0 AF
-6 6 6 0 2
+BC BC BC 0 B
 16 50 2448 P
 #7528
 shield guard gerighelm~
@@ -1113,7 +1112,7 @@ a Gerighelm shield~
 A Gerighelm shield is here. getting buried in the dust.~
 bronze~
 armor 0 AJ
-6 6 6 0 2
+BC BC BC 0 B
 16 60 2400 P
 #7529
 vest guard gerighelm~
@@ -1121,7 +1120,7 @@ a Gerighelm vest~
 a Gerighelm guard vest is here.~
 bronze~
 armor 0 AD
-6 6 6 0 2
+BC BC BC 0 B
 16 70 2720 P
 #7530
 cape guard gerighelm~
@@ -1129,7 +1128,7 @@ a Gerighelm guard cape~
 A Gerighelm guard's cape is here.~
 cloth~
 armor 0 AK
-6 6 6 0 2
+BC BC BC 0 B
 16 50 2560 P
 #7531
 cloak guard gerighelm~
@@ -1137,7 +1136,7 @@ a Gerighelm cloak~
 A Gerighelm guard's cloak is here.~
 cloth~
 armor G AC
-6 6 6 0 2
+BC BC BC 0 B
 16 50 2560 P
 A
 1 3
@@ -1151,7 +1150,7 @@ a pair of Gerighelm gloves~
 A pair of Gerighelm gloves are here.~
 bronze~
 armor 0 AH
-6 6 6 0 2
+BC BC BC 0 B
 16 30 2448 P
 #7533
 belt guard gerighelm~
@@ -1159,7 +1158,7 @@ a Gerighelm belt~
 A Gerighelm belt is lieing here.~
 bronze~
 armor 0 AL
-6 6 6 0 2
+BC BC BC 0 B
 16 20 2400 P
 #7534
 bracer guard gerighelm~
@@ -1167,7 +1166,7 @@ a Gerighelm bracer~
 A Gerighelm bracer is lieing here.~
 bronze~
 armor 0 AM
-6 6 6 0 2
+BC BC BC 0 B
 16 20 2560 P
 #7535
 sword guard gerighelm~
@@ -1183,7 +1182,7 @@ a pair of Gerighelm boots~
 A pair of Gerighelm boots are here.~
 bronze~
 armor 0 AG
-6 6 6 0 2
+BC BC BC 0 B
 16 50 3060 P
 #7537
 helm defenders~
@@ -1191,7 +1190,7 @@ a defenders helm~
 the helm of one of Gerighelms defenders is here.~
 gold~
 armor 0 AE
-6 6 6 0 2
+BC BC BC 0 B
 20 40 3800 P
 #7538
 sword defenders~
@@ -1217,7 +1216,7 @@ a palace guard helmet~
 A helmet that glows!~
 steel~
 armor A AE
-7 7 7 0 2
+ABC ABC ABC 0 B
 22 30 3780 P
 #7541
 sleeves palace guard~
@@ -1225,7 +1224,7 @@ a pair of palace guard sleeves~
 Some sleeves that glow!~
 steel~
 armor A AI
-7 7 7 0 2
+ABC ABC ABC 0 B
 22 50 5082 P
 #7542
 leggings palace guard~
@@ -1233,7 +1232,7 @@ a pair of palace guard leggings~
 Some leggings that glow!~
 steel~
 armor A AF
-7 7 7 0 2
+ABC ABC ABC 0 B
 22 60 4851 P
 #7543
 shield palace guard~
@@ -1241,7 +1240,7 @@ a palace guard shield~
 A shield that glows!~
 steel~
 armor A AJ
-7 7 7 0 2
+ABC ABC ABC 0 B
 22 50 5082 P
 #7544
 vest palace guard~
@@ -1249,7 +1248,7 @@ a palace guard vest~
 A vest that glows!~
 steel~
 armor A AD
-7 7 7 0 2
+ABC ABC ABC 0 B
 22 60 4840 P
 #7545
 cape palace guard~
@@ -1257,7 +1256,7 @@ a palace guard cape~
 A cape that glows!~
 steel~
 armor A AK
-7 7 7 0 2
+ABC ABC ABC 0 B
 22 40 4620 P
 #7546
 cloak palace guard~
@@ -1265,7 +1264,7 @@ a palace guard cloak~
 a cloak that glows! And Humms too!!~
 steel~
 armor ABG AC
-7 7 7 -1 2
+ABC ABC ABC ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef B
 22 40 4700 P
 A
 5 2
@@ -1279,7 +1278,7 @@ a pair of palace guard gloves~
 A pair of gloves that glow!~
 steel~
 armor A AH
-7 7 7 0 2
+ABC ABC ABC 0 B
 22 40 4400 P
 #7548
 belt palace guard~
@@ -1287,7 +1286,7 @@ a palace guard belt~
 A belt the glows!~
 steel~
 armor A AL
-7 7 7 0 2
+ABC ABC ABC 0 B
 22 60 4620 P
 #7549
 bracer palace guard~
@@ -1295,7 +1294,7 @@ a palace guard bracer~
 A bracer that glows!~
 steel~
 armor A AM
-7 7 7 0 2
+ABC ABC ABC 0 B
 22 30 4410 P
 #7550
 sword palace guard~
@@ -1385,7 +1384,7 @@ the vest of the titans~
 A vest is here.~
 leather~
 armor G AD
-7 7 7 0 3
+ABC ABC ABC 0 AB
 21 60 5520 P
 A
 18 4
@@ -1407,7 +1406,7 @@ the gardeners gloves~
 Some gloves are here.~
 cloth~
 armor G AH
-3 3 3 0 1
+AB AB AB 0 A
 21 50 9 P
 A
 2 2
@@ -1427,7 +1426,7 @@ a uniform~
 A uniform is here.~
 cloth~
 armor G AD
-8 8 8 0 3
+D D D 0 AB
 22 60 6000 P
 A
 17 -15
@@ -1465,7 +1464,7 @@ the Dukes Helm~
 A helmet is here.~
 steel~
 armor G AE
-9 9 9 0 3
+AD AD AD 0 AB
 28 50 9920 P
 A
 17 -25
@@ -1475,7 +1474,7 @@ the Duchesses Tiara~
 A Tiara is here.~
 diamond~
 armor G AE
-7 7 7 0 2
+ABC ABC ABC 0 B
 22 10 6520 P
 A
 20 5
@@ -1487,7 +1486,7 @@ a wedding ring~
 A wedding ring is here.~
 gold~
 armor ABG AB
-7 7 7 0 2
+ABC ABC ABC 0 B
 22 10 6600 P
 A
 13 20
@@ -1499,7 +1498,7 @@ a wedding ring~
 A wedding ring is here.~
 gold~
 armor ABG AB
-8 8 8 0 2
+D D D 0 B
 28 10 6600 P
 A
 13 20
@@ -1557,7 +1556,7 @@ a defenders sleeves~
 A pair of sleeves are here, collecting dust.~
 gold~
 armor 0 AI
-6 6 6 0 2
+BC BC BC 0 B
 18 60 4000 P
 #7651
 leggings defenders~
@@ -1565,7 +1564,7 @@ a defenders leggings~
 A pair of leggings are here, collecting dust.~
 silver~
 armor 0 AF
-6 6 6 0 2
+BC BC BC 0 B
 18 70 4180 P
 #7652
 shield defenders~
@@ -1573,7 +1572,7 @@ a defenders shield~
 A shield is here, emblazoned with Gerighelms coat of arms.~
 silver~
 armor 0 AJ
-6 6 6 0 2
+BC BC BC 0 B
 18 80 3610 P
 #7653
 ring defender~
@@ -1591,7 +1590,7 @@ a defenders vest~
 A gold and silver vest is lieing on the side of the road.~
 silver~
 armor 0 AD
-5 5 5 -1 2
+AC AC AC ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef B
 18 60 3600 P
 #7655
 cape defender~
@@ -1599,7 +1598,7 @@ a defenders cape~
 A cape is hanging by a tree branch.~
 gold~
 armor 0 AK
-6 6 6 0 2
+BC BC BC 0 B
 18 80 3800 P
 #7656
 cloak defender~
@@ -1607,7 +1606,7 @@ a defenders cloak~
 A heap of gold and silver cloth is on the ground here.~
 silver~
 armor 0 AC
-6 6 6 0 2
+BC BC BC 0 B
 18 60 3240 P
 #7657
 gloves defender~
@@ -1615,7 +1614,7 @@ a defenders gloves~
 A pair of gloves are on the side of the road here.~
 gold~
 armor 0 AH
-6 6 6 0 2
+BC BC BC 0 B
 18 70 4000 P
 #7658
 belt defender~
@@ -1623,7 +1622,7 @@ a defenders belt~
 A gold belt is lieing here.~
 gold~
 armor 0 AL
-6 6 6 0 2
+BC BC BC 0 B
 18 70 3420 P
 #7659
 bracer defender~
@@ -1631,7 +1630,7 @@ a defenders bracer~
 A silver bracer is lieing here.~
 silver~
 armor 0 AM
-6 6 6 0 2
+BC BC BC 0 B
 18 30 3800 P
 #7660
 boots defender~
@@ -1639,7 +1638,7 @@ a defenders pair of boots~
 A pair of silver boots are here.~
 silver~
 armor 0 AG
-6 6 6 0 2
+BC BC BC 0 B
 18 50 3420 P
 #7661
 boots palace guard~
@@ -1647,7 +1646,7 @@ a palace guards boots~
 A pair of boots are here, glowing!!~
 steel~
 armor A AG
-3 3 3 0 2
+AB AB AB 0 B
 18 50 10 P
 #7699
 scythe~
@@ -1657,13 +1656,14 @@ mithril~
 weapon G AN
 exotic 10 8 smash DE
 60 200 50000 P
-
 #0
+
+
 
 #ROOMS
 #7500
 Entrance to the park.~
-   This is the entrance to a small park. You see that it is full of animals,
+This is the entrance to a small park. You see that it is full of animals,
 birds, and reptiles.  There are also people here, strolling around in the
 romantic setting.
 ~
@@ -1676,7 +1676,7 @@ You see the park.
 S
 #7501
 Inside the park.~
-    You are standing inside what looks like a park--probably because it is
+You are standing inside what looks like a park--probably because it is
 one...
 ~
 0 0 3
@@ -1698,7 +1698,7 @@ You see the park continue on.
 S
 #7502
 The Park.~
-   You are in the park, it is green, and bright, but for some reason,
+You are in the park, it is green, and bright, but for some reason,
 someone placed a wall to the north, east, and south....
 ~
 0 0 3
@@ -1710,7 +1710,7 @@ You see the park.
 S
 #7503
 The Park.~
-   You are in the park.  The breeze flows around you like a current of
+You are in the park.  The breeze flows around you like a current of
 refreshing water.
 ~
 0 0 3
@@ -1727,7 +1727,7 @@ You see the park.
 S
 #7504
 The Park.~
-   You are in the Park. You think that it is cool and refreshing to be here,
+You are in the Park. You think that it is cool and refreshing to be here,
 and that you should really come here more often.
 ~
 0 0 3
@@ -1744,7 +1744,7 @@ You see the park.
 S
 #7505
 The Park.~
-   You are in the Park.  This is a really nice place to be.
+You are in the Park.  This is a really nice place to be.
 ~
 0 0 3
 D1
@@ -1765,7 +1765,7 @@ You see the park.
 S
 #7506
 The Park.~
-   You are in the Park.  The cool breezes bring on memorys of when you were
+You are in the Park.  The cool breezes bring on memorys of when you were
 a small child.
 ~
 0 0 3
@@ -1787,7 +1787,7 @@ You see the park.
 S
 #7507
 The Park.~
-   You are in the Park.  here, at the edge of the park, you find several
+You are in the Park.  here, at the edge of the park, you find several
 benches.  However, they are all occupied by the people who got here first.
 'Da*n' you think, as you see them all so full of grins.
 ~
@@ -1805,7 +1805,7 @@ You see the park.
 S
 #7508
 The Park.~
-   You are in the Park.  You feel intoxicated by the night breeze.
+You are in the Park.  You feel intoxicated by the night breeze.
 ~
 0 0 3
 D0
@@ -1826,7 +1826,7 @@ You see the park.
 S
 #7509
 The Park.~
-   You are in the Park.  Gods, this is beautiful!
+You are in the Park.  Gods, this is beautiful!
 ~
 0 0 3
 D0
@@ -1852,7 +1852,7 @@ You see the park.
 S
 #7510
 The Park.~
-   You are in the Park.  You think 'This is THE most BEAUTIFUL place I've
+You are in the Park.  You think 'This is THE most BEAUTIFUL place I've
 ever been to!'.
 ~
 0 0 3
@@ -1874,7 +1874,7 @@ You see the park.
 S
 #7511
 The trail in the Park.~
-   You are in the Park.  You are on a small worn trail to a building to the
+You are in the Park.  You are on a small worn trail to a building to the
 east.
 ~
 0 0 3
@@ -1896,7 +1896,7 @@ You see the park.
 S
 #7512
 The trail in the Park.~
-   You are in the Park.  The trail that you are on leads east toward that
+You are in the Park.  The trail that you are on leads east toward that
 building that your see there.
 ~
 0 0 3
@@ -1918,7 +1918,7 @@ You see the trail.
 S
 #7513
 The split in the trail in the Park.~
-   The trail goes east, and south here. There is a building to the east.
+The trail goes east, and south here. There is a building to the east.
 ~
 0 0 3
 D1
@@ -1939,7 +1939,7 @@ You see the trail.
 S
 #7514
 Care-Takers House.~
-  You are in the home of the Caretaker of this Park.  You see shiny spades,
+You are in the home of the Caretaker of this Park.  You see shiny spades,
 hoes, and watering-cans that the Caretaker must like a lot.
 ~
 0 D 0
@@ -1951,7 +1951,7 @@ You see the trail.
 S
 #7515
 The trail.~
-   You are along a trail in the park that is going south at the moment.
+You are along a trail in the park that is going south at the moment.
 You wonder what could be at the end of it...
 ~
 0 0 3
@@ -1968,10 +1968,10 @@ You see the trail.
 S
 #7516
 The trail.~
-   You are along the trail in the park that is going somewhere.... You
+You are along the trail in the park that is going somewhere.... You
 wonder where....
 ~
-74 0 3
+0 0 3
 D0
 You see the trail.
 ~
@@ -1985,10 +1985,10 @@ You see the trail
 S
 #7517
 The end of the trail.~
-   Ah, at last!  The end of the trail!  But um, there really isn't much to
+Ah, at last!  The end of the trail!  But um, there really isn't much to
 see...  I'm sorry.
 ~
-74 0 3
+0 0 3
 D1
 You see the trail.
 ~
@@ -1997,10 +1997,10 @@ You see the trail.
 S
 #7518
 The Park.~
-   You are in the Park.  You feel that it is so peaceful here that you
+You are in the Park.  You feel that it is so peaceful here that you
 want to drop your gear and just rest a moment.
 ~
-74 0 3
+0 0 3
 D0
 You see the park.
 ~
@@ -2019,10 +2019,10 @@ You see the park.
 S
 #7519
 The Entrance to the Garden in the Park.~
-   You are in a large garden now.  It has violets, and other flowers that you
+You are in a large garden now.  It has violets, and other flowers that you
 can't begin to name. (sorry that you slept through that class aren't you?).
 ~
-74 0 1
+0 0 1
 D0
 You see the park.
 ~
@@ -2036,9 +2036,9 @@ You see the garden.
 S
 #7520
 The Garden.~
-   You are inside the garden now, and you see even MORE flowers!
+You are inside the garden now, and you see even MORE flowers!
 ~
-74 0 1
+0 0 1
 D0
 You see the Entrance to the garden.
 ~
@@ -2052,9 +2052,9 @@ You see the garden.
 S
 #7521
 The Garden.~
-   You are in the garden, there are many lovers here who are (Ahem) 'necking'.
+You are in the garden, there are many lovers here who are (Ahem) 'necking'.
 ~
-74 0 1
+0 0 1
 D1
 You see the garden.
 ~
@@ -2073,9 +2073,9 @@ You see the garden.
 S
 #7522
 The Garden.~
-   You are in the garden.  This section seems to be devoted to roses.
+You are in the garden.  This section seems to be devoted to roses.
 ~
-74 0 1
+0 0 1
 D0
 You see the garden.
 ~
@@ -2084,9 +2084,9 @@ You see the garden.
 S
 #7523
 The Garden.~
-   You are in the section of the garden that is devoted to lilacs.
+You are in the section of the garden that is devoted to lilacs.
 ~
-74 0 1
+0 0 1
 D1
 You see the garden.
 ~
@@ -2095,10 +2095,10 @@ You see the garden.
 S
 #7524
 In the Sewers.~
-   You are inside the dark, dank sewers of Gerighelm.  There is a faint
+You are inside the dark, dank sewers of Gerighelm.  There is a faint
 scent of mud in the air.  To the north, there is a wall.....
 ~
-76 A 2
+0 A 2
 D1
 You see the sewers.
 ~
@@ -2112,9 +2112,9 @@ You see the entrance to the sewers.
 S
 #7526
 The Sewers.~
-   You are in the old sewer system of Gerighelm.  It is dark and hard to see.
+You are in the old sewer system of Gerighelm.  It is dark and hard to see.
 ~
-76 A 2
+0 A 2
 D0
 You see the sewers.
 ~
@@ -2138,9 +2138,9 @@ You see the sewers.
 S
 #7527
 The Sewers.~
-   Hmm, another dead end.
+Hmm, another dead end.
 ~
-76 A 2
+0 A 2
 D0
 You see the sewers.
 ~
@@ -2149,9 +2149,9 @@ You see the sewers.
 S
 #7528
 The Sewers.~
-   You are in a tunnel that leads north-south.  The walls here are moist.
+You are in a tunnel that leads north-south.  The walls here are moist.
 ~
-76 A 2
+0 A 2
 D0
 You see the sewers.
 ~
@@ -2165,9 +2165,9 @@ You see the sewers.
 S
 #7529
 The Sewers.~
-   You are in a tunnel that leads north-south.  The walls are moist here.
+You are in a tunnel that leads north-south.  The walls are moist here.
 ~
-76 A 2
+0 A 2
 D0
 You see the sewers.
 ~
@@ -2181,11 +2181,11 @@ You see the sewers.
 S
 #7530
 The Sewers.~
-   You are at one end of a tunnel that leads north-south.  I wonder where
+You are at one end of a tunnel that leads north-south.  I wonder where
 it goes.  Oh well, you can keep wondering, because there is a magic sign
 that says 'UNDER CONSTRUCTION' to the west......
 ~
-76 A 2
+0 A 2
 D2
 You see the sewers.
 ~
@@ -2194,9 +2194,9 @@ You see the sewers.
 S
 #7531
 The Sewers.~
-   You are in one of the twisting tunnels that abound in these sewers.
+You are in one of the twisting tunnels that abound in these sewers.
 ~
-76 AC 2
+0 AC 2
 D1
 You see some VERY clean sewers.
 ~
@@ -2210,9 +2210,9 @@ You see the sewers.
 S
 #7532
 The Sewers.~
-   You are in one of the twisting tunnels in this maze of messy water.
+You are in one of the twisting tunnels in this maze of messy water.
 ~
-76 A 2
+0 A 2
 D0
 You see the sewers.
 ~
@@ -2226,11 +2226,11 @@ You see the sewers.
 S
 #7533
 The Sewers.~
-   You are in the sewers.  Not a very nice area to be.
+You are in the sewers.  Not a very nice area to be.
 Especially because it doesn't exactly smell nice.
 ( You just realized it wasn't your breath...)
 ~
-76 A 2
+0 A 2
 D0
 You see the sewers.
 ~
@@ -2249,10 +2249,10 @@ You see the sewers.
 S
 #7534
 The Sewers.~
-   The tunnel continues on, to the east, and west.  There is a tunnel to the
+The tunnel continues on, to the east, and west.  There is a tunnel to the
 south.
 ~
-76 A 2
+0 A 2
 D1
 You see the sewers.
 ~
@@ -2271,10 +2271,10 @@ you see the sewers.
 S
 #7535
 The tunnel.~
-   You are going down a tunnel that runs north-south.  To
+You are going down a tunnel that runs north-south.  To
 the south there is a wet scent.
 ~
-76 A 1
+0 A 1
 D0
 You see the sewers.
 ~
@@ -2288,10 +2288,10 @@ You see the tunnel.
 S
 #7536
 The tunnel.~
-   You are going down a tunnel that leads north-south.  There is some water
+You are going down a tunnel that leads north-south.  There is some water
 to the south.
 ~
-76 A 2
+0 A 2
 D0
 You see the tunnel.
 ~
@@ -2305,10 +2305,10 @@ You see the tunnel.
 S
 #7537
 The watery tunnel.~
-   There is some water here, it is up to your waist.  It is calm enough
+There is some water here, it is up to your waist.  It is calm enough
 to swim or wade though.
 ~
-76 A 6
+0 A 6
 D0
 You see the tunnel.
 ~
@@ -2322,9 +2322,9 @@ You see the tunnel.
 S
 #7538
 The watery tunnel.~
-   The water gets deeper here, it is up to your chin.
+The water gets deeper here, it is up to your chin.
 ~
-76 A 6
+0 A 6
 D0
 You see the tunnel.
 ~
@@ -2338,10 +2338,10 @@ You see the end of the tunnel.
 S
 #7539
 The end of the watery tunnel.~
-   The tunnel ends here, with all that water in the tunnel pouring out.
+The tunnel ends here, with all that water in the tunnel pouring out.
 The water here is rough, it is all you can do to keep your head afloat.
 To the east and west, there a walls in the way of your movement.~
-76 AC 6
+0 AC 6
 D0
 You see the tunnel.
 ~
@@ -2350,9 +2350,9 @@ You see the tunnel.
 S
 #7540
 The Sewers.~
-   You are in the sewers.  There is the familiar dank smell to everything...
+You are in the sewers.  There is the familiar dank smell to everything...
 ~
-76 AC 2
+0 AC 2
 D0
 You see the sewers.
 ~
@@ -2371,9 +2371,9 @@ You see the sewers.
 S
 #7541
 The Sewers.~
-   You are in the sewers, to the east, the tunnel ends.  So it seems.
+You are in the sewers, to the east, the tunnel ends.  So it seems.
 ~
-76 A 2
+0 A 2
 D1
 You see the sewers.
 ~
@@ -2387,16 +2387,16 @@ You see the sewers.
 S
 #7542
 The Sewers.~
-   You are at the end of one of the countless tunnels in these sewers.
+You are at the end of one of the countless tunnels in these sewers.
 To the east, there is a grate that seems to have a force field in between
 the holes in it.
 ~
-76 A 2
+0 A 2
 D1
 You see the grate.
 ~
 grate~
-1 -1 7543
+0 -1 7543
 D3
 You see the sewers.
 ~
@@ -2405,10 +2405,10 @@ You see the sewers.
 S
 #7543
 Underwater in the river.~
-   You are swimming underwater in the river.  It looks so different from
+You are swimming underwater in the river.  It looks so different from
 down here.
 ~
-76 0 7
+0 0 7
 D0
 You see the river.
 ~
@@ -2423,14 +2423,14 @@ D3
 You see the grate to the sewers.
 ~
 grate~
-1 -1 7542
+0 -1 7542
 S
 #7544
 Underwater.~
-   You are underwater in the river.  There seems to be a force field
+You are underwater in the river.  There seems to be a force field
 to the south....
 ~
-76 0 8
+0 0 8
 D0
 You see the river.
 ~
@@ -2439,9 +2439,9 @@ You see the river.
 S
 #7545
 Underwater.~
-   You are underwater in the river.
+You are underwater in the river.
 ~
-76 0 7
+0 0 7
 D0
 You see the river.
 ~
@@ -2455,9 +2455,9 @@ You see the river.
 S
 #7546
 Underwater.~
-   You are underwater in the river.
+You are underwater in the river.
 ~
-76 0 7
+0 0 7
 D0
 You see the river.
 ~
@@ -2471,12 +2471,12 @@ You see the river.
 S
 #7547
 Underwater.~
-   You are underwater in the river.  The water shallows out to the north.
+You are underwater in the river.  The water shallows out to the north.
 To the west there is a ledge that is just above the water, some of it
 is underwater.  As you look closer to the north, you see that there is a
 force field blocking your passage.
 ~
-76 0 7
+0 0 7
 D2
 You see the river.
 ~
@@ -2490,10 +2490,10 @@ You see the half flooded sewers.
 S
 #7548
 Half Flooded Sewers.~
-   You are up to your waist in river water.  To the west there are some VERY
+You are up to your waist in river water.  To the west there are some VERY
 clean sewers...
 ~
-76 C 6
+0 C 6
 D1
 You see the river.
 ~
@@ -2507,20 +2507,10 @@ You see the clean sewers.
 S
 #7549
 Very clean Sewers.~
-   You are standing at the start of a section of sewers that are VERY
+You are standing at the start of a section of sewers that are VERY
 clean...  There is a sign here.
 ~
-76 A 0
-D1
-You see the flooded ledge.
-~
-~
-0 -1 7548
-D2
-You see the clean sewers.
-~
-~
-0 -1 7550
+0 A 0
 E
 sign~
 The sign reads:
@@ -2531,13 +2521,23 @@ The sign reads:
 
 Gerighelm Sewer Service.
 ~
+D1
+You see the flooded ledge.
+~
+~
+0 -1 7548
+D2
+You see the clean sewers.
+~
+~
+0 -1 7550
 S
 #7550
 Very clean Sewers.~
-    You are in some VERY clean sewers.  You have been wondering what that
+You are in some VERY clean sewers.  You have been wondering what that
 sign meant by 'MAGIC WORMS'.......
 ~
-76 A 1
+0 A 1
 D0
 You see the clean sewers.
 ~
@@ -2551,9 +2551,9 @@ You see the clean sewers.
 S
 #7551
 Very clean Sewers.~
-    You are in the VERY clean sewers.
+You are in the VERY clean sewers.
 ~
-76 A 1
+0 A 1
 D1
 You see the clean sewers.
 ~
@@ -2567,9 +2567,9 @@ You see the clean sewers.
 S
 #7552
 Very clean Sewers.~
-    You are in the VERY clean sewers.
+You are in the VERY clean sewers.
 ~
-76 A 1
+0 A 1
 D0
 You see the clean sewers.
 ~
@@ -2588,9 +2588,9 @@ You see the clean sewers.
 S
 #7553
 Very clean Sewers.~
-    You are in the VERY clean sewers.
+You are in the VERY clean sewers.
 ~
-76 A 1
+0 A 1
 D0
 You see the clean sewers.
 ~
@@ -2604,9 +2604,20 @@ You see the clean sewers.
 S
 #7554
 Very clean Sewers.~
-    You are in some EXTREEMLY clean sewers!  There is a sign here.
+You are in some EXTREEMLY clean sewers!  There is a sign here.
 ~
-76 A 1
+0 A 1
+E
+sign~
+The sign reads:
+
+
+                                WARNING    WARNING
+                        TESTING GROUND FOR MAGIC WORMS.
+                                PROCEED AT OWN RISK.
+
+Gerighelm Sewer Service.
+~
 D0
 You see the clean sewers.
 ~
@@ -2622,30 +2633,14 @@ You see the sewers.
 ~
 ~
 0 -1 7531
-E
-sign~
-The sign reads:
-
-
-                                WARNING    WARNING
-                        TESTING GROUND FOR MAGIC WORMS.
-                                PROCEED AT OWN RISK.
-
-Gerighelm Sewer Service.
-~
 S
 #7555
 Old library in the very clean Sewers.~
-    You are in the VERY clean sewers.  There are some benches here, as well
+You are in the VERY clean sewers.  There are some benches here, as well
 as some old books that are aged bye time..  You are afraid to touch them,
 unless they may crumble to dust with your touch.  One of the books is open.
 ~
-76 AC 2
-D2
-You see the clean sewers.
-~
-~
-0 -1 7554
+0 AC 2
 E
 book old~
 The page reads:
@@ -2667,6 +2662,11 @@ And it was done, and there were such greats as uidsgfjkjskfauwehfjk
 
 The rest is garbled by time.
 ~
+D2
+You see the clean sewers.
+~
+~
+0 -1 7554
 S
 #7556
 Junction in the dark Forest~
@@ -2691,7 +2691,7 @@ You see the trail.
 S
 #7557
 Dirt path~
-   You are on a dirt path that leads to a town. (you can tell this because
+You are on a dirt path that leads to a town. (you can tell this because
 a passerby told you.), the path continues north and south.
 ~
 0 0 1
@@ -2708,7 +2708,7 @@ You see the dirt path.
 S
 #7558
 Dirt Path~
-   You are on a dirt path.
+You are on a dirt path.
 ~
 0 0 1
 D0
@@ -2724,7 +2724,7 @@ You see the dirt path.
 S
 #7559
 Dirt Path~
-   You are on the dirt path.
+You are on the dirt path.
 ~
 0 0 1
 D0
@@ -2740,7 +2740,7 @@ You see the dirt path.
 S
 #7560
 Dirt Path~
-    You are on the dirt path.
+You are on the dirt path.
 ~
 0 C 1
 D1
@@ -2756,7 +2756,7 @@ You see the dirt path.
 S
 #7561
 Dirt Path~
-    You are on the dirt path.
+You are on the dirt path.
 ~
 0 0 1
 D2
@@ -2772,7 +2772,7 @@ You see the dirt path.
 S
 #7562
 Dirt Path~
-    You are on the dirt path.  Up ahead, you see a LARGE city.
+You are on the dirt path.  Up ahead, you see a LARGE city.
 ~
 0 0 1
 D0
@@ -2788,22 +2788,12 @@ You see the gate of Gerighelm.
 S
 #7563
 Gate of Gerighelm~
-    You are standing inside the Gate of Gerighelm.  There is only one,
+You are standing inside the Gate of Gerighelm.  There is only one,
 because the town is surrounded by mountains.  Of course, there is a lot
 of traffic here.
      There is a small (Glowing) (Humming) tablet.
 ~
 0 0 1
-D0
-You see the dirt path.
-~
-~
-0 -1 7562
-D2
-You see the West-Street of Gerighelm.
-~
-~
-0 -1 7564
 E
 small tablet~
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -2818,10 +2808,20 @@ small tablet~
 +                                                          july'96 +
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ~
+D0
+You see the dirt path.
+~
+~
+0 -1 7562
+D2
+You see the West-Street of Gerighelm.
+~
+~
+0 -1 7564
 S
 #7564
 West-Street of Gerighelm~
-    This is the western most street of Gerighelm.  To the east, there is
+This is the western most street of Gerighelm.  To the east, there is
 a street with a sign proclaiming:  Peter Ave.
 ~
 0 0 1
@@ -2843,7 +2843,7 @@ You see West-Street.
 S
 #7565
 Peter Ave~
-  You are on Peter Ave.  To the south, you can see the park, but the entrance
+You are on Peter Ave.  To the south, you can see the park, but the entrance
 to the park is still to the east.
 ~
 0 0 1
@@ -2860,7 +2860,7 @@ You see west-street.
 S
 #7566
 Peter Ave~
-  You are on Peter Ave. The the south, you see the entrance to the park.
+You are on Peter Ave. The the south, you see the entrance to the park.
 ~
 0 0 1
 D1
@@ -2881,7 +2881,7 @@ You see peter ave.
 S
 #7567
 Peter Ave~
-  You are on Peter ave. The the west, you see the entrance to the park.
+You are on Peter ave. The the west, you see the entrance to the park.
 ~
 0 0 1
 D2
@@ -2897,7 +2897,7 @@ You see peter ave.
 S
 #7568
 Peter Ave~
-   You are on Peter Ave.  To the west, you can see the park, but it's entrance
+You are on Peter Ave.  To the west, you can see the park, but it's entrance
 is not in sight.
 ~
 0 0 1
@@ -2914,7 +2914,7 @@ You see merchant way.
 S
 #7569
 Merchant Way~
-   You are on the Merchant Way.  There are vendors selling everything that you
+You are on the Merchant Way.  There are vendors selling everything that you
 could possibly need.
 ~
 0 0 1
@@ -2941,15 +2941,10 @@ You see merchant way.
 S
 #7570
 The shop with lots of food~
-   This shop has lots of food in it. Apples, pies, carrots, you name it.
+This shop has lots of food in it. Apples, pies, carrots, you name it.
 There is a sign here.
 ~
 0 D 0
-D0
-You see merchant way.
-~
-~
-0 -1 7569
 E
 sign~
 The sign reads:
@@ -2959,10 +2954,15 @@ The sign reads:
       To see if we wish to purchase something from you, type: VALUE <item>
       If we are interested in the item, you can sell it to use with SELL <item>
 ~
+D0
+You see merchant way.
+~
+~
+0 -1 7569
 S
 #7571
 Merchant Way~
-   You are on the Merchant Way.  To the south, there is a weapon shop.
+You are on the Merchant Way.  To the south, there is a weapon shop.
 ~
 0 0 1
 D1
@@ -2983,15 +2983,10 @@ You see merchant way.
 S
 #7572
 Weapon shop~
-  You are in the weapon shop. There are many fine weapons here, but all of
+You are in the weapon shop. There are many fine weapons here, but all of
 them are safe and out of your reach.  There is a sign here.
 ~
 0 D 0
-D0
-You see the merchant way.
-~
-~
-0 -1 7571
 E
 sign~
 The sign reads:
@@ -3002,10 +2997,15 @@ To see if we want to buy something from you, type: VALUE <item>
 To buy an item type: BUY <item>
 To sell an item, type: SELL <item>
 ~
+D0
+You see the merchant way.
+~
+~
+0 -1 7571
 S
 #7573
 End of Merchant Way~
-    You are at the end of merchant way, yet there is still another store
+You are at the end of merchant way, yet there is still another store
 south of here.
 ~
 0 0 1
@@ -3022,15 +3022,10 @@ You see merchant way.
 S
 #7574
 Herbalist Shop~
-    You are inside the Herbalist Shop.  There are many herbs here- Lord knows
+You are inside the Herbalist Shop.  There are many herbs here- Lord knows
 WHAT some of them do... There is a sign here too, on the table.
 ~
 0 D 0
-D0
-You see the end of merchant way.
-~
-~
-0 -1 7573
 E
 sign~
 The sign reads:
@@ -3040,10 +3035,15 @@ To buy something, type: BUY <item>
 To value something, type: VALUE <item>
 To sell something, type: SELL <item>
 ~
+D0
+You see the end of merchant way.
+~
+~
+0 -1 7573
 S
 #7575
 Merchant Way~
-   You are on merchant way. To the south, there is another shop.
+You are on merchant way. To the south, there is another shop.
 ~
 0 0 1
 D1
@@ -3064,15 +3064,10 @@ You see the merchant way.
 S
 #7576
 Magic Shop~
-   You are inside the magic shop.  There are many many many magical things
+You are inside the magic shop.  There are many many many magical things
 of unknown nature.  There is a sign here.
 ~
 0 D 0
-D0
-You see the merchant way.
-~
-~
-0 -1 7575
 E
 sign~
 the sign reads:
@@ -3082,10 +3077,15 @@ To see what we want to buy from you, type: VALUE <item>
 To sell an item, type: SELL <item>
 To buy an item, type: BUY <item>
 ~
+D0
+You see the merchant way.
+~
+~
+0 -1 7575
 S
 #7577
 Merchant Way~
-  You are on the merchant way.  To the south, there is the local branch
+You are on the merchant way.  To the south, there is the local branch
 of the Pawn Shop.  And to the west, Merchant ave. ends.
 ~
 0 0 1
@@ -3107,7 +3107,7 @@ You see West-Street
 S
 #7578
 The Pawn Shop~
-   You are in the Pawn shop.  Unfourtuatly, there is no pawn here,
+You are in the Pawn shop.  Unfourtuatly, there is no pawn here,
 just a hired merchant.
 ~
 0 D 0
@@ -3119,7 +3119,7 @@ You see the merchant way.
 S
 #7579
 West-Street~
-   You are on West-Street.  To the east, the Merchant Way begins.
+You are on West-Street.  To the east, the Merchant Way begins.
 ~
 0 0 1
 D0
@@ -3140,7 +3140,7 @@ You see West-Street.
 S
 #7580
 West-Street~
-   You are on the West-Street.  To the north, you approach the North Gate.
+You are on the West-Street.  To the north, you approach the North Gate.
 ~
 0 0 1
 D0
@@ -3156,7 +3156,7 @@ You see the West-Street.
 S
 #7581
 West-Street~
-   You are on the West-Street.  To the south, Merchant way begins. As well as
+You are on the West-Street.  To the south, Merchant way begins. As well as
 to the north.
 ~
 0 0 1
@@ -3173,7 +3173,7 @@ You see West-Street.
 S
 #7582
 West-Street~
-    You are on West-Street. To the west, Mable Road begins, and to the east
+You are on West-Street. To the west, Mable Road begins, and to the east
 Merchant way travels.
 ~
 0 0 1
@@ -3222,7 +3222,7 @@ You see Mable road.
 S
 #7584
 Mable Road~
-  You are on Mable road. To the north, the palace looms large, but the
+You are on Mable road. To the north, the palace looms large, but the
 entrance to the palace is to the east.  There is a sewer pipe exposed in
 the side of the road.
 ~
@@ -3245,7 +3245,7 @@ You see the sewers.
 S
 #7585
 Mable Road~
-  You are on Mable road. To the north, the palace STILL looms big.
+You are on Mable road. To the north, the palace STILL looms big.
 ~
 0 0 1
 D0
@@ -3261,7 +3261,7 @@ You see Mable road.
 S
 #7586
 Mable Road~
-   You are on Mable road.  To the north, the palace looms majesticly on
+You are on Mable road.  To the north, the palace looms majesticly on
 the horizon.
 ~
 0 0 1
@@ -3278,7 +3278,7 @@ You see Mable road.
 S
 #7587
 Mable Road~
-   You are on Mable road.  To the southeast, you see the path leaving
+You are on Mable road.  To the southeast, you see the path leaving
 Gerighelm.  Also, to the east, West-Street takes over.
 ~
 0 0 1
@@ -3316,7 +3316,7 @@ You see Mable road.
 S
 #7589
 West-Street~
-   You are on West-Street.  To the north, there is an intersection of
+You are on West-Street.  To the north, there is an intersection of
 Merchant Way, West-street, and  Mable road.  And, to the east, Temple
 Street wends.
 ~
@@ -3339,7 +3339,7 @@ You see West-Street.
 S
 #7590
 Temple Street~
-  You are on Temple Street.  To the south, there is some construction work
+You are on Temple Street.  To the south, there is some construction work
 going on.
 ~
 0 0 1
@@ -3374,7 +3374,7 @@ You see Temple Street.
 S
 #7592
 Temple Street~
-   You are on Temple Street.  To the south is the Temple to Time.
+You are on Temple Street.  To the south is the Temple to Time.
 ~
 0 0 1
 D1
@@ -3407,7 +3407,7 @@ You see the Temple Street.
 S
 #7594
 Temple Street~
-  You are on Temple street. to the south, you see the cathedral.
+You are on Temple street. to the south, you see the cathedral.
 ~
 0 0 1
 D2
@@ -3428,6 +3428,10 @@ You are standing inside the temple of Death. It's kinda scary in here, how
 about running away hmm?
 ~
 0 D 0
+E
+altar~
+It is a coffin.  It's kinda scary, maybe you should just run away now, hmm?
+~
 D0
 You see Temple Street.
 ~
@@ -3438,14 +3442,10 @@ You see Sacrifice Room.
 ~
 ~
 0 -1 7699
-E
-altar~
-It is a coffin.  It's kinda scary, maybe you should just run away now, hmm?
-~
 S
 #7596
 Temple Street~
-  You are standing on Temple street.  To the south a Temple is leaking.
+You are standing on Temple street.  To the south a Temple is leaking.
 Blood!
 ~
 0 0 1
@@ -3468,19 +3468,19 @@ RIVERS of blood!  It's very artistic.  The altar contains: Blood, guts, a few
 sacrificial offerings (corpses, soon to be corpses, whatever).
 ~
 0 D 0
+E
+altar~
+On the altar you see: babes, men, women, and, of course, ducklings.
+~
 D0
 You see the Temple Street.
 ~
 ~
 0 -1 7596
-E
-altar~
-On the altar you see: babes, men, women, and, of course, ducklings.
-~
 S
 #7598
 Path from Gerighelm~
-  You are at the beginning of a path from Gerighelm.
+You are at the beginning of a path from Gerighelm.
 ~
 0 0 2
 D0
@@ -3496,7 +3496,7 @@ You see the Dump.
 S
 #7599
 The Dump~
-  You are at the Dump.
+You are at the Dump.
 ~
 0 0 4
 D0
@@ -3512,7 +3512,7 @@ You see The dump.
 S
 #7600
 The Dump~
-  You are at the Dump.  Need I say more?
+You are at the Dump.  Need I say more?
 ~
 0 0 4
 D0
@@ -3546,7 +3546,7 @@ You see West-Street.
 S
 #7602
 Ye Olde Pet Shope~
-    You are standing inside the pet shop.  There are pets EVERYWHERE.
+You are standing inside the pet shop.  There are pets EVERYWHERE.
 There are dogs, cats, kittens, puppy's, wolves, you name it.
 ~
 0 DKM 0
@@ -3558,7 +3558,7 @@ You see the merchant way.
 S
 #7603
 Merchant Way~
-   You are on the merchant way.  To the north, there is yet another shop.
+You are on the merchant way.  To the north, there is yet another shop.
 This one is: Greghimles furniture store.
 ~
 0 0 1
@@ -3580,7 +3580,7 @@ You see the Merchant way.
 S
 #7604
 Greghimles furniture store~
-  You are inside Greghimles furniture store.  There are lamps, boxes, great
+You are inside Greghimles furniture store.  There are lamps, boxes, great
 stuffed chairs, that sort of thing.
 ~
 0 D 0
@@ -3633,7 +3633,7 @@ You see the Merchant way.
 S
 #7607
 Merchant Way~
-   You are on the Merchant way.  To the north, there is another shop.
+You are on the Merchant way.  To the north, there is another shop.
 This one is:  Water bottles and beer.
 ~
 0 0 1
@@ -3655,7 +3655,7 @@ You see the Merchant way.
 S
 #7608
 Water bottles and Beer~
-  You are inside a shop with a small bar.
+You are inside a shop with a small bar.
 ~
 0 D 0
 D2
@@ -3689,7 +3689,7 @@ You see the Merchant way.
 S
 #7610
 The Potions and Wands shop~
-   This shop is tended by an old witch.  There are boiling pots and cauldrons
+This shop is tended by an old witch.  There are boiling pots and cauldrons
 all over.
 ~
 0 D 0
@@ -3701,7 +3701,7 @@ You see the Merchant way.
 S
 #7611
 Bridge over the river~
-   You are on a bridge over the river.
+You are on a bridge over the river.
 ~
 0 0 1
 D1
@@ -3717,21 +3717,21 @@ You see the Merchant way.
 S
 #7612
 Merchant Way~
-  You are on Merchant way.  This part of Merchant way is much more crowded.
+You are on Merchant way.  This part of Merchant way is much more crowded.
 the vendors have taken to wandering the streets, selling their stock as they
 go.
 ~
 0 0 2
-D2
-You see the crowded market.
-~
-~
-0 -1 7613
 D1
 You see the crowded market.
 ~
 ~
 0 -1 7614
+D2
+You see the crowded market.
+~
+~
+0 -1 7613
 D3
 You see the bridge over the river.
 ~
@@ -3740,7 +3740,7 @@ You see the bridge over the river.
 S
 #7613
 Crowded market~
-   You wonder if you are going to get out of this crowded market.....
+You wonder if you are going to get out of this crowded market.....
 ~
 0 0 4
 D0
@@ -3751,7 +3751,7 @@ You see Merchant way.
 S
 #7614
 Crowded market~
-   You think that you can get away from the crowd!  To the north, there
+You think that you can get away from the crowd!  To the north, there
 is a long path the wends it's way into the distance.
 ~
 0 0 4
@@ -3778,7 +3778,7 @@ You see the Merchant way.
 S
 #7615
 Long path~
-  You are on the long path.  To the south, you see the crowded market.
+You are on the long path.  To the south, you see the crowded market.
 To the north, you see the path as peaceful as can be.
 ~
 0 0 2
@@ -3833,7 +3833,7 @@ You see the long path.
 S
 #7620
 Rurals~
-   You are surrounded by people as they go about their errands from house to
+You are surrounded by people as they go about their errands from house to
 house.
 ~
 0 0 2
@@ -3850,7 +3850,7 @@ You see the junction.
 S
 #7621
 Rurals~
-   Up ahead, you see a pair of paths, that lead up to the front doors
+Up ahead, you see a pair of paths, that lead up to the front doors
 of the houses.
 ~
 0 0 1
@@ -3867,7 +3867,7 @@ You see the path you came in on.
 S
 #7622
 Pair of paths~
-   The paths are under you feet now.  You can choose which house to go to
+The paths are under you feet now.  You can choose which house to go to
 first.
 ~
 0 0 1
@@ -3875,12 +3875,12 @@ D0
 You see the house.
 ~
 door~
-1 -1 7624
+0 -1 7624
 D2
 You see the house.
 ~
 door~
-1 -1 7623
+0 -1 7623
 D3
 You see the path you came in on.
 ~
@@ -3889,14 +3889,14 @@ You see the path you came in on.
 S
 #7623
 House~
-  You are inside a house. the house continues to the east and west.
+You are inside a house. the house continues to the east and west.
 ~
 0 D 0
 D0
 You see the door.
 ~
 door~
-1 -1 7622
+0 -1 7622
 D1
 You see the drawing room.
 ~
@@ -3910,7 +3910,7 @@ You see the living room.
 S
 #7624
 House~
-  You are inside a house.  The house continues to the west, and east.
+You are inside a house.  The house continues to the west, and east.
 ~
 0 D 0
 D1
@@ -3922,7 +3922,7 @@ D2
 You see the door.
 ~
 door~
-1 -1 7622
+0 -1 7622
 D3
 You see the sitting room.
 ~
@@ -3931,7 +3931,7 @@ You see the sitting room.
 S
 #7625
 Dining room~
-    You are inside the dining room.
+You are inside the dining room.
 ~
 0 D 0
 D3
@@ -3942,7 +3942,7 @@ You see the entrance to the house.
 S
 #7626
 Sitting room~
-   You are inside the sitting room.
+You are inside the sitting room.
 ~
 0 D 0
 D1
@@ -3953,7 +3953,7 @@ You see the entrance to the house.
 S
 #7627
 Living room~
-   You are inside the living room in the house.
+You are inside the living room in the house.
 ~
 0 D 0
 D3
@@ -3964,7 +3964,7 @@ You see the entrance to the house.
 S
 #7628
 Drawing room~
-   You are inside the drawing room in the house.
+You are inside the drawing room in the house.
 ~
 0 D 0
 D1
@@ -3975,7 +3975,7 @@ You see the entrance to the house.
 S
 #7629
 Long path~
-  You are on the long path.  To the north, you see that the path ends.
+You are on the long path.  To the north, you see that the path ends.
 ~
 0 0 2
 D0
@@ -3991,7 +3991,7 @@ You see the junction
 S
 #7630
 End of the path~
-     You are at the end of the long path, there is a sign here that says:
+You are at the end of the long path, there is a sign here that says:
 'under construction'  with an arrow pointing north.. To the north, you see
 a building being coded.....
 ~
@@ -4004,7 +4004,7 @@ You see the path.
 S
 #7639
 Crowded market~
- Gods, this place is STUFFED with people!
+Gods, this place is STUFFED with people!
 ~
 0 0 2
 D0
@@ -4015,7 +4015,7 @@ You see the crowded market.
 S
 #7640
 Crowded market~
-   You are in the crowded market.  To the east, there is a bridge over the
+You are in the crowded market.  To the east, there is a bridge over the
 river.
 ~
 0 0 2
@@ -4037,7 +4037,7 @@ You see the crowded market.
 S
 #7641
 Crowded market~
-    You are in the crowded market.  The vendors here are getting on your
+You are in the crowded market.  The vendors here are getting on your
 nerves. it's always 'Come see my fresh fish!' or 'my jewelry is THE BEST!'
 etc....
 ~
@@ -4055,7 +4055,7 @@ You see the crowded market.
 S
 #7642
 Crowded market~
-   You are in the crowded market.  How many people can there BE?! You ask
+You are in the crowded market.  How many people can there BE?! You ask
 yourself.....
 ~
 0 0 2
@@ -4072,7 +4072,7 @@ You see the crowded market.
 S
 #7643
 Crowded market~
-    You are in the crowded market.  There are too many people here..
+You are in the crowded market.  There are too many people here..
 ~
 0 0 2
 D0
@@ -4093,7 +4093,7 @@ You see the crowded market.
 S
 #7644
 Crowded market~
-  You are in the crowded market.  It's just so big...
+You are in the crowded market.  It's just so big...
 ~
 0 0 3
 D2
@@ -4104,7 +4104,7 @@ You see the crowded market.
 S
 #7645
 Crowded market~
-   You are in the crowded market.  So many people, it's making you crazy!
+You are in the crowded market.  So many people, it's making you crazy!
 ~
 0 0 3
 D0
@@ -4120,7 +4120,7 @@ You see the crowded market.
 S
 #7646
 Crowded market~
-     You are in the crowded market.  You start jabbering mindlessly....
+You are in the crowded market.  You start jabbering mindlessly....
 ~
 0 0 3
 D2
@@ -4131,7 +4131,7 @@ You see the crowded market.
 S
 #7647
 On the bridge~
-    You are on the bridge over the river.  The water here is beautiful.
+You are on the bridge over the river.  The water here is beautiful.
 One of the reasons it's beautiful, is because it's made of some kind of magic
 mirror.  And, if thats not enough to convince you that it's beautiful, get
 this-  There are women walking over it..... >:)
@@ -4173,7 +4173,7 @@ You see the bridge.
 S
 #7649
 The market~
-   Yes, you think, this arrangement is much better than the crowded one.
+Yes, you think, this arrangement is much better than the crowded one.
 Vendors are quietly calling out their wares.
 ~
 0 0 1
@@ -4195,7 +4195,7 @@ You see the market.
 S
 #7650
 Market~
-   You are in the market.  To the east, you can see the edge of the market.
+You are in the market.  To the east, you can see the edge of the market.
 ~
 0 0 1
 D1
@@ -4216,7 +4216,7 @@ You see the market.
 S
 #7651
 Market~
-   You are in the middle of the market.  The vendors are selling EVERYTHING!
+You are in the middle of the market.  The vendors are selling EVERYTHING!
 ~
 0 0 1
 D0
@@ -4242,7 +4242,7 @@ You see the market.
 S
 #7652
 Market~
-    You are at one of the corners of the market.  To the east, a path out of
+You are at one of the corners of the market.  To the east, a path out of
 town begins.
 ~
 0 0 1
@@ -4264,7 +4264,7 @@ You see the market.
 S
 #7653
 Market~
-  You are in the market.  There must be everything that man can sell or
+You are in the market.  There must be everything that man can sell or
 buy being traded here...
 ~
 0 0 1
@@ -4286,21 +4286,11 @@ You see the market.
 S
 #7654
 On the path~
-   The path takes you near a large town.  On the west, there is a
+The path takes you near a large town.  On the west, there is a
 small hole in the wall of the market, that you might crawl through.There is
 a sign here.
 ~
 0 0 1
-D2
-You see the path.
-~
-~
-0 -1 7655
-D3
-You see the market.
-~
-~
-0 -1 7652
 E
 sign~
 The sign reads:
@@ -4311,10 +4301,20 @@ The sign reads:
                                 for all of you who go here,
                                 So give it a try!
 ~
+D2
+You see the path.
+~
+~
+0 -1 7655
+D3
+You see the market.
+~
+~
+0 -1 7652
 S
 #7655
 The path~
-     The path travels by a market. To the west you see it, full of food,
+The path travels by a market. To the west you see it, full of food,
 clothing, and jewelry! You have another chance to go to the
 town to the north, and to the south.
 ~
@@ -4332,10 +4332,18 @@ You see the path.
 S
 #7656
 On the path~
-   The path leads you to a small gate to a large town.  The gate is unguarded
+The path leads you to a small gate to a large town.  The gate is unguarded
 and there is a sign here.
 ~
 0 0 1
+E
+sign~
+The sign reads:
+                                Welcome travelers!
+                        This is the great city of Gerighelm.
+                Where many adventurers lost their lives, and gained fame
+                                        and fortune.
+~
 D0
 You see the path.
 ~
@@ -4346,18 +4354,10 @@ You see the market.
 ~
 ~
 0 -1 7657
-E
-sign~
-  The sign reads:
-                                Welcome travelers!
-                        This is the great city of Gerighelm.
-                Where many adventurers lost their lives, and gained fame
-                                        and fortune.
-~
 S
 #7657
 Market~
-  You are in the market.  To the east there is an old gate, but it's not
+You are in the market.  To the east there is an old gate, but it's not
 guarded.  These vendors, you just can't get over it-- they buy ANYTHING.
 If you can find the right one...
 ~
@@ -4380,7 +4380,7 @@ You see the market.
 S
 #7658
 Market~
-   You are in the market.  To the east, you catch a faint glimmering of what
+You are in the market.  To the east, you catch a faint glimmering of what
 may be a path, but you are not sure.  You get back to marvelling over these
 vendors...
 ~
@@ -4403,7 +4403,7 @@ You see the market.
 S
 #7659
 Market~
-   You are in the market.  Gods, these vendors are cool!
+You are in the market.  Gods, these vendors are cool!
 ~
 0 0 1
 D0
@@ -4424,7 +4424,7 @@ You see the market.
 S
 #7660
 Market~
-   You are in the market.  To you, this is the niftiest place to be,
+You are in the market.  To you, this is the niftiest place to be,
 ~
 0 0 1
 D0
@@ -4450,7 +4450,7 @@ You see the market.
 S
 #7661
 Market~
-  You are in the market.  To the south and west, the market turns into a wall.
+You are in the market.  To the south and west, the market turns into a wall.
 ~
 0 0 1
 D0
@@ -4466,7 +4466,7 @@ You see the market.
 S
 #7662
 Market~
-   You are in the market.  To the west, you can see the river flowing into
+You are in the market.  To the west, you can see the river flowing into
 the underground sewers system.
 ~
 0 0 1
@@ -4488,11 +4488,23 @@ You see the market.
 S
 #7663
 Entrance to the Knights Castle~
-    You are standing beside the entrance to the Knights' castle.
+You are standing beside the entrance to the Knights' castle.
 To the west, the palace stretches on, covered with silks, furs, and gold.
 To the south there is mable road
 ~
 0 D 0
+E
+silks silk~
+The silks are very fine, they must have been purchased from China or Japan.
+~
+E
+furs fur~
+The furs are from beasts like:  bears, foxes, wolves, jabberwockies. etc.
+~
+E
+gold~
+What do you expect? It's GOLD!
+~
 D2
 You see Mable road.
 ~
@@ -4503,22 +4515,10 @@ You see the palace.
 ~
 ~
 0 -1 7664
-E
-silks silk~
-The silks are very fine, they must have been purchased from China or Japan.
-~
-E
-furs fur~
-   The furs are from beasts like:  bears, foxes, wolves, jabberwockies. etc.
-~
-E
-gold~
-  What do you expect? It's GOLD!
-~
 S
 #7664
 The palace~
-  You are inside the palace.  It's a very fine place to be you realize.
+You are inside the palace.  It's a very fine place to be you realize.
 ~
 0 D 0
 D1
@@ -4534,7 +4534,7 @@ You see the palace.
 S
 #7665
 Inside the Palace~
-   You are inside the palace of Gerighelm.  To the north, you see a room
+You are inside the palace of Gerighelm.  To the north, you see a room
 that is guarded by an old man.  To the east and west, the palace continues
 it's splendor.
 ~
@@ -4557,7 +4557,7 @@ You see the palace.
 S
 #7666
 Treasury~
-  You are standing just outside the treasury.  there is a huge iron door
+You are standing just outside the treasury.  there is a huge iron door
 to the east.  The old man says 'STOP'. He says 'You cannot enter here.'  'Go.'
 ~
 0 D 0
@@ -4565,7 +4565,7 @@ D1
 You see the huge iron door.
 ~
 door huge iron~
-1 -1 7667
+0 -1 7667
 D2
 You see the palace.
 ~
@@ -4574,7 +4574,7 @@ You see the palace.
 S
 #7667
 Inside the Treasury~
-   You see the final defenses of the Treasury.  Three bugbears!!!
+You see the final defenses of the Treasury.  Three bugbears!!!
 Aside from you certain doom, you see lots of gold, silver, and other such
 valuables...
 ~
@@ -4583,11 +4583,11 @@ D3
 You see the huge iron door
 ~
 door huge iron~
-1 -1 7666
+0 -1 7666
 S
 #7668
 Inside the palace~
-   You are inside the palace of Gerighelm.  here, the palace opens into
+You are inside the palace of Gerighelm.  here, the palace opens into
 a large garden.  Complete with birds, chipmunks, and bugs OUCH <stupid fly>
 ~
 0 D 0
@@ -4604,7 +4604,7 @@ You see the palace.
 S
 #7669
 Garden~
-   You are in the palace garden.  You hope that the Gardener won't catch
+You are in the palace garden.  You hope that the Gardener won't catch
 you wandering about like this..
 ~
 0 D 0
@@ -4626,7 +4626,7 @@ You see the garden.
 S
 #7670
 Garden~
-   Here the garden is blocked by a wall to the north, west, and south.
+Here the garden is blocked by a wall to the north, west, and south.
 But the flowers are still as pretty though.
 ~
 0 D 0
@@ -4638,7 +4638,7 @@ You see the garden.
 S
 #7671
 End of the garden~
-   You are at the and of the garden.  To the north there is a GRAND hall.
+You are at the and of the garden.  To the north there is a GRAND hall.
 I wonder whats at the end of it?.
 ~
 0 D 0
@@ -4655,7 +4655,7 @@ You see the garden.
 S
 #7672
 Great hall~
-    You are in the great hall of the palace of Gerighelm. To the north, you 
+You are in the great hall of the palace of Gerighelm. To the north, you 
 see what may be a throne room. To the east however, there seems to be an altar.
 And to the west, there is some servants quarters.
 ~
@@ -4683,7 +4683,7 @@ You see the servants quarters.
 S
 #7673
 The Altar~
-   What luck! It's the altar to your very own God! Better pray here and now!
+What luck! It's the altar to your very own God! Better pray here and now!
 ~
 0 D 0
 D3
@@ -4694,7 +4694,7 @@ You see the great hall.
 S
 #7674
 Servants Quarters~
-   These are the servants quarters.  To the south, there are more of them.
+These are the servants quarters.  To the south, there are more of them.
 The quarters themselves are much like quarters indeed.  there are 4 beds to
 a room. and 4 boxes under each bed.  The boxes are locked, and pickproof,
 so don't be getting any ideas...
@@ -4713,7 +4713,7 @@ You see the servants quarters.
 S
 #7675
 Servants Quarters~
-   You are in some servants quarters.  They are much like the last one you
+You are in some servants quarters.  They are much like the last one you
 saw, except there are only 3 beds and boxes.
 ~
 0 D 0
@@ -4725,7 +4725,7 @@ You see the servants quarters.
 S
 #7676
 Throne Room~
-   This is it! The Throne Room!  The Duke and Duchess are sitting in their
+This is it! The Throne Room!  The Duke and Duchess are sitting in their
 respective thrones, which are carved out of the finest ebony and ivory.
 The furs, gold, and silks are VERY VERY VERY resplendent here.  There is a
 staircase that leads upward, and a staircase that leads down.
@@ -4749,7 +4749,7 @@ You see the beer cellar.
 S
 #7677
 Hallway~
-  You are in a hall way that leads to two bedrooms.  The door to the north
+You are in a hall way that leads to two bedrooms.  The door to the north
 has some gold words on it that say 'Dukes room' and the words on the south
 door say 'Duchesses room'.  This is all so formal, you think.
 ~
@@ -4758,16 +4758,16 @@ D0
 You see the door to the dukes room.
 ~
 door dukes duke~
-1 -1 7679
+0 -1 7679
 D2
 You see the door to the duchesses room.
 ~
 door duchesses duchess~
-1 -1 7678
+0 -1 7678
 S
 #7678
 Duchesses room~
-   This is the Duchesses room.  She must come here when she and her husband
+This is the Duchesses room.  She must come here when she and her husband
 have a spat.  You know this because the room is relatively dusty compared
 with all the other rooms here.
 ~
@@ -4776,11 +4776,11 @@ D0
 You see the door of this room.
 ~
 door~
-1 -1 7677
+0 -1 7677
 S
 #7679
 Dukes room~
-    This room is well used to say the least.  I'd say more, but it's not the
+This room is well used to say the least.  I'd say more, but it's not the
 kinda thing to transmit over phone lines.  But I can tell you this:
 The Duke and his wife have, shall we say, _interesting_ habits >:)
 ~
@@ -4789,11 +4789,11 @@ D2
 You see the door to this room.
 ~
 door~
-1 -1 7677
+0 -1 7677
 S
 #7680
 Beer cellar~
-   Yes, I know you were expecting a wine cellar, and one farther from the
+Yes, I know you were expecting a wine cellar, and one farther from the
 Throne room, but the Duke designed it himself, and..-Well anyway:
 The room is your standard cellar, there are many empty racks here, and only
 2 bottle left. Hmmm...
@@ -4807,7 +4807,7 @@ You see the Throne room.
 S
 #7681
 Barracks~
-  You are in the barracks.  There are guards all around you, coming and going.
+You are in the barracks.  There are guards all around you, coming and going.
 ~
 0 D 0
 D0
@@ -4819,601 +4819,529 @@ S
 #7698
 Pet Shop Warehouse~
 ~
-0 M 0
+0 CM 0
 S
 #7699
 Sacrifice Room~
-  Blood, blood, blood, guts, flesh, corpses....
+Blood, blood, blood, guts, flesh, corpses....
 ~
-0 M 0
+0 CM 0
 S
 #0
 
-#RESETS
-* this are was converted to ROM 2.4 format by Targos and jaceks, 
-*                                                            july 1996
-* 
-* Gerighelm + Gerighelm Sewer + Gerighelm Park = Great Town of Gerighelm
-*
-* Death was added by Targos (oryginal idea from great french MUD     )
-*                           (Black Knight Legacy, 193.48.228.121 7000)
-*                           (maybe bkl will up in future ? **sigh**  )
-* entrance: 
-*           7556 -> 6002 haon dor
-*           7556 -> 6003 haon dor
-*           7561 -> 7700 astral plane * removed 
-*           7698 -> 5264 thalos       * removed
-*           7654 -> 3500 midenir      * removed
-*           7656 -> 3501              * removed
-* 'coz:
-*   "You are standing inside the Gate of Gerighelm.  There is only one,
-* because the town is surrounded by mountains.  Of course, there is a lot..."
-* (#7653)
-*
-M 0 7500 10 7508 1 SQUIRREL (1)
-M 0 7500 10 7516 1
-M 0 7500 10 7513 1
-M 0 7500 10 7521 1
-M 0 7500 10 7503 1
-*
-M 0 7501 5 7509 1 * CHIPMUNK (1)
-M 0 7501 5 7511 1
-*
-M 0 7502 4 7510 1 * SNAKE (1)
-M 0 7502 4 7506 1
-M 0 7502 4 7508 1
-*
-M 0 7503 6 7521 1 * SWALLOW (1)
-M 0 7503 6 7522 1
-M 0 7503 6 7503 1
-M 0 7503 6 7502 1
-*
-M 0 7504 2 7520 1 * AFRICAN SWALLOW (2)
-M 0 7504 2 7510 1
-*
-M 0 7505 3 7515 1 * RACCOON (2)
-M 0 7505 3 7512 1
-M 0 7505 3 7507 1
-*
-M 0 7506 4 7522 1 * GROUND-HOG (2)
-M 0 7506 4 7509 1
-M 0 7506 4 7504 1
-M 0 7506 4 7502 1
-*
-M 0 7507 10 7509 1 * FIELD MOUSE (1)
-M 0 7507 10 7516 1
-M 0 7507 10 7517 1
-*
-M 0 7508 5 7503 1  * FLYING SQUIRREL (2)
-M 0 7508 5 7520 1
-M 0 7508 5 7517 1
-M 0 7508 5 7505 1
-*
-D 0 7514 3 1 * DOOR TO THE CARETAKERS HOUSE (CLOSED)
-D 0 7513 1 1
-*
-O 0 7507 0 7522 *  STRENGTHENING HERBS
-O 0 7508 0 7522 *  HEALING HERBS
-*
-O 0 7507 0 7523 *  STRENGTHENING HERBS
-O 0 7508 0 7523 *  HEALING HERBS
-*
-O 0 7509 0 7517 *  STRANGE HERBS
-O 0 7596 0 7516 *  STRANGE HERBS
-O 0 7509 0 7509 *  STRANGE HERBS
-O 0 7596 0 7518 *  STRANGE HERBS
-*
-M 0 7509 6 7522 1 * LOVER (4)
-M 0 7510 6 7522 1 * LOVER (4)
-M 0 7509 6 7519 1 * LOVER
-M 0 7510 6 7519 1 * LOVER
-M 0 7509 6 7510 1 * LOVER
-M 0 7510 6 7510 1 * LOVER
-M 0 7509 6 7502 1 * LOVER
-M 0 7510 6 7502 1 * LOVER
-*
-M 0 7511 6 7523 1 * HERBALIST (5)
-G 1 7596 -1
-M 0 7511 6 7515 1 * HERBALIST (5)
-G 1 7509 -1
-*
-M 0 7520 6 7551 1 * CLEANER WORM (10)
-M 0 7520 6 7551 1
-M 0 7520 6 7551 1
-M 0 7520 6 7551 1
-M 0 7520 6 7551 1
-M 0 7520 6 7551 1
-*
-M 0 7513 5 7543 1 * FISH WITH POINTY TEETH (SMALL) (6)
-M 0 7513 5 7543 1
-M 0 7513 5 7543 1
-M 0 7513 5 7543 1
-M 0 7513 5 7543 1
-*
-M 0 7514 4 7541 1 * FISH WITH POINTY TEETH (MEDIUM) (7)
-M 0 7514 4 7541 1
-M 0 7514 4 7541 1
-M 0 7514 4 7541 1
-*
-M 0 7515 5 7544 1 * FISH WITH POINTY TEETH (LARGE) (8)
-M 0 7515 5 7544 1
-M 0 7515 5 7544 1
-M 0 7515 5 7544 1
-M 0 7515 5 7544 1
-*
-M 0 7516 10 7535 1 * GOLDFISH (5)
-G 1 7512 -1          * GOLDFISH CORPSE
-M 0 7516 10 7535 1
-G 1 7512 -1
-M 0 7516 10 7535 1
-G 1 7512 -1
-M 0 7516 10 7535 1
-G 1 7512 -1
-M 0 7516 10 7535 1
-G 1 7512 -1
-M 0 7516 10 7535 1
-G 1 7512 -1
-M 0 7516 10 7535 1
-G 1 7512 -1
-M 0 7516 10 7535 1
-G 1 7512 -1
-M 0 7516 10 7535 1
-G 1 7512 -1
-M 0 7516 10 7535 1
-G 1 7512 -1
-*
-M 0 7517 10 7537 1 * GUPPY (5)
-G 1 7511 -1          * CORPSE OF A GUPPY
-M 0 7517 10 7537 1
-G 1 7511 -1
-M 0 7517 10 7537 1
-G 1 7511 -1
-M 0 7517 10 7537 1
-G 1 7511 -1
-M 0 7517 10 7537 1
-G 1 7511 -1
-M 0 7517 10 7537 1
-G 1 7511 -1
-M 0 7517 10 7537 1
-G 1 7511 -1
-M 0 7517 10 7537 1
-G 1 7511 -1
-M 0 7517 10 7537 1
-G 1 7511 -1
-M 0 7517 10 7537 1
-G 1 7511 -1
-*
-M 0 7518 3 7547 1  *  FISH WITH BLUNTED TEETH (6)
-*
-M 0 7519 5 7531 1  *  BUGBEAR (9)
-M 0 7519 5 7539 1
-*
-M 0 7531 25 7564 2     * GUARD AT NORTH GATE (16)
-E 1 7524 -1 1            * RING
-E 1 7529 -1 5            * VEST
-E 1 7535 -1 16           * SWORD
-E 1 7534 -1 15           * BRACER
-*
-M 0 7528 25 7564 2     * JUNIOR GUARD AT NORTH GATE (15)
-E 1 7519 -1 5            * VEST
-E 1 7520 -1 11           * SHIELD
-E 1 7521 -1 0            * LANTERN
-E 1 7522 -1 16           * CUDGEL
-*
-M 0 7532 15 7568 2     * GUARD AT PETER AVE.(17)
-E 1 7524 -1 1            * RING
-E 1 7529 -1 5            * VEST
-E 1 7535 -1 16           * SWORD
-E 1 7531 -1 3            * CLOAK
-E 1 7531 -1 4            * CLOAK
-*
-M 0 7530 20 7582 2     * GUARD AT MABLE,WESTSTREET, AND MERCHANT (15)
-E 1 7524 -1 1            * RING
-E 1 7529 -1 5            * VEST
-E 1 7535 -1 16           * SWORD
-E 1 7533 -1 13           * BELT
-*
-M 0 7531 25 7582 2     * GUARD AT SAME AS LAST ONE... (16)
-E 1 7524 -1 1            * RING
-E 1 7529 -1 5            * VEST
-E 1 7535 -1 16           * SWORD
-E 1 7528 -1 11           * SHIELD
-*
-M 0 7532 15 7605 2     * GUARD SOUTH OF CRAZY HIMSHLICKS (17)
-E 1 7524 -1 1            * RING
-E 1 7529 -1 5            * VEST
-E 1 7535 -1 16           * SWORD
-E 1 7527 -1 7            * LEGGINGS
-E 1 7536 -1 8            * BOOTS
-*
-M 0 7530 25 7641 10     * GUARD IN CROWDED MARKET (15)
-E 1 7524 -1 1            * RING
-E 1 7529 -1 5            * VEST
-E 1 7535 -1 16           * SWORD
-E 1 7526 -1 6            * HELMET
-*
-M 0 7531 25 7681 6     * GUARD IN THE BARRACKS (16)
-E 1 7530 -1 12           * CAPE
-E 1 7529 -1 5            * VEST
-E 1 7535 -1 16           * SWORD
-E 1 7524 -1 1            * RING
-*
-M 0 7532 15 7681 6     * GUARD IN BARRACKS (17)
-E 1 7524 -1 1            * RING
-E 1 7529 -1 5            * VEST
-E 1 7535 -1 16           * SWORD
-E 1 7526 -1 10           * SLEEVES
-*
-M 0 7533 1 7608 1 * ALE CONNER AT WATER BOTTLES AND BEER (17)
-*
-M 0 7524 4 7641 1    * OLD BIDDY AT CROWDED MARKET (11)
-E 1 7523 20 16         * fingernail
-M 0 7524 4 7581 1    * OLD BIDDY (11)
-E 1 7523 20 16         * fingernail
-M 0 7524 4 7660 1    * OLD BIDDY
-E 1 7523 20 16         * fingernail
-M 0 7524 4 7643 1    * OLD BIDDY
-*
-M 0 7525 4 7641 1 * OLD COOT WITH OLD BIDDY (13)
-M 0 7525 4 7581 1 * OLD COOT (13)
-M 0 7525 4 7660 1 * OLD COOT
-M 0 7525 4 7643 1 * OLD COOT
-*
-M 0 7526 5 7641 1 * CHILD (M) (4)
-E 1 7516 -1 16      * stick
-M 0 7526 5 7643 1 * CHILD (M)
-E 1 7516 -1 16      * stick
-M 0 7526 5 7581 1 * CHILD (M)
-M 0 7526 5 7660 1 * CHILD (M)
-E 1 7516 -1 16      * stick
-M 0 7526 5 7582 1 * CHILD (M)
-E 1 7516 -1 16      * stick
-*
-M 0 7527 5 7582 1 * CHILD (F) (4)
-E 1 7518 5 17       * doll
-M 0 7527 5 7581 1 * CHILD (F)
-E 1 7518 5 17       * doll
-M 0 7527 5 7643 1 * CHILD (F)
-M 0 7527 5 7641 1 * CHILD (F)
-E 1 7518 5 17       * doll
-M 0 7527 5 7660 1 * CHILD (F)
-*
-M 0 7521 5 7623 1 * CITIZEN (M) (6)
-E 1 7555 -1 16      * mace
-M 0 7522 5 7622 1 * CITIZEN (F) (7)
-E 1 7515 -1 16      * umbrella
-*
-M 0 7523 30 7582 1 * TROUBADOUR (10)
-M 0 7523 30 7611 1 * TROUBADOUR (10)
-M 0 7523 30 7647 1 * TROUBADOUR (10)
-*
-M 0 7592 1 7570 1 * BAKER AT SHOP WITH LOTS OF FOOD
-G 1 7500 -1          * APPLE
-G 1 7501 -1          * APPLE PIE
-G 1 7502 -1          * beet
-G 1 7503 -1          * CARROT
-*
-M 0 7593 1 7572 1 * BLACKSMITH Vendy :)
-G 1 7519 -1         * VEST, JUNIOR GUARD
-G 1 7520 -1         * SHIELD, JUNIOR GUARD
-G 1 7521 -1         * LANTERN, JUNIOR GUARD
-*
-M 0 7604 1 7574 1 * HERBALIST
-G 1 7507 -1        * STRENGTHENING HERBS
-G 1 7508 -1        * HEALING HERBS
-*
-M 0 7594 1 7576 1 * MAGE
-G 1 7517 -1        * BAG OF MARBLES
-G 1 7600 -1        * MARBLE
-G 1 7601 -1        * MARBLE
-G 1 7602 -1        * MARBLE
-*
-M 0 7534 10 7614 1 * DEFENDER (19)
-E 1 7538 -1 16   * SWORD
-E 1 7654 -1 5    * VEST
-E 1 7537 -1 6    * HELM
-E 1 7650 -1 10   * SLEEVES
-E 1 7651 -1 7    * LEGGINGS
-E 1 7652 -1 11   * SHIELD
-E 1 7653 -1 1    * RING
-E 1 7655 -1 12   * CAPE
-E 1 7656 -1 3    * CLOAK
-E 1 7657 -1 9    * GLOVES
-E 1 7658 -1 13   * BELT
-E 1 7659 -1 14   * BRACER
-E 1 7660 -1 8    * BOOTS
-*
-M 0 7523 30 7639 1          * BARD (10)
-E 1 7514 -1 17   * HARP
-M 0 7523 30 7640 1          * BARD (10)
-E 1 7513 -1 17      * LUTE
-M 0 7523 30 7641 1          * BARD (10)
-E 1 7514 -1 17   * HARP
-M 0 7523 30 7642 1          * BARD (10)
-E 1 7513 -1 17      * LUTE
-M 0 7523 30 7643 1          * BARD (10)
-E 1 7514 -1 17   * HARP
-M 0 7523 30 7644 1          * BARD (10)
-E 1 7513 -1 17      * LUTE
-M 0 7523 30 7645 1          * BARD (10)
-E 1 7514 -1 17   * HARP
-M 0 7523 30 7646 1          * BARD (10)
-E 1 7513 -1 17      * LUTE
-M 0 7523 30 7649 1          * BARD (10)
-E 1 7514 -1 17   * HARP
-M 0 7523 30 7614 1          * BARD (10)
-E 1 7513 -1 17      * LUTE
-M 0 7523 30 7613 1          * BARD (10)
-E 1 7514 -1 17   * HARP
-M 0 7523 30 7609 1          * BARD (10)
-E 1 7513 -1 17      * LUTE
-M 0 7523 30 7603 1          * BARD (10)
-E 1 7514 -1 17   * HARP
-M 0 7523 30 7605 1          * BARD (10)
-E 1 7513 -1 17      * LUTE
-M 0 7523 30 7607 1          * BARD (10)
-E 1 7514 -1 17   * HARP
-M 0 7523 30 7571 1          * BARD (10)
-E 1 7513 -1 17      * LUTE
-M 0 7523 30 7559 1          * BARD (10)
-*
-E 1 7514 -1 17   * HARP
-M 0 7538 1 7680 1 *COOK (22)
-E 1 7551 -1 6
-*
-M 0 7539 1 7666 1 * PALACE MAGE (23)
-E 1 7552 -1 17
-E 1 7553 -1 16
-*
-M 0 7540 1 7673 1 * PALACE PRIEST (23)
-E 1 7554 24 16
-*
-M 0 7550 1 7672 1 * HEAD GUARD (23)
-E 1 7556 -1 16      * SWORD OF THUNDER
-E 1 7557 -1 5       * VEST OF TITANS
-*
-M 0 7551 3 7670 1 * GARDENER (23)
-E 1 7558 -1 16      * HOE OF DESTRUCTION
-*
-M 0 7552 3 7676 3 * BODYGUARD (24)
-E 1 7561 -1 5       * UNIFORM
-E 1 7560 -1 16      * CUTLASS
-*
-M 0 7553 3 7576 3 * BODYGUARD (25)
-E 1 7561 -1 5       * UNIFORM
-E 1 7562 -1 16      * SABER
-*
-M 0 7554 1 7676 1 * DUKE (30)
-E -1 7563 -1 16     * 2 HND. SWORD
-E 1 7564 -1 6       * DUKES HELM
-E 1 7567 -1 1       * WEDDING RING
-*
-M 0 7555 1 7676 1 * DUCHESS (25)
-E 1 7565 -1 6       * TIARA
-E 1 7566 -1 1       * WEDDING RING
-*
-M 0 7590 10 7664 1 * SERVANT (20)
-M 0 7590 10 7665 1
-M 0 7590 10 7668 1
-M 0 7590 10 7672 1
-M 0 7590 10 7675 1
-M 0 7590 10 7674 1
-M 0 7590 10 7674 1
-*
-M 0 7595 1 7578 1 * PAWNSHOP RUNNER
-*
-M 0 7597 10 7608 1     * merchant
-G 1 7504 -1              * a bottle of beer
-G 1 7505 -1              * a magic water pitcher
-M 0 7597 10 7606 1 *       merchant
-G 1 7504 -1              * a bottle of beer
-G 1 7505 -1              * a magic water pitcher
-M 0 7597 10 7604 1 *       merchant
-G 1 7504 -1              * a bottle of beer
-G 1 7505 -1              * a magic water pitcher
-*
-M 0 7535 10 7600 1 * a Defender of Gerighelm (20)
-E 1 7537 -1 6
-E 1 7538 -1 16
-E 1 7650 -1 10
-E 1 7651 -1 7
-E 1 7652 -1 11
-E 1 7653 -1 1
-E 1 7654 -1 5
-E 1 7655 -1 12
-E 1 7656 -1 3
-E 1 7657 -1 9
-E 1 7658 -1 13
-E 1 7659 -1 14
-E 1 7660 -1 8
-*
-M 0 7535 10 7614 1 a Defender of Gerighelm (20)
-E 1 7537 -1 6
-E 1 7538 -1 16
-E 1 7650 -1 10
-E 1 7651 -1 7
-E 1 7652 -1 11
-E 1 7653 -1 1
-E 1 7654 -1 5
-E 1 7655 -1 12
-E 1 7656 -1 3
-E 1 7657 -1 9
-E 1 7658 -1 13
-E 1 7659 -1 14
-E 1 7660 -1 8
-M 0 7535 10 7654 1 a Defender of Gerighelm (20)
-E 1 7537 -1 6
-E 1 7538 -1 16
-E 1 7650 -1 10
-E 1 7651 -1 7
-E 1 7652 -1 11
-E 1 7653 -1 1
-E 1 7654 -1 5
-E 1 7655 -1 12
-E 1 7656 -1 3
-E 1 7657 -1 9
-E 1 7658 -1 13
-E 1 7659 -1 14
-E 1 7660 -1 8
-M 0 7535 10 7590 1 a Defender of Gerighelm (20)
-E 1 7537 -1 6
-E 1 7538 -1 16
-E 1 7650 -1 10
-E 1 7651 -1 7
-E 1 7652 -1 11
-E 1 7653 -1 1
-E 1 7654 -1 5
-E 1 7655 -1 12
-E 1 7656 -1 3
-E 1 7657 -1 9
-E 1 7658 -1 13
-E 1 7659 -1 14
-E 1 7660 -1 8
-M 0 7535 10 7665 1 * a Defender of Gerighelm (20)
-E 1 7537 -1 6
-E 1 7538 -1 16
-E 1 7650 -1 10
-E 1 7651 -1 7
-E 1 7652 -1 11
-E 1 7653 -1 1
-E 1 7654 -1 5
-E 1 7655 -1 12
-E 1 7656 -1 3
-E 1 7657 -1 9
-E 1 7658 -1 13
-E 1 7659 -1 14
-E 1 7660 -1 8
-M 0 7535 10 7662 1 * a Defender of Gerighelm (20)
-E 1 7537 -1 6
-E 1 7538 -1 16
-E 1 7650 -1 10
-E 1 7651 -1 7
-E 1 7652 -1 11
-E 1 7653 -1 1
-E 1 7654 -1 5
-E 1 7655 -1 12
-E 1 7656 -1 3
-E 1 7657 -1 9
-E 1 7658 -1 13
-E 1 7659 -1 14
-E 1 7660 -1 8
-*
-M 0 7609 1 7602 1     * PET SHOP
-M 0 7698 1 7698 1       * hawk to pet warehouse
-*
-M 0 7610 1 7610 1     * WITCH
-*G 1 3241  -1            *   a yellow potion of see invisible
-*G 1 3280  -1            *   a potion of healing
-*G 1 3281  -1            *   a potion of sanctuary
-*G 1 3282  -1            *   a potion of divine protection
-*G 1 3283  -1            *   a potion of cure light wounds
-*G 1 3284  -1            *   a potion of cure serious wounds
-*G 1 3285  -1            *   a potion of cure critical wounds
-*G 1 3286  -1            *   a bottle of antidote
-*G 1 3287  -1            *   a potion of cure blindness
-*G 1 3288  -1            *   a vial of holy water
-*G 1 3289  -1            *   a potion of armor
-*G 1 3290  -1            *   a potion of negation
-*G 1 3291  -1            *   a potion of flying
-*G 1 3292  -1            *   a potion of true sight    
-*G 1 3244  -1            *   a wand of magic missiles
-*
-M 0 7536 10 7676 1 * PALACE GUARD
-E 1 7539 -1 1    * EQUIPMENT
-E 1 7540 -1 6    *     |
-E 1 7541 -1 10   *     |
-E 1 7542 -1 7    *    \ /
-E 1 7543 -1 11
-E 1 7544 -1 5
-E 1 7545 -1 12
-E 1 7546 -1 3
-E 1 7547 -1 9
-E 1 7548 -1 13
-E 1 7549 -1 15
-E 1 7550 -1 16
-E 1 7551 -1 8
-*
-M 0 7536 10 7664 1 * PALACE GUARD (20)
-E 1 7539 -1 1    * EQUIPMENT
-E 1 7540 -1 6    *     |
-E 1 7541 -1 10   *     |
-E 1 7542 -1 7    *    \ /
-E 1 7543 -1 11
-E 1 7544 -1 5
-E 1 7545 -1 12
-E 1 7546 -1 3
-E 1 7547 -1 9
-E 1 7548 -1 13
-E 1 7549 -1 15
-E 1 7550 -1 16
-E 1 7551 -1 8
-*
-M 0 7536 10 7668 1 * PALACE GUARD (20)
-E 1 7539 -1 1    * EQUIPMENT
-E 1 7540 -1 6    *     |
-E 1 7541 -1 10   *     |
-E 1 7542 -1 7    *    \ /
-E 1 7543 -1 11
-E 1 7544 -1 5
-E 1 7545 -1 12
-E 1 7546 -1 3
-E 1 7547 -1 9
-E 1 7548 -1 13
-E 1 7549 -1 15
-E 1 7550 -1 16
-E 1 7551 -1 8
-*
-M 0 7536 10 7670 1 * PALACE GUARD (20)
-E 1 7539 -1 1    * EQUIPMENT
-E 1 7540 -1 6    *     |
-E 1 7541 -1 10   *     |
-E 1 7542 -1 7    *    \ /
-E 1 7543 -1 11
-E 1 7544 -1 5
-E 1 7545 -1 12
-E 1 7546 -1 3
-E 1 7547 -1 9
-E 1 7548 -1 13
-E 1 7549 -1 15
-E 1 7550 -1 16
-E 1 7551 -1 8
-*
-M 0 7699 1 7699 1 * Death by Targos (60)
-E 1 7699 1 16       * Death's Scythe by Targos
 
-S
-
-#SHOPS
-7592  0  0 0  0  0 120 101 0 23
-7593  9  5 1  8 11 120 100 0 23    * blacksmith Vendy (arm/wpn/lig/trs/clt)
-7594  2  3 4 10 26 150  90 0 23    * the mage         (scrl/wnd/stf/pot/pil)
-7595  8 18 5 15  0 100  90 0 23    * pawn shop owner  (trs/key/wpn/cnt/0)
-7597  0  0 0  0  0 100 100 0 23    * merchant
-7604 26  0 0  0  0 130  90 0 23    * the herbalist    (pill/0/0/0/0)
-7610 10 17 3  0  0 180  75 0 23    * WITCH            (pot/dcnt/wand/0/0)
-0
 
 #SPECIALS
-M 7591 spec_thief
-M 7552 spec_guard
-M 7553 spec_guard
-M 7550 spec_executioner
-M 7534 spec_guard
-M 7535 spec_guard
-M 7530 spec_guard
-M 7531 spec_guard
-M 7532 spec_guard
-M 7528 spec_guard
-M 7539 spec_cast_mage
-M 7536 spec_guard
-M 7537 spec_guard
-M 7540 spec_cast_cleric
-M 7554 spec_cast_judge
-M 7555 spec_breath_any
+M 7528 spec_guard	* a junior guard
+M 7530 spec_guard	* a Gerighelm cityguard
+M 7531 spec_guard	* a Gerighelm cityguard
+M 7532 spec_guard	* a Gerighelm cityguard
+M 7534 spec_guard	* a Defender of Gerighelm
+M 7535 spec_guard	* a Defender of Gerighelm
+M 7536 spec_guard	* a palace guard
+M 7537 spec_guard	* a palace guard
+M 7539 spec_cast_mage	* the palace mage
+M 7540 spec_cast_cleric	* the palace priest
+M 7550 spec_executioner	* the head of the guard
+M 7552 spec_guard	* a bodyguard
+M 7553 spec_guard	* a bodyguard
+M 7554 spec_cast_judge	* the Duke of Gerighelm
+M 7555 spec_breath_any	* the Duchess of Gerighelm
+M 7591 spec_thief	* a cutpurse
 S
 
-#OLIMITS
-O 7699 2
+
+
+#RESETS
+D 0 7513 1 1	* The split in the trail in the Park.: door to the east: closed
+D 0 7514 3 1	* Care-Takers House.: door to the west: closed
+M 0 7503 6 7502 1	* a swallow (The Park.)
+M 0 7506 4 7502 1	* a ground-hog (The Park.)
+M 0 7509 6 7502 1	* a starry eyed lover (The Park.)
+M 0 7510 6 7502 1	* a starry eyed lover (The Park.)
+M 0 7500 10 7503 1	* a little squirrel (The Park.)
+M 0 7503 6 7503 1	* a swallow (The Park.)
+M 0 7508 5 7503 1	* a flying squirrel (The Park.)
+M 0 7506 4 7504 1	* a ground-hog (The Park.)
+M 0 7508 5 7505 1	* a flying squirrel (The Park.)
+M 0 7502 4 7506 1	* a small green snake (The Park.)
+M 0 7505 3 7507 1	* a brown and black raccoon (The Park.)
+M 0 7500 10 7508 1	* a little squirrel (The Park.)
+M 0 7502 4 7508 1	* a small green snake (The Park.)
+M 0 7501 5 7509 1	* a tiny chipmunk (The Park.)
+M 0 7506 4 7509 1	* a ground-hog (The Park.)
+M 0 7507 10 7509 1	* a field mouse (The Park.)
+O 0 7509 0 7509		* a bunch of herbs (The Park.)
+M 0 7502 4 7510 1	* a small green snake (The Park.)
+M 0 7504 2 7510 1	* an African Swallow (The Park.)
+M 0 7509 6 7510 1	* a starry eyed lover (The Park.)
+M 0 7510 6 7510 1	* a starry eyed lover (The Park.)
+M 0 7501 5 7511 1	* a tiny chipmunk (The trail in the Park.)
+M 0 7505 3 7512 1	* a brown and black raccoon (The trail in the Park.)
+M 0 7500 10 7513 1	* a little squirrel (The split in the trail in the Park.)
+M 0 7505 3 7515 1	* a brown and black raccoon (The trail.)
+M 0 7511 6 7515 1	* a herbalists helper (The trail.)
+G 0 7509 0		*	a bunch of herbs
+M 0 7500 10 7516 1	* a little squirrel (The trail.)
+M 0 7507 10 7516 1	* a field mouse (The trail.)
+O 0 7596 0 7516		* a bunch of herbs (The trail.)
+M 0 7507 10 7517 1	* a field mouse (The end of the trail.)
+M 0 7508 5 7517 1	* a flying squirrel (The end of the trail.)
+O 0 7509 0 7517		* a bunch of herbs (The end of the trail.)
+O 0 7596 0 7518		* a bunch of herbs (The Park.)
+M 0 7509 6 7519 1	* a starry eyed lover (The Entrance to the Garden in the Park.)
+M 0 7510 6 7519 1	* a starry eyed lover (The Entrance to the Garden in the Park.)
+M 0 7504 2 7520 1	* an African Swallow (The Garden.)
+M 0 7508 5 7520 1	* a flying squirrel (The Garden.)
+M 0 7500 10 7521 1	* a little squirrel (The Garden.)
+M 0 7503 6 7521 1	* a swallow (The Garden.)
+M 0 7503 6 7522 1	* a swallow (The Garden.)
+M 0 7506 4 7522 1	* a ground-hog (The Garden.)
+O 0 7507 0 7522		* a bunch of red herbs (The Garden.)
+O 0 7508 0 7522		* a bunch of green herbs (The Garden.)
+M 0 7509 6 7522 1	* a starry eyed lover (The Garden.)
+M 0 7510 6 7522 1	* a starry eyed lover (The Garden.)
+O 0 7507 0 7523		* a bunch of red herbs (The Garden.)
+O 0 7508 0 7523		* a bunch of green herbs (The Garden.)
+M 0 7511 6 7523 1	* a herbalists helper (The Garden.)
+G 0 7596 0		*	a bunch of herbs
+M 0 7519 5 7531 1	* a bugbear (The Sewers.)
+M 0 7516 10 7535 1	* a goldfish (The tunnel.)
+G 0 7512 0		*	corpse of a goldfish
+M 0 7516 10 7535 1	* a goldfish (The tunnel.)
+G 0 7512 0		*	corpse of a goldfish
+M 0 7516 10 7535 1	* a goldfish (The tunnel.)
+G 0 7512 0		*	corpse of a goldfish
+M 0 7516 10 7535 1	* a goldfish (The tunnel.)
+G 0 7512 0		*	corpse of a goldfish
+M 0 7516 10 7535 1	* a goldfish (The tunnel.)
+G 0 7512 0		*	corpse of a goldfish
+M 0 7516 10 7535 1	* a goldfish (The tunnel.)
+G 0 7512 0		*	corpse of a goldfish
+M 0 7516 10 7535 1	* a goldfish (The tunnel.)
+G 0 7512 0		*	corpse of a goldfish
+M 0 7516 10 7535 1	* a goldfish (The tunnel.)
+G 0 7512 0		*	corpse of a goldfish
+M 0 7516 10 7535 1	* a goldfish (The tunnel.)
+G 0 7512 0		*	corpse of a goldfish
+M 0 7516 10 7535 1	* a goldfish (The tunnel.)
+G 0 7512 0		*	corpse of a goldfish
+M 0 7517 10 7537 1	* a guppy (The watery tunnel.)
+G 0 7511 0		*	corpse of a guppy
+M 0 7517 10 7537 1	* a guppy (The watery tunnel.)
+G 0 7511 0		*	corpse of a guppy
+M 0 7517 10 7537 1	* a guppy (The watery tunnel.)
+G 0 7511 0		*	corpse of a guppy
+M 0 7517 10 7537 1	* a guppy (The watery tunnel.)
+G 0 7511 0		*	corpse of a guppy
+M 0 7517 10 7537 1	* a guppy (The watery tunnel.)
+G 0 7511 0		*	corpse of a guppy
+M 0 7517 10 7537 1	* a guppy (The watery tunnel.)
+G 0 7511 0		*	corpse of a guppy
+M 0 7517 10 7537 1	* a guppy (The watery tunnel.)
+G 0 7511 0		*	corpse of a guppy
+M 0 7517 10 7537 1	* a guppy (The watery tunnel.)
+G 0 7511 0		*	corpse of a guppy
+M 0 7517 10 7537 1	* a guppy (The watery tunnel.)
+G 0 7511 0		*	corpse of a guppy
+M 0 7517 10 7537 1	* a guppy (The watery tunnel.)
+G 0 7511 0		*	corpse of a guppy
+M 0 7519 5 7539 1	* a bugbear (The end of the watery tunnel.)
+M 0 7514 4 7541 1	* a medium fish will pointy teeth (The Sewers.)
+M 0 7514 4 7541 1	* a medium fish will pointy teeth (The Sewers.)
+M 0 7514 4 7541 1	* a medium fish will pointy teeth (The Sewers.)
+M 0 7514 4 7541 1	* a medium fish will pointy teeth (The Sewers.)
+M 0 7513 5 7543 1	* a small fish with pointy teeth (Underwater in the river.)
+M 0 7513 5 7543 1	* a small fish with pointy teeth (Underwater in the river.)
+M 0 7513 5 7543 1	* a small fish with pointy teeth (Underwater in the river.)
+M 0 7513 5 7543 1	* a small fish with pointy teeth (Underwater in the river.)
+M 0 7513 5 7543 1	* a small fish with pointy teeth (Underwater in the river.)
+M 0 7515 5 7544 1	* a large fish with pointy teeth (Underwater.)
+M 0 7515 5 7544 1	* a large fish with pointy teeth (Underwater.)
+M 0 7515 5 7544 1	* a large fish with pointy teeth (Underwater.)
+M 0 7515 5 7544 1	* a large fish with pointy teeth (Underwater.)
+M 0 7515 5 7544 1	* a large fish with pointy teeth (Underwater.)
+M 0 7518 3 7547 1	* a fish with blunted teeth (Underwater.)
+M 0 7520 6 7551 1	* a cleaner worm (Very clean Sewers.)
+M 0 7520 6 7551 1	* a cleaner worm (Very clean Sewers.)
+M 0 7520 6 7551 1	* a cleaner worm (Very clean Sewers.)
+M 0 7520 6 7551 1	* a cleaner worm (Very clean Sewers.)
+M 0 7520 6 7551 1	* a cleaner worm (Very clean Sewers.)
+M 0 7520 6 7551 1	* a cleaner worm (Very clean Sewers.)
+M 0 7523 30 7559 1	* a troubadour (Dirt Path)
+E 0 7514 0 17		*	a harp: held in the hands
+M 0 7531 25 7564 2	* a Gerighelm cityguard (West-Street of Gerighelm)
+E 0 7524 0 1		*	Gerighelm guard ring: on the left finger
+E 0 7529 0 5		*	a Gerighelm vest: on the body
+E 0 7535 0 16		*	a Gerighelm sword: wielded
+E 0 7534 0 15		*	a Gerighelm bracer: on the right wrist
+M 0 7528 25 7564 2	* a junior guard (West-Street of Gerighelm)
+E 0 7519 0 5		*	a junior guard vest: on the body
+E 0 7520 0 11		*	a junior guard shield: as a shield
+E 0 7521 0 0		*	a junior guard lantern: as a light
+E 0 7522 0 16		*	a junior guard cudgel: wielded
+M 0 7532 15 7568 2	* a Gerighelm cityguard (Peter Ave)
+E 0 7524 0 1		*	Gerighelm guard ring: on the left finger
+E 0 7529 0 5		*	a Gerighelm vest: on the body
+E 0 7535 0 16		*	a Gerighelm sword: wielded
+E 0 7531 0 3		*	a Gerighelm cloak: around the neck (1)
+E 0 7531 0 4		*	a Gerighelm cloak: around the neck (2)
+M 0 7592 1 7570 1	* a baker (The shop with lots of food)
+G 0 7500 0		*	an apple
+G 0 7501 0		*	an apple pie
+G 0 7502 0		*	a beet
+G 0 7503 0		*	a carrot
+M 0 7523 30 7571 1	* a troubadour (Merchant Way)
+E 0 7513 0 17		*	a lute: held in the hands
+M 0 7593 1 7572 1	* the blacksmith Vendy (Weapon shop)
+G 0 7519 0		*	a junior guard vest
+G 0 7520 0		*	a junior guard shield
+G 0 7521 0		*	a junior guard lantern
+M 0 7604 1 7574 1	* the herbalist (Herbalist Shop)
+G 0 7507 0		*	a bunch of red herbs
+G 0 7508 0		*	a bunch of green herbs
+M 0 7594 1 7576 1	* the mage (Magic Shop)
+G 0 7517 0		*	a bag of marbles
+G 0 7600 0		*	a green marble
+G 0 7601 0		*	a blue marble
+G 0 7602 0		*	a yellow marble
+M 0 7553 3 7576 3	* a bodyguard (Magic Shop)
+E 0 7561 0 5		*	a uniform: on the body
+E 0 7562 0 16		*	a saber: wielded
+M 0 7595 1 7578 1	* the pawn shop owner (The Pawn Shop)
+M 0 7524 4 7581 1	* an old biddy (West-Street)
+E 0 7523 0 16		*	a sharp fingernail: wielded
+M 0 7525 4 7581 1	* an old coot (West-Street)
+M 0 7526 5 7581 1	* a little boy (West-Street)
+M 0 7527 5 7581 1	* a little girl (West-Street)
+E 0 7518 0 17		*	a doll: held in the hands
+M 0 7530 20 7582 2	* a Gerighelm cityguard (West-Street)
+E 0 7524 0 1		*	Gerighelm guard ring: on the left finger
+E 0 7529 0 5		*	a Gerighelm vest: on the body
+E 0 7535 0 16		*	a Gerighelm sword: wielded
+E 0 7533 0 13		*	a Gerighelm belt: around the waist
+M 0 7531 25 7582 2	* a Gerighelm cityguard (West-Street)
+E 0 7524 0 1		*	Gerighelm guard ring: on the left finger
+E 0 7529 0 5		*	a Gerighelm vest: on the body
+E 0 7535 0 16		*	a Gerighelm sword: wielded
+E 0 7528 0 11		*	a Gerighelm shield: as a shield
+M 0 7526 5 7582 1	* a little boy (West-Street)
+E 0 7516 0 16		*	a stick: wielded
+M 0 7527 5 7582 1	* a little girl (West-Street)
+E 0 7518 0 17		*	a doll: held in the hands
+M 0 7523 30 7582 1	* a troubadour (West-Street)
+M 0 7535 10 7590 1	* a Defender of Gerighelm (Temple Street)
+E 0 7537 0 6		*	a defenders helm: over the head
+E 0 7538 0 16		*	a defenders sword: wielded
+E 0 7650 0 10		*	a defenders sleeves: on the arms
+E 0 7651 0 7		*	a defenders leggings: on the legs
+E 0 7652 0 11		*	a defenders shield: as a shield
+E 0 7653 0 1		*	a defenders ring: on the left finger
+E 0 7654 0 5		*	a defenders vest: on the body
+E 0 7655 0 12		*	a defenders cape: about the shoulders
+E 0 7656 0 3		*	a defenders cloak: around the neck (1)
+E 0 7657 0 9		*	a defenders gloves: on the hands
+E 0 7658 0 13		*	a defenders belt: around the waist
+E 0 7659 0 14		*	a defenders bracer: on the left wrist
+E 0 7660 0 8		*	a defenders pair of boots: on the feet
+M 0 7535 10 7600 1	* a Defender of Gerighelm (The Dump)
+E 0 7537 0 6		*	a defenders helm: over the head
+E 0 7538 0 16		*	a defenders sword: wielded
+E 0 7650 0 10		*	a defenders sleeves: on the arms
+E 0 7651 0 7		*	a defenders leggings: on the legs
+E 0 7652 0 11		*	a defenders shield: as a shield
+E 0 7653 0 1		*	a defenders ring: on the left finger
+E 0 7654 0 5		*	a defenders vest: on the body
+E 0 7655 0 12		*	a defenders cape: about the shoulders
+E 0 7656 0 3		*	a defenders cloak: around the neck (1)
+E 0 7657 0 9		*	a defenders gloves: on the hands
+E 0 7658 0 13		*	a defenders belt: around the waist
+E 0 7659 0 14		*	a defenders bracer: on the left wrist
+E 0 7660 0 8		*	a defenders pair of boots: on the feet
+M 0 7609 1 7602 1	* the animal man (Ye Olde Pet Shope)
+M 0 7523 30 7603 1	* a troubadour (Merchant Way)
+E 0 7514 0 17		*	a harp: held in the hands
+M 0 7597 10 7604 1	* the merchant (Greghimles furniture store)
+G 0 7504 0		*	a bottle of beer
+G 0 7505 0		*	a magic water pitcher
+M 0 7532 15 7605 2	* a Gerighelm cityguard (Merchant Way)
+E 0 7524 0 1		*	Gerighelm guard ring: on the left finger
+E 0 7529 0 5		*	a Gerighelm vest: on the body
+E 0 7535 0 16		*	a Gerighelm sword: wielded
+E 0 7527 0 7		*	a pair of Gerighelm guard leggings: on the legs
+E 0 7536 0 8		*	a pair of Gerighelm boots: on the feet
+M 0 7523 30 7605 1	* a troubadour (Merchant Way)
+E 0 7513 0 17		*	a lute: held in the hands
+M 0 7597 10 7606 1	* the merchant (Crazy Himshlick's portable fountains)
+G 0 7504 0		*	a bottle of beer
+G 0 7505 0		*	a magic water pitcher
+M 0 7523 30 7607 1	* a troubadour (Merchant Way)
+E 0 7514 0 17		*	a harp: held in the hands
+M 0 7533 1 7608 1	* the ale-conner (Water bottles and Beer)
+M 0 7597 10 7608 1	* the merchant (Water bottles and Beer)
+G 0 7504 0		*	a bottle of beer
+G 0 7505 0		*	a magic water pitcher
+M 0 7523 30 7609 1	* a troubadour (Merchant Way)
+E 0 7513 0 17		*	a lute: held in the hands
+M 0 7610 1 7610 1	* the old witch (The Potions and Wands shop)
+M 0 7523 30 7611 1	* a troubadour (Bridge over the river)
+M 0 7523 30 7613 1	* a troubadour (Crowded market)
+E 0 7514 0 17		*	a harp: held in the hands
+M 0 7534 10 7614 1	* a Defender of Gerighelm (Crowded market)
+E 0 7538 0 16		*	a defenders sword: wielded
+E 0 7654 0 5		*	a defenders vest: on the body
+E 0 7537 0 6		*	a defenders helm: over the head
+E 0 7650 0 10		*	a defenders sleeves: on the arms
+E 0 7651 0 7		*	a defenders leggings: on the legs
+E 0 7652 0 11		*	a defenders shield: as a shield
+E 0 7653 0 1		*	a defenders ring: on the left finger
+E 0 7655 0 12		*	a defenders cape: about the shoulders
+E 0 7656 0 3		*	a defenders cloak: around the neck (1)
+E 0 7657 0 9		*	a defenders gloves: on the hands
+E 0 7658 0 13		*	a defenders belt: around the waist
+E 0 7659 0 14		*	a defenders bracer: on the left wrist
+E 0 7660 0 8		*	a defenders pair of boots: on the feet
+M 0 7523 30 7614 1	* a troubadour (Crowded market)
+E 0 7513 0 17		*	a lute: held in the hands
+M 0 7535 10 7614 1	* a Defender of Gerighelm (Crowded market)
+E 0 7537 0 6		*	a defenders helm: over the head
+E 0 7538 0 16		*	a defenders sword: wielded
+E 0 7650 0 10		*	a defenders sleeves: on the arms
+E 0 7651 0 7		*	a defenders leggings: on the legs
+E 0 7652 0 11		*	a defenders shield: as a shield
+E 0 7653 0 1		*	a defenders ring: on the left finger
+E 0 7654 0 5		*	a defenders vest: on the body
+E 0 7655 0 12		*	a defenders cape: about the shoulders
+E 0 7656 0 3		*	a defenders cloak: around the neck (1)
+E 0 7657 0 9		*	a defenders gloves: on the hands
+E 0 7658 0 13		*	a defenders belt: around the waist
+E 0 7659 0 14		*	a defenders bracer: on the left wrist
+E 0 7660 0 8		*	a defenders pair of boots: on the feet
+M 0 7522 5 7622 1	* a citizen of Gerighelm (Pair of paths)
+E 0 7515 0 16		*	an umbrella: wielded
+M 0 7521 5 7623 1	* a citizen of Gerighelm (House)
+E 0 7555 0 16		*	a mace: wielded
+M 0 7523 30 7639 1	* a troubadour (Crowded market)
+E 0 7514 0 17		*	a harp: held in the hands
+M 0 7523 30 7640 1	* a troubadour (Crowded market)
+E 0 7513 0 17		*	a lute: held in the hands
+M 0 7530 25 7641 10	* a Gerighelm cityguard (Crowded market)
+E 0 7524 0 1		*	Gerighelm guard ring: on the left finger
+E 0 7529 0 5		*	a Gerighelm vest: on the body
+E 0 7535 0 16		*	a Gerighelm sword: wielded
+E 0 7526 0 6		*	a pair of Gerighelm guard sleeves: over the head
+M 0 7524 4 7641 1	* an old biddy (Crowded market)
+E 0 7523 0 16		*	a sharp fingernail: wielded
+M 0 7525 4 7641 1	* an old coot (Crowded market)
+M 0 7526 5 7641 1	* a little boy (Crowded market)
+E 0 7516 0 16		*	a stick: wielded
+M 0 7527 5 7641 1	* a little girl (Crowded market)
+E 0 7518 0 17		*	a doll: held in the hands
+M 0 7523 30 7641 1	* a troubadour (Crowded market)
+E 0 7514 0 17		*	a harp: held in the hands
+M 0 7523 30 7642 1	* a troubadour (Crowded market)
+E 0 7513 0 17		*	a lute: held in the hands
+M 0 7524 4 7643 1	* an old biddy (Crowded market)
+M 0 7525 4 7643 1	* an old coot (Crowded market)
+M 0 7526 5 7643 1	* a little boy (Crowded market)
+E 0 7516 0 16		*	a stick: wielded
+M 0 7527 5 7643 1	* a little girl (Crowded market)
+M 0 7523 30 7643 1	* a troubadour (Crowded market)
+E 0 7514 0 17		*	a harp: held in the hands
+M 0 7523 30 7644 1	* a troubadour (Crowded market)
+E 0 7513 0 17		*	a lute: held in the hands
+M 0 7523 30 7645 1	* a troubadour (Crowded market)
+E 0 7514 0 17		*	a harp: held in the hands
+M 0 7523 30 7646 1	* a troubadour (Crowded market)
+E 0 7513 0 17		*	a lute: held in the hands
+M 0 7523 30 7647 1	* a troubadour (On the bridge)
+M 0 7523 30 7649 1	* a troubadour (The market)
+E 0 7514 0 17		*	a harp: held in the hands
+M 0 7535 10 7654 1	* a Defender of Gerighelm (On the path)
+E 0 7537 0 6		*	a defenders helm: over the head
+E 0 7538 0 16		*	a defenders sword: wielded
+E 0 7650 0 10		*	a defenders sleeves: on the arms
+E 0 7651 0 7		*	a defenders leggings: on the legs
+E 0 7652 0 11		*	a defenders shield: as a shield
+E 0 7653 0 1		*	a defenders ring: on the left finger
+E 0 7654 0 5		*	a defenders vest: on the body
+E 0 7655 0 12		*	a defenders cape: about the shoulders
+E 0 7656 0 3		*	a defenders cloak: around the neck (1)
+E 0 7657 0 9		*	a defenders gloves: on the hands
+E 0 7658 0 13		*	a defenders belt: around the waist
+E 0 7659 0 14		*	a defenders bracer: on the left wrist
+E 0 7660 0 8		*	a defenders pair of boots: on the feet
+M 0 7524 4 7660 1	* an old biddy (Market)
+E 0 7523 0 16		*	a sharp fingernail: wielded
+M 0 7525 4 7660 1	* an old coot (Market)
+M 0 7526 5 7660 1	* a little boy (Market)
+E 0 7516 0 16		*	a stick: wielded
+M 0 7527 5 7660 1	* a little girl (Market)
+M 0 7535 10 7662 1	* a Defender of Gerighelm (Market)
+E 0 7537 0 6		*	a defenders helm: over the head
+E 0 7538 0 16		*	a defenders sword: wielded
+E 0 7650 0 10		*	a defenders sleeves: on the arms
+E 0 7651 0 7		*	a defenders leggings: on the legs
+E 0 7652 0 11		*	a defenders shield: as a shield
+E 0 7653 0 1		*	a defenders ring: on the left finger
+E 0 7654 0 5		*	a defenders vest: on the body
+E 0 7655 0 12		*	a defenders cape: about the shoulders
+E 0 7656 0 3		*	a defenders cloak: around the neck (1)
+E 0 7657 0 9		*	a defenders gloves: on the hands
+E 0 7658 0 13		*	a defenders belt: around the waist
+E 0 7659 0 14		*	a defenders bracer: on the left wrist
+E 0 7660 0 8		*	a defenders pair of boots: on the feet
+M 0 7590 10 7664 1	* a servant (The palace)
+M 0 7536 10 7664 1	* a palace guard (The palace)
+E 0 7539 0 1		*	a palace guard ring: on the left finger
+E 0 7540 0 6		*	a palace guard helmet: over the head
+E 0 7541 0 10		*	a pair of palace guard sleeves: on the arms
+E 0 7542 0 7		*	a pair of palace guard leggings: on the legs
+E 0 7543 0 11		*	a palace guard shield: as a shield
+E 0 7544 0 5		*	a palace guard vest: on the body
+E 0 7545 0 12		*	a palace guard cape: about the shoulders
+E 0 7546 0 3		*	a palace guard cloak: around the neck (1)
+E 0 7547 0 9		*	a pair of palace guard gloves: on the hands
+E 0 7548 0 13		*	a palace guard belt: around the waist
+E 0 7549 0 15		*	a palace guard bracer: on the right wrist
+E 0 7550 0 16		*	a palace guard's sword: wielded
+E 0 7551 0 8		*	the cooks hat: on the feet
+M 0 7590 10 7665 1	* a servant (Inside the Palace)
+M 0 7535 10 7665 1	* a Defender of Gerighelm (Inside the Palace)
+E 0 7537 0 6		*	a defenders helm: over the head
+E 0 7538 0 16		*	a defenders sword: wielded
+E 0 7650 0 10		*	a defenders sleeves: on the arms
+E 0 7651 0 7		*	a defenders leggings: on the legs
+E 0 7652 0 11		*	a defenders shield: as a shield
+E 0 7653 0 1		*	a defenders ring: on the left finger
+E 0 7654 0 5		*	a defenders vest: on the body
+E 0 7655 0 12		*	a defenders cape: about the shoulders
+E 0 7656 0 3		*	a defenders cloak: around the neck (1)
+E 0 7657 0 9		*	a defenders gloves: on the hands
+E 0 7658 0 13		*	a defenders belt: around the waist
+E 0 7659 0 14		*	a defenders bracer: on the left wrist
+E 0 7660 0 8		*	a defenders pair of boots: on the feet
+M 0 7539 1 7666 1	* the palace mage (Treasury)
+E 0 7552 0 17		*	a silver staff: held in the hands
+E 0 7553 0 16		*	the dagger of stabbing: wielded
+M 0 7590 10 7668 1	* a servant (Inside the palace)
+M 0 7536 10 7668 1	* a palace guard (Inside the palace)
+E 0 7539 0 1		*	a palace guard ring: on the left finger
+E 0 7540 0 6		*	a palace guard helmet: over the head
+E 0 7541 0 10		*	a pair of palace guard sleeves: on the arms
+E 0 7542 0 7		*	a pair of palace guard leggings: on the legs
+E 0 7543 0 11		*	a palace guard shield: as a shield
+E 0 7544 0 5		*	a palace guard vest: on the body
+E 0 7545 0 12		*	a palace guard cape: about the shoulders
+E 0 7546 0 3		*	a palace guard cloak: around the neck (1)
+E 0 7547 0 9		*	a pair of palace guard gloves: on the hands
+E 0 7548 0 13		*	a palace guard belt: around the waist
+E 0 7549 0 15		*	a palace guard bracer: on the right wrist
+E 0 7550 0 16		*	a palace guard's sword: wielded
+E 0 7551 0 8		*	the cooks hat: on the feet
+M 0 7551 3 7670 1	* the palace gardener (Garden)
+E 0 7558 0 16		*	the hoe of destruction: wielded
+M 0 7536 10 7670 1	* a palace guard (Garden)
+E 0 7539 0 1		*	a palace guard ring: on the left finger
+E 0 7540 0 6		*	a palace guard helmet: over the head
+E 0 7541 0 10		*	a pair of palace guard sleeves: on the arms
+E 0 7542 0 7		*	a pair of palace guard leggings: on the legs
+E 0 7543 0 11		*	a palace guard shield: as a shield
+E 0 7544 0 5		*	a palace guard vest: on the body
+E 0 7545 0 12		*	a palace guard cape: about the shoulders
+E 0 7546 0 3		*	a palace guard cloak: around the neck (1)
+E 0 7547 0 9		*	a pair of palace guard gloves: on the hands
+E 0 7548 0 13		*	a palace guard belt: around the waist
+E 0 7549 0 15		*	a palace guard bracer: on the right wrist
+E 0 7550 0 16		*	a palace guard's sword: wielded
+E 0 7551 0 8		*	the cooks hat: on the feet
+M 0 7550 1 7672 1	* the head of the guard (Great hall)
+E 0 7556 0 16		*	the sword of thunder: wielded
+E 0 7557 0 5		*	the vest of the titans: on the body
+M 0 7590 10 7672 1	* a servant (Great hall)
+M 0 7540 1 7673 1	* the palace priest (The Altar)
+E 0 7554 0 16		*	a holyword: wielded
+M 0 7590 10 7674 1	* a servant (Servants Quarters)
+M 0 7590 10 7674 1	* a servant (Servants Quarters)
+M 0 7590 10 7675 1	* a servant (Servants Quarters)
+M 0 7552 3 7676 3	* a bodyguard (Throne Room)
+E 0 7561 0 5		*	a uniform: on the body
+E 0 7560 0 16		*	a cutlass: wielded
+M 0 7554 1 7676 1	* the Duke of Gerighelm (Throne Room)
+E 0 7563 0 16		*	a two-handed sword: wielded
+E 0 7564 0 6		*	the Dukes Helm: over the head
+E 0 7567 0 1		*	a wedding ring: on the left finger
+M 0 7555 1 7676 1	* the Duchess of Gerighelm (Throne Room)
+E 0 7565 0 6		*	the Duchesses Tiara: over the head
+E 0 7566 0 1		*	a wedding ring: on the left finger
+M 0 7536 10 7676 1	* a palace guard (Throne Room)
+E 0 7539 0 1		*	a palace guard ring: on the left finger
+E 0 7540 0 6		*	a palace guard helmet: over the head
+E 0 7541 0 10		*	a pair of palace guard sleeves: on the arms
+E 0 7542 0 7		*	a pair of palace guard leggings: on the legs
+E 0 7543 0 11		*	a palace guard shield: as a shield
+E 0 7544 0 5		*	a palace guard vest: on the body
+E 0 7545 0 12		*	a palace guard cape: about the shoulders
+E 0 7546 0 3		*	a palace guard cloak: around the neck (1)
+E 0 7547 0 9		*	a pair of palace guard gloves: on the hands
+E 0 7548 0 13		*	a palace guard belt: around the waist
+E 0 7549 0 15		*	a palace guard bracer: on the right wrist
+E 0 7550 0 16		*	a palace guard's sword: wielded
+E 0 7551 0 8		*	the cooks hat: on the feet
+M 0 7538 1 7680 1	* the cook (Beer cellar)
+E 0 7551 0 6		*	the cooks hat: over the head
+M 0 7531 25 7681 6	* a Gerighelm cityguard (Barracks)
+E 0 7530 0 12		*	a Gerighelm guard cape: about the shoulders
+E 0 7529 0 5		*	a Gerighelm vest: on the body
+E 0 7535 0 16		*	a Gerighelm sword: wielded
+E 0 7524 0 1		*	Gerighelm guard ring: on the left finger
+M 0 7532 15 7681 6	* a Gerighelm cityguard (Barracks)
+E 0 7524 0 1		*	Gerighelm guard ring: on the left finger
+E 0 7529 0 5		*	a Gerighelm vest: on the body
+E 0 7535 0 16		*	a Gerighelm sword: wielded
+E 0 7526 0 10		*	a pair of Gerighelm guard sleeves: on the arms
+M 0 7698 1 7698 1	* a hawk (Pet Shop Warehouse)
+M 0 7699 1 7699 1	* the Death (Sacrifice Room)
+E 0 7699 0 16		*	the Death's Scythe: wielded
 S
+
+
+
+#SHOPS
+7592 0 0 0 0 0 120 101 0 23
+7593 9 5 1 8 11 120 100 0 23
+7594 2 3 4 10 26 150 90 0 23
+7595 8 18 5 15 0 100 90 0 23
+7597 0 0 0 0 0 100 100 0 23
+7604 26 0 0 0 0 130 90 0 23
+7610 10 17 3 0 0 180 75 0 23
+0
+
+
+
+#OLIMITS
+O 7699 2	* the Death's Scythe
+S
+
+
+
+#MOBPROGS
+#0
+
+#PRACTICERS
+S
+
+
+
+#OMPROGS
+S
+
+
+
+#HELPS
+-1 greater gerighelm~
+Converted to standard Merc 2.x by Jason Huang (god@@sure.net)
+Further conversion to Rom 2.4 by Jaceks and Chicken's Den Staff~
+-1 $~
 
 #$

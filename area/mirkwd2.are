@@ -1,22 +1,12 @@
-#AREA
-mirkwd2.are~
-Mirkwood~
-{ 5 15} Yaegar  Mirkwood~
-8800 8899
+#AREADATA
+Name Mirkwood~
+Builders None~
+VNUMs 8800 8899
+Credits Yaegar~
+Security 9
+LevelRange 5 15
+End
 
-#HELPS
-0 mirkwood~
-
-Written by Yaegar using MZF and a DOS text Editor in December 1995. Based
-loosely on the forest mentioned in the works of Tolkien of the same name.
-
-Thanks to J.R.R. Tolkien and the gang at AM.
-
-Converted to ROM 2.4 format by Roland.
-Enhanced and balanced by jaceks.
-Checked and beta tested by Quartz.
-~
-0 $~
 
 
 #MOBILES
@@ -32,12 +22,12 @@ back down. As natives of Mirkwood, they are virtually imposssible to see
 if they don't want to be seen.
 ~
 elf~
-ABCFG FJQ 400 0
+ABCFG FQ 400 0
 5 0 2d6+60 1d1+99 1d6+1 punch
 5 5 5 10
-DF ABNI AN GH
+DF ABIN AN GH
 stand sit male 103
-0 0 small 0
+0 0 small unknown
 #8801
 sylvan elf warrior~
 a sylvan elf warrior~
@@ -49,12 +39,12 @@ hostile toward outsiders. However, if you're tough enough, perhaps he'll
 back down.
 ~
 elf~
-ABCFG J 400 0
+ABCFG 0 400 0
 7 2 2d6+84 1d1+99 1d8+1 slice
 5 5 7 10
 CEF AB 0 D
 rest stand male 150
-0 0 small 0
+0 0 small unknown
 #8802
 orc scout~
 an orc scout~
@@ -66,12 +56,12 @@ in their own demise, but eventually the Elves will be worn down by the
 sheer weight of numbers of the immense Orcish hordes.
 ~
 orc~
-ABCFGH J -400 0
+ABCFGH 0 -400 0
 5 0 2d6+60 1d1+99 1d6+1 slap
 10 5 10 10
 CDF AB 0 CD
 stand stand male 211
-0 0 medium 0
+0 0 medium unknown
 #8803
 orc warrior~
 an orc warrior~
@@ -83,12 +73,12 @@ but eventually the Elves will be worn down by the sheer weight of numbers
 of the immense Orcish hordes.
 ~
 orc~
-ACFG J -400 0
+ACFG 0 -400 0
 5 1 2d6+60 1d1+99 1d6+1 grep
-5 5 7 5 
+5 5 7 5
 EIN AB 0 C
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #8804
 guard~
 a wood elf guard~
@@ -98,12 +88,12 @@ This angry guard is incensed at your trespass in the hall of his king, and
 will attempt to forcibly eject you.
 ~
 elf~
-AFGTQ J 400 8807
+AFGQT 0 400 8807
 8 0 2d7+98 1d1+99 1d7+2 smash
 3 3 3 5
 CKNRT ABHLN 0 0
 stand stand male 50
-0 0 small 0
+0 0 small unknown
 #8805
 chief guard~
 the chief of the guard~
@@ -115,12 +105,12 @@ hostile toward outsiders. However, if you're tough enough, perhaps he'll
 back down.
 ~
 elf~
-ABCFGQ J 400 0
+ABCFGQ 0 400 0
 12 1 2d10+150 1d1+99 1d10+3 claw
 1 1 0 7
 CDEFRTU HLN C 0
 stand stand male 100
-0 0 medium 0
+0 0 medium unknown
 #8806
 galion butler~
 Galion the butler~
@@ -130,12 +120,12 @@ Galion has a tremenous fondness for Dorwinion Wine, and he is now well and
 truly inebriated. However that does not mean he won't react to your intrusion.
 ~
 elf~
-ABCFG J 400 0
+ABCFG 0 400 0
 10 0 2d7+120 1d1+99 2d4+2 punch
 2 2 2 8
 KN AB 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #8807
 thranduil king~
 Thranduil, king of the Wood Elves~
@@ -145,12 +135,12 @@ While not immune to the prejudices of his brethren, Thranduil is a trifle
 wiser (and more civilized) and he will not attack without provocation.
 ~
 elf~
-BGR HJ 500 0
+ABGR H 500 0
 15 1 3d9+180 1d1+149 2d5+1 claw
 -1 -1 -1 2
 CDEK 0 D 0
 sit sit male 0
-0 0 medium 0
+0 0 medium unknown
 #8808
 wood elf male~
 a male wood elf~
@@ -160,12 +150,12 @@ This person won't attack you like the guards will, but that doesn't mean
 he likes you any more than they do...
 ~
 elf~
-CGQ J 400 0
+ACGQ 0 400 0
 6 0 2d7+70 1d1+99 1d7+1 punch
 4 4 4 5
 FR 0 0 0
 stand stand male 0
-0 0 small 0
+0 0 small unknown
 #8809
 wood elf female~
 a female wood elf~
@@ -175,12 +165,12 @@ This person won't attack you like the guards will, but that doesn't mean
 ahe likes you any more than they do...
 ~
 elf~
-CGQ J 400 0
+ACGQ 0 400 0
 6 0 2d7+65 1d1+99 1d7+1 punch
 5 5 5 5
 FR 0 0 0
 stand stand female 0
-0 0 small 0
+0 0 small unknown
 #8810
 turnkey elf~
 the turnkey~
@@ -189,12 +179,12 @@ The turnkey sleeps here.
 This surly fellow is almost always passed out from copious alcohol consumption.
 ~
 elf~
-BCG J 0 0
+ABCG 0 0 0
 9 -1 2d6+112 1d1+99 1d8+2 slap
 2 2 2 4
 FJ 0 0 0
 sleep sleep male 20
-0 0 small 0
+0 0 small unknown
 #8811
 thorin oakenshield~
 Thorin Oakenshield~
@@ -205,13 +195,15 @@ by the Wood Elves while journeying to avenge their brethren against the
 dragon Smaug.
 ~
 elf~
-CGQ O 500 0
+ACGQ O 500 0
 14 0 2d10+190 1d1+99 1d12+3 punch
 -1 -1 -1 0
-IKNR 0 ABIN 0
+IKNR 0 AIN 0
 stand stand male 40
-0 0 medium 0
+0 0 medium unknown
 #0
+
+
 
 #OBJECTS
 #8800
@@ -243,7 +235,7 @@ a plain elven cloak~
 A plain, but practical, Elven cloak lies here.~
 cloth~
 armor G AC
-3 3 3 0 1
+AB AB AB 0 A
 5 40 200 G
 A
 13 5
@@ -255,7 +247,7 @@ a pair of plain elven boots~
 A plain, but practical, pair of Elven boots.~
 leather~
 armor G AG
-3 4 4 0 2
+AB C C 0 B
 5 30 400 G
 A
 2 1
@@ -275,7 +267,7 @@ a spiked metal shield~
 An Orcish spiked metal shield has been left here.~
 steel~
 armor 0 AJ
-3 4 4 0 3
+AB C C 0 AB
 5 40 400 G
 #8806
 scimitar~
@@ -295,7 +287,7 @@ an ugly spiked helm~
 An ugly Orcish spiked helm has been left here.~
 bronze~
 armor G AE
-4 3 3 0 2
+C AB AB 0 B
 5 140 200 G
 A
 17 -5
@@ -306,14 +298,14 @@ A half-drunk flask of fine Dorwinion wine lies here.~
 porcelain~
 drink 0 A
 10 5 'red wine' 0 0
-5 60 150 G 
+5 60 150 G
 #8809
 barrel wine~
 a barrel of Dorwinion wine~
 A barrel of Dorwinion wine is here.~
 wood~
 drink 0 A
-50 50 'wine' 0 0
+50 50 'water' 0 0
 0 100 300 G
 #8810
 barrel~
@@ -330,7 +322,7 @@ A fine Elven sword glimmers softly here.~
 metal~
 weapon AL AN
 sword 2 12 cleave DF
-14 45 600 G 
+14 45 600 G
 A
 2 1
 A
@@ -355,8 +347,9 @@ key 0 AO
 0 10 0 G
 #0
 
-#ROOMS
 
+
+#ROOMS
 #8800
 Entrance to Mirkwood~
 You have entered the quasi-magical Elven forest of Mirkwood, populated by
@@ -368,18 +361,6 @@ There is a sign tacked to a tree nearby.
      There is a small (Glowing) (Huming) tablet.
 ~
 0 C 3
-D 0
-~
-~
-0 -1 8801
-D1
-~
-~
-0 -1 7860
-D2
-~
-~
-0 -1 8855
 E
 sign~
 This area serves as a connector for many areas with an Elven or Faerie flavour,
@@ -407,6 +388,18 @@ small tablet~
 +                                                          july'96 +
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ~
+D0
+~
+~
+0 -1 8801
+D1
+~
+~
+0 -1 7860
+D2
+~
+~
+0 -1 8855
 S
 #8801
 The Path Through Mirkwood~
@@ -712,14 +705,14 @@ although they would usually feed upon each other, they all seem to be at
 peace.
 ~
 0 0 3
-D5
-~
-~
-0 -1 8904
 D2
 ~
 ~
 0 -1 8817
+D5
+~
+~
+0 -1 8904
 S
 #8820
 The Western Path~
@@ -1071,11 +1064,6 @@ D0
 ~
 ~
 0 -1 8839
-D5
-It is entrance to unknown area. Not implemented. Sorry (14000)
-~
-~
-0 -1 0
 S
 #8841
 A Bend in the Path~
@@ -1312,7 +1300,7 @@ D0
 D4
 ~
 ~
-0 -1 338 
+0 -1 338
 S
 #8856
 A Broad Tree-Lined Path~
@@ -1537,101 +1525,122 @@ D2
 0 -1 8868
 S
 #0
-#RESETS
-*
-D 0 8857 1 2       *LOCKS DOOR TO HALL
-D 0 8858 3 2       *LOCKS FROM OTHER SIDE
-D 0 8859 1 1       *CLOSES DOOR TO GUARD ROOM
-D 0 8860 3 1       *CLOSES FROM OTHER SIDE
-D 0 8860 0 2       *LOCKS DOOR TO CELL
-D 0 8867 2 2       *LOCKS FROM OTHER SIDE
-D 0 8860 1 1       *CLOSES DOOR TO STORE ROOM
-D 0 8861 3 1       *CLOSES FROM OTHER SIDE
-D 0 8861 5 1       *CLOSES DOOR TO RIVER
-D 0 8862 4 1       *CLOSES DOOR FROM RIVER
-D 0 8864 1 1       *CLOSES DOOR TO THRONE ROOM
-D 0 8865 3 1       *CLOSES FROM OTHER SIDE
-*
-M 1 8800 4 8810 1    *LOADS SCOUTS (5)
-E 1 8801 -1 16         *sword
-E 1 8802 -1 12         *cloak
-E 1 8803 -1 8          *boots
-G 1 8804 -1 0          *water flask
-*
-O 0 8800 0 8818     *LOADS POOL
-*
-M 1 8801 4 8821 2    *LOADS WARRIOR (7)
-E 1 8801 -1 16         *sword
-E 1 8802 -1 12         *cloak
-E 1 8803 -1 8          *boots
-G 1 8804 -1 0          *water flask
-*
-M 1 8802 3 8836 2    *LOADS ORC SCOUTS (5)
-E 1 8805 -1 11         *shield
-E 1 8806 -1 16         *scimitar
-E 1 8807 -1 6          *helmet
-*
-M 1 8803 3 8839 1    *LOADS ORC WARRIORS (5)
-E 1 8805 -1 11         *shield
-E 1 8806 -1 16         *scimitar
-E 1 8807 -1 6          *helmet
-*
-M 1 8800 4 8846 2    *LOADS SCOUTS (5)
-E 1 8801 -1 16         *sword
-E 1 8802 -1 12         *cloak
-E 1 8803 -1 8          *boots
-G 1 8804 -1 0          *water flask
-*
-M 1 8804 4 8857 2    *LOADS GUARDS (8)
-E 1 8801 -1 16         *sword
-E 1 8802 -1 12         *cloak
-E 1 8803 -1 8          *boots
-G 1 8804 -1 0          *water flask
-G 1 8813 -1 0        *GIVES KEY TO HALL
-*
-M 1 8808 2 8859 1    *LOADS MALE ELVES (6)
-*
-M 1 8810 1 8860 1    *LOADS TURNKEY (9)
-G 1 8812 -1 0          *GIVES KEY TO CELL
-G 1 8808 -1 0          *GIVES WINE
-*
-M 1 8805 1 8861 1    *LOADS BUTLER (12)
-G 1 8808 -1 0          *GIVES WINE
-*
-M 1 8806 1 8861 1    *LOADS CHIEF (10)
-E 1 8801 -1 16         *sword
-E 1 8802 -1 12         *cloak
-E 1 8803 -1 8          *boots
-G 1 8804 -1 0          *water flask
-*
-O 0 8809 0 8861     *LOADS BARREL OF WINE
-O 0 8810 0 8861     *LOADS EMPTY BARREL
-*
-M 1 8809 2 8864 1    *LOADS FEMALE ELVES (6)
-*
-M 1 8807 1 8865 1    *LOADS THRANDUIL (15)
-E 1 8811 -1 16       *WIELDS SWORD
-*
-M 1 8804 4 8865 2    *LOADS GUARDS (8)
-E 1 8801 -1 16         *sword
-E 1 8802 -1 12         *cloak
-E 1 8803 -1 8          *boots
-G 1 8804 -1 0          *water flask
-*
-M 1 8811 1 8867 1    *LOADS THORIN OAKENSHIELD (14)
-S
+
+
 
 #SPECIALS
-M 8800 spec_poison
-* M 8801 spec_elf
-M 8802 spec_nasty
-M 8803 spec_nasty
-M 8803 spec_guard
-M 8805 spec_guard
-* M 8806 spec_elf
-M 8807 spec_cast_mage
-* M 8808 spec_elf
-* M 8809 spec_elf
+M 8800 spec_poison	* a sylvan elf scout
+M 8802 spec_nasty	* an orc scout
+M 8803 spec_guard	* an orc warrior
+M 8805 spec_guard	* the chief of the guard
+M 8807 spec_cast_mage	* Thranduil, king of the Wood Elves
 S
+
+
+
+#RESETS
+D 0 8857 1 2	* A Broad Tree-Lined Path: door to the east: closed and locked
+D 0 8858 3 2	* Inside the Cave: door to the west: closed and locked
+D 0 8859 1 1	* Inside the Cave: door to the east: closed
+D 0 8860 0 2	* A Guard Room: door to the north: closed and locked
+D 0 8860 1 1	* A Guard Room: door to the east: closed
+D 0 8860 3 1	* A Guard Room: door to the west: closed
+D 0 8861 3 1	* Storage Room: door to the west: closed
+D 0 8861 5 1	* Storage Room: door to the down: closed
+D 0 8862 4 1	* The River: door to the up: closed
+D 0 8864 1 1	* Inside the Cave: door to the east: closed
+D 0 8865 3 1	* The Throne Room of Thrandul: door to the west: closed
+D 0 8867 2 2	* A Cell: door to the south: closed and locked
+M 0 8800 4 8810 1	* a sylvan elf scout (A Guard Post)
+E 0 8801 0 16		*	an elvish sword: wielded
+E 0 8802 0 12		*	a plain elven cloak: about the shoulders
+E 0 8803 0 8		*	a pair of plain elven boots: on the feet
+G 0 8804 0		*	a water flask
+O 0 8800 0 8818		* a pool (The End of the Path)
+M 0 8801 4 8821 2	* a sylvan elf warrior (A Guard Post)
+E 0 8801 0 16		*	an elvish sword: wielded
+E 0 8802 0 12		*	a plain elven cloak: about the shoulders
+E 0 8803 0 8		*	a pair of plain elven boots: on the feet
+G 0 8804 0		*	a water flask
+M 0 8802 3 8836 2	* an orc scout (An Evil Section of the Forest)
+E 0 8805 0 11		*	a spiked metal shield: as a shield
+E 0 8806 0 16		*	an orcish scimitar: wielded
+E 0 8807 0 6		*	an ugly spiked helm: over the head
+M 0 8803 3 8839 1	* an orc warrior (An Evil Section of the Forest)
+E 0 8805 0 11		*	a spiked metal shield: as a shield
+E 0 8806 0 16		*	an orcish scimitar: wielded
+E 0 8807 0 6		*	an ugly spiked helm: over the head
+M 0 8800 4 8846 2	* a sylvan elf scout (A Guard Post)
+E 0 8801 0 16		*	an elvish sword: wielded
+E 0 8802 0 12		*	a plain elven cloak: about the shoulders
+E 0 8803 0 8		*	a pair of plain elven boots: on the feet
+G 0 8804 0		*	a water flask
+M 0 8804 4 8857 2	* a wood elf guard (A Broad Tree-Lined Path)
+E 0 8801 0 16		*	an elvish sword: wielded
+E 0 8802 0 12		*	a plain elven cloak: about the shoulders
+E 0 8803 0 8		*	a pair of plain elven boots: on the feet
+G 0 8804 0		*	a water flask
+G 0 8813 0		*	a key
+M 0 8808 2 8859 1	* a male wood elf (Inside the Cave)
+M 0 8810 1 8860 1	* the turnkey (A Guard Room)
+G 0 8812 0		*	a key
+G 0 8808 0		*	a flask of Dorwinion wine
+M 0 8805 1 8861 1	* the chief of the guard (Storage Room)
+G 0 8808 0		*	a flask of Dorwinion wine
+M 0 8806 1 8861 1	* Galion the butler (Storage Room)
+E 0 8801 0 16		*	an elvish sword: wielded
+E 0 8802 0 12		*	a plain elven cloak: about the shoulders
+E 0 8803 0 8		*	a pair of plain elven boots: on the feet
+G 0 8804 0		*	a water flask
+O 0 8809 0 8861		* a barrel of Dorwinion wine (Storage Room)
+O 0 8810 0 8861		* an empty barrel (Storage Room)
+M 0 8809 2 8864 1	* a female wood elf (Inside the Cave)
+M 0 8807 1 8865 1	* Thranduil, king of the Wood Elves (The Throne Room of Thrandul)
+E 0 8811 0 16		*	a fine elven sword: wielded
+M 0 8804 4 8865 2	* a wood elf guard (The Throne Room of Thrandul)
+E 0 8801 0 16		*	an elvish sword: wielded
+E 0 8802 0 12		*	a plain elven cloak: about the shoulders
+E 0 8803 0 8		*	a pair of plain elven boots: on the feet
+G 0 8804 0		*	a water flask
+M 0 8811 1 8867 1	* Thorin Oakenshield (A Cell)
+S
+
+
+
+#SHOPS
+0
+
+
+
+#OLIMITS
+S
+
+
+
+#MOBPROGS
+#0
+
+#PRACTICERS
+S
+
+
+
+#OMPROGS
+S
+
+
+
+#HELPS
+0 mirkwood~
+Written by Yaegar using MZF and a DOS text Editor in December 1995. Based
+loosely on the forest mentioned in the works of Tolkien of the same name.
+
+Thanks to J.R.R. Tolkien and the gang at AM.
+
+Converted to ROM 2.4 format by Roland.
+Enhanced and balanced by jaceks.
+Checked and beta tested by Quartz.
+~
+-1 $~
 
 #$

@@ -1,12 +1,15 @@
-#AREA
-ryzen2.are~
-Caverns~
-{25 45} Ryzen   Caverns~
-22000 22049
+#AREADATA
+Name Caverns~
+Builders None~
+VNUMs 22000 22049
+Credits Ryzen~
+Security 9
+LevelRange 25 45
+End
+
 
 
 #MOBILES
-
 #22002
 ghost wandering~
 A Wandering Ghost~
@@ -19,10 +22,10 @@ not rest until destroyed and sent into the heavens.
 human~
 AG BTU -200 0
 25 0 5d10+550 1d50+100 2d10+7 wrath
--7 -7 -7 0 
-EFU 0 D N 
+-7 -7 -7 0
+EFU 0 D N
 stand stand none 0
-AHIMV ABCDEFGHIJK medium 0
+I 0 medium unknown
 #22003
 wraith wicked~
 a Wicked Wraith~
@@ -34,9 +37,9 @@ human~
 AGO U -1000 0
 34 0 9d80+1200 34d10+100 4d7+10 claw
 -11 -10 -11 5
-CEFH 0 0 NY 
+CEFH 0 0 NY
 stand stand none 0
-AHIMV ABCDEFGHIJK medium 0
+I 0 medium unknown
 #22004
 ghastly spectre~
 a spectre~
@@ -48,9 +51,9 @@ human~
 AGO U -800 0
 32 0 5d10+1000 2d20+1000 6d4+9 slash
 -10 -10 -10 4
-CDFH 0 0 NYZ 
+CDFH 0 0 NYZ
 stand stand none 0
-AHIMV ABCDEFGHIJK medium 0
+I 0 medium unknown
 #22005
 ghoul~
 a ghoul~
@@ -64,9 +67,9 @@ human~
 AGO 0 -950 0
 36 0 5d25+1400 36d10+100 3d10+11 claw
 -12 -12 -12 3
-CDHK 0 0 N 
+CDHK 0 0 N
 stand stand none 500
-AHIMV ABCDEFGHIJK medium 0
+I 0 medium unknown
 #22006
 demon lemure lowest~
 a lemure~
@@ -81,7 +84,7 @@ AGO 0 -600 0
 0 0 0 0
 CDF 0 0 NZ
 stand stand none 0
-AHIMV ABCDEFGHIJK medium 0
+I 0 medium unknown
 #22007
 nupperibo demon obese~
 a nupperibo~
@@ -97,7 +100,7 @@ AGO 0 -700 0
 -8 -8 -8 6
 CDF 0 0 NZ
 stand stand none 0
-AHIMV ABCDEFGHIJK large 0
+I 0 large unknown
 #22008
 spinagon demon~
 a Spinagon~
@@ -113,7 +116,7 @@ AGO T -1000 0
 -11 -11 -11 5
 DEFIKN 0 0 N
 stand stand none 500
-AHIMV ABCDEFGHIJK medium 0
+I 0 medium unknown
 #22009
 ghoul lord~
 the ghoul lord~
@@ -127,9 +130,9 @@ human~
 ABO J -1000 0
 42 0 5d50+2250 42d10+4400 3d12+14 blast
 -14 -14 -14 0
-CDEFHK 0 0 NZ 
+CDEFHK 0 0 NZ
 stand stand male 800
-AHIMV ABCDEFGHIJK large 0
+I 0 large unknown
 #22010
 dragon deep black~
 A Deep Dragon~
@@ -140,12 +143,12 @@ opponent.  He must have been out hunting because he looks awfully tired now,
 well at least you get the first attack before he kills you.  
 ~
 dragon~
-ABG T -800 0
+ABG 0 -800 0
 45 0 10d100+3000 45d10+4100 8d4+16 claw
 -15 -15 -15 -1
-CDEKM 0 HIJK F 
+CDEKM 0 IJK 0
 sleep stand male 20000
-AHZc ADEFIKLPQUVX medium 0
+c L medium unknown
 #22011
 beast undead~
 an Undead Beast~
@@ -161,7 +164,7 @@ ABFGO Z -900 0
 -13 -13 -13 3
 CDEF 0 0 NY
 stand stand none 500
-AGIV ACDEFJKQV large 0
+AGIV ACDEFJKQV large unknown
 #22012
 cleric holy~
 a Holy Cleric~
@@ -177,7 +180,7 @@ ABGQ 0 800 0
 -11 -11 -11 3
 CEKLS 0 0 0
 stand stand male 500
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #22013
 knight~
 A Well Armed Knight~
@@ -193,7 +196,7 @@ AGT C 1000 0
 -7 -7 -7 4
 CEFIKS 0 0 0
 stand stand male 500
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #22014
 halfling thief~
 A Halfling Thief~
@@ -202,13 +205,13 @@ A halfling thief peers around, looking for something to steal
 Lost from his adventuring companions this little trouble maker is now
 just running around looking for things to slip into his purses.  
 ~
-halfling~
+unique~
 AGS J -400 0
 29 0 6d12+778 29d10+1100 4d6+8 pierce
 -9 -9 -9 4
-FJNS 0 0 Z 
-stand stand male 1200 
-AHMV ABCDEFGHIJK small 0
+FJNS 0 0 Z
+stand stand male 1200
+AHMV ABCDEFGHIJK small unknown
 #22015
 powerful enchantress~
 A Powerful Enchantress~
@@ -224,7 +227,7 @@ AGR H -600 0
 0 0 0 0
 FNS 0 C 0
 stand stand female 1000
-AHMV ABCDEFGHIJK medium 0
+0 0 medium unknown
 #0
 
 
@@ -236,7 +239,7 @@ girdle of giant strength~
 A brilliant admantite girdle floats here.~
 admantite~
 armor BG AL
-20 20 20 10 0
+CE CE CE BD 0
 42 3 2000 P
 A
 19 5
@@ -256,7 +259,7 @@ leggings of speed~
 A set of glowing leather leggings lie here~
 silver~
 armor A AF
-9 9 9 0 0
+AD AD AD 0 0
 30 5 1000 P
 A
 14 100
@@ -268,7 +271,7 @@ an ornate breast plate~
 A silver breast plate engraved in gold~
 silver~
 armor 0 AD
-8 7 7 0 0
+D ABC ABC 0 0
 25 13 1200 P
 A
 19 1
@@ -280,7 +283,7 @@ ring of magic~
 A glowing ring covered in magical runes lies here.~
 mithril~
 armor AG AB
-9 9 9 4 0
+AD AD AD C 0
 28 1 1000 P
 A
 12 50
@@ -320,7 +323,7 @@ the Rod of Rulership~
 A rod inscribed with words of command floats here.~
 admantite~
 armor ABG AO
-13 12 12 5 0
+ACD CD CD AC 0
 38 5 5000 P
 A
 18 4
@@ -334,7 +337,7 @@ a bloody collar~
 The bloody collar of a dead beast lies here~
 gold~
 armor G AC
-12 12 12 6 0
+CD CD CD BC 0
 36 7 800 P
 A
 18 2
@@ -375,11 +378,7 @@ You stand at the entrance to The Caverns of the Damned.  What creatures
 await you in its shadowy corridors can only be guessed.  Two dark tunnels
 lead east and west , into the caverns, from here.  
 ~
-0 AD 0 
-D4
-~
-~
-0 0 29373
+0 AD 0
 D1
 ~
 ~
@@ -388,6 +387,10 @@ D3
 ~
 ~
 0 0 22001
+D4
+~
+~
+0 0 29373
 S
 #22001
 A Darkened Tunnel~
@@ -395,30 +398,26 @@ The walls seem to project darkness into this shadowy tunnel making it
 hard to make out any details.  All of the exits lead away into further
 darkness.  
 ~
-0 AD 0 
-D5
-~
-~
-0 0 22008
-D2
-~
-~
-0 0 22003
+0 AD 0
 D1
 ~
 ~
 0 0 22000
+D2
+~
+~
+0 0 22003
+D5
+~
+~
+0 0 22008
 S
 #22002
 A Darkened Tunnel~
 The great expanse of caverns spreads out before you.  Three posible exits
 lead from this room, each one shrouded in darkness.  
 ~
-0 AD 0 
-D5
-~
-~
-0 0 22011
+0 AD 0
 D2
 ~
 ~
@@ -427,53 +426,57 @@ D3
 ~
 ~
 0 0 22000
+D5
+~
+~
+0 0 22011
 S
 #22003
 A Bend in the Tunnel~
 The tunnel turns here slightly, both directions lead into shadows.  
 ~
-0 AD 0 
-D2
-~
-~
-0 0 22005
+0 AD 0
 D0
 ~
 ~
 0 0 22001
+D2
+~
+~
+0 0 22005
 S
 #22004
 A Bend in the Tunnel~
 The tunnel turns sharply here.  Directions lead south and north.  
 ~
-0 AD 0 
-D2
-~
-~
-0 0 22006
+0 AD 0
 D0
 ~
 ~
 0 0 22002
+D2
+~
+~
+0 0 22006
 S
 #22005
 A Darkened Tunnel~
 Blackened tunnels spread out before you.  Exits lead down, east, or
 north.  
 ~
-0 AD 0 
-D5
-~
-~
-0 0 22024
-D1
-~
-~
-0 0 22007
+0 AD 0
 D0
 ~
 ~
 0 0 22003
+D1
+~
+~
+0 0 22007
+D5
+~
+~
+0 0 22024
 S
 #22006
 A Darkened Tunnel~
@@ -482,25 +485,25 @@ lose your footing and almost slip on something wet.  Holding your light
 close to the ground you discover a pool of fresh blood.  Exits lead down,
 north, and south.  
 ~
-0 AD 0 
-D5
-~
-~
-0 0 22014
-D2
-~
-~
-0 0 22007
+0 AD 0
 D0
 ~
 ~
 0 0 22004
+D2
+~
+~
+0 0 22007
+D5
+~
+~
+0 0 22014
 S
 #22007
 A Bend in the Tunnel~
 The shadowy tunnel continues to the east and west.  
 ~
-0 AD 0 
+0 AD 0
 D1
 ~
 ~
@@ -516,15 +519,15 @@ You stand at the bottom of a flight of stairs.  You are unable to make
 out any details in this poorly lit corridor, however an exit to the
 south is noticeable.  
 ~
-0 AD 0 
-D4
-~
-~
-0 0 22001
+0 AD 0
 D2
 ~
 ~
 0 0 22009
+D4
+~
+~
+0 0 22001
 S
 #22009
 A Darkened Tunnel~
@@ -532,21 +535,21 @@ You stand in a dark tunnel with exits leading two directions into
 blackness.  
 ~
 0 AD 0
-D3
-~
-~
-0 0 22010
 D0
 ~
 ~
 0 0 22008
+D3
+~
+~
+0 0 22010
 S
 #22010
 The End of the Tunnel~
 This shadowy corridor makes an abrupt stop here, the only exit leading
 back to the east.  
 ~
-0 AD 0  
+0 AD 0
 D1
 ~
 ~
@@ -557,22 +560,22 @@ A Darkened Tunnel~
 A flight of stairs lead into darkness above you while a small tunnel
 heads east into further gloom.  
 ~
-0 AD 0 
-D4
-~
-~
-0 0 22002
+0 AD 0
 D1
 ~
 ~
 0 0 22012
+D4
+~
+~
+0 0 22002
 S
 #22012
 A Darkened Tunnel~
 The total blackness of the caverns spreads out before you, shadowing
 everything in mystery.  Exits lead west and south.  
 ~
-0 AD 0  
+0 AD 0
 D2
 ~
 ~
@@ -587,7 +590,7 @@ The End of the Tunnel~
 You have reached the end of the tunnel with nothing but a blank, stone
 wall standing in your way.  The only exit is back to the north.  
 ~
-0 AD 0  
+0 AD 0
 D0
 ~
 ~
@@ -597,7 +600,7 @@ S
 A Dimly Lit Cave~
 You stand in an enormous cave that spreads out to the south and east.  
 ~
-0 AD 0  
+0 AD 0
 D1
 ~
 ~
@@ -617,15 +620,15 @@ The cave begins to decrease in size at this end.  The ceiling drops at a
 sharp angle forcing you to duck your head.  A small tunnel leads to the
 south while the cave continues to the west.  
 ~
-0 AD 0  
-D3
-~
-~
-0 0 22014
+0 AD 0
 D2
 ~
 ~
 0 0 22017
+D3
+~
+~
+0 0 22014
 S
 #22016
 In the Cave~
@@ -634,7 +637,7 @@ you that it is nearly impossible to see it.  You stare up into the darkness,
 pondering what kind of creatures could be hiding in those shadows.  The only
 exit is north.  
 ~
-0 AD 0 
+0 AD 0
 D0
 ~
 ~
@@ -646,22 +649,26 @@ The small tunnel twists away through dark corridors, leaving you in
 question of your exact location.  The tunnel leads north or south
 from here.  
 ~
-0 AD 0 
-D2
-~
-~
-0 0 22018
+0 AD 0
 D0
 ~
 ~
 0 0 22015
+D2
+~
+~
+0 0 22018
 S
 #22018
 A Branch in the Tunnel~
 The tunnel branches off here in three directions.  You may go north,
 east, or west.  
 ~
-0 A 0 
+0 A 0
+D0
+~
+~
+0 0 22017
 D1
 ~
 ~
@@ -670,17 +677,17 @@ D3
 ~
 ~
 0 0 22019
-D0
-~
-~
-0 0 22017
 S
 #22019
 A Branch in the Tunnel~
 The tunnel branches off in three directions here again.  Directions lead
 south, down, and east.  
 ~
-0 A 0 
+0 A 0
+D1
+~
+~
+0 0 22018
 D2
 ~
 ~
@@ -689,10 +696,6 @@ D5
 ~
 ~
 0 0 22032
-D1
-~
-~
-0 0 22018
 S
 #22020
 A Darkened Tunnel~
@@ -700,7 +703,7 @@ The shadowy tunnel continues to the south and west.  You find
 yourself praying for the lost light of day as the darkness closes in on your
 soul.  
 ~
-0 AD 0 
+0 AD 0
 D2
 ~
 ~
@@ -733,19 +736,19 @@ The caverns continue to spread out before you.  Many times you have found
 yourself wandering in circles only to end up in another room that looks the
 same as all of the others.  Exits lead north, down, and west from here.
 ~
-0 AD 0 
+0 AD 0
 D0
 ~
 ~
 0 0 22020
-D5
-~
-~
-0 0 22036
 D3
 ~
 ~
 0 0 22023
+D5
+~
+~
+0 0 22036
 S
 #22023
 A Bend in the Tunnel~
@@ -785,7 +788,7 @@ Just like all the other tunnels, the monotony is beginning to get to you.
 Darkness, eternal darkness, for just a second you would love to see the
 light of day again and get out of thse cramped tunnels.  
 ~
-0 AD 0 
+0 AD 0
 D1
 ~
 ~
@@ -800,22 +803,22 @@ A Bend in the Tunnel~
 You've come to a sharp turn in the tunnel.  Exits lead both east and
 north into darkness.  
 ~
-0 AD 0  
-D1
-~
-~
-0 0 22025
+0 AD 0
 D0
 ~
 ~
 0 0 22027
+D1
+~
+~
+0 0 22025
 S
 #22027
 A Bend in the Tunnel~
 The shadowy tunnel bends here, leaving you exits to the north and
 south.  
 ~
-0 AD 0  
+0 AD 0
 D0
 ~
 ~
@@ -831,7 +834,7 @@ You reach the top of a set of stairs.  You hear what sounds like someone
 moving at the bottom of the steps, but looking into the gloom it is
 impossible to tell.  
 ~
-0 AD 0  
+0 AD 0
 D2
 ~
 ~
@@ -846,15 +849,15 @@ The Bottom of the Stairs~
 Stairs rise up above you into a higher tunnel.  The only exits available
 appear to be up or north.  
 ~
-0 AD 0  
-D4
-~
-~
-0 0 22028
+0 AD 0
 D0
 ~
 ~
 0 0 22030
+D4
+~
+~
+0 0 22028
 S
 #22030
 A Darkened Tunnel~
@@ -862,7 +865,7 @@ Yet another dark tunnel in what seems like an endless amount of dark
 tunnels.  A low growl is emitted from a room to the east, its inhabitant
 must not be happy.  
 ~
-0 AD 0 
+0 AD 0
 D1
 ~
 ~
@@ -878,7 +881,7 @@ This room looks just like all the others except it seems to be serving as
 a lair for some animal.  Various bones lie about the room causing you to
 stumble several times.  
 ~
-0 AD 0  
+0 AD 0
 D3
 ~
 ~
@@ -890,15 +893,15 @@ The stench of rotting corpses assaults you, as you step into this tunnel.
 A dim light shines from farther down the tunnel, though you don't think
 whatever is living here is going to be too friendly.  
 ~
-0 AD 0 
-D4
-~
-~
-0 0 22019
+0 AD 0
 D2
 ~
 ~
 0 0 22033
+D4
+~
+~
+0 0 22019
 S
 #22033
 A Pitch Black Tunnel~
@@ -906,7 +909,7 @@ The smell grows stronger the farther you walk down this corridor.  An
 unholy laughter echos from farther down the tunnel forcing you to question
 your bravery.  
 ~
-0 AD 0  
+0 AD 0
 D0
 ~
 ~
@@ -923,15 +926,15 @@ flesh that appear freshly torn from a body.  From the horrible death cries
 coming from the next room, you are quite certain that the flesh was torn
 from a still living person.  
 ~
-0 AD 0 
-D3
-~
-~
-0 0 22035
+0 AD 0
 D1
 ~
 ~
 0 0 22033
+D3
+~
+~
+0 0 22035
 S
 #22035
 The Ghoul Lord's Den~
@@ -939,7 +942,7 @@ A horrid creature stands against the far wall eating a human corpse.  The
 amount of blood spilled in the room makes you swoon, and you feel the sudden
 desire to run as fast as posible away from this monster and its dinner.  
 ~
-0 AD 0  
+0 AD 0
 D1
 ~
 ~
@@ -950,15 +953,15 @@ A Pitch Black Tunnel~
 Yet another dark tunnel guides you through the caverns.  From around the
 corner comes a slight shimmering light.  
 ~
-0 AD 0 
-D4
-~
-~
-0 0 22022
+0 AD 0
 D2
 ~
 ~
 0 0 22037
+D4
+~
+~
+0 0 22022
 S
 #22037
 A Crystal Cavern~
@@ -967,15 +970,15 @@ faint light from the west illuminates the cavern in brilliant, flashing
 colors that nearly blind you.  You may continue towards the light to the
 west or return to the tunnel to the north.  
 ~
-0 AD 0 
-D3
-~
-~
-0 0 22038
+0 AD 0
 D0
 ~
 ~
 0 0 22036
+D3
+~
+~
+0 0 22038
 S
 #22038
 The Dragon's Lair~
@@ -984,7 +987,7 @@ beautiful colors throughout the chamber.  Unfortunately your light also
 illuminates a sleeping dragon.  Perhaps you can sneak away before it notices
 you.  
 ~
-0 AD 0  
+0 AD 0
 D1
 ~
 ~
@@ -995,30 +998,30 @@ A Darkened Tunnel~
 The tunnel you are in splits away from the main corridor and continues to
 head in a south direction.  
 ~
-0 AD 0 
-D2
-~
-~
-0 0 22040
+0 AD 0
 D1
 ~
 ~
 0 0 22021
+D2
+~
+~
+0 0 22040
 S
 #22040
 A Darkened Tunnel~
 The tunnel turns slightly here, granting you exits to the west or
 north.  
 ~
-0 AD 0 
-D3
-~
-~
-0 0 22041
+0 AD 0
 D0
 ~
 ~
 0 0 22039
+D3
+~
+~
+0 0 22041
 S
 #22041
 The End of the Tunnel~
@@ -1026,7 +1029,7 @@ The tunnel drops sharply here, staring down the tunnel all you can see
 are shadows, though the presence of evil seems to be growing stronger as you
 descend through the caverns.  
 ~
-0 AD 0 
+0 AD 0
 D1
 ~
 ~
@@ -1042,7 +1045,7 @@ A long cavern spreads out to the east.  Stalagmites and other various
 rock formations clutter the room to such a degree that it is sometimes hard
 to walk.  
 ~
-0 AD 0  
+0 AD 0
 D1
 ~
 ~
@@ -1059,7 +1062,7 @@ line the rocks sometimes catch your attention, holding your eyes for minutes
 at a time.  Fortunately for you it doesn't appear that anything has planned
 to ambush you here as your attention is focussed on nature's magnificence.  
 ~
-0 AD 0  
+0 AD 0
 D1
 ~
 ~
@@ -1076,7 +1079,7 @@ room.  The darkness present in the maze seems to be here to such a degree
 that you feel blinded by the infinite amount of shadow.  The presence of
 evil continues to grow stronger, you must be getting close.  
 ~
-0 AD 0 
+0 AD 0
 D3
 ~
 ~
@@ -1092,7 +1095,7 @@ You are nearly overcome with the presence of tremendous evil.  Howls of
 torment can be heard far off in the distance.  The caverns continue to the
 south, but ponder your mortality first, should you continue?  
 ~
-0 D 0 
+0 D 0
 D2
 ~
 ~
@@ -1109,7 +1112,7 @@ corridor.  The evil assaulting your soul continues to get stronger with
 every step you take.  You feel yourself tense, expecting maybe the ruler of
 hell himself around the corner.  
 ~
-0 D 0  
+0 D 0
 D0
 ~
 ~
@@ -1126,7 +1129,7 @@ river up ahead.  This part of the caverns seems to glow with an unholy
 light, and although it is nice to have light again you start to think you
 prefered the darkness over this.  
 ~
-0 D 0  
+0 D 0
 D2
 ~
 ~
@@ -1143,22 +1146,22 @@ and queer light.  The sound of a river is stronger now and you assume that
 it can not be much farther up ahead.  You may continue through the caverns
 to the south or return towards the exit, north.  
 ~
-0 D 0 
-D2
-~
-~
-0 0 22049
+0 D 0
 D0
 ~
 ~
 0 0 22047
+D2
+~
+~
+0 0 22049
 S
 #22049
 The End of The Caverns~
 CONGRATULATIONS!!!!  You've found the entrance to the River Styx, and
 Hell. I am sure the demons look forward to having you over for dinner.   
 ~
-0 D 0 
+0 D 0
 D0
 ~
 ~
@@ -1173,70 +1176,70 @@ S
 
 
 #SPECIALS
-M 22010 spec_breath_lightning Load to: A Deep Dragon
-M 22012 spec_cast_cleric Load to: a Holy Cleric
-M 22015 spec_cast_mage Load to: A Powerful Enchantress
+M 22010 spec_breath_lightning	* A Deep Dragon
+M 22012 spec_cast_cleric	* a Holy Cleric
+M 22015 spec_cast_mage	* A Powerful Enchantress
 S
 
 
 
 #RESETS
-M 0 22002 10 22001 1*Load A Wandering Ghost
-M 0 22013 1 22002 1*Load A Well Armed Knight
-E 0 22003 0 5 An ornate breast plate is loaded on the body of A Well Armed Knight
-E 0 22011 0 16 A silver longsword is loaded wielded of A Well Armed Knight
-M 0 22007 5 22003 1*Load a nupperibo
-M 0 22002 10 22004 1*Load A Wandering Ghost
-M 0 22007 5 22004 1*Load a nupperibo
-M 0 22014 1 22006 1*Load A Halfling Thief
-E 0 22005 0 14 A concealable wrist sheath is loaded on the left wrist of A Halfling Thief
-M 0 22002 10 22007 1*Load A Wandering Ghost
-M 0 22007 5 22008 1*Load a nupperibo
-M 0 22006 5 22009 1*Load a lemure
-M 0 22007 5 22011 1*Load a nupperibo
-M 0 22002 10 22012 1*Load A Wandering Ghost
-M 0 22006 5 22012 1*Load a lemure
-M 0 22004 3 22013 1*Load a spectre
-M 0 22007 5 22014 1*Load a nupperibo
-M 0 22004 3 22016 1*Load a spectre
-M 0 22002 10 22017 1*Load A Wandering Ghost
-M 0 22005 5 22018 1*Load a ghoul
-M 0 22002 10 22020 1*Load A Wandering Ghost
-M 0 22015 1 22020 1*Load A Powerful Enchantress
-E 0 22004 0 1 Ring of magic is loaded on the left finger of A Powerful Enchantress
-M 0 22006 5 22021 1*Load a lemure
-M 0 22005 5 22022 1*Load a ghoul
-M 0 22003 2 22023 1*Load a Wicked Wraith
-M 0 22002 10 22024 1*Load A Wandering Ghost
-M 0 22012 1 22029 1*Load a Holy Cleric
-E 0 22002 0 7 Leggings of speed is loaded on the legs of a Holy Cleric
-G 0 22010 0 A vial of holy water is given to a Holy Cleric
-M 0 22011 1 22031 1*Load an Undead Beast
-E 0 22008 0 3 A bloody collar is loaded around the neck (1) of an Undead Beast
-M 0 22005 5 22032 1*Load a ghoul
-M 0 22002 10 22033 1*Load A Wandering Ghost
-M 0 22005 5 22034 1*Load a ghoul
-M 0 22009 1 22035 1*Load the ghoul lord
-E 0 22007 0 17 The rod of rulership is loaded held in the hands of the ghoul lord
-M 0 22004 3 22036 1*Load a spectre
-M 0 22010 1 22038 1*Load A Deep Dragon
-G 0 22000 0 Girdle of giant strength is given to A Deep Dragon
-M 0 22005 5 22039 1*Load a ghoul
-M 0 22003 2 22040 1*Load a Wicked Wraith
-M 0 22006 5 22040 1*Load a lemure
-M 0 22002 10 22041 1*Load A Wandering Ghost
-M 0 22008 5 22041 1*Load a Spinagon
-E 0 22006 0 16 A spinagon's spear is loaded wielded of a Spinagon
-M 0 22006 5 22043 1*Load a lemure
-M 0 22008 5 22043 1*Load a Spinagon
-E 0 22006 0 16 A spinagon's spear is loaded wielded of a Spinagon
-M 0 22008 5 22045 1*Load a Spinagon
-E 0 22006 0 16 A spinagon's spear is loaded wielded of a Spinagon
-M 0 22002 10 22046 1*Load A Wandering Ghost
-M 0 22008 5 22047 1*Load a Spinagon
-E 0 22006 0 16 A spinagon's spear is loaded wielded of a Spinagon
-M 0 22008 5 22049 1*Load a Spinagon
-E 0 22006 0 16 A spinagon's spear is loaded wielded of a Spinagon
+M 0 22002 10 22001 1	* A Wandering Ghost (A Darkened Tunnel)
+M 0 22013 1 22002 1	* A Well Armed Knight (A Darkened Tunnel)
+E 0 22003 0 5		*	an ornate breast plate: on the body
+E 0 22011 0 16		*	a silver longsword: wielded
+M 0 22007 5 22003 1	* a nupperibo (A Bend in the Tunnel)
+M 0 22002 10 22004 1	* A Wandering Ghost (A Bend in the Tunnel)
+M 0 22007 5 22004 1	* a nupperibo (A Bend in the Tunnel)
+M 0 22014 1 22006 1	* A Halfling Thief (A Darkened Tunnel)
+E 0 22005 0 14		*	a concealable wrist sheath: on the left wrist
+M 0 22002 10 22007 1	* A Wandering Ghost (A Bend in the Tunnel)
+M 0 22007 5 22008 1	* a nupperibo (A Darkened Tunnel)
+M 0 22006 5 22009 1	* a lemure (A Darkened Tunnel)
+M 0 22007 5 22011 1	* a nupperibo (A Darkened Tunnel)
+M 0 22002 10 22012 1	* A Wandering Ghost (A Darkened Tunnel)
+M 0 22006 5 22012 1	* a lemure (A Darkened Tunnel)
+M 0 22004 3 22013 1	* a spectre (The End of the Tunnel)
+M 0 22007 5 22014 1	* a nupperibo (A Dimly Lit Cave)
+M 0 22004 3 22016 1	* a spectre (In the Cave)
+M 0 22002 10 22017 1	* A Wandering Ghost (A Darkened Tunnel)
+M 0 22005 5 22018 1	* a ghoul (A Branch in the Tunnel)
+M 0 22002 10 22020 1	* A Wandering Ghost (A Darkened Tunnel)
+M 0 22015 1 22020 1	* A Powerful Enchantress (A Darkened Tunnel)
+E 0 22004 0 1		*	ring of magic: on the left finger
+M 0 22006 5 22021 1	* a lemure (A Darkened Tunnel)
+M 0 22005 5 22022 1	* a ghoul (A Darkened Tunnel)
+M 0 22003 2 22023 1	* a Wicked Wraith (A Bend in the Tunnel)
+M 0 22002 10 22024 1	* A Wandering Ghost (A Darkened Tunnel)
+M 0 22012 1 22029 1	* a Holy Cleric (The Bottom of the Stairs)
+E 0 22002 0 7		*	leggings of speed: on the legs
+G 0 22010 0		*	a vial of holy water
+M 0 22011 1 22031 1	* an Undead Beast (A Dead End)
+E 0 22008 0 3		*	a bloody collar: around the neck (1)
+M 0 22005 5 22032 1	* a ghoul (A Pitch Black Tunnel)
+M 0 22002 10 22033 1	* A Wandering Ghost (A Pitch Black Tunnel)
+M 0 22005 5 22034 1	* a ghoul (A Pitch Black Tunnel)
+M 0 22009 1 22035 1	* the ghoul lord (The Ghoul Lord's Den)
+E 0 22007 0 17		*	the Rod of Rulership: held in the hands
+M 0 22004 3 22036 1	* a spectre (A Pitch Black Tunnel)
+M 0 22010 1 22038 1	* A Deep Dragon (The Dragon's Lair)
+G 0 22000 0		*	girdle of giant strength
+M 0 22005 5 22039 1	* a ghoul (A Darkened Tunnel)
+M 0 22003 2 22040 1	* a Wicked Wraith (A Darkened Tunnel)
+M 0 22006 5 22040 1	* a lemure (A Darkened Tunnel)
+M 0 22002 10 22041 1	* A Wandering Ghost (The End of the Tunnel)
+M 0 22008 5 22041 1	* a Spinagon (The End of the Tunnel)
+E 0 22006 0 16		*	a Spinagon's spear: wielded
+M 0 22006 5 22043 1	* a lemure (A Long Cavern)
+M 0 22008 5 22043 1	* a Spinagon (A Long Cavern)
+E 0 22006 0 16		*	a Spinagon's spear: wielded
+M 0 22008 5 22045 1	* a Spinagon (A Dimly Lit Tunnel)
+E 0 22006 0 16		*	a Spinagon's spear: wielded
+M 0 22002 10 22046 1	* A Wandering Ghost (A Dimly Lit Tunnel)
+M 0 22008 5 22047 1	* a Spinagon (A Bend in the Tunnel)
+E 0 22006 0 16		*	a Spinagon's spear: wielded
+M 0 22008 5 22049 1	* a Spinagon (The End of The Caverns)
+E 0 22006 0 16		*	a Spinagon's spear: wielded
 S
 
 
@@ -1244,14 +1247,29 @@ S
 #SHOPS
 0
 
-#OMPROGS
-O 22000 wear_prog wear_prog_girdle_giant
-O 22000 remove_prog remove_prog_girdle_giant
-S
+
 
 #OLIMITS
-O 22005 3
-O 22007 2
-O 22000 2
+O 22000 2	* girdle of giant strength
+O 22005 3	* a concealable wrist sheath
+O 22007 2	* the Rod of Rulership
 S
+
+
+
+#MOBPROGS
+#0
+
+#PRACTICERS
+S
+
+
+
+#OMPROGS
+O 22000 wear_prog wear_prog_girdle_giant	* `girdle of giant strength'
+O 22000 remove_prog remove_prog_girdle_giant	* `girdle of giant strength'
+S
+
+
+
 #$

@@ -1,8 +1,14 @@
-#AREA
-gnome.are~
-Gnome Village~
-{ 5 15} Vougon  Gnome Village~
-1500 1599
+#AREADATA
+Name Gnome Village~
+Builders None~
+VNUMs 1500 1599
+Credits Vougon~
+Security 9
+LevelRange 5 15
+End
+
+
+
 #MOBILES
 #1500
 oldstyle child gnome~
@@ -18,7 +24,7 @@ ACE 0 600 0
 7 7 7 10
 EFNU 0 0 0
 stand stand male 2
-0 0 medium 0
+0 0 medium unknown
 #1501
 oldstyle woman gnome~
 a gnome woman~
@@ -33,7 +39,7 @@ ACE 0 600 0
 5 5 5 9
 EFNU 0 0 0
 stand stand female 25
-0 0 medium 0
+0 0 medium unknown
 #1502
 oldstyle man gnome~
 a gnome man~
@@ -48,7 +54,7 @@ AC 0 500 0
 4 4 4 9
 EFNU 0 0 0
 stand stand male 22
-0 0 medium 0
+0 0 medium unknown
 #1503
 oldstyle scientist gnome~
 a gnome scientist~
@@ -63,7 +69,7 @@ ABCR 0 500 0
 4 4 4 7
 FU 0 0 0
 stand stand male 50
-0 0 medium 0
+0 0 medium unknown
 #1504
 oldstyle guard gnome~
 a gnome guard~
@@ -78,7 +84,7 @@ AB 0 400 0
 3 3 3 9
 EFNU 0 0 0
 stand stand male 75
-0 0 medium 0
+0 0 medium unknown
 #1505
 oldstyle chief gnome~
 the chief gnome~
@@ -93,7 +99,7 @@ ABQ 0 550 0
 -2 -2 -2 6
 EIKU 0 0 0
 stand stand male 400
-0 0 medium 0
+0 0 medium unknown
 #1507
 oldstyle troll small~
 a small troll~
@@ -108,7 +114,7 @@ ABCF 0 -900 0
 3 3 3 9
 EFNR 0 0 0
 stand stand male 40
-0 0 medium 0
+0 0 medium unknown
 #1508
 oldstyle mouse field~
 a field mouse~
@@ -122,7 +128,7 @@ ABCI 0 100 0
 9 9 9 10
 EFNU 0 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #1509
 oldstyle rat~
 a rat~
@@ -136,7 +142,7 @@ AC 0 -200 0
 8 8 8 10
 EFNU 0 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #1510
 oldstyle rat large~
 a large rat~
@@ -150,7 +156,7 @@ AC 0 -200 0
 6 6 6 9
 EFNU 0 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #1511
 oldstyle rat giant~
 a giant rat~
@@ -164,7 +170,7 @@ AC 0 -200 0
 4 4 4 9
 EFNU 0 0 0
 stand stand male 1
-0 0 medium 0
+0 0 medium unknown
 #1512
 oldstyle troll~
 the troll~
@@ -179,7 +185,7 @@ ABF 0 -800 0
 -1 -1 -1 8
 EFNR 0 0 0
 stand stand male 450
-0 0 medium 0
+0 0 medium unknown
 #1513
 oldstyle bat black~
 a black bat~
@@ -193,7 +199,7 @@ A 0 -500 0
 5 5 5 9
 ENR 0 0 0
 stand stand none 0
-0 0 medium 0
+0 0 medium unknown
 #1514
 oldstyle zombie gnome~
 the zombie gnome~
@@ -208,7 +214,7 @@ A 0 -700 0
 4 4 4 9
 EFNU 0 0 0
 stand stand none 34
-0 0 medium 0
+0 0 medium unknown
 #1515
 oldstyle bat fire~
 the fire bat~
@@ -223,7 +229,7 @@ ABCF D -900 0
 0 0 0 8
 ENR 0 0 0
 stand stand male 300
-0 0 medium 0
+0 0 medium unknown
 #1516
 oldstyle guard hobgoblin~
 the hobgoblin guard~
@@ -238,7 +244,7 @@ ABF 0 -700 0
 4 4 4 9
 EFNU 0 0 0
 stand stand male 37
-0 0 medium 0
+0 0 medium unknown
 #1517
 oldstyle soldier hobgoblin~
 the hobgoblin soldier~
@@ -253,7 +259,7 @@ ABF 0 -600 0
 7 7 7 10
 EFNU 0 0 0
 stand stand male 10
-0 0 medium 0
+0 0 medium unknown
 #1518
 oldstyle bodyguard hobgoblin~
 the hobgoblin bodyguard~
@@ -268,7 +274,7 @@ AB 0 -500 0
 4 4 4 9
 EFNU 0 0 0
 stand stand male 30
-0 0 medium 0
+0 0 medium unknown
 #1519
 oldstyle king hobgoblin~
 the king of the hobgoblins~
@@ -283,7 +289,7 @@ ABR 0 -500 0
 1 1 1 6
 FU 0 0 0
 sit stand male 300
-0 0 medium 0
+0 0 medium unknown
 #1520
 oldstyle miner hobgoblin~
 a hobgoblin miner~
@@ -297,7 +303,7 @@ ABC 0 -400 0
 5 5 5 9
 EFNU 0 0 0
 stand stand male 35
-0 0 medium 0
+0 0 medium unknown
 #1521
 oldstyle treasurer hobgoblin~
 the treasurer~
@@ -312,7 +318,7 @@ ABC 0 -200 0
 1 1 1 8
 EFNU 0 0 0
 stand stand male 250
-0 0 medium 0
+0 0 medium unknown
 #1522
 oldstyle prisoner gnome~
 a gnome prisoner~
@@ -326,7 +332,7 @@ ABC 0 100 0
 7 7 7 10
 EFNU 0 0 0
 rest stand male 0
-0 0 medium 0
+0 0 medium unknown
 #1523
 oldstyle prisoner human~
 a human prisoner~
@@ -340,7 +346,7 @@ ABC 0 100 0
 7 7 7 10
 EFNU 0 0 0
 rest stand female 0
-0 0 medium 0
+0 0 medium unknown
 #1524
 oldstyle hermit crab~
 a hermit~
@@ -355,7 +361,7 @@ ABCF 0 -10 0
 5 5 5 9
 EFNU 0 0 0
 stand stand male 10
-0 0 medium 0
+0 0 medium unknown
 #1526
 oldstyle cook hobgoblin~
 the cook~
@@ -370,8 +376,11 @@ ABC 0 -300 0
 4 4 4 9
 EFNU 0 0 0
 stand stand male 130
-0 0 medium 0
+0 0 medium unknown
 #0
+
+
+
 #OBJECTS
 #1500
 key bloody~
@@ -379,7 +388,7 @@ a bloody key~
 A bloody key is stuck to the floor.~
 wood blood~
 key 0 A
-2 0 0 0 0
+B 0 0 0 0
 0 10 0 P
 #1501
 key dirty~
@@ -387,7 +396,7 @@ a dirty key~
 A dirty key lies here.~
 wood~
 key 0 A
-2 0 0 0 0
+B 0 0 0 0
 0 10 0 P
 #1502
 toy boomerang~
@@ -419,7 +428,7 @@ a studded shield~
 A studded wooden shield lies here.~
 iron-wood~
 armor 0 AJ
-4 4 4 1 0
+C C C A 0
 5 100 750 P
 #1506
 potion bloody~
@@ -435,7 +444,7 @@ a bloody cloak~
 A bloody cloak lies in a corner.~
 cloth~
 armor G AC
-4 4 4 0 0
+C C C 0 0
 5 150 480 P
 #1508
 ring bat~
@@ -479,7 +488,7 @@ some peanuts~
 Peanuts lie here.~
 food~
 food 0 A
-16 16 0 0 0
+E E 0 0 0
 0 90 0 P
 #1513
 grain~
@@ -487,7 +496,7 @@ some grain~
 There is some grain here.~
 unknown~
 food 0 A
-15 15 0 0 0
+ABCD ABCD 0 0 0
 0 80 0 P
 #1514
 skiff~
@@ -503,7 +512,7 @@ a pair of gnome boots~
 You notice a pair of Gnome Boots.~
 leather~
 armor 0 AG
-4 4 4 0 0
+C C C 0 0
 7 120 610 P
 A
 14 10
@@ -513,7 +522,7 @@ a pile of coins~
 A pile of coins.~
 silver~
 money 0 A
-100 0 0 0 0
+CFG 0 0 0 0
 0 10 0 P
 #1517
 coins~
@@ -521,7 +530,7 @@ a pile of coins~
 A pile of coins.~
 silver~
 money 0 A
-500 0 0 0 0
+CEFGHI 0 0 0 0
 0 10 0 P
 #1519
 shield stone~
@@ -529,7 +538,7 @@ a stone shield~
 A stone slab lies here.~
 stone iron~
 armor 0 AJ
-4 4 4 2 0
+C C C B 0
 16 350 3700 P
 A
 1 2
@@ -539,7 +548,7 @@ heavy banded mail~
 A large suit of heavy banded mail is here~
 iron~
 armor 0 AD
-6 6 6 0 0
+BC BC BC 0 0
 15 300 2100 P
 #1521
 club large two-handed~
@@ -557,7 +566,7 @@ a banana~
 There is a banana here.~
 food~
 food 0 A
-6 6 0 0 0
+BC BC 0 0 0
 0 50 0 P
 #1523
 life potion~
@@ -578,6 +587,8 @@ mace 2 3 pound 0
 A
 18 -1
 #0
+
+
 
 #ROOMS
 #1501
@@ -652,6 +663,11 @@ You are on a dusty path on the far side of the village.  Houses are to the
 north and south, while the path continues east.  There is a sign here.
 ~
 0 0 1
+E
+sign~
+Warning:  The area to the east was written mostly by Vougon
+                    (giggle)    - Sandman
+~
 D0
 You see a house.
 ~
@@ -672,11 +688,6 @@ You see a road.
 ~
 ~
 0 -1 1503
-E
-sign~
-Warning:  The area to the east was written mostly by Vougon
-                    (giggle)    - Sandman
-~
 S
 #1505
 A Road in the Village~
@@ -873,6 +884,10 @@ You are on a small path leading north and west, that is surrounded on the
 other two sides by a small stream.  The water looks mighty cold.
 ~
 0 C 2
+E
+stream~
+The stream is pretty small, but it looks too cold to swim.
+~
 D0
 You see a road.
 ~
@@ -888,10 +903,6 @@ You see a small path.
 ~
 ~
 0 -1 1518
-E
-stream~
-The stream is pretty small, but it looks too cold to swim.
-~
 S
 #1518
 Path by a Stream~
@@ -900,6 +911,14 @@ has stopped being used sometime in the recent past.  A river is to the south,
 and a small hut is to the west.
 ~
 0 0 2
+E
+hut~
+The hut looks well built, but it seems to have taken some damage.
+~
+E
+stream~
+The stream is pretty small, but it looks too cold to swim.
+~
 D1
 You see a small path.
 ~
@@ -915,14 +934,6 @@ You see a small hut that is starting to fall apart.
 ~
 ~
 0 -1 1519
-E
-hut~
-The hut looks well built, but it seems to have taken some damage.
-~
-E
-stream~
-The stream is pretty small, but it looks too cold to swim.
-~
 S
 #1519
 A Small Hut~
@@ -931,17 +942,17 @@ crimson color.  Torn clothes and trash lie all around, and you think you
 see a skeleton in the corner.
 ~
 0 D 0
-D1
-You see a small path.
-~
-~
-0 -1 1518
 E
 skeleton~
 The skeleton still has a little flesh clinging to it and it is definitely
 humanoid.  The skull has been cracked open, but it is otherwise undamaged,
 except by time.
 ~
+D1
+You see a small path.
+~
+~
+0 -1 1518
 S
 #1520
 On the Stream~
@@ -1032,6 +1043,10 @@ You are on a well traveled path that leads in many directions.  To the north
 is a large house, and to the west is a fortress.
 ~
 0 C 1
+E
+fortress~
+The fortress is a large gnome stronghold to defend the city.
+~
 D0
 You see a large white house.
 ~
@@ -1047,10 +1062,6 @@ You see the gateway to a large fortress.
 ~
 ~
 0 -1 1527
-E
-fortress~
-The fortress is a large gnome stronghold to defend the city.
-~
 S
 #1527
 The Iron Gateway~
@@ -1254,15 +1265,15 @@ This is a room that was once used to extract lies out of helpless victims.
 The machines look unused, but could still work.
 ~
 0 AD 2
-D3
-~
-~
-0 -1 1537
 E
 machine~
 The machine consists of a large rack with winches on each end.  You can 
 almost feel them pulling your arms out of their sockets.
 ~
+D3
+~
+~
+0 -1 1537
 S
 #1539
 Dark Hallway~
@@ -1406,14 +1417,14 @@ You are wandering in a dark, damp, twisting hallway.  The temperature
 seems to be greater here, as well as your fear.
 ~
 0 ADN 2
-D0
-~
-~
-0 -1 1547
 D1
 ~
 ~
 0 -1 1549
+D0
+~
+~
+0 -1 1547
 D3
 ~
 ~
@@ -1440,14 +1451,14 @@ You are wandering in a dark, damp, twisting hallway.  The temperature
 seems to be greater here, as well as your fear.
 ~
 0 ADN 2
-D0
-~
-~
-0 -1 1549
 D2
 ~
 ~
 0 -1 1555
+D0
+~
+~
+0 -1 1549
 S
 #1551
 A Damp Hallway~
@@ -1455,14 +1466,14 @@ You are wandering in a dark, damp, twisting hallway.  The temperature
 seems to be greater here, as well as your fear.
 ~
 0 ADN 2
-D1
-~
-~
-0 -1 1548
 D2
 ~
 ~
 0 -1 1552
+D1
+~
+~
+0 -1 1548
 S
 #1552
 A Damp Hallway~
@@ -1485,14 +1496,14 @@ You are wandering in a dark, damp, twisting hallway.  The temperature
 seems to be greater here, as well as your fear.
 ~
 0 ADN 2
-D0
-~
-~
-0 -1 1552
 D1
 ~
 ~
 0 -1 1554
+D0
+~
+~
+0 -1 1552
 S
 #1554
 A Damp Hallway~
@@ -2115,140 +2126,170 @@ You see a small mine shaft.
 0 -1 1588
 S
 #0
-#RESETS
-M 0 1502   3 1503  1	* a gnome man
-E 1 1503  20   16	*   a gnarled staff
-M 0 1502   3 1505  1	* a gnome man
-E 1 1503  20   16	*   a gnarled staff
-M 0 1502   3 1506  1	* a gnome man
-E 1 1503  20   16	*   a gnarled staff
-M 0 1500   3 1509  1	* a gnome child
-G 1 1502  20     	*   a toy boomerang
-M 0 1501   3 1509  1	* a gnome woman
-M 0 1500   3 1510  1	* a gnome child
-G 1 1502  20     	*   a toy boomerang
-M 0 1501   3 1510  1	* a gnome woman
-M 0 1500   3 1511  1	* a gnome child
-G 1 1502  20     	*   a toy boomerang
-M 0 1501   3 1511  1	* a gnome woman
-M 0 1503   3 1513  1	* a gnome scientist
-G 1 1511  12     	*   a wicker basket
-P 1 1513  12 1511  1	*   some grain
-M 0 1503   3 1514  1	* a gnome scientist
-G 1 1511  12     	*   a wicker basket
-P 1 1512  12 1511  1	*   some peanuts
-M 0 1503   3 1515  1	* a gnome scientist
-E 1 1514  12   16	*   a skiff
-M 0 1504   6 1519  1	* a gnome guard
-G 1 1500   3     	*   a bloody key
-G 1 1506  -1     	*   a bloody potion
-E 1 1507  10    3	*   a bloody cloak
-M 0 1508   2 1522  2	* a field mouse
-M 0 1508   2 1522  2	* a field mouse
-M 0 1507   1 1524  1	* a small troll
-M 0 1504   6 1527  2	* a gnome guard
-E 1 1504  20   16	*   a gnome sword
-M 0 1504   6 1530  2	* a gnome guard
-E 1 1504  20   16	*   a gnome sword
-M 0 1504   6 1530  2	* a gnome guard
-E 1 1504  20   16	*   a gnome sword
-M 0 1504   6 1534  1	* a gnome guard
-E 1 1504  12   16	*   a gnome sword
-D 0 1536   1    2	* A Small Unused Room east
-M 0 1509   3 1541  3	* a rat
-E 1 1505  10   11	*   a studded shield
-M 0 1510   3 1542  3	* a large rat
-E 1 1503  12   16	*   a gnarled staff
-M 0 1511   3 1543  3	* a giant rat
-R 0 1548   4     	* A Damp Hallway
-R 0 1549   4     	* A Damp Hallway
-R 0 1550   4     	* A Damp Hallway
-R 0 1551   4     	* A Damp Hallway
-R 0 1552   4     	* A Damp Hallway
-R 0 1553   4     	* A Damp Hallway
-R 0 1554   4     	* A Damp Hallway
-R 0 1555   4     	* A Damp Hallway
-M 0 1512   1 1545  1	* the troll
-G 1 1501   4     	*   a dirty key
-D 0 1545   3    2	* End of the Dark Hallway west
-D 0 1546   1    2	* A Ladder east
-M 0 1513  10 1548  2	* a black bat
-M 0 1514  10 1548  2	* the zombie gnome
-M 0 1513  10 1550  2	* a black bat
-M 0 1514  10 1550  2	* the zombie gnome
-M 0 1513  10 1551  2	* a black bat
-M 0 1514  10 1551  2	* the zombie gnome
-M 0 1513  10 1553  2	* a black bat
-M 0 1514  10 1553  2	* the zombie gnome
-M 0 1513  10 1555  2	* a black bat
-M 0 1514  10 1555  2	* the zombie gnome
-M 0 1515   1 1556  1	* the fire bat
-G 1 1505  18     	*   a studded shield
-G 1 1512  20     	*   some peanuts
-G 1 1516   3     	*   a pile of coins
-O 0 1517   3 1557	* a pile of coins
-M 0 1505   1 1558  1	* the chief gnome
-E 1 1508   5    1	*   a bat ring
-E 1 1509  12    3	*   a bead necklace
-E 1 1510   5   16	*   an electrum sword
-M 0 1520   6 1563  2	* a hobgoblin miner
-M 0 1520   6 1565  2	* a hobgoblin miner
-M 0 1518   5 1569  5	* the hobgoblin bodyguard
-E 1 1521  30   16	*   a large club
-M 0 1518   5 1569  5	* the hobgoblin bodyguard
-E 1 1521  30   16	*   a large club
-M 0 1518   5 1569  5	* the hobgoblin bodyguard
-E 1 1521  30   16	*   a large club
-M 0 1518   5 1569  5	* the hobgoblin bodyguard
-E 1 1521  30   16	*   a large club
-M 0 1518   5 1569  5	* the hobgoblin bodyguard
-E 1 1521  30   16	*   a large club
-M 0 1519   1 1569  1	* the king of the hobgoblins
-E 1 1520   5    5	*   heavy banded mail
-M 0 1521   1 1570  1	* the treasurer
-O 0 1516  10 1570	* a pile of coins
-O 0 1517  10 1570	* a pile of coins
-M 0 1517  30 1571 10	* the hobgoblin soldier
-E 1 1524  40   16	*   a wooden club
-M 0 1517  30 1571 10	* the hobgoblin soldier
-E 1 1524  40   16	*   a wooden club
-M 0 1517  30 1571 10	* the hobgoblin soldier
-E 1 1524  40   16	*   a wooden club
-M 0 1517  30 1571 10	* the hobgoblin soldier
-E 1 1524  40   16	*   a wooden club
-M 0 1517  30 1572 10	* the hobgoblin soldier
-E 1 1524  40   16	*   a wooden club
-M 0 1517  30 1572 10	* the hobgoblin soldier
-E 1 1524  40   16	*   a wooden club
-M 0 1517  30 1572 10	* the hobgoblin soldier
-E 1 1524  40   16	*   a wooden club
-M 0 1517  30 1572 10	* the hobgoblin soldier
-E 1 1524  40   16	*   a wooden club
-O 0 1521  40 1573	* a large club
-M 0 1522   5 1577  1	* a gnome prisoner
-M 0 1522   5 1578  1	* a gnome prisoner
-M 0 1522   5 1579  1	* a gnome prisoner
-M 0 1523   5 1580  1	* a human prisoner
-M 0 1523   5 1581  1	* a human prisoner
-M 0 1517  30 1583  5	* the hobgoblin soldier
-M 0 1517  30 1583  5	* the hobgoblin soldier
-M 0 1517  30 1584  5	* the hobgoblin soldier
-M 0 1517  30 1584  5	* the hobgoblin soldier
-M 0 1526   1 1587  1	* the cook
-M 0 1524   1 1589  1	* a hermit
-M 0 1520   6 1590  2	* a hobgoblin miner
+
+
+
+#SPECIALS
+M 1503 spec_cast_mage	* a gnome scientist
+M 1505 spec_cast_cleric	* the chief gnome
+M 1509 spec_poison	* a rat
+M 1510 spec_poison	* a large rat
+M 1511 spec_poison	* a giant rat
+M 1513 spec_breath_acid	* a black bat
+M 1514 spec_cast_undead	* the zombie gnome
+M 1515 spec_breath_fire	* the fire bat
+M 1519 spec_cast_mage	* the king of the hobgoblins
 S
+
+
+
+#RESETS
+D 0 1536 1 2	* A Small Unused Room: door to the east: closed and locked
+D 0 1545 3 2	* End of the Dark Hallway: door to the west: closed and locked
+D 0 1546 1 2	* A Ladder: door to the east: closed and locked
+M 0 1502 3 1503 1	* a gnome man (A Road in the Village)
+E 0 1503 0 16		*	a gnarled staff: wielded
+M 0 1502 3 1505 1	* a gnome man (A Road in the Village)
+E 0 1503 0 16		*	a gnarled staff: wielded
+M 0 1502 3 1506 1	* a gnome man (A Road in the Village)
+E 0 1503 0 16		*	a gnarled staff: wielded
+M 0 1500 3 1509 1	* a gnome child (A Small Gnome House)
+G 0 1502 0		*	a toy boomerang
+M 0 1501 3 1509 1	* a gnome woman (A Small Gnome House)
+M 0 1500 3 1510 1	* a gnome child (A Small Gnome House)
+G 0 1502 0		*	a toy boomerang
+M 0 1501 3 1510 1	* a gnome woman (A Small Gnome House)
+M 0 1500 3 1511 1	* a gnome child (A Small Gnome House)
+G 0 1502 0		*	a toy boomerang
+M 0 1501 3 1511 1	* a gnome woman (A Small Gnome House)
+M 0 1503 3 1513 1	* a gnome scientist (A Small Gnome House)
+G 0 1511 0		*	a wicker basket
+P 0 1513 12 1511 1	* a wicker basket: some grain
+M 0 1503 3 1514 1	* a gnome scientist (A Gnome Shop)
+G 0 1511 0		*	a wicker basket
+P 0 1512 12 1511 1	* a wicker basket: some peanuts
+M 0 1503 3 1515 1	* a gnome scientist (A Gnome Shop)
+E 0 1514 0 16		*	a skiff: wielded
+M 0 1504 6 1519 1	* a gnome guard (A Small Hut)
+G 0 1500 0		*	a bloody key
+G 0 1506 0		*	a bloody potion
+E 0 1507 0 3		*	a bloody cloak: around the neck (1)
+M 0 1508 2 1522 2	* a field mouse (The Field of Mice's Dreams)
+M 0 1508 2 1522 2	* a field mouse (The Field of Mice's Dreams)
+M 0 1507 1 1524 1	* a small troll (Darker Cave)
+M 0 1504 6 1527 2	* a gnome guard (The Iron Gateway)
+E 0 1504 0 16		*	a gnome sword: wielded
+M 0 1504 6 1530 2	* a gnome guard (The Barracks)
+E 0 1504 0 16		*	a gnome sword: wielded
+M 0 1504 6 1530 2	* a gnome guard (The Barracks)
+E 0 1504 0 16		*	a gnome sword: wielded
+M 0 1504 6 1534 1	* a gnome guard (The Mess Hall)
+E 0 1504 0 16		*	a gnome sword: wielded
+M 0 1509 3 1541 3	* a rat (Prison Cell)
+E 0 1505 0 11		*	a studded shield: as a shield
+M 0 1510 3 1542 3	* a large rat (Prison Cell)
+E 0 1503 0 16		*	a gnarled staff: wielded
+M 0 1511 3 1543 3	* a giant rat (Prison Cell)
+M 0 1512 1 1545 1	* the troll (End of the Dark Hallway)
+G 0 1501 0		*	a dirty key
+R 0 1548 4	* A Damp Hallway: randomize
+M 0 1513 10 1548 2	* a black bat (A Damp Hallway)
+M 0 1514 10 1548 2	* the zombie gnome (A Damp Hallway)
+R 0 1549 4	* A Damp Hallway: randomize
+R 0 1550 4	* A Damp Hallway: randomize
+M 0 1513 10 1550 2	* a black bat (A Damp Hallway)
+M 0 1514 10 1550 2	* the zombie gnome (A Damp Hallway)
+R 0 1551 4	* A Damp Hallway: randomize
+M 0 1513 10 1551 2	* a black bat (A Damp Hallway)
+M 0 1514 10 1551 2	* the zombie gnome (A Damp Hallway)
+R 0 1552 4	* A Damp Hallway: randomize
+R 0 1553 4	* A Damp Hallway: randomize
+M 0 1513 10 1553 2	* a black bat (A Damp Hallway)
+M 0 1514 10 1553 2	* the zombie gnome (A Damp Hallway)
+R 0 1554 4	* A Damp Hallway: randomize
+R 0 1555 4	* A Damp Hallway: randomize
+M 0 1513 10 1555 2	* a black bat (A Damp Hallway)
+M 0 1514 10 1555 2	* the zombie gnome (A Damp Hallway)
+M 0 1515 1 1556 1	* the fire bat (The End of the Hallway)
+G 0 1505 0		*	a studded shield
+G 0 1512 0		*	some peanuts
+G 0 1516 0		*	a pile of coins
+O 0 1517 0 1557		* a pile of coins (The Altar)
+M 0 1505 1 1558 1	* the chief gnome (The Chief's House)
+E 0 1508 0 1		*	a bat ring: on the left finger
+E 0 1509 0 3		*	a bead necklace: around the neck (1)
+E 0 1510 0 16		*	an electrum sword: wielded
+M 0 1520 6 1563 2	* a hobgoblin miner (Mine Shaft)
+M 0 1520 6 1565 2	* a hobgoblin miner (Mine Shaft)
+M 0 1518 5 1569 5	* the hobgoblin bodyguard (The Throne Room)
+E 0 1521 0 16		*	a large club: wielded
+M 0 1518 5 1569 5	* the hobgoblin bodyguard (The Throne Room)
+E 0 1521 0 16		*	a large club: wielded
+M 0 1518 5 1569 5	* the hobgoblin bodyguard (The Throne Room)
+E 0 1521 0 16		*	a large club: wielded
+M 0 1518 5 1569 5	* the hobgoblin bodyguard (The Throne Room)
+E 0 1521 0 16		*	a large club: wielded
+M 0 1518 5 1569 5	* the hobgoblin bodyguard (The Throne Room)
+E 0 1521 0 16		*	a large club: wielded
+M 0 1519 1 1569 1	* the king of the hobgoblins (The Throne Room)
+E 0 1520 0 5		*	heavy banded mail: on the body
+M 0 1521 1 1570 1	* the treasurer (The Treasury)
+O 0 1516 0 1570		* a pile of coins (The Treasury)
+O 0 1517 0 1570		* a pile of coins (The Treasury)
+M 0 1517 30 1571 10	* the hobgoblin soldier (Guarded Room)
+E 0 1524 0 16		*	a wooden club: wielded
+M 0 1517 30 1571 10	* the hobgoblin soldier (Guarded Room)
+E 0 1524 0 16		*	a wooden club: wielded
+M 0 1517 30 1571 10	* the hobgoblin soldier (Guarded Room)
+E 0 1524 0 16		*	a wooden club: wielded
+M 0 1517 30 1571 10	* the hobgoblin soldier (Guarded Room)
+E 0 1524 0 16		*	a wooden club: wielded
+M 0 1517 30 1572 10	* the hobgoblin soldier (Guarded Room)
+E 0 1524 0 16		*	a wooden club: wielded
+M 0 1517 30 1572 10	* the hobgoblin soldier (Guarded Room)
+E 0 1524 0 16		*	a wooden club: wielded
+M 0 1517 30 1572 10	* the hobgoblin soldier (Guarded Room)
+E 0 1524 0 16		*	a wooden club: wielded
+M 0 1517 30 1572 10	* the hobgoblin soldier (Guarded Room)
+E 0 1524 0 16		*	a wooden club: wielded
+O 0 1521 0 1573		* a large club (Hobgoblin Armory)
+M 0 1522 5 1577 1	* a gnome prisoner (A Jail Cell)
+M 0 1522 5 1578 1	* a gnome prisoner (The Jail Cell)
+M 0 1522 5 1579 1	* a gnome prisoner (The Jail Cell)
+M 0 1523 5 1580 1	* a human prisoner (The Jail Cell)
+M 0 1523 5 1581 1	* a human prisoner (The Jail Cell)
+M 0 1517 30 1583 5	* the hobgoblin soldier (Hobgoblin Barracks)
+M 0 1517 30 1583 5	* the hobgoblin soldier (Hobgoblin Barracks)
+M 0 1517 30 1584 5	* the hobgoblin soldier (Hobgoblin Barracks)
+M 0 1517 30 1584 5	* the hobgoblin soldier (Hobgoblin Barracks)
+M 0 1526 1 1587 1	* the cook (The Kitchen)
+M 0 1524 1 1589 1	* a hermit (Hermit's Lair)
+M 0 1520 6 1590 2	* a hobgoblin miner (A Hole)
+S
+
+
+
 #SHOPS
 0
-#SPECIALS
-M 1503 spec_cast_mage      	* a gnome scientist
-M 1505 spec_cast_cleric    	* the chief gnome
-M 1509 spec_poison         	* a rat
-M 1510 spec_poison         	* a large rat
-M 1511 spec_poison         	* a giant rat
-M 1513 spec_breath_acid    	* a black bat
-M 1514 spec_cast_undead    	* the zombie gnome
-M 1515 spec_breath_fire    	* the fire bat
-M 1519 spec_cast_mage      	* the king of the hobgoblins
+
+
+
+#OLIMITS
 S
+
+
+
+#MOBPROGS
+#0
+
+#PRACTICERS
+S
+
+
+
+#OMPROGS
+S
+
+
+
 #$

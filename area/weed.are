@@ -1,8 +1,13 @@
-#AREA
-weed.are~
-Cannabis~
-{40 60} Garth   Cannabis~
-30230 30270
+#AREADATA
+Name Cannabis~
+Builders None~
+VNUMs 30230 30270
+Credits Garth~
+Security 9
+LevelRange 40 60
+End
+
+
 
 #MOBILES
 #30232
@@ -14,12 +19,12 @@ This giant plant is covered with bud. It looks like it could
 smoke you.
 ~
 human~
-64|128 8|128|524288 -500 0
+AGH DHT -500 0
 55 0 50d10+5500 5d5+5000 10d4+23 charge
 -25 -25 -25 -1
 EK 0 0 0
 stand stand female 0
-0 0 giant 0
+0 0 giant unknown
 #30233
 cannabis indica~
 Cannabis Indica~
@@ -30,12 +35,12 @@ It is a blend of beautiful orange, red, and blue hairs. Just a
 fraction of this plant would be enough to keep you happy for a year.
 ~
 human~
-2|64 8|128|524288 -500 0
+ABG DHT -500 0
 60 0 50d10+6750 5d5+5000 8d6+28 charge
 -30 -30 -30 -3
 EK 0 0 0
 stand stand male 0
-0 0 giant 0
+0 0 giant unknown
 #30234
 small joint~
 A Small Joint~
@@ -45,12 +50,12 @@ This wrapping of reefer is just what you might need after a hard
 day of work.
 ~
 human~
-64|128 32768|524288 -350 0
+AGH PT -350 0
 40 0 15d10+1850 5d5+1000 4d8+13 charge
 -13 -13 -13 3
 EK 0 0 0
 stand stand male 0
-0 0 small 0
+0 0 small unknown
 #30235
 blunt~
 A Blunt~
@@ -60,12 +65,12 @@ What used to be a cigar is now filled with enough bud to get the
 owner 5 years.
 ~
 human~
-64 524288 -350 0
+AG T -350 0
 46 0 25d10+3250 5d5+1000 6d6+16 none
 -16 -16 -16 2
 EK 0 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #30236
 bowlful resinated bud~
 A Bowlful of Resinated Bud~
@@ -75,12 +80,12 @@ While not a large quanitity of weed, it's probably enough to get
 you by for an hour or two.
 ~
 human~
-64|128 8|524288 -250 0
+AGH DT -250 0
 43 0 25d10+2500 5d5+1000 3d12+15 none
 -15 -15 -15 2
 K 0 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #30237
 dea agent~
 The DEA Agent~
@@ -92,12 +97,12 @@ messed with. Of course if you've been smoking any of this weed, you
 wouldn't really care.
 ~
 human~
-64|128 8|32768 350 0
+AGH DP 350 0
 51 0 50d10+4500 5d5+5000 5d8+20 charge
 -21 -21 -21 0
 K 0 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #30238
 smuggler~
 The Smuggler~
@@ -107,12 +112,12 @@ A big Central American looks at you and says,
 "Hola amigo, muchos dinenos."
 ~
 human~
-64|512 32768|65536 -300 0
+AGJ PQ -300 0
 43 0 25d10+2500 5d5+1000 3d12+15 pound
 -15 -15 -15 2
 K 0 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #30239
 munchies~
 The Munchies~
@@ -122,12 +127,12 @@ Just the sweet fragrance of the air is enough to give you
 the munchies.
 ~
 unique~
-32|64 2|8 0 0
+AFG BD 0 0
 38 0 10d10+1600 5d5+1000 5d6+12 none
 -13 -13 -13 3
 K 0 0 0
 stand stand none 0
-0 0 medium 0
+0 0 medium unknown
 #30240
 tom petty~
 Tom Petty~
@@ -136,13 +141,14 @@ Tom Petty stands here strumming a guitar.
 He breaks into timeless verse singing, 
 ~
 human~
-64 8|128|32768|524288 500 0
+AG DHPT 500 0
 57 0 50d10+6000 5d5+5000 6d8+24 pound
 -27 -27 -27 -2
 CEIK 0 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #0
+
 
 
 #OBJECTS
@@ -151,8 +157,8 @@ bong clear blue graffix glass~
 a 4 Foot Blue Glass Graffix(R)~
 A Beautiful Blue Glass Bong has a full bowl of weed.~
 glass~
-weapon 1|512 1|8192
-exotic 6 9 suction 0 
+weapon AJ AN
+exotic 6 9 suction 0
 60 7 7200 P
 A
 18 10
@@ -165,24 +171,24 @@ hit joint~
 a Hit from the Joint~
 A few of these while playing and you're having more fun than most mudders!~
 ~
-potion 1 1
-40 'heal' 'invis' 'sanctuary' '' 
+potion A A
+40 'heal' 'invisibility' 'sanctuary' ''
 25 1 2000 P
 #30234
 brownie weed~
 a Brownie~
 A Brownie cooked with THC oil awaits your bite.~
 ~
-pill 1 1
-30 'armor' 'fly' 'infravision' '' 
+pill A A
+30 'armor' 'fly' 'infravision' ''
 25 1 2000 P
 #30235
 badge dea~
 a Badge~
 A badge with the letters DEA inscribed.~
 ~
-armor 64 1|16384
-0 0 0 0 0 
+armor G AO
+0 0 0 0 0
 50 2 1300 P
 A
 1 2
@@ -191,8 +197,8 @@ bowl~
 a Bowl~
 An ornate bowl with a clear red chamber for resinating bud.~
 ~
-weapon 1|1024 1|8192
-exotic 6 9 suction 0 
+weapon AK AN
+exotic 6 9 suction 0
 54 6 12000 P
 A
 13 10
@@ -205,8 +211,8 @@ joint everburning~
 an Everburning Joint~
 The flame of this joint will never run out~
 ~
-light 1 1
-0 1 -1 0 0 
+light A A
+0 A -1 0 0
 55 5 1200 P
 A
 12 25
@@ -217,10 +223,11 @@ plate wings~
 a plate of Buffalo Wings~
 When you've got the munchies, what better snack than buffalo wings.~
 ~
-food 0 1
-24 24 0 0 0 
+food 0 A
+DE DE 0 0 0
 0 5 10 P
 #0
+
 
 
 #ROOMS
@@ -230,7 +237,7 @@ This area is intended to be humorous.
 Do not enter if you have a poor sense of humor or are under level 40. 
 You have been warned. You try being creative after a few screwdrivers.
 ~
-0 4|1024 1
+0 CK 1
 D0
 ~
 ~
@@ -249,10 +256,6 @@ red, blue, green, and purple. The beautiful colors and the way you
 are feeling invite you to explore further.
 ~
 0 0 3
-D0
-~
-~
-0 -1 -1
 D2
 ~
 ~
@@ -710,46 +713,62 @@ S
 #0
 
 
-#RESETS
-*
-M 1 30233 1 30249 1 *			Cannabis Indica to The Top of thePlant
-E 1 30232 100 16
-*
-M 1 30232 1 30246 1 *		Cannabis Sativa to The Stem of the Plant
-E 1 30236 100 16
-*
-M 1 30240 1 30241 1 *		Tom Petty to The Stem of the Plant
-E 1 30237 100 0
-*
-M 1 30236 1 30256  1 *A Bowlful of Resinated Bud to ALeaf of The Plant
-*
-M 1 30236 1 30258 1 *	A Bowlful of Resinated Bud to A Leaf of The Plant
-*
-M 1 30235 1 30236 1 *	A Blunt to A Leaf of the Plant
-*
-M 1 30235 1 30235 1 *A Blunt to A Leaf of the Plant
-*
-M 1 30234 1 30233 1 *A Small Joint to Base of the Plant
-G 1 30233 100
-*
-M 1 30239 1 30233 1 *	The Munchies to Base of the Plant
-G 1 30238 100
-*
-M 1 30234 1 30234 1 * A Small Joint to The Stem of the Plant
-G 1 30233 100
-*
-M 1 30237 1 30252 1 * The DEA Agent to A Leaf of The Plant
-E 1 30235 100 17
-*
-M 1 30238 1 30255 1 * The Smuggler to A Leaf of The Plant
-G 1 30234 100
-*
-M 1 30237 1 30245 1 * The DEA Agent to A Leaf of the Plant
-E 1 30235 100 17
-*
-M 1 30236 1 30245 1 * A Bowlful of Resinated Bud to A Leaf of the Plant
-G 1 30234 100
+
+#SPECIALS
 S
+
+
+
+#RESETS
+M 0 30234 1 30233 1	* A Small Joint (Base of the Plant)
+G 0 30233 0		*	a Hit from the Joint
+M 0 30239 1 30233 1	* The Munchies (Base of the Plant)
+G 0 30238 0		*	a plate of Buffalo Wings
+M 0 30234 1 30234 1	* A Small Joint (The Stem of the Plant)
+G 0 30233 0		*	a Hit from the Joint
+M 0 30235 1 30235 1	* A Blunt (A Leaf of the Plant)
+M 0 30235 1 30236 1	* A Blunt (A Leaf of the Plant)
+M 0 30240 1 30241 1	* Tom Petty (The Stem of the Plant)
+E 0 30237 0 0		*	an Everburning Joint: as a light
+M 0 30237 1 30245 1	* The DEA Agent (A Leaf of the Plant)
+E 0 30235 0 17		*	a Badge: held in the hands
+M 0 30236 1 30245 1	* A Bowlful of Resinated Bud (A Leaf of the Plant)
+G 0 30234 0		*	a Brownie
+M 0 30232 1 30246 1	* Cannabis Sativa (The Stem of the Plant)
+E 0 30236 0 16		*	a Bowl: wielded
+M 0 30233 1 30249 1	* Cannabis Indica (The Top of the Plant)
+E 0 30232 0 16		*	a 4 Foot Blue Glass Graffix(R): wielded
+M 0 30237 1 30252 1	* The DEA Agent (A Leaf of The Plant)
+E 0 30235 0 17		*	a Badge: held in the hands
+M 0 30238 1 30255 1	* The Smuggler (A Leaf of The Plant)
+G 0 30234 0		*	a Brownie
+M 0 30236 1 30256 1	* A Bowlful of Resinated Bud (A Leaf of The Plant)
+M 0 30236 1 30258 1	* A Bowlful of Resinated Bud (A Leaf of The Plant)
+S
+
+
+
+#SHOPS
+0
+
+
+
+#OLIMITS
+S
+
+
+
+#MOBPROGS
+#0
+
+#PRACTICERS
+S
+
+
+
+#OMPROGS
+S
+
 
 
 #$

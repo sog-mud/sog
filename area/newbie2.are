@@ -1,14 +1,13 @@
-#AREA
-newbie2.are~
-Newbie Zone~
-{ 1 10} Maynard Newbie Zone~
-18600 18699
+#AREADATA
+Name Newbie Zone~
+Builders None~
+VNUMs 18600 18699
+Credits Maynard~
+Security 9
+LevelRange 1 10
+End
 
-#HELPS
--1 newbie zone~
-Converted to standard Envy 1.x by Jason Huang (god@@sure.net)
-Further conversion to Rom 2.4 by Jaceks and Chicken's Den Staff~
-0 $~
+
 
 #MOBILES
 #18601
@@ -23,9 +22,9 @@ bear~
 ABC 0 -750 0
 5 0 2d6+60 49d1+1 1d6+1 pierce
 5 5 5 9
-B 0 0 0 
+B 0 0 0
 stand stand male 150
-0 0 medium 0
+0 0 medium unknown
 #18602
 newbie monster~
 the newbie monster~
@@ -41,7 +40,7 @@ ABC G 0 0
 8 8 8 10
 C 0 0 0
 stand stand male 120
-0 0 medium 0
+0 0 medium unknown
 #18603
 dragon baby~
 the baby dragon~
@@ -57,7 +56,7 @@ AB 0 100 0
 6 6 6 9
 C 0 0 0
 stand stand male 140
-0 0 medium 0
+0 0 medium unknown
 #18604
 keeper guard monster~
 the newbie guard~
@@ -74,7 +73,7 @@ AB 0 0 0
 7 7 7 1
 D 0 0 0
 stand stand male 130
-0 0 medium 0
+0 0 medium unknown
 #18605
 alchemist newbie~
 the newbie alchemist~
@@ -89,8 +88,7 @@ AB 0 0 0
 5 5 5 9
 E 0 0 0
 stand stand male 150
-0 0 medium 0
-
+0 0 medium unknown
 #18606
 crawler creepy bug thing~
 the creepy crawler~
@@ -105,7 +103,7 @@ ABFG 0 -250 0
 9 9 9 10
 F AB 0 0
 stand stand male 110
-0 0 medium 0
+0 0 medium unknown
 #18607
 newbie zombie~
 the zombiefied newbie~
@@ -120,7 +118,7 @@ ACFG 0 -500 0
 6 6 6 9
 G AB 0 0
 stand stand male 140
-0 0 medium 0
+0 0 medium unknown
 #18608
 quasit imp thing~
 the quasit~
@@ -136,7 +134,7 @@ ACGH P -800 0
 7 7 7 10
 H 0 0 0
 stand stand male 130
-0 0 medium 0
+0 0 medium unknown
 #18609
 minotaur~
 the massive minotaur~
@@ -153,7 +151,7 @@ ABFG 0 -1000 0
 4 4 4 9
 I AB 0 0
 stand stand male 170
-0 0 medium 0
+0 0 medium unknown
 #18610
 spectre ghost~
 the dark spectre~
@@ -163,12 +161,12 @@ The soul of a long since passed on adventurer... it lurks here waiting for
 a chance to bring death to any who cross its path.
 ~
 water fowl~
-ABDFG BDT -850 0
+ABDFG BD -850 0
 6 0 2d7+71 59d1+1 1d7+0 bite
 4 4 4 9
 J AB 0 0
 stand stand either 140
-0 0 medium 0
+0 0 medium unknown
 #18611
 newbie annoying jerk~
 the annoying newbie~
@@ -184,7 +182,7 @@ ABC FG -500 0
 8 8 8 10
 K 0 0 0
 stand stand male 120
-0 0 medium 0
+0 0 medium unknown
 #18612
 newbie clueless moron~
 the clueless newbie~
@@ -200,7 +198,7 @@ ABC G 0 0
 9 9 9 10
 L 0 0 0
 stand stand male 110
-0 0 medium 0
+0 0 medium unknown
 #18613
 newbie talkative~
 the talkative newbie~
@@ -216,7 +214,7 @@ ABG 0 100 0
 7 7 7 10
 M 0 0 0
 stand stand male 130
-0 0 medium 0
+0 0 medium unknown
 #18614
 newbie lost~
 the lost newbie~
@@ -232,7 +230,7 @@ ACG 0 300 0
 6 6 6 9
 N 0 0 0
 stand stand male 140
-0 0 medium 0
+0 0 medium unknown
 #18615
 newbie smart~
 the smart newbie~
@@ -247,8 +245,9 @@ ABC G 0 500
 5 5 5 9
 IK 0 0 0
 stand stand male 150
-0 0 medium 0
+0 0 medium unknown
 #0
+
 
 
 #OBJECTS
@@ -268,7 +267,7 @@ a bright green newbie vest~
 A bright green newbie vest is lying here looking for a body to hug.~
 steel~
 armor 0 AD
-3 3 4 0 3
+AB AB C 0 AB
 4 150 250 G
 #18603
 helm helmet newbie~
@@ -276,7 +275,7 @@ a bright newbie helm~
 A bright newbie helm is hoping a loose head will wander by.~
 steel~
 armor AG AE
-4 4 3 1 1
+C C AB A A
 4 50 220 G
 A
 5 1
@@ -286,7 +285,7 @@ a dark newbie cloak~
 A dark newbie cloak is lying here hoping to smother you.~
 wool~
 armor AG AK
-3 4 3 1 2
+AB C AB A B
 2 100 180 G
 A
 17 -3
@@ -298,7 +297,7 @@ a newbie signet ring~
 A newbie signet ring is lying in the dust here.~
 silver~
 armor FG AB
-4 3 3 1 1
+C AB AB A A
 1 20 200 G
 A
 17 -2
@@ -318,7 +317,7 @@ a pet dragon collar~
 Someone's pet dragon has escaped and left his collar here.~
 snakeskin~
 armor G AC
-3 3 4 1 1
+AB AB C A A
 4 20 300 G
 A
 18 1
@@ -348,7 +347,7 @@ the horns of the minotaur~
 The horns of the great Minotaur lie here.~
 bone~
 armor G AE
-3 4 4 1 1
+AB C C A A
 6 100 320 G
 A
 1 1
@@ -358,7 +357,7 @@ the smelly hide of the minotaur~
 The hide of the great Minotaur is lying here.~
 air~
 armor 0 AK
-5 5 5 0 3
+AC AC AC 0 AB
 6 190 366 G
 A
 17 -6
@@ -370,7 +369,7 @@ some cool newbie leggings~
 A pair of neat looking leggings are here.~
 wool~
 armor 0 AF
-3 3 3 0 1
+AB AB AB 0 A
 4 120 200 G
 #18613
 sleeves newbie~
@@ -378,7 +377,7 @@ some cool newbie sleeves~
 A set of nifty sleeves is here.~
 steel~
 armor G AI
-4 4 3 1 1
+C C AB A A
 3 140 275 G
 A
 2 1
@@ -398,7 +397,7 @@ a baby dragon orb~
 A baby dragon orb lies here.~
 quartz~
 armor AEGJM AQ
-3 3 3 1 1 
+AB AB AB A A
 3 20 400 G
 A
 3 1
@@ -407,6 +406,7 @@ A
 A
 2 1
 #0
+
 
 
 #ROOMS
@@ -418,16 +418,6 @@ to the north.
      There is a small (Glowing) (Huming) tablet.
 ~
 0 C 1
-D0
-You see the start of the newbie zone.
-~
-~
-0 -1 18601
-D5
-Back to the school that way... chickening out already?
-~
-~
-0 -1 5379
 E
 small tablet~
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -438,6 +428,16 @@ small tablet~
 +                                                            july'96 +
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ~
+D0
+You see the start of the newbie zone.
+~
+~
+0 -1 18601
+D5
+Back to the school that way... chickening out already?
+~
+~
+0 -1 5379
 S
 #18601
 The Beginning Of The Passage~
@@ -575,7 +575,7 @@ Oh joy!  More of this annoying passage.  Perhaps there is something
 more exciting through that door to the west?  Or you can keep searching
 the hallways to the north or south.
 ~
-0 8 0
+0 D 0
 D0
 More of the hallway there... how exciting!
 ~
@@ -673,6 +673,14 @@ to the north, and also a dark stairway in the corner leading down, with a
 large sign next to it that you probably should read...
 ~
 0 D 0
+E
+sign stairs stairway~
+The sign next to the stairs says:
+
+If you are below level 7 and alone, or below level 4 then bugger off!
+Or else don't blame me if you die...
+
+~
 D0
 A nice shiny hallway!
 ~
@@ -688,14 +696,6 @@ A shadowed stairway leading down.
 ~
 ~
 0 -1 18632
-E
-sign stairs stairway~
-The sign next to the stairs says:
-
-If you are below level 7 and alone, or below level 4 then bugger off!
-Or else don't blame me if you die...
-
-~
 S
 #18620
 A Turn In The Passage~
@@ -863,6 +863,11 @@ this room.  Oddly enough, it is so realistic you can feel the wind in
 the field coming out of the picture.
 ~
 0 AD 0
+E
+portal floor~
+It looks as if you could go down into it... but you can't be sure of where
+you will end up, or if you can get back.
+~
 D0
 ~
 ~
@@ -871,11 +876,6 @@ D1
 ~
 ~
 0 -1 18630
-E
-portal floor~
-It looks as if you could go down into it... but you can't be sure of where
-you will end up, or if you can get back.
-~
 S
 #18630
 A Branching Passage~
@@ -1059,15 +1059,6 @@ paranoid... anything could be hiding there.  You are painfully aware of
 how exposed you are without walls around you.
 ~
 0 AD 0
-D0
-~
-~
-0 -1 18636
-D3
-The room extends as far as (and farther than) you can see...
-~
-~
-0 -1 18638
 E
 writing words~
 The writing appears to says 'beware the Minotaur...'
@@ -1077,6 +1068,15 @@ wall~
 There is a crude picture of a man with the head of a bull with some writing
 next to it.
 ~
+D0
+~
+~
+0 -1 18636
+D3
+The room extends as far as (and farther than) you can see...
+~
+~
+0 -1 18638
 S
 #18640
 The Statue's Room~
@@ -1084,16 +1084,6 @@ Here, the passage enters a small room.  Exits lead to the east and south,
 and you notice a wonderful, large (and tastefully done) statue to the north.
 ~
 0 AD 0
-D1
-A long hallway, ending in a set of steps.
-~
-~
-0 -1 18641
-D2
-The hall extends to the south where it seems to darken somewhat.
-~
-~
-0 -1 18644
 E
 statue~
 Upon closer inspection you see that the statue has a small plaque affixed
@@ -1106,6 +1096,16 @@ It says:
 Maynard, Death Jester of the Harlequins
 
 ~
+D1
+A long hallway, ending in a set of steps.
+~
+~
+0 -1 18641
+D2
+The hall extends to the south where it seems to darken somewhat.
+~
+~
+0 -1 18644
 S
 #18641
 The Hallway~
@@ -1135,6 +1135,10 @@ room continues, and another stair is visible matching the one in front of
 you.
 ~
 0 AD 0
+E
+staircase stair stairs~
+They are constructed of smooth, beautiful marble
+~
 D2
 You see another staircase and two passages leading west and south.
 ~
@@ -1150,10 +1154,6 @@ An open air balcony.
 ~
 ~
 0 -1 18643
-E
-staircase stair stairs~
-They are constructed of smooth, beautiful marble
-~
 S
 #18643
 The Balcony~
@@ -1164,6 +1164,10 @@ the Great Fields north of Midgaard continue off towards the Dragonhelm
 Mountains to the north.
 ~
 0 AD 0
+E
+staircase stair stairs~
+They are constructed of smooth, beautiful marble
+~
 D2
 The south end of the balcony.
 ~
@@ -1174,10 +1178,6 @@ Down the stairs to a large, domed room.
 ~
 ~
 0 -1 18642
-E
-staircase stair stairs~
-They are constructed of smooth, beautiful marble
-~
 S
 #18644
 A Bright Hallway~
@@ -1187,6 +1187,10 @@ clean, and tastefully decorated.  You also notice an interesting design
 on the floor.
 ~
 0 AD 0
+E
+floor design~
+It appears to be the Crest of the Harlequin Guild.
+~
 D0
 A small room with a statue in it.
 ~
@@ -1197,10 +1201,6 @@ A intersection of passages.
 ~
 door~
 1 -1 18603
-E
-floor design~
-It appears to be the Crest of the Harlequin Guild.
-~
 S
 #18645
 The Balcony~
@@ -1210,6 +1210,10 @@ in almost any direction.  Wandering to the south end, you can see the great
 city of Midgaard off to the south-west.
 ~
 0 AD 0
+E
+staircase stair stairs~
+They are constructed of smooth, beautiful marble.
+~
 D0
 The north end of the balcony.
 ~
@@ -1220,10 +1224,6 @@ Back down the south staircase.
 ~
 ~
 0 -1 18647
-E
-staircase stair stairs~
-They are constructed of smooth, beautiful marble.
-~
 S
 #18646
 A Bright Hallway~
@@ -1232,6 +1232,10 @@ this  room up must really like newbies.  The walls and floor are clean, and
 tastefully decorated.  You also notice an interesting design on the floor.
 ~
 0 AD 0
+E
+floor design~
+It appears to be the crest of the Harlequin Guild.
+~
 D1
 The passage opens into a domed room with a grand marble staircase.
 ~
@@ -1242,10 +1246,6 @@ A dark intersection of passages.
 ~
 door~
 1 -1 18603
-E
-floor design~
-It appears to be the crest of the Harlequin Guild.
-~
 S
 #18647
 The South Stairs~
@@ -1256,6 +1256,10 @@ room continues, and another stair is visible matching the one in front of
 you.
 ~
 0 AD 0
+E
+staircase stair stairs~
+They are constructed of smooth, beautiful marble.
+~
 D0
 Another stairway is to the north, as well as a passage to the west.
 ~
@@ -1276,76 +1280,104 @@ An open air balcony.
 ~
 ~
 0 -1 18645
-E
-staircase stair stairs~
-They are constructed of smooth, beautiful marble.
-~
 S
 #0
 
 
-#RESETS
-*
-M 1 18601 1 18605 1 * Pit Beast
-E 1 18604 50 12           *  Cloak
-M 1 18602 3 18600 1 * Newbie Monster
-E 1 18602 99 5            *  Vest
-M 1 18602 3 18607 1 * Newbie Monster
-E 1 18606 99 16           *  Dagger
-M 1 18611 1 18646 1 * Annoying Newbie
-E 1 18606 99 16           *  Dagger
-M 1 18612 1 18642 1 * Clueless Newbie
-M 1 18613 1 18640 1 * Friendly Newbie
-E 1 18602 99 5            *  Vest
-M 1 18614 1 18604 1 * Lost Newbie
-M 1 18615 1 18645 1 * Smart Newbie
-E 1 18613 99 10           *  Sleeves
-E 1 18612 99 7            *  Leggings
-E 1 18602 99 5            *  Vest
-E 1 18614 30 16           *  Mace
-M 1 18603 1 18602 1 * Dragon
-E 1 18607 99 3            *  Collar
-E 1 18615 100 18          *  orb
-M 1 18604 1 18606 1 * Newbie Guard
-E 1 18605 60 1            *  Ring
-E 1 18603 30 6            *  Helm
-G 1 18608 5               *  Key
-M 1 18605 1 18612 1 * Alchemist
-E 1 18609 50 0            *  Light
-G 1 18609 50              *  Light
-M 1 18606 4 18602 1 * Crawler
-M 1 18606 4 18606 1 * Crawler
-M 1 18606 4 18609 1 * Crawler
-M 1 18607 5 18620 1 * Zombie
-M 1 18607 5 18624 1 * Zombie
-M 1 18607 5 18637 1 * Zombie
-M 1 18607 5 18633 1 * Zombie
-M 1 18608 5 18627 1 * Quasit
-M 1 18608 5 18636 1 * Quasit
-M 1 18608 5 18638 1 * Quasit
-M 1 18608 5 18621 1 * Quasit
-M 1 18609 1 18629 1 * Minotaur
-E 1 18610 50 6            *  Horns
-E 1 18611 50 5            *  Hide
-M 1 18610 1 18639 1 * Spectre
-* Doors
-D 1 18602 2 1                   * The Dirty Hallway Close South
-D 1 18606 0 1                   * A Small Room Close North
-D 1 18603 0 1                   * A Nexus Close North
-D 1 18644 2 1                   * A Bright Hallway Close South
-D 1 18603 1 1                   * A Nexus Close East
-D 1 18646 3 1
-D 1 18604 2 1                   * A Narrow Passage Close South
-D 1 18612 0 1                   * The Alchemist's Room Close North
-D 1 18606 5 2                   * A Small Room Lock Down
-D 1 18605 4 2                   * The Dark Pit Lock Up
-D 1 18607 3 1                   * More Of The Hallway Close West
-D 1 18606 1 1                   * A Small Room Close East
-D 1 18611 1 1                   * Another Corner Close East
-D 1 18612 3 1                   * The Alchemist's Room Close West
-*
+
+#SPECIALS
 S
 
 
-#$
 
+#RESETS
+D 0 18602 2 1	* The Dirty Hallway: door to the south: closed
+D 0 18603 0 1	* A Nexus: door to the north: closed
+D 0 18603 1 1	* A Nexus: door to the east: closed
+D 0 18604 2 1	* A Narrow Passage: door to the south: closed
+D 0 18605 4 2	* The Dark Pit: door to the up: closed and locked
+D 0 18606 0 1	* A Small Room: door to the north: closed
+D 0 18606 1 1	* A Small Room: door to the east: closed
+D 0 18606 5 2	* A Small Room: door to the down: closed and locked
+D 0 18607 3 1	* More Of The Hallway: door to the west: closed
+D 0 18611 1 1	* Another Corner: door to the east: closed
+D 0 18612 0 1	* The Alchemist's Room: door to the north: closed
+D 0 18612 3 1	* The Alchemist's Room: door to the west: closed
+D 0 18644 2 1	* A Bright Hallway: door to the south: closed
+D 0 18646 3 1	* A Bright Hallway: door to the west: closed
+M 0 18602 3 18600 1	* the newbie monster (The Entrance To The Newbie Zone)
+E 0 18602 0 5		*	a bright green newbie vest: on the body
+M 0 18603 1 18602 1	* the baby dragon (The Dirty Hallway)
+E 0 18607 0 3		*	a pet dragon collar: around the neck (1)
+E 0 18615 0 18		*	a baby dragon orb: floating nearby
+M 0 18606 4 18602 1	* the creepy crawler (The Dirty Hallway)
+M 0 18614 1 18604 1	* the lost newbie (A Narrow Passage)
+M 0 18601 1 18605 1	* the pit beast (The Dark Pit)
+E 0 18604 0 12		*	a dark newbie cloak: about the shoulders
+M 0 18604 1 18606 1	* the newbie guard (A Small Room)
+E 0 18605 0 1		*	a newbie signet ring: on the left finger
+E 0 18603 0 6		*	a bright newbie helm: over the head
+G 0 18608 0		*	a wee little key
+M 0 18606 4 18606 1	* the creepy crawler (A Small Room)
+M 0 18602 3 18607 1	* the newbie monster (More Of The Hallway)
+E 0 18606 0 16		*	a shiny newbie dagger: wielded
+M 0 18606 4 18609 1	* the creepy crawler (The End Of The Passage)
+M 0 18605 1 18612 1	* the newbie alchemist (The Alchemist's Room)
+E 0 18609 0 0		*	a brightly glowing jar: as a light
+G 0 18609 0		*	a brightly glowing jar
+M 0 18607 5 18620 1	* the zombiefied newbie (A Turn In The Passage)
+M 0 18608 5 18621 1	* the quasit (A T-Intersection In The Passage)
+M 0 18607 5 18624 1	* the zombiefied newbie (Another Turn)
+M 0 18608 5 18627 1	* the quasit (A Crossing Of Corridors)
+M 0 18609 1 18629 1	* the massive minotaur (The Red Room)
+E 0 18610 0 6		*	the horns of the minotaur: over the head
+E 0 18611 0 5		*	the smelly hide of the minotaur: on the body
+M 0 18607 5 18633 1	* the zombiefied newbie (Another Corner)
+M 0 18608 5 18636 1	* the quasit (A Branch To The South)
+M 0 18607 5 18637 1	* the zombiefied newbie (Yet Another Corner)
+M 0 18608 5 18638 1	* the quasit (A Large Room)
+M 0 18610 1 18639 1	* the dark spectre (A Large Room)
+M 0 18613 1 18640 1	* the talkative newbie (The Statue's Room)
+E 0 18602 0 5		*	a bright green newbie vest: on the body
+M 0 18612 1 18642 1	* the clueless newbie (The North Stairs)
+M 0 18615 1 18645 1	* the smart newbie (The Balcony)
+E 0 18613 0 10		*	some cool newbie sleeves: on the arms
+E 0 18612 0 7		*	some cool newbie leggings: on the legs
+E 0 18602 0 5		*	a bright green newbie vest: on the body
+E 0 18614 0 16		*	a glowing newbie mace: wielded
+M 0 18611 1 18646 1	* the annoying newbie (A Bright Hallway)
+E 0 18606 0 16		*	a shiny newbie dagger: wielded
+S
+
+
+
+#SHOPS
+0
+
+
+
+#OLIMITS
+S
+
+
+
+#MOBPROGS
+#0
+
+#PRACTICERS
+S
+
+
+
+#OMPROGS
+S
+
+
+
+#HELPS
+-1 newbie zone~
+Converted to standard Envy 1.x by Jason Huang (god@@sure.net)
+Further conversion to Rom 2.4 by Jaceks and Chicken's Den Staff~
+-1 $~
+
+#$

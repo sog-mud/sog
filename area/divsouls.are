@@ -2741,7 +2741,7 @@ eye of the nightmare~
 A dark eye shot with streaks of red lies here, pulsing.~
 fire~
 light AE A
-0 0 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef 0 0
+0 0 -1 0 0
 66 10 700 P
 A
 19 6
@@ -2919,7 +2919,7 @@ a Flame of Darkness~
 A flame of pure darkness burns here.~
 shadow~
 light ACJ A
-0 0 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef 0 0
+0 0 -1 0 0
 85 10 10000 P
 A
 19 7
@@ -3099,7 +3099,7 @@ an ice candle~
 An ice candle shimmers here.~
 ice~
 light AF A
-0 0 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef 0 0
+0 0 -1 0 0
 75 60 4520 P
 A
 19 7
@@ -3301,7 +3301,7 @@ an idea~
 An ideas glows brightly.~
 energy~
 light AB A
-0 0 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef 0 0
+0 0 -1 0 0
 86 0 10000 P
 A
 19 6
@@ -3373,7 +3373,7 @@ a silent flame~
 A dark flame burns silently.~
 shadow~
 light ACF A
-0 0 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef 0 0
+0 0 -1 0 0
 51 0 2000 P
 A
 19 4
@@ -5701,21 +5701,21 @@ that this is supposed to lead somewhere.  Then again..
 As you watch, the intersection seems to twist and change.
 ~
 0 0 1
-D1
-Twisting red brick road.
-~
-~
-0 -1 11683
-D2
-Twisting red brick road.
-~
-~
-0 -1 11687
 D3
 Twisting red brick road.
 ~
 ~
 0 -1 11689
+D2
+Twisting red brick road.
+~
+~
+0 -1 11687
+D1
+Twisting red brick road.
+~
+~
+0 -1 11683
 S
 #11687
 Entrance to the Funny Farm~
@@ -6946,223 +6946,223 @@ D 0 11739 0 2	* Meeting Chamber: door to the north: closed and locked
 D 0 11740 3 1	* Crimson Chamber: door to the west: closed
 M 0 11602 6 11601 1	* nightingale (Between the Hedges)
 M 0 11614 5 11601 2	* a white rabbit (Between the Hedges)
-G 0 11644 0		*	A fluffy white tail
+G 0 11644 0		*	a fluffy white tail
 M 0 11614 5 11601 2	* a white rabbit (Between the Hedges)
-G 0 11645 0		*	A pellet of rabbit food
+G 0 11645 0		*	a pellet of rabbit food
 M 0 11612 1 11602 1	* Denebi (Bright Clearing)
-E 0 11640 0 12		*	Flowing white priest's robes: about the shoulders
+E 0 11640 0 12		*	flowing white priest's robes: about the shoulders
 M 0 11613 1 11602 1	* the Believer (Bright Clearing)
-E 0 11641 0 5		*	Blind devotion: on the body
+E 0 11641 0 5		*	blind devotion: on the body
 M 0 11614 5 11602 1	* a white rabbit (Bright Clearing)
-E 0 11643 0 13		*	A broken watch: around the waist
+E 0 11643 0 13		*	a broken watch: around the waist
 M 0 11615 1 11602 1	* Druid of Peace (Bright Clearing)
 M 0 11610 1 11604 1	* Mad Gardener (Garden Path)
-E 0 11636 0 16		*	A pair of pruning shears: wielded
+E 0 11636 0 16		*	a pair of pruning shears: wielded
 E 0 11637 0 5		*	A grass stained jumpsuit: on the body
 M 0 11608 3 11605 1	* a White Knight (Garden Path)
-E 0 11632 0 5		*	A breastplate emblazoned with a white cross: on the body
-E 0 11633 0 7		*	White legplates: on the legs
-E 0 11634 0 16		*	A diamond longsword: wielded
+E 0 11632 0 5		*	a breastplate emblazoned with a white cross: on the body
+E 0 11633 0 7		*	white legplates: on the legs
+E 0 11634 0 16		*	a diamond longsword: wielded
 M 0 11605 1 11606 1	* a statue of the Mage (Garden Path)
-E 0 11628 0 17		*	A sparkling wand: held in the hands
+E 0 11628 0 17		*	a sparkling wand: held in the hands
 M 0 11614 5 11607 1	* a white rabbit (Hippo Fountain)
-G 0 11645 0		*	A pellet of rabbit food
+G 0 11645 0		*	a pellet of rabbit food
 M 0 11608 3 11609 1	* a White Knight (Garden Path)
-E 0 11632 0 5		*	A breastplate emblazoned with a white cross: on the body
-E 0 11633 0 7		*	White legplates: on the legs
-E 0 11634 0 16		*	A diamond longsword: wielded
+E 0 11632 0 5		*	a breastplate emblazoned with a white cross: on the body
+E 0 11633 0 7		*	white legplates: on the legs
+E 0 11634 0 16		*	a diamond longsword: wielded
 M 0 11602 6 11610 1	* nightingale (Garden Path)
 M 0 11609 1 11610 1	* Lady Justice (Garden Path)
 E 0 11635 0 9		*	A pair of ivory scales: on the hands
-O 0 11607 0 11611		* A white altar (Inside the Gazebo)
+O 0 11607 0 11611		* a white altar (Inside the Gazebo)
 M 0 11607 1 11611 1	* statue of the Dreamer (Inside the Gazebo)
-E 0 11631 0 6		*	A pair of rose tinted shades: over the head
+E 0 11631 0 6		*	a pair of rose tinted shades: over the head
 M 0 11646 1 11611 1	* a shadow of Reality (Inside the Gazebo)
 O 0 11600 0 11612		* Weird artwork (Strange Artwork)
 M 0 11614 5 11612 1	* a white rabbit (Strange Artwork)
-E 0 11642 0 3		*	A silver neckchain: around the neck (1)
+E 0 11642 0 3		*	a silver neckchain: around the neck (1)
 M 0 11611 1 11614 1	* Babbling Sculptor (Hole)
-E 0 11638 0 16		*	A sculptor's chisel: wielded
-G 0 11639 0		*	A chip of polished bone
+E 0 11638 0 16		*	a sculptor's chisel: wielded
+G 0 11639 0		*	a chip of polished bone
 O 0 11601 0 11616		* Mirror pool (Mirror Pool)
 M 0 11606 1 11616 1	* the Unicorn (Mirror Pool)
-E 0 11629 0 8		*	Glowing silvery hooves: on the feet
+E 0 11629 0 8		*	glowing silvery hooves: on the feet
 E 0 11630 0 3		*	A golden bell on a silver neckchain: around the neck (1)
 M 0 11603 1 11617 1	* the teacher (Redwood Platform)
-G 0 11627 0		*	A scroll of enlightenment
+G 0 11627 0		*	a scroll of enlightenment
 M 0 11604 1 11617 1	* the student (Redwood Platform)
 M 0 11648 1 11618 1	* a sub gardener (Base of a Large Tree)
 M 0 11600 1 11619 1	* Sym (Ash Grove)
-E 0 11617 0 6		*	A tassled jester's hat: over the head
-E 0 11618 0 10		*	Circlets of wonder: on the arms
-G 0 11619 0		*	A bubbling indigo potion
-G 0 11699 0		*	A vacuum
+E 0 11617 0 6		*	a tassled jester's hat: over the head
+E 0 11618 0 10		*	circlets of wonder: on the arms
+G 0 11619 0		*	a bubbling indigo potion
+G 0 11699 0		*	a vacuum
 M 0 11602 6 11619 2	* nightingale (Ash Grove)
-G 0 11693 0		*	Musical bracers
+G 0 11693 0		*	musical bracers
 M 0 11602 6 11619 2	* nightingale (Ash Grove)
 M 0 11601 1 11621 1	* Roc (Inside the Birdfeeder)
-G 0 11625 0		*	A white grey breast plate
+G 0 11625 0		*	a white grey breast plate
 M 0 11602 6 11621 1	* nightingale (Inside the Birdfeeder)
-E 0 11626 0 18		*	Song of the nightingale: floating nearby
+E 0 11626 0 18		*	song of the nightingale: floating nearby
 M 0 11602 6 11622 1	* nightingale (Stone Well)
 M 0 11616 1 11623 1	* the crying spirit (Inside the Well)
-E 0 11646 0 18		*	A weeping angel: floating nearby
+E 0 11646 0 18		*	a weeping angel: floating nearby
 M 0 11608 3 11624 1	* a White Knight (Misty Pathway)
-E 0 11632 0 5		*	A breastplate emblazoned with a white cross: on the body
-E 0 11633 0 7		*	White legplates: on the legs
-E 0 11634 0 16		*	A diamond longsword: wielded
+E 0 11632 0 5		*	a breastplate emblazoned with a white cross: on the body
+E 0 11633 0 7		*	white legplates: on the legs
+E 0 11634 0 16		*	a diamond longsword: wielded
 M 0 11617 1 11626 1	* a bit of faith (Misty Lake)
 M 0 11618 1 11627 1	* a stray thought (Mossy Cave)
 M 0 11619 1 11629 1	* some memories (Misty Lake)
 M 0 11620 1 11630 1	* an idea (Pool of Mist)
-O 0 11602 0 11633		* The shadows (Shadowy Cavern)
+O 0 11602 0 11633		* the shadows (Shadowy Cavern)
 M 0 11625 6 11635 1	* a silent stalker (Onyx Hallway)
 M 0 11637 5 11635 2	* the furry lemming (Onyx Hallway)
 M 0 11637 5 11635 2	* the furry lemming (Onyx Hallway)
-G 0 11658 0		*	Some furry gloves
+G 0 11658 0		*	some furry gloves
 M 0 11635 1 11636 1	* the Cultist High Priest (Chamber of the High Priest)
-E 0 11656 0 16		*	A blood drenched dagger: wielded
+E 0 11656 0 16		*	a blood drenched dagger: wielded
 M 0 11636 1 11636 1	* a patch of Nothingness (Chamber of the High Priest)
-G 0 11657 0		*	A hole
+G 0 11657 0		*	a hole
 M 0 11637 5 11636 1	* the furry lemming (Chamber of the High Priest)
 M 0 11638 1 11636 1	* the Warlord (Chamber of the High Priest)
-E 0 11659 0 11		*	A blood spattered shield: as a shield
+E 0 11659 0 11		*	a blood spattered shield: as a shield
 M 0 11633 1 11638 1	* the fanatic cultist (Dark corridor)
 M 0 11631 3 11639 1	* the Wraith Knight (Dark corridor)
-E 0 11654 0 16		*	A deathblade: wielded
-E 0 11655 0 9		*	Gauntlets of the night: on the hands
+E 0 11654 0 16		*	a deathblade: wielded
+E 0 11655 0 9		*	gauntlets of the night: on the hands
 M 0 11628 1 11640 1	* Dark Necromancer (Dark corridor)
-E 0 11650 0 6		*	A bloody cowl: over the head
+E 0 11650 0 6		*	a bloody cowl: over the head
 M 0 11637 5 11641 1	* the furry lemming (Dark corridor)
-G 0 11658 0		*	Some furry gloves
+G 0 11658 0		*	some furry gloves
 M 0 11631 3 11643 1	* the Wraith Knight (Dark corridor)
-E 0 11654 0 16		*	A deathblade: wielded
-E 0 11655 0 9		*	Gauntlets of the night: on the hands
+E 0 11654 0 16		*	a deathblade: wielded
+E 0 11655 0 9		*	gauntlets of the night: on the hands
 M 0 11625 6 11644 1	* a silent stalker (Dark corridor)
 M 0 11632 1 11644 1	* the Bloody Sadist (Dark corridor)
-O 0 11608 0 11645		* A bloody obsidian altar (Bloody Altar)
+O 0 11608 0 11645		* a bloody obsidian altar (Bloody Altar)
 M 0 11630 1 11645 1	* the Anti-Bishop (Bloody Altar)
-E 0 11653 0 12		*	Sacrificial robes: about the shoulders
+E 0 11653 0 12		*	sacrificial robes: about the shoulders
 M 0 11647 1 11645 1	* a terrified victim (Bloody Altar)
-O 0 11603 0 11646		* The mouth of the leering face (Room of Faces)
+O 0 11603 0 11646		* the mouth of the leering face (Room of Faces)
 M 0 11637 5 11647 1	* the furry lemming (Inside the Mouth)
 M 0 11634 1 11648 1	* the Grinner (Beneath the churning void)
-O 0 11604 0 11650		* The dark pool (Damp Cavern)
+O 0 11604 0 11650		* the dark pool (Damp Cavern)
 M 0 11629 1 11650 1	* the Nightmare (Damp Cavern)
-G 0 11651 0		*	Eye of the nightmare
-G 0 11652 0		*	Nightmare's breath
+G 0 11651 0		*	eye of the nightmare
+G 0 11652 0		*	nightmare's breath
 M 0 11626 1 11651 1	* a Twisted Being (Pentagram Chamber)
 M 0 11627 1 11651 1	* a screaming soul (Pentagram Chamber)
 M 0 11649 1 11652 1	* a ghostly servant (Dining Hall)
-E 0 11667 0 11		*	A bloodstained platter: as a shield
+E 0 11667 0 11		*	a bloodstained platter: as a shield
 M 0 11623 1 11653 1	* Myrl (Kitchen)
-E 0 11647 0 18		*	Shattered dreams: floating nearby
-E 0 11648 0 6		*	Ice mask: over the head
+E 0 11647 0 18		*	shattered dreams: floating nearby
+E 0 11648 0 6		*	ice mask: over the head
 M 0 11625 6 11653 2	* a silent stalker (Kitchen)
-E 0 11694 0 0		*	A silent flame: as a light
+E 0 11694 0 0		*	a silent flame: as a light
 M 0 11625 6 11653 2	* a silent stalker (Kitchen)
 M 0 11624 1 11655 1	* the hellhawk (Cellar)
-G 0 11649 0		*	A hellhawk feather
+G 0 11649 0		*	a hellhawk feather
 M 0 11625 6 11655 1	* a silent stalker (Cellar)
-E 0 11694 0 0		*	A silent flame: as a light
+E 0 11694 0 0		*	a silent flame: as a light
 M 0 11625 6 11656 1	* a silent stalker (Storage Closet)
-O 0 11605 0 11657		* A pine coffin (Narrow Crawlspace)
+O 0 11605 0 11657		* a pine coffin (Narrow Crawlspace)
 M 0 11639 1 11657 1	* the vampire janitor (Narrow Crawlspace)
-E 0 11660 0 16		*	Fang of the vampire: wielded
-E 0 11661 0 3		*	A tattered cloak: around the neck (1)
+E 0 11660 0 16		*	fang of the vampire: wielded
+E 0 11661 0 3		*	a tattered cloak: around the neck (1)
 M 0 11631 3 11658 1	* the Wraith Knight (Onyx Hallway)
-E 0 11654 0 16		*	A deathblade: wielded
-E 0 11655 0 9		*	Gauntlets of the night: on the hands
+E 0 11654 0 16		*	a deathblade: wielded
+E 0 11655 0 9		*	gauntlets of the night: on the hands
 M 0 11640 1 11660 1	* some lost dreams (Path among the haunted hills)
 M 0 11641 1 11661 1	* Tainted knowledge (Sheltered valley)
 M 0 11642 1 11663 1	* some forgotten lies (Path among the haunted hills)
 M 0 11643 1 11664 1	* some lost hopes (Shadowed Clearing)
-O 0 11606 0 11667		* The darkness (Dark Cavern)
-O 0 11609 0 11669		* A gleaming white throne (Globe of Light)
+O 0 11606 0 11667		* the darkness (Dark Cavern)
+O 0 11609 0 11669		* a gleaming white throne (Globe of Light)
 M 0 11621 1 11669 1	* Gabrian (Globe of Light)
-G 0 11624 0		*	Mark of gabrian
+G 0 11624 0		*	Mark of Gabrian
 M 0 11622 1 11669 1	* Lonari (Globe of Light)
-E 0 11620 0 13		*	A moonbeam: around the waist
-E 0 11621 0 18		*	Innocent dreams: floating nearby
-E 0 11622 0 17		*	A gleaming white cross: held in the hands
-E 0 11623 0 9		*	A pair of white kid gloves: on the hands
-O 0 11610 0 11671		* A forbidding black throne (Darkness)
+E 0 11620 0 13		*	a moonbeam: around the waist
+E 0 11621 0 18		*	innocent dreams: floating nearby
+E 0 11622 0 17		*	a gleaming white cross: held in the hands
+E 0 11623 0 9		*	a pair of white kid gloves: on the hands
+O 0 11610 0 11671		* a forbidding black throne (Darkness)
 M 0 11644 1 11671 1	* Daemias (Darkness)
-G 0 11662 0		*	Mark of daemias
+G 0 11662 0		*	Mark of Daemias
 M 0 11645 1 11671 1	* Dierek (Darkness)
-E 0 11663 0 0		*	A flame of darkness: as a light
-E 0 11664 0 13		*	A circle of tears: around the waist
-E 0 11665 0 18		*	Ashes of the lost: floating nearby
-E 0 11666 0 17		*	A broken bible: held in the hands
-O 0 11611 0 11672		* An ancient white oak (Shadowy Clearing)
-O 0 11612 0 11672		* An ancient black oak (Shadowy Clearing)
+E 0 11663 0 0		*	a Flame of Darkness: as a light
+E 0 11664 0 13		*	a circle of tears: around the waist
+E 0 11665 0 18		*	ashes of the lost: floating nearby
+E 0 11666 0 17		*	a broken bible: held in the hands
+O 0 11611 0 11672		* an ancient white oak (Shadowy Clearing)
+O 0 11612 0 11672		* an ancient black oak (Shadowy Clearing)
 M 0 11651 1 11672 1	* an assassin (Shadowy Clearing)
 M 0 11650 1 11673 1	* Ykres (Dark Thicket)
-E 0 11668 0 9		*	Razor claws: on the hands
-G 0 11669 0		*	Mark of ykres
+E 0 11668 0 9		*	razor claws: on the hands
+G 0 11669 0		*	Mark of Ykres
 M 0 11652 1 11673 1	* the night lynx (Dark Thicket)
-G 0 11670 0		*	Bracelet of night
+G 0 11670 0		*	bracelet of night
 M 0 11653 1 11674 1	* a figment of your imagination (Winding path through the dark forest)
-E 0 11695 0 9		*	Shadowy handprints: on the hands
+E 0 11695 0 9		*	shadowy handprints: on the hands
 M 0 11654 1 11675 1	* the dark owl (Birdnest)
-G 0 11696 0		*	A blanket of dark owl feathers
+G 0 11696 0		*	a blanket of dark owl feathers
 M 0 11655 1 11675 1	* the owl hatchling (Birdnest)
-G 0 11671 0		*	An owl ring
+G 0 11671 0		*	an owl ring
 M 0 11656 1 11676 1	* the nightling (Forest Path)
 M 0 11657 1 11677 1	* a sillouhette (Dead End)
 M 0 11658 1 11677 1	* the nightblade (Dead End)
-E 0 11672 0 16		*	A sliver of darkness: wielded
+E 0 11672 0 16		*	a sliver of darkness: wielded
 M 0 11659 1 11678 1	* the shadowblade (Quiet tunnel)
-E 0 11672 0 16		*	A sliver of darkness: wielded
+E 0 11672 0 16		*	a sliver of darkness: wielded
 M 0 11660 1 11679 1	* the grey ninja (Meeting Chamber)
-E 0 11673 0 6		*	Mask of deception: over the head
+E 0 11673 0 6		*	mask of deception: over the head
 M 0 11661 1 11679 1	* the black ninja (Meeting Chamber)
-E 0 11674 0 3		*	Cloak of shadows: around the neck (1)
+E 0 11674 0 3		*	cloak of shadows: around the neck (1)
 M 0 11662 1 11679 1	* the white ninja  (Meeting Chamber)
-E 0 11675 0 0		*	An ice candle: as a light
+E 0 11675 0 0		*	an ice candle: as a light
 M 0 11663 1 11680 1	* the shadow serpent (Shadowy Lair)
 M 0 11664 1 11682 1	* Yllias (Heart of the Tree)
-E 0 11676 0 16		*	Shadow's edge: wielded
-E 0 11677 0 12		*	A silhouette: about the shoulders
-E 0 11678 0 7		*	Silence: on the legs
+E 0 11676 0 16		*	Shadow's Edge: wielded
+E 0 11677 0 12		*	a silhouette: about the shoulders
+E 0 11678 0 7		*	silence: on the legs
 M 0 11665 1 11682 1	* Reykas (Heart of the Tree)
-E 0 11679 0 8		*	Shadowhawk talons: on the feet
+E 0 11679 0 8		*	shadowhawk talons: on the feet
 M 0 11667 1 11684 1	* the boggled brain (Ribbon of Light)
-G 0 11682 0		*	A brain cell
-O 0 11698 0 11685		* A rip in the void (In the Void)
-O 0 11613 0 11686		* A signpost (Something Resembling an Intersection..)
+G 0 11682 0		*	a brain cell
+O 0 11698 0 11685		* a rip in the void (In the Void)
+O 0 11613 0 11686		* a signpost (Something Resembling an Intersection..)
 R 0 11686 4	* Something Resembling an Intersection..: randomize
 M 0 11668 1 11687 1	* the flying pig (Entrance to the Funny Farm)
-E 0 11683 0 10		*	A pink pair of pig wings: on the arms
-O 0 11700 0 11687		* An oaken door (Entrance to the Funny Farm)
+E 0 11683 0 10		*	a pink pair of pig wings: on the arms
+O 0 11700 0 11687		* an oaken door (Entrance to the Funny Farm)
 M 0 11669 1 11688 1	* the mooo cow (Amidst the Animal Pens)
-E 0 11684 0 17		*	An effigy of a purple dinosaur: held in the hands
+E 0 11684 0 17		*	an effigy of a purple dinosaur: held in the hands
 M 0 11670 1 11689 1	* Stress (Red Brick Road)
 R 0 11690 4	* Another Intersection..: randomize
 M 0 11671 1 11691 1	* Insanity (Red Brick Road)
-O 0 11697 0 11692		* A hole in the ground (Checkered Clearing)
+O 0 11697 0 11692		* a hole in the ground (Checkered Clearing)
 M 0 11672 1 11692 1	* the fool (Checkered Clearing)
 M 0 11666 1 11693 1	* Menx (Checkered Clearing)
-E 0 11680 0 10		*	Bracers of energy: on the arms
-E 0 11681 0 11		*	Whirling disc: as a shield
-O 0 11614 0 11694		* A long leather couch (Clinic)
+E 0 11680 0 10		*	bracers of energy: on the arms
+E 0 11681 0 11		*	whirling disc: as a shield
+O 0 11614 0 11694		* a long leather couch (Clinic)
 M 0 11673 1 11694 1	* the psychiatrist (Clinic)
-E 0 11685 0 12		*	A white lab coat: about the shoulders
+E 0 11685 0 12		*	a white lab coat: about the shoulders
 M 0 11674 1 11694 1	* a normal person (Clinic)
-E 0 11686 0 5		*	A trendy suit: on the body
+E 0 11686 0 5		*	a trendy suit: on the body
 M 0 11675 1 11696 1	* the toilet monster (Inside the Toilet)
 M 0 11676 1 11697 1	* the mole (Down a Mole Hole)
-O 0 11615 0 11698		* A neon green throne (Ouch!)
-O 0 11616 0 11698		* A parrot perch (Ouch!)
+O 0 11615 0 11698		* a neon green throne (Ouch!)
+O 0 11616 0 11698		* a parrot perch (Ouch!)
 M 0 11677 1 11698 1	* Xyrist (Ouch!)
-E 0 11687 0 1		*	A shimmering circlet: on the left finger
-E 0 11688 0 14		*	Bracelet of delusions: on the left wrist
-E 0 11689 0 0		*	An idea: as a light
-E 0 11690 0 5		*	Energy mail: on the body
+E 0 11687 0 1		*	a shimmering circlet: on the left finger
+E 0 11688 0 14		*	bracelet of delusions: on the left wrist
+E 0 11689 0 0		*	an idea: as a light
+E 0 11690 0 5		*	energy mail: on the body
 M 0 11678 1 11698 1	* Fax (Ouch!)
-E 0 11691 0 7		*	Some red feather leggings: on the legs
-E 0 11692 0 16		*	A brilliant red tailfeather: wielded
-O 0 11701 0 11699		* An oaken door (Zeinia International)
+E 0 11691 0 7		*	some red feather leggings: on the legs
+E 0 11692 0 16		*	a brilliant red tailfeather: wielded
+O 0 11701 0 11699		* an oaken door (Zeinia International)
 M 0 11695 1 11699 1	* the Zeinia representative (Zeinia International)
 M 0 11679 1 11700 1	* an aerial servant (Pet Storage (Zeinia))
 M 0 11680 1 11700 1	* a flying fist (Pet Storage (Zeinia))
@@ -7181,151 +7181,151 @@ M 0 11691 1 11702 1	* a rabid guinea pig (Pet Storage (Zeinia elite))
 M 0 11692 1 11702 1	* a Dzenian blade (Pet Storage (Zeinia elite))
 M 0 11693 1 11702 1	* an ethereal weebie (Pet Storage (Zeinia elite))
 M 0 11694 1 11702 1	* a Z'kare blade (Pet Storage (Zeinia elite))
-O 0 11707 0 11704		* Some decaying bodyparts (Shadowy Tunnel)
+O 0 11707 0 11704		* some decaying bodyparts (Shadowy Tunnel)
 M 0 11710 2 11705 2	* the guardian lynx (Dead End)
-E 0 11702 0 2		*	A small onyx key on a silver chain: on the right finger
+E 0 11702 0 2		*	a small onyx key on a silver chain: on the right finger
 M 0 11710 2 11705 2	* the guardian lynx (Dead End)
-E 0 11702 0 2		*	A small onyx key on a silver chain: on the right finger
+E 0 11702 0 2		*	a small onyx key on a silver chain: on the right finger
 M 0 11709 4 11707 1	* the shadow panther (Dark Hallway)
 M 0 11708 3 11708 1	* the applicant (Small Chamber)
-E 0 11720 0 1		*	An applicant's ring: on the left finger
+E 0 11720 0 1		*	an applicant's ring: on the left finger
 M 0 11709 4 11709 1	* the shadow panther (Dark Hallway)
 M 0 11707 5 11710 2	* the Zdreni apprentice (Sleeping Quarters)
-E 0 11719 0 15		*	A bracer engraved with a tan insignia: on the right wrist
-E 0 11729 0 16		*	An adamantite dagger: wielded
+E 0 11719 0 15		*	a bracer engraved with a tan insignia: on the right wrist
+E 0 11729 0 16		*	an adamantite dagger: wielded
 M 0 11707 5 11710 2	* the Zdreni apprentice (Sleeping Quarters)
-E 0 11719 0 15		*	A bracer engraved with a tan insignia: on the right wrist
-E 0 11729 0 16		*	An adamantite dagger: wielded
+E 0 11719 0 15		*	a bracer engraved with a tan insignia: on the right wrist
+E 0 11729 0 16		*	an adamantite dagger: wielded
 M 0 11707 5 11711 2	* the Zdreni apprentice (Sleeping Quarters)
-E 0 11719 0 15		*	A bracer engraved with a tan insignia: on the right wrist
-E 0 11729 0 16		*	An adamantite dagger: wielded
+E 0 11719 0 15		*	a bracer engraved with a tan insignia: on the right wrist
+E 0 11729 0 16		*	an adamantite dagger: wielded
 M 0 11707 5 11711 2	* the Zdreni apprentice (Sleeping Quarters)
-E 0 11719 0 15		*	A bracer engraved with a tan insignia: on the right wrist
-E 0 11729 0 16		*	An adamantite dagger: wielded
+E 0 11719 0 15		*	a bracer engraved with a tan insignia: on the right wrist
+E 0 11729 0 16		*	an adamantite dagger: wielded
 M 0 11707 5 11712 1	* the Zdreni apprentice (Dark Hallway)
-E 0 11719 0 15		*	A bracer engraved with a tan insignia: on the right wrist
-E 0 11729 0 16		*	An adamantite dagger: wielded
+E 0 11719 0 15		*	a bracer engraved with a tan insignia: on the right wrist
+E 0 11729 0 16		*	an adamantite dagger: wielded
 M 0 11711 1 11713 1	* the Zdreni magemaster (Smokey Room)
-E 0 11714 0 13		*	A dark blue sash with a purple insignia: around the waist
-E 0 11726 0 16		*	An adamantite kris: wielded
+E 0 11714 0 13		*	a dark blue sash with a purple insignia: around the waist
+E 0 11726 0 16		*	an adamantite kris: wielded
 M 0 11712 3 11713 1	* the Zdreni apprentice (Smokey Room)
-E 0 11719 0 15		*	A bracer engraved with a tan insignia: on the right wrist
-E 0 11729 0 16		*	An adamantite dagger: wielded
+E 0 11719 0 15		*	a bracer engraved with a tan insignia: on the right wrist
+E 0 11729 0 16		*	an adamantite dagger: wielded
 M 0 11713 2 11714 1	* the Zdreni apprentice (Bare Stone Room)
-E 0 11719 0 15		*	A bracer engraved with a tan insignia: on the right wrist
-E 0 11729 0 16		*	An adamantite dagger: wielded
+E 0 11719 0 15		*	a bracer engraved with a tan insignia: on the right wrist
+E 0 11729 0 16		*	an adamantite dagger: wielded
 M 0 11717 1 11715 1	* the Zdreni magemaster (Laboratory)
-E 0 11714 0 13		*	A dark blue sash with a purple insignia: around the waist
-G 0 11722 0		*	A dark blue scroll
-E 0 11726 0 16		*	An adamantite kris: wielded
+E 0 11714 0 13		*	a dark blue sash with a purple insignia: around the waist
+G 0 11722 0		*	a dark blue scroll
+E 0 11726 0 16		*	an adamantite kris: wielded
 M 0 11718 1 11715 1	* the Zdreni venomblade (Laboratory)
-E 0 11717 0 8		*	A pair of boots with a dark green insignia: on the feet
-E 0 11728 0 16		*	An adamantite throwing knife: wielded
+E 0 11717 0 8		*	a pair of boots with a dark green insignia: on the feet
+E 0 11728 0 16		*	an adamantite throwing knife: wielded
 M 0 11719 2 11715 1	* the Zdreni stiletto (Laboratory)
-E 0 11718 0 7		*	Leather leggings with a grey insignia: on the legs
-E 0 11728 0 16		*	An adamantite throwing knife: wielded
+E 0 11718 0 7		*	leather leggings with a grey insignia: on the legs
+E 0 11728 0 16		*	an adamantite throwing knife: wielded
 M 0 11714 1 11717 1	* the Zdreni blademaster (Instruction Area)
-E 0 11713 0 13		*	A dark blue sash with a green insignia: around the waist
-G 0 11721 0		*	A manual of bladework
-E 0 11726 0 16		*	An adamantite kris: wielded
+E 0 11713 0 13		*	a dark blue sash with a green insignia: around the waist
+G 0 11721 0		*	a manual of bladework
+E 0 11726 0 16		*	an adamantite kris: wielded
 M 0 11715 2 11717 1	* the Zdreni apprentice (Instruction Area)
-E 0 11719 0 15		*	A bracer engraved with a tan insignia: on the right wrist
-E 0 11729 0 16		*	An adamantite dagger: wielded
+E 0 11719 0 15		*	a bracer engraved with a tan insignia: on the right wrist
+E 0 11729 0 16		*	an adamantite dagger: wielded
 M 0 11716 3 11718 1	* the Zdreni apprentice (Practice Area)
-E 0 11719 0 15		*	A bracer engraved with a tan insignia: on the right wrist
-E 0 11729 0 16		*	An adamantite dagger: wielded
+E 0 11719 0 15		*	a bracer engraved with a tan insignia: on the right wrist
+E 0 11729 0 16		*	an adamantite dagger: wielded
 M 0 11720 2 11719 1	* the Zdreni venomblade (Laboratory)
-G 0 11703 0		*	A long steel key
-E 0 11717 0 8		*	A pair of boots with a dark green insignia: on the feet
-G 0 11723 0		*	A simmering green potion
-E 0 11728 0 16		*	An adamantite throwing knife: wielded
+G 0 11703 0		*	a long steel key
+E 0 11717 0 8		*	a pair of boots with a dark green insignia: on the feet
+G 0 11723 0		*	a simmering green potion
+E 0 11728 0 16		*	an adamantite throwing knife: wielded
 M 0 11721 1 11720 1	* the Zdreni venomblade (Testing Room)
-E 0 11717 0 8		*	A pair of boots with a dark green insignia: on the feet
-G 0 11723 0		*	A simmering green potion
-E 0 11728 0 16		*	An adamantite throwing knife: wielded
+E 0 11717 0 8		*	a pair of boots with a dark green insignia: on the feet
+G 0 11723 0		*	a simmering green potion
+E 0 11728 0 16		*	an adamantite throwing knife: wielded
 M 0 11722 3 11720 2	* a screaming captive (Testing Room)
 M 0 11722 3 11720 2	* a screaming captive (Testing Room)
 M 0 11706 4 11721 1	* the Zdreni stiletto (Dark Hallway)
-E 0 11718 0 7		*	Leather leggings with a grey insignia: on the legs
-E 0 11728 0 16		*	An adamantite throwing knife: wielded
+E 0 11718 0 7		*	leather leggings with a grey insignia: on the legs
+E 0 11728 0 16		*	an adamantite throwing knife: wielded
 M 0 11706 4 11723 1	* the Zdreni stiletto (Silent Chamber)
-E 0 11718 0 7		*	Leather leggings with a grey insignia: on the legs
-E 0 11728 0 16		*	An adamantite throwing knife: wielded
+E 0 11718 0 7		*	leather leggings with a grey insignia: on the legs
+E 0 11728 0 16		*	an adamantite throwing knife: wielded
 M 0 11706 4 11724 2	* the Zdreni stiletto (Silent Chamber)
-E 0 11718 0 7		*	Leather leggings with a grey insignia: on the legs
-E 0 11728 0 16		*	An adamantite throwing knife: wielded
+E 0 11718 0 7		*	leather leggings with a grey insignia: on the legs
+E 0 11728 0 16		*	an adamantite throwing knife: wielded
 M 0 11706 4 11724 2	* the Zdreni stiletto (Silent Chamber)
-E 0 11718 0 7		*	Leather leggings with a grey insignia: on the legs
-E 0 11728 0 16		*	An adamantite throwing knife: wielded
+E 0 11718 0 7		*	leather leggings with a grey insignia: on the legs
+E 0 11728 0 16		*	an adamantite throwing knife: wielded
 M 0 11705 3 11726 2	* the Zdreni venomblade (Shadowy Chamber)
-E 0 11717 0 8		*	A pair of boots with a dark green insignia: on the feet
-E 0 11728 0 16		*	An adamantite throwing knife: wielded
+E 0 11717 0 8		*	a pair of boots with a dark green insignia: on the feet
+E 0 11728 0 16		*	an adamantite throwing knife: wielded
 M 0 11705 3 11726 2	* the Zdreni venomblade (Shadowy Chamber)
-E 0 11717 0 8		*	A pair of boots with a dark green insignia: on the feet
-E 0 11728 0 16		*	An adamantite throwing knife: wielded
+E 0 11717 0 8		*	a pair of boots with a dark green insignia: on the feet
+E 0 11728 0 16		*	an adamantite throwing knife: wielded
 M 0 11705 3 11727 1	* the Zdreni venomblade (Shadowy Chamber)
-E 0 11717 0 8		*	A pair of boots with a dark green insignia: on the feet
-E 0 11728 0 16		*	An adamantite throwing knife: wielded
+E 0 11717 0 8		*	a pair of boots with a dark green insignia: on the feet
+E 0 11728 0 16		*	an adamantite throwing knife: wielded
 M 0 11704 4 11728 1	* the Zdreni darkblade (Shadowy Chamber)
-E 0 11716 0 9		*	A pair of leather gloves with an indigo insignia: on the hands
-E 0 11727 0 16		*	An adamantite stiletto: wielded
+E 0 11716 0 9		*	a pair of leather gloves with an indigo insignia: on the hands
+E 0 11727 0 16		*	an adamantite stiletto: wielded
 M 0 11709 4 11729 1	* the shadow panther (Dark Hallway)
 M 0 11723 1 11730 1	* the drow armoursmith (Forge)
-G 0 11724 0		*	A suit of dark elven chainmail
+G 0 11724 0		*	a suit of dark elven chainmail
 M 0 11724 1 11730 1	* the drow weaponsmith (Forge)
-G 0 11729 0		*	An adamantite dagger
+G 0 11729 0		*	an adamantite dagger
 M 0 11704 4 11732 1	* the Zdreni darkblade (Shadowy Chamber)
-E 0 11716 0 9		*	A pair of leather gloves with an indigo insignia: on the hands
-E 0 11727 0 16		*	An adamantite stiletto: wielded
+E 0 11716 0 9		*	a pair of leather gloves with an indigo insignia: on the hands
+E 0 11727 0 16		*	an adamantite stiletto: wielded
 M 0 11704 4 11733 1	* the Zdreni darkblade (Dark Hallway)
-E 0 11716 0 9		*	A pair of leather gloves with an indigo insignia: on the hands
-G 0 11704 0		*	A dark stone key
-E 0 11727 0 16		*	An adamantite stiletto: wielded
+E 0 11716 0 9		*	a pair of leather gloves with an indigo insignia: on the hands
+G 0 11704 0		*	a dark stone key
+E 0 11727 0 16		*	an adamantite stiletto: wielded
 M 0 11703 4 11734 1	* the Zdreni stalker (Dark Chamber)
-E 0 11715 0 3		*	A dark cloak embroidered with a smokey blue insignia: around the neck (1)
-E 0 11727 0 16		*	An adamantite stiletto: wielded
+E 0 11715 0 3		*	a dark cloak embroidered with a smokey blue insignia: around the neck (1)
+E 0 11727 0 16		*	an adamantite stiletto: wielded
 M 0 11703 4 11735 1	* the Zdreni stalker (Dark Chamber)
-E 0 11715 0 3		*	A dark cloak embroidered with a smokey blue insignia: around the neck (1)
-E 0 11727 0 16		*	An adamantite stiletto: wielded
+E 0 11715 0 3		*	a dark cloak embroidered with a smokey blue insignia: around the neck (1)
+E 0 11727 0 16		*	an adamantite stiletto: wielded
 M 0 11703 4 11736 1	* the Zdreni stalker (Quiet Corridor)
-E 0 11715 0 3		*	A dark cloak embroidered with a smokey blue insignia: around the neck (1)
-E 0 11727 0 16		*	An adamantite stiletto: wielded
+E 0 11715 0 3		*	a dark cloak embroidered with a smokey blue insignia: around the neck (1)
+E 0 11727 0 16		*	an adamantite stiletto: wielded
 M 0 11701 2 11737 1	* the Zdreni blademaster (Quiet Corridor)
-G 0 11705 0		*	A black key
-E 0 11726 0 16		*	An adamantite kris: wielded
-E 0 11713 0 13		*	A dark blue sash with a green insignia: around the waist
+G 0 11705 0		*	a black key
+E 0 11726 0 16		*	an adamantite kris: wielded
+E 0 11713 0 13		*	a dark blue sash with a green insignia: around the waist
 M 0 11701 2 11738 1	* the Zdreni blademaster (Guarded Corridor)
-E 0 11713 0 13		*	A dark blue sash with a green insignia: around the waist
-E 0 11726 0 16		*	An adamantite kris: wielded
+E 0 11713 0 13		*	a dark blue sash with a green insignia: around the waist
+E 0 11726 0 16		*	an adamantite kris: wielded
 M 0 11702 1 11738 1	* the Zdreni magemaster (Guarded Corridor)
-E 0 11714 0 13		*	A dark blue sash with a purple insignia: around the waist
-G 0 11706 0		*	A long adamantite key
-E 0 11726 0 16		*	An adamantite kris: wielded
+E 0 11714 0 13		*	a dark blue sash with a purple insignia: around the waist
+G 0 11706 0		*	a long adamantite key
+E 0 11726 0 16		*	an adamantite kris: wielded
 M 0 11699 1 11739 1	* the Zdreni deathmaster (Meeting Chamber)
-E 0 11711 0 2		*	A midnight black insignia: on the right finger
-E 0 11725 0 16		*	An adamantite shortsword: wielded
+E 0 11711 0 2		*	a midnight black insignia: on the right finger
+E 0 11725 0 16		*	an adamantite shortsword: wielded
 M 0 11700 2 11739 2	* the Zdreni shadowmaster (Meeting Chamber)
-E 0 11712 0 5		*	A suit of drow chainmail with a dark grey insignia: on the body
-E 0 11725 0 16		*	An adamantite shortsword: wielded
+E 0 11712 0 5		*	a suit of drow chainmail with a dark grey insignia: on the body
+E 0 11725 0 16		*	an adamantite shortsword: wielded
 M 0 11700 2 11739 2	* the Zdreni shadowmaster (Meeting Chamber)
-E 0 11712 0 5		*	A suit of drow chainmail with a dark grey insignia: on the body
-E 0 11725 0 16		*	An adamantite shortsword: wielded
+E 0 11712 0 5		*	a suit of drow chainmail with a dark grey insignia: on the body
+E 0 11725 0 16		*	an adamantite shortsword: wielded
 M 0 11725 1 11740 1	* a Zdreni avenger (Crimson Chamber)
-E 0 11708 0 10		*	Dark crimson armbands: on the arms
-E 0 11710 0 16		*	A crimson hilted stiletto: wielded
-E 0 11709 0 4		*	Oath of vengeance: around the neck (2)
+E 0 11708 0 10		*	dark crimson armbands: on the arms
+E 0 11710 0 16		*	a crimson hilted stiletto: wielded
+E 0 11709 0 4		*	Oath of Vengeance: around the neck (2)
 M 0 11697 2 11740 2	* a Zdreni avenger (Crimson Chamber)
-E 0 11708 0 10		*	Dark crimson armbands: on the arms
-E 0 11710 0 16		*	A crimson hilted stiletto: wielded
+E 0 11708 0 10		*	dark crimson armbands: on the arms
+E 0 11710 0 16		*	a crimson hilted stiletto: wielded
 M 0 11697 2 11740 2	* a Zdreni avenger (Crimson Chamber)
-E 0 11708 0 10		*	Dark crimson armbands: on the arms
-E 0 11710 0 16		*	A crimson hilted stiletto: wielded
+E 0 11708 0 10		*	dark crimson armbands: on the arms
+E 0 11710 0 16		*	a crimson hilted stiletto: wielded
 M 0 11698 2 11740 2	* the Zdreni avenger (Crimson Chamber)
-E 0 11708 0 10		*	Dark crimson armbands: on the arms
-E 0 11710 0 16		*	A crimson hilted stiletto: wielded
+E 0 11708 0 10		*	dark crimson armbands: on the arms
+E 0 11710 0 16		*	a crimson hilted stiletto: wielded
 M 0 11698 2 11740 2	* the Zdreni avenger (Crimson Chamber)
-E 0 11708 0 10		*	Dark crimson armbands: on the arms
-E 0 11710 0 16		*	A crimson hilted stiletto: wielded
+E 0 11708 0 10		*	dark crimson armbands: on the arms
+E 0 11710 0 16		*	a crimson hilted stiletto: wielded
 S
 
 

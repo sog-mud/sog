@@ -1,9 +1,14 @@
-#AREA
-mtdoom.are~
-Kurgan Mount Doom~
-{45 65} Yaegar  Kurgan Mount Doom~
-14700 14850
- 
+#AREADATA
+Name Kurgan Mount Doom~
+Builders None~
+VNUMs 14700 14850
+Credits Yaegar~
+Security 9
+LevelRange 45 65
+End
+
+
+
 #MOBILES
 #14700
 lord krothgar~
@@ -21,7 +26,7 @@ ABG CDEHJN -1000 0
 -35 -35 -35 -5
 EFHIJKNU B C 0
 stand stand male 1000
-0 0 medium 0
+0 0 medium unknown
 #14701
 death knight~
 a death knight~
@@ -37,9 +42,9 @@ human~
 ABG DHJ -1000 0
 56 0 50d10+5750 5d5+5000 10d4+24 punch
 -26 -26 -26 -2
-CBEGK AB D H
+BCEGK AB D H
 stand stand none 1000
-0 0 medium 0
+0 0 medium unknown
 #14702
 iron golem~
 an iron golem~
@@ -55,7 +60,7 @@ ABG 0 0 0
 -20 -20 -20 0
 EFNU 0 0 0
 stand stand none 1000
-0 0 medium 0
+0 0 medium unknown
 #14703
 marmandes demon prince~
 the demon prince Marmandes~
@@ -73,7 +78,7 @@ ABG CDEFHJ -1000 0
 -30 -30 -30 -3
 EFIKU 0 H N
 stand stand male 1000
-0 0 large 0
+0 0 large unknown
 #14704
 axtraxes arch mage~
 axtraxes~
@@ -85,11 +90,11 @@ at your untimely interruption and reacts aggressively.
 ~
 human~
 ABFGH DEHJ -1000 0
-54 0 50d10+5250 5d5+5000 7d6+22 punch 
+54 0 50d10+5250 5d5+5000 7d6+22 punch
 -24 -24 -24 -1
 EFIKNU B C D
 stand stand male 1000
-0 0 medium 0
+0 0 medium unknown
 #14705
 high priest~
 an evil high priest~
@@ -105,7 +110,7 @@ ABFG DHJ -1000 0
 -24 -24 -24 -1
 CDEFIJKNQ 0 0 0
 stand stand male 1000
-0 0 medium 0
+0 0 medium unknown
 #14706
 elite guard~
 an elite guard~
@@ -121,7 +126,7 @@ ABFG J -1000 0
 -20 -20 -20 0
 CDEFIJKQ 0 0 0
 stand stand male 1000
-0 0 medium 0
+0 0 medium unknown
 #14707
 destrier~
 a destrier~
@@ -137,7 +142,7 @@ ABG J -1000 0
 -13 -13 -13 3
 FKU 0 0 0
 stand stand none 1000
-0 0 medium 0
+0 0 medium unknown
 #14708
 evil priest~
 an evil priest~
@@ -152,7 +157,7 @@ ABG J -1000 0
 -13 -13 -13 3
 EFIKNU 0 0 0
 stand stand male 1000
-0 0 medium 0
+0 0 medium unknown
 #14709
 scientist mage~
 an evil scientist mage~
@@ -169,7 +174,7 @@ ABFGH EJ -1000 0
 -15 -15 -15 2
 FIKU B C 0
 stand stand male 1000
-0 0 medium 0
+0 0 medium unknown
 #14710
 blackguard guard~
 a member of the blackguard~
@@ -184,7 +189,7 @@ ABFG J -1000 0
 -18 -18 -18 1
 CDEFIJKQ 0 0 0
 stand stand male 1000
-0 0 medium 0
+0 0 medium unknown
 #14711
 red dragon~
 a red dragon~
@@ -196,12 +201,12 @@ and baleful eyes gleam dangerously from above this maw directly at you. You
 regret your intrusion.
 ~
 red dragon~
-ABFG DFHJT -1000 0
+ABFG DFH -1000 0
 57 0 50d10+6000 5d5+5000 6d8+24 claw
 -27 -27 -27 -2
 CEFM 0 0 0
 stand stand none 1000
-0 0 medium 0
+0 0 medium unknown
 #14712
 black dragon~
 a black dragon~
@@ -213,12 +218,12 @@ and baleful eyes gleam dangerously from above this maw directly at you. You
 regret your intrusion.
 ~
 black dragon~
-ABFG CFHJT -1000 0
+ABFG CFH -1000 0
 48 0 25d10+3750 5d5+1000 6d6+18 claw
 -18 -18 -18 1
 CEFM 0 0 0
 stand stand none 1000
-0 0 medium 0
+0 0 medium unknown
 #14713
 white dragon~
 a white dragon~
@@ -230,12 +235,12 @@ and baleful eyes gleam dangerously from above this maw directly at you. You
 regret your intrusion.
 ~
 white dragon~
-ABFG DFHJT -1000 0
+ABFG DFH -1000 0
 45 0 25d10+3000 5d5+1000 8d4+16 claw
 -15 -15 -15 2
 CEFM 0 0 0
 stand stand none 1000
-0 0 medium 0
+0 0 medium unknown
 #14714
 blue dragon~
 a blue dragon~
@@ -247,12 +252,12 @@ and baleful eyes gleam dangerously from above this maw directly at you. You
 regret your intrusion.
 ~
 blue dragon~
-ABFG DFHJT -1000 0
+ABFG DFH -1000 0
 54 0 50d10+5250 5d5+5000 7d6+22 claw
 -24 -24 -24 -1
 CEFM 0 0 0
 stand stand none 1000
-0 0 medium 0
+0 0 medium unknown
 #14715
 green dragon~
 a green dragon~
@@ -264,12 +269,12 @@ and baleful eyes gleam dangerously from above this maw directly at you. You
 regret your intrusion.
 ~
 green dragon~
-ABFG DFHJT -1000 0
+ABFG DFH -1000 0
 51 0 50d10+4500 5d5+5000 5d8+20 claw
 -21 -21 -21 0
 CEFM 0 0 0
 stand stand none 1000
-0 0 medium 0
+0 0 medium unknown
 #14716
 fire elemental~
 a fire elemental~
@@ -283,7 +288,7 @@ ABFG 0 0 0
 -23 -23 -23 -1
 EF H 0 0
 stand stand none 1000
-0 0 medium 0
+0 0 medium unknown
 #14717
 efreeti~
 an efreeti~
@@ -300,7 +305,7 @@ ABFG CJNT -1000 0
 -19 -19 -19 1
 FIK H 0 0
 stand stand male 1000
-0 0 medium 0
+0 0 medium unknown
 #14718
 shedu~
 a shedu~
@@ -316,7 +321,7 @@ ABG HJN 1000 0
 -22 -22 -22 0
 FIKU 0 0 0
 stand stand male 1000
-0 0 medium 0
+0 0 medium unknown
 #14719
 illithid~
 an evil illithid~
@@ -331,7 +336,7 @@ ABFGH DFN -1000 0
 -20 -20 -20 0
 EFKU 0 0 0
 stand stand none 1000
-0 0 medium 0
+0 0 medium unknown
 #14720
 slave~
 a wretched slave~
@@ -342,11 +347,11 @@ corner of the cell he gibbers insanely and begs for mercy.
 ~
 human~
 ABH 0 0 0
-10 0  2d7+121 5d5+100 2d4+2 punch        
+10 0 2d7+121 5d5+100 2d4+2 punch
 1 1 1 7
 F 0 0 0
 stand stand male 1000
-0 0 medium 0
+0 0 medium unknown
 #14721
 slave~
 a wretched slave~
@@ -357,11 +362,11 @@ corner of the cell she gibbers insanely and begs for mercy.
 ~
 human~
 ABH 0 0 0
-10 0  2d7+121 5d5+100 2d4+2 slap        
+10 0 2d7+121 5d5+100 2d4+2 slap
 1 1 1 7
 F 0 0 0
 stand stand female 1000
-0 0 medium 0
+0 0 medium unknown
 #14722
 mutant~
 a mutant~
@@ -378,7 +383,7 @@ ABFG FJ 0 0
 -15 -15 -15 2
 FIJKNU 0 0 0
 stand stand none 1000
-0 0 medium 0
+0 0 medium unknown
 #14723
 hydra~
 a twelve-headed hydra~
@@ -389,12 +394,12 @@ of humans and elves. It will fight ferociously to defend the home of its
 meal ticket.
 ~
 elf~
-ABFG J 0 0
+ABFG 0 0 0
 52 0 50d10+4750 5d5+5000 6d7+20 charge
 -22 -22 -22 0
 EFU 0 0 0
 stand stand none 1000
-0 0 medium 0
+0 0 medium unknown
 #14724
 quasit~
 a quasit~
@@ -405,11 +410,11 @@ at being seen.
 ~
 unique~
 ABFGH BDFPQT -1000 0
-25 0 5d10+550 5d5+1000 2d10+7 magic    
+25 0 5d10+550 5d5+1000 2d10+7 magic
 -7 -7 -7 4
 EFU 0 0 0
 stand stand none 1000
-0 0 medium 0
+0 0 medium unknown
 #14725
 succubus~
 a succubus~
@@ -425,7 +430,7 @@ ABGH DHJT -1000 0
 -19 -19 -19 1
 EFIU 0 0 0
 stand stand female 1000
-0 0 medium 0
+0 0 medium unknown
 #14726
 earth elemental~
 an earth elemental~
@@ -439,7 +444,7 @@ ABFG 0 0 0
 -23 -23 -23 -1
 EFU 0 0 0
 stand stand none 1000
-0 0 medium 0
+0 0 medium unknown
 #14727
 water elemental~
 a water elemental~
@@ -453,7 +458,7 @@ ABFG 0 0 0
 -23 -23 -23 -1
 EFU I 0 0
 stand stand none 1000
-0 0 medium 0
+0 0 medium unknown
 #14728
 air elemental~
 an air elemental~
@@ -467,7 +472,7 @@ ABFG 0 0 0
 -23 -23 -23 -1
 EFU 0 0 0
 stand stand none 1000
-0 0 medium 0
+0 0 medium unknown
 #14729
 hell hound hellhound~
 a hellhound~
@@ -482,7 +487,7 @@ AFG DJ -1000 0
 -15 -15 -15 2
 EFU 0 0 0
 stand stand none 1000
-0 0 medium 0
+0 0 medium unknown
 #14730
 fire giant~
 a fire giant~
@@ -498,7 +503,7 @@ ABG J -1000 0
 -21 -21 -21 0
 CEFIKQ 0 D C
 stand stand male 1000
-0 0 medium 0
+0 0 medium unknown
 #14731
 frost giant~
 a frost giant~
@@ -513,7 +518,7 @@ ABFG J -1000 0
 -18 -18 -18 1
 CEFIKQ 0 0 0
 stand stand male 1000
-0 0 medium 0
+0 0 medium unknown
 #14732
 hill giant~
 a hill giant~
@@ -529,7 +534,7 @@ ABFG J -1000 0
 -15 -15 -15 2
 CEFIKQ 0 0 0
 stand stand male 1000
-0 0 medium 0
+0 0 medium unknown
 #14733
 cloud giant~
 a cloud giant~
@@ -544,7 +549,7 @@ ABFG J -1000 0
 -24 -24 -24 -1
 CEFIKQ 0 0 0
 stand stand male 1000
-0 0 medium 0
+0 0 medium unknown
 #14734
 ogre~
 an ogre servant~
@@ -556,11 +561,11 @@ serving food and drinks in between kicks to the head.
 ~
 human~
 ABGH J -400 0
-30 0 6d12+853 5d5+1000 4d6+8 punch     
+30 0 6d12+853 5d5+1000 4d6+8 punch
 -9 -9 -9 3
 CEFIK 0 0 0
 stand stand male 1000
-0 0 medium 0
+0 0 medium unknown
 #14735
 ogre mage~
 an ogre mage~
@@ -577,7 +582,7 @@ ABG DEHJ -1000 0
 -19 -19 -19 1
 EFIKQ 0 0 0
 stand stand male 1000
-0 0 medium 0
+0 0 medium unknown
 #14736
 troll~
 a troll~
@@ -592,7 +597,7 @@ ABG J -1000 0
 -18 -18 -18 1
 CEFIKQ 0 0 0
 stand stand male 1000
-0 0 medium 0
+0 0 medium unknown
 #14737
 ettin~
 an ettin~
@@ -607,7 +612,7 @@ ABG J -1000 0
 -22 -22 -22 0
 CEFIKQ 0 0 0
 stand stand male 1000
-0 0 medium 0
+0 0 medium unknown
 #14738
 chief assassin~
 the chief assassin~
@@ -623,7 +628,7 @@ ABG DJN -1000 0
 -23 -23 -23 -1
 CEFIK 0 0 0
 stand stand female 1000
-0 0 medium 0
+0 0 medium unknown
 #14739
 assassin~
 an assassin~
@@ -638,7 +643,7 @@ ABFG J -1000 0
 -17 -17 -17 2
 CEFIK 0 0 0
 stand stand female 1000
-0 0 medium 0
+0 0 medium unknown
 #14740
 drow ambassador~
 a drow ambassador~
@@ -653,7 +658,7 @@ ABFGH DEHJ -1000 0
 -20 -20 -20 0
 CEFIKQ 0 0 0
 stand stand female 1000
-0 0 medium 0
+0 0 medium unknown
 #14741
 warg~
 a warg~
@@ -667,7 +672,7 @@ AFG FJ -1000 0
 -14 -14 -14 3
 CEFIK 0 0 0
 stand stand male 1000
-0 0 medium 0
+0 0 medium unknown
 #14742
 ghoul~
 a bloodthirsty ghoul~
@@ -681,7 +686,7 @@ AFG J -1000 0
 -16 -16 -16 2
 EFK 0 0 0
 stand stand none 1000
-0 0 medium 0
+0 0 medium unknown
 #14743
 vampire~
 a vampire~
@@ -696,7 +701,7 @@ ABGH DHJTU -1000 0
 -22 -22 -22 0
 EFIKNQ 0 0 0
 stand stand female 1000
-0 0 medium 0
+0 0 medium unknown
 #14744
 lich~
 an ancient lich~
@@ -713,7 +718,7 @@ ABG CDEFHJNT -1000 0
 -30 -30 -30 -3
 CEFIKQ 0 0 0
 stand stand none 1000
-0 0 medium 0
+0 0 medium unknown
 #14745
 stone golem~
 a stone golem~
@@ -729,13 +734,12 @@ ABG 0 0 0
 -20 -20 -20 0
 EFNU 0 0 0
 stand stand none 1000
-0 0 medium 0
+0 0 medium unknown
 #14746
 keeper~
 The keeper of the mutant pit~
 The Keeper of the Mutant Pit snarls angrily at you.
 ~
-
 ~
 unique~
 ABFG JN -1000 0
@@ -743,7 +747,7 @@ ABFG JN -1000 0
 -16 -16 -16 2
 CEFIKQ 0 0 0
 stand stand none 1000
-0 0 medium 0
+0 0 medium unknown
 #14747
 naga princess~
 a naga princess~
@@ -759,8 +763,9 @@ ABDG DHJ -1000 0
 -21 -21 -21 0
 EFIK L Q 0
 stand stand male 1000
-0 0 medium 0
+0 0 medium unknown
 #0
+
 
 
 #OBJECTS
@@ -769,8 +774,8 @@ krothgar armor~
 the armor of Lord Krothgar~
 The armor of Lord Krothgar lies here.~
 steel~
-armor 2|16|64|128|512|2048 1|8
-21 21 21 10 0 
+armor BEGHJL AD
+ACE ACE ACE BD 0
 65 25 8000 P
 A
 1 2
@@ -791,8 +796,8 @@ krothgar sword~
 the sword of Lord Krothgar~
 The sword of Lord Krothgar is here.~
 steel~
-weapon 2|16|64|128|512|2048 1|8192
-sword 6 11 pierce 0 
+weapon BEGHJL AN
+sword 6 11 pierce 0
 65 15 10000 P
 A
 13 50
@@ -805,8 +810,8 @@ krothgar shield~
 the shield of Lord Krothgar~
 The shield of Lord Krothgar is here.~
 steel~
-armor 2|16|64|128|512|2048 1|512
-21 21 21 10 0 
+armor BEGHJL AJ
+ACE ACE ACE BD 0
 65 15 6000 P
 A
 17 -30
@@ -819,8 +824,8 @@ krothgar helm~
 the cursed helm of Lord Krothgar~
 The cursed helm of Lord Krothgar is here.~
 steel~
-armor 2|16|64|128|512|2048|4096 1|16
-21 21 21 10 0
+armor BEGHJLM AE
+ACE ACE ACE BD 0
 65 5 1000 P
 A
 3 -5
@@ -831,9 +836,9 @@ two handed sword~
 a two-handed sword~
 A two-handed sword lies here.~
 steel~
-weapon 2|16|64|512 1|32768
-sword 6 10 crush F 
-56 10 4000 p
+weapon BEGJ AP
+sword 6 10 crush F
+56 10 4000 P
 A
 1 3
 A
@@ -847,8 +852,8 @@ burnt helm~
 a burnt helm~
 A burnt helm painted with a hideous visage lies here.~
 steel~
-armor 2|16|64|512|4096 1|16
-18 18 18 9 0 
+armor BEGJM AE
+BE BE BE AD 0
 56 5 3000 P
 A
 12 20
@@ -863,8 +868,8 @@ iron fist~
 the iron fist~
 The legendary iron fist lies here.~
 iron~
-armor 2|16|64|512|4096 1|128
-16 16 16 8 0 
+armor BEGJM AH
+E E E D 0
 50 10 40000 P
 A
 2 -2
@@ -877,8 +882,8 @@ barbed flail~
 a demon's barbed flail~
 A demon's barbed flail lies here.~
 steel~
-weapon 2|16|64|512 1|8192
-flail 7 9 whip 0 
+weapon BEGJ AN
+flail 7 9 whip 0
 60 10 10000 P
 A
 18 6
@@ -889,8 +894,8 @@ flaming spear~
 a flaming spear~
 A flaming spear burns into the ground here.~
 steel~
-furniture 1|2|16|64|512|65536 1|16384
-0 0 0 0 0 
+furniture ABEGJQ AO
+0 0 0 0 0
 20 5 0 P
 A
 18 4
@@ -899,8 +904,8 @@ staff power~
 a staff of power~
 A staff of power has been left here.~
 wood~
-staff 1|64 1|16384
-54 11 11 'energy drain' 0 
+staff AG AO
+54 11 11 'energy drain' 0
 40 10 2000 P
 A
 3 2
@@ -913,8 +918,8 @@ robes archmage~
 robes of the archmage~
 The robes of the archmage are crumpled up in a corner here.~
 cloth~
-armor 1|64 1|1024
-17 17 18 9 0 
+armor AG AK
+AE AE BE AD 0
 54 5 1000 P
 A
 12 50
@@ -923,24 +928,24 @@ vial dust~
 a vial of magic dust~
 A vial of magic dust is here.~
 glass~
-potion 1|64 1|16384
-54 'heal' 'heal' 'heal' 'heal' 
+potion AG AO
+54 'heal' 'heal' 'heal' 'heal'
 20 3 20000 P
 #14712
 dagger~
 a sacrifical dagger~
 A sacrificial dagger is stuck in the ground here.~
 steel~
-weapon 16|512 1|8192
-dagger 5 11 pierce 0 
+weapon EJ AN
+dagger 5 11 pierce 0
 54 5 1000 P
 #14713
 robes~
 the high priest's robes~
 The high priest's robes lie here.~
 cloth~
-armor 16|512 1|1024
-18 18 17 8 0 
+armor EJ AK
+BE BE AE D 0
 54 5 5000 P
 A
 4 4
@@ -949,8 +954,8 @@ mask~
 the high priest's death mask~
 The high priest's ceremonial mask is here.~
 cloth~
-armor 16|512 1|16
-18 18 17 8 0 
+armor EJ AE
+BE BE AE D 0
 54 3 3000 P
 A
 5 3
@@ -961,8 +966,8 @@ spiked plate mail~
 a suit of spiked plate mail~
 A suit of spiked plate mail has been foolishly discarded here.~
 steel~
-armor 2|16|512 1|8
-16 17 17 8 0 
+armor BEJ AD
+E AE AE D 0
 50 20 2000 P
 A
 17 -15
@@ -971,8 +976,8 @@ morning star~
 a huge morning star~
 A huge morning star is buried in the ground here.~
 wood steel~
-weapon 2|16|64|512 1|32768
-mace 5 10 crush 0 
+weapon BEGJ AP
+mace 5 10 crush 0
 50 15 3000 P
 A
 18 -5
@@ -983,64 +988,64 @@ helm~
 a dark helm~
 A dark helm lies here.~
 steel~
-armor 2|16|512 1|16
-16 17 17 8 0 
+armor BEJ AE
+E AE AE D 0
 50 5 2000 P
 #14718
 dagger~
 a sacrifical dagger~
 A sacrificial dagger is stuck in the ground here.~
 steel~
-weapon 16|512 1|8192
-dagger 4 10 pierce 0 
+weapon EJ AN
+dagger 4 10 pierce 0
 40 5 2000 P
 #14719
 robes~
 the priest's robes~
 The priest's robes lie here.~
 cloth~
-armor 16|512 1|1024
-13 13 13 6 0 
+armor EJ AK
+ACD ACD ACD BC 0
 40 5 1000 P
 #14720
 mask~
 the priest's death mask~
 The priest's ceremonial mask is here.~
 cloth~
-armor 16|512 1|16
-13 13 13 6 0 
+armor EJ AE
+ACD ACD ACD BC 0
 40 3 1000 P
 #14721
 mage robes~
 the mage's robes~
 Some dirty robes covered in chemical stains lie here.~
 cloth~
-armor 0 1|1024
-15 15 14 7 0 
+armor 0 AK
+ABCD ABCD BCD ABC 0
 45 1 1000 P
 #14722
 wand~
 a magic wand~
 A magic wand is here.~
 unknown~
-wand 1|64 1|16384
-45 9 9 'cure critical' 0 
+wand AG AO
+45 9 9 'cure critical' 0
 25 4 4000 P
 #14723
 elixir chemicals~
 an elixir of noxious chemicals~
 An elixir of noxious chemicals bubbles away here.~
 glass~
-potion 2 1|16384
-45 'poison' 'weaken' 'acid blast' '' 
+potion B AO
+45 'poison' 'weaken' 'acid blast' ''
 40 4 0 P
 #14724
 dragon scale~
 a dragon scale~
 A huge dragon scale has been dropped here.~
 dragonskin~
-armor 2|16|512 1|512
-15 15 15 7 0 
+armor BEJ AJ
+ABCD ABCD ABCD ABC 0
 45 10 2000 P
 A
 17 -18
@@ -1051,8 +1056,8 @@ tooth~
 a dragon tooth~
 A dragon's tooth lies here.~
 bone~
-weapon 2|16|512 1|16384
-exotic 5 8 pierce 0 
+weapon BEJ AO
+exotic 5 8 pierce 0
 45 10 2000 P
 A
 18 5
@@ -1063,8 +1068,8 @@ claw~
 dragon claws~
 A pair of dragon claws is here.~
 bone~
-armor 2|16|512 1|128
-16 14 14 8 0 
+armor BEJ AH
+E BCD BCD D 0
 45 10 1000 P
 A
 2 -2
@@ -1077,8 +1082,8 @@ hide~
 a dragon hide~
 A dragon hide is piled up here.~
 bone~
-armor 2|16|512 1|1024
-15 15 15 8 0 
+armor BEJ AK
+ABCD ABCD ABCD D 0
 45 10 1000 P
 A
 13 15
@@ -1093,15 +1098,15 @@ brazier~
 a bronze brazier~
 A bronze brazier is here.~
 bronze~
-staff 64 1|16384
-53 1 1 'summon' 0 
+staff G AO
+53 1 1 'summon' 0
 40 4 3000 P
 #14729
 flask~
 an empty flask~
 This flask has been drained of all magical properties.~
 unknown~
-container 0 1|16384
+container 0 AO
 1 0 0 0 100
 1 500 0 P
 #14730
@@ -1109,7 +1114,7 @@ manacles~
 a pair of manacles~
 A pair of manacles lies here.~
 iron~
-armor 64|4096 1|256
+armor GM AI
 0 0 0 0 0
 10 5 0 P
 A
@@ -1121,8 +1126,8 @@ robes~
 an illithid's robes~
 An illithid's robes lie here, discarded.~
 wool~
-armor 64 1|1024
-16 16 18 8 0 
+armor G AK
+E E BE D 0
 50 1 3000 P
 A
 12 25
@@ -1131,7 +1136,7 @@ gem~
 a gem~
 This gem pulses evilly.~
 unknown~
-light 1|16|512 1|16384
+light AEJ AO
 0 0 -1 0 0
 40 3 2000 P
 A
@@ -1148,15 +1153,15 @@ a chest~
 A heavy chest rests here.~
 steel~
 container 0 0
-10000 1 0 0 0 
+10000 A 0 0 0
 1 0 0 P
 #14734
 treasure~
 a great treasure~
 A great treasure lies here.~
 gold~
-money 1 1
-0 0 0 0 0 
+money A A
+0 0 0 0 0
 0 100 50000 P
 #14735
 bed~
@@ -1164,14 +1169,14 @@ a luxurious bed~
 A luxurious bed sits here.~
 silver~
 furniture 0 0
-0 0 0 0 0 
+0 0 0 0 0
 1 0 0 P
 #14736
 silk~
 some expensive silk~
 Some expensive silk has been left here.~
 silver~
-treasure 0 1|1024
+treasure 0 AK
 0 0 0 0 0
 10 1 15000 P
 #14737
@@ -1179,32 +1184,32 @@ stone~
 a stone~
 A stone is here.~
 stone~
-staff 64 1|16384
-53 1 1 'summon' 0 
+staff G AO
+53 1 1 'summon' 0
 45 5 0 P
 #14738
 bowl~
 a bowl~
 A bowl is here.~
 unknown~
-staff 64 1|16384
-53 1 1 'summon' 0 
+staff G AO
+53 1 1 'summon' 0
 45 5 0 P
 #14739
 censer~
 a censer~
 A censer is here.~
 unknown~
-staff 64 1|16384
-53 1 1 'summon' 0 
+staff G AO
+53 1 1 'summon' 0
 45 5 0 P
 #14740
 spiked collar~
 a spiked collar~
 A spiked collar rests here.~
 leather~
-armor 16|4096 1|4
-14 14 14 6 0 
+armor EM AC
+BCD BCD BCD BC 0
 42 5 1000 P
 A
 19 4
@@ -1213,8 +1218,8 @@ sword~
 a giant sword~
 A giant sword rests here.~
 steel~
-weapon 0 1|8192
-sword 4 11 crush 0 
+weapon 0 AN
+sword 4 11 crush 0
 45 25 2000 P
 A
 19 4
@@ -1223,8 +1228,8 @@ rock~
 a throwing rock~
 A throwing rock lies on the ground here.~
 stone~
-furniture 0 1|16384
-0 0 0 0 0 
+furniture 0 AO
+0 0 0 0 0
 45 15 0 P
 A
 18 -4
@@ -1235,15 +1240,15 @@ club~
 a wooden club~
 A normal wooden club lies here.~
 wood~
-weapon 0 1|8192
-mace 4 11 pound 0 
+weapon 0 AN
+mace 4 11 pound 0
 45 5 2000 P
 #14744
 collar~
 a slave collar~
 A slave collar lies here.~
 leather~
-armor 4096 1|4
+armor M AC
 0 0 0 0 0
 10 1 0 P
 A
@@ -1259,8 +1264,8 @@ glaive~
 a glaive~
 A glaive has been left propped up here.~
 unknown~
-weapon 64 1|8192
-exotic 5 8 slash 0 
+weapon G AN
+exotic 5 8 slash 0
 49 10 0 P
 A
 18 3
@@ -1271,16 +1276,16 @@ potion~
 a magical potion~
 A magical potion rolls around on the floor here.~
 glass~
-potion 64 1|16384
-49 'armor' 'bless' 'shield' '' 
+potion G AO
+49 'armor' 'bless' 'shield' ''
 30 3 3000 P
 #14747
 pole arm~
 a pole arm~
 A pole arm lies here.~
 iron~
-weapon 0 1|8192
-polearm 6 8 crush 0 
+weapon 0 AN
+polearm 6 8 crush 0
 48 10 2000 P
 A
 18 -2
@@ -1291,8 +1296,8 @@ chainmail~
 a suit of black chainmail~
 A tight-fitting suit of black chainmail lies here.~
 leather~
-armor 16|4096 1|8
-16 16 17 8 0 
+armor EM AD
+E E AE D 0
 48 10 1000 P
 A
 2 -2
@@ -1303,8 +1308,8 @@ black sword~
 the black sword~
 The black sword glows here.~
 steel~
-weapon 1|16|64|512 1|8192
-sword 5 11 slash 0 
+weapon AEGJ AN
+sword 5 11 slash 0
 53 5 3000 P
 A
 18 8
@@ -1313,9 +1318,9 @@ blue sword~
 the blue sword~
 The blue sword hums here.~
 unknown~
-weapon 2|16|64|512 1|8192
-sword 5 11 slash 0 
-53 5 0 0
+weapon BEGJ AN
+sword 5 11 slash 0
+53 5 0 P
 A
 19 8
 #14751
@@ -1323,8 +1328,8 @@ black robes~
 black robes~
 Some black robes with no special properties lie here.~
 steel~
-armor 0 1|1024
-15 15 14 7 0 
+armor 0 AK
+ABCD ABCD BCD ABC 0
 47 1 1000 P
 E
 robes~
@@ -1335,9 +1340,9 @@ vial poison~
 a vial of poison~
 A vial of poison is here.~
 glass~
-potion 0 1|16384
-47 'blindness' 'poison' 'poison' '' 
-30 3 2000 O
+potion 0 AO
+47 'blindness' 'poison' 'poison' ''
+30 3 2000 P
 E
 vial poison~
 It looks very deadly.
@@ -1347,8 +1352,8 @@ drow cloak~
 a drow cloak~
 A black Drow cloak is crumpled on the floor here.~
 leather~
-armor 4 1|1024
-16 16 17 8 0 
+armor C AK
+E E AE D 0
 50 1 2000 P
 A
 2 1
@@ -1363,8 +1368,8 @@ drow boots~
 a pair of drow boots~
 A pair of black drow boots is here.~
 leather~
-armor 4 1|64
-17 16 16 8 0 
+armor C AG
+AE E E D 0
 50 1 2000 P
 A
 2 1
@@ -1377,8 +1382,8 @@ drow chain chainmail~
 a suit of drow chainmail~
 A suit of finely crafted adamantite chainmail is here.~
 cloth~
-armor 64 1|8
-17 17 16 8 0 
+armor G AD
+AE AE E D 0
 50 5 2000 P
 A
 5 1
@@ -1392,8 +1397,8 @@ a greater tentacle whip~
 A rod with several writhing tentacles attached is here.
 ~
 leather~
-weapon 64 1|8192
-whip 6 8 whip 0 
+weapon G AN
+whip 6 8 whip 0
 50 10 4000 P
 A
 18 4
@@ -1404,8 +1409,8 @@ tiara~
 a tiara~
 A tiara lies here.~
 unknown~
-armor 64|512 1|16
-17 17 16 7 0 
+armor GJ AE
+AE AE E ABC 0
 50 1 2000 P
 A
 3 2
@@ -1418,10 +1423,11 @@ key~
 a door key~
 This key allows access to the upper levels.~
 iron~
-key 0 1|16384
+key 0 AO
 0 0 0 0 0
 0 0 0 P
 #0
+
 
 
 #ROOMS
@@ -1434,7 +1440,7 @@ peak of the extinct volcano called by humans Mount Doom. Armies of giants
 patrol the lower slopes, while evil mutants, mages and demons guard the
 fortress itself. Steeling yourself, you push on.
 ~
-0 1|4 2
+0 AC 2
 D0
 ~
 ~
@@ -2071,7 +2077,7 @@ D3
 D4
 ~
 ~
-1 0 14750
+0 0 14750
 S
 #14726
 The Upper Slopes of Mount Doom~
@@ -2668,10 +2674,6 @@ D3
 ~
 ~
 0 -1 14748
-D4
-~
-~
-1 -1 -1
 S
 #14750
 Inside the Fell Fortress~
@@ -2681,7 +2683,7 @@ stones on floor and walls, the monotony broken only by the occasional torch
 sconce or tattered tapestry. It is evident that this castle has known many
 inhabitants prior to its current ones.
 ~
-0 8 0
+0 D 0
 D0
 ~
 ~
@@ -2710,7 +2712,7 @@ Lord Korgthar is not fond of taking prisoners (hassles, hassles...). If
 you think security is a little lax, think of what lurks outside to deter
 potentianl escapees...
 ~
-0 1|8 0
+0 AD 0
 D0
 ~
 ~
@@ -2733,7 +2735,7 @@ A Cell~
 A dank, dismal affair with little in the way of bedding or toilet facilities.
 The stench is actually quite horrendous and you find yourself eager to leave.
 ~
-0 1|8 0
+0 AD 0
 D2
 ~
 ~
@@ -2744,7 +2746,7 @@ A Cell~
 A dank, dismal affair with little in the way of bedding or toilet facilities.
 The stench is actually quite horrendous and you find yourself eager to leave.
 ~
-0 1|8 0
+0 AD 0
 D0
 ~
 ~
@@ -2757,7 +2759,7 @@ Lord Korgthar is not fond of taking prisoners (hassles, hassles...). If
 you think security is a little lax, think of what lurks outside to deter
 potentianl escapees...
 ~
-0 1|8 0
+0 AD 0
 D0
 ~
 ~
@@ -2780,7 +2782,7 @@ A Cell~
 A dank, dismal affair with little in the way of bedding or toilet facilities.
 The stench is actually quite horrendous and you find yourself eager to leave.
 ~
-0 1|8 0
+0 AD 0
 D2
 ~
 ~
@@ -2791,7 +2793,7 @@ A Cell~
 A dank, dismal affair with little in the way of bedding or toilet facilities.
 The stench is actually quite horrendous and you find yourself eager to leave.
 ~
-0 1|8 0
+0 AD 0
 D0
 ~
 ~
@@ -2802,7 +2804,7 @@ A Cell~
 A dank, dismal affair with little in the way of bedding or toilet facilities.
 The stench is actually quite horrendous and you find yourself eager to leave.
 ~
-0 1|8 0
+0 AD 0
 D3
 ~
 ~
@@ -2813,7 +2815,7 @@ Some Quarters~
 You are standing before a solid wooden door that leads to the quarters of
 some of the many types of troops that serve Krothgar.
 ~
-0 8 0
+0 D 0
 D0
 ~
 ~
@@ -2829,7 +2831,7 @@ You are standing in a well-furnished anteroom with doors leading in all four
 directions. No noise comes from behind any- they are quite solid and are
 effectively soundproof.
 ~
-0 8 0
+0 D 0
 D0
 ~
 ~
@@ -2855,7 +2857,7 @@ easier to send a single assassin to slay a king and collapse an empire than
 it was to conquer it by brute force. His assassins live in comfort, as he
 values them highly.
 ~
-0 8 0
+0 D 0
 D1
 ~
 ~
@@ -2868,7 +2870,7 @@ efficient assassins, and caught her in flagrante delicto with two naked men
 strapped to racks. She swears and draws her swords, making no attempt to
 cover herself, slaying her slaves before moving to confront you.
 ~
-0 8 0
+0 D 0
 D2
 ~
 ~
@@ -2882,7 +2884,7 @@ easier to send a single assassin to slay a king and collapse an empire than
 it was to conquer it by brute force. His assassins live in comfort, as he
 values them highly.
 ~
-0 8 0
+0 D 0
 D3
 ~
 ~
@@ -2893,7 +2895,7 @@ Some Quarters~
 You are standing before a solid wooden door that leads to the quarters of
 some of the many types of troops that serve Krothgar.
 ~
-0 8 0
+0 D 0
 D1
 ~
 ~
@@ -2908,7 +2910,7 @@ A Corridor~
 You are advancing along a dark corridor that leads to the quarters of Lord
 Krothgar's blackguard.
 ~
-0 1|8 0
+0 AD 0
 D0
 ~
 ~
@@ -2928,7 +2930,7 @@ Here resides the keeper of the Mutant Pit, where the failed experiments of
 the scientist mages are kept to do away with prisoners or insolent guards.
 He likes his job, and isn't about to let you hurt his mutants.
 ~
-0 8 0
+0 D 0
 D0
 ~
 ~
@@ -2944,7 +2946,7 @@ Ack! You're in the mutant pit! Surrounded by gore, excrement, mucous, vomit
 and the remains of dying mutants, you gag and choke and struggle to get out,
 only to find your way blocked by several mutants...
 ~
-0 1|8|8192 0
+0 ADN 0
 D4
 ~
 ~
@@ -2955,7 +2957,7 @@ A Corridor~
 You are advancing along a dark corridor that leads to the quarters of Lord
 Krothgar's blackguard.
 ~
-0 1|8 0
+0 AD 0
 D2
 ~
 ~
@@ -2971,7 +2973,7 @@ Doors lead in all directions from this messy rec room. Blood, beer and food
 stain the straw-covered floor while decomposing human, orc and ogre corpse
 hang from hooks in the ceiling, evidently used as practice dummies.
 ~
-0 8 0
+0 D 0
 D0
 ~
 ~
@@ -2999,7 +3001,7 @@ This rooms is full of messy bunks and snoring guards. Dice and cards are
 scattered across the filthy stone floor, and rats gnaw at the boots of the
 guards.
 ~
-0 1|8 0
+0 AD 0
 D0
 ~
 ~
@@ -3011,7 +3013,7 @@ This rooms is full of messy bunks and snoring guards. Dice and cards are
 scattered across the filthy stone floor, and rats gnaw at the boots of the
 guards.
 ~
-0 1|8 0
+0 AD 0
 D2
 ~
 ~
@@ -3023,7 +3025,7 @@ Down this southern corridor lie the guest rooms, where the many emissaries
 from the powerful races Krothgar is attempting to gain as allies currently
 reside. They frown upon intruders...
 ~
-0 8 0
+0 D 0
 D0
 ~
 ~
@@ -3039,7 +3041,7 @@ Down this southern corridor lie the guest rooms, where the many emissaries
 from the powerful races Krothgar is attempting to gain as allies currently
 reside. They frown upon intruders...
 ~
-0 8 0
+0 D 0
 D0
 ~
 ~
@@ -3063,7 +3065,7 @@ These quarters are well-decorated, with well-preserved tapestries and rugs,
 and carved wooden furniture. Alliances with other powers are crucial to
 Krothgar's plans, and he is doing his best to impress his diabolical guests.
 ~
-0 8 0
+0 D 0
 D1
 ~
 ~
@@ -3075,7 +3077,7 @@ These quarters are well-decorated, with well-preserved tapestries and rugs,
 and carved wooden furniture. Alliances with other powers are crucial to
 Krothgar's plans, and he is doing his best to impress his diabolical guests.
 ~
-0 8 0
+0 D 0
 D3
 ~
 ~
@@ -3087,7 +3089,7 @@ Down this southern corridor lie the guest rooms, where the many emissaries
 from the powerful races Krothgar is attempting to gain as allies currently
 reside. They frown upon intruders...
 ~
-0 8 0
+0 D 0
 D0
 ~
 ~
@@ -3111,7 +3113,7 @@ These quarters are well-decorated, with well-preserved tapestries and rugs,
 and carved wooden furniture. Alliances with other powers are crucial to
 Krothgar's plans, and he is doing his best to impress his diabolical guests.
 ~
-0 8 0
+0 D 0
 D1
 ~
 ~
@@ -3123,7 +3125,7 @@ These quarters are well-decorated, with well-preserved tapestries and rugs,
 and carved wooden furniture. Alliances with other powers are crucial to
 Krothgar's plans, and he is doing his best to impress his diabolical guests.
 ~
-0 8 0
+0 D 0
 D3
 ~
 ~
@@ -3135,7 +3137,7 @@ These quarters are well-decorated, with well-preserved tapestries and rugs,
 and carved wooden furniture. Alliances with other powers are crucial to
 Krothgar's plans, and he is doing his best to impress his diabolical guests.
 ~
-0 8 0
+0 D 0
 D0
 ~
 ~
@@ -3146,7 +3148,7 @@ The Fortress~
 You have entered the restricted area. Staircases run up and down from here,
 and a narrow passage stretches away to the west.
 ~
-0 8 0
+0 D 0
 D1
 ~
 ~
@@ -3169,7 +3171,7 @@ A Narrow Corridor~
 This corridor runs through the center of the Fortress to the mage towers,
 on the western wall of the fortress. A junction lies to the west.
 ~
-0 8 0
+0 D 0
 D1
 ~
 ~
@@ -3185,19 +3187,7 @@ You may head through doors to the north or south from here, or back east
 to the outer fortress. There is a sign on the south door, and a plaque on
 the northern.
 ~
-0 8 0
-D0
-~
-~
-1 0 14783
-D1
-~
-~
-0 -1 14780
-D2
-~
-~
-1 0 14782
+0 D 0
 E
 sign~
 The sign reads-
@@ -3217,13 +3207,25 @@ The plaque reads-
 
        - Axtraxes.
 ~
+D0
+~
+~
+1 0 14783
+D1
+~
+~
+0 -1 14780
+D2
+~
+~
+1 0 14782
 S
 #14782
 The Quarters of the Archmage~
 You have barged into the quarters of Axtraxes, arch mage of Krothgar, and
 ruined his experiment. He's BOUND to be upset.
 ~
-0 8 0
+0 D 0
 D0
 ~
 ~
@@ -3236,7 +3238,7 @@ alembics and a hundred other items scattered about on desks, benches, chairs
 and floors. Everything appears rather damaged, as if someone (or something)
 has recently gone berserk in here...
 ~
-0 8 0
+0 D 0
 D0
 ~
 ~
@@ -3261,7 +3263,7 @@ alembics and a hundred other items scattered about on desks, benches, chairs
 and floors. Everything appears rather damaged, as if someone (or something)
 has recently gone berserk in here...
 ~
-0 8 0
+0 D 0
 D1
 ~
 ~
@@ -3274,7 +3276,7 @@ alembics and a hundred other items scattered about on desks, benches, chairs
 and floors. Everything appears rather damaged, as if someone (or something)
 has recently gone berserk in here...
 ~
-0 8 0
+0 D 0
 D2
 ~
 ~
@@ -3287,7 +3289,7 @@ alembics and a hundred other items scattered about on desks, benches, chairs
 and floors. Everything appears rather damaged, as if someone (or something)
 has recently gone berserk in here...
 ~
-0 8 0
+0 D 0
 D3
 ~
 ~
@@ -3298,7 +3300,7 @@ The Lower Chambers~
 You have entered the lower levels of the Fortress, where hideous creatures
 lurk and evil priests engage in foul ceremonies to their demonic deities.
 ~
-0 1|8 0
+0 AD 0
 D1
 You see an ancient crypt~
 crypt door~
@@ -3319,7 +3321,7 @@ the foul lich king who once ruled this Fortress and much of the surrounding
 land under an iron fist (literally, Krothgar's golem now wears it). You
 better hope he stayed dead...
 ~
-0 1|8|8192 0
+0 ADN 0
 D3
 ~
 crypt door~
@@ -3332,7 +3334,7 @@ virgins are torn asunder in foul rituals upon altars soaked with the blood
 of thousands of innocents while evil priests look on and pray for a visitation
 from their gods.
 ~
-0 1|8 0
+0 AD 0
 D0
 ~
 ~
@@ -3360,7 +3362,7 @@ from their gods.
 The altar is directly before you, and you see the high priest standing
 behind it, about to sacrifice another virgin.
 ~
-0 1|8 0
+0 AD 0
 D1
 ~
 ~
@@ -3373,7 +3375,7 @@ virgins are torn asunder in foul rituals upon altars soaked with the blood
 of thousands of innocents while evil priests look on and pray for a visitation
 from their gods. Down from here lairs Jher, ally of Krogthar.
 ~
-0 1|8 0
+0 AD 0
 D0
 ~
 ~
@@ -3389,7 +3391,7 @@ Here Krothgar keeps his hydra, which guards the treasure of the evil temple.
 It is a wild and ferocious beast, which will tear apart anything that enters
 its lair save Krothgar or the high priest.
 ~
-0 1|8 0
+0 AD 0
 D3
 ~
 ~
@@ -3400,7 +3402,7 @@ A Spiral Staircase~
 You are ascending a spiral staircase that winds up into the heights of the
 multitude of towers that adorn the heights of the Fortress.
 ~
-0 8 0
+0 D 0
 D4
 ~
 ~
@@ -3415,7 +3417,7 @@ A Landing~
 You have come to a landing, upon which are 4 doors leading in the cardinal
 directions. The staircase continues its climb in the center.
 ~
-0 8 0
+0 D 0
 D0
 ~
 ~
@@ -3448,7 +3450,7 @@ variety of perfumes, unguents and other cosmetics. Piles of clothing are
 piled on the floor, as if someone had but recently gone through them in
 search of an outfit.
 ~
-0 8 0
+0 D 0
 D0
 ~
 ~
@@ -3461,7 +3463,7 @@ variety of perfumes, unguents and other cosmetics. Piles of clothing are
 piled on the floor, as if someone had but recently gone through them in
 search of an outfit.
 ~
-0 8 0
+0 D 0
 D1
 ~
 ~
@@ -3474,7 +3476,7 @@ high-backed chairs. Seated in these chairs are skeletons (the normal sort)
 clad in royal regalia- these are the many opponents that Krothgar has
 vanquished. He keeps their mortal remains here as trophies.
 ~
-0 8 0
+0 D 0
 D2
 ~
 ~
@@ -3487,7 +3489,7 @@ variety of perfumes, unguents and other cosmetics. Piles of clothing are
 piled on the floor, as if someone had but recently gone through them in
 search of an outfit.
 ~
-0 8 0
+0 D 0
 D3
 ~
 ~
@@ -3498,7 +3500,7 @@ A Spiral Staircase~
 You are ascending a spiral staircase that winds up into the heights of the
 multitude of towers that adorn the heights of the Fortress.
 ~
-0 8 0
+0 D 0
 D4
 ~
 ~
@@ -3516,7 +3518,7 @@ from this room. In each tower resides a powerful dragon, loyal allies of the
 Lord. Long wall hangings depict the many victories won by Krothgar, and
 in between them stand members of his elite guard, ready to defend their lord.
 ~
-0 8 0
+0 D 0
 D0
 ~
 ~
@@ -3547,7 +3549,7 @@ Dragon Tower~
 In this tower rests a huge dragon, the largest of its kind. It will not
 appreciate being disturbed by a mortal such as yourself...
 ~
-0 8 0
+0 D 0
 D2
 ~
 ~
@@ -3558,7 +3560,7 @@ Dragon Tower~
 In this tower rests a huge dragon, the largest of its kind. It will not
 appreciate being disturbed by a mortal such as yourself...
 ~
-0 8 0
+0 D 0
 D1
 ~
 ~
@@ -3569,7 +3571,7 @@ Dragon Tower~
 In this tower rests a huge dragon, the largest of its kind. It will not
 appreciate being disturbed by a mortal such as yourself...
 ~
-0 8 0
+0 D 0
 D0
 ~
 ~
@@ -3580,7 +3582,7 @@ Dragon Tower~
 In this tower rests a huge dragon, the largest of its kind. It will not
 appreciate being disturbed by a mortal such as yourself...
 ~
-0 8 0
+0 D 0
 D3
 ~
 ~
@@ -3591,7 +3593,7 @@ Dragon Tower~
 In this tower rests a huge dragon, the largest of its kind. It will not
 appreciate being disturbed by a mortal such as yourself...
 ~
-0 8 0
+0 D 0
 D5
 ~
 ~
@@ -3602,7 +3604,7 @@ Stables~
 Here, the blackguard keep their steeds, evil destriers bred on the plains
 of Hel itself.
 ~
-0 1|8 0
+0 AD 0
 D4
 ~
 ~
@@ -3611,349 +3613,330 @@ S
 #0
 
 
-#RESETS
-*
-D 1 14749 4 1
-D 1 14750 5 1
-D 1 14751 0 1
-D 1 14751 2 1
-D 1 14752 2 1
-D 1 14753 0 1
-D 1 14754 0 1
-D 1 14754 1 1
-D 1 14754 2 1
-D 1 14755 2 1
-D 1 14756 0 1
-D 1 14757 3 1
-D 1 14758 0 1
-D 1 14759 0 1
-D 1 14759 1 1
-D 1 14759 2 1
-D 1 14759 3 1
-D 1 14760 1 1
-D 1 14761 2 1
-D 1 14762 3 1
-D 1 14763 3 1
-D 1 14764 1 1
-D 1 14764 2 1
-D 1 14765 0 1
-D 1 14765 5 1
-D 1 14766 4 1
-D 1 14767 3 1
-D 1 14768 0 1
-D 1 14768 1 1
-D 1 14768 2 1
-D 1 14768 3 2
-D 1 14769 0 1
-D 1 14770 2 1
-D 1 14772 1 1
-D 1 14772 3 1
-D 1 14773 1 1
-D 1 14774 3 1
-D 1 14775 1 1
-D 1 14775 2 1
-D 1 14775 3 1
-D 1 14776 1 1
-D 1 14777 3 1
-D 1 14778 0 1
-D 1 14779 1 2
-D 1 14781 0 1
-D 1 14781 2 1
-D 1 14782 0 1
-D 1 14783 2 1
-D 1 14787 1 2
-D 1 14794 0 1
-D 1 14794 1 1
-D 1 14794 2 1
-D 1 14794 3 1
-D 1 14795 0 1
-D 1 14796 1 1
-D 1 14797 2 1
-D 1 14798 3 1
-*
-M 1 14741 8 14701 1 *                   loads wargs
-E 1 14740 1 3        *                wears collar
-M 1 14741 8 14707 1*
-E 1 14740 1 3                        wears collar
-M 1 14741 8 14743  1*
-E 1 14740 1 3                        wears collar
-M 1 14741 8 14749   1*
-E 1 14740 1 3         *               wears collar
-*
-M 1 14742 8 14704    1 *                loads ghouls
-M 1 14742 8 14722          1*
-M 1 14742 8 14728  1*
-M 1 14742 8 14746  1*
-*
-M 1 14732 8 14711   1*                  loads hill giants
-E 1 14743 1 16        *               wields club
-G 1 14742 0			0                           gives rock
-M 1 14732 8 14723  1*
-E 1 14743 1 16       *                wields club
-G 1 14742 0			0                           gives rock
-M 1 14732 8 14727 1*
-E 1 14743 1 16      *                 wields club
-G 1 14742 0			0                           gives rock
-M 1 14732 8 14739   1*
-E 1 14743 1 16        *               wields club
-G 1 14742 0			0                           gives rock
-*
-M 1 14729 4 14718    1 *                loads hell hounds
-E 1 14740 1 3           *             wears collar
-M 1 14729 4 14724    1*
-E 1 14740 1 3          *              wears collar
-M 1 14729 4 14726    1*
-E 1 14740 1 3          *              wears collar
-M 1 14729 4 14732  1*
-E 1 14740 1 3        *                wears collar
-*
-M 1 14730 2 14731  1  *                 loads fire giants
-E 1 14741 1 16         *              wields sword
-G 1 14742 0			0                           gives rock
-M 1 14730 2 14733  1*
-E 1 14741 1 16       *                wields sword
-G 1 14742 0			0                           gives rock
-*
-M 1 14720 8 14752   1 *                 loads male slaves
-E 1 14730 1 10         *              wears manacles
-E 1 14744 1 3           *             wears collar
-M 1 14720 8 14755    1   *              loads male slaves
-E 1 14730 1 10            *           wears manacles
-E 1 14744 1 3              *          wears collar
-*
-M 1 14721 8 14753     1     *           loads female slaves
-E 1 14730 1 10               *        wears manacles
-E 1 14744 1 3                 *       wears collar
-M 1 14721 8 14756      1       *        loads female slaves
-E 1 14730 1 10                  *     wears manacles
-E 1 14744 1 3                    *    wears collar
-*
-M 1 14718 1 14757       1 *             loads shedu
-E 1 14730 1 10             *          wears manacles
-E 1 14744 1 3               *         wears collar
-*
-M 1 14739 4 14760        1 *            loads assassins
-E 1 14751 1 12              *         wears robes
-E 1 14752 1 17               *        holds poison
-M 1 14739 4 14762         1   *         loads assassins
-E 1 14751 1 12                 *      wears robes
-E 1 14752 1 17                  *     holds poison
-*
-M 1 14738 1 14761          1*           loads chief
-E 1 14749 1 16               *        wields swords
-E 1 14750 1 18 *
-*
-M 1 14746 1 14765           1*          loads keeper
-*
-M 1 14722 6 14766            1*         loads mutants
-*
-M 1 14710 8 14768             1*        loads blackguard
-E 1 14715 1 5                   *     wears armor
-E 1 14716 1 16                   *    wields morning star
-E 1 14717 1 6                     *   wears helm
-G 1 14758 0			0                           gives key
-M 1 14710 8 14769       1 *             loads blackguard
-E 1 14715 1 5              *          wears armor
-E 1 14716 1 16            *           wields morning star
-E 1 14717 1 6              *          wears helm
-G 1 14758 0			0                           gives key
-M 1 14710 8 14770      1    *           loads blackguard
-E 1 14715 1 5               *         wears armor
-E 1 14716 1 16              *         wields morning star
-E 1 14717 1 6                *        wears helm
-G 1 14758 0			0                           gives key
-*
-M 1 14736 2 14771      1     *          loads trolls
-E 1 14747 1 16                *       wields pole arm
-E 1 14748 1 5                  *      wears chainmail
-*
-M 1 14731 3 14773       1   *           loads frost giants
-E 1 14741 1 16               *        wields sword
-G 1 14742 0			0                           gives rock
-*
-M 1 14733 1 14774     1 *               loads cloud giant
-E 1 14741 1 16           *            wields sword
-G 1 14742 0			0                           gives rock
-*
-M 1 14737 1 14775      1  *             loads ettin
-E 1 14741 1 16             *          wields sword
-G 1 14742 0			0                           gives rock
-*
-M 1 14735 2 14776       1   *           loads ogre magi
-E 1 14745 1 16               *        wields glaive
-G 1 14746 0			0                           gives potion
-*
-M 1 14740 1 14777        1    *         loads drow
-E 1 14753 1 12                 *      wears cloak
-E 1 14754 1 8             *           wears boots
-E 1 14755 1 5              *          wears chainmail
-E 1 14756 1 16              *         wields whip
-E 1 14757 1 6                *        wears tiara
-*
-M 1 14747 1 14778         1   *         loads naga
-*
-M 1 14704 1 14782          1 *          loads arch mage
-E 1 14709 1 17               *        holds staff
-E 1 14710 1 12                *       wears robes
-G 1 14711 0			0                           gives dust
-*
-M 1 14716 1 14783           1  *        loads fire elemental
-G 1 14728 0			0                           gives brazier
-M 1 14726 1 14784            1  *       loads earth elemental
-G 1 14737 0			0                           gives stone
-M 1 14727 1 14785         1    *        loads water elemental
-G 1 14738 0			0                           gives bowl
-M 1 14728 1 14786          1    *       loads air elemental
-G 1 14739 0			0                           gives censer
-*
-M 1 14709 3 14784           1    *      loads mage
-E 1 14721 1 12                    *   wears robes
-E 1 14722 1 17                     *  holds wand
-G 1 14723 0			0                           gives chemicals
-M 1 14709 3 14785            1  *       loads mage
-E 1 14721 1 12                  *     wears robes
-E 1 14722 1 17                   *    holds wand
-G 1 14723 0			0                           gives chemicals
-M 1 14709 3 14786     1  *              loads mage
-E 1 14721 1 12            *           wears robes
-E 1 14722 1 17             *          holds wand
-G 1 14723 0			0                           gives chemicals
-*
-M 1 14744 1 14788      1    *           loads lich
-*
-M 1 14705 1 14790     1  *              loads high priest
-E 1 14712 1 16            *           wields dagger
-E 1 14713 1 12             *          wears robes
-E 1 14714 1 6               *         wears mask
-*
-M 1 14708 4 14789      1     *          loads high priest
-E 1 14718 1 16                *       wields dagger
-E 1 14719 1 12                 *      wears robes
-E 1 14720 1 6                   *     wears mask
-M 1 14708 4 14790       1        *      loads high priest
-E 1 14718 1 16           *            wields dagger
-E 1 14719 1 12          *             wears robes
-E 1 14720 1 6             *           wears mask
-M 1 14708 4 14791      1   *            loads high priest
-E 1 14718 1 16              *         wields dagger
-E 1 14719 1 12               *        wears robes
-E 1 14720 1 6                 *       wears mask
-*
-M 1 14723 1 14792       1  *            loads hydra
-O 1 14733 1 14792           *          loads chest
-P 1 14734 1 14733     1*
-*
-M 1 14745 1 14793      1*               loads stone golem
-*
-M 1 14702 1 14794       1*              loads iron golem
-E 1 14706 1 16                       wields iron fist
-*
-M 1 14719 1 14795        1*             loads illithid
-E 1 14731 1 12            *           wears robes
-E 1 14732 1 17             *          holds gem
-*
-M 1 14725 1 14796         1 *           loads succubus
-E 1 14736 1 12               *        wears silk
-O 1 14735 1 14796             *        loads bed
-**
-M 1 14703 1 14797          1*           loads demon prince
-E 1 14707 1 16               *        wields flail
-G 1 14708 0			0                           gives spear
-*
-M 1 14743 1 14798           1 *         loads vampire
-E 1 14736 1 12                 *      wears silk
-**
-M 1 14701 2 14799            1 *        loads death knights
-E 1 14704 1 16                  *     wields sword
-E 1 14705 1 6                    *    wears helm
-*
-M 1 14700 1 14800             1   *    loads lord
-E 1 14700 1 5                      *  wears armor
-E 1 14701 1 16                      * wields sword
-E 1 14702 1 11                       *holds shield
-E 1 14703 1 6                *        wears helm
-**
-M 1 14706 4 14800             1*       loads guards
-E 1 14715 1 5  *
-E 1 14716 1 16      *
-E 1 14717 1 6         *
-*
-M 1 14712 1 14801   1  *               loads black dragon
-E 1 14724 1 11          *             holds scale
-E 1 14725 1 16           *            wields tooth
-E 1 14726 1 9             *           wears claws
-E 1 14727 1 12             *          wears hide
-*
-M 1 14713 1 14802    1      *          loads white dragon
-E 1 14724 1 11               *        holds scale
-E 1 14725 1 16                *       wields tooth
-E 1 14726 1 9                  *      wears claws
-E 1 14727 1 12                  *     wears hide
-*
-M 1 14714 1 14803     1   *            loads blue dragon
-E 1 14724 1 11             *          holds scale
-E 1 14725 1 16              *         wields tooth
-E 1 14726 1 9                *        wears claws
-E 1 14727 1 12                *       wears hide
-*
-M 1 14715 1 14804      1  *            loads green dragon
-E 1 14724 1 11           *            holds scale
-E 1 14725 1 16            *           wields tooth
-E 1 14726 1 9              *          wears claws
-E 1 14727 1 12              *         wears hide
-*
-M 1 14711 1 14805       1  *           loads red dragon
-E 1 14724 1 11             **          holds scale
-E 1 14725 1 16              *         wields tooth
-E 1 14726 1 9                *        wears claws
-E 1 14727 1 12                *       wears hide
-*
-M 1 14707 4 14806        1  *          loads destriers
-*
-S
-
 
 #SPECIALS
-M  14701 spec_cast_judge                         krothgar
-M  14702 spec_executioner                        golem
-M  14703 spec_cast_undead                        demon prince
-M  14704 spec_cast_mage                          arch mage
-M  14705 spec_cast_cleric                        high priest
-M  14706 spec_guard                              guard
-M  14707 spec_fido                               destrier
-M  14708 spec_cast_mage                          mage
-M  14709 spec_cast_cleric                        priest
-M  14710 spec_guard                              guard
-M  14711 spec_breath_fire                        red dragon
-M  14712 spec_breath_acid                        black dragon
-M  14713 spec_breath_frost                       white dragon
-M  14714 spec_breath_lightning                   blue dragon
-M  14715 spec_breath_gas                         green dragon
-M  14716 spec_breath_fire                        fire elemental
-M  14717 spec_cast_mage                          efreeti
-M  14718 spec_cast_cleric                        shedu
-M  14722 spec_fido                               mutant
-M  14723 spec_breath_any                         hydra
-M  14724 spec_thief                              quasit
-M  14725 spec_cast_undead                        succubus
-M  14728 spec_breath_gas                         air elemental
-M  14729 spec_breath_fire                        hell hound
-M  14733 spec_cast_cleric                        cloud giant
-M  14734 spec_janitor                            ogre servant
-M  14735 spec_cast_mage                          ogre mage
-M  14736 spec_fido                               troll
-M  14737 spec_guard                              ettin
-M  14738 spec_cast_mage                          chief assassin
-M  14739 spec_thief                              assassins
-M  14740 spec_cast_cleric                        drow
-M  14741 spec_fido                               warg
-M  14742 spec_fido                               ghoul
-M  14743 spec_cast_undead                        vampire
-M  14744 spec_cast_mage                          lich
-M  14745 spec_executioner                        stone golem
-M  14746 spec_poison                             keeper
-M  14747 spec_poison                             naga
+M 14701 spec_cast_judge	* a death knight
+M 14702 spec_executioner	* an iron golem
+M 14703 spec_cast_undead	* the demon prince Marmandes
+M 14704 spec_cast_mage	* axtraxes
+M 14705 spec_cast_cleric	* an evil high priest
+M 14706 spec_guard	* an elite guard
+M 14707 spec_fido	* a destrier
+M 14708 spec_cast_mage	* an evil priest
+M 14709 spec_cast_cleric	* an evil scientist mage
+M 14710 spec_guard	* a member of the blackguard
+M 14711 spec_breath_fire	* a red dragon
+M 14712 spec_breath_acid	* a black dragon
+M 14713 spec_breath_frost	* a white dragon
+M 14714 spec_breath_lightning	* a blue dragon
+M 14715 spec_breath_gas	* a green dragon
+M 14716 spec_breath_fire	* a fire elemental
+M 14717 spec_cast_mage	* an efreeti
+M 14718 spec_cast_cleric	* a shedu
+M 14722 spec_fido	* a mutant
+M 14723 spec_breath_any	* a twelve-headed hydra
+M 14724 spec_thief	* a quasit
+M 14725 spec_cast_undead	* a succubus
+M 14728 spec_breath_gas	* an air elemental
+M 14729 spec_breath_fire	* a hellhound
+M 14733 spec_cast_cleric	* a cloud giant
+M 14734 spec_janitor	* an ogre servant
+M 14735 spec_cast_mage	* an ogre mage
+M 14736 spec_fido	* a troll
+M 14737 spec_guard	* an ettin
+M 14738 spec_cast_mage	* the chief assassin
+M 14739 spec_thief	* an assassin
+M 14740 spec_cast_cleric	* a drow ambassador
+M 14741 spec_fido	* a warg
+M 14742 spec_fido	* a bloodthirsty ghoul
+M 14743 spec_cast_undead	* a vampire
+M 14744 spec_cast_mage	* an ancient lich
+M 14745 spec_executioner	* a stone golem
+M 14746 spec_poison	* The keeper of the mutant pit
+M 14747 spec_poison	* a naga princess
 S
+
+
+
+#RESETS
+D 0 14750 5 1	* Inside the Fell Fortress: door to the down: closed
+D 0 14751 0 1	* The Cell Block: door to the north: closed
+D 0 14751 2 1	* The Cell Block: door to the south: closed
+D 0 14752 2 1	* A Cell: door to the south: closed
+D 0 14753 0 1	* A Cell: door to the north: closed
+D 0 14754 0 1	* The Cell Block: door to the north: closed
+D 0 14754 1 1	* The Cell Block: door to the east: closed
+D 0 14754 2 1	* The Cell Block: door to the south: closed
+D 0 14755 2 1	* A Cell: door to the south: closed
+D 0 14756 0 1	* A Cell: door to the north: closed
+D 0 14757 3 1	* A Cell: door to the west: closed
+D 0 14758 0 1	* Some Quarters: door to the north: closed
+D 0 14759 0 1	* An Ante-Room: door to the north: closed
+D 0 14759 1 1	* An Ante-Room: door to the east: closed
+D 0 14759 2 1	* An Ante-Room: door to the south: closed
+D 0 14759 3 1	* An Ante-Room: door to the west: closed
+D 0 14760 1 1	* Assassins' Quarters: door to the east: closed
+D 0 14761 2 1	* The Chief Assassin's Quarters: door to the south: closed
+D 0 14762 3 1	* Assassins' Quarters: door to the west: closed
+D 0 14763 3 1	* Some Quarters: door to the west: closed
+D 0 14764 1 1	* A Corridor: door to the east: closed
+D 0 14764 2 1	* A Corridor: door to the south: closed
+D 0 14765 0 1	* The Keeper's Chamber: door to the north: closed
+D 0 14765 5 1	* The Keeper's Chamber: door to the down: closed
+D 0 14766 4 1	* The Mutant Pit: door to the up: closed
+D 0 14767 3 1	* A Corridor: door to the west: closed
+D 0 14768 0 1	* The Guard Common Room: door to the north: closed
+D 0 14768 1 1	* The Guard Common Room: door to the east: closed
+D 0 14768 2 1	* The Guard Common Room: door to the south: closed
+D 0 14768 3 2	* The Guard Common Room: door to the west: closed and locked
+D 0 14769 0 1	* Guard Quarters: door to the north: closed
+D 0 14770 2 1	* Guard Quarters: door to the south: closed
+D 0 14772 1 1	* Guest Quarters: door to the east: closed
+D 0 14772 3 1	* Guest Quarters: door to the west: closed
+D 0 14773 1 1	* Guest Quarters: door to the east: closed
+D 0 14774 3 1	* Guest Quarters: door to the west: closed
+D 0 14775 1 1	* Guest Quarters: door to the east: closed
+D 0 14775 2 1	* Guest Quarters: door to the south: closed
+D 0 14775 3 1	* Guest Quarters: door to the west: closed
+D 0 14776 1 1	* Guest Quarters: door to the east: closed
+D 0 14777 3 1	* Guest Quarters: door to the west: closed
+D 0 14778 0 1	* Guest Quarters: door to the north: closed
+D 0 14779 1 2	* The Fortress: door to the east: closed and locked
+D 0 14781 0 1	* A Junction: door to the north: closed
+D 0 14781 2 1	* A Junction: door to the south: closed
+D 0 14782 0 1	* The Quarters of the Archmage: door to the north: closed
+D 0 14783 2 1	* The Elemental Laboratories: door to the south: closed
+D 0 14787 1 2	* The Lower Chambers: door to the east: closed and locked
+D 0 14794 0 1	* A Landing: door to the north: closed
+D 0 14794 1 1	* A Landing: door to the east: closed
+D 0 14794 2 1	* A Landing: door to the south: closed
+D 0 14794 3 1	* A Landing: door to the west: closed
+D 0 14795 0 1	* A Bedchamber: door to the north: closed
+D 0 14796 1 1	* A Bedchamber: door to the east: closed
+D 0 14797 2 1	* A Hall: door to the south: closed
+D 0 14798 3 1	* A Bedchamber: door to the west: closed
+M 0 14741 8 14701 1	* a warg (The Plains of Mount Doom)
+E 0 14740 0 3		*	a spiked collar: around the neck (1)
+M 0 14742 8 14704 1	* a bloodthirsty ghoul (The Plains of Mount Doom)
+M 0 14741 8 14707 1	* a warg (The Plains of Mount Doom)
+E 0 14740 0 3		*	a spiked collar: around the neck (1)
+M 0 14732 8 14711 1	* a hill giant (The Foothills of Mount Doom)
+E 0 14743 0 16		*	a wooden club: wielded
+G 0 14742 0		*	a throwing rock
+M 0 14729 4 14718 1	* a hellhound (The Upper Slopes of Mount Doom)
+E 0 14740 0 3		*	a spiked collar: around the neck (1)
+M 0 14742 8 14722 1	* a bloodthirsty ghoul (The Plains of Mount Doom)
+M 0 14732 8 14723 1	* a hill giant (The Foothills of Mount Doom)
+E 0 14743 0 16		*	a wooden club: wielded
+G 0 14742 0		*	a throwing rock
+M 0 14729 4 14724 1	* a hellhound (The Upper Slopes of Mount Doom)
+E 0 14740 0 3		*	a spiked collar: around the neck (1)
+M 0 14729 4 14726 1	* a hellhound (The Upper Slopes of Mount Doom)
+E 0 14740 0 3		*	a spiked collar: around the neck (1)
+M 0 14732 8 14727 1	* a hill giant (The Foothills of Mount Doom)
+E 0 14743 0 16		*	a wooden club: wielded
+G 0 14742 0		*	a throwing rock
+M 0 14742 8 14728 1	* a bloodthirsty ghoul (The Plains of Mount Doom)
+M 0 14730 2 14731 1	* a fire giant (The Upper Slopes of Mount Doom)
+E 0 14741 0 16		*	a giant sword: wielded
+G 0 14742 0		*	a throwing rock
+M 0 14729 4 14732 1	* a hellhound (The Upper Slopes of Mount Doom)
+E 0 14740 0 3		*	a spiked collar: around the neck (1)
+M 0 14730 2 14733 1	* a fire giant (The Upper Slopes of Mount Doom)
+E 0 14741 0 16		*	a giant sword: wielded
+G 0 14742 0		*	a throwing rock
+M 0 14732 8 14739 1	* a hill giant (The Foothills of Mount Doom)
+E 0 14743 0 16		*	a wooden club: wielded
+G 0 14742 0		*	a throwing rock
+M 0 14741 8 14743 1	* a warg (The Plains of Mount Doom)
+E 0 14740 0 3		*	a spiked collar: around the neck (1)
+M 0 14742 8 14746 1	* a bloodthirsty ghoul (The Plains of Mount Doom)
+M 0 14741 8 14749 1	* a warg (The Plains of Mount Doom)
+E 0 14740 0 3		*	a spiked collar: around the neck (1)
+M 0 14720 8 14752 1	* a wretched slave (A Cell)
+E 0 14730 0 10		*	a pair of manacles: on the arms
+E 0 14744 0 3		*	a slave collar: around the neck (1)
+M 0 14721 8 14753 1	* a wretched slave (A Cell)
+E 0 14730 0 10		*	a pair of manacles: on the arms
+E 0 14744 0 3		*	a slave collar: around the neck (1)
+M 0 14720 8 14755 1	* a wretched slave (A Cell)
+E 0 14730 0 10		*	a pair of manacles: on the arms
+E 0 14744 0 3		*	a slave collar: around the neck (1)
+M 0 14721 8 14756 1	* a wretched slave (A Cell)
+E 0 14730 0 10		*	a pair of manacles: on the arms
+E 0 14744 0 3		*	a slave collar: around the neck (1)
+M 0 14718 1 14757 1	* a shedu (A Cell)
+E 0 14730 0 10		*	a pair of manacles: on the arms
+E 0 14744 0 3		*	a slave collar: around the neck (1)
+M 0 14739 4 14760 1	* an assassin (Assassins' Quarters)
+E 0 14751 0 12		*	black robes: about the shoulders
+E 0 14752 0 17		*	a vial of poison: held in the hands
+M 0 14738 1 14761 1	* the chief assassin (The Chief Assassin's Quarters)
+E 0 14749 0 16		*	the black sword: wielded
+E 0 14750 0 18		*	the blue sword: floating nearby
+M 0 14739 4 14762 1	* an assassin (Assassins' Quarters)
+E 0 14751 0 12		*	black robes: about the shoulders
+E 0 14752 0 17		*	a vial of poison: held in the hands
+M 0 14746 1 14765 1	* The keeper of the mutant pit (The Keeper's Chamber)
+M 0 14722 6 14766 1	* a mutant (The Mutant Pit)
+M 0 14710 8 14768 1	* a member of the blackguard (The Guard Common Room)
+E 0 14715 0 5		*	a suit of spiked plate mail: on the body
+E 0 14716 0 16		*	a huge morning star: wielded
+E 0 14717 0 6		*	a dark helm: over the head
+G 0 14758 0		*	a door key
+M 0 14710 8 14769 1	* a member of the blackguard (Guard Quarters)
+E 0 14715 0 5		*	a suit of spiked plate mail: on the body
+E 0 14716 0 16		*	a huge morning star: wielded
+E 0 14717 0 6		*	a dark helm: over the head
+G 0 14758 0		*	a door key
+M 0 14710 8 14770 1	* a member of the blackguard (Guard Quarters)
+E 0 14715 0 5		*	a suit of spiked plate mail: on the body
+E 0 14716 0 16		*	a huge morning star: wielded
+E 0 14717 0 6		*	a dark helm: over the head
+G 0 14758 0		*	a door key
+M 0 14736 2 14771 1	* a troll (Guest Quarters)
+E 0 14747 0 16		*	a pole arm: wielded
+E 0 14748 0 5		*	a suit of black chainmail: on the body
+M 0 14731 3 14773 1	* a frost giant (Guest Quarters)
+E 0 14741 0 16		*	a giant sword: wielded
+G 0 14742 0		*	a throwing rock
+M 0 14733 1 14774 1	* a cloud giant (Guest Quarters)
+E 0 14741 0 16		*	a giant sword: wielded
+G 0 14742 0		*	a throwing rock
+M 0 14737 1 14775 1	* an ettin (Guest Quarters)
+E 0 14741 0 16		*	a giant sword: wielded
+G 0 14742 0		*	a throwing rock
+M 0 14735 2 14776 1	* an ogre mage (Guest Quarters)
+E 0 14745 0 16		*	a glaive: wielded
+G 0 14746 0		*	a magical potion
+M 0 14740 1 14777 1	* a drow ambassador (Guest Quarters)
+E 0 14753 0 12		*	a drow cloak: about the shoulders
+E 0 14754 0 8		*	a pair of drow boots: on the feet
+E 0 14755 0 5		*	a suit of drow chainmail: on the body
+E 0 14756 0 16		*	a greater tentacle whip: wielded
+E 0 14757 0 6		*	a tiara: over the head
+M 0 14747 1 14778 1	* a naga princess (Guest Quarters)
+M 0 14704 1 14782 1	* axtraxes (The Quarters of the Archmage)
+E 0 14709 0 17		*	a staff of power: held in the hands
+E 0 14710 0 12		*	robes of the archmage: about the shoulders
+G 0 14711 0		*	a vial of magic dust
+M 0 14716 1 14783 1	* a fire elemental (The Elemental Laboratories)
+G 0 14728 0		*	a bronze brazier
+M 0 14726 1 14784 1	* an earth elemental (Western End of the Lab)
+G 0 14737 0		*	a stone
+M 0 14709 3 14784 1	* an evil scientist mage (Western End of the Lab)
+E 0 14721 0 12		*	the mage's robes: about the shoulders
+E 0 14722 0 17		*	a magic wand: held in the hands
+G 0 14723 0		*	an elixir of noxious chemicals
+M 0 14727 1 14785 1	* a water elemental (Northern End of the Lab)
+G 0 14738 0		*	a bowl
+M 0 14709 3 14785 1	* an evil scientist mage (Northern End of the Lab)
+E 0 14721 0 12		*	the mage's robes: about the shoulders
+E 0 14722 0 17		*	a magic wand: held in the hands
+G 0 14723 0		*	an elixir of noxious chemicals
+M 0 14728 1 14786 1	* an air elemental (Eastern End of the Lab)
+G 0 14739 0		*	a censer
+M 0 14709 3 14786 1	* an evil scientist mage (Eastern End of the Lab)
+E 0 14721 0 12		*	the mage's robes: about the shoulders
+E 0 14722 0 17		*	a magic wand: held in the hands
+G 0 14723 0		*	an elixir of noxious chemicals
+M 0 14744 1 14788 1	* an ancient lich (An Ancient Crypt)
+M 0 14708 4 14789 1	* an evil priest (The Unholy Temple)
+E 0 14718 0 16		*	a sacrifical dagger: wielded
+E 0 14719 0 12		*	the priest's robes: about the shoulders
+E 0 14720 0 6		*	the priest's death mask: over the head
+M 0 14705 1 14790 1	* an evil high priest (The Unholy Temple)
+E 0 14712 0 16		*	a sacrifical dagger: wielded
+E 0 14713 0 12		*	the high priest's robes: about the shoulders
+E 0 14714 0 6		*	the high priest's death mask: over the head
+M 0 14708 4 14790 1	* an evil priest (The Unholy Temple)
+E 0 14718 0 16		*	a sacrifical dagger: wielded
+E 0 14719 0 12		*	the priest's robes: about the shoulders
+E 0 14720 0 6		*	the priest's death mask: over the head
+M 0 14708 4 14791 1	* an evil priest (The Unholy Temple)
+E 0 14718 0 16		*	a sacrifical dagger: wielded
+E 0 14719 0 12		*	the priest's robes: about the shoulders
+E 0 14720 0 6		*	the priest's death mask: over the head
+M 0 14723 1 14792 1	* a twelve-headed hydra (The Hydra Lair)
+O 0 14733 0 14792		* a chest (The Hydra Lair)
+P 0 14734 1 14733 1	* a chest: a great treasure
+M 0 14745 1 14793 1	* a stone golem (A Spiral Staircase)
+M 0 14702 1 14794 1	* an iron golem (A Landing)
+E 0 14706 0 16		*	the iron fist: wielded
+M 0 14719 1 14795 1	* an evil illithid (A Bedchamber)
+E 0 14731 0 12		*	an illithid's robes: about the shoulders
+E 0 14732 0 17		*	a gem: held in the hands
+M 0 14725 1 14796 1	* a succubus (A Bedchamber)
+E 0 14736 0 12		*	some expensive silk: about the shoulders
+O 0 14735 0 14796		* a luxurious bed (A Bedchamber)
+M 0 14703 1 14797 1	* the demon prince Marmandes (A Hall)
+E 0 14707 0 16		*	a demon's barbed flail: wielded
+G 0 14708 0		*	a flaming spear
+M 0 14743 1 14798 1	* a vampire (A Bedchamber)
+E 0 14736 0 12		*	some expensive silk: about the shoulders
+M 0 14701 2 14799 1	* a death knight (A Spiral Staircase)
+E 0 14704 0 16		*	a two-handed sword: wielded
+E 0 14705 0 6		*	a burnt helm: over the head
+M 0 14700 1 14800 1	* the Lord Krothgar (The Throne Room)
+E 0 14700 0 5		*	the armor of Lord Krothgar: on the body
+E 0 14701 0 16		*	the sword of Lord Krothgar: wielded
+E 0 14702 0 11		*	the shield of Lord Krothgar: as a shield
+E 0 14703 0 6		*	the cursed helm of Lord Krothgar: over the head
+M 0 14706 4 14800 1	* an elite guard (The Throne Room)
+E 0 14715 0 5		*	a suit of spiked plate mail: on the body
+E 0 14716 0 16		*	a huge morning star: wielded
+E 0 14717 0 6		*	a dark helm: over the head
+M 0 14712 1 14801 1	* a black dragon (Dragon Tower)
+E 0 14724 0 11		*	a dragon scale: as a shield
+E 0 14725 0 16		*	a dragon tooth: wielded
+E 0 14726 0 9		*	dragon claws: on the hands
+E 0 14727 0 12		*	a dragon hide: about the shoulders
+M 0 14713 1 14802 1	* a white dragon (Dragon Tower)
+E 0 14724 0 11		*	a dragon scale: as a shield
+E 0 14725 0 16		*	a dragon tooth: wielded
+E 0 14726 0 9		*	dragon claws: on the hands
+E 0 14727 0 12		*	a dragon hide: about the shoulders
+M 0 14714 1 14803 1	* a blue dragon (Dragon Tower)
+E 0 14724 0 11		*	a dragon scale: as a shield
+E 0 14725 0 16		*	a dragon tooth: wielded
+E 0 14726 0 9		*	dragon claws: on the hands
+E 0 14727 0 12		*	a dragon hide: about the shoulders
+M 0 14715 1 14804 1	* a green dragon (Dragon Tower)
+E 0 14724 0 11		*	a dragon scale: as a shield
+E 0 14725 0 16		*	a dragon tooth: wielded
+E 0 14726 0 9		*	dragon claws: on the hands
+E 0 14727 0 12		*	a dragon hide: about the shoulders
+M 0 14711 1 14805 1	* a red dragon (Dragon Tower)
+E 0 14724 0 11		*	a dragon scale: as a shield
+E 0 14725 0 16		*	a dragon tooth: wielded
+E 0 14726 0 9		*	dragon claws: on the hands
+E 0 14727 0 12		*	a dragon hide: about the shoulders
+M 0 14707 4 14806 1	* a destrier (Stables)
+S
+
+
+
+#SHOPS
+0
+
+
+
+#OLIMITS
+S
+
+
+
+#MOBPROGS
+#0
+
+#PRACTICERS
+S
+
+
+
+#OMPROGS
+S
+
 
 
 #$

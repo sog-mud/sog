@@ -1,8 +1,14 @@
-#AREA
-daycare.are~
-Day Care~
-{ 1  5} Sandman Dwarven Day Care~
-6600 6699
+#AREADATA
+Name Day Care~
+Builders None~
+VNUMs 6600 6699
+Credits Sandman~
+Security 9
+LevelRange 1 5
+End
+
+
+
 #MOBILES
 #6600
 youth dwarven dwarf~
@@ -17,7 +23,7 @@ ACGT 0 -5 0
 7 6 7 10
 DJR 0 0 0
 sit stand either 10
-0 0 small 0
+0 0 small unknown
 #6601
 teddy bear~
 a teddy bear~
@@ -31,7 +37,7 @@ ACG 0 500 0
 8 5 9 10
 NR 0 0 0
 stand stand male 0
-0 0 small cloth
+0 0 small unknown
 #6602
 doll raggedy anne~
 a raggedy anne doll~
@@ -45,7 +51,7 @@ ACG 0 300 0
 7 4 8 10
 FHR 0 0 0
 sit stand female 0
-0 0 small cloth
+0 0 small unknown
 #6603
 soldier toy~
 a toy soldier~
@@ -59,7 +65,7 @@ ACGT 0 -300 0
 6 7 6 9
 IR 0 G E
 stand stand male 0
-0 0 small tin
+0 0 small unknown
 #6604
 bear ugly~
 the ugly bear~
@@ -74,7 +80,7 @@ ACF 0 -400 0
 6 3 7 10
 DJNR 0 0 0
 stand stand male 5
-0 0 small cloth
+0 0 small unknown
 #6605
 doll old~
 an old doll~
@@ -88,7 +94,7 @@ ACG 0 -2 0
 8 5 9 10
 R 0 0 0
 stand stand none 0
-0 0 small cloth
+0 0 small unknown
 #6606
 nanny~
 the nanny~
@@ -103,7 +109,7 @@ AG 0 10 0
 5 5 5 10
 CDR 0 0 0
 stand stand female 50
-0 0 medium 0
+0 0 medium unknown
 #6607
 guard~
 the armed guard~
@@ -118,7 +124,7 @@ ABCT D -800 0
 3 2 3 8
 CDJR 0 0 0
 stand stand male 120
-0 0 medium 0
+0 0 medium unknown
 #6608
 brat spoiled~
 the spoiled brat~
@@ -133,8 +139,11 @@ ABC 0 -400 0
 8 8 8 10
 IJN 0 0 0
 stand stand male 50
-0 0 small 0
+0 0 small unknown
 #0
+
+
+
 #OBJECTS
 #6600
 axe toy~
@@ -171,7 +180,7 @@ a linen robe~
 A linen robe is crumpled into a ball here.~
 cloth~
 armor G AK
-1 2 1 1 1
+A B A A A
 7 50 780 G
 A
 12 5
@@ -203,7 +212,7 @@ a juicy steak~
 A juicy steak sits on a plate here.~
 meat~
 food 0 A
-25 25 0 0 0
+ADE ADE 0 0 0
 0 20 0 P
 #6645
 steak rotten~
@@ -211,7 +220,7 @@ a rotten steak~
 A dry steak lies on the floor.~
 meat~
 food 0 A
-4 4 0 1 0
+C C 0 A 0
 0 20 0 W
 #6646
 potion amber~
@@ -243,6 +252,8 @@ You'll put your eye out, kid!
 ~
 #0
 
+
+
 #ROOMS
 #6601
 The Dwarven Drop Off~
@@ -250,6 +261,10 @@ This is where the dwarven mommies and daddies come to drop off their
 annoying little brats.  You have the urge to leave.  There is a sign here.
 ~
 0 CD 0
+E
+sign~
+This is an area for newbies, so have fun.  -- Sandman
+~
 D0
 ~
 ~
@@ -258,11 +273,7 @@ D2
 You see a large room full of noisy brats.
 ~
 ~
-1 -1 6602
-E
-sign~
-This is an area for newbies, so have fun.  -- Sandman
-~
+0 -1 6602
 S
 #6602
 Day Care Center~
@@ -476,10 +487,6 @@ Mini-Maze~
 You are in a small passage that looks just like every other one.
 ~
 0 AD 2
-D1
-~
-~
-0 -1 6614
 D2
 ~
 ~
@@ -488,6 +495,10 @@ D3
 ~
 ~
 0 -1 6612
+D1
+~
+~
+0 -1 6614
 S
 #6614
 Mini-Maze~
@@ -522,10 +533,6 @@ Mini-Maze~
 You are in a small passage that looks just like every other one.
 ~
 0 AD 2
-D0
-~
-~
-0 -1 6614
 D2
 ~
 ~
@@ -534,6 +541,10 @@ D3
 ~
 ~
 0 -1 6615
+D0
+~
+~
+0 -1 6614
 S
 #6624
 End of the Mini-Maze~
@@ -541,6 +552,11 @@ You stand at the end of your journey.  There is a big sign here and you had
 better read it!
 ~
 0 AD 2
+E
+sign~
+If you are not level 6 or above, then don't go south!!!!  It is a dangerous
+area, but congrats for getting this far - Sandman
+~
 D0
 ~
 ~
@@ -549,11 +565,6 @@ D2
 ~
 ~
 0 -1 6631
-E
-sign~
-If you are not level 6 or above, then don't go south!!!!  It is a dangerous
-area, but congrats for getting this far - Sandman
-~
 S
 #6626
 Messy Kitchen~
@@ -579,63 +590,93 @@ D0
 0 -1 6624
 S
 #0
-#RESETS
-R 0 6613   4     	* Mini-Maze
-R 0 6614   4     	* Mini-Maze
-R 0 6615   4     	* Mini-Maze
-R 0 6616   4     	* Mini-Maze
-M 0 6607   1 6624  1	* the armed guard
-E 1 3023  -1   16	*   a club
-M 0 6608   1 6631  1	* the spoiled brat
-M 0 6600   7 6602  1	* the dwarven youth
-E 1 6600  18   16	*   a toy axe
-M 0 6601   2 6602  1	* a teddy bear
-M 0 6606   2 6602  1	* the nanny
-G 1 6646  20     	*   an amber potion
-G 1 6644  20     	*   a juicy steak
-E 1 6621  20   12	*   a linen robe
-M 0 6600   7 6603  1	* the dwarven youth
-E 1 6600  18   16	*   a toy axe
-M 0 6600   7 6604  1	* the dwarven youth
-E 1 6600  18   16	*   a toy axe
-M 0 6602   2 6604  1	* a raggedy anne doll
-M 0 6606   2 6604  1	* the nanny
-G 1 6646  20     	*   an amber potion
-E 1 6622  20   16	*   a broom
-M 0 6600   7 6605  1	* the dwarven youth
-E 1 6600  18   16	*   a toy axe
-M 0 6602   2 6605  1	* a raggedy anne doll
-G 1 6645  20     	*   a rotten steak
-M 0 6605   3 6605  1	* an old doll
-E 1 6601  20    1	*   a pink ice ring
-M 0 6600   7 6608  1	* the dwarven youth
-E 1 6600  18   16	*   a toy axe
-M 0 6603   4 6608  1	* a toy soldier
-E 1 6647  -1   16	*   a toy gun
-M 0 6600   7 6609  1	* the dwarven youth
-E 1 6600  18   16	*   a toy axe
-M 0 6604   2 6609  1	* the ugly bear
-M 0 6603   3 6609  1	* a toy soldier
-E 1 6647  10   16	*   a toy gun
-M 0 6603   4 6609  1	* a toy soldier
-E 1 6647  -1   16	*   a toy gun
-M 0 6600   7 6610  1	* the dwarven youth
-E 1 6600  18   16	*   a toy axe
-M 0 6603   4 6610  1	* a toy soldier
-E 1 6647  -1   16	*   a toy gun
-M 0 6605   3 6610  1	* an old doll
-M 0 6604   2 6611  1	* the ugly bear
-M 0 6603   4 6611  1	* a toy soldier
-E 1 6647  -1   16	*   a toy gun
-M 0 6605   3 6606  1	* an old doll
-M 0 6601   2 6606  1	* a teddy bear
+
+
+
+#SPECIALS
+M 6600 spec_thief	* the dwarven youth
+M 6604 spec_thief	* the ugly bear
+M 6606 spec_cast_cleric	* the nanny
+M 6608 spec_thief	* the spoiled brat
 S
+
+
+
+#RESETS
+M 0 6600 7 6602 1	* the dwarven youth (Day Care Center)
+E 0 6600 0 16		*	a toy axe: wielded
+M 0 6601 2 6602 1	* a teddy bear (Day Care Center)
+M 0 6606 2 6602 1	* the nanny (Day Care Center)
+G 0 6646 0		*	an amber potion
+G 0 6644 0		*	a juicy steak
+E 0 6621 0 12		*	a linen robe: about the shoulders
+M 0 6600 7 6603 1	* the dwarven youth (Day Care Center)
+E 0 6600 0 16		*	a toy axe: wielded
+M 0 6600 7 6604 1	* the dwarven youth (Day Care Center)
+E 0 6600 0 16		*	a toy axe: wielded
+M 0 6602 2 6604 1	* a raggedy anne doll (Day Care Center)
+M 0 6606 2 6604 1	* the nanny (Day Care Center)
+G 0 6646 0		*	an amber potion
+E 0 6622 0 16		*	a broom: wielded
+M 0 6600 7 6605 1	* the dwarven youth (Day Care Center)
+E 0 6600 0 16		*	a toy axe: wielded
+M 0 6602 2 6605 1	* a raggedy anne doll (Day Care Center)
+G 0 6645 0		*	a rotten steak
+M 0 6605 3 6605 1	* an old doll (Day Care Center)
+E 0 6601 0 1		*	a pink ice ring: on the left finger
+M 0 6605 3 6606 1	* an old doll (The Messy Bathroom)
+M 0 6601 2 6606 1	* a teddy bear (The Messy Bathroom)
+M 0 6600 7 6608 1	* the dwarven youth (The Playground)
+E 0 6600 0 16		*	a toy axe: wielded
+M 0 6603 4 6608 1	* a toy soldier (The Playground)
+E 0 6647 0 16		*	a toy gun: wielded
+M 0 6600 7 6609 1	* the dwarven youth (The Playground)
+E 0 6600 0 16		*	a toy axe: wielded
+M 0 6604 2 6609 1	* the ugly bear (The Playground)
+M 0 6603 3 6609 1	* a toy soldier (The Playground)
+E 0 6647 0 16		*	a toy gun: wielded
+M 0 6603 4 6609 1	* a toy soldier (The Playground)
+E 0 6647 0 16		*	a toy gun: wielded
+M 0 6600 7 6610 1	* the dwarven youth (The Playground)
+E 0 6600 0 16		*	a toy axe: wielded
+M 0 6603 4 6610 1	* a toy soldier (The Playground)
+E 0 6647 0 16		*	a toy gun: wielded
+M 0 6605 3 6610 1	* an old doll (The Playground)
+M 0 6604 2 6611 1	* the ugly bear (The Playground)
+M 0 6603 4 6611 1	* a toy soldier (The Playground)
+E 0 6647 0 16		*	a toy gun: wielded
+R 0 6613 4	* Mini-Maze: randomize
+R 0 6614 4	* Mini-Maze: randomize
+R 0 6615 4	* Mini-Maze: randomize
+R 0 6616 4	* Mini-Maze: randomize
+M 0 6607 1 6624 1	* the armed guard (End of the Mini-Maze)
+E 0 3023 0 16		*	a club: wielded
+M 0 6608 1 6631 1	* the spoiled brat (The End?)
+S
+
+
+
 #SHOPS
 0
-#SPECIALS
-M 6600 spec_thief          	* the dwarven youth
-M 6604 spec_thief          	* the ugly bear
-M 6606 spec_cast_cleric    	* the nanny
-M 6608 spec_thief          	* the spoiled brat
+
+
+
+#OLIMITS
 S
+
+
+
+#MOBPROGS
+#0
+
+#PRACTICERS
+S
+
+
+
+#OMPROGS
+S
+
+
+
 #$

@@ -1311,48 +1311,48 @@ S
 
 #RESETS
 M 0 3501 10 3506 2	* the goblin (The Miden'nir)
-E 0 3500 0 16		*	A goblin's short sword: wielded
-E 0 3074 0 7		*	A long scale mail skirt: on the legs
+E 0 3500 0 16		*	a goblin's short sword: wielded
+E 0 3074 0 7		*	a long scale mail skirt: on the legs
 M 0 3501 10 3509 2	* the goblin (The Miden'nir)
-E 0 3500 0 16		*	A goblin's short sword: wielded
-E 0 3072 0 5		*	A scale mail jerkin: on the body
+E 0 3500 0 16		*	a goblin's short sword: wielded
+E 0 3072 0 5		*	a scale mail jerkin: on the body
 M 0 3501 8 3512 2	* the goblin (The Miden'nir)
-E 0 3500 0 16		*	A goblin's short sword: wielded
-E 0 3045 0 5		*	A scale mail jacket: on the body
+E 0 3500 0 16		*	a goblin's short sword: wielded
+E 0 3045 0 5		*	a scale mail jacket: on the body
 M 0 3501 10 3512 2	* the goblin (The Miden'nir)
-E 0 3500 0 16		*	A goblin's short sword: wielded
-E 0 3502 0 6		*	A black horned helmet: over the head
-E 0 3075 0 8		*	A pair of reinforced boots: on the feet
+E 0 3500 0 16		*	a goblin's short sword: wielded
+E 0 3502 0 6		*	a black horned helmet: over the head
+E 0 3075 0 8		*	a pair of reinforced boots: on the feet
 M 0 3501 10 3513 2	* the goblin (The Miden'nir)
-E 0 3500 0 16		*	A goblin's short sword: wielded
-E 0 3077 0 10		*	A pair of scale mail sleeves: on the arms
+E 0 3500 0 16		*	a goblin's short sword: wielded
+E 0 3077 0 10		*	a pair of scale mail sleeves: on the arms
 M 0 3500 2 3521 2	* the wyvern (Carnage)
 M 0 3500 2 3521 2	* the wyvern (Carnage)
 M 0 3506 4 3551 2	* the goblin lieutenant (The Deep in the Forest of Miden'nir)
-E 0 3502 0 6		*	A black horned helmet: over the head
-E 0 3500 0 16		*	A goblin's short sword: wielded
-E 0 3072 0 5		*	A scale mail jerkin: on the body
+E 0 3502 0 6		*	a black horned helmet: over the head
+E 0 3500 0 16		*	a goblin's short sword: wielded
+E 0 3072 0 5		*	a scale mail jerkin: on the body
 M 0 3501 10 3556 2	* the goblin (The Goblin Headquarters)
-E 0 3500 0 16		*	A goblin's short sword: wielded
-E 0 3076 0 9		*	A pair of reinforced gloves: on the hands
+E 0 3500 0 16		*	a goblin's short sword: wielded
+E 0 3076 0 9		*	a pair of reinforced gloves: on the hands
 M 0 3506 4 3556 2	* the goblin lieutenant (The Goblin Headquarters)
-E 0 3500 0 16		*	A goblin's short sword: wielded
-E 0 3502 0 6		*	A black horned helmet: over the head
-E 0 3072 0 5		*	A scale mail jerkin: on the body
+E 0 3500 0 16		*	a goblin's short sword: wielded
+E 0 3502 0 6		*	a black horned helmet: over the head
+E 0 3072 0 5		*	a scale mail jerkin: on the body
 M 0 3507 1 3556 1	* the goblin leader (The Goblin Headquarters)
-E 0 3072 0 5		*	A scale mail jerkin: on the body
-E 0 3501 0 16		*	A long spear: wielded
-E 0 3502 0 6		*	A black horned helmet: over the head
+E 0 3072 0 5		*	a scale mail jerkin: on the body
+E 0 3501 0 16		*	a long spear: wielded
+E 0 3502 0 6		*	a black horned helmet: over the head
 M 0 3502 1 3575 1	* the small boy (The Ambush Point)
 M 0 3503 1 3576 1	* the Innkeeper (The Bar)
 M 0 3504 1 3577 1	* the bard (The Bard's Table)
-E 0 3505 0 16		*	A rune-covered knife: wielded
+E 0 3505 0 16		*	a rune-covered knife: wielded
 M 0 3505 4 3583 2	* the dark horseman (On the Trail of the Horsemen)
-E 0 3503 0 3		*	A stained travelling cloak: around the neck (1)
-E 0 3022 0 16		*	A long sword: wielded
+E 0 3503 0 3		*	a stained travelling cloak: around the neck (1)
+E 0 3022 0 16		*	a long sword: wielded
 M 0 3505 4 3584 2	* the dark horseman (A Dead End Trail)
-E 0 3504 0 14		*	An enchanted leather bracer: on the left wrist
-E 0 3022 0 16		*	A long sword: wielded
+E 0 3504 0 14		*	an enchanted leather bracer: on the left wrist
+E 0 3022 0 16		*	a long sword: wielded
 S
 
 

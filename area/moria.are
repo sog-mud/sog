@@ -1,8 +1,13 @@
-#AREA
-moria.are~
-Moria~
-{ 5 15} Alfa    Moria~
-3900 4199
+#AREADATA
+Name Moria~
+Builders None~
+VNUMs 3900 4199
+Credits Alfa~
+Security 9
+LevelRange 5 15
+End
+
+
 
 #MOBILES
 #4000
@@ -18,7 +23,7 @@ ABF D -200 0
 -1 0 3 6
 FHNOR 0 F 0
 stand stand either 0
-0 0 large 0
+0 0 large unknown
 #4001
 garter snake~
 the garter snake~
@@ -32,7 +37,7 @@ ABU 0 -100 0
 2 3 5 8
 FHR 0 E 0
 stand stand either 0
-0 0 small 0
+0 0 small unknown
 #4002
 centipede~
 the centipede~
@@ -46,7 +51,7 @@ ABU 0 100 0
 6 7 9 10
 FR 0 0 0
 stand stand none 0
-0 0 tiny 0
+0 0 tiny unknown
 #4003
 kobold~
 the kobold~
@@ -60,7 +65,7 @@ ACGT 0 -100 0
 7 7 7 10
 R 0 0 0
 stand stand either 18
-0 0 small 0
+0 0 small unknown
 #4004
 orc~
 the orc~
@@ -74,7 +79,7 @@ ACFGT 0 -400 0
 7 7 7 10
 CDNR 0 C 0
 stand stand male 60
-B 0 medium 0
+B 0 medium unknown
 #4005
 orc~
 the large orc~
@@ -88,7 +93,7 @@ ACGT 0 -500 0
 4 5 5 8
 CJR 0 0 0
 stand stand either 120
-0 0 medium 0
+0 0 medium unknown
 #4050
 warrior~
 the warrior~
@@ -102,7 +107,7 @@ ABCFT 0 -300 0
 1 -1 2 5
 CIQR 0 0 0
 stand stand male 300
-0 0 medium 0
+0 0 medium unknown
 #4051
 warrior~
 the warrior~
@@ -117,7 +122,7 @@ ACFT 0 -400 0
 4 5 4 8
 CIQR 0 0 C
 stand stand male 140
-0 0 medium 0
+0 0 medium unknown
 #4052
 hobgoblin~
 the hobgoblin~
@@ -133,7 +138,7 @@ ACGHT 0 -300 0
 6 5 5 8
 N 0 0 C
 stand stand male 12
-0 0 medium 0
+0 0 medium unknown
 #4053
 snake~
 the snake~
@@ -147,7 +152,7 @@ ABFU 0 -600 0
 0 2 2 5
 FGNR 0 EF 0
 stand stand either 0
-0 0 medium 0
+0 0 medium unknown
 #4054
 centipede~
 the centipede~
@@ -161,7 +166,7 @@ ABU 0 -100 0
 4 7 5 10
 FR 0 0 0
 stand stand none 0
-0 0 small 0
+0 0 small unknown
 #4055
 hobgoblin~
 the large hobgoblin~
@@ -176,7 +181,7 @@ ACGT 0 -500 0
 2 2 1 5
 CDJR 0 C 0
 stand stand male 210
-0 0 medium 0
+0 0 medium unknown
 #4056
 orc~
 the orc~
@@ -191,7 +196,7 @@ ACFGT 0 -800 0
 3 3 2 5
 CNR 0 0 0
 stand stand either 60
-0 0 medium 0
+0 0 medium unknown
 #4057
 lion mountain~
 the mountain lion~
@@ -206,7 +211,7 @@ AFG 0 -100 0
 0 0 0 4
 ER 0 E 0
 stand stand either 0
-0 0 large 0
+0 0 large unknown
 #4058
 giant hill~
 the hill giant~
@@ -222,7 +227,7 @@ AGT 0 0 0
 0 -2 0 4
 DOR 0 D 0
 stand stand male 500
-0 0 huge 0
+0 0 huge unknown
 #4100
 mage~
 the Mage~
@@ -237,7 +242,7 @@ ABCFR D -100 0
 -2 -2 -2 2
 FQ 0 C 0
 stand stand male 400
-0 0 medium 0
+0 0 medium unknown
 #4101
 troll~
 the troll~
@@ -252,7 +257,7 @@ ABCFT 0 -800 0
 0 -3 2 6
 CEOR 0 0 0
 stand stand male 200
-0 0 large 0
+0 0 large unknown
 #4102
 guardian snake~
 the guardian snake~
@@ -267,7 +272,7 @@ ABCF 0 -700 0
 0 0 2 6
 HMNOR 0 F G
 stand stand either 0
-0 0 medium 0
+0 0 medium unknown
 #4103
 thief~
 the thief~
@@ -281,7 +286,7 @@ ACHS PQ -100 0
 2 4 3 7
 EFJN 0 0 0
 stand stand either 100
-0 0 medium 0
+0 0 medium unknown
 #4104
 orc~
 the orc~
@@ -295,7 +300,7 @@ ACFGHT 0 -200 0
 4 5 5 8
 CJR 0 0 0
 stand stand male 150
-0 0 medium 0
+0 0 medium unknown
 #4105
 centipede~
 a centipede~
@@ -310,7 +315,7 @@ ABU 0 300 0
 3 6 4 10
 FR 0 0 0
 stand stand none 0
-0 0 small 0
+0 0 small unknown
 #4106
 warrior~
 the Warrior~
@@ -324,7 +329,7 @@ ACFGT 0 -300 0
 3 2 4 6
 CJQU 0 0 0
 stand stand male 300
-0 0 medium 0
+0 0 medium unknown
 #4107
 kobold~
 the green kobold~
@@ -338,7 +343,7 @@ ACFGT 0 -100 0
 5 5 5 10
 NR 0 0 0
 stand stand either 25
-0 0 small 0
+0 0 small unknown
 #4150
 bat blue~
 the blue bat~
@@ -352,7 +357,7 @@ ABF 0 -100 0
 4 4 4 6
 R J 0 RYZ
 stand stand either 0
-0 0 tiny 0
+0 0 tiny unknown
 #4151
 bat red~
 the red bat~
@@ -366,7 +371,7 @@ ABF 0 -100 0
 4 4 4 6
 R H 0 IR
 stand stand either 0
-0 0 tiny 0
+0 0 tiny unknown
 #4152
 bat green~
 the green bat~
@@ -380,7 +385,7 @@ ABF 0 -100 0
 4 4 4 6
 R L 0 0
 stand stand either 0
-B 0 tiny 0
+B 0 tiny unknown
 #4153
 bat white~
 the white bat~
@@ -394,7 +399,7 @@ ABF 0 -100 0
 4 4 4 6
 R I 0 H
 stand stand either 0
-0 0 tiny 0
+0 0 tiny unknown
 #4154
 bat black~
 the black bat~
@@ -408,7 +413,7 @@ ABF 0 -100 0
 4 4 4 6
 R K 0 0
 stand stand either 0
-0 0 tiny 0
+0 0 tiny unknown
 #4155
 thief~
 the thief~
@@ -422,7 +427,7 @@ ACGS BQ 400 0
 2 0 0 6
 BFJNQU 0 0 0
 stand stand male 500
-0 0 medium 0
+0 0 medium unknown
 #4156
 troll~
 the troll~
@@ -436,7 +441,7 @@ ABCFT 0 -700 0
 -1 -3 -1 4
 CEOR 0 0 C
 stand stand male 1000
-0 0 huge 0
+0 0 huge unknown
 #4157
 mage~
 the Mage~
@@ -451,7 +456,7 @@ ACFGR 0 -200 0
 0 0 0 2
 QU 0 C 0
 stand stand male 200
-0 0 medium 0
+0 0 medium unknown
 #4158
 snake~
 the snake~
@@ -466,7 +471,7 @@ ABFU 0 200 0
 1 3 3 6
 FGNR 0 EF 0
 fight fight either 0
-0 0 medium 0
+0 0 medium unknown
 #4159
 troll~
 the small troll~
@@ -480,7 +485,7 @@ ACFGT 0 -300 0
 3 1 3 6
 EJR 0 0 0
 stand stand male 100
-0 0 large 0
+0 0 large unknown
 #4160
 orc~
 the orc~
@@ -494,8 +499,10 @@ ACFGT 0 -200 0
 2 2 1 5
 CJNR 0 0 0
 stand stand either 150
-0 0 medium 0
+0 0 medium unknown
 #0
+
+
 
 #OBJECTS
 #4000
@@ -531,7 +538,7 @@ some coins~
 A small pile of coins.~
 silver~
 money 0 A
-200 3 0 0 0
+DGH AB 0 0 0
 0 5000 0 P
 #4003
 dagger rusty~
@@ -578,7 +585,7 @@ some smelly furs~
 A heap of smelly furs sit here.~
 fur~
 armor 0 AK
-5 6 5 1 3
+AC BC AC A AB
 8 100 510 A
 A
 2 -1
@@ -605,7 +612,7 @@ a metal helmet~
 A metal helmet is here.~
 iron~
 armor G AE
-4 4 3 2 1
+C C AB B A
 5 40 650 G
 A
 20 -1
@@ -615,7 +622,7 @@ a mushroom~
 A small mushroom is here.~
 food~
 food 0 A
-2 2 0 1 0
+B B 0 A 0
 0 10 0 G
 E
 mushroom~
@@ -742,7 +749,7 @@ swordsman's gloves~
 Some gloves are here.  They look like the right equipment for fighting.~
 leather~
 armor G AH
-1 3 3 1 1
+A AB AB A A
 7 10 730 G
 A
 19 1
@@ -766,7 +773,7 @@ a green slime mold~
 A green slime mold is here. It smells REAL bad.~
 food~
 food P A
-24 24 0 0 0
+DE DE 0 0 0
 0 10 0 G
 E
 slime mold~
@@ -778,7 +785,7 @@ a green slime mold~
 A green slime mold is here. It smells REAL bad.~
 food~
 food P A
-24 24 0 1 0
+DE DE 0 A 0
 0 10 0 G
 E
 slime mold~
@@ -867,7 +874,7 @@ a map of the second level of Moria~
 A rolled up map is here.~
 paper~
 map 0 A
-1 0 0 0 0
+A 0 0 0 0
 0 10 100 W
 E
 map moria second~
@@ -895,7 +902,7 @@ a map of the third level of Moria~
 A rolled up map is here.~
 paper~
 map 0 A
-1 0 0 0 0
+A 0 0 0 0
 0 10 200 G
 E
 map moria third~
@@ -935,1205 +942,9 @@ map moria third~
 ~
 #0
 
+
+
 #ROOMS
-#3900
-West trail around Midgaard~
-You are on a dusty trail following the outside wall of Midgaard.
-To the east the wall towers over you and to the west you see the
-forest of Haon-Dor. The trail leads north and south along the wall. 
-~
-0 0 2
-D0
-The dusty trail winds north closely to the wall.
-~
-~
-0 -1 3901
-D2
-The dusty trail leads to outside the west gate of Midgaard.
-~
-~
-0 -1 3052
-S
-#3901
-West trail around Midgaard~
-You are on a dusty trail following the outside wall of Midgaard.
-To the east the wall towers over you and to the west you see the
-forest of Haon-Dor. The trail leads north and south along the wall. 
-~
-0 0 2
-D0
-To the north you notice the path makes a turn, following the City wall. 
-~
-~
-0 -1 3902
-D2
-The dusty trail continues towards the south.
-~
-~
-0 -1 3900
-S
-#3902
-Northwest corner of dusty trail.~
-You are standing outside the northwestern corner of the city wall.
-The trail leads east following the north wall and south towards the gate.  
-~
-0 0 2
-D1
-The dusty trail winds close up to the north wall of Midgaard.
-~
-~
-0 -1 3903
-D2
-The dusty trail leads south towards the gate.
-~
-~
-0 -1 3901
-S
-#3903
-Dusty trail along north wall.~
-You are walking on the trail following the outside of Midgaard's
-northern wall.  
-~
-0 0 2
-D1
-The dusty trail is winding along the north wall of Midgaard.
-~
-~
-0 -1 3904
-D3
-The dusty trail turns left around the corner of the wall, behind it Haon-Dor. 
-~
-~
-0 -1 3902
-S
-#3904
-The long dusty trail following the north wall.~
-You are just outside the northern gate of Midgaard.  You can continue along
-the trail to the east or west, head onwards to the plains of the north, or
-enter Midgaard to the south.  You can just barely make out the buildings of
-Midgaard from here, the Temple of Midgaard looks impressive even from this
-distance.  
-~
-0 0 2
-D0
-A small path extends into the plains.
-~
-~
-0 -1 300
-D1
-The dusty trail is winding along the north wall of Midgaard. 
-~
-~
-0 -1 3905
-D2
-You see the south gate of Midgaard.
-~
-~
-0 -1 3268
-D3
-The dusty trail is winding along the north wall of Midgaard.
-~
-~
-0 -1 3903
-S
-#3905
-Dusty trail along north wall.~
-You are walking on the trail following the outside of Midgaard's
-northern wall.  
-~
-0 0 2
-D1
-The dusty trail turns right around the corner of the wall. 
-You notice some mountains in the distance.
-~
-~
-0 -1 3906
-D3
-The dusty trail is winding along the north wall of Midgaard.
-~
-~
-0 -1 3904
-S
-#3906
-Northeast corner of dusty trail.~
-You are standing outside the northeastern corner of the city wall.
-The trail leads west following the north wall and south towards the gate.  
-~
-0 0 2
-D2
-The dusty trail leads south towards the gate.
-~
-~
-0 -1 3907
-D3
-The dusty trail winds close up to the north wall of Midgaard.
-~
-~
-0 -1 3905
-S
-#3907
-East trail around Midgaard~
-You are on a dusty trail following the outside wall of Midgaard.
-To the west the wall towers over you and far to the east you see
-some mountains. The trail leads north and south along the wall. 
-~
-0 0 2
-D0
-To the north you notice the path makes a turn, following the City wall. 
-~
-~
-0 -1 3906
-D2
-The dusty trail continues towards the south.
-~
-~
-0 -1 3908
-S
-#3908
-East trail around Midgaard~
-You are on a dusty trail following the outside wall of Midgaard.
-To the west the wall towers over you and far to the east you see
-some mountains. The trail leads north and south along the wall. 
-~
-0 0 2
-D0
-The dusty trail winds north closely to the wall.
-~
-~
-0 -1 3907
-D2
-The dusty trail leads to outside the east gate of Midgaard.
-~
-~
-0 -1 3053
-S
-#4000
-The hills~
-You are on a small bewildered path winding its way between the hills in
-lack of better things to do. To the south you have a splendid view over the
-flat, vast, desolate plains. To the north the hills grow steadily darker and
-foreboding. This is the cause of no sunset, it is rather the power of evil
-penetrating these quiet hills. Glancing around you notice only a single bird.
-The mountains of the dwarven kingdom rise up to your east, you can barely
-make out the queen's mines from here.
-~
-0 C 4
-D0
-~
-~
-0 0 4001
-D1
-You see the mountains of the dwarven kingdom. 
-~
-~
-0 0 6562
-D2
-~
-~
-0 0 3500
-S
-#4001
-The hills~
-You are surrounded by dark and sinister hills. Although they seemed fairly
-small from a distance you now get the feeling that they're closing in on you,
-towering over you, overwhelming you ...  The small path seems to have second
-thoughts about these hills because it starts winding unnecessarily, turning
-several times around itself.  To the south the hills have a lighter hue of
-dark. To the north however, the hills have become nightblack holes in the
-distant mountains.
-~
-0 C 4
-D0
-~
-~
-0 0 4002
-D2
-~
-~
-0 0 4000
-S
-#4002
-End of the path~
-At this point the path has had enough. With a terrified shudder it cowers
-to the ground, only staying here because you're standing on it. with a slight
-feeling of unease you look around noticing only a few bushes and a large sign
-carved into the mountain.  You feel you can hear the cry of help from a
-thousand silent voices all coming from an even darker hole in the mountain to
-the north marking the entrance to a cave (or a grave :-).
-~
-0 C 4
-D0
-~
-~
-0 0 4010
-D2
-~
-~
-0 0 4001
-E
-sign~
-The sign says:
-
-        /---------------------\
-        | The Mines of Moria! |
-        |                     |
-        | Four levels.        |
-        |                     |
-        | Watch for mages!    |
-        |                     |
-        \---------------------/
-                 | |
-                 | |
-                 | |
-                 | |
-                 | |
-~
-E
-bushes~
-Small crippled bushes desperately trying to grow south.
-~
-S
-#4010
-The cave~
-You are in a large cave. The ceiling is lost somewhere above the reach of
-your light. The floor, however, is highly illuminated, your light flickering
-over several tombstones. Only one is whole, the rest have been shattered by
-some savage blow. The remaining tombstone looks disturbingly new...
-A small breeze of fresh air enters from the south (probably lost too). Take a
-good breath, it may be your last mouthful of air in a long, long time that
-others haven't breathed before you.
-To the north a small tunnel continues into the mountain.
-~
-0 AD 2
-D0
-~
-~
-0 0 4011
-D2
-~
-~
-0 0 4002
-E
-tombstone~
-The stone is inscribed with the unfortunate player's famous last words:
-
-  "What are you worrying about, it is just a small harmless snake"
-~
-S
-#4011
-The tunnel~
-You squeeze your way through a small, narrow tunnel. The sharp-edged rocks
-protruding from the walls threaten to scratch and cut you. 
-To the south you sense a freshness in the air which is rather unusual in these
-damp, stuffy tunnels. To the north the tunnel continues.
-~
-0 AD 3
-D0
-~
-~
-0 0 4014
-D2
-~
-~
-0 0 4010
-S
-#4012
-The tunnel~
-You are in a part of the tunnel that looks uncannily like the rest except
-that it goes in a east-north direction. To the north the tunnel widens into
-a cave.
-~
-0 AD 3
-D0
-~
-~
-0 0 4016
-D1
-~
-~
-0 0 4013
-S
-#4013
-The tunnel~
-This tunnel, leading east-west, seems seldom used.  A thick layer of dust
-covers the floor, making the air stuffy and dry. 
-~
-0 AD 3
-D1
-~
-~
-0 0 4014
-D3
-~
-~
-0 0 4012
-S
-#4014
-The tunnel~
-You are walking in a narrow tunnel. The walls are only roughly shaped,
-sharp rocks protruding everywhere, even from the floor making you stumble in
-the flickering light. To the south the tunnel narrows even more making it
-almost impossible to pass. To the north it slowly widens into a cave. There
-is a branch of the tunnel going west.
-~
-0 AD 3
-D0
-~
-~
-0 0 4018
-D1
-~
-~
-0 0 4015
-D2
-~
-~
-0 0 4011
-D3
-~
-~
-0 0 4013
-S
-#4015
-The tunnel~
-You are in a corner tunnel leading west and north.
-~
-0 AD 3
-D0
-~
-~
-0 0 4019
-D3
-~
-~
-0 0 4014
-S
-#4016
-The large cave~
-You are in a large cave, the cave continues east and west, to the south
-you notice a small tunnel.
-~
-0 AD 2
-D1
-~
-~
-0 0 4017
-D2
-~
-~
-0 0 4012
-D3
-~
-~
-0 0 4023
-S
-#4017
-The large cave~
-You are in the east end of the large cave.
-~
-0 AD 2
-D3
-~
-~
-0 0 4016
-S
-#4018
-The cave~
-You are in the south end of a cave, to the south you see a tunnel. You
-notice a large pile of bones in the corner.
-~
-0 AD 2
-D0
-~
-~
-0 0 4025
-D2
-~
-~
-0 0 4014
-E
-pile bones~
-Some of the bones are human!
-~
-S
-#4019
-The tunnel~
-You are in a north-south leading tunnel.
-~
-0 AD 3
-D0
-~
-~
-0 0 4026
-D2
-~
-~
-0 0 4015
-S
-#4020
-The hole~
-You are by a hole in the floor, you can leave down, or north.
-~
-0 ACD 3
-D0
-~
-~
-0 0 4027
-D5
-~
-~
-0 0 4064
-S
-#4021
-The hole~
-A hole in the floor leads down here.
-~
-0 ACD 3
-D1
-~
-~
-0 0 4022
-D5
-~
-~
-0 0 4115
-S
-#4022
-The damp tunnel~
-You are in a damp tunnel.  Your clothes feel wet.  The tunnel continues
-to the north; to the west you see a hole in the floor; and to the east
-there is a large cave.
-~
-0 AD 3
-D0
-~
-~
-0 0 4023
-D1
-~
-~
-0 0 4024
-D3
-~
-~
-0 0 4021
-S
-#4023
-The large cave~
-You are in the western part of the large cave, to the south you see
-a damp tunnel.
-~
-0 AD 2
-D1
-~
-~
-0 0 4016
-D2
-~
-~
-0 0 4022
-S
-#4024
-The damp tunnel~
-You are in a corner of a damp tunnel.  You can go west or south.
-~
-0 AD 3
-D2
-~
-~
-0 0 4059
-D3
-~
-~
-0 0 4022
-S
-#4025
-The cave~
-You are in the north end of a cave.  To the east you see many tunnels.
-~
-0 AD 2
-D1
-~
-~
-0 0 4026
-D2
-~
-~
-0 0 4018
-D5
-~
-floor~
-1 -1 16000
-S
-#4026
-The many tunnels~
-You are at the intersection of many tunnels.
-~
-0 AD 3
-D0
-~
-~
-0 0 4028
-D1
-~
-~
-0 0 4027
-D2
-~
-~
-0 0 4019
-D3
-~
-~
-0 0 4025
-S
-#4027
-The tunnel~
-You are in a north-south leading tunnel, you also notice a tunnel to
-the west. From the north you sense the fresh air!
-~
-0 AD 3
-D0
-~
-~
-0 0 4029
-D2
-~
-~
-0 0 4020
-D3
-~
-~
-0 0 4026
-S
-#4028
-The smelly tunnel~
-You are in a north-south leading tunnel, you see a small light
-to the north. You notice a strange smell from the north..
-~
-0 AD 3
-D0
-~
-~
-0 0 4030
-D2
-~
-~
-0 0 4026
-S
-#4029
-The cave~
-You are in a cave that is filled with fresh air, you sense the
-wind blowing from the north. To the south you see a small tunnel
-continue into the mountain.
-~
-0 ACD 2
-D0
-~
-~
-0 0 4031
-D2
-~
-~
-0 0 4027
-S
-#4030
-The light cave~
-You are in a light cave,through a hole large above you, A small tunnel to
-the south may be the only way out to return.
-~
-0 0 2
-D2
-~
-~
-0 0 4028
-S
-#4031
-The valley~
-You are in a small valley, surrounded by hills and a mountain to 
-the south. In the mountain there is a cave.
-~
-0 0 2
-D0
-~
-~
-0 0 4032
-D2
-~
-~
-0 0 4029
-E
-cave~
-Well it doesn't look nice, but it's the only way out.
-~
-S
-#4032
-The foothills~
-You are on a winding path that leads through the foothills on the
-other side of the mountain.  The path continues north.
-~
-0 0 2
-D0
-~
-~
-0 0 4033
-D2
-~
-~
-0 0 4031
-S
-#4033
-The intersection in the foothills~
-The small path you are following splits here.  The path continues
-north and south or you can follow a trail east into the mountains.
-~
-0 0 2
-D0
-~
-~
-0 0 4034
-D1
-~
-~
-0 0 4037
-D2
-~
-~
-0 0 4032
-S
-#4034
-The grassy area of the foothills~
-The grass here is unusually high.  You notice several areas where
-someone or something large has crushed spots of the grass down.  Several very
-large rocks litter this area.  You can go north, west or south.
-~
-0 0 2
-D0
-~
-~
-0 0 4035
-D2
-~
-~
-0 0 4033
-D3
-~
-~
-0 0 4042
-S
-#4035
-The foothills end~
-At this point you are leaving the foothills.  You see a plains area
-to the north of here.  You can spot a small city in the distance from
-here.
-~
-0 0 2
-D0
-~
-~
-0 0 4036
-D2
-~
-~
-0 0 4034
-S
-#4036
-The plains~
-To the west see the border of the Shienar Kingdom, you may follow this 
-path to reach the kingdom. Jagged mountain far to the north.
-~
-0 0 2
-D0
-~
-The path to the Craggy Tor
-~
-0 0 30800
-D2
-~
-~
-0 0 4035
-D3
-~
-In the Borderlands
-~
-0 0 23114
-S
-#4037
-The foothills path~
-Exits are east and west.
-~
-0 0 2
-D1
-~
-~
-0 0 4038
-D3
-~
-~
-0 0 4033
-S
-#4038
-Base of the mountain~
-Exits are east and west.
-~
-0 0 2
-D1
-~
-~
-0 0 4039
-D3
-~
-~
-0 0 4037
-S
-#4039
-A trail up the mountain~
-Exits are east and west.
-~
-0 0 2
-D1
-~
-~
-0 0 4040
-D3
-~
-~
-0 0 4038
-S
-#4040
-The mountain top.~
-Exits are north, east, and west.
-~
-0 0 2
-D0
-~
-~
-0 0 4041
-D1
-It doesn't look safe this way.
-~
-~
-0 0 7114
-D3
-~
-~
-0 0 4039
-S
-#4041
-The lion's den~
-Exits are south.
-~
-0 0 2
-D2
-~
-~
-0 0 4040
-S
-#4042
-The level foothills~
-Exits are east and west.
-~
-0 0 2
-D1
-~
-~
-0 0 4034
-D3
-~
-~
-0 0 4043
-S
-#4043
-The cave entrance~
-Exits are east and west.
-~
-0 0 2
-D1
-~
-~
-0 0 4042
-D3
-~
-~
-0 0 4044
-S
-#4044
-The hill giant cave~
-Exits are east.
-~
-0 0 2
-D1
-~
-~
-0 0 4043
-S
-#4050
-The tunnel~
-The tunnel turns here, continuing to the east and south.
-~
-0 AD 3
-D1
-~
-~
-0 0 4051
-D2
-~
-~
-0 0 4053
-S
-#4051
-The tunnel~
-You are in a narrow east-west tunnel.
-~
-0 AD 3
-D1
-~
-~
-0 0 4052
-D3
-~
-~
-0 0 4050
-S
-#4052
-The tunnel~
-You are at a turn, the tunnel continues south and west.
-~
-0 AD 3
-D2
-~
-~
-0 0 4100
-D3
-~
-~
-0 0 4051
-S
-#4053
-The tunnel~
-You are at a turn, the tunnel continues north and east.
-~
-0 AD 3
-D0
-~
-~
-0 0 4050
-D1
-~
-~
-0 0 4054
-S
-#4054
-The light cave~
-You are in a cave, to south from you there is a large fire that lights
-the entire cave, to the east and west tunnels leads off.
-~
-0 D 2
-D1
-~
-~
-0 0 4055
-D2
-~
-~
-0 0 4056
-D3
-~
-~
-0 0 4053
-S
-#4055
-The maze~
-You are in a maze of small damp tunnels.  The only exit is west.
-~
-0 AD 3
-D3
-~
-~
-0 0 4054
-S
-#4056
-The light cave~
-You are in a light cave, a large fire in front of you lights the room.
-The cave continues to the north and south.
-~
-0 D 2
-D0
-~
-~
-0 0 4054
-D2
-~
-~
-0 0 4061
-S
-#4057
-The maze~
-You are in a maze of small damp tunnels.
-~
-0 AD 3
-D1
-~
-~
-0 0 4058
-D2
-~
-~
-0 0 4062
-S
-#4058
-The maze~
-You are in a maze of small damp tunnels.
-~
-0 AD 3
-D2
-~
-~
-0 0 4063
-D3
-~
-~
-0 0 4057
-S
-#4059
-The tunnel~
-You are in a tunnel, only exit is to the east. You sense that the
-tunnel leads slightly down.
-~
-0 ACD 3
-D0
-~
-~
-0 0 4024
-D1
-~
-~
-0 0 4060
-S
-#4060
-The tunnel~
-You are in a small tunnel, to the west the tunnel continues and 
-to the east you see some light.
-~
-0 AD 3
-D1
-~
-~
-0 0 4061
-D3
-~
-~
-0 0 4059
-S
-#4061
-The light cave~
-You are in the south end of a light cave.
-~
-0 D 2
-D0
-~
-~
-0 0 4056
-D3
-~
-~
-0 0 4060
-S
-#4062
-The maze~
-You are in a maze of small damp tunnels.
-~
-0 AD 3
-D0
-~
-~
-0 0 4057
-D1
-~
-~
-0 0 4065
-S
-#4063
-The maze~
-You are in a maze of small damp tunnels.
-~
-0 AD 3
-D0
-~
-~
-0 0 4058
-D1
-~
-~
-0 0 4064
-S
-#4064
-The tunnel~
-You are at the eastern end of a tunnel.
-~
-0 AD 3
-D3
-~
-~
-0 0 4063
-D4
-~
-~
-0 0 4020
-S
-#4065
-The maze~
-You are in a maze of small damp tunnels.
-~
-0 AD 3
-D1
-~
-~
-0 0 4066
-D3
-~
-~
-0 0 4062
-S
-#4066
-The maze~
-You are in a maze of small damp tunnels.
-~
-0 AD 3
-D1
-~
-~
-0 0 4067
-D2
-~
-~
-0 0 4069
-D3
-~
-~
-0 0 4065
-S
-#4067
-The maze~
-You are in a maze of small damp tunnels.
-~
-0 AD 3
-D3
-~
-~
-0 0 4066
-S
-#4068
-The large cave~
-You are in the northwest end of a large cave.
-~
-0 AD 2
-D1
-~
-~
-0 0 4069
-D2
-~
-~
-0 0 4070
-S
-#4069
-The large cave~
-You are in the northeast end of a large cave. To the north the
-is a small damp tunnel.
-~
-0 AD 2
-D0
-~
-~
-0 0 4066
-D2
-~
-~
-0 0 4071
-D3
-~
-~
-0 0 4068
-S
-#4070
-The large cave~
-You are in the southwest end of a large cave.
-~
-0 AD 2
-D0
-~
-~
-0 0 4068
-D1
-~
-~
-0 0 4071
-S
-#4071
-The large cave~
-You are in the southeast end of a large cave. To the east you
-notice a small tunnel.
-~
-0 AD 2
-D0
-~
-~
-0 0 4069
-D1
-~
-~
-0 0 4072
-D3
-~
-~
-0 0 4070
-S
-#4072
-The tunnel~
-You are in a narrow tunnel, which leads both to the east and the
-south. There is also an exit towards the west, where you see a large
-cave.
-~
-0 AD 3
-D1
-~
-~
-0 0 4073
-D2
-~
-~
-0 0 4074
-D3
-~
-~
-0 0 4071
-S
-#4073
-End of tunnel~
-The tunnel stops here.
-~
-0 AD 3
-D3
-~
-~
-0 0 4072
-S
-#4074
-The hole~
-You are at a small hole in the floor, you can either leave north
-or try your luck and leave down into the unknown!
-~
-0 AD 3
-D0
-~
-~
-0 0 4072
-D5
-~
-~
-0 0 4171
-S
 #4100
 The tunnel~
 Suddenly you feel that the tunnel leads slightly down.
@@ -2713,14 +1524,6 @@ You are in a north-south leading tunnel, the air is damp. On
 the wall there is an inscription.
 ~
 0 AD 3
-D0
-~
-~
-0 0 4156
-D2
-~
-~
-0 0 4164
 E
 inscription~
 It says:
@@ -2733,6 +1536,14 @@ dragon breathed poison gas; we are also going to die soon.
 
        Trather and Oralane
 ~
+D0
+~
+~
+0 0 4156
+D2
+~
+~
+0 0 4164
 S
 #4161
 The wet tunnel~
@@ -2931,164 +1742,1388 @@ D3
 ~
 0 0 4170
 S
+#3900
+West trail around Midgaard~
+You are on a dusty trail following the outside wall of Midgaard.
+To the east the wall towers over you and to the west you see the
+forest of Haon-Dor. The trail leads north and south along the wall. 
+~
+0 0 2
+D0
+The dusty trail winds north closely to the wall.
+~
+~
+0 -1 3901
+D2
+The dusty trail leads to outside the west gate of Midgaard.
+~
+~
+0 -1 3052
+S
+#3901
+West trail around Midgaard~
+You are on a dusty trail following the outside wall of Midgaard.
+To the east the wall towers over you and to the west you see the
+forest of Haon-Dor. The trail leads north and south along the wall. 
+~
+0 0 2
+D0
+To the north you notice the path makes a turn, following the City wall. 
+~
+~
+0 -1 3902
+D2
+The dusty trail continues towards the south.
+~
+~
+0 -1 3900
+S
+#3902
+Northwest corner of dusty trail.~
+You are standing outside the northwestern corner of the city wall.
+The trail leads east following the north wall and south towards the gate.  
+~
+0 0 2
+D1
+The dusty trail winds close up to the north wall of Midgaard.
+~
+~
+0 -1 3903
+D2
+The dusty trail leads south towards the gate.
+~
+~
+0 -1 3901
+S
+#3903
+Dusty trail along north wall.~
+You are walking on the trail following the outside of Midgaard's
+northern wall.  
+~
+0 0 2
+D1
+The dusty trail is winding along the north wall of Midgaard.
+~
+~
+0 -1 3904
+D3
+The dusty trail turns left around the corner of the wall, behind it Haon-Dor. 
+~
+~
+0 -1 3902
+S
+#3904
+The long dusty trail following the north wall.~
+You are just outside the northern gate of Midgaard.  You can continue along
+the trail to the east or west, head onwards to the plains of the north, or
+enter Midgaard to the south.  You can just barely make out the buildings of
+Midgaard from here, the Temple of Midgaard looks impressive even from this
+distance.  
+~
+0 0 2
+D0
+A small path extends into the plains.
+~
+~
+0 -1 300
+D1
+The dusty trail is winding along the north wall of Midgaard. 
+~
+~
+0 -1 3905
+D2
+You see the south gate of Midgaard.
+~
+~
+0 -1 3268
+D3
+The dusty trail is winding along the north wall of Midgaard.
+~
+~
+0 -1 3903
+S
+#3905
+Dusty trail along north wall.~
+You are walking on the trail following the outside of Midgaard's
+northern wall.  
+~
+0 0 2
+D1
+The dusty trail turns right around the corner of the wall. 
+You notice some mountains in the distance.
+~
+~
+0 -1 3906
+D3
+The dusty trail is winding along the north wall of Midgaard.
+~
+~
+0 -1 3904
+S
+#3906
+Northeast corner of dusty trail.~
+You are standing outside the northeastern corner of the city wall.
+The trail leads west following the north wall and south towards the gate.  
+~
+0 0 2
+D2
+The dusty trail leads south towards the gate.
+~
+~
+0 -1 3907
+D3
+The dusty trail winds close up to the north wall of Midgaard.
+~
+~
+0 -1 3905
+S
+#3907
+East trail around Midgaard~
+You are on a dusty trail following the outside wall of Midgaard.
+To the west the wall towers over you and far to the east you see
+some mountains. The trail leads north and south along the wall. 
+~
+0 0 2
+D0
+To the north you notice the path makes a turn, following the City wall. 
+~
+~
+0 -1 3906
+D2
+The dusty trail continues towards the south.
+~
+~
+0 -1 3908
+S
+#3908
+East trail around Midgaard~
+You are on a dusty trail following the outside wall of Midgaard.
+To the west the wall towers over you and far to the east you see
+some mountains. The trail leads north and south along the wall. 
+~
+0 0 2
+D0
+The dusty trail winds north closely to the wall.
+~
+~
+0 -1 3907
+D2
+The dusty trail leads to outside the east gate of Midgaard.
+~
+~
+0 -1 3053
+S
+#4000
+The hills~
+You are on a small bewildered path winding its way between the hills in
+lack of better things to do. To the south you have a splendid view over the
+flat, vast, desolate plains. To the north the hills grow steadily darker and
+foreboding. This is the cause of no sunset, it is rather the power of evil
+penetrating these quiet hills. Glancing around you notice only a single bird.
+The mountains of the dwarven kingdom rise up to your east, you can barely
+make out the queen's mines from here.
+~
+0 C 4
+D0
+~
+~
+0 0 4001
+D1
+You see the mountains of the dwarven kingdom. 
+~
+~
+0 0 6562
+D2
+~
+~
+0 0 3500
+S
+#4001
+The hills~
+You are surrounded by dark and sinister hills. Although they seemed fairly
+small from a distance you now get the feeling that they're closing in on you,
+towering over you, overwhelming you ...  The small path seems to have second
+thoughts about these hills because it starts winding unnecessarily, turning
+several times around itself.  To the south the hills have a lighter hue of
+dark. To the north however, the hills have become nightblack holes in the
+distant mountains.
+~
+0 C 4
+D0
+~
+~
+0 0 4002
+D2
+~
+~
+0 0 4000
+S
+#4002
+End of the path~
+At this point the path has had enough. With a terrified shudder it cowers
+to the ground, only staying here because you're standing on it. with a slight
+feeling of unease you look around noticing only a few bushes and a large sign
+carved into the mountain.  You feel you can hear the cry of help from a
+thousand silent voices all coming from an even darker hole in the mountain to
+the north marking the entrance to a cave (or a grave :-).
+~
+0 C 4
+E
+sign~
+The sign says:
+
+        /---------------------\
+        | The Mines of Moria! |
+        |                     |
+        | Four levels.        |
+        |                     |
+        | Watch for mages!    |
+        |                     |
+        \---------------------/
+                 | |
+                 | |
+                 | |
+                 | |
+                 | |
+~
+E
+bushes~
+Small crippled bushes desperately trying to grow south.
+~
+D0
+~
+~
+0 0 4010
+D2
+~
+~
+0 0 4001
+S
+#4010
+The cave~
+You are in a large cave. The ceiling is lost somewhere above the reach of
+your light. The floor, however, is highly illuminated, your light flickering
+over several tombstones. Only one is whole, the rest have been shattered by
+some savage blow. The remaining tombstone looks disturbingly new...
+A small breeze of fresh air enters from the south (probably lost too). Take a
+good breath, it may be your last mouthful of air in a long, long time that
+others haven't breathed before you.
+To the north a small tunnel continues into the mountain.
+~
+0 AD 2
+E
+tombstone~
+The stone is inscribed with the unfortunate player's famous last words:
+
+  "What are you worrying about, it is just a small harmless snake"
+~
+D0
+~
+~
+0 0 4011
+D2
+~
+~
+0 0 4002
+S
+#4011
+The tunnel~
+You squeeze your way through a small, narrow tunnel. The sharp-edged rocks
+protruding from the walls threaten to scratch and cut you. 
+To the south you sense a freshness in the air which is rather unusual in these
+damp, stuffy tunnels. To the north the tunnel continues.
+~
+0 AD 3
+D0
+~
+~
+0 0 4014
+D2
+~
+~
+0 0 4010
+S
+#4012
+The tunnel~
+You are in a part of the tunnel that looks uncannily like the rest except
+that it goes in a east-north direction. To the north the tunnel widens into
+a cave.
+~
+0 AD 3
+D0
+~
+~
+0 0 4016
+D1
+~
+~
+0 0 4013
+S
+#4013
+The tunnel~
+This tunnel, leading east-west, seems seldom used.  A thick layer of dust
+covers the floor, making the air stuffy and dry. 
+~
+0 AD 3
+D1
+~
+~
+0 0 4014
+D3
+~
+~
+0 0 4012
+S
+#4014
+The tunnel~
+You are walking in a narrow tunnel. The walls are only roughly shaped,
+sharp rocks protruding everywhere, even from the floor making you stumble in
+the flickering light. To the south the tunnel narrows even more making it
+almost impossible to pass. To the north it slowly widens into a cave. There
+is a branch of the tunnel going west.
+~
+0 AD 3
+D0
+~
+~
+0 0 4018
+D1
+~
+~
+0 0 4015
+D2
+~
+~
+0 0 4011
+D3
+~
+~
+0 0 4013
+S
+#4015
+The tunnel~
+You are in a corner tunnel leading west and north.
+~
+0 AD 3
+D0
+~
+~
+0 0 4019
+D3
+~
+~
+0 0 4014
+S
+#4016
+The large cave~
+You are in a large cave, the cave continues east and west, to the south
+you notice a small tunnel.
+~
+0 AD 2
+D1
+~
+~
+0 0 4017
+D2
+~
+~
+0 0 4012
+D3
+~
+~
+0 0 4023
+S
+#4017
+The large cave~
+You are in the east end of the large cave.
+~
+0 AD 2
+D3
+~
+~
+0 0 4016
+S
+#4018
+The cave~
+You are in the south end of a cave, to the south you see a tunnel. You
+notice a large pile of bones in the corner.
+~
+0 AD 2
+E
+pile bones~
+Some of the bones are human!
+~
+D0
+~
+~
+0 0 4025
+D2
+~
+~
+0 0 4014
+S
+#4019
+The tunnel~
+You are in a north-south leading tunnel.
+~
+0 AD 3
+D0
+~
+~
+0 0 4026
+D2
+~
+~
+0 0 4015
+S
+#4020
+The hole~
+You are by a hole in the floor, you can leave down, or north.
+~
+0 ACD 3
+D0
+~
+~
+0 0 4027
+D5
+~
+~
+0 0 4064
+S
+#4021
+The hole~
+A hole in the floor leads down here.
+~
+0 ACD 3
+D1
+~
+~
+0 0 4022
+D5
+~
+~
+0 0 4115
+S
+#4022
+The damp tunnel~
+You are in a damp tunnel.  Your clothes feel wet.  The tunnel continues
+to the north; to the west you see a hole in the floor; and to the east
+there is a large cave.
+~
+0 AD 3
+D0
+~
+~
+0 0 4023
+D1
+~
+~
+0 0 4024
+D3
+~
+~
+0 0 4021
+S
+#4023
+The large cave~
+You are in the western part of the large cave, to the south you see
+a damp tunnel.
+~
+0 AD 2
+D1
+~
+~
+0 0 4016
+D2
+~
+~
+0 0 4022
+S
+#4024
+The damp tunnel~
+You are in a corner of a damp tunnel.  You can go west or south.
+~
+0 AD 3
+D2
+~
+~
+0 0 4059
+D3
+~
+~
+0 0 4022
+S
+#4025
+The cave~
+You are in the north end of a cave.  To the east you see many tunnels.
+~
+0 AD 2
+D1
+~
+~
+0 0 4026
+D2
+~
+~
+0 0 4018
+D5
+~
+floor~
+1 -1 16000
+S
+#4026
+The many tunnels~
+You are at the intersection of many tunnels.
+~
+0 AD 3
+D0
+~
+~
+0 0 4028
+D1
+~
+~
+0 0 4027
+D2
+~
+~
+0 0 4019
+D3
+~
+~
+0 0 4025
+S
+#4027
+The tunnel~
+You are in a north-south leading tunnel, you also notice a tunnel to
+the west. From the north you sense the fresh air!
+~
+0 AD 3
+D0
+~
+~
+0 0 4029
+D2
+~
+~
+0 0 4020
+D3
+~
+~
+0 0 4026
+S
+#4028
+The smelly tunnel~
+You are in a north-south leading tunnel, you see a small light
+to the north. You notice a strange smell from the north..
+~
+0 AD 3
+D0
+~
+~
+0 0 4030
+D2
+~
+~
+0 0 4026
+S
+#4029
+The cave~
+You are in a cave that is filled with fresh air, you sense the
+wind blowing from the north. To the south you see a small tunnel
+continue into the mountain.
+~
+0 ACD 2
+D0
+~
+~
+0 0 4031
+D2
+~
+~
+0 0 4027
+S
+#4030
+The light cave~
+You are in a light cave,through a hole large above you, A small tunnel to
+the south may be the only way out to return.
+~
+0 0 2
+D2
+~
+~
+0 0 4028
+S
+#4031
+The valley~
+You are in a small valley, surrounded by hills and a mountain to 
+the south. In the mountain there is a cave.
+~
+0 0 2
+E
+cave~
+Well it doesn't look nice, but it's the only way out.
+~
+D0
+~
+~
+0 0 4032
+D2
+~
+~
+0 0 4029
+S
+#4032
+The foothills~
+You are on a winding path that leads through the foothills on the
+other side of the mountain.  The path continues north.
+~
+0 0 2
+D0
+~
+~
+0 0 4033
+D2
+~
+~
+0 0 4031
+S
+#4033
+The intersection in the foothills~
+The small path you are following splits here.  The path continues
+north and south or you can follow a trail east into the mountains.
+~
+0 0 2
+D0
+~
+~
+0 0 4034
+D1
+~
+~
+0 0 4037
+D2
+~
+~
+0 0 4032
+S
+#4034
+The grassy area of the foothills~
+The grass here is unusually high.  You notice several areas where
+someone or something large has crushed spots of the grass down.  Several very
+large rocks litter this area.  You can go north, west or south.
+~
+0 0 2
+D0
+~
+~
+0 0 4035
+D2
+~
+~
+0 0 4033
+D3
+~
+~
+0 0 4042
+S
+#4035
+The foothills end~
+At this point you are leaving the foothills.  You see a plains area
+to the north of here.  You can spot a small city in the distance from
+here.
+~
+0 0 2
+D0
+~
+~
+0 0 4036
+D2
+~
+~
+0 0 4034
+S
+#4036
+The plains~
+To the west see the border of the Shienar Kingdom, you may follow this 
+path to reach the kingdom. Jagged mountain far to the north.
+~
+0 0 2
+D0
+~
+The path to the Craggy Tor
+~
+0 0 30800
+D2
+~
+~
+0 0 4035
+D3
+~
+In the Borderlands
+~
+0 0 23114
+S
+#4037
+The foothills path~
+Exits are east and west.
+~
+0 0 2
+D1
+~
+~
+0 0 4038
+D3
+~
+~
+0 0 4033
+S
+#4038
+Base of the mountain~
+Exits are east and west.
+~
+0 0 2
+D1
+~
+~
+0 0 4039
+D3
+~
+~
+0 0 4037
+S
+#4039
+A trail up the mountain~
+Exits are east and west.
+~
+0 0 2
+D1
+~
+~
+0 0 4040
+D3
+~
+~
+0 0 4038
+S
+#4040
+The mountain top.~
+Exits are north, east, and west.
+~
+0 0 2
+D0
+~
+~
+0 0 4041
+D1
+It doesn't look safe this way.
+~
+~
+0 0 7114
+D3
+~
+~
+0 0 4039
+S
+#4041
+The lion's den~
+Exits are south.
+~
+0 0 2
+D2
+~
+~
+0 0 4040
+S
+#4042
+The level foothills~
+Exits are east and west.
+~
+0 0 2
+D1
+~
+~
+0 0 4034
+D3
+~
+~
+0 0 4043
+S
+#4043
+The cave entrance~
+Exits are east and west.
+~
+0 0 2
+D1
+~
+~
+0 0 4042
+D3
+~
+~
+0 0 4044
+S
+#4044
+The hill giant cave~
+Exits are east.
+~
+0 0 2
+D1
+~
+~
+0 0 4043
+S
+#4050
+The tunnel~
+The tunnel turns here, continuing to the east and south.
+~
+0 AD 3
+D1
+~
+~
+0 0 4051
+D2
+~
+~
+0 0 4053
+S
+#4051
+The tunnel~
+You are in a narrow east-west tunnel.
+~
+0 AD 3
+D1
+~
+~
+0 0 4052
+D3
+~
+~
+0 0 4050
+S
+#4052
+The tunnel~
+You are at a turn, the tunnel continues south and west.
+~
+0 AD 3
+D2
+~
+~
+0 0 4100
+D3
+~
+~
+0 0 4051
+S
+#4053
+The tunnel~
+You are at a turn, the tunnel continues north and east.
+~
+0 AD 3
+D0
+~
+~
+0 0 4050
+D1
+~
+~
+0 0 4054
+S
+#4054
+The light cave~
+You are in a cave, to south from you there is a large fire that lights
+the entire cave, to the east and west tunnels leads off.
+~
+0 D 2
+D1
+~
+~
+0 0 4055
+D2
+~
+~
+0 0 4056
+D3
+~
+~
+0 0 4053
+S
+#4055
+The maze~
+You are in a maze of small damp tunnels.  The only exit is west.
+~
+0 AD 3
+D3
+~
+~
+0 0 4054
+S
+#4056
+The light cave~
+You are in a light cave, a large fire in front of you lights the room.
+The cave continues to the north and south.
+~
+0 D 2
+D0
+~
+~
+0 0 4054
+D2
+~
+~
+0 0 4061
+S
+#4057
+The maze~
+You are in a maze of small damp tunnels.
+~
+0 AD 3
+D1
+~
+~
+0 0 4058
+D2
+~
+~
+0 0 4062
+S
+#4058
+The maze~
+You are in a maze of small damp tunnels.
+~
+0 AD 3
+D2
+~
+~
+0 0 4063
+D3
+~
+~
+0 0 4057
+S
+#4059
+The tunnel~
+You are in a tunnel, only exit is to the east. You sense that the
+tunnel leads slightly down.
+~
+0 ACD 3
+D0
+~
+~
+0 0 4024
+D1
+~
+~
+0 0 4060
+S
+#4060
+The tunnel~
+You are in a small tunnel, to the west the tunnel continues and 
+to the east you see some light.
+~
+0 AD 3
+D1
+~
+~
+0 0 4061
+D3
+~
+~
+0 0 4059
+S
+#4061
+The light cave~
+You are in the south end of a light cave.
+~
+0 D 2
+D0
+~
+~
+0 0 4056
+D3
+~
+~
+0 0 4060
+S
+#4062
+The maze~
+You are in a maze of small damp tunnels.
+~
+0 AD 3
+D0
+~
+~
+0 0 4057
+D1
+~
+~
+0 0 4065
+S
+#4063
+The maze~
+You are in a maze of small damp tunnels.
+~
+0 AD 3
+D0
+~
+~
+0 0 4058
+D1
+~
+~
+0 0 4064
+S
+#4064
+The tunnel~
+You are at the eastern end of a tunnel.
+~
+0 AD 3
+D3
+~
+~
+0 0 4063
+D4
+~
+~
+0 0 4020
+S
+#4065
+The maze~
+You are in a maze of small damp tunnels.
+~
+0 AD 3
+D1
+~
+~
+0 0 4066
+D3
+~
+~
+0 0 4062
+S
+#4066
+The maze~
+You are in a maze of small damp tunnels.
+~
+0 AD 3
+D1
+~
+~
+0 0 4067
+D2
+~
+~
+0 0 4069
+D3
+~
+~
+0 0 4065
+S
+#4067
+The maze~
+You are in a maze of small damp tunnels.
+~
+0 AD 3
+D3
+~
+~
+0 0 4066
+S
+#4068
+The large cave~
+You are in the northwest end of a large cave.
+~
+0 AD 2
+D1
+~
+~
+0 0 4069
+D2
+~
+~
+0 0 4070
+S
+#4069
+The large cave~
+You are in the northeast end of a large cave. To the north the
+is a small damp tunnel.
+~
+0 AD 2
+D0
+~
+~
+0 0 4066
+D2
+~
+~
+0 0 4071
+D3
+~
+~
+0 0 4068
+S
+#4070
+The large cave~
+You are in the southwest end of a large cave.
+~
+0 AD 2
+D0
+~
+~
+0 0 4068
+D1
+~
+~
+0 0 4071
+S
+#4071
+The large cave~
+You are in the southeast end of a large cave. To the east you
+notice a small tunnel.
+~
+0 AD 2
+D0
+~
+~
+0 0 4069
+D1
+~
+~
+0 0 4072
+D3
+~
+~
+0 0 4070
+S
+#4072
+The tunnel~
+You are in a narrow tunnel, which leads both to the east and the
+south. There is also an exit towards the west, where you see a large
+cave.
+~
+0 AD 3
+D1
+~
+~
+0 0 4073
+D2
+~
+~
+0 0 4074
+D3
+~
+~
+0 0 4071
+S
+#4073
+End of tunnel~
+The tunnel stops here.
+~
+0 AD 3
+D3
+~
+~
+0 0 4072
+S
+#4074
+The hole~
+You are at a small hole in the floor, you can either leave north
+or try your luck and leave down into the unknown!
+~
+0 AD 3
+D0
+~
+~
+0 0 4072
+D5
+~
+~
+0 0 4171
+S
 #0
 
-#RESETS
-M 0 4000   1 4030  1	* the huge python
-G 1 4001  10     	*   a corpse
-P 1 4002  -1 4001  1	*   some coins
-G 1 4154   9     	*   a map of the second level of Moria
-M 0 4001   2 4025  1	* the garter snake
-M 0 4001   2 4015  1	* the garter snake
-M 0 4002   3 4023  1	* the centipede
-M 0 4002   3 4017  1	* the centipede
-M 0 4002   3 4020  1	* the centipede
-M 0 4003   6 4021  1	* the kobold
-E 1 4003   8   16	*   a rusty dagger
-M 0 4003   6 4021  1	* the kobold
-E 1 3023  10   16	*   a club
-M 0 4003   6 4013  1	* the kobold
-E 1 3021  10   16	*   a small sword
-E 1 3117  10   11	*   a small wooden shield
-M 0 4003   6 4013  1	* the kobold
-E 1 3023  10   16	*   a club
-M 0 4003   6 4027  1	* the kobold
-E 1 3021  10   16	*   a small sword
-M 0 4003   6 4027  1	* the kobold
-E 1 3025   8   16	*   a hand axe
-E 1 3117  10   11	*   a small wooden shield
-M 0 4004   3 4015  1	* the orc
-E 1 3029   3   16	*   a flail
-M 0 4004   3 4028  1	* the orc
-E 1 4004   4   16	*   a bullwhip
-M 0 4004   3 4028  1	* the orc
-M 0 4005   1 4022  1	* the large orc
-E 1 4000   5    1	*   a yellow and green ring
-E 1 3022  -1   16	*   a long sword
-E 1 3114   9    9	*   a pair of chain mail gauntlets
-M 0 4057   2 4042  2	* the mountain lion
-M 0 4058   1 4044  1	* the hill giant
-E 1 4005   5   16	*   a huge club
-E 1 4006   5   12	*   some smelly furs
-M 0 4050   1 4062  1	* the warrior
-E 1 4051   3    6	*   a metal helmet
-E 1 4054   4   16	*   a war axe
-E 1 3116  10   11	*   a large metal shield
-M 0 4051   4 4070  1	* the warrior
-E 1 3027  10   16	*   a spear
-E 1 3072  20    6	*   a scale mail jerkin
-M 0 4051   4 4050  1	* the warrior
-E 1 4056   5   16	*   a two-headed flail
-E 1 3077  20   10	*   a pair of scale mail sleeves
-M 0 4051   4 4073  1	* the warrior
-E 1 4055   5   16	*   a broad sword
-E 1 3072  20    5	*   a scale mail jerkin
-M 0 4051   4 4055  1	* the warrior
-E 1 4057   5   16	*   a heavy iron mace
-E 1 3074  20    7	*   a long scale mail skirt
-M 0 4052   3 4056  1	* the hobgoblin
-E 1 3023  20   16	*   a club
-M 0 4052   3 4065  1	* the hobgoblin
-E 1 3025  20   16	*   a hand axe
-M 0 4052   3 4059  1	* the hobgoblin
-E 1 3028  29   16	*   a wooden staff
-M 0 4053   2 4058  1	* the snake
-M 0 4053   2 4068  1	* the snake
-M 0 4054   3 4060  1	* the centipede
-M 0 4054   3 4053  1	* the centipede
-M 0 4054   3 4052  1	* the centipede
-M 0 4055   2 4064  1	* the large hobgoblin
-E 1 4058   5   16	*   a falchion
-G 1 4050  15     	*   a purple potion
-M 0 4055   2 4071  1	* the large hobgoblin
-E 1 4059   5   16	*   a voulge
-G 1 4050  15     	*   a purple potion
-M 0 4056   2 4067  1	* the orc
-E 1 4004  10   16	*   a bullwhip
-E 1 3097  20   11	*   a small metal shield
-M 0 4056   2 4057  1	* the orc
-E 1 3026  20   16	*   a battle axe
-O 0 4052   8 4068	* a mushroom
-O 0 4052   8 4069	* a mushroom
-O 0 4052   8 4070	* a mushroom
-O 0 4052   8 4071	* a mushroom
-M 0 4100   1 4114  1	* the Mage
-G 1 4102   4     	*   a scroll which reads "ysafg"
-G 1 4155   9     	*   a map of the third level of Moria
-E 1 3351  -1   16	*   a standard issue dagger
-M 0 4101   1 4122  1	* the troll
-E 1 4100   2   16	*   the black demon blade
-M 0 4102   2 4111  2	* the guardian snake
-G 1 4103  10     	*   a green slime mold
-M 0 4102   2 4111  2	* the guardian snake
-G 1 4104   3     	*   a green slime mold
-M 0 4102   3 4103  1	* the guardian snake
-G 1 4103  10     	*   a green slime mold
-M 0 4103   1 4103  1	* the thief
-E 1 4053   4   16	*   a thieves dirk
-E 1 3068   8    7	*   a pair of hard leather pants
-E 1 3066   8    5	*   a hard leather jerkin
-E 1 3069   8    8	*   a pair of hard leather boots
-M 0 4104   3 4124  3	* the orc
-E 1 4057   8   16	*   a heavy iron mace
-G 1 4104  10     	*   a green slime mold
-M 0 4105   3 4108  3	* a centipede
-M 0 4106   2 4113  2	* the Warrior
-E 1 4105   5   16	*   an iron-shod staff
-E 1 4101   3    9	*   swordsman's gloves
-M 0 4107   1 4119  1	* the green kobold
-E 1 3023  10   16	*   a club
-G 1 4104  10     	*   a green slime mold
-M 0 4150   2 4155  1	* the blue bat
-M 0 4150   2 4170  1	* the blue bat
-M 0 4151   2 4157  1	* the red bat
-M 0 4151   2 4159  1	* the red bat
-M 0 4152   2 4159  1	* the green bat
-M 0 4152   2 4155  1	* the green bat
-M 0 4153   2 4164  1	* the white bat
-M 0 4153   2 4170  1	* the white bat
-M 0 4154   2 4164  1	* the black bat
-M 0 4154   2 4157  1	* the black bat
-M 0 4155   1 4158  1	* the thief
-E 1 4152   3   16	*   a light silver dagger
-M 0 4156   1 4151  1	* the troll
-E 1 4105   5   16	*   an iron-shod staff
-M 0 4157   2 4167  2	* the Mage
-E 1 3351  -1   16	*   a standard issue dagger
-M 0 4157   2 4167  2	* the Mage
-E 1 4151   3   17	*   a heavy oak staff
-E 1 3351  -1   16	*   a standard issue dagger
-M 0 4158   2 4162  1	* the snake
-M 0 4158   2 4169  1	* the snake
-M 0 4159   2 4168  1	* the small troll
-M 0 4159   2 4153  1	* the small troll
-M 0 4160   2 4160  1	* the orc
-E 1 3045  20    5	*   a scale mail jacket
-E 1 4055   9   16	*   a broad sword
-G 1 4150  -1     	*   a black potion
-M 0 4160   2 4161  1	* the orc
-E 1 3110  20    5	*   a chain mail shirt
-E 1 3026  20   16	*   a battle axe
-D 0 4025  5 	1
+
+
+#SPECIALS
+M 4100 spec_cast_mage	* the Mage
+M 4102 spec_poison	* the guardian snake
+M 4150 spec_breath_lightning	* the blue bat
+M 4151 spec_breath_fire	* the red bat
+M 4152 spec_breath_gas	* the green bat
+M 4153 spec_breath_frost	* the white bat
+M 4154 spec_breath_acid	* the black bat
+M 4155 spec_thief	* the thief
+M 4157 spec_cast_mage	* the Mage
+M 4158 spec_poison	* the snake
+M 4000 spec_poison	* the huge python
+M 4001 spec_poison	* the garter snake
+M 4053 spec_poison	* the snake
 S
+
+
+
+#RESETS
+D 0 4025 5 1	* The cave: door to the down: closed
+M 0 4102 3 4103 1	* the guardian snake (The long tunnel)
+G 0 4103 0		*	a green slime mold
+M 0 4103 1 4103 1	* the thief (The long tunnel)
+E 0 4053 0 16		*	a thieves dirk: wielded
+E 0 3068 0 7		*	a pair of hard leather pants: on the legs
+E 0 3066 0 5		*	a hard leather jerkin: on the body
+E 0 3069 0 8		*	a pair of hard leather boots: on the feet
+M 0 4105 3 4108 3	* a centipede (The golden cave)
+M 0 4102 2 4111 2	* the guardian snake (The tunnel)
+G 0 4103 0		*	a green slime mold
+M 0 4102 2 4111 2	* the guardian snake (The tunnel)
+G 0 4104 0		*	a green slime mold
+M 0 4106 2 4113 2	* the Warrior (The passage)
+E 0 4105 0 16		*	an iron-shod staff: wielded
+E 0 4101 0 9		*	swordsman's gloves: on the hands
+M 0 4100 1 4114 1	* the Mage (The golden cave)
+G 0 4102 0		*	a scroll which reads "ysafg"
+G 0 4155 0		*	a map of the third level of Moria
+E 0 3351 0 16		*	a standard issue dagger: wielded
+M 0 4107 1 4119 1	* the green kobold (The cave)
+E 0 3023 0 16		*	a club: wielded
+G 0 4104 0		*	a green slime mold
+M 0 4101 1 4122 1	* the troll (The secret chamber)
+E 0 4100 0 16		*	the black demon blade: wielded
+M 0 4104 3 4124 3	* the orc (The cave)
+E 0 4057 0 16		*	a heavy iron mace: wielded
+G 0 4104 0		*	a green slime mold
+M 0 4156 1 4151 1	* the troll (The small passage)
+E 0 4105 0 16		*	an iron-shod staff: wielded
+M 0 4159 2 4153 1	* the small troll (The large tunnel)
+M 0 4150 2 4155 1	* the blue bat (The large tunnel)
+M 0 4152 2 4155 1	* the green bat (The large tunnel)
+M 0 4151 2 4157 1	* the red bat (The wet tunnel)
+M 0 4154 2 4157 1	* the black bat (The wet tunnel)
+M 0 4155 1 4158 1	* the thief (The small maze)
+E 0 4152 0 16		*	a light silver dagger: wielded
+M 0 4151 2 4159 1	* the red bat (The small maze)
+M 0 4152 2 4159 1	* the green bat (The small maze)
+M 0 4160 2 4160 1	* the orc (In the tunnel at the inscription)
+E 0 3045 0 5		*	a scale mail jacket: on the body
+E 0 4055 0 16		*	a broad sword: wielded
+G 0 4150 0		*	a black potion
+M 0 4160 2 4161 1	* the orc (The wet tunnel)
+E 0 3110 0 5		*	a chain mail shirt: on the body
+E 0 3026 0 16		*	a battle axe: wielded
+M 0 4158 2 4162 1	* the snake (The small maze)
+M 0 4153 2 4164 1	* the white bat (The entrance to the small maze)
+M 0 4154 2 4164 1	* the black bat (The entrance to the small maze)
+M 0 4157 2 4167 2	* the Mage (The wet maze)
+E 0 3351 0 16		*	a standard issue dagger: wielded
+M 0 4157 2 4167 2	* the Mage (The wet maze)
+E 0 4151 0 17		*	a heavy oak staff: held in the hands
+E 0 3351 0 16		*	a standard issue dagger: wielded
+M 0 4159 2 4168 1	* the small troll (The end of the tunnel)
+M 0 4158 2 4169 1	* the snake (In the water)
+M 0 4150 2 4170 1	* the blue bat (In the water)
+M 0 4153 2 4170 1	* the white bat (In the water)
+M 0 4003 6 4013 1	* the kobold (The tunnel)
+E 0 3021 0 16		*	a small sword: wielded
+E 0 3117 0 11		*	a small wooden shield: as a shield
+M 0 4003 6 4013 1	* the kobold (The tunnel)
+E 0 3023 0 16		*	a club: wielded
+M 0 4001 2 4015 1	* the garter snake (The tunnel)
+M 0 4004 3 4015 1	* the orc (The tunnel)
+E 0 3029 0 16		*	a flail: wielded
+M 0 4002 3 4017 1	* the centipede (The large cave)
+M 0 4002 3 4020 1	* the centipede (The hole)
+M 0 4003 6 4021 1	* the kobold (The hole)
+E 0 4003 0 16		*	a rusty dagger: wielded
+M 0 4003 6 4021 1	* the kobold (The hole)
+E 0 3023 0 16		*	a club: wielded
+M 0 4005 1 4022 1	* the large orc (The damp tunnel)
+E 0 4000 0 1		*	a yellow and green ring: on the left finger
+E 0 3022 0 16		*	a long sword: wielded
+E 0 3114 0 9		*	a pair of chain mail gauntlets: on the hands
+M 0 4002 3 4023 1	* the centipede (The large cave)
+M 0 4001 2 4025 1	* the garter snake (The cave)
+M 0 4003 6 4027 1	* the kobold (The tunnel)
+E 0 3021 0 16		*	a small sword: wielded
+M 0 4003 6 4027 1	* the kobold (The tunnel)
+E 0 3025 0 16		*	a hand axe: wielded
+E 0 3117 0 11		*	a small wooden shield: as a shield
+M 0 4004 3 4028 1	* the orc (The smelly tunnel)
+E 0 4004 0 16		*	a bullwhip: wielded
+M 0 4004 3 4028 1	* the orc (The smelly tunnel)
+M 0 4000 1 4030 1	* the huge python (The light cave)
+G 0 4001 0		*	a corpse
+P 0 4002 -1 4001 1	* a corpse: some coins
+G 0 4154 0		*	a map of the second level of Moria
+M 0 4057 2 4042 2	* the mountain lion (The level foothills)
+M 0 4058 1 4044 1	* the hill giant (The hill giant cave)
+E 0 4005 0 16		*	a huge club: wielded
+E 0 4006 0 12		*	some smelly furs: about the shoulders
+M 0 4051 4 4050 1	* the warrior (The tunnel)
+E 0 4056 0 16		*	a two-headed flail: wielded
+E 0 3077 0 10		*	a pair of scale mail sleeves: on the arms
+M 0 4054 3 4052 1	* the centipede (The tunnel)
+M 0 4054 3 4053 1	* the centipede (The tunnel)
+M 0 4051 4 4055 1	* the warrior (The maze)
+E 0 4057 0 16		*	a heavy iron mace: wielded
+E 0 3074 0 7		*	a long scale mail skirt: on the legs
+M 0 4052 3 4056 1	* the hobgoblin (The light cave)
+E 0 3023 0 16		*	a club: wielded
+M 0 4056 2 4057 1	* the orc (The maze)
+E 0 3026 0 16		*	a battle axe: wielded
+M 0 4053 2 4058 1	* the snake (The maze)
+M 0 4052 3 4059 1	* the hobgoblin (The tunnel)
+E 0 3028 0 16		*	a wooden staff: wielded
+M 0 4054 3 4060 1	* the centipede (The tunnel)
+M 0 4050 1 4062 1	* the warrior (The maze)
+E 0 4051 0 6		*	a metal helmet: over the head
+E 0 4054 0 16		*	a war axe: wielded
+E 0 3116 0 11		*	a large metal shield: as a shield
+M 0 4055 2 4064 1	* the large hobgoblin (The tunnel)
+E 0 4058 0 16		*	a falchion: wielded
+G 0 4050 0		*	a purple potion
+M 0 4052 3 4065 1	* the hobgoblin (The maze)
+E 0 3025 0 16		*	a hand axe: wielded
+M 0 4056 2 4067 1	* the orc (The maze)
+E 0 4004 0 16		*	a bullwhip: wielded
+E 0 3097 0 11		*	a small metal shield: as a shield
+M 0 4053 2 4068 1	* the snake (The large cave)
+O 0 4052 0 4068		* a mushroom (The large cave)
+O 0 4052 0 4069		* a mushroom (The large cave)
+M 0 4051 4 4070 1	* the warrior (The large cave)
+E 0 3027 0 16		*	a spear: wielded
+E 0 3072 0 6		*	a scale mail jerkin: over the head
+O 0 4052 0 4070		* a mushroom (The large cave)
+M 0 4055 2 4071 1	* the large hobgoblin (The large cave)
+E 0 4059 0 16		*	a voulge: wielded
+G 0 4050 0		*	a purple potion
+O 0 4052 0 4071		* a mushroom (The large cave)
+M 0 4051 4 4073 1	* the warrior (End of tunnel)
+E 0 4055 0 16		*	a broad sword: wielded
+E 0 3072 0 5		*	a scale mail jerkin: on the body
+S
+
+
 
 #SHOPS
 0
 
-#SPECIALS
-M 4000 spec_poison         	* the huge python
-M 4001 spec_poison         	* the garter snake
-M 4053 spec_poison         	* the snake
-M 4100 spec_cast_mage      	* the Mage
-M 4102 spec_poison         	* the guardian snake
-M 4150 spec_breath_lightning	* the blue bat
-M 4151 spec_breath_fire    	* the red bat
-M 4152 spec_breath_gas     	* the green bat
-M 4153 spec_breath_frost   	* the white bat
-M 4154 spec_breath_acid    	* the black bat
-M 4155 spec_thief          	* the thief
-M 4157 spec_cast_mage      	* the Mage
-M 4158 spec_poison         	* the snake
+
+
+#OLIMITS
 S
+
+
+
+#MOBPROGS
+#0
+
+#PRACTICERS
+S
+
+
+
+#OMPROGS
+S
+
+
 
 #$

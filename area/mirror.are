@@ -2704,26 +2704,26 @@ rainbow then back to its normal state.  In the middle of this room is
 a ladder standing vertical.
 ~
 0 0 3
-D4
-You see stars.
-~
-~
-0 0 5376
 D2
 You see a fuzzy portal of some sort and a little green.
 ~
 ~
 0 0 5368
-D3
-You see stars.
-~
-~
-0 0 5378
 D1
 You see stars.
 ~
 ~
 0 0 5378
+D3
+You see stars.
+~
+~
+0 0 5378
+D4
+You see stars.
+~
+~
+0 0 5376
 D5
 You see stars.
 ~
@@ -2739,6 +2739,16 @@ either.  Occasionally, the starry 'sky' fades into a fuzzy, yet bright,
 rainbow then back to its normal state.
 ~
 0 0 3
+D2
+You see stars.
+~
+~
+0 0 5377
+D5
+You see stars.
+~
+~
+0 0 5375
 D0
 You see stars.
 ~
@@ -2759,16 +2769,6 @@ You see stars.
 ~
 ~
 0 0 5376
-D5
-You see stars.
-~
-~
-0 0 5375
-D2
-You see stars.
-~
-~
-0 0 5377
 S
 #5377
 The Void~
@@ -2779,36 +2779,36 @@ either.  Occasionally, the starry 'sky' fades into a fuzzy, yet bright,
 rainbow then back to its normal state.
 ~
 0 0 3
-D1
-You see stars.
-~
-~
-0 0 5377
-D3
-You see stars.
-~
-~
-0 0 5377
-D2
-You see stars.
-~
-~
-0 0 5376
-D4
-You see stars.
-~
-~
-0 0 5378
-D5
-You see stars.
-~
-~
-0 0 5378
 D0
 You see stars.
 ~
 ~
 0 0 5376
+D5
+You see stars.
+~
+~
+0 0 5378
+D2
+You see stars.
+~
+~
+0 0 5376
+D3
+You see stars.
+~
+~
+0 0 5377
+D4
+You see stars.
+~
+~
+0 0 5378
+D1
+You see stars.
+~
+~
+0 0 5377
 S
 #5378
 The Void~
@@ -2820,11 +2820,6 @@ rainbow then back to its normal state.  In the middle of this room is
 a ladder standing vertical.
 ~
 0 0 3
-D4
-You see stars.
-~
-~
-0 0 5377
 D3
 You see stars.
 ~
@@ -2840,6 +2835,11 @@ You see stars.
 ~
 ~
 0 0 5375
+D4
+You see stars.
+~
+~
+0 0 5377
 D5
 You see stars.
 ~

@@ -1,7 +1,6 @@
 #HELPS
-
 -1 MUDDY~
-		Muddy is based on Anatolia MUD -- see help anatolia.
+Muddy is based on Anatolia MUD -- see help anatolia.
 		Original idea, concept and coding:
 	Farmer Joe                    [Someone] (fjoe@@iclub.nsu.ru)
 	Alexander Morokhovets            [Eros] (efdi@@iclub.nsu.ru)
@@ -22,7 +21,6 @@ Developed at: DIKU -- The Department of Computer Science
 
 
 ~
-
 -1 GOLD SILVER MONEY~
 Midgaard's economy is based on gold and silver coinage (and the lowly copper,
 which you as an adventurer are far too proud to carry).  Gold coins are worth
@@ -32,14 +30,12 @@ from the Midgaard jeweller, he charges a mere 10% more than they are worth.
 10 gems weigh one pound, and they can be worth more than 100 gold pieces for
 the highest quality stones.
 ~
-
 0 BRIEF COMPACT~
 Brief and compact help set your display options for the game. Typing brief
 toggles on and off the showing of room descriptions when you move around
 (considerably reducing the text to be processed), and typing compact 
 removes the extra blank line before your prompt.
 ~
-
 -1 DEAF~
 The deaf toggle turns off incoming tells, helpfull if you are being bombarded
 by messages from other players.  You can still use reply (see 'help reply') to
@@ -48,8 +44,6 @@ cannot reply to a deaf person unless you or they are a diety (it's mostly
 useful for sending a quick "I'm being spammed so I went deaf" message to
 a person).
 ~
-
-
 0 PROMPT~
 Syntax: prompt
 Syntax: prompt all
@@ -111,7 +105,6 @@ ____________________________________________________________________________
      Also help on: DAMAGE DEATH EXPERIENCE NEWS TICK WIZLIST QUESTS
 
 ~
-
 0 DEATH~
 When your character dies, you are reincarnated back at the Altar of the Temple
 of Midgaard.  Your corpse is left behind in the room where you were killed,
@@ -129,9 +122,6 @@ After each three deaths your constitution decreases by one.
 Corpses decay after time, but the objects inside corpses fall to the ground.
 
 ~
-
-
-
 0 EXPERIENCE LEVEL XP~
 Your character advances in power by gaining experience.  You need a set 
 amount of experience points for each level based on your race and class.
@@ -155,8 +145,6 @@ lately; and some random variation.
     A group which consist of three player will reduce your experience points
 50 % of real exp which got if alone. 
 ~
-
-
 0 COLOUR COLOR ANSI~
 Syntax: color              Toggles color mode on/off
 
@@ -186,17 +174,12 @@ Color is courtesy of Lope from Loping Through The MUD.
 Direct questions to ant@@solace.mh.se or leave at note at Loping
 Through The MUD, current site lttm.westside.net port 23 or 9000
 ~
-
-
 0 PET PETS~
 You can buy pets in the pet shop.  You may own only one pet at a time, after 
 the old one dies you may purchase a replacement.
 
 New pets are planned for a shop in New Thalos.
 ~
-
-
-
 0 TICK~
 Many of the game actions are based upon interval timers, including combat,
 most autonomous monster actions, hp/mana/move regeneration, spell duration,
@@ -209,13 +192,11 @@ Area resetting happens roughly every 106 sec. if no one is in the area;
 less often (15 minutes) if some one is.  Also note that objects lying on
 the ground will not be regenerated if anyone is in the area when it resets.
 ~
-
 0 !~
 Syntax: !
 
 ! repeats the last command you typed.
 ~
-
 0 NORTH SOUTH EAST WEST UP DOWN~
 Syntax: north
 Syntax: south
@@ -248,7 +229,6 @@ UNACCEPTABLE:
 
 If your name fits above restrictions, type Y. Otherwise choose another name. 
 Last decision depends upon Immortals of Realms of Muddy. Do you accept? ~
-
 0 CAST~
 Syntax: cast <spell> <target>
 
@@ -269,7 +249,6 @@ saving throw successfully.
 
 See also the help sections for individual spells.
 ~
-
 0 EXITS~
 Syntax: exits
 
@@ -277,7 +256,6 @@ Tells you the visible exits of the room you are in.  Not all exits are visible.
 You can use the 'bump' technique to find hidden exits.  (Try to walk in a
 certain direction and see what you bump into).
 ~
-
 0 DROP GET GIVE PUT TAKE~
 Syntax: drop <object>
 Syntax: drop <amount> coins
@@ -299,7 +277,6 @@ PUT puts an object into a container.
 DROP, GET and PUT understand the object names 'ALL' for all objects and
 'ALL.object' for all objects with the same name.
 ~
-
 0 EQUIPMENT INVENTORY~
 Syntax: equipment
 Syntax: inventory
@@ -307,7 +284,6 @@ Syntax: inventory
 EQUIPMENT lists your equipment (armor, weapons, and held items).
 INVENTORY lists your inventory.
 ~
-
 0 COMPARE~
 Syntax: compare <object-1> <object-2>
 Syntax: compare <object>
@@ -321,7 +297,6 @@ you are currently wearing or wielding of the same type.
  
 COMPARE doesn't consider any special modifiers of the objects.
 ~
-
 0 FLEE~
 Syntax: flee
 Syntax: rescue   <character>
@@ -345,7 +320,6 @@ If you are Samurai, after level 10 you can NOT FLEE,so be careful.(You may
 flee if victim's level is much higher than your level (level difference is
 6). But you won't wimp out.)
 ~
-
 0 EXAMINE LOOK~
 Syntax: look
 Syntax: look    <object>
@@ -361,7 +335,6 @@ LOOK looks at something and sees what you can see.
 
 EXAMINE is short for 'LOOK container' followed by 'LOOK IN container'.
 ~
-
 0 ORDER~
 Syntax: order <character> command
 Syntax: order all command
@@ -375,7 +348,6 @@ Most charmed creatures lose their aggresive nature (while charmed).
 
 If your charmed creature engages in combat, that will break the charm.
 ~
-
 0 REST SLEEP STAND WAKE~
 Syntax: rest
 Syntax: sleep
@@ -390,7 +362,6 @@ you won't hear many things happen.
 Use STAND or WAKE to come back to a standing position.  You can
 also WAKE other sleeping characters.
 ~
-
 0 GTELL ; REPLY SAY TELL~
 Syntax: gtell <message>
 Syntax: say   <message>
@@ -409,7 +380,6 @@ REPLY sends a message to the last player who sent you a TELL.  REPLY will work
 even if you can't see the player, and without revealing their identity.  This
 is handy for talking to invisible or switched immortal players.
 ~
-
 -1 NOTE NOTES CHANGES NEWS PENALTY IDEA UNREAD~
 The notes on Muddy replace the bulletin boards and mail systems found
 on many other mud.  The following options are usable:
@@ -448,7 +418,6 @@ YELL sends a message to all awake players within your area.
 
 Type a channel name by itself to turn it off.
 ~
-
 0 EMOTE PMOTE POSE SOCIAL~
 Syntax: emote <action>
 Syntax: pose
@@ -463,14 +432,12 @@ as bonks Alander by everyone else).
 
 POSE produces a random message depending on your class and level.
 ~
-
 52 SMOTE~
 Syntax: smote <action>
 
 Smote works exactly like pmote, except you must place your name somewhere in
 the string, and it will show that string to everyone in the room.
 ~
-
 0 HOLD REMOVE WEAR WIELD~
 Syntax: hold   <object>
 Syntax: remove <object>
@@ -494,8 +461,6 @@ to use it properly.
 REMOVE will take any object from your equipment and put it back into your
 inventory.
 ~
-
-
 0 BUG TYPO~
 Syntax: bug <message>
 Syntax: typo <message>
@@ -503,13 +468,11 @@ Syntax: typo <message>
 These commands will take your message and record it into a file as feedback
 to the mud implementors.
 ~
-
 0 CREDITS~
 Syntax: credits
 
 This command shows the list of the original Diku Mud implementors.
 ~
-
 0 AREAS COMMANDS REPORT SCORE TIME~
 Syntax: areas
 Syntax: commands
@@ -533,7 +496,6 @@ and the current local time for the host computer.
 
 WEATHER shows the current game weather.
 ~
-
 -1 WHO~
 Syntax: who
 Syntax: who <race>
@@ -559,14 +521,12 @@ who entropy pk  lists all characters in entropy clan, (if you are a mamber)
 
 Races may be abbreviated.
 ~
-
 -1 WHOIS~
 Syntax: whois <name>
 
 The whois command identifies any user who matches the name given. For
 example, 'whois a' shows all characters whose name begins with A.
 ~
-
 0 WHERE~
 Syntax: where
 Syntax: where <character>
@@ -579,7 +539,6 @@ WHERE with an argument tells you the location of one character with that name
 within your area, including monsters. If pk switch is used, WHERE command 
 will only show the players near you that are in your PK range.
 ~
-
 0 HELP~
 Syntax: help
 Syntax: help <keyword>
@@ -589,7 +548,6 @@ HELP without any arguments shows a one-page command summary.
 HELP <keyword> shows a page of help on that keyword.  The keywords include
 all the commands, spells, and skills listed in the game.
 ~
-
 0 MEND~
 Syntax: cast mend <object>
 
@@ -613,7 +571,6 @@ Syntax: cast link <character>
 	You transfer all of your mana to the character that you linked.
 ~
 0 PROTECTION HEAT~
-
 Syntax: cast 'protection heat' 
 
 	This spell makes you resistive against fire attacks.
@@ -624,7 +581,6 @@ Syntax: cast 'shielding' <character>
 	The player which is affected by this spell cannot reach the true 
 source  to cast. Thus cannot cast any spell.
 ~
-
 0 PROTECTION COLD~
 Syntax: cast 'protection cold'
 
@@ -716,7 +672,6 @@ surprise attack doesn't has to be on a fully healed target.Save spell is the
 only one way to protect from this attack.
 ~
 0 'POWER WORD STUN' STUN~
-
 Syntax: cast 'power word stun' <victim>
 
 	Only powerful anti-paladins can learn the secret of this spell 
@@ -729,16 +684,15 @@ Syntax: cast 'hellfire' <victim>
 spell do more damage.
 ~
 0 MASTERING SWORD~
-
-	A trained samurai can get the secret of sword usage. His/her sword 
+A trained samurai can get the secret of sword usage. His/her sword 
 would be more damageful on his/her opponents.
 ~
 0 MASTERING POUND~
-	A trained ninja has get the secret of pound usage. His/her pound
+A trained ninja has get the secret of pound usage. His/her pound
 would become more damageful on his/her opponents.
 ~
 0 AREA ATTACK~
-	Warriors and samurai's have the secret of the area attack to
+Warriors and samurai's have the secret of the area attack to
 destroy to their enemies. At the beginning, they can fight with two
 opponents and as they trained enough they can increase the opponets.
 	Usage of this skill is automatic. To fight with a new enemy as you
@@ -752,7 +706,7 @@ difficult to successfully disarm you.  This skill will only increase as
 you are engaged in fights where someone is attempting to disarm you.
 ~
 0 CONCENTRATE~
-	Prepare yourself to fight, thinking about your battle strategy
+Prepare yourself to fight, thinking about your battle strategy
 would be more powerful you as you are fighting with your enemy. This would
 increase your damroll and hitroll respectively.......
 ~
@@ -770,11 +724,11 @@ Syntax: vampiric touch <victim>
 
 ~
 0 KATANA~
-	Master Samurai's can make their special sword to punish the
+Master Samurai's can make their special sword to punish the
 enemies.
 ~
 0 DEAFEN~
-	Anti-paladins can deafen the enemies that enemies cannot hear what
+Anti-paladins can deafen the enemies that enemies cannot hear what
 they say, utter(or what you say) ; simply enemies become deaf-mute
 persons. Hence any person which has been affected by deafen cannot cast
 any spell.   
@@ -796,7 +750,7 @@ This spell allows the caster to add the slow affection to the room. The
 characters who out of your PK range will not be affected by the affection
 of this spell. 
 ~
-0  'BLACK DEATH'~
+0 'BLACK DEATH'~
 This spell allows the caster to add the plague affection to the room. The
 characters who out of your PK range will not be affected by the affection
 of this spell. 
@@ -818,7 +772,6 @@ Beware that other characters who are not yet fighting may attack
 you as a result! And the victims which has been affected by fly and
 has small size will get higher damage.   
 ~
-
 0 PASSWORD~
 Syntax: password <old-password> <new-password>
 
@@ -827,7 +780,6 @@ your old password.  The second argument is your new password.
 
 The PASSWORD command is protected against being snooped or logged.
 ~
-
 0 TITLE~
 Syntax: title <string>
 
@@ -836,7 +788,6 @@ Sets your title to a given string.
 The game supplies a title when your character is created and when you
 advance a level.  You can use TITLE to set your title to something else.
 ~
-
 0 WIMPY~
 Syntax: wimpy
 Syntax: wimpy <number>
@@ -852,7 +803,6 @@ WIMPY with no argument sets your wimpy value to 20% of your maximum hit points.
 If you are Samurai, After level 10 you can NOT FLEE if your victim's 
 level is six or less level greater than yours; so be careful. Some 
 monsters are wimpy. ~
-
 0 OPEN CLOSE LOCK UNLOCK PICK~
 Syntax: open   <object|direction>
 Syntax: close  <object|direction>
@@ -868,7 +818,6 @@ the requisite key to LOCK or UNLOCK.
 PICK can open a lock without having the key.  In order to PICK successfully,
 you must practice the appropriate skill.
 ~
-
 0 DRINK EAT FILL POUR~
 Syntax: drink <object>
 Syntax: eat   <object>
@@ -886,7 +835,6 @@ FILL fills a drink container with water.
 POUR transfers a liquid to a container, or empties one.
 You can also pour from an object into something a character is holding.
 ~
-
 0 BUY LIST SELL VALUE~
 Syntax: buy   <object>
 Syntax: list
@@ -907,14 +855,12 @@ SELL sells an object to a shop keeper.
 
 VALUE asks the shop keeper how much he, she, or it will buy the item for.
 ~
-
 0 SACRIFICE~
 Syntax: sacrifice <object>
 
 SACRIFICE offers an object to gods, who may reward you.
 The nature of the reward depends upon the type of object.
 ~
-
 0 SCROLL~
 Syntax: scroll
 Syntax: scroll <number>
@@ -923,7 +869,6 @@ This command changes the number of lines the mud sends you in a page (the
 default is 24 lines).  Change this to a higher number for larger screen
 sizes, or to 0 to disabling paging.
 ~
-
 0 BRANDISH QUAFF RECITE ZAP~
 Syntax: brandish
 Syntax: quaff    <potion>
@@ -946,14 +891,12 @@ more charges, it will be consumed.
 These commands may require an item skill to be succesful, see the help entries
 on the skills scrolls, staves, and wands for more information.
 ~
-
 0 CONSIDER~
 Syntax: consider <character>
 
 CONSIDER tells you what your chances are of killing a character.
 Of course, it's only a rough estimate.
 ~
-
 0 FOLLOW GROUP~
 Syntax: follow <character>
 Syntax: group
@@ -976,12 +919,10 @@ GROUP with no argument shows statistics for each character in your group.
 You may FOLLOW and GROUP only with characters who are within five levels of
 your own.
 ~
-
 0 VISIBLE~
 VISIBLE cancels your hiding and sneaking, as well as any invisibility,
 and camouflage making you visible again.
 ~
-
 0 QUIT RENT SAVE~
 Syntax: QUIT
 Syntax: RENT ... not!
@@ -1007,7 +948,6 @@ doesn't save before quitting, you're going to regret it.
 
 There is no RENT in this mud.  Just SAVE and QUIT whenever you want to leave.
 ~
-
 0 RECALL /~
 Syntax: RECALL
 
@@ -1026,7 +966,6 @@ RECALL costs half of your movement points.
 RECALL doesn't work in certain god-forsaken rooms.  Characters afflicted by a
 curse may not recall at all.
 ~
-
 -1 SPLIT~
 Syntax: SPLIT <silver> <gold>
 
@@ -1039,7 +978,6 @@ split 30 	--> split 30 silver
 split 20 50	--> split 20 silver, 50 gold
 split  0 10	--> split 10 gold
 ~
-
 0 STEAL~
 Syntax: STEAL coins <character>
 Syntax: STEAL <object> <character>
@@ -1050,7 +988,6 @@ There are penalties for using STEAL on other players.
 
 In order to STEAL successfully, you must practice the appropriate skill.
 ~
-
 0 PRACTICE~
 Syntax: PRACTICE
 Syntax: PRACTICE <skill | spell>
@@ -1097,7 +1034,6 @@ can practice that {gin your guild{x.
 
 FOR MORE HELP, look help of GLIST, SLOOK, TEACH, LEARN.
 ~
-
 0 GLIST~
 Syntax: glist <group>
  
@@ -1144,7 +1080,6 @@ practice when you gain a level.  CON gives you more hit points.
 In the long run, your character will be most powerful if you train
 WIS and CON both to 18 before practising or training anything else.
 ~
-
 100 ADVANCE~
 Syntax: advance <character> <level>
 
@@ -1152,7 +1087,6 @@ ADVANCE sets a character's level to the specified value.  It is the
 only way to create new immortal characters within the game.  ADVANCE
 may also be used to demote characters.
 ~
-
 100 TRUST~
 Syntax: trust <character> <level>
 
@@ -1165,7 +1099,6 @@ natural level.
 
 A trust of 0 means to use the character's natural level again.
 ~
-
 98 ALLOW BAN PERMBAN~
 Syntax: allow   <site>
 	ban     <site> <newbies|all|permit>
@@ -1181,7 +1114,6 @@ by editing the player file) banned, by changing the argument after the site.
 content (*andrews*), but be careful not to accidently lock out too many
 sites with a wildcard.  Bans do not save unless the permban command is used.
 ~
-
 99 REBOOT SHUTDOWN~
 Syntax: reboot
 	shutdown
@@ -1190,11 +1122,9 @@ Reboot shuts down the server.  When the normal 'startup' script is used
 to control the server, a delay of fifteen seconds will ensue (to allow
 old connections to die), followed by a reboot.
 
-Shutdown shuts down the server and prevents the normal 'startup' script
-from restarting it.
+Shutdown prevents the normal 'startup' script from restarting server after
+reboot.
 ~
-
-
 96 WIZLOCK NEWLOCK~
 Syntax: wizlock
 	newlock
@@ -1207,7 +1137,6 @@ be avoided,and newlocking should be accompanied by mail or a note to the imps.
 
 A god must be at least Supreme level to wizlock the game.
 ~
-
 99 DENY~
 Syntax: deny <name>
 
@@ -1215,7 +1144,6 @@ Deny locks a character out of a game permanently, rendering their character
 name unusable.  It may only be removed by editing the file, for this reason
 freeze is usually preferred.
 ~
-
 97 DISCONNECT~
 Syntax: disconnect <name>
 
@@ -1223,7 +1151,6 @@ Disconnect breaks a player's link to the game, dumping them back to the telnet
 prompt.  This is a non-lethal way of getting rid of spammers and annoying
 players.
 ~
-
 97 FREEZE~
 Syntax: freeze <name>
 
@@ -1231,7 +1158,6 @@ FREEZE <character> is a toggle which prevents a character from issuing any
 commands at all. It can be removed from within the game, so freezing a 
 troublemaker is usually a better option than they deny command.
 ~
-
 93 FORCE~
 Syntax: force <character> <command>
 Syntax: force all <command>
@@ -1244,7 +1170,6 @@ unavailable.  You also cannot 'force orc murder hugo', for example.
 FORCE 'all' forces all player characters to execute a command.
 This is typically used for 'force all save'.
 ~
-
 96 SOCKETS~
 Syntax: sockets
 	sockets <name> 
@@ -1258,7 +1183,6 @@ The optional name argument shows the site of a player, or optional can be used
 to identify switched gods (i.e. socket orc shows the name of anyone switched
 into an orc).
 ~
-
 96 LOAD~
 Syntax: load mob <vnum>
 	load obj <vnum> <level>
@@ -1273,7 +1197,6 @@ format objects must be given a level argument to determine their power, new
 format objects have a preset level that cannot be changed without set.
 (see also clone, vnum, stat)
 ~
-
 98 SET~
 Syntax: set mob   <mobile> <field> <value>
 	set obj   <object> <field> <value>
@@ -1287,7 +1210,6 @@ Set skill all (pc's only) will set all the character's skills to the value
 given.  Use string to change the strings on an object or mobile.
 (see also string, stat)
 ~
-
 95 STRING~
 Syntax: string obj <field> <string>
 	string mob <field> <string>
@@ -1296,7 +1218,6 @@ The string command changes the various strings associated with an object or
 mobile.  A full list of fields can be viewed by typing string obj or string
 mob.  Sorry, multi-line strings are not yet supported.
 ~
-
 95 NOCHANNEL NOEMOTE NOSHOUT NOTELL~
 Syntax: nochannel <character>
 	noemote   <character>
@@ -1312,8 +1233,6 @@ The nochannel command is similar, but more drastic. It prevents the victim
 from using any of the channels (gossip, cgossip, Q/A, music) on the game.
 Nochannels usually result from swearing or spamming on public channels.
 ~
-
-
 96 PURGE~
 Syntax: purge
 	purge <character>
@@ -1326,7 +1245,6 @@ Purge will not get rid of PC's, or objects or mobiles with a NOPURGE flag
 set (i.e. the pit, the fountain, shopkeepers, Hassan).  Mobiles may be
 purged if they are called directly by name.
 ~
-
 96 RESTORE~
 Syntax: restore <character>
 	restore room
@@ -1340,14 +1258,12 @@ in the room, restore all does the same for all connected players. Restore all
 is only usable by creators and implementors.  Restore should be used sparingly
 or not at all.
 ~
-
 97 SLAY~
 Syntax: slay <character>
 
 Slay kills a character in cold blood, no saving throw.  Best not to use this
 command on players if you enjoy being a god.
 ~
-
 95 TRANSFER TELEPORT~
 Syntax: transfer <character>
 	transfer all
@@ -1359,7 +1275,6 @@ to your current location (default) or to a specified location. Trans all
 should almost never be used, as 100 players popping into one room can have
 horrible effects on slow links. Teleport is a synonym for transfer. 
 ~
-
 94 AT~
 Syntax: at <location> <command>
 
@@ -1371,7 +1286,6 @@ At works by temporarily moving you to that location, executing the
 command, and then moving you back (if the command didn't change your
 location).
 ~
-
 94 ECHO GECHO PECHO~
 Syntax: echo  <message>
 	gecho <message>
@@ -1384,7 +1298,6 @@ sends the message to the player specified as the target.  Any higher-level
 god will see a prompt in front of your message, informing him or her that it
 is an echo.
 ~
-
 92 GOTO~
 Syntax: goto <location>
 
@@ -1398,7 +1311,6 @@ god level.
 
 Implementors can use the violate command to get into private rooms.
 ~
-
 92 HOLYLIGHT INVIS WIZINVIS~
 Syntax: holylight
 	wiznvis <level>
@@ -1412,14 +1324,12 @@ a lower level than your invisibility level.  It defaults to the maximum
 (your level) if no argument is given.  Wizi 100 characters are totally 
 invisible.
 ~
-
 92 INCOGNITO~
 Toggling your incognito status will hide your presence from people outside the
 room you are in, but leave you visible to those who are with you.  It takes
 a level argument similar to wizinvis, people at that level or higher can see
 you regarless of location.
-~ 
-
+~
 92 MEMORY~
 Syntax: memory
 
@@ -1434,7 +1344,6 @@ a maximum limit, which is also shown.
 The 'Perms' line shows permanently allocated memory blocks.  There is no limit
 on the number and size of these blocks.
 ~
-
 96 VNUM~
 Syntax: vnum <name>
 	vnum <obj or mob> <name>
@@ -1446,7 +1355,6 @@ very useful for loading. Vnum skill returns the skill number (for set) and
 the slot number (for making new zones) of a skill name.
 (see also load)
 ~
-
 93 STAT~
 Syntax: stat <name>
 	stat mob  <name>
@@ -1460,20 +1368,17 @@ within the game.  Without a class argument, the command will return a object
 standing in.  Stat can be used to find room vnums for goto.
 (see also goto, transfer)
 ~
-
 93 MWHERE~
 Syntax: mwhere <name>
 
 Mwhere shows you the locations of all mobiles with a particular name.
 ~
-
 95 PEACE~
 Syntax: peace
 
 Peace causes all characters in a room to stop fighting. It also strips the
 AGGRESSIVE bit from mobiles.
 ~
-
 92 POOFIN POOFOUT~
 Syntax: poofin  <message>
 Syntax: pooffout <message>
@@ -1486,14 +1391,12 @@ must include your name somewhere in the string.
 Poofin and poofout only show to characters who can see you.
 (see also goto)
 ~
-
 99 PROTECT~
 Syntax: protect <character>
 
 Protect is used to protect a character from unwanted snooping.  Removing 
 protected status from a character WILL be seen by that character.
 ~
-
 95 LOG SNOOP~
 Syntax: log   <character>
 	log   all
@@ -1516,7 +1419,6 @@ character at a time. Try to respect privacy.
 
 Snoop yourself to cancel all outstanding snoops.
 ~
-
 94 SWITCH RETURN~
 Syntax: switch <character>
 	return
@@ -1527,7 +1429,6 @@ switch into link-dead PCs.
 
 Return returns you to your original body.
 ~
-
 91 IMMTALK :~
 Syntax: immtalk <message>
 	immtalk
@@ -1536,7 +1437,6 @@ Immtalk sends a message to all immortals.  : is a synonym for immtalk.
 Using this command with no argument turns off the immortal channel (or
 turns it back on).
 ~
-
 92 WIZNET~
 Syntax: wiznet 
 	wiznet show
@@ -1555,14 +1455,12 @@ Syntax: wizhelp
 
 Wizhelp provides a list of all the immortal commands.
 ~
-
 0 ARMOR~
 Syntax: cast armor <character>
 
 This spell decreases (improves) the armor class of the target character
 by 20 (or more) points.
 ~
-
 0 BLESS~
 Syntax: cast bless <character>
 Syntax: cast bless <object>
@@ -1572,18 +1470,16 @@ target character by 1 for every 8 levels of the caster. It may also be
 cast on an object to temporarily bless it (blessed weapons, for example,
 are more effective against demonic beings).
 ~
-
 0 BLINDNESS~
 Syntax: cast blindness <victim>
 
 This spell renders the target character blind.
 ~
-
 0 'ACID BLAST' 'ACID ARROW' 'CAUSTIC FONT' 'SULFURUS SPRAY' 'QUANTUM SPIKE'
-'BURNING HANDS' 'ACETUM PRIMUS' 'SONIC RESONANCE' 'HAND OF UNDEAD'
-'ETHERAL FIST' 'COLOUR SPRAY' 'FIREBALL' 'LIGHTNING BOLT' 'MAGIC MISSILE'
-'SHOCKING GRASP' 'ICEBALL' 'MIND WRENCH' 'MIND WRACK'
-~
+'BURNING HANDS' 'ACETUM PRIMUS' 'SONIC RESONANCE' 'HAND OF UNDEAD'
+'ETHERAL FIST' 'COLOUR SPRAY' 'FIREBALL' 'LIGHTNING BOLT' 'MAGIC MISSILE'
+'SHOCKING GRASP' 'ICEBALL' 'MIND WRENCH' 'MIND WRACK'
+~
 Syntax: cast 'acid blast'     <victim>
 Syntax: cast 'burning hands'  <victim>
 Syntax: cast 'color spray'   <victim>
@@ -1595,14 +1491,12 @@ Syntax: cast 'shocking grasp' <victim>   and so on...................
 These spells inflict damage on the victim.  The higher-level spells do
 more damage.
 ~
-
 0 'CALL LIGHTNING'~
 Syntax: cast 'call lightning'
 
 This spell works only out of doors, and only when the weather is bad.
 It calls down lightning bolts from gods.
 ~
-
 0 'CAUSE LIGHT' 'CAUSE SERIOUS' 'CAUSE CRITICAL' HARM~
 Syntax: cast 'cause light'    <victim>
 Syntax: cast 'cause serious'  <victim>
@@ -1612,7 +1506,6 @@ Syntax: cast harm             <victim>
 These spells inflict damage on the victim.  The higher-level spells do
 more damage.
 ~
-
 0 'CHARM PERSON'~
 Syntax: cast 'charm person' <victim>
 
@@ -1646,14 +1539,12 @@ that has the opposite sex of you.
 You are responsible for the actions of your followers.  Conversely, other
 people who attack your followers will be penalized as if they attacked you.
 ~
-
 0 'CHILL TOUCH'~
 Syntax: cast 'chill touch' <victim>
 
 This spell inflicts damage on the victim and also reduces the victim's
 strength by one.
 ~
-
 0 'CONTINUAL LIGHT'~
 Syntax: cast 'continual light'
 Syntax: cast 'continual light' <object>
@@ -1662,45 +1553,38 @@ This spell creates a ball of light, which you can hold as a light source.
 The ball of light will last indefinitely. It may also be used on an object
 to give it an enchanted glow.
 ~
-
 0 'CONTROL WEATHER'~
 Syntax: cast 'control weather' better
 Syntax: cast 'control weather' worse
 
 This spell makes the weather either better or worse.
 ~
-
 0 'CREATE FOOD'~
 Syntax: cast 'create food'
 
 This spell creates a Magic Mushroom, which you or anyone else can eat.
 ~
-
 0 'CREATE SPRING'~
 Syntax: cast 'create spring'
 
 This spell brings forth a magical spring from the ground, which has the
 same properties as a fountain.
 ~
-
 0 'CREATE WATER'~
 Syntax: cast 'create water' <drink-container>
 
 This spell replenishes a drink container with water.
 ~
-
 0 'CURE BLINDNESS'~
 Syntax: cast 'cure blindness' <character>
 
 This spell cures blindness in one so unfortunate.
 ~
-
 0 'CURE POISON'~
 Syntax: cast 'cure poison' <character>
 
 This spell cures poison in one so unfortunate.
 ~
-
 0 'CURE LIGHT' 'CURE SERIOUS' 'CURE CRITICAL' HEAL~
 Syntax: cast 'cure light'    <character>
 Syntax: cast 'cure serious'  <character>
@@ -1712,7 +1596,6 @@ heal more damage.
 
 (see 'help healer' for details on the heal command)
 ~
-
 0 CURSE~
 Syntax: cast 'curse' <character>
 Syntax: cast 'curse' <object>
@@ -1727,38 +1610,32 @@ The curse spell can also be casted on objects. Spell will cause the
 object to be more evil, but if protected by some other magic it may fail.
 
 ~
-
 0 'DETECT EVIL'~
 Syntax: cast 'detect evil'
 
 This spell enables the caster to detect evil characters, which will
 reveal a characteristic red aura.
 ~
-
 0 'DETECT HIDDEN'~
 Syntax: cast 'detect hidden'
 
 This spell enables the caster to detect hidden creatures.
 ~
-
 0 'DETECT INVIS'~
 Syntax: cast 'detect invis'
 
 This spell enables the caster to detect invisible objects and characters.
 ~
-
 0 'DETECT MAGIC'~
 Syntax: cast 'detect magic'
 
 This spell enables the caster to detect magical objects.
 ~
-
 0 'DETECT POISON'~
 Syntax: cast 'detect poison' <object>
 
 This spell detects the presence of poison in food or drink.
 ~
-
 0 'DISPEL EVIL'~
 Syntax: cast 'dispel evil' <victim>
 
@@ -1779,7 +1656,6 @@ The chance of dispelling is based on the level of the spell. Permanent spells
 (such as mobile sanctuary) are much harder to remove.  Not all spells may
 be dispelled, notable examples are poison and plague.
 ~
-
 0 EARTHQUAKE~
 Syntax: cast 'earthquake'
 
@@ -1805,7 +1681,6 @@ weapon grows more and more powerful, it is more likely to be drained or
 destroyed by the magic.  Also, every successful enchant increases the level
 of the weapon by one...and there is no turning back.
 ~
-
 -1 'ENCHANT ARMOR'~
 The enchant armor spell imbues armor with powerful protective magics. It is
 not nearly as reliable as enchant weapon, being far more prone to destructive
@@ -1816,35 +1691,29 @@ It is said to be that the enchantment of powerful items by powerful
 mages can cause the item act in different ways.
 
 ~
-
-
 0 'ENERGY DRAIN'~
 Syntax: cast 'energy drain' <victim>
 
 This spell saps the experience points, mana, and movement points of its
 target.
 ~
-
 0 'FAERIE FIRE'~
 Syntax: cast 'faerie fire' <victim>
 
 This spell increases (makes worse) the armor class of its victim.  For each
 level of the caster, the victim's armor class is increased by two points.
 ~
-
 0 'FAERIE FOG'~
 Syntax: cast 'faerie fog'
 
 This spell reveals all manner of invisible, hidden, camouflaged and sneaking 
 creatures in the same room as you.
 ~
-
 0 FLAMESTRIKE~
 Syntax: cast 'flamestrike' <victim>
 
 This spell inflicts damage on the victim.
 ~
-
 0 FLY~
 Syntax: cast 'fly' <character>
 
@@ -1855,21 +1724,18 @@ Syntax: fly down
 	If you have affected by fly spell or your race allows you to fly
 you can land and then start to fly again when you want.
 ~
-
 0 IDENTIFY~
 Syntax: cast identify <object>
 
 This spell reveals information about the object.
 ~
-
 0 INFRAVISION~
 Syntax: cast infravision <character>
 
 This spell enables the target character to see warm-blooded creatures even
 while in the dark, and exits of a room as well.
 ~
-
-0 INVIS 'MASS INVIS' INVISIBLITY~ 
+0 INVIS 'MASS INVIS' INVISIBLITY~
 Syntax: cast 'invisibility' <character>
 Syntax: cast 'invisibility' <object>
 Syntax: cast 'mass invis'
@@ -1881,25 +1747,21 @@ to render the object invisible.
 The MASS INVIS spell makes all characters in the caster's group invisible,
 including the caster.
 ~
-
 0 'KNOW ALIGNMENT'~
 Syntax: cast 'know alignment' <character>
 
 This spell reveals the alignment of the target character.
 ~
-
 0 'LOCATE OBJECT'~
 Syntax: cast 'locate object' <name>
 
 This spell reveals the location of all objects with the given name.
 ~
-
 0 'PASS DOOR'~
 Syntax: cast 'pass door'
 
 This spell turns the caster translucent and enables to pass through 
 closed doors. ~
-
 0 POISON~
 Syntax: cast poison <victim>
 Syntax: cast poison <object>
@@ -1910,7 +1772,6 @@ a weapon in a fashion similar to envenom ('help envenom'), but with
 drastically reduced effectiveness. Tearing the flesh by poisoned weapons 
 may cause the victim to get posioned.
 ~
-
 0 SANCTUARY~
 Syntax: cast sanctuary  <character>
 
@@ -1918,14 +1779,12 @@ The SANCTUARY spell reduces the damage taken by the character from any attack
 by one half. It is said to be that a very special tecnique of attack 
 passes the sanctuary protection.
 ~
-
 0 REFRESH~
 Syntax: cast refresh <character>
 
 This spell refreshes the movement points of a character who is out of movement
 points.
 ~
-
 0 'REMOVE CURSE'~
 Syntax: cast 'remove curse' <character>
 Syntax: cast 'remove curse' <object>
@@ -1934,7 +1793,6 @@ This spell removes a curse from a character, and might possibly uncurse
 a cursed object.  It may also be targeted on an object in the caster's
 inventory, in which case it's chance of success is significantly higher.
 ~
-
 0 SHIELD 'STONE SKIN' 'ENHANCED ARMOR'~
 Syntax: cast shield
 Syntax: cast 'stone skin'
@@ -1947,9 +1805,8 @@ armor.  ENHANCED ARMOR provides 60 points of armor. MELD INTO STONE
 provides 100 points of armor.But MELD INTO STONE is available only for 
 RockSeer RACE.
 
-~ 
+~
 0 'SHIELD CLEAVE'~
-
 Syntax: shield cleave
 
 	Master fighters can break the opponent's shield into two parts by using 
@@ -1959,7 +1816,6 @@ a shield which is made of titanium or platinum elements or limited
 shield. 
 ~
 0 'WEAPON CLEAVE'~
-
 Syntax: weapon cleave
 	Master fighters can break the opponent's weapon into two parts by 
 using sword or axe. Of course,axe type weapons has more chance than 
@@ -1974,28 +1830,24 @@ Syntax: cast 'insanity' <victim>
 the players aggressive for a while.
 ~
 0 'HEALING LIGHT'~
-
 Syntax: cast 'healing light' 
 
 	Clerics have the the ability of increasing heal booster of the 
 room using this spell. 
 ~
 0 'MIND LIGHT~
-
 Syntax: cast 'mind light'
 
 	Clerics have the ability of increasing mana booster of the room 
 using this spell.
 ~
 0 SETTRAPS~
-
 Syntax: settraps
 
 	Master thiefs can set a trap to kill their victims. This trap has 
 a timer and it can give damage to your victims only once.
 ~
 0 'LIGHTNING SHIELD'~
-
 Syntax: cast 'lightning shield'
 
 	Powerful necromancers and witchs can make a shield to protect 
@@ -2003,29 +1855,25 @@ themself that wake them if they are sleeping when any mobiles or victims
 entered the room.
 ~
 0 'SHOCKING TRAP'~
-
-	Necromancers, Witchs and Warlocks can make a magical trap. 
+Necromancers, Witchs and Warlocks can make a magical trap. 
 ~
 0 SLEEP~
 Syntax: cast sleep <victim>
 
 This spell puts its victim to sleep.
 ~
-
 0 SUMMON~
 Syntax: cast summon <character>
 
 This spell summons a character from anywhere else in the world into your room.
 Characters who are fighting may not be summoned.
 ~
-
 0 TELEPORT~
 Syntax: cast <teleport>
 
 This spell takes you from your current location to a random location somewhere
 in the world.
 ~
-
 0 VENTRILOQUATE~
 Syntax: cast ventriloquate <speaker> <message>
 
@@ -2035,13 +1883,11 @@ throw will know that someone is using ventriloquism, but not who.  Victims who
 fail their saving throw will think that the object or character really did say
 your message.
 ~
-
 0 WEAKEN~
 Syntax: cast weaken <victim>
 
 This spell reduces the strength of the victim by two points.
 ~
-
 0 'WORD OF RECALL'~
 Syntax: cast 'word of recall'
 
@@ -2049,7 +1895,6 @@ This spell duplicates the built-in RECALL ability.  It is provided solely for
 Merc-based muds which wish to eliminate the built-in ability while still
 providing the spell.
 ~
-
 0 'ACID BREATH' 'FIRE BREATH' 'FROST BREATH' 'GAS BREATH' 'LIGHTNING BREATH'~
 Syntax: cast 'acid breath'      <victim>
 Syntax: cast 'fire breath'      <victim>
@@ -2098,9 +1943,7 @@ P.S.	: Remember that some races have their specific spells, i.e rockseers
 See also:  CLASS, WORLD
 
 ~
-
 -2 'RACETABLE'~
-
 RACE       ACRONYM   GOOD_AT  BAD_AT   EXTRA    COMMENTS
 -----      -------   -------  ------   -----    -------------------
 Human       Human     None     None      0      average race
@@ -2122,7 +1965,6 @@ Satyr       Satyr      Dex      Int     250     neutral, "camouf.", "ambush"
 Troll       Troll    Str,Con  Int,Dex   400     evil, regenerate, "fast healing"
 
 What is your race (help <race> for more information)?~
-
 -1 GNOME GNOMES~
 Gnomes are a race of small, wiry, but tough creatures.  They live a very
 long time and accumulate much wisdom. They are resistant to poisons, but
@@ -2132,7 +1974,7 @@ always stay neutral, else they will lose their spells and are frowned upon.
 
 ~
 -1 'STORM GIANT' STORMGIANTS~
- Storm giants are the largest of the giant races, ranging from 12-20 feet in 
+Storm giants are the largest of the giant races, ranging from 12-20 feet in 
 height.  They are strong, and almost as durable as the dwarves. They aren't 
 too bright, however, and their huge size makes them more clumsy than the 
 other races.  Giants make the best warriors of any race, but are
@@ -2144,7 +1986,7 @@ healing and bash skills for free. Cloud giants have weapon resistance.
 
 ~
 -1 'FIRE GIANT' FIREGIANTS~
- Storm giants are the large, ranging from 9-12 feet in height.  They are 
+Storm giants are the large, ranging from 9-12 feet in height.  They are 
 strong, and almost as durable as the dwarves. They aren't too bright, 
 however, and their huge size makes them more clumsy than the 
 other races.  Giants make the best warriors of any race, but are
@@ -2156,7 +1998,7 @@ stamina, receive the fast healing and bash skills for free.
 
 ~
 -1 'CLOUD GIANT' CLOUDGIANTS~
- Cloud giants are the large, ranging from 9-12 feet in height.  They are 
+Cloud giants are the large, ranging from 9-12 feet in height.  They are 
 strong, and almost as durable as the dwarves. They aren't too bright, 
 however, and their huge size makes them more clumsy than the 
 other races.  Giants make the best warriors of any race, but are
@@ -2168,7 +2010,7 @@ stamina, receive the fast healing and bash skills for free. Cloud giants
 have weapon resistance.
 ~
 -1 'FROST GIANT' FROSTGIANTS~
- Frost giants are the largest of the giant races, ranging from 9-12 feet in 
+Frost giants are the largest of the giant races, ranging from 9-12 feet in 
 height.  They are strong, and almost as durable as the dwarves. They aren't 
 too bright, however, and their huge size makes them more clumsy than the 
 other races.  Giants make the best warriors of any race, but are
@@ -2189,7 +2031,6 @@ stamina, receive the fast healing and bash skills for free.
 
 ~
 -1 HUMAN HUMANS MAN~
-
 Humans are the most common race in the world, and make up the majority of
 adventurers.  Although they have no special talents like the other races,
 they are more versatile, being skilled in all classes.  Humans are able to
@@ -2197,7 +2038,6 @@ gain more benefit from magical devices.
 
 ~
 -1 DWARF DWARVES~
-
 Dwarves are short, stocky demi-humans, known for foul temper and great
 stamina.  Dwarves have high strength and constitution, but poor dexterity.
 They are not as smart as humans, but are usually wiser due to their long
@@ -2208,7 +2048,6 @@ are very vulnerable to drowning.  They can see in the dark with infravision.
 
 ~
 -1 ELF ELVES~
-
 Elves are slightly taller than humans, but have a much lighter build.  They
 lack the strength and stamina of the other races, but are for more agile,
 both in body and mind.
@@ -2221,14 +2060,12 @@ Elves who have turned to evil are frowned upon.
 
 ~
 -1 'HALF-ELF' HALFELF HALFELVES~
-
 Half-elves are a cross-breed between a human and an elf. They are not quite
 as intelligent as pure elves but have a greater constitution. Like pure
 elves, half-elves see in the dark with infravision.
 
 ~
 -1 SVIRF SVIRFNEBLI DEEP-GNOME~
-
 The Svirfnebli, also known as deep gnomes, have made their way into Muddy as
 the paths to the Underdark have been found.  Slighty larger than their 
 surface cousins, these gnomes are also stronger and a little more hearty from
@@ -2240,7 +2077,6 @@ in learning the powers of items as their surface cousins.
 
 ~
 -1 FELAR~
-
 The Felar are a race descended from the great cats. For long years in their
 past, the Felar were enslaved by wizards to serve as familiars.  The scars
 of this servitude still show in the relative weakness and dull wits of the
@@ -2262,7 +2098,6 @@ once imprisoned them.
 
 ~
 -1 DUERGAR DARK-DWARF DARK-DWARVES~
-
 With the recent excavations unearthing paths to the Underdark, the race of
 dark dwarves known as Duergar has made its way into Muddy.  Like their
 surface cousins they are strong, though their evil ways have changed them
@@ -2273,7 +2108,6 @@ are evil.
 
 ~
 -1 'DARK-ELF' DARKELF DARKELVES DARK~
-
 Dark-elves are a race of renegade elves who have turned their energy toward
 evil.  They are inherently intelligent but have neglected intellectual
 studies and become very nimble from years of generations of thievery and
@@ -2282,25 +2116,21 @@ Dark elves must stay evil to cast any spells they might know.  Those who
 turn to good are frowned upon.  Dark-Elves are burned by the touch of
 mithril.
 
-~                      
+~
 -1 SATYR~
-
 Satyrs are a race of half human and half goat race.They are evil.  They are 
 inherently dextrerious. But not strengthful. Due the desterity they can
 steal from someone, camuflage themselves and ambush opponents very easly.
 
-~                      
+~
 -1 GITHYANKI~
-
 Githyanki's are more intelligient then humanbeings. But they are constitutive
 as human race. But they are evil. And they can be either fighter, caster or
 fighter/caster races.They are good warriors . But casters use only offensive 
 spells.
 
 ~
-
 -1 ROCKSEER ROCKSEERS~
-
 Rockseers are a race of renegade elves who lives underworld in rock caves.
 They are inherently intelligent but have neglected intellectualstudies 
 and become very translucent from years of generations of trying to pass 
@@ -2309,8 +2139,8 @@ can pass doors easily.Rockseers must stay neutral to cast any spells they
 might know. And because of their organism they are vulnerable to woods.
 They have a specific spell called 'meld into stone'.
 
-~                      
--1  TROLL TROLLS~
+~
+-1 TROLL TROLLS~
 Long hidden within the sanctity of their mountain caves, a race known in the
 past only as a myth, lies the civilization of the trolls. Built with the 
 undying stamina of the mountains they reside in, these green skinned beasts
@@ -2320,7 +2150,6 @@ have decided as a whole to rejoin the races of the realms, moving out of
 their sanctuaries in numbers reaching high into the thousands
 ~
 -2 'CLASS' 'CLASSES' 'CLASS HELP'~
-
 Here are the classes and their extra cost per level.
 For more information, type "help <class>".
 
@@ -2340,9 +2169,8 @@ Vampire      Vam      INT	 ANY	300	simply vampire
 Necromancer  Nec      INT	  M	300	simply necromancer
 
 ~
-
 -1 RANGER RANGERS~
-                                RANGER
+RANGER
 Outdoorsmen, hunters, master of woodcraft, Rangers are the guardians of 
 the forests.  In addition to having excellent fighting skills, they are
 also wielders of some powerful magic.  Some Rangers have been known to call 
@@ -2351,9 +2179,8 @@ beyond detection.  Their ability to ambush opponents makes them deadly
 foes.
 
 ~
-
 -1 NINJA NINJAS~
-                               NINJA
+NINJA
 Masters of the art of weaponless combat, these mysterious warriors have
 recently become more common in the land.  They strike quickly and
 silently before fading into the shadows.  Ninjas are skilled in the
@@ -2366,7 +2193,7 @@ a loss of honor, Ninjas cannot parry with swords.
 
 ~
 -1 ANTI-PALADIN ANTI-PALADINS ANTIPALADIN ANTIPALADINS ANTI~
-                          - ANTI-PALADIN -
+- ANTI-PALADIN -
 The opposite of Paladins, these knights have chosen evil as their course.
 Such fervor and zeal gives them deadly spells to compliment their already
 superb fighting skills.  They seek only personal gain and to cause suffering
@@ -2375,7 +2202,6 @@ spells. Those who forsake evilness are frowned upon.
 
 ~
 -1 PALADIN PALADINS~
-
 These warriors have chosen the path of virtue and chivalry above all others.
 This dedication to their cause grants them priest-like spells and healing
 powers.  They are also formidable fighters, always questing to stamp out evil.
@@ -2386,7 +2212,6 @@ must be Lawful Good.
 
 ~
 -1 CLERIC CLERICS~
-
 Clerics are the most defensively oriented of all the classes.  Most of their
 spells focus on healing or defending the faithful, with their few combat 
 spells being far less powerful than those of mages. However, clerics are the 
@@ -2395,7 +2220,6 @@ protective magics, as well as fair combat prowess.
 
 ~
 -1 THIEF THIEVES~
-
 Thieves are a marginal class. They do few things better than any other class,
 but have the widest range of skills available.  Thieves are specialists at
 thievery and covert actions, being capable of entering areas undetected where
@@ -2404,7 +2228,6 @@ clerics, but lack the wide weapon selection of warriors.
 
 ~
 -1 WARRIOR WARRIORS~
-
 Warriors live for combat and the thrill of battle. They are the best fighters
 of all the classes, but lack the subtle skills of thieves and the magical
 talents of mages and priests.  Warriors are best for those who don't mind
@@ -2412,16 +2235,16 @@ taking the direct approach, even when another method might be called for.
 
 ~
 -1 WARLOCK WARLOCKS~
- Male Magicians...Stronger, but less efective on charm..
+Male Magicians...Stronger, but less efective on charm..
 
 ~
 -1 SAMURAI SAMURAIS~
- More powerful honour warriors..But after level 10 they cannot flee 
+More powerful honour warriors..But after level 10 they cannot flee 
 because they are thought like that.
 
 ~
 -1 VAMPIRE VAMPIRES~
- Powerful mage/warriors..But after they can only transform into VAMPIRE 
+Powerful mage/warriors..But after they can only transform into VAMPIRE 
 after level 10.And they cannot practice the vampire skill.The vampire skill 
 is gained in 50 questpoints. When they use this skill at the nights their
 size increase, they gets damage from light, and their damroll increases. You
@@ -2429,21 +2252,17 @@ cannot realize a vampire in nights. It is only written "An uggly creature".
 
 ~
 -1 NECROMANCER NECROMANCERS~
- Powerful mage. But powerful in necromantic spells. 
+Powerful mage. But powerful in necromantic spells. 
 
 ~
- -1 
-HOMETOWN HOMETOWNS~
-
+-1 HOMETOWN HOMETOWNS~
 You can pick one of six cities as your hometown: New Thalos and Midgaard are
 all alignments. Ofcol is neutral only. Your hometown is where you will 
 recall to and is where the pit is to which your corpse will decay. 
 Everyone starts at mud school, which is connected to each of the hometowns.
 
 ~
-
 -1 ETHOS~
-
 You may pick a Lawful, Neutral or Chaotic ethos.  This shows your opinion
 toward the laws of the land (not the rules).  If you plan on obeying the
 laws no matter what, you take a lawful ethos, if you will obey the laws
@@ -2463,7 +2282,6 @@ that you  go through all the helps at a low level, especially for first
 time mudders.
 
 ~
-
 0 ASSASSINATE~
 Syntax: assassinate <victim>
 
@@ -2474,9 +2292,8 @@ the neck. The skill must be used both hands free, and it has a little
 chance for an instant kill.
 
 ~
-
 0 'QUIET MOVEMENT' HERBS TAME BUTCHER BARKSKIN 'BARK SKIN' 'BEAR CALL'
-  'RANGER STAFF'~
+  'RANGER STAFF'~
 Syntax: HERBS <victim> or HERBS
         TAME <victim>
         BUTCHER <corpse>
@@ -2497,7 +2314,6 @@ level. The weapon created may only be wielded by rangers.
 
 ~
 0 LIONCALL 'LION CALL' 'TIGER POWER' TIGER~
-
 LIONCALL
 TIGER POWER
 
@@ -2507,14 +2323,12 @@ rescue.
 damroll & hitroll.  
 ~
 0 HARA 'HARA KIRI'~
-
-   A Samurai kills himself, in other words set him/her self hitpoint, mana
+A Samurai kills himself, in other words set him/her self hitpoint, mana
 and movement 1 . Then gains them very quickly.
 
 ~
 0 MOUSE~
-	
-   A vampire can flee a fight, or can live a place by dividing himself into
+A vampire can flee a fight, or can live a place by dividing himself into
 too many mouses. At this moment you must kill all mouses to kill the vampire.
 
 ~
@@ -2525,10 +2339,8 @@ Syntax: bite <victim>
 But then fight starts.
 
 ~
-
 0 'RESISTANCE LIGHT' 'LIGHT RESISTANCE'~
-
-    A vampire get damages from light. But a high level vampire can teach 
+A vampire get damages from light. But a high level vampire can teach 
 itself how to resist light.
 
 ~
@@ -2538,7 +2350,6 @@ Syntax: enchant <sword name>
     A powerful Samurai can beat up the swords and makes its damroll &
 hitroll higher.
 ~
-
 0 SCREAM~
 Syntax: cast scream
 
@@ -2546,7 +2357,6 @@ Syntax: cast scream
 glass and ice made objects.The objects gets broken and mobiles can't do
 anything. Then the FIGHT STOPS for a moment, that warlock can escape.
 ~
-
 0 'SAND STORM'~
 Syntax: cast 'sand storm'
 
@@ -2559,7 +2369,7 @@ Syntax: target <victim>
    A samurai can change his/her target when fighting with a group of mobiles
 or characters.
 
-~ 
+~
 0 'SECOND WEAPON'~
 Syntax: second <weapon>
 
@@ -2567,10 +2377,8 @@ Syntax: second <weapon>
 give damage to samura's fighting. But while using second weapon you cannot
 hold an item and wear a shield.
 ~
-
 0 'EXPLODE'~
-
-    A samurai can explode some material so that every mobile in the effected
+A samurai can explode some material so that every mobile in the effected
 by this burning. The burning affect fills the room. And potions bubles, and
 mobiles can be blind.
 ~
@@ -2580,7 +2388,6 @@ Syntax: cast 'dragons breath'
     A warlock can't use dragon breaths, i.e 'fire breath', 'lightning 
 breath'. So he calls the Lord of Dragons to help.
 ~
-
 1 CLEAVE~
 Syntax: cleave <victim>
 
@@ -2610,7 +2417,6 @@ attacker's first blow against him, causing double damage.  You need
 not type "counter" -- it happens automatic.
 
 ~
-
 0 ROLE-PLAYING ROLEPLAYING~
 Welcome to the world of Realms of Muddy which is based on role-playing
 and adventure. Role-playing is encouraged, and in some cases, almost
@@ -2644,7 +2450,6 @@ yourself killed, not by the attacker but by the immortals.
 
 See also: ROLEPLAYING GROUP ALIGNMENT
 ~
-
 0 ALIGNMENT~
 In the interest of attracting the right caliber of followers, the
 immortals of Muddy have outlined the following alignments.  See where
@@ -2734,7 +2539,6 @@ you are following.  Type NOFOL again to reset the toggle back to accepting
 followers.  No one can follow you when this toggle is set.
 
 ~
-
 0 RULES~
 These are the rules of the Realms of Muddy. Disobeying is grounds
 for deletion. For other matters, use common sense.
@@ -2821,7 +2625,6 @@ This is a clan skill for the Legions of Ruler that flags or unflags
 a player as a criminal. Many good mobs do not take kindly to criminals.
 Only members of the Ruler clan can flag or unflag criminals.
 ~
-
 0 BLACKJACK~
 syntax: blackjack <target>
 
@@ -2832,7 +2635,6 @@ people.  The Ninja's Guild came and talked briefly to them--in fact,
 all they said was 'Good-bye'." -t.p.
 
 ~
-
 0 REQUEST ~
 Syntax: request <object> <mobile>
 
@@ -2843,7 +2645,6 @@ limits were put on request for a reason.  An unproven player does not deserve
 Diana's armor.  You are merely removing the mob's ability to defend itself
 against evil doers.  There is a 3 minute (real time) wait for requesting.
 ~
-
 0 STRANGLE ~
 Syntax: strangle <victim>
 
@@ -2894,7 +2695,6 @@ Hunter:   Mercenary of Muddy. These pupils  kill any mobile and player
 Keep in mind these are only general guidelines.  
 See also: CLAN 
 ~
-
 0 REPAIR ESTIMATE~
 Syntax: repair <item>
 Syntax: estiamte <item>
@@ -2921,9 +2721,7 @@ DO NOT ABUSE this privilege!!!  Anyone who does multiple prays or prays
 without a good reason will be severely punished.
 
 ~
-
 1 RANDOMIZER ~
-
 Syntax: cast 'randomizer'
 
 You cannot cast it in a room with the flag ROOM_LAW (all the rooms in Galadon)
@@ -2988,7 +2786,6 @@ quantity of coins.To find out much you have in the bank, type BALANCE.
 Each of there commands must be issued from with a bank.  Withdraws are
 subject to a slight processing fee.
 ~
-
 0 CAMOUFLAGE  CAMO ACUTE 'ACUTE VISION' AMBUSH ~
 Syntax: camouflage
 	ambush <victim>
@@ -3019,8 +2816,7 @@ This spell makes a shield around the caster which can deflect blunt blows
 such as those from bashes and throws.
 ~
 0 REWARD~
-	
-	Quest weapons, rings and girths cannot be sacrificed and these items
+Quest weapons, rings and girths cannot be sacrificed and these items
 are special for the character. Any other character cannot get or wear 
 these items. Also these items cannot get damage. As you lost one of them 
 because of crashes note to gods.
@@ -3030,7 +2826,6 @@ Syntax: help ringreward..... for more information about the reward ring.
 Syntax: help girthreward.... for more information about the reward girth.
 ~
 0 WEAPONREWARD~
-
 Object 'weapon hero' is type weapon, extra flags glow magic bless nopurge burn_proof.
 Weight is 30, value is 100000, level is from 21 to your level.
 Weapon type is exotic.
@@ -3048,7 +2843,6 @@ Affects dexterity by 2.
 Affects strength by 2.
 ~
 -1 RINGREWARD~
-
 Object 'ring hero' is type armor, extra flags glow magic bless nopurge burn_proof.
 Weight is 30, value is 100000, level is 21.
 Armor class is 12 pierce, 12 bash, 12 slash, and 9 vs. magic.
@@ -3061,7 +2855,6 @@ Affects armor class by -20.
 Affects charisma by 1.
 ~
 -1 GIRTHREWARD~
-
 Object 'girth hero' is type armor, extra flags glow magic bless nopurge burn_proof.
 Weight is 30, value is 100000, level is 21.
 Armor class is 12 pierce, 12 bash, 12 slash, and 9 vs. magic.
@@ -3079,15 +2872,14 @@ Affects constitution by 3.
 Affects wisdom by 2.
 Affects strength by 2.
 ~
-
 -1 QUESTS~
-	There are currently n quests in Muddy MUD.
+There are currently n quests in Muddy MUD.
 	* Questor quest    : For more info type 'help 'questor quest''
 	* Kassandra quest  : Read some fascicles of books.. :)
 	* ....
 ~
 -1 'QUESTOR QUEST'~
-	quest points   : shows quest points
+quest points   : shows quest points
 	quest info     : shows what must you do for finish the quest
 	quest time     : shows the left time to finish the quest
 	quest request  : in order to want a quest
@@ -3100,7 +2892,6 @@ Affects strength by 2.
 Syntax: help reward ... for more information about the quest reward. 
 ~
 -1 AUCTION~
-
 Syntax of the auction command is:
 
 auction (no parameters) - will show the current item's stats
@@ -3112,7 +2903,7 @@ auction stop		- will stop the auction, return the gold to the last
 			  better and transfer the item to seller (imm only).
 ~
 -1 CHA CHARISMA~
-	* Charisma is regenerated again. If your charisma is below 18
+* Charisma is regenerated again. If your charisma is below 18
 then every one can see your level when they type "who", and also you
 become VULNERABLE to CHARM.
 	* Charisma is trainable.
@@ -3124,8 +2915,8 @@ only for good characters every 200 mobiles that you killed having opposite
 aligns gives you a charisma. And every 100 mobiles you have killed
 having the same align reduces your charisma by one.
 ~
--1 SPELLCRAFT SPELL_CRAFT~	
-	Spell craft is only available of the class that have the high 
+-1 SPELLCRAFT SPELL_CRAFT~
+Spell craft is only available of the class that have the high 
 capability of delivering spells. The spell craft makes the spells more 
 effective so that the casters have their own privilages.
 ~
@@ -3171,7 +2962,7 @@ him/her). Thus when you induct a player to your clan be very careful.
 If any problem occurs, you are RESPONSIBLE.
 ~
 -1 RELIG RELIGION~
-	Find the Templeman in the Midgaard, and say the name of your god.
+Find the Templeman in the Midgaard, and say the name of your god.
 Syntax: say <god_name> 
 	The list of religions.
      Leader		  Ethos	
@@ -3220,8 +3011,7 @@ to the others, but their probabities is much lower.
 	To you	 : cure serious
 ~
 0 AHURUMAZDA~
-
-	To enemy  : demon fire 
+To enemy  : demon fire 
 	To you	  : cure serious
 ~
 0 EHRUMEN~
@@ -3241,8 +3031,7 @@ to the others, but their probabities is much lower.
 	To you	  : cure serious
 ~
 0 PHOBOS~
-
-	To victim : color spray
+To victim : color spray
 	To you	  : cure serious
 ~
 0 ODIN~
@@ -3296,7 +3085,7 @@ to the others, but their probabities is much lower.
 	To you : Group Heal
 ~
 -2 STAT STATS~
-	There are currently 6 stats, which are STR,INT,WIS,DEX,CON,CHA. Each
+There are currently 6 stats, which are STR,INT,WIS,DEX,CON,CHA. Each
 has special importance in your mud life, while fighting, gaining hitpoint 
 mana at each tick, gaining hitpoint,mana and movement at gaining level,etc.
 ~
@@ -3307,11 +3096,8 @@ Don't forget that you cannot save limited items if your level is 35
 level greater than limited equipments and limit of the equipment is more
 than 1.
 ~
-
 90 RRACE 'REMORT RACE'~
-
-
-	You are remorting and following is a brief description of each
+You are remorting and following is a brief description of each
  main race to assist you in the character creation process:
 
 Human:     Humans are the typical, average race, possessing no advantages nor
@@ -3382,16 +3168,13 @@ Here are the types of the damages, from small to...
                       <*) (*>= ! POWER HIT ! =<*) (*>
 
 ~
-
 0 WIN1251~
-
-	This help is only for russian win1251 (MS Windows) codepage players.
+This help is only for russian win1251 (MS Windows) codepage players.
 
         Если от вас не приходит буква 'Я' маленькая, то попробуйте сказать
 {Cnotelnet{x. Для того, чтобы маленькая буква 'Я' транслировалась в большую,
 попробуйте {Cnoiac{x.
 ~
-
 -1 OLC EDIT~
 Syntax: EDIT AREA [create/reset] [vnum]		- Area Creation and Repoping.
 Syntax: EDIT ROOM ( [create] [vnum] )		- Room Creation and Editing.
@@ -3415,14 +3198,12 @@ help. AEDIT and REDIT default to the current area or room. EDIT ROOM RESET
 resets the current room.  Most commands with no arguments display syntax.
 See also help: AEDIT REDIT MEDIT OEDIT
 ~
-
 0 ALIST~
 Syntax: ALIST
 
 This command gives you a listing of all the areas along with their
 vnum assignments and the builder(s) assigned to editing them.
 ~
-
 0 AEDIT~
 Syntax: edit area	 -Enters the editor for the current area.
 Syntax: edit area <vnum> -Enters the editor for the selected area.
@@ -3444,7 +3225,6 @@ lvnum <lower>       - set the lower vnum
 uvnum <upper>       - set the upper vnum
 <flags>             - area flags, type ? AREA for a list
 ~
-
 0 REDIT~
 Syntax: edit room		-Enters the editor for the current room.
 
@@ -3466,7 +3246,6 @@ room <flags>        - room attributes, type ? ROOM for a list
 sector <type>       - terrain of room, type ? SECTOR for a list
 <direction>         - see help EXIT, or type <dir> ?
 ~
-
 0 EXIT~
 For exits, type the direction (north/s/e/w) followed by:
 
@@ -3485,7 +3264,6 @@ a player closing the door and not due to the door being set to be closed.
 
 -South to [ 3744] Key: [   -1] Exit flags: [door CLOSED bashed pickproof]
 ~
-
 0 OEDIT~
 Syntax: edit object <vnum>	-Enters the editor for the selected object.
 
@@ -3513,7 +3291,6 @@ extra		    - attributes of object, type ? EXTRA for a list
 wear                - where object is worn, type ? WEAR for a list
 material            - material the object is made from
 ~
-
 0 MEDIT~
 Syntax: medit <vnum>		-Enters the editor for the selected mobile.
 
@@ -3550,7 +3327,6 @@ damdice		    - dice to toss to get mobile's hand to hand damage
 type 'help HITDICE', 'help MANADICE', 'help DAMDICE' for lists of reasonable dice 
 combinations on different levels.
 ~
-
 0 HITDICE~
 A high number of dice makes for less variance in mobiles hitpoints.
 Suggested values are:
@@ -3568,7 +3344,6 @@ Suggested values are:
 Diff = max - min.  Mean is the arithmetic mean.
 The values in parenthesis are the the standard merc values.
 ~
-
 0 MANADICE~
 A high number of dice makes for less variance in mobiles mana.
 The values the server generates for merc-type mobs is
@@ -3577,7 +3352,6 @@ The values the server generates for merc-type mobs is
 
 where level is the level of the mobile.
 ~
-
 0 DAMDICE~
 A high number of dice makes for less variance in mobiles hitpoints.
 Suggested values are:
@@ -3597,7 +3371,6 @@ Mean is the arithmetic mean.  The values in parenthesis are the the
 standard merc values.  (Will be put in when there's time to calculate
 them...)
 ~
-
 0 RESETS~
 Syntax: RESET <number> OBJ <vnum> <location on body>    - equips last mobile
         RESET <number> OBJ <vnum> inside <obj vnum>     - store in container
@@ -3617,7 +3390,6 @@ likely that resets will backfire if they are not carefully entered.
 
 If you wish to reset the room then use EDIT ROOM RESET.  
 ~
-
 0 MOB_AC~
 The values ROM generates for a merc format mob is:
 
@@ -3642,7 +3414,6 @@ The values ROM generates for a merc format mob is:
 These values are 10 times what you would put in an area file. This
 is because the server multiplies what it reads from file with 10.
 ~
-
 0 ITEM_LIGHT~
 .   value 0    unused
    value 1    unused
@@ -3650,7 +3421,6 @@ is because the server multiplies what it reads from file with 10.
    value 3    unused
    value 4    unused
 ~
-
 0 ITEM_STAFF_WAND~
 .   value 0    level
    value 1    max charges
@@ -3662,7 +3432,6 @@ is because the server multiplies what it reads from file with 10.
 An up-to-date list of spells can be obtained by typing:
 ? SPELLS [ignore/attack/defend/self/object/all]
 ~
-
 0 ITEM_SCROLL_POTION_PILL~
 .   value 0    level
    value 1    spell name 1
@@ -3673,7 +3442,6 @@ An up-to-date list of spells can be obtained by typing:
 An up-to-date list of spells can be obtained by typing:
 ? SPELLS [ignore/attack/defend/self/object/all]
 ~
-
 0 ITEM_ARMOR~
 .   value 0    ac pierce
    value 1    ac bash
@@ -3681,7 +3449,6 @@ An up-to-date list of spells can be obtained by typing:
    value 3    ac exotic (magic)
    value 4    unused
 ~
-
 0 ITEM_WEAPON~
 .   value 0    weapon class.
    value 1    number of dice to roll.
@@ -3695,7 +3462,6 @@ help WEAPON_DICE
 ? WEAPON
 ? WTYPE
 ~
-
 0 WEAPON_DICE~
 These are the values the server generates automatically when
 converting a merc-format mobile to ROM format.  A higher
@@ -3712,7 +3478,6 @@ dice-bonus on weapon dice.
        30:     5d7
        50:     5d11
 ~
-
 0 ITEM_CONTAINER~
 .   value 0    weight capacity
    value 1    flags: closeable, pickproof, closed, locked            
@@ -3723,7 +3488,6 @@ dice-bonus on weapon dice.
 An up-to-date list of flags can be obtained by typing
 ? CONTAINTER
 ~
-
 0 ITEM_DRINK~
 .   value0    capacity
    value 1    current quantity
@@ -3734,7 +3498,6 @@ An up-to-date list of flags can be obtained by typing
 An up-to-date list of liquid types can be obtained by typing
 ? LIQUID
 ~
-
 0 ITEM_FOOD~
 .   value 0    hours of food value
    value 1    unused
@@ -3742,7 +3505,6 @@ An up-to-date list of liquid types can be obtained by typing
    value 3    poisoned?
    value 4    unused
 ~
-
 0 ITEM_MONEY~
 .   value 0    value in gold pieces
    value 1    unused
@@ -3751,7 +3513,6 @@ An up-to-date list of liquid types can be obtained by typing
    value 4    unused
 ~
 0 TRANSLATE~
-
 Инструкция по переводу арий.
 ver 1.1
 by Askold
@@ -3885,9 +3646,7 @@ S
 fin
 
 ~
-
 0 PRICES~
-
 Прайс-лист на клан и все прилагающиеся услуги:
 ver 1.0
 by Askold
@@ -3927,5 +3686,6 @@ by Askold
    продаваться будет у кланового продавца   |
 ******************************************************
 ~
-0 $~
+-1 $~
+
 #$

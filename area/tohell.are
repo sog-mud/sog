@@ -1,8 +1,13 @@
-#AREA
-tohell.are~
-Hell~
-{32 56} Strahd  Descent to Hell~
-10400 10599
+#AREADATA
+Name Hell~
+Builders None~
+VNUMs 10400 10599
+Credits Strahd~
+Security 9
+LevelRange 32 56
+End
+
+
 
 #MOBILES
 #10401
@@ -21,7 +26,7 @@ ABFe DFJV -900 0
 -15 -15 -15 4
 EFNU 0 0 0
 stand stand none 5000
-0 0 medium 0
+0 0 medium unknown
 #10402
 oldstyle pile coins~
 the pile of gold coins~
@@ -35,7 +40,7 @@ ABS DFJ -800 0
 -9 -9 -9 4
 BEFJNU 0 0 0
 stand stand none 5000
-0 0 medium 0
+0 0 medium unknown
 #10403
 oldstyle male dee demon~
 the male Dee~
@@ -50,7 +55,7 @@ ABF JV -1000 0
 -13 -13 -13 5
 EFNU 0 0 0
 stand stand male 5000
-0 0 medium 0
+0 0 medium unknown
 #10404
 oldstyle female dee demon~
 the female Dee~
@@ -65,7 +70,7 @@ ABF JV -1000 0
 -13 -13 -13 5
 EFNU 0 0 0
 stand stand female 5000
-0 0 medium 0
+0 0 medium unknown
 #10405
 oldstyle bar gold~
 the gold bar~
@@ -79,7 +84,7 @@ ABS DFJ -800 0
 -12 -12 -12 3
 BEFJNU 0 0 0
 stand stand none 5000
-0 0 medium 0
+0 0 medium unknown
 #10406
 oldstyle chicken pot pie~
 a scrumptious chicken pot pie~
@@ -93,7 +98,7 @@ AB J -800 0
 -14 -14 -14 4
 EFNU 0 0 0
 stand stand none 5000
-0 0 medium 0
+0 0 medium unknown
 #10407
 oldstyle beef pot pie~
 a yummy beef pot pie~
@@ -107,7 +112,7 @@ AB J -800 0
 -14 -14 -14 4
 EFNU 0 0 0
 stand stand none 5000
-0 0 medium 0
+0 0 medium unknown
 #10408
 oldstyle vegetable pot pie~
 a yummy vegetable pot pie~
@@ -121,7 +126,7 @@ AB J -800 0
 -14 -14 -14 4
 EFNU 0 0 0
 stand stand none 5000
-0 0 medium 0
+0 0 medium unknown
 #10409
 oldstyle damned soul~
 a damned soul~
@@ -136,7 +141,7 @@ AGQ J -700 0
 -10 -10 -10 4
 EIKU 0 0 0
 stand stand none 5000
-0 0 medium 0
+0 0 medium unknown
 #10410
 oldstyle tortured soul~
 a tortured soul~
@@ -151,7 +156,7 @@ ABR J -800 0
 -11 -11 -11 0
 FU 0 0 0
 stand stand none 5000
-0 0 medium 0
+0 0 medium unknown
 #10411
 oldstyle half-eaten person~
 the half-eaten person~
@@ -167,7 +172,7 @@ ABD JV -757 0
 -16 -16 -16 4
 EFNU 0 0 0
 stand stand none 5000
-0 0 medium 0
+0 0 medium unknown
 #10412
 oldstyle living wall~
 the living wall~
@@ -183,7 +188,7 @@ AB JV -1000 0
 -30 -30 -30 -10
 EFNU 0 0 0
 stand stand none 5000
-0 0 medium 0
+0 0 medium unknown
 #10413
 oldstyle skeletal warrior~
 skeletal warrior~
@@ -199,7 +204,7 @@ AD JV -743 0
 -11 -11 -11 5
 EFNU 0 0 E
 stand stand none 5000
-0 0 medium 0
+0 0 medium unknown
 #10414
 oldstyle bloody severed arm~
 bloody severed arm~
@@ -214,7 +219,7 @@ AB J -884 0
 -11 -11 -11 5
 EFNU 0 0 0
 stand stand none 5000
-0 0 medium 0
+0 0 medium unknown
 #10415
 oldstyle bloody severed foot~
 bloody severed foot~
@@ -228,7 +233,7 @@ AB J -800 0
 -11 -11 -11 5
 EFNU 0 0 0
 stand stand none 5000
-0 0 medium 0
+0 0 medium unknown
 #10416
 oldstyle bloody severed nose~
 bloody severed nose~
@@ -243,7 +248,7 @@ AB J -800 0
 -11 -11 -11 5
 EFNU 0 0 0
 stand stand none 5000
-0 0 medium 0
+0 0 medium unknown
 #10417
 oldstyle blood~
 the blood from the fountain~
@@ -257,7 +262,7 @@ AB J -950 0
 -15 -15 -15 4
 EFNU 0 0 0
 stand stand none 5000
-0 0 medium 0
+0 0 medium unknown
 #10418
 oldstyle Lost soul~
 the lost soul~
@@ -272,7 +277,7 @@ ABR J -500 0
 -15 -15 -15 -2
 FU 0 0 0
 stand stand none 5000
-0 0 medium 0
+0 0 medium unknown
 #10419
 oldstyle crispy critter~
 the crispy critter~
@@ -288,7 +293,7 @@ AB J -800 0
 -15 -15 -15 4
 EFNU 0 0 0
 stand stand none 5000
-0 0 medium 0
+0 0 medium unknown
 #10420
 oldstyle pile bones skeleton~
 pile of bones~
@@ -303,7 +308,7 @@ AB J -700 0
 -12 -12 -12 5
 EFNU 0 0 E
 stand stand none 5000
-0 0 medium 0
+0 0 medium unknown
 #10421
 oldstyle manes sub-demon~
 the manes~
@@ -321,7 +326,7 @@ AH JV -900 0
 -11 -11 -11 5
 EFNU 0 0 0
 stand stand none 5000
-0 0 medium 0
+0 0 medium unknown
 #10422
 oldstyle prisoner raiden~
 the prisoner Raiden~
@@ -337,7 +342,7 @@ AB J -1000 0
 -11 -11 -11 5
 EFNU 0 0 0
 stand stand male 5000
-0 0 medium 0
+0 0 medium unknown
 #10423
 oldstyle prisoner hell~
 a prisoner in Hell~
@@ -353,7 +358,7 @@ AB JV -800 0
 -13 -13 -13 5
 EFNU 0 0 0
 stand stand female 5000
-0 0 medium 0
+0 0 medium unknown
 #10424
 oldstyle prisoner hell~
 a prisoner in Hell~
@@ -369,7 +374,7 @@ AB JV -800 0
 -13 -13 -13 5
 EFNU 0 0 0
 stand stand male 5000
-0 0 medium 0
+0 0 medium unknown
 #10425
 oldstyle demonguard demon guard~
 demonguard~
@@ -384,7 +389,7 @@ AFG J -800 0
 -13 -13 -13 5
 EFNU 0 0 0
 stand stand none 5000
-0 0 medium 0
+0 0 medium unknown
 #10426
 oldstyle burning fool~
 the burning fool~
@@ -399,7 +404,7 @@ AB J -900 0
 -14 -14 -14 4
 EFNU 0 0 0
 stand stand none 5000
-0 0 medium 0
+0 0 medium unknown
 #10427
 oldstyle construction worker male~
 male construction worker~
@@ -415,7 +420,7 @@ AB JV -666 0
 -15 -15 -15 4
 EFNU 0 0 0
 stand stand male 5000
-0 0 medium 0
+0 0 medium unknown
 #10428
 oldstyle construction worker female~
 the female construction worker~
@@ -431,7 +436,7 @@ AB JV -666 0
 -16 -16 -16 4
 EFNU 0 0 0
 stand stand female 5000
-0 0 medium 0
+0 0 medium unknown
 #10430
 oldstyle fire devil~
 the fire devil~
@@ -448,7 +453,7 @@ AB J -1000 0
 -18 -18 -18 3
 EFNU 0 0 0
 stand stand none 5000
-0 0 medium 0
+0 0 medium unknown
 #10431
 oldstyle wall fire~
 the wall of fire~
@@ -464,7 +469,7 @@ AB JTV -600 0
 -16 -16 -16 4
 EFNU 0 0 0
 stand stand none 5000
-0 0 medium 0
+0 0 medium unknown
 #10432
 oldstyle hell hound~
 the hell hound~
@@ -480,7 +485,7 @@ ABD DFJ -900 0
 -15 -15 -15 4
 EFNU 0 0 0
 stand stand none 5000
-0 0 medium 0
+0 0 medium unknown
 #10433
 oldstyle frozen body~
 the frozen body~
@@ -496,7 +501,7 @@ AB J -900 0
 -17 -17 -17 4
 EFNU 0 0 0
 stand stand none 5000
-0 0 medium 0
+0 0 medium unknown
 #10434
 oldstyle ice devil~
 the ice devil~
@@ -514,7 +519,7 @@ AB JTV -1000 0
 -22 -22 -22 2
 EFNU 0 0 0
 stand stand none 5000
-0 0 medium 0
+0 0 medium unknown
 #10435
 oldstyle trapped soul ice~
 the trapped soul~
@@ -531,7 +536,7 @@ AB J -789 0
 -19 -19 -19 3
 EFNU 0 0 0
 stand stand none 5000
-0 0 medium 0
+0 0 medium unknown
 #10436
 oldstyle half frozen body~
 the half frozen body~
@@ -547,7 +552,7 @@ AB J -876 0
 -21 -21 -21 3
 EFNU 0 0 0
 stand stand none 5000
-0 0 medium 0
+0 0 medium unknown
 #10437
 oldstyle killer penguin~
 the killer penguin~
@@ -562,7 +567,7 @@ ABFR J -876 0
 -21 -21 -21 -5
 FU 0 0 0
 stand stand none 5000
-0 0 medium 0
+0 0 medium unknown
 #10438
 oldstyle I-scream worker~
 the I-scream worker~
@@ -580,7 +585,7 @@ AB J -706 0
 -22 -22 -22 2
 EFNU 0 0 0
 stand stand none 5000
-0 0 medium 0
+0 0 medium unknown
 #10439
 oldstyle Ice Screamer~
 the Ice Screamer~
@@ -598,7 +603,7 @@ AB JV -706 0
 -22 -22 -22 2
 EFNU 0 0 0
 stand stand none 5000
-0 0 medium 0
+0 0 medium unknown
 #10440
 oldstyle Construction Foreman Demonic~
 the Demonic Foreman~
@@ -617,7 +622,7 @@ ABFGT DFJV -1000 0
 -23 -23 -23 2
 EFNU 0 0 0
 stand stand male 5000
-0 0 medium 0
+0 0 medium unknown
 #10441
 oldstyle Secretary of Hell~
 Secretary of Hell~
@@ -633,7 +638,7 @@ AB DFJ -700 0
 -15 -15 -15 4
 EFNU 0 0 0
 stand stand female 5000
-0 0 medium 0
+0 0 medium unknown
 #10442
 oldstyle office worker hell~
 office worker from Hell~
@@ -648,7 +653,7 @@ ABS DFJ -1000 0
 -17 -17 -17 2
 BEFJNU 0 0 0
 stand stand none 5000
-0 0 medium 0
+0 0 medium unknown
 #10443
 oldstyle records worker~
 records worker~
@@ -663,7 +668,7 @@ AB DFJ -1000 0
 -17 -17 -17 2
 EFNU 0 0 0
 stand stand none 5000
-0 0 medium 0
+0 0 medium unknown
 #10444
 oldstyle santa claus~
 Santa Claus~
@@ -678,7 +683,7 @@ AB DFJ -1000 0
 -17 -17 -17 4
 EFNU 0 0 0
 stand stand male 5000
-0 0 medium 0
+0 0 medium unknown
 #10445
 oldstyle high priest ell~
 High Priest of Hell~
@@ -693,7 +698,7 @@ ABFQ DFJV -1000 0
 -23 -23 -23 -1
 EIKU 0 0 0
 stand stand male 5000
-0 0 medium 0
+0 0 medium unknown
 #10446
 oldstyle bowl blood~
 a bowl of blood~
@@ -707,7 +712,7 @@ ABF DFJ -900 0
 -22 -22 -22 1
 EFNU 0 0 0
 stand stand none 5000
-0 0 medium 0
+0 0 medium unknown
 #10447
 oldstyle jury member~
 jury member~
@@ -721,7 +726,7 @@ AB DFJ -1000 0
 -13 -13 -13 5
 EFNU 0 0 0
 stand stand none 5000
-0 0 medium 0
+0 0 medium unknown
 #10448
 oldstyle Judge Whopper~
 Judge Whopper~
@@ -736,7 +741,7 @@ AB DFJV -1000 0
 -22 -22 -22 2
 EFNU 0 0 0
 stand stand none 5000
-0 0 medium 0
+0 0 medium unknown
 #10449
 oldstyle lawyer hell~
 Lawyer from Hell~
@@ -750,7 +755,7 @@ AB DFJV -1000 0
 -22 -22 -22 2
 EFNU 0 0 0
 stand stand none 5000
-0 0 medium 0
+0 0 medium unknown
 #10450
 oldstyle complaints officer~
 Complaints Officer~
@@ -766,7 +771,7 @@ AB DFJV -1000 0
 -23 -23 -23 3
 EFNU 0 0 0
 stand stand female 5000
-0 0 medium 0
+0 0 medium unknown
 #10451
 oldstyle bastard hiramoto~
 bastard hiramoto~
@@ -783,7 +788,7 @@ AB DFJV -1000 0
 -21 -21 -21 3
 EFNU 0 0 0
 stand stand male 5000
-0 0 medium 0
+0 0 medium unknown
 #10452
 oldstyle maintenance worker~
 maintenance worker~
@@ -797,7 +802,7 @@ AB DFJ -1000 0
 -21 -21 -21 3
 EFNU 0 0 0
 stand stand none 5000
-0 0 medium 0
+0 0 medium unknown
 #10453
 oldstyle weeds~
 weeds~
@@ -811,7 +816,7 @@ AB DFJ -1000 0
 -13 -13 -13 5
 EFNU 0 0 0
 stand stand none 5000
-0 0 medium 0
+0 0 medium unknown
 #10454
 oldstyle stanley~
 Stanley~
@@ -827,7 +832,7 @@ AB DFJ -1000 0
 -24 -24 -24 2
 EFNU 0 0 0
 stand stand male 5000
-0 0 medium 0
+0 0 medium unknown
 #10455
 oldstyle half eaten horse carcass~
 horse carcass~
@@ -842,7 +847,7 @@ AB DFJ -800 0
 -21 -21 -21 3
 EFNU 0 0 0
 stand stand none 5000
-0 0 medium 0
+0 0 medium unknown
 #10456
 oldstyle stomach dragon~
 stomach dragon~
@@ -857,7 +862,7 @@ AB DFJ -800 0
 -21 -21 -21 3
 EFNU 0 0 0
 stand stand none 5000
-0 0 medium 0
+0 0 medium unknown
 #10457
 oldstyle rancid turkey leg~
 rancid turkey leg~
@@ -872,7 +877,7 @@ AB DFJ -800 0
 -21 -21 -21 3
 EFNU 0 0 0
 stand stand none 5000
-0 0 medium 0
+0 0 medium unknown
 #10458
 oldstyle reactor specialist~
 reactor specialist~
@@ -887,7 +892,7 @@ AB DFJ -800 0
 -21 -21 -21 3
 EFNU 0 0 0
 stand stand male 5000
-0 0 medium 0
+0 0 medium unknown
 #10459
 oldstyle reactor worker~
 reactor worker~
@@ -902,7 +907,7 @@ AB DFJ -800 0
 -21 -21 -21 3
 EFNU 0 0 0
 stand stand male 5000
-0 0 medium 0
+0 0 medium unknown
 #10460
 oldstyle homer simpson~
 Homer Simpson~
@@ -921,7 +926,7 @@ AB DFJ -800 0
 -21 -21 -21 3
 EFNU 0 0 0
 stand stand male 5000
-0 0 medium 0
+0 0 medium unknown
 #10461
 oldstyle devil's food cake~
 devil's food cake~
@@ -935,7 +940,7 @@ AB DFJ -800 0
 -21 -21 -21 3
 EFNU 0 0 0
 stand stand none 5000
-0 0 medium 0
+0 0 medium unknown
 #10462
 oldstyle mad cook~
 mad cook~
@@ -949,7 +954,7 @@ AB DFJ -800 0
 -21 -21 -21 3
 EFNU 0 0 0
 stand stand male 5000
-0 0 medium 0
+0 0 medium unknown
 #10463
 oldstyle frantic lady~
 frantic lady~
@@ -962,7 +967,7 @@ AG JV -600 0
 -14 -14 -14 4
 EFNU 0 0 0
 stand stand female 5000
-0 0 medium 0
+0 0 medium unknown
 #10464
 oldstyle nuclear technician~
 nuclear technician~
@@ -975,7 +980,7 @@ AB DFJ -800 0
 -23 -23 -23 3
 EFNU 0 0 0
 stand stand male 5000
-0 0 medium 0
+0 0 medium unknown
 #10465
 oldstyle stray proton~
 stray proton~
@@ -988,7 +993,7 @@ AB DFJ -800 0
 -23 -23 -23 3
 EFNU 0 0 0
 stand stand none 5000
-0 0 medium 0
+0 0 medium unknown
 #10466
 oldstyle radiation~
 radiation~
@@ -1001,7 +1006,7 @@ AB DFJ -800 0
 -23 -23 -23 3
 EFNU 0 0 0
 stand stand none 5000
-0 0 medium 0
+0 0 medium unknown
 #10467
 oldstyle chief engineer hell~
 the Chief Engineer of Hell~
@@ -1018,7 +1023,7 @@ AB DFJV -800 0
 -24 -24 -24 2
 EFNU 0 0 0
 stand stand male 5000
-0 0 medium 0
+0 0 medium unknown
 #10468
 oldstyle Greater Fire Demon~
 the Greater Fire Demon~
@@ -1036,7 +1041,7 @@ AB DFJ -800 0
 -21 -21 -21 3
 EFNU 0 0 0
 stand stand none 5000
-0 0 medium 0
+0 0 medium unknown
 #10469
 oldstyle frozen side beef~
 side of frozen beef~
@@ -1051,7 +1056,7 @@ AB J -675 0
 -15 -15 -15 4
 EFNU 0 0 0
 stand stand none 5000
-0 0 medium 0
+0 0 medium unknown
 #10470
 oldstyle guard dog~
 guard dog~
@@ -1065,7 +1070,7 @@ ABD JV -900 0
 -18 -18 -18 4
 EFNU 0 0 0
 stand stand none 5000
-0 0 medium 0
+0 0 medium unknown
 #10471
 oldstyle juicy steak~
 juicy steak~
@@ -1079,8 +1084,10 @@ AB DFJ -800 0
 -23 -23 -23 0
 EFNU 0 0 0
 stand stand none 5000
-0 0 medium 0
+0 0 medium unknown
 #0
+
+
 
 #OBJECTS
 #10401
@@ -1155,7 +1162,7 @@ the angel's skull~
 An angel's skull lies here on the ground.~
 oldstyle~
 armor 0 AE
-15 15 15 8 0
+ABCD ABCD ABCD D 0
 45 40 6900 P
 A
 2 2
@@ -1167,7 +1174,7 @@ some rotting flesh~
 Some rotting flesh lies here in a pile.~
 oldstyle~
 armor 0 AD
-8 8 8 0 0
+D D D 0 0
 25 30 3900 P
 #10407
 sword vorpal blade two-handed~
@@ -1199,7 +1206,7 @@ a demonskin~
 A black, scaley pile of demonskin lies here.~
 oldstyle~
 armor 0 AD
-11 12 12 5 0
+ABD CD CD AC 0
 35 40 10000 P
 A
 4 1
@@ -1223,7 +1230,7 @@ some burning flesh~
 A pile of burning flesh lies here.~
 oldstyle~
 armor 0 AI
-12 11 11 10 0
+CD ABD ABD BD 0
 35 50 10000 P
 #10412
 rivet gun~
@@ -1319,7 +1326,7 @@ some meat~
 A chunk of meat lies here.~
 oldstyle~
 food 0 A
-30 30 0 0 0
+BCDE BCDE 0 0 0
 0 20 20 P
 #10422
 blueprint~
@@ -1327,7 +1334,7 @@ the blueprint~
 A construction blueprint lies on the ground.~
 oldstyle~
 food 0 AO
-31 31 0 0 0
+ABCDE ABCDE 0 0 0
 0 10 100 P
 #10423
 electric eraser~
@@ -1367,7 +1374,7 @@ unholy robes~
 A stinking pile of cloth lies here.~
 oldstyle~
 armor EJ AK
-16 16 16 8 0
+E E E D 0
 47 40 18300 P
 A
 12 125
@@ -1524,9 +1531,9 @@ black jumpsuit~
 a black jumpsuit~
 You see a black jumpsuit on the ground.~
 A
-oldstyle~
+oldstyle~
 armor A AD
-16 16 16 10 0
+E E E BD 0
 50 40 13700 P
 A
 18 5
@@ -1566,7 +1573,7 @@ a blond wig~
 A blond wig lies on the ground.~
 oldstyle~
 armor 0 AE
-16 16 16 8 0
+E E E D 0
 46 20 6100 P
 A
 19 4
@@ -1578,7 +1585,7 @@ a yellow jumpsuit~
 You see a yellow jumpsuit with a nuclear-warning symbol.~
 oldstyle~
 armor 0 AD
-16 16 16 16 0
+E E E E 0
 48 30 13700 P
 A
 20 -4
@@ -1626,6 +1633,8 @@ as you gaze into its lustrous black heart.
 ~
 #0
 
+
+
 #ROOMS
 #10401
 Stone Archway~
@@ -1635,15 +1644,6 @@ you from atop the arch.
 There is a bronze plaque above the archway.
 ~
 0 AD 0
-D0
-~
-~
-0 -1 22049
-D3
-It's too dark to see.
-~
-~
-0 -1 10402
 E
 plaque~
 ***************
@@ -1657,6 +1657,15 @@ Made for levels 30-50
 
 Brought to you by Strahd
 ~
+D0
+~
+~
+0 -1 22049
+D3
+It's too dark to see.
+~
+~
+0 -1 10402
 S
 #10402
 Ancient Room~
@@ -1712,6 +1721,12 @@ Large, black iron gates tower over you to the west.
 You see a large gateway to the west.
 ~
 0 AD 0
+E
+gates~
+These black iron gates are covered with grotesque faces and other
+creatures in various poses and acts of violence and lust. The gates
+make your blood run cold...
+~
 D1
 It's too dark to see.
 ~
@@ -1722,12 +1737,6 @@ You see the Gates of Hell
 ~
 gates~
 1 -1 10405
-E
-gates~
-These black iron gates are covered with grotesque faces and other
-creatures in various poses and acts of violence and lust. The gates
-make your blood run cold...
-~
 S
 #10405
 Gateway to Hell~
@@ -1737,6 +1746,12 @@ nerves. Displays of the treats of Hell are in all directions.
 A large black iron gates tower over you to the east.
 ~
 0 AD 0
+E
+gates~
+These black iron gates are covered with grotesque faces and other
+creatures in various poses and acts of violence and lust. The gates
+seem to make your blood run cold...
+~
 D0
 It's too smoky to see.
 ~
@@ -1757,12 +1772,6 @@ It's too smoky to see.
 ~
 ~
 0 -1 10406
-E
-gates~
-These black iron gates are covered with grotesque faces and other
-creatures in various poses and acts of violence and lust. The gates
-seem to make your blood run cold...
-~
 S
 #10406
 Hall of the Damned~
@@ -2152,6 +2161,10 @@ It currently reads, 'Now Serving Number 1'.
 A ticket dispenser is bolted to the wall.
 ~
 0 AD 0
+E
+dispenser~
+This is one of those red ticket dispensers that never seem to work right.
+~
 D0
 It is too dark to see.
 ~
@@ -2167,10 +2180,6 @@ It is too dark to see.
 ~
 ~
 0 -1 10422
-E
-dispenser~
-This is one of those red ticket dispensers that never seem to work right.
-~
 S
 #10424
 Room of Lost Souls~
@@ -2180,6 +2189,10 @@ It currently reads, 'Now Serving Number 1'.
 A ticket dispenser is bolted to the wall.
 ~
 0 AD 0
+E
+dispenser~
+This is one of those red ticket dispensers that never seem to work right.
+~
 D0
 It is too dark to see.
 ~
@@ -2195,10 +2208,6 @@ It is too dark to see.
 ~
 ~
 0 -1 10423
-E
-dispenser~
-This is one of those red ticket dispensers that never seem to work right.
-~
 S
 #10425
 Pit of Fire~
@@ -3625,11 +3634,6 @@ The new propaganda posters for Hell are posted behind the altar.
 You see a blackened hall to the east.
 ~
 0 AD 0
-D1
-You see a blackened hallway.
-~
-~
-0 -1 10496
 E
 poster~
 Don't go to heaven....They're boring....
@@ -3638,6 +3642,11 @@ Don't go to heaven....They're boring....
 
 You'll be damned if you don't  ;)
 ~
+D1
+You see a blackened hallway.
+~
+~
+0 -1 10496
 S
 #10496
 Blackened Hall~
@@ -3727,6 +3736,17 @@ There is a stairway down on the opposite side of the room.
 There is a sign posted next to the stairs.
 ~
 0 AD 0
+E
+sign~
+****ATTENTION***
+The Abyss is CLOSED for construction.
+
+We will open for your painful pleasures
+
+soon....
+
+-Strahd-
+~
 D0
 You see a marble hall.
 ~
@@ -3747,17 +3767,6 @@ You see a stairway down.
 ~
 stairway~
 0 -1 10509
-E
-sign~
-****ATTENTION***
-The Abyss is CLOSED for construction.
-
-We will open for your painful pleasures
-
-soon....
-
--Strahd-
-~
 S
 #10501
 Halls of Judgement~
@@ -4118,7 +4127,7 @@ D5
 You see Big Mouth's mouth.
 ~
 mouth big mouth's~
-1 -1 10526
+0 -1 10526
 S
 #10518
 Stairs to the Abyss~
@@ -4285,7 +4294,7 @@ D4
 You see Big Mouth's throat.
 ~
 mouth big mouth's throat~
-1 -1 10517
+0 -1 10517
 S
 #10527
 Stairs to the Abyss~
@@ -4483,7 +4492,6 @@ D5
 ~
 ~
 0 -1 5250
-
 S
 #10537
 Inside the Reactor Core~
@@ -4575,252 +4583,278 @@ You see a room of ice.
 S
 #0
 
-#RESETS
-M 0 10401   2 10405  2	* the Guardian of Hell
-E 1 10401  80   16	*   a wicked looking trident
-M 0 10401   2 10405  2	* the Guardian of Hell
-E 1 10401  80   16	*   a wicked looking trident
-M 0 10402   1 10416  1	* the pile of gold coins
-M 0 10405   1 10416  1	* the gold bar
-M 0 10403   1 10417  1	* the male Dee
-E 1 10402  80   16	*   a black leather whip
-M 0 10404   1 10417  1	* the female Dee
-E 1 10403  80   16	*   a hickey maker
-M 0 10406   1 10415  1	* a scrumptious chicken pot pie
-M 0 10407   1 10415  1	* a yummy beef pot pie
-M 0 10408   1 10415  1	* a yummy vegetable pot pie
-M 0 10409   6 10406  2	* a damned soul
-M 0 10409   6 10408  2	* a damned soul
-M 0 10409   6 10410  2	* a damned soul
-M 0 10410   2 10413  2	* a tortured soul
-M 0 10411   1 10414  1	* the half-eaten person
-M 0 10412   2 10412  1	* the living wall
-G 1 10405   8     	*   the angel's skull
-M 0 10412   2 10429  1	* the living wall
-E 1 10404   8   16  	*   a black hilted sword called, "Farslayer"
-M 0 10413   2 10426  1	* skeletal warrior
-E 1 10406  80    5	*   some rotting flesh
-E 1 10407  80   16	*   the Vorpal Blade
-M 0 10413   2 10428  1	* skeletal warrior
-E 1 10406  80    5	*   some rotting flesh
-E 1 10407  80   16	*   the Vorpal Blade
-M 0 10414   1 10419  1	* bloody severed arm
-M 0 10415   1 10419  1	* bloody severed foot
-M 0 10416   1 10419  1	* bloody severed nose
-M 0 10417   1 10420  1	* the blood from the fountain
-M 0 10418   4 10423  2	* the lost soul
-M 0 10418   4 10424  2	* the lost soul
-M 0 10419   1 10425  1	* the crispy critter
-E 1 10408  80   16	*   a flaming claw
-M 0 10420   2 10430  2	* pile of bones
-M 0 10421   2 10445  1	* the manes
-E 1 10444  80   16	*   a manes' claws
-M 0 10421   2 10440  1	* the manes
-E 1 10444  80   16	*   a manes' claws
-M 0 10422   1 10433  1	* the prisoner Raiden
-M 0 10423   1 10437  1	* a prisoner in Hell
-M 0 10424   1 10449  1	* a prisoner in Hell
-M 0 10425   3 10442  1	* demonguard
-E 1 10409  80    5	*   a demonskin
-E 1 10410  80   16	*   demon teeth
-M 0 10425   3 10436  1	* demonguard
-E 1 10409  80    5	*   a demonskin
-E 1 10410  80   16	*   demon teeth
-M 0 10425   3 10438  1	* demonguard
-E 1 10409  80    5	*   a demonskin
-E 1 10410  80   16	*   demon teeth
-M 0 10426   2 10470  1	* the burning fool
-E 1 10411  80   10	*   some burning flesh
-M 0 10426   2 10460  1	* the burning fool
-E 1 10411  80   10	*   some burning flesh
-M 0 10427   3 10467  1	* male construction worker
-E 1 10445  80   16	*   a welding torch
-M 0 10428   3 10467  1	* the female construction worker
-E 1 10412  80   16	*   a rivit gun
-M 0 10427   3 10456  1	* male construction worker
-E 1 10445  80   16	*   a welding torch
-M 0 10428   3 10456  1	* the female construction worker
-E 1 10412  80   16	*   a rivit gun
-M 0 10428   3 10465  1	* the female construction worker
-E 1 10413  80   16	*   a circular saw
-M 0 10427   3 10465  1	* male construction worker
-E 1 10412  80   16	*   a rivit gun
-M 0 10430   1 10470  1	* the fire devil
-E 1 10414  80   16	*   a box of matches
-G 1 10449  -1     	*   a precious fire opal
-M 0 10468   1 10460  1	* Greater Fire Demon
-E 1 10415  80   16	*   a bloody black talon
-G 1 10416   8     	*   jar of blood
-M 0 10431   1 10469  1	* the wall of fire
-M 0 10432   1 10454  1	* the hell hound
-E 1 10417  80   16	*   hell hound teeth
-M 0 10433   1 10541  1	* the frozen body
-G 1 10418   8     	*   an icy bottle
-M 0 10434   1 10483  1	* the ice devil
-E 1 10419  80   16	*   an ice spear
-M 0 10435   1 10473  1	* the trapped soul
-M 0 10436   2 10484  1	* the half frozen body
-E 1 10420  80   16	*   a large meat hook
-M 0 10469   2 10474  1	* side of frozen beef
-G 1 10421   8     	*   some meat
-M 0 10436   2 10475  1	* the half frozen body
-E 1 10420  80   16	*   a large meat hook
-M 0 10469   2 10485  1	* side of frozen beef
-G 1 10421   8     	*   some meat
-M 0 10437   4 10476  1	* the killer penguin
-M 0 10437   4 10477  1	* the killer penguin
-M 0 10437   4 10486  1	* the killer penguin
-M 0 10437   4 10487  1	* the killer penguin
-M 0 10438   2 10488  1	* the I-scream worker
-M 0 10438   2 10478  1	* the I-scream worker
-M 0 10439   1 10479  1	* the Ice Screamer
-M 0 10440   1 10462  1	* the Demonic Foreman
-G 1 10422  17     	*   the blueprint
-M 0 10441   1 10500  1	* Secretary of Hell
-E 1 10446  80    6	*   a blond wig
-M 0 10442   2 10498  1	* office worker from Hell
-E 1 10423  80   16	*   an electric eraser
-M 0 10442   2 10506  1	* office worker from Hell
-E 1 10423  80   16	*   an electric eraser
-M 0 10443   3 10491  1	* records worker
-M 0 10443   3 10492  1	* records worker
-M 0 10443   3 10493  1	* records worker
-M 0 10444   1 10494  1	* Santa Claus
-E 1 10424  80    6	*   spectacles
-M 0 10445   1 10497  1	* High Priest of Hell
-E 1 10425  80   17	*   an unholy symbol
-E 1 10426  80   12	*   unholy robes
-G 1 10450  -1     	*   a hellstone
-M 0 10446   1 10495  1	* a bowl of blood
-M 0 10447   6 10511  6	* jury member
-M 0 10448   1 10521  1	* Judge Whopper
-M 0 10449   1 10512  1	* Lawyer from Hell
-E 1 10427  80   16	*   the sharp teeth of a lawyer
-M 0 10450   1 10513  1	* Complaints Officer
-M 0 10451   1 10514  1	* bastard hiramoto
-G 1 10428   8     	*   a golden ring
-G 1 10429   8     	*   an engagement ring
-G 1 10430   8     	*   a prenuptual agreement
-M 0 10452   3 10520  1	* maintenance worker
-E 1 10431  80   16	*   an ionic torque wrench
-E 1 10447  80    5	*   a yellow jumpsuit
-M 0 10452   3 10519  1	* maintenance worker
-E 1 10431  80   16	*   an ionic torque wrench
-E 1 10447  80    5	*   a yellow jumpsuit
-M 0 10452   3 10529  1	* maintenance worker
-E 1 10431  80   16	*   an ionic torque wrench
-E 1 10447  80    5	*   a yellow jumpsuit
-M 0 10453   5 10522  1	* weeds
-M 0 10453   5 10522  1	* weeds
-M 0 10453   5 10535  1	* weeds
-M 0 10453   5 10523  1	* weeds
-M 0 10453   5 10533  1	* weeds
-M 0 10454   1 10524  1	* Stanley
-G 1 10432   8     	*   a figurine of a horse
-G 1 10433   8     	*   a figurine of a winged horse
-G 1 10434   8     	*   a figurine of a nightmare
-G 1 10435   8     	*   a figurine of a black dragon
-G 1 10436   8     	*   a figurine of a red dragon
-G 1 10437   8     	*   a figurine of a white dragon
-G 1 10438   8     	*   a figurine of a green dragon
-G 1 10439   8     	*   a figurine of a blue dragon
-M 0 10455   1 10526  1	* horse carcass
-M 0 10456   1 10526  1	* stomach dragon
-M 0 10457   1 10526  1	* rancid turkey leg
-M 0 10458   1 10528  1	* reactor specialist
-E 1 10440  80   17	*   a geiger counter
-E 1 10442  80    5	*   a black jumpsuit
-M 0 10459   1 10528  1	* reactor worker
-E 1 10441  80   16	*   a photon displacement matrix
-E 1 10442  80    5	*   a black jumpsuit
-M 0 10460   1 10539  1	* Homer Simpson
-M 0 10471   1 10531  1	* juicy steak
-M 0 10461   1 10531  1	* devils food cake
-M 0 10462   1 10531  1	* mad cook
-E 1 10448  80   16	*   a cleaver
-M 0 10463   5 10524  1	* frantic lady
-M 0 10463   5 10524  1	* frantic lady
-M 0 10463   5 10522  1	* frantic lady
-M 0 10463   5 10535  1	* frantic lady
-M 0 10463   5 10535  1	* frantic lady
-M 0 10464   1 10538  1	* nuclear technician
-E 1 10442  80    5	*   a black jumpsuit
-M 0 10466   2 10538  1	* radiation
-M 0 10465   1 10537  1	* stray proton
-M 0 10466   2 10537  1	* radiation
-M 0 10467   1 10540  1	* the Chief Engineer of Hell
-G 1 10443   8     	*   an antacid pill
-M 0 10470   2 10530  2	* guard dog
-D 0 10404   3    1	* Landing west
-D 0 10405   1    1	* Gateway to Hell east
-D 0 10416   1    1	* Greed east
-D 0 10417   3    1	* Bedroom. west
-D 0 10443   0    1	* Stone Hall north
-D 0 10433   2    1	* Cell south
-D 0 10435   2    1	* Stone Hall south
-D 0 10445   0    1	* Cell north
-D 0 10447   0    1	* Stone Hall north
-D 0 10437   2    1	* Cell south
-D 0 10439   2    1	* Stone Hall south
-D 0 10449   0    1	* Cell north
-D 0 10439   1    1	* Stone Hall east
-D 0 10440   3    1	* Cell west
-D 0 10452   2    1	* Stone Arch south
-D 0 10462   0    1	* Foreman's Office north
-D 0 10476   3    1	* Penguin Room west
-D 0 10475   1    1	* Meat Locker east
-D 0 10479   1    1	* Ice Creamery east
-D 0 10480   3    1	* White Marble Hall west
-D 0 10483   1    1	* Ice Room east
-D 0 10484   3    1	* Meat Locker west
-D 0 10496   1    1	* Blackened Hall east
-D 0 10497   3    1	* Office of the High Priest west
-D 0 10499   1    1	* Blackened Hall east
-D 0 10500   3    1	* Administration of Hell west
-D 0 10500   2    1	* Administration of Hell south
-D 0 10510   0    1	* Maintenance Walkway north
-D 0 10538   3    1	* Reactor Room Floor west
-D 0 10537   1    1	* Inside the Reactor Core east
-S
 
-#SHOPS
-10451  0  0  0  0  0 	 110  75 	 0 23 	* bastard hiramoto
-10454  2  3  4 10  0      225  15         0 23   * the Stanley
-0
 
 #SPECIALS
-M 10401 spec_cast_judge     	* the Guardian of Hell
-M 10402 spec_thief          	* the pile of gold coins
-M 10403 spec_breath_fire    	* the male Dee
-M 10405 spec_thief          	* the gold bar
-M 10406 spec_poison		* pie
-M 10407 spec_cast_judge		* pie
-M 10408 spec_cast_cleric	* pie
-M 10409 spec_cast_cleric    	* a damned soul
-M 10410 spec_cast_mage      	* a tortured soul
-M 10411 spec_cast_undead    	* the half-eaten person
-M 10412 spec_breath_acid    	* the living wall
-M 10417 spec_breath_gas     	* the blood from the fountain
-M 10418 spec_cast_mage      	* the lost soul
-M 10419 spec_breath_fire    	* the crispy critter
-M 10421 spec_fido           	* the manes
+M 10401 spec_cast_judge	* the Guardian of Hell
+M 10402 spec_thief	* the pile of gold coins
+M 10403 spec_breath_fire	* the male Dee
+M 10405 spec_thief	* the gold bar
+M 10406 spec_poison	* a scrumptious chicken pot pie
+M 10407 spec_cast_judge	* a yummy beef pot pie
+M 10408 spec_cast_cleric	* a yummy vegetable pot pie
+M 10409 spec_cast_cleric	* a damned soul
+M 10410 spec_cast_mage	* a tortured soul
+M 10411 spec_cast_undead	* the half-eaten person
+M 10412 spec_breath_acid	* the living wall
+M 10417 spec_breath_gas	* the blood from the fountain
+M 10418 spec_cast_mage	* the lost soul
+M 10419 spec_breath_fire	* the crispy critter
+M 10421 spec_fido	* the manes
 M 10422 spec_breath_lightning	* the prisoner Raiden
-M 10425 spec_poison         	* demonguard
-M 10426 spec_breath_fire    	* the burning fool
-M 10430 spec_breath_fire    	* the fire devil
-M 10432 spec_breath_fire    	* the hell hound
-M 10433 spec_breath_frost   	* the frozen body
-M 10434 spec_breath_frost   	* the ice devil
-M 10437 spec_cast_mage      	* the killer penguin
-M 10438 spec_breath_frost   	* the I-scream worker
-M 10439 spec_breath_frost   	* the Ice Screamer
-M 10442 spec_thief          	* office worker from Hell
-M 10445 spec_cast_cleric    	* High Priest of Hell
-M 10448 spec_cast_judge     	* Judge Whopper
-M 10456 spec_breath_acid    	* stomach dragon
-M 10468 spec_breath_fire    	* Greater Fire Demon
-M 10469 spec_breath_frost   	* side of frozen beef
-M 10470 spec_fido           	* guard dog
+M 10425 spec_poison	* demonguard
+M 10426 spec_breath_fire	* the burning fool
+M 10430 spec_breath_fire	* the fire devil
+M 10432 spec_breath_fire	* the hell hound
+M 10433 spec_breath_frost	* the frozen body
+M 10434 spec_breath_frost	* the ice devil
+M 10437 spec_cast_mage	* the killer penguin
+M 10438 spec_breath_frost	* the I-scream worker
+M 10439 spec_breath_frost	* the Ice Screamer
+M 10442 spec_thief	* office worker from Hell
+M 10445 spec_cast_cleric	* High Priest of Hell
+M 10448 spec_cast_judge	* Judge Whopper
+M 10456 spec_breath_acid	* stomach dragon
+M 10468 spec_breath_fire	* the Greater Fire Demon
+M 10469 spec_breath_frost	* side of frozen beef
+M 10470 spec_fido	* guard dog
 S
+
+
+
+#RESETS
+D 0 10404 3 1	* Landing: door to the west: closed
+D 0 10405 1 1	* Gateway to Hell: door to the east: closed
+D 0 10416 1 1	* Greed: door to the east: closed
+D 0 10417 3 1	* Bedroom.: door to the west: closed
+D 0 10433 2 1	* Cell: door to the south: closed
+D 0 10435 2 1	* Stone Hall: door to the south: closed
+D 0 10437 2 1	* Cell: door to the south: closed
+D 0 10439 1 1	* Stone Hall: door to the east: closed
+D 0 10439 2 1	* Stone Hall: door to the south: closed
+D 0 10440 3 1	* Cell: door to the west: closed
+D 0 10443 0 1	* Stone Hall: door to the north: closed
+D 0 10445 0 1	* Cell: door to the north: closed
+D 0 10447 0 1	* Stone Hall: door to the north: closed
+D 0 10449 0 1	* Cell: door to the north: closed
+D 0 10452 2 1	* Stone Arch: door to the south: closed
+D 0 10462 0 1	* Foreman's Office: door to the north: closed
+D 0 10475 1 1	* Meat Locker: door to the east: closed
+D 0 10476 3 1	* Penguin Room: door to the west: closed
+D 0 10479 1 1	* Ice Creamery: door to the east: closed
+D 0 10480 3 1	* White Marble Hall: door to the west: closed
+D 0 10483 1 1	* Ice Room: door to the east: closed
+D 0 10484 3 1	* Meat Locker: door to the west: closed
+D 0 10496 1 1	* Blackened Hall: door to the east: closed
+D 0 10497 3 1	* Office of the High Priest: door to the west: closed
+D 0 10499 1 1	* Blackened Hall: door to the east: closed
+D 0 10500 2 1	* Administration of Hell: door to the south: closed
+D 0 10500 3 1	* Administration of Hell: door to the west: closed
+D 0 10510 0 1	* Maintenance Walkway: door to the north: closed
+D 0 10537 1 1	* Inside the Reactor Core: door to the east: closed
+D 0 10538 3 1	* Reactor Room Floor: door to the west: closed
+M 0 10401 2 10405 2	* the Guardian of Hell (Gateway to Hell)
+E 0 10401 0 16		*	a wicked-looking trident: wielded
+M 0 10401 2 10405 2	* the Guardian of Hell (Gateway to Hell)
+E 0 10401 0 16		*	a wicked-looking trident: wielded
+M 0 10409 6 10406 2	* a damned soul (Hall of the Damned)
+M 0 10409 6 10408 2	* a damned soul (Hall of the Damned)
+M 0 10409 6 10410 2	* a damned soul (Hall of the Damned)
+M 0 10412 2 10412 1	* the living wall (Living Walls)
+G 0 10405 0		*	the angel's skull
+M 0 10410 2 10413 2	* a tortured soul (Trapped souls)
+M 0 10411 1 10414 1	* the half-eaten person (Tortured Beings)
+M 0 10406 1 10415 1	* a scrumptious chicken pot pie (Gluttony)
+M 0 10407 1 10415 1	* a yummy beef pot pie (Gluttony)
+M 0 10408 1 10415 1	* a yummy vegetable pot pie (Gluttony)
+M 0 10402 1 10416 1	* the pile of gold coins (Greed)
+M 0 10405 1 10416 1	* the gold bar (Greed)
+M 0 10403 1 10417 1	* the male Dee (Bedroom.)
+E 0 10402 0 16		*	a black leather whip: wielded
+M 0 10404 1 10417 1	* the female Dee (Bedroom.)
+E 0 10403 0 16		*	a hickey maker: wielded
+M 0 10414 1 10419 1	* bloody severed arm (Room full of Body Parts.)
+M 0 10415 1 10419 1	* bloody severed foot (Room full of Body Parts.)
+M 0 10416 1 10419 1	* bloody severed nose (Room full of Body Parts.)
+M 0 10417 1 10420 1	* the blood from the fountain (Fountain of Blood.)
+M 0 10418 4 10423 2	* the lost soul (Room of Lost Souls)
+M 0 10418 4 10424 2	* the lost soul (Room of Lost Souls)
+M 0 10419 1 10425 1	* the crispy critter (Pit of Fire)
+E 0 10408 0 16		*	a flaming claw: wielded
+M 0 10413 2 10426 1	* skeletal warrior (Blackened Hallway)
+E 0 10406 0 5		*	some rotting flesh: on the body
+E 0 10407 0 16		*	the Vorpal Blade: wielded
+M 0 10413 2 10428 1	* skeletal warrior (Blood Room)
+E 0 10406 0 5		*	some rotting flesh: on the body
+E 0 10407 0 16		*	the Vorpal Blade: wielded
+M 0 10412 2 10429 1	* the living wall (Living Walls)
+E 0 10404 0 16		*	a black-hilted sword called "Farslayer": wielded
+M 0 10420 2 10430 2	* pile of bones (Skeleton Factory)
+M 0 10422 1 10433 1	* the prisoner Raiden (Cell)
+M 0 10425 3 10436 1	* demonguard (Stone Hall)
+E 0 10409 0 5		*	a demonskin: on the body
+E 0 10410 0 16		*	demon teeth: wielded
+M 0 10423 1 10437 1	* a prisoner in Hell (Cell)
+M 0 10425 3 10438 1	* demonguard (Stone Hall)
+E 0 10409 0 5		*	a demonskin: on the body
+E 0 10410 0 16		*	demon teeth: wielded
+M 0 10421 2 10440 1	* the manes (Cell)
+E 0 10444 0 16		*	a manes' claws: wielded
+M 0 10425 3 10442 1	* demonguard (Stone Hall)
+E 0 10409 0 5		*	a demonskin: on the body
+E 0 10410 0 16		*	demon teeth: wielded
+M 0 10421 2 10445 1	* the manes (Cell)
+E 0 10444 0 16		*	a manes' claws: wielded
+M 0 10424 1 10449 1	* a prisoner in Hell (Cell)
+M 0 10432 1 10454 1	* the hell hound (Hall of Fire)
+E 0 10417 0 16		*	hell hound teeth: wielded
+M 0 10427 3 10456 1	* male construction worker (Construction Area)
+E 0 10445 0 16		*	a welding torch: wielded
+M 0 10428 3 10456 1	* the female construction worker (Construction Area)
+E 0 10412 0 16		*	a rivet gun: wielded
+M 0 10426 2 10460 1	* the burning fool (Fire Pits of Hades)
+E 0 10411 0 10		*	some burning flesh: on the arms
+M 0 10468 1 10460 1	* the Greater Fire Demon (Fire Pits of Hades)
+E 0 10415 0 16		*	a bloody black talon: wielded
+G 0 10416 0		*	jar of blood
+M 0 10440 1 10462 1	* the Demonic Foreman (Foreman's Office)
+G 0 10422 0		*	the blueprint
+M 0 10428 3 10465 1	* the female construction worker (Construction Area)
+E 0 10413 0 16		*	a circular saw: wielded
+M 0 10427 3 10465 1	* male construction worker (Construction Area)
+E 0 10412 0 16		*	a rivet gun: wielded
+M 0 10427 3 10467 1	* male construction worker (Construction Area)
+E 0 10445 0 16		*	a welding torch: wielded
+M 0 10428 3 10467 1	* the female construction worker (Construction Area)
+E 0 10412 0 16		*	a rivet gun: wielded
+M 0 10431 1 10469 1	* the wall of fire (Wall of Fire)
+M 0 10426 2 10470 1	* the burning fool (Lake of Fire)
+E 0 10411 0 10		*	some burning flesh: on the arms
+M 0 10430 1 10470 1	* the fire devil (Lake of Fire)
+E 0 10414 0 16		*	a box of matches: wielded
+G 0 10449 0		*	a precious fire opal
+M 0 10435 1 10473 1	* the trapped soul (Ice Room)
+M 0 10469 2 10474 1	* side of frozen beef (Meat Locker)
+G 0 10421 0		*	some meat
+M 0 10436 2 10475 1	* the half frozen body (Meat Locker)
+E 0 10420 0 16		*	a large meat hook: wielded
+M 0 10437 4 10476 1	* the killer penguin (Penguin Room)
+M 0 10437 4 10477 1	* the killer penguin (Penguin Room)
+M 0 10438 2 10478 1	* the I-scream worker (Ice Creamery)
+M 0 10439 1 10479 1	* the Ice Screamer (Ice Creamery)
+M 0 10434 1 10483 1	* the ice devil (Ice Room)
+E 0 10419 0 16		*	an ice spear: wielded
+M 0 10436 2 10484 1	* the half frozen body (Meat Locker)
+E 0 10420 0 16		*	a large meat hook: wielded
+M 0 10469 2 10485 1	* side of frozen beef (Meat Locker)
+G 0 10421 0		*	some meat
+M 0 10437 4 10486 1	* the killer penguin (Penguin Room)
+M 0 10437 4 10487 1	* the killer penguin (Penguin Room)
+M 0 10438 2 10488 1	* the I-scream worker (Ice-Creamery)
+M 0 10443 3 10491 1	* records worker (Records Hall)
+M 0 10443 3 10492 1	* records worker (Records Hall)
+M 0 10443 3 10493 1	* records worker (Records Hall)
+M 0 10444 1 10494 1	* Santa Claus (Records Hall)
+E 0 10424 0 6		*	spectacles: over the head
+M 0 10446 1 10495 1	* a bowl of blood (Small Altar)
+M 0 10445 1 10497 1	* High Priest of Hell (Office of the High Priest)
+E 0 10425 0 17		*	an unholy symbol: held in the hands
+E 0 10426 0 12		*	unholy robes: about the shoulders
+G 0 10450 0		*	a hellstone
+M 0 10442 2 10498 1	* office worker from Hell (Blackened Hall)
+E 0 10423 0 16		*	an electric eraser: wielded
+M 0 10441 1 10500 1	* Secretary of Hell (Administration of Hell)
+E 0 10446 0 6		*	a blond wig: over the head
+M 0 10442 2 10506 1	* office worker from Hell (Blackened Hall)
+E 0 10423 0 16		*	an electric eraser: wielded
+M 0 10447 6 10511 6	* jury member (Court Room)
+M 0 10449 1 10512 1	* Lawyer from Hell (Lawyers Office)
+E 0 10427 0 16		*	the sharp teeth of a lawyer: wielded
+M 0 10450 1 10513 1	* Complaints Officer (Office of Complaints)
+M 0 10451 1 10514 1	* bastard hiramoto (Pawn Shop)
+G 0 10428 0		*	a golden ring
+G 0 10429 0		*	an engagement ring
+G 0 10430 0		*	a prenuptual agreement
+M 0 10452 3 10519 1	* maintenance worker (Maintenance Walkway)
+E 0 10431 0 16		*	an ionic torque wrench: wielded
+E 0 10447 0 5		*	a yellow jumpsuit: on the body
+M 0 10452 3 10520 1	* maintenance worker (Maintenance Walkway)
+E 0 10431 0 16		*	an ionic torque wrench: wielded
+E 0 10447 0 5		*	a yellow jumpsuit: on the body
+M 0 10448 1 10521 1	* Judge Whopper (Judge's Chambers)
+M 0 10453 5 10522 1	* weeds (Courtyard)
+M 0 10453 5 10522 1	* weeds (Courtyard)
+M 0 10463 5 10522 1	* frantic lady (Courtyard)
+M 0 10453 5 10523 1	* weeds (Courtyard)
+M 0 10454 1 10524 1	* Stanley (Stanley's Magical Steeds)
+G 0 10432 0		*	a figurine of a horse
+G 0 10433 0		*	a figurine of a winged horse
+G 0 10434 0		*	a figurine of a nightmare
+G 0 10435 0		*	a figurine of a black dragon
+G 0 10436 0		*	a figurine of a red dragon
+G 0 10437 0		*	a figurine of a white dragon
+G 0 10438 0		*	a figurine of a green dragon
+G 0 10439 0		*	a figurine of a blue dragon
+M 0 10463 5 10524 1	* frantic lady (Stanley's Magical Steeds)
+M 0 10463 5 10524 1	* frantic lady (Stanley's Magical Steeds)
+M 0 10455 1 10526 1	* horse carcass (Inside Big Mouth's Stomach)
+M 0 10456 1 10526 1	* stomach dragon (Inside Big Mouth's Stomach)
+M 0 10457 1 10526 1	* rancid turkey leg (Inside Big Mouth's Stomach)
+M 0 10458 1 10528 1	* reactor specialist (Reactor Control Room)
+E 0 10440 0 17		*	a geiger counter: held in the hands
+E 0 10442 0 5		*	a black jumpsuit: on the body
+M 0 10459 1 10528 1	* reactor worker (Reactor Control Room)
+E 0 10441 0 16		*	a photon-displacement matrix: wielded
+E 0 10442 0 5		*	a black jumpsuit: on the body
+M 0 10452 3 10529 1	* maintenance worker (Maintenance Room)
+E 0 10431 0 16		*	an ionic torque wrench: wielded
+E 0 10447 0 5		*	a yellow jumpsuit: on the body
+M 0 10470 2 10530 2	* guard dog (Break Room)
+M 0 10471 1 10531 1	* juicy steak (Hell's Kitchen)
+M 0 10461 1 10531 1	* devil's food cake (Hell's Kitchen)
+M 0 10462 1 10531 1	* mad cook (Hell's Kitchen)
+E 0 10448 0 16		*	a cleaver: wielded
+M 0 10453 5 10533 1	* weeds (Courtyard)
+M 0 10453 5 10535 1	* weeds (Hallway of The Mall from Hell)
+M 0 10463 5 10535 1	* frantic lady (Hallway of The Mall from Hell)
+M 0 10463 5 10535 1	* frantic lady (Hallway of The Mall from Hell)
+M 0 10465 1 10537 1	* stray proton (Inside the Reactor Core)
+M 0 10466 2 10537 1	* radiation (Inside the Reactor Core)
+M 0 10464 1 10538 1	* nuclear technician (Reactor Room Floor)
+E 0 10442 0 5		*	a black jumpsuit: on the body
+M 0 10466 2 10538 1	* radiation (Reactor Room Floor)
+M 0 10460 1 10539 1	* Homer Simpson (Secondary Control Room)
+M 0 10467 1 10540 1	* the Chief Engineer of Hell (Office of the Chief Engineer)
+G 0 10443 0		*	an antacid pill
+M 0 10433 1 10541 1	* the frozen body (Ice Room)
+G 0 10418 0		*	an icy bottle
+S
+
+
+
+#SHOPS
+10451 0 0 0 0 0 110 75 0 23
+10454 2 3 4 10 0 225 15 0 23
+0
+
+
+
+#OLIMITS
+S
+
+
+
+#MOBPROGS
+#0
+
+#PRACTICERS
+S
+
+
+
+#OMPROGS
+S
+
+
 
 #$
