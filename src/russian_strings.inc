@@ -282,6 +282,10 @@ char *strings_rus[MSG_MAX_NUM] = {
 /* MOVE_N_POWER_INCREASES */	"Энергия $n увеличивается!",
 /* MOVE_YOUR_T_INCREASES */	"Твое $T увеличивается!",
 /* MOVE_N_T_INCREASES */	"$T $n увеличивается!",
+/* MOVE_THERE_ARE_NO_TRAIN_TRACKS_HERE */"Здесь нет следов для тренировки.\n\r",
+/* MOVE_N_CHECKS_TRACKS */	"$n внимательно рассматривает следы на земле.",
+/* MOVE_TRACKS_LEAD_S */	"Следы %s ведут на %s.\n\r",
+/* MOVE_DONT_SEE_TRACKS */	"Здесь нет следов.\n\r",
 
 /*	Here start sex-dependent messages */
 /* INFO_IS_GUSHING_BLOOD */	"{Yсерьезно ранено{x.",

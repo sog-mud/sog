@@ -2,7 +2,7 @@
 #define _RESOURCE_H_
 
 /*
- * $Id: resource.h,v 1.32 1998-04-29 22:31:55 efdi Exp $
+ * $Id: resource.h,v 1.33 1998-04-29 23:35:02 efdi Exp $
  */
 
 char* msg(int resnum, CHAR_DATA *ch);
@@ -293,6 +293,10 @@ enum {
 	MOVE_YOUR_T_IS_MAX,
 	MOVE_YOUR_T_INCREASES,
 	MOVE_N_T_INCREASES,
+	MOVE_THERE_ARE_NO_TRAIN_TRACKS_HERE,
+	MOVE_N_CHECKS_TRACKS,
+	MOVE_TRACKS_LEAD_S,
+	MOVE_DONT_SEE_TRACKS,
 
 /*	Here start sex-dependent messages */
 	MSG_SEX_DEPENDENT,

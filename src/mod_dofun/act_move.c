@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.28 1998-04-29 22:31:54 efdi Exp $
+ * $Id: act_move.c,v 1.29 1998-04-29 23:35:01 efdi Exp $
  */
 
 /***************************************************************************
@@ -2263,12 +2263,12 @@ void do_track(CHAR_DATA *ch, char *argument)
   int d;
 
   if (!IS_NPC(ch) && get_skill(ch,gsn_track) < 2) {
-    send_to_char("There are no train tracks here.\n\r",ch);
+    send_to_char(msg(MOVE_THERE_ARE_NO_TRAIN_TRACKS_HERE, ch), ch);
     return;
   }
 
   WAIT_STATE(ch,skill_table[gsn_track].beats);
-  act("$n checks the ground for tracks.",ch,NULL,NULL,TO_ROOM);
+  act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING, MOVE_N_CHECKS_TRACKS);
 
   if (IS_NPC(ch) || number_percent() < get_skill(ch,gsn_track) )
     {
@@ -2283,8 +2283,8 @@ void do_track(CHAR_DATA *ch, char *argument)
          {
           check_improve(ch,gsn_track,TRUE,1);
 	  if ((d = rh->went) == -1) continue;
-          sprintf(buf,"%s's tracks lead %s.\n\r",capitalize(rh->name),door[d]);
-          send_to_char(buf, ch);
+          char_printf(ch, msg(MOVE_TRACKS_LEAD_S, ch), 
+				capitalize(rh->name), door[d]);
 	  if ( ( pexit = ch->in_room->exit[d] ) != NULL
 	    &&   IS_SET(pexit->exit_info, EX_ISDOOR)
 	    &&   pexit->keyword != NULL )
@@ -2296,7 +2296,7 @@ void do_track(CHAR_DATA *ch, char *argument)
           return;
       }
     }
-  send_to_char("You don't see any tracks.\n\r",ch);
+  send_to_char(msg(MOVE_DONT_SEE_TRACKS, ch), ch);
   if (IS_NPC(ch))
     ch->status = 5;	/* for stalker */
   check_improve(ch,gsn_track,FALSE,1);

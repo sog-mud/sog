@@ -282,6 +282,10 @@ char *strings_engl[MSG_MAX_NUM] =  {
 /* MOVE_N_POWER_INCREASES */	"$n's power increases!",
 /* MOVE_YOUR_T_INCREASES */	"Your $T increases!",
 /* MOVE_N_T_INCREASES */	"$n's $T increases!",
+/* MOVE_THERE_ARE_NO_TRAIN_TRACKS_HERE */"There are no train tracks here.\n\r",
+/* MOVE_N_CHECKS_TRACKS */	"$n checks the ground for tracks.",
+/* MOVE_TRACKS_LEAD_S */	"%s's tracks lead %s.\n\r",
+/* MOVE_DONT_SEE_TRACKS */	"You don't see any tracks.\n\r",
 
 /*	Here start sex-dependent messages */
 /* INFO_IS_GUSHING_BLOOD */	"{Yis gushing blood{x.",
