@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_area.c,v 1.49.2.2 2001-01-11 16:22:24 fjoe Exp $
+ * $Id: olc_area.c,v 1.49.2.3 2001-08-02 19:24:33 fjoe Exp $
  */
 
 #include "olc.h"
@@ -1056,6 +1056,15 @@ static void save_object(FILE *fp, OBJ_INDEX_DATA *pObjIndex)
 			pObjIndex->value[2],
 			format_flags(pObjIndex->value[3]),
 			format_flags(pObjIndex->value[4]));
+		break;
+
+	case ITEM_FURNITURE:
+		fprintf(fp, "%d %d %s %d %d\n",
+			pObjIndex->value[0],
+			pObjIndex->value[1],
+			format_flags(pObjIndex->value[2]),
+			pObjIndex->value[3],
+			pObjIndex->value[4]);
 		break;
 	}
 
