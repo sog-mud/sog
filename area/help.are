@@ -6012,6 +6012,12 @@ NOTITLE запрещают персонажу устанавливать себе титул. Используй это, когда
 персонаж устанавливает себе оскорбительные титулы. ITITLE служит для принуди-
 тельной смены титула у персонажа.
 ~
+0 anathema~
+@rus Syntax: cast anathema <target>
+ 
+This powerful spell allows cleric to curse his/her enemy. Cursed players
+cannot recall, they become more vulnerable to magic and less skillful.
+~
 -1 $~
 
 #$

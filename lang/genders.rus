@@ -325,6 +325,14 @@ Form 3 им~
 End
 
 #RULE
+Name коричневый~
+BaseLen 8
+Form 1 -ая~
+Form 2 -ое~
+Form 3 -ые~
+End
+
+#RULE
 Name смотрит~
 BaseLen 5
 Form 1 -ит~
@@ -529,6 +537,14 @@ Form 3 -ись~
 End
 
 #RULE
+Name спрашивает~
+BaseLen 8
+Form 1 -ет~
+Form 2 -ет~
+Form 3 -ют~
+End
+
+#RULE
 Name выпущенный~
 BaseLen 8
 Form 1 -ая~
@@ -646,6 +662,14 @@ Form 3 -ют~
 End
 
 #RULE
+Name янтарный~
+BaseLen 6
+Form 1 -ая~
+Form 2 -ое~
+Form 3 -ые~
+End
+
+#RULE
 Name заслужил~
 BaseLen 7
 Form 1 -ла~
@@ -682,6 +706,14 @@ BaseLen 5
 Form 1 -а~
 Form 2 -о~
 Form 3 -и~
+End
+
+#RULE
+Name красный~
+BaseLen 5
+Form 1 -ая~
+Form 2 -ое~
+Form 3 -ые~
 End
 
 #RULE
@@ -754,6 +786,14 @@ BaseLen 7
 Form 1 -лась~
 Form 2 -лось~
 Form 3 -лись~
+End
+
+#RULE
+Name прозрачный~
+BaseLen 8
+Form 1 -ая~
+Form 2 -ое~
+Form 3 -ые~
 End
 
 #RULE

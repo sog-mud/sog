@@ -220,7 +220,7 @@ unique~
 ABT BDFJNTVd 1000 0
 91 0 90d20+19000 91d10+9500 10d15+61 divine
 -63 -63 -63 -30
-CEFKPX BNQS EHIN M
+CEFKQX BNQS EHIN M
 stand stand male 900
 ACDHLMV ABCDEFGHIJKP huge unknown
 #14015
@@ -236,7 +236,7 @@ dragon~
 ABR DF -1000 0
 91 0 90d20+19000 91d10+9500 10d15+61 flame
 -63 -63 -63 -32
-IMPWX 0 IJKM N
+IMQWX 0 IJKM N
 stand stand male 900
 BCcd L huge unknown
 #14016

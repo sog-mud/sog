@@ -161,6 +161,15 @@ Form 6 -у~
 End
 
 #RULE
+Name шнапс~
+BaseLen 5
+Form 1 -а~
+Form 2 -у~
+Form 4 -ом~
+Form 5 -е~
+End
+
+#RULE
 Name глаз~
 BaseLen 4
 Form 1 -а~
@@ -1480,6 +1489,10 @@ Form 6 -у~
 End
 
 #RULE
+Name виски~
+End
+
+#RULE
 Name наемник~
 BaseLen 7
 Form 1 -а~
@@ -1631,6 +1644,16 @@ Form 3 -я~
 Form 4 -ем~
 Form 5 -е~
 Form 6 -я~
+End
+
+#RULE
+Name херес~
+BaseLen 5
+Form 1 -а~
+Form 2 -у~
+Form 3 -~
+Form 4 -ом~
+Form 5 -е~
 End
 
 #RULE
@@ -1851,6 +1874,17 @@ Form 6 -~
 End
 
 #RULE
+Name эль~
+BaseLen 2
+Form 1 -я~
+Form 2 -ю~
+Form 3 -ь~
+Form 4 -ем~
+Form 5 -е~
+Form 6 -ь~
+End
+
+#RULE
 Name когти~
 BaseLen 4
 Form 1 -ей~
@@ -1990,6 +2024,10 @@ Form 3 -ый~
 Form 4 -ым~
 Form 5 -ом~
 Form 6 -ого~
+End
+
+#RULE
+Name фартук~
 End
 
 #RULE
@@ -2310,6 +2348,16 @@ Form 6 -его~
 End
 
 #RULE
+Name сок~
+BaseLen 3
+Form 1 -а~
+Form 2 -у~
+Form 3 -~
+Form 4 -ом~
+Form 5 -е~
+End
+
+#RULE
 Name скотина~
 BaseLen 6
 Form 1 -ы~
@@ -2427,6 +2475,17 @@ Form 6 -а~
 End
 
 #RULE
+Name коричневая~
+BaseLen 8
+Form 1 -ой~
+Form 2 -ой~
+Form 3 -ую~
+Form 4 -ой~
+Form 5 -ой~
+Form 6 -ую~
+End
+
+#RULE
 Name серебряная монета~
 Form 3 серебряную монету~
 Form 6 серебряную монету~
@@ -2441,6 +2500,17 @@ Form 3 -у~
 Form 4 -ой~
 Form 5 -е~
 Form 6 -у~
+End
+
+#RULE
+Name янтарная~
+BaseLen 6
+Form 1 -ой~
+Form 2 -ой~
+Form 3 -ую~
+Form 4 -ой~
+Form 5 -ой~
+Form 6 -ую~
 End
 
 #RULE
@@ -2562,6 +2632,15 @@ Form 2 -м~
 Form 4 -ми~
 Form 5 -х~
 Form 6 -х~
+End
+
+#RULE
+Name спирт~
+BaseLen 5
+Form 1 -а~
+Form 2 -у~
+Form 4 -ом~
+Form 5 -е~
 End
 
 #RULE
@@ -2945,6 +3024,16 @@ Form 6 -ое~
 End
 
 #RULE
+Name колокол~
+BaseLen 7
+Form 1 -а~
+Form 2 -у~
+Form 3 -~
+Form 4 -ом~
+Form 5 -е~
+End
+
+#RULE
 Name Бессмертная~
 BaseLen 9
 Form 1 -ой~
@@ -3072,6 +3161,17 @@ Form 3 -а~
 Form 4 -ом~
 Form 5 -е~
 Form 6 -а~
+End
+
+#RULE
+Name напиток~
+BaseLen 5
+Form 1 -ка~
+Form 2 -ку~
+Form 3 -ок~
+Form 4 -ком~
+Form 5 -ке~
+Form 6 -ок~
 End
 
 #RULE
@@ -3549,6 +3649,17 @@ Form 3 -а~
 Form 4 -ом~
 Form 5 -е~
 Form 6 -а~
+End
+
+#RULE
+Name красный~
+BaseLen 5
+Form 1 -ого~
+Form 2 -ому~
+Form 3 -ый~
+Form 4 -ым~
+Form 5 -ом~
+Form 6 -ого~
 End
 
 #RULE
@@ -4030,6 +4141,15 @@ Form 6 -а~
 End
 
 #RULE
+Name ром~
+BaseLen 3
+Form 1 -а~
+Form 2 -у~
+Form 4 -ом~
+Form 5 -е~
+End
+
+#RULE
 Name кираса~
 BaseLen 5
 Form 1 -ы~
@@ -4213,6 +4333,15 @@ Form 6 -ого~
 End
 
 #RULE
+Name ликер~
+BaseLen 5
+Form 1 -а~
+Form 2 -у~
+Form 4 -ом~
+Form 5 -е~
+End
+
+#RULE
 Name копье~
 BaseLen 4
 Form 1 -я~
@@ -4246,6 +4375,17 @@ Form 6 -ка~
 End
 
 #RULE
+Name конторка~
+BaseLen 7
+Form 1 -и~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ой~
+Form 5 -е~
+Form 6 -у~
+End
+
+#RULE
 Name древесная~
 BaseLen 7
 Form 1 -ой~
@@ -4254,6 +4394,17 @@ Form 3 -ую~
 Form 4 -ой~
 Form 5 -ой~
 Form 6 -ую~
+End
+
+#RULE
+Name вино~
+BaseLen 3
+Form 1 -а~
+Form 2 -у~
+Form 3 -о~
+Form 4 -ом~
+Form 5 -е~
+Form 6 -о~
 End
 
 #RULE

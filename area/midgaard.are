@@ -1249,9 +1249,9 @@ drink 0 A
 0 10 25 P
 G none
 #3004
-bottle local~
-a bottle of local specialty~
-A dark bottle has been left here.~
+bottle local бутылка~
+@eng a bottle of local specialty@rus ~~бутылка~~ напитка дядюшки Джо~
+@eng A dark bottle has been left here.@rus Темная бутылка (bottle) оставлена здесь.~
 glass~
 drink 0 A
 12 12 'local specialty' 0 0

@@ -2,7 +2,7 @@
 Name Clock Tower~
 Builders agrael kami~
 VNUMs 4900 4999
-Credits Agrael~
+Credits Kami Agrael~
 Security 9
 LevelRange 1 30
 Flags closed noquest~
@@ -10,13 +10,17 @@ End
 
 #MOBILES
 #4900
-bell~
-The Bell~
-The Bell hangs here making some grunting noises.
+bell колокол~
+@eng The Bell@rus Колокол~
+@eng The Bell hangs here making some grunting noises.
+@rus Колокол (bell) висит здесь, гудя и вздыхая.
 ~
-As you look at the Bell, you feel blinded by it's
+@eng As you look at the Bell, you feel blinded by it's
 shining. Big and tall, it sounds very impressively
 and you mearly able to stay close to it.
+@rus Ты смотришь на Колокол, и его сияние ослепляет
+тебя. Он так огромен и звучит настолько оглушительно,
+что ты едва можешь находиться рядом с ним.
 ~
 unique~
 AGTY HV 0 0
@@ -202,7 +206,7 @@ You see a strong warrior with the number <5> engraved
 on his armour.
 ~
 unique~
-AGH TV 0 0
+ABGH TV 0 0
 10 0 3d23+95 10d10+100 2d5+5 punch
 -10 -13 -12 -7
 CEFKd 0 0 0
@@ -399,7 +403,7 @@ A strange figure looks like a ghost.
 ~
 ~
 ghost~
-AR B 0 0
+AGR B 0 0
 10 0 10d10+100 10d10+100 3d6+5 wrath
 0 0 0 0
 HQ 0 0 0
@@ -412,7 +416,7 @@ A very angry bat is flying here.
 ~
 ~
 bat~
-AFT D -1000 0
+AFGT D -1000 0
 5 0 5d10+70 10d10+100 3d3+6 cleave
 0 0 0 0
 0 0 0 0
@@ -425,7 +429,7 @@ A big rat looks at you.
 ~
 ~
 bat~
-AFT F -1000 0
+AFGT F -1000 0
 8 0 10d10+100 0d0+0 5d2+5 bite
 0 0 0 0
 Q 0 0 0
@@ -439,7 +443,7 @@ A small spider is trying to get out from you.
 ~
 ~
 centipede~
-AHR 0 0 0
+AGHR 0 0 0
 4 0 10d5+30 10d10+100 1d3+3 bite
 0 0 0 0
 0 0 0 0
@@ -452,7 +456,7 @@ A huge spider attacks you!
 ~
 ~
 centipede~
-AHR 0 -1000 0
+AFGHR 0 -1000 0
 6 0 5d15+40 10d10+100 3d3+3 bite
 0 0 0 0
 0 0 0 0
@@ -568,7 +572,7 @@ A
 G none
 #4901
 robe mechanic фартук~
-@eng robe of mechanic@rus фартук часовщика~
+@eng robe of mechanic@rus ~~фартук~~ часовщика~
 @eng An old oiled robe lies here.@rus Старый засаленный фартук (robe) лежит здесь.~
 silk~
 armor 0 AD
@@ -578,10 +582,10 @@ A
 2 -1
 A
 4 3
-G none
+G male
 #4902
 standart set instrument набор~
-@eng standart set of instruments@rus набор инструментов~
+@eng standart set of instruments@rus ~~набор~~ инструментов~
 @eng A set of instruments lies here forgotten.@rus Набор инструментов (set), забытый часовщиком, лежит тут.~
 iron~
 weapon BR AN
@@ -593,20 +597,20 @@ A
 18 3
 A
 19 3
-G none
+G male
 #4903
 cabinet конторка~
 @eng cabinet@rus ~~конторка~~~
-@eng An ivory cabinet stands here.@rus Конторка (cabinet) из черного дерева стоит в углу.~
+@eng An ebony cabinet stands here.@rus Конторка (cabinet) из черного дерева стоит в углу.~
 ivory~
 container CRY 0
 100 ABCD 4904 100 100
 0 0 0 P
-G none
+G female
 #4904
 ivory key ключ~
-@eng ivory key@rus ключ из черного дерева~
-@eng An ivory key is tied to the gold chain.@rus Ключ из черного дерева (ivory) подвешен на золотой цепочке.~
+@eng ivory key@rus ~~ключ~~ из слоновой кости~
+@eng An ivory key is tied to the gold chain.@rus Ключ из слоновой кости (ivory) подвешен на золотой цепочке.~
 ivory~
 key CFU AO
 0 0 0 0 0
@@ -614,8 +618,8 @@ key CFU AO
 G male
 #4905
 bronze key ключ бронзовый~
-@eng bronze clock key@rus бронзовый ключ от часов~
-@eng A key made with bronze waits to be used.@rus Бронзовый ключ ждет, когда ты соберешься завести часы.~
+@eng bronze clock key@rus ~~бронзовый~~ ~~ключ~~ от часов~
+@eng A key made with bronze waits to be used.@rus Бронзовый ключ (bronze) ждет, когда ты соберешься завести часы.~
 bronze~
 armor AY AO
 0 0 0 0 0
@@ -634,10 +638,10 @@ A
 19 5
 A
 24 -5
-G none
+G male
 #4906
 hat top black цилиндр черный~
-@eng black top hat of a chimney-sweep@rus черный цилиндр трубочиста~
+@eng black top hat of a chimney-sweep@rus ~~черный~~ ~~цилиндр~~ трубочиста~
 @eng A strange-looking black hat sits here.@rus Странная шляпа (hat) лежит тут.~
 silk~
 armor GK AE
@@ -651,11 +655,11 @@ A
 12 20
 A
 24 -3
-G none
+G male
 #4907
-black vest chimney~
-black vest of a chimney-sweep~
-A black vest lies here.~
+vest chimney black куртка черная~
+@eng black vest of a chimney-sweep@rus ~~черная~~ ~~куртка~~ трубочиста~
+@eng A black vest lies here.@rus Черная куртка (vest) брошена тут.~
 silk~
 armor GK AD
 10 10 10 8 0
@@ -668,11 +672,11 @@ A
 5 -1
 A
 13 20
-G none
+G female
 #4908
-black leggins chimney~
-black leggings of a chimney-sweep~
-Leather leggings lie here.~
+leggins chimney black штаны черные~
+@eng black leggings of a chimney-sweep@rus ~~черные~~ ~~штаны~~ трубочиста~
+@eng Leather leggings lie here.@rus Черные штаны (leggings) брошены тут.~
 soft leather~
 armor GKMZ AF
 10 10 10 8 0
@@ -685,38 +689,38 @@ A
 17 -5
 A
 19 2
-G none
+G plural
 #4909
-black broom chimney~
-black chimney broom~
-A chimney broom lies here.~
+broom chimney black щетка черная~
+@eng black chimney broom@rus ~~черная~~ ~~щетка~~ трубочиста~
+@eng A chimney broom lies here.@rus Щетка (broom) трубочиста лежит тут.~
 wire~
 staff 0 AO
 25 10 10 'faerie fog' 0
 15 10 1500 P
-G none
+G female
 #4910
-hand short~
-short hand~
-A short arrow lies here neglected.~
+hand short стрелка маленькая~
+@eng short hand@rus ~~маленькая~~ ~~стрелка~~~
+@eng A short arrow lies here neglected.@rus Маленькая стрелка (hand) от часов лежит тут.~
 copper~
 weapon AH AN
 spear 6 5 pierce DK
 25 50 4500 P
-G none
+G female
 #4911
-hand long~
-long hand~
-A long arrow lies here neglected.~
+hand long стрелка большая~
+@eng long hand@rus ~~большая~~ ~~стрелка~~~
+@eng A long arrow lies here neglected.@rus Большая стрелка (hand) от часов лежит здесь.~
 copper~
 weapon 0 AN
 spear 6 6 pierce DK
 30 50 5600 P
-G none
+G female
 #4912
-wing bat~
-bat's wing~
-A piece of leather lies here shaped like a wing.~
+wing bat крыло~
+@eng bat's wing@rus ~~крыло~~ летучей мыши~
+@eng A piece of leather lies here shaped like a wing.@rus Оторванное крыло (wing) летучей мыши лежит здесь.~
 soft leather~
 armor BHLM AM
 3 3 3 2 0
@@ -725,11 +729,11 @@ A
 18 1
 G none
 #4913
-web spider~
-spider's web~
-A web hangs here between the walls.~
+web spider паутина~
+@eng spider's web@rus паутина~
+@eng A web hangs here between the walls.@rus Паутина (web) опутывает стены.~
 elastic~
-armor MU AK
+armor HM AK
 3 3 3 2 0
 5 0 0 P
 A
@@ -738,11 +742,11 @@ A
 14 -10
 A
 24 3
-G none
+G female
 #4914
-skull pigeon~
-pigeon skull~
-A skull of a small bird lies here.~
+skull pigeon череп~
+@eng pigeon skull@rus ~~голубиный~~ ~~череп~~~
+@eng A skull of a small bird lies here.@rus Череп (skull) какой-то пичуги лежит здесь.~
 horn~
 armor 0 AE
 5 5 5 5 0
@@ -767,32 +771,32 @@ A
 17 -10
 A
 18 2
-G none
+G male
 #4915
-talon rat~
-rat's talon~
-A pile of talons is scattered on the dirt.~
+talon rat коготь~
+@eng rat's talon@rus ~~коготь~~ крысы~
+@eng A pile of talons is scattered on the dirt.@rus Кучка когтей (talon) рассыпана в грязи.~
 horn~
-armor IU AB
+armor U AB
 3 3 3 2 0
 5 5 0 P
 A
 18 -1
 A
 19 1
-G none
+G male
 #4916
 breast plate glowing кираса~
-@eng "3" glowing breast plate@rus "3" сверкающая кираса~
-@eng A pile of armor with the number "3" engraved on it lies here.@rus Груда доспехов с цифрой "3" (plate) лежит здесь.~
+@eng "3" glowing breast plate@rus "3" ~~сверкающая~~ ~~кираса~~~
+@eng A pile of armor with the number "3" engraved on it lies here.@rus Груда доспехов с выгравированной цифрой "3" (plate) лежит здесь.~
 brass~
 armor A AD
 4 4 4 2 0
 6 40 1500 P
-G none
+G female
 #4917
 legplates plate glowing поножи~
-@eng "3" glowing leg plates@rus "3" сверкающие поножи~
+@eng "3" glowing leg plates@rus "3" ~~сверкающие~~ ~~поножи~~~
 @eng Leg plates with the number "3" engraved on them lie here.@rus Поножи (leg plate) с цифрой "3" на них лежат тут.~
 brass~
 armor A AF
@@ -810,7 +814,7 @@ armor A AI
 G plural
 #4919
 helmet шлем glowing~
-@eng "3" glowing helmet@rus "3" сверкающий шлем~
+@eng "3" glowing helmet@rus "3" ~~сверкающий~~ ~~шлем~~~
 @eng A helmet with the number "3" engraved on it lies here.@rus Шлем (helmet) с цифрой "3" на нем лежит здесь.~
 brass~
 armor A AE
@@ -819,7 +823,7 @@ armor A AE
 G male
 #4920
 gauntlets латные рукавицы glowing~
-@eng "3" glowing gauntlets@rus "3" сверкающие латные рукавицы~
+@eng "3" glowing gauntlets@rus "3" ~~сверкающие~~ ~~латные~~ ~~рукавицы~~~
 @eng Gauntlets with the number "3" engraved on them lie here.@rus Латные рукавицы (gauntlets) с цифрой "3" на них лежат здесь.~
 brass~
 armor A AH
@@ -828,31 +832,31 @@ armor A AH
 G plural
 #4921
 boots сапоги glowing~
-@eng "3" glowing boots@rus "3" сверкающие сапоги~
+@eng "3" glowing boots@rus "3" ~~сверкающие~~ ~~сапоги~~~
 @eng Boots with the number "3" engraved on them lie here.@rus Сапоги (boots) с цифрой "3" на них стоят тут.~
 brass~
 armor A AG
 4 4 4 2 0
 6 40 1500 P
-G none
+G plural
 #4922
 breast plate glowing кираса~
-@eng "6" glowing breast plate@rus "6" сверкающая кираса~
-@eng A pile of armor with the number "6" engraved on it lies here.@rus Груда доспехов с цифрой "6" (plate) лежит здесь.~
+@eng "6" glowing breast plate@rus "6" ~~сверкающая~~ ~~кираса~~~
+@eng A pile of armor with the number "6" engraved on it lies here.@rus Груда доспехов с выгравированной цифрой "6" (plate) лежит здесь.~
 brass~
 armor A AD
 8 8 8 4 0
 12 40 1500 P
 G female
 #4923
-plate glowing leg поножи~
-@eng "6" glowing leg plates@rus "6" сверкающие поножи~
+leg поножи plate glowing~
+@eng "6" glowing leg plates@rus "6" ~~сверкающие~~ ~~поножи~~~
 @eng Leg plates with the number "6" engraved on them lie here.@rus Поножи (leg plate) с цифрой "6" на них лежат тут.~
 brass~
 armor A AF
 8 8 8 4 0
 12 40 1500 P
-G none
+G plural
 #4924
 plate glowing arm~
 "6" glowing arm plates~
@@ -863,50 +867,50 @@ armor A AI
 12 40 1500 P
 G plural
 #4925
-glowing helm helmet шлем~
-@eng "6" glowing helmet@rus "6" сверкающий шлем~
+helmet шлем glowing~
+@eng "6" glowing helmet@rus "6" ~~сверкающий~~ ~~шлем~~~
 @eng A helmet with the number "6" engraved on it lies here.@rus Шлем (helmet) с цифрой "6" на нем лежит здесь.~
 brass~
 armor A AE
 8 8 8 4 0
 12 40 1500 P
-G none
+G male
 #4926
-glowing gauntlets латные рукавицы~
-@eng "6" glowing gauntlets@rus "6" сверкающие латные рукавицы~
+gauntlets латные рукавицы glowing~
+@eng "6" glowing gauntlets@rus "6" ~~сверкающие~~ ~~латные~~ ~~рукавицы~~~
 @eng Gauntlets with the number "6" engraved on them lie here.@rus Латные рукавицы (gauntlets) с цифрой "6" на них лежат здесь.~
 brass~
 armor A AH
 8 8 8 4 0
 12 40 1500 P
-G none
+G plural
 #4927
-glowing boots сапоги~
-@eng "6" glowing boots@rus "6" сверкающие сапоги~
+boots сапоги glowing~
+@eng "6" glowing boots@rus "6" ~~сверкающие~~ ~~сапоги~~~
 @eng Boots with the number "6" engraved on them lie here.@rus Сапоги (boots) с цифрой "6" на них стоят тут.~
 brass~
 armor A AG
 8 8 8 4 0
 12 40 1500 P
-G none
+G plural
 #4928
 breast plate glowing кираса~
-@eng "9" glowing breast plate@rus "9" сверкающая кираса~
-@eng A pile of armor with the number "9" engraved on it lies here.@rus Груда доспехов с цифрой "9" (plate) лежит здесь.~
+@eng "9" glowing breast plate@rus "9" ~~сверкающая~~ ~~кираса~~~
+@eng A pile of armor with the number "9" engraved on it lies here.@rus Груда доспехов с выгравированной цифрой "9" (plate) лежит здесь.~
 brass~
 armor A AD
 12 12 12 6 0
 18 40 1500 P
-G none
+G female
 #4929
-plate glowing leg поножи~
-@eng "9" glowing leg plates@rus "9" сверкающие поножи~
+leg поножи plate glowing~
+@eng "9" glowing leg plates@rus "9" ~~сверкающие~~ ~~поножи~~~
 @eng Leg plates with the number "9" engraved on them lie here.@rus Поножи (leg plate) с цифрой "9" на них лежат тут.~
 brass~
 armor A AF
 12 12 12 6 0
 18 40 1500 P
-G none
+G plural
 #4930
 plate glowing arm~
 "9" glowing arm plates~
@@ -917,50 +921,50 @@ armor A AI
 18 40 1500 P
 G none
 #4931
-glowing helm helmet шлем~
-@eng "9" glowing helmet@rus "9" сверкающий шлем~
+helmet шлем glowing~
+@eng "9" glowing helmet@rus "9" ~~сверкающий~~ ~~шлем~~~
 @eng A helmet with the number "9" engraved on it lies here.@rus Шлем (helmet) с цифрой "9" на нем лежит здесь.~
 brass~
 armor A AE
 12 12 12 6 0
 18 40 1500 P
-G none
+G male
 #4932
-glowing gauntlets латные рукавицы~
-@eng "9" glowing gauntlets@rus "9" сверкающие латные рукавицы~
+gauntlets латные рукавицы glowing~
+@eng "9" glowing gauntlets@rus "9" ~~сверкающие~~ ~~латные~~ ~~рукавицы~~~
 @eng Gauntlets with the number "9" engraved on them lie here.@rus Латные рукавицы (gauntlets) с цифрой "9" на них лежат здесь.~
 brass~
 armor A AH
 12 12 12 6 0
 18 40 1500 P
-G none
+G plural
 #4933
-glowing boots сапоги~
-@eng "9" glowing boots@rus "9" сверкающие сапоги~
+boots сапоги glowing~
+@eng "9" glowing boots@rus "9" ~~сверкающие~~ ~~сапоги~~~
 @eng Boots with the number "9" engraved on them lie here.@rus Сапоги (boots) с цифрой "9" на них стоят тут.~
 brass~
 armor A AG
 12 12 12 6 0
 18 40 1500 P
-G none
+G plural
 #4934
 breast plate glowing кираса~
-@eng "12" glowing breast plate@rus "12" сверкающая кираса~
+@eng "12" glowing breast plate@rus "12" ~~сверкающая~~ ~~кираса~~~
 @eng A pile of armor with the number "12" engraved on it lies here.@rus Груда доспехов с цифрой "12" (plate) лежит здесь.~
 brass~
 armor A AD
 16 16 16 8 0
 24 40 1500 P
-G none
+G female
 #4935
-plate glowing leg поножи~
-@eng "12" glowing leg plates@rus "12" сверкающие поножи~
+leg поножи plate glowing~
+@eng "12" glowing leg plates@rus "12" ~~сверкающие~~ ~~поножи~~~
 @eng Leg plates with the number "12" engraved on them lie here.@rus Поножи (leg plate) с цифрой "12" на них лежат тут.~
 brass~
 armor A AF
 16 16 16 8 0
 24 40 1500 P
-G none
+G plural
 #4936
 plate glowing arm~
 "12" glowing arm plates~
@@ -971,68 +975,68 @@ armor A AI
 24 40 1500 P
 G none
 #4937
-glowing helm helmet шлем~
-@eng "12" glowing helmet@rus "12" сверкающий шлем~
+helm helmet шлем glowing~
+@eng "12" glowing helmet@rus "12" ~~сверкающий~~ ~~шлем~~~
 @eng A helmet with the number "12" engraved on it lies here.@rus Шлем (helmet) с цифрой "12" на нем лежит здесь.~
 brass~
 armor A AE
 16 16 16 8 0
 24 40 1500 P
-G none
+G male
 #4938
-glowing gauntlets латные рукавицы~
-@eng "12" glowing gauntlets@rus "12" сверкающие латные рукавицы~
+gauntlets латные рукавицы glowing~
+@eng "12" glowing gauntlets@rus "12" ~~сверкающие~~ ~~латные~~ ~~рукавицы~~~
 @eng Gauntlets with the number "12" engraved on them lie here.@rus Латные рукавицы (gauntlets) с цифрой "12" на них лежат здесь.~
 brass~
 armor A AH
 16 16 16 8 0
 24 40 1500 P
-G none
+G plural
 #4939
-glowing boots сапоги~
-@eng "12" glowing boots@rus "12" сверкающие сапоги~
+boots сапоги glowing~
+@eng "12" glowing boots@rus "12" ~~сверкающие~~ ~~сапоги~~~
 @eng Boots with the number "12" engraved on them lie here.@rus Сапоги (boots) с цифрой "12" на них стоят тут.~
 brass~
 armor A AG
 16 16 16 8 0
 24 40 1500 P
-G none
+G plural
 #4940
 dagger clock кинжал~
-clock dagger~
-A small dagger floats here in the air.~
-brass~
+@eng clock dagger@rus ~~кинжал~~ из башенных часов~
+@eng A small dagger floats here in the air.@rus Небольшой кинжал (dagger) парит в воздухе.~
+air~
 weapon 0 AN
 dagger 1 18 pierce 0
 6 20 0 P
-G none
+G male
 #4941
-sword clock~
-clock sword~
-A long sword lies here.~
+sword clock меч~
+@eng clock sword@rus ~~меч~~ из башенных часов~
+@eng A long sword lies here.@rus Длинный меч (sword) лежит здесь.~
 brass~
 weapon 0 AN
 sword 3 8 slash 0
 12 50 1500 P
-G none
+G male
 #4942
-mace clock~
-clock mace~
-A havy mace lies here.~
+mace clock булава~
+@eng clock mace@rus ~~булава~~ из башенных часов~
+@eng A havy mace lies here.@rus Тяжелая булава (mace) лежит здесь.~
 brass~
 weapon 0 0
 mace 4 8 crush 0
 18 60 3500 P
-G none
+G female
 #4943
-clock lance~
-clock lance~
-A huge lance lies here.~
+lance clock пика~
+@eng clock lance@rus ~~пика~~ из башенных часов~
+@eng A huge lance lies here.@rus Здоровенная пика (lance) лежит здесь.~
 brass~
 weapon 0 0
 lance 12 3 none 0
 30 100 5000 P
-G none
+G female
 #0
 
 #ROOMS

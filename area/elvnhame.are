@@ -1653,11 +1653,11 @@ G none
 
 #ROOMS
 #40100
-@eng Outside the East Gate of Elvenhame@rus За восточными воротами Эльвенхейма~
-@eng You are outside the East Gate of Elvenhame. To the
-west is the gate itself.
-@rus   Ты - за восточными воротами Эльвенхейма. На
-западе - собственно ворота.
+@eng Outside the East Gate of Elvenhame@rus За Восточными Вратами Эльвенхейма~
+@eng  You are outside the East Gate of Elvenhame. To the west is  the  gate
+itself.
+@rus  Ты -- за Восточными Вратами Эльвенхейма.  На западе, собственно, сами
+Врата.
 ~
 0 0 city
 D1
@@ -1671,11 +1671,14 @@ Z 0 40101
 S
 #40101
 @eng Inside the East Gate of Elvenhame@rus Внутри восточных ворот  Эльвенхейма~
-You are inside the East Gate of Elvenhame. To the west is 
-the Elven city, with its magnificent buildings and wonderful
-plant life. To the east is wilderness. The gate itself is made
-of a silvery metal, thick, with sparkling runes engraved upon
-it. 
+@eng  You are inside the East Gate of Elvenhame. To the west is  the  Elven
+city, with its magnificent buildings and wonderful plant life.  To the
+east is wilderness. The gate itself is made of a silvery metal, thick,
+with sparkling runes engraved upon it. 
+@rus  Ты внутри Восточных Врат Эльвенхейма.  На западе сияют под солнечными
+лучами великолепные здани и небычайные деревья Эльфийского города.  На
+востоке -- прерия.  Сами  Врата -- серебряные  и  весьма  массивные --
+украшены сиЯющими письменами на эльфийском.
 ~
 0 0 city
 D1
@@ -1688,11 +1691,15 @@ D3
 Z 0 40102
 S
 #40102
-East Main Road~
-You are on the eastern part of the Main Road in Elvenhame. 
+@eng East Main Road@rus Восточный проспект~
+@eng You are on the eastern part of the Main Road in Elvenhame. 
 Fiery-red-leafed maple trees line the road, at the bases of 
 which grow small lavender flowers. To the east is the East 
 Gate.
+@rus Ты стоишь на восточном проспекте Эльвенхейма. Ровными  рядами  вдоль
+него стоят клены, словно пылая своими огненно-красными кронами.  Вдоль
+обочин благоухает лаванда.   На востоке проспект упирается в Восточные
+Врата.
 ~
 0 0 city
 D1
@@ -1706,9 +1713,12 @@ Z -1 40103
 S
 #40103
 East Main Road~
-You are on the eastern part of the Main Road in Elvenhame. 
-Fiery-red-leafed maple trees line the road, at the bases of 
-which grow small lavender flowers.
+@eng You  are  on  the  eastern  part  of  the  Main  Road  in Elvenhame. 
+Fiery-red-leafed maple trees line the road, at the bases of which grow
+small lavender flowers.
+@rus Ты стоишь на восточном проспекте Эльвенхейма. Ровными  рядами  вдоль
+него стоят клены, словно пылая своими огненно-красными кронами.  Вдоль
+обочин благоухает лаванда.
 ~
 0 0 city
 D1
