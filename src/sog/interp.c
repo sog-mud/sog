@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.154 1999-06-18 04:57:10 kostik Exp $
+ * $Id: interp.c,v 1.155 1999-06-22 03:57:31 avn Exp $
  */
 
 /***************************************************************************
@@ -390,7 +390,6 @@ cmd_t cmd_table[] =
     { "chquest",	do_chquest,	POS_DEAD,	IM,  LOG_ALWAYS	},
     { "dump",		do_dump,	POS_DEAD,	ML,  LOG_ALWAYS	},
     { "rename",		do_rename,	POS_DEAD,	ML,  LOG_ALWAYS	},
-    { "violate",	do_violate,	POS_DEAD,	ML,  LOG_ALWAYS	},
     { "track",          do_track,       POS_STANDING,    0,  LOG_NORMAL	},
 
     { "ban",		do_ban,		POS_DEAD,	L2,  LOG_ALWAYS	},

@@ -1,5 +1,5 @@
 /*
- * $Id: interp.h,v 1.52 1999-06-18 04:57:11 kostik Exp $
+ * $Id: interp.h,v 1.53 1999-06-22 03:57:31 avn Exp $
  */
 
 /***************************************************************************
@@ -361,7 +361,6 @@ DECLARE_DO_FUN(do_vampire	);
 DECLARE_DO_FUN(do_vanish	);
 DECLARE_DO_FUN(do_vbite		);
 DECLARE_DO_FUN(do_visible	);
-DECLARE_DO_FUN(do_violate	);
 DECLARE_DO_FUN(do_vnum		);
 DECLARE_DO_FUN(do_vtouch	);
 DECLARE_DO_FUN(do_wake		);
