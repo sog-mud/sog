@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_lang.c,v 1.10 1999-02-17 07:53:29 fjoe Exp $
+ * $Id: olc_lang.c,v 1.11 1999-02-17 10:27:10 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -168,6 +168,8 @@ OLC_FUN(langed_show)
 		char_printf(ch, "Genders:  [%s]\n", l->file_genders);
 	if (!IS_NULLSTR(l->file_cases))
 		char_printf(ch, "Cases:    [%s]\n", l->file_cases);
+	if (!IS_NULLSTR(l->file_qtys))
+		char_printf(ch, "Qtys:     [%s]\n", l->file_qtys);
 	if (l->flags)
 		char_printf(ch, "Flags:    [%s]\n",
 			    flag_string(lang_flags, l->flags)); 
