@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: quest.c,v 1.123.2.2 2000-04-04 06:12:23 osya Exp $
+ * $Id: quest.c,v 1.123.2.3 2000-04-06 06:29:32 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -98,7 +98,7 @@ qitem_t qitem_table[] = {
 	{ "5,000 gold pieces",		 500, NULL,
 	   0, buy_gold						},
 
-	{ "60 practices",		 500, NULL,
+	{ "20 practices",		 500, NULL,
 	   0, buy_prac						},
 
 	{ "tattoo of your religion",	 200, NULL,
@@ -1006,9 +1006,9 @@ static bool buy_gold(CHAR_DATA *ch, CHAR_DATA *questor)
 
 static bool buy_prac(CHAR_DATA *ch, CHAR_DATA *questor)
 {
-	PC(ch)->practice += 60;
-	act("$N gives 60 practices to $n.", ch, NULL, questor, TO_ROOM);
-	act_puts("$N gives you 60 practices.",
+	PC(ch)->practice += 20;
+	act("$N gives 20 practices to $n.", ch, NULL, questor, TO_ROOM);
+	act_puts("$N gives you 20 practices.",
 		 ch, NULL, questor, TO_CHAR, POS_DEAD);
 	return TRUE;
 }
