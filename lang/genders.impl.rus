@@ -32,10 +32,10 @@ End
 
 #RULE
 Name -лся~
-BaseLen -3
-Form 1 -лась~
-Form 2 -лось~
-Form 3 -лись~
+BaseLen -2
+Form 1 -ась~
+Form 2 -ось~
+Form 3 -ись~
 End
 
 #RULE
