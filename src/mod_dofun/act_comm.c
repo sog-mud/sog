@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.155 1999-03-19 12:07:40 fjoe Exp $
+ * $Id: act_comm.c,v 1.156 1999-04-05 11:53:55 fjoe Exp $
  */
 
 /***************************************************************************
@@ -728,10 +728,9 @@ void do_pray(CHAR_DATA *ch, const char *argument)
 		 char_puts("The gods refuse to listen to you right now.",ch);
 		 return;
 	}
-	
-	char_puts("You pray to the heavens for help!\n",ch);
-	char_puts("This is not an emote, but a channel to the immortals.\n",
-		ch);
+
+	act_puts("You pray for '$t'",
+		 ch, argument, NULL, TO_CHAR, POS_DEAD);
 
 	if (argument[0] == '\0')
 		argument = "any god";
@@ -742,7 +741,7 @@ void do_pray(CHAR_DATA *ch, const char *argument)
 		if (d->connected == CON_PLAYING
 		&&  IS_IMMORTAL(victim)
 		&&  !IS_SET(victim->comm, COMM_NOWIZ))
-			act_puts("{W$n{x is PRAYING for: {G$t{x",
+			act_puts("{W$n{x is PRAYING for '{G$t{x'",
 				 ch, argument, d->character,
 				 TO_VICT | ACT_TOBUF, POS_DEAD);
 	 }
