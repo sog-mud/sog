@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.347 2000-07-05 13:15:52 fjoe Exp $
+ * $Id: act_info.c,v 1.348 2000-07-27 09:30:06 fjoe Exp $
  */
 
 /***************************************************************************
@@ -854,11 +854,20 @@ void do_exits(CHAR_DATA *ch, const char *argument)
 
 void do_worth(CHAR_DATA *ch, const char *argument)
 {
-	char_printf(ch, "You have %d gold, %d silver", ch->gold, ch->silver);
-	if (!IS_NPC(ch) && ch->level < LEVEL_HERO)
-		char_printf(ch, ", and %d experience (%d exp to level)",
-			    PC(ch)->exp, exp_to_level(ch));
-	char_puts(".\n", ch);
+	act_puts3("You have $j gold, $J silver",
+		  ch, (const void *) ch->gold, NULL, (const void *) ch->silver,
+		  TO_CHAR | ACT_NOLF, POS_DEAD);
+	if (!IS_NPC(ch)) {
+		act_puts(", and $j experience",
+			 ch, (const void *) PC(ch)->exp, NULL,
+			 TO_CHAR | ACT_NOLF, POS_DEAD);
+		if (ch->level < LEVEL_HERO) {
+			act_puts(" ($j exp to level)",
+				 ch, (const void *) exp_to_level(ch), NULL,
+				 TO_CHAR | ACT_NOLF, POS_DEAD);
+		}
+	}
+	act_puts(".", ch, NULL, NULL, TO_CHAR, POS_DEAD);
 
 	if (!IS_NPC(ch)) {
 		act_puts("You have killed $j $T",
@@ -2066,6 +2075,7 @@ void do_bear_call(CHAR_DATA *ch, const char *argument)
 		bear->armor[i] = interpolate(bear->level, 100, -100);
 	bear->armor[3] = interpolate(bear->level, 100, 0);
 	bear->gold = 0;
+	bear->silver = 0;
 
 	bear2 = clone_mob(bear);
 
@@ -2292,11 +2302,11 @@ void do_score(CHAR_DATA *ch, const char *argument)
 
 	buf_printf(output,
 "     {G| {RGold          : {Y%9d           {RArmor vs pierce : {x%5d     {G|{x\n",
-		 ch->gold,GET_AC(ch,AC_PIERCE));
+		 ch->gold, GET_AC(ch,AC_PIERCE));
 
 	buf_printf(output,
 "     {G| {RSilver        : {W%9d           {RArmor vs slash  : {x%5d     {G|{x\n",
-		 ch->silver,GET_AC(ch,AC_SLASH));
+		 ch->silver, GET_AC(ch,AC_SLASH));
 
 	buf_printf(output,
 "     {G| {RCurrent exp   : {x%9d           {RSaves vs Spell  : {x%5d     {G|{x\n",
@@ -2390,10 +2400,10 @@ void do_oscore(CHAR_DATA *ch, const char *argument)
 		 "You have scored {c%d{x exp, and have %s%s%s.\n",
 		 GET_EXP(ch),
 		 ch->gold + ch->silver == 0 ? "no money" :
-					      ch->gold ? "{Y%ld gold{x " : str_empty,
+		 ch->gold ? "{Y%ld gold{x " : str_empty,
 		 ch->silver ? "{W%ld silver{x " : str_empty,
-		 ch->gold + ch->silver ? ch->gold + ch->silver == 1 ?
-					"coin" : "coins" : str_empty);
+		 ch->gold + ch->silver == 1 ? "coin" :
+		 ch->gold + ch->silver ? "coins" : str_empty);
 	if (ch->gold)
 		buf_printf(output, buf2, ch->gold, ch->silver);
 	else
@@ -2773,6 +2783,7 @@ void do_lion_call(CHAR_DATA *ch, const char *argument)
 		lion->armor[i] = interpolate(lion->level,100,-100);
 	lion->armor[3] = interpolate(lion->level,100,0);
 	lion->gold = 0;
+	lion->silver = 0;
 
 	lion2 = clone_mob(lion);
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: eventfun.c,v 1.18 2000-06-07 08:55:36 fjoe Exp $
+ * $Id: eventfun.c,v 1.19 2000-07-27 09:30:09 fjoe Exp $
  */
 
 
@@ -372,6 +372,7 @@ EVENT_FUN(event_timeoutchar_bonedragon)
 		drag->armor[i] = interpolate(dlev, 100, -120);
 	drag->armor[3] = interpolate(dlev, 100, -40);
 	drag->gold = 0;
+	drag->silver = 0;
 	NPC(drag)->dam.dice_number = number_fuzzy(13);
 	NPC(drag)->dam.dice_type = number_fuzzy(9);
 	drag->damroll = dlev/2 + dice(3, 11);

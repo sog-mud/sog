@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.191 2000-06-09 11:59:08 fjoe Exp $
+ * $Id: spellfun2.c,v 1.192 2000-07-27 09:30:09 fjoe Exp $
  */
 
 /***************************************************************************
@@ -462,6 +462,7 @@ void spell_demon_summon(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		demon->armor[i] = interpolate(demon->level,100,-100);
 	demon->armor[3] = interpolate(demon->level,100,0);
 	demon->gold = 0;
+	demon->silver = 0;
 	NPC(demon)->dam.dice_number = number_range(level/15, level/10);   
 	NPC(demon)->dam.dice_type = number_range(level/3, level/2);
 	demon->damroll = number_range(level/8, level/6);
@@ -710,6 +711,7 @@ void spell_guard_call(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		guard->armor[i] = interpolate(guard->level,100,-200);
 	guard->armor[3] = interpolate(guard->level,100,-100);
 	guard->gold = 0;
+	guard->silver = 0;
 
 	NPC(guard)->dam.dice_number = number_range(level/18, level/14);   
 	NPC(guard)->dam.dice_type = number_range(level/4, level/3);
@@ -781,6 +783,7 @@ void spell_nightwalker(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		walker->armor[i] = interpolate(walker->level, 100, -100);
 	walker->armor[3] = interpolate(walker->level, 100, 0);
 	walker->gold = 0;
+	walker->silver = 0;
 	NPC(walker)->dam.dice_number = number_range(level/15, level/10);   
 	NPC(walker)->dam.dice_type   = number_range(level/3, level/2);
 	walker->damroll  = 0;
@@ -1255,6 +1258,7 @@ void spell_stalker(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	stalker->armor[i] = interpolate(stalker->level, 100, -100);
 	stalker->armor[3] = interpolate(stalker->level, 100, 0);
 	stalker->gold = 0;
+	stalker->silver = 0;
 	stalker->affected_by |= (ID_ALL_INVIS | ID_EVIL | ID_MAGIC | ID_GOOD);
 	
 	NPC(stalker)->target = victim;
@@ -1500,6 +1504,7 @@ void spell_shadowlife(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		shadow->armor[i] = interpolate(shadow->level,100,-100);
 	shadow->armor[3] = interpolate(shadow->level,100,0);
 	shadow->gold = 0;
+	shadow->silver = 0;
 
 	NPC(shadow)->target = victim;
 	
@@ -1999,6 +2004,7 @@ void spell_squire(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	squire->armor[i] = interpolate(squire->level,100,-100);
 	squire->armor[3] = interpolate(squire->level,100,0);
 	squire->gold = 0;
+	squire->silver = 0;
 
 	NPC(squire)->dam.dice_number = number_range(level/20, level/15);   
 	NPC(squire)->dam.dice_type = number_range(level/4, level/3);
@@ -2564,6 +2570,7 @@ void spell_animate_dead(const char *sn, int level, CHAR_DATA *ch, void *vo)
 			undead->armor[i] = interpolate(undead->level,100,-100);
 		undead->armor[3] = interpolate(undead->level, 50, -200);
 		undead->gold = 0;
+		undead->silver = 0;
 		NPC(undead)->dam.dice_number = 11;
 		NPC(undead)->dam.dice_type   = 5;
 		undead->damroll  = u_level/2 +10;
@@ -2639,6 +2646,7 @@ void spell_bone_dragon(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	for (i = 0; i < 4; i++)
 		coc->armor[i] = 100 - 2*ch->level - number_range(0, 50);
 	coc->gold = 0;
+	coc->silver = 0;
 	NPC(coc)->dam.dice_number = number_range(1, level/20);
 	NPC(coc)->dam.dice_type   = number_range(1, level/10);
 	coc->damroll  = number_range(1, level/3);
@@ -3142,6 +3150,7 @@ void spell_lion_help(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	lion->armor[i] = interpolate(lion->level,100,-100);
 	lion->armor[3] = interpolate(lion->level,100,0);
 	lion->gold = 0;
+	lion->silver = 0;
 	NPC(lion)->dam.dice_number = number_range(LEVEL(ch)/15, LEVEL(ch)/10);   
 	NPC(lion)->dam.dice_type = number_range(LEVEL(ch)/3, LEVEL(ch)/2);
 	lion->damroll = number_range(level/8, level/6);
@@ -3626,6 +3635,7 @@ void spell_wolf(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		demon->armor[i] = interpolate(demon->level,100,-100);
 	demon->armor[3] = interpolate(demon->level,100,0);
 	demon->gold = 0;
+	demon->silver = 0;
 	NPC(demon)->dam.dice_number = number_range(level/15, level/10);   
 	NPC(demon)->dam.dice_type = number_range(level/3, level/2);
 	demon->damroll = number_range(level/8, level/6);
@@ -4094,6 +4104,7 @@ void spell_flesh_golem(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		golem->armor[i] = interpolate(golem->level,100,-100);
 	golem->armor[3] = interpolate(golem->level,100,0);
 	golem->gold = 0;
+	golem->silver = 0;
 	NPC(golem)->dam.dice_number = 3;   
 	NPC(golem)->dam.dice_type = 10;
 	golem->damroll = level / 2;
@@ -4163,6 +4174,7 @@ void spell_stone_golem(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		golem->armor[i] = interpolate(golem->level,100,-100);
 	golem->armor[3] = interpolate(golem->level,100,0);
 	golem->gold = 0;
+	golem->silver = 0;
 	NPC(golem)->dam.dice_number = 8;   
 	NPC(golem)->dam.dice_type = 4;
 	golem->damroll = level / 2;
@@ -4229,6 +4241,7 @@ void spell_iron_golem(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	golem->armor[i] = interpolate(golem->level,100,-100);
 	golem->armor[3] = interpolate(golem->level,100,0);
 	golem->gold = 0;
+	golem->silver = 0;
 	NPC(golem)->dam.dice_number = 11;   
 	NPC(golem)->dam.dice_type = 5;
 	golem->damroll = level / 2 + 10;
@@ -4295,6 +4308,7 @@ void spell_adamantite_golem(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		golem->armor[i] = interpolate(golem->level,100,-100);
 	golem->armor[3] = interpolate(golem->level,100,0);
 	golem->gold = 0;
+	golem->silver = 0;
 	NPC(golem)->dam.dice_number = 13;   
 	NPC(golem)->dam.dice_type = 9;
 	golem->damroll = level / 2 + 10;
@@ -5005,6 +5019,7 @@ void spell_summon_shadow(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		shadow->armor[i] = interpolate(shadow->level, 100, -100);
 	shadow->armor[3] = interpolate(shadow->level,100,0);
 	shadow->gold = 0;
+	shadow->silver = 0;
 	NPC(shadow)->dam.dice_number = number_range(level/15, level/10);   
 	NPC(shadow)->dam.dice_type = number_range(level/3, level/2);
 	shadow->damroll = number_range(level/8, level/6);
@@ -5540,6 +5555,7 @@ void spell_find_familiar(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		familiar->armor[i] = interpolate(familiar->level,100,-100);
 	
 	familiar->gold = 0;
+	familiar->silver = 0;
 
 	NPC(familiar)->dam.dice_number = 5;
 	NPC(familiar)->dam.dice_type   = 5;
