@@ -1,5 +1,5 @@
 /*
- * $Id: act_quest.c,v 1.61 1998-08-14 05:45:16 fjoe Exp $
+ * $Id: act_quest.c,v 1.62 1998-08-15 12:40:48 fjoe Exp $
  */
 
 /***************************************************************************
@@ -717,7 +717,7 @@ static void quest_complete(CHAR_DATA *ch, char *arg)
 	}
 
 	if (ch->pcdata->questgiver != questor->pIndexData->vnum) {
-		quest_tell(ch, questor, msg(MSG_NEVER_QUEST, ch));
+		quest_tell(ch, questor, vmsg(MSG_NEVER_QUEST, ch, questor));
 		return;
 	}
 

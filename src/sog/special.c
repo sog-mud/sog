@@ -1,5 +1,5 @@
 /*
- * $Id: special.c,v 1.20 1998-08-14 05:45:17 fjoe Exp $
+ * $Id: special.c,v 1.21 1998-08-15 12:40:49 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1118,47 +1118,43 @@ bool spec_guard(CHAR_DATA *ch)
 	int max_evil; 
  
 	if (!IS_AWAKE(ch) || ch->fighting != NULL)
-	  return FALSE;
+		return FALSE;
 	
 	max_evil = 300; 
 	ech      = NULL;
 	crime    = "";
 	
-	for (victim = ch->in_room->people;
-	 victim != NULL; victim = v_next) {
+	for (victim = ch->in_room->people; victim != NULL; victim = v_next) {
 		v_next = victim->next_in_room;
 	
-	if (IS_SET(ch->in_room->area->area_flag,AREA_HOMETOWN) 
-		&& number_percent() < 2 && !IS_IMMORTAL(victim)) {
-	  act_nprintf(ch, NULL, victim, TO_ROOM, POS_RESTING, 
-			MSG_DO_I_KNOW_YOU);
- 	  if (str_cmp(ch->in_room->area->name,
-		hometown_table[victim->hometown].name))
-		act_nprintf(ch, NULL, victim, TO_ROOM, POS_RESTING, 
-				MSG_DONT_REMEMBER_YOU);
-	  else {
-		act_nprintf(ch, NULL, victim, TO_ROOM, POS_RESTING, 
-				MSG_OK_MY_DEAR);
-		 interpret(ch, "smile");
-	   }
-	 }
+		if (IS_SET(ch->in_room->area->area_flag, AREA_HOMETOWN) 
+			&& number_percent() < 2 && !IS_IMMORTAL(victim)) {
+			do_say(ch, vmsg(MSG_DO_I_KNOW_YOU, ch, victim));
+ 			if (str_cmp(ch->in_room->area->name,
+				    hometown_table[victim->hometown].name))
+				do_say(ch, msg(MSG_DONT_REMEMBER_YOU, ch));
+			else {
+				do_say(ch, msg(MSG_OK_MY_DEAR, ch));
+				interpret(ch, "smile");
+			}
+		}
 
-	if (!IS_NPC(victim) && IS_SET(victim->act, PLR_WANTED))
-	  { crime = "CRIMINAL"; break; }
+		if (!IS_NPC(victim) && IS_SET(victim->act, PLR_WANTED)) {
+			crime = "CRIMINAL";
+			break;
+		}
 	
-	if (victim->fighting != NULL
-	    &&   victim->fighting != ch
-	    &&   victim->alignment < max_evil)
-	  {
-	    if (IS_EVIL(victim))
-	      {
-		max_evil = -350; 
-		ech      = victim;
-	      }
-	    else
-	      ech = victim;
-	  }
-	  }
+		if (victim->fighting != NULL
+		&&  victim->fighting != ch
+		&&  victim->alignment < max_evil) {
+			if (IS_EVIL(victim)) {
+				max_evil = -350; 
+				ech      = victim;
+			}
+			else
+				ech = victim;
+		}
+	}
 	
 	if (victim != NULL) {
 		doprintf(do_yell, ch,

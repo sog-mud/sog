@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.72 1998-08-14 06:30:52 fjoe Exp $
+ * $Id: act_comm.c,v 1.73 1998-08-15 12:40:46 fjoe Exp $
  */
 
 /***************************************************************************
@@ -390,7 +390,7 @@ void do_immtalk(CHAR_DATA *ch, const char *argument)
 		if (d->connected == CON_PLAYING && IS_IMMORTAL(d->character)
 		&&  !IS_SET(d->character->comm,COMM_NOWIZ))
 			act_puts("{W$n{x: {C$t{x", ch,argument, d->character,
-				 TO_VICT, POS_DEAD);
+				 TO_VICT | TO_BUF, POS_DEAD);
 	}
 }
 

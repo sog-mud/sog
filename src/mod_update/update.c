@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.56 1998-08-14 07:59:25 fjoe Exp $
+ * $Id: update.c,v 1.57 1998-08-15 12:40:49 fjoe Exp $
  */
 
 /***************************************************************************
@@ -194,7 +194,7 @@ void gain_exp(CHAR_DATA *ch, int gain)
 	ch->exp = UMAX(base_exp(ch, ch->pcdata->points), ch->exp + gain);
 	while (ch->level < LEVEL_HERO &&
 	       exp_to_level(ch, ch->pcdata->points) <= 0) {
-		send_to_char(msg(MSG_YOU_RAISE_A_LEVEL, ch), ch);
+		char_nputs(MSG_YOU_RAISE_A_LEVEL, ch);
 		ch->level += 1;
 
 		if ((ch->class == CLASS_SAMURAI) && (ch->level == 10))
@@ -1297,7 +1297,7 @@ void char_update(void)
 				&& !IS_AFFECTED(vch, AFF_PLAGUE) 
 				&& number_bits(2) == 0) {
 					char_nputs(MSG_YOU_FEEL_HOT_FEVERISH, vch);
-					act_nprintf(ch, NULL, NULL, TO_ROOM,
+					act_nprintf(vch, NULL, NULL, TO_ROOM,
 						POS_RESTING ,MSG_N_SHIVERS_ILL);
 					affect_join(vch, &plague);
 				}

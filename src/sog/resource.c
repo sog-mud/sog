@@ -1,5 +1,5 @@
 /*
- * $Id: resource.c,v 1.30 1998-08-15 07:47:34 fjoe Exp $
+ * $Id: resource.c,v 1.31 1998-08-15 12:40:49 fjoe Exp $
  */
 
 #include <limits.h>
@@ -43,19 +43,6 @@ enum {
 #define FIX_SEX(sex) ((sex) >= SEX_FEMALE  ? SEX_FEMALE : \
 		     (sex) <= SEX_NEUTRAL ?	SEX_NEUTRAL : \
 						SEX_MALE)
-char *exact_msg(int msgid, int lang, int sex)
-{
-	struct msg *m;
-
-	if (msgid >= nmsgid || lang >= nlang)
-		return BLANK_STRING;
-
-	m = msg_table[lang]+msgid;
-	if (m->sexdep)
-		return m->p[FIX_SEX(sex)];
-	else
-		return (char*)m->p;
-}
 
 char *vmsg(int msgid, CHAR_DATA *ch, CHAR_DATA *victim)
 {

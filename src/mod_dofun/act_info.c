@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.118 1998-08-14 22:33:02 fjoe Exp $
+ * $Id: act_info.c,v 1.119 1998-08-15 12:40:47 fjoe Exp $
  */
 
 /***************************************************************************
@@ -546,7 +546,7 @@ void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 			char_puts(desc, ch);
 	}
 	else
-		act_nprintf(ch, NULL, victim, TO_CHAR, POS_DEAD,
+		act_nprintf(victim, NULL, ch, TO_VICT, POS_DEAD,
 				MSG_SEE_NOTHING_SPECIAL);
 
 	if (MOUNTED(victim))
@@ -2268,15 +2268,20 @@ void do_title(CHAR_DATA *ch, const char *argument)
 		return;
 
 	if (MSG_CANT_CHANGE_TITLE(ch)) {
-		send_to_char(msg(MSG_CANT_CHANGE_TITLE, ch), ch);
+		char_nputs(MSG_CANT_CHANGE_TITLE, ch);
 		return;
 	}
 
 	if (argument[0] == '\0') {
-		send_to_char(msg(MSG_CHANGE_TITLE_TO_WHAT, ch), ch);
+		char_nputs(MSG_CHANGE_TITLE_TO_WHAT, ch);
 		return;
 	}
 
+	if (strstr(argument, "{/")) {
+		char_nputs(MSG_ILLEGAL_CHARACTER_TITLE, ch);
+		return;
+	}
+		
 	set_title(ch, argument);
 	char_nputs(MSG_OK, ch);
 }

@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.81 1998-08-14 22:33:03 fjoe Exp $
+ * $Id: act_move.c,v 1.82 1998-08-15 12:40:47 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1715,7 +1715,7 @@ void do_wake(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (IS_AFFECTED(victim, AFF_SLEEP)) { 
-		act_nprintf(ch, NULL, victim, TO_CHAR, POS_DEAD, MSG_YOU_CANT_WAKE_M);  
+		act_nprintf(victim, NULL, ch, TO_VICT, POS_DEAD, MSG_YOU_CANT_WAKE_M);  
 		return; 
 	}
 
@@ -2725,11 +2725,11 @@ void do_vtouch(CHAR_DATA *ch, const char *argument)
 
 	if (IS_NPC(ch) || 
 	    number_percent() < 0.85 * get_skill(ch,gsn_vampiric_touch)) {
-		act_nprintf(ch, NULL, victim, TO_CHAR, POS_DEAD, 
+		act_nprintf(victim, NULL, ch, TO_VICT, POS_DEAD, 
 				MSG_YOU_TOUCH_NS_NECK);
-		act_nprintf(ch, NULL, victim, TO_VICT, POS_RESTING, 
+		act_nprintf(victim, NULL, ch, TO_CHAR, POS_RESTING, 
 				MSG_N_TOUCHES_YOUR_NECK);
-		act_nprintf(ch, NULL, victim, TO_NOTVICT, POS_RESTING,
+		act_nprintf(victim, NULL, ch, TO_NOTVICT, POS_RESTING,
 				MSG_N_TOUCHES_NS_NECK);
 		check_improve(ch,gsn_vampiric_touch,TRUE,1);
 		
@@ -2887,11 +2887,10 @@ if ((door = find_exit(ch, arg2)) >= 0)
 		return; 
 	}
 
-	if (CAN_DETECT(victim,ADET_WEB))
-	{
-		act_nprintf(ch, NULL, victim, TO_CHAR, POS_DEAD, 
+	if (CAN_DETECT(victim, ADET_WEB)) {
+		act_nprintf(victim, NULL, ch, TO_VICT, POS_DEAD, 
 				MSG_PUSH_VICT_WEBBED);
-		act_nprintf(ch, NULL, victim, TO_ROOM, POS_RESTING,
+		act_nprintf(victim, NULL, ch, TO_NOTVICT, POS_RESTING,
 				MSG_N_PUSHES_VICT_WEBBED);
 		return; 
 	}
@@ -3076,7 +3075,7 @@ void do_escape(CHAR_DATA *ch, const char *argument)
 
 		if (number_percent() > get_skill(ch,gsn_escape)) {
 			char_nputs(MSG_ESCAPE_FAILED, ch);
-			check_improve(ch,gsn_escape,FALSE,1);	
+			check_improve(ch, gsn_escape, FALSE, 1);	
 			return;
 		}
 
@@ -3087,7 +3086,7 @@ void do_escape(CHAR_DATA *ch, const char *argument)
 
 		ch->in_room = was_in;
 		act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
-				MSG_N_ESCAPED);
+			    MSG_N_ESCAPED);
 		ch->in_room = now_in;
 
 		if (!IS_NPC(ch)) {
@@ -3177,7 +3176,7 @@ int mount_success(CHAR_DATA *ch, CHAR_DATA *mount, int canattack)
 	if (success >= 10 && MOUNTED(ch) == mount) {
 		act_nprintf(ch, NULL, mount, TO_CHAR, POS_DEAD, 
 				MSG_YOU_FALL_OFF_N);
-		act_nprintf(ch, NULL, mount, TO_ROOM, POS_RESTING, 
+		act_nprintf(ch, NULL, mount, TO_NOTVICT, POS_RESTING, 
 				MSG_N_FALLS_OFF_N);
 		act_nprintf(ch, NULL, mount, TO_VICT, POS_SLEEPING, 
 				MSG_N_FALLS_OFF_YOU);
@@ -3195,16 +3194,16 @@ int mount_success(CHAR_DATA *ch, CHAR_DATA *mount, int canattack)
 	if (success >= 40 && canattack) {
 		act_nprintf(ch, NULL, mount, TO_CHAR, POS_DEAD,
 				MSG_N_DOESNT_LIKE_YOU);
-		act_nprintf(ch, NULL, mount, TO_ROOM, POS_RESTING,
+		act_nprintf(ch, NULL, mount, TO_NOTVICT, POS_RESTING,
 				MSG_N_DOESNT_LIKE_N);
 		act_nprintf(ch, NULL, mount, TO_VICT, POS_SLEEPING,
 				MSG_YOU_DONT_LIKE_N);
 
-		act_nprintf(ch, NULL, mount, TO_CHAR, POS_DEAD, 
+		act_nprintf(mount, NULL, ch, TO_VICT, POS_DEAD, 
 				MSG_N_SNARLS_YOU);
-		act_nprintf(ch, NULL, mount, TO_ROOM, POS_RESTING,
+		act_nprintf(mount, NULL, ch, TO_NOTVICT, POS_RESTING,
 				MSG_N_SNARLS_N);
-		act_nprintf(ch, NULL, mount, TO_VICT, POS_SLEEPING,
+		act_nprintf(mount, NULL, ch, TO_CHAR, POS_SLEEPING,
 				MSG_YOU_SNARL_N);  
 
 		damage(mount, ch, number_range(1, mount->level),
@@ -3850,8 +3849,8 @@ void do_enter(CHAR_DATA *ch, const char *argument)
 
 	/* XXX */
 	act_nprintf(ch, portal, NULL, TO_ROOM, POS_RESTING,
-		   MOUNTED(ch) ? MSG_HERA_STEPS_INTO_RIDING_ON :
-				 MSG_HERA_STEPS_INTO,
+		   MOUNTED(ch) ? MSG_STEPS_INTO_RIDING_ON :
+				 MSG_STEPS_INTO,
 		   MOUNTED(ch) ? mlstr_cval(MOUNTED(ch)->short_descr, ch) :
 				 NULL);
 	

@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.16 1998-08-14 05:45:17 fjoe Exp $
+ * $Id: skills.c,v 1.17 1998-08-15 12:40:49 fjoe Exp $
  */
 
 /***************************************************************************
@@ -326,7 +326,7 @@ void check_improve(CHAR_DATA *ch, int sn, bool success, int multiplier)
 			chance = URANGE(5,100 - ch->pcdata->learned[sn], 95);
 			if (number_percent() < chance) {
 				act_nprintf(ch, NULL, NULL, TO_CHAR, POS_DEAD,
-				           MSG_SKILLS_HAVE_BECOME_BETTER,
+				           MSG_HAVE_BECOME_BETTER,
 					       skill_table[sn].name);
 				ch->pcdata->learned[sn]++;
 				gain_exp(ch,2 * skill_table[sn].rating[ch->class]);
@@ -336,7 +336,7 @@ void check_improve(CHAR_DATA *ch, int sn, bool success, int multiplier)
 			chance = URANGE(5,ch->pcdata->learned[sn]/2,30);
 			if (number_percent() < chance) {
 				act_nprintf(ch, NULL, NULL, TO_CHAR, POS_DEAD,
-					   MSG_SKILLS_LEARN_FROM_MISTAKES,
+					   MSG_LEARN_FROM_MISTAKES,
 					skill_table[sn].name);
 				ch->pcdata->learned[sn] += number_range(1,3);
 				ch->pcdata->learned[sn] = UMIN(ch->pcdata->learned[sn],100);

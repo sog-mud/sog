@@ -2,12 +2,11 @@
 #define _RESOURCE_H_
 
 /*
- * $Id: resource.h,v 1.89 1998-08-14 22:33:07 fjoe Exp $
+ * $Id: resource.h,v 1.90 1998-08-15 12:40:49 fjoe Exp $
  */
 
 #define msg(msgid, ch) vmsg(msgid, ch, ch)
 char* vmsg(int msgid, CHAR_DATA *ch, CHAR_DATA *victim);
-char* exact_msg(int msgid, int lang, int sex);
 void msgdb_load();
 int lang_lookup(const char*);
 extern char** lang_table;
@@ -325,10 +324,10 @@ enum {
 	MSG_ARRIVED,
 	MSG_ARRIVED_RIDING,
 	MSG_THANK_YOU_BRAVE,
-	MSG_SKILLS_HAVE_BECOME_BETTER,
-	MSG_SKILLS_LEARN_FROM_MISTAKES,
-	MSG_HERA_STEPS_INTO_RIDING_ON,
-	MSG_HERA_STEPS_INTO,
+	MSG_HAVE_BECOME_BETTER,
+	MSG_LEARN_FROM_MISTAKES,
+	MSG_STEPS_INTO_RIDING_ON,
+	MSG_STEPS_INTO,
 	MSG_WHEN_YOU_ATTEMPT_YOU_BREAK_WEBS,
 	MSG_N_BREAKS_THE_WEBS,
 	MSG_YOU_ATTEMPT_WEBS_HOLD_YOU,
@@ -382,7 +381,6 @@ enum {
 	MSG_YOU_SLOWLY_TOUCH_GROUND,
 	MSG_YOU_ARE_ALREADY_ON_GROUND,
 	MSG_TYPE_WITH_UP_OR_DOWN,
-	MSG_MOB_PROGS_I_DO_NOT_GET_PAID_ENOUGH,
 	MSG_YOUR_GAIN_IS,
 	MSG_YOU_RAISE_A_LEVEL,
 	MSG_TELLS_YOU,
