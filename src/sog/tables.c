@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.89.2.3 2000-03-31 13:56:57 fjoe Exp $
+ * $Id: tables.c,v 1.89.2.4 2000-07-01 14:57:33 avn Exp $
  */
 
 /***************************************************************************
@@ -1310,8 +1310,8 @@ const struct wiznet_type wiznet_table[] =
 	{ "snoops",		WIZ_SNOOPS,	LEVEL_SUP	},
 	{ "switches",		WIZ_SWITCHES,	LEVEL_SUP	},
 	{ "secure",		WIZ_SECURE,	LEVEL_CRE	},
-	{ "olc",		WIZ_OLC,	LEVEL_IMMORTAL	},
-	{ "wizlog",		WIZ_WIZLOG,	LEVEL_IMMORTAL	},
+	{ "olc",		WIZ_OLC,	LEVEL_ANG	},
+	{ "wizlog",		WIZ_WIZLOG,	LEVEL_ANG	},
 	{ NULL }
 };
 

@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.187.2.13 2000-05-30 14:45:33 fjoe Exp $
+ * $Id: act_comm.c,v 1.187.2.14 2000-07-01 14:57:31 avn Exp $
  */
 
 /***************************************************************************
@@ -966,7 +966,7 @@ void do_group(CHAR_DATA *ch, const char *argument)
 	||  (HAS_SKILL(ch, gsn_spellbane) &&
 	     HAS_SKILL(victim, gsn_mastering_spell))) {
 		act_puts("You hate $n's cabal, how can you join $n's group?", ch, NULL, victim, TO_VICT, POS_SLEEPING);
-		act_puts("You hate $N's cabal, how can you want $N to join your group", ch, NULL, victim, TO_CHAR, POS_SLEEPING);
+		act_puts("You hate $N's cabal, how can you want $N to join your group?", ch, NULL, victim, TO_CHAR, POS_SLEEPING);
 		return;
 	}
 
