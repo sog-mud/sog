@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.30 1998-09-01 18:38:01 fjoe Exp $
+ * $Id: martial_art.c,v 1.31 1998-09-04 05:27:46 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1034,15 +1034,16 @@ void do_kick(CHAR_DATA *ch, const char *argument)
 void do_circle(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *victim;
-	CHAR_DATA *person;
+	CHAR_DATA *rch;
 	int chance;
+	OBJ_DATA *obj;
 
 	if (MOUNTED(ch)) {
 		send_to_char("You can't circle while riding!\n\r", ch);
 		return;
 	}
 
-	if ((chance = get_skill(ch, gsn_circle))) {
+	if ((chance = get_skill(ch, gsn_circle)) == 0) {
 		send_to_char("You don't know how to circle.\n\r", ch);
 		return;
 	}
@@ -1052,42 +1053,33 @@ void do_circle(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if ((get_eq_char(ch,WEAR_WIELD) == NULL) ||
-		attack_table[get_eq_char(ch,WEAR_WIELD)->value[3]].damage 
-			 != DAM_PIERCE)
-		{
-		 send_to_char("You must wield a piercing weapon to circle stab.\n\r",ch);
+	if ((obj = get_eq_char(ch, WEAR_WIELD)) == NULL
+	||  attack_table[obj->value[3]].damage != DAM_PIERCE) {
+		 char_puts("You must wield a piercing weapon to circle stab.\n\r", ch);
 		 return;
 	}
 
-	if (is_safe(ch,victim)) return;
+	if (is_safe(ch, victim))
+		return;
 
 	WAIT_STATE(ch, SKILL(gsn_circle)->beats);
 
-	for (person = ch->in_room->people;person != NULL;
-		 person = person->next_in_room)
-		{
-		if (person->fighting == ch)
-			{
-			  send_to_char("You can't circle while defending yourself.\n\r",ch);
-			  return;
-			}
+	for (rch = ch->in_room->people; rch; rch = rch->next_in_room) {
+		if (rch->fighting == ch) {
+			char_puts("You can't circle while defending yourself.\n\r", ch);
+			return;
 		}
-
-	if (IS_NPC(ch) || number_percent() < chance)
-	{
-		one_hit(ch, victim, gsn_circle,FALSE);
-		check_improve(ch,gsn_circle,TRUE,1);
 	}
-	else
-	{
-		damage(ch, victim, 0, gsn_circle,TYPE_UNDEFINED, TRUE);
-		check_improve(ch,gsn_circle,FALSE,1);
+
+	if (number_percent() < chance) {
+		one_hit(ch, victim, gsn_circle, FALSE);
+		check_improve(ch, gsn_circle, TRUE, 1);
+	}
+	else {
+		damage(ch, victim, 0, gsn_circle, TYPE_UNDEFINED, TRUE);
+		check_improve(ch, gsn_circle, FALSE, 1);
 	}
 }
-
-
-
 
 void do_disarm(CHAR_DATA *ch, const char *argument)
 {

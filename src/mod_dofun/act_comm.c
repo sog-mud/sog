@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.75 1998-09-01 18:37:55 fjoe Exp $
+ * $Id: act_comm.c,v 1.76 1998-09-04 05:27:43 fjoe Exp $
  */
 
 /***************************************************************************
@@ -521,7 +521,7 @@ void do_tell_raw(CHAR_DATA *ch, CHAR_DATA *victim, const char *msg)
 
 	if (!IS_NPC(victim)) {
 		if (victim->desc == NULL)
-			act_puts("$N seems to have misplaced $S link but"
+			act_puts("$N seems to have misplaced $S link but "
 				 "your tell will go through if $E returns.",
 				 ch, NULL, victim, TO_CHAR, POS_DEAD);
 		else if (IS_SET(victim->comm, COMM_AFK))

@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.58 1998-09-01 18:38:00 fjoe Exp $
+ * $Id: interp.c,v 1.59 1998-09-04 05:27:46 fjoe Exp $
  */
 
 /***************************************************************************
@@ -158,7 +158,7 @@ const	struct	cmd_type	cmd_table	[] =
     { "idea",		do_idea,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "news",		do_news,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "raffects",	do_raffects,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "rating",		do_rating,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
+    { "rating",		do_rating,	POS_DEAD,	ML,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "read",		do_look,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "report",		do_report,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "rules",		do_rules,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
@@ -577,6 +577,16 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 		||  str_prefix(command, cmd_table[cmd].name)
 		||   cmd_table[cmd].level > trust)
 			continue;
+
+#if 0
+		if (is_order && !IS_NPC(ch) && IS_AFFECTED(ch, AFF_CHARM)) {
+			if (number_percent() < get_curr_stat(ch, STAT_CHA)) {
+				do_say(ch, "Nah, I won't do that.");
+				return;
+			}
+
+			if (number_percent() < get_curr_stat(ch, STAT_CHA)
+#endif
 
          	/*
  	         * Implement charmed mobs commands.

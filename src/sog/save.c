@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.51 1998-09-01 18:38:02 fjoe Exp $
+ * $Id: save.c,v 1.52 1998-09-04 05:27:47 fjoe Exp $
  */
 
 /***************************************************************************
@@ -66,7 +66,7 @@ extern int _filbuf args((FILE *));
 #define MAX_NEST	100
 static OBJ_DATA *rgObjNest[MAX_NEST];
 
-char DEFAULT_PROMPT[] = "<%n: {M%h{xhp {C%m{xm {W%v{xmv Opp:%o> ";
+char DEFAULT_PROMPT[] = "%hhp %mm %vmv Opp:%o {c%e{x# ";
 
 /*
  * Local functions.

@@ -1,5 +1,5 @@
 /*
- * $Id: quest.c,v 1.65 1998-09-01 18:38:01 fjoe Exp $
+ * $Id: quest.c,v 1.66 1998-09-04 05:27:46 fjoe Exp $
  */
 
 /***************************************************************************
@@ -78,6 +78,7 @@
 #define QUEST_VNUM_GIRTH	94
 #define QUEST_VNUM_RING		95
 #define QUEST_VNUM_RUG		50
+#define QUEST_VNUM_SONG		40
 #define VNUM_CANTEEN		34402
 
 #define TROUBLE_MAX 3
@@ -125,6 +126,9 @@ struct qitem_data qitem_table[] = {
 
 	{ "the Ring of Real Heroism",	1000, CLASS_NONE,
 	   QUEST_VNUM_RING, NULL				},
+
+	{ "the Song of Real Hero",	1000, CLASS_NONE,
+	   QUEST_VNUM_SONG, NULL				},
 
 	{ "small magic rug",		 750, CLASS_NONE,
 	   QUEST_VNUM_RUG, NULL					},

@@ -1,5 +1,5 @@
 /*
- * $Id: olc_help.c,v 1.6 1998-09-01 18:38:09 fjoe Exp $
+ * $Id: olc_help.c,v 1.7 1998-09-04 05:27:55 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -29,7 +29,7 @@ OLC_CMD_DATA hedit_table[] =
 	{ "edit",	hedit_edit				},
 	{ "show",	hedit_show				},
 	{ "level",	hedit_level			 	},
-	{ "keyword",	hedit_keyword,	validate_keyword	},
+	{ "keywords",	hedit_keyword,	validate_keyword	},
 	{ "text",	hedit_text				},
 	{ "del",	hedit_del				},
 

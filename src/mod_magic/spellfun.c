@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.47 1998-09-01 18:38:00 fjoe Exp $
+ * $Id: spellfun.c,v 1.48 1998-09-04 05:27:46 fjoe Exp $
  */
 
 /***************************************************************************
@@ -150,7 +150,6 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-/* ch->level >= skill_level because of checks in get_skill called above */
 	mana = mana_cost(ch, sn);
 
 	/*

@@ -1,5 +1,5 @@
 #
-# $Id: Makefile,v 1.19 1998-09-01 18:29:14 fjoe Exp $
+# $Id: Makefile,v 1.20 1998-09-04 05:27:43 fjoe Exp $
 #
 CC		= gcc
 LD		= gcc
@@ -18,9 +18,9 @@ OFILES = act_comm.o act_info.o act_move.o act_obj.o act_wiz.o auction.o\
 	 effects.o fight.o flag.o gsn.o handler.o healer.o help.o hometown.o\
 	 hunt.o interp.o log.o lookup.o magic.o magic2.o martial_art.o mem.o\
 	 mlstring.o mob_cmds.o mob_prog.o namedp.o note.o obj_prog.o quest.o\
-	 raffects.o rating.o recycle.o repair.o resource.o save.o skills.o\
-	 special.o spellfn.o string_edit.o tables.o update.o util.o varr.o\
-	 $(OLC_OFILES)
+	 raffects.o rating.o recycle.o religion.o repair.o resource.o save.o\
+	 skills.o special.o spellfn.o string_edit.o tables.o update.o util.o\
+	 varr.o $(OLC_OFILES)
 
 #
 # for SUNOS
@@ -30,8 +30,8 @@ OFILES = act_comm.o act_info.o act_move.o act_obj.o act_wiz.o auction.o\
 
 #
 # for FreeBSD
-#CFLAGS += -DBSD44
-#LFLAGS += -lcrypt
+CFLAGS += -DBSD44
+LFLAGS += -lcrypt
 
 #
 # for Unixware 2.x

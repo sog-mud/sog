@@ -2,7 +2,7 @@
 #define _MERC_H_
 
 /*
- * $Id: merc.h,v 1.75 1998-09-01 18:38:01 fjoe Exp $
+ * $Id: merc.h,v 1.76 1998-09-04 05:27:46 fjoe Exp $
  */
 
 /***************************************************************************
@@ -69,44 +69,13 @@
 #include "class.h"
 #include "clan.h"
 #include "skills.h"
+#include "religion.h"
 
 /*
  *  COMMAND extra bits..
  */
 #define CMD_KEEP_HIDE		1
 #define CMD_GHOST		2
-
-/* To add god, make tattoo in limbo.are, add OBJ_VNUM_TATTOO_(GOD),
- * add here and add to const.c in the religion_table  also increase
- * MAX_RELIGION in merc.h  and make oprog for the tattoo
- */
-
-#define RELIGION_NONE		0
-#define RELIGION_APOLLON	1
-#define RELIGION_ZEUS		2
-#define RELIGION_SIEBELE	3
-#define RELIGION_HEPHAESTUS	4
-#define RELIGION_EHRUMEN	5
-#define RELIGION_AHRUMAZDA	6
-#define RELIGION_DEIMOS 	7
-#define RELIGION_PHOBOS 	8
-#define RELIGION_ODIN		9
-#define RELIGION_MARS		10
-#define RELIGION_ATHENA 	11
-#define RELIGION_GOKTENGRI	12
-#define RELIGION_HERA		13
-#define RELIGION_VENUS		14
-#define RELIGION_ARES		15
-#define RELIGION_PROMETHEUS	16
-#define RELIGION_EROS		17
-
-/* Religion structure */
-struct religion_type
-{
-	char *	leader;
-	char *	name;
-	int	vnum;
-};
 
 struct ethos_type {
 	char *name;
@@ -1157,12 +1126,10 @@ enum {
 #define PLR_DENY		(X)
 #define PLR_FREEZE		(Y)
 
-/* #define PLR_QUESTOR		(bb) */
-#define PLR_VAMPIRE		(cc)
 #define PLR_HARA_KIRI		(dd)
 #define PLR_BLINK		(ee)
 
-#define IS_VAMPIRE(ch)	(!IS_NPC(ch) && IS_SET((ch)->act , PLR_VAMPIRE))
+#define IS_VAMPIRE(ch)	(is_affected(ch, gsn_vampire))
 #define IS_HARA_KIRI(ch) (IS_SET((ch)->act , PLR_HARA_KIRI))
 #define CANT_CHANGE_TITLE(ch) (IS_SET(ch->act, PLR_NOTITLE))
 #define IS_BLINK_ON(ch) (IS_SET((ch)->act , PLR_BLINK))
@@ -1878,7 +1845,6 @@ extern	const	struct wiznet_type	wiznet_table	[];
 extern	const	struct attack_type	attack_table	[];
 extern	const	struct race_type	race_table	[];
 extern	const	struct pc_race_type	pc_race_table	[MAX_PC_RACE];
-extern	const	struct religion_type	religion_table	[];
 extern	const	struct spec_type	spec_table	[];
 extern	const	struct liq_type	liq_table	[];
 extern	const	struct ethos_type	ethos_table	[];

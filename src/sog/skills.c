@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.20 1998-09-01 18:38:02 fjoe Exp $
+ * $Id: skills.c,v 1.21 1998-09-04 05:27:47 fjoe Exp $
  */
 
 /***************************************************************************
@@ -161,6 +161,10 @@ void do_spells(CHAR_DATA *ch, const char *argument)
 
 		found = TRUE;
 		lev = skill_level(ch, ps->sn);
+
+		if (lev >= LEVEL_HERO)
+			continue;
+
 		if (ch->level < lev)
 			sprintf(buf, "%-18s  n/a      ", sk->name);
 		else 
@@ -219,6 +223,10 @@ void do_skills(CHAR_DATA *ch, const char *argument)
 
 		found = TRUE;
 		lev = skill_level(ch, ps->sn);
+
+		if (lev >= LEVEL_HERO)
+			continue;
+
 		if (ch->level < lev)
 			sprintf(buf, "%-18s n/a      ", sk->name);
 		else 

@@ -2,7 +2,7 @@
 #define _CLASS_H_
 
 /*
- * $Id: class.h,v 1.1 1998-09-01 18:37:57 fjoe Exp $
+ * $Id: class.h,v 1.2 1998-09-04 05:27:45 fjoe Exp $
  */
 
 /*--------------------------------------------------------------------
@@ -41,7 +41,6 @@ extern varr * classes;
 
 #define CLASS(i)		((CLASS_DATA*) VARR_GET(classes, i))
 #define class_lookup(i)		((CLASS_DATA*) varr_get(classes, i))
-#define class_add(class) varr_enew(classes, class)
 #define class_skill_lookup(class, sn) \
 	((CLASS_SKILL*) varr_bsearch(class->skills, &sn, cmpint))
 

@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.65 1998-09-01 18:37:57 fjoe Exp $
+ * $Id: fight.c,v 1.66 1998-09-04 05:27:45 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2123,11 +2123,7 @@ void group_gain(CHAR_DATA *ch, CHAR_DATA *victim)
 		    }
 		}
 	}
-
-	return;
 }
-
-
 
 /*
  * Compute xp for a kill.

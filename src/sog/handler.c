@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.51 1998-09-01 18:37:58 fjoe Exp $
+ * $Id: handler.c,v 1.52 1998-09-04 05:27:45 fjoe Exp $
  */
 
 /***************************************************************************
@@ -366,17 +366,8 @@ bool is_old_mob(CHAR_DATA *ch)
  
 void reset_obj_affects(CHAR_DATA *ch, OBJ_DATA *obj, AFFECT_DATA *af)
 {
-#if 0
-	int wear_level = get_wear_level(ch, obj);
-#endif
-
 	for (; af != NULL; af = af->next) {
 		int mod = af->modifier;
-
-#if 0
-		if (wear_level < obj->level)
-			continue;
-#endif
 
 		switch(af->location) {
 		case APPLY_MANA:
@@ -1239,23 +1230,19 @@ void char_to_room(CHAR_DATA *ch, ROOM_INDEX_DATA *pRoomIndex)
 	}
 }
 
-
-
 /*
  * Give an obj to a char.
  */
 void obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch)
 {
-	obj->next_content	 = ch->carrying;
-	ch->carrying	 = obj;
-	obj->carried_by	 = ch;
-	obj->in_room	 = NULL;
-	obj->in_obj		 = NULL;
+	obj->next_content	= ch->carrying;
+	ch->carrying		= obj;
+	obj->carried_by		= ch;
+	obj->in_room		= NULL;
+	obj->in_obj		= NULL;
 	ch->carry_number	+= get_obj_number(obj);
 	ch->carry_weight	+= get_obj_weight(obj);
 }
-
-
 
 /*
  * Take an obj from its character.
@@ -1264,8 +1251,7 @@ void obj_from_char(OBJ_DATA *obj)
 {
 	CHAR_DATA *ch;
 
-	if ((ch = obj->carried_by) == NULL)
-	{
+	if ((ch = obj->carried_by) == NULL) {
 		bug("Obj_from_char: null ch.", 0);
 		return;
 	}
@@ -1274,28 +1260,23 @@ void obj_from_char(OBJ_DATA *obj)
 		unequip_char(ch, obj);
 
 	if (ch->carrying == obj)
-	{
 		ch->carrying = obj->next_content;
-	}
-	else
-	{
+	else {
 		OBJ_DATA *prev;
 
-		for (prev = ch->carrying; prev != NULL; prev = prev->next_content)
-		{
-		    if (prev->next_content == obj)
-		    {
-			prev->next_content = obj->next_content;
-			break;
-		    }
+		for (prev = ch->carrying; prev; prev = prev->next_content) {
+			if (prev->next_content == obj) {
+				prev->next_content = obj->next_content;
+				break;
+			}
 		}
 
 		if (prev == NULL)
-		    bug("Obj_from_char: obj not in list.", 0);
+			bug("Obj_from_char: obj not in list.", 0);
 	}
 
-	obj->carried_by	 = NULL;
-	obj->next_content	 = NULL;
+	obj->carried_by		= NULL;
+	obj->next_content	= NULL;
 	ch->carry_number	-= get_obj_number(obj);
 	ch->carry_weight	-= get_obj_weight(obj);
 
@@ -1312,8 +1293,6 @@ void obj_from_char(OBJ_DATA *obj)
 	}
 }
 
-
-
 /*
  * Find the ac value of an obj, including position effect.
  */
@@ -1322,30 +1301,27 @@ int apply_ac(OBJ_DATA *obj, int iWear, int type)
 	if (obj->item_type != ITEM_ARMOR)
 		return 0;
 
-	switch (iWear)
-	{
-	case WEAR_BODY:	return 3 * obj->value[type];
-	case WEAR_HEAD:	return 2 * obj->value[type];
-	case WEAR_LEGS:	return 2 * obj->value[type];
-	case WEAR_FEET:	return     obj->value[type];
-	case WEAR_HANDS:	return     obj->value[type];
-	case WEAR_ARMS:	return     obj->value[type];
-	case WEAR_SHIELD:	return     obj->value[type];
-	case WEAR_FINGER_L:	return     0;
-	case WEAR_FINGER_R: return     obj->value[type];
-	case WEAR_NECK_1:	return     obj->value[type];
-	case WEAR_NECK_2:	return     obj->value[type];
+	switch (iWear) {
+	case WEAR_BODY:		return 3 * obj->value[type];
+	case WEAR_HEAD:		return 2 * obj->value[type];
+	case WEAR_LEGS:		return 2 * obj->value[type];
+	case WEAR_FEET:		return	obj->value[type];
+	case WEAR_HANDS:	return	obj->value[type];
+	case WEAR_ARMS:		return	obj->value[type];
+	case WEAR_SHIELD:	return	obj->value[type];
+	case WEAR_FINGER_L:	return	0;
+	case WEAR_FINGER_R:	return	obj->value[type];
+	case WEAR_NECK_1:	return	obj->value[type];
+	case WEAR_NECK_2:	return	obj->value[type];
 	case WEAR_ABOUT:	return 2 * obj->value[type];
-	case WEAR_WAIST:	return     obj->value[type];
-	case WEAR_WRIST_L:	return     obj->value[type];
-	case WEAR_WRIST_R:	return     obj->value[type];
-	case WEAR_HOLD:	return     obj->value[type];
+	case WEAR_WAIST:	return	obj->value[type];
+	case WEAR_WRIST_L:	return	obj->value[type];
+	case WEAR_WRIST_R:	return	obj->value[type];
+	case WEAR_HOLD:		return	obj->value[type];
 	}
 
 	return 0;
 }
-
-
 
 /*
  * Find a piece of eq on a character.
@@ -1358,15 +1334,11 @@ OBJ_DATA *get_eq_char(CHAR_DATA *ch, int iWear)
 		return NULL;
 
 	for (obj = ch->carrying; obj != NULL; obj = obj->next_content)
-	{
 		if (obj->wear_loc == iWear)
-		    return obj;
-	}
+			return obj;
 
 	return NULL;
 }
-
-
 
 /*
  * Equip a char with an obj.
@@ -1376,22 +1348,19 @@ void equip_char(CHAR_DATA *ch, OBJ_DATA *obj, int iWear)
 	AFFECT_DATA *paf;
 	int i;
 
-	if (iWear == WEAR_STUCK_IN)
-	{
+	if (iWear == WEAR_STUCK_IN) {
 		obj->wear_loc = iWear;
 		return;
 	}
 
-	if (get_eq_char(ch, iWear) != NULL)
-	{
+	if (get_eq_char(ch, iWear) != NULL) {
 		bug("Equip_char: already equipped (%d).", iWear);
 		return;
 	}
 
 	if ((IS_OBJ_STAT(obj, ITEM_ANTI_EVIL)    && IS_EVIL(ch)   )
-	||   (IS_OBJ_STAT(obj, ITEM_ANTI_GOOD)    && IS_GOOD(ch)   )
-	||   (IS_OBJ_STAT(obj, ITEM_ANTI_NEUTRAL) && IS_NEUTRAL(ch)))
-	{
+	||  (IS_OBJ_STAT(obj, ITEM_ANTI_GOOD)    && IS_GOOD(ch)   )
+	||  (IS_OBJ_STAT(obj, ITEM_ANTI_NEUTRAL) && IS_NEUTRAL(ch))) {
 		/*
 		 * Thanks to Morgenes for the bug fix here!
 		 */
@@ -1412,38 +1381,24 @@ void equip_char(CHAR_DATA *ch, OBJ_DATA *obj, int iWear)
 		        affect_modify(ch, paf, TRUE);
 	for (paf = obj->affected; paf != NULL; paf = paf->next)
 		if (paf->location == APPLY_SPELL_AFFECT)
-		    affect_to_char (ch, paf);
+			affect_to_char (ch, paf);
 		else
-		    affect_modify(ch, paf, TRUE);
+			affect_modify(ch, paf, TRUE);
 
 	if (obj->item_type == ITEM_LIGHT
-	&&   obj->value[2] != 0
-	&&   ch->in_room != NULL)
+	&&  obj->value[2] != 0
+	&&  ch->in_room != NULL)
 		++ch->in_room->light;
 
 	oprog_call(OPROG_WEAR, obj, ch, NULL);
 }
 
-
 void strip_obj_affects(CHAR_DATA *ch, OBJ_DATA *obj, AFFECT_DATA *paf)
 {
-#if 0
-	int wear_level;
-#endif
 	AFFECT_DATA *lpaf_next = NULL;
 	AFFECT_DATA *lpaf = NULL;
 
-#if 0
-	wear_level = get_wear_level(ch, obj);
-#endif
 	for (; paf != NULL; paf = paf->next) {
-#if 0
-		if (wear_level < obj->level
-		&&  (paf->location == APPLY_HIT ||
-		     paf->location == APPLY_MANA ||
-		     paf->location == APPLY_MOVE))
-			continue;
-#endif
 		if (paf->location == APPLY_SPELL_AFFECT) {
 		        for (lpaf = ch->affected; lpaf != NULL; lpaf = lpaf_next) {
 				lpaf_next = lpaf->next;
@@ -1497,8 +1452,6 @@ void unequip_char(CHAR_DATA *ch, OBJ_DATA *obj)
 	oprog_call(OPROG_REMOVE, obj, ch, NULL);
 }
 
-
-
 /*
  * Count occurrences of an obj in a list.
  */
@@ -1517,8 +1470,6 @@ int count_obj_list(OBJ_INDEX_DATA *pObjIndex, OBJ_DATA *list)
 	return nMatch;
 }
 
-
-
 /*
  * Move an obj out of a room.
  */
@@ -1527,37 +1478,30 @@ void obj_from_room(OBJ_DATA *obj)
 	ROOM_INDEX_DATA *in_room;
 	CHAR_DATA *ch;
 
-	if ((in_room = obj->in_room) == NULL)
-	{
+	if ((in_room = obj->in_room) == NULL) {
 		bug("obj_from_room: NULL.", 0);
 		return;
 	}
 
 	for (ch = in_room->people; ch != NULL; ch = ch->next_in_room)
 		if (ch->on == obj)
-		    ch->on = NULL;
+			ch->on = NULL;
 
 	if (obj == in_room->contents)
-	{
 		in_room->contents = obj->next_content;
-	}
-	else
-	{
+	else {
 		OBJ_DATA *prev;
 
-		for (prev = in_room->contents; prev; prev = prev->next_content)
-		{
-		    if (prev->next_content == obj)
-		    {
-			prev->next_content = obj->next_content;
-			break;
-		    }
+		for (prev = in_room->contents; prev; prev = prev->next_content) {
+			if (prev->next_content == obj) {
+				prev->next_content = obj->next_content;
+				break;
+			}
 		}
 
-		if (prev == NULL)
-		{
-		    bug("Obj_from_room: obj not found.", 0);
-		    return;
+		if (prev == NULL) {
+			bug("Obj_from_room: obj not found.", 0);
+			return;
 		}
 	}
 
@@ -1566,29 +1510,23 @@ void obj_from_room(OBJ_DATA *obj)
 	return;
 }
 
-
-
 /*
  * Move an obj into a room.
  */
 void obj_to_room(OBJ_DATA *obj, ROOM_INDEX_DATA *pRoomIndex)
 {
-	obj->next_content		= pRoomIndex->contents;
+	obj->next_content	= pRoomIndex->contents;
 	pRoomIndex->contents	= obj;
 	obj->in_room		= pRoomIndex;
 	obj->carried_by		= NULL;
-	obj->in_obj			= NULL;
+	obj->in_obj		= NULL;
 
 	if (IS_WATER(pRoomIndex))
 		if (may_float(obj))
-		  obj->water_float = -1;
+			obj->water_float = -1;
 		else
-		  obj->water_float = floating_time(obj);
-
-	return;
+			obj->water_float = floating_time(obj);
 }
-
-
 
 /*
  * Move an object into an object.
@@ -1619,8 +1557,6 @@ void obj_to_obj(OBJ_DATA *obj, OBJ_DATA *obj_to)
 	}
 }
 
-
-
 /*
  * Move an object out of an object.
  */
@@ -1628,50 +1564,37 @@ void obj_from_obj(OBJ_DATA *obj)
 {
 	OBJ_DATA *obj_from;
 
-	if ((obj_from = obj->in_obj) == NULL)
-	{
+	if ((obj_from = obj->in_obj) == NULL) {
 		bug("Obj_from_obj: null obj_from.", 0);
 		return;
 	}
 
 	if (obj == obj_from->contains)
-	{
 		obj_from->contains = obj->next_content;
-	}
-	else
-	{
+	else {
 		OBJ_DATA *prev;
 
-		for (prev = obj_from->contains; prev; prev = prev->next_content)
-		{
-		    if (prev->next_content == obj)
-		    {
-			prev->next_content = obj->next_content;
-			break;
-		    }
+		for (prev = obj_from->contains; prev; prev = prev->next_content) {
+			if (prev->next_content == obj) {
+				prev->next_content = obj->next_content;
+				break;
+			}
 		}
 
-		if (prev == NULL)
-		{
-		    bug("Obj_from_obj: obj not found.", 0);
-		    return;
+		if (prev == NULL) {
+			bug("Obj_from_obj: obj not found.", 0);
+			return;
 		}
 	}
 
 	obj->next_content = NULL;
 	obj->in_obj       = NULL;
 
-	for (; obj_from != NULL; obj_from = obj_from->in_obj)
-	{
+	for (; obj_from != NULL; obj_from = obj_from->in_obj) {
 		if (obj_from->carried_by != NULL)
-		{
 /*	    obj_from->carried_by->carry_number -= get_obj_number(obj); */
-		    obj_from->carried_by->carry_weight -= get_obj_weight(obj) 
-			* WEIGHT_MULT(obj_from) / 100;
-		}
+			obj_from->carried_by->carry_weight -= get_obj_weight(obj) * WEIGHT_MULT(obj_from) / 100;
 	}
-
-	return;
 }
 
 /* 
@@ -1679,7 +1602,7 @@ void obj_from_obj(OBJ_DATA *obj)
  */
 void extract_obj(OBJ_DATA *obj)
 {
-  extract_obj_1(obj,TRUE);
+	extract_obj_1(obj,TRUE);
 }
 
 /* 
@@ -1687,7 +1610,7 @@ void extract_obj(OBJ_DATA *obj)
  */
 void extract_obj_nocount(OBJ_DATA *obj)
 {
-  extract_obj_1(obj,FALSE);
+	extract_obj_1(obj,FALSE);
 }
 
 /*

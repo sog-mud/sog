@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.85 1998-09-01 18:37:56 fjoe Exp $
+ * $Id: act_move.c,v 1.86 1998-09-04 05:27:44 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2109,7 +2109,7 @@ void do_vampire(CHAR_DATA *ch, const char *argument)
 	int level, duration;
 	int chance;
  
-	if (is_affected(ch, gsn_vampire)) {
+	if (IS_VAMPIRE(ch)) {
 		char_nputs(MSG_YOU_CANT_BE_MORE_VAMPIRE, ch);
 		return;
 	}

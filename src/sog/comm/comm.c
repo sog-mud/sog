@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.88 1998-09-01 18:37:57 fjoe Exp $
+ * $Id: comm.c,v 1.89 1998-09-04 05:27:45 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1049,7 +1049,7 @@ void percent_hp(CHAR_DATA *ch, char buf[MAX_STRING_LENGTH])
 		snprintf(buf, sizeof(buf), "%d%%",
 			 ((100 * ch->hit) / UMAX(1,ch->max_hit)));
 	else
-		strcpy(buf, "BAD!");
+		strnzcpy(buf, "BAD!", sizeof(buf));
 }
 
 void bust_a_prompt(CHAR_DATA *ch)
@@ -1072,11 +1072,8 @@ void bust_a_prompt(CHAR_DATA *ch)
 
 	point = buf;
 	str = ch->prompt;
-	if (IS_NULLSTR(str)) {
-		char_printf(ch, "<%dhp %dm %dmv> %s",
-			    ch->hit,ch->mana,ch->move,ch->prefix);
-		return;
-	}
+	if (IS_NULLSTR(str))
+		str = DEFAULT_PROMPT;
 
 	while(*str != '\0') {
 		if(*str != '%') {
@@ -2212,18 +2209,22 @@ sprintf(buf,"Str:%s  Int:%s  Wis:%s  Dex:%s  Con:%s Cha:%s \n\r Accept (Y/N)? ",
 				int con;
 				int wis;
 				int inte;
+				int dex;
 
 				con = ch->perm_stat[STAT_CON];
 				wis = ch->perm_stat[STAT_WIS];
 				inte = ch->perm_stat[STAT_INT];
+				dex = ch->perm_stat[STAT_DEX];
 				ch->perm_stat[STAT_CON] = get_max_train(ch, STAT_CON);
 				ch->perm_stat[STAT_WIS] = get_max_train(ch, STAT_WIS);
 				ch->perm_stat[STAT_INT] = get_max_train(ch, STAT_INT);
+				ch->perm_stat[STAT_DEX] = get_max_train(ch, STAT_DEX);
 				do_remove(ch, "all");
 				advance(ch, i-1);
 		 		ch->perm_stat[STAT_CON] = con;
 		 		ch->perm_stat[STAT_WIS] = wis;
 		 		ch->perm_stat[STAT_INT] = inte;
+		 		ch->perm_stat[STAT_DEX] = dex;
 			}
 		}
 
