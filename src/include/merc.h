@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.411 2004-02-11 22:25:27 sg Exp $
+ * $Id: merc.h,v 1.412 2004-02-11 23:06:09 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1329,8 +1329,8 @@ enum {
 	ST_SHOUT,
 	ST_GOSSIP,
 	ST_MUSIC,
-	ST_OOC,
 	ST_CLAN,
+	ST_OOC,
 	ST_ORDER,
 	ST_CAST
 };

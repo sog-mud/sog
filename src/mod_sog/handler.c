@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.380 2004-02-11 22:25:30 sg Exp $
+ * $Id: handler.c,v 1.381 2004-02-11 23:06:10 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1309,39 +1309,40 @@ can_hear(CHAR_DATA *ch)
 
 static flaginfo_t form_nospeak_messages[] =
 {
-	{ "",						TABLE_INTVAL,	FALSE	},
-	{ "You cannot say anything in this form.",	ST_SAY,		TRUE	},
-	{ "You cannot yell in this form.",		ST_YELL,	TRUE	},
-	{ "You cannot shout in this form.",		ST_SHOUT,	TRUE	},
-	{ "You cannot gossip in this form.",		ST_GOSSIP,	TRUE	},
-	{ "You cannot give orders in this form.",	ST_ORDER,	TRUE	},
-	{ "You cannot sing in this form.",		ST_MUSIC,	TRUE	},
-	{ "You cannot speak in this form.",		ST_TELL,	TRUE	},
-	{ "You cannot speak with your group in this form.",	ST_GTELL,	TRUE	},
-	{ "You cannot speak with your clan in this form.",	ST_CLAN,	TRUE	},
-	{ "You cannot participate in out of character conversations while being in this form.",	ST_OOC,	TRUE	},
-	{ "You cannot pronounce words of magic in this form.",	ST_CAST,	TRUE	},
+  { "",						TABLE_INTVAL,	FALSE	},
 
-	{ NULL, 0, FALSE }
+  { "You cannot say anything in this form.",	ST_SAY,		TRUE	},
+  { "You cannot yell in this form.",		ST_YELL,	TRUE	},
+  { "You cannot speak in this form.",		ST_TELL,	TRUE	},
+  { "You cannot speak with your group in this form.", ST_GTELL,	TRUE	},
+  { "You cannot shout in this form.",		ST_SHOUT,	TRUE	},
+  { "You cannot gossip in this form.",		ST_GOSSIP,	TRUE	},
+  { "You cannot sing in this form.",		ST_MUSIC,	TRUE	},
+  { "You cannot speak with your clan in this form.", ST_CLAN,	TRUE	},
+  { "You cannot participate in out of character conversations while being in this form.", ST_OOC, TRUE },
+  { "You cannot give orders in this form.",	ST_ORDER,	TRUE	},
+  { "You cannot pronounce words of magic in this form.", ST_CAST, TRUE	},
+
+  { NULL, 0, FALSE }
 };
 
 static flaginfo_t silent_room_messages[] =
 {
-	{ "",	TABLE_INTVAL,	FALSE	},
-	{ "You are in silent room, you can't say anything.",	ST_SAY,		TRUE	},
-	{ "You are in silent room, you can't yell.",	ST_YELL,	TRUE	},
-	{ "You are in silent room, you can't shout.",	ST_SHOUT,	TRUE	},
-	{ "You are in silent room, you can't gossip.",	ST_GOSSIP,	TRUE	},
-	{ "No one will hear your orders in a silent room.",	ST_ORDER,	TRUE	},
-	{ "You are in silent room, you can't music.",	ST_MUSIC,	TRUE	},
-	{ "You are in silent room, you can't tell.",	ST_TELL,	TRUE	},
-	{ "You are in silent room, you can't tell your group anything.",	ST_GTELL,	TRUE	},
-	{ "You are in silent room, you can't tell to your clan anything.",	ST_CLAN,	TRUE	},
-	{ "You are in silent room.",	ST_OOC,		TRUE	},
-	{ "As you start to chant you notice that the words are hollow and useless so you stop chanting.",	ST_CAST,	TRUE,	},
+  { "",							TABLE_INTVAL,	FALSE },
 
-	{ NULL, 0, FALSE }
+  { "You are in silent room, you can't say anything.",	ST_SAY,		TRUE },
+  { "You are in silent room, you can't yell.",		ST_YELL,	TRUE },
+  { "You are in silent room, you can't tell.",		ST_TELL,	TRUE },
+  { "You are in silent room, you can't tell your group anything.", ST_GTELL, TRUE },
+  { "You are in silent room, you can't shout.",		ST_SHOUT,	TRUE },
+  { "You are in silent room, you can't gossip.",	ST_GOSSIP,	TRUE },
+  { "You are in silent room, you can't music.",		ST_MUSIC,	TRUE },
+  { "You are in silent room, you can't tell to your clan anything.", ST_CLAN, TRUE },
+  { "You are in silent room.",				ST_OOC,		TRUE },
+  { "No one will hear your orders in a silent room.",	ST_ORDER,	TRUE },
+  { "As you start to chant you notice that the words are hollow and useless so you stop chanting.",					ST_CAST,	TRUE },
 
+  { NULL, 0, FALSE }
 };
 
 
@@ -1353,7 +1354,7 @@ can_speak(CHAR_DATA *ch, int st)
 
 	if (is_sn_affected(ch, "silence person")) {
 		if (st == ST_CAST)
-			act_char(flag_string_def(silent_room_messages, st, ST_SAY), ch);
+			act_char(flag_string(silent_room_messages, st), ch);
 		else
 			act_char("But you are silenced!", ch);
 		return FALSE;
