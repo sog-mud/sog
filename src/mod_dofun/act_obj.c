@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.239 2001-07-04 19:21:10 fjoe Exp $
+ * $Id: act_obj.c,v 1.240 2001-07-16 18:42:02 fjoe Exp $
  */
 
 /***************************************************************************
@@ -562,7 +562,7 @@ void do_give(CHAR_DATA * ch, const char *argument)
 				      ch->name);
 				if (silver)
 					dofun("give", victim,
-					      "%d silver %s",
+					      "%d silver %s",	  // notrans
 					      (95 * amount / 100 - change * 100), ch->name);
 				do_tell_raw(victim, ch,
 					    "Thank you, come again.");
@@ -2501,14 +2501,14 @@ void do_lore_raw(CHAR_DATA *ch, OBJ_DATA *obj, BUFFER *output)
 		return;
 	} else if (percent < 80) {
 		buf_printf(output, BUF_END,
-			   "Object '%s%s' is type %s, extra flags %s.\n"
-			   "Obj flags %s.\n"
+			   "Object '%s%s' is type %s, obj flags %s.\n"
+			   "Extra flags %s.\n"
 			   "Weight is %d, value is %d, level is %d.\n"
 			   "Material is %s.\n",
 			   obj->pObjIndex->name, obj->label,
 			   flag_string(item_types, obj->item_type),
-			   flag_string(stat_flags, obj->stat_flags),
 			   flag_string(obj_flags, obj->pObjIndex->obj_flags),
+			   flag_string(stat_flags, obj->stat_flags),
 			   obj->weight,
 			   chance < 60 ?
 				number_range(obj->cost / 2, 2 * obj->cost) :
@@ -2521,14 +2521,14 @@ void do_lore_raw(CHAR_DATA *ch, OBJ_DATA *obj, BUFFER *output)
 		return;
 	} else {
 		buf_printf(output, BUF_END,
-			   "Object '%s%s' is type %s, extra flags %s.\n"
-			   "Obj flags %s.\n"
+			   "Object '%s%s' is type %s, obj flags %s.\n"
+			   "Extra flags %s.\n"
 			   "Weight is %d, value is %d, level is %d.\n"
 			   "Material is %s.\n",
 			   obj->pObjIndex->name, obj->label,
 			   flag_string(item_types, obj->item_type),
-			   flag_string(stat_flags, obj->stat_flags),
 			   flag_string(obj_flags, obj->pObjIndex->obj_flags),
+			   flag_string(stat_flags, obj->stat_flags),
 			   obj->weight,
 			   obj->cost,
 			   obj->level,
@@ -2657,7 +2657,7 @@ void do_lore_raw(CHAR_DATA *ch, OBJ_DATA *obj, BUFFER *output)
 		}
 
 		buf_printf(output, BUF_END,
-			    "Armor class is %d pierce, %d bash, %d slash, and %d vs. magic.\n",
+			    "Armor class is %d pierce, %d bash, %d slash, and %d vs. exotic.\n",
 			    INT(v0), INT(v1), INT(v2), INT(v3));
 		break;
 	}
@@ -2684,7 +2684,7 @@ void do_lore(CHAR_DATA *ch, const char *argument)
 		act_puts("Concentrate on your fighting!",
 			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		return;
-	}        
+	}
 
 	argument = one_argument(argument, arg, sizeof(arg));
 	if ((obj = get_obj_carry(ch, arg)) == NULL) {
@@ -2692,7 +2692,7 @@ void do_lore(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	output = buf_new(0);
+	output = buf_new(GET_LANG(ch));
 	do_lore_raw(ch, obj, output);
 	page_to_char(buf_string(output), ch);
 	buf_free(output);
@@ -2853,8 +2853,8 @@ void do_crucify(CHAR_DATA *ch, const char *argument)
 		    "$p to a sacrificial cross.", ch, obj, NULL, TO_ROOM);
 		act_char("You are filled with a dark energy.", ch);
 		ch->hit += obj->level*3/2;
-		af.where 	= TO_AFFECTS;
-		af.type  	= "crucify";
+		af.where	= TO_AFFECTS;
+		af.type		= "crucify";
 		af.level	= ch->level;
 		af.duration	= 15;
 		af.modifier	= UMAX(1, obj->level/8);
@@ -2867,7 +2867,7 @@ void do_crucify(CHAR_DATA *ch, const char *argument)
 		INT(af.location)= APPLY_DAMROLL;
 		affect_to_char(ch, &af);
 
-		af.modifier 	= UMAX(10, obj->level);
+		af.modifier	= UMAX(10, obj->level);
 		INT(af.location)= APPLY_AC;
 		affect_to_char(ch, &af);
 
@@ -3178,7 +3178,7 @@ void do_label(CHAR_DATA* ch, const char *argument)
 
 	argument = one_argument(argument, obj_name, sizeof(obj_name));
 	first_arg(argument, label, sizeof(label), FALSE);
-	
+
 	if (!obj_name[0]) {
 		act_char("Label what?", ch);
 		return;
@@ -3188,7 +3188,7 @@ void do_label(CHAR_DATA* ch, const char *argument)
 		act_char("You don't have that object.", ch);
 		return;
 	}
-	
+
 	if (!label[0]) {
 		act_char("How do you want to label it?", ch);
 		return;

@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.277 2001-07-09 06:18:36 fjoe Exp $
+ * $Id: act_wiz.c,v 1.278 2001-07-16 18:42:03 fjoe Exp $
  */
 
 /***************************************************************************
@@ -102,8 +102,8 @@ void do_objlist(CHAR_DATA *ch, const char *argument)
 	BUFFER *buf;
 
 	if ((fp = dfopen(TMP_PATH, "objlist.txt", "w+")) == NULL) {  // notrans
-	 	act_char("File error.", ch);
-	 	return;
+		act_char("File error.", ch);			     // notrans
+		return;
 	}
 
 	buf = buf_new(0);
@@ -112,7 +112,7 @@ void do_objlist(CHAR_DATA *ch, const char *argument)
 			continue;
 
 		buf_clear(buf);
-		buf_printf(buf, BUF_END, "\n#Obj: %s (Vnum : %d) \n",
+		buf_printf(buf, BUF_END, "\n#Obj: %s (Vnum : %d) \n", // notrans
 			   mlstr_mval(&obj->short_descr),
 			   obj->pObjIndex->vnum);
 		format_obj(buf, obj);
@@ -132,7 +132,7 @@ void do_limited(CHAR_DATA *ch, const char *argument)
 	OBJ_INDEX_DATA *obj_index;
 	int	lCount = 0;
 	int	ingameCount;
-	int 	nMatch;
+	int	nMatch;
 	BUFFER *buf;
 
 	if (argument[0] != '\0')  {
@@ -150,10 +150,10 @@ void do_limited(CHAR_DATA *ch, const char *argument)
 		nMatch = 0;
 		buf = buf_new(0);
 		buf_printf(buf, BUF_END,
-			   "%-35s [%5d]  Limit: %3d  Current: %3d\n", 
-			   mlstr_mval(&obj_index->short_descr), 
+			   "%-35s [%5d]  Limit: %3d  Current: %3d\n", // notrans
+			   mlstr_mval(&obj_index->short_descr),
 			   obj_index->vnum,
-		           obj_index->limit, 
+		           obj_index->limit,
 			   obj_index->count);
 
 		ingameCount = 0;
@@ -164,21 +164,21 @@ void do_limited(CHAR_DATA *ch, const char *argument)
 			ingameCount++;
 			if (obj->carried_by != NULL) {
 				buf_printf(buf, BUF_END,
-					   "Carried by %-30s\n",
+					   "Carried by %-30s\n",  // notrans
 					   obj->carried_by->name);
 			} else if (obj->in_room != NULL) {
-				buf_printf(buf, BUF_END, "At %-20s [%d]\n",
+				buf_printf(buf, BUF_END, "At %-20s [%d]\n", // notrans
 					   mlstr_cval(&obj->in_room->name, ch),
 					   obj->in_room->vnum);
 			} else if (obj->in_obj != NULL) {
-				buf_printf(buf, BUF_END, "In %-20s [%d] \n",
+				buf_printf(buf, BUF_END, "In %-20s [%d] \n", // notrans
 					   mlstr_mval(&obj->in_obj->short_descr),
 					   obj->in_obj->pObjIndex->vnum);
 			}
 		}
 
 		buf_printf(buf, BUF_END,
-			   "  %d found in game. %d should be in pFiles.\n", 
+			   "  %d found in game. %d should be in pFiles.\n", // notrans
 			   ingameCount, obj_index->count-ingameCount);
 		return;
 	} else {
@@ -195,7 +195,7 @@ void do_limited(CHAR_DATA *ch, const char *argument)
 
 				lCount++;
 				buf_printf(buf, BUF_END,
-					   "%-37s [%5d]  Limit: %3d  Current: %3d\n", 
+					   "%-37s [%5d]  Limit: %3d  Current: %3d\n", // notrans
 					   mlstr_mval(&obj_index->short_descr), 
 					   obj_index->vnum,
 					   obj_index->limit,
@@ -204,7 +204,7 @@ void do_limited(CHAR_DATA *ch, const char *argument)
 		}
 
 		buf_printf(buf, BUF_END,
-			   "\n%d of %d objects are limited.\n", lCount, nMatch);
+			   "\n%d of %d objects are limited.\n", lCount, nMatch);// notrans
 	}
 
 	page_to_char(buf_string(buf), ch);
@@ -227,7 +227,7 @@ void do_wiznet(CHAR_DATA *ch, const char *argument)
 
 		output = buf_new(GET_LANG(ch));
 		buf_printf(output, BUF_END, "Wiznet status: %s\n",
-			   IS_SET(PC(vch)->wiznet, WIZ_ON) ? "ON" : "OFF");
+			   IS_SET(PC(vch)->wiznet, WIZ_ON) ? "ON" : "OFF"); // notrans
 
 		buf_append(output, "\nchannel    | status");
 		buf_append(output, "\n-----------|-------\n");	// notrans
@@ -245,13 +245,13 @@ void do_wiznet(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (!str_prefix(argument, "on")) {
-		act_char("Welcome to Wiznet!", ch);
+		act_char("Welcome to Wiznet!", ch);		// notrans
 		SET_BIT(PC(vch)->wiznet, WIZ_ON);
 		return;
 	}
 
 	if (!str_prefix(argument, "off")) {
-		act_char("Signing off of Wiznet.", ch);
+		act_char("Signing off of Wiznet.", ch);		// notrans
 		REMOVE_BIT(PC(vch)->wiznet, WIZ_ON);
 		return;
 	}
@@ -261,14 +261,14 @@ void do_wiznet(CHAR_DATA *ch, const char *argument)
 		act_char("No such option.", ch);
 		return;
 	}
-	 
+
 	TOGGLE_BIT(PC(vch)->wiznet, wiznet_table[flag].flag);
 	if (!IS_SET(PC(vch)->wiznet, wiznet_table[flag].flag)) {
-		act_puts("You will no longer see $t on wiznet.",
+		act_puts("You will no longer see $t on wiznet.", // notrans
 			 ch, wiznet_table[flag].name, NULL,
 			 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 	} else {
-		act_puts("You will now see $t on wiznet.",
+		act_puts("You will now see $t on wiznet.",	// notrans
 			 ch, wiznet_table[flag].name, NULL,
 			 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 	}
@@ -330,14 +330,14 @@ void do_nochannels(CHAR_DATA *ch, const char *argument)
 	CHAR_DATA *victim;
 	bool loaded = FALSE;
 	bool altered = FALSE;
-	
+
 	one_argument(argument, arg, sizeof(arg));
-	
+
 	if (arg[0] == '\0') {
 		do_help(ch, "'WIZ NOCHANNEL'");
 		return;
 	}
-	
+
 	if ((victim = get_char_world(ch, arg)) == NULL) {
 		if ((victim = char_load(arg, LOAD_F_NOCREATE)) == NULL) {
 			act_char("They aren't here.", ch);
@@ -345,12 +345,12 @@ void do_nochannels(CHAR_DATA *ch, const char *argument)
 		}
 		loaded = TRUE;
 	}
-	
+
 	if (!IS_TRUSTED(ch, trust_level(victim))) {
 		act_char("You failed.", ch);
 		goto cleanup;
 	}
-	
+
 	TOGGLE_BIT(victim->chan, CHAN_NOCHANNELS);
 	altered = TRUE;
 
@@ -369,7 +369,7 @@ void do_nochannels(CHAR_DATA *ch, const char *argument)
 cleanup:
 	if (altered)
 		char_save(victim, loaded ? SAVE_F_PSCAN : 0);
-	if (loaded) 
+	if (loaded)
 		char_nuke(victim);
 }
 
@@ -733,12 +733,12 @@ void do_at(CHAR_DATA *ch, const char *argument)
 	ROOM_INDEX_DATA *location;
 	ROOM_INDEX_DATA *original;
 	OBJ_DATA *on;
-	
+
 	argument = one_argument(argument, arg, sizeof(arg));
 
 	if (arg[0] == '\0' || argument[0] == '\0') {
 		do_help(ch, "'WIZ AT'");
-		return;                   
+		return;
 	}
 
 	if ((location = find_location(ch, arg)) == NULL) {
@@ -775,7 +775,7 @@ void do_goto(CHAR_DATA *ch, const char *argument)
 
 	if (argument[0] == '\0') {
 		do_help(ch, "'WIZ GOTO'");
-		return;         
+		return;
 	}
 
 	if ((location = find_location(ch, argument)) == NULL) {
@@ -796,7 +796,7 @@ void do_goto(CHAR_DATA *ch, const char *argument)
 		}
 #if 0
 		if (!IS_SET(ch->in_room->room_flags, ROOM_PEACE)) {
-			act_char("You must be in a safe place in order to make a transportation.", ch);
+			act_char("You must be in a safe place in order to make a transportation.", ch);	// notrans
 			return;
 		}
 #endif
@@ -870,7 +870,7 @@ void do_stat(CHAR_DATA *ch, const char *argument)
 		do_rstat(ch, string);
 		return;
 	}
-	
+
 	if (!str_cmp(arg, "obj")) {
 		do_ostat(ch, string);
 		return;
@@ -943,35 +943,35 @@ void do_rstat(CHAR_DATA *ch, const char *argument)
 	output = buf_new(0);
 
 	if (ch->in_room->affected_by) {
-		buf_printf(output, BUF_END, "Affected by %s\n", 
+		buf_printf(output, BUF_END, "Affected by %s\n",  // notrans
 			   flag_string(raffect_flags, ch->in_room->affected_by));
 	}
 
 	if (ch->in_room->room_flags) {
-		buf_printf(output, BUF_END, "Room Flags %s\n", 
+		buf_printf(output, BUF_END, "Room Flags %s\n",	// notrans
 			   flag_string(room_flags, ch->in_room->room_flags));
 	}
 
-	mlstr_dump(output, "Name: ", &location->name, DUMP_LEVEL(ch));
-	buf_printf(output, BUF_END, "Area: '%s'\n", location->area->name);
+	mlstr_dump(output, "Name: ", &location->name, DUMP_LEVEL(ch)); // notrans
+	buf_printf(output, BUF_END, "Area: '%s'\n", location->area->name); // notrans
 
 	buf_printf(output, BUF_END,
-		   "Vnum: %d  Sector: %d  Light: %d  Healing: %d  Mana: %d\n",
+		   "Vnum: %d  Sector: %d  Light: %d  Healing: %d  Mana: %d\n", // notrans
 		   location->vnum,
 		   location->sector_type,
 		   location->light,
 		   location->heal_rate,
 		   location->mana_rate);
 
-	buf_printf(output, BUF_END, "Room flags: [%s].\n",
+	buf_printf(output, BUF_END, "Room flags: [%s].\n",	// notrans
 		   flag_string(room_flags, location->room_flags));
-	buf_append(output, "Description:\n");
+	buf_append(output, "Description:\n");			// notrans
 	mlstr_dump(output, str_empty, &location->description, DUMP_LEVEL(ch));
 
 	if (location->ed != NULL) {
 		ED_DATA *ed;
 
-		buf_append(output, "Exd keywords: [");
+		buf_append(output, "Exd keywords: [");		// notrans
 		for (ed = location->ed; ed; ed = ed->next) {
 			buf_append(output, ed->keyword);
 			if (ed->next != NULL)
@@ -980,7 +980,7 @@ void do_rstat(CHAR_DATA *ch, const char *argument)
 		buf_append(output, "]\n");
 	}
 
-	buf_append(output, "Characters:");
+	buf_append(output, "Characters:");			// notrans
 	for (rch = location->people; rch; rch = rch->next_in_room) {
 		if (can_see(ch,rch)) {
 			buf_append(output, " ");
@@ -989,7 +989,7 @@ void do_rstat(CHAR_DATA *ch, const char *argument)
 		}
 	}
 
-	buf_append(output, ".\nObjects:   ");
+	buf_append(output, ".\nObjects:   ");			// notrans
 	for (obj = location->contents; obj; obj = obj->next_content) {
 		buf_append(output, " ");
 		one_argument(obj->pObjIndex->name, buf, sizeof(buf));
@@ -1001,20 +1001,20 @@ void do_rstat(CHAR_DATA *ch, const char *argument)
 		EXIT_DATA *pexit;
 
 		if ((pexit = location->exit[door]) != NULL) {
-			buf_printf(output, BUF_END, "Door: %d.  To: %d.  Key: %d.  Exit flags: %d.\nKeyword: '%s'.\n",
+			buf_printf(output, BUF_END, "Door: %d.  To: %d.  Key: %d.  Exit flags: %d.\nKeyword: '%s'.\n",				// notrans
 				door,
 				pexit->to_room.r == NULL ?
 				-1 : pexit->to_room.r->vnum,
-		    		pexit->key,
-		    		pexit->exit_info,
-		    		pexit->keyword);
-			mlstr_dump(output, "Description: ",
+				pexit->key,
+				pexit->exit_info,
+				pexit->keyword);
+			mlstr_dump(output, "Description: ",	// notrans
 				   &pexit->description, DUMP_LEVEL(ch));
 		}
 	}
-	buf_append(output, "Tracks:\n");
+	buf_append(output, "Tracks:\n");			// notrans
 	for (rh = location->history;rh != NULL;rh = rh->next)
-		buf_printf(output, BUF_END,"%s took door %i.\n", rh->name, rh->went);
+		buf_printf(output, BUF_END,"%s took door %i.\n", rh->name, rh->went);	// notrans
 
 	send_to_char(buf_string(output), ch);
 	buf_free(output);
@@ -1043,50 +1043,54 @@ void do_ostat(CHAR_DATA *ch, const char *argument)
 	}
 
 	output = buf_new(0);
-	buf_printf(output, BUF_END, "Name:  [%s]\n", obj->pObjIndex->name);
+	buf_printf(output, BUF_END,
+		   "Name:  [%s]\n", obj->pObjIndex->name);	 // notrans
 	if (!IS_NULLSTR(obj->label))
-		buf_printf(output, BUF_END, "Label: [%s]\n", obj->label+1);
+		buf_printf(output, BUF_END,
+			   "Label: [%s]\n", obj->label+1);	 // notrans
 	if (!mlstr_null(&obj->owner))
-		buf_printf(output, BUF_END, "Owner: [%s]\n", mlstr_mval(&obj->owner));
-	buf_printf(output, BUF_END, "Vnum: %d  Type: %s  Resets: %d\n",
+		buf_printf(output, BUF_END,
+			   "Owner: [%s]\n", mlstr_mval(&obj->owner)); // notrans
+	buf_printf(output, BUF_END,
+		   "Vnum: %d  Type: %s  Resets: %d\n",		 // notrans
 		obj->pObjIndex->vnum,
 		flag_string(item_types, obj->item_type),
 		obj->pObjIndex->reset_num);
 
-	mlstr_dump(output, "Short description: ",
+	mlstr_dump(output, "Short description: ",		// notrans
 		   &obj->short_descr, DUMP_LEVEL(ch));
-	buf_append(output, "Long description:\n");
+	buf_append(output, "Long description:\n");		// notrans
 	mlstr_dump(output, str_empty, &obj->description, DUMP_LEVEL(ch));
 
-	buf_printf(output, BUF_END, "Wear bits: [%s]\n",
+	buf_printf(output, BUF_END, "Wear bits: [%s]\n",	// notrans
 		   flag_string(wear_flags, obj->wear_flags));
-	buf_printf(output, BUF_END, "Stat bits: [%s]\n",
+	buf_printf(output, BUF_END, "Stat bits: [%s]\n",	// notrans
 		   flag_string(stat_flags, obj->stat_flags));
-	buf_printf(output, BUF_END, "Obj bits:  [%s]\n",
+	buf_printf(output, BUF_END, "Obj bits:  [%s]\n",	// notrans
 		   flag_string(obj_flags, obj->pObjIndex->obj_flags));
-	buf_printf(output, BUF_END, "Number: %d/%d  Weight: %d/%d/%d (10th pounds)\n",
+	buf_printf(output, BUF_END, "Number: %d/%d  Weight: %d/%d/%d (10th pounds)\n", // notrans
 		1,           get_obj_number(obj),
 		obj->weight, get_obj_weight(obj),get_true_weight(obj));
 
 	buf_printf(output, BUF_END,
-		  "Level: %d  Cost: %d  Condition: %d  Timer: %d Count: %d\n",
+		  "Level: %d  Cost: %d  Condition: %d  Timer: %d Count: %d\n", // notrans
 		  obj->level, obj->cost, obj->condition,
 		  obj->timer, obj->pObjIndex->count);
 
 	buf_printf(output, BUF_END,
-		"In room: %d  In object: %s  Carried by: %s  Wear_loc: %d\n",
+		"In room: %d  In object: %s  Carried by: %s  Wear_loc: %d\n", // notrans
 		obj->in_room    == NULL    ?        0 : obj->in_room->vnum,
 		obj->in_obj     == NULL    ? "(none)" : mlstr_mval(&obj->in_obj->short_descr),
-		obj->carried_by == NULL    ? "(none)" : 
+		obj->carried_by == NULL    ? "(none)" :
 		    can_see(ch,obj->carried_by) ? obj->carried_by->name
-					 	: "someone",
+						: "someone",
 		obj->wear_loc);
- 	buf_printf(output, BUF_END,
-		"Next: %s   Next_content: %s\n",
+	buf_printf(output, BUF_END,
+		"Next: %s   Next_content: %s\n",		// notrans
 		obj->next	== NULL	   ? "(none)" : mlstr_mval(&obj->next->short_descr),
 		obj->next_content == NULL  ? "(none)" : mlstr_mval(&obj->next_content->short_descr));
 	if (obj->altar) {
-		buf_printf(output, BUF_END, "Altar: %s (vnum %d)\n",
+		buf_printf(output, BUF_END, "Altar: %s (vnum %d)\n", // notrans
 			mlstr_mval(&obj->altar->room->name),
 			obj->altar->room->vnum);
 	}
@@ -1096,7 +1100,7 @@ void do_ostat(CHAR_DATA *ch, const char *argument)
 	if (obj->ed) {
 		ED_DATA *ed;
 
-		buf_append(output, "Exd keywords: [");
+		buf_append(output, "Exd keywords: [");		// notrans
 
 		for (ed = obj->ed; ed; ed = ed->next) {
 			buf_append(output, ed->keyword);
@@ -1129,7 +1133,7 @@ void do_ostat(CHAR_DATA *ch, const char *argument)
 #if 0
 	XXX
 	if (obj->pObjIndex->oprogs) {
-		buf_append(output, "Object progs:\n");
+		buf_append(output, "Object progs:\n");		// notrans
 		for (i = 0; i < OPROG_MAX; i++) {
 			if (obj->pObjIndex->oprogs[i] != NULL) {
 				buf_printf(output, BUF_END,
@@ -1141,11 +1145,11 @@ void do_ostat(CHAR_DATA *ch, const char *argument)
 	}
 #endif
 
-	buf_printf(output, BUF_END, "Damage condition: %d (%s)\n",
+	buf_printf(output, BUF_END, "Damage condition: %d (%s)\n", // notrans
 		   obj->condition, get_cond_alias(obj));
 #if 0
 	XXX
-	print_cc_vexpr(&obj->pObjIndex->restrictions, "Restrictions:", output);
+	print_cc_vexpr(&obj->pObjIndex->restrictions, "Restrictions:", output); // notrans
 #endif
 
 	send_to_char(buf_string(output), ch);
@@ -1159,12 +1163,12 @@ print_sa_cb(void *p, va_list ap)
 
 	BUFFER *buf = va_arg(ap, BUFFER *);
 
-	buf_printf(buf, BUF_END, "        '%s' by %d",
+	buf_printf(buf, BUF_END, "        '%s' by %d",	// notrans
 		   sa->sn, sa->mod);
 	if (!IS_NULLSTR(sa->type))
-		buf_printf(buf, BUF_END, " (skill '%s')", sa->type);
+		buf_printf(buf, BUF_END, " (skill '%s')", sa->type); // notrans
 	if (sa->bit) {
-		buf_printf(buf, BUF_END, " with bits '%s'",
+		buf_printf(buf, BUF_END, " with bits '%s'", // notrans
 			   flag_string(sk_aff_flags, sa->bit));
 	}
 	buf_append(buf, "\n");
@@ -1202,30 +1206,32 @@ void do_mstat(CHAR_DATA *ch, const char *argument)
 
 	output = buf_new(0);
 
-	buf_printf(output, BUF_END, "Name: [%s]  ", victim->name);
+	buf_printf(output, BUF_END, "Name: [%s]  ", victim->name); // notrans
 	if (IS_NPC(victim)) {
-		buf_printf(output, BUF_END, "Vnum: [%d]  Reset Zone: [%s]\n",
-		    victim->pMobIndex->vnum,
-		    NPC(victim)->zone ?
-			NPC(victim)->zone->name : "?");		// notrans
-	} else 
-		buf_printf(output, BUF_END, "%sLINE\n", loaded ? "OFF" : "ON");
+		buf_printf(output, BUF_END,
+			   "Vnum: [%d]  Reset Zone: [%s]\n",	  // notrans
+			   victim->pMobIndex->vnum,
+			   NPC(victim)->zone ?
+			   NPC(victim)->zone->name : "?");	  // notrans
+	} else
+		buf_printf(output, BUF_END,
+			   "%sLINE\n", loaded ? "OFF" : "ON");	  // notrans
 
-	buf_printf(output, BUF_END, 
-		"Race: %s (%s)  Room: [%d]\n",
+	buf_printf(output, BUF_END,
+		"Race: %s (%s)  Room: [%d]\n",			  // notrans
 		victim->race, ORG_RACE(victim),
 		victim->in_room == NULL ? 0 : victim->in_room->vnum);
 
-	mlstr_dump(output, "Gender: ", &victim->gender, DL_NONE);
+	mlstr_dump(output, "Gender: ", &victim->gender, DL_NONE); // notrans
 
 	if (IS_NPC(victim)) {
-		buf_printf(output, BUF_END,"Group: [%d]  Count: [%d]  Killed: [%d]\n",
+		buf_printf(output, BUF_END, "Group: [%d]  Count: [%d]  Killed: [%d]\n", // notrans
 			   victim->pMobIndex->group,
 			   victim->pMobIndex->count,
 			   victim->pMobIndex->killed);
 	}
 
-	buf_printf(output, BUF_END, "Str: %d(%d)  Int: %d(%d)  Wis: %d(%d)  Dex: %d(%d)  Con: %d(%d) Cha: %d(%d)\n",
+	buf_printf(output, BUF_END, "Str: %d(%d)  Int: %d(%d)  Wis: %d(%d)  Dex: %d(%d)  Con: %d(%d) Cha: %d(%d)\n", // notrans
 		victim->perm_stat[STAT_STR],
 		get_curr_stat(victim,STAT_STR),
 		victim->perm_stat[STAT_INT],
@@ -1240,13 +1246,13 @@ void do_mstat(CHAR_DATA *ch, const char *argument)
 		get_curr_stat(victim,STAT_CHA));
 
 
-	buf_printf(output, BUF_END, "Hp: %d/%d  Mana: %d/%d  Move: %d/%d  Practices: %d Luck: %d\n", 
+	buf_printf(output, BUF_END, "Hp: %d/%d  Mana: %d/%d  Move: %d/%d  Practices: %d Luck: %d\n", // notrans
 		victim->hit,         victim->max_hit,
 		victim->mana,        victim->max_mana,
 		victim->move,        victim->max_move,
 		IS_NPC(ch) ? 0 : PC(victim)->practice,
 		GET_LUCK(victim));
-		
+
 	if (IS_NPC(victim))
 		snprintf(buf, sizeof(buf), "%d", victim->alignment);
 	else  {
@@ -1254,25 +1260,25 @@ void do_mstat(CHAR_DATA *ch, const char *argument)
 		buf_printf(output, BUF_END, "It belives the religion of %s.\n",
 			religion_table[PC(victim)->religion].leader);
 */
-		snprintf(buf, sizeof(buf), "%s-%s", 		// notrans
+		snprintf(buf, sizeof(buf), "%s-%s",		// notrans
 			 flag_string(ethos_table, victim->ethos),
 			 flag_string(align_names, NALIGN(victim)));
 	}
 
 	buf_printf(output, BUF_END,
-		"Lv: [%d + %d]  Class: [%s]  Align: [%s]  Gold: [%d]  Silver: [%d]  Exp: [%d]\n",
+		"Lv: [%d + %d]  Class: [%s]  Align: [%s]  Gold: [%d]  Silver: [%d]  Exp: [%d]\n", // notrans
 		victim->level,
 		victim->add_level,
 		victim->class,
 		buf,
 		victim->gold, victim->silver, GET_EXP(victim));
 
-	buf_printf(output, BUF_END,"Armor: pierce: %d  bash: %d  slash: %d  magic: %d\n",
+	buf_printf(output, BUF_END,"Armor: pierce: %d  bash: %d  slash: %d  magic: %d\n", // notrans
 		    GET_AC(victim,AC_PIERCE), GET_AC(victim,AC_BASH),
 		    GET_AC(victim,AC_SLASH),  GET_AC(victim,AC_EXOTIC));
 
-	buf_printf(output, BUF_END, 
-		"Hit: %d  Dam: %d  Saves: %d  Size: %s  Position: %s  Wimpy: %d\n",
+	buf_printf(output, BUF_END,
+		"Hit: %d  Dam: %d  Saves: %d  Size: %s  Position: %s  Wimpy: %d\n", // notrans
 		GET_HITROLL(victim), GET_DAMROLL(victim), victim->saving_throw,
 		flag_string(size_table, victim->size),
 		flag_string(position_table, victim->position),
@@ -1281,92 +1287,94 @@ void do_mstat(CHAR_DATA *ch, const char *argument)
 	if (IS_NPC(victim)) {
 		MOB_INDEX_DATA *pMobIndex = victim->pMobIndex;
 
-		buf_printf(output, BUF_END, "Damage: %dd%d  Message:  %s\n",
+		buf_printf(output, BUF_END,
+			   "Damage: %dd%d  Message:  %s\n",	// notrans
 			   NPC(victim)->dam.dice_number,
 			   NPC(victim)->dam.dice_type,
 			   victim->damtype);
-		buf_printf(output, BUF_END, "Act: [%s]\n",
+		buf_printf(output, BUF_END, "Act: [%s]\n",	// notrans
 			   flag_string(mob_act_flags, pMobIndex->act));
 		if (pMobIndex->mob_flags) {
-			buf_printf(output, BUF_END, "Mob: [%s]\n",
+			buf_printf(output, BUF_END, "Mob: [%s]\n", // notrans
 				   flag_string(mob_flags, pMobIndex->mob_flags));
 		}
-		buf_printf(output, BUF_END, "Off: [%s]\n",
+		buf_printf(output, BUF_END, "Off: [%s]\n",	// notrans
 			   flag_string(off_flags, pMobIndex->off_flags));
 	}
 
-	buf_printf(output, BUF_END, "Fighting: %s Deaths: %d Carry number: %d  Carry weight: %d\n",
-		   victim->fighting ? victim->fighting->name : "(none)" ,
+	buf_printf(output, BUF_END, "Fighting: %s Deaths: %d Carry number: %d  Carry weight: %d\n", // notrans
+		   victim->fighting ? victim->fighting->name : "(none)" , // notrans
 		   IS_NPC(victim) ? 0 : PC(victim)->death,
 		   victim->carry_number, get_carry_weight(victim) / 10);
 
 	if (!IS_NPC(victim)) {
 		buf_printf(output, BUF_END,
-			   "Thirst: %d  Hunger: %d  Full: %d  "
-			   "Drunk: %d Bloodlust: %d Desire: %d\n",
+			   "Thirst: %d  Hunger: %d  Full: %d  "	   // notrans
+			   "Drunk: %d Bloodlust: %d Desire: %d\n", // notrans
 			   PC(victim)->condition[COND_THIRST],
 			   PC(victim)->condition[COND_HUNGER],
 			   PC(victim)->condition[COND_FULL],
 			   PC(victim)->condition[COND_DRUNK],
 			   PC(victim)->condition[COND_BLOODLUST],
 			   PC(victim)->condition[COND_DESIRE]);
-		buf_printf(output, BUF_END, "Age: [%d]  Played: [%d]  Timer: [%d]\n",
+		buf_printf(output, BUF_END, "Age: [%d]  Played: [%d]  Timer: [%d]\n", // notrans
 			   get_age(victim), get_hours(victim),
 			   PC(victim)->idle_timer);
 
-		buf_printf(output, BUF_END, "Plr: [%s]\n",
+		buf_printf(output, BUF_END, "Plr: [%s]\n",	// notrans
 			   flag_string(plr_flags, PC(victim)->plr_flags));
 	}
-	
+
 	if (victim->comm)
-		buf_printf(output, BUF_END, "Comm: [%s]\n",
+		buf_printf(output, BUF_END, "Comm: [%s]\n",	// notrans
 			   flag_string(comm_flags, victim->comm));
 
 	if (victim->chan)
-		buf_printf(output, BUF_END, "Chan: [%s]\n",
+		buf_printf(output, BUF_END, "Chan: [%s]\n",	// notrans
 			   flag_string(chan_flags, victim->chan));
 
 	if (IS_NPC(victim) && victim->pMobIndex->off_flags)
-		buf_printf(output, BUF_END, "Offense: [%s]\n",
+		buf_printf(output, BUF_END, "Offense: [%s]\n",	// notrans
 			   flag_string(off_flags,
 				       victim->pMobIndex->off_flags));
 
-	buf_printf(output, BUF_END, "Form: [%s]\n",
+	buf_printf(output, BUF_END, "Form: [%s]\n",		// notrans
 		   flag_string(form_flags, victim->form));
-	buf_printf(output, BUF_END, "Parts: [%s]\n",
+	buf_printf(output, BUF_END, "Parts: [%s]\n",		// notrans
 		   flag_string(part_flags, victim->parts));
 
 	if (victim->affected_by)
-		buf_printf(output, BUF_END, "Affected by %s\n", 
+		buf_printf(output, BUF_END, "Affected by %s\n",	// notrans
 			   flag_string(affect_flags, victim->affected_by));
 
 	if (victim->has_invis)
-		buf_printf(output, BUF_END, "Has '%s'\n", 
+		buf_printf(output, BUF_END, "Has '%s'\n",	// notrans
 			   flag_string(id_flags, victim->has_invis));
 
 	if (victim->has_detect)
-		buf_printf(output, BUF_END, "Has detection of '%s'\n", 
+		buf_printf(output, BUF_END,
+			   "Has detection of '%s'\n",		// notrans
 			   flag_string(id_flags, victim->has_detect));
 
 	pet = GET_PET(victim);
-	buf_printf(output, BUF_END, "Master: %s  Leader: %s  Pet: %s\n",
-		victim->master	? victim->master->name	: "(none)",
-		victim->leader	? victim->leader->name	: "(none)",
-		pet		? pet->name		: "(none)");
+	buf_printf(output, BUF_END, "Master: %s  Leader: %s  Pet: %s\n", // notrans
+		victim->master	? victim->master->name	: "(none)",  // notrans
+		victim->leader	? victim->leader->name	: "(none)",  // notrans
+		pet		? pet->name		: "(none)"); // notrans
 
 	/* OLC */
 	if (!IS_NPC(victim))
-		buf_printf(output, BUF_END, "Security: [%d]\n",
+		buf_printf(output, BUF_END, "Security: [%d]\n",	     // notrans
 			   PC(victim)->security);
 
-	mlstr_dump(output, "Short description: ",
+	mlstr_dump(output, "Short description: ",		     // notrans
 		   &victim->short_descr, DUMP_LEVEL(ch));
 	if (IS_NPC(victim)) {
-		buf_append(output, "Long description:\n");
+		buf_append(output, "Long description:\n");	     // notrans
 		mlstr_dump(output, str_empty,
 			   &victim->long_descr, DUMP_LEVEL(ch));
 		if (victim->pMobIndex->spec_fun != 0) {
-			buf_printf(output, BUF_END, "Mobile has special procedure %s.\n",
+			buf_printf(output, BUF_END, "Mobile has special procedure %s.\n", // notrans
 				   mob_spec_name(victim->pMobIndex->spec_fun));
 		}
 	}
@@ -1374,61 +1382,63 @@ void do_mstat(CHAR_DATA *ch, const char *argument)
 	show_affects(ch, victim, output);
 
 	if (!varr_isempty(&victim->sk_affected)) {
-		buf_append(output, "Skill affects:\n");
+		buf_append(output, "Skill affects:\n");		// notrans
 		varr_foreach(&victim->sk_affected, print_sa_cb, output);
 	}
 
 	if (!IS_NPC(victim)) {
 		if (IS_ON_QUEST(victim)) {
 			buf_printf(output, BUF_END,
-				   "Questgiver: [%d]  QuestPnts: [%d]  Questnext: [%d]\n",
+				   "Questgiver: [%d]  QuestPnts: [%d]  Questnext: [%d]\n", // notrans
 				   PC(victim)->questgiver,
 				   PC(victim)->questpoints,
 				   PC(victim)->questtime < 0 ?
 					-PC(victim)->questtime : 0);
-		 	buf_printf(output, BUF_END,
-				   "QuestCntDown: [%d]  QuestObj:  [%d]  Questmob: [%d]\n",
+			buf_printf(output, BUF_END,
+				   "QuestCntDown: [%d]  QuestObj:  [%d]  Questmob: [%d]\n", // notrans
 				   PC(victim)->questtime > 0 ?
 					PC(victim)->questtime : 0,
 				   PC(victim)->questobj,
 				   PC(victim)->questmob);
 		} else {
 			buf_printf(output, BUF_END,
-				   "QuestPnts: [%d]  Questnext: [%d]  NOT QUESTING\n",
+				   "QuestPnts: [%d]  Questnext: [%d]  NOT QUESTING\n",	// notrans
 				   PC(victim)->questpoints,
 				   PC(victim)->questtime < 0 ?
 					-PC(victim)->questtime : 0);
 		}
 
-		buf_append(output, "Quest Troubles: ");
+		buf_append(output, "Quest Troubles: ");		// notrans
 		qtrouble_dump(output, victim);
 		buf_append(output, "\n");
 
 		if (!IS_NULLSTR(PC(victim)->twitlist))
-			buf_printf(output, BUF_END, "Twitlist: [%s]\n",
+			buf_printf(output, BUF_END,
+				   "Twitlist: [%s]\n",		// notrans
 				   PC(victim)->twitlist);
 	}
 
-	buf_printf(output, BUF_END, "Last fight time: [%s] %s\n",
+	buf_printf(output, BUF_END,
+		   "Last fight time: [%s] %s\n",		// notrans
 		   victim->last_fight_time != 1 ?
-		  	strtime(victim->last_fight_time) : "NONE",
-		   IS_PUMPED(victim) ? "(adrenalin is gushing)" : str_empty);
+		   strtime(victim->last_fight_time) : "NONE",	// notrans
+		   IS_PUMPED(victim) ? "(adrenalin is gushing)" : str_empty); // notrans
 
-	buf_printf(output, BUF_END, "Wait state: %d\n", ch->wait);
+	buf_printf(output, BUF_END, "Wait state: %d\n", ch->wait); // notrans
 	if (IS_NPC(victim)) {
 		NPC_DATA *npc = NPC(victim);
-		buf_printf(output, BUF_END, "Last fought: [%s]  In_mind: [%s]  "
-				   "Target: [%s]\n", 
-			npc->last_fought ?
-				npc->last_fought->name : "none",
-			npc->in_mind ? npc->in_mind : "none",
-			npc->target ? npc->target->name : "none");
+		buf_printf(output, BUF_END,
+			   "Last fought: [%s]  In_mind: [%s] Target: [%s]\n", // notrans
+			   npc->last_fought ?
+			   npc->last_fought->name : "none",
+			   npc->in_mind ? npc->in_mind : "none",
+			   npc->target ? npc->target->name : "none");
 	}
 	page_to_char(buf_string(output), ch);
 	buf_free(output);
 
 cleanup:
-	if (loaded) 
+	if (loaded)
 		char_nuke(victim);
 }
 
@@ -1450,32 +1460,37 @@ void do_dstat(CHAR_DATA *ch, const char *argument)
 		if (d->descriptor == desc)
 			break;
 	if (!d) {
-		act_char("dstat: descriptor not found", ch);
+		act_char("dstat: descriptor not found", ch);	// notrans
 		return;
 	}
 
 	output = buf_new(0);
 
-	buf_printf(output, BUF_END, "Desc: [%d]  Conn: [%d]  "
-			   "Outsize: [%d]  Outtop:  [%d]\n"
-			   "Snoopsize: [%d]  Snooptop:  [%d]\n",
+	buf_printf(output, BUF_END, "Desc: [%d]  Conn: [%d]  "	 // notrans
+			   "Outsize: [%d]  Outtop:  [%d]\n"	 // notrans
+			   "Snoopsize: [%d]  Snooptop:  [%d]\n", // notrans
 		   d->descriptor, d->connected,
 		   d->out_buf.size, d->out_buf.top,
 		   d->snoop_buf.size, d->snoop_buf.top);
-	buf_printf(output, BUF_END, "Inbuf: [%s]\n", d->inbuf);
-	buf_printf(output, BUF_END, "Incomm: [%s]\n", d->incomm);
-	buf_printf(output, BUF_END, "Repeat: [%d]  Inlast: [%s]\n",
+	buf_printf(output, BUF_END, "Inbuf: [%s]\n", d->inbuf);	    // notrans
+	buf_printf(output, BUF_END, "Incomm: [%s]\n", d->incomm);   // notrans
+	buf_printf(output, BUF_END, "Repeat: [%d]  Inlast: [%s]\n", // notrans
 		   d->repeat, d->inlast);
 	if (d->character)
-		buf_printf(output, BUF_END, "Ch: [%s]\n", d->character->name);
+		buf_printf(output, BUF_END,
+			   "Ch: [%s]\n", d->character->name);	    // notrans
 	if (d->original)
-		buf_printf(output, BUF_END, "Original: [%s]\n", d->original->name);
+		buf_printf(output, BUF_END,
+			   "Original: [%s]\n", d->original->name);  // notrans
 	if (d->olced)
-		buf_printf(output, BUF_END, "OlcEd: [%s]\n", d->olced->name);
+		buf_printf(output, BUF_END,
+			   "OlcEd: [%s]\n", d->olced->name);	    // notrans
 	if (d->pString)
-		buf_printf(output, BUF_END, "pString: [%s]\n", *d->pString);
+		buf_printf(output, BUF_END,
+			   "pString: [%s]\n", *d->pString);	    // notrans
 	if (d->showstr_head)
-		buf_printf(output, BUF_END, "showstr_head: [%s]\n", d->showstr_head);
+		buf_printf(output, BUF_END,
+			   "showstr_head: [%s]\n", d->showstr_head); // notrans
 
 	page_to_char(buf_string(output), ch);
 	buf_free(output);
@@ -1487,7 +1502,7 @@ void do_vnum(CHAR_DATA *ch, const char *argument)
 	const char *string;
 
 	string = one_argument(argument, arg, sizeof(arg));
-	
+
 	if (arg[0] == '\0') {
 		do_help(ch, "'WIZ VNUM'");
 		return;
@@ -1498,7 +1513,7 @@ void do_vnum(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (!str_cmp(arg, "mob") || !str_cmp(arg, "char")) { 
+	if (!str_cmp(arg, "mob") || !str_cmp(arg, "char")) {
 		do_mfind(ch, string);
 		return;
 	}
@@ -1523,7 +1538,7 @@ void do_mfind(CHAR_DATA *ch, const char *argument)
 	for (i = 0; i < MAX_KEY_HASH; i++) {
 		MOB_INDEX_DATA *mob_index;
 
-		for (mob_index = mob_index_hash[i]; mob_index; mob_index = mob_index->next) { 
+		for (mob_index = mob_index_hash[i]; mob_index; mob_index = mob_index->next) {
 			if (!is_name(argument, mob_index->name))
 				continue;
 
@@ -1559,14 +1574,14 @@ void do_ofind(CHAR_DATA *ch, const char *argument)
 	for (i = 0; i < MAX_KEY_HASH; i++) {
 		OBJ_INDEX_DATA *obj_index;
 
-		for (obj_index = obj_index_hash[i]; obj_index; obj_index = obj_index->next) { 
+		for (obj_index = obj_index_hash[i]; obj_index; obj_index = obj_index->next) {
 			if (!is_name(argument, obj_index->name))
 				continue;
 
 			if (buf == NULL)
 				buf = buf_new(0);
 
-			buf_printf(buf, BUF_END, "[%5d] %s\n", 	// notrans
+			buf_printf(buf, BUF_END, "[%5d] %s\n",	// notrans
 				   obj_index->vnum,
 				   mlstr_mval(&obj_index->short_descr));
 		}
@@ -1591,46 +1606,46 @@ void do_owhere(CHAR_DATA *ch, const char *argument)
 		do_help(ch, "'WIZ OWHERE'");
 		return;
 	}
-	
+
 	if (is_number(argument)) vnum = atoi(argument);
 
 	for (obj = object_list; obj != NULL; obj = obj->next) {
 		if (!can_see_obj(ch, obj)
-		|| (vnum > 0 && obj->pObjIndex->vnum != vnum) 
+		|| (vnum > 0 && obj->pObjIndex->vnum != vnum)
 		|| (vnum < 0 && !IS_OBJ_NAME(obj, argument)))
-	        	continue;
-	
+			continue;
+
 		if (buffer == NULL)
 			buffer = buf_new(0);
 		number++;
-	
+
 		for (in_obj = obj; in_obj->in_obj != NULL;
 		     in_obj = in_obj->in_obj)
-	        	;
-	
+			;
+
 		if (in_obj->carried_by != NULL
 		&&  can_see(ch,in_obj->carried_by)
 		&&  in_obj->carried_by->in_room != NULL)
 			buf_printf(buffer, BUF_END,
-				   "%3d) %s is carried by %s [Room %d]\n",
+				   "%3d) %s is carried by %s [Room %d]\n", // notrans
 				number,
 				mlstr_mval(&obj->short_descr),
 				PERS(in_obj->carried_by, ch),
 				in_obj->carried_by->in_room->vnum);
 		else if (in_obj->in_room != NULL
 		     &&  can_see_room(ch, in_obj->in_room))
-	        	buf_printf(buffer, BUF_END, "%3d) %s is in %s [Room %d]\n",
-	        		number, mlstr_mval(&obj->short_descr),
-				mlstr_cval(&in_obj->in_room->name, ch), 
+			buf_printf(buffer, BUF_END, "%3d) %s is in %s [Room %d]\n", // notrans
+				number, mlstr_mval(&obj->short_descr),
+				mlstr_cval(&in_obj->in_room->name, ch),
 				in_obj->in_room->vnum);
 		else
-			buf_printf(buffer, BUF_END, "%3d) %s is somewhere\n",number,
+			buf_printf(buffer, BUF_END, "%3d) %s is somewhere\n", number, // notrans
 				mlstr_mval(&obj->short_descr));
-	
+
 	    if (number >= max_found)
 	        break;
 	}
-	
+
 	if (buffer == NULL)
 		act_char("Nothing like that in heaven or earth.", ch);
 	else {
@@ -1663,7 +1678,7 @@ void do_mwhere(CHAR_DATA *ch, const char *argument)
 			count++;
 			if (d->original != NULL) {
 				buf_printf(buffer, BUF_END,
-					   "%3d) %s (in the body of %s) is in %s [%d]\n",
+					   "%3d) %s (in the body of %s) is in %s [%d]\n", // notrans
 					   count,
 					   d->original->name,
 					   mlstr_mval(&victim->short_descr),
@@ -1671,7 +1686,7 @@ void do_mwhere(CHAR_DATA *ch, const char *argument)
 					   victim->in_room->vnum);
 			} else {
 				buf_printf(buffer, BUF_END,
-					   "%3d) %s is in %s [%d]\n",
+					   "%3d) %s is in %s [%d]\n",  // notrans
 					   count,
 					   victim->name,
 					   mlstr_mval(&victim->in_room->name),
@@ -1756,10 +1771,10 @@ void do_protect(CHAR_DATA *ch, const char *argument)
 cleanup:
 	if (altered)
 		char_save(victim, loaded ? SAVE_F_PSCAN : 0);
-	if (loaded) 
+	if (loaded)
 		char_nuke(victim);
 }
-	
+
 void do_snoop(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
@@ -1779,13 +1794,14 @@ void do_snoop(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (victim->desc == NULL) {
-		act_char("No descriptor to snoop.", ch);
+		act_char("No descriptor to snoop.", ch);	// notrans
 		return;
 	}
 
 	if (victim == ch) {
-		act_char("Cancelling all snoops.", ch);
-		wiznet("$N stops being such a snoop.", ch, NULL, WIZ_SNOOPS,
+		act_char("Cancelling all snoops.", ch);		// notrans
+		wiznet("$N stops being such a snoop.",		// notrans
+		       ch, NULL, WIZ_SNOOPS,
 		       WIZ_SECURE, trust_level(ch));
 		for (d = descriptor_list; d != NULL; d = d->next)
 			if (d->snoop_by == ch->desc)
@@ -1798,10 +1814,10 @@ void do_snoop(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (ch->in_room != victim->in_room 
+	if (ch->in_room != victim->in_room
 	&&  room_is_private(victim->in_room)
 	&&  !IS_TRUSTED(ch, LEVEL_IMP)) {
-		act_char("That character is in a private room.", ch);
+		act_char("That character is in a private room.", ch); // notrans
 		return;
 	}
 
@@ -1814,7 +1830,7 @@ void do_snoop(CHAR_DATA *ch, const char *argument)
 	if (ch->desc != NULL) {
 		for (d = ch->desc->snoop_by; d != NULL; d = d->snoop_by) {
 			if (d->character == victim || d->original == victim) {
-				act_char("No snoop loops.", ch);
+				act_char("No snoop loops.", ch); // notrans
 				return;
 			}
 		}
@@ -1833,9 +1849,9 @@ void do_switch(CHAR_DATA *ch, const char *argument)
 
 	if (ch->desc == NULL)
 		return;
-	
+
 	one_argument(argument, arg, sizeof(arg));
-	
+
 	if (arg[0] == '\0') {
 		do_help(ch, "'WIZ SWITCH'");
 		return;
@@ -1969,8 +1985,8 @@ void do_clone(CHAR_DATA *ch, const char *argument)
 		    return;
 		}
 
-		clone = clone_mob(mob); 
-		
+		clone = clone_mob(mob);
+
 		for (obj = mob->carrying; obj != NULL; obj = obj->next_content) {
 			new_obj = clone_obj(obj);
 			recursive_clone(ch, obj, new_obj);
@@ -2018,7 +2034,7 @@ void do_mload(CHAR_DATA *ch, const char *argument)
 	MOB_INDEX_DATA *pMobIndex;
 	CHAR_DATA *victim;
 	int vnum;
-	
+
 	one_argument(argument, arg, sizeof(arg));
 
 	if (arg[0] == '\0' || !is_number(arg)) {
@@ -2046,7 +2062,7 @@ void do_oload(CHAR_DATA *ch, const char *argument)
 	OBJ_INDEX_DATA *pObjIndex;
 	OBJ_DATA *obj;
 	int vnum;
-	
+
 	argument = one_argument(argument, arg1, sizeof(arg1));
 	one_argument(argument, arg2, sizeof(arg2));
 
@@ -2054,7 +2070,7 @@ void do_oload(CHAR_DATA *ch, const char *argument)
 		do_help(ch, "'WIZ LOAD'");
 		return;
 	}
-	
+
 	vnum = atoi(arg1);
 	if ((pObjIndex = get_obj_index(vnum)) == NULL) {
 		act_puts("$j: No objects with this vnum.",
@@ -2685,7 +2701,7 @@ void do_string(CHAR_DATA *ch, const char *argument)
 
 			argument = one_argument(argument, arg3, sizeof(arg3));
 			if (argument == NULL) {
-				act_char("Syntax: oset <object> ed <keyword> lang", ch);
+				act_char("Syntax: oset <object> ed <keyword> lang", ch); // notrans
 				return;
 			}
 
@@ -2835,7 +2851,7 @@ void do_sockets(CHAR_DATA *ch, const char *argument)
 			   buf,
 			   d->ip);
 		if (vch && PC(vch)->idle_timer)
-			buf_printf(output, BUF_END, " idle %d", PC(vch)->idle_timer);
+			buf_printf(output, BUF_END, " idle %d", PC(vch)->idle_timer);	// notrans
 		buf_append(output, "\n");
 	}
 
@@ -2845,7 +2861,7 @@ void do_sockets(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	buf_printf(output, BUF_END, "%d user%s\n",
+	buf_printf(output, BUF_END, "%d user%s\n",		// notrans
 		   count, count == 1 ? str_empty : "s");	// notrans
 	page_to_char(buf_string(output), ch);
 	buf_free(output);
@@ -2927,10 +2943,10 @@ void do_force(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (ch->in_room != victim->in_room 
+	if (ch->in_room != victim->in_room
 	&&  room_is_private(victim->in_room)
 	&&  !IS_TRUSTED(ch, LEVEL_IMP)) {
-		act_char("That character is in a private room.", ch);
+		act_char("That character is in a private room.", ch); // notrans
 		return;
 	}
 
@@ -3187,9 +3203,9 @@ do_mset(CHAR_DATA *ch, const char *argument)
 			act_char("Not on NPC's.", ch);
 			goto cleanup;
 		}
-		
+
 		if (value == -1 || val2 == -1) {
-			act_char("Usage: set char <name> trouble <vnum> <value>", ch);
+			act_char("Usage: set char <name> trouble <vnum> <value>", ch); // notrans
 			goto cleanup;
 		}
 
@@ -3678,7 +3694,7 @@ do_mset(CHAR_DATA *ch, const char *argument)
 cleanup:
 	if (altered)
 		char_save(victim, loaded ? SAVE_F_PSCAN : 0);
-	if (loaded) 
+	if (loaded)
 		char_nuke(victim);
 }
 
@@ -3687,7 +3703,7 @@ void do_smite(CHAR_DATA *ch, const char *argument)
 	CHAR_DATA *victim;
 
 	if (argument[0] == '\0') {
-		act_char("You are so frustrated you smite yourself!  OWW!", ch);
+		act_char("You are so frustrated you smite yourself!  OWW!", ch);// notrans
 		return;
 	}
 
@@ -3727,7 +3743,7 @@ void do_popularity(CHAR_DATA *ch, const char *argument)
 	extern AREA_DATA *area_first;
 	int i;
 
-	output = buf_new(0);
+	output = buf_new(GET_LANG(ch));
 	buf_append(output, "Area popularity statistics (in char * ticks)\n");
 
 	for (area = area_first,i=0; area != NULL; area = area->next,i++) {
@@ -3757,7 +3773,7 @@ void do_title(CHAR_DATA *ch, const char *argument)
 		act_char("Huh?", ch);
 		return;
 	}
-	    
+
 	argument = one_argument(argument, arg, sizeof(arg));
 	if (argument[0] == '\0') {
 		do_help(ch, "'TITLE'");
@@ -3795,7 +3811,7 @@ void do_title(CHAR_DATA *ch, const char *argument)
 cleanup:
 	if (altered)
 		char_save(victim, loaded ? SAVE_F_PSCAN : 0);
-	if (loaded) 
+	if (loaded)
 		char_nuke(victim);
 }
 
@@ -3815,22 +3831,22 @@ void do_rename(CHAR_DATA* ch, const char *argument)
 	bool altered = FALSE;
 	OBJ_DATA *obj;
 	clan_t *clan;
-		
+
 	argument = first_arg(argument, old_name, sizeof(old_name), FALSE); 
 		   first_arg(argument, new_name, sizeof(new_name), FALSE);
-		
+
 	if (IS_NULLSTR(old_name) || IS_NULLSTR(new_name)) {
 		do_help(ch, "'WIZ RENAME'");
 		return;
 	}
-		
+
 	if ((victim = get_char_world(ch, old_name)) == NULL) {
 		if ((victim = char_load(old_name, LOAD_F_NOCREATE)) == NULL) {
 			act_char("They aren't here.", ch);
 			return;
 		}
 		loaded = TRUE;
-	} else if (IS_NPC(victim)) {   
+	} else if (IS_NPC(victim)) {
 		act_char("You cannot use Rename on NPCs.", ch);
 		return;
 	}
@@ -3839,7 +3855,7 @@ void do_rename(CHAR_DATA* ch, const char *argument)
 		act_char("You failed.", ch);
 		goto cleanup;
 	}
-		
+
 	if (!str_cscmp(new_name, victim->name)) {
 		act_char("Old and new names are the same.", ch);
 		goto cleanup;
@@ -4067,24 +4083,24 @@ void do_affrooms(CHAR_DATA *ch, const char *argument)
 	CHAR_DATA	*rch;
 	OBJ_DATA	*obj;
 	BUFFER		*buf;
-	
+
 	AFFECT_DATA *af;
 	int count = 0;
 
 	buf = buf_new(GET_LANG(ch));
 
-	if (!top_affected_room) 
-		buf_append(buf, "No affected rooms.\n");
+	if (!top_affected_room)
+		buf_append(buf, "No affected rooms.\n");	// notrans
 	else
-		buf_append(buf, "Affected rooms:\n");
+		buf_append(buf, "Affected rooms:\n");		// notrans
 
 	for (room = top_affected_room; room ; room = room->aff_next)
 		for (af = room->affected; af; af = af->next) {
 			count++;
 			buf_printf(buf, BUF_END,
-				    "%d) [Vnum: %5d] "
-				    "spell '{c%s{x', owner: %s, level {c%d{x "
-				    "for {c%d{x hours.\n",
+				    "%d) [Vnum: %5d] "		// notrans
+				    "spell '{c%s{x', owner: %s, level {c%d{x " // notrans
+				    "for {c%d{x hours.\n",	// notrans
 				    count,
 				    room->vnum,
 				    af->type,
@@ -4094,10 +4110,10 @@ void do_affrooms(CHAR_DATA *ch, const char *argument)
 		}
 
 	count = 0;
-	if (!top_affected_char) 
-		buf_append(buf, "No characters under owned affects.\n");
+	if (!top_affected_char)
+		buf_append(buf, "No characters under owned affects.\n"); // notrans
 	else
-		buf_append(buf, "Characters under owned affects:\n");
+		buf_append(buf, "Characters under owned affects:\n"); // notrans
 
 	for (rch = top_affected_char; rch ; rch = rch->aff_next)
 		for (af = rch->affected; af; af = af->next) {
@@ -4105,9 +4121,9 @@ void do_affrooms(CHAR_DATA *ch, const char *argument)
 				continue;
 			count++;
 			buf_printf(buf, BUF_END,
-				    "%d) [%s] "		//notrans
-				    "spell '{c%s{x', owner: %s, level {c%d{x "
-				    "for {c%d{x hours.\n",
+				    "%d) [%s] "			// notrans
+				    "spell '{c%s{x', owner: %s, level {c%d{x " // notrans
+				    "for {c%d{x hours.\n",	// notrans
 				    count,
 				    mlstr_mval(&rch->short_descr),
 				    af->type,
@@ -4117,18 +4133,18 @@ void do_affrooms(CHAR_DATA *ch, const char *argument)
 		}
 
 	count = 0;
-	if (!top_affected_obj) 
-		buf_append(buf, "No objects under owned affects.\n");
+	if (!top_affected_obj)
+		buf_append(buf, "No objects under owned affects.\n"); // notrans
 	else
-		buf_append(buf, "Objects under owned affects:\n");
+		buf_append(buf, "Objects under owned affects:\n"); // notrans
 
 	for (obj = top_affected_obj; obj ; obj = obj->aff_next)
 		for (af = obj->affected; af; af = af->next) {
 			count++;
 			buf_printf(buf, BUF_END,
-				    "%d) [Vnum: %5d] "
-				    "spell '{c%s{x', owner: %s, level {c%d{x "
-				    "for {c%d{x hours.\n",
+				    "%d) [Vnum: %5d] "		// notrans
+				    "spell '{c%s{x', owner: %s, level {c%d{x " // notrans
+				    "for {c%d{x hours.\n",	// notrans
 				    count,
 				    obj->pObjIndex->vnum,
 				    af->type,
@@ -4366,23 +4382,23 @@ void do_memory(CHAR_DATA *ch, const char *argument)
 	BUFFER *buf;
 
 	buf = buf_new(0);
-	buf_printf(buf, BUF_END, "Affects  : %d (%d bytes)\n",
+	buf_printf(buf, BUF_END, "Affects  : %d (%d bytes)\n",	// notrans
 		    top_affect, top_affect * sizeof(AFFECT_DATA));
-	buf_printf(buf, BUF_END, "Areas    : %d (%d bytes)\n",
+	buf_printf(buf, BUF_END, "Areas    : %d (%d bytes)\n",	// notrans
 		    top_area, top_area * sizeof(AREA_DATA));
-	buf_printf(buf, BUF_END, "ExDes    : %d (%d bytes)\n",
+	buf_printf(buf, BUF_END, "ExDes    : %d (%d bytes)\n",	// notrans
 		    top_ed, top_ed * sizeof(ED_DATA));
-	buf_printf(buf, BUF_END, "Exits    : %d (%d bytes)\n",
+	buf_printf(buf, BUF_END, "Exits    : %d (%d bytes)\n",	// notrans
 		    top_exit, top_exit * sizeof(EXIT_DATA));
-	buf_printf(buf, BUF_END, "Helps    : %d (%d bytes)\n",
+	buf_printf(buf, BUF_END, "Helps    : %d (%d bytes)\n",	// notrans
 		    top_help, top_help * sizeof(HELP_DATA));
-	buf_printf(buf, BUF_END, "Socials  : %d (%d bytes)\n",
+	buf_printf(buf, BUF_END, "Socials  : %d (%d bytes)\n",	// notrans
 		    socials.nused, socials.nused * sizeof(social_t));
-	buf_printf(buf, BUF_END, "Mob idx  : %d (%d bytes, max vnum %d)\n",
+	buf_printf(buf, BUF_END, "Mob idx  : %d (%d bytes, max vnum %d)\n",  // notrans
 		    top_mob_index, top_mob_index * sizeof(MOB_INDEX_DATA),
-		    top_vnum_mob); 
-	buf_printf(buf, BUF_END, "Mobs     : %d (%d (%d) bytes), "
-			"%d free (%d (%d) bytes)\n",
+		    top_vnum_mob);
+	buf_printf(buf, BUF_END, "Mobs     : %d (%d (%d) bytes), "  // notrans
+			"%d free (%d (%d) bytes)\n",		// notrans
 		    npc_count,
 		    npc_count * (sizeof(CHAR_DATA) + sizeof(NPC_DATA)),
 		    npc_count * (sizeof(CHAR_DATA) + sizeof(NPC_DATA) +
@@ -4391,8 +4407,8 @@ void do_memory(CHAR_DATA *ch, const char *argument)
 		    npc_free_count * (sizeof(CHAR_DATA) + sizeof(NPC_DATA)),
 		    npc_free_count * (sizeof(CHAR_DATA) + sizeof(NPC_DATA) +
 				      sizeof(memchunk_t)));
-	buf_printf(buf, BUF_END, "Players  : %d (%d (%d) bytes), "
-			"%d free (%d (%d) bytes)\n",
+	buf_printf(buf, BUF_END, "Players  : %d (%d (%d) bytes), " // notrans
+			         "%d free (%d (%d) bytes)\n",	// notrans
 		    pc_count,
 		    pc_count * (sizeof(CHAR_DATA) + sizeof(PC_DATA)),
 		    pc_count * (sizeof(CHAR_DATA) + sizeof(PC_DATA) +
@@ -4401,37 +4417,41 @@ void do_memory(CHAR_DATA *ch, const char *argument)
 		    pc_free_count * (sizeof(CHAR_DATA) + sizeof(PC_DATA)),
 		    pc_free_count * (sizeof(CHAR_DATA) + sizeof(PC_DATA) +
 				      sizeof(memchunk_t)));
-	buf_printf(buf, BUF_END, "Obj idx  : %d (%d bytes, max vnum %d)\n",
+	buf_printf(buf, BUF_END,
+		   "Obj idx  : %d (%d bytes, max vnum %d)\n",	// notrans
 		    top_obj_index, top_obj_index * sizeof(OBJ_INDEX_DATA),
-		    top_vnum_obj); 
-	buf_printf(buf, BUF_END, "Objs     : %d (%d (%d) bytes, %d free)\n",
+		    top_vnum_obj);
+	buf_printf(buf, BUF_END,
+		   "Objs     : %d (%d (%d) bytes, %d free)\n",	// notrans
 		    obj_count,
 		    obj_count * sizeof(OBJ_DATA),
 		    obj_count * (sizeof(OBJ_DATA) + sizeof(memchunk_t)),
 		    obj_free_count);
-	buf_printf(buf, BUF_END, "Resets   : %d (%d bytes)\n",
+	buf_printf(buf, BUF_END, "Resets   : %d (%d bytes)\n",	// notrans
 		    top_reset, top_reset * sizeof(RESET_DATA));
-	buf_printf(buf, BUF_END, "Rooms    : %d (%d (%d) bytes, max vnum %d)\n",
+	buf_printf(buf, BUF_END,
+		   "Rooms    : %d (%d (%d) bytes, max vnum %d)\n", // notrans
 		    top_room,
 		    top_room * sizeof(ROOM_INDEX_DATA),
 		    top_room * (sizeof(ROOM_INDEX_DATA) + sizeof(memchunk_t)),
 		    top_vnum_room);
-	buf_printf(buf, BUF_END, "Shops    : %d (%d bytes)\n",
+	buf_printf(buf, BUF_END, "Shops    : %d (%d bytes)\n",	// notrans
 		    top_shop, top_shop * sizeof(SHOP_DATA));
-	buf_printf(buf, BUF_END, "Buffers  : %d (%d bytes)\n",
+	buf_printf(buf, BUF_END, "Buffers  : %d (%d bytes)\n",	// notrans
 					nAllocBuf, sAllocBuf);
 	buf_printf(buf, BUF_END,
 #if STR_ALLOC_MEM
-		    "strings  : %d (%d allocated, %d bytes)\n",
+		    "strings  : %d (%d allocated, %d bytes)\n",  // notrans
 #else
-		    "strings  : %d (%d allocated)\n",
+		    "strings  : %d (%d allocated)\n",		// notrans
 #endif
 		    str_count, str_real_count,
 #if STR_ALLOC_MEM
 		    str_alloc_mem
 #endif
 		    );
-	buf_printf(buf, BUF_END, "dvdata   : %d (%d allocated, %d bytes)\n",
+	buf_printf(buf, BUF_END,
+		   "dvdata   : %d (%d allocated, %d bytes)\n",	// notrans
 		    dvdata_count, dvdata_real_count,
 		    dvdata_real_count * sizeof(dvdata_t));
 	page_to_char(buf_string(buf), ch);
@@ -4457,13 +4477,13 @@ void do_dump(CHAR_DATA *ch, const char *argument)
 		return;
 
 	/* report use of data structures */
-	
+
 	num_pcs = 0;
 	aff_count = 0;
 
 	/* mobile prototypes */
-	fprintf(fp,"MobProt	%4d (%8d bytes)\n",
-		top_mob_index, top_mob_index * (sizeof(*pMobIndex))); 
+	fprintf(fp,"MobProt	%4d (%8d bytes)\n",		// notrans
+		top_mob_index, top_mob_index * (sizeof(*pMobIndex)));
 
 	/* mobs */
 	count = 0;
@@ -4475,10 +4495,10 @@ void do_dump(CHAR_DATA *ch, const char *argument)
 			aff_count++;
 	}
 
-	fprintf(fp,"Mobs	%4d (%8d bytes)\n",
+	fprintf(fp,"Mobs	%4d (%8d bytes)\n",		// notrans
 		count, count * (sizeof(*fch)));
 
-	fprintf(fp,"Pcdata	%4d (%8d bytes)\n",
+	fprintf(fp,"Pcdata	%4d (%8d bytes)\n",		// notrans
 		num_pcs, num_pcs * (sizeof(*pc)));
 
 	/* descriptors */
@@ -4488,7 +4508,7 @@ void do_dump(CHAR_DATA *ch, const char *argument)
 	for (d= descriptor_free; d != NULL; d = d->next)
 		count2++;
 
-	fprintf(fp, "Descs	%4d (%8d bytes), %2d free (%d bytes)\n",
+	fprintf(fp, "Descs	%4d (%8d bytes), %2d free (%d bytes)\n", // notrans
 		count, count * (sizeof(*d)), count2, count2 * (sizeof(*d)));
 
 	/* object prototypes */
@@ -4500,7 +4520,7 @@ void do_dump(CHAR_DATA *ch, const char *argument)
 		    nMatch++;
 		}
 
-	fprintf(fp,"ObjProt	%4d (%8d bytes)\n",
+	fprintf(fp,"ObjProt	%4d (%8d bytes)\n",		// notrans
 		top_obj_index, top_obj_index * (sizeof(*pObjIndex)));
 
 	/* objects */
@@ -4511,19 +4531,19 @@ void do_dump(CHAR_DATA *ch, const char *argument)
 		    aff_count++;
 	}
 
-	fprintf(fp,"Objs	%4d (%8d bytes)\n",
+	fprintf(fp,"Objs	%4d (%8d bytes)\n",		// notrans
 		count, count * (sizeof(*obj)));
 
 	/* affects */
-	fprintf(fp,"Affects	%4d (%8d bytes)\n",
+	fprintf(fp,"Affects	%4d (%8d bytes)\n",		// notrans
 		aff_count, aff_count * (sizeof(*af)));
 
 	/* rooms */
-	fprintf(fp,"Rooms	%4d (%8d bytes)\n",
+	fprintf(fp,"Rooms	%4d (%8d bytes)\n",		// notrans
 		top_room, top_room * (sizeof(*room)));
 
 	 /* exits */
-	fprintf(fp,"Exits	%4d (%8d bytes)\n",
+	fprintf(fp,"Exits	%4d (%8d bytes)\n",		// notrans
 		top_exit, top_exit * (sizeof(*exit)));
 
 	fclose(fp);
@@ -4532,14 +4552,14 @@ void do_dump(CHAR_DATA *ch, const char *argument)
 	if ((fp = dfopen(TMP_PATH, "mob.dmp", "w")) == NULL)	// notrans
 		return;
 
-	fprintf(fp,"\nMobile Analysis\n");
+	fprintf(fp,"\nMobile Analysis\n");			// notrans
 	fprintf(fp,  "---------------\n");			// notrans
 	nMatch = 0;
 	for (vnum = 0; nMatch < top_mob_index; vnum++)
 		if ((pMobIndex = get_mob_index(vnum)) != NULL)
 		{
 		    nMatch++;
-		    fprintf(fp,"#%-4d %3d active %3d killed     %s\n",
+		    fprintf(fp,"#%-4d %3d active %3d killed     %s\n", // notrans
 			pMobIndex->vnum,pMobIndex->count,
 			pMobIndex->killed,mlstr_mval(&pMobIndex->short_descr));
 		}
@@ -4549,14 +4569,14 @@ void do_dump(CHAR_DATA *ch, const char *argument)
 	if ((fp = dfopen(TMP_PATH, "obj.dmp", "w")) == NULL)	// notrans
 		return;
 
-	fprintf(fp,"\nObject Analysis\n");
+	fprintf(fp,"\nObject Analysis\n");			// notrans
 	fprintf(fp,  "---------------\n");			// notrans
 	nMatch = 0;
 	for (vnum = 0; nMatch < top_obj_index; vnum++)
 		if ((pObjIndex = get_obj_index(vnum)) != NULL)
 		{
 		    nMatch++;
-		    fprintf(fp,"#%-4d %3d active %3d reset      %s\n",
+		    fprintf(fp,"#%-4d %3d active %3d reset      %s\n", // notrans
 			pObjIndex->vnum,pObjIndex->count,
 			pObjIndex->reset_num,
 			mlstr_mval(&pObjIndex->short_descr));
@@ -4601,7 +4621,7 @@ void do_shapeshift(CHAR_DATA *ch, const char *argument)
 
 #if 0
 XXX
-/* 
+/*
  * Displays MOBprogram triggers of a mobile
  *
  * Syntax: mpstat [name]
@@ -4618,7 +4638,7 @@ void do_mpstat(CHAR_DATA *ch, const char *argument)
 	one_argument(argument, arg, sizeof(arg));
 
 	if (arg[0] == '\0') {
-		act_char("Mpstat whom?", ch);
+		act_char("Mpstat whom?", ch);		// notrans
 		return;
 	}
 
@@ -4633,23 +4653,23 @@ void do_mpstat(CHAR_DATA *ch, const char *argument)
 	}
 
 	buf = buf_new(0);
-	buf_printf(buf, BUF_END, "Mobile #%-6d [%s]\n",
+	buf_printf(buf, BUF_END, "Mobile #%-6d [%s]\n",		// notrans
 		   victim->pMobIndex->vnum, mlstr_mval(&victim->short_descr));
 
 	npc = NPC(victim);
-	buf_printf(buf, BUF_END, "Delay   %-6d [%s]\n",
+	buf_printf(buf, BUF_END, "Delay   %-6d [%s]\n",		// notrans
 		   npc->mprog_delay,
 		   npc->mprog_target == NULL ?
-			"No target" : npc->mprog_target->name);
+			"No target" : npc->mprog_target->name); // notrans
 
 	if (!victim->pMobIndex->mptrig_types)
-		buf_append(buf, "[No programs set]");
+		buf_append(buf, "[No programs set]");		// notrans
 	else {
 		i = 0;
 		for (mptrig = victim->pMobIndex->mptrig_list; mptrig != NULL;
 							mptrig = mptrig->next) {
 			buf_printf(buf, BUF_END,
-				   "[%2d] Trigger [%-8s] Program [%4d] Phrase [%s]\n",
+				   "[%2d] Trigger [%-8s] Program [%4d] Phrase [%s]\n", // notrans
 				   ++i, flag_string(mptrig_types, mptrig->type),
 				   mptrig->vnum, mptrig->phrase);
 		}
@@ -4673,7 +4693,7 @@ do_maxrnd(CHAR_DATA *ch, const char *argument)
 		max_rnd_cnt = atoi(arg);
 		rnd_cnt = 0;
 	} else if (arg[0] != '\0') {
-		act_char("Syntax: maxrnd <max_rnd_cnt>", ch);
+		act_char("Syntax: maxrnd <max_rnd_cnt>.", ch);
 		return;
 	}
 

@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.305 2001-07-06 08:32:15 fjoe Exp $
+ * $Id: fight.c,v 1.306 2001-07-16 18:42:06 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1293,9 +1293,9 @@ focus_positive_energy(CHAR_DATA *ch, CHAR_DATA *victim, const char *sn,
 {
 	if (IS_SET(victim->form, FORM_CONSTRUCT)) {
 		if (ch == victim)
-			act_char("You are not affected", ch);
+			act_char("You are not affected.", ch);
 		else
-			act("$N is not affected", ch, NULL, victim, TO_CHAR);
+			act("$N is not affected.", ch, NULL, victim, TO_CHAR);
 		return;
 	}
 
@@ -1326,9 +1326,9 @@ focus_negative_energy(CHAR_DATA *ch, CHAR_DATA *victim, const char * sn,
 {
 	if (IS_SET(victim->form, FORM_CONSTRUCT)) {
 		if (ch == victim)
-			act_char("You are not affected", ch);
+			act_char("You are not affected.", ch);
 		else
-			act("$N is not affected", ch, NULL, victim, TO_CHAR);
+			act("$N is not affected.", ch, NULL, victim, TO_CHAR);
 		return;
 	}
 

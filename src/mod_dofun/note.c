@@ -1,5 +1,5 @@
 /*
- * $Id: note.c,v 1.18 2001-07-08 16:36:14 fjoe Exp $
+ * $Id: note.c,v 1.19 2001-07-16 18:42:04 fjoe Exp $
  */
 
 /***************************************************************************
@@ -186,7 +186,7 @@ static const char *note_quote(note_t *pnote)
 		return str_dup(str_empty);
 
 	snprintf(buf, sizeof(buf),
-		 "On %s %s {xwrote to %s:\n"
+		 "On %s %s {xwrote to %s:\n"		// notrans
 		 "{x\n",
 		 pnote->date, pnote->sender, pnote->to_list);
 
@@ -783,11 +783,11 @@ static void parse_note(CHAR_DATA *ch, const char *argument, int type)
 
 		free_string(pc->pnote->text);
 		pc->pnote->text = str_printf(
-			"* Forwarded by: %s\n"
-			"* Originally to: %s\n"
-			"* Originally by: %s, %s\n"
+			"* Forwarded by: %s\n"			    // notrans
+			"* Originally to: %s\n"			    // notrans
+			"* Originally by: %s, %s\n"		    // notrans
 			"\n"
-			"---------- Forwarded message ----------\n"
+			"---------- Forwarded message ----------\n" // notrans
 			"%s",
 			ch->name, pnote->to_list, pnote->sender, pnote->date,
 			pnote->text);

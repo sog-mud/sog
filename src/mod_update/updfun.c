@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: updfun.c,v 1.28 2001-07-04 19:34:19 fjoe Exp $
+ * $Id: updfun.c,v 1.29 2001-07-16 18:42:09 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -531,7 +531,7 @@ weather_update(void)
 
 void *
 char_update_cb(void *vo, va_list ap)
-{   
+{
 	CHAR_DATA *ch = (CHAR_DATA *) vo;
 
 	AFFECT_DATA *paf;
@@ -550,7 +550,7 @@ char_update_cb(void *vo, va_list ap)
 		} else
 			check_improve(ch, "path find", FALSE, 16);
 	}
-		
+
 	if (!ch->fighting) {
 		flag_t inv_skip = 0;
 
@@ -561,7 +561,7 @@ char_update_cb(void *vo, va_list ap)
 			affect_strip(ch, "caltrops");
 
 		if (!MOUNTED(ch)) {
-			if (!HAS_INVIS(ch, ID_HIDDEN) 
+			if (!HAS_INVIS(ch, ID_HIDDEN)
 			&&  (r->has_invis & ID_HIDDEN))
 				act_char("You step back into the shadows.", ch);
 
@@ -589,7 +589,7 @@ char_update_cb(void *vo, va_list ap)
 		if ((cl = class_lookup(ch->class)) != NULL)
 			nominal_luck += cl->luck_bonus;
 
-		if (ch->luck > nominal_luck) 
+		if (ch->luck > nominal_luck)
 			ch->luck--;
 		else if (ch->luck < nominal_luck)
 			ch->luck++;

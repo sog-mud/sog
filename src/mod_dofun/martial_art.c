@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.180 2001-06-30 11:45:48 kostik Exp $
+ * $Id: martial_art.c,v 1.181 2001-07-16 18:42:04 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3809,7 +3809,7 @@ void do_hara(CHAR_DATA *ch, const char *argument)
 			PC(ch)->condition[COND_THIRST] = 40;
 
 		act_char("You cut your finger and wait till all your blood finishes.",ch);
-		act_puts("$n cuts his body and look in a deadly figure.",
+		act_puts("$n cuts his body and looks in a deadly figure.",
 			 ch, NULL, NULL, TO_ROOM, POS_FIGHTING);
 		check_improve(ch, "hara kiri", TRUE, 2);
 		do_sleep(ch, str_empty);

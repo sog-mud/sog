@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.242 2001-07-04 19:21:16 fjoe Exp $
+ * $Id: spellfun.c,v 1.243 2001-07-16 18:42:08 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1395,7 +1395,7 @@ void spell_identify(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	OBJ_DATA *obj = (OBJ_DATA *) vo;
 	BUFFER *output;
 
-	output = buf_new(0);
+	output = buf_new(GET_LANG(ch));
 	format_obj(output, obj);
 	if (!IS_OBJ_STAT(obj, ITEM_ENCHANTED))
 		format_obj_affects(output, obj->pObjIndex->affected,
@@ -6808,7 +6808,7 @@ void spell_lich(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	}
 
 	if (IS_NULLSTR(target_name)) {
-		act_char("Usage: cast lich <type>", ch);
+		act_char("Usage: cast lich <type>.", ch);
 		return;
 	}
 
@@ -6951,14 +6951,14 @@ void spell_disgrace(const char *sn, int level, CHAR_DATA *ch, void *vo)
 
 	if (!is_affected(victim,sn) && !saves_spell(level, victim, DAM_MENTAL))
 	{
-	  af.where		    = TO_AFFECTS;
+	  af.where		= TO_AFFECTS;
 	  af.type               = sn;
-	  af.level              = level; 
+	  af.level              = level;
 	  af.duration           = level;
 	  INT(af.location)	= APPLY_CHA;
 	  af.modifier           = - (5 + level / 10);
 	  af.bitvector          = 0;
-	  af.owner	= NULL;
+	  af.owner		= NULL;
 	  affect_to_char(victim,&af);
 
 	  act("$N feels $M less confident!",ch,NULL,victim,TO_ALL);

@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.379 2001-06-27 08:14:49 fjoe Exp $
+ * $Id: act_info.c,v 1.380 2001-07-16 18:42:00 fjoe Exp $
  */
 
 /***************************************************************************
@@ -969,7 +969,7 @@ void do_time(CHAR_DATA *ch, const char *argument)
 		hour = 12;
 	act_puts("It is $j o'clock $T, ",
 		 ch, (const void *) hour, time_info.hour >= 12 ? "pm" : "am",
-		 TO_CHAR | ACT_NOTRANS | ACT_NOLF, POS_DEAD);
+		 TO_CHAR | ACT_NOLF, POS_DEAD);
 	act_puts3("Day of $t, $J$qJ{th} the Month of $T.",
 		  ch, day_name[day % 7], month_name[time_info.month],
 		  (const void *) day, TO_CHAR | ACT_NOTRANS, POS_DEAD);
@@ -2741,7 +2741,7 @@ void do_raffects(CHAR_DATA *ch, const char *argument)
 
 static const char * get_resist_alias(int resist)
 {
-	if (resist < -90) 
+	if (resist < -90)
 		return "eradicated by";
 	else if (resist < -70)
 		return "obliterated by";
@@ -2792,7 +2792,7 @@ void do_resistances(CHAR_DATA *ch, const char *argument)
 				  ch, get_resist_alias(res),
 				  flag_string(resist_info_flags, i),
 				  (const void *) res,
-				  TO_CHAR | ACT_NOTRANS, POS_DEAD);
+				  TO_CHAR, POS_DEAD);
 		}
 	}
 
@@ -3228,28 +3228,28 @@ skill_knowledge_alias(CHAR_DATA *ch, pc_skill_t *pc_sk, spec_skill_t *spec_sk)
 
 	percent = URANGE(1, 100 * pc_sk->percent / spec_sk->max, 100);
 
-	if (!percent)                   
+	if (!percent)
 		knowledge = "not learned";
-	else if (percent < 15)          
-		knowledge = "ridiculous"; 
-	else if (percent < 30)           
-		knowledge = "very bad";   
-	else if (percent < 50)          
-		knowledge = "bad";        
-	else if (percent < 75)          
-		knowledge = "average";    
-	else if (percent < 80)          
-		knowledge = "good";       
-	else if (percent < 90)          
-		knowledge = "very good";  
-	else if (percent < 100)         
-		knowledge = "remarkable"; 
-	else                            
-		knowledge = "perfect";    
+	else if (percent < 15)
+		knowledge = "ridiculous";
+	else if (percent < 30)
+		knowledge = "very bad";
+	else if (percent < 50)
+		knowledge = "bad";
+	else if (percent < 75)
+		knowledge = "average";
+	else if (percent < 80)
+		knowledge = "good";
+	else if (percent < 90)
+		knowledge = "very good";
+	else if (percent < 100)
+		knowledge = "remarkable";
+	else
+		knowledge = "perfect";
 
 	return knowledge;
 }
-		
+
 /* RT spells and skills show the players spells (or skills) */
 void do_prayers(CHAR_DATA *ch, const char *argument)
 {
@@ -3262,7 +3262,7 @@ void do_prayers(CHAR_DATA *ch, const char *argument)
 	list_spells(ST_PRAYER, ch, argument);
 }
 
-void do_spells(CHAR_DATA *ch, const char *argument) 
+void do_spells(CHAR_DATA *ch, const char *argument)
 {
 	if (ch->shapeform &&
 	IS_SET(ch->shapeform->index->flags, FORM_NOCAST)) {
@@ -3285,11 +3285,11 @@ static void list_spells(flag_t type, CHAR_DATA *ch, const char *argument)
 
 	if (IS_NPC(ch))
 		return;
-	
+
 	/* initialize data */
 	for (lev = 0; lev <= LEVEL_IMMORTAL; lev++)
 		list[lev] = NULL;
-	
+
 	for (i = 0; i < PC(ch)->learned.nused; i++) {
 		pc_skill_t *pc_sk = VARR_GET(&PC(ch)->learned, i);
 		skill_t *sk;
@@ -3308,23 +3308,23 @@ static void list_spells(flag_t type, CHAR_DATA *ch, const char *argument)
 		found = TRUE;
 		lev = spec_sk.level;
 		snprintf(buf, sizeof(buf),
-			 "%-19s [%-11s] %4d mana",
+			 "%-24s [%-11s] %4d mana",
 			 pc_sk->sn, knowledge, skill_mana(ch, pc_sk->sn));
-			
+
 		if (list[lev] == NULL) {
-			list[lev] = buf_new(0);
+			list[lev] = buf_new(GET_LANG(ch));
 			buf_printf(list[lev], BUF_END,
-				   "\nLevel %2d: %s", lev, buf);
+				   "\nLevel %2d  : %s", lev, buf);
 		} else
 			buf_printf(list[lev], BUF_END,
-				   "\n          %s", buf);	// notrans
+				   "\n            %s", buf);	// notrans
 	}
 
 	/* return results */
-	
+
 	if (!found) {
 		switch(type) {
- 			case ST_PRAYER: 
+			case ST_PRAYER:
 				act_char("You do not have any empowers.", ch);
 				return;
 			case ST_SPELL:
@@ -3332,8 +3332,8 @@ static void list_spells(flag_t type, CHAR_DATA *ch, const char *argument)
 				return;
 		}
 	}
-	
-	output = buf_new(0);
+
+	output = buf_new(GET_LANG(ch));
 	for (lev = 0; lev <= UMIN(ch->level, LEVEL_IMMORTAL); lev++)
 		if (list[lev] != NULL) {
 			buf_append(output, buf_string(list[lev]));
@@ -3353,16 +3353,16 @@ void do_skills(CHAR_DATA *ch, const char *argument)
 	bool found = FALSE;
 	char buf[MAX_STRING_LENGTH];
 	BUFFER *output;
-	
+
 	if (IS_NPC(ch))
 		return;
-	
+
 	/* initialize data */
 	for (lev = 0; lev <= LEVEL_IMMORTAL; lev++) {
 		skill_columns[lev] = 0;
 		skill_list[lev] = NULL;
 	}
-	
+
 	for (i = 0; i < PC(ch)->learned.nused; i++) {
 		pc_skill_t *pc_sk = VARR_GET(&PC(ch)->learned, i);
 		skill_t *sk;
@@ -3380,31 +3380,31 @@ void do_skills(CHAR_DATA *ch, const char *argument)
 
 		found = TRUE;
 		lev = spec_sk.level;
-		
+
 		snprintf(buf, sizeof(buf), "%-19s %-11s  ",	// notrans
 			pc_sk->sn, knowledge);
 
 		if (skill_list[lev] == NULL) {
-			skill_list[lev] = buf_new(0);
+			skill_list[lev] = buf_new(GET_LANG(ch));
 			buf_printf(skill_list[lev], BUF_END,
-				   "\nLevel %2d: %s", lev, buf);
+				   "\nLevel %2d  : %s", lev, buf);
 		} else {
 			if (++skill_columns[lev] % 2 == 0) {
 				buf_append(skill_list[lev],
-					   "\n          ");	// notrans
+					   "\n            ");	// notrans
 			}
 			buf_append(skill_list[lev], buf);
 		}
 	}
-	
+
 	/* return results */
-	
+
 	if (!found) {
 		act_char("You know no skills.", ch);
 		return;
 	}
-	
-	output = buf_new(0);
+
+	output = buf_new(GET_LANG(ch));
 	for (lev = 0; lev <= UMIN(ch->level, LEVEL_IMMORTAL); lev++)
 		if (skill_list[lev] != NULL) {
 			buf_append(output, buf_string(skill_list[lev]));
@@ -3446,7 +3446,7 @@ void do_glist(CHAR_DATA *ch, const char *argument)
 	one_argument(argument, arg, sizeof(arg));
 	
 	if (arg[0] == '\0') {
-		act_char("Syntax: glist group", ch);
+		act_char("Syntax: glist <group>.", ch);
 		act_char("Use 'glist ?' to get the list of groups.", ch);
 		return;
 	}
@@ -3479,7 +3479,7 @@ void do_slook(CHAR_DATA *ch, const char *argument)
 
 	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
-		act_char("Syntax : slook <skill | spell>", ch);
+		act_char("Syntax : slook <skill | spell>.", ch);
 		return;
 	}
 

@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.294 2001-07-04 20:34:06 fjoe Exp $
+ * $Id: handler.c,v 1.295 2001-07-16 18:42:10 fjoe Exp $
  */
 
 /***************************************************************************
@@ -435,18 +435,16 @@ equip_char(CHAR_DATA *ch, OBJ_DATA *obj, int iWear)
 
 	if (get_eq_char(ch, iWear)) {
 		if (IS_NPC(ch)) {
-			log(LOG_BUG, "equip_char: vnum %d: in_room %d: "
-			   "obj vnum %d: location %s: "
-			   "already equipped.",
-			   ch->pMobIndex->vnum,
-			   ch->in_room ? ch->in_room->vnum : -1,
-			   obj->pObjIndex->vnum,
-			   flag_string(wear_loc_flags, iWear));
+			log(LOG_BUG,
+			    "equip_char: vnum %d: in_room %d: obj vnum %d: location %s: already equipped.", // notrans
+			    ch->pMobIndex->vnum,
+			    ch->in_room ? ch->in_room->vnum : -1,
+			    obj->pObjIndex->vnum,
+			    flag_string(wear_loc_flags, iWear));
 		} else {
-			log(LOG_BUG, "equip_char: %s: location %s: "
-			   "already equipped.",
-			   ch->name,
-			   flag_string(wear_loc_flags, iWear));
+			log(LOG_BUG,
+			    "equip_char: %s: location %s: already equipped.", // notrans
+			    ch->name, flag_string(wear_loc_flags, iWear));
 		}
 		return NULL;
 	}
@@ -2002,11 +2000,11 @@ OBJ_DATA *random_obj()
 	int highest = 0, now = 0;
 
 	for (rand_obj = obj = object_list; obj; obj = obj->next)  {
-       		if ((now = number_range(1, 20000)) > highest) {
-       			rand_obj = obj;
-       			highest = now;
-       		}
-    	}
+		if ((now = number_range(1, 20000)) > highest) {
+			rand_obj = obj;
+			highest = now;
+		}
+	}
 	return rand_obj;
 }
 
@@ -2027,7 +2025,7 @@ void format_obj(BUFFER *output, OBJ_DATA *obj)
 
 	if (obj->pObjIndex->limit != -1)
 		buf_printf(output, BUF_END,
-			   "This equipment has been LIMITED by number %d \n",
+			   "This equipment has been LIMITED by number %d.\n",
 			   obj->pObjIndex->limit);
 
 	switch (obj->item_type) {
@@ -2044,11 +2042,11 @@ void format_obj(BUFFER *output, OBJ_DATA *obj)
 		buf_append(output, ".\n");
 		break;
 
-	case ITEM_WAND: 
-	case ITEM_STAFF: 
+	case ITEM_WAND:
+	case ITEM_STAFF:
 		buf_printf(output, BUF_END, "Has %d charges of level %d",
 			   INT(obj->value[2]), INT(obj->value[0]));
-	  
+
 		if (!IS_NULLSTR(obj->value[3].s))
 			buf_printf(output, BUF_END, " '%s'", obj->value[3].s);
 
@@ -2072,7 +2070,7 @@ void format_obj(BUFFER *output, OBJ_DATA *obj)
 			buf_printf(output, BUF_END, "Weight multiplier: %d%%\n",
 				   INT(obj->value[4]));
 		break;
-			
+
 	case ITEM_WEAPON:
 		buf_printf(output, BUF_END, "Weapon type is %s.\n",
 			   SFLAGS(weapon_class, obj->value[0]));
@@ -2080,14 +2078,14 @@ void format_obj(BUFFER *output, OBJ_DATA *obj)
 			   INT(obj->value[1]), INT(obj->value[2]),
 			   GET_WEAPON_AVE(obj));
 		if (INT(obj->value[4])) {
-	        	buf_printf(output, BUF_END, "Weapon flags: %s\n",
+			buf_printf(output, BUF_END, "Weapon flags: %s.\n",
 				   SFLAGS(weapon_type2, obj->value[4]));
 		}
 		break;
 
 	case ITEM_ARMOR:
 		buf_printf(output, BUF_END, "Armor class is %d pierce, "
-				   "%d bash, %d slash, and %d vs. magic.\n", 
+				   "%d bash, %d slash, and %d vs. exotic.\n",
 			   INT(obj->value[0]), INT(obj->value[1]),
 			   INT(obj->value[2]), INT(obj->value[3]));
 		break;
@@ -2106,7 +2104,7 @@ void format_obj_affects(BUFFER *output, AFFECT_DATA *paf, int flags)
 		&& (paf->where == TO_RESIST
 			|| paf->where == TO_FORMRESIST
 			|| INT(paf->location) != APPLY_NONE)
-		&&  paf->modifier) { 
+		&&  paf->modifier) {
 			buf_printf(output, BUF_END, w->loc_format,
 				paf->where != TO_RACE ?
 				SFLAGS(w->loc_table, paf->location) :
@@ -2844,7 +2842,7 @@ void do_who_raw(CHAR_DATA* ch, CHAR_DATA *wch, BUFFER* output)
 		buf_printf(output, BUF_END, "[{c%s{x] ", clan->name); // notrans
 
 	if (IS_SET(wch->comm, COMM_AFK))
-		buf_append(output, "{c[AFK]{x ");
+		buf_append(output, "{c[AFK]{x ");	// notrans
 
 	if (wch->invis_level)
 		buf_append(output, "[{WWizi{x] ");
@@ -4175,9 +4173,9 @@ void reboot_mud(void)
 		FILE *fp = dfopen(TMP_PATH, EQCHECK_FILE, "w");
 		if (!fp) {
 			log(LOG_ERROR,
-			    "reboot_mud: unable to activate eqcheck");
+			    "reboot_mud: unable to activate eqcheck");  // notrans
 		} else {
-			log(LOG_INFO, "reboot_mud: eqcheck activated");
+			log(LOG_INFO, "reboot_mud: eqcheck activated"); // notrans
 			fclose(fp);
 		}
 	}

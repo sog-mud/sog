@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_spec.c,v 1.16 2001-06-25 16:51:15 fjoe Exp $
+ * $Id: act_spec.c,v 1.17 2001-07-16 18:42:02 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -184,7 +184,7 @@ void do_magicschool(CHAR_DATA *ch, const char *argument)
 	char arg[MAX_INPUT_LENGTH];
 
 	if (argument[0] == '\0') {
-		act("Syntax: school {major|minor} <school name>",
+		act("Syntax: school {major|minor} <school name>.",
 		    ch, NULL, NULL, TO_CHAR);
 		return;
 	}
@@ -192,7 +192,7 @@ void do_magicschool(CHAR_DATA *ch, const char *argument)
 	argument = one_argument(argument, arg, sizeof(arg));
 
 	if (argument[0] == '\0') {
-		act("Syntax: school {major|minor} <school name>",
+		act("Syntax: school {major|minor} <school name>.",
 		    ch, NULL, NULL, TO_CHAR);
 		return;
 	}
@@ -200,7 +200,7 @@ void do_magicschool(CHAR_DATA *ch, const char *argument)
 	if (!str_prefix(arg, "major"))
 		major = TRUE;
 	else if (!!str_prefix(arg, "minor")) {
-		act("Syntax: school {major|minor} <school name>",
+		act("Syntax: school {major|minor} <school name>.",
 		    ch, NULL, NULL, TO_CHAR);
 		return;
 	}

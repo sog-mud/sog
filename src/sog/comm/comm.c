@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.244 2001-06-30 11:45:54 kostik Exp $
+ * $Id: comm.c,v 1.245 2001-07-16 18:42:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -402,7 +402,7 @@ static bool outbuf_adjust(outbuf_t *o, size_t len)
 	return TRUE;
 }
 
-char DEFAULT_PROMPT[] = "%hhp %mm %vmv Opp:%o {c%e{x# ";
+char DEFAULT_PROMPT[] = "%hhp %mm %vmv Opp:%o {c%e{x# ";	// notrans
 int dvdata_count;
 int dvdata_real_count;
 
@@ -1107,9 +1107,9 @@ static void read_from_buffer(DESCRIPTOR_DATA *d)
 
 				log(LOG_INFO, "%s input spamming!", d->host);
 				snprintf(buf, sizeof(buf),
-					 "Inlast:[%s] Incomm:[%s]!",
+					 "Inlast:[%s] Incomm:[%s]!", // notrans
 					 d->inlast, d->incomm);
-					
+
 				wiznet("SPAM SPAM SPAM $N spamming, and OUT!",
 					ch, NULL, WIZ_SPAM, 0, ch->level);
 				wiznet("[$N]'s $t!",
@@ -1312,7 +1312,7 @@ void bust_a_prompt(DESCRIPTOR_DATA *d)
 		bool found;
 		const char *sdir_name[] = {"N","E","S","W","U","D"}; // notrans
 		int door;
- 
+
 		if (*str != '%') {
 			*point++ = *str++;
 			continue;
@@ -1320,7 +1320,7 @@ void bust_a_prompt(DESCRIPTOR_DATA *d)
 
 		switch(*++str) {
 		default:
-	        	i = "";
+			i = "";
 			break;
 
 		case 'c':
@@ -1331,7 +1331,7 @@ void bust_a_prompt(DESCRIPTOR_DATA *d)
 			snprintf(buf2, sizeof(buf2),
 				 "%d%s",			// notrans
 				 (time_info.hour % 12 == 0) ?
-				 	12 : time_info.hour % 12, 
+					12 : time_info.hour % 12, 
 				 time_info.hour >= 12 ? "pm" : "am");
 			i = buf2;
 			break;
@@ -1448,16 +1448,16 @@ void bust_a_prompt(DESCRIPTOR_DATA *d)
 			break;
 
 		case 'a':
-			i = IS_GOOD(ch) ? "good" :
-			    IS_EVIL(ch) ? "evil" :
-			    "neutral";
+			i = IS_GOOD(ch) ? "good" :		// notrans
+			    IS_EVIL(ch) ? "evil" :		// notrans
+			    "neutral";				// notrans
 			break;
 
 		case 'r':
 			if (ch->in_room)
 				i = (check_blind_raw(ch) && !room_is_dark(ch)) ?
 				     mlstr_cval(&ch->in_room->name, ch) :
-				     "darkness";
+				     "darkness";		// notrans
 			else
 				i = "";
 			break;
@@ -1546,7 +1546,7 @@ void write_to_buffer(DESCRIPTOR_DATA *d, const char *txt, size_t len)
 	size_t size;
 	bool noiac = (d->character != NULL &&
 		      IS_SET(d->character->comm, COMM_NOIAC));
-	
+
 	/*
 	 * Find length in case caller didn't.
 	 */
@@ -2679,7 +2679,7 @@ static void log_area_popularity(void)
 
 	if ((fp = dfopen(TMP_PATH, AREASTAT_FILE, "w")) == NULL)
 		return;
-	fprintf(fp,"\nBooted %sArea popularity statistics (in char * ticks)\n",
+	fprintf(fp,"\nBooted %sArea popularity statistics (in char * ticks)\n", // notrans
 	        str_boot_time);
 
 	for (area = area_first; area != NULL; area = area->next)
