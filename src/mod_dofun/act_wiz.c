@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.194 1999-11-19 09:07:04 fjoe Exp $
+ * $Id: act_wiz.c,v 1.195 1999-11-19 11:24:53 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1197,7 +1197,7 @@ print_sa_cb(void *p, void *d)
 	saff_t *sa = (saff_t *) p;
 	BUFFER *buf = (BUFFER *) d;
 
-	buf_printf(buf, "  Modifies '%s' by %d",
+	buf_printf(buf, "        '%s' by %d",
 		   sa->sn, sa->mod);
 	if (!IS_NULLSTR(sa->type))
 		buf_printf(buf, " (skill '%s')", sa->type);
