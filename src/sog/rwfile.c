@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: rwfile.c,v 1.11 2000-02-20 10:36:41 avn Exp $
+ * $Id: rwfile.c,v 1.12 2000-03-02 05:44:26 fjoe Exp $
  */
 
 static char str_end[] = "End";
@@ -133,9 +133,11 @@ rfile_open(const char *dir, const char *file)
 		return NULL;
 	}
 
+#if !defined(LINUX)
 	if (madvise(p, s.st_size, MADV_SEQUENTIAL) < 0)
 		log(LOG_INFO, "%s: %s", name, strerror(errno));
-		
+#endif
+
 	fp = malloc(sizeof(rfile_t));
 	fp->p = p;
 	fp->len = s.st_size;
