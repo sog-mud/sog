@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_class.c,v 1.10 1999-02-08 16:34:13 fjoe Exp $
+ * $Id: db_class.c,v 1.11 1999-02-09 10:19:14 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -55,7 +55,6 @@ DBLOAD_FUN(load_class)
 
 	class_curr = class_new();
 	class_curr->file_name = get_filename(filename);
-	class_curr->guild = varr_new(sizeof(int), 4);
 
 	for (i = 0; i < MAX_LEVEL+1; i++)
 		class_curr->titles[i][0] = class_curr->titles[i][1] = str_empty;
@@ -94,7 +93,7 @@ DBLOAD_FUN(load_class)
 		case 'G':
 			if (!str_cmp(word, "GuildRoom")) {
 				int vnum = fread_number(fp);
-				int *pvnum = varr_enew(class_curr->guild);
+				int *pvnum = varr_enew(&class_curr->guild);
 				*pvnum = vnum;
 				fMatch = TRUE;
 			}
