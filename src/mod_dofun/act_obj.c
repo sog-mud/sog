@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.29 1998-06-21 20:14:47 efdi Exp $
+ * $Id: act_obj.c,v 1.30 1998-06-21 22:39:56 efdi Exp $
  */
 
 /***************************************************************************
@@ -2144,144 +2144,124 @@ void do_sacr(CHAR_DATA *ch, char *argument)
 
 void do_quaff(CHAR_DATA *ch, char *argument)
 {
-	  char arg[MAX_INPUT_LENGTH];
-	  OBJ_DATA *obj;
+	char arg[MAX_INPUT_LENGTH];
+	OBJ_DATA *obj;
 
-	  one_argument(argument, arg);
+	one_argument(argument, arg);
 
-	  if (ch->clan == CLAN_BATTLE && !IS_IMMORTAL(ch)) 
-	  {
+	if (ch->clan == CLAN_BATTLE && !IS_IMMORTAL(ch)) {
 		send_to_char("You are a BattleRager, not a filthy magician!\n\r",ch);
 		return;
-	  }
+	}
 
-	  if (arg[0] == '\0')
-	  {
-	send_to_char("Quaff what?\n\r", ch);
+	if (arg[0] == '\0') {
+		char_nputs(QUAFF_WHAT, ch);
+		return;
+	}
+
+	if ((obj = get_obj_carry(ch, arg)) == NULL) {
+		char_nputs(DONT_HAVE_POTION, ch);
+		return;
+	}
+
+	if (obj->item_type != ITEM_POTION) {
+		char_nputs(CAN_QUAFF_ONLY_POTIONS, ch);
+		return;
+	}
+
+	if (ch->level < obj->level) {
+		char_nputs(TOO_POWERFUL_LIQUID, ch);
+		return;
+	}
+
+
+	act_nprintf(ch, obj, NULL, TO_ROOM, POS_RESTING, N_QUAFFS_P);
+	act_nprintf(ch, obj, NULL ,TO_CHAR, POS_DEAD, YOU_QUAFF_P);
+
+	obj_cast_spell(obj->value[1], obj->value[0], ch, ch, NULL);
+	obj_cast_spell(obj->value[2], obj->value[0], ch, ch, NULL);
+	obj_cast_spell(obj->value[3], obj->value[0], ch, ch, NULL);
+	obj_cast_spell(obj->value[4], obj->value[0], ch, ch, NULL);
+
+	if ((ch->last_fight_time != -1
+	     && current_time - ch->last_fight_time < FIGHT_DELAY_TIME)
+	||  ch->fighting != NULL)
+		WAIT_STATE(ch, 2 * PULSE_VIOLENCE);
+
+	extract_obj(obj);
+	obj_to_char(create_object(get_obj_index(OBJ_VNUM_POTION_VIAL), 0), ch);
 	return;
-	  }
-
-	  if ((obj = get_obj_carry(ch, arg)) == NULL)
-	  {
-	send_to_char("You do not have that potion.\n\r", ch);
-	return;
-	  }
-
-	  if (obj->item_type != ITEM_POTION)
-	  {
-	send_to_char("You can quaff only potions.\n\r", ch);
-	return;
-	  }
-
-	  if (ch->level < obj->level)
-	  {
-	send_to_char("This liquid is too powerful for you to drink.\n\r",ch);
-	return;
-	  }
-
-
-	  act("$n quaffs $p.", ch, obj, NULL, TO_ROOM);
-	  act("You quaff $p.", ch, obj, NULL ,TO_CHAR);
-
-	  obj_cast_spell(obj->value[1], obj->value[0], ch, ch, NULL);
-	  obj_cast_spell(obj->value[2], obj->value[0], ch, ch, NULL);
-	  obj_cast_spell(obj->value[3], obj->value[0], ch, ch, NULL);
-	  obj_cast_spell(obj->value[4], obj->value[0], ch, ch, NULL);
-
-	  if ((ch->last_fight_time != -1 &&
-		  (current_time - ch->last_fight_time)<FIGHT_DELAY_TIME) ||
-	(ch->fighting != NULL))
-		{
-		  WAIT_STATE(ch,2 * PULSE_VIOLENCE);
-		}
-
-	  extract_obj(obj);
-	  obj_to_char(create_object(get_obj_index(OBJ_VNUM_POTION_VIAL),0),ch);
-	  return;
 }
 
 
 
 void do_recite(CHAR_DATA *ch, char *argument)
 {
-	  char arg1[MAX_INPUT_LENGTH];
-	  char arg2[MAX_INPUT_LENGTH];
-	  CHAR_DATA *victim;
-	  OBJ_DATA *scroll;
-	  OBJ_DATA *obj;
+	char arg1[MAX_INPUT_LENGTH];
+	char arg2[MAX_INPUT_LENGTH];
+	CHAR_DATA *victim;
+	OBJ_DATA *scroll;
+	OBJ_DATA *obj;
 
-	  if (ch->clan == CLAN_BATTLE)
-	  {
-	send_to_char(
+	if (ch->clan == CLAN_BATTLE) {
+		send_to_char(
 	"RECITE?!  You are a battle rager, not a filthy magician!\n\r", ch);
-	return;
-	  }
-
-	  argument = one_argument(argument, arg1);
-	  argument = one_argument(argument, arg2);
-
-	  if ((scroll = get_obj_carry(ch, arg1)) == NULL)
-	  {
-	send_to_char("You do not have that scroll.\n\r", ch);
-	return;
-	  }
-
-	  if (scroll->item_type != ITEM_SCROLL)
-	  {
-	send_to_char("You can recite only scrolls.\n\r", ch);
-	return;
-	  }
-
-
-	  if (ch->level < scroll->level)
-	  {
-	send_to_char(
-		"This scroll is too complex for you to comprehend.\n\r",ch);
-	return;
-	  }
-
-	  obj = NULL;
-	  if (arg2[0] == '\0')
-	  {
-	victim = ch;
-	  }
-	  else
-	  {
-	if ((victim = get_char_room (ch, arg2)) == NULL
-	&&   (obj    = get_obj_here  (ch, arg2)) == NULL)
-	{
-		send_to_char("You can't find it.\n\r", ch);
 		return;
 	}
-	  }
 
-	  act("$n recites $p.", ch, scroll, NULL, TO_ROOM);
-	  act("You recite $p.", ch, scroll, NULL, TO_CHAR);
+	argument = one_argument(argument, arg1);
+	argument = one_argument(argument, arg2);
 
-	  if (number_percent() >= get_skill(ch,gsn_scrolls) * 4/5)
-	  {
-	send_to_char("You mispronounce a syllable.\n\r",ch);
-	check_improve(ch,gsn_scrolls,FALSE,2);
-	  }
+	if ((scroll = get_obj_carry(ch, arg1)) == NULL) {
+		char_nputs(DONT_HAVE_SCROLL, ch);
+		return;
+	}
 
-	  else
-	  {
-	  	obj_cast_spell(scroll->value[1], scroll->value[0], ch, victim, obj);
-	  	obj_cast_spell(scroll->value[2], scroll->value[0], ch, victim, obj);
-	  	obj_cast_spell(scroll->value[3], scroll->value[0], ch, victim, obj);
-	  	obj_cast_spell(scroll->value[4], scroll->value[0], ch, victim, obj);
-	check_improve(ch,gsn_scrolls,TRUE,2);
+	if (scroll->item_type != ITEM_SCROLL) {
+		char_nputs(CAN_RECITE_ONLY_SCROLLS, ch);
+		return;
+	}
 
-		  if ((ch->last_fight_time != -1 &&
-		    (current_time - ch->last_fight_time)<FIGHT_DELAY_TIME) ||
-		    (ch->fighting != NULL))
-		  {
-		    WAIT_STATE(ch, 2 * PULSE_VIOLENCE);
-		  }
-	  }
 
-	  extract_obj(scroll);
-	  return;
+	if (ch->level < scroll->level) {
+		char_nputs(SCROLL_TOO_COMPLEX, ch);
+		return;
+	}
+
+	obj = NULL;
+	if (arg2[0] == '\0')
+		victim = ch;
+	else if ((victim = get_char_room (ch, arg2)) == NULL
+	&&   (obj = get_obj_here  (ch, arg2)) == NULL) {
+		char_nputs(CANT_FIND_IT, ch);
+		return;
+	}
+
+	act_nprintf(ch, scroll, NULL, TO_ROOM, POS_RESTING, N_RECITES_P);
+	act_nprintf(ch, scroll, NULL, TO_CHAR, POS_DEAD, YOU_RECITE_P);
+
+	if (number_percent() >= get_skill(ch,gsn_scrolls) * 4/5) {
+		char_nputs(MISPRONOUNCE_SYLLABLE, ch);
+		check_improve(ch,gsn_scrolls,FALSE,2);
+	} else {
+		obj_cast_spell(scroll->value[1], scroll->value[0],
+			       ch, victim, obj);
+	  	obj_cast_spell(scroll->value[2], scroll->value[0],
+			       ch, victim, obj);
+	  	obj_cast_spell(scroll->value[3], scroll->value[0],
+			       ch, victim, obj);
+	  	obj_cast_spell(scroll->value[4], scroll->value[0],
+			       ch, victim, obj);
+		check_improve(ch, gsn_scrolls, TRUE, 2);
+
+		if ((ch->last_fight_time != -1
+		     && current_time - ch->last_fight_time < FIGHT_DELAY_TIME)
+		||  (ch->fighting != NULL))
+			WAIT_STATE(ch, 2 * PULSE_VIOLENCE);
+	}
+
+	extract_obj(scroll);
+	return;
 }
 
 
@@ -2907,7 +2887,7 @@ void do_buy_pet(CHAR_DATA *ch, char *argument)
 
 		deduct_cost(ch,cost);
 		pet = create_mobile(pet->pIndexData);
-		pet->comm = COMM_NOTELL|COMM_NOSHOUT|COMM_NOCHANNELS;
+		pet->comm = COMM_NOTELL | COMM_NOSHOUT | COMM_NOCHANNELS;
 
 		char_to_room(pet, ch->in_room);
 		do_mount(ch, pet->name);
@@ -2947,7 +2927,7 @@ void do_buy_pet(CHAR_DATA *ch, char *argument)
 	pet = create_mobile(pet->pIndexData);
 	SET_BIT(pet->act, ACT_PET);
 	SET_BIT(pet->affected_by, AFF_CHARM);
-	pet->comm = COMM_NOTELL|COMM_NOSHOUT|COMM_NOCHANNELS;
+	pet->comm = COMM_NOTELL | COMM_NOSHOUT | COMM_NOCHANNELS;
 
 	argument = one_argument(argument, arg);
 	if (arg[0] != '\0') 

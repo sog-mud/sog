@@ -2,7 +2,7 @@
 #define _RESOURCE_H_
 
 /*
- * $Id: resource.h,v 1.77 1998-06-21 20:14:47 efdi Exp $
+ * $Id: resource.h,v 1.78 1998-06-21 22:39:56 efdi Exp $
  */
 
 #define msg(msgid, ch) vmsg(msgid, ch, ch)
@@ -808,6 +808,18 @@ enum {
 	SCATTER_ON_DIRT,
 	SCATTER_OVER_WATER,
 	SCATTER_AROUND,
+	QUAFF_WHAT,
+	DONT_HAVE_POTION,
+	CAN_QUAFF_ONLY_POTIONS,
+	TOO_POWERFUL_LIQUID,
+	N_QUAFFS_P,
+	YOU_QUAFF_P,
+	DONT_HAVE_SCROLL,
+	CAN_RECITE_ONLY_SCROLLS,
+	SCROLL_TOO_COMPLEX,
+	N_RECITES_P,
+	YOU_RECITE_P,
+	MISPRONOUNCE_SYLLABLE,
 };
 
 #endif

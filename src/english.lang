@@ -1,5 +1,5 @@
 #
-# $Id: english.lang,v 1.57 1998-06-21 20:14:28 efdi Exp $
+# $Id: english.lang,v 1.58 1998-06-21 22:40:13 efdi Exp $
 #
 
 NOTHING		"Nothing.\n\r"
@@ -806,3 +806,15 @@ ON_IT			"on it, "
 SCATTER_ON_DIRT		"scatter on the dirt."
 SCATTER_OVER_WATER	"scatter over the water."
 SCATTER_AROUND		"scatter around."
+QUAFF_WHAT		"Quaff what?\n\r"
+DONT_HAVE_POTION	"You do not have that potion.\n\r"
+CAN_QUAFF_ONLY_POTIONS	"You can quaff only potions.\n\r"
+TOO_POWERFUL_LIQUID	"This liquid is too powerful for you to drink.\n\r"
+N_QUAFFS_P		"$n quaffs $p."
+YOU_QUAFF_P		"You quaff $p."
+DONT_HAVE_SCROLL	"You do not have that scroll.\n\r"
+CAN_RECITE_ONLY_SCROLLS	"You can recite only scrolls.\n\r"
+SCROLL_TOO_COMPLEX	"This scroll is too complex for you to comprehend.\n\r"
+N_RECITES_P		"$n recites $p."
+YOU_RECITE_P		"You recite $p."
+MISPRONOUNCE_SYLLABLE	"You mispronounce a syllable.\n\r"
