@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.62 1999-09-08 10:40:12 fjoe Exp $
+ * $Id: recycle.c,v 1.63 1999-09-09 03:34:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -266,7 +266,6 @@ CHAR_DATA *char_new(MOB_INDEX_DATA *pMobIndex)
 
 	memset(ch, 0, size);
 
-	RESET_FIGHT_TIME(ch);
 	ch->last_death_time	= -1;
 	ch->hit			= 20;
 	ch->max_hit		= 20;
@@ -284,6 +283,7 @@ CHAR_DATA *char_new(MOB_INDEX_DATA *pMobIndex)
 		ch->pMobIndex = pMobIndex;
 	} else {
 		PC_DATA *pc = PC(ch);
+		RESET_FIGHT_TIME(ch);
 		pc->logon = current_time;
 		pc->version = PFILE_VERSION;
 		pc->buffer = buf_new(-1);
