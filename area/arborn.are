@@ -16,7 +16,7 @@ Arborn's personal healer stands here.
 ~
 human~
 ABa H 1000 0
-10000 0 1d1+1 1d1+1 1d1+1 magic
+200 0 1d1+1 1d1+1 1d1+1 magic
 0 0 0 0
 0 0 0 0
 stand stand female 0
@@ -780,6 +780,24 @@ trash 0 0
 0 0 0 0 0
 0 0 0 P
 G none
+#36160
+altar~
+@eng Pit@rus Яма~
+@eng Bottomless pit catches your eyes.@rus Очень глубокая яма притягивает взгляд.~
+unknown~
+container 0 0
+100 0 0 100 100
+0 0 0 P
+G none
+#36161
+nothing~
+@eng nothing@rus ничего~
+@eng Black indentation.@rus Черное пятно.~
+unknown~
+trash e AO
+0 0 0 0 0
+0 0 0 P
+G none
 #36195
 bag сумка~
 {Cstrangely light bag{x~
@@ -1000,6 +1018,11 @@ Quest storage~
 ~
 0 K inside
 S
+#36160
+@eng Яма@rus Pit~
+~
+0 0 inside
+S
 #36199
 ~
 ~
@@ -1026,6 +1049,8 @@ M 0 36101 4 36111 4	* TARGET (At the targets)
 M 0 36101 4 36111 4	* TARGET (At the targets)
 M 0 36101 4 36111 4	* TARGET (At the targets)
 M 0 36101 4 36111 4	* TARGET (At the targets)
+O 0 36160 0 36160	* Pit (Яма)
+P 0 36161 1 36160 1	* Pit: nothing
 S
 
 #MOBPROGS

@@ -884,9 +884,9 @@ armor A AF
 6 40 1500 P
 G plural
 #4918
-plate glowing arm~
-"3" glowing arm plates~
-Arm plates with the number "3" engraved on them lie here.~
+plate glowing arm наручи~
+@eng "3" glowing arm plates@rus "3" ~~сверкающие~~ ~~наручи~~~
+@eng Arm plates with the number "3" engraved on them lie here.@rus Наручи (arm plates) с выгравированной на них цифрой "3" лежат здесь.~
 brass~
 armor A AI
 4 4 4 2 0
@@ -938,9 +938,9 @@ armor A AF
 12 40 1500 P
 G plural
 #4924
-plate glowing arm~
-"6" glowing arm plates~
-Arm plates with the number "6" engraved on them lie here.~
+plate glowing arm наручи~
+@eng "6" glowing arm plates@rus "6" ~~сверкающие~~ ~~наручи~~~
+@eng Arm plates with the number "6" engraved on them lie here.@rus Наручи (arm plates) с выгравированной на них цифрой "6" лежат здесь.~
 brass~
 armor A AI
 8 8 8 4 0
@@ -992,9 +992,9 @@ armor A AF
 18 40 1500 P
 G plural
 #4930
-plate glowing arm~
-"9" glowing arm plates~
-Arm plates with the number "9" engraved on them lie here.~
+plate glowing arm наручи~
+@eng "9" glowing arm plates@rus "9" ~~сверкающие~~ ~~наручи~~~
+@eng Arm plates with the number "9" engraved on them lie here.@rus Наручи (arm plates) с выгравированной на них цифрой "9" лежат здесь.~
 brass~
 armor A AI
 12 12 12 6 0
@@ -1046,14 +1046,14 @@ armor A AF
 24 40 1500 P
 G plural
 #4936
-plate glowing arm~
-"12" glowing arm plates~
-Arm plates with the number "12" engraved on them lie here.~
+plate glowing arm наручи~
+@eng "12" glowing arm plates@rus "12" ~~сверкающие~~ ~~наручи~~~
+@eng Arm plates with the number "12" engraved on them lie here.@rus Наручи (arm plates) с выгравированной на них цифрой "12" лежат здесь.~
 brass~
 armor A AI
 16 16 16 8 0
 24 40 1500 P
-G none
+G plural
 #4937
 helm helmet шлем glowing~
 @eng "12" glowing helmet@rus "12" ~~сверкающий~~ ~~шлем~~~
@@ -1132,7 +1132,7 @@ cabinet конторка~
 @eng An ebony cabinet stands here.@rus Конторка (cabinet) из черного дерева стоит в углу.~
 ebony~
 furniture CRY 0
-B DFGHIJ DN BD BD
+B DFGHIJ DN BCDE BCDE
 0 0 0 P
 G none
 #0

@@ -627,7 +627,7 @@ gloves перчатки~
 @eng Black gloves lie here.@rus Черные перчатки (gloves) валяются на земле.~
 unknown~
 armor Yh AH
--20 -20 -20 -20 0
+20 20 20 20 0
 10 1 10000 P
 S 'peek' 100 A
 S 'steal' 100 A
@@ -1139,8 +1139,8 @@ S 'benediction' 100 A
 G male
 #70
 badge значок~
-@eng silver ruler badge@rus ~~серебряный~~ ~~значок~~ Рулера~
-@eng A silver bagde shines on the ground.@rus Серебряный значок (badge) с надписью "Ruler" блестит на земле.~
+@eng silver ruler badge@rus ~~серебрянный~~ ~~значок~~ Охранника Порядка~
+@eng A silver bagde shines on the ground.@rus Серебрянный значок (badge) с надписью "Закон и Порядок" блестит на земле.~
 silver~
 treasure MOTWZ A
 0 0 0 0 0

@@ -1,6 +1,5 @@
 #AREADATA
 Name Zoo of Midgaard~
-Builders valium~
 VNUMs 8200 8299
 Credits Anon~
 Security 9
@@ -29,14 +28,19 @@ EFNU 0 0 0
 stand stand male 100
 0 0 medium unknown
 #8201
-zoo keeper man~
-the zookeeper~
-A man sits behind the desk here.
+man zookeeper zoo keeper хранитель мужчина~
+@eng the zookeeper@rus хранитель~
+@eng A man sits behind the desk here.
+@rus За столом сидит мужчина (man).
 ~
-This is the zookeeper of the world famous midgaard zoo. He is in charge of 
+@eng This is the zookeeper of the world famous midgaard zoo. He is in charge of 
 the upkeep of all the animals and the running of the zoo in general. He has 
 slicked backgraesy hair and a long curly moustache. From the good state of 
 his clothes, you guess that he rarely goes near the animals here himself.
+@rus Это хранитель всемирно известного зоопарка Мидгаарда. В его 
+ответственность входит следить за животными и за работой всего 
+зоопарка в целом. У него прилизанные седые волосы, а по состоянию
+его одежды, вы понимаете, что он редко посещяет своих зверей сам.
 ~
 human~
 AB F 0 0
@@ -56,30 +60,36 @@ giant leech пиявка~
 ~
 bear~
 ABEF J 0 0
-3 0 2d6+35 29d1+1 1d6+0 claw
+7 0 2d6+35 29d1+1 1d6+0 claw
 7 7 7 10
 0 AB 0 0
 stand stand male 0
 0 0 medium unknown
 #8203
-tiger~
-the tiger~
-A tiger stands here ready to pounce.
+tiger тигр~
+@eng the tiger@rus тигр~
+@eng A tiger stands here ready to pounce.
+@rus Перед тобой стоит тигр (tiger), готовый к броску.
 ~
-cat~
+@eng cat@rus Кошка. Большая полосатая кошка. Он выглядит зло и голодно - это
+все, что ты успеваешь рассмотреть.
+~
 unique~
 ABEF J 0 0
 17 0 3d9+258 169d1+1 3d4+4 claw
 -3 -3 -3 7
 H AB 0 0
-stand stand female 0
+stand stand male 0
 0 0 medium unknown
 #8204
-dolphin~
-a dolphin~
-A dolphin swims happily here.
+dolphin дельфин~
+@eng a dolphin@rus дельфин~
+@eng A dolphin swims happily here.
+@rus Серый дельфин (dolphin) плещется перед тобой.
 ~
-water fowl~
+@eng water fowl@rus Большое, умное животное, которое отличается необыкновенно добрым
+характером и никогда не нападет первым.
+~
 unique~
 ABCE 0 50 0
 10 0 2d7+121 99d1+1 2d4+2 slap
@@ -107,34 +117,41 @@ IJ 0 0 0
 stand stand male 0
 0 0 medium unknown
 #8206
-crocodile~
-a crocodile~
-A crocodile floats just below the surface of the water.
+crocodile крокодил~
+@eng a crocodile@rus крокодил~
+@eng A crocodile floats just below the surface of the water.
+@rus Крокодил (crocodile) плавает, лишь едва погрузившись в воду.
 ~
-A big green scaly creature with very large teeth. You better hope that it has 
+@eng A big green scaly creature with very large teeth. You better hope that it has 
 been fed laterly.
+@rus Большая зеленая рептилия с такими здоровыми зубами, что тебе
+только и остается надеятся на то, что ее уже кормили сегодня.
 ~
 lizard~
 ABF 0 -100 8206
 13 0 2d10+170 129d1+1 2d5+3 cleave
 -1 -1 -1 8
 0 AB 0 0
-stand stand female 0
+stand stand male 0
 0 0 medium unknown
 #8207
-bear~
-the bear~
-A large bear growls louly as it advances.
+bear медведь~
+@eng the bear@rus медведь~
+@eng A large bear growls louly as it advances.
+@rus Огромный медведь (bear) рычит на тебя на всякий случай.
 ~
-This bear is one of the largest you have ever seen. The thought of what its 
+@eng This bear is one of the largest you have ever seen. The thought of what its 
 huge claws can do to your face makes you shudder     
+@rus Это самый большой медведь из всех, кого вы когда-либо видели.
+яьтЕго огромные габариты, острые клыки и когти заставляют вас
+задрожать.
 ~
 bear~
 ABF 0 0 0
 13 0 2d10+170 129d1+1 2d5+3 claw
 -1 -1 -1 8
 C AB 0 0
-stand stand female 0
+stand stand male 0
 0 0 medium unknown
 #8208
 baby dragon lizard huge 8ft дракончик~
@@ -155,28 +172,33 @@ AB 0 2 0
 19 0 3d9+308 189d1+1 2d7+5 blast
 -4 -4 -4 7
 0 0 0 0
-stand stand female 0
+stand stand male 0
 0 0 large unknown
 #8209
-elephant~
-the elephant~
-A elephant stands here.
+elephant слон~
+@eng the elephant@rus слон~
+@eng A elephant stands here.
+@rus Перед тобой стоит большой серый слон (elephant).
 ~
-A gray elephant with big ears.
+@eng A gray elephant with big ears.
+@rus Серый слон с большими ушами и деревоподобными ногами. Ничего 
+особенного.
 ~
 dragon~
 AB 0 100 0
 14 0 2d10+190 139d1+1 1d12+3 pierce
 -1 -1 -1 8
 C 0 0 0
-stand stand female 0
+stand stand male 0
 0 0 large unknown
 #8210
-gorilla~
-the gorilla~
-A gorilla stands here.
+gorilla горилла~
+@eng the gorilla@rus горилла~
+@eng A gorilla stands here.
+@rus Перед вами прыгает и ухает горилла (gorilla).
 ~
-A large hairy gorilla.
+@eng A large hairy gorilla.
+@rus Большая, сильная, волосатая горилла.
 ~
 human~
 ABF 0 0 0
@@ -223,11 +245,14 @@ AB 0 0 0
 stand stand female 0
 0 0 medium unknown
 #8231
-small bird~
-a small bird~
-A small bird flies around here.
+small bird птаха~
+@eng a small bird@rus птаха~
+@eng A small bird flies around here.
+@rus Маленькая пташка (bird) порхает вокруг тебя.
 ~
-The little birdy flies merily around in the sky twerping and whistling.
+@eng The little birdy flies merily around in the sky twerping and whistling.
+@rus Маленькая птичка, которая радостно летает по свету, беззаботно 
+насвистывая.
 ~
 song bird~
 A 0 0 0
@@ -237,25 +262,32 @@ A 0 0 0
 stand stand female 0
 0 0 small unknown
 #8232
-baby goat~
-a baby goat~
-A small baby goat chews a piece of grass here.
+baby goat козленок~
+@eng a baby goat@rus козленок~
+@eng A small baby goat chews a piece of grass here.
+@rus Маленький козленок (baby) жует травку.
 ~
-fox~
+@eng fox@rus Это маленькое неопытное существо целиком зависит от своих
+родителей, стоящих рядом. Несмотря на это, в его глазах еще нет
+того тупого выражения, которое отличает его племя.
+~
 unique~
 ABG 0 0 8232
 2 0 2d7+21 19d1+1 1d5+0 slash
 8 8 8 10
 0 0 0 0
-stand stand female 0
+stand stand male 0
 0 0 tiny unknown
 #8233
-mother goat~
-a mother goat~
-A medium sized goat stands here chewing.
+mother goat коза~
+@eng a mother goat@rus коза~
+@eng A medium sized goat stands here chewing.
+@rus Среднего размера коза (goat) стоит здесь и жует траву.
 ~
-The goat has a large round belly. As you stand looking at the goat it 
+@eng The goat has a large round belly. As you stand looking at the goat it 
 wanders over and stats chewing at your clothes.
+@rus У козы большие круглые глаза. Пока вы рассматриваете ее, она
+отрешенно смотрит сквозь вас и пожевывает траву.
 ~
 fox~
 ABG 0 0 8232
@@ -265,12 +297,15 @@ ABG 0 0 8232
 stand stand female 0
 0 0 medium unknown
 #8234
-father goat~
-a father goat~
-A large goat stands here.
+father goat козел~
+@eng a father goat@rus козел~
+@eng A large goat stands here.
+@rus Здоровый козел (goat) вылупился на тебя.
 ~
-The large goat stands in front of you and stares right into your eyes. His 
+@eng The large goat stands in front of you and stares right into your eyes. His 
 large horns look as if they could do a nasty bit of damage.
+@rus Здоровый козел стоит перед тобой, нагнув голову и готовый к атаке.
+Похоже, что его рога могут наделать в тебе много дырок.
 ~
 fox~
 ABG 0 0 8232
@@ -280,27 +315,33 @@ ABG 0 0 8232
 stand stand female 0
 0 0 medium unknown
 #8235
-sad sorry donkey~
-a donkey~
-A sad sorry looking donkey is here.
+donkey ослик sad sorry~
+@eng a donkey@rus ослик~
+@eng A sad sorry looking donkey is here.
+@rus Виновато выглядящий ослик (donkey) может вызвать только жалость.
 ~
-The donkey looks sad and miserable. Its eyes have sleep in the corners and 
+@eng The donkey looks sad and miserable. Its eyes have sleep in the corners and 
 its right ears has a chunk missing from it.
+@rus Ослик выглядит очень виновато, его глаза слезяться, а из 
+правого уха выдран кусок.
 ~
 dog~
 AB 0 0 0
 5 0 2d6+60 49d1+1 1d6+1 stab
 5 5 5 9
 0 0 0 0
-stand stand female 0
+stand stand male 0
 0 0 medium unknown
 #8236
-old horse~
-an old horse~
-An old horse stands here. 
+old horse кляча~
+@eng an old horse@rus кляча~
+@eng An old horse stands here. 
+@rus Старая кляча (horse) стоит здесь.
 ~
-The horse looked as if it was once a war horse. It is big and muscular and 
+@eng The horse looked as if it was once a war horse. It is big and muscular and 
 can proberly still do a lot of damage despite being retired.
+@rus Эта кобыла выглядит так, как будто её не кормили уже очень долго,
+но её мускулатура говорит, что когда-то она была способна на многое.
 ~
 fox~
 AB 0 0 0
@@ -310,13 +351,17 @@ I 0 C 0
 stand stand female 0
 0 0 medium unknown
 #8237
-parrot harvey~
-Harvey the parrot~
-Harvey the green parrot sits on a perch here.
+parrot harvey попугай~
+@eng Harvey the parrot@rus попугай~
+@eng Harvey the green parrot sits on a perch here.
+@rus Попугай Харви (parrot) сидит на жердочке.
 ~
-This green parrot is sitting on its perch. It watches your every move. Below 
+@eng This green parrot is sitting on its perch. It watches your every move. Below 
 the parrot, fixed to its perch is a name plaque. The plaque reads 'Harvey the 
 talking parrot, please mind your fingers'.
+@rus Этот зеленый попугай сидит на своей жердочке. Он наблюдает за
+всеми твоими действиями. Перед ним закреплена табличка. На ней 
+написанно "Харви -- говорящий попугай, клешнями не трогать!"
 ~
 song bird~
 AB 0 0 0
@@ -476,7 +521,8 @@ D0
 ~
 Z -1 3114
 D2
-The turnstiles are study and can only be made to turn in one direction.
+@eng The turnstiles are study and can only be made to turn in one direction.
+@rus Турникеты могут быть повернуты лишь в одном направлении.
 ~
 turnstile~
 Z -1 8205
@@ -500,22 +546,26 @@ is the Main Zoo.
 ~
 0 0 city
 D1
-You can see a few huts and pens to the East.
+@eng You can see a few huts and pens to the East.
+@rus Вы видите несколько хижин.
 ~
 ~
 Z -1 8230
 D2
-You can see a small path.
+@eng You can see a small path.
+@rus Вы видите маленькую тропинку.
 ~
 ~
 Z -1 8204
 D3
-The building appears to be a gift shop for the tourists.
+@eng The building appears to be a gift shop for the tourists.
+@rus Вы видите магазин сувениров.
 ~
 door~
 AFZ -1 8205
 D5
-You can see coins glistening in the murky water at the bottom of the well.
+@eng You can see coins glistening in the murky water at the bottom of the well.
+@rus Вы видите несколько монет на дне колодца.
 ~
 grate~
 ABCZ 8200 8203
@@ -530,7 +580,8 @@ enough hand and foot holds to allow you to climb up back to the surface.
 ~
 0 A swim
 D4
-You can see the sky.
+@eng You can see the sky.
+@rus Ты можешь видеть небо.
 ~
 grate~
 Z 8200 8201
@@ -545,17 +596,20 @@ important looking building and to both the north and south the path continues.
 ~
 0 0 city
 D0
-You can see a Well.
+@eng You can see a Well.
+@rus Колодец.
 ~
 ~
 Z -1 8201
 D2
-You can see a crossroads.
+@eng You can see a crossroads.
+@rus Вы видите прекресток.
 ~
 ~
 Z -1 8207
 D3
-The door to the building is labeled 'Zoo Keeper'.
+@eng The door to the building is labeled 'Zoo Keeper'.
+@rus Дверь с табличкой 'Хранитель зоопарка.'
 ~
 door~
 ABZ -1 8206
@@ -584,12 +638,15 @@ sign~
 +----------------------+
 ~
 D0
-A study turnstile leading out of the zoo.
+@eng A study turnstile leading out of the zoo.
+@rus Крепкие турникеты ведут наружу.
 ~
 turnstile~
 Z -1 8200
 D1
-You can see the zoo Well though the door.
+@eng You can see the zoo Well though the door.
+@rus Вы видите несколько колодец через дверь.
+Вы видите колодец через дверь.
 ~
 door~
 AFZ -1 8201
@@ -622,22 +679,26 @@ north, east, south and west.
 ~
 0 0 city
 D0
-You can see a small path.
+@eng You can see a small path.
+@rus Вы видите маленькую тропинку.
 ~
 ~
 Z -1 8204
 D1
-You can see a small path.
+@eng You can see a small path.
+@rus Вы видите маленькую тропинку.
 ~
 ~
 Z -1 8208
 D2
-You can see a small path.
+@eng You can see a small path.
+@rus Вы видите маленькую тропинку.
 ~
 ~
 Z -1 8209
 D3
-You can see a small path.
+@eng You can see a small path.
+@rus Вы видите маленькую тропинку.
 ~
 ~
 Z -1 8210
@@ -652,24 +713,28 @@ and south there are cages. The path continues to the east and west.
 ~
 0 0 city
 D0
-A gorilla stands in the cage pounding his chest at you, as if he was daring 
+@eng A gorilla stands in the cage pounding his chest at you, as if he was daring 
 you. Surely they can't be that clever?
+@rus На севере стоит горилла и пытается испугать тебя.
 ~
 door cage~
 ABCFZ 8200 8211
 D1
-You can see a small hut in the distance.
+@eng You can see a small hut in the distance.
+@rus Вы видите хижину на некотором расстоянии.
 ~
 ~
 Z -1 8213
 D2
-A big brown bear stands upright and growls as you walk towards the cage to 
+@eng A big brown bear stands upright and growls as you walk towards the cage to 
 get a better look.
+@rus Большой коричневый медведь виден через клетку.
 ~
 door cage~
 ABCFZ 8200 8212
 D3
-You can see the crossroads.
+@eng You can see the crossroads.
+@rus Вы видите перекресток.
 ~
 ~
 Z -1 8207
@@ -683,18 +748,21 @@ and south there are cages. The path leads back north.
 ~
 0 0 city
 D0
-You can see the crossroads.
+@eng You can see the crossroads.
+@rus Вы видите перекресток.
 ~
 ~
 Z -1 8207
 D2
-A large Tiger can be seen through the bars of the cage door. The tiger is 
+@eng A large Tiger can be seen through the bars of the cage door. The tiger is 
 wandering up and down in the cage and looks slightly bored.
+@rus Вы видите большого тигра.
 ~
 cage door~
 ABCFZ 8200 8214
 D3
-A large Elephant stands idly in the cage to the west.
+@eng A large Elephant stands idly in the cage to the west.
+@rus Вы видите большого слона.
 ~
 cage door~
 ABCFZ 8200 8215
@@ -709,8 +777,9 @@ path leads back to the east.
 ~
 0 0 city
 D0
-Numerous crocodiles can be seen through the bars in the cage door. 
+@eng Numerous crocodiles can be seen through the bars in the cage door. 
 The crocodiles thrash about in the pools water.
+@rus Несколько крокодилов видны через прутья.
 ~
 cage door~
 ABCFZ 8200 8216
@@ -720,8 +789,9 @@ You can see the crossroads.
 ~
 Z -1 8207
 D2
-Numerous dolphins can be seen through the bars in the cage door. They are 
+@eng Numerous dolphins can be seen through the bars in the cage door. They are 
 playfully frolicing in the water.
+@rus Несколько дельфинов видны через прутья.
 ~
 door cage~
 ABCFZ 8200 8217
@@ -736,7 +806,8 @@ a large uprooted tree here. The door out of the cage is to the south.
 ~
 0 0 city
 D2
-You can see a small path past the cage door.
+@eng You can see a small path past the cage door.
+@rus Через дверь видна маленькая тропинка.
 ~
 door cage~
 ABCFZ 8200 8208
@@ -753,7 +824,8 @@ hold of it. The door out of the cage is to the north.
 ~
 0 0 city
 D0
-You can see a small path past the cage door.
+@eng You can see a small path past the cage door.
+@rus Вы видите маленькую тропинку.
 ~
 door cage~
 ABCFZ 8200 8208
@@ -767,17 +839,21 @@ hut is to the east of here.
 ~
 0 0 city
 D1
-The door is quite weak.
+@eng The door is quite weak.
+@rus вы видите хлипкую дверь.
+Вы видите хлипкую дверь.
 ~
 door~
 Z -1 8219
 D2
-You can see a small path.
+@eng You can see a small path.
+@rus Вы видите маленькую тропинку.
 ~
 ~
 Z -1 8218
 D3
-You can see a small path.
+@eng You can see a small path.
+@rus Вы видите маленькую тропинку.
 ~
 ~
 Z -1 8208
@@ -793,7 +869,8 @@ S
 ~
 0 0 city
 D0
-You can see a small path through the door.
+@eng You can see a small path through the door.
+@rus Через дверь видна маленькая тропинка.
 ~
 cage door~
 ABCFZ 8200 8209
@@ -807,7 +884,8 @@ dust. A door out of the cage is to the east.
 ~
 0 0 city
 D1
-You can see a samll path through the door.
+@eng You can see a samll path through the door.
+@rus Вы видите маленькую тропинку.
 ~
 cage door~
 ABCFZ 8200 8209
@@ -821,7 +899,8 @@ with a large pool of water. A door out of the cage is to the south.
 ~
 0 0 swim
 D2
-You can see a small path through the door.
+@eng You can see a small path through the door.
+@rus Вы видите маленькую тропинку через клетку.
 ~
 cage door~
 ABCFZ 8200 8210
@@ -835,7 +914,8 @@ A door out of the cage is to the north.
 ~
 0 0 swim
 D0
-You can see a small path through the door.
+@eng You can see a small path through the door.
+@rus Через дверь видна маленькая тропинка.
 ~
 cage door~
 ABCFZ 8200 8210
@@ -849,17 +929,20 @@ and south there are cages. The path leads back north.
 ~
 0 0 city
 D0
-You can see a small path through the door.
+@eng You can see a small path through the door.
+@rus Вы видите маленькую тропинку.
 ~
 ~
 Z -1 8213
 D1
-You can see a gigantic lizard through the cage door.
+@eng You can see a gigantic lizard through the cage door.
+@rus Через прутья вы видите огромного ящера.
 ~
 cage door~
 ABCFZ 8200 8220
 D2
-You can see a white horned horse through the cage door.
+@eng You can see a white horned horse through the cage door.
+@rus Через прутья вы видите рогатую лошадь.
 ~
 cage door~
 ABCFZ 8200 8221
@@ -875,7 +958,8 @@ west.
 ~
 0 D inside
 D3
-The door is quite weak.
+@eng The door is quite weak.
+@rus Вы видите хлипкую дверь.
 ~
 door~
 Z -1 8213
@@ -889,7 +973,8 @@ of all stuff. A door out of the cage is to the west.
 ~
 0 0 city
 D3
-You can see a small path through the cage door.
+@eng You can see a small path through the cage door.
+@rus Через дверь видна маленькая тропинка.
 ~
 cage door~
 ABCFZ 8200 8218
@@ -903,7 +988,8 @@ A door out of the cage is to the north.
 ~
 0 0 city
 D0
-You can see a small path through the cage door.
+@eng You can see a small path through the cage door.
+@rus Вы видите маленькую тропинку.
 ~
 cage door~
 ABCFZ 8200 8218
@@ -917,12 +1003,14 @@ To the west is the zoo's well and to the east there is a small path.
 ~
 0 0 city
 D1
-You can see a small path.
+@eng You can see a small path.
+@rus Вы видите маленькую тропинку.
 ~
 ~
 Z -1 8231
 D3
-You can see a Well.
+@eng You can see a Well.
+@rus Вы видите колодец.
 ~
 ~
 Z -1 8201
@@ -938,22 +1026,25 @@ continues to the east and the entrance is west.
 ~
 0 0 city
 D0
-You can see a family of goats.
+@eng You can see a family of goats.
 ~
 ~
 Z -1 8232
 D1
-You can see a small path
+@eng You can see a small path
+@rus Вы видите маленькую тропинку.
 ~
 ~
 Z -1 8234
 D2
-You can see some pigs wollowing in mud.
+@eng You can see some pigs wollowing in mud.
+@rus Вы видите свиней, купающихся в грязи
 ~
 ~
 Z -1 8233
 D3
-You can see the entrance way.
+@eng You can see the entrance way.
+@rus Вы видите вход.
 ~
 ~
 Z -1 8230
@@ -967,7 +1058,8 @@ A small path is to the south.
 ~
 0 0 city
 D2
-You can see a small path.
+@eng You can see a small path.
+@rus Вы видите маленькую тропинку.
 ~
 ~
 Z -1 8231
@@ -982,7 +1074,8 @@ A foul smell fills your nostrils. You can go back to the path to the north.
 ~
 0 0 city
 D0
-You can see a small path.
+@eng You can see a small path.
+@rus Вы видите маленькую тропинку.
 ~
 ~
 Z -1 8231
@@ -998,17 +1091,20 @@ west.
 ~
 0 0 city
 D0
-You can see birds flying in a large wood and mesh structure.
+@eng You can see birds flying in a large wood and mesh structure.
+@rus Вы видите птиц, летающих по огромной клетке.
 ~
 door~
 ABZ -1 8236
 D2
-You can see a horses head poking out of a stable door.
+@eng You can see a horses head poking out of a stable door.
+@rus Вы видите лошадиную голову, торчащую из стояла.
 ~
 door~
 ABZ -1 8235
 D3
-You can see a small path.
+@eng You can see a small path.
+@rus Вы видите маленькую тропинку.
 ~
 ~
 Z -1 8231
@@ -1024,7 +1120,8 @@ walls. There is a door out to the north.
 ~
 0 D inside
 D0
-Through the stable door you can see a small path with a aviry in the distance.
+@eng Through the stable door you can see a small path with a aviry in the distance.
+@rus Через двери стояла вы видите тропинку и клетки с птицами.
 ~
 door~
 ABZ -1 8234
@@ -1038,12 +1135,14 @@ a door out is to the south.
 ~
 0 D inside
 D0
-You can see the aviary continue.
+@eng You can see the aviary continue.
+@rus Вы видите продолжение клетки.
 ~
 ~
 Z -1 8237
 D2
-You can see a small path through the window in the door.
+@eng You can see a small path through the window in the door.
+@rus Вы видите маленькую тропинку через окошко в двери.
 ~
 door~
 ABZ -1 8234
@@ -1056,12 +1155,14 @@ the South.
 ~
 0 D field
 D2
-You can see the aviary continue.
+@eng You can see the aviary continue.
+@rus Вы видите продолжение клетки.
 ~
 ~
 Z -1 8236
 D3
-You can see the aviary continue.
+@eng You can see the aviary continue.
+@rus Вы видите продолжение клетки.
 ~
 ~
 Z -1 8238
@@ -1073,7 +1174,8 @@ S
 ~
 0 D inside
 D1
-You can see the aviary continue.
+@eng You can see the aviary continue.
+@rus Вы видите продолжение клетки.
 ~
 ~
 Z -1 8237

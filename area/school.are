@@ -1,5 +1,6 @@
 #AREADATA
 Name MUD School~
+Builders diogen~
 VNUMs 3700 3799
 Credits Hatchet~
 Security 9
@@ -30,14 +31,14 @@ stand stand male 0
 blob пузырь~
 @eng the blob@rus пузырь~
 @eng The blob is here, waiting to eat you up.
-@rus Пузырь (blob) тут, он ждет тебя чтобы съесть!
+@rus Пузырь (blob) тут, он ждет тебя, чтобы съесть!
 ~
 @eng He is big, he is bad.  You don't want to fight him when he isn't chained up.
 Perhaps now would be a good time to flee from him!!!  If you don't flee, you
 would really suffer the consequences.
 @rus Он большой, он плохой. Ты не хочешь дразнить его, пока он не сидит на цепи.
-Возможно сейчас хорошее время, чтобы УБЕЖАТЬ (flee) от него!!! Если ты не
-убежишь, то вероятно пострадаешь от него.
+Возможно, сейчас хорошее время, чтобы УБЕЖАТЬ (flee) от него!!! Если ты не
+убежишь, то, вероятно, пострадаешь от него.
 ~
 unique~
 ABGe C 0 0
@@ -126,8 +127,8 @@ big creature создание~
 ~
 @eng He looks mean, and you just might have a small problem killing him, but he
 looks like a great prize!!!
-@rus Он выглядит недоброжелательно и ты можешь иметь небольший проблемы убивая
-его, но выглядит он очень аппетитно.
+@rus Он выглядит недоброжелательно, и у тебя могут возникнуть проблемы в схватке
+с ним, но выглядит он очень аппетитно.
 ~
 school monster~
 AB JZ 0 0
@@ -226,7 +227,7 @@ V 37004
 fox лис~
 @eng the fox@rus лис~
 @eng A fox is here staring at you.
-@rus Лис (fox)... пялит на тебя глазки.
+@rus Лис (fox) пялит на тебя свои глупые глазенки.
 ~
 @eng It's fur might be worth money.
 @rus Ага... его мех, наверное, стоит хороших денег!
@@ -462,143 +463,231 @@ Merc Industries
 G male
 #3705
 cloak sub merc платок~
-a sub issue cloak~
-You see a sub issue cloak here.~
+@eng a sub issue cloak@rus ~~учебный~~ ~~платок~~~
+@eng You see a sub issue cloak here.@rus Учебный платок (cloak) лежит на полу.~
 cloth~
 armor U AC
 1 1 1 0 1
 0 40 72 P
 E
+платок~
+@eng You see a cloak of great but cheap craftsmanship.  Imprinted on the side is:
+Merc Industries
+@rus Ты видишь искусно выделанный, но дешевый платок. Надпись на нем гласит:
+Merc Industries
+~
+E
+платок~
+@eng You see a cloak of great but cheap craftsmanship.  Imprinted on the side is:
+Merc Industries
+@rus Ты видишь искусно выделанный, но дешевый платок. Надпись на нем гласит:
+Merc Industries
+~
+E
 cloak~
-You see a cloak of great but cheap craftsmanship.  Imprinted on the side is:
+@eng You see a cloak of great but cheap craftsmanship.  Imprinted on the side is:
+Merc Industries
+@rus Ты видишь искусно выделанный, но дешевый платок. Надпись на нем гласит:
 Merc Industries
 ~
 G male
 #3706
-helmet sub merc~
-a sub issue helmet~
-You see a sub issue helmet here.~
+helmet sub merc шлем~
+@eng a sub issue helmet@rus ~~учебный~~ ~~шлем~~~
+@eng You see a sub issue helmet here.@rus Учебный шлем (helm) лежит здесь.~
 leather~
 armor U AE
 1 1 1 0 0
 0 30 72 P
 E
-helmet~
-You see a helmet of great but cheap craftsmanship.  Imprinted on the side is:
+шлем~
+@eng You see a helmet of great but cheap craftsmanship.  Imprinted on the side is:
+Merc Industries
+@rus Ты видишь искусно сделанный, но дешевый шлем. Надпись на нем гласит:
 Merc Industries
 ~
-G none
+E
+helmet~
+@eng You see a helmet of great but cheap craftsmanship.  Imprinted on the side is:
+Merc Industries
+@rus Ты видишь искусно сделанный, но дешевый шлем. Надпись на нем гласит:
+Merc Industries
+~
+G male
 #3707
-leggings sub merc~
-a pair of sub issue leggings~
-You see a pair of sub issue leggings here.~
+leggings sub merc штаны~
+@eng a pair of sub issue leggings@rus ~~учебные~~ ~~штаны~~~
+@eng You see a pair of sub issue leggings here.@rus Учебные штаны (leggings) лежат здесь.~
 leather~
 armor U AF
 1 1 1 0 0
 0 30 72 P
 E
-leggings~
-You see leggings of great but cheap craftsmanship.  Imprinted on the side is:
+штаны~
+@eng You see leggings of great but cheap craftsmanship.  Imprinted on the side is:
+Merc Industries
+@rus Ты видишь хорошо выделанные, но дешевые штаны. Надпись на них гласит:
 Merc Industries
 ~
-G none
+E
+leggings~
+@eng You see leggings of great but cheap craftsmanship.  Imprinted on the side is:
+Merc Industries
+@rus Ты видишь хорошо выделанные, но дешевые штаны. Надпись на них гласит:
+Merc Industries
+~
+G plural
 #3708
-boots sub merc~
-a pair of sub issue boots~
-You see a pair of sub issue boots here.~
+boots sub merc сапоги~
+@eng a pair of sub issue boots@rus ~~тренировочные~~ ~~сапоги~~~
+@eng You see a pair of sub issue boots here.@rus Тренировочные сапоги (boots) стоят здесь.~
 leather~
 armor U AG
 1 1 1 0 0
 0 30 72 P
 E
-boots~
-You see boots of great but cheap craftsmanship.  Imprinted on the side is:
+сапоги~
+@eng You see boots of great but cheap craftsmanship.  Imprinted on the side is:
+Merc Industries
+@rus Ты видишь сапоги, сшитые добротно, но из дешевой кожи. Надпись на них гласит:
 Merc Industries
 ~
-G none
+E
+boots~
+@eng You see boots of great but cheap craftsmanship.  Imprinted on the side is:
+Merc Industries
+@rus Ты видишь сапоги, сшитые добротно, но из дешевой кожи. Надпись на них гласит:
+Merc Industries
+~
+G plural
 #3709
-gloves sub merc~
-a pair of sub issue gloves~
-You see a pair of sub issue gloves here.~
+gloves sub merc перчатки~
+@eng a pair of sub issue gloves@rus ~~учебные~~ ~~перчатки~~~
+@eng You see a pair of sub issue gloves here.@rus Учебные перчатки (gloves) брошены здесь.~
 leather~
 armor U AH
 1 1 1 0 0
 0 10 72 P
 E
-gloves~
-You see gloves of great but cheap craftsmanship.  Imprinted on the side is:
+перчатки~
+@eng You see gloves of great but cheap craftsmanship.  Imprinted on the side is:
+Merc Industries
+@rus Ты видишь перчатки, добротно сшитые из дешевой кожи. Надпись на них гласит:
 Merc Industries
 ~
-G none
+E
+gloves~
+@eng You see gloves of great but cheap craftsmanship.  Imprinted on the side is:
+Merc Industries
+@rus Ты видишь перчатки, добротно сшитые из дешевой кожи. Надпись на них гласит:
+Merc Industries
+~
+G plural
 #3710
-sleeves sub merc~
-a pair of sub issue sleeves~
-You see a pair of sub issue sleeves here.~
+sleeves sub merc нарукавники~
+@eng a pair of sub issue sleeves@rus ~~учебные~~ ~~нарукавники~~~
+@eng You see a pair of sub issue sleeves here.@rus Учебные нарукавники (sleeves) брошены здесь.~
 leather~
 armor U AI
 1 1 1 0 0
 0 20 72 P
 E
-sleeves~
-You see sleeves of great but cheap craftsmanship.  Imprinted on the side is:
+нарукавники~
+@eng You see leggings of great but cheap craftsmanship.  Imprinted on the side is:
+Merc Industries
+@rus Ты видишь аккуратно сшитые, но дешевые нарукавники. Надпись на них гласит:
 Merc Industries
 ~
-G none
+E
+sleeves~
+@eng You see sleeves of great but cheap craftsmanship.  Imprinted on the side is:
+Merc Industries
+@rus Ты видишь аккуратно сшитые, но дешевые нарукавники. Надпись на них гласит:
+Merc Industries
+~
+G plural
 #3711
-cape sub merc~
-a sub issue cape~
-You see a sub issue cape here.~
+cape sub merc накидка~
+@eng a sub issue cape@rus ~~учебная~~ ~~накидка~~~
+@eng You see a sub issue cape here.@rus Учебная накидка (cape) брошена здесь.~
 cloth~
 armor U AK
 1 1 1 0 0
 0 20 72 P
 E
-cape~
-You see a cape of great but cheap craftsmanship.  Imprinted on the side is:
+накидка~
+@eng You see a cape of great but cheap craftmanship. An inscription on the side is:
+Merc Industries
+@rus Ты видишь прекрасно сшитую, но дешевую накидку. Надпись на ней гласит:
 Merc Industries
 ~
-G none
+E
+cape~
+@eng You see a cape of great but cheap craftsmanship.  Imprinted on the side is:
+Merc Industries
+@rus Ты видишь прекрасно сшитую, но дешевую накидку. Надпись на ней гласит:
+Merc Industries
+~
+G female
 #3712
-belt sub merc~
-a sub issue belt~
-You see a sub issue belt here.~
+belt sub merc пояс~
+@eng a sub issue belt@rus ~~учебный~~ ~~пояс~~~
+@eng You see a sub issue belt here.@rus Учебный пояс (belt) лежит здесь.~
 leather~
 armor U AL
 1 1 1 0 0
 0 10 72 P
 E
-belt~
-You see a belt of great but cheap craftsmanship.  Imprinted on the side is:
+пояс~
+@eng You see a belt of great but cheap craftsmanship.  Imprinted on the side is:
+Merc Industries
+@rus Ты видишь прекрасно сшитый, но дешевый пояс. Надпись на нем гласит:
 Merc Industries
 ~
-G none
+E
+belt~
+@eng You see a belt of great but cheap craftsmanship.  Imprinted on the side is:
+Merc Industries
+@rus Ты видишь прекрасно сшитый, но дешевый пояс. Надпись на нем гласит:
+Merc Industries
+~
+G male
 #3713
-bracer sub merc~
-a sub issue bracer~
-You see a sub issue bracer here.~
+bracer sub merc браслет~
+@eng a sub issue bracer@rus ~~учебный~~ ~~браслет~~~
+@eng You see a sub issue bracer here.@rus Учебный браслет (bracer) лежит здесь.~
 bronze~
 armor U AM
 0 1 1 0 0
 0 10 48 P
 E
-bracer~
-You see a bracer of great but cheap craftsmanship.  Imprinted on the side is:
+браслет~
+@eng You see a bracer of great but cheap craftsmanship.  Imprinted on the side is:
+Merc Industries
+@rus Ты видишь искусно сделанный, но дешевый браслет. Надпись на нем гласит:
 Merc Industries
 ~
-G none
+E
+bracer~
+@eng You see a bracer of great but cheap craftsmanship.  Imprinted on the side is:
+Merc Industries
+@rus Ты видишь искусно сделанный, но дешевый браслет. Надпись на нем гласит:
+Merc Industries
+~
+G male
 #3714
-key~
-a key~
-You see a very important key here!~
+key ключ~
+@eng a key@rus ключ~
+@eng You see a very important key here!@rus Ты видишь очень нужный ключ (key) здесь!~
 brass~
 key P A
 0 0 0 0 0
 0 10 0 P
-G none
+G male
 #3715
-diploma~
-a mud school diploma~
-You see a mud school diploma here.~
+diploma диплом~
+@eng a mud school diploma@rus ~~диплом~~ об окончании МУД школы~
+@eng You see a mud school diploma here.@rus Ты видишь диплом (diploma) об окончании МУД школы~
 vellum~
 treasure GU AO
 0 0 0 0 0
@@ -608,17 +697,32 @@ A
 A
 5 1
 E
+диплом~
+@eng This document shows that you have graduated from Mud School.
+It also has magical effects on your abilities if you hold it!
+ 
+Merc Industries
+@rus Настоящий документ свидетельствует об успешном окончании школы MUD.
+Возьми его в руку, и твои способности усилятся!
+ 
+Merc Industries
+~
+E
 diploma~
-This document shows that you have graduated from Mud School.
+@eng This document shows that you have graduated from Mud School.
 It also has magical effects on your abilities if you hold it!
 
 Merc Industries
+@rus Настоящий документ свидетельствует об успешном окончании школы MUD.
+Возьми его в руку, и твои способности усилятся!
+ 
+Merc Industries
 ~
-G none
+G male
 #3716
-banner war merc~
-a war banner~
-A war banner is on the floor here.~
+banner war merc знамя~
+@eng a war banner@rus ~~боевое~~ ~~знамя~~~
+@eng A war banner is on the floor here.@rus Боевое знамя (banner) лежит на полу.~
 cloth~
 light AG A
 0 0 200 0 0
@@ -628,14 +732,20 @@ A
 A
 20 -1
 E
+знамя~
+@eng This is the official Merc war banner to see you through the darkest realm!
+@rus Это официальное знамя Merc, чтобы освещать тебе путь в этом мире!
+~
+E
 banner~
-This is the official Merc war banner to see you through the darkest realm!
+@eng This is the official Merc war banner to see you through the darkest realm!
+@rus Это официальное знамя Merc, чтобы освещать тебе путь в этом мире!
 ~
 G none
 #3717
-spear sub merc~
-a sub issue spear~
-You see a sub issue spear here.~
+spear sub merc копье~
+@eng a sub issue spear@rus ~~учебное~~ ~~копье~~~
+@eng You see a sub issue spear here.@rus Учебное копье (spear) лежит здесь.~
 wood~
 weapon U AN
 spear 1 6 thrust K
@@ -643,15 +753,24 @@ spear 1 6 thrust K
 A
 18 1
 E
+копье~
+@eng You see a spear of great but cheap craftsmanship.  Imprinted on the side is:
+Merc Industries
+@rus Ты видишь хорошо сделанное, но дешевое копье. Надпись на нем гласит:
+Merc Industries
+~
+E
 spear~
-You see a spear of great but cheap craftsmanship.  Imprinted on the side is:
+@eng You see a spear of great but cheap craftsmanship.  Imprinted on the side is:
+Merc Industries
+@rus Ты видишь хорошо сделанное, но дешевое копье. Надпись на нем гласит:
 Merc Industries
 ~
 G none
 #3718
-staff sub merc~
-a sub issue staff~
-You see a sub issue staff here.~
+staff sub merc посох~
+@eng a sub issue staff@rus ~~учебный~~ ~~посох~~~
+@eng You see a sub issue staff here.@rus Учебный посох (staff) лежит здесь.~
 wood~
 weapon U AN
 staff 1 5 pound F
@@ -661,15 +780,24 @@ A
 A
 19 1
 E
-staff~
-You see a staff of great but cheap craftsmanship.  Imprinted on the side is:
+посох~
+@eng You see a staff of great but cheap craftsmanship.  Imprinted on the side is:
+Merc Industries
+@rus Ты видишь красиво выструганный, но дешевый посох. На нем вырезано:
 Merc Industries
 ~
-G none
+E
+staff~
+@eng You see a staff of great but cheap craftsmanship.  Imprinted on the side is:
+Merc Industries
+@rus Ты видишь красиво выструганный, но дешевый посох. На нем вырезано:
+Merc Industries
+~
+G male
 #3719
-axe sub merc~
-a sub issue axe~
-You see a sub issue axe here.~
+axe sub merc топор~
+@eng a sub issue axe@rus ~~учебный~~ ~~топор~~~
+@eng You see a sub issue axe here.@rus Учебный топор (axe) лежит здесь.~
 bronze~
 weapon U AN
 axe 1 6 chop 0
@@ -677,15 +805,24 @@ axe 1 6 chop 0
 A
 18 1
 E
-axe~
-You see an axe of great but cheap craftsmanship.  Imprinted on the side is:
+топор~
+@eng You see an axe of great but cheap craftsmanship.  Imprinted on the side is:
+Merc Industries
+@rus Ты видишь хорошо сделанный, но дешевый топор. Надпись на топорище гласит:
 Merc Industries
 ~
-G none
+E
+axe~
+@eng You see an axe of great but cheap craftsmanship.  Imprinted on the side is:
+Merc Industries
+@rus Ты видишь хорошо сделанный, но дешевый топор. Надпись на топорище гласит:
+Merc Industries
+~
+G male
 #3720
-flail sub merc~
-a sub issue flail~
-You see a sub issue flail here.~
+flail sub merc цеп~
+@eng a sub issue flail@rus ~~учебный~~ ~~цеп~~~
+@eng You see a sub issue flail here.@rus Ты видишь здесь учебный цеп (flail).~
 bronze~
 weapon U AN
 flail 1 5 crush 0
@@ -693,15 +830,24 @@ flail 1 5 crush 0
 A
 19 1
 E
-flail~
-You see a flail of great but cheap craftsmanship.  Imprinted on the side is:
+цеп~
+@eng You see a flail of great but cheap craftsmanship.  Imprinted on the side is:
+Merc Industries
+@rus Ты видишь цеп, сделанный добротно, но не сильно дорогой. Надпись на нем гласит:
 Merc Industries
 ~
-G none
+E
+flail~
+@eng You see a flail of great but cheap craftsmanship.  Imprinted on the side is:
+Merc Industries
+@rus Ты видишь цеп, сделанный добротно, но не сильно дорогой. Надпись на нем гласит:
+Merc Industries
+~
+G male
 #3721
-whip sub merc~
-a sub issue whip~
-You see a sub issue whip here.~
+whip sub merc плеть~
+@eng a sub issue whip@rus ~~учебная~~ ~~плеть~~~
+@eng You see a sub issue whip here.@rus Учебная плеть (whip) свернута кольцами.~
 leather~
 weapon U AN
 whip 2 2 whip 0
@@ -709,15 +855,24 @@ whip 2 2 whip 0
 A
 18 2
 E
-whip~
-You see a whip of great but cheap craftsmanship.  Imprinted on the side is:
+плеть~
+@eng You see a whip of great but cheap craftsmanship.  Imprinted on the side is:
+Merc Industries
+@rus Ты видишь недорогую плеть, но сделанную весьма качественно. Надпись на рукоятке:
 Merc Industries
 ~
-G none
+E
+whip~
+@eng You see a whip of great but cheap craftsmanship.  Imprinted on the side is:
+Merc Industries
+@rus Ты видишь недорогую плеть, но сделанную весьма качественно. Надпись на рукоятке:
+Merc Industries
+~
+G female
 #3722
-glaive sub merc~
-a sub issue glaive~
-You see a sub issue glaive here.~
+glaive sub merc алебарда~
+@eng a sub issue glaive@rus ~~учебная~~ ~~алебарда~~~
+@eng You see a sub issue glaive here.@rus Учебная алебарда (glaive) прислонена к стене.~
 wood~
 weapon U AN
 polearm 1 7 slash F
@@ -725,15 +880,24 @@ polearm 1 7 slash F
 A
 19 1
 E
-glaive~
-You see a glaive of great but cheap craftsmanship.  Imprinted on the side is:
+алебарда~
+@eng You see a glaive of great but cheap craftsmanship.  Imprinted on the side is:
+Merc Industries
+@rus Ты видишь тщательно откованную, но дешевую алебарду. Надпись на древке гласит:
 Merc Industries
 ~
-G none
+E
+glaive~
+@eng You see a glaive of great but cheap craftsmanship.  Imprinted on the side is:
+Merc Industries
+@rus Ты видишь тщательно откованную, но дешевую алебарду. Надпись на древке гласит:
+Merc Industries
+~
+G female
 #3723
-bow sub merc~
-a sub issue bow~
-You see a sub issue bow here.~
+bow sub merc лук~
+@eng a sub issue bow@rus ~~учебный~~ ~~лук~~~
+@eng You see a sub issue bow here.@rus Учебный лук (bow) лежит здесь.~
 wood~
 weapon U AN
 bow 1 7 none F
@@ -741,15 +905,24 @@ bow 1 7 none F
 A
 19 1
 E
-bow~
-You see a bow of great but cheap craftsmanship.  Imprinted on the side is:
+лук~
+@eng You see a bow of great but cheap craftsmanship.  Imprinted on the side is:
+Merc Industries
+@rus Ты видишь тщательно сработанный, но дешевый лук. Надпись на нем гласит:
 Merc Industries
 ~
-G none
+E
+bow~
+@eng You see a bow of great but cheap craftsmanship.  Imprinted on the side is:
+Merc Industries
+@rus Ты видишь тщательно сработанный, но дешевый лук. Надпись на нем гласит:
+Merc Industries
+~
+G male
 #3724
-lance sub merc~
-a sub issue lance~
-You see a sub issue lance here.~
+lance sub merc пика~
+@eng a sub issue lance@rus ~~учебная~~ ~~пика~~~
+@eng You see a sub issue lance here.@rus Учебная пика (lance) лежит здесь, забытая.~
 iron~
 weapon U AN
 lance 1 7 none F
@@ -757,17 +930,26 @@ lance 1 7 none F
 A
 19 1
 E
-lance~
-You see a lance of great but cheap craftsmanship.  Imprinted on the side is:
+пика~
+@eng You see a lance of great but cheap craftsmanship.  Imprinted on the side is:
+Merc Industries
+@rus Ты видишь блестящую, но довольно дешевую пику. Надпись на древке гласит:
 Merc Industries
 ~
-G none
+E
+lance~
+@eng You see a lance of great but cheap craftsmanship.  Imprinted on the side is:
+Merc Industries
+@rus Ты видишь блестящую, но довольно дешевую пику. Надпись на древке гласит:
+Merc Industries
+~
+G female
 #0
 
 #ROOMS
 #3700
 @eng Entrance to Mud School@rus Вход в МУД школу~
-This is the entrance to the Merc Mud School.  Go north to go through mud
+@eng This is the entrance to the Merc Mud School.  Go north to go through mud
 school.  If you have been here before and want to go directly to the arena,
 go south.
 
@@ -775,6 +957,11 @@ A sign warns 'You may not pass these doors once you have passed level 5.'
 
 P.S. Use '{Rlang rus{x' command, if you want {Rrussian language{x
 P.P.S. Use '{Btoggle color{x' to enable {Bfull ANSI color support{x.
+@rus Это - вход в школу МУД. Иди на север, чтобы попасть туда и выучиться.
+Если ты там уже был и хочешь сразу попасть на Арену, иди на юг (south).
+ 
+Знак над дверями предупреждает: ты не можешь войти в эти двери, если
+уже достиг 6 уровня.
 ~
 0 CDS inside
 D0
@@ -1249,7 +1436,7 @@ S
 @eng A Cage@rus Клетка~
 @eng You are in a cage.  Blood and gore are everywhere.  The keepers must be lax
 in the upkeep here!  There is a sign on the wall.  The only exit is south.
-@rus Ты в клетке. Кровь повсюду. Тут давно никто не прибирася.
+@rus Ты в клетке. Кровь повсюду. Тут давно никто не прибирался.
 На стене ты видишь {Mзнак (sign){x. Единственный выход на юг (south).
 ~
 0 DRS inside
@@ -1271,7 +1458,7 @@ S
 @eng A Cage@rus Клетка~
 @eng You are in a cage.  Blood and gore are everywhere.  The keepers must be lax
 in the upkeep here!  There is a sign on the wall.  The only exit is east.
-@rus Ты в клетке. Кровь повсюду. Тут давно никто не прибирася.
+@rus Ты в клетке. Кровь повсюду. Тут давно никто не прибирался.
 На стене ты видишь {Mзнак (sign){x. Единственный выход на востоке (east).
 ~
 0 DRS inside
@@ -1293,7 +1480,7 @@ S
 @eng A Cage@rus Клетка~
 @eng You are in a cage.  Blood and gore are everywhere.  The keepers must be lax
 in the upkeep here!  There is a sign on the wall.  The only exit is north.
-@rus Ты в клетке. Кровь повсюду. Тут давно никто не прибирася.
+@rus Ты в клетке. Кровь повсюду. Тут давно никто не прибирался.
 На стене ты видишь {Mзнак (sign){x. Единственный выход на севере (north).
 ~
 0 DRS inside
@@ -1315,7 +1502,7 @@ S
 @eng A Cage@rus Клетка~
 @eng You are in a cage.  Blood and gore are everywhere.  The keepers must be lax
 in the upkeep here!  There is a sign on the wall.  The only exit is west.
-@rus Ты в клетке. Кровь повсюду. Тут давно никто не прибирася.
+@rus Ты в клетке. Кровь повсюду. Тут давно никто не прибирался.
 На стене ты видишь {Mзнак (sign){x. Единственный выход на западе (west).
 ~
 0 DRS inside
@@ -1383,8 +1570,8 @@ S
 @eng You are in a cramped room.  Stacked neatly on shelves everywhere are items
 and packages.  Light fluoresces off the ceiling in soft white tones.  Of
 course, there is a sign on the wall.  The only exit is north.
-@rus Ты находишься в маленькой комнате. На полках аккуратно сложены различные вещи
-и свертки. Потолок испускает ровный белый свет. На стене - {Mзнак (sign){x.
+@rus Ты находишься в маленькой комнате. На полках аккуратно сложены различные
+вещи и свертки. Потолок испускает ровный белый свет. На стене - знак (sign).
 Единственный выход на севере (north).
 ~
 0 DRS inside
@@ -1460,9 +1647,9 @@ S
 @eng This room was purposefully darkened so that you would need to hold on to a
 light source to go through.  The walls are, of course, blank, and white.
 The only exit is south.
-@rus Эта комната была затемнена с определенной целью - для того, чтобы ты должен
-был взять в руки светильник (а вобще banner'a хватает) и пройти внутрь. Стены
-конечно белые и неисписанные. Единственный выход на юге (south).
+@rus Эта комната была затемнена с определенной целью - для того, чтобы ты
+должен был взять в руки светильник (banner'a хватает) и пройти внутрь.
+Стены, конечно, белые и неисписанные. Единственный выход на юге (south).
 ~
 0 ADRS inside
 D2
@@ -1479,7 +1666,7 @@ the pedestal stands a person cloaked in Silver.  Tapestries flow from every
 wall, and you feel very happy to be here right now.  There is a big sign here.
 The only exit is on the other side of the gate north of you.
 @rus Это очень ярко освещенная комната, посреди нее ты видишь мраморную колонну.
-За колонной ты замечаешь фигуру закутанную в серебро. На каждой стене висят
+За колонной ты замечаешь фигуру, закутанную в серебро. На каждой стене висят
 прекрасные гобелены. Ты очень счастлив, что находишься здесь и сейчас.
 Ты видишь {Mбольшой знак (sign) тут{x. Единственный выход -- это ворота
 на севере (north).
@@ -1513,7 +1700,7 @@ May your visit here be ... mercenary.
 используй команду 'HELP'. Если ты заметишь, что-то неправильное, то ты можешь
 сообщить об этом, используя команды 'BUG', 'IDEA', или 'TYPO'.
 
-Может быть твой везит сюда будет... корыстным.
+Может быть твой визит сюда будет... корыстным.
 ~
 D0
 @eng You see the Arena ahead.
@@ -1527,9 +1714,9 @@ S
 @eng You are in the Arena.  Remember, if you wish to get out of this Arena, just
 go up.  Ceilings can barely be seen in this huge Arena.  You feel as if you are
 being watched by some divine being.
-@rus Ты на арене. Помни, что если ты захочешь отсюда выйти, просто пойди на
-верх (up). Потолок гигантской арены едва различим в высоте. Ты чувствуешь себя
-так, как будто за тобой наблюдает божественное существо.
+@rus Ты на арене. Помни, что если ты захочешь отсюда выйти, просто пойди
+наверх (up). Потолок гигантской арены едва различим в высоте. Ты
+чувствуешь себя так, как будто за тобой наблюдает божественное существо.
 ~
 0 DS inside
 D0
@@ -1556,9 +1743,9 @@ S
 @eng You are in the Arena.  Remember, if you wish to get out of this Arena, just
 go up.  Ceilings can barely be seen in this huge Arena.  You feel as if you are
 being watched by some divine being.
-@rus Ты на арене. Помни, что если ты захочешь отсюда выйти, просто пойди на
-верх (up). Потолок гигантской арены едва различим в высоте. Ты чувствуешь себя
-так, как будто за тобой наблюдает божественное существо.
+@rus Ты на арене. Помни, что если ты захочешь отсюда выйти, просто пойди
+наверх (up). Потолок гигантской арены едва различим в высоте. Ты
+чувствуешь себя так, как будто за тобой наблюдает божественное существо.
 ~
 0 DS inside
 D0
@@ -1585,9 +1772,9 @@ S
 @eng You are in the Arena.  Remember, if you wish to get out of this Arena, just
 go up.  Ceilings can barely be seen in this huge Arena.  You feel as if you are
 being watched by some divine being.
-@rus Ты на арене. Помни, что если ты захочешь отсюда выйти, просто пойди на
-верх (up). Потолок гигантской арены едва различим в высоте. Ты чувствуешь себя
-так, как будто за тобой наблюдает божественное существо.
+@rus Ты на арене. Помни, что если ты захочешь отсюда выйти, просто пойди
+наверх (up). Потолок гигантской арены едва различим в высоте. Ты
+чувствуешь себя так, как будто за тобой наблюдает божественное существо.
 ~
 0 DS inside
 D0
@@ -1610,9 +1797,9 @@ S
 @eng You are in the Arena.  Remember, if you wish to get out of this Arena, just
 go up.  Ceilings can barely be seen in this huge Arena.  You feel as if you are
 being watched by some divine being.
-@rus Ты на арене. Помни, что если ты захочешь отсюда выйти, просто пойди на
-верх (up). Потолок гигантской арены едва различим в высоте. Ты чувствуешь себя
-так, как будто за тобой наблюдает божественное существо.
+@rus Ты на арене. Помни, что если ты захочешь отсюда выйти, просто пойди
+наверх (up). Потолок гигантской арены едва различим в высоте. Ты
+чувствуешь себя так, как будто за тобой наблюдает божественное существо.
 ~
 0 DS inside
 D0
@@ -1639,9 +1826,9 @@ S
 @eng You are in the Arena.  Remember, if you wish to get out of this Arena, just
 go up.  Ceilings can barely be seen in this huge Arena.  You feel as if you are
 being watched by some divine being.
-@rus Ты на арене. Помни, что если ты захочешь отсюда выйти, просто пойди на
-верх (up). Потолок гигантской арены едва различим в высоте. Ты чувствуешь себя
-так, как будто за тобой наблюдает божественное существо.
+@rus Ты на арене. Помни, что если ты захочешь отсюда выйти, просто пойди
+наверх (up). Потолок гигантской арены едва различим в высоте. Ты
+чувствуешь себя так, как будто за тобой наблюдает божественное существо.
 ~
 0 DS inside
 D0
@@ -1664,9 +1851,9 @@ S
 @eng You are in the Arena.  Remember, if you wish to get out of this Arena, just
 go up.  Ceilings can barely be seen in this huge Arena.  You feel as if you are
 being watched by some divine being.
-@rus Ты на арене. Помни, что если ты захочешь отсюда выйти, просто пойди на
-верх (up). Потолок гигантской арены едва различим в высоте. Ты чувствуешь себя
-так, как будто за тобой наблюдает божественное существо.
+@rus Ты на арене. Помни, что если ты захочешь отсюда выйти, просто пойди
+наверх (up). Потолок гигантской арены едва различим в высоте. Ты
+чувствуешь себя так, как будто за тобой наблюдает божественное существо.
 ~
 0 DS inside
 D0
@@ -1693,9 +1880,10 @@ S
 @eng You are in the Arena.  Remember, if you wish to get out of this Arena, just
 go up.  Ceilings can barely be seen in this huge Arena.  You feel as if you are
 being watched by some divine being.
-@rus Ты на арене. Помни, что если ты захочешь отсюда выйти, просто пойди на
-верх (up). Потолок гигантской арены едва различим в высоте. Ты чувствуешь себя
-так, как будто за тобой наблюдает божественное существо. Чтоб ему тошно стало.
+@rus Ты на арене. Помни, что если ты захочешь отсюда выйти, просто пойди
+наверх (up). Потолок гигантской арены едва различим в высоте. Ты
+чувствуешь себя так, как будто за тобой наблюдает божественное
+существо. Чтоб ему тошно стало.
 ~
 0 DS inside
 D0
@@ -1726,9 +1914,9 @@ S
 @eng You are in the Arena.  Remember, if you wish to get out of this Arena, just
 go up.  Ceilings can barely be seen in this huge Arena.  You feel as if you are
 being watched by some divine being.
-@rus Ты на арене. Помни, что если ты захочешь отсюда выйти, просто пойди на
-верх (up). Потолок гигантской арены едва различим в высоте. Ты чувствуешь себя
-так, как будто за тобой наблюдает божественное существо.
+@rus Ты на арене. Помни, что если ты захочешь отсюда выйти, просто пойди
+наверх (up). Потолок гигантской арены едва различим в высоте. Ты
+чувствуешь себя так, как будто за тобой наблюдает божественное существо.
 ~
 0 DS inside
 D0
@@ -1759,9 +1947,9 @@ S
 @eng You are in the Arena.  Remember, if you wish to get out of this Arena, just
 go up.  Ceilings can barely be seen in this huge Arena.  You feel as if you are
 being watched by some divine being.
-@rus Ты на арене. Помни, что если ты захочешь отсюда выйти, просто пойди на
-верх (up). Потолок гигантской арены едва различим в высоте. Ты чувствуешь себя
-так, как будто за тобой наблюдает божественное существо.
+@rus Ты на арене. Помни, что если ты захочешь отсюда выйти, просто пойди
+наверх (up). Потолок гигантской арены едва различим в высоте. Ты
+чувствуешь себя так, как будто за тобой наблюдает божественное существо.
 ~
 0 DS inside
 D0
@@ -1792,9 +1980,9 @@ S
 @eng You are in the Arena.  Remember, if you wish to get out of this Arena, just
 go up.  Ceilings can barely be seen in this huge Arena.  You feel as if you are
 being watched by some divine being.
-@rus Ты на арене. Помни, что если ты захочешь отсюда выйти, просто пойди на
-верх (up). Потолок гигантской арены едва различим в высоте. Ты чувствуешь себя
-так, как будто за тобой наблюдает божественное существо.
+@rus Ты на арене. Помни, что если ты захочешь отсюда выйти, просто пойди
+наверх (up). Потолок гигантской арены едва различим в высоте. Ты
+чувствуешь себя так, как будто за тобой наблюдает божественное существо.
 ~
 0 DS inside
 D0
@@ -1821,9 +2009,9 @@ S
 @eng You are in the Arena.  Remember, if you wish to get out of this Arena, just
 go up.  Ceilings can barely be seen in this huge Arena.  You feel as if you are
 being watched by some divine being.
-@rus Ты на арене. Помни, что если ты захочешь отсюда выйти, просто пойди на
-верх (up). Потолок гигантской арены едва различим в высоте. Ты чувствуешь себя
-так, как будто за тобой наблюдает божественное существо.
+@rus Ты на арене. Помни, что если ты захочешь отсюда выйти, просто пойди
+наверх (up). Потолок гигантской арены едва различим в высоте. Ты
+чувствуешь себя так, как будто за тобой наблюдает божественное существо.
 ~
 0 DS inside
 D0
@@ -1850,9 +2038,9 @@ S
 @eng You are in the Arena.  Remember, if you wish to get out of this Arena, just
 go up.  Ceilings can barely be seen in this huge Arena.  You feel as if you are
 being watched by some divine being.
-@rus Ты на арене. Помни, что если ты захочешь отсюда выйти, просто пойди на
-верх (up). Потолок гигантской арены едва различим в высоте. Ты чувствуешь себя
-так, как будто за тобой наблюдает божественное существо.
+@rus Ты на арене. Помни, что если ты захочешь отсюда выйти, просто пойди
+наверх (up). Потолок гигантской арены едва различим в высоте. Ты
+чувствуешь себя так, как будто за тобой наблюдает божественное существо.
 ~
 0 DS inside
 D0
@@ -1883,9 +2071,9 @@ S
 @eng You are in the Arena.  Remember, if you wish to get out of this Arena, just
 go up.  Ceilings can barely be seen in this huge Arena.  You feel as if you are
 being watched by some divine being.  There is a BIG SIGN here.
-@rus Ты на арене. Помни, что если ты захочешь отсюда выйти, просто пойди на
-верх (up). Потолок гигантской арены едва различим в высоте. Ты чувствуешь себя
-так, как будто за тобой наблюдает божественное существо.
+@rus Ты на арене. Помни, что если ты захочешь отсюда выйти, просто пойди
+наверх (up). Потолок гигантской арены едва различим в высоте. Ты
+чувствуешь себя так, как будто за тобой наблюдает божественное существо.
 Ты видишь {MБОЛЬШОЙ ЗНАК (sign){x.
 ~
 0 DS inside
@@ -1932,9 +2120,9 @@ S
 @eng You are in the Arena.  Remember, if you wish to get out of this Arena, just
 go up.  Ceilings can barely be seen in this huge Arena.  You feel as if you are
 being watched by some divine being.
-@rus Ты на арене. Помни, что если ты захочешь отсюда выйти, просто пойди на
-верх (up). Потолок гигантской арены едва различим в высоте. Ты чувствуешь себя
-так, как будто за тобой наблюдает божественное существо.
+@rus Ты на арене. Помни, что если ты захочешь отсюда выйти, просто пойди
+наверх (up). Потолок гигантской арены едва различим в высоте. Ты
+чувствуешь себя так, как будто за тобой наблюдает божественное существо.
 ~
 0 DS inside
 D0
@@ -1965,9 +2153,9 @@ S
 @eng You are in the Arena.  Remember, if you wish to get out of this Arena, just
 go up.  Ceilings can barely be seen in this huge Arena.  You feel as if you are
 being watched by some divine being.
-@rus Ты на арене. Помни, что если ты захочешь отсюда выйти, просто пойди на
-верх (up). Потолок гигантской арены едва различим в высоте. Ты чувствуешь себя
-так, как будто за тобой наблюдает божественное существо.
+@rus Ты на арене. Помни, что если ты захочешь отсюда выйти, просто пойди
+наверх (up). Потолок гигантской арены едва различим в высоте. Ты
+чувствуешь себя так, как будто за тобой наблюдает божественное существо.
 ~
 0 DS inside
 D0
@@ -1994,9 +2182,9 @@ S
 @eng You are in the Arena.  Remember, if you wish to get out of this Arena, just
 go up.  Ceilings can barely be seen in this huge Arena.  You feel as if you are
 being watched by some divine being.
-@rus Ты на арене. Помни, что если ты захочешь отсюда выйти, просто пойди на
-верх (up). Потолок гигантской арены едва различим в высоте. Ты чувствуешь себя
-так, как будто за тобой наблюдает божественное существо.
+@rus Ты на арене. Помни, что если ты захочешь отсюда выйти, просто пойди
+наверх (up). Потолок гигантской арены едва различим в высоте. Ты
+чувствуешь себя так, как будто за тобой наблюдает божественное существо.
 ~
 0 DS inside
 D0
@@ -2023,9 +2211,9 @@ S
 @eng You are in the Arena.  Remember, if you wish to get out of this Arena, just
 go up.  Ceilings can barely be seen in this huge Arena.  You feel as if you are
 being watched by some divine being.
-@rus Ты на арене. Помни, что если ты захочешь отсюда выйти, просто пойди на
-верх (up). Потолок гигантской арены едва различим в высоте. Ты чувствуешь себя
-так, как будто за тобой наблюдает божественное существо.
+@rus Ты на арене. Помни, что если ты захочешь отсюда выйти, просто пойди
+наверх (up). Потолок гигантской арены едва различим в высоте. Ты
+чувствуешь себя так, как будто за тобой наблюдает божественное существо.
 ~
 0 DS inside
 D0
@@ -2056,9 +2244,9 @@ S
 @eng You are in the Arena.  Remember, if you wish to get out of this Arena, just
 go up.  Ceilings can barely be seen in this huge Arena.  You feel as if you are
 being watched by some divine being.
-@rus Ты на арене. Помни, что если ты захочешь отсюда выйти, просто пойди на
-верх (up). Потолок гигантской арены едва различим в высоте. Ты чувствуешь себя
-так, как будто за тобой наблюдает божественное существо.
+@rus Ты на арене. Помни, что если ты захочешь отсюда выйти, просто пойди
+наверх (up). Потолок гигантской арены едва различим в высоте. Ты
+чувствуешь себя так, как будто за тобой наблюдает божественное существо.
 ~
 0 DS inside
 D0
@@ -2089,9 +2277,9 @@ S
 @eng You are in the Arena.  Remember, if you wish to get out of this Arena, just
 go up.  Ceilings can barely be seen in this huge Arena.  You feel as if you are
 being watched by some divine being.
-@rus Ты на арене. Помни, что если ты захочешь отсюда выйти, просто пойди на
-верх (up). Потолок гигантской арены едва различим в высоте. Ты чувствуешь себя
-так, как будто за тобой наблюдает божественное существо.
+@rus Ты на арене. Помни, что если ты захочешь отсюда выйти, просто пойди
+наверх (up). Потолок гигантской арены едва различим в высоте. Ты
+чувствуешь себя так, как будто за тобой наблюдает божественное существо.
 ~
 0 DS inside
 D0
@@ -2122,9 +2310,9 @@ S
 @eng You are in the Arena.  Remember, if you wish to get out of this Arena, just
 go up.  Ceilings can barely be seen in this huge Arena.  You feel as if you are
 being watched by some divine being.
-@rus Ты на арене. Помни, что если ты захочешь отсюда выйти, просто пойди на
-верх (up). Потолок гигантской арены едва различим в высоте. Ты чувствуешь себя
-так, как будто за тобой наблюдает божественное существо.
+@rus Ты на арене. Помни, что если ты захочешь отсюда выйти, просто пойди
+наверх (up). Потолок гигантской арены едва различим в высоте. Ты
+чувствуешь себя так, как будто за тобой наблюдает божественное существо.
 ~
 0 DS inside
 D0
@@ -2151,9 +2339,9 @@ S
 @eng You are in the Arena.  Remember, if you wish to get out of this Arena, just
 go up.  Ceilings can barely be seen in this huge Arena.  You feel as if you are
 being watched by some divine being.
-@rus Ты на арене. Помни, что если ты захочешь отсюда выйти, просто пойди на
-верх (up). Потолок гигантской арены едва различим в высоте. Ты чувствуешь себя
-так, как будто за тобой наблюдает божественное существо.
+@rus Ты на арене. Помни, что если ты захочешь отсюда выйти, просто пойди
+наверх (up). Потолок гигантской арены едва различим в высоте. Ты
+чувствуешь себя так, как будто за тобой наблюдает божественное существо.
 ~
 0 DS inside
 D1
@@ -2174,11 +2362,11 @@ S
 #3743
 @eng North Wall of Arena@rus Северная стена арены~
 @eng You are in the Arena.  Remember, if you wish to get out of this Arena, just
-go up.  You can barely see the ceiling.  You feel as if you are being watched
-by some divine being.
-@rus Ты на арене. Помни, что если ты захочешь отсюда выйти, просто пойди на
-верх (up). Потолок гигантской арены едва различим в высоте. Ты чувствуешь себя
-так, как будто за тобой наблюдает божественное существо.
+go up.  Ceilings can barely be seen in this huge Arena.  You feel as if you are
+being watched by some divine being.
+@rus Ты на арене. Помни, что если ты захочешь отсюда выйти, просто пойди
+наверх (up). Потолок гигантской арены едва различим в высоте. Ты
+чувствуешь себя так, как будто за тобой наблюдает божественное существо.
 ~
 0 DS inside
 D1
@@ -2205,9 +2393,9 @@ S
 @eng You are in the Arena.  Remember, if you wish to get out of this Arena, just
 go up.  Ceilings can barely be seen in this huge Arena.  You feel as if you are
 being watched by some divine being.
-@rus Ты на арене. Помни, что если ты захочешь отсюда выйти, просто пойди на
-верх (up). Потолок гигантской арены едва различим в высоте. Ты чувствуешь себя
-так, как будто за тобой наблюдает божественное существо.
+@rus Ты на арене. Помни, что если ты захочешь отсюда выйти, просто пойди
+наверх (up). Потолок гигантской арены едва различим в высоте. Ты
+чувствуешь себя так, как будто за тобой наблюдает божественное существо.
 ~
 0 DS inside
 D1
@@ -2234,9 +2422,9 @@ S
 @eng You are in the Arena.  Remember, if you wish to get out of this Arena, just
 go up.  Ceilings can barely be seen in this huge Arena.  You feel as if you are
 being watched by some divine being.
-@rus Ты на арене. Помни, что если ты захочешь отсюда выйти, просто пойди на
-верх (up). Потолок гигантской арены едва различим в высоте. Ты чувствуешь себя
-так, как будто за тобой наблюдает божественное существо.
+@rus Ты на арене. Помни, что если ты захочешь отсюда выйти, просто пойди
+наверх (up). Потолок гигантской арены едва различим в высоте. Ты
+чувствуешь себя так, как будто за тобой наблюдает божественное существо.
 ~
 0 DS inside
 D1
@@ -2263,9 +2451,9 @@ S
 @eng You are in the Arena.  Remember, if you wish to get out of this Arena, just
 go up.  Ceilings can barely be seen in this huge Arena.  You feel as if you are
 being watched by some divine being.
-@rus Ты на арене. Помни, что если ты захочешь отсюда выйти, просто пойди на
-верх (up). Потолок гигантской арены едва различим в высоте. Ты чувствуешь себя
-так, как будто за тобой наблюдает божественное существо.
+@rus Ты на арене. Помни, что если ты захочешь отсюда выйти, просто пойди
+наверх (up). Потолок гигантской арены едва различим в высоте. Ты
+чувствуешь себя так, как будто за тобой наблюдает божественное существо.
 ~
 0 DS inside
 D2
@@ -2290,9 +2478,9 @@ the floors are all covered with slime.  A feeling of dread comes over you as
 you notice that this is NOT a great place to go.  Exits go in all directions.
 Of special note is the one that brings you back up!!!
 @rus Ты в центре большой комнаты. Тусклый свет сверху позволяет разглядеть, что
-весь пол покрыт слизью. Тебя окутывает страх при мысле о том, что это не самое
+весь пол покрыт слизью. Тебя окутывает страх при мысли о том, что это не самое
 лучшее место для прогулок. Выходы ведут во все стороны, но стоит учесть, что
-выход которые тебя отсюда выведет - на верху (up).
+выход, который тебя отсюда выведет - наверху (up).
 ~
 0 DS inside
 D0
@@ -2609,9 +2797,9 @@ S
 @eng You are in a room filled with weapons, books, and many combat dummies, some
 cut and stabbed many times, others burnt to a crisp.  The room is filled with
 sweat and an aura of magic.  There is a sign on the wall.
-@rus Ты в комнате наполненой оружием, различными книжками и множеством чучел для
-тренировки, некоторые из них порублены и проткнуты много раз, другие опалены до
-черноты. Комната наполнена запахом пота и ты чувствуешь ауру магии. 
+@rus Ты в комнате, наполненной оружием, различными книжками и множеством чучел для
+тренировки, одни из них порублены и проткнуты много раз, другие опалены до
+черноты. Комната наполнена запахом пота, и ты чувствуешь ауру магии. 
 На стене ты видишь {Mзнак (sign){x.
 ~
 0 CDRS city

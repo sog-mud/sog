@@ -175,7 +175,6 @@ M 0 303 5 5556 3	* the citizen (The Local Inn)
 M 0 308 1 5556 1	* the Innkeeper (The Local Inn)
 G 0 3000 0		*	a barrel of beer
 G 0 3001 0		*	a bottle of beer
-M 0 350 1 5577 1	* the pet dragon (Ravan's hideout)
 S
 
 #$

@@ -9,16 +9,20 @@ End
 
 #MOBILES
 #40101
-GuildMaster Master~
-the Guildmaster~
-Your Guildmaster stands here, patiently waiting to 
+GuildMaster Master наставник мастер~
+@eng the Guildmaster@rus наставник~
+@eng Your Guildmaster stands here, patiently waiting to 
 teach you.
+@rus Ваш наставник (guildmaster) терпеливо ждет Вас здесь, чтобы учить.
 ~
-G'hirjil D'Umordin regards you, reading your soul.
-At his side is his most prized weapon, a scythe of 
-great power, and his hands are ready to grab it in 
-a flash. He wears a long dark robe, and daring to 
+@eng G'hirjil D'Umordin regards you, reading your soul.  At  his  side is
+his most prized weapon, a scythe of  great  power,  and  his hands are
+ready to grab it in a flash.  He wears a long dark robe, and daring to 
 look closely at him, you see that he is a lichdrow.
+@rus Г`хиръил Д`Юмордин оченивает Вас, читая вашу душу.  За его спиной -- 
+его  наиболее  любимое  оружие,  гигантская  коса,  и  его руки готовы
+мгновенно схватить ее. Он носит длинную  темную  одежду,  и достаточно
+осмелев, чтобы рассмотреть его поближе, Вы видите, что он - леший.
 ~
 elf~
 ABGRV u -900 0
@@ -28,14 +32,18 @@ E ABCD 0 0
 stand stand male 3400
 0 0 medium unknown
 #40102
-GuildMaster Master~
-the Guildmaster~
-Your Guildmaster stands here, patiently waiting to 
+GuildMaster Master наставник мастер~
+@eng the Guildmaster@rus наставник~
+@eng Your Guildmaster stands here, patiently waiting to 
 teach you.
+@rus Ваш наставник (guildmaster) терпеливо ждет Вас здесь, чтобы учить.
 ~
-He wears a colorful tunic and patchwork leggings.
-In his hands is his most prized possession, a harp 
-of gold, whose strings sparkle in the torchlight.
+@eng He wears a colorful tunic and patchwork leggings.  In  his  hands is
+his most prized possession, a harp  of gold,  whose strings sparkle in
+the torchlight.
+@rus Он носит красочную тунику и пестрые леггинсы.  В  его руках  --  его
+неизменная золотая  арфа,  струны которой  переливаются  и  мерцают  в
+неровном свете факелов.
 ~
 elf~
 ABGV H 900 0
@@ -1654,10 +1662,10 @@ G none
 #ROOMS
 #40100
 @eng Outside the East Gate of Elvenhame@rus За Восточными Вратами Эльвенхейма~
-@eng  You are outside the East Gate of Elvenhame. To the west is  the  gate
+@eng You are  outside the East Gate of Elvenhame. To the west is the gate
 itself.
-@rus  Ты -- за Восточными Вратами Эльвенхейма.  На западе, собственно, сами
-Врата.
+@rus Вы -- за Восточными Вратами Эльвенхейма. На западе - непосредственно
+врата.
 ~
 0 0 city
 D1
@@ -1670,15 +1678,15 @@ D3
 Z 0 40101
 S
 #40101
-@eng Inside the East Gate of Elvenhame@rus Внутри восточных ворот  Эльвенхейма~
-@eng  You are inside the East Gate of Elvenhame. To the west is  the  Elven
+@eng Inside the East Gate of Elvenhame@rus Внутри Восточных Врат Эльвенхейма~
+@eng You are inside the East Gate of Elvenhame.  To the west is the Elven
 city, with its magnificent buildings and wonderful plant life.  To the
 east is wilderness. The gate itself is made of a silvery metal, thick,
-with sparkling runes engraved upon it. 
-@rus  Ты внутри Восточных Врат Эльвенхейма.  На западе сияют под солнечными
-лучами великолепные здани и небычайные деревья Эльфийского города.  На
-востоке -- прерия.  Сами  Врата -- серебряные  и  весьма  массивные --
-украшены сиЯющими письменами на эльфийском.
+with sparkling runes engraved upon it.
+@rus Вы - внутри Восточных Врат Эльвенхейма. На западе -- город эльфов, с
+великолепными постройками и замечательными растениями.  На  востоке --
+прерия.   Сами   Врата  сделаны  из  толстого,  серебристого  металла,
+искрящегося выгравированными на нем рунами.
 ~
 0 0 city
 D1
@@ -1691,15 +1699,13 @@ D3
 Z 0 40102
 S
 #40102
-@eng East Main Road@rus Восточный проспект~
-@eng You are on the eastern part of the Main Road in Elvenhame. 
-Fiery-red-leafed maple trees line the road, at the bases of 
-which grow small lavender flowers. To the east is the East 
-Gate.
-@rus Ты стоишь на восточном проспекте Эльвенхейма. Ровными  рядами  вдоль
-него стоят клены, словно пылая своими огненно-красными кронами.  Вдоль
-обочин благоухает лаванда.   На востоке проспект упирается в Восточные
-Врата.
+@eng East Main Road@rus Восточный Проспект~
+@eng You  are  on  the  eastern  part  of  the  Main  Road  in Elvenhame.
+Fiery-red-leafed maple trees line the road, at the bases of which grow
+small lavender flowers. To the east is the East Gate.
+@rus Вы находитесь на восточном проспекте  Эльвенхейма.  Вдоль  проспекта
+пламенеют кроваво-красными кронами стройные клены, у подножий  которых
+благоухают маленькие цветы. На восток - Восточные Врата.
 ~
 0 0 city
 D1
@@ -1712,13 +1718,13 @@ D3
 Z -1 40103
 S
 #40103
-@eng East Main Road@rus Восточный проспект~
-@eng You  are  on  the  eastern  part  of  the  Main  Road  in Elvenhame. 
+@eng East Main Road@rus Восточный Проспект~
+@eng You are  on  the  eastern  part  of  the  Main  Road  in Elvenhame.
 Fiery-red-leafed maple trees line the road, at the bases of which grow
 small lavender flowers.
-@rus Ты стоишь на восточном проспекте Эльвенхейма. Ровными  рядами  вдоль
-него стоят клены, словно пылая своими огненно-красными кронами.  Вдоль
-обочин благоухает лаванда.
+@rus Вы находитесь на восточном проспекте  Эльвенхейма.  Вдоль  проспекта
+пламенеют кроваво-красными кронами стройные клены, у подножий  которых
+благоухают маленькие цветы.
 ~
 0 0 city
 D1
@@ -1735,13 +1741,13 @@ D3
 Z -1 40104
 S
 #40104
-@eng East Main Road@rus Восточный проспект~
-@eng You  are  on  the  eastern  part  of  the  Main  Road  in Elvenhame.
+@eng East Main Road@rus Восточный Проспект~
+@eng You are  on  the  eastern  part  of  the  Main  Road  in Elvenhame.
 Fiery-red-leafed maple trees line the road, at the bases of which grow
 small lavender flowers.
-@rus Ты стоишь на восточном проспекте Эльвенхейма. Ровными  рядами  вдоль
-него стоят клены, словно пылая своими огненно-красными кронами.  Вдоль
-обочин благоухает лаванда.
+@rus Вы находитесь на восточном проспекте  Эльвенхейма.  Вдоль  проспекта
+пламенеют кроваво-красными кронами стройные клены, у подножий  которых
+благоухают маленькие цветы.
 ~
 0 0 city
 D1
@@ -1754,13 +1760,13 @@ D3
 Z -1 40105
 S
 #40105
-@eng Guild Square@rus Площадь Гильдий~
+@eng Guild Square@rus Площидь Гильдий~
 @eng Guild Square is the intersection of Main Road and Guild Road.  Lined
-with  fiery-red-leaved    maple   trees  and  lavender  flowers,  this
+with   fiery-red-leaved   maple   trees  and  lavender  flowers,  this
 intersection is one of the busiest in Elvenhame.
-@rus Площадь Гильдий на пересечении проспекта с Улицей Гильдий.Засаженная 
-пламенными  кленами  и благоухающими цветами,  эта  площадь -- одна из
-самых оживленных в Elvenhame.
+@rus Площадь Гильдий на пересечении Восточного Проспекта с Улицей Гильдий.
+Обрамленная  пламенными кленами и благоухающими цветами, эта площадь --
+одна из самых оживленных в Эльвенхейме.
 ~
 0 0 city
 D0
@@ -1781,13 +1787,13 @@ D3
 Z -1 40106
 S
 #40106
-@eng East Main Road@rus Восточный проспект~
-@eng You  are  on  the  eastern  part  of  the  Main  Road  in Elvenhame. 
+@eng East Main Road@rus Восточный Проспект~
+@eng You  are  on  the  eastern  part  of  the  Main  Road  in Elvenhame.
 Fiery-red-leafed maple trees line the road, at the bases of which grow
 small lavender flowers.
-@rus Вы находитесь на восточном  проспекте  Эльвенхейма.  Вдоль проспекта
-пламенеют кроваво-красными кронами клены,у подножий которых благоухают
-маленькие цветы.
+@rus Вы находитесь на восточном проспекте  Эльвенхейма.  Вдоль  проспекта
+пламенеют кроваво-красными кронами стройные клены, у подножий  которых
+благоухают маленькие цветы.
 ~
 0 0 city
 D1
@@ -1800,13 +1806,14 @@ D3
 Z -1 40107
 S
 #40107
-@eng East Main Street@rus Восточная улица~
-@eng You  are  on  the  eastern  part  of  the  Main  Road  in Elvenhame. 
+@eng East Main Street@rus Восточный Проспект~
+@eng You  are  on  the  eastern  part  of  the  Main  Road  in Elvenhame.
 Fiery-red-leafed maple trees line the road, at the bases of which grow
 small lavender flowers.
-@rus Вы находитесь на восточном  проспекте  Эльвенхейма.  Вдоль проспекта
-пламенеют кроваво-красными кронами клены,у подножий которых благоухают
-маленькие цветы.
+
+@rus Вы находитесь на восточном проспекте  Эльвенхейма.  Вдоль  проспекта
+пламенеют кроваво-красными кронами стройные клены, у подножий  которых
+благоухают маленькие цветы.
 ~
 0 0 city
 D1
@@ -1820,14 +1827,13 @@ Z -1 40121
 S
 #40108
 @eng Guild Road@rus Улица Гильдий~
-@eng You  are  on  Guild  Road.  East  you  see  a newly painted building
-surrounded by little blue and red flowers, the  Music Guild.  West you
-see a dark building surrounded by wild flowers and  poorly landscaped,
+@eng You  are  on  Guild  Road.  East  you  see  a  newly painted building
+surrounded  by  little  blue and red flowers, the Music Guild. West you
+see  a  dark building surrounded by wild flowers and poorly landscaped,
 the Necromancers' Guild.
-@rus Вы находитесь на Улице Гильдий. На востоке -- свежеокрашенное здание,
+@rus мрачного пейзажа и диких цветов, темное здание Гильдии Некромантии.
 окруженное небольшими синими и красными цветами -- ГильдиЯ Музыки.  На
 западе Вы видите темное здание, окруженное дикими  цветами  и  мрачным
-пейзажем, Гильдиею Некроманов.
 ~
 0 0 city
 D0
@@ -1849,11 +1855,12 @@ Z -1 40115
 S
 #40109
 @eng Guild Road@rus Улица Гильдий~
-@eng You are on Guild Road. The road is lined with fiery-red leaved maple
-trees and lavender flowers. To the east is  a  store with a large sign
-on the door.
-@rus Вы находитесь на Улице Гильдий.  Улица  обрамлена  пламенно-красными
-и цветами лаванды. На востоке -- лавка с большим знаком на двери.
+@eng You  are on Guild Road. The road is lined with fiery-red leaved maple
+trees and lavender flowers. To the east is a store with a large sign on
+the door.
+@rus Вы  -- на Улице Гильдий. Вдоль улицы растут клены с пламенно-красными
+кронами  и  маленькие  лавандовые  цветы. На востоке -- склад с большой
+табличкой на двери
 ~
 0 0 city
 E
@@ -1881,9 +1888,11 @@ D2
 Z -1 40108
 S
 #40110
-Guild Road~
-You are on Guild Road. The road is lined with fiery-red 
-leaved maple trees and lavender flowers. 
+@eng Guild Road@rus Улица Гильдий~
+@eng You  are on Guild Road. The road is lined with fiery-red leaved maple
+trees and lavender flowers.
+@rus Вы -- на Улице Гильдий. Вдоль улицы растут клены с пламенно-красными
+кронами и маленькие лавандовые цветы.
 ~
 0 0 city
 D0
@@ -1900,9 +1909,11 @@ D2
 Z -1 40109
 S
 #40111
-Guild Road~
-You are on Guild Road. The road is lined with fiery-leaved 
-maple trees and lavender flowers.
+@eng Guild Road@rus Дорога Гильдий~
+@eng You are on Guild Road.  The road is lined  with  fiery-leaved  maple
+trees and lavender flowers.
+@rus Вы  находитесь  на  Дороге  Гильдий.   Вдоль  дороги  растут  клены,
+пламенеющие своими кронами, и лавандовые цветы.
 ~
 0 0 city
 D0
@@ -1923,9 +1934,11 @@ D3
 Z -1 40117
 S
 #40112
-Guild Road~
-You are on Guild Road. The road is lined with fiery-red 
-leaved maple trees and lavender flowers. 
+@eng Guild Road@rus Дорога Гильдий~
+@eng You are on Guild Road.  The road is lined  with  fiery-leaved  maple
+trees and lavender flowers.
+@rus Вы  находитесь  на  Дороге  Гильдий.   Вдоль  дороги  растут  клены,
+пламенеющие своими кронами, и лавандовые цветы.
 ~
 0 0 city
 D0
@@ -1938,9 +1951,11 @@ D2
 Z -1 40113
 S
 #40113
-Guild Road~
-You are on Guild Road. The road is lined with fiery-red 
-leaved maple trees and lavender flowers. 
+@eng Guild Road@rus Дорога Гильдий~
+@eng You are on Guild Road.  The road is lined  with  fiery-leaved  maple
+trees and lavender flowers.
+@rus Вы  находитесь  на  Дороге  Гильдий.   Вдоль  дороги  растут  клены,
+пламенеющие своими кронами, и лавандовые цветы.
 ~
 0 0 city
 D0
@@ -1961,9 +1976,11 @@ D3
 Z -1 40119
 S
 #40114
-Guild Road~
-You are on Guild Road. The road is lined with fiery-red 
-leaved maple trees and small lavender flowers. 
+@eng Guild Road@rus Улица Гильдий~
+@eng You are on Guild Road. The road is lined with fiery-red leaved maple
+trees and small lavender flowers.
+@rus Вы -- на Улице Гильдий. Вдоль улицы растут клены с пламенно-красными
+кронами и маленькие лавандовые цветы.
 ~
 0 0 city
 D0
@@ -1972,13 +1989,18 @@ D0
 Z -1 40113
 S
 #40115
-The Necromancer's Guild~
-Darkness, gloom, the stench of rotting bodies, fresh and old
-blood, formaldehyde and embalming fluids... Bodies in a 
-corner, parts of bodies in another corner... Several tables 
-with corpses and experimenting Necromancers... G'hirjil 
-D'Umordin, Drow Guildmaster and Lich Lord, prepares to teach 
-you another lesson in the Art of Death and Undeath... 
+@eng The Necromancer's Guild@rus Гильдия Некромантии~
+@eng Darkness,  gloom,  the stench of rotting bodies, fresh and old blood,
+formaldehyde  and  embalming  fluids...  Bodies  in  a corner, parts of
+bodies   in   another   corner...   Several  tables  with  corpses  and
+experimenting  Necromancers... G'hirjil D'Umordin, Drow Guildmaster and
+Lich Lord, prepares to teach you another lesson in the Art of Death and
+Undeath...
+@rus Темнота,   мрак,   зловоние  гниющих  тел,  свежей  и  старой  крови,
+формальдегида  и  бальзамирующих жидкостей ... Тела в углу, части тел в
+другом   углу  ...  Несколько  стлов  с  трупами  и  экспериментирующий
+Некромант ... Г'Хирйилл Д'Юмордин, наставник усопших и лорд привидений,
+готовится преподать Вам новый урок в Искусстве Смерти и Воскрешения ...
 ~
 0 ADK inside
 D1
@@ -1987,10 +2009,13 @@ D1
 Z -1 40108
 S
 #40116
-Music Guild~
-Drunken revelry abounds in this happy place as one or another
-bard breaks into song, plays an instrument, or dares to drink
-another under the table.
+@eng Music Guild@rus Гильдия Музыки~
+@eng Drunken  revelry  abounds  in this happy place as one or another bard
+breaks  into song, plays an instrument, or dares to drink another under
+the table.
+@rus Пьяная  пирушка  не  прекращается в этом счастливом месте, то один то
+другой  бард  прерывает песню,  играет  на  инструменте, или напивается
+чем-нибудь под столом.
 ~
 0 DK inside
 D3
@@ -1999,11 +2024,14 @@ D3
 Z -1 40108
 S
 #40117
-The Channellers' Guild~
-The walls are magically protected from sudden outbursts of 
-energy. The entire room glows. In the center of the room, 
-your Guildmaster forms a ball of energy and levitates it, 
-sending it flying around the room.
+@eng The Channellers' Guild@rus Гильдия Начал~
+@eng The  walls  are  magically protected from sudden outbursts of energy.
+The  entire  room  glows.  In  the center of the room, your Guildmaster
+forms  a  ball of energy and levitates it, sending it flying around the
+room.
+@rus Стены  магически  зашишены  от внезапных вспышек энергии. Вся комната
+пылает.  В  центре  комнаты  наставник  гильдии  создает  шар энергии и
+левитирует его, посылая в полет вокруг комнаты.
 ~
 0 D inside
 D1
@@ -2012,16 +2040,22 @@ D1
 Z -1 40111
 S
 #40118
-The WeaponMaster's School~
-Walls of stained brown hardwood, adorned with weapons, is
-what first catches your eye when you enter your guildhouse.
-Axes, long swords, scimitars gleam in the torchlight. Mats
-cover the floor. Some warriors are practicing tripping and
-kicking techniques, others are fencing with different 
-blades. Farther back, you see a class in the art of axe
-fighting, and another in the art of the mace/club and 
-flail/whip. Tordril Thedrilson, the Guildmaster, knows all
-weapons and all techniques.
+@eng The WeaponMaster's School@rus Школа оружейного мастерства~
+@eng Walls of stained brown hardwood, adorned with weapons, is what first
+catches your eye when you enter  your  guildhouse.  Axes, long swords,
+scimitars gleam in the torchlight. Mats cover the floor. Some warriors
+are practicing tripping and kicking  techniques,  others  are  fencing
+with different blades. Farther back, you see a class in the art of axe
+fighting, and another in the art  of  the  mace/club  and  flail/whip.
+Tordril  Thedrilson,  the  Guildmaster,  knows  all  weapons  and  all
+@rus Украшенные оружием стены, обитые прочным коричневым деревом -- первое,
+что бросается Вам в глаза при входе в помещение гильдии. Топоры, длинные
+мечи, палицы мерцают в свете факелов.  Циновки покрывают  пол. Некоторые
+воины тренируются в технике посечек и ударов ногами, другие  --  фехтуют
+различным колюще-режущим оружием. Дальше  вглубь,  Вы  видите  класс  по
+изучению искусства боя топорами  и другим, менее традиционным оружием --
+палицами, дубинами, кнутами  и  плетями. Тордрил Тэдрилсон, наставник, в
+совершенстве владеет любым оружием и любой техникой боя.
 ~
 0 D inside
 D3
@@ -2030,12 +2064,17 @@ D3
 Z -1 40111
 S
 #40119
-Changeling Guild~
-The walls of your guild are always changing color, a
-kaleidoscope of pattern and lack of pattern. Looking around,
-you see furniture in the room... or do you? Nothing stays 
-the same for very long, and what was once a sofa now 
-resembles an end-table, now a straight-chair, now a divan...
+@eng Changeling Guild@rus Гильдия Изменений~
+@eng The walls of your guild are always changing  color,  a  kaleidoscope
+of pattern and lack of pattern. Looking around,  you  see furniture in
+the room... or do you? Nothing stays the  same for very long, and what
+was once a sofa now resembles  an end-table, now a straight-chair, now
+a divan...
+@rus Стены  вашей  гильдии  постоянно меняют цвет в калейдоскопе различных
+образов   и  их  отсутствий.  Оглядываясь  вокруг  вы  видите  мебель в
+комнате... или нет? Ничто не остается одним и тем достаточно долго, то,
+что  только  что было софой, стало письменным столом, теперь это прямой
+стул, теперь диван...
 ~
 0 D inside
 D1
@@ -2044,13 +2083,18 @@ D1
 Z -1 40113
 S
 #40120
-Anti-Paladins' Guild~
-Instruments of torture adorn the walls except for one ancient
-harpsichord in a far corner. Atop the harp box are the 
-skeletal remains of the last music guildmaster to ever bring
-a tuning fork near this instrument. The Anti-Paladin 
-Guildmaster eagerly awaits the next Anti-Paladin who wishes 
-to learn some new fighting skill or magical torture method.
+@eng Anti-Paladins' Guild@rus Гильдия Антипаладинов~
+@eng Instruments  of torture adorn  the  walls  except  for  one  ancient
+harpsichord in a far corner.  Atop  the  harp  box  are  the  skeletal
+remains of the last music guildmaster to ever bring a tuning fork near
+this instrument.  The Anti-Paladin Guildmaster eagerly awaits the next
+Anti-Paladin  who  wishes  to learn some new fighting skill or magical
+torture method.
+@rus Стены   украшены   разнообразными   инструментами  пыток,  исключение
+составляет  одинокий  клавесин  в  дальнем углу. Наверху на блоке висит
+скелет  последнего  музыканта,  пытавшегося  настроить этот инструмент.
+Наставник  Антипаладинов нетерпеливо ждет следующего ученика, желающего
+изучить какое-нибудь новое боевое искусство или волшебный метод пытки.
 ~
 0 D inside
 D3
@@ -2059,11 +2103,15 @@ D3
 Z -1 40113
 S
 #40121
-East Main Road~
-You are on the main road in Elvenhame. This stretch of road 
-is lined with dark green leafed trees offset with dainty 
-white and pink flowers. At the base of these trees are Elven 
-Paint Brush flowers, a native strain.
+@eng East Main Road@rus Восточный Проспект~
+@eng You are on the main road in Elvenhame. This stretch of road is lined
+with dark green  leafed  trees  offset  with  dainty  white  and  pink
+flowers. At the base of these trees are Elven Paint  Brush  flowers, a
+native strain.
+@rus Вы находитесь на  Восточном Проспекте  Эльвенхейма.  Вдоль проспекта
+растут темно-зеленые  деревья в перемешку с изящными белыми и розовыми
+цветами.  У подножий  этих деревьев  --  цветы оригинальной Эльфийской
+Расцветки, местной породы.
 ~
 0 0 city
 D1
@@ -2077,11 +2125,15 @@ D3
 Z -1 40122
 S
 #40122
-East Main Road~
-You are on the main road in Elvenham. This stretch of road 
-is lined with dark green leafed trees offset with dainty 
-white and pink flowers. At the base of these trees are Elven
-Paint Brush flowers, a native strain. 
+@eng East Main Road@rus Восточный Проспект~
+@eng You are on the main road in Elvenhame. This stretch of road is lined
+with dark green  leafed  trees  offset  with  dainty  white  and  pink
+flowers. At the base of these trees are Elven Paint  Brush  flowers, a
+native strain.
+@rus Вы находитесь на  Восточном Проспекте  Эльвенхейма.  Вдоль проспекта
+растут темно-зеленые  деревья в перемешку с изящными белыми и розовыми
+цветами.  У подножий  этих деревьев  --  цветы оригинальной Эльфийской
+Расцветки, местной породы.
 ~
 0 0 city
 D0
@@ -2102,11 +2154,15 @@ D3
 Z -1 40123
 S
 #40123
-East Main Road~
-You are on the main road in Elvenhame. This stretch of road 
-is lined with dark green leafed trees offset with dainty 
-white and pink flowers. At the base of these trees are Elven
-Paint Brush flowers, a native strain.
+@eng East Main Road@rus Восточный Проспект~
+@eng You are on the main road in Elvenhame. This stretch of road is lined
+with dark green  leafed  trees  offset  with  dainty  white  and  pink
+flowers. At the base of these trees are Elven Paint  Brush  flowers, a
+native strain.
+@rus Вы находитесь на  Восточном Проспекте  Эльвенхейма.  Вдоль проспекта
+растут темно-зеленые  деревья в перемешку с изящными белыми и розовыми
+цветами.  У подножий  этих деревьев  --  цветы оригинальной Эльфийской
+Расцветки, местной породы.
 ~
 0 0 city
 D0
@@ -2127,10 +2183,12 @@ D3
 Z -1 40124
 S
 #40124
-Center Square~
-Center Square is one of the busiest intersections in
-Elvenhame. It is equidistant from the fountains and the 
-temples in the center of the city.
+@eng Center Square@rus Центральная Улица (север)~
+@eng Center Square is one of the busiest intersections in  Elvenhame.  It
+is equidistant from the fountains and the temples in the center of the
+city.
+@rus Центральная площадь - одна из самых оживленных плащадей Эльвенхейма.
+Она расположена посреди фонтанов и храмов в центре города.
 ~
 0 0 city
 D0
@@ -2151,11 +2209,21 @@ D3
 Z -1 40125
 S
 #40125
-West Main Road~
-You are on the main road in Elvenhame. This stretch of road 
-is lined with dark green leafed trees offset with dainty 
-white and pink flowers. At the base of these trees are Elven
-Paint Brush flowers, a native strain. 
+@eng West Main Road@rus Воровская Гильдия~
+@eng As guildhouses go, this guild is one of the richest and most lavishly
+decorated. Tapestries adorn the walls. In one corner is a marble statue
+of  a  man on a rearing horse, his blade drawn. At the tip of the blade
+is someone's cap, resting until the thief who tossed it there retrieves
+it.
+@rus Вы находитесь на Западном  Проспекте  Эльвенхейма.  Вдоль  проспекта
+растут темно-зеленые  деревья в перемешку с изящными белыми и розовыми
+цветами.  У подножий  этих деревьев  --  цветы оригинальной Эльфийской
+Расцветки, местной породы.
+Среди  всех  гильдий  эта  гильдия  --  одна из самых богатых и щедро
+украшенных.  Стены покрыты гобеленами. В одном углу -- мраморная статуя
+человека  на  вздыбленной  лошади, его меч притягивает взгляд. На конце
+меча  --  чья-то  кепка, ждущая, пока вор, бросивший ее, не вернется за
+ней.
 ~
 0 0 city
 D1
@@ -2172,11 +2240,15 @@ D3
 Z -1 40126
 S
 #40126
-West Main Road~
-The trees that line this stretch of road arch over it, 
-forming a dark green tunnel. It is cooler here than on the 
-more open portions of road, although on very sunny days a 
-ray or two of sunshine may penetrate and kiss the road. 
+@eng West Main Road@rus Западный Проспект~
+@eng The trees that line this stretch of road arch  over  it,  forming  a
+dark green tunnel. It is cooler here than on the more open portions of
+road, although on very sunny  days  a  ray  or  two  of  sunshine  may
+penetrate and kiss the road.
+@rus Деревья, растущие вдоль проспекта, аркой склонятся над ним,  образуя
+темный зеленый туннель. Здесь значительно прохладнее, чем  на  большей
+части отскрытых отрезков проспекта, хотя в особо солнечные дни  лучик-
+другой и упадет на дорогу, пробившись сквозь густые кроны.
 ~
 0 A city
 D0
@@ -2197,11 +2269,15 @@ D3
 Z -1 40127
 S
 #40127
-West Main Road~
-The trees that line this stretch of road arch over it,
-forming a dark green tunnel. It is cooler here than on the 
-more open portions of road, although on very sunny days a 
-ray or two of sunshine may penetrate and kiss the road.
+@eng West Main Road@rus Западный Проспект~
+@eng The trees that line this stretch of road arch  over  it,  forming  a
+dark green tunnel. It is cooler here than on the more open portions of
+road, although on very sunny  days  a  ray  or  two  of  sunshine  may
+penetrate and kiss the road.
+@rus Деревья, растущие вдоль проспекта, аркой склонятся над ним,  образуя
+темный зеленый туннель. Здесь значительно прохладнее, чем  на  большей
+части отскрытых отрезков проспекта, хотя в особо солнечные дни  лучик-
+другой и упадет на дорогу, пробившись сквозь густые кроны.
 ~
 0 A city
 D0
@@ -2222,9 +2298,12 @@ D3
 Z -1 40151
 S
 #40128
-Middle Road (South)~
-The road is lined with nice trees, green leaved, pink flowered. 
-At the bases of the trees are tiny blood-red flowers.
+@eng Middle Road (South)@rus Центральная улица (юг)~
+@eng The  road  is  lined with nice trees, green leaved, pink flowered. At
+the bases of the trees are tiny blood-red flowers.
+@rus Улица  обрамлена  красивыми  цветущими деревьями с зелеными кронами и
+розовыми  цветами.  У  подножий  деревьев  -- крошечные кроваво-красные
+цветы.
 ~
 0 0 city
 D0
@@ -2245,10 +2324,13 @@ D3
 Z -1 40146
 S
 #40129
-Middle Road (south)~
-You are on a road lined with dark green leafed trees offset 
-with dainty white and pink flowers. At the base of the trees
-are Elven Paint Brush flowers, a native strain. 
+@eng Middle Road (south)@rus Центральная Улица (юг)~
+@eng You  are  on  a  road  lined with dark green leafed trees offset with
+dainty white and pink flowers. At the base of the trees are Elven Paint
+Brush flowers, a native strain.
+@rus Улица  обрамлена темно-зелеными деревья в перемешку с изящными белыми
+и  розовыми  цветами.  У  подножий  этих деревьев -- цветы оригинальной
+Эльфийской Расцветки, местной породы.
 ~
 0 0 city
 D0
@@ -2269,11 +2351,15 @@ D3
 Z -1 40147
 S
 #40130
-Middle Road (south)~
-When the weather is bright this stretch of road is bathed in
-sunlight. No trees line the road, but flowers, lots of 
-flowers. Every color of the rainbow is represented. You even 
-recognize some herbs among them. 
+@eng Middle Road (south)@rus Центральная Улица (юг)~
+@eng When  the  weather  is  bright  this  stretch  of  road  is bathed in
+sunlight.  No  trees line the road, but flowers, lots of flowers. Every
+color  of  the  rainbow  is  represented. You even recognize some herbs
+among them.
+@rus В  ясную  погоду  это  часть  улицы купается в солнечном свете. Вдоль
+улицы  не растет никаких деревьев, лишь цветы, очень много цветов, всех
+цветов  и  оттенков  радуги.  Среди  них  Вы  замечаете даже некоторые,
+известные Вам травы.
 ~
 0 0 city
 D0
@@ -2294,9 +2380,11 @@ D3
 Z -1 40137
 S
 #40131
-Middle Road (south)~
-This stretch of the road is neatly landscaped with trimmed
-green shrubbery.
+@eng Middle Road (south)@rus Центральная Улица (юг)~
+@eng This  stretch  of  the  road  is neatly landscaped with trimmed green
+shrubbery.
+@rus Улица  проходит  посреди  опрятного  пейзажа  с аккуратно обрезанными
+кустами.
 ~
 0 0 city
 D0
@@ -2313,10 +2401,13 @@ D2
 Z -1 40159
 S
 #40132
-Middle Road (north)~
-When the weather is bright this stretch of road is bathed in
-sunlight. No trees line the road, but flowers of every color
-of the rainbow. You even recognize some herbs among them. 
+@eng Middle Road (north)@rus Центральная улица (север)~
+@eng When  the  weather  is  bright  this  stretch  of  road  is bathed in
+sunlight.  No  trees  line  the road, but flowers of every color of the
+rainbow. You even recognize some herbs among them.
+@rus В  ясную  погоду  улица  купается  в  солнечных лучах. Вдоль улицы не
+растут  никаких деревьев, только цветы всех цветов радуги. Среди них Вы
+видите даже некоторые травы.
 ~
 0 0 city
 D0
@@ -2337,10 +2428,13 @@ D3
 Z -1 40150
 S
 #40133
-Middle Road (north)~
-When the weather is bright this stretch of road is bathed in
-sunlight. No trees line the road, but flowers of every color
-of the rainbow. You even recognize some herbs among them. 
+@eng Middle Road (north)@rus Центральная Улица (север)~
+@eng When  the  weather  is  bright  this  stretch  of  road  is bathed in
+sunlight.  No  trees  line  the road, but flowers of every color of the
+rainbow. You even recognize some herbs among them.
+@rus В  ясную  погоду  улица  купается  в  солнечных лучах. Вдоль улицы не
+растут  никаких деревьев, только цветы всех цветов радуги. Среди них Вы
+видите даже некоторые травы.
 ~
 0 0 city
 D0
@@ -2357,10 +2451,13 @@ D2
 Z -1 40132
 S
 #40134
-Middle Road (north)~
-When the weather is bright this stretch of road is bathed in 
-sunlight. No trees line the road, but flowers of every color 
-of the rainbow. You even recognize some herbs among them. 
+@eng Middle Road (north)@rus Центральная Улица (север)~
+@eng When  the  weather  is  bright  this  stretch  of  road  is bathed in
+sunlight.  No  trees  line  the road, but flowers of every color of the
+rainbow. You even recognize some herbs among them.
+@rus В  ясную  погоду  улица  купается  в  солнечных лучах. Вдоль улицы не
+растут  никаких деревьев, только цветы всех цветов радуги. Среди них Вы
+видите даже некоторые травы.
 ~
 0 0 city
 D0
@@ -2377,13 +2474,16 @@ D2
 Z -1 40133
 S
 #40135
-Paladin Guild Hall~
-A combination of weaponry and sacred objects decorate the 
-walls here. Scullery pages polish the white tile floor while 
-apprentices prepare to go into the city to help those in 
-need. Paladins of every rank, awaiting lessons with the
-Paladin Guildmaster, do what they can to improve the looks 
-of the place.
+@eng Paladin Guild Hall@rus Зал Гильдии Паладинов~
+@eng A combination of weaponry and sacred objects decorate the walls here.
+Scullery pages polish the white tile floor while apprentices prepare to
+go  into  the  city  to  help  those  in  need. Paladins of every rank,
+awaiting  lessons  with  the  Paladin  Guildmaster, do what they can to
+improve the looks of the place.
+@rus Композиция   из  вооружения  и  священных  объектов  украшает  стены.
+Уборщица  полирует  белый кафельный пол, пока ученики готовятся выйти в
+город,  чтобы  помочь нуждающимся. Паладины всех рангов, ожидая урока с
+наставником, делают кто что может, чтобы улучшить вид этого места.
 ~
 0 DK inside
 D2
@@ -2396,14 +2496,19 @@ D3
 Z -1 40134
 S
 #40136
-The Sanctuary (Clerics' Guild)~
-The plain wooden altar at the far wall catches your eye. On 
-either side, torches burn, flames of red, blue and green 
-casting dancing light upon it. Incense fills the room. Along
-the walls are stained glass windows depicting various gods/
-goddesses and their holy symbols. The Guildmaster patiently 
-waits for the next young cleric to request a lesson in the
-ways of the gods and their magic. 
+@eng The Sanctuary (Clerics' Guild)@rus Святилище (Гильдия Лекарей)~
+@eng The  plain  wooden  altar at the far wall catches your eye. On either
+side, torches burn, flames of red, blue and green casting dancing light
+upon  it.  Incense  fills  the  room. Along the walls are stained glass
+windows  depicting  various gods/ goddesses and their holy symbols. The
+Guildmaster  patiently  waits  for  the  next young cleric to request a
+lesson in the ways of the gods and their magic.
+@rus Простой  деревянный  алтарь  у  дальней  стены  притягивает Ваш взор.
+Горящие  факелу  отбрасывают на другую стену танцующие красные, синие и
+зеленые  тени.  На  стенах  стеклянные  окна, расписанные изображениями
+различных  богови  богинь  а  так  же  их  святых  символов.  Наставних
+терпеливо  ждет следующего молодого клерика, желающего получить урок по
+путям богов и их магии.
 ~
 0 DK inside
 D0
@@ -2416,13 +2521,17 @@ D3
 Z -1 40130
 S
 #40137
-The Cave (NightWalkers' Guild)~
-Darkness rules here. You can hardly see anything but shadows.
-The walls are adorned with weapons which you cannot see 
-without a light source or infravision, and even then, you 
-must strain to discern what they are. Your Guildmaster is 
-cloaked in shadow, difficult to see, but aware of your 
-presence and awaiting your request for another lesson.
+@eng The Cave (NightWalkers' Guild)@rus Пещера (Гильдия Идущих в Ночи)~
+@eng Darkness  rules  here.  You  can hardly see anything but shadows. The
+walls  are  adorned  with  weapons which you cannot see without a light
+source  or  infravision, and even then, you must strain to discern what
+they  are. Your Guildmaster is cloaked in shadow, difficult to see, but
+aware of your presence and awaiting your request for another lesson.
+@rus Темнота  правит  здесь.  Вы  едва  можете разглядеть что-нибудь кроме
+теней.  Стены  украшены  оружием,  которые  Вы не можете разглядеть без
+света  или  ночного  зрения,  и  даже  с  ним Вам приходится напрячься,
+чтобы различить, каковы они. Ваш Наставник скрытый в епроницаемой тени,
+знает о Вашем присутствие и ожидает вашей просьбы о новом уроке.
 ~
 0 AD inside
 D0
@@ -2435,12 +2544,16 @@ D1
 Z -1 40130
 S
 #40138
-The Temple of Light~
-This building of gold is golden bright on the inside as well
-as on the outside. Here acolytes keep the candles burning 
-brightly. Bright stained glass windows celebrate the sunshine
-and life itself, some devoted to plant life and some to 
-animal life. The stone beneath your feet is of light marble.
+@eng The Temple of Light@rus Храм Света~
+@eng This  building  of  gold is golden bright on the inside as well as on
+the  outside.  Here  acolytes keep the candles burning brightly. Bright
+stained  glass  windows  celebrate  the  sunshine and life itself, some
+devoted  to  plant life and some to animal life. The stone beneath your
+feet is of light marble.
+@rus Это  здание  целиком  из  золота,  как  внутри,  так и снаружи. Здесь
+священники  хранят  ярко горящие свечи. Яркие раскрашеные окна радуются
+солнечному  свету  и самой жизни, во всех ее проявлениях, и растениям и
+и животным. Камень под вашими ногами -- светящийся мрамор.
 ~
 0 D inside
 D0
@@ -2461,16 +2574,23 @@ D3
 Z -1 40133
 S
 #40139
-The Altar of Light~
-The golden Altar of Light sits in the center of this bright 
-room. Stained glass windows adorn the walls, each depicting 
-different races of beings who walk in the light. On every 
-wall are braziers of bright flame, lightening everything. 
-Looking up, you see that the ceiling is made of a transparent
-substance, allowing the sky to show through, allowing the
-sun, on a good day, to shine in. Beneath your feet, the 
-floor is made of light marble. A pit of granite for receiving
+@eng The Altar of Light@rus Алтарь Света~
+@eng The  golden  Altar  of  Light sits in the center of this bright room.
+Stained  glass  windows adorn the walls, each depicting different races
+of  beings  who walk in the light. On every wall are braziers of bright
+flame,  lightening  everything. Looking up, you see that the ceiling is
+made  of  a  transparent  substance,  allowing the sky to show through,
+allowing  the  sun,  on a good day, to shine in. Beneath your feet, the
+floor  is  made  of  light  marble.  A  pit  of  granite  for receiving
 donations for the poor is located near the altar.
+@rus Золотой   Алтарь  Света  расположен  в  центре  этой  яркой  комнаты.
+Раскрашенные   стеклянные   окна   украшают  стены,  каждое  изображает
+различные  расы  существ  поклоняющихся  свету.  На каждой стене - ярко
+горящие  светильники,  освещающие все вокруг. Огсмотревшись, Вы видите,
+что  потолок сделан из прозрачного вещества, сквозь которое видно небо,
+и  в ясные дни солнце свитит прямо внутрь. Пол под ващими ногами сделан
+из   светящегося   мрамора.  Гранитная  яма  для  пожертвований  бедным
+находится неподалеку от алтаря.
 ~
 0 D inside
 D2
@@ -2483,12 +2603,16 @@ D3
 Z -1 40138
 S
 #40140
-The Temple of Light~
-This building of gold is golden bright on the inside as well
-as on the outside. Here acolytes keep the candles burning 
-brightly. Bright stained glass windows celebrate the sunshine
-and life itself, some devoted to plant life and some to 
-animal life. The stone beneath your feet is of light marble.
+@eng The Temple of Light@rus Храм Света~
+@eng This  building  of  gold is golden bright on the inside as well as on
+the  outside.  Here  acolytes keep the candles burning brightly. Bright
+stained  glass  windows  celebrate  the  sunshine and life itself, some
+devoted  to  plant life and some to animal life. The stone beneath your
+feet is of light marble.
+@rus Это  здание  целиком  из  золота,  как  внутри,  так и снаружи. Здесь
+священники  хранят  ярко горящие свечи. Яркие раскрашеные окна радуются
+солнечному  свету  и самой жизни, во всех ее проявлениях, и растениям и
+и животным. Камень под вашими ногами -- светящийся мрамор.
 ~
 0 CD inside
 D0
@@ -2505,11 +2629,13 @@ D3
 Z -1 40141
 S
 #40141
-By the Fountain of Light~
-In the center of this bright room is a fountain of rare
-beauty. Cool crystal clear water shoots into the air and
-sprinkles down into a pool encased by white quartz. The
-stone beneath your feet is light marble. 
+@eng By the Fountain of Light@rus Фонтан Света~
+@eng In  the center of this bright room is a fountain of rare beauty. Cool
+crystal  clear water shoots into the air and sprinkles down into a pool
+encased by white quartz. The stone beneath your feet is light marble.
+@rus В    центре    комнаты    --   фонтан   редкой   красоты.   Холодная,
+кристально-чистая  вода  взлетает  вверх  и  брызгами опадает в водоем,
+отделаный белым кварцем. Камень под вашими ногами -- светящийся мрамор.
 ~
 0 D inside
 D0
@@ -2530,12 +2656,17 @@ D3
 Z -1 40132
 S
 #40142
-The Fountain of Magic~
-You stand before the Lapis Fountain in the temple square. In 
-the center of the fountain pool is a lapis statue of Xyza, 
-dual streams of water shooting from her outstretched hands. 
-Your feet on granite, you gaze at the high shooting water 
-and feel the cool wetness as a breeze blows it in your face. 
+@eng The Fountain of Magic@rus Магический фонтан~
+@eng You  stand  before  the  Lapis  Fountain in the temple square. In the
+center  of the fountain pool is a lapis statue of Xyza, dual streams of
+water  shooting  from her outstretched hands. Your feet on granite, you
+gaze  at  the high shooting water and feel the cool wetness as a breeze
+blows it in your face.
+@rus Вы  стоите  перед  ляписовым  фонтаном  на храмовой площади. В центре
+фонтана  -  ляписовая  статуя  Ксиза, извергающая двойной поток воды из
+воздетых  к  небу  рук. Стоя на граните Вы пристально глядите на высоко
+взлетающую  воду  и  чувствуете,  как брызги прохладным бризом освежают
+ваше лицо.
 ~
 0 0 city
 D0
@@ -2556,13 +2687,17 @@ D3
 Z -1 40128
 S
 #40143
-The Temple of Magic~
-The Temple of Magic, while constructed of a grey granite on 
-the outside, is walled with smooth lapis lazuli. Stained 
-glass windows depict various magic spells being used by
-different mages. Runic lettering at the bottom of each 
-window tell the exact incantation and what it does, but 
-nowhere is there a guide to pronunciation. 
+@eng The Temple of Magic@rus Храм Магии~
+@eng The  Temple  of  Magic,  while  constructed  of a grey granite on the
+outside,  is  walled  with  smooth  lapis lazuli. Stained glass windows
+depict  various  magic  spells  being  used  by  different mages. Runic
+lettering  at  the bottom of each window tell the exact incantation and
+what it does, but nowhere is there a guide to pronunciation.
+@rus Храм  Магии,  выглядящий  снаружи,  как построеный из серого гранита,
+выстроен  из  отшлифованной  ляпис-лазури.  Закрашенные стеклянные окна
+изображают  разнообразные волшебные заклинания, используемые различными
+магами.   Руничекие  надписи  внизу  каждого  окна  сообщают  названиее
+колдовства и что оно делает, но нигде нет руководства по произношению.
 ~
 0 D inside
 D0
@@ -2579,14 +2714,19 @@ D3
 Z -1 40142
 S
 #40144
-By the Altar of Magic~
-The lapis lazuli Altar sits in the middle of a room filled 
-with a soft violet glow. The stained glass windows on the 
-upper walls, each depicting magicians using spells, do not 
-hold the eye as does the Altar. Upon the Altar are four 
-objects. The entire Altar and its contents are bathed in a 
-golden glow. North and west are more of the Temple. A granite
-donation pit is located near the altar. 
+@eng By the Altar of Magic@rus Алтарь Магии~
+@eng The  lapis  lazuli  Altar  sits in the middle of a room filled with a
+soft  violet  glow.  The stained glass windows on the upper walls, each
+depicting  magicians  using  spells,  do  not  hold the eye as does the
+Altar.  Upon  the  Altar  are  four  objects.  The entire Altar and its
+contents  are  bathed  in a golden glow. North and west are more of the
+Temple. A granite donation pit is located near the altar.
+@rus Ляпис-лазурный  алтарь  стоит  в  середине комнаты, заполяя ее мягким
+фиолетовм   светом.   Расписные   стеклянные  окна  на  верхних  стенах
+изображают  магов, творящих заклинания, и не так привлекают взгляд, как
+сам  алтарь. На Алтаре -- четыре предмета. Весь Алтарь и его содержимое
+купюется  в золотом свете. На север и запад -- другие храмы. Неподалеку
+от алтаря находится яма для пожертвований.
 ~
 0 D inside
 E
@@ -2606,13 +2746,17 @@ D3
 Z -1 40145
 S
 #40145
-The Temple of Magic~
-The Temple of Magic, while constructed of a grey granite on 
-the outside, is walled with smooth lapis lazuli. Stained 
-glass windows depict various magic spells being used by
-different mages. Runic lettering at the bottom of each 
-window tell the exact incantation and what it does, but 
-nowhere is there a guide to pronunciation. 
+@eng The Temple of Magic@rus Храм Магии~
+@eng The  Temple  of  Magic,  while  constructed  of a grey granite on the
+outside,  is  walled  with  smooth  lapis lazuli. Stained glass windows
+depict  various  magic  spells  being  used  by  different mages. Runic
+lettering  at  the bottom of each window tell the exact incantation and
+what it does, but nowhere is there a guide to pronunciation.
+@rus Храм  Магии,  выглядящий  снаружи,  как построеный из серого гранита,
+выстроен  из  отшлифованной  ляпис-лазури.  Закрашенные стеклянные окна
+изображают  разнообразные волшебные заклинания, используемые различными
+магами.   Руничекие  надписи  внизу  каждого  окна  сообщают  названиее
+колдовства и что оно делает, но нигде нет руководства по произношению.
 ~
 0 D inside
 D0
@@ -2633,10 +2777,13 @@ D3
 Z -1 40129
 S
 #40146
-The Fountain of Gore~
-Blood shoots up from the obsidian demon's maw in the middle 
-of this dark fountain in the temple square. The stone beneath
-your feet is basalt, and the whole place reeks of evil. 
+@eng The Fountain of Gore@rus Кровавый фонтан~
+@eng Blood  shoots  up from the obsidian demon's maw in the middle of this
+dark  fountain  in  the  temple  square. The stone beneath your feet is
+basalt, and the whole place reeks of evil.
+@rus Кровь  хлещет  из  пасти  обсидианового демона в центре этого темного
+фонтана  на  храмовой  площади.  И камень под Вашими ногами, и само это
+место излучают зло.
 ~
 0 0 city
 D0
@@ -2657,12 +2804,15 @@ D3
 Z -1 40149
 S
 #40147
-The Temple of Darkness~
-It is so dark inside here that all is shadow, and only with 
-a light source or infravision can you see anything. Evenso, 
-an aura of evil permeates. The walls are carved with pictures
-of tortures carried out against members of the goodly races,
-and demons laughing -- at you?
+@eng The Temple of Darkness@rus Храм Теней~
+@eng It  is  so dark inside here that all is shadow, and only with a light
+source  or  infravision  can  you see anything. Evenso, an aura of evil
+permeates.  The  walls are carved with pictures of tortures carried out
+against members of the goodly races, and demons laughing -- at you?
+@rus Здесь, внутри, так темно,  что видны лишь тени,  и только со  светом
+или ночным зрением можно разглядеть что-нибудь. Везде распространяется
+аура зла.  Стены покрыты барельефами,  изображающими пытки и страдания
+существ добрых рас и смеющихся демонов -- может быть Вас?
 ~
 0 AD inside
 D0
@@ -2683,15 +2833,22 @@ D3
 Z -1 40148
 S
 #40148
-By the Altar of Shadows~
-Surrounded by a black aura of evil, the Altar of Shadows 
-seems to greedily suck in all available light. A statue of 
-Styx Barvakis stands guard nearby, it, too, surrounded by a 
-black aura of pure evil. The eyes of the statue seem to 
-watch your every move. Hard to see what is north or east of
-you, it's so dark... You have to move in here carefully,
-for in the floor near the altar is a dark granite donation
-pit, into which you really do not want to fall... 
+@eng By the Altar of Shadows@rus Алтарь Теней~
+@eng Surrounded  by  a  black  aura of evil, the Altar of Shadows seems to
+greedily  suck in all available light. A statue of Styx Barvakis stands
+guard  nearby,  it,  too,  surrounded by a black aura of pure evil. The
+eyes  of  the statue seem to watch your every move. Hard to see what is
+north  or  east  of  you,  it's  so  dark...  You  have to move in here
+carefully,  for  in the floor near the altar is a dark granite donation
+pit, into which you really do not want to fall...
+@rus Окруженный черной злой аурой , Алтарь Теней, кажется, жадно поглощает
+весь  окружающий  свет.  Статуя  Стюкса Барвакиса стоит на страже, она,
+также,  окружена  черной  аурой  чистого  зла.  Кажется,  что  ее глаза
+наблюдают  за  каждым Вашим движением. Трудно разглядеть, что находится
+севернее  или восточнее Вас -- слишком темно... й Вы должны переместить
+в  сюда тщательно,Осторожно подойдя туда Вы видите неподалеку от алтаря
+темную  яму  для  пожертвований, в которую Вам действительно не хочется
+упасть.
 ~
 0 AD inside
 D0
@@ -2704,13 +2861,18 @@ D1
 Z -1 40147
 S
 #40149
-The Temple of Darkness~
-The very walls of this place seem to drink in whatever light
-shines here, and the atmosphere is purely shadow, purely 
-evil. You strain to see carvings in the walls depicting 
-demons and other fell creatures, tortures of the innocent, 
-and up near the ceiling you *think* you see the face of Styx
-Barvakis watching over all. It looks like a face, anyway...
+@eng The Temple of Darkness@rus Храм Тьмы~
+@eng The  very  walls of this place seem to drink in whatever light shines
+here,  and  the atmosphere is purely shadow, purely evil. You strain to
+see  carvings  in  the walls depicting demons and other fell creatures,
+tortures  of  the innocent, and up near the ceiling you *think* you see
+the  face  of  Styx  Barvakis  watching over all. It looks like a face,
+anyway...
+@rus Кажется,  что сами стены этого места выпивают любой свет, и атмосфера
+--  реальная  тень,  воплощенное зло. Вы напрягаетесь, чтобы разглядеть
+барельефы,  изображающие  демонов и других потусторониих существ, пытки
+невинных,  и  под  потолком,  как  Вам *кажется*, Вы видите лицо Стюкса
+Барвакиса  наблюдающего за всеми. Это напоминает лицо, действительно...
 ~
 0 AD inside
 D0
@@ -2742,11 +2904,15 @@ D1
 Z -1 40132
 S
 #40151
-West Main Road~
-The trees that line this stretch of road arch over it,
-forming a dark green tunnel. It is cooler here than on the 
-more open portions of road, although on very sunny days a 
-ray or two of sunshine may penetrate and kiss the road. 
+@eng West Main Road@rus Западный Проспект~
+@eng The trees that line this stretch of road arch  over  it,  forming  a
+dark green tunnel. It is cooler here than on the more open portions of
+road, although on very sunny  days  a  ray  or  two  of  sunshine  may
+penetrate and kiss the road.
+@rus Деревья, растущие вдоль проспекта, аркой склонятся над ним,  образуя
+темный зеленый туннель. Здесь значительно прохладнее, чем  на  большей
+части отскрытых отрезков проспекта, хотя в особо солнечные дни  лучик-
+другой и упадет на дорогу, пробившись сквозь густые кроны.
 ~
 0 A city
 D0
@@ -2767,11 +2933,15 @@ D3
 Z -1 40152
 S
 #40152
-West Main Road~
-The trees that line this stretch of road arch over it,
-forming a dark green tunnel. It is cooler here than on the 
-more open portions of road, although on very sunny days a 
-ray or two of sunshine may penetrate and kiss the road. 
+@eng West Main Road@rus Западный Проспект~
+@eng The trees that line this stretch of road arch  over  it,  forming  a
+dark green tunnel. It is cooler here than on the more open portions of
+road, although on very sunny  days  a  ray  or  two  of  sunshine  may
+penetrate and kiss the road.
+@rus Деревья, растущие вдоль проспекта, аркой склонятся над ним,  образуя
+темный зеленый туннель. Здесь значительно прохладнее, чем  на  большей
+части отскрытых отрезков проспекта, хотя в особо солнечные дни  лучик-
+другой и упадет на дорогу, пробившись сквозь густые кроны.
 ~
 0 A city
 D0
@@ -2792,11 +2962,15 @@ D3
 Z -1 40153
 S
 #40153
-West Main Road~
-The trees that line this stretch of road arch over it,
-forming a dark green tunnel. It is cooler here than on the 
-more open portions of road, although on very sunny days a 
-ray or two of sunshine may penetrate and kiss the road.
+@eng West Main Road@rus Западный Проспект~
+@eng The trees that line this stretch of road arch  over  it,  forming  a
+dark green tunnel. It is cooler here than on the more open portions of
+road, although on very sunny  days  a  ray  or  two  of  sunshine  may
+penetrate and kiss the road.
+@rus Деревья, растущие вдоль проспекта, аркой склонятся над ним,  образуя
+темный зеленый туннель. Здесь значительно прохладнее, чем  на  большей
+части отскрытых отрезков проспекта, хотя в особо солнечные дни  лучик-
+другой и упадет на дорогу, пробившись сквозь густые кроны.
 ~
 0 A city
 D0
@@ -2817,11 +2991,15 @@ D3
 Z -1 40154
 S
 #40154
-West Main Road~
-The trees that line this stretch of road arch over it,
-forming a dark green tunnel. It is cooler here than on the 
-more open portions of road, although on very sunny days a 
-ray or two of sunshine may penetrate and kiss the road. 
+@eng West Main Road@rus Западный Проспект~
+@eng The trees that line this stretch of road arch  over  it,  forming  a
+dark green tunnel. It is cooler here than on the more open portions of
+road, although on very sunny  days  a  ray  or  two  of  sunshine  may
+penetrate and kiss the road.
+@rus Деревья, растущие вдоль проспекта, аркой склонятся над ним,  образуя
+темный зеленый туннель. Здесь значительно прохладнее, чем  на  большей
+части отскрытых отрезков проспекта, хотя в особо солнечные дни  лучик-
+другой и упадет на дорогу, пробившись сквозь густые кроны.
 ~
 0 A city
 D1
@@ -2834,11 +3012,15 @@ D3
 Z -1 40155
 S
 #40155
-West Main Road~
-The trees that line this stretch of road arch over it,
-forming a dark green tunnel. It is cooler here than on the 
-more open portions of road, although on very sunny days a 
-ray or two of sunshine may penetrate and kiss the road.
+@eng West Main Road@rus Западный Проспект~
+@eng The trees that line this stretch of road arch  over  it,  forming  a
+dark green tunnel. It is cooler here than on the more open portions of
+road, although on very sunny  days  a  ray  or  two  of  sunshine  may
+penetrate and kiss the road.
+@rus Деревья, растущие вдоль проспекта, аркой склонятся над ним,  образуя
+темный зеленый туннель. Здесь значительно прохладнее, чем  на  большей
+части отскрытых отрезков проспекта, хотя в особо солнечные дни  лучик-
+другой и упадет на дорогу, пробившись сквозь густые кроны.
 ~
 0 A city
 D1
@@ -2851,12 +3033,17 @@ D3
 Z -1 40156
 S
 #40156
-West Main Road~
-The trees that line this stretch of road arch over it,
-forming a dark green tunnel. It is cooler here than on the 
-more open portions of road, although on very sunny days a 
-ray or two of sunshine may penetrate and kiss the road. To
-the west you discern an end to the canopy of leaves.
+@eng West Main Road@rus Западный Проспект~
+@eng The trees that line this stretch of road arch  over  it,  forming  a
+dark green tunnel. It is cooler here than on the more open portions of
+road, although on very sunny  days  a  ray  or  two  of  sunshine  may
+penetrate and kiss the road. To the west you discern  an  end  to  the
+canopy of leaves.
+@rus Деревья, растущие вдоль проспекта, аркой склонятся над ним,  образуя
+темный зеленый туннель. Здесь значительно прохладнее, чем  на  большей
+части отскрытых отрезков проспекта, хотя в особо солнечные дни  лучик-
+другой и упадет на дорогу, пробившись сквозь густые кроны.  На  западе
+различается конец этого живого тоннеля.
 ~
 0 A city
 D1
@@ -2869,11 +3056,15 @@ D3
 Z -1 40157
 S
 #40157
-Inside the West Gate of Elvenhame~
-To the east the road is dark, hidden in the shadows of the
-tunnel caused by the arching of thich trees. To the west is
-beyond the gate of the city, wilderness. The gate itself is
-of a silvery metal, thick, and engraved with sparkling runes.
+@eng Inside the West Gate of Elvenhame@rus Внутри Западных Врат Эльвенхейма~
+@eng To the east the road is dark, hidden in the shadows  of  the  tunnel
+caused by the arching of thich trees. To the west is  beyond  the gate
+of the city, wilderness. The gate itself is of a silvery metal, thick,
+and engraved with sparkling runes.
+@rus На востоке дорога темнеет,  скрываясь в тени туннеля,  образованного
+кронами склоняющихся друг к другу деревьев. На западе -- за городскими
+Вратами -- дикая глушь.  Сами  Врата  сделаны из толстого серебристого
+металла и покрыты искрящимися рунами.
 ~
 0 0 city
 D1
@@ -2886,10 +3077,13 @@ D3
 Z -1 40158
 S
 #40158
-Outside the West Gate of Elvenhame~
-You see the West Gate of Elvenhame, made of silver and bearing 
-sparkling runic engravings. To the west is wilderness, to the 
-east civilization as the elves know it. 
+@eng Outside the West Gate of Elvenhame@rus За Западными Вратами Эльвенхейма~
+@eng You  see the West Gate of Elvenhame,  made  of  silver  and  bearing
+sparkling runic engravings. To the west is  wilderness,  to  the  east
+civilization as the elves know it.
+@rus Вы видите Западные Врата Эльвенхейма, сделанные из  чистого  серебра
+и покрытые искрящимися рунами.  На  западе  --  лесная  глухомань,  на
+востоке, насколько известно, цивилизация эльфов.
 ~
 0 0 city
 D1
@@ -2902,11 +3096,13 @@ D3
 Z 0 1877
 S
 #40159
-Middle Road (south)~
-The road here is lined with wild flowers, indiginous to the area,
-and well-loved by the elves who dwell in Elvenhame. Pinks and
-yellows dominate, but you also see purples and reds and the
-occasional blues.
+@eng Middle Road (south)@rus Центральная Улица (юг)~
+@eng The road here is lined with wild flowers, indiginous to the area, and
+well-loved  by  the  elves  who  dwell  in Elvenhame. Pinks and yellows
+dominate, but you also see purples and reds and the occasional blues.
+@rus Улица  обрамлена дикими цветами, котороые характерны для этого места,
+и  очень  нравятся эльфам, живущим в Эльвенхейме. Преобладают розовые и
+желтые, Вы так же видите красные, фиолетовые, и, редко, синие.
 ~
 0 0 city
 D0
@@ -2919,11 +3115,13 @@ D2
 Z -1 40160
 S
 #40160
-Middle Road (south)~
-The road here is lined with wild flowers, indiginous to the area,
-and well-loved by the elves who dwell in Elvenhame. Pinks and
-yellows dominate, but you also see purples and reds and the
-occasional blues.
+@eng Middle Road (south)@rus Центральная Улица (юг)~
+@eng The road here is lined with wild flowers, indiginous to the area, and
+well-loved  by  the  elves  who  dwell  in Elvenhame. Pinks and yellows
+dominate, but you also see purples and reds and the occasional blues.
+@rus Улица  обрамлена дикими цветами, котороые характерны для этого места,
+и  очень  нравятся эльфам, живущим в Эльвенхейме. Преобладают розовые и
+желтые, Вы так же видите красные, фиолетовые, и, редко, синие.
 ~
 0 0 city
 D0
@@ -2936,10 +3134,13 @@ D2
 Z -1 40161
 S
 #40161
-Inside the South Gate of Elvenhame~
-The gate is made of a silvery metal, thick, and engraved
-with sparkling runes. Beyond it to the south is wilderness.
-To the north is the city of Elvenhame.
+@eng Inside the South Gate of Elvenhame@rus Внутри Южных Врат Эльвенхейма~
+@eng The  gate  is  made  of  a  silvery  metal,  thick, and engraved with
+sparkling  runes. Beyond it to the south is wilderness. To the north is
+the city of Elvenhame.
+@rus Толстые  Врата,  сделанные  из  чистого серебра, покрыты мерцающими и
+переливающимися  рунами.  Дальше  на  юг  --  прерия. На север -- город
+Эльвенхейм.
 ~
 0 0 city
 D0
@@ -2948,10 +3149,13 @@ D0
 Z -1 40160
 S
 #40162
-Middle Road (north)~
-When the weather is bright this stretch of road is bathed in 
-sunlight. No trees line the road, but flowers of every color 
-of the rainbow. You even recognize some herbs among them. 
+@eng Middle Road (north)@rus Центральная Улица (север)~
+@eng When  the  weather  is  bright  this  stretch  of  road  is bathed in
+sunlight.  No  trees  line  the road, but flowers of every color of the
+rainbow. You even recognize some herbs among them.
+@rus В  ясную  погоду  улица  купается  в  солнечных лучах. Вдоль улицы не
+растут  никаких деревьев, только цветы всех цветов радуги. Среди них Вы
+видите даже некоторые травы.
 ~
 0 0 city
 D0
@@ -2964,10 +3168,13 @@ D2
 Z -1 40134
 S
 #40163
-Middle Road (north)~
-When the weather is bright this stretch of road is bathed in 
-sunlight. No trees line the road, but flowers of every color 
-of the rainbow. You even recognize some herbs among them. 
+@eng Middle Road (north)@rus Центральная Улица (север)~
+@eng When  the  weather  is  bright  this  stretch  of  road  is bathed in
+sunlight.  No  trees  line  the road, but flowers of every color of the
+rainbow. You even recognize some herbs among them.
+@rus В  ясную  погоду  улица  купается  в  солнечных лучах. Вдоль улицы не
+растут  никаких деревьев, только цветы всех цветов радуги. Среди них Вы
+видите даже некоторые травы.
 ~
 0 0 city
 D0
@@ -2988,10 +3195,13 @@ D3
 Z -1 40189
 S
 #40164
-Middle Road (north)~
-When the weather is bright this stretch of road is bathed in 
-sunlight. No trees line the road, but flowers of every color 
-of the rainbow. You even recognize some herbs among them. 
+@eng Middle Road (north)@rus Центральная Улица (север)~
+@eng When  the  weather  is  bright  this  stretch  of  road  is bathed in
+sunlight.  No  trees  line  the road, but flowers of every color of the
+rainbow. You even recognize some herbs among them.
+@rus В  ясную  погоду  улица  купается  в  солнечных лучах. Вдоль улицы не
+растут  никаких деревьев, только цветы всех цветов радуги. Среди них Вы
+видите даже некоторые травы.
 ~
 0 0 city
 D0
@@ -3004,10 +3214,12 @@ D2
 Z -1 40163
 S
 #40165
-Inside the North Gate of Elvenhame~
-The gate is of a silvery metal, thick, with sparkling runes
-engraved upon it. To the north is wilderness, to the south
-elven civilization.
+@eng Inside the North Gate of Elvenhame@rus Внутри Северных Врат Эльвенхейма~
+@eng The  gate is of a silvery metal, thick, with sparkling runes engraved
+upon it. To the north is wilderness, to the south elven civilization.
+@rus Толстые  Врата  сделаные  из чистого серебра, покрыты переливающимися
+рунами.  На севере Вы различаете сверкание Города Фестивалей, на юге --
+цивилизация Эльфов.
 ~
 0 0 city
 D0
@@ -3020,9 +3232,11 @@ D2
 Z -1 40164
 S
 #40166
-Outside the North Gate of Elvenhame~
-Beyond this gate to the south is elven civilization as we
-know it, the city of the elves. To the north is wilderness.
+@eng Outside the North Gate of Elvenhame@rus За Северными Вратами Эльвенхейма~
+@eng Beyond  this  gate  to the south is elven civilization as we know it,
+the city of the elves. To the north is wilderness.
+@rus Далее на юг, за Вратами, как известно, город Эльфов. На север - Город
+Фестивалей.
 ~
 0 0 city
 D0
@@ -3071,10 +3285,12 @@ D5
 Z -1 40167
 S
 #40169
-Guild Road~
-You are on Guild Road. To the north and south you see more 
-of the road. The road is lined with fiery-red leaved maple 
+@eng Guild Road@rus Улица Гильдий~
+@eng You  are on Guild Road. The road is lined with fiery-red leaved maple
+trees and lavender flowers.
 trees and lavender flowers. 
+@rus Вы -- на Улице Гильдий. Вдоль улицы растут клены с пламенно-красными
+кронами и маленькие лавандовые цветы.
 ~
 0 0 city
 D0
@@ -3091,9 +3307,11 @@ D2
 Z -1 40110
 S
 #40170
-Guild Road~
-You are on Guild Road. The road is lined with fiery-red 
-leaved maple trees and lavender flowers. 
+@eng Guild Road@rus Улица Гильдий~
+@eng You  are on Guild Road. The road is lined with fiery-red leaved maple
+trees and lavender flowers.
+@rus Вы -- на Улице Гильдий. Вдоль улицы растут клены с пламенно-красными
+кронами и маленькие лавандовые цветы.
 ~
 0 0 city
 D0
@@ -3110,9 +3328,11 @@ D2
 Z -1 40169
 S
 #40171
-Guild Road~
-You are on Guild Road. The road is lined with fiery-red 
-leaved maple trees and lavender flowers. 
+@eng Guild Road@rus Улица Гильдий~
+@eng You  are on Guild Road. The road is lined with fiery-red leaved maple
+trees and lavender flowers.
+@rus Вы -- на Улице Гильдий. Вдоль улицы растут клены с пламенно-красными
+кронами и маленькие лавандовые цветы.
 ~
 0 0 city
 D0
@@ -3125,9 +3345,11 @@ D2
 Z -1 40170
 S
 #40172
-Guild Road~
-You are on Guild Road. The road is lined with fiery-red 
-leaved maple trees and lavender flowers. 
+@eng Guild Road@rus Улица Гильдий~
+@eng You  are on Guild Road. The road is lined with fiery-red leaved maple
+trees and lavender flowers.
+@rus Вы -- на Улице Гильдий. Вдоль улицы растут клены с пламенно-красными
+кронами и маленькие лавандовые цветы.
 ~
 0 0 city
 D0
@@ -3140,10 +3362,13 @@ D2
 Z -1 40171
 S
 #40173
-Guild Road~
-You are on Guild Road. The road is lined with fiery-red 
-leaved maple trees and lavender flowers. To the east you 
-see a tower, the great Observatory of the Astrologers.
+@eng Guild Road@rus Улица Гильдий~
+@eng You  are on Guild Road. The road is lined with fiery-red leaved maple
+trees  and  lavender  flowers.  To  the east you see a tower, the great
+Observatory of the Astrologers.
+@rus Вы  -- на Улице Гильдий. Вдоль улицы растут клены с пламенно-красными
+кронами  и  маленькие  лавандовые цветы. На востоке видна башня большой
+Обсерватории Астрологов.
 ~
 0 0 city
 D1
@@ -3156,11 +3381,14 @@ D2
 Z -1 40172
 S
 #40174
-Entrance to the Observatory (Astrologers Guild)~
-You are at the entrance to the Observatory where the Astrologers
-observe the movements in the heavens. On the walls are fine
-tapestries depicting the most popular of constellations in the
-night sky.
+@eng Entrance to the Observatory (Astrologers Guild)@rus Вход в Обсерваторию (Гильдия Астрологии)~
+@eng You  are  at  the  entrance  to the Observatory where the Astrologers
+observe   the   movements  in  the  heavens.  On  the  walls  are  fine
+tapestries  depicting  the  most popular of constellations in the night
+sky.
+@rus Вы  --  на  входе  в Обсерваторию, где Астрологи наблюдают движения в
+небесах.  На  стенках  --  прекрасные гобелены с изображениями наиболее
+известных созвездий ночноо неба.
 ~
 0 D inside
 D3
@@ -3173,15 +3401,21 @@ D4
 Z -1 40175
 S
 #40175
-The Astrologers' Guild~
-A laboratory of the mind this room is. Tables throughout the
-room are filled with scrolls and fountain pens. You look at
-one scroll and see the chart of the lunar eclipses. Another
-scroll shows you a schedule of meteor storms. Looking at a
-third scroll, you notice that this is someone's natal
-horoscope, as yet unfinished because the astrologer drawing
-it up has taken leave of the guild in order to see the
-world below the dome of stars.
+@eng The Astrologers' Guild@rus Гильдия Астрологии~
+@eng A laboratory of the mind this room is. Tables throughout the room are
+filled  with  scrolls and fountain pens. You look at one scroll and see
+the chart of the lunar eclipses. Another scroll shows you a schedule of
+meteor  storms.  Looking  at  a  third  scroll, you notice that this is
+someone's  natal  horoscope,  as  yet unfinished because the astrologer
+drawing  it  up  has taken leave of the guild in order to see the world
+below the dome of stars.
+ 
+@rus В  этой  комнате  --  лаборатория.  Стола  по  всей  комнате завалены
+свитками  и  авторучками. Вы смотрите на один свиток и видите диаграмму
+лунных  затмений.  Другой  свиток показывает Вам расписание метеоритных
+штормов.  Разглядывая  третий  свиток Вы обращаете внимание, что это --
+чей-то  гороскоп,  пока еще незаконченные, потому что астролог, пишущий
+его, покинул гильдию чтобы посмотреть на мир под куполом звезд.
 ~
 0 DM inside
 D4
@@ -3194,13 +3428,16 @@ D5
 Z -1 40174
 S
 #40176
-The Observatory~
-The massive telescope positioned to look at the heavens
-takes up almost all the room here. In one corner is a
-mobile depicting the universe as we know it today. The
-astrologers keep it mostly dark in here so that they
-may view the universe without much disturbance from the
-civilized world as they know it.
+@eng The Observatory@rus Обсерватория~
+@eng The  massive  telescope  positioned  to  look at the heavens takes up
+almost  all  the  room  here.  In  one corner is a mobile depicting the
+universe  as  we  know it today. The astrologers keep it mostly dark in
+here  so  that they may view the universe without much disturbance from
+the civilized world as they know it.
+@rus Массивный  телескоп направленный в небеса занимает почти всю комнату.
+В  одном углу - подвижная модель известной на сегодня вселенной. Обычно
+астрологи  сохраняют  здесь  полумрак,  чтобы  спокойно рассматривать и
+изучать вселенную вдали от постоянных волнений внешнего мира.
 ~
 0 AD inside
 D5
@@ -3209,11 +3446,13 @@ D5
 Z -1 40175
 S
 #40177
-First Bank of Elvenhame~
-The floor here is carpeted, and the walls are tastefully
-decorated with tapestries of woodland, brook, and mountain
-scenes. At least one teller is available for your financial
-transaction.
+@eng First Bank of Elvenhame@rus Главный Банк Эльвенхейма~
+@eng The  floor  here  is carpeted, and the walls are tastefully decorated
+with  tapestries  of woodland, brook, and mountain scenes. At least one
+teller is available for your financial transaction.
+@rus Покрытый   коврами   пол,   на   стенах   --   прекрасные  гобелены с
+изображениями  лесных,  речных  и горных пейзажей. По крайней мере один
+кассир всегда свободен для Ваших финансовых операций.
 ~
 0 CDU inside
 D3
@@ -3226,8 +3465,9 @@ D5
 Z -1 40178
 S
 #40178
-The Bank Vault~
-Here is where all the vault boxes of the bank are located.
+@eng The Bank Vault@rus Банковское Хранилище~
+@eng Here is where all the vault boxes of the bank are located.
+@rus Здесь хранятся все банковские сейфы.
 ~
 0 AD inside
 D4
@@ -3236,10 +3476,13 @@ D4
 Z -1 40177
 S
 #40179
-City Guard Headquarters~
-A desk with a messy pile of scrolls and parchments sits in one
-corner. On the walls are pictures of known criminals. A parchment
-is nailed to one wall. 
+@eng City Guard Headquarters@rus Штаб-квартира городских Стражей~
+@eng A  desk  with  a  messy  pile  of  scrolls and parchments sits in one
+corner.  On  the  walls are pictures of known criminals. A parchment is
+nailed to one wall.
+@rus В одном углу -- доска с беспорядочной кучей свитков и пергаментов. На
+стенах  --  изображения  разыскиваемых преступников. Еще один пергамент
+прибит к одной из стен.
 ~
 0 D inside
 E
@@ -3272,10 +3515,13 @@ D2
 Z -1 40126
 S
 #40180
-City Hall~
-Here is the bastion of politics and getting things done slower
-than necessary (if at all). The Mayor works here, and the city's
-guardsmen get their paychecks here.
+@eng City Hall@rus Муницепалитет~
+@eng Here  is  the bastion of politics and getting things done slower than
+necessary  (if  at all). The Mayor works here, and the city's guardsmen
+get their paychecks here.
+@rus Здесь  оплот  политики, и дела тут ведутся медленне, чем обучно (если
+вообще  ведутся). Тут работает Мэр, и городские гвардейцы получают свою
+зарплату.
 ~
 0 D inside
 D0
@@ -3288,12 +3534,17 @@ D2
 Z -1 40127
 S
 #40181
-Registry Office~
-Here is where all the scrolls containing all the information about 
-who was born, who died, who married, etc., are located. Shelves and
-shelves and shelves line the walls, and each of them crammed with
-scrolls, some of them dusty and cobweb-ridden, others new. The whole
+@eng Registry Office@rus Регистратура~
+@eng Here  is  where  all the scrolls containing all the information about
+who  was  born,  who  died, who married, etc., are located. Shelves and
+shelves  and  shelves  line  the  walls,  and each of them crammed with
+scrolls,  some  of  them dusty and cobweb-ridden, others new. The whole
 room is cluttered with stuff.
+@rus Здесь  хранятся  все свитки, содержащие информацию о том, кто и когда
+родился,  умер, денился и т.д. Полки, полки и полки стоят вдоль стен, и
+каждая  из  них  заполнена  свитками,  некоторые из них покрыты пылью и
+паутиной, другие еще новые. Юольшая часть комнаты в беспорядке завалена
+всяким хламом.
 ~
 0 Db inside
 D2
@@ -3302,14 +3553,21 @@ D2
 Z -1 40180
 S
 #40182
-The Gaping Maw~
-Of all the beer joints in all the cities in all the world, you
-had to walk into this one. Elvenhame's centrally located tavern is
-said to have the best drinks in the world, bar none. Blane the
-barkeep has owned the place since its opening centuries ago, and
-everyone expects he'll own it for more than a millenium. The bar
-is centrally located, with tables surrounding it, and a dance floor
-far to the south near the door to the back room.
+@eng The Gaping Maw@rus Зияющая Пасть~
+@eng Of all the beer joints in all the cities in all the world, you had to
+walk  into  this  one.  Elvenhame's centrally located tavern is said to
+have  the  best  drinks  in  the world, bar none. Blane the barkeep has
+owned  the  place since its opening centuries ago, and everyone expects
+he'll  own  it for more than a millenium. The bar is centrally located,
+with tables surrounding it, and a dance floor far to the south near the
+door to the back room.
+@rus Из всех пивных заведений всех городов всего мира Вам непременно стоит
+заглянуть  именно  сюда.  Не  зря  ходит  молва,  что  в  этой таверне,
+размещенной в центре Эльвенхейма, самые лучшие спиртные напитки во всем
+мире,  без  исключений.  Бармен Блейн, владелец этого места, открыл его
+столетия  назад,  и  все знают, что его капитал сейчас составляет более
+миллиона.  Бар  размещен  в центре, в окружении столиков, дальше к югу,
+неподалеку от задней двери, танцевальная сцена.
 ~
 0 D inside
 D0
@@ -3322,11 +3580,15 @@ D2
 Z -1 40183
 S
 #40183
-The Back Room~
-A private dining area with a dance floor, The Back Room of The
-Gaping Maw tavern is the site of many a private party, mostly
-of the gambling sort. The floor is carpeted in crimson and gold 
-brocade, and tapestries adorn the walls. 
+@eng The Back Room@rus Задняя комната~
+@eng A private dining area with a dance floor, The Back Room of The Gaping
+Maw  tavern is the site of many a private party, mostly of the gambling
+sort. The floor is carpeted in crimson and gold brocade, and tapestries
+adorn the walls.
+@rus Укромное  местечко  позади танцевальной сцены, задняя комната таверны
+Зияющая  Пасть, -- место для многих частных встреч, обычно -- карточных
+игр.  На  полу  --  ковры  темно-красных  и золотых тонов, на стенах --
+прекрасные гобелены.
 ~
 0 D inside
 D0
@@ -3335,11 +3597,13 @@ D0
 Z -1 40182
 S
 #40184
-Thou Good and Faithful Servant, Inc.~
-Here is where you may purchase pets to aid you, or mercenaries
-who have put themselves up for hire. Animals have been trained
-to obey, and the mercenaries have been schooled in the finer
-arts of serving others.
+@eng Thou Good and Faithful Servant, Inc.@rus Ваш добрый и верный слуга, Inc.~
+@eng Here  is  where  you may purchase pets to aid you, or mercenaries who
+have put themselves up for hire. Animals have been trained to obey, and
+the mercenaries have been schooled in the finer arts of serving others.
+@rus Здесь  вы  можете приобрести для себя домашних животных, или нанять в
+помощь  себе  освободившихся  для  найма  слуг.  Животные тренированы и
+прекрасно повинуются, слуги прекрасно обучены искусству обслуживания.
 ~
 0 DM inside
 D2
@@ -3358,10 +3622,12 @@ safer place.
 0 CDNX inside
 S
 #40186
-Necessities 'R' Us~
-The shelves are full of the necessities of life. On the 
-counter is a locked box and a small card. Behind the
-counter is a parchment framed in oak.
+@eng Necessities 'R' Us@rus Необходимо Вам 'R'~
+@eng The  shelves are full of the necessities of life. On the counter is a
+locked  box  and a small card. Behind the counter is a parchment framed
+in oak.
+@rus Полки  полны  всем  необходимым для жизни. На прилавкезапертый сейф и
+маленькая табличка. За прилавком - в дубовой раме.
 ~
 0 D inside
 E
@@ -3391,15 +3657,22 @@ D0
 Z -1 40151
 S
 #40187
-small house~
-A small one-room house is all most elves need for shelter. This
-one is nicely furnished with beds along the north wall and a 
-fireplace with a nice counter nearby and butcher-block along the 
-south wall. Above the fire is a metal construct which allows the
-family which lives here to place pots, pans, and other cooking
-vessels. The house door was left open because, well, the citizens
-of Elvenhame expect that they are safe here and that there is
-nothing to steal or harm.
+@eng small house@rus небольшой дом~
+@eng A  small  one-room house is all most elves need for shelter. This one
+is nicely furnished with beds along the north wall and a fireplace with
+a nice counter nearby and butcher-block along the south wall. Above the
+fire  is  a metal construct which allows the family which lives here to
+place  pots,  pans,  and other cooking vessels. The house door was left
+open because, well, the citizens of Elvenhame expect that they are safe
+here and that there is nothing to steal or harm.
+@rus Маленький  однокомнатный  дом  удовлетворяет  потребность в жилье для
+бельшинства  эльфов. Он уютно обставлен кроватями вдоль северной стены,
+камином,  крепким  столом  и  кухней  на  южной  стене.  Над  огнем  --
+меналлическая  конструкция,  позволяющая  живущей  здесь  семье  эльфов
+ставить на нее горшки, кастрюли и другую посуду для приготовления пищи.
+Дверь  дома  оставлена  открытой,  так как жители Эльвенхейма чувствуют
+себя в безопасности, и не ожидают, что кто-то захочет их обокрасть, или
+чем-либо навредить.
 ~
 0 D inside
 D3
@@ -3408,12 +3681,16 @@ D3
 Z -1 40163
 S
 #40188
-The Butcher Block~
-Along one wall is a long vat with a glass cover, magically
-chilled. Inside it are different cuts of meat, some spiced
-and some waiting to be spiced. On the counter is a small
-card and a locked box. Behind the counter, hung on the wall,
-is a faded, stained parchment.
+@eng The Butcher Block@rus Мясная лавка~
+@eng Along  one  wall is a long vat with a glass cover, magically chilled.
+Inside  it  are different cuts of meat, some spiced and some waiting to
+be  spiced. On the counter is a small card and a locked box. Behind the
+counter, hung on the wall, is a faded, stained parchment.
+@rus Возле  одной  стены -- длинный чан со стеклянной крышкой, охлаждаемай
+при   помощи  магии.  Внутри  него  -  разные  куски  мяса,  некоторого
+заправлены  специями, другие -- подготовленые для этого. На прилавке --
+небольшой   ценник  и  запертый  сейф.  на  стене  за  прилавком  висит
+выцветший, раскрашенный пергамент.
 ~
 0 D inside
 E
@@ -3443,15 +3720,22 @@ D2
 Z -1 40152
 S
 #40189
-small house~
-A small one-room house is all most elves need for shelter. This
-one is nicely furnished with beds along the north wall and a 
-fireplace with a nice counter nearby and butcher-block along the 
-south wall. Above the fire is a metal construct which allows the
-family which lives here to place pots, pans, and other cooking
-vessels. The house door was left open because, well, the citizens
-of Elvenhame expect that they are safe here and that there is
-nothing to steal or harm.
+@eng small house@rus небольшой дом~
+@eng A  small  one-room house is all most elves need for shelter. This one
+is nicely furnished with beds along the north wall and a fireplace with
+a nice counter nearby and butcher-block along the south wall. Above the
+fire  is  a metal construct which allows the family which lives here to
+place  pots,  pans,  and other cooking vessels. The house door was left
+open because, well, the citizens of Elvenhame expect that they are safe
+here and that there is nothing to steal or harm.
+@rus Маленький  однокомнатный  дом  удовлетворяет  потребность в жилье для
+бельшинства  эльфов. Он уютно обставлен кроватями вдоль северной стены,
+камином,  крепким  столом  и  кухней  на  южной  стене.  Над  огнем  --
+меналлическая  конструкция,  позволяющая  живущей  здесь  семье  эльфов
+ставить на нее горшки, кастрюли и другую посуду для приготовления пищи.
+Дверь  дома  оставлена  открытой,  так как жители Эльвенхейма чувствуют
+себя в безопасности, и не ожидают, что кто-то захочет их обокрасть, или
+чем-либо навредить.
 ~
 0 D inside
 D1
@@ -3460,14 +3744,17 @@ D1
 Z -1 40163
 S
 #40190
-The Armory~
-The first thing you notice is the heat. This store is
-hot. Very hot. By the far stone wall is a small forge,
-where the blacksmith works, and everywhere else you
-see piles of stuff: vests, leggings, boots, gloves,
-armguards... The blacksmith has been busy. The counter
-near the door is surprisingly clean. A locked box and
-a card sit upon it.
+@eng The Armory@rus Арсенал~
+@eng The  first thing you notice is the heat. This store is hot. Very hot.
+By the far stone wall is a small forge, where the blacksmith works, and
+everywhere else you see piles of stuff: vests, leggings, boots, gloves,
+armguards... The blacksmith has been busy. The counter near the door is
+surprisingly clean. A locked box and a card sit upon it.
+@rus Первое,  на  что  Вы  обращаете  внимание  -- теплота. В этой комнате
+жарко.  Очень жарко. У дальней каменной стены маленький кузнечный горн,
+у  которого  работает  кузнец,  и  вокрух  вы  видите  груды  доспехов:
+кольчуги,  леггинсы,  ботинки, перчатки, латы... Кузнец занят. Прилавок
+рядом с дверью удивительно чист. Запертый сейф и ценних на нем.
 ~
 0 D inside
 E
@@ -3486,15 +3773,22 @@ D0
 Z -1 40152
 S
 #40191
-small house~
-A small one-room house is all most elves need for shelter. This
-one is nicely furnished with beds along the north wall and a 
-fireplace with a nice counter nearby and butcher-block along the 
-south wall. Above the fire is a metal construct which allows the
-family which lives here to place pots, pans, and other cooking
-vessels. The house door was left open because, well, the citizens
-of Elvenhame expect that they are safe here and that there is
-nothing to steal or harm.
+@eng small house@rus небольшой дом~
+@eng A  small  one-room house is all most elves need for shelter. This one
+is nicely furnished with beds along the north wall and a fireplace with
+a nice counter nearby and butcher-block along the south wall. Above the
+fire  is  a metal construct which allows the family which lives here to
+place  pots,  pans,  and other cooking vessels. The house door was left
+open because, well, the citizens of Elvenhame expect that they are safe
+here and that there is nothing to steal or harm.
+@rus Маленький  однокомнатный  дом  удовлетворяет  потребность в жилье для
+бельшинства  эльфов. Он уютно обставлен кроватями вдоль северной стены,
+камином,  крепким  столом  и  кухней  на  южной  стене.  Над  огнем  --
+меналлическая  конструкция,  позволяющая  живущей  здесь  семье  эльфов
+ставить на нее горшки, кастрюли и другую посуду для приготовления пищи.
+Дверь  дома  оставлена  открытой,  так как жители Эльвенхейма чувствуют
+себя в безопасности, и не ожидают, что кто-то захочет их обокрасть, или
+чем-либо навредить.
 ~
 0 D inside
 D3
@@ -3503,16 +3797,22 @@ D3
 Z -1 40110
 S
 #40192
-All That Glitters~
-You have never seen so many riches in one place before,
-although you have heard legends of dragons' hoards, their
-mounds of gold and glittering jewels. In this shop the
-jewels and gold are tastefully set out for viewing, most 
-of them beyond your ability to purchase. Try to touch the
-golden chalice encrusted with rubies and the protection
-spell set upon it will burn your hand. A few affordable
-pieces are displayed near the locked cash box, and a card
-is displayed nearby.
+@eng All That Glitters@rus Все, что блестит~
+@eng You have never seen so many riches in one place before, although you
+have heard legends of  dragons'  hoards,  their  mounds  of  gold  and
+glittering jewels. In this shop the jewels and gold are tastefully set
+out for viewing, most of them  beyond your ability to purchase. Try to
+touch the golden chalice encrusted  with  rubies  and  the  protection
+spell set upon it will burn your hand.  A  few affordable  pieces  are
+displayed near the locked cash box, and a card is displayed nearby.
+@rus Вы никогда не  видели так много богатства в одном месте прежде, хотя
+конечто  и  слышали  легенды о сокровищах драконов, их горах золота  и
+блестящих драгоценных камней. В этом магазине  --  золотые украшения и
+драгоценности очень тонкой работы воставлены на просмотр,  большинство
+из них  --  за  пределами  вашей покупательной способности. Попробуйте
+дотронуться до золотого ожерелья с рубинами, и защитные заклинания  на
+нем обожгут Вам руку. Редом с немногими более достапными вещами  стоит
+закрытый сейф и указаны цены.
 ~
 0 D inside
 E
@@ -3531,15 +3831,22 @@ D2
 Z -1 40153
 S
 #40193
-small house~
-A small one-room house is all most elves need for shelter. This
-one is nicely furnished with beds along the north wall and a 
-fireplace with a nice counter nearby and butcher-block along the 
-south wall. Above the fire is a metal construct which allows the
-family which lives here to place pots, pans, and other cooking
-vessels. The house door was left open because, well, the citizens
-of Elvenhame expect that they are safe here and that there is
-nothing to steal or harm.
+@eng small house@rus небольшой дом~
+@eng A  small  one-room house is all most elves need for shelter. This one
+is nicely furnished with beds along the north wall and a fireplace with
+a nice counter nearby and butcher-block along the south wall. Above the
+fire  is  a metal construct which allows the family which lives here to
+place  pots,  pans,  and other cooking vessels. The house door was left
+open because, well, the citizens of Elvenhame expect that they are safe
+here and that there is nothing to steal or harm.
+@rus Маленький  однокомнатный  дом  удовлетворяет  потребность в жилье для
+бельшинства  эльфов. Он уютно обставлен кроватями вдоль северной стены,
+камином,  крепким  столом  и  кухней  на  южной  стене.  Над  огнем  --
+меналлическая  конструкция,  позволяющая  живущей  здесь  семье  эльфов
+ставить на нее горшки, кастрюли и другую посуду для приготовления пищи.
+Дверь  дома  оставлена  открытой,  так как жители Эльвенхейма чувствуют
+себя в безопасности, и не ожидают, что кто-то захочет их обокрасть, или
+чем-либо навредить.
 ~
 0 D inside
 D3
@@ -3548,15 +3855,19 @@ D3
 Z -1 40169
 S
 #40194
-He Who Lives By The Sword (R) Weapons Boutique~
-The first thing you notice is the heat. This store is
-hot. Very hot. By the far stone wall is a small forge,
-where the weaponsmith works, and everywhere else you
-see piles of swords, axes, daggers... some blades 
-without hilts... On one wall is a collection of whips
-and flails. The weaponsmith has been busy. The counter
-near the door is surprisingly clean. A locked box and
-a card sit upon it.
+@eng He Who Lives By The Sword (R) Weapons Boutique@rus Тот, чья жизнь - Меч (R) Оружейный магазин~
+@eng The  first thing you notice is the heat. This store is hot. Very hot.
+By  the  far  stone wall is a small forge, where the weaponsmith works,
+and  everywhere  else  you  see  piles of swords, axes, daggers... some
+blades  without  hilts...  On  one  wall  is  a collection of whips and
+flails.  The  weaponsmith  has  been busy. The counter near the door is
+surprisingly clean. A locked box and a card sit upon it.
+@rus Первое,  на  что  Вы  обращаете  внимание  -- теплота. В этой комнате
+жарко.  Очень жарко. У дальней каменной стены маленький кузнечный горн,
+у которого работает оружейник, и вокруг вы видите груды мечей, топоров,
+кинжалов...  некоторые  из  них  еще  без рукояток... На одной стене --
+коллекция  кнутов  и  плетей.  Оружейник занят. Прилавок рядом с дверью
+удивительно чист. Запертый сейф и ценник на нем.
 ~
 0 D inside
 E
@@ -3592,12 +3903,15 @@ D3
 Z -1 40170
 S
 #40196
-Necromancers' Supply Shoppe~
-The room is dark, but for a small red-flamed candle on 
-the counter. Shelves line the walls, shelves filled 
-with wonderful things: vials and flasks of potions,
-scrolls, wands. There is a card on the counter, and
-a locked box.
+@eng Necromancers' Supply Shoppe@rus Магазин некромановских принадлежностей~
+@eng The room is dark, but for a small red-flamed candle on the  counter.
+Shelves line the walls, shelves filled  with  wonderful  things: vials
+and flasks of potions, scrolls, wands. There is a card on the counter,
+and a locked box.
+@rus Комната  темна,  несмотря  на  маленькую  красную свечу на прилавке.
+Полки,  стоящие вдоль стен,  полки,  заполненны  удивительными вещами:
+пузырьками и бутылочками микстур,  свитками, палочками. На прилавке --
+ценники и замкнутый сейф.
 ~
 0 AD inside
 E

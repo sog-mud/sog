@@ -1040,6 +1040,15 @@ armor T AB
 35 1 1 P
 S 'bash' 30 A
 G none
+#38604
+slon слон elephant candy~
+@eng elephant@rus слоник~
+@eng Wow ! What a candy ... It looks like an animal !@rus Карамель в виде слона (elephant) просится в рот.~
+wellknown~
+food A A
+CE CE 0 0 0
+0 1 100000 P
+G none
 #0
 
 #ROOMS

@@ -216,23 +216,22 @@ Example:  {cPROMPT <%hhp %mm %vmv>{x
                               {CFLAGS, TOGGLE{x
 ~
 0 DEATH~
-@eng When your character dies, you are reincarnated back at the Altar of your
-home  Your corpse is left behind in the room where you were killed,
+@eng When your character dies, you are reincarnated back at the Altar of temple in
+your hometown. Your corpse is left behind in the room where you were killed,
 together with all of your equipment.
-
+ 
 Any spells which were affecting you are canceled by death.
-
 Following and groups are not affected by death.
-You lose experience points for dying.  The amount you lose depends on 
+ 
+You lose experience points for dying.  The amount you lose depends on
 your then experience points, your race, class and your previous deaths.
-
 After each three deaths your constitution decreases by one.
 
-Corpses decay after time, but the objects inside your corpse will be 
+Corpses decay after time, but the objects inside your corpse will be
 transferred to the pitof your temple.
-
-If your constitution falls below 3, character will not be 
-resurrected in templebut deleted permanently.
+ 
+If your constitution falls below 3, character will not be resurrected in
+temple, but deleted permanently.
 @rus Когда ваш персонаж умирает, он возрождается на алтаре Храма твоего родного
 города. Твой труп остается в комнате, где ты был убит, вместе со всеми твоими
 вещами.
@@ -379,7 +378,7 @@ the ground will not be regenerated if anyone is in the area when it resets.
 момент обновления.
 ~
 0 !~
-@eng Syntax: !
+@eng Syntax: {c!{x
 
 ! repeats the last command you typed.
 @rus Синтаксис: {c!{x
@@ -469,7 +468,7 @@ When you cast an offensive spell, the victim usually gets a saving throw.
 The effect of the spell is reduced or eliminated if the victim makes the
 saving throw successfully.
 
-See also the help sections for individual spells.
+See also the {CHELP <spell name>{x
 @rus Синтаксис: {ccast{x <название> <цель>
 
 Прежде, чем ты сможешь произносить заклинание, ты должен практиковать его. Чем 
@@ -481,8 +480,8 @@ See also the help sections for individual spells.
 ную цель автоматически, особенно в бою.
 
 Если название заклинания состоит более чем из одного слова, ты должен заключить
-его в апострофы.
-Например: {ccast 'cure critical' frag{x.
+его в апострофы. Названия заклинаний можно сокращать.
+Например: {ccast 'cure critic' frag{x
 
 Когда ты используешь боевое заклинание, жертва обычно получает возможность
 полностью или частично избежать действия этого заклинания. Эффект заклинания
@@ -547,8 +546,8 @@ drop all.xxx, get all.xxx или put all.xxx выполняют действия со всеми
 доступными обьектами с названием xxx.
 ~
 0 EQUIPMENT INVENTORY~
-@eng Syntax: equipment
-Syntax: inventory
+@eng Syntax: {cequipment{x
+Syntax: {cinventory{x
 
 EQUIPMENT lists your equipment (armor, weapons, and held items).
 INVENTORY lists your inventory.
@@ -559,8 +558,8 @@ EQUIPMENT показывает твое снаряжение (броня, оружие и другие вещи).
 INVENTORY показывает содержимое твоего мешка (inventory).
 ~
 0 COMPARE~
-@eng Syntax: compare <object-1> <object-2>
-Syntax: compare <object>
+@eng Syntax: {ccompare{x <object-1> <object-2>
+Syntax: {ccompare{x <object>
  
 COMPARE compares two objects in your inventory.  If both objects are weapons,
 it will report the one with the better average damage.  If both objects are
@@ -582,27 +581,28 @@ COMPARE с одним аргументом сравнивает предмет с аналогичным одетым на тебе.
 COMPARE не учитывает специальные модификаторы ообъектов.
 ~
 0 FLEE RESCUE ESCAPE DISHONOR~
-@eng Syntax: flee
-Syntax: rescue   <character>
+@eng Syntax: {cflee{x
+Syntax: {crescue{x <character>
+Syntax: {cescape{x <direction>
+Syntax: {cdishonor{x
 
-Once you start a fight, you can't just walk away from it.  If the fight
-is not going well, you can attempt to FLEE, or another character can
-RESCUE you.  (You can also RECALL, but this is less likely to work,
-and costs more experience points, then fleeing).
-
-If you lose your link during a fight, then your character will keep
-fighting, and will attempt to RECALL from time to time.  Your chances
-of making the recall are reduced, and you will lose much more experience.
-
-If you are affected by pass door spell then you can flee passing the 
-closed doors.
-
-You cannot flee to inside of the clans when you are fighting with the 
-clan guardians.
+Once you start a fight, you can't just walk away from it.  If the fight is not
+going well, you can attempt to FLEE, or another character can RESCUE you.
  
-If you are Samurai, after level 10 you can NOT FLEE,so be careful.(You may 
-flee if victim's level is much higher than your level (level difference is
-6). But you won't wimp out.)
+Some classes train in fleeing from combat, so they may choose direction to
+ESCAPE to.
+ 
+If you lose link during combat, your character will try to flee automatically.
+This can be turned off via TOGGLE NOFLEE (see {CHELP TOGGLE{x).
+ 
+If you are affected with a 'pass door' spell, you are able to flee even through
+closed doors.
+ 
+You cannot flee into clan area from combat with clan guards.
+ 
+If you have chosen way of Samurai, you cannot flee from combat after reaching
+level 10. Nevertheless, if opponent is much tougher than you (6or more levels
+higher), you can DISHONOR yourself and leave combat field.
 @rus Синтаксис: {cflee{x
 Синтаксис: {crescue{x <персонаж>
 Синтаксис: {cescape{x <направление>
@@ -628,18 +628,22 @@ flee if victim's level is much higher than your level (level difference is
 обесчестить (DISHONOR) себя и покинуть поле боя.
 ~
 0 LOOK EXAMINE GLANCE~
-@eng Syntax: look
-Syntax: look    <object>
-Syntax: look    <character>
-Syntax: look    <direction>
-Syntax: look    <keyword>
-Syntax: look in <container>
-Syntax: look in <corpse>
-Syntax: examine <container>
-Syntax: examine <corpse>
-
+@eng Syntax: {clook{x
+Syntax: {clook{x    <object>
+Syntax: {clook{x    <character>
+Syntax: {clook{x    <direction>
+Syntax: {clook{x    <keyword>
+Syntax: {clook in{x <container>
+Syntax: {clook in{x <corpse>
+Syntax: {cexamine{x <container>
+Syntax: {cexamine{x <corpse>
+Syntax: {cglance{x
+ 
 LOOK looks at something and sees what you can see.
-
+ 
+GLANCE does the same as LOOK without arguments, but does not show room
+descriptions.
+ 
 EXAMINE is short for 'LOOK container' followed by 'LOOK IN container'.
 @rus Синтаксис: {clook{x
 Синтаксис: {clook{x <обьект>
@@ -654,14 +658,16 @@ EXAMINE is short for 'LOOK container' followed by 'LOOK IN container'.
  
 LOOK позволяет посмотреть на что-то или во что-то и сообщает тебе о том,
 что ты увидел.
+
 GLANCE является аналогом look без параметров. Но не показывает описание
 комнаты.
+
 EXAMINE является сокращением для look <труп>, look in <труп> или
 look <контейнер>, look in <контейнер>
 ~
 0 ORDER~
-@eng Syntax: order <character> command
-Syntax: order all command
+@eng Syntax: {corder{x <character> <command>
+Syntax: {corder all{x <command>
 
 ORDER orders one or all of your charmed followers (including pets) to
 perform any command.  The command may have arguments.  You are responsible
@@ -670,7 +676,7 @@ will incur the same penalty as if they attacked you directly.
 
 Most charmed creatures lose their aggresive nature (while charmed).
 
-If your charmed creature engages in combat, that will break the charm.
+If your charmed creature engages in combat with you, that will break the charm.
 @rus Синтаксис: {corder{x <персонаж> <команда>
 Синтаксис: {corder all{x <команда>
 
@@ -696,6 +702,9 @@ you won't hear many things happen.
 
 Use STAND or WAKE to come back to a standing position.  You can
 also WAKE other sleeping characters.
+ 
+Using these commands with a name of object as an argument will use specified
+object for resting/sleeping.
 @rus Синтаксис: {crest{x
 Синтаксис: {csleep{x
 Синтаксис: {cstand{x
@@ -712,16 +721,17 @@ also WAKE other sleeping characters.
 в этих положениях ты гораздо уязвимее для нападения, а когда ты спишь, ты
 можешь не заметить многих вещей.
 
-Команды STAND или WAKE возвращают в вертикальное положение. Nы также можете
+Команды STAND или WAKE возвращают в вертикальное положение. Ты также можешь
 разбудить (WAKE) другого спящего персонажа.
 
 Использование этих команд с именем обьекта как аргументом приведет к использо-
 ванию этого объекта для отдыха или сна.
 ~
 0 GTELL ; REPLY SAY TELL '~
-@eng Syntax: gtell <message>
-Syntax: say   <message>
-Syntax: tell  <character> <message>
+@eng Syntax: {cgtell{x <message>
+Syntax: {csay{x   <message>
+Syntax: {ctell{x  <character> <message>
+Syntax: {creply{x <message>
 
 All of these commands send messages to other players.  GTELL sends a message to
 all of the characters in your group, wherever they are, even if they are
@@ -758,24 +768,24 @@ REPLY посылает сообщение игроку, который последним послал тебе сообщение при
 @eng The notes in Shades of Gray replace the bulletin boards and mail systems
 found on many other muds. The following options are usable:
 
-{creading notes{x:
-note list       : show all notes (unread notes are marked with an N)
-note read       : either by number, or read next to read unread notes
-note remove     : removes a note that you wrote or are the target of
-note catchup    : markes all notes as read
+{CReading notes{x
+{cnote list{x       : show all notes (unread notes are marked with an N)
+{cnote read{x       : either by number, or read next to read unread notes
+{cnote remove{x     : removes a note that you wrote or are the target of
+{cnote catchup{x    : markes all notes as read
 
 'note read' can accept number of note to read.
 'note list' has extended syntax: note list [from name] [to name]
 
-{cwriting notes{x:
-note to         : set the 'To:' line (player name, clan name, immortal or all)
-note subject    : set the subject for a new note
-note edit       : edit note
-note clear      : erase (drop) a note in progress
-note show       : show the note you are working on
-note post       : post a new note. This MUST be done to post a note.
-note forward num: forward note number 'num'
-note quote num  : quote note number 'num'
+{CWriting notes{x
+{cnote to{x         : set the 'To:' line (player name, clan name, immortal or all)
+{cnote subject{x    : set the subject for a new note
+{cnote edit{x       : edit note
+{cnote clear{x      : erase (drop) a note in progress
+{cnote show{x       : show the note you are working on
+{cnote post{x       : post a new note. This MUST be done to post a note.
+{cnote forward{x    : forward note
+{cnote quote{x      : quote note
 
 'note cancel' is a synonim for 'note clear'
 'note reply' is a synonim for 'note quote'
@@ -783,8 +793,8 @@ note quote num  : quote note number 'num'
 When you log in, you will be informed if there are unread notes waiting. Type
 note read to scroll through them one at a time.
 
-Four other note directories exist, these are ideas, news, changes, and 
-penalties (gods only).  They are used the exact same way, for example
+Four other note directories exist, these are {cideas{x, {cnews{x, {cchanges{x, and
+{cpenalties{x (gods only).  They are used the exact same way, for example
 idea read 5 will read idea #5.  Posting to the news and changes boards is
 restricted. The 'unread' command can be used to show your unread notes on
 all the note spools.
@@ -792,6 +802,7 @@ all the note spools.
 @rus {wОбьявления в мире Серых Теней заменяют почту, распространенную в других мирах.
 Доступны следующие команды:
 
+{CЧтение объявлений{x
 {cnote list{x     : показ списка обьявлений (непрочитанные помечены буквой N)
 {c{cnote read{x{x     : чтение обьявления по номеру. read next покажет первое 
               : непрочитанное обьявление
@@ -803,6 +814,7 @@ note list можно использовать с расширенным синтаксисом для фильтрования
                                note list from <имя>
                                note list to <имя>
 
+{CНаписание объявлений{x
 {cnote to{x         : устанавливает получателей обьявления (all - всем, 
                 : immortal - богам, clan - всем клановым игрокам, 
                 : <название клана> - всем его членам, <имя> - одному игроку)
@@ -827,15 +839,22 @@ note list можно использовать с расширенным синтаксисом для фильтрования
 сообщений.
 ~
 0 SHOUT YELL GOSSIP MUSIC~
-@eng Syntax: shout   <message>
-Syntax: yell    <message>
+@eng Syntax: {cshout{x <message>
+Syntax: {cyell{x <message>
+Syntax: {cgossip{x <message>
+Syntax: {cmusic{x <message>
 
 SHOUT sends a message to all awake players in the world.  To curb excessive
 shouting, SHOUT imposes a three-second delay on the shouter.
 
 YELL sends a message to all awake players within your area.
 
-Type a channel name by itself to turn it off.
+GOSSIP sends message to all players around the world. It ignores twitlist and
+cannot be turned off (see {CHELP TWIT{x)
+ 
+MUSIC channel is designed for singing songs.
+ 
+Using this commands without message will toggle the channel on and off.
 @rus Синтаксис: {cshout   {x<сообщение>
 Синтаксис: {cyell    {x<сообщение>
 Синтаксис: {cgossip  {x<сообщение>
@@ -855,16 +874,17 @@ MUSIC предназначен для громкого, на весь мир распевания песен.
 канал.
 ~
 0 EMOTE PMOTE POSE~
-@eng Syntax: emote <action>
-Syntax: pose
+@eng Syntax: {cemote{x <action>
+Syntax: {cpmote{x <action>
+Syntax: {cpose{x
 
 EMOTE is used to express emotions or actions.  Besides EMOTE, there are
 several dozen built-in social commands, such as CACKLE, HUG, and THANK
 (type socials or help socials for a listing).
 
 PMOTE is similar to emote, but will substitute you and your for a target's
-name (i.e. pmote bonks Alander will be read as bonks you by Alander, and
-as bonks Alander by everyone else).
+name (i.e. {cpmote bonks Alander{x will be read as {cbonks you{x by Alander, and
+as {cbonks Alander{x by everyone else).
 
 POSE produces a random message depending on your class and level.
 @rus Синтаксис: {cemote {x<действие>
@@ -892,15 +912,12 @@ SMOTE работает аналогично PMOTE, за исключением того, что имя может стоять в
 любом месте строки.
 ~
 0 HOLD REMOVE WEAR WIELD~
-@eng Syntax: hold   <object>
-Syntax: remove <object>
-Syntax: wear   <object>
-Syntax: wear   all
-Syntax: wield  <object>
+@eng Syntax: {cwear{x   <object>
+Syntax: {cwear   all{x
+Syntax: {cremove{x <object>
 
-Three of these commands will take an object from your inventory and start using
-it as equipment.  HOLD is for light sources, wands, and staves.  WEAR is for
-armor.  WIELD is for weapons.
+WEAR will take an object from your inventory and start using it as equipment.
+HOLD and WIELD are synonyms for WEAR.
 
 WEAR ALL will attempt to HOLD, WEAR, or WIELD each suitable item in your
 inventory. Fighters can wield the weapons that is greater than them 3 level
@@ -913,14 +930,12 @@ to use it properly.
 
 REMOVE will take any object from your equipment and put it back into your
 inventory.
-@rus Синтаксис: {chold{x   <объект>
-Синтаксис: {cwear{x   <объект>
+@rus Синтаксис: {cwear{x   <объект>
 Синтаксис: {cwear   all{x
-Синтаксис: {cwield{x  <объект>
 Синтаксис: {cremove{x <объект>
 
-Три из этих команд дают указание начать использовать объект из инвентаря в
-снаряжении. HOLD, WEAR и WIELD равнозначны для любых типов снаряжения.
+WEAR возьмет предмет из твоего инвентаря и начнет использовать его как
+снаряжение. HOLD и WIELD являются синонимами для WEAR.
 
 WEAR ALL попробует HOLD, WEAR, or WIELD каждую подходящую вещь в вещмешке.;
 
@@ -931,8 +946,8 @@ WEAR ALL попробует HOLD, WEAR, or WIELD каждую подходящую вещь в вещмешке.;
 REMOVE снимет любой объект с тебя и положит его обратно в инвентарь.           ;
 ~
 0 BUG TYPO~
-@eng Syntax: bug <message>
-Syntax: typo <message>
+@eng Syntax: {cbug{x <message>
+Syntax: {ctypo{x <message>
 
 These commands will take your message and record it into a file as feedback
 to the mud implementors.
@@ -944,7 +959,7 @@ to the mud implementors.
 о ошибках в программе и в синтаксисе.
 ~
 0 CREDITS~
-@eng Syntax: credits
+@eng Syntax: {ccredits{x
 
 This command shows the list of the original Diku Mud implementors.
 @rus Синтаксис: {ccredits{x
@@ -952,49 +967,25 @@ This command shows the list of the original Diku Mud implementors.
 Эта команда показывает тебе список создателей MUDa.
 ~
 0 AREAS COMMANDS REPORT SCORE OSCORE TIME WEATHER~
-@eng Syntax: areas
-Syntax: commands
-Syntax: report
-Syntax: score
-Syntax: time
-Syntax: weather
-
-AREAS shows you a list of areas in the game.
-
-COMMANDS shows you all the commands in the game.
+@eng Syntax: {creport{x
+Syntax: {cscore{x
+Syntax: {coscore{x
 
 REPORT shows your current statistics to you and also announces them to other
 players in the room.  SCORE shows much more detailed statistics to you only.
 Your ability scores are shown as true value(current value), so for example
 Str: 15(23) means you have a 15 strength from training, but a 23 strength
 from other factors (spells or items).
-
-TIME shows the game time, as well as the time the mud was last started,
-and the current local time for the host computer.
-
-WEATHER shows the current game weather.
-@rus Синтаксис: {careas{x
-Синтаксис: {ccommands{x
-Синтаксис: {creport{x
+OSCORE is an old-style SCORE.
+@rus Синтаксис: {creport{x
 Синтаксис: {cscore{x
 Синтаксис: {coscore{x
-Синтаксис: {ctime{x
-Синтаксис: {cweather{x
- 
-AREAS выводит список подключенных зон.
- 
-COMMANDS выводит список всех игровых команд.
  
 REPORT выводит твое состояние всем в комнате.
  
 SCORE выводит наиболее полную информацию о тебе. В скобках указаны значения
 твоих характеристик с учетом надетых вещей и наложенных заклинаний.
 OSCORE является устаревшим вариантом SCORE.
- 
-TIME выводит игровое и системное время, а также время последнего рестарта
-сервера.
- 
-WEATHER выводит текущую погоду в игре.
 ~
 -1 WHO~
 @eng Syntax: {cwho{x
@@ -1053,20 +1044,19 @@ WHO без аргументов показывает всех видимых игроков.
 Также смотри: {CHELP WHOIS{x
 ~
 -1 WHOIS~
-@eng Syntax: whois name
+@eng Syntax: {cwhois{x <name>
 
 WHOIS command identifies any user who matches the name given. For
-example, 'whois a' shows all characters whose name begins with A.
- 
+example, '{cwhois a{x' shows all characters whose name begins with A.
 @rus Синтаксис: {cwhois{x <имя>
  
 Команда whois показывает всех игроков подходящих под указанное имя.
 Например {cwhois a{x покажет всех игроков, у которых имя начинается с А.
 ~
 0 WHERE~
-@eng Syntax: where
-Syntax: where <character>
-Syntax: where pk
+@eng Syntax: {cwhere{x
+Syntax: {cwhere{x <character>
+Syntax: {cwhere pk{x
 
 WHERE without an argument tells you the location of visible players in the same
 area as you are.
@@ -1086,14 +1076,13 @@ WHERE с аргументом сообщает местонахождение одного персонажа с таким именем
 в текущей зоне.
 ~
 0 HELP~
-@eng Syntax: help
-Syntax: help [num.]keyword
+@eng Syntax: {chelp{x
+Syntax: {chelp{x [num.]<keyword>
 
 HELP without any arguments shows a one-page command summary.
 
 HELP [num.]keyword shows a page number 'num' on that keyword. The keywords
 include all the commands, spells and skills listed in the game.
- 
 @rus Синтаксис: {chelp{x
 Синтаксис: {chelp{x <ключевое слово>
  
@@ -1107,15 +1096,15 @@ HELP <ключевое слово> выдает помощь по запрошенному слову. Выдается помощь
 ({chelp acid blast{x).
 ~
 0 MEND~
-@eng Syntax: cast mend <object>
+@eng Syntax: {ccast 'mend'{x <object>
 
 Mend is similar to smithing which you can repair damaged objects.
-@rus Синтаксис: {ccast mend{x <объект>
+@rus Синтаксис: {ccast 'mend'{x <объект>
  
 Заклинание mend позволяет тебе чинить поврежденную вещь
 ~
 0 SMITHING~
-@eng Syntax: smithing <object>
+@eng Syntax: {csmithing{x <object>
 
 Smithing is similar to mend which you can repair damaged objects 
 holding the hammer which you can find it in dwarven area.
@@ -1125,70 +1114,72 @@ Smithing позволяет тебе чинить поврежденную вещь. Но для этого ты должен
 держать в руке молот, который можно найти у карликов.
 ~
 0 TRACK~
-@eng Syntax: track
-
-        While you are fighting if your opponent fleds you can follow 
-it/his/her just typing track.
+@eng Syntax: {ctrack{x
+ 
+If your opponent flees from combat you can follow track him down by his
+footprints.
 @rus Синтаксис: {ctrack{x
  
 Если твой противник во время боя сбегает, ты можешь последовать за ним,
 использовав эту команду.
 ~
 0 LINK~
-@eng Syntax: cast link <character>
-
-        You transfer all of your mana to the character that you linked.
-@rus Синтаксис: {ccast link{x <персонаж>
+@eng Syntax: {ccast 'link'{x <character>
+ 
+This spell transfers all your mana to target character.
+@rus Синтаксис: {ccast 'link'{x <персонаж>
  
 Это заклинание позволяет тебе передать всю твою ману указанному персонажу.
 ~
 0 'PROTECTION HEAT'~
-@eng Syntax: cast 'protection heat' 
-
-        This spell makes you resistive against fire attacks.
+@eng Syntax: {ccast 'protection heat'{x
+ 
+This spell makes you resistive against fire attacks.
 @rus Синтаксис: {ccast 'protection heat'{x
  
 Это заклинание защитит тебя от огненных атак.
 ~
 0 SHIELDING~
-@eng Syntax: cast 'shielding' <character>
+@eng Syntax: {ccast 'shielding'{x <character>
 
-        The player which is affected by this spell cannot reach the true 
-source  to cast. Thus cannot cast any spell.
-@rus Синтаксис: {ccast shielding{x <персонаж>
+Character affected with this spell cannot reach True Source to cast spells.
+@rus Синтаксис: {ccast 'shielding'{x <персонаж>
  
 Персонаж под действием этого заклинания не может колдовать.
 ~
 0 'PROTECTION COLD'~
-@eng Syntax: cast 'protection cold'
+@eng Syntax: {ccast 'protection cold'{x
 
-        This spell makes you resistive against the cold attacks.
+This spell makes you resistive against the cold attacks.
 @rus Синтаксис: {ccast 'protection cold'{x
  
 Это заклинание защитит тебя от атак холодом.
 ~
 0 KNOCK~
-@eng Syntax: cast 'knock' <door>
- 
-        Knock is similar to pick, you can open a lock without having the
- key. This spell fails against no-pass doors.
-@rus Синтаксис: cast 'knock' <door>
+@eng Syntax: {ccast 'knock'{x <door>
+
+Knock is similar to pick, you can open a lock without having the key. But,
+this spell fails against no-pass doors.
+@rus Синтаксис: {ccast 'knock'{x <дверь>
  
 Это заклинание позволяет отпереть дверь без помощи ключа. Но не сильно
 обольщайтесь, не все двери вам поддадуться.
 ~
 0 'BASH DOOR' BASHDOOR~
-@eng Syntax: bashdoor <direction>
+@eng Syntax: {cbashdoor{x <direction>
+ 
+Skilled in breaking the door into peaces, one can open it without a key.
 @rus Синтаксис: {cbashdoor{x <направление>
  
 Это умение выламывать двери дает тебе возможность открывать их без ключа.
 ~
 0 'FIRE SHIELD'~
-@eng Syntax: cast 'fire shield' cold
-Syntax: cast 'fire shield' fire 
+@eng Syntax: {ccast 'fire shield' cold{x
+Syntax: {ccast 'fire shield' fire{x
 
-        You can create a resistive shield against the fire or cold attacks
-which makes you resistive against the fire or cold attacks.
+You can create a shield of flames that will either warm you up, making you
+resistant to cold or draw extensive heat from you, making you resistant to
+fire.
 @rus Синтаксис: {ccast 'fire shield' cold{x
 Синтаксис: {ccast 'fire shield' fire{x
  
@@ -1196,34 +1187,40 @@ which makes you resistive against the fire or cold attacks.
 или огнем.
 ~
 0 WEB~
-Syntax: cast 'web' <victim>
-
-        This spell is disables char moving in any direction. Also web
-decreases the hit probability and dexerity of the victim.
+@eng Syntax: {ccast 'web'{x <victim>
+ 
+This spell prevents victim from moving in any direction. It also dramatically
+decreases dexterity of victim.
+@rus Синтаксис: {ccast 'web'{x <персонаж>
+ 
+Это заклинание опутывает врага прочной магической сетью, сильно ухудшая его
+ловкость и не давая покинуть комнату.
 ~
 0 'MAGIC RESISTANCE'~
-Syntax: cast 'magic resistance'
-
-        This spell makes you resistive against the magical attacks.
+@eng Syntax: {ccast 'magic resistance'{x
+ 
+This spell makes you resistive to magical attacks.
+@rus Синтаксис: {ccast 'magic resistance'{x
+ 
+Это заклинание улучшит твою защиту от магических атак.
 ~
 0 DISINTEGRATE~
-@eng Syntax: cast 'disintegrate' <victim>
-
-        Very high level warlocks can learn to kill in one cast.This 
-surprise attack doesn't has to be on a fully healed target.Save spell is the
-only one way to protect from this attack.
-@rus Синтаксис: {ccast disintegrate{x <жертва>
+@eng Syntax: {ccast 'disintegrate'{x <victim>
+ 
+Very high level warlocks can learn to kill in one cast. This power of this
+spell is so high that even corpse is destroyed, together with all equipment.
+Saves vs spell is the only way to avoid this destiny.
+@rus Синтаксис: {ccast 'disintegrate'{x <жертва>
  
 Волшебники очень высоких уровней могут убивать единственным заклинанием. Сила
 этого заклинания так велика, что оно уничтожает даже вещи жертвы. Только защита
 от магии (saves) может спасти жертву.
 ~
 0 'WITCH CURSE'~
-@eng Syntax: cast 'witch curse' <victim>
-
-        This spell means certain death to the target, but it takes some time
-related to the hp the target has. Each round  victim's hit point decreases
-by 100 till the end, death.
+@eng Syntax: {ccast 'witch curse'{x <victim>
+ 
+This spell means certain death to the target, but it takes some time. Each
+tick victim loses more and more hp till the end, death.
 @rus Синтаксис: {ccast 'witch curse'{x <жертва>
  
 Это заклинание означает медленную, но неотвратимую смерть для жертвы. Смерть
@@ -1231,22 +1228,21 @@ by 100 till the end, death.
 теряет все больше и больше хит-пойнтов (hp) до конца... до смерти.
 ~
 0 'ANIMATE DEAD'~
-@eng Syntax: cast 'animate death' <corpse>
-
-        This spell allows the caster to give life to a corpse and force the
-zombie that is newly born to aid him.
+@eng Syntax: {ccast 'animate dead'{x <corpse>
+ 
+This spell allows the caster to animate corpses, forcing newly born zombies
+to aid him.
 @rus Синтаксис: {ccast 'animate dead'{x <труп>
  
 Это заклинание позволяет некромансеру оживить труп и сделать преданного ему
 зомби.
 ~
 0 TAIL~
-@eng Syntax: tail 
-Syntax: tail <opponent>
+@eng Syntax: {ctail{x
+Syntax: {ctail{x <opponent>
 
-        This skill enables tailed creatures to hit its opponent with its
-tail. The chance to hit with tail is very small. But when hits gives great 
-damage to victim.
+This skill enables tailed creatures to use tail in combat. Though chance of
+such hit is rather small, it causes considerable wounds to victim.
 @rus Синтаксис: {ctail{x
 Синтаксис: {ctail{x <жертва>
  
@@ -1254,30 +1250,28 @@ damage to victim.
 Вероятность такого удара очень низка, но он наносит очень большой ущерб жертве.
 ~
 0 'DRAGON SKIN'~
-@eng Syntax: cast 'dragon skin'
-
-        This spell enables dragons to increase its AC so that they can
-fight more easily. 
+@eng Syntax: {ccast 'dragon skin'{x
+ 
+This spell enables dragons to improve their armor class.
 @rus Синтаксис: {ccast 'dragon skin'{x
  
 Этим заклинанием пользуются драконы для улучшения своей натуральной брони.
 ~
 0 FEAR~
-@eng Syntax: cast 'fear' <victim>
+@eng Syntax: {ccast 'fear'{x <victim>
  
-        This spell allows the caster to touch the victim with the fingers of 
-fear and force him to flee.
+This spell allows the caster to touch the victim with the fingers of fear and
+force him to flee.
 @rus Синтаксис: {ccast 'fear'{x <жертва>
  
 Это заклинание запугивает жертву и принуждает ее сбежать из боя.
 ~
 0 'MAGIC JAR'~
-@eng Syntax: cast 'magic jar' <victim>
-
-        This spell allows the caster to catch the spirit of the victim 
-and thus victim cannot get exp.
-        Don't forget to carry an empty vial in your inventory to put the
-spirit.
+@eng Syntax: {ccast 'magic jar'{x <victim>
+ 
+This spell allows the caster to catch the spirit of the victim and thus
+restrict victim from gaining exp or leaving this realm. Don't forget to
+carry an empty vial in order to catch the spirit.
 @rus Синтаксис: {ccast 'magic jar'{x <жертва>
  
 Это заклинание высасывает душу из жертвы, в результате чего жертва не может
@@ -1285,31 +1279,30 @@ spirit.
 нужен пустой пузырек.
 ~
 0 'POWER WORD KILL'~
-@eng Syntax: cast 'power word kill' <victim>
-
-        Very high level necromancers can learn to kill in one cast.This 
-surprise attack doesn't has to be on a fully healed target.Save spell is the
-only one way to protect from this attack.
+@eng Syntax: {ccast 'power word kill'{x <victim>
+ 
+ Very high level necromancers can learn to kill in one cast. Saves spell is
+the only wayto avoid this attack.
 @rus Синтаксис: {ccast 'power word kill'{x <жертва>
  
 Некромансеры очень высоких уровней могут убивать единственным заклинанием.
 Только защита от магии (saves) может спасти жертву.
 ~
 0 'POWER WORD STUN'~
-Syntax: cast 'power word stun' <victim>
-
-        Only powerful anti-paladins can learn the secret of this spell 
-to stun their victims. Victims cannot do anything for a while.
-~
-0 HELLFIRE~
-Syntax: cast 'hellfire' <victim>
-
-        This spell inflicts fire damage on your victim.  The higher-levels
-spell do more damage.
+@eng Syntax: {ccast 'power word stun'{x <victim>
+ 
+Only powerful anti-paladins can learn the secret of this spell. It stuns
+victim, rendering him helpless for a while.
+@rus Синтаксис: {ccast 'power word stun'{x <жертва>
+ 
+Только анти-паладины высоких уровней владеют секретом этого заклинания. Оно
+парализует жертву, на некоторое время оставляя ее беспомощной.
 ~
 0 'MASTERING SWORD'~
-A trained samurai can get the secret of sword usage. His/her sword 
+@eng A trained samurai can get the secret of sword usage. His/her sword 
 would be more damageful on his/her opponents.
+@rus Хорошо обученные самураи могут истинно познать секрет меча. При этом их меч
+становится гораздо более опасен для противника.
 ~
 0 'AREA ATTACK'~
 @eng Warriors and samurai's have the secret of the area attack to
@@ -1318,92 +1311,146 @@ opponents and as they trained enough they can increase the opponets.
         Usage of this skill is automatic. To fight with a new enemy as you
 are fighting, try to attack it/his/her with another attack such as dirt
 kick.
-@rus Воины и самураи способны драться одновременно с несколькими противниками.
-Сначала, они могут сражатся лишь с двумя врагами сразу, но при надлежащей 
-тренировке число оппонентов можно увеличить.
-Использование этого умения - автоматическое.
+@rus Воины и самураи могут познать секрет нападения сразу на несколько противников.
+Сначала, они могут бороться с двумя противниками, а по мере их обучения они
+могут увеличивать количество противников. Это умения используется автома-
+тически. А для того, чтобы завязать бой с новым противником, ты должен ата-
+ковать его (например бросить землю в глаза - dirt <жертва>).
 ~
 0 GRIP~
-This skill is automatic, once practiced.  The skill causes you to grip
+@eng This skill is automatic, once practiced.  The skill causes you to grip
 your weapon tightly as someone tries to disarm you, making it far more
 difficult to successfully disarm you.  This skill will only increase as
 you are engaged in fights where someone is attempting to disarm you.
+@rus Это умение используется автоматически, если ты хотя бы раз практиковал его.
+Это умение позволяет тебе сильнее вцепиться в оружие, и если кто-то хочет
+выбить его у тебя, то его попытка скорее всего не приведет к успеху.
+Это умение практикуется во время боя, когда кто-то пытается обезоружить тебя.
 ~
 0 CONCENTRATE~
+@eng Syntax: {concentrate{x
+
 Prepare yourself to fight, thinking about your battle strategy
 would be more powerful you as you are fighting with your enemy. This would
 increase your damroll and hitroll respectively.......
+@rus Синтаксис: {cconcentrate{x
+
+Подготовка к бою, обдумывание твоей стратегии в нем позволят тебе быть сильнее
+во время сражения с врагом. Другими словами, это увеличит твой damroll и
+hitroll.
 ~
 0 TURN~
-Syntax: cast 'turn' <victim>
+@eng Syntax: {ccast 'turn'{x <victim>
 
         This area attack spell is a gift from the gods to the paladin due to
 their holy mission. A powerful holy energy flows through the fingers of 
 paladin and this energy force the evil victims to flee.
+@rus Синтаксис: {ccast 'turn'{x <victim>
+ 
+Это заклинание площадного поражения - подарок от богов паладину за их святую
+миссию. Мощные потоки святой энергии из пальцев паладина вынуждают жертву 
+бежать из боя.
 ~
 0 'VAMPIRIC TOUCH'~
-Syntax: vampiric touch <victim>
-
-        You deadly touch your victim's neck and put it/him/her to nightmares.
+@eng Syntax: {ctouch{x <victim>
+ 
+You deadly touch your victim's neck and put it/him/her to nightmares.
+@rus Синтаксис: {ctouch{x <жертва>
+ 
+Твое прикосновение к шее жертвы погружает ее в мир ночных кошмаров
 ~
 0 KATANA~
+@eng Syntax: {ckatana{x
+
 Master Samurai's can make their special sword to punish the
 enemies.
+@rus Синтаксис: {ckatana{x
+
+Мастера самураи умеют сами ковать себе особые мечи.
 ~
 0 DEAFEN~
+@eng Syntax: {ccast 'deafen'{x <victim>
+
 Anti-paladins can deafen the enemies that enemies cannot hear what
 they say, utter(or what you say) ; simply enemies become deaf-mute
 persons. Hence any person which has been affected by deafen cannot cast
 any spell.   
+@rus Синтаксис: {ccast deafen{x <жертва>
+ 
+Анти-паладины могут оглушать своих врагов, делая их глухонемыми.
+А следовательно, человек который находится под действием такого заклинания,
+не может читать заклинания сам.
+Синтаксис: {ccast 'deafen'{x <жертва>
 ~
 0 'SANCTIFY LANDS'~
+@eng Syntax: {ccast 'sanctify lands'{x
+
 Clerics and paladins can remove the plague, slow, poison, curse and sleep
 affects of the room. 
+@rus Синтаксис: {ccast 'sanctify lands'{x
+ 
+Клерики и паладины могут освободить комнату от наложенных на нее проклятий -
+чумы, яда, сонного или летаргического тумана.
 ~
-0 'DEADLY VENOM'~
-This spell allows the caster to envenom the room. The characters who out
-of your PK range will not be affected by the affection of this spell. 
-~
-0 'CURSED LANDS'~
-This spell allows the caster to curse the room. The characters who out
-of your PK range will not be affected by the affection of this spell. 
-~
-0 'MYSTERIOUS DREAM'~
-This spell allows the caster to add the slow affection to the room. The
-characters who out of your PK range will not be affected by the affection
-of this spell. 
-~
-0 'BLACK DEATH'~
-This spell allows the caster to add the plague affection to the room. The
-characters who out of your PK range will not be affected by the affection
-of this spell. 
+0 'DEADLY VENOM' 'MYSTERIOUS DREAM' 'BLACK DEATH' 'LETHARGIC MIST'~
+@eng Syntax: {ccast 'deadly venom'{x
+Syntax: {ccast 'mysterious dream'{x
+Syntax: {ccast 'black death'{x
+Syntax: {ccast 'lethargic mist'{x
+ 
+All these spells curse the room caster is in. Characters in caster's PK range
+may become infected with poison, sleep, plague or slow respectively.
+@rus Синтаксис: {ccast 'deadly venom'{x
+Синтаксис: {ccast 'mysterious dream'{x
+Синтаксис: {ccast 'black death'{x
+Синтаксис: {ccast 'lethargic mist'{x
+ 
+Все эти заклинания накладывают различные проклятия на комнату. Персонажи,
+которые в PK чародея, могут получить яд, магический сон, чуму или медлитель-
+ность от каждого из указанных заклинаний соответственно.
 ~
 0 HURRICANE~
-Syntax: cast 'hurricane' <target>
+@eng Syntax: {ccast 'hurricane'{x <target>
+
 This spell inflicts damage on every enemy character in the room.
 Beware that other characters who are not yet fighting may attack
 you as a result! And the victims which has been affected by fly and
 has small size will get higher damage.   
+@rus Синтаксис: {ccast 'hurricane'{x <цель>
+ 
+Это заклинание наносит повреждение всем персонажам, находящимся в данной
+комнате. Но будь осторожен, так как те персонажи, которые в данный момент не
+сражаются могут напасть на вас. Те жертвы, которые летают или имеют маленькие
+размеры получат больший ущерб от твоего заклинания.
 ~
 0 PASSWORD~
-Syntax: password <old-password> <new-password>
+@eng Syntax: {cpassword{x <old-password> <new-password>
 
 PASSWORD changes your character's password.  The first argument must be
 your old password.  The second argument is your new password.
 
 The PASSWORD command is protected against being snooped or logged.
+@rus Синтаксис: {cpassword{x <старый пароль> <новый пароль>
+ 
+PASSWORD изменяет твой текущий пароль.
+Эта команда защищена от подсматривания богами.
 ~
 0 TITLE~
-Syntax: title <string>
+@eng Syntax: {ctitle{x <string>
 
 Sets your title to a given string.
 
 The game supplies a title when your character is created and when you
 advance a level.  You can use TITLE to set your title to something else.
+@rus Синтаксис: {ctitle{x <строка>
+ 
+Устанавливает твой титул в виде указанной строки.
+Игра автоматически проставляет свой титул при создании персонажа или получении
+им нового уровня. Ты можешь использовать данную команду чтобы поменять его.
 ~
 0 WIMPY~
-Syntax: wimpy
-Syntax: wimpy <number>
+@eng Syntax: {cwimpy{x
+Syntax: {cwimpy{x <number>
 
 WIMPY sets your wimpy value.  When your character takes damage that reduces
 your hit points below your wimpy value, you will automatically attempt to flee.
@@ -1413,15 +1460,29 @@ tripped or bash by an enemy.
 
 WIMPY with no argument sets your wimpy value to 20% of your maximum hit points.
 
-If you are Samurai, After level 10 you can NOT FLEE if your victim's 
-level is six or less level greater than yours; so be careful. Some 
-monsters are wimpy. ~
+If you are Samurai you cannot flee automatically after reaching level 10.
+See {CHELP DISHONOR{x
+@rus Синтаксис: {cwimpy{x
+Синтаксис: {cwimpy{x <число>
+ 
+WIMPY устанавливает твой "уровень трусливости". Когда полученный ущерб уменьшит
+количество очков здоровья ниже указанного уровня, ты автоматически попытаешься
+сбежать из боя. Но ты можешь сбежать только в том случае если твой персонаж
+не применяет в этот момент особых боевых умений, не произносит заклинаний, а
+также в состоянии сбежать - т.е. не повержен врагом на землю.
+ 
+WIMPY без аргументов устанавливает значение на 20% от общего количества
+очков здоровья твоего персонажа.
+ 
+Если ты являешься самураем, то после 10 уровня ты не можешь сбежать из боя
+автоматически - смотри {CHELP DISHONOR{x
+~
 0 OPEN CLOSE LOCK UNLOCK PICK~
-Syntax: open   <object|direction>
-Syntax: close  <object|direction>
-Syntax: lock   <object|direction>
-Syntax: unlock <object|direction>
-Syntax: pick   <object|direction>
+@eng Syntax: {copen{x   <object|direction>
+Syntax: {cclose{x  <object|direction>
+Syntax: {clock{x   <object|direction>
+Syntax: {cunlock{x <object|direction>
+Syntax: {cpick{x   <object|direction>
 
 OPEN and CLOSE open and close an object or a door.
 
@@ -1430,22 +1491,33 @@ the requisite key to LOCK or UNLOCK.
 
 PICK can open a lock without having the key.  In order to PICK successfully,
 you must practice the appropriate skill.
+@rus Синтаксис: {copen{x   <объект|направление>
+Синтаксис: {cclose{x  <объект|направление>
+Синтаксис: {clock{x   <объект|направление>
+Синтаксис: {cunlock{x <объект|направление>
+Синтаксис: {cpick{x   <объект|направление>
+ 
+OPEN и CLOSE открывают и закрывают объект или дверь.
+ 
+LOCK и UNLOCK закрывают и открывают закрытый объект или дверь.  Ты должен иметь
+подходящий ключ, чтобы использовать эти команды.
+ 
+PICK позволяет открыть замок не имея ключа к нему.  Для того чтобы удачно 
+подбирать ключи к замку ты должен практиковаться в умении 'pick lock'.
 ~
 0 DRINK EAT FILL POUR~
-@eng Syntax: drink <object>
-Syntax: eat   <object>
-Syntax: fill  <object>
-Syntax: pour  <object> out
-Syntax: pour  <object> <object>
-Syntax: pour  <object> <character>
-
-When you are thirsty, DRINK something.
-
-When you are hungry, EAT something.
-
+@eng Syntax: {cdrink{x <object>
+Syntax: {ceat{x   <object>
+Syntax: {cfill{x  <object>
+Syntax: {cpour{x  <object> {cout{x
+Syntax: {cpour{x  <object> <object>
+Syntax: {cpour{x  <object> <character>
+ 
+When you are hungry, EAT something. When you are thirsty, DRINK something.
+It is possible to drink from founrain or from drink container.
 FILL fills a drink container with water.
-
 POUR transfers a liquid to a container, or empties one.
+ POUR transfers a liquid to a container, or empties one.
 You can also pour from an object into something a character is holding.
 @rus Синтаксис: {ceat{x   <обьект>
 Синтаксис: {cfill{x  <обьект>
@@ -1462,10 +1534,10 @@ POUR. POUR <персонаж> даст тебе возможность налить чего-нить из своего
 сосуда в тот, что он держит в руках.
 ~
 0 BUY LIST SELL VALUE~
-Syntax: buy   <object>
-Syntax: list
-Syntax: sell  <object>
-Syntax: value <object>
+@eng Syntax: {cbuy{x   <object>
+Syntax: {clist{x
+Syntax: {csell{x  <object>
+Syntax: {cvalue{x <object>
 
 BUY buys an object from a shop keeper.
 When multiple items of the same name are listed, type 'buy n.item', where n
@@ -1480,26 +1552,56 @@ List <name> shows you only objects of that name.
 SELL sells an object to a shop keeper.
 
 VALUE asks the shop keeper how much he, she, or it will buy the item for.
+@rus Синтаксис: {cbuy{x   <обьект>
+Синтаксис: {clist{x
+Синтаксис: {csell{x  <обьект>
+Синтаксис: {cvalue{x <обьект>
+ 
+BUY покупает объект у хозяина магазина:
+В случае продажи в магазине нескольких объектов с одинаковым именем используй
+команду 'buy n.(объект)', где n - позиция нужного тебе в списке объектов с
+одинаковым именем. Если ты хочешь купить несколько одинаковых объектов, исполь-
+зуй команду 'buy n*(объект)', чтобы купить n объектов. Оба этих выражения могут
+использоваться в комбинации (пример buy 2*2.shield).
+ 
+LIST показывает список объектов выставленных на продажу.
+LIST <имЯ> показывает только объекты с указанным именем.
+ 
+продает объект хозяину магазина.
+VALUE показывает возможную цену объекта.
 ~
 0 SACRIFICE~
-Syntax: sacrifice <object>
+@eng Syntax: {csacrifice{x <object>
 
 SACRIFICE offers an object to gods, who may reward you.
 The nature of the reward depends upon the type of object.
+ 
+@rus Синтаксис: {csacrifice{x <объект>;
+ 
+SACRIFICE приносит объект в жертву богам, которые могут вознаградить тебя за
+жертвоприношение. Награда за принесенный в жертву объект зависит от самого
+объекта.
 ~
-0 'SCROLL SCREEN'~
-Syntax: scroll
-Syntax: scroll <number>
+0 SCROLL~
+@eng Syntax: {cscroll{x
+Syntax: {cscroll{x <number>
 
 This command changes the number of lines the mud sends you in a page (the 
 default is 24 lines).  Change this to a higher number for larger screen.
+Without argument, SCROLL shows current page length.
+@rus Синтаксис: {cscroll{x
+Синтаксис: {cscroll{x <число>
+ 
+Эта команда изменяет число строк, которое сервер шлет тебе как одну страницу.
+По умолчанию эта величина равна 24 строкам. Без параметров эта команда выводит
+текущее значение длины страницы.
 ~
 0 BRANDISH QUAFF RECITE ZAP~
-Syntax: brandish
-Syntax: quaff    <potion>
-Syntax: recite   <scroll> <target>
-Syntax: zap      <target>
-Syntax: zap
+@eng Syntax: {cbrandish{x
+Syntax: {cquaff{x    <potion>
+Syntax: {crecite{x   <scroll> <target>
+Syntax: {czap{x      <target>
+Syntax: {czap{x
 
 BRANDISH brandishes a magical staff.  QUAFF quaffs a magical potion (as opposed
 to DRINK, which drinks mundane liquids).  RECITE recites a magical scroll; the
@@ -1515,43 +1617,103 @@ more charges, it will be consumed.
 
 These commands may require an item skill to be succesful, see the help entries
 on the skills scrolls, staves, and wands for more information.
+@rus Синтаксис: {cbrandish{x
+Синтаксис: {cquaff{x <зелье>
+Синтаксис: {crecite{x <свиток> <цель>
+Синтаксис: {czap{x   <цель>
+Синтаксис: {czap{x
+ 
+Все эти команды служат для использования магических вещей. BRANDISH нужен для
+использования магических посохов, QUAFF выпивает зелье (в отличие от DRINK,
+который служит для питья обычных жидкостей). RECITE зачитывает магический сви-
+ток. ZAP применяет волшебную палочку на указанную цель.
+ 
+Ты должен держать посох или волшебную палочку в руке для того, чтобы исполь-
+зовать их.
+ 
+Все эти команды расходуют соотвествующие обьекты. Зелья и свитки имеют по
+одному заряду, посохи и волшебные палочки могут иметь несколько. Когда у
+предмета кончаются заряды, он исчезает.
+ 
+Для применения свитков, посохов и волшебных палочек тебе желательно практико-
+вать соответствующие умения. Смотри {CHELP WANDS SCROLLS STAVES{x
 ~
 0 CONSIDER~
-Syntax: consider <character>
+@eng Syntax: {cconsider{x <character>
 
 CONSIDER tells you what your chances are of killing a character.
 Of course, it's only a rough estimate.
+@rus Синтаксис: {cconsider{x <персонаж>
+ 
+CONSIDER сообщает тебе, какие твои шансы одержать победу над указанным
+персонажем. Конечно же, это лишь грубая оценка.
 ~
-0 FOLLOW GROUP~
-Syntax: follow <character>
-Syntax: group
-Syntax: group <character>
-
+0 FOLLOW NOFOLLOW GROUP~
+@eng Syntax: {cfollow{x <character>
+Syntax: {cgroup{x <character>
+Syntax: {cgroup{x
+Syntax: {cnofollow{x
+ 
 FOLLOW starts you following another character.  To stop following anyone else,
 just FOLLOW <yourself>.
-
+ 
 GROUP <character> makes someone who is following you a member of your group.
 Group members share experience points from kills and may use the GTELL and
 SPLIT commands.  If anyone in your group is attacked, you will automatically
-join the fight.
-
+join the fight if you have autoassist turned on (See {CHELP AUTOASSIST{x)
+ 
 If the <character> is already a member of your group, then GROUP will
 kick out the <character> from your group.  Characters can also leave your
 group by using a FOLLOW command to stop following you.
-
+ 
 GROUP with no argument shows statistics for each character in your group.
-
-You may FOLLOW and GROUP only with characters who are within five levels of
-your own.
+ 
+You may GROUP only with characters who are within five levels of your own.
+ 
+NOFOLLOW toggles whether you accept or deny followers. Toggling it on will
+break following after you. Typing NOFOLLOW again will toggle back to accepting
+followers.
+@rus Синтаксис: {cfollow{x <персонаж>
+Синтаксис: {cgroup{x <персонаж>
+Синтаксис: {cgroup{x
+Синтаксис: {cnofollow{x
+ 
+При применении FOLLOW ты начнешь следовать за указанным персонажем. Чтобы
+прекратить следовать за кем-либо, напиши FOLLOW SELF.
+ 
+GROUP зачислит персонажа, следующего за тобой, в твою группу. Члены группы
+вместе получают опыт от убийства монстров и могут использовать команды GTELL
+и SPLIT. Если кто-либо из группы вступает в бой, остальные также автоматически
+присоединяются к битве. (Смотри {CHELP AUTOASSIST{x)
+ 
+Если персонаж уже является членом твоей группы, то использование команды GROUP
+выкинет его из группы. Персонаж может также покинуть твою группу, прекратив
+следовать за тобой.
+ 
+GROUP без аргументов покажет текущее состояние твоей группы.
+ 
+Ты можешь состоять в группе с персонажами, разница уровней с которыми не
+более 8.
+ 
+NOFOLLOW является переключателем, разрешаюшим или запрещающим другим персона-
+жам следовать за тобой. Включение этого переключателя вызовет прекращение всех
+следований за тобой. Набери NOFOLLOW еще раз, чтобы снова разрешить следовать
+за тобой.
 ~
 0 VISIBLE~
+@eng Syntax: {cvisible{x
+
 VISIBLE cancels your hiding and sneaking, as well as any invisibility,
 and camouflage making you visible again.
+@rus Синтаксис: {cvisible{x
+ 
+VISIBLE прекращает попытки прятаться и сниамет любые формы магической неви-
+димости, делая тебя видимым для всех.
 ~
 0 QUIT RENT SAVE~
-Syntax: QUIT
-Syntax: RENT ... not!
-Syntax: SAVE
+@eng Syntax: {cquit{x
+Syntax: {crent{x ... NOT!
+Syntax: {csave{x
 
 SAVE saves your character and object. The game saves your character every
 15 minutes regardless, and is the preferred method of saving. Typing save
@@ -1559,12 +1721,12 @@ will block all other command for about 20 seconds, so use it sparingly.
 You do not need to save. Every save operation requested by the players 
 causes lag. The Shades of Gray auto saver does not cause even a tiny lag.
 
-Some objects, such as keys and some maps, may not be saved. Those very 
-powerful items of very limited number, are not saved if you are below 
-level 10.
+Some objects, such as keys and some maps, may not be saved. Object you cannot
+wear due to level are not saved, too.
 
 QUIT leaves the game.  You may QUIT anywhere.  When you re-enter the game 
-you will be back in the same room.
+you will be back in the same room. Some objects cannot leave this realm and
+thus are dropped on the ground when you quit.
 
 QUIT automatically does a SAVE, so you can safely leave the game with just one
 command.  Nevertheless it's a good idea to SAVE before QUIT.  If you get into
@@ -1572,12 +1734,35 @@ the habit of using QUIT without SAVE, and then you play some other mud that
 doesn't save before quitting, you're going to regret it.
 
 There is no RENT in this mud.  Just SAVE and QUIT whenever you want to leave.
+@rus Синтаксис: {cquit{x
+Синтаксис: {crent{x ... НЕТ!
+Синтаксис: {csave{x
+ 
+SAVE сохраняет твоего персонажа и его вещи. Сервер автоматически сохраняет
+твоего персонажа каждые 15 минут, и это является предпочтительным методом
+сохранения. Использование SAVE блокирует ввод других команд на время около
+20 секунд, так что не стоит использовать это слишком часто. Каждая операция
+сохранения по запросу игрока вызывает лаг, автоматической сохранение не
+замедляет игру.
+ 
+Некоторые объекты, например некоторые ключи или карты, не сохраняются. Также
+не сохраняются вещи, которые ты не можешь еще использовать по уровню.
+ 
+QUIT служит для выхода из игры. Ты можешь выйти где угодно, когда ты войдешь
+в игру снова, ты вернешься в ту же комнату. Некоторые обьекты не могут поки-
+нуть этот мир и при выходе падают на землю.
+ 
+QUIT автоматически сохраняет персонажа, так что ты можешь спокойно выйти,
+набрав только QUIT. Тем не менее, писать SAVE перед выходом - хорошая привычка,
+так как существуют миры, где нет автоматического сохранения.
+ 
+В этом мире нет ренты. Просто SAVE и QUIT, когда нужно выйти.
 ~
 0 RECALL /~
-Syntax: RECALL
+@eng Syntax: {crecall{x
 
 RECALL prays to gods for miraculous transportation from where you are
-back to the Temple of Midgaard.
+back to your hometown.
 
 Recalling back to hometown is a spell. But all players below level 10th 
 may use this spell by the help of the gods. The gods transfer the players 
@@ -1590,38 +1775,66 @@ RECALL costs half of your movement points.
 
 RECALL doesn't work in certain god-forsaken rooms.  Characters afflicted by a
 curse may not recall at all.
+@rus Синтаксис: {crecall{x
+ 
+RECALL молит богов о возвращении в родной город.
+Игроки ниже 10-го уровня могут пользоваться помощью богов, на более высоких
+уровнях игрокам следут найти способ делать это самостоятельно. Ты должен быть
+сосредоточен для этой молитвы, поэтому после боя ты должен успокоиться.
+ 
+RECALL стоит половину твоих moves.
+ 
+RECALL не работает в проклятых местах, а также у проклятых игроков.
 ~
 -1 SPLIT~
-Syntax: SPLIT <silver> <gold>
+@eng Syntax: {csplit{x <silver> <gold>
 
 SPLIT splits some coins  between you and all the members of your
 group who are in the same room as you.  It's customary to SPLIT
 the loot after a kill.  The first argument is the amount of silver
 the split (0 is acceptable), and the second gold (optional).
+
 Examples:
-split 30        --> split 30 silver
-split 20 50     --> split 20 silver, 50 gold
-split  0 10     --> split 10 gold
+{csplit 30{x        --> split 30 silver
+{csplit 20 50{x     --> split 20 silver, 50 gold
+{csplit  0 10{x     --> split 10 gold
+ 
+See also {CHELP AUTOSPLIT{x
+@rus Синтаксис: {csplit{x <серебро> <золото>
+ 
+SPLIT делит указанное количество денег между членами твоей группы, находящимися
+в одной комнате с тобой. Делить или не делить добычу после боя - решать тебе.
+ 
+Примеры:
+{split 30{x        --> разделить 30 серебряных монет
+{split 20 50{x     --> разделить 20 серебряных и 50 золотых монет
+{split  0 10{x     --> разделить 10 золотых монет
+ 
+Смотри также {CHELP AUTOSPLIT{x
 ~
 0 STEAL~
-Syntax: STEAL coins <character>
-Syntax: STEAL <object> <character>
+@eng Syntax: {csteal coins{x <character>
+Syntax: {csteal{x <object> <character>
 
 STEAL attempts to steal coins, or an object, from a character.
-
-There are penalties for using STEAL on other players.
-
+There are penalties for using STEAL on other players in protected areas.
 In order to STEAL successfully, you must practice the appropriate skill.
+@rus Синтаксис: {csteal coins{x <персонаж>
+Синтаксис: {csteal{x <обьект> <персонаж>
+ 
+При помощи этой команды можно попытаться украсть деньги или вещь у персонажа.
+За кражу у игроков в защищенных зонах существуют наказания.
+Чтобы успешно воровать, тебе надо практиковать соответствующее умение.
 ~
 0 PRACTICE~
-Syntax: PRACTICE
-Syntax: PRACTICE <skill | spell>
+@eng Syntax: {cpractice{x
+Syntax: {cpractice{x <skill | spell>
 
 PRACTICE without an argument tells you your current ability level in all
 the skills and spells available to you.  You can check this anywhere.
 
 PRACTICE with an argument practice that skill or spell.  Your learning
-percentage varies from 0% (unlearned) to a some maximum between 80% and 100%,
+percentage varies from 0% (unlearned) to a some maximum, usually 75%,
 depending on your class.  You must be at a guild master to practice.
 
 The higher your intelligence, the more you will learn at each practice
@@ -1657,29 +1870,81 @@ If you SLOOK the spell or skill and find it in group `{cnone{x', `{cweather{x',
 `{ccreation{x', `{charmful{x', `{cprotective{x' or `{cdetection{x', then you
 can practice that {gin your guild{x.
 
-
-FOR MORE HELP, look help of GLIST, SLOOK, TEACH, LEARN.
-~
-0 GLIST~
-Syntax: glist <group>
+See also {CHELP SLOOK, HELP LEARN{x
+@rus Синтаксис: {cpractice{x
+Синтаксис: {cpractice{x <умение | заклинание>
  
-        Gives the list of skills and spells of that group.
-
-Example: glist meditation, glist defensive.....
+PRACTICE без аргумента выводит тебе уровень владения всеми умениями, доступ-
+ными тебе, в процентах. Ты можешь пользоваться этим в любом месте.
+ 
+PRACTICE с аргументом тренирует тебя во владении указанным умением или закли-
+нанием. Уровень, до которого можно тренироваться, меняется от 0% до некоторого
+максимума, обычно 75%, зависящего от твоего класса. Ты должен быть у соответ-
+ствующего мастера, который может научить тебя этому.
+ 
+Чем выше твой интеллект (int), тем больше ты получаешь от каждой практики. Чем
+выше твоя мудрость (wis), тем больше практических занятий ты получаешь с каждым
+уровнем. Неиспользованные занятия сохраняются до момента, когда они тебе потре-
+буются.
+ 
+Практиковать умение или заклинание можно у того, что знает соответствующую
+группу умений. Ниже приведен список мастеров в каждой группе:
+ 
+ {cattack{x         >>> {gTowering Black Demon{x     (Camelot        )
+ {cbeguiling{x      >>> {gMighty Beholder{x          (Thalos         )
+ {cbenedictions{x   >>> {gTempleman{x                (Midgaard       )
+ {ccombat{x         >>> {gCombat Magician{x          (Elemental Can. )
+ {ccurative{x       >>> {gGrand Knight of Paladins{x (Redfernes' R.  )
+ {cdefensive{x      >>> {gHeimdall{x                 (Valhalla       )
+ {cdraconian{x      >>> {gRulers{x                   (Elemental Can. )
+ {cenchantment{x    >>> {gMaster Enchanter{x         (High Tower     )
+ {cenhancement{x    >>> {gHealer{x                   (Valley of Titan)
+ {cfightmaster{x    >>> {gHeimdall{x                 (Valhalla       )
+ {chealing{x        >>> {gHigh Priestess of Ofcol{x  (Ofcol          )
+ {cillusion{x       >>> {gMaster Illusionist{x       (High Tower     )
+ {cmaladictions{x   >>> {gDiana{x                    (Ofcol          )
+ {cmeditation{x     >>> {gHierophant (holy){x        (Holy Grove     )
+ {cprotective{x     >>> {gGath{x                     (City of Anon   )
+ {ctransportation{x >>> {gGrand Mistress of Magic{x  (High Tower     )
+ {cweaponsmaster{x  >>> {gSamurai{x                  (New Thalos     )
+ {cwizard{x         >>> {gWizard{x                   (Midgaard       )
+ {cnecromancy{x     >>> {gNecromancer-Alchemist{x    (Elvenhame      )
+ 
+Используй команду SLOOK для определения группы. Если умение или заклинание
+принадлежит одной из групп '{cnone{x', '{cweather{x', '{ccreation{x', '{charmful{x',
+'{cprotective{x' или '{cdetection{x', то ты можешь практиковать его в своей
+гильдии.
+ 
+Смотри также {CHELP SLOOK, HELP LEARN{x
 ~
-0 SLOOK~
-Syntax: slook <skill or spell>
-
-        Gives group of corresponding spell or skill.
-
-Example: slook armor, slook meditation.....Then go to the master of that
-skill or spell to learn 
+0 GLIST SLOOK~
+@eng Syntax: {cglist{x <group>
+Syntax: {cslook{x <skill | spell>
+ 
+GLIST lists skills and spells in specified group.
+SLOOK looks up group given skill/spell belongs to.
+@rus Синтаксис: {cglist{x <группа>
+Синтаксис: {cslook{x <умение | заклинание>
+ 
+GLIST показывает список умений и заклинаний указанной группы.
+SLOOK показывает группу, к которой принадлежит указанное умение/заклинание.
 ~
-0 TEACH~
-Syntax:  teach 
+0 TEACH LEARN~
+@eng Syntax: {cteach{x
+Syntax: {clearn{x <skill | spell> <hero>
+ 
+TEACH allows hero to teach his mastered skills/spells to others.
 
-        Allows the hero to teach his/her 100% skills to the players
-in the room. Puts hero in teach mode.
+LEARN allows players to practice skills and spells with specified hero.
+Hero must be in teach mode.
+@rus Синтаксис: {cteach{x
+Синтаксис: {clearn{x <умение | заклинание> <герой>
+ 
+TEACH позволяет герою учить других игроков умениям, которыми он владеет в
+совершенстве.
+ 
+LEARN позволяет персонажу обучаться у героя указанному умению или заклинанию.
+Конечно, герой должен быть в режиме преподавания.
 ~
 0 LEARN~
 Syntax: learn <spell | skill> <hero>
@@ -1689,7 +1954,7 @@ a hero. But the hero's corresponding skills must be 100% and hero must
 be in teach mode.
 ~
 0 TRAIN~
-Syntax: train <str int wis dex con>
+@eng Syntax: {ctrain{x <str int wis dex con cha>
 
 TRAIN increases one of your attributes.  When you start the game, your
 character has standard attributes based on your class, and several
@@ -1704,6 +1969,20 @@ practice when you gain a level.  CON gives you more hit points.
 In the long run, your character will be most powerful if you train
 WIS and CON both to 18 before practising or training anything else.
  
+See also {CHELP STATS{x
+@rus Синтаксис: {ctrain{x <str int wis dex con cha>
+ 
+TRAIN увеличивает один из твоих атрибутов. В начале игры, твой персонаж полу-
+чает стандартные атрибуты, зависящие от расы и класса. Ты можешь улучшать их,
+испоьзуя тренировочные занятия у тренера.
+ 
+Для каждого улучшения требуется одно занятие. Ты получаешь по одному занятию
+за каждые пять уровней.
+ 
+В первую очередь стоит тренировать мудрость (wis) и телосложение (con). После
+долгой игры, наиболее мощными будут именно такие персонажи.
+ 
+Смотри также {CHELP STATS{x
 ~
 92 'WIZ ADVANCE' ADVANCE~
 @eng Syntax: {cadvance{x <character> <level>
@@ -1718,7 +1997,7 @@ ADVANCE устанавливает уровень персонажа. Это единственный способ создания
 понижения уровня персонажа.
 ~
 0 TRUST~
-Syntax: trust {{ group | clan | all | none }
+@eng Syntax: {ctrust{x <group | clan | all | none>
  
 This command allows you to specify how certain questionable spells 
 can be casted upon you by others. If trust set to all, everyone can 
@@ -1727,7 +2006,14 @@ members can cast them on you. Trust without parameters shows your
 current trust settings.
 Questionable spells are : 'word of recall', 'cancellation', 'slow',
 'remove curse'
+@rus Синтаксис: {ctrust{x <group | clan | all | none>
  
+Эта команда позволяет определить, кто может читать сомнительные заклинания на
+тебя. Если TRUST установлен как all, то любой игрок может читать на тебя эти
+заклинания. Если установлен group/clan, то читать заклинания могут члены твоей
+группы или твоего клана. TRUST без параметров покажет текущее состояние.
+Сонительные заклинания: 'word of recall', 'cancellation', 'slow',
+'remove curse'
 ~
 92 'WIZ REBOOT' REBOOT 'WIZ SHUTDOWN' SHUTDOWN~
 @eng Syntax: {creboot status{x
@@ -1836,9 +2122,7 @@ FORCE GODS со всеми богами ниже тебя по уровню.
 Syntax: {csockets{x <name>
  
 SOCKETS reports all of the visible users connected to the server, including
-users in the process of logging in.  The two numbers inside brackets are the
-channel number and the 'connected' state.  The 'connected' states are listed
-in merc.h: 0 is CON_PLAYING; non-zero values are various states of logging in.
+users in the process of logging in.
  
 The optional name argument shows the site of a player, or optional can be used
 to identify switched gods (i.e. SOCKET ORC shows the name of anyone switched
@@ -1847,10 +2131,7 @@ into an orc).
 Синтаксис: {csockets{x <имя>
  
 SOCKETS показывает всех пользователей, подключенных к серверу, включая тех,
-кто в этот момент нахохдится в процессе подключения. Два числа в скобках
-означают номер канала и состояние поключения. Все состояния перечислены в
-файле merc.h. 0 - это играющий персонаж, ненулевые значения соответствуют
-различным стадиям входа в игру.
+кто в этот момент нахохдитсЯ в процессе подключения.
  
 Вместе с аргументом SOCKETS показывает сервер, с которого вошел персонаж. Это
 может также быть использовано для определения "переключившихся" богов. Напри-
@@ -1880,7 +2161,7 @@ put in the room.  Mobiles are always put into the same room as the god.
 Syntax: {cset obj{x   <object> <field> <value>
 Syntax: {cset room{x  <vnum>   <field> <value>
 Syntax: {cset skill{x <char>   <name>  <value>
-Syntax: {cset skill{x <name>    {call{x    <value>
+Syntax: {cset skill{x <char>    {call{x    <value>
  
 SET command is used to change numerical values of the various data structures.
 SET SKILL changes skill 'learned' percentage. SET SKILL ALL sets all character
@@ -1900,7 +2181,7 @@ flags sector
 @rus Синтаксис: {cset mob{x   <персонаж или монстр> <поле> <значение>
 Синтаксис: {cset obj{x   <обьект> <поле> <значение>
 Синтаксис: {cset room{x  <номер> <поле> <значение>
-Синтаксис: {cset skill{x <номер> <поле> <значение>
+Синтаксис: {cset skill{x <персонаж> <умение> <значение>
 Синтаксис: {cset skill{x <персонаж> {call{x <значение>
  
 Команда SET используется для установки значений полей в различных структурах.
@@ -1920,12 +2201,27 @@ value0 value1 value2 value3 value4 owner level cost timer
 flags sector
 ~
 92 'WIZ STRING' STRING~
-Syntax: string obj <field> <string>
-	string mob <field> <string>
-
-The string command changes the various strings associated with an object or
-mobile.  A full list of fields can be viewed by typing string obj or string
-mob.  Sorry, multi-line strings are not yet supported.
+@eng {cSyntax{x: string obj <object> <field> <string>
+{cSyntax{x: string mob <mobile> <field> <string>
+ 
+STRING command changes various strings associated with an object or mobile.
+Available fields for objects: name short long exd
+Available fields for mobiles: name short long desc title
+ 
+Some fields are multi-lingual. Then you should specify language, i.e.
+    {cstring obj sword short eng Blade of Darkness{x
+@rus Синтаксис: {cstring obj{x <обьект> <поле> <строка>
+Синтаксис: {cstring mob{x <персонаж> <поле> <строка>
+ 
+Команда STRING служит для изменения текстовой информации о монстрах или обьек-
+тах.
+ 
+Допустимые поля для обьектов: name short long exd
+Допустимые поля для монстров: name short long desc title
+ 
+Некоторые поля являются мультиязычными. В таком случае необходимо указывать
+требуемый язык, например:
+    {cstring obj sword short rus меч-кладенец{x
 ~
 92 'WIZ NOCHANNEL' NOCHANNEL 'WIZ NOEMOTE' NOEMOTE{\'WIZ NOTELL' NOTELL~
 @eng Syntax: {cnochannel{x <character>
@@ -2075,31 +2371,37 @@ GOTO перемещает тебя в указанную комнату. Комната может быть задана номером,
 именем монстра или именем обьекта.
 ~
 92 'WIZ HOLYLIGHT' HOLYLIGHT~
-Syntax: holylight
+@eng Syntax: {cholylight{x
 
 Holylight is a toggle that allows you to see (almost) every character and
 mobile in the game.  With holy light, you can see what's in the game more
 easily.  Without holy light, you can see what mortal players see.
+@rus Синтаксис: {cholylight{x
+ 
+HOLYLIGHT - это переключатель, позволяющий тебе видеть почти всех персонажей
+в игре. Без HOLYLIGHT ты будешь видеть то же, что и смертные.
 ~
 92 'WIZ INCOGNITO' INCOGNITO~
+@eng Syntax: {cincognito{x <level>
+
 Toggling your incognito status will hide your presence from people outside the
 room you are in, but leave you visible to those who are with you.  It takes
 a level argument similar to wizinvis, people at that level or higher can see
 you regarless of location.
+@rus Синтаксис: {cincognito{x <уровень>
+ 
+Включение статуса INCOGNITO скроет твое присутствие от всех персонажей, кроме
+находящийхся в одной комнате с тобой. Эту команду можно использовать с аргу-
+ментом, тогда персонажи выше указанного уровня будут видеть тебя вне зависи-
+мости от твоего положения.
 ~
 92 'WIZ MEMORY' MEMORY~
-Syntax: memory
+@eng Syntax: {cmemory{x
 
-Memory reports the size of your mud.
-
-The 'Mobs' and 'Objs' lines report the number of types of mobiles and objects,
-not the number of instances currently in the game.
-
-The 'Strings' line shows memory used by area-file strings.  These strings have
-a maximum limit, which is also shown.
-
-The 'Perms' line shows permanently allocated memory blocks.  There is no limit
-on the number and size of these blocks.
+This command reports size of your MUD.
+@rus Синтаксис: {cmemory{x
+ 
+Эта команда сообщает размер твоего мира (количество монстров, обьектов и т.д.)
 ~
 92 'WIZ VNUM' VNUM~
 @eng Syntax: {cvnum{x     <name>
@@ -2165,10 +2467,14 @@ MWHERE покажет тебе расположение всех монстров с указанным именем или номером.
 OWHERE покажет тебе расположение всех обьектов с указанным именем или номером.
 ~
 92 'WIZ PEACE' PEACE~
-Syntax: peace
+@eng Syntax: {cpeace{x
 
 Peace causes all characters in a room to stop fighting. It also strips the
 AGGRESSIVE bit from mobiles.
+@rus Синтаксис: {cpeace{x
+ 
+PEACE заставляет всех персонажей в комнате прекратить бой. Также снимает бит
+AGGRESSIVE с монстров.
 ~
 92 'WIZ POOFIN' POOFIN 'WIZ POOFOUT' POOFOUT~
 @eng Syntax: {cpoofin{x <message>
@@ -2239,12 +2545,15 @@ SWITCH переключает тебя в тело другого пероснажа (у которого не должно быть
 RETURN возвращает тебя в твое родное тело.
 ~
 92 'WIZ IMMTALK' IMMTALK :~
-Syntax: immtalk <message>
-	immtalk
-
-Immtalk sends a message to all immortals.  : is a synonym for immtalk.
-Using this command with no argument turns off the immortal channel (or
-turns it back on).
+@eng Syntax: {cimmtalk{x <message>
+ 
+IMMTALK sends a message to all immortals. ':' is a synonym for IMMTALK.
+Using this command with no argument toggles this channel on and off.
+@rus Синтаксис: {cimmtalk{x <сообщение>
+ 
+IMMTALK посылает сообщение всем бессмертным. ':' является синонимом этой
+команды. Использование этой команды без аргумента включает и выключает
+этот канал общения.
 ~
 92 WIZNET~
 @eng Syntax: {cwiznet{x
@@ -2327,45 +2636,78 @@ Wizhelp provides a list of all the immortal commands.
  
 WIZHELP показывает список всех команд для бессмертных, доступных тебе.
 ~
-0 ARMOR~
-@eng Syntax: cast armor <character>
-
-This spell decreases (improves) the armor class of the target character
-by 20 (or more) points.
-@rus Syntax: cast armor <character>
-
-Это заклинание улучшает уровень защиты персонажа на 20 (или больше).
+0 ARMOR SHIELD 'STONE SKIN' 'ENHANCED ARMOR' 'MELD INTO STONE'~
+@eng Syntax: {ccast 'armor'{x <character>
+Syntax: {ccast 'shield'{x <character>
+Syntax: {ccast 'stone skin'{x
+Syntax: {ccast 'enhanced armor'{x <character>
+Syntax: {ccast 'meld into stone'{x
  
+All these spell descrease (improve) armor class of target character, armor and
+shield by -20 or more each, stone skin by -40 or more, enhanced armor by -60
+and meld into stone by -100.
+@rus Синтаксис: {ccast 'armor'{x <персонаж>
+Синтаксис: {ccast 'shield{x <персонаж>
+Синтаксис: {ccast 'stone skin'{x
+Синтаксис: {ccast 'enhanced armor'{x <персонаж>
+Синтаксис: {ccast 'meld into stone'{x
+ 
+Все эти заклинания уменьшают (улучшают) класс брони соответствующего персонажа.
+Armor и shield улучшает на -20 или больше каждый, stone skin на -40 или больше,
+enhanced armor на -60 и meld into stone на -100.
 ~
-0 BLESS~
-Syntax: cast bless <character>
-Syntax: cast bless <object>
+0 BLESS BENEDICTION~
+@eng Syntax: {ccast 'bless'{x <character>
+Syntax: {ccast 'bless'{x <object>
+Syntax: {ccast 'benediction'{x <character>
 
-This spell improves the to-hit roll and saving throw versus spell of the
-target character by 1 for every 8 levels of the caster. It may also be
-cast on an object to temporarily bless it (blessed weapons, for example,
-are more effective against demonic beings).
+BLESS improves hitroll and saving throw of target character. It may also be
+cast on objects to temporarily bless it (blessed weapons, for example, are more
+effective against demonic beings).
+ 
+BENEDICTION is stronger version of BLESS.
+@rus Синтаксис: {ccast 'bless'{x <персонаж>
+Синтаксис: {ccast 'bless'{x <обьект>
+Синтаксис: {ccast 'benediction'{x <персонаж>
+ 
+BLESS улучшает вероЯтность нанесениЯ ударов и защиту от магии указанного
+персонажа. Его можно также использовать на предметах - чтобы благословить
+их. Например, такое оружие более эффективно против демонов и прочей нечисти.
+ 
+BENEDICTION является более сильной версией bless.
 ~
 0 BLINDNESS~
-Syntax: cast blindness <victim>
+@eng Syntax: {ccast 'blindness'{x <victim>
 
 This spell renders the target character blind.
+@rus Синтаксис: {ccast 'blindness'{x <жертва>
+ 
+Это заклинание ослепляет жертву.
 ~
-0 'ACID BLAST' 'ACID ARROW' 'CAUSTIC FONT' 'SULFURUS SPRAY' 'QUANTUM SPIKE'
-'BURNING HANDS' 'ACETUM PRIMUS' 'SONIC RESONANCE' 'HAND OF UNDEAD'
-'ETHERAL FIST' 'COLOUR SPRAY' 'FIREBALL' 'LIGHTNING BOLT' 'MAGIC MISSILE'
-'SHOCKING GRASP' 'ICEBALL' 'MIND WRENCH' 'MIND WRACK'
-~
-Syntax: cast 'acid blast'     <victim>
-Syntax: cast 'burning hands'  <victim>
-Syntax: cast 'color spray'   <victim>
-Syntax: cast 'fireball'       <victim>
-Syntax: cast 'lightning bolt' <victim>
-Syntax: cast 'magic missile'  <victim>
-Syntax: cast 'shocking grasp' <victim>   and so on...................
-
-These spells inflict damage on the victim.  The higher-level spells do
-more damage.
+0 'ACETUM PRIMUS' 'ACID ARROW' 'ACID BLAST' 'BURNING HANDS' 'CAUSE CRITICAL' 'CAUSE LIGHT' 'CAUSE SERIOUS' 'CAUSTIC FONT' DISRUPTION 'DRAGON BREATH' 'ETHERAL FIST' FIREBALL FLAMESTRIKE 'GALVANIC WHIP' HARM HELLFIRE 'LIGHTNING BOLT' 'MAGIC MISSILE' 'MAGNETIC TRUST' 'MIND WRACK' 'MIND WRENCH' 'SEVERITY FORCE' 'SHOCKING GRASP' 'SONIC RESONANCE' 'SPECTRAL FUROR' 'SULFURUS SPRAY' 'VAMPIRIC BLAST'~
+@eng Syntax: {ccast 'acetum primus'{x  <victim>
+Syntax: {ccast 'acid arrow'{x     <victim>
+Syntax: {ccast 'acid blast'{x     <victim>
+Syntax: {ccast 'burning hands'{x  <victim>
+Syntax: {ccast 'cause critical'{x <victim>
+                ... and so on ...
+ 
+All these spells just inflict damage to the victim. Higher-level spells do
+more damage. Some of these spells can be cast remotely.
+ 
+See also {CHELP RANGE CAST{x
+@rus Синтаксис: {ccast 'acetum primus'{x  <жертва>
+Синтаксис: {ccast 'acid arrow'{x     <жертва>
+Синтаксис: {ccast 'acid blast'{x     <жертва>
+Синтаксис: {ccast 'burning hands'{x  <жертва>
+Синтаксис: {ccast 'cause critical'{x <жертва>
+                    ... и так далее ...
+ 
+Все эти заклинания наносят ущерб жертве. Заклинания более высокого уровня
+наносят больший ущерб. Некоторые из этих заклинаний могут быть использованы
+на расстоянии от жертвы.
+ 
+Смотри также {CHELP RANGE CAST{x
 ~
 0 'CALL LIGHTNING'~
 Syntax: cast 'call lightning'
@@ -2373,36 +2715,43 @@ Syntax: cast 'call lightning'
 This spell works only out of doors, and only when the weather is bad.
 It calls down lightning bolts from gods.
 ~
-0 'CAUSE LIGHT' 'CAUSE SERIOUS' 'CAUSE CRITICAL' HARM~
-Syntax: cast 'cause light'    <victim>
-Syntax: cast 'cause serious'  <victim>
-Syntax: cast 'cause critical' <victim>
-Syntax: cast harm             <victim>
-
-These spells inflict damage on the victim.  The higher-level spells do
-more damage.
-~
-0 'CHARM PERSON'~
-Syntax: cast 'charm person' <victim>
-
-This spell, if successful, causes the victim to follow you and to take orders
-from you.  Use ORDER to order your charmed followers.
-
+0 'ATTRACT OTHER' 'CHARM PERSON' 'CONTROL ANIMAL' 'CONTROL UNDEAD'~
+@eng Syntax: {ccast 'charm person'{x <victim>
+Syntax: {ccast 'attract other'{x <victim>
+Syntax: {ccast 'control undead'{x <victim>
+Syntax: {ccontrol{x <victim>
+ 
+These spells and skills, if successful, cause the victim to follow you and to
+take orders from you. Use ORDER to issue orders to your charmed followers.
+ 
 You are responsible for the actions of your followers.  Conversely, other
 people who attack your followers will be penalized as if they attacked you.
+ 
+CHARM PERSON is most versatile of these spells/skills. ATTRACT OTHER works only
+on creatures of opposite sex than yours. CONTROL UNDEAD is powerless against
+living creatures, though it is capable of charming undeads immune to normal
+charm. CONTROL ANIMAL works only on NPCs of non-player race.
+ 
+See also {CHELP ORDER{x
+@rus Синтаксис: {ccast 'charm person'{x <жертва>
+Синтаксис: {ccast 'attract other'{x <жертва>
+Синтаксис: {ccast 'control undead'{x <жертва>
+Синтаксис: {ccontrol{x <жертва>
+ 
+Эти заклинания и умения в случае успеха заставляют жертву слепо следовать за
+тобой и выполнять твои приказы. Отдавать приказы можно командой ORDER.
+ 
+Ты несешь ответственность за действия очарованных тобой персонажей. И наоборот,
+люди, атакующие твоих последователей, несут ту же ответственность как если бы
+они атаковали тебя.
+ 
+CHARM PERSON является наиболее универсальным из всех этих заклинаний. ATTRACT
+OTHER работает только на существах противоположного твоему пола. CONTROL UNDEAD
+действует только на различные виды мертвецов, хотя с его помощью можно очаро-
+вать даже тех, что устойчив к обычному CHARM PERSON. И наконец, CONTROL ANIMAL
+может очаровать только монстров тех рас, которые недоступны игрокам.
 ~
-0 'CHARM MONSTER'~
-Syntax: 'charm monster' <victim>
-
-This skill, if successful, causes the victim to follow you and to take
-orders from you. But only non-pc races can be charmed by using this skill,
-hence some of the mobiles will not be affected by the power of this skill. 
-Use ORDER to order your charmed followers.
-
-You are responsible for the actions of your followers.  Conversely, other
-people who attack your followers will be penalized as if they attacked you.
-~
-0 'CHARM SEX'~
+0 'ATTRACT OTHER'~
 Syntax: cast 'charm sex' <victim>
 
 
@@ -2416,65 +2765,90 @@ You are responsible for the actions of your followers.  Conversely, other
 people who attack your followers will be penalized as if they attacked you.
 ~
 0 'CHILL TOUCH'~
-Syntax: cast 'chill touch' <victim>
+@eng Syntax: {ccast 'chill touch'{x <victim>
 
 This spell inflicts damage on the victim and also reduces the victim's
 strength by one.
+@rus Синтаксис: {ccast 'chill touch' <жертва>
+ 
+Это заклинание не только наносит раны жертве, но и уменьшает ее силу на 1.
 ~
 0 'CONTINUAL LIGHT'~
-Syntax: cast 'continual light'
-Syntax: cast 'continual light' <object>
+@eng Syntax: {ccast 'continual light'{x
+Syntax: {ccast 'continual light'{x <object>
 
 This spell creates a ball of light, which you can hold as a light source.
 The ball of light will last indefinitely. It may also be used on an object
 to give it an enchanted glow.
+@rus Синтаксис: {ccast 'continual light'{x
+Синтаксис: {ccast 'continual light'{x <обьект>
+ 
+Это заклинание создает светящийся шар, который можно использовать как светиль-
+ник, и он будет светить вечно. Это заклинание можно также использовать на
+объекте, для придания ему магического свечения.
 ~
 0 'CONTROL WEATHER'~
-Syntax: cast 'control weather' better
-Syntax: cast 'control weather' worse
+@eng Syntax: {ccast 'control weather' better{x
+Syntax: {ccast 'control weather' worse{x
 
 This spell makes the weather either better or worse.
+@rus Синтаксис: {ccast 'control weather' better{x
+Синтаксис: {ccast 'control weather' worse{x
+ 
+Это заклинание делает погоду лучше (better) или хуже (worse).
 ~
-0 'CREATE FOOD'~
-Syntax: cast 'create food'
-
-This spell creates a Magic Mushroom, which you or anyone else can eat.
+0 'CREATE FOOD' 'CREATE SPRING' 'CREATE WATER'~
+@eng Syntax: {ccast 'create water'{x <drink container>
+Syntax: {ccast 'create food'{x
+Syntax: {ccast 'create spring'{x
+ 
+These spells create water and food. CREATE WATER fills drink container with
+water, CREATE FOOD make a delicious mushroom, CREATE SPRING gives birth to a
+cold clear spring.
+@rus Синтаксис: {ccast 'create water'{x <сосуд>
+Синтаксис: {ccast 'create food'{x
+Синтаксис: {ccast 'create spring'{x
+ 
+Эти заклинания создают воду и еду. CREATE WATER наполняет водой указанный
+сосуд, CREATE FOOD создает аппетитный гриб, CREATE SPRING создает холодный
+чистый ручеек.
 ~
-0 'CREATE SPRING'~
-Syntax: cast 'create spring'
-
-This spell brings forth a magical spring from the ground, which has the
-same properties as a fountain.
+0 'CURE BLINDNESS' 'CURE POISON' 'CURE DISEASE'~
+@eng Syntax: {ccast 'cure blindness'{x <character>
+Syntax: {ccast 'cure poison'{x <character>
+Syntax: {ccast 'cure disease'{x <character>
+ 
+These spells cure blindness, poison and disease in those unlucky adventurers.
+@rus Синтаксис: {ccast 'cure blindness'{x <персонаж>
+Синтаксис: {ccast 'cure poison'{x <персонаж>
+Синтаксис: {ccast 'cure disease'{x <персонаж>
+ 
+Эти заклинания лечат слепоту, яд и чуму соответвенно у неудачливого персонажа.
 ~
-0 'CREATE WATER'~
-Syntax: cast 'create water' <drink-container>
-
-This spell replenishes a drink container with water.
+0 'CURE LIGHT' 'CURE SERIOUS' 'CURE CRITICAL' HEAL 'SUPERIOR HEAL' 'MASTER HEALING'~
+@eng Syntax: {ccast 'cure light'{x <character>
+Syntax: {ccast 'cure serious'{x <character>
+Syntax: {ccast 'cure critical'{x <character>
+Syntax: {ccast 'heal'{x <character>
+Syntax: {ccast 'superior heal'{x <character>
+Syntax: {ccast 'master healing'{x <character>
+ 
+These spells cure wounds on specified character. Higher-level spells heal more
+damage.
+@rus Синтаксис: {ccast 'cure light'{x <персонаж>
+Синтаксис: {ccast 'cure serious'{x <персонаж>
+Синтаксис: {ccast 'cure critical'{x <персонаж>
+Синтаксис: {ccast 'heal'{x <персонаж>
+Синтаксис: {ccast 'superior heal'{x <персонаж>
+Синтаксис: {ccast 'master healing'{x <персонаж>
+ 
+Эти заклинания лечат раны на указанном персонаже. Заклинания более высокого
+уровня лечат сильнее.
 ~
-0 'CURE BLINDNESS'~
-Syntax: cast 'cure blindness' <character>
-
-This spell cures blindness in one so unfortunate.
-~
-0 'CURE POISON'~
-Syntax: cast 'cure poison' <character>
-
-This spell cures poison in one so unfortunate.
-~
-0 'CURE LIGHT' 'CURE SERIOUS' 'CURE CRITICAL' HEAL~
-Syntax: cast 'cure light'    <character>
-Syntax: cast 'cure serious'  <character>
-Syntax: cast 'cure critical' <character>
-Syntax: cast 'heal'          <character>
-
-These spells cure damage on the target character.  The higher-level spells
-heal more damage.
-
-(see 'help healer' for details on the heal command)
-~
-0 CURSE~
-Syntax: cast 'curse' <character>
-Syntax: cast 'curse' <object>
+0 CURSE ANATHEMA~
+@eng Syntax: {ccast 'curse'{x <character>
+Syntax: {ccast 'curse'{x <object>
+Syntax: {ccast 'anathema'{x <character>
 
 This spell reduces the character's to-hit roll and save versus spells.
 It also renders the character unclean in the eyes of gods and
@@ -2484,17 +2858,73 @@ opponents.
 
 The curse spell can also be casted on objects. Spell will cause the 
 object to be more evil, but if protected by some other magic it may fail.
+ 
+Anathema is a highly complicated curse. Not only does it lower hitroll and
+increase save, but also make character far less skillful.
+@rus Синтаксис: {ccast 'curse'{x <обьект>
+Синтаксис: {ccast 'curse'{x <персонаж>
+Синтаксис: {ccast 'anathema'{x <персонаж>
+ 
+Проклятие (curse) уменьшает вероятность нанесения персонажем ударов и ухудшает
+его защиту от магии. Кроме того, проклятые персонажи не могут использовать
+RECALL и заклинание 'word of recall'. Проклятие, наложенное на оружие, увеличи-
+вает его эффективность против святых врагов.
+ 
+ANATHEMA является усилленым вариантом CURSE - кроме указанного, она еще и пони-
+жает уровень владения персонажа умениями и заклинаниями.
 ~
-0 'DETECT EVIL'~
-Syntax: cast 'detect evil'
-
-This spell enables the caster to detect evil characters, which will
-reveal a characteristic red aura.
+0 'DETECT EVIL' 'DETECT GOOD' 'DETECT MAGIC' 'DETECT UNDEAD'~
+@eng Syntax: {ccast 'detect evil'{x
+Syntax: {ccast 'detect good'{x
+Syntax: {ccast 'detect magic'{x
+Syntax: {ccast 'detect undead'{x
+ 
+These spells enable caster to determine the nature of characters and objects.
+Detected evil creatures will be surrounded with red aura in your eyes, while
+good ones will have gold aura. Magical objects will be highlited with a soft
+magenta glow. Undead creatures will be detected however well they hide their
+nature.
+@rus Синтаксис: {ccast 'detect evil'{x
+Синтаксис: {ccast 'detect good'{x
+Синтаксис: {ccast 'detect magic'{x
+Синтаксис: {ccast 'detect undead'{x
+ 
+Эти заклинания позволяют более точно определять истинную природу встреченных
+монстров и обьектов. Под действием заклинания DETECT EVIL злобные создания
+будут окружены красным ореолом в твоих глазах, под действием DETECT GOOD добрые
+персонажи будут окружены золотой аурой. Магические обьекты будут слегка све-
+титься розовым, если ты находишься под действием DETECT MAGIC. Умелый некромант
+при помощи DETECT UNDEAD всегда распознает мертвеца, как бы хорошо тот не
+скрывал свою природу.
 ~
-0 'DETECT HIDDEN'~
-Syntax: cast 'detect hidden'
-
-This spell enables the caster to detect hidden creatures.
+0 'DETECT HIDDEN' 'DETECT INVIS' 'IMPROVED DETECT' 'DETECT FADE' 'ACUTE VISION' 'DETECT HIDE'~
+@eng Syntax: {ccast 'detect hidden'{x
+Syntax: {ccast 'detect invis'{x
+Syntax: {ccast 'improved detect'{x
+Syntax: {ccast 'detect fade'{x
+Syntax: {ccast 'acute vision'{x
+Syntax: {cdetect{x
+ 
+There spells and skills are to detect hiding, invisible or camouflaged
+characters. DETECT command is thieve's analogue for 'DETECT HIDE' spell.
+'DETECT INVIS' and 'IMPROVED DETECT' spells are used to detect invisibility
+and improved invisibility respectively.
+Magically sharpened with 'ACUTE VISION' eyes can see ranger in cover.
+'DETECT FADE' is used to detect faded lifeforms, though not many encountered
+them.
+@rus Синтаксис: {ccast 'detect hidden'{x
+Синтаксис: {ccast 'detect invis'{x
+Синтаксис: {ccast 'improved detect'{x
+Синтаксис: {ccast 'detect fade'{x
+Синтаксис: {ccast 'acute vision'{x
+Синтаксис: {cdetect{x
+ 
+Эти умения и заклинания нужны для обнаружения спрятавшихся и невидимых персо-
+нажей. 'DETECT HIDDEN' обнаружит персонажей, пытающихся укрыться в тенях.
+Команда DETECT является аналогом этого заклинания. 'DETECT INVIS' и 'IMPROVED
+DETECT' служат для обнаружения простой и улучшенной невидимости. При помощи
+'ACUTE VISION' можно обнаружить охотника даже в лесу. 'DETECT FADE' служит для
+обнаружения пропадающих существ, хотя они и встречаются очень редко.
 ~
 0 'DETECT INVIS' 'IMPROVED DETECT'~
 Syntax: cast 'detect invis'
@@ -2507,9 +2937,12 @@ Syntax: cast 'detect magic'
 This spell enables the caster to detect magical objects.
 ~
 0 'DETECT POISON'~
-Syntax: cast 'detect poison' <object>
-
-This spell detects the presence of poison in food or drink.
+@eng Syntax: {ccast 'detect poison'{x <object>
+ 
+This spell detect presence of poison in food or drink.
+@rus Синтаксис: {ccast 'detect poison'{x <обьект>
+ 
+Это заклинание определяет наличие яда в еде или питье.
 ~
 0 'DISPEL EVIL'~
 Syntax: cast 'dispel evil' <victim>
@@ -2518,8 +2951,8 @@ This spell invokes the wrath of gods on an evil victim. It can be very
 dangerous for casters who are not pure of heart.
 ~
 0 'DISPEL MAGIC' CANCELLATION~
-Syntax: cast 'dispel magic' <character>
-        cast 'cancellation' <characte>
+@eng Syntax: {ccast 'dispel magic'{x <character>
+Syntax: {ccast 'cancellation'{x <character>
  
 Both of these spells remove magical effects from the target.  Dispel magic
 has a reduced chance of working, and is considering an attack spell.
@@ -2530,29 +2963,58 @@ harmful and benign spells.
 The chance of dispelling is based on the level of the spell. Permanent spells
 (such as mobile sanctuary) are much harder to remove.  Not all spells may
 be dispelled, notable examples are poison and plague.
+@rus Синтаксис: {ccast 'dispel magic'{x <персонаж>
+Синтаксис: {ccast 'cancellation'{x <персонаж>
+ 
+Оба эти заклинания предназначены для удаления магических эффектов с персонажа.
+К сожалению, они не различают "хорошие" и "плохие" эффекты. DISPEL MAGIC имеет
+несколько меньшую вероятность успеха и расценивается как атакующее заклинание.
+CANCELLATION гораздо эффективнее, но для его применения необходимо согласие
+персонажа-цели.
+ 
+Шанс успеха зависит от уровня заклинания. Перманентные эффекты сложнее снять.
+Не все эффекты можно снять этими заклинаниями. Хорошо известные примеры -plague
+и poison.
+asa changed
 ~
 0 EARTHQUAKE~
-Syntax: cast 'earthquake'
+@eng Syntax: {ccast 'earthquake'{x
 
 This spell inflicts damage on every enemy character in the room.
 Beware that other characters who are not yet fighting may attack
 you as a result!
+@rus Синтаксис: {ccast 'earthquake'{x
+ 
+Это заклинание вызывает землетрясение, нанося ущерб всем в комнате. Будь осто-
+рожен, после его применения врагов в бою у тебя может стать больше, чем было!
 ~
-0 'SEVERITY FORCE'~
-Syntax: cast 'severity force'
-	
-This spell is similar to earthquake but much more powerful to inflicts  
-damage on only your enemy character in the room. From now on you can
-separate the land through your enemy.
-~
-0 'ENCHANT WEAPON'~
-Syntax: cast 'enchant weapon' <weapon>
+0 'ENCHANT WEAPON' 'ENCHANT ARMOR'~
+@eng Syntax: {ccast 'enchant weapon'{x <weapon>
+Syntax: {ccast 'enchant armor'{x <armor>
 
-This spell magically enchants a weapon, increasing its to-hit and to-dam
+'ENCHANT WEAPON' magically enchants a weapon, increasing its to-hit and to-dam
 bonuses by one or two points.  Multiple enchants may be cast, but as the
 weapon grows more and more powerful, it is more likely to be drained or
 destroyed by the magic.  Also, every successful enchant increases the level
 of the weapon by one...and there is no turning back.
+ 
+The enchant armor spell imbues armor with powerful protective magics. It is
+not nearly as reliable as enchant weapon, being far more prone to destructive
+effects.  Each succesful enchant increases the plus of the armor by 1 or 2
+points, and raises its level by one.
+It is said to be that the enchantment of powerful items by powerful
+mages can cause the item act in different ways.
+@rus Синтаксис: {ccast 'enchant weapon'{x <оружие>
+Синтаксис: {ccast 'enchant armor'{x <броня>
+ 
+Заклинание 'ENCHANT WEAPON' магически улучшает оружие, увеличивая его hitroll
+и damroll на 1 или 2. Можно использовать это заклинание несколько раз, но с
+каждым следующим разом все больше и больше вероятность неудачи. Кроме того,
+каждое применение заклинания увеличиваетуровень обьекта.
+ 
+'ENCHANT ARMOR' улучшает броню вещей посредством магии. Он еще менее надежен,
+чем 'ENCHANT WEAPON'. Говорят, когда сильный маг работает над серьезным предме-
+том - результат часто превосходит все ожидания.
 ~
 -1 'ENCHANT ARMOR'~
 The enchant armor spell imbues armor with powerful protective magics. It is
@@ -2563,28 +3025,38 @@ points, and raises its level by one.
 It is said to be that the enchantment of powerful items by powerful
 mages can cause the item act in different ways.
 ~
-0 'ENERGY DRAIN'~
-Syntax: cast 'energy drain' <victim>
-
-This spell saps the experience points, mana, and movement points of its
-target.
+0 'ENERGY DRAIN' 'HAND OF UNDEAD' 'DRAINING TOUCH' 'MANA DRAIN'~
+@eng Syntax: {ccast 'energy drain'{x <victim>
+Syntax: {ccast 'draining touch'{x <victim>
+Syntax: {ccast 'hand of undead'{x <victim>
+Syntax: {ccast 'mana drain'{x <victim>
+ 
+All these spells of black magic do something special to the victim.
+ENERGY DRAIN saps exp, mana and moves from the victim.
+DRAINING TOUCH and HAND OF UNDEAD act similarily, save that DRAINING_TOUCH 
+also leaves an affect of opponent
+MANA DRAIN is rather self explaining - it saps mana from victim.
+@rus Синтаксис: {ccast 'energy drain'{x <жертва>
+Синтаксис: {ccast 'draining touch'{x <жертва>
+Синтаксис: {ccast 'hand of undead'{x <жертва>
+Синтаксис: {ccast 'mana drain'{x <жертва>
+ 
+Эти заклинания не только наносят ущерб врагу, но и делают еще что-либо.
+ENERGY DRAIN отнимает ману и шаги (moves). DRAINING TOUCH и HAND OF UNDED
+действуют похоже, передавая здоровье от жертвы к чародею. , но DRAINING TOUCH
+еще и ухудшает способности к бою.
+MANA DRAIN вытягивает ману из жертвы и передает ее чародею.
 ~
 0 'FAERIE FIRE'~
-Syntax: cast 'faerie fire' <victim>
+@eng Syntax: {ccast 'faerie fire'{x <victim>
 
-This spell increases (makes worse) the armor class of its victim.  For each
-level of the caster, the victim's armor class is increased by two points.
+This spell increases (makes worse) the armor class of its victim.
 ~
 0 'FAERIE FOG'~
 Syntax: cast 'faerie fog'
 
 This spell reveals all manner of invisible, hidden, camouflaged and sneaking 
 creatures in the same room as you.
-~
-0 FLAMESTRIKE~
-Syntax: cast 'flamestrike' <victim>
-
-This spell inflicts damage on the victim.
 ~
 0 FLY~
 Syntax: cast 'fly' <character>
@@ -2665,7 +3137,7 @@ This spell removes a curse from a character, and might possibly uncurse
 a cursed object.  It may also be targeted on an object in the caster's
 inventory, in which case it's chance of success is significantly higher.
 ~
-0 SHIELD 'STONE SKIN' 'ENHANCED ARMOR'~
+0 SHIELD 'STONE SKIN' 'ENHANCED ARMOR' 'MELD INTO STONE'~
 Syntax: cast shield
 Syntax: cast 'stone skin'
 Syntax: cast 'enhanced armor'
@@ -2733,7 +3205,7 @@ Syntax: cast sleep <victim>
 
 This spell puts its victim to sleep.
 ~
-0 SUMMON~
+0 SUMMON NOSUMMON~
 Syntax: cast summon <character>
 
 This spell summons a character from anywhere else in the world into your room.
@@ -3328,34 +3800,6 @@ Chaotic Evil:  The bane of all that is good and organized.  Laws and
 
 Each god may accept a follower based on these outlines.
 ~
-0 FOLLOW GROUP NOFOLLOW NOFOL~
-Syntax: follow <character>
-	group
-	group <character>
-	nofol 
-
-FOLLOW starts you following another character.  To stop following anyone else,
-just FOLLOW <yourself>.
-
-GROUP <character> makes someone who is following you a member of your group.
-Group members share experience points from kills and may use the GTELL and
-SPLIT commands.  If anyone in your group is attacked, you will automatically
-join the fight.
-
-If the <character> is already a member of your group, then GROUP will
-kick out the <character> from your group.  Characters can also leave your
-group by using a FOLLOW command to stop following you.
-
-GROUP with no argument shows statistics for each character in your group.
-
-You may FOLLOW and GROUP only with characters who are within 8 levels of
-your own. Groups of 2 and 3 get experience bonuses.  See "help experience".
-
-NOFOL is a toggle which makes you no longer accept followers.  This also
-causes all people and mobs from following you at that time including who
-you are following.  Type NOFOL again to reset the toggle back to accepting
-followers.  No one can follow you when this toggle is set.
-~
 0 RULES~
 These are the rules of the Shades of Gray. Disobeying is grounds
 for deletion. For other matters, use common sense.
@@ -3556,25 +4000,28 @@ and ARMOURERS.
    You can learn how much that will cost by "estimate" command.
 ~
 0 PRAY ~
-Syntax: pray 
-	pray <message>
+@eng Syntax: {cpray{x
+Syntax: {cpray{x <message>
 
 Use this command to send a message to all the immortals who are on the mud
 at the time.  If you need to talk to a specific god, put their name in the
 message, you can even just do pray name.  PRAY, by itself simply gives 
 '(your name) is PRAYING for: any god'  If you dont with to get a pot-luck
-immortal, type a message after 'pray'.  Only immortals 93+ can see prays.
+immortal, type a message after 'pray'.
 
-DO NOT ABUSE this privilege!!!  Anyone who does multiple prays or prays
+{RDO NOT ABUSE THIS PRIVILEGE!!!{x  Anyone who does multiple prays or prays
 without a good reason will be severely punished.
-~
-92 RANDOMIZER ~
-Syntax: cast 'randomizer'
-
-You cannot cast it in a room with the flag ROOM_LAW (all the rooms in Galadon)
-and you may not cast it in a room with a door that is supposed to reset locked 
-or closed.  If anyone *ever* casts it in a room like this, and I hear about it, 
-this spell will be taken away, never to return.  
+@rus Синтаксис: {cpray{x
+Синтаксис: {cpray{x <сообщение>
+ 
+Используй эту команду, чтоб послать сообщение бессмертным, кто сейчас в игре.
+Если вы хотите поговорить с конкретным богом, включите его имя в сообщение.
+Без аргументов PRAY выводит всем бессмертным лишь твою просьбу обратить на тебя
+внимание. Если ты не ищешь любого бессмертного для разговора, напиши сообщение
+после команды.
+ 
+{RНЕ ЗЛОУПОТРЕБЛЯЙ ЭТОЙ КОМАНДОЙ!!!{x Каждый, кто кричит богам без хорошей на
+то причины, или многократно выдает свою просьбу, будет жестоко наказан.
 ~
 0 WARCRY ~
 Syntax: warcry
@@ -3615,18 +4062,26 @@ attempted every 2 rounds, but no commands can be entered for 2 rounds
 after attempting a throw.  Thrown opponents are then stunned, unable to
 enter any commands. 
 ~
-0 CLAN CLANTALK 'CLAN CHANNEL'~
-Syntax: {cclan{x <message>
-        {cclan{x
+0 'CLAN CHANNEL' CLANTALK~
+@eng Syntax: {cclan{x <message>
+Syntax: {cclan{x
 
 This is the command used to talk on a clan channel.  
 Used by itself, it is a toggle to turn the clan channel on and off.
 {c={x is a sinonym for this command.
+@rus Синтаксис: {cclan{x <сообщение>
+Синтаксис: {cclan{x
+ 
+Эта команда используется для внутрикланового общения. Без аргументов эта коман-
+дa включает и выключает этот канал. '{c={x' является синонимом для этой коман-
+ды.
 ~
 0 DEPOSIT WITHDRAW BALANCE BANK~
-Syntax: deposit  <number>
-Syntax: withdraw <number>
-Syntax: balance
+@eng Syntax: {cdeposit{x  <number> {cgold{x
+Syntax: {cdeposit{x  <number> {csilver{x
+Syntax: {cwithdraw{x <number> {cgold{x
+Syntax: {cwithdraw{x <number> {csilver{x
+Syntax: {cbalance{x
 
 The bank of New Thalos is a trustworthy establishment dedicated to the
 safe-keeping moneys in trusted it.  To place money in the bank, simply
@@ -3634,8 +4089,17 @@ DEPOSIT a quantity of coins.  To retrieve your funds, simply WITHDRAW a
 quantity of coins.To find out much you have in the bank, type BALANCE.
 Each of there commands must be issued from with a bank.  Withdraws are
 subject to a slight processing fee.
+@rus Синтаксис: {cdeposit{x <количество> {cgold{x
+Синтаксис: {cdeposit{x <количество> {csilver{x
+Синтаксис: {cwithdraw{x <количество> {cgold{x
+Синтаксис: {cwithdraw{x <количество> {csilver{x
+Синтаксис: {cbalance{x
+ 
+Эти команды позволяют проводить банковские операции - положить (deposit) или
+снять (withdraw) указанное количество золота или серебра, а также проверить
+текущий баланс. Снятие денег со счета облагается небольшим налогом.
 ~
-0 CAMOUFLAGE  CAMO ACUTE 'ACUTE VISION' AMBUSH ~
+0 CAMOUFLAGE AMBUSH~
 Syntax: camouflage
 	ambush <victim>
 	cast 'acute vision'
@@ -3644,8 +4108,6 @@ Camouflage allows a player to hide in a field, forest, or mountain. A
 camouflaged player will remain camouflaged until he/she/it moves.
 
 A camouflaged player may ambush someone who doesn't see him/her/it.
-
-Acute vision is the spell used to detect camouflaged players.
 ~
 -1 ENDURE~
 Syntax: Endure
@@ -3658,17 +4120,21 @@ This skill is similar to meditation and fast healing in that it is
 automatic each tick.  This ability to concentrate aids mages and
 clerics in regaining their mana quickly.
 ~
--1 PROTECTIVE SHIELD~
+-1 'PROTECTIVE SHIELD'~
 Syntax: cast 'protective shield'
 
 This spell makes a shield around the caster which can deflect blunt blows
 such as those from bashes and throws.
 ~
-92 'QUEST REWARD'~
-Quest rewards cannot be sacrificed and these items
+101 '_QUEST REWARD'~
+@eng Quest rewards cannot be sacrificed and these items
 are special for the character. Any other character cannot get or wear 
 these items. Also these items cannot get damage. As you lost one of them 
 because of crashes note to gods.
+@rus Награды за выполнение квестов не могут быть принесены в жертву и являются
+собстенностью соответствующего персонажа. Никто больше не может взять или
+одеть эти вещи. Также эти вещи не портятся. Если ты потерял эту вещь изза
+зависания игры, обратись к богам.
 ~
 -1 QUESTS 'QUEST AUTOMATIC'~
 @eng Syntax: {cquest{x <option>
@@ -3708,6 +4174,7 @@ auction stop		- will stop the auction, return the gold to the last
 @rus С помощью аукциона вы можете выставить на продажу имеющуюся у вас вещь.
 И соответственно приобрести то, что продается на аукционе.
  
+Синтаксис этой команды таков:
 {cauction {x(без параметров) -- покажет характеристику продающегося обьекта
 {cauction {x<обьект> <цена>  -- дает возможность выставить на продажу 
                             обьект и указать его начальную цену. Если
@@ -3908,47 +4375,6 @@ some of the limited items in the books which Melancholy sells.
 Be warned that every reboot your limited items have a chance to come back into
 game.
 ~
-92 RRACE 'REMORT RACE'~
-You are remorting and following is a brief description of each
- main race to assist you in the character creation process:
-
-Human:     Humans are the typical, average race, possessing no advantages nor
-           disadvantages.
-Elf:       Elves are slender and fragile, yet agile and dextrous creatures.
-           Elves possess the ability to see in the dark, called infravision.
-	   Typically good alignment.And elf costs 500 extra exps per level.
-Dark-elf:  Dark-elves are slender and fragile, yet agile and dextrous 
-	   creatures.They have the ability to see in the dark, called 
-	   infravision.They have evil alignment.And dark-elf costs 500 
-	   extra exps per  level.
-Dwarf:     Dwarves are a short, sturdy and strong race - typically high in
-           constitution, and lower in intelligence.  Most dwarves possess infra.
-	   And dwarf costs 250 extra exps per level.
-Gnome:     Gnomes are a smaller cousin of dwarves, typically highly intelligent
-           but low in strength.And gnomes costs 300 extra exps per level.
-Arial:     Arials are a highly dextrous and smart race.They always fly. And 
-	   arials costs 250  exps per level.
-Giant:     They looks as if huge human. But they are greater and stronger.
-	   They are higher in constitution. But with less intelligence.And 
-	   giant cost 500 extra exps per level.
-Felar:	   They seems like cats actually not.They are not strong, but has 
-	   the ability to see in the dark, called infravision. And felar costs
-	   250 extra exps per level.
-Duergar:   Similar to their cousins dwarves, duergars are strong and high in
-	   constitution, and lower in intelligence.But they are always evil.
-	   And duergar costs 250 extra exps per level.
-Svirfnebli:Some call them gnomes.Because they are also strong and 
-	   wise.And svirfnebli costs 250 extra exps per level.
-Rockseer  :Rockseer are slender and fragile, yet agile and dextrous 
-	   creatures.They have the ability to see in the dark, to pass  
-	   all kinds of doors.They have neutral alignment.And rockseer costs 
-	   500 extra exps per level.
-Troll     :Hindered by their slow intellect and mobility, grow to obtain a
-           state of health.They cost extra 300 creation points.
-
-P.S.	  :Remember that some races have their specific spells, i.e rockseers
-	   have their own spell 'meld into stone'.
-~
 -1 DAMAGE~
 Here are the types of the damages, from small to...
                                 scratch
@@ -3995,7 +4421,7 @@ tt++ 1.5pl6 -- notelnet on, noiac on
 tf 4.0g3    -- notelnet off, noiac off
  
 ~
-0 AEDIT~
+0 'OLC AEDIT'~
 Syntax: edit area	 -Enters the editor for the current area.
 Syntax: edit area <vnum> -Enters the editor for the selected area.
 
@@ -4034,7 +4460,7 @@ a player closing the door and not due to the door being set to be closed.
 
 -South to [ 3744] Key: [   -1] Exit flags: [door CLOSED bashed pickproof]
 ~
-0 OEDIT~
+0 'OLC OEDIT'~
 Syntax: edit object <vnum>	-Enters the editor for the selected object.
 
 The following commands are available from within the OEDITOR:
@@ -4105,7 +4531,7 @@ Mean is the arithmetic mean.  The values in parenthesis are the the
 standard merc values.  (Will be put in when there's time to calculate
 them...)
 ~
-0 RESETS~
+0 'OLC RESETS'~
 Syntax: RESET <number> OBJ <vnum> <location on body>    - equips last mobile
         RESET <number> OBJ <vnum> inside <obj vnum>     - store in container
         RESET <number> OBJ <vnum> room                  - store in room
@@ -4148,54 +4574,6 @@ The values ROM generates for a merc format mob is:
 These values are 10 times what you would put in an area file. This
 is because the server multiplies what it reads from file with 10.
 ~
-0 ITEM_LIGHT~
-.   value 0    unused
-   value 1    unused
-   value 2    hours of light available, 0 is dead, -1 or 999 is infinite            
-   value 3    unused
-   value 4    unused
-~
-0 ITEM_STAFF_WAND~
-.   value 0    level
-   value 1    max charges
-   value 2    current charges
-   value 3    spell name
-   value 4    unused
-
-
-An up-to-date list of spells can be obtained by typing:
-? SPELLS [ignore/attack/defend/self/object/all]
-~
-0 ITEM_SCROLL_POTION_PILL~
-.   value 0    level
-   value 1    spell name 1
-   value 2    spell name 2
-   value 3    spell name 3
-   value 4    unused
-
-An up-to-date list of spells can be obtained by typing:
-? SPELLS [ignore/attack/defend/self/object/all]
-~
-0 ITEM_ARMOR~
-.   value 0    ac pierce
-   value 1    ac bash
-   value 2    ac slash
-   value 3    ac exotic (magic)
-   value 4    unused
-~
-0 ITEM_WEAPON~
-.   value 0    weapon class.
-   value 1    number of dice to roll.
-   value 2    type of dice to roll.
-   value 3    weapon type.
-   value 4    special weapon type.
-
-An up-to-date list of values can be obtained by typing
-? WCLASS
-help WEAPON_DICE
-? WEAPON
-? WTYPE
-~
 0 WEAPON_DICE~
 These are the values the server generates automatically when
 converting a merc-format mobile to ROM format.  A higher
@@ -4212,31 +4590,7 @@ dice-bonus on weapon dice.
        30:     5d7
        50:     5d11
 ~
-0 ITEM_DRINK~
-.   value0    capacity
-   value 1    current quantity
-   value 2    liquid type
-   value 3    poisoned?
-   value 4    unused
-
-An up-to-date list of liquid types can be obtained by typing
-? LIQUID
-~
-0 ITEM_FOOD~
-.   value 0    hours of food value
-   value 1    unused
-   value 2    unused
-   value 3    poisoned?
-   value 4    unused
-~
-0 ITEM_MONEY~
-.   value 0    value in gold pieces
-   value 1    unused
-   value 2    unused
-   value 3    unused
-   value 4    unused
-~
-92 PRICE 'CLAN PRICE'~
+101 '_CLAN PRICE'~
 Прайс-лист на клан и все прилагающиеся услуги:
 ver 2.0
  
@@ -4343,6 +4697,7 @@ Characters affected by 'protection negative' are immune to negative attack, for 
 0 'OLC ALIST'~
 Syntax: alist area [substr]
 Syntax: alist clan
+Syntax: alist race
 Syntax: alist help [keyword]
 Syntax: alist mpcode [all]
 Syntax: alist msgdb substr
@@ -4398,6 +4753,7 @@ Syntax: create mobile vnum
 Syntax: create room vnum
 Syntax: create mpcode vnum
 Syntax: create help keyword
+Syntax: create race name
 Syntax: create clan name
 Syntax: create msg message
 Syntax: create social name
@@ -4413,6 +4769,7 @@ Syntax: edit mobile vnum
 Syntax: edit object vnum
 Syntax: edit mpcode vnum
 Syntax: edit help [num.]keyword
+Syntax: edit race name
 Syntax: edit clan name
 Syntax: edit msg substr
 Syntax: edit social name
@@ -4427,6 +4784,7 @@ Syntax: ashow room [vnum]
 Syntax: ashow mobile [vnum]
 Syntax: ashow object [vnum]
 Syntax: ashow help [[num.]keyword]
+Syntax: ashow race [name]
 Syntax: ashow clan [name]
 Syntax: ashow msg [msg]
 Syntax: ashow implicit {{ case | gender | qty } num
@@ -4454,21 +4812,36 @@ Examples:
    addaffect 'acid blast' 50 skill teach
 ~
 0 TWIT~
-Syntax: twit [name...]
+@eng Syntax: {ctwit{x <name>
+Syntax: {ctwit{x
  
-Use 'twit' command to toggle names of chars in your twitlist. You won't hear
-says, tells, socials, gossips etc. from chars listed in your twitlist.
+TWIT command toggles names in your twitlist. You won't hear anything save for
+gossips from these characters. TWIT without arguments shows you current
+twitlist.
+@rus Синтаксис: {ctwit{x <имя>
+Синтаксис: {ctwit{x
  
+Команда TWIT включает/исключает имена в список блокируемых персонажей. Ты не
+услышишь ничего от них, кроме GOSSIP. Эта же команда без аргументов покажет
+твой текущий список.
 ~
 0 SHOOT~
-You can use this command only when you have the bow skill. To shoot,
-you must wield a bow and hold an arrow in your hand.
+@eng Syntax: {cshoot{x <direction> <victim>
  
-The syntax is: {Wshoot direction mob-name{x, a.e. {Wshoot south fido{x.
+SHOOT makes your character shoot an arrow to the victim. To use it you should
+hold  bow in one hand and an arrow in other. As you shoot new arrows will be
+drawn from a quiver. Shooting range is equal to your scan range. You can choose
+target with standard <num>.<victim> scheme.
+Examples:
+    {cshoot north 2.fido{x
+@rus Синтаксис: {cshoot{x <направление> <жертва>
  
-The range is equal to your scan range (check it with {Wscan [direction]{x
-command). You can choose the target you want to shoot at with standard
-[num.] prefix.
+Эта команда служит для стрельбы из лука. Для этого ты должен держать лук в
+одной руке и стрелу в другой. По мере того, как ты стреляешь, новые стрелы
+будут доставаться из колчана автоматически. Дальность стрельбы равна дальности
+скана. Ты можешь выбрать жертву при помощи числового префикса.
+Пример:
+    {cshoot north 2.fido{x
 ~
 0 'OLC MPCODE COMMANDS'~
 Syntax: create mp vnum
@@ -4588,7 +4961,7 @@ CALL       [vnum] [victim] [target1] [target2]
 To victim: dispel evil
        To you    : cure serious
 ~
-0 SHALAFI~
+0 'CLAN SHALAFI' SHALAFI~
 @eng   ... and the time has come when High council of mages decided that no  longer 
 disorder  shall  be tolerated.  Mages  slayed  each other, loosing  secrets of 
 ancient art of magic. Council summoned all powerful mages.
@@ -4637,7 +5010,7 @@ bers of the Order will track him down, until that renegade dies.
 Лидером ордена стала одна из самых прекрасных ведьм сего мира --
 ==================== Лилит {DTentatrice{x =====================
 ~
-0 INVADER~
+0 'CLAN INVADER' INVADER~
 @rus {RВласть{x. Природа власти...
 Видели ли вы человеческого детеныша, вырывающего игрушку у своего
 соседа? Или молоденького фейри, деловито вспарывающего труп матери?
@@ -4683,20 +5056,33 @@ The following help files have already been installed:
 See also: PHILOSOPHY
 ~
 92 'WIZ GRANT' GRANT~
-Syntax: grant victim [command...]
-Syntax: grant victim level
+@eng Syntax: {cgrant{x <player> <command(s)>
+Syntax: {cgrant{x <player> {call{x
+Syntax: {cgrant{x <player> {cnone{x
+Syntax: {cgrant{x <player> <level>
  
-Grant command will grant wizard commands with specified names or
-all wizard commands of specified level to victim.
-Given no parameters this command will show current victim's grant list.
+GRANT will grant specified wizard commands to the player. Given a level
+argument, GRANT will give that player all commands for that level. Given no
+arguments, GRANT will show current grant list for that player.
+@rus Синтаксис: {cgrant{x <игрок> <команда(ы)>
+Синтаксис: {cgrant{x <игрок> <уровень>
+Синтаксис: {cgrant{x <игрок> {call{x
+Синтаксис: {cgrant{x <игрок> {cnone{x
  
+Команда GRANT дает возможность указанному персонажу использовать команды богов.
+Указав уровень как аргумент, ты дашь возможность использовать все команды
+указанного и более низких уровней. GRANT без аргументов покажет текущий список
+команд для указанного игрока.
 ~
 0 LABEL~
-Syntax : label <object> <label> 
+@eng Syntax : {clabel{x <object> <label>
  
-This command allows you to give an additional name to an object.
-Labeling an object costs 10 quest points.
+This command allows you to give an additional name to an object. You can refer
+to this object with a new name later. Labeling costs 10 quest points.
+@rus Синтаксис: {clabel{x <обьект> <имя>
  
+Эта команда позволяет добавить новое имя обьекту. После этого ты можешь обра-
+щаться к обьекту по новому имени. Это стоит 10 квестовых очков.
 ~
 0 'OLC CLAN SKILL'~
 Syntax: skill add skill_name level percent
@@ -4773,7 +5159,7 @@ Forms can be created/edited with OLC via "create/edit form" commands.
 See "help 'OLC FORMS INTRO"' for more info.
  
 ~
-0 KNIGHT~
+0 'CLAN KNIGHT' KNIGHT~
 @eng ..Deep chaos fell on the World. Seven Cabals had come to being. Chaos, Terror 
 and Disorder had been fighting with Law, Order, and Justice. The seventh one, 
 somewhat called Equilibrium, obeyed neither the Law, nor the Chaos...
@@ -4853,7 +5239,7 @@ CHQUEST DELETE удаляет обьект из этого списка.
 Все обьекты с флагом 'chquest' автоматически добавляются в список во время
 загрузки.
 ~
--1 wiz_star~
+101 '_WIZLIST'~
 .       __________         ***********************          __________
       /+_+_+_+_+_\   **  The Gods of Shades of Gray  **   /+_+_+_+_+_\ 
       \__________/        ***********************         \__________/
@@ -5019,12 +5405,17 @@ are topics of continual and heated debate in various MUD forums, and are
 fraught with misconceptions, poor examples, and outrageous hypocrisies. :)
 ~
 -1 SOCIALS~
-Syntax: {csocials{x
-        {csocials{x <name>
+@eng Syntax: {csocials{x
+Syntax: {csocials{x <name>
  
 Without argument this command shows you full list of available socials.
 Using it with a name of social as an argument will show you how this social
 will look in the eyes of other people. Great thing to avoid noemote/nochannel.
+@rus Синтаксис: {csocial{x
+Синтаксис: {csocial{x <название>
+ 
+Без аргумента эта команда выводит список всех социальных команд. С названием
+команды, она выведет тебе как будет выглядеть в глазах других игроков.
 ~
 -1 MERC~
 This mud is based on Merc 2.2, created by Furey, Hatchet, and Kahn.  
@@ -5045,9 +5436,6 @@ Thanks to ...
   ... the players and imps of Mud Dome, Final Mud, Mud Lite, Vego Mud, Rivers
       of Mud, Ruhr Mud, and Mystic Realms for bug reports, ideas, new code,
       and hours of enjoyment.
-~
--1 MAPS~
-Thanks to Ezra for drawing the originals of several maps on ROM.
 ~
 -1 GREETING~
 .         .     .
@@ -5088,16 +5476,25 @@ Thanks to Ezra for drawing the originals of several maps on ROM.
 * Players who use russian codepages, see '{CHELP RUSSIAN{x'.
 * Check out our homepage at {Chttp://iclub.nsu.ru/mud/{x.
 ~
-92 'WIZ IMOTD' IMOTD~
-Welcome Immortal!
-
+92 IMOTD~
+@eng Welcome Immortal!
+ 
 You are responsible for following the laws of immortal behavior. These can
-be found by typing 'help laws' or 'help commandments'.
-
-* Excessive loading is not allowed, and is grounds for deletion.
-* Asking for promotion is grounds for instant deletion.
-* Type 'help jobs' to get some idea of what you should be doing.
-* Remember you can RENAME players with unwanted nick names.
+be found by typing {CHELP LAWS{x or {CHELP COMMANDMENTS{x.
+ 
+ {G*{x Excessive loading is not allowed, and is grounds for deletion
+ {G*{x Asking for promotion is grounds for instant deletion
+ {G*{x Type {CHELP JOBS{x to get some idea of what you should be doing
+ {G*{x Remember you can RENAME players with unwanted nick names
+@rus Приветствуем тебя, Бессмертный!
+ 
+Помни, что ты обязан следовать законам для богов. Прочитать их можно, набрав
+{CHELP LAWS{x или {CHELP COMMANDMENTS{x.
+ 
+ {G*{x Избыточное создание монстров и обьектов не одобряется
+ {G*{x Просьбы о повышении уровня служат поводом для немедленного удаления
+ {G*{x {CHELP JOBS{x расскажет тебе об обязанностях богов
+ {G*{x Игрокам можно менять плохие имена при помощи команды RENAME
 ~
 92 JOBS~
 This is a partial list of what a god of any given level should be doing. It is
@@ -5169,24 +5566,43 @@ Not fulfilling the roles of your office can result in demotion or deletion.
 11) Take care of limited objects and quests.
 ~
 0 SUICIDE DELETE~
+@eng Syntax: {cdelete{x
+Syntax: {cdelete{x <any argument>
+
 Use the delete command to erase unwanted characters, so the name will be
 available for use.  This command must be typed twice to delete a character,
 and you cannot be forced to delete.  Typing delete with an argument will
 return your character to 'safe' status if you change your mind after the
 first delete.
+@rus Синтаксис: {cdelete{x
+Синтаксис: {cdelete{x <любой аргумент>
+
+Используй команду DELETE, чтобы стереть ненужного персонажа и освободить имя
+для последующего использования. Эту команду необходимо ввести дважды, исполь-
+зование этой команды с аргументом вернет тебя в 'безопасный' статус. Бессмерт-
+ный не может заставить тебя удалить персонажа.
 ~
 0 HEALER~
-The healer decided to grab a quick buck, and now charges for his heals.  Some
+@eng The healer decided to grab a quick buck, and now charges for his heals.  Some
 services are still free to players of level 10 or below, however.  To see
 a full listing of the healer's services, type 'heal' at his residence. To
 receive healing, bring plenty of money, and type 'heal <spell>'.
+@rus Лекарь погнался за длинным рублем, и теперь берет деньги за свои услуги.
+Некоторые услуги все еще бесплатны для игроков ниже 10 уровня. Чтобы увидеть
+список предлагаемых услуг, набери HEAL рядом с ним. Чтобы пользоваться его
+услугами, приносите горы денег и набирайте 'HEAL <тип заклинания>'
 ~
 -1 GAIN~
-The gain command is used to learn new skills, once the proper trainer has 
-been found. The following options can be used with gain:
-
-gain revert : turns one training session into 10 practice session 
-gain convert: turns 10 practices into one training session
+@eng Syntax: {cgain convert{x
+Syntax: {cgain revert{x
+ 
+GAIN CONVERT converts 10 practice session into 1 training, GAIN REVERT undoes
+this conversion.
+@rus Синтаксис: {cgain convert{x
+Синтаксис: {cgain revert{x
+ 
+GAIN CONVERT превращает 10 практик в одно тренировочное занятие, GAIN REVERT
+делает обратное превращение.
 ~
 92 'WIZ CLONE' CLONE~
 @eng Syntax: {cclone obj{x <name>
@@ -5210,31 +5626,62 @@ objects are not kept, however.
 (exd) тем не менее не копируется.
 ~
 0 SKILLS SPELLS~
-The skills and spells commands are used to display your character's list
-of available skills (or spells, as the case may be).  They are listed in
-order of level, with mana cost (for spells) or percentage (for skills)
-listed where applicable.
+@eng Syntax: {cskills{x
+Syntax: {cspells{x
+ 
+SKILLS and SPELLS commands are used to display your character's list of
+available skills and spells. Lists are sorted by level, with mana cost
+(for spells) or mastering percentage (for skills).
+@rus Синтаксис: {cskills{x
+Синтаксис: {cspells{x
+ 
+Команды SKILLS и SPELLS показывают тебе список умений и заклинаний, доступных
+твоему персонажу. Списки упорядочены по уровню, с указанием стоимости (для
+заклинаний) или уровня владения (для умений).
 ~
 0 OUTFIT~
+@eng Syntax: {coutfit{x
+
 The outfit command, usable by levels 5 and below, equips your character with
 a new set of sub issue gear (banner, weapon, helmet, shield, and vest), 
 courtesy of the Mayor's warehouses.  Only empty equipment slots are affected.
+@rus Синтаксис: {coutfit{x
+ 
+Команда OUTFIT, доступная игрокам 5-го и более низких уровней, одевает твоего
+персонажа в набор стандартного обмундирования (светильник, оружие, шлем, броня
+и щит) со складов мэра Мидгарда. Тебе будет выдано только недостающее обмунди-
+рование.
 ~
 0 AUTO AUTOLIST AUTOLOOT AUTOGOLD AUTOLOOK AUTOSAC AUTOEXIT AUTOASSIST AUTOSPLIT~
-ROM uses varies automatic actions, to ease the boredom of always splitting
+@eng ROM uses varies automatic actions, to ease the boredom of always splitting
 gold and sacrificing corpses.  The commands are as follows:
-
-autolist  : list all automatic actions
-autoloot  : take all equipment from dead mobiles
-autogold  : take all gold from dead mobiles
-autolook  : automagically look in corpse after combat
-autosac   : sacrifice dead monsters (if autoloot is on, only empty corpses)
-autoexit  : display room exits upon entering a room
-autosplit : split up spoils from combat among your group members
-autoassit : makes you help group members in combat
-
-Typing a command sets the action , typing it again removes it. 
  
+{cautolist{x  : list all automatic actions
+{cautoloot{x  : take all equipment from dead mobiles
+{cautogold{x  : take all money from dead mobiles
+{cautolook{x  : automagically look in corpse after combat
+{cautosac{x   : sacrifice dead monsters
+{cautoexit{x  : display room exits upon entering a room
+{cautosplit{x : split up spoils from combat among your group members
+{cautoassist{x: makes you help group members in combat
+ 
+Typing a command sets the action , typing it again removes it.
+See also {CHELP NOFOLLOW{x, {CHELP NOSUMMON{x
+@rus ROM использует множество автоматических действий, как то деление золота или
+принесение в жертву трупов. Для этого служат следующие команды:
+ 
+{cautolist{x  : выводит список всех автоматических действий.
+{cautoloot{x  : забирать снаряжение из мертвых монстров
+{cautogold{x  : забирать деньги из мертвых монстров
+{cautolook{x  : смотреть в труп поверженного врага
+{cautosac{x   : приносить труп поверженного врага в жертву
+{cautoexit{x  : показывать выходы из комнаты при входе в нее
+{cautosplit{x : делить полученные деньги между членами группы
+{cautoassist{x: помогать в бою членам своей группы
+ 
+Набрав команду, ты включишь соответствующее действие, набрав еще раз - 
+отключишь.
+Смотри также {CHELP NOFOLLOW{x, {CHELP NOSUMMON{x
 ~
 -1 GATE~
 The gate spell is a powerful transportation magic that opens up a portal 
@@ -5755,7 +6202,7 @@ alias ff cast 'fireball' --> ff orc will equal 'cast 'fireball' orc'
 
 Only the first word on the line will be subsituted at this time.
 ~
-100 MERLIN~
+101 '_MERLIN'~
 '        '
 
    -==================================================-
@@ -5866,12 +6313,16 @@ Action of certain spells or skills depends on mobile or object properties.
 Looking at the flags can help guessing.
 ~
 92 'WIZ WIZINVIS' WIZINVIS~
-Syntax: {cwizinvis{x <level>
-
-Wizinvis takes a level argument, and will mke you invisible to all players of
-a lower level than your invisibility level.  It defaults to the maximum
-(your level) if no argument is given.  Wizi 100 characters are totally
-invisible.
+@eng Syntax: {cwizinvis{x <level>
+ 
+Wizinvis takes a level argument, and will make you invisible to all players
+of a lower level than your invisibility level. It defaults to 92nd level if
+no argument is given.
+@rus Синтаксис: {cwizinvis{x <уровень>
+ 
+При помощи команды WIZINVIS ты можешь сделаться невидимым для всех игроков,
+чей уровень ниже чем указанный уровень невидимости. По умолчанию эта команда
+устанавливает 92-й уровень невидимости, если не задан аргумент.
 ~
 92 'WIZ OBJLIST' OBJLIST~
 @eng Syntax: {cobjlist{x
@@ -6017,7 +6468,7 @@ NOAFFECT снимает любые аффекты с персонажа.
 Syntax: {cititle{x <char> <new title>
  
 NOTITLE provents character from changing his title. Use this when character
-uses offensive titles. ITITLE changed character's title to given one.
+uses offensive titles. ITITLE changes character's title to given one.
 @rus Синтаксис: {cnotitle{x <персонаж>
 Синтаксис: {cititle{x <персонаж> <новый титул>
  
@@ -6025,14 +6476,14 @@ NOTITLE запрещают персонажу устанавливать себе титул. Используй это, когда
 персонаж устанавливает себе оскорбительные титулы. ITITLE служит для принуди-
 тельной смены титула у персонажа.
 ~
-0 anathema~
+0 ANATHEMA~
 @rus Syntax: cast anathema <target>
  
 This powerful spell allows cleric to curse his/her enemy. Cursed players
 cannot recall, they become more vulnerable to magic and less skillful.
 ~
-0 wizlist~
-{WБОГИ  НАШЕГО  МИРА
+0 WIZLIST~
+@eng {WDEITIES OF THIS WORLD{x
  
 {G                                    .\|/.
                                    . .{y|{G. .
@@ -6092,6 +6543,159 @@ cannot recall, they become more vulnerable to magic and less skillful.
                                    {y|@@@@@@@@@@@@|{G
                                    {y|@@@@@@@@@@@@|{G
                                    {y|@@@@@@@@@@@@|{x
+@rus {WБОГИ НАШЕГО МИРА
+ 
+                                    {G.\|/.
+                                   . .{y|{G. .
+                                  ..  {y|{G/. . .
+                         {YNergal{G  . \ .{y|{G//. ./ {YIluvatar{G
+                        . _--. .\ . \ {y|{G/.._/. .__---_
+                       . /.../\ .\_  {y|.|{G / . _/  \. .
+                             . \. .\ {y|@@|{G/.: /. / .
+                             . .\_ .\{y|.|{G.._/._/.
+                                 . \.{y|@@{G/._/.
+                                   .\.{y@@{G./.
+                  {YDiablo            Arwen       Arborn{G
+               .____---__           {y|@@@@@@|{G      __----__..
+               ./../. /. \__ .      {y|@@@@@@|{G _ __/..\__.\.\.
+                 ./. .. _/. \__     {y|@@@@@@|{G/_/ .\:..\. .\.
+                  . .  ./. .. .\__ .{y|@@@@@@@@|{G
+                                  \ {y|@@@@@@@@|{G
+                                   \/{y@@@@@@@@|{G
+                                    {y|@@@@@@@@|{G              ____ .
+                                    {y|@@@@@@@@|{G      .._---_/. ..\.
+                                    {y|@@@@@@@@|{G ....__/.\+ .\..  .
+                  {YMarewell          {y|@@@@@@@@|{G. ._/..\ .\... .
+           .. . ____----____        {y|@@@@@@@@{G \/ ..  .  ..
+         .. /.--. ./\.. . / \___ .. {y|@@@@@@@@{G /
+          ./. . . .. . __/ .. ./\__.{y|@@@@@@@@|{G
+              .. / . ./..\.  . ..  \/{y@@@@@@@@|{G
+                                   {y|@@@@@@@@@@|                 {YEidu
+                                   {y|@@@@@@@@@@|{G    . . . ______------____ . .
+                                   {y|@@@@@@@@@@|{G ... ____/\__.. \_. ..\ ..\___ .
+                                   {y|@@@@@@@@@@|{G.___/ . .\__.. ./ \__. .. / ..\.
+          {YJullyRoger McLoud        {y|@@@@@@@@@@|{G/. .\. ... \. .. . .  .  . .
+       .. .___-----______. . .     {y|@@@@@@@@@@|{G     . .
+       . /. ./..__/ .. . \._._ . . {y|@@@@@@@@@@|{G
+      . /\ . . /.. .  . _/.. .\.__.{y|@@@@@@@@@@|{G
+       ...   ...     . /..  . . ..\/{y@@@@@@@@@@|{G
+                      ..          .{y|@@@@@@@@@@|               {YShamash
+                                   {y|@@@@@@@@@@|{G  ..  . _______--------______  . .
+                                   {y|@@@@@@@@@@|{G ..____/. . . .\ ... . \ . . \___
+                                   {y|@@@@@@@@@@|{G__/.. .\_.. .. .\__. ../\ . . \ .\ 
+                                   {y|@@@@@@@@@@{G/.. . . . \.      . .  ... .  . . /
+                                   {y|@@@@@@@@@@|{G         .                    .. .
+   . .. ____---_____ ..  .. .      {y|@@@@@@@@@@|{G
+  . ___/. ..\.. ./..\_______ .  .. {y|@@@@@@@@@@|{G
+ ._/\  \..  /. ./. ./.. .. .\_____.{y|@@@@@@@@@@|{G
+ . . . /\. .. ./.  .\.     ./ . . \/{y@@@@@@@@@@|{G
+      . ..     .    .      ...   . {y|@@@@@@@@@@|{G
+                                   {y|@@@@@@@@@@|                   {YRondor
+                                   {y|@@@@@@@@@@|{G      . .  ..______------_____. ..
+                                   {y|@@@@@@@@@@|{G.. .. ______/. . . \_ ../ . ./\___
+                                   {y|@@@@@@@@@@|{G.____/. \.. \_. . ./ \__ .. .\ .\_
+                                   {y|@@@@@@@@@@{G\/.. .\. .. . . \ . . . .\ .  .. .
+                                   {y|@@@@@@@@@@@@|{G    ..       ...       . .
+                                   {y|@@@@@@@@@@@@|
+                                   |@@@@@@@@@@@@|
+                                   |@@@@@@@@@@@@|
+                                   |@@@@@@@@@@@@|
+                                   |@@@@@@@@@@@@|
+                                   |@@@@@@@@@@@@|
+                                   |@@@@@@@@@@@@|{x
+~
+92 'WIZ PREFIX' PREFIX~
+@eng Syntax: {cprefix{x <command>
+ 
+This command sets a prefix that will precede every line you type. Using it
+without argument will clear that prefix.
+@rus Синтаксис: {cprefix{x <команда>
+ 
+Эта команда устанавливает префикс, который будет предшествовать каждой введен-
+ной тобой линии. Эта же команда без аргумента сбросит префикс.
+~
+92 'WIZ QTARGET' QTARGET~
+@eng Syntax: {cqtarget{x <low> <high> <mobile>
+ 
+This command restricts players who can attack that mobile by level range.
+@rus Синтаксис: {cqtarget{x <нижний предел> <верхний предел> <монстр>
+ 
+Эта команда позволяет ограничить диапазон уровней игроков, кто может атаковать
+указанного монстра.
+~
+92 'WIZ FIND' FIND~
+@eng Syntax: {cfind{x <location>
+ 
+FIND displays speedwalk to given location. Location may be specified by mob or
+object name or room vnum.
+@rus Синтаксис: {cfind{x <место>
+ 
+FIND ищет путь межд твоим текущим положением и указанным местом. Место может
+быть задано именем монстра или обьекта или номером комнаты.
+~
+92 'WIZ DISABLE' DISABLE 'WIZ ENABLE' ENABLE~
+@eng Syntax: {cdisable{x <command>
+Syntax: {cenable{x <command>
+ 
+These commands are used for blocking usage of some commands temporarily.
+ENABLE command cannot be disabled.
+@rus Синтаксис: {cdisable{x <команда>
+Синтаксис: {cenable{x <команда>
+ 
+Данные команды служат для временного блокирования использования каких-либо
+команд. Команда ENABLE не может быть заблокирована.
+~
+0 'CLAN CHAOS' CHAOS~
+@rus С самого начала мирозданиЯ историЯ живых существ несет на себе следы оков
+различных законов, запретов и ограничений. В человеческой истории все началось
+с их прародителей Адама и Евы, которым запретили всего лишь попробовать Яблоко.
+В истории среднеземьЯ Моргота изгнали всего лишь за то, что он попробовал
+написать свою музыку. И примеров таких несчетное множество.
+И вот однажды бог Хаоса, у которого бессчетное количество имен, но ни одно из
+них не известно смертным,сказал: "Хватит! Пора положить этому конец". И призвал
+он в свой замок, который стоит на самом видном месте, но которого не видел ни
+один смертный, а даже если бы и увидел, все равно не понЯл бы, что он увидел
+лучшего из своих слуг, Eidu, и сказал ему: "Ты - лучше всех из моих слуг можешь
+справитьсЯ с этой задачей. Иди же в этот мир и сделай все, что сможешь. Ибо нет
+сил моих больше смотреть на это." И наделил он его силой, которой не имел никто
+из смертных, а даже если бы и имел, все равно не сумел бы ей воспользоватьсЯ.
+Так пришел в наш мир Eidu. И собрал он вокруг себЯ лучших из лучших, кто мог
+помочь ему в достижении этой цели. И дал он им малую толику той силы, что сам
+имел. Так был образован клан Chaos.
+И принимались в этот клан только лучшие из смертных, кто готов положить свою
+жизнь во имЯ великой цели и кто доказал свою преданность делу Великого Хаоса.
+И они среди вас, постоЯнно делаЯ свое великое дело, но работу их не видЯт глаза
+смертных, а даже если бы увидели, все равно бы не осознали. Но дело движетсЯ и
+постепенно, но неуклонно приближает их к достижению великой цели - воцарению
+Хаоса в мире.
+~
+0 'CLAN RULER' RULER~
+~
+0 AREAS COMMANDS~
+@eng Syntax: {careas{x
+Syntax: {ccommands{x
+ 
+AREAS shows you a list of areas in the game.
+COMMANDS shows you all the commands in the game.
+@rus Синтаксис: {careas{x
+Синтаксис: {ccommands{x
+ 
+AREAS выводит список подключенных зон.
+COMMANDS выводит список всех игровых команд.
+~
+0 TIME WEATHER~
+@eng Syntax: {ctime{x
+Syntax: {cweather{x
+ 
+TIME shows the game time, as well as the time the mud was last started,
+and the current local time for the host computer.
+WEATHER shows the current game weather.
+@rus Синтаксис: {ctime{x
+Синтаксис: {cweather{x
+ 
+TIME выводит игровое и системное времЯ, а также времЯ последнего рестарта
+сервера.
+WEATHER выводит текущую погоду в игре.
 ~
 -1 $~
 
