@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: strkey_hash.h,v 1.12 2000-02-10 14:08:41 fjoe Exp $
+ * $Id: strkey_hash.h,v 1.13 2001-06-16 18:40:09 fjoe Exp $
  */
 
 #ifndef _STRKEY_HASH_H_
@@ -36,7 +36,8 @@
 #define STRKEY_HASH_SIZE 256
 
 void		strkey_init(void *);
-void		strkey_destroy(void*);
+void		strkey_destroy(void *);
+void *		strkey_cpy(void *, const void *);
 
 int		k_hash_str(const void *k, size_t hsize);
 int		ke_cmp_str(const void *k, const void *e);
@@ -67,9 +68,9 @@ char *		strkey_filename(const char *name, const char *ext);
 void *		add_strname_cb(void *p, va_list ap);
 void *		add_mlstrname_cb(void *p, va_list ap);
 
-#define	strkey_printall(h, buf)		\
+#define	strkey_printall(h, buf)						\
 		(hash_printall((h), (buf), add_strname_cb));
-#define	mlstrkey_printall(h, buf)	\
+#define	mlstrkey_printall(h, buf)					\
 		(hash_printall((h), (buf), add_mlstrname_cb))
 
 #define STRKEY_STRICT_CHECKS
@@ -77,7 +78,7 @@ void *		add_mlstrname_cb(void *p, va_list ap);
 #define STRKEY_CHECK(h, key, id)					\
 	do {								\
 		if (!IS_NULLSTR(key)					\
-		&&  strkey_lookup(h, (key)) == NULL) 			\
+		&&  strkey_lookup(h, (key)) == NULL)			\
 			log(LOG_WARN, "%s: unknown string key '%s'",	\
 			    id, key);					\
 	} while (0);

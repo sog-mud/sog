@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: log.c,v 1.28 2001-01-23 21:47:00 fjoe Exp $
+ * $Id: log.c,v 1.29 2001-06-16 18:40:11 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -80,10 +80,12 @@ log(int llevel, const char *format, ...)
 		ld = logtab;
 	ld->logger(buf);
 
+#if !defined(MPC)
 	if (log_char) {
 		act_puts("$t: $T", log_char, ld->alias, buf,	// notrans
 			 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 	}
+#endif
 }
 
 void

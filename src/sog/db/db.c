@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.239 2001-02-11 14:35:45 fjoe Exp $
+ * $Id: db.c,v 1.240 2001-06-16 18:40:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -57,16 +57,16 @@
 #	include <dirent.h>
 #endif
 
-#include "merc.h"
-#include "rating.h"
-#include "socials.h"
-#include "db.h"
-#include "module.h"
-#include "lang.h"
-#include "note.h"
-#include "ban.h"
-#include "rfile.h"
-#include "dynafun.h"
+#include <merc.h>
+#include <rating.h>
+#include <socials.h>
+#include <db.h>
+#include <module.h>
+#include <lang.h>
+#include <note.h>
+#include <ban.h>
+#include <rfile.h>
+#include <dynafun.h>
 
 #include "update.h"
 #include "quest.h"

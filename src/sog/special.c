@@ -1,5 +1,5 @@
 /*
- * $Id: special.c,v 1.72 2000-10-13 11:02:07 fjoe Exp $
+ * $Id: special.c,v 1.73 2001-06-16 18:40:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -592,22 +592,22 @@ bool spec_cast_seneschal(CHAR_DATA *ch)
 		return FALSE;
 
 	switch (dice(1, 16)) {
-	case  0: spell = "blindness";      break;
-	case  1: spell = "dispel magic";    break;
-	case  2: spell = "weaken";         break;
-	case  3: spell = "blindness";      break;
-	case  4: spell = "acid arrow";   break;
-	case  5: spell = "fireball";     break;
-	case  6: spell = "energy drain";   break;
-	case  7:
-	case  8:
-	case  9: spell = "acid blast";       break;
-	case 10: spell = "plague";	   break;
-	case 11: spell = "acid blast";         break;
-	case 12:  
-	case 13: spell = "lightning breath";  break;
-	case 14:
-	case 15: spell = "acid blast";	break;
+	case  0: spell = "blindness";		break;
+	case  1: spell = "dispel magic";	break;
+	case  2: spell = "weaken";		break;
+	case  3: spell = "blindness";		break;
+	case  4: spell = "acid arrow";		break;
+	case  5: spell = "fireball";		break;
+	case  6: spell = "energy drain";	break;
+	case  7: spell = "mental knife";	break;
+	case  8: spell = "poison";		break;
+	case  9: spell = "acid blast";		break;
+	case 10: spell = "plague";		break;
+	case 11: spell = "acid blast";		break;
+	case 12: spell = "poison";		break;
+	case 13: spell = "mental knife";	break;
+	case 14: spell = "dispel magic";	break;
+	case 15: spell = "acid blast";		break;
 	default: return FALSE;
 	}
 

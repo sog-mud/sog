@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: dynafun.h,v 1.5 2000-06-08 19:43:50 fjoe Exp $
+ * $Id: dynafun.h,v 1.6 2001-06-16 18:40:08 fjoe Exp $
  */
 
 #ifndef _DYNAFUN_H_
@@ -44,6 +44,14 @@ struct dynafun_data_t {
 	int argtype[DYNAFUN_NARGS];
 	dynafun_t fun;
 };
+
+extern hash_t dynafuns;		/* (dynafun_data_t) */
+
+extern inline dynafun_data_t *
+dynafun_data_lookup(const char *name)
+{
+	return (dynafun_data_t *) hash_lookup(&dynafuns, name);
+}
 
 void	init_dynafuns(void);
 

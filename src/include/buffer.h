@@ -1,5 +1,5 @@
 /*
- * $Id: buffer.h,v 1.14 2001-02-12 19:07:16 fjoe Exp $
+ * $Id: buffer.h,v 1.15 2001-06-16 18:40:08 fjoe Exp $
  */
 
 /***************************************************************************
@@ -54,6 +54,8 @@ bool	buf_append	(BUFFER *buffer, const char *string);
 bool	buf_printf	(BUFFER *buffer, int where,
 				 const char *format, ...)
 					__attribute__ ((format(printf, 3, 4)));
+bool	buf_vprintf	(BUFFER *buffer, int where,
+				 const char *format, va_list ap);
 bool	buf_act3	(BUFFER *buffer, int where, const char *format,
 			 CHAR_DATA *ch,
 			 const void *arg1, const void *arg2, const void *arg3,

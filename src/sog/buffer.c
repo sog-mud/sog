@@ -1,5 +1,5 @@
 /*
- * $Id: buffer.c,v 1.27 2001-02-12 19:07:19 fjoe Exp $
+ * $Id: buffer.c,v 1.28 2001-06-16 18:40:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -46,17 +46,17 @@
 #include <string.h>
 #include <stdlib.h>
 
-#include "typedef.h"
+#include <typedef.h>
 
-#include "mlstring.h"
-#include "varr.h"
-#include "hash.h"
-#include "buffer.h"
-#include "log.h"
-#include "comm_act.h"
-#include "db.h"
-#include "str.h"
-#include "memalloc.h"
+#include <mlstring.h>
+#include <varr.h>
+#include <hash.h>
+#include <buffer.h>
+#include <log.h>
+#include <comm_act.h>
+#include <db.h>
+#include <str.h>
+#include <memalloc.h>
 
 struct buf_data
 {
@@ -67,7 +67,7 @@ struct buf_data
 };
 
 #define BUF_LIST_MAX		12
-#define BUF_DEFAULT_SIZE 	1024
+#define BUF_DEFAULT_SIZE	1024
 #define BUF_OFLOW		1	/* overflow mem tag */
 
 int	nAllocBuf;
@@ -83,7 +83,7 @@ BUFFER *
 buf_new(int lang)
 {
 	BUFFER *buffer;
- 
+
 	if (free_list == NULL) {
 		buffer		= mem_alloc(MT_BUFFER, sizeof(*buffer));
 		nAllocBuf++;
@@ -92,13 +92,13 @@ buf_new(int lang)
 		free_list	= free_list->next;
 		mem_validate(buffer);
 	}
- 
+
 	buffer->next		= NULL;
 	buffer->lang		= lang;
 	buffer->size		= BUF_DEFAULT_SIZE;
 	buffer->string		= malloc(buffer->size);
 	buffer->string[0]	= '\0';
- 
+
 	sAllocBuf += buffer->size;
 	return buffer;
 }
@@ -140,17 +140,26 @@ buf_append(BUFFER *buffer, const char *string)
 bool
 buf_printf(BUFFER *buffer, int where, const char *format, ...)
 {
-	char buf[MAX_STRING_LENGTH];
 	va_list ap;
+	bool rv;
 
 	va_start(ap, format);
-	vsnprintf(buf, sizeof(buf),
-		  buffer->lang < 0 ? format : GETMSG(format, buffer->lang), ap);
+	rv = buf_vprintf(buffer, where, format, ap);
 	va_end(ap);
 
+	return rv;
+}
+
+bool
+buf_vprintf(BUFFER *buffer, int where, const char *format, va_list ap)
+{
+	char buf[MAX_STRING_LENGTH];
+	vsnprintf(buf, sizeof(buf),
+		  buffer->lang < 0 ? format : GETMSG(format, buffer->lang), ap);
 	return buf_copy(buffer, where, buf);
 }
 
+#if !defined(MPC)
 bool
 buf_act3(BUFFER *buffer, int where, const char *format, CHAR_DATA *ch,
 	 const void *arg1, const void *arg2, const void *arg3, int act_flags)
@@ -164,6 +173,7 @@ buf_act3(BUFFER *buffer, int where, const char *format, CHAR_DATA *ch,
 	act_buf(format, ch, ch, arg1, arg2, arg3, &opt, tmp, sizeof(tmp));
 	return buf_copy(buffer, where, tmp);
 }
+#endif
 
 void
 buf_clear(BUFFER *buffer)
@@ -197,14 +207,14 @@ static const int buf_size[BUF_LIST_MAX] =
 /* local procedure for finding the next acceptable size */
 /* -1 indicates out-of-boundary error */
 static int
-get_size (int val)
+get_size(int val)
 {
 	int i;
 
 	for (i = 0; i < BUF_LIST_MAX; i++)
 		if (buf_size[i] >= val)
 			return buf_size[i];
-    
+
 	return -1;
 }
 
@@ -230,7 +240,8 @@ buf_resize(BUFFER *buffer, const char *string)
 		if (buffer->size == -1) { /* overflow */
 			buffer->size = oldsize;
 			mem_tag(buffer, BUF_OFLOW);
-			log(LOG_INFO, "buf_append: '%s': buffer overflow", string);
+			log(LOG_INFO,
+			    "buf_append: '%s': buffer overflow", string);
 			return FALSE;
 		}
 	}
@@ -242,7 +253,8 @@ buf_resize(BUFFER *buffer, const char *string)
 		if (p == NULL) {
 			buffer->size = oldsize;
 			mem_tag(buffer, BUF_OFLOW);
-			log(LOG_INFO, "buf_append: '%s': realloc failed", string);
+			log(LOG_INFO,
+			    "buf_append: '%s': realloc failed", string);
 			return FALSE;
 		}
 

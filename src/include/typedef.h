@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: typedef.h,v 1.43 2000-10-07 10:57:59 fjoe Exp $
+ * $Id: typedef.h,v 1.44 2001-06-16 18:40:09 fjoe Exp $
  */
 
 #ifndef _TYPEDEF_H_
@@ -51,7 +51,7 @@ typedef struct affect_data		AFFECT_DATA;
 typedef struct area_data		AREA_DATA;
 typedef struct buf_data			BUFFER;
 typedef struct char_data		CHAR_DATA;
-typedef struct descriptor_data	 	DESCRIPTOR_DATA;
+typedef struct descriptor_data		DESCRIPTOR_DATA;
 typedef struct exit_data		EXIT_DATA;
 typedef struct ed_data			ED_DATA;
 typedef struct help_data		HELP_DATA;
@@ -59,9 +59,9 @@ typedef struct mob_index_data		MOB_INDEX_DATA;
 typedef struct obj_data			OBJ_DATA;
 typedef struct obj_index_data		OBJ_INDEX_DATA;
 typedef struct npc_data			NPC_DATA;
-typedef struct pc_data 			PC_DATA;
+typedef struct pc_data			PC_DATA;
 typedef struct reset_data		RESET_DATA;
-typedef struct room_index_data 		ROOM_INDEX_DATA;
+typedef struct room_index_data		ROOM_INDEX_DATA;
 typedef struct shop_data		SHOP_DATA;
 typedef struct time_info_data		TIME_INFO_DATA;
 typedef struct weather_data		WEATHER_DATA;
@@ -69,7 +69,7 @@ typedef struct room_history_data	ROOM_HISTORY_DATA;
 typedef struct mptrig			MPTRIG;
 typedef struct mpcode			MPCODE;
 typedef struct qtrouble_t		qtrouble_t;
-typedef struct flaginfo_t			flaginfo_t; 
+typedef struct flaginfo_t		flaginfo_t;
 
 typedef struct class_t			class_t;
 typedef struct race_t			race_t;
@@ -84,7 +84,7 @@ typedef struct cmd_t			cmd_t;
 typedef struct pose_t			pose_t;
 typedef struct rulecl_t			rulecl_t;
 typedef struct olc_cmd_t		olc_cmd_t;
-typedef struct olced_t 			olced_t;	
+typedef struct olced_t			olced_t;
 typedef struct rule_t			rule_t;
 typedef struct module_t			module_t;
 typedef union vo_t			vo_t;
@@ -125,8 +125,8 @@ typedef void	SPELL_FUN	(const char *sn, int level,
 typedef int	OPROG_FUN	(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg);
 typedef void	EVENT_FUN	(CHAR_DATA *ch, AFFECT_DATA *af);
 
-#define DECLARE_SPEC_FUN(fun) 	SPEC_FUN  fun
-#define DECLARE_DO_FUN(fun) 	DO_FUN fun
+#define DECLARE_SPEC_FUN(fun)	SPEC_FUN  fun
+#define DECLARE_DO_FUN(fun)	DO_FUN fun
 #define DECLARE_OPROG_FUN(fun)	OPROG_FUN fun
 #define DECLARE_EVENT_FUN(fun)	EVENT_FUN fun
 
@@ -141,7 +141,7 @@ typedef void	EVENT_FUN	(CHAR_DATA *ch, AFFECT_DATA *af);
 #	define vsnprintf	_vsnprintf
 #	define inline
 #endif
- 
+
 #if defined (WIN32)
 typedef __int32		flag_t;
 typedef unsigned int	u_int;
@@ -149,7 +149,7 @@ typedef unsigned char	u_char;
 #else
 typedef int32_t		flag_t;
 #endif
-  
+
 #define IS_SET(flag, bit)	((flag) & (bit))
 #define SET_BIT(var, bit)	((var) |= (bit))
 #define TOGGLE_BIT(var, bit)    ((var) ^= (bit))
@@ -195,7 +195,7 @@ typedef int32_t		flag_t;
 
 #define UMIN(a, b)		((a) < (b) ? (a) : (b))
 #define UMAX(a, b)		((a) > (b) ? (a) : (b))
-#define URANGE(a, b, c) 	((b) < (a) ? (a) : ((b) > (c) ? (c) : (b)))
+#define URANGE(a, b, c)		((b) < (a) ? (a) : ((b) > (c) ? (c) : (b)))
 #define ENTRE(min, num, max)	((min) < (num) && (num) < (max))
 
 #define ISLOWER(c)		(islower((unsigned char) (c)))

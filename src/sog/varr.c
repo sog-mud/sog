@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: varr.c,v 1.25 2001-01-23 21:47:01 fjoe Exp $
+ * $Id: varr.c,v 1.26 2001-06-16 18:40:12 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -83,15 +83,24 @@ varr_destroy_cb(void *p, va_list ap)
 	return NULL;
 }
 
-void varr_destroy(varr *v)
+void
+varr_destroy(varr *v)
+{
+	varr_erase(v);
+	v->nalloc = 0;
+	free(v->p);
+}
+
+void
+varr_erase(varr *v)
 {
 	if (v->v_data->e_destroy)
 		varr_foreach(v, varr_destroy_cb, v);
-	v->nalloc = v->nused = 0;
-	free(v->p);
+	v->nused = 0;
 }
-	
-void *varr_touch(varr *v, size_t i)
+
+void *
+varr_touch(varr *v, size_t i)
 {
 	void *p;
 
@@ -119,7 +128,8 @@ void *varr_touch(varr *v, size_t i)
 	return p;
 }
 
-void *varr_insert(varr *v, size_t i)
+void *
+varr_insert(varr *v, size_t i)
 {
 	void *p = VARR_GET(v, i);
 
@@ -134,7 +144,8 @@ void *varr_insert(varr *v, size_t i)
 	return p;
 }
 
-void varr_delete(varr *v, size_t i)
+void
+varr_delete(varr *v, size_t i)
 {
 	if (!v->nused || i >= v->nused)
 		return;
@@ -148,22 +159,24 @@ void varr_delete(varr *v, size_t i)
 	memmove(VARR_GET(v, i), VARR_GET(v, i+1), v->v_data->nsize*(v->nused - i));
 }
 
-void varr_qsort(varr* v, int (*cmpfun)(const void*, const void*))
+void
+varr_qsort(varr* v, int (*cmpfun)(const void*, const void*))
 {
 	if (v == NULL || v->nused == 0)
 		return;
 	qsort(v->p, v->nused, v->v_data->nsize, cmpfun);
 }
 
-void *varr_bsearch(varr* v, const void *e,
-		   int (*cmpfun)(const void*, const void*))
+void *
+varr_bsearch(varr* v, const void *e, int (*cmpfun)(const void*, const void*))
 {
 	if (v == NULL || v->nused == 0)
 		return NULL;
 	return bsearch(e, v->p, v->nused, v->v_data->nsize, cmpfun);
 }
 
-void *varr_foreach(varr *v, foreach_cb_t cb, ...)
+void *
+varr_foreach(varr *v, foreach_cb_t cb, ...)
 {
 	void *rv;
 	va_list ap;
@@ -175,7 +188,8 @@ void *varr_foreach(varr *v, foreach_cb_t cb, ...)
 	return rv;
 }
 
-void *varr_eforeach(varr *v, void *e, foreach_cb_t cb, ...)
+void *
+varr_eforeach(varr *v, void *e, foreach_cb_t cb, ...)
 {
 	void *rv;
 	va_list ap;
@@ -214,7 +228,8 @@ varr_anforeach(varr *v, size_t from, foreach_cb_t cb, va_list ap)
 	return NULL;
 }
 
-void *varr_rforeach(varr *v, foreach_cb_t cb, ...)
+void *
+varr_rforeach(varr *v, foreach_cb_t cb, ...)
 {
 	void *rv;
 	va_list ap;
@@ -229,7 +244,8 @@ void *varr_rforeach(varr *v, foreach_cb_t cb, ...)
 	return rv;
 }
 
-void *varr_reforeach(varr *v, void *e, foreach_cb_t cb, ...)
+void *
+varr_reforeach(varr *v, void *e, foreach_cb_t cb, ...)
 {
 	void *rv;
 	va_list ap;
@@ -325,7 +341,7 @@ vstr_search(varr *v, const char *name)
 	return varr_foreach(v, vstr_search_cb, name);
 }
 
-#if !defined(HASHTEST)
+#if !defined(HASHTEST) && !defined(MPC)
 static void *
 vstr_dump_cb(void *p, va_list ap)
 {

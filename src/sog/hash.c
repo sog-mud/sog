@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: hash.c,v 1.14 2001-02-11 18:07:22 fjoe Exp $
+ * $Id: hash.c,v 1.15 2001-06-16 18:40:11 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -57,7 +57,8 @@ hash_init(hash_t *h, hashdata_t *h_data)
 		varr_init(h->v + i, (varrdata_t *) h_data);
 }
 
-void hash_destroy(hash_t *h)
+void
+hash_destroy(hash_t *h)
 {
 	int i;
 
@@ -65,6 +66,15 @@ void hash_destroy(hash_t *h)
 		varr_destroy(h->v + i);
 
 	free(h->v);
+}
+
+void
+hash_erase(hash_t *h)
+{
+	int i;
+
+	for (i = 0; i < h->h_data->hsize; i++)
+		varr_erase(h->v + i);
 }
 
 void *
@@ -116,7 +126,7 @@ hash_isempty(hash_t *h)
 	return TRUE;
 }
 
-#if !defined(HASHTEST)
+#if !defined(HASHTEST) && !defined(MPC)
 void *
 hash_random_item(hash_t *h)
 {
@@ -144,7 +154,7 @@ void *hash_foreach(hash_t *h, foreach_cb_t cb, ...)
 	int i;
 	void *rv = NULL;
 	va_list ap;
-	
+
 	va_start(ap, cb);
 	for (i = 0; i < h->h_data->hsize; i++) {
 		void *p;
@@ -158,7 +168,7 @@ void *hash_foreach(hash_t *h, foreach_cb_t cb, ...)
 	return rv;
 }
 
-#if !defined(HASHTEST)
+#if !defined(HASHTEST) && !defined(MPC)
 static varrdata_t v_print =
 {
 	sizeof(const char *), 8,

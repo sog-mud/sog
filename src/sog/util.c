@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: util.c,v 1.28 2000-10-22 17:53:47 fjoe Exp $
+ * $Id: util.c,v 1.29 2001-06-16 18:40:12 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -145,16 +145,16 @@ const char *cstrfirst(const char *cstr)
 bool is_number(const char *argument)
 {
 	if (IS_NULLSTR(argument))
-    		return FALSE;
- 
+		return FALSE;
+
 	if (*argument == '+' || *argument == '-')
-    		argument++;
- 
+		argument++;
+
 	for (; *argument != '\0'; argument++) {
-    		if (!isdigit(*argument))
-        		return FALSE;
+		if (!isdigit(*argument))
+			return FALSE;
 	}
- 
+
 	return TRUE;
 }
 

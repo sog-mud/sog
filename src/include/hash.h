@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: hash.h,v 1.9 2001-02-11 18:07:21 fjoe Exp $
+ * $Id: hash.h,v 1.10 2001-06-16 18:40:08 fjoe Exp $
  */
 
 #ifndef _HASH_H_
@@ -54,17 +54,18 @@ struct hash_t {
 	hashdata_t *h_data;
 };
 
-void	hash_init(hash_t*, hashdata_t *h_data);
-void	hash_destroy(hash_t*);
+void	hash_init(hash_t *, hashdata_t *h_data);
+void	hash_destroy(hash_t *);
 
-void *	hash_lookup(hash_t*, const void *k);
-void	hash_delete(hash_t*, const void *k);
+void	hash_erase(hash_t *h);
+void *	hash_lookup(hash_t *, const void *k);
+void	hash_delete(hash_t *, const void *k);
 
-void *	hash_insert(hash_t*, const void *k, const void *e);
-void *	hash_update(hash_t*, const void *k, const void *e);
-void *	hash_replace(hash_t*, const void *k, const void *e);
+void *	hash_insert(hash_t *, const void *k, const void *e);
+void *	hash_update(hash_t *, const void *k, const void *e);
+void *	hash_replace(hash_t *, const void *k, const void *e);
 
-bool	hash_isempty(hash_t*);
+bool	hash_isempty(hash_t *);
 void *	hash_random_item(hash_t *h);
 void *	hash_foreach(hash_t *h, foreach_cb_t, ...);
 void	hash_printall(hash_t *h, BUFFER *buf, foreach_cb_t addname_cb);

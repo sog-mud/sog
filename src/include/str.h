@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: str.h,v 1.13 2001-02-11 14:35:36 fjoe Exp $
+ * $Id: str.h,v 1.14 2001-06-16 18:40:09 fjoe Exp $
  */
 
 #ifndef _STR_H_
@@ -44,7 +44,7 @@ const char *	str_printf	(const char *format,...)
 					__attribute__ ((format(printf, 1, 2)));
 
 extern char	str_empty[1];
-	
+
 #define IS_NULLSTR(str)		(!(str) || *(char*)(str) == '\0')
 
 char *	strnzcpy(char *dest, size_t len, const char *src);

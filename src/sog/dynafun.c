@@ -23,22 +23,22 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: dynafun.c,v 1.7 2001-01-23 21:47:00 fjoe Exp $
+ * $Id: dynafun.c,v 1.8 2001-06-16 18:40:11 fjoe Exp $
  */
 
 #include <stdlib.h>
 #include <stdarg.h>
 #include <dlfcn.h>
 
-#include "typedef.h"
-#include "dynafun.h"
-#include "memalloc.h"
-#include "log.h"
-#include "str.h"
-#include "varr.h"
-#include "hash.h"
-#include "strkey_hash.h"
-#include "module.h"
+#include <typedef.h>
+#include <memalloc.h>
+#include <log.h>
+#include <str.h>
+#include <varr.h>
+#include <hash.h>
+#include <strkey_hash.h>
+#include <dynafun.h>
+#include <module.h>
 
 /*
  * dynafun_build_args is highly arch-dependent
@@ -53,27 +53,27 @@
  *	Did gyre and gimble in the wabe;
  * All mimsy were the borogoves,
  *	And the mome raths outgrabe.
- * 
+ *
  * - Beware the Jabberwock, my son!
  *	The jaws that bite, the claws that catch!
  * Beware the Jujub bird, and shun
- *	The frumious Bandersnatch! 
- * 
+ *	The frumious Bandersnatch!
+ *
  * He took his vorpal sword in hand:
  *	Long time the manxome foe he sought
  * So rested he by the Tumtum gree,
  *	And stood awhile in thought.
- * 
+ *
  * And as in uffish thought he stood
  *	The Jabberwock, with eyes of flame,
  * Came whiffling through the tulgey wook,
  *	And burbled as it came!
- * 
+ *
  * One, two! One, two! And through and through
  *	The vorpal blade went snicker-snack!
  * He left it dead, and with its head
  *	He went galumphing back.
- * 
+ *
  * - And has thou slain the Jabberwock?
  *	Come to my arms, my beamish boy!
  * O frabjous day! Calloh! Callay!
@@ -104,7 +104,7 @@ static hashdata_t h_dynafuns = {
 	ke_cmp_str
 };
 
-static hash_t dynafuns;
+hash_t dynafuns;
 
 void
 init_dynafuns(void)
@@ -209,7 +209,7 @@ dynafun_build_args(const char *name, dynafun_args_t *args, int nargs, va_list ap
 	int i;
 	va_list args_ap = args->p;
 
-	if ((d = (dynafun_data_t *) hash_lookup(&dynafuns, name)) == NULL) {
+	if ((d = dynafun_data_lookup(name)) == NULL) {
 		log(LOG_BUG, "dynafun_call: %s: not found", name);
 		return NULL;
 	}
@@ -309,4 +309,3 @@ dynafun_unregister(dynafun_data_t *d, void *arg)
 {
 	hash_delete(&dynafuns, d->name);
 }
-

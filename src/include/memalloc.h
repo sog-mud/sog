@@ -23,14 +23,15 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: memalloc.h,v 1.10 2000-06-08 19:43:50 fjoe Exp $
+ * $Id: memalloc.h,v 1.11 2001-06-16 18:40:08 fjoe Exp $
  */
 
 #ifndef _MEMALLOC_H_
 #define _MEMALLOC_H_
 
 enum {
-	MT_VOID = -1,
+	MT_NONE = -1,
+	MT_VOID,
 	MT_PVOID,
 	MT_INT,
 	MT_STR,

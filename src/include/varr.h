@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: varr.h,v 1.17 2000-06-07 08:55:20 fjoe Exp $
+ * $Id: varr.h,v 1.18 2001-06-16 18:40:09 fjoe Exp $
  */
 
 #ifndef _VARR_H_
@@ -52,17 +52,18 @@ struct varr {
 	varrdata_t *v_data;
 };
 
-void	varr_init	(varr*, varrdata_t *v_data);
-varr *	varr_cpy	(varr* dst, const varr *src);
-void	varr_destroy	(varr*);
+void	varr_init	(varr *, varrdata_t *v_data);
+varr *	varr_cpy	(varr *dst, const varr *src);
+void	varr_destroy	(varr *);
 
-void *	varr_touch	(varr*, size_t i);
-void *	varr_insert	(varr*, size_t i);
-void	varr_delete	(varr*, size_t i);
+void	varr_erase	(varr *);
+void *	varr_touch	(varr *, size_t i);
+void *	varr_insert	(varr *, size_t i);
+void	varr_delete	(varr *, size_t i);
 
-void	varr_qsort	(varr*, int (*)(const void*, const void*));
-void *	varr_bsearch	(varr*, const void *e,
-			 int (*)(const void*, const void*));
+void	varr_qsort	(varr *, int (*)(const void *, const void *));
+void *	varr_bsearch	(varr *, const void *e,
+			 int (*)(const void *, const void *));
 
 typedef void *(*foreach_cb_t)(void *, va_list);
 
@@ -83,7 +84,7 @@ void *	varr_rnforeach	(varr *, size_t i, foreach_cb_t, ...);
 void *	varr_arnforeach	(varr *, size_t i, foreach_cb_t, va_list ap);
 
 #define varr_enew(v)	(varr_touch((v), (v)->nused))
-#define VARR_GET(v, i)	((void*) (((char*) (v)->p) + (i)*(v)->v_data->nsize))
+#define VARR_GET(v, i)	((void *) (((char *) (v)->p) + (i)*(v)->v_data->nsize))
 #define varr_get(v, i)	((i) < 0 || (i) >= (v)->nused ? \
 			 NULL : VARR_GET((v), (i)))
 #define varr_index(v, q) ((((char*) q) - ((char*) (v)->p)) / (v)->v_data->nsize)

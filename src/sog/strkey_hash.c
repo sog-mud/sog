@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: strkey_hash.c,v 1.15 2000-04-16 09:21:56 fjoe Exp $
+ * $Id: strkey_hash.c,v 1.16 2001-06-16 18:40:12 fjoe Exp $
  */
 
 #include <limits.h>
@@ -33,55 +33,70 @@
 #include <stdio.h>
 #include <ctype.h>
 
-#include "typedef.h"
-#include "varr.h"
-#include "hash.h"
-#include "strkey_hash.h"
-#include "buffer.h"
-#include "str.h"
-#include "mlstring.h"
-#include "db.h"
-#include "log.h"
+#include <typedef.h>
+#include <varr.h>
+#include <hash.h>
+#include <strkey_hash.h>
+#include <buffer.h>
+#include <str.h>
+#include <mlstring.h>
+#include <db.h>
+#include <log.h>
 
-void strkey_init(void *p)
+void
+strkey_init(void *p)
 {
 	*(const char **) p = str_empty;
 }
 
 #if !defined(HASHTEST)
-void strkey_destroy(void *p)
+void
+strkey_destroy(void *p)
 {
 	free_string(*(const char **) p);
 }
+
+void *
+strkey_cpy(void *dst, const void *src)
+{
+	*(const char **) dst = str_dup(*(const char **) src);
+	return dst;
+}
 #endif
 
-int k_hash_str(const void *k, size_t hsize)
+int
+k_hash_str(const void *k, size_t hsize)
 {
 	return hashcasestr((const char *) k, 32, hsize);
 }
 
-int ke_cmp_str(const void *k, const void *e)
+int
+ke_cmp_str(const void *k, const void *e)
 {
 	return str_cmp((const char *) k, *(const char**) e);
 }
 
-int k_hash_csstr(const void *k, size_t hsize)
+int
+k_hash_csstr(const void *k, size_t hsize)
 {
 	return hashstr((const char *) k, 32, hsize);
 }
 
-int ke_cmp_csstr(const void *k, const void *e)
+int
+ke_cmp_csstr(const void *k, const void *e)
 {
 	return str_cscmp((const char *) k, *(const char **) e);
 }
 
-#if !defined(HASHTEST)
-int ke_cmp_mlstr(const void *k, const void *e)
+#if !defined(HASHTEST) && !defined(MPC)
+int
+ke_cmp_mlstr(const void *k, const void *e)
 {
 	return str_cmp((const char *) k, mlstr_mval((mlstring *) e));
 }
 
-int ke_cmp_csmlstr(const void *k, const void *e)
+int
+ke_cmp_csmlstr(const void *k, const void *e)
 {
 	return str_cscmp((const char *) k, mlstr_mval((mlstring *) e));
 }
@@ -127,7 +142,7 @@ strkey_search(hash_t *h, const char *name)
 	return hash_foreach(h, vstr_search_cb, name);
 }
 
-#if !defined(HASHTEST)
+#if !defined(HASHTEST) && !defined(MPC)
 void *
 mlstrkey_search_cb(void *p, va_list ap)
 {
@@ -160,7 +175,8 @@ mlstrkey_search(hash_t *h, const char *name)
 	return hash_foreach(h, mlstrkey_search_cb, name);
 }
 
-const char *fread_strkey(rfile_t *fp, hash_t *h, const char *id)
+const char *
+fread_strkey(rfile_t *fp, hash_t *h, const char *id)
 {
 	const char *name = fread_sword(fp);
 	STRKEY_CHECK(h, name, id);
@@ -208,6 +224,7 @@ add_strname_cb(void *p, va_list ap)
 	return NULL;
 }
 
+#if !defined(MPC)
 void *
 add_mlstrname_cb(void *p, va_list ap)
 {
@@ -216,4 +233,5 @@ add_mlstrname_cb(void *p, va_list ap)
 	*q = str_dup(mlstr_mval((mlstring *) p));
 	return NULL;
 }
+#endif
 #endif
