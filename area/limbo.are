@@ -312,6 +312,34 @@ stand stand none 0
 0 0 huge unknown
 F aff JT
 F vul FI
+#30
+cat black кошка кот~
+@eng a large black cat@rus большая черная кошка~
+@eng You see a large black cat here.
+@rus Здесь бродит большая черная кошка.
+~
+~
+cat~
+AIg P 0 0
+0 0 1d1+1 1d1+1 3d10+12 none
+0 0 0 0
+0 0 I H
+stand stand female 0
+0 0 medium unknown
+#31
+black familiar crow ворон~
+@eng a large black crow@rus большой черный ворон~
+@eng You see a large black crow here.
+@rus Огромный черный ворон здесь.
+~
+~
+song bird~
+AIg 0 0 0
+0 0 1d1+1 1d1+1 3d10+12 none
+0 0 0 0
+0 0 I H
+stand stand female 0
+0 0 medium unknown
 #50
 junkseller junk seller~
 Junkseller~

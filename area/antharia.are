@@ -16,7 +16,7 @@ A tall Antharian is standing before you.  You have no doubt that this
 being can keep the peace...his presence is enough in itself.
 ~
 human~
-AGT 0 800 0
+AGT bz 800 0
 25 0 5d10+550 5d5+1000 2d10+7 pound
 -7 -7 -7 4
 CDEKLTU 0 C 0
@@ -32,7 +32,7 @@ your respect.  He is here healing people in the name of Anthar, the
 god of the Antharians.
 ~
 human~
-AQ 0 1000 0
+AQ bz 1000 0
 35 0 10d10+1300 5d5+1000 4d7+11 wrath
 -11 -11 -11 3
 EFK 0 0 0
@@ -49,7 +49,7 @@ Antharians seem to like it.  All in all, these fish are pretty
 content.
 ~
 human~
-ACG 0 0 0
+ACG bz 0 0
 10 0 2d7+121 5d5+100 2d4+2 charge
 1 1 1 7
 0 0 0 0
@@ -67,7 +67,7 @@ looking at every detail.
 daily schedule.
 ~
 human~
-AG 0 0 0
+AG bz 0 0
 15 0 3d9+208 5d5+100 2d6+3 punch
 -2 -2 -2 6
 0 0 0 0
@@ -85,7 +85,7 @@ looking at every detail.
 daily schedule.
 ~
 human~
-AG 0 0 0
+AG bz 0 0
 16 0 3d9+208 5d5+100 2d6+3 punch
 -2 -2 -2 6
 0 0 0 0
@@ -101,7 +101,7 @@ right now in life is play.  PLAY PLAY PLAY!   They try to drag you
 into the fray to play with them.
 ~
 human~
-AG 0 0 0
+AG bz 0 0
 9 0 2d6+110 5d5+100 1d8+2 punch
 2 2 2 7
 0 0 0 0
@@ -117,7 +117,7 @@ mind right now is play.  PLAY PLAY PLAY!  They try to drag you into
 their games.
 ~
 human~
-A 0 0 0
+A bz 0 0
 9 0 2d6+110 5d5+100 1d8+2 punch
 2 2 2 7
 0 0 0 0
@@ -134,7 +134,7 @@ very mysterious.   It is said that they are knighted in a very intense
 ceremony in the Temple of Anthar.
 ~
 human~
-A 0 0 0
+A bz 0 0
 42 0 25d10+2250 5d5+1000 3d12+14 slash
 -14 -14 -14 3
 CDEFIJK 0 0 0
@@ -150,7 +150,7 @@ powerful and impressive than the Peace Guards.  These guards are here
 to make sure that law and order is maintained, and so it shall.
 ~
 human~
-AG D 250 0
+AG Dbz 250 0
 32 0 10d10+1000 5d5+1000 6d4+9 pound
 -10 -10 -10 3
 CDEFIJK 0 0 0
@@ -168,7 +168,7 @@ councils, which are said to be displayed in a museum inside the
 Temple.
 ~
 human~
-ABe 0 400 0
+ABe bz 400 0
 70 0 50d10+18500 5d5+5000 17d9+60 pound
 -60 -60 -60 -27
 CEFIJK 0 0 0
@@ -184,7 +184,7 @@ sell Antharian food.  He is highly respected, as producing good food
 in this underwater world is not easy.
 ~
 human~
-ABe 0 500 0
+ABe bz 500 0
 70 0 50d10+18500 5d5+5000 17d9+60 pound
 -60 -60 -60 -27
 CDEFIJK 0 0 0
@@ -201,7 +201,7 @@ are artists of war, and he looks like he could paint a very clear
 portrait of death.
 ~
 human~
-ABT 0 800 0
+ABT bz 800 0
 32 0 10d10+1000 5d5+1000 6d4+9 pound
 -10 -10 -10 3
 CDEFIK 0 0 0
@@ -218,7 +218,7 @@ passed from generation to generation.  The secret is well kept, and
 rightly so -- for their's is the best.
 ~
 human~
-ABTe 0 500 0
+ABTe bz 500 0
 70 0 50d10+18500 5d5+5000 17d9+60 pound
 -60 -60 -60 -27
 CDEFIJK 0 0 0
@@ -235,7 +235,7 @@ Transformation, and Cyrtpea and her colleages work hard to recover as
 much of this lost magic as possible.
 ~
 human~
-ABUe N 400 0
+ABUe Nbz 400 0
 65 0 50d10+18500 5d5+5000 17d9+60 pound
 -60 -60 -60 -27
 CDEFIJK 0 0 0
@@ -250,7 +250,7 @@ A young human is here looking at you.  She is the representative
 from the human race here in Antharia.
 ~
 human~
-ABP 0 0 0
+ABP bz 0 0
 40 0 15d10+1850 5d5+1000 4d8+13 pound
 -13 -13 -13 3
 CEFIJ 0 0 0
@@ -265,7 +265,7 @@ A young druid is here looking at you.   He is the representative
 from the druids here in Antharia.
 ~
 human~
-ABN 0 0 0
+ABN bz 0 0
 40 0 15d10+1850 5d5+1000 4d8+13 pound
 -13 -13 -13 3
 CEFIJK 0 0 0
@@ -280,7 +280,7 @@ A young Kender is standing here looking at you.  She is the
 representative from the Kender race here in Antharia.
 ~
 human~
-ABO 0 0 0
+ABO bz 0 0
 40 0 15d10+1850 5d5+1000 4d8+13 pound
 -13 -13 -13 3
 CEFIJK 0 0 0
@@ -296,7 +296,7 @@ representative from the Antharian government here to answer questions
 from visitors.
 ~
 human~
-AB 0 0 0
+AB bz 0 0
 40 0 15d10+1850 5d5+1000 4d8+13 pound
 -13 -13 -13 3
 CEFIJKQ 0 0 0
@@ -311,7 +311,7 @@ A young elf is here looking at you.  She is the representative from
 the elven race here in Antharia.
 ~
 elf~
-ABK 0 0 0
+ABK bz 0 0
 40 0 15d10+1850 5d5+1000 4d8+13 pound
 -13 -13 -13 3
 CEFIJK 0 0 0
@@ -326,7 +326,7 @@ A young Dwarf is here looking at you.  He is the representative
 from the Dwarven race here in Antharia.
 ~
 dwarf~
-ABQ 0 0 0
+ABQ bz 0 0
 40 0 15d10+1850 5d5+1000 4d8+13 pound
 -13 -13 -13 3
 CEFIJK 0 0 0
@@ -341,7 +341,7 @@ A young Illithid is standing here looking at you.  She is the
 representative from the Illithid race here in Antharia.
 ~
 human~
-ABE 0 0 0
+ABE bz 0 0
 40 0 15d10+1850 5d5+1000 4d8+13 pound
 -13 -13 -13 3
 CEFIJK 0 0 0
@@ -356,7 +356,7 @@ A young avian is standing here looking at you.  She is the
 representative from the avian race here in Antharia.
 ~
 human~
-ABY 0 0 0
+ABY bz 0 0
 40 0 15d10+1850 5d5+1000 4d8+13 pound
 -13 -13 -13 3
 CEFIJK 0 0 0
@@ -799,7 +799,7 @@ before play" is the motto that Antharians live by.
 surface..you're amazed at how easy it is to notice the sun at this
 depth.  More Antharian magic, you think.
 ~
-0 0 city
+0 0 underwater
 D0
 The entrance street continues.
 ~
@@ -825,7 +825,7 @@ gods.
     The street continues north from here to the Temple, or south back
 to the Sea.
 ~
-0 0 city
+0 0 underwater
 D0
 The Temple of Anthar
 ~
@@ -849,7 +849,7 @@ you can return to the Sea by going south.  There is also a Magical
 sign posted here, put up by the councils of Antharia after the initial
 contact with Anon.
 ~
-0 0 city
+0 0 underwater
 E
 Sign~
 **ATTENTION NON-ANTHARIANS**
@@ -888,7 +888,7 @@ residents visible, their houses hugging the road just like any other
 city of this size.  Although old, they are well kept and in good
 condition.
 ~
-0 0 city
+0 0 underwater
 D0
 Temple Circle.
 ~
@@ -917,7 +917,7 @@ feel that if you could just get inside, you could aquire some of that
 power.  
     The road continues to the north and south.
 ~
-0 0 city
+0 0 underwater
 D0
 Temple Circle.
 ~
@@ -939,7 +939,7 @@ in their accuracy.  You wonder, did the wizards help in this
 accomplishment, or were the Antharian masons of that time incredibly
 good?  Maybe the secret lies within the temple....
 ~
-0 0 city
+0 0 underwater
 D2
 Temple Circle.
 ~
@@ -964,7 +964,7 @@ assume that this bridge once spanned a river or something of that
 nature; however, now this bridge spannes a channel filled with the
 same water that you are now breathing.
 ~
-0 0 city
+0 0 underwater
 D0
 Kaer's Bridge.
 ~
@@ -991,7 +991,7 @@ almost perfect in its accuracy.  You wonder, did the wizards help in
 this accomplishment, or were the Antharian masons of that time
 incredibly good?  Maybe the secret lies within the temple...
 ~
-0 0 city
+0 0 underwater
 D1
 Temple circle.
 ~
@@ -1013,7 +1013,7 @@ mounted on the top of the temple, it is even more impressive.  The
 temple seems to be a focus of tremendous power, you fell that if you
 could just get inside, you could aquire some of that power.
 ~
-0 0 city
+0 0 underwater
 D0
 Temple circle.
 ~
@@ -1035,7 +1035,7 @@ residents visible, their houses hugging the road just like any other
 city of this size.  Although old, they are well kept and in good
 condition.
 ~
-0 0 city
+0 0 underwater
 D0
 Temple Circle.
 ~
@@ -1059,7 +1059,7 @@ Just south of here is a building, simple and rustic -- with a sign
 hanging on it stating: Zaertses House of Relics.
       The street continues east and west.
 ~
-0 0 city
+0 0 underwater
 D1
 Main street of Antharia.
 ~
@@ -1080,7 +1080,7 @@ S
 Main Street of Antharia~
 Here the street makes a sharp turn to the north and east.
 ~
-0 0 city
+0 0 underwater
 D0
 Main street of Antharia
 ~
@@ -1096,7 +1096,7 @@ S
 Main Street of Antharia~
 The main street of Antharia continues north and south.
 ~
-0 0 city
+0 0 underwater
 D0
 Main street of Antharia.
 ~
@@ -1119,7 +1119,7 @@ places.
 by your presence.  Looking at you in curiosity, they almost look as
 though they might talk to you.
 ~
-0 0 city
+0 0 underwater
 D0
 East intersection
 ~
@@ -1138,7 +1138,7 @@ go north, south, east or west.  This seems to be a very busy section
 of town.
      There is a small street sign posted here.
 ~
-0 0 city
+0 0 underwater
 E
 sign~
 Ertuvia the weaponsmith........East
@@ -1178,7 +1178,7 @@ Antharians are passing by continually, possibly on their way to see
 Heaustf, or maybe to visit the Temple of Anthar.  Walking on Center
 street leaves you no doubt that this is really a major city.
 ~
-0 0 city
+0 0 underwater
 D1
 Center street.
 ~
@@ -1202,7 +1202,7 @@ associated with weaponsmiths, there is only the sound of talking
 coming from the building.
     There is a small street sign here.
 ~
-0 0 city
+0 0 underwater
 E
 sign~
 Ertuvia the weaponsmith........north
@@ -1247,7 +1247,7 @@ building is part of the ruins of grand Antharia.
     This bridge is used heavily, as it connects the Temple Circle to
 Center street.
 ~
-0 0 city
+0 0 underwater
 D0
 Center street.
 ~
@@ -1270,7 +1270,7 @@ leaves you know doubt that this is really a bustling city.
 case with Ertuvia, there is no sound of metal upon metal coming from
 the building..just the sound of Antharian voices.
 ~
-0 0 city
+0 0 underwater
 D0
 Heaustf's armory.
 ~
@@ -1301,7 +1301,7 @@ paintings to their individual houses.  As generations pass, this
 artwork gets more and more impressive.  Antharians are very proud of
 their heritage.
 ~
-0 0 city
+0 0 underwater
 D0
 Main street of Antharia.
 ~
@@ -1318,7 +1318,7 @@ Main Road of Antharia~
 Here the road makes a sharp turn to the east and south.  This
 seems to be a less traveled section of the city.
 ~
-0 0 city
+0 0 underwater
 D1
 Main road of Antharia.
 ~
@@ -1347,7 +1347,7 @@ ruins.  He is known to tell stories sometimes; however, he is usually
 very quiet about the things that he has seen.  What wanders await us
 in the ruins of grand Antharia?
 ~
-0 0 city
+0 0 underwater
 D1
 The main street of Antharia.
 ~
@@ -1372,7 +1372,7 @@ Zaertses owns a copy of this key, and it's secret is guarded with
 incredible zeal.  One day it is hoped that anyone can apply for
 admission into the ruins, but not now.
 ~
-0 0 city
+0 0 underwater
 D1
 Main road of Antharia.
 ~
@@ -1402,7 +1402,7 @@ in the ruins of grand Antharia?
     To the south you see the shop of the Sorceress Cyrtpea.  The
 building seems to radiate with power.
 ~
-0 0 city
+0 0 underwater
 D1
 Small intersection.
 ~
@@ -1424,7 +1424,7 @@ Small Intersection~
 Here the main bends to the west, with a less traveled road going to
 the east.  There is a small sign here.
 ~
-0 0 city
+0 0 underwater
 E
 sign~
 **The Great Antharian Zoo  ----------------------------->>>
@@ -1451,7 +1451,7 @@ A New Road~
 This road seems to be recently built, leading from the Main street
 to some location to the east.
 ~
-0 0 city
+0 0 underwater
 D1
 Zoo gate.
 ~
@@ -1479,7 +1479,7 @@ currently opened to non-Antharians.  Hopefully, the other races can
 convince the Antharians to allow other races to explore and
 investigate the zoo.
 ~
-0 0 city
+0 0 underwater
 D3
 a new road.
 ~
@@ -1500,7 +1500,7 @@ paintings to their individual houses.  As generations pass, this
 artwork gets more and more impressive.  Antharians are very proud of
 their heritage.
 ~
-0 0 city
+0 0 underwater
 D0
 Main street of Antharia.
 ~
@@ -1518,7 +1518,7 @@ This is the east intersection of the city of Antharia.  The road
 continues to the north and south, and Center Street goes to the west.
     There is a road sign posted here.
 ~
-0 0 city
+0 0 underwater
 E
 sign~
 Cyrtpea the Sorceress........North
@@ -1548,7 +1548,7 @@ Main Street of Antharia~
 Leaving the wonderful smell of the eatery, the road continues
 north.  Just ahead you can see a big intersection.
 ~
-0 0 city
+0 0 underwater
 D0
 Main street of Antharia.
 ~
@@ -1570,7 +1570,7 @@ looks VERY good.
    The main road continues to the north and south, if you ever want to
 leave.
 ~
-0 0 city
+0 0 underwater
 D0
 Main road of Antharia.
 ~
@@ -1596,7 +1596,7 @@ west towards the Temple of Anthar.
 are smelling.  Your mouth waters as you smell an aroma of fine
 Antharian food coming from the north.
 ~
-0 0 city
+0 0 underwater
 D0
 MAin road of Antharia.
 ~
@@ -1619,7 +1619,7 @@ content with their lives underwater, showing no signs of resentment
 that their once great empire was completely forgotton on the surface.
     The road continues from here to the west and to the east.
 ~
-0 0 city
+0 0 underwater
 D1
 Main road of Antharia
 ~
@@ -1643,7 +1643,7 @@ many) he sells, and the most valuble objects are displayed in a museum
 Antharians are convinced is located in the heart of the Temple of
 Anthar.
 ~
-0 0 city
+0 0 underwater
 D0
 Main street of Antharia.
 ~
@@ -1660,7 +1660,7 @@ around, it is obvious that Irghum is not hurting for business.  It is
 said that every Antharian visits Irghum at least once a month, and on
 special occasions.  Antharians love their food and love Irghum.
 ~
-0 D city
+0 D underwater
 D3
 Main street of Antharia.
 ~
@@ -1676,7 +1676,7 @@ the walls, of every shape and form.  There are also certain weapons
 that are obviously of Antharian origin.  You wonder what exactly those
 weapons are, and what kind of price Ertuvia will charge you for them.
 ~
-0 0 city
+0 0 underwater
 D2
 Center street.
 ~
@@ -1692,7 +1692,7 @@ society, being the maker of this armor.  His shop does not look like
 an regular armory would -- dirty, smelly, or dark.  Rather, it is
 clean, with Heaustf running the shop like a king running his kingdom.
 ~
-0 0 city
+0 0 underwater
 D2
 Center street.
 ~
@@ -1712,7 +1712,7 @@ once knew.
 touching you -- a non Antharian.  Cyrtpea sits at her desk, looking at
 books that you are sure hold the secrets of the world.
 ~
-0 0 city
+0 0 underwater
 D0
 Main road of Antharia
 ~
@@ -1727,7 +1727,7 @@ meeting between Antharia and the rest of the overwater world.
    The street continues to the west, and goes back to the West
 intersection directly to the east.
 ~
-0 0 city
+0 0 underwater
 D1
 West intersection.
 ~
@@ -1747,7 +1747,7 @@ can answer any questions and help you with diplomatic problems.
    Just to the north is the Human guild.  The street continues to the
 east and west. The Illithid guild lies to the south.
 ~
-0 0 city
+0 0 underwater
 D0
 Human guild.
 ~
@@ -1777,7 +1777,7 @@ can answer any questions and help you with diplomatic problems.
     The Dwarven guild is just south.  Guild street goes east and west.
 The Avian guild is due north of here.
 ~
-0 0 city
+0 0 underwater
 D0
 Avian Guild.
 ~
@@ -1807,7 +1807,7 @@ questions, and help you with any diplomatic problems.
     The Druid guild is to the north, while the Elven guild is to the
 south.  Guild street runs east and west.
 ~
-0 0 city
+0 0 underwater
 D0
 Druid guild.
 ~
@@ -1837,7 +1837,7 @@ answer any questions, and help you with any diplomatic problems.
    The Kender guild is to the north, while the Antharian guild is to
 the south.  Guild street runs towards the east.
 ~
-0 0 city
+0 0 underwater
 D0
 Kender guild.
 ~
@@ -1861,7 +1861,7 @@ The representative from the human race is standing here willing to
 help any of her fellow humans here in Antharia.
    The exit door to the south leads back to guild street.
 ~
-0 0 city
+0 0 underwater
 D2
 Guild street.
 ~
@@ -1875,7 +1875,7 @@ The representative from the Druids is standing here willing to help
 any of his fellow druids here in Antharia.
    The exit directly to the south leads to Guild street.
 ~
-0 0 city
+0 0 underwater
 D2
 Guild street.
 ~
@@ -1889,7 +1889,7 @@ Kender guild.  The representative from the Kender is standing here
 willing to help any of her fellow Kender in Antharia.
     The exit directly to the south leads to Guild street.
 ~
-0 0 city
+0 0 underwater
 D2
 Guild street.
 ~
@@ -1907,7 +1907,7 @@ important in the diplomatic relationship between Antharia and the
 other races of the world.
    The exit directly to the north leads back to guild street.
 ~
-0 0 city
+0 0 underwater
 D0
 Guild street.
 ~
@@ -1921,7 +1921,7 @@ guild.  The representative from the Elves is standing here willing to
 help any of her fellow elves here in Antharia.
     The exit directly to the north leads back to Guild street.
 ~
-0 0 city
+0 0 underwater
 D0
 Guild street.
 ~
@@ -1935,7 +1935,7 @@ The representative from the Dwarves is standing here willing to help
 any of his fellow Dwarves here in Antharia.
    The exit directly to the north leads to Guild street.
 ~
-0 0 city
+0 0 underwater
 D0
 Guild street.
 ~
@@ -1948,7 +1948,7 @@ This room is full of cobwebs and dust..as no one has been here in
 such a long time.   You have obviously stumbled upon a part of
 Antharian history, as the room still looks like it did 2000 yrs ago.
 ~
-0 CK city
+0 CK underwater
 S
 #12370
 Illithid Guild~
@@ -1957,7 +1957,7 @@ Illithid guild.  The representative from the Illithid is standing here
 willing to help any of her fellow Illithids in Antharia.
     The exit directly to the north leads to Guild street.
 ~
-0 0 city
+0 0 underwater
 D0
 Guild street.
 ~
@@ -1971,7 +1971,7 @@ Avian guild.  The representative from the Avian is standing here
 willing to help any of her fellow Avian in Antharia.
     The exit directly to the south leads to Guild street.
 ~
-0 0 city
+0 0 underwater
 D2
 Guild street.
 ~

@@ -188,7 +188,7 @@ A water snake is swimming (or is it sliding?) here.
 He has green scales,  almost like his cousin in the Park.
 ~
 snake~
-AG 0 0 0
+AG bz 0 0
 6 0 2d7+71 59d1+1 1d7+1 whip
 4 4 4 9
 EKN 0 0 0
@@ -202,12 +202,13 @@ A small fish with pointy teeth is here,  swimming along peacefully.
 He has many small sharp pointy teeth in his mouth.
 ~
 water fowl~
-AG 0 0 0
+AG z 0 0
 6 0 2d7+71 59d1+1 1d7+1 smash
 4 4 4 9
 EKN 0 0 0
 stand stand male 133
 0 0 medium unknown
+F aff b
 #7514
 fish pointy medium teeth~
 a medium fish will pointy teeth~
@@ -216,12 +217,13 @@ A medium fish with pointy teeth is here,  swimming along peacefully.
 He has many medium sharp pointy teeth in his mouth.
 ~
 water fowl~
-AG J 0 0
+AG Jz 0 0
 7 0 2d6+85 69d1+1 1d8+1 smash
 4 4 4 9
 EKN 0 0 0
 stand stand male 150
 0 0 medium unknown
+F aff b
 #7515
 fish pointy teeth large~
 a large fish with pointy teeth~
@@ -230,12 +232,13 @@ A LARGE fish with pointy teeth is here, swimming along peacefully.
 He has MANY, MANY,  sharp pointy teeth of the medium type....
 ~
 water fowl~
-AG 0 0 0
+AG z 0 0
 8 0 2d7+96 79d1+1 1d7+2 smash
 3 3 3 9
 EKN 0 0 0
 stand stand male 170
 0 0 medium unknown
+F aff b
 #7516
 goldfish small happy~
 a goldfish~
@@ -245,12 +248,13 @@ Aw, the little fella must have been dumped here, all alone, to care for
 himself.  You should help him...
 ~
 water fowl~
-AG J 0 0
+AG Jz 0 0
 5 0 2d6+60 49d1+1 1d6+1 bite
 5 5 5 9
 EKN 0 0 0
 stand stand male 170
 0 0 medium unknown
+F aff b
 #7517
 guppy small happy~
 a guppy~
@@ -259,7 +263,7 @@ A happy guppy is here, being, well you know, HAPPY!
 He is almost as cute as the goldfish.  You should help him too.
 ~
 human~
-AG J 0 0
+AG Jbz 0 0
 5 0 2d6+60 49d1+1 1d6+1 punch
 5 5 5 9
 EKN 0 0 0
@@ -275,12 +279,13 @@ and the LARGE ones,  AND NOW!  BLUNTED TEETHED ONES!
 It's enough to make you sick....
 ~
 water fowl~
-AG 0 0 0
+AG z 0 0
 6 0 2d7+71 59d1+1 1d7+1 claw
 4 4 4 9
 EKN 0 0 0
 stand stand male 130
 0 0 medium unknown
+F aff b
 #7519
 bugbear ugly~
 a bugbear~
@@ -2486,7 +2491,7 @@ Underwater in the river.~
 You are swimming underwater in the river.  It looks so different from
 down here.
 ~
-0 0 noswim
+0 0 underwater
 D0
 You see the river.
 ~
@@ -2519,7 +2524,7 @@ S
 Underwater.~
 You are underwater in the river.
 ~
-0 0 noswim
+0 0 underwater
 D0
 You see the river.
 ~
@@ -2535,7 +2540,7 @@ S
 Underwater.~
 You are underwater in the river.
 ~
-0 0 noswim
+0 0 underwater
 D0
 You see the river.
 ~
@@ -2554,7 +2559,7 @@ To the west there is a ledge that is just above the water, some of it
 is underwater.  As you look closer to the north, you see that there is a
 force field blocking your passage.
 ~
-0 0 noswim
+0 0 underwater
 D2
 You see the river.
 ~
