@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.165 1999-05-20 06:55:09 fjoe Exp $
+ * $Id: act_comm.c,v 1.166 1999-05-20 07:21:01 fjoe Exp $
  */
 
 /***************************************************************************
@@ -567,7 +567,6 @@ void yell(CHAR_DATA *victim, CHAR_DATA* ch, const char* argument)
 		&&  vch != victim
 		&&  vch->in_room != NULL
 		&&  vch->in_room->area == victim->in_room->area) {
-			snprintf(buf, sizeof(buf), argument, PERS(ch, vch));
 			act_puts("$n yells in panic '{M$t{x'", 
 			victim, buf, d->character, 
 			TO_VICT | ACT_STRANS | ACT_NODEAF,
