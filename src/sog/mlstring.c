@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mlstring.c,v 1.42.2.3 2001-12-03 22:35:12 fjoe Exp $
+ * $Id: mlstring.c,v 1.42.2.4 2003-03-06 09:55:19 avn Exp $
  */
 
 #include <stdio.h>
@@ -434,7 +434,7 @@ static void cb_addnl(int lang, const char **p, void *arg)
 static void cb_stripnl(int lang, const char **p, void *arg)
 {
 	char buf[MAX_STRING_LENGTH];
-	size_t len = strlen(*p);
+	size_t len;
 
 	if (*p == NULL
 	||  (len = strlen(*p)) == 0
