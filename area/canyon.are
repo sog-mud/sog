@@ -2141,12 +2141,12 @@ O 9205 2
 S
 
 #PRACTICERS
-M 9208 group_draconian		* ruler
-M 9209 group_draconian		* ruler
-M 9210 group_draconian		* ruler
-M 9211 group_draconian		* ruler
-M 9212 group_draconian		* ruler
-M 9239 group_combat		* magician
+M 9208 draconian		* ruler
+M 9209 draconian		* ruler
+M 9210 draconian		* ruler
+M 9211 draconian		* ruler
+M 9212 draconian		* ruler
+M 9239 combat		* magician
 S
 
 #$

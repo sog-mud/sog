@@ -2222,15 +2222,15 @@ O 3722 fight_prog fight_prog_sub_weapon		* polearm
 
 S
 #PRACTICERS
-M 3719 group_weaponsmaster	*priest of circe
-M 3719 group_combat
-M 3719 group_protective
-M 3719 group_defense
-M 3719 group_healing
-M 3719 group_fightmaster
-M 3719 group_illusion
-M 3719 group_harmful
-M 3719 group_wizard
+M 3719 weaponsmaster	*priest of circe
+M 3719 combat
+M 3719 protective
+M 3719 defensive
+M 3719 healing
+M 3719 fightmaster
+M 3719 illusion
+M 3719 harmful
+M 3719 wizard
 S
 
 #$

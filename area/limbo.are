@@ -1,8 +1,13 @@
-#AREA
-limbo.are~
-Limbo~
-{99 100} Diku    Limbo~
-1 99
+#AREADATA
+Name Limbo~
+Builders None~
+VNUMs 1 99
+Credits Diku~
+Security 9
+LevelRange 99 100
+End
+
+
 
 #MOBILES
 #10
@@ -14,12 +19,12 @@ This dark form seems like it wants to get back at %s for keeping it
 below them for so long....better not get in its way!
 ~
 human~
-AW JPVZee 0 0
+AW JPVZf 0 0
 0 0 0d0+0 0d0+0 5d3+15 slash
 0 0 0 0
-EFN EKL H NI
+EFN EKL H IN
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #11
 special guard~
 the guard~
@@ -31,9 +36,9 @@ human~
 ATc JNV 1000 0
 20 3 16d15+320 1d1+141 5d5+10 punch
 0 0 0 0
-TQ 0 AB M
+QT 0 AB M
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #12
 bear~
 a bear~
@@ -47,7 +52,7 @@ A 0 0 0
 0 0 0 0
 N 0 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #13
 fiery red demon~
 a fiery demon~
@@ -61,7 +66,7 @@ AB JZ -1000 0
 -15 -15 -15 -15
 FHI 0 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #14
 nightwalker~
 A Nightwalker~
@@ -71,12 +76,12 @@ This is a Nightwalker summoned from the shadows. Bloody eyes seem glowing.
 This creature has a horible look.
 ~
 human~
-ATOc JFD -750 0
+AOTc DFJ -750 0
 20 3 16d15+240 1d1+152 5d3+20 punch
 0 0 0 0
-JED G AB M
+DEJ G AB M
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #15
 stalker guard~
 the stalker~
@@ -85,12 +90,12 @@ A Stalker stands here, red with anger!
 Angry, very angry.
 ~
 storm giant~
-ATc JNVHFee 1000 0
+ATc FHJNVf 1000 0
 20 3 16d15+160 1d1+149 4d9+15 slash
 0 0 0 0
-TQ 0 AB M
+QT 0 AB M
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #16
 squire~
 the squire~
@@ -100,12 +105,12 @@ This noble squire is serving his apprenticeship in the ways of honor
 and chivalry under his master.
 ~
 human~
-ATc JNVHFee 1000 0
+ATc FHJNVf 1000 0
 20 3 16d15+160 1d1+149 3d10+12 slash
 0 0 0 0
 EN 0 AB M
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #17
 mirror~
 the mirror~
@@ -117,13 +122,13 @@ human~
 AB 0 0 0
 0 0 0d0+0 0d0+0 0d0+0 none
 0 0 0 0
-EFN EKL H NI
+EFN EKL H IN
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #18
 undead~
 an undead~
-an undead body is here.
+An undead body is here.
 ~
 You see nothing special about it.
 ~
@@ -133,7 +138,7 @@ A 0 0 0
 0 0 0 0
 N 0 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #19
 lion~
 a lion~
@@ -147,7 +152,7 @@ A 0 0 0
 0 0 0 0
 N 0 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #20
 wolf~
 a wolf~
@@ -161,7 +166,7 @@ A 0 0 0
 0 0 0 0
 N 0 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #21
 golem lesser~
 a lesser golem~
@@ -175,7 +180,7 @@ AT V 0 0
 0 0 0 0
 EFO 0 0 0
 stand stand none 0
-0 0 small 0
+0 0 small unknown
 #22
 golem stone~
 a stone golem~
@@ -190,7 +195,7 @@ AT V 0 0
 0 0 0 0
 EFO 0 0 0
 stand stand none 0
-0 0 medium 0
+0 0 medium unknown
 #23
 golem iron~
 a iron golem~
@@ -206,7 +211,7 @@ AT V 0 0
 0 0 0 0
 EFO 0 0 0
 stand stand none 0
-0 0 medium 0
+0 0 medium unknown
 #24
 golem adamantite~
 a adamantite golem~
@@ -221,7 +226,7 @@ AT V 0 0
 0 0 0 0
 EFO 0 0 0
 stand stand none 0
-0 0 large 0
+0 0 large unknown
 #25
 lion~
 a lion~
@@ -235,7 +240,7 @@ A 0 0 0
 0 0 0 0
 N 0 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #26
 shadow~
 a summoned shadow~
@@ -249,8 +254,10 @@ AO 0 0 0
 0 0 0 0
 N M 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #0
+
+
 
 #OBJECTS
 #1
@@ -259,7 +266,7 @@ a silver coin~
 One miserable silver coin.~
 silver~
 money 0 A
-1 0 0 0 0
+A 0 0 0 0
 0 10 0 P
 #2
 coin gold gcash~
@@ -267,7 +274,7 @@ a gold coin~
 One valuable gold coin.~
 gold~
 money 0 A
-0 1 0 0 0
+0 A 0 0 0
 0 10 0 P
 #3
 coins gold gcash~
@@ -315,7 +322,7 @@ the corpse of %s~
 The corpse of %s is lying here.~
 flesh~
 npc_corpse 0 A
-0 0 0 1 0
+0 0 0 A 0
 0 1000 0 D
 #11
 corpse~
@@ -323,7 +330,7 @@ the corpse of %s~
 The corpse of %s is lying here.~
 flesh~
 pc_corpse O A
-0 0 0 1 0
+0 0 0 A 0
 0 1000 0 D
 #12
 head~
@@ -339,7 +346,7 @@ the heart of %s~
 The torn-out heart of %s is lying here.~
 meat~
 food 0 A
-16 16 0 0 0
+E E 0 0 0
 0 20 0 D
 #14
 arm~
@@ -347,7 +354,7 @@ the arm of %s~
 The sliced-off arm of %s is lying here.~
 meat~
 food 0 A
-20 20 0 0 0
+CE CE 0 0 0
 0 50 0 D
 #15
 leg~
@@ -355,7 +362,7 @@ the leg of %s~
 The sliced-off leg of %s is lying here.~
 meat~
 food 0 A
-20 20 0 0 0
+CE CE 0 0 0
 0 50 0 D
 #16
 guts entrails~
@@ -363,7 +370,7 @@ the guts of %s~
 A steaming pile of %s's entrails is lying here.~
 meat~
 food 0 A
-5 5 0 1 0
+AC AC 0 A 0
 0 20 0 D
 #17
 brains brain~
@@ -371,7 +378,7 @@ the brains of %s~
 The splattered brains of %s are lying here.~
 meat~
 food 0 A
-10 10 0 0 0
+BD BD 0 0 0
 0 20 0 D
 #20
 mushroom~
@@ -379,7 +386,7 @@ a Magic Mushroom~
 A delicious magic mushroom is here.~
 food~
 food 0 A
-8 8 0 0 0
+D D 0 0 0
 0 10 0 P
 #21
 ball light~
@@ -387,7 +394,7 @@ a bright ball of light~
 A bright ball of light shimmers in the air.~
 energy~
 light A A
-0 0 -1 0 0
+0 0 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef 0 0
 0 0 0 P
 #22
 spring~
@@ -421,16 +428,17 @@ flesh~
 armor 0 AK
 0 0 0 0 0
 0 60 0 P
-A 13 35
 A
 6 1
+A
+13 35
 #27
 steak~
 a steak from %s~
 A steak from %s.~
 meat~
 food 0 A
-25 25 0 0 0
+ADE ADE 0 0 0
 0 20 0 P
 #28
 ranger staff~
@@ -439,7 +447,7 @@ There is a Ranger's Staff here on the ground.~
 ebony~
 weapon A AN
 staff 0 0 pierce 0
-0 160 0 P 
+0 160 0 P
 #30
 dummy object~
 a dummy object~
@@ -457,23 +465,23 @@ weapon AGIOY ANP
 sword 10 4 slash D
 21 100 100000 G
 A
-1 2
-A
-2 2
-A
-4 2
-A
-6 1
-A
-19 25
-A
-18 25
-A
-12 200
+14 500
 A
 13 200
 A
-14 500
+12 200
+A
+18 25
+A
+19 25
+A
+6 1
+A
+4 2
+A
+2 2
+A
+1 2
 #32
 dagger hero~
 the %s Dagger of %s~
@@ -483,23 +491,23 @@ weapon AGIOY ANP
 dagger 10 4 pierce D
 21 100 100000 G
 A
-1 2
-A
-2 2
-A
-4 2
-A
-6 1
-A
-19 25
-A
-18 25
-A
-12 200
+14 500
 A
 13 200
 A
-14 500
+12 200
+A
+18 25
+A
+19 25
+A
+6 1
+A
+4 2
+A
+2 2
+A
+1 2
 #33
 mace hero~
 the %s Mace of %s~
@@ -509,23 +517,23 @@ weapon AGIOY ANP
 mace 10 4 pound D
 21 100 100000 G
 A
-1 2
-A
-2 2
-A
-4 2
-A
-6 1
-A
-19 25
-A
-18 25
-A
-12 200
+14 500
 A
 13 200
 A
-14 500
+12 200
+A
+18 25
+A
+19 25
+A
+6 1
+A
+4 2
+A
+2 2
+A
+1 2
 #42
 vial potion~
 a potion vial~
@@ -567,136 +575,136 @@ tattoo atum ra~
 lawful good tattoo of atum-ra~
 A tattoo flying in the air.~
 energy~
-tattoo AUTY AR
-0 0 -1 0 0
+tattoo ATUY AR
+0 0 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef 0 0
 0 0 0 P
 #52
 tattoo zeus~
 neutral good tattoo of zeus~
 A tattoo flying in the air.~
 energy~
-tattoo AUTY AR
-0 0 -1 0 0
+tattoo ATUY AR
+0 0 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef 0 0
 0 0 0 P
 #53
 tattoo siebele~
 true neutral tattoo of siebele~
 A tattoo flying in the air.~
 energy~
-tattoo AUTY AR
-0 0 -1 0 0
+tattoo ATUY AR
+0 0 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef 0 0
 0 0 0 P
 #54
 tattoo shamash~
 tattoo of shamash, god of justice~
 A tattoo flying in the air.~
 energy~
-tattoo AUTY AR
-0 0 -1 0 0
+tattoo ATUY AR
+0 0 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef 0 0
 0 0 0 P
 #55
 tattoo ahura mazda~
 chaotic good tattoo of ahuramazda~
 A tattoo flying in the air.~
 energy~
-tattoo AUTY AR
-0 0 -1 0 0
+tattoo ATUY AR
+0 0 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef 0 0
 0 0 0 P
 #56
 tattoo ehrumen~
 chaotic evil tattoo of ehrumen~
 A tattoo flying in the air.~
 energy~
-tattoo AUTY AR
-0 0 -1 0 0
+tattoo ATUY AR
+0 0 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef 0 0
 0 0 0 P
 #57
 tattoo deimos~
 lawful evil tattoo of deimos~
 A tattoo flying in the air.~
 energy~
-tattoo AUTY AR
-0 0 -1 0 0
+tattoo ATUY AR
+0 0 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef 0 0
 0 0 0 P
 #58
 tattoo phobos~
 neutral evil tattoo of phobos~
 A tattoo flying in the air.~
 energy~
-tattoo AUTY AR
-0 0 -1 0 0
+tattoo ATUY AR
+0 0 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef 0 0
 0 0 0 P
 #59
 tattoo odin~
 lawful neutral tattoo of odin~
 A tattoo flying in the air.~
 energy~
-tattoo AUTY AR
-0 0 -1 0 0
+tattoo ATUY AR
+0 0 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef 0 0
 0 0 0 P
 #60
 tattoo teshub~
 chaotic neutral tattoo of teshub~
 A tattoo flying in the air.~
 energy~
-tattoo AUTY AR
-0 0 -1 0 0
+tattoo ATUY AR
+0 0 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef 0 0
 0 0 0 P
 #61
 tattoo ares~
 tattoo of ares, God of War~
 A tattoo flying in the air.~
 energy~
-tattoo AUTY AR
-0 0 -1 0 0
+tattoo ATUY AR
+0 0 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef 0 0
 0 0 0 P
 #62
 tattoo goktengri~
 tattoo of goktengri, God of Honor~
 A tattoo flying in the air.~
 energy~
-tattoo AUTY AR
-0 0 -1 0 0
+tattoo ATUY AR
+0 0 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef 0 0
 0 0 0 P
 #63
 tattoo hera~
 tattoo of hera, god of hate~
 A tattoo flying in the air.~
 energy~
-tattoo AUTY AR
-0 0 -1 0 0
+tattoo ATUY AR
+0 0 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef 0 0
 0 0 0 P
 #64
 tattoo venus~
 tattoo of venus, god of beauty~
 A tattoo flying in the air.~
 energy~
-tattoo AUTY AR
-0 0 -1 0 0
+tattoo ATUY AR
+0 0 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef 0 0
 0 0 0 P
 #65
 tattoo set~
 tattoo of set, god of anger~
 A tattoo flying in the air.~
 energy~
-tattoo AUTY AR
-0 0 -1 0 0
+tattoo ATUY AR
+0 0 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef 0 0
 0 0 0 P
 #66
 tattoo enki~
 tattoo of enki, god of knowledge~
 A tattoo flying in the air.~
 energy~
-tattoo AUTY AR
-0 0 -1 0 0
+tattoo ATUY AR
+0 0 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef 0 0
 0 0 0 P
 #67
 tattoo eros~
 tattoo of eros, god of love~
 A tattoo flying in the air.~
 energy~
-tattoo AUTY AR
-0 0 -1 0 0
+tattoo ATUY AR
+0 0 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef 0 0
 0 0 0 P
 #70
 badge~
@@ -714,7 +722,7 @@ Rulers' Buckler~
 A buckler of a Ruler is on the ground.~
 steel~
 armor GIKRYZ AJ
-8 8 8 3 0
+D D D AB 0
 0 200 10000 P
 #72
 great ruler shield~
@@ -722,7 +730,7 @@ Rulers' Great Shield~
 There is a Great Ruler Shield on the ground.~
 steel~
 armor GIKRYZ AJ
-20 20 20 10 0
+CE CE CE BD 0
 0 300 15000 P
 #73
 kite ruler shield~
@@ -730,28 +738,28 @@ Rulers' Kite Shield~
 You see a large Kite Shield of Ruler on the ground.~
 steel~
 armor GIKRYZ AJ
-20 20 20 10 0
+CE CE CE BD 0
 0 310 20000 P
 A
-17 -10
+19 4
 A
 18 3
 A
-19 4
+17 -10
 #74
 tower ruler shield~
 Rulers' Tower Shield~
 A very big shield with a symbol of Ruler covers the ground.~
 steel~
 armor GIKRYZ AJ
-30 30 30 20 0
+BCDE BCDE BCDE CE 0
 0 240 20000 P
 #80
 golden dagger~
 a golden dagger~
 There is a shiny golden dagger on the ground.~
 gold~
-weapon TWAIP AN
+weapon AIPTW AN
 dagger 10 1 pierce D
 20 80 0 P
 #81
@@ -759,7 +767,7 @@ golden mace~
 a golden mace~
 A shiny gold mace is on the ground.~
 gold~
-weapon TWAIP AN
+weapon AIPTW AN
 mace 8 1 crush 0
 20 200 0 P
 #82
@@ -768,20 +776,20 @@ Dragonplate~
 A Dragonplate is left here.~
 gold~
 armor GIY AD
-30 30 30 30 0
+BCDE BCDE BCDE BCDE 0
 0 250 10000 P
 A
-6 2
+18 5
 A
 19 5
 A
-18 5
+6 2
 #83
 golden sword~
 a golden sword~
 There is a shiny golden sword on the ground.~
 gold~
-weapon TWAIP AN
+weapon AIPTW AN
 sword 8 1 pierce D
 20 80 0 P
 #84
@@ -790,7 +798,7 @@ quest staff of kio~
 A quest obj flying in the air.~
 energy~
 treasure ATY A
-0 0 -1 0 0
+0 0 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef 0 0
 0 0 0 P
 E
 quest~
@@ -802,7 +810,7 @@ quest staff of conrad~
 A quest obj flying in the air.~
 energy~
 treasure ATY A
-0 0 -1 0 0
+0 0 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef 0 0
 0 0 0 P
 E
 quest~
@@ -814,7 +822,7 @@ quest staff of powerman~
 A quest obj flying in the air.~
 energy~
 treasure ATY A
-0 0 -1 0 0
+0 0 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef 0 0
 0 0 0 P
 E
 quest~
@@ -826,7 +834,7 @@ quest staff of mandrake~
 A quest obj flying in the air.~
 energy~
 treasure ATY A
-0 0 -1 0 0
+0 0 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef 0 0
 0 0 0 P
 E
 quest~
@@ -841,9 +849,9 @@ weapon B AN
 exotic 10 1 pierce D
 15 60 0 P
 A
-18 20
-A
 6 1
+A
+18 20
 E
 sword~
 The letters '%s' is carved on the handle.
@@ -853,8 +861,8 @@ kassandra~
 kassandra~
 A mystical green stone is here, flying in the air.~
 stone~
-treasure AUTY AO
-0 0 -1 0 0
+treasure ATUY AO
+0 0 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef 0 0
 0 0 0 P
 #90
 dress~
@@ -862,7 +870,7 @@ dress~
 A dress of a white gown out of the bolt of silk lying here..~
 silk~
 armor G AD
-1 1 1 1 1
+A A A A A
 1 90 100 P
 E
 dress~
@@ -883,7 +891,7 @@ fire shield~
 An energy shield is left here.~
 energy~
 armor GPUY AJ
-20 20 20 20 2
+CE CE CE CE B
 0 250 10000 P
 E
 shield energy~
@@ -895,7 +903,7 @@ the spirit of %s~
 The vial containing spirit of %s is lying here.~
 glass~
 treasure TY AO
-0 0 0 1 0
+0 0 0 A 0
 0 0 0 D
 E
 spirit~
@@ -907,52 +915,52 @@ the %s Girth of %s~
 An enormous, huge GIRTH lies here, filling the room with its power.~
 platinum~
 armor AGIOY ALP
-12 12 12 9 2
+CD CD CD AD B
 21 300 100000 G
-A
-1 2
-A
-4 2
-A
-5 3
-A
-3 3
-A
-6 1
-A
-12 200
-A
-13 200
-A
-14 500
-A
-18 10
 F
-R 19 10 C
+D 0 0 CDEG
 F
 A 17 -30 J
 F
-D 0 0 CDEG
+R 19 10 C
+A
+18 10
+A
+14 500
+A
+13 200
+A
+12 200
+A
+6 1
+A
+3 3
+A
+5 3
+A
+4 2
+A
+1 2
 #95
 ring hero~
 the %s Ring of %s~
 An enormous, RING lies here, filling the room with its power.~
 platinum~
 armor AGIOY ABP
-12 12 12 9 1
+CD CD CD AD A
 21 300 100000 G
+F
+A 14 500 TU
 A
-6 1
-A
-17 -20
-A
-18 10
+13 150
 A
 12 150
 A
-13 150
-F
-A 14 500 TU
+18 10
+A
+17 -20
+A
+6 1
 #96
 weapon hero~
 the %s Weapon of %s~
@@ -962,29 +970,29 @@ weapon AGIOY ANP
 exotic 10 4 slash D
 21 100 100000 G
 A
-1 2
-A
-2 2
-A
-4 2
-A
-6 1
-A
-19 25
-A
-18 25
-A
-12 200
+14 500
 A
 13 200
 A
-14 500
+12 200
+A
+18 25
+A
+19 25
+A
+6 1
+A
+4 2
+A
+2 2
+A
+1 2
 #97
 chaos blade~
 a chaos blade~
 A shiny gold dagger is on the ground.~
 gold~
-weapon TWAIP AN
+weapon AIPTW AN
 dagger 8 1 pierce D
 20 200 0 P
 A
@@ -1006,10 +1014,12 @@ golden lance~
 a golden lance~
 There is a shiny golden lance on the ground.~
 gold~
-weapon TWAIP AN
+weapon AIPTW AN
 lance 10 1 none D
 20 80 0 P
 #0
+
+
 
 #ROOMS
 #1
@@ -1033,69 +1043,89 @@ D4
 S
 #0
 
+
+
+#SPECIALS
+M 11 spec_special_guard	* the guard
+M 13 spec_cast_mage	* a fiery demon
+M 15 spec_stalker	* the stalker
+S
+
+
+
 #RESETS
 S
+
 
 
 #SHOPS
 0
 
-#SPECIALS
-M 11 spec_special_guard 	* special guards of rulers
-M 15 spec_stalker		* stalkers 
-M 13 spec_cast_mage		* summoned demon
+
+
+#OLIMITS
 S
 
-#OMPROGS
-O 51 fight_prog fight_prog_tattoo_apollon	
-O 52 fight_prog fight_prog_tattoo_zeus	
-O 53 fight_prog fight_prog_tattoo_siebele
-O 54 fight_prog fight_prog_tattoo_hephaestus	
-O 55 fight_prog fight_prog_tattoo_ehrumen	
-O 56 fight_prog fight_prog_tattoo_ahrumazda		
-O 57 fight_prog fight_prog_tattoo_deimos
-O 58 fight_prog fight_prog_tattoo_phobos	
-O 59 fight_prog fight_prog_tattoo_odin	
-O 60 fight_prog fight_prog_tattoo_mars
-O 61 fight_prog fight_prog_tattoo_athena
-O 62 fight_prog fight_prog_tattoo_goktengri
-O 63 fight_prog fight_prog_tattoo_hera
-O 64 fight_prog fight_prog_tattoo_venus
-O 65 fight_prog fight_prog_tattoo_ares
-O 66 fight_prog fight_prog_tattoo_prometheus
-O 67 fight_prog fight_prog_tattoo_eros
-O 28 wear_prog wear_prog_ranger_staff
-*O 28 death_prog death_prog_ranger_staff
-O 28 fight_prog fight_prog_ranger_staff
-O 80 fight_prog fight_prog_golden_weapon
-O 81 fight_prog fight_prog_golden_weapon
-O 83 fight_prog fight_prog_golden_weapon
-O 80 death_prog death_prog_golden_weapon
-O 81 death_prog death_prog_golden_weapon
-O 83 death_prog death_prog_golden_weapon
-O 99 death_prog death_prog_golden_weapon
-O 88 get_prog get_prog_spec_weapon
-O 88 wear_prog wear_prog_eyed_sword
-O 89 speech_prog speech_prog_kassandra
-O 84 get_prog get_prog_quest_obj
-O 85 get_prog get_prog_quest_obj
-O 86 get_prog get_prog_quest_obj
-O 87 get_prog get_prog_quest_obj
-O 97 fight_prog fight_prog_chaos_blade
-O 92 wear_prog wear_prog_fire_shield
-O 92 remove_prog remove_prog_fire_shield
-O 94 get_prog get_prog_quest_reward
-O 95 get_prog get_prog_quest_reward
-O 31 get_prog get_prog_quest_reward
-O 32 get_prog get_prog_quest_reward
-O 33 get_prog get_prog_quest_reward
-O 96 get_prog get_prog_quest_reward
-O 31 wear_prog wear_prog_quest_weapon
-O 32 wear_prog wear_prog_quest_weapon
-O 33 wear_prog wear_prog_quest_weapon
-O 96 wear_prog wear_prog_quest_weapon
-O 98 wear_prog wear_prog_katana_sword
-M 15 death_prog death_prog_stalker
+
+
+#MOBPROGS
+#0
+
+#PRACTICERS
 S
+
+
+
+#OMPROGS
+O 28 wear_prog wear_prog_ranger_staff	* `a ranger staff'
+O 28 fight_prog fight_prog_ranger_staff	* `a ranger staff'
+O 31 wear_prog wear_prog_quest_weapon	* `the %s Sword of %s'
+O 31 get_prog get_prog_quest_reward	* `the %s Sword of %s'
+O 32 wear_prog wear_prog_quest_weapon	* `the %s Dagger of %s'
+O 32 get_prog get_prog_quest_reward	* `the %s Dagger of %s'
+O 33 wear_prog wear_prog_quest_weapon	* `the %s Mace of %s'
+O 33 get_prog get_prog_quest_reward	* `the %s Mace of %s'
+O 51 fight_prog fight_prog_tattoo_apollon	* `lawful good tattoo of atum-ra'
+O 52 fight_prog fight_prog_tattoo_zeus	* `neutral good tattoo of zeus'
+O 53 fight_prog fight_prog_tattoo_siebele	* `true neutral tattoo of siebele'
+O 54 fight_prog fight_prog_tattoo_hephaestus	* `tattoo of shamash, god of justice'
+O 55 fight_prog fight_prog_tattoo_ehrumen	* `chaotic good tattoo of ahuramazda'
+O 56 fight_prog fight_prog_tattoo_ahrumazda	* `chaotic evil tattoo of ehrumen'
+O 57 fight_prog fight_prog_tattoo_deimos	* `lawful evil tattoo of deimos'
+O 58 fight_prog fight_prog_tattoo_phobos	* `neutral evil tattoo of phobos'
+O 59 fight_prog fight_prog_tattoo_odin	* `lawful neutral tattoo of odin'
+O 60 fight_prog fight_prog_tattoo_mars	* `chaotic neutral tattoo of teshub'
+O 61 fight_prog fight_prog_tattoo_athena	* `tattoo of ares, God of War'
+O 62 fight_prog fight_prog_tattoo_goktengri	* `tattoo of goktengri, God of Honor'
+O 63 fight_prog fight_prog_tattoo_hera	* `tattoo of hera, god of hate'
+O 64 fight_prog fight_prog_tattoo_venus	* `tattoo of venus, god of beauty'
+O 65 fight_prog fight_prog_tattoo_ares	* `tattoo of set, god of anger'
+O 66 fight_prog fight_prog_tattoo_prometheus	* `tattoo of enki, god of knowledge'
+O 67 fight_prog fight_prog_tattoo_eros	* `tattoo of eros, god of love'
+O 80 fight_prog fight_prog_golden_weapon	* `a golden dagger'
+O 80 death_prog death_prog_golden_weapon	* `a golden dagger'
+O 81 fight_prog fight_prog_golden_weapon	* `a golden mace'
+O 81 death_prog death_prog_golden_weapon	* `a golden mace'
+O 83 fight_prog fight_prog_golden_weapon	* `a golden sword'
+O 83 death_prog death_prog_golden_weapon	* `a golden sword'
+O 84 get_prog get_prog_quest_obj	* `quest staff of kio'
+O 85 get_prog get_prog_quest_obj	* `quest staff of conrad'
+O 86 get_prog get_prog_quest_obj	* `quest staff of powerman'
+O 87 get_prog get_prog_quest_obj	* `quest staff of mandrake'
+O 88 wear_prog wear_prog_eyed_sword	* `%s's eyed sword'
+O 88 get_prog get_prog_spec_weapon	* `%s's eyed sword'
+O 89 speech_prog speech_prog_kassandra	* `kassandra'
+O 92 wear_prog wear_prog_fire_shield	* `fire shield'
+O 92 remove_prog remove_prog_fire_shield	* `fire shield'
+O 94 get_prog get_prog_quest_reward	* `the %s Girth of %s'
+O 95 get_prog get_prog_quest_reward	* `the %s Ring of %s'
+O 96 wear_prog wear_prog_quest_weapon	* `the %s Weapon of %s'
+O 96 get_prog get_prog_quest_reward	* `the %s Weapon of %s'
+O 97 fight_prog fight_prog_chaos_blade	* `a chaos blade'
+O 98 wear_prog wear_prog_katana_sword	* `a katana sword'
+O 99 death_prog death_prog_golden_weapon	* `a golden lance'
+S
+
+
 
 #$

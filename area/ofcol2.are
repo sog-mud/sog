@@ -3482,8 +3482,8 @@ M 601 fight_prog fight_prog_diana
 S
 
 #PRACTICERS
-M 628 group_healing		*priestess
-M 601 group_maladictions	*diana
+M 628 healing		*priestess
+M 601 maladictions	*diana
 S
 
 #$

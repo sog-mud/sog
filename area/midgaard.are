@@ -8144,8 +8144,8 @@ endif
 #0
 
 #PRACTICERS
-M 3000 group_wizard	* the wizard
-M 3172 group_benedictions	* the templeman
+M 3000 wizard		* the wizard
+M 3172 benedictions	* the templeman
 S
 
 

@@ -728,8 +728,8 @@ S
 #0
 
 #PRACTICERS
-M 1200 group_fightmaster	* Heimdall
-M 1200 group_defensive	* Heimdall
+M 1200 fightmaster	* Heimdall
+M 1200 defensive	* Heimdall
 S
 
 

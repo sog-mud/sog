@@ -5524,9 +5524,9 @@ O 1384 3
 S
 
 #PRACTICERS
-M 1334 group_enchantment	*enchanter
-M 1364 group_transportation	*mistress
-M 1348 group_illusion		*illusionist
+M 1334 enchantment	*enchanter
+M 1364 transportation	*mistress
+M 1348 illusion		*illusionist
 S
 
 #$

@@ -4148,7 +4148,7 @@ M  17337 spec_breath_fire       *  demon
 S
 
 #PRACTICERS
-M 17337 group_attack		* demon
+M 17337 attack		* demon
 S
 
 #$

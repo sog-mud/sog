@@ -953,7 +953,7 @@ M 8910 spec_cast_cleric    	* a druidess
 S
 
 #PRACTICERS
-M 8900 group_meditation		*hierophant
+M 8900 meditation		*hierophant
 S
 
 #$

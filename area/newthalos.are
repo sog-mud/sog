@@ -7380,6 +7380,6 @@ M 9511 give_prog give_prog_dressmaker
 S
 
 #PRACTICERS
-M 9594 group_weaponsmaster	*samurai
+M 9594 weaponsmaster	*samurai
 S
 #$
