@@ -43,7 +43,7 @@ do
 		then
 			chmod g+rw muddy.core
 			mv muddy.core corefiles/core.$index
-			cp $muddy corefiles/muddy.$index
+			cp -p $muddy corefiles/muddy.$index
 		else
 			echo `date` "Low space (${avail}k) on disk: corefile not renamed" >> $logfile
 		fi
