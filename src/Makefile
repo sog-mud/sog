@@ -1,12 +1,12 @@
 #
-# $Id: Makefile,v 1.41 1998-12-29 16:43:31 fjoe Exp $
+# $Id: Makefile,v 1.42 1998-12-29 16:47:57 fjoe Exp $
 #
 CC		= gcc
 LD		= gcc
 INCLUDES	= -I . -I ../msgdb
 
-CFLAGS		= -pg -Wall -O -pipe $(INCLUDES)
-LFLAGS		= -pg
+CFLAGS		= -pg -g -Wall -O -pipe $(INCLUDES)
+LFLAGS		= -pg -g
 LIBS		=
 INSTALL_PATH	= ..
 
