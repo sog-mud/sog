@@ -3661,7 +3661,6 @@ M 5331 spec_guard          	* the cityguard
 M 5332 spec_janitor        	* the janitor
 M 5333 spec_fido           	* the beastly fido
 M 5334 spec_guard          	* the cityguard
-M 5341 spec_questmaster		* hassan
 M 5338 spec_repairman		* weaponsmith
 M 5339 spec_repairman		* armourer
 M 5345 spec_cast_adept 		* templeman

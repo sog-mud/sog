@@ -5345,7 +5345,6 @@ M 18061 spec_cast_cleric
 M 18062 spec_cast_mage
 M 18063 spec_assassinater        * assassin   
 M 18100 spec_cast_cleric    	* questor
-M 18100 spec_questmaster    	* questor
 M 18101 spec_cast_adept     	* the healer
 M 18010 spec_repairman		* weaponsmith
 M 18006 spec_repairman		* armourer
