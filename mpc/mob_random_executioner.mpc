@@ -1,0 +1,17 @@
+/*
+ * $Id: mob_random_executioner.mpc,v 1.1 2001-09-16 11:57:32 fjoe Exp $
+ */
+
+char victim;
+foreach (victim, char_in_room(char_room($n))) {
+        if (is_wanted(victim) && can_see($n, victim))
+                break;
+}
+ 
+if (victim == NULL)
+        return 0;
+ 
+act_yell($n, "$lu{$N} is a CRIMINAL!  PROTECT THE INNOCENT!  MORE BLOOOOD!!!",
+         victim, NULL);
+multi_hit($n, victim, NULL);
+return 1;

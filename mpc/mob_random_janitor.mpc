@@ -1,0 +1,19 @@
+/*
+ * $Id: mob_random_janitor.mpc,v 1.1 2001-09-16 11:57:32 fjoe Exp $
+ */
+
+obj trash;
+foreach (trash, obj_in_room(char_room($n))) {
+        if (!can_wear(trash, ITEM_TAKE)
+        ||  !can_loot($n, trash))
+                continue;
+ 
+        if (obj_item_type(trash) == ITEM_DRINK_CON
+        ||  obj_item_type(trash) == ITEM_TRASH
+        ||  obj_cost(trash) < 10) {
+                if (get_obj($n, trash, NULL, "$n picks up some trash."))
+                        return 1;
+        }
+}
+ 
+return 0;

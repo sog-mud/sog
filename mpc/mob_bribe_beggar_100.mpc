@@ -1,0 +1,7 @@
+/*
+ * $Id: mob_bribe_beggar_100.mpc,v 1.1 2001-09-16 11:57:31 fjoe Exp $
+ */
+
+dofun("say", $n, "Oh, my God! Thank you! Thank you!");
+social_char("french", $n, $N);
+return 1;

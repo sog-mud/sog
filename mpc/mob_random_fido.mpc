@@ -1,0 +1,15 @@
+/*
+ * $Id: mob_random_fido.mpc,v 1.1 2001-09-16 11:57:32 fjoe Exp $
+ */
+
+obj corpse;
+foreach (corpse, obj_in_room(char_room($n))) {
+        if (obj_item_type(corpse) != ITEM_CORPSE_NPC)
+                continue;
+ 
+        act("$n savagely devours a corpse.", $n, NULL, NULL, TO_ROOM);
+        extract_obj(corpse, XO_F_NORECURSE);
+        return 1;
+}
+ 
+return 0;

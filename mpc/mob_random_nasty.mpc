@@ -1,0 +1,19 @@
+/*
+ * $Id: mob_random_nasty.mpc,v 1.1 2001-09-16 11:57:32 fjoe Exp $
+ */
+
+char victim;
+foreach (victim, char_in_room(char_room($n))) {
+        int chance;
+
+        if (!is_npc(victim)
+        &&  char_level(victim) > char_level($n) - 5
+        &&  char_level(victim) < char_level($n) + 5
+        &&  !is_safe_nomessage($n, victim)
+        &&  (chance = backstab_chance($n))) {
+                backstab_char($n, victim, chance);
+                return 1;
+        }
+}
+ 
+return 0;

@@ -1,0 +1,33 @@
+/*
+ * $Id: mob_random_thief.mpc,v 1.1 2001-09-16 11:57:33 fjoe Exp $
+ */
+
+char victim;
+foreach (victim, char_in_room(char_room($n))) {
+
+        if (is_npc(victim)
+        ||  is_immortal(victim)
+        ||  !can_see($n, victim)
+        ||  number_bits(4) != 0)
+                continue;
+ 
+        int level = char_level($n);
+        if (is_awake(victim)
+        &&  number_range(0, level) == 0) {
+                act("You discover $n's hands in your wallet!",
+                    $n, NULL, victim, TO_VICT);
+                act("$N discovers $n's hands in $gN{his} wallet!",
+                    $n, NULL, victim, TO_NOTVICT);
+                return 0;
+        } else {
+                int gold = umin(char_gold(victim) / 20, level);
+                set_char_gold(victim, char_gold(victim) - gold);
+                set_char_gold($n, char_gold($n) + gold);
+
+                int silver = umin(char_silver(victim) / 10, level * level);
+                set_char_silver(victim, char_silver(victim) - silver);
+                set_char_silver($n, char_silver($n) + silver);
+                return 0;
+        }
+}
+return 0;
