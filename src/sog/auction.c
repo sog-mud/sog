@@ -1,5 +1,5 @@
 /*
- * $Id: auction.c,v 1.12 1998-09-01 18:37:57 fjoe Exp $
+ * $Id: auction.c,v 1.13 1998-09-10 22:32:23 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -431,17 +431,6 @@ void do_auction(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	tax = (auction.starting * 20) / 100;
-	if (ch->gold < tax) {
-		char_printf(ch, "You do not have enough gold to pay "
-			    "an auction fee of %d gold.\n\r", tax);
-		return;
-	}
-
-	char_printf(ch, "The auctioneer charges you an auction fee "
-		    "of %d gold.\n\r", tax);
-	ch->gold -= tax;
-
 	switch (obj->item_type) {
 	default:
 		act_puts("You cannot auction $T.",
@@ -457,6 +446,17 @@ void do_auction(CHAR_DATA *ch, const char *argument)
 	case ITEM_GEM:
 	case ITEM_TREASURE:
 	case ITEM_JEWELRY:
+		tax = (auction.starting * 20) / 100;
+		if (ch->gold < tax) {
+			char_printf(ch, "You do not have enough gold to pay "
+					"an auction fee of %d gold.\n\r", tax);
+			return;
+		}
+
+		char_printf(ch, "The auctioneer charges you an auction fee "
+				"of %d gold.\n\r", tax);
+		ch->gold -= tax;
+
 		obj_from_char(obj);
 		auction.item = obj;
 		auction.bet = 0; 	/* obj->cost / 100 */
