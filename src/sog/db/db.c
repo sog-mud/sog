@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.149 1999-06-05 07:03:13 kostik Exp $
+ * $Id: db.c,v 1.150 1999-06-06 18:15:48 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1693,6 +1693,12 @@ void *alloc_perm(int sMem)
 	return calloc(1, sMem);
 }
 
+#define SKIP_CLOSED(pArea)						\
+	{								\
+		while (pArea && IS_SET(pArea->flags, AREA_CLOSED))	\
+			pArea = pArea->next;				\
+	}
+
 void do_areas(CHAR_DATA *ch, const char *argument)
 {
 	AREA_DATA *pArea1;
@@ -1702,52 +1708,57 @@ void do_areas(CHAR_DATA *ch, const char *argument)
 	int maxArea = 0;
 	BUFFER *output;
 
-	char_puts("Command disabled. \n", ch);
-	return;
-
 	if (argument[0] != '\0') {
 		char_puts("No argument is used with this command.\n",ch);
 		return;
 	}
 
+	/*
+	 * count total number of areas, skipping closed ones
+	 */
 	for (pArea1 = area_first; pArea1 != NULL; pArea1 = pArea1->next)
-		if (!IS_SET(pArea1->flags, AREA_CLOSED)) maxArea++;
-	log_printf("maxArea: %d", maxArea);
+		if (!IS_SET(pArea1->flags, AREA_CLOSED))
+			maxArea++;
 
+	/*
+	 * move pArea2 to the half of area list (skipping closed ones)
+	 * pArea2 can't be NULL after SKIP_CLOSED because iArea < iAreaHalf
+	 */
 	iAreaHalf = (maxArea + 1) / 2;
-	pArea1    = area_first;
-	pArea2    = area_first;
-	for (iArea = 0; iArea < iAreaHalf; iArea++)
-		for (pArea2 = pArea2->next; 
-		    IS_SET(pArea2->flags, AREA_CLOSED) && pArea2->next;
-			pArea2 = pArea2->next);
+	pArea1 = pArea2 = area_first;
+	for (iArea = 0; iArea < iAreaHalf; iArea++) {
+		SKIP_CLOSED(pArea2);
+		pArea2 = pArea2->next;
+	}
 
+	/*
+	 * print areas list
+	 * pArea1 can't be NULL after SKIP_CLOSED because iArea < iAreaHalf
+	 */
 	output = buf_new(-1);
 	buf_add(output, "Current areas of Shades of Gray: \n");
 	for (iArea = 0; iArea < iAreaHalf; iArea++) {
+		SKIP_CLOSED(pArea1);
+		SKIP_CLOSED(pArea2);
+
 		buf_printf(output,"{{%2d %3d} {B%-20.20s{x %8.8s ",
-			pArea1->min_level,pArea1->max_level,
-			pArea1->name,
-			pArea1->credits);
+			   pArea1->min_level, pArea1->max_level,
+			   pArea1->name,
+			   pArea1->credits);
 
 		if (pArea2 != NULL) 
 			buf_printf(output,"{{%2d %3d} {B%-20.20s{x %8.8s",
-				pArea2->min_level,pArea2->max_level,
+				pArea2->min_level, pArea2->max_level,
 				pArea2->name,
 				pArea2->credits);
 		buf_add(output, "\n");
 
-		for (pArea1 = pArea1->next; 
-		IS_SET(pArea1->flags, AREA_CLOSED) && pArea1->next;
-			pArea1 = pArea1->next);
+		pArea1 = pArea1->next;
 		if (pArea2 != NULL)
-			for (pArea2 = pArea2->next;
-				IS_SET(pArea2->flags, AREA_CLOSED);
-				pArea2 = pArea2->next)
-					if (pArea2->next == NULL) break;
+			pArea2 = pArea2->next;
 	}
 
-	buf_add(output,"\n");	
+	buf_printf(output, "\n%d areas total.\n", maxArea);
 	page_to_char(buf_string(output), ch);	
 	buf_free(output);
 }
