@@ -2547,12 +2547,29 @@ peaceful, you relax in the beauty of the forest.  Small Sprites and
 Fairies dance around a calm pool, offering you a cool drink.  You feel 
 at peace with yourself and the forest around you.
 ~
-0 SXY forest
+0 KY forest
 D0
 You see an open clearing to north.
 ~
 ~
 Z -1 6008
+D1
+~
+~
+Z 0 6157
+S
+#6157
+Ranger Training Room~
+Here is where Rangers learn campcraft, how to talk to the animals, and the
+care of the land. Here, too, they learn to defend themselves and others,
+skills with weapons, and how to dress a killed beast to turn it into food.
+The old ranger who runs the Station is here to help you learn.
+~
+0 KY inside
+D3
+~
+~
+Z 0 6156
 S
 #0
 
@@ -2619,7 +2636,7 @@ G 0 6112 0		*	an iron crown
 G 0 6111 0		*	a large round shield
 M 0 6116 1 6155 1	* the elder druid (The cultist temple.)
 E 0 6155 0 16		*	the morning star: wielded
-M 0 6117 1 6156 1	* the guildmaster (The Hidden Glade)
+M 0 6117 1 6157 1	* the guildmaster (Ranger Training Room)
 S
 
 #$

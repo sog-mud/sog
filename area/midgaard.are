@@ -4694,7 +4694,7 @@ the depths.
 центре комнаты уходит вниз (down) в непроглядную тьму. Отвратительный запах
 доносится из глубины.
 ~
-0 CDSXY inside
+0 CDKSY inside
 D1
 @eng You see your favorite place, the bar of divination.
 @rus Ты видишь свое любимое место, бар клериков.
@@ -4718,7 +4718,7 @@ furniture is set all around the room.  A small sign is hanging on the wall.
 Изящная мебель установлена повсюду в комнате. Маленькая записка (sign) висит
 на стене.
 ~
-0 CDSXY inside
+0 CDKSY inside
 E
 sign~
 The sign reads:
@@ -5188,7 +5188,7 @@ the air.  Illusions of fine furniture appear all around the room.
 @rus Этот бар один из самых загадочных на земле. Таинсвенные образы плавают в 
 воздухе. Иллюзии богатой мебели окружают тебя.
 ~
-0 CDSXY inside
+0 CDKSY inside
 D0
 @eng You see the lobby.
 @rus Ты видишь вестибюль.
@@ -5219,7 +5219,7 @@ depths.
 Колодец посреди комнаты уходит вниз (down) в непроглядную тьму. Отвратительный
 запах доносится из глубины.
 ~
-0 CDSXY inside
+0 CDKSY inside
 D3
 @eng You see the bar.
 @rus Ты видишь бар.
@@ -5295,7 +5295,7 @@ to the west is the entrance hall.
 одни лишь маленькие кусочки, когда-то целой мебели. На юге (south) находится
 двор, а на западе (west) - входной зал в гильдию.
 ~
-0 CDSXY inside
+0 CDKSY inside
 D2
 @eng You see the practice yard.
 @rus Ты видишь тренеровочный зал.
@@ -5316,7 +5316,7 @@ down into darkness.
 @rus Тренировочный зал воинов. На севере (north) расположен бар. Колодец ведет 
 вниз (down) в непроглядную тьму.
 ~
-0 CDSXY inside
+0 CDKSY inside
 D0
 @eng You see the bar.
 @rus Ты видишь бар.
@@ -5478,7 +5478,7 @@ the west is the entrance hall.
 зал.
           (Может быть мебель была украдена?!)
 ~
-0 CDSXY inside
+0 CDKSY inside
 E
 furniture~
 As you look at the furniture, the chair you sit on disappears.
@@ -5503,7 +5503,7 @@ bar.  A well leads down into darkness.
 @rus Секретный тренировочный зал воров и убийц. На севере (north) находится бар.
 Колодец уходит вниз (down) в непроглядную тьму.
 ~
-0 CDSXY inside
+0 CDKSY inside
 D0
 @eng You see the bar.
 @rus Ты видишь бар.
@@ -5581,7 +5581,7 @@ It is vital that this room be immediately after the pet shop.
 @rus Это маленькая темная комнатка, в которой продавец животных держит своих
 зверей. Эта комната находится непосредственно за зоомагазином.
 ~
-0 CDNSX inside
+0 CDKS inside
 S
 #3033
 @eng The Magic Shop@rus Магазин магических вещей~
@@ -6309,7 +6309,7 @@ the room.
 чувствуешь себя сильным и защищенным. Орудия пыток хозяина гильдии раскиданны
 повсюду вокруг.
 ~
-0 DSXY inside
+0 DKSY inside
 D3
 @eng Exit to the tample hall is to the west.
 @rus Выход в храмовый зал на западе отсюда.
@@ -6325,7 +6325,11 @@ sometimes.  The floor is compleately covered with wood, naked.  You can
 see some tools hung on the walls and some others carelessly thrown 
 around.
 ~
-0 DSXY inside
+0 DKSY inside
+D2
+~
+~
+Z 0 3078
 D4
 The trapdoor leads back to the Grubby Inn.
 ~
@@ -6347,7 +6351,7 @@ enterance, to the east, seems leading to a large room.
 Здесь находится дверь, охраняемая двумя рыцарями, которая ведет на восток
 (east) в большую комнату.
 ~
-0 DSXY inside
+0 DKSY inside
 D1
 @eng The room seems lead to a large shrine.
 @rus Комната уходит в большую святыню.
@@ -6372,7 +6376,7 @@ the opposite walls.  Big swords and silvery shields are hanging on the wall.
 панциря стоят возле противоположной стены. Большие мечи и серебренные щиты
 висят на стенах.
 ~
-0 DSXY inside
+0 DKSY inside
 D3
 @eng To the west you see the big hall of temple.
 @rus На западе ты видишь большой зал храма.
@@ -6586,7 +6590,7 @@ S
 @rus Бар варлоков пахнет очень плохо. Но мистическая атмосфера этого места 
 успокаивает тебя.
 ~
-0 CDSXY inside
+0 CDKSY inside
 D0
 @eng You see the laboratories of males..
 @rus Ты видишь чисто мужские лаборатории.
@@ -6617,7 +6621,7 @@ depths.
 еще можно разобрать.  Колодец посреди комнаты уходит вниз (down) в
 непроглядную тьму.  Отвратительный запах доносится из глубины.  
 ~
-0 CDSXY inside
+0 CDKSY inside
 D2
 @eng You see the bar.
 @rus Ты видишь бар.
@@ -6640,7 +6644,7 @@ they don't drink drinks with alcohol.
 @rus Двери бара самураев сверкают. Вряд ли ты встретишь здесь посетителей, потому
 что здесь не разрешено пить алкогольные напитки.
 ~
-0 CDSXY inside
+0 CDKSY inside
 D0
 @eng You see the guarting board..
 @rus Ты видишь таверну 'Хрюкающий кабан'.
@@ -6666,7 +6670,7 @@ wall.
 стоят около противоположной стены. Короткие мечи и сверкающие щиты весят на
 стенах.
 ~
-0 CDSXY inside
+0 CDKSY inside
 D1
 @eng To the east you see the bar..
 @rus На востоке ты видишь бар.
@@ -6694,6 +6698,20 @@ D2
 door~
 Z -1 3054
 M 150 H 100
+S
+#3078
+@eng Underground Chamber@rus Подземная комната~
+You are standing in a large chamber, lit by only the openings of the 
+air channels to the surface.  The walls look solid rock, and strong mud 
+sometimes.  The floor is compleately covered with wood, naked.  You can 
+see some tools hung on the walls and some others carelessly thrown 
+around.
+~
+0 DKSY inside
+D0
+~
+~
+Z 0 3062
 S
 #3100
 @eng Northwest end of Concourse@rus Северо-западный конец дороги~
@@ -8872,7 +8890,6 @@ G 0 3090 0		*	a potion of negation
 G 0 3091 0		*	a potion of flying
 G 0 3092 0		*	a potion of true sight
 M 0 3169 1 3061 1	* the guildmaster (The Torture Chamber)
-M 0 3168 1 3062 1	* the guildmaster (Underground Chamber)
 M 0 3167 1 3064 1	* the guildmaster (Knight's Shrine)
 M 0 3164 1 3066 1	* the butcher (Butcher Shop)
 G 0 3380 0		*	some beef jerky
@@ -8886,6 +8903,7 @@ O 0 3010 0 3072	* the donation pit (By the Temple Altar)
 M 0 3170 1 3074 1	* the guildmaster (Warlock laboratory)
 M 0 3171 1 3076 1	* the guildmaster (Samurai's Shrine)
 M 0 3172 1 3077 1	* the templeman (Room of Templeman)
+M 0 3168 1 3078 1	* the guildmaster (Underground Chamber)
 O 0 3134 0 3101	* the Bench (Promenade)
 O 0 3134 0 3102	* the Bench (Promenade)
 O 0 3134 0 3103	* the Bench (Austral Square)

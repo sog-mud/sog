@@ -1115,12 +1115,13 @@ only way to create new immortal characters within the game.  ADVANCE
 may also be used to demote characters.
 ~
 0 TRUST~
-Syntax: trust {{ group | clan | all }
+Syntax: trust {{ group | clan | all | none }
  
 This command allows you to specify how certain questionable spells 
 can be casted upon you by others. If trust set to all, everyone can 
-cast them on you. If trust set to group or (and) clan, your group (clan) members
-can cast them on you. Trust without parameters shows your current trust set.
+cast them on you. If trust set to group or (and) clan, your group (clan) 
+members can cast them on you. Trust without parameters shows your
+current trust settings.
 Questionable spells are : 'word of recall', 'cancellation', 'slow',
 'remove curse'
  

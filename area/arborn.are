@@ -824,12 +824,12 @@ You feel completely relaxed...
 Небольшой водопад тихо журчит у стены...
 Вы расслабляетесь ...
 ~
-0 CNX forest
+0 CKNX forest
 S
 #36101
 Shooting place~
 ~
-0 NU forest
+0 0 forest
 D2
 ~
 ~
@@ -838,7 +838,7 @@ S
 #36102
 Shooting place~
 ~
-0 N inside
+0 0 inside
 D0
 ~
 ~
@@ -851,7 +851,7 @@ S
 #36103
 Shooting place~
 ~
-0 N inside
+0 0 inside
 D0
 ~
 ~
@@ -864,7 +864,7 @@ S
 #36104
 Shooting place~
 ~
-0 N inside
+0 0 inside
 D0
 ~
 ~
@@ -877,7 +877,7 @@ S
 #36105
 Shooting place~
 ~
-0 N inside
+0 0 inside
 D0
 ~
 ~
@@ -890,7 +890,7 @@ S
 #36106
 Shooting place~
 ~
-0 N inside
+0 0 inside
 D0
 ~
 ~
@@ -903,7 +903,7 @@ S
 #36107
 Shooting place~
 ~
-0 N inside
+0 0 inside
 D0
 ~
 ~
@@ -916,7 +916,7 @@ S
 #36108
 Shooting place~
 ~
-0 N inside
+0 0 inside
 D0
 ~
 ~
@@ -929,7 +929,7 @@ S
 #36109
 Shooting place~
 ~
-0 N inside
+0 0 inside
 D0
 ~
 ~
@@ -942,7 +942,7 @@ S
 #36110
 Shooting place~
 ~
-0 N inside
+0 0 inside
 D0
 ~
 ~
@@ -955,7 +955,7 @@ S
 #36111
 At the targets~
 ~
-0 N inside
+0 0 inside
 D0
 ~
 ~
