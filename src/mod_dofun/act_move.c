@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.248 2001-01-12 15:33:48 cs Exp $
+ * $Id: act_move.c,v 1.249 2001-01-16 19:34:57 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2592,7 +2592,7 @@ void do_mount(CHAR_DATA *ch, const char *argument)
 		return;
 	}
   
-	if (mount->level - 5 > ch->level) {
+	if (LEVEL(ch) < LEVEL(mount)) {
 		act_char("That beast is too powerful for you to ride.", ch);
 		return;
 	}
