@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.50 1999-03-11 09:04:31 fjoe Exp $
+ * $Id: tables.c,v 1.51 1999-03-11 11:58:03 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1161,6 +1161,7 @@ const   struct wiznet_type      wiznet_table    []              =
    {	"snoops",	WIZ_SNOOPS,	L2 },
    {	"switches",	WIZ_SWITCHES,	L2 },
    {	"secure",	WIZ_SECURE,	L1 },
+   {	"olc",		WIZ_OLC,	IM },
    {	NULL,		0,		0  }
 };
 

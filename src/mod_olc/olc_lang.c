@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_lang.c,v 1.13 1999-03-08 13:56:08 fjoe Exp $
+ * $Id: olc_lang.c,v 1.14 1999-03-11 11:58:08 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -94,7 +94,8 @@ OLC_FUN(langed_create)
 	ch->desc->pEdit	= l;
 	OLCED(ch)	= olced_lookup(ED_LANG);
 	char_puts("LangEd: lang created.\n", ch);
-	return touch_lang(l, NULL, 0);
+	SET_BIT(l->flags, LANG_CHANGED);
+	return FALSE;
 }
 
 OLC_FUN(langed_edit)
@@ -127,7 +128,8 @@ OLC_FUN(langed_touch)
 {
 	LANG_DATA *l;
 	EDIT_LANG(ch, l);
-	return touch_lang(l, NULL, 0);
+	SET_BIT(l->flags, LANG_CHANGED);
+	return FALSE;
 }
 
 OLC_FUN(langed_show)
@@ -264,5 +266,10 @@ VALIDATE_FUN(validate_langname)
 		return FALSE;
 	}
 	return TRUE;
+}
+
+bool touch_lang(LANG_DATA *l)
+{
+	return FALSE;
 }
 

@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.168 1999-03-10 17:23:31 fjoe Exp $
+ * $Id: merc.h,v 1.169 1999-03-11 11:58:01 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1195,6 +1195,7 @@ enum {
 #define WIZ_NEWBIE		(R)
 #define WIZ_PREFIX		(S)
 #define WIZ_SPAM		(T)
+#define WIZ_OLC			(U)
 
 /*
  * Prototype for a mob.

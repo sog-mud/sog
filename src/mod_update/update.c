@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.112 1999-03-10 17:23:32 fjoe Exp $
+ * $Id: update.c,v 1.113 1999-03-11 11:58:04 fjoe Exp $
  */
 
 /***************************************************************************
@@ -60,6 +60,7 @@ DECLARE_DO_FUN(do_spellbane	);
 DECLARE_DO_FUN(do_stand		);
 DECLARE_DO_FUN(do_track		);
 DECLARE_DO_FUN(do_yell		);
+DECLARE_DO_FUN(do_asave		);
 
 void	back_home		(CHAR_DATA *ch);
 
@@ -1816,6 +1817,7 @@ void update_handler(void)
 		pulse_area = PULSE_AREA; 
 		area_update();
 		room_update();
+		do_asave(NULL, "rules");
 	}
 
 	if (--pulse_music <= 0) {

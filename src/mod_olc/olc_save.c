@@ -1,5 +1,5 @@
 /*
- * $Id: olc_save.c,v 1.64 1999-03-10 17:23:35 fjoe Exp $
+ * $Id: olc_save.c,v 1.65 1999-03-11 11:58:09 fjoe Exp $
  */
 
 /**************************************************************************
@@ -1047,6 +1047,91 @@ void save_msgdb(CHAR_DATA *ch)
 	save_print(ch, "Msgdb saved.");
 }
 
+bool save_lang(CHAR_DATA *ch, LANG_DATA *l)
+{
+	int i;
+	FILE *fp;
+	LANG_DATA *sl;
+	int flags;
+
+	if ((fp = dfopen(LANG_PATH, l->file_name, "w")) == NULL) {
+		save_print(ch, "%s%c%s: %s",
+			   LANG_PATH, PATH_SEPARATOR, l->file_name,
+			   strerror(errno));
+		return FALSE;
+	}
+
+	fprintf(fp, "#LANG\n"
+		    "Name %s\n", l->name);
+	if ((sl = varr_get(&langs, l->slang_of)))
+		fprintf(fp, "SlangOf %s\n", sl->name);
+	flags = l->flags & ~LANG_CHANGED;
+	if (flags)
+		fprintf(fp, "Flags %s~\n", flag_string(lang_flags, flags));
+	fprintf(fp, "End\n\n");
+
+	for (i = 0; i < MAX_RULECL; i++) {
+		rulecl_t *rcl = l->rules + i;
+
+		if (!IS_NULLSTR(rcl->file_impl)
+		||  !IS_NULLSTR(rcl->file_expl)) {
+			fprintf(fp, "#RULECLASS\n"
+				    "Class %s\n",
+				flag_string(rulecl_names, i));
+			fwrite_string(fp, "Impl", rcl->file_impl);
+			fwrite_string(fp, "Expl", rcl->file_expl);
+			fprintf(fp, "End\n\n");
+		}
+	}
+
+	fprintf(fp, "#$\n");
+	fclose(fp);
+	return TRUE;
+}
+
+void save_langs(CHAR_DATA *ch)
+{
+	int lang;
+	bool list = FALSE;
+	int sec = ch ? (IS_NPC(ch) ? 0 : ch->pcdata->security) : 9;
+
+	if (sec < SECURITY_MSGDB) {
+		save_print(ch, "Insufficient security to save langs.");
+		return;
+	}
+
+	for (lang = 0; lang < langs.nused; lang++) {
+		LANG_DATA *l = VARR_GET(&langs, lang);
+
+		if (IS_SET(l->flags, LANG_CHANGED)
+		&&  save_lang(ch, l)) {
+			save_print(ch, "Language '%s' saved (%s%c%s).",
+				   l->name, LANG_PATH, PATH_SEPARATOR,
+				   l->file_name);
+			l->flags &= ~LANG_CHANGED;
+			list = TRUE;
+		}
+	}
+
+	if (list) {
+		FILE *fp;
+
+		if ((fp = dfopen(LANG_PATH, LANG_LIST, "w")) == NULL) {
+			save_print(ch, "%s%c%s: %s",
+				   LANG_PATH, PATH_SEPARATOR, LANG_LIST,
+				   strerror(errno));
+			return;
+		}
+
+		for (lang = 0; lang < langs.nused; lang++) {
+			LANG_DATA *l = VARR_GET(&langs, lang);
+			fprintf(fp, "%s\n", l->file_name);
+		}
+		fprintf(fp, "$\n");
+		fclose(fp);
+	}
+}
+
 void save_rule(FILE *fp, rule_t *r)
 {
 	int i;
@@ -1128,91 +1213,24 @@ void save_impl(CHAR_DATA *ch, LANG_DATA *l, rulecl_t *rcl)
 	rcl->flags &= ~RULES_IMPL_CHANGED;
 }
 
-bool save_lang(CHAR_DATA *ch, LANG_DATA *l)
-{
-	int i;
-	FILE *fp;
-	LANG_DATA *sl;
-	int flags;
-
-	if ((fp = dfopen(LANG_PATH, l->file_name, "w")) == NULL) {
-		save_print(ch, "%s%c%s: %s",
-			   LANG_PATH, PATH_SEPARATOR, l->file_name,
-			   strerror(errno));
-		return FALSE;
-	}
-
-	fprintf(fp, "#LANG\n"
-		    "Name %s\n", l->name);
-	if ((sl = varr_get(&langs, l->slang_of)))
-		fprintf(fp, "SlangOf %s\n", sl->name);
-	flags = l->flags & ~LANG_CHANGED;
-	if (flags)
-		fprintf(fp, "Flags %s~\n", flag_string(lang_flags, flags));
-	fprintf(fp, "End\n\n");
-
-	for (i = 0; i < MAX_RULECL; i++) {
-		rulecl_t *rcl = l->rules + i;
-
-		if (!IS_NULLSTR(rcl->file_impl)
-		||  !IS_NULLSTR(rcl->file_expl)) {
-			fprintf(fp, "#RULECLASS\n"
-				    "Class %s\n",
-				flag_string(rulecl_names, i));
-			fwrite_string(fp, "Impl", rcl->file_impl);
-			fwrite_string(fp, "Expl", rcl->file_expl);
-			fprintf(fp, "End\n\n");
-		}
-
-		save_expl(ch, l, rcl);
-		save_impl(ch, l, rcl);
-	}
-
-	fprintf(fp, "#$\n");
-	fclose(fp);
-	return TRUE;
-}
-
-void save_langs(CHAR_DATA *ch)
+void save_rules(CHAR_DATA *ch)
 {
 	int lang;
-	bool list = FALSE;
 	int sec = ch ? (IS_NPC(ch) ? 0 : ch->pcdata->security) : 9;
 
 	if (sec < SECURITY_MSGDB) {
-		save_print(ch, "Insufficient security to save langs.");
+		save_print(ch, "Insufficient security to save rules.");
 		return;
 	}
 
 	for (lang = 0; lang < langs.nused; lang++) {
+		int i;
 		LANG_DATA *l = VARR_GET(&langs, lang);
 
-		if (IS_SET(l->flags, LANG_CHANGED)
-		&&  save_lang(ch, l)) {
-			save_print(ch, "Language '%s' saved (%s%c%s).",
-				   l->name, LANG_PATH, PATH_SEPARATOR,
-				   l->file_name);
-			l->flags &= ~LANG_CHANGED;
-			list = TRUE;
+		for (i = 0; i < MAX_RULECL; i++) {
+			save_expl(ch, l, l->rules+i);
+			save_impl(ch, l, l->rules+i);
 		}
-	}
-
-	if (list) {
-		FILE *fp;
-
-		if ((fp = dfopen(LANG_PATH, LANG_LIST, "w")) == NULL) {
-			save_print(ch, "%s%c%s: %s",
-				   LANG_PATH, PATH_SEPARATOR, LANG_LIST,
-				   strerror(errno));
-			return;
-		}
-
-		for (lang = 0; lang < langs.nused; lang++) {
-			LANG_DATA *l = VARR_GET(&langs, lang);
-			fprintf(fp, "%s\n", l->file_name);
-		}
-		fprintf(fp, "$\n");
-		fclose(fp);
 	}
 }
 
@@ -1353,6 +1371,11 @@ void do_asave(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	if (!str_cmp("rules", argument)) {
+		save_rules(ch);
+		return;
+	}
+
 	if (!str_cmp("clans", argument)) {
 		save_clans(ch);
 		return;
@@ -1392,4 +1415,5 @@ static void save_print(CHAR_DATA *ch, const char *format, ...)
 		char_printf(ch, "%s\n", buf);
 	else
 		log(buf);
+	wiznet("$t", ch, buf, WIZ_OLC, 0, 0);
 }

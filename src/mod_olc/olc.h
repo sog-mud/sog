@@ -1,5 +1,5 @@
 /*
- * $Id: olc.h,v 1.37 1999-03-11 09:04:34 fjoe Exp $
+ * $Id: olc.h,v 1.38 1999-03-11 11:58:08 fjoe Exp $
  */
 
 /***************************************************************************
@@ -162,7 +162,6 @@ AREA_DATA *get_edited_area(CHAR_DATA *ch);
 
 bool	touch_area	(AREA_DATA*);
 bool	touch_vnum	(int vnum);
-bool	touch_lang	(LANG_DATA*, rulecl_t *rcl, flag32_t flag);
 bool	touch_clan	(CLAN_DATA *clan);
 
 void		edit_done	(DESCRIPTOR_DATA *d);

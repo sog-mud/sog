@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_rule.c,v 1.4 1999-03-11 09:04:35 fjoe Exp $
+ * $Id: olc_rule.c,v 1.5 1999-03-11 11:58:09 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -158,7 +158,7 @@ OLC_FUN(ruleed_create)
 	ch->desc->pEdit = impl ? irule_insert(rcl, atoi(arg2), &rnew) :
 				 erule_add(rcl, &rnew);
 	ch->desc->pEdit2= rcl; 
-	touch_lang(l, rcl, rops->bit);
+	SET_BIT(rcl->flags, rops->bit);
 	char_puts("RuleEd: rule created.\n", ch);
 	return FALSE;
 }
@@ -205,14 +205,13 @@ OLC_FUN(ruleed_edit)
 
 OLC_FUN(ruleed_touch)
 {
-	LANG_DATA *l;
 	rulecl_t *rcl;
 	ruleops_t *rops;
 
-	EDIT_LANG(ch, l);
 	EDIT_RCL(ch, rcl);
 	EDIT_ROPS(ch, rops);
-	return touch_lang(l, rcl, rops->bit);
+	SET_BIT(rcl->flags, rops->bit);
+	return FALSE;
 }
 
 OLC_FUN(ruleed_show)
@@ -433,11 +432,9 @@ OLC_FUN(ruleed_del)
 OLC_FUN(ruleed_delete)
 {
 	rule_t *r;
-	LANG_DATA *l;
 	rulecl_t *rcl;
 	ruleops_t *rops;
 
-	EDIT_LANG(ch, l);
 	EDIT_RULE(ch, r);
 	EDIT_RCL(ch, rcl);
 	EDIT_ROPS(ch, rops);
@@ -446,7 +443,7 @@ OLC_FUN(ruleed_delete)
 		return FALSE;
 
 	rops->rule_del(rcl, r);
-	touch_lang(l, rcl, rops->bit);
+	SET_BIT(rcl->flags, rops->bit);
 	edit_done(ch->desc);
 
 	return FALSE;

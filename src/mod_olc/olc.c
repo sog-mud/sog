@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.52 1999-03-11 09:04:33 fjoe Exp $
+ * $Id: olc.c,v 1.53 1999-03-11 11:58:07 fjoe Exp $
  */
 
 /***************************************************************************
@@ -779,14 +779,6 @@ bool touch_area(AREA_DATA *pArea)
 bool touch_vnum(int vnum)
 {
 	return touch_area(area_vnum_lookup(vnum));
-}
-
-bool touch_lang(LANG_DATA *l, rulecl_t *rcl, flag32_t flag)
-{
-	SET_BIT(l->flags, LANG_CHANGED);
-	if (rcl)
-		SET_BIT(rcl->flags, flag);
-	return FALSE;
 }
 
 void edit_done(DESCRIPTOR_DATA *d)
