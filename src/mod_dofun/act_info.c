@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.232 1999-05-18 16:10:38 fjoe Exp $
+ * $Id: act_info.c,v 1.233 1999-05-18 16:48:47 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1356,20 +1356,20 @@ void do_exits(CHAR_DATA *ch, const char *argument)
 		&&  check_blind_raw(ch)) { 
 			bool show_closed = FALSE;
 
-		if (IS_SET(pexit->exit_info, EX_CLOSED)) {
-			int chance;
+			if (IS_SET(pexit->exit_info, EX_CLOSED)) {
+				int chance;
 
-			if (IS_IMMORTAL(ch))
-				show_closed = TRUE;
-			else if((chance = get_skill(ch, gsn_perception))){
-				 if (number_percent() < chance) {
-					check_improve(ch, gsn_perception,
-							      TRUE, 5);
+				if (IS_IMMORTAL(ch))
 					show_closed = TRUE;
+				else if ((chance = get_skill(ch, gsn_perception))){
+					if (number_percent() < chance) {
+						check_improve(ch, gsn_perception, TRUE, 5);
+						show_closed = TRUE;
+					}
 				}
+				if (!show_closed)
+					continue;
 			}
-			if (!show_closed) continue;
-		}
 
 			found = TRUE;
 			if (fAuto)
@@ -2307,7 +2307,8 @@ void do_scan(CHAR_DATA *ch, const char *argument)
 
 		if (IS_SET(exit->exit_info,EX_CLOSED)
 		&&  can_see_room(ch,exit->to_room.r)) {
-			char_puts("	You see closed door.\n", ch);
+			if (i == 1)
+				char_puts("	You see closed door.\n", ch);
 			return;
 		}
 		for (numpeople = 0, person = to_room->people; person != NULL;
