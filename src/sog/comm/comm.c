@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.168 1999-04-13 19:31:11 fjoe Exp $
+ * $Id: comm.c,v 1.169 1999-04-14 16:56:38 fjoe Exp $
  */
 
 /***************************************************************************
@@ -966,8 +966,7 @@ bool read_from_descriptor(DESCRIPTOR_DATA *d)
 		}
 		if ((r = strchr(p, '\0')) < q)
 			q = r;
-		if (*q != '\0')
-			memmove(p, q, strlen(q)+1);
+		memmove(p, q, strlen(q)+1);
 	} 
 
 	return TRUE;
