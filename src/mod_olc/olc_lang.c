@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_lang.c,v 1.32 2001-08-14 16:07:03 fjoe Exp $
+ * $Id: olc_lang.c,v 1.33 2001-08-22 12:43:13 fjoe Exp $
  */
 
 #include "olc.h"
@@ -170,8 +170,7 @@ OLC_FUN(langed_show)
 			EDIT_LANG(ch, l);
 		else
 			OLC_ERROR("'OLC ASHOW'");
-	}
-	else {
+	} else {
 		if ((l = lang_lookup(arg)) == NULL) {
 			act_char("LangEd: language not found.", ch);
 			return FALSE;
@@ -260,7 +259,9 @@ OLC_FUN(langed_slangof)
 	if (arg[0] == '\0')
 		OLC_ERROR("'OLC LANG SLANG'");
 
-	if ((lang = lang_lookup(arg)) == NULL && strcmp(arg, "none")) {
+	if (!strcmp(arg, "none"))
+		lang = NULL;
+	else if ((lang = lang_lookup(arg)) == NULL) {
 		act_char("LangEd: language not found.", ch);
 		return FALSE;
 	}

@@ -1,5 +1,5 @@
 /*
- * $Id: string_edit.c,v 1.51 2001-08-22 11:20:02 fjoe Exp $
+ * $Id: string_edit.c,v 1.52 2001-08-22 12:43:14 fjoe Exp $
  */
 
 /***************************************************************************
@@ -528,8 +528,9 @@ mlstr_append(CHAR_DATA *ch, mlstring *mlp, const char *arg)
 {
 	lang_t *lang;
 
-	lang = lang_lookup(arg);
-	if (lang == NULL && str_cmp(arg, "all"))
+	if (!strcmp(arg, "all"))
+		lang = NULL;
+	else if ((lang = lang_lookup(arg)) == NULL)
 		return FALSE;
 
 	string_append(ch, mlstr_convert(mlp, lang));
