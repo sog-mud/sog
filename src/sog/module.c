@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: module.c,v 1.13 2000-01-06 02:45:38 fjoe Exp $
+ * $Id: module.c,v 1.14 2000-02-10 14:08:50 fjoe Exp $
  */
 
 /*
@@ -56,7 +56,7 @@ int mod_load(module_t* m)
 	 * sanity checking
 	 */
 	if (stat(m->file_name, &s) < 0) {
-		wizlog("mod_load: %s: %s", m->file_name, strerror(errno));
+		log(LOG_INFO, "mod_load: %s: %s", m->file_name, strerror(errno));
 		return -1;
 	}
 
@@ -64,14 +64,14 @@ int mod_load(module_t* m)
 	if (!stat(buf, &s))
 		unlink(buf);
 	if (link(m->file_name, buf) < 0) {
-		wizlog("mod_load: %s: %s", buf, strerror(errno));
+		log(LOG_INFO, "mod_load: %s: %s", buf, strerror(errno));
 		return -1;
 	}
 
 	dlh = dlopen(buf, RTLD_NOW);
 	unlink(buf);
 	if (dlh == NULL) {
-		wizlog("mod_load: %s", dlerror());
+		log(LOG_INFO, "mod_load: %s", dlerror());
 		return -1;
 	}
 	dlclose(dlh);
@@ -93,7 +93,7 @@ int mod_load(module_t* m)
 	 */
 	dlh = dlopen(m->file_name, RTLD_NOW);
 	if (dlh == NULL) {
-		wizlog("mod_load: %s", dlerror());
+		log(LOG_INFO, "mod_load: %s", dlerror());
 		return -1;
 	}
 
@@ -111,7 +111,7 @@ int mod_load(module_t* m)
 	}
 
 	time(&m->load_time);
-	wizlog("mod_load: loaded module `%s' (%s)", m->name, m->file_name);
+	log(LOG_INFO, "mod_load: loaded module `%s' (%s)", m->name, m->file_name);
 	return 0;
 }
 

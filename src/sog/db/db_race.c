@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_race.c,v 1.24 1999-12-20 12:40:40 fjoe Exp $
+ * $Id: db_race.c,v 1.25 2000-02-10 14:08:59 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -95,16 +95,14 @@ DBLOAD_FUN(load_race)
 				race_t *pr;
 
 				if (IS_NULLSTR(r.name)) {
-					db_error("load_race",
-						 "race name undefined");
+					log(LOG_ERROR, "load_race: race name undefined");
 					race_destroy(&r);
 					return;
 				}
 
 				if ((pr = hash_insert(&races, r.name,
 							     &r)) == NULL) {
-					db_error("load_race",
-						 "duplicate race name");
+					log(LOG_ERROR, "load_race: duplicate race name");
 				} else {
 					db_set_arg(dbdata, "PCRACE", pr);
 				}
@@ -133,7 +131,7 @@ DBLOAD_FUN(load_race)
 			if (IS_TOKEN(fp, "Resist")) {
 				int res = fread_fword(resist_flags, fp);
 				if (res < 0) {
-					db_error("load_race", "unknown resistance name");
+					log(LOG_ERROR, "load_race: unknown resistance name");
 					fread_number(fp);
 				} else {
 					r.resists[res] = fread_number(fp);
@@ -145,7 +143,7 @@ DBLOAD_FUN(load_race)
 		}
 
 		if (!fMatch) {
-			db_error("load_race", "%s: Unknown keyword",
+			log(LOG_ERROR, "load_race: %s: Unknown keyword",
 				 rfile_tok(fp));
 			fread_to_eol(fp);
 		}
@@ -158,7 +156,7 @@ DBLOAD_FUN(load_pcrace)
 	pcrace_t *pcr;
 
 	if (!r) {
-		db_error("load_pcrace", "#PCRACE before #RACE");
+		log(LOG_ERROR, "load_pcrace: #PCRACE before #RACE");
 		return;
 	}
 
@@ -189,8 +187,7 @@ DBLOAD_FUN(load_pcrace)
 		case 'E':
 			if (IS_TOKEN(fp, "End")) {
 				if (pcr->who_name[0] == '\0') {
-					db_error("load_pcrace",
-						 "race who_name undefined");
+					log(LOG_ERROR, "load_pcrace: race who_name undefined");
 					pcrace_free(pcr);
 					r->race_pcdata = NULL;
 				}
@@ -248,7 +245,7 @@ DBLOAD_FUN(load_pcrace)
 		}
 
 		if (!fMatch) {
-			db_error("load_pcrace", "%s: Unknown keyword",
+			log(LOG_ERROR, "load_pcrace: %s: Unknown keyword",
 				 rfile_tok(fp));
 			fread_to_eol(fp);
 		}

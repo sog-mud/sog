@@ -1,5 +1,5 @@
 /*
- * $Id: log.h,v 1.6 2000-01-19 06:51:44 fjoe Exp $
+ * $Id: log.h,v 1.7 2000-02-10 14:08:41 fjoe Exp $
  */
 
 /***************************************************************************
@@ -43,8 +43,31 @@
 #ifndef _LOG_H_
 #define _LOG_H_
 
-void	log	(const char *str, ...) __attribute__((format(printf, 1, 2)));
-void	bug	(const char *str, ...) __attribute__((format(printf, 1, 2)));
-void	wizlog	(const char *str, ...);
+enum {
+	LOG_INFO,
+	LOG_WARN,
+	LOG_ERROR,
+
+	LOG_MAX
+};
+
+void	log(int llevel, const char *str, ...) __attribute__((format(printf, 2, 3)));
+
+/*
+ * each log level has its own logger
+ */
+typedef void (*logger_t)(const char *buf);
+
+/*
+ * sets logger for specified log level
+ * returns previous logger
+ */
+logger_t logger_set(int llevel, logger_t logger_new);
+
+/*
+ * some standard loggers
+ */
+void logger_default	(const char *buf);
+void logger_error	(const char *buf);
 
 #endif

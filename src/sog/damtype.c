@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: damtype.c,v 1.8 1999-12-18 11:01:40 fjoe Exp $
+ * $Id: damtype.c,v 1.9 2000-02-10 14:08:45 fjoe Exp $
  */
 
 #include <string.h>
@@ -82,7 +82,7 @@ const char *damtype_slot_lookup(int slot)
 
 	dn = hash_foreach(&damtypes, damtype_slot_cb, slot);
 	if (IS_NULLSTR(dn))
-		db_error("damtype_slot_lookup", "unknown slot %d", slot);
+		log(LOG_ERROR, "damtype_slot_lookup: unknown slot %d", slot);
 	return str_qdup(dn);
 }
 

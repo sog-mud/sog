@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_damtype.c,v 1.11 1999-12-20 08:31:25 fjoe Exp $
+ * $Id: db_damtype.c,v 1.12 2000-02-10 14:08:59 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -79,11 +79,9 @@ DBLOAD_FUN(load_damtype)
 		case 'E':
 			if (IS_TOKEN(fp, "End")) {
 				if (IS_NULLSTR(d.dam_name)) {
-					db_error("load_damtype",
-						 "damtype name undefined");
+					log(LOG_ERROR, "load_damtype: damtype name undefined");
 				} else if (!hash_insert(&damtypes, d.dam_name, &d)) {
-					db_error("load_damtype",
-						 "duplicate damtype name");
+					log(LOG_ERROR, "load_damtype: duplicate damtype name");
 				}
 				damtype_destroy(&d);
 				return;
@@ -102,7 +100,7 @@ DBLOAD_FUN(load_damtype)
 		}
 
 		if (!fMatch) {
-			db_error("load_damtype", "%s: Unknown keyword",
+			log(LOG_ERROR, "load_damtype: %s: Unknown keyword",
 				 rfile_tok(fp));
 			fread_to_eol(fp);
 		}

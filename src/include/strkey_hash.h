@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: strkey_hash.h,v 1.11 1999-12-28 08:58:54 fjoe Exp $
+ * $Id: strkey_hash.h,v 1.12 2000-02-10 14:08:41 fjoe Exp $
  */
 
 #ifndef _STRKEY_HASH_H_
@@ -78,7 +78,8 @@ void *		add_mlstrname_cb(void *p, va_list ap);
 	do {								\
 		if (!IS_NULLSTR(key)					\
 		&&  strkey_lookup(h, (key)) == NULL) 			\
-			wizlog("%s: unknown string key '%s'", id, key);	\
+			log(LOG_WARN, "%s: unknown string key '%s'",	\
+			    id, key);					\
 	} while (0);
 #else
 #define STRKEY_CHECK(h, key, id)

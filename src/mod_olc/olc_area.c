@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_area.c,v 1.77 2000-02-05 08:54:25 avn Exp $
+ * $Id: olc_area.c,v 1.78 2000-02-10 14:08:43 fjoe Exp $
  */
 
 #include "olc.h"
@@ -193,7 +193,7 @@ OLC_FUN(areaed_save)
 		if (ch)
 			char_puts("You saved the world.\n", ch);
 		else
-			wizlog("The world is saved.");
+			log(LOG_INFO, "The world is saved.");
 	}
 
 	return FALSE;
@@ -779,7 +779,6 @@ static void move_room(ROOM_INDEX_DATA *room, AREA_DATA *pArea, int delta)
 
 		case 'G':
 		case 'E':
-		case 'D':
 		case 'R':
 			MOVE(r->arg1);
 			break;
@@ -852,7 +851,7 @@ static void save_mobile(FILE *fp, MOB_INDEX_DATA *pMobIndex)
 	int i;
 
 	if (r == NULL) {
-		wizlog("save_mobile: vnum %d: %s: unknown race",
+		log(LOG_INFO, "save_mobile: vnum %d: %s: unknown race",
 		       pMobIndex->vnum, pMobIndex->race);
 		return;
 	}
@@ -1178,136 +1177,130 @@ static void save_specials(FILE *fp, AREA_DATA *pArea)
 		fprintf(fp, "S\n\n");
 }
 
-/*
- * This function is obsolete.  It it not needed but has been left here
- * for historical reasons.  It is used currently for the same reason.
- *
- * I don't think it's obsolete in ROM -- Hugin.
- */
-static void save_door_reset(FILE *fp,
-			    ROOM_INDEX_DATA *pRoomIndex, EXIT_DATA *pExit)
-{
-#if defined(VERBOSE)
-	fprintf(fp,
-		"D 0 %d %d %d\t* %s: door to the %s: %s\n", 
-		pRoomIndex->vnum,
-		pExit->orig_door,
-		IS_SET(pExit->rs_flags, EX_LOCKED) ? 2 : 1,
-		mlstr_mval(&pRoomIndex->name),
-		dir_name[pExit->orig_door],
-		IS_SET(pExit->rs_flags, EX_LOCKED) ?
-			"closed and locked" : "closed");
-#else
-	fprintf(fp, "D 0 %d %d %d\n", 
-		pRoomIndex->vnum,
-		pExit->orig_door,
-		IS_SET(pExit->rs_flags, EX_LOCKED) ? 2 : 1);
-#endif
-}
+#define NAME(vo)	((vo) ? mlstr_mval(&(vo)->name) : "<unknown>")
+#define SHORT(vo)	((vo) ? mlstr_mval(&(vo)->short_descr) : "<unknown>")
 
-static void save_reset(FILE *fp, AREA_DATA *pArea,
-		       ROOM_INDEX_DATA *pRoomIndex, RESET_DATA *pReset)
+static void
+save_resets_room(FILE *fp, ROOM_INDEX_DATA *pRoomIndex, bool *pfound)
 {
-	switch (pReset->command) {
-	default:
-		bug("Save_resets: bad command %c.", pReset->command);
-		break;
+	RESET_DATA *r;
+	OBJ_INDEX_DATA *last_obj = NULL;
+	MOB_INDEX_DATA *last_mob = NULL;
+
+    	for (r = pRoomIndex->reset_first; r != NULL; r = r->next) {
+#if defined(VERBOSE)
+		OBJ_INDEX_DATA *obj;
+		MOB_INDEX_DATA *mob;
+		ROOM_INDEX_DATA *room;
+#endif
+
+		if (!(*pfound)) {
+			fprintf(fp, "#RESETS\n");
+			*pfound = TRUE;
+		}
+
+		switch (r->command) {
+		default:
+			log(LOG_ERROR, "Save_resets: bad command %c.", r->command);
+			break;
 
 #if defined(VERBOSE)
-	case 'M':
-		fprintf(fp, "M 0 %d %d %d %d\t* %s (%s)\n", 
-			pReset->arg1,
-			pReset->arg2,
-			pReset->arg3,
-			pReset->arg4,
-			mlstr_mval(&get_mob_index(pReset->arg1)->short_descr),
-			mlstr_mval(&get_room_index(pReset->arg3)->name));
-		break;
+		case 'M':
+			mob = get_mob_index(r->arg1);
+			room = get_room_index(r->arg3);
+			fprintf(fp, "M 0 %d %d %d %d\t* %s (%s)\n", 
+				r->arg1,
+				r->arg2,
+				r->arg3,
+				r->arg4,
+				SHORT(mob), NAME(room));
+			last_mob = mob;
+			break;
 
-	case 'O':
-		fprintf(fp, "O 0 %d 0 %d\t* %s (%s)\n", 
-			pReset->arg1,
-			pReset->arg3,
-			mlstr_mval(&get_obj_index(pReset->arg1)->short_descr),
-			mlstr_mval(&get_room_index(pReset->arg3)->name));
-		break;
+		case 'O':
+			obj = get_obj_index(r->arg1);
+			room = get_room_index(r->arg3);
+			fprintf(fp, "O 0 %d 0 %d\t* %s (%s)\n", 
+				r->arg1,
+				r->arg3,
+				SHORT(obj), NAME(room));
+			last_obj = obj;
+			break;
 
-	case 'P':
-		fprintf(fp, "P 0 %d %d %d %d\t* %s: %s\n", 
-			pReset->arg1,
-			pReset->arg2,
-			pReset->arg3,
-			pReset->arg4,
-			mlstr_mval(&get_obj_index(pReset->arg3)->short_descr),
-			mlstr_mval(&get_obj_index(pReset->arg1)->short_descr));
-		break;
+		case 'P':
+			obj = get_obj_index(r->arg1);
+			fprintf(fp, "P 0 %d %d 0 %d\t* %s: %s\n", 
+				r->arg1,
+				r->arg2,
+				r->arg4,
+				SHORT(last_obj), SHORT(obj));
+			break;
 
-	case 'G':
-		fprintf(fp, "G 0 %d 0\t\t*\t%s\n",
-			pReset->arg1,
-			mlstr_mval(&get_obj_index(pReset->arg1)->short_descr));
-		break;
+		case 'G':
+			obj = get_obj_index(r->arg1);
+			fprintf(fp, "G 0 %d 0\t\t*\t%s: %s\n",
+				r->arg1,
+				SHORT(last_mob), SHORT(obj));
+			last_obj = obj;
+			break;
 
-	case 'E':
-		fprintf(fp, "E 0 %d 0 %d\t\t*\t%s: %s\n",
-			pReset->arg1,
-			pReset->arg3,
-			mlstr_mval(&get_obj_index(pReset->arg1)->short_descr),
-			flag_string(wear_loc_strings, pReset->arg3));
-		break;
+		case 'E':
+			obj = get_obj_index(r->arg1);
+			fprintf(fp, "E 0 %d 0 %d\t\t*\t%s<%s>: %s\n",
+				r->arg1,
+				r->arg3,
+				SHORT(last_mob),
+				flag_string(wear_loc_strings, r->arg3),
+				SHORT(obj));
+			last_obj = obj;
+			break;
 
-	case 'D':
-		break;
-
-	case 'R':
-		pRoomIndex = get_room_index(pReset->arg1);
-		fprintf(fp, "R 0 %d %d\t* %s: randomize\n", 
-			pReset->arg1,
-			pReset->arg2,
-			mlstr_mval(&pRoomIndex->name));
-		break;
+		case 'R':
+			room = get_room_index(r->arg1);
+			fprintf(fp, "R 0 %d %d\t* %s: randomize\n", 
+				r->arg1,
+				r->arg2,
+				NAME(room));
+			break;
 #else
-	case 'M':
-		fprintf(fp, "M 0 %d %d %d %d\n", 
-			pReset->arg1,
-			pReset->arg2,
-			pReset->arg3,
-			pReset->arg4);
-		break;
+		case 'M':
+			fprintf(fp, "M 0 %d %d %d %d\n", 
+				r->arg1,
+				r->arg2,
+				r->arg3,
+				r->arg4);
+			break;
 
-	case 'O':
-		fprintf(fp, "O 0 %d 0 %d\n", 
-			pReset->arg1,
-			pReset->arg3);
-		break;
+		case 'O':
+			fprintf(fp, "O 0 %d 0 %d\n", 
+				r->arg1,
+				r->arg3);
+			break;
 
-	case 'P':
-		fprintf(fp, "P 0 %d %d %d %d\n", 
-			pReset->arg1,
-			pReset->arg2,
-			pReset->arg3,
-			pReset->arg4);
-		break;
+		case 'P':
+			fprintf(fp, "P 0 %d %d 0 %d\n", 
+				r->arg1,
+				r->arg2,
+				r->arg4);
+			break;
 
-	case 'G':
-		fprintf(fp, "G 0 %d 0\n", pReset->arg1);
-		break;
+		case 'G':
+			fprintf(fp, "G 0 %d 0\n", r->arg1);
+			break;
 
-	case 'E':
-		fprintf(fp, "E 0 %d 0 %d\n",
-			pReset->arg1,
-			pReset->arg3);
-		break;
+		case 'E':
+			fprintf(fp, "E 0 %d 0 %d\n",
+				r->arg1,
+				r->arg3);
+			break;
 
-	case 'D':
-		break;
-
-	case 'R':
-		fprintf(fp, "R 0 %d %d\n", 
-			pReset->arg1,
-			pReset->arg2);
-		break;
+		case 'R':
+			fprintf(fp, "R 0 %d %d\n", 
+				r->arg1,
+				r->arg2);
+			break;
 #endif
+		}
 	}
 }
 
@@ -1316,38 +1309,17 @@ static void save_reset(FILE *fp, AREA_DATA *pArea,
  Purpose:	Saves the #RESETS section of an area file.
  Called by:	save_area(olc_save.c)
  ****************************************************************************/
-static void save_resets(FILE *fp, AREA_DATA *pArea)
+static void
+save_resets(FILE *fp, AREA_DATA *pArea)
 {
-	ROOM_INDEX_DATA *pRoomIndex;
-	RESET_DATA *pReset;
-	EXIT_DATA *pExit;
-	int door;
+	ROOM_INDEX_DATA *room;
 	bool found = FALSE;
 	int i;
 
-	for (i = pArea->min_vnum; i <= pArea->max_vnum; i++)
-		if ((pRoomIndex = get_room_index(i)))
-			for (door = 0; door < MAX_DIR; door++)
-				if ((pExit = pRoomIndex->exit[door])
-				&&  pExit->to_room.r 
-				&&  (IS_SET(pExit->rs_flags, EX_CLOSED) ||
-				     IS_SET(pExit->rs_flags, EX_LOCKED))) {
-					if (!found) {
-						fprintf(fp, "#RESETS\n");
-						found = TRUE;
-					}
-    					save_door_reset(fp, pRoomIndex, pExit);
-				}
-
-	for (i = pArea->min_vnum; i <= pArea->max_vnum; i++)
-		if ((pRoomIndex = get_room_index(i)))
-    			for (pReset = pRoomIndex->reset_first; pReset; pReset = pReset->next) {
-				if (!found) {
-					fprintf(fp, "#RESETS\n");
-					found = TRUE;
-				}
-				save_reset(fp, pArea, pRoomIndex, pReset);
-			}
+	for (i = pArea->min_vnum; i <= pArea->max_vnum; i++) {
+		if ((room = get_room_index(i)) != NULL)
+			save_resets_room(fp, room, &found);
+	}
 
 	if (found)
 		fprintf(fp, "S\n\n");

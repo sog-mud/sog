@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_spec.c,v 1.14 1999-12-20 08:31:25 fjoe Exp $
+ * $Id: db_spec.c,v 1.15 2000-02-10 14:09:00 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -85,12 +85,10 @@ DBLOAD_FUN(load_spec)
 				race_t *psp;
 
 				if (IS_NULLSTR(sp.spec_name)) {
-					db_error("load_spec",
-						 "spec name undefined");
+					log(LOG_ERROR, "load_spec: spec name undefined");
 				} else if ((psp = hash_insert(&specs,
 						sp.spec_name, &sp)) == NULL) {
-					db_error("load_spec",
-						 "duplicate spec name");
+					log(LOG_ERROR, "load_spec: duplicate spec name");
 				} else {
 					db_set_arg(dbdata, "R", psp);
 					db_set_arg(dbdata, "SKILL", psp);
@@ -109,7 +107,7 @@ DBLOAD_FUN(load_spec)
 		}
 
 		if (!fMatch) {
-			db_error("load_spec", "%s: Unknown keyword",
+			log(LOG_ERROR, "load_spec: %s: Unknown keyword",
 				 rfile_tok(fp));
 			fread_to_eol(fp);
 		}
@@ -121,7 +119,7 @@ DBLOAD_FUN(load_spec_r)
 	spec_t *spec = arg;
 
 	if (!spec) {
-		db_error("load_spec_r", "No #SPEC seen yet");
+		log(LOG_ERROR, "load_spec_r: No #SPEC seen yet");
 		fread_to_end(fp);
 		return;
 	}
@@ -135,7 +133,7 @@ DBLOAD_FUN(load_spec_skill)
 	spec_skill_t *spec_sk;
 
 	if (!spec) {
-		db_error("load_spec_skill", "No #SPEC seen yet");
+		log(LOG_ERROR, "load_spec_skill: No #SPEC seen yet");
 		fread_to_end(fp);
 		return;
 	}
@@ -152,8 +150,7 @@ DBLOAD_FUN(load_spec_skill)
 		case 'E':
 			if (IS_TOKEN(fp, "End")) {
 				if (IS_NULLSTR(spec_sk->sn)) {
-					db_error("load_spec_skill",
-						 "skill name undefined");
+					log(LOG_ERROR, "load_spec_skill: skill name undefined");
 					spec->spec_skills.nused--;
 				} else {
 					varr_qsort(&spec->spec_skills, cmpstr);
@@ -178,7 +175,7 @@ DBLOAD_FUN(load_spec_skill)
 		}
 
 		if (!fMatch) {
-			db_error("load_spec_skill", "%s: Unknown keyword",
+			log(LOG_ERROR, "load_spec_skill: %s: Unknown keyword",
 				 rfile_tok(fp));
 			fread_to_eol(fp);
 		}

@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.220 2000-01-31 09:20:52 fjoe Exp $
+ * $Id: comm.c,v 1.221 2000-02-10 14:08:55 fjoe Exp $
  */
 
 /***************************************************************************
@@ -211,7 +211,7 @@ static void open_sockets(varr *v, const char *logm)
 		int sock;
 		if ((sock = init_socket(port)) < 0)
 			continue;
-		log(logm, port);
+		log(LOG_INFO, logm, port);
 		GETINT(v, j++) = sock;
 	}
 	v->nused = j;
@@ -247,7 +247,7 @@ int main(int argc, char **argv)
 	 * Memory debugging if needed.
 	 */
 #if defined(MALLOC_DEBUG)
-	malloc_debug(2);
+	malloc_delog(LOG_ERROR, 2);
 #endif
 
 	setlocale(LC_ALL, "");
@@ -267,7 +267,7 @@ int main(int argc, char **argv)
 	srand((unsigned) time(NULL));
 	err = WSAStartup(wVersionRequested, &wsaData); 
 	if (err) {
-		log("winsock.dll: %s", strerror(errno));
+		log(LOG_INFO, "winsock.dll: %s", strerror(errno));
 		exit(1);
 	}
 #else
@@ -311,7 +311,7 @@ int main(int argc, char **argv)
 	}
 
 	if (!control_sockets.nused) {
-		log("no control sockets defined");
+		log(LOG_INFO, "no control sockets defined");
 		exit(1);
 	}
 	check_info = (!!info_sockets.nused);
@@ -322,12 +322,12 @@ int main(int argc, char **argv)
 	open_sockets(&info_sockets, "info service started on port %d");
 
 	if (!control_sockets.nused) {
-		log("no control sockets could be opened.");
+		log(LOG_INFO, "no control sockets could be opened.");
 		exit(1);
 	}
 
 	if (check_info && !info_sockets.nused) {
-		log("no info service sockets could be opened.");
+		log(LOG_INFO, "no info service sockets could be opened.");
 		exit(1);
 	}
 
@@ -346,7 +346,7 @@ int main(int argc, char **argv)
 	/*
 	 * That's all, folks.
 	 */
-	log("Normal termination of game.");
+	log(LOG_INFO, "Normal termination of game.");
 	return 0;
 }
 
@@ -390,7 +390,7 @@ bool outbuf_adjust(outbuf_t *o, size_t len)
 
 	while (newsize < len) {
 		if (newsize > 32768) {
-			log("outbuf_adjust: buffer overflow, closing");
+			log(LOG_INFO, "outbuf_adjust: buffer overflow, closing");
 			return FALSE;
 		}
 
@@ -398,7 +398,7 @@ bool outbuf_adjust(outbuf_t *o, size_t len)
 	}
 
 	if ((newbuf = realloc(o->buf, newsize)) == NULL) {
-		log("outbuf_adjust: not enough memory to expand output buffer");
+		log(LOG_INFO, "outbuf_adjust: not enough memory to expand output buffer");
 		return FALSE;
  	}
 
@@ -502,14 +502,14 @@ int init_socket(int port)
 #else
 	if ((fd = socket(AF_INET, SOCK_STREAM, 0)) < 0) {
 #endif
-		log("init_socket(%d): socket: %s",
+		log(LOG_INFO, "init_socket(%d): socket: %s",
 			   port, strerror(errno));
 		return -1;
 	}
 
 	if (setsockopt(fd, SOL_SOCKET, SO_REUSEADDR,
 		       (char *) &x, sizeof(x)) < 0) {
-		log("init_socket(%d): setsockopt: SO_REUSEADDR: %s",
+		log(LOG_INFO, "init_socket(%d): setsockopt: SO_REUSEADDR: %s",
 			   port, strerror(errno));
 #if defined (WIN32)
 		closesocket(fd);
@@ -522,7 +522,7 @@ int init_socket(int port)
 	ld.l_onoff  = 0;
 	if (setsockopt(fd, SOL_SOCKET, SO_LINGER,
 		       (char *) &ld, sizeof(ld)) < 0) {
-		log("init_socket(%d): setsockopt: SO_LINGER: %s",
+		log(LOG_INFO, "init_socket(%d): setsockopt: SO_LINGER: %s",
 			   port, strerror(errno));
 #if defined (WIN32)
 		closesocket(fd);
@@ -541,7 +541,7 @@ int init_socket(int port)
 	sa.sin_port	= htons(port);
 
 	if (bind(fd, (struct sockaddr *) &sa, sizeof(sa)) < 0) {
-		log("init_socket(%d): bind: %s", port, strerror(errno));
+		log(LOG_INFO, "init_socket(%d): bind: %s", port, strerror(errno));
 #if defined (WIN32)
 		closesocket(fd);
 #else
@@ -551,7 +551,7 @@ int init_socket(int port)
 	}
 
 	if (listen(fd, 3) < 0) {
-		log("init_socket(%d): listen: %s",
+		log(LOG_INFO, "init_socket(%d): listen: %s",
 			   port, strerror(errno));
 #if defined (WIN32)
 		closesocket(fd);
@@ -639,7 +639,7 @@ void game_loop_unix(void)
 
 		if (select(maxdesc+1,
 			   &in_set, &out_set, &exc_set, &null_time) < 0) {
-			log("game_loop: select: %s", strerror(errno));
+			log(LOG_INFO, "game_loop: select: %s", strerror(errno));
 			exit(1);
 		}
 
@@ -766,7 +766,7 @@ void game_loop_unix(void)
 		stall_time.tv_usec = usecDelta;
 		stall_time.tv_sec  = secDelta;
 		if (select(0, NULL, NULL, NULL, &stall_time) < 0) {
-		    log("game_loop: select: stall: %s", strerror(errno));
+		    log(LOG_INFO, "game_loop: select: stall: %s", strerror(errno));
 		    exit(1);
 		}
 	    }
@@ -830,13 +830,13 @@ void init_descriptor(int control)
 	size = sizeof(sock);
 	getsockname(control, (struct sockaddr *) &sock, &size);
 	if ((desc = accept(control, (struct sockaddr *) &sock, &size)) < 0) {
-		log("init_descriptor: accept: %s", strerror(errno));
+		log(LOG_INFO, "init_descriptor: accept: %s", strerror(errno));
 		return;
 	}
 
 #if !defined (WIN32)
 	if (fcntl(desc, F_SETFL, FNDELAY) < 0) {
-		log("init_descriptor: fcntl: FNDELAY: %s",
+		log(LOG_INFO, "init_descriptor: fcntl: FNDELAY: %s",
 			   strerror(errno));
 		return;
 	}
@@ -849,7 +849,7 @@ void init_descriptor(int control)
 
 	size = sizeof(sock);
 	if (getpeername(desc, (struct sockaddr *) &sock, &size) < 0) {
-		log("init_descriptor: getpeername: %s",
+		log(LOG_INFO, "init_descriptor: getpeername: %s",
 			   strerror(errno));
 		return;
 	}
@@ -866,7 +866,7 @@ void init_descriptor(int control)
 	}
 #endif
 
-	log("sock.sinaddr: %s", inet_ntoa(sock.sin_addr));
+	log(LOG_INFO, "sock.sinaddr: %s", inet_ntoa(sock.sin_addr));
 
 	dnew->next		= descriptor_list;
 	descriptor_list		= dnew;
@@ -902,7 +902,7 @@ void close_descriptor(DESCRIPTOR_DATA *dclose, int save_flags)
 		CHAR_DATA *ch = dclose->original ? dclose->original : dclose->character;
 		if (!IS_SET(save_flags, SAVE_F_NONE))
 			char_save(ch, save_flags);
-		log("Closing link to %s.", ch->name);
+		log(LOG_INFO, "Closing link to %s.", ch->name);
 		if (dclose->connected == CON_PLAYING) {
 			act("$n has lost $s link.", ch, NULL, NULL, TO_ROOM);
 			wiznet("Net death has claimed $N.", ch, NULL,
@@ -925,7 +925,7 @@ void close_descriptor(DESCRIPTOR_DATA *dclose, int save_flags)
 		if (d != NULL)
 			d->next = dclose->next;
 		else
-			bug("close_socket: dclose not found");
+			log(LOG_ERROR, "close_socket: dclose not found.");
 	}
 
 #if !defined( WIN32 )
@@ -951,7 +951,7 @@ bool read_from_descriptor(DESCRIPTOR_DATA *d)
 	/* Check for overflow. */
 	iOld = iStart = strlen(d->inbuf);
 	if (iStart >= sizeof(d->inbuf) - 10) {
-		log("%s input overflow!", d->host);
+		log(LOG_INFO, "%s input overflow!", d->host);
 		write_to_descriptor(d->descriptor,
 				    "\n\r*** PUT A LID ON IT!!! ***\n\r", 0);
 		return FALSE;
@@ -974,7 +974,7 @@ bool read_from_descriptor(DESCRIPTOR_DATA *d)
 				break;
 		}
 		else if (nRead == 0) {
-			log("EOF encountered on read.");
+			log(LOG_INFO, "EOF encountered on read.");
 			return FALSE;
 			break;
 		}
@@ -986,7 +986,7 @@ bool read_from_descriptor(DESCRIPTOR_DATA *d)
 	    break;
 #endif
 		else {
-			log("read_from_descriptor: %s", strerror(errno));
+			log(LOG_INFO, "read_from_descriptor: %s", strerror(errno));
 			return FALSE;
 		}
 	}
@@ -1111,7 +1111,7 @@ void read_from_buffer(DESCRIPTOR_DATA *d)
 			if (ch && ++d->repeat >= 100) {
 				char buf[MAX_STRING_LENGTH];
 
-				log("%s input spamming!", d->host);
+				log(LOG_INFO, "%s input spamming!", d->host);
 				snprintf(buf, sizeof(buf),
 					 "Inlast:[%s] Incomm:[%s]!",
 					 d->inlast, d->incomm);
@@ -1617,7 +1617,7 @@ bool write_to_descriptor(int desc, const char *txt, uint length)
 #else
 		if ((nWrite = send(desc, txt + iStart, nBlock, 0)) < 0) {
 #endif
-			log("write_to_descriptor: %s", strerror(errno));
+			log(LOG_INFO, "write_to_descriptor: %s", strerror(errno));
 			return FALSE;
 		}
 	} 
@@ -1759,7 +1759,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 
 	switch (d->connected) {
 	default:
-		bug("Nanny: bad d->connected %d.", d->connected);
+		log(LOG_ERROR, "Nanny: bad d->connected %d.", d->connected);
 		close_descriptor(d, SAVE_F_NONE);
 		return;
 
@@ -1779,7 +1779,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		}
 
 		d->codepage = codepages+num;
-		log("'%s' codepage selected", d->codepage->name);
+		log(LOG_INFO, "'%s' codepage selected", d->codepage->name);
 		d->connected = CON_GET_NAME;
 		write_to_buffer(d, "By which name do you wish to be known? ", 0);
 		break;
@@ -2216,7 +2216,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		break;
 
 	case CON_CREATE_DONE:
-		log("%s@%s new player.", ch->name, d->host);
+		log(LOG_INFO, "%s@%s new player.", ch->name, d->host);
 		dofun("help", ch, "MOTD");
 		char_puts("[Hit Return to continue]", ch);
 		d->connected = CON_READ_MOTD;
@@ -2226,7 +2226,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		char_puts("\n", ch);
 		if (strcmp(crypt(argument, PC(ch)->pwd), PC(ch)->pwd)) {
 			char_puts("Wrong password.\n", ch);
-			log("Wrong password by %s@%s", ch->name, d->host);
+			log(LOG_INFO, "Wrong password by %s@%s", ch->name, d->host);
 			if (ch->endur == 2)
 				close_descriptor(d, SAVE_F_NONE);
 			else {
@@ -2250,7 +2250,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		||  check_reconnect(d, ch->name, TRUE))
 			return;
 
-		log("%s@%s has connected.", ch->name, d->host);
+		log(LOG_INFO, "%s@%s has connected.", ch->name, d->host);
 		d->connected = CON_READ_IMOTD;
 
 		/* FALL THRU */
@@ -2437,7 +2437,7 @@ bool check_reconnect(DESCRIPTOR_DATA *d, const char *name, bool fConn)
 				act("$n has reconnected.",
 				    ch, NULL, NULL, TO_ROOM);
 
-				log("%s@%s reconnected.",
+				log(LOG_INFO, "%s@%s reconnected.",
 					   ch->name, d->host);
 				wiznet("$N groks the fullness of $S link.",
 				       ch, NULL, WIZ_LINKS, 0, 0);
@@ -2692,7 +2692,7 @@ void resolv_done()
 
 	while (fgets(buf, sizeof(buf), rfin)) {
 		if ((p = strchr(buf, '\n')) == NULL) {
-			log("rfin: line too long, skipping to '\\n'");
+			log(LOG_INFO, "rfin: line too long, skipping to '\\n'");
 			while(fgetc(rfin) != '\n')
 				;
 			continue;
@@ -2703,7 +2703,7 @@ void resolv_done()
 			continue;
 		*host++ = '\0';
 
-		log("resolv_done: %s@%s", buf, host);
+		log(LOG_INFO, "resolv_done: %s@%s", buf, host);
 
 		for (d = descriptor_list; d; d = d->next) {
 			if (d->host

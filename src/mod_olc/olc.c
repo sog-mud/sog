@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.110 2000-01-19 06:51:45 fjoe Exp $
+ * $Id: olc.c,v 1.111 2000-02-10 14:08:42 fjoe Exp $
  */
 
 /***************************************************************************
@@ -125,7 +125,7 @@ int _module_load(module_t *m)
 	varr_foreach(&commands, cmd_load_cb, CC_OLC, m);
 	olc_interpret = dlsym(m->dlh, "_olc_interpret");
 	if (olc_interpret == NULL)
-		wizlog("_module_load: %s", dlerror());
+		log(LOG_INFO, "_module_load: %s", dlerror());
 	qsort(skip_commands, NSKIP_COMMANDS, sizeof(*skip_commands), cmpstr);
 	return 0;
 }
@@ -1405,7 +1405,7 @@ void olc_printf(CHAR_DATA *ch, const char *format, ...)
 	if (ch)
 		char_printf(ch, "%s\n", buf);
 	else
-		log(buf);
+		log(LOG_INFO, buf);
 	wiznet("$t", ch, buf, WIZ_OLC, 0, 0);
 }
 

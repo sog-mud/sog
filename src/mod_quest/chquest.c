@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: chquest.c,v 1.16 1999-12-16 12:24:50 fjoe Exp $
+ * $Id: chquest.c,v 1.17 2000-02-10 14:08:44 fjoe Exp $
  */
 
 /*
@@ -90,7 +90,7 @@ void chquest_add(OBJ_INDEX_DATA *obj_index)
 		return;
 
 #if CHQUEST_DEBUG
-	log("chquest_add: added '%s' (vnum %d)",
+	log(LOG_INFO, "chquest_add: added '%s' (vnum %d)",
 		   mlstr_mval(&obj_index->short_descr), obj_index->vnum);
 #endif
 
@@ -133,7 +133,7 @@ bool chquest_delete(CHAR_DATA *ch, OBJ_INDEX_DATA *obj_index)
 	free(q);
 
 #if CHQUEST_DEBUG
-	log("chquest_delete: deleted '%s' (vnum %d)",
+	log(LOG_INFO, "chquest_delete: deleted '%s' (vnum %d)",
 		   mlstr_mval(&obj_index->short_descr), obj_index->vnum);
 #endif
 	return TRUE;
@@ -170,7 +170,7 @@ void chquest_startq(chquest_t *q)
 	ROOM_INDEX_DATA *room;
 
 #if CHQUEST_DEBUG
-	log("chquest_startq: started chquest for '%s' (vnum %d)",
+	log(LOG_INFO, "chquest_startq: started chquest for '%s' (vnum %d)",
 	   	   mlstr_mval(&q->obj_index->short_descr), q->obj_index->vnum);
 #endif
 
@@ -191,7 +191,7 @@ void chquest_stopq(chquest_t *q)
 		return;
 
 #if CHQUEST_DEBUG
-	log("chquest_stopq: stopped quest for '%s' (vnum %d)",
+	log(LOG_INFO, "chquest_stopq: stopped quest for '%s' (vnum %d)",
 		   mlstr_mval(&q->obj_index->short_descr), q->obj_index->vnum);
 #endif
 
@@ -213,7 +213,7 @@ void chquest_extract(OBJ_DATA *obj)
 		return;
 
 #if CHQUEST_DEBUG
-	log("chquest_extract: finished quest for '%s' (vnum %d)",
+	log(LOG_INFO, "chquest_extract: finished quest for '%s' (vnum %d)",
 		   mlstr_mval(&q->obj_index->short_descr), q->obj_index->vnum);
 #endif
 	SET_WAITING(q, number_range(15, 20));

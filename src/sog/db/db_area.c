@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.89 2000-02-05 08:55:03 avn Exp $
+ * $Id: db_area.c,v 1.90 2000-02-10 14:08:58 fjoe Exp $
  */
 
 /***************************************************************************
@@ -212,7 +212,7 @@ DBINIT_FUN(init_area)
 	if (DBDATA_VALID(dbdata)) {
 		if (area_current != NULL) {
 			if (IS_SET(area_current->area_flags, AREA_TAGGED)) {
-				log("UNTAGGED: %s", area_current->file_name);
+				log(LOG_INFO, "UNTAGGED: %s", area_current->file_name);
 				REMOVE_BIT(area_current->area_flags,
 					   AREA_TAGGED);
 				TOUCH_AREA(area_current);
@@ -337,7 +337,7 @@ DBLOAD_FUN(load_areadata)
 		}
 
 		if (!fMatch) {
-			db_error("load_areadata", "%s: Unknown keyword",
+			log(LOG_ERROR, "load_areadata: %s: Unknown keyword",
 				 rfile_tok(fp));
 			fread_to_eol(fp);
 		}
@@ -384,7 +384,7 @@ DBLOAD_FUN(load_helps)
 	const char *keyword;
 
 	if (!area_current) {  /* OLC */
-		db_error("load_helps", "no #AREA seen yet.");
+		log(LOG_ERROR, "load_helps: no #AREA seen yet.");
 		return;
 	}
 
@@ -413,7 +413,7 @@ DBLOAD_FUN(load_mobprogs)
     MPCODE *mpcode;
 
     if (area_current == NULL) {
-	db_error("load_mobprogs", "no #AREA seen yet.");
+	log(LOG_ERROR, "load_mobprogs: no #AREA seen yet.");
 	return;
     }
 
@@ -425,7 +425,7 @@ DBLOAD_FUN(load_mobprogs)
 
 	letter		  = fread_letter(fp);
 	if (letter != '#') {
-	    db_error("load_mobprogs", "# not found.");
+	    log(LOG_ERROR, "load_mobprogs: # not found.");
 	    return;
 	}
 
@@ -434,7 +434,7 @@ DBLOAD_FUN(load_mobprogs)
 	    break;
 
 	if (mpcode_lookup(vnum) != NULL) {
-	    db_error("load_mobprogs", "vnum %d duplicated.", vnum);
+	    log(LOG_ERROR, "load_mobprogs: vnum %d duplicated.", vnum);
 	    return;
 	}
 	code 		= fread_string(fp);
@@ -454,7 +454,7 @@ DBLOAD_FUN(load_resets)
 	ROOM_INDEX_DATA *pLastRoom = NULL;
 
 	if (area_current == NULL) {
-		db_error("load_resets", "no #AREA seen yet.");
+		log(LOG_ERROR, "load_resets: no #AREA seen yet.");
 		return;
 	}
 
@@ -462,7 +462,6 @@ DBLOAD_FUN(load_resets)
 		RESET_DATA *pReset;
 
 		ROOM_INDEX_DATA *pRoom;
-		EXIT_DATA *pexit = NULL;
 		char letter;
 
 		if ((letter = fread_letter(fp)) == 'S')
@@ -482,86 +481,55 @@ DBLOAD_FUN(load_resets)
 				  0 : fread_number(fp);
 		pReset->arg4	= (letter == 'P' || letter == 'M') ?
 				  fread_number(fp) : 0;
-				  fread_to_eol(fp);
+		fread_to_eol(fp);
 
 		/*
 		 * Validate parameters.
-		 * We're calling the index functions for the side effect.
 		 */
 		switch (letter) {
 		default:
-			db_error("load_resets", "bad command '%c'.", letter);
-			return;
+			log(LOG_ERROR, "load_resets: bad command '%c'.", letter);
+		case 'D':
+			reset_free(pReset);
+			break;
 
 		case 'M':
 		case 'O':
-			if ((pRoom = get_room_index(pReset->arg3)) == NULL)
+			if ((pRoom = get_room_index(pReset->arg3)) == NULL) {
+				log(LOG_ERROR, "load_reset: %d: no such room",
+				    pReset->arg1);
 				break;
+			}
 
 			pLastRoom = pRoom;
-			reset_add(pReset, pRoom, 0);
+			reset_add(pRoom, pReset, NULL);
 			break;
 
 		case 'P':
 		case 'G':
 		case 'E':
 			if (!pLastRoom) {
-				db_error("load_resets", "room undefined");
-				return;
-			}
-
-			reset_add(pReset, pLastRoom, 0);
-			break;
-
-		case 'D':
-			if ((pRoom = get_room_index(pReset->arg1)) == NULL)
-				break;
-
-			if (pReset->arg2 < 0
-			||  pReset->arg2 >= MAX_DIR
-			||  (pexit = pRoom->exit[pReset->arg2]) == NULL
-			||  !IS_SET(pexit->rs_flags, EX_ISDOOR)) {
-				db_error("load_resets",
-					 "'D': exit %d not door.",
-					 pReset->arg2);
-				return;
-			}
-
-			switch (pReset->arg3) {
-			default:
-				db_error("load_resets",
-					 "'D': bad 'locks': %d.",
-					 pReset->arg3);
-				return;
-
-			case 0:
-				break;
-			case 1:
-				SET_BIT(pexit->rs_flags, EX_CLOSED);
-				SET_BIT(pexit->exit_info, EX_CLOSED);
-				break;
-			case 2:
-				SET_BIT(pexit->rs_flags, EX_CLOSED | EX_LOCKED);
-				SET_BIT(pexit->exit_info, 
-					EX_CLOSED | EX_LOCKED);
+				log(LOG_ERROR, "load_resets: room undefined");
 				break;
 			}
 
+			reset_add(pLastRoom, pReset, NULL);
 			break;
 
 		case 'R':
-			if ((pRoom = get_room_index(pReset->arg1)) == NULL)
-				break;
-
-			if (pReset->arg2 < 0 || pReset->arg2 > MAX_DIR) {
-				db_error("load_resets", "'R': bad exit %d.",
-					pReset->arg2);
+			if ((pRoom = get_room_index(pReset->arg1)) == NULL) {
+				log(LOG_ERROR, "load_reset: %d: no such room",
+				    pReset->arg1);
 				break;
 			}
 
-			if (pRoom)
-				reset_add(pReset, pRoom, 0);
+			if (pReset->arg2 < 0 || pReset->arg2 > MAX_DIR) {
+				log(LOG_ERROR, "load_resets: 'R': bad exit %d.",
+				    pReset->arg2);
+				break;
+			}
 
+			reset_add(pRoom, pReset, NULL);
 			break;
 		}
 	}
@@ -575,7 +543,7 @@ DBLOAD_FUN(load_rooms)
 	ROOM_INDEX_DATA *pRoomIndex;
 
 	if (area_current == NULL) {
-		db_error("load_rooms", "no #AREA seen yet.");
+		log(LOG_ERROR, "load_rooms: no #AREA seen yet.");
 		return;
 	}
 
@@ -587,7 +555,7 @@ DBLOAD_FUN(load_rooms)
 
 		letter = fread_letter(fp);
 		if (letter != '#') {
-			db_error("load_rooms", "# not found.");
+			log(LOG_ERROR, "load_rooms: # not found.");
 			return;
 		}
 
@@ -595,12 +563,10 @@ DBLOAD_FUN(load_rooms)
 		if (vnum == 0)
 			break;
 
-		fBootDb = FALSE;
 		if (get_room_index(vnum)) {
-			db_error("load_rooms", "vnum %d duplicated.", vnum);
+			log(LOG_ERROR, "load_rooms: vnum %d duplicated.", vnum);
 			return;
 		}
-		fBootDb = TRUE;
 
 		pRoomIndex		= new_room_index();
 
@@ -613,7 +579,7 @@ DBLOAD_FUN(load_rooms)
 		pRoomIndex->sector_type	= fread_fword(sector_types, fp);
 		if (pRoomIndex->sector_type < 0
 		||  pRoomIndex->sector_type > MAX_SECT) {
-			bug("load_rooms: vnum %d: invalid sector type",
+			log(LOG_ERROR, "load_rooms: vnum %d: invalid sector type",
 			    pRoomIndex->vnum);
 		}
 
@@ -636,9 +602,7 @@ DBLOAD_FUN(load_rooms)
 	
 				door = fread_number(fp);
 				if (door < 0 || door > 5) {
-					db_error("load_rooms",
-						 "vnum %d has bad door number.",
-						 vnum);
+					log(LOG_ERROR, "load_rooms: vnum %d has bad door number.", vnum);
 					return;
 				}
 	
@@ -710,13 +674,11 @@ DBLOAD_FUN(load_rooms)
 			} else if (letter == 'E') 
 				ed_fread(fp, &pRoomIndex->ed);
 			else if (letter == 'O') {
-				db_error("load rooms", "owner present");
+				log(LOG_ERROR, "load rooms: owner present");
 				return;
 
 			} else {
-				db_error("load_rooms",
-					 "vnum %d has flag '%c' (not 'DES').",
-					 vnum, letter);
+				log(LOG_ERROR, "load_rooms: vnum %d has flag '%c' (not 'DES').", vnum, letter);
 				return;
 			}
 		}
@@ -743,21 +705,25 @@ DBLOAD_FUN(load_shops)
 		pShop			= new_shop();
 		pShop->keeper		= fread_number(fp);
 		if (pShop->keeper == 0)
-		    break;
+			break;
 		for (iTrade = 0; iTrade < MAX_TRADE; iTrade++)
-		    pShop->buy_type[iTrade]	= fread_number(fp);
+			pShop->buy_type[iTrade]	= fread_number(fp);
 		pShop->profit_buy	= fread_number(fp);
 		pShop->profit_sell	= fread_number(fp);
 		pShop->open_hour	= fread_number(fp);
 		pShop->close_hour	= fread_number(fp);
 					  fread_to_eol(fp);
 		pMobIndex		= get_mob_index(pShop->keeper);
+		if (pMobIndex == NULL) {
+			log(LOG_ERROR, "load_shops: %d: no such mob", pShop->keeper);
+			continue;
+		}
 		pMobIndex->pShop	= pShop;
 
 		if (shop_first == NULL)
-		    shop_first = pShop;
+			shop_first = pShop;
 		if (shop_last  != NULL)
-		    shop_last->next = pShop;
+			shop_last->next = pShop;
 
 		shop_last	= pShop;
 		pShop->next	= NULL;
@@ -769,33 +735,38 @@ DBLOAD_FUN(load_shops)
  */
 DBLOAD_FUN(load_specials)
 {
-	for (; ;)
-	{
+	for (; ;) {
 		MOB_INDEX_DATA *pMobIndex;
 		char letter;
+		int vnum;
+		const char *spec;
 
-		switch (letter = fread_letter(fp))
-		{
+		switch (letter = fread_letter(fp)) {
 		default:
-		    db_error("load_specials", "letter '%c' not *MS.", letter);
-		    return;
+			log(LOG_ERROR, "load_specials: letter '%c' not *MS.", letter);
+			return;
 
 		case 'S':
-		    return;
+			return;
 
 		case '*':
-		    break;
+			break;
 
 		case 'M':
-		    pMobIndex		= get_mob_index(fread_number(fp));
-		    fread_word(fp);
-		    pMobIndex->spec_fun	= mob_spec_lookup(rfile_tok(fp));
-		    if (pMobIndex->spec_fun == NULL) {
-			db_error("load_specials", "'M': vnum %d.",
-				 pMobIndex->vnum);
-			return;
-		    }
-		    break;
+			vnum = fread_number(fp);
+			if ((pMobIndex = get_mob_index(vnum)) == NULL) {
+				log(LOG_ERROR, "load_specials: %d: no such mob", vnum);
+				break;
+			}
+
+			fread_word(fp);
+			spec = rfile_tok(fp);
+			pMobIndex->spec_fun = mob_spec_lookup(spec);
+			if (pMobIndex->spec_fun == NULL) {
+				log(LOG_ERROR, "load_specials: %s: no such spec", spec);
+				break;
+			}
+			break;
 		}
 
 		fread_to_eol(fp);
@@ -810,10 +781,11 @@ DBLOAD_FUN(load_practicers)
 	for (; ;) {
 		MOB_INDEX_DATA *pMobIndex;
 		char letter;
+		int vnum;
 
 		switch (letter = fread_letter(fp)) {
 		default:
-			db_error("load_practicers", "letter '%c' not *MS.",
+			log(LOG_ERROR, "load_practicers: letter '%c' not *MS.",
 				 letter);
 			return;
 
@@ -824,7 +796,11 @@ DBLOAD_FUN(load_practicers)
 			break;
 
 		case 'M':
-			pMobIndex = get_mob_index(fread_number(fp));
+			vnum = fread_number(fp);
+			if ((pMobIndex = get_mob_index(vnum)) == NULL) {
+				log(LOG_ERROR, "load_practicer: %d: no such mob", vnum);
+				break;
+			}
 			SET_BIT(pMobIndex->practicer,
 				fread_flags(fp));
 			break;
@@ -836,32 +812,31 @@ DBLOAD_FUN(load_practicers)
 
 DBLOAD_FUN(load_olimits)
 {
-	int vnum;
-	int limit;
 	char ch;
-	OBJ_INDEX_DATA *pIndex;
 
 	for (ch = fread_letter(fp); ch != 'S'; ch = fread_letter(fp)) {
+		int vnum;
+		OBJ_INDEX_DATA *pObjIndex;
+
 		switch(ch) {
 		case 'O':
-		  vnum = fread_number(fp);
-		  limit = fread_number(fp);
-		  if ((pIndex = get_obj_index(vnum)) == NULL) {
-			db_error("Load_olimits", "bad vnum %d", vnum);
-			return;
-		  }
-		  else
-			pIndex->limit = limit;
-		  break;
+			vnum = fread_number(fp);
+			if ((pObjIndex = get_obj_index(vnum)) == NULL) {
+				log(LOG_ERROR, "load_olimits: %d: no such obj", vnum);
+				break;
+			}
+			pObjIndex->limit = fread_number(fp);
+			break;
 
 		case '*':
-		  fread_to_eol(fp);
-		  break;
+			break;
 
 		default:
-		  db_error("load_olimits", "bad command '%c'", ch);
-		  return;
+			log(LOG_ERROR, "load_olimits: bad command '%c'", ch);
+			break;;
 		}
+
+		fread_to_eol(fp);
 	}
 }
 
@@ -1034,7 +1009,7 @@ DBLOAD_FUN(load_mobiles)
     MOB_INDEX_DATA *pMobIndex;
 
     if (!area_current) {
-        db_error("load_mobiles", "no #AREA seen yet.");
+        log(LOG_ERROR, "load_mobiles: no #AREA seen yet.");
 	return;
     }
 
@@ -1055,7 +1030,7 @@ DBLOAD_FUN(load_mobiles)
  
         letter                          = fread_letter(fp);
         if (letter != '#') {
-            db_error("load_mobiles", "# not found.");
+            log(LOG_ERROR, "load_mobiles: # not found.");
 	    return;
 	}
  
@@ -1063,12 +1038,10 @@ DBLOAD_FUN(load_mobiles)
         if (vnum == 0)
             break;
  
-        fBootDb = FALSE;
         if (get_mob_index(vnum)) {
-        	db_error("load_mobiles", "vnum %d duplicated.", vnum);
+        	log(LOG_ERROR, "load_mobiles: vnum %d duplicated.", vnum);
 		return;
 	}
-        fBootDb = TRUE;
  
         pMobIndex                       = new_mob_index();
 
@@ -1191,7 +1164,7 @@ DBLOAD_FUN(load_mobiles)
 		    SET_BIT(pMobIndex->affected_by, fread_flags(fp));
 	    } else if (letter == 'C') {
 		if (!IS_NULLSTR(pMobIndex->clan)) {
-		    db_error("load_mobiles", "duplicate clan.");
+		    log(LOG_ERROR, "load_mobiles: duplicate clan.");
 		    return;
 		}
 		pMobIndex->clan = fread_strkey(fp, &clans, "load_mobiles");
@@ -1224,7 +1197,7 @@ DBLOAD_FUN(load_mobiles)
 		else if (IS_TOKEN(fp, "par"))
 		    REMOVE_BIT(pMobIndex->parts, fread_flags(fp));
 		else {
-		    db_error("flag remove", "flag not found.");
+		    log(LOG_ERROR, "flag remove: flag not found.");
 		    return;
 		}
 	     } else if ( letter == 'M' ) {
@@ -1234,9 +1207,8 @@ DBLOAD_FUN(load_mobiles)
 		int vnum;
 		
 		if ((type = fread_fword(mptrig_types, fp)) == 0) {
-			db_error("load_mobiles", "vnum %d: "
-				   "'%s': invalid mob prog trigger",
-				   pMobIndex->vnum);
+			log(LOG_ERROR, "load_mobiles: vnum %d: invalid mob prog trigger",
+			    pMobIndex->vnum);
 			return;
 		}
 
@@ -1393,7 +1365,7 @@ DBLOAD_FUN(load_objects)
 	OBJ_INDEX_DATA *pObjIndex;
  
 	if (!area_current) {
-		db_error("load_objects", "no #AREA seen yet.");
+		log(LOG_ERROR, "load_objects: no #AREA seen yet.");
 		return;
 	}
 
@@ -1404,7 +1376,7 @@ DBLOAD_FUN(load_objects)
 	 
 		letter = fread_letter(fp);
 		if (letter != '#') {
-			db_error("load_objects", "# not found.");
+			log(LOG_ERROR, "load_objects: # not found.");
 			return;
 		}
 	 
@@ -1412,12 +1384,10 @@ DBLOAD_FUN(load_objects)
 		if (vnum == 0)
 		 	break;
 	 
-		fBootDb = FALSE;
 		if (get_obj_index(vnum)) {
-		 	db_error("load_objects", "vnum %d duplicated.", vnum);
+		 	log(LOG_ERROR, "load_objects: vnum %d duplicated.", vnum);
 			return;
 		}
-		fBootDb = TRUE;
 	 
 		pObjIndex                       = new_obj_index();
 	
@@ -1439,7 +1409,7 @@ DBLOAD_FUN(load_objects)
 		}
 	
 		if (!material_lookup(pObjIndex->material))
-			log("Obj %d: unknown material '%s'", vnum, pObjIndex->material);
+			log(LOG_INFO, "Obj %d: unknown material '%s'", vnum, pObjIndex->material);
 	
 		pObjIndex->oprogs		= NULL;
 	
@@ -1556,9 +1526,7 @@ DBLOAD_FUN(load_objects)
 					af.where = TO_DETECTS;
 					break;
 				default:
-					db_error("load_objects",
-						 "vnum %d: '%c': bad where on flag.",
-						pObjIndex->vnum, letter);
+					log(LOG_ERROR, "load_objects: vnum %d: '%c': bad where on flag.", pObjIndex->vnum, letter);
 					return;
 				}
 		
@@ -1727,10 +1695,11 @@ DBLOAD_FUN(load_omprogs)
     for (; ;) {
 	OBJ_INDEX_DATA *pObjIndex;
 	char letter;
+	int vnum;
 	
 	switch (letter = fread_letter(fp)) {
 	default:
-	    db_error("load_omprogs", "letter '%c' not *IMS.", letter);
+	    log(LOG_ERROR, "load_omprogs: letter '%c' not *IMS.", letter);
 	    return;
 
 	case 'S':
@@ -1740,17 +1709,19 @@ DBLOAD_FUN(load_omprogs)
 	    break;
 	    
         case 'O':
-	    pObjIndex = get_obj_index (fread_number (fp));
-	    fread_word(fp);
-	    strnzcpy(progtype, sizeof(progtype), rfile_tok(fp));
-	    fread_word(fp);
-	    strnzcpy(progname, sizeof(progname), rfile_tok(fp));
-	    oprog_set(pObjIndex, progtype, progname);
-	    break;
-	
-	case 'M':
-	    /* will be removed at all after new mob prog code integration */
-	    break;  
+		vnum = fread_number(fp);
+		if ((pObjIndex = get_obj_index(vnum)) == NULL) {
+			log(LOG_ERROR, "load_omprogs: %d: no such obj", vnum);
+			break;
+		}
+
+		fread_word(fp);
+		strnzcpy(progtype, sizeof(progtype), rfile_tok(fp));
+
+		fread_word(fp);
+		strnzcpy(progname, sizeof(progname), rfile_tok(fp));
+		oprog_set(pObjIndex, progtype, progname);
+		break;
 	}
 
 	fread_to_eol(fp);

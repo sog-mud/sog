@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.97 2000-01-04 23:50:03 avn Exp $
+ * $Id: recycle.c,v 1.98 2000-02-10 14:08:51 fjoe Exp $
  */
 
 /***************************************************************************
@@ -148,7 +148,7 @@ void free_obj(OBJ_DATA *obj)
 		return;
 
 	if (!mem_is(obj, MT_OBJ)) {
-		bug("free_obj: obj is not MT_OBJ");
+		log(LOG_ERROR, "free_obj: obj is not MT_OBJ");
 		return;
 	}
 	mem_invalidate(obj);
@@ -321,7 +321,7 @@ void char_free(CHAR_DATA *ch)
 	int *free_count;
 
 	if (!mem_is(ch, MT_CHAR)) {
-		bug("free_char: ch is not MT_CHAR");
+		log(LOG_ERROR, "free_char: ch is not MT_CHAR");
 		return;
 	}
 	mem_invalidate(ch);
@@ -428,7 +428,7 @@ MPTRIG *mptrig_new(int type, const char *phrase, int vnum)
 			char buf[MAX_STRING_LENGTH];
 
 			regerror(errcode, mptrig->extra, buf, sizeof(buf));
-			log("bad trigger for vnum %d (phrase '%s'): %s",
+			log(LOG_INFO, "bad trigger for vnum %d (phrase '%s'): %s",
 				   vnum, phrase, buf);
 		}
 	}

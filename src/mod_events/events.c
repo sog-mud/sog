@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: events.c,v 1.5 1999-12-21 06:36:23 fjoe Exp $
+ * $Id: events.c,v 1.6 2000-02-10 14:08:41 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -62,7 +62,7 @@ load_event_cb(void *p, va_list ap)
 
 	evf->fun = dlsym(m->dlh, evf->fun_name);
 	if (evf->fun == NULL)
-		wizlog("_module_load(events): %s", dlerror());
+		log(LOG_INFO, "_module_load(events): %s", dlerror());
 	return NULL;
 }
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_skill.c,v 1.24 1999-12-21 06:36:34 fjoe Exp $
+ * $Id: db_skill.c,v 1.25 2000-02-10 14:08:59 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -81,11 +81,9 @@ DBLOAD_FUN(load_skill)
 				const char *sn = gmlstr_mval(&sk.sk_name);
 
 				if (IS_NULLSTR(sn)) {
-					db_error("load_skill",
-						 "skill name undefined");
+					log(LOG_ERROR, "load_skill: skill name undefined");
 				} else if (!hash_insert(&skills, sn, &sk)) {
-					db_error("load_skill",
-						 "duplicate skill name");
+					log(LOG_ERROR, "load_skill: duplicate skill name");
 				}
 				skill_destroy(&sk);
 				return;
@@ -95,14 +93,14 @@ DBLOAD_FUN(load_skill)
 				evf_t *evf;
 
 				if (event < 0) {
-					db_error("load_skill", "unknown event");
+					log(LOG_ERROR, "load_skill: unknown event");
 					fread_to_eol(fp);
 					break;
 				}
 
 				evf = varr_bsearch(&sk.events, &event, cmpint);
 				if (evf != NULL) {
-					db_error("load_skill", "%s: duplicate event", flag_string(events_classes, event));
+					log(LOG_ERROR, "load_skill: %s: duplicate event", flag_string(events_classes, event));
 					fread_to_eol(fp);
 					break;
 				}
@@ -154,7 +152,7 @@ DBLOAD_FUN(load_skill)
 		}
 
 		if (!fMatch) {
-			db_error("load_skill", "%s: Unknown keyword",
+			log(LOG_ERROR, "load_skill: %s: Unknown keyword",
 				 rfile_tok(fp));
 			fread_to_eol(fp);
 		}

@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.170 1999-12-21 00:27:51 avn Exp $
+ * $Id: interp.c,v 1.171 2000-02-10 14:08:47 fjoe Exp $
  */
 
 /***************************************************************************
@@ -242,7 +242,7 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 	     cmd_log == LOG_ALWAYS)
 	&&  cmd_log != LOG_NEVER
 	&&  logline[0] != '\0')
-		wizlog("Log %s: %s", vch->name, logline);
+		log(LOG_INFO, "Log %s: %s", vch->name, logline);
 
 	if (!IS_NPC(ch)) {
 		/* Come out of hiding for most commands */
@@ -311,7 +311,7 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 	 * Dispatch the command.
 	 */
 	if (cmd->do_fun == NULL)
-		bug("interpret: %s: NULL do_fun", cmd->name);
+		log(LOG_ERROR, "interpret: %s: NULL do_fun", cmd->name);
 	else
 		cmd->do_fun(ch, argument);
 

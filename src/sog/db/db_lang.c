@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_lang.c,v 1.22 1999-12-18 11:01:43 fjoe Exp $
+ * $Id: db_lang.c,v 1.23 2000-02-10 14:08:59 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -108,8 +108,7 @@ DBLOAD_FUN(load_lang)
 		case 'E':
 			if (IS_TOKEN(fp, "End")) {
 				if (IS_NULLSTR(lang->name)) {
-					db_error("load_lang",
-						 "lang name undefined");
+					log(LOG_ERROR, "load_lang: lang name undefined");
 					langs.nused--;
 					return;
 				}
@@ -129,7 +128,7 @@ DBLOAD_FUN(load_lang)
 		}
 
 		if (!fMatch) {
-			db_error("load_lang", "%s: Unknown keyword",
+			log(LOG_ERROR, "load_lang: %s: Unknown keyword",
 				 rfile_tok(fp));
 			fread_to_eol(fp);
 		}
@@ -142,7 +141,7 @@ DBLOAD_FUN(load_rulecl)
 	rulecl_t *rcl = NULL;
 
 	if (!l) {
-		db_error("load_rulecl", "#RULECLASS before #LANG");
+		log(LOG_ERROR, "load_rulecl: #RULECLASS before #LANG");
 		return;
 	}
 
@@ -150,7 +149,7 @@ DBLOAD_FUN(load_rulecl)
 	if (IS_TOKEN(fp, "Class"))
 		rcl = l->rules + fread_fword(rulecl_names, fp);
 	else {
-		db_error("load_rulecl", "Class must be defined first");
+		log(LOG_ERROR, "load_rulecl: Class must be defined first");
 		return;
 	}
 
@@ -193,7 +192,7 @@ DBLOAD_FUN(load_rulecl)
 		}
 
 		if (!fMatch) {
-			db_error("load_rulecl", "%s: Unknown keyword",
+			log(LOG_ERROR, "load_rulecl: %s: Unknown keyword",
 				 rfile_tok(fp));
 			fread_to_eol(fp);
 		}
@@ -231,8 +230,7 @@ load_rules(rfile_t *fp, rulecl_t *rcl, rule_t* (*rule_add)(rulecl_t*, rule_t*))
 		case 'E':
 			if (IS_TOKEN(fp, "End")) {
 				if (IS_NULLSTR(r.name)) {
-					db_error("load_rules",
-						 "rule name undefined");
+					log(LOG_ERROR, "load_rules: rule name undefined");
 					rule_destroy(&r);
 				} else if (!rule_add(rcl, &r))
 					rule_destroy(&r);
@@ -246,7 +244,7 @@ load_rules(rfile_t *fp, rulecl_t *rcl, rule_t* (*rule_add)(rulecl_t*, rule_t*))
 				const char *fstring = fread_string(fp);
 
 				if (fnum < 0) {
-					db_error("load_rules", "%d: Negative form number", fnum);
+					log(LOG_ERROR, "load_rules: %d: Negative form number", fnum);
 					break;
 				}
 
@@ -262,7 +260,7 @@ load_rules(rfile_t *fp, rulecl_t *rcl, rule_t* (*rule_add)(rulecl_t*, rule_t*))
 		}
 
 		if (!fMatch) {
-			db_error("load_rules", "%s: Unknown keyword",
+			log(LOG_ERROR, "load_rules: %s: Unknown keyword",
 				 rfile_tok(fp));
 			fread_to_eol(fp);
 		}

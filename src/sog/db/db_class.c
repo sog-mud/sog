@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_class.c,v 1.30 1999-12-20 08:31:25 fjoe Exp $
+ * $Id: db_class.c,v 1.31 2000-02-10 14:08:59 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -90,12 +90,10 @@ DBLOAD_FUN(load_class)
 				class_t *cl;
 
 				if (IS_NULLSTR(class.name)) {
-					db_error("load_class",
-						 "class name undefined");
+					log(LOG_ERROR, "load_class: class name undefined");
 				} else if ((cl = hash_insert(&classes,
 						class.name, &class)) == NULL) {
-					db_error("load_class",
-						 "duplicate class name");
+					log(LOG_ERROR, "load_class: duplicate class name");
 				} else {
 					varr_qsort(&cl->guilds, cmpint);
 					db_set_arg(dbdata, "POSE", cl);
@@ -161,7 +159,7 @@ DBLOAD_FUN(load_class)
 		}
 
 		if (!fMatch) {
-			db_error("load_class", "%s: Unknown keyword",
+			log(LOG_ERROR, "load_class: %s: Unknown keyword",
 				 rfile_tok(fp));
 			fread_to_eol(fp);
 		}
@@ -174,7 +172,7 @@ DBLOAD_FUN(load_pose)
 	pose_t *pose;
 
 	if (!class) {
-		db_error("load_pose", "No #CLASS seen yet");
+		log(LOG_ERROR, "load_pose: No #CLASS seen yet");
 		return;
 	}
 
@@ -197,7 +195,7 @@ DBLOAD_FUN(load_pose)
 		}
 
 		if (!fMatch) {
-			db_error("load_pose", "%s: Unknown keyword",
+			log(LOG_ERROR, "load_pose: %s: Unknown keyword",
 				 rfile_tok(fp));
 			fread_to_eol(fp);
 		}

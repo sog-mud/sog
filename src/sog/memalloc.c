@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: memalloc.c,v 1.7 2000-01-05 14:53:19 fjoe Exp $
+ * $Id: memalloc.c,v 1.8 2000-02-10 14:08:49 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -63,7 +63,7 @@ mem_free(const void *p)
 
 	m = GET_CHUNK(p);
 	if (m->mem_sign != MEM_VALID) {
-		log("mem_free: invalid pointer");
+		log(LOG_INFO, "mem_free: invalid pointer");
 		return;
 	}
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db.h,v 1.68 1999-12-20 08:31:19 fjoe Exp $
+ * $Id: db.h,v 1.69 2000-02-10 14:08:41 fjoe Exp $
  */
 
 #ifndef _DB_H_
@@ -117,8 +117,6 @@ extern DBDATA db_forms;
 void db_load_file(DBDATA *, const char *path, const char *file);
 void db_set_arg(DBDATA *, const char* name, void *arg);
 
-extern int fBootDb;
-
 /*
  * changed flags
  */
@@ -154,7 +152,6 @@ void		fwrite_word	(FILE *fp, const char *name, const char *w);
 void		fwrite_number	(FILE *fp, const char *name, int num);
 
 extern char	filename	[PATH_MAX];
-void		db_error	(const char* fn, const char* fmt, ...);
 
 #define SLIST_ADD(type, list, item)					\
 	{								\

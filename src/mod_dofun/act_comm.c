@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.197 2000-01-04 19:27:42 fjoe Exp $
+ * $Id: act_comm.c,v 1.198 2000-02-10 14:08:31 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1198,7 +1198,7 @@ void do_lang(CHAR_DATA *ch, const char *argument)
 	if (*arg == '\0') {
 		l = varr_get(&langs, d->dvdata->lang);
 		if (l == NULL) {
-			log("do_lang: %s: lang == %d\n",
+			log(LOG_INFO, "do_lang: %s: lang == %d\n",
 				   ch->name, d->dvdata->lang);
 			l = VARR_GET(&langs, d->dvdata->lang = 0);
 		}

@@ -1,5 +1,5 @@
 /*
- * $Id: buffer.c,v 1.20 1999-12-20 08:31:21 fjoe Exp $
+ * $Id: buffer.c,v 1.21 2000-02-10 14:08:44 fjoe Exp $
  */
 
 /***************************************************************************
@@ -210,7 +210,7 @@ static bool buf_cat(BUFFER *buffer, const char *string)
 		if (buffer->size == -1) { /* overflow */
 			buffer->size = oldsize;
 			buffer->state = BUFFER_OVERFLOW;
-			log("buf_add: '%s': buffer overflow", string);
+			log(LOG_INFO, "buf_add: '%s': buffer overflow", string);
 			return FALSE;
 		}
 	}
@@ -222,7 +222,7 @@ static bool buf_cat(BUFFER *buffer, const char *string)
 		if (p == NULL) {
 			buffer->size = oldsize;
 			buffer->state = BUFFER_OVERFLOW;
-			log("buf_add: '%s': realloc failed", string);
+			log(LOG_INFO, "buf_add: '%s': realloc failed", string);
 			return FALSE;
 		}
 

@@ -1,5 +1,5 @@
 /*
- * $Id: string_edit.c,v 1.36 2000-01-19 06:51:48 fjoe Exp $
+ * $Id: string_edit.c,v 1.37 2000-02-10 14:08:53 fjoe Exp $
  */
 
 /***************************************************************************
@@ -376,7 +376,7 @@ const char *format_string(const char *oldstring /*, bool fSpace */)
     }
     else
     {
-      bug("No spaces");
+      log(LOG_WARN, "format_string: no spaces");
       strnzncat(xbuf, sizeof(xbuf), rdesc, 75);
       strnzcat(xbuf, sizeof(xbuf), "-\n");
       rdesc += 76;

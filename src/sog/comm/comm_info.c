@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm_info.c,v 1.15 2000-01-05 15:28:54 avn Exp $
+ * $Id: comm_info.c,v 1.16 2000-02-10 14:08:57 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -98,12 +98,12 @@ void info_newconn(int infofd)
 
 	getsockname(infofd, (struct sockaddr*) &sock, &size);
 	if ((fd = accept(infofd, (struct sockaddr*) &sock, &size)) < 0) {
-		log("info_newconn: accept: %s", strerror(errno));
+		log(LOG_INFO, "info_newconn: accept: %s", strerror(errno));
 		return;
 	}
 
 	if (getpeername(fd, (struct sockaddr *) &sock, &size) < 0) {
-		log("info_newconn: getpeername: %s", strerror(errno));
+		log(LOG_INFO, "info_newconn: getpeername: %s", strerror(errno));
 #ifdef WIN32
 		closesocket(fd);
 #else
@@ -112,7 +112,7 @@ void info_newconn(int infofd)
 		return;
 	}
 
-	log("info_newconn: sock.sin_addr: %s", inet_ntoa(sock.sin_addr));
+	log(LOG_INFO, "info_newconn: sock.sin_addr: %s", inet_ntoa(sock.sin_addr));
 
 	for (i = 0; i < info_trusted.nused; i++) {
 		struct in_addr* in_addr = VARR_GET(&info_trusted, i);
@@ -121,7 +121,7 @@ void info_newconn(int infofd)
 	}
 
 	if (i >= info_trusted.nused) {
-		log("info_newconn: incoming connection refused");
+		log(LOG_INFO, "info_newconn: incoming connection refused");
 #ifdef WIN32
 		closesocket(fd);
 #else
@@ -132,7 +132,7 @@ void info_newconn(int infofd)
 
 #if !defined (WIN32)
 	if (fcntl(fd, F_SETFL, FNDELAY) < 0) {
-		log("info_newconn: fcntl: FNDELAY: %s", strerror(errno));
+		log(LOG_INFO, "info_newconn: fcntl: FNDELAY: %s", strerror(errno));
 		close(fd);
 		return;
 	}
@@ -161,7 +161,7 @@ void info_process_cmd(INFO_DESC *id)
         if ( WSAGetLastError() == WSAEWOULDBLOCK)
 #endif
 			return;
-		log("info_input: read: %s", strerror(errno));
+		log(LOG_INFO, "info_input: read: %s", strerror(errno));
 		info_desc_free(id);
 		return;
 	}
@@ -217,7 +217,7 @@ static void info_desc_free(INFO_DESC *id)
 				break;
 
 		if (!prev) {
-			log("info_desc_free: descriptor not found");
+			log(LOG_INFO, "info_desc_free: descriptor not found");
 			return;
 		}
 

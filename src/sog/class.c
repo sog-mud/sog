@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: class.c,v 1.27 1999-12-18 11:01:40 fjoe Exp $
+ * $Id: class.c,v 1.28 2000-02-10 14:08:45 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -151,7 +151,7 @@ int guild_ok(CHAR_DATA *ch, ROOM_INDEX_DATA *room)
 		 * room was not found in the list of guild rooms
 		 * of all classes
 		 */
-		log("guild_ok: room %d: is not in guild rooms list",
+		log(LOG_INFO, "guild_ok: room %d: is not in guild rooms list",
 			   room->vnum);
 		return TRUE;
 	}

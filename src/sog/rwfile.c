@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: rwfile.c,v 1.9 2000-01-19 06:51:48 fjoe Exp $
+ * $Id: rwfile.c,v 1.10 2000-02-10 14:08:52 fjoe Exp $
  */
 
 static char str_end[] = "End";
@@ -117,24 +117,24 @@ rfile_open(const char *dir, const char *file)
 
 	snprintf(name, sizeof(name), "%s%c%s", dir, PATH_SEPARATOR, file);
 	if ((fd = open(name, O_RDONLY)) < 0) {
-		log("%s: %s", name, strerror(errno));
+		log(LOG_INFO, "%s: %s", name, strerror(errno));
 		return NULL;
 	}
 
 	if (fstat(fd, &s) < 0) {
 		close(fd);
-		log("%s: %s", name, strerror(errno));
+		log(LOG_INFO, "%s: %s", name, strerror(errno));
 		return NULL;
 	}
 
 	if ((p = mmap(NULL, s.st_size, PROT_READ, 0, fd, 0)) == MAP_FAILED) {
 		close(fd);
-		log("%s: %s", name, strerror(errno));
+		log(LOG_INFO, "%s: %s", name, strerror(errno));
 		return NULL;
 	}
 
 	if (madvise(p, s.st_size, MADV_SEQUENTIAL) < 0)
-		log("%s: %s", name, strerror(errno));
+		log(LOG_INFO, "%s: %s", name, strerror(errno));
 		
 	fp = malloc(sizeof(rfile_t));
 	fp->p = p;
@@ -231,8 +231,7 @@ fread_word(rfile_t *fp)
 	}
 
 	if (fp->tok_len >= MAX_STRING_LENGTH) {
-		/* XXX db_warning */
-		log("fread_word: word too long, truncated");
+		log(LOG_WARN, "fread_word: word too long, truncated");
 		fp->tok_len = MAX_STRING_LENGTH-1;
 	}
 }
@@ -308,7 +307,7 @@ fread_word(rfile_t *fp)
 		}
 	}
 
-	db_error("fread_word", "word too long");
+	log(LOG_ERROR, "fread_word: word too long");
 }
 
 void
@@ -343,7 +342,7 @@ const char *fread_string(rfile_t *fp)
 		 */
 
 		if (plast - buf >= sizeof(buf) - 1) {
-			bug("fread_string: line too long (truncated)");
+			log(LOG_ERROR, "fread_string: line too long (truncated)");
 			buf[sizeof(buf)-1] = '\0';
 			return str_dup(buf);
 		}
@@ -354,7 +353,7 @@ const char *fread_string(rfile_t *fp)
 			break;
  
 		case EOF:
-			db_error("fread_string", "EOF");
+			log(LOG_ERROR, "fread_string: EOF");
 			*plast = '\0';
 			return str_dup(buf);
  
@@ -429,8 +428,8 @@ int fread_number(rfile_t *fp)
 	}
 
 	if (!isdigit(c)) {
-		db_error("fread_number", "bad format");
-		log("fread_number: bad format");
+		log(LOG_ERROR, "fread_number: bad format");
+		log(LOG_INFO, "fread_number: bad format");
 		exit(1);
 	}
 

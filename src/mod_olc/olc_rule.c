@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_rule.c,v 1.26 1999-12-20 08:31:20 fjoe Exp $
+ * $Id: olc_rule.c,v 1.27 2000-02-10 14:08:44 fjoe Exp $
  */
 
 #include "olc.h"
@@ -534,7 +534,7 @@ static void rcl_save_expl(CHAR_DATA *ch, lang_t *l, rulecl_t *rcl)
 		return;
 
 	if (IS_NULLSTR(rcl->file_expl)) {
-		wizlog("rcl_save_expl: lang %s, rcl %s: NULL file name",
+		log(LOG_INFO, "rcl_save_expl: lang %s, rcl %s: NULL file name",
 			l->name, flag_string(rulecl_names, rcl->rulecl));
 		REMOVE_BIT(rcl->rcl_flags, RULES_EXPL_CHANGED);
 		return;
@@ -571,7 +571,7 @@ static void rcl_save_impl(CHAR_DATA *ch, lang_t *l, rulecl_t *rcl)
 		return;
 
 	if (IS_NULLSTR(rcl->file_expl)) {
-		wizlog("rcl_save_impl: lang %s, rcl %s: NULL file name",
+		log(LOG_INFO, "rcl_save_impl: lang %s, rcl %s: NULL file name",
 			l->name, flag_string(rulecl_names, rcl->rulecl));
 		REMOVE_BIT(rcl->rcl_flags, RULES_IMPL_CHANGED);
 		return;

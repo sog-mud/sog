@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.202 2000-01-19 06:51:42 fjoe Exp $
+ * $Id: act_obj.c,v 1.203 2000-02-10 14:08:34 fjoe Exp $
  */
 
 /***************************************************************************
@@ -863,7 +863,7 @@ void do_feed(CHAR_DATA *ch, const char *argument)
 			break;
 
 	if (!paf) {
-		bug("do_feed: bone dragon w/o affect");
+		log(LOG_ERROR, "do_feed: bone dragon w/o affect");
 		return;
 	}
 
@@ -932,7 +932,7 @@ void do_fill(CHAR_DATA * ch, const char *argument)
 		return;
 	}
         if ((lq = liquid_lookup(STR(fountain->value[2]))) == NULL) {
-		bug("Unknown liquid: %s", STR(fountain->value[2]));
+		log(LOG_ERROR, "Unknown liquid: %s", STR(fountain->value[2]));
 		return;
 	}
 	act_puts3("You fill $p with $V from $P.",
@@ -966,7 +966,7 @@ void do_pour(CHAR_DATA * ch, const char *argument)
 		return;
 	}
         if ((lq = liquid_lookup(STR(out->value[2]))) == NULL) {
-		bug("Unknown liquid: %s", STR(out->value[2]));
+		log(LOG_ERROR, "Unknown liquid: %s", STR(out->value[2]));
 		return;
 	}
 	if (!str_cmp(argument, "out")) {
@@ -1109,7 +1109,7 @@ void do_drink(CHAR_DATA * ch, const char *argument)
 	}
 
 	if ((lq = liquid_lookup(STR(obj->value[2]))) == NULL) {
-		bug("Do_drink: bad liquid %s.", STR(obj->value[2]));
+		log(LOG_ERROR, "Do_drink: bad liquid %s.", STR(obj->value[2]));
 		return;
 	}
 
@@ -1851,7 +1851,7 @@ void do_buy_pet(CHAR_DATA * ch, const char *argument)
 
 	pRoomIndexNext = get_room_index(ch->in_room->vnum + 1);
 	if (pRoomIndexNext == NULL) {
-		bug("Do_buy: bad pet shop at vnum %d.", ch->in_room->vnum);
+		log(LOG_ERROR, "Do_buy: bad pet shop at vnum %d.", ch->in_room->vnum);
 		char_puts("Sorry, you can't buy that here.\n", ch);
 		return;
 	}
@@ -2071,7 +2071,7 @@ void do_list(CHAR_DATA * ch, const char *argument)
 
 		pRoomIndexNext = get_room_index(ch->in_room->vnum + 1);
 		if (pRoomIndexNext == NULL) {
-			bug("Do_list: bad pet shop at vnum %d.", ch->in_room->vnum);
+			log(LOG_ERROR, "Do_list: bad pet shop at vnum %d.", ch->in_room->vnum);
 			char_puts("You can't do that here.\n", ch);
 			return;
 		}

@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.185 2000-01-19 06:51:48 fjoe Exp $
+ * $Id: update.c,v 1.186 2000-02-10 14:08:54 fjoe Exp $
  */
 
 /***************************************************************************
@@ -89,12 +89,12 @@ void advance_level(CHAR_DATA *ch)
 	class_t *cl;
 
 	if (IS_NPC(ch)) {
-		bug("advance_level: a mob to advance!");
+		log(LOG_ERROR, "advance_level: a mob to advance");
 		return;
 	}
 
 	if ((cl = class_lookup(ch->class)) == NULL) {
-		log("advance_level: %s: unknown class %s",
+		log(LOG_INFO, "advance_level: %s: unknown class %s",
 		    ch->name, ch->class);
 		return;
 	}
@@ -131,12 +131,12 @@ void delevel(CHAR_DATA *ch)
 	class_t *cl;
 
 	if (IS_NPC(ch)) {
-		bug("delevel: a mob to delevel!");
+		log(LOG_ERROR, "delevel: a mob to delevel");
 		return;
 	}
 
 	if ((cl = class_lookup(ch->class)) == NULL) {
-		log("delevel: %s: unknown class %s",
+		log(LOG_INFO, "delevel: %s: unknown class %s",
 		    ch->name, ch->class);
 		return;
 	}
@@ -260,7 +260,7 @@ void gain_exp(CHAR_DATA *ch, int gain)
 			ch->wimpy = 0;
 
 		if (ch->level == LEVEL_HERO)
-	        	log("%s made a hero level.", ch->name);
+	        	log(LOG_INFO, "%s made a hero level.", ch->name);
 
 		wiznet("$N has attained level $j!",
 			ch, (const void*) ch->level, WIZ_LEVELS, 0, 0);
@@ -1166,7 +1166,7 @@ void weather_update(void)
 
 	switch (weather_info.sky) {
 	default: 
-		bug("Weather_update: bad sky %d.", weather_info.sky);
+		log(LOG_ERROR, "Weather_update: bad sky %d.", weather_info.sky);
 		weather_info.sky = SKY_CLOUDLESS;
 		break;
 
@@ -1648,7 +1648,7 @@ save_corpse_contents(OBJ_DATA *corpse)
 			if (pit->pObjIndex == altar->pit)
 				break;
 	} else {
-		log("save_corpse_contents: null altar (owner: %s)",
+		log(LOG_INFO, "save_corpse_contents: null altar (owner: %s)",
 			   mlstr_mval(&corpse->owner));
 	}
 
@@ -2181,7 +2181,7 @@ clan_item_update_cb(void *p, va_list ap)
 		return NULL;
 
 	if (clan->altar_ptr == NULL) {
-		bug("clan_item_update_cb: clan %s: no altar_ptr", clan->name);
+		log(LOG_ERROR, "clan_item_update_cb: clan %s: no altar_ptr", clan->name);
 		return NULL;
 	}
 

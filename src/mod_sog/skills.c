@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.107 2000-02-01 05:57:45 fjoe Exp $
+ * $Id: skills.c,v 1.108 2000-02-10 14:08:52 fjoe Exp $
  */
 
 /***************************************************************************
@@ -223,7 +223,7 @@ int get_skill(CHAR_DATA *ch, const char *sn)
 			spec_skill_t *sp_sk;
 			spec_t * fsp;
 			if (!(fsp=spec_lookup(ch->shapeform->index->skill_spec))) {
-				bug("get_skill: bad form (%s) spec (%s).\n",
+				log(LOG_ERROR, "get_skill: bad form (%s) spec (%s).\n",
 					ch->shapeform->index->name,
 					ch->shapeform->index->skill_spec);
 				return 0;
@@ -410,7 +410,7 @@ int skill_beats(const char *sn)
 
 	if ((sk = skill_lookup(sn)) == NULL) {
 #ifdef STRKEY_STRICT_CHECKS
-		bug("skill_beats: %s: unknown skill", sn);
+		log(LOG_ERROR, "skill_beats: %s: unknown skill", sn);
 #endif
 		return 0;
 	}
@@ -426,7 +426,7 @@ int skill_mana(CHAR_DATA *ch, const char *sn)
 
 	if ((sk = skill_lookup(sn)) == NULL) {
 #ifdef STRKEY_STRICT_CHECKS
-		bug("skill_mana: %s: unknown skill", sn);
+		log(LOG_ERROR, "skill_mana: %s: unknown skill", sn);
 #endif
 		return 0;
 	}
@@ -519,7 +519,7 @@ const char *skill_slot_lookup(int slot)
 
 	sn = hash_foreach(&skills, skill_slot_cb, slot);
 	if (IS_NULLSTR(sn))
-		db_error("skill_slot_lookup", "unknown slot %d", slot);
+		log(LOG_ERROR, "skill_slot_lookup: unknown slot %d", slot);
 	return str_qdup(sn);
 }
 
@@ -619,7 +619,7 @@ void check_one_event(CHAR_DATA *ch, AFFECT_DATA *paf, flag_t event)
 	evf_t *evf;
 
 	if ((sk = skill_lookup(paf->type)) == NULL) {
-		bug("check_one_event: %s: unknown skill", paf->type);
+		log(LOG_ERROR, "check_one_event: %s: unknown skill", paf->type);
 		return;
 	}
 

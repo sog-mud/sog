@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: resolver.c,v 1.13 1999-12-16 12:24:54 fjoe Exp $
+ * $Id: resolver.c,v 1.14 2000-02-10 14:08:57 fjoe Exp $
  */
 
 #if !defined (WIN32)
@@ -56,7 +56,7 @@ int	fildes[4];
 void resolver_init(void)
 {
 	if (pipe(fildes) < 0 || pipe(fildes+2) < 0) {
-		log("resolver_init: pipe: %s", strerror(errno));
+		log(LOG_INFO, "resolver_init: pipe: %s", strerror(errno));
 		exit(1);
 	}
 
@@ -64,7 +64,7 @@ void resolver_init(void)
 
 	rpid = fork();
 	if (rpid < 0) {
-		log("resolver_init: fork: %s", strerror(errno));
+		log(LOG_INFO, "resolver_init: fork: %s", strerror(errno));
 		exit(1);
 	}
 
@@ -90,7 +90,7 @@ void resolver_init(void)
 	rfin = fdopen(fildes[0], "r");
 	rfout = fdopen(fildes[3], "w");
 	if (rfin == NULL || rfout == NULL) {
-		log("resolver_init: fdopen: %s", strerror(errno));
+		log(LOG_INFO, "resolver_init: fdopen: %s", strerror(errno));
 		exit(1);
 	}
 
@@ -131,7 +131,7 @@ static void resolver_loop(void)
 	fin = fdopen(fildes[2], "r");
 	fout = fdopen(fildes[1], "w");
 	if (fin == NULL || fout == NULL) {
-		log("resolver_loop: fdopen: %s", strerror(errno));
+		log(LOG_INFO, "resolver_loop: fdopen: %s", strerror(errno));
 		exit(1);
 	}
 
@@ -154,7 +154,7 @@ static void resolver_loop(void)
 			return;
 		*p++ = '\0';
 
-		log("resolver_loop: %s@%s", buf, p);
+		log(LOG_INFO, "resolver_loop: %s@%s", buf, p);
 
 		inet_aton(p, &addr);
 		hostent = gethostbyaddr((char*) &addr, sizeof(addr), AF_INET);
@@ -163,7 +163,7 @@ static void resolver_loop(void)
 	}
 
 	if (errno)
-		log("resolver_loop: %s", strerror(errno));
+		log(LOG_INFO, "resolver_loop: %s", strerror(errno));
 	fclose(fin);
 	fclose(fout);
 	exit(0);

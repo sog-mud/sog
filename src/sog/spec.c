@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: spec.c,v 1.18 1999-12-18 11:01:41 fjoe Exp $
+ * $Id: spec.c,v 1.19 2000-02-10 14:08:53 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -136,7 +136,7 @@ add_skills_cb(void *p, va_list ap)
 
 	if (spec == NULL) {
 #ifdef STRKEY_STRICT_CHECKS
-		wizlog("update_skills: %s: %s: unknown spec", ch->name, spn);
+		log(LOG_INFO, "update_skills: %s: %s: unknown spec", ch->name, spn);
 #endif
 		return NULL;
 	}
@@ -219,7 +219,7 @@ spec_stats_cb(void *p, va_list ap)
 	spec = spec_lookup(spn);
 	if (spec == NULL) {
 #ifdef STRKEY_STRICT_CHECKS
-		wizlog("spec_stats: %s: unknown spec", spn);
+		log(LOG_INFO, "spec_stats: %s: unknown spec", spn);
 #endif
 		return NULL;
 	}
@@ -259,7 +259,7 @@ void spec_stats(CHAR_DATA *ch, spec_skill_t *spec_sk)
 /* noone can use ill-defined skills */
 	if ((sk = skill_lookup(spec_sk->sn)) == NULL) {
 #ifdef STRKEY_STRICT_CHECKS
-		bug("spec_stats: %s: unknown skill", spec_sk->sn);
+		log(LOG_ERROR, "spec_stats: %s: unknown skill", spec_sk->sn);
 #endif
 		goto bailout;
 	}
@@ -367,7 +367,8 @@ spec_update_cb(void *p, va_list ap)
 	spec_t *spec = spec_lookup(*pspn);
 
 	if (spec == NULL) {
-		wizlog("spec_update: %s: %s: unknown spec", ch, *pspn);
+		log(LOG_INFO, "spec_update: %s: %s: unknown spec",
+		    ch->name, *pspn);
 		return NULL;
 	}
 

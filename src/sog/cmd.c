@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: cmd.c,v 1.11 1999-12-18 11:01:40 fjoe Exp $
+ * $Id: cmd.c,v 1.12 2000-02-10 14:08:45 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -72,7 +72,7 @@ cmd_load_cb(void *p, va_list ap)
 	||  cmd_class == cmd->cmd_class) {
 		cmd->do_fun = dlsym(m->dlh, cmd->dofun_name);
 		if (cmd->do_fun == NULL)
-			wizlog("cmd_load: %s", dlerror());
+			log(LOG_INFO, "cmd_load: %s", dlerror());
 	}
 
 	return NULL;
@@ -100,7 +100,7 @@ dofun(const char *name, CHAR_DATA *ch, const char *fmt, ...)
 	va_list ap;
 
 	if ((cmd = cmd_lookup(name)) == NULL) {
-		bug("dofun: %s: unknown dofun", name);
+		log(LOG_ERROR, "dofun: %s: unknown dofun", name);
 		return;
 	}
 
@@ -109,7 +109,7 @@ dofun(const char *name, CHAR_DATA *ch, const char *fmt, ...)
 	va_end(ap);
 
 	if (cmd->do_fun == NULL)
-		bug("dofun: %s: NULL do_fun", cmd->name);
+		log(LOG_ERROR, "dofun: %s: NULL do_fun", cmd->name);
 	else
 		cmd->do_fun(ch, buf);
 }

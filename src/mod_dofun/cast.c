@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: cast.c,v 1.22 2000-01-31 08:23:31 kostik Exp $
+ * $Id: cast.c,v 1.23 2000-02-10 14:08:39 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -175,7 +175,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 
 	switch (spell->target) {
 	default:
-		bug("do_cast: %s: bad target %d.", sn, spell->target);
+		log(LOG_ERROR, "do_cast: %s: bad target %d.", sn, spell->target);
 		return;
 
 	case TAR_IGNORE:
@@ -594,7 +594,7 @@ void do_pray(CHAR_DATA *ch, const char *argument)
 
 	switch (prayer->target) {
 	default:
-		bug("do_pray: %s: bad target %d.", sn, prayer->target);
+		log(LOG_ERROR, "do_pray: %s: bad target %d.", sn, prayer->target);
 		return;
 
 	case TAR_IGNORE:

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_material.c,v 1.8 1999-12-20 08:31:25 fjoe Exp $
+ * $Id: db_material.c,v 1.9 2000-02-10 14:08:59 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -79,11 +79,9 @@ DBLOAD_FUN(load_material)
 		case 'E':
 			if (IS_TOKEN(fp, "End")) {
 				if (IS_NULLSTR(mat.name)) {
-					db_error("load_material",
-						 "material name undefined");
+					log(LOG_ERROR, "load_material: material name undefined");
 				} else if (!hash_insert(&materials, mat.name, &mat)) {
-					db_error("load_material",
-						 "duplicate material name");
+					log(LOG_ERROR, "load_material: duplicate material name");
 				}
 				material_destroy(&mat);
 				return;
@@ -100,7 +98,7 @@ DBLOAD_FUN(load_material)
 		}
 
 		if (!fMatch) {
-			db_error("load_material", "%s: Unknown keyword",
+			log(LOG_ERROR, "load_material: %s: Unknown keyword",
 				 rfile_tok(fp));
 			fread_to_eol(fp);
 		}

@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.208 2000-01-19 06:51:49 fjoe Exp $
+ * $Id: db.c,v 1.209 2000-02-10 14:08:57 fjoe Exp $
  */
 
 /***************************************************************************
@@ -149,7 +149,7 @@ const char MSGDB_FILE		[] = "msgdb";		/* msgdb */
 const char AREA_LIST		[] = "area.lst";	/* list of areas */
 const char LANG_LIST		[] = "lang.lst";	/* list of languages */
 
-const char BUG_FILE		[] = "bugs.txt";	/* 'bug' and bug() */
+const char BUG_FILE		[] = "bugs.txt";	/* 'bug' and log(LOG_ERROR, ) */
 const char TYPO_FILE		[] = "typos.txt";	/* 'typo' */
 const char NOTE_FILE		[] = "notes.not";	/* 'notes' */
 const char IDEA_FILE		[] = "ideas.not";
@@ -176,7 +176,7 @@ TIME_INFO_DATA		time_info;
 WEATHER_DATA		weather_info;
 
 ROOM_INDEX_DATA	*	top_affected_room;
-int			reboot_counter;
+int			reboot_counter = 1440;
 
 /*
  * Locals.
@@ -222,7 +222,6 @@ const int rev_dir[] =
 /*
  * Semi-locals.
  */
-bool	fBootDb;
 char	filename[PATH_MAX];
 int	changed_flags;		/* changed object flags for OLC */
 hash_t	glob_gmlstr;
@@ -233,11 +232,10 @@ static void load_msgdb(void);
 /*
  * Local booting procedures.
 */
-void    init_mm         (void);
+static void	init_mm         (void);
  
-void	fix_exits	(void);
-void	fix_resets	(void);
-void    check_mob_progs	(void);
+static void	fix_resets	(void);
+static void	fix_exits	(void);
 
 void	reset_area	(AREA_DATA * pArea);
 
@@ -282,6 +280,16 @@ void db_set_arg(DBDATA *dbdata, const char *name, void *arg)
 	fun->arg = arg;
 }
 
+static void
+logger_db(const char *buf)
+{
+	char buf2[MAX_STRING_LENGTH];
+
+	snprintf(buf2, sizeof(buf2), "%s: line %d: %s",
+		 filename, line_number, buf);
+	logger_default(buf2);
+}
+
 /*
  * db_parse_file - parses file using dbdata
  * dbdata->tab_sz should be properly intialized
@@ -291,27 +299,26 @@ void db_parse_file(DBDATA *dbdata, const char *path, const char *file)
 	char buf[PATH_MAX];
 	int linenum;
 	rfile_t *fp;
+	logger_t logger_old;
 
 	strnzcpy(buf, sizeof(buf), filename);
 	linenum = line_number;
-	line_number = 0;
+	line_number = 1;
 	snprintf(filename, sizeof(filename), "%s%c%s",
 		 path, PATH_SEPARATOR, file);
 
 	if ((fp = rfile_open(path, file)) == NULL) {
-		db_error("db_parse_file", strerror(errno));
-		strnzcpy(filename, sizeof(filename), buf);
-		line_number = linenum;
+		log(LOG_ERROR, "db_parse_file: %s", strerror(errno));
+		goto bail_out;
 		return;
 	}
 
-/*	log("Loading %s", filename); */
-
+	logger_old = logger_set(LOG_ERROR, logger_db);
 	for (; ;) {
 		DBFUN *fn;
 
 		if (fread_letter(fp) != '#') {
-			db_error("db_parse_file", "'#' not found");
+			log(LOG_ERROR, "db_parse_file: '#' not found");
 			break;
 		}
 
@@ -323,12 +330,14 @@ void db_parse_file(DBDATA *dbdata, const char *path, const char *file)
 		if (fn) 
 			fn->fun(dbdata, fp, fn->arg);
 		else {
-			db_error("db_parse_file", "bad section name");
+			log(LOG_ERROR, "db_parse_file: bad section name");
 			break;
 		}
 	}
+	logger_set(LOG_ERROR, logger_old);
 	rfile_close(fp);
 
+bail_out:
 	strnzcpy(filename, sizeof(filename), buf);
 	line_number = linenum;
 }
@@ -349,7 +358,7 @@ void db_load_dir(DBDATA *dbdata, const char *path, const char *ext)
 	char mask[PATH_MAX];
 
 	if ((dirp = opendir(path)) == NULL) {
-		db_error("db_load_dir", "%s: %s", path, strerror(errno));
+		log(LOG_ERROR, "db_load_dir: %s: %s", path, strerror(errno));
 		return;
 	}
 
@@ -400,7 +409,6 @@ void db_load_list(DBDATA *dbdata, const char *path, const char *file)
 
 void boot_db_system(void)
 {
-	fBootDb = TRUE;
 	db_load_file(&db_system, ETC_PATH, SYSTEM_CONF);
 }
 
@@ -442,7 +450,7 @@ void boot_db(void)
 
 	weather_info.change	= 0;
 	weather_info.mmhg	= 960;
-	if (time_info.month >= 7 && time_info.month <=12)
+	if (time_info.month >= 7 && time_info.month <= 12)
 		weather_info.mmhg += number_range(1, 50);
 	else
 		weather_info.mmhg += number_range(1, 80);
@@ -451,12 +459,6 @@ void boot_db(void)
 	else if (weather_info.mmhg <= 1000) weather_info.sky = SKY_RAINING;
 	else if (weather_info.mmhg <= 1020) weather_info.sky = SKY_CLOUDY;
 	else                                weather_info.sky = SKY_CLOUDLESS;
-
-	/* room_affect_data */
-	top_affected_room = NULL;
-		
-	/* reboot counter */
-	reboot_counter = 1440;	/* 24 hours */
 
 	db_load_list(&db_langs, LANG_PATH, LANG_LIST);
 	db_load_file(&db_glob_gmlstr, ETC_PATH, GLOB_GMLSTR_FILE);
@@ -486,17 +488,13 @@ void boot_db(void)
 			exit(1);
 	}
 
-	fBootDb = FALSE;
-
 	/*
 	 * Fix up exits.
-	 * Declare db booting over.
 	 * Reset all areas once.
 	 * Load up the songs, notes and ban files.
 	 */
-	fix_exits();
 	fix_resets();
-	check_mob_progs();
+	fix_exits();
 	scan_pfiles();
 
 	area_update();
@@ -511,12 +509,12 @@ void boot_db(void)
 void vnum_check(AREA_DATA *area, int vnum)
 {
 	if (area->min_vnum == 0 || area->max_vnum == 0) {
-		log("%s: min_vnum or max_vnum not assigned",
+		log(LOG_INFO, "%s: min_vnum or max_vnum not assigned",
 			   area->file_name);
 	}
 
 	if (vnum < area->min_vnum || vnum > area->max_vnum) {
-		log("%s: %d not in area vnum range",
+		log(LOG_INFO, "%s: %d not in area vnum range",
 			   area->file_name, vnum);
 	}
 }
@@ -526,65 +524,79 @@ void vnum_check(AREA_DATA *area, int vnum)
  Purpose:	Inserts a new reset in the given index slot.
  Called by:	do_resets(olc.c).
  ****************************************************************************/
-void reset_add(RESET_DATA *pReset, ROOM_INDEX_DATA *room, int num)
+void reset_add(ROOM_INDEX_DATA *room, RESET_DATA *reset, RESET_DATA *after)
 {
-	RESET_DATA *reset;
-	int iReset = 0;
+	RESET_DATA *r;
 
-	if (!room->reset_first) {
-		room->reset_first	= pReset;
-		room->reset_last	= pReset;
-		pReset->next		= NULL;
+	if (after == NULL) {
+		/*
+		 * add to the end
+		 */
+
+		reset->next = NULL;
+		if (room->reset_first == NULL)
+			room->reset_first = reset;
+		if (room->reset_last == NULL)
+			room->reset_last = reset;
+		else
+			room->reset_last = room->reset_last->next = reset;
 		return;
 	}
 
-	num--;
-
-	if (num == 0)	{ /* First slot (1) selected. */
-		pReset->next = room->reset_first;
-		room->reset_first = pReset;
-		return;
-	}
-
-	/*
-	 * If negative slot(<= 0 selected) then this will find the last.
-	 */
-	for (reset = room->reset_first; reset->next; reset = reset->next) {
-		if (++iReset == num)
+	for (r = room->reset_first; r != NULL; r = r->next) {
+		if (r == after)
 			break;
 	}
 
-	pReset->next	= reset->next;
-	reset->next	= pReset;
-	if (!pReset->next)
-		room->reset_last = pReset;
-}
-
-/*
- *  Check mobprogs
- */
-void check_mob_progs(void)
-{
-    MOB_INDEX_DATA *mob;
-    MPTRIG        *mptrig;
-    int iHash;
-
-    for (iHash = 0; iHash < MAX_KEY_HASH; iHash++)
-    {
-	for (mob = mob_index_hash[iHash]; mob; mob = mob->next)
-	{
-	    for(mptrig = mob->mptrig_list; mptrig; mptrig = mptrig->next)
-	    {
-		if (mpcode_lookup(mptrig->vnum) == NULL) {
-		    db_error("check_mob_progs", "code vnum %d not found.",
-			     mptrig->vnum);
-		}
-	    }
+	if (r == NULL) {
+		log(LOG_ERROR, "reset_add: `after' reset not found");
+		return;
 	}
-    }
+
+	reset->next = r->next;
+	r->next = reset;
+	if (reset->next == NULL)
+		room->reset_last = reset;
 }
- 
-void fix_exits_room(ROOM_INDEX_DATA *room)
+
+void
+reset_del(ROOM_INDEX_DATA *room, RESET_DATA *reset)
+{
+	RESET_DATA *r;
+	RESET_DATA *prev = NULL;
+
+	for (r = room->reset_first; r != NULL; r = r->next) {
+		if (r == reset)
+			break;
+		prev = r;
+	}
+
+	if (r == NULL)
+		return;
+
+	if (prev == NULL)
+		room->reset_first = r->next;
+	else
+		prev->next = r->next;
+	if (r->next == NULL)
+		room->reset_last = prev;
+}
+
+RESET_DATA *
+reset_lookup(ROOM_INDEX_DATA *room, int rnum)
+{
+	RESET_DATA *r;
+
+	for (r = room->reset_first; r != NULL; r = r->next) {
+		if (!--rnum)
+			break;
+	}
+
+	return r;
+}
+
+static void
+fix_exits_room(ROOM_INDEX_DATA *room)
 {
 	int door;
 
@@ -610,77 +622,6 @@ void fix_exits(void)
 	for (iHash = 0; iHash < MAX_KEY_HASH; iHash++)
 		for (room = room_index_hash[iHash]; room; room = room->next)
 			fix_exits_room(room);
-}
-
-/*
- * check room resets
- */
-void fix_room_resets(ROOM_INDEX_DATA *pRoom)
-{
-	MOB_INDEX_DATA *pLastMob = NULL;
-	RESET_DATA *pReset;
-
-	for (pReset = pRoom->reset_first; pReset; pReset = pReset->next) {
-		OBJ_INDEX_DATA *pObj;
-		MOB_INDEX_DATA *pMob;
-		OBJ_INDEX_DATA *pObjTo;
-
-		switch (pReset->command) {
-		case 'M':
-			if ((pMob = get_mob_index(pReset->arg1)) == NULL) {
-				db_error("fix_room_resets", "%d (arg1): no such mob (area: %s, room: %d)", pReset->arg1, pRoom->area->name, pRoom->vnum);
-				exit(1);
-			}
-
-			pLastMob = pMob;
-			break;
-
-		case 'O':
-			if ((pObj = get_obj_index(pReset->arg1)) == NULL) {
-				db_error("fix_room_resets", "%d (arg1): no such obj (area: %s, room: %d)", pReset->arg1, pRoom->area->name, pRoom->vnum);
-				exit(1);
-			}
-
-			pObj->reset_num++;
-			break;
-
-		case 'P':
-			if ((pObj = get_obj_index(pReset->arg1)) == NULL) {
-				db_error("fix_room_resets", "%d (arg1): no such obj (area: %s, room: %d)", pReset->arg1, pRoom->area->name, pRoom->vnum);
-				exit(1);
-			}
-
-			if ((pObjTo = get_obj_index(pReset->arg3)) == NULL) {
-				db_error("fix_room_resets", "%d (arg3): no such obj (area: %s, room: %d)", pReset->arg1, pRoom->area->name, pRoom->vnum);
-				exit(1);
-			}
-
-			pObj->reset_num++;
-			break;
-
-		case 'G':
-		case 'E':
-			if ((pObj = get_obj_index(pReset->arg1)) == NULL) {
-				db_error("fix_room_resets", "%d (arg1): no such obj (area: %s, room: %d)", pReset->arg1, pRoom->area->name, pRoom->vnum);
-				exit(1);
-			}
-
-			pObj->reset_num++;
-			break;
-		}
-	}
-}
-
-void fix_resets(void)
-{
-	int i;
-
-	for (i = 0; i < MAX_KEY_HASH; i++) {
-		ROOM_INDEX_DATA *pRoom;
-
-		for (pRoom = room_index_hash[i]; pRoom; pRoom = pRoom->next)
-			fix_room_resets(pRoom);
-	}
 }
 
 void print_resetmsg(AREA_DATA *pArea)
@@ -790,295 +731,378 @@ clan_item_cb(void *p, va_list ap)
 }
 
 /*
+ * lookup last obj ('E', 'G' or 'O') with specified vnum in room resets
+ */
+static RESET_DATA *
+reset_EGO_lookup(ROOM_INDEX_DATA *room, int vnum)
+{
+	RESET_DATA *r;
+	RESET_DATA *rv = NULL;
+
+	for (r = room->reset_first; r != NULL; r = r->next) {
+		switch (r->command) {
+		case 'E':
+		case 'G':
+		case 'O':
+			if (r->arg1 == vnum)
+				rv = r;
+			break;
+		}
+	}
+
+	return rv;
+}
+
+static bool
+reset_in_EGO(RESET_DATA *after, RESET_DATA *reset)
+{
+	RESET_DATA *r;
+
+	for (r = after->next; r != NULL && r->command == 'P'; r = r->next) {
+		if (r == reset)
+			return TRUE;
+	}
+
+	return FALSE;
+}
+
+/*
+ * fix up old resets
+ *
+ * new resets scheme put obj in last obj
+ * old scheme specify the obj to put into by vnum
+ */
+static void
+fix_resets_room(ROOM_INDEX_DATA *room)
+{
+	RESET_DATA *r, *r_next;
+
+restart:
+	for (r = room->reset_first; r != NULL; r = r_next) {
+		ROOM_INDEX_DATA *to_room = NULL;
+		RESET_DATA *after;
+
+		r_next = r->next;
+		if (r->command != 'P' || r->arg3 == 0)
+			continue;
+
+		/*
+		 * try to find in current room
+		 */
+		after = reset_EGO_lookup(room, r->arg3);
+		if (!after) {
+			/*
+			 * search in area
+			 */
+			int min_vnum = room->area->min_vnum;
+			int max_vnum = room->area->max_vnum;
+			int vnum;
+
+			for (vnum = min_vnum; vnum <= max_vnum; vnum++) {
+				ROOM_INDEX_DATA *vrooom; /* yeah, vrooom */
+
+				if ((vrooom = get_room_index(vnum)) != NULL
+				&&  (after = reset_EGO_lookup(vrooom, r->arg3)))
+					to_room = vrooom;
+			}
+
+			if (to_room == NULL) {
+				log(LOG_ERROR, "fix_resets_room: no 'E', 'G' or 'O' reset for obj vnum %d in area", r->arg3);
+				continue;
+			}
+		} else if (reset_in_EGO(after, r)) {
+			/*
+			 * nothing to be done
+			 */
+			continue;
+		}
+
+		TOUCH_AREA(room->area);
+		if (to_room) {
+			log(LOG_INFO, "fix_resets_room: moving reset 'P 0 %d %d %d %d' to room %d", r->arg1, r->arg2, r->arg3, r->arg4, to_room->vnum);
+		} else {
+			to_room = room;
+			log(LOG_INFO, "fix_resets_room: moving reset 'P 0 %d %d %d %d' inside room", r->arg1, r->arg2, r->arg3, r->arg4);
+		}
+
+		reset_del(room, r);
+		reset_add(to_room, r, after);
+
+		if (to_room == room)
+			goto restart;
+	}
+}
+
+static void
+fix_resets(void)
+{
+	AREA_DATA *area;
+
+	for (area = area_first; area != NULL; area = area->next) {
+		int vnum;
+
+		for (vnum = area->min_vnum; vnum <= area->max_vnum; vnum++) {
+			ROOM_INDEX_DATA *room;
+
+			if ((room = get_room_index(vnum)) != NULL)
+				fix_resets_room(room);
+		}
+	}
+}
+
+static int reset_room_vnum;	/* vnum of room being reset */
+static int reset_num;		/* number of reset in room being reset */
+
+static void logger_reset(const char *buf)
+{
+	char buf2[MAX_STRING_LENGTH];
+	snprintf(buf2, sizeof(buf2), "reset_room %d[%d]: %s",
+		 reset_room_vnum, reset_num, buf);
+	logger_default(buf2);
+}
+
+/*
  * OLC
  * Reset one room.  Called by reset_area and olc.
  */
 void reset_room(ROOM_INDEX_DATA *pRoom, int flags)
 {
-    RESET_DATA  *pReset;
-    CHAR_DATA   *pMob;
-    CHAR_DATA	*mob;
-    OBJ_DATA    *pObj;
-    CHAR_DATA   *LastMob = NULL;
-    OBJ_DATA    *LastObj = NULL;
-    int iExit;
-    int level = 0;
-    bool last;
+	RESET_DATA *pReset;
 
-    if (!pRoom)
-        return;
+	CHAR_DATA *last_mob = NULL;
+	bool lmob = FALSE;		/* last mob was reset */
 
-    pMob        = NULL;
-    last        = FALSE;
-    
-    for (iExit = 0;  iExit < MAX_DIR;  iExit++)
-    {
-        EXIT_DATA *pExit;
-        if ((pExit = pRoom->exit[iExit])
-	  /*  && !IS_SET(pExit->exit_info, EX_BASHED)   ROM OLC */)  
-        {
-            pExit->exit_info = pExit->rs_flags;
-            if ((pExit->to_room.r != NULL)
-              && ((pExit = pExit->to_room.r->exit[rev_dir[iExit]])))
-            {
-                /* nail the other side */
-                pExit->exit_info = pExit->rs_flags;
-            }
-        }
-    }
+	OBJ_DATA *last_obj = NULL;
+	bool lobj = FALSE;		/* last obj was reset */
 
-    for (pReset = pRoom->reset_first; pReset != NULL; pReset = pReset->next)
-    {
-        MOB_INDEX_DATA  *pMobIndex;
-        OBJ_INDEX_DATA  *pObjIndex;
-        OBJ_INDEX_DATA  *pObjToIndex;
-        ROOM_INDEX_DATA *pRoomIndex;
-	int count,limit=0;
-	clan_t* clan;
-        EXIT_DATA *pExit;
-        int d0;
-        int d1;
+	int iExit;
+	logger_t logger_old;
 
-        switch (pReset->command)
-        {
-        default:
-                bug("Reset_room: bad command %c.", pReset->command);
-                break;
+	for (iExit = 0; iExit < MAX_DIR; iExit++) {
+		EXIT_DATA *pExit;
 
-        case 'M':
-            if (!(pMobIndex = get_mob_index(pReset->arg1)))
-            {
-                bug("Reset_room: 'M': bad vnum %d.", pReset->arg1);
-                continue;
-            }
-
-	    if ((pRoomIndex = get_room_index(pReset->arg3)) == NULL)
-	    {
-		bug("Reset_area: 'R': bad vnum %d.", pReset->arg3);
-		continue;
-	    }
-            if (pMobIndex->count >= pReset->arg2)
-            {
-                last = FALSE;
-                break;
-            }
-/* */
-	    count = 0;
-	    for (mob = pRoomIndex->people; mob != NULL; mob = mob->next_in_room)
-		if (mob->pMobIndex == pMobIndex)
-		{
-		    count++;
-		    if (count >= pReset->arg4)
-		    {
-		    	last = FALSE;
-		    	break;
-		    }
-		}
-
-	    if (count >= pReset->arg4)
-		break;
-
-		pMob = create_mob(pMobIndex);
-		NPC(pMob)->zone = pRoom->area;
-		char_to_room(pMob, pRoom);
-		if (IS_EXTRACTED(pMob))
-			LastMob = NULL;
-		else
-            		LastMob = pMob;
-
-		level  = URANGE(0, pMob->level - 2, LEVEL_HERO - 1);
-		last = TRUE;
-		break;
-
-        case 'O':
-            if (!(pObjIndex = get_obj_index(pReset->arg1)))
-            {
-                log("reset_room: 'O' 1 : bad vnum %d", pReset->arg1);
-                log("reset_room: %c %d %d %d",pReset->arg1, pReset->arg2, pReset->arg3, pReset->arg4);
-                continue;
-            }
-
-            if (!(pRoomIndex = get_room_index(pReset->arg3)))
-            {
-                log("reset_room: 'O' 2 : bad vnum %d.", pReset->arg3);
-                log("reset_room: %c %d %d %d", pReset->arg1, pReset->arg2, pReset->arg3, pReset->arg4);
-                continue;
-            }
-
-            if ((pRoom->area->nplayer > 0 && !IS_SET(flags, RESET_F_NOPCHECK))
-            ||  count_obj_list(pObjIndex, pRoom->contents) > 0) {
-		last = FALSE;
-		break;
-	    }
-		    if ((pObjIndex->limit != -1) &&
-		         (pObjIndex->count >= pObjIndex->limit))
-		      {
-		        last = FALSE;
-		        break;
-		      }
-
-            pObj = create_obj(pObjIndex, 0);
-            pObj->cost = 0;
-            obj_to_room(pObj, pRoom);
-	    last = TRUE;
-            break;
-
-        case 'P':
-		/* (P)ut command
-		 * arg1 - vnum of obj to put
-		 * arg2
-		 * arg3 - vnum of obj to put into
-		 * arg4
-		 */
-
-            if (!(pObjIndex = get_obj_index(pReset->arg1)))
-            {
-                bug("Reset_room: 'P': bad vnum %d.", pReset->arg1);
-                continue;
-            }
-	    
-            if (!(pObjToIndex = get_obj_index(pReset->arg3)))
-            {
-                bug("Reset_room: 'P': bad vnum %d.", pReset->arg3);
-                continue;
-            }
-
-            if (pReset->arg2 > 50) /* old format */
-                limit = 6;
-            else if (pReset->arg2 == -1) /* no limit */
-                limit = 999;
-            else
-                limit = pReset->arg2;
-
-            if ((pRoom->area->nplayer > 0 && !IS_SET(flags, RESET_F_NOPCHECK))
-              || (LastObj = get_obj_type(pObjToIndex)) == NULL
-              || (LastObj->in_room == NULL && !last)
-              || (pObjIndex->count >= limit && number_range(0,4) != 0) 
-              || (count = count_obj_list(pObjIndex, LastObj->contains)) > pReset->arg4 )
-	    {
-		last = FALSE;
-		break;
-	    }
-				                /* lastObj->level  -  ROM */
-
-		    if ((pObjIndex->limit != -1             ) &&
-		         (pObjIndex->count >= pObjIndex->limit)) {
-		        last = FALSE;
-		        break;
-		      }
-	    if (IS_SET(pObjIndex->obj_flags, OBJ_CLAN)) {
-		clan = hash_foreach(&clans, clan_item_cb, pObjIndex);
-		if (clan != NULL) {
-			pObj = create_obj(pObjIndex, 0);
-			clan->obj_ptr = pObj;
-			clan->altar_ptr = LastObj;
-			obj_to_obj(pObj, LastObj);
-		}
-		continue;
-	    }
-
-	    while (count < pReset->arg4)
-	    {
-            pObj = create_obj(pObjIndex, 0);
-            obj_to_obj(pObj, LastObj);
-		count++;
-		if (pObjIndex->count >= limit)
-		    break;
-	    }
-
-	    /* fix object lock state! */
-	    LastObj->value[1] = LastObj->pObjIndex->value[1];
-	    last = TRUE;
-            break;
-
-        case 'G':
-        case 'E':
-            if (!(pObjIndex = get_obj_index(pReset->arg1)))
-            {
-                bug("Reset_room: 'E' or 'G': bad vnum %d.", pReset->arg1);
-                continue;
-            }
-
-            if (!last)
-                break;
-
-            if (!LastMob)
-            {
-                bug("Reset_room: 'E' or 'G': null mob for vnum %d.",
-                    pReset->arg1);
-                last = FALSE;
-                break;
-            }
-
-            if (LastMob->pMobIndex->pShop) {  /* Shop-keeper? */
-                pObj = create_obj(pObjIndex, 0);
-		SET_OBJ_STAT(pObj, ITEM_INVENTORY);
-            }
-		else {
-		        if ((pObjIndex->limit == -1)  ||
-		          (pObjIndex->count < pObjIndex->limit))
-		          pObj=create_obj(pObjIndex, 0);
-		        else break;
-
-		}
-
-            obj_to_char(pObj, LastMob);
-            if (pReset->command == 'E')
-                equip_char(LastMob, pObj, pReset->arg3);
-            last = TRUE;
-            break;
-
-        case 'D':
-		    if ((pRoomIndex = get_room_index(pReset->arg1)) == NULL)
-		    {
-			bug("Reset_area: 'D': bad vnum %d.", pReset->arg1);
+		if ((pExit = pRoom->exit[iExit]) == NULL
+		/*  || IS_SET(pExit->exit_info, EX_BASHED) */)
 			continue;
-		    }
 
-		    if ((pExit = pRoomIndex->exit[pReset->arg2]) == NULL)
+                /*
+		 * nail both sides
+		 */
+		pExit->exit_info = pExit->rs_flags;
+		if (pExit->to_room.r != NULL
+		&&  (pExit = pExit->to_room.r->exit[rev_dir[iExit]]) != NULL)
+			pExit->exit_info = pExit->rs_flags;
+	}
+
+	reset_room_vnum = pRoom->vnum;
+	logger_old = logger_set(LOG_ERROR, logger_reset);
+
+	for (reset_num = 0, pReset = pRoom->reset_first; pReset != NULL;
+					pReset = pReset->next, reset_num++) {
+		MOB_INDEX_DATA *pMobIndex;
+		OBJ_INDEX_DATA *pObjIndex;
+		OBJ_DATA *obj;
+		int count, limit;
+		EXIT_DATA *pExit;
+		int d0;
+
+		switch (pReset->command) {
+		default:
+			log(LOG_ERROR, "bad command %c", pReset->command);
 			break;
 
-		    switch (pReset->arg3)
-		    {
-		    case 0:
-			REMOVE_BIT(pExit->exit_info, EX_CLOSED);
-			REMOVE_BIT(pExit->exit_info, EX_LOCKED);
+		case 'M':
+			/*
+			 * mob to room
+			 *	arg1 - mob vnum
+			 *	arg2 - mob count limit (total)
+			 *	arg3 - room vnum
+			 *	arg4 - mob count limit (in room)
+			 */
+			if ((pMobIndex = get_mob_index(pReset->arg1)) == NULL) {
+				log(LOG_ERROR, "%d: no such mob", pReset->arg1);
+				lmob = FALSE;
+				break;
+			}
+
+			if (pMobIndex->count >= pReset->arg2) {
+				lmob = FALSE;
+				break;
+			}
+
+			count = 0;
+			for (last_mob = pRoom->people; last_mob != NULL; last_mob = last_mob->next_in_room) {
+				if (last_mob->pMobIndex == pMobIndex)
+					count++;
+			}
+
+			if (count >= pReset->arg4) {
+				lmob = FALSE;
+				break;
+			}
+
+			last_mob = create_mob(pMobIndex);
+			NPC(last_mob)->zone = pRoom->area;
+			char_to_room(last_mob, pRoom);
+			if (IS_EXTRACTED(last_mob)) {
+				lmob = FALSE;
+				break;
+			}
+			lmob = TRUE;
 			break;
 
-		    case 1:
-			SET_BIT(  pExit->exit_info, EX_CLOSED);
-			REMOVE_BIT(pExit->exit_info, EX_LOCKED);
+		case 'G':
+		case 'E':
+			/*
+			 * give obj to char or equip char (reset by 'M')
+			 *	arg1 - obj vnum
+			 *	arg2 -
+			 *	arg3 - wear location (for 'E')
+			 *	arg4 -
+			 */
+			if (!lmob)
+				break;
+
+			if (last_mob == NULL) {
+				log(LOG_ERROR, "no previous mob");
+				lobj = FALSE;
+				break;
+			}
+
+			if ((pObjIndex = get_obj_index(pReset->arg1)) == NULL) {
+				log(LOG_ERROR, "%d: no such obj", pReset->arg1);
+				lobj = FALSE;
+				break;
+			}
+
+			if ((pObjIndex->limit != -1)
+			&&  pObjIndex->count >= pObjIndex->limit) {
+				lobj = FALSE;
+				break;
+			}
+
+			last_obj = create_obj(pObjIndex, 0);
+			if (pReset->command == 'G'
+			&&  last_mob->pMobIndex->pShop) /* Shop-keeper? */
+				SET_OBJ_STAT(last_obj, ITEM_INVENTORY);
+
+			obj_to_char(last_obj, last_mob);
+			if (pReset->command == 'E')
+				equip_char(last_mob, last_obj, pReset->arg3);
+			lobj = TRUE;
 			break;
 
-		    case 2:
-			SET_BIT(  pExit->exit_info, EX_CLOSED);
-			SET_BIT(  pExit->exit_info, EX_LOCKED);
+		case 'O':
+			/*
+			 * obj to room
+			 *	arg1 - obj vnum
+			 *	arg2 -
+			 *	arg3 - room vnum
+			 *	arg3 -
+			 * obj limits are checked
+			 */
+			if ((pObjIndex = get_obj_index(pReset->arg1)) == NULL) {
+				log(LOG_ERROR, "%d: no such obj", pReset->arg1);
+				lobj = FALSE;
+				break;
+			}
+
+			if ((pRoom->area->nplayer > 0 &&
+			     !IS_SET(flags, RESET_F_NOPCHECK))
+			||  count_obj_list(pObjIndex, pRoom->contents) > 0
+			||  (pObjIndex->limit != -1 &&
+			     pObjIndex->count >= pObjIndex->limit)) {
+				lobj = FALSE;
+				break;
+			}
+
+			last_obj = create_obj(pObjIndex, 0);
+			last_obj->cost = 0;
+			lobj = TRUE;
+			obj_to_room(last_obj, pRoom);
 			break;
-		    }
 
-		    last = TRUE;
-            break;
+		case 'P':
+			/*
+			 * put obj in last obj (reset by 'E', 'G' or 'O')
+			 * 	arg1 - vnum of obj to put
+		 	 * 	arg2 - obj count limit (total)
+			 * 	arg3 - 
+			 * 	arg4 - min obj count (in obj)
+			 * obj limits are checked
+			 */
 
-        case 'R':
-            if (!(pRoomIndex = get_room_index(pReset->arg1)))
-            {
-                bug("Reset_room: 'R': bad vnum %d.", pReset->arg1);
-                continue;
-            }
+			if (!lobj)
+				break;
 
-            {
+			if (last_obj == NULL) {
+				log(LOG_ERROR, "no previous obj");
+				break;
+			}
 
-                for (d0 = 0; d0 < pReset->arg2 - 1; d0++)
-                {
-                    d1                   = number_range(d0, pReset->arg2-1);
-                    pExit                = pRoomIndex->exit[d0];
-                    pRoomIndex->exit[d0] = pRoomIndex->exit[d1];
-                    pRoomIndex->exit[d1] = pExit;
-                }
-            }
-            break;
-        }
-    }
+			if ((pObjIndex = get_obj_index(pReset->arg1)) == NULL) {
+				log(LOG_ERROR, "%d: no such obj", pReset->arg1);
+				break;
+			}
+	    
+			if (pReset->arg2 > 50) /* old format */
+				limit = 6;
+			else if (pReset->arg2 == -1) /* no limit */
+				limit = 999;
+			else
+				limit = pReset->arg2;
+
+			if (pRoom->area->nplayer > 0
+			&&  !IS_SET(flags, RESET_F_NOPCHECK))
+				break;
+
+			if (IS_SET(pObjIndex->obj_flags, OBJ_CLAN)) {
+				clan_t* clan;
+
+				clan = hash_foreach(&clans, clan_item_cb,
+						    pObjIndex);
+				if (clan != NULL) {
+					obj = create_obj(pObjIndex, 0);
+					clan->obj_ptr = obj;
+					clan->altar_ptr = obj;
+					obj_to_obj(obj, last_obj);
+				}
+				break;
+			}
+
+			count = count_obj_list(pObjIndex, last_obj->contains);
+			for (;;) {
+				if (count >= pReset->arg4
+				||  (pObjIndex->count >= limit &&
+				     number_range(0, 4) != 0)
+				||  (pObjIndex->limit != -1 &&
+				     pObjIndex->count >= pObjIndex->limit))
+					break;
+
+				obj = create_obj(pObjIndex, 0);
+				obj_to_obj(obj, last_obj);
+				count++;
+			}
+
+			/* fix object lock state! */
+			last_obj->value[1] = last_obj->pObjIndex->value[1];
+			break;
+
+		case 'R':
+			/*
+			 * randomize exits
+			 */
+			for (d0 = 0; d0 < pReset->arg2 - 1; d0++) {
+				int d1 = number_range(d0, pReset->arg2 - 1);
+				pExit = pRoom->exit[d0];
+				pRoom->exit[d0] = pRoom->exit[d1];
+				pRoom->exit[d1] = pExit;
+			}
+			break;
+		} /* switch */
+	} /* for */
+
+	logger_set(LOG_ERROR, logger_old);
 }
 
 /*
@@ -1091,7 +1115,7 @@ void reset_area(AREA_DATA *pArea)
 	int vnum;
 
 	for (vnum = pArea->min_vnum; vnum <= pArea->max_vnum; vnum++)
-        	if ((pRoom = get_room_index(vnum)))
+		if ((pRoom = get_room_index(vnum)) != NULL)
 			reset_room(pRoom, 0);
 }
 
@@ -1122,7 +1146,7 @@ CHAR_DATA *create_mob(MOB_INDEX_DATA *pMobIndex)
 	AFFECT_DATA *paf;
 
 	if (pMobIndex == NULL) {
-		bug("create_mobile: NULL pMobIndex");
+		log(LOG_ERROR, "create_mob: NULL pMobIndex.");
 		exit(1);
 	}
 
@@ -1409,7 +1433,7 @@ OBJ_DATA *create_obj(OBJ_INDEX_DATA *pObjIndex, int flags)
 	int i;
 
 	if (pObjIndex == NULL) {
-		bug("create_object: NULL pObjIndex");
+		log(LOG_ERROR, "create_obj: NULL pObjIndex");
 		exit(1);
 	}
 
@@ -1553,9 +1577,6 @@ MOB_INDEX_DATA *get_mob_index(int vnum)
 		if (pMobIndex->vnum == vnum)
 			return pMobIndex;
 
-	if (fBootDb)
-		db_error("get_mob_index", "bad vnum %d.", vnum);
-		
 	return NULL;
 }
 
@@ -1575,9 +1596,6 @@ OBJ_INDEX_DATA *get_obj_index(int vnum)
 		if (pObjIndex->vnum == vnum)
 			return pObjIndex;
 
-	if (fBootDb)
-		db_error("get_obj_index", "bad vnum %d.", vnum);
-		
 	return NULL;
 }
 
@@ -1596,9 +1614,6 @@ ROOM_INDEX_DATA *get_room_index(int vnum)
 	     pRoomIndex; pRoomIndex = pRoomIndex->next)
 		if (pRoomIndex->vnum == vnum)
 			return pRoomIndex;
-
-	if (fBootDb)
-		db_error("get_room_index", "bad vnum %d.", vnum);
 
 	return NULL;
 }
@@ -1751,7 +1766,8 @@ int number_bits(int width)
 static  int     rgiState[2+55];
 #endif
  
-void init_mm()
+static void
+init_mm()
 {
 #if defined (OLD_RAND)
 	int *piState;
@@ -1895,16 +1911,16 @@ void scan_pfiles()
 	bool should_clear;
 	char fullname [PATH_MAX];
 
-	log("scan_pfiles: start (eqcheck is %s)",
+	log(LOG_INFO, "scan_pfiles: start (eqcheck is %s)",
 		   eqcheck ? "active" : "inactive");
 
 	if (eqcheck
 	&&  dunlink(TMP_PATH, EQCHECK_FILE) < 0)
-		log("scan_pfiles: unable to deactivate eq checker (%s)",
+		log(LOG_INFO, "scan_pfiles: unable to deactivate eq checker (%s)",
 			   strerror(errno));
 
 	if ((dirp = opendir(PLAYER_PATH)) == NULL) {
-		bug("scan_pfiles: unable to open player directory");
+		log(LOG_ERROR, "scan_pfiles: unable to open player directory");
 		exit(1);
 	}
 
@@ -1933,7 +1949,7 @@ void scan_pfiles()
 		snprintf(fullname, sizeof(fullname), "%s%c%s", PLAYER_PATH, 
 			PATH_SEPARATOR, dp->d_name);
 		if (stat(fullname, &s) < 0) {
-			bug("scan_pfiles: unable to stat %s.", fullname);
+			log(LOG_ERROR, "scan_pfiles: unable to stat %s.", fullname);
 		} else {
 			should_clear = (time(NULL) - s.st_mtime) > 60*60*24*14;
 		}
@@ -1948,7 +1964,7 @@ void scan_pfiles()
 				continue;
 
 			changed = TRUE;
-			log("scan_pfiles: %s: %s (vnum %d)",
+			log(LOG_INFO, "scan_pfiles: %s: %s (vnum %d)",
 				   ch->name,
 				   mlstr_mval(&obj->pObjIndex->short_descr),
 				   obj->pObjIndex->vnum);
@@ -1965,7 +1981,7 @@ void scan_pfiles()
 	}
 	closedir(dirp);
 
-	log("scan_pfiles: end (eqcheck is %s)",
+	log(LOG_INFO, "scan_pfiles: end (eqcheck is %s)",
 		   dfexist(TMP_PATH, EQCHECK_FILE) ? "active" : "inactive");
 }
 
@@ -1975,7 +1991,7 @@ void move_pfiles(int minvnum, int maxvnum, int delta)
 	DIR *dirp;
 
 	if ((dirp = opendir(PLAYER_PATH)) == NULL) {
-		bug("move_pfiles : unable to open player directory");
+		log(LOG_ERROR, "move_pfiles: unable to open player directory");
 		exit(1);
 	}
 	for (dp = readdir(dirp); dp != NULL; dp = readdir(dirp)) {
@@ -2025,24 +2041,6 @@ char *format_flags(flag_t flags)
 	return buf[cnt];
 }
 
-void db_error(const char* fn, const char* fmt,...)
-{
-	char buf[MAX_STRING_LENGTH];
-	va_list ap;
-
-	va_start(ap, fmt);
-	vsnprintf(buf, sizeof(buf), fmt, ap);
-	va_end(ap);
-
-	if (fBootDb) {
-		log("%s: line %d: %s: %s",
-			   filename, line_number, fn, buf);
-		exit(1);
-	}
-
-	log("%s: %s", fn, buf);
-}
-
 static hashdata_t h_glob_gmlstr =
 {
 	sizeof(gmlstr_t), 1,
@@ -2069,7 +2067,7 @@ DBLOAD_FUN(load_glob_gmlstr)
 	mlstr_fread(fp, &gml.ml);
 	if (mlstr_null(&gml.ml)) {
 		gmlstr_destroy(&gml);
-		db_error("load_glob_gmlstr", "null gmlstr");
+		log(LOG_ERROR, "load_glob_gmlstr: null gmlstr");
 		fread_to_end(fp);
 		return;
 	}
@@ -2082,8 +2080,7 @@ DBLOAD_FUN(load_glob_gmlstr)
 		case 'E':
 			if (IS_TOKEN(fp, "End")) {
 				if (hash_insert(&glob_gmlstr, gmlstr_mval(&gml), &gml) == NULL) {
-					db_error("load_gmlstr",
-						 "duplicate gmlstr");
+					log(LOG_ERROR, "load_gmlstr: duplicate gmlstr");
 				} 
 				gmlstr_destroy(&gml);
 				return;
@@ -2095,7 +2092,7 @@ DBLOAD_FUN(load_glob_gmlstr)
 		}
 
 		if (!fMatch) {
-			db_error("load_glob_gmlstr", "%s: Unknown keyword",
+			log(LOG_ERROR, "load_glob_gmlstr: %s: Unknown keyword",
 				 rfile_tok(fp));
 			fread_to_eol(fp);
 		}
@@ -2127,7 +2124,7 @@ load_msgdb(void)
 	snprintf(filename, sizeof(filename), "%s%c%s",
 		 ETC_PATH, PATH_SEPARATOR, MSGDB_FILE);
 	if ((fp = rfile_open(ETC_PATH, MSGDB_FILE)) == NULL) {
-		db_error("load_msgdb", strerror(errno));
+		log(LOG_ERROR, "load_msgdb: %s", strerror(errno));
 		return;
 	}
 
@@ -2142,13 +2139,13 @@ load_msgdb(void)
 			break;
 
 		if (!hash_insert(&msgdb, key, &ml))
-			db_error("load_msgdb", "%s: duplicate msg", key);
+			log(LOG_ERROR, "load_msgdb: %s: duplicate msg", key);
 		else  
 			msgcnt++;
 	}
 	mlstr_destroy(&ml);
 
-	log("load_msgdb: %d msgs loaded", msgcnt);
+	log(LOG_INFO, "load_msgdb: %d msgs loaded", msgcnt);
 	rfile_close(fp);
 }
 

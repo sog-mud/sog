@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: eventfun.c,v 1.10 2000-02-05 11:47:28 kostik Exp $
+ * $Id: eventfun.c,v 1.11 2000-02-10 14:08:40 fjoe Exp $
  */
 
 
@@ -63,7 +63,7 @@ void show_owner(CHAR_DATA *ch, AFFECT_DATA *af)
 EVENT_FUN(event_enter_lshield)
 {
 	if (af->owner->in_room != ch->in_room) {
-		bug("event_enter_lshield: owner of lightning shield left the room");
+		log(LOG_ERROR, "event_enter_lshield: owner of lightning shield left the room");
 		affect_remove_room(ch->in_room, af); 
 		return;
 	}
@@ -344,7 +344,7 @@ EVENT_FUN(event_timeoutchar_bonedragon)
 		return;
 
 	if ((chm = ch->master) == NULL) {
-		bug("hatchout_dragon: no master set!");
+		log(LOG_ERROR, "hatchout_dragon: no master set!");
 		extract_char(ch, 0);
 		return;
 	}

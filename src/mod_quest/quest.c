@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: quest.c,v 1.5 2000-01-19 06:51:48 fjoe Exp $
+ * $Id: quest.c,v 1.6 2000-02-10 14:08:51 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -68,7 +68,7 @@ void quest_cancel(CHAR_DATA *ch)
 	CHAR_DATA *fch;
 
 	if (IS_NPC(ch)) {
-		bug("quest_cancel: called for NPC");
+		log(LOG_ERROR, "quest_cancel: called for NPC");
 		return;
 	}
 

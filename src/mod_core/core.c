@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: core.c,v 1.8 1999-12-16 12:24:41 fjoe Exp $
+ * $Id: core.c,v 1.9 2000-02-10 14:08:31 fjoe Exp $
  */
 
 #include <errno.h>
@@ -43,7 +43,7 @@ int _module_load(module_t *m)
 
 int _module_unload(module_t *m)
 {
-	wizlog("_module_unload: core dofuns module could not be unloaded");
+	log(LOG_INFO, "_module_unload: core dofuns module could not be unloaded");
 	return -1;
 }
 

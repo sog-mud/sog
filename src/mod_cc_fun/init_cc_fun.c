@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_cc_fun.c,v 1.3 1999-12-16 12:24:46 fjoe Exp $
+ * $Id: init_cc_fun.c,v 1.4 2000-02-10 14:08:42 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -61,7 +61,7 @@ efun_load_cb(void *p, va_list ap)
 
 	efun->fun = dlsym(m->dlh, efun->fun_name);
 	if (efun->fun == NULL) 
-		wizlog("_module_load(mod_cc_efun): %s", dlerror());
+		log(LOG_ERROR, "_module_load(mod_cc_efun): %s", dlerror());
 	return NULL;
 }
 

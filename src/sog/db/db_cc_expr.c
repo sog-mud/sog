@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_cc_expr.c,v 1.3 1999-12-18 11:01:43 fjoe Exp $
+ * $Id: db_cc_expr.c,v 1.4 2000-02-10 14:08:59 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -79,8 +79,7 @@ DBLOAD_FUN(load_cc_eclass)
 			}
 			if (IS_TOKEN(fp, "end")) {
 				if (IS_NULLSTR(rcl->name)) {
-					db_error("load_cc_eclass",
-						 "cc_eclass name undefined");
+					log(LOG_ERROR, "load_cc_eclass: cc_eclass name undefined");
 					varr_edelete(&cc_eclasses, rcl);
 				} else {
 					varr_qsort(&cc_eclasses, cmpstr);
@@ -95,7 +94,7 @@ DBLOAD_FUN(load_cc_eclass)
 		}
 
 		if (!fMatch) {
-			db_error("load_cc_eclass", "%s: Unknown keyword",
+			log(LOG_ERROR, "load_cc_eclass: %s: Unknown keyword",
 				 rfile_tok(fp));
 			fread_to_eol(fp);
 		}

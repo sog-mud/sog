@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.151 2000-01-05 15:28:53 avn Exp $
+ * $Id: save.c,v 1.152 2000-02-10 14:08:52 fjoe Exp $
  */
 
 /***************************************************************************
@@ -460,7 +460,7 @@ fwrite_obj(CHAR_DATA * ch, OBJ_DATA * obj, FILE * fp, int iNest)
 	if (!IS_IMMORTAL(ch)
 	&&  OBJ_IS(obj, OBJ_QUEST)
 	&&  !IS_OWNER(ch, obj)) {
-		log("fwrite_obj: %s: '%s' of %s",
+		log(LOG_INFO, "fwrite_obj: %s: '%s' of %s",
 			   ch->name, obj->name,
 			   mlstr_mval(&obj->owner));
 		act("$p vanishes!", ch, obj, NULL, TO_CHAR);
@@ -577,7 +577,7 @@ CHAR_DATA *char_load(const char *name, int flags)
 			continue;
 		}
 		if (letter != '#') {
-			log("char_load: %s: # not found.", ch->name);
+			log(LOG_INFO, "char_load: %s: # not found.", ch->name);
 			break;
 		}
 
@@ -593,7 +593,7 @@ CHAR_DATA *char_load(const char *name, int flags)
 		else if (IS_TOKEN(fp, "END"))
 			break;
 		else {
-			log("char_load: %s: %s: bad section.", 
+			log(LOG_INFO, "char_load: %s: %s: bad section.", 
 			    ch->name, rfile_tok(fp));
 			break;
 		}
@@ -890,7 +890,7 @@ fread_char(CHAR_DATA * ch, rfile_t * fp, int flags)
 		}
 
 		if (!fMatch) {
-			log("fread_char: %s: %s: no match",
+			log(LOG_INFO, "fread_char: %s: %s: no match",
 			    ch->name, rfile_tok(fp));
 			fread_to_eol(fp);
 		}
@@ -917,7 +917,7 @@ fread_pet(CHAR_DATA * ch, rfile_t * fp, int flags)
 	}
 
 	if (pet == NULL) {
-		log("fread_pet: %s: no pet vnum or bad vnum in file", ch->name);
+		log(LOG_INFO, "fread_pet: %s: no pet vnum or bad vnum in file", ch->name);
 		fread_to_end(fp);
 		return;
 	}
@@ -1016,7 +1016,7 @@ fread_pet(CHAR_DATA * ch, rfile_t * fp, int flags)
 		}
 
 		if (!fMatch) {
-			log("fread_pet: %s: %s: no match",
+			log(LOG_INFO, "fread_pet: %s: %s: no match",
 			    ch->name, rfile_tok(fp));
 			fread_to_eol(fp);
 		}
@@ -1043,7 +1043,7 @@ fread_obj(CHAR_DATA * ch, rfile_t * fp, int flags)
 	}
 
 	if (obj == NULL) {
-		log("fread_obj: %s: no obj vnum or bad vnum in file", ch->name);
+		log(LOG_INFO, "fread_obj: %s: no obj vnum or bad vnum in file", ch->name);
 		fread_to_end(fp);
 		return;
 	}
@@ -1118,7 +1118,7 @@ fread_obj(CHAR_DATA * ch, rfile_t * fp, int flags)
 			if (IS_TOKEN(fp, "Nest")) {
 				iNest = fread_number(fp);
 				if (iNest < 0 || iNest >= MAX_NEST) {
-					log("fread_obj: %s: bad nest %d",
+					log(LOG_INFO, "fread_obj: %s: bad nest %d",
 						   ch->name, iNest);
 				} else {
 					rgObjNest[iNest] = obj;
@@ -1140,7 +1140,7 @@ fread_obj(CHAR_DATA * ch, rfile_t * fp, int flags)
 				const char *sn = fread_strkey(fp, &skills, "fread_obj");
 
 				if (iValue < 0 || iValue > 3) {
-					log("fread_obj: %s: %d: bad iValue", ch->name, iValue);
+					log(LOG_INFO, "fread_obj: %s: %d: bad iValue", ch->name, iValue);
 					free_string(sn);
 				} else
 					STR_ASSIGN(obj->value[iValue], sn);
@@ -1170,7 +1170,7 @@ fread_obj(CHAR_DATA * ch, rfile_t * fp, int flags)
 		}
 
 		if (!fMatch) {
-			log("fread_obj: %s: %s: no match",
+			log(LOG_INFO, "fread_obj: %s: %s: no match",
 			    ch->name, rfile_tok(fp));
 			fread_to_eol(fp);
 		}

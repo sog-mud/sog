@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_cmd.c,v 1.6 1999-12-18 11:01:43 fjoe Exp $
+ * $Id: db_cmd.c,v 1.7 2000-02-10 14:08:59 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -74,7 +74,7 @@ DBLOAD_FUN(load_cmd)
 		case 'E':
 			if (IS_TOKEN(fp, "end")) {
 				if (IS_NULLSTR(cmd->name)) {
-					db_error("load_cmd", "NULL name");
+					log(LOG_ERROR, "load_cmd: NULL name");
 					varr_edelete(&commands, cmd);
 				}
 				return;
@@ -100,7 +100,7 @@ DBLOAD_FUN(load_cmd)
 		}
 
 		if (!fMatch) {
-			db_error("load_cmd", "%s: Unknown keyword",
+			log(LOG_ERROR, "load_cmd: %s: Unknown keyword",
 				 rfile_tok(fp));
 			fread_to_eol(fp);
 		}

@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.236 2000-02-05 11:47:52 kostik Exp $
+ * $Id: handler.c,v 1.237 2000-02-10 14:08:46 fjoe Exp $
  */
 
 /***************************************************************************
@@ -160,7 +160,7 @@ void char_from_room(CHAR_DATA *ch)
 	CHAR_DATA *vch;
 
 	if (ch->in_room == NULL) {
-		bug("char_from_room: NULL");
+		log(LOG_ERROR, "char_from_room: NULL");
 		return;
 	}
 
@@ -183,7 +183,7 @@ void char_from_room(CHAR_DATA *ch)
 	}
 
 	if (vch == NULL)
-		bug("char_from_room: ch not found");
+		log(LOG_ERROR, "char_from_room: ch not found");
 	else if (prev == NULL)
 		ch->in_room->people = ch->next_in_room;
 	else 
@@ -215,7 +215,7 @@ void char_to_room(CHAR_DATA *ch, ROOM_INDEX_DATA *pRoomIndex)
 	if (pRoomIndex == NULL) {
 		ROOM_INDEX_DATA *room;
 
-		bug("char_to_room: NULL");
+		log(LOG_ERROR, "char_to_room: NULL");
 		
 		if ((room = get_room_index(ROOM_VNUM_TEMPLE)) != NULL)
 			char_to_room(ch, room);
@@ -288,7 +288,8 @@ void obj_from_char(OBJ_DATA *obj)
 	CHAR_DATA *ch;
 
 	if ((ch = obj->carried_by) == NULL) {
-		bug("obj_from_char: null ch (obj name: %s)", obj->name);
+		log(LOG_ERROR, "obj_from_char: null ch (obj->name  = '%s')",
+		    obj->name);
 		return;
 	}
 
@@ -301,14 +302,14 @@ void obj_from_char(OBJ_DATA *obj)
 		OBJ_DATA *prev;
 
 		for (prev = ch->carrying; prev; prev = prev->next_content) {
-			if (prev->next_content == obj) {
-				prev->next_content = obj->next_content;
+			if (prev->next_content == obj)
 				break;
-			}
 		}
 
 		if (prev == NULL)
-			bug("obj_from_char: obj not in list");
+			log(LOG_ERROR, "obj_from_char: obj not in list");
+		else
+			prev->next_content = obj->next_content;
 	}
 
 	obj->carried_by		= NULL;
@@ -401,7 +402,7 @@ OBJ_DATA * equip_char(CHAR_DATA *ch, OBJ_DATA *obj, int iWear)
 
 	if (get_eq_char(ch, iWear)) {
 		if (IS_NPC(ch)) {
-			bug("equip_char: vnum %d: in_room %d: "
+			log(LOG_ERROR, "equip_char: vnum %d: in_room %d: "
 			   "obj vnum %d: location %s: "
 			   "already equipped.",
 			   ch->pMobIndex->vnum,
@@ -409,7 +410,7 @@ OBJ_DATA * equip_char(CHAR_DATA *ch, OBJ_DATA *obj, int iWear)
 			   obj->pObjIndex->vnum,
 			   flag_string(wear_loc_flags, iWear));
 		} else {
-			bug("equip_char: %s: location %s: "
+			log(LOG_ERROR, "equip_char: %s: location %s: "
 			   "already equipped.",
 			   ch->name,
 			   flag_string(wear_loc_flags, iWear));
@@ -461,7 +462,7 @@ void unequip_char(CHAR_DATA *ch, OBJ_DATA *obj)
 		return;
 
 	if (obj->wear_loc == WEAR_NONE) {
-		bug("unequip_char: already unequipped");
+		log(LOG_ERROR, "unequip_char: already unequipped");
 		return;
 	}
 
@@ -513,7 +514,7 @@ void obj_from_room(OBJ_DATA *obj)
 	CHAR_DATA *ch;
 
 	if ((in_room = obj->in_room) == NULL) {
-		log("obj_from_room: NULL obj->in_room (vnum %d)",
+		log(LOG_INFO, "obj_from_room: NULL obj->in_room (vnum %d)",
 			   obj->pObjIndex->vnum);
 		return;
 	}
@@ -529,16 +530,14 @@ void obj_from_room(OBJ_DATA *obj)
 		OBJ_DATA *prev;
 
 		for (prev = in_room->contents; prev; prev = prev->next_content) {
-			if (prev->next_content == obj) {
-				prev->next_content = obj->next_content;
+			if (prev->next_content == obj)
 				break;
-			}
 		}
 
-		if (prev == NULL) {
-			bug("obj_from_room: obj not found");
-			return;
-		}
+		if (prev == NULL)
+			log(LOG_ERROR, "obj_from_room: obj not found");
+		else
+			prev->next_content = obj->next_content;
 	}
 
 	obj->in_room      = NULL;
@@ -567,7 +566,7 @@ void obj_to_room(OBJ_DATA *obj, ROOM_INDEX_DATA *pRoomIndex)
 void obj_to_obj(OBJ_DATA *obj, OBJ_DATA *obj_to)
 {
 	if (obj == obj_to) {
-		log("obj_to_obj: obj == obj_to (vnum %d)",
+		log(LOG_INFO, "obj_to_obj: obj == obj_to (vnum %d)",
 			   obj->pObjIndex->vnum);
 		return;
 	}
@@ -598,7 +597,7 @@ void obj_from_obj(OBJ_DATA *obj)
 	OBJ_DATA *obj_from;
 
 	if ((obj_from = obj->in_obj) == NULL) {
-		bug("obj_from_obj: null obj_from");
+		log(LOG_ERROR, "obj_from_obj: null obj_from");
 		return;
 	}
 
@@ -608,16 +607,14 @@ void obj_from_obj(OBJ_DATA *obj)
 		OBJ_DATA *prev;
 
 		for (prev = obj_from->contains; prev; prev = prev->next_content) {
-			if (prev->next_content == obj) {
-				prev->next_content = obj->next_content;
+			if (prev->next_content == obj) 
 				break;
-			}
 		}
 
-		if (prev == NULL) {
-			bug("obj_from_obj: obj not found");
-			return;
-		}
+		if (prev == NULL)
+			log(LOG_ERROR, "obj_from_obj: obj not found");
+		else
+			prev->next_content = obj->next_content;
 	}
 
 	obj->next_content = NULL;
@@ -639,7 +636,7 @@ void extract_obj(OBJ_DATA *obj, int flags)
 	OBJ_DATA *obj_next;
 
 	if (!mem_is(obj, MT_OBJ)) {
-		bug("extract_obj: obj is not MT_OBJ");
+		log(LOG_ERROR, "extract_obj: obj is not MT_OBJ");
 		return;
 	}
 
@@ -706,7 +703,7 @@ void extract_obj(OBJ_DATA *obj, int flags)
 		}
 
 		if (prev == NULL) {
-			bug("extract_obj: obj %d not found.",
+			log(LOG_ERROR, "extract_obj: obj %d not found.",
 			    obj->pObjIndex->vnum);
 			return;
 		}
@@ -734,7 +731,7 @@ void extract_char(CHAR_DATA *ch, int flags)
 	int extract_obj_flags;
 
 	if (!mem_is(ch, MT_CHAR)) {
-		bug("extract_char: ch is not MT_CHAR");
+		log(LOG_ERROR, "extract_char: ch is not MT_CHAR");
 		return;
 	}
 	
@@ -791,8 +788,7 @@ void extract_char(CHAR_DATA *ch, int flags)
 		char_list = ch->next;
 		if (ch == char_list_lastpc)
 			char_list_lastpc = NULL;
-	}
-	else {
+	} else {
 		CHAR_DATA *prev;
 
 		for (prev = char_list; prev; prev = prev->next) {
@@ -800,12 +796,10 @@ void extract_char(CHAR_DATA *ch, int flags)
 				break;
 		}
 
-		if (!prev) {
-			bug("extract_char: char not found");
-			return;
-		}
-
-		prev->next = ch->next;
+		if (prev == NULL)
+			log(LOG_ERROR, "Extract_char: char not found");
+		else
+			prev->next = ch->next;
 		if (ch == char_list_lastpc)
 			char_list_lastpc = prev;
 	}
@@ -968,7 +962,7 @@ CHAR_DATA *find_char(CHAR_DATA *ch, const char *argument, int door, int range)
 		return target;
 
 	if ((opdoor = opposite_door(door)) == -1) {
-		bug("In find_char wrong door: %d", door);
+		log(LOG_ERROR, "In find_char wrong door: %d", door);
 		char_puts("You don't see that there.\n", ch);
 		return NULL;
 	}
@@ -1034,21 +1028,6 @@ CHAR_DATA *get_char_spell(CHAR_DATA *ch, const char *argument,
 		return get_char_room(ch, argument);
 
 	return find_char(ch, p+1, *door, range);
-}
-
-/*
- * Find some object with a given index data.
- * Used by area-reset 'P' command.
- */
-OBJ_DATA *get_obj_type(OBJ_INDEX_DATA *pObjIndex)
-{
-	OBJ_DATA *obj;
-
-	for (obj = object_list; obj; obj = obj->next)
-		if (obj->pObjIndex == pObjIndex)
-			return obj;
-
-	return NULL;
 }
 
 /*
@@ -1258,13 +1237,13 @@ void deduct_cost(CHAR_DATA *ch, uint cost)
 	}
 
 	if (ch->gold < gold) {
-		log("deduct cost: %s: ch->gold (%d) < gold (%d)",
+		log(LOG_INFO, "deduct cost: %s: ch->gold (%d) < gold (%d)",
 			   ch->name, ch->gold, gold);
 		ch->gold = gold;
 	}
 
 	if (ch->silver < silver) {
-		log("deduct cost: %s: ch->silver (%d) < silver (%d)",
+		log(LOG_INFO, "deduct cost: %s: ch->silver (%d) < silver (%d)",
 			   ch->name, ch->silver, silver);
 		ch->silver = silver;
 	}
@@ -1327,7 +1306,7 @@ OBJ_DATA *create_money(int gold, int silver)
 	OBJ_DATA *obj;
 
 	if (gold < 0 || silver < 0 || (gold == 0 && silver == 0)) {
-		log("create_money: gold %d, silver %d",
+		log(LOG_INFO, "create_money: gold %d, silver %d",
 			   gold, silver);
 		gold = UMAX(1, gold);
 		silver = UMAX(1, silver);
@@ -1442,7 +1421,6 @@ bool room_is_dark(CHAR_DATA *ch)
 
 	return room_dark(pRoomIndex);
 }
-		
 
 bool room_dark(ROOM_INDEX_DATA *pRoomIndex)
 {
@@ -1460,7 +1438,7 @@ bool room_dark(ROOM_INDEX_DATA *pRoomIndex)
 		return FALSE;
 
 	if (weather_info.sunlight == SUN_SET
-		   || weather_info.sunlight == SUN_DARK)
+	||  weather_info.sunlight == SUN_DARK)
 		return TRUE;
 
 	return FALSE;
@@ -1525,7 +1503,7 @@ bool can_see(CHAR_DATA *ch, CHAR_DATA *victim)
 	CHAR_DATA *vch;
 
 	if (ch == NULL || victim == NULL) {
-		bug("can_see: ch = %p, victim = %p", ch, victim);
+		log(LOG_ERROR, "can_see: ch = %p, victim = %p", ch, victim);
 		return FALSE;
 	}
 	
@@ -1750,7 +1728,7 @@ void path_to_track(CHAR_DATA *ch, CHAR_DATA *victim, int door)
 	NPC(victim)->last_fought = ch;
 
 	if ((opdoor = opposite_door(door)) == -1) {
-		bug("In path_to_track wrong door: %d",door);
+		log(LOG_ERROR, "In path_to_track wrong door: %d",door);
 		return;
 	}
 
@@ -1761,13 +1739,13 @@ void path_to_track(CHAR_DATA *ch, CHAR_DATA *victim, int door)
 			break;
 		if ((pExit = temp->exit[ door ]) == NULL
 		||  (temp = pExit->to_room.r) == NULL) {
-			bug("path_to_track: couldn't calculate range %d",
+			log(LOG_ERROR, "path_to_track: couldn't calculate range %d",
 			    range);
 			return;
 		}
 
 		if (range > 100) {
-			bug("path_to_track: range exceeded 100");
+			log(LOG_ERROR, "path_to_track: range exceeded 100");
 			return;
 		}
 	}
@@ -1777,7 +1755,7 @@ void path_to_track(CHAR_DATA *ch, CHAR_DATA *victim, int door)
 		room_record(ch->name, temp, opdoor);
 		if ((pExit = temp->exit[opdoor]) == NULL
 		||  (temp = pExit->to_room.r) == NULL) {
-			bug("path_to_track: Range: %d Room: %d opdoor:%d",
+			log(LOG_ERROR, "path_to_track: Range: %d Room: %d opdoor:%d",
 			     range, temp->vnum, opdoor); 
 			return;
 		}
@@ -2345,7 +2323,7 @@ void set_leader(CHAR_DATA *ch, CHAR_DATA *lch)
 
 		for (tch = lch; tch && tch != ch; tch = tch_next) {
 			tch_next = tch->leader;
-			log("set_leader: removing cycle: %s", tch->name);
+			log(LOG_INFO, "set_leader: removing cycle: %s", tch->name);
 			tch->leader = NULL;
 			stop_follower(tch);
 		}
@@ -2630,7 +2608,7 @@ void quit_char(CHAR_DATA *ch, int flags)
 	char_puts("Alas, all good things must come to an end.\n", ch);
 	char_puts("You hit reality hard. Reality truth does unspeakable things to you.\n", ch);
 	act_puts("$n has left the game.", ch, NULL, NULL, TO_ROOM, POS_RESTING);
-	log("%s has quit.", ch->name);
+	log(LOG_INFO, "%s has quit.", ch->name);
 	wiznet("{W$N{x rejoins the real world.",
 		ch, NULL, WIZ_LOGINS, 0, ch->level);
 
@@ -2768,7 +2746,7 @@ void add_follower(CHAR_DATA *ch, CHAR_DATA *master)
 void stop_follower(CHAR_DATA *ch)
 {
 	if (ch->master == NULL) {
-		bug("stop_follower: null master");
+		log(LOG_ERROR, "stop_follower: null master");
 		return;
 	}
 
@@ -3070,7 +3048,7 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 	}
 
 	if (door < 0 || door >= MAX_DIR) {
-		bug("move_char_org: bad door %d.", door);
+		log(LOG_ERROR, "move_char_org: bad door %d.", door);
 		return FALSE;
 	}
 
@@ -3775,7 +3753,7 @@ void wear_obj(CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace)
 			return;
 		}
 
-		bug("wear_obj: no free finger");
+		log(LOG_ERROR, "wear_obj: no free finger");
 		char_puts("You already wear two rings.\n", ch);
 		return;
 	}
@@ -3920,7 +3898,7 @@ void wear_obj(CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace)
 			return;
 		}
 
-		bug("wear_obj: no free wrist");
+		log(LOG_ERROR, "wear_obj: no free wrist");
 		char_puts("You already wear two wrist items.\n", ch);
 		return;
 	}
@@ -4129,7 +4107,7 @@ void reboot_mud(void)
 	extern bool merc_down;
 	DESCRIPTOR_DATA *d,*d_next;
 
-	log("Rebooting SoG");
+	log(LOG_INFO, "Rebooting SoG");
 	for (d = descriptor_list; d != NULL; d = d_next) {
 		d_next = d->next;
 		write_to_buffer(d,"SoG is going down for rebooting NOW!\n\r",0);
@@ -4139,9 +4117,9 @@ void reboot_mud(void)
 	if (!rebooter) {
 		FILE *fp = dfopen(TMP_PATH, EQCHECK_FILE, "w");
 		if (!fp)
-			log("reboot_mud: unable to activate eqcheck");
+			log(LOG_INFO, "reboot_mud: unable to activate eqcheck");
 		else {
-			log("reboot_mud: eqcheck activated");
+			log(LOG_INFO, "reboot_mud: eqcheck activated");
 			fclose(fp);
 		}
 	}

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_liquid.c,v 1.11 1999-12-20 08:31:25 fjoe Exp $
+ * $Id: db_liquid.c,v 1.12 2000-02-10 14:08:59 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -90,11 +90,9 @@ DBLOAD_FUN(load_liquid)
 				const char *ln = gmlstr_mval(&lq.lq_name);
 
 				if (IS_NULLSTR(ln))
-					db_error("load_liquid",
-						 "liquid name undefined");
+					log(LOG_ERROR, "load_liquid: liquid name undefined");
 				else if (!hash_insert(&liquids, ln, &lq))
-					db_error("load_liquid",
-						 "duplicate liquid name");
+					log(LOG_ERROR, "load_liquid: duplicate liquid name");
 				liquid_destroy(&lq);
 				return;
 			}
@@ -111,7 +109,7 @@ DBLOAD_FUN(load_liquid)
 		}
 
 		if (!fMatch) {
-			db_error("load_liquid", "%s: Unknown keyword",
+			log(LOG_ERROR, "load_liquid: %s: Unknown keyword",
 				 rfile_tok(fp));
 			fread_to_eol(fp);
 		}

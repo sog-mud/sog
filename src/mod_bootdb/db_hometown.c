@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_hometown.c,v 1.7 1999-12-18 11:01:43 fjoe Exp $
+ * $Id: db_hometown.c,v 1.8 2000-02-10 14:08:59 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -98,7 +98,7 @@ DBLOAD_FUN(load_hometown)
 		}
 
 		if (!fMatch) {
-			db_error("load_hometown", "%s: Unknown keyword",
+			log(LOG_ERROR, "load_hometown: %s: Unknown keyword",
 				 rfile_tok(fp));
 			fread_to_eol(fp);
 		}
@@ -111,12 +111,26 @@ DBLOAD_FUN(load_hometown)
 static void fread_altar(hometown_t *h, rfile_t *fp)
 {
 	int anum;
+	int vnum;
 	ROOM_INDEX_DATA *room;
 	OBJ_INDEX_DATA *pit;
 
 	anum = fread_fword(align_names, fp);
-	room = get_room_index(fread_number(fp));
-	pit = get_obj_index(fread_number(fp));
+
+	vnum = fread_number(fp);
+	if ((room = get_room_index(vnum)) == NULL) {
+		log(LOG_ERROR, "fread_altar: %d: no such room", vnum);
+		fread_to_eol(fp);
+		return;
+	}
+
+	vnum = fread_number(fp);
+	if ((pit = get_obj_index(vnum)) == NULL) {
+		log(LOG_ERROR, "fread_altar: %d: no such obj", vnum);
+		fread_to_eol(fp);
+		return;
+	}
+
 	if (anum < 0) {
 		int i;
 
@@ -124,8 +138,7 @@ static void fread_altar(hometown_t *h, rfile_t *fp)
 			h->altar[i].room = room;
 			h->altar[i].pit = pit;
 		}
-	}
-	else {
+	} else {
 		h->altar[anum].room = room;
 		h->altar[anum].pit = pit;
 	}
@@ -134,17 +147,24 @@ static void fread_altar(hometown_t *h, rfile_t *fp)
 static void fread_recall(hometown_t *h, rfile_t *fp)
 {
 	int anum;
+	int vnum;
 	ROOM_INDEX_DATA *room;
 
 	anum = fread_fword(align_names, fp);
-	room = get_room_index(fread_number(fp));
+
+	vnum = fread_number(fp);
+	if ((room = get_room_index(vnum)) == NULL) {
+		log(LOG_ERROR, "fread_altar: %d: no such room", vnum);
+		fread_to_eol(fp);
+		return;
+	}
+
 	if (anum < 0) {
 		int i;
 
 		for (i = 0; i < MAX_ANUM; i++)
 			h->recall[i] = room;
-	}
-	else 
+	} else 
 		h->recall[anum] = room;
 }
 
@@ -158,14 +178,18 @@ static void fread_map(hometown_t *h, rfile_t *fp)
 	if ((vnum = fread_number(fp)) == 0)
 		return;
 
-	obj = get_obj_index(vnum);
+	if ((obj = get_obj_index(vnum)) == NULL) {
+		log(LOG_ERROR, "fread_altar: %d: no such obj", vnum);
+		fread_to_eol(fp);
+		return;
+	}
+
 	if (anum < 0) {
 		int i;
 
 		for (i = 0; i < MAX_ANUM; i++)
 			h->map[i] = obj;
-	}
-	else 
+	} else 
 		h->map[anum] = obj;
 }
 
@@ -174,26 +198,23 @@ static bool check_hometown(hometown_t *h)
 	int i;
 
 	if (IS_NULLSTR(h->area)) {
-		db_error("load_hometown", "Area undefined");
+		log(LOG_ERROR, "load_hometown: Area undefined");
 		return FALSE;
 	}
 
 	for (i = 0; i < MAX_ANUM; i++) {
 		if (!h->recall[i]) {
-			db_error("load_hometown",
-				 "Recall for '%s' undefined",
+			log(LOG_ERROR, "load_hometown: Recall for '%s' undefined",
 				 flag_string(align_names, i));
 			return FALSE;
 		}
 		if (!h->altar[i].room) {
-			db_error("load_hometown",
-				 "Altar for '%s' undefined",
+			log(LOG_ERROR, "load_hometown: Altar for '%s' undefined",
 				 flag_string(align_names, i));
 			return FALSE;
 		}
 		if (!h->altar[i].pit) {
-			db_error("load_hometown",
-				 "Pit for '%s' undefined",
+			log(LOG_ERROR, "load_hometown: Pit for '%s' undefined",
 				 flag_string(align_names, i));
 			return FALSE;
 		}

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: cc_expr.c,v 1.6 1999-12-18 11:01:40 fjoe Exp $
+ * $Id: cc_expr.c,v 1.7 2000-02-10 14:08:44 fjoe Exp $
  */
 
 #include <ctype.h>
@@ -114,7 +114,7 @@ fread_cc_vexpr(varr *v, const char *ecn, rfile_t *fp)
 	cc_eclass_t *ecl = cc_eclass_lookup(ecn);
 
 	if ((ecl = cc_eclass_lookup(ecn)) == NULL) {
-		db_error("fread_cc_exprset: %s: unknown cc_expr class", ecn);
+		log(LOG_ERROR, "fread_cc_exprset: %s: unknown cc_expr class", ecn);
 		fread_to_end(fp);
 		return;
 	}
@@ -139,7 +139,7 @@ fread_cc_vexpr(varr *v, const char *ecn, rfile_t *fp)
 		}
 
 		if (!fMatch) {
-			db_error("fread_cc_expr", "%s: Unknown keyword",
+			log(LOG_ERROR, "fread_cc_expr: %s: Unknown keyword",
 				 rfile_tok(fp));
 			fread_to_eol(fp);
 		}
@@ -200,7 +200,7 @@ cc_vexpr_check(varr *v, const char *ecn, ...)
 	va_list ap;
 
 	if (ecl == NULL) {
-		wizlog("cc_exprset_ok: %s: unknown cc_expr class", ecn);
+		log(LOG_INFO, "cc_exprset_ok: %s: unknown cc_expr class", ecn);
 		return NULL;
 	}
 

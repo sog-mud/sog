@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.290 2000-02-05 11:47:45 kostik Exp $
+ * $Id: merc.h,v 1.291 2000-02-10 14:08:41 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1920,14 +1920,15 @@ void	quit_char(CHAR_DATA *ch, int flags);
 CHAR_DATA *	get_char_room	(CHAR_DATA *ch, const char *argument);
 CHAR_DATA *	get_char_world	(CHAR_DATA *ch, const char *argument);
 CHAR_DATA *	get_char_area	(CHAR_DATA *ch, const char *argument);
-OBJ_DATA *	get_obj_type	(OBJ_INDEX_DATA *pObjIndexData);
+
 OBJ_DATA *	get_obj_list	(CHAR_DATA *ch, const char *argument,
-			    OBJ_DATA *list);
+				 OBJ_DATA *list);
 OBJ_DATA *	get_obj_carry	(CHAR_DATA *ch, const char *argument);
 OBJ_DATA *	get_obj_wear	(CHAR_DATA *ch, const char *argument);
 OBJ_DATA *	get_obj_here	(CHAR_DATA *ch, const char *argument);
 OBJ_DATA *	get_obj_room	(CHAR_DATA *ch, const char *argument);
 OBJ_DATA *	get_obj_world	(CHAR_DATA *ch, const char *argument);
+
 OBJ_DATA *	create_money	(int gold, int silver);
 int	get_obj_number	(OBJ_DATA *obj);
 int	get_obj_realnumber	(OBJ_DATA *obj);
@@ -2015,8 +2016,10 @@ char *		mob_spec_name(SPEC_FUN *function);
 
 RESET_DATA *	reset_new	(void);
 void		reset_free	(RESET_DATA *pReset);
-void		reset_add	(RESET_DATA *pReset, ROOM_INDEX_DATA *pRoom,
-				 int num);
+
+void	reset_add(ROOM_INDEX_DATA *room, RESET_DATA *reset, RESET_DATA *after);
+void	reset_del(ROOM_INDEX_DATA *room, RESET_DATA *reset);
+RESET_DATA *reset_lookup(ROOM_INDEX_DATA *room, int rnum);
 
 AREA_DATA	*new_area		(void);
 AREA_DATA *	area_lookup		(int vnum);

@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.327 2000-02-02 09:58:23 kostik Exp $
+ * $Id: act_info.c,v 1.328 2000-02-10 14:08:32 fjoe Exp $
  */
 
 /***************************************************************************
@@ -429,7 +429,7 @@ static void do_look_in(CHAR_DATA* ch, const char *argument)
 		break;
 	case ITEM_DRINK_CON:
 		if ((lq = liquid_lookup(STR(obj->value[2]))) == NULL) {
-			bug("Do_look_in: bad liquid %s.", STR(obj->value[2]));
+			log(LOG_ERROR, "Do_look_in: bad liquid %s.", STR(obj->value[2]));
 			break;
 		}
 		if (INT(obj->value[1]) == 0) {

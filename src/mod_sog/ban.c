@@ -1,5 +1,5 @@
 /*
- * $Id: ban.c,v 1.40 1999-10-06 09:56:12 fjoe Exp $
+ * $Id: ban.c,v 1.41 2000-02-10 14:08:55 fjoe Exp $
  */
 
 /***************************************************************************
@@ -91,26 +91,26 @@ void ban_add(CHAR_DATA *ch, const char *argument)
 	 */
 	argument = one_argument(argument, arg, sizeof(arg));
 	if (!is_number(arg)) {
-		BAN_ERROR(ch, ("do_ban: 'num' argument must be an integer"));
+		BAN_ERROR(ch, (LOG_WARN, "do_ban: 'num' argument must be an integer"));
 		return;
 	}
 	ban_num = atoi(arg);
 
 	argument = one_argument(argument, arg, sizeof(arg));
 	if ((ban_action = flag_value(ban_actions, arg)) < 0) {
-		BAN_ERROR(ch, ("do_ban: %s: unknown ban action", arg));
+		BAN_ERROR(ch, (LOG_WARN, "do_ban: %s: unknown ban action", arg));
 		return;
 	}
 
 	argument = one_argument(argument, arg, sizeof(arg));
 	if ((ban_class = flag_value(ban_classes, arg)) < 0) {
-		BAN_ERROR(ch, ("do_ban: %s: unknown ban class", arg));
+		BAN_ERROR(ch, (LOG_WARN, "do_ban: %s: unknown ban class", arg));
 		return;
 	}
 
 	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
-		BAN_ERROR(ch, ("do_ban: no ban mask specified"));
+		BAN_ERROR(ch, (LOG_WARN, "do_ban: no ban mask specified"));
 		return;
 	}
 
@@ -120,7 +120,7 @@ void ban_add(CHAR_DATA *ch, const char *argument)
 			if (ch)
 				char_printf(ch, "do_ban: rule %d already exists.\n", ban_num);
 			else
-				log("do_ban: rule %d already exists.\n", ban_num);
+				log(LOG_INFO, "do_ban: rule %d already exists.\n", ban_num);
 			return;
 		}
 		if (b->ban_num > ban_num)
@@ -143,7 +143,7 @@ void ban_add(CHAR_DATA *ch, const char *argument)
 
 	if (ch) {
 		char_printf(ch, "do_ban: rule added.\n");
-		log("Log %s: ban add %s", ch->name, format_ban(bnew));
+		log(LOG_INFO, "Log %s: ban add %s", ch->name, format_ban(bnew));
 		save_bans();
 	}
 }
@@ -182,7 +182,7 @@ void ban_delete(CHAR_DATA *ch, const char *argument)
 	free(curr);
 
 	char_printf(ch, "do_ban: rule %d deleted.\n", ban_num);
-	log("Log %s: ban delete %d", ch->name, ban_num);
+	log(LOG_INFO, "Log %s: ban delete %d", ch->name, ban_num);
 	save_bans();
 }
 

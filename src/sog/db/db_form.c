@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_form.c,v 1.5 2000-01-18 13:25:51 kostik Exp $
+ * $Id: db_form.c,v 1.6 2000-02-10 14:08:59 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -99,11 +99,9 @@ DBLOAD_FUN(load_form)
 		case 'E':
 			if (IS_TOKEN(fp, "End")) {
 				if (IS_NULLSTR(f.name)) {
-					db_error("load_form:",
-						 "form name undefined");
+					log(LOG_ERROR, "load_form: form name undefined");
 				} else if (!hash_insert(&forms, f.name, &f)) {
-					db_error("load_form",
-						 "duplicate form name");
+					log(LOG_ERROR, "load_form: duplicate form name");
 				}
 				form_destroy(&f);
 				return;
@@ -131,7 +129,7 @@ DBLOAD_FUN(load_form)
 			if (IS_TOKEN(fp, "Resist")) {
 				int res = fread_fword(resist_flags, fp);
 				if (res < 0) {
-					db_error("load_form", "unknown resistance name");
+					log(LOG_ERROR, "load_form: unknown resistance name");
 					fread_number(fp);
 				} else {
 					f.resists[res] = fread_number(fp);
@@ -144,7 +142,7 @@ DBLOAD_FUN(load_form)
 		}
 
 		if (!fMatch) {
-			db_error("load_form", "%s: Unknown keyword",
+			log(LOG_ERROR, "load_form: %s: Unknown keyword",
 				 rfile_tok(fp));
 			fread_to_eol(fp);
 		}

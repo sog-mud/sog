@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_clan.c,v 1.28 1999-12-20 08:31:25 fjoe Exp $
+ * $Id: db_clan.c,v 1.29 2000-02-10 14:08:59 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -94,8 +94,7 @@ DBLOAD_FUN(load_clan)
 			if (IS_TOKEN(fp, "End")) {
 				clan_t *pclan;
 				if (IS_NULLSTR(clan.name)) {
-					db_error("load_clan",
-						 "clan name not defined");
+					log(LOG_ERROR, "load_clan: clan name not defined");
 				} else if ((pclan = hash_insert(&clans,
 						clan.name, &clan)) != NULL) {
 					const char *file_name =
@@ -134,7 +133,7 @@ DBLOAD_FUN(load_clan)
 		}
 
 		if (!fMatch) {
-			db_error("load_clan", "%s: Unknown keyword",
+			log(LOG_ERROR, "load_clan: %s: Unknown keyword",
 				 rfile_tok(fp));
 			fread_to_eol(fp);
 		}
@@ -166,7 +165,7 @@ DBLOAD_FUN(load_plists)
 		}
 
 		if (!fMatch) {
-			db_error("load_plists", "%s: Unknown keyword",
+			log(LOG_ERROR, "load_plists: %s: Unknown keyword",
 				 rfile_tok(fp));
 			fread_to_eol(fp);
 		}

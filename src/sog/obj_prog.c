@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.c,v 1.75 1999-12-22 08:29:11 fjoe Exp $
+ * $Id: obj_prog.c,v 1.76 2000-02-10 14:08:50 fjoe Exp $
  */
 
 /***************************************************************************
@@ -298,14 +298,14 @@ void oprog_set(OBJ_INDEX_DATA *pObjIndex,const char *progtype, const char *name)
 
 	opindex = optype_lookup(progtype);
 	if (opindex == -1) {
-		log("oprog_set: vnum %d: unknown obj prog type `%s'",
+		log(LOG_INFO, "oprog_set: vnum %d: unknown obj prog type `%s'",
 			   pObjIndex->vnum, progtype);
 		exit(1);
 	}
 
 	oprog = oprog_lookup(name);
 	if (oprog == NULL) {
-		log("oprog_set: vnum %d: unknown obj prog `%s'",
+		log(LOG_INFO, "oprog_set: vnum %d: unknown obj prog `%s'",
 			   pObjIndex->vnum, name);
 		exit(1);
 	}

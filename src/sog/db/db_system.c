@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_system.c,v 1.10 1999-12-18 11:01:44 fjoe Exp $
+ * $Id: db_system.c,v 1.11 2000-02-10 14:09:00 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -110,7 +110,7 @@ DBLOAD_FUN(load_system)
 		}
 
 		if (!fMatch) {
-			db_error("load_system", "%s: Unknown keyword",
+			log(LOG_ERROR, "load_system: %s: Unknown keyword",
 				 rfile_tok(fp));
 			fread_to_eol(fp);
 		}
@@ -144,7 +144,7 @@ DBLOAD_FUN(load_info)
 		}
 
 		if (!fMatch) {
-			db_error("load_info", "%s: Unknown keyword",
+			log(LOG_ERROR, "load_info: %s: Unknown keyword",
 				 rfile_tok(fp));
 			fread_to_eol(fp);
 		}
@@ -158,13 +158,13 @@ static void fread_host(rfile_t *fp, varr *v)
 
 	free_string(s);
 	if (!h)
-		log("load_info: gethostbyname: %s", hstrerror(h_errno));
+		log(LOG_INFO, "load_info: gethostbyname: %s", hstrerror(h_errno));
 	else {
 		for (; *h->h_addr_list; h->h_addr_list++) {
 			struct in_addr *in_addr;
 			in_addr = varr_enew(v);
 			memcpy(in_addr, *h->h_addr_list, sizeof(*in_addr));
-			log("load_info: added '%s' to trusted list",
+			log(LOG_INFO, "load_info: added '%s' to trusted list",
 				   inet_ntoa(*in_addr));
 		}
 	}

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_magic.c,v 1.7 1999-12-16 12:24:55 fjoe Exp $
+ * $Id: init_magic.c,v 1.8 2000-02-10 14:09:01 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -65,7 +65,7 @@ load_cb(void *p, va_list ap)
 	||  sk->skill_type == ST_PRAYER) {
 		sk->fun = dlsym(m->dlh, sk->fun_name);
 		if (sk->fun == NULL) 
-			wizlog("_module_load(spellfun): %s", dlerror());
+			log(LOG_INFO, "_module_load(spellfun): %s", dlerror());
 	}
 	return NULL;
 }
