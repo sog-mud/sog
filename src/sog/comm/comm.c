@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.200.2.43 2004-02-24 11:25:23 fjoe Exp $
+ * $Id: comm.c,v 1.200.2.44 2004-02-25 22:30:53 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1024,6 +1024,12 @@ void close_descriptor(DESCRIPTOR_DATA *dclose, int save_flags)
 	free_descriptor(dclose);
 }
 
+#define DECODE_CHAR(d, p)						\
+	do {								\
+		*p = d->codepage->from[*p];				\
+		p++;							\
+	} while (0)
+
 bool read_from_descriptor(DESCRIPTOR_DATA *d)
 {
 	int iOld;
@@ -1087,7 +1093,7 @@ bool read_from_descriptor(DESCRIPTOR_DATA *d)
 		unsigned char *r;
 
 		if (*p != IAC) {
-			*p = d->codepage->from[*p++];
+			DECODE_CHAR(d, p);
 			continue;
 			/* NOTREACHED */
 		}
@@ -1125,7 +1131,7 @@ bool read_from_descriptor(DESCRIPTOR_DATA *d)
 			break;
 
 		case IAC:
-			*p++ = d->codepage->from[*p];
+			DECODE_CHAR(d, p);
 			if (d->character != NULL
 			&&  IS_SET(d->character->comm, COMM_NOTELNET))
 				continue;
@@ -1135,7 +1141,7 @@ bool read_from_descriptor(DESCRIPTOR_DATA *d)
 		default:
 			if (d->character != NULL
 			&&  IS_SET(d->character->comm, COMM_NOTELNET)) {
-				*p++ = d->codepage->from[*p];
+				DECODE_CHAR(d, p);
 				continue;
 			}
 			q = p + 2;
