@@ -661,6 +661,15 @@ weapon AGIKL 0 AN
 mace 9 0 'divine' I
 0 0 0 P
 g @rus male~
+#19
+rose black~
+black rose~
+A single black rose lies here.~
+unknown~
+treasure 0 0 0
+0 0 0 0 0
+0 80 0 P
+g @eng none@rus female~
 #20
 mushroom грибок~
 @eng a Magic Mushroom@rus ~~Волшебный~~ ~~Мухомор~~~
