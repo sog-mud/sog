@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.268 2001-02-21 19:07:07 fjoe Exp $
+ * $Id: act_wiz.c,v 1.269 2001-03-11 21:10:56 fjoe Exp $
  */
 
 /***************************************************************************
@@ -87,7 +87,6 @@ DECLARE_DO_FUN(do_mfind	);
 DECLARE_DO_FUN(do_ofind	);
 DECLARE_DO_FUN(do_mload	);
 DECLARE_DO_FUN(do_oload	);
-DECLARE_DO_FUN(do_save	);
 DECLARE_DO_FUN(do_look	);
 DECLARE_DO_FUN(do_stand	);
 DECLARE_DO_FUN(do_help	);
@@ -2171,6 +2170,9 @@ void do_restore(CHAR_DATA *ch, const char *argument)
 		 * cure all
 		 */
 		for (d = descriptor_list; d != NULL; d = d->next) {
+			if (d->connected != CON_PLAYING)
+				continue;
+
 			vch = d->character;
 
 			if (vch == NULL || IS_NPC(vch))
