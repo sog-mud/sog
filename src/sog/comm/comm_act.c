@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm_act.c,v 1.11 1999-02-19 18:49:05 fjoe Exp $
+ * $Id: comm_act.c,v 1.12 1999-02-20 17:41:08 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -364,18 +364,26 @@ static void act_raw(CHAR_DATA *ch, CHAR_DATA *to,
 
 			case 'n':
 				i = PERS(ch, to);
+				if (sp < 0)
+					i = fix_short(i);
 				break;
 	
 			case 'N':
 				i = PERS(vch, to);
+				if (sp < 0)
+					i = fix_short(i);
 				break;
 
 			case 'i':
 				i = PERS(vch1, to);
+				if (sp < 0)
+					i = fix_short(i);
 				break;
 
 			case 'I':
 				i = PERS(vch3, to);
+				if (sp < 0)
+					i = fix_short(i);
 				break;
 
 			case 'j':

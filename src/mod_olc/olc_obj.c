@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_obj.c,v 1.37 1999-02-20 16:29:20 fjoe Exp $
+ * $Id: olc_obj.c,v 1.38 1999-02-20 17:41:17 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -1066,8 +1066,8 @@ void show_obj_values(BUFFER *output, OBJ_INDEX_DATA *pObj)
 		break;
 
 	case ITEM_MONEY:
-		buf_printf(output, "[v0] Gold:   [%d]\n"
-				   "[v1] Silver: [%d]\n",
+		buf_printf(output, "[v0] Silver: [%d]\n"
+				   "[v1] Gold:   [%d]\n",
 			   pObj->value[0], pObj->value[1]);
 		break;
 	}
@@ -1398,11 +1398,11 @@ int set_obj_values(BUFFER *output, OBJ_INDEX_DATA *pObj,
 		default:
 			return 1;
 		case 0:
-			buf_add(output, "GOLD AMOUNT SET.\n\n");
+			buf_add(output, "SILVER AMOUNT SET.\n\n");
 			pObj->value[0] = atoi(argument);
 			break;
 		case 1:
-			buf_add(output, "SILVER AMOUNT SET.\n\n");
+			buf_add(output, "GOLD AMOUNT SET.\n\n");
 			pObj->value[1] = atoi(argument);
 			break;
 		}
