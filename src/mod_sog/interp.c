@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.63 1998-09-15 15:17:15 fjoe Exp $
+ * $Id: interp.c,v 1.64 1998-09-16 10:50:51 fjoe Exp $
  */
 
 /***************************************************************************
@@ -289,7 +289,7 @@ const	struct	cmd_type	cmd_table	[] =
     /*
      * Object manipulation commands.
      */
-    { "brandish",	do_brandish,	POS_RESTING,	 0,  LOG_NORMAL, 1,0 },
+    { "brandish",	do_brandish,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
     { "butcher",        do_butcher,     POS_STANDING,    0,  LOG_NORMAL, 1,0 },
     { "close",		do_close,	POS_RESTING,	 0,  LOG_NORMAL, 1,CMD_GHOST },
     { "detect",         do_detect_hidden,POS_RESTING,    0,  LOG_NORMAL, 1,0},
@@ -312,7 +312,7 @@ const	struct	cmd_type	cmd_table	[] =
     { "pour",		do_pour,	POS_RESTING,	 0,  LOG_NORMAL, 1,CMD_KEEP_HIDE },
     { "put",		do_put,		POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
     { "quaff",		do_quaff,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
-    { "recite",		do_recite,	POS_RESTING,	 0,  LOG_NORMAL, 1,0 },
+    { "recite",		do_recite,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
     { "remove",		do_remove,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
     { "request",        do_request,     POS_STANDING,    0,  LOG_NORMAL, 1,0 },
     { "sell",		do_sell,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
@@ -322,7 +322,7 @@ const	struct	cmd_type	cmd_table	[] =
     { "trophy",         do_trophy,      POS_STANDING,    0,  LOG_NORMAL, 1,0 },
     { "value",		do_value,	POS_RESTING,	 0,  LOG_NORMAL, 1,0 },
     { "wear",		do_wear,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
-    { "zap",		do_zap,		POS_RESTING,	 0,  LOG_NORMAL, 1,0 },
+    { "zap",		do_zap,		POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
 
     { "recall",		do_recall,	POS_FIGHTING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
     { "/",		do_recall,	POS_FIGHTING,	 0,  LOG_NORMAL, 0, CMD_GHOST },
@@ -616,6 +616,7 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 				    MSG_N_FADES_INTO_EXIST);
 		}
 
+#if 0
 		/* prevent ghosts from doing a bunch of commands */
 		if (!IS_NPC(ch) && IS_SET(ch->act, PLR_GHOST)
 		&&  (cmd_table[cmd].extra & CMD_GHOST) == 0) {
@@ -623,6 +624,7 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 				  ch);
 			return;
 		}
+#endif
 
 		found = TRUE;
 		break;
