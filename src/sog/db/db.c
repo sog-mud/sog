@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.22 1998-06-17 07:31:30 fjoe Exp $
+ * $Id: db.c,v 1.23 1998-06-18 05:19:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -62,6 +62,7 @@
 #include "act_comm.h"
 #include "rating.h"
 #include "update.h"
+#include "log.h"
 
 #ifdef SUNOS
 #include "compat.h"
@@ -108,7 +109,6 @@ SHOP_DATA *		shop_last;
 
 NOTE_DATA *		note_free;
 
-char			bug_buf		[2*MAX_INPUT_LENGTH];
 CHAR_DATA *		char_list;
 char *			help_greeting;
 KILL_DATA		kill_table	[MAX_LEVEL];
@@ -3214,52 +3214,50 @@ void str_printf(char** pstr, const char* fmt, ...)
 
 void do_areas(CHAR_DATA *ch, char *argument)
 {
-		char bufpage[6 * MAX_STRING_LENGTH];
-		char buf[MAX_STRING_LENGTH];
-		char buf2[MAX_STRING_LENGTH];
-		AREA_DATA *pArea1;
-		AREA_DATA *pArea2;
-		int iArea;
-		int iAreaHalf;
+	char bufpage[6 * MAX_STRING_LENGTH];
+	char buf[MAX_STRING_LENGTH];
+	char buf2[MAX_STRING_LENGTH];
+	AREA_DATA *pArea1;
+	AREA_DATA *pArea2;
+	int iArea;
+	int iAreaHalf;
 
-		if (argument[0] != '\0') {
-			send_to_char("No argument is used with this command.\n\r",ch);
-			return;
-		}
-
-		iAreaHalf = (top_area + 1) / 2;
-		pArea1    = area_first;
-		pArea2    = area_first;
-		for (iArea = 0; iArea < iAreaHalf; iArea++)
-			pArea2 = pArea2->next;
-
-		sprintf(bufpage,"Current areas of Muddy MUD: \n\r");
-		for (iArea = 0; iArea < iAreaHalf; iArea++) {
-			sprintf(buf2,"{W{{{x%2d %3d{W} {B%s {C%s{x",
-				pArea1->low_range,pArea1->high_range,
-				pArea1->writer,
-				pArea1->credits);
-			sprintf(buf, "%-51s", buf2);
-
-			if (pArea2 != NULL) {
-				sprintf(buf2,"{W{{{x%2d %3d{W} {B%s {C%s{x",
-					pArea2->low_range,pArea1->high_range,
-					pArea2->writer,
-					pArea2->credits);
-				strcat(buf, buf2);
-		 	}
-			strcat(buf, "\n\r");
-			strcat(bufpage,buf); 
-
-			pArea1 = pArea1->next;
-			if (pArea2 != NULL)
-				pArea2 = pArea2->next;
-		}
-
-		strcat(bufpage,"\n\r");	
-		page_to_char(bufpage, ch);	
-
+	if (argument[0] != '\0') {
+		send_to_char("No argument is used with this command.\n\r",ch);
 		return;
+	}
+
+	iAreaHalf = (top_area + 1) / 2;
+	pArea1    = area_first;
+	pArea2    = area_first;
+	for (iArea = 0; iArea < iAreaHalf; iArea++)
+		pArea2 = pArea2->next;
+
+	sprintf(bufpage,"Current areas of Muddy MUD: \n\r");
+	for (iArea = 0; iArea < iAreaHalf; iArea++) {
+		sprintf(buf2,"{W{{{x%2d %3d{W} {B%s {C%s{x",
+			pArea1->low_range,pArea1->high_range,
+			pArea1->writer,
+			pArea1->credits);
+		sprintf(buf, "%-51s", buf2);
+
+		if (pArea2 != NULL) {
+			sprintf(buf2,"{W{{{x%2d %3d{W} {B%s {C%s{x",
+				pArea2->low_range,pArea1->high_range,
+				pArea2->writer,
+				pArea2->credits);
+			strcat(buf, buf2);
+	 	}
+		strcat(buf, "\n\r");
+		strcat(bufpage,buf); 
+
+		pArea1 = pArea1->next;
+		if (pArea2 != NULL)
+			pArea2 = pArea2->next;
+	}
+
+	strcat(bufpage,"\n\r");	
+	page_to_char(bufpage, ch);	
 }
 
 
@@ -3784,78 +3782,6 @@ void append_file(CHAR_DATA *ch, char *file, char *str)
 
 
 
-/*
- * Reports a bug.
- */
-void bug(const char *str, int param)
-{
-	char buf[MAX_STRING_LENGTH];
-
-	if (fpArea != NULL)
-	{
-		int iLine;
-		int iChar;
-
-		if (fpArea == stdin)
-		{
-		    iLine = 0;
-		}
-		else
-		{
-		    iChar = ftell(fpArea);
-		    fseek(fpArea, 0, 0);
-		    for (iLine = 0; ftell(fpArea) < iChar; iLine++)
-		    {
-			while (getc(fpArea) != '\n')
-			    ;
-		    }
-		    fseek(fpArea, iChar, 0);
-		}
-
-		log_printf("[*****] FILE: %s LINE: %d", strArea, iLine);
-/* RT removed because we don't want bugs shutting the mud 
-		if ((fp = fopen("shutdown.txt", "a")) != NULL)
-		{
-		    fprintf(fp, "[*****] %s\n", buf);
-		    fclose(fp);
-		}
-*/
-	}
-
-	strcpy(buf, "[*****] BUG: ");
-	sprintf(buf + strlen(buf), str, param);
-	log(buf);
-/* RT removed due to bug-file spamming 
-	fclose(fpReserve);
-	if ((fp = fopen(BUG_FILE, "a")) != NULL)
-	{
-		fprintf(fp, "%s\n", buf);
-		fclose(fp);
-	}
-	fpReserve = fopen(NULL_FILE, "r");
-*/
-
-	return;
-}
-
-
-
-/*
- * Writes a string to the log.
- */
-void log_printf(const char *format, ...)
-{
-		char buf[MAX_STRING_LENGTH];
-		va_list ap;
-
-		va_start(ap, format);
-		vsnprintf(buf, sizeof(buf), format, ap);
-		va_end(ap);
-
-		fprintf(stderr, "%s :: %s\n", ctime(&current_time), buf);
-}
-
-
 
 /*
  * This function is here to aid in debugging.
@@ -4077,4 +4003,31 @@ void load_aflag(FILE *fp)
 }
 
 
+char *format_flags(int flags)
+{
+	int count, pos = 0;
+	static char buf[53];
+
+	for (count = 0; count < 32;  count++)
+	{
+	    if (IS_SET(flags,1<<count))
+	    {
+	        if (count < 26)
+	            buf[pos] = 'A' + count;
+	        else
+	            buf[pos] = 'a' + (count - 26);
+	        pos++;
+	    }
+	}
+
+	if (pos == 0)
+	{
+	    buf[pos] = '0';
+	    pos++;
+	}
+
+	buf[pos] = '\0';
+
+	return buf;
+}
 

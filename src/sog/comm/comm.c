@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.48 1998-06-18 03:37:57 efdi Exp $
+ * $Id: comm.c,v 1.49 1998-06-18 05:19:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -89,6 +89,7 @@
 #include "magic.h"
 #include "quest.h"
 #include "update.h"
+#include "log.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_help		);
@@ -2423,7 +2424,7 @@ bool check_parse_name(char *name)
 	 * Reserved words.
 	 */
 	if (is_name(name, 
-	"all auto immortal self someone something the you demise balance circle loner honor"))
+	"all auto immortal self something the you demise balance circle loner honor"))
 	return FALSE;
 	
 	if (!str_cmp(capitalize(name),"Chronos") || !str_prefix("Chro",name)

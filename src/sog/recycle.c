@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.5 1998-05-27 08:47:28 fjoe Exp $
+ * $Id: recycle.c,v 1.6 1998-06-18 05:19:15 fjoe Exp $
  */
 
 /***************************************************************************
@@ -50,6 +50,7 @@
 #include "db.h"
 #include "comm.h"
 #include "hometown.h"
+#include "log.h"
 
 /* stuff for recyling notes */
 NOTE_DATA *note_free;
@@ -321,6 +322,9 @@ CHAR_DATA *new_char (void)
     ch->guarding		= NULL;
     ch->doppel			= NULL;
     ch->language		= LANG_COMMON;
+    ch->hunter			= NULL;
+    ch->hunting			= NULL;
+    ch->pet			= NULL;
 
     for (i = 0; i < MAX_STATS; i ++)
     {

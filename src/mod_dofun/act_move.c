@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.51 1998-06-14 13:42:41 efdi Exp $
+ * $Id: act_move.c,v 1.52 1998-06-18 05:19:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -53,6 +53,7 @@
 #include "magic.h"
 #include "update.h"
 #include "util.h"
+#include "log.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_look		);

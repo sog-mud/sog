@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.16 1998-06-16 16:56:47 fjoe Exp $
+ * $Id: spellfun.c,v 1.17 1998-06-18 05:19:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -54,6 +54,7 @@
 #include "act_comm.h"
 #include "update.h"
 #include "util.h"
+#include "log.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_look		);

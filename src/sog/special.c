@@ -1,5 +1,5 @@
 /*
- * $Id: special.c,v 1.10 1998-06-14 13:42:42 efdi Exp $
+ * $Id: special.c,v 1.11 1998-06-18 05:19:15 fjoe Exp $
  */
 
 /***************************************************************************
@@ -46,6 +46,7 @@
 #include <string.h>
 #include <time.h>
 #include "merc.h"
+#include "act_obj.h"
 #include "magic.h"
 #include "db.h"
 #include "comm.h"

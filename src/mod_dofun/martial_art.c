@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.10 1998-06-13 11:55:09 fjoe Exp $
+ * $Id: martial_art.c,v 1.11 1998-06-18 05:19:14 fjoe Exp $
  */
 
 /***************************************************************************
@@ -43,12 +43,14 @@
 #include <sys/types.h>
 #include <stdio.h>
 #include "merc.h"
+#include "act_obj.h"
 #include "recycle.h"
 #include "db.h"
 #include "comm.h"
 #include "magic.h"
 #include "act_comm.h"
 #include "util.h"
+#include "log.h"
 
 #ifdef SUNOS
 #	include <stdarg.h>

@@ -1,5 +1,5 @@
 /*
- * $Id: rating.c,v 1.4 1998-06-10 03:32:12 efdi Exp $
+ * $Id: rating.c,v 1.5 1998-06-18 05:19:15 fjoe Exp $
  */
 
 #include <sys/time.h>
@@ -24,7 +24,9 @@ struct rating_data rating_table[RATING_TABLE_SIZE];
  */
 void rating_update(CHAR_DATA *ch, CHAR_DATA *victim)
 {
-	if (IS_NPC(ch) || IS_NPC(victim) || ch == victim || IS_IMMORTAL(ch))
+	if (IS_NPC(ch) || IS_NPC(victim) || ch == victim || IS_IMMORTAL(ch)
+	||  (victim->in_room &&
+	     IS_SET(victim->in_room->room_flags, ROOM_BATTLE_ARENA)))
 		return;
 
 	rating_add(ch->name, ++ch->pcdata->pc_killed);

@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.45 1998-06-17 07:31:29 fjoe Exp $
+ * $Id: act_comm.c,v 1.46 1998-06-18 05:19:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -58,6 +58,8 @@
 #include "interp.h"
 #include "resource.h"
 #include "act_comm.h"
+#include "quest.h"
+#include "log.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_quit	);
@@ -1013,132 +1015,106 @@ void do_quit_org(CHAR_DATA *ch, char *argument, bool Count)
 	int id;
 
 	if (IS_NPC(ch))
-	return;
+		return;
 
-	if (ch->position == POS_FIGHTING)
-	{
-	send_to_char("No way! You are fighting.\n\r", ch);
-	return;
+	if (ch->position == POS_FIGHTING) {
+		send_to_char("No way! You are fighting.\n\r", ch);
+		return;
 	}
 
-	if (ch->position  < POS_STUNNED )
-	{
-	send_to_char("You're not DEAD yet.\n\r", ch);
-	return;
+	if (ch->position  < POS_STUNNED ) {
+		send_to_char("You're not DEAD yet.\n\r", ch);
+		return;
 	}
 
-	if (ch->last_fight_time != -1 && !IS_IMMORTAL(ch) &&
-		(current_time - ch->last_fight_time)<FIGHT_DELAY_TIME) 
-		 {
+	if (ch->last_fight_time != -1 && !IS_IMMORTAL(ch)
+	&&  (current_time - ch->last_fight_time) < FIGHT_DELAY_TIME) {
 		send_to_char("Your adrenalin is gushing! You can't quit yet.\n\r",ch);
 		return;
-		 }
-
-	if (IS_AFFECTED(ch, AFF_CHARM))
-	{
-	send_to_char("You don't want to leave your master.\n\r", ch);
-	return;
 	}
 
-	if (IS_SET(ch->act, PLR_NO_EXP))
-	{
-	send_to_char("You don't want to lose your spirit.\n\r", ch);
-	return;
+	if (IS_AFFECTED(ch, AFF_CHARM)) {
+		send_to_char("You don't want to leave your master.\n\r", ch);
+		return;
 	}
 
-	if (auction->item != NULL && ((ch == auction->buyer) || (ch == auction->seller)))
-	{
+	if (IS_SET(ch->act, PLR_NO_EXP)) {
+		send_to_char("You don't want to lose your spirit.\n\r", ch);
+		return;
+	}
+
+	if (auction->item != NULL
+	&&  ((ch == auction->buyer) || (ch == auction->seller))) {
 		send_to_char ("Wait till you have sold/bought the item on auction.\n\r",ch);
 		return;
 	}
 
-	if (!IS_IMMORTAL(ch) && 
-		ch->in_room && IS_RAFFECTED(ch->in_room, AFF_ROOM_ESPIRIT))
-	{
-	send_to_char("Evil spirits in the area prevents you from leaving.\n\r", ch);
-	return;
+	if (!IS_IMMORTAL(ch)
+	&&  ch->in_room && IS_RAFFECTED(ch->in_room, AFF_ROOM_ESPIRIT)) {
+		send_to_char("Evil spirits in the area prevents you from leaving.\n\r", ch);
+		return;
 	}
 
-	if (!IS_IMMORTAL(ch) && 
-	ch->clan != CLAN_INVADER && is_affected(ch, gsn_evil_spirit))
-	{
-	send_to_char("Evil spirits in you prevents you from leaving.\n\r", ch);
-	return;
+	if (!IS_IMMORTAL(ch)
+	&&  ch->clan != CLAN_INVADER && is_affected(ch, gsn_evil_spirit)) {
+		send_to_char("Evil spirits in you prevents you from leaving.\n\r", ch);
+		return;
 	}
 
-	send_to_char(
-	"Alas, all good things must come to an end.\n\r",ch);
+	send_to_char("Alas, all good things must come to an end.\n\r", ch);
+	char_puts("You hit reality hard. Reality truth does unspeakable things to you.\n\r", ch);
 	act_puts("{W$n{x has left the game.", ch, NULL, NULL, TO_ROOM ,POS_DEAD);
 	log_printf("%s has quit.", ch->name);
 	wiznet("{W$N{x rejoins the real world.",ch,NULL,WIZ_LOGINS,0,get_trust(ch));
 
-		for (obj = object_list; obj != NULL; obj = obj_next)
-		{
-	obj_next = obj->next;
-	if (  obj->pIndexData->vnum == 84 
-		|| obj->pIndexData->vnum == 85
-		|| obj->pIndexData->vnum == 86 
-		|| obj->pIndexData->vnum == 97)
-	{
-		if (obj->extra_descr == NULL) extract_obj(obj);
-		else if (strstr(obj->extra_descr->description, ch->name) != NULL)
-		 extract_obj(obj);
+	/*
+	 * remove quest objs for this char, drop quest objs for other chars
+	 */
+	for (obj = object_list; obj != NULL; obj = obj_next) {
+		obj_next = obj->next;
+		if (obj->pIndexData->vnum >= QUEST_OBJ_FIRST
+		&&  obj->pIndexData->vnum <= QUEST_OBJ_LAST)
+			if (obj->extra_descr == NULL ||
+			    strstr(obj->extra_descr->description,
+							ch->name) != NULL)
+				extract_obj(obj);
+			else if (obj->carried_by == ch) {
+				obj_from_char(obj);
+				obj_to_room(obj,ch->in_room);
+			}
 	}
+
+
+	for (vch = char_list; vch != NULL; vch = vch->next) {
+		if (is_affected(vch, gsn_doppelganger) && vch->doppel == ch) {
+			send_to_char("You shift to your true form as your victim leaves.\n\r",
+				vch);
+			affect_strip(vch,gsn_doppelganger);
 		}
 
-	for(obj = ch->carrying; obj ; obj = obj_next)
-	{
-		obj_next = obj->next_content;
-		if (obj->pIndexData->vnum == OBJ_VNUM_MAGIC_JAR)
-		  {
-		 extract_obj(obj);
-		  }
-	if (  obj->pIndexData->vnum == 84 
-		|| obj->pIndexData->vnum == 85
-		|| obj->pIndexData->vnum == 86 
-		|| obj->pIndexData->vnum == 97)
-		{
-		 if (obj->extra_descr == NULL) extract_obj(obj);
-		 else if (strstr(obj->extra_descr->description, ch->name) !=NULL)
-		 extract_obj(obj);
-		 else {
-		obj_from_char(obj);
-		obj_to_room(obj,ch->in_room);
-		   }
+		if (vch->guarding == ch) {
+			act("You stops guarding $N.", vch, NULL, ch, TO_CHAR);
+			act("$n stops guarding you.", vch, NULL, ch, TO_VICT);
+			act("$n stops guarding $N.", vch, NULL, ch, TO_NOTVICT);
+			vch->guarding  = NULL;
+			ch->guarded_by = NULL;
 		}
-	}
-
-	for (vch=char_list;vch != NULL;vch = vch->next) {
-		 if (is_affected(vch,gsn_doppelganger) && vch->doppel == ch) {
-		send_to_char("You shift to your true form as your victim leaves.\n\r",
-		             vch);
-		affect_strip(vch,gsn_doppelganger);
-		 }
-
-		 if (vch->guarding == ch)
-		{
-		  act("You stops guarding $N.", vch, NULL, ch, TO_CHAR);
-		  act("$n stops guarding you.", vch, NULL, ch, TO_VICT);
-		  act("$n stops guarding $N.", vch, NULL, ch, TO_NOTVICT);
-		  vch->guarding  = NULL;
-		  ch->guarded_by = NULL;
+		if (vch->last_fought == ch) {
+			vch->last_fought = NULL;
+			back_home(vch);
 		}
-		 if (vch->last_fought == ch)
-	{
-		 vch->last_fought = NULL;
-		back_home(vch);
+
+		if (vch->hunting == ch)
+			vch->hunting = NULL;
+
+		if (vch->hunter == ch)
+			vch->hunter = NULL;
 	}
 
-		 if (vch->hunting == ch)
-	vch->hunting = NULL;
-
-	}
-
-	if (ch->guarded_by != NULL)
-		 {
+	if (ch->guarded_by != NULL) {
 		ch->guarded_by->guarding = NULL;
 		ch->guarded_by = NULL;
-		 }
+	}
 
 
 	/*
@@ -1151,26 +1127,21 @@ void do_quit_org(CHAR_DATA *ch, char *argument, bool Count)
 		 extract_char(ch, TRUE);
 	else
 		 extract_char_nocount(ch, TRUE);
-	if (d != NULL)
-	close_socket(d);
 
+	if (d != NULL)
+		close_socket(d);
 
 	/* toast evil cheating bastards    */
-	for (d = descriptor_list; d != NULL; d = d_next)
-	{
-	CHAR_DATA *tch;
+	for (d = descriptor_list; d != NULL; d = d_next) {
+		CHAR_DATA *tch;
 
-	d_next = d->next;
-	tch = d->original ? d->original : d->character;
-	if (tch && tch->id == id)
-	{
-		extract_char_nocount(tch,TRUE);
-		close_socket(d);
-	} 
+		d_next = d->next;
+		tch = d->original ? d->original : d->character;
+		if (tch && tch->id == id) {
+			extract_char_nocount(tch, TRUE);
+			close_socket(d);
+		} 
 	}
-
-
-	return;
 }
 
 

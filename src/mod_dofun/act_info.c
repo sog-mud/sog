@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.74 1998-06-16 16:56:45 fjoe Exp $
+ * $Id: act_info.c,v 1.75 1998-06-18 05:19:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -65,6 +65,7 @@
 #include "update.h"
 #include "util.h"
 #include "quest.h"
+#include "log.h"
 
 #if defined(SUNOS) || defined(SVR4)
 #	include <crypt.h>
@@ -2360,7 +2361,7 @@ void set_title(CHAR_DATA *ch, char *title, ...)
 	va_list ap;
 	char buf[MAX_STRING_LENGTH];
 	char* p;
-	static char nospace[] = ".,!?";
+	static char nospace[] = ".,!?':";
 
 	if (IS_NPC(ch)) {
 		bug("Set_title: NPC.", 0);

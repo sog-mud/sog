@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.25 1998-06-18 04:31:21 efdi Exp $
+ * $Id: act_obj.c,v 1.26 1998-06-18 05:19:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -55,6 +55,8 @@
 #include "update.h"
 #include "util.h"
 #include "resource.h"
+#include "act_obj.h"
+#include "log.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_split		);
@@ -85,37 +87,50 @@ void	do_sacr		args((CHAR_DATA *ch, char *argument));
 
 AFFECT_DATA  *affect_find(AFFECT_DATA *paf, int sn);
 
+
 /* RT part of the corpse looting code */
 
 bool can_loot(CHAR_DATA *ch, OBJ_DATA *obj)
 {
-	  CHAR_DATA *owner, *wch;
+	if (IS_IMMORTAL(ch))
+		return TRUE;
 
-	  return TRUE;
-	  if (IS_IMMORTAL(ch))
+	if (obj->in_room != NULL
+	&&  IS_SET(obj->in_room->room_flags, ROOM_BATTLE_ARENA)) {
+		CHAR_DATA *owner, *wch;
+
+		/*
+		 * PC corpses in the ROOM_BATTLE_ARENA rooms
+		 * can be looted only by owners
+		 */
+		if (obj->owner == NULL)		/* no owner */
+			return TRUE;
+
+		owner = NULL;
+		for (wch = char_list; wch != NULL ; wch = wch->next)
+			if (str_cmp(wch->name, obj->owner) == 0)
+				owner = wch;
+
+		if (owner == NULL)		/* owner is not online */
+			return FALSE;
+
+		if (str_cmp(ch->name, owner->name) == 0)
+			return TRUE;
+
+		return FALSE;
+	}
+
 	return TRUE;
 
-	  if (!obj->owner || obj->owner == NULL)
-	return TRUE;
+/*
+	if (!IS_NPC(owner) && IS_SET(owner->act,PLR_CANLOOT))
+		return TRUE;
 
-	  owner = NULL;
-	  for (wch = char_list; wch != NULL ; wch = wch->next)
-	      if (!str_cmp(wch->name,obj->owner))
-	          owner = wch;
+	if (is_same_group(ch,owner))
+		return TRUE;
 
-	  if (owner == NULL)
-	return TRUE;
-
-	  if (!str_cmp(ch->name,owner->name))
-	return TRUE;
-
-	  if (!IS_NPC(owner) && IS_SET(owner->act,PLR_CANLOOT))
-	return TRUE;
-
-	  if (is_same_group(ch,owner))
-	return TRUE;
-
-	  return FALSE;
+	return FALSE;
+ */
 }
 
 

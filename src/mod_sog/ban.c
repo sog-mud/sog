@@ -1,5 +1,5 @@
 /*
- * $Id: ban.c,v 1.5 1998-06-12 14:25:58 fjoe Exp $
+ * $Id: ban.c,v 1.6 1998-06-18 05:19:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -50,6 +50,9 @@
 #include "recycle.h"
 #include "db.h"
 #include "comm.h"
+#include "act_obj.h"
+#include "util.h"
+#include "log.h"
 
 BAN_DATA *ban_list;
 
@@ -71,10 +74,11 @@ void save_bans(void)
 	if (IS_SET(pban->ban_flags,BAN_PERMANENT))
 	{
 	    found = TRUE;
-	    sprintf( buf, "%-20s %-2d %s\n\r", pban->name, pban->level,print_flags(pban->ban_flags) );
+	    sprintf( buf, "%-20s %-2d %s\n\r", pban->name, pban->level,
+		    format_flags(pban->ban_flags) );
 	    dump_to_scr( buf );
 	    fprintf(fp,"%-20s %-2d %s\n",pban->name,pban->level,
-		print_flags(pban->ban_flags));
+		format_flags(pban->ban_flags));
 	}
      }
 

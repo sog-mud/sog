@@ -2,7 +2,7 @@
 #define _DB_H_
 
 /*
- * $Id: db.h,v 1.7 1998-06-17 07:31:30 fjoe Exp $
+ * $Id: db.h,v 1.8 1998-06-18 05:19:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -54,7 +54,6 @@ extern int  		top_affect;
 extern int		top_ed; 
 extern AREA_DATA 	*area_first;
 
-char *	print_flags	(int flag);
 void	boot_db		(void);
 CHAR_DATA *	create_mobile	(MOB_INDEX_DATA *pMobIndex);
 void	clone_mobile	(CHAR_DATA *parent, CHAR_DATA *clone);
@@ -97,10 +96,8 @@ bool	str_infix	(const char *astr, const char *bstr);
 bool	str_suffix	(const char *astr, const char *bstr);
 char *	capitalize	(const char *str);
 void	append_file	(CHAR_DATA *ch, char *file, char *str);
-void	bug		(const char *str, int param);
-#define log(str) log_printf(str)
-void	log_printf	(const char *str, ...);
 void	tail_chain	(void);
+char *format_flags(int flags);
 
 #define chance(num) (number_range(1, 100) <= num)
 

@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.16 1998-06-17 07:31:30 fjoe Exp $
+ * $Id: handler.c,v 1.17 1998-06-18 05:19:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -52,6 +52,7 @@
 #include "comm.h"
 #include "hometown.h"
 #include "act_comm.h"
+#include "log.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_return	);
@@ -4051,7 +4052,7 @@ char *flag_room_name(int vector)
 
     buf[0] = '\0';
     if (vector & ROOM_DARK        ) strcat(buf, " dark"        );
-    if (vector & ROOM_NO_MOB       ) strcat(buf, " nomob"       );
+    if (vector & ROOM_NO_MOB      ) strcat(buf, " nomob"       );
     if (vector & ROOM_INDOORS     ) strcat(buf, " indoors"     );
     if (vector & ROOM_PRIVATE     ) strcat(buf, " private"     );
     if (vector & ROOM_SAFE        ) strcat(buf, " safe"        );
@@ -4068,6 +4069,7 @@ char *flag_room_name(int vector)
     if (vector & ROOM_NO_MAGIC    ) strcat(buf, " nomagic"     );
     if (vector & ROOM_NOSUMMON    ) strcat(buf, " nosummon"    );
     if (vector & ROOM_REGISTRY    ) strcat(buf, " registry"    );
+    if (vector & ROOM_BATTLE_ARENA) strcat(buf, " battle_arena");
     return (buf[0] != '\0') ? buf+1 : "none";
 }
 

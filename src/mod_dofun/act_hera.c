@@ -1,5 +1,5 @@
 /*
- * $Id: act_hera.c,v 1.20 1998-06-17 07:31:29 fjoe Exp $
+ * $Id: act_hera.c,v 1.21 1998-06-18 05:19:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -47,7 +47,7 @@
 ***************************************************************************/
 
 /*
- * $Id: act_hera.c,v 1.20 1998-06-17 07:31:29 fjoe Exp $
+ * $Id: act_hera.c,v 1.21 1998-06-18 05:19:11 fjoe Exp $
  */
 #include <sys/types.h>
 #include <sys/time.h>
@@ -64,6 +64,7 @@
 #include "resource.h"
 #include "util.h"
 #include "magic.h"
+#include "log.h"
 
 /* for bzero, bcopy, vsnprintf */
 #ifdef SUNOS

@@ -1,5 +1,5 @@
 /*
- * $Id: act_quest.c,v 1.35 1998-06-17 07:31:30 fjoe Exp $
+ * $Id: act_quest.c,v 1.36 1998-06-18 05:19:15 fjoe Exp $
  */
 
 /***************************************************************************
@@ -69,9 +69,10 @@
 #include "comm.h"
 #include "resource.h"
 #include "hometown.h"
+#include "log.h"
 #include "magic.h"
 #include "quest.h"
-#include "act_wiz.h"
+#include "log.h"
 
 #ifdef SUNOS
 #	include <stdarg.h>
@@ -225,20 +226,26 @@ void quest_handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
 void quest_cancel(CHAR_DATA *ch)
 {
 	CHAR_DATA *fch;
-	ch->pcdata->questtime = 0;
-	ch->pcdata->questgiver = 0;
-	ch->pcdata->questmob = 0;
-	ch->pcdata->questobj = 0;
-	ch->pcdata->questroom = NULL;
 
 	/*
 	 * remove mob->hunter
 	 */
 	for (fch = char_list; fch; fch = fch->next)
 		if (fch->hunter == ch) {
-			fch->hunter = 0;
+			fch->hunter = NULL;
 			break;
 		}
+
+	if (IS_NPC(ch)) {
+		bug("quest_cancel: called for NPC", 0);
+		return;
+	}
+
+	ch->pcdata->questtime = 0;
+	ch->pcdata->questgiver = 0;
+	ch->pcdata->questmob = 0;
+	ch->pcdata->questobj = 0;
+	ch->pcdata->questroom = NULL;
 }
 
 

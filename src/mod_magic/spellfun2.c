@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.14 1998-06-17 04:54:27 fjoe Exp $
+ * $Id: spellfun2.c,v 1.15 1998-06-18 05:19:14 fjoe Exp $
  */
 
 /***************************************************************************
@@ -57,6 +57,7 @@
 #include "quest.h"
 #include "rating.h"
 #include "util.h"
+#include "log.h"
 
 DECLARE_DO_FUN(do_scan2);
 /* command procedures needed */

@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.24 1998-06-17 07:31:30 fjoe Exp $
+ * $Id: save.c,v 1.25 1998-06-18 05:19:15 fjoe Exp $
  */
 
 /***************************************************************************
@@ -44,11 +44,13 @@
 #include <stdio.h>
 #include <string.h>
 #include <time.h>
+
 #ifdef BSD44
 #	include <stdlib.h>
 #else
 #	include <malloc.h>
 #endif
+
 #include "merc.h"
 #include "recycle.h"
 #include "lookup.h"
@@ -61,39 +63,12 @@
 #include "hometown.h"
 #include "magic.h"
 #include "quest.h"
+#include "util.h"
+#include "log.h"
  
 extern  int     _filbuf         args((FILE *));
 
 int rename(const char *oldfname, const char *newfname);
-
-char *print_flags(int flag)
-{
-	int count, pos = 0;
-	static char buf[52];
-
-
-	for (count = 0; count < 32;  count++)
-	{
-	    if (IS_SET(flag,1<<count))
-	    {
-	        if (count < 26)
-	            buf[pos] = 'A' + count;
-	        else
-	            buf[pos] = 'a' + (count - 26);
-	        pos++;
-	    }
-	}
-
-	if (pos == 0)
-	{
-	    buf[pos] = '0';
-	    pos++;
-	}
-
-	buf[pos] = '\0';
-
-	return buf;
-}
 
 
 /*
@@ -248,20 +223,20 @@ void fwrite_char(CHAR_DATA *ch, FILE *fp)
 		fprintf(fp, "Bankg %ld\n", ch->pcdata->bank_g);
 	fprintf(fp, "Exp  %d\n",	ch->exp			);
 	if (ch->act != 0)
-		fprintf(fp, "Act  %s\n",   print_flags(ch->act));
+		fprintf(fp, "Act  %s\n",   format_flags(ch->act));
 	if (ch->affected_by != 0)
 		{
 		 if (IS_NPC(ch))
-		 fprintf(fp, "AfBy %s\n", print_flags(ch->affected_by));
+		 fprintf(fp, "AfBy %s\n", format_flags(ch->affected_by));
 		 else
 		 fprintf(fp, "AfBy %s\n",   
-				print_flags((ch->affected_by & (~AFF_CHARM))));
+				format_flags((ch->affected_by & (~AFF_CHARM))));
 		}
 	if (ch->detection != 0)
-		fprintf(fp, "Detect %s\n",   print_flags(ch->detection));
-	fprintf(fp, "Comm %s\n",       print_flags(ch->comm));
+		fprintf(fp, "Detect %s\n",   format_flags(ch->detection));
+	fprintf(fp, "Comm %s\n",       format_flags(ch->comm));
 	if (ch->wiznet)
-		fprintf(fp, "Wizn %s\n",   print_flags(ch->wiznet));
+		fprintf(fp, "Wizn %s\n",   format_flags(ch->wiznet));
 	if (ch->invis_level)
 		fprintf(fp, "Invi %d\n", 	ch->invis_level	);
 	if (ch->incog_level)
@@ -428,13 +403,13 @@ void fwrite_pet(CHAR_DATA *pet, FILE *fp)
 	if (pet->exp > 0)
 		fprintf(fp, "Exp  %d\n", pet->exp);
 	if (pet->act != pet->pIndexData->act)
-		fprintf(fp, "Act  %s\n", print_flags(pet->act));
+		fprintf(fp, "Act  %s\n", format_flags(pet->act));
 	if (pet->affected_by != pet->pIndexData->affected_by)
-		fprintf(fp, "AfBy %s\n", print_flags(pet->affected_by));
+		fprintf(fp, "AfBy %s\n", format_flags(pet->affected_by));
 	if (pet->detection != pet->pIndexData->detection)
-		fprintf(fp, "Detect %s\n", print_flags(pet->detection));
+		fprintf(fp, "Detect %s\n", format_flags(pet->detection));
 	if (pet->comm != 0)
-		fprintf(fp, "Comm %s\n", print_flags(pet->comm));
+		fprintf(fp, "Comm %s\n", format_flags(pet->comm));
 	fprintf(fp,"Pos  %d\n", pet->position = POS_FIGHTING ? POS_STANDING : pet->position);
 	if (pet->saving_throw != 0)
 		fprintf(fp, "Save %d\n", pet->saving_throw);
@@ -688,7 +663,6 @@ bool load_char_obj(DESCRIPTOR_DATA *d, char *name)
 	ch->pcdata->adr_stops_shown		= 1;
 
 	ch->pcdata->pc_killed = 0;
-	ch->hunter = NULL;
 	ch->i_lang = 0;
 	ch->pcdata->questpoints = 0; 
 	ch->pcdata->questgiver = 0;

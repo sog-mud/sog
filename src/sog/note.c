@@ -1,5 +1,5 @@
 /*
- * $Id: note.c,v 1.7 1998-06-16 16:56:47 fjoe Exp $
+ * $Id: note.c,v 1.8 1998-06-18 05:19:15 fjoe Exp $
  */
 
 /***************************************************************************
@@ -52,6 +52,7 @@
 #include "tables.h"
 #include "db.h"
 #include "comm.h"
+#include "log.h"
 
 /* globals from db.c for load_notes */
 extern  int     _filbuf         args((FILE *));

@@ -1,5 +1,5 @@
 /*
- * $Id: db2.c,v 1.6 1998-06-07 07:15:40 fjoe Exp $
+ * $Id: db2.c,v 1.7 1998-06-18 05:19:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -51,6 +51,7 @@
 #include "db.h"
 #include "lookup.h"
 #include "magic.h"
+#include "log.h"
 
 
 /* values for db2.c */

@@ -2,7 +2,7 @@
 #define _MERC_H_
 
 /*
- * $Id: merc.h,v 1.30 1998-06-17 07:31:30 fjoe Exp $
+ * $Id: merc.h,v 1.31 1998-06-18 05:19:14 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1593,6 +1593,7 @@ struct	kill_data
 #define ROOM_BANK		(U)
 #define ROOM_NO_MAGIC		(W)
 #define ROOM_NOSUMMON		(X)
+#define ROOM_BATTLE_ARENA	(Z)
 #define ROOM_REGISTRY		(bb)
 
 
@@ -2889,13 +2890,6 @@ void hunt_victim(CHAR_DATA *ch);
 /* act_move.c */
 void	move_char	args( ( CHAR_DATA *ch, int door, bool follow ) );
 char *	find_way	args( ( CHAR_DATA *ch, ROOM_INDEX_DATA *rstart, ROOM_INDEX_DATA *rend ) );
-
-/* act_obj.c */
-bool can_loot		args( (CHAR_DATA *ch, OBJ_DATA *obj) );
-void get_obj		args( ( CHAR_DATA *ch, OBJ_DATA *obj,OBJ_DATA *container ) );
-int floating_time	args( ( OBJ_DATA *obj ) );
-bool may_float		args( ( OBJ_DATA *obj ) );
-bool cant_float 	args( ( OBJ_DATA *obj ) );
 
 /* ban.c */
 bool	check_ban	args( ( char *site, int type) );
