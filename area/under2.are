@@ -2087,7 +2087,7 @@ scale eye~
 Scale of the enforcer~
 A brown scale glitters somewhat in the lighting~
 cloth~
-armor C AD
+armor Cl AD
 9 9 9 0 0
 30 5 10 P
 A
@@ -2136,7 +2136,7 @@ gnome mace~
 Glinting gnome mace~
 A dull greyish mace of gnomish design.~
 wood~
-weapon I AN
+weapon Il AN
 mace 4 5 pound 0
 17 4 10 P
 A
@@ -2151,7 +2151,7 @@ drow sword darkness~
 Sword of darkness~
 A drow blade seems to cast a shadow of darkness around it~
 steel~
-weapon C AN
+weapon Cl AN
 sword 4 4 slice 0
 15 4 10 P
 A
@@ -2166,7 +2166,7 @@ grey helm~
 Dark grey helm~
 A helm of duergar make lies abandoned off to the side~
 steel~
-armor 0 AE
+armor l AE
 5 5 5 0 0
 20 3 10 P
 A
@@ -2179,7 +2179,7 @@ sleeves knowledge~
 Sleeves of knowledge~
 Sleeves that bear many arcane signs rest here~
 steel~
-armor F AI
+armor Fl AI
 14 14 13 10 0
 43 3 110 P
 A
@@ -2201,7 +2201,7 @@ breast plate~
 Breast plate of strength~
 A breast plate emits an aura of power~
 unknown~
-armor A AD
+armor Al AD
 25 25 25 20 0
 43 4 100 P
 A
@@ -2238,7 +2238,7 @@ purple worm scale~
 Small purple worm scale~
 A small scale from a purple looks as if it can be worn on the arm~
 cloth~
-armor I AM
+armor Il AM
 14 15 13 6 0
 44 3 220 P
 A
@@ -2251,7 +2251,7 @@ huge purple worm scale~
 Huge purple worm scale~
 A huge purple worm scale lies discarded off to the side~
 cloth~
-armor C AJ
+armor Cl AJ
 15 15 16 5 0
 46 4 10 P
 A
@@ -2266,7 +2266,7 @@ gauntlet eye~
 Gauntlets of the eye~
 A pair of gauntlets with the design of an eye on them rest here~
 gold amethyst~
-armor A AH
+armor Al AH
 14 13 14 5 0
 43 3 1000 P
 A
@@ -2279,7 +2279,7 @@ helm eye~
 Helm of the eye~
 A helm lies here with a huge eye centred on it~
 steel~
-armor A AE
+armor Al AE
 15 14 14 6 0
 46 4 100 P
 A
@@ -2298,7 +2298,7 @@ pin~
 A very sharp large pin~
 A small pin glints in the light~
 steel~
-weapon F AN
+weapon Fl AN
 dagger 5 5 pierce 0
 22 1 10 P
 A
@@ -2315,7 +2315,7 @@ muck branch~
 Very muddy branch~
 A branch covered in muck lies discarded off to the side~
 unknown~
-weapon BHL AN
+weapon BHLl AN
 mace 5 5 blast 0
 21 15 0 P
 A
@@ -2330,7 +2330,7 @@ dart~
 A small deadly dart~
 A little dart lies on the ground~
 unknown~
-weapon F AN
+weapon Fl AN
 arrow 1 1 slash K
 1 0 500 P
 A
@@ -2354,7 +2354,7 @@ girth~
 Girth of protection~
 A girth lies here glowing softly with power~
 mithril~
-armor AM AL
+armor AMl AL
 15 14 15 6 0
 45 2 100 P
 A
@@ -2378,7 +2378,7 @@ iron sword~
 An Iron Sword~
 A very large sword made out of iron lies ready~
 iron~
-weapon B AN
+weapon Bl AN
 sword 5 8 slash 0
 40 45 1000 P
 A
@@ -2395,7 +2395,7 @@ stone mace~
 A Huge Stone Mace~
 A large mace made completely of stone waits to be used~
 stone~
-weapon B AN
+weapon Bl AN
 mace 4 10 pound 0
 38 25 1000 P
 A
@@ -2410,7 +2410,7 @@ shield~
 Black Shield of Protection~
 A black shield waits to protect it's owner~
 steel~
-armor BIM AJ
+armor BIMl AJ
 14 14 14 6 0
 42 4 100 P
 A
@@ -2421,7 +2421,7 @@ stone~
 A small black stone~
 A very small black stone almost escapes your notice~
 stone~
-armor CFLM AO
+armor CFLMl AO
 0 0 0 0 0
 39 1 0 P
 A
@@ -2440,7 +2440,7 @@ horn~
 Demon Horn~
 A glowing demon horn waits to be wielded~
 bone~
-weapon AJ AN
+weapon AJl AN
 exotic 4 10 stab 0
 40 4 0 P
 A
@@ -2455,7 +2455,7 @@ translucent robe~
 Translucent Robe~
 A semi-transparent robe lies on the floor~
 cloth~
-armor I AK
+armor Il AK
 4 4 4 0 0
 13 2 0 P
 A
@@ -2479,7 +2479,7 @@ noble ring~
 Ring of nobility~
 A small beautiful ring is ready to worn~
 silver~
-treasure I AB
+treasure Il AB
 0 0 0 0 0
 14 1 100 P
 A
@@ -2494,7 +2494,7 @@ gold teeth~
 Gold Teeth~
 A couple golden teeth wait to be used~
 gold~
-armor I AE
+armor Il AE
 4 4 4 0 0
 16 1 0 P
 A
@@ -2507,7 +2507,7 @@ broken bottle~
 A broken bottle~
 A broken bottle lies on the ground~
 glass~
-weapon C AN
+weapon Cl AN
 exotic 3 3 slash 0
 11 2 0 P
 A
@@ -2520,7 +2520,7 @@ dusty boots~
 A pair of dusty boots~
 A pair of dusty boots lie forgotten on the ground~
 leather~
-armor CM AG
+armor CMl AG
 8 8 8 0 0
 33 2 600 P
 A
@@ -2535,7 +2535,7 @@ gnome hat~
 A gnome hat~
 A gnome hat rests here just waiting to be taken~
 steel~
-armor B AE
+armor Bl AE
 10 10 10 0 0
 30 2 2300 P
 A
@@ -2548,7 +2548,7 @@ boots of flying~
 Boots of flying~
 A pair of boots hover just above the ground~
 unknown~
-armor FM AG
+armor FMl AG
 18 18 18 9 0
 31 2 1000 P
 A
@@ -2561,7 +2561,7 @@ bracer strength~
 Bracer of strength~
 A very powerful looking bracer hums on the ground~
 platinum~
-armor B AL
+armor Bl AL
 21 20 21 12 0
 30 3 0 P
 A
@@ -2574,7 +2574,7 @@ slaver whip~
 Slaver's Whip~
 A long dangerous looking whip waits to used against a slave~
 leather~
-weapon B AN
+weapon Bl AN
 whip 4 7 whip 0
 23 4 900 P
 A
@@ -2591,7 +2591,7 @@ manacles~
 A pair of manacles~
 A pair of manacles waits to be worn~
 iron~
-armor BM AH
+armor BMl AH
 0 0 0 0 0
 20 4 1000 P
 A
@@ -2606,7 +2606,7 @@ cloak~
 A mage cloak~
 A long flowing cloak that glows lies here~
 cloth~
-armor A AC
+armor Al AC
 9 9 9 0 0
 28 2 600 P
 A
@@ -2617,7 +2617,7 @@ jagged long sword~
 A jagged long sword~
 A jagged long sword rests on the ground~
 steel~
-weapon B AN
+weapon Bl AN
 sword 6 5 slash 0
 26 5 1000 P
 A
@@ -2630,7 +2630,7 @@ ebony dagger~
 An ebony dagger~
 An ebony dagger lies off to your side~
 ebony~
-weapon B AN
+weapon Bl AN
 dagger 6 5 pierce 0
 26 4 4900 P
 A
@@ -2645,7 +2645,7 @@ glowing sphere~
 A glowing sphere~
 A glowing sphere lights up the room~
 unknown~
-light A AO
+light Al AO
 0 0 -1 0 0
 3 0 0 P
 A
@@ -2667,7 +2667,7 @@ ebony morning star~
 An ebony morning star~
 An ebony morning star rests on the ground~
 ebony~
-weapon B AN
+weapon Bl AN
 flail 4 5 blast 0
 17 6 1000 P
 A
@@ -2682,7 +2682,7 @@ drow chainmail~
 Black drow chainmail~
 A black suit of chainmail lies ready to be taken~
 iron~
-armor B AD
+armor Bl AD
 5 5 5 0 0
 16 5 120 P
 A
@@ -2695,7 +2695,7 @@ drow sword~
 A drow sword~
 A dark sword lies on the ground~
 steel~
-weapon 0 AN
+weapon l AN
 sword 3 4 slice 0
 10 5 1200 P
 A
@@ -2708,7 +2708,7 @@ drow dagger~
 A drow dagger~
 A dark dagger lies on the ground~
 steel~
-weapon 0 AN
+weapon l AN
 dagger 3 3 pierce 0
 11 3 1200 P
 A
@@ -2721,7 +2721,7 @@ drow mace~
 A drow mace~
 A dark mace lies on the ground~
 wood~
-weapon 0 AN
+weapon l AN
 mace 3 3 pound 0
 11 4 1200 P
 A
@@ -2734,7 +2734,7 @@ duergar breastplate~
 Duergar breastplate~
 A breastplate of duergar make lies ready~
 brass~
-armor 0 AD
+armor l AD
 5 5 5 0 0
 12 4 1180 P
 A
@@ -2745,7 +2745,7 @@ duergar helm~
 A duergar helm~
 A helm of duergar make lies ready~
 brass~
-armor 0 AE
+armor l AE
 3 3 3 0 0
 6 2 420 P
 A
@@ -2756,7 +2756,7 @@ duergar shield~
 A duergar shield~
 A shield of duergar designs lies ready~
 brass~
-armor 0 AJ
+armor l AJ
 3 3 3 0 0
 6 3 420 P
 A
@@ -2767,7 +2767,7 @@ duergar leggings~
 Duergar leggings~
 A pair of leggings lie ready~
 brass~
-armor 0 AF
+armor l AF
 5 5 5 0 0
 12 4 1800 P
 A
@@ -2778,7 +2778,7 @@ duergar bracer~
 A duergar bracer~
 A bracer of duergar design lies ready~
 silver~
-armor 0 AM
+armor l AM
 6 6 6 0 0
 11 3 1800 P
 A
@@ -2852,7 +2852,7 @@ svirfneblin leggings~
 Svirfneblin leggings~
 A pair of svirfneblin leggings lies on the ground waiting to be taken~
 steel~
-armor 0 AF
+armor l AF
 6 6 6 0 0
 17 3 110 P
 A
@@ -2865,7 +2865,7 @@ necklace nobility~
 Necklace of nobility~
 A beautiful necklace waits to be worn~
 cloth~
-armor 0 AC
+armor l AC
 5 5 5 0 32768
 16 3 100 P
 A
@@ -2884,7 +2884,7 @@ broadsword vision~
 A broadsword named 'Vision'~
 A beautifully crafted broadsword lies on the ground~
 steel~
-weapon AB AN
+weapon ABl AN
 sword 4 4 slice 0
 17 4 1000 P
 A
@@ -2901,7 +2901,7 @@ thieve's patch~
 Thieve's patch~
 A small patch lies on the ground~
 cloth~
-armor F AM
+armor Fl AM
 5 5 5 0 0
 16 2 1000 P
 A
@@ -2914,7 +2914,7 @@ thieve's gloves~
 Thieve's gloves~
 A pair of thin leather gloves rests on the ground~
 leather~
-armor 0 AH
+armor l AH
 5 5 5 0 0
 18 2 1100 P
 A
@@ -2927,7 +2927,7 @@ gold chain~
 A gold chain~
 A gold chain glints in the light~
 gold~
-armor 0 AC
+armor l AC
 5 5 6 0 0
 19 2 11 P
 A
@@ -2948,7 +2948,7 @@ lucky dice~
 Lucky dice~
 A pair of dice glow softly~
 bone~
-treasure A AO
+treasure Al AO
 0 0 0 0 0
 20 2 1110 P
 A
@@ -2971,7 +2971,7 @@ dark cloak~
 A dark cloak~
 A very dark cloak lies in the shadows~
 cloth~
-armor C AC
+armor Cl AC
 7 6 6 0 0
 23 3 1000 P
 A
@@ -2986,7 +2986,7 @@ golden earring~
 Golden earring~
 A small golden earring glints softly in the light~
 gold~
-armor 0 AQ
+armor l AQ
 8 8 8 5 0
 25 1 1000 P
 A
@@ -3001,7 +3001,7 @@ jewelled dagger~
 A jewelled dagger~
 A jewelled dagger looks as if it could cut through anything~
 steel~
-weapon B AN
+weapon Bl AN
 dagger 4 11 pierce D
 47 3 30000 P
 A
@@ -3018,7 +3018,7 @@ hand~
 A hand grasping an orb~
 A hand grasping an orb lies on the ground~
 unknown~
-light A AO
+light Al AO
 0 0 -1 0 0
 15 3 0 P
 A
@@ -3031,7 +3031,7 @@ robe~
 A long flowing robe~
 A beautiful robe lies pooled on the ground~
 leather~
-armor 0 AK
+armor l AK
 13 13 13 6 0
 40 4 5000 P
 A
@@ -3044,7 +3044,7 @@ blade of poison~
 A blade of poison~
 A dark blade rests here humming quietly~
 iron~
-weapon BC AN
+weapon BCl AN
 dagger 4 5 pierce H
 20 3 100 P
 A
@@ -3057,7 +3057,7 @@ assassin's sleeves~
 Assassin's sleeves~
 A pair of black sleeves rests here~
 cloth~
-armor C AI
+armor Cl AI
 6 6 7 0 0
 22 3 100 P
 A
@@ -3070,7 +3070,7 @@ skull tattoo~
 Skull tattoo~
 A weird glimmer lies on the ground, shaped like a skull~
 bone~
-armor 0 AM
+armor l AM
 0 0 0 0 0
 23 1 0 P
 A
@@ -3083,7 +3083,7 @@ choke wire~
 A choke wire~
 A thin wire lies on the ground humming~
 unknown~
-weapon BC AN
+weapon BCl AN
 whip 5 5 crush 0
 25 1 0 P
 A
@@ -3096,7 +3096,7 @@ assassin's mask~
 An assassin's mask~
 A mask keep changing on the ground~
 cloth~
-armor C AE
+armor Cl AE
 9 9 7 5 0
 27 3 100 P
 A
@@ -3111,7 +3111,7 @@ flaming dagger tattoo~
 Flaming dagger tattoo~
 A weird glimmer lies on the ground, shaped like a dagger~
 unknown~
-armor 0 AM
+armor l AM
 9 9 8 4 0
 29 1 10 P
 A
@@ -3122,7 +3122,7 @@ wyvern tattoo~
 Wyvern tattoo~
 A weird glimmer lies on the ground, shaped like a wyvern~
 unknown~
-armor 0 AM
+armor l AM
 7 7 7 0 0
 31 1 100 P
 A
@@ -3135,7 +3135,7 @@ dragon tattoo~
 Dragon tattoo~
 A weird glimmer lies on the ground, shaped like a dragon~
 unknown~
-armor 0 AM
+armor l AM
 19 19 19 7 0
 46 1 100 P
 A
@@ -3148,7 +3148,7 @@ diamond helm~
 A diamond helm~
 A helm sparkles and glints in the light~
 diamond~
-armor 0 AE
+armor l AE
 15 16 15 8 0
 47 2 1000 P
 A
@@ -3161,7 +3161,7 @@ keeper's shield~
 The keeper's shield~
 A large shield that looks as if it were made of stone lies here~
 stone~
-armor 0 AJ
+armor l AJ
 16 15 16 8 0
 49 10 1000 P
 A
@@ -3180,7 +3180,7 @@ clan ring~
 A demon clan signet ring~
 A red and black ring glows and hums softly on the ground~
 gold~
-treasure ABE AB
+treasure ABEl AB
 0 0 0 0 0
 17 1 100 P
 A
@@ -3195,7 +3195,7 @@ demon bracer~
 Demon bracer~
 A black and red bracer lies on the ground~
 steel~
-armor ABE AM
+armor ABEl AM
 7 7 5 0 0
 21 3 500 P
 A
@@ -3206,7 +3206,7 @@ demon blade~
 A demon blade~
 A black blade hums on the ground~
 steel~
-weapon BEJ AN
+weapon BEJl AN
 dagger 5 6 slash 0
 23 6 1000 P
 A
@@ -3230,7 +3230,7 @@ demon plate~
 Demon Plate~
 A black suite of plate mail rests on the ground~
 steel~
-armor BEJ AD
+armor BEJl AD
 10 10 10 4 0
 30 9 1000 P
 A
@@ -3243,7 +3243,7 @@ demon fire~
 Demon fire~
 A weird flame burns here~
 fire~
-armor BEG AJ
+armor BEGl AJ
 22 20 20 12 0
 37 5 1000 P
 A

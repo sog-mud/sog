@@ -322,7 +322,7 @@ dagger silver~
 a silver dagger~
 A silver dagger is lying here.~
 silver~
-weapon 0 AN
+weapon l AN
 dagger 4 7 pierce 0
 22 10 2000 P
 A
@@ -333,7 +333,7 @@ knife tooth dragon~
 a dragon's tooth knife~
 A dangerous looking knife made from a dragon's tooth has been left here.~
 bone~
-weapon 0 AN
+weapon l AN
 dagger 5 6 pierce 0
 30 80 3200 P
 A
@@ -386,7 +386,7 @@ symbol holy~
 a holy symbol~
 A golden holy symbol is here.~
 gold~
-jewelry A ACO
+jewelry Al ACO
 0 0 0 0 0
 10 20 270 P
 A
@@ -397,7 +397,7 @@ robe black~
 a plain black robe~
 A black robe is hanging on a hook on the wall.~
 leather~
-armor 0 AK
+armor l AK
 5 5 5 0 0
 21 30 2000 P
 A
@@ -408,7 +408,7 @@ sword emerald~
 an emerald sword~
 An emerald long sword is leaning against the wall.~
 steel~
-weapon 0 AN
+weapon l AN
 sword 5 6 slash D
 28 240 2300 P
 A
@@ -428,7 +428,7 @@ ring diamond~
 a diamond ring~
 A diamond ring lies gleaming on the ground.~
 diamond~
-jewelry 0 AB
+jewelry l AB
 0 0 0 0 0
 37 60 6800 P
 A
@@ -589,7 +589,7 @@ gauntlets spiked~
 a pair of spiked gauntlets~
 A pair of spiked gauntlets.~
 iron~
-armor A AH
+armor Al AH
 4 4 4 0 0
 20 100 2500 P
 A
@@ -615,7 +615,7 @@ brooch diamond~
 a diamond brooch~
 A diamond brooch.~
 diamond~
-jewelry 0 AC
+jewelry l AC
 0 0 0 0 0
 25 20 980 P
 A
@@ -646,7 +646,7 @@ helm dragon~
 a helm of dragon kind~
 A helm made of a dragon's skull is lying on the ground.~
 dragonskin~
-armor 0 AE
+armor l AE
 10 10 10 5 0
 35 150 4100 P
 A
@@ -657,7 +657,7 @@ fur cloak~
 a fur cloak~
 A large mound of fur is lying here.~
 fur~
-armor 0 AK
+armor l AK
 6 6 6 1 0
 16 100 1910 P
 A
@@ -688,7 +688,7 @@ whip dragon tail~
 a dragon tailed whip~
 A dragon tailed whip is lying on the ground.~
 dragonskin~
-weapon BJ AN
+weapon BJl AN
 whip 6 5 whip 0
 24 140 1530 P
 A

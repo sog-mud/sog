@@ -707,7 +707,7 @@ breastplate iron~
 An iron breastplate~
 A huge, iron breastplate is here.~
 iron~
-armor 0 AD
+armor l AD
 42 42 42 15 0
 91 350 3000 P
 A
@@ -720,7 +720,7 @@ sting locust~
 A locust stinger~
 A large barbed sting is here.~
 stone~
-weapon EQ AN
+weapon EQl AN
 dagger 6 20 pierce GH
 91 6 4500 G
 A
@@ -731,7 +731,7 @@ chain binding~
 The chain of binding~
 A pretty silver chain lies here.~
 silver~
-treasure MS AD
+treasure MSl AD
 0 0 0 0 0
 50 20 8000 P
 A
@@ -764,7 +764,7 @@ girdle golden~
 A golden girdle~
 A golden girdle is here.~
 gold~
-armor IKL AL
+armor IKLl AL
 28 28 28 0 0
 80 1 8000 P
 A
@@ -779,7 +779,7 @@ sickle golden~
 A golden sickle~
 A golden sickle is here.~
 gold~
-weapon IKL AN
+weapon IKLl AN
 exotic 10 10 slice E
 80 45 3500 P
 A
@@ -810,7 +810,7 @@ crown white conquerer~
 The white crown of the conquerer~
 A white crown lies here.~
 admantite~
-armor EJ AE
+armor EJl AE
 28 28 28 14 0
 85 35 10000 P
 A
@@ -827,7 +827,7 @@ bow white conquerer~
 The white bow of the conquerer~
 A great white bow lies here.~
 admantite~
-weapon EJM AN
+weapon EJMl AN
 bow 10 10 blast AFH
 85 10 12000 P
 A
@@ -840,7 +840,7 @@ breastplate fire~
 A breastplate of fire~
 A breastplate of fire smoulders here.~
 unknown~
-armor EJW AD
+armor EJWl AD
 28 28 28 15 0
 85 20 14000 P
 A
@@ -853,7 +853,7 @@ sword war~
 the sword of war~
 A great two-handed sword lies here.~
 admantite~
-weapon EJLM AN
+weapon EJLMl AN
 sword 11 12 slash DEFH
 85 20 14000 P
 A
@@ -866,7 +866,7 @@ breastplate jacinth~
 A breastplate of jacinth~
 A breastplate of jacinth glitters here.~
 unknown~
-armor EJW AD
+armor EJWl AD
 28 28 28 10 0
 85 10 14000 P
 A
@@ -879,7 +879,7 @@ breastplate brimstone~
 A breastplate of brimstone~
 A breastplate of brimstone smokes here.~
 unknown~
-armor EJW AD
+armor EJWl AD
 28 28 28 10 0
 85 20 14000 P
 A
@@ -917,7 +917,7 @@ scythe reaper grim~
 The scythe of the Grim reaper~
 An unholy scythe, devours the light here.~
 unknown~
-weapon CEFJLMQ AN
+weapon CEFJLMQl AN
 polearm 11 12 cleave CDFH
 85 20 14000 P
 A
@@ -930,7 +930,7 @@ lance holy archangel Michael~
 The holy lance of archangel Michael~
 A lance hums with a heavenly aura.~
 admantite~
-weapon ABIKLMS AN
+weapon ABIKLMSl AN
 lance 12 10 pierce AI
 91 15 20000 P
 A
@@ -943,7 +943,7 @@ mark beast~
 The mark of the beast~
 A branded patch of skin lies on the ground.~
 flesh~
-armor EJLM AC
+armor EJLMl AC
 23 23 23 23 0
 70 10 0 P
 A
@@ -962,7 +962,7 @@ wings eagles~
 The wings of eagles~
 A giant pair of eagle wings lie here.~
 unknown~
-armor IKS AI
+armor IKSl AI
 30 30 30 17 0
 89 50 19000 P
 A
@@ -990,7 +990,7 @@ clothing sun~
 Clothing of the sun~
 A shirt glowing like the sun lies here.~
 unknown~
-armor AIK AD
+armor AIKl AD
 30 30 30 10 0
 89 10 19000 P
 A
@@ -1007,7 +1007,7 @@ clothing sun~
 Clothing of the sun~
 A skirt glowing like the sun lies here.~
 unknown~
-armor AIK AF
+armor AIKl AF
 30 30 30 10 0
 89 10 19000 P
 A
@@ -1031,7 +1031,7 @@ manna hidden~
 Hidden manna~
 A glowing circlet of hidden manna is here.~
 unknown~
-armor AFKLQS AB
+armor AFKLQSl AB
 0 0 0 0 0
 91 15 25000 P
 A
@@ -1060,7 +1060,7 @@ stone white~
 A white stone~
 A white stone the size of a shield lies here.~
 stone~
-armor IKLS AJ
+armor IKLSl AJ
 30 30 30 10 0
 91 10 15000 P
 A
@@ -1085,7 +1085,7 @@ robe white~
 A white robe~
 A white robe lies here~
 unknown~
-armor IKLS AK
+armor IKLSl AK
 23 23 23 23 0
 70 10 5000 P
 A
@@ -1096,7 +1096,7 @@ seal~
 A seal~
 A seal lies here.~
 unknown~
-armor IKLS AE
+armor IKLSl AE
 23 23 23 23 0
 70 0 5000 P
 A

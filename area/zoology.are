@@ -198,7 +198,7 @@ shark tooth necklace~
 A shark tooth necklace~
 A wire with a shark tooth has been left here.~
 coral~
-armor 0 AC
+armor l AC
 1 1 1 3 0
 4 20 300 P
 A
@@ -209,7 +209,7 @@ dragonclaw sabre saber~
 the DragonClaw~
 An enormous CLAW rests on the ground here. It belongs to Audric.~
 mithril~
-weapon ABIORY AN
+weapon ABIORYl AN
 sword 6 8 slash AB
 50 120 18750000 P
 A

@@ -271,7 +271,7 @@ holy lance~
 {WHoly blessed Lance{x~
 {WVery beautiful Lance{x glowing here.~
 energy~
-weapon ABIKTa AN
+weapon ABIKTal AN
 lance 12 12 charge DEI
 75 200 1000000 P
 A
@@ -307,7 +307,7 @@ the other one is on the west wall.
 D0
 ~
 ~
-Z 0 95219
+DZ 0 95219
 D2
 ~
 ~
@@ -567,7 +567,7 @@ Z 0 95220
 D2
 ~
 ~
-Z 0 95200
+DZ 0 95200
 S
 #95220
 @eng Gallery of Valour@rus Галерея Славы~

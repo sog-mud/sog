@@ -543,7 +543,7 @@ dagger rusty~
 a rusty dagger~
 A worn and rusty dagger is here.~
 iron~
-weapon 0 AN
+weapon l AN
 dagger 1 5 stab 0
 0 10 165 W
 A
@@ -558,7 +558,7 @@ bullwhip whip~
 a bullwhip~
 A coiled length of leather is here...looks like a nasty whip!~
 leather~
-weapon 0 AN
+weapon l AN
 whip 1 3 whip 0
 3 30 240 G
 A
@@ -569,7 +569,7 @@ club tree huge~
 a huge club~
 An uprooted tree leans against the wall.~
 wood~
-weapon 0 AN
+weapon l AN
 mace 2 9 crush F
 14 250 780 G
 A
@@ -614,7 +614,7 @@ helmet metal~
 a metal helmet~
 A metal helmet is here.~
 iron~
-armor 0 AE
+armor l AE
 4 4 3 2 1
 5 40 650 G
 A
@@ -638,7 +638,7 @@ dirk~
 a thieves dirk~
 A beautifully crafted dirk is lying here.~
 steel~
-weapon 0 AN
+weapon l AN
 dagger 2 5 stab 0
 8 20 590 G
 A
@@ -683,7 +683,7 @@ flail two two-headed~
 a two-headed flail~
 A flail with two heavy, spiked heads is here.~
 iron~
-weapon 0 AN
+weapon l AN
 flail 1 7 smash 0
 3 70 290 A
 A
@@ -701,7 +701,7 @@ mace heavy~
 a heavy iron mace~
 A large iron mace with a wicked head rests on the ground.~
 iron~
-weapon 0 AN
+weapon l AN
 mace 2 4 pound 0
 6 100 390 G
 A
@@ -730,7 +730,7 @@ voulge polearm~
 a voulge~
 A long polearm with a curved blade is here.~
 iron~
-weapon 0 AN
+weapon l AN
 polearm 2 6 slash F
 10 120 520 A
 A
@@ -759,7 +759,7 @@ gloves~
 swordsman's gloves~
 Some gloves are here.  They look like the right equipment for fighting.~
 leather~
-armor 0 AH
+armor l AH
 1 3 3 1 1
 7 10 730 G
 A
@@ -811,7 +811,7 @@ staff iron iron-shod~
 an iron-shod staff~
 A long staff capped with iron leans against a wall.~
 iron~
-weapon 0 AN
+weapon l AN
 staff 2 5 pound F
 10 60 630 G
 A
@@ -839,7 +839,7 @@ staff oak~
 a heavy oak staff~
 A ancient heavy oak staff is here.~
 wood~
-staff G AO
+staff Gl AO
 15 4 2 'harm' 0
 13 50 5400 G
 A
@@ -858,7 +858,7 @@ dagger light silver~
 a light silver dagger~
 A light silver dagger is here.~
 silver~
-weapon 0 AN
+weapon l AN
 dagger 2 4 stab 0
 7 20 660 P
 A
@@ -875,7 +875,7 @@ star morning morningstar~
 a morning star~
 A heavy, spiked morning star is here.~
 iron~
-weapon 0 AN
+weapon l AN
 flail 2 6 smash 0
 9 120 270 G
 A

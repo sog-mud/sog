@@ -1130,7 +1130,7 @@ bracer feathery браслет feathers~
 @eng feathery bracer@rus ~~браслет~~ из перьев~
 @eng Beautiful color feathers lie here.@rus Красивые разноцветные перья (feathers) лежат здесь.~
 feathers~
-armor A AM
+armor Al AM
 25 25 25 10 0
 90 20 1000 P
 A
@@ -1149,7 +1149,7 @@ tomahawk axe томагавк~
 @eng tomahawk@rus томагавк~
 @eng A small throwing axe lies on the ground.@rus Небольшой метательный топорик (axe) валяется на земле.~
 steel~
-weapon BY AN
+weapon BYl AN
 axe 15 7 slash DEK
 90 40 10000 P
 A
@@ -1162,7 +1162,7 @@ necklace tooth ожерелье~
 @eng tooth necklace@rus ~~ожерелье~~ из клыков~
 @eng A set of teeth lies here.@rus Коллекция всевозможных зубов (tooth) лежит здесь.~
 horn~
-armor B AC
+armor Bl AC
 26 28 26 20 0
 85 13 5000 P
 A
@@ -1179,7 +1179,7 @@ skirt palm юбка~
 @eng short palm skirt@rus {G~~короткая~~ ~~юбка~~ из пальмовых листьев{z~
 @eng A bunch of palm leaves lies on the ground.@rus {GСвязка пальмовых (palm) листьев лежит тут.{z~
 bamboo~
-armor I AF
+armor Il AF
 20 20 20 10 0
 85 10 500 P
 A
@@ -1198,7 +1198,7 @@ bracer charisma feathery браслет~
 @eng bracer of charisma@rus ~~браслет~~ удачи~
 @eng A feathery bracer is hanging here.@rus Пушистый браслет (bracer) висит здесь.~
 feathers~
-armor AI AM
+armor AIl AM
 25 25 25 19 0
 90 5 5000 P
 A
@@ -1215,7 +1215,7 @@ shield ebony щит~
 @eng ebony shield@rus ~~щит~~ из черного дерева~
 @eng An ebony shield lies neglected.@rus Щит (shield) из черного дерева оставлен на земле.~
 ebony~
-armor CE AJ
+armor CEl AJ
 35 35 35 15 0
 90 60 6700 P
 A
@@ -1234,7 +1234,7 @@ lion шкура skin~
 @eng leo skin@rus {Y~~львиная~~ ~~шкура~~{x~
 @eng A sneaking lion tries to bite you.@rus Крадущийся лев (lion) пытается укусить тебя.~
 hard leather~
-armor H AK
+armor Hl AK
 25 26 24 19 0
 90 15 15000 P
 A
@@ -1253,7 +1253,7 @@ stick reet spear bamboo копье~
 @eng reet stick@rus ~~бамбуковая~~ ~~палочка~~~
 @eng A long piece of bamboo lies here.@rus Длинный кусок бамбука (stick) лежит здесь.~
 bamboo~
-weapon BI AN
+weapon BIl AN
 spear 11 12 pierce CHK
 95 10 100 P
 A
@@ -1266,7 +1266,7 @@ casque black helm шлем~
 @eng black casque@rus ~~черный~~ ~~шлем~~~
 @eng A strange helm gets your attention.@rus Странный шлем (casque) привлек твое внимание.~
 iron~
-armor E AE
+armor El AE
 30 30 30 20 0
 85 20 5100 P
 A
@@ -1279,7 +1279,7 @@ platemail black scale кольчуга~
 @eng black scale platemail@rus ~~черная~~ ~~кольчуга~~~
 @eng A platemail glows in dark.@rus Кольчуга (platemail) блестит в темноте.~
 black dragonscale~
-armor ABCE AD
+armor ABCEl AD
 35 35 35 27 0
 85 23 16700 G
 A
@@ -1296,7 +1296,7 @@ gauntlets black dragon перчатки~
 @eng black dragon gauntlets@rus ~~перчатки~~ из кожи черного дракона~
 @eng A pair of dark scale gauntlets is waiting to be worn.@rus Пара черных перчаток (gauntlets) ждет своего хозяина.~
 black dragonscale~
-armor ABCE AH
+armor ABCEl AH
 30 30 30 24 0
 85 20 18000 P
 A
@@ -1309,7 +1309,7 @@ leg black dragon plates поножи~
 @eng black dragon leg plates@rus ~~поножи~~ из черной драконьей кожи~
 @eng A pile of black scale lies here.@rus Груда черной чешуи (leg) лежит здесь.~
 black dragonscale~
-armor ABCE AF
+armor ABCEl AF
 28 28 28 16 0
 85 25 17000 P
 A
@@ -1324,7 +1324,7 @@ bow short~
 @eng short bow@rus ~~короткий~~ ~~лук~~~
 @eng A short wooden bow lies here.@rus Короткий деревянный лук (bow) лежит тут.~
 wood~
-weapon 0 AN
+weapon l AN
 bow 8 10 blast 0
 80 15 1000 P
 A
@@ -1337,7 +1337,7 @@ boots black scale dragon сапоги~
 @eng black dragon boots@rus ~~черные~~ ~~сапоги~~~
 @eng A pair of scale dragon boots sits here.@rus Драконьи морды грозно поглядывают на тебя с носков черных сапог (boots).~
 black dragonscale~
-armor ABCE AG
+armor ABCEl AG
 31 28 31 20 0
 85 12 15000 P
 A
@@ -1389,7 +1389,7 @@ bookmark leather long закладка~
 @eng bookmark@rus закладка~
 @eng A long leather strip lies here.@rus Длинная кожаная полоска (bookmark) лежит здесь.~
 soft leather~
-weapon HM AN
+weapon HMl AN
 whip 9 11 blast G
 78 0 1000 P
 A
@@ -1408,7 +1408,7 @@ mist накидка cloak illusory~
 @eng illusory cloak@rus ~~призрачная~~ ~~накидка~~~
 @eng A cloud of mist is shimmering around you.@rus Облачко тумана (mist) кружится около тебя.~
 air~
-armor ABCFIRWY AK
+armor ABCFIRWYl AK
 0 0 0 0 0
 94 0 100000 P
 A
@@ -1433,7 +1433,7 @@ sword long illusory mist меч~
 @eng illusory longsword@rus ~~призрачный~~ ~~меч~~~
 @eng A cloud of mist shaped like a sword is floating here.@rus Облако тумана в форме меча (sword) парит поблизости.~
 air~
-weapon ACFORWY AN
+weapon ACFORWYl AN
 sword 13 13 slash DEFG
 94 80 100000 P
 A
@@ -1450,7 +1450,7 @@ arrow silver~
 @eng silver arrow@rus ~~серебрянная~~ ~~стрела~~~
 @eng A silver arrow glows brightly.@rus Серебрянная стрела ярко сверкает.~
 silver~
-weapon AIORY AO
+weapon AIORYl AO
 arrow 15 15 pierce AGK
 90 10 0 P
 A
@@ -1463,7 +1463,7 @@ ring bowman кольцо~
 @eng bowman's ring@rus ~~кольцо~~ лучника~
 @eng A large ring lies here.@rus Широкое кольцо (ring) лежит здесь.~
 mithril~
-armor BIT AB
+armor BITl AB
 20 18 20 15 0
 85 10 23000 P
 A
@@ -1480,7 +1480,7 @@ hat green red шляпа~
 @eng green hat@rus ~~зеленая~~ ~~шляпа~~~
 @eng A green hat with a bright red plume hangs here.@rus Зеленая шляпа (hat) с огненно-красным пером висит здесь.~
 fur~
-armor AIR AE
+armor AIRl AE
 30 25 30 20 0
 89 10 10000 P
 A
@@ -1495,7 +1495,7 @@ vest green куртка~
 @eng green vest@rus ~~зеленая~~ ~~куртка~~~
 @eng A green vest lies here forgotten.@rus Зеленая куртка (vest) лежит здесь, забытая своим хозяином.~
 silk~
-armor AI AD
+armor AIl AD
 32 30 32 21 0
 97 10 2500 P
 A
@@ -1514,7 +1514,7 @@ leggings leather штаны~
 @eng leather leggings@rus ~~кожаные~~ ~~штаны~~~
 @eng A pair of leggings lies here in the dirt.@rus Штаны (leggings) лежат на траве.~
 soft leather~
-armor BTY AF
+armor BTYl AF
 32 30 32 23 0
 98 20 5000 P
 A
@@ -1535,7 +1535,7 @@ boots leather thin ботинки~
 @eng thin leather boots@rus ~~ботинки~~ из тонкой кожи~
 @eng Some leather boots sits here.@rus Кожаные ботинки (boots) стоят тут.~
 soft leather~
-armor B AG
+armor Bl AG
 35 33 35 26 0
 96 20 3000 P
 A
@@ -1552,7 +1552,7 @@ bow long лук~
 @eng longbow@rus ~~длинный~~ ~~лук~~~
 @eng A huge bow lies here neglected.@rus Здесь лежит кем-то забытый длинный лук (bow).~
 ebony~
-weapon B AN
+weapon Bl AN
 bow 6 20 blast 0
 94 30 14000 P
 A
@@ -1563,7 +1563,7 @@ headband head band повязка~
 @eng headband@rus ~~головная~~ ~~повязка~~~
 @eng A headband is waiting to be worn.@rus Головная повязка (headband) ждет, когда ее оденут.~
 feathers~
-armor ABI AE
+armor ABIl AE
 23 23 23 18 0
 89 0 2400 P
 A
@@ -1588,7 +1588,7 @@ snake пояс~
 @eng snake belt@rus ~~змеиный~~ ~~пояс~~~
 @eng A long snake slithers along the grass.@rus Длинная змея (snake) скользит по траве.~
 snakeskin~
-armor ABHIM AL
+armor ABHIMl AL
 25 28 25 25 0
 85 0 10000 P
 A
@@ -1607,7 +1607,7 @@ scalp штаны leggings~
 @eng scalp leggings@rus ~~штаны~~, ~~украшенные~~ скальпами~
 @eng Someone has left a pile of scalps here.@rus Некто оставил тут кучу скальпов (scalp).~
 fur~
-armor CE AF
+armor CEl AF
 26 24 26 15 0
 88 23 1000 P
 A
@@ -1626,7 +1626,7 @@ boots soft мокасины moccasins~
 @eng some moccasins@rus мокасины~
 @eng A pair of soft boots sits here.@rus Пара мягких башмаков (boots) стоит здесь.~
 soft leather~
-armor C AG
+armor Cl AG
 23 18 23 15 0
 85 20 1000 P
 F A 0 0 P
@@ -1646,7 +1646,7 @@ spiritus vini~
 @eng spiritus vini@rus винный дух~
 @eng A strange aura floats here.@rus Винный дух (vini) витает здесь.~
 nothingness~
-armor B AQ
+armor Bl AQ
 0 0 0 0 0
 90 0 0 P
 A
@@ -1663,7 +1663,7 @@ waistcoat dirty плащ~
 @eng dirty waistcoat@rus ~~пыльный~~ ~~плащ~~~
 @eng An old dusty waistcoat lies here in the dirt.@rus Старый пыльный плащ (waistcoat) лежит на траве.~
 silk~
-armor AY AK
+armor AYl AK
 28 28 28 24 0
 87 20 18000 P
 A
@@ -1676,7 +1676,7 @@ belt shoulder перевязь~
 @eng shoulder belt@rus {M~~перевязь~~{x~
 @eng A strip of leather is here.@rus Кожаная лента (belt) лежит тут.~
 hard leather~
-container Y AL
+container Yl AL
 150 0 0 150 50
 100 10 25000 P
 A
@@ -1695,7 +1695,7 @@ sword veteran old меч~
 @eng old veteran's sword@rus ~~старый~~ ~~ветеранский~~ ~~меч~~~
 @eng A rusted sword lies here.@rus Тронутый ржавчиной меч (sword) лежит тут.~
 steel~
-weapon BHMTY AN
+weapon BHMTYl AN
 sword 9 14 pierce D
 90 100 10000 A
 A
@@ -1717,7 +1717,7 @@ glasses sun очки~
 @eng some sun-glasses@rus ~~солнечные~~ ~~очки~~~
 @eng Some glasses waiting to be worn.@rus Солнечные очки (glasses) ждут, пока их кто-то подберет.~
 glass~
-armor 0 AE
+armor l AE
 2 2 2 0 0
 5 5 100 P
 A
@@ -1750,7 +1750,7 @@ wig strange парик~
 @eng a wig@rus парик~
 @eng A strange pile of furs lies here.@rus Странный клочок волос (wig) лежит здесь.~
 wool~
-armor AM AE
+armor AMl AE
 15 15 15 18 0
 50 20 1000 P
 A
@@ -1763,7 +1763,7 @@ hat cowboy dusty шляпа~
 @eng cowboy's hat@rus ~~ковбойская~~ ~~шляпа~~~
 @eng A dusty piece of leather dropped here.@rus Пыльный (dusty) клочок кожи брошен тут.~
 kid leather~
-armor M AE
+armor Ml AE
 24 20 27 17 0
 75 35 1200 A
 A
@@ -1784,7 +1784,7 @@ staff strength посох~
 @eng staff of strength@rus ~~посох~~ Силы~
 @eng A wooden staff lies here.@rus Деревянный посох (staff) лежит здесь.~
 wood~
-staff AG AO
+staff AGl AO
 91 10 10 'earthquake' 0
 81 30 4500 P
 A
@@ -1795,7 +1795,7 @@ suit festival костюм~
 @eng festival suit@rus ~~фестивальный~~ ~~костюм~~~
 @eng A festival-looking suit lies here.@rus Фестивальный костюм (suit) лежит здесь.~
 satin~
-armor A AD
+armor Al AD
 12 12 12 12 0
 25 20 8900 P
 A
@@ -1817,7 +1817,7 @@ grand prize medal медаль~
 @eng Grand Prize@rus Гран При~
 @eng A brightly glowing medal is waiting to be worn.@rus Ярко светящаяся медаль (medal) ждет своего обладателя.~
 gold~
-armor AIRY AC
+armor AIRYl AC
 30 30 30 25 0
 75 50 0 P
 A
@@ -1850,7 +1850,7 @@ robe dark grey~
 @eng dark gray robe@rus ~~темно-серая~~ ~~одежка~~~
 @eng A dark gray robe is hanging on the hook.@rus Темно серое одеяние (robe) висит на крючке.~
 linen~
-armor 0 AD
+armor l AD
 10 10 10 10 0
 25 20 400 P
 A
@@ -1867,7 +1867,7 @@ sleeves accuracy нарукавники~
 @eng sleeves of accuracy@rus нарукавники~
 @eng Someone has left some sleeves here.@rus Кто-то бросил здесь нарукавники (sleeves).~
 linen~
-armor 0 AH
+armor l AH
 10 10 10 10 0
 25 10 1000 A
 A
@@ -1882,7 +1882,7 @@ pen goose~
 @eng goose pen@rus ~~гусиное~~ ~~перо~~~
 @eng A feather shaped like a pen lies here.@rus Остро очиненное перо (pen) лежит здесь.~
 feathers~
-weapon BIJK AN
+weapon BIJKl AN
 exotic 5 7 pierce 0
 25 10 1000 P
 A
@@ -1915,7 +1915,7 @@ ring tournament кольцо~
 @eng tournament ring@rus ~~турнирное~~ ~~кольцо~~~
 @eng A ring engraved with a short inscription lies here.@rus Кольцо (ring) с выгравированной на нем короткой надписью лежит тут.~
 iron~
-armor 0 AB
+armor l AB
 8 8 8 5 0
 50 10 1000 P
 A
@@ -1932,7 +1932,7 @@ scarf tournament шарф~
 @eng tournament scarf@rus ~~турнирный~~ ~~шарф~~~
 @eng A scarf with a short inscription lies on the ground.@rus Шарф (scarf) с короткой надписью лежит на земле.~
 iron~
-armor 0 AC
+armor l AC
 10 10 10 5 0
 50 12 1200 P
 A
@@ -1949,7 +1949,7 @@ helm tournament шлем~
 @eng tournament helm@rus ~~турнирный~~ ~~шлем~~~
 @eng An iron helm lies here.@rus Железный шлем (helm) лежит здесь.~
 iron~
-armor 0 AE
+armor l AE
 15 15 15 10 0
 50 35 2300 P
 A
@@ -1960,7 +1960,7 @@ plate breast tournament нагрудник~
 @eng tournament breast plate@rus ~~турнирный~~ ~~нагрудник~~~
 @eng A plate with dark carvings lies here neglected.@rus Нагрудник (plate) с темной резьбой лежит неподалеку.~
 iron~
-armor 0 AD
+armor l AD
 15 15 15 10 0
 50 50 5000 P
 A
@@ -1977,7 +1977,7 @@ leg tournament plates поножи~
 @eng tournament leg plates@rus ~~турнирные~~ ~~поножи~~~
 @eng A pile of a tournament armor lies here.@rus Груда турнирных доспехов (leg) лежит тут.~
 iron~
-armor 0 AF
+armor l AF
 10 10 10 5 0
 50 35 2300 P
 A
@@ -1990,7 +1990,7 @@ boots plated tournament сапоги~
 @eng tournament plated boots@rus {D~~турнирные~~ ~~сапоги~~{x~
 @eng Hard heavy boots sit here.@rus Тяжелые сапоги (boots) стоят тут.~
 iron~
-armor 0 AG
+armor l AG
 15 15 15 6 0
 50 23 2300 P
 A
@@ -2001,7 +2001,7 @@ arm plate tournament наручи~
 @eng tournament arm plates@rus {m~~турнирные~~ ~~наручи~~{x~
 @eng Some plates lie here.@rus Какие-то пластины (arm) лежат тут.~
 iron~
-armor 0 AI
+armor l AI
 10 10 10 10 0
 50 23 2300 P
 A
@@ -2023,7 +2023,7 @@ cloak tournament накидка~
 @eng tournament cloak@rus {b~~турнирная~~ ~~накидка~~{x~
 @eng A cloak with an inscription lies here.@rus Накидка (cloak) с какой-то надписью лежит здесь.~
 iron~
-armor 0 AK
+armor l AK
 15 10 10 10 0
 50 20 2000 P
 A
@@ -2038,7 +2038,7 @@ gauntlets tournament латные рукавицы~
 @eng tournament gauntlets@rus {w~~турнирные~~ ~~латные~~ ~~рукавицы~~{x~
 @eng Some gauntlets has been dropped here.@rus Латные рукавицы (gauntlets) брошены здесь.~
 iron~
-armor 0 AH
+armor l AH
 15 15 15 10 0
 50 30 10356 P
 A
@@ -2121,7 +2121,7 @@ plate кираса guard breast~
 @eng guard breast plate@rus {w~~кираса~~ стражника{x~
 @eng A pile of armor lies here.@rus Груда доспехов (plate) лежит здесь.~
 steel~
-armor 0 AD
+armor l AD
 10 15 10 10 0
 25 50 2000 P
 A
@@ -2132,7 +2132,7 @@ shield guard щит~
 @eng guard shield@rus {w~~щит~~ стражника{x~
 @eng A shield lies here.@rus Щит (shield) лежит здесь.~
 shell~
-armor 0 AJ
+armor l AJ
 15 18 15 10 0
 25 35 3400 P
 A
@@ -2145,7 +2145,7 @@ cape guard накидка~
 @eng guard cape@rus {w~~накидка~~ стражника{x~
 @eng A guard cape lies on the ground.@rus Накидка (cape) стражника лежит здесь.~
 fur~
-armor 0 AK
+armor l AK
 10 12 10 8 0
 25 10 2387 P
 A
@@ -2174,7 +2174,7 @@ gloves hedgehog рукавицы~
 @eng hedgehog's gloves@rus {D~~ежовые~~ ~~рукавицы~~{x~
 @eng Some gloves lies on the grass.@rus Рукавицы (gloves) лежат на траве.~
 fur~
-armor BIM AH
+armor BIMl AH
 5 6 5 3 0
 5 10 0 P
 A
@@ -2191,7 +2191,7 @@ some stilts ходули~
 @eng some stilts@rus {yходули{x~
 @eng The stilts have been carelessly droppped here.@rus Ходули (stilts) небрежно брошены здесь.~
 wood~
-armor 0 AG
+armor l AG
 10 12 15 5 0
 25 20 2000 P
 A
@@ -2303,7 +2303,7 @@ book iluvatar one книга~
 @eng Book of Iluvatar@rus {Y~~книга~~ ~~Илуватара~~{x~
 @eng A huge volume stands on the shelf.@rus Большая красиво переплетенная книга (book) лежит здесь.~
 kid leather~
-treasure ARY AO
+treasure ARYl AO
 0 0 0 0 0
 0 0 0 P
 A
@@ -2325,7 +2325,7 @@ book книга nergal~
 @eng Book of Nergal@rus {D~~книга~~ Нергала{x~
 @eng A huge volume stands on the shelf.@rus Большая красиво переплетенная книга (book) лежит здесь.~
 kid leather~
-treasure ARY AO
+treasure ARYl AO
 0 0 0 0 0
 0 0 0 P
 A
@@ -2348,7 +2348,7 @@ book diablo книга~
 @eng Book of Diablo@rus {D~~книга~~ Дьябло{x~
 @eng A huge volume stands on the shelf.@rus Большая красиво переплетенная книга (book) лежит здесь.~
 kid leather~
-treasure AERY AO
+treasure AERYl AO
 0 0 0 0 0
 0 0 0 P
 A
@@ -2371,7 +2371,7 @@ book hedin книга~
 @eng Book of Hedin@rus {Y~~книга~~ Хедина{x~
 @eng A huge volume stands on the shelf.@rus Большая красиво переплетенная книга (book) лежит здесь.~
 kid leather~
-treasure ARY AO
+treasure ARYl AO
 0 0 0 0 0
 0 0 0 P
 A
@@ -2389,7 +2389,7 @@ book phobos книга~
 @eng Book of Phobos@rus {R~~книга~~ Фобоса{x~
 @eng A huge volume stands on the shelf.@rus Большая красиво переплетенная книга (book) лежит здесь.~
 kid leather~
-treasure ARY AO
+treasure ARYl AO
 0 0 0 0 0
 0 0 0 P
 A
@@ -2404,7 +2404,7 @@ book книга rondor~
 @eng Book of Rondor@rus {Y~~книга~~ Рондора{x~
 @eng A huge volume stands on the shelf.@rus Большая красиво переплетенная книга (book) лежит здесь.~
 kid leather~
-treasure ARY AO
+treasure ARYl AO
 0 0 0 0 0
 0 0 0 P
 A
@@ -2419,7 +2419,7 @@ book eidu книга~
 @eng Book of Eidu@rus {Y~~книга~~ Эйду{x~
 @eng A huge volume stands on the shelf.@rus Большая красиво переплетенная книга (book) лежит здесь.~
 kid leather~
-treasure ARY AO
+treasure ARYl AO
 0 0 0 0 0
 0 0 0 P
 A
@@ -2447,7 +2447,7 @@ book marewell книга~
 @eng Book of Marewell@rus {Y~~книга~~ Маревелла{x~
 @eng A huge volume stands on the shelf.@rus Большая красиво переплетенная книга (book) лежит здесь.~
 kid leather~
-treasure A AO
+treasure Al AO
 0 0 0 0 0
 0 0 0 P
 A
@@ -2480,7 +2480,7 @@ book leon книга~
 @eng Book of Leon@rus {Y~~книга~~ Леона{x~
 @eng A huge volume stands on the shelf.@rus Большая красиво переплетенная книга (book) лежит здесь.~
 kid leather~
-treasure ARY AO
+treasure ARYl AO
 0 0 0 0 0
 0 0 0 P
 A
@@ -2496,7 +2496,7 @@ book arwen книга~
 @eng Book of Arwen@rus {G~~книга~~ Арвен{x~
 @eng A huge volume stands on the shelf.@rus Большая красиво переплетенная книга (book) лежит здесь.~
 kid leather~
-treasure ARY AO
+treasure ARYl AO
 0 0 0 0 0
 0 0 0 P
 A
@@ -2517,7 +2517,7 @@ book arborn книга~
 @eng Book of Arborn@rus {Y~~книга~~ Арборна{x~
 @eng A huge volume stands on the shelf.@rus Большая красиво переплетенная книга (book) лежит здесь.~
 kid leather~
-treasure AIRY A
+treasure AIRYl A
 0 0 0 0 0
 0 0 0 P
 A
@@ -2537,7 +2537,7 @@ book jullyroger~
 @eng Book of JullyRoger@rus {Y~~книга~~ Веселого Роджера{x~
 @eng A huge volume stands on the shelf.@rus Большая красиво переплетенная книга (book) лежит здесь.~
 kid leather~
-treasure ARY AO
+treasure ARYl AO
 0 0 0 0 0
 0 0 0 P
 A
@@ -2565,7 +2565,7 @@ book shamash книга~
 @eng Book of Shamash@rus {Y~~книга~~ Шамаша{x~
 @eng A huge volume stands on the shelf.@rus Большая красиво переплетенная книга (book) лежит здесь.~
 kid leather~
-treasure ARY AO
+treasure ARYl AO
 0 0 0 0 0
 0 0 0 P
 A
@@ -2586,7 +2586,7 @@ book orrin книга~
 @eng Book of Orrin@rus {Y~~книга~~ Оррина{x~
 @eng A huge volume stands on the shelf.@rus Большая красиво переплетенная книга (book) лежит здесь.~
 kid leather~
-treasure ARY A
+treasure ARYl A
 0 0 0 0 0
 0 0 0 P
 A
@@ -2678,7 +2678,7 @@ cape white накидка~
 @eng white cape@rus {w~~белая~~ ~~накидка~~{x~
 @eng A white cape lies here.@rus Белая накидка (cape) лежит здесь.~
 silk~
-armor AHKLM AK
+armor AHKLMl AK
 35 35 35 30 0
 90 10 5000 P
 A
@@ -2695,7 +2695,7 @@ cape grey накидка~
 @eng grey cape@rus ~~серая~~ ~~накидка~~~
 @eng A grey cape lies here.@rus Серая накидка (cape) лежит здесь.~
 silk~
-armor AHJKM AK
+armor AHJKMl AK
 35 35 35 30 0
 85 10 5500 P
 A
@@ -2712,7 +2712,7 @@ cape dark накидка~
 @eng dark cape@rus {D~~черная~~ ~~накидка~~{x~
 @eng A dark cape lies here.@rus Черная накидка (cape) лежит здесь.~
 silk~
-armor AEHJLM AK
+armor AEHJLMl AK
 35 35 35 30 0
 85 10 4500 P
 A
@@ -2729,7 +2729,7 @@ mask clown маска~
 @eng clown mask@rus {M~~маска~~ клоуна{x~
 @eng A strange painted face looks at you from the grass.@rus Странное раскрашенное лицо (mask) смотрит на тебя из травы.~
 plastic~
-armor CEM AE
+armor CEMl AE
 12 12 10 5 0
 25 10 1000 P
 A
@@ -2750,7 +2750,7 @@ ball crystall quartz шар~
 @eng quartz crystall@rus {R({r({Y({G({C({b(){C){G){Y){r){R) {w~~кварцевый~~ ~~шар~~{x~
 @eng A strange glowing ball shimmers in the dirt.@rus Странный светящийся шар (ball) мерцает в пыли.~
 quartz~
-light A A
+light Al A
 0 0 -1 0 0
 91 10 4560 P
 A
@@ -2782,7 +2782,7 @@ pill energize пилюля~
 @eng an energize pill@rus {D~~освежающая~~ ~~пилюля~~{x~
 @eng Someone has left a deadly-looking pill here.@rus Смертельная пилюля (pill) лежит здесь.~
 food~
-pill ABGM AO
+pill ABGMl AO
 95 'refresh' 'teleport' 'heal' 'mana restore'
 75 0 25000 P
 A
@@ -2865,7 +2865,7 @@ ring holy silver кольцо~
 @eng holy ring@rus {w~~святое~~ ~~кольцо~~{x~
 @eng A silver ring lies here.@rus Серебряное кольцо (ring) позабыто здесь.~
 silver~
-armor I AB
+armor Il AB
 2 2 2 1 0
 15 0 5600 P
 A
@@ -2878,7 +2878,7 @@ amulet holy silver амулет~
 @eng holy amulet@rus {w~~святой~~ ~~амулет~~{x~
 @eng Shiny silver amulet glows in the dirt.@rus Сверкающий серебряный амулет (amulet) блестит в пыли.~
 silver~
-armor AI AC
+armor AIl AC
 2 2 2 2 0
 25 10 12900 P
 A
@@ -2948,7 +2948,7 @@ kimono кимоно~
 @eng kimono@rus {w кимоно{x~
 @eng Kimono hangs here.@rus Кимоно (kimono) висит тут.~
 silk~
-armor I AD
+armor Il AD
 20 21 21 18 0
 50 20 20000 P
 A
@@ -3048,7 +3048,7 @@ robe brown ряса~
 @eng brown robe@rus {Rряса{x~
 @eng A simple brown robe hangs on the branch.@rus Простая бурая ряса (robe) висит на ветке.~
 wool~
-armor I AD
+armor Il AD
 10 10 10 10 0
 95 30 1000 P
 A
@@ -3063,7 +3063,7 @@ shackles foot iron band chain pair кандалы~
 @eng A pair of heavy iron foot shackles@rus ~~тяжелые~~ ~~железные~~ ~~кандалы~~~
 @eng A pair of heavy iron bands attached to a strong chain lies here.@rus Пара тяжелых железных обручей, соединенных крепкой цепью, лежит на земле.~
 iron~
-treasure CEHPUY AG
+treasure CEHPUYl AG
 0 0 0 0 0
 90 300 10 P
 A

@@ -22,13 +22,13 @@ End
  
                         Message translation:
         Alexander Morokhovets                   (efdi@@iclub.nsu.ru)
-        Tatyana Novikova               [{cPhrinn{x] (tatyana@@emf.rimusa.org)
+        Tatyana Novikova               [{cPhrinn{x] (tatyana@@iclub.nsu.ru)
 
                         Area translation:
         Rinat Hamidov                  [{cStark{x]  (rony@@dzs.nnn.tstu.ru)
         Alexey Neyman                  [{cArborn{x] (avn@@any.ru)
         Viktor Gluhov                  [{cKami{x]   (mibus@@mail.ru)
-        Tatyana Novikova               [{cPhrinn{x] (tatyana@@emf.rimusa.org)
+        Tatyana Novikova               [{cPhrinn{x] (tatyana@@iclub.nsu.ru)
         Igor Olekhnovitch              [{cAgrael{x]
  
                         Help translation:
@@ -47,12 +47,12 @@ End
 
                           Перевод сообщений:
         Александр Мороховец                     (efdi@@iclub.nsu.ru)
-        Татьяна Новикова               [{cPhrinn{x] (tatyana@@emf.rimusa.org)
+        Татьяна Новикова               [{cPhrinn{x] (tatyana@@iclub.nsu.ru)
  
                             Перевод арий:
         Ринат Хамидов                  [{cStark{x]  (rony@@dzs.nnn.tstu.ru)
         Алексей Нейман                 [{cArborn{x] (avn@@any.ru)
-        Татьяна Новикова               [{cPhrinn{x] (tatyana@@emf.rimusa.org)
+        Татьяна Новикова               [{cPhrinn{x] (tatyana@@iclub.nsu.ru)
         Виктор Глухов                  [{cKami{x]   (mibus@@mail.ru)
         Игорь Олехнович                [{cAgrael{x]
  
@@ -6192,7 +6192,7 @@ Thanks to ...
 * Important commands: help, commands, news, notes, changes.
 * Read all helps. So many things are changed relatively before.
 * Added multi-language support command. See '{Clanguage{x' command.
-* Mail to {Csog2@@iclub.nsu.ru{x for bug reports and suggestions.
+* Mail to {Csog@@samodelkin.net{x for bug reports and suggestions.
 * Players who use russian codepages, see '{CHELP RUSSIAN{x'.
 * Check out our homepage at {Chttp://iclub.nsu.ru/mud/{x.
 * Our server supports Mud Client Compression Protocol, see '{CHELP MCCP{x'.
@@ -10009,6 +10009,12 @@ This command allow to leave clan. Remember, renegade can't join clan anymore.
 
 Для help'ов, которые показываются при роллинге, необходимо использовать
 level -2, что означает что название (header) выводится не будет.
+~
+0 SYNC~
+Usage: {csync{x <command>
+
+Places any command to a command queue without
+immediate execution of harmless commands.
 ~
 -1 $~
 

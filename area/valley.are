@@ -250,7 +250,7 @@ boots elven~
 elven boots~
 Some soft boots are on the floor.~
 steel~
-armor 0 AG
+armor l AG
 3 3 3 0 0
 7 30 390 P
 A
@@ -261,7 +261,7 @@ longsword elven sword long~
 an elven longsword~
 A shiny blade is on the floor.~
 steel~
-weapon 0 AN
+weapon l AN
 sword 3 3 slash 0
 7 30 670 P
 A
@@ -301,7 +301,7 @@ ring gold~
 a gold ring~
 A shiny ring is on the floor.~
 gold~
-jewelry 0 AB
+jewelry l AB
 0 0 0 0 0
 5 10 110 P
 A
@@ -312,7 +312,7 @@ quarterstaff staff two-handed~
 a quarterstaff~
 A quarterstaff is on the floor.~
 wood~
-weapon 0 AN
+weapon l AN
 staff 5 5 pound F
 21 50 670 P
 A
@@ -467,7 +467,7 @@ quarterstaff staff two-handed~
 a quarterstaff~
 A quarterstaff is on the floor.~
 wood~
-weapon 0 AN
+weapon l AN
 staff 3 7 pound F
 14 50 310 P
 A

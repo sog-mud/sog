@@ -210,7 +210,7 @@ ring opal~
 an opal ring~
 A ring of black opal lies here gathering dust.~
 opal~
-jewelry 0 AB
+jewelry l AB
 0 0 0 0 0
 20 10 1150 P
 A
@@ -238,7 +238,7 @@ bone cracked~
 a cracked bone~
 A cracked piece of bone lies here.~
 bone~
-weapon 0 AN
+weapon l AN
 mace 3 3 pound 0
 6 30 350 P
 A

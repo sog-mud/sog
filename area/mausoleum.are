@@ -212,7 +212,7 @@ frostbrand sword~
 a Frostbrand sword~
 An ice-cold broad sword lies here.~
 iron~
-weapon HIT AN
+weapon HITl AN
 sword 6 6 frbite B
 35 9 12000 P
 A
@@ -225,7 +225,7 @@ symbol unholy~
 an unholy symbol of Lloth~
 A forboding symbol of evil lies here.~
 iron~
-armor CEJLT AC
+armor CEJLTl AC
 12 12 12 12 0
 45 1 25000 A
 A
@@ -253,7 +253,7 @@ darkened boots~
 a pair of darkened boots~
 A pair of darkened boots lies here.~
 iron~
-armor ABCEJT AG
+armor ABCEJTl AG
 14 14 14 14 0
 49 7 51000 A
 A
@@ -274,7 +274,7 @@ darkened helm helmet~
 a darkened helmet~
 A darkened helmet lies here.~
 iron~
-armor ABCEJT AE
+armor ABCEJTl AE
 14 14 14 14 0
 49 4 48000 A
 A
@@ -295,7 +295,7 @@ darkened leggings~
 a pair of darkened leggings~
 A pair of darkened leggings is lying here.~
 iron~
-armor ABCEJT AF
+armor ABCEJTl AF
 15 12 16 12 0
 49 5 55000 A
 A
@@ -320,7 +320,7 @@ signet ring~
 the Arkham signet ring~
 A small, iron ring lies here.~
 iron~
-armor ABCEJT AB
+armor ABCEJTl AB
 0 0 0 0 0
 49 1 42000 A
 A
@@ -339,7 +339,7 @@ darkened shield~
 a darkened shield~
 A darkened shield is propped up against the wall here.~
 iron~
-armor ABHJM AJ
+armor ABHJMl AJ
 12 6 0 0 0
 25 15 1 A
 A
@@ -358,7 +358,7 @@ guardian sword~
 a guardian sword~
 A guardian sword lies here.~
 iron~
-weapon ABCEJMT AN
+weapon ABCEJMTl AN
 sword 6 8 slash 0
 55 4 55000 A
 A
@@ -391,7 +391,7 @@ cloak death~
 the Cloak of Death~
 A pile of blackened cloth is here.~
 cloth~
-armor CEMT AK
+armor CEMTl AK
 13 13 13 13 0
 45 4 50000 P
 A
@@ -419,7 +419,7 @@ copper ring fortitide~
 a ring of fortitude~
 A small copper ring lays here, shining with a dull gleam.~
 copper~
-armor ABCEFHMT AB
+armor ABCEFHMTl AB
 0 0 0 0 0
 60 0 120000 P
 A
@@ -452,7 +452,7 @@ flail pestilance~
 the flail of Pestilance~
 A worm-infested ball and chain lie here.~
 gold~
-weapon ABCJT AN
+weapon ABCJTl AN
 flail 5 7 none 0
 40 16 16000 P
 A
@@ -465,7 +465,7 @@ poncho~
 a rat-eaten poncho~
 A pile of filthy rags lies here.~
 iron~
-armor HM AK
+armor HMl AK
 0 0 0 0 0
 1 1 0 P
 A
@@ -511,7 +511,7 @@ ulrician belt~
 an ulrician belt~
 A amber-tainted belt lies coiled up here.~
 iron~
-armor AT AL
+armor ATl AL
 9 9 9 9 0
 40 1 19230 P
 A
@@ -526,7 +526,7 @@ shadow dagger litrahth~
 the Shadow Dagger~
 A black, glinting blade lies here waiting to be picked up.~
 iron~
-weapon ABHMT AN
+weapon ABHMTl AN
 dagger 8 6 none 0
 52 3 100000 P
 A
@@ -544,7 +544,7 @@ shadow dagger~
 the Shadow Dagger~
 A black, glinting blade lies here waiting to be picked up.~
 iron~
-weapon ABHM AN
+weapon ABHMl AN
 dagger 1 1 none 0
 52 1 0 P
 A
@@ -566,7 +566,7 @@ claw dracolich~
 the Claw of great Dracolich~
 A claw of great ancient Dracolich is here.~
 bone~
-weapon ABCEHMT AN
+weapon ABCEHMTl AN
 exotic 7 8 none C
 60 30 150000 P
 A
@@ -592,7 +592,7 @@ sceptre chaos~
 the flaming sceptre of Chaos~
 A flaming rod of steel lies here.~
 steel~
-armor CEHT AO
+armor CEHTl AO
 4 6 7 18 0
 40 8 28550 P
 A
@@ -629,7 +629,7 @@ cloak wizardry~
 the cloak of wizardry~
 A mystical, maroon cloak lies here in a pile.~
 flesh~
-armor ABCEFT AK
+armor ABCEFTl AK
 300 0 0 0 0
 50 3 25000 P
 A

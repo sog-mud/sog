@@ -183,7 +183,7 @@ longsword commoner~
 a commoner's longsword~
 A commoner's longsword made of adamantite has been left here.~
 adamantite~
-weapon 0 AN
+weapon l AN
 sword 2 7 slash 0
 11 20 910 P
 A
@@ -196,7 +196,7 @@ longsword noble~
 a noble's longsword~
 A drow noble's longsword made of adamantite lies here.~
 adamantite~
-weapon 0 AN
+weapon l AN
 sword 3 7 slash 0
 15 10 1510 P
 A
@@ -209,7 +209,7 @@ whip snake two-headed~
 a snake headed whip~
 A whip with two snakes heads lies here.~
 leather~
-weapon A AN
+weapon Al AN
 whip 2 7 whip F
 11 10 920 P
 A
@@ -222,7 +222,7 @@ whip snake three-headed~
 a snake headed whip~
 A whip with three snake heads has been left here.~
 leather~
-weapon A AN
+weapon Al AN
 whip 3 7 whip 0
 15 10 1020 P
 A
@@ -235,7 +235,7 @@ whip snake four-headed~
 a snake headed whip~
 A whip with four snake heads has been left here.~
 leather~
-weapon A AN
+weapon Al AN
 whip 5 5 whip 0
 24 10 1530 P
 A
@@ -248,7 +248,7 @@ longsword black~
 a black longsword~
 A black longsword has been carelessly left here.~
 adamantite~
-weapon A AN
+weapon Al AN
 sword 4 6 slash 0
 21 0 2100 P
 A
@@ -327,7 +327,7 @@ ring ruby~
 a small ruby ring~
 A small ruby ring lies in the dirt.~
 ruby~
-jewelry 0 AB
+jewelry l AB
 0 0 0 0 0
 25 10 980 P
 A
@@ -338,7 +338,7 @@ dagger sacrificial~
 a spider shaped dagger~
 A dagger with spider leg shaped blades lies on the ground.~
 unknown~
-weapon J AN
+weapon Jl AN
 dagger 4 8 stab 0
 30 25 3300 P
 A
@@ -351,7 +351,7 @@ hat green~
 a small bright green hat~
 A small bright green hat lies in the dirt.~
 cloth~
-armor H AE
+armor Hl AE
 4 5 5 0 0
 12 10 1180 P
 A
@@ -362,7 +362,7 @@ whip snake skin~
 two Snake Headed whip~
 A two Snake Headed whip is lying on the ground.~
 snakeskin~
-weapon CJRT AN
+weapon CJRTl AN
 whip 10 6 whip H
 24 140 1530 P
 A

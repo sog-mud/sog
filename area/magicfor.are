@@ -757,7 +757,7 @@ ivory unicorn sword~
 an ivory unicorn sword~
 A long spiral sword made of ivory rests here.~
 ivory~
-weapon 0 AN
+weapon l AN
 sword 7 7 pierce 0
 50 200 6700 P
 A
@@ -784,7 +784,7 @@ ivory mace two~
 an ivory mace~
 A mace made of ivory has been foolishly left behind.~
 ivory~
-weapon 0 AN
+weapon l AN
 mace 4 13 smash F
 50 130 8950 P
 A
@@ -802,7 +802,7 @@ red belt~
 a red belt~
 A red belt with golden embroidery is here.~
 silk~
-armor E AL
+armor El AL
 9 9 9 9 0
 47 30 4500 P
 A
@@ -822,7 +822,7 @@ orange robe~
 an orange robe~
 An orange robe is here, neatly folded on the floor.~
 silk~
-armor L AK
+armor Ll AK
 10 10 10 10 0
 49 30 4800 P
 A
@@ -842,7 +842,7 @@ golden eye dagger~
 a golden eye dagger~
 A golden dagger with an eye inscribed on its blade seems to glare at you.~
 gold~
-weapon AHJ AN
+weapon AHJl AN
 dagger 7 7 thrust B
 51 30 4800 P
 S 'parry' 30 A
@@ -854,7 +854,7 @@ witch ring~
 Ring of the Witch~
 A green ring lies here emanating a soft green glow.~
 malachite~
-armor F AB
+armor Fl AB
 11 11 11 11 0
 53 30 5200 P
 A
@@ -871,7 +871,7 @@ blue amulet~
 a blue amulet~
 A blue amulet is here.~
 lapis~
-armor FI AC
+armor FIl AC
 9 9 9 9 0
 55 30 5600 P
 A
@@ -884,7 +884,7 @@ indigo robe~
 an indigo robe~
 An indigo robe adorned with glinting silver moons was left here.~
 silk~
-armor IY AK
+armor IYl AK
 14 14 14 14 0
 57 30 5600 P
 A
@@ -901,7 +901,7 @@ violet robe~
 a violet robe~
 A skimpy and somewhat ripped violet robe lays neglected on the floor.~
 silk~
-armor IM AK
+armor IMl AK
 11 11 11 11 0
 59 30 5999 P
 A
@@ -931,7 +931,7 @@ oaken staff~
 an oaken staff~
 A finely carved stick made of oak wood was left behind.~
 wood~
-staff GI AO
+staff GIl AO
 60 5 5 'lightning bolt' 0
 48 50 3400 P
 A
@@ -948,7 +948,7 @@ orange boots~
 a pair of orange boots~
 A pair of orange-tinted leather boots is here.~
 soft leather~
-armor BI AG
+armor BIl AG
 11 11 11 11 0
 50 50 3700 P
 S 'kick' 50 0
@@ -966,7 +966,7 @@ golden eye sword~
 a golden eye sword~
 A sword with an open eye inscribed on its blade seems to glare at you.~
 gold~
-weapon AY AN
+weapon AYl AN
 sword 7 10 cleave B
 52 50 4340 P
 A
@@ -983,7 +983,7 @@ green wristband~
 a green wristband~
 A green wristband was neglectfully left on the ground.~
 soft leather~
-armor BJ AM
+armor BJl AM
 9 9 9 9 0
 54 50 4100 P
 A
@@ -1004,7 +1004,7 @@ blue leather whip~
 a blue-tinted leather whip~
 A long blue-tinted leather whip is here.~
 leather~
-weapon BIM AN
+weapon BIMl AN
 whip 11 5 thwack G
 56 50 4400 P
 A
@@ -1027,7 +1027,7 @@ indigo tunic~
 an indigo tunic~
 An indigo tunic is folded neatly here.~
 soft leather~
-armor 0 AD
+armor l AD
 11 11 11 11 0
 58 50 4700 P
 A
@@ -1046,7 +1046,7 @@ tight violet leggings~
 a pair of tight violet leggings~
 A pair of tight violet leggings is here waiting to be worn.~
 soft leather~
-armor EM AF
+armor EMl AF
 15 15 15 15 0
 60 50 5000 P
 A
@@ -1059,7 +1059,7 @@ one horn one-horned helm~
 a one-horned helm~
 A copper helm with a single spiral ivory horn is lying here.~
 copper~
-armor HKL AE
+armor HKLl AE
 8 8 8 8 0
 54 150 7500 P
 A
@@ -1078,7 +1078,7 @@ filigree gold golden pendant~
 a golden filigree pendant~
 A golden filigree pendant at the end of a long chain lays here in a heap.~
 gold~
-armor 0 AC
+armor l AC
 5 5 5 5 0
 35 20 4500 P
 A
@@ -1325,7 +1325,7 @@ robe black warlock~
 the Robe of the Warlock~
 A black robe emanating an evil aura has been discarded here.~
 velvet~
-armor ACEHJMY AK
+armor ACEHJMYl AK
 15 15 15 15 0
 60 50 50000 P
 S 'mana transfer' 80 A
@@ -1408,7 +1408,7 @@ camouflage gloves~
 a pair of camouflage gloves~
 A pair of gloves lie here, blending in with the plant life.~
 cloth~
-armor 0 AH
+armor l AH
 9 9 9 9 0
 48 30 8900 P
 A
@@ -1423,7 +1423,7 @@ camouflage leggings~
 a pair of camouflage leggings~
 A pair of leggings blends into the forest floor.~
 cloth~
-armor 0 AF
+armor l AF
 9 9 9 9 0
 48 100 10300 P
 A
@@ -1438,7 +1438,7 @@ camouflage jacket~
 a camouflage jacket~
 A jacket blends into the forest floor.~
 cloth~
-armor 0 AD
+armor l AD
 9 9 9 9 0
 48 90 10000 P
 A
@@ -1453,7 +1453,7 @@ camouflage boots~
 a pair of camouflage boots~
 A pair of boots blends into the undergrowth.~
 leather~
-armor 0 AG
+armor l AG
 8 8 8 8 0
 48 130 15000 P
 A
@@ -1464,7 +1464,7 @@ camouflage cap~
 a camouflage cap~
 A cap blends into the undergrowth.~
 cloth~
-armor 0 AE
+armor l AE
 8 8 8 8 0
 48 40 9000 P
 A

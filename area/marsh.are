@@ -264,7 +264,7 @@ spear long two-handed~
 a long spear~
 A strange spear lies here.~
 oak~
-weapon J AN
+weapon Jl AN
 spear 1 12 stab FK
 11 100 1330 P
 A
@@ -277,7 +277,7 @@ horned helmet~
 a dark horned helmet~
 A wicked looking horned helmet lies here.~
 iron bone~
-armor J AE
+armor Jl AE
 6 6 5 2 0
 10 50 0 P
 A
@@ -302,7 +302,7 @@ scythe~
 a huge, wicked-looking scythe~
 An evil, wicked-looking scythe lies in the shadows.~
 iron~
-weapon HJ AN
+weapon HJl AN
 polearm 5 5 slice F
 19 160 1770 P
 A

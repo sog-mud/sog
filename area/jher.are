@@ -304,7 +304,7 @@ curved dagger jher's~
 jher's curved dagger~
 Jher's evil curved dagger is here glowing.~
 ~
-weapon ABJ AN
+weapon ABJl AN
 dagger 5 12 pierce 0
 53 3 530 P
 A
@@ -332,7 +332,7 @@ breeding formula~
 breeding formula~
 Special warg breeding formula was left here.~
 ~
-potion G AO
+potion Gl AO
 35 'word of recall' 'blindness' 'sleep' ''
 0 0 0 P
 A
@@ -345,7 +345,7 @@ beorn's fury~
 beorn's fury~
 A huge set of teeth are rotting like a skull in the desert.~
 ~
-weapon KM AN
+weapon KMl AN
 exotic 1 7 bite 0
 0 2 0 P
 A
@@ -403,7 +403,7 @@ diamond bracelet~
 a diamond bracelet~
 A diamond bracelet sparkles here.~
 ~
-armor AF AM
+armor AFl AM
 10 10 10 0 0
 37 5 370 P
 A
@@ -423,7 +423,7 @@ glowing zapath necklace~
 a glowing zapath necklace~
 A necklace carved from a blood red stone was left here.~
 ~
-armor AJM AC
+armor AJMl AC
 10 10 10 0 0
 35 1 350 P
 A

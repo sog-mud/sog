@@ -251,7 +251,7 @@ sword newbie~
 a shiny newbie sword~
 A shiny newbie sword is lying here waiting to be possessed.~
 steel~
-weapon A AN
+weapon Al AN
 sword 1 7 thrust 0
 4 120 200 G
 A
@@ -282,7 +282,7 @@ cloak dark newbie~
 a dark newbie cloak~
 A dark newbie cloak is lying here hoping to smother you.~
 wool~
-armor A AK
+armor Al AK
 3 4 3 1 2
 2 100 180 G
 A
@@ -295,7 +295,7 @@ ring signet newbie~
 a newbie signet ring~
 A newbie signet ring is lying in the dust here.~
 silver~
-armor F AB
+armor Fl AB
 4 3 3 1 1
 1 20 200 G
 A
@@ -306,7 +306,7 @@ dagger newbie~
 a shiny newbie dagger~
 A shiny newbie dagger is lying here looking for a back to stab.~
 iron~
-weapon A AN
+weapon Al AN
 dagger 1 7 stab 0
 4 50 140 G
 A
@@ -317,7 +317,7 @@ collar dragon~
 a pet dragon collar~
 Someone's pet dragon has escaped and left his collar here.~
 snakeskin~
-armor 0 AC
+armor l AC
 3 3 4 1 1
 4 20 300 G
 A
@@ -339,7 +339,7 @@ light jar~
 a brightly glowing jar~
 A jar of glowing fluid wants to brighten your day.~
 energy~
-light A A
+light Al A
 0 0 -1 0 0
 2 20 120 G
 A
@@ -361,7 +361,7 @@ hide skin~
 the smelly hide of the minotaur~
 The hide of the great Minotaur is lying here.~
 air~
-armor 0 AK
+armor l AK
 5 5 5 0 3
 6 190 366 G
 A
@@ -394,7 +394,7 @@ mace newbie~
 a glowing newbie mace~
 A finely crafted newbie mace is waiting for a worthy owner.~
 wood~
-weapon A AN
+weapon Al AN
 mace 1 7 pound 0
 3 170 245 G
 A

@@ -570,7 +570,7 @@ silvery cloak~
 a silvery cloak~
 A silvery cloak lies here.~
 cloth~
-armor K AK
+armor Kl AK
 6 6 6 2 0
 15 30 1320 P
 A
@@ -593,7 +593,7 @@ elven spear~
 an elven spear~
 An elven spear lies here.~
 wood~
-weapon BK AN
+weapon BKl AN
 spear 3 7 thrust K
 16 50 500 P
 A
@@ -604,7 +604,7 @@ mithril axe~
 a mithril axe~
 A mithril axe lies here.~
 mithril~
-weapon ACMO AN
+weapon ACMOl AN
 axe 3 8 chop 0
 17 120 1440 P
 A
@@ -662,7 +662,7 @@ bardiche~
 a bardiche~
 A long weapon with a sharp end is on the floor.~
 wood~
-weapon 0 AN
+weapon l AN
 polearm 3 10 cleave F
 21 100 1810 P
 A
@@ -682,7 +682,7 @@ wooden bardiche~
 a wooden bardiche~
 A long weapon with a wooden blade is on the floor.~
 wood~
-weapon 0 AN
+weapon l AN
 polearm 2 3 pound F
 3 100 980 P
 A
@@ -693,7 +693,7 @@ dagger shiriff~
 a shiriff's dagger~
 A tiny but very sharp dagger lies here.~
 steel~
-weapon 0 AN
+weapon l AN
 dagger 2 4 pierce 0
 6 10 480 P
 A

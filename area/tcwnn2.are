@@ -325,7 +325,7 @@ sword longsword~
 an ornate Longsword~
 An ornate Longsword is lying here.~
 copper~
-weapon 0 AN
+weapon l AN
 sword 5 11 pierce 0
 50 25 500 P
 A
@@ -338,7 +338,7 @@ breastplate plate~
 an ornate Breastplate~
 An ornate Breastplate with a black and gold coat of arms is lying here.~
 copper~
-armor 0 AD
+armor l AD
 13 13 13 0 0
 50 20 500 P
 A
@@ -351,7 +351,7 @@ bracer~
 an ornate Bracer~
 An ornate Bracer with a black and gold coat of arms is lying here.~
 copper~
-armor 0 AM
+armor l AM
 13 13 13 0 0
 50 15 500 P
 A
@@ -364,7 +364,7 @@ cloak~
 a black cloak with gold trim~
 A black cloak with Gold Trim is lying here.~
 copper~
-armor 0 AC
+armor l AC
 13 13 13 0 0
 50 10 500 P
 A
@@ -377,7 +377,7 @@ helm~
 an ornate helm~
 An ornate helm bearing a black and gold coat of arms lies here.~
 copper~
-armor 0 AE
+armor l AE
 13 13 13 0 0
 50 10 500 P
 A
@@ -392,7 +392,7 @@ shield~
 an ornate shield~
 A shield bearing the crest of the House of Lenny lies here.~
 copper~
-armor 0 AJ
+armor l AJ
 13 13 13 0 0
 50 20 500 P
 A
@@ -407,7 +407,7 @@ spear~
 a throwing spear~
 A sturdy throwing spear has been thrust into the ground here.~
 copper~
-warp_stone G AO
+warp_stone Gl AO
 0 0 0 0 0
 50 20 500 P
 A
@@ -420,7 +420,7 @@ ring~
 a signet ring~
 A signet ring that identifies the wearer as a trusted wall guard lies here.~
 copper~
-armor AB AB
+armor ABl AB
 13 13 13 0 0
 50 1 500 P
 A
@@ -437,7 +437,7 @@ suit plate mail~
 a suit of plate mail~
 A suit of heavy plate mail is piled up here.~
 copper~
-armor K AD
+armor Kl AD
 14 14 14 0 0
 58 50 580 P
 A
@@ -450,7 +450,7 @@ broadsword~
 a finely-made broadsword~
 A knight's broadsword lies here.~
 copper~
-weapon AK AN
+weapon AKl AN
 sword 5 13 slash 0
 58 10 580 P
 A
@@ -463,7 +463,7 @@ shield~
 a knight's shield~
 A knight's shield lies here.~
 copper~
-armor K AJ
+armor Kl AJ
 14 14 14 0 0
 58 10 580 P
 A
@@ -489,7 +489,7 @@ gauntlets~
 a pair of mail gauntlets~
 A pair of mail gauntlets lie here.~
 copper~
-armor K AE
+armor Kl AE
 14 14 14 0 0
 58 4 580 P
 A
@@ -513,7 +513,7 @@ marshal uniform~
 the marshal's uniform~
 The marshal's uniform lies here, neatly pressed.~
 copper~
-armor 0 AD
+armor l AD
 15 15 15 0 0
 62 5 620 P
 A
@@ -569,7 +569,7 @@ crossbow~
 a crossbow~
 A finely-crafted crossbow lies here.~
 copper~
-weapon R A
+weapon Rl A
 bow 5 11 pierce 0
 48 10 480 P
 A
@@ -591,7 +591,7 @@ leather leggings~
 a pair of leather leggings~
 A pair of leather leggings lie here.~
 copper~
-armor 0 AF
+armor l AF
 12 12 12 0 0
 48 5 480 P
 A
@@ -795,7 +795,7 @@ ring wizardry~
 a ring of wizardry~
 A ring of wizardry has been left here.~
 copper~
-armor A AB
+armor Al AB
 14 14 14 0 0
 56 1 560 P
 A
@@ -808,7 +808,7 @@ staff power~
 a staff of power~
 A staff of power rests on the floor here.~
 copper~
-staff AG AO
+staff AGl AO
 55 25 25 'lightning bolt' 0
 56 1 560 P
 A
@@ -821,7 +821,7 @@ robe magi~
 a white robe of the magi~
 A white robe of the magi lies here.~
 copper~
-map AK AK
+map AKl AK
 0 0 0 0 0
 56 5 560 P
 A
@@ -842,7 +842,7 @@ boots speed~
 a pair of boots of speed~
 A pair of boots of speed lie here.~
 copper~
-armor A AG
+armor Al AG
 14 14 14 0 0
 56 2 560 P
 A
@@ -857,7 +857,7 @@ invincible plate~
 a suit of invincible plate~
 A suit of invincible plate lies here.~
 copper~
-armor BCEFHJLM AD
+armor BCEFHJLMl AD
 15 15 15 0 0
 60 25 600 P
 A

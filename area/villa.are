@@ -678,7 +678,7 @@ club~
 a heavy lead-sheathed club~
 A heavy club sheathed in lead lies here.~
 copper~
-weapon 0 AN
+weapon l AN
 exotic 3 5 crush 0
 10 30 100 P
 A
@@ -691,7 +691,7 @@ mace~
 a bone mace~
 A bone mace lies here.~
 copper~
-weapon 0 AN
+weapon l AN
 mace 3 5 pound 0
 10 20 100 P
 A
@@ -704,7 +704,7 @@ dagger bronze~
 a bronze dagger~
 A bronze dagger lies here.~
 copper~
-weapon 0 AN
+weapon l AN
 dagger 3 5 pierce 0
 10 15 100 P
 A
@@ -717,7 +717,7 @@ blade sword bronze~
 a bronze sword~
 A broad, heavy bronze blade lies here.~
 copper~
-weapon 0 AN
+weapon l AN
 sword 3 5 slash 0
 10 25 100 P
 A
@@ -748,7 +748,7 @@ bronze helm~
 a bronze helm~
 A bronze helm.~
 copper~
-armor 0 AE
+armor l AE
 5 5 5 0 0
 10 5 100 P
 A
@@ -761,7 +761,7 @@ cloak~
 a rough fur cloak~
 A rough fur cloak is here.~
 copper~
-armor 0 AC
+armor l AC
 5 5 5 0 0
 10 5 100 P
 A
@@ -837,7 +837,7 @@ wolf head~
 a wolf's head~
 The champion's wolf's head is here.~
 copper~
-armor 0 AE
+armor l AE
 21 21 21 0 0
 93 75 930 P
 A
@@ -848,7 +848,7 @@ club~
 the chief's club~
 The chief's oak club is lying here in the dirt.~
 copper~
-weapon 0 AN
+weapon l AN
 mace 5 13 crush 0
 60 25 600 P
 A
@@ -872,7 +872,7 @@ wooden club~
 a wooden club~
 A wooden club is lying here.~
 copper~
-weapon 0 AN
+weapon l AN
 exotic 5 11 crush 0
 50 15 500 P
 A
@@ -883,7 +883,7 @@ boiled leather jerkin~
 a boiled leather jerkin~
 A boiled leather jerkin is lying here.~
 copper~
-armor 0 AD
+armor l AD
 13 13 13 0 0
 50 10 500 P
 A
@@ -896,7 +896,7 @@ bone bracelet~
 a rune-covered bone bracelet~
 A rune-covered bone bracelet is lying here.~
 copper~
-armor 0 AM
+armor l AM
 13 13 13 0 0
 50 5 500 P
 A
@@ -909,7 +909,7 @@ fur cloak~
 a fur cloak~
 A fur cloak is lying here.~
 copper~
-armor 0 AC
+armor l AC
 13 13 13 0 0
 50 10 500 P
 A
@@ -922,7 +922,7 @@ helm~
 a boar tusk helm~
 A boar tusk helm lies here.~
 copper~
-armor 0 AE
+armor l AE
 13 13 13 0 0
 50 10 500 P
 A
@@ -933,7 +933,7 @@ shield~
 an ox-hide shield~
 An ox-hide shield lies here.~
 copper~
-armor 0 AJ
+armor l AJ
 13 13 13 0 0
 50 20 500 P
 A
@@ -948,7 +948,7 @@ spear~
 a throwing spear~
 A sturdy throwing spear has been thrust into the ground here.~
 copper~
-warp_stone G AO
+warp_stone Gl AO
 0 0 0 0 0
 50 20 500 P
 A

@@ -205,7 +205,7 @@ bark wooden~
 a wooden bark~
 A piece of wooden bark lies here.~
 bark~
-armor 0 AD
+armor l AD
 25 25 25 25 0
 40 2 550 P
 A
@@ -271,7 +271,7 @@ pearl black~
 a black pearl~
 A strange black pearl seems to stare back at you.~
 black pearl~
-gem C AO
+gem Cl AO
 0 0 0 0 0
 40 1 4000 P
 A
@@ -286,7 +286,7 @@ claw forest bear~
 the claw of a forest bear~
 The giant claw of a forest bear draws your curiosity.~
 claw~
-weapon 0 AN
+weapon l AN
 exotic 6 8 claw D
 45 10 4500 P
 A
@@ -299,7 +299,7 @@ wing crystal pixie~
 a crystal pixie wing~
 A crystal pixie wing flutters aimlessly.~
 magic~
-armor K AI
+armor Kl AI
 -10 -10 -10 -10 0
 40 1 2000 P
 A
@@ -310,7 +310,7 @@ hoop water sprite ring~
 a hoop of flowing water~
 A ring formed from a circle of flowing water lies here.~
 water~
-jewelry A AB
+jewelry Al AB
 0 0 0 0 0
 40 1 2500 P
 A
@@ -343,7 +343,7 @@ pearl black~
 {Da black pearl{x~
 A strange black pearl seems to stare back at you.~
 pearl~
-gem ACQ AO
+gem ACQl AO
 0 0 0 0 0
 45 1 7690 P
 A
@@ -360,7 +360,7 @@ hoop water sprite ring~
 {ca hoop of flowing water{x~
 A ring formed from a circle of flowing water lies here.~
 water~
-jewelry AQ AB
+jewelry AQl AB
 0 0 0 0 0
 45 1 2500 P
 A
@@ -373,7 +373,7 @@ wing crystal pixie zzz~
 {Wa crystal pixie wing{x~
 A crystal pixie wing flutters aimlessly.~
 magic dust~
-armor AKQ AI
+armor AKQl AI
 -10 -10 -10 -10 0
 43 1 780 P
 A
@@ -386,7 +386,7 @@ claw forest bear~
 {Wthe claw of a forest bear{x~
 The giant claw of a forest bear draws your curiosity.~
 claw~
-weapon Q AN
+weapon Ql AN
 exotic 5 11 claw DE
 45 10 5500 P
 A
@@ -399,7 +399,7 @@ amulet wooden~
 {ya wooden amulet{x~
 The small wooden amulet lies here.~
 wood~
-armor A AC
+armor Al AC
 -10 -10 -10 -10 0
 45 1 5000 P
 A
@@ -415,7 +415,7 @@ bark wooden~
 {ya wooden bark{x~
 A piece of wooden bark lies here.~
 bark~
-armor Q AD
+armor Ql AD
 25 25 25 25 0
 45 2 550 P
 A

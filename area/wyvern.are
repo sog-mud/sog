@@ -416,7 +416,7 @@ fine mace~
 the fine mace~
 There is a large mace of fine quality here.~
 iron~
-weapon 0 AN
+weapon l AN
 mace 6 3 pound 0
 10 110 570 P
 A
@@ -429,7 +429,7 @@ elven dagger~
 a long elven dagger~
 A long elven dagger made of adamantite is here.~
 steel~
-weapon A AN
+weapon Al AN
 dagger 2 5 pierce 0
 8 20 700 P
 A
@@ -440,7 +440,7 @@ steel broad sword~
 a steel broad sword~
 A fine steel broad sword is lying on the ground.~
 steel~
-weapon A AN
+weapon Al AN
 sword 3 6 slash 0
 11 120 910 P
 A
@@ -453,7 +453,7 @@ steel broad sword~
 a steel broad sword~
 A very fine steel broad sword is lying on the ground.~
 steel~
-weapon A AN
+weapon Al AN
 sword 3 7 slash 0
 15 120 1510 P
 A
@@ -466,7 +466,7 @@ rod might~
 the rod of might~
 A Rod of Might is lying here.~
 oak~
-weapon B AN
+weapon Bl AN
 mace 3 7 blast 0
 14 130 1550 P
 A
@@ -479,7 +479,7 @@ black kite shield~
 a black kite shield~
 There is a large black kite shield lying here.~
 onyx~
-armor A AJ
+armor Al AJ
 6 6 6 2 0
 13 80 1530 P
 A
@@ -515,7 +515,7 @@ dark blue cloak~
 a dark blue cloak~
 A valuable cloak of dark blue cloth lies on the floor.~
 cloth~
-clothing A AC
+clothing Al AC
 0 0 0 0 0
 0 20 100 P
 A
@@ -562,7 +562,7 @@ strange key~
 a strange key~
 There is a very strange-looking key on the ground here.~
 unknown~
-key A AO
+key Al AO
 B 0 0 0 0
 12 10 750 P
 A
@@ -589,7 +589,7 @@ long bow~
 a long bow~
 A long bow has been foolishly abandoned here.~
 wood~
-weapon A AN
+weapon Al AN
 bow 3 6 pound 0
 12 70 220 P
 A
@@ -600,7 +600,7 @@ ancient sword~
 an ancient long sword~
 An ancient long sword has been left here.~
 iron~
-weapon B AN
+weapon Bl AN
 sword 3 8 slash 0
 19 100 2500 P
 A
@@ -622,7 +622,7 @@ travelling boots~
 a pair of travelling boots~
 A sturdy pair of travelling boots lies here.~
 fur~
-armor 0 AG
+armor l AG
 5 5 5 0 0
 12 20 880 P
 A
@@ -633,7 +633,7 @@ bronze ring~
 a bronze ring~
 A ring of etched bronze gleams dimly on the ground.~
 bronze~
-jewelry 0 AB
+jewelry l AB
 0 0 0 0 0
 5 10 55 P
 A

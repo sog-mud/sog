@@ -311,7 +311,7 @@ tickler~
 a nightgaunt's tickler~
 A nightgaunt's tickler has been left here.~
 dragonskin~
-weapon H AN
+weapon Hl AN
 whip 2 4 slime 0
 7 80 540 P
 A
@@ -384,7 +384,7 @@ ring black marble~
 a black marble ring~
 A black marble ring is lying here on the ground.~
 marble~
-treasure K AB
+treasure Kl AB
 0 0 0 0 0
 3 20 26 P
 A
@@ -402,7 +402,7 @@ rapier thin~
 a whisper thin rapier~
 A rapier is lying here.~
 steel~
-weapon B AN
+weapon Bl AN
 sword 4 2 pierce 0
 16 40 3500 P
 A
@@ -587,7 +587,7 @@ cape dark black~
 a dark black cape~
 A dark black cape is lying here~
 leather~
-armor 0 AK
+armor l AK
 5 5 5 0 0
 0 100 100 P
 A
@@ -605,7 +605,7 @@ flaming black sword long longsword~
 the pitch-black flaming longsword~
 A pitch-black long swor here~
 steel~
-weapon 0 AN
+weapon l AN
 sword 3 11 slash AC
 28 200 2200 P
 A

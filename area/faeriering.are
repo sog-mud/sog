@@ -198,7 +198,7 @@ ball light twinkle twinkling мерцающий шар~
 @eng a *twinkling* ball of light@rus ~~мерцающий~~ ~~шар~~~
 @eng A twinkling ball of light sparkles here!@rus Мерцающий шар (ball) искрится и переливается всеми цветами радуги, освещая все вокруг.~
 unknown~
-light AI AO
+light AIl AO
 0 0 999 0 0
 15 0 1000 P
 A
@@ -215,7 +215,7 @@ belt sprite поясок rainbow радуга~
 @eng a sprite belt@rus ~~поясок~~ спрайта~
 @eng A loop of rainbow thread lies here.@rus Маленькая радуга (sprite bell), свернутая в кольцо, лежит у твоих ног.~
 mithril~
-armor FM AL
+armor FMl AL
 5 5 5 5 0
 11 1 500 P
 A
@@ -226,7 +226,7 @@ bracer brownie браслет~
 @eng a brownie bracer@rus ~~браслет~~ брауни~
 @eng An earthen colored band lies here.@rus Цветной глиняный браслет (bracer) лежит здесь.~
 mithril~
-armor 0 AM
+armor l AM
 5 5 5 5 0
 13 1 700 P
 A
@@ -248,7 +248,7 @@ robe gossamer плащ~
 @eng a gossamer robe@rus ~~плащ~~ из тончайшего газа~
 @eng A gossamer robe sparkles with a pale white glow!@rus Плащ (robe) из газа светится неярким белым светом.~
 cloth~
-armor IM AK
+armor IMl AK
 6 6 6 6 0
 15 1 1500 P
 A
@@ -261,7 +261,7 @@ moonbeam луч~
 @eng a moonbeam@rus ~~лунный~~ ~~луч~~~
 @eng A sparkling pale light ray glows here! @rus Луч (moonbeam) лунного света нежно освещает все вокруг.~
 unknown~
-weapon AF AN
+weapon AFl AN
 exotic 4 4 pierce G
 15 0 1500 P
 A
@@ -283,7 +283,7 @@ britches dirty штаны~
 @eng a pair of dirty britches@rus ~~грязные~~ ~~штаны~~~
 @eng A pair of dirty britches lies here. Get the laundry soap.@rus Пара грязных штанов (britches) валяется здесь.~
 leather~
-armor C AF
+armor Cl AF
 5 5 5 0 0
 14 0 900 P
 A

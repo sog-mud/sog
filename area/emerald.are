@@ -651,7 +651,7 @@ FGK ABCDEFGHIJKLMNOPQRS BCD 0
 stand stand none 15
 D ABCDEF medium unknown
 #237
-Demon-Elf girl~
+Demon-Elf~
 Demon-Elf~
 Cutting runes into the bark of a tree is a wild-looking elfin girl.
 ~
@@ -1669,7 +1669,7 @@ Stetson helm~
 an ancient Ranger Lord's Stetson~
 A large brown hat is trying to camoflage itself on the floor.~
 wood~
-armor A AE
+armor Al AE
 12 11 11 10 0
 50 8 80000 P
 A
@@ -1687,7 +1687,7 @@ VainGlory Morning-Star Morningstar~
 a Morning-Star named "VainGlory"~
 A large and ancient morning-star glows brightly on the floor.~
 silver~
-weapon AHM AN
+weapon AHMl AN
 flail 12 3 wrath 0
 38 10 10000 G
 A
@@ -1709,7 +1709,7 @@ Relic ikon~
 a Graven Ikon of Saint Sebastian~
 Small and scarred, the wooden image of a Saint is resting here.~
 cloth~
-armor A AO
+armor Al AO
 9 9 9 0 0
 38 4 12000 G
 A
@@ -1903,7 +1903,7 @@ Sword~
 a Crusader's Sword~
 There is a shiny steel sword with a decorated hilt here.~
 silver~
-weapon KL AN
+weapon KLl AN
 sword 10 3 wrath 0
 35 8 12000 G
 A
@@ -1923,7 +1923,7 @@ Cross~
 a wooden cross~
 A small wooden cross lies here.~
 wood~
-armor KL AC
+armor KLl AC
 9 9 9 0 0
 35 2 5000 G
 A
@@ -1946,7 +1946,7 @@ surcoat~
 a white surcoat~
 A white surcoat with an emblazoned red cross lies here.~
 leather~
-armor KL AK
+armor KLl AK
 9 9 10 0 0
 35 5 5000 G
 A
@@ -1966,7 +1966,7 @@ shirt mailed~
 a battle-worn mailed shirt~
 A shirt of tough steel mail is lying here.~
 Steel~
-armor KL AD
+armor KLl AD
 6 6 6 0 0
 36 9 4000 G
 A
@@ -1985,7 +1985,7 @@ steel leggings~
 a pair of light steel leggings~
 A pair of firm looking steel leg armour lies on the ground.~
 steel~
-armor KL AF
+armor KLl AF
 5 5 5 5 0
 35 6 5000 G
 A
@@ -2007,7 +2007,7 @@ sollerets boots~
 a pair of steel sollerets~
 A pair of strong steel boots rests here.~
 steel~
-armor KL AG
+armor KLl AG
 6 6 6 6 2
 35 8 5000 G
 A
@@ -2092,7 +2092,7 @@ Yew bow~
 a yew bow~
 An elegant yew bow lies here amongst the rocks.~
 yew~
-weapon KL AN
+weapon KLl AN
 bow 5 9 pierce 0
 43 9 30000 G
 A
@@ -2166,7 +2166,7 @@ shield melancholic~
 the Knight Melancholic's shield~
 A green and silver shield bears a bleeding heart device.~
 steel~
-armor BK AJ
+armor BKl AJ
 8 8 9 0 0
 35 8 10000 P
 A
@@ -2186,7 +2186,7 @@ sword swiftbird~
 a sword called "Swiftbird"~
 A sword called "Swiftbird" sings a melancholic lament.~
 steel~
-weapon K AN
+weapon Kl AN
 sword 10 3 slash 0
 35 10 10000 G
 A
@@ -2208,7 +2208,7 @@ marmalade Orb~
 a marmalade orb~
 A striped marmalade orb floats in the air near you.~
 energy~
-weapon FI AN
+weapon FIl AN
 exotic 10 4 magic 0
 43 10 10000 G
 A
@@ -2227,7 +2227,7 @@ TianCanShenGong Manual~
 the TianCanShenGong manual~
 An ancient transcript with oriental scriblings radiates brightly here.~
 cloth~
-treasure A AO
+treasure Al AO
 0 0 0 0 0
 50 3 80000 G
 A
@@ -2250,7 +2250,7 @@ bible~
 the Bible~
 A small black bible lies here.~
 wood~
-armor IKL AO
+armor IKLl AO
 7 8 7 0 0
 20 3 100 G
 A
@@ -2316,7 +2316,7 @@ marcel proust mace book~
 Marcel Proust's "A la Recherche du Temps Perdu"~
 Marcel Proust's "A la Recherche du Temps Perdu" lies here.~
 gold~
-weapon K AN
+weapon Kl AN
 mace 10 2 pound 0
 15 18 8000 G
 A
@@ -2370,7 +2370,7 @@ bow ashen longbow~
 an ashen longbow~
 A skillfully crafted longbow with a quiver of arrows lie here.~
 Gold~
-weapon K AN
+weapon Kl AN
 bow 9 3 pierce 0
 28 10 4700 G
 A
@@ -2388,7 +2388,7 @@ hell-spear spear~
 a Hell-Spear~
 A Hell-Spear wreathed in black flames.~
 iron~
-weapon CHJ AN
+weapon CHJl AN
 spear 9 3 pierce AK
 25 12 3000 G
 A
@@ -2631,7 +2631,7 @@ skin cloak~
 the skin of an elven princess~
 A wide cloak made from the skin of an elven princess.~
 energy~
-armor J AC
+armor Jl AC
 9 8 8 0 0
 38 8 9000 G
 A
@@ -2656,7 +2656,7 @@ candle~
 a blood candle~
 A blood candle paints the room red.~
 wax~
-light AJ A
+light AJl A
 0 0 999 0 0
 20 1 5500 G
 A
@@ -2675,7 +2675,7 @@ ring scarab beetle~
 a gold scarab ring~
 A petrified beetle dipped in gold has been dead a long time.~
 gold~
-armor ACJ AB
+armor ACJl AB
 9 9 9 9 9
 38 2 15000 G
 A
@@ -2694,7 +2694,7 @@ wig~
 a green serpent-tressed wig~
 A green serpent-tressed wig slithers about on the ground.~
 moss~
-armor CJ AE
+armor CJl AE
 9 9 9 0 0
 38 2 15500 G
 A
@@ -2718,7 +2718,7 @@ circlet~
 the dead star circlet~
 A blackened circlet with a stone of dull white fire.~
 leather~
-armor EJ AE
+armor EJl AE
 12 11 11 0 0
 50 8 25000 G
 A
@@ -2740,7 +2740,7 @@ gown samite~
 a beautiful gown of white samite~
 A white samite gown lies here like a symbol of beauty and purity.~
 bronze~
-armor 0 AD
+armor l AD
 11 11 11 0 0
 50 6 25000 G
 A
@@ -2763,7 +2763,7 @@ whip tail manticore~
 the whipping tail of a manticore~
 A chitinous chain of black plates with a whipping end.~
 iron~
-weapon M AN
+weapon Ml AN
 whip 8 6 sting 0
 50 7 25000 G
 A
@@ -2782,7 +2782,7 @@ dagger Yog-Sothoth~
 the dagger of Yog-Sothoth~
 A blue steel dagger with a blackened hilt lies here.~
 steel~
-weapon AEJM AN
+weapon AEJMl AN
 dagger 8 6 pierce B
 50 7 25000 G
 A
@@ -2833,7 +2833,7 @@ Hell-blade blade~
 a Hell-Blade~
 A Hell-Blade wreathed in black flames.~
 iron~
-weapon CHJ AN
+weapon CHJl AN
 sword 9 3 slash A
 25 12 4700 G
 A
@@ -2853,7 +2853,7 @@ Word~
 a word~
 A word lies here on the floor.~
 energy~
-armor HM AO
+armor HMl AO
 8 8 8 0 0
 35 1 3000 G
 A
@@ -2944,7 +2944,7 @@ lancelot signet ring~
 Lancelot's Signet Ring~
 An ancient signet ring lies here tarnished and forgotten.~
 gold~
-armor KL AB
+armor KLl AB
 7 7 7 0 0
 18 1 1500 G
 A
@@ -3013,7 +3013,7 @@ knapsack sack~
 a ranger's knapsack~
 A knapsack made from the finest leather rests here.~
 leather~
-container 0 AK
+container l AK
 650 A 0 10 0
 1 100 90 P
 A
@@ -3041,7 +3041,7 @@ bone bracelet~
 a bone bracelet~
 A bracelet strung from pieces of bones lies uninvitingly here.~
 bone~
-armor CJQ AM
+armor CJQl AM
 4 4 4 0 0
 40 5 5000 G
 A

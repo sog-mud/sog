@@ -219,7 +219,7 @@ sword~
 an elvish sword~
 A beautiful sword has been left here.~
 adamantite~
-weapon 0 AN
+weapon l AN
 sword 1 5 slash 0
 5 30 500 G
 A
@@ -230,7 +230,7 @@ cloak~
 a plain elven cloak~
 A plain, but practical, Elven cloak lies here.~
 cloth~
-armor 0 AC
+armor l AC
 3 3 3 0 1
 5 40 200 G
 A
@@ -243,7 +243,7 @@ boots~
 a pair of plain elven boots~
 A plain, but practical, pair of Elven boots.~
 leather~
-armor 0 AG
+armor l AG
 3 4 4 0 2
 5 30 400 G
 A
@@ -274,7 +274,7 @@ scimitar~
 an orcish scimitar~
 An Orcish scimitar has been left here.~
 iron~
-weapon 0 AN
+weapon l AN
 sword 1 6 cleave 0
 5 120 450 G
 A
@@ -287,7 +287,7 @@ helm~
 an ugly spiked helm~
 An ugly Orcish spiked helm has been left here.~
 bronze~
-armor 0 AE
+armor l AE
 4 3 3 0 2
 5 140 200 G
 A
@@ -325,7 +325,7 @@ sword~
 a fine elven sword~
 A fine Elven sword glimmers softly here.~
 metal~
-weapon AKL AN
+weapon AKLl AN
 sword 12 2 cleave DF
 14 45 600 G
 A

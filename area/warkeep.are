@@ -350,7 +350,7 @@ robes~
 some black robes~
 Some black robes have been left here.~
 copper~
-armor AJ AK
+armor AJl AK
 9 9 9 0 0
 30 5 300 P
 A
@@ -374,7 +374,7 @@ sword~
 a bone sword~
 A bone sword is stuck in the ground here.~
 copper~
-weapon AJ AN
+weapon AJl AN
 sword 5 7 pierce 0
 30 10 300 P
 A
@@ -387,7 +387,7 @@ helm~
 a bronze helm~
 A bronze helm covered in runes has been left here.~
 copper~
-armor AJ AE
+armor AJl AE
 9 9 9 0 0
 30 7 300 P
 A
@@ -458,7 +458,7 @@ dagger~
 a dagger~
 A rune-covered dagger has been left here.~
 copper~
-weapon BEJ AN
+weapon BEJl AN
 dagger 5 7 pierce 0
 28 5 280 P
 A
@@ -469,7 +469,7 @@ staff~
 a garthalanium staff~
 A staff fashioned of garthalanium has been left here.~
 copper~
-staff BEGJ AO
+staff BEGJl AO
 28 10 10 'energy drain' 0
 28 5 280 P
 A
@@ -489,7 +489,7 @@ spiked club~
 a spiked club~
 A spiked club lies here.~
 copper~
-weapon JR AN
+weapon JRl AN
 mace 5 6 crush 0
 25 20 250 P
 A
@@ -511,7 +511,7 @@ drake hide~
 a fire drake hide~
 The hide of a fire drake has been removed and left here.~
 copper~
-armor BJ AK
+armor BJl AK
 8 8 8 0 0
 28 25 280 P
 A
@@ -558,7 +558,7 @@ robes~
 some green robes~
 Some green robes are crumpled up on the floor here.~
 copper~
-armor AJ AK
+armor AJl AK
 7 7 7 0 0
 21 3 210 P
 A
@@ -571,7 +571,7 @@ staff~
 a wooden staff~
 A wooden staff with a bronze head lies here.~
 copper~
-weapon R AN
+weapon Rl AN
 staff 5 5 pound 0
 21 9 210 P
 A
@@ -600,7 +600,7 @@ collar обруч~
 @eng a spiked collar@rus ~~обруч~~ с шипами~
 @eng A spiked dog collar lies here.@rus Обруч с шипами (collar) лежит здесь.~
 copper~
-armor 0 AC
+armor l AC
 6 6 6 0 0
 16 5 160 P
 A
@@ -613,7 +613,7 @@ assassin robes~
 the robes of an assassin~
 The black robes of an assassin have been torn from her and left here.~
 copper~
-armor J AO
+armor Jl AO
 7 7 7 0 0
 20 3 200 P
 A
@@ -626,7 +626,7 @@ dagger~
 a throwing dagger~
 A throwing dagger has been left here.~
 copper~
-warp_stone G AO
+warp_stone Gl AO
 0 0 0 0 0
 20 3 200 P
 A
@@ -637,7 +637,7 @@ sword~
 a steel sword~
 A rare steel sword covered in runes lies here.~
 copper~
-weapon A AN
+weapon Al AN
 sword 5 6 slash 0
 27 10 270 P
 A
@@ -650,7 +650,7 @@ ring~
 a magic ring~
 A magic ring floats by here.~
 copper~
-armor AP AB
+armor APl AB
 8 8 8 0 0
 27 1 270 P
 A
@@ -665,7 +665,7 @@ boots~
 elven boots~
 A pair of elven boots lie here.~
 copper~
-armor 0 AG
+armor l AG
 8 8 8 0 0
 27 5 270 P
 A
@@ -678,7 +678,7 @@ elven cloak~
 a green elven cloak~
 A green elven cloak has been left here.~
 copper~
-armor 0 AC
+armor l AC
 8 8 8 0 0
 27 3 270 P
 A
@@ -729,7 +729,7 @@ flind bar~
 a flind bar~
 A flind bar has been left here.~
 copper~
-armor J AO
+armor Jl AO
 7 7 7 7 0
 20 5 200 P
 A
@@ -815,7 +815,7 @@ leg irons~
 a set of leg irons~
 A set of leg irons rest here.~
 copper~
-armor M AF
+armor Ml AF
 5 5 5 0 0
 12 10 120 P
 A

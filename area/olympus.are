@@ -423,7 +423,7 @@ hammer thunder bolt thunderbolt~
 the Thunder Bolt~
 A huge hammer has been carelessly dropped here.~
 mithril~
-weapon FKL AN
+weapon FKLl AN
 mace 9 9 blast G
 50 140 5400 P
 A
@@ -449,7 +449,7 @@ spear ares~
 the spear of Ares~
 A wicked spear rests on the ground here.~
 titanium~
-weapon FJ AN
+weapon FJl AN
 spear 5 10 thrust K
 48 180 2000 P
 A
@@ -494,7 +494,7 @@ bow silver~
 a silver bow~
 A silver bow.~
 silver~
-weapon FK AN
+weapon FKl AN
 bow 6 7 pierce F
 47 150 10300 P
 A
@@ -507,7 +507,7 @@ gauntlets flaming~
 flaming gauntlets~
 A pair of metal gauntlets flame here.~
 steel gold leather~
-armor G AH
+armor Gl AH
 7 7 7 4 0
 27 60 2900 P
 A
@@ -527,7 +527,7 @@ necklace glowing~
 a glowing necklace~
 A necklace with an inner glow lies here.~
 amethyst~
-jewelry FK AC
+jewelry FKl AC
 0 0 0 0 0
 25 20 980 P
 A
@@ -538,7 +538,7 @@ ring sapphire~
 a sapphire ring~
 A sapphire ring lies here.~
 sapphire~
-jewelry FK AB
+jewelry FKl AB
 0 0 0 0 0
 35 10 6900 P
 A
@@ -643,7 +643,7 @@ amulet~
 the Amulet of Ra~
 A sun shaped medallion is lying here.~
 crystal~
-jewelry FK AC
+jewelry FKl AC
 0 0 0 0 0
 40 10 4900 P
 A
@@ -654,7 +654,7 @@ sun sword~
 the Sword of the Sun~
 A beautiful sword with the rising sun etched on the pommel is lying here.~
 unknown~
-weapon FKL AN
+weapon FKLl AN
 sword 9 9 slash 0
 50 200 6800 P
 A
@@ -669,7 +669,7 @@ robe blue~
 a blue robe~
 A deep blue robe is on the ground here.~
 unknown~
-armor FK AK
+armor FKl AK
 6 6 6 8 0
 17 100 1960 P
 A
@@ -762,7 +762,7 @@ arrow silver~
 a silver arrow~
 A silver arrow with an inner glow lies here.~
 silver~
-weapon FK AO
+weapon FKl AO
 arrow 6 7 pierce ABCDEFGHK
 47 20 10300 P
 A

@@ -2213,7 +2213,7 @@ tassled jester hat~
 a tassled jester's hat~
 A colorful pointed hat tipped with silver tassles lies here.~
 felt~
-armor 0 AE
+armor l AE
 23 24 23 20 0
 75 40 2500 P
 A
@@ -2230,7 +2230,7 @@ circlets wonder arm bands~
 circlets of wonder~
 A pair of multicolored arm bands lie here.~
 etherealness~
-armor AF AI
+armor AFl AI
 24 24 24 20 0
 75 20 3000 P
 A
@@ -2284,7 +2284,7 @@ moonbeam moon beam shaft moonlight light~
 a moonbeam~
 A shaft of moonlight glimmers here.~
 light~
-armor AIK AL
+armor AIKl AL
 27 27 28 21 0
 85 0 4000 P
 A
@@ -2301,7 +2301,7 @@ innocent dreams~
 innocent dreams~
 Some innocent dreams hover here.~
 etherealness~
-armor AK AQ
+armor AKl AQ
 27 27 28 20 0
 85 0 3500 P
 A
@@ -2320,7 +2320,7 @@ gleaming white cross~
 a gleaming white cross~
 A white cross is here, glowing with an inner light.~
 ivory~
-armor AK AO
+armor AKl AO
 28 28 28 21 0
 85 30 1500 P
 A
@@ -2337,7 +2337,7 @@ white kid gloves~
 a pair of white kid gloves~
 A pair of white kid gloves lie here.~
 soft leather~
-armor AK AH
+armor AKl AH
 23 23 21 21 0
 85 30 3500 P
 A
@@ -2354,7 +2354,7 @@ mark gabrian white insignia hair~
 Mark of Gabrian~
 An insignia woven of white panther hair lies here.~
 hair~
-armor BIM AE
+armor BIMl AE
 21 21 20 20 32768
 80 0 2000 P
 A
@@ -2399,7 +2399,7 @@ white grey feather breast plate~
 a white grey breast plate~
 A breast plate of huge white-grey feathers lies here~
 feathers~
-armor 0 AD
+armor l AD
 21 22 21 19 0
 65 150 5500 P
 A
@@ -2414,7 +2414,7 @@ song nightingale~
 song of the nightingale~
 A beautiful song fills the air.~
 nothingness~
-armor BFHI AQ
+armor BFHIl AQ
 15 15 15 11 0
 45 0 2200 P
 A
@@ -2451,7 +2451,7 @@ glowing silvery hooves~
 glowing silvery hooves~
 A pair of silvery hooves glow with a soft inner light.~
 mithril~
-armor AK AG
+armor AKl AG
 22 21 23 18 0
 66 50 5200 P
 A
@@ -2466,7 +2466,7 @@ golden bell silver neckchain chain~
 A golden bell on a silver neckchain~
 A golden bell lies here, attached to a delicate silver chain.~
 gold~
-jewelry A AC
+jewelry Al AC
 0 0 0 0 0
 66 20 10240 P
 A
@@ -2481,7 +2481,7 @@ rose tinted shades~
 a pair of rose tinted shades~
 Some rose tinted shades lie here.~
 glass~
-armor 0 AC
+armor l AC
 17 17 17 14 0
 55 20 1000 P
 F A 0 0 A
@@ -2495,7 +2495,7 @@ breastplate plate white cross~
 a breastplate emblazoned with a white cross~
 A breastplate engraved with a gleaming white cross lies here.~
 mithril~
-armor AK AD
+armor AKl AD
 20 20 21 17 0
 60 350 5560 P
 A
@@ -2508,7 +2508,7 @@ white legplates~
 white legplates~
 A pair of gleaming white legplates lie here.~
 mithril~
-armor AK AF
+armor AKl AF
 21 21 21 17 0
 64 150 4500 P
 A
@@ -2523,7 +2523,7 @@ diamond longsword sword~
 a diamond longsword~
 A diamond longsword gleams sharply in the light.~
 diamond~
-weapon A AN
+weapon Al AN
 sword 7 10 cleave 0
 63 370 5650 P
 A
@@ -2536,7 +2536,7 @@ ivory scales~
 A pair of ivory scales~
 A pair of golden scales lie here.~
 ivory ~
-treasure A AH
+treasure Al AH
 0 0 0 0 0
 67 150 4334 P
 A
@@ -2553,7 +2553,7 @@ pruning shears~
 a pair of pruning shears~
 A pair of pruning shears lie here.~
 metal~
-weapon 0 AN
+weapon l AN
 exotic 10 7 stab 0
 70 370 1000 P
 A
@@ -2579,7 +2579,7 @@ sculptor's chisel~
 a sculptor's chisel~
 The sharp chisel of a master sculptor lies here.~
 diamond~
-weapon 0 AN
+weapon l AN
 dagger 9 8 pierce D
 68 250 4500 P
 A
@@ -2601,7 +2601,7 @@ flowing white priest robes~
 flowing white priest's robes~
 Some flowing white robes lie in a pool.~
 cloth~
-armor A AK
+armor Al AK
 16 16 16 16 0
 57 70 200 P
 A
@@ -2620,7 +2620,7 @@ blind devotion~
 blind devotion~
 Some devotion shimmers whitely here.~
 nothingness~
-armor AU AD
+armor AUl AD
 17 18 17 16 0
 60 0 0 P
 A
@@ -2635,7 +2635,7 @@ silver neckchain chain~
 a silver neckchain~
 A silver neckchain lies coiled here.~
 silver~
-jewelry A AC
+jewelry Al AC
 0 0 0 0 0
 45 10 7500 P
 A
@@ -2650,7 +2650,7 @@ broken watch~
 a broken watch~
 A broken brass watch hangs suspended from a matching chain.~
 brass~
-armor B AL
+armor Bl AL
 15 15 15 13 0
 45 50 20 P
 A
@@ -2665,7 +2665,7 @@ fluffy white tail~
 a fluffy white tail~
 A fluffy white rabbit tail lies here.~
 cotton~
-armor 0 AF
+armor l AF
 13 14 13 13 0
 45 0 10 P
 A
@@ -2689,7 +2689,7 @@ weeping angel white~
 a weeping angel~
 A little white angel floats here, weeping silently.~
 etherealness~
-armor AFI AQ
+armor AFIl AQ
 17 17 16 14 0
 51 10 0 P
 A
@@ -2704,7 +2704,7 @@ shattered dreams pieces~
 shattered dreams~
 Some dreams lie here in pieces.~
 nothingness~
-armor B AQ
+armor Bl AQ
 25 25 25 20 0
 80 0 0 P
 A
@@ -2719,7 +2719,7 @@ ice mask~
 ice mask~
 A mask of ice is here.~
 ice~
-armor A AE
+armor Al AE
 25 26 25 20 0
 80 70 2450 P
 A
@@ -2753,7 +2753,7 @@ hellhawk hawk feather black~
 a hellhawk feather~
 A gleaming black feather glints with fiery reddish highlights.~
 feathers~
-armor A AO
+armor Al AO
 21 20 20 18 0
 65 10 5500 P
 A
@@ -2768,7 +2768,7 @@ bloody cowl~
 a bloody cowl~
 A bloody black cowl lies here.~
 wool~
-armor 0 AE
+armor l AE
 19 20 20 19 0
 64 50 100 P
 A
@@ -2785,7 +2785,7 @@ dark eye nightmare~
 eye of the nightmare~
 A dark eye shot with streaks of red lies here, pulsing.~
 fire~
-light AE A
+light AEl A
 0 0 -1 0 0
 66 10 700 P
 A
@@ -2802,7 +2802,7 @@ nightmare breath dark cloud~
 nightmare's breath~
 A dark cloud hovers menacingly.~
 air~
-armor BCFHJ AK
+armor BCFHJl AK
 20 20 20 18 0
 66 10 100 P
 A
@@ -2817,7 +2817,7 @@ sacrificial robes bloody~
 sacrificial robes~
 Some bloody robes are here.~
 linen~
-armor EJM AK
+armor EJMl AK
 19 20 19 19 0
 60 50 2300 P
 A
@@ -2832,7 +2832,7 @@ deathblade blade~
 a deathblade~
 A dark blade lies here, dripping with the blood of the slain.~
 adamantite~
-weapon BJ AN
+weapon BJl AN
 sword 8 9 drain C
 65 420 4500 P
 A
@@ -2845,7 +2845,7 @@ gauntlets night black~
 gauntlets of the night~
 A pair of pitch black gauntlets lie here, humming softly.~
 onyx~
-armor BJ AH
+armor BJl AH
 20 20 20 15 0
 60 60 5400 P
 A
@@ -2858,7 +2858,7 @@ blood drenched dagger~
 a blood drenched dagger~
 A sharp dagger gleams with fresh blood.~
 obsidian~
-weapon AJ AN
+weapon AJl AN
 dagger 7 10 pierce D
 65 250 2550 P
 A
@@ -2880,7 +2880,7 @@ furry gloves~
 some furry gloves~
 A pair of furry gloves lies here.~
 hair~
-armor 0 AH
+armor l AH
 13 13 14 13 0
 45 10 1200 P
 A
@@ -2895,7 +2895,7 @@ blood spattered shield obsidian~
 a blood spattered shield~
 An obsidian shield lies here, spattered with dried blood.~
 obsidian~
-armor A AJ
+armor Al AJ
 19 20 19 18 0
 70 100 1050 P
 A
@@ -2912,7 +2912,7 @@ bloody fang vampire~
 fang of the vampire~
 The bloody fang of a vampire lies here.~
 bone~
-weapon B AN
+weapon Bl AN
 dagger 8 10 pierce CD
 70 250 4300 P
 A
@@ -2925,7 +2925,7 @@ tattered cloak black~
 a tattered cloak~
 A tattered black cloak lies here.~
 wool~
-armor 0 AC
+armor l AC
 19 19 19 19 0
 70 50 10 P
 A
@@ -2942,7 +2942,7 @@ mark daemias black hair~
 Mark of Daemias~
 An insignia woven of shadow black panther hair lies here, humming.~
 hair~
-armor BCM AE
+armor BCMl AE
 21 21 20 21 0
 80 0 9400 P
 A
@@ -2975,7 +2975,7 @@ flame darkness~
 a Flame of Darkness~
 A flame of pure darkness burns here.~
 shadow~
-light ACJ A
+light ACJl A
 0 0 -1 0 0
 85 10 10000 P
 A
@@ -2992,7 +2992,7 @@ circle tears~
 a circle of tears~
 A circle formed of tears lies here.~
 water~
-armor AFIJ AL
+armor AFIJl AL
 21 21 21 21 0
 85 50 7500 P
 A
@@ -3009,7 +3009,7 @@ ashes lost~
 ashes of the lost~
 Some ashes float here.~
 ash~
-armor AJM AQ
+armor AJMl AQ
 20 20 20 20 0
 85 10 100 P
 A
@@ -3028,7 +3028,7 @@ broken bible~
 a broken bible~
 A bible lies here, broken along the spine.~
 soft leather~
-armor BJ AO
+armor BJl AO
 20 20 20 20 0
 85 50 10 P
 A
@@ -3045,7 +3045,7 @@ bloodstained platter silver~
 a bloodstained platter~
 A silver platter gleams dully beneath streaks of dried blood.~
 silver~
-armor A AJ
+armor Al AJ
 20 21 20 16 0
 60 100 3200 P
 A
@@ -3060,7 +3060,7 @@ razor claws~
 razor claws~
 Some sharp claws gleam menacingly.~
 bone~
-armor ACF AH
+armor ACFl AH
 20 20 20 20 0
 82 50 4530 P
 A
@@ -3075,7 +3075,7 @@ mark ykres shadow black~
 Mark of Ykres~
 A shadow black mark floats here.~
 shadow~
-armor BCF AC
+armor BCFl AC
 20 20 20 20 0
 82 0 8300 P
 A
@@ -3092,7 +3092,7 @@ bracelet night darkness~
 bracelet of night~
 A bracelet formed of darkness lies here.~
 shadow~
-armor BCF AM
+armor BCFl AM
 15 15 16 14 0
 55 20 3300 P
 A
@@ -3107,7 +3107,7 @@ onyx owl ring~
 an owl ring~
 An onyx ring engraved with the face of an owl lies here.~
 onyx~
-jewelry C AB
+jewelry Cl AB
 0 0 0 0 0
 55 10 5560 P
 A
@@ -3122,7 +3122,7 @@ sliver darkness~
 a sliver of darkness~
 A sliver of darkness glimmers here.~
 shadow~
-weapon C AN
+weapon Cl AN
 dagger 13 6 pierce D
 70 250 6230 P
 A
@@ -3135,7 +3135,7 @@ mask deception grey~
 mask of deception~
 A grey mask lies here, seeming to shift and change continuously.~
 shadow~
-armor BCF AE
+armor BCFl AE
 24 24 24 20 0
 80 30 4240 P
 A
@@ -3152,7 +3152,7 @@ cloak shadows~
 cloak of shadows~
 A cloak of formed of shifting shadows is here.~
 shadow~
-container BCF AC
+container BCFl AC
 200 0 0 20 50
 75 70 2550 P
 A
@@ -3167,7 +3167,7 @@ ice candle~
 an ice candle~
 An ice candle shimmers here.~
 ice~
-light AF A
+light AFl A
 0 0 -1 0 0
 75 60 4520 P
 A
@@ -3182,7 +3182,7 @@ stiletto shadow shadow's edge~
 Shadow's Edge~
 A dark stiletto blends in with its surroundings.~
 shadow~
-weapon C AN
+weapon Cl AN
 dagger 15 8 pierce CD
 87 250 6650 P
 A
@@ -3195,7 +3195,7 @@ silhouette~
 a silhouette~
 Someone's silhouette has been left here~
 shadow~
-armor CF AK
+armor CFl AK
 24 24 25 21 0
 87 0 0 P
 A
@@ -3212,7 +3212,7 @@ silence~
 silence~
 Some silence hides here.~
 nothingness~
-armor CF AF
+armor CFl AF
 24 23 23 21 0
 87 10 230 P
 A
@@ -3229,7 +3229,7 @@ black shadowhawk hawk talons~
 shadowhawk talons~
 Some sharp black talons lie here, gleaming wickedly.~
 bone~
-armor AC AG
+armor ACl AG
 26 26 26 20 0
 80 80 8430 P
 A
@@ -3246,7 +3246,7 @@ bracers energy~
 bracers of energy~
 Bracers formed of multicolored energy lie here.~
 energy~
-armor AB AI
+armor ABl AI
 20 20 20 20 0
 76 40 4300 P
 A
@@ -3261,7 +3261,7 @@ whirling disc energy~
 whirling disc~
 A disc of energy whirls here.~
 energy~
-armor AB AJ
+armor ABl AJ
 20 20 21 20 0
 81 50 3230 P
 A
@@ -3276,7 +3276,7 @@ brain cell~
 a brain cell~
 A lone brain cell floats here.~
 skin~
-armor B AE
+armor Bl AE
 18 18 19 18 0
 65 10 1 P
 A
@@ -3289,7 +3289,7 @@ pink pig wings~
 a pink pair of pig wings~
 Some pink pig wings flutter around.~
 feathers~
-armor B AI
+armor Bl AI
 15 15 15 15 0
 59 60 2250 P
 A
@@ -3304,7 +3304,7 @@ effigy barney purple dinosaur~
 an effigy of a purple dinosaur~
 A stuffed purple dinosaur lies here, slightly chewed.~
 cloth~
-armor AB AO
+armor ABl AO
 16 15 16 15 0
 60 50 0 P
 A
@@ -3334,7 +3334,7 @@ trendy suit~
 a trendy suit~
 A trendy suit lies here, getting all dusty.~
 linen~
-armor 0 AD
+armor l AD
 16 15 16 15 0
 60 90 7777 P
 A
@@ -3351,7 +3351,7 @@ energy shimmering circlet~
 a shimmering circlet~
 A circlet of shimmering multicolored energy lies here.~
 energy~
-armor ABHM AB
+armor ABHMl AB
 21 21 21 21 0
 86 10 7550 P
 A
@@ -3366,7 +3366,7 @@ bracelet delusions~
 bracelet of delusions~
 A pretty multicolored bracelet lies here.~
 energy~
-armor ABM AM
+armor ABMl AM
 21 21 21 21 0
 86 30 1000 P
 A
@@ -3381,7 +3381,7 @@ idea~
 an idea~
 An ideas glows brightly.~
 energy~
-light AB A
+light ABl A
 0 0 -1 0 0
 86 0 10000 P
 A
@@ -3398,7 +3398,7 @@ energy mail chainmail chain~
 energy mail~
 A suit of chainmail formed of pure energy shimmers here.~
 energy~
-armor AB AD
+armor ABl AD
 21 21 21 21 0
 86 100 7650 P
 A
@@ -3415,7 +3415,7 @@ red feather leggings~
 some red feather leggings~
 A pair of leggings made from bright red parrot feathers lies here.~
 feathers~
-armor AB AF
+armor ABl AF
 20 21 20 20 0
 77 80 6500 P
 A
@@ -3430,7 +3430,7 @@ brilliant red tailfeather feather~
 a brilliant red tailfeather~
 A long red feather gleams brightly.~
 feathers~
-weapon A AN
+weapon Al AN
 spear 10 10 pierce DGK
 80 380 3450 P
 A
@@ -3443,7 +3443,7 @@ musical bracers black feather~
 musical bracers~
 A pair of black feather bracers lie here, humming melodically.~
 feathers~
-armor AB AI
+armor ABl AI
 13 13 13 13 0
 43 20 2200 P
 A
@@ -3458,7 +3458,7 @@ silent flame dark~
 a silent flame~
 A dark flame burns silently.~
 shadow~
-light ACF A
+light ACFl A
 0 0 -1 0 0
 51 0 2000 P
 A
@@ -3473,7 +3473,7 @@ shadowy handprints prints~
 shadowy handprints~
 Some shadowy handprints mark the wall.~
 shadow~
-armor BCF AH
+armor BCFl AH
 16 16 16 16 0
 61 0 0 P
 A
@@ -3616,7 +3616,7 @@ dark crimson armbands arm bands pair~
 dark crimson armbands~
 A pair of dark crimson armbands gleam like circles of wet blood in the light.~
 adamantite~
-armor AI AI
+armor AIl AI
 41 40 40 23 0
 90 50 10000 P
 A
@@ -3644,7 +3644,7 @@ oath vengeance band adamantite ruby~
 Oath of Vengeance~
 A band of adamantite set with a blood red ruby hums with promised vengeance.~
 adamantite~
-armor B AC
+armor Bl AC
 40 40 40 24 0
 90 30 15000 P
 F R 0 0 CD
@@ -3689,7 +3689,7 @@ crimson hilted stiletto~
 a crimson hilted stiletto~
 An adamantite stiletto with a hilt the color of dark blood gleams here.~
 adamantite~
-weapon AC AN
+weapon ACl AN
 dagger 10 15 pierce CD
 90 190 12500 P
 A
@@ -3702,7 +3702,7 @@ midnight black insignia onyx ring~
 a midnight black insignia~
 An onyx ring engraved with two crossed daggers is here, gleaming darkly.~
 stone~
-treasure C AB
+treasure Cl AB
 0 0 0 0 0
 82 10 5000 P
 A
@@ -3721,7 +3721,7 @@ dark grey insignia chainmail chain mail~
 a suit of drow chainmail with a dark grey insignia~
 A suit of dark grey chainmail lies here.~
 adamantite~
-armor C AD
+armor Cl AD
 26 26 26 19 0
 78 80 5000 P
 A
@@ -3741,7 +3741,7 @@ dark blue sash green~
 a dark blue sash with a green insignia~
 The form of two crossed daggers is embroidered in green on a dark blue sash.~
 silk~
-armor C AL
+armor Cl AL
 20 20 20 18 0
 73 40 4000 P
 A
@@ -3754,7 +3754,7 @@ dark blue sash purple~
 a dark blue sash with a purple insignia~
 The form of two crossed daggers is embroidered in purple on a dark blue sash.~
 silk~
-armor C AL
+armor Cl AL
 19 19 20 20 0
 73 40 4000 P
 A
@@ -3769,7 +3769,7 @@ smokey blue insignia cloak~
 a dark cloak embroidered with a smokey blue insignia~
 A dark cloak is embroidered with the smokey blue form of two crossed daggers.~
 leather~
-armor C AC
+armor Cl AC
 19 19 19 17 0
 68 50 3800 P
 A
@@ -3786,7 +3786,7 @@ indigo insignia pair gloves~
 a pair of leather gloves with an indigo insignia~
 The indigo insignia of two crossed daggers shimmers above a pair of gloves.~
 leather~
-armor C AH
+armor Cl AH
 17 18 17 16 0
 63 20 3500 P
 A
@@ -3803,7 +3803,7 @@ dark green insignia boots~
 a pair of boots with a dark green insignia~
 A pair of supple boots bears the dark green insignia of two crossed daggers.~
 leather~
-armor C AG
+armor Cl AG
 16 16 16 14 0
 58 40 3300 P
 A
@@ -3820,7 +3820,7 @@ grey insignia leggings~
 leather leggings with a grey insignia~
 A pair of leggings bearing the grey insignia of two crossed daggers is here.~
 leather~
-armor C AF
+armor Cl AF
 15 14 14 15 0
 53 30 3000 P
 A
@@ -3839,7 +3839,7 @@ tan insignia bracer~
 a bracer engraved with a tan insignia~
 A leather bracer bears the tan colored insignia of two crossed daggers.~
 leather~
-armor 0 AM
+armor l AM
 14 14 14 12 0
 48 20 2500 P
 A
@@ -3856,7 +3856,7 @@ applicants ring adamantite~
 an applicant's ring~
 A plain adamantite ring lies here, humming.~
 adamantite~
-treasure B AB
+treasure Bl AB
 0 0 0 0 0
 43 10 1000 P
 A
@@ -3907,7 +3907,7 @@ dark elven chainmail chain mail suit adamantite~
 a suit of dark elven chainmail~
 A suit of finely crafted adamantite chain lies here, gleaming.~
 adamantite~
-armor C AD
+armor Cl AD
 14 13 13 10 0
 45 40 5500 P
 A
@@ -3922,7 +3922,7 @@ adamantite shortsword short sword~
 an adamantite shortsword~
 An adamantite shortsword lies here, gleaming wickedly.~
 adamantite~
-weapon C AN
+weapon Cl AN
 sword 10 10 pierce D
 80 220 5500 P
 A
@@ -3935,7 +3935,7 @@ adamantite kris~
 an adamantite kris~
 A sharp adamantite kris is here.~
 adamantite~
-weapon C AN
+weapon Cl AN
 dagger 10 8 pierce D
 73 150 5000 P
 A
@@ -3948,7 +3948,7 @@ adamantite stiletto~
 an adamantite stiletto~
 A well tempered adamantite stiletto lies here.~
 adamantite~
-weapon C AN
+weapon Cl AN
 dagger 10 7 pierce 0
 65 150 4700 P
 A
@@ -3961,7 +3961,7 @@ adamantite throwing knife blue black~
 an adamantite throwing knife~
 A sharp blue black knife gleams here.~
 adamantite~
-weapon C AN
+weapon Cl AN
 dagger 9 6 pierce HK
 55 150 4500 P
 A
@@ -3974,7 +3974,7 @@ adamantite dagger~
 an adamantite dagger~
 A long dagger forged of adamantite lies here.~
 adamantite~
-weapon C AN
+weapon Cl AN
 dagger 5 11 pierce 0
 49 150 4000 P
 A

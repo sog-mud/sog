@@ -299,7 +299,7 @@ armour black rook кольчуга~
 @eng some Black Rook Armour@rus ~~кольчуга~~ Черной Ладьи~
 @eng Some armour made from the remains of a black rook lies heaped on the floor.@rus Кольчуга (armour), оставшаяся от Черной Ладьи, грудой железа лежит на полу.~
 stone~
-armor J AD
+armor Jl AD
 8 8 8 0 5
 25 70 1250 G
 A
@@ -312,7 +312,7 @@ armour white rook кольчуга~
 @eng some White Rook Armour@rus ~~кольчуга~~ Белой Ладьи~
 @eng Some armour made from the remains of a white rook lies heaped on the floor.@rus Кольчуга (armour), оставшаяся от Белой Ладьи, сверкающей грудой лежит у твоих ног.~
 stone~
-armor K AD
+armor Kl AD
 8 8 8 0 5
 25 70 1250 G
 A
@@ -325,7 +325,7 @@ lance black knight копье~
 @eng the Lance of the Black Knight@rus ~~копье~~ Черного Рыцаря~
 @eng The Lance of the Black Knight lies here, waiting to rust.@rus Копье (lance) Черного Рыцаря валяется на земле, ржавея от бездействия.~
 bronze~
-weapon BJ AN
+weapon BJl AN
 lance 5 5 pierce D
 17 50 2250 P
 A
@@ -338,7 +338,7 @@ lance white knight копье~
 @eng the Lance of the White Knight@rus ~~копье~~ Белого Рыцаря~
 @eng The Lance of the White Knight lies here, waiting to rust.@rus Копье (lance) Белого Рыцаря валяется на земле, ржавея от бездействия.~
 bronze~
-weapon BK AN
+weapon BKl AN
 lance 5 5 pierce D
 17 50 2300 P
 A
@@ -395,7 +395,7 @@ sceptre black king скипетр~
 @eng the Black King's Sceptre@rus ~~скипетр~~ Черного Короля~
 @eng The Sceptre of the Black King lies here, collecting dust.@rus Скипетр (sceptre) Черного Короля валяется в пыли.~
 gold~
-treasure JL AO
+treasure JLl AO
 0 0 0 0 0
 32 10 7900 P
 A
@@ -408,7 +408,7 @@ sceptre white king скипетр~
 @eng the White King's Sceptre@rus ~~скипетр~~ Белого Короля~
 @eng The Sceptre of the White King lies here, collecting dust.@rus Скипетр (sceptre) Белого Короля валяется здесь.~
 gold~
-treasure KL AO
+treasure KLl AO
 0 0 0 0 0
 32 10 7900 P
 A
@@ -763,7 +763,7 @@ small chessboard доска~
 @eng the Magic Chessboard@rus ~~магическая~~ ~~шахматная~~ ~~доска~~~
 @eng You see small chessboard floating here.@rus Маленькая шахматная доска (chessboard) весит в воздухе.~
 wood~
-armor ABFJK AQ
+armor ABFJKl AQ
 17 17 17 33 0
 51 60 55390 P
 F A 13 95 AT

@@ -613,7 +613,7 @@ polearm~
 a polearm~
 A battered Orcish polearm is here.~
 iron~
-weapon 0 AN
+weapon l AN
 polearm 2 9 slash 0
 10 130 350 P
 A
@@ -822,7 +822,7 @@ leg club~
 a chair leg~
 A chair leg that has been fashioned into a crude club is here.~
 iron~
-weapon 0 AN
+weapon l AN
 exotic 3 5 chop 0
 7 10 10 P
 A
@@ -853,7 +853,7 @@ knife~
 a wicked-looking knife~
 A wicked-looking knife is here.~
 iron~
-weapon 0 AN
+weapon l AN
 dagger 3 5 pierce 0
 9 130 570 P
 A
@@ -881,7 +881,7 @@ shield~
 a shield~
 A bronze shield bearing a crescent moon device has been left here.~
 iron~
-armor A AJ
+armor Al AJ
 5 5 5 -1 0
 12 150 1000 G
 A
@@ -902,7 +902,7 @@ gem jewel~
 an expensive-looking jewel~
 This Jewel looks VERY valuable...~
 gold~
-staff AG AO
+staff AGl AO
 10 5 5 'blindness' 0
 10 10 5000 P
 A
@@ -972,7 +972,7 @@ painting~
 a painting of the Warlock~
 A painting of the Warlock hangs on a wall here.~
 paper~
-furniture BEM AO
+furniture BEMl AO
 0 0 0 0 0
 0 25 0 P
 A
@@ -1006,7 +1006,7 @@ club~
 a crude stone club~
 A crude stone club lies here.~
 stone~
-weapon 0 AN
+weapon l AN
 mace 3 6 crush 0
 12 130 1500 P
 A
@@ -1023,7 +1023,7 @@ wood~
 a piece of y-shaped wood~
 This would make an excellent frame for a slingshot. ~
 wood~
-weapon 0 AN
+weapon l AN
 exotic 2 6 crush 0
 10 25 100 P
 A
@@ -1039,7 +1039,7 @@ rope~
 a piece of rope~
 This piece of rope looks rather sinister...~
 linen~
-trash EHM AO
+trash EHMl AO
 0 0 0 0 0
 5 10 0 P
 A
@@ -1056,7 +1056,7 @@ sword magnificient~
 a magnificent-looking sword~
 A magnificent-looking sword is here. Pick it up!~
 iron~
-weapon A AN
+weapon Al AN
 sword 5 5 slash 0
 15 125 700 P
 A
@@ -1077,7 +1077,7 @@ boots~
 a pair of boots~
 A pair of red boots sit innocently here.~
 leather~
-armor M AG
+armor Ml AG
 2 2 2 0 0
 10 50 100 G
 A
@@ -1092,7 +1092,7 @@ chisel~
 a chisel with a silver blade~
 A chisel with a silver blade is here.~
 iron~
-weapon A AN
+weapon Al AN
 dagger 4 4 pierce 0
 12 40 600 P
 A
@@ -1107,7 +1107,7 @@ helmet~
 a bronze helmet~
 A bronze helmet is here.~
 bronze~
-armor EM AE
+armor EMl AE
 8 8 8 -2 0
 10 120 1000 G
 A
@@ -1124,7 +1124,7 @@ helmet~
 an iron helmet~
 An Iron helmet is here.~
 iron~
-armor K AE
+armor Kl AE
 7 7 7 0 0
 12 158 1000 G
 A
@@ -1193,7 +1193,7 @@ crucifix~
 a silver crucifix~
 You spy a silver crucifix on the ground here.~
 silver~
-treasure A AC
+treasure Al AC
 0 0 0 0 0
 0 10 2000 P
 A
@@ -1256,7 +1256,7 @@ boots~
 a pair of unlaced boots~
 Someone forgot to tie their laces up on these boots...~
 plastic~
-armor 0 AG
+armor l AG
 7 7 7 0 0
 11 50 100 G
 A
@@ -1344,7 +1344,7 @@ book~
 the Warlock's spellbook~
 The Warlock's spellbook has been lost by its guardian.~
 paper~
-scroll EGJ AO
+scroll EGJl AO
 10 'dispel magic' 'fly' 'charm person' 'sleep'
 10 10 100 P
 A
@@ -1436,7 +1436,7 @@ cards~
 a deck of magical cards~
 A deck of magical cards covered in strange runes and glyphs is here.~
 paper~
-scroll GJ AO
+scroll GJl AO
 20 'sleep' 'curse' 'blindness' 'cause critical'
 10 90 1450 P
 A
@@ -1455,7 +1455,7 @@ robes~
 the Warlock's robes~
 The Warlock's robes have been torn from his body.~
 wool~
-armor J AK
+armor Jl AK
 7 7 7 0 0
 21 90 3500 G
 A
@@ -1476,7 +1476,7 @@ sword~
 the Warlock's sword~
 The Warlock's sword has been dropped here.~
 iron~
-weapon J AN
+weapon Jl AN
 sword 5 6 slice C
 21 120 5300 P
 A
@@ -1547,7 +1547,7 @@ bullwhip whip~
 a bullwhip~
 A piece of leather nearly ten feet long has been curled up here.~
 linen~
-weapon 0 AN
+weapon l AN
 whip 3 5 whip 0
 12 90 370 P
 A
@@ -1721,7 +1721,7 @@ chair~
 a comfortable-looking chair~
 This chair looks very comfortable.~
 nothingness~
-furniture A AO
+furniture Al AO
 0 0 0 0 0
 0 50 50 P
 A

@@ -216,7 +216,7 @@ claymore~
 galactic claymore~
 A galactic claymore sits heavily on the ground.~
 ~
-weapon 0 AN
+weapon l AN
 sword 5 5 slash F
 13 200 1210 P
 A
@@ -231,7 +231,7 @@ metallic shield~
 a metallic shield~
 A metallic shield has been dropped here.~
 metal~
-armor 0 AJ
+armor l AJ
 7 7 7 3 4
 13 350 2210 P
 A
@@ -244,7 +244,7 @@ black tunic~
 a black tunic~
 A black tunic lies in a crumpled heap on the floor~
 velvet~
-armor 0 AD
+armor l AD
 5 5 5 5 3
 8 100 730 P
 A
@@ -268,7 +268,7 @@ opal ring~
 an opal ring~
 You see an opal ring here.~
 gold~
-treasure 0 AB
+treasure l AB
 0 0 0 0 0
 10 20 1210 P
 A
@@ -281,7 +281,7 @@ opal bracelet~
 an opal bracelet~
 You see an opal bracelet here~
 gold~
-treasure 0 AM
+treasure l AM
 0 0 0 0 0
 10 20 1120 P
 A
@@ -312,7 +312,7 @@ opal potion~
 an opal potion~
 An opal potion rests here~
 glass~
-potion G AO
+potion Gl AO
 15 'cure poison' 'heal' 'heal' ''
 10 10 2120 P
 A
@@ -332,7 +332,7 @@ runed dagger~
 a runed dagger~
 A runed dagger, almost hideen from sight, lies here.~
 steel~
-weapon AJ AN
+weapon AJl AN
 dagger 5 4 stab 0
 12 120 1675 P
 A

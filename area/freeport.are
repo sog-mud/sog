@@ -587,7 +587,7 @@ globe patrol~
 a patrol globe~
 A glowing globe has been left here.~
 glass~
-light A AO
+light Al AO
 0 0 999 0 0
 20 5 200 P
 A
@@ -607,7 +607,7 @@ trident~
 a trident~
 A trident has been left here.~
 wood~
-weapon 0 AN
+weapon l AN
 polearm 5 5 none 0
 20 9 200 P
 A
@@ -668,7 +668,7 @@ armor emerald~
 emerald armor~
 A suit of emerald armor is here.~
 stone~
-armor 0 AD
+armor l AD
 13 13 13 10 0
 46 40 2000 P
 A
@@ -679,7 +679,7 @@ hammer dwarven thrower~
 a dwarven thrower~
 A dwarven throwing hammer is here.~
 unknown~
-weapon P AN
+weapon Pl AN
 mace 9 5 none K
 40 20 1500 P
 A
@@ -755,7 +755,7 @@ wristguard emerald~
 an emerald wristguard~
 An emerald wristguard is here.~
 stone~
-armor 0 AM
+armor l AM
 12 12 12 6 0
 46 10 3500 P
 A
@@ -766,7 +766,7 @@ longsword emerald~
 an emerald longsword~
 An emerald longsword is here.~
 stone~
-weapon 0 AN
+weapon l AN
 exotic 5 10 none 0
 46 10 3200 P
 A
@@ -777,7 +777,7 @@ helm emerald~
 an emerald helm~
 An emerald helm is here.~
 stone~
-armor 0 AE
+armor l AE
 12 12 12 6 0
 46 15 1800 P
 A
@@ -797,7 +797,7 @@ cape admiral's~
 an admiral's cape~
 A cape with the emblem of Freeport is here.~
 cloth~
-armor I AD
+armor Il AD
 12 12 12 6 0
 45 10 3200 P
 A
@@ -816,7 +816,7 @@ signet ring freeport~
 an admiral's signet~
 A ring with the seal of Freeport is here.~
 gold~
-armor 0 AB
+armor l AB
 12 12 12 6 0
 45 1 1800 P
 A
@@ -840,7 +840,7 @@ boots bladed~
 bladed boots~
 A pair of boots with a spring action blade lie here.~
 leather~
-armor 0 AG
+armor l AG
 17 17 17 9 0
 52 5 3900 P
 A
@@ -853,7 +853,7 @@ cape dimensional~
 a dimensional cape~
 A hole in reality lies here.~
 unknown~
-armor 0 AC
+armor l AC
 13 13 13 13 0
 52 3 5000 P
 A
@@ -1817,7 +1817,7 @@ long swells from the northeast crash with great force upon the island. You
 see why the island has been reinforced with a rock jetty- without it, it 
 would rapidly erode.
 ~
-0 0 mountain
+0 X mountain
 D2
 On the rock jetty
 ~

@@ -633,7 +633,7 @@ bell breast plate колокол~
 @eng bell breast plate@rus колокол~
 @eng A Bell lies here forgotten.@rus Большой колокол (bell) лежит на земле.~
 bronze~
-armor BRY AD
+armor BRYl AD
 10 10 10 5 0
 30 100 100000 P
 A
@@ -667,7 +667,7 @@ standart set instrument набор~
 @eng standart set of instruments@rus ~~набор~~ инструментов~
 @eng A set of instruments lies here forgotten.@rus Набор инструментов (set), забытый часовщиком, лежит тут.~
 iron~
-weapon BR AN
+weapon BRl AN
 exotic 6 6 cleave G
 30 100 5000 P
 A
@@ -700,7 +700,7 @@ bronze key ключ бронзовый~
 @eng bronze clock key@rus ~~бронзовый~~ ~~ключ~~ от часов~
 @eng A key made with bronze waits to be used.@rus Бронзовый ключ (bronze) ждет, когда ты соберешься завести часы.~
 bronze~
-armor AY AO
+armor AYl AO
 0 0 0 0 0
 20 50 100000 G
 A
@@ -723,7 +723,7 @@ hat top black цилиндр черный~
 @eng black top hat of a chimney-sweep@rus ~~черный~~ ~~цилиндр~~ трубочиста~
 @eng A strange-looking black hat sits here.@rus Странная шляпа (hat) лежит тут.~
 silk~
-armor K AE
+armor Kl AE
 10 10 10 8 0
 15 40 1000 P
 A
@@ -740,7 +740,7 @@ vest chimney black куртка черная~
 @eng black vest of a chimney-sweep@rus ~~черная~~ ~~куртка~~ трубочиста~
 @eng A black vest lies here.@rus Черная куртка (vest) брошена тут.~
 silk~
-armor K AD
+armor Kl AD
 10 10 10 8 0
 15 30 1000 P
 A
@@ -757,7 +757,7 @@ leggins chimney black штаны черные~
 @eng black leggings of a chimney-sweep@rus ~~черные~~ ~~штаны~~ трубочиста~
 @eng Leather leggings lie here.@rus Черные штаны (leggings) брошены тут.~
 soft leather~
-armor KMZ AF
+armor KMZl AF
 10 10 10 8 0
 15 20 1000 P
 A
@@ -801,7 +801,7 @@ wing bat крыло~
 @eng bat's wing@rus ~~крыло~~ летучей мыши~
 @eng A piece of leather lies here shaped like a wing.@rus Оторванное крыло (wing) летучей мыши лежит здесь.~
 soft leather~
-armor BHLM AM
+armor BHLMl AM
 3 3 3 2 0
 5 10 0 P
 A
@@ -812,7 +812,7 @@ web spider паутина~
 @eng spider's web@rus паутина~
 @eng A web hangs here between the walls.@rus Паутина (web) опутывает стены.~
 elastic~
-armor HM AK
+armor HMl AK
 3 3 3 2 0
 5 0 0 P
 A
@@ -827,7 +827,7 @@ skull pigeon череп~
 @eng pigeon skull@rus ~~голубиный~~ ~~череп~~~
 @eng A skull of a small bird lies here.@rus Череп (skull) какой-то пичуги лежит здесь.~
 horn~
-armor 0 AE
+armor l AE
 5 5 5 5 0
 10 10 0 P
 A
@@ -856,7 +856,7 @@ talon rat коготь~
 @eng rat's talon@rus ~~коготь~~ крысы~
 @eng A pile of talons is scattered on the dirt.@rus Кучка когтей (talon) рассыпана в грязи.~
 horn~
-armor U AB
+armor Ul AB
 3 3 3 2 0
 5 5 0 P
 A

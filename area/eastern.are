@@ -267,7 +267,7 @@ banded mail~
 a glowing suit of banded mail~
 A glowing suit of banded mail lies on the ground.~
 wood-iron~
-armor A AD
+armor Al AD
 7 7 7 0 0
 23 0 7300 P
 A
@@ -280,7 +280,7 @@ halberd~
 the halberd~
 A mighty halberd lies against the wall.~
 steel~
-weapon I AN
+weapon Il AN
 polearm 3 14 cleave F
 29 160 1620 P
 A
@@ -385,7 +385,7 @@ turban~
 a thick padded turban~
 A thick padded turban lies here.~
 cloth~
-clothing H AE
+clothing Hl AE
 0 0 0 0 0
 0 10 10 P
 A
@@ -405,7 +405,7 @@ sabre~
 a long, curved sabre~
 A long, curved sabre stands upright in the ground.~
 steel~
-weapon L AN
+weapon Ll AN
 sword 3 7 slash 0
 16 70 1410 P
 A
@@ -418,7 +418,7 @@ scimitar~
 a curved scimitar~
 A curved scimitar lies at your feet.~
 steel~
-weapon L AN
+weapon Ll AN
 sword 2 8 slash 0
 12 60 990 P
 A
@@ -494,7 +494,7 @@ bracelet copper~
 a copper bracelet~
 A tarnished copper bracelet lies at your feet.~
 copper~
-jewelry H AM
+jewelry Hl AM
 0 0 0 0 0
 20 100 1300 P
 A
@@ -1326,8 +1326,7 @@ S
 #5062
 Strange Glowing Sand~
 A vast desert stretches for miles, the sand constantly shifting around
-you.  But this patch of desert looks different...the sand glows.  You see a
-futuristic city to the south.
+you. But this patch of desert looks different...the sand glows.
 ~
 0 CD mountain
 D3

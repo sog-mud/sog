@@ -1600,7 +1600,7 @@ mithril ((+*+)) torque deriki~
 a mithril ((+*+)) torque~
 An engraved mithril torque glows here.~
 mithril~
-armor AI AC
+armor AIl AC
 28 28 29 23 0
 87 30 10000 P
 A
@@ -1623,7 +1623,7 @@ shimmering blue robe~
 a shimmering blue robe~
 A blue robe shimmers here.~
 light~
-armor A AK
+armor Al AK
 28 27 27 25 0
 87 50 10000 P
 A
@@ -1642,7 +1642,7 @@ magic flame~
 a magic flame~
 A strange flame hovers here.~
 fire~
-light A A
+light Al A
 0 0 -1 0 0
 87 0 10000 P
 A
@@ -1655,7 +1655,7 @@ engraved ((+*+)) ring deriki~
 an engraved ((+*+)) ring~
 An intricately engraved ring lies here.~
 mithril~
-armor B AB
+armor Bl AB
 28 28 28 25 0
 87 10 10000 P
 A
@@ -1678,7 +1678,7 @@ G none
 a ((+*+)) crest~
 An ornate crest is here.~
 mithril~
-armor A AO
+armor Al AO
 27 27 28 15 0
 87 20 10000 P
 A
@@ -1703,7 +1703,7 @@ mithril ((+*+)) bracelet deriki~
 a ((+*+)) bracelet~
 An ornate mithril bracelet is here, gleaming.~
 mithril~
-armor A AM
+armor Al AM
 27 28 27 25 0
 85 20 9500 P
 A
@@ -1716,7 +1716,7 @@ G none
 a ((+*+)) chain belt~
 An engraved chain belt glitters here.~
 mithril~
-armor A AL
+armor Al AL
 27 27 27 24 0
 82 50 9000 P
 A
@@ -1731,7 +1731,7 @@ G none
 a pair of ((+*+)) shoes~
 A pair of glittering shoes is here.~
 mithril~
-armor A AG
+armor Al AG
 26 27 26 24 0
 80 50 11100 P
 A
@@ -1750,7 +1750,7 @@ G none
 some ((+*+)) armbands~
 A pair of armbands glitters here.~
 mithril~
-armor AI AI
+armor AIl AI
 27 27 27 23 0
 82 50 11000 P
 A
@@ -1767,7 +1767,7 @@ glittering ((+*+)) earring deriki~
 a glittering ((+*+)) earring~
 An intricately carved earring glitters here.~
 mithril~
-armor A AE
+armor Al AE
 26 26 26 23 0
 80 10 12400 P
 A
@@ -1786,7 +1786,7 @@ glowing ((+*+)) sphere deriki~
 a glowing ((+*+)) sphere~
 A sphere floats here, glowing with an eerie light.~
 light~
-armor ABI AQ
+armor ABIl AQ
 26 25 26 24 0
 80 10 10000 P
 A
@@ -1803,7 +1803,7 @@ G none
 a ((+*+)) tunic~
 A tunic emblazoned with the Deriki crest is here.~
 silk~
-armor 0 AD
+armor l AD
 26 26 25 25 0
 80 40 10000 P
 A
@@ -1820,7 +1820,7 @@ owl eyes feather~
 Owl eyes~
 A pair of feather rimmed eyes are here.~
 feathers~
-armor I AE
+armor Il AE
 28 28 27 24 0
 85 10 9000 P
 A
@@ -1837,7 +1837,7 @@ staff guarding mithril~
 a staff of guarding~
 A polished mithril staff lies here.~
 mithril~
-staff BG AO
+staff BGl AO
 100 11 11 'sanctuary' 0
 85 30 10100 P
 A
@@ -1848,7 +1848,7 @@ gleaming ((-*-)) circlet treniste~
 a gleaming ((-*-)) circlet~
 An engraved golden circlet gleams here.~
 gold~
-armor AIKL AE
+armor AIKLl AE
 28 27 29 24 0
 85 20 10500 P
 A
@@ -1865,7 +1865,7 @@ G none
 a set of ((-*-)) chain armor~
 A set of engraved armor lies here.~
 gold~
-armor IKL AD
+armor IKLl AD
 28 25 27 24 0
 85 100 15000 P
 A
@@ -1880,7 +1880,7 @@ white ((-*-)) belt treniste~
 a white ((-*-)) belt~
 A gleaming white belt lies here.~
 leather~
-armor IKL AL
+armor IKLl AL
 28 27 25 24 0
 85 30 10000 P
 A
@@ -1897,7 +1897,7 @@ pair ((-*-)) gauntlets treniste~
 a pair of ((-*-)) gauntlets~
 A pair of engraved gauntlets gleams here.~
 gold~
-armor IKL AH
+armor IKLl AH
 26 27 27 24 0
 83 50 10150 P
 A
@@ -1914,7 +1914,7 @@ pair ((-*-)) leggings treniste~
 a pair of ((-*-)) leggings~
 A pair of engraved golden leggings lies here.~
 gold~
-armor IKL AF
+armor IKLl AF
 26 27 27 23 0
 82 50 12000 P
 A
@@ -1931,7 +1931,7 @@ white ((-*-)) visor treniste~
 a white ((-*-)) visor~
 A gleaming white visor is here.~
 gold~
-armor AIKL AE
+armor AIKLl AE
 26 25 25 23 0
 78 30 9000 P
 A
@@ -1948,7 +1948,7 @@ golden ((-*-)) bracer treniste~
 a golden ((-*-)) bracer~
 An intricately carved golden bracer lies here.~
 gold~
-armor IKL AM
+armor IKLl AM
 28 27 27 24 0
 83 20 11000 P
 A
@@ -1965,7 +1965,7 @@ embroidered ((-*-)) cape treniste~
 an embroidered ((-*-)) cape~
 A beautifully embroidered cape is here.~
 linen~
-armor IKL AK
+armor IKLl AK
 26 25 26 23 0
 79 40 11200 P
 A
@@ -1997,7 +1997,7 @@ ornate mask~
 an ornate mask~
 An ornately engraved mask is here.~
 wood~
-armor BFIKL AE
+armor BFIKLl AE
 26 26 26 23 0
 78 20 11000 P
 A
@@ -2014,7 +2014,7 @@ G none
 some ((-*-)) sleeves~
 A pair of engraved golden sleeves lies here.~
 gold~
-armor IKL AI
+armor IKLl AI
 25 26 26 25 0
 79 40 10000 P
 A
@@ -2031,7 +2031,7 @@ gleaming white sword~
 a gleaming white sword~
 A white sword gleams brightly.~
 mithril~
-weapon IKL AN
+weapon IKLl AN
 sword 9 12 cleave 0
 80 200 10000 P
 A
@@ -2044,7 +2044,7 @@ gleaming white shield~
 a gleaming white shield~
 a white shield lies here gleaming.~
 mithril~
-armor IKL AJ
+armor IKLl AJ
 27 27 27 23 0
 81 50 10000 P
 A
@@ -2068,7 +2068,7 @@ jet black ->*<- helm reykaris~
 a jet black  ->*<-  helm~
 An engraved black helm absorbs the light.~
 obsidian~
-armor CEJL AE
+armor CEJLl AE
 28 28 28 24 0
 85 40 10000 P
 A
@@ -2085,7 +2085,7 @@ taloned gloves~
 a pair of taloned gloves~
 A pair of gloves with long, wicked talons lies here.~
 obsidian~
-armor EJL AH
+armor EJLl AH
 28 25 27 24 0
 85 30 10000 P
 A
@@ -2102,7 +2102,7 @@ G none
 a  ->*<-  breast plate~
 A dark breast plate is here.~
 obsidian~
-armor EJL AD
+armor EJLl AD
 27 28 28 24 0
 85 100 15000 P
 A
@@ -2119,7 +2119,7 @@ dark ->*<- orb reykaris~
 a dark  ->*<-  orb~
 A dark orb floats here, radiating evil.~
 nothingness~
-armor CEJL AQ
+armor CEJLl AQ
 27 26 28 24 0
 83 0 10000 P
 A
@@ -2136,7 +2136,7 @@ G none
 some  ->*<-  legplates~
 Some evil looking legplates are here.~
 obsidian~
-armor EJLM AF
+armor EJLMl AF
 27 27 27 23 0
 82 50 10200 P
 A
@@ -2153,7 +2153,7 @@ carved ->*<- ring reykaris~
 a carved  ->*<-  ring~
 A dark ring carved with strange symbols lies here.~
 obsidian~
-armor EJLM AB
+armor EJLMl AB
 16 16 16 13 0
 79 10 10000 P
 A
@@ -2170,7 +2170,7 @@ cloak nightmares black~
 a cloak of nightmares~
 A shadowy black cloak writhes with agony.~
 shadows~
-armor CEFJL AK
+armor CEFJLl AK
 24 23 23 23 0
 72 20 10000 P
 A
@@ -2208,7 +2208,7 @@ dark ->*<- necklace reykaris~
 a dark  ->*<-  necklace~
 A dark necklace lies here.~
 obsidian~
-treasure EJL AC
+treasure EJLl AC
 0 0 0 0 0
 80 20 25000 P
 A
@@ -2227,7 +2227,7 @@ humanoid skull~
 a humanoid skull~
 A humanoid skull stares at you with empty sockets.~
 bone~
-treasure EJL AO
+treasure EJLl AO
 0 0 0 0 0
 88 20 5000 P
 A
@@ -2244,7 +2244,7 @@ pair obsidian ->*<- boots reykaris~
 a pair of  ->*<-  boots~
 A pair of engraved obsidian boots lies here.~
 obsidian~
-armor EJL AG
+armor EJLl AG
 23 23 22 22 0
 85 30 11000 P
 A
@@ -2259,7 +2259,7 @@ tempered silver throwing dagger~
 a tempered throwing dagger~
 A silver dagger with a sharply tempered edge gleams wickedly.~
 silver~
-weapon CEJL AN
+weapon CEJLl AN
 dagger 9 11 pierce DHK
 80 200 15000 P
 A
@@ -2272,7 +2272,7 @@ G none
 some  ->*<-  sleeves~
 Some carved obsidian sleeves are here.~
 obsidian~
-armor EJL AI
+armor EJLl AI
 29 29 29 23 0
 88 30 10000 P
 A
@@ -2289,7 +2289,7 @@ black collar runes runed leather~
 a black runed collar~
 A black leather collar engraved with shimmering runes lies here.~
 leather~
-armor BEHJLM AC
+armor BEHJLMl AC
 27 27 27 22 0
 85 30 5500 P
 A
@@ -2317,7 +2317,7 @@ demon's wings demon black~
 demon's wings~
 A pair of membranous black wings lie here.~
 leather~
-armor BEJL AI
+armor BEJLl AI
 29 29 27 26 0
 89 50 15000 P
 A
@@ -2342,7 +2342,7 @@ onyx -=+)> earring myrxes~
 an onyx -=+)> earring~
 An earring of polished onyx glimmers in the shadows.~
 stone~
-armor CFI AE
+armor CFIl AE
 25 25 25 21 0
 78 10 10000 P
 A
@@ -2365,7 +2365,7 @@ dark -=+)> gloves myrxes~
 some dark -=+)> gloves~
 A pair of dark gloves absorbs the light.~
 leather~
-armor CFI AH
+armor CFIl AH
 25 26 26 21 0
 78 30 10000 P
 A
@@ -2382,7 +2382,7 @@ sharpened stiletto sharp~
 a sharpened stiletto~
 A wickedly sharp stiletto gleams here.~
 silver~
-weapon CHI AN
+weapon CHIl AN
 dagger 10 11 pierce DH
 85 200 12500 P
 A
@@ -2395,7 +2395,7 @@ invisible flame~
 an invisible flame~
 An invisible flame burns silently.~
 fire~
-light CF A
+light CFl A
 0 0 -1 0 0
 80 0 11500 P
 A
@@ -2410,7 +2410,7 @@ pair -=+)> sleeves myrxes~
 a pair of -=+)> sleeves~
 Dark sleeves disappear in the shadows.~
 leather~
-armor CFI AI
+armor CFIl AI
 26 26 26 21 0
 78 30 9900 P
 A
@@ -2427,7 +2427,7 @@ engraved platinum ][+][ ring xaek~
 an engraved platinum ][+][ ring~
 An engraved platinum ring lies here.~
 platinum~
-armor 0 AB
+armor l AB
 23 23 20 19 0
 69 20 12000 P
 A
@@ -2444,7 +2444,7 @@ G none
 a -=+)> shroud~
 Deep shadows absorb the light.~
 shadow~
-armor CFI AK
+armor CFIl AK
 25 25 24 20 0
 75 10 10000 P
 A
@@ -2459,7 +2459,7 @@ black slim -=+)> bracer myrxes~
 a slim -=+)> bracer~
 A slender black bracer gleams darkly.~
 stone~
-armor CFI AM
+armor CFIl AM
 23 21 24 20 0
 73 20 8000 P
 A
@@ -2476,7 +2476,7 @@ shadowy -=+)> neckchain neck chain myrxes~
 a shadowy -=+)> neckchain~
 A dark neckchain is here, shrouded in shadow.~
 adamantite~
-armor CFI AC
+armor CFIl AC
 24 24 24 20 0
 72 20 12000 P
 A
@@ -2493,7 +2493,7 @@ black -=+)> leggings leather pair myrxes~
 a pair of black -=+)> leggings~
 A pair of black leather leggings lies here in a pool of shadow.~
 leather~
-armor CFI AF
+armor CFIl AF
 24 25 25 21 0
 77 40 10000 P
 A
@@ -2510,7 +2510,7 @@ silent -=+)> boots myrxes~
 silent -=+)> boots~
 Some silent looking boots lie here.~
 leather~
-armor CFI AG
+armor CFIl AG
 25 24 25 20 0
 75 20 8900 P
 A
@@ -2525,7 +2525,7 @@ hair ring panther black~
 a ring of the panther~
 A ring of black panther hair gleams darkly.~
 fur~
-armor CFI AB
+armor CFIl AB
 24 24 23 20 0
 75 10 10000 P
 A
@@ -2542,7 +2542,7 @@ black -=+)> belt myrxes~
 a black -=+)> belt~
 An engraved black belt lies here.~
 leather~
-armor CFI AL
+armor CFIl AL
 20 21 20 20 0
 75 40 7900 P
 A
@@ -2559,7 +2559,7 @@ ring lynx~
 a ring of the lynx~
 A darkly beautiful ring lies here.~
 fur~
-armor CFI AB
+armor CFIl AB
 10 11 11 10 0
 75 10 10000 P
 A
@@ -2576,7 +2576,7 @@ night hawk talons~
 night hawk talons~
 The sharp talons of a hawk gleam cruelly in the darkness.~
 bone~
-armor CFI AH
+armor CFIl AH
 24 24 24 20 0
 73 40 9000 P
 A
@@ -2593,7 +2593,7 @@ hunter's hunters hunter arrow mithril~
 a hunter's arrow~
 A sharp mithril arrow gleams here.~
 mithril~
-weapon A AN
+weapon Al AN
 exotic 7 12 pierce EK
 70 200 10000 P
 A
@@ -2606,7 +2606,7 @@ set ][+][ platemail plate mail xaek~
 a set of ][+][ platemail~
 A set of engraved platemail is here.~
 adamantite~
-armor 0 AD
+armor l AD
 26 26 26 20 0
 78 100 10000 P
 A
@@ -2619,7 +2619,7 @@ bracer power~
 a bracer of power~
 A bracer lies here, humming with power.~
 adamantite~
-armor B AM
+armor Bl AM
 26 26 26 20 0
 78 20 9900 P
 A
@@ -2638,7 +2638,7 @@ G none
 a ][+][ shield~
 An engraved shield is here.~
 adamantite~
-armor 0 AJ
+armor l AJ
 25 26 25 21 0
 77 50 10000 P
 A
@@ -2653,7 +2653,7 @@ grey ][+][ legplates leg plates xaek~
 some grey ][+][ legplates~
 A pair of strong grey legplates are here.~
 platinum~
-armor 0 AF
+armor l AF
 25 25 25 20 0
 75 90 10000 P
 A
@@ -2670,7 +2670,7 @@ G none
 a ][+][ helm~
 A sturdy helm lies here.~
 adamantite~
-armor 0 AE
+armor l AE
 23 24 23 19 0
 71 50 8000 P
 A
@@ -2687,7 +2687,7 @@ engraved ][+][ crest xaek~
 an engraved ][+][ crest~
 The crest of house Xaek is here, gleaming.~
 platinum~
-armor 0 AO
+armor l AO
 22 22 23 19 0
 68 50 11000 P
 A
@@ -2702,7 +2702,7 @@ G none
 strong ][+][ armplates~
 Some strong looking armplates are here.~
 adamantite~
-armor 0 AI
+armor l AI
 24 24 24 20 0
 73 50 10000 P
 A
@@ -2719,7 +2719,7 @@ balanced adamantite longsword long sword~
 a finely balance adamantite longsword~
 An adamantite longsword of superb craftsmanship gleams here.~
 adamantite~
-weapon AI AN
+weapon AIl AN
 sword 10 8 cleave D
 70 300 17800 P
 A
@@ -2732,7 +2732,7 @@ silver carven -(+)- signet ring noriva~
 a carven -(+)- signet ring~
 A beautiful silver signet ring lies here.~
 silver~
-armor AI AB
+armor AIl AB
 25 25 25 21 0
 78 10 10000 P
 A
@@ -2749,7 +2749,7 @@ niobium -(+)- circlet noriva~
 a niobium -(+)- circlet~
 A beautiful niobium circlet lies here.~
 silver~
-armor AI AE
+armor AIl AE
 25 25 25 21 0
 78 20 21500 P
 A
@@ -2764,7 +2764,7 @@ light shimmering -(+)- sphere noriva~
 a shimmering -(+)- sphere~
 A sphere of shimmering light floats here.~
 light~
-armor ABI AQ
+armor ABIl AQ
 25 25 26 21 0
 77 0 15500 P
 A
@@ -2781,7 +2781,7 @@ inlaid silver -(+)- bracelet noriva~
 an inlaid silver -(+)- bracelet~
 A silver bracelet inlaid with gold is here.~
 silver~
-armor AI AM
+armor AIl AM
 24 24 24 20 0
 74 20 12200 P
 A
@@ -2798,7 +2798,7 @@ G none
 a beautiful -(+)- girth~
 A beautifully engraved girth lies here.~
 silver~
-armor AI AL
+armor AIl AL
 23 23 22 19 0
 71 50 10000 P
 A
@@ -2815,7 +2815,7 @@ pair -(+)- sleeves noriva~
 a pair of -(+)- sleeves~
 Some gleaming sleeves lie here.~
 silver~
-armor AI AI
+armor AIl AI
 23 22 22 19 0
 69 50 9900 P
 A
@@ -2830,7 +2830,7 @@ pair -(+)- gloves noriva~
 some finely crafted -(+)- gloves~
 A pair of finely crafted gloves lies here.~
 leather~
-armor I AH
+armor Il AH
 20 20 20 20 0
 73 30 11250 P
 A
@@ -2862,7 +2862,7 @@ tooled -(+)- boots noriva~
 some tooled -(+)- boots~
 Some intricately tooled boots stand here.~
 leather~
-armor I AG
+armor Il AG
 19 19 19 19 0
 68 60 11200 P
 A
@@ -2879,7 +2879,7 @@ laerkai fury rage~
 laerkai fury~
 A feeling of rage pulses here.~
 fire~
-armor AI AQ
+armor AIl AQ
 29 29 29 26 0
 89 0 50000 P
 A
@@ -2894,7 +2894,7 @@ laerkai justice shield~
 laerkai justice~
 A finely crafted shield is here.~
 mithril~
-armor AIK AJ
+armor AIKl AJ
 29 29 29 26 0
 89 50 50000 P
 A
@@ -2911,7 +2911,7 @@ laerkai pain~
 laerkai pain~
 A wave of pain slams into you!~
 nothingness~
-armor BIJ AH
+armor BIJl AH
 40 40 39 26 0
 89 0 50000 P
 A
@@ -2930,7 +2930,7 @@ shadows laerkai stealth~
 laerkai stealth~
 The shadows are deep here.~
 shadows~
-armor CI AG
+armor CIl AG
 29 29 28 26 0
 89 0 50000 P
 A
@@ -2946,7 +2946,7 @@ laerkai might platemail plate mail~
 laerkai might~
 A set of powerful looking platemail is here, humming.~
 mithril~
-armor BI AD
+armor BIl AD
 28 28 30 26 0
 89 100 50000 P
 A
@@ -2961,7 +2961,7 @@ laerkai life health aura~
 laerkai life~
 An aura of health permeates the room.~
 etherealness~
-armor AI AC
+armor AIl AC
 29 29 30 26 0
 89 0 50000 P
 A
@@ -2976,7 +2976,7 @@ laerkai power presense~
 laerkai power~
 A presense of tremendous power is here.~
 nothingness~
-armor BI AM
+armor BIl AM
 40 40 40 26 0
 89 0 55000 P
 A
@@ -3014,7 +3014,7 @@ honed shortsword zedraikis~
 a honed shortsword 'Zedraikis'~
 A finely honed shortsword gleams wickedly.~
 mithril~
-weapon BCI AN
+weapon BCIl AN
 sword 12 10 pierce ADH
 89 250 55000 P
 A
@@ -3037,7 +3037,7 @@ flame balance silver~
 flame of balance~
 A shimmering silver flame hovers here.~
 fire~
-light AFIJK A
+light AFIJKl A
 0 0 -1 0 0
 89 0 55000 P
 A
@@ -3070,7 +3070,7 @@ drakyri arm guards pair silvery~
 drakyri arm guards~
 A pair of silvery arm guards gleam here.~
 mithril~
-armor A AI
+armor Al AI
 20 20 21 16 0
 62 40 7500 P
 A
@@ -3085,7 +3085,7 @@ drakyri girth silvery~
 a drakyri girth~
 A gleaming silvery girth is here.~
 mithril~
-armor AI AL
+armor AIl AL
 21 20 20 16 0
 62 40 7500 P
 A
@@ -3100,7 +3100,7 @@ drakyri wrist guard~
 a drakyri wrist guard~
 A mithril wrist guard gleams here.~
 mithril~
-armor AI AM
+armor AIl AM
 20 21 21 16 0
 62 20 7500 P
 A
@@ -3117,7 +3117,7 @@ drakyri dagger mithril~
 a drakyri dagger~
 A sharp mithril dagger lies here.~
 mithril~
-weapon AI AN
+weapon AIl AN
 dagger 8 8 pierce 0
 62 200 7500 P
 A

@@ -1557,7 +1557,7 @@ club дубина~
 @eng a club@rus дубина~
 @eng A stout wooden club is here.@rus Крепкая деревянная дубина (club) лежит здесь.~
 wood~
-weapon 0 AN
+weapon l AN
 mace 1 7 pound 0
 3 30 220 G
 A
@@ -1568,7 +1568,7 @@ mace heavy палица~
 @eng a mace@rus палица~
 @eng A heavy iron mace is here.@rus Тяжелая железная палица (mace) лежит здесь.~
 iron~
-weapon 0 AN
+weapon l AN
 mace 2 4 pound 0
 6 100 390 G
 A
@@ -1606,7 +1606,7 @@ staff посох~
 @eng a wooden staff@rus ~~деревянный~~ ~~посох~~~
 @eng A stout wooden staff lies on the floor.@rus Прочный деревянный посох (staff) лежит на полу.~
 wood~
-weapon 0 AN
+weapon l AN
 staff 1 8 pound F
 9 40 580 G
 A
@@ -1617,7 +1617,7 @@ flail цеп~
 @eng a flail@rus цеп~
 @eng A small iron flail is here.@rus Маленький стальной цеп (flail) лежит здесь.~
 iron~
-weapon 0 AN
+weapon l AN
 flail 1 7 pound 0
 1 50 77 G
 A
@@ -1733,7 +1733,7 @@ ring protection кольцо защиты~
 @eng a ring of protection@rus кольцо защиты~
 @eng an enchanted ring of protection sits on the floor.@rus Кольцо защиты (ring) лежит на полу.~
 silver~
-treasure 0 AB
+treasure l AB
 0 0 0 0 0
 8 10 640 P
 A
@@ -2122,7 +2122,7 @@ arrow wooden деревянная стрела~
 @eng a wooden arrow@rus ~~деревянная~~ ~~стрела~~~
 @eng A wooden arrow with an inner glow lies here.@rus Деревянная стрела (arrow) лежит здесь.~
 wood~
-weapon 0 AO
+weapon l AO
 arrow 6 7 pierce K
 33 10 500 P
 A
@@ -2135,7 +2135,7 @@ arrow silver стрела~
 @eng a silver-headed arrow@rus ~~стрела~~ с серебряным наконечником~
 @eng A silver-headed arrow with an inner glow lies here.@rus Стрела с серебряным наконечником (arrow) лежит здесь.~
 wood~
-weapon 0 AO
+weapon l AO
 arrow 7 8 pierce K
 49 20 500 P
 A
@@ -2148,7 +2148,7 @@ arrow golden стрела~
 @eng a golden-headed arrow@rus ~~стрела~~ с золотым наконечником~
 @eng A golden-headed arrow with an inner glow lies here.@rus Стрела с золотым наконечником (arrow) лежит здесь.~
 wood~
-weapon 0 AO
+weapon l AO
 arrow 8 9 pierce K
 61 20 500 P
 A
@@ -2161,7 +2161,7 @@ arrow adamantite стрела~
 @eng an adamantite-headed arrow@rus ~~стрела~~ с адаматитовым наконечником~
 @eng An adamantite-headed arrow with an inner glow lies here.@rus Стрела с адаматитовым наконечником (arrow) лежит здесь.~
 wood~
-weapon 0 AO
+weapon l AO
 arrow 9 10 pierce K
 72 20 500 P
 A
@@ -2385,7 +2385,7 @@ sword long меч~
 @eng a long sword@rus ~~длинный~~ ~~меч~~~
 @eng A long sword has been left here.@rus Длинный меч (sword) был оставлен здесь.~
 steel~
-weapon 0 AN
+weapon l AN
 sword 3 10 slash D
 26 50 2000 P
 A
@@ -2586,7 +2586,7 @@ long spear копье~
 @eng a long spear@rus длинное копье~
 @eng A long spear is here.@rus Длинное копье (spear) лежит тут.~
 steel~
-weapon 0 AN
+weapon l AN
 spear 4 7 pierce K
 25 40 2000 P
 A
@@ -3447,7 +3447,7 @@ long sword меч~
 @eng a glowing long sword@rus ~~сверкающий~~ ~~длинный~~ ~~меч~~~
 @eng A glowing long sword is here.@rus Сверкающий длинный меч (sword) лежит здесь.~
 steel~
-weapon 0 AN
+weapon l AN
 sword 4 7 slash 0
 29 50 3100 G
 A
@@ -3464,7 +3464,7 @@ sword standard merc меч~
 @eng a standard issue sword@rus ~~форменный~~ ~~меч~~~
 @eng You see a standard issue sword here.@rus Форменный меч (sword) оставлен здесь.~
 steel~
-weapon 0 AN
+weapon l AN
 sword 3 7 slash 0
 16 50 1280 P
 A
@@ -3480,7 +3480,7 @@ dagger standard merc кинжал~
 @eng a standard issue dagger@rus ~~форменный~~ ~~кинжал~~~
 @eng You see a standard issue dagger here.@rus Форменный кинжал (dagger) оставлен здесь.~
 steel~
-weapon 0 AN
+weapon l AN
 dagger 2 5 pierce 0
 8 20 590 P
 A
@@ -3498,7 +3498,7 @@ mace standard merc палица~
 @eng a standard issue mace@rus ~~форменная~~ ~~палица~~~
 @eng You see a standard issue mace here.@rus Форменная палица (mace) оставлен здесь.~
 iron~
-weapon 0 AN
+weapon l AN
 mace 2 4 pound 0
 7 100 620 P
 A
@@ -3670,7 +3670,7 @@ ring signet кольцо~
 @eng a city guard signet ring@rus ~~кольцо~~ с печаткой~
 @eng You see a ring with a strange symbol on the floor.@rus На земле вы видите кольцо (ring) со странным символом.~
 copper~
-treasure 0 AB
+treasure l AB
 0 0 0 0 0
 16 10 1280 P
 A
@@ -3683,7 +3683,7 @@ banner war merc знамя~
 @eng a war banner@rus ~~военное~~ ~~знамя~~~
 @eng A war banner is on the floor here.@rus Военное знамя (banner) лежит на земле.~
 cloth~
-light A A
+light Al A
 0 0 500 0 0
 8 10 640 P
 A
@@ -3709,7 +3709,7 @@ ring diamond wedding~
 a diamond wedding ring~
 Vanya's diamond wedding ring has been left here.~
 diamond~
-treasure I AB
+treasure Il AB
 0 0 0 0 0
 20 10 860 P
 A
@@ -3725,7 +3725,7 @@ band gold wedding~
 a gold wedding band~
 House's gold wedding band has been left here.~
 gold~
-treasure I AB
+treasure Il AB
 0 0 0 0 0
 20 10 860 P
 A

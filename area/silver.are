@@ -162,7 +162,7 @@ shadow blade~
 a shadowblade~
 A faintly transparent blade forged of shadow lies here.~
 air~
-weapon J AN
+weapon Jl AN
 sword 4 4 slash 0
 12 40 800 P
 A
@@ -175,7 +175,7 @@ shadow spear~
 a shadowspear~
 A faintly transparent spear forged of shadow lies here.~
 air~
-weapon J AN
+weapon Jl AN
 spear 5 5 pierce K
 22 200 3800 P
 A
@@ -188,7 +188,7 @@ shadow axe~
 a shadowaxe~
 A faintly transparent axe forged of shadow lies here.~
 air~
-weapon J AN
+weapon Jl AN
 axe 5 5 chomp 0
 22 200 3800 P
 A
@@ -201,7 +201,7 @@ bracer shadow~
 shadowbracer~
 A faintly transparent bracer has been dropped here~
 air~
-armor J AM
+armor Jl AM
 7 8 7 1 2
 22 300 4800 P
 A
@@ -279,7 +279,7 @@ silver dagger~
 a silver dagger~
 A sharp looking silver dagger lies on the ground.~
 silver~
-weapon 0 AN
+weapon l AN
 dagger 5 5 pierce D
 20 10 8200 P
 A
@@ -292,7 +292,7 @@ sword silver~
 a silver shortsword~
 A sharp looking silver shortsword lies on the ground.~
 silver~
-weapon 0 AN
+weapon l AN
 sword 5 5 slash D
 20 1500 7300 P
 A
@@ -305,7 +305,7 @@ sword silver~
 a silver longsword~
 A sharp looking silver longsword lies on the ground.~
 silver~
-weapon A AN
+weapon Al AN
 sword 5 5 slash D
 20 200 6900 P
 A

@@ -938,7 +938,7 @@ opal bracelet браслет~
 @eng an opal bracelet@rus ~~опаловый~~ ~~браслет~~~
 @eng A gleaming opal bracelet shines faintly from the floor.@rus Переливающийся опаловый браслет (bracelet) сверкает у твоих ног.~
 silver~
-armor A AM
+armor Al AM
 10 7 9 0 0
 30 5 400 P
 A
@@ -949,7 +949,7 @@ gown gossamer платье~
 @eng A light gossamer gown@rus ~~газовое~~ ~~платье~~~
 @eng This see through gossamer gown leaves little to the imagination.@rus Это газовое платье (gown) оставляет очень мало твоему воображению.~
 cloth~
-armor AF AD
+armor AFl AD
 10 10 10 0 0
 30 1 600 P
 A
@@ -962,7 +962,7 @@ sword slender меч клинок~
 @eng A small slender sword@rus ~~маленький~~ ~~тонкий~~ ~~клинок~~~
 @eng A small slender blade of good craftsmanship.@rus Маленький тонкий клинок (sword), выкованный с необыкновенным мастерством.~
 silver~
-weapon 0 AN
+weapon l AN
 sword 4 9 slash 0
 32 10 800 P
 A
@@ -973,7 +973,7 @@ boots grey ботинки~
 @eng A pair of grey boots@rus ~~пара~~ ~~серых~~ ~~ботинок~~~
 @eng A pair boots made of some grey material you haven't seen before.@rus Пара ботинок (boots), сделанных из серого, невиданного тобой ранее материала.~
 leather~
-armor 0 AG
+armor l AG
 10 11 8 8 0
 32 5 500 P
 A
@@ -986,7 +986,7 @@ bow pixie лук~
 @eng A pixie bow@rus ~~эльфийский~~ ~~лук~~~
 @eng A small elegantly crafted bow with tiny arrows.@rus Небольшой, изящно сделанный лук (bow) с маленькими стрелами.~
 silver~
-wand ABCG AO
+wand ABCGl AO
 30 18 18 'curse' 0
 30 2 1000 P
 A
@@ -997,7 +997,7 @@ kris blade wavy~
 @eng A dull kris blade@rus ~~кривой~~ ~~нож~~ с тупым лезвием~
 @eng A dull kris blade with a broken handle and a few chips.@rus Кривой нож (kris) с тупым лезвием и сломанной рукоятью валяется здесь.~
 iron~
-weapon C AN
+weapon Cl AN
 dagger 4 10 pierce D
 40 9 30 W
 A
@@ -1008,7 +1008,7 @@ blade jagged кинжал~
 @eng A jagged blade@rus ~~зазубренный~~ ~~кинжал~~~
 @eng A jagged, broken and chipped blade.@rus Кинжал (blade) со сломанным зазубренным лезвием.~
 unknown~
-weapon 0 AN
+weapon l AN
 sword 4 11 cleave 0
 43 13 200 W
 A
@@ -1025,7 +1025,7 @@ cap red кепка~
 @eng A red cap@rus ~~красная~~ ~~кепка~~~
 @eng This hat looks as if it were dyed with the blood of several animals.@rus Эта кепка (hat) выглядит так, будто ее качественно измазали в чьей-то крови.~
 cloth~
-armor EJ AE
+armor EJl AE
 12 12 13 4 0
 38 4 20 G
 A
@@ -1038,7 +1038,7 @@ club дубинка дубина~
 @eng A blood stained club@rus ~~дубинка~~, ~~испачканная~~ кровью~
 @eng This heavy club is marred by several blood stains.@rus Большая дубина (club), густо измазанная кровью валяется здесь.~
 wood~
-weapon EJ AN
+weapon EJl AN
 mace 7 7 pound D
 38 7 20 A
 A
@@ -1051,7 +1051,7 @@ book книга tales~
 @eng A book of Tales@rus ~~книга~~ сказок~
 @eng This book contains the adventures of a wandering Eshu.@rus Эта книга (book), в которой собраны рассказы странствующего эшу.~
 paper~
-treasure 0 AO
+treasure l AO
 0 0 0 0 0
 54 5 300 P
 A
@@ -1105,7 +1105,7 @@ apron leather передник~
 @eng A scorched leather apron@rus ~~кожаный~~ ~~передник~~~
 @eng A thick leather apron marked by many burns lies here.@rus Толстый кожаный передник (apron) с многочисленными пятнами лежит здесь.~
 leather~
-armor 0 AK
+armor l AK
 14 14 14 8 0
 51 20 100 A
 A
@@ -1125,7 +1125,7 @@ flagon графин~
 @eng A flagon of dark ale@rus ~~графин~~ темного эля~
 @eng A large wooden flagon of almost endless capacity.@rus Большой деревянный графин (flagon) уже практически пустой стоит здесь.~
 wood~
-drink 0 AO
+drink l AO
 200 100 'dark ale' 0 0
 30 10 120 W
 A
@@ -1138,7 +1138,7 @@ cap jester колпак~
 @eng A jester's cap@rus ~~шутовской~~ ~~колпак~~~
 @eng A multi-colored cap with four parts, each ending in a large silver bell.@rus Разноцветный колпак (cap) с четырьмя серебрянными бубенчиками лежит здесь.~
 cloth~
-armor BHI AE
+armor BHIl AE
 17 17 18 10 0
 59 6 800 P
 A
@@ -1153,7 +1153,7 @@ axe unfinished секира~
 @eng An unfinished axe@rus ~~незаконченная~~ ~~секира~~~
 @eng A large, impressive axe that seems just a little unbalanced.@rus Большая, острая секира (axe), которая лишь слегка несбалансирована, лежит здесь.~
 unknown~
-weapon 0 AN
+weapon l AN
 axe 5 10 chop 0
 51 10 10 G
 A
@@ -1168,7 +1168,7 @@ ember уголек~
 @eng A fiery ember@rus ~~пылающий~~ ~~уголек~~~
 @eng A glowing ember from a forge.@rus Светящийся пылающий уголек (ember) выкатился из горна.~
 stone~
-light A A
+light Al A
 0 0 -1 0 0
 50 1 0 G
 A
@@ -1209,7 +1209,7 @@ sword меч dark~
 @eng A crude, dark sword@rus ~~недоделанный~~ ~~темный~~ ~~меч~~~
 @eng A crudely made sword of some dark metal that is obviously not fit for use.@rus Меч (sword) темного металла, еще не сделанный до конца, лежит здесь.~
 mithril~
-weapon CFHJKM AN
+weapon CFHJKMl AN
 exotic 6 6 slice 0
 48 29 10 W
 A
@@ -1373,7 +1373,7 @@ white marble mace~
 A white  mace~
 A large white marble mace.~
 marble~
-weapon K AN
+weapon Kl AN
 mace 8 10 pound D
 70 25 1200 P
 A
@@ -1390,7 +1390,7 @@ spiked club~
 A twisted spiked club~
 A large spiked club made of dark twisted wood.~
 wood~
-weapon J AN
+weapon Jl AN
 mace 8 10 blast 0
 70 25 1200 W
 A
@@ -1407,7 +1407,7 @@ ice shield~
 An ice shield~
 A large shield made of pure ice.~
 ice~
-armor 0 AJ
+armor l AJ
 23 23 22 16 0
 70 25 1200 P
 A
@@ -1420,7 +1420,7 @@ oath ring~
 An oath ring~
 A brightly gleaming ring with a small inscription on the inside.~
 unknown~
-treasure 0 AB
+treasure l AB
 0 0 0 0 0
 70 25 1200 P
 A
@@ -1473,7 +1473,7 @@ sidhe greaves~
 A pair of sidhe greaves~
 A set of bright silver leg armor.~
 unknown~
-armor 0 AF
+armor l AF
 23 23 21 16 0
 68 6 800 P
 A
@@ -1484,7 +1484,7 @@ sidhe bracers~
 An engraved sidhe bracer~
 A light metal bracer of intricate design.~
 unknown~
-armor 0 AM
+armor l AM
 22 21 23 16 0
 68 3 960 P
 A
@@ -1512,7 +1512,7 @@ noble rapier~
 A noble's rapier~
 The iron sword of a sidhe noble.~
 iron~
-weapon 0 AN
+weapon l AN
 sword 8 12 slash 0
 75 5 990 P
 A
@@ -1525,7 +1525,7 @@ heart night~
 The heart of Night~
 The black heart of night pulses with power.~
 unknown~
-treasure 0 AO
+treasure l AO
 0 0 0 0 0
 84 20 0 P
 A
@@ -1553,7 +1553,7 @@ stag horned helmet~
 A stag horned helmet~
 This dark helm has two silver antlers of seven tines on the top.~
 unknown~
-armor 0 AE
+armor l AE
 28 28 28 11 0
 86 11 2800 P
 A
@@ -1595,7 +1595,7 @@ gown~
 An embroidered gown~
 A finely embroidered court gown.~
 unknown~
-armor 0 AK
+armor l AK
 28 29 29 22 0
 84 8 2000 P
 A
@@ -1606,7 +1606,7 @@ locket~
 A summer locket~
 A golden locket that contains the essence of summer.~
 unknown~
-armor 0 AC
+armor l AC
 28 28 29 22 0
 84 4 1750 P
 A
@@ -1621,7 +1621,7 @@ golden torc~
 A golden torc~
 The torc of Rulership of the Seelie Court.~
 gold~
-armor 0 AC
+armor l AC
 28 28 28 20 0
 86 7 2500 P
 A
@@ -1750,7 +1750,7 @@ crested shield~
 A crested shield~
 This shield bears the crest of one of the sidhe noble houses.~
 unknown~
-armor 0 AJ
+armor l AJ
 24 24 25 17 0
 74 13 1200 P
 A
@@ -1761,7 +1761,7 @@ bow лук~
 @eng yew bow@rus ~~тисовый~~ ~~лук~~~
 @eng The yew bow is here.@rus Добротно сделанный лук (bow) лежит на земле.~
 wood~
-weapon A AN
+weapon Al AN
 bow 12 8 pound F
 85 50 1000 P
 A

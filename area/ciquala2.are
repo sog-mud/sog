@@ -310,7 +310,7 @@ ciquala's sword~
 Ciquala's sword~
 A large, black sword lies here.~
 iron~
-weapon BCHJM AN
+weapon BCHJMl AN
 sword 5 13 slice C
 55 80 34799 P
 A
@@ -331,7 +331,7 @@ ciquala's robe~
 Ciquala's robe~
 A heavy pile of black cloth lies in the dust.~
 leather~
-armor HJM AK
+armor HJMl AK
 17 17 17 2 0
 51 50 29470 G
 A
@@ -346,7 +346,7 @@ Ciquala's staff~
 ciquala's staff~
 A black staff lies on the ground.~
 wood~
-staff GHJM AO
+staff GHJMl AO
 40 20 20 'black shroud' 0
 54 20 22100 P
 A
@@ -469,7 +469,7 @@ iron maiden~
 an iron maiden~
 An iron maiden sits here, looking rather unused.  Why not try it on?~
 iron~
-armor 0 AD
+armor l AD
 20 20 20 5 0
 33 1000 0 G
 A
@@ -486,7 +486,7 @@ torturer's whip~
 the torturer's whip~
 An enormous whip lies here.~
 iron~
-weapon ABF AN
+weapon ABFl AN
 whip 5 10 chop C
 48 90 14700 P
 A

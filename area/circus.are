@@ -637,7 +637,7 @@ sword small~
 a small, thin sword~
 A small sword lies here.~
 ~
-weapon 0 AN
+weapon l AN
 sword 3 3 pierce 0
 2 1 8 P
 A
@@ -650,7 +650,7 @@ staff translucent~
 a pointy translucent staff~
 A long, thin, shimmering object lies here.~
 ~
-weapon 0 AN
+weapon l AN
 staff 3 4 pound 0
 5 0 144 P
 A
@@ -661,7 +661,7 @@ sword bastard~
 the sword swallower's sword~
 A rubber sword swallower's sword.~
 ~
-weapon 0 AN
+weapon l AN
 sword 2 3 slice 0
 1 0 10 P
 A
@@ -690,7 +690,7 @@ razor~
 a razor~
 A razor lies here.~
 ~
-weapon 0 AN
+weapon l AN
 exotic 1 5 stab 0
 2 1 20 P
 A
@@ -729,7 +729,7 @@ knife~
 a sharp knife~
 A sharp, well balanced knife lies on the ground.~
 ~
-weapon 0 AN
+weapon l AN
 dagger 2 3 stab D
 2 1 12 P
 A
@@ -740,7 +740,7 @@ blindfold~
 a blindfold~
 A strip of black cloth lies here.~
 ~
-armor 0 AE
+armor l AE
 2 2 2 2 0
 1 1 8 P
 A
@@ -753,7 +753,7 @@ whip~
 a whip~
 A leather whip is lying on the ground.~
 ~
-weapon 0 AN
+weapon l AN
 whip 4 3 whip 0
 8 1 256 P
 A
@@ -777,7 +777,7 @@ clown shoes~
 big clown shoes~
 A huge pair of shoes lies here, apparently forgotten.~
 ~
-armor 0 AG
+armor l AG
 3 3 3 3 0
 1 4 3 P
 A
@@ -790,7 +790,7 @@ tophat hat~
 a tophat~
 The Ringmaster's tophat lies here.~
 ~
-armor 0 AE
+armor l AE
 3 3 3 3 0
 7 1 280 P
 A
@@ -1051,7 +1051,7 @@ scalpel~
 a scalpel~
 A thin knife with a sharp blade lies here.~
 ~
-weapon 0 AN
+weapon l AN
 dagger 4 3 slice D
 6 1 108 P
 A
@@ -1073,7 +1073,7 @@ carving knife~
 a carving knife~
 A very sharp knife gleams from the floor.~
 ~
-weapon 0 AN
+weapon l AN
 dagger 6 3 pierce D
 16 1 2000 P
 A

@@ -379,7 +379,7 @@ mace sub merc булава~
 @eng a sub issue mace@rus ~~учебная~~ ~~булава~~~
 @eng You see a sub issue mace here.@rus Учебная булава (mace) брошена здесь.~
 bronze~
-weapon U AN
+weapon Ul AN
 mace 1 6 pound 0
 1 60 250 P
 A
@@ -397,7 +397,7 @@ dagger sub merc кинжал~
 @eng a sub issue dagger@rus ~~учебный~~ ~~кинжал~~~
 @eng You see a sub issue dagger here.@rus Учебный кинжал (dagger) брошен здесь.~
 bronze~
-weapon U AN
+weapon Ul AN
 dagger 1 4 pierce 0
 0 10 210 P
 A
@@ -415,7 +415,7 @@ sword sub merc меч~
 @eng a sub issue sword@rus ~~учебный~~ ~~меч~~~
 @eng You see a sub issue sword here.@rus Учебный меч (sword) оставлен здесь.~
 bronze~
-weapon U AN
+weapon Ul AN
 sword 1 6 slash 0
 1 30 360 P
 A
@@ -723,7 +723,7 @@ banner war merc знамя~
 @eng a war banner@rus ~~боевое~~ ~~знамя~~~
 @eng A war banner is on the floor here.@rus Боевое знамя (banner) лежит на полу.~
 cloth~
-light A A
+light Al A
 0 0 200 0 0
 0 20 380 P
 A
@@ -746,7 +746,7 @@ spear sub merc копье~
 @eng a sub issue spear@rus ~~учебное~~ ~~копье~~~
 @eng You see a sub issue spear here.@rus Учебное копье (spear) лежит здесь.~
 wood~
-weapon U AN
+weapon Ul AN
 spear 1 6 thrust K
 1 50 111 P
 A
@@ -771,7 +771,7 @@ staff sub merc посох~
 @eng a sub issue staff@rus ~~учебный~~ ~~посох~~~
 @eng You see a sub issue staff here.@rus Учебный посох (staff) лежит здесь.~
 wood~
-weapon U AN
+weapon Ul AN
 staff 1 5 pound F
 1 40 290 P
 A
@@ -798,7 +798,7 @@ axe sub merc топор~
 @eng a sub issue axe@rus ~~учебный~~ ~~топор~~~
 @eng You see a sub issue axe here.@rus Учебный топор (axe) лежит здесь.~
 bronze~
-weapon U AN
+weapon Ul AN
 axe 1 6 chop 0
 1 50 350 P
 A
@@ -823,7 +823,7 @@ flail sub merc цеп~
 @eng a sub issue flail@rus ~~учебный~~ ~~цеп~~~
 @eng You see a sub issue flail here.@rus Ты видишь здесь учебный цеп (flail).~
 bronze~
-weapon U AN
+weapon Ul AN
 flail 1 5 crush 0
 1 50 310 P
 A
@@ -848,7 +848,7 @@ whip sub merc плеть~
 @eng a sub issue whip@rus ~~учебная~~ ~~плеть~~~
 @eng You see a sub issue whip here.@rus Учебная плеть (whip) свернута кольцами.~
 leather~
-weapon U AN
+weapon Ul AN
 whip 2 2 whip 0
 1 20 330 P
 A
@@ -873,7 +873,7 @@ glaive sub merc алебарда~
 @eng a sub issue glaive@rus ~~учебная~~ ~~алебарда~~~
 @eng You see a sub issue glaive here.@rus Учебная алебарда (glaive) прислонена к стене.~
 wood~
-weapon U AN
+weapon Ul AN
 polearm 1 7 slash F
 1 80 183 P
 A
@@ -898,7 +898,7 @@ bow sub merc лук~
 @eng a sub issue bow@rus ~~учебный~~ ~~лук~~~
 @eng You see a sub issue bow here.@rus Учебный лук (bow) лежит здесь.~
 wood~
-weapon U AN
+weapon Ul AN
 bow 1 7 none F
 1 80 183 P
 A
@@ -923,7 +923,7 @@ lance sub merc пика~
 @eng a sub issue lance@rus ~~учебная~~ ~~пика~~~
 @eng You see a sub issue lance here.@rus Учебная пика (lance) лежит здесь, забытая.~
 iron~
-weapon U AN
+weapon Ul AN
 lance 1 7 none F
 1 80 183 P
 A

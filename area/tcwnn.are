@@ -1127,7 +1127,7 @@ club~
 a heavy lead-sheathed club~
 A heavy club sheathed in lead lies here.~
 wood~
-weapon 0 AN
+weapon l AN
 mace 3 3 crush 0
 5 30 20 P
 A
@@ -1140,7 +1140,7 @@ mace~
 a Sturdy Mace~
 A Sturdy Mace lies here.~
 wood~
-weapon 0 AN
+weapon l AN
 mace 2 4 pound 0
 6 20 0 P
 A
@@ -1153,7 +1153,7 @@ dagger~
 a Dagger~
 A good backstabbing weapon, this.~
 steel~
-weapon 0 AN
+weapon l AN
 dagger 3 4 pierce 0
 13 15 0 P
 A
@@ -1166,7 +1166,7 @@ scimitar~
 a Wickedly-Curved Scimitar~
 A Wickedly-Curved Scimitar hums ominously here.~
 steel~
-weapon BEJ AN
+weapon BEJl AN
 sword 2 4 slash 0
 6 25 20 P
 A
@@ -1179,7 +1179,7 @@ boots~
 a pair of tough leather boots~
 A pair of tough leather boots lie here.~
 leather~
-armor 0 AG
+armor l AG
 4 4 4 0 0
 13 15 2100 P
 A
@@ -1192,7 +1192,7 @@ belt~
 a narrow leather belt~
 A narrow leather belt is curled up here.~
 leather~
-armor 0 AL
+armor l AL
 3 3 3 0 0
 6 2 320 P
 A
@@ -1205,7 +1205,7 @@ kamikaze headband~
 a kamikaze headband~
 A kamikaze headband.~
 cloth~
-armor 0 AE
+armor l AE
 4 4 4 0 0
 15 5 3000 P
 A
@@ -1216,7 +1216,7 @@ scarf~
 a WWI Aviator's Scarf~
 A WWI aviator's scarf is here.~
 cloth~
-armor 0 AC
+armor l AC
 3 3 3 0 0
 6 5 1900 P
 A
@@ -1238,7 +1238,7 @@ ring~
 a gold ring~
 A GOLD RING!~
 gold~
-armor A AB
+armor Al AB
 0 0 0 0 0
 0 1 10 P
 A
@@ -1312,7 +1312,7 @@ mask~
 a Headsman's Black Face Mask~
 The Headsman's mask is here.~
 cloth~
-armor 0 AE
+armor l AE
 19 18 18 12 0
 58 75 0 P
 A
@@ -1323,7 +1323,7 @@ sword longsword~
 the Castellan's Longsword~
 The Castellan's Longsword is lying here in the dirt.~
 steel~
-weapon 0 AN
+weapon l AN
 sword 6 7 slash 0
 53 25 1200 P
 A
@@ -1349,7 +1349,7 @@ sword longsword~
 an Ornate Longsword~
 An Ornate Longsword is lying here.~
 steel~
-weapon 0 AN
+weapon l AN
 sword 8 6 slash 0
 54 25 2000 P
 A
@@ -1362,7 +1362,7 @@ breastplate plate~
 an Ornate Breastplate~
 An Ornate Breastplate with a black and gold coat of arms is lying here.~
 steel~
-armor 0 AD
+armor l AD
 17 17 16 8 0
 52 20 1700 P
 A
@@ -1375,7 +1375,7 @@ bracer~
 an Ornate Bracer~
 An Ornate Bracer with a black and gold coat of arms is lying here.~
 leather gold~
-armor 0 AM
+armor l AM
 16 17 17 8 0
 52 15 8000 P
 A
@@ -1388,7 +1388,7 @@ cloak~
 a black cloak with gold trim~
 A Black Cloak with Gold Trim is lying here.~
 cloth~
-armor 0 AC
+armor l AC
 15 17 17 8 0
 52 10 20000 P
 A
@@ -1401,7 +1401,7 @@ helm~
 an Ornate Helm~
 An Ornate Helm bearing a black and gold coat of arms lies here.~
 steel gold~
-armor 0 AE
+armor l AE
 17 17 17 8 0
 52 10 3000 P
 A
@@ -1416,7 +1416,7 @@ shield~
 an Ornate Shield~
 A Shield bearing the crest of the House of Lenny lies here.~
 steel~
-armor 0 AJ
+armor l AJ
 17 17 17 8 0
 52 20 9000 P
 A
@@ -1431,7 +1431,7 @@ spear~
 a Throwing Spear~
 A sturdy Throwing Spear has been thrust into the ground here.~
 steel~
-weapon 0 AN
+weapon l AN
 spear 6 8 pierce K
 52 20 3000 P
 A

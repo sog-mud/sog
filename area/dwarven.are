@@ -330,7 +330,7 @@ two-handed dwarven axe~
 a two-handed dwarven axe~
 A two-handed Dwarven axe is here.~
 wood steel~
-weapon 0 AN
+weapon l AN
 axe 3 7 cleave F
 17 50 4100 P
 A
@@ -354,7 +354,7 @@ ring golden dwarven~
 a dwarven golden ring~
 A pretty golden ring is here.~
 gold~
-gem 0 AB
+gem l AB
 0 0 0 0 0
 7 10 460 P
 A

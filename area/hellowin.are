@@ -134,10 +134,43 @@ stand stand male 0
 0 0 huge unknown
 F for H
 M exall 34410 north~
-M speech 34411 raduga~
-M speech 34411 радуга~
-M speech 34411 rainbow~
 M speech 34412 *.*~
+M exall 34410 1~
+M exall 34410 2~
+M exall 34410 3~
+M exall 34410 4~
+#34407
+guardian хранитель figure~
+@eng guardian@rus хранитель~
+You see strange black figure...
+~
+You see only darkness...
+~
+dragon~
+Aef DEFHNOUVYc 0 0
+150 250 1d1+28000 1d1+25000 50d60+100 kiss
+-66 -66 -66 -66
+CDEFHIKNO ABCDU 0 0
+stand stand male 0
+0 0 huge unknown
+M grall 34424 100~
+#34408
+statue статуя figure~
+@eng statue@rus статуя~
+You see strange black figure...
+~
+You see only darkness...
+~
+dragon~
+Aef DEFHNOUVYc 0 0
+150 250 1d1+28000 1d1+25000 50d60+100 kiss
+-66 -66 -66 -66
+CDEFHIKNO ABCDU 0 0
+stand stand male 0
+0 0 huge unknown
+M exall 34425 4~
+M speech 34426 rainbow~
+M speech 34426 радуга~
 #0
 
 #OBJECTS
@@ -486,18 +519,24 @@ F R 0 0 B
 G male
 #34429
 amulet rainbow радужный амулет радуга~
-@eng rainbow amulet@rus ~~радужный~~ ~~амулет~~~
+@eng {Rr{ya{Yi{Gn{Cb{Bo{Mw{R a{ym{Yu{Gl{Ce{Bt{x@rus ~~{Rр{yа{Yд{Gу{Cж{Bн{Mы{Rй {yа{Yм{Gу{Cл{Bе{Mт{x~~~
 @eng You see the small rainbow on the chain lying here.@rus Тв видишь маленькую радугу (rainbow) на цепочке, лежащую здесь.~
 rainbow~
 jewelry Tj AC
 0 0 0 0 0
-0 1 10056 P
+15 1 10056 P
 A
 14 10
 A
 12 10
 A
 13 10
+E
+amulet~
+@eng This amulet was find by Warlom!
+@rus Этот амулет из небытия в мир попал благодаря храбрости
+и хитрости Варлома.
+~
 G male
 #34430
 bouquet rose букет роз~
@@ -1028,7 +1067,7 @@ amulet winds амулет ветров~
 silvery~
 treasure 0 AC
 0 0 0 0 0
-1 1 15000 P
+91 1 15000 P
 F A 0 0 t
 F A 0 0 F
 F A 0 0 l
@@ -1151,6 +1190,84 @@ gem h AO
 10 10 500 P
 S 'sharpen weapon' 75 A
 G male
+#34485
+scarab mystic~
+{Ymystic scarab{x~
+Mystic scarab is floating in the air.~
+golden~
+jewelry Tij AQ
+0 0 0 0 0
+0 0 0 P
+E
+scarab~
+If you wish to find a way, just say 'find'.
+~
+G male
+#34486
+portal glowing~
+glowing portal~
+You notice glowing portal.~
+unknown~
+portal 0 0
+A 0 0 34421 0
+0 0 0 P
+E
+portal~
+@eng If you enter this portal you will not have a chance to return.
+You'll reach the end or you'll die! Think deeply!
+@rus Если ты войдешь в этот портал, то или ты дойдешь до конца
+или тебе придется умереть! Подумай!
+~
+G male
+#34487
+portal~
+Mystic portal~
+You notice glowing portal here.~
+unknown~
+portal A 0
+0 0 0 34418 0
+0 0 0 P
+E
+portal портал~
+@eng Enter and find an object!
+Or death...
+@rus Войдешь и шмотку обретешь.
+Или смерть.
+~
+G male
+#34488
+tablet~
+tablet with hieroglyphes~
+Little clay tablet lays here.~
+unknown~
+trash 0 A
+0 0 0 0 0
+0 0 0 P
+E
+tablet~
+This scarab is one of the part of mystic scarab.
+Second part was lost. Gods said that demon steal
+it. Look for this demon on the hill in the marsh.
+~
+G none
+#34489
+pike perch судак fish рыба~
+@eng a pike perch@rus судак~
+@eng The silvery fish is here.@rus Серебристая рыба (fish) лежит здесь.~
+fish~
+fish 0 AO
+0 0 0 0 0
+0 10 100 P
+G none
+#34490
+statuette crystal dragon статуэтка хрустально дракона~
+@eng statuette of crystal dragon@rus ~~статуэтка~~ кристального дракона~
+@eng A little crystal statuette lies here.@rus Маленькая кристальная статуэтка (statuette) лежит здесь.~
+crystal~
+jewelry 0 AO
+0 0 0 0 0
+0 10 0 P
+G female
 #0
 
 #ROOMS
@@ -1169,12 +1286,36 @@ G male
 S
 #34401
 @eng Near the cave@rus Около входа в пещеру~
+@eng You stand near a cave. You do not hear anything..
+Mountain glows and this makes you nervous. You
+must decide: to enter or to not...
+ 
+Big boulder with inscription lies here.
 @rus Ты стоишь на склоне горы, около зияющего глаза пещеры. Ни одного
 звука не слышно изнутри. А непонятное сияние, исходящее отовсюду,
 заставляет тебя нервничать. Надо, наконец, принять окончательное ре-
 шение: войти внутрь или отступить...
+ 
+Большой камень с надписью лежит около входа.
 ~
 0 0 inside
+E
+boulder stone камень~
+@eng The dragon lives in the cave. And there is only one way to
+pass it. You need to pit it into sleep. Without it you'll
+stay there forever.
+ 
+Village witch can help you in looking for sleeping
+potion. Ask her about dragon and potion, anf have a good
+luck. You need it!
+@rus В пещере живет дракон или драконша. И есть только один путь
+до сокровищ, скрытых за ней -- усыпить этого зверя. Иначе
+тебе придется остаться у него (или у нее) навсегда!
+ 
+Возможно деревенская знахарка сможет помочь тебе в поисках
+усыпляющего зелья. Спроси у нее о драконе и о зелье, вдруг
+повезет.
+~
 D1
 ~
 ~
@@ -1307,12 +1448,255 @@ S
 ~
 0 CDHKTX inside
 S
+#34418
+@eng Nowhere@rus Нигде~
+@eng You are nowhere... out of reality...
+ 
+  Large inscription is floating in the air.
+@rus Ты находишься где-то вне реальности.
+ 
+  Огромная надпись летает в воздухе.
+~
+0 BCHKNSTWX inside
+E
+inscription надпись~
+@eng Find two parts of mystic scarab and
+you find a way to rainbow amulet's guardian.
+@rus Найди две части загадочного скарабея и ты найдешь дорогу к
+хранителю радужного амулета.
+~
+E
+inscription~
+Find two parts of mystic scarab and you find a way to
+guardian of rainbow amulet.
+~
+D4
+~
+~
+Z 0 34419
+S
+#34419
+@eng Nowhere@rus Нигде~
+@eng You are nowhere... out of reality...
+ 
+  Large inscription is floating in the air.
+@rus Ты находишься где-то вне реальности.
+ 
+  Огромная надпись летает в воздухе.
+~
+0 BCHKNST inside
+E
+inscription надпись~
+@eng First part is a golden ring.
+Second part is a little figurine of scarab.
+ 
+Ask supreme force to combine it into mystic scarab.
+@rus Первая часть -- золотое колечко.
+Вторая часть -- маленькая фигурка скарабея.
+ 
+Попроси высшие силы соединить (combine) их воедино!
+~
+S
+#34420
+@eng Nowhere@rus Нигде~
+@eng You are nowhere... out of reality...
+@rus Ты находишься где-то вне реальности.
+~
+0 BCHKNST inside
+S
+#34421
+@eng Nowhere@rus Нигде~
+@eng You are nowhere... out of reality...
+@rus Ты находишься где-то вне реальности.
+~
+0 BCHKNST inside
+D0
+~
+~
+Z 0 34429
+D1
+~
+~
+Z 0 34422
+D2
+~
+~
+Z 0 34428
+S
+#34422
+@eng Nowhere@rus Нигде~
+@eng You are nowhere... out of reality...
+@rus Ты находишься где-то вне реальности.
+~
+0 BCHKNST inside
+D0
+~
+~
+Z 0 34430
+D1
+~
+~
+Z 0 34425
+D2
+~
+~
+Z 0 34427
+D3
+~
+~
+Z 0 34421
+D4
+~
+~
+Z 0 34423
+S
+#34423
+@eng Nowhere@rus Нигде~
+@eng You are nowhere... out of reality...
+@rus Ты находишься где-то вне реальности.
+~
+0 CHKNST inside
+D4
+~
+~
+Z 0 34420
+S
+#34424
+@eng Nowhere@rus Нигде~
+@eng You are nowhere... out of reality...
+@rus Ты находишься где-то вне реальности.
+~
+0 BCHKNST inside
+D5
+~
+~
+Z 0 34420
+S
+#34425
+@eng Nowhere@rus Нигде~
+@eng You are nowhere... out of reality...
+@rus Ты находишься где-то вне реальности.
+~
+0 BCHKNST inside
+D0
+~
+~
+Z 0 34431
+D2
+~
+~
+Z 0 34426
+D3
+~
+~
+Z 0 34422
+S
+#34426
+@eng Nowhere@rus Нигде~
+@eng You are nowhere... out of reality...
+@rus Ты находишься где-то вне реальности.
+~
+0 BCHKNST inside
+D0
+~
+~
+Z 0 34425
+D3
+~
+~
+Z 0 34427
+S
+#34427
+@eng Nowhere@rus Нигде~
+@eng You are nowhere... out of reality...
+@rus Ты находишься где-то вне реальности.
+~
+0 BCHKNST inside
+D0
+~
+~
+Z 0 34422
+D1
+~
+~
+Z 0 34426
+D3
+~
+~
+Z 0 34428
+S
+#34428
+@eng Nowhere@rus Нигде~
+@eng You are nowhere... out of reality...
+@rus Ты находишься где-то вне реальности.
+~
+0 BCHKNST inside
+D0
+~
+~
+Z 0 34421
+D1
+~
+~
+Z 0 34427
+S
+#34429
+@eng Nowhere@rus Нигде~
+@eng You are nowhere... out of reality...
+@rus Ты находишься где-то вне реальности.
+~
+0 BCHKNST inside
+D1
+~
+~
+Z 0 34430
+D2
+~
+~
+Z 0 34421
+S
+#34430
+@eng Nowhere@rus Нигде~
+@eng You are nowhere... out of reality...
+@rus Ты находишься где-то вне реальности.
+~
+0 BCHKNST inside
+D1
+~
+~
+Z 0 34431
+D2
+~
+~
+Z 0 34422
+D3
+~
+~
+Z 0 34429
+S
+#34431
+@eng Nowhere@rus Нигде~
+@eng You are nowhere... out of reality...
+@rus Ты находишься где-то вне реальности.
+~
+0 BCHKNST inside
+D2
+~
+~
+Z 0 34425
+D3
+~
+~
+Z 0 34430
+S
 #0
 
 #SPECIALS
 M 34404 spec_breath_any	* the warderer
 M 34405 spec_cast_undead	* Master of Undead
 M 34406 spec_breath_any	* the crystalline dragon
+M 34407 spec_breath_any	* guardian
+M 34408 spec_breath_any	* statue
 S
 
 #RESETS
@@ -1323,7 +1707,6 @@ O 0 34405 0 34400	* fallen tree ({GClearing in the woods{x)
 O 0 34404 0 34400	* {WSpring with crystal and clear water{w ({GClearing in the woods{x)
 M 0 34406 1 34402 1	* the crystalline dragon (In the cave)
 O 0 34462 0 34403	* altar (Heart of the mountain)
-P 0 34463 100 34462 10	* altar: the scroll
 O 0 34475 0 34404	* scarlet door to unknown (Nowhere)
 O 0 34440 0 34405	* door (Nowhere)
 O 0 34476 0 34406	* orange door to unknown (Nowhere)
@@ -1338,6 +1721,18 @@ O 0 34481 0 34414	* blue door to unknown (Nowhere)
 O 0 34440 0 34415	* door (Nowhere)
 O 0 34482 0 34416	* violet door to unknown (Nowhere)
 O 0 34440 0 34417	* door (Nowhere)
+O 0 34440 0 34419	* door (Nowhere)
+M 0 34407 1 34420 1	* guardian (Nowhere)
+R 0 34421 6	* Nowhere: randomize
+R 0 34422 6	* Nowhere: randomize
+M 0 34408 10 34423 1	* statue (Nowhere)
+R 0 34425 6	* Nowhere: randomize
+R 0 34426 6	* Nowhere: randomize
+R 0 34427 6	* Nowhere: randomize
+R 0 34428 6	* Nowhere: randomize
+R 0 34429 6	* Nowhere: randomize
+R 0 34430 6	* Nowhere: randomize
+R 0 34431 6	* Nowhere: randomize
 S
 
 #SHOPS
@@ -1463,6 +1858,19 @@ give key $n
 mob oload 34418
 give key $n
 ~
+#34424
+mob echo You hear from nowhere: 'You find scarab and you can take this rainbow amulet!'
+give amulet $n
+mob transfer $n 3502
+~
+#34425
+mob echo You hear from nowhere: 'No pass!'
+mob echo You hear from nowhere: 'Please, tell me where lives little leprechaun?'
+~
+#34426
+mob echo You hear from nowhere: 'True!'
+mob transfer $n 34424
+~
 #34450
 say Если ты мне принесешь сосульку, я тебя награжу... тока поспеши..
 ~
@@ -1470,11 +1878,12 @@ say Если ты мне принесешь сосульку, я тебя награжу... тока поспеши..
 
 #OMPROGS
 O 34421 fight_prog fight_prog_wasp_hive	* `humming wasp hive'
-O 34429 wear_prog wear_prog_rainbow_amulet	* `rainbow amulet'
-O 34429 fight_prog fight_prog_rainbow_amulet	* `rainbow amulet'
+O 34429 wear_prog wear_prog_rainbow_amulet	* `{Rr{ya{Yi{Gn{Cb{Bo{Mw{R a{ym{Yu{Gl{Ce{Bt{x'
+O 34429 fight_prog fight_prog_rainbow_amulet	* `{Rr{ya{Yi{Gn{Cb{Bo{Mw{R a{ym{Yu{Gl{Ce{Bt{x'
 O 34439 wear_prog wear_prog_amulet_strangulation	* `golden amulet'
 O 34449 wear_prog wear_prog_excalibur	* `wooden mace'
 O 34459 wear_prog wear_prog_excalibur	* `butcher's knife'
+O 34485 speech_prog speech_prog_scarab	* `{Ymystic scarab{x'
 S
 
 #$

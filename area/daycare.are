@@ -158,7 +158,7 @@ ring pink ice кольцо розовое ледяное~
 @eng a pink ice ring@rus розовое ледяное кольцо~
 @eng A pink ice ring draws your eye.@rus Розовое ледяное кольцо (ring) привлекает ваш взгляд.~
 ice~
-treasure 0 AB
+treasure l AB
 0 0 0 0 0
 3 10 620 G
 A
@@ -176,7 +176,7 @@ robe linen~
 a linen robe~
 A linen robe is crumpled into a ball here.~
 cloth~
-armor 0 AK
+armor l AK
 1 2 1 1 1
 7 50 780 G
 A
@@ -193,7 +193,7 @@ broom~
 a broom~
 A stout straw broom lies on the floor.~
 wood~
-weapon 0 AN
+weapon l AN
 exotic 2 3 pound K
 4 30 270 W
 A
@@ -242,7 +242,7 @@ gun toy~
 a toy gun~
 A toy gun with a sharp bayonet lies here.~
 wood~
-weapon 0 AN
+weapon l AN
 spear 2 3 stab FK
 4 20 300 G
 A

@@ -311,7 +311,7 @@ armguards armguard перчатки centaur arm~
 @eng a pair of centaur armguards@rus ~~перчатки~~ кентавра~
 @eng A set of centaur armguards have been left here.@rus Пара перчаток (armguards) из поселения кентавров лежит здесь.~
 steel~
-armor K AI
+armor Kl AI
 7 5 6 0 0
 32 100 8000 P
 A
@@ -324,7 +324,7 @@ bracer браслет стальной centaur steel~
 @eng a steel centaur bracer@rus ~~стальной~~ ~~браслет~~~
 @eng A steel bracer have been left here.@rus Стальной браслет (bracer) из поселения кентавров забыли здесь.~
 steel~
-armor 0 AM
+armor l AM
 5 4 5 0 0
 30 100 8000 P
 A
@@ -346,7 +346,7 @@ plate armor centaur доспехи~
 @eng a suit of centaur plate@rus ~~доспехи~~ кентавра~
 @eng A set of centaur plate has been dropped here.@rus Доспехи (plate) изготовленные в поселении кентавров лежат тут.~
 steel~
-armor K AD
+armor Kl AD
 9 10 9 3 0
 35 160 8000 P
 A
@@ -359,7 +359,7 @@ spear копье steel~
 @eng a steel-tipped spear@rus ~~острое~~ ~~копье~~~
 @eng A superbly crafted steel spear lies on the floor.@rus Копье (spear) с острым стальным наконечником брошено тут.~
 steel~
-weapon KMY AN
+weapon KMYl AN
 spear 13 4 pierce DK
 40 140 12000 P
 A
@@ -377,7 +377,7 @@ circlet centaur hair клочок~
 @eng a circlet of braided centaur hair@rus ~~повязка~~ для волос~
 @eng Some hair woven into a circlet has been left here.@rus Небольшой клочок волос (circlet) оставлен здесь.~
 hair~
-armor AI AE
+armor AIl AE
 9 9 10 12 12
 50 10 20000 P
 A
@@ -394,7 +394,7 @@ sword меч black bastard~
 @eng a blackened bastard sword@rus ~~черный~~ ~~острый~~ ~~меч~~~
 @eng A charred and etched bastard sword lies here.@rus Черный меч (sword) с гравировкой на рукояти лежит здесь.~
 steel~
-weapon CEJY AN
+weapon CEJYl AN
 sword 7 7 slash DH
 40 160 9000 P
 A
@@ -407,7 +407,7 @@ fist earth перчатка~
 @eng Fist of the Earth@rus ~~Перчатка~~ Земли~
 @eng A massive mallet of dark metal lies upon the ground.@rus Перчатка (fist) из темного металла лежит здесь.~
 steel~
-weapon BEFMY AN
+weapon BEFMYl AN
 exotic 10 7 crush D
 51 300 100000 P
 A
@@ -420,7 +420,7 @@ bark ebon ebonwood кора~
 @eng a casing of ebonwood bark@rus ~~древесная~~ ~~кора~~~
 @eng A pile of darkened bark lies on the ground.@rus Кучка темной древесной коры (casing) лежит здесь.~
 wood~
-armor CEHJ AD
+armor CEHJl AD
 100 6 7 0 0
 51 200 100000 P
 A

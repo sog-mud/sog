@@ -233,7 +233,7 @@ girdle giant strength~
 girdle of giant strength~
 A brilliant admantite girdle floats here.~
 admantite~
-armor B AL
+armor Bl AL
 20 20 20 10 0
 42 3 2000 P
 A
@@ -255,7 +255,7 @@ leggings speed~
 leggings of speed~
 A set of glowing leather leggings lie here~
 silver~
-armor A AF
+armor Al AF
 9 9 9 0 0
 30 5 1000 P
 A
@@ -268,7 +268,7 @@ armor ornate plate~
 an ornate breast plate~
 A silver breast plate engraved in gold~
 silver~
-armor 0 AD
+armor l AD
 8 7 7 0 0
 25 13 1200 P
 A
@@ -281,7 +281,7 @@ ring magic~
 ring of magic~
 A glowing ring covered in magical runes lies here.~
 mithril~
-armor A AB
+armor Al AB
 9 9 9 4 0
 28 1 1000 P
 A
@@ -294,7 +294,7 @@ sheath wrist~
 a concealable wrist sheath~
 A large leather wrist sheath for a dagger lies here.~
 leather~
-container Y AM
+container Yl AM
 10 0 0 5 50
 26 2 500 P
 A
@@ -311,7 +311,7 @@ spinagon spear~
 a Spinagon's spear~
 A long spear with a wickedly sharp blade.~
 mithril~
-weapon E AN
+weapon El AN
 spear 5 8 thrust DEFHK
 35 9 1300 P
 A
@@ -324,7 +324,7 @@ rulership rod~
 the Rod of Rulership~
 A rod inscribed with words of command floats here.~
 admantite~
-armor AB AO
+armor ABl AO
 13 12 12 5 0
 38 5 5000 P
 A
@@ -339,7 +339,7 @@ collar bloody~
 a bloody collar~
 The bloody collar of a dead beast lies here~
 gold~
-armor 0 AC
+armor l AC
 12 12 12 6 0
 36 7 800 P
 A
@@ -363,7 +363,7 @@ sword silver longsword long~
 a silver longsword~
 A silver longsword covered in mystical battle runes lies here~
 silver~
-weapon I AN
+weapon Il AN
 sword 5 5 slash D
 23 4 1350 P
 A

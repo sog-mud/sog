@@ -1052,7 +1052,7 @@ citysword blade~
 City Guard sword~
 A nondescript blade lies here gathering dust.~
 steel~
-weapon 0 AN
+weapon l AN
 sword 2 5 slash D
 6 70 100 P
 A
@@ -1071,7 +1071,7 @@ shillelagh stick~
 City Guard shillelagh~
 A thick stick of oak lies here.~
 wood~
-weapon 0 AN
+weapon l AN
 mace 2 6 smash 0
 6 90 90 P
 A
@@ -1119,7 +1119,7 @@ lieutenant sword~
 City Guard Lieutenant Sword~
 City Guard Lieutenant Sword is lying here.~
 steel~
-weapon 0 AN
+weapon l AN
 sword 4 8 slice 0
 11 100 1000 P
 A
@@ -1132,7 +1132,7 @@ lieutenant helmet helm~
 City Guard Lieutenant Helmet~
 A shiny helmet lies here waiting to be used.~
 steel~
-armor 0 AE
+armor l AE
 -5 -5 -5 -5 2
 8 130 2000 P
 A
@@ -1191,7 +1191,7 @@ golden scimitar captain~
 City Guard Captain's Golden Scimitar~
 A shiny golden scimitar waits to be bloodied.~
 gold~
-weapon 0 AN
+weapon l AN
 sword 4 5 slice 0
 10 80 2190 P
 A
@@ -1204,7 +1204,7 @@ captain boots~
 City Guard Captain's Boots~
 A pair of worn boots sits here undisturbed.~
 leather~
-armor 0 AG
+armor l AG
 -6 -6 -6 -6 1
 10 150 2900 P
 A
@@ -1217,7 +1217,7 @@ captain striped trousers~
 City Guard Captain's Striped Trousers~
 A pair of striped trousers lay here in a heap.~
 cloth~
-armor 0 AF
+armor l AF
 -6 -6 -6 -6 0
 10 110 2600 P
 A
@@ -1268,7 +1268,7 @@ signet-ring ring~
 the Mayor's Signet-Ring~
 A silver ring studded with emeralds lies here.~
 silver~
-armor JK AB
+armor JKl AB
 -15 -14 -15 -16 0
 50 10 6500 P
 A
@@ -1289,7 +1289,7 @@ tuxedo suit~
 a tuxedo~
 A suit of formal clothes is neatly laid out for use.~
 silk~
-armor Y AK
+armor Yl AK
 -10 -14 -14 -9 0
 40 40 7000 P
 A
@@ -1513,7 +1513,7 @@ sapphire~
 a sapphire~
 A sapphire sparkles from its lowly position on the ground.~
 corundum~
-gem N AO
+gem Nl AO
 0 0 0 0 0
 18 10 1300 P
 A
@@ -1568,7 +1568,7 @@ topaz collar~
 a topaz-encrusted collar~
 A collar encrusted with amber-hued gems glitters here.~
 quartz~
-jewelry N AB
+jewelry Nl AB
 0 0 0 0 0
 25 40 14500 P
 A

@@ -138,7 +138,7 @@ glowing skull~
 a Flaming Skull~
 A human skull floats here, outlined in blue flames.~
 stone~
-light A AO
+light Al AO
 0 0 999 0 0
 48 5 1000 P
 A
@@ -177,7 +177,7 @@ garnet ring~
 a Garnet Ring~
 A small garnet ring lies here amongst the treasure.~
 gold~
-treasure A AB
+treasure Al AB
 0 0 0 0 0
 58 1 900 P
 A
@@ -194,7 +194,7 @@ bracer night~
 the Bracer of the Night~
 A black bracer covered in ancient runes lies here.~
 admantite~
-armor B AM
+armor Bl AM
 18 18 17 8 0
 54 5 1500 P
 A
@@ -209,7 +209,7 @@ amulet night~
 the Amulet of the Night~
 An old amulet lies here glowing in unnatural blue light.~
 silver~
-armor A AC
+armor Al AC
 21 21 21 10 0
 64 3 2000 P
 A
@@ -226,7 +226,7 @@ ancient longsword sword~
 an Ancient Longsword~
 An old longsword floats here, glowing slightly.~
 admantite~
-weapon A AN
+weapon Al AN
 sword 10 8 slash DH
 70 12 2500 P
 A
@@ -239,7 +239,7 @@ black scale dragon~
 a black dragon scale~
 A black dragon scale that's been torn from one of the beasts.~
 admantite~
-armor 0 AJ
+armor l AJ
 21 22 21 10 0
 65 30 1200 P
 A
@@ -258,7 +258,7 @@ hell sword wraith~
 the Hell's Wraith~
 This sword was supposedly forged in the depths of Hell. It's wavy blade makes it appear much like a large kris. It is a bit unwieldly at first but the damage it inflicts is unbelievable.~
 admantite~
-weapon ABEM AN
+weapon ABEMl AN
 exotic 10 8 bite CE
 73 10 5000 P
 A
@@ -279,7 +279,7 @@ robes sorceror~
 sorceror's robes~
 Long black robes covered in moons and stars.~
 unknown~
-armor 0 AK
+armor l AK
 24 24 24 11 0
 72 10 3000 P
 A
@@ -292,7 +292,7 @@ infinity scroll~
 the Infinity Scroll~
 The old scroll rumored to have answers to all questions. (Unfortunately you just killed the last thing in existance that could read it.)~
 silver~
-armor AB AO
+armor ABl AO
 23 23 24 11 0
 74 4 7500 P
 A
@@ -335,7 +335,7 @@ boots water walking waterwalking~
 boots of waterwalking~
 Some old leather boots with fish painted on them rest here in the closet.~
 mithril~
-boat 0 AG
+boat l AG
 0 0 0 0 0
 40 5 1000 P
 A
@@ -350,7 +350,7 @@ thieve's tunic~
 a Thieve's Tunic~
 A black shirt with many pockets.~
 admantite~
-armor 0 AD
+armor l AD
 13 13 12 5 0
 40 15 900 P
 A

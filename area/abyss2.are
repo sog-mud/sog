@@ -558,7 +558,7 @@ sword~
 the Sword of the Ancients~
 The Sword of the Ancients rests here~
 steel~
-weapon JLO AN
+weapon JLOl AN
 sword 5 8 pierce D
 40 320 18400 G
 A
@@ -575,7 +575,7 @@ pile silk~
 a pile of blue silk~
 A pile of dark blue silk lies here, rustling slightly.~
 wool~
-armor L AK
+armor Ll AK
 12 12 12 6 0
 37 120 19453 G
 A
@@ -590,7 +590,7 @@ silver sleeves~
 a pair of silver sleeves~
 A pair of silver sleeves lies at your feet.~
 silver~
-armor LO AI
+armor LOl AI
 11 11 11 5 0
 32 200 11800 G
 A
@@ -618,7 +618,7 @@ helm dragons~
 a Helm of the Dragons~
 A strange helm lies here.~
 steel~
-armor JL AE
+armor JLl AE
 12 12 12 2 0
 38 240 19450 G
 A
@@ -636,7 +636,7 @@ rune breast plate~
 a Rune Covered Breast Plate~
 A rune covered breast plate lies here in the dirt~
 steel~
-armor JLO AD
+armor JLOl AD
 11 11 11 2 0
 38 150 18394 G
 A
@@ -703,7 +703,7 @@ pair jeweled gauntlets~
 a Pair of Jeweled Gauntlets~
 A pair of jewel encrusted gauntlets lie here.~
 steel~
-armor JLN AH
+armor JLNl AH
 15 15 15 7 0
 45 17 13670 G
 A
@@ -729,7 +729,7 @@ flaming bracelet~
 a Flaming Bracelet~
 A diamond studded bracelet lies here, burning fiercely.~
 diamond~
-armor HLMO AM
+armor HLMOl AM
 11 11 11 2 0
 35 20 24678 G
 A
@@ -746,7 +746,7 @@ black onyx ring~
 a Black Onyx Ring~
 A black onyx ring lies here, just barely visible.~
 stone~
-armor L AB
+armor Ll AB
 0 0 0 0 0
 36 10 12250 G
 A
@@ -759,7 +759,7 @@ shadowshiv~
 the Shadowshiv~
 A small, wicked looking dagger lies here, its blade as black as night.~
 steel~
-weapon BHLM AN
+weapon BHLMl AN
 dagger 5 7 stab C
 25 40 13060 G
 A
@@ -772,7 +772,7 @@ two handed sword flaming~
 a Flaming Two-Handed Sword~
 An finely crafted two handed sword lies here engulfed in flamed.~
 fire~
-weapon LO AN
+weapon LOl AN
 sword 5 11 blast AF
 50 40 36740 G
 F A 0 0 I
@@ -786,7 +786,7 @@ silver trident~
 a Silver Trident~
 A trident crafted from fine silver has been placed here.~
 silver~
-weapon BCHJLM AN
+weapon BCHJLMl AN
 spear 5 8 pierce K
 36 180 16740 G
 A
@@ -799,7 +799,7 @@ sword sharpness~
 sword of Sharpness~
 A sword with a razor sharp blade lies here.~
 steel~
-weapon LO AN
+weapon LOl AN
 sword 5 7 pierce D
 33 70 8700 G
 A
@@ -812,7 +812,7 @@ crystal ring~
 a Crystal Ring~
 A small crystal ring lies here.~
 crystal~
-treasure AL AB
+treasure ALl AB
 0 0 0 0 0
 22 100 5000 G
 A
@@ -841,7 +841,7 @@ small medallion~
 a Small Medallion~
 A small medallion lies here among the dirt.~
 quartz~
-armor ALP AC
+armor ALPl AC
 13 14 13 2 0
 41 20 18999 G
 A
@@ -864,7 +864,7 @@ green cape~
 a Bright Green Cape~
 An ugly, bright green cape lies ruffled in a nearby corner.~
 snakeskin~
-armor L AC
+armor Ll AC
 9 9 9 1 3
 33 120 10404 G
 A
@@ -906,7 +906,7 @@ circlet concentration~
 the Silver Circlet of Concentration~
 A small tiara of silver lies on the ground.~
 silver~
-armor L AE
+armor Ll AE
 12 12 12 2 0
 42 100 18450 G
 A
@@ -1039,7 +1039,7 @@ breast plate~
 The Silver Breast Plate~
 A silver breast plate lies here in the dirt~
 silver~
-armor JL AD
+armor JLl AD
 16 17 16 3 0
 48 150 19394 G
 A
@@ -1050,7 +1050,7 @@ helm~
 the Silver Helm~
 A strange, silver helm lies here.~
 silver~
-armor JL AE
+armor JLl AE
 17 17 16 12 0
 48 280 21450 G
 A

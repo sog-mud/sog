@@ -933,7 +933,7 @@ pair black shoes~
 a pair of black shoes~
 A pair of black shoes has been left here.~
 copper~
-armor 0 AG
+armor l AG
 12 12 12 0 0
 45 2 450 P
 A
@@ -944,7 +944,7 @@ thimble~
 a thimble~
 A thimble lies here.~
 copper~
-armor 0 AB
+armor l AB
 12 12 12 0 0
 45 1 450 P
 A
@@ -970,7 +970,7 @@ waistcoat~
 a red waistcoat~
 A red waistcoat is lying here.~
 copper~
-armor 0 AD
+armor l AD
 11 11 11 0 0
 40 2 400 P
 A
@@ -983,7 +983,7 @@ pocket watch~
 a pocket watch~
 A pocket watch is hanging by its chain from a hook here.~
 copper~
-armor B AO
+armor Bl AO
 11 11 11 0 0
 40 1 400 P
 A
@@ -1002,7 +1002,7 @@ pair tiny white kid gloves~
 a pair of tiny white kid-gloves~
 A pair of tiny white kid-gloves have been dropped here.~
 copper~
-armor 0 AH
+armor l AH
 9 9 9 0 0
 33 2 330 P
 A
@@ -1015,7 +1015,7 @@ fan~
 a fan~
 A fan has been left here.~
 copper~
-armor 0 AJ
+armor l AJ
 9 9 9 0 0
 33 1 330 P
 A
@@ -1026,7 +1026,7 @@ scarf~
 a neck scarf~
 A woolen neck scarf is lying here.~
 copper~
-armor 0 AC
+armor l AC
 11 11 11 0 0
 40 2 400 P
 A
@@ -1143,7 +1143,7 @@ hookah~
 a hookah~
 A hookah sits here.~
 copper~
-armor AB AO
+armor ABl AO
 11 11 11 0 0
 40 3 400 P
 A
@@ -1212,7 +1212,7 @@ footman livery~
 a footman's livery~
 A footman's livery has been left here.~
 copper~
-armor 0 AD
+armor l AD
 10 10 10 0 0
 37 7 370 P
 A
@@ -1251,7 +1251,7 @@ cradle~
 a baby's cradle~
 A baby's cradle is lying here.~
 copper~
-container M AE
+container Ml AE
 150 A 0 0 0
 43 14 430 P
 A
@@ -1280,7 +1280,7 @@ ladle~
 a ladle~
 A soup-covered ladle lies here, dripping.~
 copper~
-weapon 0 AN
+weapon l AN
 exotic 5 8 blast 0
 37 10 370 P
 A
@@ -1351,7 +1351,7 @@ polka dot bow tie~
 a large polka dot bow tie~
 A large polka dot bow tie has been (purposefully?) left here.~
 copper~
-armor M AC
+armor Ml AC
 11 11 11 0 0
 42 1 420 P
 A
@@ -1426,7 +1426,7 @@ brown breeches~
 some brown breeches~
 Someone's dropped their breeches...~
 copper~
-armor 0 AF
+armor l AF
 10 10 10 0 0
 37 4 370 P
 A
@@ -1459,7 +1459,7 @@ paint brush~
 a paint brush~
 A paint brush stained bright red is dripping on the floor here.~
 copper~
-weapon 0 AN
+weapon l AN
 exotic 5 8 suction 0
 36 5 360 P
 A
@@ -1479,7 +1479,7 @@ club~
 a soldier's club~
 A soldier's club lies here. It looks like the club off a playing card.~
 copper~
-weapon 0 AN
+weapon l AN
 mace 5 8 crush 0
 37 15 370 P
 A
@@ -1494,7 +1494,7 @@ diamond~
 a diamond~
 A diamond has been dropped here.~
 copper~
-light A AOQ
+light Al AOQ
 0 0 -1 0 0
 37 2 370 P
 A
@@ -1518,7 +1518,7 @@ king hearts crown~
 the King of Heart's crown~
 The King of Heart's crown lies here.~
 copper~
-armor AM AE
+armor AMl AE
 11 11 11 0 0
 41 15 410 P
 A
@@ -1529,7 +1529,7 @@ queen hearts fan~
 the Queen of Heart's fan~
 The Queen of Hearts has dropped her heart-shaped fan.~
 copper~
-armor 0 AJ
+armor l AJ
 12 12 12 0 0
 45 7 450 P
 A
@@ -1540,7 +1540,7 @@ flamingo~
 a flamingo~
 A flamingo that is being used as a croquet mallet wriggles about here.~
 copper~
-weapon 0 AN
+weapon l AN
 exotic 5 8 bite 0
 37 10 370 P
 A
@@ -1575,7 +1575,7 @@ axe~
 the executioner's axe~
 The executioner's axe is leaning against one wall here.~
 copper~
-weapon AEMR AN
+weapon AEMRl AN
 axe 5 10 slice 0
 44 20 440 P
 A

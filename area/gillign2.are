@@ -436,7 +436,7 @@ Glasses~
 a pair of glasses~
 A pair of glasses sit here.~
 glass~
-armor 0 AE
+armor l AE
 6 6 6 0 1
 14 30 2160 G
 A
@@ -469,7 +469,7 @@ nine iron 9~
 a nine iron~
 A nine iron sits here waiting to be used.~
 iron~
-weapon I AN
+weapon Il AN
 exotic 4 4 pierce D
 12 120 2156 P
 A
@@ -509,7 +509,7 @@ Whistle~
 A whistle~
 A whistle sits here.~
 plastic~
-armor 0 AC
+armor l AC
 5 5 5 0 0
 12 30 1859 G
 A
@@ -540,7 +540,7 @@ Chicken Feather~
 A chicken feather~
 A feather seems to hover here.~
 feathers~
-wand G AO
+wand Gl AO
 10 20 20 'detect magic' 0
 1 5 2100 P
 A
@@ -551,7 +551,7 @@ Grass skirt~
 A grass skirt~
 A grass skirt lies here.~
 wool~
-armor 0 AF
+armor l AF
 5 5 5 0 0
 15 30 300 G
 A
@@ -562,7 +562,7 @@ headhunter spear~
 A headhunters spear~
 A spear lies here waiting to be used.~
 hardwood~
-weapon AN AO
+weapon ANl AO
 spear 4 4 pierce DK
 14 30 1440 P
 A
@@ -573,7 +573,7 @@ King headdress~
 The headdress of the king~
 The headdress of the king lies here.~
 gold~
-armor I AE
+armor Il AE
 5 5 5 0 1
 15 50 1950 G
 A
@@ -586,7 +586,7 @@ Raunchy teeth~
 Raunchy teeth~
 A set of raunchy teeth lie here.~
 horn~
-weapon 0 AO
+weapon l AO
 exotic 4 4 pierce C
 16 60 2250 P
 A
@@ -599,7 +599,7 @@ Teeth Necklace~
 A necklace made of teeth~
 A necklace made of teeth rests here.~
 horn~
-armor 0 AC
+armor l AC
 5 5 5 0 0
 14 40 1690 G
 A
@@ -628,7 +628,7 @@ Groucho glasses~
 Groucho glasses~
 A pair of glasses with a fake nose and mustache attached rests here.~
 glass~
-armor 0 AE
+armor l AE
 6 6 6 0 0
 13 10 2100 G
 A
@@ -641,7 +641,7 @@ moon boots~
 Moon boots~
 A pair of moon boots rest here.~
 air~
-armor A AG
+armor Al AG
 6 6 6 0 0
 13 5 900 G
 A
@@ -703,7 +703,7 @@ Butterfly Net~
 A butterfly net~
 A butterfly net lies here.~
 rubber~
-weapon 0 AO
+weapon l AO
 exotic 4 5 pierce 0
 10 10 2002 P
 A
@@ -716,7 +716,7 @@ Safari hat~
 A safari hat~
 A safari hat has been left here.~
 wool~
-armor 0 AE
+armor l AE
 5 5 5 0 0
 10 40 1570 G
 A

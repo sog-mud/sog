@@ -599,7 +599,7 @@ meat cleaver~
 a meat cleaver~
 A sharp meat cleaver is just lying on the floor here!~
 iron~
-weapon 0 AN
+weapon l AN
 dagger 2 5 chop 0
 8 50 530 P
 A
@@ -659,7 +659,7 @@ glass trinket~
 a glass trinket~
 A glass trinket is on the floor, gathering dust.~
 glass~
-gem 0 AO
+gem l AO
 0 0 0 0 0
 0 10 150 P
 A
@@ -780,7 +780,7 @@ signet ring~
 an Ofcol signet ring~
 A shiny ring of gold is in the dirt.~
 gold~
-jewelry 0 AB
+jewelry l AB
 0 0 0 0 0
 10 10 730 P
 A
@@ -795,7 +795,7 @@ plate brass~
 brass plate~
 A pile of brass plates is against the wall here.~
 brass~
-armor 0 AD
+armor l AD
 6 5 6 1 0
 16 100 2400 P
 A
@@ -808,7 +808,7 @@ helm brass~
 a brass helm~
 A brass helm is against the wall here.~
 brass~
-armor 0 AE
+armor l AE
 6 5 6 1 0
 16 100 1280 P
 A
@@ -821,7 +821,7 @@ leggings brass~
 brass leggings~
 A pile of brass plates is against the wall here.~
 brass~
-armor 0 AF
+armor l AF
 6 5 6 1 0
 16 100 1280 P
 A
@@ -834,7 +834,7 @@ boots brass~
 brass boots~
 Some brass boots are against the wall here.~
 brass~
-armor 0 AG
+armor l AG
 6 5 6 1 0
 16 100 1280 P
 A
@@ -847,7 +847,7 @@ gauntlets brass~
 brass gauntlets~
 Some brass gauntlets are against the wall here.~
 brass~
-armor 0 AH
+armor l AH
 6 5 6 1 0
 16 100 1280 P
 A
@@ -860,7 +860,7 @@ sleeves brass~
 brass sleeves~
 A pile of brass plates is against the wall here.~
 brass~
-armor 0 AI
+armor l AI
 6 5 6 1 0
 16 100 1280 P
 A
@@ -873,7 +873,7 @@ shield brass~
 a brass shield~
 A big plate of brass is against the wall here.~
 brass~
-armor 0 AJ
+armor l AJ
 6 5 6 2 0
 16 200 1850 P
 A
@@ -886,7 +886,7 @@ girth brass~
 a brass girth~
 A brass girth is against the wall here.~
 brass~
-armor 0 AL
+armor l AL
 6 5 6 1 0
 16 100 1280 P
 A
@@ -899,7 +899,7 @@ bracer brass~
 a brass bracer~
 A brass bracer is against the wall here.~
 brass~
-armor 0 AM
+armor l AM
 4 5 6 1 0
 12 100 1040 P
 A
@@ -912,7 +912,7 @@ claymore sword~
 a claymore~
 A VERY big sword is against the wall here.~
 iron~
-weapon 0 AN
+weapon l AN
 sword 4 6 cleave F
 19 160 3100 P
 A
@@ -925,7 +925,7 @@ plate silver~
 silver plate~
 A pile of silver plating and chain is on the floor.~
 silver~
-armor K AD
+armor Kl AD
 8 8 8 2 0
 25 200 5000 P
 A
@@ -938,7 +938,7 @@ helm silver~
 a silver helm~
 A shiny helm is on the floor.~
 silver~
-armor K AE
+armor Kl AE
 8 8 8 2 0
 25 200 2900 P
 A
@@ -951,7 +951,7 @@ leggings silver~
 silver leggings~
 Some shiny leggings are on the floor.~
 silver~
-armor K AF
+armor Kl AF
 8 8 8 2 0
 25 200 2900 P
 A
@@ -964,7 +964,7 @@ boots silver~
 silver boots~
 Some shiny boots are on the floor.~
 silver~
-armor K AG
+armor Kl AG
 8 8 8 2 0
 25 200 2900 P
 A
@@ -977,7 +977,7 @@ gauntlets silver~
 silver gauntlets~
 Some shiny gauntlets are on the floor.~
 silver~
-armor K AH
+armor Kl AH
 8 8 8 2 0
 25 200 2900 P
 A
@@ -990,7 +990,7 @@ sleeves silver~
 silver sleeves~
 Some shiny sleeves are on the floor.~
 silver~
-armor K AI
+armor Kl AI
 8 8 8 2 0
 25 200 2400 P
 A
@@ -1003,7 +1003,7 @@ shield silver~
 the silver shield~
 A shiny shield is on the floor.~
 silver~
-armor K AJ
+armor Kl AJ
 8 8 8 3 0
 25 240 4200 P
 A
@@ -1016,7 +1016,7 @@ girth silver~
 the silver girth~
 A shiny girth is on the floor.~
 silver~
-armor K AL
+armor Kl AL
 8 8 8 2 0
 25 200 2400 P
 A
@@ -1029,7 +1029,7 @@ plate platinum~
 platinum plate~
 A pile of silvery metal is on the floor.~
 platinum~
-armor K AD
+armor Kl AD
 19 19 19 13 0
 70 500 9200 P
 A
@@ -1044,7 +1044,7 @@ helmet platinum~
 the platinum helmet~
 A silvery helmet is on the floor.~
 platinum~
-armor K AE
+armor Kl AE
 19 19 19 13 0
 70 300 6300 P
 A
@@ -1059,7 +1059,7 @@ leggings platinum~
 platinum leggings~
 Some silvery leggings are on the floor.~
 platinum~
-armor K AF
+armor Kl AF
 9 9 9 3 0
 70 400 6300 P
 A
@@ -1074,7 +1074,7 @@ boots platinum~
 platinum boots~
 Some silvery boots are on the floor.~
 platinum~
-armor K AG
+armor Kl AG
 19 19 19 13 0
 72 400 4100 P
 A
@@ -1089,7 +1089,7 @@ gauntlets platinum~
 platinum gauntlets~
 A pair of silvery gauntlets are on the floor.~
 platinum~
-armor K AH
+armor Kl AH
 19 19 19 13 0
 71 400 4300 P
 A
@@ -1104,7 +1104,7 @@ sleeves platinum~
 platinum sleeves~
 A pair of silvery sleeves are on the floor.~
 platinum~
-armor K AI
+armor Kl AI
 19 19 19 13 0
 70 400 6300 P
 A
@@ -1119,7 +1119,7 @@ shield spiked platinum~
 the platinum spiked shield~
 A jagged, silvery shield is on the floor.~
 platinum~
-armor K AJ
+armor Kl AJ
 19 19 19 15 0
 71 400 6000 P
 A
@@ -1132,7 +1132,7 @@ girth platinum~
 the platinum girth~
 A silvery girth is on the floor.~
 platinum~
-armor K AL
+armor Kl AL
 19 19 19 13 0
 71 400 4000 P
 A
@@ -1147,7 +1147,7 @@ avenger holy sword~
 the holy Avenger~
 A glowing silvery sword is hovering here, ready to possess an owner.~
 platinum~
-weapon K AN
+weapon Kl AN
 sword 17 5 slice I
 72 250 5700 P
 A
@@ -1196,7 +1196,7 @@ symbol holy~
 the Holy Symbol of Bahamut~
 A very shiny symbol is on the floor.~
 ivory~
-jewelry IKL AC
+jewelry IKLl AC
 0 0 0 0 0
 17 50 3700 P
 A
@@ -1211,7 +1211,7 @@ ranseur polearm~
 a ranseur~
 A heavy polearm is against the wall here, ready to inflict damage.~
 iron~
-weapon K AN
+weapon Kl AN
 polearm 4 7 thrust F
 24 200 1460 P
 A
@@ -1224,7 +1224,7 @@ torso dragonscale golden~
 a golden dragonscale torso~
 A golden dragonscale torso is on the floor!~
 gold~
-armor K AD
+armor Kl AD
 7 7 7 3 0
 24 250 6200 P
 A
@@ -1237,7 +1237,7 @@ dragonhelm golden~
 a golden dragonhelm~
 A golden dragonhelm is on the floor!~
 gold~
-armor K AE
+armor Kl AE
 7 7 7 3 0
 21 100 2800 P
 A
@@ -1250,7 +1250,7 @@ leggings golden~
 golden dragonscale leggings~
 Some golden dragonscale leggings are on the floor!~
 gold~
-armor K AF
+armor Kl AF
 7 7 7 3 0
 21 100 2800 P
 A
@@ -1263,7 +1263,7 @@ boots golden~
 golden dragonscale boots~
 Some golden dragonscale boots are on the floor!~
 gold~
-armor K AG
+armor Kl AG
 7 7 7 3 0
 21 100 2800 P
 A
@@ -1276,7 +1276,7 @@ gauntlets golden~
 golden dragonscale gauntlets~
 Some golden dragonscale gauntlets are on the floor!~
 gold~
-armor K AH
+armor Kl AH
 7 7 7 3 0
 21 100 2800 P
 A
@@ -1289,7 +1289,7 @@ sleeves golden~
 golden dragonscale sleeves~
 Some golden dragonscale sleeves are on the floor!~
 gold~
-armor K AI
+armor Kl AI
 7 7 7 3 0
 21 100 2800 P
 A
@@ -1302,7 +1302,7 @@ shield golden~
 a golden dragonscale shield~
 A golden dragonscale shield is on the floor!~
 gold~
-armor K AJ
+armor Kl AJ
 7 7 7 4 0
 21 200 3700 P
 A
@@ -1315,7 +1315,7 @@ girth golden~
 a golden dragonscale girth~
 A golden dragonscale girth is on the floor!~
 gold~
-armor K AL
+armor Kl AL
 7 7 7 3 0
 21 100 2800 P
 A
@@ -1328,7 +1328,7 @@ claw golden~
 the golden claw~
 A small golden claw is on the floor~
 gold~
-weapon K AN
+weapon Kl AN
 exotic 3 9 claw 0
 21 100 2600 P
 A
@@ -1372,7 +1372,7 @@ broom~
 a broom~
 A broom is against the wall here.~
 wood~
-weapon 0 AN
+weapon l AN
 exotic 2 3 beating 0
 1 80 760 P
 A
@@ -1394,7 +1394,7 @@ claw golden~
 the Golden Claw~
 A huge golden claw is on the floor~
 gold~
-weapon K AN
+weapon Kl AN
 exotic 4 10 claw 0
 39 200 7200 P
 A
@@ -1405,7 +1405,7 @@ claw golden~
 the golden claw~
 A large golden claw is on the floor~
 gold~
-weapon K AN
+weapon Kl AN
 exotic 3 11 claw 0
 28 150 4100 P
 A

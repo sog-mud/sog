@@ -377,7 +377,7 @@ cloak woodsmans~
 a woodsman's cloak~
 A forest colored cloak is here~
 wood~
-armor 0 AD
+armor l AD
 7 7 7 3 1
 28 80 1500 P
 A
@@ -397,7 +397,7 @@ robe ink black~
 an ink black robe~
 An ink black robe is here, beckoning to you. Put it on! Ha Ha Ha ....~
 silk~
-armor CEHJM AD
+armor CEHJMl AD
 6 6 6 3 0
 25 25 300 P
 A
@@ -410,7 +410,7 @@ band black~
 a black rune band~
 A band of black metal engraved with runes is here.~
 metal~
-armor CEHJM AM
+armor CEHJMl AM
 0 0 0 0 0
 1 300 0 P
 A
@@ -446,7 +446,7 @@ ring fire~
 a ring of fire~
 A ring of fire is here, smoldering on the ground.~
 fire~
-armor AQ AB
+armor AQl AB
 1 1 1 1 0
 30 50 3000 P
 A

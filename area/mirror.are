@@ -760,7 +760,7 @@ breast plate iron~
 a beautiful iron breast plate~
 A beautiful iron breast plate lies here.~
 iron~
-armor 0 AD
+armor l AD
 7 7 7 0 0
 20 450 3200 P
 A
@@ -918,7 +918,7 @@ sword~
 an imperial sword~
 You see an imperial sword here.~
 steel~
-weapon 0 AN
+weapon l AN
 sword 3 6 slash 0
 14 50 1420 P
 A
@@ -936,7 +936,7 @@ mace~
 an imperial mace~
 You see an imperial mace here.~
 mithril~
-weapon 0 AN
+weapon l AN
 mace 3 7 pound 0
 15 50 1180 P
 A
@@ -1108,7 +1108,7 @@ ring signet~
 an imperial city guard signet ring~
 You see a ring with a strange symbol on the floor.~
 ruby~
-jewelry 0 AB
+jewelry l AB
 0 0 0 0 0
 16 10 1280 P
 A
@@ -1121,7 +1121,7 @@ imperial banner~
 an imperial war banner~
 An imperial war banner is on the floor here.~
 wood~
-light A A
+light Al A
 0 0 -1 0 0
 20 10 1440 P
 A
@@ -1138,7 +1138,7 @@ two-handed two sword~
 a two-handed sword~
 A nice two-handed sword hangs on a hook in the wall.~
 iron~
-weapon K AN
+weapon Kl AN
 sword 5 7 cleave DF
 34 240 4400 P
 A

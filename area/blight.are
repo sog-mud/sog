@@ -383,7 +383,7 @@ sword huge curved blade~
 a huge curved blade~
 A very large curved blade lies here in a pool of blood.~
 unknown~
-weapon CJL AN
+weapon CJLl AN
 sword 5 7 slash 0
 35 25 350 P
 A
@@ -452,7 +452,7 @@ black sword blade~
 a black sword~
 A black sword calls for you to put it to use.~
 unknown~
-weapon BCEJLM AN
+weapon BCEJLMl AN
 sword 5 8 slash 0
 40 12 400 P
 A
@@ -467,7 +467,7 @@ cloak unmoving black~
 an unmoving black cloak~
 A pile of black cloth lies on the ground, untouched by the wind.~
 unknown~
-armor CEJL AK
+armor CEJLl AK
 13 13 13 6 0
 40 6 400 P
 A
@@ -480,7 +480,7 @@ overlapping black plates snake~
 snake-like overlapping black plates~
 Several black plates lie on the ground.~
 unknown~
-armor DEJL AD
+armor DEJLl AD
 12 13 13 6 0
 40 18 400 P
 A
@@ -495,7 +495,7 @@ sword fine~
 a finely crafted sword~
 A finely crafted sword lies about unused.~
 unknown~
-weapon ABIK AN
+weapon ABIKl AN
 sword 5 9 slice 0
 40 12 400 P
 A
@@ -506,7 +506,7 @@ cloak shift shifting colors~
 a cloak of shifting colors~
 A pile of cloth blends into it surroundings here.~
 unknown~
-armor IK AK
+armor IKl AK
 12 12 13 6 0
 40 6 400 P
 A
@@ -575,7 +575,7 @@ angreal small figurine~
 a small figurine~
 A small figurine sits on the ground humming with power.~
 unknown~
-armor BI AO
+armor BIl AO
 20 20 20 9 0
 60 3 600 P
 A
@@ -590,7 +590,7 @@ heron marked blade sword~
 a Heron marked blade~
 The blade of a swordmaster lies at your feet.~
 iron~
-weapon IM AN
+weapon IMl AN
 sword 10 11 slash DE
 60 12 600 P
 A
@@ -605,7 +605,7 @@ malkierian battle helm crane~
 a helm stylized into a golden crane~
 A mallkerian battle helm lies here.~
 unknown~
-armor AK AE
+armor AKl AE
 20 20 20 10 0
 60 12 600 P
 A
@@ -620,7 +620,7 @@ suit battle armor~
 a suit of Malkerian battle armor~
 A suit of highly pollished armor lies here.~
 unknown~
-armor AK AD
+armor AKl AD
 20 21 20 9 0
 60 25 600 P
 A
@@ -635,7 +635,7 @@ cuendillar heartstone dagger~
 a heartstone dagger~
 A dagger made of a strange material is here.~
 unknown~
-weapon M AN
+weapon Ml AN
 dagger 10 11 pierce D
 60 10 600 P
 A
@@ -650,7 +650,7 @@ lord sceptre~
 a Lord's sceptre~
 A finely crafted sceptre lies on the ground.~
 unknown~
-armor AK AO
+armor AKl AO
 20 19 21 11 0
 60 10 600 P
 A
@@ -744,7 +744,7 @@ a'dam~
 an A'dam~
 A small silver bracelet and collar lay here connected by a small silver chain.~
 unknown~
-wand G AO
+wand Gl AO
 40 10 10 'armor' 0
 40 4 400 P
 A
@@ -755,7 +755,7 @@ panelled plain dress~
 a plain dress pannelled with lightning bolts~
 A plain dress lies on the ground, strange symbols sewn into it's pannels.~
 unknown~
-armor I AD
+armor Il AD
 12 13 14 7 0
 40 7 400 P
 A
@@ -770,7 +770,7 @@ smile seductive~
 a seductive smile~
 A very strange object lies at your feet.~
 unknown~
-weapon EJLM AN
+weapon EJLMl AN
 exotic 5 10 blast 0
 50 1 500 P
 A
@@ -785,7 +785,7 @@ wicked knife~
 a wicked-looking knife~
 A very sharp knife lies on the ground.~
 unknown~
-weapon I AN
+weapon Il AN
 dagger 5 9 pierce D
 45 4 450 P
 A
@@ -798,7 +798,7 @@ fox medallion~
 a foxheaded medallion~
 A medallion lies at your feet.~
 unknown~
-armor I AC
+armor Il AC
 15 15 15 7 0
 45 6 450 P
 A

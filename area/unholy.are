@@ -277,7 +277,7 @@ master robe habit~
 a master's habit~
 A black monk's robe trimmed with silver lies here.~
 ~
-armor 0 AK
+armor l AK
 21 21 21 11 0
 61 5 36600 P
 A
@@ -288,7 +288,7 @@ necromancer robes~
 necromancer's robes~
 Some purple robes lie here.~
 ~
-armor 0 AK
+armor l AK
 21 20 22 10 0
 62 5 40000 P
 A
@@ -301,7 +301,7 @@ dagger~
 a mithril dagger~
 A dagger made from mithril lies here. It looks evil.~
 mithril~
-weapon BEJ AN
+weapon BEJl AN
 dagger 6 10 pierce 0
 62 8 33000 P
 A
@@ -323,7 +323,7 @@ abbot ring~
 the abbot's ring~
 A black ring that glows with an unholy light lies here.~
 ~
-armor AEJ AB
+armor AEJl AB
 0 0 0 0 0
 65 1 30000 P
 A
@@ -338,7 +338,7 @@ abbot robes~
 the abbot's robes~
 Some crimson robes lie here.~
 ~
-armor AEJ AK
+armor AEJl AK
 21 22 22 15 0
 65 5 20000 P
 A
@@ -351,7 +351,7 @@ bracers might~
 bracers of might~
 A pair of sturdy metal bracers lie here, unclaimed.~
 ~
-armor A AI
+armor Al AI
 22 22 22 18 0
 65 10 20000 P
 A
@@ -366,7 +366,7 @@ sword elven~
 an elven longsword~
 An ornately-fashioned sword lies here.~
 ~
-weapon A AN
+weapon Al AN
 sword 7 9 pierce 0
 63 10 15000 P
 A
@@ -379,7 +379,7 @@ suit elven chainmail~
 a suit of elven chainmail~
 A suit of well-crafted chain lies here.~
 ~
-armor A AD
+armor Al AD
 21 21 22 20 0
 63 5 25000 P
 A
@@ -390,7 +390,7 @@ shield~
 a rune-covered shield~
 A shield covered with mithril runes is propped up against a wall here.~
 ~
-armor A AJ
+armor Al AJ
 20 20 20 20 0
 63 8 15000 P
 A
@@ -412,7 +412,7 @@ scythe~
 a scythe~
 A scythe lies here, glowing.~
 ~
-weapon ABEJ AN
+weapon ABEJl AN
 polearm 7 8 stab 0
 66 20 2000 P
 A
@@ -499,7 +499,7 @@ suit unholy armor~
 a suit of unholy armor~
 A suit of unholy armor lies here.~
 ~
-armor ABEJM AD
+armor ABEJMl AD
 21 21 21 10 0
 63 25 20000 P
 A
@@ -719,7 +719,7 @@ shield~
 a white shield~
 A white shield bearing a white hart on a green field lies here.~
 ~
-armor AIK AJ
+armor AIKl AJ
 25 25 25 18 0
 75 7 25000 P
 A
@@ -738,7 +738,7 @@ surcoat~
 a white surcoat~
 A surcoat bearing the coat of arms of Malathar lies here.~
 ~
-armor AIK AD
+armor AIKl AD
 25 25 25 20 0
 75 5 15000 P
 A
@@ -836,7 +836,7 @@ book~
 a book on ritual sacrifice~
 A particularly large book detailing ritual sacrifice sits here.~
 ~
-trash EHJM AO
+trash EHJMl AO
 0 0 0 0 0
 10 25 0 P
 A

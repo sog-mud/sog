@@ -1224,7 +1224,7 @@ robe grey~
 a grey robe~
 A thin grey robe is here.~
 leather~
-armor 0 AD
+armor l AD
 15 15 15 10 0
 49 5 500 P
 A
@@ -1239,7 +1239,7 @@ circlet golden~
 the Golden Circlet~
 A golden circlet lies here.~
 gold~
-armor AFM AE
+armor AFMl AE
 15 15 15 7 0
 45 30 10000 P
 A
@@ -1261,7 +1261,7 @@ bent sword~
 a bent sword~
 A sword with a rusted, bent blade is here.~
 steel~
-weapon HM AN
+weapon HMl AN
 sword 4 11 slash 0
 45 10 200 P
 A
@@ -1283,7 +1283,7 @@ royal staff king~
 the Royal Staff~
 King Loranhir's golden staff lies here.~
 wood~
-staff GL AO
+staff GLl AO
 30 10 10 'heal' 0
 30 10 1000 P
 A
@@ -1337,7 +1337,7 @@ amulet bard's bard~
 a bard's amulet~
 An amulet with a silver rope chain lies here.~
 silver~
-armor K AC
+armor Kl AC
 11 12 12 4 0
 35 20 500 P
 A
@@ -1538,7 +1538,7 @@ horn golden~
 a unicorn's golden horn~
 A unicorn's horn is here.~
 gold~
-weapon AK AN
+weapon AKl AN
 exotic 5 12 stab 0
 39 30 30000 P
 A
@@ -1728,7 +1728,7 @@ big black shoes~
 a pair of black shoes~
 A pair of black shoes lies here.~
 leather~
-armor 0 AG
+armor l AG
 6 6 6 0 0
 25 3 0 P
 A
@@ -1773,7 +1773,7 @@ white shoes flat flats~
 a pair of white shoes~
 A pair of white flats lie here.~
 cloth~
-armor 0 AG
+armor l AG
 5 5 5 0 0
 25 10 0 P
 A
@@ -1784,7 +1784,7 @@ wedding veil~
 a thin white veil~
 A transparent white veil lies here.~
 cloth~
-armor 0 AE
+armor l AE
 5 5 5 0 0
 25 10 0 P
 A
@@ -1810,7 +1810,7 @@ corsage flowers~
 a corsage~
 A corsage of beautiful flowers lies here.~
 cloth~
-armor 0 AO
+armor l AO
 5 5 5 0 0
 25 10 0 P
 A
@@ -1821,7 +1821,7 @@ jar glowing fish~
 a small jar of pale glowing fish~
 A small jar of bioluminescent, glowing fish lies here.~
 unknown~
-light A A
+light Al A
 0 0 -1 0 0
 15 0 0 P
 A
@@ -1841,7 +1841,7 @@ crimson robe~
 a crimson robe~
 A crimson robe lies here.~
 cloth~
-armor 0 AK
+armor l AK
 10 12 11 5 0
 35 5 100 P
 A
@@ -1852,7 +1852,7 @@ burnt orange robe~
 a burnt-orange robe~
 A burnt orange robe lies here.~
 cloth~
-armor 0 AK
+armor l AK
 10 10 11 5 0
 35 5 10 P
 A
@@ -1863,7 +1863,7 @@ yellow sun robe~
 a yellow robe~
 A yellow robe lies here.~
 cloth~
-armor 0 AK
+armor l AK
 11 11 10 4 0
 35 5 10 P
 A
@@ -1874,7 +1874,7 @@ forest green robe~
 a forest green robe~
 A forest green robe lies here.~
 cloth~
-armor 0 AK
+armor l AK
 11 11 10 7 0
 35 5 10 P
 A
@@ -1885,7 +1885,7 @@ sea blue robe sea-blue~
 a sea-blue robe~
 A sea-blue robe lies here.~
 cloth~
-armor 0 AK
+armor l AK
 12 11 11 8 0
 35 5 10 P
 A
@@ -1896,7 +1896,7 @@ violet robe~
 a violet robe~
 A violet robe lies here.~
 cloth~
-armor 0 AK
+armor l AK
 11 11 11 6 0
 35 5 10 P
 A
@@ -1907,7 +1907,7 @@ prism sword~
 a prism sword~
 A clear glass sword lies here, reflecting all sorts of rainbow colors.~
 glass~
-weapon 0 AN
+weapon l AN
 sword 4 10 slice 0
 35 10 4000 P
 A
@@ -1974,7 +1974,7 @@ kendo stick staff~
 a kendo~
 A long wooden staff lies here.~
 wood~
-weapon H AN
+weapon Hl AN
 staff 5 9 crush D
 45 10 100 P
 A
@@ -1987,7 +1987,7 @@ karate uniform gi~
 a black gi~
 A black karate uniform lies here.~
 cloth~
-armor 0 AD
+armor l AD
 15 15 15 8 0
 45 10 1000 P
 A
@@ -2065,7 +2065,7 @@ cap wizard wizard's~
 a wizard's peaked cap~
 A navy blue cap lies here, covered with stars and moons.~
 cloth~
-armor 0 AE
+armor l AE
 13 13 13 4 0
 45 12 100 P
 A
@@ -2094,7 +2094,7 @@ ring rose~
 a rose-colored ring~
 A rose-colored ring lies here.~
 brass~
-jewelry AK AB
+jewelry AKl AB
 0 0 0 0 0
 39 1 1000 P
 A
@@ -2165,7 +2165,7 @@ rain slicker~
 a rain slicker~
 A rain slicker lies here.~
 cloth~
-armor 0 AD
+armor l AD
 5 5 5 0 0
 25 10 0 P
 A
@@ -2210,7 +2210,7 @@ antlers~
 antlers~
 A set of antlers lies on the ground here.~
 cloth~
-armor 0 AE
+armor l AE
 9 9 9 4 0
 30 8 10 P
 A
@@ -2252,7 +2252,7 @@ fangs~
 some fangs~
 Someone's teeth (?) are lying here.~
 bone~
-weapon N AN
+weapon Nl AN
 exotic 6 6 bite 0
 35 5 100 P
 A
@@ -2290,7 +2290,7 @@ broken bottle~
 a broken bottle~
 A broken bottle lies here.~
 glass~
-weapon 0 AN
+weapon l AN
 exotic 6 6 slime 0
 40 2 100 P
 A
@@ -2347,7 +2347,7 @@ bone horn~
 a horn of bone~
 A unicorn's bony horn lies here.~
 bone~
-weapon EHJ AN
+weapon EHJl AN
 exotic 6 7 pierce 0
 45 5 100 P
 A
@@ -2360,7 +2360,7 @@ red ribbons ribbon~
 a set of red ribbons~
 Some red ribbons lie here.~
 silk~
-armor EHJM AC
+armor EHJMl AC
 9 9 9 4 0
 45 1 10 P
 A
@@ -2395,7 +2395,7 @@ sword obsidian eclipse~
 an eclipse sword~
 A sword of pure obsidian lies here, seeming to swallow up the rays of light.~
 obsidian~
-weapon FHJM AN
+weapon FHJMl AN
 sword 5 10 slash DG
 35 20 20000 P
 A
@@ -2501,7 +2501,7 @@ tight leather bodice~
 a tight leather bodice~
 A tight leather bodice sits here.~
 leather~
-armor JM AD
+armor JMl AD
 6 6 6 0 0
 25 3 0 P
 A
@@ -2560,7 +2560,7 @@ circlet silver~
 a silver circlet~
 A silver circlet lies here.~
 silver~
-armor AK AE
+armor AKl AE
 10 10 10 0 0
 50 15 0 P
 A
@@ -2571,7 +2571,7 @@ robe black~
 a black robe~
 A black robe lies here.~
 cloth~
-armor J AK
+armor Jl AK
 6 6 6 0 0
 35 5 0 P
 A
@@ -2586,7 +2586,7 @@ white robe~
 a white robe~
 A white robe lies here.~
 cloth~
-armor J AK
+armor Jl AK
 6 6 6 0 0
 35 5 0 P
 A
@@ -2599,7 +2599,7 @@ amulet death~
 the Amulet of Death and Dishonor~
 An amulet lies here....it absorbs all the light around it.~
 unknown~
-armor ABFHM AC
+armor ABFHMl AC
 0 0 0 0 0
 50 5 0 P
 A
@@ -2637,7 +2637,7 @@ blood red dagger~
 a blood-red dagger~
 A blood-red dagger lies here.~
 steel~
-weapon EJ AN
+weapon EJl AN
 dagger 6 10 pierce AD
 45 10 10000 P
 A
@@ -2698,7 +2698,7 @@ netting hat netted beekeeper~
 a beekeeper's hat~
 A beekeeper's hat rests here.~
 cloth~
-armor 0 AE
+armor l AE
 2 0 0 0 0
 2 0 0 P
 A
@@ -2717,7 +2717,7 @@ white cloak~
 a white cloak~
 A white cloak lies here.~
 cloth~
-armor J AD
+armor Jl AD
 16 17 16 9 0
 50 5 0 P
 A
@@ -2728,7 +2728,7 @@ black cloak~
 a black cloak~
 A black cloak lies here.~
 cloth~
-armor 0 AD
+armor l AD
 16 17 17 6 0
 50 5 0 P
 A
@@ -2881,7 +2881,7 @@ crystal sigil~
 the crystal sigil~
 A small crystalline object sparkles in the dust.~
 crystal~
-trash A A
+trash Al A
 0 0 0 0 0
 5 0 0 P
 A
@@ -2901,7 +2901,7 @@ topaz sigil~
 the yellow topaz sigil~
 A small piece of topaz lies here.~
 unknown~
-trash 0 AO
+trash l AO
 0 0 0 0 0
 5 0 0 P
 A
@@ -2924,7 +2924,7 @@ amethyst sigil~
 the amethyst sigil~
 A small piece of polished amethyst sparkles here.~
 unknown~
-treasure 0 AO
+treasure l AO
 0 0 0 0 0
 1 1 0 P
 A
@@ -2947,7 +2947,7 @@ ruby sigil~
 the ruby sigil~
 A small chunk of ruby lies here.~
 unknown~
-treasure 0 A
+treasure l A
 0 0 0 0 0
 2 2 10 P
 A
@@ -2958,7 +2958,7 @@ sigil sapphire~
 the sapphire sigil~
 A small piece of sapphire lies here.~
 unknown~
-treasure 0 AO
+treasure l AO
 0 0 0 0 0
 5 0 0 P
 A
@@ -2993,7 +2993,7 @@ emerald sigil~
 the emerald sigil~
 A small piece of emerald lies here.~
 unknown~
-furniture 0 AO
+furniture l AO
 0 0 0 0 0
 8 0 0 P
 A
@@ -3004,7 +3004,7 @@ amber sigil~
 the amber sigil~
 A small piece of amber lies here.~
 unknown~
-furniture 0 AO
+furniture l AO
 0 0 0 0 0
 5 0 0 P
 A
@@ -3027,7 +3027,7 @@ sword taliesin~
 taliesin~
 A beautiful sword lies here.~
 gold~
-weapon M AN
+weapon Ml AN
 sword 5 9 slash 0
 45 0 1000 P
 A
@@ -3052,7 +3052,7 @@ sunrise shield~
 the Sunrise Shield~
 A beautiful jewelled shield lies here.~
 gold~
-armor M AJ
+armor Ml AJ
 5 5 5 0 0
 10 0 0 P
 A
@@ -3173,7 +3173,7 @@ silver pendant~
 a small silver pendant~
 A small silver pendant lies here.~
 silver~
-armor A AC
+armor Al AC
 4 0 0 0 0
 1 0 0 P
 A
@@ -3184,7 +3184,7 @@ bronze band~
 a simple bronze band~
 A simple bronze band lies here.~
 bronze~
-armor A AB
+armor Al AB
 2 0 0 0 0
 5 0 0 P
 A

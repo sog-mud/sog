@@ -422,7 +422,7 @@ sharkbite sword~
 sword Sharkbite~
 A sword everybody dreams of, is lying here.~
 bone~
-weapon ABIK AN
+weapon ABIKl AN
 sword 5 10 frbite D
 42 200 14380 P
 A
@@ -467,7 +467,7 @@ shield seaweed~
 shield Seaweed~
 A shield named 'Seaweed' has been left here.~
 bone~
-armor FK AJ
+armor FKl AJ
 14 11 13 6 4
 42 317 11380 P
 A
@@ -499,7 +499,7 @@ pair leather shoes~
 leather shoes~
 A pair of leather shoes are lying here.~
 leather~
-armor K AG
+armor Kl AG
 13 13 13 9 0
 42 127 11380 P
 A
@@ -555,7 +555,7 @@ black claw~
 a black claw~
 A very BIG black Claw is lying here.~
 bone~
-weapon CEJ AN
+weapon CEJl AN
 exotic 5 5 slash 0
 19 250 3390 P
 A
@@ -651,7 +651,7 @@ very big sharp samuel's axe~
 Samuel's axe~
 A very BIG and SHARP axe has been left here.~
 mithril~
-weapon A AN
+weapon Al AN
 axe 5 8 slash D
 28 310 5300 P
 A
@@ -668,7 +668,7 @@ spear~
 a spear~
 A SHARP spear is lying here.~
 steel~
-weapon A AN
+weapon Al AN
 spear 5 5 pierce DK
 20 130 4210 P
 A
@@ -685,7 +685,7 @@ shell helmet~
 a shell helmet~
 A helmet like a very large shell has been left here.~
 shell~
-armor B AE
+armor Bl AE
 8 7 8 3 3
 20 215 3240 P
 A
@@ -702,7 +702,7 @@ ring pearl~
 a ring with a pearl~
 A ring with an expensive pearl has been left here.~
 pearl~
-armor A AB
+armor Al AB
 7 6 7 4 1
 20 11 3250 P
 A
@@ -719,7 +719,7 @@ ivory shield~
 a ivory shield~
 An ivory shield is lying here.~
 ivory~
-armor ARY AJ
+armor ARYl AJ
 7 7 6 3 3
 20 310 4240 P
 A
@@ -743,7 +743,7 @@ spear~
 a spear~
 A SHARP spear is lying here.~
 iron~
-weapon A AN
+weapon Al AN
 spear 5 8 pierce DK
 31 350 6330 P
 A
@@ -760,7 +760,7 @@ necklace glittering pearls~
 a necklace~
 A nice necklace with glittering pearls has been left here.~
 pearl~
-armor A AC
+armor Al AC
 8 8 8 16 3
 31 80 6330 P
 A
@@ -780,7 +780,7 @@ pocket knife~
 a pocket knife~
 A sharp looking pocket knife is lying here.~
 steel~
-weapon 0 AN
+weapon l AN
 dagger 5 5 slice 0
 18 132 3100 P
 A
@@ -793,7 +793,7 @@ pitchfork~
 a pitchfork~
 A pitchfork is asking to be picked up.~
 steel~
-weapon 0 AN
+weapon l AN
 exotic 5 6 pierce 0
 25 240 4250 P
 A

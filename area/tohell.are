@@ -1093,7 +1093,7 @@ wicked trident two-handed~
 a wicked-looking trident~
 A wicked-looking trident is stuck into the ground.~
 unknown~
-weapon AEJ AN
+weapon AEJl AN
 spear 4 12 stab FK
 45 70 3100 P
 A
@@ -1108,7 +1108,7 @@ black leather whip~
 a black leather whip~
 A black leather whip lies on the ground.~
 unknown~
-weapon BEJ AN
+weapon BEJl AN
 whip 6 6 whip 0
 35 70 2100 P
 A
@@ -1119,7 +1119,7 @@ hickey maker~
 a hickey maker~
 A hickey maker lies on the ground, making a soft sucking sound.~
 unknown~
-weapon 0 AN
+weapon l AN
 mace 4 10 suction 0
 37 70 6300 P
 A
@@ -1134,7 +1134,7 @@ sword farslayer two-handed~
 a black-hilted sword called "Farslayer"~
 A black-hilted sword with engravings on the blade lies here.~
 unknown~
-weapon BFHM AN
+weapon BFHMl AN
 sword 6 10 pierce F
 53 70 15300 P
 A
@@ -1163,7 +1163,7 @@ angel's skull~
 the angel's skull~
 An angel's skull lies here on the ground.~
 unknown~
-armor 0 AE
+armor l AE
 15 15 15 8 0
 45 40 6900 P
 A
@@ -1185,7 +1185,7 @@ sword vorpal blade two-handed~
 the Vorpal Blade~
 A magnificently crafted blade lies here, humming softly.~
 unknown~
-weapon 0 AN
+weapon l AN
 sword 4 9 slice EF
 33 60 4800 P
 A
@@ -1196,7 +1196,7 @@ flaming claw~
 a flaming claw~
 A flaming claw lies here, burning brightly.~
 unknown~
-weapon 0 AN
+weapon l AN
 exotic 7 6 claw A
 46 40 9400 P
 A
@@ -1226,7 +1226,7 @@ demon teeth~
 demon teeth~
 A bunch of very sharp, slimey teeth lie here.~
 unknown~
-weapon 0 AN
+weapon l AN
 exotic 7 5 bite 0
 36 10 7600 P
 A
@@ -1255,7 +1255,7 @@ circular saw~
 a circular saw~
 A circular saw lies here.~
 unknown~
-weapon B AN
+weapon Bl AN
 axe 6 6 slice 0
 43 70 7300 P
 A
@@ -1277,7 +1277,7 @@ bloody black talon~
 a bloody black talon~
 A severed bloody, black talon lies here.~
 unknown~
-weapon E AN
+weapon El AN
 dagger 5 9 claw C
 46 60 7500 P
 A
@@ -1301,7 +1301,7 @@ hell hound teeth~
 hell hound teeth~
 The bloody teeth of a hell hound sit here.~
 unknown~
-weapon 0 AN
+weapon l AN
 dagger 8 5 bite A
 43 20 7500 P
 A
@@ -1332,7 +1332,7 @@ large meat hook two-handed~
 a large meat hook~
 A large meat hook is stuck into the ground.~
 unknown~
-weapon 0 AN
+weapon l AN
 polearm 9 5 stab BF
 47 30 2400 P
 A
@@ -1361,7 +1361,7 @@ electric eraser~
 an electric eraser~
 A electric eraser lies on the ground, waiting for an erasermate.~
 unknown~
-weapon 0 AN
+weapon l AN
 mace 4 11 grep 0
 44 10 7400 P
 A
@@ -1396,7 +1396,7 @@ unholy robes pile cloth~
 unholy robes~
 A stinking pile of cloth lies here.~
 unknown~
-armor EJ AK
+armor EJl AK
 16 16 16 8 0
 47 40 18300 P
 A
@@ -1420,7 +1420,7 @@ golden ring~
 a golden ring~
 A golden ring lies on the ground.~
 unknown~
-jewelry 0 AB
+jewelry l AB
 0 0 0 0 0
 31 10 2900 P
 A
@@ -1433,7 +1433,7 @@ engagement ring~
 an engagement ring~
 An engagement ring lies here.~
 unknown~
-jewelry 0 AB
+jewelry l AB
 0 0 0 0 0
 33 10 7700 P
 A
@@ -1457,7 +1457,7 @@ ionic torque wrench~
 an ionic torque wrench~
 You see an ionic torque wrench on the ground.~
 unknown~
-weapon 0 AN
+weapon l AN
 mace 6 8 pound 0
 49 30 6500 P
 A
@@ -1470,7 +1470,7 @@ figurine horse~
 a figurine of a horse~
 You see a small figurine of a horse on the ground.~
 unknown~
-treasure A AO
+treasure Al AO
 0 0 0 0 0
 45 30 11800 P
 A
@@ -1555,7 +1555,7 @@ photon displacement matrix~
 a photon-displacement matrix~
 You see a photon-displacement matrix on the ground.~
 unknown~
-weapon AB AN
+weapon ABl AN
 exotic 5 9 blast 0
 45 70 6700 P
 A
@@ -1570,7 +1570,7 @@ black jumpsuit~
 a black jumpsuit~
 You see a black jumpsuit on the ground.~
 unknown~
-armor A AD
+armor Al AD
 16 16 16 10 0
 50 40 13700 P
 A
@@ -1590,7 +1590,7 @@ manes claws~
 a manes' claws~
 The severed claws of a sub-demon lie here, twitching.~
 unknown~
-weapon 0 AN
+weapon l AN
 dagger 2 16 claw 0
 32 40 2900 P
 A
@@ -1601,7 +1601,7 @@ welding torch~
 a welding torch~
 A welding torch sits on the ground.~
 unknown~
-weapon 0 AN
+weapon l AN
 exotic 5 9 flame A
 47 70 6400 P
 A
@@ -1614,7 +1614,7 @@ blond wig~
 a blond wig~
 A blond wig lies on the ground.~
 unknown~
-armor 0 AE
+armor l AE
 16 16 16 8 0
 46 20 6100 P
 A
@@ -1627,7 +1627,7 @@ yellow jumpsuit nuclear symbol~
 a yellow jumpsuit~
 You see a yellow jumpsuit with a nuclear-warning symbol.~
 unknown~
-armor 0 AD
+armor l AD
 16 16 16 16 0
 48 30 13700 P
 A
@@ -1640,7 +1640,7 @@ cleaver~
 a cleaver~
 You see a nasty-looking cleaver stuck in the ground.~
 unknown~
-weapon 0 AN
+weapon l AN
 axe 5 9 cleave 0
 45 60 6400 P
 A

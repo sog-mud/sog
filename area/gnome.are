@@ -458,7 +458,7 @@ ring bat~
 a bat ring~
 A ring in the shape of a bat lies here.~
 silver~
-jewelry 0 AB
+jewelry l AB
 0 0 0 0 0
 10 20 270 P
 A
@@ -469,7 +469,7 @@ necklace bead~
 a bead necklace~
 A string of beads is here.~
 pearl~
-jewelry 0 AC
+jewelry l AC
 0 0 0 0 0
 5 80 220 P
 A
@@ -525,7 +525,7 @@ boots gnome~
 a pair of gnome boots~
 You notice a pair of Gnome Boots.~
 leather~
-armor 0 AG
+armor l AG
 4 4 4 0 0
 7 120 610 P
 A
@@ -574,7 +574,7 @@ club large two-handed~
 a large club~
 A large club sits here.~
 wood~
-weapon 0 AN
+weapon l AN
 mace 1 12 pound F
 6 220 460 P
 A
@@ -603,7 +603,7 @@ club wooden~
 a wooden club~
 A wooden club sits here.~
 wood~
-weapon 0 AN
+weapon l AN
 mace 2 3 pound 0
 3 100 220 P
 A
@@ -633,7 +633,7 @@ lilia лилия~
 @eng the white lilia@rus ~~белая~~ ~~лилия~~~
 @eng The white lilia is lying here.@rus Белая лилия (lilia) лежит на земле.~
 flower~
-treasure KLT AE
+treasure KLTl AE
 0 0 0 0 0
 5 1 150 P
 A

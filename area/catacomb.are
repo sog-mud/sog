@@ -281,7 +281,7 @@ onyx ring~
 an onyx ring~
 A ring with a very dark onyx stone in it has been left in the dirt.~
 onyx~
-jewelry J AB
+jewelry Jl AB
 0 0 0 0 0
 7 10 800 P
 A
@@ -294,7 +294,7 @@ neutralizer sword~
 the neutralizer~
 A long thin sword with a wide blade makes you wonder.~
 iron~
-weapon BJK AN
+weapon BJKl AN
 sword 4 5 slash 0
 16 90 1280 P
 A
@@ -307,7 +307,7 @@ sword excalibur~
 the sword Excalibur~
 A sword gleams by the light of its magical silvery blade.~
 steel~
-weapon AGKL AN
+weapon AGKLl AN
 sword 10 4 slash 0
 24 150 3400 P
 A
@@ -320,7 +320,7 @@ crown~
 a kingly crown~
 The crown of a long lost King lies forgotten here.~
 gold~
-key I AE
+key Il AE
 0 0 0 0 0
 24 100 1850 P
 A
@@ -358,7 +358,7 @@ white cape~
 a white cape~
 A blazing cape of white lies in a careful pile.~
 cloth~
-armor A AC
+armor Al AC
 5 5 5 0 0
 12 30 1000 P
 A
@@ -369,7 +369,7 @@ shield defense~
 the shield of defense~
 A large shield lies protecting the ground.~
 iron~
-armor 0 AJ
+armor l AJ
 6 6 6 4 0
 13 350 1920 P
 A
@@ -388,7 +388,7 @@ scale shield dragonscale~
 a dragonscale shield~
 A shield from from the scales of a large dragon lies here.~
 dragonskin~
-armor 0 AJ
+armor l AJ
 7 7 7 4 0
 22 200 3500 P
 A
@@ -408,7 +408,7 @@ shadow cloak~
 a shadow cloak~
 The shadows in the corner of the room seems strange ...~
 cloth~
-armor 0 AK
+armor l AK
 7 7 7 2 0
 14 10 210 P
 A
@@ -428,7 +428,7 @@ templar templars sword wooden~
 a templar's sword~
 A sword made of wood has been left here.~
 wood~
-weapon I AN
+weapon Il AN
 sword 2 6 slash 0
 10 60 830 P
 A

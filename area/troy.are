@@ -720,7 +720,7 @@ spear~
 a short thrusting spear~
 A short thrusting spear is jabbed in the dirt here.~
 ~
-weapon 0 AN
+weapon l AN
 spear 5 6 stab K
 25 5 250 P
 A
@@ -733,7 +733,7 @@ spear~
 a long throwing spear~
 A long throwing spear has been thrust into the dirt here.~
 ~
-warp_stone G AO
+warp_stone Gl AO
 0 0 0 0 0
 25 10 250 P
 A
@@ -744,7 +744,7 @@ ox hide shield~
 an ox hide shield~
 An ox hide shield rests on the ground here.~
 ~
-armor 0 AJ
+armor l AJ
 8 8 8 0 0
 25 5 250 P
 A
@@ -755,7 +755,7 @@ boar tusk helm~
 a boar tusk helm~
 A boar tusk helm lies here.~
 ~
-armor 0 AE
+armor l AE
 8 8 8 0 0
 25 5 250 P
 A
@@ -777,7 +777,7 @@ bronze breastplate~
 a bronze breastplate~
 A bronze breastplate has been left here.~
 ~
-armor 0 AD
+armor l AD
 8 8 8 0 0
 28 15 280 P
 A
@@ -812,7 +812,7 @@ achilles breastplate~
 achilles' breastplate~
 Achilles' breastplate lies here.~
 ~
-armor A AD
+armor Al AD
 12 12 12 0 0
 45 5 450 P
 A
@@ -825,7 +825,7 @@ achilles greaves~
 achilles' greaves~
 Achilles' greaves lie here.~
 ~
-armor A AF
+armor Al AF
 12 12 12 0 0
 45 5 450 P
 A
@@ -838,7 +838,7 @@ achilles helm~
 achilles' helm~
 Achilles' helm lies here.~
 ~
-armor A AE
+armor Al AE
 12 12 12 0 0
 45 5 450 P
 A
@@ -851,7 +851,7 @@ achilles' sword~
 achilles' sword~
 Achilles' sword lies here.~
 ~
-weapon A AN
+weapon Al AN
 sword 5 10 pierce 0
 45 10 450 P
 A
@@ -864,7 +864,7 @@ bronze sword~
 a bronze sword~
 A bronze sword lies here.~
 ~
-weapon 0 AN
+weapon l AN
 sword 5 5 pierce 0
 20 5 200 P
 A
@@ -886,7 +886,7 @@ bronze shield~
 a bronze shield~
 A bronze shield has been left here.~
 ~
-armor 0 AJ
+armor l AJ
 8 8 8 0 0
 28 8 280 P
 A
@@ -897,7 +897,7 @@ achilles' shield~
 achilles' shield~
 Achilles' shield lies here.~
 ~
-armor A AJ
+armor Al AJ
 12 12 12 0 0
 45 5 450 P
 A
@@ -935,7 +935,7 @@ bronze helm~
 a bronze helm~
 A bronze helm with horsehair plume lies here.~
 ~
-armor 0 AE
+armor l AE
 8 8 8 0 0
 28 10 280 P
 A

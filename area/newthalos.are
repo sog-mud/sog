@@ -1631,7 +1631,7 @@ ringmail ring mail suit~
 a suit of ringmail~
 A suit of ringmail lies here.~
 iron~
-armor 0 AD
+armor l AD
 3 3 3 0 0
 0 360 176 P
 A
@@ -1642,7 +1642,7 @@ splintmail splint mail suit~
 a suit of splintmail~
 A suit of splintmail armor lies here.~
 steel~
-armor 0 AD
+armor l AD
 5 5 5 0 0
 8 450 1280 P
 A
@@ -2250,7 +2250,7 @@ horse shoe~
 a horse shoe~
 A horse shoe lies here.~
 iron~
-armor B ACO
+armor Bl ACO
 1 1 1 0 0
 5 20 300 P
 A
@@ -2342,7 +2342,7 @@ sneakers reeboks reebok pumps~
 a pair of Reebok Pumps~
 A pair of nifty sneakers lie here.~
 anani sikiyim~
-armor 0 AG
+armor l AG
 1 1 1 0 0
 7 10 770 P
 A
@@ -2355,7 +2355,7 @@ daemon claw~
 the Daemon Claw~
 A glove with blades mounted on it lies here~
 bone~
-weapon B AN
+weapon Bl AN
 exotic 3 7 claw 0
 14 200 1520 P
 A
@@ -2375,7 +2375,7 @@ halberd~
 the halberd~
 A mighty halberd lies against the wall.~
 iron~
-weapon I AN
+weapon Il AN
 polearm 3 8 chop F
 22 160 1240 P
 A

@@ -527,7 +527,7 @@ talon extenders~
 some talon extenders~
 Some shiny metal talons catch your fancy.~
 steel~
-armor 0 AH
+armor l AH
 5 6 5 1 0
 5 100 800 G
 A
@@ -607,7 +607,7 @@ piece string~
 a pretty piece of string~
 The most beautiful piece of string you have ever seen rests here.~
 steel~
-treasure 0 AO
+treasure l AO
 0 0 0 0 0
 10 10 600 P
 A
@@ -831,7 +831,7 @@ sword~
 a sword~
 You see a sword here.~
 steel~
-weapon A AN
+weapon Al AN
 sword 5 6 pierce 0
 25 100 1000 P
 A
@@ -844,7 +844,7 @@ mace~
 a mace~
 You see a mace here.~
 bronze~
-weapon A AN
+weapon Al AN
 mace 5 7 crush 0
 27 100 3000 P
 A
@@ -872,7 +872,7 @@ shield spiked~
 a wicked, spiked shield~
 You see a shield here.~
 steel~
-armor A AJ
+armor Al AJ
 5 5 5 1 1
 15 100 1000 G
 A
@@ -916,7 +916,7 @@ boots~
 a pair of open-toe boots~
 You see a pair of Aarakocran-manufacture boots here.~
 snakeskin~
-armor A AG
+armor Al AG
 5 5 5 1 1
 17 100 800 G
 A
@@ -933,7 +933,7 @@ talon extenders talons~
 a pair of talon extenders~
 You see a pair of talon extenders here.~
 tin~
-armor AO AH
+armor AOl AH
 5 1 1 1 1
 5 100 1000 G
 A
@@ -995,7 +995,7 @@ shield spiked~
 a wicked, spiked shield~
 You see a wicked, spiked shield here.~
 steel~
-armor B AJ
+armor Bl AJ
 5 5 5 5 5
 15 100 1000 G
 A
@@ -1039,7 +1039,7 @@ boots~
 a pair of open-toe boots~
 You see a pair of Aarakocran-manufacture boots here.~
 brass~
-armor B AG
+armor Bl AG
 5 3 4 3 1
 5 110 1000 G
 A
@@ -1056,7 +1056,7 @@ talon extenders~
 a pair of talon extenders~
 You see a pair of talon extenders here.~
 bronze~
-armor BO AH
+armor BOl AH
 5 1 1 1 0
 5 100 1000 G
 A
@@ -1148,7 +1148,7 @@ small talon extenders~
 some small talon extenders~
 A pair of small shiny metal talons catch your fancy.~
 iron~
-armor 0 AH
+armor l AH
 5 5 5 3 1
 17 70 700 G
 A
@@ -1159,7 +1159,7 @@ small mace~
 a small mace~
 You see a small mace here.~
 wood~
-weapon 0 AN
+weapon l AN
 mace 5 5 pound 0
 16 10 999 G
 A
@@ -1172,7 +1172,7 @@ small sticker~
 a small rat sticker~
 A small rat sticker would come in handy, and there is one here.~
 rubber~
-weapon 0 AN
+weapon l AN
 mace 5 5 pound 0
 15 100 8880 G
 A
@@ -1191,7 +1191,7 @@ large sticker~
 a large rat sticker~
 A large rat sticker causes you to dream of a large rat dinner.~
 rubber~
-weapon 0 AN
+weapon l AN
 mace 5 5 pound 0
 17 140 7770 G
 A
@@ -1240,7 +1240,7 @@ boots~
 a pair of open-toe boots~
 You see a pair of Aarakocran-manufacture boots here.~
 brass~
-armor 0 AG
+armor l AG
 5 6 7 1 1
 5 100 1000 G
 A

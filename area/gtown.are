@@ -592,7 +592,7 @@ rod orcus жезл~
 @eng the Rod of Orcus@rus ~~Жезл~~ Оркуса~
 @eng The Rod of Orcus glows evilly here.@rus Жезл Оркуса (rod) сверкает мрачным светом.~
 wood~
-staff BEGH AO
+staff BEGHl AO
 60 100 100 'pass door' 0
 55 50 30000 P
 A
@@ -623,7 +623,7 @@ hand vecna рука~
 @eng the Hand of Vecna@rus ~~рука~~ Векны~
 @eng The Hand of Vecna lies here.@rus Рука (hand) Векны лежит здесь.~
 leather steel~
-armor EHJMQ AH
+armor EHJMQl AH
 18 19 18 10 0
 56 5 10000 P
 A
@@ -644,7 +644,7 @@ eye vecna глаз~
 @eng the Eye of Vecna@rus ~~глаз~~ Векны~
 @eng The Eye of Vecna glows evilly here.@rus Глаз (eye) Векны сверкает красным цветом и просто-таки излучает зло.~
 leather steel~
-armor AEJM AE
+armor AEJMl AE
 18 18 18 10 0
 56 1 10000 P
 A
@@ -659,7 +659,7 @@ sword kas меч~
 @eng the Sword of Kas@rus ~~меч~~ Каса~
 @eng The Sword of Kas beckons to you!@rus Меч Каса (sword) манит тебя к себе.~
 steel~
-weapon BEJM AN
+weapon BEJMl AN
 sword 5 10 pierce D
 47 20 17000 P
 A
@@ -705,7 +705,7 @@ robes flesh накидка~
 @eng robes of Flesh@rus ~~накидка~~, сделанная из кожи~
 @eng Robes made of human flesh are piled here.@rus Накидка (robes), изготовленная из кожи людей, брошена здесь.~
 human flesh~
-armor EJ AK
+armor EJl AK
 15 15 15 6 0
 58 25 13000 P
 A
@@ -718,7 +718,7 @@ rod bone жезл~
 @eng a Rod of Bone@rus ~~костяной~~ ~~жезл~~~
 @eng A Rod fashioned from a human femur lies here.@rus Жезл (rod), выточенный из человеческой кости, лежит здесь.~
 human femur~
-weapon EJ AN
+weapon EJl AN
 exotic 6 9 crush 0
 58 25 13000 P
 A
@@ -744,7 +744,7 @@ gem power кристал~
 @eng a Power Gem@rus ~~кристал~~ ~
 @eng A Mana Power Gem pulses strongly here.@rus Кристал (gem) весь пульсирует от заключенной в нем мощи.~
 wood~
-staff AG AO
+staff AGl AO
 50 20 20 'sanctuary' 0
 45 10 40000 P
 A
@@ -764,7 +764,7 @@ sword dark меч~
 @eng (Diabolical) a Dark Sword@rus ~~проклятый~~ ~~темный~~ ~~меч~~~
 @eng A Dark Sword hums evilly here.@rus Темный меч (sword) издает монотонный гул, валяясь на земле.~
 steel~
-weapon BCEJ AN
+weapon BCEJl AN
 sword 6 10 slash 0
 55 35 30000 P
 A
@@ -783,7 +783,7 @@ armor dark~
 @eng a Suit of Dark Armor@rus ~~темные~~ ~~доспехи~~~
 @eng A Suit of Dark Armor lies here.@rus Темные доспехи (armor) лежат на земле.~
 steel~
-armor CEJ AD
+armor CEJl AD
 16 16 17 10 0
 50 25 15000 P
 A

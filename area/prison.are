@@ -408,7 +408,7 @@ short sword~
 a short sword~
 A dangerous short sword rests here.~
 steel~
-weapon 0 AN
+weapon l AN
 sword 1 6 slash 0
 5 5 100 P
 A
@@ -421,7 +421,7 @@ pack of cigarettes~
 a pack of cigarettes~
 A pack of smokes have been dropped here carelessly.~
 unknown~
-armor BE AO
+armor BEl AO
 3 3 3 0 0
 10 0 0 P
 A
@@ -430,7 +430,8 @@ A
 18 2
 E
 smokes cigarettes pack~
-The surgeon General warns that smoking may be harmful to your health~
+The surgeon General warns that smoking may be harmful to your health 
+~
 G none
 #32003
 Trojan wrapper~
@@ -446,7 +447,7 @@ soap rope~
 a soap on a rope~
 Some soap on a rope is here.~
 unknown~
-weapon AJL AN
+weapon AJLl AN
 exotic 4 4 pound 0
 11 10 10 P
 A
@@ -468,7 +469,7 @@ unknown ember ring~
 a unknown ember ring~
 A mystical ring of burning embers is here.~
 unknown~
-treasure 0 AB
+treasure l AB
 0 0 0 0 0
 1 5 0 P
 A
@@ -481,7 +482,7 @@ hatchling ember ring~
 a hatchling ember ring~
 A ring of burning embers is here.~
 unknown~
-treasure 0 AB
+treasure l AB
 0 0 0 0 0
 1 5 0 P
 A
@@ -494,7 +495,7 @@ Hatchling robe~
 a hatchling robe~
 An ivory robe lies here.~
 leather~
-armor 0 AK
+armor l AK
 2 0 0 0 0
 1 5 0 P
 A
@@ -588,7 +589,7 @@ hatchling belt~
 a hatchling belt~
 A hatchling belt has been dropped here.~
 leather~
-container 0 AL
+container l AL
 100 0 0 5 100
 3 5 200 P
 A
@@ -717,7 +718,7 @@ large battle axe~
 a large battle axe~
 A dangerous large battle axe rests here.~
 steel~
-weapon 0 AN
+weapon l AN
 axe 5 7 chop 0
 30 0 0 P
 A
@@ -730,7 +731,7 @@ spiked wristguard~
 a spiked wristguard~
 A wicked looking spiked wrist guard lies here.~
 unknown~
-armor 0 AM
+armor l AM
 20 21 20 20 0
 60 10 100 P
 S 'mute fishing' 55 A
@@ -752,7 +753,7 @@ titanium leggings~
 a pair of titanium leggings~
 A pair of strong leggings has been left here.~
 titanium~
-armor 0 AF
+armor l AF
 28 26 26 16 0
 60 15 100 P
 A
@@ -787,7 +788,7 @@ titanium shield~
 a titanium shield~
 A shield of titanium rests here.~
 titanium~
-armor 0 AJ
+armor l AJ
 29 29 28 20 0
 60 35 1000 P
 A
@@ -798,7 +799,7 @@ dagger curved~
 a curved  assasin's dagger~
 A curved dagger lies here.~
 steel~
-weapon EFJ AN
+weapon EFJl AN
 dagger 8 8 pierce 0
 64 5 1000 P
 A
@@ -811,7 +812,7 @@ ring guardian~
 a pitch black ring~
 A pitch black ring with sparkles of color lies on the ground here.~
 unknown~
-armor ABF AB
+armor ABFl AB
 18 18 19 10 0
 30 5 1000 P
 A
@@ -824,7 +825,7 @@ iron manacle~
 a set of wrought iron manacles~
 A set of wrought iron manacles lay in the corner here.~
 iron~
-armor M AM
+armor Ml AM
 1 1 1 0 0
 1 5 0 P
 A
@@ -866,7 +867,7 @@ scarf pink cashmire~
 a pink cashmire scarf~
 A pink cashmire scarf has been left here, a definite plus for anyone's wardrobe.~
 cashmire~
-armor 0 AC
+armor l AC
 20 20 20 10 0
 60 5 1000 P
 A
@@ -877,7 +878,7 @@ bra push~
 a push up bra~
 A busty bra lies here.~
 unknown~
-armor M AD
+armor Ml AD
 12 12 12 10 0
 36 10 10 P
 A
@@ -890,7 +891,7 @@ coveralls~
 a pair of coveralls~
 A workers coveralls lay here.~
 unknown~
-armor BF AK
+armor BFl AK
 15 15 15 5 0
 48 10 1100 P
 A
@@ -903,7 +904,7 @@ indians baseball hat~
 an Indians baseball hat~
 A baseball hat with the tribe logo on it is here.~
 unknown~
-armor 0 AE
+armor l AE
 15 16 16 10 0
 48 2 10 P
 A
@@ -927,7 +928,7 @@ golden hairnet~
 a golden hairnet~
 A pile of golden netting is here.~
 gold~
-armor 0 AE
+armor l AE
 26 27 26 18 0
 80 45 3000 P
 A
@@ -966,7 +967,7 @@ Gown virginity~
 a gown of virginity~
 A gown of virginity has been forgotten here.~
 unknown~
-armor 0 AK
+armor l AK
 27 26 25 20 0
 80 5 0 P
 A
@@ -988,7 +989,7 @@ dreadlocks~
 a mane of dreadlocks~
 A massive pile of dreadlocks rest here.~
 iron~
-armor ABFKL AE
+armor ABFKLl AE
 30 30 30 20 0
 90 25 110 P
 A
@@ -999,7 +1000,7 @@ Axe destruction~
 an axe of destruction~
 A massive blood-stained axe of immeasurable age lies here.~
 steel~
-weapon BF AN
+weapon BFl AN
 axe 11 11 chop DE
 90 30 0 P
 A
@@ -1092,7 +1093,7 @@ briefcase~
 a brown leather briefcase~
 A briefcase has been left here~
 leather~
-container 0 AJ
+container l AJ
 50 0 0 5 100
 5 10 10 P
 A
@@ -1103,7 +1104,7 @@ Ball point pen~
 a ball point pen~
 A fine ball point pen lies here.~
 unknown~
-armor F AO
+armor Fl AO
 16 17 16 9 0
 50 10 10 P
 A
@@ -1147,7 +1148,7 @@ hatchling ember ring~
 a hatchling ember ring~
 A ring of burning embers lies here.~
 unknown~
-treasure 0 AB
+treasure l AB
 0 0 0 0 0
 1 8 0 P
 A

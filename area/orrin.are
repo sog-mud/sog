@@ -1,0 +1,2107 @@
+#AREADATA
+Name Aides~
+Builders orrin~
+VNUMs 34800 34999
+Credits Orrin~
+Security 1
+LevelRange 0 0
+Flags closed~
+End
+
+#MOBILES
+#34800
+tesey тесей~
+@eng Tesey@rus Тесей~
+@eng The great hero Tesey sits here revited to throne.
+@rus Великий герой Тесей (Tesey) сидит здесь прикованный к трону.
+~
+@eng Before you Tesey - the great hero to Greeces. This son of the god Poseydon
+and Egey's wife. Even revited to stone throne and exercising heavy suffe-
+rings, he looks beautifully. He has a strong body, clear glance and dark
+long curls.
+@rus Перед тобой Тесей - великий герой Греции. Это сын бога Посейдона и жены Эгея.
+Даже прикованный к каменному трону и испытывающий тяжелые муки, он выглядит
+прекрасно. У него сильное тело, ясный взгляд и темные кудри, которые пышными
+кольцами спадают до плеч.
+~
+human~
+ABTe DFHN 1000 0
+80 0 10d10+18990 1d1+999 10d12+60 slash
+-60 -60 -60 -40
+DEHKR B EPQ 0
+sit sit male 4000
+0 0 large unknown
+F for AHMV
+F par ABCDEFGHIJK
+M grall 34800 100~
+#34801
+peyrifoy пейрифой~
+@eng Peyrifoy@rus Пейрифой~
+@eng The powerful hero Peyrifoy sits here revited to throne.
+@rus Могучий герой Пейрифой сидит здесь прикованный к трону.
+~
+~
+human~
+ABTe DH 0 0
+80 0 10d20+15990 1d1+999 10d5+100 slice
+-60 -60 -60 -30
+DEHR B GLP 0
+sit sit male 5000
+0 0 large unknown
+F for AHMV
+F par ABCDEFGHIJK
+M grall 34801 100~
+#34802
+haron харон~
+@eng Haron@rus Харон~
+@eng Haron smokes in boat expecting new party souls.
+@rus Харон (Haron) курит в лодке ожидая новую партию душ.
+~
+@eng Severe old Haron, carrier of souls, will not carry through gloomy
+Stick'es water nor one soul back, there, where shines brightly sun
+to lifes. But for {C100 silver{x can carry you on other riverside.
+@rus Суровый старый Харон, перевозчик душ умерших, не повезет через мрачные
+воды Стикса ни одну душу обратно, туда, где светит ярко солнце жизни. Но
+за {C100 серебряных{x может перевезти тебя на ту сторону реки.
+~
+human~
+ABe DFH 0 0
+90 5 100d12+20000 10d50+5000 10d15+70 pound
+-70 -70 -80 -50
+ACDFJ BMN CD 0
+stand stand male 7000
+0 0 large unknown
+F for AHMV
+F par ABCDEFGHIJK
+M bribe 34802 100~
+M grall 34801 100~
+#34803
+cerber dog кербер пес~
+@eng Cerber@rus Кербер~
+@eng The dog Cerber watches exit.
+@rus Трехглавый пес Кербер (Cerber) сторожит выход.
+~
+@eng Before you terrible dog Cerber. This is a big dog with three heads.
+On neck beside he meanders snakes, tail finishes head of the dragon
+with the huge mouth.
+@rus Перед тобой ужасный пес Кербер. Это большая собака с тремя головами.
+На шее у него извиваются змеи, хвост оканчивается головой дракона с
+громадной пастью.
+~
+dog~
+ABFe 0 -1000 0
+0 0 0d0+0 0d0+0 0d0+0 punch
+0 0 0 0
+0 0 0 0
+stand stand male 0
+0 0 large unknown
+M death 34803 100~
+M grall 34804 100~
+#34804
+aides аид~
+@eng Aides@rus Аид~
+@eng The greate god Aides sits here, on golden throne.
+@rus Великий бог Аид сидит здесь, на золотом троне.
+~
+~
+human~
+ABTe DFHV 0 0
+120 0 100d5+29500 10d10+10000 16d25+50 shock
+-70 -70 -80 -50
+CDEFHIJKO P 0 0
+stand stand male 0
+0 0 huge unknown
+F for AHMV
+F par ABCDEFGHIJK
+#34999
+avatar~
+avatar of Orrin~
+Avatar of Orrin stand here.
+~
+~
+human~
+AIJKTbi 0 0 0
+92 0 1d1+29 0d0+0 0d0+0 slash
+0 0 0 0
+0 0 0 0
+stand stand male 1000
+0 0 medium unknown
+F for AHMV
+F par ABCDEFGHIJK
+#0
+
+#OBJECTS
+#34800
+portal портал~
+@eng portal@rus портал~
+@eng The portal hungs on crater.@rus Портал висит на воронкой.~
+unknown~
+portal BG 0
+0 0 0 34804 0
+0 0 0 P
+G male
+#34997
+sword меч~
+@eng sword@rus меч~
+@eng A sword is lies here.@rus Меч лежит тут.~
+unknown~
+weapon TUa AN
+sword 11 10 slash CD
+95 0 0 P
+G none
+#34998
+sofa диван~
+enormous sofa~
+Enormous sofa girds room.~
+fuzz~
+furniture RT 0
+1000 0 EHK 500 500
+0 100 0 P
+G none
+#34999
+holy light~
+@eng holy light~
+@eng The pillar of light falls from the heaven.~
+unknown~
+light AUal A
+0 0 -1 0 0
+103 0 0 P
+A
+13 800
+A
+18 50
+A
+19 100
+F A 0 0 x
+F A 0 0 t
+F A 0 0 n
+F A 0 0 m
+F A 0 0 l
+F A 0 0 F
+F A 0 0 E
+F A 0 0 D
+F A 0 0 G
+F A 0 0 C
+G none
+#0
+
+#ROOMS
+#34800
+Sailing Over the Wine Dark Sea~
+@eng You are sailing across the deep seas of the north. Dawn appears, fresh and
+rosy-fingered, and catches you making your way across the wine dark stretches
+of the deep sea, sailing toward whatever adventures may wait.
+And here is on north you have noticed some coast.
+@rus Ты уже $gn{проплыл} множество морей. И вот снова прекрасный восход, который несет
+свежесть и окрашивает воду в цвет красного вина. Но ты ловишь себя на мысли,
+что это путешествие сильно затягивается и неизвестно чем еще оно закончится.
+И вот на севере ты $gn{заметил} какой-то берег.
+~
+0 0 noswim
+D0
+~
+~
+Z 0 34801
+D4
+~
+~
+Z 0 34999
+S
+#34801
+@eng Cape Tenar@rus Мыс Тэнар~
+@eng You disembarked on stony coast. He is separated from the main land black
+mountain. And only west finded amazing white mountain. As white crow amongst
+their own congener.
+@rus Ты $gn{высадился} на каменистый берег. Он отделен от основной земли черными
+скалами. И лишь на западе находится удивительная белая скала. Как белая
+ворона среди своих собратьев.
+~
+0 0 mountain
+D2
+~
+~
+Z 0 34800
+D3
+~
+~
+Z 0 34802
+S
+#34802
+@eng Beside mountain Levkada@rus У подножья скалы Левкады~
+@eng You are finded beside basis of Levkada. This is an amazing mountain.
+Seems, themselves the gods don't give salty water and strong winds to
+change her colour. Looked over, you notice west small cave.
+@rus Ты находишься у подножья Левкады. Это удивительная скала. Кажется, сами
+боги не дают соленой воде и сильным ветрам изменить ее цвет. Оглядевшись,
+ты замечаешь на западе небольшую пещеру.
+~
+0 0 mountain
+D1
+~
+~
+Z 0 34801
+D3
+~
+~
+Z 0 34803
+S
+#34803
+@eng Gloomy cave Tenar@rus Мрачная пещера Тэнар~
+@eng Your curiosity does not know the limit. You entered into dark cave. Here
+wet and coldly. From depth to hear the loud moans. 
+@rus Твое любопытство не знает предела. Ты $gn{вошел} в темную пещеру. Здесь сыро
+и холодно. Из глубины слышатся громкие стоны. Пещера продолжается вниз.
+~
+0 A inside
+D1
+~
+~
+Z 0 34802
+D5
+~
+~
+Z 0 34804
+S
+#34804
+@eng Entrance to the Aides@rus Вход в царство Аида~
+@eng You come in huge hall. This entry in underground kindom. Here, beside most
+winch, stand the big throne from stone. On the throne sits Tesey and his
+friend Peyrifoy. They are riveted to throne, so their has punished Aid. That
+they wanted steal his wife.
+@rus Спустившись, ты $gn{попал} в огромный зал. Это вход в подземное царство. Здесь,
+у самых ворот, стоит большой трон высеченый из камня. На нем сидит Тесей и его
+друг Пейрифой. Они приросли к трону, так наказал их Аид. За то, что они хотели
+забрать у него жену.
+~
+0 AN inside
+D1
+~
+~
+ABGZ 0 34805
+D4
+~
+~
+Z 0 34803
+S
+#34805
+@eng On some platform@rus На какой-то площадке~
+@eng  
+Oooo! No! You falled into gates and the land underfoot disappeaed!
+ 
+You slither on vertical declivity...
+ 
+Here is else several blows about stone.
+ 
+And you hit bottom.
+That really did HURT!
+ 
+@rus  
+Оооо! Нет! Ты $gn{вошел} в ворота и земля под ногами исчезла!
+ 
+Ты катишься по отвесному склону...
+ 
+Вот еще несколько ударов о камни.
+ 
+И ты достигаешь дна.
+Это падение было очень болезненным!
+ 
+~
+0 ADN inside
+D5
+~
+~
+Z 0 34806
+S
+#34806
+@eng Riverside Styx@rus На берегу реки Стикс~
+@eng You turned out to be riverside. Here grows some soft herbs.
+Disappeared the steep ascent - a last hope is returned thence. 
+But west hear hits from oars.
+@rus Ты $gn{оказался} на берегу реки, заросшем какой-то невысокой, мягкой
+травой. Исчез крутой подъем - последняя надежда выбратся отсюда.
+Но на западе послышался вслеск от весел.
+~
+0 ADN field
+D3
+~
+~
+Z 0 34807
+S
+#34807
+@eng Riverside Styx@rus На берегу реки Стикс~
+@eng You are finded riverside Styx. Here, as feathery rug, grows herbs.
+Beside coast stand the rook, but master in her. His name Haron, he 
+carrier of souls. Give him {C100 silver{x and he will carry you on other
+coast.
+@rus Ты находишься на берегу реки Стикс. Здесь, пушистым ковром, растет
+трава. У берега стоит ладья, а в ней и сам хозяин. Это Харон - пере-
+возчик душ умерших. За {C100 серебряных{x он перевезет тебя на другой
+берег.
+~
+0 ADN inside
+D1
+~
+~
+Z 0 34806
+S
+#34808
+@eng Gloomy field of Aides@rus Поле подземного царства~
+@eng You go on field, on which grow the pale flowerses of wild tulip. Near
+by you fly the incorporeal light shadows of deceased. They bemoan on its
+joyless life without light and without desires. Quietly hear their moans,
+hardly perceptible, like a rustle sheets.
+@rus Ты идешь по полю заросшему бледными цветами асфодела. Рядом носятся
+бесплотные легкие тени умерших. Они сетуют на свою безрадостную жизнь
+без света и без желаний. Тихо раздаются их стоны, едва уловимые, по-
+добные шелесту увядших листьев, гонимых осенним ветром.
+~
+0 ADN field
+D1
+~
+~
+Z 0 34815
+D2
+~
+~
+Z 0 34816
+D3
+~
+~
+Z 0 34809
+S
+#34809
+@eng Gloomy field of Aides@rus Поле подземного царства~
+@eng You go on field, on which grow the pale flowerses of wild tulip. Near
+by you fly the incorporeal light shadows of deceased. They bemoan on its
+joyless life without light and without desires. Quietly hear their moans,
+hardly perceptible, like a rustle sheets.
+@rus Ты идешь по полю заросшему бледными цветами асфодела. Рядом носятся
+бесплотные легкие тени умерших. Они сетуют на свою безрадостную жизнь
+без света и без желаний. Тихо раздаются их стоны, едва уловимые, по-
+добные шелесту увядших листьев, гонимых осенним ветром.
+~
+0 ADN field
+D0
+~
+~
+Z 0 34854
+D1
+~
+~
+Z 0 34808
+D2
+~
+~
+Z 0 34810
+D3
+~
+~
+Z 0 34869
+S
+#34810
+@eng Gloomy field of Aides@rus Поле подземного царства~
+@eng You go on field, on which grow the pale flowerses of wild tulip. Near
+by you fly the incorporeal light shadows of deceased. They bemoan on its
+joyless life without light and without desires. Quietly hear their moans,
+hardly perceptible, like a rustle sheets.
+@rus Ты идешь по полю заросшему бледными цветами асфодела. Рядом носятся
+бесплотные легкие тени умерших. Они сетуют на свою безрадостную жизнь
+без света и без желаний. Тихо раздаются их стоны, едва уловимые, по-
+добные шелесту увядших листьев, гонимых осенним ветром.
+~
+0 ADN field
+D0
+~
+~
+Z 0 34809
+D1
+~
+~
+Z 0 34816
+D2
+~
+~
+Z 0 34811
+S
+#34811
+@eng Gloomy field of Aides@rus Поле подземного царства~
+@eng You go on field, on which grow the pale flowerses of wild tulip. Near
+by you fly the incorporeal light shadows of deceased. They bemoan on its
+joyless life without light and without desires. Quietly hear their moans,
+hardly perceptible, like a rustle sheets.
+@rus Ты идешь по полю заросшему бледными цветами асфодела. Рядом носятся
+бесплотные легкие тени умерших. Они сетуют на свою безрадостную жизнь
+без света и без желаний. Тихо раздаются их стоны, едва уловимые, по-
+добные шелесту увядших листьев, гонимых осенним ветром.
+~
+0 ADN field
+D0
+~
+~
+Z 0 34810
+D1
+~
+~
+Z 0 34812
+D2
+~
+~
+Z 0 34877
+D3
+~
+~
+Z 0 34876
+S
+#34812
+@eng Gloomy field of Aides@rus Поле подземного царства~
+@eng You go on field, on which grow the pale flowerses of wild tulip. Near
+by you fly the incorporeal light shadows of deceased. They bemoan on its
+joyless life without light and without desires. Quietly hear their moans,
+hardly perceptible, like a rustle sheets.
+@rus Ты идешь по полю заросшему бледными цветами асфодела. Рядом носятся
+бесплотные легкие тени умерших. Они сетуют на свою безрадостную жизнь
+без света и без желаний. Тихо раздаются их стоны, едва уловимые, по-
+добные шелесту увядших листьев, гонимых осенним ветром.
+~
+0 ADN field
+D0
+~
+~
+Z 0 34816
+D1
+~
+~
+Z 0 34813
+D3
+~
+~
+Z 0 34811
+S
+#34813
+@eng Gloomy field of Aides@rus Поле подземного царства~
+@eng You go on field, on which grow the pale flowerses of wild tulip. Near
+by you fly the incorporeal light shadows of deceased. They bemoan on its
+joyless life without light and without desires. Quietly hear their moans,
+hardly perceptible, like a rustle sheets.
+@rus Ты идешь по полю заросшему бледными цветами асфодела. Рядом носятся
+бесплотные легкие тени умерших. Они сетуют на свою безрадостную жизнь
+без света и без желаний. Тихо раздаются их стоны, едва уловимые, по-
+добные шелесту увядших листьев, гонимых осенним ветром.
+~
+0 ADN field
+D0
+~
+~
+Z 0 34814
+D1
+~
+~
+Z 0 34868
+D2
+~
+~
+Z 0 34879
+D3
+~
+~
+Z 0 34812
+S
+#34814
+@eng Gloomy field of Aides@rus Поле подземного царства~
+@eng You go on field, on which grow the pale flowerses of wild tulip. Near
+by you fly the incorporeal light shadows of deceased. They bemoan on its
+joyless life without light and without desires. Quietly hear their moans,
+hardly perceptible, like a rustle sheets.
+@rus Ты идешь по полю заросшему бледными цветами асфодела. Рядом носятся
+бесплотные легкие тени умерших. Они сетуют на свою безрадостную жизнь
+без света и без желаний. Тихо раздаются их стоны, едва уловимые, по-
+добные шелесту увядших листьев, гонимых осенним ветром.
+~
+0 ADN field
+D0
+~
+~
+Z 0 34815
+D2
+~
+~
+Z 0 34813
+D3
+~
+~
+Z 0 34816
+S
+#34815
+@eng Gloomy field of Aides@rus Поле подземного царства~
+@eng You go on field, on which grow the pale flowerses of wild tulip. Near
+by you fly the incorporeal light shadows of deceased. They bemoan on its
+joyless life without light and without desires. Quietly hear their moans,
+hardly perceptible, like a rustle sheets.
+On north grows strange forest, in the east flows some river.
+@rus Ты идешь по полю заросшему бледными цветами асфодела. Рядом носятся
+бесплотные легкие тени умерших. Они сетуют на свою безрадостную жизнь
+без света и без желаний. Тихо раздаются их стоны, едва уловимые, по-
+добные шелесту увядших листьев, гонимых осенним ветром.
+На севере растет странный лес, a на востоке течет какая-то река.
+~
+0 ADN field
+D0
+~
+~
+Z 0 34856
+D1
+~
+~
+Z 0 34858
+D2
+~
+~
+Z 0 34814
+D3
+~
+~
+Z 0 34808
+S
+#34816
+@eng Gloomy field of Aides@rus Поле подземного царства~
+@eng You go on field, on which grow the pale flowerses of wild tulip. Near
+by you fly the incorporeal light shadows of deceased. They bemoan on its
+joyless life without light and without desires. Quietly hear their moans,
+hardly perceptible, like a rustle sheets.
+@rus Ты идешь по полю заросшему бледными цветами асфодела. Рядом носятся
+бесплотные легкие тени умерших. Они сетуют на свою безрадостную жизнь
+без света и без желаний. Тихо раздаются их стоны, едва уловимые, по-
+добные шелесту увядших листьев, гонимых осенним ветром.
+~
+0 0 inside
+D0
+~
+~
+Z 0 34808
+D1
+~
+~
+Z 0 34814
+D2
+~
+~
+Z 0 34812
+D3
+~
+~
+Z 0 34810
+S
+#34817
+@eng River Letas@rus Река Лета~
+@eng Here steam water of river Letas, which give the oblivion alive.
+To abandon the kindom of dead, necessary is born again!
+ 
+{WSays {GOblivion{z here{x, beside holy water, and you {Rreborn again outside of Aides{x!
+@rus Здесь струятся воды реки Леты, дающие забвение всему земному.
+Для того, чтобы покинуть царство мертвых, нужно снова родится!
+ 
+{WПроизнеси слово {GЗабвение{z здесь{x, у священной воды, и {Rты снова родишься на земле{x!
+~
+0 0 inside
+D0
+~
+~
+Z 0 34869
+D2
+~
+~
+Z 0 34876
+S
+#34818
+@eng Intersection three rivers@rus Пересечение трех рек~
+@eng This amazing and very strange place. Here flow together three rivers:
+Aheront, Kocit and Piriflegetont, and as through huge crater leaves down.
+Protect this place terrible dog Cerber.
+@rus Это удивительное и очень странное место. Здесь объединяются три реки:
+Ахеронт, Коцит и Пирифлегетонт и ввиде огромной воронки уходят вниз.
+Сторожит это место ужасный пес Кербер.
+~
+0 0 inside
+D0
+~
+~
+Z 0 34858
+D1
+~
+~
+Z 0 34880
+D2
+~
+~
+Z 0 34868
+S
+#34819
+@eng Purgatory@rus Чистилище~
+@eng After death people's souls, falling into Aides, not immedialety realize
+its condition and begin to punick. But as soon as they quiet down, get
+here and expect here its court. Here they weight all their own action and 
+prepare to answer for them.
+@rus После смерти людей их души, попадая в царство Аида, не сразу осознают
+что происходит и начинают паниковать видя свое состояние. А как только
+они успокаиваются, попадают сюда и ожидают тут своего суда. Здесь они
+взвешивают все свои поступки и готовятся к ответу за них.
+~
+0 ADN field
+D0
+~
+~
+Z 0 34878
+D2
+~
+~
+ABZ 0 34820
+S
+#34820
+@eng Courtroom@rus Зал Суда~
+@eng Master of this kindom - Aides sits here, on golden throne with his wife.
+He serves the implacable goddesses of the revenge Erinias. Only he solves
+what soul leaves on quietness, but what on eternal sufferings. Help him
+in this judges kindom of deceased - Minos and Radamant.
+@rus Хозяин этого царства - Аид сидит здесь, на золотом троне со своей
+женой Персефоной. Ему прислуживают неумолимые богини мщения Эринии.
+Только он решает какая душа отправляется на покой, а какая на вечные 
+муки. Помогают ему в этом судьи царства умерших - Минос и Радамант.
+~
+0 ADN inside
+D0
+~
+~
+ABZ 0 34819
+D1
+~
+~
+Z 0 34822
+D3
+~
+~
+Z 0 34821
+S
+#34821
+@eng Courtroom@rus Зал Суда~
+@eng Here, on left from Aides, sits the judge Minos on his throne. He
+tells to Aides about all good deals and brave actions of the person.
+Here sits always young god of dream - Gipnos.
+@rus Здесь по левую руку от Аида на своем троне сидит судья Минос. Он
+рассказывает Аиду о всех добрых делах и храбрых поступках человека.
+Тут сидит и вечно юный бог сна Гипнос.
+~
+0 0 inside
+D1
+~
+~
+Z 0 34820
+D3
+~
+~
+ABZ 0 34835
+S
+#34822
+@eng Courtroom@rus Зал Суда~
+@eng Here, on shift to the right hand from Aides, sits judge Radamant on
+his throne. He tells to Aides about all cruel deals and mean actions
+of the person. Here sits god of death Tanat.
+@rus Здесь, по правую руку от Аида, на своем троне сидит судья Радамант.
+Он рассказывает Аиду о всех злых делах и подлых поступках человека.
+Тут и бог смерти Танат.
+~
+0 0 inside
+D1
+~
+~
+ABZ 0 34823
+D3
+~
+~
+Z 0 34820
+S
+#34823
+@eng Hall of Nightmare@rus Зал УЖАСОВ~
+@eng Here gets soul one, dirty trick differred at lifes and cruel the
+action, as well as without causal murder. In general, all that who
+deserves the severe punishment. So has solved Aides, but its word
+law in this kindom. This place is filled moan souls, feeling heavy
+sufferings.
+@rus Сюда попадают души тех, кто при жизни отличился подлостью и злыми
+поступками, а также безпричинными убийствами. В общем, все те кто
+заслуживает сурового наказания. Так решил Аид, а его слово закон
+в этом царстве. Это место заполнено стонами душ, терпящих тяжелые
+муки.
+~
+0 0 inside
+D1
+~
+~
+Z 0 34834
+D2
+~
+~
+Z 0 34824
+D3
+~
+~
+ABZ 0 34822
+S
+#34824
+@eng Hall of Nightmare@rus Зал УЖАСОВ~
+@eng Here gets soul one, dirty trick differred at lifes and cruel the
+action, as well as without causal murder. In general, all that who
+deserves the severe punishment. So has solved Aides, but its word
+law in this kindom. This place is filled moan souls, feeling heavy
+sufferings.
+@rus Сюда попадают души тех, кто при жизни отличился подлостью и злыми
+поступками, а также безпричинными убийствами. В общем, все те кто
+заслуживает сурового наказания. Так решил Аид, а его слово закон
+в этом царстве. Это место заполнено стонами душ, терпящих тяжелые
+муки.
+~
+0 0 inside
+D0
+~
+~
+Z 0 34823
+D1
+~
+~
+Z 0 34825
+S
+#34825
+@eng Hall of Nightmare@rus Зал УЖАСОВ~
+@eng Here gets soul one, dirty trick differred at lifes and cruel the
+action, as well as without causal murder. In general, all that who
+deserves the severe punishment. So has solved Aides, but its word
+law in this kindom. This place is filled moan souls, feeling heavy
+sufferings.
+@rus Сюда попадают души тех, кто при жизни отличился подлостью и злыми
+поступками, а также безпричинными убийствами. В общем, все те кто
+заслуживает сурового наказания. Так решил Аид, а его слово закон
+в этом царстве. Это место заполнено стонами душ, терпящих тяжелые
+муки.
+~
+0 0 inside
+D0
+~
+~
+Z 0 34834
+D1
+~
+~
+Z 0 34826
+D3
+~
+~
+Z 0 34824
+S
+#34826
+@eng Hall of Nightmare@rus Зал УЖАСОВ~
+@eng Here gets soul one, dirty trick differred at lifes and cruel the
+action, as well as without causal murder. In general, all that who
+deserves the severe punishment. So has solved Aides, but its word
+law in this kindom. This place is filled moan souls, feeling heavy
+sufferings.
+@rus Сюда попадают души тех, кто при жизни отличился подлостью и злыми
+поступками, а также безпричинными убийствами. В общем, все те кто
+заслуживает сурового наказания. Так решил Аид, а его слово закон
+в этом царстве. Это место заполнено стонами душ, терпящих тяжелые
+муки.
+~
+0 0 inside
+D0
+~
+~
+Z 0 34833
+D1
+~
+~
+Z 0 34827
+D3
+~
+~
+Z 0 34825
+S
+#34827
+@eng Hall of Nightmare@rus Зал УЖАСОВ~
+@eng Here gets soul one, dirty trick differred at lifes and cruel the
+action, as well as without causal murder. In general, all that who
+deserves the severe punishment. So has solved Aides, but its word
+law in this kindom. This place is filled moan souls, feeling heavy
+sufferings.
+@rus Сюда попадают души тех, кто при жизни отличился подлостью и злыми
+поступками, а также безпричинными убийствами. В общем, все те кто
+заслуживает сурового наказания. Так решил Аид, а его слово закон
+в этом царстве. Это место заполнено стонами душ, терпящих тяжелые
+муки.
+~
+0 0 inside
+D0
+~
+~
+Z 0 34828
+D2
+~
+~
+Z 0 34848
+D3
+~
+~
+Z 0 34826
+S
+#34828
+@eng Hall of Nightmare@rus Зал УЖАСОВ~
+@eng Here gets soul one, dirty trick differred at lifes and cruel the
+action, as well as without causal murder. In general, all that who
+deserves the severe punishment. So has solved Aides, but its word
+law in this kindom. This place is filled moan souls, feeling heavy
+sufferings.
+@rus Сюда попадают души тех, кто при жизни отличился подлостью и злыми
+поступками, а также безпричинными убийствами. В общем, все те кто
+заслуживает сурового наказания. Так решил Аид, а его слово закон
+в этом царстве. Это место заполнено стонами душ, терпящих тяжелые
+муки.
+~
+0 0 inside
+D0
+~
+~
+Z 0 34829
+D2
+~
+~
+Z 0 34827
+D3
+~
+~
+Z 0 34833
+S
+#34829
+@eng Hall of Nightmare@rus Зал УЖАСОВ~
+@eng Here gets soul one, dirty trick differred at lifes and cruel the
+action, as well as without causal murder. In general, all that who
+deserves the severe punishment. So has solved Aides, but its word
+law in this kindom. This place is filled moan souls, feeling heavy
+sufferings.
+@rus Сюда попадают души тех, кто при жизни отличился подлостью и злыми
+поступками, а также безпричинными убийствами. В общем, все те кто
+заслуживает сурового наказания. Так решил Аид, а его слово закон
+в этом царстве. Это место заполнено стонами душ, терпящих тяжелые
+муки.
+~
+0 0 inside
+D0
+~
+~
+Z 0 34830
+D1
+~
+~
+Z 0 34849
+D2
+~
+~
+Z 0 34828
+D3
+~
+~
+Z 0 34832
+S
+#34830
+@eng Hall of Nightmare@rus Зал УЖАСОВ~
+@eng Here gets soul one, dirty trick differred at lifes and cruel the
+action, as well as without causal murder. In general, all that who
+deserves the severe punishment. So has solved Aides, but its word
+law in this kindom. This place is filled moan souls, feeling heavy
+sufferings.
+@rus Сюда попадают души тех, кто при жизни отличился подлостью и злыми
+поступками, а также безпричинными убийствами. В общем, все те кто
+заслуживает сурового наказания. Так решил Аид, а его слово закон
+в этом царстве. Это место заполнено стонами душ, терпящих тяжелые
+муки.
+~
+0 0 inside
+D2
+~
+~
+Z 0 34829
+D3
+~
+~
+Z 0 34831
+S
+#34831
+@eng Hall of Nightmare@rus Зал УЖАСОВ~
+@eng Here gets soul one, dirty trick differred at lifes and cruel the
+action, as well as without causal murder. In general, all that who
+deserves the severe punishment. So has solved Aides, but its word
+law in this kindom. This place is filled moan souls, feeling heavy
+sufferings.
+@rus Сюда попадают души тех, кто при жизни отличился подлостью и злыми
+поступками, а также безпричинными убийствами. В общем, все те кто
+заслуживает сурового наказания. Так решил Аид, а его слово закон
+в этом царстве. Это место заполнено стонами душ, терпящих тяжелые
+муки.
+~
+0 0 inside
+D1
+~
+~
+Z 0 34830
+D2
+~
+~
+Z 0 34832
+D3
+~
+~
+Z 0 34847
+S
+#34832
+@eng Hall of Nightmare@rus Зал УЖАСОВ~
+@eng Here gets soul one, dirty trick differred at lifes and cruel the
+action, as well as without causal murder. In general, all that who
+deserves the severe punishment. So has solved Aides, but its word
+law in this kindom. This place is filled moan souls, feeling heavy
+sufferings.
+@rus Сюда попадают души тех, кто при жизни отличился подлостью и злыми
+поступками, а также безпричинными убийствами. В общем, все те кто
+заслуживает сурового наказания. Так решил Аид, а его слово закон
+в этом царстве. Это место заполнено стонами душ, терпящих тяжелые
+муки.
+~
+0 0 inside
+D0
+~
+~
+Z 0 34831
+D1
+~
+~
+Z 0 34829
+D2
+~
+~
+Z 0 34833
+S
+#34833
+@eng Hall of Nightmare@rus Зал УЖАСОВ~
+@eng Here gets soul one, dirty trick differred at lifes and cruel the
+action, as well as without causal murder. In general, all that who
+deserves the severe punishment. So has solved Aides, but its word
+law in this kindom. This place is filled moan souls, feeling heavy
+sufferings.
+@rus Сюда попадают души тех, кто при жизни отличился подлостью и злыми
+поступками, а также безпричинными убийствами. В общем, все те кто
+заслуживает сурового наказания. Так решил Аид, а его слово закон
+в этом царстве. Это место заполнено стонами душ, терпящих тяжелые
+муки.
+~
+0 0 inside
+D0
+~
+~
+Z 0 34832
+D1
+~
+~
+Z 0 34828
+D2
+~
+~
+Z 0 34826
+D3
+~
+~
+Z 0 34834
+S
+#34834
+@eng Hall of Nightmare@rus Зал УЖАСОВ~
+@eng Here gets soul one, dirty trick differred at lifes and cruel the
+action, as well as without causal murder. In general, all that who
+deserves the severe punishment. So has solved Aides, but its word
+law in this kindom. This place is filled moan souls, feeling heavy
+sufferings.
+@rus Сюда попадают души тех, кто при жизни отличился подлостью и злыми
+поступками, а также безпричинными убийствами. В общем, все те кто
+заслуживает сурового наказания. Так решил Аид, а его слово закон
+в этом царстве. Это место заполнено стонами душ, терпящих тяжелые
+муки.
+~
+0 0 inside
+D1
+~
+~
+Z 0 34833
+D2
+~
+~
+Z 0 34825
+D3
+~
+~
+Z 0 34823
+S
+#34835
+@eng Hall of Calm@rus Зал Покоя~
+@eng Here get soul one, at life was good, brave and has doed much good
+deals. Such people, centainly, deserve happiness and joys after death.
+But Aides is created not for revelry. So, their conditions is limited
+by tranquillity.
+@rus Сюда попадают души тех, кто при жизни был добрым, храбрым и сделал
+много хорошего. Такие люди, безусловно, заслуживают счастья и радости
+после смерти. Но царство Аида не то место, где можно веселится. Поэто-
+му, их состояние ограничивается покоем.
+~
+0 0 inside
+D1
+~
+~
+ABZ 0 34821
+D2
+~
+~
+Z 0 34836
+D3
+~
+~
+Z 0 34846
+S
+#34836
+@eng Hall of Calm@rus Зал Покоя~
+@eng Here get soul one, at life was good, brave and has doed much good
+deals. Such people, centainly, deserve happiness and joys after death.
+But Aides is created not for revelry. So, their conditions is limited
+by tranquillity.
+@rus Сюда попадают души тех, кто при жизни был добрым, храбрым и сделал
+много хорошего. Такие люди, безусловно, заслуживают счастья и радости
+после смерти. Но царство Аида не то место, где можно веселится. Поэто-
+му, их состояние ограничивается покоем.
+~
+0 0 inside
+D0
+~
+~
+Z 0 34835
+D3
+~
+~
+Z 0 34837
+S
+#34837
+@eng Hall of Calm@rus Зал Покоя~
+@eng Here get soul one, at life was good, brave and has doed much good
+deals. Such people, centainly, deserve happiness and joys after death.
+But Aides is created not for revelry. So, their conditions is limited
+by tranquillity.
+@rus Сюда попадают души тех, кто при жизни был добрым, храбрым и сделал
+много хорошего. Такие люди, безусловно, заслуживают счастья и радости
+после смерти. Но царство Аида не то место, где можно веселится. Поэто-
+му, их состояние ограничивается покоем.
+~
+0 0 inside
+D0
+~
+~
+Z 0 34846
+D1
+~
+~
+Z 0 34836
+D3
+~
+~
+Z 0 34838
+S
+#34838
+@eng Hall of Calm@rus Зал Покоя~
+@eng Here get soul one, at life was good, brave and has doed much good
+deals. Such people, centainly, deserve happiness and joys after death.
+But Aides is created not for revelry. So, their conditions is limited
+by tranquillity.
+@rus Сюда попадают души тех, кто при жизни был добрым, храбрым и сделал
+много хорошего. Такие люди, безусловно, заслуживают счастья и радости
+после смерти. Но царство Аида не то место, где можно веселится. Поэто-
+му, их состояние ограничивается покоем.
+~
+0 0 inside
+D0
+~
+~
+Z 0 34845
+D1
+~
+~
+Z 0 34837
+D3
+~
+~
+Z 0 34839
+S
+#34839
+@eng Hall of Calm@rus Зал Покоя~
+@eng Here get soul one, at life was good, brave and has doed much good
+deals. Such people, centainly, deserve happiness and joys after death.
+But Aides is created not for revelry. So, their conditions is limited
+by tranquillity.
+@rus Сюда попадают души тех, кто при жизни был добрым, храбрым и сделал
+много хорошего. Такие люди, безусловно, заслуживают счастья и радости
+после смерти. Но царство Аида не то место, где можно веселится. Поэто-
+му, их состояние ограничивается покоем.
+~
+0 0 inside
+D0
+~
+~
+Z 0 34840
+D1
+~
+~
+Z 0 34838
+D2
+~
+~
+Z 0 34853
+D3
+~
+~
+Z 0 34852
+S
+#34840
+@eng Hall of Calm@rus Зал Покоя~
+@eng Here get soul one, at life was good, brave and has doed much good
+deals. Such people, centainly, deserve happiness and joys after death.
+But Aides is created not for revelry. So, their conditions is limited
+by tranquillity.
+@rus Сюда попадают души тех, кто при жизни был добрым, храбрым и сделал
+много хорошего. Такие люди, безусловно, заслуживают счастья и радости
+после смерти. Но царство Аида не то место, где можно веселится. Поэто-
+му, их состояние ограничивается покоем.
+~
+0 0 inside
+D0
+~
+~
+Z 0 34841
+D1
+~
+~
+Z 0 34845
+D2
+~
+~
+Z 0 34839
+S
+#34841
+@eng Hall of Calm@rus Зал Покоя~
+@eng Here get soul one, at life was good, brave and has doed much good
+deals. Such people, centainly, deserve happiness and joys after death.
+But Aides is created not for revelry. So, their conditions is limited
+by tranquillity.
+@rus Сюда попадают души тех, кто при жизни был добрым, храбрым и сделал
+много хорошего. Такие люди, безусловно, заслуживают счастья и радости
+после смерти. Но царство Аида не то место, где можно веселится. Поэто-
+му, их состояние ограничивается покоем.
+~
+0 0 inside
+D0
+~
+~
+Z 0 34842
+D1
+~
+~
+Z 0 34844
+D2
+~
+~
+Z 0 34840
+D3
+~
+~
+Z 0 34850
+S
+#34842
+@eng Hall of Calm@rus Зал Покоя~
+@eng Here get soul one, at life was good, brave and has doed much good
+deals. Such people, centainly, deserve happiness and joys after death.
+But Aides is created not for revelry. So, their conditions is limited
+by tranquillity.
+@rus Сюда попадают души тех, кто при жизни был добрым, храбрым и сделал
+много хорошего. Такие люди, безусловно, заслуживают счастья и радости
+после смерти. Но царство Аида не то место, где можно веселится. Поэто-
+му, их состояние ограничивается покоем.
+~
+0 0 inside
+D1
+~
+~
+Z 0 34843
+D2
+~
+~
+Z 0 34841
+S
+#34843
+@eng Hall of Calm@rus Зал Покоя~
+@eng Here get soul one, at life was good, brave and has doed much good
+deals. Such people, centainly, deserve happiness and joys after death.
+But Aides is created not for revelry. So, their conditions is limited
+by tranquillity.
+@rus Сюда попадают души тех, кто при жизни был добрым, храбрым и сделал
+много хорошего. Такие люди, безусловно, заслуживают счастья и радости
+после смерти. Но царство Аида не то место, где можно веселится. Поэто-
+му, их состояние ограничивается покоем.
+~
+0 0 inside
+D0
+~
+~
+Z 0 34851
+D2
+~
+~
+Z 0 34844
+D3
+~
+~
+Z 0 34842
+S
+#34844
+@eng Hall of Calm@rus Зал Покоя~
+@eng Here get soul one, at life was good, brave and has doed much good
+deals. Such people, centainly, deserve happiness and joys after death.
+But Aides is created not for revelry. So, their conditions is limited
+by tranquillity.
+@rus Сюда попадают души тех, кто при жизни был добрым, храбрым и сделал
+много хорошего. Такие люди, безусловно, заслуживают счастья и радости
+после смерти. Но царство Аида не то место, где можно веселится. Поэто-
+му, их состояние ограничивается покоем.
+~
+0 0 inside
+D0
+~
+~
+Z 0 34843
+D2
+~
+~
+Z 0 34845
+D3
+~
+~
+Z 0 34841
+S
+#34845
+@eng Hall of Calm@rus Зал Покоя~
+@eng Here get soul one, at life was good, brave and has doed much good
+deals. Such people, centainly, deserve happiness and joys after death.
+But Aides is created not for revelry. So, their conditions is limited
+by tranquillity.
+@rus Сюда попадают души тех, кто при жизни был добрым, храбрым и сделал
+много хорошего. Такие люди, безусловно, заслуживают счастья и радости
+после смерти. Но царство Аида не то место, где можно веселится. Поэто-
+му, их состояние ограничивается покоем.
+~
+0 0 inside
+D0
+~
+~
+Z 0 34844
+D1
+~
+~
+Z 0 34846
+D2
+~
+~
+Z 0 34838
+D3
+~
+~
+Z 0 34840
+S
+#34846
+@eng Hall of Calm@rus Зал Покоя~
+@eng Here get soul one, at life was good, brave and has doed much good
+deals. Such people, centainly, deserve happiness and joys after death.
+But Aides is created not for revelry. So, their conditions is limited
+by tranquillity.
+@rus Сюда попадают души тех, кто при жизни был добрым, храбрым и сделал
+много хорошего. Такие люди, безусловно, заслуживают счастья и радости
+после смерти. Но царство Аида не то место, где можно веселится. Поэто-
+му, их состояние ограничивается покоем.
+~
+0 0 inside
+D1
+~
+~
+Z 0 34835
+D2
+~
+~
+Z 0 34837
+D3
+~
+~
+Z 0 34845
+S
+#34847
+@eng Siziphus' mountain@rus Гора Сизифа~
+@eng Heavy punishment carries Siziphus in afterlife for all that treachery
+and frand, which has maked he on the land. He must roll on high, steep
+mountain huge stone.
+@rus Тяжкое наказание несет Сизиф в загробной жизни, за все то коварство и
+обманы, которые совершил он на земле. Он осужден вкатывать на высокую,
+крутую гору громадный камень.
+~
+0 0 hills
+D1
+~
+~
+Z 0 34831
+S
+#34848
+@eng Tantalus' punishment@rus Наказание Тантала~
+@eng Here carries his punishment Tantalus. He stand in transparent water,
+but he can't bend over and slake his nerve-racking thirst. Over his
+head hanged rock, she a little holds, threatens momently to fall and
+press its gravity Tantalus. So suffers Tantalus - an eternal awe,
+hunger and thirst.
+@rus Здесь несет свое наказание Тантал. Он стоит в прозрачной воде, но не
+может он наклониться и утолить свою мучительную жажду. Над его головой
+нависла скала, едва держится она, грозит ежеминутно упасть и раздавить
+своей тяжестью Тантала. Так мучается Тантал - вечным страхом, голодом и
+жаждой.
+~
+0 0 inside
+D0
+~
+~
+Z 0 34827
+S
+#34849
+@eng Danais' punishment@rus Наказание Данаид~
+@eng Here toil Danaidas. They carry punishment for maked at lifes the crime -
+a murder of the sons Egypt. Danaids must fill water the enormous container
+not having bottom. Always carry they water, culling its in underground
+river, and infuse in container. So lasts without end their futile work.
+@rus Здесь трудятся Данаиды. Они несут наказание за совершенное при жизни
+преступление - убийство сыновей Египта. Данаиды должны наполнять водой
+огромный сосуд, не имеющий дна. Вечно носят они воду, черпая ее в под-
+земной реке, и выливают в сосуд. Так и длится без конца их бесплодная
+работа.
+~
+0 0 inside
+D3
+~
+~
+Z 0 34829
+S
+#34850
+@eng Ajax's chamber@rus Покои Аякса~
+~
+0 0 inside
+D1
+~
+~
+Z 0 34841
+S
+#34851
+@eng Agamemnon's chamber@rus Покои Агамемнона~
+~
+0 0 inside
+D2
+~
+~
+Z 0 34843
+S
+#34852
+@eng Achilles' chamber@rus Покои Ахилла~
+~
+0 0 inside
+D1
+~
+~
+Z 0 34839
+S
+#34853
+@eng Antilochus' chamber@rus Покои Антилоха~
+~
+0 0 inside
+D0
+~
+~
+Z 0 34839
+S
+#34854
+@eng Strange place@rus Странное место~
+@eng Approaching to river Stiks, you has falled into some strange place! Here
+does not grow the herbs, but grow the terrible tree. Around black ground and
+tree has a no sheet. Tart scent mortal and rancid blood is feelled from east.
+@rus Подходя к реке Стикс, ты $gn{nопал} в какое-то странное место! Здесь нет
+травы и растут какие-то страшные деревья. Земля черна, a на деревьях
+нет листьев. С востока доносится кислый запах тлена и прогорклой крови.
+~
+0 0 inside
+D1
+~
+~
+Z 0 34855
+D2
+~
+~
+Z 0 34809
+S
+#34855
+@eng Aempus' lair@rus Логово Эмпуса~
+@eng Calling at in this gloomy wood, you has falled into else more repugnant
+place. Here much dark, scent blood and rotting meat cuts the nose. This den
+terrible the ghost of Aempus. Here he eats their own victims. And you on
+already the queue.
+@rus Зайдя в этот мрачный лес, ты $gn{попал} в еще более отвратительное место. Тут
+очень темно, запах крови и гниющего мяса режет нос. Это логово ужасного
+привидения Эмпуса. Здесь он разделывается со своими жертвами. И ты уже на
+очереди.
+~
+0 0 inside
+D3
+~
+~
+Z 0 34854
+S
+#34856
+@eng Strange place@rus Странное место~
+@eng Approaching to river Stiks, you has falled into some strange place! Here
+does not grow the herbs, but grow the terrible tree. Around black ground and
+tree has a no sheet. Tart scent mortal and rancid blood is feelled from east.
+@rus Подходя к реке Стикс, ты $gn{nопал} в какое-то странное место! Здесь нет
+травы и растут какие-то страшные деревья. Земля черна, a на деревьях
+нет листьев. С запада доносится кислый запах тлена и прогорклой крови.
+~
+0 0 inside
+D2
+~
+~
+Z 0 34815
+D3
+~
+~
+Z 0 34857
+S
+#34857
+@eng Lamias' lair@rus Логово Ламии~
+@eng Calling at in this gloomy wood, you has falled into else more repugnant
+place. Here much dark, scent blood and rotting meat cuts the nose. This den
+monstrous Lamias. Here she brings the stolenned inflant to drink once fill
+their blood.
+@rus Зайдя в этот мрачный лес, ты $gn{nопал} в еще более отвратительное место. Тут
+очень темно, запах крови и гниющего мяса режет нос. Это логово чудовищной
+Ламии. Сюда она приносит украденных детей, чтобы напиться их крови.
+~
+0 0 inside
+D1
+~
+~
+Z 0 34856
+S
+#34858
+@eng Kocitus river@rus Река Коцит~
+@eng You sail on river Kocitus. Tempestuous current tries to carry away you
+on the south.
+@rus Ты плывешь по реке Коцит. Ее бурное течение пытается унести тебя на
+юг.
+~
+0 0 inside
+D1
+~
+~
+Z 0 34859
+D2
+~
+~
+Z 0 34818
+D3
+~
+~
+Z 0 34815
+S
+#34859
+@eng Riverside of Kocitus@rus Берег реки Коцит~
+@eng You go on field, on which grow the pale flowerses of wild tulip. Near
+by you fly the incorporeal light shadows of deceased. They bemoan on its
+joyless life without light and without desires. Quietly hear their moans,
+hardly perceptible, like a rustle sheets.
+@rus Ты идешь по полю заросшему бледными цветами асфодела. Рядом носятся
+бесплотные легкие тени умерших. Они сетуют на свою безрадостную жизнь
+без света и без желаний. Тихо раздаются их стоны, едва уловимые, по-
+добные шелесту увядших листьев, гонимых осенним ветром.
+~
+0 ADN field
+D0
+~
+~
+Z 0 34860
+D1
+~
+~
+Z 0 34862
+D3
+~
+~
+Z 0 34858
+S
+#34860
+@eng Riverside of Kocitus@rus Берег реки Коцит~
+@eng You go on field, on which grow the pale flowerses of wild tulip. Near
+by you fly the incorporeal light shadows of deceased. They bemoan on its
+joyless life without light and without desires. Quietly hear their moans,
+hardly perceptible, like a rustle sheets.
+@rus Ты идешь по полю заросшему бледными цветами асфодела. Рядом носятся
+бесплотные легкие тени умерших. Они сетуют на свою безрадостную жизнь
+без света и без желаний. Тихо раздаются их стоны, едва уловимые, по-
+добные шелесту увядших листьев, гонимых осенним ветром.
+~
+0 ADN field
+D1
+~
+~
+Z 0 34861
+D2
+~
+~
+Z 0 34859
+S
+#34861
+@eng Gloomy field of Aides@rus Поле подземного царства~
+@eng You go on field, on which grow the pale flowerses of wild tulip. Near
+by you fly the incorporeal light shadows of deceased. They bemoan on its
+joyless life without light and without desires. Quietly hear their moans,
+hardly perceptible, like a rustle sheets.
+@rus Ты идешь по полю заросшему бледными цветами асфодела. Рядом носятся
+бесплотные легкие тени умерших. Они сетуют на свою безрадостную жизнь
+без света и без желаний. Тихо раздаются их стоны, едва уловимые, по-
+добные шелесту увядших листьев, гонимых осенним ветром.
+~
+0 ADN field
+D2
+~
+~
+Z 0 34862
+D3
+~
+~
+Z 0 34860
+S
+#34862
+@eng Riverside of Acheront@rus Берег реки Ахеронт~
+@eng You go on field, on which grow the pale flowerses of wild tulip. Near
+by you fly the incorporeal light shadows of deceased. They bemoan on its
+joyless life without light and without desires. Quietly hear their moans,
+hardly perceptible, like a rustle sheets.
+@rus Ты идешь по полю заросшему бледными цветами асфодела. Рядом носятся
+бесплотные легкие тени умерших. Они сетуют на свою безрадостную жизнь
+без света и без желаний. Тихо раздаются их стоны, едва уловимые, по-
+добные шелесту увядших листьев, гонимых осенним ветром.
+~
+0 ADN field
+D0
+~
+~
+Z 0 34861
+D2
+~
+~
+Z 0 34863
+D3
+~
+~
+Z 0 34859
+S
+#34863
+@eng Acheront river@rus Река Ахеронт~
+~
+0 0 inside
+D0
+~
+~
+Z 0 34862
+D2
+~
+~
+Z 0 34864
+D3
+~
+~
+Z 0 34880
+S
+#34864
+@eng Riverside of Acheront@rus Берег реки Ахеронт~
+@eng You go on field, on which grow the pale flowerses of wild tulip. Near
+by you fly the incorporeal light shadows of deceased. They bemoan on its
+joyless life without light and without desires. Quietly hear their moans,
+hardly perceptible, like a rustle sheets.
+@rus Ты идешь по полю заросшему бледными цветами асфодела. Рядом носятся
+бесплотные легкие тени умерших. Они сетуют на свою безрадостную жизнь
+без света и без желаний. Тихо раздаются их стоны, едва уловимые, по-
+добные шелесту увядших листьев, гонимых осенним ветром.
+~
+0 ADN field
+D0
+~
+~
+Z 0 34863
+D2
+~
+~
+Z 0 34865
+D3
+~
+~
+Z 0 34867
+S
+#34865
+@eng Gloomy field of Aides@rus Поле подземного царства~
+@eng You go on field, on which grow the pale flowerses of wild tulip. Near
+by you fly the incorporeal light shadows of deceased. They bemoan on its
+joyless life without light and without desires. Quietly hear their moans,
+hardly perceptible, like a rustle sheets.
+@rus Ты идешь по полю заросшему бледными цветами асфодела. Рядом носятся
+бесплотные легкие тени умерших. Они сетуют на свою безрадостную жизнь
+без света и без желаний. Тихо раздаются их стоны, едва уловимые, по-
+добные шелесту увядших листьев, гонимых осенним ветром.
+~
+0 ADN field
+D0
+~
+~
+Z 0 34864
+D3
+~
+~
+Z 0 34866
+S
+#34866
+@eng Riverside of Piriflegetont@rus Берег реки Пирифлегетонт~
+@eng You go on field, on which grow the pale flowerses of wild tulip. Near
+by you fly the incorporeal light shadows of deceased. They bemoan on its
+joyless life without light and without desires. Quietly hear their moans,
+hardly perceptible, like a rustle sheets.
+@rus Ты идешь по полю заросшему бледными цветами асфодела. Рядом носятся
+бесплотные легкие тени умерших. Они сетуют на свою безрадостную жизнь
+без света и без желаний. Тихо раздаются их стоны, едва уловимые, по-
+добные шелесту увядших листьев, гонимых осенним ветром.
+~
+0 ADN field
+D0
+~
+~
+Z 0 34867
+D1
+~
+~
+Z 0 34865
+S
+#34867
+@eng Riverside of Piriflehetont@rus Берег реки Пирифлегетонт~
+@eng You go on field, on which grow the pale flowerses of wild tulip. Near
+by you fly the incorporeal light shadows of deceased. They bemoan on its
+joyless life without light and without desires. Quietly hear their moans,
+hardly perceptible, like a rustle sheets.
+@rus Ты идешь по полю заросшему бледными цветами асфодела. Рядом носятся
+бесплотные легкие тени умерших. Они сетуют на свою безрадостную жизнь
+без света и без желаний. Тихо раздаются их стоны, едва уловимые, по-
+добные шелесту увядших листьев, гонимых осенним ветром.
+~
+0 ADN field
+D1
+~
+~
+Z 0 34864
+D2
+~
+~
+Z 0 34866
+D3
+~
+~
+Z 0 34868
+S
+#34868
+@eng Piriflehetont river@rus Река Пирифлегетонт~
+@eng You sail on river Piriflehetont. Tempestuous current tries to carry away
+you on the north.
+@rus Ты плывешь по реке Пирифлегетонт. Бурное течение пытается унести тебя
+на север.
+~
+0 0 inside
+D0
+~
+~
+Z 0 34818
+D1
+~
+~
+Z 0 34867
+D3
+~
+~
+Z 0 34813
+S
+#34869
+@eng River Letas@rus Река Лета~
+@eng Here steam water of river Letas, which give the oblivion alive.
+To abandon the kindom of dead, necessary is born again!
+Sail on south to come in holy place.
+@rus Здесь струятся воды реки Леты, дающие забвение всему земному.
+Для того, чтобы покинуть царство мертвых, нужно снова родится!
+Плыви на юг, чтобы попасть в священное место.
+~
+0 0 inside
+D2
+~
+~
+Z 0 34817
+D3
+~
+~
+Z 0 34870
+S
+#34870
+@eng Gloomy field of Aides@rus Поле подземного царства~
+@eng You go on field, on which grow the pale flowerses of wild tulip. Near
+by you fly the incorporeal light shadows of deceased. They bemoan on its
+joyless life without light and without desires. Quietly hear their moans,
+hardly perceptible, like a rustle sheets.
+@rus Вы идете по полю заросшему бледными цветами асфодела. Рядом носятся
+бесплотные легкие тени умерших. Они сетуют на свою безрадостную жизнь
+без света и без желаний. Тихо раздаются их стоны, едва уловимые, по-
+добные шелесту увядших листьев, гонимых осенним ветром.
+~
+0 D field
+D1
+~
+~
+Z 0 34869
+D2
+~
+~
+Z 0 34875
+D3
+~
+~
+Z 0 34871
+S
+#34871
+@eng Gloomy field of Aides@rus Поле подземного царства~
+@eng You go on field, on which grow the pale flowerses of wild tulip. Near
+by you fly the incorporeal light shadows of deceased. They bemoan on its
+joyless life without light and without desires. Quietly hear their moans,
+hardly perceptible, like a rustle sheets.
+@rus Ты идешь по полю заросшему бледными цветами асфодела. Рядом носятся
+бесплотные легкие тени умерших. Они сетуют на свою безрадостную жизнь
+без света и без желаний. Тихо раздаются их стоны, едва уловимые, по-
+добные шелесту увядших листьев, гонимых осенним ветром.
+~
+0 ADN field
+D1
+~
+~
+Z 0 34870
+D2
+~
+~
+Z 0 34872
+S
+#34872
+@eng Gloomy field of Aides@rus Поле подземного царства~
+@eng You go on field, on which grow the pale flowerses of wild tulip. Near
+by you fly the incorporeal light shadows of deceased. They bemoan on its
+joyless life without light and without desires. Quietly hear their moans,
+hardly perceptible, like a rustle sheets.
+@rus Ты идешь по полю заросшему бледными цветами асфодела. Рядом носятся
+бесплотные легкие тени умерших. Они сетуют на свою безрадостную жизнь
+без света и без желаний. Тихо раздаются их стоны, едва уловимые, по-
+добные шелесту увядших листьев, гонимых осенним ветром.
+~
+0 ADN field
+D0
+~
+~
+Z 0 34871
+D1
+~
+~
+Z 0 34875
+D2
+~
+~
+Z 0 34873
+S
+#34873
+@eng Gloomy field of Aides@rus Поле подземного царства~
+@eng You go on field, on which grow the pale flowerses of wild tulip. Near
+by you fly the incorporeal light shadows of deceased. They bemoan on its
+joyless life without light and without desires. Quietly hear their moans,
+hardly perceptible, like a rustle sheets.
+@rus Ты идешь по полю заросшему бледными цветами асфодела. Рядом носятся
+бесплотные легкие тени умерших. Они сетуют на свою безрадостную жизнь
+без света и без желаний. Тихо раздаются их стоны, едва уловимые, по-
+добные шелесту увядших листьев, гонимых осенним ветром.
+~
+0 ADN field
+D0
+~
+~
+Z 0 34872
+D1
+~
+~
+Z 0 34874
+S
+#34874
+@eng Gloomy field of Aides@rus Поле подземного царства~
+@eng You go on field, on which grow the pale flowerses of wild tulip. Near
+by you fly the incorporeal light shadows of deceased. They bemoan on its
+joyless life without light and without desires. Quietly hear their moans,
+hardly perceptible, like a rustle sheets.
+@rus Вы идете по полю заросшему бледными цветами асфодела. Рядом носятся
+бесплотные легкие тени умерших. Они сетуют на свою безрадостную жизнь
+без света и без желаний. Тихо раздаются их стоны, едва уловимые, по-
+добные шелесту увядших листьев, гонимых осенним ветром.
+~
+0 ADN field
+D0
+~
+~
+Z 0 34875
+D1
+~
+~
+Z 0 34876
+D3
+~
+~
+Z 0 34873
+S
+#34875
+@eng Gloomy field of Aides@rus Поле подземного царства~
+@eng You go on field, on which grow the pale flowerses of wild tulip. Near
+by you fly the incorporeal light shadows of deceased. They bemoan on its
+joyless life without light and without desires. Quietly hear their moans,
+hardly perceptible, like a rustle sheets.
+@rus Вы идете по полю заросшему бледными цветами асфодела. Рядом носятся
+бесплотные легкие тени умерших. Они сетуют на свою безрадостную жизнь
+без света и без желаний. Тихо раздаются их стоны, едва уловимые, по-
+добные шелесту увядших листьев, гонимых осенним ветром.
+~
+0 ADN field
+D0
+~
+~
+Z 0 34870
+D2
+~
+~
+Z 0 34874
+D3
+~
+~
+Z 0 34872
+S
+#34876
+@eng River Letas@rus Река Лета~
+@eng Here steam water of river Letas, which give the oblivion alive.
+To abandon the kindom of dead, necessary is born again!
+Sail on north to come to holy place.
+@rus Здесь струятся воды реки Леты, дающие забвение всему земному.
+Для того, чтобы покинуть царство мертвых, нужно снова родится!
+Плыви на север, чтобы попасть в священное место.
+~
+0 0 inside
+D0
+~
+~
+Z 0 34817
+D1
+~
+~
+Z 0 34811
+D3
+~
+~
+Z 0 34874
+S
+#34877
+@eng Gloomy field of Aides@rus Поле подземного царства~
+@eng You go on field, on which grow the pale flowerses of wild tulip. Near
+by you fly the incorporeal light shadows of deceased. They bemoan on its
+joyless life without light and without desires. Quietly hear their moans,
+hardly perceptible, like a rustle sheets.
+@rus Ты идешь по полю заросшему бледными цветами асфодела. Рядом носятся
+бесплотные легкие тени умерших. Они сетуют на свою безрадостную жизнь
+без света и без желаний. Тихо раздаются их стоны, едва уловимые, по-
+добные шелесту увядших листьев, гонимых осенним ветром.
+~
+0 ADN field
+D0
+~
+~
+Z 0 34811
+D1
+~
+~
+Z 0 34878
+S
+#34878
+@eng Gloomy field of Aides@rus Поле подземного царства~
+@eng You go on field, on which grow the pale flowerses of wild tulip. Near
+by you fly the incorporeal light shadows of deceased. They bemoan on its
+joyless life without light and without desires. Quietly hear their moans,
+hardly perceptible, like a rustle sheets.
+@rus Ты идешь по полю заросшему бледными цветами асфодела. Рядом носятся
+бесплотные легкие тени умерших. Они сетуют на свою безрадостную жизнь
+без света и без желаний. Тихо раздаются их стоны, едва уловимые, по-
+добные шелесту увядших листьев, гонимых осенним ветром.
+~
+0 ADN field
+D1
+~
+~
+Z 0 34879
+D2
+~
+~
+Z 0 34819
+D3
+~
+~
+Z 0 34877
+S
+#34879
+@eng Gloomy field of Aides@rus Поле подземного царства~
+@eng You go on field, on which grow the pale flowerses of wild tulip. Near
+by you fly the incorporeal light shadows of deceased. They bemoan on its
+joyless life without light and without desires. Quietly hear their moans,
+hardly perceptible, like a rustle sheets.
+@rus Ты идешь по полю заросшему бледными цветами асфодела. Рядом носятся
+бесплотные легкие тени умерших. Они сетуют на свою безрадостную жизнь
+без света и без желаний. Тихо раздаются их стоны, едва уловимые, по-
+добные шелесту увядших листьев, гонимых осенним ветром.
+~
+0 ADN field
+D0
+~
+~
+Z 0 34813
+D3
+~
+~
+Z 0 34878
+S
+#34880
+@eng Acheront river@rus Река Ахеронт~
+~
+0 0 inside
+D1
+~
+~
+Z 0 34863
+D3
+~
+~
+Z 0 34818
+S
+#34998
+~
+~
+0 0 inside
+S
+#34999
+Orrin's room~
+@eng You are finded in the Orrin's room. It's a small round room and her whole
+girds the enormous sofa. Sofa, wall, ceiling and floor cover precious the
+fur, soft and gentile, as the most fealthery rug. In centre of the room is
+finded the low table.
+@rus Вы находитесь в комнате отдыха Оррина. Это небольшая круглая комната и ее всю
+опоясывает огромный диван. Но диван, стены, потолок и пол покрыты драгоценными
+мехами, мягкими и нежными, как самый пушистый ковер. В центре комнаты находится
+невысокий стол.
+~
+0 BDNQT inside
+D5
+~
+~
+Z 0 34800
+S
+#0
+
+#SPECIALS
+M 34803 spec_poison	* Cerber
+M 34804 spec_cast_undead	* Aides
+S
+
+#RESETS
+D 0 34804 1 1	* Entrance to the Aides: door to the east: closed
+D 0 34819 2 1	* Purgatory: door to the south: closed
+D 0 34820 0 1	* Courtroom: door to the north: closed
+D 0 34821 3 1	* Courtroom: door to the west: closed
+D 0 34822 1 1	* Courtroom: door to the east: closed
+D 0 34823 3 1	* Hall of Nightmare: door to the west: closed
+D 0 34835 1 1	* Hall of Calm: door to the east: closed
+M 0 34801 1 34804 1	* Peyrifoy (Entrance to the Aides)
+M 0 34800 1 34804 1	* Tesey (Entrance to the Aides)
+M 0 34802 1 34807 1	* Haron (Riverside Styx)
+M 0 34803 1 34818 1	* Cerber (Intersection three rivers)
+M 0 34804 1 34820 1	* Aides (Courtroom)
+O 0 34998 0 34999	* enormous sofa (Orrin's room)
+S
+
+#SHOPS
+34999 0 0 0 0 0 100 100 0 23
+0
+
+#OLIMITS
+O 34997 1	* sword
+S
+
+#MOBPROGS
+#34800
+mob echo {x
+mob echo Tesey tells you:
+mob echo {x          {GDon't go in Aides, is returned from there possible only{x
+mob echo {x          {Gthrough oblivion, find river Letas for this. Or ask Aides.{x
+~
+#34801
+if isghost $n
+mob echoat $n Haron seats you in rook, takes on the other coast and returns back.
+mob echoaround $n Haron seats $n in rook, takes on the other coast and returns back.
+mob transfer $n 34808
+end
+endif
+if money $n < 10000
+say Что же ты тут, бедняга, заблудился?
+mob transfer $n 34804
+~
+#34802
+mob echoat $n Haron seats you in rook, takes on the other coast and returns back.
+mob echoaround $n Haron seats $n in rook, takes on the other coast and returns back.
+mob gtransfer $n 34808
+~
+#34803
+mob zecho {RВы улышали душераздирающий вопль умирающего Кербера.{x
+mob echo {CУ тебя под ногами задрожала земля и из центра воронки выбил{x
+mob echo {Cстолб воды, когда вода осела на его месте оказался портал.{x
+mob oload 34800
+~
+#34804
+mob purge portal
+~
+#0
+
+#PRACTICERS
+M 34999 weaponsmaster attack beguiling benedictions combat creation curative detection draconian enchantment enhancement harmful healing illusion maladictions protective transportation weather fightmaster suddendeath meditation clan defensive wizard necromancy fishing mining~	* avatar of Orrin
+S
+
+#$
