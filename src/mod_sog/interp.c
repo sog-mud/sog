@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.40 1998-07-12 11:26:07 efdi Exp $
+ * $Id: interp.c,v 1.41 1998-07-13 00:19:05 fjoe Exp $
  */
 
 /***************************************************************************
@@ -104,14 +104,14 @@ const	struct	cmd_type	cmd_table	[] =
      */
     { "at",             do_at,          POS_DEAD,       L6,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST  },
     { "cast",		do_cast,	POS_FIGHTING,	 0,  LOG_NORMAL, 1,0},
-    { "crecall",	do_crecall,	POS_FIGHTING,	 0,  LOG_NORMAL, 1,0 },
+    { "crecall",	do_crecall,	POS_FIGHTING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
     { "auction",        do_auction,     POS_SLEEPING,    0,  LOG_NORMAL, 1, CMD_GHOST  },
-    { "buy",		do_buy,		POS_RESTING,	 0,  LOG_NORMAL, 1,0},
+    { "buy",		do_buy,		POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
     { "channels",       do_channels,    POS_DEAD,        0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST},
-    { "dual",		do_second_wield,POS_RESTING,	 0,  LOG_NORMAL, 1,0},
+    { "dual",		do_second_wield,POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
     { "exits",		do_exits,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "estimate",	do_estimate,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
-    { "get",		do_get,		POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
+    { "get",		do_get,		POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
 
     { "goto",           do_goto,        POS_DEAD,       L8,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "glist",          do_glist,       POS_DEAD,        0,  LOG_NEVER,  1, 0},
@@ -122,19 +122,18 @@ const	struct	cmd_type	cmd_table	[] =
     { "look",		do_look,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "order",		do_order,	POS_RESTING,	 0,  LOG_NORMAL, 1,0},
     { "practice",       do_practice,	POS_SLEEPING,    0,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
-    { "rest",		do_rest,	POS_SLEEPING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
+    { "rest",		do_rest,	POS_SLEEPING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "repair",		do_repair,	POS_SLEEPING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
-    { "second",		do_second_wield,POS_RESTING,	 0,  LOG_NORMAL, 1,0},
-    { "sit",		do_sit,		POS_SLEEPING,    0,  LOG_NORMAL, 1,0},
+    { "second",		do_second_wield,POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
+    { "sit",		do_sit,		POS_SLEEPING,    0,  LOG_NORMAL, 1, CMD_GHOST},
     { "smithing",	do_smithing,	POS_RESTING,	 0,  LOG_NORMAL, 1,0},
     { "sockets",        do_sockets,	POS_DEAD,       L4,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST},
-    { "stand",		do_stand,	POS_SLEEPING,	 0,  LOG_NORMAL, 1,0},
+    { "stand",		do_stand,	POS_SLEEPING,	 0,  LOG_NORMAL, 1, CMD_GHOST},
     { "tell",		do_tell,	POS_SLEEPING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
-    { "unlock",         do_unlock,      POS_RESTING,     0,  LOG_NORMAL, 1,0},
-    { "wield",		do_wear,	POS_RESTING,	 0,  LOG_NORMAL, 1,0},
+    { "unlock",         do_unlock,      POS_RESTING,     0,  LOG_NORMAL, 1, CMD_GHOST},
+    { "wield",		do_wear,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
     { "wizhelp",	do_wizhelp,	POS_DEAD,	IM,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "lang",		do_lang,	POS_DEAD,	0,   LOG_NORMAL, 1,0},
-    { "language",	do_lang,	POS_DEAD,	0,   LOG_NORMAL, 1,0},
+    { "lang",		do_lang,	POS_DEAD,	0,   LOG_NORMAL, 1, CMD_GHOST},
 
     /*
      * Informational commands.
@@ -142,7 +141,7 @@ const	struct	cmd_type	cmd_table	[] =
     { "affects",	do_affects,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "afk",		do_afk,		POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "areas",		do_areas,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "balance",	do_balance,	POS_STANDING,	 0,  LOG_NORMAL, 1,0 },
+    { "balance",	do_balance,	POS_STANDING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
     { "bug",		do_bug,		POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "changes",	do_changes,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "commands",	do_commands,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
@@ -152,7 +151,7 @@ const	struct	cmd_type	cmd_table	[] =
     { "count",		do_count,	POS_SLEEPING,	HE,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "credits",	do_credits,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "date",		do_date,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "deposit",	do_deposit,	POS_STANDING,	 0,  LOG_NORMAL, 1,0},
+    { "deposit",	do_deposit,	POS_STANDING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
     { "equipment",	do_equipment,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "escape",		do_escape,	POS_FIGHTING,	 0,  LOG_NORMAL,1,0 },
     { "examine",	do_examine,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_GHOST }, 
@@ -176,7 +175,7 @@ const	struct	cmd_type	cmd_table	[] =
     { "weather",	do_weather,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "who",		do_who,		POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "whois",		do_whois,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "withdraw",	do_withdraw,	POS_STANDING,    0,  LOG_NORMAL, 1,0},
+    { "withdraw",	do_withdraw,	POS_STANDING,    0,  LOG_NORMAL, 1, CMD_GHOST },
     { "wizlist",	do_wizlist,	POS_DEAD,        0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "worth",		do_worth,	POS_SLEEPING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
 
@@ -203,7 +202,7 @@ const	struct	cmd_type	cmd_table	[] =
     { "gossip",		do_gossip,	POS_DEAD,	 3,  LOG_NORMAL, 1, CMD_GHOST },
     { ".",		do_gossip,	POS_DEAD,	 3,  LOG_NORMAL, 1, CMD_GHOST },
     { "motd",		do_motd,	POS_DEAD,        0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "wake",		do_wake,	POS_SLEEPING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
+    { "wake",		do_wake,	POS_SLEEPING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "warcry",         do_warcry,      POS_FIGHTING,    0,  LOG_NORMAL, 1,0},
     { "unread",		do_unread,	POS_SLEEPING,    0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "yell",		do_yell,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
@@ -232,13 +231,13 @@ const	struct	cmd_type	cmd_table	[] =
     { "delet",		do_delet,	POS_DEAD,	 0,  LOG_ALWAYS, 0, CMD_KEEP_HIDE|CMD_GHOST },
     { "delete",		do_delete,	POS_STANDING,	 0,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "identify",	do_identify,	POS_STANDING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
-    { "long",		do_long,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_GHOST },
+    { "long",		do_long,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "nofollow",	do_nofollow,	POS_DEAD,        0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "noloot",		do_noloot,	POS_DEAD,        0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "nosummon",	do_nosummon,	POS_DEAD,        0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "noiac",		do_noiac,	POS_DEAD,        0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "notelnet",	do_notelnet,	POS_DEAD,        0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "outfit",		do_outfit,	POS_RESTING,	 0,  LOG_NORMAL, 1,0},
+    { "outfit",		do_outfit,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "tick",		do_tick,	POS_DEAD,	ML,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "password",	do_password,	POS_DEAD,	 0,  LOG_NEVER,  1, CMD_KEEP_HIDE|CMD_GHOST },
     { "prompt",		do_prompt,	POS_DEAD,        0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
@@ -260,7 +259,7 @@ const	struct	cmd_type	cmd_table	[] =
      */
     { "endure",         do_endure,      POS_STANDING,    0,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
     { "enter", 		do_enter, 	POS_STANDING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
-    { "follow",		do_follow,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
+    { "follow",		do_follow,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_GHOST },
     { "gain",		do_gain,	POS_STANDING,	 0,  LOG_NORMAL, 1,0 },
     { "go",		do_enter,	POS_STANDING,	 0,  LOG_NORMAL, 0, CMD_GHOST },
     { "fade",		do_fade,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
@@ -275,7 +274,7 @@ const	struct	cmd_type	cmd_table	[] =
     { "quit",		do_quit,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "rent",		do_rent,	POS_DEAD,	 0,  LOG_NORMAL, 0,0 },
     { "save",		do_save,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_GHOST },
-    { "sleep",		do_sleep,	POS_SLEEPING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
+    { "sleep",		do_sleep,	POS_SLEEPING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_GHOST },
     { "slist",		do_slist,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "sneak",		do_sneak,	POS_STANDING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
     { "split",		do_split,	POS_RESTING,	 0,  LOG_NORMAL, 1,0 },
@@ -288,41 +287,41 @@ const	struct	cmd_type	cmd_table	[] =
      */
     { "brandish",	do_brandish,	POS_RESTING,	 0,  LOG_NORMAL, 1,0 },
     { "butcher",        do_butcher,     POS_STANDING,    0,  LOG_NORMAL, 1,0 },
-    { "close",		do_close,	POS_RESTING,	 0,  LOG_NORMAL, 1,0 },
+    { "close",		do_close,	POS_RESTING,	 0,  LOG_NORMAL, 1,CMD_GHOST },
     { "detect",         do_detect_hidden,POS_RESTING,    0,  LOG_NORMAL, 1,0},
-    { "drink",		do_drink,	POS_RESTING,	 0,  LOG_NORMAL, 1,0 },
-    { "drop",		do_drop,	POS_RESTING,	 0,  LOG_NORMAL, 1,0 },
-    { "eat",		do_eat,		POS_RESTING,	 0,  LOG_NORMAL, 1,0 },
+    { "drink",		do_drink,	POS_RESTING,	 0,  LOG_NORMAL, 1,CMD_GHOST },
+    { "drop",		do_drop,	POS_RESTING,	 0,  LOG_NORMAL, 1,CMD_GHOST },
+    { "eat",		do_eat,		POS_RESTING,	 0,  LOG_NORMAL, 1,CMD_GHOST },
     { "enchant",	do_enchant, 	POS_RESTING,     0,  LOG_NORMAL, 1,0 },
     { "envenom",	do_envenom,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
-    { "fill",		do_fill,	POS_RESTING,	 0,  LOG_NORMAL, 1,0 },
-    { "fly",		do_fly,		POS_FIGHTING,	 0,  LOG_NORMAL, 1,0 },
-    { "give",		do_give,	POS_RESTING,	 0,  LOG_NORMAL, 1,0 },
+    { "fill",		do_fill,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
+    { "fly",		do_fly,		POS_FIGHTING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
+    { "give",		do_give,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
     { "heal",		do_heal,	POS_RESTING,	 0,  LOG_NORMAL, 1,0 }, 
-    { "hold",		do_wear,	POS_RESTING,	 0,  LOG_NORMAL, 1,0 },
+    { "hold",		do_wear,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
     { "layhands",	do_layhands,	POS_RESTING,	 0,  LOG_NORMAL, 1,0 },
-    { "list",		do_list,	POS_RESTING,	 0,  LOG_NORMAL, 1,CMD_KEEP_HIDE },
-    { "lock",		do_lock,	POS_RESTING,	 0,  LOG_NORMAL, 1,0 },
-    { "lore",           do_lore,        POS_RESTING,     0,  LOG_NORMAL, 1,0 },
-    { "open",		do_open,	POS_RESTING,	 0,  LOG_NORMAL, 1,0 },
-    { "pick",		do_pick,	POS_RESTING,	 0,  LOG_NORMAL, 1,0 },
+    { "list",		do_list,	POS_RESTING,	 0,  LOG_NORMAL, 1,CMD_KEEP_HIDE | CMD_GHOST },
+    { "lock",		do_lock,	POS_RESTING,	 0,  LOG_NORMAL, 1, 0 },
+    { "lore",           do_lore,        POS_RESTING,     0,  LOG_NORMAL, 1, 0 },
+    { "open",		do_open,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
+    { "pick",		do_pick,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
     { "pour",		do_pour,	POS_RESTING,	 0,  LOG_NORMAL, 1,CMD_KEEP_HIDE },
-    { "put",		do_put,		POS_RESTING,	 0,  LOG_NORMAL, 1,0 },
-    { "quaff",		do_quaff,	POS_RESTING,	 0,  LOG_NORMAL, 1,0 },
+    { "put",		do_put,		POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
+    { "quaff",		do_quaff,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
     { "recite",		do_recite,	POS_RESTING,	 0,  LOG_NORMAL, 1,0 },
-    { "remove",		do_remove,	POS_RESTING,	 0,  LOG_NORMAL, 1,0 },
+    { "remove",		do_remove,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
     { "request",        do_request,     POS_STANDING,    0,  LOG_NORMAL, 1,0 },
     { "sell",		do_sell,	POS_RESTING,	 0,  LOG_NORMAL, 1,0 },
-    { "take",		do_get,		POS_RESTING,	 0,  LOG_NORMAL, 1,CMD_KEEP_HIDE },
+    { "take",		do_get,		POS_RESTING,	 0,  LOG_NORMAL, 1,CMD_KEEP_HIDE | CMD_GHOST },
     { "sacrifice",	do_sacrifice,	POS_RESTING,	 0,  LOG_NORMAL, 1,0 },
     { "junk",           do_sacrifice,   POS_RESTING,     0,  LOG_NORMAL, 0,0 },
     { "trophy",         do_trophy,      POS_STANDING,    0,  LOG_NORMAL, 1,0 },
     { "value",		do_value,	POS_RESTING,	 0,  LOG_NORMAL, 1,0 },
-    { "wear",		do_wear,	POS_RESTING,	 0,  LOG_NORMAL, 1,0 },
+    { "wear",		do_wear,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
     { "zap",		do_zap,		POS_RESTING,	 0,  LOG_NORMAL, 1,0 },
 
-    { "recall",		do_recall,	POS_FIGHTING,	 0,  LOG_NORMAL, 1,0 },
-    { "/",		do_recall,	POS_FIGHTING,	 0,  LOG_NORMAL, 0,0 },
+    { "recall",		do_recall,	POS_FIGHTING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
+    { "/",		do_recall,	POS_FIGHTING,	 0,  LOG_NORMAL, 0, CMD_GHOST },
 
     /*
      * Combat commands.
@@ -405,7 +404,6 @@ const	struct	cmd_type	cmd_table	[] =
     { "popularity",	do_popularity,	POS_DEAD,	L2,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "shutdow",	do_shutdow,	POS_DEAD,	L1,  LOG_NORMAL, 0, CMD_KEEP_HIDE|CMD_GHOST },
     { "shutdown",	do_shutdown,	POS_DEAD,	L1,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST},
-    { "sockets",	do_sockets,	POS_DEAD,	L4,  LOG_NORMAL, 1 }, 
     { "wizlock",	do_wizlock,	POS_DEAD,	L2,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "affrooms",	do_affrooms,	POS_DEAD,	L5,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "force",		do_force,	POS_DEAD,	L5,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST },
@@ -478,15 +476,15 @@ const	struct	cmd_type	cmd_table	[] =
     /*
      * OLC
      */
-    { "edit",		do_olc,		POS_DEAD,    0,  LOG_NORMAL, 1, 0 },
-    { "asave",          do_asave,	POS_DEAD,    0,  LOG_NORMAL, 1, 0 },
-    { "alist",		do_alist,	POS_DEAD,    0,  LOG_NORMAL, 1, 0 },
-    { "resets",		do_resets,	POS_DEAD,    0,  LOG_NORMAL, 1, 0 },
-    { "redit",		do_redit,	POS_DEAD,    0,	 LOG_NORMAL, 1, 0 },
-    { "medit",		do_medit,	POS_DEAD,    0,	 LOG_NORMAL, 1, 0 },
-    { "aedit",		do_aedit,	POS_DEAD,    0,  LOG_NORMAL, 1, 0 },
-    { "oedit",		do_oedit,	POS_DEAD,    0,  LOG_NORMAL, 1, 0 },
-    { "mpedit",		do_mpedit,	POS_DEAD,    0,  LOG_NORMAL, 1, 0 },
+    { "edit",		do_olc,		POS_DEAD,    0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_GHOST },
+    { "asave",          do_asave,	POS_DEAD,    0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_GHOST },
+    { "alist",		do_alist,	POS_DEAD,    0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_GHOST },
+    { "resets",		do_resets,	POS_DEAD,    0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_GHOST },
+    { "redit",		do_redit,	POS_DEAD,    0,	 LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_GHOST },
+    { "medit",		do_medit,	POS_DEAD,    0,	 LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_GHOST },
+    { "aedit",		do_aedit,	POS_DEAD,    0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_GHOST },
+    { "oedit",		do_oedit,	POS_DEAD,    0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_GHOST },
+    { "mpedit",		do_mpedit,	POS_DEAD,    0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_GHOST },
 
     /*
      * End of list.
@@ -617,12 +615,12 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 		}
 
 		/* prevent ghosts from doing a bunch of commands */
-		if (IS_SET(ch->act, PLR_GHOST) && !IS_NPC(ch)
-		&& !(cmd_table[cmd].extra & CMD_GHOST))
+		if (!IS_NPC(ch) && IS_SET(ch->act, PLR_GHOST)
+		&&  (cmd_table[cmd].extra & CMD_GHOST) == 0)
 			continue;
 
-			found = TRUE;
-			break;
+		found = TRUE;
+		break;
 	}
 
 	/*

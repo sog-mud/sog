@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.51 1998-07-12 11:26:07 efdi Exp $
+ * $Id: fight.c,v 1.52 1998-07-13 00:19:03 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1548,7 +1548,9 @@ bool is_safe(CHAR_DATA *ch, CHAR_DATA *victim)
 
 bool is_safe_nomessage(CHAR_DATA *ch, CHAR_DATA *victim)
 {
-	if (victim->fighting == ch || ch==victim)
+	if (victim->fighting == ch
+	||  ch == victim
+	||  ch->level >= LEVEL_IMMORTAL)
 		return FALSE;
 
 	/* Ghosts are safe */
@@ -1568,15 +1570,8 @@ bool is_safe_nomessage(CHAR_DATA *ch, CHAR_DATA *victim)
 	&&  victim->class == CLASS_VAMPIRE)
 		return TRUE;
 
-
 	/* link dead players whose adrenalin is not gushing are safe */
 	if (!IS_NPC(victim) && !IS_PUMPED(victim) && victim->desc == NULL)
-		return TRUE;
-
-	/* newly death staff */
-	if (!IS_IMMORTAL(ch) && !IS_NPC(victim)
-	&&  !IS_SET(ch->act, PLR_GHOST)
-	&&  !IS_SET(victim->act, PLR_GHOST))
 		return TRUE;
 
 	return !in_PK(ch, victim);

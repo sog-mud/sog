@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.35 1998-07-11 22:09:11 fjoe Exp $
+ * $Id: handler.c,v 1.36 1998-07-13 00:19:04 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3031,11 +3031,11 @@ char *act_bit_name(int vector)
 	char buf[MAX_STRING_LENGTH];
 
 	if (IS_SET(vector, ACT_NPC)) { 
- 		strcpy(buf,"npc");
+ 		strcpy(buf," npc");
 		return flag_names_raw(act_flags, vector, buf);
 	}
 	else {
-		strcpy(buf,"player");
+		strcpy(buf," player");
 		return flag_names_raw(plr_flags, vector, buf);
 	}
 }
