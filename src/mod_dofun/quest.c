@@ -1,5 +1,5 @@
 /*
- * $Id: quest.c,v 1.17 1998-05-19 13:55:14 efdi Exp $
+ * $Id: quest.c,v 1.18 1998-05-20 21:21:49 efdi Exp $
  */
 
 /***************************************************************************
@@ -68,16 +68,11 @@
 #include "resource.h"
 #include "hometown.h"
 #include "magic.h"
+#include "quest.h"
 
 void do_tell_quest(CHAR_DATA *ch, CHAR_DATA *victim, char *argument);
 extern	MOB_INDEX_DATA	*mob_index_hash [MAX_KEY_HASH];
 
-/* Object vnums for object quest 'tokens': object quest. */
-
-#define QUEST_OBJQUEST1 84
-#define QUEST_OBJQUEST2 85
-#define QUEST_OBJQUEST3 86
-#define QUEST_OBJQUEST4 97
 
 /* Local functions */
 

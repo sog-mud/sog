@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.38 1998-05-20 12:26:56 efdi Exp $
+ * $Id: act_move.c,v 1.39 1998-05-20 21:21:47 efdi Exp $
  */
 
 /***************************************************************************
@@ -1794,7 +1794,7 @@ void do_sneak(CHAR_DATA *ch, char *argument)
 
 void do_hide(CHAR_DATA *ch, char *argument)
 {
-int forest;
+	int forest;
 
 	if (MOUNTED(ch)) 
 	{
@@ -1813,18 +1813,15 @@ int forest;
 		return;
 	}
 	forest = 0;
-	forest += ch->in_room->sector_type == SECT_FOREST?60:0;
-	forest += ch->in_room->sector_type == SECT_FIELD?60:0;
+	forest += ch->in_room->sector_type == SECT_FOREST ? 60 : 0;
+	forest += ch->in_room->sector_type == SECT_FIELD ? 60 : 0;
 
 	send_to_char(msg(MOVE_YOU_ATTEMPT_TO_HIDE, ch), ch);
 
-	if (number_percent() < get_skill(ch,gsn_hide)-forest)
-	{
+	if (number_percent() < get_skill(ch,gsn_hide)-forest) {
 		SET_BIT(ch->affected_by, AFF_HIDE);
 		check_improve(ch,gsn_hide,TRUE,3);
-	}
-	else  {
-		if (IS_AFFECTED(ch, AFF_HIDE))
+	} else  {
 		REMOVE_BIT(ch->affected_by, AFF_HIDE);
 		check_improve(ch,gsn_hide,FALSE,3);
 	}
@@ -1891,54 +1888,48 @@ void do_camouflage(CHAR_DATA *ch, char *argument)
  */
 void do_visible(CHAR_DATA *ch, char *argument)
 {
-	if (IS_SET(ch->affected_by, AFF_HIDE))
-		{
+	if (IS_SET(ch->affected_by, AFF_HIDE)) {
 		send_to_char(msg(MOVE_YOU_STEP_OUT_SHADOWS, ch), ch);
 		REMOVE_BIT(ch->affected_by, AFF_HIDE);
 		act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
 				MOVE_N_STEPS_OUT_OF_SHADOWS);
-		}
-	if (IS_SET(ch->affected_by, AFF_FADE))
-		{
+	}
+	if (IS_SET(ch->affected_by, AFF_FADE)) {
 		send_to_char(msg(MOVE_YOU_STEP_OUT_SHADOWS, ch), ch);
 		REMOVE_BIT(ch->affected_by, AFF_FADE);
 		act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
 				MOVE_N_STEPS_OUT_OF_SHADOWS);
-		}
-	if (IS_SET(ch->affected_by, AFF_CAMOUFLAGE))
-		{
+	}
+	if (IS_SET(ch->affected_by, AFF_CAMOUFLAGE)) {
 		send_to_char(msg(MOVE_YOU_STEP_OUT_COVER, ch), ch);
 		REMOVE_BIT(ch->affected_by,AFF_CAMOUFLAGE);
 		act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
 				MOVE_N_STEPS_OUT_COVER);
-		}
-	if (IS_SET(ch->affected_by, AFF_INVISIBLE))
-		{
+	}
+	if (IS_SET(ch->affected_by, AFF_INVISIBLE)) {
 		send_to_char(msg(MOVE_YOU_FADE_INTO_EXIST, ch), ch);
 		affect_strip(ch, gsn_invis);
 		affect_strip(ch, gsn_mass_invis);
 		REMOVE_BIT(ch->affected_by, AFF_INVISIBLE);
 		act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
 				MOVE_N_FADES_INTO_EXIST);
-		}
-	if (IS_SET(ch->affected_by, AFF_IMP_INVIS))
-		{
+	}
+	if (IS_SET(ch->affected_by, AFF_IMP_INVIS)) {
 		send_to_char(msg(MOVE_YOU_FADE_INTO_EXIST, ch), ch);
 		affect_strip(ch, gsn_invis);
 		affect_strip(ch, gsn_imp_invis);
 		REMOVE_BIT(ch->affected_by, AFF_IMP_INVIS);
 		act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
 				MOVE_N_FADES_INTO_EXIST);
-		}
+	}
 	if (IS_SET(ch->affected_by, AFF_SNEAK) 
-		&& !IS_NPC(ch) && !IS_SET(race_table[RACE(ch)].aff,AFF_SNEAK))
-		{
+	    && !IS_NPC(ch) && !IS_SET(race_table[RACE(ch)].aff,AFF_SNEAK)) {
 		send_to_char(msg(MOVE_YOU_TRAMPLE_AROUND_LOUDLY, ch), ch);
 		affect_strip(ch, gsn_sneak);
 		REMOVE_BIT(ch->affected_by, AFF_SNEAK);
-		}
+	}
 
-	affect_strip (ch, gsn_mass_invis			);
+	affect_strip (ch, gsn_mass_invis);
 	return;
 }
 
@@ -3425,7 +3416,6 @@ void do_mount(CHAR_DATA *ch, char *argument)
   /* No sneaky people on mounts */
   affect_strip(ch, gsn_sneak);
   REMOVE_BIT(ch->affected_by, AFF_SNEAK);
-  affect_strip(ch, gsn_hide);
   REMOVE_BIT(ch->affected_by, AFF_HIDE);
   affect_strip(ch, gsn_fade);
   REMOVE_BIT(ch->affected_by, AFF_FADE);

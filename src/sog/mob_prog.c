@@ -1,5 +1,5 @@
 /*
- * $Id: mob_prog.c,v 1.7 1998-05-18 12:56:33 efdi Exp $
+ * $Id: mob_prog.c,v 1.8 1998-05-20 21:21:48 efdi Exp $
  */
 
 /***************************************************************************
@@ -53,6 +53,7 @@
 #include "comm.h"
 #include "hometown.h"
 #include "resource.h"
+#include "quest.h"
 
 void raw_kill args( (CHAR_DATA *victim) );
 DECLARE_DO_FUN(do_yell);

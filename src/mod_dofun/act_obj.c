@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.9 1998-05-08 20:35:34 fjoe Exp $
+ * $Id: act_obj.c,v 1.10 1998-05-20 21:21:48 efdi Exp $
  */
 
 /***************************************************************************
@@ -51,6 +51,7 @@
 #include "act_wiz.h"
 #include "act_comm.h"
 #include "magic.h"
+#include "quest.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_split		);
@@ -2039,7 +2040,8 @@ void do_sacrifice(CHAR_DATA *ch, char *argument)
 	OBJ_DATA *r_cont;
 	OBJ_DATA *r_next_cont;
 	if(!strcmp(argument, "all"))
-		for(r_cont = ch->in_room->contents; r_cont; r_cont = r_next_cont) {
+		for(r_cont = ch->in_room->contents; r_cont; 
+		    r_cont = r_next_cont) {
 			r_next_cont = r_cont->next_content;
 			do_sacr(ch, r_cont->name);
 	}
@@ -2085,10 +2087,13 @@ void do_sacr(CHAR_DATA *ch, char *argument)
 	return;
     }
 
-    if (obj->item_type == ITEM_CORPSE_PC && ch->level < MAX_LEVEL)
-    {
-     send_to_char("Gods wouldn't like that.\n\r",ch);
-     return;
+    if ((obj->item_type == ITEM_CORPSE_PC && ch->level < MAX_LEVEL) 
+	|| (obj->pIndexData->vnum == QUEST_OBJQUEST1 
+	 || obj->pIndexData->vnum == QUEST_OBJQUEST2
+	 || obj->pIndexData->vnum == QUEST_OBJQUEST3 
+	 || obj->pIndexData->vnum == QUEST_OBJQUEST4)) {
+	send_to_char("Gods wouldn't like that.\n\r",ch);
+     	return;
     }
 
 

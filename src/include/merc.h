@@ -2,7 +2,7 @@
 #define _MERC_H_
 
 /*
- * $Id: merc.h,v 1.17 1998-05-17 09:39:08 efdi Exp $
+ * $Id: merc.h,v 1.18 1998-05-20 21:21:48 efdi Exp $
  */
 
 /***************************************************************************
@@ -1384,11 +1384,6 @@ struct	kill_data
 #define OBJ_VNUM_TATTOO_PROMETHEUS	66
 #define OBJ_VNUM_TATTOO_EROS		67
 
-/* quest rewards */
-#define QUEST_ITEM1 94
-#define QUEST_ITEM2 95
-#define QUEST_ITEM3 96
-
 /*
  * Item types.
  * Used in #OBJECTS.
@@ -1782,19 +1777,6 @@ struct	kill_data
 #define CANT_CHANGE_TITLE(ch) (IS_SET(ch->act , PLR_NO_TITLE))
 #define IS_BLINK_ON(ch) (IS_SET((ch)->act , PLR_BLINK_ON))
 #define CANT_GAIN_EXP(ch) (IS_SET((ch)->act , PLR_NO_EXP))
-
-/* The Quests */
-#define QUEST_EYE		(B)
-#define QUEST_WEAPON		(C)
-#define QUEST_GIRTH		(D)
-#define QUEST_RING		(E)
-#define QUEST_WEAPON2		(F)
-#define QUEST_GIRTH2		(G)
-#define QUEST_RING2		(H)
-#define QUEST_WEAPON3		(I)
-#define QUEST_GIRTH3		(J)
-#define QUEST_RING3		(K)
-
 
 /* RT comm flags -- may be used on both mobs and chars */
 #define COMM_QUIET		(A)

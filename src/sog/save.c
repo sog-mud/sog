@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.15 1998-05-17 09:39:09 efdi Exp $
+ * $Id: save.c,v 1.16 1998-05-20 21:21:49 efdi Exp $
  */
 
 /***************************************************************************
@@ -60,6 +60,7 @@
 #include "resource.h"
 #include "hometown.h"
 #include "magic.h"
+#include "quest.h"
  
 extern  int     _filbuf         args( (FILE *) );
 
