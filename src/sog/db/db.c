@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.169.2.15 2000-11-17 12:49:37 avn Exp $
+ * $Id: db.c,v 1.169.2.16 2001-01-24 17:49:23 fjoe Exp $
  */
 
 /***************************************************************************
@@ -144,7 +144,8 @@ const char PENALTY_FILE		[] = "penal.not";
 const char NEWS_FILE		[] = "news.not";
 const char CHANGES_FILE		[] = "chang.not";
 const char SHUTDOWN_FILE	[] = "shutdown";	/* For 'shutdown' */
-const char EQCHECK_SAVE_ALL_FILE[] = "eqcheck_save_all";/* limited eq checks */
+const char EQCHECK_FILE		[] = "eqcheck";		/* limited eq checks */
+const char EQCHECK_SAVE_ALL_FILE[] = "eqcheck_save_all";/* save all pfiles during scan */
 const char BAN_FILE		[] = "ban.txt";
 const char MAXON_FILE		[] = "maxon.txt";
 const char AREASTAT_FILE	[] = "areastat.txt";
@@ -1972,10 +1973,16 @@ void scan_pfiles()
 {
 	struct dirent *dp;
 	DIR *dirp;
+	bool eqcheck = dfexist(TMP_PATH, EQCHECK_FILE);
 	bool eqcheck_save_all = dfexist(TMP_PATH, EQCHECK_SAVE_ALL_FILE);
 
-	log("scan_pfiles: start (save all: %s)",
+	log("scan_pfiles: start (eqcheck: %s, save all: %s)",
+	    eqcheck ? "yes" : "no",
 	    eqcheck_save_all ? "yes" : "no");
+
+	if (eqcheck
+	&&  dunlink(TMP_PATH, EQCHECK_FILE) < 0)
+		log("scan_pfiles: unable to deactivate 'eqcheck' (%s)", strerror(errno));
 
 	if (eqcheck_save_all
 	&&  dunlink(TMP_PATH, EQCHECK_SAVE_ALL_FILE) < 0)
@@ -2008,10 +2015,16 @@ void scan_pfiles()
 			continue;
 
 		/* Remove limited eq from the pfile if it's two weeks old */
-		if (dstat(PLAYER_PATH, dp->d_name, &s) < 0) 
+		if (dstat(PLAYER_PATH, dp->d_name, &s) < 0)
 			log("scan_pfiles: unable to stat %s.", dp->d_name);
-		else
-			should_clear = (current_time - s.st_mtime) > 60*60*24*14;
+		else {
+			should_clear =
+			    (current_time - s.st_mtime) > 60*60*24*14;
+			if (should_clear) {
+				log("scan_pfiles: %s: more than two weeks old: stripping all limited eq",
+				    ch->name);
+			}
+		}
 
 		for (obj = ch->carrying; obj; obj = obj_next) {
 			obj_next = obj->next_content;
@@ -2023,11 +2036,27 @@ void scan_pfiles()
 
 			obj->pObjIndex->count++;
 
+			/*
+			 * always rip limited eq from containers
+			 */
 			if (obj->pObjIndex->item_type == ITEM_CONTAINER)
 				rip_limited_eq(ch, obj);
 
+			/*
+			 * skip not limited objects
+			 * always clear if char is two weeks old
+			 * otherwise clear if we are doing eqcheck with
+			 * probability 6%
+			 *
+			 * !(should_clear || (eqcheck && number_percent() < 7))
+			 * <=>
+			 * !should_clear && !(eqcheck && number_percent() < 7)
+			 * <=>
+			 * !should_clear && (!eqcheck || number_percent() < 95)
+			 */
 			if (obj->pObjIndex->limit < 0
-			||  !should_clear)
+			||  (!should_clear &&
+			     (!eqcheck || number_percent() < 95)))
 				continue;
 
 			changed = TRUE;
@@ -2046,7 +2075,7 @@ void scan_pfiles()
 		if (PC(ch)->version < 12
 		&&  PC(ch)->death >= 2)
 			PC(ch)->death -= 2;
-			
+
 		if (!IS_IMMORTAL(ch))
 			rating_add(ch);
 
@@ -2059,7 +2088,8 @@ void scan_pfiles()
 	}
 	closedir(dirp);
 
-	log("scan_pfiles: end (save all: %s)",
+	log("scan_pfiles: end (eqcheck: %s, save all: %s)",
+	    dfexist(TMP_PATH, EQCHECK_FILE) ?  "yes" : "no",
 	    dfexist(TMP_PATH, EQCHECK_SAVE_ALL_FILE) ? "yes" : "no");
 }
 

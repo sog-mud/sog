@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.182.2.38 2001-01-18 22:21:08 fjoe Exp $
+ * $Id: handler.c,v 1.182.2.39 2001-01-24 17:49:22 fjoe Exp $
  */
 
 /***************************************************************************
@@ -5142,7 +5142,20 @@ void reboot_mud(void)
 		close_descriptor(d, SAVE_F_REBOOT);
 	}
 
-	merc_down = TRUE;    
+	/*
+	 * activate eqcheck on next boot
+	 */
+	if (!rebooter) {
+		FILE *fp = dfopen(TMP_PATH, EQCHECK_FILE, "w");
+		if (!fp) {
+			log("reboot_mud: unable to activate eqcheck");
+		} else {
+			log("reboot_mud: eqcheck activated");
+			fclose(fp);
+		}
+	}
+
+	merc_down = TRUE;
 }
 
 /* object condition aliases */
