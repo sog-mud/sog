@@ -546,9 +546,9 @@ AZc B medium unknown
 
 #OBJECTS
 #4900
-plate bell breast~
-bell breast plate~
-A Bell lies here forgotten.~
+bell breast plate колокол~
+@eng bell breast plate@rus колокол~
+@eng A Bell lies here forgotten.@rus Большой колокол (bell) лежит на земле.~
 bronze~
 armor BRY AD
 10 10 10 5 0
@@ -567,9 +567,9 @@ A
 24 -5
 G none
 #4901
-robe mechanic~
-robe of mechanic~
-An old oiled robe lies here.~
+robe mechanic фартук~
+@eng robe of mechanic@rus фартук часовщика~
+@eng An old oiled robe lies here.@rus Старый засаленный фартук (robe) лежит здесь.~
 silk~
 armor 0 AD
 15 15 15 10 0
@@ -580,9 +580,9 @@ A
 4 3
 G none
 #4902
-standart set instrument~
-standart set of instruments~
-A set of instruments lies here forgotten.~
+standart set instrument набор~
+@eng standart set of instruments@rus набор инструментов~
+@eng A set of instruments lies here forgotten.@rus Набор инструментов (set), забытый часовщиком, лежит тут.~
 iron~
 weapon BR AN
 exotic 6 6 cleave G
@@ -596,26 +596,26 @@ A
 G none
 #4903
 cabinet конторка~
-@eng cabinet@rus конторка~
-@eng An ivory cabinet stands here.@rus Конторка из черного дерева стоит в углу.~
+@eng cabinet@rus ~~конторка~~~
+@eng An ivory cabinet stands here.@rus Конторка (cabinet) из черного дерева стоит в углу.~
 ivory~
 container CRY 0
 100 ABCD 4904 100 100
 0 0 0 P
 G none
 #4904
-key ivory~
-ivory key~
-An ivory key is tied to the gold chain.~
+ivory key ключ~
+@eng ivory key@rus ключ из черного дерева~
+@eng An ivory key is tied to the gold chain.@rus Ключ из черного дерева (ivory) подвешен на золотой цепочке.~
 ivory~
 key CFU AO
 0 0 0 0 0
 30 0 0 P
-G none
+G male
 #4905
-key bronze~
-bronze clock key~
-A key made with bronze waits to be used.~
+bronze key ключ бронзовый~
+@eng bronze clock key@rus бронзовый ключ от часов~
+@eng A key made with bronze waits to be used.@rus Бронзовый ключ ждет, когда ты соберешься завести часы.~
 bronze~
 armor AY AO
 0 0 0 0 0
@@ -636,9 +636,9 @@ A
 24 -5
 G none
 #4906
-black hat top~
-black top hat of a chimney-sweep~
-A strange-looking black hat sits here.~
+hat top black цилиндр черный~
+@eng black top hat of a chimney-sweep@rus черный цилиндр трубочиста~
+@eng A strange-looking black hat sits here.@rus Странная шляпа (hat) лежит тут.~
 silk~
 armor GK AE
 10 10 10 8 0
@@ -1202,7 +1202,7 @@ D4
 Z -1 4910
 S
 #4910
-@eng At Ten o'clock@rus Десять Часоы~
+@eng At Ten o'clock@rus Десять Часов~
 @eng You have reached a number Ten on a clock face.
 A number Ten that you see gleems in the sunshine.
 You cannot go back, so keep moving!
@@ -1398,7 +1398,7 @@ D4
 Z -1 4922
 S
 #4922
-@eng At Ten o'clock@rus Десять Часоы~
+@eng At Ten o'clock@rus Десять Часов~
 @eng You have reached a number Ten on a clock face.
 A number Ten that you see gleems in the sunshine.
 You cannot go back, so keep moving!
@@ -1594,7 +1594,7 @@ D4
 Z -1 4934
 S
 #4934
-@eng At Ten o'clock@rus Десять Часоы~
+@eng At Ten o'clock@rus Десять Часов~
 @eng You have reached a number Ten on a clock face.
 A number Ten that you see gleems in the sunshine.
 You cannot go back, so keep moving!
@@ -1790,7 +1790,7 @@ D4
 Z -1 4946
 S
 #4946
-@eng At Ten o'clock@rus Десять Часоы~
+@eng At Ten o'clock@rus Десять Часов~
 @eng You have reached a number Ten on a clock face.
 A number Ten that you see gleems in the sunshine.
 You cannot go back, so keep moving!
@@ -1854,7 +1854,7 @@ and long, points at these figures.
 Сверкающие фигуры стоят по краю циферблата. Две стрелки:
 большая и маленькая указывают на эти фигуры.
 ~
-0 0 air
+0 C air
 D0
 ~
 ~
@@ -1877,7 +1877,7 @@ and long, points at these figures.
 Сверкающие фигуры стоят по краю циферблата. Две стрелки:
 большая и маленькая указывают на эти фигуры.
 ~
-0 0 air
+0 C air
 D1
 ~
 ~
@@ -1900,7 +1900,7 @@ and long, points at these figures.
 Сверкающие фигуры стоят по краю циферблата. Две стрелки:
 большая и маленькая указывают на эти фигуры.
 ~
-0 0 air
+0 C air
 D2
 ~
 ~
@@ -1923,7 +1923,7 @@ and long, points at these figures.
 Сверкающие фигуры стоят по краю циферблата. Две стрелки:
 большая и маленькая указывают на эти фигуры.
 ~
-0 0 air
+0 C air
 D3
 ~
 ~
@@ -3240,6 +3240,62 @@ E 0 4933 0 8		*	"9" glowing boots: on the feet
 E 0 4942 0 16		*	clock mace: wielded
 M 0 4917 4 4934 1	* Ten o'clock (At Ten o'clock)
 M 0 4918 4 4935 1	* Eleven o'clock (At Eleven o'clock)
+M 0 4932 1 4936 1	* Long Hand (At Twelve o'clock)
+E 0 4911 0 16		*	long hand: wielded
+M 0 4933 1 4936 1	* Short Hand (At Twelve o'clock)
+E 0 4910 0 16		*	short hand: wielded
+M 0 4919 4 4936 1	* Twelve o'clock (At Twelve o'clock)
+E 0 4934 0 5		*	"12" glowing breast plate: on the body
+E 0 4935 0 7		*	"12" glowing leg plates: on the legs
+E 0 4936 0 10		*	"12" glowing arm plates: on the arms
+E 0 4937 0 6		*	"12" glowing helmet: over the head
+E 0 4938 0 9		*	"12" glowing gauntlets: on the hands
+E 0 4939 0 8		*	"12" glowing boots: on the feet
+E 0 4943 0 16		*	clock lance: wielded
+M 0 4908 4 4937 1	* One o'clock (At One o'clock)
+M 0 4909 4 4938 1	* Two o'clock (At Two o'clock)
+M 0 4910 4 4939 1	* Three o'clock (At Three o'clock)
+E 0 4916 0 5		*	"3" glowing breast plate: on the body
+E 0 4917 0 7		*	"3" glowing leg plates: on the legs
+E 0 4918 0 10		*	"3" glowing arm plates: on the arms
+E 0 4919 0 6		*	"3" glowing helmet: over the head
+E 0 4920 0 9		*	"3" glowing gauntlets: on the hands
+E 0 4921 0 8		*	"3" glowing boots: on the feet
+E 0 4940 0 16		*	clock dagger: wielded
+M 0 4911 4 4940 1	* Four o'clock (At Four o'clock)
+M 0 4912 4 4941 1	* Five o'clock (At Five o'clock)
+M 0 4913 4 4942 1	* Six o'clock (At Six o'clock)
+E 0 4922 0 5		*	"6" glowing breast plate: on the body
+E 0 4923 0 7		*	"6" glowing leg plates: on the legs
+E 0 4924 0 10		*	"6" glowing arm plates: on the arms
+E 0 4925 0 6		*	"6" glowing helmet: over the head
+E 0 4926 0 9		*	"6" glowing gauntlets: on the hands
+E 0 4927 0 8		*	"6" glowing boots: on the feet
+E 0 4941 0 16		*	clock sword: wielded
+M 0 4914 4 4943 1	* Seven o'clock (At Seven o'clock)
+M 0 4915 4 4944 1	* Eight o'clock (At Eight o'clock)
+M 0 4916 4 4945 1	* Nine o'clock (At Nine o'clock)
+E 0 4928 0 5		*	"9" glowing breast plate: on the body
+E 0 4929 0 7		*	"9" glowing leg plates: on the legs
+E 0 4930 0 10		*	"9" glowing arm plates: on the arms
+E 0 4931 0 6		*	"9" glowing helmet: over the head
+E 0 4932 0 9		*	"9" glowing gauntlets: on the hands
+E 0 4933 0 8		*	"9" glowing boots: on the feet
+E 0 4942 0 16		*	clock mace: wielded
+M 0 4917 4 4946 1	* Ten o'clock (At Ten o'clock)
+M 0 4918 4 4947 1	* Eleven o'clock (At Eleven o'clock)
+M 0 4934 1 4948 1	* Long Hand (At Twelve o'clock)
+E 0 4911 0 16		*	long hand: wielded
+M 0 4935 1 4948 1	* Short Hand (At Twelve o'clock)
+E 0 4910 0 16		*	short hand: wielded
+M 0 4919 4 4948 1	* Twelve o'clock (At Twelve o'clock)
+E 0 4934 0 5		*	"12" glowing breast plate: on the body
+E 0 4935 0 7		*	"12" glowing leg plates: on the legs
+E 0 4936 0 10		*	"12" glowing arm plates: on the arms
+E 0 4937 0 6		*	"12" glowing helmet: over the head
+E 0 4938 0 9		*	"12" glowing gauntlets: on the hands
+E 0 4939 0 8		*	"12" glowing boots: on the feet
+E 0 4943 0 16		*	clock lance: wielded
 M 0 4922 15 4953 1	* Small gear (Clock-Work)
 M 0 4920 10 4953 1	* Large gear (Clock-Work)
 R 0 4953 5	* Clock-Work: randomize

@@ -1,5 +1,6 @@
 #AREADATA
 Name Elvenhame~
+Builders stark~
 VNUMs 40100 40199
 Credits Xyza~
 Security 9
@@ -880,8 +881,8 @@ stand stand female 10000
 
 #OBJECTS
 #40101
-fountain water light~
-the Fountain of Light~
+fountain фонтан вода свет water light~
+@eng the Fountain of Light@rus ~~фонтан~~ света~
 (Good Aura) The Fountain of Light is here, offering water to the thirsty.~
 quartz~
 fountain AGIOR 0
@@ -1652,9 +1653,11 @@ G none
 
 #ROOMS
 #40100
-Outside the East Gate of Elvenhame~
-You are outside the East Gate of Elvenhame. To the
+@eng Outside the East Gate of Elvenhame@rus За восточными воротами Эльвенхейма~
+@eng You are outside the East Gate of Elvenhame. To the
 west is the gate itself.
+@rus   Ты - за восточными воротами Эльвенхейма. На
+западе - собственно ворота.
 ~
 0 0 city
 D1
@@ -1667,7 +1670,7 @@ D3
 Z 0 40101
 S
 #40101
-Inside the East Gate of Elvenhame~
+@eng Inside the East Gate of Elvenhame@rus Внутри восточных ворот  Эльвенхейма~
 You are inside the East Gate of Elvenhame. To the west is 
 the Elven city, with its magnificent buildings and wonderful
 plant life. To the east is wilderness. The gate itself is made

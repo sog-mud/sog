@@ -43,11 +43,11 @@ Developed at: DIKU -- The Department of Computer Science
                       at the University of Copenhagen.
 @rus                 Первоначальная игровая идея, концепция, и дизайн:
   
-          Katja Nyboe               [{cSuperwoman{x] ({rkatz@@freja.diku.dk{x)
-          Tom Madsen              [{cStormbringer{x] ({rnoop@@freja.diku.dk{x)
-          Hans Henrik Staerfeldt           [{cGod{x] ({rbombman@@freja.diku.dk{x)
-          Michael Seifert                 [{cPapi{x] ({rseifert@@freja.diku.dk{x)
-          Sebastian Hammer               [{cQuinn{x] ({rquinn@@freja.diku.dk{x)
+           Katja Nyboe               [{cSuperwoman{x] (katz@@freja.diku.dk)
+           Tom Madsen              [{cStormbringer{x] (noop@@freja.diku.dk)
+           Hans Henrik Staerfeldt           [{cGod{x] (bombman@@freja.diku.dk)
+           Michael Seifert                 [{cPapi{x] (seifert@@freja.diku.dk)
+           Sebastian Hammer               [{cQuinn{x] (quinn@@freja.diku.dk)
   
   
 Разработан в: DIKU -- факультет информатики Копенгагенского университета.
@@ -309,10 +309,10 @@ use one of the following numbers,
 
 For brighter colors, use the shifted letters: {RR{GG{YY{BB{MM{CC{WW{x
 When using color, it looks better if you finish the line with whatever
-color it would normally be in, such as a gossip, the color is magenta, so:
-                {mLope gossips '{ghello,{r world{m'{x
+color it would normally be in, such as a gossip, the color is red, so:
+                {RLope gossips '{Chello, {Gworld{R'{x
         looks better than:
-                {mLope gossips '{ghello,{r world'{x
+                {RLope gossips '{Chello, {Gworld'{x
 
 Other {{? sequences are:
          {{*     beep    {{\     new line
@@ -387,13 +387,13 @@ the ground will not be regenerated if anyone is in the area when it resets.
 ! повторяет последнюю введенную команду.
 ~
 0 NORTH SOUTH EAST WEST UP DOWN~
-@eng Syntax: north
-Syntax: south
-Syntax: east
-Syntax: west
-Syntax: up
-Syntax: down
-
+@eng Syntax: {cnorth{x
+Syntax: {csouth{x
+Syntax: {ceast{x
+Syntax: {cwest{x
+Syntax: {cup{x
+Syntax: {cdown{x
+ 
 Use these commands to walk in a particular direction.
 @rus Синтаксис: {cnorth{x
 Синтаксис: {csouth{x
@@ -405,26 +405,26 @@ Use these commands to walk in a particular direction.
 Эти команды используются для перемещений в соответствующем направлении.
 ~
 -2 NAME~
-@eng NAME POLICY:
+@eng .                   {cName Policy{x
 In order to create a role-playing and adventure atmosphere throughout the
 Shades of Gray, you must choose a name accordingly explained below:
  
-ACCEPTABLE:
-1)  Proper names, medieval or modern. i.e  (Takasi, Mitra)
-2)  Created names with a medieval or fictional sound.  (Priatros, Sansoles)
+{cAcceptable{x:
+   -- Proper names, medieval or modern. i.e  (Takasi, Mitra)
+   -- Created names with a medieval or fictional sound. (Priatros, Sansoles)
  
-UNACCEPTABLE:                                                        
-1)  Vulgar or sexually suggestive names.  (No examples needed)
-2)  Nouns which are names of animals.  (Horse, Doll)          
-3)  Strings of random characters.  (Asdfg, Qwdldkf)                
-4)  Titles which imply rank or privelege.   (Lord, Sir,...)
-5)  Scientific phrases, words. (Proof, Logic, Electrics...)
-6)  Object names. (Necklace, Staff, Sword etc)              
-7)  Compound names. (FarmerJoe, Maryjane etc.)
+{cUnacceptable{x:
+   -- Vulgar or sexually suggestive names.  (No examples needed)
+   -- Nouns which are names of animals.  (Horse, Doll)
+   -- Strings of random characters.  (Asdfg, Qwdldkf)
+   -- Titles which imply rank or privelege.   (Lord, Sir,...)
+   -- Scientific phrases, words. (Proof, Logic, Electrics...)
+   -- Object names. (Necklace, Staff, Sword etc)
+   -- Compound names. (FarmerJoe, Maryjane etc.)
  
-Anyway, immortals may ask you to choose another name if they consider 
+Anyway, immortals may ask you to choose another name if they consider
 your name inappropriate.
-If your name fits above restrictions, type Y. Otherwise choose another 
+If your name fits above restrictions, type Y. Otherwise choose another
 name. Last decision depend upon Immortals of Shades of Gray.
 @rus                            {cВыбор имени.{x
 
@@ -451,7 +451,7 @@ name. Last decision depend upon Immortals of Shades of Gray.
 этого мира.
 ~
 0 CAST~
-@eng Syntax: cast <spell> <target>
+@eng Syntax: {ccast{x <spell> <target>
 
 Before you can cast a spell, you have to practice it.  The more you practice,
 the higher chance you have of success when casting.  Casting spells costs mana.
@@ -461,7 +461,8 @@ The <target> is optional.  Many spells which need targets will use an
 appropriate default target, especially during combat.
 
 If the spell name is more than one word, then you must quote the spell name.
-Example: cast 'cure critic' frag.  Quoting is optional for single-word spells.
+Example: {ccast 'cure critic' frag{x
+Quoting is optional for single-word spells.
 You can abbreviate the spell name.
 
 When you cast an offensive spell, the victim usually gets a saving throw.
@@ -492,7 +493,7 @@ See also the help sections for individual spells.
 Также смотри {CHELP <название заклинания>{x.
 ~
 0 EXITS~
-@eng Syntax: exits
+@eng Syntax: {cexits{x
 
 Tells you the visible exits of the room you are in.  Not all exits are visible.
 You can use the 'bump' technique to find hidden exits.  (Try to walk in a
@@ -505,13 +506,15 @@ certain direction and see what you bump into).
 и смотрите, во что вы упираетесь).
 ~
 0 DROP GET GIVE PUT TAKE~
-@eng Syntax: drop <object>
-Syntax: drop <amount> coins
-Syntax: get  <object>
-Syntax: get  <object> <container>
-Syntax: give <object> <character>
-Syntax: give <amount> coins <character>
-Syntax: put  <object> <container>
+@eng Syntax: {cdrop{x <object>
+Syntax: {cdrop{x <amount> {cgold{x
+Syntax: {cdrop{x <amount> {csilver{x
+Syntax: {cget{x  <object>
+Syntax: {cget{x  <object> [{cfrom{x] <container>
+Syntax: {cgive{x <object> [{cto{x] <character
+Syntax: {cgive{x <amount> {cgold{x [{cto{x] <character>
+Syntax: {cgive{x <amount> {csilver{x [{cto{x] <character>
+Syntax: {cput{x  <object> [{cin{x] <container> 
 
 DROP drops an object, or some coins, on the ground.
 
@@ -532,7 +535,7 @@ DROP, GET and PUT understand the object names 'ALL' for all objects and
 Синтаксис: {cgive{x <обьект> [{cto{x] <персонаж>
 Синтаксис: {cgive{x <сумма> {cgold{x [{cto{x] <персонаж>
 Синтаксис: {cgive{x <сумма> {csilver{x [{cto{x] <персонаж>
-Синтаксис: {cput{x <обьект> <контейнер>
+Синтаксис: {cput{x <обьект> [{cin{x] <контейнер>
 
 DROP бросает объект или деньги на землю.
 GET или TAKE берет объект лежащий на земле или в контейнере (даже в трупе)
@@ -1309,12 +1312,16 @@ A trained samurai can get the secret of sword usage. His/her sword
 would be more damageful on his/her opponents.
 ~
 0 'AREA ATTACK'~
-Warriors and samurai's have the secret of the area attack to
+@eng Warriors and samurai's have the secret of the area attack to
 destroy to their enemies. At the beginning, they can fight with two
 opponents and as they trained enough they can increase the opponets.
         Usage of this skill is automatic. To fight with a new enemy as you
 are fighting, try to attack it/his/her with another attack such as dirt
 kick.
+@rus Воины и самураи способны драться одновременно с несколькими противниками.
+Сначала, они могут сражатся лишь с двумя врагами сразу, но при надлежащей 
+тренировке число оппонентов можно увеличить.
+Использование этого умения - автоматическое.
 ~
 0 GRIP~
 This skill is automatic, once practiced.  The skill causes you to grip
@@ -1737,16 +1744,20 @@ REBOOT STATUS показывает текущее состояние перезагрузки. REBOOT NOW перезагру-
 перезагрузки МУД не стартует автоматически.
 ~
 92 'WIZ WIZLOCK' WIZLOCK 'WIZ NEWLOCK' NEWLOCK~
-Syntax: wizlock
-	newlock
-
-Wizlock and newlock both block login attempts to Shades of Gray.
-Wizlock locks out all non-gods (i.e. level less than 91), except for link-dead
-players who are returning.  Newlock only locks out new character generation,
-typically used for preventing a spammer from returning.  Wizlocking should
-be avoided,and newlocking should be accompanied by mail or a note to the imps.
-
-A god must be at least Supreme level to wizlock the game.
+@eng Syntax: {cwizlock{x
+Syntax: {cnewlock{x
+ 
+Both WIZLOCK and NEWLOCK block login attempts to Shades of Gray.
+WIZLOCK locks out all non-gods (i.e. level less than 91), except for link-dead
+players who are returning. NEWLOCK only locks out new character generation,
+typically used for preventing a spammer from returning.
+@rus Синтаксис: {cwizlock{x
+Синтаксис: {cnewlock{x
+ 
+И та, и другая команда блокируют попытки входа в игру. WIZLOCK запрещает вход
+всем смертным персонажам (т.е. уровня ниже 92), за исключением игроков, кто
+возобновляет разорванное соединение. NEWLOCK запрещает генерацию новых персо-
+нажей.
 ~
 92 'WIZ DENY' DENY~
 Syntax: deny <name>
@@ -1788,16 +1799,24 @@ QUIT.
 FREEZE запрещает персонажу ввод любых команд, кроме PRAY, QUIT и DELETE.
 ~
 92 'WIZ FORCE' FORCE~
-Syntax: force <character> <command>
-Syntax: force all <command>
-
-FORCE forces one character to execute a command, except of course delete.
-
-Below level 97 (Deity) force can only be used on mobiles, and force all is
-unavailable.  You also cannot 'force orc murder hugo', for example. 
-
-FORCE 'all' forces all player characters to execute a command.
-This is typically used for 'force all save'.
+@eng Syntax: {cforce{x <character> <command>
+Syntax: {cforce all{x <command>
+Syntax: {cforce players{x <command>
+Syntax: {cforce gods{x <command>
+ 
+FORCE forces target character to execute given command, except of course DELETE
+and MOB. FORCE ALL does the same to all characters lower than you,
+FORCE PLAYERS forces all non-god characters and FORCE GODS forces all immortals
+lower than you.
+@rus Синтаксис: {cforce{x <персонаж> <команда>
+Синтаксис: {cforce all{x <команда>
+Синтаксис: {cforce players{x <команда>
+Синтаксис: {cforce gods{x <команда>
+ 
+FORCE принуждает персонажа исполнить указанную команду. FORCE ALL делает то же
+со всеми, кто ниже тебя по уровню, FORCE PLAYERS - только со смертными и
+FORCE GODS со всеми богами ниже тебя по уровню.
+Конечно, нельзя заставить выполнить команды DELETE или MOB.
 ~
 92 'WIZ SOCKETS' SOCKETS~
 @eng Syntax: {csockets{x
@@ -1940,23 +1959,38 @@ PURGE без аргументов не затрагивает игроков, а также монстров и обьекты с флагом
 ACT_NOPURGE. Тем не менее, монстры и игроки могут быть удалены указанием имени.
 ~
 92 'WIZ RESTORE' RESTORE~
-Syntax: restore <character>
-	restore room
-	restore all
-
-Restore restores full hit points, mana points, and movement points to the
+@eng Syntax: {crestore{x <character>
+Syntax: {crestore room{x
+Syntax: {crestore all{x
+ 
+RESTORE restores full hit points, mana points, and movement points to the
 target character.  It also heals poison, plague, and blindness.
-
-Restore room (or restore with no argument) performs a restore on every player
-in the room, restore all does the same for all connected players. Restore all
-is only usable by creators and implementors.  Restore should be used sparingly
+ 
+RESTORE ROOM (or RESTORE with no argument) performs a restore on every player
+ in the room, RESTORE ALL does the same for all connected players. RESTORE ALL
+is only usable by creators and implementors.  RESTORE should be used sparingly
 or not at all.
+@rus Синтаксис: {crestore{x <персонаж>
+Синтаксис: {crestore room{x
+Синтаксис: {crestore all{x
+ 
+RESTORE восстанавливает все здоровье, ману и шаги указанному персонажу. Это
+также лечит яд, чуму и слепоту.
+ 
+RESTORE ROOM (или RESTORE без аргументов) делает то же самое для всех персона-
+жей в комнате, RESTORE ALL - для всех персонажей в игре. RESTORE ALL доступен
+только богам 99-го и 100-го уровней. RESTORE не стоит использовать слишком
+часто, если стоит использовать вообще.
 ~
 92 'WIZ SLAY' SLAY~
-Syntax: slay <character>
+@eng Syntax: {cslay{x <character>
 
 Slay kills a character in cold blood, no saving throw.  Best not to use this
 command on players if you enjoy being a god.
+@rus Синтаксис: {cslay{x <персонаж>
+ 
+SLAY хладнокровно убивает указанную цель. Лучше не использовать эту команду на
+игроках, если, конечно, ты хочешь оставаться богом.
 ~
 92 'WIZ TRANSFER' TRANSFER~
 @eng Syntax: {ctransfer{x <character> [location]
@@ -2006,9 +2040,9 @@ message to all players inside the same area as you. Higher-level gods will
 see a prompt before your message, notifying them that this is an echo.
 '>' is a synonym for GECHO
 @rus Синтаксис: {cpecho{x <персонаж> <сообщение> 
-Синтаксис: {cecho{x <персонаж> <сообщение> 
-Синтаксис: {czecho{x <персонаж> <сообщение> 
-Синтаксис: {cgecho{x <персонаж> <сообщение> 
+Синтаксис: {cecho{x <сообщение>
+Синтаксис: {czecho{x <сообщение>
+Синтаксис: {cgecho{x <сообщение>
  
 Все эти команды выполняют схожие функции. ECHO посылает сообщение всем игрокам
 в одной комнате с тобой. PECHO посылает сообщение только указанному персонажу,
@@ -2281,10 +2315,14 @@ Wizhelp provides a list of all the immortal commands.
 WIZHELP показывает список всех команд для бессмертных, доступных тебе.
 ~
 0 ARMOR~
-Syntax: cast armor <character>
+@eng Syntax: cast armor <character>
 
 This spell decreases (improves) the armor class of the target character
 by 20 (or more) points.
+@rus Syntax: cast armor <character>
+
+Это заклинание улучшает уровень защиты персонажа на 20 (или больше).
+ 
 ~
 0 BLESS~
 Syntax: cast bless <character>
@@ -3062,13 +3100,18 @@ that you  go through all the helps at a low level, especially for first
 time mudders.
 ~
 0 ASSASSINATE~
-Syntax: assassinate <victim>
+@eng Syntax: assassinate <victim>
 
 Very high level ninjas can learn to kill in one hit. This surprise
 attack must be on a fully healed target. Ninja aproaches his or her
 victims from behind, and with a fast move, twists their head, breaking
 the neck. The skill must be used both hands free, and it has a little
 chance for an instant kill.
+@rus Syntax: assassinate <victim>
+ 
+Это умение позволяет незаметно подкрасться к противнику сзади, и быстрым
+движением свернуть ему голову, ломая шею. Руки убийцы при этом должны быть 
+свободны. 
 ~
 0 'QUIET MOVEMENT' HERBS TAME BUTCHER BARKSKIN 'BARK SKIN' 'BEAR CALL'
   'RANGER STAFF'~
@@ -5931,6 +5974,43 @@ SMITE is used for punishment. It almost kills target character.
 @rus Синтаксис: {csmite{x <персонаж>
  
 SMITE служит для показательного наказания. Это почти убивает жертву.
+~
+92 'WIZ POPULARITY' POPULARITY~
+@eng Syntax: {cpopularity{x
+ 
+This command shows you how much time players spend in each area.
+@rus Синтаксис: {cpopularity{x
+ 
+Эта команда показывает тебе, сколько времени игроки проводят в какой зоне.
+~
+92 'WIZ AFFROOMS' AFFROOMS~
+@eng Syntax: {caffrooms{x
+ 
+Shows you detailed list of all roomaffects.
+@rus Синтаксис: {caffrooms{x
+ 
+Показывает подробный список всех заклинаний, наложенных на комнаты.
+~
+92 'WIZ NOAFFECT' NOAFFECT~
+@eng Syntax: {cnoaffect{x <char>
+ 
+NOAFFECT strips all affects from char.
+@rus Синтаксис: {cnoaffect{x <персонаж>
+ 
+NOAFFECT снимает любые аффекты с персонажа.
+~
+92 'WIZ NOTITLE' NOTITLE 'WIZ ITITLE' ITITLE~
+@eng Syntax: {cnotitle{x <char>
+Syntax: {cititle{x <char> <new title>
+ 
+NOTITLE provents character from changing his title. Use this when character
+uses offensive titles. ITITLE changed character's title to given one.
+@rus Синтаксис: {cnotitle{x <персонаж>
+Синтаксис: {cititle{x <персонаж> <новый титул>
+ 
+NOTITLE запрещают персонажу устанавливать себе титул. Используй это, когда
+персонаж устанавливает себе оскорбительные титулы. ITITLE служит для принуди-
+тельной смены титула у персонажа.
 ~
 -1 $~
 

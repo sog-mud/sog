@@ -1248,7 +1248,7 @@ E
 quest~
 The letters '%s' are carved on the staff.
 ~
-G none
+G male
 #85
 quest conrad~
 quest staff of conrad~
@@ -1261,7 +1261,7 @@ E
 quest~
 The letters '%s' are carved on the staff.
 ~
-G none
+G male
 #86
 quest powerman~
 quest staff of powerman~
@@ -1274,7 +1274,7 @@ E
 quest~
 The letters '%s' are carved on the staff.
 ~
-G none
+G male
 #87
 quest mandrake~
 quest staff of mandrake~
@@ -1287,7 +1287,7 @@ E
 quest~
 The letters '%s' are carved on the staff.
 ~
-G none
+G male
 #88
 eyed sword~
 %s's eyed sword~

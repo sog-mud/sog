@@ -2202,6 +2202,17 @@ Form 6 -а~
 End
 
 #RULE
+Name прозрачная~
+BaseLen 8
+Form 1 -ой~
+Form 2 -ой~
+Form 3 -ую~
+Form 4 -ой~
+Form 5 -ой~
+Form 6 -ую~
+End
+
+#RULE
 Name бутылка~
 BaseLen 6
 Form 1 -и~
@@ -2765,6 +2776,17 @@ Form 3 -ый~
 Form 4 -ым~
 Form 5 -ом~
 Form 6 -ого~
+End
+
+#RULE
+Name газовое~
+BaseLen 5
+Form 1 -ого~
+Form 2 -ому~
+Form 3 -ое~
+Form 4 -ым~
+Form 5 -ом~
+Form 6 -ое~
 End
 
 #RULE

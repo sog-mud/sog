@@ -852,7 +852,7 @@ corpse останки~
 @eng a corpse@rus ~~останки~~ путешественника~
 @eng The corpse of some unfortunate adventurer is lying here.@rus Останки (corpse) какого-то неудачливого искателя приключений валяются на земле.~
 meat~
-furniture 0 0
+npc_corpse 0 0
 0 0 0 0 0
 0 75 0 P
 G plural
