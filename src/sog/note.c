@@ -1,5 +1,5 @@
 /*
- * $Id: note.c,v 1.9 1998-06-21 13:12:49 fjoe Exp $
+ * $Id: note.c,v 1.10 1998-06-24 03:46:49 efdi Exp $
  */
 
 /***************************************************************************
@@ -53,6 +53,7 @@
 #include "db.h"
 #include "comm.h"
 #include "log.h"
+#include "resource.h"
 
 /* globals from db.c for load_notes */
 extern  int     _filbuf         args((FILE *));
@@ -679,36 +680,30 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
  
         anum = atoi(argument);
         vnum = 0;
-        for (pnote = *list; pnote != NULL; pnote = pnote->next)
-        {
-            if (is_note_to(ch, pnote) && vnum++ == anum)
-            {
+        for (pnote = *list; pnote != NULL; pnote = pnote->next) {
+            if (is_note_to(ch, pnote) && vnum++ == anum) {
                 note_remove(ch, pnote, FALSE);
-                send_to_char("Ok.\n\r", ch);
+                char_nputs(OK, ch);
                 return;
             }
         }
  
-	char_printf(ch,"There aren't that many %s.",list_name);
+	char_printf(ch, "There aren't that many %s.",list_name);
         return;
     }
  
-    if (!str_prefix(arg, "delete") && get_trust(ch) >= MAX_LEVEL - 1)
-    {
-        if (!is_number(argument))
-        {
+    if (!str_prefix(arg, "delete") && get_trust(ch) >= MAX_LEVEL - 1) {
+        if (!is_number(argument)) {
             send_to_char("Note delete which number?\n\r", ch);
             return;
         }
  
         anum = atoi(argument);
         vnum = 0;
-        for (pnote = *list; pnote != NULL; pnote = pnote->next)
-        {
-            if (is_note_to(ch, pnote) && vnum++ == anum)
-            {
+        for (pnote = *list; pnote != NULL; pnote = pnote->next) {
+            if (is_note_to(ch, pnote) && vnum++ == anum) {
                 note_remove(ch, pnote,TRUE);
-                send_to_char("Ok.\n\r", ch);
+                char_nputs(OK, ch);
                 return;
             }
         }
@@ -771,7 +766,7 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
 	free_string(ch->pnote->text);
 	ch->pnote->text = str_dup(buf_string(buffer));
 	free_buf(buffer);
-	send_to_char("Ok.\n\r", ch);
+	char_nputs(OK, ch);
 	return;
     }
 
@@ -782,33 +777,28 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
 	char buf[MAX_STRING_LENGTH];
 
 	note_attach(ch,type);
-        if (ch->pnote->type != type)
-        {
+        if (ch->pnote->type != type) {
             send_to_char(
                 "You already have a different note in progress.\n\r",ch);
             return;
         }
 
-	if (ch->pnote->text == NULL || ch->pnote->text[0] == '\0')
-	{
+	if (ch->pnote->text == NULL || ch->pnote->text[0] == '\0') {
 	    send_to_char("No lines left to remove.\n\r",ch);
 	    return;
 	}
 
 	strcpy(buf,ch->pnote->text);
 
-	for (len = strlen(buf); len > 0; len--)
- 	{
-	    if (buf[len] == '\r')
-	    {
-		if (!found)  /* back it up */
-		{
+	for (len = strlen(buf); len > 0; len--) {
+	    if (buf[len] == '\r') {
+		if (!found) {
+		    /* back it up */
 		    if (len > 0)
 			len--;
 		    found = TRUE;
-		}
-		else /* found the second one */
-		{
+		} else {
+		    /* found the second one */
 		    buf[len + 1] = '\0';
 		    free_string(ch->pnote->text);
 		    ch->pnote->text = str_dup(buf);
@@ -822,11 +812,9 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
 	return;
     }
 
-    if (!str_prefix(arg, "subject"))
-    {
+    if (!str_prefix(arg, "subject")) {
 	note_attach(ch,type);
-        if (ch->pnote->type != type)
-        {
+        if (ch->pnote->type != type) {
             send_to_char(
                 "You already have a different note in progress.\n\r",ch);
             return;
@@ -840,8 +828,7 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
 
     if (!str_prefix(arg, "to")) {
 	note_attach(ch,type);
-        if (ch->pnote->type != type)
-        {
+        if (ch->pnote->type != type) {
             send_to_char(
                 "You already have a different note in progress.\n\r",ch);
             return;
@@ -852,28 +839,23 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
 	return;
     }
 
-    if (!str_prefix(arg, "clear"))
-    {
-	if (ch->pnote != NULL)
-	{
+    if (!str_prefix(arg, "clear")) {
+	if (ch->pnote != NULL) {
 	    free_note(ch->pnote);
 	    ch->pnote = NULL;
 	}
 
-	send_to_char("Ok.\n\r", ch);
+	char_nputs(OK, ch);
 	return;
     }
 
-    if (!str_prefix(arg, "show"))
-    {
-	if (ch->pnote == NULL)
-	{
+    if (!str_prefix(arg, "show")) {
+	if (ch->pnote == NULL) {
 	    send_to_char("You have no note in progress.\n\r", ch);
 	    return;
 	}
 
-	if (ch->pnote->type != type)
-	{
+	if (ch->pnote->type != type) {
 	    send_to_char("You aren't working on that kind of note.\n\r",ch);
 	    return;
 	}
@@ -887,32 +869,27 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
 	return;
     }
 
-    if (!str_prefix(arg, "post") || !str_prefix(arg, "send"))
-    {
+    if (!str_prefix(arg, "post") || !str_prefix(arg, "send")) {
 	char *strtime;
 
-	if (ch->pnote == NULL)
-	{
+	if (ch->pnote == NULL) {
 	    send_to_char("You have no note in progress.\n\r", ch);
 	    return;
 	}
 
-        if (ch->pnote->type != type)
-        {
+        if (ch->pnote->type != type) {
             send_to_char("You aren't working on that kind of note.\n\r",ch);
             return;
         }
 
-	if (!str_cmp(ch->pnote->to_list,""))
-	{
+	if (!str_cmp(ch->pnote->to_list,"")) {
 	    send_to_char(
 		"You need to provide a recipient (name, all, or immortal).\n\r",
 		ch);
 	    return;
 	}
 
-	if (!str_cmp(ch->pnote->subject,""))
-	{
+	if (!str_cmp(ch->pnote->subject,"")) {
 	    send_to_char("You need to provide a subject.\n\r",ch);
 	    return;
 	}
@@ -928,7 +905,7 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
 	return;
     }
 
-    send_to_char("You can't do that.\n\r", ch);
+    char_nputs(YOU_CANT_DO_THAT, ch);
     return;
 }
 
