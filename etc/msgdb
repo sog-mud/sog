@@ -1528,7 +1528,7 @@ $t~
 @eng Help! $lu{$N} just tried to impale me!@rus Помогите! $lu{$N} $gN{попытался} нанизать меня на свое копье!~
 @eng Help! $lu{$N} just tried to shatter my skull!@rus Помогите! $lu{$N} $gN{пытался} проломить мне голову!~
 @eng Help! $lu{$N} just tripped me!@rus Помогите! $lu{$N} пытался подставить мне подножку!~
-@eng Help! $lu{$N} tried to bite me!@rus На помощь! $lu{$N} $gN{попыталcя} укусить меня!~
+@eng Help! $lu{$N} tried to bite me!@rus На помощь! $lu{$N} $gN{попытался} укусить меня!~
 @eng Help! $lu{$N} tried to hit me with his tail!@rus Помогите! $lu{$N} пытался ударить меня своим хвостом!~
 @eng Help! $lu{$N} tried to kidnap me!@rus Помогите! $lu{$N} только что $gN{пытался} похитить меня!~
 @eng Help! $lu{$N} tried to touch me!@rus Помогите! $lu{$N} пытался отправить меня в мир кошмаров!~
@@ -3650,7 +3650,7 @@ Return to questmaster before your time runs out!@rus Ты почти $gn{выполнил} свое
 @eng You'd better try your chance on other sex!@rus Лучше попытай счастья с противоположным полом!~
 @eng You'd destroy magic, not use it!@rus Ты уничтожаешь магию, а не пользуешься ей!~
 @eng You'll have to let $M get back up first.@rus Дай $gN{ему} возможность встать сначала.~
-@eng You'll have to smite them some other day.@rus Его придется поразить в другой раp.~
+@eng You'll have to smite them some other day.@rus Его придется поразить в другой раз.~
 @eng You're already guarding $N!@rus Ты уже охраняешь $c6{$N}!~
 @eng You're carrying too much to go further.@rus Ты $gn{набрал} слишком много вещей и не можешь идти дальше.~
 @eng You're feeling to mellow to be bloodthirsty.@rus Мир так спокоен... Зачем нарушать его гармонию?~
