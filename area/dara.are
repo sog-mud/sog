@@ -228,22 +228,30 @@ The guardian is here to stop you.~
 Not bright, but it dosen't have to be to crush you with its HUGE hands. It is
 a watchdog... beware it will catch you.
 ~
-human~
+golem~
 BFJRTU 0 NVd 0 ABHL 0 1505
 47 0 25d10+3500 1d1+199 6d6+17 'crush'
 -17 -17 -17 3
 ACDEFHIKOP
 stand stand male 0
 0 0 giant unknown
-r bash 33
-r pierce 33
-r slash 33
-r fire -50
-r lightning -50
-r negative 33
-r energy 33
-r mental 100
-r charm 100
+r bash 66
+r pierce 66
+r slash 66
+r fire -100
+r cold -50
+r lightning -100
+r acid -50
+r poison 33
+r negative -17
+r holy -50
+r energy -17
+r mental 50
+r disease 33
+r light -50
+r harm -50
+r charm 50
+r sound -50
 #15409
 thug guard minor~
 the minor thug~

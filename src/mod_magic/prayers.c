@@ -1,5 +1,5 @@
 /*
- * $Id: prayers.c,v 1.5 2001-04-25 09:49:04 fjoe Exp $
+ * $Id: prayers.c,v 1.6 2001-04-25 10:16:47 cs Exp $
  */
 
 /***************************************************************************
@@ -425,7 +425,7 @@ prayer_cure_serious_wounds(const char *sn, int level, CHAR_DATA *ch, void *vo)
 void
 prayer_cure_critical_wounds(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
-	focus_positive_energy(ch, (CHAR_DATA *) vo, sn, dice(3, 8) + level / 2);
+	focus_positive_energy(ch, (CHAR_DATA *) vo, sn, dice(3, 8) + level);
 }
 
 void
@@ -989,7 +989,7 @@ prayer_wrath(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	INT(af.location) = APPLY_SAVING_SPELL;
 	af.modifier  = level / 8;
 	affect_to_char(victim, &af);
-	
+
 	act_char("You feel unclean.", victim);
 	if (ch != victim)
 		act("$N looks very uncomfortable.",ch,NULL,victim,TO_CHAR);
@@ -1050,8 +1050,7 @@ prayer_bless(const char *sn, int level, CHAR_DATA *ch, void *vo)
 
 	victim = (CHAR_DATA *) vo;
 
-	if ((ch && victim->position == POS_FIGHTING)
-	||  is_affected(victim, sn)) {
+	if (is_affected(victim, sn)) {
 		if (victim == ch)
 			act_char("You are already blessed.", ch);
 		else if (ch) {
