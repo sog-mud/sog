@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.148 2000-01-04 19:27:52 fjoe Exp $
+ * $Id: martial_art.c,v 1.149 2000-01-05 08:55:51 fjoe Exp $
  */
 
 /***************************************************************************
@@ -209,8 +209,8 @@ downstrike_cb(void *vo, va_list ap)
 	return NULL;
 }
 
-#define check_downstrike(victim)	\
-	vo_foreach((victim)->in_room, &iter_char_room, downstrike_cb, (victim));
+#define check_downstrike(vch)	\
+	vo_foreach((vch)->in_room, &iter_char_room, downstrike_cb, (vch));
 
 bool distance_check(CHAR_DATA *ch, CHAR_DATA *victim) 
 {
