@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.157.2.17 2000-03-31 13:56:58 fjoe Exp $
+ * $Id: update.c,v 1.157.2.18 2000-04-17 12:48:51 osya Exp $
  */
 
 /***************************************************************************
@@ -1332,7 +1332,7 @@ void char_update(void)
 			witch.level = af->level;
 			witch.duration = af->duration;
 			witch.location = af->location;
-			witch.modifier = af->modifier * 2;
+			witch.modifier = af->modifier * 2 < 0 ? af->modifier - ch->max_hit : af->modifier * 2;
 			witch.bitvector = 0;
 	
 			affect_remove(ch, af);
@@ -1342,8 +1342,9 @@ void char_update(void)
 				if (IS_IMMORTAL(ch))
 					ch->hit = 1;
 				else {
-					ch->position = POS_DEAD;
-					handle_death(ch, ch);
+					ch->hit = 0;
+					ch->position = POS_STUNNED;
+					update_pos(ch);
 					continue;
 				}
 			}

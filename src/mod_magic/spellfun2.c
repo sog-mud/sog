@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.139.2.16 2000-04-17 06:55:08 fjoe Exp $
+ * $Id: spellfun2.c,v 1.139.2.17 2000-04-17 12:48:46 osya Exp $
  */
 
 /***************************************************************************
@@ -3105,6 +3105,21 @@ void spell_power_word_kill(int sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	int dam;
+	race_t *r;
+
+        r = RACE(ch->race);
+        if (!IS_SET(r->form, FORM_UNDEAD)
+        && !(IS_NPC(ch) && IS_SET(ch->pMobIndex->act, ACT_UNDEAD))) {
+                act_puts("You must be undead for to use this power.", ch, NULL, NULL, TO_CHAR, POS_RESTING);
+                return;
+        }
+
+	r = RACE(victim->race);
+	if (IS_SET(r->form, FORM_UNDEAD)
+	|| (IS_NPC(victim) && IS_SET(victim->pMobIndex->act, ACT_UNDEAD))) {
+		act_puts("Your victim already dead.", ch, NULL, NULL, TO_CHAR, POS_RESTING);
+		return;
+	}
 
 	act_puts("A stream of darkness from your finger surrounds $N.", 
 		ch, NULL, victim, TO_CHAR, POS_RESTING);
@@ -3548,7 +3563,8 @@ void spell_witch_curse(int sn, int level, CHAR_DATA *ch, void *vo)
 	}
 
 	if (IS_IMMORTAL(victim)
-	||  IS_CLAN_GUARD(victim)) {
+	||  IS_CLAN_GUARD(victim)
+	|| (IS_NPC(victim) && victim->level > ch->level)) {
 		damage(ch, victim, dice(level, 8), sn, DAM_NEGATIVE, TRUE);
 		return;
 	}
@@ -5580,6 +5596,7 @@ int damage_to_all_in_room(int sn, int level, CHAR_DATA *ch,
 {
         CHAR_DATA *vch, *vch_next;
 	int dam, v_counter;
+	race_t *r;
 
 	if (sn == gsn_death_ripple) {
 		dam = dice(level,9);
@@ -5590,6 +5607,11 @@ int damage_to_all_in_room(int sn, int level, CHAR_DATA *ch,
 	for (vch = room->people; vch != NULL; vch = vch_next) {
 		vch_next = vch->next_in_room;
 
+		r = RACE(vch->race);
+
+		if (IS_SET(r->form, FORM_UNDEAD) 
+		|| (IS_NPC(vch) && IS_SET(vch->pMobIndex->act, ACT_UNDEAD)))
+			continue;
 
                 if (is_safe_spell(ch,vch,TRUE)
                 ||  (IS_NPC(vch) && IS_NPC(ch))
@@ -5616,9 +5638,17 @@ void spell_death_ripple(int sn, int level, CHAR_DATA *ch, void *vo)
 	ROOM_INDEX_DATA *prev_room, *next_room;
 	EXIT_DATA *exit;
 	int v_counter, range, door, i;
+	race_t *r;
 
 	prev_room = ch->in_room;
 	range = level/10;
+
+	r = RACE(ch->race);
+	if (!IS_SET(r->form, FORM_UNDEAD)
+	&& !(IS_NPC(ch) && IS_SET(ch->pMobIndex->act, ACT_UNDEAD))) {
+		act_puts("You must be undead for to use this power.", ch, NULL, NULL, TO_CHAR, POS_RESTING);
+		return;	
+	}	
 
 	act("You feel $n's deadly wave passing through your body.", ch,
 						 NULL, NULL, TO_ROOM);

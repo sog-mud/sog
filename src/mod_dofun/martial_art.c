@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.114.2.2 2000-04-10 12:45:31 fjoe Exp $
+ * $Id: martial_art.c,v 1.114.2.3 2000-04-17 12:48:42 osya Exp $
  */
 
 /***************************************************************************
@@ -2935,7 +2935,8 @@ void do_weapon(CHAR_DATA *ch, const char *argument)
 	chance = chance * 101 / (vict_weapon+1);
 
 	/* dex vs. strength */
-	chance += get_curr_stat(ch, STAT_DEX) + get_curr_stat(ch, STAT_STR);
+	chance += get_curr_stat(ch, STAT_DEX) + 
+				2 * get_curr_stat(ch, STAT_STR);
 	chance -= get_curr_stat(victim, STAT_STR) +
 				2 * get_curr_stat(victim, STAT_DEX);
 
