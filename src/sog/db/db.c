@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.71 1998-10-06 13:19:56 fjoe Exp $
+ * $Id: db.c,v 1.72 1998-10-06 19:09:16 fjoe Exp $
  */
 
 /***************************************************************************
@@ -305,6 +305,8 @@ void boot_db(void)
 	load_oldmsgdb();
 	load_msgdb();
 	db_load_file(ETC_PATH, SKILLS_CONF, db_load_skills, NULL);
+	namedp_check(gsn_table);
+	namedp_check(spellfn_table);
 	db_load_list(CLASSES_PATH, CLASS_LIST, db_load_classes, init_class);
 	db_load_list(CLANS_PATH, CLAN_LIST, db_load_clans, NULL);
 	db_load_list(AREA_PATH, AREA_LIST, db_load_areas, init_area);

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: gsn.h,v 1.2 1998-09-17 15:51:19 fjoe Exp $
+ * $Id: gsn.h,v 1.3 1998-10-06 19:09:17 fjoe Exp $
  */
 
 #ifndef _GSN_H_
@@ -59,7 +59,6 @@ extern int gsn_plague;
 extern int gsn_sleep;
 extern int gsn_sanctuary;
 extern int gsn_fly;
-extern int gsn_death_protection;
 
 extern int gsn_fourth_attack;
 extern int gsn_dual_backstab;
@@ -85,9 +84,6 @@ extern int gsn_garble;
 extern int gsn_confuse;
 extern int gsn_track;
 extern int gsn_chaos_blade;
-extern int gsn_terangreal;
-extern int gsn_dispel_evil;
-extern int gsn_dispel_good;
 extern int gsn_wrath;
 extern int gsn_stalker;
 extern int gsn_tesseract;
@@ -95,7 +91,6 @@ extern int gsn_randomizer;
 extern int gsn_trophy;
 extern int gsn_truesight;
 extern int gsn_brew;
-extern int gsn_flamestrike;
 extern int gsn_shadowlife;
 extern int gsn_ruler_badge;
 extern int gsn_remove_badge;
@@ -104,13 +99,11 @@ extern int gsn_dragon_breath;
 extern int gsn_warcry;
 extern int gsn_entangle;
 extern int gsn_dragonsword;
-extern int gsn_knight;
 extern int gsn_guard;
 extern int gsn_guard_call;
 extern int gsn_love_potion;
 extern int gsn_deafen;
 extern int gsn_protective_shield;
-extern int gsn_protection_heat_cold;
 extern int gsn_trance;
 extern int gsn_demon_summon;
 extern int gsn_nightwalker;
@@ -145,7 +138,6 @@ extern int gsn_sand_storm;
 extern int gsn_scream;
 extern int gsn_tiger_power;
 extern int gsn_hara_kiri;
-extern int gsn_mouse;
 extern int gsn_enhanced_armor;
 extern int gsn_vampire;
 extern int gsn_vampiric_bite;
@@ -163,7 +155,6 @@ extern int gsn_protection_heat;
 extern int gsn_protection_cold;
 extern int gsn_teleport;
 extern int gsn_witch_curse;
-extern int gsn_terangreal;
 extern int gsn_kassandra;
 extern int gsn_sebat;
 extern int gsn_matandra;
@@ -184,7 +175,6 @@ extern int gsn_power_word_stun;
 extern int gsn_grip;
 extern int gsn_concentrate;
 extern int gsn_mastering_sword;
-extern int gsn_master_hand;
 extern int gsn_fifth_attack;
 extern int gsn_area_attack;
 extern int gsn_reserved;
@@ -196,7 +186,6 @@ extern int gsn_katana;
 extern int gsn_bluefire;
 extern int gsn_crush;
 extern int gsn_perception;
-extern int gsn_sanctify_lands;
 extern int gsn_deadly_venom;
 extern int gsn_cursed_lands;
 extern int gsn_lethargic_mist;
@@ -209,7 +198,6 @@ extern int gsn_evil_spirit;
 extern int gsn_blindness_dust;
 extern int gsn_poison_smoke;
 extern int gsn_mastering_spell;
-extern int gsn_chain_lightning;
 
 /* new_gsns */
 
@@ -234,7 +222,7 @@ extern int gsn_haggle;
 extern int gsn_meditation;
  
 extern int gsn_frenzy;
-
+extern int gsn_riding;
 extern int gsn_thumbling;
 
 #endif

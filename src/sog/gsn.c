@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: gsn.c,v 1.2 1998-09-17 15:51:19 fjoe Exp $
+ * $Id: gsn.c,v 1.3 1998-10-06 19:09:17 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -57,7 +57,6 @@ int gsn_plague;
 int gsn_sleep;
 int gsn_sanctuary;
 int gsn_fly;
-int gsn_death_protection;
 
 int gsn_fourth_attack;
 int gsn_dual_backstab;
@@ -83,9 +82,6 @@ int gsn_garble;
 int gsn_confuse;
 int gsn_track;
 int gsn_chaos_blade;
-int gsn_terangreal;
-int gsn_dispel_evil;
-int gsn_dispel_good;
 int gsn_wrath;
 int gsn_stalker;
 int gsn_tesseract;
@@ -93,7 +89,6 @@ int gsn_randomizer;
 int gsn_trophy;
 int gsn_truesight;
 int gsn_brew;
-int gsn_flamestrike;
 int gsn_shadowlife;
 int gsn_ruler_badge;
 int gsn_remove_badge;
@@ -102,13 +97,11 @@ int gsn_dragon_breath;
 int gsn_warcry;
 int gsn_entangle;
 int gsn_dragonsword;
-int gsn_knight;
 int gsn_guard;
 int gsn_guard_call;
 int gsn_love_potion;
 int gsn_deafen;
 int gsn_protective_shield;
-int gsn_protection_heat_cold;
 int gsn_trance;
 int gsn_demon_summon;
 int gsn_nightwalker;
@@ -143,7 +136,6 @@ int gsn_sand_storm;
 int gsn_scream;
 int gsn_tiger_power;
 int gsn_hara_kiri;
-int gsn_mouse;
 int gsn_enhanced_armor;
 int gsn_vampire;
 int gsn_vampiric_bite;
@@ -161,7 +153,6 @@ int gsn_protection_heat;
 int gsn_protection_cold;
 int gsn_teleport;
 int gsn_witch_curse;
-int gsn_terangreal;
 int gsn_kassandra;
 int gsn_sebat;
 int gsn_matandra;
@@ -183,7 +174,6 @@ int gsn_grip;
 int gsn_concentrate;
 int gsn_mastering_sword;
 int gsn_mastering_pound;
-int gsn_master_hand;
 int gsn_fifth_attack;
 int gsn_area_attack;
 int gsn_reserved;
@@ -195,7 +185,6 @@ int gsn_katana;
 int gsn_bluefire;
 int gsn_crush;
 int gsn_perception;
-int gsn_sanctify_lands;
 int gsn_deadly_venom;
 int gsn_cursed_lands;
 int gsn_lethargic_mist;
@@ -208,7 +197,6 @@ int gsn_evil_spirit;
 int gsn_blindness_dust;
 int gsn_poison_smoke;
 int gsn_mastering_spell;
-int gsn_chain_lightning;
 
 /* new_gsns */
 
@@ -233,7 +221,7 @@ int gsn_haggle;
 int gsn_meditation;
  
 int gsn_frenzy;
-
+int gsn_riding;
 int gsn_thumbling;
 
 NAMEDP gsn_table[] =
@@ -262,7 +250,6 @@ NAMEDP gsn_table[] =
 	{ "gsn_sleep",			&gsn_sleep			},
 	{ "gsn_sanctuary",		&gsn_sanctuary			},
 	{ "gsn_fly",			&gsn_fly			},
-	{ "gsn_death_protection",	&gsn_death_protection		},
 	{ "gsn_fourth_attack",		&gsn_fourth_attack		},
 	{ "gsn_dual_backstab",		&gsn_dual_backstab		},
 	{ "gsn_cleave",			&gsn_cleave			},
@@ -287,9 +274,6 @@ NAMEDP gsn_table[] =
 	{ "gsn_confuse",		&gsn_confuse			},
 	{ "gsn_track",			&gsn_track			},
 	{ "gsn_chaos_blade",		&gsn_chaos_blade		},
-	{ "gsn_terangreal",		&gsn_terangreal			},
-	{ "gsn_dispel_evil",		&gsn_dispel_evil		},
-	{ "gsn_dispel_good",		&gsn_dispel_good		},
 	{ "gsn_wrath",			&gsn_wrath			},
 	{ "gsn_stalker",		&gsn_stalker			},
 	{ "gsn_tesseract",		&gsn_tesseract			},
@@ -297,7 +281,6 @@ NAMEDP gsn_table[] =
 	{ "gsn_trophy",			&gsn_trophy			},
 	{ "gsn_truesight",		&gsn_truesight			},
 	{ "gsn_brew",			&gsn_brew			},
-	{ "gsn_flamestrike",		&gsn_flamestrike		},
 	{ "gsn_shadowlife",		&gsn_shadowlife			},
 	{ "gsn_ruler_badge",		&gsn_ruler_badge		},
 	{ "gsn_remove_badge",		&gsn_remove_badge		},
@@ -306,13 +289,11 @@ NAMEDP gsn_table[] =
 	{ "gsn_warcry",			&gsn_warcry			},
 	{ "gsn_entangle",		&gsn_entangle			},
 	{ "gsn_dragonsword",		&gsn_dragonsword		},
-	{ "gsn_knight",			&gsn_knight			},
 	{ "gsn_guard",			&gsn_guard			},
 	{ "gsn_guard_call",		&gsn_guard_call			},
 	{ "gsn_love_potion",		&gsn_love_potion		},
 	{ "gsn_deafen",			&gsn_deafen			},
 	{ "gsn_protective_shield",	&gsn_protective_shield		},
-	{ "gsn_protection_heat_cold",	&gsn_protection_heat_cold	},
 	{ "gsn_trance",			&gsn_trance			},
 	{ "gsn_demon_summon",		&gsn_demon_summon		},
 	{ "gsn_nightwalker",		&gsn_nightwalker		},
@@ -347,7 +328,6 @@ NAMEDP gsn_table[] =
 	{ "gsn_scream",			&gsn_scream			},
 	{ "gsn_tiger_power",		&gsn_tiger_power		},
 	{ "gsn_hara_kiri",		&gsn_hara_kiri			},
-	{ "gsn_mouse",			&gsn_mouse			},
 	{ "gsn_enhanced_armor",		&gsn_enhanced_armor		},
 	{ "gsn_vampire",		&gsn_vampire			},
 	{ "gsn_vampiric_bite",		&gsn_vampiric_bite		},
@@ -365,7 +345,6 @@ NAMEDP gsn_table[] =
 	{ "gsn_protection_cold",	&gsn_protection_cold		},
 	{ "gsn_teleport",		&gsn_teleport			},
 	{ "gsn_witch_curse",		&gsn_witch_curse		},
-	{ "gsn_terangreal",		&gsn_terangreal			},
 	{ "gsn_kassandra",		&gsn_kassandra			},
 	{ "gsn_sebat",			&gsn_sebat			},
 	{ "gsn_matandra",		&gsn_matandra			},
@@ -387,7 +366,6 @@ NAMEDP gsn_table[] =
 	{ "gsn_concentrate",		&gsn_concentrate		},
 	{ "gsn_mastering_sword",	&gsn_mastering_sword		},
 	{ "gsn_mastering_pound",	&gsn_mastering_pound		},
-	{ "gsn_master_hand",		&gsn_master_hand		},
 	{ "gsn_fifth_attack",		&gsn_fifth_attack		},
 	{ "gsn_area_attack",		&gsn_area_attack		},
 	{ "gsn_reserved",		&gsn_reserved			},
@@ -399,7 +377,6 @@ NAMEDP gsn_table[] =
 	{ "gsn_bluefire",		&gsn_bluefire			},
 	{ "gsn_crush",			&gsn_crush			},
 	{ "gsn_perception",		&gsn_perception			},
-	{ "gsn_sanctify_lands",		&gsn_sanctify_lands		},
 	{ "gsn_deadly_venom",		&gsn_deadly_venom		},
 	{ "gsn_cursed_lands",		&gsn_cursed_lands		},
 	{ "gsn_lethargic_mist",		&gsn_lethargic_mist		},
@@ -412,7 +389,6 @@ NAMEDP gsn_table[] =
 	{ "gsn_blindness_dust",		&gsn_blindness_dust		},
 	{ "gsn_poison_smoke",		&gsn_poison_smoke		},
 	{ "gsn_mastering_spell",	&gsn_mastering_spell		},
-	{ "gsn_chain_lightning",	&gsn_chain_lightning		},
 	{ "gsn_axe",			&gsn_axe			},
 	{ "gsn_dagger",			&gsn_dagger			},
 	{ "gsn_flail",			&gsn_flail			},
@@ -431,6 +407,7 @@ NAMEDP gsn_table[] =
 	{ "gsn_haggle",			&gsn_haggle			},
 	{ "gsn_meditation",		&gsn_meditation			},
 	{ "gsn_frenzy",			&gsn_frenzy			},
+	{ "gsn_riding",			&gsn_riding			},
 	{ "gsn_thumbling",		&gsn_thumbling			},
 	{ NULL }
 };

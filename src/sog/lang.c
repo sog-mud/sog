@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: lang.c,v 1.1 1998-10-06 13:19:57 fjoe Exp $
+ * $Id: lang.c,v 1.2 1998-10-06 19:09:17 fjoe Exp $
  */
 
 #include <sys/syslimits.h>
@@ -63,7 +63,8 @@ int lang_nlookup(const char *name, size_t len)
 			return lang;
 	}
 
-	db_error("lang_lookup", "%s: unknown language", name);
+	if (fBootDb)
+		db_error("lang_lookup", "%s: unknown language", name);
 	return -1;
 }
 

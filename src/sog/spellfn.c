@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: spellfn.c,v 1.2 1998-09-17 15:51:23 fjoe Exp $
+ * $Id: spellfn.c,v 1.3 1998-10-06 19:09:18 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -133,11 +133,7 @@ NAMEDP spellfn_table[] =
 	{ "spell_lightning_breath",	spell_lightning_breath		},
 	{ "spell_general_purpose",	spell_general_purpose		},
 	{ "spell_high_explosive",	spell_high_explosive		},
-	{ "spell_poison_smoke",		spell_poison_smoke		},
 	{ "spell_mana_transfer",	spell_mana_transfer		},
-	{ "spell_blindness_dust",	spell_blindness_dust		},
-	{ "spell_dispel_good",		spell_dispel_good		},
-	{ "spell_vanish",		spell_vanish			},
 	{ "spell_transform",		spell_transform			},
 	{ "spell_demon_summon",		spell_demon_summon		},
 	{ "spell_scourge",		spell_scourge			},
@@ -180,7 +176,6 @@ NAMEDP spellfn_table[] =
 	{ "spell_disperse",		spell_disperse			},
 	{ "spell_bark_skin",		spell_bark_skin			},
 	{ "spell_acute_vision",		spell_acute_vision		},
-	{ "spell_bear_call",		spell_bear_call			},
 	{ "spell_ranger_staff",		spell_ranger_staff		},
 	{ "spell_hellfire",		spell_hellfire			},
 	{ "spell_dragons_breath",	spell_dragons_breath		},
@@ -247,7 +242,6 @@ NAMEDP spellfn_table[] =
 	{ "spell_mist_walk",		spell_mist_walk			},
 	{ "spell_solar_flight",		spell_solar_flight		},
 	{ "spell_helical_flow",		spell_helical_flow		},
-	{ "spell_protection_good",	spell_protection_good		},
 	{ "spell_lesser_golem",		spell_lesser_golem		},
 	{ "spell_stone_golem",		spell_stone_golem		},
 	{ "spell_iron_golem",		spell_iron_golem		},
