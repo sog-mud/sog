@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.165.2.33 2002-01-03 21:33:30 tatyana Exp $
+ * $Id: act_obj.c,v 1.165.2.34 2002-01-08 20:31:42 tatyana Exp $
  */
 
 /***************************************************************************
@@ -2789,10 +2789,6 @@ void do_balance(CHAR_DATA * ch, const char *argument)
 
 	if (IS_NPC(ch)) {
 		char_puts("You don't have a bank account.\n", ch);
-		return;
-	}
-	if (!IS_SET(ch->in_room->room_flags, ROOM_BANK)) {
-		char_puts("You are not in a bank.\n", ch);
 		return;
 	}
 
