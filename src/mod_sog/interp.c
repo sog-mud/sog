@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.206 2004-02-22 16:35:27 fjoe Exp $
+ * $Id: interp.c,v 1.207 2004-02-22 19:43:39 fjoe Exp $
  */
 
 /***************************************************************************
@@ -253,8 +253,10 @@ interpret(CHAR_DATA *ch, const char *argument, bool is_order)
 		return;
 	}
 
-	if (!IS_NPC(ch) && ch->wait > 0 && !IS_SET(cmd_flg, CMD_HARMLESS))
+	if (!IS_NPC(ch) && ch->wait > 0 && !IS_SET(cmd_flg, CMD_HARMLESS)) {
+		append_to_qbuf(ch->desc, save_argument);
 		return;
+	}
 
 	if (IS_SET(cmd_flg, CMD_STRICT_MATCH)
 	&&  !!str_cmp(command, cmd_name)) {

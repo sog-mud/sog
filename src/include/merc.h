@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.418 2004-02-21 20:10:05 fjoe Exp $
+ * $Id: merc.h,v 1.419 2004-02-22 19:43:37 fjoe Exp $
  */
 
 /***************************************************************************
@@ -421,6 +421,7 @@ struct descriptor_data
 	int			wait_for_se;
 	bool			fcommand;
 	char			inbuf		[4 * MAX_INPUT_LENGTH];
+	char			qbuf		[4 * MAX_INPUT_LENGTH];
 	char			incomm		[MAX_INPUT_LENGTH];
 	char			inlast		[MAX_INPUT_LENGTH];
 	int			repeat;
