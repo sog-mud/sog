@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.14 1998-04-27 00:29:26 efdi Exp $
+ * $Id: act_move.c,v 1.15 1998-04-27 00:55:22 efdi Exp $
  */
 
 /***************************************************************************
@@ -1173,8 +1173,8 @@ void do_pick( CHAR_DATA *ch, char *argument )
 	    { send_to_char(msg(MOVE_YOU_FAILED, ch), ch); return; }
 
 	REMOVE_BIT(obj->value[1], CONT_LOCKED);
-        act("You pick the lock on $p.",ch,obj,NULL,TO_CHAR);
-        act("$n picks the lock on $p.",ch,obj,NULL,TO_ROOM);
+        act_printf(ch, obj, NULL, TO_CHAR, POS_RESTING, MOVE_YOU_PICK_THE_LOCK_ON_P);
+        act_printf(ch, obj, NULL, TO_ROOM, POS_RESTING, MOVE_N_PICKS_THE_LOCK_ON_P);
 	check_improve(ch,gsn_pick_lock,TRUE,2);
 	return;
     }
