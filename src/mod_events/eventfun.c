@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: eventfun.c,v 1.37 2001-09-07 15:40:12 fjoe Exp $
+ * $Id: eventfun.c,v 1.38 2001-09-26 12:44:24 kostik Exp $
  */
 
 #include <sys/time.h>
@@ -359,11 +359,12 @@ EVENT_FUN(event_updatefast_entangle, ch, af)
 
 EVENT_FUN(event_updatechar_crippled_hands, ch, af)
 {
-	if (get_eq_char(ch, WEAR_WIELD) 
+	if (get_eq_char(ch, WEAR_WIELD)
 	|| get_eq_char(ch, WEAR_SECOND_WIELD)
 	|| get_eq_char(ch, WEAR_HOLD)) {
 		act_char("The pain pulses in your crippled hands.", ch);
-		damage(ch, ch, ch->level/2, "crippled hands", DAM_HARM, TRUE);
+		damage(ch, ch, ch->level/2, "crippled hands", DAM_HARM,
+		    DAMF_SHOW);
 	}
 }
 
