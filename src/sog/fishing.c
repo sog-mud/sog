@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: fishing.c,v 1.1.2.2 2002-09-10 14:08:28 tatyana Exp $
+ * $Id: fishing.c,v 1.1.2.3 2002-09-17 16:59:05 tatyana Exp $
  */
 
 #include <stdio.h>
@@ -133,7 +133,7 @@ void fish_affect(CHAR_DATA *ch, int fish_vnum)
 		af.location = location;
 		while ((modifier = number_range(-3, 3)) == 0)
 			;
-		af.modifier = modifier;
+		af.modifier = - modifier;
 		affect_to_char(ch, &af);
 	}
 
@@ -158,7 +158,7 @@ void fish_affect(CHAR_DATA *ch, int fish_vnum)
 		af.location = location;
 		while ((modifier = number_range(-3, 3)) == 0)
 			;
-		af.modifier = modifier * 10;
+		af.modifier = - modifier * 10;
 		affect_to_char(ch, &af);
 	}
 
@@ -188,21 +188,21 @@ void fish_affect(CHAR_DATA *ch, int fish_vnum)
 			modifier *= 10;
 		af.duration = number_range(1, 20);
 		af.location = location;
-		af.modifier = modifier;
+		af.modifier = - modifier;
 		affect_to_char(ch, &af);
 	}
 
 	switch (number_bits(4)) {
-	case 0:
+	case 1:
 		modifier = -2;
 		break;
-	case 1:
+	case 2:
 		modifier = -1;
 		break;
-	case 2:
+	case 3:
 		modifier = 1;
 		break;
-	case 3:
+	case 4:
 		modifier = 2;
 		break;
 	default:
