@@ -1,17 +1,18 @@
 #
-# $Id: Makefile.inc.dist,v 1.3 1999-06-22 14:29:41 fjoe Exp $
+# $Id: Makefile.inc.dist,v 1.4 1999-06-24 20:36:25 fjoe Exp $
 #
 
 CC		= gcc
 LD		= gcc
-INCLUDES	= -I . -I ..
+INCLUDES	= -I ../include
 
 CFLAGS		= -g -Wall -O -pipe $(INCLUDES)
 LFLAGS		= -g -export-dynamic
-SO_CFLAGS	= -fpic
+SO_CFLAGS	= -fpic -fPIC
 SO_LFLAGS	= -shared
+INSTALL_FLAGS	= -c -m 770
 LIBS		=
-INSTALL_PATH	= ..
+INSTALL_PATH	= ../..
 MAKE		= make
 
 #
@@ -41,4 +42,22 @@ MAKE		= make
 #LIBS	+= -lsocket -lnsl -lcrypt
 #COMPAT_CFILES = compat/strsep.c
 #COMPAT_OFILES = strsep.o
+
+#
+# Common targets
+#
+
+OFILES != for i in `echo $(CFILES) | sed 's/\.c/.o/g'`; do basename $${i}; done
+
+all: $(MODULE_NAME)
+
+$(MODULE_NAME): $(OFILES)
+	$(LD) -o $(MODULE_NAME) $(LFLAGS) $(OFILES) $(LIBS)
+
+depend:
+	rm -f .depend
+	mkdep $(CFLAGS) $(CFILES)
+
+clean:
+	rm -f $(MODULE_NAME) $(OFILES)
 
