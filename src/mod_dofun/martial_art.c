@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.130 1999-11-30 09:38:09 kostik Exp $
+ * $Id: martial_art.c,v 1.131 1999-11-30 14:50:32 kostik Exp $
  */
 
 /***************************************************************************
@@ -58,6 +58,76 @@ DECLARE_DO_FUN(do_dismount	);
 
 static inline bool	check_yell	(CHAR_DATA *ch, CHAR_DATA *victim,
 					 bool fighting);
+
+bool check_close_contact(CHAR_DATA *ch, CHAR_DATA *victim)
+{	
+	OBJ_DATA *v_weapon;
+	OBJ_DATA *v_weapon2;
+	int chance;
+
+	v_weapon = get_eq_char(victim, WEAR_WIELD);
+	v_weapon2 = get_eq_char(victim, WEAR_SECOND_WIELD);
+	chance = get_skill(victim, "close contact");
+
+	if (!chance || !v_weapon)
+		return FALSE;
+
+	if (!WEAPON_IS(v_weapon, WEAPON_DAGGER) 
+	&& !(v_weapon2 && WEAPON_IS(v_weapon2, WEAPON_DAGGER))) 
+		return FALSE;
+
+	chance += get_curr_stat(victim, STAT_DEX);
+
+	if (number_percent() < chance / 9) {
+		act("To close.. $N turns you into bloody mess with rapid "
+		"dagger blows.", ch, NULL, victim, TO_CHAR);
+		act("$n gets too close to you. It's $s fault.", 
+		ch, NULL, victim, TO_VICT);
+
+		while(number_percent() < chance) {
+			if (IS_EXTRACTED(ch))
+				return TRUE;
+			if(WEAPON_IS(v_weapon, WEAPON_DAGGER)) 
+				one_hit(victim, ch, "close contact", 
+					WEAR_WIELD);
+			if (IS_EXTRACTED(ch))
+				return TRUE;
+			if(v_weapon2 && WEAPON_IS(v_weapon2, WEAPON_DAGGER)) 
+				one_hit(victim, ch, "close contact", 
+					WEAR_SECOND_WIELD);
+			chance /= 3;
+		}
+		return TRUE;
+		check_improve(victim, "close combat", 2, TRUE);
+	}
+	return FALSE;
+}
+
+bool distance_check(CHAR_DATA *ch, CHAR_DATA *victim) 
+{
+	OBJ_DATA * v_weapon;
+
+	int chance;
+
+	v_weapon = get_eq_char(victim, WEAR_WIELD);
+
+	if (!v_weapon || !WEAPON_IS_LONG(v_weapon)) 
+		return FALSE;
+
+	if (!(chance = get_skill(victim, "distance"))) 
+		return FALSE;
+
+	chance += get_curr_stat(victim, STAT_DEX) - get_curr_stat(ch, STAT_DEX);
+	
+	if (number_percent() < chance / 6) {
+		act("You fail to reach $N.", ch, NULL, victim, TO_CHAR);
+		act("You stay out of $n's reach.", ch, NULL, victim, TO_VICT);
+		check_improve(victim, "distance", 5, TRUE);
+		return TRUE;
+	}
+
+	return FALSE;
+}
 
 void do_kill(CHAR_DATA *ch, const char *argument)
 {
@@ -339,7 +409,7 @@ void do_pound(CHAR_DATA *ch, const char *argument)
 
 	attack = (victim != ch->fighting) && (victim->fighting != ch);
 	
-	if (number_percent() > chance) {
+	if ((number_percent() > chance) || distance_check(ch, victim)) {
 		damage(ch, victim, 0, "pound", DAM_BASH, DAMF_SHOW); 
 		check_improve(ch, "pound", 3, FALSE);
 	} else {
@@ -419,8 +489,8 @@ void do_cut(CHAR_DATA *ch, const char *argument)
 	attack = (victim != ch->fighting) && (victim->fighting != ch);
 	
 	if (WEAPON_IS(weapon, WEAPON_SWORD)) {
-		if (number_percent() > chance) {
-			damage(ch, victim, 0, "cut", DAM_BASH, DAMF_SHOW); 
+		if ((number_percent() > chance) || distance_check(ch, victim)) {
+			damage(ch, victim, 0, "cut", DAM_SLASH, DAMF_SHOW); 
 			check_improve(ch, "cut", 3, FALSE);
 		} else {
 			act("You attempt to cut $N with your weapon.", 
@@ -434,8 +504,8 @@ void do_cut(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (second_weap && WEAPON_IS(second_weap, WEAPON_SWORD)) {
-		if (number_percent() > chance) {
-			damage(ch, victim, 0, "cut", DAM_BASH, DAMF_SHOW); 
+		if ((number_percent() > chance) || distance_check(ch, victim)) {
+			damage(ch, victim, 0, "cut", DAM_SLASH, DAMF_SHOW); 
 			check_improve(ch, "cut", 3, FALSE);
 		} else {
 			act("You attempt to cut $N with your weapon.", 
@@ -811,6 +881,10 @@ void do_bash(CHAR_DATA *ch, const char *argument)
 
 	RESET_WAIT_STATE(ch);
 	attack = !(ch->fighting == victim);
+	
+	if (check_close_contact(ch, victim) 
+	|| distance_check(ch, victim))
+		return;
 
 	/* now the attack */
 	if (number_percent() < chance) {
@@ -1084,6 +1158,10 @@ void do_trip(CHAR_DATA *ch, const char *argument)
 
 	RESET_WAIT_STATE(ch);
 	attack = (ch->fighting != victim);
+	
+	if (check_close_contact(ch, victim)
+	|| distance_check(ch, victim)) 
+		return;
 
 	/* now the attack */
 	if (number_percent() < chance) {
@@ -1474,6 +1552,10 @@ void do_kick(CHAR_DATA *ch, const char *argument)
 	if (IS_AFFECTED(ch, AFF_FLYING))
 		chance = chance * 110 / 100;
 
+	if (check_close_contact(ch, victim)
+	|| distance_check(ch, victim)) 
+		return;
+
 	WAIT_STATE(ch, skill_beats("kick"));
 	if (IS_NPC(ch) || number_percent() < chance) {
 		kick_dam = number_range(1, LEVEL(ch));
@@ -1789,6 +1871,9 @@ void do_nerve(CHAR_DATA *ch, const char *argument)
 
 	attack = (ch->fighting != victim);
 
+	if (check_close_contact(ch, victim)
+	|| distance_check(ch, victim)) 
+		return;
 
 	if (IS_NPC(ch)
 	||  number_percent() < (chance + ch->level 
@@ -2174,6 +2259,10 @@ void do_throw(CHAR_DATA *ch, const char *argument)
 
 	/* level */
 	chance += (LEVEL(ch) - LEVEL(victim)) * 2;
+
+	if (check_close_contact(ch, victim) 
+	|| distance_check(ch, victim))
+		return;
 
 	if (number_percent() < chance) {
 		act("You throw $N to the ground with stunning force.",
@@ -3814,6 +3903,10 @@ void do_crush(CHAR_DATA *ch, const char *argument)
 	if (is_safe(ch, victim))
 		return;
 
+	if (check_close_contact(ch, victim)
+	|| distance_check(ch, victim))
+		return;
+
 	/* modifiers */
 
 	/* size  and weight */
@@ -3843,11 +3936,11 @@ void do_crush(CHAR_DATA *ch, const char *argument)
 
 	/* now the attack */
 	if (number_percent() < chance) {
-		act("$n squezes you with a powerful crush!",
+		act("$n squeezes you with a powerful crush!",
 		    ch, NULL, victim, TO_VICT);
-		act("You slam into $N, and crushes $M!",
+		act("You slam into $N, and crush $M!",
 		    ch, NULL, victim, TO_CHAR);
-		act("$n squezes $N with a powerful crush.",
+		act("$n squeezes $N with a powerful crush.",
 		    ch, NULL, victim, TO_NOTVICT);
 
 		wait = 3;

@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.88 1999-11-30 09:58:38 kostik Exp $
+ * $Id: skills.c,v 1.89 1999-11-30 14:50:34 kostik Exp $
  */
 
 /***************************************************************************
@@ -213,11 +213,13 @@ int get_skill(CHAR_DATA *ch, const char *sn)
 	int percent;
 	skill_t *sk;
 
+	if ((sk = skill_lookup(sn)) == NULL) 
+		return 0;
+
 	if (!IS_NPC(ch)) {
 		pc_skill_t *pc_sk;
 
-		if ((sk = skill_lookup(sn)) == NULL
-		||  (IS_SET(sk->skill_flags, SKILL_CLAN) 
+		if ((IS_SET(sk->skill_flags, SKILL_CLAN) 
 		&& !clan_item_ok(ch->clan)))
 			return 0;
 
@@ -614,6 +616,8 @@ DECLARE_MOB_SKILL(mob_rescue);
 DECLARE_MOB_SKILL(mob_crush);
 DECLARE_MOB_SKILL(mob_weapon);
 DECLARE_MOB_SKILL(mob_distance);
+DECLARE_MOB_SKILL(mob_deathblow);
+DECLARE_MOB_SKILL(mob_spellbane);
 
 static size_t mob_skill_count;
 
@@ -639,6 +643,8 @@ static mob_skill_t mob_skill_tab[] =
 	{ "bash door",		mob_bash		},
 	{ "kick",		mob_kick		},
 	{ "critical strike",	mob_critical_strike	},
+	{ "deathblow",		mob_deathblow		},
+	{ "spellbane", 		mob_spellbane		},
 	{ "disarm",		mob_disarm		},
 	{ "grip",		mob_grip		},
 	{ "berserk",		mob_berserk		},
@@ -738,6 +744,20 @@ MOB_SKILL(mob_distance)
 {
 	if (IS_SET(mob->pMobIndex->off_flags, OFF_DISTANCE))
 		return mob->level * 2;
+	return 0;
+}
+
+MOB_SKILL(mob_deathblow)
+{
+	if (IS_SET(mob->pMobIndex->off_flags, OFF_DEATHBLOW))
+		return 68 + mob->level;
+	return 0;
+}
+
+MOB_SKILL(mob_spellbane)
+{
+	if (IS_SET(mob->pMobIndex->off_flags, OFF_SPELLBANE))
+		return 65 + mob->level;
 	return 0;
 }
 

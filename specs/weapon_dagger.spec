@@ -18,6 +18,15 @@ Max 100
 End
 
 #SKILL
+Skill 'close contact'
+Level 30
+Rating 2
+Min 1
+Adept 75
+Max 100
+End
+
+#SKILL
 Skill 'dagger'
 Level 1
 Rating 1

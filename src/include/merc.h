@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.259 1999-11-30 08:10:02 kostik Exp $
+ * $Id: merc.h,v 1.260 1999-11-30 14:50:33 kostik Exp $
  */
 
 /***************************************************************************
@@ -461,6 +461,8 @@ struct spec_type
 #define ASSIST_GUARD		(T)
 #define ASSIST_VNUM		(U)
 #define OFF_DISTANCE		(X)
+#define OFF_SPELLBANE		(Y)
+#define OFF_DEATHBLOW		(Z)
 
 /* return values for check_imm */
 #define IS_NORMAL		0
@@ -821,6 +823,7 @@ struct spec_type
 #define	WEAPON_STAFF		12
 
 #define WEAPON_IS(obj, wclass)	(INT_VAL(obj->value[0]) == (wclass))
+#define WEAPON_IS_LONG(obj) (WEAPON_IS((obj), WEAPON_STAFF) || WEAPON_IS((obj), WEAPON_SPEAR) || WEAPON_IS((obj), WEAPON_POLEARM) || WEAPON_IS((obj), WEAPON_LANCE))
 
 /* weapon types */
 #define WEAPON_FLAMING		(A)

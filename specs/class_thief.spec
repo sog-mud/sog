@@ -58,6 +58,15 @@ Max 100
 End
 
 #SKILL
+Skill 'close contact'
+Level 29
+Rating 1
+Min 1
+Adept 75
+Max 100
+End
+
+#SKILL
 Skill 'settraps'
 Level 43
 Rating 1

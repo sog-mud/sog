@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.105 1999-11-30 08:10:02 kostik Exp $
+ * $Id: tables.c,v 1.106 1999-11-30 14:50:34 kostik Exp $
  */
 
 /***************************************************************************
@@ -231,13 +231,15 @@ flag_t off_flags[] =
 	{ "tail",		OFF_TAIL,		TRUE	},
 	{ "trip",		OFF_TRIP,		TRUE	},
 	{ "crush",		OFF_CRUSH,		TRUE	},
+	{ "distance", 		OFF_DISTANCE,		TRUE	},
+	{ "deathblow",		OFF_DEATHBLOW,		TRUE	},
+	{ "spellbane",		OFF_SPELLBANE,		TRUE	},
 	{ "assist_all",		ASSIST_ALL,		TRUE	},
 	{ "assist_align",	ASSIST_ALIGN,		TRUE	},
 	{ "assist_race",	ASSIST_RACE,		TRUE	},
 	{ "assist_players",	ASSIST_PLAYERS,		TRUE	},
 	{ "assist_guard",	ASSIST_GUARD,		TRUE	},
 	{ "assist_vnum",	ASSIST_VNUM,		TRUE	},
-	{ "distance", 		OFF_DISTANCE,		TRUE	},
 
 	{ NULL }
 };
