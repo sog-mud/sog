@@ -1,5 +1,5 @@
 /*
- * $Id: interp.h,v 1.33 1998-12-24 12:24:13 kostik Exp $
+ * $Id: interp.h,v 1.34 1999-02-02 15:50:22 kostik Exp $
  */
 
 /***************************************************************************
@@ -180,6 +180,7 @@ DECLARE_DO_FUN(do_induct	);
 DECLARE_DO_FUN(do_imotd		);
 DECLARE_DO_FUN(do_inventory	);
 DECLARE_DO_FUN(do_invis		);
+DECLARE_DO_FUN(do_item		);
 DECLARE_DO_FUN(do_judge		);
 DECLARE_DO_FUN(do_katana	);
 DECLARE_DO_FUN(do_kick		);

@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.45 1998-12-17 21:05:44 fjoe Exp $
+ * $Id: skills.c,v 1.46 1999-02-02 15:50:23 kostik Exp $
  */
 
 /***************************************************************************
@@ -711,7 +711,8 @@ int get_skill(CHAR_DATA *ch, int sn)
 
 	if (!IS_NPC(ch) && ch->pcdata->condition[COND_DRUNK]  > 10)
 		skill = 9 * skill / 10;
-
+	if (IS_SET(sk->flags, SKILL_CLAN) && !clan_item_ok(ch->clan))
+		skill = 0;
 	return URANGE(0, skill, 100);
 }
 

@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.103 1999-01-21 13:36:33 kostik Exp $
+ * $Id: spellfun.c,v 1.104 1999-02-02 15:50:22 kostik Exp $
  */
 
 /***************************************************************************
@@ -85,7 +85,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 	int chance = 0;
 	SKILL_DATA *spell;
 	CLASS_DATA *cl;
-	PC_SKILL *ps;
+	PC_SKILL *ps; 
 	int bane_chance;
 
 	if ((cl = class_lookup(ch->class)) == NULL)
@@ -138,7 +138,11 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 	spell = SKILL(sn);
-
+	
+	if (IS_SET(spell->flags, SKILL_CLAN) && !clan_item_ok(ch->clan)) {
+		char_puts("Your clan item of power is lost, you cannot cast this spell.\n", ch);
+		return;
+	}
 	if (HAS_SKILL(ch, gsn_vampire)
 	&&  !is_affected(ch, gsn_vampire)
 	&&  !IS_SET(spell->flags, SKILL_CLAN)) {

@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.95 1999-01-18 05:15:34 fjoe Exp $
+ * $Id: db.c,v 1.96 1999-02-02 15:50:30 kostik Exp $
  */
 
 /***************************************************************************
@@ -636,6 +636,8 @@ void reset_room(ROOM_INDEX_DATA *pRoom)
         OBJ_INDEX_DATA  *pObjToIndex;
         ROOM_INDEX_DATA *pRoomIndex;
 	int count,limit=0;
+	int cn;
+	CLAN_DATA* clan=NULL;
         EXIT_DATA *pExit;
         int d0;
         int d1;
@@ -737,7 +739,7 @@ void reset_room(ROOM_INDEX_DATA *pRoom)
                 bug("Reset_room: 'P': bad vnum %d.", pReset->arg1);
                 continue;
             }
-
+	    
             if (!(pObjToIndex = get_obj_index(pReset->arg3)))
             {
                 bug("Reset_room: 'P': bad vnum %d.", pReset->arg3);
@@ -769,6 +771,17 @@ void reset_room(ROOM_INDEX_DATA *pRoom)
 		        dump_to_scr("Reseting area: [P] OBJ limit reached\n");
 		        break;
 		      }
+	    if (IS_SET(pObjIndex->extra_flags, ITEM_CLAN)) {
+		for (cn=0; cn < clans.nused; cn++) 
+			if(pObjIndex->vnum == clan_lookup(cn)->obj_vnum)
+				clan=clan_lookup(cn);
+		if (clan != NULL && clan->obj_ptr == NULL) {
+			pObj = create_obj(pObjIndex, number_fuzzy(LastObj->level));
+			clan->obj_ptr = pObj;
+			obj_to_obj(pObj,LastObj);
+		}
+		continue;
+	    }
 
 	    while (count < pReset->arg4)
 	    {

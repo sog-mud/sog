@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.36 1998-12-28 14:26:43 kostik Exp $
+ * $Id: tables.c,v 1.37 1999-02-02 15:50:23 kostik Exp $
  */
 
 /***************************************************************************
@@ -487,6 +487,7 @@ FLAG extra_flags[] =
 	{ "nosell",		ITEM_NOSELL,		TRUE	},
 	{ "not_edible",		ITEM_NOT_EDIBLE,	TRUE	},
 	{ "quest",		ITEM_QUEST,		TRUE	},
+	{ "clan_item",		ITEM_CLAN,		TRUE	},
 	{ "enchanted",		ITEM_ENCHANTED,		FALSE	},
 	{ "oldstyle",		ITEM_OLDSTYLE,		FALSE	},
 	{ NULL }

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: clan.c,v 1.25 1998-12-23 16:11:13 fjoe Exp $
+ * $Id: clan.c,v 1.26 1999-02-02 15:50:21 kostik Exp $
  */
 
 #include <sys/time.h>
@@ -422,4 +422,55 @@ void do_clanlist(CHAR_DATA *ch, const char *argument)
 		fclose(pfile);
 	}
 #endif
+}
+void do_item(CHAR_DATA* ch, const char* argument)
+{
+	CLAN_DATA* clan;
+	OBJ_DATA* in_obj;
+	int cn;
+	if(ch->clan==0||(clan=clan_lookup(ch->clan))==NULL) {
+		char_puts("You are not in clan, you should not worry about your clan item.\n",ch);
+		return;
+	}
+
+	if (clan->obj_ptr == NULL) {
+		char_puts("Your clan do not have an item of power.\n",ch);
+		return;
+	}
+
+	for (in_obj=clan->obj_ptr; in_obj->in_obj!=NULL; in_obj=in_obj->in_obj);
+	if (in_obj->carried_by !=NULL)
+		char_printf(ch, "%s is in %s, carried by %s\n",
+			mlstr_mval(clan->obj_ptr->short_descr),
+			mlstr_mval(in_obj->carried_by->in_room->name),
+			PERS(ch, in_obj->carried_by));
+	else {
+		char_printf(ch, "%s is in %s.\n",
+			mlstr_mval(clan->obj_ptr->short_descr),
+			mlstr_mval(in_obj->in_room->name));
+		for (cn=0; cn < clans.nused; cn++) 
+			if (in_obj->in_room->vnum==clan_lookup(cn)->altar_vnum)
+			char_printf(ch,"It is altar of %s.\n",
+			 clan_lookup(cn)->name);
+	}
+	return;
+}
+
+bool clan_item_ok(int cn)
+{
+	CLAN_DATA* clan;
+	OBJ_DATA* obj;
+	int room_in;
+	int i;
+	if (!(clan=clan_lookup(cn)) || !(clan->obj_ptr)) 
+		return TRUE;
+	for (obj=clan->obj_ptr; obj->in_obj!=NULL; obj=obj->in_obj);
+	if (obj->in_room) 
+		room_in=obj->in_room->vnum;
+	else 
+		return TRUE;
+	if (room_in == clan->altar_vnum) return TRUE;
+	for (i=0; i < clans.nused; i++)
+		if (room_in == clan_lookup(i)->altar_vnum) return FALSE;
+	return TRUE;
 }

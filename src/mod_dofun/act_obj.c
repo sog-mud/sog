@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.109 1999-01-25 09:31:13 kostik Exp $
+ * $Id: act_obj.c,v 1.110 1999-02-02 15:50:21 kostik Exp $
  */
 
 /***************************************************************************
@@ -1266,7 +1266,7 @@ void do_eat(CHAR_DATA * ch, const char *argument)
 				char_puts("You are full.\n", ch);
 			if (obj->pIndexData->vnum == OBJ_VNUM_TORN_HEART) {
 				ch->hit = UMIN(ch->max_hit, ch->hit+ch->level/10+number_range(1,5));
-				char_puts("You feel empowered by the blood of your foe.\n",ch);
+				char_puts("You feel empowered from the blood of your foe.\n",ch);
 			};
 		}
 		if (obj->value[3] != 0) {

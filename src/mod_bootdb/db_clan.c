@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_clan.c,v 1.9 1998-10-30 06:56:55 fjoe Exp $
+ * $Id: db_clan.c,v 1.10 1999-02-02 15:50:31 kostik Exp $
  */
 
 #include <stdio.h>
@@ -44,7 +44,6 @@ DBFUN db_load_clans[] =
 DBLOAD_FUN(load_clan)
 {
 	CLAN_DATA *	clan;
-
 	clan = clan_new();
 	clan->file_name = get_filename(filename);
 
@@ -78,6 +77,12 @@ DBLOAD_FUN(load_clan)
 			break;
 		case 'R':
 			KEY("Recall", clan->recall_vnum, fread_number(fp));
+			break;
+		case 'I':
+			KEY("Item", clan->obj_vnum, fread_number(fp));
+			break;
+		case 'A':
+			KEY("Altar", clan->altar_vnum, fread_number(fp));
 			break;
 		case 'S':
 			if (!str_cmp(word, "Skill")) {

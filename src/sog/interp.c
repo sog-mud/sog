@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.101 1999-01-05 08:11:59 kostik Exp $
+ * $Id: interp.c,v 1.102 1999-02-02 15:50:21 kostik Exp $
  */
 
 /***************************************************************************
@@ -275,6 +275,7 @@ CMD_DATA cmd_table[] =
     { "train",		do_train,	POS_RESTING,	 0,  LOG_NORMAL	},
     { "visible",	do_visible,	POS_SLEEPING,	 0,  LOG_NORMAL	},
     { "where",		do_where,	POS_RESTING,	 0,  LOG_NORMAL, CMD_KEEP_HIDE },
+    { "item",		do_item,	POS_DEAD,	 0,  LOG_NORMAL, CMD_KEEP_HIDE|CMD_CHARMED_OK },
 
     { "judge",		do_judge,	POS_RESTING,	0, LOG_NORMAL },
     { "wanted",		do_wanted,	POS_STANDING,	0, LOG_ALWAYS, CMD_NOORDER },

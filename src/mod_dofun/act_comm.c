@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.128 1999-01-21 12:23:38 kostik Exp $
+ * $Id: act_comm.c,v 1.129 1999-02-02 15:50:20 kostik Exp $
  */
 
 /***************************************************************************
@@ -1041,6 +1041,7 @@ void do_quit_org(CHAR_DATA *ch, const char *argument, bool Count)
 	DESCRIPTOR_DATA *d, *d_next;
 	CHAR_DATA *vch;
 	OBJ_DATA *obj,*obj_next;
+	int cn;
 	int id;
 
 	if (IS_NPC(ch))
@@ -1106,7 +1107,7 @@ void do_quit_org(CHAR_DATA *ch, const char *argument, bool Count)
 			return;
 		}
 	}
-
+	
 	char_puts("Alas, all good things must come to an end.\n", ch);
 	char_puts("You hit reality hard. Reality truth does unspeakable things to you.\n", ch);
 	act_puts("$n has left the game.", ch, NULL, NULL, TO_ROOM, POS_RESTING);
@@ -1130,6 +1131,15 @@ void do_quit_org(CHAR_DATA *ch, const char *argument, bool Count)
 			}
 	}
 
+	for (obj = ch->carrying; obj !=NULL; obj = obj->next_content) {
+		if (IS_SET(obj->extra_flags, ITEM_CLAN)) {
+			for (cn=0; cn < clans.nused; cn++) 
+		  	    if (obj == clan_lookup(cn)->obj_ptr) {
+				obj_from_char(obj);
+				obj_to_room(obj, get_room_index(clan_lookup(cn)->altar_vnum));
+			    }
+		}
+	}
 
 	for (vch = char_list; vch; vch = vch->next) {
 		if (is_affected(vch, gsn_doppelganger)
