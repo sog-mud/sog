@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.88 1999-09-14 03:10:57 avn Exp $
+ * $Id: tables.c,v 1.89 1999-09-15 07:53:40 kostik Exp $
  */
 
 /***************************************************************************
@@ -119,6 +119,7 @@ flag_t act_flags[] =
 	{ "summoned",		ACT_SUMMONED,		TRUE	},
 	{ "sage",		ACT_SAGE,		TRUE	},
 	{ "repairman",		ACT_REPAIRMAN,		TRUE	},
+	{ "familiar",		ACT_FAMILIAR,		TRUE	},
 
 	{ NULL }
 };

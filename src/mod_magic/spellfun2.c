@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.132 1999-09-14 07:47:07 kostik Exp $
+ * $Id: spellfun2.c,v 1.133 1999-09-15 07:53:40 kostik Exp $
  */
 
 /***************************************************************************
@@ -5522,4 +5522,86 @@ void spell_free_action(int sn, int level, CHAR_DATA *ch, void *vo)
 	af.bitvector	= AFF_SWIM;
 	affect_to_char(vch, &af); 
 	char_puts("You can move easier.\n", vch);
+}
+
+void spell_find_familiar(int sn, int level, CHAR_DATA *ch, void *vo) 
+{	
+	CHAR_DATA *familiar=NULL;
+	CHAR_DATA *gch;
+	int i;
+	
+	int chance;
+	int vnum;
+	bool new=TRUE;
+	chance = number_percent();
+
+	if (chance < 60)
+		vnum = MOB_VNUM_BLACK_CAT;
+	else	
+		vnum = MOB_VNUM_BLACK_CROW;
+
+	for(gch=npc_list; gch; gch=gch->next) {
+		if (IS_SET(gch->pMobIndex->act, ACT_FAMILIAR)
+		&& gch->master == ch) {
+			familiar = gch;
+			new = FALSE;
+			break;
+		}
+	}
+
+	if (!familiar) {
+		familiar = create_mob(get_mob_index(vnum));
+
+		switch(vnum) {
+		case MOB_VNUM_BLACK_CAT:
+			familiar->perm_stat[STAT_STR] = 12;
+			familiar->perm_stat[STAT_INT] = 23;
+			familiar->perm_stat[STAT_DEX] = 24;
+			familiar->perm_stat[STAT_WIS] = 12;
+			familiar->perm_stat[STAT_CON] = 14;
+			familiar->perm_stat[STAT_CHA] = get_curr_stat(ch, STAT_CHA)-1;
+			break;
+		case MOB_VNUM_BLACK_CROW:
+			familiar->perm_stat[STAT_STR] = 13;
+			familiar->perm_stat[STAT_INT] = 18;
+			familiar->perm_stat[STAT_DEX] = 14;
+			familiar->perm_stat[STAT_WIS] = 24;
+			familiar->perm_stat[STAT_CON] = 13;
+			familiar->perm_stat[STAT_CHA] = get_curr_stat(ch, STAT_CHA)-4;
+			break;
+		}
+
+		for (i=0; i<MAX_STATS; i++)
+			familiar->perm_stat[i] += number_range(-1,1);
+	}
+	
+	familiar->max_hit = ch->max_hit/2 + (ch->max_hit)*get_curr_stat(familiar, STAT_CON)/50;
+	familiar->max_mana = ch->max_mana * (get_curr_stat(familiar, STAT_INT) + get_curr_stat(familiar, STAT_WIS))/48;
+	familiar->level = ch->level;
+	familiar->hit = familiar->max_hit;
+	familiar->mana = familiar->max_mana;
+	for (i=0; i<4; i++)  
+		familiar->armor[i] = interpolate(familiar->level,100,-100);
+	
+	familiar->gold = 0;
+
+	NPC(familiar)->dam.dice_number = 5;
+	NPC(familiar)->dam.dice_type   = 5;
+
+	familiar->damroll = level/3;
+
+	familiar->master = familiar->leader = ch;
+	
+	if (!new)
+		transfer_char(familiar, ch, ch->in_room,
+			"$N disappears suddenly.",
+			"$n has summoned you!",
+			"$N arrives suddenly.");
+	else {
+		char_to_room(familiar, ch->in_room);
+
+		act("You attempt to find a familiar.", ch, NULL, NULL, TO_CHAR);
+		act("$N comes to serve you.", ch, NULL, familiar, TO_CHAR);
+		act("$N comes to serve $n.", ch, NULL, familiar, TO_NOTVICT);
+	}
 }

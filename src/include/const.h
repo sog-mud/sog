@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: const.h,v 1.43 1999-09-14 03:10:54 avn Exp $
+ * $Id: const.h,v 1.44 1999-09-15 07:53:39 kostik Exp $
  */
 
 #ifndef _CONST_H_
@@ -229,6 +229,8 @@ enum {
 #define MOB_VNUM_ADAMANTITE_GOLEM	24
 
 #define MOB_VNUM_HUNTER 		25
+#define MOB_VNUM_BLACK_CAT		30
+#define MOB_VNUM_BLACK_CROW		31
 
 #define MOB_VNUM_PATROLMAN		2106
 #define GROUP_VNUM_TROLLS		2100

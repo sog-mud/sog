@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.229 1999-09-14 03:10:54 avn Exp $
+ * $Id: merc.h,v 1.230 1999-09-15 07:53:39 kostik Exp $
  */
 
 /***************************************************************************
@@ -480,6 +480,7 @@ where_t *where_lookup(flag32_t where);
 #define ACT_SUMMONED		(gg)		/* summoned (golem etc.)*/
 #define ACT_SAGE		(hh)		/* sage (Otho etc.)	*/
 #define ACT_REPAIRMAN		(ii)
+#define ACT_FAMILIAR		(jj)		/* familiar 		*/
 
 /* damage classes */
 #define DAM_NONE		0
