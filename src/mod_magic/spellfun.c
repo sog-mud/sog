@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.315 2004-02-11 23:18:57 sg Exp $
+ * $Id: spellfun.c,v 1.316 2004-02-12 00:28:29 sg Exp $
  */
 
 /***************************************************************************
@@ -8101,7 +8101,7 @@ SPELL_FUN(spell_snake_rune, sn, level, ch, vo)
 	paf = aff_new(TO_TRIG, sn);
 	paf->level	= level;
 	paf->duration	= number_fuzzy(level / 4);
-	paf->location.s	= str_dup("obj_get_rune_snake");
+	paf->location.s	= str_dup("obj_get_rune_snake 100");
 	paf->modifier	= TRIG_OBJ_GET;
 	paf->owner	= ch;
 	affect_to_obj(obj, paf);
