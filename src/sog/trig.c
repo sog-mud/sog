@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: trig.c,v 1.34 2003-09-30 00:31:39 fjoe Exp $
+ * $Id: trig.c,v 1.35 2004-02-11 21:44:12 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -51,6 +51,7 @@ trig_init(trig_t *trig)
 	trig->trig_arg = str_empty;
 	trig->trig_flags = 0;
 	trig->trig_extra = NULL;
+	trig->trig_paf = NULL;
 }
 
 void
@@ -63,6 +64,14 @@ trig_destroy(trig_t *trig)
 		regfree(trig->trig_extra);
 		free(trig->trig_extra);
 	}
+}
+
+static void
+trig_cpy(trig_t *dst, trig_t *src)
+{
+	dst->trig_type = src->trig_type;
+	dst->trig_prog = str_qdup(src->trig_prog);
+	trig_set_arg(dst, str_qdup(src->trig_arg));
 }
 
 void
@@ -144,11 +153,7 @@ trig_init_list(varr *v)
 void
 trig_destroy_list(varr *v)
 {
-	/*
-	 * c_erase instead of c_destroy because trig_destroy_list is used
-	 * in free_room_index and x_room_del examines c_size(v)
-	 */
-	c_erase(v);
+	c_destroy(v);
 }
 
 bool
@@ -301,27 +306,46 @@ int
 pull_mob_trigger(int trig_type,
 		 CHAR_DATA *ch, CHAR_DATA *victim, void *arg)
 {
-	if (!IS_NPC(ch))
-		return MPC_ERR_NOTFOUND;
+	int rv;
+
+	if (IS_NPC(ch)) {
+		rv = pull_trigger_list(
+		    trig_type, &ch->pMobIndex->mp_trigs, MP_T_MOB,
+		    ch, victim, arg);
+		if (rv > 0)
+			return rv;
+	}
 
 	return pull_trigger_list(
-	    trig_type, &ch->pMobIndex->mp_trigs, MP_T_MOB, ch, victim, arg);
+	    trig_type, &ch->mptrig_affected, MP_T_MOB, ch, victim, arg);
 }
 
 int
 pull_obj_trigger(int trig_type,
 		 OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 {
-	return pull_trigger_list(
+	int rv;
+
+	rv = pull_trigger_list(
 	    trig_type, &obj->pObjIndex->mp_trigs, MP_T_OBJ, obj, ch, arg);
+	if (rv > 0)
+		return rv;
+	return pull_trigger_list(
+	    trig_type, &obj->mptrig_affected, MP_T_OBJ, obj, ch, arg);
 }
 
 int
 pull_room_trigger(int trig_type,
 		  ROOM_INDEX_DATA *room, CHAR_DATA *ch, void *arg)
 {
-	return pull_trigger_list(
+	int rv;
+
+	rv = pull_trigger_list(
 	    trig_type, &room->mp_trigs, MP_T_ROOM, room, ch, arg);
+	if (rv > 0)
+		return rv;
+	return pull_trigger_list(
+	    trig_type, &room->mptrig_affected, MP_T_ROOM, room, ch, arg);
 }
 
 int
@@ -532,26 +556,39 @@ pull_trigger_list(int trig_type, varr *v, int mp_type,
 	trig_t *trig;
 	int rv = MPC_ERR_NOTFOUND;
 	bool seen_good = FALSE;
+	varr vc;
 
 	trig = varr_bsearch_lower(v, &trig_type, cmpint);
 	if (trig == NULL)
 		return MPC_ERR_NOTFOUND;
 
+	/*
+	 * Need to make trig list copy because affect triggers
+	 * can be removed during mprog execution
+	 */
+	trig_init_list(&vc);
 	VARR_EFOREACH(trig, trig, v) {
+		trig_t *n;
+
 		if (trig->trig_type != trig_type)
 			break;
 
+		n = varr_enew(&vc);
+		trig_cpy(n, trig);
+	}
+
+	C_FOREACH(trig, &vc) {
 		rv = pull_one_trigger(trig, mp_type, arg1, arg2, arg3);
 		if (rv > 0)
-			return rv;
+			break;
 		else if (rv == 0 && !seen_good)
 			seen_good = TRUE;
 	}
+	trig_destroy_list(&vc);
 
-	if (seen_good)
-		return 0;
-
-	return rv;
+	if (rv > 0)
+		return rv;
+	return seen_good ? 0 : rv;
 }
 
 static bool

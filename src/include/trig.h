@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: trig.h,v 1.20 2003-05-14 19:19:48 fjoe Exp $
+ * $Id: trig.h,v 1.21 2004-02-11 21:44:11 fjoe Exp $
  */
 
 #ifndef _TRIG_H_
@@ -116,6 +116,7 @@ struct trig_t {
 	const char *	trig_arg;	/**< trigger argument	*/
 	flag_t		trig_flags;	/**< trigger flags	*/
 	void *		trig_extra;	/**< trigger extra data	*/
+	AFFECT_DATA *	trig_paf;	/**< trigger affect	*/
 };
 
 /**

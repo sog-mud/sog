@@ -1,5 +1,5 @@
 /*
- * $Id: affects.c,v 1.86 2004-02-09 21:19:54 fjoe Exp $
+ * $Id: affects.c,v 1.87 2004-02-11 21:44:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -46,6 +46,7 @@
 
 #include <merc.h>
 #include <lang.h>
+#include <mprog.h>
 
 #include <sog.h>
 
@@ -1250,11 +1251,41 @@ affect_modify_room(ROOM_INDEX_DATA *room, AFFECT_DATA *paf, bool fAdd)
 
 /*
  * Apply or remove trigger affect.
+ *
+ * paf->location:	"mprog [arg]"
+ * paf->modifier:	trig_type
  */
 static void
 affect_modify_trig(varr *v, AFFECT_DATA *paf, bool fAdd)
 {
-	UNUSED_ARG(v);
-	UNUSED_ARG(paf);
-	UNUSED_ARG(fAdd);
+	trig_t *trig;
+	int trig_type = paf->modifier;
+
+	if (fAdd) {
+		char mpname[MAX_STRING_LENGTH];
+		const char *arg;
+
+		arg = first_arg(
+		    STR(paf->location), mpname, sizeof(mpname), FALSE);
+		STRKEY_CHECK(&mprogs, mpname);
+
+		trig = trig_new(v, trig_type);
+		trig->trig_prog = str_dup(mpname);
+		trig_set_arg(trig, str_dup(arg));
+		trig->trig_paf = paf;
+	} else {
+		trig = varr_bsearch_lower(v, &trig_type, cmpint);
+		if (trig == NULL)
+			return;
+
+		VARR_EFOREACH(trig, trig, v) {
+			if (trig->trig_type != trig_type)
+				break;
+
+			if (trig->trig_paf == paf) {
+				varr_edelete(v, trig);
+				break;
+			}
+		}
+	}
 }

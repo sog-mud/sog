@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.162 2004-02-09 21:16:54 fjoe Exp $
+ * $Id: recycle.c,v 1.163 2004-02-11 21:44:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1036,8 +1036,12 @@ room_index_destroy(ROOM_INDEX_DATA *pRoom)
 	for (pReset = pRoom->reset_first; pReset; pReset = pReset->next)
 		reset_free(pReset);
 
-	trig_destroy_list(&pRoom->mp_trigs);
+	/*
+	 * x_room_del checks triggers so it should be called
+	 * before destroying them
+	 */
 	x_room_del(pRoom);
+	trig_destroy_list(&pRoom->mp_trigs);
 
 	c_destroy(&pRoom->vars);
 }
@@ -1086,8 +1090,7 @@ x_room_del(ROOM_INDEX_DATA *room)
 	ROOM_INDEX_DATA *r;
 	ROOM_INDEX_DATA *r_prev = NULL;
 
-	if (room->affected != NULL
-	||  ROOM_HAS_TRIGGER(room, TRIG_ROOM_RANDOM))
+	if (room->affected != NULL || ROOM_HAS_TRIGGER(room, TRIG_ROOM_RANDOM))
 		return;
 
 	for (r = x_room_list, r_prev = NULL; r != NULL; r = r->x_next) {
