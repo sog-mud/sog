@@ -1,0 +1,12 @@
+#type spec
+
+/*
+ * $Id: spec_class_wizard.mpc,v 1.1 2001-07-08 17:17:08 fjoe Exp $
+ */
+
+if (spclass_count($n, "major_school", $rm, $add) > 1
+||  spclass_count($n, "minor_school", $rm, $add) > 2) {
+	act_char($n, "Ooops.");
+	return 1;
+}
+return 0;
