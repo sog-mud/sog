@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.181.2.31 2002-01-10 15:49:33 tatyana Exp $
+ * $Id: spellfun.c,v 1.181.2.32 2002-08-14 15:42:24 tatyana Exp $
  */
 
 /***************************************************************************
@@ -803,10 +803,26 @@ void spell_create_food(int sn, int level, CHAR_DATA *ch, void *vo)
 	act("$p suddenly appears.", ch, mushroom, NULL, TO_CHAR);
 }
 
+#define OBJ_VNUM_ROSE_BOUQUET			34430
+#define OBJ_VNUM_ROSE_BASKET			34431
 void spell_create_rose(int sn, int level, CHAR_DATA *ch, void *vo)
 {
 	int carry_w, carry_n;
-	OBJ_DATA *rose = create_obj(get_obj_index(OBJ_VNUM_ROSE), 0);
+	OBJ_DATA *rose;
+	int vnum;
+
+        if (!str_prefix(target_name, "single"))
+                vnum = OBJ_VNUM_ROSE;
+        else if (!str_prefix(target_name, "bouquet"))
+                vnum = OBJ_VNUM_ROSE_BOUQUET;
+        else if (!str_prefix(target_name, "basket"))
+                vnum = OBJ_VNUM_ROSE_BASKET;
+	else {
+		char_puts("Chose wisely! Single, bouquet or basket.\n", ch);
+		return;
+	}
+
+	rose = create_obj(get_obj_index(vnum), 0);
 
 	if (rose == NULL)
 		return;

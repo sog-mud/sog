@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.114.2.24 2002-02-07 15:40:41 tatyana Exp $
+ * $Id: martial_art.c,v 1.114.2.25 2002-08-14 15:42:19 tatyana Exp $
  */
 
 /***************************************************************************
@@ -1666,7 +1666,7 @@ void do_assassinate(CHAR_DATA *ch, const char *argument)
 		return;
 	}
  
-	if (victim->hit < victim->max_hit*0.9) {
+	if (victim->hit < victim->max_hit * 9 / 10) {
 		act("$N is hurt and suspicious ... you can't sneak up.",
 		    ch, NULL, victim, TO_CHAR);
 		return;
@@ -1690,7 +1690,7 @@ void do_assassinate(CHAR_DATA *ch, const char *argument)
 	if (number_percent() < chance
 	&&  !IS_CLAN_GUARD(victim)
 	&&  !IS_IMMORTAL(victim))
-		one_hit(ch, victim, gsn_assassinate,WEAR_WIELD);
+		one_hit(ch, victim, gsn_assassinate, WEAR_WIELD);
 	else {
 		check_improve(ch, gsn_assassinate, FALSE, 1);
 		damage(ch, victim, 0, gsn_assassinate, DAM_NONE, TRUE);
