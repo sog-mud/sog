@@ -1,5 +1,5 @@
 /*
- * $Id: fight.h,v 1.10 1999-02-09 14:28:15 fjoe Exp $
+ * $Id: fight.h,v 1.11 1999-05-19 15:00:32 kostik Exp $
  */
 
 /***************************************************************************
@@ -65,6 +65,7 @@ bool	check_obj_dodge	(CHAR_DATA *ch, CHAR_DATA *victim,
 int	get_dam_type	(CHAR_DATA *ch, OBJ_DATA *wield, int *dt);
 bool	backstab_ok	(CHAR_DATA *ch, CHAR_DATA *victim);
 void	backstab	(CHAR_DATA *ch, CHAR_DATA *victim, int chance);
+void	yell		(CHAR_DATA *victim, CHAR_DATA *ch, const char * argument);
 
 #define DAMF_NONE	(0)
 #define DAMF_SHOW	(A)	/* show dam message */

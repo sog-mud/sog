@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.163 1999-05-17 14:10:11 fjoe Exp $
+ * $Id: act_comm.c,v 1.164 1999-05-19 15:00:31 kostik Exp $
  */
 
 /***************************************************************************
@@ -541,6 +541,32 @@ void do_yell(CHAR_DATA *ch, const char *argument)
 				 ch, argument, d->character,
 	    			 TO_VICT | ACT_STRANS | ACT_NODEAF,
 				 POS_DEAD);
+	}
+}
+
+void yell(CHAR_DATA *victim, CHAR_DATA* ch, const char* argument)
+{
+	DESCRIPTOR_DATA *d;
+	char buf[MAX_INPUT_LENGTH];
+
+	if (IS_NPC(victim)
+	|| victim->in_room == NULL
+	|| victim->position <= POS_SLEEPING
+	|| IS_EXTRACTED(victim)
+	|| IS_SET(victim->plr_flags, PLR_GHOST))
+		return;
+	snprintf(buf, sizeof(buf), argument, PERS(ch, victim));
+	act_puts("You yell '{M$t{x'",
+		victim, buf, NULL, TO_CHAR | ACT_NODEAF, POS_DEAD);
+	for (d = descriptor_list; d; d = d->next) {
+		if (d->connected == CON_PLAYING
+		&& d->character != victim
+		&& d->character->in_room != NULL
+		&& d->character->in_room->area == ch->in_room->area)
+			act_puts("$n yells in panic '{M$t{x'", 
+			victim, buf, d->character, 
+			TO_VICT | ACT_STRANS | ACT_NODEAF,
+			POS_RESTING);
 	}
 }
 

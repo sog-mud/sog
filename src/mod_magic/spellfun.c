@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.149 1999-05-19 08:05:24 fjoe Exp $
+ * $Id: spellfun.c,v 1.150 1999-05-19 15:00:32 kostik Exp $
  */
 
 /***************************************************************************
@@ -49,7 +49,6 @@
 #include "update.h"
 #include "fight.h"
 
-DECLARE_DO_FUN(do_yell		);
 DECLARE_DO_FUN(do_look		);
 DECLARE_DO_FUN(do_stand		);
 
@@ -405,9 +404,8 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 				&&  ch->fighting != victim
 				&&  victim->fighting != ch
 				&&  !is_same_group(ch, victim))
-					doprintf(do_yell, victim,
-						 "Die, %s, you sorcerous dog!",
-						 PERS(ch, victim));
+					yell(victim, ch,
+					"Die, %s, you sorcerous dog!");
 				break;
 			}
 		}
@@ -482,11 +480,11 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 			slevel = 1;
 
 		ch->mana -= mana;
-
-		if (!(bch && spellbane(bch, ch, bane_chance, 3 * bch->level)))
-			spell->spell_fun(sn, IS_NPC(ch) ? ch->level : slevel,
-				 ch, vo, target);
 		check_improve(ch, sn, TRUE, 1);
+		if (bch && spellbane(bch, ch, bane_chance, 3 * bch->level))
+			return;
+		spell->spell_fun(sn, IS_NPC(ch) ? ch->level : slevel,
+				 ch, vo, target);
 	}
 		
 	if (cast_far && door != -1)
@@ -661,9 +659,7 @@ void obj_cast_spell(int sn, int level,
 			vch_next = vch->next_in_room;
 
 			if (victim == vch)
-				doprintf(do_yell, victim,
-					 "Help! %s is attacking me!",
-					 PERS(ch, victim));
+				yell(victim,ch, "Help! %s is attacking me!");
 
 			if (victim == vch && victim->fighting == NULL) {
 				multi_hit(victim, ch, TYPE_UNDEFINED);

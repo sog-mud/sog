@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.170 1999-05-19 08:05:18 fjoe Exp $
+ * $Id: fight.c,v 1.171 1999-05-19 15:00:32 kostik Exp $
  */
 
 /***************************************************************************
@@ -2749,6 +2749,7 @@ void do_murder(CHAR_DATA *ch, const char *argument)
 	}
 
 	multi_hit(ch, victim, TYPE_UNDEFINED);
+	yell(victim, ch, "Help! %s is attacking me!");
 }
 
 void do_flee(CHAR_DATA *ch, const char *argument)
