@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.118 1999-02-16 20:25:50 fjoe Exp $
+ * $Id: act_obj.c,v 1.119 1999-02-17 04:25:43 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2844,16 +2844,16 @@ void do_sell(CHAR_DATA * ch, const char *argument)
 	gold = cost / 100;
 
 	if (gold && silver) {
-		act_puts3("You sell $P for $j gold and $J silver $qJ{piece}.",
+		act_puts3("You sell $P for $j gold and $J silver $qJ{pieces}.",
 			  ch, (const void*) gold, obj, (const void*) silver,
 			  TO_CHAR, POS_DEAD);
 	}
 	else if (gold) {
-		act_puts("You sell $P for $j gold $qj{piece}.",
+		act_puts("You sell $P for $j gold $qj{pieces}.",
 			 ch, (const void*) gold, obj, TO_CHAR, POS_DEAD);
 	}
 	else if (silver) {
-		act_puts("You sell $P for $j silver $qj{piece}.",
+		act_puts("You sell $P for $j silver $qj{pieces}.",
 			 ch, (const void*) silver, obj, TO_CHAR, POS_DEAD);
 	}
 	ch->gold += gold;
@@ -2914,9 +2914,9 @@ void do_value(CHAR_DATA * ch, const char *argument)
 	strnzcpy(buf2, GETMSG("silver", ch->lang), sizeof(buf2));
 	snprintf(buf, sizeof(buf),
 		 "$n tells you '{GI'll give you %d %s and $J gold "
-		 "$qJ{coin} for $p.{x'",
+		 "$qJ{coins} for $p.{x'",
 		 silver, word_quantity(ch->lang, buf2, silver));
-	act_puts3(buf2, keeper, obj, ch, (const void*) (cost / 100),
+	act_puts3(buf, keeper, obj, ch, (const void*) (cost / 100),
 		  TO_VICT, POS_DEAD);
 }
 
@@ -3295,9 +3295,9 @@ void do_butcher(CHAR_DATA * ch, const char *argument)
 		numsteaks = number_bits(2) + 1;
 
 		if (numsteaks > 1) {
-			act("$n butchers $P and creates $j $qj{steak}.",
+			act("$n butchers $P and creates $j $qj{steaks}.",
 			    ch, (const void*) numsteaks, obj, TO_ROOM);
-			act_puts("You butcher $P and create $j $qj{steak}.",
+			act_puts("You butcher $P and create $j $qj{steaks}.",
 				 ch, (const void*) numsteaks, obj,
 				 TO_CHAR, POS_DEAD);
 		} else {

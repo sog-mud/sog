@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: lang.h,v 1.7 1999-02-16 20:26:04 fjoe Exp $
+ * $Id: lang.h,v 1.8 1999-02-17 04:25:45 fjoe Exp $
  */
 
 #ifndef _LANG_H_
@@ -47,8 +47,9 @@ struct lang_data {
 };
 
 #define LANG_HIDDEN		(A)
-#define LANG_GENDERS_CHANGED	(X)
-#define LANG_CASES_CHANGED	(Y)
+#define LANG_GENDERS_CHANGED	(W)
+#define LANG_CASES_CHANGED	(X)
+#define LANG_QTYS_CHANGED	(Y)
 #define LANG_CHANGED		(Z)
 
 extern varr	langs;

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.40 1999-02-15 22:48:27 fjoe Exp $
+ * $Id: olc.c,v 1.41 1999-02-17 04:25:25 fjoe Exp $
  */
 
 /***************************************************************************
@@ -84,6 +84,7 @@ const char ED_MSG[]	= "msgdb";
 const char ED_LANG[]	= "language";
 const char ED_GENDER[]	= "form";
 const char ED_CASE[]	= "form";
+const char ED_QTY[]	= "form";
 const char ED_SOC[]	= "social";
 /*const char ED_CLASS[]	= "class";*/
 
@@ -99,6 +100,7 @@ OLCED_DATA olced_table[] = {
 	{ ED_LANG,	"LangEd",	olc_cmds_lang	},
 	{ ED_GENDER,	"FormEd",	olc_cmds_form	},
 	{ ED_CASE,	"FormEd",	olc_cmds_form	},
+	{ ED_QTY,	"FormEd",	olc_cmds_form	},
 	{ ED_SOC,	"SocEd",	olc_cmds_soc	},
 /*	{ ED_CLASS,	"ClassEd",	olc_cmds_class	}, */
 	{ NULL }

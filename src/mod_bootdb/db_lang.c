@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_lang.c,v 1.7 1999-02-12 16:22:41 fjoe Exp $
+ * $Id: db_lang.c,v 1.8 1999-02-17 04:25:44 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -104,23 +104,29 @@ DBLOAD_FUN(load_lang)
 					db_load_file(&db_words, path,
 						     lang->file_cases);
 				}
+
+				if (lang->file_qtys) {
+					db_set_arg(&db_words, "WORD",
+						   lang->hash_qtys);
+					db_load_file(&db_words, path,
+						     lang->file_qtys);
+				}
 				return;
 			}
 			break;
-
 		case 'F':
 			KEY("Flags", lang->flags,
 			    fread_fstring(lang_flags, fp));
 			break;
-
 		case 'G':
 			SKEY("GendersFile", lang->file_genders);
 			break;
-
 		case 'N':
 			KEY("Name", lang->name, str_dup(fread_word(fp)));
 			break;
-
+		case 'Q':
+			SKEY("QtysFile", lang->file_genders);
+			break;
 		case 'S':
 			KEY("SlangOf", lang->slang_of,
 			    lang_lookup(fread_word(fp)));

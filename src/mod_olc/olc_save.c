@@ -1,5 +1,5 @@
 /*
- * $Id: olc_save.c,v 1.54 1999-02-15 18:19:45 fjoe Exp $
+ * $Id: olc_save.c,v 1.55 1999-02-17 04:25:25 fjoe Exp $
  */
 
 /**************************************************************************
@@ -1129,14 +1129,13 @@ bool save_lang(CHAR_DATA *ch, LANG_DATA *l)
 		    "Name %s\n", l->name);
 	if ((sl = varr_get(&langs, l->slang_of)))
 		fprintf(fp, "SlangOf %s\n", sl->name);
-	flags = l->flags & ~(LANG_CHANGED | LANG_CASES_CHANGED |
-			     LANG_GENDERS_CHANGED);
+	flags = l->flags & ~(LANG_CHANGED | LANG_GENDERS_CHANGED |
+			     LANG_CASES_CHANGED | LANG_QTYS_CHANGED);
 	if (flags)
 		fprintf(fp, "Flags %s~\n", flag_string(lang_flags, flags));
-	if (!IS_NULLSTR(l->file_cases))
-		fprintf(fp, "CasesFile %s~\n", l->file_cases);
-	if (!IS_NULLSTR(l->file_genders))
-		fprintf(fp, "GendersFile %s~\n", l->file_genders);
+	fwrite_string(fp, "CasesFile", l->file_cases);
+	fwrite_string(fp, "GendersFile", l->file_genders);
+	fwrite_string(fp, "QtysFile", l->file_qtys);
 	fprintf(fp, "End\n\n"
 		    "#$\n");
 	fclose(fp);
@@ -1162,6 +1161,13 @@ void save_langs(CHAR_DATA *ch)
 		&&  save_words(ch, l->file_cases, l->hash_cases)) {
 			save_print(ch, "Cases saved (language '%s', %s%c%s).",
 				   l->name, LANG_PATH, PATH_SEPARATOR, l->file_cases);
+			l->flags &= ~LANG_CASES_CHANGED;
+		}
+
+		if (IS_SET(l->flags, LANG_QTYS_CHANGED)
+		&&  save_words(ch, l->file_qtys, l->hash_qtys)) {
+			save_print(ch, "Qtys saved (language '%s', %s%c%s).",
+				   l->name, LANG_PATH, PATH_SEPARATOR, l->file_qtys);
 			l->flags &= ~LANG_CASES_CHANGED;
 		}
 

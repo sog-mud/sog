@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_form.c,v 1.7 1999-02-15 22:48:27 fjoe Exp $
+ * $Id: olc_form.c,v 1.8 1999-02-17 04:25:25 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -36,9 +36,10 @@
 
 #define EDIT_WORD(ch, w)	(w = (WORD_DATA*) ch->desc->pEdit)
 #define EDIT_LANG(ch, l)	(l = (LANG_DATA*) ch->desc->pEdit2)
-#define EDIT_HASH(ch, l, hash)				\
-	hash = (ch->desc->editor == ED_GENDER) ? 	\
-		l->hash_genders : l->hash_cases;
+#define EDIT_HASH(ch, l, hash)						\
+	hash = (ch->desc->editor == ED_GENDER) ? l->hash_genders :	\
+	       (ch->desc->editor == ED_CASE) ?	 l->hash_cases :	\
+						 l->hash_qtys;
 
 DECLARE_OLC_FUN(formed_create	);
 DECLARE_OLC_FUN(formed_edit	);
@@ -89,7 +90,9 @@ OLC_FUN(formed_create)
 
 	if (ch->desc->editor == ED_LANG)
 		l = ch->desc->pEdit;
-	else if (ch->desc->editor == ED_GENDER || ch->desc->editor == ED_CASE)
+	else if (ch->desc->editor == ED_GENDER ||
+		 ch->desc->editor == ED_CASE ||
+		 ch->desc->editor == ED_QTY)
 		EDIT_LANG(ch, l);
 
 	if (l == NULL) {
@@ -104,6 +107,10 @@ OLC_FUN(formed_create)
 	else if (!str_prefix(arg, "gender")) {
 		type = ED_GENDER;
 		hash = l->hash_genders;
+	}
+	else if (!str_prefix(arg, "qtys")) {
+		type = ED_QTY;
+		hash = l->hash_qtys;
 	}
 	else {
 		do_help(ch, "'OLC CREATE'");
@@ -146,7 +153,10 @@ OLC_FUN(formed_edit)
 
 	if (ch->desc->editor == ED_LANG)
 		l = ch->desc->pEdit;
-	else if (ch->desc->editor == ED_GENDER || ch->desc->editor == ED_CASE)
+	else if (ch->desc->editor == ED_GENDER ||
+		 ch->desc->editor == ED_CASE ||
+		 ch->desc->editor == ED_QTY)
+		EDIT_LANG(ch, l);
 		EDIT_LANG(ch, l);
 
 	if (l == NULL) {
@@ -161,6 +171,10 @@ OLC_FUN(formed_edit)
 	else if (!str_prefix(arg, "genders")) {
 		type = ED_GENDER;
 		hash = l->hash_genders;
+	}
+	else if (!str_prefix(arg, "qtys")) {
+		type = ED_QTY;
+		hash = l->hash_qtys;
 	}
 	else {
 		do_help(ch, "'OLC EDIT'");
@@ -201,6 +215,7 @@ OLC_FUN(formed_show)
 		    l->name,
 		    ch->desc->editor == ED_GENDER ?	"gender" :
 		    ch->desc->editor == ED_CASE ?	"case" :
+		    ch->desc->editor == ED_QTY ?	"qty" :
 							"unknown");
 
 	if (!IS_NULLSTR(w->base))
@@ -224,19 +239,33 @@ OLC_FUN(formed_list)
 	LANG_DATA *l;
 	char arg[MAX_STRING_LENGTH];
 
-	argument = one_argument(argument, arg);
-	if (arg[0] == '\0' || argument[0] == '\0') {
-		do_help(ch, "'OLC WORD LIST'");
-		return FALSE;
-	}
-	
-	if ((i = lang_lookup(arg)) < 0) {
-		char_printf(ch, "FormEd: %s: unknown language.\n", arg);
+	if (ch->desc->editor == ED_LANG)
+		l = ch->desc->pEdit;
+	else if (ch->desc->editor == ED_GENDER ||
+		 ch->desc->editor == ED_CASE ||
+		 ch->desc->editor == ED_QTY)
+		EDIT_LANG(ch, l);
+	else {
+		char_puts("WordEd: You must be editing a language or another word.\n", ch);
 		return FALSE;
 	}
 
-	l = VARR_GET(&langs, i);
-	EDIT_HASH(ch, l, hash);
+	argument = one_argument(argument, arg);
+	if (arg[0] == '\0' || argument[0] == '\0') {
+		do_help(ch, "'OLC ALIST'");
+		return FALSE;
+	}
+	
+	if (!str_prefix(arg, "cases"))
+		hash = l->hash_cases;
+	else if (!str_prefix(arg, "genders"))
+		hash = l->hash_genders;
+	else if (!str_prefix(arg, "qtys"))
+		hash = l->hash_qtys;
+	else {
+		do_help(ch, "'OLC ALIST'");
+		return FALSE;
+	}
 
 	for (i = 0; i < MAX_WORD_HASH; i++) {
 		int j;

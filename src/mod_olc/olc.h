@@ -1,5 +1,5 @@
 /*
- * $Id: olc.h,v 1.31 1999-02-15 22:48:27 fjoe Exp $
+ * $Id: olc.h,v 1.32 1999-02-17 04:25:25 fjoe Exp $
  */
 
 /***************************************************************************
@@ -74,6 +74,7 @@ extern const char ED_CLASS	[];
 extern const char ED_LANG	[];
 extern const char ED_GENDER	[];
 extern const char ED_CASE	[];
+extern const char ED_QTY	[];
 extern const char ED_SOC	[];
 
 /*
