@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.223 2000-10-21 18:15:48 fjoe Exp $
+ * $Id: act_obj.c,v 1.224 2000-10-29 20:46:15 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2605,7 +2605,7 @@ void do_lore_raw(CHAR_DATA *ch, OBJ_DATA *obj, BUFFER *output)
 		buf_printf(output, BUF_END, "%s.\n", flag_string(weapon_class, INT(v0)));
 
 		buf_printf(output, BUF_END, "Damage is %dd%d (average %d).\n",
-			    INT(v1), INT(v2), (1 + INT(v2)) * INT(v1) / 2);
+			   INT(v1), INT(v2), GET_AVE(v1, v2));
 		break;
 
 	case ITEM_ARMOR:

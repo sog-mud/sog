@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: objval.c,v 1.5 2000-10-07 10:58:06 fjoe Exp $
+ * $Id: objval.c,v 1.6 2000-10-29 20:46:16 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -362,33 +362,36 @@ void objval_show(BUFFER *output, flag_t item_type, vo_t *v)
 		break;
 		     
 	case ITEM_LIGHT:
-		if (INT(v[2]) < 0)
-			buf_printf(output, BUF_END, "[v2] Light:  Infinite[-1]\n");
-		else
-			buf_printf(output, BUF_END, "[v2] Light:  [%d]\n",
+		if (INT(v[2]) < 0) {
+			buf_printf(output, BUF_END,
+				   "[v2] Light:  [-1] (infinite)\n");
+		} else {
+			buf_printf(output, BUF_END,
+				   "[v2] Light:  [%d]\n",
 				   INT(v[2]));
+		}
 		break;
 
 	case ITEM_WAND:
 	case ITEM_STAFF:
 		buf_printf(output, BUF_END,
-			"[v0] Level:          [%d]\n"
-			"[v1] Charges Total:  [%d]\n"
-			"[v2] Charges Left:   [%d]\n"
-			"[v3] Spell:          %s\n",
-			INT(v[0]),
-			INT(v[1]),
-			INT(v[2]),
-			STR1(v[3]));
+			   "[v0] Level:          [%d]\n"
+			   "[v1] Charges Total:  [%d]\n"
+			   "[v2] Charges Left:   [%d]\n"
+			   "[v3] Spell:          [%s]\n",
+			   INT(v[0]),
+			   INT(v[1]),
+			   INT(v[2]),
+			   STR1(v[3]));
 		break;
 
 	case ITEM_PORTAL:
 		buf_printf(output, BUF_END,
-			    "[v0] Charges:        [%d]\n"
-			    "[v1] Exit Flags:     %s\n"
-			    "[v2] Portal Flags:   %s\n"
-			    "[v3] Goes to (vnum): [%d]\n"
-			    "[v4] Portal key:     [%d]\n",
+			    "[v0] Charges:         [%d]\n"
+			    "[v1] Exit Flags:      [%s]\n"
+			    "[v2] Portal Flags:    [%s]\n"
+			    "[v3] Goes to (vnum):  [%d]\n"
+			    "[v4] Portal key:      [%d]\n",
 			    INT(v[0]),
 			    SFLAGS(exit_flags, v[1]),
 			    SFLAGS(portal_flags , v[2]),
@@ -398,11 +401,11 @@ void objval_show(BUFFER *output, flag_t item_type, vo_t *v)
 			
 	case ITEM_FURNITURE:          
 		buf_printf(output, BUF_END,
-			    "[v0] Max people:      [%d]\n"
-			    "[v1] Max weight:      [%d]\n"
-			    "[v2] Furniture Flags: %s\n"
-			    "[v3] Heal bonus:      [%d]\n"
-			    "[v4] Mana bonus:      [%d]\n",
+			    "[v0] Max people:       [%d]\n"
+			    "[v1] Max weight:       [%d]\n"
+			    "[v2] Furniture Flags:  [%s]\n"
+			    "[v3] Heal bonus:       [%d]\n"
+			    "[v4] Mana bonus:       [%d]\n",
 			    INT(v[0]),
 			    INT(v[1]),
 			    SFLAGS(furniture_flags, v[2]),
@@ -414,101 +417,104 @@ void objval_show(BUFFER *output, flag_t item_type, vo_t *v)
 	case ITEM_POTION:
 	case ITEM_PILL:
 		buf_printf(output, BUF_END,
-			"[v0] Level:  [%d]\n"
-			"[v1] Spell:  %s\n"
-			"[v2] Spell:  %s\n"
-			"[v3] Spell:  %s\n"
-			"[v4] Spell:  %s\n",
-			INT(v[0]),
-			STR1(v[1]),
-			STR1(v[2]),
-			STR1(v[3]),
-			STR1(v[4]));
+			   "[v0] Level:  [%d]\n"
+			   "[v1] Spell:  [%s]\n"
+			   "[v2] Spell:  [%s]\n"
+			   "[v3] Spell:  [%s]\n"
+			   "[v4] Spell:  [%s]\n",
+			   INT(v[0]),
+			   STR1(v[1]),
+			   STR1(v[2]),
+			   STR1(v[3]),
+			   STR1(v[4]));
 		break;
 
 /* ARMOR for ROM */
 
 	case ITEM_ARMOR:
 		buf_printf(output, BUF_END,
-			"[v0] Ac pierce       [%d]\n"
-			"[v1] Ac bash         [%d]\n"
-			"[v2] Ac slash        [%d]\n"
-			"[v3] Ac exotic       [%d]\n",
-			INT(v[0]),
-			INT(v[1]),
-			INT(v[2]),
-			INT(v[3]));
-			break;
+			   "[v0] AC pierce:  [%d]\n"
+			   "[v1] AC bash:    [%d]\n"
+			   "[v2] AC slash:   [%d]\n"
+			   "[v3] AC exotic:  [%d]\n",
+			   INT(v[0]),
+			   INT(v[1]),
+			   INT(v[2]),
+			   INT(v[3]));
+		break;
 
 /* WEAPON changed in ROM: */
 /* I had to split the output here, I have no idea why, but it helped -- Hugin */
 /* It somehow fixed a bug in showing scroll/pill/potions too ?! */
 	case ITEM_WEAPON:
-		buf_printf(output, BUF_END, "[v0] Weapon class:   %s\n",
-			   SFLAGS(weapon_class, v[0]));
-		buf_printf(output, BUF_END, "[v1] Number of dice: [%d]\n",
-			   INT(v[1]));
-		buf_printf(output, BUF_END, "[v2] Type of dice:   [%d]\n",
-			   INT(v[2]));
-		buf_printf(output, BUF_END, "[v3] Type:           %s\n",
-			   STR(v[3]));
-		buf_printf(output, BUF_END, "[v4] Special type:   %s\n",
+		buf_printf(output, BUF_END,
+			   "[v0] Weapon class:    [%s]\n"
+			   "[v1] Number of dice:  [%d]\n"
+			   "[v2] Type of dice:    [%d] (ave %d)\n"
+			   "[v3] Type:            [%s]\n"
+			   "[v4] Special type:    [%s]\n",
+			   SFLAGS(weapon_class, v[0]),
+			   INT(v[1]),
+			   INT(v[2]), GET_AVE(v[1], v[2]),
+			   STR(v[3]),
 			   SFLAGS(weapon_type2,  v[4]));
 		break;
 
 	case ITEM_CONTAINER:
 		buf_printf(output, BUF_END,
-			"[v0] Weight:     [%d kg]\n"
-			"[v1] Flags:      [%s]\n"
-			"[v2] Key:     %s [%d]\n"
-			"[v3] Capacity    [%d]\n"
-			"[v4] Weight Mult [%d]\n",
-			INT(v[0]),
-			SFLAGS(cont_flags, v[1]),
-		        get_obj_index(INT(v[2])) ?
-			mlstr_mval(&get_obj_index(INT(v[2]))->short_descr) :
-			"none",
-		        INT(v[2]),
-		        INT(v[3]),
-		        INT(v[4]));
+			   "[v0] Weight:       [%d kg]\n"
+			   "[v1] Flags:        [%s]\n"
+			   "[v2] Key:          [%d] (%s)\n"
+			   "[v3] Capacity:     [%d kg]\n"
+			   "[v4] Weight Mult:  [%d]\n",
+			   INT(v[0]),
+			   SFLAGS(cont_flags, v[1]),
+		           INT(v[2]),
+		           get_obj_index(INT(v[2])) ?
+			   mlstr_mval(&get_obj_index(INT(v[2]))->short_descr) :
+			   "none",
+		           INT(v[3]),
+		           INT(v[4]));
 		break;
 
 	case ITEM_DRINK_CON:
 	case ITEM_FOUNTAIN:
 		buf_printf(output, BUF_END,
-			    "[v0] Liquid Total: [%d]\n"
-			    "[v1] Liquid Left:  [%d]\n"
-			    "[v2] Liquid:       %s\n"
-			    "[v3] Poisoned:     %s\n",
-			    INT(v[0]),
-			    INT(v[1]),
-			    STR(v[2]),
-			    INT(v[3]) ? "Yes" : "No");
+			   "[v0] Liquid Total:  [%d]\n"
+			   "[v1] Liquid Left:   [%d]\n"
+			   "[v2] Liquid:        [%s]\n"
+			   "[v3] Poisoned:      [%s]\n",
+			   INT(v[0]),
+			   INT(v[1]),
+			   STR(v[2]),
+			   INT(v[3]) ? "Yes" : "No");
 		break;
 
 	case ITEM_FOOD:
 		buf_printf(output, BUF_END,
-			"[v0] Food hours: [%d]\n"
-			"[v1] Full hours: [%d]\n"
-			"[v3] Poisoned:   %s\n",
-			INT(v[0]),
-			INT(v[1]),
-			INT(v[3]) ? "Yes" : "No");
+			   "[v0] Food hours:  [%d]\n"
+			   "[v1] Full hours:  [%d]\n"
+			   "[v3] Poisoned:    [%s]\n",
+			   INT(v[0]),
+			   INT(v[1]),
+			   INT(v[3]) ? "yes" : "no");
 		break;
 
 	case ITEM_MONEY:
-		buf_printf(output, BUF_END, "[v0] Silver: [%d]\n"
-				   "[v1] Gold:   [%d]\n",
-			   INT(v[0]), INT(v[1]));
+		buf_printf(output, BUF_END,
+			   "[v0] Silver:  [%d]\n"
+			   "[v1] Gold:    [%d]\n",
+			   INT(v[0]),
+			   INT(v[1]));
 		break;
 
 	case ITEM_BOOK:
 		buf_printf(output, BUF_END, 
-			"[v0] Book class 	%s\n"
-			"[v1] Spec		%s\n"
-			"[v2] Base chance 	[%d%%]\n"
-			"[v3] Fail effect	%s\n"
-			"[v4] Success message	[%s]\n",
+			"[v0] Book class:       [%s]\n"
+			"[v1] Spec:             [%s]\n"
+			"[v2] Base chance:      [%d%%]\n"
+			"[v3] Fail effect:      [%s]\n"
+			"[v4] Success message:  [%s]\n",
 			SFLAGS(book_class, v[0]),
 			STR(v[1]),
 			INT(v[2]),

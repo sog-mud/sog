@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.312 2000-10-22 17:53:38 fjoe Exp $
+ * $Id: merc.h,v 1.313 2000-10-29 20:46:14 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1908,6 +1908,9 @@ int trust_level(CHAR_DATA *ch);
 				 GOLD_WEIGHT((ch)->gold))
 #define MONEY_WEIGHT(obj)	(SILVER_WEIGHT(INT(obj->value[0])) +	\
 				 GOLD_WEIGHT(INT(obj->value[1])))
+
+#define GET_AVE(v1, v2)		((1 + INT(v2)) * INT(v1) / 2)
+#define GET_WEAPON_AVE(obj)	GET_AVE((obj)->value[1], (obj)->value[2])
 
 #define HAS_TRIGGER(ch,trig)	(IS_SET((ch)->pMobIndex->mptrig_types, (trig)))
 #define IS_SWITCHED( ch )       (ch->desc && ch->desc->original)

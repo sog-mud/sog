@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.361 2000-10-22 17:53:40 fjoe Exp $
+ * $Id: act_info.c,v 1.362 2000-10-29 20:46:15 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1351,8 +1351,8 @@ void do_compare(CHAR_DATA *ch, const char *argument)
 			break;
 
 		case ITEM_WEAPON:
-			value1 = (1 + INT(obj1->value[2])) * INT(obj1->value[1]);
-			value2 = (1 + INT(obj2->value[2])) * INT(obj2->value[1]);
+			value1 = GET_WEAPON_AVE(obj1);
+			value2 = GET_WEAPON_AVE(obj2);
 			break;
 		}
 	}

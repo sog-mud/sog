@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.268 2000-10-22 17:53:46 fjoe Exp $
+ * $Id: handler.c,v 1.269 2000-10-29 20:46:16 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2062,10 +2062,11 @@ void format_obj(BUFFER *output, OBJ_DATA *obj)
 			   SFLAGS(weapon_class, obj->value[0]));
 		buf_printf(output, BUF_END, "Damage is %dd%d (average %d).\n",
 			   INT(obj->value[1]), INT(obj->value[2]),
-			   (1 + INT(obj->value[2])) * INT(obj->value[1]) / 2);
-		if (INT(obj->value[4]))
-	        	buf_printf(output, BUF_END, "Weapons flags: %s\n",
+			   GET_WEAPON_AVE(obj));
+		if (INT(obj->value[4])) {
+	        	buf_printf(output, BUF_END, "Weapon flags: %s\n",
 				   SFLAGS(weapon_type2, obj->value[4]));
+		}
 		break;
 
 	case ITEM_ARMOR:
