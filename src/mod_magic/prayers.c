@@ -1,5 +1,5 @@
 /*
- * $Id: prayers.c,v 1.30 2002-03-06 11:08:35 tatyana Exp $
+ * $Id: prayers.c,v 1.31 2002-03-20 19:39:39 fjoe Exp $
  */
 
 /***************************************************************************
@@ -438,7 +438,7 @@ SPELL_FUN(prayer_dispel_good, sn, level, ch, vo)
 		dam = UMAX(victim->hit, dice(level,4));
 	if (saves_spell(level, victim,DAM_NEGATIVE))
 		dam /= 2;
-	damage(ch, victim, dam, sn, DAM_NEGATIVE, DAM_F_SHOW);
+	damage(ch, victim, dam, sn, DAM_F_SHOW);
 }
 
 SPELL_FUN(prayer_dispel_evil, sn, level, ch, vo)
@@ -473,7 +473,7 @@ SPELL_FUN(prayer_dispel_evil, sn, level, ch, vo)
 		dam = UMAX(victim->hit, dice(level,4));
 	if (saves_spell(level, victim,DAM_HOLY))
 		dam /= 2;
-	damage(ch, victim, dam, sn, DAM_HOLY, DAM_F_SHOW);
+	damage(ch, victim, dam, sn, DAM_F_SHOW);
 }
 
 SPELL_FUN(prayer_cure_light_wounds, sn, level, ch, vo)
@@ -675,7 +675,7 @@ turn_cb(void *vo, va_list ap)
 		align = -1000 + (align + 1000) / 3;
 
 	dam = dam * align * align / 1000000;
-	damage(ch, vch, dam, sn, DAM_HOLY, DAM_F_SHOW);
+	damage(ch, vch, dam, sn, DAM_F_SHOW);
 	if (!IS_EXTRACTED(vch) && !IS_CLAN_GUARD(vch))
 		dofun("flee", vch, str_empty);
 	return NULL;
@@ -719,7 +719,7 @@ SPELL_FUN(prayer_severity_force, sn, level, ch, vo)
 		 ch, NULL, victim, TO_CHAR, POS_DEAD);
 	act("$n cracked the ground towards you!", ch, NULL, victim, TO_VICT);
 	dam = dice(level, 12);
-	damage(ch, victim, dam, sn, DAM_NONE, DAM_F_SHOW);
+	damage(ch, victim, dam, sn, DAM_F_SHOW);
 }
 
 #define OBJ_VNUM_SPRING			22
@@ -836,7 +836,7 @@ SPELL_FUN(prayer_lightning_bolt, sn, level, ch, vo)
 	dam = dice(level,4) + 12;
 	if (saves_spell(level, victim,DAM_LIGHTNING))
 		dam /= 2;
-	damage(ch, victim, dam, sn, DAM_LIGHTNING, DAM_F_SHOW);
+	damage(ch, victim, dam, sn, DAM_F_SHOW);
 }
 
 SPELL_FUN(prayer_sanctify_lands, sn, level, ch, vo)
@@ -925,7 +925,7 @@ SPELL_FUN(prayer_desert_fist, sn, level, ch, vo)
 	    victim, NULL, NULL, TO_CHAR);
 	dam = dice(level, 14);
 	sand_effect(victim, level, dam);
-	damage(ch, victim, dam, sn, DAM_EARTH, DAM_F_SHOW);
+	damage(ch, victim, dam, sn, DAM_F_SHOW);
 }
 
 /* RT calm spell stops all fighting in the room */
@@ -998,7 +998,7 @@ SPELL_FUN(prayer_harm, sn, level, ch, vo)
 	if (saves_spell(level, victim,DAM_HARM))
 		dam = UMIN(50, dam / 2);
 	dam = UMIN(100, dam);
-	damage(ch, victim, dam, sn, DAM_HARM, DAM_F_SHOW);
+	damage(ch, victim, dam, sn, DAM_F_SHOW);
 }
 
 SPELL_FUN(prayer_wrath, sn, level, ch, vo)
@@ -1025,7 +1025,7 @@ SPELL_FUN(prayer_wrath, sn, level, ch, vo)
 
 	if (saves_spell(level, victim, DAM_HOLY))
 		dam /= 2;
-	damage(ch, victim, dam, sn, DAM_HOLY, DAM_F_SHOW);
+	damage(ch, victim, dam, sn, DAM_F_SHOW);
 	if (IS_EXTRACTED(victim))
 		return;
 
@@ -1158,10 +1158,10 @@ SPELL_FUN(prayer_demonfire, sn, level, ch, vo)
 		act_char("You conjure forth the demons of hell!", ch);
 	}
 	dam = dice(level, 10);
-	if (saves_spell(level, victim,DAM_NEGATIVE))
+	if (saves_spell(level, victim, DAM_NEGATIVE))
 		dam /= 2;
 	spellfun_call("curse", NULL, 3 * level / 4, ch, victim);
-	damage(ch, victim, dam, sn, DAM_NEGATIVE, DAM_F_SHOW);
+	damage(ch, victim, dam, sn, DAM_F_SHOW);
 }
 
 /* mental */
@@ -1175,7 +1175,7 @@ SPELL_FUN(prayer_mind_wrack, sn, level, ch, vo)
 		dam /= 2;
 	act("$n stares intently at $N, causing $N to seem very lethargic.",
 	    ch, NULL, victim, TO_NOTVICT);
-	damage(ch, victim, dam, sn, DAM_MENTAL, DAM_F_SHOW);
+	damage(ch, victim, dam, sn, DAM_F_SHOW);
 }
 
 SPELL_FUN(prayer_remove_fear, sn, level, ch, vo)
@@ -1205,8 +1205,7 @@ call_lightning_cb(void *vo, va_list ap)
 			return NULL;
 		damage(ch, vch,
 		       saves_spell(level, vch, DAM_LIGHTNING) ?
-		       dam / 2 : dam,
-		       sn, DAM_LIGHTNING, DAM_F_SHOW);
+		       dam / 2 : dam, sn, DAM_F_SHOW);
 		return NULL;
 	}
 
@@ -1401,7 +1400,7 @@ SPELL_FUN(prayer_mind_wrench, sn, level, ch, vo)
 		dam /= 2;
 	act("$n stares intently at $N, causing $N to seem very hyperactive.",
 	    ch, NULL, victim, TO_NOTVICT);
-	damage(ch, victim, dam, sn, DAM_MENTAL, DAM_F_SHOW);
+	damage(ch, victim, dam, sn, DAM_F_SHOW);
 }
 
 static void *
@@ -1429,14 +1428,14 @@ holy_word_cb(void *vo, va_list ap)
 	||  (IS_EVIL(ch) && IS_GOOD(vch))) {
 		spellfun_call("curse", NULL, level, ch, vch);
 		act_char("You are struck down!", vch);
-		damage(ch, vch, dice(level, 6), sn, DAM_ENERGY, DAM_F_SHOW);
+		damage(ch, vch, dice(level, 6), sn, DAM_F_SHOW);
 		return NULL;
 	}
 
 	if (IS_NEUTRAL(ch)) {
 		spellfun_call("curse", NULL, level/2, ch, vch);
 		act_char("You are struck down!", vch);
-		damage(ch, vch, dice(level, 4), sn, DAM_ENERGY, DAM_F_SHOW);
+		damage(ch, vch, dice(level, 4), sn, DAM_F_SHOW);
 		return NULL;
 	}
 
@@ -1496,7 +1495,7 @@ SPELL_FUN(prayer_sanctuary, sn, level, ch, vo)
 		act_puts("The gods are infuriated!",
 			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		damage(ch, ch, dice(level, IS_EVIL(ch) ? 2 : 1),
-		       NULL, DAM_HOLY, DAM_F_SHOW);
+		       "+divine", DAM_F_SHOW);
 		return;
 	}
 
@@ -1530,7 +1529,7 @@ SPELL_FUN(prayer_black_shroud, sn, level, ch, vo)
 		act_puts("The gods are infuriated!",
 			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		damage(ch, ch, dice(level, IS_GOOD(ch) ? 2 : 1),
-		       NULL, DAM_HOLY, DAM_F_SHOW);
+		       "+divine", DAM_F_SHOW);
 		return;
 	}
 
@@ -1612,7 +1611,7 @@ SPELL_FUN(prayer_etheral_fist, sn, level, ch, vo)
 		dam /= 2;
 	act("A fist of black, otherworldly ether rams into $N, leaving $M looking stunned!",
 	    ch, NULL, victim, TO_NOTVICT);
-	damage(ch, victim, dam, sn, DAM_ENERGY, DAM_F_SHOW);
+	damage(ch, victim, dam, sn, DAM_F_SHOW);
 }
 
 static void *
@@ -1629,10 +1628,9 @@ earthquake_cb(void *vo, va_list ap)
 			return NULL;
 
 		if (IS_AFFECTED(vch, AFF_FLYING))
-			damage(ch, vch, 0, sn, DAM_EARTH, DAM_F_SHOW);
+			damage(ch, vch, 0, sn, DAM_F_SHOW);
 		else
-			damage(ch, vch, level + dice(2, 8), sn,
-			       DAM_EARTH, DAM_F_SHOW);
+			damage(ch, vch, level + dice(2, 8), sn, DAM_F_SHOW);
 		return NULL;
 	}
 
@@ -1664,13 +1662,13 @@ SPELL_FUN(prayer_blade_barrier, sn, level, ch, vo)
 	dam = dice(level,5);
 	if (saves_spell(level, victim, DAM_PIERCE))
 		dam /= 3;
-	damage(ch, victim, dam, sn, DAM_PIERCE, DAM_F_SHOW);
+	damage(ch, victim, dam, sn, DAM_F_SHOW);
 
 	act("The blade barriers crash $n!", victim, NULL, NULL, TO_ROOM);
 	dam = dice(level, 4);
 	if (saves_spell(level, victim, DAM_PIERCE))
 		dam /= 3;
-	damage(ch, victim, dam, sn, DAM_PIERCE, DAM_F_SHOW);
+	damage(ch, victim, dam, sn, DAM_F_SHOW);
 	act("The blade barriers crash you!", victim, NULL, NULL, TO_CHAR);
 
 	if (number_percent() < 75)
@@ -1680,7 +1678,7 @@ SPELL_FUN(prayer_blade_barrier, sn, level, ch, vo)
 	dam = dice(level, 2);
 	if (saves_spell(level, victim, DAM_PIERCE))
 		dam /= 3;
-	damage(ch, victim, dam, sn, DAM_PIERCE, DAM_F_SHOW);
+	damage(ch, victim, dam, sn, DAM_F_SHOW);
 	act("The blade barriers crash you!", victim, NULL, NULL, TO_CHAR);
 
 	if (number_percent() < 50)
@@ -1690,7 +1688,7 @@ SPELL_FUN(prayer_blade_barrier, sn, level, ch, vo)
 	dam = dice(level, 3);
 	if (saves_spell(level, victim, DAM_PIERCE))
 		dam /= 3;
-	damage(ch, victim, dam, sn, DAM_PIERCE, DAM_F_SHOW);
+	damage(ch, victim, dam, sn, DAM_F_SHOW);
 	act("The blade barriers crash you!", victim, NULL, NULL, TO_CHAR);
 }
 
@@ -1852,7 +1850,7 @@ SPELL_FUN(prayer_heat_metal, sn, level, ch, vo)
 	} else { /* damage! */
 		if (saves_spell(level, victim, DAM_FIRE))
 			dam = 2 * dam / 3;
-		damage(ch, victim, dam, sn, DAM_FIRE, DAM_F_SHOW);
+		damage(ch, victim, dam, sn, DAM_F_SHOW);
 	}
 }
 
@@ -1969,7 +1967,7 @@ SPELL_FUN(prayer_ray_of_truth, sn, level, ch, vo)
 	dam = (dam * align * align) / 1000000;
 
 	spellfun_call("blindness", NULL, 4 * level / 3, ch, victim);
-	damage(ch, victim, dam, sn, DAM_HOLY, DAM_F_SHOW);
+	damage(ch, victim, dam, sn, DAM_F_SHOW);
 }
 
 SPELL_FUN(prayer_aid, sn, level, ch, vo)
@@ -2018,7 +2016,7 @@ SPELL_FUN(prayer_bluefire, sn, level, ch, vo)
 	dam = dice(level, 10);
 	if (saves_spell(level, victim, DAM_FIRE))
 		dam /= 2;
-	damage(ch, victim, dam, sn, DAM_FIRE, DAM_F_SHOW);
+	damage(ch, victim, dam, sn, DAM_F_SHOW);
 }
 
 SPELL_FUN(prayer_bless_weapon, sn, level, ch, vo)
@@ -2259,7 +2257,7 @@ SPELL_FUN(prayer_flamestrike, sn, level, ch, vo)
 	dam = dice(level, 10);
 	if (saves_spell(level, victim, DAM_FIRE))
 		dam /= 2;
-	damage(ch, victim, dam, sn, DAM_FIRE, DAM_F_SHOW);
+	damage(ch, victim, dam, sn, DAM_F_SHOW);
 }
 
 SPELL_FUN(prayer_know_alignment, sn, level, ch, vo)

@@ -8,8 +8,7 @@ Resist cold -30
 Resist lightning -30
 Resist mental -30
 Resist weapon 25
-Damtype smash
-LuckBonus 0
+Damtype +smash
 End
 
 #PCRACE

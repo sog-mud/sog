@@ -42,7 +42,7 @@ act("$n chants a strange phrase and points at $N...",
     $n, NULL, victim, TO_NOTVICT);
 
 int dam = 100;
-damage($n, victim, dam, NULL, DAM_NONE, DAM_F_NONE);
+damage($n, victim, dam, NULL, DAM_F_NONE);
 return 0;
 ~
 m mob_greet @ north~
@@ -316,7 +316,7 @@ if (number_percent() < 40) {
                         extract_obj(p, 0);
         }
         int dam = 100;
-        damage($n, victim, dam, NULL, DAM_LIGHTNING, DAM_F_NONE);
+        damage($n, victim, dam, "+shock", DAM_F_NONE);
         return 0;
 }
  
@@ -351,7 +351,7 @@ act("{BTwo bolts of blazing blue lightning erupt from them, striking $N!{x",
     $n, NULL, victim, TO_NOTVICT);
  
 int dam = 2 * dice(char_level($n), 4) + 24;
-damage($n, victim, dam, NULL, DAM_LIGHTNING, DAM_F_NONE);
+damage($n, victim, dam, "+shock", DAM_F_NONE);
 return 0;
 ~
 m mob_fight mob_fight_cast_mage 100~
@@ -415,7 +415,7 @@ if (number_percent() <= 10) {
             $n, flail, victim, TO_VICT);
 
         int dam = 80;
-        damage($n, victim, dam, NULL, DAM_SLASH, DAM_F_NONE);
+        damage($n, victim, dam, "+slash", DAM_F_NONE);
         return 0;
 }
  
@@ -434,7 +434,7 @@ act("{rDeadly flames erupt from the lich-queen's fingers!{x",
  
 /* damage as in 'burning hands' spell */
 int dam = dice(char_level($n), 2) + 7;
-damage($n, $N, dam, NULL, DAM_FIRE, DAM_F_NONE);
+damage($n, $N, dam, "burning hands", DAM_F_NONE);
 return 0;
 ~
 #7714
@@ -467,7 +467,7 @@ act("{rWith unparalleled rage, $n summons forth a torrent of acid!{x",
 
 /* damage as in two 'acid blast' */
 int dam = 2 * dice(char_level($n), 12);
-damage($n, victim, dam, NULL, DAM_ACID, DAM_F_NONE);
+damage($n, victim, dam, "acid blast", DAM_F_NONE);
 return 0;
 ~
 #7715

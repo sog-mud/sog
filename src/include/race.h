@@ -23,13 +23,11 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: race.h,v 1.37 2002-01-11 20:13:18 tatyana Exp $
+ * $Id: race.h,v 1.38 2002-03-20 19:39:28 fjoe Exp $
  */
 
 #ifndef _RACE_H_
 #define _RACE_H_
-
-#include <damtype.h>
 
 #define RACE_NOCH		(A)	/* can't live in common hometowns */
 #define RACE_CHANGED		(Z)	/* OLC internal flag */

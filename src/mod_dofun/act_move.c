@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.285 2002-01-04 06:37:50 kostik Exp $
+ * $Id: act_move.c,v 1.286 2002-03-20 19:39:33 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1420,7 +1420,7 @@ DO_FUN(do_vbite, ch, argument)
 		}
 	} else {
 		check_improve(ch, "vampiric bite", FALSE, 1);
-		damage(ch, victim, 0, "vampiric bite", DAM_NONE, DAM_F_SHOW);
+		damage(ch, victim, 0, "vampiric bite", DAM_F_SHOW);
 	}
 	if (!IS_NPC(victim) && victim->position == POS_FIGHTING)
 		yell(victim, ch, "Help! $lu{$N} tried to bite me!");
@@ -1556,7 +1556,7 @@ DO_FUN(do_bash_door, ch, argument)
 		WAIT_STATE(ch, beats * 3 / 2);
 		damage_bash = ch->damroll +
 			      number_range(4,4 + 4* ch->size + chance/5);
-		damage(ch, ch, damage_bash, "bash door", DAM_BASH, DAM_F_SHOW);
+		damage(ch, ch, damage_bash, "bash door", DAM_F_SHOW);
 	}
 }
 
@@ -1823,7 +1823,7 @@ DO_FUN(do_vtouch, ch, argument)
 		if (IS_AWAKE(victim))
 			victim->position = POS_SLEEPING;
 	} else {
-		damage(ch, victim, 0, "vampiric touch", DAM_NONE, DAM_F_SHOW);
+		damage(ch, victim, 0, "vampiric touch", DAM_F_SHOW);
 		check_improve(ch, "vampiric touch", FALSE, 1);
 	}
 	yell(victim, ch, "Help! $lu{$N} tried to touch me!");
@@ -2303,165 +2303,6 @@ DO_FUN(do_dismount, ch, argument)
 	}
 }
 
-static int
-send_arrow(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *arrow,
-	   int door, int chance, int bonus)
-{
-	EXIT_DATA *pExit;
-	ROOM_INDEX_DATA *dest_room;
-	AFFECT_DATA *paf;
-	int damroll = 0, hitroll = 0;
-	int range_hit = -1;
-	const char *sn;
-
-	if (number_percent() < get_skill(ch, "mastering bow")) {
-		bonus *= dice(2, 3);
-		check_improve(ch, "mastering bow", TRUE, 9);
-	}
-
-	sn = get_weapon_sn(arrow);
-	if (sn == NULL)
-		sn = "throw weapon";
-
-	for (paf = arrow->affected; paf != NULL; paf = paf->next) {
-		if (INT(paf->location) == APPLY_DAMROLL)
-			damroll += paf->modifier;
-		if (INT(paf->location) == APPLY_HITROLL)
-			hitroll += paf->modifier;
-	}
-
-	dest_room = ch->in_room;
-	chance += (hitroll + str_app[get_curr_stat(ch,STAT_STR)].tohit
-		   + (get_curr_stat(ch,STAT_DEX) - 18)) * 2;
-	damroll *= 10;
-	while (1) {
-		range_hit++;
-		chance -= 10;
-		if (victim->in_room == dest_room) {
-			if (number_percent() < chance) {
-				if (check_obj_dodge(ch, victim, arrow, chance))
-					return 0;
-				act("$p strikes you!",
-				    victim, arrow, NULL, TO_CHAR);
-				act_puts3("Your $p strikes $N on [$J] range!",
-					  ch, arrow, victim,
-					  (const void *) range_hit,
-					  TO_CHAR, POS_DEAD);
-				if (ch->in_room == victim->in_room)
-					act("$n's $p strikes $N!",
-					    ch, arrow, victim, TO_NOTVICT);
-				else {
-					act("$n's $p strikes $N!",
-					    ch, arrow, victim, TO_ROOM);
-					act("$p strikes $n!",
-					    victim, arrow, NULL, TO_ROOM);
-				}
-				if (is_safe(ch, victim)
-				||  (IS_NPC(victim) &&
-				     IS_SET(victim->pMobIndex->act, ACT_NOTRACK))) {
-					act("$p falls from you doing no damage...",
-					    victim, arrow, NULL, TO_CHAR);
-					act("$p falls from $n doing no visible damage...",
-					    victim, arrow, NULL, TO_ROOM);
-					act("$p falls from $N doing no visible damage...",
-					    ch, arrow, victim, TO_CHAR);
-					obj_to_room(arrow, victim->in_room);
-				} else {
-					int dam;
-
-					dam = dice(INT(arrow->value[1]),
-						   INT(arrow->value[2]));
-					dam = number_range(dam, 2 * dam);
-					dam += damroll + bonus + (10 * str_app[get_curr_stat(ch, STAT_STR)].todam);
-					if (IS_WEAPON_STAT(arrow,
-							   WEAPON_POISON)) {
-						int level;
-						AFFECT_DATA *poison;
-
-			 if ((poison = affect_find(arrow->affected, "poison")) == NULL)
-				level = arrow->level;
-			 else
-				level = poison->level;
-			 if (!saves_spell(level, victim, DAM_POISON)) {
-				act_char("You feel poison coursing through your veins.", victim);
-				act("$n is poisoned by the venom on $p.",
-				    victim, arrow, NULL, TO_ROOM);
-
-				paf = aff_new(TO_AFFECTS, "poison");
-		            paf->level     = level * 3/4;
-		            paf->duration  = level / 2;
-		            INT(paf->location) = APPLY_STR;
-		            paf->modifier  = -1;
-		            paf->bitvector = AFF_POISON;
-		            affect_join(victim, paf);
-			    aff_free(paf);
-			 }
-
-			}
-			if (IS_WEAPON_STAT(arrow,WEAPON_FLAMING))
-			{
-			 act("$n is burned by $p.",victim,arrow,NULL,TO_ROOM);
-			 act("$p sears your flesh.",victim,arrow,NULL,TO_CHAR);
-			 fire_effect(victim,arrow->level,dam);
-		        }
-			if (IS_WEAPON_STAT(arrow,WEAPON_FROST))
-		        {
-		            act("$p freezes $n.",victim,arrow,NULL,TO_ROOM);
-		            act("The cold touch of $p surrounds you with ice.",
-		                victim,arrow,NULL,TO_CHAR);
-		            cold_effect(victim,arrow->level,dam);
-		        }
-		        if (IS_WEAPON_STAT(arrow,WEAPON_SHOCKING))
-		        {
-		            act("$n is struck by lightning from $p.",victim,arrow,NULL,TO_ROOM);
-		            act("You are shocked by $p.",victim,arrow,NULL,TO_CHAR);
-		            shock_effect(victim,arrow->level,dam);
-		        }
-
-			if (dam > victim->max_hit / 10
-			&&  number_percent() < 50) {
-				paf = aff_new(TO_AFFECTS, sn);
-				paf->level     = ch->level;
-				paf->duration  = -1;
-				INT(paf->location) = APPLY_HITROLL;
-				paf->modifier  = - (dam / 20);
-				if (!IS_NPC(victim))
-					paf->bitvector = AFF_CORRUPTION;
-				affect_join(victim, paf);
-				aff_free(paf);
-
-				obj_to_char(arrow, victim);
-				equip_char(victim, arrow, WEAR_STUCK_IN);
-			} else
-				obj_to_room(arrow,victim->in_room);
-
-			damage(ch, victim, dam, sn,
-				damtype_class(arrow->value[3].s), DAM_F_SHOW);
-			if (!IS_EXTRACTED(victim))
-				path_to_track(ch, victim, door);
-		    }
-		    return TRUE;
-		  } else {
-			  obj_to_room(arrow,victim->in_room);
-		          act("$p sticks in the ground at your feet!",victim,arrow,NULL, TO_ALL);
-		          return FALSE;
-		        }
-		 }
-		pExit = dest_room->exit[ door ];
-		 if (!pExit) break;
-		else {
-			dest_room = pExit->to_room.r;
-			if (dest_room->people) {
-				act("$p sails into the room from $T!",
-				    dest_room->people, arrow,
-				    from_dir_name[rev_dir[door]], TO_ALL);
-			}
-
-		}
-	}
-	return FALSE;
-}
-
 static OBJ_DATA *find_arrow(CHAR_DATA *ch)
 {
 	OBJ_DATA *arrow;
@@ -2560,7 +2401,7 @@ DO_FUN(do_charge, ch, argument)
 		WAIT_STATE(victim, beats * 2);
 		WAIT_STATE(ch, beats);
 	} else {
-		damage(ch, victim, 0, "charge", DAM_NONE, DAM_F_SHOW);
+		damage(ch, victim, 0, "charge", DAM_F_SHOW);
 		check_improve(ch, "charge", FALSE, 1);
 		if (number_percent() > get_skill(ch, "riding")) {
 			if ((pexit=ch->in_room->exit[direction]) == NULL
@@ -2591,8 +2432,8 @@ DO_FUN(do_shoot, ch, argument)
 	CHAR_DATA *victim;
 	OBJ_DATA *wield;
 	OBJ_DATA *arrow;
-	char arg1[512],arg2[512];
-	bool success;
+	char arg1[MAX_INPUT_LENGTH];
+	char arg2[MAX_INPUT_LENGTH];
 	int chance, direction;
 	int range = (LEVEL(ch) / 10) + 1;
 
@@ -2687,10 +2528,7 @@ DO_FUN(do_shoot, ch, argument)
 	act("$n shoots $p to $T.",
 	    ch, arrow, dir_name[direction], TO_ROOM);
 
-	success = send_arrow(ch, victim, arrow, direction, chance,
-			     dice(INT(wield->value[1]),
-				  INT(wield->value[2])));
-	if (success)
+	if (obj_one_hit(ch, victim, wield, arrow, direction, chance))
 		check_improve(ch, "bow", TRUE, 1);
 	yell(victim, ch, "Help! $lu{$N} is trying to shoot me!");
 }
@@ -2730,8 +2568,8 @@ DO_FUN(do_throw_weapon, ch, argument)
 {
 	CHAR_DATA *victim;
 	OBJ_DATA *obj;
-	char arg1[512],arg2[512];
-	bool success;
+	char arg1[MAX_INPUT_LENGTH];
+	char arg2[MAX_INPUT_LENGTH];
 	int chance, chance2, direction;
 	int range = (LEVEL(ch) / 10) + 1;
 	const char *sn;
@@ -2749,7 +2587,7 @@ DO_FUN(do_throw_weapon, ch, argument)
 		return;
 	}
 
-	if (ch->fighting) {
+	if (ch->fighting != NULL) {
 		CHAR_DATA *vch;
 
 		for (vch = ch->in_room->people; vch; vch = vch->next_in_room)
@@ -2777,10 +2615,9 @@ DO_FUN(do_throw_weapon, ch, argument)
 		return;
 	}
 
-	obj = get_eq_char(ch, WEAR_WIELD);
-	if (!obj) {
-	    act_char("Throwing your hands would not be a good idea.", ch);
-	    return;
+	if ((obj = get_eq_char(ch, WEAR_WIELD)) == NULL) {
+		act_char("Throwing your hands would not be a good idea.", ch);
+		return;
 	}
 
 	if (obj->item_type != ITEM_WEAPON) {
@@ -2792,7 +2629,7 @@ DO_FUN(do_throw_weapon, ch, argument)
 	if ((chance2 = get_weapon_skill(ch, sn)) == 0) {
 		act_char("Damn. It has just fallen from your hand!", ch);
 		if (IS_OBJ_STAT(obj, ITEM_NODROP)
-		|| IS_OBJ_STAT(obj, ITEM_INVENTORY))
+		||  IS_OBJ_STAT(obj, ITEM_INVENTORY))
 			obj_to_char(obj, ch);
 		else
 			obj_to_room(obj, ch->in_room);
@@ -2804,10 +2641,9 @@ DO_FUN(do_throw_weapon, ch, argument)
 		return;
 	}
 
-	chance = (chance + chance2 - 20)/2;
-
 	WAIT_STATE(ch, skill_beats("throw weapon"));
 
+	chance = (chance + chance2 - 20) / 2;
 	chance = (chance - 50) * 2;
 	if (ch->position == POS_SLEEPING)
 		chance += 20;
@@ -2822,9 +2658,9 @@ DO_FUN(do_throw_weapon, ch, argument)
 	act("$n throws $p to $T.",
 	    ch, obj, dir_name[direction], TO_ROOM);
 
-	success = send_arrow(ch,victim,obj,direction,chance,
-			dice(INT(obj->value[1]),INT(obj->value[2])));
-	check_improve(ch, "throw weapon", TRUE, 1);
+	if (obj_one_hit(ch, victim, NULL, obj, direction, chance))
+		check_improve(ch, "throw weapon", TRUE, 1);
+	yell(victim, ch, "Help! $lu{$N} is trying to throw something at me!");
 }
 
 static void *

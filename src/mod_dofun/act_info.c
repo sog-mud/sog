@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.418 2002-01-08 20:21:35 tatyana Exp $
+ * $Id: act_info.c,v 1.419 2002-03-20 19:39:32 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3577,13 +3577,13 @@ DO_FUN(do_slook, ch, argument)
 		pc_sk = (pc_skill_t*) c_strkey_search(&PC(ch)->learned, arg);
 
 	if (pc_sk == NULL)
-		sk = skill_search(arg);
+		sk = skill_search(arg, ST_ALL);
 	else
 		sk = skill_lookup(pc_sk->sn);
 
 	if (sk == NULL) {
 		act_char("That is not a spell or skill.", ch);
-		return; 
+		return;
 	}
 
 	act_puts("Skill '$t' in group '$T'.",

@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.187 2002-02-07 12:57:00 tatyana Exp $
+ * $Id: tables.c,v 1.188 2002-03-20 19:39:50 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1008,6 +1008,7 @@ flaginfo_t skill_types[] =
 	{ "skill",		ST_SKILL,		TRUE	},
 	{ "spell",		ST_SPELL,		TRUE	},
 	{ "prayer",		ST_PRAYER,		TRUE	},
+	{ "damtype",		ST_DAMTYPE,		FALSE	},
 
 	{ NULL, 0, FALSE }
 };
@@ -1180,10 +1181,6 @@ flaginfo_t cmd_logtypes[] =
 	{ NULL, 0, FALSE }
 };
 
-/*
- * "imm" should be before "immortal" for flag_lookup to work properly
- * "immortal" should be before "ava" for convenience
- */
 flaginfo_t level_table[] =
 {
 	{ "",			TABLE_INTVAL,		FALSE	},
@@ -1192,9 +1189,9 @@ flaginfo_t level_table[] =
 	{ "cre",		LEVEL_CRE,		TRUE	},
 	{ "dei",		LEVEL_DEI,		TRUE	},
 	{ "god",		LEVEL_GOD,		TRUE	},
-	{ "immortal",		LEVEL_IMMORTAL,		TRUE	},
 	{ "ava",		LEVEL_AVA,		TRUE	},
 
+	{ "immortal",		LEVEL_IMMORTAL,		TRUE	},
 	{ "hero",		LEVEL_HERO,		TRUE	},
 	{ "newbie",		LEVEL_NEWBIE,		TRUE	},
 	{ "pk",			LEVEL_PK,		TRUE	},

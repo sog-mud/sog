@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.388 2002-03-06 11:08:34 tatyana Exp $
+ * $Id: merc.h,v 1.389 2002-03-20 19:39:28 fjoe Exp $
  */
 
 /***************************************************************************
@@ -106,6 +106,54 @@ enum {
 	MAX_COND
 };
 
+/*
+ * damage classes
+ */
+
+/* DAM_WEAPON damtypes */
+
+#define DAM_BASH	0
+#define DAM_PIERCE	1
+#define DAM_SLASH	2
+
+/* DAM_MAGIC damtypes */
+#define DAM_FIRE	3
+#define DAM_COLD	4
+#define DAM_LIGHTNING	5
+#define DAM_ACID	6
+#define DAM_POISON	7
+#define DAM_NEGATIVE	8
+#define DAM_HOLY	9
+#define DAM_ENERGY	10
+#define DAM_MENTAL	11
+#define DAM_DISEASE	12
+#define DAM_LIGHT	14
+#define DAM_OTHER	15
+#define DAM_HARM	16
+#define DAM_CHARM	17
+#define DAM_SOUND	18
+#define DAM_EARTH	19
+#define DAM_AIR		20
+#define DAM_WATER	21
+
+/* material damtypes */
+#define DAM_IRON	22
+#define DAM_WOOD	23
+#define DAM_SILVER	24
+
+/*
+ * special damtypes (used ONLY as defaults for corresponding
+ * damtype groups)
+ */
+#define DAM_WEAPON	25
+#define DAM_MAGIC	26
+
+#define DAM_NONE	27	/* should be the last */
+
+#define MAX_RESIST	DAM_NONE
+
+#define RES_UNDEF	666
+
 /* basic types */
 #include <avltree.h>
 #include <buffer.h>
@@ -127,7 +175,6 @@ enum {
 #include <race.h>
 #include <class.h>
 #include <clan.h>
-#include <damtype.h>
 #include <material.h>
 #include <liquid.h>
 #include <forms.h>
@@ -2145,9 +2192,13 @@ where_t *where_lookup(flag_t where);
 #define SKILL_SHADOW		(G)	/* for "shadow magic" skill */
 
 /* skill types */
-#define ST_SKILL	0
-#define ST_SPELL	1
-#define ST_PRAYER	2
+#define ST_SKILL	(A)		/* skill	*/
+#define ST_SPELL	(B)		/* spell	*/
+#define ST_PRAYER	(C)		/* prayer	*/
+#define ST_DAMTYPE	(D)		/* damtype	*/
+
+/* NOTE: ST_DAMTYPE intentionally omitted */
+#define ST_ALL		(ST_SKILL | ST_SPELL | ST_PRAYER)
 
 /*
  * EVENTs for room affects
@@ -2171,8 +2222,9 @@ struct skill_t {
 	flag_t		min_pos;		/* position for caster */
 	int		min_mana;		/* min mana used */
 	int		beats;			/* waiting time after use */
-	int		rank;			/* Shows rank of difficulty of
-						 * spell or prayer (0..7) */
+	int		rank;			/* Shows rank of difficulty */
+						/* of spell or prayer (0..7) */
+	int		dam_class;		/* damage class */
 	gmlstr_t	noun_damage;		/* damage message */
 	mlstring	msg_off;		/* wear off message */
 	mlstring	msg_obj;		/* wear off message for obj */
@@ -2194,15 +2246,15 @@ extern avltree_info_t c_info_skills;
 
 #define IS_SKILL(sn1, sn2)	(!str_cmp((sn1), (sn2)))
 
-void skills_dump(BUFFER *output, int skill_type);
-
-/*
- * misc skill lookup functions
- */
-
 /* fast skill lookup by precise name */
 #define skill_lookup(sn) ((skill_t*) c_mlstrkey_lookup(&skills, (sn)))
-#define skill_search(sn) ((skill_t*) c_mlstrkey_search(&skills, (sn)))
+
+skill_t *	skill_search(const char *sn, int skill_type);
+void		skills_dump(BUFFER *output, int skill_type);
+
+const char *	fread_damtype(const char *ctx, rfile_t *fp);
+#define DENORMALIZE_DAMTYPE(dt)						\
+	(IS_NULLSTR(dt) || (dt)[0] != '+' ? (dt) : (dt) + 1)
 
 /*----------------------------------------------------------------------
  * specs stuff

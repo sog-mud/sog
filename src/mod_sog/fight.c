@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.349 2002-03-04 20:35:15 fjoe Exp $
+ * $Id: fight.c,v 1.350 2002-03-20 19:39:45 fjoe Exp $
  */
 
 /***************************************************************************
@@ -100,9 +100,14 @@ static void	secondary_hit	(CHAR_DATA *ch, CHAR_DATA *victim,
 static void	dam_alias	(int dam, const char **pvs, const char **pvp);
 static bool	is_safe_rspell_nom(AFFECT_DATA *af, CHAR_DATA *victim);
 
-#define FOREST_NONE 0
-#define FOREST_ATTACK 1
-#define FOREST_DEFENCE 2
+#define DAM_F_HIT	(Z)	/* damage by hit */
+
+static bool	damage2(CHAR_DATA *ch, CHAR_DATA *victim, int dam,
+			const char *dt, int dam_class, int dam_flags);
+
+#define FOREST_NONE	0
+#define FOREST_ATTACK	1
+#define FOREST_DEFENCE	2
 
 static OBJ_DATA *
 get_katana(CHAR_DATA *ch, int wear_loc)
@@ -245,17 +250,15 @@ one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 	thac0 -= GET_HITROLL(ch) * sk / 100;
 	thac0 += (100 - sk) / 20;
 
-	if (!IS_SET(dam_flags, DAM_F_HIT)) {
-		if (IS_SKILL(dt, "backstab")
-		||  IS_SKILL(dt, "dual backstab")
-		||  IS_SKILL(dt, "cleave")
-		||  IS_SKILL(dt, "impale")
-		||  IS_SKILL(dt, "ambush")
-		||  IS_SKILL(dt, "vampiric bite")
-		||  IS_SKILL(dt, "charge")
-		||  IS_SKILL(dt, "head crush"))
-			thac0 += (100 - get_skill(ch, dt)) / 10;
-	}
+	if (IS_SKILL(dt, "backstab")
+	||  IS_SKILL(dt, "dual backstab")
+	||  IS_SKILL(dt, "cleave")
+	||  IS_SKILL(dt, "impale")
+	||  IS_SKILL(dt, "ambush")
+	||  IS_SKILL(dt, "vampiric bite")
+	||  IS_SKILL(dt, "charge")
+	||  IS_SKILL(dt, "head crush"))
+		thac0 += (100 - get_skill(ch, dt)) / 10;
 
 	switch(dam_class) {
 	case DAM_PIERCE:victim_ac = GET_AC(victim,AC_PIERCE)/10; break;
@@ -296,7 +299,7 @@ one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 	if (diceroll == 0
 	|| (diceroll != 19 && diceroll < thac0 - victim_ac)) {
 		/* Miss. */
-		damage(ch, victim, 0, dt, dam_class, dam_flags);
+		damage2(ch, victim, 0, dt, dam_class, dam_flags);
 		return;
 	}
 
@@ -305,7 +308,7 @@ one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 	&&  (number_percent() < 50)) {
 		act("You failed to detect true $N's position.",
 			ch, NULL, victim, TO_CHAR);
-		damage(ch, victim, 0, dt, dam_class, dam_flags);
+		damage2(ch, victim, 0, dt, dam_class, dam_flags);
 		return;
 	}
 
@@ -432,15 +435,12 @@ one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 	if (victim->fighting == NULL
 	&&  (victim->position == POS_SITTING ||
 	     victim->position == POS_STANDING)
-	&&  (IS_SET(dam_flags, DAM_F_HIT) ||
-	     (!IS_SKILL(dt, "assassinate") &&
-	      !IS_SKILL(dt, "vampiric bite")))
+	&&  (!IS_SKILL(dt, "assassinate") && !IS_SKILL(dt, "vampiric bite"))
 	&&  (sk2 = get_skill(victim, "counter")) != 0
 	&&  !IS_IMMORTAL(ch)) {
 		sercount = dice_wlb(1, 100, ch, NULL);
 
-		if (!IS_SET(dam_flags, DAM_F_HIT)
-		&&  IS_SKILL(dt, "backstab"))
+		if (IS_SKILL(dt, "backstab"))
 			sercount += 40;
 
 		if (IS_PUMPED(victim))
@@ -461,116 +461,110 @@ one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 			check_improve(victim, "counter", FALSE, 1);
 	}
 
-	if (!IS_SET(dam_flags, DAM_F_HIT)) {
-		if (IS_SKILL(dt, "backstab")
-		    && (IS_NPC(ch) || wield != NULL)) {
-			dam = (LEVEL(ch) / 12 + 2) * dam + LEVEL(ch);
-			check_improve(ch, "backstab", TRUE, 1);
-		} else if (IS_SKILL(dt, "dual backstab")
-		    && (IS_NPC(ch) || wield != NULL)) {
-			dam = LEVEL(ch) / 14 * dam + LEVEL(ch);
-			check_improve(ch, "dual backstab", TRUE, 5);
-		} else if (IS_SKILL(dt, "circle")) {
-			dam = (LEVEL(ch)/20 + 1) * dam + LEVEL(ch);
-			check_improve(ch, "circle", TRUE, 1);
-		} else if (IS_SKILL(dt, "head crush")) {
-			dam = (LEVEL(ch)/22 + 1) * dam + LEVEL(ch);
-			check_improve(ch, "head crush", TRUE, 5);
-		} else if (IS_SKILL(dt, "knife")) {
-			dam = (LEVEL(ch)/28 + 1) * dam + LEVEL(ch);
-			check_improve(ch, "knife", TRUE, 1);
-		} else if (IS_SKILL(dt, "vampiric bite")) {
-			dam = (LEVEL(ch)/13 + 1) * dam + LEVEL(ch);
-			check_improve(ch, "vampiric bite", TRUE, 1);
-		} else if (IS_SKILL(dt, "twist")) {
-			dam = dam * 3 / 2;
-		} else if (IS_SKILL(dt, "downstrike")) {
-			dam = dam * 5 / 4;
-		} else if (IS_SKILL(dt, "whirl")) {
+	if (IS_SKILL(dt, "backstab")
+	&&  (IS_NPC(ch) || wield != NULL)) {
+		dam = (LEVEL(ch) / 12 + 2) * dam + LEVEL(ch);
+		check_improve(ch, "backstab", TRUE, 1);
+	} else if (IS_SKILL(dt, "dual backstab")
+	    && (IS_NPC(ch) || wield != NULL)) {
+		dam = LEVEL(ch) / 14 * dam + LEVEL(ch);
+		check_improve(ch, "dual backstab", TRUE, 5);
+	} else if (IS_SKILL(dt, "circle")) {
+		dam = (LEVEL(ch)/20 + 1) * dam + LEVEL(ch);
+		check_improve(ch, "circle", TRUE, 1);
+	} else if (IS_SKILL(dt, "head crush")) {
+		dam = (LEVEL(ch)/22 + 1) * dam + LEVEL(ch);
+		check_improve(ch, "head crush", TRUE, 5);
+	} else if (IS_SKILL(dt, "knife")) {
+		dam = (LEVEL(ch)/28 + 1) * dam + LEVEL(ch);
+		check_improve(ch, "knife", TRUE, 1);
+	} else if (IS_SKILL(dt, "vampiric bite")) {
+		dam = (LEVEL(ch)/13 + 1) * dam + LEVEL(ch);
+		check_improve(ch, "vampiric bite", TRUE, 1);
+	} else if (IS_SKILL(dt, "twist")) {
+		dam = dam * 3 / 2;
+	} else if (IS_SKILL(dt, "downstrike")) {
+		dam = dam * 5 / 4;
+	} else if (IS_SKILL(dt, "whirl")) {
+		dam *= 2;
+		check_improve(ch, "whirl", TRUE, 2);
+	} else if (IS_SKILL(dt, "charge")) {
+		dam = (LEVEL(ch)/12 + 1) * dam + LEVEL(ch);
+		check_improve(ch, "charge", TRUE, 1);
+	} else if (IS_SKILL(dt, "impale")) {
+		if (dice_wlb(1, 100, victim, ch) <
+			URANGE(4, 5 + LEVEL(ch) - LEVEL(victim), 11)
+		&& !counter && !IS_IMMORTAL(victim)) {
+			act_puts("Your weapon ran through $N's chest!",
+				ch, NULL, victim, TO_CHAR, POS_RESTING);
+			act_puts("$n impales you with $s weapon!",
+				ch, NULL, victim, TO_VICT, POS_RESTING);
+			act_puts("$n's weapon runs through $N's chest!",
+				ch, NULL, victim, TO_NOTVICT, POS_RESTING);
+			check_improve(ch, "impale", TRUE, 1);
+			WAIT_STATE(ch, 2);
+
+			handle_death(ch, victim);
+			return;
+		} else {
 			dam *= 2;
-			check_improve(ch, "whirl", TRUE, 2);
-		} else if (IS_SKILL(dt, "charge")) {
-			dam = (LEVEL(ch)/12 + 1) * dam + LEVEL(ch);
-			check_improve(ch, "charge", TRUE, 1);
-		} else if (IS_SKILL(dt, "impale")) {
-			if (dice_wlb(1, 100, victim, ch) <
-				URANGE(4, 5 + LEVEL(ch) - LEVEL(victim), 11)
-			&& !counter && !IS_IMMORTAL(victim)) {
-				act_puts("Your weapon ran through $N's chest!",
-					ch, NULL, victim, TO_CHAR, POS_RESTING);
-				act_puts("$n impales you with $s weapon!",
-					ch, NULL, victim, TO_VICT, POS_RESTING);
-				act_puts("$n's weapon runs through $N's chest!",
-					ch, NULL, victim,
-					TO_NOTVICT, POS_RESTING);
-				check_improve(ch, "impale", TRUE, 1);
-				WAIT_STATE(ch, 2);
+		}
+	} else if (IS_SKILL(dt, "cleave") && wield != NULL) {
+		if (dice_wlb(1, 100, victim, ch) <
+			(URANGE(4, 5 + LEVEL(ch) - LEVEL(victim), 10) +
+			 WEAPON_IS(wield, WEAPON_AXE) ? 2 : 0 +
+			 (get_curr_stat(ch, STAT_STR) - 21) / 2)
+		&&  !counter && !IS_IMMORTAL(victim)) {
+			act_puts("Your cleave chops $N IN HALF!",
+				 ch, NULL, victim,
+				 TO_CHAR, POS_RESTING);
+			act_puts("$n's cleave chops you IN HALF!",
+				 ch, NULL, victim,
+				 TO_VICT, POS_RESTING);
+			act_puts("$n's cleave chops $N IN HALF!",
+				 ch, NULL, victim,
+				 TO_NOTVICT, POS_RESTING);
+			check_improve(ch, "cleave", TRUE, 1);
+			WAIT_STATE(ch, 2);
 
-				handle_death(ch, victim);
-				return;
-			} else {
-				dam *= 2;
-			}
-		} else if (IS_SKILL(dt, "cleave") && wield != NULL) {
-			if (dice_wlb(1, 100, victim, ch) <
-				(URANGE(4, 5 + LEVEL(ch) - LEVEL(victim), 10)
-				+ (WEAPON_IS(wield, WEAPON_AXE)) ? 2 : 0 +
-				(get_curr_stat(ch, STAT_STR) - 21) / 2)
-			&&  !counter && !IS_IMMORTAL(victim)) {
-				act_puts("Your cleave chops $N IN HALF!",
-					 ch, NULL, victim,
-					 TO_CHAR, POS_RESTING);
-				act_puts("$n's cleave chops you IN HALF!",
-					 ch, NULL, victim,
-					 TO_VICT, POS_RESTING);
-				act_puts("$n's cleave chops $N IN HALF!",
-					 ch, NULL, victim,
-					 TO_NOTVICT, POS_RESTING);
-				check_improve(ch, "cleave", TRUE, 1);
-				WAIT_STATE(ch, 2);
+			handle_death(ch, victim);
+			return;
+		} else
+			dam = (dam * 2 + LEVEL(ch));
+	} else if (IS_SKILL(dt, "assassinate")) {
+		if (dice_wlb(1, 100, victim, ch) <=
+			URANGE(10, 20+(LEVEL(ch) - LEVEL(victim))*2, 50)
+		&& !counter && !IS_IMMORTAL(victim)) {
+			act_puts("You {R+++ASSASSINATE+++{x $N!",
+			 ch, NULL, victim,
+			 TO_CHAR, POS_RESTING);
+			act_puts("$n {R+++ASSASSINATES+++{x $N!",
+				 ch, NULL, victim, TO_NOTVICT, POS_RESTING);
+			act_puts("$n {R+++ASSASSINATES+++{x you!",
+				 ch, NULL, victim, TO_VICT, POS_DEAD);
+			check_improve(ch, "assassinate", TRUE, 1);
 
-				handle_death(ch, victim);
-				return;
-			} else
-				dam = (dam * 2 + LEVEL(ch));
-		} else if (IS_SKILL(dt, "assassinate")) {
-			if (dice_wlb(1, 100, victim, ch) <=
-				URANGE(10, 20+(LEVEL(ch) - LEVEL(victim))*2, 50)
-			&& !counter && !IS_IMMORTAL(victim)) {
-				act_puts("You {R+++ASSASSINATE+++{x $N!",
-					 ch, NULL, victim,
-					 TO_CHAR, POS_RESTING);
-				act_puts("$n {R+++ASSASSINATES+++{x $N!",
-					 ch, NULL, victim,
-					 TO_NOTVICT, POS_RESTING);
-				act_puts("$n {R+++ASSASSINATES+++{x you!",
-					 ch, NULL, victim,
-					 TO_VICT, POS_DEAD);
-				check_improve(ch, "assassinate", TRUE, 1);
-
-				handle_death(ch, victim);
-				return;
-			} else {
-				check_improve(ch, "assassinate", FALSE, 1);
-				dam *= 2;
-			}
+			handle_death(ch, victim);
+			return;
+		} else {
+			check_improve(ch, "assassinate", FALSE, 1);
+			dam *= 2;
 		}
 	}
 
 	dam += GET_DAMROLL(ch) * UMIN(100, sk) / 100;
 
-	if (!IS_SET(dam_flags, DAM_F_HIT) && IS_SKILL(dt, "ambush"))
+	if (IS_SKILL(dt, "ambush"))
 		dam *= UMAX(3, LEVEL(ch)/12);
 
 	if ((sk2 = get_skill(ch, "deathblow")) > 1
-	&&  (IS_SET(dam_flags, DAM_F_HIT) ||
-	     (!IS_SKILL(dt, "backstab") &&
-	      !IS_SKILL(dt, "dual backstab") &&
-	      !IS_SKILL(dt, "cleave") &&
-	      !IS_SKILL(dt, "assassinate") &&
-	      !IS_SKILL(dt, "ambush") &&
-	      !IS_SKILL(dt, "vampiric bite") &&
-	      !IS_SKILL(dt, "knife")))) {
+	&&  !IS_SKILL(dt, "backstab")
+	&&  !IS_SKILL(dt, "dual backstab")
+	&&  !IS_SKILL(dt, "cleave")
+	&&  !IS_SKILL(dt, "assassinate")
+	&&  !IS_SKILL(dt, "ambush")
+	&&  !IS_SKILL(dt, "vampiric bite")
+	&&  !IS_SKILL(dt, "knife")) {
 		if (dice_wlb(1, 100, victim, NULL) <  (sk2/8)) {
 			act("You deliver a blow of deadly force!",
 			    ch, NULL, NULL, TO_CHAR);
@@ -591,23 +585,25 @@ one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 		else {
 			res = get_resist(victim, m->dam_class, TRUE);
 			if (res == 100) {
-				act("$N is immune to your attacks.", ch, NULL, victim, TO_CHAR);
-				act("You are immune to $n's attacks.", ch, NULL, victim, TO_VICT);
+				act("$N is immune to your attacks.",
+				    ch, NULL, victim, TO_CHAR);
+				act("You are immune to $n's attacks.",
+				    ch, NULL, victim, TO_VICT);
 			}
 		}
 	}
 	dam = dam * (100 - res) / 100;
 
 	if (counter) {
-		result = damage(ch, ch, 2*dam, dt, dam_class, dam_flags);
+		damage2(ch, ch, 2 * dam, dt, dam_class, dam_flags);
 		multi_hit(victim, ch, NULL);
 		return;
 	}
 
-	result = damage(ch, victim, dam, dt, dam_class, dam_flags);
+	result = damage2(ch, victim, dam, dt, dam_class, dam_flags);
 
 	/* vampiric bite gives hp to ch from victim */
-	if (!IS_SET(dam_flags, DAM_F_HIT) && IS_SKILL(dt, "vampiric bite")) {
+	if (IS_SKILL(dt, "vampiric bite")) {
 		int hit_ga = UMIN((dam / 2), victim->max_hit);
 
 		ch->hit += hit_ga;
@@ -685,7 +681,7 @@ one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 			    victim, wield, NULL, TO_ROOM);
 			act("You feel $p drawing your life away.",
 			    victim, wield, NULL, TO_CHAR);
-			damage(ch, victim, dam2, NULL, DAM_NEGATIVE, DAM_F_NONE);
+			damage(ch, victim, dam2, "+drain", DAM_F_NONE);
 			ch->hit += dam2/2;
 		}
 
@@ -697,7 +693,7 @@ one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 			act("$p sears your flesh.",
 			    victim, wield, NULL, TO_CHAR);
 			fire_effect(victim, wield->level/2, dam2);
-			damage(ch, victim, dam2, NULL, DAM_FIRE, DAM_F_NONE);
+			damage(ch, victim, dam2, "+flame", DAM_F_NONE);
 		}
 
 		if (IS_WEAPON_STAT(wield, WEAPON_FROST)) {
@@ -708,7 +704,7 @@ one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 			act("The cold touch of $p surrounds you with ice.",
 			    victim, wield, NULL, TO_CHAR);
 			cold_effect(victim, wield->level/2, dam2);
-			damage(ch, victim, dam2, NULL, DAM_COLD, DAM_F_NONE);
+			damage(ch, victim, dam2, "+chill", DAM_F_NONE);
 		}
 
 		if (IS_WEAPON_STAT(wield, WEAPON_SHOCKING)) {
@@ -720,7 +716,7 @@ one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 			act("You are shocked by $p.",
 			    victim, wield, NULL, TO_CHAR);
 			shock_effect(victim, wield->level/2, dam2);
-			damage(ch, victim, dam2, NULL, DAM_LIGHTNING, DAM_F_NONE);
+			damage(ch, victim, dam2, "+shock", DAM_F_NONE);
 		}
 
 		if (!IS_EXTRACTED(victim)
@@ -747,9 +743,196 @@ one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 		    victim, TO_CHAR);
 		act("$n is hurt by sharp thorns of $N.", ch, NULL, victim,
 		    TO_NOTVICT);
-		damage(victim, ch, thorn_damage, "thorns" , DAM_PIERCE,
-		    DAM_F_SHOW);
+		damage(victim, ch, thorn_damage, "thorns", DAM_F_SHOW);
 	}
+}
+
+static inline void
+_obj_one_hit(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *obj,
+	     const char *sn, int dam)
+{
+	if (IS_WEAPON_STAT(obj, WEAPON_POISON)) {
+		int level;
+		AFFECT_DATA *poison;
+
+		if ((poison = affect_find(obj->affected, "poison")) == NULL)
+			level = obj->level;
+		else
+			level = poison->level;
+
+		if (!saves_spell(level, victim, DAM_POISON)) {
+			AFFECT_DATA *paf;
+
+			act_char("You feel poison coursing through your veins.",
+				 victim);
+			act("$n is poisoned by the venom on $p.",
+			    victim, obj, NULL, TO_ROOM);
+
+			paf = aff_new(TO_AFFECTS, "poison");
+			paf->level     = level * 3/4;
+			paf->duration  = level / 2;
+			INT(paf->location) = APPLY_STR;
+			paf->modifier  = -1;
+			paf->bitvector = AFF_POISON;
+			affect_join(victim, paf);
+			aff_free(paf);
+		}
+	}
+
+	if (IS_WEAPON_STAT(obj, WEAPON_FLAMING)) {
+		act("$n is burned by $p.", victim, obj, NULL, TO_ROOM);
+		act("$p sears your flesh.", victim, obj, NULL, TO_CHAR);
+		fire_effect(victim, obj->level, dam);
+	}
+
+	if (IS_WEAPON_STAT(obj, WEAPON_FROST)) {
+		act("$p freezes $n.", victim, obj, NULL, TO_ROOM);
+		act("The cold touch of $p surrounds you with ice.",
+		    victim, obj, NULL, TO_CHAR);
+		cold_effect(victim, obj->level, dam);
+	}
+
+	if (IS_WEAPON_STAT(obj, WEAPON_SHOCKING)) {
+		act("$n is struck by lightning from $p.",
+		    victim, obj, NULL, TO_ROOM);
+		act("You are shocked by $p.", victim, obj, NULL, TO_CHAR);
+		shock_effect(victim, obj->level, dam);
+	}
+
+	if (dam > victim->max_hit / 10
+	&&  number_percent() < 50) {
+		AFFECT_DATA *paf;
+
+		paf = aff_new(TO_AFFECTS, sn);
+		paf->level     = ch->level;
+		paf->duration  = -1;
+		INT(paf->location) = APPLY_HITROLL;
+		paf->modifier  = - (dam / 20);
+		if (!IS_NPC(victim))
+			paf->bitvector = AFF_CORRUPTION;
+		affect_join(victim, paf);
+		aff_free(paf);
+
+		obj_to_char(obj, victim);
+		equip_char(victim, obj, WEAR_STUCK_IN);
+	} else
+		obj_to_room(obj, victim->in_room);
+
+	damage2(ch, victim, dam, sn,
+		skill_damclass(obj->value[3].s), DAM_F_SHOW);
+}
+
+bool
+obj_one_hit(CHAR_DATA *ch, CHAR_DATA *victim,
+	    OBJ_DATA *thrown_with, OBJ_DATA *obj,
+	    int door, int chance)
+{
+	ROOM_INDEX_DATA *dest_room = ch->in_room;
+	AFFECT_DATA *paf;
+	int damroll = 0, hitroll = 0;
+	int range_hit = -1;
+
+	int bonus;
+	const char *sn;
+
+	if (thrown_with != NULL) {
+		bonus = dice(INT(thrown_with->value[1]),
+			     INT(thrown_with->value[2]));
+		if (WEAPON_IS(thrown_with, WEAPON_BOW)
+		&&  number_percent() < get_skill(ch, "mastering bow")) {
+			bonus *= dice(2, 3);
+			check_improve(ch, "mastering bow", TRUE, 9);
+		}
+	} else
+		bonus = 0;
+
+	if ((sn = get_weapon_sn(obj)) == NULL)
+		sn = "throw weapon";
+
+	for (paf = obj->affected; paf != NULL; paf = paf->next) {
+		if (INT(paf->location) == APPLY_DAMROLL)
+			damroll += paf->modifier;
+		if (INT(paf->location) == APPLY_HITROLL)
+			hitroll += paf->modifier;
+	}
+
+	dest_room = ch->in_room;
+	chance += (hitroll + str_app[get_curr_stat(ch, STAT_STR)].tohit +
+		   (get_curr_stat(ch,STAT_DEX) - 18)) * 2;
+	damroll *= 10;
+
+	for (; ;) {
+		EXIT_DATA *pExit;
+
+		range_hit++;
+		chance -= 10;
+		if (victim->in_room == dest_room) {
+			if (number_percent() < chance) {
+				int dam;
+
+				if (check_obj_dodge(ch, victim, obj, chance))
+					return FALSE;
+
+				act("$p strikes you!",
+				    victim, obj, NULL, TO_CHAR);
+				act_puts3("Your $p strikes $N on [$J] range!",
+					  ch, obj, victim,
+					  (const void *) range_hit,
+					  TO_CHAR, POS_DEAD);
+
+				if (ch->in_room == victim->in_room) {
+					act("$n's $p strikes $N!",
+					    ch, obj, victim, TO_NOTVICT);
+				} else {
+					act("$n's $p strikes $N!",
+					    ch, obj, victim, TO_ROOM);
+					act("$p strikes $n!",
+					    victim, obj, NULL, TO_ROOM);
+				}
+
+				if (is_safe(ch, victim)
+				||  (IS_NPC(victim) &&
+				     IS_SET(victim->pMobIndex->act, ACT_NOTRACK))) {
+					act("$p falls from you doing no damage...",
+					    victim, obj, NULL, TO_CHAR);
+					act("$p falls from $n doing no visible damage...",
+					    victim, obj, NULL, TO_ROOM);
+					act("$p falls from $N doing no visible damage...",
+					    ch, obj, victim, TO_CHAR);
+					obj_to_room(obj, victim->in_room);
+					return TRUE;
+				}
+
+				dam = dice(INT(obj->value[1]),
+					   INT(obj->value[2]));
+				dam = number_range(dam, 2 * dam);
+				dam += damroll + bonus +
+				    (10 * str_app[get_curr_stat(ch, STAT_STR)].todam);
+
+				_obj_one_hit(ch, victim, obj, sn, dam);
+				if (!IS_EXTRACTED(victim))
+					path_to_track(ch, victim, door);
+				return TRUE;
+			} else {
+				obj_to_room(obj, victim->in_room);
+				act("$p sticks in the ground at your feet!",
+				    victim, obj, NULL, TO_ALL);
+				return FALSE;
+			}
+		}
+
+		if ((pExit = dest_room->exit[door]) == NULL)
+			break;
+
+		dest_room = pExit->to_room.r;
+		if (dest_room->people) {
+			act("$p sails into the room from $T!",
+			    dest_room->people, obj,
+			    from_dir_name[rev_dir[door]], TO_ALL);
+		}
+	}
+
+	return FALSE;
 }
 
 /*
@@ -1042,12 +1225,20 @@ multi_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt)
 	}
 }
 
+bool
+damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, const char *dt, int dam_flags)
+{
+	int dam_class = skill_damclass(dt);
+	return damage2(ch, victim, dam, dt, dam_class, dam_flags);
+}
+
 /*
  * Inflict damage from a hit.
+ * XXX should be moved to the end of file
  */
-bool
-damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, const char *dt,
-       int dam_class, int dam_flags)
+static bool
+damage2(CHAR_DATA *ch, CHAR_DATA *victim, int dam, const char *dt,
+	int dam_class, int dam_flags)
 {
 	bool immune;
 	int dam2;
@@ -1168,9 +1359,7 @@ damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, const char *dt,
 	 * Damage modifiers.
 	 */
 	if (IS_AFFECTED(victim, AFF_SANCTUARY)
-	&&  (IS_SET(dam_flags, DAM_F_HIT) ||
-	     !IS_SKILL(dt, "cleave") ||
-	     number_percent() > 50))
+	&&  (!IS_SKILL(dt, "cleave") || number_percent() > 50))
 		dam /= 2;
 
 	if (IS_AFFECTED(victim, AFF_BLACK_SHROUD))
@@ -1251,8 +1440,9 @@ damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, const char *dt,
 	if (dam == 0)
 		return FALSE;
 
-	if (IS_SET(dam_flags, DAM_F_HIT) && ch != victim
-	&& number_percent() < 5)
+	if (IS_SET(dam_flags, DAM_F_HIT)
+	&&  ch != victim
+	&&  number_percent() < 5)
 		random_eq_damage(ch, victim, loc);
 
 	/*
@@ -1819,11 +2009,11 @@ int
 get_dam_class(CHAR_DATA *ch, OBJ_DATA *wield)
 {
 	if (wield && wield->item_type == ITEM_WEAPON) {
-		return damtype_class(wield->value[3].s);
+		return skill_damclass(wield->value[3].s);
 	} else if (ch->shapeform) {
-		return damtype_class(ch->shapeform->index->damtype);
+		return skill_damclass(ch->shapeform->index->damtype);
 	} else {
-		return damtype_class(ch->damtype);
+		return skill_damclass(ch->damtype);
 	}
 }
 
@@ -1904,7 +2094,7 @@ focus_positive_energy(CHAR_DATA *ch, CHAR_DATA *victim,
 	if (IS_SET(victim->form, FORM_UNDEAD)) {
 		if (saves_spell(LEVEL(ch), victim, DAM_HARM))
 			amount /= 2;
-		damage(ch, victim, amount, sn, DAM_HARM, DAM_F_SHOW);
+		damage(ch, victim, amount, sn, DAM_F_SHOW);
 		return;
 	}
 	victim->hit = UMIN(victim->hit + amount, victim->max_hit);
@@ -1945,7 +2135,7 @@ focus_negative_energy(CHAR_DATA *ch, CHAR_DATA *victim,
 
 	if (saves_spell(LEVEL(ch), victim, DAM_HARM))
 		amount /= 2;
-	damage(ch, victim, amount, sn, DAM_HARM, DAM_F_SHOW);
+	damage(ch, victim, amount, sn, DAM_F_SHOW);
 	victim->hit = UMIN(victim->hit + amount, victim->max_hit);
 }
 
@@ -2015,7 +2205,7 @@ backstab_char(CHAR_DATA *ch, CHAR_DATA *victim, int chance)
 			check_improve(ch, "dual backstab", FALSE, 1);
 	} else {
 		check_improve(ch, "backstab", FALSE, 1);
-		damage(ch, victim, 0, "backstab", DAM_NONE, DAM_F_SHOW);
+		damage(ch, victim, 0, "backstab", DAM_F_SHOW);
 	}
 
 	yell(victim, ch, "Die, $N! You are backstabbing scum!");
@@ -3203,10 +3393,7 @@ dam_message(CHAR_DATA *ch, CHAR_DATA *victim, int dam,
 			msg_vict = "$n $u you.";
 		}
 	} else {
-		if (IS_SET(dam_flags, DAM_F_HIT))
-			dam_noun = damtype_noun(dt);
-		else
-			dam_noun = skill_noun(dt);
+		dam_noun = skill_noun(dt);
 
 		if (immune) {
 			if (ch == victim) {

@@ -14,8 +14,7 @@ Resist negative 100
 Resist holy -50
 Resist disease 100
 Resist charm 100
-Damtype drain
-LuckBonus 0
+Damtype +drain
 End
 
 #PCRACE

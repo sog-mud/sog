@@ -307,9 +307,7 @@ if (is_npc($n))
 	return 1;
 act("The gods are infuriated!", $n, NULL, NULL, TO_ALL);
 int hit = char_hit($n);
-damage($n, $n,
-       hit - 1 > 1000 ? 1000 : hit - 1,
-       NULL, DAM_HOLY, DAM_F_SHOW | DAM_F_HIT);
+damage($n, $n, hit - 1 > 1000 ? 1000 : hit - 1, "+divine", DAM_F_SHOW);
 set_char_gold($n, 0);
 set_char_silver($n, 0);
 return 1;

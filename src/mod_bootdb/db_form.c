@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_form.c,v 1.18 2001-11-21 14:33:22 kostik Exp $
+ * $Id: db_form.c,v 1.19 2002-03-20 19:39:30 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -72,7 +72,8 @@ DBLOAD_FUN(load_form)
 		case 'D':
 			CHECK_VAR(f, "Name");
 
-			KEY("Damtype", f->damtype, fread_strkey(fp, &damtypes));
+			KEY("Damtype", f->damtype,
+			    fread_damtype(__FUNCTION__, fp));
 
 			KEY("Detect", f->has_detect, fread_fstring(id_flags,
 			    fp));

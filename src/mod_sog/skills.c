@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: skills.c,v 1.133 2001-11-21 14:33:32 kostik Exp $
+ * $Id: skills.c,v 1.134 2002-03-20 19:39:46 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -94,11 +94,21 @@ skill_noun(const char *sn)
 {
 	skill_t *sk;
 	STRKEY_CHECK(&skills, sn);
-	sk = skill_lookup(sn);
-	if (sk != NULL)
+	if ((sk = skill_lookup(sn)) != NULL)
 		return &sk->noun_damage;
 	else
 		return glob_lookup("hit");
+}
+
+int
+skill_damclass(const char *sn)
+{
+	skill_t *sk;
+	STRKEY_CHECK(&skills, sn);
+	if ((sk = skill_lookup(sn)) != NULL)
+		return sk->dam_class;
+	else
+		return DAM_NONE;
 }
 
 int
@@ -200,6 +210,7 @@ check_improve(CHAR_DATA *ch, const char *sn, bool success, int multiplier)
 	int chance;
 	spec_skill_t spec_sk;
 	skill_t *sk;
+	int chance_divisor;
 
 	if (IS_NPC(ch)
 	||  (pc_sk = pc_skill_lookup(ch, sn)) == NULL
@@ -217,7 +228,9 @@ check_improve(CHAR_DATA *ch, const char *sn, bool success, int multiplier)
 	 * check to see if the character has a chance to learn
 	 */
 	chance = 10 * int_app[get_curr_stat(ch, STAT_INT)].learn;
-	chance /= (multiplier *	spec_sk.rating * 4);
+	chance_divisor = (multiplier * spec_sk.rating * 4);
+	if (chance_divisor)
+		chance /= chance_divisor;
 	chance += ch->level;
 
 	if (number_range(1, 1000) > chance)

@@ -5,8 +5,7 @@ Off fast assist_race~
 Form edible bird~
 Parts head legs heart brains guts eye wings tail~
 Resist fire -30
-Damtype peck
-LuckBonus 0
+Damtype +peck
 End
 
 #$

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.151 2002-01-19 11:25:43 fjoe Exp $
+ * $Id: olc.c,v 1.152 2002-03-20 19:39:42 fjoe Exp $
  */
 
 /***************************************************************************
@@ -838,7 +838,7 @@ olced_flag(CHAR_DATA *ch, const char *argument, olc_cmd_t* cmd, flag_t *pflag)
 			if (word[0] == '\0')
 				break;
 
-			if ((f = flag_lookup(cmd->arg1, word)) == NULL) {
+			if ((f = flag_lookup(flag_table, word)) == NULL) {
 				act_puts("Syntax: $t <flag(s)>",
 					 ch, cmd->name, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 				act_puts("Type '$t ?' for a list of acceptable flags.",
@@ -885,7 +885,7 @@ olced_flag(CHAR_DATA *ch, const char *argument, olc_cmd_t* cmd, flag_t *pflag)
 	}
 
 	case TABLE_INTVAL:
-		if ((f = flag_lookup(cmd->arg1, argument)) == NULL) {
+		if ((f = flag_lookup(flag_table, argument)) == NULL) {
 			act_puts("Syntax: $t <value>",
 				 ch, cmd->name, NULL,
 				 TO_CHAR | ACT_NOTRANS, POS_DEAD);
@@ -1090,10 +1090,10 @@ olced_addaffect(CHAR_DATA *ch, const char *argument,
 	argument = one_argument(argument, arg1, sizeof(arg1));
 	argument = one_argument(argument, arg2, sizeof(arg2));
 
-	if (arg[0] != '\0' && skill_lookup(arg) == NULL) {
+	if (arg[0] != '\0' && skill_search(arg, ST_ALL) == NULL) {
 		BUFFER *output = buf_new(0);
-		buf_append(output, "Valid types are spell/prayer names (listed below) and empty type (''):\n");
-		skills_dump(output, -1);
+		buf_append(output, "Valid types are skill names (listed below) or empty type (''):\n");
+		skills_dump(output, ST_ALL);
 		page_to_char(buf_string(output), ch);
 		buf_free(output);
 		return FALSE;
@@ -1133,10 +1133,10 @@ olced_addaffect(CHAR_DATA *ch, const char *argument,
 	case TO_SKILLS: {
 		skill_t *sk;
 
-		if ((sk = skill_lookup(arg2)) == NULL) {
+		if ((sk = skill_search(arg2, ST_ALL)) == NULL) {
 			BUFFER *output = buf_new(0);
 			buf_append(output, "Valid skills are:\n");
-			skills_dump(output, -1);
+			skills_dump(output, ST_ALL);
 			page_to_char(buf_string(output), ch);
 			buf_free(output);
 			return FALSE;
@@ -1471,6 +1471,43 @@ olced_trig(CHAR_DATA *ch, const char *argument, olc_cmd_t *cmd,
 	}
 
 	return olced_trig(ch, str_empty, cmd, v, mp_type, vnum, vo);
+}
+
+bool
+olced_damtype(CHAR_DATA *ch, const char *argument, olc_cmd_t *cmd,
+	      const char **dt)
+{
+	skill_t *sk;
+	char arg[MAX_INPUT_LENGTH];
+
+	one_argument(argument, arg, sizeof(arg));
+	if (arg[0] == '\0') {
+		act_puts("Syntax: $t <damage message>",
+			 ch, cmd->name, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
+		act_puts("Syntax: $t ?",
+			 ch, cmd->name, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
+		return FALSE;
+	}
+
+	if (!str_cmp(arg, "?")) {
+		BUFFER *output = buf_new(0);
+		skills_dump(output, ST_DAMTYPE);
+		page_to_char(buf_string(output), ch);
+		buf_free(output);
+		return FALSE;
+	}
+
+	if ((sk = skill_search(arg, ST_DAMTYPE)) == NULL) {
+		act_puts("$t: $T: unknown damage class.",
+			 ch, OLCED(ch)->name, arg,
+			 TO_CHAR | ACT_NOTRANS, POS_DEAD);
+		return FALSE;
+	}
+
+	free_string(*dt);
+	*dt = str_qdup(gmlstr_mval(&sk->sk_name));
+	act_char("Damage type set.", ch);
+	return TRUE;
 }
 
 VALIDATE_FUN(validate_filename)

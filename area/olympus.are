@@ -559,7 +559,7 @@ act("$n's $p burns $N's face!", $n, $p, victim, TO_NOTVICT);
 act("$n's $p burns your face!", $n, $p, victim, TO_VICT);
 
 int dam = number_percent()/4 + 15 + char_level($n);
-damage($n, victim, dam, "burning hands", DAM_FIRE, DAM_F_SHOW);
+damage($n, victim, dam, "burning hands", DAM_F_SHOW);
 fire_effect(victim, obj_level($p)/2, dam);
 return 0;
 ~

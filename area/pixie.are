@@ -148,7 +148,7 @@ if (claw != NULL)
         dam = number_range(40, 55);        
 else
         dam = number_range(15, 25);        
-damage($n, victim, dam, NULL, DAM_SOUND, DAM_F_NONE);
+damage($n, victim, dam, "+scream", DAM_F_NONE);
 return 0;
 ~
 m mob_random mob_random_fido 100~
@@ -183,8 +183,7 @@ if (number_bits(1) == 0
             victim, NULL, NULL, TO_CHAR);
         act("{MSpray of magic dust whirls around $n.{x",
             victim, NULL, NULL, TO_ROOM);
-        damage($n, victim, number_range(10, 15),
-               NULL, DAM_MAGIC, DAM_F_NONE);
+        damage($n, victim, number_range(10, 15), "+magic", DAM_F_NONE);
 } else {
         act("{W$n shrieks wildly through the air, trying to avoid harm.{x",
             $n, NULL, NULL, TO_ROOM); 
@@ -243,7 +242,7 @@ if (victim == NULL)
 
 act("{DA $n's shriek resounds through the cave!{x",
     $n, NULL, NULL, TO_ROOM);
-damage($n, victim, number_range(50, 80), NULL, DAM_SOUND, DAM_F_NONE);
+damage($n, victim, number_range(50, 80), "+scream", DAM_F_NONE);
 return 0;
 ~
 m mob_give @ 35468~
@@ -332,7 +331,7 @@ if (victim == NULL)
 
 act("{C$n releases a lash of iced-filled water from its outstretched hand!{x",
     $n, NULL, NULL, TO_ROOM);
-damage($n, victim, number_range(30, 50), NULL, DAM_COLD, DAM_F_NONE);
+damage($n, victim, number_range(30, 50), "+chill", DAM_F_NONE);
 return 0;
 ~
 #35474
@@ -375,8 +374,7 @@ if (victim != NULL
             $n, NULL, victim, TO_NOTVICT);
         act("{MSpray of magic dust whirls around you.{x",
             $n, NULL, victim, TO_VICT);
-        damage($n, victim, number_range(30, 50), NULL,
-               DAM_MAGIC, DAM_F_SHOW);
+        damage($n, victim, number_range(30, 50), "+magic", DAM_F_SHOW);
         return 0;
 }
  

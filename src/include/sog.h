@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: sog.h,v 1.34 2002-02-07 12:56:58 tatyana Exp $
+ * $Id: sog.h,v 1.35 2002-03-20 19:39:28 fjoe Exp $
  */
 
 #ifndef _SOG_H_
@@ -477,29 +477,32 @@ DECLARE_PROC3(format_obj_affects,
 
 /*
  * damage() flags
+ * NOTE: (Z) flag is reserved for damage() internal use
  */
 #define DAM_F_NONE	(0)
 #define DAM_F_SHOW	(A)	/* show dam message */
 #define DAM_F_SECOND	(B)	/* damage inflicted by second weapon */
-#define DAM_F_HIT	(C)	/* damage by hit */
-#define DAM_F_HUNGER	(D)	/* damage by hunger */
-#define DAM_F_NOREDUCE	(E)	/* damage should not be reduced */
-#define DAM_F_THIRST	(F)	/* damage by thirst */
-#define DAM_F_LIGHT_V	(G)	/* light in room */
-#define DAM_F_TRAP_ROOM	(H)	/* room trap damage */
+#define DAM_F_HUNGER	(C)	/* damage by hunger */
+#define DAM_F_NOREDUCE	(D)	/* damage should not be reduced */
+#define DAM_F_THIRST	(E)	/* damage by thirst */
+#define DAM_F_LIGHT_V	(F)	/* light in room */
+#define DAM_F_TRAP_ROOM	(G)	/* room trap damage */
 
 DECLARE_PROC4(one_hit,
 	      ARG(CHAR_DATA), ch, ARG(CHAR_DATA), victim,
 	      NULLABLE_ARG(cchar_t), dt, ARG(bool), secondary)
+DECLARE_FUN6(bool, obj_one_hit,
+	     ARG(CHAR_DATA), ch, ARG(CHAR_DATA), victim,
+	     ARG(OBJ_DATA), thrown_with, ARG(OBJ_DATA), obj,
+	     ARG(int), door, ARG(int), chance)
 DECLARE_PROC2(handle_death,
 	      ARG(CHAR_DATA), ch, ARG(CHAR_DATA), victim)
 DECLARE_PROC3(multi_hit,
 	      ARG(CHAR_DATA), ch, ARG(CHAR_DATA), victim,
 	      NULLABLE_ARG(cchar_t), dt)
-DECLARE_FUN6(bool, damage,
+DECLARE_FUN5(bool, damage,
 	     ARG(CHAR_DATA), ch, ARG(CHAR_DATA), victim, ARG(int), dam,
-	     NULLABLE_ARG(cchar_t), dt, ARG(int), dam_class,
-	     ARG(int), dam_flags)
+	     NULLABLE_ARG(cchar_t), dt, ARG(int), dam_flags)
 DECLARE_PROC1(update_pos,
 	      ARG(CHAR_DATA), victim)
 DECLARE_PROC2(set_fighting,
@@ -576,6 +579,8 @@ DECLARE_FUN1(int, skill_beats,
 DECLARE_FUN2(int, skill_mana,
 	     ARG(CHAR_DATA), ch, ARG(cchar_t), sn)
 DECLARE_FUN1(gmlstr_t, skill_noun,
+	     ARG(cchar_t), sn)
+DECLARE_FUN1(int, skill_damclass,
 	     ARG(cchar_t), sn)
 
 DECLARE_FUN2(int, get_skill,

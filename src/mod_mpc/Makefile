@@ -1,12 +1,11 @@
 #
-# $Id: Makefile,v 1.12 2001-09-12 12:32:32 fjoe Exp $
+# $Id: Makefile,v 1.13 2002-03-20 19:39:41 fjoe Exp $
 #
 
 SRCS=		mpc.y mpc_dynafun.c mpc_iter.c mpc_lex.c mpc_c.c mpc_const.c
 CLEANFILES+=	mpc_const.c
 
-mpc_const.c:	../include/merc.h ../include/sog.h ../include/damtype.h\
-		genconst.sh genconst.sed
+mpc_const.c:	../include/merc.h ../include/sog.h genconst.sh genconst.sed
 	sh genconst.sh > ${.TARGET}
 
 .if defined(MPC)

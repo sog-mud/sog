@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.351 2002-02-07 12:57:00 tatyana Exp $
+ * $Id: handler.c,v 1.352 2002-03-20 19:39:45 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3453,8 +3453,7 @@ remove_obj(CHAR_DATA *ch, int iWear, bool fReplace)
 		act_puts("You remove $p, in pain.",
 			 ch, obj, NULL, TO_CHAR, POS_DEAD);
 		act("$n removes $p, in pain.", ch, obj, NULL, TO_ROOM);
-                damage(ch, ch, dice(obj->level, 12),
-		       NULL, DAM_OTHER, DAM_F_NONE);
+                damage(ch, ch, dice(obj->level, 12), NULL, DAM_F_NONE);
                 WAIT_STATE(ch, 4);
 		return !IS_EXTRACTED(ch);
 	}
@@ -5737,7 +5736,7 @@ mount_success(CHAR_DATA *ch, CHAR_DATA *mount, int canattack)
 			 mount, NULL, ch, TO_CHAR, POS_SLEEPING);
 
 		damage(mount, ch, number_range(1, mount->level),
-			"kick", DAM_BASH, DAM_F_SHOW);
+		       "kick", DAM_F_SHOW);
 	}
 	return FALSE;
 }

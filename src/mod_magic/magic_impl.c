@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: magic_impl.c,v 1.16 2002-01-31 19:20:40 tatyana Exp $
+ * $Id: magic_impl.c,v 1.17 2002-03-20 19:39:39 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -75,8 +75,7 @@ spellbane(CHAR_DATA *bch, CHAR_DATA *ch, int bane_chance, int bane_damage)
 				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 			act("$n's spellbane deflects the spell!",
 			    ch, NULL, NULL, TO_ROOM);
-			damage(ch, ch, bane_damage, "spellbane",
-			       DAM_NEGATIVE, DAM_F_SHOW);
+			damage(ch, ch, bane_damage, "spellbane", DAM_F_SHOW);
 		} else {
 			check_improve(bch, "spellbane", TRUE, 8);
 			act_puts("$N deflects your spell!",
@@ -86,8 +85,9 @@ spellbane(CHAR_DATA *bch, CHAR_DATA *ch, int bane_chance, int bane_damage)
 			act("$N deflects $n's spell!",
 			    ch, NULL, bch, TO_NOTVICT);
 			if (!is_safe(bch, ch) && !is_safe(ch, bch)) {
-				damage(bch, ch, bane_damage, "spellbane",
-				       DAM_NEGATIVE, DAM_F_SHOW);
+				damage(
+				    bch, ch, bane_damage,
+				    "spellbane", DAM_F_SHOW);
 			}
 	        }
 	        return TRUE;
@@ -148,9 +148,8 @@ get_cpdata(CHAR_DATA *ch, const char *argument, int skill_type, cpdata_t *cp)
 	&&  !str_cmp(arg1, "shadow")) {
 		cp->shadow = TRUE;
 		target_name = one_argument(target_name, arg1, sizeof(arg1));
-		cp->sk = skill_search(arg1);
+		cp->sk = skill_search(arg1, ST_SPELL);
 		if (cp->sk == NULL
-		||  cp->sk->skill_type != ST_SPELL
 		||  cp->sk->fun == NULL) {
 			act("You have never heard about such a spell.",
 				ch, NULL, NULL, TO_CHAR);
@@ -186,7 +185,7 @@ get_cpdata(CHAR_DATA *ch, const char *argument, int skill_type, cpdata_t *cp)
 		if (pc_sk != NULL)
 			cp->sk = skill_lookup(pc_sk->sn);
 		else
-			cp->sk = skill_search(arg1);
+			cp->sk = skill_search(arg1, ST_SPELL | ST_PRAYER);
 
 		if (cp->sk == NULL
 		||  (cp->chance = get_skill(ch, (cp->sn = gmlstr_mval(&cp->sk->sk_name)))) == 0) {

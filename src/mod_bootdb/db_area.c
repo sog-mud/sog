@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.141 2002-01-19 11:25:41 fjoe Exp $
+ * $Id: db_area.c,v 1.142 2002-03-20 19:39:30 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1133,7 +1133,8 @@ DBLOAD_FUN(load_mobiles)
 		pMobIndex->damage[DICE_TYPE]	= fread_number(fp);
 		fread_letter(fp);
 		pMobIndex->damage[DICE_BONUS]	= fread_number(fp);
-		pMobIndex->damtype		= fread_strkey(fp, &damtypes);
+		pMobIndex->damtype		= fread_damtype(
+		    __FUNCTION__, fp);
 
 		/* read armor class */
 		pMobIndex->ac[AC_PIERCE]	= fread_number(fp) * 10;

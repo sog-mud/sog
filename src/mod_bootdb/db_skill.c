@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_skill.c,v 1.34 2001-09-13 16:22:00 fjoe Exp $
+ * $Id: db_skill.c,v 1.35 2002-03-20 19:39:30 fjoe Exp $
  */
 
 #include <assert.h>
@@ -41,6 +41,7 @@ DECLARE_DBINIT_FUN(init_skills);
 DBFUN dbfun_skills[] =
 {
 	{ "SKILL",	load_skill,	NULL	},		// notrans
+	{ "DAMTYPE",	load_skill,	NULL	},		// notrans
 	{ NULL, NULL, NULL }
 };
 
@@ -65,6 +66,13 @@ DBLOAD_FUN(load_skill)
 			CHECK_VAR(sk, "Name");
 
 			KEY("Beats", sk->beats, fread_number(fp));
+			break;
+
+		case 'D':
+			CHECK_VAR(sk, "Name");
+
+			KEY("DamClass", sk->dam_class,
+			    fread_fword(dam_classes, fp));
 			break;
 
 		case 'E':

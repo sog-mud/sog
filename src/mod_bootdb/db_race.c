@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_race.c,v 1.42 2002-01-11 20:13:20 tatyana Exp $
+ * $Id: db_race.c,v 1.43 2002-03-20 19:39:30 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -81,7 +81,7 @@ DBLOAD_FUN(load_race)
 
 			KEY("Det", r->has_detect, fread_fstring(id_flags, fp));
 			KEY("Damtype", r->damtype,
-			    fread_strkey(fp, &damtypes));
+			    fread_damtype(__FUNCTION__, fp));
 			break;
 
 		case 'E':

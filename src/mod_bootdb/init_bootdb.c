@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_bootdb.c,v 1.15 2001-12-10 15:34:35 fjoe Exp $
+ * $Id: init_bootdb.c,v 1.16 2002-03-20 19:39:30 fjoe Exp $
  */
 
 #include <sys/stat.h>
@@ -71,7 +71,7 @@ MODINIT_FUN(_module_load, m)
 
 	db_load_file(&db_skills, ETC_PATH, SKILLS_CONF);
 	db_load_dir(&db_spec, SPEC_PATH, SPEC_EXT);
-	db_load_file(&db_damtype, ETC_PATH, DAMTYPE_CONF);
+	db_load_file(&db_skills, ETC_PATH, DAMTYPE_CONF);
 	db_load_file(&db_materials, ETC_PATH, MATERIALS_CONF);
 	db_load_file(&db_liquids, ETC_PATH, LIQUIDS_CONF);
 

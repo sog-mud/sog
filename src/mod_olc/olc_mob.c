@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_mob.c,v 1.91 2001-12-08 10:22:48 fjoe Exp $
+ * $Id: olc_mob.c,v 1.92 2002-03-20 19:39:43 fjoe Exp $
  */
 
 #include "olc.h"
@@ -447,36 +447,9 @@ OLC_FUN(mobed_list)
 
 OLC_FUN(mobed_damtype)
 {
-	damtype_t *d;
-	char arg[MAX_INPUT_LENGTH];
 	MOB_INDEX_DATA *pMob;
 	EDIT_MOB(ch, pMob);
-
-	one_argument(argument, arg, sizeof(arg));
-	if (arg[0] == '\0') {
-		act_char("Syntax: damtype <damage message", ch);
-		act_char("Syntax: damtype ?", ch);
-		return FALSE;
-	}
-
-	if (!str_cmp(arg, "?")) {
-		BUFFER *output = buf_new(0);
-		c_strkey_dump(&damtypes, output);
-		page_to_char(buf_string(output), ch);
-		buf_free(output);
-		return FALSE;
-	}
-
-	if ((d = damtype_lookup(arg)) == NULL) {
-		act_puts("MobEd: $t: unknown damage class.",
-			 ch, arg, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
-		return FALSE;
-	}
-
-	free_string(pMob->damtype);
-	pMob->damtype = str_qdup(d->dam_name);
-	act_char("Damage type set.", ch);
-	return TRUE;
+	return olced_damtype(ch, argument, cmd, &pMob->damtype);
 }
 
 OLC_FUN(mobed_align)

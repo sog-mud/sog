@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.276 2002-02-07 12:56:59 tatyana Exp $
+ * $Id: act_obj.c,v 1.277 2002-03-20 19:39:33 fjoe Exp $
  */
 
 /***************************************************************************
@@ -717,7 +717,7 @@ DO_FUN(do_envenom, ch, argument)
 			return;
 		}
 
-		if (damtype_class(obj->value[3].s) == DAM_BASH) {
+		if (skill_damclass(obj->value[3].s) == DAM_BASH) {
 			act_char("You can only envenom edged weapons.", ch);
 			return;
 		}

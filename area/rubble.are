@@ -2447,7 +2447,7 @@ if (is_affected($n, AFF_FLYING))
 
 if (number_percent() < chance) {
         int kick_dam = number_range(1, char_level($n));
-        damage($n, victim, kick_dam, NULL, DAM_BASH, DAM_F_SHOW);
+        damage($n, victim, kick_dam, "kick", DAM_F_SHOW);
 }
 
 return 0;

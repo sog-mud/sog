@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_race.c,v 1.61 2002-01-11 20:13:20 tatyana Exp $
+ * $Id: olc_race.c,v 1.62 2002-03-20 19:39:43 fjoe Exp $
  */
 
 #include "olc.h"
@@ -248,8 +248,9 @@ OLC_FUN(raceed_save)
 				flag_string(dam_classes, i), r->resists[i]);
 		}
 
-		if (!!strcmp(r->damtype, "punch"))
+		if (!!strcmp(r->damtype, "punch")) {
 			fprintf(fp, "Damtype %s\n", r->damtype);
+		}
 
 		if (r->luck_bonus)
 			fprintf(fp, "LuckBonus %d\n", r->luck_bonus);
@@ -621,11 +622,17 @@ OLC_FUN(raceed_bonusskill)
 		return FALSE;
 	}
 
-	if ((sk = skill_lookup(argument)) == NULL) {
-		act_puts("RaceEd: $t: no such skill.",
-			 ch, argument, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
+	if ((sk = skill_search(argument, ST_ALL)) == NULL) {
+		BUFFER *buf = buf_new(GET_LANG(ch));
+		buf_printf(buf, BUF_END, "RaceEd: %s: no such skill.\n",
+			   argument);
+		buf_printf(buf, BUF_END, "Valid skills are:\n");
+		skills_dump(buf, ST_ALL);
+		page_to_char(buf_string(buf), ch);
+		buf_free(buf);
 		return FALSE;
 	}
+
 	return olced_name(ch, gmlstr_mval(&sk->sk_name), cmd,
 			  &race->race_pcdata->bonus_skills);
 }
@@ -780,36 +787,9 @@ OLC_FUN(raceed_resists)
 
 OLC_FUN(raceed_damtype)
 {
-	damtype_t *d;
 	race_t *race;
-	char arg[MAX_INPUT_LENGTH];
 	EDIT_RACE(ch, race);
-
-	one_argument(argument, arg, sizeof(arg));
-	if (arg[0] == '\0') {
-		act_char("Syntax: damtype [damage message]", ch);
-		act_char("Syntax: damtype ?", ch);
-		return FALSE;
-	}
-
-	if (!str_cmp(arg, "?")) {
-		BUFFER *output = buf_new(0);
-		c_strkey_dump(&damtypes, output);
-		page_to_char(buf_string(output), ch);
-		buf_free(output);
-		return FALSE;
-	}
-
-	if ((d = damtype_lookup(arg)) == NULL) {
-		act_puts("MobEd: $t: unknown damage class.",
-			 ch, arg, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
-		return FALSE;
-	}
-
-	free_string(race->damtype);
-	race->damtype = str_qdup(d->dam_name);
-	act_char("Damage type set.", ch);
-	return TRUE;
+	return olced_damtype(ch, argument, cmd, &race->damtype);
 }
 
 static

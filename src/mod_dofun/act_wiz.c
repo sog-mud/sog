@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.309 2002-01-15 20:29:11 fjoe Exp $
+ * $Id: act_wiz.c,v 1.310 2002-03-20 19:39:34 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2657,7 +2657,7 @@ DO_FUN(do_sset, ch, argument)
 		const char *sn;
 		skill_t *sk;
 
-		if ((sk = skill_search(arg2)) == NULL) {
+		if ((sk = skill_search(arg2, ST_ALL)) == NULL) {
 			if (value) {
 				act_char("do_sset: Cannot set non-zero value for unknown skill.", ch);
 				return;

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: objval.c,v 1.18 2001-09-17 19:44:11 fjoe Exp $
+ * $Id: objval.c,v 1.19 2002-03-20 19:39:50 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -319,7 +319,7 @@ fread_objval(flag_t item_type, vo_t *v, rfile_t *fp)
 		INT(v[0]) = fread_fword(weapon_class, fp);
 		INT(v[1]) = fread_number(fp);
 		INT(v[2]) = fread_number(fp);
-		STR_ASSIGN(v[3], fread_strkey(fp, &damtypes));
+		STR_ASSIGN(v[3], fread_damtype(__FUNCTION__, fp));
 		INT(v[4]) = fread_flags(fp);
 		break;
 
@@ -550,7 +550,6 @@ objval_set(BUFFER *output, flag_t item_type, vo_t *v,
 {
 	int val;
 	skill_t *sk;
-	damtype_t *d;
 	liquid_t *liq;
 	spec_t *spc;
 
@@ -591,13 +590,14 @@ objval_set(BUFFER *output, flag_t item_type, vo_t *v,
 				STR_ASSIGN(v[3], str_empty);
 				break;
 			}
+
 			if (!str_cmp(argument, "?")
-			|| (sk = skill_lookup(argument)) == 0) {
-				skills_dump(output, ST_SPELL);
-				skills_dump(output, ST_PRAYER);
+			||  (sk = skill_search(argument, ST_SPELL | ST_PRAYER)) == NULL) {
+				skills_dump(output, ST_SPELL | ST_PRAYER);
 				return 2;
 			}
-			buf_append(output, "SPELL TYPE SET.\n");
+
+			buf_append(output, "SPELL/PRAYER TYPE SET.\n");
 			STR_ASSIGN(v[3],
 				   str_qdup(gmlstr_mval(&sk->sk_name)));
 			break;
@@ -621,13 +621,15 @@ objval_set(BUFFER *output, flag_t item_type, vo_t *v,
 					       str_empty);
 				break;
 			}
+
 			if (!str_cmp(argument, "?")
-			||  (sk = skill_lookup(argument)) == 0) {
-				skills_dump(output, ST_SPELL);
-				skills_dump(output, ST_PRAYER);
+			||  (sk = skill_search(argument, ST_SPELL | ST_PRAYER)) == 0) {
+				skills_dump(output, ST_SPELL | ST_PRAYER);
 				return 2;
 			}
-			buf_printf(output, BUF_END, "SPELL TYPE %d SET.\n\n", value_num);
+
+			buf_printf(output, BUF_END,
+				   "SPELL/PRAYER TYPE %d SET.\n\n", value_num);
 			STR_ASSIGN(v[value_num],
 				   str_qdup(gmlstr_mval(&sk->sk_name)));
 			break;
@@ -682,12 +684,12 @@ objval_set(BUFFER *output, flag_t item_type, vo_t *v,
 			break;
 		case 3:
 			if (!str_cmp(argument, "?")
-			||  (d = damtype_lookup(argument)) == NULL) {
-				c_strkey_dump(&damtypes, output);
+			||  (sk = skill_search(argument, ST_DAMTYPE)) == NULL) {
+				skills_dump(output, ST_DAMTYPE);
 				return 2;
 			}
 			buf_append(output, "WEAPON TYPE SET.\n\n");
-			STR_ASSIGN(v[3], str_qdup(d->dam_name));
+			STR_ASSIGN(v[3], str_qdup(gmlstr_mval(&sk->sk_name)));
 			break;
 		case 4:
 			if (!str_cmp(argument, "?")

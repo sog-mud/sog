@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_damtype.c,v 1.13 2001-12-03 22:28:33 fjoe Exp $
+ * $Id: olc_damtype.c,v 1.14 2002-03-20 19:39:43 fjoe Exp $
  */
 
 /*
@@ -37,8 +37,9 @@
  */
 
 #include "olc.h"
+#include "olc_skill.h"
 
-#define EDIT_DAMT(ch, d)	(d = (damtype_t *) ch->desc->pEdit)
+#define EDIT_DAMT(ch, sk)	(sk = (skill_t *) ch->desc->pEdit)
 
 DECLARE_OLC_FUN(damted_create		);
 DECLARE_OLC_FUN(damted_edit		);
@@ -47,14 +48,9 @@ DECLARE_OLC_FUN(damted_touch		);
 DECLARE_OLC_FUN(damted_show		);
 DECLARE_OLC_FUN(damted_list		);
 
-DECLARE_OLC_FUN(damted_noun		);
-DECLARE_OLC_FUN(damted_gender		);
-DECLARE_OLC_FUN(damted_class		);
-DECLARE_OLC_FUN(damted_slot		);
+DECLARE_OLC_FUN(damted_name		);
 
-DECLARE_OLC_FUN(damted_delete		);
-
-olced_strkey_t strkey_damtypes = { &damtypes, NULL, NULL };
+DECLARE_VALIDATE_FUN(validate_damname	);
 
 olc_cmd_t olc_cmds_damt[] =
 {
@@ -65,14 +61,13 @@ olc_cmd_t olc_cmds_damt[] =
 	{ "show",	damted_show,	NULL,	NULL			},
 	{ "list",	damted_list,	NULL,	NULL			},
 
-	{ "name",	olced_strkey,	NULL,	&strkey_damtypes	},
-	{ "gender",	damted_gender,	NULL,	gender_table		},
-	{ "noundamage",	damted_noun,	NULL,	NULL			},
-	{ "class",	damted_class,	NULL,	dam_classes		},
-	{ "slot",	damted_slot,	NULL,	NULL			},
+	{ "name",	damted_name,	validate_damname, &strkey_skills },
+	{ "noun",	skilled_noun,	NULL,	NULL			},
+	{ "noungender",	skilled_noungender, NULL, gender_table		},
+	{ "damclass",	skilled_damclass, NULL,	dam_classes		},
 
 	{ "delete_dam",	olced_spell_out, NULL,	NULL			},
-	{ "delete_damt",damted_delete,	NULL,	NULL			},
+	{ "delete_damt",skilled_delete,	NULL,	NULL			},
 
 	{ "commands",	show_commands,	NULL,	NULL			},
 	{ "version",	show_version,	NULL,	NULL			},
@@ -82,8 +77,9 @@ olc_cmd_t olc_cmds_damt[] =
 
 OLC_FUN(damted_create)
 {
-	damtype_t *dt;
+	skill_t *sk;
 	char arg[MAX_INPUT_LENGTH];
+	const char *dam_name;
 
 	if (PC(ch)->security < SECURITY_DAMT) {
 		act_char("DamtEd: Insufficient security for creating damage types.", ch);
@@ -93,17 +89,25 @@ OLC_FUN(damted_create)
 	if (argument[0] == '\0')
 		OLC_ERROR("'OLC CREATE'");
 
-	one_argument(argument, arg, sizeof(arg));
+	one_argument(argument, arg + 1, sizeof(arg) - 1);
+	if (arg[1] == '+')
+		dam_name = arg + 1;
+	else {
+		arg[0] = '+';
+		dam_name = arg;
+	}
 
-	if ((dt = c_insert(&damtypes, arg)) == NULL) {
+
+	if ((sk = c_insert(&skills, dam_name)) == NULL) {
 		act_puts("DamtEd: $t: already exists.",
-			 ch, arg, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
+			 ch, dam_name, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return FALSE;
 	}
 
-	dt->dam_name	= str_dup(arg);
+	mlstr_init2(&sk->sk_name.ml, argument);
+	sk->skill_type	= ST_DAMTYPE;
 	OLCED(ch)	= olced_lookup(ED_DAMT);
-	ch->desc->pEdit = dt;
+	ch->desc->pEdit = sk;
 	act_char("Damtype created.", ch);
 	SET_BIT(changed_flags, CF_DAMT);
 	return FALSE;
@@ -111,7 +115,7 @@ OLC_FUN(damted_create)
 
 OLC_FUN(damted_edit)
 {
-	damtype_t *dt;
+	skill_t *sk;
 
 	if (PC(ch)->security < SECURITY_DAMT) {
 		act_char("DamtEd: Insufficient security.", ch);
@@ -121,13 +125,13 @@ OLC_FUN(damted_edit)
 	if (argument[0] == '\0')
 		OLC_ERROR("'OLC EDIT'");
 
-	if ((dt = damtype_search(argument)) == NULL) {
+	if ((sk = skill_search(argument, ST_DAMTYPE)) == NULL) {
 		act_puts("DamtEd: $t: No such damtype.",
 			 ch, argument, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return FALSE;
 	}
 
-	ch->desc->pEdit	= dt;
+	ch->desc->pEdit	= sk;
 	OLCED(ch)	= olced_lookup(ED_DAMT);
 	return FALSE;
 }
@@ -135,7 +139,7 @@ OLC_FUN(damted_edit)
 OLC_FUN(damted_save)
 {
 	FILE *fp;
-	damtype_t *dt;
+	skill_t *sk;
 
 	if (!IS_SET(changed_flags, CF_DAMT)) {
 		act_char("Damage types are not changed.", ch);
@@ -145,15 +149,20 @@ OLC_FUN(damted_save)
 	if (fp == NULL)
 		return FALSE;
 
-	C_FOREACH(dt, &damtypes) {
+	C_FOREACH(sk, &skills) {
+		if (IS_SET(sk->skill_type, ST_ALL))
+			continue;
+
 		fprintf(fp, "#DAMTYPE\n");
-		fprintf(fp, "Name %s\n", dt->dam_name);
-		mlstr_fwrite(fp, "Noun", &dt->dam_noun.ml);
-		mlstr_fwrite(fp, "Gender", &dt->dam_noun.gender);
-		fprintf(fp, "Class %s\n",
-			flag_string(dam_classes, dt->dam_class));
-		if (dt->dam_slot >= 0)
-			fprintf(fp, "Slot %d\n", dt->dam_slot);
+		fwrite_string(fp, "Name", gmlstr_mval(&sk->sk_name));
+		fprintf(fp, "Type %s\n",
+			flag_string(skill_types, sk->skill_type));
+		mlstr_fwrite(fp, "NounDamage", &sk->noun_damage.ml);
+		mlstr_fwrite(fp, "NounGender", &sk->noun_damage.gender);
+		if (sk->dam_class != DAM_NONE) {
+			fprintf(fp, "DamClass %s\n",
+				flag_string(dam_classes, sk->dam_class));
+		}
 		fprintf(fp, "End\n\n");
 	}
 
@@ -172,15 +181,15 @@ OLC_FUN(damted_touch)
 
 OLC_FUN(damted_show)
 {
-	damtype_t *dt;
+	skill_t *sk;
 	BUFFER *buf;
 
 	if (argument[0] == '\0') {
 		if (IS_EDIT(ch, ED_DAMT))
-			EDIT_DAMT(ch, dt);
+			EDIT_DAMT(ch, sk);
 		else
 			OLC_ERROR("'OLC ASHOW'");
-	} else if ((dt = damtype_search(argument)) == NULL) {
+	} else if ((sk = skill_search(argument, ST_DAMTYPE)) == NULL) {
 			act_puts("DamtEd: $t: no such damage type.",
 				 ch, argument, NULL,
 				 TO_CHAR | ACT_NOTRANS, POS_DEAD);
@@ -188,14 +197,12 @@ OLC_FUN(damted_show)
 	}
 
 	buf = buf_new(0);
-	buf_printf(buf, BUF_END, "Name:       [%s]\n", dt->dam_name);
-	mlstr_dump(buf, "NounDamage: ", &dt->dam_noun.ml, DUMP_LEVEL(ch));
-	mlstr_dump(buf, "Gender:     ", &dt->dam_noun.gender, DL_NONE);
-	buf_printf(buf, BUF_END, "Damclass:   [%s]\n",
-		flag_string(dam_classes, dt->dam_class));
-	if (dt->dam_slot)
-		buf_printf(buf, BUF_END, "Slot:       [%d]\n", dt->dam_slot);
-
+	buf_printf(buf, BUF_END,
+		   "Name:       [%s]\n", gmlstr_mval(&sk->sk_name));
+	mlstr_dump(buf, "NounDamage: ", &sk->noun_damage.ml, DUMP_LEVEL(ch));
+	mlstr_dump(buf, "NounGender: ", &sk->noun_damage.gender, DL_NONE);
+	buf_printf(buf, BUF_END, "DamClass:   [%s]\n",
+		flag_string(dam_classes, sk->dam_class));
 	page_to_char(buf_string(buf), ch);
 	buf_free(buf);
 	return FALSE;
@@ -206,54 +213,38 @@ OLC_FUN(damted_list)
 	BUFFER	*buffer;
 
 	buffer = buf_new(0);
-	c_strkey_dump(&damtypes, buffer);
+	skills_dump(buffer, ST_DAMTYPE);
 	page_to_char(buf_string(buffer), ch);
 	buf_free(buffer);
 	return FALSE;
 }
 
-OLC_FUN(damted_gender)
+OLC_FUN(damted_name)
 {
-	damtype_t *dt;
-
-	EDIT_DAMT(ch, dt);
-	return olced_gender(ch, argument, cmd, &dt->dam_noun.gender);
-}
-
-OLC_FUN(damted_noun)
-{
-	damtype_t *dt;
-
-	EDIT_DAMT(ch, dt);
-	return olced_mlstr(ch, argument, cmd, &dt->dam_noun.ml);
-}
-
-OLC_FUN(damted_class)
-{
-	damtype_t *dt;
-
-	EDIT_DAMT(ch, dt);
-	return olced_flag(ch, argument, cmd, &dt->dam_class);
-}
-
-OLC_FUN(damted_slot)
-{
-	damtype_t *dt;
-
-	EDIT_DAMT(ch, dt);
-	return olced_number(ch, argument, cmd, &dt->dam_slot);
-}
-
-OLC_FUN(damted_delete)
-{
-	damtype_t *dt;
-
-	EDIT_DAMT(ch, dt);
-
-	if (olced_busy(ch, ED_DAMT, dt, NULL))
+	if (IS_NULLSTR(argument)) {
+		act_puts("Syntax: $t <string>",
+			 ch, cmd->name, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return FALSE;
+	}
 
-	c_delete(&damtypes, dt->dam_name);
-	edit_done(ch->desc);
+	return _olced_mlstrkey(ch, "all", argument, cmd);
+}
+
+VALIDATE_FUN(validate_damname)
+{
+	const char *name = (const char *) arg;
+
+	if (name[0] != '+') {
+		act_puts("DamtEd: $t: damtype name must start with '+'.",
+			 ch, name, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
+		return FALSE;
+	}
+
+	if (strpbrk(name, "\t ")) {
+		act_puts("DamtEd: $t: damtype name can't contain spaces.",
+			 ch, name, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
+		return FALSE;
+	}
+
 	return TRUE;
 }

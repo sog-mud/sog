@@ -213,7 +213,7 @@ if (dice(1, 10) < 4) {
             $n, NULL, $N, TO_VICT);
 	act("$n charges at $N, lowering its horn at $gN{his} heart!",
             $n, NULL, $N, TO_NOTVICT);
-	damage($n, $N, dice(char_level($n),10), "stab", DAM_PIERCE, DAM_F_SHOW);
+	damage($n, $N, dice(char_level($n),10), "+stab", DAM_F_SHOW);
 }
 
 return 0;
@@ -610,11 +610,11 @@ if (chance < 35) {
             $N, NULL, $N, TO_NOTVICT);
 } else if (chance < 45) {
         act("$n screams 'HATAI!'", $n, NULL, NULL, TO_ROOM);
-        damage($n, vict, 57, "bodyslam", DAM_BASH, DAM_F_SHOW);
+        damage($n, vict, 57, "bash", DAM_F_SHOW);
         wait_state(vict, dice(1, 4) * get_pulse("violence"));
 } else if (chance < 60) {
         act("$n screams 'YOTAH!'", $n, NULL, NULL, TO_ROOM);
-        damage($n, vict, dice(2, 3), "kicked dirt", DAM_NONE, DAM_F_SHOW);
+        damage($n, vict, dice(2, 3), "dirt kicking", DAM_F_SHOW);
         if (!is_affected(vict, AFF_BLIND)) {
                 affect_char(vict, TO_AFFECTS, "dirt kicking",
                     char_level($n), 0, APPLY_HITROLL, -5, AFF_BLIND);
@@ -622,7 +622,7 @@ if (chance < 35) {
 } else if (chance < 85) {
         act("$n screams 'AIYIII!'", $n, NULL, NULL, TO_ROOM);
         damage($n, vict, 3 * number_range(1, char_level($n)),
-            "kick", DAM_BASH, DAM_F_SHOW);
+            "kick", DAM_F_SHOW);
 }
 
 return 0;
@@ -734,14 +734,13 @@ stand stand male 0
 m mob_fight @ 100~
 char vict = get_random_fighting($n);
 if (number_percent() < 30 && !is_affected(vict, AFF_BLIND)) {
-	damage($n, vict, dice(2,3), "kicked dirt", DAM_NONE, DAM_F_SHOW);
+	damage($n, vict, dice(2,3), "dirt kicking", DAM_F_SHOW);
         affect_char(vict, TO_AFFECTS, "dirt kicking", char_level($n), 0,
             APPLY_HITROLL, -5, AFF_BLIND);
 }
 
 if (number_percent() < 50) {
-	damage($n, $N, dice(char_level($n), 7), "stab",
-            DAM_PIERCE, DAM_F_SHOW);
+	damage($n, $N, dice(char_level($n), 7), "+stab", DAM_F_SHOW);
 }
 return 0;
 ~

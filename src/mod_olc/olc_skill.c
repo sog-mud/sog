@@ -23,10 +23,11 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_skill.c,v 1.30 2001-12-03 22:28:35 fjoe Exp $
+ * $Id: olc_skill.c,v 1.31 2002-03-20 19:39:43 fjoe Exp $
  */
 
 #include "olc.h"
+#include "olc_skill.h"
 
 #define EDIT_SKILL(ch, sk)	(sk = (skill_t *) ch->desc->pEdit)
 
@@ -43,18 +44,16 @@ DECLARE_OLC_FUN(skilled_target		);
 DECLARE_OLC_FUN(skilled_minpos		);
 DECLARE_OLC_FUN(skilled_minmana		);
 DECLARE_OLC_FUN(skilled_beats		);
-DECLARE_OLC_FUN(skilled_noun		);
-DECLARE_OLC_FUN(skilled_noungender	);
 DECLARE_OLC_FUN(skilled_msgoff		);
 DECLARE_OLC_FUN(skilled_msgobj		);
 DECLARE_OLC_FUN(skilled_flags		);
 DECLARE_OLC_FUN(skilled_group		);
 DECLARE_OLC_FUN(skilled_type		);
 DECLARE_OLC_FUN(skilled_event		);
-DECLARE_OLC_FUN(skilled_delete		);
 DECLARE_OLC_FUN(skilled_rank		);
 
 static DECLARE_VALIDATE_FUN(validate_skill_rank);
+static DECLARE_VALIDATE_FUN(validate_skname);
 
 olced_strkey_t strkey_skills = { &skills, NULL, NULL };
 
@@ -67,7 +66,7 @@ olc_cmd_t olc_cmds_skill[] =
 	{ "show",	skilled_show,	NULL,	NULL			},
 	{ "list",	skilled_list,	NULL,	NULL			},
 
-	{ "name",	olced_mlstrkey,	NULL,	&strkey_skills		},
+	{ "name",	olced_mlstrkey,	validate_skname, &strkey_skills	},
 	{ "gender",	skilled_gender,	NULL,	gender_table		},
 	{ "funname",	skilled_funname, validate_funname, NULL		},
 	{ "target",	skilled_target, NULL,	skill_targets		},
@@ -83,6 +82,7 @@ olc_cmd_t olc_cmds_skill[] =
 	{ "type",	skilled_type,	NULL,	skill_types		},
 	{ "event",	skilled_event, validate_funname, events_classes	},
 	{ "rank",	skilled_rank, validate_skill_rank, NULL		},
+	{ "damclass",	skilled_damclass, NULL,	dam_classes		},
 	{ "delete_skil", olced_spell_out, NULL,	NULL			},
 	{ "delete_skill", skilled_delete, NULL,	NULL			},
 
@@ -131,7 +131,7 @@ OLC_FUN(skilled_edit)
 	if (IS_NULLSTR(argument))
 		OLC_ERROR("'OLC EDIT'");
 
-	if (!(sk = skill_search(argument))) {
+	if ((sk = skill_search(argument, ST_ALL)) == NULL) {
 		act_puts("SkillEd: $t: No such skill.",
 			 ch, argument, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return FALSE;
@@ -158,6 +158,9 @@ OLC_FUN(skilled_save)
 	C_FOREACH(sk, &skills) {
 		evf_t *ev;
 
+		if (!IS_SET(sk->skill_type, ST_ALL))
+			continue;
+
 		fprintf(fp, "#SKILL\n");
 		mlstr_fwrite(fp, "Name", &sk->sk_name.ml);
 		mlstr_fwrite(fp, "Gender", &sk->sk_name.gender);
@@ -180,6 +183,10 @@ OLC_FUN(skilled_save)
 			fprintf(fp, "MinMana %d\n", sk->min_mana);
 		mlstr_fwrite(fp, "NounDamage", &sk->noun_damage.ml);
 		mlstr_fwrite(fp, "NounGender", &sk->noun_damage.gender);
+		if (sk->dam_class != DAM_NONE) {
+			fprintf(fp, "DamClass %s\n",
+				flag_string(dam_classes, sk->dam_class));
+		}
 		if (!IS_NULLSTR(sk->fun_name))
 			fprintf(fp, "SpellFun %s\n", sk->fun_name);
 		mlstr_fwrite(fp, "WearOff", &sk->msg_off);
@@ -217,7 +224,7 @@ OLC_FUN(skilled_show)
 		else
 			OLC_ERROR("'OLC ASHOW'");
 	} else {
-		if (!(sk = skill_search(argument))) {
+		if ((sk = skill_search(argument, ST_ALL)) == NULL) {
 			act_puts("SkillEd: $t: no such skill.",
 				 ch, argument, NULL,
 				 TO_CHAR | ACT_NOTRANS, POS_DEAD);
@@ -226,7 +233,7 @@ OLC_FUN(skilled_show)
 	}
 
 	buf = buf_new(0);
-	mlstr_dump(buf, "Name       ", &sk->sk_name.ml, DL_NONE);
+	mlstr_dump(buf, "Name:      ", &sk->sk_name.ml, DL_NONE);
 	mlstr_dump(buf, "Gender:    ", &sk->sk_name.gender, DL_NONE);
 	buf_printf(buf, BUF_END, "Type       [%s]     Group       [%s]\n",
 			flag_string(skill_types, sk->skill_type),
@@ -243,6 +250,8 @@ OLC_FUN(skilled_show)
 		buf_printf(buf, BUF_END, "MinMana    [%d]\n", sk->min_mana);
 	mlstr_dump(buf, "NounDamage ", &sk->noun_damage.ml, DUMP_LEVEL(ch));
 	mlstr_dump(buf, "NounGender ", &sk->noun_damage.gender, DL_NONE);
+	buf_printf(buf, BUF_END, "DamClass:  [%s]\n",
+		flag_string(dam_classes, sk->dam_class));
 	buf_printf(buf, BUF_END, "Rank       [%d]\n", sk->rank);
 
 	if (!IS_NULLSTR(sk->fun_name))
@@ -266,7 +275,7 @@ OLC_FUN(skilled_list)
 	BUFFER	*buffer;
 
 	buffer = buf_new(0);
-	c_mlstrkey_dump(&skills, buffer);
+	skills_dump(buffer, ST_ALL);
 	page_to_char(buf_string(buffer), ch);
 	buf_free(buffer);
 	return FALSE;
@@ -318,17 +327,6 @@ OLC_FUN(skilled_beats)
 
 	EDIT_SKILL(ch, sk);
 	return olced_number(ch, argument, cmd, &sk->beats);
-}
-
-static VALIDATE_FUN(validate_skill_rank)
-{
-	int val = *(const int *) arg;
-
-	if (val < 0 || val > 7) {
-		act_char("SkillEd: skill rank should be in [0..7].", ch);
-		return FALSE;
-	}
-	return TRUE;
 }
 
 OLC_FUN(skilled_rank)
@@ -475,10 +473,42 @@ OLC_FUN(skilled_delete)
 
 	EDIT_SKILL(ch, sk);
 
-	if (olced_busy(ch, ED_SKILL, sk, NULL))
+	if (olced_busy(ch, OLCED(ch)->name, sk, NULL))
 		return FALSE;
 
 	c_delete(&skills, gmlstr_mval(&sk->sk_name));
 	edit_done(ch->desc);
+	return TRUE;
+}
+
+OLC_FUN(skilled_damclass)
+{
+	skill_t *sk;
+
+	EDIT_SKILL(ch, sk);
+	return olced_flag(ch, argument, cmd, &sk->dam_class);
+}
+
+static VALIDATE_FUN(validate_skill_rank)
+{
+	int val = *(const int *) arg;
+
+	if (val < 0 || val > 7) {
+		act_char("SkillEd: skill rank should be in [0..7].", ch);
+		return FALSE;
+	}
+	return TRUE;
+}
+
+static VALIDATE_FUN(validate_skname)
+{
+	const char *name = (const char *) arg;
+
+	if (name[0] == '+') {
+		act_puts("SkillEd: $t: skill name can not start with '+'.",
+			 ch, name, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
+		return FALSE;
+	}
+
 	return TRUE;
 }

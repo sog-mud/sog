@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.146 2002-03-06 11:08:36 tatyana Exp $
+ * $Id: recycle.c,v 1.147 2002-03-20 19:39:50 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1319,13 +1319,14 @@ skill_init(skill_t *sk)
 	sk->min_mana = 0;
 	sk->rank = 0;
 	sk->beats = 0;
+	sk->dam_class = DAM_NONE;
 	gmlstr_init(&sk->noun_damage);
 	mlstr_init2(&sk->msg_off, str_empty);
 	mlstr_init2(&sk->msg_obj, str_empty);
 	sk->skill_flags = 0;
 	sk->restrict_race = str_empty;
 	sk->group = 0;
-	sk->skill_type = 0;
+	sk->skill_type = ST_SKILL;
 	c_init(&sk->events, &c_info_evf);
 }
 
@@ -1351,6 +1352,33 @@ avltree_info_t c_info_skills =
 	MT_SKILL, sizeof(skill_t), ke_cmp_mlstr
 };
 
+skill_t *
+skill_search(const char *sn, int skill_type)
+{
+	skill_t *sk;
+
+	if (IS_NULLSTR(sn))
+		return NULL;
+
+	/*
+	 * try exact match first
+	 */
+	if ((sk = c_lookup(&skills, sn)) != NULL
+	&&  IS_SET(sk->skill_type, skill_type))
+		return sk;
+
+	/*
+	 * search by prefix
+	 */
+	C_FOREACH(sk, &skills) {
+		if (!str_prefix(sn, gmlstr_mval(&sk->sk_name))
+		&&  IS_SET(sk->skill_type, skill_type))
+			return sk;
+	}
+
+	return NULL;
+}
+
 void
 skills_dump(BUFFER *output, int skill_type)
 {
@@ -1361,7 +1389,7 @@ skills_dump(BUFFER *output, int skill_type)
 		const char *sn = gmlstr_mval(&sk->sk_name);
 
 		if (!str_cmp(sn, "reserved")
-		||  (skill_type >= 0 && sk->skill_type != skill_type))
+		||  !IS_SET(sk->skill_type, skill_type))
 			continue;
 
 		buf_printf(output, BUF_END, "%-19.18s", sn);	// notrans
@@ -1371,6 +1399,25 @@ skills_dump(BUFFER *output, int skill_type)
 
 	if (col % 4)
 		buf_append(output, "\n");
+}
+
+const char *
+fread_damtype(const char *ctx, rfile_t *fp)
+{
+	const char *dt = fread_sword(fp);
+	if (IS_NULLSTR(dt)) {
+		free_string(dt);
+		dt = str_dup("+none");
+	} else if (dt[0] != '+') {
+		/*
+		 * normalize damtype: add leading '+'
+		 */
+		const char *p = str_printf("+%s", dt);
+		free_string(dt);
+		dt = p;
+	}
+	C_STRKEY_CHECK(ctx, &skills, dt);
+	return dt;
 }
 
 /*--------------------------------------------------------------------

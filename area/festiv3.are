@@ -77,8 +77,7 @@ if (sword == NULL) {
             $n, NULL, victim, TO_VICT);
         act("{rGrandfather pummels $N painfully with his fists!{x",
             $n, NULL, victim, TO_NOTVICT);
-        damage($n, victim, number_range(75, 150), NULL,
-               DAM_NONE, DAM_F_NONE);
+        damage($n, victim, number_range(75, 150), NULL, DAM_F_NONE);
         return 0;
 }
  
@@ -86,7 +85,7 @@ act("{r    Grandfather makes a few steps back, artfully deflecting your blows, t
     $n, NULL, victim, TO_VICT);
 act("{rGrandfather slashes $N deeply with his sword!{x",
     $n, NULL, victim, TO_NOTVICT);
-damage($n, victim, number_range(100, 200), NULL, DAM_NONE, DAM_F_NONE);
+damage($n, victim, number_range(100, 200), NULL, DAM_F_NONE);
 return 0;
 ~
 #36301

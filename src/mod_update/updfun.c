@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: updfun.c,v 1.54 2002-01-08 20:21:42 tatyana Exp $
+ * $Id: updfun.c,v 1.55 2002-03-20 19:39:48 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -227,7 +227,7 @@ FOREACH_CB_FUN(mobile_update_cb, vo, ap)
 		    ch, NULL, NULL, TO_ROOM);
 		act("You gasp for fresh air, but inhale water.",
 		    ch, NULL, NULL, TO_CHAR);
-		damage(ch, ch, ch->max_hit / 20, NULL, DAM_WATER, DAM_F_NONE);
+		damage(ch, ch, ch->max_hit / 20, NULL, DAM_F_NONE);
 
 		if (IS_EXTRACTED(ch))
 			return NULL;
@@ -793,9 +793,9 @@ FOREACH_CB_FUN(char_update_cb, vo, ap)
 
 	if (ch->position == POS_INCAP
 	&&  number_range(0, 1) == 0)
-		damage(ch, ch, 1, NULL, DAM_NONE, DAM_F_NONE);
+		damage(ch, ch, 1, NULL, DAM_F_NONE);
 	else if (ch->position == POS_MORTAL)
-		damage(ch, ch, 1, NULL, DAM_NONE, DAM_F_NONE);
+		damage(ch, ch, 1, NULL, DAM_F_NONE);
 
 	return NULL;
 }
@@ -1002,7 +1002,7 @@ UPDATE_FUN(light_update)
 			act_char("Sun light disturbs you.", ch);
 
 		dam_light = 1 + (ch->max_hit * 4)/ 100;
-		damage(ch, ch, dam_light, NULL, DAM_LIGHT, DAM_F_LIGHT_V);
+		damage(ch, ch, dam_light, NULL, DAM_F_LIGHT_V);
 
 		if (ch->position == POS_STUNNED)
 			update_pos(ch);

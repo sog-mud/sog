@@ -1,5 +1,5 @@
 /*
- * $Id: flag.c,v 1.40 2001-12-07 21:30:01 fjoe Exp $
+ * $Id: flag.c,v 1.41 2002-03-20 19:39:49 fjoe Exp $
  */
 
 /***************************************************************************
@@ -49,6 +49,26 @@ _flag_lookup(const flaginfo_t *f, const char *name,
 	return NULL;
 }
 
+const flaginfo_t *
+flag_slookup(const flaginfo_t *f, const char *name)
+{
+	return _flag_lookup(f, name, str_cmp);
+}
+
+const flaginfo_t *
+flag_lookup(const flaginfo_t *f, const char *name)
+{
+	const flaginfo_t *f2;
+
+	if (IS_NULLSTR(name))
+		return NULL;
+
+	if ((f2 = flag_slookup(f, name)) != NULL)
+		return f2;
+
+	return _flag_lookup(f, name, str_prefix);
+}
+
 /*****************************************************************************
  Name:		flag_value(table, flag)
  Purpose:	Returns the value of the flags entered.  Multi-flags accepted.
@@ -56,7 +76,7 @@ _flag_lookup(const flaginfo_t *f, const char *name,
  ****************************************************************************/
 flag_t
 _flag_value(const flaginfo_t *flag_table, const char *argument,
-	    int (*cmpfun)(const char *, const char *))
+	    const flaginfo_t *(*lookup)(const flaginfo_t *, const char *))
 {
 	const flaginfo_t *f;
 	const char *tname = flag_table->name;
@@ -80,7 +100,7 @@ _flag_value(const flaginfo_t *flag_table, const char *argument,
 			if (!strcmp(word, "none"))
 				continue;
 
-			f = _flag_lookup(flag_table, word, cmpfun);
+			f = lookup(flag_table, word);
 			if (f == NULL) {
 				log(LOG_ERROR, "_flag_value: %s: unknown flag name", word);
 				continue;
@@ -94,7 +114,7 @@ _flag_value(const flaginfo_t *flag_table, const char *argument,
 	}
 
 	case TABLE_INTVAL:
-		if ((f = _flag_lookup(flag_table, argument, cmpfun)) == NULL)
+		if ((f = lookup(flag_table, argument)) == NULL)
 			return -1;
 		return f->bit;
 		/* NOT REACHED */

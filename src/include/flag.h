@@ -1,5 +1,5 @@
 /*
- * $Id: flag.h,v 1.11 2002-03-10 10:27:21 fjoe Exp $
+ * $Id: flag.h,v 1.12 2002-03-20 19:39:28 fjoe Exp $
  */
 
 /***************************************************************************
@@ -31,14 +31,15 @@ struct flaginfo_t
 
 const flaginfo_t *_flag_lookup(const flaginfo_t *flag_table, const char* name,
 			       int (*cmpfun)(const char *, const char *));
-#define flag_lookup(t, n)	(_flag_lookup((t), (n), str_prefix))
-#define flag_slookup(t, n)	(_flag_lookup((t), (n), str_cmp))
 
-flag_t	_flag_value	(const flaginfo_t *flag_table,
-			 const char *argument,
-			 int (*cmpfun)(const char *, const char *));
-#define flag_value(t, arg)	(_flag_value((t), (arg), str_prefix))
-#define flag_svalue(t, arg)	(_flag_value((t), (arg), str_cmp))
+const flaginfo_t *flag_slookup(const flaginfo_t *flag_table, const char *name);
+const flaginfo_t *flag_lookup(const flaginfo_t *flag_table, const char *name);
+
+flag_t	_flag_value(const flaginfo_t *flag_table, const char *argument,
+		    const flaginfo_t *(*lookup)(
+			const flaginfo_t *, const char *));
+#define flag_svalue(t, arg)	(_flag_value((t), (arg), flag_slookup))
+#define flag_value(t, arg)	(_flag_value((t), (arg), flag_lookup))
 
 const char *	flag_string	(const flaginfo_t *flag_table, flag_t bits);
 const char *	flag_istring	(const flaginfo_t *flag_table, flag_t val);
