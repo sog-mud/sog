@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.181.2.12 2000-06-09 12:00:38 fjoe Exp $
+ * $Id: spellfun.c,v 1.181.2.13 2000-08-01 13:29:04 fjoe Exp $
  */
 
 /***************************************************************************
@@ -4759,7 +4759,7 @@ spell_fire_sphere(int sn, int level, CHAR_DATA *ch, void *vo)
         };
 
 	if (is_affected(ch, gsn_ice_sphere)) {
-		act("Your ice sphere explodes, and splinters hit you!",
+		act("Your ice sphere explodes and splinters hit you!",
 		    ch, NULL, NULL, TO_CHAR);
 		act("$n's ice sphere explodes and splinters hit $n!",
 		    ch, NULL, NULL, TO_ROOM);
