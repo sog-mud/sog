@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.197 2000-01-04 19:27:45 fjoe Exp $
+ * $Id: act_obj.c,v 1.198 2000-01-06 10:18:31 kostik Exp $
  */
 
 /***************************************************************************
@@ -859,7 +859,7 @@ void do_feed(CHAR_DATA *ch, const char *argument)
 	}
 
 	for (paf = vch->affected; paf; paf = paf->next)
-		if (paf->type == "bone dragon")
+		if (IS_SKILL(paf->type, "bone dragon"))
 			break;
 
 	if (!paf) {
@@ -3777,7 +3777,8 @@ void do_outfit(CHAR_DATA *ch, const char *argument)
 	}
 
 	/* do the weapon thing */
-	if ((obj = get_eq_char(ch,WEAR_WIELD)) == NULL) {
+	if (((obj = get_eq_char(ch,WEAR_WIELD)) == NULL)
+	&& free_hands(ch)) {
 		vnum = cl->weapon;
 		obj = create_obj(get_obj_index(vnum),0);
 		obj->condition = 100;
@@ -3785,9 +3786,8 @@ void do_outfit(CHAR_DATA *ch, const char *argument)
 		equip_char(ch,obj,WEAR_WIELD);
 	}
 
-	if (((obj = get_eq_char(ch,WEAR_WIELD)) == NULL 
-	||   !IS_WEAPON_STAT(obj,WEAPON_TWO_HANDS)) 
-	&&  (obj = get_eq_char(ch, WEAR_SHIELD)) == NULL)
+	if (((obj = get_eq_char(ch, WEAR_SHIELD)) == NULL)
+	&& free_hands(ch))
 	{
 	    obj = create_obj(get_obj_index(OBJ_VNUM_SCHOOL_SHIELD), 0);
 		obj->cost = 0;

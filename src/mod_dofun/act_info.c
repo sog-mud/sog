@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.322 2000-01-05 15:28:51 avn Exp $
+ * $Id: act_info.c,v 1.323 2000-01-06 10:18:30 kostik Exp $
  */
 
 /***************************************************************************
@@ -2598,7 +2598,7 @@ void do_raffects(CHAR_DATA *ch, const char *argument)
 
 	char_puts("The room is affected by the following spells:\n", ch);
 	for (paf = ch->in_room->affected; paf != NULL; paf = paf->next) {
-		if (paf_last != NULL && paf->type == paf_last->type) {
+		if (paf_last != NULL && IS_SKILL(paf->type, paf_last->type)) {
 			if (ch->level >= 20)
 				char_puts("                      ", ch);
 			else
