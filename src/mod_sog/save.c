@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.134 1999-11-18 18:41:33 fjoe Exp $
+ * $Id: save.c,v 1.135 1999-11-22 10:16:45 kostik Exp $
  */
 
 /***************************************************************************
@@ -464,6 +464,10 @@ fwrite_obj(CHAR_DATA * ch, OBJ_DATA * obj, FILE * fp, int iNest)
 	
 	if (IS_SET(obj->pObjIndex->extra_flags,
 		   ITEM_CLAN | ITEM_QUIT_DROP | ITEM_CHQUEST))
+		return;
+
+/* Do not save limited eq if player is not in PK */
+	if (ch->level < LEVEL_PK && obj->pObjIndex->limit != -1) 
 		return;
 
 	fprintf(fp, "#O\n");

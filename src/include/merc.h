@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.250 1999-11-19 12:28:35 fjoe Exp $
+ * $Id: merc.h,v 1.251 1999-11-22 10:16:44 kostik Exp $
  */
 
 /***************************************************************************
@@ -1391,11 +1391,13 @@ struct pc_data
 	const char *		twitlist;
 	const char *		granted;	/* granted wiz commands */
 	const char *		form_name;
+	const char *		enemy_list;
 	time_t			last_note;
 	time_t			last_idea;
 	time_t			last_penalty;
 	time_t			last_news;
 	time_t			last_changes;
+	time_t			last_offence;
 	flag32_t		trust;
 	flag32_t		plr_flags;
 	flag32_t		wiznet; /* wiz stuff */
@@ -1408,7 +1410,7 @@ struct pc_data
 	int 			death;
 	int 			anti_killed;
 	int 			has_killed;
-
+	
 	int			questgiver;
 	int	 		questpoints;
 	int			questtime;
@@ -1535,6 +1537,7 @@ struct obj_data
 	OBJ_DATA *		in_obj;
 	OBJ_DATA *		on;
 	CHAR_DATA * 		carried_by;
+	CHAR_DATA *		last_owner;
 	ED_DATA *		ed;
 	AFFECT_DATA *		affected;
 	OBJ_INDEX_DATA *	pObjIndex;

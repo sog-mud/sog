@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.168 1999-11-18 15:31:31 fjoe Exp $
+ * $Id: update.c,v 1.169 1999-11-22 10:16:45 kostik Exp $
  */
 
 /***************************************************************************
@@ -122,13 +122,13 @@ void advance_level(CHAR_DATA *ch)
 	ch->perm_mana += add_mana;
 	ch->perm_move += add_move;
 
-	PC(ch)->practice += add_prac;
 
 	if (PC(ch)->plevels > 0) {
 		PC(ch)->plevels--;
 	} else {
 		PC(ch)->train += ch->level % 5 ? 0 : 1;
 		add_prac = wis_app[get_curr_stat(ch,STAT_WIS)].practice;
+		PC(ch)->practice += add_prac;
 	}
 
 	char_printf(ch, "Your gain is {C%d{x hp, {C%d{x mana, {C%d{x mv {C%d{x prac.\n",

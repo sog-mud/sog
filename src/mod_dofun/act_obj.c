@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.174 1999-11-19 13:05:27 fjoe Exp $
+ * $Id: act_obj.c,v 1.175 1999-11-22 10:16:36 kostik Exp $
  */
 
 /***************************************************************************
@@ -420,6 +420,7 @@ void do_drop(CHAR_DATA * ch, const char *argument)
 			&&  obj->wear_loc == WEAR_NONE
 			&&  can_drop_obj(ch, obj)) {
 				found = TRUE;
+				obj->last_owner = NULL;
 				drop_obj(ch, obj);
 			}
 		}
@@ -618,14 +619,7 @@ void do_give(CHAR_DATA * ch, const char *argument)
 		return;
 	}
 
-	if (obj->pObjIndex->limit != -1) {
-		if ((IS_OBJ_STAT(obj, ITEM_ANTI_EVIL) && IS_EVIL(victim))
-		||  (IS_OBJ_STAT(obj, ITEM_ANTI_GOOD) && IS_GOOD(victim))
-		||  (IS_OBJ_STAT(obj, ITEM_ANTI_NEUTRAL) && IS_NEUTRAL(victim))) {
-			char_puts("Your victim's alignment doesn't match the objects align.", ch);
-			return;
-		}
-	}
+	obj->last_owner = NULL;
 
 	obj_from_char(obj);
 	obj_to_char(obj, victim);
@@ -2829,7 +2823,6 @@ void do_second_wield(CHAR_DATA * ch, const char *argument)
 	OBJ_DATA *	obj;
 	OBJ_DATA *	wield;
 	int		skill;
-	int		wear_lev;
 
 	if (get_skill(ch, "dual wield") == 0) {
 		char_puts("You don't know how to wield a second weapon.\n", ch);
@@ -2851,14 +2844,6 @@ void do_second_wield(CHAR_DATA * ch, const char *argument)
 	if ((get_eq_char(ch, WEAR_SHIELD) != NULL) ||
 	    (get_eq_char(ch, WEAR_HOLD) != NULL)) {
 		char_puts("You cannot use a secondary weapon while using a shield or holding an item.\n", ch);
-		return;
-	}
-	wear_lev = get_wear_level(ch, obj);
-	if (wear_lev < obj->level) {
-		char_printf(ch, "You must be level %d to use this object.\n",
-			    wear_lev);
-		act("$n tries to use $p, but is too inexperienced.",
-		    ch, obj, NULL, TO_ROOM);
 		return;
 	}
 	if (IS_WEAPON_STAT(obj, WEAPON_TWO_HANDS)) {

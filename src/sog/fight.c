@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.215 1999-11-18 12:44:37 kostik Exp $
+ * $Id: fight.c,v 1.216 1999-11-22 10:16:44 kostik Exp $
  */
 
 /***************************************************************************
@@ -1500,6 +1500,14 @@ is_safe_raw(CHAR_DATA *ch, CHAR_DATA *victim)
 	||  IS_IMMORTAL(ch))
 		return FALSE;
 
+	
+	if (!IS_NPC(ch)
+	&& !IS_NPC(victim)
+	&& _is_name(victim->name, PC(ch)->enemy_list, strcmp)) {
+		name_add(&PC(victim)->enemy_list, ch->name, NULL,NULL);
+		return FALSE;
+	}
+
 	/* handle ROOM_PEACE flags */
 	if (IS_SET(victim->in_room->room_flags, ROOM_PEACE)
 	||  IS_SET(ch->in_room->room_flags, ROOM_PEACE))
@@ -1567,6 +1575,12 @@ bool is_safe_nomessage(CHAR_DATA *ch, CHAR_DATA *victim)
 	&&  IS_SET(PC(ch)->plr_flags, PLR_GHOST)) {
 		char_puts("You return to your normal form.\n", ch);
 		REMOVE_BIT(PC(ch)->plr_flags, PLR_GHOST);
+	}
+
+	if (victim !=ch 
+	&& !IS_NPC(victim)
+	&& !IS_NPC(ch)) {
+		PC(ch)->last_offence = current_time;
 	}
 
 	return safe;

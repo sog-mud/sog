@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: const.h,v 1.48 1999-10-20 04:34:58 avn Exp $
+ * $Id: const.h,v 1.49 1999-11-22 10:16:44 kostik Exp $
  */
 
 #ifndef _CONST_H_
@@ -160,6 +160,7 @@ enum {
 #define PULSE_AUCTION		(20 * PULSE_PER_SECOND) /* 20 seconds */
 
 #define FIGHT_DELAY_TIME	(20 * PULSE_PER_SECOND)
+#define OFFENCE_DELAY_TIME	600
 #define GHOST_DELAY_TIME	600
 #define MISSING_TARGET_DELAY	10
 

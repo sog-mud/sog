@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.195 1999-11-19 12:28:36 fjoe Exp $
+ * $Id: handler.c,v 1.196 1999-11-22 10:16:45 kostik Exp $
  */
 
 /***************************************************************************
@@ -406,6 +406,15 @@ void obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch)
 	obj->carried_by		= ch;
 	obj->in_room		= NULL;
 	obj->in_obj		= NULL;
+	
+	if (obj->last_owner && !IS_NPC(ch)) {
+		name_add(&PC(obj->last_owner)->enemy_list, ch->name, NULL,NULL);
+		PC(ch)->last_offence = current_time;
+	}
+
+	if (!IS_NPC(ch)) {
+		obj->last_owner		= ch;
+	}
 	ch->carry_number	+= get_obj_number(obj);
 	ch->carry_weight	+= get_obj_weight(obj);
 }
@@ -2609,6 +2618,8 @@ static void drop_objs(CHAR_DATA *ch, OBJ_DATA *obj_list)
 			    ITEM_CLAN | ITEM_QUIT_DROP | ITEM_CHQUEST))
 			continue;
 
+		obj->last_owner = NULL;
+
 		if (obj->carried_by)
 			obj_from_char(obj);
 		else if (obj->in_obj)
@@ -2639,6 +2650,7 @@ void quit_char(CHAR_DATA *ch, int flags)
 {
 	DESCRIPTOR_DATA *d, *d_next;
 	CHAR_DATA *vch, *vch_next;
+	OBJ_DATA *obj;
 	const char *name;
 
 	if (ch->position == POS_FIGHTING) {
@@ -2710,6 +2722,12 @@ void quit_char(CHAR_DATA *ch, int flags)
 		if (!get_skill(ch, "evil spirit")
 		&&  is_affected(ch, "evil spirit")) {
 			char_puts("Evil spirits in you prevents you from leaving.\n", ch);
+			return;
+		}
+
+		if (current_time - PC(ch)->last_offence < OFFENCE_DELAY_TIME 
+		&& !IS_IMMORTAL(ch)) {
+			char_puts("You cannot quit yet.", ch);
 			return;
 		}
 	}
@@ -2797,9 +2815,16 @@ void quit_char(CHAR_DATA *ch, int flags)
 		}
 	}
 
+
+	for (obj=object_list; obj->next; obj=obj->next) {
+		if (obj->last_owner == ch)
+			obj->last_owner = NULL;
+	}
+
 	/*
 	 * After extract_char the ch is no longer valid!
 	 */
+
 	char_save(ch, 0);
 	name = str_qdup(ch->name);
 	d = ch->desc;
@@ -3625,19 +3650,6 @@ void get_obj(CHAR_DATA * ch, OBJ_DATA * obj, OBJ_DATA * container,
 		return;
 	}
 
-	/* can't even get limited eq which does not match alignment */
-	if (obj->pObjIndex->limit != -1) {
-		if ((IS_OBJ_STAT(obj, ITEM_ANTI_EVIL) && IS_EVIL(ch))
-		||  (IS_OBJ_STAT(obj, ITEM_ANTI_GOOD) && IS_GOOD(ch))
-		||  (IS_OBJ_STAT(obj, ITEM_ANTI_NEUTRAL) && IS_NEUTRAL(ch))) {
-			act_puts("You are zapped by $p and drop it.",
-				 ch, obj, NULL, TO_CHAR, POS_DEAD);
-			act("$n is zapped by $p and drops it.",
-			    ch, obj, NULL, TO_ROOM);
-			return;
-		}
-	}
-
 	if ((carry_n = can_carry_n(ch)) >= 0
 	&&  ch->carry_number + get_obj_number(obj) > carry_n) {
 		act_puts("$P: you can't carry that many items.",
@@ -3797,16 +3809,6 @@ bool remove_obj(CHAR_DATA * ch, int iWear, bool fReplace)
  */
 void wear_obj(CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace)
 {
-	int wear_level = get_wear_level(ch, obj);
-
-	if (wear_level < obj->level) {
-		char_printf(ch, "You must be level %d to use this object.\n",
-			    obj->level - wear_level + ch->level);
-		act("$n tries to use $p, but is too inexperienced.",
-		    ch, obj, NULL, TO_ROOM);
-		return;
-	}
-
 	if (obj->pObjIndex->item_type == ITEM_LIGHT) {
 		if (!remove_obj(ch, WEAR_LIGHT, fReplace))
 			return;
