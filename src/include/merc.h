@@ -2,7 +2,7 @@
 #define _MERC_H_
 
 /*
- * $Id: merc.h,v 1.59 1998-07-26 01:32:22 efdi Exp $
+ * $Id: merc.h,v 1.60 1998-07-29 14:46:29 efdi Exp $
  */
 
 /***************************************************************************
@@ -2626,11 +2626,12 @@ extern int  gsn_holler_self;
 #define SKILL_CLAN_OK(ch,sn)	(skill_table[sn].clan == CLAN_NONE || skill_table[sn].clan == ch->clan)
 #define SKILL_ALIGN_OK(ch,sn)	(skill_table[sn].align == ALIGN_NONE || skill_table[sn].align == ch->alignment)
 
-#define SKILL_OK(ch, sn)	(((SKILL_LEVEL_OK(ch, sn) && \
-				   SKILL_RACE_OK(ch, sn)) || \
-				  skill_is_native(ch, sn)) && \
-				 SKILL_CLAN_OK(ch, sn) && \
-				 SKILL_ALIGN_OK(ch, sn))
+#define SKILL_OK(ch, sn)	(IS_IMMORTAL(ch) || \
+				 (((SKILL_LEVEL_OK(ch, sn) && \
+				    SKILL_RACE_OK(ch, sn)) || \
+				   skill_is_native(ch, sn)) && \
+				  SKILL_CLAN_OK(ch, sn) && \
+				  SKILL_ALIGN_OK(ch, sn)))
 
 /*
  * Description macros.

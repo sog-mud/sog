@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.23 1998-07-26 01:32:22 efdi Exp $
+ * $Id: martial_art.c,v 1.24 1998-07-29 14:46:28 efdi Exp $
  */
 
 /***************************************************************************
@@ -3669,9 +3669,7 @@ void do_holler(CHAR_DATA *ch, const char *argument)
 	CHAR_DATA *victim;
 	AFFECT_DATA af;
 
-	if ((IS_NPC(ch)
-	||  str_cmp(ch->name, "Karmael"))
-	&&  !IS_IMMORTAL(ch)) {
+	if (IS_NPC(ch) && !IS_IMMORTAL(ch)) {
 		char_puts("You can't do that.\n\r", ch);
 		return;
 	}
