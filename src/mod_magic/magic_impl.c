@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: magic_impl.c,v 1.17 2002-03-20 19:39:39 fjoe Exp $
+ * $Id: magic_impl.c,v 1.18 2003-04-17 17:20:40 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -245,7 +245,7 @@ casting_allowed(CHAR_DATA *ch, cpdata_t *cp)
 	if (is_sn_affected(ch, "garble")
 	||  is_sn_affected(ch, "deafen")
 	||  (ch->shapeform != NULL &&
-	     IS_SET(ch->shapeform->index->flags, FORM_NOCAST))) {
+	     IS_SET(ch->shapeform->index->flags, SHAPEFORM_NOCAST))) {
 		act_char("You can't get the right intonations.", ch);
 		return FALSE;
 	}
@@ -471,7 +471,7 @@ cast_spell(CHAR_DATA *ch, cpdata_t *cp, sptarget_t *spt)
 
 	if ((obj != NULL || (victim != NULL && victim != ch))
 	&&  ch->shapeform != NULL
-	&&  IS_SET(ch->shapeform->index->flags, FORM_CASTSELF)) {
+	&&  IS_SET(ch->shapeform->index->flags, SHAPEFORM_CASTSELF)) {
 		act("You can only affect yourself in this form.",
 		    ch, NULL, NULL, TO_CHAR);
 		return;

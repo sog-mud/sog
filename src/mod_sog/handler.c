@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.365 2003-04-17 11:25:55 tatyana Exp $
+ * $Id: handler.c,v 1.366 2003-04-17 17:20:42 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1837,8 +1837,8 @@ move_char(CHAR_DATA *ch, int door, flag_t flags)
 	if (IS_NPC(ch) && IS_SET(ch->pMobIndex->act, ACT_IMMOBILE))
 		return FALSE;
 
-	if (ch->shapeform && IS_SET(ch->shapeform->index->flags,
-	    FORM_IMMOBILE)) {
+	if (ch->shapeform != NULL
+	&&  IS_SET(ch->shapeform->index->flags, SHAPEFORM_IMMOBILE)) {
 		act_char("You cannot move in this form.", ch);
 		return FALSE;
 	}

@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.274 2002-12-11 13:59:40 fjoe Exp $
+ * $Id: act_comm.c,v 1.275 2003-04-17 17:20:33 fjoe Exp $
  */
 
 /***************************************************************************
@@ -306,10 +306,10 @@ DO_FUN(do_say, ch, argument)
 		return;
 	}
 
-	if (ch->shapeform
-	&& IS_SET(ch->shapeform->index->flags, FORM_NOSPEAK)) {
+	if (ch->shapeform != NULL
+	&&  IS_SET(ch->shapeform->index->flags, SHAPEFORM_NOSPEAK)) {
 		act("You cannot say anything in this form.",
-			ch, NULL, NULL, TO_CHAR);
+		    ch, NULL, NULL, TO_CHAR);
 		return;
 	}
 
@@ -404,11 +404,9 @@ DO_FUN(do_emote, ch, argument)
 		return;
 	}
 
-	if (ch->shapeform && IS_SET(ch->shapeform->index->flags,
-	    FORM_NOEMOTE)) {
-		act_char(
-		    "You aren't able to express your emotions in this form.",
-		    ch);
+	if (ch->shapeform != NULL
+	&&  IS_SET(ch->shapeform->index->flags, SHAPEFORM_NOEMOTE)) {
+		act_char("You aren't able to express your emotions in this form.", ch);
 		return;
 	}
 
@@ -440,11 +438,9 @@ DO_FUN(do_pmote, ch, argument)
 		return;
 	}
 
-	if (ch->shapeform && IS_SET(ch->shapeform->index->flags,
-	    FORM_NOEMOTE)) {
-		act_char(
-		    "You aren't able to express your emotions in this form.",
-		    ch);
+	if (ch->shapeform != NULL
+	&&  IS_SET(ch->shapeform->index->flags, SHAPEFORM_NOEMOTE)) {
+		act_char("You aren't able to express your emotions in this form.", ch);
 		return;
 	}
 
@@ -574,8 +570,8 @@ DO_FUN(do_yell, ch, argument)
 		return;
 	}
 
-	if (ch->shapeform
-	&& IS_SET(ch->shapeform->index->flags, FORM_NOSPEAK)) {
+	if (ch->shapeform != NULL
+	&&  IS_SET(ch->shapeform->index->flags, SHAPEFORM_NOSPEAK)) {
 		act("You cannot yell in this form.", ch, NULL, NULL, TO_CHAR);
 		return;
 	}
@@ -614,7 +610,7 @@ DO_FUN(do_shout, ch, argument)
 	}
 
 	if (ch->shapeform != NULL
-	&&  IS_SET(ch->shapeform->index->flags, FORM_NOSPEAK)) {
+	&&  IS_SET(ch->shapeform->index->flags, SHAPEFORM_NOSPEAK)) {
 		act("You cannot shout in this form.", ch, NULL, NULL, TO_CHAR);
 		return;
 	}
@@ -702,8 +698,8 @@ DO_FUN(do_gossip, ch, argument)
 		 return;
 	}
 
-	if (ch->shapeform
-	&& IS_SET(ch->shapeform->index->flags, FORM_NOSPEAK)) {
+	if (ch->shapeform != NULL
+	&&  IS_SET(ch->shapeform->index->flags, SHAPEFORM_NOSPEAK)) {
 		act("You cannot gossip in this form.", ch, NULL, NULL, TO_CHAR);
 		return;
 	}
@@ -936,8 +932,8 @@ DO_FUN(do_order, ch, argument)
 		return;
 	}
 
-	if (ch->shapeform && IS_SET(ch->shapeform->index->flags,
-	    FORM_NOSPEAK)) {
+	if (ch->shapeform != NULL
+	&&  IS_SET(ch->shapeform->index->flags, SHAPEFORM_NOSPEAK)) {
 		act_char("You cannot give orders in this form.", ch);
 		return;
 	}

@@ -23,18 +23,18 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: forms.h,v 1.11 2001-11-21 14:33:21 kostik Exp $
+ * $Id: forms.h,v 1.12 2003-04-17 17:20:32 fjoe Exp $
  */
 
 #ifndef _FORMS_H_
 #define _FORMS_H_
 
-#define FORM_NOCAST		(A)	/* can't cast spells at all */
-#define FORM_CASTSELF		(B)	/* can only cast spells on themself */
-#define FORM_NOSPEAK		(C)	/* cannot speak */
-#define FORM_NOGET		(D)	/* can't take anything */
-#define FORM_IMMOBILE		(E)	/* can't even move in this form */
-#define FORM_NOEMOTE		(F)	/* can't use socials and emote */
+#define SHAPEFORM_NOCAST	(A)	/* can't cast spells at all */
+#define SHAPEFORM_CASTSELF	(B)	/* can only cast spells on themself */
+#define SHAPEFORM_NOSPEAK	(C)	/* cannot speak */
+#define SHAPEFORM_NOGET		(D)	/* can't take anything */
+#define SHAPEFORM_IMMOBILE	(E)	/* can't even move in this form */
+#define SHAPEFORM_NOEMOTE	(F)	/* can't use socials and emote */
 
 struct form_index_t
 {

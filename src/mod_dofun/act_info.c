@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.430 2002-11-28 21:40:16 fjoe Exp $
+ * $Id: act_info.c,v 1.431 2003-04-17 17:20:34 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3223,10 +3223,10 @@ skill_knowledge_alias(CHAR_DATA *ch, pc_skill_t *pc_sk, spec_skill_t *spec_sk)
 /* RT spells and skills show the players spells (or skills) */
 DO_FUN(do_prayers, ch, argument)
 {
-	if (ch->shapeform &&
-	IS_SET(ch->shapeform->index->flags, FORM_NOCAST)) {
+	if (ch->shapeform != NULL
+	&&  IS_SET(ch->shapeform->index->flags, SHAPEFORM_NOCAST)) {
 		act("You are unable to pray in this form.",
-			ch, NULL, NULL, TO_CHAR);
+		    ch, NULL, NULL, TO_CHAR);
 		return;
 	}
 	list_spells(ST_PRAYER, ch, argument);
@@ -3234,10 +3234,10 @@ DO_FUN(do_prayers, ch, argument)
 
 DO_FUN(do_spells, ch, argument)
 {
-	if (ch->shapeform &&
-	IS_SET(ch->shapeform->index->flags, FORM_NOCAST)) {
+	if (ch->shapeform != NULL
+	&&  IS_SET(ch->shapeform->index->flags, SHAPEFORM_NOCAST)) {
 		act("You cannot cast any spells in this form.",
-			ch, NULL, NULL, TO_CHAR);
+		    ch, NULL, NULL, TO_CHAR);
 		return;
 	}
 
@@ -3697,7 +3697,7 @@ DO_FUN(do_control, ch, argument)
 		return;
 	}
 
-	if ((r = race_lookup(ORG_RACE(victim))) == NULL 
+	if ((r = race_lookup(ORG_RACE(victim))) == NULL
 	||  !IS_SET(r->form, FORM_ANIMAL)) {
 		act_char("You should try this on animals?", ch);
 		return;

@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.283 2003-04-17 11:05:04 tatyana Exp $
+ * $Id: act_obj.c,v 1.284 2003-04-17 17:20:36 fjoe Exp $
  */
 
 /***************************************************************************
@@ -126,9 +126,9 @@ DO_FUN(do_get, ch, argument)
 	argument = one_argument(argument, arg1, sizeof(arg1));
 	argument = one_argument(argument, arg2, sizeof(arg2));
 
-	if (ch->shapeform &&
-	IS_SET(ch->shapeform->index->flags, FORM_NOGET)) {
-		act("You aren't able to take anything in this form.", 
+	if (ch->shapeform != NULL
+	&&  IS_SET(ch->shapeform->index->flags, SHAPEFORM_NOGET)) {
+		act("You aren't able to take anything in this form.",
 		    ch, NULL, NULL, TO_CHAR);
 		return;
 	}

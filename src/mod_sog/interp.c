@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.198 2003-04-17 11:25:57 tatyana Exp $
+ * $Id: interp.c,v 1.199 2003-04-17 17:20:44 fjoe Exp $
  */
 
 /***************************************************************************
@@ -220,8 +220,8 @@ interpret(CHAR_DATA *ch, const char *argument, bool is_order)
 				act_char("You are anti-social!", ch);
 				return;
 			}
-			if (ch->shapeform &&
-			    IS_SET(ch->shapeform->index->flags, FORM_NOEMOTE)) {
+			if (ch->shapeform != NULL
+			&&  IS_SET(ch->shapeform->index->flags, SHAPEFORM_NOEMOTE)) {
 				act_char(
 				    "You can't do such a things in this form.",
 				    ch);

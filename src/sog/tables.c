@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.193 2003-04-17 11:13:17 tatyana Exp $
+ * $Id: tables.c,v 1.194 2003-04-17 17:20:46 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1040,12 +1040,12 @@ flaginfo_t race_flags[] =
 flaginfo_t shapeform_flags[] =
 {
 	{ "",			TABLE_BITVAL,		FALSE	},
-	{ "nospeak",		FORM_NOSPEAK,		TRUE	},
-	{ "nocast",		FORM_NOCAST,		TRUE	},
-	{ "castself",		FORM_CASTSELF,		TRUE	},
-	{ "noget",		FORM_NOGET,		TRUE	},
-	{ "immobile",		FORM_IMMOBILE,		TRUE	},
-	{ "noemote",		FORM_NOEMOTE,		TRUE	},
+	{ "nospeak",		SHAPEFORM_NOSPEAK,	TRUE	},
+	{ "nocast",		SHAPEFORM_NOCAST,	TRUE	},
+	{ "castself",		SHAPEFORM_CASTSELF,	TRUE	},
+	{ "noget",		SHAPEFORM_NOGET,	TRUE	},
+	{ "immobile",		SHAPEFORM_IMMOBILE,	TRUE	},
+	{ "noemote",		SHAPEFORM_NOEMOTE,	TRUE	},
 
 	{ NULL, 0, FALSE }
 };

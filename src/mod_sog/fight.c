@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.357 2002-11-28 21:40:28 fjoe Exp $
+ * $Id: fight.c,v 1.358 2003-04-17 17:20:41 fjoe Exp $
  */
 
 /***************************************************************************
@@ -150,8 +150,8 @@ one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 		return;
 
 	if ((IS_NPC(ch) && IS_SET(ch->pMobIndex->act, ACT_IMMOBILE)) ||
-	    (ch->shapeform &&
-	     IS_SET(ch->shapeform->index->flags, FORM_IMMOBILE)))
+	    (ch->shapeform != NULL &&
+	     IS_SET(ch->shapeform->index->flags, SHAPEFORM_IMMOBILE)))
 		return;
 
 	/*

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act.c,v 1.99 2003-04-17 11:25:55 tatyana Exp $
+ * $Id: act.c,v 1.100 2003-04-17 17:20:41 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -1292,8 +1292,8 @@ tell_char(CHAR_DATA *ch, CHAR_DATA *victim, const char *msg)
 		return;
 	}
 
-	if (ch->shapeform
-	&& IS_SET(ch->shapeform->index->flags, FORM_NOSPEAK)) {
+	if (ch->shapeform != NULL
+	&&  IS_SET(ch->shapeform->index->flags, SHAPEFORM_NOSPEAK)) {
 		act("You can't speak in this form.", ch, NULL, NULL, TO_CHAR);
 		return;
 	}

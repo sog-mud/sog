@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.293 2003-04-17 11:13:03 tatyana Exp $
+ * $Id: act_move.c,v 1.294 2003-04-17 17:20:35 fjoe Exp $
  */
 
 /***************************************************************************
@@ -493,8 +493,8 @@ DO_FUN(do_rest, ch, argument)
 		return;
 	}
 
-	if (ch->shapeform && IS_SET(ch->shapeform->index->flags,
-	    FORM_IMMOBILE)) {
+	if (ch->shapeform != NULL
+	&&  IS_SET(ch->shapeform->index->flags, SHAPEFORM_IMMOBILE)) {
 		act_char("You cannot rest in this form.", ch);
 		return;
 	}
@@ -761,8 +761,8 @@ DO_FUN(do_sleep, ch, argument)
 		return;
 	}
 
-	if (ch->shapeform && IS_SET(ch->shapeform->index->flags,
-	    FORM_IMMOBILE)) {
+	if (ch->shapeform != NULL
+	&&  IS_SET(ch->shapeform->index->flags, SHAPEFORM_IMMOBILE)) {
 		act_char("You cannot sleep in this form.", ch);
 		return;
 	}
