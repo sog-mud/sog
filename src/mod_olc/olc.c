@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.53 1999-03-11 11:58:07 fjoe Exp $
+ * $Id: olc.c,v 1.54 1999-03-19 18:55:35 fjoe Exp $
  */
 
 /***************************************************************************
@@ -60,7 +60,7 @@
                 "     By Hans Birkeland (hansbi@ifi.uio.no)\n" \
                 "     Modificado para uso en ROM 2.4b4a\n"	\
                 "     Por Ivan Toledo (pvillanu@choapa.cic.userena.cl)\n" \
-		"     Modified for use with Muddy\n" \
+		"     Modified for use with SoG\n" \
 		"     Farmer Joe (fjoe@iclub.nsu.ru)\n"
 #define DATE	"     (Apr. 7, 1995 - ROM mod, Apr 16, 1995)\n" \
 		"     (Port a ROM 2.4 - Nov 2, 1996)\n" \

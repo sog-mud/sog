@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.220 1999-03-19 12:07:41 fjoe Exp $
+ * $Id: act_info.c,v 1.221 1999-03-19 18:55:19 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1470,7 +1470,7 @@ void do_time(CHAR_DATA *ch, const char *argument)
 	if (!IS_IMMORTAL(ch))
 		return;
 
-	char_printf(ch, "\nMUDDY started up at %s\n"
+	char_printf(ch, "\nSoG started up at %s\n"
 			"The system time is %s.\n",
 			str_boot_time, strtime(time(NULL)));
 }
@@ -1963,7 +1963,7 @@ void do_compare(CHAR_DATA *ch, const char *argument)
 
 void do_credits(CHAR_DATA *ch, const char *argument)
 {
-	do_help(ch, "muddy");
+	do_help(ch, "'SHADES OF GRAY'");
 }
 
 void do_where(CHAR_DATA *ch, const char *argument)

@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.164 1999-03-18 16:14:24 fjoe Exp $
+ * $Id: comm.c,v 1.165 1999-03-19 18:55:28 fjoe Exp $
  */
 
 /***************************************************************************
@@ -193,17 +193,15 @@ char		    str_boot_time[26];
 time_t		    current_time;	/* time of this pulse */	
 int                 iNumPlayers = 0; /* The number of players on */
 
-const char *		info_trusted = "127.0.0.1 193.124.222.66";
-
 extern int		max_on;
 
-void	game_loop_unix		(int control, int infofd);
 int	init_socket		(int port);
 void	process_who		(int port);
 void	init_descriptor		(int control);
 void	close_descriptor	(DESCRIPTOR_DATA *d);
 bool	read_from_descriptor	(DESCRIPTOR_DATA *d);
 bool	write_to_descriptor	(int desc, char *txt, uint length);
+void	game_loop_unix		(void);
 #if !defined(WIN32)
 void	resolv_done		(void);
 #endif
@@ -220,14 +218,58 @@ bool	process_output		(DESCRIPTOR_DATA *d, bool fPrompt);
 void	read_from_buffer	(DESCRIPTOR_DATA *d);
 void	stop_idling		(CHAR_DATA *ch);
 void    bust_a_prompt           (CHAR_DATA *ch);
-void 	log_area_popularity(void);
+void 	log_area_popularity	(void);
+
+varr 	control_sockets = { sizeof(int), 2 };
+varr	info_sockets = { sizeof(int), 2 };
+varr	info_trusted = { sizeof(struct in_addr), 2 };
+
+static void usage(const char *name)
+{
+	fprintf(stderr, "Usage: %s [-p port...] [-i port...]\n"
+			"Where:\n"
+			"\t-p -- listen port\n"
+			"\t-i -- info service port\n",
+		get_filename(name));
+	exit(1);
+}
+
+#define GETINT(v, i) (*(int*) VARR_GET(v, i))
+
+static void open_sockets(varr *v, const char *logm)
+{
+	int i, j;
+
+	for (i = 0, j = 0; i < v->nused; i++) {
+		int port = GETINT(v, i);
+		int sock;
+		if ((sock = init_socket(port)) < 0)
+			continue;
+		log_printf(logm, port);
+		GETINT(v, j++) = sock;
+	}
+	v->nused = j;
+}
+
+void close_sockets(varr *v)
+{
+	int i;
+
+	for (i = 0; i < v->nused; i++) {
+		int fd = GETINT(v, i);
+#if defined (WIN32)
+		closesocket(fd);
+#else
+		close(fd);
+#endif
+	}
+}
 
 int main(int argc, char **argv)
 {
 	struct timeval now_time;
-	int port;
-	int infofd;
-	int control;
+	int ch;
+	int check_info;
 
 #if defined WIN32
 	WORD	wVersionRequested = MAKEWORD(1, 1);
@@ -252,23 +294,6 @@ int main(int argc, char **argv)
 	strnzcpy(str_boot_time, sizeof(str_boot_time), strtime(current_time));
 
 	/*
-	 * Get the port number.
-	 */
-	port = 6001;
-	if (argc > 1) {
-		if (!is_number(argv[1])) {
-			fprintf(stderr,
-				"Usage: %s [port #]\n",
-				get_filename(argv[0]));
-			exit(1);
-		}
-		else if ((port = atoi(argv[1])) <= 1024) {
-			fprintf(stderr, "Port number must be above 1024.\n");
-			exit(1);
-		}
-	}
-
-	/*
 	 * Run the game.
 	 */
 	
@@ -283,25 +308,69 @@ int main(int argc, char **argv)
 	resolver_init();
 #endif
 
-	control = init_socket(port);
-	infofd	= init_socket(port+1);
-
 	boot_db();
 
-	log_printf("ready to rock on port %d.", port);
-	log_printf("info service started on port %d.", port+1);
-	game_loop_unix(control, infofd);
+	if (argc > 1) {
+		/*
+		 * command line parameters override configuration settings
+		 */
+		control_sockets.nused = 0;
+		info_sockets.nused = 0;
+
+		opterr = 0;
+		while ((ch = getopt(argc, argv, "p:i:")) != -1) {
+			int *p;
+
+			switch (ch) {
+			case 'p':
+				if (!is_number(optarg))
+					usage(argv[0]);
+				p = varr_enew(&control_sockets);
+				*p = atoi(optarg);
+				break;
+
+			case 'i':
+				if (!is_number(optarg))
+					usage(argv[0]);
+				p = varr_enew(&info_sockets);
+				*p = atoi(optarg);
+				break;
+
+			default:
+				usage(argv[0]);
+			}
+		}
+		argc -= optind;
+		argv += optind;
+	}
+
+	if (!control_sockets.nused) {
+		log_printf("no control sockets defined");
+		exit(1);
+	}
+	check_info = (!!info_sockets.nused);
+
+	open_sockets(&control_sockets, "ready to rock on port %d");
+	open_sockets(&info_sockets, "info service started on port %d");
+
+	if (!control_sockets.nused) {
+		log_printf("no control sockets could be opened.");
+		exit(1);
+	}
+
+	if (check_info && !info_sockets.nused) {
+		log_printf("no info service sockets could be opened.");
+		exit(1);
+	}
+
+	game_loop_unix();
+
+	close_sockets(&control_sockets);
+	close_sockets(&info_sockets);
 
 #if defined (WIN32)
-	closesocket(control);
-	closesocket(infofd);
 	WSACleanup();
 #else
-	close(control);
-	close(infofd);
-#endif
-
-#if !defined (WIN32)
 	resolver_done();
 #endif
 	log_area_popularity();
@@ -355,35 +424,34 @@ int init_socket(int port)
 #else
 	if ((fd = socket(AF_INET, SOCK_STREAM, 0)) < 0) {
 #endif
-		log_printf("init_socket: socket: %s", strerror(errno));
-		exit(1);
+		log_printf("init_socket(%d): socket: %s",
+			   port, strerror(errno));
+		return -1;
 	}
 
 	if (setsockopt(fd, SOL_SOCKET, SO_REUSEADDR,
 		       (char *) &x, sizeof(x)) < 0) {
-		log_printf("init_socket: setsockopt: SO_REUSEADDR: %s",
-			   strerror(errno));
+		log_printf("init_socket(%d): setsockopt: SO_REUSEADDR: %s",
+			   port, strerror(errno));
 #if defined (WIN32)
 		closesocket(fd);
 #else
 		close(fd);
 #endif
-		exit(1);
+		return -1;
 	}
 
 	ld.l_onoff  = 0;
-	ld.l_linger = 1000;
-
 	if (setsockopt(fd, SOL_SOCKET, SO_LINGER,
 		       (char *) &ld, sizeof(ld)) < 0) {
-		log_printf("init_socket: setsockopt: SO_LINGER: %s",
-			   strerror(errno));
+		log_printf("init_socket(%d): setsockopt: SO_LINGER: %s",
+			   port, strerror(errno));
 #if defined (WIN32)
 		closesocket(fd);
 #else
 		close(fd);
 #endif
-		exit(1);
+		return -1;
 	}
 
 	sa		= sa_zero;
@@ -395,29 +463,52 @@ int init_socket(int port)
 	sa.sin_port	= htons(port);
 
 	if (bind(fd, (struct sockaddr *) &sa, sizeof(sa)) < 0) {
-		log_printf("init_socket: bind: %s", strerror(errno));
+		log_printf("init_socket(%d): bind: %s", port, strerror(errno));
 #if defined (WIN32)
 		closesocket(fd);
 #else
 		close(fd);
 #endif
-		exit(1);
+		return -1;
 	}
 
 	if (listen(fd, 3) < 0) {
-		log_printf("init_socket: listen: %s", strerror(errno));
+		log_printf("init_socket(%d): listen: %s",
+			   port, strerror(errno));
 #if defined (WIN32)
 		closesocket(fd);
 #else
 		close(fd);
 #endif
-		exit(1);
+		return -1;
 	}
 
 	return fd;
 }
 
-void game_loop_unix(int control, int infofd)
+static void add_fds(varr *v, fd_set *in_set, int *maxdesc)
+{
+	int i;
+
+	for (i = 0; i < v->nused; i++) {
+		int fd = GETINT(v, i);
+		FD_SET(fd, in_set);
+		if (*maxdesc < fd) *maxdesc = fd;
+	}
+}
+
+static void check_fds(varr *v, fd_set *in_set, void (*new_conn_cb)(int))
+{
+	int i;
+
+	for (i = 0; i < v->nused; i++) {
+		int fd = GETINT(v, i);
+		if (FD_ISSET(fd, in_set))
+			new_conn_cb(fd);
+	}
+}
+
+void game_loop_unix(void)
 {
 	static struct timeval null_time;
 	struct timeval last_time;
@@ -447,11 +538,9 @@ void game_loop_unix(int control, int infofd)
 		FD_ZERO(&out_set);
 		FD_ZERO(&exc_set);
 
-		FD_SET(control, &in_set);
-		maxdesc	= control;
-
-		FD_SET(infofd, &in_set);
-		maxdesc = UMAX(maxdesc, infofd);
+		maxdesc = 0;
+		add_fds(&control_sockets, &in_set, &maxdesc);
+		add_fds(&info_sockets, &in_set, &maxdesc);
 
 #if !defined (WIN32)
 		FD_SET(fileno(rfin), &in_set);
@@ -481,17 +570,8 @@ void game_loop_unix(int control, int infofd)
 			resolv_done();
 #endif
 
-		/*
-		 * New connection?
-		 */
-		if (FD_ISSET(control, &in_set))
-			init_descriptor(control);
-
-		/*
-		 * webwho handler
-		 */
-		if (FD_ISSET(infofd, &in_set))
-			info_newconn(infofd);
+		check_fds(&control_sockets, &in_set, init_descriptor);
+		check_fds(&info_sockets, &in_set, info_newconn);
 
 		for (id = id_list; id; id = id_next) {
 			id_next = id->next;
@@ -1794,7 +1874,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		}
 
 		write_to_descriptor(d->descriptor, (char *) echo_on_str, 0);
-		write_to_buffer(d, "The Muddy MUD is home for the following races:\n\r", 0);
+		write_to_buffer(d, "The Shades of Gray Realms is home for the following races:\n\r", 0);
 		do_help(ch, "RACETABLE");
 		d->connected = CON_GET_NEW_RACE;
 		break;
@@ -1805,7 +1885,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		if (!str_cmp(arg, "help")) {
 			argument = one_argument(argument, arg, sizeof(arg));
 			if (argument[0] == '\0') {
-				write_to_buffer(d, "The Muddy MUD Realms is the home for the following races:\n\r", 0);
+				write_to_buffer(d, "The Shades of Gray Realms is the home for the following races:\n\r", 0);
 	  			do_help(ch,"RACETABLE");
 			}
 			else {
@@ -2200,7 +2280,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 	case CON_READ_MOTD:
 		update_skills(ch);
 		write_to_buffer(d, 
-		"\n\rWelcome to Muddy Multi User Dungeon. Enjoy!!...\n\r",
+		"\n\rWelcome to Shades of Gray Multi User Dungeon. Enjoy!!...\n\r",
 		    0);
 		ch->next	= char_list;
 		char_list	= ch;

@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.113 1999-03-11 11:58:04 fjoe Exp $
+ * $Id: update.c,v 1.114 1999-03-19 18:55:25 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2233,7 +2233,7 @@ void check_reboot(void)
 	case -1:
 		break;
 	case 0:
-		reboot_muddy();
+		reboot_mud();
 		return;
 	case 1:
 	case 2:

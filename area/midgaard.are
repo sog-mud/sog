@@ -195,7 +195,7 @@ Questor квестор~
 @rus Квестор (questor) готов дать вам задание.
 ~
 @eng Questor towers over you. He's over 20 feet tall, every inch of it muscle. 
-He knows all the zones of Muddy Realms. It would be a BAD THING to
+He knows all the zones of Shades of Gray. It would be a BAD THING to
 commit a crime in his presence. 
 @rus Квестор возвышается над вами как огромная башня. Рост его более 20 футов
 и у него огромные мускулы. Он хорошо знает каждый уголок королевств Анатолии.
@@ -4081,7 +4081,7 @@ G none
 #3394
 old book~
 an old book about known limited items, Fascicle I~
-This book is titled - "Known Limited Items of The Muddyn, Fascicle I" ~
+This book is titled - "Known Limited Items of Shades of Gray, Fascicle I" ~
 leather~
 trash 0 AO
 0 0 0 0 0
@@ -4285,8 +4285,8 @@ Affects strength by 1.
 ~
 E
 old book~
-In this book you would find some short informations about the limited
-items of the Muddyn Mud. For further information, try read page1, read
+In this book you would find some short information about the limited
+items of Shades of Gray Realms. For further information, try read page1, read
 page2, read page3, etc.
 Note that: Most of the informations are based on legends and tales,
 therefore there can be some mistaken points and ofcourse there can be many
@@ -4296,7 +4296,7 @@ G none
 #3395
 old book~
 an old book about known limited items, Fascicle II~
-This book is titled - "Known Limited Items of The Muddyn Fascicle II"~
+This book is titled - "Known Limited Items of The Shades of Gray Fascicle II"~
 leather~
 trash 0 AO
 0 0 0 0 0
@@ -4431,7 +4431,7 @@ Affects dexterity by 3.
 E
 old book~
 In this book you would find some short informations about the limited
-armor items of the Muddy Mud (based on affections). For further
+armor items of the Shades of Gray (based on affections). For further
 information, try read page1, read page2, read page3, read page4, etc.
 ~
 G none

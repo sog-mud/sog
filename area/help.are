@@ -7,10 +7,11 @@ LevelRange 0 0
 End
 
 #HELPS
--1 MUDDY~
-Muddy is based on Anatolia MUD -- see help anatolia.
+-1 SOG 'SHADES OF GRAY' MUDDY~
+Shades of Gray is based on Anatolia MUD -- see help anatolia.
                      Original idea, concept and coding:
         Farmer Joe                   [Iluvatar] (fjoe@@iclub.nsu.ru)
+	Konstantin Svintsoff          [abrazak] (kostik@@iclub.nsu.ru)
         Alexander Morokhovets            [Eros] (efdi@@iclub.nsu.ru)
 
 ~
@@ -222,7 +223,7 @@ Use these commands to walk in a particular direction.
 -2 NAME~
 NAME POLICY:
 In order to create a role-playing and adventure atmosphere throughout the
-realms of Muddy, you must choose a name accordingly explained below:
+Shades of Gray Realms, you must choose a name accordingly explained below:
  
 ACCEPTABLE:
 1)  Proper names, medieval or modern. i.e  (Takasi, Mitra)
@@ -240,7 +241,7 @@ UNACCEPTABLE:
 Anyway, immortals may ask you to choose another name if they consider your name inappropriate.
 
 If your name fits above restrictions, type Y. Otherwise choose another name.
-Last decision depend upon Immortals of Realms of Muddy. Do you accept? ~
+Last decision depend upon Immortals of Shades of Gray. Do you accept? ~
 0 CAST~
 Syntax: cast <spell> <target>
 
@@ -393,8 +394,8 @@ even if you can't see the player, and without revealing their identity.  This
 is handy for talking to invisible or switched immortal players.
 ~
 -1 NOTE NOTES CHANGES NEWS PENALTY IDEA UNREAD~
-The notes on Muddy replace the bulletin boards and mail systems found
-on many other mud.  The following options are usable:
+The notes in Shades of Gray Realms replace the bulletin boards and mail systems
+found on many other muds. The following options are usable:
 
 {creading notes{x:
 note list       : show all notes (unread notes are marked with an N)
@@ -952,7 +953,7 @@ SAVE saves your character and object. The game saves your character every
 15 minutes regardless, and is the preferred method of saving. Typing save
 will block all other command for about 20 seconds, so use it sparingly.
 You do not need to save. Every save operation requested by the players 
-causes lag. The Muddy' auto saver does not cause even a tiny lag.
+causes lag. The Shades of Gray auto saver does not cause even a tiny lag.
 
 Some objects, such as keys and some maps, may not be saved. Those very 
 powerful items of very limited number, are not saved if you are below 
@@ -1151,9 +1152,9 @@ If shutdown status is 'active' then mud will not restart after next reboot.
 Syntax: wizlock
 	newlock
 
-Wizlock and newlock both block login attempts to Muddy. Wizlock locks
-out all non-gods (i.e. level less than 91), except for link-dead players
-who are returning.  Newlock only locks out new character generation,
+Wizlock and newlock both block login attempts to Shades of Gray.
+Wizlock locks out all non-gods (i.e. level less than 91), except for link-dead
+players who are returning.  Newlock only locks out new character generation,
 typically used for preventing a spammer from returning.  Wizlocking should
 be avoided,and newlocking should be accompanied by mail or a note to the imps.
 
@@ -1929,9 +1930,9 @@ whereas fire, frost and gas damage everyone in the room. Fire, lightning and
 frost breath can break objects, and acid can damage armor.
 ~
 -1 'RACE HELP' RACE RACES 'RACE HELP'~
-The culturally diverse realm of Muddy MUD is home to 18 different races.
-Following  is  a  brief description  of  each main race to assist you in the 
-character creation process:
+The culturally diverse realm of Shades of Gray is home to 18 different
+races.  Following  is  a  brief description  of  each main race to assist you
+in the character creation process:
 
 Human:     Humans are the typical, average race, possessing no advantages nor
            disadvantages.
@@ -2087,14 +2088,15 @@ elves, half-elves see in the dark with infravision.
 
 ~
 -1 SVIRF SVIRFNEBLI DEEP-GNOME~
-The Svirfnebli, also known as deep gnomes, have made their way into Muddy as
-the paths to the Underdark have been found.  Slighty larger than their 
-surface cousins, these gnomes are also stronger and a little more hearty from
-centuries of working stone.  The dedication to stone has made them not  
-quite as adept mentally as their cousins, but yet they are still regarded 
-as very wise.  With their singular dedication to the stone, svirfnebli 
-must be neutral in all  aspects of their lives.  They have the same ability 
-in learning the powers of items as their surface cousins.
+The Svirfnebli, also known as deep gnomes, have made their way into
+Shades of Gray as the paths to the Underdark have been found.
+Slightly larger than their surface cousins, these gnomes are also stronger
+and a little more hearty from centuries of working stone.
+The dedication to stone has made them not quite as adept mentally as their
+cousins, but yet they are still regarded as very wise. With their singular
+dedication to the stone, svirfnebli must be neutral in all aspects of their
+lives. They have the same ability in learning the powers of items as their
+surface cousins.
 
 ~
 -1 FELAR~
@@ -2120,12 +2122,12 @@ once imprisoned them.
 ~
 -1 DUERGAR DARK-DWARF DARK-DWARVES~
 With the recent excavations unearthing paths to the Underdark, the race of
-dark dwarves known as Duergar has made its way into Muddy.  Like their
-surface cousins they are strong, though their evil ways have changed them
-in other areas.  Unlike their cousins, they are not known for working stone
-and metal, something which has made them less hearty over time.  They have
-become more dexterous through centuries of thievery and deceit.  All Duergar
-are evil.
+dark dwarves known as Duergar has made its way into Shades of Gray.
+Like their surface cousins they are strong, though their evil ways have
+changed them in other areas. Unlike their cousins, they are not known for
+working stone and metal, something which has made them less hearty over time.
+They have become more dexterous through centuries of thievery and deceit.
+All Duergars are evil.
 
 ~
 -1 'DARK-ELF' DARKELF DARKELVES DARK~
@@ -2439,7 +2441,7 @@ not type "counter" -- it happens automatic.
 
 ~
 0 ROLE-PLAYING ROLEPLAYING~
-Welcome to the world of Realms of Muddy which is based on role-playing
+Welcome to the world of Shades of Gray which is based on role-playing
 and adventure. Role-playing is encouraged, and in some cases, almost
 mandatory. One can enter a clan for protection and gaining power. We
 want unique personalities, as they make the game more fun for you and
@@ -2451,7 +2453,7 @@ a better playing environment.
 see also: PLAYERKILLING
 ~
 0 PLAYERKILL PLAYERKILLING PK PKING~
-Player killing on Realms of Muddy is totally permitted. In fact, it is
+Player killing in Shades of Gray Realms is totally permitted. In fact, it is
 encouraged, and since some fine objects have a finite number, you will have
 to kill other players to get them. You can playerkill after you are
 {Clevel 10{x. People you can pk are shown by a {r[{RPK{r]{x flag in front of their 
@@ -2471,8 +2473,8 @@ See also: ROLEPLAYING GROUP ALIGNMENT
 ~
 0 ALIGNMENT~
 In the interest of attracting the right caliber of followers, the
-immortals of Muddy have outlined the following alignments.  See where
-you think you fit in.
+immortals of Shades of Gray have outlined the following alignments.
+See where you think you fit in.
 
 Lawful Good:   An orderly, strong society with a well-organized government
 	       can make life better for the majority of the people.  To ensure
@@ -2559,7 +2561,7 @@ followers.  No one can follow you when this toggle is set.
 
 ~
 0 RULES~
-These are the rules of the Realms of Muddy. Disobeying is grounds
+These are the rules of the Shades of Gray Realms. Disobeying is grounds
 for deletion. For other matters, use common sense.
 
 1. Remember that this is a roleplaying atmosphere.  If an immortal imposes
@@ -2736,7 +2738,7 @@ Invader:  Invader is born to invade or massacre.  Establishment of its power
           over all is its goal.  Invader, in short, wants to control the world, 
           but would never do so openly.
 
-Hunter:   Mercenary of Muddy. These pupils  kill any mobile and player
+Hunter:   Mercenary of Shades of Gray. These pupils  kill any mobile and player
 	  with the money that they will want. You may hire any of hunter
 	  for above purpose.
 

@@ -1048,7 +1048,7 @@ drink 0 A
 G none
 #31006
 bottle local~
-a bottle of MuddyMUD specialty~
+a bottle of local specialty~
 A dark bottle has been left here.~
 glass~
 drink 0 A
@@ -5054,7 +5054,7 @@ G 0 31002 0		*	a Barrel of Argh's beer
 G 0 31003 0		*	a bottle of Yaegar (TM) beer
 G 0 31004 0		*	a Bottle of Marius (TM) ale
 G 0 31005 0		*	a Bottle of Rainman firebreather
-G 0 31006 0		*	a bottle of MuddyMUD specialty
+G 0 31006 0		*	a bottle of local specialty
 M 0 31032 1 31039 1	* the Castellan of Anon (The Castellan's Office)
 E 0 31031 0 16		*	the Castellan's Longsword: wielded
 G 0 31001 0		*	a bronze key
@@ -5115,7 +5115,7 @@ G 0 31002 0		*	a Barrel of Argh's beer
 G 0 31003 0		*	a bottle of Yaegar (TM) beer
 G 0 31004 0		*	a Bottle of Marius (TM) ale
 G 0 31005 0		*	a Bottle of Rainman firebreather
-G 0 31006 0		*	a bottle of MuddyMUD specialty
+G 0 31006 0		*	a bottle of local specialty
 M 0 31034 3 31065 1	* a citizen (Valiant Street)
 M 0 31010 1 31066 1	* the Grocer (The Grocery Store)
 G 0 31007 0		*	a torch
@@ -5143,7 +5143,7 @@ G 0 31002 0		*	a Barrel of Argh's beer
 G 0 31003 0		*	a bottle of Yaegar (TM) beer
 G 0 31004 0		*	a Bottle of Marius (TM) ale
 G 0 31005 0		*	a Bottle of Rainman firebreather
-G 0 31006 0		*	a bottle of MuddyMUD specialty
+G 0 31006 0		*	a bottle of local specialty
 G 0 31027 0		*	a cup of coffee
 M 0 31038 6 31071 1	* a drunk (Private Booths)
 M 0 31062 1 31071 1	* Pharlas (Private Booths)
@@ -5155,7 +5155,7 @@ G 0 31002 0		*	a Barrel of Argh's beer
 G 0 31003 0		*	a bottle of Yaegar (TM) beer
 G 0 31004 0		*	a Bottle of Marius (TM) ale
 G 0 31005 0		*	a Bottle of Rainman firebreather
-G 0 31006 0		*	a bottle of MuddyMUD specialty
+G 0 31006 0		*	a bottle of local specialty
 M 0 31025 1 31079 1	* Aod the dealer (Valiant Street)
 G 0 31028 0		*	a psychedelic potion
 M 0 31037 8 31080 1	* a footpad (Valiant Street)
@@ -5168,20 +5168,20 @@ G 0 31002 0		*	a Barrel of Argh's beer
 G 0 31003 0		*	a bottle of Yaegar (TM) beer
 G 0 31004 0		*	a Bottle of Marius (TM) ale
 G 0 31005 0		*	a Bottle of Rainman firebreather
-G 0 31006 0		*	a bottle of MuddyMUD specialty
+G 0 31006 0		*	a bottle of local specialty
 M 0 31027 1 31088 1	* the Human Guildmaster (The Guildmaster's Room)
 M 0 31030 1 31089 1	* a Human Waiter (The Relaxation Room)
 G 0 31002 0		*	a Barrel of Argh's beer
 G 0 31003 0		*	a bottle of Yaegar (TM) beer
 G 0 31004 0		*	a Bottle of Marius (TM) ale
 G 0 31005 0		*	a Bottle of Rainman firebreather
-G 0 31006 0		*	a bottle of MuddyMUD specialty
+G 0 31006 0		*	a bottle of local specialty
 M 0 31029 1 31091 1	* an Illithid Waiter (The Illithids' Bar)
 G 0 31002 0		*	a Barrel of Argh's beer
 G 0 31003 0		*	a bottle of Yaegar (TM) beer
 G 0 31004 0		*	a Bottle of Marius (TM) ale
 G 0 31005 0		*	a Bottle of Rainman firebreather
-G 0 31006 0		*	a bottle of MuddyMUD specialty
+G 0 31006 0		*	a bottle of local specialty
 M 0 31026 1 31092 1	* the Illithid Guildmaster (The Guildmaster)
 M 0 31033 3 31094 1	* a citizen (Justice Street)
 M 0 31031 1 31098 1	* an Avian Waitress (The Bar)
@@ -5189,7 +5189,7 @@ G 0 31002 0		*	a Barrel of Argh's beer
 G 0 31003 0		*	a bottle of Yaegar (TM) beer
 G 0 31004 0		*	a Bottle of Marius (TM) ale
 G 0 31005 0		*	a Bottle of Rainman firebreather
-G 0 31006 0		*	a bottle of MuddyMUD specialty
+G 0 31006 0		*	a bottle of local specialty
 M 0 31028 1 31099 1	* the Avian Guildmaster (The Aerie)
 M 0 31053 1 31190 1	* Salvatore (Inside the Chippy)
 G 0 31045 0		*	a piece of battered fried fish

@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.135 1999-03-19 12:07:43 fjoe Exp $
+ * $Id: act_wiz.c,v 1.136 1999-03-19 18:55:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -84,7 +84,6 @@ DECLARE_DO_FUN(do_help	);
 QTROUBLE_DATA *qtrouble_lookup(CHAR_DATA *ch, int vnum);
 
 bool write_to_descriptor  (int desc, char *txt, int length);
-void reboot_muddy(void);
 extern int rebooter;
 
 void do_objlist(CHAR_DATA *ch, const char *argument)
@@ -4350,7 +4349,7 @@ void do_reboot(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (is_name(arg, "now")) {
-		reboot_muddy();
+		reboot_mud();
 		return;
 	}
 
@@ -4366,7 +4365,7 @@ void do_reboot(CHAR_DATA *ch, const char *argument)
 	if (is_number(arg)) {
 		reboot_counter = atoi(arg);
 		rebooter = 1;
-		char_printf(ch, "Muddy will reboot in %i ticks.\n",
+		char_printf(ch, "SoG will reboot in %i ticks.\n",
 			    reboot_counter);
 		return;
 	}
@@ -4374,7 +4373,7 @@ void do_reboot(CHAR_DATA *ch, const char *argument)
 	do_reboot(ch, "");   
 }
 
-void reboot_muddy(void)
+void reboot_mud(void)
 {
 	extern bool merc_down;
 	DESCRIPTOR_DATA *d,*d_next;
@@ -4382,7 +4381,7 @@ void reboot_muddy(void)
 	log("Rebooting ANATOLIA.");
 	for (d = descriptor_list; d != NULL; d = d_next) {
 		d_next = d->next;
-		write_to_buffer(d,"Muddy is going down for rebooting NOW!\n\r",0);
+		write_to_buffer(d,"SoG is going down for rebooting NOW!\n\r",0);
 		if (d->character)
 			save_char_obj(d->character, TRUE);
 		close_descriptor(d);

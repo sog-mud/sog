@@ -36,10 +36,12 @@ healer adept cabal shalafi~
 @rus Адепт и лекарь (adept) искусств Аркана стоит здесь.
 ~
 @eng He is an old, wise cleric blessing his old friends of the Maters of Five 
-Magic to destroy all undisciplined heros at Realms of Anatolia. He has
+Magic to destroy all undisciplined heros at Shades of Gray Realms. He has
 beatiful long white hair and is wearing a white dress that reaches down to
 the floor. He has a nice smile on his face.
-@rus Мудрый клерик благословляет повелителей пяти магий уничтожать злобных героев королевств Анатолии. Он одет в белые одежды, достигающие пола, и у него красивые белые волосы. На его лице застыла прекрасная улыбка. 
+@rus Мудрый клерик благословляет повелителей пяти магий уничтожать злобных
+героев королевства Мира Теней. Он одет в белые одежды, достигающие пола,
+и у него красивые белые волосы. На его лице застыла прекрасная улыбка. 
 ~
 human~
 ABQVae DFH 1000 0
@@ -190,9 +192,13 @@ S
 @eng The fourth level is much bigger than the others. All around you see the
 magic. There are many wands and staves which have been created by the
 the Arcane Arts magicians and used to destroy undisciplined heros at
-Realms of Anatolia. You see some red demons summoned and they are quite
+Shades of Gray Realms. You see some red demons summoned and they are quite
 angry about to it.
-@rus Четвертый этаж намного больше чем все остальные. Все, что вы видите вокруг - магия. Здесь находится множество жезлов и посохов, созданных магами искусств Аркана и использующихся для уничтожения враждебных героев королевств Анатолии. Вы замечаете несколько вызванных красных демонов и они очень сердятся на вас.
+@rus Четвертый этаж намного больше чем все остальные. Все, что вы видите
+вокруг - магия. Здесь находится множество жезлов и посохов, созданных магами
+искусств Аркана и использующихся для уничтожения враждебных героев мира
+Теней. Вы замечаете несколько вызванных красных демонов и они очень сердятся
+на вас.
 ~
 0 DK inside
 D4

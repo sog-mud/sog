@@ -1,5 +1,5 @@
 #AREADATA
-Name Muddy Helps~
+Name Shades of Gray Helps~
 VNUMs 0 0
 Credits Diku~
 Security 5
@@ -8,9 +8,9 @@ End
 
 #HELPS
 -1 WIZLIST~
-       __________           *********************          __________
-      /+_+_+_+_+_\        **  The Gods of Muddy  **       /+_+_+_+_+_\ 
-      \__________/          *********************         \__________/
+       __________         ***********************          __________
+      /+_+_+_+_+_\   **  The Gods of Shades of Gray  **   /+_+_+_+_+_\ 
+      \__________/        ***********************         \__________/
         |::XXXX|                                            |::XXXX|
         |X::XXX|              Implementors [100]            |X::XXX|
         |XX::XX|              ******************            |XX::XX|
@@ -248,7 +248,7 @@ Thanks to Ezra for drawing the originals of several maps on ROM.
 ``.    `:    .'     :           (  `\    ________________/'(_)`\_______________
     :    :   :        :          \   ~~~~~~ ____________   __   __   ____________~~
      :   :   :         :          )>  _               ~~-~~  ~~-~~  ~~-~~
-     :    :   :        :         <(  (_)   @@}--> M U D D Y   R E A L M S <--{{@@
+     :    :   :        :         <(  (_)   @@}-->  Shades of Gray Realms  <--{{@@
       :    :   :..''''``::.        \
        : ...:..'     .''           |      Original DikuMUD by Hans Staerfeldt,
        .'   .'  .::::'             |  Katja Nyboe, Tom Madsen, Michael Seifert,
@@ -258,7 +258,7 @@ Thanks to Ezra for drawing the originals of several maps on ROM.
                    `::             |  \    Russ Taylor. ANATOLIA 2.1 by 1997
                     :::.           |   )    Serdar BULUT, Ibrahim CANPUNAR,
          ,,:,:,::.   ::'`   .-:~~:-._\  (     Murat BICER, Devrim Baris ACAR.
-       ..'      `:.: ::   :'       .|   \,/    Muddy code by fjoe and efdi.
+       ..'      `:.: ::   :'       .|   \,/  SoG code by fjoe, kostik and efdi.
       .:        .:``:::  :       .: |   /`\                 _
       .:    ..''     :::.'    :':    \         ___         (_)         ___
        : .''         .:: : : '       `\  /====~~   ~~=====\       /=====~~   ~~====
@@ -321,7 +321,7 @@ Not fulfilling the roles of your office can result in demotion or deletion.
 ~
 92 COMMANDMENTS 'GOD RULES' GODS~
 .
-                          The Rules of ANATOLIA 
+                   The Rules of Shades of Gray Realms
  
 1)  Do not kill mortals, do not kill mortals, do not kill mortals.
     This includes transferring/summoning them to aggressive mobs.

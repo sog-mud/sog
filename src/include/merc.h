@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.171 1999-03-19 07:33:21 fjoe Exp $
+ * $Id: merc.h,v 1.172 1999-03-19 18:55:23 fjoe Exp $
  */
 
 /***************************************************************************
@@ -103,6 +103,13 @@ enum {
 #include "clan.h"
 #include "skills.h"
 #include "religion.h"
+
+/*
+ * configuration parameters
+ */
+extern varr control_sockets;
+extern varr info_sockets;
+extern varr info_trusted;
 
 #define	CMD_KEEP_HIDE	(A)
 #define CMD_NOORDER	(B)
@@ -2188,7 +2195,7 @@ void quaff_obj		(CHAR_DATA *ch, OBJ_DATA *obj);
 /* act_wiz.h */
 void wiznet(const char *msg, CHAR_DATA *ch, const void *arg,
 	    flag32_t flag, flag32_t flag_skip, int min_level);
-void reboot_muddy(void);
+void reboot_mud(void);
 ROOM_INDEX_DATA *find_location(CHAR_DATA *ch, const char *argument);
 
 #endif

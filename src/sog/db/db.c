@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.121 1999-03-10 17:23:34 fjoe Exp $
+ * $Id: db.c,v 1.122 1999-03-19 18:55:32 fjoe Exp $
  */
 
 /***************************************************************************
@@ -334,6 +334,7 @@ void boot_db(void)
 
 	fBootDb = TRUE;
 
+	db_load_file(&db_system, ETC_PATH, SYSTEM_CONF);
 	db_load_list(&db_langs, LANG_PATH, LANG_LIST);
 	load_msgdb();
 	db_load_file(&db_socials, ETC_PATH, SOCIALS_CONF);
@@ -1736,7 +1737,7 @@ void do_areas(CHAR_DATA *ch, const char *argument)
 		pArea2 = pArea2->next;
 
 	output = buf_new(-1);
-	buf_add(output, "Current areas of Muddy Realms: \n");
+	buf_add(output, "Current areas of Shades of Gray Realms: \n");
 	for (iArea = 0; iArea < iAreaHalf; iArea++) {
 		buf_printf(output,"{{%2d %3d} {B%-20.20s{x %8.8s ",
 			pArea1->min_level,pArea1->max_level,

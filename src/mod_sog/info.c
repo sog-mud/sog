@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: info.c,v 1.5 1999-02-23 22:06:49 fjoe Exp $
+ * $Id: info.c,v 1.6 1999-03-19 18:55:31 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -46,11 +46,10 @@
 #include "comm_info.h"
 #include "comm_colors.h"
 
-extern int		max_on;
-extern const char*	info_trusted;
+extern int	max_on;
 
-INFO_DESC *		id_list;
-int			top_id;
+INFO_DESC *	id_list;
+int		top_id;
 
 static INFO_DESC *	id_free_list;
 
@@ -59,11 +58,11 @@ static void		info_desc_free(INFO_DESC *id);
 
 void info_newconn(int infofd)
 {
-	char *p;
 	int fd;
 	struct sockaddr_in sock;
 	int size = sizeof(sock);
 	INFO_DESC *id;
+	int i;
 
 	getsockname(infofd, (struct sockaddr*) &sock, &size);
 	if ((fd = accept(infofd, (struct sockaddr*) &sock, &size)) < 0) {
@@ -81,10 +80,15 @@ void info_newconn(int infofd)
 		return;
 	}
 
-	p = inet_ntoa(sock.sin_addr);
-	log_printf("info_newconn: sock.sin_addr: %s", p);
+	log_printf("info_newconn: sock.sin_addr: %s", inet_ntoa(sock.sin_addr));
 
-	if (!is_name(p, info_trusted)) {
+	for (i = 0; i < info_trusted.nused; i++) {
+		struct in_addr* in_addr = VARR_GET(&info_trusted, i);
+		if (!memcmp(in_addr, &sock.sin_addr, sizeof(struct in_addr)))
+			break;
+	}
+
+	if (i >= info_trusted.nused) {
 		log_printf("info_newconn: incoming connection refused");
 #ifdef WIN32
 		closesocket(fd);

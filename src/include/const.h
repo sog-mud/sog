@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: const.h,v 1.27 1999-03-10 17:23:26 fjoe Exp $
+ * $Id: const.h,v 1.28 1999-03-19 18:55:23 fjoe Exp $
  */
 
 #ifndef _CONST_H_
@@ -85,6 +85,7 @@
 #define HOMETOWNS_CONF	"hometowns.conf"/* hometowns */
 #define SKILLS_CONF	"skills.conf"	/* skills */
 #define SOCIALS_CONF	"socials.conf"	/* socials */
+#define SYSTEM_CONF	"system.conf"	/* system configuration */
 #define LANG_CONF	"lang.conf"	/* lang definitions */
 #define MSG_FILE	"msgdb.txt"	/* msg db */
 

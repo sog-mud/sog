@@ -8,7 +8,7 @@ LINK32=link.exe
 LFLAGS=wsock32.lib kernel32.lib user32.lib gdi32.lib winspool.lib\
  comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib\
  odbc32.lib odbccp32.lib /nologo /subsystem:console /incremental:no\
- /machine:I386 /out:"muddy.exe"
+ /machine:I386 /out:"sog.exe"
 
 COMM_CFILES = comm\ban.c comm\charset.c comm\comm.c comm\comm_act.c\
 		      comm\comm_colors.c comm\comm_info.c comm\resolver.c
@@ -64,10 +64,10 @@ OFILES = act_comm.obj act_info.obj act_move.obj act_obj.obj act_wiz.obj\
 	 $(COMM_OFILES) $(DB_OFILES) $(OLC_OFILES) $(COMPAT_OFILES)
 
 
-ALL : "muddy.exe"
+ALL : "sog.exe"
 
 CLEAN :
-        -@erase "muddy.exe"
+        -@erase "sog.exe"
         -@erase "*.obj"
         -@erase "COMM\*.obj"
         -@erase "COMPAT\*.obj"
@@ -75,7 +75,7 @@ CLEAN :
         -@erase "DB\*.obj"
         -@erase "OLC\*.obj"
 
-"muddy.exe" : $(DEF_FILE) $(OFILES)
+"sog.exe" : $(DEF_FILE) $(OFILES)
     $(LINK32) @<<
   $(LFLAGS) $(OFILES)
 <<

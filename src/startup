@@ -1,7 +1,7 @@
 #!/bin/sh
 umask 002
-port=6666
-muddy=`pwd`/muddy
+port="-p 6666 -i 6667"
+sog=`pwd`/sog
 index=1000
 cd ..
 
@@ -20,11 +20,11 @@ while [ 1 ]; do
 		fi
 	done
 
-	$muddy $port 2>&1 | tee $logfile
+	$sog $port 2>&1 | tee $logfile
 	exitcode=$?
 
-	if [ -e muddy.core ]; then
-		mv muddy.core corefiles/core.$index
+	if [ -e sog.core ]; then
+		mv sog.core corefiles/core.$index
 	fi
 
 	if [ -e shutdown.txt ]; then
