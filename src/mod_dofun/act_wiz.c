@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.186.2.17 2000-06-08 07:29:17 fjoe Exp $
+ * $Id: act_wiz.c,v 1.186.2.18 2000-07-25 12:02:42 fjoe Exp $
  */
 
 /***************************************************************************
@@ -983,6 +983,7 @@ void do_goto(CHAR_DATA *ch, const char *argument)
 
 	pet = GET_PET(ch);
 	char_from_room(ch);
+	char_to_room(ch, location);
 
 	for (rch = location->people; rch; rch = rch->next_in_room) {
 		if (IS_TRUSTED(rch, ch->invis_level)) {
@@ -996,7 +997,6 @@ void do_goto(CHAR_DATA *ch, const char *argument)
 		}
 	}
 
-	char_to_room(ch, location);
 	if (IS_EXTRACTED(ch))
 		return;
 	do_look(ch, "auto");

@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.157.2.23 2000-05-17 03:52:47 avn Exp $
+ * $Id: update.c,v 1.157.2.24 2000-07-25 12:02:45 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1237,16 +1237,27 @@ void char_update(void)
 
 			if (++pc->idle_timer >= 12) {
 				if (pc->was_in_room == NULL) {
+					ROOM_INDEX_DATA *to_room =
+					    get_room_index(ROOM_VNUM_LIMBO);
+
 					pc->was_in_room = ch->in_room;
 					if (ch->fighting != NULL)
 						stop_fighting(ch, TRUE);
 					act("$n disappears into the void.",
 					    ch, NULL, NULL, TO_ROOM);
-					char_puts("You disappear "
-						  "into the void.\n", ch);
+					act_puts("You disappear into the void.",
+						 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 					char_save(ch, 0);
   					char_from_room(ch);
-					char_to_room(ch, get_room_index(ROOM_VNUM_LIMBO));
+					char_to_room(ch, to_room);
+					if (pc->pet) {
+						act("$n disappears into the void.",
+						    pc->pet, NULL, NULL, TO_ROOM);
+						act_puts("You disappear into the void.",
+							 pc->pet, NULL, NULL, TO_CHAR, POS_DEAD);
+						char_from_room(pc->pet);
+						char_to_room(pc->pet, to_room);
+					}
 					if (IS_EXTRACTED(ch))
 						continue;
 				}
