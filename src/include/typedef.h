@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: typedef.h,v 1.6 1998-09-29 01:06:40 fjoe Exp $
+ * $Id: typedef.h,v 1.7 1998-10-08 13:27:54 fjoe Exp $
  */
 
 #ifndef _TYPEDEF_H_
@@ -90,7 +90,7 @@ typedef void	DO_FUN		(CHAR_DATA *ch, const char *argument);
 typedef bool	SPEC_FUN	(CHAR_DATA *ch);
 typedef void	SPELL_FUN	(int sn, int level, CHAR_DATA *ch, void *vo,
 				 int target);
-typedef int	OPROG_FUN	(OBJ_DATA *obj, CHAR_DATA *ch, void *arg);
+typedef int	OPROG_FUN	(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg);
 
 #define args(a) a
 #define DECLARE_DO_FUN(fun)	DO_FUN	  fun

@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.87 1998-10-08 12:39:34 fjoe Exp $
+ * $Id: merc.h,v 1.88 1998-10-08 13:27:54 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1752,11 +1752,11 @@ struct mpcode
 #define GET_DAMROLL(ch) \
 		((ch)->damroll+str_app[get_curr_stat(ch,STAT_STR)].todam)
 
-#define IS_OUTSIDE(ch)		(!IS_SET(				    \
-				    (ch)->in_room->room_flags,		    \
-				    ROOM_INDOORS))
+#define IS_OUTSIDE(ch)	(!IS_SET((ch)->in_room->room_flags, ROOM_INDOORS))
 
-#define WAIT_STATE(ch, npulse)	((ch)->wait = IS_IMMORTAL((ch))?1:UMAX((ch)->wait, (npulse)))
+#define WAIT_STATE(ch, npulse)	((ch)->wait = IS_IMMORTAL(ch) ?	\
+				 1 : UMAX((ch)->wait, (npulse)))
+#define RESET_WAIT_STATE(ch)	((ch)->wait = 1)
 #define DAZE_STATE(ch, npulse)	((ch)->daze = UMAX((ch)->daze, (npulse)))
 #define get_carry_weight(ch)	((ch)->carry_weight + (ch)->silver/10 +  \
 						      (ch)->gold * 2 / 5)
@@ -1764,8 +1764,7 @@ struct mpcode
 #define IS_SWITCHED( ch )       (ch->desc && ch->desc->original)
 #define IS_BUILDER(ch, Area)	(!IS_NPC(ch) && !IS_SWITCHED(ch) &&	\
 				(ch->pcdata->security >= Area->security	\
-				|| strstr(Area->builders, ch->name)	\
-				|| strstr(Area->builders, "All")))
+				|| is_name(ch->name, Area->builders)))
 
 /*
  * room macros

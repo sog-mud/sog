@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.42 1998-10-08 02:46:05 fjoe Exp $
+ * $Id: martial_art.c,v 1.43 1998-10-08 13:27:54 fjoe Exp $
  */
 
 /***************************************************************************
@@ -238,6 +238,8 @@ void do_bash(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	WAIT_STATE(ch, SKILL(gsn_bash)->beats);
+
 	if (arg[0] == '\0') {
 		victim = ch->fighting;
 		if (victim == NULL) {
@@ -313,6 +315,8 @@ void do_bash(CHAR_DATA *ch, const char *argument)
 	/* level */
 	chance += (ch->level - victim->level) * 2;
 
+	RESET_WAIT_STATE(ch);
+
 	/* now the attack */
 	if (number_percent() < chance) {
 		act("$n sends you sprawling with a powerful bash!",
@@ -370,6 +374,8 @@ void do_dirt(CHAR_DATA *ch, const char *argument)
 		char_puts("You get your feet dirty.\n\r", ch);
 		return;
 	}
+
+	WAIT_STATE(ch, SKILL(gsn_dirt)->beats);
 
 	if (arg[0] == '\0') {
 		victim = ch->fighting;
@@ -459,7 +465,6 @@ void do_dirt(CHAR_DATA *ch, const char *argument)
 		       gsn_dirt, DAM_NONE, FALSE);
 		char_puts("You can't see a thing!\n\r", victim);
 		check_improve(ch, gsn_dirt, TRUE, 2);
-		WAIT_STATE(ch, SKILL(gsn_dirt)->beats);
 
 		af.where	= TO_AFFECTS;
 		af.type 	= gsn_dirt;
@@ -474,7 +479,6 @@ void do_dirt(CHAR_DATA *ch, const char *argument)
 	else {
 		damage(ch, victim, 0, gsn_dirt, DAM_NONE, TRUE);
 		check_improve(ch, gsn_dirt, FALSE, 2);
-		WAIT_STATE(ch, SKILL(gsn_dirt)->beats);
 	}
 }
 
@@ -562,6 +566,7 @@ void do_trip(CHAR_DATA *ch, const char *argument)
 	/* level */
 	chance += (ch->level - victim->level) * 2;
 
+	RESET_WAIT_STATE(ch);
 
 	/* now the attack */
 	if (number_percent() < chance) {
@@ -609,6 +614,8 @@ void do_backstab(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	WAIT_STATE(ch, SKILL(gsn_backstab)->beats);
+
 	if ((victim = get_char_room(ch, arg)) == NULL) {
 		char_puts("They aren't here.\n\r", ch);
 		return;
@@ -640,8 +647,6 @@ void do_backstab(CHAR_DATA *ch, const char *argument)
 
 	if (is_safe(ch, victim))
 		return;
-
-	WAIT_STATE(ch, SKILL(gsn_backstab)->beats);
 
 	if (victim->hit < (0.7 * victim->max_hit) && (IS_AWAKE(victim))) {
 		act("$N is hurt and suspicious ... you couldn't sneak up.",
@@ -704,6 +709,8 @@ void do_cleave(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	WAIT_STATE(ch, SKILL(gsn_cleave)->beats);
+
 	if ((victim = get_char_room(ch, arg)) == NULL) {
 		char_puts("They aren't here.\n\r", ch);
 		return;
@@ -734,7 +741,6 @@ void do_cleave(CHAR_DATA *ch, const char *argument)
 	if (is_safe(ch, victim))
 		return;
 
-	WAIT_STATE(ch, SKILL(gsn_cleave)->beats);
 	if (!IS_AWAKE(victim)
 	||  IS_NPC(ch)
 	||  number_percent() < chance) {
@@ -770,6 +776,8 @@ void do_ambush(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 	
+	WAIT_STATE(ch, SKILL(gsn_ambush)->beats);
+
 	if ((victim = get_char_room(ch, arg)) == NULL) {
 		char_puts("They aren't here.\n\r", ch);
 		return;
@@ -788,7 +796,6 @@ void do_ambush(CHAR_DATA *ch, const char *argument)
 	if (is_safe(ch, victim))
 		return;
 
-	WAIT_STATE(ch, SKILL(gsn_ambush)->beats);
 	if (!IS_AWAKE(victim)
 	||  IS_NPC(ch)
 	||  number_percent() < chance) {
@@ -812,6 +819,8 @@ void do_rescue(CHAR_DATA *ch, const char *argument)
 		char_puts("Rescue whom?\n\r", ch);
 		return;
 	}
+
+	WAIT_STATE(ch, SKILL(gsn_rescue)->beats);
 
 	if ((victim = get_char_room(ch, arg)) == NULL) {
 		char_puts("They aren't here.\n\r", ch);
@@ -847,7 +856,6 @@ void do_rescue(CHAR_DATA *ch, const char *argument)
 	if (is_safe(ch, fch))
 		return;
 
-	WAIT_STATE(ch, SKILL(gsn_rescue)->beats);
 	if (number_percent() > get_skill(ch,gsn_rescue)) {
 		char_puts("You fail the rescue.\n\r", ch);
 		check_improve(ch, gsn_rescue, FALSE, 1);
@@ -1041,13 +1049,12 @@ void do_disarm(CHAR_DATA *ch, const char *argument)
 	chance += (ch->level - victim->level) * 2;
  
 	/* and now the attack */
+	WAIT_STATE(ch, SKILL(gsn_disarm)->beats);
 	if (number_percent() < chance) {
-		WAIT_STATE(ch, SKILL(gsn_disarm)->beats);
 		disarm(ch, victim, disarm_second);
 		check_improve(ch, gsn_disarm, TRUE, 1);
 	}
 	else {
-		WAIT_STATE(ch,SKILL(gsn_disarm)->beats);
 		act("You fail to disarm $N.", ch, NULL, victim, TO_CHAR);
 		act("$n tries to disarm you, but fails.",
 		    ch, NULL, victim, TO_VICT);
@@ -1183,6 +1190,8 @@ void do_tame(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	WAIT_STATE(ch, SKILL(gsn_tame)->beats);
+	
 	if ((victim = get_char_room(ch,arg)) == NULL) {
 		char_puts("They're not here.\n\r", ch);
 		return;
@@ -1203,8 +1212,6 @@ void do_tame(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	WAIT_STATE(ch, SKILL(gsn_tame)->beats);
-	
 	if (number_percent() < chance + 15 + 4*(ch->level - victim->level)) {
 		REMOVE_BIT(victim->act, ACT_AGGRESSIVE);
 		SET_BIT(victim->affected_by, AFF_CALM);
@@ -1255,6 +1262,8 @@ void do_assassinate(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	WAIT_STATE(ch, SKILL(gsn_assassinate)->beats);
+
 	if ((victim = get_char_room(ch, arg)) == NULL) {
 		char_puts("They aren't here.\n\r", ch);
 		return;
@@ -1302,7 +1311,6 @@ void do_assassinate(CHAR_DATA *ch, const char *argument)
 	if (is_safe(ch, victim))
 		return;
 
-	WAIT_STATE(ch, SKILL(gsn_assassinate)->beats);
 	if (number_percent() < chance)
 		multi_hit(ch,victim,gsn_assassinate);
 	else {
@@ -1503,6 +1511,8 @@ void do_strangle(CHAR_DATA *ch, const char *argument)
 		return;
 	} 
 
+	WAIT_STATE(ch, SKILL(gsn_strangle)->beats);
+
 	if ((victim = get_char_room(ch,argument)) == NULL) {
 		char_puts("You do not see that person here.\n\r", ch);
 		return;
@@ -1521,8 +1531,6 @@ void do_strangle(CHAR_DATA *ch, const char *argument)
 
 	SET_FIGHT_TIME(victim);
 	SET_FIGHT_TIME(ch);
-
-	WAIT_STATE(ch, SKILL(gsn_strangle)->beats);
 
 	if (number_percent() < chance * 6 /10) {
 		act("You grab hold of $N's neck and put $M to sleep.",
@@ -1567,6 +1575,8 @@ void do_blackjack(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	WAIT_STATE(ch, SKILL(gsn_blackjack)->beats);
+
 	if ((victim = get_char_room(ch,argument)) == NULL) {
 		char_puts("You do not see that person here.\n\r", ch);
 		return;
@@ -1593,8 +1603,6 @@ void do_blackjack(CHAR_DATA *ch, const char *argument)
 
 	SET_FIGHT_TIME(victim);
 	SET_FIGHT_TIME(ch);
-
-	WAIT_STATE(ch, SKILL(gsn_blackjack)->beats);
 
 	chance /= 2;
 	chance += URANGE(0, (get_curr_stat(ch, STAT_DEX)-20)*2, 10);
@@ -2153,6 +2161,8 @@ void do_explode(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	WAIT_STATE(ch, SKILL(gsn_explode)->beats);
+
 	if (victim == NULL) {
 		one_argument(argument, arg);
 		if (arg == NULL) { 
@@ -2177,8 +2187,6 @@ void do_explode(CHAR_DATA *ch, const char *argument)
 	act("$n burns a cone of exploding material over you!",
 	    ch, NULL, victim, TO_VICT);
 	act("Burn them all!.", ch, NULL, NULL, TO_CHAR);
-
-	WAIT_STATE(ch, SKILL(gsn_explode)->beats);
 
 	if (number_percent() >= chance) {
 		damage(ch, victim, 0, gsn_explode, DAM_FIRE, TRUE);
@@ -2244,7 +2252,6 @@ void do_target(CHAR_DATA *ch, const char *argument)
 		char_puts("You don't see that item.\n\r",ch);
 		return;
 	}
-
 
 	/* check victim is fighting with him */
 
@@ -2690,6 +2697,8 @@ void do_tail(CHAR_DATA *ch, const char *argument)
 		return;
 	}
  
+	WAIT_STATE(ch, SKILL(gsn_cleave)->beats);
+
 	if (arg[0] == '\0') {
 		victim = ch->fighting;
 		if (victim == NULL) {
@@ -2758,6 +2767,8 @@ void do_tail(CHAR_DATA *ch, const char *argument)
 
 	/* level */
 	chance += (ch->level - victim->level) * 2;
+
+	RESET_WAIT_STATE(ch);
 
 	/* now the attack */
 	if (number_percent() < (chance / 4)) {
@@ -3019,14 +3030,16 @@ void do_katana(CHAR_DATA *ch, const char *argument)
 void do_crush(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *victim;
-	int chance=100, wait=0;
+	int chance, wait;
 	int damage_crush;
 
 	if (MOUNTED(ch)) 
 		return;
 
-	if (IS_NPC(ch) && !IS_SET(ch->off_flags,OFF_CRUSH))
+	if ((chance = get_skill(ch, gsn_crush)) == 0) {
+		char_puts("You don't know how to crush.\n\r", ch);
 		return;
+	}
  
 	if ((victim = ch->fighting)== NULL)
 		return;

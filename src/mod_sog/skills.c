@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.30 1998-10-06 13:18:31 fjoe Exp $
+ * $Id: skills.c,v 1.31 1998-10-08 13:27:54 fjoe Exp $
  */
 
 /***************************************************************************
@@ -662,6 +662,8 @@ int get_skill(CHAR_DATA *ch, int sn)
 			 sn == gsn_whip || sn == gsn_polearm ||
 			 sn == gsn_bow || sn == gsn_arrow || sn == gsn_lance)
 			skill = 40 + 5 * ch->level / 2;
+		else if (sn == gsn_crush && IS_SET(ch->off_flags, OFF_CRUSH))
+			skill = 10 + 3 * ch->level;
 		else 
 			skill = 0;
 	}

@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.93 1998-10-08 12:39:24 fjoe Exp $
+ * $Id: act_comm.c,v 1.94 1998-10-08 13:27:53 fjoe Exp $
  */
 
 /***************************************************************************
@@ -571,7 +571,7 @@ void do_shout(CHAR_DATA *ch, const char *argument)
 	}
 
 	REMOVE_BIT(ch->comm, COMM_NOSHOUT);
-	WAIT_STATE(ch, 12);
+	WAIT_STATE(ch, PULSE_VIOLENCE);
 
 	argument = garble(ch, argument);
 	act_puts("You shout '{Y$t{x'",
@@ -616,7 +616,7 @@ void do_music(CHAR_DATA *ch, const char *argument)
 	}
 
 	REMOVE_BIT(ch->comm, COMM_NOMUSIC);
-	WAIT_STATE(ch, 12);
+	WAIT_STATE(ch, PULSE_VIOLENCE);
 
 	argument = garble(ch, argument);
 	act_puts("You music '{W$t{x'",
@@ -652,7 +652,7 @@ void do_gossip(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	WAIT_STATE(ch, 12);
+	WAIT_STATE(ch, PULSE_VIOLENCE);
 
 	if (!IS_IMMORTAL(ch)) {
 		if (ch->mana < ch->max_mana) {
