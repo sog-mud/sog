@@ -1,5 +1,5 @@
 #AREADATA
-Ver 2
+Ver 3
 Name Arcadia~
 VNUMs 12000 12199
 Credits Cernunn~
@@ -31,12 +31,12 @@ BT 0 H 0 ABKL 1000 0
 EFHKN
 stand stand male 5000
 0 0 medium unknown
+r poison 999
+r negative -15
 r holy -50
-r negative -25
-r disease 100
-r poison 100
-r charm 100
+r disease 999
 r light 50
+r charm 999
 #12001
 titania queen титания королева~
 @eng Queen Titania@rus ~~королева~~ ~~Титания~~~
@@ -62,15 +62,15 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
-r negative 33
+r poison 999
+r negative 43
 r energy 33
 r mental 33
-r sound 33
-r disease 100
-r poison 100
-r charm 100
-r harm 33
+r disease 999
 r light 33
+r harm 33
+r charm 999
+r sound 33
 #12002
 puck пак~
 @eng Puck@rus Пак~
@@ -93,15 +93,15 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
+r poison 999
 r negative 33
 r energy 33
 r mental 33
-r sound 33
-r disease 100
-r poison 100
-r charm 100
-r harm 33
+r disease 999
 r light 33
+r harm 33
+r charm 999
+r sound 33
 #12003
 thomas томас master~
 @eng True Thomas@rus Томас~
@@ -125,15 +125,15 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
-r negative 33
+r poison 999
+r negative 43
 r energy 33
 r mental 33
-r sound 33
-r disease 100
-r poison 100
-r charm 100
-r harm 33
+r disease 999
 r light 33
+r harm 33
+r charm 999
+r sound 33
 #12004
 king gwyn nudd король гвин надд~
 @eng Gwyn ap Nudd@rus Гвин-ап-~~Надд~~~
@@ -159,12 +159,12 @@ BT 0 J 0 0 -1000 0
 EFHIKN
 stand stand male 500
 0 0 medium unknown
+r poison 999
+r negative 60
 r holy -50
-r negative 50
-r disease 100
-r poison 100
-r charm 100
+r disease 999
 r light -10
+r charm 999
 #12005
 morrigan queen морриган~
 @eng The Morrigan@rus Морриган~
@@ -184,11 +184,11 @@ CFGOT 0 0 0 ABKL -1000 0
 ABDHNY
 stand stand female 5050
 0 0 medium unknown
+r poison 999
 r holy -50
-r disease 100
-r poison 100
-r charm 100
+r disease 999
 r light -50
+r charm 999
 #12006
 sidhe noble сид~
 @eng a sidhe noble@rus ~~величественный~~ ~~сид~~~
@@ -207,9 +207,10 @@ GT 0 0 0 0 800 0
 CFIU
 stand stand male 500
 0 0 medium unknown
-r negative -50
-r disease 33
 r poison 33
+r negative -40
+r disease 33
+r charm -33
 #12007
 sidhe noble сид~
 @eng a sidhe noble@rus ~~величественный~~ ~~сид~~~
@@ -228,9 +229,10 @@ GT 0 0 0 0 800 0
 CFIU
 stand stand male 500
 0 0 medium unknown
-r negative -50
-r disease 33
 r poison 33
+r negative -40
+r disease 33
+r charm -33
 #12008
 sidhe noble сид~
 @eng a sidhe noble@rus ~~величественный~~ ~~сид~~~
@@ -249,9 +251,10 @@ GT 0 0 0 0 -800 0
 CFIU
 stand stand male 500
 0 0 medium unknown
-r negative -50
-r disease 33
 r poison 33
+r negative -40
+r disease 33
+r charm -33
 #12009
 sidhe noble сид~
 @eng a sidhe noble@rus ~~величественный~~ ~~сид~~~
@@ -270,9 +273,10 @@ GT 0 0 0 0 -800 0
 CFIU
 stand stand male 500
 0 0 medium unknown
-r negative -50
-r disease 33
 r poison 33
+r negative -40
+r disease 33
+r charm -33
 #12010
 sidhe guard сид-охранник~
 @eng a sidhe guard@rus ~~сид-охранник~~~
@@ -291,9 +295,10 @@ BT 0 N 0 0 900 0
 EIKLQRTU
 stand stand male 500
 0 0 medium unknown
-r negative -50
-r disease 33
 r poison 33
+r negative -40
+r disease 33
+r charm -33
 #12011
 guard сид-охранник sidhe~
 @eng a sidhe guard@rus ~~сид-охранник~~~
@@ -313,9 +318,11 @@ BT 0 N 0 0 -900 0
 EIKLQRTU
 stand stand male 500
 0 0 medium unknown
+r poison 33
+r negative 10
 r holy -50
 r disease 33
-r poison 33
+r charm -33
 #12012
 sidhe knight рыцарь сид~
 @eng a noble sidhe knight@rus ~~благородный~~ ~~рыцарь~~-~~сид~~~
@@ -334,9 +341,10 @@ GT 0 0 0 M 1000 0
 CDEFIKLS
 stand stand male 500
 0 0 medium unknown
-r negative -50
-r disease 33
 r poison 33
+r negative -40
+r disease 33
+r charm -33
 #12013
 sidhe knight рыцарь сид~
 @eng a noble sidhe knight@rus ~~благородный~~ ~~сид~~-~~рыцарь~~~
@@ -355,10 +363,11 @@ GT 0 0 0 M 1000 0
 CDEFIKLS
 stand stand female 500
 0 0 medium unknown
-r holy 100
-r negative -50
-r disease 33
 r poison 33
+r negative -40
+r holy 999
+r disease 33
+r charm -33
 #12014
 sidhe knight сид рыцарь~
 @eng a noble sidhe knight@rus ~~благородный~~ ~~сид~~-~~рыцарь~~~
@@ -377,10 +386,11 @@ GT 0 0 0 M -1000 0
 CDEFIKLS
 stand stand male 500
 0 0 medium unknown
-r holy -50
-r negative 100
-r disease 33
 r poison 33
+r negative 999
+r holy -50
+r disease 33
+r charm -33
 #12015
 sidhe knight сид рыцарь~
 @eng a noble sidhe knight@rus ~~благородный~~ ~~сид~~-~~рыцарь~~~
@@ -399,10 +409,11 @@ GT 0 0 0 M 1000 0
 CDEFIKLS
 stand stand female 500
 0 0 medium unknown
-r holy 100
-r negative -50
-r disease 33
 r poison 33
+r negative -40
+r holy 999
+r disease 33
+r charm -33
 #12016
 sidhe knight сид рыцарь~
 @eng a noble sidhe knight@rus ~~благородный~~ ~~сид~~-~~рыцарь~~~
@@ -421,10 +432,11 @@ BT 0 0 0 M 1000 0
 CDEFIKLS
 stand stand male 500
 0 0 medium unknown
-r holy 100
-r negative -50
-r disease 33
 r poison 33
+r negative -40
+r holy 999
+r disease 33
+r charm -33
 #12017
 sidhe knight сид рыцарь~
 @eng a noble sidhe knight@rus ~~благородный~~ ~~сид~~-~~рыцарь~~~
@@ -443,10 +455,11 @@ BT 0 0 0 M -1000 0
 CDEFIKLS
 stand stand male 500
 0 0 medium unknown
-r holy -50
-r negative 100
-r disease 33
 r poison 33
+r negative 999
+r holy -50
+r disease 33
+r charm -33
 #12018
 sidhe knight сид рыцарь~
 @eng a noble sidhe knight@rus ~~благородный~~ ~~сид~~-~~рыцарь~~~
@@ -465,10 +478,11 @@ BT 0 0 0 M -1000 0
 CDEFIKLS
 stand stand female 500
 0 0 medium unknown
-r holy -50
-r negative 100
-r disease 33
 r poison 33
+r negative 999
+r holy -50
+r disease 33
+r charm -33
 #12019
 troll guard тролль охранник~
 @eng a troll guard@rus ~~тролль~~-~~охранник~~~
@@ -489,8 +503,12 @@ BT 0 Ncd 0 0 1000 0
 CDIKNQU
 stand stand male 500
 0 0 giant unknown
+r fire -33
+r cold -33
+r lightning 50
 r holy -50
-r charm 100
+r mental 50
+r charm 999
 #12020
 troll guard тролль охранник~
 @eng a troll guard@rus ~~тролль~~-~~охранник~~~
@@ -511,10 +529,14 @@ BT 0 Nd 0 0 -1000 0
 CIKNQU
 stand stand male 500
 0 0 giant unknown
-r lightning -50
+r bash -20
+r slash -10
+r fire 25
+r lightning -35
+r acid 40
 r holy -50
 r mental -50
-r charm 100
+r charm 999
 #12021
 pooka jester шут~
 @eng a pooka jester@rus шут~
@@ -584,15 +606,15 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
+r poison 999
 r negative 33
 r energy 33
 r mental 33
-r sound 33
-r disease 100
-r poison 100
-r charm 33
-r harm 33
+r disease 999
 r light 33
+r harm 33
+r charm 33
+r sound 33
 #12024
 satyr piper сатир~
 @eng a satyr piper@rus ~~сатир~~, ~~играющий~~ на свирели~
@@ -615,14 +637,15 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
+r poison 8
 r negative 33
 r energy 33
 r mental 33
-r sound 33
-r poison 33
-r charm 100
-r harm 33
+r disease -25
 r light 33
+r harm 33
+r charm 999
+r sound 33
 #12025
 satyr singer сатир~
 @eng a satyr singer@rus ~~поющий~~ ~~сатир~~~
@@ -639,8 +662,10 @@ GR 0 d 0 0 100 0
 FHJ
 stand stand male 500
 0 0 medium unknown
+r poison -25
 r holy -50
-r charm 100
+r disease -25
+r charm 999
 #12026
 satyr lusty сатир~
 @eng a lusty satyr@rus ~~мужественный~~ ~~сатир~~~
@@ -660,9 +685,10 @@ BT 0 Vd 0 0 -100 0
 CDR
 stand stand male 500
 0 0 medium unknown
+r poison 8
 r holy -50
-r mental 100
-r poison 33
+r mental 999
+r disease -25
 r charm 33
 #12027
 boggan craftsman shoe maker боггард-мастеровой~
@@ -684,19 +710,20 @@ BT 0 0 0 0 300 0
 C
 sit sit male 320
 0 0 small unknown
+r bash -7
 r fire 33
 r cold 33
 r lightning 33
 r acid 33
+r poison 999
 r negative 33
 r energy 33
 r mental 33
-r sound 33
-r disease 100
-r poison 100
-r charm 33
-r harm 33
+r disease 999
 r light 33
+r harm 33
+r charm 33
+r sound 33
 #12028
 boggan smith боггард кузнец~
 @eng a boggan smith@rus боггард-кузнец~
@@ -715,19 +742,20 @@ BT 0 0 0 0 300 0
 C
 sit sit male 320
 0 0 small unknown
+r bash -7
 r fire 33
 r cold 33
 r lightning 33
 r acid 33
+r poison 999
 r negative 33
 r energy 33
 r mental 33
-r sound 33
-r disease 100
-r poison 100
-r charm 33
-r harm 33
+r disease 999
 r light 33
+r harm 33
+r charm 33
+r sound 33
 #12029
 eshu adventurer эшу путешественник~
 @eng an adventurous eshu@rus эшу-путешественник~
@@ -750,15 +778,15 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
+r poison 33
 r negative 33
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r charm 33
-r harm 33
 r light 33
+r harm 33
+r charm 33
+r sound 33
 #12030
 eshu storyteller эшу~
 @eng an eshu@rus эшу~
@@ -814,10 +842,10 @@ CFGS 0 V 0 H -850 0
 BDJVY
 stand stand male 500
 AHMV ABCDEFGHIJK small unknown
-r holy -50
-r negative 100
-r disease 33
 r poison 33
+r negative 999
+r holy -50
+r disease 33
 #12033
 murderer redcap мародер~
 @eng a murderous redcap@rus мародер~
@@ -834,10 +862,10 @@ CFGS 0 V 0 H -850 0
 BDJVY
 stand stand male 500
 AHMV ABCDEFGHIJK small unknown
-r holy -50
-r negative 100
-r disease 33
 r poison 33
+r negative 999
+r holy -50
+r disease 33
 #12034
 sluagh watcher слуг сторож~
 @eng a sluagh watcher@rus ~~слуг~~-~~сторож~~~
@@ -857,10 +885,10 @@ HS 0 NU ABG ABHKL -20 0
 EFHJK
 stand stand female 500
 AHMV ABCDEFGHIJK small unknown
-r holy -50
-r negative 100
-r disease 33
 r poison 33
+r negative 999
+r holy -50
+r disease 33
 r light -50
 #12035
 sluagh guardian слуг охранник~
@@ -880,10 +908,10 @@ HS 0 NU ABG ABHKL -20 0
 EFHJK
 stand stand female 500
 AHMV ABCDEFGHIJK small unknown
-r holy -50
-r negative 100
-r disease 33
 r poison 33
+r negative 999
+r holy -50
+r disease 33
 r light -50
 #12036
 pixie пикси~
@@ -945,9 +973,9 @@ GHQ 0 NT A 0 300 0
 FH
 stand stand female 500
 AHMV ABCDEFGHIJK tiny unknown
+r poison 33
 r holy -50
 r disease 33
-r poison 33
 #12039
 nymph нимфа~
 @eng a beautiful nymph@rus ~~прекрасная~~ ~~нимфа~~~
@@ -965,7 +993,9 @@ BHQ 0 0 0 0 100 0
 FN
 stand stand female 500
 0 0 medium unknown
+r negative 10
 r holy -50
+r charm -33
 #12040
 dryad дриада~
 @eng a playful dryad@rus ~~игривая~~ ~~дриада~~~
@@ -985,7 +1015,9 @@ GHQ 0 0 0 0 100 0
 FN
 stand stand female 500
 0 0 medium unknown
+r negative 10
 r holy -50
+r charm -33
 #12041
 mermaid русалка~
 @eng an exotic mermaid@rus ~~русалка~~~
@@ -1043,12 +1075,12 @@ CGU 0 Vd G 0 100 0
 FNU
 stand stand male 0
 AHMV ABCDEFGHIJK tiny unknown
-r bash 100
+r bash 999
 r pierce 33
 r fire -50
 r holy -50
-r charm 100
-r light 100
+r light 999
+r charm 999
 #12044
 acorn fae фейри~
 @eng an acorn faery@rus ~~желудевый~~ фейри~
@@ -1065,12 +1097,12 @@ CGU 0 Vd G 0 100 0
 FNU
 stand stand none 0
 AHMV ABCDEFGHIJK tiny unknown
-r bash 100
+r bash 999
 r pierce 33
 r fire -50
 r holy -50
-r charm 100
-r light 100
+r light 999
+r charm 999
 #12045
 boy charmer мальчик~
 @eng A little boy@rus ~~маленький~~ ~~мальчик~~~
@@ -1089,12 +1121,12 @@ BCU 0 Vd G 0 100 0
 FNU
 stand stand none 0
 AHMV ABCDEFGHIJK tiny unknown
-r bash 100
+r bash 999
 r pierce 33
 r fire -50
 r holy -50
-r charm 100
-r light 100
+r light 999
+r charm 999
 #12046
 cusidhe pet кусид~
 @eng A CuSidhe@rus КуСид~

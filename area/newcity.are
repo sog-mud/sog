@@ -1,5 +1,5 @@
 #AREADATA
-Ver 2
+Ver 3
 Name Тиферет~
 VNUMs 33400 33799
 Credits Arwen~
@@ -25,8 +25,8 @@ CEJRe E 0 0 0 1000 0
 CFHJNO
 stand stand male 100
 0 0 medium unknown
-r disease 100
-r charm 100
+r disease 999
+r charm 999
 #33402
 wanderer странник~
 @eng wanderer@rus странник~
@@ -44,6 +44,8 @@ elf~
 0
 stand stand male 0
 0 0 medium unknown
+r negative 10
+r charm -33
 #33403
 fiora фьера~
 @eng Fiora@rus Фьера~
@@ -60,6 +62,8 @@ Be 0 0 0 0 0 0
 0
 stand stand female 200
 0 0 medium unknown
+r negative 10
+r charm -33
 #0
 
 #OBJECTS

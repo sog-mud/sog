@@ -1,5 +1,5 @@
 #AREADATA
-Ver 2
+Ver 3
 Name Flying Holand~
 Builders kamimusubi~
 VNUMs 10605 10903
@@ -24,7 +24,14 @@ ghost~
 0
 stand stand male 0
 0 0 medium unknown
-r sound 100
+r bash -33
+r pierce -33
+r slash -33
+r poison -100
+r negative -100
+r holy 50
+r disease -100
+r sound 999
 #10606
 впередсмотрящий матрос~
 @eng sleepman@rus ~~призрак~~ спящего матроса~
@@ -45,12 +52,16 @@ sit sit none 1
 0 0 medium unknown
 g @eng none@rus male~
 F par ABCDEFGHIJK
-r bash 0
-r pierce 50
-r slash 50
+r bash -33
+r pierce 17
+r slash 17
 r fire 50
-r cold 100
+r cold 999
 r acid 99
+r poison -100
+r negative -100
+r holy 50
+r disease -100
 r sound -70
 #10607
 гравитация gravity~
@@ -67,23 +78,23 @@ D 0 huge unknown
 g @eng none@rus female~
 F for A
 F par ABCDEFHJKQ
-r bash 100
-r pierce 100
-r slash 100
-r fire 100
-r cold 100
-r lightning 100
-r acid 100
-r holy 100
-r negative 100
-r energy 99
-r mental 99
-r sound 100
-r disease 100
-r poison 100
-r charm 100
-r harm 100
-r light 100
+r bash 999
+r pierce 999
+r slash 999
+r fire 999
+r cold 999
+r lightning 999
+r acid 999
+r poison 999
+r negative 999
+r holy 999
+r energy 149
+r mental 149
+r disease 999
+r light 999
+r harm 999
+r charm 999
+r sound 999
 #10608
 rat крыса~
 @eng a rat@rus крыса~
@@ -105,9 +116,9 @@ stand stand none 50
 AG ACDEKQU small unknown
 g @eng none@rus female~
 r fire -30
-r sound -20
 r poison 50
 r light -75
+r sound -20
 #10609
 комар~
 @rus комар~
@@ -122,6 +133,8 @@ FH
 stand stand none 1
 0 0 medium unknown
 g @eng none@rus male~
+r bash 50
+r poison -50
 #10610
 ice demon~
 @eng ice demon@rus ~~ледяной~~ ~~демон~~~
@@ -147,20 +160,22 @@ stand stand none 10000
 0 0 gargantuan unknown
 g @eng none@rus male~
 F par BCDEFGHIJ
-r bash 50
-r fire -50
-r cold 100
-r lightning -20
+r bash 25
+r pierce -25
+r slash -25
+r fire -20
+r cold 999
+r lightning 10
 r acid 30
+r poison 999
 r negative 75
 r energy -30
-r mental -20
-r sound -20
-r disease 100
-r poison 100
-r charm 95
-r harm -10
+r mental 10
+r disease 999
 r light -20
+r harm -10
+r charm 95
+r sound -20
 #10611
 ice снежинка игла needle~
 @eng ice needle@rus ~~ледяная~~ ~~игла~~~
@@ -176,9 +191,11 @@ stand stand none 20
 0 0 small unknown
 g @eng none@rus female~
 F par AD
-r bash 100
-r fire -30
-r cold 100
+r bash 999
+r pierce -33
+r slash -33
+r fire -63
+r cold 999
 #10612
 fire огненный вихрь demon~
 @eng fire demon@rus ~~огненный~~ ~~демон~~~
@@ -200,6 +217,11 @@ AFHKZ
 stand stand none 3
 0 0 giant unknown
 g @eng none@rus male~
+r bash -33
+r pierce -33
+r slash -33
+r fire -100
+r cold 50
 r acid 40
 #10613
 flame~
@@ -215,6 +237,11 @@ FHUZ
 stand stand none 20
 0 0 small unknown
 g @eng none@rus male~
+r bash -33
+r pierce -33
+r slash -33
+r fire -100
+r cold 50
 #10614
 old dragon старый дракон black черный~
 @eng old black dragon@rus ~~старый~~ ~~черный~~ ~~дракон~~~
@@ -239,22 +266,22 @@ CXY
 stand stand none 20000
 Z QU huge unknown
 g @eng none@rus male~
-r bash 95
-r pierce -80
+r bash 62
+r pierce -30
 r slash 50
 r fire 80
 r cold -50
 r lightning 80
-r acid 90
+r acid 57
+r poison -10
 r negative 95
 r energy 50
 r mental 40
-r sound -50
 r disease 33
-r poison -10
-r charm -33
-r harm 30
 r light -30
+r harm 30
+r charm -66
+r sound -50
 #10615
 giant гигантский спрут octopus~
 @eng giant octopus@rus ~~гигантский~~ ~~спрут~~~

@@ -1,5 +1,5 @@
 #AREADATA
-Ver 2
+Ver 3
 Name Newbie Zone~
 VNUMs 18600 18699
 Credits Maynard~
@@ -23,6 +23,8 @@ BC 0 0 0 H -750 0
 B
 stand stand male 150
 0 0 medium unknown
+r bash -33
+r cold -33
 #18602
 newbie monster~
 the newbie monster~
@@ -39,6 +41,20 @@ BC 0 0 0 M 0 0
 C
 stand stand male 120
 0 0 medium unknown
+r fire 50
+r cold 50
+r lightning 50
+r acid 50
+r poison 50
+r negative 50
+r holy 50
+r energy 50
+r mental 50
+r disease 50
+r light 50
+r harm 50
+r charm -33
+r sound 50
 #18603
 dragon baby~
 the baby dragon~
@@ -55,6 +71,11 @@ B 0 0 0 0 100 0
 C
 stand stand male 140
 0 0 medium unknown
+r bash -33
+r pierce 50
+r fire -33
+r cold 50
+r charm -33
 #18604
 keeper guard monster~
 the newbie guard~
@@ -102,7 +123,9 @@ BFGJ 0 0 0 0 -250 0
 F
 stand stand male 110
 0 0 medium unknown
-r charm 100
+r cold 50
+r poison -33
+r charm 999
 #18607
 newbie zombie~
 the zombiefied newbie~
@@ -118,7 +141,7 @@ CFGJ 0 0 0 H -500 0
 G
 stand stand male 140
 0 0 medium unknown
-r charm 100
+r charm 999
 #18608
 quasit imp thing~
 the quasit~
@@ -135,6 +158,8 @@ CGH 0 0 G H -800 0
 H
 stand stand male 130
 0 0 medium unknown
+r cold 50
+r poison -33
 #18609
 minotaur~
 the massive minotaur~
@@ -152,7 +177,7 @@ BFGJ 0 0 0 H -1000 0
 I
 stand stand male 170
 0 0 medium unknown
-r charm 100
+r charm 999
 #18610
 spectre ghost~
 the dark spectre~
@@ -168,7 +193,7 @@ BFGJ 0 0 A AH -850 0
 J
 stand stand either 140
 0 0 medium unknown
-r charm 100
+r charm 999
 #18611
 newbie annoying jerk~
 the annoying newbie~

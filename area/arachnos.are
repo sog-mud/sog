@@ -1,5 +1,5 @@
 #AREADATA
-Ver 2
+Ver 3
 Name Arachnos~
 VNUMs 6200 6399
 Credits Mahatma~
@@ -37,6 +37,11 @@ BCG 0 0 0 A -1000 0
 EFNR
 stand stand male 500
 0 0 medium unknown
+r bash -33
+r pierce 50
+r fire -33
+r cold 50
+r charm -33
 #6303
 spider wolf~
 the Wolf Spider~
@@ -65,6 +70,14 @@ B 0 0 0 0 -400 0
 EFNR
 stand stand male 5
 0 0 medium unknown
+r bash -5
+r pierce -5
+r slash -5
+r poison -15
+r negative -15
+r holy 15
+r disease -15
+r light 15
 #6305
 wasp queen~
 the Queen Wasp~
@@ -240,6 +253,11 @@ B 0 0 0 A 1000 0
 EFNR
 stand stand male 50
 0 0 medium unknown
+r bash -33
+r pierce 50
+r fire -33
+r cold 50
+r charm -33
 #6317
 dragon wormkin medium~
 the medium dragon wormkin~
@@ -254,6 +272,11 @@ B 0 0 0 A 100 0
 EFNR
 stand stand male 250
 0 0 medium unknown
+r bash -33
+r pierce 50
+r fire -33
+r cold 50
+r charm -33
 #6318
 spider poisonous~
 the huge, poisonous spider~

@@ -1,5 +1,5 @@
 #AREADATA
-Ver 2
+Ver 3
 Name Forest of Nowhere~
 Builders tranto~
 VNUMs 22450 22699
@@ -59,7 +59,7 @@ EFHJ
 stand stand male 10000
 AV ABCDF small unknown
 r bash -50
-r charm 100
+r charm 999
 #22454
 bloody beast~
 bloody beast~
@@ -187,8 +187,8 @@ FK
 stand stand male 150
 0 0 medium unknown
 r cold 33
-r holy 33
 r negative -50
+r holy 33
 #22461
 guard medium~
 medium guard~
@@ -206,8 +206,8 @@ FJK
 stand stand male 150
 0 0 medium unknown
 r cold 33
-r holy 33
 r negative -50
+r holy 33
 #22462
 clear naga~
 Clear naga~
@@ -271,16 +271,16 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
-r holy 33
+r poison 33
 r negative 33
+r holy 33
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r charm 100
-r harm 33
 r light 33
+r harm 33
+r charm 999
+r sound 33
 #22465
 tellias ranger guard~
 Tellias~
@@ -300,7 +300,7 @@ stand stand male 500
 AMV ACDEF large unknown
 r fire 33
 r cold 33
-r charm 100
+r charm 999
 #22466
 mifner captain burner~
 Mifner~
@@ -321,7 +321,7 @@ AMV ACDEF large unknown
 r fire 33
 r cold 33
 r negative 33
-r charm 100
+r charm 999
 #22467
 large forest guard~
 large guard~
@@ -341,9 +341,9 @@ BG 0 0 0 AH 1000 0
 CFKN
 stand stand male 100
 AC 0 large unknown
-r lightning 100
-r charm 100
-r light 100
+r lightning 999
+r light 999
+r charm 999
 #22468
 giant guard~
 giant guard~
@@ -423,6 +423,8 @@ F par AEJ
 r bash 30
 r pierce 40
 r slash 30
+r fire 50
+r cold 50
 r mental 30
 #22472
 human sergeant~
@@ -460,6 +462,12 @@ T 0 0 K 0 -500 0
 FK
 stand stand male 0
 0 0 small unknown
+r bash -20
+r slash -10
+r fire 25
+r lightning 15
+r acid 40
+r charm -30
 #22479
 ~
 ~

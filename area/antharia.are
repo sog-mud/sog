@@ -1,5 +1,5 @@
 #AREADATA
-Ver 2
+Ver 3
 Name Antharia~
 VNUMs 12300 12399
 Credits Amadeus~
@@ -27,16 +27,16 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
-r holy 33
+r poison 33
 r negative 33
+r holy 33
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r charm 33
-r harm 33
 r light 33
+r harm 33
+r charm 33
+r sound 33
 #12302
 Suretin~
 Suretin~
@@ -332,6 +332,8 @@ B D 0 0 0 0 0
 CEFIJK
 stand stand female 1000
 0 0 medium unknown
+r negative 10
+r charm -33
 #12365
 Dwarven Representative~
 a dwarven representative~
@@ -347,6 +349,9 @@ BQ 0 0 0 0 0 0
 CEFIJK
 stand stand male 1000
 0 0 medium unknown
+r bash -7
+r poison -25
+r disease -25
 #12370
 illithid Representative~
 an illithid representative~

@@ -1,5 +1,5 @@
 #AREADATA
-Ver 2
+Ver 3
 Name Greater Gerighelm~
 Builders shogo~
 VNUMs 7500 7699
@@ -53,6 +53,8 @@ G 0 0 0 0 0 0
 EKN
 stand stand male 0
 0 0 small unknown
+r cold 50
+r poison -33
 #7503
 swallow bird small~
 a swallow~
@@ -95,6 +97,14 @@ G 0 0 0 0 0 0
 EKN
 stand stand male 10
 0 0 medium unknown
+r bash -5
+r pierce -5
+r slash -5
+r poison -15
+r negative -15
+r holy 15
+r disease -15
+r light 15
 #7506
 ground hog groundhog~
 a ground-hog~
@@ -123,6 +133,8 @@ G 0 0 0 0 0 0
 EKN
 stand stand male 10
 0 0 tiny unknown
+r negative 10
+r charm -33
 #7508
 flying squirrel~
 a flying squirrel~
@@ -196,6 +208,8 @@ G 0 0 0 0 0 0
 EKN
 stand stand male 110
 0 0 medium unknown
+r cold 50
+r poison -33
 #7513
 fish pointy teeth small~
 a small fish with pointy teeth~
@@ -297,6 +311,8 @@ G 0 0 0 H -500 0
 KN
 stand stand male 170
 0 0 medium unknown
+r bash -33
+r cold -33
 #7520
 worm cleaner large~
 a cleaner worm~
@@ -311,6 +327,8 @@ FG 0 0 0 ABH 0 0
 EKN
 stand stand male 200
 0 0 medium unknown
+r cold 50
+r poison -33
 #7521
 citizen man~
 a citizen of Gerighelm~
@@ -373,16 +391,16 @@ r fire -50
 r cold -50
 r lightning -50
 r acid -50
-r holy -50
+r poison -50
 r negative -50
+r holy -50
 r energy -50
 r mental -50
-r sound -50
 r disease -50
-r poison -50
-r charm -50
-r harm -50
 r light -50
+r harm -50
+r charm -50
+r sound -50
 #7525
 coot old~
 an old coot~
@@ -402,16 +420,16 @@ r fire -50
 r cold -50
 r lightning -50
 r acid -50
-r holy -50
+r poison -50
 r negative -50
+r holy -50
 r energy -50
 r mental -50
-r sound -50
 r disease -50
-r poison -50
-r charm -50
-r harm -50
 r light -50
+r harm -50
+r charm -50
+r sound -50
 #7526
 child little boy~
 a little boy~
@@ -431,16 +449,16 @@ r fire -50
 r cold -50
 r lightning -50
 r acid -50
-r holy -50
+r poison -50
 r negative -50
+r holy -50
 r energy -50
 r mental -50
-r sound -50
 r disease -50
-r poison -50
-r charm -50
-r harm -50
 r light -50
+r harm -50
+r charm -50
+r sound -50
 #7527
 child little girl~
 a little girl~
@@ -459,16 +477,16 @@ r fire -50
 r cold -50
 r lightning -50
 r acid -50
-r holy -50
+r poison -50
 r negative -50
+r holy -50
 r energy -50
 r mental -50
-r sound -50
 r disease -50
-r poison -50
-r charm -50
-r harm -50
 r light -50
+r harm -50
+r charm -50
+r sound -50
 #7528
 junior guard~
 a junior guard~
@@ -488,16 +506,16 @@ r fire -50
 r cold -50
 r lightning -50
 r acid -50
-r holy -50
+r poison -50
 r negative -50
+r holy -50
 r energy -50
 r mental -50
-r sound -50
 r disease -50
-r poison -50
-r charm -50
-r harm -50
 r light -50
+r harm -50
+r charm -50
+r sound -50
 #7529
 young woman~
 a young woman~
@@ -516,16 +534,16 @@ r fire -50
 r cold -50
 r lightning -50
 r acid -50
-r holy -50
+r poison -50
 r negative -50
+r holy -50
 r energy -50
 r mental -50
-r sound -50
 r disease -50
-r poison -50
-r charm -50
-r harm -50
 r light -50
+r harm -50
+r charm -50
+r sound -50
 #7530
 cityguard guard gerighelm~
 a Gerighelm cityguard~
@@ -544,16 +562,16 @@ r fire -50
 r cold -50
 r lightning -50
 r acid -50
-r holy -50
+r poison -50
 r negative -50
+r holy -50
 r energy -50
 r mental -50
-r sound -50
 r disease -50
-r poison -50
-r charm -50
-r harm -50
 r light -50
+r harm -50
+r charm -50
+r sound -50
 #7531
 cityguard guard gerighelm~
 a Gerighelm cityguard~
@@ -572,16 +590,16 @@ r fire -50
 r cold -50
 r lightning -50
 r acid -50
-r holy -50
+r poison -50
 r negative -50
+r holy -50
 r energy -50
 r mental -50
-r sound -50
 r disease -50
-r poison -50
-r charm -50
-r harm -50
 r light -50
+r harm -50
+r charm -50
+r sound -50
 #7532
 cityguard guard gerighelm~
 a Gerighelm cityguard~
@@ -600,16 +618,16 @@ r fire -50
 r cold -50
 r lightning -50
 r acid -50
-r holy -50
+r poison -50
 r negative -50
+r holy -50
 r energy -50
 r mental -50
-r sound -50
 r disease -50
-r poison -50
-r charm -50
-r harm -50
 r light -50
+r harm -50
+r charm -50
+r sound -50
 #7533
 ale-conner ale conner~
 the ale-conner~
@@ -629,16 +647,16 @@ r fire -50
 r cold -50
 r lightning -50
 r acid -50
-r holy -50
+r poison -50
 r negative -50
+r holy -50
 r energy -50
 r mental -50
-r sound -50
 r disease -50
-r poison -50
-r charm -50
-r harm -50
 r light -50
+r harm -50
+r charm -50
+r sound -50
 #7534
 defender gerighelm~
 a Defender of Gerighelm~
@@ -657,16 +675,16 @@ r fire -50
 r cold -50
 r lightning -50
 r acid -50
-r holy -50
+r poison -50
 r negative -50
+r holy -50
 r energy -50
 r mental -50
-r sound -50
 r disease -50
-r poison -50
-r charm -50
-r harm -50
 r light -50
+r harm -50
+r charm -50
+r sound -50
 #7535
 defender gerighelm~
 a Defender of Gerighelm~
@@ -685,16 +703,16 @@ r fire -50
 r cold -50
 r lightning -50
 r acid -50
-r holy -50
+r poison -50
 r negative -50
+r holy -50
 r energy -50
 r mental -50
-r sound -50
 r disease -50
-r poison -50
-r charm -50
-r harm -50
 r light -50
+r harm -50
+r charm -50
+r sound -50
 #7536
 palace guard~
 a palace guard~
@@ -713,16 +731,16 @@ r fire -50
 r cold -50
 r lightning -50
 r acid -50
-r holy -50
+r poison -50
 r negative -50
+r holy -50
 r energy -50
 r mental -50
-r sound -50
 r disease -50
-r poison -50
-r charm -50
-r harm -50
 r light -50
+r harm -50
+r charm -50
+r sound -50
 #7537
 palace guard~
 a palace guard~
@@ -741,16 +759,16 @@ r fire -50
 r cold -50
 r lightning -50
 r acid -50
-r holy -50
+r poison -50
 r negative -50
+r holy -50
 r energy -50
 r mental -50
-r sound -50
 r disease -50
-r poison -50
-r charm -50
-r harm -50
 r light -50
+r harm -50
+r charm -50
+r sound -50
 #7538
 cook~
 the cook~
@@ -769,16 +787,16 @@ r fire -50
 r cold -50
 r lightning -50
 r acid -50
-r holy -50
+r poison -50
 r negative -50
+r holy -50
 r energy -50
 r mental -50
-r sound -50
 r disease -50
-r poison -50
-r charm -50
-r harm -50
 r light -50
+r harm -50
+r charm -50
+r sound -50
 #7539
 palace mage~
 the palace mage~
@@ -794,7 +812,7 @@ N
 stand stand male 2000
 0 0 medium unknown
 r bash -50
-r charm 100
+r charm 999
 #7540
 palace priest~
 the palace priest~
@@ -828,16 +846,16 @@ r fire -50
 r cold -50
 r lightning -50
 r acid -50
-r holy -50
+r poison -50
 r negative -50
+r holy -50
 r energy -50
 r mental -50
-r sound -50
 r disease -50
-r poison -50
-r charm -50
-r harm -50
 r light -50
+r harm -50
+r charm -50
+r sound -50
 #7551
 palace gardener~
 the palace gardener~
@@ -856,16 +874,16 @@ r fire -50
 r cold -50
 r lightning -50
 r acid -50
-r holy -50
+r poison -50
 r negative -50
+r holy -50
 r energy -50
 r mental -50
-r sound -50
 r disease -50
-r poison -50
-r charm -50
-r harm -50
 r light -50
+r harm -50
+r charm -50
+r sound -50
 #7552
 bodyguard body guard~
 a bodyguard~
@@ -884,16 +902,16 @@ r fire -50
 r cold -50
 r lightning -50
 r acid -50
-r holy -50
+r poison -50
 r negative -50
+r holy -50
 r energy -50
 r mental -50
-r sound -50
 r disease -50
-r poison -50
-r charm -50
-r harm -50
 r light -50
+r harm -50
+r charm -50
+r sound -50
 #7553
 bodyguard body guard~
 a bodyguard~
@@ -912,16 +930,16 @@ r fire -50
 r cold -50
 r lightning -50
 r acid -50
-r holy -50
+r poison -50
 r negative -50
+r holy -50
 r energy -50
 r mental -50
-r sound -50
 r disease -50
-r poison -50
-r charm -50
-r harm -50
 r light -50
+r harm -50
+r charm -50
+r sound -50
 #7554
 duke gerighelm~
 the Duke of Gerighelm~
@@ -937,7 +955,7 @@ CDEFJKLNU
 stand stand male 4000
 0 0 medium unknown
 r bash -50
-r charm 100
+r charm 999
 #7555
 duchess gerighelm~
 the Duchess of Gerighelm~
@@ -953,7 +971,7 @@ FKN
 stand stand female 2500
 0 0 medium unknown
 r bash -50
-r charm 100
+r charm 999
 #7590
 servant~
 a servant~
@@ -972,16 +990,16 @@ r fire -50
 r cold -50
 r lightning -50
 r acid -50
-r holy -50
+r poison -50
 r negative -50
+r holy -50
 r energy -50
 r mental -50
-r sound -50
 r disease -50
-r poison -50
-r charm -50
-r harm -50
 r light -50
+r harm -50
+r charm -50
+r sound -50
 #7591
 cutpurse~
 a cutpurse~
@@ -1010,23 +1028,23 @@ BJVe 0 0 0 0 900 0
 CDF
 stand stand male 100000
 0 0 medium unknown
-r bash 100
-r pierce 100
-r slash 100
-r fire 100
-r cold 100
-r lightning 100
-r acid 100
-r holy 100
-r negative 100
-r energy 100
-r mental 100
-r sound 100
-r disease 100
-r poison 100
-r charm 100
-r harm 100
-r light 100
+r bash 999
+r pierce 999
+r slash 999
+r fire 999
+r cold 999
+r lightning 999
+r acid 999
+r poison 999
+r negative 999
+r holy 999
+r energy 999
+r mental 999
+r disease 999
+r light 999
+r harm 999
+r charm 999
+r sound 999
 #7593
 blacksmith vendy~
 the blacksmith Vendy~
@@ -1042,23 +1060,23 @@ BJTVe 0 0 0 0 900 0
 CEIK
 stand stand female 250000
 0 0 medium unknown
-r bash 100
-r pierce 100
-r slash 100
-r fire 100
-r cold 100
-r lightning 100
-r acid 100
-r holy 100
-r negative 100
-r energy 100
-r mental 100
-r sound 100
-r disease 100
-r poison 100
-r charm 100
-r harm 100
-r light 100
+r bash 999
+r pierce 999
+r slash 999
+r fire 999
+r cold 999
+r lightning 999
+r acid 999
+r poison 999
+r negative 999
+r holy 999
+r energy 999
+r mental 999
+r disease 999
+r light 999
+r harm 999
+r charm 999
+r sound 999
 #7594
 mage~
 the mage~
@@ -1073,23 +1091,23 @@ BJVe 0 0 0 A 900 0
 AF
 stand stand male 150000
 0 0 medium unknown
-r bash 100
-r pierce 100
-r slash 100
-r fire 100
-r cold 100
-r lightning 100
-r acid 100
-r holy 100
-r negative 100
-r energy 100
-r mental 100
-r sound 100
-r disease 100
-r poison 100
-r charm 100
-r harm 100
-r light 100
+r bash 999
+r pierce 999
+r slash 999
+r fire 999
+r cold 999
+r lightning 999
+r acid 999
+r poison 999
+r negative 999
+r holy 999
+r energy 999
+r mental 999
+r disease 999
+r light 999
+r harm 999
+r charm 999
+r sound 999
 #7595
 pawn shop runner~
 the pawn shop owner~
@@ -1104,23 +1122,23 @@ BJVe 0 0 0 0 900 0
 EFJ
 stand stand male 130000
 0 0 medium unknown
-r bash 100
-r pierce 100
-r slash 100
-r fire 100
-r cold 100
-r lightning 100
-r acid 100
-r holy 100
-r negative 100
-r energy 100
-r mental 100
-r sound 100
-r disease 100
-r poison 100
-r charm 100
-r harm 100
-r light 100
+r bash 999
+r pierce 999
+r slash 999
+r fire 999
+r cold 999
+r lightning 999
+r acid 999
+r poison 999
+r negative 999
+r holy 999
+r energy 999
+r mental 999
+r disease 999
+r light 999
+r harm 999
+r charm 999
+r sound 999
 #7597
 merchant~
 the merchant~
@@ -1135,23 +1153,23 @@ JVe 0 0 0 0 900 0
 EFJ
 stand stand male 80000
 0 0 medium unknown
-r bash 100
-r pierce 100
-r slash 100
-r fire 100
-r cold 100
-r lightning 100
-r acid 100
-r holy 100
-r negative 100
-r energy 100
-r mental 100
-r sound 100
-r disease 100
-r poison 100
-r charm 100
-r harm 100
-r light 100
+r bash 999
+r pierce 999
+r slash 999
+r fire 999
+r cold 999
+r lightning 999
+r acid 999
+r poison 999
+r negative 999
+r holy 999
+r energy 999
+r mental 999
+r disease 999
+r light 999
+r harm 999
+r charm 999
+r sound 999
 #7604
 herbalist~
 the herbalist~
@@ -1166,23 +1184,23 @@ BJVe 0 0 0 0 900 0
 EFJ
 stand stand female 150000
 0 0 medium unknown
-r bash 100
-r pierce 100
-r slash 100
-r fire 100
-r cold 100
-r lightning 100
-r acid 100
-r holy 100
-r negative 100
-r energy 100
-r mental 100
-r sound 100
-r disease 100
-r poison 100
-r charm 100
-r harm 100
-r light 100
+r bash 999
+r pierce 999
+r slash 999
+r fire 999
+r cold 999
+r lightning 999
+r acid 999
+r poison 999
+r negative 999
+r holy 999
+r energy 999
+r mental 999
+r disease 999
+r light 999
+r harm 999
+r charm 999
+r sound 999
 #7609
 animal man~
 the animal man~
@@ -1197,20 +1215,20 @@ BJV 0 0 0 0 900 0
 0
 stand stand male 9000
 0 0 medium unknown
-r fire 100
-r cold 100
-r lightning 100
-r acid 100
-r holy 100
-r negative 100
-r energy 100
-r mental 100
-r sound 100
-r disease 100
-r poison 100
-r charm 100
-r harm 100
-r light 100
+r fire 999
+r cold 999
+r lightning 999
+r acid 999
+r poison 999
+r negative 999
+r holy 999
+r energy 999
+r mental 999
+r disease 999
+r light 999
+r harm 999
+r charm 999
+r sound 999
 #7610
 witch hag~
 the old witch~
@@ -1225,23 +1243,23 @@ BJVe 0 0 0 A 900 7006
 AF
 stand stand male 20000
 0 0 medium unknown
-r bash 100
-r pierce 100
-r slash 100
-r fire 100
-r cold 100
-r lightning 100
-r acid 100
-r holy 100
-r negative 100
-r energy 100
-r mental 100
-r sound 100
-r disease 100
-r poison 100
-r charm 100
-r harm 100
-r light 100
+r bash 999
+r pierce 999
+r slash 999
+r fire 999
+r cold 999
+r lightning 999
+r acid 999
+r poison 999
+r negative 999
+r holy 999
+r energy 999
+r mental 999
+r disease 999
+r light 999
+r harm 999
+r charm 999
+r sound 999
 #7698
 hawk~
 a hawk~
@@ -1275,16 +1293,16 @@ r fire -50
 r cold -50
 r lightning -50
 r acid -50
-r holy -50
+r poison -50
 r negative -50
+r holy -50
 r energy -50
 r mental -50
-r sound -50
 r disease -50
-r poison -50
-r charm -50
-r harm -50
 r light -50
+r harm -50
+r charm -50
+r sound -50
 #0
 
 #OBJECTS

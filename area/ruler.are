@@ -1,5 +1,5 @@
 #AREADATA
-Ver 2
+Ver 3
 Name Ruler~
 VNUMs 95100 95199
 Credits Chronos~
@@ -31,8 +31,8 @@ stand stand male 5000
 M grall 95100 100~
 M exall 95101 0~
 C Rulers
-r charm 100
 r light -50
+r charm 999
 #95101
 healer cabal ruler~
 ~~лекарь~~~
@@ -56,15 +56,15 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
-r holy 33
+r poison 33
 r negative 33
+r holy 33
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r charm 100
 r harm 33
+r charm 999
+r sound 33
 #0
 
 #OBJECTS

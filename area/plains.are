@@ -1,5 +1,5 @@
 #AREADATA
-Ver 2
+Ver 3
 Name Plains~
 VNUMs 300 399
 Credits Copper~
@@ -161,6 +161,11 @@ BHR 0 H 0 A 1000 0
 FR
 stand stand female 0
 0 0 medium unknown
+r bash -33
+r pierce 50
+r fire -33
+r cold 50
+r charm -33
 #0
 
 #OBJECTS

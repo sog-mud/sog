@@ -1,5 +1,5 @@
 #AREADATA
-Ver 2
+Ver 3
 Name The Village of Anon~
 VNUMs 24100 24199
 Credits Yaegar~
@@ -227,6 +227,8 @@ I 0 0 0 0 0 0
 CF
 stand stand either 1000
 0 0 medium unknown
+r bash -33
+r cold -33
 #24114
 aurochs~
 the aurochs~
@@ -440,6 +442,20 @@ GH 0 0 0 0 0 0
 0
 stand stand female 1000
 0 0 medium unknown
+r fire 50
+r cold 50
+r lightning 50
+r acid 50
+r poison 50
+r negative 50
+r holy 50
+r energy 50
+r mental 50
+r disease 50
+r light 50
+r harm 50
+r charm 50
+r sound 50
 #24128
 militia member~
 a member of the village militia~

@@ -1,5 +1,5 @@
 #AREADATA
-Ver 2
+Ver 3
 Name Prison~
 Builders orail~
 VNUMs 32000 32099
@@ -327,16 +327,16 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
-r holy 33
+r poison 33
 r negative 33
+r holy 33
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r charm 100
-r harm 33
 r light 33
+r harm 33
+r charm 999
+r sound 33
 #32020
 towel boy~
 the towel boy~
@@ -400,6 +400,11 @@ G 0 HU AG AB 1000 0
 F
 stand stand male 100
 0 0 huge unknown
+r bash -33
+r pierce 50
+r fire -33
+r cold 50
+r charm -33
 #32024
 Terry ~
 Terry the salesman~
@@ -420,16 +425,16 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
-r holy 33
+r poison 33
 r negative 33
+r holy 33
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r charm 33
-r harm 33
 r light 33
+r harm 33
+r charm 33
+r sound 33
 #0
 
 #OBJECTS

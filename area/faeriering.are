@@ -1,5 +1,5 @@
 #AREADATA
-Ver 2
+Ver 3
 Name Faerie Fire~
 VNUMs 29101 29114
 Credits Lok~
@@ -31,16 +31,16 @@ r slash 33
 r cold 33
 r lightning 33
 r acid 33
-r holy 33
+r poison 33
 r negative 33
+r holy 33
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r charm 33
-r harm 33
 r light 33
+r harm 33
+r charm 33
+r sound 33
 #29102
 nixie faerie никси~
 @eng a fluttering nixie@rus ~~порхающий~~ никси~
@@ -61,16 +61,16 @@ AHMVW ABCDEFGHIJKO tiny unknown
 r cold 33
 r lightning 33
 r acid 33
-r holy 33
+r poison 33
 r negative 33
+r holy 33
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r charm 33
-r harm 33
 r light 33
+r harm 33
+r charm 33
+r sound 33
 #29103
 sprite faerie спрайт~
 @eng a dancing sprite@rus ~~танцующий~~ ~~спрайт~~~
@@ -92,16 +92,16 @@ AHMVW ABCDEFGHIJKO tiny unknown
 r cold 33
 r lightning 33
 r acid 33
-r holy 33
+r poison 33
 r negative 33
+r holy 33
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r charm 33
-r harm 33
 r light 33
+r harm 33
+r charm 33
+r sound 33
 #29104
 brownie faerie брауни~
 @eng a stern brownie@rus ~~мрачный~~ брауни~
@@ -124,16 +124,16 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
-r holy 33
+r poison 33
 r negative 33
+r holy 33
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r charm 33
-r harm 33
 r light 33
+r harm 33
+r charm 33
+r sound 33
 #29105
 puck faerie мистер пак~
 @eng Puck@rus ~~мистер~~ ~~Пак~~~
@@ -159,16 +159,16 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
-r holy 33
+r poison 33
 r negative 33
+r holy 33
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r charm 33
-r harm 33
 r light 33
+r harm 33
+r charm 33
+r sound 33
 #29106
 queen faerie~
 @eng the Faerie Queen@rus ~~королева~~ фейри~
@@ -194,15 +194,16 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
+r poison 33
+r negative 43
 r holy 33
-r negative 33
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r harm 33
 r light 33
+r harm 33
+r charm -33
+r sound 33
 #29107
 leprechaun faerie леприкон lucky~
 @eng Lucky@rus Лаки~
@@ -224,16 +225,16 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
-r holy 33
+r poison 33
 r negative 33
+r holy 33
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r charm 33
-r harm 33
 r light 33
+r harm 33
+r charm 33
+r sound 33
 #29108
 faerie drunken фейри~
 @eng a drunken faerie@rus ~~пьяный~~ фейри~
@@ -258,16 +259,16 @@ r slash 33
 r cold 33
 r lightning 33
 r acid 33
-r holy 33
+r poison 33
 r negative 33
+r holy 33
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r charm 33
-r harm 33
 r light 33
+r harm 33
+r charm 33
+r sound 33
 #29109
 twinkletoes bartender faerie~
 @eng Twinkletoes@rus Твинклету~
@@ -293,16 +294,16 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
-r holy 33
+r poison 33
 r negative 33
+r holy 33
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r charm 33
-r harm 33
 r light 33
+r harm 33
+r charm 33
+r sound 33
 #0
 
 #OBJECTS

@@ -1,5 +1,5 @@
 #AREADATA
-Ver 2
+Ver 3
 Name Dragon Spyre~
 VNUMs 2400 2501
 Credits Anon~
@@ -24,8 +24,11 @@ BFGHJTZ 0 H 0 AB 350 0
 CFM
 stand stand male 4999
 0 0 huge unknown
+r bash -33
+r pierce 50
 r cold -50
-r charm 100
+r acid -33
+r charm 999
 #2401
 White Dragon~
 The White Dragon~
@@ -41,8 +44,10 @@ BFGHJT 0 J 0 AB -350 0
 CFM
 stand stand male 4999
 0 0 huge unknown
-r cold 0
-r charm 100
+r bash -33
+r pierce 50
+r cold -33
+r charm 999
 #2402
 Pixie~
 A Pixie~
@@ -61,7 +66,8 @@ stand stand male 1499
 r bash -50
 r pierce -50
 r slash -50
-r charm 100
+r negative 10
+r charm 999
 #2403
 Time Dragon Spirit~
 The Spirit of the Time Dragon~
@@ -77,7 +83,11 @@ BFGJT 0 HU 0 AB 0 0
 CFM
 stand stand male 6499
 0 0 huge unknown
-r charm 100
+r bash -33
+r pierce 50
+r fire -33
+r cold 50
+r charm 999
 #2404
 Ice Dragon Spirit~
 The Spirit of the Ice Dragon~
@@ -93,7 +103,11 @@ BFGJT 0 HU 0 AB 0 0
 CFM
 stand stand male 6999
 0 0 huge unknown
-r charm 100
+r bash -33
+r pierce 50
+r fire -33
+r cold 50
+r charm 999
 #2405
 Pixie King~
 The Pixie King~
@@ -113,7 +127,8 @@ stand stand male 2499
 r bash -50
 r pierce -50
 r slash -50
-r charm 100
+r negative 10
+r charm 999
 #2406
 gate keeper gatekeeper~
 The GateKeeper~
@@ -133,7 +148,8 @@ stand stand male 2799
 r bash -50
 r pierce -50
 r slash -50
-r charm 100
+r negative 10
+r charm 999
 #2407
 eternity dragon~
 The Eternity Dragon~
@@ -153,6 +169,11 @@ T 0 HU A AB 0 0
 CFM
 stand stand male 14999
 0 0 huge unknown
+r bash -33
+r pierce 50
+r fire -33
+r cold 50
+r charm -33
 #2408
 pixie guard~
 A Pixie Guard~
@@ -172,6 +193,8 @@ stand stand male 1799
 r bash -50
 r pierce -50
 r slash -50
+r negative 10
+r charm -33
 #2409
 mage pixie master~
 The Master Pixie Mage~
@@ -192,6 +215,8 @@ stand stand male 4499
 r bash -50
 r pierce -50
 r slash -50
+r negative 10
+r charm -33
 #2410
 pixie guard~
 A Pixie Guard~
@@ -215,16 +240,16 @@ r fire -50
 r cold -50
 r lightning -50
 r acid -50
+r poison -50
+r negative -40
 r holy -50
-r negative -50
 r energy -50
 r mental -50
-r sound -50
 r disease -50
-r poison -50
-r charm 0
-r harm -50
 r light -50
+r harm -50
+r charm -33
+r sound -50
 #2411
 Pixie~
 A Pixie~
@@ -243,6 +268,8 @@ stand stand male 1499
 r bash -50
 r pierce -50
 r slash -50
+r negative 10
+r charm -33
 #2412
 Keeper~
 A Keeper~
@@ -282,8 +309,12 @@ stand stand male 1499
 M give 2404 91~
 M give 2403 all~
 M greet 2405 100~
-r bash 0
+r bash -33
+r pierce 50
 r slash -50
+r fire -33
+r poison -33
+r charm -33
 #2414
 Pixie~
 A Pixie~
@@ -302,7 +333,8 @@ stand stand male 1499
 r bash -50
 r pierce -50
 r slash -50
-r charm 100
+r negative 10
+r charm 999
 #0
 
 #OBJECTS

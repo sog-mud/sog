@@ -1,5 +1,5 @@
 #AREADATA
-Ver 2
+Ver 3
 Name Kurgan Mount Doom~
 VNUMs 14700 14899
 Credits Yaegar~
@@ -29,16 +29,16 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
-r holy 33
+r poison 33
 r negative 33
+r holy 33
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r charm 100
-r harm 33
 r light 33
+r harm 33
+r charm 999
+r sound 33
 #14701
 death knight~
 a death knight~
@@ -61,7 +61,7 @@ r bash 33
 r pierce 33
 r slash 33
 r fire -50
-r charm 100
+r charm 999
 #14702
 iron golem~
 an iron golem~
@@ -78,6 +78,23 @@ BG 0 0 0 0 0 0
 EFNU
 stand stand none 1000
 0 0 medium unknown
+r bash -33
+r pierce -33
+r slash -33
+r fire 50
+r cold 50
+r lightning 50
+r acid 50
+r poison -33
+r negative 50
+r holy 50
+r energy 50
+r mental 50
+r disease -33
+r light 50
+r harm 50
+r charm 50
+r sound 50
 #14703
 marmandes demon prince~
 the demon prince Marmandes~
@@ -121,16 +138,16 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
-r holy 33
+r poison 33
 r negative 33
+r holy 33
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r charm 100
-r harm 33
 r light 33
+r harm 33
+r charm 999
+r sound 33
 #14705
 high priest~
 an evil high priest~
@@ -215,16 +232,16 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
-r holy 33
+r poison 33
 r negative 33
+r holy 33
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r charm 100
-r harm 33
 r light 33
+r harm 33
+r charm 999
+r sound 33
 #14710
 blackguard guard~
 a member of the blackguard~
@@ -257,6 +274,10 @@ BFG 0 J 0 AB -1000 0
 CEFM
 stand stand none 1000
 0 0 medium unknown
+r bash -33
+r pierce 50
+r fire -33
+r charm -33
 #14712
 black dragon~
 a black dragon~
@@ -274,6 +295,10 @@ BFG 0 J 0 BK -1000 0
 CEFM
 stand stand none 1000
 0 0 medium unknown
+r bash -33
+r pierce 50
+r acid -33
+r charm -33
 #14713
 white dragon~
 a white dragon~
@@ -291,6 +316,10 @@ BFG 0 J 0 AB -1000 0
 CEFM
 stand stand none 1000
 0 0 medium unknown
+r bash -33
+r pierce 50
+r cold -33
+r charm -33
 #14714
 blue dragon~
 a blue dragon~
@@ -308,6 +337,10 @@ BFG 0 J 0 AB -1000 0
 CEFM
 stand stand none 1000
 0 0 medium unknown
+r bash -33
+r pierce 50
+r lightning -33
+r charm -33
 #14715
 green dragon~
 a green dragon~
@@ -325,6 +358,10 @@ BFG 0 J 0 AB -1000 0
 CEFM
 stand stand none 1000
 0 0 medium unknown
+r bash -33
+r pierce 50
+r poison -33
+r charm -33
 #14716
 fire elemental~
 a fire elemental~
@@ -339,7 +376,7 @@ BFG 0 0 0 0 0 0
 EF
 stand stand none 1000
 0 0 medium unknown
-r fire 100
+r fire 999
 #14717
 efreeti~
 an efreeti~
@@ -357,7 +394,7 @@ BFG 0 NT 0 HK -1000 0
 FIK
 stand stand male 1000
 0 0 medium unknown
-r fire 100
+r fire 999
 #14718
 shedu~
 a shedu~
@@ -452,6 +489,8 @@ BFG 0 0 0 0 0 0
 EFU
 stand stand none 1000
 0 0 medium unknown
+r negative 10
+r charm -33
 #14724
 quasit~
 a quasit~
@@ -511,7 +550,7 @@ BFG 0 0 0 0 0 0
 EFU
 stand stand none 1000
 0 0 medium unknown
-r cold 100
+r cold 999
 #14728
 air elemental~
 an air elemental~
@@ -557,23 +596,23 @@ BG 0 0 0 H -1000 0
 CEFIKQ
 stand stand male 1000
 0 0 medium unknown
-r bash 33
-r pierce 33
-r slash 33
-r fire 0
-r cold -50
-r lightning -50
+r bash 8
+r pierce 8
+r slash 8
+r fire -50
+r cold -20
+r lightning -20
 r acid -50
-r holy -50
-r negative -50
-r energy -50
-r mental -50
-r sound -50
-r disease -50
 r poison -50
-r charm -50
-r harm -50
+r negative -50
+r holy -50
+r energy -50
+r mental -20
+r disease -50
 r light -50
+r harm -50
+r charm -50
+r sound -50
 #14731
 frost giant~
 a frost giant~
@@ -589,6 +628,13 @@ BFG 0 0 0 H -1000 0
 CEFIKQ
 stand stand male 1000
 0 0 medium unknown
+r bash -25
+r pierce -25
+r slash -25
+r fire 30
+r cold -50
+r lightning 30
+r mental 30
 #14732
 hill giant~
 a hill giant~
@@ -605,6 +651,10 @@ BFG 0 0 0 H -1000 0
 CEFIKQ
 stand stand male 1000
 0 0 medium unknown
+r fire -33
+r cold -33
+r lightning 50
+r mental 50
 #14733
 ~
 a cloud giant~
@@ -620,6 +670,10 @@ BFG 0 0 0 H -1000 0
 CEFIKQ
 stand stand male 1000
 0 0 medium unknown
+r fire -33
+r cold -33
+r lightning 50
+r mental 50
 #14734
 ogre~
 an ogre servant~
@@ -683,6 +737,10 @@ BG 0 0 0 H -1000 0
 CEFIKQ
 stand stand male 1000
 0 0 medium unknown
+r fire -33
+r cold -33
+r lightning 50
+r mental 50
 #14738
 chief assassin~
 the chief assassin~
@@ -805,6 +863,23 @@ BG 0 0 0 0 0 0
 EFNU
 stand stand none 1000
 0 0 medium unknown
+r bash -33
+r pierce -33
+r slash -33
+r fire 50
+r cold 50
+r lightning 50
+r acid 50
+r poison -33
+r negative 50
+r holy 50
+r energy 50
+r mental 50
+r disease -33
+r light 50
+r harm 50
+r charm 50
+r sound 50
 #14746
 keeper~
 The keeper of the mutant pit~
@@ -834,8 +909,9 @@ BG 0 J 0 AH -1000 0
 EFIK
 stand stand male 1000
 0 0 medium unknown
+r cold 50
+r poison 999
 r disease 33
-r poison 100
 #0
 
 #OBJECTS

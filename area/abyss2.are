@@ -1,5 +1,5 @@
 #AREADATA
-Ver 2
+Ver 3
 Name The Abyss~
 VNUMs 25000 25099
 Credits Anon~
@@ -36,6 +36,16 @@ lich~
 0
 stand stand male 6700
 0 0 medium unknown
+r bash -15
+r pierce -35
+r slash -25
+r cold -100
+r lightning -100
+r poison -100
+r negative -100
+r holy 50
+r disease -100
+r charm -100
 #25001
 keftab ancient кефтаб древний~
 @eng Keftab, the Ancient One@rus ~~Кефтаб~~ ~~Древний~~~
@@ -71,14 +81,14 @@ r fire -50
 r cold -50
 r lightning -50
 r acid -50
+r poison 999
 r negative -50
 r energy -50
 r mental -50
-r sound -50
-r disease 100
-r poison 100
-r charm 33
+r disease 999
 r harm -50
+r charm 33
+r sound -50
 #25002
 death crimson красная смерть~
 @eng A Crimson Death@rus ~~Красная~~ ~~Смерть~~~
@@ -103,7 +113,7 @@ g @eng neutral@rus female~
 r bash 33
 r holy -50
 r energy -50
-r charm 100
+r charm 999
 #25003
 demon mist демон тумана~
 @eng A Mist Daemon@rus ~~Демон~~ тумана~
@@ -123,7 +133,7 @@ HIK
 stand stand neutral 10000
 0 0 medium unknown
 g @eng neutral@rus male~
-r charm 100
+r charm 999
 #25004
 black slayer черный убийца~
 @eng a Black Slayer@rus ~~Черный~~ ~~Убийца~~~
@@ -146,15 +156,15 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
-r holy 33
+r poison 33
 r negative 33
+r holy 33
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r harm 33
 r light 33
+r harm 33
+r sound 33
 #25005
 lost soul потерянная душа~
 @eng a Lost Soul@rus ~~потерянная~~ ~~душа~~~
@@ -170,22 +180,22 @@ CFJ 0 0 G AH -1000 0
 FGJK
 stand stand female 666
 0 0 medium unknown
-r bash -50
-r pierce -50
-r slash -50
+r bash -83
+r pierce -83
+r slash -83
 r fire 33
 r cold 33
 r lightning 33
 r acid 33
-r holy 33
-r negative 33
+r poison -67
+r negative -67
+r holy 83
 r energy 33
 r mental 33
-r sound 33
-r disease 33
-r poison 33
-r charm 33
+r disease -67
 r harm 33
+r charm 33
+r sound 33
 #25006
 storm giant гигант~
 @eng a Storm Giant@rus ~~гигант~~~
@@ -204,6 +214,13 @@ storm giant~
 0
 stand stand male 10000
 0 0 large unknown
+r bash -23
+r pierce -23
+r slash -23
+r fire 30
+r cold 30
+r lightning -50
+r mental 30
 #25007
 white gold manticore золотая мантикора~
 @eng a White Gold Manticore@rus ~~золотая~~ ~~мантикора~~~
@@ -245,12 +262,12 @@ genie~
 0
 stand stand male 5612
 0 0 medium unknown
-r fire 100
+r fire 999
+r poison 999
 r holy -50
 r energy -50
-r disease 100
-r poison 100
-r charm 100
+r disease 999
+r charm 999
 #25009
 hydra гидра~
 @eng the Hydra@rus ~~гидра~~~
@@ -268,9 +285,9 @@ BCFJ 0 0 0 H -1000 0
 K
 stand stand female 6090
 0 0 medium unknown
-r energy -50
 r poison -50
-r charm 100
+r energy -50
+r charm 999
 #25010
 kraken кракен~
 @eng the kraken@rus ~~кракен~~~
@@ -293,16 +310,16 @@ stand stand male 4504
 0 0 giant unknown
 r lightning 33
 r acid 33
-r holy 33
+r poison 33
 r negative 33
+r holy 33
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r charm 33
-r harm 33
 r light 33
+r harm 33
+r charm 33
+r sound 33
 #25011
 treant tree дерево~
 @eng the Treant@rus ~~ожившее~~ ~~дерево~~~
@@ -322,21 +339,22 @@ treant~
 stand stand male 5709
 0 0 medium unknown
 g @eng male@rus neutral~
-r bash 33
-r pierce 33
-r slash 33
+r bash -17
+r pierce -17
+r slash -17
+r fire 50
 r cold -50
 r lightning -50
 r acid -50
-r holy -50
+r poison 999
 r negative -50
+r holy -50
 r energy -50
-r mental 100
-r sound 100
-r disease 100
-r poison 100
-r charm 33
+r mental 999
+r disease 999
 r harm -50
+r charm 33
+r sound 999
 #25012
 githyanki гитьянки~
 @eng a Githyanki@rus гитьянки~
@@ -358,8 +376,9 @@ BCGH 0 0 0 0 -1000 25012
 0
 stand stand male 1500
 0 0 medium unknown
-r negative 33
 r poison 33
+r negative 8
+r holy 15
 #25013
 kalas калас~
 @eng Kalas@rus ~~Калас~~~
@@ -383,7 +402,7 @@ r fire 33
 r cold -50
 r lightning -50
 r acid -50
-r charm 100
+r charm 999
 #25014
 death knight рыцарь смерти~
 @eng the Death knight@rus ~~рыцарь~~ смерти~
@@ -407,8 +426,12 @@ stand stand male 6860
 r bash 33
 r pierce 33
 r slash 33
-r fire -50
-r charm 100
+r fire -83
+r poison -100
+r negative -33
+r holy 50
+r disease -100
+r charm 999
 #25015
 Neo Otyugh нео отью~
 @eng the Neo-Otyugh@rus Нео-отью~
@@ -429,7 +452,7 @@ stand stand male 10000
 r cold -50
 r acid 33
 r poison 33
-r charm 100
+r charm 999
 #25016
 shadow демон теней demon~
 @eng a Shadow Demon@rus ~~демон~~ теней~
@@ -447,12 +470,12 @@ CFJ 0 0 0 AH -1000 0
 CDHI
 stand stand male 1230
 0 0 medium unknown
-r holy 33
 r negative 33
+r holy 33
 r energy 33
-r sound -50
-r charm 100
 r light -50
+r charm 999
+r sound -50
 #25017
 gatekeeper gate keeper хранитель врат~
 @eng the Gatekeeper@rus ~~хранитель~~ Врат~
@@ -471,7 +494,11 @@ BFGJ 0 J 0 ABH -1000 25036
 CI
 stand stand male 5400
 0 0 medium unknown
-r charm 100
+r fire -33
+r cold -33
+r lightning 50
+r mental 50
+r charm 999
 #25018
 elemental water prince принц элементалей воды~
 @eng The Water Prince@rus ~~принц~~ водных элементалей~
@@ -490,6 +517,11 @@ stand stand male 4500
 D 0 medium unknown
 F for AZ
 F par AD
+r bash -33
+r pierce -33
+r slash -33
+r fire -33
+r cold -33
 #25019
 earth elemental king король элементалей земли~
 @eng The Earth King@rus ~~король~~ земных элементалей~
@@ -508,6 +540,9 @@ stand stand male 10000
 D 0 medium unknown
 F for Z
 F par AD
+r bash -33
+r pierce -33
+r slash -33
 #25020
 air elemental lord повелитель элементалей воздуха~
 @eng The Lord of Air@rus ~~повелитель~~ элементалей воздуха~
@@ -526,6 +561,9 @@ stand stand male 4906
 D 0 medium unknown
 F for Z
 F par AD
+r bash -33
+r pierce -33
+r slash -33
 #25021
 fire elemental sultan султан элементалей огня~
 @eng The Sultan of Fire@rus ~~султан~~ огня~
@@ -544,6 +582,11 @@ stand stand male 4111
 D 0 medium unknown
 F for Z
 F par AD
+r bash -33
+r pierce -33
+r slash -33
+r fire -100
+r cold 50
 #25030
 demon vrock демон врок~
 @eng A vrock@rus ~~Врок~~~
@@ -564,20 +607,20 @@ stand stand male 999
 r bash -50
 r pierce -50
 r slash -50
-r fire 33
-r cold 33
-r lightning 33
+r fire -67
+r cold -17
+r lightning -67
 r acid 33
-r holy 33
+r poison -67
 r negative 33
+r holy 33
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r charm 100
-r harm 33
 r light 33
+r harm 33
+r charm 999
+r sound 33
 #25031
 demon hezrou демон хезроу~
 @eng A hezrou@rus Хезроу~
@@ -595,10 +638,13 @@ AKN
 stand stand male 378
 0 0 medium unknown
 r slash 33
-r fire -50
+r fire -150
+r cold -50
+r lightning -100
+r poison -100
 r mental 33
-r charm 100
 r light 33
+r charm 999
 #25032
 demon glabrezu демон глабрезу~
 @eng A glabrezu@rus Глабрезу~
@@ -615,7 +661,11 @@ CFJ 0 0 0 ABH -666 25032
 J
 stand stand either 490
 0 0 medium unknown
-r charm 100
+r fire -100
+r cold -50
+r lightning -100
+r poison -100
+r charm 999
 #25033
 demon nalfeshnee нэльфешни~
 @eng Nalfeshnee@rus Нэльфешни~
@@ -632,7 +682,11 @@ BCFJ 0 0 0 ABH -666 25033
 A
 stand stand either 890
 0 0 medium unknown
-r charm 100
+r fire -100
+r cold -50
+r lightning -100
+r poison -100
+r charm 999
 #25034
 demon marilith марилит~
 @eng Marilith@rus Марилит~
@@ -649,6 +703,10 @@ F 0 0 0 0 -666 25034
 0
 stand stand female 450
 0 0 large unknown
+r fire -100
+r cold -50
+r lightning -100
+r poison -100
 #25035
 demon balor балор~
 @eng Balor@rus Балор~
@@ -668,6 +726,10 @@ stand stand male 899
 r bash 33
 r pierce 33
 r slash 33
+r fire -100
+r cold -50
+r lightning -100
+r poison -100
 r charm 50
 #25036
 gatekeeper gate keeper хранитель врат~
@@ -686,7 +748,7 @@ BFGJ 0 J 0 ABH -1000 25017
 CDIK
 stand stand male 5400
 0 0 medium unknown
-r charm 100
+r charm 999
 #0
 
 #OBJECTS

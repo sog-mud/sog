@@ -1,5 +1,5 @@
 #AREADATA
-Ver 2
+Ver 3
 Name The City of Anon~
 VNUMs 31000 31199
 Credits Yaegar~
@@ -25,7 +25,7 @@ BGJe D HN 0 0 1000 0
 FHKN
 stand stand male 1000
 0 0 medium unknown
-r charm 100
+r charm 999
 #31001
 dryad guildmaster~
 the Dryad Guildmaster~
@@ -59,7 +59,7 @@ BGJ 0 HN 0 ABKL 1000 0
 FHKN
 stand stand male 1000
 0 0 medium unknown
-r charm 100
+r charm 999
 #31003
 armorer~
 the Armorer~
@@ -80,7 +80,7 @@ BGJe 0 HN 0 0 1000 0
 FHKN
 stand stand male 1000
 0 0 medium unknown
-r charm 100
+r charm 999
 #31004
 weaponsmith smith~
 the Weaponsmith~
@@ -99,7 +99,7 @@ BGJe 0 HN 0 0 1000 0
 FHKN
 stand stand male 1000
 0 0 medium unknown
-r charm 100
+r charm 999
 #31005
 mercenary master~
 the Mercenary Master~
@@ -132,7 +132,7 @@ BGJe 0 HN 0 0 1000 0
 FHKN
 stand stand female 1000
 0 0 medium unknown
-r charm 100
+r charm 999
 #31007
 mitzak sage~
 Mitzak the Sage~
@@ -151,7 +151,7 @@ BGJ 0 HN 0 ABKL 1000 0
 FHKN
 stand stand male 1000
 0 0 medium unknown
-r charm 100
+r charm 999
 #31008
 pet owner~
 the Pet Shop Owner~
@@ -170,7 +170,7 @@ BGJe 0 HN 0 0 1000 0
 FHKN
 stand stand male 1000
 0 0 medium unknown
-r charm 100
+r charm 999
 #31009
 elven elf guildmaster~
 the Elven Guildmaster~
@@ -188,6 +188,8 @@ BG D HN 0 0 1000 0
 F
 stand stand male 1000
 0 0 medium unknown
+r negative 10
+r charm -33
 #31010
 grocer~
 the Grocer~
@@ -205,7 +207,7 @@ BGJe 0 HN 0 0 1000 0
 FHKN
 stand stand female 1000
 0 0 medium unknown
-r charm 100
+r charm 999
 #31011
 dwarf baker~
 the Baker~
@@ -256,6 +258,9 @@ BGQ 0 HN 0 0 1000 0
 F
 stand stand male 1000
 0 0 medium unknown
+r bash -7
+r poison -25
+r disease -25
 #31014
 kender guildmaster~
 the Kender Guildmaster~
@@ -303,6 +308,8 @@ BGe 0 HN 0 0 0 0
 FKN
 stand stand male 1000
 0 0 medium unknown
+r negative 10
+r charm -33
 #31017
 Dwarven waiter~
 a Dwarven Waiter~
@@ -318,6 +325,9 @@ BGe 0 HN 0 0 0 0
 FHKN
 stand stand male 1000
 0 0 medium unknown
+r bash -7
+r poison -25
+r disease -25
 #31018
 greasy bartender~
 a Greasy Bartender~
@@ -389,6 +399,8 @@ I 0 0 0 0 0 0
 CF
 stand stand either 1000
 0 0 medium unknown
+r bash -33
+r cold -33
 #31023
 elephant~
 the elephant~
@@ -500,7 +512,7 @@ BGJe 0 HN 0 0 0 0
 FHKN
 stand stand none 1000
 0 0 medium unknown
-r charm 100
+r charm 999
 #31030
 human waiter~
 a Human Waiter~
@@ -679,6 +691,20 @@ GH 0 0 0 0 0 0
 0
 stand stand none 1000
 0 0 medium unknown
+r fire 50
+r cold 50
+r lightning 50
+r acid 50
+r poison 50
+r negative 50
+r holy 50
+r energy 50
+r mental 50
+r disease 50
+r light 50
+r harm 50
+r charm 50
+r sound 50
 #31042
 rat~
 a huge sewer rat~
@@ -784,6 +810,8 @@ IV 0 0 0 A 0 0
 F
 stand stand male 1000
 0 0 medium unknown
+r negative 10
+r charm -33
 #31049
 dwarf dwarven merc3~
 Dwarven Mercenary~
@@ -798,6 +826,9 @@ I 0 N 0 0 0 0
 DF
 stand stand male 1000
 0 0 medium unknown
+r bash -7
+r poison -25
+r disease -25
 #31050
 troll trollish merc4~
 Trollish Mercenary~
@@ -826,6 +857,10 @@ I 0 N 0 0 0 0
 CDEF
 stand stand male 1000
 0 0 medium unknown
+r fire -33
+r cold -33
+r lightning 50
+r mental 50
 #31052
 half-dragon dragon merc6~
 Half-Dragon Mercenary~
@@ -840,6 +875,11 @@ I 0 0 0 AB 0 0
 CDEF
 stand stand male 1000
 0 0 medium unknown
+r bash -33
+r pierce 50
+r fire -33
+r cold 50
+r charm -33
 #31053
 salvatore~
 Salvatore~
@@ -856,7 +896,7 @@ GJe 0 HN 0 H 1000 0
 FHKN
 stand stand male 1000
 0 0 medium unknown
-r charm 100
+r charm 999
 #31054
 guard~
 a City Guard~

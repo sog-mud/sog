@@ -1,5 +1,5 @@
 #AREADATA
-Ver 2
+Ver 3
 Name Valhalla~
 VNUMs 1200 1299
 Credits Diku~
@@ -33,16 +33,16 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
-r holy 33
-r negative 33
-r energy 33
-r mental 100
-r sound 33
-r disease 33
 r poison 33
-r charm 100
-r harm 33
+r negative 33
+r holy 33
+r energy 33
+r mental 999
+r disease 33
 r light 33
+r harm 33
+r charm 999
+r sound 33
 #0
 
 #OBJECTS

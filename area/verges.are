@@ -1,5 +1,5 @@
 #AREADATA
-Ver 2
+Ver 3
 Name Five Verges~
 Builders chindy~
 VNUMs 34101 34399
@@ -29,6 +29,7 @@ stand stand male 100
 r bash 33
 r pierce 33
 r slash -50
+r charm -20
 #34102
 novice warrior~
 @eng Novice Warrior~
@@ -51,11 +52,11 @@ r slash 25
 r fire -33
 r cold -33
 r lightning -33
+r poison 25
 r holy -33
 r energy -33
 r mental -33
 r disease 33
-r poison 25
 r charm -50
 #34103
 baby dragon~
@@ -75,6 +76,11 @@ dragon~
 stand stand male 40
 0 0 medium unknown
 M random 34103 10~
+r bash -33
+r pierce 50
+r fire -33
+r cold 50
+r charm -33
 #34104
 guard water elemental~
 @eng Guardian of Verges~
@@ -92,7 +98,11 @@ BG 0 0 0 0 350 0
 stand stand male 4999
 C BJK huge unknown
 F for Z
-r cold -25
+r bash -33
+r pierce -33
+r slash -33
+r fire -33
+r cold -58
 #34105
 mage novice~
 @eng Novice Mage~
@@ -124,9 +134,13 @@ storm giant~
 0
 stand stand male 5000
 0 0 medium unknown
-r bash 0
-r pierce 0
-r slash 0
+r bash -23
+r pierce -23
+r slash -23
+r fire 30
+r cold 30
+r lightning -50
+r mental 30
 #34107
 novice paladin~
 @eng Novice paladin~
@@ -143,7 +157,7 @@ stand stand male 2799
 E 0 medium unknown
 F for HMV
 r negative -20
-r charm 100
+r charm 999
 #34108
 girl tiny child~
 @eng child@rus ~~девочка~~~

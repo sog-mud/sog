@@ -1,5 +1,5 @@
 #AREADATA
-Ver 2
+Ver 3
 Name Ciquala's Lair~
 VNUMs 13400 13499
 Credits Binky~
@@ -24,8 +24,8 @@ BCDEH
 stand stand male 4200
 0 0 medium unknown
 r acid -50
+r charm 999
 r sound 33
-r charm 100
 #13401
 vampire assistant~
 the vampire lab assistant~
@@ -43,8 +43,8 @@ BCDEH
 stand stand male 1200
 0 0 medium unknown
 r acid -50
+r charm 999
 r sound 33
-r charm 100
 #13402
 creature nightmare~
 a warped creature from a nightmare~
@@ -62,8 +62,8 @@ BCDEH
 stand stand male 5800
 0 0 medium unknown
 r acid -50
+r charm 999
 r sound 33
-r charm 100
 #13403
 creature docile~
 a docile creature~
@@ -79,12 +79,12 @@ B 0 JNO 0 H -1000 0
 HO
 stand stand either 5199
 0 0 medium unknown
-r bash 100
-r lightning 100
+r bash 999
+r lightning 999
 r acid -50
 r mental 33
-r charm 100
 r light 33
+r charm 999
 #13404
 black pudding crate~
 the black pudding~
@@ -100,9 +100,9 @@ BFJ 0 0 0 H -1000 0
 BEF
 stand stand either 0
 0 0 medium unknown
-r cold 100
+r cold 999
 r acid -50
-r charm 100
+r charm 999
 #13405
 gigantic automaton~
 a gigantic automaton~
@@ -118,9 +118,9 @@ BJ 0 H 0 H 0 0
 BEF
 stand stand male 0
 0 0 medium unknown
-r cold 100
+r cold 999
 r acid -50
-r charm 100
+r charm 999
 #13406
 undead guardian~
 the undead guardian~
@@ -136,9 +136,9 @@ BFJ 0 T A AH -1000 0
 BEF
 stand stand male 7500
 0 0 medium unknown
-r cold 100
+r cold 999
 r acid -50
-r charm 100
+r charm 999
 #13407
 roof ceiling lurker above~
 the lurker above~
@@ -155,8 +155,8 @@ BCDEH
 stand stand male 0
 0 0 medium unknown
 r acid -50
+r charm 999
 r sound 33
-r charm 100
 #13408
 vampire servant~
 a vampire servant~
@@ -174,7 +174,7 @@ BEF
 stand stand male 5300
 0 0 medium unknown
 r acid -50
-r charm 100
+r charm 999
 #13409
 human automaton~
 the human automaton~
@@ -192,7 +192,7 @@ BEF
 stand stand male 3400
 0 0 medium unknown
 r acid -50
-r charm 100
+r charm 999
 #13410
 human automaton~
 the human automaton~
@@ -210,7 +210,7 @@ BEF
 stand stand male 0
 0 0 medium unknown
 r acid -50
-r charm 100
+r charm 999
 #13411
 human automaton~
 the human automaton~
@@ -228,7 +228,7 @@ BEF
 stand stand male 0
 0 0 medium unknown
 r acid -50
-r charm 100
+r charm 999
 #13412
 human automaton~
 the human automaton~
@@ -246,7 +246,7 @@ BEF
 stand stand male 0
 0 0 medium unknown
 r acid -50
-r charm 100
+r charm 999
 #13413
 torturer lich~
 the torturer lich~
@@ -262,7 +262,7 @@ B
 stand stand male 7500
 0 0 medium unknown
 r acid -50
-r charm 100
+r charm 999
 #13414
 undead dragon~
 Ciquala's Undead Dragon~
@@ -277,8 +277,12 @@ BFJ 0 J 0 AB -1000 0
 B
 stand stand female 9500
 0 0 medium unknown
+r bash -33
+r pierce 50
+r fire -33
+r cold 50
 r acid -50
-r charm 100
+r charm 999
 #13415
 Ciquala lich~
 the lich Ciquala~
@@ -296,8 +300,8 @@ BCDEH
 stand stand female 10000
 0 0 medium unknown
 r acid -50
+r charm 999
 r sound 33
-r charm 100
 #13416
 lich~
 Lich~
@@ -314,7 +318,7 @@ B
 stand stand male 6500
 0 0 medium unknown
 r acid -50
-r charm 100
+r charm 999
 #13417
 vampire~
 vampire~
@@ -332,7 +336,7 @@ B
 stand stand male 7800
 0 0 medium unknown
 r acid -50
-r charm 100
+r charm 999
 #13418
 vampire assistant~
 the vampire lab assistant~
@@ -350,8 +354,8 @@ BCDEH
 stand stand female 1200
 0 0 medium unknown
 r acid -50
+r charm 999
 r sound 33
-r charm 100
 #0
 
 #OBJECTS

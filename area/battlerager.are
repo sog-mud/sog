@@ -1,5 +1,5 @@
 #AREADATA
-Ver 2
+Ver 3
 Name Battlerager~
 VNUMs 95400 95499
 Credits Chronos~
@@ -35,7 +35,11 @@ C Battleragers
 r bash 33
 r pierce 33
 r slash 33
-r charm 100
+r fire -33
+r cold -33
+r lightning 50
+r mental 50
+r charm 999
 #95401
 Gordall~
 @eng Gordall@rus Гордалл~
@@ -57,7 +61,7 @@ r bash 33
 r pierce 33
 r slash 33
 r mental -50
-r charm 100
+r charm 999
 #95402
 wiseman~
 @eng A Wiseman@rus Мудрец~
@@ -80,20 +84,20 @@ C Battleragers
 r bash 33
 r pierce 33
 r slash 33
-r fire 100
-r cold 100
-r lightning 100
-r acid 100
-r holy 100
-r negative 100
-r energy 100
-r mental 100
-r sound 100
-r disease 100
-r poison 100
-r charm 100
-r harm 100
-r light 100
+r fire 999
+r cold 999
+r lightning 999
+r acid 999
+r poison 999
+r negative 999
+r holy 999
+r energy 999
+r mental 999
+r disease 999
+r light 999
+r harm 999
+r charm 999
+r sound 999
 #95403
 urukhay troll~
 @eng Urukhay@rus Урукхай~
@@ -111,9 +115,13 @@ stand stand male 0
 0 0 large unknown
 M grall 95402 100~
 C Battleragers
+r bash -20
 r pierce 33
-r slash 33
-r charm 100
+r slash 23
+r fire 25
+r lightning 15
+r acid 40
+r charm 999
 #95404
 rock~
 rock~
@@ -130,23 +138,23 @@ stand stand none 0
 F for AHMV
 M exall 95403 2~
 I 1000
-r bash 100
-r pierce 100
-r slash 100
-r fire 100
-r cold 100
-r lightning 100
-r acid 100
-r holy 100
-r negative 100
-r energy 100
-r mental 100
-r sound 100
-r disease 100
-r poison 100
-r charm 100
-r harm 100
-r light 100
+r bash 999
+r pierce 999
+r slash 999
+r fire 999
+r cold 999
+r lightning 999
+r acid 999
+r poison 999
+r negative 999
+r holy 999
+r energy 999
+r mental 999
+r disease 999
+r light 999
+r harm 999
+r charm 999
+r sound 999
 #95405
 rock~
 rock~
@@ -163,23 +171,23 @@ stand stand none 0
 F for AHMV
 M exall 95404 0~
 I 1000
-r bash 100
-r pierce 100
-r slash 100
-r fire 100
-r cold 100
-r lightning 100
-r acid 100
-r holy 100
-r negative 100
-r energy 100
-r mental 100
-r sound 100
-r disease 100
-r poison 100
-r charm 100
-r harm 100
-r light 100
+r bash 999
+r pierce 999
+r slash 999
+r fire 999
+r cold 999
+r lightning 999
+r acid 999
+r poison 999
+r negative 999
+r holy 999
+r energy 999
+r mental 999
+r disease 999
+r light 999
+r harm 999
+r charm 999
+r sound 999
 #0
 
 #OBJECTS

@@ -1,5 +1,5 @@
 #AREADATA
-Ver 2
+Ver 3
 Name Zoo of Midgaard~
 VNUMs 8200 8299
 Credits Anon~
@@ -66,7 +66,9 @@ BFJ 0 0 0 H 0 0
 0
 stand stand male 0
 0 0 medium unknown
-r charm 100
+r bash -33
+r cold -33
+r charm 999
 #8203
 tiger тигр~
 @eng the tiger@rus тигр~
@@ -83,7 +85,7 @@ BFJ 0 0 0 H 0 0
 H
 stand stand male 0
 0 0 medium unknown
-r charm 100
+r charm 999
 #8204
 dolphin дельфин~
 @eng a dolphin@rus дельфин~
@@ -137,7 +139,9 @@ BFJ 0 0 0 0 -100 8206
 0
 stand stand male 0
 0 0 medium unknown
-r charm 100
+r cold 50
+r poison -33
+r charm 999
 #8207
 bear медведь~
 @eng the bear@rus медведь~
@@ -157,7 +161,9 @@ BFJ 0 0 0 0 0 0
 C
 stand stand male 0
 0 0 medium unknown
-r charm 100
+r bash -33
+r cold -33
+r charm 999
 #8208
 baby dragon lizard huge 8ft дракончик~
 @eng the baby dragon@rus ~~малыш~~-~~дракончик~~~
@@ -179,6 +185,11 @@ B 0 0 0 0 2 0
 0
 stand stand male 0
 0 0 large unknown
+r bash -33
+r pierce 50
+r fire -33
+r cold 50
+r charm -33
 #8209
 elephant слон~
 @eng the elephant@rus слон~
@@ -196,6 +207,11 @@ B 0 0 0 0 100 0
 C
 stand stand male 0
 0 0 large unknown
+r bash -33
+r pierce 50
+r fire -33
+r cold 50
+r charm -33
 #8210
 gorilla горилла~
 @eng the gorilla@rus горилла~
@@ -212,7 +228,7 @@ BFJ 0 0 0 0 0 0
 F
 stand stand male 0
 0 0 medium unknown
-r charm 100
+r charm 999
 #8211
 assistant woman девушка zoo young~
 @eng the zoo assistant@rus ~~работница~~ зоопарка~
@@ -360,16 +376,16 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
-r holy 33
+r poison 33
 r negative 33
+r holy 33
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r charm 33
-r harm 33
 r light 33
+r harm 33
+r charm 33
+r sound 33
 #8237
 parrot harvey попугай~
 @eng Harvey the parrot@rus попугай~

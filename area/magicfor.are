@@ -1,5 +1,5 @@
 #AREADATA
-Ver 2
+Ver 3
 Name Magic Forest~
 VNUMs 1800 1899
 Credits Xyza~
@@ -28,8 +28,8 @@ EFHIJK
 stand stand either 400
 0 PQW large unknown
 r fire -50
-r disease 33
 r poison 33
+r disease 33
 #1802
 unicorn white~
 a white unicorn~
@@ -49,8 +49,8 @@ EFHIJK
 stand stand either 275
 0 PQW large unknown
 r fire -50
-r disease 33
 r poison 33
+r disease 33
 #1803
 panther black~
 a black panther~
@@ -91,12 +91,12 @@ M random 1815 5~
 M random 1816 2~
 M random 1817 2~
 r acid 33
-r holy 33
-r negative 33
-r mental 33
-r sound 100
 r poison 33
+r negative 33
+r holy 33
+r mental 33
 r light -50
+r sound 999
 #1805
 unicorn silver~
 the silver unicorn~
@@ -115,8 +115,8 @@ EFHIKR
 stand stand male 1200
 0 PQW large unknown
 r fire -50
-r disease 33
 r poison 33
+r disease 33
 #1806
 unicorn gold~
 the golden unicorn~
@@ -135,8 +135,8 @@ EFHIKR
 stand stand male 1100
 0 PQW large unknown
 r fire -50
-r disease 33
 r poison 33
+r disease 33
 #1807
 unicorn platinum~
 the platinum unicorn~
@@ -155,8 +155,8 @@ EFHIKR
 stand stand male 1000
 0 PQW large unknown
 r fire -50
-r disease 33
 r poison 33
+r disease 33
 #1808
 unicorn copper~
 the copper unicorn~
@@ -175,8 +175,8 @@ EFHIKR
 stand stand male 900
 0 PQW large unknown
 r fire -50
-r disease 33
 r poison 33
+r disease 33
 #1809
 unicorn chromatic~
 the chromatic unicorn~
@@ -195,8 +195,8 @@ EFHIKR
 stand stand male 1200
 0 PQW large unknown
 r fire -50
-r disease 33
 r poison 33
+r disease 33
 #1810
 unicorn brass~
 the brass unicorn~
@@ -215,8 +215,8 @@ EFHIKR
 stand stand male 800
 0 PQW large unknown
 r fire -50
-r disease 33
 r poison 33
+r disease 33
 #1811
 mushroom mush shroom~
 a mushroom as tall as a giant's knee~
@@ -233,6 +233,20 @@ BGHUY 0 0 0 0 -1000 0
 CU
 stand stand either 200
 c 0 small unknown
+r fire 50
+r cold 50
+r lightning 50
+r acid 50
+r poison 50
+r negative 50
+r holy 50
+r energy 50
+r mental 50
+r disease 50
+r light 50
+r harm 50
+r charm 50
+r sound 50
 #1812
 shadow dragon~
 a shadow dragon~
@@ -249,6 +263,11 @@ BGR 0 U 0 ABKLM -1000 0
 A
 stand stand male 3000
 Gc L giant unknown
+r bash -33
+r pierce 50
+r fire -33
+r cold 50
+r charm -33
 #1813
 red witch~
 the red witch~
@@ -268,8 +287,8 @@ stand stand female 200
 0 0 medium unknown
 M random 1812 12~
 r acid 33
-r holy -50
 r negative 33
+r holy -50
 #1814
 orange witch~
 the orange witch~
@@ -289,8 +308,8 @@ stand stand female 250
 0 0 medium unknown
 M random 1813 12~
 r acid 33
-r holy -50
 r negative 33
+r holy -50
 #1815
 yellow witch~
 the yellow witch~
@@ -311,8 +330,8 @@ stand stand female 300
 0 0 medium unknown
 M random 1814 12~
 r acid 33
-r holy -50
 r negative 33
+r holy -50
 #1816
 green witch~
 the green witch~
@@ -330,8 +349,8 @@ FHU
 stand stand female 300
 0 0 medium unknown
 r acid 33
-r holy -50
 r negative 33
+r holy -50
 #1817
 blue witch~
 the blue witch~
@@ -348,8 +367,8 @@ FHU
 stand stand female 350
 0 0 medium unknown
 r acid 33
-r holy -50
 r negative 33
+r holy -50
 #1818
 indigo witch~
 the indigo witch~
@@ -369,8 +388,8 @@ FHU
 stand stand female 440
 0 0 medium unknown
 r acid 33
-r holy -50
 r negative 33
+r holy -50
 #1819
 violet witch~
 the violet witch~
@@ -391,8 +410,8 @@ stand stand female 440
 0 0 medium unknown
 M grall 1811 100~
 r acid 33
-r holy -50
 r negative 33
+r holy -50
 #1820
 red warlock~
 the red warlock~
@@ -409,8 +428,8 @@ FHU
 stand stand male 200
 0 0 medium unknown
 r acid 33
-r holy -50
 r negative 33
+r holy -50
 #1821
 orange warlock~
 the orange warlock~
@@ -427,8 +446,8 @@ FHU
 stand stand male 250
 0 0 medium unknown
 r acid 33
-r holy -50
 r negative 33
+r holy -50
 #1822
 yellow warlock~
 the yellow warlock~
@@ -447,8 +466,8 @@ FHU
 stand stand male 300
 0 0 medium unknown
 r acid 33
-r holy -50
 r negative 33
+r holy -50
 #1823
 green warlock~
 the green warlock~
@@ -466,8 +485,8 @@ FHU
 stand stand male 300
 0 0 medium unknown
 r acid 33
-r holy -50
 r negative 33
+r holy -50
 #1824
 blue warlock~
 the blue warlock~
@@ -485,8 +504,8 @@ FHU
 stand stand male 350
 0 0 medium unknown
 r acid 33
-r holy -50
 r negative 33
+r holy -50
 #1825
 indigo warlock~
 the indigo warlock~
@@ -507,8 +526,8 @@ FHU
 stand stand male 440
 0 0 medium unknown
 r acid 33
-r holy -50
 r negative 33
+r holy -50
 #1826
 violet warlock~
 the violet warlock~
@@ -529,8 +548,8 @@ stand stand male 440
 0 0 medium unknown
 M grall 1810 100~
 r acid 33
-r holy -50
 r negative 33
+r holy -50
 #1827
 shopkeeper ranger~
 the ranger shopkeeper~
@@ -546,23 +565,23 @@ BGJTW A HV 0 0 1000 0
 CFHIJKV
 stand stand male 2324
 0 0 medium unknown
-r bash 100
-r pierce 100
-r slash 100
-r fire 100
-r cold 100
-r lightning 100
-r acid 100
-r holy 100
-r negative 100
-r energy 100
-r mental 100
+r bash 999
+r pierce 999
+r slash 999
+r fire 999
+r cold 999
+r lightning 999
+r acid 999
+r poison 999
+r negative 999
+r holy 999
+r energy 999
+r mental 999
+r disease 999
+r light 999
+r harm 999
+r charm 999
 r sound 33
-r disease 100
-r poison 100
-r charm 100
-r harm 100
-r light 100
 #1828
 guildmaster ranger~
 the ranger guildmaster~
@@ -580,23 +599,23 @@ BGJT BCD HV 0 0 0 0
 CEFHIJKV
 stand stand male 2324
 0 0 medium unknown
-r bash 100
-r pierce 100
-r slash 100
-r fire 100
-r cold 100
-r lightning 100
-r acid 100
-r holy 100
-r negative 100
-r energy 100
+r bash 999
+r pierce 999
+r slash 999
+r fire 999
+r cold 999
+r lightning 999
+r acid 999
+r poison 999
+r negative 999
+r holy 999
+r energy 999
 r mental 33
+r disease 999
+r light 999
+r harm 999
+r charm 999
 r sound 33
-r disease 100
-r poison 100
-r charm 100
-r harm 100
-r light 100
 #1829
 unicorn black ebony~
 the ebony unicorn~
@@ -615,8 +634,8 @@ EFHIKR
 stand stand male 800
 0 PQW large unknown
 r fire -50
-r disease 33
 r poison 33
+r disease 33
 #1830
 grey squirrel~
 a grey squirrel~
@@ -786,8 +805,8 @@ FHU
 stand stand male 4444
 0 0 medium unknown
 r acid 33
-r holy -50
 r negative 33
+r holy -50
 #1839
 bunny rabbit~
 a small white bunny~
@@ -825,9 +844,9 @@ stand stand either 110
 r fire -50
 r lightning 33
 r acid -50
+r poison -50
 r negative -50
 r energy 33
-r poison -50
 #1899
 ranger healer~
 ranger healer~
@@ -847,20 +866,20 @@ stand stand male 0
 r bash 33
 r pierce 33
 r slash 33
-r fire 100
-r cold 100
-r lightning 100
-r acid 100
-r holy 100
-r negative 100
-r energy 100
-r mental 100
-r sound 100
-r disease 100
-r poison 100
-r charm 100
-r harm 100
-r light 100
+r fire 999
+r cold 999
+r lightning 999
+r acid 999
+r poison 999
+r negative 999
+r holy 999
+r energy 999
+r mental 999
+r disease 999
+r light 999
+r harm 999
+r charm 999
+r sound 999
 #0
 
 #OBJECTS

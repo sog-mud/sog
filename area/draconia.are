@@ -1,5 +1,5 @@
 #AREADATA
-Ver 2
+Ver 3
 Name Dragon Tower~
 VNUMs 2200 2299
 Credits Wench~
@@ -23,6 +23,11 @@ BG 0 0 0 0 -900 0
 EFNU
 stand stand none 100
 0 0 medium unknown
+r bash -33
+r pierce 50
+r fire -33
+r cold 50
+r charm -33
 #2201
 draconian~
 the Draconian~
@@ -153,16 +158,16 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
-r holy 33
+r poison 33
 r negative 33
+r holy 33
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r charm 100
-r harm 33
 r light 33
+r harm 33
+r charm 999
+r sound 33
 #2221
 dragon red~
 the Great Red Dragon~
@@ -178,7 +183,11 @@ BCF 0 0 0 AB -1000 0
 EFNR
 stand stand male 8000
 0 0 medium unknown
-r fire 100
+r bash -33
+r pierce 50
+r fire 999
+r cold 50
+r charm -33
 #2222
 dragon black~
 the Great Black Dragon~
@@ -194,10 +203,13 @@ BCF 0 0 0 AB -900 0
 EFNR
 stand stand male 1000
 0 0 medium unknown
-r fire 0
-r cold 0
+r bash -33
+r pierce 50
+r fire -33
+r cold 50
 r lightning -50
-r acid 100
+r acid 999
+r charm -33
 #2223
 dragon white~
 the Great White Dragon~
@@ -214,8 +226,11 @@ BCF 0 0 0 AB -1000 0
 EFNR
 stand stand female 1750
 0 0 medium unknown
-r fire 0
-r cold 33
+r bash -33
+r pierce 50
+r fire -33
+r cold 83
+r charm -33
 #2225
 dragon green~
 the Ancient Green Dragon~
@@ -232,10 +247,13 @@ BCF 0 0 0 AB -1000 0
 EFNR
 stand stand female 1000
 0 0 medium unknown
-r fire 0
-r cold 0
+r bash -33
+r pierce 50
+r fire -33
+r cold 50
+r poison 999
 r mental -50
-r poison 100
+r charm -33
 #2226
 hydra~
 a large hydra~
@@ -295,6 +313,11 @@ CFGH 0 0 0 AB -300 0
 EFNR
 stand stand male 250
 0 0 medium unknown
+r bash -33
+r pierce 50
+r fire -33
+r cold 50
+r charm -33
 #2242
 fool draconian~
 the draconian fool~

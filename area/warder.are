@@ -1,5 +1,5 @@
 #AREADATA
-Ver 2
+Ver 3
 Name Warders~
 VNUMs 96000 96099
 Credits ParAvoz~
@@ -27,20 +27,20 @@ stand stand none 0
 0 0 giant unknown
 M grall 96000 100~
 M exall 96001 3~
-r fire 100
-r cold 100
-r lightning 100
-r acid 100
-r holy 100
-r negative 100
-r energy 100
-r mental 100
-r sound 100
-r disease 100
-r poison 100
-r charm 100
-r harm 100
-r light 100
+r fire 999
+r cold 999
+r lightning 999
+r acid 999
+r poison 999
+r negative 999
+r holy 999
+r energy 999
+r mental 999
+r disease 999
+r light 999
+r harm 999
+r charm 999
+r sound 999
 #96001
 ancient owl~
 the ancient owl~
@@ -54,20 +54,20 @@ BQVW H HV 0 ABH 0 0
 CEFNU
 stand stand female 0
 AHM 0 medium unknown
-r fire 100
-r cold 100
-r lightning 100
-r acid 100
-r holy 100
-r negative 100
-r energy 100
-r mental 100
-r sound 100
-r disease 100
-r poison 100
-r charm 100
-r harm 100
-r light 100
+r fire 999
+r cold 999
+r lightning 999
+r acid 999
+r poison 999
+r negative 999
+r holy 999
+r energy 999
+r mental 999
+r disease 999
+r light 999
+r harm 999
+r charm 999
+r sound 999
 #0
 
 #OBJECTS

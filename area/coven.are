@@ -1,5 +1,5 @@
 #AREADATA
-Ver 2
+Ver 3
 Name Coven~
 VNUMs 29120 29180
 Credits MacAsp~
@@ -48,15 +48,15 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
+r poison 33
 r negative 33
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r charm 33
-r harm 33
 r light 33
+r harm 33
+r charm 33
+r sound 33
 #29122
 guard woodsman~
 The woodsman guard~
@@ -195,7 +195,8 @@ FG 0 0 0 H 0 0
 H
 stand stand none 0
 R 0 large unknown
-r poison 100
+r cold 50
+r poison 999
 #29130
 guardian temple white being~
 The guardian of the white temple~
@@ -246,15 +247,15 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
+r poison 33
 r negative 33
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r charm 33
-r harm 33
 r light 33
+r harm 33
+r charm 33
+r sound 33
 #29132
 warlock man~
 The warlock~
@@ -275,15 +276,15 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
+r poison 33
 r negative 33
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r charm 33
-r harm 33
 r light 33
+r harm 33
+r charm 33
+r sound 33
 #29133
 leader coven~
 The coven leader~
@@ -305,15 +306,15 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
-r negative 100
+r poison 33
+r negative 999
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r charm 33
-r harm 33
 r light 33
+r harm 33
+r charm 33
+r sound 33
 #29134
 beast hell flaming~
 The flaming beast from hell~
@@ -332,9 +333,9 @@ BFGJ 0 J 0 ABH -1000 0
 F
 stand stand none 1800
 ABG ABCDEFJKLMPUV large unknown
-r fire 100
+r fire 999
 r cold -50
-r poison 100
+r poison 999
 r charm 33
 #0
 

@@ -1,5 +1,5 @@
 #AREADATA
-Ver 2
+Ver 3
 Name Freeport~
 VNUMs 29200 29299
 Credits Lok~
@@ -23,6 +23,8 @@ CH 0 0 0 0 0 0
 FHMR
 stand stand none 0
 0 P small unknown
+r cold 50
+r poison -33
 #29202
 lizard red-tongued~
 the red-tongued lizard~
@@ -38,6 +40,8 @@ CH 0 0 0 0 0 0
 HMR
 stand stand none 0
 0 0 small unknown
+r cold 50
+r poison -33
 #29203
 lizard green-tongued~
 the green-tongued lizard~
@@ -53,6 +57,8 @@ CH 0 0 0 0 0 0
 FHMR
 stand stand none 0
 0 0 small unknown
+r cold 50
+r poison -33
 #29204
 watchman man old sailor~
 the watchman of Widow's Cape~
@@ -269,6 +275,8 @@ BCVe 0 0 0 0 -300 0
 EFNU
 stand stand male 15000
 0 0 medium unknown
+r negative 10
+r charm -33
 #29218
 raedner dwarf dwarven smith~
 Raedner the dwarven smith~
@@ -286,20 +294,21 @@ BCSVe 0 0 0 0 700 0
 EFNU
 stand stand male 15000
 0 0 medium unknown
+r bash -7
 r fire 33
 r cold 33
 r lightning 33
 r acid 33
-r holy 33
+r poison 8
 r negative 33
+r holy 33
 r energy 33
 r mental 33
-r sound 33
-r disease 33
-r poison 33
-r charm 33
-r harm 33
+r disease 8
 r light 33
+r harm 33
+r charm 33
+r sound 33
 #29219
 samantha~
 Samantha, witch of the Mystic Eye~

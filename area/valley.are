@@ -1,5 +1,5 @@
 #AREADATA
-Ver 2
+Ver 3
 Name Valley of the Elves~
 VNUMs 7800 7899
 Credits Hatchet~
@@ -41,6 +41,8 @@ CFGH 0 0 0 0 0 0
 EFNR
 stand stand male 0
 0 0 medium unknown
+r negative 10
+r charm -33
 #7802
 elf valley~
 a valley elf~
@@ -56,6 +58,8 @@ CFGH 0 0 0 0 0 0
 EFNR
 stand stand female 0
 0 0 medium unknown
+r negative 10
+r charm -33
 #7803
 elf sentry valley~
 a valley elf sentry~
@@ -71,6 +75,8 @@ BF 0 0 0 0 0 0
 EFNR
 stand stand male 0
 0 0 medium unknown
+r negative 10
+r charm -33
 #7804
 elf sentry valley~
 a valley elf sentry~
@@ -86,6 +92,8 @@ BF 0 0 0 0 0 0
 EFNR
 stand stand female 0
 0 0 medium unknown
+r negative 10
+r charm -33
 #7805
 elf scout valley~
 a valley elf scout~
@@ -100,6 +108,8 @@ CFG 0 0 0 0 0 0
 EFNR
 stand stand male 0
 0 0 medium unknown
+r negative 10
+r charm -33
 #7806
 elf valley~
 a valley elf~
@@ -115,6 +125,8 @@ GH 0 0 0 0 0 0
 EFNR
 stand stand female 0
 0 0 medium unknown
+r negative 10
+r charm -33
 #7807
 elf elder valley~
 a valley elf elder~
@@ -131,6 +143,8 @@ BCFQ 0 HN 0 0 0 0
 EIKR
 stand stand male 0
 0 0 medium unknown
+r negative 10
+r charm -33
 #7808
 elf elder valley~
 a valley elf elder~
@@ -147,6 +161,8 @@ BCFR 0 N 0 0 0 0
 FR
 stand stand female 0
 0 0 medium unknown
+r negative 10
+r charm -33
 #7809
 pyrohydra pyro hydra~
 the pyrohydra~

@@ -1,5 +1,5 @@
 #AREADATA
-Ver 2
+Ver 3
 Name Festival Town~
 Builders kamimusubi~
 VNUMs 36300 36499
@@ -33,12 +33,19 @@ D 0 medium unknown
 F act O
 M death 36301 100~
 M fight 36300 40~
+r bash -33
+r pierce -33
+r slash -33
 r fire 33
 r cold 33
-r lightning 100
+r lightning 999
 r acid 33
-r mental 100
-r charm 100
+r poison -100
+r negative -100
+r holy 50
+r mental 999
+r disease -100
+r charm 999
 #36301
 bowman man green лучник~
 @eng green bowman@rus ~~Зеленый~~ ~~лучник~~~
@@ -63,10 +70,10 @@ EFHIJKLNQY
 sit stand male 5000
 0 0 medium unknown
 r slash -50
-r cold 100
-r disease 33
+r cold 999
 r poison 33
-r charm 100
+r disease 33
+r charm 999
 #36302
 man acute eye индеец~
 @eng Acute Eye@rus ~~Зоркий~~ ~~Глаз~~~
@@ -90,7 +97,7 @@ sit stand male 10000
 0 0 medium unknown
 r fire 33
 r cold -50
-r sound 100
+r sound 999
 #36303
 tumbu yumbu black man негр~
 @eng Tumbu-Yumbu@rus Тумбу-Юмбу~
@@ -164,10 +171,10 @@ r slash 33
 r fire -50
 r cold 33
 r acid 33
-r sound -50
-r disease 33
 r poison 33
-r charm 100
+r disease 33
+r charm 999
+r sound -50
 #36306
 monk fat монах~
 @eng Monk@rus Монах~
@@ -193,16 +200,16 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
-r holy 100
+r poison 33
 r negative 33
+r holy 999
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r charm 100
-r harm 33
 r light 33
+r harm 33
+r charm 999
+r sound 33
 #36307
 boy little son banker сын~
 @eng Banker's son@rus ~~сын~~ банкира~
@@ -293,7 +300,7 @@ GJT 0 HNOU 0 AB 0 0
 CEFIKN
 stand stand male 20000
 0 0 medium unknown
-r charm 100
+r charm 999
 #36311
 clerk клерк~
 @eng Clerk@rus клерк~
@@ -351,6 +358,7 @@ FGH 0 0 0 0 -100 0
 sit sit female 0
 P 0 small unknown
 r fire -50
+r light 50
 #36314
 spider dust small паук~
 @eng Spider@rus паучок~
@@ -369,8 +377,10 @@ FGH 0 0 0 0 0 0
 FH
 sit sit male 0
 P BD small unknown
-r bash 0
+r bash 50
+r pierce -33
 r fire -50
+r cold -33
 #36315
 librarian old библиотекарь man~
 @eng Librarian@rus Библиотекарь~
@@ -446,20 +456,20 @@ B 0 medium unknown
 r bash 33
 r pierce 33
 r slash 33
-r fire 100
-r cold 100
-r lightning 100
-r acid 100
-r holy 100
-r negative 100
-r energy 100
-r mental 100
-r sound 100
-r disease 100
-r poison 100
-r charm 100
-r harm 100
-r light 100
+r fire 999
+r cold 999
+r lightning 999
+r acid 999
+r poison 999
+r negative 999
+r holy 999
+r energy 999
+r mental 999
+r disease 999
+r light 999
+r harm 999
+r charm 999
+r sound 999
 #36319
 hedgehog ezhik ежик~
 @eng hedgehog@rus ежик~
@@ -478,6 +488,14 @@ CGHJe 0 0 G 0 0 0
 FNd
 stand stand male 0
 AG DEF small unknown
+r fire -33
+r cold -33
+r acid -33
+r negative -100
+r holy -100
+r mental -100
+r disease -100
+r charm -100
 #36320
 boy small мальчик~
 @eng a small boy@rus ~~маленький~~ ~~мальчик~~~
@@ -590,23 +608,23 @@ GJT 0 0 0 0 0 0
 EJ
 stand stand male 100000
 0 0 medium unknown
-r bash 100
-r pierce 100
-r slash 100
-r fire 100
-r cold 100
-r lightning 100
-r acid 100
-r holy 100
-r negative 100
-r energy 100
-r mental 100
-r sound 100
-r disease 100
-r poison 100
-r charm 100
-r harm 100
-r light 100
+r bash 999
+r pierce 999
+r slash 999
+r fire 999
+r cold 999
+r lightning 999
+r acid 999
+r poison 999
+r negative 999
+r holy 999
+r energy 999
+r mental 999
+r disease 999
+r light 999
+r harm 999
+r charm 999
+r sound 999
 #36327
 guard gate стражник~
 @eng Gate guard@rus стражник~
@@ -670,6 +688,7 @@ FGHT 0 c 0 AB -1000 0
 0
 stand stand male 0
 0 0 small unknown
+r light 50
 #36331
 cat black кот~
 @eng black cat@rus ~~черный~~ ~~кот~~~
@@ -908,23 +927,23 @@ GJT 0 0 0 0 0 0
 EJ
 stand stand male 100000
 0 0 medium unknown
-r bash 100
-r pierce 100
-r slash 100
-r fire 100
-r cold 100
-r lightning 100
-r acid 100
-r holy 100
-r negative 100
-r energy 100
-r mental 100
-r sound 100
-r disease 100
-r poison 100
-r charm 100
-r harm 100
-r light 100
+r bash 999
+r pierce 999
+r slash 999
+r fire 999
+r cold 999
+r lightning 999
+r acid 999
+r poison 999
+r negative 999
+r holy 999
+r energy 999
+r mental 999
+r disease 999
+r light 999
+r harm 999
+r charm 999
+r sound 999
 #36346
 vendor разносчик~
 @eng vendor@rus разносчик~
@@ -939,23 +958,23 @@ GJT 0 0 0 0 0 0
 EJ
 stand stand male 100000
 0 0 medium unknown
-r bash 100
-r pierce 100
-r slash 100
-r fire 100
-r cold 100
-r lightning 100
-r acid 100
-r holy 100
-r negative 100
-r energy 100
-r mental 100
-r sound 100
-r disease 100
-r poison 100
-r charm 100
-r harm 100
-r light 100
+r bash 999
+r pierce 999
+r slash 999
+r fire 999
+r cold 999
+r lightning 999
+r acid 999
+r poison 999
+r negative 999
+r holy 999
+r energy 999
+r mental 999
+r disease 999
+r light 999
+r harm 999
+r charm 999
+r sound 999
 #36347
 vendor разносчик~
 @eng vendor@rus разносчик~
@@ -970,23 +989,23 @@ GJT 0 0 0 0 0 0
 EJ
 stand stand male 100000
 0 0 medium unknown
-r bash 100
-r pierce 100
-r slash 100
-r fire 100
-r cold 100
-r lightning 100
-r acid 100
-r holy 100
-r negative 100
-r energy 100
-r mental 100
-r sound 100
-r disease 100
-r poison 100
-r charm 100
-r harm 100
-r light 100
+r bash 999
+r pierce 999
+r slash 999
+r fire 999
+r cold 999
+r lightning 999
+r acid 999
+r poison 999
+r negative 999
+r holy 999
+r energy 999
+r mental 999
+r disease 999
+r light 999
+r harm 999
+r charm 999
+r sound 999
 #36348
 vendor разносчик~
 @eng vendor@rus разносчик~
@@ -1001,23 +1020,23 @@ BGJT 0 0 0 0 0 0
 EJ
 stand stand male 100000
 0 0 medium unknown
-r bash 100
-r pierce 100
-r slash 100
-r fire 100
-r cold 100
-r lightning 100
-r acid 100
-r holy 100
-r negative 100
-r energy 100
-r mental 100
-r sound 100
-r disease 100
-r poison 100
-r charm 100
-r harm 100
-r light 100
+r bash 999
+r pierce 999
+r slash 999
+r fire 999
+r cold 999
+r lightning 999
+r acid 999
+r poison 999
+r negative 999
+r holy 999
+r energy 999
+r mental 999
+r disease 999
+r light 999
+r harm 999
+r charm 999
+r sound 999
 #36349
 target мишень~
 @eng target@rus мишень~
@@ -1036,20 +1055,20 @@ BGHJ 0 0 0 0 0 0
 EFIJK
 stand stand none 0
 M 0 large unknown
-r fire 100
-r cold 100
-r lightning 100
-r acid 100
-r holy 100
-r negative 100
-r energy 100
-r mental 100
-r sound 100
-r disease 100
-r poison 100
-r charm 100
-r harm 100
-r light 100
+r fire 999
+r cold 999
+r lightning 999
+r acid 999
+r poison 999
+r negative 999
+r holy 999
+r energy 999
+r mental 999
+r disease 999
+r light 999
+r harm 999
+r charm 999
+r sound 999
 #36350
 bird пичуга~
 @eng tiny bird@rus пичуга~
@@ -1064,6 +1083,7 @@ CGHW 0 0 G 0 0 0
 0
 stand stand female 0
 W 0 tiny unknown
+r light 50
 #36351
 centipede многоножка~
 @eng centipede@rus многоножка~
@@ -1078,6 +1098,9 @@ GH 0 0 0 0 0 0
 FJd
 stand stand female 0
 Xc DEF small unknown
+r bash 50
+r pierce -33
+r cold -33
 #36352
 snake small змейка~
 @eng small snake@rus змейка~
@@ -1092,6 +1115,8 @@ GH 0 0 G B 0 0
 FHJN
 stand stand female 0
 Y 0 small unknown
+r cold 50
+r poison -33
 #36353
 insect small мошка~
 @eng small insect@rus ~~маленькая~~ ~~мошка~~~
@@ -1106,20 +1131,22 @@ FGHT 0 T 0 0 0 0
 FHNd
 stand stand female 0
 c DEF tiny unknown
+r bash 50
+r pierce -33
 r fire -50
-r cold 0
+r cold -33
 r lightning -50
 r acid -50
-r holy -50
+r poison -50
 r negative -50
+r holy -50
 r energy -50
 r mental -50
-r sound -50
 r disease -50
-r poison -50
-r charm -50
-r harm -50
 r light -50
+r harm -50
+r charm -50
+r sound -50
 #36354
 salamander mother dragon саламандра~
 @eng mother of salamanders@rus ~~хозяйка~~ подземелья~
@@ -1134,10 +1161,14 @@ CGR 0 HRVc G A 0 0
 FHI
 sleep sleep female 5000
 0 B large unknown
-r fire 100
+r bash -33
+r pierce 50
+r fire 999
+r cold 50
 r acid 33
 r energy 33
 r light 33
+r charm -33
 #36355
 paladin паладин~
 @eng Paladin@rus Паладин~
@@ -1154,23 +1185,23 @@ BGJTY 0 0 0 0 0 0
 EJ
 stand stand male 100000
 0 0 medium unknown
-r bash 100
-r pierce 100
-r slash 100
-r fire 100
-r cold 100
-r lightning 100
-r acid 100
-r holy 100
-r negative 100
-r energy 100
-r mental 100
-r sound 100
-r disease 100
-r poison 100
-r charm 100
-r harm 100
-r light 100
+r bash 999
+r pierce 999
+r slash 999
+r fire 999
+r cold 999
+r lightning 999
+r acid 999
+r poison 999
+r negative 999
+r holy 999
+r energy 999
+r mental 999
+r disease 999
+r light 999
+r harm 999
+r charm 999
+r sound 999
 #36356
 ranger охотник~
 @eng Ranger@rus Охотник~
@@ -1185,23 +1216,23 @@ BGJTY 0 0 0 0 0 0
 EJ
 sit sit male 100000
 0 0 medium unknown
-r bash 100
-r pierce 100
-r slash 100
-r fire 100
-r cold 100
-r lightning 100
-r acid 100
-r holy 100
-r negative 100
-r energy 100
-r mental 100
-r sound 100
-r disease 100
-r poison 100
-r charm 100
-r harm 100
-r light 100
+r bash 999
+r pierce 999
+r slash 999
+r fire 999
+r cold 999
+r lightning 999
+r acid 999
+r poison 999
+r negative 999
+r holy 999
+r energy 999
+r mental 999
+r disease 999
+r light 999
+r harm 999
+r charm 999
+r sound 999
 #36357
 samurai самурай~
 @eng Samurai@rus Самурай~
@@ -1216,23 +1247,23 @@ BGJTY 0 0 0 0 0 0
 EJ
 sit sit male 100000
 0 0 medium unknown
-r bash 100
-r pierce 100
-r slash 100
-r fire 100
-r cold 100
-r lightning 100
-r acid 100
-r holy 100
-r negative 100
-r energy 100
-r mental 100
-r sound 100
-r disease 100
-r poison 100
-r charm 100
-r harm 100
-r light 100
+r bash 999
+r pierce 999
+r slash 999
+r fire 999
+r cold 999
+r lightning 999
+r acid 999
+r poison 999
+r negative 999
+r holy 999
+r energy 999
+r mental 999
+r disease 999
+r light 999
+r harm 999
+r charm 999
+r sound 999
 #36358
 warrior воин~
 @eng Warrior@rus Воин~
@@ -1249,23 +1280,23 @@ BGJTY 0 0 0 0 0 0
 EJ
 sit sit male 100000
 0 0 medium unknown
-r bash 100
-r pierce 100
-r slash 100
-r fire 100
-r cold 100
-r lightning 100
-r acid 100
-r holy 100
-r negative 100
-r energy 100
-r mental 100
-r sound 100
-r disease 100
-r poison 100
-r charm 100
-r harm 100
-r light 100
+r bash 999
+r pierce 999
+r slash 999
+r fire 999
+r cold 999
+r lightning 999
+r acid 999
+r poison 999
+r negative 999
+r holy 999
+r energy 999
+r mental 999
+r disease 999
+r light 999
+r harm 999
+r charm 999
+r sound 999
 #36359
 witch ведьма~
 @eng Witch@rus Ведьма~
@@ -1280,23 +1311,23 @@ GJTY 0 0 0 0 0 0
 EJ
 sit sit male 100000
 0 0 medium unknown
-r bash 100
-r pierce 100
-r slash 100
-r fire 100
-r cold 100
-r lightning 100
-r acid 100
-r holy 100
-r negative 100
-r energy 100
-r mental 100
-r sound 100
-r disease 100
-r poison 100
-r charm 100
-r harm 100
-r light 100
+r bash 999
+r pierce 999
+r slash 999
+r fire 999
+r cold 999
+r lightning 999
+r acid 999
+r poison 999
+r negative 999
+r holy 999
+r energy 999
+r mental 999
+r disease 999
+r light 999
+r harm 999
+r charm 999
+r sound 999
 #36360
 vampire вампир~
 @eng Vampire@rus Вампир~
@@ -1314,23 +1345,23 @@ BGJTY 0 0 0 0 0 0
 EJ
 sit sit male 100000
 0 0 medium unknown
-r bash 100
-r pierce 100
-r slash 100
-r fire 100
-r cold 100
-r lightning 100
-r acid 100
-r holy 100
-r negative 100
-r energy 100
-r mental 100
-r sound 100
-r disease 100
-r poison 100
-r charm 100
-r harm 100
-r light 100
+r bash 999
+r pierce 999
+r slash 999
+r fire 999
+r cold 999
+r lightning 999
+r acid 999
+r poison 999
+r negative 999
+r holy 999
+r energy 999
+r mental 999
+r disease 999
+r light 999
+r harm 999
+r charm 999
+r sound 999
 #36361
 cleric монах~
 @eng Cleric@rus Монах~
@@ -1347,23 +1378,23 @@ BGJTY 0 0 0 0 0 0
 EJ
 sit sit male 100000
 0 0 medium unknown
-r bash 100
-r pierce 100
-r slash 100
-r fire 100
-r cold 100
-r lightning 100
-r acid 100
-r holy 100
-r negative 100
-r energy 100
-r mental 100
-r sound 100
-r disease 100
-r poison 100
-r charm 100
-r harm 100
-r light 100
+r bash 999
+r pierce 999
+r slash 999
+r fire 999
+r cold 999
+r lightning 999
+r acid 999
+r poison 999
+r negative 999
+r holy 999
+r energy 999
+r mental 999
+r disease 999
+r light 999
+r harm 999
+r charm 999
+r sound 999
 #36362
 mage чародей~
 @eng Mage@rus Чародей~
@@ -1380,23 +1411,23 @@ BGJTY 0 0 0 0 0 0
 EJ
 stand stand male 100000
 0 0 medium unknown
-r bash 100
-r pierce 100
-r slash 100
-r fire 100
-r cold 100
-r lightning 100
-r acid 100
-r holy 100
-r negative 100
-r energy 100
-r mental 100
-r sound 100
-r disease 100
-r poison 100
-r charm 100
-r harm 100
-r light 100
+r bash 999
+r pierce 999
+r slash 999
+r fire 999
+r cold 999
+r lightning 999
+r acid 999
+r poison 999
+r negative 999
+r holy 999
+r energy 999
+r mental 999
+r disease 999
+r light 999
+r harm 999
+r charm 999
+r sound 999
 #36363
 boy small мальчик~
 @eng a  small boy@rus ~~маленький~~ ~~мальчик~~~
@@ -1446,7 +1477,7 @@ stand stand none 0
 0 0 medium unknown
 F for AHMV
 M fight 36302 100~
-r bash 100
+r bash 999
 #0
 
 #OBJECTS

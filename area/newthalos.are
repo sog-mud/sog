@@ -1,5 +1,5 @@
 #AREADATA
-Ver 2
+Ver 3
 Name New Thalos~
 VNUMs 9500 9799
 Credits Conner~
@@ -22,23 +22,23 @@ BJRV BCD 0 0 AB 0 0
 FHN
 stand stand male 15000
 0 0 medium unknown
-r bash 100
-r pierce 100
-r slash 100
-r fire 100
-r cold 100
-r lightning 100
-r acid 100
-r holy 100
-r negative 100
-r energy 100
-r mental 100
-r sound 100
-r disease 100
-r poison 100
-r charm 100
-r harm 100
-r light 100
+r bash 999
+r pierce 999
+r slash 999
+r fire 999
+r cold 999
+r lightning 999
+r acid 999
+r poison 999
+r negative 999
+r holy 999
+r energy 999
+r mental 999
+r disease 999
+r light 999
+r harm 999
+r charm 999
+r sound 999
 #9501
 cleric guildmaster~
 the guildmaster~
@@ -53,23 +53,23 @@ BJQV BCD H 0 AB 250 0
 EFGIK
 stand stand male 15000
 0 0 medium unknown
-r bash 100
-r pierce 100
-r slash 100
-r fire 100
-r cold 100
-r lightning 100
-r acid 100
-r holy 100
-r negative 100
-r energy 100
-r mental 100
-r sound 100
-r disease 100
-r poison 100
-r charm 100
-r harm 100
-r light 100
+r bash 999
+r pierce 999
+r slash 999
+r fire 999
+r cold 999
+r lightning 999
+r acid 999
+r poison 999
+r negative 999
+r holy 999
+r energy 999
+r mental 999
+r disease 999
+r light 999
+r harm 999
+r charm 999
+r sound 999
 #9502
 warrior guildmaster~
 the guildmaster~
@@ -84,23 +84,23 @@ BJTVe BCD 0 0 AB 0 0
 ACEFHIK
 stand stand male 15000
 0 0 medium unknown
-r bash 100
-r pierce 100
-r slash 100
-r fire 100
-r cold 100
-r lightning 100
-r acid 100
-r holy 100
-r negative 100
-r energy 100
-r mental 100
-r sound 100
-r disease 100
-r poison 100
-r charm 100
-r harm 100
-r light 100
+r bash 999
+r pierce 999
+r slash 999
+r fire 999
+r cold 999
+r lightning 999
+r acid 999
+r poison 999
+r negative 999
+r holy 999
+r energy 999
+r mental 999
+r disease 999
+r light 999
+r harm 999
+r charm 999
+r sound 999
 #9503
 thief guildmaster~
 the guildmaster~
@@ -117,23 +117,23 @@ BJTV BCD 0 0 AB -100 0
 BEFHJKN
 stand stand male 35000
 0 0 medium unknown
-r bash 100
-r pierce 100
-r slash 100
-r fire 100
-r cold 100
-r lightning 100
-r acid 100
-r holy 100
-r negative 100
-r energy 100
-r mental 100
-r sound 100
-r disease 100
-r poison 100
-r charm 100
-r harm 100
-r light 100
+r bash 999
+r pierce 999
+r slash 999
+r fire 999
+r cold 999
+r lightning 999
+r acid 999
+r poison 999
+r negative 999
+r holy 999
+r energy 999
+r mental 999
+r disease 999
+r light 999
+r harm 999
+r charm 999
+r sound 999
 #9504
 receptionist~
 the receptionist~
@@ -265,23 +265,23 @@ BJ 0 0 0 A 800 0
 EFNU
 stand stand male 505
 0 0 medium unknown
-r bash 100
-r pierce 100
-r slash 100
-r fire 100
-r cold 100
-r lightning 100
-r acid 100
-r holy 100
-r negative 100
-r energy 100
-r mental 100
-r sound 100
-r disease 100
-r poison 100
-r charm 100
-r harm 100
-r light 100
+r bash 999
+r pierce 999
+r slash 999
+r fire 999
+r cold 999
+r lightning 999
+r acid 999
+r poison 999
+r negative 999
+r holy 999
+r energy 999
+r mental 999
+r disease 999
+r light 999
+r harm 999
+r charm 999
+r sound 999
 #9513
 ahkeem tailor~
 Ahkeem the tailor~
@@ -1133,6 +1133,10 @@ FGT 0 0 0 H 0 0
 EFNR
 stand stand none 18
 0 0 tiny unknown
+r fire -33
+r cold -33
+r lightning 50
+r mental 50
 #9572
 dog death~
 the death dog~
@@ -1221,6 +1225,10 @@ FGU 0 0 0 H 0 0
 EFNR
 stand stand male 3
 0 0 tiny unknown
+r fire -33
+r cold -33
+r lightning 50
+r mental 50
 #9578
 pegasus~
 the pegasus~
@@ -1458,20 +1466,20 @@ stand stand male 5000
 r bash 33
 r pierce 33
 r slash 33
-r fire 100
-r cold 100
-r lightning 100
-r acid 100
-r holy 100
-r negative 100
-r energy 100
-r mental 100
-r sound 100
-r disease 100
-r poison 100
-r charm 100
-r harm 100
-r light 100
+r fire 999
+r cold 999
+r lightning 999
+r acid 999
+r poison 999
+r negative 999
+r holy 999
+r energy 999
+r mental 999
+r disease 999
+r light 999
+r harm 999
+r charm 999
+r sound 999
 #9594
 samurai weaponsmaster~
 The Samurai Weaponsmaster~
@@ -1488,23 +1496,23 @@ BJRVe D 0 0 ABL 1000 0
 FG
 stand stand male 0
 0 0 medium unknown
-r bash 100
-r pierce 100
-r slash 100
+r bash 999
+r pierce 999
+r slash 999
 r fire 33
 r cold 33
 r lightning 33
 r acid 33
-r holy 33
+r poison 33
 r negative 33
+r holy 33
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r charm 100
-r harm 33
 r light 33
+r harm 33
+r charm 999
+r sound 33
 #0
 
 #OBJECTS

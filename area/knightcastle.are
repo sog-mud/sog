@@ -1,5 +1,5 @@
 #AREADATA
-Ver 2
+Ver 3
 Name Knight~
 VNUMs 95200 95299
 Credits Chronos~
@@ -33,20 +33,20 @@ C Knights
 r bash 33
 r pierce 33
 r slash 33
-r fire 100
-r cold 100
-r lightning 100
-r acid 100
-r holy 100
-r negative 100
-r energy 100
-r mental 100
-r sound 100
-r disease 100
-r poison 100
-r charm 100
-r harm 100
-r light 100
+r fire 999
+r cold 999
+r lightning 999
+r acid 999
+r poison 999
+r negative 999
+r holy 999
+r energy 999
+r mental 999
+r disease 999
+r light 999
+r harm 999
+r charm 999
+r sound 999
 #95201
 knight protector guard дворецкий~
 @eng the protector@rus дворецкий~
@@ -68,7 +68,7 @@ stand stand male 5000
 M grall 95200 100~
 M exall 95201 0~
 C Knights
-r charm 100
+r charm 999
 #95202
 knight mount keeper конюх~
 @eng the stable keeper@rus конюх~
@@ -89,7 +89,7 @@ BJWe 0 HV 0 ABH 0 0
 ACDEFKNU
 stand stand male 5000
 0 0 medium unknown
-r charm 100
+r charm 999
 #95203
 donkey ослик grey mount~
 @eng the grey donkey@rus ~~серый~~ ~~ослик~~~
@@ -108,7 +108,7 @@ BIJWZ 0 HV 0 BH 1000 0
 N
 stand stand male 5000
 0 0 medium unknown
-r charm 100
+r charm 999
 #95204
 horse mount конь white~
 @eng the white horse@rus ~~белогривый~~ ~~конь~~~
@@ -126,7 +126,7 @@ BIJWZ 0 HV 0 BH 1000 0
 N
 stand stand male 5000
 0 0 medium unknown
-r charm 100
+r charm 999
 #95205
 unicorn единорог mount~
 @eng the unicorn@rus единорог~
@@ -148,16 +148,16 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
-r holy 33
+r poison 33
 r negative 33
+r holy 33
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r charm 100
-r harm 33
 r light 33
+r harm 33
+r charm 999
+r sound 33
 #95206
 pegasus mount пегас~
 @eng the pegasus@rus пегас~
@@ -183,16 +183,16 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
-r holy 33
+r poison 33
 r negative 33
+r holy 33
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r charm 100
-r harm 33
 r light 33
+r harm 33
+r charm 999
+r sound 33
 #95207
 dragon golden дракон mount~
 @eng the golden dragon@rus ~~золотой~~ ~~дракон~~~
@@ -220,16 +220,16 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
-r holy 33
+r poison 33
 r negative 33
+r holy 33
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r charm 100
-r harm 33
 r light 33
+r harm 33
+r charm 999
+r sound 33
 #0
 
 #OBJECTS

@@ -1,5 +1,5 @@
 #AREADATA
-Ver 2
+Ver 3
 Name Armageddon~
 VNUMs 14000 14199
 Credits Lok~
@@ -25,10 +25,10 @@ FT 0 0 0 ABH -1000 0
 FIKW
 stand stand none 900
 AGHNO ACDEFHKQV large unknown
-r holy -50
 r negative 33
-r charm 100
+r holy -50
 r light -50
+r charm 999
 #14002
 abaddon king angel~
 Abaddon~
@@ -50,7 +50,7 @@ AHMVXd ABCDEFGHIJKP medium unknown
 r fire 33
 r cold 33
 r holy 33
-r charm 100
+r charm 999
 #14003
 babylon whore woman harlot~
 Babylon~
@@ -85,10 +85,10 @@ stand stand male 10
 ADHLMV ABCDEFGHIJKP large unknown
 r fire 33
 r cold 33
-r holy 100
 r negative -50
-r disease 100
-r charm 100
+r holy 999
+r disease 999
+r charm 999
 #14005
 angel earth~
 The angel of the earth~
@@ -106,10 +106,10 @@ stand stand male 900
 ADHLMV ABCDEFGHIJKP large unknown
 r fire 33
 r cold 33
-r holy 100
 r negative -50
-r disease 100
-r charm 100
+r holy 999
+r disease 999
+r charm 999
 #14006
 angel air~
 The angel of the air~
@@ -127,10 +127,10 @@ stand stand male 900
 ADHLMV ABCDEFGHIJKP large unknown
 r fire 33
 r cold 33
-r holy 100
 r negative -50
-r disease 100
-r charm 100
+r holy 999
+r disease 999
+r charm 999
 #14007
 angel fire~
 The angel with the fiery censer~
@@ -148,10 +148,10 @@ stand stand male 900
 ADHLMV ABCDEFGHIJKP large unknown
 r fire 33
 r cold 33
-r holy 100
 r negative -50
-r disease 100
-r charm 100
+r holy 999
+r disease 999
+r charm 999
 #14008
 angel harvesting~
 The harvesting angel~
@@ -168,10 +168,10 @@ stand stand male 900
 ADHLMV ABCDEFGHIJKP large unknown
 r fire 33
 r cold 33
-r holy 100
 r negative -50
-r disease 100
-r charm 100
+r holy 999
+r disease 999
+r charm 999
 #14009
 army heaven~
 An army of heaven~
@@ -187,9 +187,9 @@ T 0 N 0 H 1000 0
 CEP
 stand stand none 900
 S 0 huge unknown
-r bash 100
-r holy 33
+r bash 999
 r negative -50
+r holy 33
 #14010
 horseman white~
 The white horseman~
@@ -205,9 +205,9 @@ FT 0 0 0 ABH -1000 0
 CDEFK
 stand stand male 900
 BCN 0 large unknown
-r holy -50
 r negative 33
-r charm 100
+r holy -50
+r charm 999
 #14011
 horseman red~
 The red horseman~
@@ -223,9 +223,9 @@ FT 0 0 0 ABH -1000 0
 CDEFK
 stand stand male 900
 BCN 0 large unknown
-r holy -50
 r negative 33
-r charm 100
+r holy -50
+r charm 999
 #14012
 horseman black~
 The black horseman~
@@ -241,9 +241,9 @@ FT 0 0 0 ABH -1000 0
 CDEFK
 stand stand male 900
 BCN 0 large unknown
-r holy -50
 r negative 33
-r charm 100
+r holy -50
+r charm 999
 #14013
 horseman pale~
 The pale horseman~
@@ -259,9 +259,9 @@ FT 0 0 0 ABH -1000 0
 CDEFK
 stand stand male 900
 BCN 0 large unknown
-r holy -50
 r negative 33
-r charm 100
+r holy -50
+r charm 999
 #14014
 michael archangel архангел михаил~
 @eng The archangel Michael@rus ~~архангел~~ ~~Михаил~~~
@@ -281,11 +281,11 @@ ACDHLMV ABCDEFGHIJKP huge unknown
 r bash 33
 r fire 33
 r cold 33
-r holy 100
 r negative -50
-r disease 100
-r charm 100
-r light 100
+r holy 999
+r disease 999
+r light 999
+r charm 999
 #14015
 dragon дракон~
 @eng The dragon@rus дракон~
@@ -305,11 +305,15 @@ BR 0 0 0 AB -1000 0
 IMQWX
 stand stand male 900
 BCcd L huge unknown
-r cold 0
+r bash -33
+r pierce 50
+r fire -33
+r cold 50
 r lightning 33
 r acid 33
-r holy -50
 r negative 33
+r holy -50
+r charm -33
 #14016
 jezebel woman~
 Jezebel the prophetess~
@@ -379,10 +383,10 @@ ACDHILMV ABCDEFGHIJKQ medium unknown
 r pierce 33
 r fire 33
 r cold 33
+r negative 999
 r holy -50
-r negative 100
 r energy -50
-r charm 100
+r charm 999
 #14020
 prophet false~
 The false prophet~
@@ -422,12 +426,12 @@ BT 0 N 0 0 1000 0
 EFKLS
 stand stand female 900
 0 0 medium unknown
-r holy 33
+r poison 999
 r negative -50
+r holy 33
 r mental 33
-r disease 100
-r poison 100
-r charm 100
+r disease 999
+r charm 999
 #14022
 word god~
 The word of God~
@@ -450,14 +454,14 @@ ACDHMV ABCDEFGHIJKP giant unknown
 r fire 33
 r cold 33
 r lightning -50
-r holy 100
+r poison 999
 r negative -50
+r holy 999
 r energy 33
 r mental 33
-r disease 100
-r poison 100
-r charm 100
-r light 100
+r disease 999
+r light 999
+r charm 999
 #14023
 one sealed~
 The sealed one~
@@ -509,8 +513,8 @@ stand stand male 100
 ABGHMV ABCDEFGHIJKQU huge unknown
 r fire 33
 r cold 33
+r negative 999
 r holy -50
-r negative 100
 #14026
 idolator man~
 The idolator~
@@ -701,23 +705,23 @@ BJT 0 HNTVd A ABHKL 1000 0
 FGHKLO
 sit sit male 900
 ACDHLMV ABCDEFGHIJKP giant unknown
-r bash 100
-r pierce 100
-r slash 100
-r fire 100
-r cold 100
-r lightning 100
-r acid 100
-r holy 100
+r bash 999
+r pierce 999
+r slash 999
+r fire 999
+r cold 999
+r lightning 999
+r acid 999
+r poison 999
 r negative 33
-r energy 100
-r mental 100
-r sound 100
-r disease 100
-r poison 100
-r charm 100
-r harm 100
-r light 100
+r holy 999
+r energy 999
+r mental 999
+r disease 999
+r light 999
+r harm 999
+r charm 999
+r sound 999
 #14038
 lamb~
 The lamb~
@@ -732,23 +736,23 @@ BJTc CD HNTWd A ABHKL 1000 0
 FGHKLO
 sit sit male 900
 ACDHLMV ABCDEFGHIJKP giant unknown
-r bash 100
-r pierce 100
-r slash 100
-r fire 100
-r cold 100
-r lightning 100
-r acid 100
-r holy 100
+r bash 999
+r pierce 999
+r slash 999
+r fire 999
+r cold 999
+r lightning 999
+r acid 999
+r poison 999
 r negative 33
-r energy 100
-r mental 100
-r sound 100
-r disease 100
-r poison 100
-r charm 100
-r harm 100
-r light 100
+r holy 999
+r energy 999
+r mental 999
+r disease 999
+r light 999
+r harm 999
+r charm 999
+r sound 999
 #14039
 elders four twenty~
 Four and twenty elders~
@@ -766,9 +770,9 @@ sit stand none 900
 ACDHLMV ABCDEFGHIJKP medium unknown
 r fire 33
 r cold 33
-r holy 100
 r negative -50
-r disease 100
+r holy 999
+r disease 999
 #14040
 lion creature~
 The lion creature~
@@ -784,8 +788,8 @@ BT 0 N 0 ABHKL 1000 0
 FIMPV
 stand stand none 0
 BCDGHLMV ABCDEFGHIJKPQUV large unknown
-r holy 100
-r disease 100
+r holy 999
+r disease 999
 #14041
 ox creature~
 The ox creature~
@@ -801,8 +805,8 @@ BT 0 N 0 ABHKL 1000 0
 CDPV
 stand stand none 900
 CDGHLV ACDEFJKPQW large unknown
-r holy 100
-r disease 100
+r holy 999
+r disease 999
 #14042
 human face faced creature~
 The creature with a human face~
@@ -818,8 +822,8 @@ BT 0 N 0 ABHKL 1000 0
 EFIK
 stand stand none 900
 CDGL LP large unknown
-r holy 100
-r disease 100
+r holy 999
+r disease 999
 #14043
 eagle creature~
 The eagle creature~
@@ -835,8 +839,8 @@ BT 0 NT 0 ABHKL 1000 0
 EFIK
 stand stand none 900
 CDGHLW ADEFKPU large unknown
-r holy 100
-r disease 100
+r holy 999
+r disease 999
 #0
 
 #OBJECTS

@@ -1,5 +1,5 @@
 #AREADATA
-Ver 2
+Ver 3
 Name The Walls of Anon~
 VNUMs 31200 31399
 Credits Yaegar~
@@ -178,6 +178,8 @@ BGR 0 T 0 ABKL 400 0
 EIK
 stand stand male 200
 0 0 medium unknown
+r negative 10
+r charm -33
 #31210
 marshal~
 the marshal~
@@ -225,6 +227,9 @@ BGT 0 HN 0 ABKL 0 0
 CDEFIKTU
 stand stand male 200
 0 0 medium unknown
+r bash -7
+r poison -25
+r disease -25
 #31213
 spectre~
 a vile spectre~

@@ -1,5 +1,5 @@
 #AREADATA
-Ver 2
+Ver 3
 Name Holy Grove~
 VNUMs 8900 8999
 Credits Alfa~
@@ -24,7 +24,7 @@ GHJQe D HN 0 A 1000 0
 EIKU
 stand stand male 2
 0 0 medium unknown
-r charm 100
+r charm 999
 #8901
 hierophant~
 The Hierophant~
@@ -142,6 +142,8 @@ FGH 0 0 G 0 0 0
 EFNR
 stand stand none 0
 0 0 medium unknown
+r cold 50
+r poison -33
 #8909
 druid~
 a druid~

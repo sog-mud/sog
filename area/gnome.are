@@ -1,5 +1,5 @@
 #AREADATA
-Ver 2
+Ver 3
 Name Gnome village~
 Builders dias~
 VNUMs 1500 1599
@@ -114,6 +114,12 @@ BCF 0 0 0 0 -900 0
 EFNR
 stand stand male 40
 0 0 medium unknown
+r bash -20
+r slash -10
+r fire 25
+r lightning 15
+r acid 40
+r charm -30
 #1508
 mouse field~
 a field mouse~
@@ -185,6 +191,12 @@ BF 0 0 0 0 -800 0
 EFNR
 stand stand male 450
 0 0 medium unknown
+r bash -20
+r slash -10
+r fire 25
+r lightning 15
+r acid 40
+r charm -30
 #1513
 bat black~
 a black bat~
@@ -199,6 +211,7 @@ bat~
 ENR
 stand stand none 0
 0 0 medium unknown
+r light 50
 #1514
 zombie gnome~
 the zombie gnome~
@@ -229,6 +242,7 @@ BCF 0 0 0 AH -900 0
 ENR
 stand stand male 300
 0 0 medium unknown
+r light 50
 #1516
 guard hobgoblin~
 the hobgoblin guard~

@@ -1,5 +1,5 @@
 #AREADATA
-Ver 2
+Ver 3
 Name Goblin Nation~
 VNUMs 9900 9999
 Credits Mort~
@@ -40,6 +40,9 @@ FG 0 0 0 0 0 0
 E
 stand stand male 10
 0 0 small unknown
+r bash -7
+r poison -25
+r disease -25
 #9903
 elf deranged~
 the Deranged Elf~
@@ -55,6 +58,8 @@ FG 0 0 0 0 0 0
 EN
 stand stand male 10
 0 0 medium unknown
+r negative 10
+r charm -33
 #9904
 confused human youth~
 the Confused Human~
@@ -85,6 +90,19 @@ G 0 0 0 0 0 0
 EN
 stand stand male 10
 0 0 small unknown
+r fire 50
+r cold 50
+r lightning 50
+r acid 50
+r poison 50
+r negative 50
+r holy 50
+r energy 50
+r mental 50
+r light 50
+r harm 50
+r charm 50
+r sound 50
 #9906
 male goblin~
 the Male Goblin~
@@ -102,6 +120,19 @@ G 0 0 0 0 0 0
 EN
 stand stand male 10
 0 0 medium unknown
+r fire 50
+r cold 50
+r lightning 50
+r acid 50
+r poison 50
+r negative 50
+r holy 50
+r energy 50
+r mental 50
+r light 50
+r harm 50
+r charm 50
+r sound 50
 #9907
 goblin female~
 the Female Goblin~
@@ -117,6 +148,19 @@ G 0 0 0 0 0 0
 EN
 stand stand female 10
 0 0 medium unknown
+r fire 50
+r cold 50
+r lightning 50
+r acid 50
+r poison 50
+r negative 50
+r holy 50
+r energy 50
+r mental 50
+r light 50
+r harm 50
+r charm 50
+r sound 50
 #9908
 goblin guard ~
 the Goblin Guard~
@@ -132,6 +176,19 @@ G 0 0 0 0 -300 0
 EN
 stand stand male 10
 0 0 medium unknown
+r fire 50
+r cold 50
+r lightning 50
+r acid 50
+r poison 50
+r negative 50
+r holy 50
+r energy 50
+r mental 50
+r light 50
+r harm 50
+r charm 50
+r sound 50
 #9909
 goblin shaman~
 the Goblin Shaman~
@@ -148,6 +205,19 @@ G 0 0 0 0 0 0
 EN
 stand stand male 10
 0 0 medium unknown
+r fire 50
+r cold 50
+r lightning 50
+r acid 50
+r poison 50
+r negative 50
+r holy 50
+r energy 50
+r mental 50
+r light 50
+r harm 50
+r charm 50
+r sound 50
 #9910
 warrior goblin~
 the Goblin Warrior~
@@ -163,6 +233,19 @@ G 0 0 0 0 -500 0
 EFN
 stand stand male 10
 0 0 medium unknown
+r fire 50
+r cold 50
+r lightning 50
+r acid 50
+r poison 50
+r negative 50
+r holy 50
+r energy 50
+r mental 50
+r light 50
+r harm 50
+r charm 50
+r sound 50
 #0
 
 #OBJECTS

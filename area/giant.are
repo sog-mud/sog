@@ -1,5 +1,5 @@
 #AREADATA
-Ver 2
+Ver 3
 Name Castle of Giants~
 VNUMs 13000 13099
 Credits Outlaw~
@@ -26,6 +26,10 @@ BGT 0 0 0 0 0 0
 CDEKOT
 stand stand male 25
 0 0 huge unknown
+r fire -33
+r cold -33
+r lightning 50
+r mental 50
 #13001
 giant thiulor spy гигант тиулор шпион~
 @eng Thiulor the Spy@rus ~~местный~~ ~~шпион~~ ~~Тиулор~~~
@@ -43,7 +47,11 @@ CHS 0 HU G AB 0 0
 CDEFHJKN
 stand stand male 0
 0 0 huge unknown
+r fire -33
+r cold -33
+r lightning 50
 r poison 33
+r mental 50
 #13002
 giant lord~
 the Lord of the Giants~
@@ -61,6 +69,10 @@ BFGT 0 JO 0 ABM -1000 0
 AFIJKNRVX
 stand stand male 200
 0 0 giant unknown
+r fire -33
+r cold -33
+r lightning 50
+r mental 50
 #13003
 giant mistress Shannon гигант госпожа шаннон~
 @eng Shannon, the Battle Mistress@rus ~~воительница~~ Шаннон~
@@ -82,6 +94,10 @@ BFGT 0 V 0 0 0 0
 ACDEFIJK
 stand stand female 0
 0 0 giant unknown
+r fire -33
+r cold -33
+r lightning 50
+r mental 50
 #13004
 giant cleric Iupsil гигант священник иупсил~
 @eng Iupsil, the Master Cleric@rus ~~Иупсил~~, ~~главный~~ ~~церковник~~~
@@ -99,7 +115,11 @@ BCGHJQT 0 HTU 0 AB 0 0
 DEK
 stand stand male 2000
 0 0 giant unknown
-r charm 100
+r fire -33
+r cold -33
+r lightning 50
+r mental 50
+r charm 999
 #13005
 human captain guard~
 the Captain of the Castle Guard~
@@ -134,6 +154,8 @@ CGHRY 0 N 0 0 1000 0
 FK
 stand stand male 500
 0 0 medium unknown
+r negative 10
+r charm -33
 #13007
 male giant гигант мужчина~
 @eng the male giant@rus ~~гигант~~ ~~мужчина~~~
@@ -149,6 +171,10 @@ CT 0 0 0 0 0 0
 CDEJKR
 stand stand male 900
 0 0 huge unknown
+r fire -33
+r cold -33
+r lightning 50
+r mental 50
 #13008
 dying gnome~
 the dying gnome~
@@ -165,6 +191,9 @@ H 0 0 0 0 0 0
 EFJK
 rest rest male 0
 0 0 medium unknown
+r bash 30
+r poison -20
+r disease -20
 #13009
 weeping elf~
 the weeping elf~
@@ -182,7 +211,8 @@ elf~
 EFJKN
 stand stand female 0
 0 0 medium unknown
-r negative -50
+r negative -40
+r charm -33
 #13010
 weeping elf~
 the weeping elf~
@@ -200,7 +230,8 @@ elf~
 EFJKN
 stand stand female 0
 0 0 medium unknown
-r negative -50
+r negative -40
+r charm -33
 #13011
 librarian~
 the librarian~
@@ -218,6 +249,10 @@ BGT 0 0 0 0 0 0
 CDEKOT
 sit stand male 25
 0 0 huge unknown
+r fire -33
+r cold -33
+r lightning 50
+r mental 50
 #13012
 human torturer~
 the torturer~
@@ -257,14 +292,16 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
+r poison 33
+r negative 10
 r holy 33
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r harm 33
 r light 33
+r harm 33
+r charm -33
+r sound 33
 #0
 
 #OBJECTS

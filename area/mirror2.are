@@ -1,5 +1,5 @@
 #AREADATA
-Ver 2
+Ver 3
 Name Mirror of Realm~
 VNUMs 19000 19199
 Credits Merri~
@@ -198,6 +198,8 @@ BGH 0 NU A AB 1000 0
 CFIJK
 stand stand male 0
 0 0 large unknown
+r bash -33
+r cold -33
 #19012
 knight withered~
 a withered knight~
@@ -818,6 +820,8 @@ BCFG 0 I G ABH -1000 0
 CF
 stand stand none 0
 0 0 large unknown
+r bash -33
+r cold -33
 #19050
 waiter~
 the waiter~

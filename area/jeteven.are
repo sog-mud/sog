@@ -1,5 +1,5 @@
 #AREADATA
-Ver 2
+Ver 3
 Name Jeteven~
 VNUMs 26100 26299
 Credits Arborn~
@@ -31,7 +31,7 @@ r fire 20
 r cold 20
 r lightning 30
 r mental 50
-r charm 100
+r charm 999
 #26101
 jet джет~
 @eng Jet@rus ~~Джет~~~

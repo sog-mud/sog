@@ -1,5 +1,5 @@
 #AREADATA
-Ver 2
+Ver 3
 Name Shalafi~
 VNUMs 95300 95399
 Credits Asena~
@@ -34,20 +34,20 @@ C Shalafi
 r bash 33
 r pierce 33
 r slash 33
-r fire 100
+r fire 999
 r cold 33
 r lightning 33
 r acid 33
+r poison 33
+r negative 43
 r holy 33
-r negative 33
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r charm 100
-r harm 33
 r light 33
+r harm 33
+r charm 999
+r sound 33
 #95301
 healer adept cabal shalafi~
 @eng an adept@rus Адепт~
@@ -73,20 +73,20 @@ C Shalafi
 r bash 33
 r pierce 33
 r slash 33
-r fire 100
-r cold 100
-r lightning 100
-r acid 100
-r holy 100
-r negative 100
-r energy 100
-r mental 100
-r sound 100
-r disease 100
-r poison 100
-r charm 100
-r harm 100
-r light 100
+r fire 999
+r cold 999
+r lightning 999
+r acid 999
+r poison 999
+r negative 999
+r holy 999
+r energy 999
+r mental 999
+r disease 999
+r light 999
+r harm 999
+r charm 999
+r sound 999
 #95302
 fiery red demon~
 a fiery demon~
@@ -106,7 +106,7 @@ B 0 0 0 H -1000 0
 FHI
 stand stand male 0
 0 0 medium unknown
-r fire 100
+r fire 999
 #95303
 vampire old старый вампир~
 @eng old vampire@rus ~~старый~~ ~~вампир~~~
@@ -122,6 +122,12 @@ CFR
 stand stand male 0
 0 0 huge unknown
 M bribe 95301 5000~
+r poison -100
+r negative -33
+r holy 50
+r energy -33
+r disease -100
+r light 50
 #95304
 prisoner узник~
 @eng prisoner@rus узник~

@@ -1,5 +1,5 @@
 #AREADATA
-Ver 2
+Ver 3
 Name Mirkwood~
 VNUMs 8800 8899
 Credits Yaegar~
@@ -28,9 +28,10 @@ stand sit male 103
 0 0 small unknown
 r slash -50
 r fire -50
-r cold 100
-r holy 100
-r charm 100
+r cold 999
+r negative 10
+r holy 999
+r charm 999
 #8801
 sylvan elf warrior~
 a sylvan elf warrior~
@@ -51,7 +52,8 @@ rest stand male 150
 r bash -50
 r pierce -50
 r slash -50
-r charm 100
+r negative 10
+r charm 999
 #8802
 orc scout~
 an orc scout~
@@ -69,22 +71,23 @@ BCFGHJ 0 0 0 0 -400 0
 CDF
 stand stand male 211
 0 0 medium unknown
-r bash -50
-r pierce -50
-r slash -50
+r bash -55
+r pierce -55
+r slash -55
 r fire -50
 r cold -50
 r lightning -50
 r acid -50
-r holy -50
-r negative -50
+r poison -65
+r negative -65
+r holy -35
 r energy -50
 r mental -50
-r sound -50
-r disease 0
-r poison -50
-r charm 33
+r disease -15
+r light 15
 r harm -50
+r charm 33
+r sound -50
 #8803
 orc warrior~
 an orc warrior~
@@ -102,19 +105,23 @@ CFGJ 0 0 0 0 -400 0
 EIN
 stand stand male 0
 0 0 medium unknown
+r bash -5
+r pierce -5
+r slash -5
 r fire -50
 r cold -50
 r lightning -50
 r acid -50
-r holy -50
-r negative -50
+r poison -65
+r negative -65
+r holy -35
 r energy -50
 r mental -50
-r sound -50
-r disease 0
-r poison -50
-r charm 33
+r disease -15
+r light 15
 r harm -50
+r charm 33
+r sound -50
 #8804
 guard~
 a wood elf guard~
@@ -130,10 +137,11 @@ FGJQT 0 0 0 0 400 8807
 CKNRT
 stand stand male 50
 0 0 small unknown
-r fire 100
-r holy 100
-r poison 100
-r charm 100
+r fire 999
+r poison 999
+r negative 10
+r holy 999
+r charm 999
 #8805
 chief guard~
 the chief of the guard~
@@ -151,19 +159,20 @@ BCFGQ 0 0 0 0 400 0
 CDEFRTU
 stand stand male 100
 0 0 medium unknown
-r fire 100
+r fire 999
 r cold 33
 r lightning 33
 r acid 33
-r holy 100
-r negative 33
+r poison 999
+r negative 43
+r holy 999
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 100
-r harm 33
 r light 33
+r harm 33
+r charm -33
+r sound 33
 #8806
 galion butler~
 Galion the butler~
@@ -179,7 +188,8 @@ BCFGJ 0 0 0 0 400 0
 KN
 stand stand male 0
 0 0 medium unknown
-r charm 100
+r negative 10
+r charm 999
 #8807
 thranduil king~
 Thranduil, king of the Wood Elves~
@@ -198,6 +208,8 @@ sit sit male 0
 r bash 33
 r pierce 33
 r slash 33
+r negative 10
+r charm -33
 #8808
 wood elf male~
 a male wood elf~
@@ -213,6 +225,8 @@ CGQ 0 0 0 0 400 0
 FR
 stand stand male 0
 0 0 small unknown
+r negative 10
+r charm -33
 #8809
 wood elf female~
 a female wood elf~
@@ -228,6 +242,8 @@ CGQ 0 0 0 0 400 0
 FR
 stand stand female 0
 0 0 small unknown
+r negative 10
+r charm -33
 #8810
 turnkey elf~
 the turnkey~
@@ -242,6 +258,8 @@ BCG 0 0 0 0 0 0
 FJ
 sleep sleep male 20
 0 0 small unknown
+r negative 10
+r charm -33
 #8811
 thorin oakenshield~
 Thorin Oakenshield~
@@ -259,7 +277,9 @@ IKNR
 stand stand male 40
 0 0 medium unknown
 r cold 33
+r negative 10
 r holy 33
+r charm -33
 #0
 
 #OBJECTS

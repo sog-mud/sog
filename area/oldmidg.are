@@ -1,5 +1,5 @@
 #AREADATA
-Ver 2
+Ver 3
 Name Old Midgaard~
 VNUMs 5300 5499
 Credits Kahn~
@@ -153,6 +153,23 @@ B 0 N 0 0 1000 0
 EFNU
 stand stand none 212
 0 0 medium unknown
+r bash -33
+r pierce -33
+r slash -33
+r fire 50
+r cold 50
+r lightning 50
+r acid 50
+r poison -33
+r negative 50
+r holy 50
+r energy 50
+r mental 50
+r disease -33
+r light 50
+r harm 50
+r charm 50
+r sound 50
 #5309
 mayor~
 the mayor of Thalos~
@@ -416,6 +433,8 @@ FGH 0 0 G 0 0 0
 EFNR
 stand stand none 0
 0 0 medium unknown
+r cold 50
+r poison -33
 #5327
 druid~
 a druid~
@@ -514,6 +533,20 @@ FH 0 0 0 0 -200 0
 EN
 stand stand male 0
 0 0 medium unknown
+r fire 50
+r cold 50
+r lightning 50
+r acid 50
+r poison 50
+r negative 50
+r holy 50
+r energy 50
+r mental 50
+r disease 50
+r light 50
+r harm 50
+r charm 50
+r sound 50
 #5334
 cityguard guard~
 the cityguard~
@@ -547,20 +580,20 @@ stand stand male 15000
 r bash 33
 r pierce 33
 r slash 33
-r fire 100
-r cold 100
-r lightning 100
-r acid 100
-r holy 100
-r negative 100
-r energy 100
-r mental 100
-r sound 100
-r disease 100
-r poison 100
-r charm 100
-r harm 100
-r light 100
+r fire 999
+r cold 999
+r lightning 999
+r acid 999
+r poison 999
+r negative 999
+r holy 999
+r energy 999
+r mental 999
+r disease 999
+r light 999
+r harm 999
+r charm 999
+r sound 999
 #5336
 baker~
 the baker~
@@ -583,16 +616,16 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
-r holy 33
+r poison 33
 r negative 33
+r holy 33
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r charm 100
-r harm 33
 r light 33
+r harm 33
+r charm 999
+r sound 33
 #5337
 grocer~
 the grocer~
@@ -614,16 +647,16 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
-r holy 33
+r poison 33
 r negative 33
+r holy 33
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r charm 100
-r harm 33
 r light 33
+r harm 33
+r charm 999
+r sound 33
 #5338
 weaponsmith~
 the weaponsmith~
@@ -646,16 +679,16 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
-r holy 33
+r poison 33
 r negative 33
+r holy 33
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r charm 100
-r harm 33
 r light 33
+r harm 33
+r charm 999
+r sound 33
 #5339
 armourer armorer~
 the armourer~
@@ -679,16 +712,16 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
-r holy 33
+r poison 33
 r negative 33
+r holy 33
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r charm 100
-r harm 33
 r light 33
+r harm 33
+r charm 999
+r sound 33
 #5340
 jeweller~
 the jeweller~
@@ -710,16 +743,16 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
-r holy 33
+r poison 33
 r negative 33
+r holy 33
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r charm 100
-r harm 33
 r light 33
+r harm 33
+r charm 999
+r sound 33
 #5341
 Questor~
 @eng Questor@rus Квестор~
@@ -739,18 +772,20 @@ stand stand male 0
 r bash 33
 r pierce 33
 r slash 33
-r lightning 0
+r fire -33
+r cold -33
+r lightning 50
 r acid 33
-r holy 33
-r negative 33
-r energy 33
-r mental 33
-r sound 33
-r disease 33
 r poison 33
-r charm 100
-r harm 33
+r negative 33
+r holy 33
+r energy 33
+r mental 83
+r disease 33
 r light 33
+r harm 33
+r charm 999
+r sound 33
 #5342
 healer~
 the healer~
@@ -769,20 +804,20 @@ stand stand male 5000
 r bash 33
 r pierce 33
 r slash 33
-r fire 100
-r cold 100
-r lightning 100
-r acid 100
-r holy 100
-r negative 100
-r energy 100
-r mental 100
-r sound 100
-r disease 100
-r poison 100
-r charm 100
-r harm 100
-r light 100
+r fire 999
+r cold 999
+r lightning 999
+r acid 999
+r poison 999
+r negative 999
+r holy 999
+r energy 999
+r mental 999
+r disease 999
+r light 999
+r harm 999
+r charm 999
+r sound 999
 #5343
 guildmaster master~
 the guildmaster~
@@ -799,23 +834,23 @@ BJRVe D 0 0 ABL -1000 0
 FG
 stand stand female 0
 0 0 medium unknown
-r bash 100
-r pierce 100
-r slash 100
+r bash 999
+r pierce 999
+r slash 999
 r fire 33
 r cold 33
 r lightning 33
 r acid 33
+r poison 33
+r negative 43
 r holy 33
-r negative 33
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r charm 100
-r harm 33
 r light 33
+r harm 33
+r charm 999
+r sound 33
 #5344
 guildmaster master~
 the guildmaster~
@@ -831,23 +866,23 @@ BJQVe D 0 0 ABKL -1000 0
 EFHIK
 stand stand male 0
 0 0 medium unknown
-r bash 100
-r pierce 100
-r slash 100
+r bash 999
+r pierce 999
+r slash 999
 r fire 33
 r cold 33
 r lightning 33
 r acid 33
-r holy 33
+r poison 33
 r negative 33
+r holy 33
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r charm 100
-r harm 33
 r light 33
+r harm 33
+r charm 999
+r sound 33
 #5345
 templeman~
 the templeman~
@@ -885,20 +920,20 @@ M greet 3000 100~
 r bash 33
 r pierce 33
 r slash 33
-r fire 100
-r cold 100
-r lightning 100
-r acid 100
-r holy 100
-r negative 100
-r energy 100
-r mental 100
-r sound 100
-r disease 100
-r poison 100
-r charm 100
-r harm 100
-r light 100
+r fire 999
+r cold 999
+r lightning 999
+r acid 999
+r poison 999
+r negative 999
+r holy 999
+r energy 999
+r mental 999
+r disease 999
+r light 999
+r harm 999
+r charm 999
+r sound 999
 #5346
 junkseller junk seller~
 Junkseller~
@@ -914,6 +949,11 @@ Zce 0 0 0 0 7 0
 stand stand male 0
 P 0 huge unknown
 F for HZ
+r bash -33
+r pierce 50
+r fire -33
+r cold 50
+r charm -33
 #5499
 guard janitor vampire~
 janitor~
@@ -935,9 +975,9 @@ r bash 33
 r pierce 33
 r slash 33
 r lightning -50
+r negative 999
 r holy -50
-r negative 100
-r charm 100
+r charm 999
 #0
 
 #OBJECTS

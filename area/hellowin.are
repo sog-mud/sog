@@ -1,5 +1,5 @@
 #AREADATA
-Ver 2
+Ver 3
 Name Небольшой изврат~
 VNUMs 34400 34499
 Credits Askold~
@@ -27,23 +27,23 @@ GJVWZe 0 H 0 ABM 1000 0
 0
 stand stand male 10000
 H 0 small unknown
-r bash 100
-r pierce 100
-r slash 100
-r fire 100
-r cold 100
-r lightning 100
-r acid 100
-r holy 100
-r negative 100
-r energy 100
-r mental 100
-r sound 100
-r disease 100
-r poison 100
-r charm 100
-r harm 100
-r light 100
+r bash 999
+r pierce 999
+r slash 999
+r fire 999
+r cold 999
+r lightning 999
+r acid 999
+r poison 999
+r negative 999
+r holy 999
+r energy 999
+r mental 999
+r disease 999
+r light 999
+r harm 999
+r charm 999
+r sound 999
 #34401
 tank t-34~
 @eng {DTank Abrams A1M1{w@rus {DТанк Т-34{w~
@@ -62,22 +62,22 @@ JUVZ 0 HNORTcd B ABHKLM 0 0
 0
 stand stand either 0
 EIc X giant unknown
-r bash 100
-r pierce 100
-r slash 100
-r fire 100
-r cold 100
-r lightning 100
+r bash 999
+r pierce 999
+r slash 999
+r fire 999
+r cold 999
+r lightning 999
 r acid 33
-r holy 100
-r negative 100
+r poison 999
+r negative 999
+r holy 999
 r energy 33
-r mental 100
-r sound 100
-r disease 100
-r poison 100
-r charm 100
+r mental 999
+r disease 999
 r harm 33
+r charm 999
+r sound 999
 #34403
 test~
 test~
@@ -92,23 +92,23 @@ FK
 stand stand none 0
 0 0 medium unknown
 F for AHMV
-r bash 100
-r pierce 100
-r slash 100
-r fire 100
-r cold 100
-r lightning 100
-r acid 100
-r holy 100
-r negative 100
-r energy 100
-r mental 100
-r sound 100
-r disease 100
-r poison 100
-r charm 100
-r harm 100
-r light 100
+r bash 999
+r pierce 999
+r slash 999
+r fire 999
+r cold 999
+r lightning 999
+r acid 999
+r poison 999
+r negative 999
+r holy 999
+r energy 999
+r mental 999
+r disease 999
+r light 999
+r harm 999
+r charm 999
+r sound 999
 #0
 
 #OBJECTS

@@ -1,5 +1,5 @@
 #AREADATA
-Ver 2
+Ver 3
 Name Drow City~
 VNUMs 5100 5199
 Credits Drkside~
@@ -22,6 +22,19 @@ BH 0 0 0 0 -450 0
 EFNR
 sleep sleep male 0
 0 0 medium unknown
+r fire 50
+r cold 50
+r lightning 50
+r acid 50
+r poison 50
+r negative 50
+r holy 50
+r energy 50
+r mental 50
+r light 50
+r harm 50
+r charm 50
+r sound 50
 #5101
 drow commoner~
 the drow commoner~
@@ -36,6 +49,9 @@ FG 0 0 0 A -1000 0
 EFNU
 stand stand male 15
 0 0 medium unknown
+r negative -20
+r holy 10
+r charm -33
 #5102
 drow noble warrior~
 the drow warrior noble~
@@ -50,6 +66,9 @@ BF 0 0 0 A -1000 0
 EFNU
 stand stand male 50
 0 0 medium unknown
+r negative -20
+r holy 10
+r charm -33
 #5103
 drow noble mage~
 the drow mage noble~
@@ -64,6 +83,9 @@ BFR 0 0 0 A -1000 0
 FU
 stand stand male 100
 0 0 medium unknown
+r negative -20
+r holy 10
+r charm -33
 #5104
 drow priestess~
 the drow priestess~
@@ -78,6 +100,9 @@ BFQ 0 0 0 A -1000 0
 EIKU
 stand stand female 200
 0 0 medium unknown
+r negative -20
+r holy 10
+r charm -33
 #5105
 drow master~
 The drow master~
@@ -92,6 +117,9 @@ BF 0 0 0 A -1000 0
 EFNU
 stand stand male 500
 0 0 medium unknown
+r negative -20
+r holy 10
+r charm -33
 #5106
 drow weapons master~
 The weapons master~
@@ -106,6 +134,9 @@ BF 0 0 0 A -1000 0
 EFNU
 stand stand male 750
 0 0 medium unknown
+r negative -20
+r holy 10
+r charm -33
 #5107
 drow matron mother~
 the matron mother~
@@ -120,6 +151,9 @@ BF 0 0 0 A -1000 0
 EFNU
 stand stand female 1500
 0 0 medium unknown
+r negative -20
+r holy 10
+r charm -33
 #5108
 drow matron mother~
 the matron mother~
@@ -134,6 +168,9 @@ BFQ 0 J 0 A -1000 0
 EIKU
 stand stand female 1500
 0 0 medium unknown
+r negative -20
+r holy 10
+r charm -33
 #5109
 yochlol~
 the yochlol~
@@ -162,6 +199,9 @@ BF 0 0 B 0 -1000 0
 EFNU
 stand stand male 250
 0 0 medium unknown
+r negative -20
+r holy 10
+r charm -33
 #5111
 drow scout~
 the drow scout~
@@ -176,6 +216,9 @@ FH 0 0 B 0 -1000 0
 EFNU
 stand stand female 50
 0 0 medium unknown
+r negative -20
+r holy 10
+r charm -33
 #0
 
 #OBJECTS

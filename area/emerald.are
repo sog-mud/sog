@@ -1,5 +1,5 @@
 #AREADATA
-Ver 2
+Ver 3
 Name Emerald Forest~
 Builders dias~
 VNUMs 200 299
@@ -28,9 +28,9 @@ BG 0 T 0 AH 1000 0
 KU
 stand stand female 100
 AC 0 small unknown
-r lightning 100
-r holy 100
-r charm 100
+r lightning 999
+r holy 999
+r charm 999
 #202
 Nymph~
 a nymph~
@@ -49,9 +49,9 @@ BG 0 T 0 AH 1000 0
 FKU
 stand stand female 150
 AC 0 small unknown
-r lightning 100
-r holy 100
-r charm 100
+r lightning 999
+r holy 999
+r charm 999
 #203
 Pixie~
 a pixie~
@@ -71,9 +71,9 @@ G 0 0 0 AH 1000 0
 FU
 stand stand female 80
 AC 0 medium unknown
-r lightning 100
-r holy 100
-r charm 100
+r lightning 999
+r holy 999
+r charm 999
 #204
 Sprite~
 a sprite~
@@ -90,9 +90,9 @@ G 0 T 0 AH 0 0
 FU
 stand stand male 80
 AC 0 small unknown
-r lightning 100
-r holy 100
-r charm 100
+r lightning 999
+r holy 999
+r charm 999
 #205
 Brownie~
 a brownie~
@@ -112,9 +112,9 @@ BG 0 0 0 AH 1000 0
 FKU
 stand stand male 100
 AC 0 medium unknown
-r lightning 100
-r holy 100
-r charm 100
+r lightning 999
+r holy 999
+r charm 999
 #206
 Ranger~
 a ranger~
@@ -134,10 +134,10 @@ BG 0 0 0 AH 1000 0
 FKNU
 stand stand male 100
 AC 0 medium unknown
-r lightning 100
-r holy 100
-r poison 100
-r charm 100
+r lightning 999
+r poison 999
+r holy 999
+r charm 999
 #207
 Spriggan Iachimo~
 the Spriggan~
@@ -156,8 +156,8 @@ BCGHS 0 J BG H -900 0
 AEFKU
 stand stand none 50
 AC ABCDEF small unknown
+r poison 999
 r holy -50
-r poison 100
 #208
 Gremlin~
 a gremlin~
@@ -178,7 +178,7 @@ CDEFJKU
 stand stand none 50
 AB ABCDEF small unknown
 r holy -50
-r charm 100
+r charm 999
 #209
 Fiendish Donkey~
 a fiendish donkey~
@@ -197,7 +197,7 @@ CDEFJKU
 stand stand none 50
 AB ABCDEF medium unknown
 r holy -50
-r charm 100
+r charm 999
 #210
 Devil's Huntsman~
 the Devil's Huntsman~
@@ -215,7 +215,7 @@ CDEFJKU
 stand stand none 50
 AB ABCDEF large unknown
 r holy -50
-r charm 100
+r charm 999
 #211
 Pumpkin man~
 the pumpkin man~
@@ -234,7 +234,7 @@ CDEFJKU
 stand stand male 50
 AB ABCDEF medium unknown
 r holy -50
-r charm 100
+r charm 999
 #212
 Ranger Guildmaster Elesar~
 the Ancient Ranger Guildmaster~
@@ -254,23 +254,23 @@ BGJ D 0 0 0 0 0
 FK
 stand stand male 100
 A 0 medium unknown
-r bash 100
-r pierce 100
-r slash 100
-r fire 100
-r cold 100
-r lightning 100
-r acid 100
-r holy 100
-r negative 100
-r energy 100
-r mental 100
-r sound 100
-r disease 100
-r poison 100
-r charm 100
-r harm 100
-r light 100
+r bash 999
+r pierce 999
+r slash 999
+r fire 999
+r cold 999
+r lightning 999
+r acid 999
+r poison 999
+r negative 999
+r holy 999
+r energy 999
+r mental 999
+r disease 999
+r light 999
+r harm 999
+r charm 999
+r sound 999
 #213
 Ranger Lord~
 the Ancient Ranger Lord~
@@ -296,16 +296,16 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
-r holy 33
+r poison 33
 r negative 33
+r holy 33
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r charm 100
-r harm 33
 r light 33
+r harm 33
+r charm 999
+r sound 33
 #214
 Ranger Bear~
 the ancient ranger bear~
@@ -321,7 +321,7 @@ DKN
 stand stand male 100
 A ABCDEF large unknown
 r fire -50
-r poison 100
+r poison 999
 #215
 Grand Pooh-Ba~
 the Grand Pooh-Ba~
@@ -342,10 +342,10 @@ BG 0 0 0 AH 1000 0
 CFK
 stand stand male 100
 AC 0 small unknown
-r lightning 100
-r holy 100
-r poison 100
-r charm 100
+r lightning 999
+r poison 999
+r holy 999
+r charm 999
 #216
 Witch Aude~
 Aude~
@@ -364,7 +364,7 @@ stand stand female 30
 AB ABCDEF medium unknown
 r fire -50
 r holy -50
-r charm 100
+r charm 999
 #217
 Witch Gertrude~
 Gertrude~
@@ -384,7 +384,7 @@ stand stand female 30
 AB ABCDEF medium unknown
 r fire -50
 r holy -50
-r charm 100
+r charm 999
 #218
 Witch Hela~
 Hela~
@@ -403,7 +403,7 @@ stand stand female 30
 AB ABCDEF medium unknown
 r fire -50
 r holy -50
-r charm 100
+r charm 999
 #219
 Jim Young~
 Young Jim~
@@ -430,16 +430,16 @@ r fire -50
 r cold -50
 r lightning -50
 r acid -50
-r holy -50
+r poison -50
 r negative -50
+r holy -50
 r energy -50
 r mental -50
-r sound -50
 r disease -50
-r poison -50
-r charm -50
-r harm -50
 r light -50
+r harm -50
+r charm -50
+r sound -50
 #220
 Farmer~
 Happy Farmer~
@@ -465,16 +465,16 @@ r fire -50
 r cold -50
 r lightning -50
 r acid -50
-r holy -50
+r poison -50
 r negative -50
+r holy -50
 r energy -50
 r mental -50
-r sound -50
 r disease -50
-r poison -50
-r charm -50
-r harm -50
 r light -50
+r harm -50
+r charm -50
+r sound -50
 #221
 HotBlood bully~
 Young HotBlood~
@@ -497,16 +497,16 @@ r fire -50
 r cold -50
 r lightning -50
 r acid -50
-r holy -50
+r poison -50
 r negative -50
+r holy -50
 r energy -50
 r mental -50
-r sound -50
 r disease -50
-r poison -50
-r charm -50
-r harm -50
 r light -50
+r harm -50
+r charm -50
+r sound -50
 #222
 Maddie Beauty~
 Maddie the local beauty~
@@ -526,16 +526,16 @@ r fire -50
 r cold -50
 r lightning -50
 r acid -50
-r holy -50
+r poison -50
 r negative -50
+r holy -50
 r energy -50
 r mental -50
-r sound -50
 r disease -50
-r poison -50
-r charm -50
-r harm -50
 r light -50
+r harm -50
+r charm -50
+r sound -50
 #223
 Sheeka shopkeeper~
 Sheeka Trilquill~
@@ -556,7 +556,7 @@ EF
 stand stand female 30
 A ABCDEF medium unknown
 r fire -50
-r charm 100
+r charm 999
 #224
 goodwife wife~
 a good wife~
@@ -583,16 +583,16 @@ r fire -50
 r cold -50
 r lightning -50
 r acid -50
-r holy -50
+r poison -50
 r negative -50
+r holy -50
 r energy -50
 r mental -50
-r sound -50
 r disease -50
-r poison -50
-r charm -50
-r harm -50
 r light -50
+r harm -50
+r charm -50
+r sound -50
 #225
 Idiot~
 the village idiot~
@@ -628,16 +628,16 @@ r fire -50
 r cold -50
 r lightning -50
 r acid -50
-r holy -50
+r poison -50
 r negative -50
+r holy -50
 r energy -50
 r mental -50
-r sound -50
 r disease -50
-r poison -50
-r charm -50
-r harm -50
 r light -50
+r harm -50
+r charm -50
+r sound -50
 #226
 Knight Crusader~
 a Knight~
@@ -658,7 +658,7 @@ EFHK
 stand stand male 30
 A ABCDEF medium unknown
 r disease -50
-r charm 100
+r charm 999
 #227
 Sylph~
 a Sylph~
@@ -678,7 +678,7 @@ BGJ 0 IKN 0 AH 1000 0
 K
 stand stand female 80
 AC 0 small unknown
-r charm 100
+r charm 999
 #228
 Irin girl elfin maid elf-maid~
 Irin~
@@ -699,7 +699,7 @@ A ABCDEF medium unknown
 M speech 201 Irin~
 M speech 201 ้าษฮ~
 r disease -50
-r charm 100
+r charm 999
 #229
 cat~
 the marmalade cat~
@@ -717,7 +717,7 @@ BCGHJ 0 0 0 ABH 0 0
 DFJK
 stand stand female 30
 A ABCDEF medium unknown
-r charm 100
+r charm 999
 #230
 Kortho Wordgiver~
 Kortho~
@@ -735,7 +735,7 @@ BCGJ 0 N 0 AH 0 0
 FK
 stand stand male 30
 A ABCDEF medium unknown
-r charm 100
+r charm 999
 #231
 Knight Sorrow~
 Sir Sorrow~
@@ -779,12 +779,12 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
-r holy 33
+r poison 33
 r negative 33
+r holy 33
 r energy 33
 r mental 33
-r poison 33
-r charm 100
+r charm 999
 #233
 Farmer Griff man~
 farmer~
@@ -802,7 +802,7 @@ EFQ
 stand stand female 30
 A ABCDEF medium unknown
 r fire -50
-r charm 100
+r charm 999
 #234
 HellHound dog~
 a hellHound~
@@ -820,7 +820,7 @@ BEFG
 stand stand none 15
 AB ABCDEF small unknown
 r holy -50
-r charm 100
+r charm 999
 #235
 boogum~
 the mountain boogum~
@@ -837,7 +837,7 @@ BCFGJ 0 0 0 ABH -1000 0
 BCF
 stand stand male 15
 A ABCDEF large unknown
-r charm 100
+r charm 999
 #236
 apparition priest~
 an Apparition~
@@ -855,23 +855,23 @@ BCGJ 0 0 0 H 1000 0
 FGK
 stand stand none 15
 D ABCDEF medium unknown
-r bash 100
-r pierce 100
-r slash 100
-r fire 100
-r cold 100
-r lightning 100
-r acid 100
-r holy 100
-r negative 100
-r energy 100
-r mental 100
-r sound 100
-r disease 100
-r poison 100
-r charm 100
-r harm 100
-r light 100
+r bash 999
+r pierce 999
+r slash 999
+r fire 999
+r cold 999
+r lightning 999
+r acid 999
+r poison 999
+r negative 999
+r holy 999
+r energy 999
+r mental 999
+r disease 999
+r light 999
+r harm 999
+r charm 999
+r sound 999
 #237
 Demon-Elf girl~
 Demon-Elf~
@@ -891,7 +891,7 @@ AFK
 stand stand female 1000
 AB ABCDEF medium unknown
 r holy -50
-r charm 100
+r charm 999
 #238
 imbessar king~
 Imbessar~
@@ -916,15 +916,15 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
+r poison 33
 r negative 33
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r charm 100
-r harm 33
 r light 33
+r harm 33
+r charm 999
+r sound 33
 #239
 Marisa enchantress~
 Marisa~
@@ -948,15 +948,15 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
+r poison 33
 r negative 33
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r charm 100
-r harm 33
 r light 33
+r harm 33
+r charm 999
+r sound 33
 #240
 Ranger~
 a lady ranger~
@@ -977,10 +977,10 @@ BG 0 0 0 AH 1000 0
 FKNU
 stand stand female 100
 AC 0 medium unknown
-r lightning 100
-r holy 100
-r poison 100
-r charm 100
+r lightning 999
+r poison 999
+r holy 999
+r charm 999
 #241
 Pixie~
 a pixie~
@@ -1000,9 +1000,9 @@ BG 0 0 0 AH 1000 0
 FU
 stand stand female 80
 AC 0 small unknown
-r lightning 100
-r holy 100
-r charm 100
+r lightning 999
+r holy 999
+r charm 999
 #242
 Pixie~
 a pixie~
@@ -1022,9 +1022,9 @@ BG 0 0 0 AH 1000 0
 FU
 stand stand female 80
 AC 0 small unknown
-r lightning 100
-r holy 100
-r charm 100
+r lightning 999
+r holy 999
+r charm 999
 #243
 Pixie~
 a pixie~
@@ -1044,9 +1044,9 @@ BG 0 0 0 AH 1000 0
 FU
 stand stand female 80
 AC 0 small unknown
-r lightning 100
-r holy 100
-r charm 100
+r lightning 999
+r holy 999
+r charm 999
 #244
 Pixie~
 a pixie~
@@ -1066,9 +1066,9 @@ BG 0 0 0 AH 1000 0
 FU
 stand stand female 80
 AC 0 small unknown
-r lightning 100
-r holy 100
-r charm 100
+r lightning 999
+r holy 999
+r charm 999
 #245
 Brownie~
 a brownie~
@@ -1088,9 +1088,9 @@ BG 0 0 0 AH 1000 0
 FKU
 stand stand male 100
 AC 0 small unknown
-r lightning 100
-r holy 100
-r charm 100
+r lightning 999
+r holy 999
+r charm 999
 #246
 Brownie~
 a brownie~
@@ -1110,9 +1110,9 @@ BG 0 0 0 AH 1000 0
 FKU
 stand stand male 100
 AC 0 small unknown
-r lightning 100
-r holy 100
-r charm 100
+r lightning 999
+r holy 999
+r charm 999
 #247
 Brownie~
 a brownie~
@@ -1132,9 +1132,9 @@ BG 0 0 0 AH 1000 0
 FKU
 stand stand male 100
 AC 0 small unknown
-r lightning 100
-r holy 100
-r charm 100
+r lightning 999
+r holy 999
+r charm 999
 #248
 Brownie~
 a brownie~
@@ -1154,9 +1154,9 @@ BG 0 0 0 AH 1000 0
 FKU
 stand stand male 100
 AC 0 small unknown
-r lightning 100
-r holy 100
-r charm 100
+r lightning 999
+r holy 999
+r charm 999
 #249
 Brownie~
 a brownie~
@@ -1176,9 +1176,9 @@ BG 0 0 0 AH 1000 0
 FKU
 stand stand male 100
 AC 0 small unknown
-r lightning 100
-r holy 100
-r charm 100
+r lightning 999
+r holy 999
+r charm 999
 #250
 Sprite~
 a sprite~
@@ -1195,9 +1195,9 @@ BG 0 T 0 AH 0 0
 FU
 stand stand male 80
 AC 0 small unknown
-r lightning 100
-r holy 100
-r charm 100
+r lightning 999
+r holy 999
+r charm 999
 #251
 Sprite~
 a sprite~
@@ -1214,9 +1214,9 @@ BG 0 T 0 AH 0 0
 FU
 stand stand male 80
 AC 0 small unknown
-r lightning 100
-r holy 100
-r charm 100
+r lightning 999
+r holy 999
+r charm 999
 #252
 Sprite~
 a sprite~
@@ -1233,9 +1233,9 @@ BG 0 T 0 AH 0 0
 FU
 stand stand male 80
 AC 0 small unknown
-r lightning 100
-r holy 100
-r charm 100
+r lightning 999
+r holy 999
+r charm 999
 #253
 Sprite~
 a sprite~
@@ -1252,9 +1252,9 @@ BG 0 T 0 AH 0 0
 FU
 stand stand male 80
 AC 0 small unknown
-r lightning 100
-r holy 100
-r charm 100
+r lightning 999
+r holy 999
+r charm 999
 #254
 Dryad~
 a dryad~
@@ -1274,9 +1274,9 @@ BG 0 T 0 AH 1000 0
 KU
 stand stand female 100
 AC 0 small unknown
-r lightning 100
-r holy 100
-r charm 100
+r lightning 999
+r holy 999
+r charm 999
 #255
 Dryad~
 a dryad~
@@ -1296,9 +1296,9 @@ BG 0 T 0 AH 1000 0
 KU
 stand stand female 100
 AC 0 small unknown
-r lightning 100
-r holy 100
-r charm 100
+r lightning 999
+r holy 999
+r charm 999
 #256
 Dryad~
 a dryad~
@@ -1318,9 +1318,9 @@ BG 0 T 0 AH 1000 0
 KU
 stand stand female 100
 AC 0 small unknown
-r lightning 100
-r holy 100
-r charm 100
+r lightning 999
+r holy 999
+r charm 999
 #257
 Dryad~
 a dryad~
@@ -1340,9 +1340,9 @@ BG 0 T 0 AH 1000 0
 KU
 stand stand female 100
 AC 0 small unknown
-r lightning 100
-r holy 100
-r charm 100
+r lightning 999
+r holy 999
+r charm 999
 #258
 Nymph~
 a nymph~
@@ -1361,9 +1361,9 @@ BG 0 T 0 AH 1000 0
 FKU
 stand stand female 150
 AC 0 small unknown
-r lightning 100
-r holy 100
-r charm 100
+r lightning 999
+r holy 999
+r charm 999
 #259
 Nymph~
 a nymph~
@@ -1382,9 +1382,9 @@ BG 0 T 0 AH 1000 0
 FKU
 stand stand female 150
 AC 0 small unknown
-r lightning 100
-r holy 100
-r charm 100
+r lightning 999
+r holy 999
+r charm 999
 #260
 Nymph~
 a nymph~
@@ -1403,9 +1403,9 @@ BG 0 T 0 AH 1000 0
 FKU
 stand stand female 150
 AC 0 small unknown
-r lightning 100
-r holy 100
-r charm 100
+r lightning 999
+r holy 999
+r charm 999
 #261
 Nymph~
 a nymph~
@@ -1424,9 +1424,9 @@ BG 0 T 0 AH 1000 0
 FKU
 stand stand female 150
 AC 0 small unknown
-r lightning 100
-r holy 100
-r charm 100
+r lightning 999
+r holy 999
+r charm 999
 #262
 Ranger~
 a lady ranger~
@@ -1447,10 +1447,10 @@ BG 0 0 0 AH 1000 0
 FKNU
 stand stand female 100
 AC 0 medium unknown
-r lightning 100
-r holy 100
-r poison 100
-r charm 100
+r lightning 999
+r poison 999
+r holy 999
+r charm 999
 #263
 Ranger~
 a lady ranger~
@@ -1471,10 +1471,10 @@ BG 0 0 0 AH 1000 0
 FKNU
 stand stand female 100
 AC 0 medium unknown
-r lightning 100
-r holy 100
-r poison 100
-r charm 100
+r lightning 999
+r poison 999
+r holy 999
+r charm 999
 #264
 Ranger~
 a ranger~
@@ -1494,10 +1494,10 @@ BG 0 0 0 AH 1000 0
 FKNU
 stand stand male 100
 AC 0 medium unknown
-r lightning 100
-r holy 100
-r poison 100
-r charm 100
+r lightning 999
+r poison 999
+r holy 999
+r charm 999
 #265
 Ranger~
 a ranger~
@@ -1517,10 +1517,10 @@ BG 0 0 0 AH 1000 0
 FKNU
 stand stand male 100
 AC 0 medium unknown
-r lightning 100
-r holy 100
-r poison 100
-r charm 100
+r lightning 999
+r poison 999
+r holy 999
+r charm 999
 #266
 Ranger~
 a ranger~
@@ -1540,10 +1540,10 @@ BG 0 0 0 AH 1000 0
 FKNU
 stand stand male 100
 AC 0 medium unknown
-r lightning 100
-r holy 100
-r poison 100
-r charm 100
+r lightning 999
+r poison 999
+r holy 999
+r charm 999
 #267
 Ranger~
 a ranger~
@@ -1563,10 +1563,10 @@ BG 0 0 0 AH 1000 0
 FKNU
 stand stand male 100
 AC 0 medium unknown
-r lightning 100
-r holy 100
-r poison 100
-r charm 100
+r lightning 999
+r poison 999
+r holy 999
+r charm 999
 #268
 Gremlin~
 a gremlin~
@@ -1587,7 +1587,7 @@ CDEFJKU
 stand stand none 50
 AB ABCDEF small unknown
 r holy -50
-r charm 100
+r charm 999
 #269
 Gremlin~
 a gremlin~
@@ -1608,7 +1608,7 @@ CDEFJKU
 stand stand none 50
 AB ABCDEF small unknown
 r holy -50
-r charm 100
+r charm 999
 #270
 Gremlin~
 a gremlin~
@@ -1629,7 +1629,7 @@ CDEFJKU
 stand stand none 50
 AB ABCDEF small unknown
 r holy -50
-r charm 100
+r charm 999
 #271
 Gremlin~
 a gremlin~
@@ -1650,7 +1650,7 @@ CDEFJKU
 stand stand none 50
 AB ABCDEF small unknown
 r holy -50
-r charm 100
+r charm 999
 #272
 Pumpkin man~
 the pumpkin man~
@@ -1669,7 +1669,7 @@ CDEFJKU
 stand stand male 50
 AB ABCDEF medium unknown
 r holy -50
-r charm 100
+r charm 999
 #273
 Pumpkin man~
 the pumpkin man~
@@ -1688,7 +1688,7 @@ CDEFJKU
 stand stand male 50
 AB ABCDEF medium unknown
 r holy -50
-r charm 100
+r charm 999
 #274
 Pumpkin man~
 the pumpkin man~
@@ -1707,7 +1707,7 @@ CDEFJKU
 stand stand male 50
 AB ABCDEF medium unknown
 r holy -50
-r charm 100
+r charm 999
 #275
 Pumpkin man~
 the pumpkin man~
@@ -1726,7 +1726,7 @@ CDEFJKU
 stand stand male 50
 AB ABCDEF medium unknown
 r holy -50
-r charm 100
+r charm 999
 #276
 Fiendish Donkey~
 a fiendish donkey~
@@ -1745,7 +1745,7 @@ CDEFJKU
 stand stand none 50
 AB ABCDEF medium unknown
 r holy -50
-r charm 100
+r charm 999
 #277
 Fiendish Donkey~
 a fiendish donkey~
@@ -1764,7 +1764,7 @@ CDEFJKU
 stand stand none 50
 AB ABCDEF medium unknown
 r holy -50
-r charm 100
+r charm 999
 #278
 Fiendish Donkey~
 a fiendish donkey~
@@ -1783,7 +1783,7 @@ CDEFJKU
 stand stand none 50
 AB ABCDEF medium unknown
 r holy -50
-r charm 100
+r charm 999
 #279
 Fiendish Donkey~
 a fiendish donkey~
@@ -1802,7 +1802,7 @@ CDEFJKU
 stand stand none 50
 AB ABCDEF medium unknown
 r holy -50
-r charm 100
+r charm 999
 #280
 HellHound dog~
 a hellHound~
@@ -1820,7 +1820,7 @@ BEFG
 stand stand none 15
 AB ABCDEF small unknown
 r holy -50
-r charm 100
+r charm 999
 #281
 HellHound dog~
 a hellHound~
@@ -1838,7 +1838,7 @@ BEFG
 stand stand none 15
 AB ABCDEF small unknown
 r holy -50
-r charm 100
+r charm 999
 #282
 HellHound dog~
 a hellHound~
@@ -1856,7 +1856,7 @@ BEFG
 stand stand none 15
 AB ABCDEF small unknown
 r holy -50
-r charm 100
+r charm 999
 #283
 Devil's Huntsman~
 the Devil's Huntsman~
@@ -1874,7 +1874,7 @@ CDEFJKU
 stand stand male 50
 AB ABCDEF large unknown
 r holy -50
-r charm 100
+r charm 999
 #284
 Devil's Huntsman~
 the Devil's Huntsman~
@@ -1892,7 +1892,7 @@ CDEFJKU
 stand stand male 50
 AB ABCDEF large unknown
 r holy -50
-r charm 100
+r charm 999
 #285
 Devil's Huntsman~
 the Devil's Huntsman~
@@ -1910,7 +1910,7 @@ CDEFJKU
 stand stand male 50
 AB ABCDEF large unknown
 r holy -50
-r charm 100
+r charm 999
 #286
 Devil's Huntsman~
 the Devil's Huntsman~
@@ -1928,7 +1928,7 @@ CDEFJKU
 stand stand male 50
 AB ABCDEF large unknown
 r holy -50
-r charm 100
+r charm 999
 #287
 Nymph~
 a nymph~
@@ -1946,9 +1946,9 @@ BG 0 T 0 AH 1000 0
 FKU
 stand stand female 150
 AC 0 small unknown
-r lightning 100
-r holy 100
-r charm 100
+r lightning 999
+r holy 999
+r charm 999
 #288
 Ranger~
 a ranger~
@@ -1968,10 +1968,10 @@ BG 0 0 0 AH 1000 0
 FKNU
 stand stand male 100
 AC 0 medium unknown
-r lightning 100
-r holy 100
-r poison 100
-r charm 100
+r lightning 999
+r poison 999
+r holy 999
+r charm 999
 #289
 Ranger~
 a ranger~
@@ -1991,10 +1991,10 @@ BG 0 0 0 AH 1000 0
 FKNU
 stand stand male 100
 AC 0 medium unknown
-r lightning 100
-r holy 100
-r poison 100
-r charm 100
+r lightning 999
+r poison 999
+r holy 999
+r charm 999
 #290
 Ranger~
 a ranger~
@@ -2014,10 +2014,10 @@ G 0 0 0 AH 1000 0
 FKNU
 stand stand male 100
 AC 0 medium unknown
-r lightning 100
-r holy 100
-r poison 100
-r charm 100
+r lightning 999
+r poison 999
+r holy 999
+r charm 999
 #291
 Devil Lieutenant~
 the Devil Lieutenant~
@@ -2038,7 +2038,7 @@ stand stand female 30
 AB ABCDEF medium unknown
 r fire -50
 r holy -50
-r charm 100
+r charm 999
 #299
 healer woodskeeper~
 priest~
@@ -2060,20 +2060,20 @@ stand stand male 0
 r bash 33
 r pierce 33
 r slash 33
-r fire 100
-r cold 100
-r lightning 100
-r acid 100
-r holy 100
-r negative 100
-r energy 100
-r mental 100
-r sound 100
-r disease 100
-r poison 100
-r charm 100
-r harm 100
-r light 100
+r fire 999
+r cold 999
+r lightning 999
+r acid 999
+r poison 999
+r negative 999
+r holy 999
+r energy 999
+r mental 999
+r disease 999
+r light 999
+r harm 999
+r charm 999
+r sound 999
 #0
 
 #OBJECTS

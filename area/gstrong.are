@@ -1,5 +1,5 @@
 #AREADATA
-Ver 2
+Ver 3
 Name Goblin Stronghold~
 VNUMs 29000 29099
 Credits Badaxe~
@@ -22,7 +22,19 @@ BFHJT 0 0 0 0 -600 0
 FKNPR
 stand stand male 800
 0 0 medium unknown
-r charm 0
+r fire 50
+r cold 50
+r lightning 50
+r acid 50
+r poison 50
+r negative 50
+r holy 50
+r energy 50
+r mental 50
+r light 50
+r harm 50
+r charm 50
+r sound 50
 #29002
 shaman goblin~
 The goblin shaman~
@@ -37,6 +49,19 @@ BFHJQ 0 0 0 0 -600 0
 PR
 stand stand male 90
 0 0 medium unknown
+r fire 50
+r cold 50
+r lightning 50
+r acid 50
+r poison 50
+r negative 50
+r holy 50
+r energy 50
+r mental 50
+r light 50
+r harm 50
+r charm 50
+r sound 50
 #29003
 mage goblin~
 Goblin Mage~
@@ -54,6 +79,19 @@ BFHJR 0 Vd A ABKL -600 0
 PR
 stand stand male 100
 0 0 medium unknown
+r fire 50
+r cold 50
+r lightning 50
+r acid 50
+r poison 50
+r negative 50
+r holy 50
+r energy 50
+r mental 50
+r light 50
+r harm 50
+r charm 50
+r sound 50
 #29004
 champion goblin knarl~
 Knarl~
@@ -68,7 +106,19 @@ BFJT 0 V G B -1000 0
 CDEFKPR
 stand stand male 100
 0 0 medium unknown
-r charm 0
+r fire 50
+r cold 50
+r lightning 50
+r acid 50
+r poison 50
+r negative 50
+r holy 50
+r energy 50
+r mental 50
+r light 50
+r harm 50
+r charm 50
+r sound 50
 #29005
 guard goblin~
 goblin guard~
@@ -83,6 +133,19 @@ BFJT 0 0 0 0 -600 29005
 R
 stand stand male 100
 0 0 medium unknown
+r fire 50
+r cold 50
+r lightning 50
+r acid 50
+r poison 50
+r negative 50
+r holy 50
+r energy 50
+r mental 50
+r light 50
+r harm 50
+r charm 50
+r sound 50
 #29006
 guard goblin~
 a goblin guard~
@@ -97,20 +160,20 @@ FJT 0 0 0 0 -600 29006
 EKR
 stand stand male 100
 0 0 medium unknown
-r fire 0
-r cold 0
-r lightning 0
-r acid 0
-r holy 0
-r negative 0
-r energy 0
-r mental 0
-r sound 0
-r disease 100
-r poison 0
-r charm 0
-r harm 0
-r light 0
+r fire 50
+r cold 50
+r lightning 50
+r acid 50
+r poison 50
+r negative 50
+r holy 50
+r energy 50
+r mental 50
+r disease 999
+r light 50
+r harm 50
+r charm 50
+r sound 50
 #29007
 goblin~
 The goblin~
@@ -125,6 +188,19 @@ FJT 0 0 0 0 -600 29007
 R
 stand stand male 0
 0 0 small unknown
+r fire 50
+r cold 50
+r lightning 50
+r acid 50
+r poison 50
+r negative 50
+r holy 50
+r energy 50
+r mental 50
+r light 50
+r harm 50
+r charm 50
+r sound 50
 #29008
 goblin prisoner~
 the goblin prisoner~
@@ -139,6 +215,19 @@ T 0 0 0 0 -600 0
 0
 sit sit male 0
 0 0 small unknown
+r fire 50
+r cold 50
+r lightning 50
+r acid 50
+r poison 50
+r negative 50
+r holy 50
+r energy 50
+r mental 50
+r light 50
+r harm 50
+r charm 50
+r sound 50
 #29009
 leper goblin~
 the goblin~
@@ -153,8 +242,20 @@ CFGJS 0 Xd BG B 0 29009
 BDEFR
 stand stand male 2
 0 0 small unknown
+r fire 50
+r cold 50
+r lightning 50
+r acid 50
+r poison 50
+r negative 50
+r holy 50
+r energy 50
+r mental 50
 r disease -50
-r charm 33
+r light 50
+r harm 50
+r charm 83
+r sound 50
 #29010
 goblin~
 the goblin~
@@ -169,6 +270,19 @@ BFJT 0 0 0 0 -600 29010
 R
 stand stand male 20
 0 0 small unknown
+r fire 50
+r cold 50
+r lightning 50
+r acid 50
+r poison 50
+r negative 50
+r holy 50
+r energy 50
+r mental 50
+r light 50
+r harm 50
+r charm 50
+r sound 50
 #29011
 demon lesser~
 The Lesser Demon~
@@ -187,7 +301,7 @@ r bash -50
 r fire 33
 r holy -50
 r disease 33
-r charm 100
+r charm 999
 #29012
 girl dancing goblin Britta~
 the dancing girl~
@@ -202,6 +316,19 @@ BFJT 0 0 0 0 -600 0
 R
 stand stand female 100
 0 0 small unknown
+r fire 50
+r cold 50
+r lightning 50
+r acid 50
+r poison 50
+r negative 50
+r holy 50
+r energy 50
+r mental 50
+r light 50
+r harm 50
+r charm 50
+r sound 50
 #29013
 goblin jester~
 the goblin jester~
@@ -216,6 +343,19 @@ FJT 0 0 0 0 -600 0
 0
 stand stand male 10
 0 0 small unknown
+r fire 50
+r cold 50
+r lightning 50
+r acid 50
+r poison 50
+r negative 50
+r holy 50
+r energy 50
+r mental 50
+r light 50
+r harm 50
+r charm 50
+r sound 50
 #0
 
 #OBJECTS

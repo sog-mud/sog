@@ -1,5 +1,5 @@
 #AREADATA
-Ver 2
+Ver 3
 Name Midgaard~
 VNUMs 3000 3399
 Credits Diku~
@@ -31,20 +31,20 @@ stand stand male 15000
 r bash 33
 r pierce 33
 r slash 33
-r fire 100
-r cold 100
-r lightning 100
-r acid 100
-r holy 100
-r negative 100
-r energy 100
-r mental 100
-r sound 100
-r disease 100
-r poison 100
-r charm 100
-r harm 100
-r light 100
+r fire 999
+r cold 999
+r lightning 999
+r acid 999
+r poison 999
+r negative 999
+r holy 999
+r energy 999
+r mental 999
+r disease 999
+r light 999
+r harm 999
+r charm 999
+r sound 999
 #3001
 baker~
 @eng the baker@rus пекарь~
@@ -70,16 +70,16 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
-r holy 33
+r poison 33
 r negative 33
+r holy 33
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r charm 100
-r harm 33
 r light 33
+r harm 33
+r charm 999
+r sound 33
 #3002
 grocer бакалейщик~
 @eng the grocer@rus бакалейщик~
@@ -103,16 +103,16 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
-r holy 33
+r poison 33
 r negative 33
+r holy 33
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r charm 100
-r harm 33
 r light 33
+r harm 33
+r charm 999
+r sound 33
 #3003
 weaponsmith~
 @eng the weaponsmith@rus оружейник~
@@ -137,16 +137,16 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
-r holy 33
+r poison 33
 r negative 33
+r holy 33
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r charm 100
-r harm 33
 r light 33
+r harm 33
+r charm 999
+r sound 33
 #3004
 armourer armorer~
 the armourer~
@@ -170,16 +170,16 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
-r holy 33
+r poison 33
 r negative 33
+r holy 33
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r charm 100
-r harm 33
 r light 33
+r harm 33
+r charm 999
+r sound 33
 #3005
 thief вор~
 @eng the thief@rus вор~
@@ -219,16 +219,16 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
-r holy 33
+r poison 33
 r negative 33
+r holy 33
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r charm 100
-r harm 33
 r light 33
+r harm 33
+r charm 999
+r sound 33
 #3007
 sailor моряк~
 @eng the sailor@rus моряк~
@@ -252,16 +252,16 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
-r holy 33
+r poison 33
 r negative 33
+r holy 33
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r charm 100
-r harm 33
 r light 33
+r harm 33
+r charm 999
+r sound 33
 #3008
 boy мальчик~
 @eng the pet shop boy@rus ~~продавец~~ животных~
@@ -285,16 +285,16 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
-r holy 33
+r poison 33
 r negative 33
+r holy 33
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r charm 100
-r harm 33
 r light 33
+r harm 33
+r charm 999
+r sound 33
 #3009
 jeweller ювелир~
 @eng the jeweller@rus ювелир~
@@ -318,16 +318,16 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
-r holy 33
+r poison 33
 r negative 33
+r holy 33
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r charm 100
-r harm 33
 r light 33
+r harm 33
+r charm 999
+r sound 33
 #3010
 leather worker скорняк~
 @eng the leather worker@rus скорняк~
@@ -353,16 +353,16 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
-r holy 33
+r poison 33
 r negative 33
+r holy 33
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r charm 100
-r harm 33
 r light 33
+r harm 33
+r charm 999
+r sound 33
 #3011
 Questor квестор~
 @eng Questor@rus квестор~
@@ -386,18 +386,20 @@ M greet 3019 10~
 r bash 33
 r pierce 33
 r slash 33
-r lightning 0
+r fire -33
+r cold -33
+r lightning 50
 r acid 33
-r holy 33
-r negative 33
-r energy 33
-r mental 33
-r sound 33
-r disease 33
 r poison 33
-r charm 100
-r harm 33
+r negative 33
+r holy 33
+r energy 33
+r mental 83
+r disease 33
 r light 33
+r harm 33
+r charm 999
+r sound 33
 #3012
 healer лекарь~
 @eng the healer@rus ~~лекарь~~~
@@ -420,20 +422,20 @@ stand stand male 5000
 r bash 33
 r pierce 33
 r slash 33
-r fire 100
-r cold 100
-r lightning 100
-r acid 100
-r holy 100
-r negative 100
-r energy 100
-r mental 100
-r sound 100
-r disease 100
-r poison 100
-r charm 100
-r harm 100
-r light 100
+r fire 999
+r cold 999
+r lightning 999
+r acid 999
+r poison 999
+r negative 999
+r holy 999
+r energy 999
+r mental 999
+r disease 999
+r light 999
+r harm 999
+r charm 999
+r sound 999
 #3013
 janitor дворничиха~
 @eng the janitor@rus дворничиха~
@@ -452,16 +454,16 @@ r fire -50
 r cold -50
 r lightning -50
 r acid -50
-r holy -50
+r poison -50
 r negative -50
+r holy -50
 r energy -50
 r mental -50
-r sound -50
 r disease -50
-r poison -50
-r charm -50
-r harm -50
 r light -50
+r harm -50
+r charm -50
+r sound -50
 #3020
 guildmaster master наставница~
 @eng the guildmaster@rus наставница~
@@ -482,23 +484,23 @@ BJRVe D 0 0 ABL 1000 0
 FG
 stand stand female 0
 0 0 medium unknown
-r bash 100
-r pierce 100
-r slash 100
+r bash 999
+r pierce 999
+r slash 999
 r fire 33
 r cold 33
 r lightning 33
 r acid 33
+r poison 33
+r negative 43
 r holy 33
-r negative 33
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r charm 100
-r harm 33
 r light 33
+r harm 33
+r charm 999
+r sound 33
 #3021
 guildmaster master наставник~
 @eng the guildmaster@rus наставник~
@@ -518,23 +520,23 @@ BJQVe D H 0 ABKL 1000 0
 EFHIK
 stand stand male 0
 0 0 medium unknown
-r bash 100
-r pierce 100
-r slash 100
+r bash 999
+r pierce 999
+r slash 999
 r fire 33
 r cold 33
 r lightning 33
 r acid 33
-r holy 33
+r poison 33
 r negative 33
+r holy 33
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r charm 100
-r harm 33
 r light 33
+r harm 33
+r charm 999
+r sound 33
 #3022
 guildmaster master наставник~
 @eng the guildmaster@rus наставник~
@@ -574,23 +576,23 @@ BJTVe D 0 0 AB 1000 0
 ACDEIK
 stand stand male 0
 0 0 medium unknown
-r bash 100
-r pierce 100
-r slash 100
+r bash 999
+r pierce 999
+r slash 999
 r fire 33
 r cold 33
 r lightning 33
 r acid 33
-r holy 33
+r poison 8
 r negative 33
+r holy 33
 r energy 33
 r mental 33
-r sound 33
-r disease 33
-r poison 33
-r charm 100
-r harm 33
+r disease 8
 r light 33
+r harm 33
+r charm 999
+r sound 33
 #3024
 sorcerer колдун~
 @eng the sorcerer@rus колдун~
@@ -618,16 +620,16 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
+r poison 33
+r negative 43
 r holy 33
-r negative 33
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r charm 100
-r harm 33
 r light 33
+r harm 33
+r charm 999
+r sound 33
 #3025
 templar тамплиер~
 @eng the knight templar@rus Тамплиер~
@@ -657,16 +659,16 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
-r holy 33
+r poison 33
 r negative 33
+r holy 33
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r charm 100
-r harm 33
 r light 33
+r harm 33
+r charm 999
+r sound 33
 #3026
 assassin убийца~
 @eng the assassin@rus убийца~
@@ -695,16 +697,16 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
-r holy 33
+r poison 33
 r negative 33
+r holy 33
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r charm 100
-r harm 33
 r light 33
+r harm 33
+r charm 999
+r sound 33
 #3027
 knight рыцарь~
 @eng the knight@rus рыцарь~
@@ -733,16 +735,16 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
-r holy 33
+r poison 33
 r negative 33
+r holy 33
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r charm 100
-r harm 33
 r light 33
+r harm 33
+r charm 999
+r sound 33
 #3040
 bartender бармен~
 @eng the bartender@rus бармен~
@@ -766,16 +768,16 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
-r holy 33
+r poison 33
 r negative 33
+r holy 33
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r charm 100
-r harm 33
 r light 33
+r harm 33
+r charm 999
+r sound 33
 #3041
 waiter~
 the waiter~
@@ -797,16 +799,16 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
-r holy 33
+r poison 33
 r negative 33
+r holy 33
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r charm 100
-r harm 33
 r light 33
+r harm 33
+r charm 999
+r sound 33
 #3042
 waiter официант~
 @eng the waiter@rus официант~
@@ -832,16 +834,16 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
-r holy 33
+r poison 33
 r negative 33
+r holy 33
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r charm 100
-r harm 33
 r light 33
+r harm 33
+r charm 999
+r sound 33
 #3043
 waiter официант~
 @eng the waiter@rus официант~
@@ -865,16 +867,16 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
-r holy 33
+r poison 33
 r negative 33
+r holy 33
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r charm 100
-r harm 33
 r light 33
+r harm 33
+r charm 999
+r sound 33
 #3044
 waiter официант~
 @eng the waiter@rus официант~
@@ -898,16 +900,16 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
-r holy 33
+r poison 33
 r negative 33
+r holy 33
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r charm 100
-r harm 33
 r light 33
+r harm 33
+r charm 999
+r sound 33
 #3045
 waiter официант~
 @eng the waiter@rus официант~
@@ -931,16 +933,16 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
-r holy 33
+r poison 33
 r negative 33
+r holy 33
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r charm 100
-r harm 33
 r light 33
+r harm 33
+r charm 999
+r sound 33
 #3046
 filthy филси~
 @eng Filthy@rus Филси~
@@ -967,16 +969,16 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
-r holy 33
+r poison 33
 r negative 33
+r holy 33
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r charm 100
-r harm 33
 r light 33
+r harm 33
+r charm 999
+r sound 33
 #3060
 cityguard guard стражник~
 @eng the cityguard@rus стражник~
@@ -999,16 +1001,16 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
-r holy 33
+r poison 33
 r negative 33
+r holy 33
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r charm 33
-r harm 33
 r light 33
+r harm 33
+r charm 33
+r sound 33
 #3061
 janitor дворник~
 @eng the janitor@rus дворник~
@@ -1029,16 +1031,16 @@ r fire -50
 r cold -50
 r lightning -50
 r acid -50
-r holy -50
+r poison -50
 r negative -50
+r holy -50
 r energy -50
 r mental -50
-r sound -50
 r disease -50
-r poison -50
-r charm -50
-r harm -50
 r light -50
+r harm -50
+r charm -50
+r sound -50
 #3062
 fido dog собака зверюга~
 @eng the beastly fido@rus ~~противная~~ ~~зверюга~~~
@@ -1056,6 +1058,20 @@ FGHU 0 0 0 0 -200 0
 0
 stand stand female 0
 0 0 small unknown
+r fire 50
+r cold 50
+r lightning 50
+r acid 50
+r poison 50
+r negative 50
+r holy 50
+r energy 50
+r mental 50
+r disease 50
+r light 50
+r harm 50
+r charm 50
+r sound 50
 #3063
 vagabond бродяга~
 @eng the vagabond@rus бродяга~
@@ -1077,16 +1093,16 @@ r fire -50
 r cold -50
 r lightning -50
 r acid -50
-r holy -50
+r poison -50
 r negative -50
+r holy -50
 r energy -50
 r mental -50
-r sound -50
 r disease -50
-r poison -50
-r charm -50
-r harm -50
 r light -50
+r harm -50
+r charm -50
+r sound -50
 #3064
 drunk пьяница~
 @eng the drunk@rus пьяница~
@@ -1107,16 +1123,16 @@ r fire -50
 r cold -50
 r lightning -50
 r acid -50
-r holy -50
+r poison -50
 r negative -50
+r holy -50
 r energy -50
 r mental -50
-r sound -50
 r disease -50
-r poison -50
-r charm -50
-r harm -50
 r light -50
+r harm -50
+r charm -50
+r sound -50
 #3065
 beggar попрошайка~
 @eng the beggar@rus попрошайка~
@@ -1140,16 +1156,16 @@ r fire -50
 r cold -50
 r lightning -50
 r acid -50
-r holy -50
+r poison -50
 r negative -50
+r holy -50
 r energy -50
 r mental -50
-r sound -50
 r disease -50
-r poison -50
-r charm -50
-r harm -50
 r light -50
+r harm -50
+r charm -50
+r sound -50
 #3066
 cat кот~
 @eng an alley cat@rus ~~уличный~~ ~~кот~~~
@@ -1170,16 +1186,16 @@ r fire -50
 r cold -50
 r lightning -50
 r acid -50
-r holy -50
+r poison -50
 r negative -50
+r holy -50
 r energy -50
 r mental -50
-r sound -50
 r disease -50
-r poison -50
-r charm -50
-r harm -50
 r light -50
+r harm -50
+r charm -50
+r sound -50
 #3067
 cityguard guard стражник~
 @eng the cityguard@rus стражник~
@@ -1200,16 +1216,16 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
-r holy 33
+r poison 33
 r negative 33
+r holy 33
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r charm 33
-r harm 33
 r light 33
+r harm 33
+r charm 33
+r sound 33
 #3068
 cityguard guard стражник~
 @eng the cityguard@rus стражник~
@@ -1230,16 +1246,16 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
-r holy 33
+r poison 33
 r negative 33
+r holy 33
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r charm 33
-r harm 33
 r light 33
+r harm 33
+r charm 33
+r sound 33
 #3069
 cityguard guard стражник~
 @eng the cityguard@rus стражник~
@@ -1260,16 +1276,16 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
-r holy 33
+r poison 33
 r negative 33
+r holy 33
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r charm 33
-r harm 33
 r light 33
+r harm 33
+r charm 33
+r sound 33
 #3070
 shopkeeper old man аптекарь~
 @eng An old man@rus ~~старый~~ ~~аптекарь~~~
@@ -1294,16 +1310,16 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
-r holy 33
+r poison 33
 r negative 33
+r holy 33
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r charm 100
-r harm 33
 r light 33
+r harm 33
+r charm 999
+r sound 33
 #3071
 cityguard guard стражник~
 @eng the cityguard@rus стражник~
@@ -1324,16 +1340,16 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
-r holy 33
+r poison 33
 r negative 33
+r holy 33
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r charm 33
-r harm 33
 r light 33
+r harm 33
+r charm 33
+r sound 33
 #3072
 cityguard guard стражник~
 @eng the cityguard@rus стражник~
@@ -1354,16 +1370,16 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
-r holy 33
+r poison 33
 r negative 33
+r holy 33
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r charm 33
-r harm 33
 r light 33
+r harm 33
+r charm 33
+r sound 33
 #3090
 kitten cat pet котенок~
 @eng the kitten@rus котенок~
@@ -1384,16 +1400,16 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
-r holy 33
+r poison 33
 r negative 33
+r holy 33
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r charm 33
-r harm 33
 r light 33
+r harm 33
+r charm 33
+r sound 33
 #3091
 puppy dog pet щенок~
 @eng the puppy@rus щенок~
@@ -1414,16 +1430,16 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
-r holy 33
+r poison 33
 r negative 33
+r holy 33
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r charm 33
-r harm 33
 r light 33
+r harm 33
+r charm 33
+r sound 33
 #3092
 beagle dog pet гончая~
 @eng the beagle@rus гончая~
@@ -1444,16 +1460,16 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
-r holy 33
+r poison 33
 r negative 33
+r holy 33
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r charm 33
-r harm 33
 r light 33
+r harm 33
+r charm 33
+r sound 33
 #3093
 rottweiler dog pet ротвейлер~
 @eng the rottweiler@rus ротвейлер~
@@ -1474,16 +1490,16 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
-r holy 33
+r poison 33
 r negative 33
+r holy 33
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r charm 33
-r harm 33
 r light 33
+r harm 33
+r charm 33
+r sound 33
 #3094
 wolf pet волк~
 @eng the wolf@rus волк~
@@ -1504,16 +1520,16 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
-r holy 33
+r poison 33
 r negative 33
+r holy 33
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r charm 33
-r harm 33
 r light 33
+r harm 33
+r charm 33
+r sound 33
 #3095
 eagle bird pet~
 the eagle~
@@ -1532,16 +1548,16 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
-r holy 33
+r poison 33
 r negative 33
+r holy 33
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r charm 33
-r harm 33
 r light 33
+r harm 33
+r charm 33
+r sound 33
 #3096
 lion pet~
 the lion~
@@ -1560,16 +1576,16 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
-r holy 33
+r poison 33
 r negative 33
+r holy 33
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r charm 33
-r harm 33
 r light 33
+r harm 33
+r charm 33
+r sound 33
 #3097
 tiger pet~
 the tiger~
@@ -1588,16 +1604,16 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
-r holy 33
+r poison 33
 r negative 33
+r holy 33
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r charm 33
-r harm 33
 r light 33
+r harm 33
+r charm 33
+r sound 33
 #3100
 maid служанка~
 @eng the maid@rus служанка~
@@ -1623,16 +1639,16 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
-r holy 33
+r poison 33
 r negative 33
+r holy 33
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r charm 100
-r harm 33
 r light 33
+r harm 33
+r charm 999
+r sound 33
 #3120
 sexton могильщик~
 @eng the sexton@rus могильщик~
@@ -1653,16 +1669,16 @@ r fire -50
 r cold -50
 r lightning -50
 r acid -50
-r holy -50
+r poison -50
 r negative -50
+r holy -50
 r energy -50
 r mental -50
-r sound -50
 r disease -50
-r poison -50
-r charm -50
-r harm -50
 r light -50
+r harm -50
+r charm -50
+r sound -50
 #3121
 swan лебедь~
 @eng the swan@rus лебедь~
@@ -1683,16 +1699,16 @@ r fire -50
 r cold -50
 r lightning -50
 r acid -50
-r holy -50
+r poison -50
 r negative -50
+r holy -50
 r energy -50
 r mental -50
-r sound -50
 r disease -50
-r poison -50
-r charm -50
-r harm -50
 r light -50
+r harm -50
+r charm -50
+r sound -50
 #3122
 duckling утенок~
 @eng the duckling@rus утенок~
@@ -1713,16 +1729,16 @@ r fire -50
 r cold -50
 r lightning -50
 r acid -50
-r holy -50
+r poison -50
 r negative -50
+r holy -50
 r energy -50
 r mental -50
-r sound -50
 r disease -50
-r poison -50
-r charm -50
-r harm -50
 r light -50
+r harm -50
+r charm -50
+r sound -50
 #3123
 sparrow воробей~
 @eng the sparrow@rus воробей~
@@ -1743,16 +1759,16 @@ r fire -50
 r cold -50
 r lightning -50
 r acid -50
-r holy -50
+r poison -50
 r negative -50
+r holy -50
 r energy -50
 r mental -50
-r sound -50
 r disease -50
-r poison -50
-r charm -50
-r harm -50
 r light -50
+r harm -50
+r charm -50
+r sound -50
 #3124
 duck утка~
 @eng the duck@rus утка~
@@ -1773,16 +1789,16 @@ r fire -50
 r cold -50
 r lightning -50
 r acid -50
-r holy -50
+r poison -50
 r negative -50
+r holy -50
 r energy -50
 r mental -50
-r sound -50
 r disease -50
-r poison -50
-r charm -50
-r harm -50
 r light -50
+r harm -50
+r charm -50
+r sound -50
 #3140
 captain капитан~
 @eng the captain@rus капитан~
@@ -1803,16 +1819,16 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
-r holy 33
+r poison 33
 r negative 33
+r holy 33
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r charm 33
-r harm 33
 r light 33
+r harm 33
+r charm 33
+r sound 33
 #3141
 cityguard guard стражник~
 @eng the cityguard@rus стражник~
@@ -1833,16 +1849,16 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
-r holy 33
+r poison 33
 r negative 33
+r holy 33
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r charm 33
-r harm 33
 r light 33
+r harm 33
+r charm 33
+r sound 33
 #3142
 secretary секретарь секретарша~
 @eng the secretary@rus секретарша~
@@ -1886,16 +1902,16 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
-r holy 33
+r poison 33
 r negative 33
+r holy 33
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r charm 100
-r harm 33
 r light 33
+r harm 33
+r charm 999
+r sound 33
 #3144
 crier плакальщик~
 @eng the town crier@rus ~~городской~~ ~~плакальщик~~~
@@ -1916,16 +1932,16 @@ r fire -50
 r cold -50
 r lightning -50
 r acid -50
-r holy -50
+r poison -50
 r negative -50
+r holy -50
 r energy -50
 r mental -50
-r sound -50
 r disease -50
-r poison -50
-r charm -50
-r harm -50
 r light -50
+r harm -50
+r charm -50
+r sound -50
 #3150
 esme waitress эсме~
 @eng Esme@rus Эсме~
@@ -1950,16 +1966,16 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
-r holy 33
+r poison 33
 r negative 33
+r holy 33
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r charm 100
-r harm 33
 r light 33
+r harm 33
+r charm 999
+r sound 33
 #3160
 Melancholy меланхолик~
 @eng Melancholy@rus Меланхолик~
@@ -1989,16 +2005,16 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
-r holy 33
+r poison 33
 r negative 33
+r holy 33
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r charm 100
-r harm 33
 r light 33
+r harm 33
+r charm 999
+r sound 33
 #3161
 lister green tree snake листер~
 @eng Lister@rus Листер~
@@ -2020,6 +2036,8 @@ FHNR
 stand stand male 0
 0 0 small unknown
 r pierce 33
+r cold 50
+r poison -33
 #3162
 otho money changer moneychanger меняла~
 @eng Otho the Changer@rus Ото-~~меняла~~~
@@ -2052,16 +2070,16 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
-r holy 33
+r poison 33
 r negative 33
+r holy 33
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r charm 100
-r harm 33
 r light 33
+r harm 33
+r charm 999
+r sound 33
 #3163
 thief вор~
 @eng the thief@rus вор~
@@ -2102,16 +2120,16 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
-r holy 33
+r poison 33
 r negative 33
+r holy 33
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r charm 100
-r harm 33
 r light 33
+r harm 33
+r charm 999
+r sound 33
 #3165
 novice boy помощник~
 @eng the novice boy@rus помощник~
@@ -2132,7 +2150,7 @@ BJce 0 HV 0 0 500 0
 EFJN
 stand stand male 100
 0 0 medium unknown
-r charm 100
+r charm 999
 #3166
 healer nacya нася~
 @eng Nacya@rus Нася~
@@ -2154,23 +2172,23 @@ BJQRVe DHI H 0 ABL 1000 0
 FG
 stand stand female 0
 0 0 medium unknown
-r bash 100
-r pierce 100
-r slash 100
-r fire 100
-r cold 100
-r lightning 100
-r acid 100
-r holy 100
-r negative 100
-r energy 100
-r mental 100
-r sound 100
-r disease 100
-r poison 100
-r charm 100
-r harm 100
-r light 100
+r bash 999
+r pierce 999
+r slash 999
+r fire 999
+r cold 999
+r lightning 999
+r acid 999
+r poison 999
+r negative 999
+r holy 999
+r energy 999
+r mental 999
+r disease 999
+r light 999
+r harm 999
+r charm 999
+r sound 999
 #3167
 guildmaster master наставник~
 @eng the guildmaster@rus наставник~
@@ -2191,23 +2209,23 @@ BJRVe D 0 0 ABL 1000 0
 FG
 stand stand male 0
 0 0 medium unknown
-r bash 100
-r pierce 100
-r slash 100
+r bash 999
+r pierce 999
+r slash 999
 r fire 33
 r cold 33
 r lightning 33
 r acid 33
-r holy 33
+r poison 33
 r negative 33
+r holy 33
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r charm 100
-r harm 33
 r light 33
+r harm 33
+r charm 999
+r sound 33
 #3168
 guildmaster master наставник~
 @eng the guildmaster@rus наставник~
@@ -2233,16 +2251,16 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
-r holy 33
+r poison 33
 r negative 33
+r holy 33
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r charm 100
-r harm 33
 r light 33
+r harm 33
+r charm 999
+r sound 33
 #3169
 guildmaster master наставник~
 @eng the guildmaster@rus наставник~
@@ -2272,16 +2290,16 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
-r holy 33
-r negative 33
+r poison 33
+r negative 13
+r holy 43
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r charm 100
-r harm 33
 r light 33
+r harm 33
+r charm 999
+r sound 33
 #3170
 guildmaster master наставница~
 @eng the guildmaster@rus наставница~
@@ -2302,23 +2320,23 @@ BJRVe D 0 0 ABL 0 0
 FG
 stand stand female 0
 0 0 medium unknown
-r bash 100
-r pierce 100
-r slash 100
+r bash 999
+r pierce 999
+r slash 999
 r fire 33
 r cold 33
 r lightning 33
 r acid 33
+r poison 33
+r negative 43
 r holy 33
-r negative 33
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r charm 100
-r harm 33
 r light 33
+r harm 33
+r charm 999
+r sound 33
 #3171
 guildmaster master наставник~
 @eng the guildmaster@rus наставник~
@@ -2339,23 +2357,23 @@ BJRVe D 0 0 ABL 1000 0
 FG
 stand stand male 0
 0 0 medium unknown
-r bash 100
-r pierce 100
-r slash 100
+r bash 999
+r pierce 999
+r slash 999
 r fire 33
 r cold 33
 r lightning 33
 r acid 33
-r holy 33
+r poison 33
 r negative 33
+r holy 33
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r charm 100
-r harm 33
 r light 33
+r harm 33
+r charm 999
+r sound 33
 #3172
 templeman~
 the templeman~
@@ -2393,20 +2411,20 @@ M speech 3018 eros~
 r bash 33
 r pierce 33
 r slash 33
-r fire 100
-r cold 100
-r lightning 100
-r acid 100
-r holy 100
-r negative 100
-r energy 100
-r mental 100
-r sound 100
-r disease 100
-r poison 100
-r charm 100
-r harm 100
-r light 100
+r fire 999
+r cold 999
+r lightning 999
+r acid 999
+r poison 999
+r negative 999
+r holy 999
+r energy 999
+r mental 999
+r disease 999
+r light 999
+r harm 999
+r charm 999
+r sound 999
 #0
 
 #OBJECTS

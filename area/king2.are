@@ -1,5 +1,5 @@
 #AREADATA
-Ver 2
+Ver 3
 Name King's Castle~
 VNUMs 15200 15299
 Credits Anon~
@@ -45,6 +45,14 @@ stand stand either 0
 r bash -50
 r pierce -50
 r slash -50
+r fire -33
+r cold -33
+r acid -33
+r negative -100
+r holy -100
+r mental -100
+r disease -100
+r charm -100
 #15203
 jim guard royal~
 Jim the Royal guard~
@@ -254,6 +262,10 @@ BCFHJ 0 0 0 0 -1000 0
 BDJ
 stand stand male 1000
 0 0 medium unknown
+r fire -33
+r cold -33
+r lightning 50
+r mental 50
 #15216
 butler james~
 James the Butler~
@@ -286,6 +298,8 @@ stand stand female 100
 r bash -50
 r pierce -50
 r slash -50
+r negative 10
+r charm -33
 #15218
 cockroach roach~
 the Cockroach~
@@ -300,8 +314,10 @@ centipede~
 E
 stand stand either 10000
 0 0 medium unknown
-r pierce 0
+r bash 50
+r pierce -33
 r slash -50
+r cold -33
 #15219
 astrologer~
 the Astrologer~
@@ -322,16 +338,16 @@ r fire -50
 r cold -50
 r lightning -50
 r acid -50
-r holy -50
+r poison -50
 r negative -50
+r holy -50
 r energy -50
 r mental -50
-r sound -50
 r disease -50
-r poison -50
-r charm -50
-r harm -50
 r light -50
+r harm -50
+r charm -50
+r sound -50
 #15220
 tim guard lifeguard~
 Tim, the King's Lifeguard~
@@ -383,16 +399,16 @@ r fire -50
 r cold -50
 r lightning -50
 r acid -50
-r holy -50
+r poison -50
 r negative -50
+r holy -50
 r energy -50
 r mental -50
-r sound -50
 r disease -50
-r poison -50
-r charm -50
-r harm -50
 r light -50
+r harm -50
+r charm -50
+r sound -50
 #15223
 cook~
 the Cook~
@@ -411,16 +427,16 @@ r fire -50
 r cold -50
 r lightning -50
 r acid -50
-r holy -50
+r poison -50
 r negative -50
+r holy -50
 r energy -50
 r mental -50
-r sound -50
 r disease -50
-r poison -50
-r charm -50
-r harm -50
 r light -50
+r harm -50
+r charm -50
+r sound -50
 #15224
 david guard~
 David~
@@ -529,18 +545,20 @@ BFTc 0 NOVc 0 ABKLM 1000 0
 CDEFGHIJKN
 stand stand male 8457
 0 0 large unknown
-r fire 0
-r cold 0
+r fire -33
+r cold -33
+r lightning 50
 r acid -50
-r holy -50
-r negative -50
-r energy -50
-r sound -50
-r disease -50
 r poison -50
-r charm -50
-r harm -50
+r negative -50
+r holy -50
+r energy -50
+r mental 50
+r disease -50
 r light -50
+r harm -50
+r charm -50
+r sound -50
 #0
 
 #OBJECTS

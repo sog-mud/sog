@@ -1,5 +1,5 @@
 #AREADATA
-Ver 2
+Ver 3
 Name Aarakocran City~
 VNUMs 5600 5699
 Credits Slash~
@@ -102,23 +102,23 @@ BGJ 0 0 0 0 -200 0
 ENU
 stand stand male 1000
 0 0 medium unknown
-r bash 100
-r pierce 100
-r slash 100
-r fire 100
-r cold 100
-r lightning 100
-r acid 100
-r holy 100
-r negative 100
-r energy 100
-r mental 100
-r sound 100
-r disease 100
-r poison 100
-r charm 100
-r harm 100
-r light 100
+r bash 999
+r pierce 999
+r slash 999
+r fire 999
+r cold 999
+r lightning 999
+r acid 999
+r poison 999
+r negative 999
+r holy 999
+r energy 999
+r mental 999
+r disease 999
+r light 999
+r harm 999
+r charm 999
+r sound 999
 #5606
 bird taxidermist~
 Taxidermist~
@@ -246,23 +246,23 @@ BCGJe 0 0 0 0 0 0
 CE
 stand stand male 1000
 0 0 medium unknown
-r bash 100
-r pierce 100
-r slash 100
-r fire 100
-r cold 100
-r lightning 100
-r acid 100
-r holy 100
-r negative 100
-r energy 100
-r mental 100
-r sound 100
-r disease 100
-r poison 100
-r charm 100
-r harm 100
-r light 100
+r bash 999
+r pierce 999
+r slash 999
+r fire 999
+r cold 999
+r lightning 999
+r acid 999
+r poison 999
+r negative 999
+r holy 999
+r energy 999
+r mental 999
+r disease 999
+r light 999
+r harm 999
+r charm 999
+r sound 999
 #5615
 bird aarakocran merchant~
 the merchant~
@@ -390,23 +390,23 @@ BGJO D H 0 0 0 0
 CEIKR
 stand stand male 1000
 0 0 medium unknown
-r bash 100
-r pierce 100
-r slash 100
-r fire 100
-r cold 100
-r lightning 100
-r acid 100
-r holy 100
-r negative 100
-r energy 100
-r mental 100
-r sound 100
-r disease 100
-r poison 100
-r charm 100
-r harm 100
-r light 100
+r bash 999
+r pierce 999
+r slash 999
+r fire 999
+r cold 999
+r lightning 999
+r acid 999
+r poison 999
+r negative 999
+r holy 999
+r energy 999
+r mental 999
+r disease 999
+r light 999
+r harm 999
+r charm 999
+r sound 999
 #5623
 bird aarakocra aarakocran sneaky guildmaster thief assassin~
 the sneaky aarakocran guildmaster~
@@ -421,23 +421,23 @@ BGJSe D 0 0 H 0 0
 EIKNR
 stand stand male 1000
 0 0 medium unknown
-r bash 100
-r pierce 100
-r slash 100
-r fire 100
-r cold 100
-r lightning 100
-r acid 100
-r holy 100
-r negative 100
-r energy 100
-r mental 100
-r sound 100
-r disease 100
-r poison 100
-r charm 100
-r harm 100
-r light 100
+r bash 999
+r pierce 999
+r slash 999
+r fire 999
+r cold 999
+r lightning 999
+r acid 999
+r poison 999
+r negative 999
+r holy 999
+r energy 999
+r mental 999
+r disease 999
+r light 999
+r harm 999
+r charm 999
+r sound 999
 #5624
 bird aarakocra aarakocran strong guildmaster warrior hero~
 the strong aarakocran guildmaster~
@@ -454,23 +454,23 @@ BJT D 0 0 0 0 0
 CDEIJKR
 stand stand male 1000
 0 0 medium unknown
-r bash 100
-r pierce 100
-r slash 100
-r fire 100
-r cold 100
-r lightning 100
-r acid 100
-r holy 100
-r negative 100
-r energy 100
-r mental 100
-r sound 100
-r disease 100
-r poison 100
-r charm 100
-r harm 100
-r light 100
+r bash 999
+r pierce 999
+r slash 999
+r fire 999
+r cold 999
+r lightning 999
+r acid 999
+r poison 999
+r negative 999
+r holy 999
+r energy 999
+r mental 999
+r disease 999
+r light 999
+r harm 999
+r charm 999
+r sound 999
 #5625
 bird aarakocra aarakocran cityguard guard~
 the cityguard~
@@ -541,6 +541,7 @@ BFH 0 0 0 0 -400 0
 0
 stand stand male 1000
 0 0 small unknown
+r light 50
 #5629
 kobold~
 the kobold~
@@ -560,6 +561,19 @@ B 0 0 G 0 1000 0
 0
 stand stand male 1000
 0 0 small unknown
+r fire 50
+r cold 50
+r lightning 50
+r acid 50
+r negative 50
+r holy 50
+r energy 50
+r mental 50
+r disease 50
+r light 50
+r harm 50
+r charm 50
+r sound 50
 #0
 
 #OBJECTS

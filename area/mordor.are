@@ -1,5 +1,5 @@
 #AREADATA
-Ver 2
+Ver 3
 Name Mordor~
 VNUMs 30000 30099
 Credits Kromt~
@@ -25,9 +25,15 @@ DEFIKNORU
 stand stand male 1000
 0 0 medium unknown
 M grall 30001 100~
-r negative 100
-r charm 100
-r light 0
+r bash -5
+r pierce -5
+r slash -5
+r poison -15
+r negative 999
+r holy 15
+r disease -15
+r light 15
+r charm 999
 #30002
 orc capitan капитан орк~
 @eng orc capitan@rus ~~капитан~~ орков~
@@ -42,9 +48,15 @@ BT 0 c BG AB -1000 0
 EFHJKMR
 stand stand none 2500
 0 0 medium unknown
-r poison 100
-r charm 100
-r light 0
+r bash -5
+r pierce -5
+r slash -5
+r poison 999
+r negative -15
+r holy 15
+r disease -15
+r light 15
+r charm 999
 #30003
 rat крыса~
 @eng rat@rus ~~крыса~~~
@@ -76,19 +88,23 @@ BR 0 J 0 0 -1000 0
 FHK
 stand stand none 1000
 0 0 medium unknown
+r bash -5
+r pierce -5
+r slash -5
 r fire 33
 r cold 33
 r lightning 33
 r acid 33
-r holy 33
-r negative 33
+r poison 18
+r negative 18
+r holy 48
 r energy 33
 r mental 33
-r sound 33
-r poison 33
-r charm 100
+r disease -15
+r light 15
 r harm 33
-r light 0
+r charm 999
+r sound 33
 #30005
 orc leader предводитель орков~
 @eng leader@rus лидер~
@@ -105,9 +121,15 @@ BFT 0 O 0 AB -1000 0
 ADEFHJKR
 stand stand none 1000
 0 U medium unknown
-r slash 33
-r poison 33
-r charm 100
+r bash -5
+r pierce -5
+r slash 28
+r poison 18
+r negative -15
+r holy 15
+r disease -15
+r light 15
+r charm 999
 #30098
 moby~
 ~

@@ -1,5 +1,5 @@
 #AREADATA
-Ver 2
+Ver 3
 Name Dying Forest~
 VNUMs 24300 24399
 Credits Ceran~
@@ -27,6 +27,9 @@ DEKOU
 stand stand male 500
 0 0 large unknown
 V 24301
+r bash -33
+r pierce -33
+r slash -33
 #24302
 ranger ренджер кентавр~
 @eng centaur ranger@rus ~~кентавр~~-~~ренджер~~~
@@ -44,6 +47,9 @@ GT 0 0 0 ABHL 1000 0
 DEKOU
 stand stand male 1000
 0 0 large unknown
+r bash -33
+r pierce -33
+r slash -33
 #24303
 captain капитан кентавр~
 @eng a centaur captain@rus ~~капитан~~ кентавров~
@@ -64,6 +70,9 @@ GT 0 0 0 ABHL 1000 0
 DEKOU
 stand stand male 1000
 0 0 large unknown
+r bash -33
+r pierce -33
+r slash -33
 #24304
 leader centaur лидер кентавр~
 @eng the Centaur Leader@rus ~~Лидер~~ кентавров~
@@ -82,6 +91,9 @@ GRT 0 0 0 ABHL 1000 0
 DEKORU
 stand stand male 7000
 0 0 large unknown
+r bash -33
+r pierce -33
+r slash -33
 #24305
 anti-ranger anti ренджер~
 @eng an anti-ranger@rus ~~Темный~~ ~~Ренджер~~~
@@ -124,16 +136,16 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
-r holy 33
+r poison 33
 r negative 33
+r holy 33
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r charm 33
-r harm 33
 r light 33
+r harm 33
+r charm 33
+r sound 33
 #24307
 rimlarker juggernaut stone римлакер~
 @eng Rimlarker@rus ~~Римлакер~~~
@@ -151,7 +163,11 @@ BGT 0 a 0 ABHKL -1000 0
 CDEKO
 stand stand none 0
 0 0 giant unknown
-r bash 100
+r bash 999
+r fire -33
+r cold -33
+r lightning 50
+r mental 50
 #24308
 tree медагар medagar~
 @eng Medagar@rus Медагар~
@@ -211,6 +227,10 @@ GT 0 0 0 ABHKL -1000 0
 DEKN
 stand stand none 0
 0 0 giant unknown
+r fire -33
+r cold -33
+r lightning 50
+r mental 50
 #24311
 Lethrak naga летрак~
 @eng Lethrak@rus ~~Летрак~~~
@@ -231,6 +251,11 @@ GT 0 0 0 AKL -1000 0
 CDEFKM
 stand stand none 0
 0 0 giant unknown
+r bash -33
+r pierce 50
+r fire -33
+r cold 50
+r charm -33
 #24312
 scout centaur кентавр~
 @eng a centaur scout@rus ~~кентавр~~-~~разведчик~~~
@@ -249,6 +274,9 @@ GT 0 0 0 ABHL 1000 0
 DEKOU
 stand stand either 500
 0 0 large unknown
+r bash -33
+r pierce -33
+r slash -33
 #24313
 dryad дриада~
 @eng a dryad@rus ~~лесная~~ ~~дриада~~~
@@ -284,6 +312,9 @@ GT 0 0 0 ABHL 1000 0
 DEKU
 stand stand either 0
 0 0 large unknown
+r bash -33
+r pierce -33
+r slash -33
 #24315
 stalker dark хищник~
 @eng a dark stalker@rus ~~хищник~~~
@@ -322,6 +353,12 @@ G D 0 0 AL -1000 0
 CEFKNU
 stand stand either 0
 0 0 large unknown
+r bash -20
+r slash -10
+r fire 25
+r lightning 15
+r acid 40
+r charm -30
 #0
 
 #OBJECTS

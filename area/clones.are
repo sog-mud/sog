@@ -1,5 +1,5 @@
 #AREADATA
-Ver 2
+Ver 3
 Name Clones~
 VNUMs 37000 37499
 Credits fjoe~
@@ -28,16 +28,16 @@ r fire -50
 r cold -50
 r lightning -50
 r acid -50
-r holy -50
+r poison -50
 r negative -50
+r holy -50
 r energy -50
 r mental -50
-r sound -50
 r disease -50
-r poison -50
-r charm -50
-r harm -50
 r light -50
+r harm -50
+r charm -50
+r sound -50
 #37001
 cityguard guard стражница~
 @eng the cityguard@rus стражница~
@@ -59,16 +59,16 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
-r holy 33
+r poison 33
 r negative 33
+r holy 33
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r charm 33
-r harm 33
 r light 33
+r harm 33
+r charm 33
+r sound 33
 #37002
 rabbit крольчиха~
 @eng the rabbit@rus крольчиха~
@@ -105,6 +105,8 @@ R
 stand stand either 0
 0 0 small unknown
 V 3710
+r cold 50
+r poison -33
 #37004
 pig свинья~
 @eng the pig@rus свинья~
@@ -156,6 +158,8 @@ CR
 stand stand either 0
 0 0 large unknown
 V 3715
+r bash -33
+r cold -33
 #37007
 wolf волчица~
 @eng the wolf@rus волчица~

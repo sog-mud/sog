@@ -1,5 +1,5 @@
 #AREADATA
-Ver 2
+Ver 3
 Name Blight~
 VNUMs 23000 24099
 Credits Stile~
@@ -48,8 +48,8 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
-r poison 100
-r charm 100
+r poison 999
+r charm 999
 #23003
 trolloc ko'bal~
 The trolloc~
@@ -103,9 +103,9 @@ EFHN
 stand stand none 1000
 A 0 medium unknown
 r fire -50
-r disease 100
-r poison 100
-r charm 100
+r poison 999
+r disease 999
+r charm 999
 #23006
 trolloc kno'mon~
 The trolloc~
@@ -139,13 +139,13 @@ BCFGJT 0 0 0 ABH -1000 0
 CEFGMOQ
 stand stand none 1000
 AB ABCDEFGHIJKQ medium unknown
-r bash 100
-r pierce 100
-r slash 100
+r bash 999
+r pierce 999
+r slash 999
 r fire 33
 r cold 33
 r lightning -50
-r charm 100
+r charm 999
 #23008
 tree twisted~
 The twisted tree~
@@ -161,9 +161,9 @@ BCFGJT 0 0 0 ABH -1000 0
 CEFHKNQ
 stand stand none 0
 AB 0 medium unknown
-r pierce 100
+r pierce 999
 r fire -50
-r charm 100
+r charm 999
 #23009
 draghkar~
 The draghkar~
@@ -182,7 +182,7 @@ stand stand none 10000
 AB ABCDEFGHIJK medium unknown
 r fire -50
 r acid 33
-r charm 100
+r charm 999
 #23010
 disfigured diseased flesh lump creature~
 The diseased creature~
@@ -199,7 +199,7 @@ CFGJ A X 0 ABH -1000 0
 CINQ
 stand stand none 1000
 AB ABCDEFGHIJKLMNOPQUVWXY medium unknown
-r charm 100
+r charm 999
 #23011
 warder gaidan~
 The warder~
@@ -222,7 +222,7 @@ r lightning 33
 r acid 33
 r negative 33
 r disease 33
-r charm 100
+r charm 999
 #23012
 lord~
 The Lord of the tower~
@@ -247,16 +247,16 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
-r holy 33
+r poison 999
 r negative 33
+r holy 33
 r energy 33
 r mental 33
-r sound 33
-r disease 100
-r poison 100
-r charm 100
-r harm 33
+r disease 999
 r light 33
+r harm 33
+r charm 999
+r sound 33
 #23013
 lord~
 The Lord of the tower~
@@ -281,16 +281,16 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
-r holy 33
+r poison 999
 r negative 33
+r holy 33
 r energy 33
 r mental 33
-r sound 33
-r disease 100
-r poison 100
-r charm 100
-r harm 33
+r disease 999
 r light 33
+r harm 33
+r charm 999
+r sound 33
 #23014
 spirit soldier~
 The spirit~
@@ -309,9 +309,9 @@ CFGJOT A Ud AG ABH 0 0
 EFGHJKNU
 stand stand none 0
 C ABCDEFGHIJK medium unknown
+r poison 999
 r holy -50
-r disease 100
-r poison 100
+r disease 999
 #23015
 spirit~
 The spirit~
@@ -330,10 +330,10 @@ CFGJOT A NUd AG ABH 0 0
 EFGHJKNU
 stand stand none 1000
 C ABCDEFGHIJK medium unknown
+r poison 999
 r holy -50
-r disease 100
-r poison 100
-r charm 100
+r disease 999
+r charm 999
 #23016
 tree twisted~
 The twisted tree~
@@ -349,9 +349,9 @@ BCFGJT 0 0 0 ABH -1000 0
 CEFHKNQ
 stand stand none 1000
 AB 0 medium unknown
-r pierce 100
+r pierce 999
 r fire -50
-r charm 100
+r charm 999
 #23017
 tree twisted~
 The twisted tree~
@@ -367,9 +367,9 @@ BCFGJT 0 0 0 ABH -1000 0
 CEFHKNQ
 stand stand none 1000
 AB 0 medium unknown
-r pierce 100
+r pierce 999
 r fire -50
-r charm 100
+r charm 999
 #23018
 tree twisted~
 The twisted tree~
@@ -385,9 +385,9 @@ BCFGJT 0 0 0 ABH -1000 0
 CEFHKNQ
 stand stand none 1000
 AB 0 medium unknown
-r pierce 100
+r pierce 999
 r fire -50
-r charm 100
+r charm 999
 #23019
 seanchan sul'dam woman~
 The Sul'Dam~
@@ -409,16 +409,16 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
-r holy 33
+r poison 33
 r negative 33
+r holy 33
 r energy 33
 r mental 33
-r sound 33
 r disease 33
-r poison 33
-r charm 100
-r harm 33
 r light 33
+r harm 33
+r charm 999
+r sound 33
 #23020
 metal metallic orb strange~
 The metallic orb~
@@ -436,8 +436,8 @@ GJT 0 T 0 ABH 0 0
 EFHKP
 stand stand none 1000
 E E medium unknown
-r negative 100
-r disease 100
+r negative 999
+r disease 999
 #23021
 fox tall thin~
 The fox-like humanoid~
@@ -456,10 +456,10 @@ CFGHJS 0 V G ABH 0 0
 BEFHKNU
 stand stand male 1000
 AB ABCDEFGHIJK medium unknown
-r acid 100
-r disease 100
-r poison 100
-r charm 100
+r acid 999
+r poison 999
+r disease 999
+r charm 999
 #23022
 grolm frog huge~
 The grolm~
@@ -476,7 +476,7 @@ JT 0 0 0 ABH 0 0
 CDEF
 stand stand none 1000
 AB ABCDEFGHIJK medium unknown
-r charm 100
+r charm 999
 #0
 
 #OBJECTS

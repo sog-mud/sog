@@ -1,5 +1,5 @@
 #AREADATA
-Ver 2
+Ver 3
 Name Elemental Canyon~
 Builders akmal~
 VNUMs 9200 9299
@@ -45,18 +45,20 @@ stand stand male 600
 r bash 33
 r pierce 33
 r slash 33
-r lightning 0
+r fire -33
+r cold -33
+r lightning 50
 r acid 33
-r holy 33
-r negative 33
-r energy 33
-r mental 0
-r sound 33
-r disease 33
 r poison 33
-r charm 100
-r harm 33
+r negative 33
+r holy 33
+r energy 33
+r mental 50
+r disease 33
 r light 33
+r harm 33
+r charm 999
+r sound 33
 #9203
 tiny elemental крохотный элементал~
 @eng a tiny elemental@rus крохотный элементал~
@@ -147,7 +149,7 @@ BJQe D H 0 H 0 0
 EIKU
 stand stand none 5000
 0 0 medium unknown
-r charm 100
+r charm 999
 #9209
 fire elemental ruler~
 @eng the Fire Ruler@rus Повелитель Огня~
@@ -163,7 +165,7 @@ BJe D H 0 0 0 0
 EFNU
 stand stand none 5000
 0 0 medium unknown
-r charm 100
+r charm 999
 #9210
 air elemental ruler~
 The Air Ruler~
@@ -178,7 +180,7 @@ BJe D H 0 0 0 0
 EFNU
 stand stand none 5000
 0 0 medium unknown
-r charm 100
+r charm 999
 #9211
 lightning elemental ruler~
 The Lightning Ruler~
@@ -194,7 +196,7 @@ BJe D H 0 0 0 0
 EFNU
 stand stand none 5000
 0 0 medium unknown
-r charm 100
+r charm 999
 #9212
 water elemental ruler~
 The Water Ruler~
@@ -210,7 +212,7 @@ BJe D H 0 0 0 0
 EFNR
 stand stand none 5000
 0 0 medium unknown
-r charm 100
+r charm 999
 #9214
 water puddle elemental~
 a puddle~
@@ -565,23 +567,23 @@ BGJRe 0 0 0 0 900 0
 CFUZ
 stand stand male 0
 0 0 medium unknown
-r bash 100
-r pierce 100
-r slash 100
-r fire 100
-r cold 100
-r lightning 100
-r acid 100
-r holy 100
-r negative 100
-r energy 100
-r mental 100
-r sound 100
-r disease 100
-r poison 100
-r charm 100
-r harm 100
-r light 100
+r bash 999
+r pierce 999
+r slash 999
+r fire 999
+r cold 999
+r lightning 999
+r acid 999
+r poison 999
+r negative 999
+r holy 999
+r energy 999
+r mental 999
+r disease 999
+r light 999
+r harm 999
+r charm 999
+r sound 999
 #9239
 the magician~
 The Combat Magician~
@@ -597,20 +599,20 @@ BGJRe D 0 0 A -50 0
 F
 stand stand none 400
 0 0 medium unknown
-r fire 100
-r cold 100
-r lightning 100
-r acid 100
-r holy 100
-r negative 100
-r energy 100
-r mental 100
-r sound 100
-r disease 100
-r poison 100
-r charm 100
-r harm 100
-r light 100
+r fire 999
+r cold 999
+r lightning 999
+r acid 999
+r poison 999
+r negative 999
+r holy 999
+r energy 999
+r mental 999
+r disease 999
+r light 999
+r harm 999
+r charm 999
+r sound 999
 #0
 
 #OBJECTS

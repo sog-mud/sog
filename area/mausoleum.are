@@ -1,5 +1,5 @@
 #AREADATA
-Ver 2
+Ver 3
 Name Mausoleum~
 VNUMs 4600 4699
 Credits Khagghar~
@@ -34,6 +34,14 @@ CDEFK
 stand stand neutral 50
 BDc 0 medium unknown
 g @eng neutral@rus male~
+r fire 50
+r cold -100
+r poison -100
+r negative -100
+r holy 50
+r mental -100
+r disease -100
+r charm -100
 #4601
 zombie зомби~
 @eng the Ju-ju zombie@rus зомби~
@@ -58,6 +66,14 @@ DEFKN
 stand stand none 1500
 Bc 0 medium unknown
 g @eng none@rus male~
+r fire 50
+r cold -100
+r poison -100
+r negative -100
+r holy 50
+r mental -100
+r disease -100
+r charm -100
 #4602
 young vampire юный вампир~
 @eng a young vampire@rus ~~юный~~ ~~вампир~~~
@@ -74,6 +90,14 @@ FJ 0 U 0 ABH -1000 0
 DEFIKNV
 stand stand female 10000
 ABCDHIKMc ABCDEFGHIJKV medium unknown
+r fire 50
+r cold -50
+r lightning -50
+r poison -100
+r negative -50
+r holy 50
+r light 100
+r charm -100
 #4603
 Kharzandra wizardress vampire кхарзандра волшебница~
 @eng Kharzandra, the Dark-elf Vampire@rus ~~Кхарзандра~~~
@@ -97,6 +121,14 @@ BFGR 0 JU 0 AB -1000 0
 EFIK
 stand stand female 10000
 0 0 medium unknown
+r fire 50
+r cold -50
+r lightning -50
+r poison -100
+r negative -50
+r holy 50
+r light 100
+r charm -100
 #4604
 vampire shadar lunn вампир шадар лунн man мужчина~
 @eng the Vampire, Shadar Lunn@rus ~~вампир~~ Шадар ~~Лунн~~~
@@ -117,6 +149,14 @@ BFJ 0 JUV 0 ABH -1000 0
 AEFHIKV
 stand stand male 20000
 ABCDHIKMc ABCDEFGHIJKV medium unknown
+r fire 50
+r cold -50
+r lightning -50
+r poison -100
+r negative -50
+r holy 50
+r light 100
+r charm -100
 #4605
 ghoul creature гуль существо~
 @eng a hungry ghoul@rus ~~голодный~~ ~~гуль~~~
@@ -138,6 +178,11 @@ FGJO 0 0 0 ABH -1000 0
 CEFKN
 stand stand male 200
 ACDc PU medium unknown
+r fire 50
+r poison -33
+r holy 50
+r disease -33
+r charm -100
 #4606
 mastiff hound адский пес hell~
 @eng the hell hound@rus ~~адский~~ ~~пес~~~
@@ -155,8 +200,8 @@ C B large unknown
 g @eng none@rus male~
 r fire 33
 r cold -50
-r holy -50
 r negative 33
+r holy -50
 r charm 33
 #4608
 bat vampire мышь летучая~
@@ -177,7 +222,7 @@ FHQ
 stand stand none 200
 BIV ADFPV medium unknown
 g @eng none@rus female~
-r poison 100
+r poison 999
 r light -50
 #4609
 demon familiar демон~
@@ -197,10 +242,10 @@ DEFIJK
 stand stand none 5000
 ACDG 0 medium unknown
 g @eng none@rus male~
-r fire 100
+r fire 999
 r cold -50
 r holy -50
-r charm 100
+r charm 999
 #4610
 dracolich драколич огромный~
 @eng the great Dracolich@rus ~~огромный~~ ~~драколич~~~
@@ -223,12 +268,12 @@ r pierce 40
 r slash 40
 r fire -50
 r cold 50
+r poison 999
+r negative 999
 r holy -50
-r negative 100
-r disease 100
-r poison 100
-r charm 100
+r disease 999
 r light -50
+r charm 999
 #4611
 priest vampire вампир священник~
 @eng the dark priest vampire@rus ~~священник~~-~~вампир~~~
@@ -248,6 +293,14 @@ AFIK
 stand stand none 5000
 CGI 0 medium unknown
 g @eng none@rus male~
+r fire 50
+r cold -50
+r lightning -50
+r poison -100
+r negative -50
+r holy 50
+r light 100
+r charm -100
 #4612
 dark spectre темный призрак~
 @eng the dark spectre@rus ~~темный~~ ~~призрак~~~
@@ -267,6 +320,14 @@ BFJT 0 JT AB ABH -1000 0
 FK
 stand stand none 0
 ACK 0 medium unknown
+r bash -100
+r pierce -100
+r slash -100
+r cold -100
+r poison -100
+r holy 50
+r light 100
+r charm -100
 #0
 
 #OBJECTS
