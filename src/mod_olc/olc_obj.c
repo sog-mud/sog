@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_obj.c,v 1.34 1999-02-19 18:49:38 fjoe Exp $
+ * $Id: olc_obj.c,v 1.35 1999-02-19 20:06:04 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -243,8 +243,10 @@ OLC_FUN(objed_show)
 	buf_printf(output, "Name:        [%s]\nArea:        [%5d] %s\n",
 		pObj->name, pArea->vnum, pArea->name);
 
-	buf_printf(output, "Vnum:        [%5d]\nType:        [%s]\n",
+	buf_printf(output, "Vnum:        [%5d]  Gender: [%s]\n"
+			   "Type:        [%s]\n",
 		pObj->vnum,
+		flag_string(gender_table, pObj->gender),
 		flag_string(item_types, pObj->item_type));
 
 	if (pObj->clan && (clan = clan_lookup(pObj->clan))) 
