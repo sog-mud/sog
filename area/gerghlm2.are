@@ -828,7 +828,7 @@ A hawk is here, loyal to it's owner.
 The hawk glares at you.
 ~
 human~
-AG 0 1000 0
+AGI 0 1000 0
 20 0 3d9+333 199d1+1 2d8+5 punch
 -4 -4 -4 7
 EKN 0 0 0
@@ -2417,7 +2417,8 @@ S
 The end of the watery tunnel.~
 The tunnel ends here, with all that water in the tunnel pouring out.
 The water here is rough, it is all you can do to keep your head afloat.
-To the east and west, there a walls in the way of your movement.~
+To the east and west, there a walls in the way of your movement. 
+~
 0 AC swim
 D0
 You see the tunnel.
@@ -3492,6 +3493,10 @@ Temple Street~
 You are on Temple street. to the south, you see the cathedral.
 ~
 0 0 city
+D1
+~
+~
+Z 0 7596
 D2
 You see an old, run down cathedral.  There are Gargoyles, vampires, and
 others.  They seem to be moving....
@@ -3614,7 +3619,7 @@ D0
 You see the olde pet shope.
 ~
 ~
-Z -1 7602
+Z -1 7697
 D1
 You see the merchant way.
 ~
@@ -4902,10 +4907,21 @@ You see the Merchant way.
 ~
 Z -1 7605
 S
+#7697
+Ye Olde Pet Shope~
+You are standing inside the pet shop.  There are pets EVERYWHERE.
+There are dogs, cats, kittens, puppy's, wolves, you name it.
+~
+0 DKM inside
+D2
+~
+~
+Z 0 7601
+S
 #7698
 Pet Shop Warehouse~
 ~
-0 CM inside
+0 CDNX inside
 S
 #7699
 Sacrifice Room~

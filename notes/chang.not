@@ -1707,3 +1707,78 @@ PS. Попутно сделано несколько "косметических" исправлений в stat и time.
 stat теперь корректно показывает изменения imm/res/vul
 time показывает время до ребута (для иммортов)
 ~
+Sender  Arborn~
+Date    Sat May 15 03:27:47 1999~
+Stamp   926713667
+To      imm~
+Subject qtarget~
+Text
+Появилась новая команда - qtarget, предназначена для проведения квестов.
+Синтаксис:
+  qtarget <min-level> <max-level> (mob>
+Например:
+  qtarget 10 20 nymph
+В результате игроки выше 20-го уровня или ниже 10-го не смогут атаковать
+или быть атакованными этим мобом.
+    Arborn.
+PS. Из косметики - auction теперь показывает продавца и текущего покупа-
+теля. Анафема немного по другому считает level и изменения на скиллы.
+~
+Sender  Iluvatar~
+Date    Sat May 15 17:04:41 1999~
+Stamp   926762681
+To      imm~
+Subject ban, sockets~
+Text
+hi, there!
+ 
+после след. ребута изменится синтаксис команды ban
+help 'WIZ BAN' for more info
+команд deny и allow больше не будет
+команда sockets научится фильтровать по хосту:
+sockets *@*nsu.ru покажет всех, у кого host name оканчивается на nsu.ru
+ 
+{WIluvatar{x, Eru, the One
+~
+Sender  Iluvatar~
+Date    Sat May 15 17:53:34 1999~
+Stamp   926765614
+To      all~
+Subject wanted~
+Text
+hi, there!
+ 
+after next [re]boot Ruler Commoners will not be able to remove
+wanted flag if it was set by someone else
+ 
+{WIluvatar{x, Eru, the One
+~
+Sender  Iluvatar~
+Date    Sat May 15 19:32:32 1999~
+Stamp   926771552
+To      all~
+Subject clan areas~
+Text
+hi, there!
+ 
+after the next reboot clan areas will always get updated
+(even if there are players in them)
+ 
+{WIluvatar{x, Eru, the One
+~
+Sender  Iluvatar~
+Date    Sat May 15 20:05:26 1999~
+Stamp   926773526
+To      imm~
+Subject some fixes~
+Text
+hi, there!
+ 
+roomed/reset now works properly (objects are reseted too)
+res/vuln/imm light could not be set from OLC editor (fixed).
+new area flags: 'update_always' (for clan areas) -- update
+area even if there are players in it and 'update_frequently' --
+for Mud School.
+ 
+{WIluvatar{x, Eru, the One
+~

@@ -5,7 +5,7 @@ VNUMs 95600 95629
 Credits Asena~
 Security 9
 LevelRange 90 100
-Flags noquest~
+Flags noquest update_always~
 Clan Invader~
 End
 
@@ -391,7 +391,7 @@ D5
 @rus На одной из плит в углу зала виднеется темное клеймо в виде огромного черепа.
 ~
 secret~
-ABDFGIZ 95602 95610
+ABCDFGIZ 95602 95610
 S
 #95608
 @eng The Pentagram@rus Пентаграмма~
@@ -455,7 +455,7 @@ Z 0 95611
 D4
 ~
 ~
-Z 0 95612
+ABCZ 0 95612
 S
 #95611
 @eng Dark tunnel@rus Темный туннель~
@@ -528,7 +528,8 @@ S
 #RESETS
 D 0 95600 5 1	* The Well: door to the down: closed
 D 0 95601 4 1	* Bottom of the Well: door to the up: closed
-D 0 95607 5 1	* Shadowy chambers: door to the down: closed
+D 0 95607 5 2	* Shadowy chambers: door to the down: closed and locked
+D 0 95610 4 2	* Vampires Lair: door to the up: closed and locked
 M 0 95600 1 95607 1	* the invader guardian (Shadowy chambers)
 E 0 95602 0 17		*	darkish jaw of a skull: held in the hands
 M 0 95601 1 95608 1	* the evil cleric (The Pentagram)

@@ -1125,21 +1125,6 @@ Questionable spells are : 'word of recall', 'cancellation', 'slow',
 'remove curse'
  
 ~
-92 ALLOW BAN PERMBAN~
-Syntax: allow   <site>
-        ban     <site> <newbies|all|permit>
-        ban
-
-BAN <site> prohibits players from that site from logging in.  BAN with
-no arguments lists the banned sites.  ALLOW <site> removes a site from
-the ban list, if the remover is of equal or higher level than the banner.
-
-A site may have all players, new players, or non-permitted players (set
-by editing the player file) banned, by changing the argument after the site.
-*s may be used to ban either by suffix (*.edu), prefix (labmac*), or 
-content (*andrews*), but be careful not to accidently lock out too many
-sites with a wildcard.  Bans do not save unless the permban command is used.
-~
 99 REBOOT SHUTDOWN~
 Syntax: reboot status
 Syntax: reboot num
@@ -3811,8 +3796,14 @@ This function is available in shortened form from OLC editors
  
 ~
 0 'OLC ADDAFFECT'~
-Syntax: addaffect <location | none> <modifier> [<bitloc> <bits...>]
- 
+Syntax:
+   {Caddaffect <location | none> <modifier> [<bitloc> <bits...>]{x
+   Possible <bitloc> values: affect, immune, resist, vuln, skill
+Examples:
+   {Caddaffect str 2
+   addaffect hitroll 5 affect haste
+   addaffect none 0 immune negative
+   addaffect 'acid blast' 50 skill teach
 ~
 0 TWIT~
 Syntax: twit [name...]

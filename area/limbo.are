@@ -282,7 +282,7 @@ this?
 @rus Еще одно порождение черной магии. Какая гадость вылупится из этого?
 ~
 unique~
-V QZcd 0 0
+AV QZcd 0 0
 0 -5 0d0+0 0d0+0 0d0+0 digestion
 0 0 0 0
 CJ ABEILQ DJT HK
@@ -300,7 +300,7 @@ really BAD!
 Он пахнет ДЕЙСТВИТЕЛЬНО ужасно!
 ~
 dracolich~
-OT DS 0 0
+AOT DS 0 0
 0 10 0d0+0 0d0+0 0d0+0 scratch
 0 0 0 0
 CFHLO 0 0 0

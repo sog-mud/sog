@@ -486,6 +486,26 @@ are no longer shown on score (this can be changed by using 'show' command).
 Language command is used to switch native language.
 Use 'language help' to list supported languages.
 ~
+92 'WIZ BAN'~
+Syntax: ban add num action class mask
+Syntax: ban delete num
+ 
+'ban add' command will add ban with number 'num'.
+'action' is one {{ "allow", "deny" }
+'class' is one of {{ "all", "players", "newbies" }
+'mask' must be specified in form 'player@@host'. IP addresses
+can be used as well as symbolic host names. Shell patterns
+('*', '?' etc.) can be used.
+ 
+'ban delete' command simply delete rule with number 'num'
+from ban list.
+
+E.g.:
+ban add 100 allow newbies *@@iclub.nsu.ru
+ban add 65535 deny newbies *
+ 
+This will allow newbies only from iclub.nsu.ru.
+~
 -1 $~
 
 #$
