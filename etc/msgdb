@@ -683,7 +683,7 @@ $n $gn{нанес} на $c3{$p} смертельный яд.~
 @eng $n prays for transportation!@rus $n $gn{молит} о возвращении домой!~
 @eng $n prays for transportation.@rus $n $gn{молит} о перемещении.~
 @eng $n prays the gods of the storm for help.@rus $n $gn{молит} покровителей бурь и штормов о помощи.~
-@eng $n prays upper Lord of Battleragers for transportation.@rus $n $gn{просит} покровителя Яростных-в-битве о перемещении.~
+@eng $n prays upper Lord of Battle Ragers for transportation.@rus $n $gn{просит} покровителя Яростных-в-битве о перемещении.~
 @eng $n purges $N.@rus $n $gn{избавил} мир $c1{$N}.~
 @eng $n purges the room!@rus $n $gn{очистил} комнату!~
 @eng $n pushes $N to $t.@rus $n $gn{выталкивает} $c6{$N} $t.~
@@ -2248,9 +2248,8 @@ and hands you $p.@rus Из клуба дыма перед тобой появился маленький человечек
 @eng You are@rus Ты~
 @eng You are @rus Ты ~
 @eng You are $t $T.@rus Ты $t $T.~
-@eng You are Battle Rager, not filthy magician!@rus Ты принадлежишь к клану Яростных-в-битве, а не братии глупых волшебников.~
-@eng You are Battlerager, not the filthy magician.@rus Ты принадлежишь к клану Яростных-в-битве, а не братии глупых волшебников.~
-@eng You are Battlerager, you prefer not to use prayers.@rus Ты принадлежишь к клану Яростных-в-битве и не пользуешься молитвами.~
+@eng You are Battle Rager, not a filthy magician!@rus Ты принадлежишь к клану Яростных-в-битве, а не братии глупых волшебников.~
+@eng You are Battle Rager, you prefer not to use prayers.@rus Ты принадлежишь к клану Яростных-в-битве и не пользуешься молитвами.~
 @eng You are Lawful.@rus Ты во всем сделуешь законам.~
 @eng You are STUNNED to do that.@rus Ты оглушен и не можешь этого сделать.~
 @eng You are affected by:
@@ -3584,7 +3583,6 @@ Return to questmaster before your time runs out!@rus Ты почти $gn{выполнил} свое
 @eng a warm southerly breeze blows@rus дует теплый южный бриз~
 @eng about half-@rus примерно наполовину ~
 @eng action         status@rus .        действие статус~
-@eng active@rus активизирован~
 @eng adds '{c%s{x'@rus дает '{c%s{x'~
 @eng adds '{c%s{x' affect@rus '{c%s{x'~
 @eng adds '{c%s{x' detection@rus способность видеть '{c%s{x'~
@@ -3647,7 +3645,6 @@ Return to questmaster before your time runs out!@rus Ты почти $gn{выполнил} свое
 @eng hints          $t@rus подсказки                  $t~
 @eng immune to@rus иммунитет к~
 @eng in to the water@rus в воду~
-@eng inactive@rus неактивизирован~
 @eng incapacitated@rus при смерти~
 @eng lack of hp@rus ~~недостаток~~ здоровья~
 @eng lack of mana@rus ~~отсутствие~~ маны~
