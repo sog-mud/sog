@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.89 1998-11-25 15:17:44 fjoe Exp $
+ * $Id: handler.c,v 1.90 1998-12-01 10:53:51 fjoe Exp $
  */
 
 /***************************************************************************
@@ -645,14 +645,14 @@ void name_toggle(CHAR_DATA *ch, const char *name,
 	if (!str_cmp(name, "all")) {
 		free_string(*nl);
 		*nl = str_dup(name);
-		char_printf(ch, "%s: name list set to ALL.\n\r", editor_name);
+		char_printf(ch, "%s: name list set to ALL.\n", editor_name);
 		return;
 	}
 
 	if (!str_cmp(name, "none")) {
 		free_string(*nl);
 		*nl = str_empty;
-		char_printf(ch, "%s: name list reset.\n\r", editor_name);
+		char_printf(ch, "%s: name list reset.\n", editor_name);
 		return;
 	}
 
@@ -686,10 +686,10 @@ void name_toggle(CHAR_DATA *ch, const char *name,
 			return;
 		}
 		cat_name(buf, name, sizeof(buf));
-		char_printf(ch, "%s: %s: name added.\n\r", editor_name, name);
+		char_printf(ch, "%s: %s: name added.\n", editor_name, name);
 	}
 	else 
-		char_printf(ch, "%s: %s: name removed.\n\r", editor_name, name);
+		char_printf(ch, "%s: %s: name removed.\n", editor_name, name);
 
 	free_string(*nl);
 	*nl = str_dup(buf);
@@ -1303,7 +1303,7 @@ void char_to_room(CHAR_DATA *ch, ROOM_INDEX_DATA *pRoomIndex)
 		    &&  !IS_IMMORTAL(vch) &&
 	        	!IS_AFFECTED(vch,AFF_PLAGUE) && number_bits(6) == 0)
 	        {
-	        	char_puts("You feel hot and feverish.\n\r",vch);
+	        	char_puts("You feel hot and feverish.\n",vch);
 	        	act("$n shivers and looks very ill.",vch,NULL,NULL,TO_ROOM);
 	        	affect_join(vch,&plague);
 	        }
@@ -1741,7 +1741,7 @@ void extract_obj_1(OBJ_DATA *obj, bool count)
 		 	if (IS_NPC(wch)) continue;
 		 	if (is_name(obj->name, wch->name)) {
 				REMOVE_BIT(wch->act,PLR_NOEXP);
-				char_puts("Now you catch your spirit.\n\r", wch);
+				char_puts("Now you catch your spirit.\n", wch);
 				break;
 			}
 		}
@@ -2444,7 +2444,7 @@ bool can_see(CHAR_DATA *ch, CHAR_DATA *victim)
 		return TRUE;
 
 	if (ch == NULL || victim == NULL)
-		dump_to_scr(">>>>>>>> CAN_ SEE ERROR <<<<<<<<<<<\n\r");
+		dump_to_scr(">>>>>>>> CAN_ SEE ERROR <<<<<<<<<<<\n");
 	
 	if (!IS_NPC(victim) && !IS_TRUSTED(ch, victim->invis_level))
 		return FALSE;
@@ -2580,7 +2580,7 @@ int count_charmed(CHAR_DATA *ch)
 
   if (count >= MAX_CHARM(ch))
    {
-	char_puts("You are already controlling as many charmed mobs as you can!\n\r",ch);
+	char_puts("You are already controlling as many charmed mobs as you can!\n",ch);
 	return count;
    }
   return 0;
@@ -2699,7 +2699,7 @@ CHAR_DATA * find_char(CHAR_DATA *ch, const char *argument,int door, int range)
  if ((opdoor = opposite_door(door)) == -1)
   {
    bug("In find_char wrong door: %d",door);
-   char_puts("You don't see that there.\n\r",ch);
+   char_puts("You don't see that there.\n",ch);
    return NULL;
  }
  while (range > 0)
@@ -2714,14 +2714,14 @@ CHAR_DATA * find_char(CHAR_DATA *ch, const char *argument,int door, int range)
   if ((bExit = dest_room->exit[opdoor]) == NULL
 	  || bExit->u1.to_room != back_room)
    {
-	char_puts("The path you choose prevents your power to pass.\n\r",ch);
+	char_puts("The path you choose prevents your power to pass.\n",ch);
 	return NULL;
    }
   if ((target = get_char_room2(ch,dest_room,arg,&number)) != NULL) 
 		return target;
  }
 
- char_puts("You don't see that there.\n\r",ch);
+ char_puts("You don't see that there.\n",ch);
  return NULL;
 }
 		
@@ -2902,8 +2902,8 @@ bool obj_is_pit(OBJ_DATA *obj)
 void format_obj(BUFFER *output, OBJ_DATA *obj)
 {
 	buf_printf(output,
-		"Object '%s' is type %s, extra flags %s.\n\r"
-		"Weight is %d, value is %d, level is %d.\n\r",
+		"Object '%s' is type %s, extra flags %s.\n"
+		"Weight is %d, value is %d, level is %d.\n",
 		obj->name,
 		flag_string(item_types, obj->pIndexData->item_type),
 		flag_string(extra_flags, obj->extra_flags),
@@ -2913,7 +2913,7 @@ void format_obj(BUFFER *output, OBJ_DATA *obj)
 
 	if (obj->pIndexData->limit != -1)
 		buf_printf(output,
-			   "This equipment has been LIMITED by number %d \n\r",
+			   "This equipment has been LIMITED by number %d \n",
 			   obj->pIndexData->limit);
 
 	switch (obj->pIndexData->item_type) {
@@ -2934,7 +2934,7 @@ void format_obj(BUFFER *output, OBJ_DATA *obj)
 		if (obj->value[4] >= 0)
 			buf_printf(output, " '%s'", skill_name(obj->value[4]));
 
-		buf_add(output, ".\n\r");
+		buf_add(output, ".\n");
 		break;
 
 	case ITEM_WAND: 
@@ -2945,39 +2945,39 @@ void format_obj(BUFFER *output, OBJ_DATA *obj)
 		if (obj->value[3] >= 0)
 			buf_printf(output, " '%s'", skill_name(obj->value[3]));
 
-		buf_add(output, ".\n\r");
+		buf_add(output, ".\n");
 		break;
 
 	case ITEM_DRINK_CON:
-		buf_printf(output, "It holds %s-colored %s.\n\r",
+		buf_printf(output, "It holds %s-colored %s.\n",
 			   liq_table[obj->value[2]].liq_color,
 	        	   liq_table[obj->value[2]].liq_name);
 		break;
 
 	case ITEM_CONTAINER:
 		buf_printf(output,
-			   "Capacity: %d#  Maximum weight: %d#  flags: %s\n\r",
+			   "Capacity: %d#  Maximum weight: %d#  flags: %s\n",
 			   obj->value[0], obj->value[3],
 			   flag_string(cont_flags, obj->value[1]));
 		if (obj->value[4] != 100)
-			buf_printf(output, "Weight multiplier: %d%%\n\r",
+			buf_printf(output, "Weight multiplier: %d%%\n",
 				   obj->value[4]);
 		break;
 			
 	case ITEM_WEAPON:
-		buf_printf(output, "Weapon type is %s.\n\r",
+		buf_printf(output, "Weapon type is %s.\n",
 			   flag_string(weapon_class, obj->value[0]));
-		buf_printf(output, "Damage is %dd%d (average %d).\n\r",
+		buf_printf(output, "Damage is %dd%d (average %d).\n",
 			   obj->value[1],obj->value[2],
 			   (1 + obj->value[2]) * obj->value[1] / 2);
 		if (obj->value[4])
-	        	buf_printf(output, "Weapons flags: %s\n\r",
+	        	buf_printf(output, "Weapons flags: %s\n",
 				   flag_string(weapon_type2, obj->value[4]));
 		break;
 
 	case ITEM_ARMOR:
 		buf_printf(output, "Armor class is %d pierce, "
-				   "%d bash, %d slash, and %d vs. magic.\n\r", 
+				   "%d bash, %d slash, and %d vs. magic.\n", 
 			   obj->value[0], obj->value[1],
 			   obj->value[2], obj->value[3]);
 		break;
@@ -2996,14 +2996,14 @@ void format_obj_affects(BUFFER *output, AFFECT_DATA *paf, bool duration)
 			if (duration && paf->duration > -1)
 				buf_printf(output, " for %d hours",
 					   paf->duration);
-			buf_add(output, ".\n\r");
+			buf_add(output, ".\n");
 		}
 
 		if ((w = where_lookup(paf->where)) && paf->bitvector) {
 			buf_add(output, "Adds ");
 			buf_printf(output, w->format,
 				   flag_string(w->table, paf->bitvector));
-			buf_add(output, ".\n\r");
+			buf_add(output, ".\n");
 		}
 	}
 }
@@ -3101,7 +3101,7 @@ bool check_dispel(int dis_level, CHAR_DATA *victim, int sn)
 	                affect_strip(victim,sn);
 			if ((sk = skill_lookup(sn))
 			&&  !IS_NULLSTR(sk->msg_off))
-				char_printf(victim, "%s\n\r", sk->msg_off);
+				char_printf(victim, "%s\n", sk->msg_off);
 			return TRUE;
 		    } else
 			af->level--;
@@ -3127,7 +3127,7 @@ bool check_blind(CHAR_DATA *ch)
 	bool can_see = check_blind_raw(ch);
 
 	if (!can_see)
-		char_puts("You can't see a thing!\n\r", ch);
+		char_puts("You can't see a thing!\n", ch);
 
 	return can_see;
 }
@@ -3154,7 +3154,7 @@ void show_duration(BUFFER *output, AFFECT_DATA *paf)
 		buf_add(output, "permanently.");
 	else
 		buf_printf(output, "for {c%d{x hours.", paf->duration);
-	buf_add(output, "\n\r");
+	buf_add(output, "\n");
 }
 
 void show_loc_affect(CHAR_DATA *ch, BUFFER *output,
@@ -3164,7 +3164,7 @@ void show_loc_affect(CHAR_DATA *ch, BUFFER *output,
 		show_name(ch, output, paf, *ppaf);
 		if (*ppaf && (*ppaf)->type == paf->type)
 			return;
-		buf_add(output, "\n\r");
+		buf_add(output, "\n");
 		*ppaf = paf;
 		return;
 	}
@@ -3211,7 +3211,7 @@ void show_affects(CHAR_DATA *ch, BUFFER *output)
 	OBJ_DATA *obj;
 	AFFECT_DATA *paf, *paf_last = NULL;
 
-	buf_add(output, "You are affected by the following spells:\n\r");
+	buf_add(output, "You are affected by the following spells:\n");
 	for (paf = ch->affected; paf; paf = paf->next) {
 		show_loc_affect(ch, output, paf, &paf_last);
 		if (ch->level < 20)

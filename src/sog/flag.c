@@ -1,5 +1,5 @@
 /*
- * $Id: flag.c,v 1.17 1998-11-18 05:20:39 fjoe Exp $
+ * $Id: flag.c,v 1.18 1998-12-01 10:53:51 fjoe Exp $
  */
 
 /***************************************************************************
@@ -211,12 +211,12 @@ void show_flags_buf(BUFFER *output, const FLAG *flag_table)
 		if (flag_table[flag].settable) {
 			buf_printf(output, "%-19.18s", flag_table[flag].name);
 			if (++col % 4 == 0)
-				buf_add(output, "\n\r");
+				buf_add(output, "\n");
 		}
 	}
  
 	if (col % 4 != 0)
-		buf_add(output, "\n\r");
+		buf_add(output, "\n");
 
 }
 

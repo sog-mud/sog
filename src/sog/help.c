@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: help.c,v 1.8 1998-10-26 08:38:19 fjoe Exp $
+ * $Id: help.c,v 1.9 1998-12-01 10:53:52 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -108,12 +108,12 @@ void help_show(CHAR_DATA *ch, BUFFER *output, const char *keyword)
 				/* found second matched help topic */
 				if (!topic_list) {
 					buf_add(output,
-						"Available topics:\n\r");
-					buf_printf(output, "    o %s\n\r",
+						"Available topics:\n");
+					buf_printf(output, "    o %s\n",
 						   pFirst->keyword);
 					topic_list = TRUE;
 				}
-				buf_printf(output, "    o %s\n\r",
+				buf_printf(output, "    o %s\n",
 					   pHelp->keyword);
 			}
 		}
@@ -121,7 +121,7 @@ void help_show(CHAR_DATA *ch, BUFFER *output, const char *keyword)
 
 	if (pFirst == NULL) {
 		buf_printf(output,
-			   "%s: no help on that word.\n\r",
+			   "%s: no help on that word.\n",
 			   keyword);
 		return;
 	}
@@ -131,7 +131,7 @@ void help_show(CHAR_DATA *ch, BUFFER *output, const char *keyword)
 
 		if (pFirst->level > -2
 		&&  str_cmp(pFirst->keyword, "imotd"))
-			buf_printf(output, "{C%s{x\n\r\n\r",
+			buf_printf(output, "{C%s{x\n\n",
 				   pFirst->keyword);
 
 		text = mlstr_cval(pFirst->text, ch);

@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.93 1998-11-25 15:17:44 fjoe Exp $
+ * $Id: interp.c,v 1.94 1998-12-01 10:53:52 fjoe Exp $
  */
 
 /***************************************************************************
@@ -533,7 +533,7 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 	 * Implement freeze command.
 	 */
 	if (!IS_NPC(ch) && IS_SET(ch->act, PLR_FREEZE)) {
-		char_puts("You're totally frozen!\n\r", ch);
+		char_puts("You're totally frozen!\n", ch);
 		return;
 	}
 
@@ -609,7 +609,7 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 			if (IS_AFFECTED(ch, AFF_CHARM)
 			&&  !IS_SET(cmd->flags, CMD_CHARMED_OK)
 			&&  cmd->level < LEVEL_IMMORTAL) {
-				char_puts("First ask your beloved master!\n\r",
+				char_puts("First ask your beloved master!\n",
 					  ch);
 				return;
 			}
@@ -617,7 +617,7 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 
 		if (IS_AFFECTED(ch, AFF_STUN) 
 		&&  !(cmd->flags & CMD_KEEP_HIDE)) {
-			char_puts("You are STUNNED to do that.\n\r", ch);
+			char_puts("You are STUNNED to do that.\n", ch);
 			return;
 		}
 
@@ -633,7 +633,7 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 		if (IS_AFFECTED(ch, AFF_IMP_INVIS) && !IS_NPC(ch)
 		&& (cmd->position == POS_FIGHTING)) {
 			affect_bit_strip(ch, TO_AFFECTS, AFF_IMP_INVIS);
-			char_puts("You fade into existence.\n\r", ch);
+			char_puts("You fade into existence.\n", ch);
 			act("$n fades into existence.",
 			    ch, NULL, NULL, TO_ROOM);
 		}
@@ -668,7 +668,7 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 		 * Look for command in socials table.
 		 */
 		if (!check_social(ch, command, argument)) {
-			char_puts("Huh?\n\r", ch);
+			char_puts("Huh?\n", ch);
 			return;
 		}
 		else
@@ -681,20 +681,20 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 	if (ch->position < cmd->position) {
 		switch(ch->position) {
 			case POS_DEAD:
-				char_puts("Lie still; You are DEAD.\n\r", ch);
+				char_puts("Lie still; You are DEAD.\n", ch);
 				break;
 
 			case POS_MORTAL:
 			case POS_INCAP:
-				char_puts("You are hurt far too bad for that.\n\r", ch);
+				char_puts("You are hurt far too bad for that.\n", ch);
 				break;
 
 			case POS_STUNNED:
-				char_puts("You are too stunned to do that.\n\r", ch);
+				char_puts("You are too stunned to do that.\n", ch);
 				break;
 
 			case POS_SLEEPING:
-				char_puts("In your dreams, or what?\n\r", ch);
+				char_puts("In your dreams, or what?\n", ch);
 				break;
 
 			case POS_RESTING:
@@ -706,7 +706,7 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 				break;
 
 			case POS_FIGHTING:
-				char_puts("No way!  You are still fighting!\n\r", ch);
+				char_puts("No way!  You are still fighting!\n", ch);
 				break;
 
 		}
@@ -742,22 +742,22 @@ bool check_social(CHAR_DATA *ch, char *command, const char *argument)
 		return FALSE;
 
 	if (!IS_NPC(ch) && IS_SET(ch->comm, COMM_NOEMOTE)) {
-		char_puts("You are anti-social!\n\r", ch);
+		char_puts("You are anti-social!\n", ch);
 		return TRUE;
 	}
 
 	switch (ch->position) {
 		case POS_DEAD:
-			char_puts("Lie still; You are DEAD.\n\r", ch);
+			char_puts("Lie still; You are DEAD.\n", ch);
 			return TRUE;
 
 		case POS_INCAP:
 		case POS_MORTAL:
-			char_puts("You are hurt far too bad for that.\n\r", ch);
+			char_puts("You are hurt far too bad for that.\n", ch);
 			return TRUE;
 
 		case POS_STUNNED:
-			char_puts("You are too stunned to do that.\n\r", ch);
+			char_puts("You are too stunned to do that.\n", ch);
 			return TRUE;
 
 		case POS_SLEEPING:
@@ -767,7 +767,7 @@ bool check_social(CHAR_DATA *ch, char *command, const char *argument)
 		 */
 			if (!str_cmp(social_table[cmd].name, "snore"))
 				break;
-			char_puts("In your dreams, or what?\n\r", ch);
+			char_puts("In your dreams, or what?\n", ch);
 			return TRUE;
 	}
 
@@ -781,8 +781,8 @@ bool check_social(CHAR_DATA *ch, char *command, const char *argument)
 	if (IS_AFFECTED(ch, AFF_IMP_INVIS) && !IS_NPC(ch)
 	&& (cmd_table[cmd].position == POS_FIGHTING)) {
 		affect_bit_strip(ch, TO_AFFECTS, AFF_IMP_INVIS);
-		char_puts("You fade into existence.\n\r", ch);
-		act_puts("$n fades into existence.\n\r", ch, NULL, NULL, TO_ROOM,
+		char_puts("You fade into existence.\n", ch);
+		act_puts("$n fades into existence.\n", ch, NULL, NULL, TO_ROOM,
 			  POS_RESTING);
 	}
 
@@ -798,7 +798,7 @@ bool check_social(CHAR_DATA *ch, char *command, const char *argument)
 
 	if ((victim = get_char_world(ch, arg)) == NULL
 	||  (IS_NPC(victim) && victim->in_room != ch->in_room)) {
-		char_puts("They aren't here.\n\r", ch);
+		char_puts("They aren't here.\n", ch);
 		return TRUE;
 	}
 
@@ -965,12 +965,12 @@ void do_commands(CHAR_DATA *ch, const char *argument)
 		&&  !IS_SET(cmd->flags, CMD_HIDDEN)) {
 			char_printf(ch, "%-12s", cmd->name);
 			if (++col % 6 == 0)
-				char_puts("\n\r", ch);
+				char_puts("\n", ch);
 		}
 	}
  
 	if (col % 6 != 0)
-		char_puts("\n\r", ch);
+		char_puts("\n", ch);
 }
 
 void do_wizhelp(CHAR_DATA *ch, const char *argument)
@@ -979,7 +979,7 @@ void do_wizhelp(CHAR_DATA *ch, const char *argument)
 	int col;
  
 	if (IS_NPC(ch)) {
-		char_puts("Huh?\n\r", ch);
+		char_puts("Huh?\n", ch);
 		return;
 	}
 
@@ -991,12 +991,12 @@ void do_wizhelp(CHAR_DATA *ch, const char *argument)
 		&&  !IS_SET(cmd->flags, CMD_HIDDEN)) {
 			char_printf(ch, "%-12s", cmd->name);
 			if (++col % 6 == 0)
-				char_puts("\n\r", ch);
+				char_puts("\n", ch);
 		}
 	}
  
 	if (col % 6 != 0)
-		char_puts("\n\r", ch);
+		char_puts("\n", ch);
 }
 
 /*********** alias.c **************/
@@ -1060,7 +1060,7 @@ void substitute_alias(DESCRIPTOR_DATA *d, const char *argument)
 
 void do_alia(CHAR_DATA *ch, const char *argument)
 {
-    char_puts("I'm sorry, alias must be entered in full.\n\r",ch);
+    char_puts("I'm sorry, alias must be entered in full.\n",ch);
     return;
 }
 
@@ -1085,10 +1085,10 @@ void do_alias(CHAR_DATA *ch, const char *argument)
     {
 	if (rch->pcdata->alias[0] == NULL)
 	{
-	    char_puts("You have no aliases defined.\n\r",ch);
+	    char_puts("You have no aliases defined.\n",ch);
 	    return;
 	}
-	char_puts("Your current aliases are:\n\r",ch);
+	char_puts("Your current aliases are:\n",ch);
 
 	for (pos = 0; pos < MAX_ALIAS; pos++)
 	{
@@ -1096,7 +1096,7 @@ void do_alias(CHAR_DATA *ch, const char *argument)
 	    ||	rch->pcdata->alias_sub[pos] == NULL)
 		break;
 
-	    char_printf(ch,"    %s:  %s\n\r",rch->pcdata->alias[pos],
+	    char_printf(ch,"    %s:  %s\n",rch->pcdata->alias[pos],
 		    rch->pcdata->alias_sub[pos]);
 	}
 	return;
@@ -1104,7 +1104,7 @@ void do_alias(CHAR_DATA *ch, const char *argument)
 
     if (!str_prefix("una",arg) || !str_cmp("alias",arg))
     {
-	char_puts("Sorry, that word is reserved.\n\r",ch);
+	char_puts("Sorry, that word is reserved.\n",ch);
 	return;
     }
 
@@ -1118,20 +1118,20 @@ void do_alias(CHAR_DATA *ch, const char *argument)
 
 	    if (!str_cmp(arg,rch->pcdata->alias[pos]))
 	    {
-		sprintf(buf,"%s aliases to '%s'.\n\r",rch->pcdata->alias[pos],
+		sprintf(buf,"%s aliases to '%s'.\n",rch->pcdata->alias[pos],
 			rch->pcdata->alias_sub[pos]);
 		char_puts(buf,ch);
 		return;
 	    }
 	}
 
-	char_puts("That alias is not defined.\n\r",ch);
+	char_puts("That alias is not defined.\n",ch);
 	return;
     }
 
     if (!str_prefix(argument,"delete") || !str_prefix(argument,"prefix"))
     {
-	char_puts("That shall not be done!\n\r",ch);
+	char_puts("That shall not be done!\n",ch);
 	return;
     }
 
@@ -1144,21 +1144,21 @@ void do_alias(CHAR_DATA *ch, const char *argument)
 	{
 	    free_string(rch->pcdata->alias_sub[pos]);
 	    rch->pcdata->alias_sub[pos] = str_dup(argument);
-	    char_printf(ch,"%s is now realiased to '%s'.\n\r",arg,argument);
+	    char_printf(ch,"%s is now realiased to '%s'.\n",arg,argument);
 	    return;
 	}
      }
 
      if (pos >= MAX_ALIAS)
      {
-	char_puts("Sorry, you have reached the alias limit.\n\r",ch);
+	char_puts("Sorry, you have reached the alias limit.\n",ch);
 	return;
      }
   
      /* make a new alias */
      rch->pcdata->alias[pos]		= str_dup(arg);
      rch->pcdata->alias_sub[pos]	= str_dup(argument);
-     char_printf(ch,"%s is now aliased to '%s'.\n\r",arg,argument);
+     char_printf(ch,"%s is now aliased to '%s'.\n",arg,argument);
 }
 
 
@@ -1181,7 +1181,7 @@ void do_unalias(CHAR_DATA *ch, const char *argument)
 
     if (arg == '\0')
     {
-	char_puts("Unalias what?\n\r",ch);
+	char_puts("Unalias what?\n",ch);
 	return;
     }
 
@@ -1201,7 +1201,7 @@ void do_unalias(CHAR_DATA *ch, const char *argument)
 
 	if(!strcmp(arg,rch->pcdata->alias[pos]))
 	{
-	    char_puts("Alias removed.\n\r",ch);
+	    char_puts("Alias removed.\n",ch);
 	    free_string(rch->pcdata->alias[pos]);
 	    free_string(rch->pcdata->alias_sub[pos]);
 	    rch->pcdata->alias[pos] = NULL;
@@ -1211,5 +1211,5 @@ void do_unalias(CHAR_DATA *ch, const char *argument)
     }
 
     if (!found)
-	char_puts("No alias of that name to remove.\n\r",ch);
+	char_puts("No alias of that name to remove.\n",ch);
 }

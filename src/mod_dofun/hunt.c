@@ -1,5 +1,5 @@
 /*
- * $Id: hunt.c,v 1.15 1998-11-02 05:28:30 fjoe Exp $
+ * $Id: hunt.c,v 1.16 1998-12-01 10:53:52 fjoe Exp $
  */
 
 /* Kak zovut sobaku Gejtsa?
@@ -466,7 +466,7 @@ void do_hunt(CHAR_DATA *ch, const char *argument)
 	one_argument(argument, arg);
 
 	if (arg[0] == '\0') {
-		char_puts("Whom are you trying to hunt?\n\r", ch);
+		char_puts("Whom are you trying to hunt?\n", ch);
 		return;
 	}
 
@@ -489,7 +489,7 @@ void do_hunt(CHAR_DATA *ch, const char *argument)
 		victim = get_char_world(ch, arg);
 
  	if (victim == NULL || victim->in_room == NULL) {
-		char_puts("No-one around by that name.\n\r", ch);
+		char_puts("No-one around by that name.\n", ch);
 		return;
 	}
 
@@ -511,7 +511,7 @@ void do_hunt(CHAR_DATA *ch, const char *argument)
 		if (ch->endur > 2)
 			ch->endur -= 3;
 		else {
-			char_puts("You're too exhausted to hunt anyone!\n\r",
+			char_puts("You're too exhausted to hunt anyone!\n",
 				  ch);
 			return;
 		}
@@ -529,7 +529,7 @@ void do_hunt(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (direction >= MAX_DIR) {
-		char_puts("Hmm... Something seems to be wrong.\n\r", ch);
+		char_puts("Hmm... Something seems to be wrong.\n", ch);
 		return;
 	}
 
@@ -556,7 +556,7 @@ void do_hunt(CHAR_DATA *ch, const char *argument)
 		else {
 			log("Do hunt, player hunt, no exits from room!");
 			ch->hunting = NULL;
-			char_puts("Your room has not exits!!!!\n\r", ch);
+			char_puts("Your room has not exits!!!!\n", ch);
 			return;
 		}
 	}

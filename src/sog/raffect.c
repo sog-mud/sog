@@ -1,5 +1,5 @@
 /*
- * $Id: raffect.c,v 1.17 1998-11-06 09:04:04 fjoe Exp $
+ * $Id: raffect.c,v 1.18 1998-12-01 10:53:55 fjoe Exp $
  */
 
 /***************************************************************************
@@ -358,7 +358,7 @@ void raffect_to_char(ROOM_INDEX_DATA *room, CHAR_DATA *ch)
 		}
 	 else 
 	 {
-	  char_puts("The protective shield of room blocks you.\n\r",ch);
+	  char_puts("The protective shield of room blocks you.\n",ch);
 	  act("$N has entered the room.",vch,NULL,ch,TO_CHAR);
 	  do_wake(vch,str_empty);
 
@@ -382,7 +382,7 @@ void raffect_to_char(ROOM_INDEX_DATA *room, CHAR_DATA *ch)
 	 if ((sn = sn_lookup("shocking trap")) == -1)
 		{ bug("Bad sn for shocking shield",0); return; }
 
-	 char_puts("The shocking waves of room shocks you.\n\r",ch);
+	 char_puts("The shocking waves of room shocks you.\n",ch);
 
 	 if ((paf = affect_find(room->affected,sn)) == NULL)
 		 { bug("Bad paf for shocking shield",0); return; }
@@ -397,7 +397,7 @@ void raffect_to_char(ROOM_INDEX_DATA *room, CHAR_DATA *ch)
 
   if (IS_ROOM_AFFECTED(room, RAFF_THIEF_TRAP))
   {
-	 char_puts("The trap ,set by someone, blocks you.\n\r",ch);
+	 char_puts("The trap ,set by someone, blocks you.\n",ch);
 
 	 if ((paf = affect_find(room->affected,gsn_settraps)) == NULL)
 		 { bug("Bad paf for settraps",0); return; }
@@ -412,7 +412,7 @@ void raffect_to_char(ROOM_INDEX_DATA *room, CHAR_DATA *ch)
 
 	if (IS_ROOM_AFFECTED(room, RAFF_SLOW)
 	||  IS_ROOM_AFFECTED(room, RAFF_SLEEP))
-		char_puts("There is some mist flowing in the air.\n\r",ch);
+		char_puts("There is some mist flowing in the air.\n",ch);
 }
 
 void raffect_back_char(ROOM_INDEX_DATA *room, CHAR_DATA *ch)
@@ -437,11 +437,11 @@ void do_raffects(CHAR_DATA *ch, const char *argument)
 	AFFECT_DATA *paf, *paf_last = NULL;
 
 	if (ch->in_room->affected == NULL) {
-		char_puts("The room is not affected by any spells.\n\r",ch);
+		char_puts("The room is not affected by any spells.\n",ch);
 		return;
 	}
 
-	char_puts("The room is affected by the following spells:\n\r", ch);
+	char_puts("The room is affected by the following spells:\n", ch);
 	for (paf = ch->in_room->affected; paf != NULL; paf = paf->next) {
 		if (paf_last != NULL && paf->type == paf_last->type)
 			if (ch->level >= 20)
@@ -462,7 +462,7 @@ void do_raffects(CHAR_DATA *ch, const char *argument)
 				char_printf(ch, "for {c%d{x hours.",
 					    paf->duration);
 		}
-		char_puts("\n\r", ch);
+		char_puts("\n", ch);
 		paf_last = paf;
 	}
 }

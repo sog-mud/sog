@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mlstring.c,v 1.25 1998-11-02 05:28:30 fjoe Exp $
+ * $Id: mlstring.c,v 1.26 1998-12-01 10:53:54 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -391,7 +391,7 @@ bool mlstr_editnl(mlstring **mlp, const char *argument)
 
 	p = mlstr_convert(mlp, lang);
 	free_string(*p);
-	*p = str_add(argument, "\n\r", NULL);
+	*p = str_add(argument, "\n", NULL);
 	return TRUE;
 }
 
@@ -400,7 +400,7 @@ void mlstr_dump(BUFFER *buf, const char *name, const mlstring *ml)
 	char space[MAX_STRING_LENGTH];
 	size_t namelen;
 	int lang;
-	static char FORMAT[] = "%s[%s] [%s]\n\r";
+	static char FORMAT[] = "%s[%s] [%s]\n";
 	LANG_DATA *l;
 
 	if (ml == NULL || ml->nlang == 0) {

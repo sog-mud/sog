@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.171 1998-12-01 06:02:57 kostik Exp $
+ * $Id: act_info.c,v 1.172 1998-12-01 10:53:48 fjoe Exp $
  */
 
 /***************************************************************************
@@ -289,14 +289,14 @@ void show_list_to_char(OBJ_DATA *list, CHAR_DATA *ch,
 		}
 
 		buf_add(output, prgpstrShow[iShow]);
-		buf_add(output,"\n\r");
+		buf_add(output,"\n");
 		free_string(prgpstrShow[iShow]);
 	}
 
 	if (fShowNothing && nShow == 0) {
 		if (IS_NPC(ch) || IS_SET(ch->comm, COMM_COMBINE))
 			char_puts("     ", ch);
-		char_puts("Nothing.\n\r", ch);
+		char_puts("Nothing.\n", ch);
 	}
 
 	page_to_char(buf_string(output),ch);
@@ -517,7 +517,7 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 			break;
 		}
 	
-		buf_add(output, "{x\n\r");
+		buf_add(output, "{x\n");
 	}
 
 	send_to_char(buf_string(output), ch);
@@ -601,7 +601,7 @@ void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 				MSG_SEE_NOTHING_SPECIAL);
 
 	if (MOUNTED(victim))
-		char_printf(ch, "%s is riding %s.\n\r",
+		char_printf(ch, "%s is riding %s.\n",
 			    PERS(victim, ch), PERS(MOUNTED(victim), ch));
 	if (RIDDEN(victim))
 		act("$N is being ridden by $t.",
@@ -639,7 +639,7 @@ void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 			char_printf(ch, "(%s) ", class_name(doppel));
 	}
 
-	char_printf(ch, "%s%s%s %s\n\r",
+	char_printf(ch, "%s%s%s %s\n",
 		    IS_IMMORTAL(victim) ? "{W" : str_empty,
 		    PERS(victim, ch),
 		    IS_IMMORTAL(victim) ? "{x" : str_empty,
@@ -650,7 +650,7 @@ void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 		if ((obj = get_eq_char(mirror, show_order[i]))
 		&&  can_see_obj(ch, obj)) {
 			if (!found) {
-				char_puts("\n\r", ch);
+				char_puts("\n", ch);
 				act("$N is using:", ch, NULL, victim, TO_CHAR);
 				found = TRUE;
 			}
@@ -662,7 +662,7 @@ void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 		if (obj->wear_loc == WEAR_STUCK_IN
 		&&  can_see_obj(ch, obj)) {
 			if (!found) {
-				char_puts("\n\r", ch);
+				char_puts("\n", ch);
 				act("$N is using:", ch, NULL, victim, TO_CHAR);
 				found = TRUE;
 			}
@@ -674,7 +674,7 @@ void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 	&&  (!IS_IMMORTAL(victim) || IS_IMMORTAL(ch))
 	&&  !IS_NPC(ch)
 	&&  number_percent() < get_skill(ch, gsn_peek)) {
-		char_puts("\n\rYou peek at the inventory:\n\r", ch);
+		char_puts("\nYou peek at the inventory:\n", ch);
 		check_improve(ch, gsn_peek, TRUE, 4);
 		show_list_to_char(mirror->carrying, ch, TRUE, TRUE);
 	}
@@ -707,7 +707,7 @@ void show_char_to_char(CHAR_DATA *list, CHAR_DATA *ch)
 			show_char_to_char_0(rch, ch);
 		else {
 			if (room_is_dark(ch) && IS_AFFECTED(rch, AFF_INFRARED))
-				char_puts("You see {rglowing red eyes{x watching YOU!\n\r", ch);
+				char_puts("You see {rglowing red eyes{x watching YOU!\n", ch);
 			life_count++;
 		}
 	}
@@ -715,7 +715,7 @@ void show_char_to_char(CHAR_DATA *list, CHAR_DATA *ch)
 	if (list->in_room == ch->in_room
 	&&  life_count
 	&&  IS_AFFECTED(ch, AFF_DETECT_LIFE))
-		char_printf(ch, "You feel %d more life %s in the room.\n\r",
+		char_printf(ch, "You feel %d more life %s in the room.\n",
 			    life_count, (life_count == 1) ? "form" : "forms");
 }
 
@@ -735,23 +735,23 @@ DO_FUN(do_scroll)
 
 	if (arg[0] == '\0') {
 		char_printf(ch, "You currently display %d lines per "
-				"page.\n\r", ch->lines + 2);
+				"page.\n", ch->lines + 2);
 		return;
 	}
 
 	if (!is_number(arg)) {
-		char_puts("You must provide a number.\n\r",ch);
+		char_puts("You must provide a number.\n",ch);
 		return;
 	}
 
 	lines = atoi(arg);
 	if (lines < SCROLL_MIN || lines > SCROLL_MAX) {
-		char_printf(ch, "Valid scroll range is %d..%d.\n\r",
+		char_printf(ch, "Valid scroll range is %d..%d.\n",
 			    SCROLL_MIN, SCROLL_MAX);
 		return;
 	}
 
-	char_printf(ch, "Scroll set to %d lines.\n\r", lines);
+	char_printf(ch, "Scroll set to %d lines.\n", lines);
 	ch->lines = lines - 2;
 }
 
@@ -764,11 +764,11 @@ void do_socials(CHAR_DATA *ch, const char *argument)
 	for (iSocial = 0; social_table[iSocial].name != NULL; iSocial++) {
 		char_printf(ch, "%-12s", social_table[iSocial].name);
 		if (++col % 6 == 0)
-			char_puts("\n\r",ch);
+			char_puts("\n",ch);
 	}
 
 	if (col % 6)
-		char_puts("\n\r",ch);
+		char_puts("\n",ch);
 }
 
 /* RT Commands to replace news, motd, imotd, etc from ROM */
@@ -800,7 +800,7 @@ void do_wizlist(CHAR_DATA *ch, const char *argument)
 /* RT this following section holds all the auto commands from ROM, as well as
    replacements for config */
 #define do_print_sw(ch, swname, sw) \
-		char_printf(ch, "%-16s %s\n\r", swname, sw ? "ON" : "OFF");
+		char_printf(ch, "%-16s %s\n", swname, sw ? "ON" : "OFF");
 
 void do_autolist(CHAR_DATA *ch, const char *argument)
 {
@@ -808,8 +808,8 @@ void do_autolist(CHAR_DATA *ch, const char *argument)
 	if (IS_NPC(ch))
 		return;
 
-	char_puts("action         status\n\r",ch);
-	char_puts("---------------------\n\r",ch);
+	char_puts("action         status\n",ch);
+	char_puts("---------------------\n",ch);
 	do_print_sw(ch, "color", IS_SET(ch->act, PLR_COLOR));
 	do_print_sw(ch, "autoassist", IS_SET(ch->act, PLR_AUTOASSIST));
 	do_print_sw(ch, "autoexit", IS_SET(ch->act, PLR_AUTOEXIT));
@@ -827,162 +827,162 @@ void do_autolist(CHAR_DATA *ch, const char *argument)
 
 	if (IS_SET(ch->act, PLR_NOSUMMON))
 		char_puts("You can only be summoned players within "
-			     "your PK range.\n\r",ch);
+			     "your PK range.\n",ch);
 	else
-		char_puts("You can be summoned by anyone.\n\r",ch);
+		char_puts("You can be summoned by anyone.\n",ch);
 
 	if (IS_SET(ch->act,PLR_NOFOLLOW))
-		char_puts("You do not welcome followers.\n\r",ch);
+		char_puts("You do not welcome followers.\n",ch);
 	else
-		char_puts("You accept followers.\n\r",ch);
+		char_puts("You accept followers.\n",ch);
 }
 
 void do_autoassist(CHAR_DATA *ch, const char *argument)
 {
 	if (IS_NPC(ch)) {
-		char_puts("Huh?\n\r", ch);
+		char_puts("Huh?\n", ch);
 		return;
 	}
 
 	TOGGLE_BIT(ch->act, PLR_AUTOASSIST);
 	if (IS_SET(ch->act, PLR_AUTOASSIST))
-		char_puts("You will now assist when needed.\n\r",ch);
+		char_puts("You will now assist when needed.\n",ch);
 	else
-		char_puts("Autoassist removed.\n\r",ch);
+		char_puts("Autoassist removed.\n",ch);
 }
 
 void do_autoexit(CHAR_DATA *ch, const char *argument)
 {
 	if (IS_NPC(ch)) {
-		char_puts("Huh?\n\r", ch);
+		char_puts("Huh?\n", ch);
 		return;
 	}
 
 	TOGGLE_BIT(ch->act, PLR_AUTOEXIT);
 	if (IS_SET(ch->act, PLR_AUTOEXIT))
-		char_puts("Exits will now be displayed.\n\r",ch);
+		char_puts("Exits will now be displayed.\n",ch);
 	else 
-		char_puts("Exits will no longer be displayed.\n\r",ch);
+		char_puts("Exits will no longer be displayed.\n",ch);
 }
 
 void do_autogold(CHAR_DATA *ch, const char *argument)
 {
 	if (IS_NPC(ch)) {
-		char_puts("Huh?\n\r", ch);
+		char_puts("Huh?\n", ch);
 		return;
 	}
 
 	TOGGLE_BIT(ch->act, PLR_AUTOGOLD);
 	if (IS_SET(ch->act, PLR_AUTOGOLD))
-		char_puts("Automatic gold looting set.\n\r",ch);
+		char_puts("Automatic gold looting set.\n",ch);
 	else 
-		char_puts("Autogold removed.\n\r",ch);
+		char_puts("Autogold removed.\n",ch);
 }
 
 DO_FUN(do_autolook)
 {
 	if (IS_NPC(ch)) {
-		char_puts("Huh?\n\r", ch);
+		char_puts("Huh?\n", ch);
 		return;
 	}
 
 	TOGGLE_BIT(ch->act, PLR_AUTOLOOK);
 	if (IS_SET(ch->act, PLR_AUTOLOOK))
-		char_puts("Automatic corpse examination set.\n\r", ch);
+		char_puts("Automatic corpse examination set.\n", ch);
 	else
-		char_puts("Autolooking removed.\n\r", ch);
+		char_puts("Autolooking removed.\n", ch);
 }
 
 void do_autoloot(CHAR_DATA *ch, const char *argument)
 {
 	if (IS_NPC(ch)) {
-		char_puts("Huh?\n\r", ch);
+		char_puts("Huh?\n", ch);
 		return;
 	}
 
 	TOGGLE_BIT(ch->act, PLR_AUTOLOOT);
 	if (IS_SET(ch->act, PLR_AUTOLOOT))
-		char_puts("Automatic corpse looting set.\n\r", ch);
+		char_puts("Automatic corpse looting set.\n", ch);
 	else
-		char_puts("Autolooting removed.\n\r", ch);
+		char_puts("Autolooting removed.\n", ch);
 }
 
 void do_autosac(CHAR_DATA *ch, const char *argument)
 {
 	if (IS_NPC(ch)) {
-		char_puts("Huh?\n\r", ch);
+		char_puts("Huh?\n", ch);
 		return;
 	}
 
 	TOGGLE_BIT(ch->act, PLR_AUTOSAC);
 	if (IS_SET(ch->act, PLR_AUTOSAC))
-		char_puts("Automatic corpse sacrificing set.\n\r",ch);
+		char_puts("Automatic corpse sacrificing set.\n",ch);
 	else
-		char_puts("Autosacrificing removed.\n\r",ch);
+		char_puts("Autosacrificing removed.\n",ch);
 }
 
 void do_autosplit(CHAR_DATA *ch, const char *argument)
 {
 	if (IS_NPC(ch)) {
-		char_puts("Huh?\n\r", ch);
+		char_puts("Huh?\n", ch);
 		return;
 	}
 
 	TOGGLE_BIT(ch->act, PLR_AUTOSPLIT);
 	if (IS_SET(ch->act, PLR_AUTOSPLIT))
-		char_puts("Automatic gold splitting set.\n\r",ch);
+		char_puts("Automatic gold splitting set.\n",ch);
 	else
-		char_puts("Autosplitting removed.\n\r",ch);
+		char_puts("Autosplitting removed.\n",ch);
 }
 
 void do_color(CHAR_DATA *ch, const char *argument)
 {
 	if (IS_NPC(ch)) {
-		char_puts("Huh?\n\r", ch);
+		char_puts("Huh?\n", ch);
 		return;
 	}
 
 	TOGGLE_BIT(ch->act, PLR_COLOR);
 	if (IS_SET(ch->act, PLR_COLOR))
-		char_puts("{BC{Ro{Yl{Co{Gr{x is now {RON{x, Way Cool!\n\r", ch);
+		char_puts("{BC{Ro{Yl{Co{Gr{x is now {RON{x, Way Cool!\n", ch);
 	else
-		char_puts("Color is now OFF, *sigh*\n\r", ch);
+		char_puts("Color is now OFF, *sigh*\n", ch);
 }
 
 void do_brief(CHAR_DATA *ch, const char *argument)
 {
 	TOGGLE_BIT(ch->comm, COMM_BRIEF);
 	if (IS_SET(ch->comm, COMM_BRIEF))
-		char_puts("Short descriptions activated.\n\r",ch);
+		char_puts("Short descriptions activated.\n",ch);
 	else 
-		char_puts("Full descriptions activated.\n\r",ch);
+		char_puts("Full descriptions activated.\n",ch);
 }
 
 void do_compact(CHAR_DATA *ch, const char *argument)
 {
 	TOGGLE_BIT(ch->comm, COMM_COMPACT);
 	if (IS_SET(ch->comm, COMM_COMPACT))
-		char_puts("Compact mode set.\n\r",ch);
+		char_puts("Compact mode set.\n",ch);
 	else
-		char_puts("Compact mode removed.\n\r",ch);
+		char_puts("Compact mode removed.\n",ch);
 }
 
 void do_long(CHAR_DATA *ch, const char *argument)
 {
 	TOGGLE_BIT(ch->comm, COMM_LONG);
 	if (IS_SET(ch->comm, COMM_LONG))
-		char_puts("Long flags mode set.\n\r",ch);
+		char_puts("Long flags mode set.\n",ch);
 	else 
-		char_puts("Long flags mode removed.\n\r",ch);
+		char_puts("Long flags mode removed.\n",ch);
 }
 
 void do_show(CHAR_DATA *ch, const char *argument)
 {
 	TOGGLE_BIT(ch->comm, COMM_SHOW_AFFECTS);
 	if (IS_SET(ch->comm,COMM_SHOW_AFFECTS))
-		char_puts("Affects will now be shown in score.\n\r", ch);
+		char_puts("Affects will now be shown in score.\n", ch);
 	else
-		char_puts("Affects will no longer be shown in score.\n\r", ch);
+		char_puts("Affects will no longer be shown in score.\n", ch);
 }
 
 void do_prompt(CHAR_DATA *ch, const char *argument)
@@ -992,14 +992,14 @@ void do_prompt(CHAR_DATA *ch, const char *argument)
 	if (argument[0] == '\0') {
 		TOGGLE_BIT(ch->comm, COMM_PROMPT);
 		if (IS_SET(ch->comm, COMM_PROMPT))
-			char_puts("You will now see prompts.\n\r",ch);
+			char_puts("You will now see prompts.\n",ch);
 		else
-			char_puts("You will no longer see prompts.\n\r",ch);
+			char_puts("You will no longer see prompts.\n",ch);
 		return;
 	}
 
 	if (!str_prefix(argument, "show")) {
-		char_printf(ch, "Current prompt is '%s'.\n\r", ch->prompt);
+		char_printf(ch, "Current prompt is '%s'.\n", ch->prompt);
 		return;
 	}
 
@@ -1010,51 +1010,51 @@ void do_prompt(CHAR_DATA *ch, const char *argument)
 
 	free_string(ch->prompt);
 	ch->prompt = prompt;
-	char_printf(ch, "Prompt set to '%s'.\n\r", ch->prompt);
+	char_printf(ch, "Prompt set to '%s'.\n", ch->prompt);
 }
 
 void do_combine(CHAR_DATA *ch, const char *argument)
 {
 	TOGGLE_BIT(ch->comm, COMM_COMBINE);
 	if (IS_SET(ch->comm, COMM_COMBINE))
-		char_puts("Combined inventory selected.\n\r",ch);
+		char_puts("Combined inventory selected.\n",ch);
 	else 
-		char_puts("Long inventory selected.\n\r",ch);
+		char_puts("Long inventory selected.\n",ch);
 }
 
 void do_noloot(CHAR_DATA *ch, const char *argument)
 {
 	if (IS_NPC(ch)) {
-		char_puts("Huh?\n\r", ch);
+		char_puts("Huh?\n", ch);
 		return;
 	}
 
 	TOGGLE_BIT(ch->act, PLR_CANLOOT);
 	if (IS_SET(ch->act, PLR_CANLOOT))
-		char_puts("Your corpse may now be looted.\n\r",ch);
+		char_puts("Your corpse may now be looted.\n",ch);
 	else
-		char_puts("Your corpse is now safe from thieves.\n\r",ch);
+		char_puts("Your corpse is now safe from thieves.\n",ch);
 }
 
 void do_nofollow(CHAR_DATA *ch, const char *argument)
 {
 	if (IS_NPC(ch)) {
-		char_puts("Huh?\n\r", ch);
+		char_puts("Huh?\n", ch);
 		return;
 	}
 
 	if (IS_AFFECTED(ch, AFF_CHARM))  {
-		char_puts("You don't want to leave your beloved master.\n\r", ch);
+		char_puts("You don't want to leave your beloved master.\n", ch);
 		return;
 	}
 
 	TOGGLE_BIT(ch->act, PLR_NOFOLLOW);
 	if (IS_SET(ch->act,PLR_NOFOLLOW)) {
-		char_puts("You no longer accept followers.\n\r", ch);
+		char_puts("You no longer accept followers.\n", ch);
 		die_follower(ch);
 	}
 	else
-		char_puts("You now accept followers.\n\r", ch);
+		char_puts("You now accept followers.\n", ch);
 }
 
 void do_nosummon(CHAR_DATA *ch, const char *argument)
@@ -1062,34 +1062,34 @@ void do_nosummon(CHAR_DATA *ch, const char *argument)
 	if (IS_NPC(ch)) {
 		TOGGLE_BIT(ch->imm_flags, IMM_SUMMON);
 		if (IS_SET(ch->imm_flags,IMM_SUMMON))
-			char_puts("You are now immune to summoning.\n\r", ch);
+			char_puts("You are now immune to summoning.\n", ch);
 		else
 			char_puts("You are no longer immune "
-				  "to summoning.\n\r", ch);
+				  "to summoning.\n", ch);
 	}
 	else {
 		TOGGLE_BIT(ch->act, PLR_NOSUMMON);
 		if (IS_SET(ch->act,PLR_NOSUMMON))
 			char_puts("You may only be summoned by players "
-				  "within your PK range.\n\r", ch);
+				  "within your PK range.\n", ch);
 		else 
-			char_puts("You may now be summoned by anyone.\n\r", ch);
+			char_puts("You may now be summoned by anyone.\n", ch);
 	}
 }
 
 DO_FUN(do_nocancel)
 {
 	if (IS_NPC(ch)) {
-		char_puts("Huh?\n\r", ch);
+		char_puts("Huh?\n", ch);
 		return;
 	}
 
 	TOGGLE_BIT(ch->act, PLR_NOCANCEL);
 	if (IS_SET(ch->act, PLR_NOCANCEL))
 		char_puts("You do not allow others to cast 'cancellation' "
-			  "on you.\n\r", ch);
+			  "on you.\n", ch);
 	else
-		char_puts("Anyone can cast 'cancellation' on you.\n\r", ch);
+		char_puts("Anyone can cast 'cancellation' on you.\n", ch);
 }
 
 void do_look_in(CHAR_DATA* ch, const char *argument)
@@ -1097,22 +1097,22 @@ void do_look_in(CHAR_DATA* ch, const char *argument)
 	OBJ_DATA *obj;
 
 	if ((obj = get_obj_here(ch, argument)) == NULL) {
-		char_puts("You don't see that here.\n\r", ch);
+		char_puts("You don't see that here.\n", ch);
 		return;
 	}
 
 	switch (obj->pIndexData->item_type) {
 	default:
-		char_puts("That is not a container.\n\r", ch);
+		char_puts("That is not a container.\n", ch);
 		break;
 
 	case ITEM_DRINK_CON:
 		if (obj->value[1] <= 0) {
-			char_puts("It is empty.\n\r", ch);
+			char_puts("It is empty.\n", ch);
 			break;
 		}
 
-		char_printf(ch, "It's %sfilled with a %s liquid.\n\r",
+		char_printf(ch, "It's %sfilled with a %s liquid.\n",
 			    obj->value[1] < obj->value[0] / 4 ?
 			    GETMSG("less than half-", ch->lang) :
 			    obj->value[1] < 3 * obj->value[0] / 4 ?
@@ -1125,7 +1125,7 @@ void do_look_in(CHAR_DATA* ch, const char *argument)
 	case ITEM_CORPSE_NPC:
 	case ITEM_CORPSE_PC:
 		if (IS_SET(obj->value[1], CONT_CLOSED)) {
-			char_puts("It is closed.\n\r", ch);
+			char_puts("It is closed.\n", ch);
 			break;
 		}
 
@@ -1151,12 +1151,12 @@ void do_look(CHAR_DATA *ch, const char *argument)
 		return;
 
 	if (ch->position < POS_SLEEPING) {
-		char_puts("You can't see anything but stars!\n\r", ch);
+		char_puts("You can't see anything but stars!\n", ch);
 		return;
 	}
 
 	if (ch->position == POS_SLEEPING) {
-		char_puts("You can't see anything, you're sleeping!\n\r", ch);
+		char_puts("You can't see anything, you're sleeping!\n", ch);
 		return;
 	}
 
@@ -1185,7 +1185,7 @@ void do_look(CHAR_DATA *ch, const char *argument)
 			||  IS_BUILDER(ch, ch->in_room->area))
 				char_printf(ch, " [Room %d]",ch->in_room->vnum);
 
-			char_puts("\n\r", ch);
+			char_puts("\n", ch);
 
 			if (arg1[0] == '\0'
 			||  (!IS_NPC(ch) && !IS_SET(ch->comm, COMM_BRIEF)))
@@ -1193,12 +1193,12 @@ void do_look(CHAR_DATA *ch, const char *argument)
 					    mlstr_cval(ch->in_room->description, ch));
 
 			if (!IS_NPC(ch) && IS_SET(ch->act, PLR_AUTOEXIT)) {
-				char_puts("\n\r", ch);
+				char_puts("\n", ch);
 				do_exits(ch, "auto");
 			}
 		}
 		else 
-			char_puts("It is pitch black...\n\r", ch);
+			char_puts("It is pitch black...\n", ch);
 
 		show_list_to_char(ch->in_room->contents, ch, FALSE, FALSE);
 		show_char_to_char(ch->in_room->people, ch);
@@ -1213,7 +1213,7 @@ void do_look(CHAR_DATA *ch, const char *argument)
 	||  !str_cmp(arg1,"on")) {
 		/* 'look in' */
 		if (arg2[0] == '\0') {
-			char_puts("Look in what?\n\r", ch);
+			char_puts("Look in what?\n", ch);
 			return;
 		}
 
@@ -1279,7 +1279,7 @@ void do_look(CHAR_DATA *ch, const char *argument)
 
 			if (is_name(arg3, obj->name))
 				if (++count == number) {
-					char_puts("You see nothing special about it.\n\r", ch);
+					char_puts("You see nothing special about it.\n", ch);
 					return;
 				}
 		}
@@ -1306,7 +1306,7 @@ void do_look(CHAR_DATA *ch, const char *argument)
 		if (is_name(arg3, obj->name))
 			if (++count == number) {
 				char_mlputs(obj->description, ch);
-				char_puts("\n\r",ch);
+				char_puts("\n",ch);
 				return;
 			}
 	}
@@ -1321,9 +1321,9 @@ void do_look(CHAR_DATA *ch, const char *argument)
 
 	if (count > 0 && count != number) {
 		if (count == 1)
-			char_printf(ch, "You only see one %s here.\n\r", arg3);
+			char_printf(ch, "You only see one %s here.\n", arg3);
 		else
-			char_printf(ch, "You only see %d of those here.\n\r", count);
+			char_printf(ch, "You only see %d of those here.\n", count);
 		return;
 	}
 
@@ -1334,20 +1334,20 @@ void do_look(CHAR_DATA *ch, const char *argument)
 	else if (!str_cmp(arg1, "u") || !str_cmp(arg1, "up" )) door = 4;
 	else if (!str_cmp(arg1, "d") || !str_cmp(arg1, "down")) door = 5;
 	else {
-		char_puts("You don't see that here.\n\r", ch);
+		char_puts("You don't see that here.\n", ch);
 		return;
 	}
 
 	/* 'look direction' */
 	if ((pexit = ch->in_room->exit[door]) == NULL) {
-		char_puts("Nothing special there.\n\r", ch);
+		char_puts("Nothing special there.\n", ch);
 		return;
 	}
 
 	if (!IS_NULLSTR(mlstr_mval(pexit->description)))
 		char_mlputs(pexit->description, ch);
 	else
-		char_puts("Nothing special there.\n\r", ch);
+		char_puts("Nothing special there.\n", ch);
 
 	if (pexit->keyword    != NULL
 	&&  pexit->keyword[0] != '\0'
@@ -1373,12 +1373,12 @@ void do_examine(CHAR_DATA *ch, const char *argument)
 		return;
 
 	if (ch->position < POS_SLEEPING) {
-		char_puts("You can't see anything but stars!\n\r", ch);
+		char_puts("You can't see anything but stars!\n", ch);
 		return;
 	}
 
 	if (ch->position == POS_SLEEPING) {
-		char_puts("You can't see anything, you're sleeping!\n\r", ch);
+		char_puts("You can't see anything, you're sleeping!\n", ch);
 		return;
 	}
 
@@ -1386,7 +1386,7 @@ void do_examine(CHAR_DATA *ch, const char *argument)
 		return;
 
 	if (arg[0] == '\0') {
-		char_puts("Examine what?\n\r", ch);
+		char_puts("Examine what?\n", ch);
 		return;
 	}
 
@@ -1397,22 +1397,22 @@ void do_examine(CHAR_DATA *ch, const char *argument)
 		case ITEM_MONEY:
 			if (obj->value[0] == 0) {
 				if (obj->value[1] == 0)
-					char_puts("Odd...there's no coins in the pile.\n\r", ch);
+					char_puts("Odd...there's no coins in the pile.\n", ch);
 				else if (obj->value[1] == 1)
-					char_puts("Wow. One gold coin.\n\r", ch);
+					char_puts("Wow. One gold coin.\n", ch);
 				else
-					char_printf(ch, "There are %d gold coins in the pile.\n\r",
+					char_printf(ch, "There are %d gold coins in the pile.\n",
 						     obj->value[1]);
 			}
 			else if (obj->value[1] == 0) {
 				if (obj->value[0] == 1)
-					char_puts("Wow. One silver coin.\n\r", ch);
+					char_puts("Wow. One silver coin.\n", ch);
 				else
-					char_printf(ch, "There are %d silver coins in the pile.\n\r",
+					char_printf(ch, "There are %d silver coins in the pile.\n",
 						     obj->value[0]);
 			}
 			else
-				char_printf(ch, "There are %d gold and %d silver coins in the pile.\n\r", 
+				char_printf(ch, "There are %d gold and %d silver coins in the pile.\n", 
 					    obj->value[1], obj->value[0]);
 			break;
 
@@ -1441,10 +1441,10 @@ void do_exits(CHAR_DATA *ch, const char *argument)
 	if (fAuto)
 		char_puts("{C[Exits:", ch);
 	else if (IS_IMMORTAL(ch) || IS_BUILDER(ch, ch->in_room->area))
-		char_printf(ch, "Obvious exits from room %d:\n\r",
+		char_printf(ch, "Obvious exits from room %d:\n",
 			    ch->in_room->vnum);
 	else
-		char_puts("Obvious exits:\n\r", ch);
+		char_puts("Obvious exits:\n", ch);
 
 	found = FALSE;
 	for (door = 0; door < MAX_DIR; door++) {
@@ -1485,16 +1485,16 @@ void do_exits(CHAR_DATA *ch, const char *argument)
 				||  IS_BUILDER(ch, pexit->u1.to_room->area))
 					char_printf(ch, " (room %d)",
 						    pexit->u1.to_room->vnum);
-				char_puts("\n\r", ch);
+				char_puts("\n", ch);
 			}
 		}
 	}
 
 	if (!found)
-		char_puts(fAuto ? " none" : "None.\n\r", ch);
+		char_puts(fAuto ? " none" : "None.\n", ch);
 
 	if (fAuto)
-		char_puts("]{x\n\r", ch);
+		char_puts("]{x\n", ch);
 }
 
 void do_worth(CHAR_DATA *ch, const char *argument)
@@ -1503,7 +1503,7 @@ void do_worth(CHAR_DATA *ch, const char *argument)
 	if (!IS_NPC(ch) && ch->level < LEVEL_HERO)
 		char_printf(ch, ", and %d experience (%d exp to level)",
 			    ch->exp, exp_to_level(ch));
-	char_puts(".\n\r", ch);
+	char_puts(".\n", ch);
 
 	if (!IS_NPC(ch))
 		char_printf(ch, msg(MSG_HAVE_KILLED, ch),
@@ -1546,7 +1546,7 @@ void do_time(CHAR_DATA *ch, const char *argument)
 	else			       suf = "th";
 
 	char_printf(ch,
-		    "It is %d o'clock %s, Day of %s, %d%s the Month of %s.\n\r",
+		    "It is %d o'clock %s, Day of %s, %d%s the Month of %s.\n",
 		    (time_info.hour % 12 == 0) ? 12 : time_info.hour %12,
 		    time_info.hour >= 12 ? "pm" : "am",
 		    day_name[day % 7],
@@ -1568,14 +1568,14 @@ void do_time(CHAR_DATA *ch, const char *argument)
 	if (!IS_IMMORTAL(ch))
 		return;
 
-	char_printf(ch, "\n\rMUDDY started up at %s\n\r"
-			"The system time is %s.\n\r",
+	char_printf(ch, "\nMUDDY started up at %s\n"
+			"The system time is %s.\n",
 			str_boot_time, strtime(time(NULL)));
 }
 
 DO_FUN(do_date)
 {
-	char_printf(ch, "%s\n\r", strtime(time(NULL)));
+	char_printf(ch, "%s\n", strtime(time(NULL)));
 }
 
 void do_weather(CHAR_DATA *ch, const char *argument)
@@ -1588,11 +1588,11 @@ void do_weather(CHAR_DATA *ch, const char *argument)
 	};
 
 	if (!IS_OUTSIDE(ch)) {
-		char_puts("You can't see the weather indoors.\n\r", ch);
+		char_puts("You can't see the weather indoors.\n", ch);
 		return;
 	}
 
-	char_printf(ch, "The sky is %s and %s.\n\r",
+	char_printf(ch, "The sky is %s and %s.\n",
 		    sky_look[weather_info.sky],
 		    weather_info.change >= 0 ?
 		    "a warm southerly breeze blows" :
@@ -1681,7 +1681,7 @@ void do_who_raw(CHAR_DATA* ch, CHAR_DATA *wch, BUFFER* output)
 
 	buf_add(output, wch->pcdata->title);
 
-	buf_add(output, "\n\r");
+	buf_add(output, "\n");
 }
 
 void do_who(CHAR_DATA *ch, const char *argument)
@@ -1744,7 +1744,7 @@ void do_who(CHAR_DATA *ch, const char *argument)
 
 		if (!str_cmp(arg,"tattoo")) {
 			if (get_eq_char(ch,WEAR_TATTOO) == NULL) {
-				char_puts("You haven't got a tattoo yet!\n\r",ch);
+				char_puts("You haven't got a tattoo yet!\n",ch);
 				return;
 			} else {
 				fTattoo = TRUE;
@@ -1759,7 +1759,7 @@ void do_who(CHAR_DATA *ch, const char *argument)
 			case 2: iLevelUpper = atoi(arg); break;
 			default:
 				char_puts("This function of who is for "
-					     "immortals.\n\r",ch);
+					     "immortals.\n",ch);
 				return;
 			}
 			continue;
@@ -1778,7 +1778,7 @@ void do_who(CHAR_DATA *ch, const char *argument)
 				iClass = cln_lookup(arg);
 				if (iClass == -1 || !IS_IMMORTAL(ch)) {
 					char_puts("That's not a "
-						     "valid race.\n\r",
+						     "valid race.\n",
 						     ch);
 					return;
 				}
@@ -1881,7 +1881,7 @@ void do_whois(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (output == NULL) {
-		char_puts("No one of that name is playing.\n\r", ch);
+		char_puts("No one of that name is playing.\n", ch);
 		return;
 	}
 
@@ -1908,12 +1908,12 @@ void do_count(CHAR_DATA *ch, const char *argument)
 		char_puts("the most so far today", ch);
 	else
 		char_printf(ch, "the most on today was %d", max_on);
-	char_puts(".\n\r", ch);
+	char_puts(".\n", ch);
 }
 
 void do_inventory(CHAR_DATA *ch, const char *argument)
 {
-	char_puts("You are carrying:\n\r", ch);
+	char_puts("You are carrying:\n", ch);
 	show_list_to_char(ch->carrying, ch, TRUE, TRUE);
 }
 
@@ -1923,7 +1923,7 @@ void do_equipment(CHAR_DATA *ch, const char *argument)
 	int i;
 	bool found;
 
-	char_puts("You are using:\n\r", ch);
+	char_puts("You are using:\n", ch);
 	found = FALSE;
 	for (i = 0; show_order[i] >= 0; i++) {
 		if ((obj = get_eq_char(ch, show_order[i])) == NULL)
@@ -1942,7 +1942,7 @@ void do_equipment(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (!found)
-		char_puts("Nothing.\n\r", ch);
+		char_puts("Nothing.\n", ch);
 }
 
 void do_compare(CHAR_DATA *ch, const char *argument)
@@ -1958,12 +1958,12 @@ void do_compare(CHAR_DATA *ch, const char *argument)
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
 	if (arg1[0] == '\0') {
-		char_puts("Compare what to what?\n\r", ch);
+		char_puts("Compare what to what?\n", ch);
 		return;
 	}
 
 	if ((obj1 = get_obj_carry(ch, arg1)) == NULL) {
-		char_puts("You do not have that item.\n\r", ch);
+		char_puts("You do not have that item.\n", ch);
 		return;
 	}
 
@@ -1977,12 +1977,12 @@ void do_compare(CHAR_DATA *ch, const char *argument)
 				break;
 
 		if (obj2 == NULL) {
-			char_puts("You aren't wearing anything comparable.\n\r", ch);
+			char_puts("You aren't wearing anything comparable.\n", ch);
 			return;
 		}
 	}
 	else if ((obj2 = get_obj_carry(ch,arg2)) == NULL) {
-		char_puts("You do not have that item.\n\r", ch);
+		char_puts("You do not have that item.\n", ch);
 		return;
 	}
 
@@ -2042,7 +2042,7 @@ void do_where(CHAR_DATA *ch, const char *argument)
 		return;
 
 	if (room_is_dark(ch)) {
-		char_puts("It's too dark to see.\n\r", ch);
+		char_puts("It's too dark to see.\n", ch);
 		return;
 	}
 
@@ -2050,7 +2050,7 @@ void do_where(CHAR_DATA *ch, const char *argument)
 		fPKonly = TRUE;
 
 	if (arg[0] == '\0' || fPKonly) {
-		char_puts("Players near you:\n\r", ch);
+		char_puts("Players near you:\n", ch);
 		found = FALSE;
 		for (d = descriptor_list; d; d = d->next) {
 			if (d->connected == CON_PLAYING
@@ -2069,7 +2069,7 @@ void do_where(CHAR_DATA *ch, const char *argument)
 				else
 					doppel = victim;
 
-				char_printf(ch, "%s%-28s %s\n\r",
+				char_printf(ch, "%s%-28s %s\n",
 					(in_PK(ch, doppel) &&
 					!IS_IMMORTAL(ch)) ?
 					"{r[{RPK{r]{x " : "     ",
@@ -2078,7 +2078,7 @@ void do_where(CHAR_DATA *ch, const char *argument)
 			}
 		}
 		if (!found)
-			char_puts("None.\n\r", ch);
+			char_puts("None.\n", ch);
 	}
 	else {
 		found = FALSE;
@@ -2089,7 +2089,7 @@ void do_where(CHAR_DATA *ch, const char *argument)
 			&&  can_see(ch, victim)
 			&&  is_name(arg, victim->name)) {
 				found = TRUE;
-				char_printf(ch, "%-28s %s\n\r",
+				char_printf(ch, "%-28s %s\n",
 					PERS(victim, ch),
 					mlstr_mval(victim->in_room->name));
 				break;
@@ -2112,22 +2112,22 @@ void do_consider(CHAR_DATA *ch, const char *argument)
 	one_argument(argument, arg);
 
 	if (arg[0] == '\0') {
-		char_puts("Consider killing whom?\n\r", ch);
+		char_puts("Consider killing whom?\n", ch);
 		return;
 	}
 
 	if ((victim = get_char_room(ch, arg)) == NULL) {
-		char_puts("They aren't here.\n\r", ch);
+		char_puts("They aren't here.\n", ch);
 		return;
 	}
 
 	if (victim == ch) {
-		char_puts("Suicide is against your way.\n\r", ch);
+		char_puts("Suicide is against your way.\n", ch);
 		return;
 	}
 
 	if (!in_PK(ch, victim)) {
-		char_puts("Don't even think about it.\n\r", ch);
+		char_puts("Don't even think about it.\n", ch);
 		return;
 	}
 
@@ -2188,12 +2188,12 @@ void do_title(CHAR_DATA *ch, const char *argument)
 		return;
 
 	if (IS_SET(ch->act, PLR_NOTITLE)) {
-		char_puts("You can't change your title.\n\r", ch);
+		char_puts("You can't change your title.\n", ch);
 		return;
 	}
 
 	if (argument[0] == '\0') {
-		char_puts("Change your title to what?\n\r", ch);
+		char_puts("Change your title to what?\n", ch);
 		return;
 	}
 
@@ -2203,7 +2203,7 @@ void do_title(CHAR_DATA *ch, const char *argument)
 	}
 		
 	set_title(ch, argument);
-	char_puts("Ok.\n\r", ch);
+	char_puts("Ok.\n", ch);
 }
 
 void do_description(CHAR_DATA *ch, const char *argument)
@@ -2211,7 +2211,7 @@ void do_description(CHAR_DATA *ch, const char *argument)
 	char arg[MAX_STRING_LENGTH];
 
 	if (IS_NPC(ch)) {
-		char_puts("Huh?\n\r", ch);
+		char_puts("Huh?\n", ch);
 		return;
 	}
 
@@ -2222,9 +2222,9 @@ void do_description(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	char_printf(ch, "Your description is:\n\r"
-			 "%s\n\r"
-			 "Use 'desc edit' to edit your description.\n\r",
+	char_printf(ch, "Your description is:\n"
+			 "%s\n"
+			 "Use 'desc edit' to edit your description.\n",
 		    mlstr_mval(ch->description));
 }
 
@@ -2246,7 +2246,7 @@ void do_wimpy(CHAR_DATA *ch, const char *argument)
 
 	if ((ch->class == CLASS_SAMURAI) && (ch->level >=10)) {
 		char_printf(ch, "You don't deal with wimpies, "
-				"or such feary things.\n\r");
+				"or such feary things.\n");
 		if (ch->wimpy != 0)
 			ch->wimpy = 0;
 		return;
@@ -2260,18 +2260,18 @@ void do_wimpy(CHAR_DATA *ch, const char *argument)
 		wimpy = atoi(arg);
 
 	if (wimpy < 0) {
-		char_puts("Your courage exceeds your wisdom.\n\r", ch);
+		char_puts("Your courage exceeds your wisdom.\n", ch);
 		return;
 	}
 
 	if (wimpy > ch->max_hit/2) {
-		char_puts("Such cowardice ill becomes you.\n\r", ch);
+		char_puts("Such cowardice ill becomes you.\n", ch);
 		return;
 	}
 
 	ch->wimpy	= wimpy;
 
-	char_printf(ch, "Wimpy set to %d hit points.\n\r", wimpy);
+	char_printf(ch, "Wimpy set to %d hit points.\n", wimpy);
 	return;
 }
 
@@ -2288,19 +2288,19 @@ void do_password(CHAR_DATA *ch, const char *argument)
 	argument = first_arg(argument, arg2, FALSE);
 
 	if (arg1[0] == '\0' || arg2[0] == '\0') {
-		char_puts("Syntax: password <old> <new>.\n\r", ch);
+		char_puts("Syntax: password <old> <new>.\n", ch);
 		return;
 	}
 
 	if (strcmp(crypt(arg1, ch->pcdata->pwd), ch->pcdata->pwd)) {
 		WAIT_STATE(ch, 40);
-		char_puts("Wrong password.  Wait 10 seconds.\n\r", ch);
+		char_puts("Wrong password.  Wait 10 seconds.\n", ch);
 		return;
 	}
 
 	if (strlen(arg2) < 5) {
 		char_puts("New password must be at least "
-			     "five characters long.\n\r", ch);
+			     "five characters long.\n", ch);
 		return;
 	}
 
@@ -2310,14 +2310,14 @@ void do_password(CHAR_DATA *ch, const char *argument)
 	pwdnew = crypt(arg2, ch->name);
 	if (strchr(pwdnew, '~') != NULL) {
 		char_puts("New password not acceptable, "
-			     "try again.\n\r", ch);
+			     "try again.\n", ch);
 		return;
 	}
 
 	free_string(ch->pcdata->pwd);
 	ch->pcdata->pwd = str_dup(pwdnew);
 	save_char_obj(ch, FALSE);
-	char_puts("Ok.\n\r", ch);
+	char_puts("Ok.\n", ch);
 	return;
 }
 
@@ -2332,7 +2332,7 @@ void scan_list(ROOM_INDEX_DATA *scan_room, CHAR_DATA *ch,
 	for (rch = scan_room->people; rch != NULL; rch = rch->next_in_room) {
 		if (rch == ch || !can_see(ch, rch))
 			continue;
-		char_printf(ch, "	%s.\n\r", PERS(rch, ch));
+		char_printf(ch, "	%s.\n", PERS(rch, ch));
 	}
 }
 
@@ -2346,18 +2346,18 @@ void do_scan2(CHAR_DATA *ch, const char *argument)
 	if (!check_blind(ch))
 		return;
 
-	char_puts("Looking around you see:\n\r", ch);
+	char_puts("Looking around you see:\n", ch);
 
-	char_puts("{Chere{x:\n\r", ch);
+	char_puts("{Chere{x:\n", ch);
 	scan_list(ch->in_room, ch, 0, -1);
 	for (door = 0; door < 6; door++) {
 		if ((pExit = ch->in_room->exit[door]) == NULL
 		|| !pExit->u1.to_room
 		|| !can_see_room(ch,pExit->u1.to_room))
 			continue;
-		char_printf(ch, "{C%s{x:\n\r", dir_name[door]);
+		char_printf(ch, "{C%s{x:\n", dir_name[door]);
 		if (IS_SET(pExit->exit_info, EX_CLOSED)) {
-			char_puts("	You see closed door.\n\r", ch);
+			char_puts("	You see closed door.\n", ch);
 			continue;
 		}
 		scan_list(pExit->u1.to_room, ch, 1, door);
@@ -2409,7 +2409,7 @@ void do_scan(CHAR_DATA *ch, const char *argument)
 		door = 5;
 		break;
 	default:
-		char_puts("Wrong direction.\n\r", ch);
+		char_puts("Wrong direction.\n", ch);
 		return;
 	}
 
@@ -2433,7 +2433,7 @@ void do_scan(CHAR_DATA *ch, const char *argument)
 
 		if (IS_SET(exit->exit_info,EX_CLOSED)
 		&&  can_see_room(ch,exit->u1.to_room)) {
-			char_puts("	You see closed door.\n\r", ch);
+			char_puts("	You see closed door.\n", ch);
 			return;
 		}
 		for (numpeople = 0, person = to_room->people; person != NULL;
@@ -2444,9 +2444,9 @@ void do_scan(CHAR_DATA *ch, const char *argument)
 			}
 
 		if (numpeople) {
-			char_printf(ch, "***** Range %d *****\n\r", i);
+			char_printf(ch, "***** Range %d *****\n", i);
 			show_char_to_char(to_room->people, ch);
-			char_puts("\n\r", ch);
+			char_puts("\n", ch);
 		}
 		in_room = to_room;
 	}
@@ -2461,7 +2461,7 @@ void do_request(CHAR_DATA *ch, const char *argument)
 	AFFECT_DATA af;
 
 	if (is_affected(ch, gsn_reserved)) {
-		char_puts("Wait for a while to request again.\n\r", ch);
+		char_puts("Wait for a while to request again.\n", ch);
 		return;
 	}
 
@@ -2472,17 +2472,17 @@ void do_request(CHAR_DATA *ch, const char *argument)
 		return;
 
 	if (arg1[0] == '\0' || arg2[0] == '\0') {
-		char_puts("Request what from whom?\n\r", ch);
+		char_puts("Request what from whom?\n", ch);
 		return;
 	}
 
 	if ((victim = get_char_room(ch, arg2)) == NULL) {
-		char_puts("They aren't here.\n\r", ch);
+		char_puts("They aren't here.\n", ch);
 		return;
 	}
 
 	if (!IS_NPC(victim)) {
-		char_puts("Why don't you just ask the player?\n\r", ch);
+		char_puts("Why don't you just ask the player?\n", ch);
 		return;
 	}
 
@@ -2529,12 +2529,12 @@ void do_request(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (ch->carry_number + get_obj_number(obj) > can_carry_n(ch)) {
-		char_puts("Your hands are full.\n\r", ch);
+		char_puts("Your hands are full.\n", ch);
 		return;
 	}
 
 	if (ch->carry_weight + get_obj_weight(obj) > can_carry_w(ch)) {
-		char_puts("You can't carry that much weight.\n\r", ch);
+		char_puts("You can't carry that much weight.\n", ch);
 		return;
 	}
 
@@ -2558,7 +2558,7 @@ void do_request(CHAR_DATA *ch, const char *argument)
 
 	act("You feel grateful for the trust of $N.", ch, NULL, victim,
 	    TO_CHAR);
-	char_puts("and for the goodness you have seen in the world.\n\r",ch);
+	char_puts("and for the goodness you have seen in the world.\n",ch);
 
 	af.type = gsn_reserved;
 	af.where = TO_AFFECTS;
@@ -2576,26 +2576,26 @@ void do_hometown(CHAR_DATA *ch, const char *argument)
 	int amount;
 
 	if (IS_NPC(ch)) {
-		char_puts("You can't change your hometown!\n\r", ch);
+		char_puts("You can't change your hometown!\n", ch);
 		return;
 	}
 
 	if (ORG_RACE(ch) == 11 || ORG_RACE(ch) == 12
 	||  ORG_RACE(ch) == 13 || ORG_RACE(ch) == 14) {
-		char_puts("Your hometown is permanently Titan Valley!\n\r",
+		char_puts("Your hometown is permanently Titan Valley!\n",
 			     ch);
 		return;
 	}
 
 	if (ch->class == CLASS_VAMPIRE || ch->class == CLASS_NECROMANCER) {
-		char_puts("Your hometown is permanently Old Midgaard!\n\r",
+		char_puts("Your hometown is permanently Old Midgaard!\n",
 			     ch);
 		return;
 	}
 
 	if (!IS_SET(ch->in_room->room_flags, ROOM_REGISTRY)) {
 		char_puts("You have to be in the Registry "
-			     "to change your hometown.\n\r", ch);
+			     "to change your hometown.\n", ch);
 		return;
 	}
 
@@ -2609,15 +2609,15 @@ void do_hometown(CHAR_DATA *ch, const char *argument)
 			char_printf(ch, "%s%s", i == 0 ? comma+1 : comma,
 				    hometown_table[i].name);
 		}
-		char_puts(".\n\r", ch);
+		char_puts(".\n", ch);
 		char_printf(ch, "The change of hometown "
-				"will cost you %d gold.\n\r", amount);
+				"will cost you %d gold.\n", amount);
 		return;
 	}
 
 	if (ch->pcdata->bank_g < amount) {
 		char_puts("You don't have enough money in bank "
-			  "to change hometowns!\n\r", ch);
+			  "to change hometowns!\n", ch);
 		return;
 	}
 
@@ -2628,25 +2628,25 @@ void do_hometown(CHAR_DATA *ch, const char *argument)
 			continue;
 
 		if (ch->hometown == i) {
-			char_printf(ch, "But you already live in %s!\n\r",
+			char_printf(ch, "But you already live in %s!\n",
 				    hometown_table[i].name);
 			return;
 		}
 
 		restrict_msg = hometown_table[i].check_fn(ch);
 		if (restrict_msg != NULL) {
-			char_printf(ch, "%s.\n\r", restrict_msg);
+			char_printf(ch, "%s.\n", restrict_msg);
 			return;
 		}
 
 		ch->pcdata->bank_g -= amount;
-		char_printf(ch, "Your hometown is changed to %s.\n\r",
+		char_printf(ch, "Your hometown is changed to %s.\n",
 			    hometown_table[i].name);
 		ch->hometown = i;
 		return;
 	}
 
-	char_puts("Unknown hometown.\n\r", ch);
+	char_puts("Unknown hometown.\n", ch);
 	do_hometown(ch, "");
 }
 
@@ -2658,18 +2658,18 @@ void do_detect_hidden(CHAR_DATA *ch, const char *argument)
 
 	if ((sn = sn_lookup("detect hide")) < 0
 	||  (chance = get_skill(ch, sn)) == 0) {
-		char_puts("Huh?\n\r", ch);
+		char_puts("Huh?\n", ch);
 		return;
 	}
 
 	if (IS_AFFECTED(ch, AFF_DETECT_HIDDEN)) {
-		char_puts("You are already as alert as you can be. \n\r",ch);
+		char_puts("You are already as alert as you can be. \n",ch);
 		return;
 	}
 
 	if (number_percent() > chance) {
 		char_puts("You peer intently at the shadows "
-			     "but they are unrevealing.\n\r", ch);
+			     "but they are unrevealing.\n", ch);
 		check_improve(ch, sn, FALSE, 1);
 		return;
 	}
@@ -2682,7 +2682,7 @@ void do_detect_hidden(CHAR_DATA *ch, const char *argument)
 	af.modifier  = 0;
 	af.bitvector = AFF_DETECT_HIDDEN;
 	affect_to_char(ch, &af);
-	char_puts("Your awareness improves.\n\r", ch);
+	char_puts("Your awareness improves.\n", ch);
 	check_improve(ch, sn, TRUE, 1);
 }
 
@@ -2699,16 +2699,16 @@ void do_bear_call(CHAR_DATA *ch, const char *argument)
 
 	if ((sn = sn_lookup("bear call")) < 0
 	||  (chance = get_skill(ch, sn)) == 0) {
-		char_puts("Huh?\n\r", ch);
+		char_puts("Huh?\n", ch);
 		return;
 	}
 
-	char_puts("You call for bears help you.\n\r",ch);
+	char_puts("You call for bears help you.\n",ch);
 	act("$n shouts a bear call.",ch,NULL,NULL,TO_ROOM);
 
 	if (is_affected(ch, sn)) {
 		char_puts("You cannot summon the strength to handle "
-			     "more bears right now.\n\r", ch);
+			     "more bears right now.\n", ch);
 		return;
 	}
 
@@ -2724,7 +2724,7 @@ void do_bear_call(CHAR_DATA *ch, const char *argument)
 
 	if (ch->in_room != NULL
 	&&  IS_SET(ch->in_room->room_flags, ROOM_NOMOB)) {
-		char_puts("No bears listen you.\n\r", ch);
+		char_puts("No bears listen you.\n", ch);
 		return;
 	}
 
@@ -2738,20 +2738,20 @@ void do_bear_call(CHAR_DATA *ch, const char *argument)
 	&&   ch->in_room->sector_type != SECT_FOREST
 	&&   ch->in_room->sector_type != SECT_MOUNTAIN
 	&&   ch->in_room->sector_type != SECT_HILLS)) {
-		char_puts("No bears come to your rescue.\n\r", ch);
+		char_puts("No bears come to your rescue.\n", ch);
 		return;
 	}
 
 	mana = SKILL(sn)->min_mana;
 	if (ch->mana < mana) {
 		char_puts("You don't have enough mana "
-			     "to shout a bear call.\n\r", ch);
+			     "to shout a bear call.\n", ch);
 		return;
 	}
 	ch->mana -= mana;
 
 	if (number_percent() > chance) {
-		char_puts("No bears listen you.\n\r", ch);
+		char_puts("No bears listen you.\n", ch);
 		check_improve(ch, sn, FALSE, 1);
 		return;
 	}
@@ -2784,7 +2784,7 @@ void do_bear_call(CHAR_DATA *ch, const char *argument)
 
 	char_to_room(bear, ch->in_room);
 	char_to_room(bear2, ch->in_room);
-	char_puts("Two bears come to your rescue!\n\r",ch);
+	char_puts("Two bears come to your rescue!\n",ch);
 	act("Two bears come to $n's rescue!",ch,NULL,NULL,TO_ROOM);
 
 	af.where	      = TO_AFFECTS;
@@ -2803,7 +2803,7 @@ void do_identify(CHAR_DATA *ch, const char *argument)
 	CHAR_DATA *rch;
 
 	if ((obj = get_obj_carry(ch, argument)) == NULL) {
-		 char_puts("You are not carrying that.\n\r", ch);
+		 char_puts("You are not carrying that.\n", ch);
 		 return;
 	}
 
@@ -2813,7 +2813,7 @@ void do_identify(CHAR_DATA *ch, const char *argument)
 
 	if (!rch) {
 		 char_puts("No one here seems to know much "
-			      "about that.\n\r", ch);
+			      "about that.\n", ch);
 		 return;
 	}
 
@@ -2822,12 +2822,12 @@ void do_identify(CHAR_DATA *ch, const char *argument)
 	else if (ch->gold < 1) {
 		act("$n resumes to identify by looking at $p.",
 		       rch, obj, 0, TO_ROOM);
-		char_puts(" You need at least 1 gold.\n\r", ch);
+		char_puts(" You need at least 1 gold.\n", ch);
 		return;
 	}
 	else {
 		ch->gold -= 1;
-		char_puts("Your purse feels lighter.\n\r", ch);
+		char_puts("Your purse feels lighter.\n", ch);
 	}
 
 	act("$n gives a wise look at $p.", rch, obj, 0, TO_ROOM);
@@ -2847,160 +2847,160 @@ void do_score(CHAR_DATA *ch, const char *argument)
 		return;
 
 	output = buf_new(ch->lang);
-	buf_add(output, "\n\r      {G/~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~/~~\\{x\n\r");
+	buf_add(output, "\n      {G/~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~/~~\\{x\n");
 
 	strnzcpy(title, IS_NPC(ch) ? "Believer of Chronos." : ch->pcdata->title,
 		 sizeof(title));
 	delta = strlen(title) - cstrlen(title);
 	title[32+delta] = '\0';
-	snprintf(buf2, sizeof(buf2), "     {G|   {W%%-12s{x%%-%ds {Y%%3d years old   {G|____|{x\n\r", 33+delta);
+	snprintf(buf2, sizeof(buf2), "     {G|   {W%%-12s{x%%-%ds {Y%%3d years old   {G|____|{x\n", 33+delta);
 	buf_printf(output, buf2, ch->name, title, get_age(ch));
 
-	buf_add(output, "     {G|{C+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+{G|{x\n\r");
+	buf_add(output, "     {G|{C+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+{G|{x\n");
 
-	buf_printf(output, "     {G| {RLevel:  {x%3d          {C|  {RStr:  {x%2d(%2d)  {C| {RReligion  :  {x%-10s {G|{x\n\r",
+	buf_printf(output, "     {G| {RLevel:  {x%3d          {C|  {RStr:  {x%2d(%2d)  {C| {RReligion  :  {x%-10s {G|{x\n",
 		   ch->level,
 		   ch->perm_stat[STAT_STR],
 		   get_curr_stat(ch,STAT_STR),
 		   religion_name(ch->religion));
 
 	buf_printf(output,
-"     {G| {RRace :  {x%-11s  {C|  {RInt:  {x%2d(%2d)  {C| {RPractice  :   {x%3d       {G|{x\n\r",
+"     {G| {RRace :  {x%-11s  {C|  {RInt:  {x%2d(%2d)  {C| {RPractice  :   {x%3d       {G|{x\n",
 		race_name(ORG_RACE(ch)),
 		ch->perm_stat[STAT_INT],
 		get_curr_stat(ch, STAT_INT),
 		ch->practice);
 
 	buf_printf(output,
-"     {G| {RSex  :  {x%-11s  {C|  {RWis:  {x%2d(%2d)  {C| {RTrain     :   {x%3d       {G|{x\n\r",
+"     {G| {RSex  :  {x%-11s  {C|  {RWis:  {x%2d(%2d)  {C| {RTrain     :   {x%3d       {G|{x\n",
 		   ch->sex == 0 ? "sexless" : ch->sex == 1 ? "male" : "female",
 		   ch->perm_stat[STAT_WIS],
 		   get_curr_stat(ch,STAT_WIS),
 		   ch->train);
 
 	buf_printf(output,
-"     {G| {RClass:  {x%-12s {C|  {RDex:  {x%2d(%2d)  {C| {RQuest Pnts:  {x%4d       {G|{x\n\r",
+"     {G| {RClass:  {x%-12s {C|  {RDex:  {x%2d(%2d)  {C| {RQuest Pnts:  {x%4d       {G|{x\n",
 		IS_NPC(ch) ? "mobile" : cl->name,
 		ch->perm_stat[STAT_DEX], get_curr_stat(ch,STAT_DEX),
 		IS_NPC(ch) ? 0 : ch->pcdata->questpoints);
 
 	buf_printf(output,
-"     {G| {RHome :  {x%-12s {C|  {RCon:  {x%2d(%2d)  {C| {R%-10s:   {x%3d       {G|{x\n\r",
+"     {G| {RHome :  {x%-12s {C|  {RCon:  {x%2d(%2d)  {C| {R%-10s:   {x%3d       {G|{x\n",
 		IS_NPC(ch) ? "Midgaard" : hometown_table[ch->hometown].name,
 		ch->perm_stat[STAT_CON], get_curr_stat(ch,STAT_CON),
 		IS_NPC(ch) ? "Quest?" : (IS_ON_QUEST(ch) ? "Quest Time" : "Next Quest"),
 		IS_NPC(ch) ? 0 : abs(ch->pcdata->questtime));
 	buf_printf(output,
-"     {G| {REthos:  {x%-11s  {C|  {RCha:  {x%2d(%2d)  {C| {R%s     :  {x%4d       {G|{x\n\r",
+"     {G| {REthos:  {x%-11s  {C|  {RCha:  {x%2d(%2d)  {C| {R%s     :  {x%4d       {G|{x\n",
 		IS_NPC(ch) ? "mobile" : ch->ethos == 1 ? "lawful" :
 	ch->ethos == 2 ? "neutral" : ch->ethos == 3 ? "chaotic" : "none",
 		ch->perm_stat[STAT_CHA], get_curr_stat(ch,STAT_CHA),
 		ch->class == CLASS_SAMURAI ? "Death" : "Wimpy" ,
 		ch->class == CLASS_SAMURAI ? ch->pcdata->death : ch->wimpy);
 
-	buf_printf(output, "     {G| {RAlign:  {x%-11s  {C|                |{x %-7s %-19s {G|{x\n\r",
+	buf_printf(output, "     {G| {RAlign:  {x%-11s  {C|                |{x %-7s %-19s {G|{x\n",
 		IS_GOOD(ch) ? "good" : IS_EVIL(ch) ? "evil" : "neutral",
 		GETMSG("You are", ch->lang),
 		GETMSG(flag_string(position_names, ch->position), ch->lang));
 
-	buf_add(output, "     {G|{C+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+{G|{x{x\n\r");
+	buf_add(output, "     {G|{C+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+{G|{x{x\n");
 
 	if (ch->guarding != NULL) {
 		ekle = 1;
 		buf_printf(output,
-"     {G| {GYou are guarding: {x%-10s                                    {G|{x\n\r",
+"     {G| {GYou are guarding: {x%-10s                                    {G|{x\n",
 			    ch->guarding->name);
 	}
 
 	if (ch->guarded_by != NULL) {
 		ekle = 1;
 		buf_printf(output,
-"     {G| {GYou are guarded by: {x%-10s                                  {G|{x\n\r",
+"     {G| {GYou are guarded by: {x%-10s                                  {G|{x\n",
 			    ch->guarded_by->name);
 	}
 
 	if (!IS_NPC(ch) && ch->pcdata->condition[COND_DRUNK] > 10) {
 		ekle = 1;
 		buf_printf(output,
-"     {G| {GYou are drunk.                                                  {G|{x\n\r");
+"     {G| {GYou are drunk.                                                  {G|{x\n");
 	}
 
 	if (!IS_NPC(ch) && ch->pcdata->condition[COND_THIRST] <= 0) {
 		ekle = 1;
 		buf_printf(output,
-"     {G| {YYou are thirsty.                                                {G|{x\n\r");
+"     {G| {YYou are thirsty.                                                {G|{x\n");
 	}
 /*    if (!IS_NPC(ch) && ch->pcdata->condition[COND_FULL]   ==	0) */
 	if (!IS_NPC(ch) && ch->pcdata->condition[COND_HUNGER] <= 0) {
 		ekle = 1;
 		buf_printf(output,
-"     {G| {YYou are hungry.                                                 {G|{x\n\r");
+"     {G| {YYou are hungry.                                                 {G|{x\n");
 	}
 
 	if (!IS_NPC(ch) && IS_SET(ch->act, PLR_GHOST)) {
 		ekle = 1;
 		buf_add(output,
-"     {G| {cYou are ghost.                                                  {G|{x\n\r");
+"     {G| {cYou are ghost.                                                  {G|{x\n");
 	}
 
 	if (!IS_NPC(ch) && ch->pcdata->condition[COND_BLOODLUST] <= 0) {
 		ekle = 1;
 		buf_printf(output,
-"     {G| {YYou are hungry for blood.                                       {G|{x\n\r");
+"     {G| {YYou are hungry for blood.                                       {G|{x\n");
 	}
 
 	if (!IS_NPC(ch) && ch->pcdata->condition[COND_DESIRE] <=  0) {
 		ekle = 1;
 		buf_printf(output,
-"     {G| {YYou are desiring your home.                                     {G|{x\n\r");
+"     {G| {YYou are desiring your home.                                     {G|{x\n");
 	}
 
 	if (!IS_IMMORTAL(ch) && IS_PUMPED(ch)) {
 		ekle = 1;
 		buf_printf(output,
-"     {G| {RYour adrenalin is gushing!                                      {G|{x\n\r");
+"     {G| {RYour adrenalin is gushing!                                      {G|{x\n");
 	}
 
 	if (ekle)
 		buf_add(output,
-"     {G|{C+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+{G|{x\n\r");
+"     {G|{C+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+{G|{x\n");
 
 	buf_printf(output,
-"     {G| {RItems Carried :   {x%2d/%-4d           {RArmor vs magic  : {x%4d      {G|{x\n\r",
+"     {G| {RItems Carried :   {x%2d/%-4d           {RArmor vs magic  : {x%4d      {G|{x\n",
 		ch->carry_number, can_carry_n(ch),
 		GET_AC(ch,AC_EXOTIC));
 
 	buf_printf(output,
-"     {G| {RWeight Carried:  {x%4d/%-8d      {RArmor vs bash   : {x%4d      {G|{x\n\r",
+"     {G| {RWeight Carried:  {x%4d/%-8d      {RArmor vs bash   : {x%4d      {G|{x\n",
 	get_carry_weight(ch), can_carry_w(ch),GET_AC(ch,AC_BASH));
 
 	buf_printf(output,
-"     {G| {RGold          :   {Y%-10ld        {RArmor vs pierce : {x%4d      {G|{x\n\r",
+"     {G| {RGold          :   {Y%-10ld        {RArmor vs pierce : {x%4d      {G|{x\n",
 		 ch->gold,GET_AC(ch,AC_PIERCE));
 
 	buf_printf(output,
-"     {G| {RSilver        :   {W%-10ld        {RArmor vs slash  : {x%4d      {G|{x\n\r",
+"     {G| {RSilver        :   {W%-10ld        {RArmor vs slash  : {x%4d      {G|{x\n",
 		 ch->silver,GET_AC(ch,AC_SLASH));
 
 	buf_printf(output,
-"     {G| {RCurrent exp   :   {x%-6d            {RSaves vs Spell  : {x%4d      {G|{x\n\r",
+"     {G| {RCurrent exp   :   {x%-6d            {RSaves vs Spell  : {x%4d      {G|{x\n",
 		ch->exp,ch->saving_throw);
 
 	buf_printf(output,
-"     {G| {RExp to level  :   {x%-6d                                        {G|{x\n\r",
+"     {G| {RExp to level  :   {x%-6d                                        {G|{x\n",
 		IS_NPC(ch) ? 0 : exp_to_level(ch));
 
 	buf_printf(output,
-"     {G|                                     {RHitP: {x%5d / %5d         {G|{x\n\r",
+"     {G|                                     {RHitP: {x%5d / %5d         {G|{x\n",
 		   ch->hit, ch->max_hit);
 	buf_printf(output,
-"     {G| {RHitroll       :   {x%-3d               {RMana: {x%5d / %5d         {G|{x\n\r",
+"     {G| {RHitroll       :   {x%-3d               {RMana: {x%5d / %5d         {G|{x\n",
 		   GET_HITROLL(ch),ch->mana, ch->max_mana);
 	buf_printf(output,
-"     {G| {RDamroll       :   {x%-3d               {RMove: {x%5d / %5d         {G|{x\n\r",
+"     {G| {RDamroll       :   {x%-3d               {RMove: {x%5d / %5d         {G|{x\n",
 		    GET_DAMROLL(ch), ch->move, ch->max_move);
-	buf_add(output, "  {G/~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~/   |{x\n\r");
-	buf_add(output, "  {G\\________________________________________________________________\\__/{x\n\r");
+	buf_add(output, "  {G/~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~/   |{x\n");
+	buf_add(output, "  {G\\________________________________________________________________\\__/{x\n");
 
 	if (IS_SET(ch->comm, COMM_SHOW_AFFECTS))
 		show_affects(ch, output);
@@ -3022,7 +3022,7 @@ void do_oscore(CHAR_DATA *ch, const char *argument)
 
 	buf_printf(output,
 		"%s {W%s{x%s, level {c%d{x, {c%d{x years old "
-		"(%d hours).\n\r",
+		"(%d hours).\n",
 		GETMSG("You are", ch->lang),
 		ch->name,
 		IS_NPC(ch) ? str_empty : ch->pcdata->title, ch->level, get_age(ch),
@@ -3030,7 +3030,7 @@ void do_oscore(CHAR_DATA *ch, const char *argument)
 
 	buf_printf(output,
 		"Race: {c%s{x  Sex: {c%s{x  Class: {c%s{x  "
-		"Hometown: {c%s{x\n\r",
+		"Hometown: {c%s{x\n",
 		race_name(ORG_RACE(ch)),
 		ch->sex == 0 ? "sexless" : ch->sex == 1 ? "male" : "female",
 		IS_NPC(ch) ? "mobile" : cl->name,
@@ -3038,17 +3038,17 @@ void do_oscore(CHAR_DATA *ch, const char *argument)
 
 	buf_printf(output,
 		"You have {c%d{x/{c%d{x hit, {c%d{x/{c%d{x mana, "
-		"{c%d{x/{c%d{x movement.\n\r",
+		"{c%d{x/{c%d{x movement.\n",
 		ch->hit, ch->max_hit, ch->mana, ch->max_mana,
 		ch->move, ch->max_move);
 
 	buf_printf(output,
 		"You have {c%d{x practices and "
-		"{c%d{x training sessions.\n\r",
+		"{c%d{x training sessions.\n",
 		ch->practice, ch->train);
 
 	buf_printf(output, "You are carrying {c%d{x/{c%d{x items "
-		"with weight {c%ld{x/{c%d{x pounds.\n\r",
+		"with weight {c%ld{x/{c%d{x pounds.\n",
 		ch->carry_number, can_carry_n(ch),
 		get_carry_weight(ch), can_carry_w(ch));
 
@@ -3056,7 +3056,7 @@ void do_oscore(CHAR_DATA *ch, const char *argument)
 		buf_printf(output,
 			"Str: {c%d{x({c%d{x)  Int: {c%d{x({c%d{x)  "
 			"Wis: {c%d{x({c%d{x)  Dex: {c%d{x({c%d{x)  "
-			"Con: {c%d{x({c%d{x)  Cha: {c%d{x({c%d{x)\n\r",
+			"Con: {c%d{x({c%d{x)  Cha: {c%d{x({c%d{x)\n",
 			ch->perm_stat[STAT_STR], get_curr_stat(ch, STAT_STR),
 			ch->perm_stat[STAT_INT], get_curr_stat(ch, STAT_INT),
 			ch->perm_stat[STAT_WIS], get_curr_stat(ch, STAT_WIS),
@@ -3065,8 +3065,8 @@ void do_oscore(CHAR_DATA *ch, const char *argument)
 			ch->perm_stat[STAT_CHA], get_curr_stat(ch, STAT_CHA));
 	else
 		buf_printf(output,
-			"Str: {c%-9s{x Wis: {c%-9s{x Con: {c%-9s{x\n\r"
-			"Int: {c%-9s{x Dex: {c%-9s{x Cha: {c%-11s{x\n\r",
+			"Str: {c%-9s{x Wis: {c%-9s{x Con: {c%-9s{x\n"
+			"Int: {c%-9s{x Dex: {c%-9s{x Cha: {c%-11s{x\n",
 			get_stat_alias(ch, STAT_STR),
 			get_stat_alias(ch, STAT_WIS),
 			get_stat_alias(ch, STAT_CON),
@@ -3075,7 +3075,7 @@ void do_oscore(CHAR_DATA *ch, const char *argument)
 			get_stat_alias(ch, STAT_CHA));
 
 	snprintf(buf2, sizeof(buf2),
-		 "You have scored {c%d{x exp, and have %s%s%s.\n\r",
+		 "You have scored {c%d{x exp, and have %s%s%s.\n",
 		 ch->exp,
 		 ch->gold + ch->silver == 0 ? "no money" :
 					      ch->gold ? "{Y%ld gold{x " : str_empty,
@@ -3089,13 +3089,13 @@ void do_oscore(CHAR_DATA *ch, const char *argument)
 
 	/* KIO shows exp to level */
 	if (!IS_NPC(ch) && ch->level < LEVEL_HERO)
-		buf_printf(output, "You need {c%d{x exp to level.\n\r",
+		buf_printf(output, "You need {c%d{x exp to level.\n",
 			exp_to_level(ch));
 
 	if (!IS_NPC(ch))
 		buf_printf(output,
 			"Quest Points: {c%d{x.  "
-			"%s: {c%d{x.\n\r",
+			"%s: {c%d{x.\n",
 			ch->pcdata->questpoints, 
 			IS_NPC(ch) ? "Quest?" : (IS_ON_QUEST(ch) ? 
 					"Quest Time" : "Next Quest"),
@@ -3113,44 +3113,44 @@ void do_oscore(CHAR_DATA *ch, const char *argument)
 	if (ch->guarded_by != NULL)
 		buf_printf(output, "  You are guarded by: {W%s{x",
 			ch->guarded_by->name);
-	buf_add(output, "\n\r");
+	buf_add(output, "\n");
 
 	if (!IS_NPC(ch)) {
 		if (ch->pcdata->condition[COND_DRUNK] > 10)
-			buf_add(output, "You are {cdrunk{x.\n\r");
+			buf_add(output, "You are {cdrunk{x.\n");
 
 		if (ch->pcdata->condition[COND_THIRST] <= 0)
-			buf_add(output, "You are {rthirsty{x.\n\r");
+			buf_add(output, "You are {rthirsty{x.\n");
 
 /*		if (ch->pcdata->condition[COND_FULL] == 0) */
 		if (ch->pcdata->condition[COND_HUNGER] <= 0)
-			buf_add(output, "You are {rhungry{x.\n\r");
+			buf_add(output, "You are {rhungry{x.\n");
 		if (ch->pcdata->condition[COND_BLOODLUST] <= 0)
-			buf_add(output, "You are {rhungry for {Rblood{x.\n\r");
+			buf_add(output, "You are {rhungry for {Rblood{x.\n");
 		if (ch->pcdata->condition[COND_DESIRE] <= 0)
-			buf_add(output, "You are {rdesiring your home{x.\n\r");
+			buf_add(output, "You are {rdesiring your home{x.\n");
 		if (IS_SET(ch->act, PLR_GHOST))
-			buf_add(output, "You are {cghost{x.\n\r");
+			buf_add(output, "You are {cghost{x.\n");
 	}
 
-	buf_printf(output, "You are %s.\n\r",
+	buf_printf(output, "You are %s.\n",
 		   GETMSG(flag_string(position_names, ch->position), ch->lang));
 
 	if ((ch->position == POS_SLEEPING || ch->position == POS_RESTING ||
 	     ch->position == POS_FIGHTING || ch->position == POS_STANDING)
 	&& !IS_IMMORTAL(ch) && IS_PUMPED(ch))
-		buf_add(output, "Your {radrenalin is gushing{x!\n\r");
+		buf_add(output, "Your {radrenalin is gushing{x!\n");
 
 	/* print AC values */
 	if (ch->level >= 25) {
 		buf_printf(output,
 			   "Armor: pierce: {c%d{x  bash: {c%d{x  "
-			   "slash: {c%d{x  magic: {c%d{x\n\r",
+			   "slash: {c%d{x  magic: {c%d{x\n",
 			   GET_AC(ch, AC_PIERCE), GET_AC(ch, AC_BASH),
 			   GET_AC(ch, AC_SLASH), GET_AC(ch, AC_EXOTIC));
 
 		buf_printf(output,
-			   "Saves vs. spell: {c%d{x\n\r",
+			   "Saves vs. spell: {c%d{x\n",
 			   ch->saving_throw);
 	}
 	else {
@@ -3165,41 +3165,41 @@ void do_oscore(CHAR_DATA *ch, const char *argument)
 			buf_add(output, "You are ");
 			if (GET_AC(ch,i) >= 101)
 				buf_printf(output,
-					   "{chopelessly vulnerable{x to %s.\n\r",
+					   "{chopelessly vulnerable{x to %s.\n",
 					   ac_name[i]);
 			else if (GET_AC(ch,i) >= 80)
 				buf_printf(output,
-					   "{cdefenseless against{x %s.\n\r",
+					   "{cdefenseless against{x %s.\n",
 					   ac_name[i]);
 			else if (GET_AC(ch,i) >= 60)
-				buf_printf(output, "{cbarely protected{x from %s.\n\r",
+				buf_printf(output, "{cbarely protected{x from %s.\n",
 					   ac_name[i]);
 			else if (GET_AC(ch,i) >= 40)
-				buf_printf(output, "{cslightly armored{x against %s.\n\r",
+				buf_printf(output, "{cslightly armored{x against %s.\n",
 					   ac_name[i]);
 			else if (GET_AC(ch,i) >= 20)
-				buf_printf(output, "{csomewhat armored{x against %s.\n\r",
+				buf_printf(output, "{csomewhat armored{x against %s.\n",
 					   ac_name[i]);
 			else if (GET_AC(ch,i) >= 0)
-				buf_printf(output, "{carmored{x against %s.\n\r",
+				buf_printf(output, "{carmored{x against %s.\n",
 					   ac_name[i]);
 			else if (GET_AC(ch,i) >= -20)
-				buf_printf(output, "{cwell-armored{x against %s.\n\r",
+				buf_printf(output, "{cwell-armored{x against %s.\n",
 					   ac_name[i]);
 			else if (GET_AC(ch,i) >= -40)
-				buf_printf(output, "{cvery well-armored{x against %s.\n\r",
+				buf_printf(output, "{cvery well-armored{x against %s.\n",
 					   ac_name[i]);
 			else if (GET_AC(ch,i) >= -60)
-				buf_printf(output, "{cheavily armored{x against %s.\n\r",
+				buf_printf(output, "{cheavily armored{x against %s.\n",
 					   ac_name[i]);
 			else if (GET_AC(ch,i) >= -80)
-				buf_printf(output, "{csuperbly armored{x against %s.\n\r",
+				buf_printf(output, "{csuperbly armored{x against %s.\n",
 					   ac_name[i]);
 			else if (GET_AC(ch,i) >= -100)
-				buf_printf(output, "{calmost invulnerable{x to %s.\n\r",
+				buf_printf(output, "{calmost invulnerable{x to %s.\n",
 					   ac_name[i]);
 			else
-				buf_printf(output, "{cdivinely armored{x against %s.\n\r",
+				buf_printf(output, "{cdivinely armored{x against %s.\n",
 					   ac_name[i]);
 		}
 	}
@@ -3216,11 +3216,11 @@ void do_oscore(CHAR_DATA *ch, const char *argument)
 		if (ch->incog_level)
 			buf_printf(output, "  Incognito: {clevel %d{x",
 				ch->incog_level);
-		buf_add(output, "\n\r");
+		buf_add(output, "\n");
 	}
 
 	if (ch->level >= 20)
-		buf_printf(output, "Hitroll: {c%d{x  Damroll: {c%d{x.\n\r",
+		buf_printf(output, "Hitroll: {c%d{x  Damroll: {c%d{x.\n",
 			GET_HITROLL(ch), GET_DAMROLL(ch));
 
 	buf_add(output, "You are ");
@@ -3233,27 +3233,27 @@ void do_oscore(CHAR_DATA *ch, const char *argument)
 
 	switch (ch->ethos) {
 	case 1:
-		buf_add(output, "  You have a lawful ethos.\n\r");
+		buf_add(output, "  You have a lawful ethos.\n");
 		break;
 	case 2:
-		buf_add(output, "  You have a neutral ethos.\n\r");
+		buf_add(output, "  You have a neutral ethos.\n");
 		break;
 	case 3:
-		buf_add(output, "  You have a chaotic ethos.\n\r");
+		buf_add(output, "  You have a chaotic ethos.\n");
 		break;
 	default:
 		if (!IS_NPC(ch))
 			buf_add(output, "  You have no ethos, "
-				     "report it to the gods!\n\r");
+				     "report it to the gods!\n");
 	}
 
 	if (IS_NPC(ch))
 		ch->religion = 0; /* XXX */
 
 	if ((ch->religion <= RELIGION_NONE) || (ch->religion > MAX_RELIGION))
-		buf_add(output, "You don't believe any religion.\n\r");
+		buf_add(output, "You don't believe any religion.\n");
 	else
-		buf_printf(output,"Your religion is the way of %s.\n\r",
+		buf_printf(output,"Your religion is the way of %s.\n",
 			religion_table[ch->religion].leader);
 
 	if (IS_SET(ch->comm, COMM_SHOW_AFFECTS))
@@ -3285,16 +3285,16 @@ void do_lion_call(CHAR_DATA *ch, const char *argument)
 
 	if ((sn = sn_lookup("lion call")) < 0
 	||  (chance = get_skill(ch, sn)) == 0) {
-		char_puts("Huh?\n\r", ch);
+		char_puts("Huh?\n", ch);
 		return;
 	}
 
-	char_puts("You call for lions help you.\n\r",ch);
+	char_puts("You call for lions help you.\n",ch);
 	act("$n shouts a lion call.",ch,NULL,NULL,TO_ROOM);
 
 	if (is_affected(ch, sn)) {
 		char_puts("You cannot summon the strength to handle "
-			     "more lions right now.\n\r", ch);
+			     "more lions right now.\n", ch);
 		return;
 	}
 
@@ -3310,7 +3310,7 @@ void do_lion_call(CHAR_DATA *ch, const char *argument)
 
 	if (ch->in_room != NULL
 	&& IS_SET(ch->in_room->room_flags, ROOM_NOMOB)) {
-		char_puts("No lions can listen you.\n\r", ch);
+		char_puts("No lions can listen you.\n", ch);
 		return;
 	}
 
@@ -3324,21 +3324,21 @@ void do_lion_call(CHAR_DATA *ch, const char *argument)
 	&&   ch->in_room->sector_type != SECT_FOREST
 	&&   ch->in_room->sector_type != SECT_MOUNTAIN
 	&&   ch->in_room->sector_type != SECT_HILLS)) {
-		char_puts("No lions come to your rescue.\n\r", ch);
+		char_puts("No lions come to your rescue.\n", ch);
 		return;
 	}
 
 	mana = SKILL(sn)->min_mana;
 	if (ch->mana < mana) {
 		char_puts("You don't have enough mana "
-			     "to shout a lion call.\n\r", ch);
+			     "to shout a lion call.\n", ch);
 		return;
 	}
 	ch->mana -= mana;
 
 	if (number_percent() > chance) {
 		check_improve(ch, sn, FALSE, 1);
-		char_puts("No lions listen you.\n\r", ch);
+		char_puts("No lions listen you.\n", ch);
 		return;
 	}
 
@@ -3370,7 +3370,7 @@ void do_lion_call(CHAR_DATA *ch, const char *argument)
 
 	char_to_room(lion,ch->in_room);
 	char_to_room(lion2,ch->in_room);
-	char_puts("Two lions come to your rescue!\n\r",ch);
+	char_puts("Two lions come to your rescue!\n",ch);
 	act("Two lions come to $n's rescue!",ch,NULL,NULL,TO_ROOM);
 
 	af.where	      = TO_AFFECTS;
@@ -3434,13 +3434,13 @@ void do_practice(CHAR_DATA *ch, const char *argument)
 			buf_printf(output, "%-18s %3d%%  ",
 				   sk->name, ps->percent);
 			if (++col % 3 == 0)
-				buf_add(output, "\n\r");
+				buf_add(output, "\n");
 		}
 
 		if (col % 3)
-			buf_add(output, "\n\r");
+			buf_add(output, "\n");
 
-		buf_printf(output, "You have %d practice sessions left.\n\r",
+		buf_printf(output, "You have %d practice sessions left.\n",
 			   ch->practice);
 
 		page_to_char(buf_string(output), ch);
@@ -3455,7 +3455,7 @@ void do_practice(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (ch->practice <= 0) {
-		char_puts("You have no practice sessions left.\n\r", ch);
+		char_puts("You have no practice sessions left.\n", ch);
 		return;
 	}
 
@@ -3464,13 +3464,13 @@ void do_practice(CHAR_DATA *ch, const char *argument)
 	if ((ps = skill_vlookup(&ch->pcdata->learned, arg)) == NULL
 	||  ps->percent == 0
 	||  skill_level(ch, sn = ps->sn) > ch->level) {
-		char_puts("You can't practice that.\n\r", ch);
+		char_puts("You can't practice that.\n", ch);
 		return;
 	}
 
 	if (sn == gsn_vampire) {
 		char_puts("You can't practice that, only available "
-			  "at questor.\n\r", ch);
+			  "at questor.\n", ch);
 		return;
 	}
 
@@ -3501,16 +3501,16 @@ void do_practice(CHAR_DATA *ch, const char *argument)
 		if (found)
 			char_puts("You can't do that here. "
 				  "Use 'slook skill', 'help practice' "
-				  "for more info.\n\r", ch);
+				  "for more info.\n", ch);
 		else
 			char_puts("You couldn't find anyone "
-				  "who can teach you.\n\r", ch);
+				  "who can teach you.\n", ch);
 		return;
 	}
 
 	adept = cl->skill_adept;
 	if (ps->percent >= adept) {
-		char_printf(ch, "You are already learned at %s.\n\r",
+		char_printf(ch, "You are already learned at %s.\n",
 			    sk->name);
 		return;
 	}
@@ -3541,13 +3541,13 @@ void do_camp(CHAR_DATA *ch, const char *argument)
 
 	if ((sn = sn_lookup("camp")) < 0
 	||  (chance = get_skill(ch, sn)) == 0) {
-		char_puts("Huh?\n\r", ch);
+		char_puts("Huh?\n", ch);
 		return;
 	}
 
 	if (is_affected(ch, sn)) {
 		char_puts("You don't have enough power to handle more "
-			     "camp areas.\n\r", ch);
+			     "camp areas.\n", ch);
 		return;
 	}
 
@@ -3558,21 +3558,21 @@ void do_camp(CHAR_DATA *ch, const char *argument)
 	&&   ch->in_room->sector_type != SECT_FOREST
 	&&   ch->in_room->sector_type != SECT_MOUNTAIN
 	&&   ch->in_room->sector_type != SECT_HILLS)) {
-		char_puts("There are not enough leaves to camp here.\n\r",
+		char_puts("There are not enough leaves to camp here.\n",
 			     ch);
 		return;
 	}
 
 	mana = SKILL(sn)->min_mana;
 	if (ch->mana < mana) {
-		char_puts("You don't have enough mana to make a camp.\n\r",
+		char_puts("You don't have enough mana to make a camp.\n",
 			     ch);
 		return;
 	}
 	ch->mana -= mana;
 
 	if (number_percent() > chance) {
-		char_puts("You failed to make your camp.\n\r", ch);
+		char_puts("You failed to make your camp.\n", ch);
 		check_improve(ch, sn, FALSE, 4);
 		return;
 	}
@@ -3580,7 +3580,7 @@ void do_camp(CHAR_DATA *ch, const char *argument)
 	check_improve(ch, sn, TRUE, 4);
 	WAIT_STATE(ch, SKILL(sn)->beats);
 
-	char_puts("You succeeded to make your camp.\n\r", ch);
+	char_puts("You succeeded to make your camp.\n", ch);
 	act("$n succeeded to make $s camp.", ch, NULL, NULL, TO_ROOM);
 
 	af.where	= TO_AFFECTS;
@@ -3621,23 +3621,23 @@ void do_demand(CHAR_DATA *ch, const char *argument)
 		return;
 
 	if (ch->class != CLASS_ANTI_PALADIN) {
-		char_puts("You can't do that.\n\r", ch);
+		char_puts("You can't do that.\n", ch);
 		return;
 	}
 
 	if (arg1[0] == '\0' || arg2[0] == '\0') {
-		char_puts("Demand what from whom?\n\r", ch);
+		char_puts("Demand what from whom?\n", ch);
 		return;
 	}
 
 	if ((victim = get_char_room(ch, arg2)) == NULL) {
-		char_puts("They aren't here.\n\r", ch);
+		char_puts("They aren't here.\n", ch);
 		return;
 	}
 
 	if (!IS_NPC(victim)) {
 		char_puts("Why don't you just want that directly "
-			     "from the player?\n\r", ch);
+			     "from the player?\n", ch);
 		return;
 	}
 
@@ -3674,12 +3674,12 @@ void do_demand(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (ch->carry_number + get_obj_number(obj) > can_carry_n(ch)) {
-		char_puts("Your hands are full.\n\r", ch);
+		char_puts("Your hands are full.\n", ch);
 		return;
 	}
 
 	if (ch->carry_weight + get_obj_weight(obj) > can_carry_w(ch)) {
-		char_puts("You can't carry that much weight.\n\r", ch);
+		char_puts("You can't carry that much weight.\n", ch);
 		return;
 	}
 
@@ -3695,7 +3695,7 @@ void do_demand(CHAR_DATA *ch, const char *argument)
 	act("$n demands $p from you.", ch, obj, victim, TO_VICT  );
 
 	oprog_call(OPROG_GIVE, obj, ch, victim);
-	char_puts("Your power makes all around the world shivering.\n\r",ch);
+	char_puts("Your power makes all around the world shivering.\n",ch);
 }
 
 void do_control(CHAR_DATA *ch, const char *argument)
@@ -3710,22 +3710,22 @@ void do_control(CHAR_DATA *ch, const char *argument)
 
 	if ((sn = sn_lookup("control animal")) < 0
 	||  (chance = get_skill(ch, sn)) == 0) {
-		char_puts("Huh?\n\r", ch);
+		char_puts("Huh?\n", ch);
 		return;
 	}
 
 	if (arg[0] == '\0') {
-		char_puts("Charm what?\n\r", ch);
+		char_puts("Charm what?\n", ch);
 		return;
 	}
 
 	if ((victim = get_char_room(ch, arg)) == NULL) {
-		char_puts("They aren't here.\n\r", ch);
+		char_puts("They aren't here.\n", ch);
 		return;
 	}
 
 	if ((r = race_lookup(ORG_RACE(victim))) && r->pcdata) {
-		char_puts("You should try this on monsters?\n\r", ch);
+		char_puts("You should try this on monsters?\n", ch);
 		return;
 	}
 
@@ -3782,14 +3782,14 @@ void do_make_arrow(CHAR_DATA *ch, const char *argument)
 
 	if ((sn = sn_lookup("make arrow")) < 0
 	||  (chance = get_skill(ch, sn)) == 0) {
-		char_puts("You don't know how to make arrows.\n\r", ch);
+		char_puts("You don't know how to make arrows.\n", ch);
 		return;
 	}
 
 	if (ch->in_room->sector_type != SECT_FIELD
 	&&  ch->in_room->sector_type != SECT_FOREST
 	&&  ch->in_room->sector_type != SECT_HILLS) {
-		char_puts("You couldn't find enough wood.\n\r", ch);
+		char_puts("You couldn't find enough wood.\n", ch);
 		return;
 	}
 
@@ -3823,7 +3823,7 @@ void do_make_arrow(CHAR_DATA *ch, const char *argument)
 
 	if (color < 0) {
 		char_puts("You don't know how to make "
-			     "that kind of arrow.\n\r", ch);
+			     "that kind of arrow.\n", ch);
 		return;
 	}
 
@@ -3834,26 +3834,26 @@ void do_make_arrow(CHAR_DATA *ch, const char *argument)
 
 	if (ch->mana < mana) {
 		char_puts("You don't have enough energy "
-			     "to make that kind of arrows.\n\r", ch);
+			     "to make that kind of arrows.\n", ch);
 		return;
 	}
 
 	ch->mana -= mana;
 	WAIT_STATE(ch, wait);
 
-	char_puts("You start to make arrows!\n\r",ch);
+	char_puts("You start to make arrows!\n",ch);
 	act("$n starts to make arrows!",ch,NULL,NULL,TO_ROOM);
 	for(count = 0; count < ch->level / 5; count++) {
 		if (number_percent() > chance) {
 			char_puts("You failed to make the arrow, "
-				     "and broke it.\n\r", ch);
+				     "and broke it.\n", ch);
 			check_improve(ch, sn, FALSE, 3);
 			if (color)
 				check_improve(ch, color, FALSE, 3);
 			continue;
 		}
 
-		char_puts("You successfully make an arrow.\n\r", ch);
+		char_puts("You successfully make an arrow.\n", ch);
 		check_improve(ch, sn, TRUE, 3);
 		if (color)
 			check_improve(ch, color, TRUE, 3);
@@ -3910,20 +3910,20 @@ void do_make_bow(CHAR_DATA *ch, const char *argument)
 
 	if ((sn = sn_lookup("make bow")) < 0
 	||  (chance = get_skill(ch, sn)) == 0) {
-		char_puts("You don't know how to make bows.\n\r", ch);
+		char_puts("You don't know how to make bows.\n", ch);
 		return;
 	}
 
 	if (ch->in_room->sector_type != SECT_FIELD
 	&&  ch->in_room->sector_type != SECT_FOREST
 	&&  ch->in_room->sector_type != SECT_HILLS) {
-		char_puts("You couldn't find enough wood.\n\r", ch);
+		char_puts("You couldn't find enough wood.\n", ch);
 		return;
 	}
 
 	mana = SKILL(sn)->min_mana;
 	if (ch->mana < mana) {
-		char_puts("You don't have enough energy to make a bow.\n\r",
+		char_puts("You don't have enough energy to make a bow.\n",
 			     ch);
 		return;
 	}
@@ -3931,12 +3931,12 @@ void do_make_bow(CHAR_DATA *ch, const char *argument)
 	WAIT_STATE(ch, SKILL(sn)->beats);
 
 	if (number_percent() > chance) {
-		char_puts("You failed to make the bow, and broke it.\n\r",
+		char_puts("You failed to make the bow, and broke it.\n",
 			     ch);
 		check_improve(ch, sn, FALSE, 1);
 		return;
 	}
-	char_puts("You successfully make bow.\n\r", ch);
+	char_puts("You successfully make bow.\n", ch);
 	check_improve(ch, sn, TRUE, 1);
 
 	bow = create_obj(get_obj_index(OBJ_VNUM_RANGER_BOW), ch->level);
@@ -3971,7 +3971,7 @@ void do_make(CHAR_DATA *ch, const char *argument)
 
 	argument = one_argument(argument,arg);
 	if (arg[0] == '\0') {
-		char_puts("You can make either bow or arrow.\n\r",ch);
+		char_puts("You can make either bow or arrow.\n",ch);
 		return;
 	}
 

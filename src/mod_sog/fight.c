@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.107 1998-12-01 06:02:58 kostik Exp $
+ * $Id: fight.c,v 1.108 1998-12-01 10:53:51 fjoe Exp $
  */
 
 /***************************************************************************
@@ -267,7 +267,7 @@ void multi_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 	&& !IS_SET(victim->act, PLR_WANTED)
 	&& !IS_SET(ch->act, PLR_WANTED)) {
 		char_puts("This room is under supervision of the law! "
-			  "Now you're {RCRIMINAL{x!\n\r", ch);
+			  "Now you're {RCRIMINAL{x!\n", ch);
 		SET_BIT(ch->act, PLR_WANTED);		
 	}
 #endif
@@ -794,9 +794,9 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, int loc)
 							paf->modifier - old_mod;
 					}
 				}
-				act("$n's katana glows blue.\n\r",
+				act("$n's katana glows blue.\n",
 				    ch, NULL, NULL, TO_ROOM);
-				char_puts("Your katana glows blue.\n\r",ch);
+				char_puts("Your katana glows blue.\n",ch);
 			}
 		}
 	}
@@ -850,7 +850,7 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, int loc)
 				 ch, NULL, victim, TO_VICT, POS_RESTING);
 			act_puts("$n's cleave chops $N IN HALF!",
 				 ch, NULL, victim, TO_NOTVICT, POS_RESTING);
-			char_puts("You have been KILLED!\n\r", victim);
+			char_puts("You have been KILLED!\n", victim);
 			act("$n is DEAD!", victim, NULL, NULL, TO_ROOM);
 			WAIT_STATE(ch, 2);
 			victim->position = POS_DEAD;
@@ -871,7 +871,7 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, int loc)
 				 ch, NULL, victim, TO_NOTVICT, POS_RESTING);
 			act_puts("$n {R+++ASSASSINATES+++{x you!",
 				 ch, NULL, victim, TO_VICT, POS_DEAD);
-			char_puts("You have been KILLED!\n\r", victim);
+			char_puts("You have been KILLED!\n", victim);
 			act("$n is DEAD!", victim, NULL, victim, TO_ROOM);
 			check_improve(ch, gsn_assassinate, TRUE, 1);
 			victim->position = POS_DEAD;
@@ -920,7 +920,7 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, int loc)
 		ch->hit  = UMIN(ch->hit, ch->max_hit);
 		update_pos(ch);
 		char_puts("Your health increases as you suck "
-			  "your victim's blood.\n\r", ch);
+			  "your victim's blood.\n", ch);
 	}
 
 	/* but do we have a funky weapon? */
@@ -941,7 +941,7 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, int loc)
 				    "chopping your head OFF!",
 				    victim, wield, NULL, TO_CHAR);
 				act("$n is DEAD!", victim, NULL, NULL, TO_ROOM);
-				char_puts("You have been KILLED!\n\r", victim);
+				char_puts("You have been KILLED!\n", victim);
 				victim->position = POS_DEAD;
 				handle_death(ch, victim);
 				return;
@@ -1033,8 +1033,8 @@ void delete_player(CHAR_DATA *victim, char* msg)
 	char *name;
 
 	char_puts("You became a ghost permanently "
-		     "and leave the earth realm.\n\r", victim);
-	act("$n is dead, and will not rise again.\n\r",
+		     "and leave the earth realm.\n", victim);
+	act("$n is dead, and will not rise again.\n",
 	    victim, NULL, NULL, TO_ROOM);
 	victim->hit = 1;
 	victim->position = POS_STANDING;
@@ -1075,7 +1075,7 @@ void handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
 			act_puts("$n suck {Rblood{x from $N's corpse!!",
 				 ch, NULL,victim,TO_ROOM,POS_SLEEPING);
 			char_puts("You suck {Rblood{x "
-				     "from the corpse!!\n\r\n\r", ch);
+				  "from the corpse!!\n\n", ch);
 			gain_condition(ch, COND_BLOODLUST, 3);
 		}
 
@@ -1096,8 +1096,17 @@ void handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
 		return;
 
 	/* Dying penalty: 2/3 way back. */
-	if (victim->exp_tl > 0)
-		gain_exp(victim, -victim->exp_tl*2/3);
+	if (IS_SET(victim->act, PLR_WANTED) && victim->level > 1) {
+		REMOVE_BIT(victim->act, PLR_WANTED);
+		victim->level--;
+		victim->pcdata->plevels++;
+		victim->exp = exp_for_level(victim, victim->level);
+		victim->exp_tl = 0;
+	}
+	else {
+		if (victim->exp_tl > 0)
+			gain_exp(victim, -victim->exp_tl*2/3);
+	}
 
 	if ((++victim->pcdata->death % 3) != 2)
 		return;
@@ -1117,7 +1126,7 @@ void handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
 		}
 		else
 			char_puts("You feel your life power has decreased "
-				     "with this death.\n\r", victim);
+				     "with this death.\n", victim);
 	}
 }
 
@@ -1284,35 +1293,35 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim,
 		if (dam_type == DAM_HUNGER || dam_type == DAM_THIRST) break;
 		act("$n is mortally wounded, and will die soon, if not aided.",
 		    victim, NULL, NULL, TO_ROOM);
-		char_puts( "You are mortally wounded, and will die soon, if not aided.\n\r", victim);
+		char_puts( "You are mortally wounded, and will die soon, if not aided.\n", victim);
 		break;
 
 	case POS_INCAP:
 		if (dam_type == DAM_HUNGER || dam_type == DAM_THIRST) break;
 		act("$n is incapacitated and will slowly die, if not aided.",
 		    victim, NULL, NULL, TO_ROOM);
-		char_puts( "You are incapacitated and will slowly die, if not aided.\n\r", victim);
+		char_puts( "You are incapacitated and will slowly die, if not aided.\n", victim);
 		break;
 
 	case POS_STUNNED:
 		if (dam_type == DAM_HUNGER || dam_type == DAM_THIRST) break;
 		act("$n is stunned, but will probably recover.",
 		    victim, NULL, NULL, TO_ROOM);
-		char_puts("You are stunned, but will probably recover.\n\r",
+		char_puts("You are stunned, but will probably recover.\n",
 			     victim);
 		break;
 
 	case POS_DEAD:
 		act("$n is DEAD!!", victim, 0, 0, TO_ROOM);
-		char_puts("You have been KILLED!!\n\r\n\r", victim);
+		char_puts("You have been KILLED!!\n\n", victim);
 		break;
 
 	default:
 		if (dam_type == DAM_HUNGER || dam_type == DAM_THIRST) break;
 		if (dam > victim->max_hit / 4)
-			char_puts("That really did HURT!\n\r", victim);
+			char_puts("That really did HURT!\n", victim);
 		if (victim->hit < victim->max_hit / 4)
-			char_puts("You sure are BLEEDING!\n\r", victim);
+			char_puts("You sure are BLEEDING!\n", victim);
 		break;
 	}
 
@@ -1427,7 +1436,7 @@ bool is_safe_nomessage(CHAR_DATA *ch, CHAR_DATA *victim)
 #endif
 
 	if (victim != ch && IS_SET(ch->act, PLR_GHOST)) {
-		char_puts("You return to your normal form.\n\r", ch);
+		char_puts("You return to your normal form.\n", ch);
 		REMOVE_BIT(ch->act, PLR_GHOST);
 	}
 
@@ -1973,8 +1982,8 @@ void raw_kill_org(CHAR_DATA *ch, CHAR_DATA *victim, int part)
 	}
 
 	SET_BIT(victim->act, PLR_GHOST);
-	char_puts("You turn into an invincible ghost for a few minutes.\n\r"
-		  "As long as you don't attack anything.\n\r",
+	char_puts("You turn into an invincible ghost for a few minutes.\n"
+		  "As long as you don't attack anything.\n",
 		  victim);
 
 	extract_char(victim, FALSE);
@@ -2051,17 +2060,17 @@ void group_gain(CHAR_DATA *ch, CHAR_DATA *victim)
 			continue;
 
 		if (gch->level - lch->level > 8) {
-			char_puts("You are too high for this group.\n\r", gch);
+			char_puts("You are too high for this group.\n", gch);
 			continue;
 		}
 
 		if (gch->level - lch->level < -8) {
-			char_puts("You are too low for this group.\n\r", gch);
+			char_puts("You are too low for this group.\n", gch);
 			continue;
 		}
 
 		xp = xp_compute(gch, victim, group_levels, members);
-		char_printf(gch, "You receive %d experience points.\n\r", xp);
+		char_printf(gch, "You receive %d experience points.\n", xp);
 		gain_exp(gch, xp);
 	}
 }
@@ -2187,21 +2196,21 @@ int xp_compute(CHAR_DATA *gch, CHAR_DATA *victim, int total_levels, int members)
 
 	if (neg_cha) {
 		if ((gch->pcdata->anti_killed % 100) == 99) {
-			char_printf(gch, "You have killed %d %s up to now.\n\r",
+			char_printf(gch, "You have killed %d %s up to now.\n",
 				    gch->pcdata->anti_killed,
 				    IS_GOOD(gch) ?	"goods" :
 				    IS_EVIL(gch) ?	"evils" :
 							"neutrals");
 			if (gch->perm_stat[STAT_CHA] > 3 && IS_GOOD(gch)) {
 				char_puts("So your charisma "
-					  "has reduced by one.\n\r", gch);
+					  "has reduced by one.\n", gch);
 				gch->perm_stat[STAT_CHA] -= 1;
 			}
 		}
 	}
 	else if (pos_cha) {
 		if ((gch->pcdata->has_killed % 200) == 199) {
-			char_printf(gch, "You have killed %d %s up to now.\n\r",
+			char_printf(gch, "You have killed %d %s up to now.\n",
 				    gch->pcdata->anti_killed,
 				    IS_GOOD(gch) ?	"anti-goods" :
 				    IS_EVIL(gch) ?	"anti-evils" :
@@ -2210,7 +2219,7 @@ int xp_compute(CHAR_DATA *gch, CHAR_DATA *victim, int total_levels, int members)
 						get_max_train(gch, STAT_CHA)
 			&&  IS_GOOD(gch)) {
 				char_puts("So your charisma "
-					  "has increased by one.\n\r", gch);
+					  "has increased by one.\n", gch);
 				gch->perm_stat[STAT_CHA] += 1;
 			}
 		}
@@ -2416,22 +2425,22 @@ void do_kill(CHAR_DATA *ch, const char *argument)
 	one_argument(argument, arg);
 
 	if (arg[0] == '\0') {
-		char_puts("Kill whom?\n\r", ch);
+		char_puts("Kill whom?\n", ch);
 		return;
 	}
 
 	WAIT_STATE(ch, 1 * PULSE_VIOLENCE);
 
 	if ((victim = get_char_room(ch, arg)) == NULL) {
-		char_puts("They aren't here.\n\r", ch);
+		char_puts("They aren't here.\n", ch);
 		return;
 	}
 
 	if (ch->position == POS_FIGHTING) {
 		if (victim == ch->fighting)
-			char_puts("You do the best you can!\n\r", ch);
+			char_puts("You do the best you can!\n", ch);
 		else if (victim->fighting != ch)
-			char_puts("One battle at a time, please.\n\r",ch);
+			char_puts("One battle at a time, please.\n",ch);
 		else {
 			act("You start aiming at $N.",ch,NULL,victim,TO_CHAR);
 			ch->fighting = victim;
@@ -2440,12 +2449,12 @@ void do_kill(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (!IS_NPC(victim)) {
-		char_puts("You must MURDER a player.\n\r", ch);
+		char_puts("You must MURDER a player.\n", ch);
 		return;
 	}
 
 	if (victim == ch) {
-		char_puts("You hit yourself.  Ouch!\n\r", ch);
+		char_puts("You hit yourself.  Ouch!\n", ch);
 		multi_hit(ch, ch, TYPE_UNDEFINED);
 		return;
 	}
@@ -2484,7 +2493,7 @@ void do_kill(CHAR_DATA *ch, const char *argument)
 
 void do_murde(CHAR_DATA *ch, const char *argument)
 {
-	char_puts("If you want to MURDER, spell it out.\n\r", ch);
+	char_puts("If you want to MURDER, spell it out.\n", ch);
 	return;
 }
 
@@ -2497,7 +2506,7 @@ void do_murder(CHAR_DATA *ch, const char *argument)
 	one_argument(argument, arg);
 
 	if (arg[0] == '\0') {
-		char_puts("Murder whom?\n\r", ch);
+		char_puts("Murder whom?\n", ch);
 		return;
 	}
 
@@ -2508,12 +2517,12 @@ void do_murder(CHAR_DATA *ch, const char *argument)
 	WAIT_STATE(ch, 1 * PULSE_VIOLENCE);
 
 	if ((victim = get_char_room(ch, arg)) == NULL) {
-		char_puts("They aren't here.\n\r", ch);
+		char_puts("They aren't here.\n", ch);
 		return;
 	}
 
 	if (victim == ch) {
-		char_puts("Suicide is a mortal sin.\n\r", ch);
+		char_puts("Suicide is a mortal sin.\n", ch);
 		return;
 	}
 
@@ -2523,7 +2532,7 @@ void do_murder(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (ch->position == POS_FIGHTING) {
-		char_puts("You do the best you can!\n\r", ch);
+		char_puts("You do the best you can!\n", ch);
 		return;
 	}
 
@@ -2562,7 +2571,7 @@ void do_flee(CHAR_DATA *ch, const char *argument)
 	int attempt;
 
 	if (RIDDEN(ch)) {
-		char_puts("You should ask to your rider!\n\r", ch);
+		char_puts("You should ask to your rider!\n", ch);
 		return;
 	}
 
@@ -2572,13 +2581,13 @@ void do_flee(CHAR_DATA *ch, const char *argument)
 	if ((victim = ch->fighting) == NULL) {
 		if (ch->position == POS_FIGHTING)
 			ch->position = POS_STANDING;
-		char_puts("You aren't fighting anyone.\n\r", ch);
+		char_puts("You aren't fighting anyone.\n", ch);
 		return;
 	}
 
 	if ((ch->class == CLASS_SAMURAI) && (ch->level >= 10)) {
 		 char_puts("Your honour doesn't let you flee, "
-			   "try dishonoring yourself.\n\r", ch);
+			   "try dishonoring yourself.\n", ch);
 		 return;
 	}
 
@@ -2610,7 +2619,7 @@ void do_flee(CHAR_DATA *ch, const char *argument)
 		if (!IS_NPC(ch)) {
 			char_nputs(MSG_YOU_FLED_FROM_COMBAT, ch);
 			if (ch->level < LEVEL_HERO) {
-				char_printf(ch, "You lose %d exps.\n\r", 10);
+				char_printf(ch, "You lose %d exps.\n", 10);
 				gain_exp(ch, -10);
 			}
 		} else
@@ -2620,13 +2629,13 @@ void do_flee(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	char_puts("PANIC! You couldn't escape!\n\r", ch);
+	char_puts("PANIC! You couldn't escape!\n", ch);
 	return;
 }
 
 void do_sla(CHAR_DATA *ch, const char *argument)
 {
-	char_puts("If you want to SLAY, spell it out.\n\r", ch);
+	char_puts("If you want to SLAY, spell it out.\n", ch);
 	return;
 }
 
@@ -2637,22 +2646,22 @@ void do_slay(CHAR_DATA *ch, const char *argument)
 
 	one_argument(argument, arg);
 	if (arg[0] == '\0') {
-		char_puts("Slay whom?\n\r", ch);
+		char_puts("Slay whom?\n", ch);
 		return;
 	}
 
 	if ((victim = get_char_room(ch, arg)) == NULL) {
-		char_puts("They aren't here.\n\r", ch);
+		char_puts("They aren't here.\n", ch);
 		return;
 	}
 
 	if (ch == victim) {
-		char_puts("Suicide is a mortal sin.\n\r", ch);
+		char_puts("Suicide is a mortal sin.\n", ch);
 		return;
 	}
 
 	if (IS_IMMORTAL(victim)) {
-		char_puts("You failed.\n\r", ch);
+		char_puts("You failed.\n", ch);
 		return;
 	}
 
@@ -2724,19 +2733,19 @@ void do_dishonor(CHAR_DATA *ch, const char *argument)
 	int attempt,level = 0;
 
 	if (RIDDEN(ch)) {
-		char_puts("You should ask to your rider!\n\r", ch);
+		char_puts("You should ask to your rider!\n", ch);
 		return;
 	}
 
 	if ((ch->class != CLASS_SAMURAI) || (ch->level <10)) {
-		char_puts("Which honor?.\n\r", ch);
+		char_puts("Which honor?.\n", ch);
 		return;
 	}
 
 	if (ch->fighting == NULL) {
 		if (ch->position == POS_FIGHTING)
 			ch->position = POS_STANDING;
-		char_puts("You aren't fighting anyone.\n\r", ch);
+		char_puts("You aren't fighting anyone.\n", ch);
 		return;
 	}
 
@@ -2746,7 +2755,7 @@ void do_dishonor(CHAR_DATA *ch, const char *argument)
 
 	if ((ch->fighting->level - ch->level) < 5 && ch->level > (level / 3)) {
 		 char_puts("Your fighting doesn't worth "
-			      "to dishonor yourself.\n\r", ch);
+			      "to dishonor yourself.\n", ch);
 		 return;
 	}
 
@@ -2777,9 +2786,9 @@ void do_dishonor(CHAR_DATA *ch, const char *argument)
 
 		if (!IS_NPC(ch)) {
 			char_puts("You dishonored yourself "
-				     "and flee from combat.\n\r",ch);
+				     "and flee from combat.\n",ch);
 			if (ch->level < LEVEL_HERO) {
-				char_printf(ch, "You lose %d exps.\n\r",
+				char_printf(ch, "You lose %d exps.\n",
 					    ch->level);
 				gain_exp(ch, -(ch->level));
 			}
@@ -2794,7 +2803,7 @@ void do_dishonor(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	char_puts("PANIC! You couldn't escape!\n\r", ch);
+	char_puts("PANIC! You couldn't escape!\n", ch);
 	return;
 }
 
@@ -2802,7 +2811,7 @@ void do_surrender(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *mob;
 	if ((mob = ch->fighting) == NULL) {
-		char_puts("But you're not fighting!\n\r", ch);
+		char_puts("But you're not fighting!\n", ch);
 		return;
 	}
 	act("You surrender to $N!", ch, NULL, mob, TO_CHAR);

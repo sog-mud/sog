@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.55 1998-11-23 06:38:03 fjoe Exp $
+ * $Id: martial_art.c,v 1.56 1998-12-01 10:53:53 fjoe Exp $
  */
 
 /***************************************************************************
@@ -122,7 +122,7 @@ void do_berserk(CHAR_DATA *ch, const char *argument)
 	int chance, hp_percent;
 
 	if ((chance = get_skill(ch, gsn_berserk)) == 0) {
-		char_puts("You turn red in the face, but nothing happens.\n\r",
+		char_puts("You turn red in the face, but nothing happens.\n",
 			  ch);
 		return;
 	}
@@ -130,17 +130,17 @@ void do_berserk(CHAR_DATA *ch, const char *argument)
 	if (IS_AFFECTED(ch, AFF_BERSERK)
 	||  is_affected(ch, gsn_berserk)
 	||  is_affected(ch, gsn_frenzy)) {
-		char_puts("You get a little madder.\n\r", ch);
+		char_puts("You get a little madder.\n", ch);
 		return;
 	}
 
 	if (IS_AFFECTED(ch, AFF_CALM)) {
-		char_puts("You're feeling too mellow to berserk.\n\r", ch);
+		char_puts("You're feeling too mellow to berserk.\n", ch);
 		return;
 	}
 
 	if (ch->mana < 50) {
-		char_puts("You can't get up enough energy.\n\r", ch);
+		char_puts("You can't get up enough energy.\n", ch);
 		return;
 	}
 
@@ -165,7 +165,7 @@ void do_berserk(CHAR_DATA *ch, const char *argument)
 		ch->hit += ch->level * 2;
 		ch->hit = UMIN(ch->hit,ch->max_hit);
 
-		char_puts("Your pulse races as you are consumned by rage!\n\r",
+		char_puts("Your pulse races as you are consumned by rage!\n",
 			  ch);
 		act_puts("$n gets a wild look in $s eyes.",
 			 ch, NULL, NULL, TO_ROOM, POS_FIGHTING);
@@ -193,7 +193,7 @@ void do_berserk(CHAR_DATA *ch, const char *argument)
 		ch->mana -= 25;
 		ch->move /= 2;
 
-		char_puts("Your pulse speeds up, but nothing happens.\n\r",
+		char_puts("Your pulse speeds up, but nothing happens.\n",
 			  ch);
 		check_improve(ch, gsn_berserk, FALSE, 2);
 	}
@@ -207,14 +207,14 @@ void do_bash(CHAR_DATA *ch, const char *argument)
 	int damage_bash;
 
 	if (MOUNTED(ch)) {
-		char_puts("You can't bash while riding!\n\r", ch);
+		char_puts("You can't bash while riding!\n", ch);
 		return;
 	}
 
 	argument = one_argument(argument,arg);
  
 	if ((chance = get_skill(ch, gsn_bash)) == 0) {
-		char_puts("Bashing? What's that?\n\r", ch);
+		char_puts("Bashing? What's that?\n", ch);
 		return;
 	}
  
@@ -228,12 +228,12 @@ void do_bash(CHAR_DATA *ch, const char *argument)
 	if (arg[0] == '\0') {
 		victim = ch->fighting;
 		if (victim == NULL) {
-			char_puts("But you aren't fighting anyone!\n\r",ch);
+			char_puts("But you aren't fighting anyone!\n",ch);
 			return;
 		}
 	}
 	else if ((victim = get_char_room(ch, arg)) == NULL) {
-		char_puts("They aren't here.\n\r",ch);
+		char_puts("They aren't here.\n",ch);
 		return;
 	}
 
@@ -244,13 +244,13 @@ void do_bash(CHAR_DATA *ch, const char *argument)
 	} 
 
 	if (victim == ch) {
-		char_puts("You try to bash your brains out, but fail.\n\r",
+		char_puts("You try to bash your brains out, but fail.\n",
 			     ch);
 		return;
 	}
 
 	if (MOUNTED(victim)) {
-		char_puts("You can't bash a riding one!\n\r", ch);
+		char_puts("You can't bash a riding one!\n", ch);
 		return;
 	}
 
@@ -349,14 +349,14 @@ void do_dirt(CHAR_DATA *ch, const char *argument)
 	int chance;
 
 	if (MOUNTED(ch)) {
-		char_puts("You can't dirt while riding!\n\r", ch);
+		char_puts("You can't dirt while riding!\n", ch);
 		return;
 	}
 
 	one_argument(argument,arg);
 
 	if ((chance = get_skill(ch, gsn_dirt)) == 0) {
-		char_puts("You get your feet dirty.\n\r", ch);
+		char_puts("You get your feet dirty.\n", ch);
 		return;
 	}
 
@@ -365,17 +365,17 @@ void do_dirt(CHAR_DATA *ch, const char *argument)
 	if (arg[0] == '\0') {
 		victim = ch->fighting;
 		if (victim == NULL) {
-			char_puts("But you aren't in combat!\n\r", ch);
+			char_puts("But you aren't in combat!\n", ch);
 			return;
 		}
 	}
 	else if ((victim = get_char_room(ch, arg)) == NULL) {
-		char_puts("They aren't here.\n\r", ch);
+		char_puts("They aren't here.\n", ch);
 		return;
 	}
 
 	if (IS_AFFECTED(ch, AFF_FLYING)) {
-		 char_puts("While flying?\n\r", ch);
+		 char_puts("While flying?\n", ch);
 		 return;
 	}
 
@@ -385,12 +385,12 @@ void do_dirt(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (victim == ch) {
-		char_puts("Very funny.\n\r", ch);
+		char_puts("Very funny.\n", ch);
 		return;
 	}
 
 	if (MOUNTED(victim)) {
-		char_puts("You can't dirt a riding one!\n\r", ch);
+		char_puts("You can't dirt a riding one!\n", ch);
 		return;
 	}
 
@@ -437,7 +437,7 @@ void do_dirt(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (chance == 0) {
-		char_puts("There isn't any dirt to kick.\n\r",ch);
+		char_puts("There isn't any dirt to kick.\n",ch);
 		return;
 	}
 
@@ -446,7 +446,7 @@ void do_dirt(CHAR_DATA *ch, const char *argument)
 		AFFECT_DATA af;
 		act("$n is blinded by the dirt in $s eyes!",
 		    victim, NULL, NULL, TO_ROOM);
-		char_puts("You can't see a thing!\n\r", victim);
+		char_puts("You can't see a thing!\n", victim);
 		check_improve(ch, gsn_dirt, TRUE, 2);
 
 		af.where	= TO_AFFECTS;
@@ -474,31 +474,31 @@ void do_trip(CHAR_DATA *ch, const char *argument)
 	int chance;
 
 	if (MOUNTED(ch)) {
-		char_puts("You can't trip while riding!\n\r", ch);
+		char_puts("You can't trip while riding!\n", ch);
 		return;
 	}
 
 	one_argument(argument,arg);
 
 	if ((chance = get_skill(ch,gsn_trip)) == 0) {
-		char_puts("Tripping? What's that?\n\r", ch);
+		char_puts("Tripping? What's that?\n", ch);
 		return;
 	}
 
 	if (arg[0] == '\0') {
 		victim = ch->fighting;
 		if (victim == NULL) {
-			char_puts("But you aren't fighting anyone!\n\r",ch);
+			char_puts("But you aren't fighting anyone!\n",ch);
 			return;
  		}
 	}
 	else if ((victim = get_char_room(ch, arg)) == NULL) {
-		char_puts("They aren't here.\n\r",ch);
+		char_puts("They aren't here.\n",ch);
 		return;
 	}
 
 	if (MOUNTED(victim)) {
-		char_puts("You can't trip a riding one!\n\r", ch);
+		char_puts("You can't trip a riding one!\n", ch);
 		return;
 	}
 
@@ -513,7 +513,7 @@ void do_trip(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (victim == ch) {
-		char_puts("You fall flat on your face!\n\r", ch);
+		char_puts("You fall flat on your face!\n", ch);
 		WAIT_STATE(ch, 2 * SKILL(gsn_trip)->beats);
 		act("$n trips over $s own feet!", ch, NULL, NULL, TO_ROOM);
 		return;
@@ -579,7 +579,7 @@ bool backstab_ok(CHAR_DATA *ch, CHAR_DATA *victim)
 {
 	if (victim->fighting) {
 		if (ch)
-			char_puts("You can't backstab a fighting person.\n\r",
+			char_puts("You can't backstab a fighting person.\n",
 				  ch);
 		return FALSE;
 	}
@@ -634,40 +634,40 @@ void do_backstab(CHAR_DATA *ch, const char *argument)
 	one_argument(argument, arg);
 
 	if (MOUNTED(ch)) {
-		char_puts("You can't backstab while riding!\n\r", ch);
+		char_puts("You can't backstab while riding!\n", ch);
 		return;
 	}
 
 	if ((chance = get_skill(ch, gsn_backstab)) == 0) {
-		char_puts("You don't know how to backstab.\n\r",ch);
+		char_puts("You don't know how to backstab.\n",ch);
 		return;
 	}
 
 	if ((obj = get_eq_char(ch, WEAR_WIELD)) == NULL) {
-		char_puts("You need to wield a weapon to backstab.\n\r", ch);
+		char_puts("You need to wield a weapon to backstab.\n", ch);
 		return;
 	}
 
 	if (attack_table[obj->value[3]].damage != DAM_PIERCE) {
 		char_puts("You need to wield a piercing weapon "
-			  "to backstab.\n\r", ch);
+			  "to backstab.\n", ch);
 		return;
 	}
 
 	if (arg[0] == '\0') {
-		char_puts("Backstab whom?\n\r", ch);
+		char_puts("Backstab whom?\n", ch);
 		return;
 	}
 
 	WAIT_STATE(ch, SKILL(gsn_backstab)->beats);
 
 	if ((victim = get_char_room(ch, arg)) == NULL) {
-		char_puts("They aren't here.\n\r", ch);
+		char_puts("They aren't here.\n", ch);
 		return;
 	}
 
 	if (victim == ch) {
-		char_puts("How can you sneak up on yourself?\n\r", ch);
+		char_puts("How can you sneak up on yourself?\n", ch);
 		return;
 	}
 
@@ -688,7 +688,7 @@ void do_cleave(CHAR_DATA *ch, const char *argument)
 	int chance;
 
 	if (MOUNTED(ch)) {
-		char_puts("You can't cleave while riding!\n\r", ch);
+		char_puts("You can't cleave while riding!\n", ch);
 		return;
 	}
 
@@ -698,34 +698,34 @@ void do_cleave(CHAR_DATA *ch, const char *argument)
 		return;
 
 	if ((chance = get_skill(ch, gsn_cleave)) == 0) {
-		char_puts("You don't know how to cleave.\n\r",ch);
+		char_puts("You don't know how to cleave.\n",ch);
 		return;
 	}
 
 	if (arg[0] == '\0') {
-		char_puts("Cleave whom?\n\r", ch);
+		char_puts("Cleave whom?\n", ch);
 		return;
 	}
 
 	WAIT_STATE(ch, SKILL(gsn_cleave)->beats);
 
 	if ((victim = get_char_room(ch, arg)) == NULL) {
-		char_puts("They aren't here.\n\r", ch);
+		char_puts("They aren't here.\n", ch);
 		return;
 	}
 
 	if (victim == ch) {
-		char_puts("How can you sneak up on yourself?\n\r", ch);
+		char_puts("How can you sneak up on yourself?\n", ch);
 		return;
 	}
 
 	if ((obj = get_eq_char(ch, WEAR_WIELD)) == NULL) {
-		char_puts("You need to wield a weapon to cleave.\n\r", ch);
+		char_puts("You need to wield a weapon to cleave.\n", ch);
 		return;
 	}
 
 	if (victim->fighting != NULL) {
-		char_puts("You can't cleave a fighting person.\n\r", ch);
+		char_puts("You can't cleave a fighting person.\n", ch);
 		return;
 	}
 
@@ -758,36 +758,36 @@ void do_ambush(CHAR_DATA *ch, const char *argument)
 	int chance;
 
 	if (MOUNTED(ch)) {
-		char_puts("You can't ambush while riding!\n\r", ch);
+		char_puts("You can't ambush while riding!\n", ch);
 		return;
 	}
 
 	one_argument(argument, arg);
 
 	if ((chance = get_skill(ch, gsn_ambush)) == 0) {
-		char_puts("You don't know how to ambush.\n\r", ch);
+		char_puts("You don't know how to ambush.\n", ch);
 		return;
 	}
 
 	if (arg[0] == '\0') {
-		char_puts("Ambush whom?\n\r", ch);
+		char_puts("Ambush whom?\n", ch);
 		return;
 	}
 	
 	WAIT_STATE(ch, SKILL(gsn_ambush)->beats);
 
 	if ((victim = get_char_room(ch, arg)) == NULL) {
-		char_puts("They aren't here.\n\r", ch);
+		char_puts("They aren't here.\n", ch);
 		return;
 	}
 
 	if (victim == ch) {
-		char_puts("How can you ambush yourself?\n\r", ch);
+		char_puts("How can you ambush yourself?\n", ch);
 		return;
 	}
 
 	if (!IS_AFFECTED(ch, AFF_CAMOUFLAGE) || can_see(victim, ch)) {
-		char_puts("But they can see you.\n\r", ch);
+		char_puts("But they can see you.\n", ch);
 		return;
 	}
 
@@ -814,34 +814,34 @@ void do_rescue(CHAR_DATA *ch, const char *argument)
 
 	one_argument(argument, arg);
 	if (arg[0] == '\0') {
-		char_puts("Rescue whom?\n\r", ch);
+		char_puts("Rescue whom?\n", ch);
 		return;
 	}
 
 	WAIT_STATE(ch, SKILL(gsn_rescue)->beats);
 
 	if ((victim = get_char_room(ch, arg)) == NULL) {
-		char_puts("They aren't here.\n\r", ch);
+		char_puts("They aren't here.\n", ch);
 		return;
 	}
 
 	if (victim == ch) {
-		char_puts("What about fleeing instead?\n\r", ch);
+		char_puts("What about fleeing instead?\n", ch);
 		return;
 	}
 
 	if (!IS_NPC(ch) && IS_NPC(victim)) {
-		char_puts("Doesn't need your help!\n\r", ch);
+		char_puts("Doesn't need your help!\n", ch);
 		return;
 	}
 
 	if (ch->fighting == victim) {
-		char_puts("Too late.\n\r", ch);
+		char_puts("Too late.\n", ch);
 		return;
 	}
 
 	if ((fch = victim->fighting) == NULL) {
-		char_puts("That person is not fighting right now.\n\r", ch);
+		char_puts("That person is not fighting right now.\n", ch);
 		return;
 	}
 
@@ -855,7 +855,7 @@ void do_rescue(CHAR_DATA *ch, const char *argument)
 		return;
 
 	if (number_percent() > get_skill(ch,gsn_rescue)) {
-		char_puts("You fail the rescue.\n\r", ch);
+		char_puts("You fail the rescue.\n", ch);
 		check_improve(ch, gsn_rescue, FALSE, 1);
 		return;
 	}
@@ -879,12 +879,12 @@ void do_kick(CHAR_DATA *ch, const char *argument)
 	int chance;
 
 	if (MOUNTED(ch)) {
-		char_puts("You can't kick while riding!\n\r", ch);
+		char_puts("You can't kick while riding!\n", ch);
 		return;
 	}
 
 	if ((chance = get_skill(ch, gsn_kick)) == 0) {
-		char_puts("You better leave the martial arts to fighters.\n\r",
+		char_puts("You better leave the martial arts to fighters.\n",
 			  ch);
 		return;
 	}
@@ -893,7 +893,7 @@ void do_kick(CHAR_DATA *ch, const char *argument)
 		return;
 
 	if ((victim = ch->fighting) == NULL) {
-		char_puts("You aren't fighting anyone.\n\r", ch);
+		char_puts("You aren't fighting anyone.\n", ch);
 		return;
 	}
 
@@ -924,23 +924,23 @@ void do_circle(CHAR_DATA *ch, const char *argument)
 	OBJ_DATA *obj;
 
 	if (MOUNTED(ch)) {
-		char_puts("You can't circle while riding!\n\r", ch);
+		char_puts("You can't circle while riding!\n", ch);
 		return;
 	}
 
 	if ((chance = get_skill(ch, gsn_circle)) == 0) {
-		char_puts("You don't know how to circle.\n\r", ch);
+		char_puts("You don't know how to circle.\n", ch);
 		return;
 	}
 
 	if ((victim = ch->fighting) == NULL) {
-		char_puts("You aren't fighting anyone.\n\r", ch);
+		char_puts("You aren't fighting anyone.\n", ch);
 		return;
 	}
 
 	if ((obj = get_eq_char(ch, WEAR_WIELD)) == NULL
 	||  attack_table[obj->value[3]].damage != DAM_PIERCE) {
-		 char_puts("You must wield a piercing weapon to circle stab.\n\r",
+		 char_puts("You must wield a piercing weapon to circle stab.\n",
 			   ch);
 		 return;
 	}
@@ -952,7 +952,7 @@ void do_circle(CHAR_DATA *ch, const char *argument)
 
 	for (rch = ch->in_room->people; rch; rch = rch->next_in_room) {
 		if (rch->fighting == ch) {
-			char_puts("You can't circle while defending yourself.\n\r",
+			char_puts("You can't circle while defending yourself.\n",
 				  ch);
 			return;
 		}
@@ -982,18 +982,18 @@ void do_disarm(CHAR_DATA *ch, const char *argument)
 		return;
 
 	if ((chance = get_skill(ch, gsn_disarm)) == 0) {
-		char_puts("You don't know how to disarm opponents.\n\r", ch);
+		char_puts("You don't know how to disarm opponents.\n", ch);
 		return;
 	}
 
 	if ((wield = get_eq_char(ch, WEAR_WIELD)) == NULL 
 	&&  (hth = get_skill(ch, gsn_hand_to_hand)) == 0) {
-		char_puts("You must wield a weapon to disarm.\n\r", ch);
+		char_puts("You must wield a weapon to disarm.\n", ch);
 		return;
 	}
 
 	if ((victim = ch->fighting) == NULL) {
-		char_puts("You aren't fighting anyone.\n\r", ch);
+		char_puts("You aren't fighting anyone.\n", ch);
 		return;
 	}
 
@@ -1002,7 +1002,7 @@ void do_disarm(CHAR_DATA *ch, const char *argument)
 		loc = WEAR_SECOND_WIELD;
 
 	if ((vwield = get_eq_char(victim, loc)) == NULL) {
-		char_puts("Your opponent is not wielding a weapon.\n\r", ch);
+		char_puts("Your opponent is not wielding a weapon.\n", ch);
 		return;
 	}
 
@@ -1050,25 +1050,25 @@ void do_nerve(CHAR_DATA *ch, const char *argument)
 	int chance;
 
 	if (MOUNTED(ch)) {
-		char_puts("You can't nerve while riding!\n\r", ch);
+		char_puts("You can't nerve while riding!\n", ch);
 		return;
 	}
 
 	one_argument(argument,arg);
 
 	if ((chance = get_skill(ch, gsn_nerve)) == 0) {
-		char_puts("Huh?\n\r", ch);
+		char_puts("Huh?\n", ch);
 		return;
 	}
 	if (ch->fighting == NULL) {
-		char_puts("You aren't fighting anyone.\n\r", ch);
+		char_puts("You aren't fighting anyone.\n", ch);
 		return;
 	}
 
 	victim = ch->fighting;
 
 	if (is_affected(ch,gsn_nerve)) {
-		char_puts("You cannot weaken that character any more.\n\r",
+		char_puts("You cannot weaken that character any more.\n",
 			  ch);
 		return;
 	}
@@ -1100,7 +1100,7 @@ void do_nerve(CHAR_DATA *ch, const char *argument)
 		check_improve(ch, gsn_nerve, TRUE, 1);
 	}
 	else {
-		char_puts("You press the wrong points and fail.\n\r",ch);
+		char_puts("You press the wrong points and fail.\n",ch);
 		act("$n tries to weaken you with nerve pressure, but fails.",
 		    ch, NULL, victim, TO_VICT);
 		act("$n tries to weaken $N with nerve pressure, but fails.",
@@ -1117,17 +1117,17 @@ void do_endure(CHAR_DATA *ch, const char *argument)
 	int chance;
 
 	if (IS_NPC(ch)) {
-		char_puts("You have no endurance whatsoever.\n\r", ch);
+		char_puts("You have no endurance whatsoever.\n", ch);
 		return;
 	}
 
 	if ((chance = get_skill(ch, gsn_endure)) == 0) {
-		char_puts("You lack the concentration.\n\r", ch);
+		char_puts("You lack the concentration.\n", ch);
 		return;
 	}
 		 
 	if (is_affected(ch,gsn_endure)) {
-		char_puts("You cannot endure more concentration.\n\r", ch);
+		char_puts("You cannot endure more concentration.\n", ch);
 		return;
 	}
 	
@@ -1143,7 +1143,7 @@ void do_endure(CHAR_DATA *ch, const char *argument)
 
 	affect_to_char(ch, &af);
 
-	char_puts("You prepare yourself for magical encounters.\n\r", ch);
+	char_puts("You prepare yourself for magical encounters.\n", ch);
 	act("$n concentrates for a moment, then resumes $s position.",
 	    ch, NULL, NULL, TO_ROOM);
 	check_improve(ch, gsn_endure, TRUE, 1);
@@ -1156,14 +1156,14 @@ void do_tame(CHAR_DATA *ch, const char *argument)
 	int chance;
 
 	if ((chance = get_skill(ch, gsn_tame)) == 0) {
-		char_puts("Huh?\n\r", ch);
+		char_puts("Huh?\n", ch);
 		return;
 	}
 
 	one_argument(argument, arg);
 
 	if (arg[0] == '\0') {
-		char_puts("You are beyond taming.\n\r", ch);
+		char_puts("You are beyond taming.\n", ch);
 		act("$n tries to tame $mself but fails miserably.",
 		    ch, NULL, NULL, TO_ROOM);
 		return;
@@ -1172,7 +1172,7 @@ void do_tame(CHAR_DATA *ch, const char *argument)
 	WAIT_STATE(ch, SKILL(gsn_tame)->beats);
 	
 	if ((victim = get_char_room(ch,arg)) == NULL) {
-		char_puts("They're not here.\n\r", ch);
+		char_puts("They're not here.\n", ch);
 		return;
 	}
 
@@ -1194,14 +1194,14 @@ void do_tame(CHAR_DATA *ch, const char *argument)
 	if (number_percent() < chance + 15 + 4*(ch->level - victim->level)) {
 		REMOVE_BIT(victim->act, ACT_AGGRESSIVE);
 		SET_BIT(victim->affected_by, AFF_CALM);
-		char_puts("You calm down.\n\r", victim);
+		char_puts("You calm down.\n", victim);
 		act("You calm $N down.", ch, NULL, victim, TO_CHAR);
 		act("$n calms $N down.", ch, NULL, victim, TO_NOTVICT);
 		stop_fighting(victim, TRUE);
 		check_improve(ch, gsn_tame, TRUE, 1);
 	}
 	else {
-		char_puts("You failed.\n\r",ch);
+		char_puts("You failed.\n",ch);
 		act("$n tries to calm down $N but fails.",
 		    ch, NULL, victim, TO_NOTVICT);
 		act("$n tries to calm you down but fails.",
@@ -1217,7 +1217,7 @@ void do_assassinate(CHAR_DATA *ch, const char *argument)
 	int chance;
 
 	if (MOUNTED(ch)) {
-		char_puts("You can't assassinate while riding!\n\r", ch);
+		char_puts("You can't assassinate while riding!\n", ch);
 		return;
 	}
 
@@ -1227,45 +1227,45 @@ void do_assassinate(CHAR_DATA *ch, const char *argument)
 		return;
 
 	if ((chance = get_skill(ch, gsn_assassinate)) == 0) {
-		char_puts("You don't know how to assassinate.\n\r", ch);
+		char_puts("You don't know how to assassinate.\n", ch);
 		return;
 	}
 	
 	if (IS_AFFECTED(ch, AFF_CHARM))  {
-		char_puts("You don't want to kill your beloved master.\n\r", ch);
+		char_puts("You don't want to kill your beloved master.\n", ch);
 		return;
 	} 
 
 	if (arg[0] == '\0') {
-		char_puts("Assassinate whom?\n\r", ch);
+		char_puts("Assassinate whom?\n", ch);
 		return;
 	}
 
 	WAIT_STATE(ch, SKILL(gsn_assassinate)->beats);
 
 	if ((victim = get_char_room(ch, arg)) == NULL) {
-		char_puts("They aren't here.\n\r", ch);
+		char_puts("They aren't here.\n", ch);
 		return;
 	}
 
 	if (victim == ch) {
-		char_puts("Suicide is against your way.\n\r", ch);
+		char_puts("Suicide is against your way.\n", ch);
 		return;
 	}
 
 	if (IS_IMMORTAL(victim) && !IS_NPC(victim)) {
-		char_puts("Your hands pass through.\n\r", ch);
+		char_puts("Your hands pass through.\n", ch);
 		return;
 	}
 
 	if (victim->fighting != NULL) {
-		char_puts("You can't assassinate a fighting person.\n\r", ch);
+		char_puts("You can't assassinate a fighting person.\n", ch);
 		return;
 	}
  
 	if ((get_eq_char(ch, WEAR_WIELD) != NULL)
 	||  (get_eq_char(ch, WEAR_HOLD ) != NULL))  {
-		char_puts("You need both hands free to assassinate somebody.\n\r",
+		char_puts("You need both hands free to assassinate somebody.\n",
 			  ch);
 		return;
 	}
@@ -1306,12 +1306,12 @@ void do_caltrops(CHAR_DATA *ch, const char *argument)
 	int chance;
 
 	if ((chance = get_skill(ch, gsn_caltrops)) == 0) {
-		char_puts("Caltrops? Is that a dance step?\n\r", ch);
+		char_puts("Caltrops? Is that a dance step?\n", ch);
 		return;
 	}
 
 	if (victim == NULL) {
-		char_puts("You must be in combat.\n\r",ch);
+		char_puts("You must be in combat.\n",ch);
 		return;
 	}
 
@@ -1379,7 +1379,7 @@ void do_throw(CHAR_DATA *ch, const char *argument)
 	int chance;
 
 	if (MOUNTED(ch)) {
-		char_puts("You can't throw while riding!\n\r", ch);
+		char_puts("You can't throw while riding!\n", ch);
 		return;
 	}
 
@@ -1391,19 +1391,19 @@ void do_throw(CHAR_DATA *ch, const char *argument)
 	}
 
 	if ((chance = get_skill(ch, gsn_throw)) == 0) {
-		char_puts("A clutz like you couldn't throw down a worm.\n\r",
+		char_puts("A clutz like you couldn't throw down a worm.\n",
 			  ch);
 		return;
 	}
 
 	if (IS_AFFECTED(ch, AFF_FLYING)) {
-		char_puts("Your feet should touch the ground to balance\n\r",
+		char_puts("Your feet should touch the ground to balance\n",
 			     ch);
 		return;
 	}
 
 	if ((victim = ch->fighting) == NULL) {
-		char_puts("You aren't fighting anyone.\n\r", ch);
+		char_puts("You aren't fighting anyone.\n", ch);
 		return;
 	}
 
@@ -1479,17 +1479,17 @@ void do_strangle(CHAR_DATA *ch, const char *argument)
 	int chance;
 
 	if (MOUNTED(ch)) {
-		char_puts("You can't strangle while riding!\n\r", ch);
+		char_puts("You can't strangle while riding!\n", ch);
 		return;
 	}
 
 	if ((chance = get_skill(ch, gsn_strangle)) == 0) {
-		char_puts("You lack the skill to strangle.\n\r", ch);
+		char_puts("You lack the skill to strangle.\n", ch);
 		return;
 	}
 
 	if (IS_AFFECTED(ch, AFF_CHARM))  {
-		char_puts("You don't want to grap your beloved masters' neck.\n\r",
+		char_puts("You don't want to grap your beloved masters' neck.\n",
 			  ch);
 		return;
 	} 
@@ -1497,12 +1497,12 @@ void do_strangle(CHAR_DATA *ch, const char *argument)
 	WAIT_STATE(ch, SKILL(gsn_strangle)->beats);
 
 	if ((victim = get_char_room(ch,argument)) == NULL) {
-		char_puts("You do not see that person here.\n\r", ch);
+		char_puts("You do not see that person here.\n", ch);
 		return;
 	}
 
 	if (ch == victim) {
-		char_puts("Even you are not that stupid.\n\r", ch);
+		char_puts("Even you are not that stupid.\n", ch);
 		return;
 	}
 
@@ -1551,29 +1551,29 @@ void do_blackjack(CHAR_DATA *ch, const char *argument)
 	int chance;
 
 	if (MOUNTED(ch)) {
-		char_puts("You can't blackjack while riding!\n\r", ch);
+		char_puts("You can't blackjack while riding!\n", ch);
 		return;
 	}
 
 	if ((chance = get_skill(ch, gsn_blackjack)) == 0) {
-		char_puts("Huh?\n\r", ch);
+		char_puts("Huh?\n", ch);
 		return;
 	}
 
 	WAIT_STATE(ch, SKILL(gsn_blackjack)->beats);
 
 	if ((victim = get_char_room(ch,argument)) == NULL) {
-		char_puts("You do not see that person here.\n\r", ch);
+		char_puts("You do not see that person here.\n", ch);
 		return;
 	}
 
 	if (ch == victim) {
-		char_puts("You idiot?! Blackjack your self?!\n\r", ch);
+		char_puts("You idiot?! Blackjack your self?!\n", ch);
 		return;
 	}
 
 	if (IS_AFFECTED(ch, AFF_CHARM))  {
-		char_puts("You don't want to hit your beloved masters' head with a full filled jack.\n\r",
+		char_puts("You don't want to hit your beloved masters' head with a full filled jack.\n",
 			  ch);
 		return;
 	} 
@@ -1629,23 +1629,23 @@ void do_bloodthirst(CHAR_DATA *ch, const char *argument)
 	int chance, hp_percent;
 
 	if ((chance = get_skill(ch, gsn_bloodthirst)) == 0) {
-		char_puts("You're not that thirsty.\n\r", ch);
+		char_puts("You're not that thirsty.\n", ch);
 		return;
 	}
 
 	if (IS_AFFECTED(ch, AFF_BLOODTHIRST)) {
-		char_puts("Your thirst for blood continues.\n\r", ch);
+		char_puts("Your thirst for blood continues.\n", ch);
 		return;
 	}
 
 	if (IS_AFFECTED(ch, AFF_CALM)) {
-		char_puts("You're feeling to mellow to be bloodthirsty.\n\r",
+		char_puts("You're feeling to mellow to be bloodthirsty.\n",
 			  ch);
 		return;
 	}
 
 	if (ch->fighting == NULL) {
-		char_puts("You need to be fighting.\n\r", ch);
+		char_puts("You need to be fighting.\n", ch);
 		return;
 	}
 
@@ -1659,7 +1659,7 @@ void do_bloodthirst(CHAR_DATA *ch, const char *argument)
 
 		WAIT_STATE(ch, PULSE_VIOLENCE);
 	
-		char_puts("You hunger for blood!\n\r", ch);
+		char_puts("You hunger for blood!\n", ch);
 		act("$n gets a bloodthirsty look in $s eyes.",
 		    ch, NULL, NULL, TO_ROOM);
 		check_improve(ch, gsn_bloodthirst, TRUE, 2);
@@ -1683,7 +1683,7 @@ void do_bloodthirst(CHAR_DATA *ch, const char *argument)
 	}
 	else {
 		WAIT_STATE(ch,3 * PULSE_VIOLENCE);
-		char_puts("You feel bloodthirsty for a moment, but it passes.\n\r",
+		char_puts("You feel bloodthirsty for a moment, but it passes.\n",
 			  ch);
 		check_improve(ch, gsn_bloodthirst, FALSE, 2);
 	}
@@ -1696,13 +1696,13 @@ void do_spellbane(CHAR_DATA *ch, const char *argument)
 	int chance;
 
 	if ((chance = get_skill(ch, gsn_spellbane)) == 0) {
-		char_puts("Huh?\n\r", ch);
+		char_puts("Huh?\n", ch);
 		return;
 	}
 
 	if (is_affected(ch, gsn_spellbane)) {
 #if 0
-		char_puts("You are already deflecting spells.\n\r", ch);
+		char_puts("You are already deflecting spells.\n", ch);
 		return;
 #endif
 		affect_strip(ch, gsn_spellbane);
@@ -1732,18 +1732,18 @@ void do_resistance(CHAR_DATA *ch, const char *argument)
 	int mana;
 
 	if ((chance = get_skill(ch, gsn_resistance)) == 0) {
-		char_puts("Huh?\n\r", ch);
+		char_puts("Huh?\n", ch);
 		return;
 	}
 
 	if (is_affected(ch, gsn_resistance)) {
-		char_puts("You are as resistant as you will get.\n\r", ch);
+		char_puts("You are as resistant as you will get.\n", ch);
 		return;
 	}
 
 	mana = SKILL(gsn_resistance)->min_mana;
 	if (ch->mana < mana) {
-		char_puts("You cannot muster up the energy.\n\r", ch);
+		char_puts("You cannot muster up the energy.\n", ch);
 		return;
 	}
 
@@ -1771,7 +1771,7 @@ void do_resistance(CHAR_DATA *ch, const char *argument)
 		ch->mana -= mana/2;
 
 		char_puts("You flex your muscles, "
-			  "but you don't feel tougher.\n\r", ch);
+			  "but you don't feel tougher.\n", ch);
 		act("$n flexes $s muscles, trying to look tough.",
 		    ch, NULL, NULL, TO_ROOM);
 		check_improve(ch, gsn_resistance, FALSE, 1);
@@ -1790,35 +1790,35 @@ void do_trophy(CHAR_DATA *ch, const char *argument)
 	int mana;
 	
 	if ((chance = get_skill(ch, gsn_trophy)) == 0) {
-		char_puts("Huh?\n\r", ch);
+		char_puts("Huh?\n", ch);
 		return;
 	}
 	
 	if (is_affected(ch, gsn_trophy)) {
-		char_puts("But you've already got one trophy!\n\r", ch);
+		char_puts("But you've already got one trophy!\n", ch);
 		return;
 	}
 	
 	mana = SKILL(gsn_trophy)->min_mana;
 	if (ch->mana < mana) {
-		char_puts("You feel too weak to concentrate on a trophy.\n\r",
+		char_puts("You feel too weak to concentrate on a trophy.\n",
 			  ch);
 		return;
 	}
 	
 	one_argument(argument, arg);
 	if (arg[0] == '\0') {
-		char_puts("Make a trophy of what?\n\r", ch);
+		char_puts("Make a trophy of what?\n", ch);
 		return;
 	}
 	
 	if ((part = get_obj_carry(ch, arg)) == NULL) {
-		char_puts("You do not have that body part.\n\r", ch);
+		char_puts("You do not have that body part.\n", ch);
 		return;
 	}
 
 	if (number_percent() < chance * 2 / 3) {
-		char_puts("You failed and destroyed it.\n\r", ch);
+		char_puts("You failed and destroyed it.\n", ch);
 		extract_obj(part);
 		return;
 	} 
@@ -1832,16 +1832,16 @@ void do_trophy(CHAR_DATA *ch, const char *argument)
 	||  part->pIndexData->vnum == OBJ_VNUM_GUTS)
 		trophy_vnum = OBJ_VNUM_BATTLE_PONCHO;
 	else if (part->pIndexData->vnum == OBJ_VNUM_BRAINS) {
-		char_puts("Why don't you just eat those instead?\n\r", ch);
+		char_puts("Why don't you just eat those instead?\n", ch);
 		return;
 	}
 	else {
-		char_puts("You can't make a trophy out of that!\n\r", ch);
+		char_puts("You can't make a trophy out of that!\n", ch);
 		return;
 	}
 
 	if (IS_NULLSTR(part->owner)) {
-		char_puts("Invalid body part.\n\r", ch);
+		char_puts("Invalid body part.\n", ch);
 		return;
 	}
 
@@ -1906,7 +1906,7 @@ void do_trophy(CHAR_DATA *ch, const char *argument)
 		}
 	}
 	else {
-		char_puts("You destroyed it.\n\r", ch);
+		char_puts("You destroyed it.\n", ch);
 		extract_obj(part);
 		ch->mana -= mana/2;
 		check_improve(ch, gsn_trophy, FALSE, 1);
@@ -1918,12 +1918,12 @@ void do_truesight(CHAR_DATA *ch, const char *argument)
 	int chance;
 
 	if ((chance = get_skill(ch, gsn_truesight)) == 0) {
-		char_puts("Huh?\n\r", ch);
+		char_puts("Huh?\n", ch);
 		return;
 	}
 
 	if (is_affected(ch, gsn_truesight)) {
-		char_puts("Your eyes are as sharp as they can get.\n\r", ch);
+		char_puts("Your eyes are as sharp as they can get.\n", ch);
 		return;
 	}
 
@@ -1959,7 +1959,7 @@ void do_truesight(CHAR_DATA *ch, const char *argument)
 	}
 	else {
 		char_puts("You look about sharply, but you don't see "
-			     "anything new.\n\r" ,ch);
+			     "anything new.\n" ,ch);
 		act("$n looks around sharply but doesn't seem enlightened.",
 			ch,NULL,NULL,TO_ROOM);
 		check_improve(ch, gsn_truesight, FALSE, 1);
@@ -1973,25 +1973,25 @@ void do_warcry(CHAR_DATA *ch, const char *argument)
 	int mana;
 	
 	if ((chance = get_skill(ch, gsn_warcry)) == 0) {
-		char_puts("Huh?\n\r", ch);
+		char_puts("Huh?\n", ch);
 		return;
 	}
 	
 	if (is_affected(ch,gsn_bless) || is_affected(ch, gsn_warcry)) {
-		char_puts("You are already blessed.\n\r",ch);
+		char_puts("You are already blessed.\n",ch);
 		return;
 	}
 	
 	mana = SKILL(gsn_warcry)->min_mana;
 	if (ch->mana < mana) {
-		char_puts("You can't concentrate enough right now.\n\r",ch);
+		char_puts("You can't concentrate enough right now.\n",ch);
 		return;
 	}
 	
 	WAIT_STATE(ch, SKILL(gsn_warcry)->beats);
 	
 	if (number_percent() > chance) {
-		char_puts("You grunt softly.\n\r", ch);
+		char_puts("You grunt softly.\n", ch);
 		act("$n makes some soft grunting noises.",
 		    ch, NULL, NULL, TO_ROOM);
 		ch->mana -= mana/2;
@@ -2014,7 +2014,7 @@ void do_warcry(CHAR_DATA *ch, const char *argument)
 	af.location  = APPLY_SAVING_SPELL;
 	af.modifier  = 0 - ch->level / 8;
 	affect_to_char(ch, &af);
-	char_puts("You feel righteous as you yell out your warcry.\n\r", ch);
+	char_puts("You feel righteous as you yell out your warcry.\n", ch);
 }
 
 void do_guard(CHAR_DATA *ch, const char *argument)
@@ -2024,18 +2024,18 @@ void do_guard(CHAR_DATA *ch, const char *argument)
 	int chance;
 	
 	if ((chance = get_skill(ch, gsn_guard)) == 0) {
-		char_puts("Huh?\n\r", ch);
+		char_puts("Huh?\n", ch);
 		return;
 	}
 
 	one_argument(argument, arg);
 	if (arg[0] == '\0') {
-		char_puts("Guard whom?\n\r", ch);
+		char_puts("Guard whom?\n", ch);
 		return;
 	}
 
 	if ((victim = get_char_room(ch, arg)) == NULL) {
-		char_puts("They aren't here.\n\r", ch);
+		char_puts("They aren't here.\n", ch);
 		return;
 	}
 
@@ -2046,7 +2046,7 @@ void do_guard(CHAR_DATA *ch, const char *argument)
 
 	if (!str_cmp(arg, "none") || !str_cmp(arg, "self") || victim == ch) {
 		if (ch->guarding == NULL) {
-			char_puts("You can't guard yourself!\n\r", ch);
+			char_puts("You can't guard yourself!\n", ch);
 			return;
 		}
 		act("You stop guarding $N.", ch, NULL, ch->guarding, TO_CHAR);
@@ -2063,7 +2063,7 @@ void do_guard(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (ch->guarding != NULL) {
-		char_puts("But you're already guarding someone else!\n\r", ch);
+		char_puts("But you're already guarding someone else!\n", ch);
 		return;
 	}
 
@@ -2091,14 +2091,14 @@ void do_guard(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (victim->fighting != NULL) {
-		char_puts("Why don't you let them stop fighting first?\n\r",
+		char_puts("Why don't you let them stop fighting first?\n",
 			     ch);
 		return;
 	}
 	
 	if (ch->fighting != NULL) {
 		char_puts("Better finish your own battle before you "
-			     "worry about guarding someone else.\n\r", ch);
+			     "worry about guarding someone else.\n", ch);
 		return;
 	}
 
@@ -2147,7 +2147,7 @@ void do_explode(CHAR_DATA *ch, const char *argument)
 	int chance;
 
 	if ((chance = get_skill(ch, gsn_explode)) == 0) {
-		char_puts("Flame? What is that?\n\r", ch);
+		char_puts("Flame? What is that?\n", ch);
 		return;
 	}
 
@@ -2156,19 +2156,19 @@ void do_explode(CHAR_DATA *ch, const char *argument)
 	if (victim == NULL) {
 		one_argument(argument, arg);
 		if (arg == NULL) { 
-			char_puts("You play with the exploding material.\n\r",
+			char_puts("You play with the exploding material.\n",
 				  ch);
 			return;
 		}
 		if ((victim = get_char_room(ch,arg)) == NULL) {
-			char_puts("They aren't here.\n\r", ch);
+			char_puts("They aren't here.\n", ch);
 			return;
 		}
 	}
 
 	mana = SKILL(gsn_explode)->min_mana;
 	if (ch->mana < mana) {
-		char_puts("You can't find that much energy to fire\n\r", ch);
+		char_puts("You can't find that much energy to fire\n", ch);
 		return;
 	}
 	ch->mana -= mana;
@@ -2224,29 +2224,29 @@ void do_target(CHAR_DATA *ch, const char *argument)
 
 	if ((chance = get_skill(ch, gsn_target)) == 0) {
 		char_puts("You don't know how to change the target "
-			  "while fighting a group.\n\r" ,ch);
+			  "while fighting a group.\n" ,ch);
 		return;
 	}
 
 	if (ch->fighting == NULL) {
-		char_puts("You aren't fighting yet.\n\r",ch);
+		char_puts("You aren't fighting yet.\n",ch);
 		return;
 	}
 
 	if (argument[0] == '\0') {
-		char_puts("Change target to whom?\n\r",ch);
+		char_puts("Change target to whom?\n",ch);
 		return;
 	}
 
 	if ((victim = get_char_room(ch, argument)) == NULL) {
-		char_puts("You don't see that item.\n\r",ch);
+		char_puts("You don't see that item.\n",ch);
 		return;
 	}
 
 	/* check victim is fighting with him */
 
 	if (victim->fighting != ch) {
-		char_puts ("Target is not fighting with you.\n\r",ch);
+		char_puts ("Target is not fighting with you.\n",ch);
 		return;
 	}
 
@@ -2266,7 +2266,7 @@ void do_target(CHAR_DATA *ch, const char *argument)
 	}
 
 	char_puts("You tried, but you couldn't. "
-		  "But for honour try again!.\n\r", ch);
+		  "But for honour try again!.\n", ch);
 	check_improve(ch, gsn_target, FALSE, 1);
 }
 
@@ -2276,19 +2276,19 @@ void do_tiger(CHAR_DATA *ch, const char *argument)
 	int mana;
 
 	if ((chance = get_skill(ch, gsn_tiger_power)) == 0) {
-		char_puts("Huh?\n\r", ch);
+		char_puts("Huh?\n", ch);
 		return;
 	}
 	act("$n calls the power of 10 tigers!.", ch, NULL, NULL, TO_ROOM);
 
 	if (IS_AFFECTED(ch, AFF_BERSERK) || is_affected(ch, gsn_berserk)
 	||  is_affected(ch, gsn_tiger_power) || is_affected(ch, gsn_frenzy)) {
-		char_puts("You get a little madder.\n\r", ch);
+		char_puts("You get a little madder.\n", ch);
 		return;
 	}
 
 	if (IS_AFFECTED(ch,AFF_CALM)) {
-		char_puts("You're feeling too mellow to call 10 tigers.\n\r",
+		char_puts("You're feeling too mellow to call 10 tigers.\n",
 			  ch);
 		return;
 	}
@@ -2297,13 +2297,13 @@ void do_tiger(CHAR_DATA *ch, const char *argument)
 	&&  ch->in_room->sector_type != SECT_FOREST
 	&&  ch->in_room->sector_type != SECT_MOUNTAIN
 	&&  ch->in_room->sector_type != SECT_HILLS) {
-		char_puts("No tigers can hear your call.\n\r", ch);
+		char_puts("No tigers can hear your call.\n", ch);
 		return;
 	}
 
 	mana = SKILL(gsn_tiger_power)->min_mana;
 	if (ch->mana < mana) {
-		char_puts("You can't get up enough energy.\n\r", ch);
+		char_puts("You can't get up enough energy.\n", ch);
 		return;
 	}
 
@@ -2327,7 +2327,7 @@ void do_tiger(CHAR_DATA *ch, const char *argument)
 		ch->hit += ch->level * 2;
 		ch->hit = UMIN(ch->hit, ch->max_hit);
 
-		char_puts("10 tigers come for your call, as you call them!\n\r",
+		char_puts("10 tigers come for your call, as you call them!\n",
 			  ch);
 		act("10 tigers come across $n, and connect with $n.",
 		    ch, NULL, NULL, TO_ROOM);
@@ -2353,7 +2353,7 @@ void do_tiger(CHAR_DATA *ch, const char *argument)
 	else {
 		WAIT_STATE(ch, 2 * SKILL(gsn_tiger_power)->beats);
 		ch->mana -= mana/2;
-		char_puts("Your feel stregthen up, but nothing happens.\n\r",
+		char_puts("Your feel stregthen up, but nothing happens.\n",
 			  ch);
 		check_improve(ch, gsn_tiger_power, FALSE, 2);
 	}
@@ -2365,23 +2365,23 @@ void do_hara(CHAR_DATA *ch, const char *argument)
 	AFFECT_DATA  af;
 
 	if (MOUNTED(ch)) {
-		char_puts("You can't harakiri while riding!\n\r", ch);
+		char_puts("You can't harakiri while riding!\n", ch);
 		return;
 	}
 
 	if ((chance = get_skill(ch,gsn_hara_kiri)) == 0) {
-		char_puts("You try to kill yourself, but you can't resist this ache.\n\r",ch);
+		char_puts("You try to kill yourself, but you can't resist this ache.\n",ch);
 		return;
 	}
 
 	if (is_affected(ch, gsn_hara_kiri)) {
-		char_puts("If you want to kill yourself go and try to kill He-Man.\n\r",ch);
+		char_puts("If you want to kill yourself go and try to kill He-Man.\n",ch);
 		return;
 	}
 
 	/* fighting */
 	if (ch->position == POS_FIGHTING) {
-		char_puts("Try your chance during fighting.\n\r", ch);
+		char_puts("Try your chance during fighting.\n", ch);
 		return;
 	}
 
@@ -2400,7 +2400,7 @@ void do_hara(CHAR_DATA *ch, const char *argument)
 			ch->pcdata->condition[COND_THIRST] = 40; 
 
 		char_puts("Yo cut your finger and wait till all your blood "
-			  "finishes.\n\r",ch);
+			  "finishes.\n",ch);
 		act_puts("$n cuts his body and look in a deadly figure.",
 			 ch, NULL, NULL, TO_ROOM, POS_FIGHTING);
 		check_improve(ch, gsn_hara_kiri, TRUE, 2);
@@ -2429,7 +2429,7 @@ void do_hara(CHAR_DATA *ch, const char *argument)
 		affect_to_char(ch, &af);
 
 		char_puts("You couldn't cut your finger. "
-			  "It is not so easy as you know.\n\r", ch);
+			  "It is not so easy as you know.\n", ch);
 		check_improve(ch, gsn_hara_kiri, FALSE, 2);
 	}
 }
@@ -2521,23 +2521,23 @@ void do_shield(CHAR_DATA *ch, const char *argument)
 		return;
 
 	if ((victim = ch->fighting) == NULL) {
-		char_puts("You aren't fighting anyone.\n\r", ch);
+		char_puts("You aren't fighting anyone.\n", ch);
 		return;
 	}
 		
 	if ((axe = get_eq_char(ch,WEAR_WIELD)) == NULL) {
-		char_puts("You must be wielding a weapon.\n\r", ch);
+		char_puts("You must be wielding a weapon.\n", ch);
 		return;
 	}
 
 	if ((chance = get_skill(ch, gsn_shield_cleave)) == 0) {
-		char_puts("You don't know how to cleave opponents's shield.\n\r",
+		char_puts("You don't know how to cleave opponents's shield.\n",
 			  ch);
 		return;
 	}
 
 	if ((shield = get_eq_char(victim, WEAR_SHIELD)) == NULL) {
-		char_puts("Your opponent must wield a shield.\n\r", ch);
+		char_puts("Your opponent must wield a shield.\n", ch);
 		return;
 	}
 
@@ -2548,7 +2548,7 @@ void do_shield(CHAR_DATA *ch, const char *argument)
 	if (axe->value[0] == WEAPON_AXE)
 		chance *= 1.2;
 	else if (axe->value[0] != WEAPON_SWORD) {
-		char_puts("Your weapon must be an axe or a sword.\n\r", ch);
+		char_puts("Your weapon must be an axe or a sword.\n", ch);
 		return;
 	}
 
@@ -2605,22 +2605,22 @@ void do_weapon(CHAR_DATA *ch, const char *argument)
 		return;
 
 	if ((victim = ch->fighting) == NULL) {
-		char_puts("You aren't fighting anyone.\n\r", ch);
+		char_puts("You aren't fighting anyone.\n", ch);
 		return;
 	}
 
 	if ((axe = get_eq_char(ch, WEAR_WIELD)) == NULL) {
-		char_puts("You must be wielding a weapon.\n\r",ch);
+		char_puts("You must be wielding a weapon.\n",ch);
 		return;
 	}
 
 	if ((chance = get_skill(ch, gsn_weapon_cleave)) == 0) {
-		char_puts("You don't know how to cleave opponents's weapon.\n\r",ch);
+		char_puts("You don't know how to cleave opponents's weapon.\n",ch);
 		return;
 	}
 
 	if ((wield = get_eq_char(victim, WEAR_WIELD)) == NULL) {
-		char_puts("Your opponent must wield a weapon.\n\r", ch);
+		char_puts("Your opponent must wield a weapon.\n", ch);
 		return;
 	}
 
@@ -2631,7 +2631,7 @@ void do_weapon(CHAR_DATA *ch, const char *argument)
 	if (axe->value[0] == WEAPON_AXE)
 		chance *= 1.2;
 	else if (axe->value[0] != WEAPON_SWORD) {
-		char_puts("Your weapon must be an axe or a sword.\n\r",ch);
+		char_puts("Your weapon must be an axe or a sword.\n",ch);
 		return;
 	}
 
@@ -2684,14 +2684,14 @@ void do_tail(CHAR_DATA *ch, const char *argument)
 	int damage_tail;
 
 	if (MOUNTED(ch)) {
-		char_puts("You can't tail while riding!\n\r", ch);
+		char_puts("You can't tail while riding!\n", ch);
 		return;
 	}
 
 	one_argument(argument, arg);
  
 	if ((chance = get_skill(ch, gsn_tail)) == 0) {
-		char_puts("Huh?\n\r", ch);
+		char_puts("Huh?\n", ch);
 		return;
 	}
  
@@ -2700,12 +2700,12 @@ void do_tail(CHAR_DATA *ch, const char *argument)
 	if (arg[0] == '\0') {
 		victim = ch->fighting;
 		if (victim == NULL) {
-			char_puts("But you aren't fighting anyone!\n\r", ch);
+			char_puts("But you aren't fighting anyone!\n", ch);
 			return;
 		}
 	}
 	else if ((victim = get_char_room(ch,arg)) == NULL) {
-		char_puts("They aren't here.\n\r", ch);
+		char_puts("They aren't here.\n", ch);
 		return;
 	}
 /*
@@ -2716,7 +2716,7 @@ void do_tail(CHAR_DATA *ch, const char *argument)
 	} 
 */
 	if (victim == ch) {
-		char_puts("You try to hit yourself by your tail, but failed.\n\r",
+		char_puts("You try to hit yourself by your tail, but failed.\n",
 			  ch);
 		return;
 	}
@@ -2814,31 +2814,31 @@ void do_concentrate(CHAR_DATA *ch, const char *argument)
 	int mana;
 
 	if (MOUNTED(ch)) {
-		char_puts("You can't concentrate while riding!\n\r", ch);
+		char_puts("You can't concentrate while riding!\n", ch);
 		return;
 	}
 
 	if ((chance = get_skill(ch,gsn_concentrate)) == 0) {
-		char_puts("You try to concentrate on what is going on.\n\r",
+		char_puts("You try to concentrate on what is going on.\n",
 			  ch);
 		return;
 	}
 
 	if (is_affected(ch,gsn_concentrate)) {
-		char_puts("You are already concentrated for the fight.\n\r",
+		char_puts("You are already concentrated for the fight.\n",
 			  ch);
 		return;
 	}
 		
 	mana = SKILL(gsn_concentrate)->min_mana;
 	if (ch->mana < mana) {
-		char_puts("You can't get up enough energy.\n\r", ch);
+		char_puts("You can't get up enough energy.\n", ch);
 		return;
 	}
 
 	/* fighting */
 	if (ch->fighting) {
-		char_puts("Concentrate on your fighting!\n\r", ch);
+		char_puts("Concentrate on your fighting!\n", ch);
 		return;
 	}
 
@@ -2851,7 +2851,7 @@ void do_concentrate(CHAR_DATA *ch, const char *argument)
 
 		do_sit(ch,str_empty);
 		char_puts("You sit down and relax, "
-			  "concentrating on the next fight.!\n\r", ch);
+			  "concentrating on the next fight.!\n", ch);
 		act_puts("$n concentrates for the next fight.",
 			 ch, NULL, NULL, TO_ROOM, POS_FIGHTING);
 		check_improve(ch,gsn_concentrate,TRUE,2);
@@ -2875,7 +2875,7 @@ void do_concentrate(CHAR_DATA *ch, const char *argument)
 	}
 	else {
 		ch->mana -= mana/2;
-		char_puts("You try to concentrate for the next fight but fail.\n\r",
+		char_puts("You try to concentrate for the next fight but fail.\n",
 			  ch);
 		check_improve(ch, gsn_concentrate, FALSE, 2);
 	}
@@ -2887,12 +2887,12 @@ void do_bandage(CHAR_DATA *ch, const char *argument)
 	int chance;
 
 	if ((chance = get_skill(ch,gsn_bandage)) == 0) {
-		char_puts("Huh?\n\r", ch);
+		char_puts("Huh?\n", ch);
 		return;
 	}
 
 	if (IS_AFFECTED(ch, AFF_REGENERATION)) {
-		char_puts("You have already using your bandage.\n\r", ch);
+		char_puts("You have already using your bandage.\n", ch);
 		return;
 	}
 
@@ -2900,7 +2900,7 @@ void do_bandage(CHAR_DATA *ch, const char *argument)
 	if (number_percent() < chance) {
 		AFFECT_DATA af;
 
-		char_puts("You place your bandage to your shoulder!\n\r", ch);
+		char_puts("You place your bandage to your shoulder!\n", ch);
 		act("$n places a bandage to $s shulder.",
 		    ch, NULL, NULL, TO_ROOM);
 		check_improve(ch, gsn_bandage, TRUE, 2);
@@ -2908,7 +2908,7 @@ void do_bandage(CHAR_DATA *ch, const char *argument)
 		heal = dice(4, 8) + ch->level / 2;
 		ch->hit = UMIN(ch->hit + heal, ch->max_hit);
 		update_pos(ch);
-		char_puts("You feel better!\n\r", ch);
+		char_puts("You feel better!\n", ch);
 
 		af.where	= TO_AFFECTS;
 		af.type		= gsn_bandage;
@@ -2920,7 +2920,7 @@ void do_bandage(CHAR_DATA *ch, const char *argument)
 		affect_to_char(ch,&af);
 	}
 	else {
-		char_puts("You failed to place your bandage to your shoulder.\n\r",
+		char_puts("You failed to place your bandage to your shoulder.\n",
 			  ch);
 		check_improve(ch, gsn_bandage, FALSE, 2);
 	}
@@ -2938,39 +2938,39 @@ void do_katana(CHAR_DATA *ch, const char *argument)
 	one_argument(argument, arg);
 	
 	if ((chance = get_skill(ch, gsn_katana)) == 0) {
-		char_puts("Huh?\n\r", ch);
+		char_puts("Huh?\n", ch);
 		return;
 	}
 	
 	if (is_affected(ch, gsn_katana)) {
-		char_puts("But you've already got one katana!\n\r", ch);
+		char_puts("But you've already got one katana!\n", ch);
 		return;
 	}
 	
 	mana = SKILL(gsn_katana)->min_mana;
 	if (ch->mana < mana) {
-		char_puts("You feel too weak to concentrate on a katana.\n\r",
+		char_puts("You feel too weak to concentrate on a katana.\n",
 			  ch);
 		return;
 	}
 	
 	if (arg[0] == '\0') {
-		char_puts("Make a katana from what?\n\r", ch);
+		char_puts("Make a katana from what?\n", ch);
 		return;
 	}
 	
 	if ((part = get_obj_carry(ch, arg)) == NULL) {
-		char_puts("You do not have chunk of iron.\n\r", ch);
+		char_puts("You do not have chunk of iron.\n", ch);
 		return;
 	}
 
 	if (part->pIndexData->vnum != OBJ_VNUM_CHUNK_IRON) {
-		char_puts("You do not have the right material.\n\r", ch);
+		char_puts("You do not have the right material.\n", ch);
 		return;
 	}
 
 	if (number_percent() < chance / 3 * 2) {
-		char_puts("You failed and destroyed it.\n\r", ch);
+		char_puts("You failed and destroyed it.\n", ch);
 		extract_obj(part);
 		return;
 	} 
@@ -3018,7 +3018,7 @@ void do_katana(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 	else {
-		char_puts("You destroyed it.\n\r", ch);
+		char_puts("You destroyed it.\n", ch);
 		extract_obj(part);
 		ch->mana -= mana/2;
 		check_improve(ch, gsn_katana, FALSE, 1);
@@ -3035,7 +3035,7 @@ void do_crush(CHAR_DATA *ch, const char *argument)
 		return;
 
 	if ((chance = get_skill(ch, gsn_crush)) == 0) {
-		char_puts("You don't know how to crush.\n\r", ch);
+		char_puts("You don't know how to crush.\n", ch);
 		return;
 	}
  
@@ -3132,18 +3132,18 @@ void do_sense(CHAR_DATA *ch, const char *argument)
 	int mana;
 
 	if ((chance = get_skill(ch, gsn_sense_life)) == 0) {
-		char_puts("Huh?\n\r", ch);
+		char_puts("Huh?\n", ch);
 		return;
 	}
 
 	if (is_affected(ch, gsn_sense_life)) {
-		char_puts("You can already feel life forms.\n\r", ch);
+		char_puts("You can already feel life forms.\n", ch);
 		return;
 	}
 
 	mana = SKILL(gsn_sense_life)->min_mana;
 	if (ch->mana < mana) {
-		char_puts("You cannot seem to concentrate enough.\n\r", ch);
+		char_puts("You cannot seem to concentrate enough.\n", ch);
 		return;
 	}
 
@@ -3170,7 +3170,7 @@ void do_sense(CHAR_DATA *ch, const char *argument)
 	}
 	else {
 		ch->mana -= mana/2;
-		char_puts("You failed.\n\r" ,ch);
+		char_puts("You failed.\n" ,ch);
 		check_improve(ch, gsn_sense_life, FALSE, 1);
 	}
 }
@@ -3183,25 +3183,25 @@ void do_poison_smoke(CHAR_DATA *ch, const char *argument)
 	CHAR_DATA *vch_next;
 
 	if ((chance = get_skill(ch, gsn_poison_smoke)) == 0) {
-		char_puts("Huh?\n\r", ch);
+		char_puts("Huh?\n", ch);
 		return;
 	}
 
 	mana = SKILL(gsn_poison_smoke)->min_mana;
 	if (ch->mana < mana) {
-		char_puts("You can't get up enough energy.\n\r", ch);
+		char_puts("You can't get up enough energy.\n", ch);
 		return;
 	}
 	ch->mana -= mana;
 	WAIT_STATE(ch, SKILL(gsn_poison_smoke)->beats);
 
 	if (number_percent() > chance) {
-		char_puts("You failed.\n\r", ch);
+		char_puts("You failed.\n", ch);
 		check_improve(ch, gsn_poison_smoke, FALSE, 1);
 		return;
 	}
 
-	char_puts("A cloud of poison smoke fills the room.\n\r", ch);
+	char_puts("A cloud of poison smoke fills the room.\n", ch);
 	act("A cloud of poison smoke fills the room.", ch, NULL, NULL, TO_ROOM);
 
 	check_improve(ch, gsn_poison_smoke, TRUE, 1);
@@ -3226,25 +3226,25 @@ void do_blindness_dust(CHAR_DATA *ch, const char *argument)
 	int mana;
 
 	if ((chance = get_skill(ch, gsn_blindness_dust)) == 0) {
-		char_puts("Huh?\n\r", ch);
+		char_puts("Huh?\n", ch);
 		return;
 	}
 
 	mana = SKILL(gsn_blindness_dust)->min_mana;
 	if (ch->mana < mana) {
-		char_puts("You can't get up enough energy.\n\r", ch);
+		char_puts("You can't get up enough energy.\n", ch);
 		return;
 	}
 
 	ch->mana -= mana;
 	WAIT_STATE(ch, SKILL(gsn_blindness_dust)->beats);
 	if (number_percent() > chance) {
-		char_puts("You failed.\n\r",ch);
+		char_puts("You failed.\n",ch);
 		check_improve(ch,gsn_blindness_dust,FALSE,1);
 		return;
 	}
 
-	char_puts("A cloud of dust fills in the room.\n\r", ch);
+	char_puts("A cloud of dust fills in the room.\n", ch);
 	act("A cloud of dust fills the room.", ch, NULL, NULL, TO_ROOM);
 
 	check_improve(ch, gsn_blindness_dust, TRUE, 1);

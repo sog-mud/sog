@@ -1,5 +1,5 @@
 /*
- * $Id: auction_impl.c,v 1.20 1998-11-21 06:00:35 fjoe Exp $
+ * $Id: auction_impl.c,v 1.21 1998-12-01 10:53:51 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -246,7 +246,7 @@ void auction_update (void)
 			 /* give him the money */
 			char_printf(auction.seller,
 				    "The auctioneer pays you %d gold, "
-				    "charging an auction fee of %d.\n\r",
+				    "charging an auction fee of %d.\n",
 				    pay, tax);
 			auction.seller->gold += pay;
 		}
@@ -276,13 +276,13 @@ void do_auction(CHAR_DATA *ch, const char *argument)
 
 	if (IS_SET(ch->comm, COMM_NOAUCTION)) {
 		if (!str_cmp(arg1, "on")) {
-			char_puts("Auction channel is now ON.\n\r",ch);
+			char_puts("Auction channel is now ON.\n",ch);
 			REMOVE_BIT(ch->comm,COMM_NOAUCTION);
 			return;
 		}
 		else {
-			char_puts("Your auction channel is OFF.\n\r",ch);
-			char_puts("You must first change auction channel ON.\n\r",ch);
+			char_puts("Your auction channel is OFF.\n",ch);
+			char_puts("You must first change auction channel ON.\n",ch);
 			return;
 		}
 	}
@@ -292,23 +292,23 @@ void do_auction(CHAR_DATA *ch, const char *argument)
 			/* show item data here */
 			if (auction.bet > 0)
 				char_printf(ch, "Current bet on this item is "
-						"%d gold.\n\r",auction.bet);
+						"%d gold.\n",auction.bet);
 			else
 				char_printf(ch,
 					    "Starting price for this item is "
-					    "%d gold.\n\r"
+					    "%d gold.\n"
 					    "No bets on this item have been "
-					    "received.\n\r", auction.starting);
+					    "received.\n", auction.starting);
 			spell_identify(0, 0, ch, auction.item, 0);
 			return;
 		}
 		else {	
-			char_puts("Auction WHAT?\n\r", ch);
+			char_puts("Auction WHAT?\n", ch);
 			return;
 		}
 
 	if (!str_cmp(arg1, "off")) {
-		char_puts("Auction channel is now OFF.\n\r",ch);
+		char_puts("Auction channel is now OFF.\n",ch);
 		SET_BIT(ch->comm,COMM_NOAUCTION);
 		return;
 	}
@@ -316,7 +316,7 @@ void do_auction(CHAR_DATA *ch, const char *argument)
 	if (IS_IMMORTAL(ch) && !str_cmp(arg1, "stop"))
 		if (auction.item == NULL) {
 			char_puts("There is no auction going on "
-				  "you can stop.\n\r",ch);
+				  "you can stop.\n",ch);
 			return;
 		}
 		else { /* stop the auction */
@@ -329,7 +329,7 @@ void do_auction(CHAR_DATA *ch, const char *argument)
 			/* return money to the buyer */
 			if (auction.buyer != NULL) {
 				auction.buyer->gold += auction.bet;
-				char_puts("Your money has been returned.\n\r",
+				char_puts("Your money has been returned.\n",
 					  auction.buyer);
 	    		}
 
@@ -337,7 +337,7 @@ void do_auction(CHAR_DATA *ch, const char *argument)
 			if (auction.seller != NULL) {
 				auction.seller->gold +=
 					(auction.starting * 20) / 100;
-				char_puts("Your money has been returned.\n\r",
+				char_puts("Your money has been returned.\n",
 					  auction.buyer);
 			}
 	    		return;
@@ -348,45 +348,45 @@ void do_auction(CHAR_DATA *ch, const char *argument)
 
 		if (auction.item == NULL) {
 	        	char_puts ("There isn't anything being auctioned "
-				      "right now.\n\r",ch);
+				      "right now.\n",ch);
 	        	return;
 		}
 
 		if (ch == auction.seller) {
 			char_puts("You cannot bet on your own "
-				     "equipment...:)\n\r",ch);
+				     "equipment...:)\n",ch);
 			return;
 		}
 
 	        /* make - perhaps - a bet now */
 	        if (argument[0] == '\0') {
-			char_puts ("Bet how much?\n\r",ch);
+			char_puts ("Bet how much?\n",ch);
 			return;
 	        }
 
 		newbet = parsebet (auction.bet, argument);
 
 	        if (newbet > ch->gold) {
-	        	char_puts("You don't have that much money!\n\r", ch);
+	        	char_puts("You don't have that much money!\n", ch);
 	        	return;
 	        }
 
 		if (auction.bet > 0) {
 			if (newbet < auction.bet + 1) {
 				char_puts("You must bid at least 1 gold "
-					  "over the current bet.\n\r", ch);
+					  "over the current bet.\n", ch);
 	        		return;
 	        	}
 		}
 		else {
 			if (newbet < auction.starting) {
 				char_puts("You cannot bid less than the "
-					  "starting price.\n\r", ch);
+					  "starting price.\n", ch);
 				return;
 			}
 		}
 
-	        /* the actual bet is "Ok.\n\r"! */
+	        /* the actual bet is "Ok.\n"! */
 
 	        /* return the gold to the last buyer, if one exists */
 	        if (auction.buyer != NULL)
@@ -408,12 +408,12 @@ void do_auction(CHAR_DATA *ch, const char *argument)
 	obj = get_obj_carry (ch, arg1); /* does char have the item ? */ 
 
 	if (obj == NULL) {
-		char_puts("You aren't carrying that.\n\r",ch);
+		char_puts("You aren't carrying that.\n",ch);
 		return;
 	}
 
 	if (obj->timer > 0) {
-		char_puts("You cannot auction decaying objects.\n\r", ch);
+		char_puts("You cannot auction decaying objects.\n", ch);
 		return;
 	}
 
@@ -427,7 +427,7 @@ void do_auction(CHAR_DATA *ch, const char *argument)
 	if (starting[0] == '\0')
 		auction.starting = MIN_START_PRICE;
 	else if ((auction.starting = atoi(starting)) < MIN_START_PRICE) {
-		char_printf(ch, "You must specify the starting price (at least %d gold).\n\r", MIN_START_PRICE);
+		char_printf(ch, "You must specify the starting price (at least %d gold).\n", MIN_START_PRICE);
 		return;
 	}
 
@@ -451,12 +451,12 @@ void do_auction(CHAR_DATA *ch, const char *argument)
 		tax = (auction.starting * 20) / 100;
 		if (ch->gold < tax) {
 			char_printf(ch, "You do not have enough gold to pay "
-					"an auction fee of %d gold.\n\r", tax);
+					"an auction fee of %d gold.\n", tax);
 			return;
 		}
 
 		char_printf(ch, "The auctioneer charges you an auction fee "
-				"of %d gold.\n\r", tax);
+				"of %d gold.\n", tax);
 		ch->gold -= tax;
 
 		obj_from_char(obj);

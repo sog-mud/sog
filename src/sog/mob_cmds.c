@@ -1,5 +1,5 @@
 /*
- * $Id: mob_cmds.c,v 1.21 1998-11-21 06:00:36 fjoe Exp $
+ * $Id: mob_cmds.c,v 1.22 1998-12-01 10:53:54 fjoe Exp $
  */
 
 /***************************************************************************
@@ -139,44 +139,44 @@ void do_mpstat(CHAR_DATA *ch, const char *argument)
 
     if (arg[0] == '\0')
     {
-	char_puts("Mpstat whom?\n\r", ch);
+	char_puts("Mpstat whom?\n", ch);
 	return;
     }
 
     if ((victim = get_char_world(ch, arg)) == NULL)
     {
-	char_puts("No such creature.\n\r", ch);
+	char_puts("No such creature.\n", ch);
 	return;
     }
 
     if (!IS_NPC(victim))
     {
-	char_puts("That is not a mobile.\n\r", ch);
+	char_puts("That is not a mobile.\n", ch);
 	return;
     }
 
     if ((victim = get_char_world(ch, arg)) == NULL)
     {
-	char_puts("No such creature visible.\n\r", ch);
+	char_puts("No such creature visible.\n", ch);
 	return;
     }
 
-    char_printf(ch, "Mobile #%-6d [%s]\n\r",
+    char_printf(ch, "Mobile #%-6d [%s]\n",
 		victim->pIndexData->vnum, mlstr_mval(victim->short_descr));
 
-    char_printf(ch, "Delay   %-6d [%s]\n\r",
+    char_printf(ch, "Delay   %-6d [%s]\n",
 		victim->mprog_delay,
 		victim->mprog_target == NULL ?
 		"No target" : victim->mprog_target->name);
 
     if (!victim->pIndexData->mptrig_types) {
-	char_puts("[No programs set]\n\r", ch);
+	char_puts("[No programs set]\n", ch);
 	return;
     }
 
     for (i = 0, mptrig = victim->pIndexData->mptrig_list; mptrig != NULL;
 	 mptrig = mptrig->next)
-	char_printf(ch, "[%2d] Trigger [%-8s] Program [%4d] Phrase [%s]\n\r",
+	char_printf(ch, "[%2d] Trigger [%-8s] Program [%4d] Phrase [%s]\n",
 	      ++i,
 	      flag_string(mptrig_types, mptrig->type),
 	      mptrig->vnum,
@@ -206,7 +206,7 @@ void do_mpgecho(CHAR_DATA *ch, const char *argument)
 	    if (IS_IMMORTAL(d->character))
 		char_puts("Mob echo> ", d->character);
 	    char_puts(argument, d->character);
-	    char_puts("\n\r", d->character);
+	    char_puts("\n", d->character);
 	}
     }
 }
@@ -239,7 +239,7 @@ void do_mpzecho(CHAR_DATA *ch, const char *argument)
 	    if (IS_IMMORTAL(d->character))
 		char_puts("Mob echo> ", d->character);
 	    char_puts(argument, d->character);
-	    char_puts("\n\r", d->character);
+	    char_puts("\n", d->character);
 	}
     }
 }

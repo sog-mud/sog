@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.91 1998-11-25 15:17:46 fjoe Exp $
+ * $Id: update.c,v 1.92 1998-12-01 10:53:56 fjoe Exp $
  */
 
 /***************************************************************************
@@ -124,6 +124,11 @@ void advance_level(CHAR_DATA *ch)
 				  (int) (current_time - ch->logon)) / 3600;
 	set_title(ch, title_lookup(ch));
 
+	if (ch->pcdata->plevels > 0) {
+		ch->pcdata->plevels--;
+		return;
+	}
+
 	add_hp = (con_app[get_curr_stat(ch,STAT_CON)].hitp +
 		  number_range(1,5)) - 3;
 	add_hp = (add_hp * cl->hp_rate) / 100;
@@ -155,7 +160,7 @@ void advance_level(CHAR_DATA *ch)
 	ch->pcdata->perm_mana += add_mana;
 	ch->pcdata->perm_move += add_move;
 
-	char_printf(ch, "Your gain is {C%d{x hp, {C%d{x mana, {C%d{x mv {C%d{x prac.\n\r",
+	char_printf(ch, "Your gain is {C%d{x hp, {C%d{x mana, {C%d{x mv {C%d{x prac.\n",
 			add_hp, add_mana, add_move, add_prac);
 }   
 
@@ -165,7 +170,7 @@ void gain_exp(CHAR_DATA *ch, int gain)
 		return;
 
 	if (IS_SET(ch->act,PLR_NOEXP) && gain > 0) {
-		char_puts("You can't gain exp without your spirit.\n\r", ch);
+		char_puts("You can't gain exp without your spirit.\n", ch);
 		return;
 	}
 
@@ -179,10 +184,6 @@ void gain_exp(CHAR_DATA *ch, int gain)
 
 		if ((ch->class == CLASS_SAMURAI) && (ch->level == 10))
 			ch->wimpy = 0;
-
-		/* Level counting */
-		if (ch->level > 5)
-			total_levels++;
 
 		if (ch->level == 91)
 	        	log_printf("%s made level 91.", ch->name);
@@ -439,27 +440,27 @@ void gain_condition(CHAR_DATA *ch, int iCond, int value)
 	&&  ch->pcdata->condition[iCond] > -6) {
 		switch (iCond) {
 		case COND_HUNGER:
-			char_puts("You are hungry.\n\r",  ch);
+			char_puts("You are hungry.\n",  ch);
 			break;
 
 		case COND_THIRST:
-			char_puts("You are thirsty.\n\r", ch);
+			char_puts("You are thirsty.\n", ch);
 			break;
 	 
 		case COND_DRUNK:
 			if (condition != 0)
-				char_puts("You are sober.\n\r", ch);
+				char_puts("You are sober.\n", ch);
 			break;
 
 		case COND_BLOODLUST:
 			if (condition != 0)
-				char_puts("You are hungry for blood.\n\r",
+				char_puts("You are hungry for blood.\n",
 					     ch);
 			break;
 
 		case COND_DESIRE:
 			if (condition != 0)
-				char_puts("You have missed your home.\n\r",
+				char_puts("You have missed your home.\n",
 					     ch);
 			break;
 		}
@@ -468,7 +469,7 @@ void gain_condition(CHAR_DATA *ch, int iCond, int value)
 	if (ch->pcdata->condition[iCond] == -6 && ch->level >= PK_MIN_LEVEL) {
 		switch (iCond) {
 		case COND_HUNGER:
-			char_puts("You are starving!\n\r",  ch);
+			char_puts("You are starving!\n",  ch);
 			act("$n is starving!",  ch, NULL, NULL, TO_ROOM);
 			damage_hunger = ch->max_hit * number_range(2, 4) / 100;
 			if (!damage_hunger)
@@ -480,7 +481,7 @@ void gain_condition(CHAR_DATA *ch, int iCond, int value)
 			break;
 
 		case COND_THIRST:
-			char_puts("You are dying of thrist!\n\r", ch);
+			char_puts("You are dying of thrist!\n", ch);
 			act("$n is dying of thirst!", ch, NULL, NULL, TO_ROOM);
 			damage_hunger = ch->max_hit * number_range(2, 4) / 100;
 			if (!damage_hunger)
@@ -494,7 +495,7 @@ void gain_condition(CHAR_DATA *ch, int iCond, int value)
 		case COND_BLOODLUST:
 			fdone = 0;
 			char_puts("You are suffering "
-				     "from thrist of blood!\n\r",ch);
+				     "from thrist of blood!\n",ch);
 			act("$n is suffering from thirst of blood!",
 			    ch, NULL, NULL, TO_ROOM);
 			if (ch->in_room && ch->in_room->people
@@ -527,7 +528,7 @@ void gain_condition(CHAR_DATA *ch, int iCond, int value)
 			break;
 
 		case COND_DESIRE:
-			char_puts("You want to go your home!\n\r", ch);
+			char_puts("You want to go your home!\n", ch);
 			act("$n desires for $s home!", ch, NULL, NULL, TO_ROOM);
 			if (ch->position >= POS_STANDING) 
 				move_char(ch, number_door(), FALSE);
@@ -578,7 +579,7 @@ void mobile_update(void)
 		if (ch->last_death_time != -1
 		&&  current_time - ch->last_death_time >= GHOST_DELAY_TIME
 		&&  IS_SET(ch->act, PLR_GHOST)) {
-			char_puts("You return to your normal form.\n\r", ch);
+			char_puts("You return to your normal form.\n", ch);
 			REMOVE_BIT(ch->act, PLR_GHOST);
 		}
 
@@ -898,22 +899,22 @@ void weather_update(void)
 		switch (time_info.hour) {
 		case  5:
 			weather_info.sunlight = SUN_LIGHT;
-			buf_add(output, "The day has begun.\n\r");
+			buf_add(output, "The day has begun.\n");
 			break;
 
 		case  6:
 			weather_info.sunlight = SUN_RISE;
-			buf_add(output, "The sun rises in the east.\n\r");
+			buf_add(output, "The sun rises in the east.\n");
 			break;
 
 		case 19:
 			weather_info.sunlight = SUN_SET;
-			buf_add(output, "The sun slowly disappears in the west.\n\r");
+			buf_add(output, "The sun slowly disappears in the west.\n");
 			break;
 
 		case 20:
 			weather_info.sunlight = SUN_DARK;
-			buf_add(output, "The night has begun.\n\r");
+			buf_add(output, "The night has begun.\n");
 			break;
 		}
 
@@ -926,7 +927,7 @@ void weather_update(void)
 		case SKY_CLOUDLESS:
 			if (weather_info.mmhg < 990
 			|| (weather_info.mmhg < 1010 && number_bits(2) == 0)) {
-				buf_add(output, "The sky is getting cloudy.\n\r");
+				buf_add(output, "The sky is getting cloudy.\n");
 				weather_info.sky = SKY_CLOUDY;
 			}
 			break;
@@ -934,25 +935,25 @@ void weather_update(void)
 		case SKY_CLOUDY:
 			if (weather_info.mmhg < 970
 			|| (weather_info.mmhg < 990 && number_bits(2) == 0)) {
-				buf_add(output, "It starts to rain.\n\r");
+				buf_add(output, "It starts to rain.\n");
 				weather_info.sky = SKY_RAINING;
 			}
 
 			if (weather_info.mmhg > 1030 && number_bits(2) == 0) {
-				buf_add(output, "The clouds disappear.\n\r");
+				buf_add(output, "The clouds disappear.\n");
 				weather_info.sky = SKY_CLOUDLESS;
 			}
 			break;
 
 		case SKY_RAINING:
 			if (weather_info.mmhg < 970 && number_bits(2) == 0) {
-				buf_add(output, "Lightning flashes in the sky.\n\r");
+				buf_add(output, "Lightning flashes in the sky.\n");
 				weather_info.sky = SKY_LIGHTNING;
 			}
 
 			if (weather_info.mmhg > 1030
 			|| (weather_info.mmhg > 1010 && number_bits(2) == 0)) {
-				buf_add(output, "The rain stopped.\n\r");
+				buf_add(output, "The rain stopped.\n");
 				weather_info.sky = SKY_CLOUDY;
 			}
 			break;
@@ -960,7 +961,7 @@ void weather_update(void)
 		case SKY_LIGHTNING:
 			if (weather_info.mmhg > 1010
 			|| (weather_info.mmhg > 990 && number_bits(2) == 0)) {
-				buf_add(output, "The lightning has stopped.\n\r");
+				buf_add(output, "The lightning has stopped.\n");
 				weather_info.sky = SKY_RAINING;
 			}
 			break;
@@ -1025,11 +1026,11 @@ void char_update(void)
 			if (!MOUNTED(ch)) {
 				if (!IS_AFFECTED(ch, AFF_HIDE) 
 				&&  (r->aff & AFF_HIDE))
-					char_puts("You step back into the shadows.\n\r", ch);
+					char_puts("You step back into the shadows.\n", ch);
 
 				if (!IS_AFFECTED(ch, AFF_SNEAK)
 				&&  (r->aff & AFF_SNEAK))
-					char_puts("You move silently again.\n\r", ch);
+					char_puts("You move silently again.\n", ch);
 			}
 			else
 				skip |= AFF_HIDE | AFF_FADE | AFF_INVIS |
@@ -1135,7 +1136,7 @@ void char_update(void)
 					act("$n disappears into the void.",
 					    ch, NULL, NULL, TO_ROOM);
 					char_puts("You disappear "
-						  "into the void.\n\r", ch);
+						  "into the void.\n", ch);
 					if (ch->level > 1)
 						save_char_obj(ch, FALSE);
   					char_from_room(ch);
@@ -1175,7 +1176,7 @@ void char_update(void)
 				&&  paf->type > 0
 				&&  (sk = skill_lookup(paf->type))
 				&&  !IS_NULLSTR(sk->msg_off)) 
-					char_printf(ch, "%s\n\r", sk->msg_off);
+					char_printf(ch, "%s\n", sk->msg_off);
 				affect_remove(ch, paf);
 			}
 		}
@@ -1194,7 +1195,7 @@ void char_update(void)
 
 			act("The witch curse makes $n feel $s life slipping away.",
 			    ch, NULL, NULL, TO_ROOM);
-			char_puts("The witch curse makes you feeling your life slipping away.\n\r", ch);
+			char_puts("The witch curse makes you feeling your life slipping away.\n", ch);
 	
 			for (af = ch->affected; af!= NULL; af = af->next)
 				if (af->type == gsn_witch_curse)
@@ -1234,7 +1235,7 @@ void char_update(void)
 	        
 			act("$n writhes in agony as plague sores erupt from $s skin.",
 			    ch, NULL, NULL, TO_ROOM);
-			char_puts("You writhe in agony from the plague.\n\r", ch);
+			char_puts("You writhe in agony from the plague.\n", ch);
 			for (af = ch->affected; af != NULL; af = af->next)
 				if (af->type == gsn_plague)
 				break;
@@ -1262,7 +1263,7 @@ void char_update(void)
 				&& !IS_IMMORTAL(vch) 
 				&& !IS_AFFECTED(vch, AFF_PLAGUE) 
 				&& number_bits(2) == 0) {
-					char_puts("You feel hot and feverish.\n\r", vch);
+					char_puts("You feel hot and feverish.\n", vch);
 					act_nprintf(vch, NULL, NULL, TO_ROOM,
 						POS_RESTING ,MSG_N_SHIVERS_ILL);
 					affect_join(vch, &plague);
@@ -1286,7 +1287,7 @@ void char_update(void)
 			if (poison != NULL) {
 				act("$n shivers and suffers.",
 				    ch, NULL, NULL, TO_ROOM); 
-				char_puts("You shiver and suffer.\n\r", ch);
+				char_puts("You shiver and suffer.\n", ch);
 				damage(ch, ch, poison->level/10 + 1, gsn_poison,
 				       DAM_POISON, TRUE);
 			}
@@ -1842,9 +1843,9 @@ void light_update(void)
 		}
 
 		if (dam_light == 1)
-			char_puts("The light in the room disturbs you.\n\r", ch);
+			char_puts("The light in the room disturbs you.\n", ch);
 		else
-			char_puts("Sun light disturbs you.\n\r",ch);
+			char_puts("Sun light disturbs you.\n",ch);
 
 		dam_light = 1 + (ch->max_hit * 4)/ 100;
 		damage(ch, ch, dam_light, TYPE_HUNGER, DAM_LIGHT_V, TRUE);
@@ -1930,7 +1931,7 @@ void room_affect_update(void)
 		&&  !is_safe_rspell(af->level,vch)
 	        	&&  !IS_AFFECTED(vch,AFF_PLAGUE) && number_bits(3) == 0)
 	        	{
-	        	    char_puts("You feel hot and feverish.\n\r",vch);
+	        	    char_puts("You feel hot and feverish.\n",vch);
 	        	    act("$n shivers and looks very ill.",vch,NULL,NULL,TO_ROOM);
 	        	    affect_join(vch,&plague);
 	        	}
@@ -1973,7 +1974,7 @@ void room_affect_update(void)
 		&&  !is_safe_rspell(af->level,vch)
 	        	&&  !IS_AFFECTED(vch,AFF_POISON) && number_bits(3) == 0)
 	        	{
-	        	    char_puts("You feel very sick.\n\r",vch);
+	        	    char_puts("You feel very sick.\n",vch);
 	        	    act("$n looks very ill.",vch,NULL,NULL,TO_ROOM);
 	        	    affect_join(vch,&paf);
 	        	}
@@ -2016,7 +2017,7 @@ void room_affect_update(void)
 		&&  !is_safe_rspell(af->level,vch)
 	        	&&  !IS_AFFECTED(vch,AFF_SLOW) && number_bits(3) == 0)
 	        	{
-	        	    char_puts("You start to move less quickly.\n\r",vch);
+	        	    char_puts("You start to move less quickly.\n",vch);
 	        	    act("$n is moving less quickly.",vch,NULL,NULL,TO_ROOM);
 	        	    affect_join(vch,&paf);
 	        	}
@@ -2062,7 +2063,7 @@ void room_affect_update(void)
 	        	{
 		  if (IS_AWAKE(vch))
 		   {
-	        	    char_puts("You feel very sleepy.......zzzzzz.\n\r",vch);
+	        	    char_puts("You feel very sleepy.......zzzzzz.\n",vch);
 	        	    act("$n goes to sleep.",vch,NULL,NULL,TO_ROOM);
 		    vch->position = POS_SLEEPING;
 		   }		    
@@ -2108,7 +2109,7 @@ void room_affect_update(void)
 		&&  !is_safe_rspell(af->level,vch)
 	        	&&  !is_affected(vch,gsn_evil_spirit) && number_bits(3) == 0)
 	        	{
-	        	    char_puts("You feel worse than ever.\n\r",vch);
+	        	    char_puts("You feel worse than ever.\n",vch);
 	        	    act("$n looks more evil.",vch,NULL,NULL,TO_ROOM);
 	        	    affect_join(vch,&paf);
 	        	}
@@ -2152,7 +2153,7 @@ void room_affect_update(void)
 		&&  !is_safe_rspell(af->level,vch)
 	        	&&  !IS_AFFECTED(vch,AFF_) && number_bits(3) == 0)
 	        	{
-	        	    char_puts("You feel hot and feverish.\n\r",vch);
+	        	    char_puts("You feel hot and feverish.\n",vch);
 	        	    act("$n shivers and looks very ill.",vch,NULL,NULL,TO_ROOM);
 	        	    affect_join(vch,&paf);
 	        	}
@@ -2186,11 +2187,11 @@ void check_reboot(void)
 			if (d->character != NULL)
 				if (rebooter || !IS_IMMORTAL(d->character))
 					char_printf(d->character, 
-						    "{*{W*****{R rEBOOT IN {W%d{R MIN. {W*****{x\n\r",
+						    "{*{W*****{R rEBOOT IN {W%d{R MIN. {W*****{x\n",
 					    	    reboot_counter);
 				else
 					char_printf(d->character, 
-						    "{*{W*****{R AUTOMAGIC rEBOOT IN {W%d{R MIN. {W*****{x\n\r",
+						    "{*{W*****{R AUTOMAGIC rEBOOT IN {W%d{R MIN. {W*****{x\n",
 					    	    reboot_counter);
 
 		/* FALLTHRU */

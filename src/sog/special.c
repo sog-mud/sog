@@ -1,5 +1,5 @@
 /*
- * $Id: special.c,v 1.32 1998-10-22 08:48:13 fjoe Exp $
+ * $Id: special.c,v 1.33 1998-12-01 10:53:55 fjoe Exp $
  */
 
 /***************************************************************************
@@ -332,7 +332,7 @@ bool spec_patrolman(CHAR_DATA *ch)
 
 			if (vch->in_room != ch->in_room 
 			&&  vch->in_room->area == ch->in_room->area)
-				char_puts("You hear a shrill whistling sound.\n\r", vch);
+				char_puts("You hear a shrill whistling sound.\n", vch);
 		}
 	}
 

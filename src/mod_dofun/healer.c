@@ -1,5 +1,5 @@
 /*
- * $Id: healer.c,v 1.14 1998-11-11 05:46:56 fjoe Exp $
+ * $Id: healer.c,v 1.15 1998-12-01 10:53:52 fjoe Exp $
  */
 
 /***************************************************************************
@@ -65,12 +65,12 @@ void do_heal(CHAR_DATA *ch, const char *argument)
 		 	break;
  
     if (mob == NULL) {
-        char_puts("You can't do that here.\n\r", ch);
+        char_puts("You can't do that here.\n", ch);
         return;
     }
 
     if (HAS_SKILL(ch, gsn_spellbane)) {
-	char_puts("You are Battle Rager, not the filthy magician\n\r",ch);
+	char_puts("You are Battle Rager, not the filthy magician\n",ch);
 	return;
     }
 
@@ -79,19 +79,19 @@ void do_heal(CHAR_DATA *ch, const char *argument)
     if (arg[0] == '\0') {
         /* display price list */
 	act("Healer offers the following spells.",ch,NULL,mob,TO_CHAR);
-	char_puts("  light   : cure light wounds     10 gold\n\r",ch);
-	char_puts("  serious : cure serious wounds   15 gold\n\r",ch);
-	char_puts("  critic  : cure critical wounds  25 gold\n\r",ch);
-	char_puts("  heal    : healing spell         50 gold\n\r",ch);
-	char_puts("  blind   : cure blindness        20 gold\n\r",ch);
-	char_puts("  disease : cure disease          15 gold\n\r",ch);
-	char_puts("  poison  : cure poison           25 gold\n\r",ch); 
-	char_puts("  uncurse : remove curse          50 gold\n\r",ch);
-	char_puts("  refresh : restore movement       5 gold\n\r",ch);
-	char_puts("  mana    : restore mana          10 gold\n\r",ch);
-	char_puts("  master heal: master heal spell 200 gold\n\r",ch);
-	char_puts("  energize : restore 300 mana    200 gold\n\r",ch);
-	char_puts(" Type heal <type> to be healed.\n\r",ch);
+	char_puts("  light   : cure light wounds     10 gold\n",ch);
+	char_puts("  serious : cure serious wounds   15 gold\n",ch);
+	char_puts("  critic  : cure critical wounds  25 gold\n",ch);
+	char_puts("  heal    : healing spell         50 gold\n",ch);
+	char_puts("  blind   : cure blindness        20 gold\n",ch);
+	char_puts("  disease : cure disease          15 gold\n",ch);
+	char_puts("  poison  : cure poison           25 gold\n",ch); 
+	char_puts("  uncurse : remove curse          50 gold\n",ch);
+	char_puts("  refresh : restore movement       5 gold\n",ch);
+	char_puts("  mana    : restore mana          10 gold\n",ch);
+	char_puts("  master heal: master heal spell 200 gold\n",ch);
+	char_puts("  energize : restore 300 mana    200 gold\n",ch);
+	char_puts(" Type heal <type> to be healed.\n",ch);
 	return;
     }
 
@@ -216,13 +216,13 @@ void do_heal(CHAR_DATA *ch, const char *argument)
      {
 	ch->mana += 300;
 	ch->mana = UMIN(ch->mana,ch->max_mana);
-	char_puts("A warm glow passes through you.\n\r",ch);
+	char_puts("A warm glow passes through you.\n",ch);
      }
     if (sn == -3)
     {
 	ch->mana += dice(2,8) + mob->level / 3;
 	ch->mana = UMIN(ch->mana,ch->max_mana);
-	char_puts("A warm glow passes through you.\n\r",ch);
+	char_puts("A warm glow passes through you.\n",ch);
     }
   
      if (sn < 0)

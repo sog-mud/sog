@@ -1,5 +1,5 @@
 /*
- * $Id: repair.c,v 1.12 1998-11-23 06:38:04 fjoe Exp $
+ * $Id: repair.c,v 1.13 1998-12-01 10:53:55 fjoe Exp $
  */
 
 /***************************************************************************
@@ -95,7 +95,7 @@ void do_repair(CHAR_DATA *ch, const char *argument)
  
 	if (mob == NULL)
 	{
-	    char_puts("You can't do that here.\n\r", ch);
+	    char_puts("You can't do that here.\n", ch);
 	    return;
 	}
 
@@ -103,7 +103,7 @@ void do_repair(CHAR_DATA *ch, const char *argument)
 
 	if (arg[0] == '\0') {
 	do_say(mob,"I will repair a weapon for you, for a price.");
-	char_puts("Type estimate <weapon> to be assessed for damage.\n\r",ch);
+	char_puts("Type estimate <weapon> to be assessed for damage.\n",ch);
 	return;
 	}
 	if ((obj = get_obj_carry(ch, arg)) == NULL)
@@ -125,7 +125,7 @@ void do_repair(CHAR_DATA *ch, const char *argument)
 
 	if (obj->cost == 0) {
 		/* XXX */
-		doprintf(do_say, mob, "%s is beyond repair.\n\r",
+		doprintf(do_say, mob, "%s is beyond repair.\n",
 			 mlstr_mval(obj->short_descr));
    		return;
 	}
@@ -164,7 +164,7 @@ void do_estimate(CHAR_DATA *ch, const char *argument)
  
 	if (mob == NULL)
 	{
-	    char_puts("You can't do that here.\n\r", ch);
+	    char_puts("You can't do that here.\n", ch);
 	    return;
 	}
 	
@@ -223,7 +223,7 @@ void do_restring(CHAR_DATA *ch, const char *argument)
 #if 0
 	if (mob == NULL) {
 #endif
-	    char_puts("You can't do that here.\n\r", ch);
+	    char_puts("You can't do that here.\n", ch);
 	    return;
 #if 0
 	/* XXX */
@@ -235,9 +235,9 @@ void do_restring(CHAR_DATA *ch, const char *argument)
 
 	if (arg[0] == '\0' || arg1[0] == '\0' || arg2[0] == '\0')
 	{
-		char_puts("Syntax:\n\r",ch);
-		char_puts("  restring <obj> <field> <string>\n\r",ch);
-		char_puts("    fields: name short long\n\r",ch);
+		char_puts("Syntax:\n",ch);
+		char_puts("  restring <obj> <field> <string>\n",ch);
+		char_puts("    fields: name short long\n",ch);
 		return;
 	}
 
@@ -269,7 +269,7 @@ void do_restring(CHAR_DATA *ch, const char *argument)
 		obj->description = str_dup(arg2);
 	}
 	else {
-		char_puts("That's not a valid Field.\n\r",ch);
+		char_puts("That's not a valid Field.\n",ch);
 		return;
 	}
 	
@@ -279,9 +279,9 @@ void do_restring(CHAR_DATA *ch, const char *argument)
 	mob->gold += cost;
 	act_printf(ch, NULL, mob, TO_ROOM, POS_RESTING,
 		  "$N takes $n's item, tinkers with it, and returns it to $n.");
-	char_printf(ch, "%s takes your item, tinkers with it, and returns %s to you.\n\r", mob->short_descr, obj->short_descr);
-	char_puts("Remember, if we find your new string offensive, we will not be happy.\n\r", ch);
-	char_puts(" This is your ONE AND ONLY Warning.\n\r", ch);
+	char_printf(ch, "%s takes your item, tinkers with it, and returns %s to you.\n", mob->short_descr, obj->short_descr);
+	char_puts("Remember, if we find your new string offensive, we will not be happy.\n", ch);
+	char_puts(" This is your ONE AND ONLY Warning.\n", ch);
 #endif
 }
 
@@ -295,38 +295,38 @@ void do_smithing(CHAR_DATA *ch, const char *argument)
 
 	if ((sn = sn_lookup("smithing")) < 0
 	||  (chance = get_skill(ch, sn)) == 0) {
-		char_puts("Huh?\n\r", ch);
+		char_puts("Huh?\n", ch);
 		return;
 	}
 
 	if (ch->fighting) {
-		char_puts("Wait until the fight finishes.\n\r", ch);
+		char_puts("Wait until the fight finishes.\n", ch);
 		return;
 	}
 
 	one_argument(argument, arg);
 	if (arg[0] == '\0') {
-		char_puts("Which object do you want to repair.\n\r",ch);
+		char_puts("Which object do you want to repair.\n",ch);
 		return;
 	}
 
 	if ((obj = get_obj_carry(ch, arg)) == NULL) {
-		char_puts("You are not carrying that.\n\r",ch);
+		char_puts("You are not carrying that.\n",ch);
 		return;
 	}
 
 	if (obj->condition >= 100) {
-		char_puts("But that item is not broken.\n\r",ch);
+		char_puts("But that item is not broken.\n",ch);
 		return;
 	}
 
 	if ((hammer = get_eq_char(ch, WEAR_HOLD)) == NULL) {
-		char_puts("You are not holding a hammer.\n\r",ch);
+		char_puts("You are not holding a hammer.\n",ch);
 		return;
 	}
 
 	if (hammer->pIndexData->vnum != OBJ_VNUM_HAMMER) {
-		char_puts("That is not the correct hammer.\n\r",ch);
+		char_puts("That is not the correct hammer.\n",ch);
 		return;
 	}
 

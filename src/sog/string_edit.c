@@ -1,5 +1,5 @@
 /*
- * $Id: string_edit.c,v 1.21 1998-11-23 06:38:04 fjoe Exp $
+ * $Id: string_edit.c,v 1.22 1998-12-01 10:53:56 fjoe Exp $
  */
 
 /***************************************************************************
@@ -34,10 +34,10 @@ char *numlines(const char *);
  ****************************************************************************/
 void string_edit(CHAR_DATA *ch, const char **pString)
 {
-	char_puts("-========- Entering EDIT Mode -=========-\n\r"
-		  "    Type :h on a new line for help\n\r"
-		  " Terminate with a ~ or @ on a blank line.\n\r"
-		  "-=======================================-\n\r", ch);
+	char_puts("-========- Entering EDIT Mode -=========-\n"
+		  "    Type :h on a new line for help\n"
+		  " Terminate with a ~ or @ on a blank line.\n"
+		  "-=======================================-\n", ch);
 	free_string(*pString);
 	*pString = str_empty;
 	ch->desc->pString = pString;
@@ -50,18 +50,18 @@ void string_edit(CHAR_DATA *ch, const char **pString)
  ****************************************************************************/
 void string_append(CHAR_DATA *ch, const char **pString)
 {
-    char_puts("-=======- Entering APPEND Mode -========-\n\r", ch);
-    char_puts("    Type :h on a new line for help\n\r", ch);
-    char_puts(" Terminate with a ~ or @ on a blank line.\n\r", ch);
-    char_puts("-=======================================-\n\r", ch);
+    char_puts("-=======- Entering APPEND Mode -========-\n", ch);
+    char_puts("    Type :h on a new line for help\n", ch);
+    char_puts(" Terminate with a ~ or @ on a blank line.\n", ch);
+    char_puts("-=======================================-\n", ch);
 
     if (*pString == NULL)
 	*pString = str_dup(str_empty);
     char_puts(numlines(*pString), ch);
 
-/* numlines entrega el string con \n\r */
+/* numlines entrega el string con \n */
 /*  if (*(*pString + strlen(*pString) - 1) != '\r')
-	char_puts("\n\r", ch); */
+	char_puts("\n", ch); */
 
     ch->desc->pString = pString;
 
@@ -123,7 +123,7 @@ void string_add(CHAR_DATA *ch, const char *argument)
 
         if (!str_cmp(arg1+1, "c"))
         {
-            char_puts("String cleared.\n\r", ch);
+            char_puts("String cleared.\n", ch);
 	    free_string(*ch->desc->pString);
 	    *ch->desc->pString = str_dup(str_empty);
             return;
@@ -131,7 +131,7 @@ void string_add(CHAR_DATA *ch, const char *argument)
 
         if (!str_cmp(arg1+1, "s"))
         {
-            char_printf(ch, "String so far:\n\r%s",
+            char_printf(ch, "String so far:\n%s",
             		numlines(*ch->desc->pString));
             return;
         }
@@ -141,34 +141,34 @@ void string_add(CHAR_DATA *ch, const char *argument)
             if (arg2[0] == '\0')
             {
                 char_puts(
-                    "usage:  :r \"old string\" \"new string\"\n\r", ch);
+                    "usage:  :r \"old string\" \"new string\"\n", ch);
                 return;
             }
 
             *ch->desc->pString =
                 string_replace(*ch->desc->pString, arg2, arg3);
-            char_printf(ch, "'%s' replaced with '%s'.\n\r", arg2, arg3);
+            char_printf(ch, "'%s' replaced with '%s'.\n", arg2, arg3);
             return;
         }
 
         if (!str_cmp(arg1+1, "f"))
         {
             *ch->desc->pString = format_string(*ch->desc->pString);
-            char_puts("String formatted.\n\r", ch);
+            char_puts("String formatted.\n", ch);
             return;
         }
         
 	if (!str_cmp(arg1+1, "ld"))
 	{
 		*ch->desc->pString = string_linedel(*ch->desc->pString, atoi(arg2));
-		char_puts("Line deleted.\n\r", ch);
+		char_puts("Line deleted.\n", ch);
 		return;
 	}
 
 	if (!str_cmp(arg1+1, "li"))
 	{
 		*ch->desc->pString = string_lineadd(*ch->desc->pString, tmparg3, atoi(arg2));
-		char_puts("Line inserted.\n\r", ch);
+		char_puts("Line inserted.\n", ch);
 		return;
 	}
 
@@ -176,7 +176,7 @@ void string_add(CHAR_DATA *ch, const char *argument)
 	{
 		*ch->desc->pString = string_linedel(*ch->desc->pString, atoi(arg2));
 		*ch->desc->pString = string_lineadd(*ch->desc->pString, tmparg3, atoi(arg2));
-		char_puts("Line replaced.\n\r", ch);
+		char_puts("Line replaced.\n", ch);
 		return;
 	}
 
@@ -189,22 +189,22 @@ void string_add(CHAR_DATA *ch, const char *argument)
 
         if (!str_cmp(arg1+1, "h"))
         {
-            char_puts("Sedit help (commands on blank line):   \n\r", ch);
-            char_puts(":r 'old' 'new'   - replace a substring \n\r", ch);
-            char_puts("                   (requires '', \"\") \n\r", ch);
-            char_puts(":h               - get help (this info)\n\r", ch);
-            char_puts(":s               - show string so far  \n\r", ch);
-            char_puts(":f               - (word wrap) string  \n\r", ch);
-            char_puts(":c               - clear string so far \n\r", ch);
-            char_puts(":ld <num>        - delete line #num\n\r", ch);
-            char_puts(":li <num> <str>  - insert <str> before line #num\n\r", ch);
-	    char_puts(":lr <num> <str>  - replace line #num with <str>\n\r", ch);
-            char_puts("@                - end string          \n\r", ch);
-            char_puts(":x, :q, :wq      - end string          \n\r", ch);
+            char_puts("Sedit help (commands on blank line):   \n", ch);
+            char_puts(":r 'old' 'new'   - replace a substring \n", ch);
+            char_puts("                   (requires '', \"\") \n", ch);
+            char_puts(":h               - get help (this info)\n", ch);
+            char_puts(":s               - show string so far  \n", ch);
+            char_puts(":f               - (word wrap) string  \n", ch);
+            char_puts(":c               - clear string so far \n", ch);
+            char_puts(":ld <num>        - delete line #num\n", ch);
+            char_puts(":li <num> <str>  - insert <str> before line #num\n", ch);
+	    char_puts(":lr <num> <str>  - replace line #num with <str>\n", ch);
+            char_puts("@                - end string          \n", ch);
+            char_puts(":x, :q, :wq      - end string          \n", ch);
             return;
         }
 
-        char_puts("SEdit: Invalid command.\n\r", ch);
+        char_puts("SEdit: Invalid command.\n", ch);
         return;
     }
 
@@ -223,7 +223,7 @@ void string_add(CHAR_DATA *ch, const char *argument)
      */
     if (strlen(*ch->desc->pString)+strlen(argument) >= (MAX_STRING_LENGTH - 4))
     {
-        char_puts("String too long, last line skipped.\n\r", ch);
+        char_puts("String too long, last line skipped.\n", ch);
 
 	/* Force character out of editing mode. */
         ch->desc->pString = NULL;
@@ -233,7 +233,7 @@ void string_add(CHAR_DATA *ch, const char *argument)
 	p = *ch->desc->pString;
 	if (p[strlen(p)-1] != '\\') {
 		*ch->desc->pString = str_add(*ch->desc->pString, argument,
-					     "\n\r", NULL);
+					     "\n", NULL);
 		free_string(p);
 	}
 }
@@ -371,7 +371,7 @@ const char *format_string(const char *oldstring /*, bool fSpace */)
     if (i)
     {
       strnzncat(xbuf,rdesc, sizeof(xbuf), i);
-      strcat(xbuf,"\n\r");
+      strcat(xbuf,"\n");
       rdesc += i+1;
       while (*rdesc == ' ') rdesc++;
     }
@@ -379,7 +379,7 @@ const char *format_string(const char *oldstring /*, bool fSpace */)
     {
       bug ("No spaces", 0);
       strnzncat(xbuf,rdesc, sizeof(xbuf), 75);
-      strcat(xbuf,"-\n\r");
+      strcat(xbuf,"-\n");
       rdesc += 76;
     }
   }
@@ -389,7 +389,7 @@ const char *format_string(const char *oldstring /*, bool fSpace */)
     i--;
   strnzncat(xbuf,rdesc, sizeof(xbuf), i+1);
   if (xbuf[strlen(xbuf)-2] != '\n')
-    strcat(xbuf,"\n\r");
+    strcat(xbuf,"\n");
 
   free_string(oldstring);
   return(str_dup(xbuf));
@@ -445,7 +445,7 @@ const char *string_lineadd(const char *string, char *newstr, int line)
 		if (cnt == line && !done)
 		{
 			strcat(buf, newstr);
-			strcat(buf, "\n\r");
+			strcat(buf, "\n");
 			tmp += strlen(newstr) + 2;
 			cnt++;
 			done = TRUE;
@@ -471,7 +471,7 @@ const char *string_lineadd(const char *string, char *newstr, int line)
 	return str_dup(buf);
 }
 
-/* buf queda con la linea sin \n\r */
+/* buf queda con la linea sin \n */
 const char *getline(const char *str, char *buf)
 {
 	int tmp = 0;
@@ -512,7 +512,7 @@ char *numlines(const char *string)
 	while (*string)
 	{
 		string = getline(string, tmpb);
-		sprintf(buf2, "%2d. %s\n\r", cnt++, tmpb);
+		sprintf(buf2, "%2d. %s\n", cnt++, tmpb);
 		strcat(buf, buf2);
 	}
 

@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.42 1998-11-25 15:17:46 fjoe Exp $
+ * $Id: skills.c,v 1.43 1998-12-01 10:53:55 fjoe Exp $
  */
 
 /***************************************************************************
@@ -76,7 +76,7 @@ void do_gain(CHAR_DATA *ch, const char *argument)
 			break;
 
 	if (tr == NULL || !can_see(ch, tr)) {
-		char_puts("You can't do that here.\n\r",ch);
+		char_puts("You can't do that here.\n",ch);
 		return;
 	}
 
@@ -164,10 +164,10 @@ void do_spells(CHAR_DATA *ch, const char *argument)
 			
 		if (spell_list[lev][0] == '\0')
 			snprintf(spell_list[lev], sizeof(spell_list[lev]),
-				 "\n\rLevel %2d: %s", lev, buf);
+				 "\nLevel %2d: %s", lev, buf);
 		else { /* append */
 			if (++spell_columns[lev] % 2 == 0)
-				strnzcat(spell_list[lev], "\n\r          ",
+				strnzcat(spell_list[lev], "\n          ",
 					 sizeof(spell_list[lev]));
 			strnzcat(spell_list[lev], buf, sizeof(spell_list[lev]));
 		}
@@ -176,7 +176,7 @@ void do_spells(CHAR_DATA *ch, const char *argument)
 	/* return results */
 	
 	if (!found) {
-		char_puts("You know no spells.\n\r",ch);
+		char_puts("You know no spells.\n",ch);
 		return;
 	}
 	
@@ -184,7 +184,7 @@ void do_spells(CHAR_DATA *ch, const char *argument)
 	for (lev = 0; lev <= LEVEL_IMMORTAL; lev++)
 		if (spell_list[lev][0] != '\0')
 			buf_add(output, spell_list[lev]);
-	buf_add(output, "\n\r");
+	buf_add(output, "\n");
 	page_to_char(buf_string(output), ch);
 	buf_free(output);
 }
@@ -230,10 +230,10 @@ void do_skills(CHAR_DATA *ch, const char *argument)
 
 		if (skill_list[lev][0] == '\0')
 			snprintf(skill_list[lev], sizeof(skill_list[lev]),
-				 "\n\rLevel %2d: %s", lev, buf);
+				 "\nLevel %2d: %s", lev, buf);
 		else { /* append */
 			if (++skill_columns[lev] % 2 == 0)
-				strnzcat(skill_list[lev], "\n\r          ",
+				strnzcat(skill_list[lev], "\n          ",
 					 sizeof(skill_list[lev]));
 			strnzcat(skill_list[lev], buf, sizeof(skill_list[lev]));
 		}
@@ -242,7 +242,7 @@ void do_skills(CHAR_DATA *ch, const char *argument)
 	/* return results */
 	
 	if (!found) {
-		char_puts("You know no skills.\n\r",ch);
+		char_puts("You know no skills.\n",ch);
 		return;
 	}
 	
@@ -250,7 +250,7 @@ void do_skills(CHAR_DATA *ch, const char *argument)
 	for (lev = 0; lev <= LEVEL_IMMORTAL; lev++)
 		if (skill_list[lev][0] != '\0')
 			buf_add(output, skill_list[lev]);
-	buf_add(output, "\n\r");
+	buf_add(output, "\n");
 	page_to_char(buf_string(output), ch);
 	buf_free(output);
 }
@@ -432,8 +432,8 @@ void do_glist(CHAR_DATA *ch , const char *argument)
 	one_argument(argument, arg);
 	
 	if (arg[0] == '\0') {
-		char_puts("Syntax: glist group\n\r"
-			  "Use 'glist ?' to get the list of groups.\n\r", ch);
+		char_puts("Syntax: glist group\n"
+			  "Use 'glist ?' to get the list of groups.\n", ch);
 		return;
 	}
 
@@ -443,11 +443,11 @@ void do_glist(CHAR_DATA *ch , const char *argument)
 	}
 
 	if ((group = flag_value(skill_groups, arg)) < 0) {
-		char_puts("That is not a valid group.\n\r", ch);
+		char_puts("That is not a valid group.\n", ch);
 		return;
 	}
 
-	char_printf(ch, "Now listing group '%s':\n\r",
+	char_printf(ch, "Now listing group '%s':\n",
 		    flag_string(skill_groups, group));
 
 	for (sn = 0; sn < skills.nused; sn++) {
@@ -457,13 +457,13 @@ void do_glist(CHAR_DATA *ch , const char *argument)
 				    pc_skill_lookup(ch, sn) ? '*' : ' ',
 				    sk->name);
 			if (col)
-				char_puts("\n\r", ch);
+				char_puts("\n", ch);
 			col = 1 - col;
 		}
 	}
 
 	if (col)
-		char_puts("\n\r", ch);
+		char_puts("\n", ch);
 }
 
 void do_slook(CHAR_DATA *ch, const char *argument)
@@ -473,7 +473,7 @@ void do_slook(CHAR_DATA *ch, const char *argument)
 
 	one_argument(argument,arg);
 	if (arg[0] == '\0') {
-		char_puts("Syntax : slook <skill | spell>\n\r",ch);
+		char_puts("Syntax : slook <skill | spell>\n",ch);
 		return;
 	}
 
@@ -484,11 +484,11 @@ void do_slook(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (sn < 0 && (sn = sn_lookup(arg)) < 0) { 
-		char_puts("That is not a spell or skill.\n\r",ch);
+		char_puts("That is not a spell or skill.\n",ch);
 		return; 
 	}
 
-	char_printf(ch, "Skill '%s' in group '%s'.\n\r",
+	char_printf(ch, "Skill '%s' in group '%s'.\n",
 		    SKILL(sn)->name,
 		    flag_string(skill_groups, SKILL(sn)->group));
 }
@@ -511,17 +511,17 @@ void do_learn(CHAR_DATA *ch, const char *argument)
 		return;
 
 	if (!IS_AWAKE(ch)) {
-		char_puts("In your dreams, or what?\n\r", ch);
+		char_puts("In your dreams, or what?\n", ch);
 		return;
 	}	
 
 	if (argument[0] == '\0') {
-		char_puts("Syntax: learn <skill | spell> <player>\n\r", ch);
+		char_puts("Syntax: learn <skill | spell> <player>\n", ch);
 		return;
 	}
 
 	if (ch->practice <= 0) {
-		char_puts("You have no practice sessions left.\n\r", ch);
+		char_puts("You have no practice sessions left.\n", ch);
 		return;
 	}
 
@@ -530,7 +530,7 @@ void do_learn(CHAR_DATA *ch, const char *argument)
 	if ((ps = skill_vlookup(&ch->pcdata->learned, arg)) == NULL
 	||  ps->percent == 0
 	||  skill_level(ch, sn = ps->sn) > ch->level) {
-		char_puts("You can't learn that.\n\r", ch);
+		char_puts("You can't learn that.\n", ch);
 		return;
 	}
 
@@ -538,30 +538,30 @@ void do_learn(CHAR_DATA *ch, const char *argument)
 
 	if (sn == gsn_vampire) {
 		char_puts("You can't practice that, only available "
-			  "at questor.\n\r", ch);
+			  "at questor.\n", ch);
 		return;
 	}	
 
 	argument = one_argument(argument,arg);
 		
 	if ((mob = get_char_room(ch,arg)) == NULL) {
-		char_puts("Your hero is not here.\n\r", ch);
+		char_puts("Your hero is not here.\n", ch);
 		return;
 	}
 			
 	if (IS_NPC(mob) || mob->level != HERO) {
-		char_puts("You must find a hero, not an ordinary one.\n\r",
+		char_puts("You must find a hero, not an ordinary one.\n",
 			  ch);
 		return;
 	}
 
 	if (mob->status != PC_PRACTICER) {
-		char_puts("Your hero doesn't want to teach you anything.\n\r",ch);
+		char_puts("Your hero doesn't want to teach you anything.\n",ch);
 		return;
 	}
 
 	if (get_skill(mob, sn) < 100) {
-		char_puts("Your hero doesn't know that skill enough to teach you.\n\r",ch);
+		char_puts("Your hero doesn't know that skill enough to teach you.\n",ch);
 		return;
 	}
 
@@ -569,7 +569,7 @@ void do_learn(CHAR_DATA *ch, const char *argument)
 	adept = cl->skill_adept;
 
 	if (ps->percent >= adept) {
-		char_printf(ch, "You are already learned at %s.\n\r",
+		char_printf(ch, "You are already learned at %s.\n",
 			    sk->name);
 		return;
 	}
@@ -598,11 +598,11 @@ void do_learn(CHAR_DATA *ch, const char *argument)
 void do_teach(CHAR_DATA *ch, const char *argument)
 {
 	if (IS_NPC(ch) || ch->level != LEVEL_HERO) {
-		char_puts("You must be a hero.\n\r",ch);
+		char_puts("You must be a hero.\n",ch);
 		return;
 	}
 	ch->status = PC_PRACTICER;
-	char_puts("Now, you can teach youngsters your 100% skills.\n\r",ch);
+	char_puts("Now, you can teach youngsters your 100% skills.\n",ch);
 }
 
 const char *skill_name(int sn)

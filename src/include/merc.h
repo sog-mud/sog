@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.121 1998-11-25 15:17:45 fjoe Exp $
+ * $Id: merc.h,v 1.122 1998-12-01 10:53:54 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1370,17 +1370,22 @@ struct pc_data
 	int 			played;
 	int 			anti_killed;
 	int 			has_killed;
-	int			questgiver;	/* quest */
-	int	 		questpoints;	/* quest */
-	int			questtime;	/* quest */
-	int			questobj;	/* quest */
-	int			questmob;	/* quest */
+
+	int			questgiver;
+	int	 		questpoints;
+	int			questtime;
+	int			questobj;
+	int			questmob;
 	QTROUBLE_DATA *		qtrouble;
-	ROOM_INDEX_DATA *	questroom;	/* quest */
-	int			race;	/* orginal race for polymorph */
-	int			pc_killed; /* how many PC's killed by char */
-	int			clan_status; /* leader, secondary or common */
-	int			petition; /* whom petitioned? */
+	ROOM_INDEX_DATA *	questroom;
+
+	int			race;
+	int			pc_killed;
+
+	int			clan_status;
+	int			petition;
+
+	int			plevels;	/* penalty levels */
 };
 
 struct pc_skill {
@@ -1829,7 +1834,6 @@ extern		KILL_DATA		kill_table	[];
 extern		char			log_buf 	[];
 extern		TIME_INFO_DATA		time_info;
 extern		WEATHER_DATA		weather_info;
-extern		int			total_levels;
 extern		int			reboot_counter;
 
 extern		bool			MOBtrigger;

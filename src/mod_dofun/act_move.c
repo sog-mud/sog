@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.118 1998-11-27 07:23:38 kostik Exp $
+ * $Id: act_move.c,v 1.119 1998-12-01 10:53:49 fjoe Exp $
  */
 
 /***************************************************************************
@@ -158,7 +158,7 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 	if ((pexit = in_room->exit[door]) == NULL
 	||  (to_room = pexit->u1.to_room) == NULL 
 	||  !can_see_room(ch, pexit->u1.to_room)) {
-		char_puts("Alas, you cannot go that way.\n\r", ch);
+		char_puts("Alas, you cannot go that way.\n", ch);
 		return;
 	}
 
@@ -195,23 +195,23 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 	if (IS_AFFECTED(ch, AFF_CHARM)
 	&&  ch->master != NULL
 	&&  in_room == ch->master->in_room) {
-		char_puts("What? And leave your beloved master?\n\r", ch);
+		char_puts("What? And leave your beloved master?\n", ch);
 		return;
 	}
 
 /*    if (!is_room_owner(ch,to_room) && room_is_private(to_room))	*/
 	if (room_is_private(to_room)) {
-		char_puts("That room is private right now.\n\r", ch);
+		char_puts("That room is private right now.\n", ch);
 		return;
 	}
 
 	if (MOUNTED(ch)) {
 		if (MOUNTED(ch)->position < POS_FIGHTING) {
-			char_puts("Your mount must be standing.\n\r", ch);
+			char_puts("Your mount must be standing.\n", ch);
 			return; 
 		}
 		if (!mount_success(ch, MOUNTED(ch), FALSE)) {
-			char_puts("Your mount subbornly refuses to go that way.\n\r", ch);
+			char_puts("Your mount subbornly refuses to go that way.\n", ch);
 			return;
 		}
 	}
@@ -220,7 +220,7 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 		int move;
 
 		if (guild_check(ch, to_room) < 0) {
-			char_puts("You aren't allowed there.\n\r", ch);
+			char_puts("You aren't allowed there.\n", ch);
 			return;
 		}
 
@@ -235,13 +235,13 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 		||  to_room->sector_type == SECT_AIR) {
 			if (MOUNTED(ch)) {
 		        	if(!IS_AFFECTED(MOUNTED(ch), AFF_FLYING)) {
-		        		char_puts("You mount can't fly.\n\r", ch);
+		        		char_puts("You mount can't fly.\n", ch);
 						   return;
 				}
 			} 
 			else if (!IS_AFFECTED(ch, AFF_FLYING)
 			&& !IS_IMMORTAL(ch)) {
-				char_puts("You can't fly.\n\r", ch);
+				char_puts("You can't fly.\n", ch);
 				return;
 			} 
 		}
@@ -249,7 +249,7 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 		if ((in_room->sector_type == SECT_WATER_NOSWIM ||
 		     to_room->sector_type == SECT_WATER_NOSWIM)
 		&&  (MOUNTED(ch) && !IS_AFFECTED(MOUNTED(ch),AFF_FLYING))) {
-			char_puts("You can't take your mount there.\n\r", ch);
+			char_puts("You can't take your mount there.\n", ch);
 			return;
 		}  
 
@@ -277,7 +277,7 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 		    }
 		    if (!found)
 		    {
-			char_puts("You need a boat to go there.\n\r", ch);
+			char_puts("You need a boat to go there.\n", ch);
 			return;
 		    }
 		}
@@ -527,7 +527,7 @@ int find_door(CHAR_DATA *ch, char *arg)
 	}
 
 	if (!IS_SET(pexit->exit_info, EX_ISDOOR)) {
-		char_puts("You can't do that.\n\r", ch);
+		char_puts("You can't do that.\n", ch);
 		return -1;
 	}
 
@@ -543,7 +543,7 @@ void do_open(CHAR_DATA *ch, const char *argument)
 	one_argument(argument, arg);
 
 	if (arg[0] == '\0') {
-		char_puts("Open what?\n\r", ch);
+		char_puts("Open what?\n", ch);
 		return;
 	}
 
@@ -555,17 +555,17 @@ void do_open(CHAR_DATA *ch, const char *argument)
 		{
 		    if (!IS_SET(obj->value[1], EX_ISDOOR))
 		    {
-			char_puts("You can't do that.\n\r", ch);
+			char_puts("You can't do that.\n", ch);
 			return;
 		    }
 
 		    if (!IS_SET(obj->value[1], EX_CLOSED)) {
-			char_puts("It's already open.\n\r", ch);
+			char_puts("It's already open.\n", ch);
 			return;
 		    }
 
 		    if (IS_SET(obj->value[1], EX_LOCKED)) {
-			char_puts("It's locked.\n\r", ch);
+			char_puts("It's locked.\n", ch);
 			return;
 		    }
 
@@ -577,13 +577,13 @@ void do_open(CHAR_DATA *ch, const char *argument)
 
 		/* 'open object' */
 		if (obj->pIndexData->item_type != ITEM_CONTAINER)
-		    { char_puts("That's not a container.\n\r", ch); return; }
+		    { char_puts("That's not a container.\n", ch); return; }
 		if (!IS_SET(obj->value[1], CONT_CLOSED))
-		    { char_puts("It's already open.\n\r", ch); return; }
+		    { char_puts("It's already open.\n", ch); return; }
 		if (!IS_SET(obj->value[1], CONT_CLOSEABLE))
-		    { char_puts("You can't do that.\n\r", ch); return; }
+		    { char_puts("You can't do that.\n", ch); return; }
 		if (IS_SET(obj->value[1], CONT_LOCKED))
-		    { char_puts("It's locked.\n\r", ch); return; }
+		    { char_puts("It's locked.\n", ch); return; }
 
 		REMOVE_BIT(obj->value[1], CONT_CLOSED);
 		act_puts("You open $p.", ch, obj, NULL, TO_CHAR, POS_DEAD);
@@ -599,13 +599,13 @@ void do_open(CHAR_DATA *ch, const char *argument)
 
 		pexit = ch->in_room->exit[door];
 		if (!IS_SET(pexit->exit_info, EX_CLOSED))
-		    { char_puts("It's already open.\n\r", ch); return; }
+		    { char_puts("It's already open.\n", ch); return; }
 		if ( IS_SET(pexit->exit_info, EX_LOCKED))
-		    { char_puts("It's locked.\n\r", ch); return; }
+		    { char_puts("It's locked.\n", ch); return; }
 
 		REMOVE_BIT(pexit->exit_info, EX_CLOSED);
 		act("$n opens the $d.", ch, NULL, pexit->keyword, TO_ROOM);
-		char_puts("Ok.\n\r", ch);
+		char_puts("Ok.\n", ch);
 
 		/* open the other side */
 		if ((to_room   = pexit->u1.to_room           ) != NULL
@@ -634,7 +634,7 @@ void do_close(CHAR_DATA *ch, const char *argument)
 	one_argument(argument, arg);
 
 	if (arg[0] == '\0') {
-		char_puts("Close what?\n\r", ch);
+		char_puts("Close what?\n", ch);
 		return;
 	}
 
@@ -646,12 +646,12 @@ void do_close(CHAR_DATA *ch, const char *argument)
 		    if (!IS_SET(obj->value[1],EX_ISDOOR)
 		    ||   IS_SET(obj->value[1],EX_NOCLOSE))
 		    {
-			char_puts("You can't do that.\n\r", ch);
+			char_puts("You can't do that.\n", ch);
 			return;
 		    }
 
 		    if (IS_SET(obj->value[1],EX_CLOSED)) {
-			char_puts("It's already closed.\n\r", ch);
+			char_puts("It's already closed.\n", ch);
 			return;
 		    }
 
@@ -663,11 +663,11 @@ void do_close(CHAR_DATA *ch, const char *argument)
 
 		/* 'close object' */
 		if (obj->pIndexData->item_type != ITEM_CONTAINER)
-		    { char_puts("That's not a container.\n\r", ch); return; }
+		    { char_puts("That's not a container.\n", ch); return; }
 		if (IS_SET(obj->value[1], CONT_CLOSED))
-		    { char_puts("It's already closed.\n\r", ch); return; }
+		    { char_puts("It's already closed.\n", ch); return; }
 		if (!IS_SET(obj->value[1], CONT_CLOSEABLE))
-		    { char_puts("You can't do that.\n\r", ch); return; }
+		    { char_puts("You can't do that.\n", ch); return; }
 
 		SET_BIT(obj->value[1], CONT_CLOSED);
 		act_puts("You close $p.", ch, obj, NULL, TO_CHAR, POS_DEAD);
@@ -683,11 +683,11 @@ void do_close(CHAR_DATA *ch, const char *argument)
 
 		pexit	= ch->in_room->exit[door];
 		if (IS_SET(pexit->exit_info, EX_CLOSED))
-		    { char_puts("It's already closed.\n\r", ch); return; }
+		    { char_puts("It's already closed.\n", ch); return; }
 
 		SET_BIT(pexit->exit_info, EX_CLOSED);
 		act("$n closes $d.", ch, NULL, pexit->keyword, TO_ROOM);
-		char_puts("Ok.\n\r", ch);
+		char_puts("Ok.\n", ch);
 
 		/* close the other side */
 		if ((to_room   = pexit->u1.to_room           ) != NULL
@@ -742,7 +742,7 @@ void do_lock(CHAR_DATA *ch, const char *argument)
 	one_argument(argument, arg);
 
 	if (arg[0] == '\0') {
-		char_puts("Lock what?\n\r", ch);
+		char_puts("Lock what?\n", ch);
 		return;
 	}
 
@@ -751,26 +751,26 @@ void do_lock(CHAR_DATA *ch, const char *argument)
 		if (obj->pIndexData->item_type == ITEM_PORTAL) {
 		    if (!IS_SET(obj->value[1], EX_ISDOOR)
 		    ||  IS_SET(obj->value[1], EX_NOCLOSE)) {
-			char_puts("You can't do that.\n\r", ch);
+			char_puts("You can't do that.\n", ch);
 			return;
 		    }
 		    if (!IS_SET(obj->value[1], EX_CLOSED)) {
-			char_puts("It's not closed.\n\r", ch);
+			char_puts("It's not closed.\n", ch);
 		 	return;
 		    }
 
 		    if (obj->value[4] < 0 || IS_SET(obj->value[1], EX_NOLOCK)) {
-			char_puts("It can't be locked.\n\r", ch);
+			char_puts("It can't be locked.\n", ch);
 			return;
 		    }
 
 		    if (!has_key(ch, obj->value[4])) {
-			char_puts("You lack the key.\n\r", ch);
+			char_puts("You lack the key.\n", ch);
 			return;
 		    }
 
 		    if (IS_SET(obj->value[1], EX_LOCKED)) {
-			char_puts("It's already locked.\n\r", ch);
+			char_puts("It's already locked.\n", ch);
 			return;
 		    }
 
@@ -782,15 +782,15 @@ void do_lock(CHAR_DATA *ch, const char *argument)
 
 		/* 'lock object' */
 		if (obj->pIndexData->item_type != ITEM_CONTAINER)
-		    { char_puts("That's not a container.\n\r", ch); return; }
+		    { char_puts("That's not a container.\n", ch); return; }
 		if (!IS_SET(obj->value[1], CONT_CLOSED))
-		    { char_puts("It's not closed.\n\r", ch); return; }
+		    { char_puts("It's not closed.\n", ch); return; }
 		if (obj->value[2] < 0)
-		    { char_puts("It can't be locked.\n\r", ch); return; }
+		    { char_puts("It can't be locked.\n", ch); return; }
 		if (!has_key(ch, obj->value[2]))
-		    { char_puts("You lack the key.\n\r", ch); return; }
+		    { char_puts("You lack the key.\n", ch); return; }
 		if (IS_SET(obj->value[1], CONT_LOCKED))
-		    { char_puts("It's already locked.\n\r", ch); return; }
+		    { char_puts("It's already locked.\n", ch); return; }
 
 		SET_BIT(obj->value[1], CONT_LOCKED);
 		act_puts("You lock $p.", ch, obj, NULL, TO_CHAR, POS_DEAD);
@@ -807,17 +807,17 @@ void do_lock(CHAR_DATA *ch, const char *argument)
 
 		pexit	= ch->in_room->exit[door];
 		if (!IS_SET(pexit->exit_info, EX_CLOSED))
-		    { char_puts("It's not closed.\n\r", ch); return; }
+		    { char_puts("It's not closed.\n", ch); return; }
 		if (pexit->key < 0)
-		    { char_puts("It can't be locked.\n\r", ch); return; }
+		    { char_puts("It can't be locked.\n", ch); return; }
 		if (!has_key(ch, pexit->key) && 
 		       !has_key_ground(ch, pexit->key))
-		    { char_puts("You lack the key.\n\r", ch); return; }
+		    { char_puts("You lack the key.\n", ch); return; }
 		if (IS_SET(pexit->exit_info, EX_LOCKED))
-		    { char_puts("It's already locked.\n\r", ch); return; }
+		    { char_puts("It's already locked.\n", ch); return; }
 
 		SET_BIT(pexit->exit_info, EX_LOCKED);
-		char_puts("*Click*\n\r", ch);
+		char_puts("*Click*\n", ch);
 		act("$n locks the $d.", ch, NULL, pexit->keyword, TO_ROOM);
 
 		/* lock the other side */
@@ -847,7 +847,7 @@ void do_unlock(CHAR_DATA *ch, const char *argument)
 	one_argument(argument, arg);
 
 	if (arg[0] == '\0') {
-		char_puts("Unlock what?\n\r", ch);
+		char_puts("Unlock what?\n", ch);
 		return;
 	}
 
@@ -855,27 +855,27 @@ void do_unlock(CHAR_DATA *ch, const char *argument)
  	/* portal stuff */
 		if (obj->pIndexData->item_type == ITEM_PORTAL) {
 		    if (IS_SET(obj->value[1],EX_ISDOOR)) {
-			char_puts("You can't do that.\n\r", ch);
+			char_puts("You can't do that.\n", ch);
 			return;
 		    }
 
 		    if (!IS_SET(obj->value[1],EX_CLOSED)) {
-			char_puts("It's not closed.\n\r", ch);
+			char_puts("It's not closed.\n", ch);
 			return;
 		    }
 
 		    if (obj->value[4] < 0) {
-			char_puts("It can't be unlocked.\n\r", ch);
+			char_puts("It can't be unlocked.\n", ch);
 			return;
 		    }
 
 		    if (!has_key(ch,obj->value[4])) {
-			char_puts("You lack the key.\n\r", ch);
+			char_puts("You lack the key.\n", ch);
 			return;
 		    }
 
 		    if (!IS_SET(obj->value[1],EX_LOCKED)) {
-			char_puts("It's already unlocked.\n\r", ch);
+			char_puts("It's already unlocked.\n", ch);
 			return;
 		    }
 
@@ -887,15 +887,15 @@ void do_unlock(CHAR_DATA *ch, const char *argument)
 
 		/* 'unlock object' */
 		if (obj->pIndexData->item_type != ITEM_CONTAINER)
-		    { char_puts("That's not a container.\n\r", ch); return; }
+		    { char_puts("That's not a container.\n", ch); return; }
 		if (!IS_SET(obj->value[1], CONT_CLOSED))
-		    { char_puts("It's not closed.\n\r", ch); return; }
+		    { char_puts("It's not closed.\n", ch); return; }
 		if (obj->value[2] < 0)
-		    { char_puts("It can't be unlocked.\n\r", ch); return; }
+		    { char_puts("It can't be unlocked.\n", ch); return; }
 		if (!has_key(ch, obj->value[2]))
-		    { char_puts("You lack the key.\n\r", ch); return; }
+		    { char_puts("You lack the key.\n", ch); return; }
 		if (!IS_SET(obj->value[1], CONT_LOCKED))
-		    { char_puts("It's already unlocked.\n\r", ch); return; }
+		    { char_puts("It's already unlocked.\n", ch); return; }
 
 		REMOVE_BIT(obj->value[1], CONT_LOCKED);
 		act_puts("You unlock $p.", ch, obj, NULL, TO_CHAR, POS_DEAD);
@@ -913,17 +913,17 @@ void do_unlock(CHAR_DATA *ch, const char *argument)
 		pexit = ch->in_room->exit[door];
 
 		if (!IS_SET(pexit->exit_info, EX_CLOSED))
-		    { char_puts("It's not closed.\n\r", ch); return; }
+		    { char_puts("It's not closed.\n", ch); return; }
 		if (pexit->key < 0)
-		    { char_puts("It can't be unlocked.\n\r", ch); return; }
+		    { char_puts("It can't be unlocked.\n", ch); return; }
 		if (!has_key(ch, pexit->key) && 
 		       !has_key_ground(ch, pexit->key))
-		    { char_puts("You lack the key.\n\r", ch); return; }
+		    { char_puts("You lack the key.\n", ch); return; }
 		if (!IS_SET(pexit->exit_info, EX_LOCKED))
-		    { char_puts("It's already unlocked.\n\r", ch); return; }
+		    { char_puts("It's already unlocked.\n", ch); return; }
 
 		REMOVE_BIT(pexit->exit_info, EX_LOCKED);
-		char_puts("*Click*\n\r", ch);
+		char_puts("*Click*\n", ch);
 		act("$n unlocks the $d.", ch, NULL, pexit->keyword, TO_ROOM);
 
 		/* unlock the other side */
@@ -953,19 +953,19 @@ void do_pick(CHAR_DATA *ch, const char *argument)
 	int chance;
 
 	if ((chance = get_skill(ch, gsn_pick)) == 0) {
-		char_puts("Huh?\n\r", ch);
+		char_puts("Huh?\n", ch);
 		return;
 	}
 
 	one_argument(argument, arg);
 
 	if (arg[0] == '\0') {
-		char_puts("Pick what?\n\r", ch);
+		char_puts("Pick what?\n", ch);
 		return;
 	}
 
 	if (MOUNTED(ch)) {
-		  char_puts("You can't pick while mounted.\n\r", ch);
+		  char_puts("You can't pick while mounted.\n", ch);
 		  return;
 	}
 
@@ -983,7 +983,7 @@ void do_pick(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (!IS_NPC(ch) && number_percent() > chance) {
-		char_puts("You failed.\n\r", ch);
+		char_puts("You failed.\n", ch);
 		check_improve(ch, gsn_pick, FALSE, 2);
 		return;
 	}
@@ -992,22 +992,22 @@ void do_pick(CHAR_DATA *ch, const char *argument)
 		/* portal stuff */
 		if (obj->pIndexData->item_type == ITEM_PORTAL) {
 		    if (!IS_SET(obj->value[1],EX_ISDOOR)) {	
-			char_puts("You can't do that.\n\r", ch);
+			char_puts("You can't do that.\n", ch);
 			return;
 		    }
 
 		    if (!IS_SET(obj->value[1],EX_CLOSED)) {
-			char_puts("It's not closed.\n\r", ch);
+			char_puts("It's not closed.\n", ch);
 			return;
 		    }
 
 		    if (obj->value[4] < 0) {
-			char_puts("It can't be unlocked.\n\r", ch);
+			char_puts("It can't be unlocked.\n", ch);
 			return;
 		    }
 
 		    if (IS_SET(obj->value[1],EX_PICKPROOF)) {
-			char_puts("You failed.\n\r", ch);
+			char_puts("You failed.\n", ch);
 			return;
 		    }
 
@@ -1021,15 +1021,15 @@ void do_pick(CHAR_DATA *ch, const char *argument)
 		
 		/* 'pick object' */
 		if (obj->pIndexData->item_type != ITEM_CONTAINER)
-		    { char_puts("That's not a container.\n\r", ch); return; }
+		    { char_puts("That's not a container.\n", ch); return; }
 		if (!IS_SET(obj->value[1], CONT_CLOSED))
-		    { char_puts("It's not closed.\n\r", ch); return; }
+		    { char_puts("It's not closed.\n", ch); return; }
 		if (obj->value[2] < 0)
-		    { char_puts("It can't be unlocked.\n\r", ch); return; }
+		    { char_puts("It can't be unlocked.\n", ch); return; }
 		if (!IS_SET(obj->value[1], CONT_LOCKED))
-		    { char_puts("It's already unlocked.\n\r", ch); return; }
+		    { char_puts("It's already unlocked.\n", ch); return; }
 		if (IS_SET(obj->value[1], CONT_PICKPROOF))
-		    { char_puts("You failed.\n\r", ch); return; }
+		    { char_puts("You failed.\n", ch); return; }
 
 		REMOVE_BIT(obj->value[1], CONT_LOCKED);
 		act_puts("You pick the lock on $p.", ch, obj, NULL, TO_CHAR, POS_DEAD);
@@ -1046,16 +1046,16 @@ void do_pick(CHAR_DATA *ch, const char *argument)
 
 		pexit = ch->in_room->exit[door];
 		if (!IS_SET(pexit->exit_info, EX_CLOSED) && !IS_IMMORTAL(ch))
-		    { char_puts("It's not closed.\n\r", ch); return; }
+		    { char_puts("It's not closed.\n", ch); return; }
 		if (pexit->key < 0 && !IS_IMMORTAL(ch))
-		    { char_puts("It can't be picked.\n\r", ch); return; }
+		    { char_puts("It can't be picked.\n", ch); return; }
 		if (!IS_SET(pexit->exit_info, EX_LOCKED))
-		    { char_puts("It's already unlocked.\n\r", ch); return; }
+		    { char_puts("It's already unlocked.\n", ch); return; }
 		if (IS_SET(pexit->exit_info, EX_PICKPROOF) && !IS_IMMORTAL(ch))
-		    { char_puts("You failed.\n\r", ch); return; }
+		    { char_puts("You failed.\n", ch); return; }
 
 		REMOVE_BIT(pexit->exit_info, EX_LOCKED);
-		char_puts("*Click*\n\r", ch);
+		char_puts("*Click*\n", ch);
 		act("$n picks the $d.", ch, NULL, pexit->keyword, TO_ROOM);
 		check_improve(ch, gsn_pick, TRUE, 2);
 
@@ -1073,13 +1073,13 @@ void do_stand(CHAR_DATA *ch, const char *argument)
 
 	if (argument[0] != '\0') {
 		if (ch->position == POS_FIGHTING) {
-		    char_puts("Maybe you should finish fighting first?\n\r", ch);
+		    char_puts("Maybe you should finish fighting first?\n", ch);
 		    return;
 		}
 		obj = get_obj_list(ch,argument,ch->in_room->contents);
 		if (obj == NULL)
 		{
-		    char_puts("You don't see that here.\n\r", ch);
+		    char_puts("You don't see that here.\n", ch);
 		    return;
 		}
 		if (obj->pIndexData->item_type != ITEM_FURNITURE
@@ -1087,7 +1087,7 @@ void do_stand(CHAR_DATA *ch, const char *argument)
 		&&   !IS_SET(obj->value[2],STAND_ON)
 		&&   !IS_SET(obj->value[2],STAND_IN)))
 		{
-		    char_puts("You can't seem to find a place to stand.\n\r", ch);
+		    char_puts("You can't seem to find a place to stand.\n", ch);
 		    return;
 		}
 		if (ch->on != obj && count_users(obj) >= obj->value[0])
@@ -1099,10 +1099,10 @@ void do_stand(CHAR_DATA *ch, const char *argument)
 	switch (ch->position) {
 	case POS_SLEEPING:
 		if (IS_AFFECTED(ch, AFF_SLEEP))
-		    { char_puts("You can't wake up!\n\r", ch); return; }
+		    { char_puts("You can't wake up!\n", ch); return; }
 		
 		if (obj == NULL) {
-		    char_puts("You wake and stand up.\n\r", ch);
+		    char_puts("You wake and stand up.\n", ch);
 		    act("$n wakes and stands up.", ch, NULL, NULL, TO_ROOM);
 				
 		    ch->on = NULL;
@@ -1128,7 +1128,7 @@ void do_stand(CHAR_DATA *ch, const char *argument)
 		}
 
 		if (IS_HARA_KIRI(ch)) {
-		 char_puts("You feel your blood heats your body.\n\r", ch);
+		 char_puts("You feel your blood heats your body.\n", ch);
 		 REMOVE_BIT(ch->act,PLR_HARA_KIRI);
 		}
 
@@ -1139,7 +1139,7 @@ void do_stand(CHAR_DATA *ch, const char *argument)
 	case POS_RESTING: case POS_SITTING:
 		if (obj == NULL)
 		{
-		    char_puts("You stand up.\n\r", ch);
+		    char_puts("You stand up.\n", ch);
 		    act("$n stands up.", ch, NULL, NULL, TO_ROOM);
 		    ch->on = NULL;
 		}
@@ -1162,11 +1162,11 @@ void do_stand(CHAR_DATA *ch, const char *argument)
 		break;
 
 	case POS_STANDING:
-		char_puts("You are already standing.\n\r", ch);
+		char_puts("You are already standing.\n", ch);
 		break;
 
 	case POS_FIGHTING:
-		char_puts("You are already fighting!\n\r", ch);
+		char_puts("You are already fighting!\n", ch);
 		break;
 	}
 }
@@ -1176,28 +1176,28 @@ void do_rest(CHAR_DATA *ch, const char *argument)
 	OBJ_DATA *obj = NULL;
 
 	if (ch->position == POS_FIGHTING) {
-		char_puts("You are already fighting!\n\r", ch);
+		char_puts("You are already fighting!\n", ch);
 		return;
 	}
 
 	if (MOUNTED(ch)) {
-		  char_puts("You can't rest while mounted.\n\r", ch);
+		  char_puts("You can't rest while mounted.\n", ch);
 		  return;
 	}
 
 	if (RIDDEN(ch)) {
-		  char_puts("You can't rest while being ridden.\n\r", ch);
+		  char_puts("You can't rest while being ridden.\n", ch);
 		  return;
 	}
 
 	if (IS_AFFECTED(ch, AFF_SLEEP))
-	{ char_puts("You are already sleeping.\n\r", ch); return; }
+	{ char_puts("You are already sleeping.\n", ch); return; }
 
 	/* okay, now that we know we can rest, find an object to rest on */
 	if (argument[0] != '\0') {
 		obj = get_obj_list(ch,argument,ch->in_room->contents);
 		if (obj == NULL) {
-		    char_puts("You don't see that here.\n\r", ch);
+		    char_puts("You don't see that here.\n", ch);
 		    return;
 		}
 	}
@@ -1208,7 +1208,7 @@ void do_rest(CHAR_DATA *ch, const char *argument)
 		||  (!IS_SET(obj->value[2],REST_ON) &&
 		     !IS_SET(obj->value[2],REST_IN) &&
 		     !IS_SET(obj->value[2],REST_AT))) {
-		    char_puts("You can't rest on that.\n\r", ch);
+		    char_puts("You can't rest on that.\n", ch);
 		    return;
 		}
 
@@ -1225,7 +1225,7 @@ void do_rest(CHAR_DATA *ch, const char *argument)
 	switch (ch->position) {
 	case POS_SLEEPING:
 		if (obj == NULL) {
-		    char_puts("You wake up and start resting.\n\r", ch);
+		    char_puts("You wake up and start resting.\n", ch);
 		    act("$n wakes up and starts resting.",
 			ch, NULL, NULL, TO_ROOM);
 				
@@ -1252,12 +1252,12 @@ void do_rest(CHAR_DATA *ch, const char *argument)
 		break;
 
 	case POS_RESTING:
-		char_puts("You are already resting.\n\r", ch);
+		char_puts("You are already resting.\n", ch);
 		break;
 
 	case POS_STANDING:
 		if (obj == NULL) {
-			char_puts("You rest.\n\r", ch);
+			char_puts("You rest.\n", ch);
 			act("$n sits down and rests.",
 			    ch, NULL, NULL, TO_ROOM);
 		}
@@ -1284,7 +1284,7 @@ void do_rest(CHAR_DATA *ch, const char *argument)
 
 	case POS_SITTING:
 		if (obj == NULL) {
-			char_puts("You rest.\n\r", ch);
+			char_puts("You rest.\n", ch);
 			act("$n rests.", ch, NULL, NULL, TO_ROOM);
 		}
 		else if (IS_SET(obj->value[2],REST_AT)) {
@@ -1305,7 +1305,7 @@ void do_rest(CHAR_DATA *ch, const char *argument)
 		ch->position = POS_RESTING;
 
 		if (IS_HARA_KIRI(ch)) {
-			char_puts("You feel your blood heats your body.\n\r",
+			char_puts("You feel your blood heats your body.\n",
 				  ch);
 			REMOVE_BIT(ch->act, PLR_HARA_KIRI);
 		}
@@ -1318,28 +1318,28 @@ void do_sit(CHAR_DATA *ch, const char *argument)
 	OBJ_DATA *obj = NULL;
 
 	if (ch->position == POS_FIGHTING) {
-		char_puts("Maybe you should finish fighting first?\n\r", ch);
+		char_puts("Maybe you should finish fighting first?\n", ch);
 		return;
 	}
 
 	if (MOUNTED(ch)) {
-		  char_puts("You can't sit while mounted.\n\r", ch);
+		  char_puts("You can't sit while mounted.\n", ch);
 		  return;
 	}
 
 	if (RIDDEN(ch)) {
-		  char_puts("You can't sit while being ridden.\n\r", ch);
+		  char_puts("You can't sit while being ridden.\n", ch);
 		  return;
 	}
 
 	if (IS_AFFECTED(ch, AFF_SLEEP))
-	{ char_puts("You are already sleeping.\n\r", ch); return; }
+	{ char_puts("You are already sleeping.\n", ch); return; }
 
 	/* okay, now that we know we can sit, find an object to sit on */
 	if (argument[0] != '\0') {
 		obj = get_obj_list(ch,argument,ch->in_room->contents);
 		if (obj == NULL) {
-			char_puts("You don't see that here.\n\r", ch);
+			char_puts("You don't see that here.\n", ch);
 			return;
 		}
 	}
@@ -1351,7 +1351,7 @@ void do_sit(CHAR_DATA *ch, const char *argument)
 		||  (!IS_SET(obj->value[2],SIT_ON)
 		&&   !IS_SET(obj->value[2],SIT_IN)
 		&&   !IS_SET(obj->value[2],SIT_AT))) {
-			char_puts("You can't sit on that.\n\r", ch);
+			char_puts("You can't sit on that.\n", ch);
 			return;
 		}
 
@@ -1369,7 +1369,7 @@ void do_sit(CHAR_DATA *ch, const char *argument)
 	switch (ch->position) {
 	case POS_SLEEPING:
 		if (obj == NULL) {
-			char_puts("You wake and sit up.\n\r", ch);
+			char_puts("You wake and sit up.\n", ch);
 			act("$n wakes and sits up.", ch, NULL, NULL, TO_ROOM);
 		}
 		else if (IS_SET(obj->value[2],SIT_AT)) {
@@ -1393,7 +1393,7 @@ void do_sit(CHAR_DATA *ch, const char *argument)
 
 	case POS_RESTING:
 		if (obj == NULL)
-			char_puts("You stop resting.\n\r", ch);
+			char_puts("You stop resting.\n", ch);
 		else if (IS_SET(obj->value[2],SIT_AT)) {
 			act_puts("You sit at $p.",
 				 ch, obj, NULL, TO_CHAR, POS_DEAD);
@@ -1413,12 +1413,12 @@ void do_sit(CHAR_DATA *ch, const char *argument)
 		break;
 
 	case POS_SITTING:
-		char_puts("You are already sitting down.\n\r", ch);
+		char_puts("You are already sitting down.\n", ch);
 		break;
 
 	case POS_STANDING:
 		if (obj == NULL) {
-			char_puts("You sit down.\n\r", ch);
+			char_puts("You sit down.\n", ch);
 			act("$n sits down on the ground.",
 			    ch, NULL, NULL, TO_ROOM);
 		}
@@ -1442,7 +1442,7 @@ void do_sit(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (IS_HARA_KIRI(ch)) {
-		 char_puts("You feel your blood heats your body.\n\r", ch);
+		 char_puts("You feel your blood heats your body.\n", ch);
 		 REMOVE_BIT(ch->act,PLR_HARA_KIRI);
 	}
 }
@@ -1452,25 +1452,25 @@ void do_sleep(CHAR_DATA *ch, const char *argument)
 	OBJ_DATA *obj = NULL;
 
 	if (MOUNTED(ch)) {
-		char_puts("You can't sleep while mounted.\n\r", ch);
+		char_puts("You can't sleep while mounted.\n", ch);
 		return;
 	}
 
 	if (RIDDEN(ch)) {
-		char_puts("You can't sleep while being ridden.\n\r", ch);
+		char_puts("You can't sleep while being ridden.\n", ch);
 		return;
 	}
 
 	switch (ch->position) {
 	case POS_SLEEPING:
-		char_puts("You are already sleeping.\n\r", ch);
+		char_puts("You are already sleeping.\n", ch);
 		break;
 
 	case POS_RESTING:
 	case POS_SITTING:
 	case POS_STANDING: 
 		if (argument[0] == '\0' && ch->on == NULL) {
-			char_puts("You go to sleep.\n\r", ch);
+			char_puts("You go to sleep.\n", ch);
 			act("$n goes to sleep.", ch, NULL, NULL, TO_ROOM);
 		}
 		else { /* find an object and sleep on it */
@@ -1481,7 +1481,7 @@ void do_sleep(CHAR_DATA *ch, const char *argument)
 						   ch->in_room->contents);
 
 			if (obj == NULL) {
-				char_puts("You don't see that here.\n\r", ch);
+				char_puts("You don't see that here.\n", ch);
 				return;
 			}
 
@@ -1489,7 +1489,7 @@ void do_sleep(CHAR_DATA *ch, const char *argument)
 			||  (!IS_SET(obj->value[2], SLEEP_ON) &&
 			     !IS_SET(obj->value[2],SLEEP_IN) &&
 			     !IS_SET(obj->value[2],SLEEP_AT))) {
-				char_puts("You can't sleep on that.\n\r", ch);
+				char_puts("You can't sleep on that.\n", ch);
 				return;
 			}
 
@@ -1524,7 +1524,7 @@ void do_sleep(CHAR_DATA *ch, const char *argument)
 		break;
 
 	case POS_FIGHTING:
-		char_puts("You are already fighting.\n\r", ch);
+		char_puts("You are already fighting.\n", ch);
 		break;
 	}
 }
@@ -1539,10 +1539,10 @@ void do_wake(CHAR_DATA *ch, const char *argument)
 		{ do_stand(ch, argument); return; }
 
 	if (!IS_AWAKE(ch))
-		{ char_puts("You are asleep yourself!\n\r", ch); return; }
+		{ char_puts("You are asleep yourself!\n", ch); return; }
 
 	if ((victim = get_char_room(ch, arg)) == NULL)
-		{ char_puts("They aren't here.\n\r", ch); return; }
+		{ char_puts("They aren't here.\n", ch); return; }
 
 	if (IS_AWAKE(victim)) { 
 		act_puts("$N is already awake.",
@@ -1569,11 +1569,11 @@ void do_sneak(CHAR_DATA *ch, const char *argument)
 		return;
 
 	if (MOUNTED(ch)) {
-		  char_puts("You can't sneak while mounted.\n\r", ch);
+		  char_puts("You can't sneak while mounted.\n", ch);
 		  return;
 	}
 
-	char_puts("You attempt to move silently.\n\r", ch);
+	char_puts("You attempt to move silently.\n", ch);
 	affect_strip(ch, gsn_sneak);
 
 	if (IS_AFFECTED(ch, AFF_SNEAK))
@@ -1600,24 +1600,24 @@ void do_hide(CHAR_DATA *ch, const char *argument)
 	sflag_t sector;
 
 	if (MOUNTED(ch)) {
-		  char_puts("You can't hide while mounted.\n\r", ch);
+		  char_puts("You can't hide while mounted.\n", ch);
 		  return;
 	}
 
 	if (RIDDEN(ch)) {
-		  char_puts("You can't hide while being ridden.\n\r", ch);
+		  char_puts("You can't hide while being ridden.\n", ch);
 		  return;
 	}
 
 	if (IS_AFFECTED(ch, AFF_FAERIE_FIRE) )  {
-		char_puts("You cannot hide while glowing.\n\r", ch);
+		char_puts("You cannot hide while glowing.\n", ch);
 		return;
 	}
 
-	char_puts("You attempt to hide.\n\r", ch);
+	char_puts("You attempt to hide.\n", ch);
 
 	if ((chance = get_skill(ch, gsn_hide)) == 0) {
-		char_puts("Huh?\n\r", ch);
+		char_puts("Huh?\n", ch);
 		return;
 	}
 
@@ -1646,23 +1646,23 @@ void do_camouflage(CHAR_DATA *ch, const char *argument)
 	sflag_t		sector;
 
 	if (MOUNTED(ch)) {
-		char_puts("You can't camouflage while mounted.\n\r", ch);
+		char_puts("You can't camouflage while mounted.\n", ch);
 		return;
 	}
 
 	if (RIDDEN(ch)) {
-		char_puts("You can't camouflage while being ridden.\n\r", ch);
+		char_puts("You can't camouflage while being ridden.\n", ch);
 		return;
 	}
 
 	if (IS_AFFECTED(ch, AFF_FAERIE_FIRE))  {
-		char_puts("You can't camouflage yourself while glowing.\n\r", ch);
+		char_puts("You can't camouflage yourself while glowing.\n", ch);
 		return;
 	}
 
 	if ((sn = sn_lookup("camouflage")) < 0
 	||  (chance = get_skill(ch, sn)) == 0) {
-		char_puts("You don't know how to camouflage yourself.\n\r", ch);
+		char_puts("You don't know how to camouflage yourself.\n", ch);
 		return;
 	}
 
@@ -1670,13 +1670,13 @@ void do_camouflage(CHAR_DATA *ch, const char *argument)
 	if (sector != SECT_FOREST
 	&&  sector != SECT_HILLS
 	&&  sector != SECT_MOUNTAIN) {
-		char_puts("There's no cover here.\n\r", ch);
+		char_puts("There's no cover here.\n", ch);
 		act("$n tries to camouflage $mself against the lone leaf on the ground.",
 		    ch, NULL, NULL, TO_ROOM);
 		return;
 	}
 
-	char_puts("You attempt to camouflage yourself.\n\r", ch);
+	char_puts("You attempt to camouflage yourself.\n", ch);
 	WAIT_STATE(ch, SKILL(sn)->beats);
 
 	if (IS_AFFECTED(ch, AFF_CAMOUFLAGE))
@@ -1710,7 +1710,7 @@ void do_visible(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (IS_AFFECTED(ch, AFF_INVIS | AFF_IMP_INVIS)) {
-		char_puts("You fade into existence.\n\r", ch);
+		char_puts("You fade into existence.\n", ch);
 		affect_bit_strip(ch, TO_AFFECTS, AFF_INVIS | AFF_IMP_INVIS);
 		REMOVE_BIT(ch->affected_by, AFF_INVIS | AFF_IMP_INVIS);
 		act("$n fades into existence.", ch, NULL, NULL, TO_ROOM);
@@ -1723,12 +1723,12 @@ void do_recall(CHAR_DATA *ch, const char *argument)
 	int point;
  
 	if (IS_NPC(ch) && !IS_SET(ch->act, ACT_PET)) {
-		char_puts("Only players can recall.\n\r", ch);
+		char_puts("Only players can recall.\n", ch);
 		return;
 	}
 
 	if (ch->level >= 10 && !IS_IMMORTAL(ch)) {
-		char_puts("Recall is for only levels below 10.\n\r", ch);
+		char_puts("Recall is for only levels below 10.\n", ch);
 		return;
 	}
 
@@ -1750,7 +1750,7 @@ void do_recall(CHAR_DATA *ch, const char *argument)
 	act("$n prays for transportation!", ch, NULL, NULL, TO_ROOM);
 	
 	if ((location = get_room_index(point))== NULL) {
-		char_puts("You are completely lost.\n\r", ch);
+		char_puts("You are completely lost.\n", ch);
 		return;
 	}
 
@@ -1760,7 +1760,7 @@ void do_recall(CHAR_DATA *ch, const char *argument)
 	if (IS_SET(ch->in_room->room_flags, ROOM_NORECALL)
 	||  IS_AFFECTED(ch, AFF_CURSE) 
 	||  IS_RAFFECTED(ch->in_room, RAFF_CURSE)) {
-		char_puts("The gods have forsaken you.\n\r", ch);
+		char_puts("The gods have forsaken you.\n", ch);
 		return;
 	}
 
@@ -1801,12 +1801,12 @@ void do_train(CHAR_DATA *ch, const char *argument)
 			break;
 
 	if (mob == NULL) {
-		char_puts("You can't do that here.\n\r", ch);
+		char_puts("You can't do that here.\n", ch);
 		return;
 	}
 
 	if (argument[0] == '\0') {
-		char_printf(ch, "You have %d training sessions.\n\r",
+		char_printf(ch, "You have %d training sessions.\n",
 			    ch->train);
 		argument = "foo";
 	}
@@ -1851,7 +1851,7 @@ void do_train(CHAR_DATA *ch, const char *argument)
 		    strcat(buf, " cha");
 
 		if (buf[strlen(buf)-1] != ':') {
-			strcat(buf, ".\n\r");
+			strcat(buf, ".\n");
 			char_puts(buf, ch);
 		}
 		else {
@@ -1875,7 +1875,7 @@ void do_train(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (ch->train < 1) {
-		char_puts("You don't have enough training sessions.\n\r", ch);
+		char_puts("You don't have enough training sessions.\n", ch);
 		return;
 	}
 
@@ -1895,7 +1895,7 @@ void do_track(CHAR_DATA *ch, const char *argument)
 	int chance;
 
 	if ((chance = get_skill(ch, gsn_track)) == 0) {
-		char_puts("There are no train tracks here.\n\r", ch);
+		char_puts("There are no train tracks here.\n", ch);
 		return;
 	}
 
@@ -1915,7 +1915,7 @@ void do_track(CHAR_DATA *ch, const char *argument)
 				check_improve(ch, gsn_track, TRUE, 1);
 			if ((d = rh->went) == -1)
 				continue;
-			char_printf(ch, "%s's tracks lead %s.\n\r",
+			char_printf(ch, "%s's tracks lead %s.\n",
 				     rh->name, door[d]);
 			if ((pexit = ch->in_room->exit[d]) != NULL
 			&&  IS_SET(pexit->exit_info, EX_ISDOOR)
@@ -1926,7 +1926,7 @@ void do_track(CHAR_DATA *ch, const char *argument)
 		}
 	}
 
-	char_puts("You don't see any tracks.\n\r", ch);
+	char_puts("You don't see any tracks.\n", ch);
 
 	if (IS_NPC(ch))
 		ch->status = 5; /* for stalker */
@@ -1941,23 +1941,23 @@ void do_vampire(CHAR_DATA *ch, const char *argument)
 	int chance;
  
 	if (is_affected(ch, gsn_vampire)) {
-		char_puts("But you are already vampire. Kill them! Kill them!\n\r", ch);
+		char_puts("But you are already vampire. Kill them! Kill them!\n", ch);
 		return;
 	}
 
 	if ((chance = get_skill(ch, gsn_vampire)) == 0) {
-		char_puts("You try to show yourself even more ugly.\n\r", ch);
+		char_puts("You try to show yourself even more ugly.\n", ch);
 		return;
 	}
 
 	if (chance < 100) {
-		char_puts("Go and ask the questor. He'll help you.\n\r", ch);
+		char_puts("Go and ask the questor. He'll help you.\n", ch);
 		return;
 	}
 
 	if (weather_info.sunlight == SUN_LIGHT 
 	||  weather_info.sunlight == SUN_RISE) {
-		char_puts("You should wait for the evening or night to transform to a vampire.\n\r", ch);
+		char_puts("You should wait for the evening or night to transform to a vampire.\n", ch);
 		return;
 	}
 
@@ -2007,7 +2007,7 @@ void do_vampire(CHAR_DATA *ch, const char *argument)
 	af.bitvector = AFF_SNEAK | AFF_FLYING | AFF_INFRARED;
 	affect_to_char(ch, &af);
 
-	char_puts("You feel yourself getting greater and greater.\n\r", ch);
+	char_puts("You feel yourself getting greater and greater.\n", ch);
 	act("You cannot recognize $n anymore.", ch, NULL, NULL, TO_ROOM);
 }
 
@@ -2020,29 +2020,29 @@ void do_vbite(CHAR_DATA *ch, const char *argument)
 	one_argument(argument, arg);
 
 	if ((chance = get_skill(ch, gsn_vampiric_bite)) == 0) {
-		char_puts("You don't know how to bite creatures.\n\r", ch);
+		char_puts("You don't know how to bite creatures.\n", ch);
 		return;
 	}
 
 	if (!is_affected(ch, gsn_vampire)) {
-		char_puts("You must transform vampire before biting.\n\r", ch);
+		char_puts("You must transform vampire before biting.\n", ch);
 		return;
 	}
 
 	if (arg[0] == '\0') {
-		char_puts("Bite whom?\n\r", ch);
+		char_puts("Bite whom?\n", ch);
 		return;
 	}
 
 	WAIT_STATE(ch, SKILL(gsn_vampiric_bite)->beats);
 
 	if ((victim = get_char_room(ch, arg)) == NULL) {
-		char_puts("They aren't here.\n\r", ch);
+		char_puts("They aren't here.\n", ch);
 		return;
 	}
 
 	if (victim->position != POS_SLEEPING) {
-		char_puts("They must be sleeping.\n\r", ch);
+		char_puts("They must be sleeping.\n", ch);
 		return;
 	}
 
@@ -2050,12 +2050,12 @@ void do_vbite(CHAR_DATA *ch, const char *argument)
 		return;
 
 	if (victim == ch) {
-		char_puts("How can you sneak upon yourself?\n\r", ch);
+		char_puts("How can you sneak upon yourself?\n", ch);
 		return;
 	}
 
 	if (victim->fighting != NULL) {
-		char_puts("You can't bite a fighting person.\n\r", ch);
+		char_puts("You can't bite a fighting person.\n", ch);
 		return;
 	}
 
@@ -2102,27 +2102,27 @@ void do_bash_door(CHAR_DATA *ch, const char *argument)
 	one_argument(argument,arg);
  
 	if ((chance = get_skill(ch, gsn_bash_door)) == 0) {
-		char_puts("Bashing? What's that?\n\r", ch);
+		char_puts("Bashing? What's that?\n", ch);
 		return;
 	}
  
 	if (MOUNTED(ch)) {
-        	char_puts("You can't bash doors while mounted.\n\r", ch);
+        	char_puts("You can't bash doors while mounted.\n", ch);
 		return;
 	}
 
 	if (RIDDEN(ch)) {
-		char_puts("You can't bash doors while being ridden.\n\r", ch);
+		char_puts("You can't bash doors while being ridden.\n", ch);
 		return;
 	}
 
 	if (arg[0] == '\0') {
-		char_puts("Bash wich door or direction?\n\r", ch);
+		char_puts("Bash wich door or direction?\n", ch);
 		return;
 	}
 
 	if (ch->fighting) {	
-		char_puts("Wait until the fight finishes.\n\r", ch);
+		char_puts("Wait until the fight finishes.\n", ch);
 		return;
 	}
 
@@ -2141,17 +2141,17 @@ void do_bash_door(CHAR_DATA *ch, const char *argument)
 	pexit = ch->in_room->exit[door];
 
 	if (!IS_SET(pexit->exit_info, EX_CLOSED)) {
-		char_puts("It's already open.\n\r", ch);
+		char_puts("It's already open.\n", ch);
 		return;
 	}
 
 	if (!IS_SET(pexit->exit_info, EX_LOCKED)) {
-		char_puts("Just try to open it.\n\r", ch);
+		char_puts("Just try to open it.\n", ch);
 		return;
 	}
 
 	if (IS_SET(pexit->exit_info, EX_NOPASS)) {
-		char_puts("A mystical shield protects exit.\n\r", ch); 
+		char_puts("A mystical shield protects exit.\n", ch); 
 		return;
 	}
 
@@ -2225,31 +2225,31 @@ void do_blink(CHAR_DATA *ch, const char *argument)
 	char arg[MAX_INPUT_LENGTH];
 
 	if (get_skill(ch, gsn_blink) == 0) {
-		char_puts("Huh?\n\r", ch);
+		char_puts("Huh?\n", ch);
 		return;
 	}
 
 	argument = one_argument(argument, arg);
 
 	if (arg[0] == '\0') {
-		char_printf(ch, "Your current blink status: %s.\n\r",
+		char_printf(ch, "Your current blink status: %s.\n",
 			    IS_SET(ch->act, PLR_BLINK) ? "ON" : "OFF");
 		return;
 	}
 
 	if (!str_cmp(arg, "ON")) {
 		SET_BIT(ch->act, PLR_BLINK);
-		char_puts("Now, your current blink status is ON.\n\r", ch);
+		char_puts("Now, your current blink status is ON.\n", ch);
 		return;
 	}
 
 	if (!str_cmp(arg, "OFF")) {
 		REMOVE_BIT(ch->act, PLR_BLINK);
-		char_puts("Now, your current blink status is OFF.\n\r", ch);
+		char_puts("Now, your current blink status is OFF.\n", ch);
 		return;
 	}
 
-	char_printf(ch, "What's that? Is %s a status?\n\r", arg);
+	char_printf(ch, "What's that? Is %s a status?\n", arg);
 }
 
 void do_vanish(CHAR_DATA *ch, const char *argument)
@@ -2260,26 +2260,26 @@ void do_vanish(CHAR_DATA *ch, const char *argument)
 
 	if ((sn = sn_lookup("vanish")) < 0
 	||  (chance = get_skill(ch, sn)) == 0) {
-		char_puts("Huh?\n\r", ch);
+		char_puts("Huh?\n", ch);
 		return;
 	}
 
 	if (ch->mana < 25) {
-		char_puts("You don't have enough power.\n\r", ch);
+		char_puts("You don't have enough power.\n", ch);
 		return;
 	}
 	ch->mana -= 25;
 	WAIT_STATE(ch, SKILL(sn)->beats);
 
 	if (number_percent() > chance) {
-		char_puts("You failed.\n\r", ch);
+		char_puts("You failed.\n", ch);
 		check_improve(ch, sn, FALSE, 1);
 		return;
 	}
 
 	if (ch->in_room == NULL
 	||  IS_SET(ch->in_room->room_flags, ROOM_NORECALL)) {
-		char_puts("You failed.\n\r", ch);
+		char_puts("You failed.\n", ch);
 		return;
 	}
 
@@ -2299,7 +2299,7 @@ void do_vanish(CHAR_DATA *ch, const char *argument)
 	check_improve(ch, sn, TRUE, 1);
 
   	if (!IS_NPC(ch) && ch->fighting != NULL && number_bits(1) == 1) {
-		char_puts("You failed.\n\r", ch);
+		char_puts("You failed.\n", ch);
 		return;
 	}
 
@@ -2320,16 +2320,16 @@ void do_fade(CHAR_DATA *ch, const char *argument)
 		return;
 
 	if (MOUNTED(ch)) {
-		  char_puts("You can't fade while mounted.\n\r", ch);
+		  char_puts("You can't fade while mounted.\n", ch);
 		  return;
 	}
 
 	if (RIDDEN(ch)) {
-		  char_puts("You can't fade while being ridden.\n\r", ch);
+		  char_puts("You can't fade while being ridden.\n", ch);
 		  return;
 	}
 
-	char_puts("You attempt to fade.\n\r", ch);
+	char_puts("You attempt to fade.\n", ch);
 	if (number_percent()<=chance) {
 		SET_BIT(ch->affected_by, AFF_FADE);
 		check_improve(ch, gsn_fade, TRUE, 3);
@@ -2346,29 +2346,29 @@ void do_vtouch(CHAR_DATA *ch, const char *argument)
 
 	if ((sn = sn_lookup("vampiric touch")) < 0
 	||  (chance = get_skill(ch, sn)) == 0) {
-		char_puts("You lack the skill to draining touch.\n\r", ch);
+		char_puts("You lack the skill to draining touch.\n", ch);
 		return;
 	}
 
 	if (!is_affected(ch, gsn_vampire)) {
-		char_puts("Let it be.\n\r", ch);
+		char_puts("Let it be.\n", ch);
 		return;
 	}
 
 	WAIT_STATE(ch, SKILL(sn)->beats);
 
 	if (IS_AFFECTED(ch, AFF_CHARM))  {
-		char_puts("You don't want to drain your master.\n\r", ch);
+		char_puts("You don't want to drain your master.\n", ch);
 		return;
 	} 
 
 	if ((victim = get_char_room(ch,argument)) == NULL) {
-		char_puts("They aren't here.\n\r", ch);
+		char_puts("They aren't here.\n", ch);
 		return;
 	}
 
 	if (ch == victim) {
-		char_puts("Even you are not so stupid.\n\r", ch);
+		char_puts("Even you are not so stupid.\n", ch);
 		return;
 	}
 
@@ -2422,13 +2422,13 @@ void do_fly(CHAR_DATA *ch, const char *argument)
 		RACE_DATA *r;
 
 		if (is_affected(ch, gsn_thumbling)) {
-			char_puts("Stop jumping like a crazy rabbit first.\n\r",
+			char_puts("Stop jumping like a crazy rabbit first.\n",
 				  ch);
 			return;
 		}
 
 		if (IS_AFFECTED(ch, AFF_FLYING)) {		       
-			char_puts("You are already flying.\n\r", ch); 
+			char_puts("You are already flying.\n", ch); 
 			return;
 		}
 
@@ -2436,25 +2436,25 @@ void do_fly(CHAR_DATA *ch, const char *argument)
 		||  ((r = race_lookup(ch->race)) && (r->aff & AFF_FLYING))
 		||  has_obj_affect(ch, AFF_FLYING)) {
 			SET_BIT(ch->affected_by, AFF_FLYING);
-			char_puts("You start to fly.\n\r", ch);
+			char_puts("You start to fly.\n", ch);
 		}
 		else {
-			char_puts("To fly find potion or wings.\n\r", ch); 
+			char_puts("To fly find potion or wings.\n", ch); 
 			return;
 		}
 	}
 	else if (!str_cmp(arg,"down")) {
 		if (IS_AFFECTED(ch,AFF_FLYING)) {
 			REMOVE_BIT(ch->affected_by, AFF_FLYING);
-			char_puts("You slowly touch the ground.\n\r", ch);
+			char_puts("You slowly touch the ground.\n", ch);
 		}
 		else {		       
-			char_puts("You are already on the ground.\n\r", ch); 
+			char_puts("You are already on the ground.\n", ch); 
 			return;
 		}
 	}
  	else {
-		char_puts("Type fly with 'up' or 'down'.\n\r", ch);
+		char_puts("Type fly with 'up' or 'down'.\n", ch);
 		return;
 	}
 
@@ -2475,23 +2475,23 @@ void do_push(CHAR_DATA *ch, const char *argument)
 	argument = one_argument(argument, arg2);
 
 	if (arg1[0] == '\0' || arg2[0] == '\0') {
-		char_puts("Push whom to what direction?\n\r", ch);
+		char_puts("Push whom to what direction?\n", ch);
 		return;
 	}
 
 	if (MOUNTED(ch)) {
-		char_puts("You can't push while mounted.\n\r", ch);
+		char_puts("You can't push while mounted.\n", ch);
 		return;
 	}
 
 	if (RIDDEN(ch)) {
-		char_puts("You can't push while being ridden.\n\r", ch);
+		char_puts("You can't push while being ridden.\n", ch);
 		return;
 	}
 
 	if (IS_NPC(ch) && IS_SET(ch->affected_by, AFF_CHARM) 
 		&& (ch->master != NULL)) {
-		char_puts("You are too dazed to push anyone.\n\r", ch);
+		char_puts("You are too dazed to push anyone.\n", ch);
 		return;
 	}
 
@@ -2501,22 +2501,22 @@ void do_push(CHAR_DATA *ch, const char *argument)
 	WAIT_STATE(ch, SKILL(sn)->beats);
 
 	if ((victim = get_char_room(ch, arg1)) == NULL) {
-		char_puts("They aren't here.\n\r", ch);
+		char_puts("They aren't here.\n", ch);
 		return;
 	}
 
 	if (!IS_NPC(victim) && victim->desc == NULL) {
-		char_puts("You can't do that.\n\r", ch);
+		char_puts("You can't do that.\n", ch);
 		return;
 	}
 
 	if (victim == ch) {
-		char_puts("That's pointless.\n\r", ch);
+		char_puts("That's pointless.\n", ch);
 		return;
 	}
 
 	if (victim->position == POS_FIGHTING) {
-		char_puts("Wait until the fight finishes.\n\r", ch);
+		char_puts("Wait until the fight finishes.\n", ch);
 		return;
 	}
 
@@ -2526,17 +2526,17 @@ void do_push(CHAR_DATA *ch, const char *argument)
 	if ((pexit = ch->in_room->exit[door])
 	&&  IS_SET(pexit->exit_info, EX_ISDOOR)) {
 		if (IS_SET(pexit->exit_info, EX_CLOSED)) {
-			char_puts("The door is closed.\n\r", ch); 
+			char_puts("The door is closed.\n", ch); 
 			return;
 		}
 		if (IS_SET(pexit->exit_info, EX_LOCKED)) {
-			char_puts("The door is locked.\n\r", ch); 
+			char_puts("The door is locked.\n", ch); 
 			return;
 		}
 	}
 
 	if (IS_AFFECTED(ch, AFF_DETECT_WEB)) {
-		char_puts("You're webbed, and want to do WHAT?!?\n\r", ch);
+		char_puts("You're webbed, and want to do WHAT?!?\n", ch);
 		act("$n stupidly tries to push $N while webbed.",
 		    ch, NULL, victim, TO_ROOM);
 		return; 
@@ -2563,7 +2563,7 @@ void do_push(CHAR_DATA *ch, const char *argument)
 		 * Failure.
 		 */
 
-		char_puts("Oops.\n\r", ch);
+		char_puts("Oops.\n", ch);
 		if (!IS_AFFECTED(victim, AFF_SLEEP)) {
 			victim->position = victim->position == POS_SLEEPING ? 
 					   POS_STANDING : victim->position;
@@ -2605,7 +2605,7 @@ void do_crecall(CHAR_DATA *ch, const char *argument)
 	if ((sn = sn_lookup("clan recall")) < 0
 	||  get_skill(ch, sn) == 0
 	||  (clan = clan_lookup(ch->clan)) == NULL) {
-		char_puts("Huh?\n\r", ch);
+		char_puts("Huh?\n", ch);
 		return;
 	}
 
@@ -2622,7 +2622,7 @@ void do_crecall(CHAR_DATA *ch, const char *argument)
 	act(clan->msg_prays, ch, NULL, NULL, TO_ROOM);
 	
 	if ((location = get_room_index(clan->recall_vnum)) == NULL) {
-		char_puts("You are completely lost.\n\r", ch);
+		char_puts("You are completely lost.\n", ch);
 		return;
 	}
 
@@ -2632,7 +2632,7 @@ void do_crecall(CHAR_DATA *ch, const char *argument)
 	if (IS_SET(ch->in_room->room_flags, ROOM_NORECALL)
 	||  IS_AFFECTED(ch, AFF_CURSE) 
 	||  IS_RAFFECTED(ch->in_room, RAFF_CURSE)) {
-		char_puts("The gods have forsaken you.\n\r", ch);
+		char_puts("The gods have forsaken you.\n", ch);
 		return;
 	}
 
@@ -2672,37 +2672,37 @@ void do_escape(CHAR_DATA *ch, const char *argument)
 	if ((victim = ch->fighting) == NULL) {
 		if (ch->position == POS_FIGHTING)
 			ch->position = POS_STANDING;
-		char_puts("You aren't fighting anyone.\n\r", ch);
+		char_puts("You aren't fighting anyone.\n", ch);
 		return;
 	}
 
 	argument = one_argument(argument, arg);
 
 	if (arg[0] == '\0') {
-		char_puts("Escape to what direction?\n\r", ch);
+		char_puts("Escape to what direction?\n", ch);
 		return;
 	}
 
 	if (MOUNTED(ch)) {
-		  char_puts("You can't escape while mounted.\n\r", ch);
+		  char_puts("You can't escape while mounted.\n", ch);
 		  return;
 	}
 
 	if (RIDDEN(ch)) {
-		  char_puts("You can't escape while being ridden.\n\r", ch);
+		  char_puts("You can't escape while being ridden.\n", ch);
 		  return;
 	}
 
 	if ((sn = sn_lookup("escape")) < 0
 	||  (chance = get_skill(ch, sn)) == 0) {
-		char_puts("Try flee. It may fit better to you.\n\r", ch);
+		char_puts("Try flee. It may fit better to you.\n", ch);
 		return;
 	}
 
 	was_in = ch->in_room;
 
 	if ((door = find_exit(ch, arg)) < 0) {
-		char_puts("PANIC! You couldn't escape!\n\r", ch);
+		char_puts("PANIC! You couldn't escape!\n", ch);
 		return;
 	}
 
@@ -2715,7 +2715,7 @@ void do_escape(CHAR_DATA *ch, const char *argument)
 	||  (IS_SET(pexit->exit_info, EX_NOFLEE))
 	||  (IS_NPC(ch) &&
 	     IS_SET(pexit->u1.to_room->room_flags, ROOM_NOMOB))) {
-		char_puts("Something prevents you to escape that direction.\n\r", ch); 
+		char_puts("Something prevents you to escape that direction.\n", ch); 
 		return;
 	}
 
@@ -2728,7 +2728,7 @@ void do_escape(CHAR_DATA *ch, const char *argument)
 	check_improve(ch, sn, TRUE, 1);	
 	move_char(ch, door, FALSE);
 	if ((now_in = ch->in_room) == was_in) {
-		char_puts("It's pointless to escape there.\n\r", ch);
+		char_puts("It's pointless to escape there.\n", ch);
 		return;
 	}
 
@@ -2739,7 +2739,7 @@ void do_escape(CHAR_DATA *ch, const char *argument)
 	if (!IS_NPC(ch)) {
 		char_nputs(MSG_YOU_ESCAPED_FROM_COMBAT, ch);
 		if (ch->level < LEVEL_HERO) {
-			char_printf(ch, "You lose %d exps.\n\r", 10);
+			char_printf(ch, "You lose %d exps.\n", 10);
 			gain_exp(ch, -10);
 		}
 	}
@@ -2758,19 +2758,19 @@ void do_layhands(CHAR_DATA *ch, const char *argument)
 
 	if ((sn = sn_lookup("lay hands")) < 0
 	||  get_skill(ch, sn) == 0) {
-		char_puts("You lack the skill to heal others with touching.\n\r", ch);
+		char_puts("You lack the skill to heal others with touching.\n", ch);
 		return;
 	}
 
 	WAIT_STATE(ch, SKILL(sn)->beats);
 
 	if ((victim = get_char_room(ch,argument)) == NULL) {
-		char_puts("They aren't here.\n\r", ch);
+		char_puts("They aren't here.\n", ch);
 		return;
 	}
 
 	if (is_affected(ch, sn)) {
-		 char_puts("You can't concentrate enough.\n\r", ch);
+		 char_puts("You can't concentrate enough.\n", ch);
 		 return;
 	}
 
@@ -2785,9 +2785,9 @@ void do_layhands(CHAR_DATA *ch, const char *argument)
 
 	victim->hit = UMIN(victim->hit + ch->level * 2, victim->max_hit);
 	update_pos(victim);
-	char_puts("A warm feeling fills your body.\n\r", victim);
+	char_puts("A warm feeling fills your body.\n", victim);
 	if (ch != victim)
-		char_puts("Ok.\n\r", ch);
+		char_puts("Ok.\n", ch);
 	check_improve(ch, sn, TRUE, 1);
 }
 
@@ -2809,7 +2809,7 @@ int mount_success(CHAR_DATA *ch, CHAR_DATA *mount, int canattack)
 
 	if (!IS_NPC(ch) && IS_DRUNK(ch)) {
 		percent += chance / 2;
-		char_puts("Due to your being under the influence, riding seems a bit harder...\n\r", ch);
+		char_puts("Due to your being under the influence, riding seems a bit harder...\n", ch);
 	}
 
 	success = percent - chance;
@@ -2871,43 +2871,43 @@ void do_mount(CHAR_DATA *ch, const char *argument)
 		if (ch->mount && ch->mount->in_room == ch->in_room)
 			mount = ch->mount;
 		else {
-			char_puts("Mount what?\n\r", ch);
+			char_puts("Mount what?\n", ch);
 			return;
 		}
 	}
 	else if ((mount = get_char_room(ch, arg)) == NULL) {
-		char_puts("You don't see that here.\n\r", ch);
+		char_puts("You don't see that here.\n", ch);
 		return;
   	}
  
 	if (!IS_NPC(mount) || !IS_SET(mount->act, ACT_RIDEABLE)
 	||  IS_SET(mount->act, ACT_NOTRACK)) { 
-		char_puts("You can't ride that.\n\r", ch); 
+		char_puts("You can't ride that.\n", ch); 
 		return;
 	}
   
 	if (mount->level - 5 > ch->level) {
-		char_puts("That beast is too powerful for you to ride.\n\r", ch);
+		char_puts("That beast is too powerful for you to ride.\n", ch);
 		return;
 	}
 
 	if ((mount->mount) && (!mount->riding) && (mount->mount != ch)) {
-		char_printf(ch, "%s belongs to %s, not you.\n\r",
+		char_printf(ch, "%s belongs to %s, not you.\n",
 			    mlstr_cval(mount->short_descr, ch),
 		            mount->mount->name);
 		return;
 	} 
 
 	if (mount->position < POS_STANDING) {
-		char_puts("Your mount must be standing.\n\r", ch);
+		char_puts("Your mount must be standing.\n", ch);
 		return;
 	}
 
 	if (RIDDEN(mount)) {
-		char_puts("This beast is already ridden.\n\r", ch);
+		char_puts("This beast is already ridden.\n", ch);
 		return;
 	} else if (MOUNTED(ch)) {
-		char_puts("You are already riding.\n\r", ch);
+		char_puts("You are already riding.\n", ch);
 		return;
 	}
 
@@ -2947,7 +2947,7 @@ void do_dismount(CHAR_DATA *ch, const char *argument)
 		mount->riding = FALSE;
 	}
 	else {
-		char_puts("You aren't mounted.\n\r", ch);
+		char_puts("You aren't mounted.\n", ch);
 		return;
 	}
 } 
@@ -3118,7 +3118,7 @@ void do_shoot(CHAR_DATA *ch, const char *argument)
 		return; /* Mobs can't use bows */
 
 	if (IS_NPC(ch) || (chance = get_skill(ch, gsn_bow)) == 0) {
-		char_puts("You don't know how to shoot.\n\r",ch);
+		char_puts("You don't know how to shoot.\n",ch);
 		return;
 	}
 
@@ -3126,36 +3126,36 @@ void do_shoot(CHAR_DATA *ch, const char *argument)
 	one_argument(argument, arg2);
 
 	if (arg1[0] == '\0' || arg2[0] == '\0') {
-		char_puts("Shoot what direction and whom?\n\r", ch);
+		char_puts("Shoot what direction and whom?\n", ch);
 		return;
 	}
 
 	if (ch->fighting) {
-		char_puts("You cannot concentrate on shooting arrows.\n\r", ch);
+		char_puts("You cannot concentrate on shooting arrows.\n", ch);
 		return;
 	}
 
 	direction = find_exit(ch, arg1);
 
 	if (direction < 0 || direction >= MAX_DIR) {
-		char_puts("Shoot which direction and whom?\n\r",ch);
+		char_puts("Shoot which direction and whom?\n",ch);
 		return;
 	}
 		
 	WAIT_STATE(ch, SKILL(gsn_bow)->beats);
    
 	if ((victim = find_char(ch, arg2, direction, range)) == NULL) {
-		char_puts("They aren't there.\n\r", ch);
+		char_puts("They aren't there.\n", ch);
 		return;
 	}
 
 	if (!IS_NPC(victim) && victim->desc == NULL) {
-		char_puts("You can't do that.\n\r", ch);
+		char_puts("You can't do that.\n", ch);
 		return;
 	}
 
 	if (victim == ch) {
-		char_puts("That's pointless.\n\r", ch);
+		char_puts("That's pointless.\n", ch);
 		return;
 	}
 
@@ -3164,25 +3164,25 @@ void do_shoot(CHAR_DATA *ch, const char *argument)
 
 	if (!wield || wield->pIndexData->item_type != ITEM_WEAPON
 	||  wield->value[0]!=WEAPON_BOW) {
-		char_puts("You need a bow to shoot!\n\r",ch);
+		char_puts("You need a bow to shoot!\n",ch);
 		return;    	
 	}
 
 	if (get_eq_char(ch, WEAR_SECOND_WIELD)
 	||  get_eq_char(ch, WEAR_SHIELD)) {
-		char_puts("Your second hand should be free!\n\r",ch);
+		char_puts("Your second hand should be free!\n",ch);
 		return;    	
 	}
 
 	if (!arrow) {
-		 char_puts("You need an arrow holding for your ammunition!\n\r",
+		 char_puts("You need an arrow holding for your ammunition!\n",
 			   ch);
 		 return;    	
 	}
 		
 	if (arrow->pIndexData->item_type != ITEM_WEAPON
 	||  arrow->value[0] != WEAPON_ARROW) {
-		char_puts("That's not the right kind of arrow!\n\r",ch);
+		char_puts("That's not the right kind of arrow!\n",ch);
 		return;
 	}
 		
@@ -3249,12 +3249,12 @@ char *find_way(CHAR_DATA *ch,ROOM_INDEX_DATA *rstart, ROOM_INDEX_DATA *rend)
 void do_human(CHAR_DATA *ch, const char *argument)
 {
 	if (!is_affected(ch, gsn_vampire)) {
-		char_puts("You are already a human.\n\r", ch);
+		char_puts("You are already a human.\n", ch);
 		return;
 	}
 
 	affect_strip(ch, gsn_vampire);
-	char_puts("You return to your original size.\n\r", ch);
+	char_puts("You return to your original size.\n", ch);
 }
 
 void do_throw_spear(CHAR_DATA *ch, const char *argument)
@@ -3267,7 +3267,7 @@ void do_throw_spear(CHAR_DATA *ch, const char *argument)
 	int range = (ch->level / 10) + 1;
 
 	if (IS_NPC(ch) || (chance = get_skill(ch, gsn_spear)) == 0) {
-		char_puts("You don't know how to throw a spear.\n\r",ch);
+		char_puts("You don't know how to throw a spear.\n",ch);
 		return;
 	}
 
@@ -3275,47 +3275,47 @@ void do_throw_spear(CHAR_DATA *ch, const char *argument)
 	one_argument(argument, arg2);
 
   	if (arg1[0] == '\0' || arg2[0] == '\0') {
-		char_puts("Throw spear what direction and whom?\n\r", ch);
+		char_puts("Throw spear what direction and whom?\n", ch);
 		return;
 	}
 
 	if (ch->fighting) {
-		char_puts("You cannot concentrate on throwing spear.\n\r", ch);
+		char_puts("You cannot concentrate on throwing spear.\n", ch);
 		return;
 	}
 
 	direction = find_exit(ch, arg1);
 	if (direction < 0 || direction >= MAX_DIR) {
-		char_puts("Throw which direction and whom?\n\r",ch);
+		char_puts("Throw which direction and whom?\n",ch);
 		return;
 	}
 		
 	WAIT_STATE(ch, SKILL(gsn_spear)->beats);
    
 	if ((victim = find_char(ch, arg2, direction, range)) == NULL) {
-		char_puts("They aren't there.\n\r", ch);
+		char_puts("They aren't there.\n", ch);
 		return;
 	}
 
 	if (!IS_NPC(victim) && victim->desc == NULL) {
-		char_puts("You can't do that.\n\r", ch);
+		char_puts("You can't do that.\n", ch);
 		return;
 	}
 
 	if (victim == ch) {
-		char_puts("That's pointless.\n\r", ch);
+		char_puts("That's pointless.\n", ch);
 		return;
 	}
 
 	spear = get_eq_char(ch, WEAR_WIELD);
 	if (!spear || spear->pIndexData->item_type != ITEM_WEAPON
 	||  spear->value[0] != WEAPON_SPEAR) {
-		char_puts("You need a spear to throw!\n\r",ch);
+		char_puts("You need a spear to throw!\n",ch);
 		return;    	
 	}
 
 	if (get_eq_char(ch,WEAR_SECOND_WIELD) || get_eq_char(ch,WEAR_SHIELD)) {
-		char_puts("Your second hand should be free!\n\r",ch);
+		char_puts("Your second hand should be free!\n",ch);
 		return;    	
 	}
 
@@ -3378,7 +3378,7 @@ void do_enter(CHAR_DATA *ch, const char *argument)
 
 	/* nifty portal stuff */
 	if (argument[0] == '\0') {
-		char_puts("Nope, can't do it.\n\r",ch);
+		char_puts("Nope, can't do it.\n",ch);
 		return;
 	}
 
@@ -3386,13 +3386,13 @@ void do_enter(CHAR_DATA *ch, const char *argument)
 	portal = get_obj_list(ch, argument, ch->in_room->contents);
 	
 	if (portal == NULL) {
-		char_puts("You don't see that here.\n\r",ch);
+		char_puts("You don't see that here.\n",ch);
 		return;
 	}
 
 	if (portal->pIndexData->item_type != ITEM_PORTAL 
 	||  (IS_SET(portal->value[1], EX_CLOSED) && !IS_TRUSTED(ch, ANGEL))) {
-		char_puts("You can't seem to find a way in.\n\r", ch);
+		char_puts("You can't seem to find a way in.\n", ch);
 		return;
 	}
 
@@ -3401,7 +3401,7 @@ void do_enter(CHAR_DATA *ch, const char *argument)
 	&&  (IS_AFFECTED(ch, AFF_CURSE) ||
 	     IS_SET(old_room->room_flags, ROOM_NORECALL) ||
 	     IS_RAFFECTED(old_room, RAFF_CURSE))) {
-		char_puts("Something prevents you from leaving...\n\r",ch);
+		char_puts("Something prevents you from leaving...\n",ch);
 		return;
 	}
 
@@ -3424,7 +3424,7 @@ void do_enter(CHAR_DATA *ch, const char *argument)
 
 	if (IS_NPC(ch) && IS_SET(ch->act, ACT_AGGRESSIVE)
 	&&  IS_SET(location->room_flags, ROOM_LAW | ROOM_SAFE)) {
-	        char_puts("Something prevents you from leaving...\n\r",ch);
+	        char_puts("Something prevents you from leaving...\n",ch);
 	        return;
 	}
 
@@ -3527,7 +3527,7 @@ void do_settraps(CHAR_DATA *ch, const char *argument)
 	int chance;
 
 	if ((chance = get_skill(ch, gsn_settraps)) == 0) {
-		char_puts("You don't know how to set traps.\n\r",ch);
+		char_puts("You don't know how to set traps.\n",ch);
 		return;
 	}
 
@@ -3535,7 +3535,7 @@ void do_settraps(CHAR_DATA *ch, const char *argument)
 		return;
 
 	if (IS_SET(ch->in_room->room_flags, ROOM_LAW)) {
-		char_puts("A mystical power protects the room.\n\r",ch);
+		char_puts("A mystical power protects the room.\n",ch);
 		return;
 	}
 
@@ -3548,13 +3548,13 @@ void do_settraps(CHAR_DATA *ch, const char *argument)
 
 	  if (is_affected_room(ch->in_room, gsn_settraps))
 	  {
-	char_puts("This room has already trapped.\n\r",ch);
+	char_puts("This room has already trapped.\n",ch);
 	return;
 	   }
 
 	  if (is_affected(ch,gsn_settraps))
 	  {
-	char_puts("This skill is used too recently.\n\r",ch);
+	char_puts("This skill is used too recently.\n",ch);
 	return;
 	  }
    
@@ -3579,7 +3579,7 @@ void do_settraps(CHAR_DATA *ch, const char *argument)
 	  af2.location  = APPLY_NONE;
 	  af2.bitvector = 0;
 	  affect_to_char(ch, &af2);
-	  char_puts("You set the room with your trap.\n\r", ch);
+	  char_puts("You set the room with your trap.\n", ch);
 	  act("$n set the room with $s trap.",ch,NULL,NULL,TO_ROOM);
 	  return;
 	}
@@ -3596,7 +3596,7 @@ void do_thumbling(CHAR_DATA *ch, const char *argument)
 	AFFECT_DATA af;
 
 	if (IS_NPC(ch) || (chance = get_skill(ch, gsn_thumbling)) == 0) {
-		char_puts("You don't know how to do that.\n\r", ch);
+		char_puts("You don't know how to do that.\n", ch);
 		return;
 	}
 
@@ -3605,7 +3605,7 @@ void do_thumbling(CHAR_DATA *ch, const char *argument)
 	if (arg[0] == '\0') {
 		if (is_affected(ch, gsn_thumbling)) {
 			affect_strip(ch, gsn_thumbling);
-			char_puts("Ok.\n\r", ch);
+			char_puts("Ok.\n", ch);
 		}
 		return;
 	}
@@ -3615,19 +3615,19 @@ void do_thumbling(CHAR_DATA *ch, const char *argument)
 	else if (!str_prefix(arg, "defense"))
 		attack = FALSE;
 	else {
-		char_puts("Aglebargle, glip-glop?\n\r", ch);
+		char_puts("Aglebargle, glip-glop?\n", ch);
 		return;
 	}
 
 	WAIT_STATE(ch, SKILL(gsn_thumbling)->beats);
 
 	if (is_affected(ch, gsn_thumbling)) {
-		char_puts("You do the best you can.\n\r", ch);
+		char_puts("You do the best you can.\n", ch);
 		return;
 	}
 
 	if (IS_AFFECTED(ch, AFF_FLYING)) {
-		char_puts("Touch the ground first.\n\r", ch);
+		char_puts("Touch the ground first.\n", ch);
 		return;
 	}
 

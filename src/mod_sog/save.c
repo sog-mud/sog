@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.84 1998-11-17 08:28:50 fjoe Exp $
+ * $Id: save.c,v 1.85 1998-12-01 10:53:55 fjoe Exp $
  */
 
 /***************************************************************************
@@ -118,7 +118,7 @@ void save_char_obj(CHAR_DATA * ch, bool reboot)
 		return;
 	}
 	else {
-		char_puts("Saving.\n\r", ch);
+		char_puts("Saving.\n", ch);
 		fwrite_char(ch, fp, reboot);
 		if (ch->carrying != NULL)
 			fwrite_obj(ch, ch->carrying, fp, 0);
@@ -241,6 +241,10 @@ fwrite_char(CHAR_DATA * ch, FILE * fp, bool reboot)
 		for (qt = ch->pcdata->qtrouble; qt; qt = qt->next)
 			fprintf(fp, "Qtrouble %d %d\n", qt->vnum, qt->count);
 
+		if (ch->pcdata->plevels > 0)
+			fprintf(fp, "PLev %d\n", ch->pcdata->plevels);
+		if (ch->pcdata->petition)
+			fprintf(fp, "Peti %d\n", ch->pcdata->petition);
 		fprintf(fp, "Plyd %d\n",
 			ch->pcdata->played + (int) (current_time - ch->logon));
 		fprintf(fp, "Not  %ld %ld %ld %ld %ld\n",
@@ -902,6 +906,8 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 			break;
 
 		case 'P':
+			KEY("Peti", ch->pcdata->petition, fread_number(fp));
+			KEY("PLev", ch->pcdata->plevels, fread_number(fp));
 			SKEY("Password", ch->pcdata->pwd);
 			SKEY("Pass", ch->pcdata->pwd);
 			KEY("PC_Killed", ch->pcdata->pc_killed, fread_number(fp));
