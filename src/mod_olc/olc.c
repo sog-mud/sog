@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.26 1998-10-13 12:38:25 fjoe Exp $
+ * $Id: olc.c,v 1.27 1998-10-14 18:10:39 fjoe Exp $
  */
 
 /***************************************************************************
@@ -479,15 +479,15 @@ bool olced_dice(CHAR_DATA *ch, const char *argument, OLC_FUN *fun, int *dice)
 	if (argument[0] == '\0')
 		goto bail_out;
 	
-	num = strtod(argument, &p);
+	num = strtol(argument, &p, 0);
 	if (num < 1 || *p != 'd')
 		goto bail_out;
 
-	type = strtod(p+1, &p);
+	type = strtol(p+1, &p, 0);
 	if (type < 1 || *p != '+')
 		goto bail_out;
 	
-	bonus = strtod(p+1, &p);
+	bonus = strtol(p+1, &p, 0);
 	if (bonus < 0 || *p != '\0')
 		goto bail_out;
 

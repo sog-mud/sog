@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.110 1998-10-13 12:38:16 fjoe Exp $
+ * $Id: comm.c,v 1.111 1998-10-14 18:10:35 fjoe Exp $
  */
 
 /***************************************************************************
@@ -221,7 +221,7 @@ void	game_loop_unix		(int control);
 int	init_socket		(int port);
 void	init_descriptor		(int control);
 bool	read_from_descriptor	(DESCRIPTOR_DATA *d);
-bool	write_to_descriptor	(int desc, char *txt, int length);
+bool	write_to_descriptor	(int desc, char *txt, uint length);
 void	resolv_done		(void);
 
 /*
@@ -1217,9 +1217,9 @@ void bust_a_prompt(CHAR_DATA *ch)
 /*
  * Append onto an output buffer.
  */
-void write_to_buffer(DESCRIPTOR_DATA *d, const char *txt, int length)
+void write_to_buffer(DESCRIPTOR_DATA *d, const char *txt, uint length)
 {
-	int size;
+	uint size;
 	int i;
 	bool noiac = (d->connected == CON_PLAYING &&
 		      d->character != NULL &&
@@ -1293,13 +1293,13 @@ void write_to_buffer(DESCRIPTOR_DATA *d, const char *txt, int length)
  * If this gives errors on very long blocks (like 'ofind all'),
  *   try lowering the max block size.
  */
-bool write_to_descriptor(int desc, char *txt, int length)
+bool write_to_descriptor(int desc, char *txt, uint length)
 {
-	int iStart;
-	int nWrite;
-	int nBlock;
+	uint iStart;
+	uint nWrite;
+	uint nBlock;
 
-	if (length <= 0)
+	if (!length)
 		length = strlen(txt);
 
 	for (iStart = 0; iStart < length; iStart += nWrite) {
