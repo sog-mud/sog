@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_mob.c,v 1.43.2.2 2000-03-27 22:13:04 avn Exp $
+ * $Id: olc_mob.c,v 1.43.2.3 2000-04-18 08:52:32 fjoe Exp $
  */
 
 #include "olc.h"
@@ -904,17 +904,35 @@ OLC_FUN(mobed_race)
 		race_t *r, *ro;
 		EDIT_MOB(ch, pMob);
 
-		ro = RACE(pMob->race);
+		ro = race_lookup(pMob->race);
 		pMob->race = race;
 		r = RACE(race);
-		pMob->act	  = (pMob->act & ~ro->act) | r->act;
-		pMob->affected_by = (pMob->affected_by & ~ro->aff) |r->aff;
-		pMob->off_flags   = (pMob->off_flags & ~ro->off) |r->off;
-		pMob->imm_flags   = (pMob->imm_flags & ~ro->imm) |r->imm;
-		pMob->res_flags   = (pMob->res_flags & ~ro->res) |r->res;
-		pMob->vuln_flags  = (pMob->vuln_flags & ~ro->vuln) |r->vuln;
-		pMob->form        = (pMob->form & ~ro->form) |r->form;
-		pMob->parts       = (pMob->parts & ~ro->parts) |r->parts;
+		if (ro == NULL) {
+			pMob->act	  = r->act;
+			pMob->affected_by = r->aff;
+			pMob->off_flags   = r->off;
+			pMob->imm_flags   = r->imm;
+			pMob->res_flags   = r->res;
+			pMob->vuln_flags  = r->vuln;
+			pMob->form        = r->form;
+			pMob->parts       = r->parts;
+		} else {
+			pMob->act	  = (pMob->act & ~ro->act) | r->act;
+			pMob->affected_by = (pMob->affected_by & ~ro->aff) |
+						r->aff;
+			pMob->off_flags   = (pMob->off_flags & ~ro->off) |
+						r->off;
+			pMob->imm_flags   = (pMob->imm_flags & ~ro->imm) |
+						r->imm;
+			pMob->res_flags   = (pMob->res_flags & ~ro->res) |
+						r->res;
+			pMob->vuln_flags  = (pMob->vuln_flags & ~ro->vuln) |
+						r->vuln;
+			pMob->form        = (pMob->form & ~ro->form) |
+						r->form;
+			pMob->parts       = (pMob->parts & ~ro->parts) |
+						r->parts;
+		}
 
 		char_puts("Race set.\n", ch);
 		return TRUE;
