@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.72 1998-10-06 19:09:16 fjoe Exp $
+ * $Id: db.c,v 1.73 1998-10-07 08:36:36 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2353,10 +2353,13 @@ void db_error(const char* fn, const char* fmt,...)
 	vsnprintf(buf, sizeof(buf), fmt, ap);
 	va_end(ap);
 
-	log_printf("%s: line %d: %s: %s",
-		   filename, line_number, fn, buf);
-	if (fBootDb)
+	if (fBootDb) {
+		log_printf("%s: line %d: %s: %s",
+			   filename, line_number, fn, buf);
 		exit(1);
+	}
+
+	log_printf("%s: %s", fn, buf);
 }
 
 /*****************************************************************************
