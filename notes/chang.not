@@ -2134,3 +2134,39 @@ Hail.
 OLC for races implemented.
    #Arborn.
 ~
+Sender  Arborn~
+Date    Fri Jul 30 17:22:37 1999~
+Stamp   933330157
+To      all~
+Subject last changes~
+Text
+Hi.
+ 
+RESTORING LIGHT теперь является заклинанием, накладываемым на комнату.
+CREATE FOOD стоит несколько дороже.
+ 
+#Arborn.
+~
+Sender  Arborn~
+Date    Sat Jul 31 10:41:49 1999~
+Stamp   933392509
+To      imm~
+Subject OLC for classes~
+Text
+OLC for classes implemented.
+New command available from OLC-races and OLC-classes: update.
+It updates active players' skills concerning changes to race/class skills.
+#Arborn
+~
+Sender  Marvel~
+Date    Mon Aug 23 17:30:49 1999~
+Stamp   935404249
+To      all~
+Subject heal uncurse~
+Text
+Добрый день!
+ 
+'heal uncurse' починен (работает)
+ 
+Marvel, the Marvellous
+~

@@ -353,10 +353,10 @@ A
 G none
 #38007
 robe~
-@eng Black Robe of Setepios@rus Черная ряса Setepiosa~
-@eng Setepios Robe@rus Ряса Setepiosa~
+@eng Dragons skin@rus Длинный плащ из кожи золотого дракона~
+@eng Dragons Skin@rus Длинный плащ из кожи золотого дракона~
 energy~
-armor CGHIM AD
+armor CGI AD
 1000 1000 1000 1000 0
 92 1 1 P
 A

@@ -421,6 +421,14 @@ Form 3 -лись~
 End
 
 #RULE
+Name зачитывает~
+BaseLen 8
+Form 1 -ет~
+Form 2 -ет~
+Form 3 -ют~
+End
+
+#RULE
 Name замыкает~
 BaseLen 6
 Form 1 -ет~
@@ -448,6 +456,14 @@ End
 Name гаснет~
 BaseLen 4
 Form 3 -ут~
+End
+
+#RULE
+Name вскакивает~
+BaseLen 8
+Form 1 -ет~
+Form 2 -ет~
+Form 3 -ют~
 End
 
 #RULE
@@ -1018,6 +1034,14 @@ BaseLen 3
 Form 1 -ит~
 Form 2 -ит~
 Form 3 -ят~
+End
+
+#RULE
+Name розовый~
+BaseLen 5
+Form 1 -ая~
+Form 2 -ое~
+Form 3 -ые~
 End
 
 #RULE

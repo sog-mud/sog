@@ -855,6 +855,9 @@ cannot be turned off (see {CHELP TWIT{x)
 MUSIC channel is designed for singing songs.
  
 Using this commands without message will toggle the channel on and off.
+ 
+You should not use these channels for personal messages, use say, tell or 
+gtell instead. Also, you should not use transliteration.
 @rus Синтаксис: {cshout   {x<сообщение>
 Синтаксис: {cyell    {x<сообщение>
 Синтаксис: {cgossip  {x<сообщение>
@@ -872,6 +875,10 @@ MUSIC предназначен для громкого, на весь мир распевания песен.
 
 Использование этих команд без аргументов включает/выключает соответствующий
 канал.
+ 
+Использование этих каналов для личных разговоров крайне не рекомендуется и
+может служить причиной для их отключения(используйте tell, say, gtell). Также
+не рекомендуется использовать транслитерацию.
 ~
 0 EMOTE PMOTE POSE~
 @eng Syntax: {cemote{x <action>
@@ -3718,8 +3725,14 @@ Both these abilities summon animals to aid the summoner.
 Оба этих умения вызывают животных на помощь вызывающему.
 ~
 0 'HARA KIRI'~
-A Samurai kills himself, in other words set him/her self hitpoint, mana
-and movement 1 . Then gains them very quickly.
+@eng Syntax: {chara{x
+ 
+Samurai kills himself, losing all hp, mana, movement. But then he regains it
+faster than normally.
+@rus Синтаксис: {chara{x
+ 
+Самурай совершает самоубийство, теряя здоровье и ману. Но после этого, он
+восстанавливает их быстрее, чем обычно.
 ~
 0 'VAMPIRIC BITE'~
 Syntax: bite <victim>
@@ -4336,7 +4349,7 @@ him/her). Thus when you induct a player to your clan be very careful.
 If any problem occurs, you are RESPONSIBLE.
 ~
 -1 RELIGION~
-Syntax: {csay{x <god name>
+@eng Syntax: {csay{x <god name>
  
 Find the Templeman in Midgaard and say the name of the god you worship.
 There are following religions available:
@@ -4370,6 +4383,41 @@ There are following religions available:
                                 ---             dispel good
 {WSeth        {gAny{x                 dragon strength dragon breath
 {WEros        {gAny{x                 heal            ---
+                                group heal      ---
+@rus Синтаксис: {csay{x <имя бога>
+ 
+Найди храмовника в Мидгарде и скажи ему имя бога, которому ты поклоняешься.
+Доступны следующие религии:
+ 
+{C   Бог      Расположение        Тебе            Врагу{x
+----------------------------------------------------------------------
+{WAtum-ra     {gLawful Good{x         cure serious    holy word
+{WZeus        {gNeutral Good{x        cure critical   ---
+                                cure disease    ---
+                                cure poison     ---
+{WAhuramazda  {gChaotic Good{x        cure serious    dispel evil
+{WOdin        {gLawful Neutral      {xcure critical   faerie fire
+{WSiebele     {gTrue Neutral        {xcure serious    blue fire
+{WTeshub      {gChaotic Neutral     {xhaste           blind
+                                shield          poison
+{WDeimos      {gLawful Evil         {xcure serious    web
+{WPhobos      {gNeutral Evil        {xcure serious    color spray
+{WEhrumen     {gChaotic Evil        {xcure serious    demon fire
+                                cure light      ---
+{WShamash     {gAny                 {xcure serious    scream
+{WAres        {gAny                 {xberserk         ---
+{WGoktengri   {gAny                 {xдополнительная атака
+{WHera        {gAny                 {x---             poison
+                                ---             plague
+                                ---             slow
+                                ---             weaken
+{WVenus       {gAny                 {xbless           plague
+                                cure light      ---
+{WEnki        {gAny                 {xcure critical   lightning bolt
+                                ---             dispel evil
+                                ---             dispel good
+{WSeth        {gAny                 {xdragon strength dragon breath
+{WEros        {gAny                 {xheal            ---
                                 group heal      ---
 ~
 0 ZEUS~
@@ -4711,6 +4759,7 @@ Characters affected by 'protection negative' are immune to negative attack, for 
 0 'OLC ALIST'~
 Syntax: alist area [substr]
 Syntax: alist clan
+Syntax: alist class
 Syntax: alist race
 Syntax: alist help [keyword]
 Syntax: alist mpcode [all]
@@ -4734,6 +4783,7 @@ keyword.
 Syntax: asave world                 - save all areas
 Syntax: asave changed               - save changed areas
 Syntax: asave clans                 - save changed clans
+Syntax: asave class
 Syntax: asave msgdb                 - save msgdb
 Syntax: asave socials               - save socials
 Syntax: asave langs                 - save langs 
@@ -4769,6 +4819,7 @@ Syntax: create mpcode vnum
 Syntax: create help keyword
 Syntax: create race name
 Syntax: create clan name
+Syntax: create class name
 Syntax: create msg message
 Syntax: create social name
 Syntax: create lang name
@@ -4785,6 +4836,7 @@ Syntax: edit mpcode vnum
 Syntax: edit help [num.]keyword
 Syntax: edit race name
 Syntax: edit clan name
+Syntax: edit class name
 Syntax: edit msg substr
 Syntax: edit social name
 Syntax: edit lang name
@@ -4800,6 +4852,7 @@ Syntax: ashow object [vnum]
 Syntax: ashow help [[num.]keyword]
 Syntax: ashow race [name]
 Syntax: ashow clan [name]
+Syntax: ashow class name
 Syntax: ashow msg [msg]
 Syntax: ashow implicit {{ case | gender | qty } num
 Syntax: ashow explicit {{ case | gender | qty } name
