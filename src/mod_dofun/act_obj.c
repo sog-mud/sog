@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.104 1998-12-23 16:11:12 fjoe Exp $
+ * $Id: act_obj.c,v 1.105 1998-12-24 12:24:12 kostik Exp $
  */
 
 /***************************************************************************
@@ -3585,4 +3585,41 @@ void do_enchant(CHAR_DATA * ch, const char *argument)
 	ch->mana -= 100;
 	spell_enchant_weapon(24, ch->level, ch, obj, TARGET_OBJ);
 	check_improve(ch, sn, TRUE, 2);
+}
+
+void do_label(CHAR_DATA* ch, const char *argument)
+{
+	OBJ_DATA *	obj;
+	char obj_name[MAX_INPUT_LENGTH];
+	char label[MAX_INPUT_LENGTH];
+	char buff[MAX_INPUT_LENGTH];
+	
+	if (IS_NPC(ch)) return;
+
+	argument = first_arg(argument, obj_name, FALSE);
+	first_arg(argument, label, FALSE);
+
+	if ((obj=get_obj_carry(ch,obj_name)) == NULL) {
+		char_puts("You don't have that object.\n", ch);
+		return;
+	}
+	
+	if (ch->pcdata->questpoints < 10) {
+		char_puts("You do not have enough questpoints for labeling", ch);
+		return;
+	}
+
+	if ((strlen(obj->name)+strlen(label)+1) >=MAX_INPUT_LENGTH) {
+		char_puts("You can't label this object with this label\n",ch);
+		return;
+	}
+	buff[0] = '\0';
+	strcat(buff, obj->name);
+	strcat(buff, " ");
+	strcat(buff, label);
+	free_string(obj_name);
+	obj->name = strdup(buff);
+	
+	ch->pcdata->questpoints -= 10;
+	return;
 }

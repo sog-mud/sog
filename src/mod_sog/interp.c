@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.99 1998-12-23 16:11:15 fjoe Exp $
+ * $Id: interp.c,v 1.100 1998-12-24 12:24:13 kostik Exp $
  */
 
 /***************************************************************************
@@ -117,6 +117,7 @@ CMD_DATA cmd_table[] =
     { "practice",       do_practice,	POS_SLEEPING,    0,  LOG_NORMAL, CMD_KEEP_HIDE },
     { "rest",		do_rest,	POS_SLEEPING,	 0,  LOG_NORMAL, CMD_KEEP_HIDE },
     { "repair",		do_repair,	POS_SLEEPING,	 0,  LOG_NORMAL, CMD_KEEP_HIDE },
+    { "label",		do_label,	POS_RESTING,	 0,  LOG_NORMAL, CMD_NOORDER},
     { "second",		do_second_wield,POS_RESTING,	 0,  LOG_NORMAL	},
     { "sit",		do_sit,		POS_SLEEPING,    0,  LOG_NORMAL	},
     { "smithing",	do_smithing,	POS_RESTING,	 0,  LOG_NORMAL	},

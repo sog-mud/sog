@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_quest.c,v 1.87 1998-12-23 16:59:22 fjoe Exp $
+ * $Id: act_quest.c,v 1.88 1998-12-24 12:24:13 kostik Exp $
  */
 
 #include <sys/types.h>
@@ -93,6 +93,7 @@ struct qitem_data {
 };
 
 struct qitem_data qitem_table[] = {
+#ifdef 0
 	{ "the Girth of Real Heroism",	1000, CLASS_NONE,
 	   QUEST_VNUM_GIRTH, NULL				},
 
@@ -101,11 +102,12 @@ struct qitem_data qitem_table[] = {
 
 	{ "the Song of Real Hero",	1000, CLASS_NONE,
 	   QUEST_VNUM_SONG, NULL				},
+#endif
 
 	{ "small magic rug",		 750, CLASS_NONE,
 	   QUEST_VNUM_RUG, NULL					},
 
-	{ "350,000 gold pieces",	 500, CLASS_NONE,
+	{ "50,000 gold pieces",		 500, CLASS_NONE,
 	   0, buy_gold						},
 
 	{ "60 practices",		 500, CLASS_NONE,
@@ -859,10 +861,9 @@ static bool quest_give_item(CHAR_DATA *ch, CHAR_DATA *questor,
 
 static bool buy_gold(CHAR_DATA *ch, CHAR_DATA *questor)
 {
-	ch->pcdata->bank_g += 350000;
-	act("$N gives 350,000 gold pieces to $n.", ch, NULL, questor, TO_ROOM);
-	act_nprintf(ch, NULL, questor, TO_CHAR, POS_DEAD,
-						MSG_N_GIVES_YOU_GOLD);
+	ch->pcdata->bank_g += 50000;
+	act("$N gives 50,000 gold pieces to $n.", ch, NULL, questor, TO_ROOM);
+	act("$N transfers 50,000 gold peaces to your bank account.\n",ch, NULL, questor, TO_CHAR);
 	return TRUE;
 }
 

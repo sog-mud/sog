@@ -1,5 +1,5 @@
 /*
- * $Id: interp.h,v 1.32 1998-12-23 16:11:15 fjoe Exp $
+ * $Id: interp.h,v 1.33 1998-12-24 12:24:13 kostik Exp $
  */
 
 /***************************************************************************
@@ -184,6 +184,7 @@ DECLARE_DO_FUN(do_judge		);
 DECLARE_DO_FUN(do_katana	);
 DECLARE_DO_FUN(do_kick		);
 DECLARE_DO_FUN(do_kill		);
+DECLARE_DO_FUN(do_label		);
 DECLARE_DO_FUN(do_layhands	);
 DECLARE_DO_FUN(do_learn		);
 DECLARE_DO_FUN(do_list		);
