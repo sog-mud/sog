@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: lang.c,v 1.13 1999-06-03 10:24:06 fjoe Exp $
+ * $Id: lang.c,v 1.14 1999-06-03 12:13:36 fjoe Exp $
  */
 
 #include <string.h>
@@ -144,7 +144,7 @@ const char *word_form(const char *word, int fnum, int lang, int rulecl)
 		 */
 		if (fnum == SEX_PLURAL)
 			fnum--;
-		else
+		else 
 			fnum = (fnum + 2) % 3;
 		break;
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act.c,v 1.22 1999-05-22 13:55:59 fjoe Exp $
+ * $Id: act.c,v 1.23 1999-06-03 12:13:36 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -244,6 +244,18 @@ act_format_obj(OBJ_DATA *obj, CHAR_DATA *to, int sp, int act_flags)
 	return descr = mlstr_cval(obj->short_descr, to);
 }
 
+static const char *
+door_name(const char *name)
+{
+	static char buf[MAX_STRING_LENGTH];
+
+	if (IS_NULLSTR(name))
+		return "door";
+
+	one_argument(name, buf, sizeof(buf));
+	return buf;
+}
+
 /*
  * vch is (CHAR_DATA*) arg2
  * vch1 is (CHAR_DATA*) arg1
@@ -265,6 +277,7 @@ act_format_obj(OBJ_DATA *obj, CHAR_DATA *to, int sp, int act_flags)
  * f
  * F
  * g - $gx{...} - gender form depending on sex of ``x'', where x is:
+ *	d	- door name ($d)
  *	n	- ch ($n)
  *	N	- vch ($N)
  *	i	- vch1 ($i)
@@ -351,7 +364,7 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 
 		case '}':
 			if (sp < 0) {
-				*point++ = *s++;
+				s++;
 				continue;
 			}
 
@@ -497,12 +510,7 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 
 /* door arguments */
 			case 'd':
-				if (IS_NULLSTR(arg2))
-					i = GETMSG("door", opt->to_lang);
-				else {
-					one_argument(arg2, tmp, sizeof(tmp));
-					i = tmp;
-				}
+				i = GETMSG(door_name(arg2), to->lang);
 				break;
 
 /* $gx{...}, $cx{...}, $qx{...} arguments */
@@ -533,6 +541,11 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 
 				case 'g':
 					switch (subcode) {
+					case 'd':
+						tstack[sp].arg =
+						    msg_gender(door_name(arg2));
+						break;
+
 					case 'N':
 						tstack[sp].arg = vch->sex;
 						break;

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mlstring.c,v 1.35 1999-06-03 11:17:11 fjoe Exp $
+ * $Id: mlstring.c,v 1.36 1999-06-03 12:13:36 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -444,11 +444,14 @@ static void cb_addnl(int lang, const char **p, void *arg)
 	snprintf(buf, sizeof(buf), "%s\n", *p);
 	free_string(*p);
 	*p = str_dup(buf);
+	*(bool*) arg = TRUE;
 }
 
-void mlstr_addnl(mlstring **mlp)
+bool mlstr_addnl(mlstring **mlp)
 {
-	mlstr_foreach(mlp, NULL, cb_addnl);
+	bool changed = FALSE;
+	mlstr_foreach(mlp, &changed, cb_addnl);
+	return changed;
 }
 
 static const char *smash_a(const char *s, int len)

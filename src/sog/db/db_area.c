@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.45 1999-06-03 11:17:11 fjoe Exp $
+ * $Id: db_area.c,v 1.46 1999-06-03 12:13:36 fjoe Exp $
  */
 
 /***************************************************************************
@@ -882,7 +882,8 @@ DBLOAD_FUN(load_rooms)
 	
 				pexit			= alloc_perm(sizeof(*pexit));
 				pexit->description	= mlstr_fread(fp);
-				mlstr_addnl(&pexit->description);
+				if (mlstr_addnl(&pexit->description))
+					touch_area(area_current);
 
 				pexit->keyword		= fread_string(fp);
 				pexit->exit_info	= 0;
