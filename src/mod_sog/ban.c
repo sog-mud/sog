@@ -1,5 +1,5 @@
 /*
- * $Id: ban.c,v 1.51 2001-09-12 12:32:38 fjoe Exp $
+ * $Id: ban.c,v 1.52 2003-04-17 05:58:58 fjoe Exp $
  */
 
 /***************************************************************************
@@ -95,26 +95,26 @@ ban_add(CHAR_DATA *ch, const char *argument)
 	 */
 	argument = one_argument(argument, arg, sizeof(arg));
 	if (!is_number(arg)) {
-		BAN_ERROR(ch, (LOG_WARN, "do_ban: 'num' argument must be an integer"));	// notrans
+		BAN_ERROR(ch, (LOG_WARN, "ban: 'num' argument must be an integer"));	// notrans
 		return;
 	}
 	ban_num = atoi(arg);
 
 	argument = one_argument(argument, arg, sizeof(arg));
 	if ((ban_action = flag_value(ban_actions, arg)) < 0) {
-		BAN_ERROR(ch, (LOG_WARN, "do_ban: %s: unknown ban action", arg)); // notrans
+		BAN_ERROR(ch, (LOG_WARN, "ban: %s: unknown ban action", arg)); // notrans
 		return;
 	}
 
 	argument = one_argument(argument, arg, sizeof(arg));
 	if ((ban_class = flag_value(ban_classes, arg)) < 0) {
-		BAN_ERROR(ch, (LOG_WARN, "do_ban: %s: unknown ban class", arg)); // notrans
+		BAN_ERROR(ch, (LOG_WARN, "ban: %s: unknown ban class", arg)); // notrans
 		return;
 	}
 
 	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
-		BAN_ERROR(ch, (LOG_WARN, "do_ban: no ban mask specified")); // notrans
+		BAN_ERROR(ch, (LOG_WARN, "ban: no ban mask specified")); // notrans
 		return;
 	}
 
@@ -122,11 +122,11 @@ ban_add(CHAR_DATA *ch, const char *argument)
 	for (b = ban_list; b; b_prev = b, b = b->next) {
 		if (b->ban_num == ban_num) {
 			if (ch) {
-				act_puts("do_ban: rule $j already exists.",
+				act_puts("ban: rule $j already exists.",
 					 ch, (const void *) ban_num, NULL,
 					 TO_CHAR | ACT_NOUCASE, POS_DEAD);
 			} else
-				log(LOG_INFO, "do_ban: rule %d already exists.\n", ban_num);
+				log(LOG_INFO, "ban: rule %d already exists.\n", ban_num);
 			return;
 		}
 		if (b->ban_num > ban_num)
@@ -148,7 +148,7 @@ ban_add(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (ch) {
-		act_char("do_ban: rule added.", ch);
+		act_char("ban: rule added.", ch);
 		log(LOG_INFO, "Log %s: ban add %s", ch->name, format_ban(bnew));
 		save_bans();
 	}
@@ -176,7 +176,7 @@ ban_delete(CHAR_DATA *ch, const char *argument)
 			break;
 
 	if (!curr) {
-		act_puts("do_ban: rule $j not found.",
+		act_puts("ban: rule $j not found.",
 			 ch, (const void *) ban_num, NULL,
 			 TO_CHAR | ACT_NOUCASE, POS_DEAD);
 		return;
@@ -190,7 +190,7 @@ ban_delete(CHAR_DATA *ch, const char *argument)
 	free_string(curr->ban_mask);
 	free(curr);
 
-	act_puts("do_ban: rule $j deleted.",
+	act_puts("ban: rule $j deleted.",
 		 ch, (const void *) ban_num, NULL,
 		 TO_CHAR | ACT_NOUCASE, POS_DEAD);
 	log(LOG_INFO, "Log %s: ban delete %d", ch->name, ban_num);

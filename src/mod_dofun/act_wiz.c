@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.313 2002-11-30 16:23:07 kostik Exp $
+ * $Id: act_wiz.c,v 1.314 2003-04-17 05:58:52 fjoe Exp $
  */
 
 /***************************************************************************
@@ -4407,7 +4407,9 @@ DO_FUN(do_ban, ch, argument)
 
 	argument = one_argument(argument, arg, sizeof(arg));
 
-	if (arg[0] == '\0') {
+	if (arg[0] == '\0'
+	||  !str_prefix(arg, "show")
+	||  !str_prefix(arg, "list")) {
 		BUFFER *output;
 
 		output = buf_new(GET_LANG(ch));
