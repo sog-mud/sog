@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.349 2002-01-11 20:13:21 tatyana Exp $
+ * $Id: handler.c,v 1.350 2002-01-19 11:25:44 fjoe Exp $
  */
 
 /***************************************************************************
@@ -463,20 +463,24 @@ create_mob(int vnum, int flags)
 	return mob;
 }
 
-static
-MLSTR_FOREACH_FUN(cb_xxx_of, lang, p, ap)
+static void
+mlstr_of(mlstring *mlp, mlstring *owner)
 {
-	mlstring *owner = va_arg(ap, mlstring *);
-	const char *q;
+	const char **p;
 
-	if (IS_NULLSTR(*p))
-		return NULL;
+	MLSTR_FOREACH(p, mlp) {
+		uint lang;
+		const char *q;
 
-	q = str_printf(*p, word_form(mlstr_val(owner, lang), 1,
-				     lang, RULES_CASE));
-	free_string(*p);
-	*p = q;
-	return NULL;
+		if (IS_NULLSTR(*p))
+			continue;
+
+		lang = mlstr_lang(mlp, p);
+		q = str_printf(
+		    *p, word_form(mlstr_val(owner, lang), 1, lang, RULES_CASE));
+		free_string(*p);
+		*p = q;
+	}
 }
 
 CHAR_DATA *
@@ -485,9 +489,9 @@ create_mob_of(int vnum, mlstring *owner)
 	CHAR_DATA *mob;
 
 	if ((mob = create_mob(vnum, 0)) != NULL) {
-		mlstr_foreach(&mob->short_descr, cb_xxx_of, owner);
-		mlstr_foreach(&mob->long_descr, cb_xxx_of, owner);
-		mlstr_foreach(&mob->description, cb_xxx_of, owner);
+		mlstr_of(&mob->short_descr, owner);
+		mlstr_of(&mob->long_descr, owner);
+		mlstr_of(&mob->description, owner);
 	}
 
 	return mob;
@@ -978,8 +982,8 @@ create_obj_of(int vnum, mlstring *owner)
 	OBJ_DATA *obj;
 
 	if ((obj = create_obj(vnum, 0)) != NULL) {
-		mlstr_foreach(&obj->short_descr, cb_xxx_of, owner);
-		mlstr_foreach(&obj->description, cb_xxx_of, owner);
+		mlstr_of(&obj->short_descr, owner);
+		mlstr_of(&obj->description, owner);
 	}
 
 	return obj;
@@ -5505,28 +5509,30 @@ money_form(size_t lang, char *buf, size_t len, int num, const char *name)
 	strnzcpy(buf, len, word_form(tmp, (size_t) num, lang, RULES_QTY));
 }
 
-static MLSTR_FOREACH_FUN(money_descr_cb, lang, p, ap)
+static void
+money_descr(mlstring *mlp,
+	    int num1, const char *name1, int num2, const char *name2)
 {
-	int num1 = va_arg(ap, int);
-	const char *name1 = va_arg(ap, const char *);
-	int num2 = va_arg(ap, int);
-	const char *name2 = va_arg(ap, const char *);
+	const char **p;
 
-	char buf1[MAX_STRING_LENGTH];
-	char buf2[MAX_STRING_LENGTH];
+	MLSTR_FOREACH(p, mlp) {
+		char buf1[MAX_STRING_LENGTH];
+		char buf2[MAX_STRING_LENGTH];
+		uint lang;
 
-	const char *q;
+		const char *q;
 
-	if (IS_NULLSTR(*p))
-		return NULL;
+		if (IS_NULLSTR(*p))
+			continue;
 
-	money_form(lang, buf1, sizeof(buf1), num1, name1);
-	money_form(lang, buf2, sizeof(buf2), num2, name2);
+		lang = mlstr_lang(mlp, p);
+		money_form(lang, buf1, sizeof(buf1), num1, name1);
+		money_form(lang, buf2, sizeof(buf2), num2, name2);
 
-	q = str_printf(*p, num1, buf1, num2, buf2);
-	free_string(*p);
-	*p = q;
-	return NULL;
+		q = str_printf(*p, num1, buf1, num2, buf2);
+		free_string(*p);
+		*p = q;
+	}
 }
 
 /*
@@ -5550,8 +5556,7 @@ create_money(int gold, int silver)
 		obj = create_obj(OBJ_VNUM_GOLD_ONE, 0);
 	else if (silver == 0) {
 		if ((obj = create_obj(OBJ_VNUM_GOLD_SOME, 0)) != NULL) {
-			mlstr_foreach(
-			    &obj->short_descr, money_descr_cb,
+			money_descr(&obj->short_descr,
 			    gold, "gold coins", -1, NULL);
 			INT(obj->value[1]) = gold;
 			obj->cost	= 100*gold;
@@ -5559,8 +5564,7 @@ create_money(int gold, int silver)
 		}
 	} else if (gold == 0) {
 		if ((obj = create_obj(OBJ_VNUM_SILVER_ONE, 0)) != NULL) {
-			mlstr_foreach(
-			    &obj->short_descr, money_descr_cb,
+			money_descr(&obj->short_descr,
 			    silver, "silver coins", -1, NULL);
 			INT(obj->value[0]) = silver;
 			obj->cost	= silver;
@@ -5568,8 +5572,7 @@ create_money(int gold, int silver)
 		}
 	} else {
 		if ((obj = create_obj(OBJ_VNUM_COINS, 0)) != NULL) {
-			mlstr_foreach(
-			    &obj->short_descr, money_descr_cb,
+			money_descr(&obj->short_descr,
 			    silver, "silver coins", gold, "gold coins");
 			INT(obj->value[0]) = silver;
 			INT(obj->value[1]) = gold;

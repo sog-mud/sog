@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mlstring.c,v 1.67 2001-12-03 22:28:47 fjoe Exp $
+ * $Id: mlstring.c,v 1.68 2002-01-19 11:25:45 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -265,35 +265,33 @@ mlstr_val(const mlstring *mlp, size_t lang)
 	return (p ? p : str_empty);
 }
 
-static
-MLSTR_FOREACH_FUN(mlstr_null_cb, lang, p, ap)
-{
-	if (!IS_NULLSTR(*p))
-		return *p;
-	return NULL;
-}
-
 bool
 mlstr_null(const mlstring *mlp)
 {
-	return mlstr_foreach((mlstring*)(uintptr_t)mlp, mlstr_null_cb) == NULL;
-}
+	const char **p;
 
-static
-MLSTR_FOREACH_FUN(mlstr_valid_cb, lang, p, ap)
-{
-	if (!IS_NULLSTR(*p) && !mem_is(*p, MT_STR))
-		return *p;
-	return NULL;
+	MLSTR_FOREACH(p, mlp) {
+		if (!IS_NULLSTR(*p))
+			return FALSE;
+	}
+
+	return TRUE;
 }
 
 bool
 mlstr_valid(const mlstring *mlp)
 {
+	const char **p;
+
 	if (mlp->nlang > c_size(&langs))
 		return FALSE;
 
-	return mlstr_foreach((mlstring*)(uintptr_t)mlp, mlstr_valid_cb) == NULL;
+	MLSTR_FOREACH(p, mlp) {
+		if (!IS_NULLSTR(*p) && !mem_is(*p, MT_STR))
+			return FALSE;
+	}
+
+	return TRUE;
 }
 
 int
@@ -354,28 +352,40 @@ mlstr_convert(mlstring *mlp, lang_t *newlang)
 	return mlp->u.lstr + varr_index(&langs, newlang);
 }
 
-const char *
-mlstr_foreach(mlstring *mlp,
-	      mlstr_foreach_cb_t cb, ...)
+const char **
+mlstr_first(const mlstring *mlp)
 {
-	size_t lang;
-	const char *rv = NULL;
-	va_list ap;
-
 	if (mlp == NULL)
-		return rv;
+		return NULL;
 
-	va_start(ap, cb);
 	if (mlp->nlang == 0)
-		rv = cb(0, &mlp->u.str, ap);
-	else {
-		for (lang = 0; lang < mlp->nlang; lang++) {
-			if ((rv = cb(lang, mlp->u.lstr + lang, ap)) != NULL)
-				break;
-		}
-	}
-	va_end(ap);
-	return rv;
+		return &((mlstring *) (uintptr_t) (const void *) mlp)->u.str;
+
+	return &mlp->u.lstr[0];
+}
+
+const char **
+mlstr_next(const mlstring *mlp, const char **p)
+{
+	if (mlp == NULL)
+		return NULL;
+
+	if (mlp->nlang == 0)
+		return NULL;
+
+	if (p - mlp->u.lstr < (int) mlp->nlang - 1)
+		return p + 1;
+
+	return NULL;
+}
+
+uint
+mlstr_lang(mlstring *mlp, const char **p)
+{
+	if (mlp->nlang == 0)
+		return 0;
+
+	return p - mlp->u.lstr;
 }
 
 bool
@@ -459,63 +469,62 @@ mlstr_dump(BUFFER *buf, const char *name, const mlstring *mlp, int dump_level)
 	}
 }
 
-static
-MLSTR_FOREACH_FUN(cb_addnl, lang, p, ap)
-{
-	char buf[MAX_STRING_LENGTH];
-	size_t len;
-
-	bool *pchanged;
-
-	if (*p == NULL
-	||  (len = strlen(*p)) == 0
-	||  (*p)[len-1] == '\n')
-		return NULL;
-
-	snprintf(buf, sizeof(buf), "%s\n", *p);
-	free_string(*p);
-	*p = str_dup(buf);
-
-	pchanged = va_arg(ap, bool *);
-	*pchanged = TRUE;
-	return NULL;
-}
-
-static
-MLSTR_FOREACH_FUN(cb_stripnl, lang, p, ap)
-{
-	char buf[MAX_STRING_LENGTH];
-	size_t len;
-
-	bool *pchanged;
-
-	if (*p == NULL
-	||  (len = strlen(*p)) == 0
-	||  (*p)[len-1] != '\n')
-		return NULL;
-
-	strnzncpy(buf, sizeof(buf), *p, len-1);
-	free_string(*p);
-	*p = str_dup(buf);
-
-	pchanged = va_arg(ap, bool *);
-	*pchanged = TRUE;
-	return NULL;
-}
-
 bool
 mlstr_addnl(mlstring *mlp)
 {
+	const char **p;
 	bool changed = FALSE;
-	mlstr_foreach(mlp, cb_addnl, &changed);
+
+	MLSTR_FOREACH(p, mlp) {
+		char buf[MAX_STRING_LENGTH];
+		size_t len;
+
+		if (*p == NULL
+		||  (len = strlen(*p)) == 0
+		||  (*p)[len-1] == '\n')
+			return NULL;
+
+		snprintf(buf, sizeof(buf), "%s\n", *p);
+		free_string(*p);
+		*p = str_dup(buf);
+
+		changed = TRUE;
+	}
+
 	return changed;
 }
 
 bool
-mlstr_stripnl(mlstring *mlp)
+mlstr_stripnl(mlstring *mlp, size_t trailing_nls)
 {
+	const char **p;
 	bool changed = FALSE;
-	mlstr_foreach(mlp, cb_stripnl, &changed);
+
+	MLSTR_FOREACH(p, mlp) {
+		char buf[MAX_STRING_LENGTH];
+		size_t len, oldlen;
+
+		if (*p == NULL
+		||  (oldlen = len = strlen(*p)) == 0)
+			continue;
+
+		while ((*p)[len-1] == '\n') {
+			if (len < (trailing_nls + 1)
+			||  (*p)[len - (trailing_nls + 1)] != '\n')
+				break;
+
+			len--;
+		}
+
+		if (oldlen != len) {
+			strnzncpy(buf, sizeof(buf), *p, len);
+			free_string(*p);
+			*p = str_dup(buf);
+
+			changed = TRUE;
+		}
+	}
+
 	return changed;
 }
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mlstring.h,v 1.31 2001-08-03 11:27:28 fjoe Exp $
+ * $Id: mlstring.h,v 1.32 2002-01-19 11:25:39 fjoe Exp $
  */
 
 #ifndef _MLSTRING_H_
@@ -34,15 +34,8 @@
  * if nlang == 0 the value is stored in u.str
  * otherwise the value is stored in array of strings u.lstr
  * the size of array is equal to 'nlang'
- * 'ref' = number of references (COW semantics)
  */
 
-typedef const char *(mlstr_foreach_cb_t)(size_t, const char **, va_list);
-#define DECLARE_MLSTR_FOREACH(fun) mlstr_foreach_cb_t
-#define MLSTR_FOREACH_FUN(fun, lang, p, ap)				\
-		const char *fun(size_t lang __attribute__((unused)),	\
-		const char **p __attribute__((unused)),			\
-		va_list ap __attribute__((unused)))
 typedef struct mlstring {
 	union {
 		const char* str;
@@ -78,9 +71,15 @@ bool	mlstr_editnl	(mlstring *mlp, const char *arg);
 void	mlstr_dump	(BUFFER *buf, const char *name, const mlstring *ml,
 			 int dump_level);
 
-const char *mlstr_foreach(mlstring *mlp, mlstr_foreach_cb_t *cb, ...);
 bool	mlstr_addnl	(mlstring *mlp);
-bool	mlstr_stripnl	(mlstring *mlp);
+bool	mlstr_stripnl	(mlstring *mlp, size_t trailing_nls);
+
+#define MLSTR_FOREACH(p, mlp)						\
+	for ((p) = mlstr_first(mlp); (p) != NULL; (p) = mlstr_next((mlp), (p)))
+
+const char **mlstr_first(const mlstring *mlp);
+const char **mlstr_next(const mlstring *mlp, const char **p);
+uint mlstr_lang(mlstring *mlp, const char **p);
 
 /*
  * mlstring with gender

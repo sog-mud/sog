@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.140 2001-12-08 10:22:44 fjoe Exp $
+ * $Id: db_area.c,v 1.141 2002-01-19 11:25:41 fjoe Exp $
  */
 
 /***************************************************************************
@@ -356,36 +356,6 @@ DBLOAD_FUN(load_areadata)
 	}
 }
 
-static
-MLSTR_FOREACH_FUN(cb_strip_nl, lang, p, ap)
-{
-	char buf[MAX_STRING_LENGTH];
-	size_t len, oldlen;
-
-	AREA_DATA *pArea = va_arg(ap, AREA_DATA *);
-
-	if (*p == NULL
-	||  (len = strlen(*p)) == 0)
-		return NULL;
-
-	oldlen = len;
-	while ((*p)[len-1] == '\n') {
-		if (len < 2
-		||  (*p)[len-2] != '\n')
-			break;
-		len--;
-	}
-
-	if (oldlen != len) {
-		strnzncpy(buf, sizeof(buf), *p, len);
-		free_string(*p);
-		*p = str_dup(buf);
-		TOUCH_AREA(pArea);
-	}
-
-	return NULL;
-}
-
 /*
  * Snarf a help section.
  */
@@ -412,7 +382,9 @@ DBLOAD_FUN(load_helps)
 		pHelp->keyword	= keyword;
 		mlstr_fread(fp, &pHelp->text);
 
-		mlstr_foreach(&pHelp->text, cb_strip_nl, area_current);
+		if (mlstr_stripnl(&pHelp->text, 1))
+			TOUCH_AREA(area_current);
+
 		help_add(area_current, pHelp);
 	}
 }
@@ -1099,7 +1071,8 @@ DBLOAD_FUN(load_mobiles)
 		pMobIndex->name			= fread_string(fp);
 		mlstr_fread(fp, &pMobIndex->short_descr);
 		mlstr_fread(fp, &pMobIndex->long_descr);
-		mlstr_stripnl(&pMobIndex->long_descr);
+		if (mlstr_stripnl(&pMobIndex->long_descr, 0))
+			TOUCH_AREA(area_current);
 		mlstr_fread(fp, &pMobIndex->description);
 		free_string(pMobIndex->race);
 		pMobIndex->race			= fread_string(fp);
@@ -1438,7 +1411,7 @@ DBLOAD_FUN(load_objects)
 		mlstr_fread(fp, &pObjIndex->short_descr);
 
 		mlstr_fread(fp, &pObjIndex->description);
-		if (mlstr_stripnl(&pObjIndex->description))
+		if (mlstr_stripnl(&pObjIndex->description, 0))
 			TOUCH_AREA(area_current);
 
 		free_string(pObjIndex->material);

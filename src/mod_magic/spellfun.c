@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.285 2002-01-08 20:21:38 tatyana Exp $
+ * $Id: spellfun.c,v 1.286 2002-01-19 11:25:42 fjoe Exp $
  */
 
 /***************************************************************************
@@ -5412,28 +5412,6 @@ SPELL_FUN(spell_attract_other, sn, level, ch, vo)
 	spellfun_call("charm person", sn, level+2, ch, vo);
 }
 
-static
-MLSTR_FOREACH_FUN(cb_strip, lang, p, ap)
-{
-	char buf[MAX_STRING_LENGTH];
-	mlstring *mlp = va_arg(ap, mlstring *);
-	const char *r = mlstr_val(mlp, lang);
-	const char *q;
-
-	if (IS_NULLSTR(*p)
-	||  (q = strstr(r, "%s")) == NULL)
-		return NULL;
-
-	strnzncpy(buf, sizeof(buf), r, (size_t) (q-r));
-	if (!str_prefix(buf, *p)) {
-		const char *s = strdup(*p + strlen(buf));
-		free_string(*p);
-		*p = s;
-	}
-
-	return NULL;
-}
-
 #define MOB_VNUM_UNDEAD			18
 
 SPELL_FUN(spell_animate_dead, sn, level, ch, vo)
@@ -5450,6 +5428,8 @@ SPELL_FUN(spell_animate_dead, sn, level, ch, vo)
 		MOB_INDEX_DATA *undead_idx;
 		mlstring ml;
 		AFFECT_DATA *paf;
+
+		const char **p;
 
 		obj = (OBJ_DATA *) vo;
 
@@ -5510,7 +5490,23 @@ SPELL_FUN(spell_animate_dead, sn, level, ch, vo)
 		/*
 		 * strip "The undead body of "
 		 */
-		mlstr_foreach(&ml, cb_strip, &undead_idx->short_descr);
+		MLSTR_FOREACH(p, &ml) {
+			char buf[MAX_STRING_LENGTH];
+			const char *r = mlstr_val(
+			    &undead_idx->short_descr, mlstr_lang(&ml, p));
+			const char *q;
+
+			if (IS_NULLSTR(*p)
+			||  (q = strstr(r, "%s")) == NULL)
+				continue;
+
+			strnzncpy(buf, sizeof(buf), r, (size_t) (q-r));
+			if (!str_prefix(buf, *p)) {
+				const char *s = strdup(*p + strlen(buf));
+				free_string(*p);
+				*p = s;
+			}
+		}
 
 		/*
 		 * create_mob_of can't return NULL here
@@ -5555,7 +5551,7 @@ SPELL_FUN(spell_animate_dead, sn, level, ch, vo)
 		aff_free(paf);
 
 		act_puts("With mystic power, you animate it!",
-			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+			 ch, NULL, undead, TO_CHAR, POS_DEAD);
 		act("With mystic power, $n animates $p!",
 		    ch, obj, NULL, TO_ROOM);
 

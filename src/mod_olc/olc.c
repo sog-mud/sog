@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.150 2001-12-08 10:22:47 fjoe Exp $
+ * $Id: olc.c,v 1.151 2002-01-19 11:25:43 fjoe Exp $
  */
 
 /***************************************************************************
@@ -640,12 +640,6 @@ olced_mlstr_text(CHAR_DATA *ch, const char *argument,
 	return FALSE;
 }
 
-static MLSTR_FOREACH_FUN(cb_format, lang, p, ap)
-{
-	*p = format_string(*p);
-	return NULL;
-}
-
 bool
 olced_exd(CHAR_DATA *ch, const char* argument,
 	  olc_cmd_t *cmd __attribute__((unused)), ED_DATA **ped)
@@ -783,6 +777,8 @@ olced_exd(CHAR_DATA *ch, const char* argument,
 	}
 
 	if (!str_cmp(command, "format")) {
+		const char **p;
+
 		ed = ed_lookup(keyword, *ped);
 		if (ed == NULL) {
 			act_puts("$t: $T: exd keyword not found.",
@@ -791,7 +787,9 @@ olced_exd(CHAR_DATA *ch, const char* argument,
 			return FALSE;
 		}
 
-		mlstr_foreach(&ed->description, cb_format);
+		MLSTR_FOREACH(p, &ed->description)
+			*p = format_string(*p);
+
 		act_char("Extra description formatted.", ch);
 		return TRUE;
 	}
