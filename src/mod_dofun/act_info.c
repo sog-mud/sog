@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.109 1998-08-02 22:18:12 efdi Exp $
+ * $Id: act_info.c,v 1.110 1998-08-03 15:09:01 fjoe Exp $
  */
 
 /***************************************************************************
@@ -319,202 +319,202 @@ void show_list_to_char(OBJ_DATA *list, CHAR_DATA *ch,
 	free_mem(prgnShow,    count * sizeof(int)  );
 }
 
+#define FLAG_SET(pos, c, exp) (FLAGS[pos] = (exp) ? (flags = TRUE, c) : '.')
 
 void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 {
-	char buf[MAX_STRING_LENGTH];
-	int msgnum;
+	BUFFER *output;
 
-	buf[0] = '\0';
+	output = buf_new(0);
 
-	if (!IS_NPC(ch) && IS_NPC(victim) && ch->pcdata->questmob > 0
-	&&  victim->hunter == ch)
-		strcat(buf, msg(TARGET, ch));
+	if (IS_NPC(victim)) {
+		if (!IS_NPC(ch) && ch->pcdata->questmob > 0
+		&&  victim->hunter == ch)
+			buf_add(output, msg(TARGET, ch));
+	}
+	else {
+		if (IS_SET(victim->act, PLR_WANTED))
+			buf_add(output, msg(WANTED, ch));
 
-/*
-	sprintf(message,"(%s) ",race_table[RACE(victim)].name);
-	message[1] = UPPER(message[1]);
-	strcat(buf,message);
-*/
+		if (IS_SET(victim->comm, COMM_AFK))
+			buf_add(output, "{c[AFK]{x ");
+	}
 
 	if (IS_SET(ch->comm, COMM_LONG)) {
 		if (IS_AFFECTED(victim, AFF_INVISIBLE))
-			strcat(buf, msg(INVIS, ch));
+			buf_add(output, msg(INVIS, ch));
 		if (IS_AFFECTED(victim, AFF_HIDE)) 
-			strcat(buf, msg(HIDDEN, ch));
+			buf_add(output, msg(HIDDEN, ch));
 		if (IS_AFFECTED(victim, AFF_CHARM)) 
-			strcat(buf, msg(CHARMED, ch));
+			buf_add(output, msg(CHARMED, ch));
 		if (IS_AFFECTED(victim, AFF_PASS_DOOR)) 
-			strcat(buf, msg(TRANSLUCENT, ch));
+			buf_add(output, msg(TRANSLUCENT, ch));
 		if (IS_AFFECTED(victim, AFF_FAERIE_FIRE)) 
-			strcat(buf, msg(PINK_AURA, ch));
+			buf_add(output, msg(PINK_AURA, ch));
 		if (IS_NPC(victim) && IS_SET(victim->act,ACT_UNDEAD)
 		&&  CAN_DETECT(ch, DETECT_UNDEAD))
-			strcat(buf, msg(UNDEAD, ch));
+			buf_add(output, msg(UNDEAD, ch));
 		if (RIDDEN(victim))
-			strcat(buf, msg(RIDDEN, ch));
+			buf_add(output, msg(RIDDEN, ch));
 		if (IS_AFFECTED(victim,AFF_IMP_INVIS))
-			strcat(buf, msg(IMPROVED, ch));
+			buf_add(output, msg(IMPROVED, ch));
 		if (IS_EVIL(victim) && CAN_DETECT(ch, DETECT_EVIL))
-			strcat(buf, msg(RED_AURA, ch));
+			buf_add(output, msg(RED_AURA, ch));
 		if (IS_GOOD(victim) && CAN_DETECT(ch, DETECT_GOOD))
-			strcat(buf, msg(GOLDEN_AURA, ch));
+			buf_add(output, msg(GOLDEN_AURA, ch));
 		if (IS_AFFECTED(victim, AFF_SANCTUARY))
-			strcat(buf, msg(WHITE_AURA, ch));
+			buf_add(output, msg(WHITE_AURA, ch));
 		if (IS_AFFECTED(victim, AFF_FADE)) 
-			strcat(buf, msg(FADE, ch));
-		if (!IS_NPC(victim) && IS_SET(victim->act, PLR_WANTED))
-			strcat(buf, msg(WANTED, ch));
+			buf_add(output, msg(FADE, ch));
 		if (IS_AFFECTED(victim, AFF_CAMOUFLAGE)) 
-			strcat(buf, msg(CAMF, ch));
+			buf_add(output, msg(CAMF, ch));
 	}
 	else {
-		static char FLAGS[] = "{x[{y.{D.{m.{c.{M.{D.{G.{b.{R.{Y.{W.{y.{R.{g.{x] ";
-		char* p = strend(buf);
-		strcpy(p, FLAGS); 
-		if (IS_AFFECTED(victim, AFF_INVISIBLE)  ) p[5] = 'I';
-		if (IS_AFFECTED(victim, AFF_HIDE)       ) p[8] = 'H';
-		if (IS_AFFECTED(victim, AFF_CHARM)      ) p[11] = 'C';
-		if (IS_AFFECTED(victim, AFF_PASS_DOOR)  ) p[14] = 'T';
-		if (IS_AFFECTED(victim, AFF_FAERIE_FIRE)) p[17] = 'P';
-		if (IS_NPC(victim)
-		&&  IS_SET(victim->act,ACT_UNDEAD)
-		&&  CAN_DETECT(ch, DETECT_UNDEAD)       ) p[20] = 'U';
-		if (RIDDEN(victim)			) p[23] = 'R';
-		if (IS_AFFECTED(victim, AFF_IMP_INVIS)  ) p[26] = 'I';
-		if (IS_EVIL(victim)
-		&& CAN_DETECT(ch, DETECT_EVIL)		) p[29] = 'E';
-		if (IS_GOOD(victim)
-		&&  CAN_DETECT(ch, DETECT_GOOD)		) p[32] = 'G';
-		if (IS_AFFECTED(victim, AFF_SANCTUARY)  ) p[35] = 'S';
-		if (IS_AFFECTED(victim, AFF_CAMOUFLAGE) ) p[38] = 'C';
-		if (!IS_NPC(victim)
-		&&  IS_SET(victim->act, PLR_WANTED)     ) p[41] = 'W';
-		if (IS_AFFECTED(victim, AFF_FADE)       ) p[44] = 'F';
-		if (strcmp(p, FLAGS) == 0)
-			p[0] = '\0';
+		static char FLAGS[] = "{x[{y.{D.{m.{c.{M.{D.{G.{b.{R.{Y.{W.{y.{g.{x] ";
+		bool flags = FALSE;
+
+		FLAG_SET( 5, 'I', IS_AFFECTED(victim, AFF_INVISIBLE));
+		FLAG_SET( 8, 'H', IS_AFFECTED(victim, AFF_HIDE));
+		FLAG_SET(11, 'C', IS_AFFECTED(victim, AFF_CHARM));
+		FLAG_SET(14, 'T', IS_AFFECTED(victim, AFF_PASS_DOOR));
+		FLAG_SET(17, 'P', IS_AFFECTED(victim, AFF_FAERIE_FIRE));
+		FLAG_SET(20, 'U', IS_NPC(victim) &&
+				  IS_SET(victim->act, ACT_UNDEAD) &&
+				  CAN_DETECT(ch, DETECT_UNDEAD));
+		FLAG_SET(23, 'R', RIDDEN(victim));
+		FLAG_SET(26, 'I', IS_AFFECTED(victim, AFF_IMP_INVIS));
+		FLAG_SET(29, 'E', IS_EVIL(victim) &&
+				  CAN_DETECT(ch, DETECT_EVIL));
+		FLAG_SET(32, 'G', IS_GOOD(victim) &&
+				  CAN_DETECT(ch, DETECT_GOOD));
+		FLAG_SET(35, 'S', IS_AFFECTED(victim, AFF_SANCTUARY));
+		FLAG_SET(38, 'C', IS_AFFECTED(victim, AFF_CAMOUFLAGE));
+		FLAG_SET(41, 'F', IS_AFFECTED(victim, AFF_FADE));
+
+		if (flags)
+			buf_add(output, FLAGS);
 	}
 
 	if (victim->invis_level >= LEVEL_HERO)
-		strcat(buf, "[{WWizi{x] ");
+		buf_add(output, "[{WWizi{x] ");
 
-	if (IS_NPC(victim) && victim->position == victim->start_pos) {
-		char_printf(ch, "%s{g%s{x",
-			    buf, mlstr_cval(victim->long_descr, ch));
-		return;
-	}
+	if (IS_NPC(victim) && victim->position == victim->start_pos)
+		buf_printf(output, "{g%s{x",
+			   mlstr_cval(victim->long_descr, ch));
+	else {
+		int msgnum;
 
-	strcat(buf, PERS(victim, ch));
-	if (!IS_NPC(victim) && !IS_SET(ch->comm, COMM_BRIEF)
-	&&  victim->position == POS_STANDING && ch->on == NULL)
-		strcat(buf, victim->pcdata->title);
+		buf_add(output, PERS(victim, ch));
 
-	switch (victim->position) {
-	case POS_DEAD:
-		strcat(buf, vmsg(IS_DEAD, ch, victim));
-		break;
-
-	case POS_MORTAL:
-		strcat(buf, vmsg(IS_MORTALLY_WOUNDED, ch, victim));
-		break;
-
-	case POS_INCAP:
-		strcat(buf, vmsg(IS_INCAPACITATED, ch, victim));
-		break;
-
-	case POS_STUNNED:
-		strcat(buf, vmsg(IS_LYING_HERE_STUNNED, ch, victim));
-		break;
-
-	case POS_SLEEPING:
-		if (victim->on == NULL) {
-			strcat(buf, msg(SLEEPING, ch));
+		if (!IS_NPC(victim) && !IS_SET(ch->comm, COMM_BRIEF)
+		&&  victim->position == POS_STANDING)
+			buf_printf(output, "%s{x", victim->pcdata->title);
+	
+		switch (victim->position) {
+		case POS_DEAD:
+			buf_add(output, vmsg(IS_DEAD, ch, victim));
 			break;
-		}
-		if (victim->on->pIndexData->vnum == 1200)
-			return;
-
-		if (IS_SET(victim->on->value[2], SLEEP_AT))
-			msgnum = SLEEPING_AT;
-		else if (IS_SET(victim->on->value[2], SLEEP_ON))
-			msgnum = SLEEPING_ON;
-		else
-			msgnum = SLEEPING_IN;
-
-		sprintf(strend(buf), msg(msgnum, ch),
-			mlstr_cval(victim->on->short_descr, ch));
-		break;
-
-	case POS_RESTING:
-		if (victim->on == NULL) {
-			strcat(buf, msg(RESTING, ch));
+	
+		case POS_MORTAL:
+			buf_add(output, vmsg(IS_MORTALLY_WOUNDED, ch, victim));
 			break;
-		}
-
-		if (IS_SET(victim->on->value[2], REST_AT))
-			msgnum = RESTING_AT;
-		else if (IS_SET(victim->on->value[2], REST_ON))
-			msgnum = RESTING_ON;
-		else
-			msgnum = RESTING_IN;
-		sprintf(strend(buf), msg(msgnum, ch),
-			mlstr_cval(victim->on->short_descr, ch));
-		break;
-
-	case POS_SITTING:
-		if (victim->on == NULL) {
-			strcat(buf, msg(SITTING, ch));
+	
+		case POS_INCAP:
+			buf_add(output, vmsg(IS_INCAPACITATED, ch, victim));
 			break;
-		}
-
-		if (IS_SET(victim->on->value[2], SIT_AT))
-			msgnum = SITTING_AT;
-		else if (IS_SET(victim->on->value[2], SIT_ON))
-			msgnum = SITTING_ON;
-		else
-			msgnum = SITTING_IN;
-		sprintf(strend(buf), msg(msgnum, ch),
-			mlstr_cval(victim->on->short_descr, ch));
-		break;
-
-	case POS_STANDING:
-		if (victim->on == NULL) {
-			if (MOUNTED(victim))
-				sprintf(strend(buf), msg(HERE_RIDING, ch),
-					PERS(MOUNTED(victim),ch));
+	
+		case POS_STUNNED:
+			buf_add(output, vmsg(IS_LYING_HERE_STUNNED, ch, victim));
+			break;
+	
+		case POS_SLEEPING:
+			if (victim->on == NULL) {
+				buf_add(output, msg(SLEEPING, ch));
+				break;
+			}
+	
+			if (IS_SET(victim->on->value[2], SLEEP_AT))
+				msgnum = SLEEPING_AT;
+			else if (IS_SET(victim->on->value[2], SLEEP_ON))
+				msgnum = SLEEPING_ON;
 			else
-				strcat(buf, msg(IS_HERE, ch));
+				msgnum = SLEEPING_IN;
+	
+			buf_printf(output, msg(msgnum, ch),
+				mlstr_cval(victim->on->short_descr, ch));
+			break;
+	
+		case POS_RESTING:
+			if (victim->on == NULL) {
+				buf_add(output, msg(RESTING, ch));
+				break;
+			}
+	
+			if (IS_SET(victim->on->value[2], REST_AT))
+				msgnum = RESTING_AT;
+			else if (IS_SET(victim->on->value[2], REST_ON))
+				msgnum = RESTING_ON;
+			else
+				msgnum = RESTING_IN;
+			buf_printf(output, msg(msgnum, ch),
+				mlstr_cval(victim->on->short_descr, ch));
+			break;
+	
+		case POS_SITTING:
+			if (victim->on == NULL) {
+				buf_add(output, msg(SITTING, ch));
+				break;
+			}
+	
+			if (IS_SET(victim->on->value[2], SIT_AT))
+				msgnum = SITTING_AT;
+			else if (IS_SET(victim->on->value[2], SIT_ON))
+				msgnum = SITTING_ON;
+			else
+				msgnum = SITTING_IN;
+			buf_printf(output, msg(msgnum, ch),
+				mlstr_cval(victim->on->short_descr, ch));
+			break;
+	
+		case POS_STANDING:
+			if (victim->on == NULL) {
+				if (MOUNTED(victim))
+					buf_printf(output, msg(HERE_RIDING, ch),
+						PERS(MOUNTED(victim),ch));
+				else
+					buf_add(output, msg(IS_HERE, ch));
+				break;
+			}
+	
+			if (IS_SET(victim->on->value[2],STAND_AT))
+				msgnum = STANDING_AT;
+			else if (IS_SET(victim->on->value[2],STAND_ON))
+				msgnum = STANDING_ON;
+			else
+				msgnum = STANDING;
+			buf_printf(output, msg(msgnum, ch),
+				mlstr_cval(victim->on->short_descr, ch));
+			break;
+	
+		case POS_FIGHTING:
+			buf_add(output, msg(FIGHTING, ch));
+			if (victim->fighting == NULL)
+				buf_add(output, "thin air??");
+			else if (victim->fighting == ch)
+				buf_add(output, msg(FIGHTING_YOU, ch));
+			else if (victim->in_room == victim->fighting->in_room)
+				buf_printf(output, "%s.",
+					   PERS(victim->fighting, ch));
+			else
+				buf_add(output, "somone who left??");
 			break;
 		}
-
-		if (IS_SET(victim->on->value[2],STAND_AT))
-			msgnum = STANDING_AT;
-		else if (IS_SET(victim->on->value[2],STAND_ON))
-			msgnum = STANDING_ON;
-		else
-			msgnum = STANDING;
-		sprintf(strend(buf), msg(msgnum, ch),
-			mlstr_cval(victim->on->short_descr, ch));
-		break;
-
-	case POS_FIGHTING:
-		strcat(buf, msg(FIGHTING, ch));
-		if (victim->fighting == NULL)
-			strcat(buf, "thin air??");
-		else if (victim->fighting == ch)
-			strcat(buf, msg(FIGHTING_YOU, ch));
-		else if (victim->in_room == victim->fighting->in_room) {
-			strcat(buf, PERS(victim->fighting, ch));
-			strcat(buf, ".");
-		}
-		else
-			strcat(buf, "somone who left??");
-		break;
+	
+		buf_add(output, "{x\n\r");
 	}
 
-	strcat(buf, "{x\n\r");
-	send_to_char(buf, ch);
-	return;
+	char_puts(buf_string(output), ch);
+	buf_free(output);
 }
 
 
@@ -627,8 +627,6 @@ void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 		check_improve(ch, gsn_peek, TRUE, 4);
 		show_list_to_char(victim->carrying, ch, TRUE, TRUE);
 	}
-
-	return;
 }
 
 
@@ -1005,7 +1003,7 @@ void do_prompt(CHAR_DATA *ch, const char *argument)
 		strnzcpy(buf, argument, sizeof(buf));
 		smash_tilde(buf);
 		if (str_suffix("%c",buf))
-			strcat(buf," ");
+			strcat(buf, " ");
 	}
 
 	free_string(ch->prompt);

@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.78 1998-07-27 08:45:39 efdi Exp $
+ * $Id: comm.c,v 1.79 1998-08-03 15:09:01 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1221,9 +1221,7 @@ void bust_a_prompt(CHAR_DATA *ch)
 			for (door = 0; door < 6; door++)
 				if ((pexit = ch->in_room->exit[door]) != NULL
 				&&  pexit ->u1.to_room != NULL
-				&&  (can_see_room(ch, pexit->u1.to_room) ||
-				     (IS_AFFECTED(ch, AFF_INFRARED) &&
-				      check_blind_raw(ch)))
+				&&  can_see_room(ch, pexit->u1.to_room)
 				&&  (!IS_SET(pexit->exit_info, EX_CLOSED) ||
 				     IS_IMMORTAL(ch))) {
 					found = TRUE;

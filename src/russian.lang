@@ -1,5 +1,5 @@
 #
-# $Id: russian.lang,v 1.92 1998-08-03 11:03:56 efdi Exp $
+# $Id: russian.lang,v 1.93 1998-08-03 15:09:02 fjoe Exp $
 #
 
 NOTHING  		"Ничего.\n\r",	
@@ -336,9 +336,9 @@ ARRIVED_RIDING 	sexdep "$n приехало верхом на $N."
 QUEST_THANK_YOU_BRAVE 	sexdep "Спасибо, отважное {W%s{z!", 
 				"Спасибо, отважный {W%s{z!", 
 				"Спасибо, отважная {W%s{z!", 
-SKILLS_HAVE_BECOME_BETTER sexdep "{WТы стало более искусно в {g%s{z!"
-"{WТы стал более искусен в {g%s{x!"
-"{WТы стала более искусна в {g%s{x!"
+SKILLS_HAVE_BECOME_BETTER sexdep "{WТы стало более искусно в {g%s{z!{x"
+"{WТы стал более искусен в {g%s{z!{x"
+"{WТы стала более искусна в {g%s{z!{x"
 SKILLS_LEARN_FROM_MISTAKES sexdep "{WПоняв свои ошибки ты стало более искусно в {g%s{x."
 "{WПоняв свои ошибки ты стал более искусен в {g%s{x."
 "{WПоняв свои ошибки ты стала более искусна в {g%s{x."

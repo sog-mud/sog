@@ -1,5 +1,5 @@
 /*
- * $Id: special.c,v 1.18 1998-08-03 00:22:31 efdi Exp $
+ * $Id: special.c,v 1.19 1998-08-03 15:09:02 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1278,7 +1278,7 @@ bool spec_assassinater(CHAR_DATA *ch)
 	{
 	           /* this should kill mobs as well as players */
 	v_next = ch->next_in_room;
-	    if ((victim->class != 2) && (victim->class != 6))
+	    if ((victim->class != CLASS_THIEF) && (victim->class != CLASS_NINJA))
  		/* thieves & ninjas*/
 	    break;
 	}
