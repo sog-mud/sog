@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.139.2.55 2002-01-30 04:55:43 tatyana Exp $
+ * $Id: spellfun2.c,v 1.139.2.56 2002-08-05 17:52:17 tatyana Exp $
  */
 
 /***************************************************************************
@@ -271,20 +271,22 @@ void spell_bark_skin(int sn, int level, CHAR_DATA *ch, void *vo)
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA af;
 
-	if (is_affected(ch, sn))
-	{
-	if (victim == ch)
-	  char_puts("Your skin is already covered in bark.\n",ch); 
-	else
-	  act("$N is already as hard as can be.",ch,NULL,victim,TO_CHAR);
-	return;
+	if (is_affected(victim, sn)) {
+		if (victim == ch)
+			char_puts("Your skin is already covered in bark.\n",
+				  ch); 
+		else
+			act("$N is already as hard as can be.",
+			    ch, NULL, victim, TO_CHAR);
+		return;
 	}
+
 	af.where	 = TO_AFFECTS;
 	af.type      = sn;
 	af.level     = level;
 	af.duration  = level;
 	af.location  = APPLY_AC;
-	af.modifier  = -(level * 1.5);
+	af.modifier  = -(level * 15 / 10);
 	af.bitvector = 0;
 	affect_to_char(victim, &af);
 	act("$n's skin becomes covered in bark.", victim, NULL, NULL, TO_ROOM);
