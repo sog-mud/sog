@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.218 2000-06-02 16:40:54 fjoe Exp $
+ * $Id: spellfun.c,v 1.219 2000-06-09 11:59:07 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3548,7 +3548,7 @@ void spell_bamf(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	if (victim->in_room == NULL
 	||  saves_spell(level, victim, DAM_OTHER)
 	||  IS_SET(victim->in_room->room_flags, ROOM_PEACE | ROOM_SAFE)) {
-		send_to_char("You failed.\n",ch);
+		char_puts("You failed.\n", ch);
 		return;
 	}
 

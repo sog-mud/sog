@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.190 2000-06-02 16:40:56 fjoe Exp $
+ * $Id: spellfun2.c,v 1.191 2000-06-09 11:59:08 fjoe Exp $
  */
 
 /***************************************************************************
@@ -5091,7 +5091,12 @@ void spell_mirror(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	int order;
 
 	if (IS_NPC(victim)) {
-		send_to_char("Only players can be mirrored.\n",ch);
+		char_puts("Only players can be mirrored.\n", ch);
+		return;
+	}
+
+	if (IS_IMMORTAL(victim)) {
+		char_puts("You failed.\n", ch);
 		return;
 	}
 

@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.c,v 1.82 2000-06-08 12:29:53 fjoe Exp $
+ * $Id: obj_prog.c,v 1.83 2000-06-09 11:59:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1430,10 +1430,10 @@ int remove_prog_breastplate_strength(OBJ_DATA *obj, CHAR_DATA *ch, const void *a
 
 int fight_prog_rose_shield(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 {
-	if (!((ch->in_room->sector_type != SECT_FIELD) || 
-	   (ch->in_room->sector_type != SECT_FOREST) ||
-	   (ch->in_room->sector_type != SECT_MOUNTAIN) ||
-	   (ch->in_room->sector_type != SECT_HILLS)))
+	if (ch->in_room->sector_type != SECT_FIELD
+	&&  ch->in_room->sector_type != SECT_FOREST
+	&&  ch->in_room->sector_type != SECT_MOUNTAIN
+	&&  ch->in_room->sector_type != SECT_HILLS)
 		return 0;
 
 	if (get_eq_char(ch, WEAR_SHIELD) != obj)
@@ -1484,15 +1484,17 @@ int speech_prog_ring_ra(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 {
 	char *speech = (char*) arg;
 
-	if (!str_cmp(speech, "punish")   
-	  && (ch->fighting) && 
-((get_eq_char(ch,WEAR_FINGER_L) == obj) || (get_eq_char(ch,WEAR_FINGER_R))))
-	{
-	  char_puts("An electrical arc sprays from the ring.\n",ch);
-	  act("An electrical arc sprays from the ring.",ch,NULL,NULL,TO_ROOM);
-	  obj_cast_spell("lightning breath",LEVEL(ch),ch,ch->fighting);
-	  WAIT_STATE(ch, 2 * get_pulse("violence"));
-	}
+	if (!!str_cmp(speech, "punish")
+	||  ch->fighting == NULL
+	||  (get_eq_char(ch, WEAR_FINGER_L) != obj) &&
+	     get_eq_char(ch, WEAR_FINGER_R) != obj)
+		return 0;
+
+	char_puts("An electrical arc sprays from the ring.\n", ch);
+	act("An electrical arc sprays from the ring.",
+	    ch, NULL, NULL, TO_ROOM);
+	obj_cast_spell("lightning breath", LEVEL(ch), ch, ch->fighting);
+	WAIT_STATE(ch, 2 * get_pulse("violence"));
 	return 0;
 }
 
