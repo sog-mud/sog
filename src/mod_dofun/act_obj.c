@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.226 2000-11-17 19:19:47 avn Exp $
+ * $Id: act_obj.c,v 1.227 2001-01-07 21:16:42 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3980,7 +3980,7 @@ void do_auction(CHAR_DATA *ch, const char *argument)
 		auction.starting = MIN_START_PRICE;
 	else if ((auction.starting = atoi(starting)) < MIN_START_PRICE) {
 		act_puts("You must specify the starting price "
-			 "(at least $j gold).\n",
+			 "(at least $j gold).",
 			 ch, (const void*) MIN_START_PRICE, NULL,
 			 TO_CHAR, POS_DEAD);
 		return;

@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.200 2000-11-17 19:19:48 avn Exp $
+ * $Id: spellfun2.c,v 1.201 2001-01-07 21:16:44 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3498,7 +3498,7 @@ void spell_knock(const char *sn, int level, CHAR_DATA *ch, void *vo)
 
 	pexit = ch->in_room->exit[door];
 	if (!IS_SET(pexit->exit_info, EX_CLOSED)) {
-		act("It's already open.\n",
+		act("It's already open.",
 		    ch, &pexit->short_descr, NULL, TO_CHAR);
 		return;
 	}
