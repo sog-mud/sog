@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: healer.c,v 1.48 2001-02-12 19:07:18 fjoe Exp $
+ * $Id: healer.c,v 1.49 2001-02-25 12:28:08 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -163,7 +163,7 @@ void do_heal(CHAR_DATA *ch, const char *argument)
 	cost = get_heal_cost(h, mob, ch);
 
 	if (has_spec(ch, "clan_battleragers") && (h->price > 0)) {
-		act_char("You are Battlerager, not the filthy magician.", ch);
+		act_char("You are Battle Rager, not a filthy magician!", ch);
 		return;
 	}
 

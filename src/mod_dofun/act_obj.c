@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.233 2001-02-12 19:07:17 fjoe Exp $
+ * $Id: act_obj.c,v 1.234 2001-02-25 12:28:07 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1403,9 +1403,9 @@ void do_quaff(CHAR_DATA * ch, const char *argument)
 	char            arg[MAX_INPUT_LENGTH];
 	OBJ_DATA       *obj;
 	one_argument(argument, arg, sizeof(arg));
-	
+
 	if (has_spec(ch, "clan_battleragers")) {
-		act_char("You are Battle Rager, not filthy magician!", ch);
+		act_char("You are Battle Rager, not a filthy magician!", ch);
 		return;
 	}
 

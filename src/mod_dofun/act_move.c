@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.251 2001-02-11 14:35:37 fjoe Exp $
+ * $Id: act_move.c,v 1.252 2001-02-25 12:28:07 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2371,9 +2371,9 @@ void do_crecall(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	act("$n prays upper Lord of Battleragers for transportation.",
+	act("$n prays upper Lord of Battle Ragers for transportation.",
 	    ch, NULL, NULL, TO_ROOM);
-	
+
 	if ((location = get_room_index(clan->recall_vnum)) == NULL) {
 		act_char("You are completely lost.", ch);
 		return;
