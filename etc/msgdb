@@ -415,7 +415,7 @@ $n $gn{нанес} на $c3{$p} смертельный яд.~
 @eng $n bites you!@rus $n $gn{кусает} тебя!~
 @eng $n bought $N as a mount.@rus $n $gn{купил} $c6{$N} для верховой езды.~
 @eng $n bought $N as a pet.@rus $n $gn{покупает} $c6{$N} в качестве питомца.~
-@eng $n brandishes $p.@rus $n $gn{взмахнул} $c5{$p}.~
+@eng $n brandishes $p.@rus $n $gn{взмахнул} $c4{$p}.~
 @eng $n breathes a bolt of lightning at $N.@rus $n $gn{выдыхает} молнию на $c6{$N}.~
 @eng $n breathes a bolt of lightning at you!@rus $n $gn{выдохнул} молнию в твою сторону!~
 @eng $n breathes a cone of hot fire over you!@rus $n $gn{выдохнул} облако обжигающего огня в твою сторону!~
@@ -602,7 +602,7 @@ $n $gn{нанес} на $c3{$p} смертельный яд.~
 @eng $n is no longer moving so slowly.@rus Движения $c1{$n} больше не столь медленны.~
 @eng $n is no longer wanted.@rus $n больше не в розыске.~
 @eng $n is now guarding $N.@rus $n теперь $gn{охраняет} $c6{$N}.~
-@eng $n is now learned at $T.@rus $b $gn{изучил} $c3{$T}.~
+@eng $n is now learned at $T.@rus $n $gn{изучил} $c3{$T}.~
 @eng $n is now learned at $v.@rus $n $gn{изучил} умение '$v'.~
 @eng $n is poisoned by the venom on $p.@rus $n $gn{отравлен} ядом $c1{$p}.~
 @eng $n is protected from harm.@rus $n теперь $gn{защищен} ото зла и ущерба.~
@@ -924,10 +924,10 @@ $n takes advantage of your fall, stabbing you down."~
 @eng $n yells '{M$t{x'@rus $n $gn{прокричал}: "{M$t{x"~
 @eng $n yells in panic '{M$t{x'@rus $n $gn{кричит} в панике: "{M$t{x"~
 @eng $n yelps and throws $p to the ground!@rus $n $gn{взвизгнул} и бросил $c3{$p} на землю!~
-@eng $n zaps $N with $p.@rus $n $gn{коснулся} $c1{$N} $c5{$p}.~
-@eng $n zaps $P with $p.@rus $n $gn{коснулся} $c1{$P} $c5{$p}.~
-@eng $n zaps $mself with $p.@rus $n $gn{коснулся} себя $gn{самого} $c5{$p}.~
-@eng $n zaps you with $p.@rus $n $gn{коснулся} тебя $c5{$p}.~
+@eng $n zaps $N with $p.@rus $n $gn{коснулся} $c1{$N} $c4{$p}.~
+@eng $n zaps $P with $p.@rus $n $gn{коснулся} $c1{$P} $c4{$p}.~
+@eng $n zaps $mself with $p.@rus $n $gn{коснулся} себя $gn{самого} $c4{$p}.~
+@eng $n zaps you with $p.@rus $n $gn{коснулся} тебя $c4{$p}.~
 @eng $n {R+++ASSASSINATES+++{x $N!@rus $n {R+++УБИВАЕТ+++{x $c3{$N}!~
 @eng $n {R+++ASSASSINATES+++{x you!@rus $n {R+++УБИВАЕТ+++{x тебя!~
 @eng $n's $V $u $N.@rus $V $c1{$n} $u $c6{$N}.~
@@ -2651,7 +2651,7 @@ and hands you $p.@rus Из клуба дыма перед тобой появился маленький человечек
 @eng You bite $N!@rus Ты кусаешь $c6{$N}!~
 @eng You blind $N with your attack!@rus $N $gN{ослеплен} твоим ударом!~
 @eng You blink out $n's attack.@rus Из-за мерцания твоего тела, $n не удалось попасть по тебе.~
-@eng You brandish $p.@rus Ты $gn{взмахнул} $c5{$p}.~
+@eng You brandish $p.@rus Ты $gn{взмахнул} $c4{$p}.~
 @eng You breath forth a cone of fire.@rus Ты выдыхаешь огненный факел.~
 @eng You breath out a cloud of poisonous gas.@rus Ты $gn{выдохнул} облако ядовитого газа.~
 @eng You breath out a cone of frost.@rus Ты $gn{выдохнул} облако льдинок.~
@@ -3596,8 +3596,8 @@ Return to questmaster before your time runs out!@rus Ты почти $gn{выполнил} свое
 @eng You yell '{M$t{x'@rus Ты кричишь: "{M$t{x"~
 @eng You yelp and drop $p before it burns you.@rus Ты $gn{взвизгнул} и {бросил} $c3{$p} до того, как $gp{он} $gp{обжег} тебя.~
 @eng You zap $N with $p.@rus Ты $gn{коснулся} $c1{$N} $c5{$p}.~
-@eng You zap $P with $p.@rus Ты $gn{коснулся} $c1{$P} $c5{$p}.~
-@eng You zap yourself with $p.@rus Ты $gn{коснулся} себя $gn{самого} $c5{$p}.~
+@eng You zap $P with $p.@rus Ты $gn{коснулся} $c1{$P} $c4{$p}.~
+@eng You zap yourself with $p.@rus Ты $gn{коснулся} себя $gn{самого} $c4{$p}.~
 @eng You {R+++ASSASSINATE+++{x $N!@rus Ты {R+++УБИВАЕШЬ+++{x $c6{$N}!~
 @eng You {Wcleaved{x $N's $p into two.@rus Ты {Wраскалываешь{x $c3{$p} $c1{$N} надвое.~
 @eng You'd better not -- you might get hit.@rus Лучше не стоит -- можно просто напасть.~
