@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_area.c,v 1.49.2.1 1999-12-16 12:39:53 fjoe Exp $
+ * $Id: olc_area.c,v 1.49.2.2 2001-01-11 16:22:24 fjoe Exp $
  */
 
 #include "olc.h"
@@ -211,6 +211,7 @@ OLC_FUN(areaed_show)
 {
 	AREA_DATA *pArea;
 	char arg[MAX_STRING_LENGTH];
+	BUFFER *buf;
 
 	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
@@ -218,28 +219,31 @@ OLC_FUN(areaed_show)
 			EDIT_AREA(ch, pArea);
 		else
 			pArea = ch->in_room->area;
-	}
-	else if (!is_number(arg) || (pArea = area_lookup(atoi(arg))) == NULL) {
+	} else if (!is_number(arg) || (pArea = area_lookup(atoi(arg))) == NULL) {
 		char_puts("AreaEd: That area vnum does not exist.\n", ch);
 		return FALSE;
 	}
 
-	char_printf(ch, "Name:     [%5d] %s\n", pArea->vnum, pArea->name);
-	char_printf(ch, "File:     %s\n", pArea->file_name);
-	char_printf(ch, "Vnums:    [%d-%d]\n",
+	buf = buf_new(-1);
+	buf_printf(buf, "Name:     [%5d] %s\n", pArea->vnum, pArea->name);
+	buf_printf(buf, "File:     %s\n", pArea->file_name);
+	buf_printf(buf, "Vnums:    [%d-%d]\n",
 		    pArea->min_vnum, pArea->max_vnum);
-	char_printf(ch, "Levels:   [%d-%d]\n",
+	buf_printf(buf, "Levels:   [%d-%d]\n",
 		    pArea->min_level, pArea->max_level);
 	if (pArea->clan)
-		char_printf(ch, "Clan:     [%s]\n", clan_name(pArea->clan));
-	char_printf(ch, "Age:      [%d]\n",	pArea->age);
-	char_printf(ch, "Players:  [%d]\n", pArea->nplayer);
-	char_printf(ch, "Security: [%d]\n", pArea->security);
+		buf_printf(buf, "Clan:     [%s]\n", clan_name(pArea->clan));
+	buf_printf(buf, "Age:      [%d]\n",	pArea->age);
+	buf_printf(buf, "Players:  [%d]\n", pArea->nplayer);
+	buf_printf(buf, "Security: [%d]\n", pArea->security);
 	if (!IS_NULLSTR(pArea->builders))
-		char_printf(ch, "Builders: [%s]\n", pArea->builders);
-	char_printf(ch, "Credits:  [%s]\n", pArea->credits);
-	char_printf(ch, "Flags:    [%s]\n",
+		buf_printf(buf, "Builders: [%s]\n", pArea->builders);
+	buf_printf(buf, "Credits:  [%s]\n", pArea->credits);
+	mlstr_dump(buf, "ResetMsg: ", &pArea->resetmsg);
+	buf_printf(buf, "Flags:    [%s]\n",
 			flag_string(area_flags, pArea->area_flags));
+	send_to_char(buf_string(buf), ch);
+	buf_free(buf);
 	return FALSE;
 }
 
