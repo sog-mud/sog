@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mlstring.c,v 1.42.2.2 2001-02-28 19:12:54 fjoe Exp $
+ * $Id: mlstring.c,v 1.42.2.3 2001-12-03 22:35:12 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -400,7 +400,7 @@ void mlstr_dump(BUFFER *buf, const char *name, const mlstring *mlp)
 	l = VARR_GET(&langs, 0);
 	buf_printf(buf, FORMAT, name, l->name, mlp->u.lstr[0]);
 
-	if (langs.nused < 1)
+	if (langs.nused < 2)
 		return;
 
 	namelen = strlen(name);
