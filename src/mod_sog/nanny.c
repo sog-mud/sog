@@ -1,5 +1,5 @@
 /*
- * $Id: nanny.c,v 1.10 2001-12-15 13:47:52 matrim Exp $
+ * $Id: nanny.c,v 1.11 2002-03-06 11:08:35 tatyana Exp $
  */
 
 /***************************************************************************
@@ -17,7 +17,7 @@
  *  Original Diku Mud copyright (C) 1990, 1991 by Sebastian Hammer,        *
  *  Michael Seifert, Hans Henrik St{rfeldt, Tom Madsen, and Katja Nyboe.   *
  *                                                                         *
- *  Merc Diku vMud improvments copyright (C) 1992, 1993 by Michael          *
+ *  Merc Diku Mud improvments copyright (C) 1992, 1993 by Michael          *
  *  Chastain, Michael Quan, and Mitchell Tse.                              *
  *                                                                         *
  *  In order to use any part of this Merc Diku Mud, you must comply with   *
@@ -681,6 +681,22 @@ nanny(DESCRIPTOR_DATA *d, const char *argument)
 		act_char("Welcome to Shades of Gray! Enjoy!", ch);
 		send_to_char("\n", ch);
 
+		if (ch->level == 0)
+			act_char("This is your first login.", ch);
+		else if (IS_NULLSTR(PC(ch)->ll_ip)
+		     ||  IS_NULLSTR(PC(ch)->ll_host))
+			act_char("Last login was from nowhere.", ch);
+		else {
+			act_puts3("Last login was from $U($T) at $t.", ch,
+			          strtime(PC(ch)->ll_time),
+				  PC(ch)->ll_ip, PC(ch)->ll_host,
+				  TO_CHAR | ACT_NOTRANS, POS_DEAD);
+	        }
+
+		PC(ch)->ll_host = str_qdup(d->host);
+		PC(ch)->ll_ip   = str_qdup(d->ip);
+		PC(ch)->ll_time = current_time;
+
 		ch->next	= char_list;
 		char_list	= ch;
 		if (!char_list_lastpc)
@@ -865,6 +881,11 @@ check_reconnect(DESCRIPTOR_DATA *d, bool fConn)
 				PC(ch)->idle_timer	= 0;
 				dvdata_free(d->dvdata);
 				d->dvdata = dvdata_dup(PC(ch)->dvdata);
+
+				PC(ch)->ll_host = str_qdup(d->host);
+				PC(ch)->ll_ip   = str_qdup(d->ip);
+				PC(ch)->ll_time = current_time;
+
 				act_char("Reconnecting. Type replay to see missed tells.", ch);
 				act("$n has reconnected.",
 				    ch, NULL, NULL, TO_ROOM);

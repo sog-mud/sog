@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.198 2001-12-10 21:50:42 fjoe Exp $
+ * $Id: save.c,v 1.199 2002-03-06 11:08:35 tatyana Exp $
  */
 
 /***************************************************************************
@@ -319,6 +319,10 @@ fwrite_char(CHAR_DATA *ch, FILE *fp, int flags)
 		fprintf(fp, "Antkilled %d\n", pc->anti_killed);
 		fwrite_string(fp, "Twitlist", pc->twitlist);
 		fwrite_string(fp, "Granted", pc->granted);
+		fwrite_string(fp, "LLHost", pc->ll_host);
+		fwrite_string(fp, "LLIp", pc->ll_ip);
+		fprintf(fp, "LLTime %ld\n", pc->ll_time);
+
 		if (pc->hints_level != HINT_ALL) {
 			fprintf(fp, "HintsLevel %s\n",
 				flag_string(hint_levels, pc->hints_level));
@@ -757,6 +761,9 @@ fread_char(CHAR_DATA *ch, rfile_t *fp, int flags)
 			KEY("Lang", PC(ch)->dvdata->lang, fread_number(fp));
 			KEY("Luck", ch->luck, fread_number(fp));
 			KEY("LuckMod", ch->luck_mod, fread_number(fp));
+			SKEY("LLHost", PC(ch)->ll_host, fread_string(fp));
+			SKEY("LLIp", PC(ch)->ll_ip, fread_string(fp));
+			KEY("LLTime", PC(ch)->ll_time, fread_number(fp));
 			break;
 
 		case 'N':

@@ -1,5 +1,5 @@
 /*
- * $Id: prayers.c,v 1.29 2002-01-08 20:21:37 tatyana Exp $
+ * $Id: prayers.c,v 1.30 2002-03-06 11:08:35 tatyana Exp $
  */
 
 /***************************************************************************
@@ -512,11 +512,11 @@ SPELL_FUN(prayer_cure_blindness, sn, level, ch, vo)
 		if (paf->where == TO_AFFECTS && paf->bitvector == AFF_BLIND) {
 			if (check_dispel(level, victim, paf->type)
 			&& !IS_AFFECTED(victim, AFF_BLIND)) {
-				act_char("Your vision returns!\n", victim);
+				act_char("Your vision returns!", victim);
 				act("$n is no longer blinded.",
 				    victim, NULL, NULL, TO_ROOM);
 			} else
-				act_char("Spell failed.\n",ch);
+				act_char("Spell failed.",ch);
 
 			return;
 		}
