@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: cc_lex.h,v 1.1 1999-12-11 15:56:35 fjoe Exp $
+ * $Id: cc_lex.h,v 1.2 1999-12-12 07:44:02 fjoe Exp $
  */
 
 #ifndef _CC_LEX_H_
@@ -34,6 +34,8 @@ typedef struct ctx_t {
 	struct cc_rulecl_t *rcl;	/* rule class */
 	va_list	ap;			/* arguments for predicate */
 } ctx_t;
+
+extern ctx_t cc_ctx;
 
 bool rule_check(ctx_t *ctx, const char *rn, const char *arg);
 

@@ -25,7 +25,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: cc_parse.y,v 1.1 1999-12-11 15:56:35 fjoe Exp $
+ * $Id: cc_parse.y,v 1.2 1999-12-12 07:44:02 fjoe Exp $
  */
 
 #include <setjmp.h>
@@ -36,9 +36,6 @@
 #include "log.h"
 
 #include "cc_lex.h"
-
-#define YYPARSE_PARAM_TYPE ctx_t *
-#define YYPARSE_PARAM ctx
 
 extern int yylex(void);
 
@@ -58,10 +55,10 @@ extern int yylex(void);
 
 %%
 
-stmt:	expr			{ ctx->val = $1; }
+stmt:	expr			{ cc_ctx.val = $1; }
 	;
 
-expr:	RULE '(' STRING ')'	{ $$ = rule_check(ctx, $1, $3);
+expr:	RULE '(' STRING ')'	{ $$ = rule_check(&cc_ctx, $1, $3);
 				  free_string($1);
 				  free_string($3);
 				}

@@ -14,6 +14,8 @@ alnum	[a-zA-Z0-9]
 #include "y.tab.h"
 #include "cc_lex.h"
 
+ctx_t cc_ctx;
+
 jmp_buf cc_jmpbuf;
 
 char buf[128];
@@ -28,7 +30,7 @@ char *s;
 
 #define YY_NO_UNPUT
 
-extern int yyparse(ctx_t *);
+extern int yyparse();
 extern void yyerror(const char *);
 
 %}
@@ -69,18 +71,17 @@ expr_match_cb(void *p, va_list ap)
 {
 	const char *expr = *(const char **) p;
 	void *rv;
-	ctx_t ctx;
 	YY_BUFFER_STATE yy_buf;
 
-	ctx.val = FALSE;
-	ctx.rcl = va_arg(ap, cc_rulecl_t *);
-	ctx.ap = va_arg(ap, va_list);
+	cc_ctx.val = FALSE;
+	cc_ctx.rcl = va_arg(ap, cc_rulecl_t *);
+	cc_ctx.ap = va_arg(ap, va_list);
 
 	yy_buf = yy_scan_string(expr);
 
 	if (!setjmp(cc_jmpbuf)) {
-		yyparse(&ctx);
-		if (ctx.val)
+		yyparse();
+		if (cc_ctx.val)
 			rv = (void *) expr;
 		else
 			rv = NULL;
