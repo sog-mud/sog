@@ -1,8 +1,5 @@
-#ifndef _LOMSG_OKUP_H_
-#define _LOMSG_OKUP_H_
-
 /*
- * $Id: lookup.h,v 1.10 1998-09-01 18:38:00 fjoe Exp $
+ * $Id: lookup.h,v 1.11 1998-09-17 15:51:19 fjoe Exp $
  */
 
 /***************************************************************************
@@ -43,6 +40,8 @@
 *	ROM license, in the file Rom24/doc/rom.license			   *
 ***************************************************************************/
 
+#ifndef _LOOKUP_H_
+#define _LOOKUP_H_
 
 int	position_lookup	(const char *name);
 int 	size_lookup	(const char *name);

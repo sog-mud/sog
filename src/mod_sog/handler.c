@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.57 1998-09-15 15:17:15 fjoe Exp $
+ * $Id: handler.c,v 1.58 1998-09-17 15:51:19 fjoe Exp $
  */
 
 /***************************************************************************
@@ -46,28 +46,17 @@
 #include <time.h>
 #include "merc.h"
 #include "hometown.h"
-#include "act_comm.h"
-#include "act_move.h"
 #include "obj_prog.h"
 #include "raffects.h"
 #include "interp.h"
 #include "fight.h"
 #include "quest.h"
 
-/* command procedures needed */
-DECLARE_DO_FUN(do_return	);
-DECLARE_DO_FUN(do_wake		);
-DECLARE_DO_FUN(do_say		);
-DECLARE_DO_FUN(do_track		);
-
-
-
 /*
  * Local functions.
  */
 void	affect_modify	args((CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd));
 int	age_to_num	args((int age));
-ROOM_INDEX_DATA *	find_location	args((CHAR_DATA *ch, char *arg));
 
 /* friend stuff -- for NPC's mostly */
 bool is_friend(CHAR_DATA *ch,CHAR_DATA *victim)

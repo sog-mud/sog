@@ -1,5 +1,5 @@
 /*
- * $Id: olc_save.c,v 1.25 1998-09-17 13:34:34 fjoe Exp $
+ * $Id: olc_save.c,v 1.26 1998-09-17 15:51:29 fjoe Exp $
  */
 
 /**************************************************************************
@@ -14,13 +14,10 @@
  *  all the previous coders who released their source code.                *
  *                                                                         *
  ***************************************************************************/
-/* OLC_SAVE.C
+
+/*
+ * olc_save.c
  * This takes care of saving all the .are information.
- * Notes:
- * -If a good syntax checker is used for setting vnum ranges of areas
- *  then it would become possible to just cycle through vnums instead
- *  of using the iHash stuff and checking that the room or reset or
- *  mob etc is part of that area.
  */
 
 #include <sys/types.h>

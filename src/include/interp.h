@@ -1,8 +1,5 @@
-#ifndef _INTERP_H_
-#define _INTERP_H_
-
 /*
- * $Id: interp.h,v 1.19 1998-09-11 06:36:48 fjoe Exp $
+ * $Id: interp.h,v 1.20 1998-09-17 15:51:19 fjoe Exp $
  */
 
 /***************************************************************************
@@ -42,6 +39,9 @@
 *	By using this code, you have agreed to follow the terms of the	   *
 *	ROM license, in the file Rom24/doc/rom.license			   *
 ***************************************************************************/
+
+#ifndef _INTERP_H_
+#define _INTERP_H_
 
 /* this is a listing of all the commands and command related data */
 

@@ -1,3 +1,7 @@
+/*
+ * $Id: fight.c,v 1.70 1998-09-17 15:51:19 fjoe Exp $
+ */
+
 /***************************************************************************
  *     ANATOLIA 2.1 is copyright 1996-1997 Serdar BULUT, Ibrahim CANPUNAR  *
  *     ANATOLIA has been brought to you by ANATOLIA consortium		   *
@@ -44,15 +48,11 @@
 #include <math.h>
 #include <unistd.h>
 #include "merc.h"
-#include "act_obj.h"
-#include "act_wiz.h"
 #include "hometown.h"
-#include "act_comm.h"
 #include "quest.h"
 #include "fight.h"
 #include "rating.h"
 #include "update.h"
-#include "act_move.h"
 #include "mob_prog.h"
 #include "obj_prog.h"
 

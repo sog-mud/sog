@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.34 1998-09-16 09:38:27 fjoe Exp $
+ * $Id: martial_art.c,v 1.35 1998-09-17 15:51:20 fjoe Exp $
  */
 
 /***************************************************************************
@@ -43,9 +43,7 @@
 #include <sys/types.h>
 #include <stdio.h>
 #include "merc.h"
-#include "act_obj.h"
 #include "recycle.h"
-#include "act_comm.h"
 #include "fight.h"
 #include "spellfn.h"
 #include "interp.h"

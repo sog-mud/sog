@@ -1,5 +1,5 @@
 /*
- * $Id: mob_prog.c,v 1.29 1998-09-01 18:38:01 fjoe Exp $
+ * $Id: mob_prog.c,v 1.30 1998-09-17 15:51:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -48,7 +48,6 @@
 #include "merc.h"
 #include "mob_cmds.h"
 #include "mob_prog.h"
-#include "act_comm.h"
 #include "interp.h"
 
 /*

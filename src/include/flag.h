@@ -1,9 +1,21 @@
+/*
+ * $Id: flag.h,v 1.2 1998-09-17 15:51:19 fjoe Exp $
+ */
+
+/***************************************************************************
+ *                                                                         *
+ *  Much time and thought has gone into this software and you are          *
+ *  benefitting.  We hope that you share your changes too.  What goes      *
+ *  around, comes around.                                                  *
+ *                                                                         *
+ *  This code was written by Jason Dinkel and inspired by Russ Taylor,     *
+ *  and has been used here for OLC - OLC would not be what it is without   *
+ *  all the previous coders who released their source code.                *
+ *                                                                         *
+ ***************************************************************************/
+
 #ifndef _FLAG_H_
 #define _FLAG_H_
-
-/*
- * $Id: flag.h,v 1.1 1998-09-01 18:37:57 fjoe Exp $
- */
 
 /*-------------------------------------------------------------------
  * flag/stat stuff

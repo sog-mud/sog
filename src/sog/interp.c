@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.64 1998-09-16 10:50:51 fjoe Exp $
+ * $Id: interp.c,v 1.65 1998-09-17 15:51:19 fjoe Exp $
  */
 
 /***************************************************************************
@@ -49,9 +49,6 @@
 
 #include "merc.h"
 #include "interp.h"
-#include "act_wiz.h"
-#include "act_comm.h"
-#include "act_info.h"
 #include "comm.h"
 #include "resource.h"
 #include "log.h"

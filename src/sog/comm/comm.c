@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.94 1998-09-16 09:58:16 fjoe Exp $
+ * $Id: comm.c,v 1.95 1998-09-17 15:51:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -79,8 +79,6 @@
 #include <stdlib.h>
 
 #include "merc.h"
-#include "act_wiz.h"
-#include "act_info.h"
 #include "charset.h"
 #include "hometown.h"
 #include "quest.h"

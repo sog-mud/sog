@@ -1,60 +1,30 @@
-/*
- * $Id: act_quest.c,v 1.67 1998-09-17 10:06:48 fjoe Exp $
+/*-
+ * Copyright (c) 1998 fjoe <fjoe@iclub.nsu.ru>
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ * 1. Redistributions of source code must retain the above copyright
+ *    notice, this list of conditions and the following disclaimer.
+ * 2. Redistributions in binary form must reproduce the above copyright
+ *    notice, this list of conditions and the following disclaimer in the
+ *    documentation and/or other materials provided with the distribution.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR AND CONTRIBUTORS ``AS IS'' AND
+ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ * ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR OR CONTRIBUTORS BE LIABLE
+ * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+ * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
+ * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+ * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+ * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
+ * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+ * SUCH DAMAGE.
+ *
+ * $Id: act_quest.c,v 1.68 1998-09-17 15:51:21 fjoe Exp $
  */
-
-/***************************************************************************
- *     ANATOLIA 2.1 is copyright 1996-1997 Serdar BULUT 		   *
- *     ANATOLIA has been brought to you by ANATOLIA consortium		   *
- *	 Serdar BULUT {Chronos} 	bulut@rorqual.cc.metu.edu.tr	   *
- *	 Ibrahim Canpunar  {Mandrake}	canpunar@rorqual.cc.metu.edu.tr    *
- *	 Murat BICER  {KIO}		mbicer@rorqual.cc.metu.edu.tr	   *
- *	 D.Baris ACAR {Powerman}	dbacar@rorqual.cc.metu.edu.tr	   *
- *     By using this code, you have agreed to follow the terms of the	   *
- *     ANATOLIA license, in the file Anatolia/anatolia.licence		   *
- ***************************************************************************/
-
-/****************************************************************************
-*  Automated Quest code written by Vassago of MOONGATE, moongate.ams.com    *
-*  4000. Copyright (c) 1996 Ryan Addams, All Rights Reserved. Use of this   *
-*  code is allowed provided you add a credit line to the effect of:	    *
-*  "Quest Code (c) 1996 Ryan Addams" to your logon screen with the rest     *
-*  of the standard diku/rom credits. If you use this or a modified version  *
-*  of this code, let me know via email: moongate@moongate.ams.com. Further  *
-*  updates will be posted to the rom mailing list. If you'd like to get     *
-*  the latest version of quest.c, please send a request to the above add-   *
-*  ress. Quest Code v2.01. Please do not remove this notice from this file. *
-****************************************************************************/
-
-/****************************************************************************
- *  Revised and adopted to Anatolia by chronos. 			    *
- ****************************************************************************/
-
-/***************************************************************************
- *  Original Diku Mud copyright (C) 1990, 1991 by Sebastian Hammer,	   *
- *  Michael Seifert, Hans Henrik St{rfeldt, Tom Madsen, and Katja Nyboe.   *
- *									   *
- *  Merc Diku Mud improvments copyright (C) 1992, 1993 by Michael	   *
- *  Chastain, Michael Quan, and Mitchell Tse.				   *
- *									   *
- *  In order to use any part of this Merc Diku Mud, you must comply with   *
- *  both the original Diku license in 'license.doc' as well the Merc	   *
- *  license in 'license.txt'.  In particular, you may not remove either of *
- *  these copyright notices.						   *
- *									   *
- *  Much time and thought has gone into this software and you are	   *
- *  benefitting.  We hope that you share your changes too.  What goes	   *
- *  around, comes around.						   *
- ***************************************************************************/
-
-/***************************************************************************
-*	ROM 2.4 is copyright 1993-1995 Russ Taylor			   *
-*	ROM has been brought to you by the ROM consortium		   *
-*	    Russ Taylor (rtaylor@pacinfo.com)				   *
-*	    Gabrielle Taylor (gtaylor@pacinfo.com)			   *
-*	    Brian Moore (rom@rom.efn.org)				   *
-*	By using this code, you have agreed to follow the terms of the	   *
-*	ROM license, in the file Rom24/doc/rom.license			   *
-***************************************************************************/
 
 #include <sys/types.h>
 #include <stdio.h>
@@ -213,7 +183,6 @@ void do_quest(CHAR_DATA *ch, const char *argument)
 	char_nputs(MSG_TYPE_HELP_QUEST, ch);
 }
 
-
 void quest_handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
 {
 	if (IS_GOLEM(ch) && ch->master != NULL
@@ -235,7 +204,6 @@ void quest_handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
 			ch->pcdata->questtime = -number_range(5, 10);
 		}
 }
-
 
 void quest_cancel(CHAR_DATA *ch)
 {
@@ -261,7 +229,6 @@ void quest_cancel(CHAR_DATA *ch)
 	ch->pcdata->questobj = 0;
 	ch->pcdata->questroom = NULL;
 }
-
 
 /*
  * Called from update_handler() by pulse_area
@@ -293,7 +260,6 @@ void quest_update(void)
 	}
 }
 
-
 void qtrouble_set(CHAR_DATA *ch, int vnum, int count)
 {
 	QTROUBLE_DATA *qt;
@@ -308,7 +274,6 @@ void qtrouble_set(CHAR_DATA *ch, int vnum, int count)
 		ch->pcdata->qtrouble = qt;
 	}
 }
-
 
 /*
  * local functions
@@ -325,7 +290,6 @@ static void quest_tell(CHAR_DATA *ch, CHAR_DATA *questor, const char *fmt, ...)
 
 	act_nprintf(questor, buf, ch, TO_VICT, POS_DEAD, MSG_TELLS_YOU);
 }
-
 
 static CHAR_DATA* questor_lookup(CHAR_DATA *ch)
 {
@@ -354,7 +318,6 @@ static CHAR_DATA* questor_lookup(CHAR_DATA *ch)
 	return questor;
 }
 
-
 QTROUBLE_DATA *qtrouble_lookup(CHAR_DATA *ch, int vnum)
 {
 	QTROUBLE_DATA *qt;
@@ -366,7 +329,6 @@ QTROUBLE_DATA *qtrouble_lookup(CHAR_DATA *ch, int vnum)
 	return NULL;
 }
 
-
 /*
  * quest do functions
  */
@@ -375,7 +337,6 @@ static void quest_points(CHAR_DATA *ch, char* arg)
 {
 	char_nprintf(ch, MSG_YOU_HAVE_D_QP, ch->pcdata->questpoints);
 }
-
 
 static void quest_info(CHAR_DATA *ch, char* arg)
 {
@@ -422,7 +383,6 @@ static void quest_info(CHAR_DATA *ch, char* arg)
 	}
 }
 
-
 static void quest_time(CHAR_DATA *ch, char* arg)
 {
 	if (!IS_ON_QUEST(ch)) {
@@ -437,7 +397,6 @@ static void quest_time(CHAR_DATA *ch, char* arg)
 		char_nprintf(ch, MSG_LEFT_FOR_QUEST, ch->pcdata->questtime);
 	return;
 }
-
 
 static void quest_list(CHAR_DATA *ch, char *arg)
 {
@@ -465,7 +424,6 @@ static void quest_list(CHAR_DATA *ch, char *arg)
 	}
 	char_nputs(MSG_TYPE_BUY, ch);
 }
-
 
 static void quest_buy(CHAR_DATA *ch, char *arg)
 {
@@ -508,7 +466,6 @@ static void quest_buy(CHAR_DATA *ch, char *arg)
 
 	quest_tell(ch, questor, msg(MSG_NOT_HAVE_ITEM, ch), ch->name);
 }
-
 
 #define MAX_QMOB_COUNT 512
 
@@ -733,7 +690,6 @@ static void quest_complete(CHAR_DATA *ch, char *arg)
 	ch->pcdata->questtime = -number_range(8, 12);
 }
 
-
 static void quest_trouble(CHAR_DATA *ch, char *arg)
 {
 	CHAR_DATA *questor;
@@ -759,7 +715,6 @@ static void quest_trouble(CHAR_DATA *ch, char *arg)
 
 	quest_tell(ch, questor, msg(MSG_HAVENT_BOUGHT, ch), ch->name);
 }
-
 
 /*
  * quest buy functions
@@ -842,7 +797,6 @@ static bool quest_give_item(CHAR_DATA *ch, CHAR_DATA *questor,
 	return TRUE;
 }
 
-
 static bool buy_gold(CHAR_DATA *ch, CHAR_DATA *questor)
 {
 	ch->pcdata->bank_g += 350000;
@@ -853,7 +807,6 @@ static bool buy_gold(CHAR_DATA *ch, CHAR_DATA *questor)
 	return TRUE;
 }
 
-
 static bool buy_prac(CHAR_DATA *ch, CHAR_DATA *questor)
 {
 	ch->practice += 60;
@@ -863,7 +816,6 @@ static bool buy_prac(CHAR_DATA *ch, CHAR_DATA *questor)
 					MSG_N_GIVES_YOU_PRACS);
 	return TRUE;
 }
-
 
 static bool buy_tattoo(CHAR_DATA *ch, CHAR_DATA *questor)
 {
@@ -892,7 +844,6 @@ static bool buy_tattoo(CHAR_DATA *ch, CHAR_DATA *questor)
 	return TRUE;
 }
 
-
 static bool buy_death(CHAR_DATA *ch, CHAR_DATA *questor)
 {
 	if (ch->pcdata->death < 1) {
@@ -903,7 +854,6 @@ static bool buy_death(CHAR_DATA *ch, CHAR_DATA *questor)
 	ch->pcdata->death -= 1;
 	return TRUE;
 }
-
 
 static bool buy_katana(CHAR_DATA *ch, CHAR_DATA *questor)
 {
@@ -927,7 +877,6 @@ static bool buy_katana(CHAR_DATA *ch, CHAR_DATA *questor)
 	quest_tell(ch, questor, msg(MSG_AS_YOU_WIELD_IT, ch));
 	return TRUE;
 }
-
 
 static bool buy_vampire(CHAR_DATA *ch, CHAR_DATA *questor)
 {

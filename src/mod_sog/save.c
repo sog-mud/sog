@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.55 1998-09-11 13:37:17 fjoe Exp $
+ * $Id: save.c,v 1.56 1998-09-17 15:51:22 fjoe Exp $
  */
 
 /***************************************************************************
@@ -54,7 +54,6 @@
 
 #include "merc.h"
 #include "db.h"
-#include "act_info.h"
 #include "hometown.h"
 #include "quest.h"
 

@@ -1,8 +1,5 @@
-#ifndef _MERC_H_
-#define _MERC_H_
-
 /*
- * $Id: merc.h,v 1.78 1998-09-11 06:36:48 fjoe Exp $
+ * $Id: merc.h,v 1.79 1998-09-17 15:51:20 fjoe Exp $
  */
 
 /***************************************************************************
@@ -42,6 +39,9 @@
 *	By using this code, you have agreed to follow the terms of the	   *
 *	ROM license, in the file Rom24/doc/rom.license			   *
 ***************************************************************************/
+
+#ifndef _MERC_H_
+#define _MERC_H_
 
 #include <ctype.h>
 #include "typedef.h"
@@ -2190,6 +2190,50 @@ extern	char *	const			dir_name	[];
 extern	const	int			rev_dir		[];
 extern	const	struct spec_type	spec_table	[];
 extern	char				DEFAULT_PROMPT	[];
+
+/* act_comm.c */
+void		check_sex	(CHAR_DATA *ch);
+void		add_follower	(CHAR_DATA *ch, CHAR_DATA *master);
+void		stop_follower	(CHAR_DATA *ch);
+void		nuke_pets	(CHAR_DATA *ch);
+void		die_follower	(CHAR_DATA *ch);
+void		do_afk		(CHAR_DATA *ch, const char *argument);
+void		do_lang		(CHAR_DATA *ch, const char *argument);
+void		do_music	(CHAR_DATA *ch, const char *argument);
+void		do_gossip	(CHAR_DATA *ch, const char *argument);
+void		do_noiac	(CHAR_DATA *ch, const char *argument);
+void		do_notelnet	(CHAR_DATA *ch, const char *argument);
+CHAR_DATA*	leader_lookup	(CHAR_DATA *ch);
+void 		do_tell_raw	(CHAR_DATA *ch, CHAR_DATA *victim,
+				 const char *msg);
+#define	is_same_group(ach, bch) (leader_lookup(ach) == leader_lookup(bch))
+
+/* act_info.c */
+void	set_title(CHAR_DATA *ch, const char *title);
+char	*get_cond_alias(OBJ_DATA *obj, CHAR_DATA *ch);
+void	do_date(CHAR_DATA* ch, const char *argument);
+bool	check_blind_raw(CHAR_DATA *ch);
+
+/* act_move.h */
+void move_char(CHAR_DATA *ch, int door, bool follow);
+char *find_way(CHAR_DATA *ch, ROOM_INDEX_DATA *rstart, ROOM_INDEX_DATA *rend);
+int guild_check(CHAR_DATA *ch, ROOM_INDEX_DATA *room);
+
+/* act_obj.h */
+bool can_loot		(CHAR_DATA *ch, OBJ_DATA *obj);
+void get_obj		(CHAR_DATA *ch, OBJ_DATA *obj, OBJ_DATA *container);
+int floating_time	(OBJ_DATA *obj);
+bool may_float		(OBJ_DATA *obj);
+bool cant_float 	(OBJ_DATA *obj);
+void wear_obj		(CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace);
+
+/* act_wiz.h */
+#define wiznet(string, ch, obj, flag, flag_skip, min_level) \
+		wiznet_printf(ch, obj, flag, flag_skip, min_level, string)
+void wiznet_printf(CHAR_DATA *ch, OBJ_DATA *obj, long flag, long flag_skip,
+		   int min_level, char* format,...);
+void reboot_muddy(void);
+ROOM_INDEX_DATA *find_location(CHAR_DATA *ch, const char *argument);
 
 #endif
 

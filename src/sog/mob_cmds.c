@@ -1,5 +1,5 @@
 /*
- * $Id: mob_cmds.c,v 1.13 1998-09-01 18:38:01 fjoe Exp $
+ * $Id: mob_cmds.c,v 1.14 1998-09-17 15:51:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -44,14 +44,8 @@
 #include "merc.h"
 #include "mob_cmds.h"
 #include "mob_prog.h"
-#include "act_obj.h"
-#include "act_move.h"
-#include "act_comm.h"
 #include "interp.h"
 #include "fight.h"
-
-DECLARE_DO_FUN(do_look 	);
-extern ROOM_INDEX_DATA *find_location(CHAR_DATA *, char *);
 
 /*
  * Command table.

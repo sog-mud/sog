@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.37 1998-09-15 15:17:16 fjoe Exp $
+ * $Id: spellfun2.c,v 1.38 1998-09-17 15:51:20 fjoe Exp $
  */
 
 /***************************************************************************
@@ -48,11 +48,9 @@
 
 #include "merc.h"
 #include "hometown.h"
-#include "act_comm.h"
 #include "fight.h"
 #include "quest.h"
 #include "rating.h"
-#include "act_move.h"
 #include "fight.h"
 
 DECLARE_DO_FUN(do_scan2);

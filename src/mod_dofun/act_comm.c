@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.80 1998-09-15 15:17:13 fjoe Exp $
+ * $Id: act_comm.c,v 1.81 1998-09-17 15:51:16 fjoe Exp $
  */
 
 /***************************************************************************
@@ -50,9 +50,7 @@
 #include <unistd.h>
 #include "merc.h"
 #include "interp.h"
-#include "act_wiz.h"
 #include "interp.h"
-#include "act_comm.h"
 #include "quest.h"
 #include "mob_prog.h"
 #include "obj_prog.h"

@@ -1,9 +1,8 @@
 /*
- * $Id: string_edit.c,v 1.14 1998-09-01 18:38:02 fjoe Exp $
+ * $Id: string_edit.c,v 1.15 1998-09-17 15:51:23 fjoe Exp $
  */
 
 /***************************************************************************
- *  File: string.c                                                         *
  *                                                                         *
  *  Much time and thought has gone into this software and you are          *
  *  benefitting.  We hope that you share your changes too.  What goes      *
@@ -14,7 +13,6 @@
  *  all the previous coders who released their source code.                *
  *                                                                         *
  ***************************************************************************/
-
 
 #include <sys/types.h>
 #include <ctype.h>

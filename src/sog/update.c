@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.60 1998-09-15 02:51:38 fjoe Exp $
+ * $Id: update.c,v 1.61 1998-09-17 15:51:23 fjoe Exp $
  */
 
 /***************************************************************************
@@ -45,11 +45,7 @@
 #include <string.h>
 #include <time.h>
 #include "merc.h"
-#include "act_obj.h"
-#include "act_wiz.h"
-#include "act_info.h"
 #include "update.h"
-#include "act_move.h"
 #include "mob_prog.h"
 #include "obj_prog.h"
 #include "fight.h"

@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.59 1998-09-17 11:11:25 fjoe Exp $
+ * $Id: act_wiz.c,v 1.60 1998-09-17 15:51:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -49,12 +49,9 @@
 #include <unistd.h>
 #include <limits.h>
 #include "merc.h"
-#include "act_info.h"
-#include "act_wiz.h"
 #include "hometown.h"
 #include "update.h"
 #include "quest.h"
-#include "act_move.h"
 #include "obj_prog.h"
 #include "interp.h"
 #include "fight.h"

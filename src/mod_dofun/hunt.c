@@ -1,5 +1,5 @@
 /*
- * $Id: hunt.c,v 1.8 1998-09-01 18:38:00 fjoe Exp $
+ * $Id: hunt.c,v 1.9 1998-09-17 15:51:19 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -10,9 +10,7 @@
 #include "util.h"
 #include "resource.h"
 #include "log.h"
-#include "act_comm.h"
 #include "interp.h"
-#include "act_move.h"
 #include "fight.h"
 
 /***************************************************************************

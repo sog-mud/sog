@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.130 1998-09-16 10:20:09 fjoe Exp $
+ * $Id: act_info.c,v 1.131 1998-09-17 15:51:16 fjoe Exp $
  */
 
 /***************************************************************************
@@ -50,8 +50,6 @@
 #include <unistd.h>
 #include <ctype.h>
 #include "merc.h"
-#include "act_info.h"
-#include "act_comm.h"
 #include "hometown.h"
 #include "interp.h"
 #include "update.h"

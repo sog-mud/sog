@@ -1,5 +1,5 @@
 /*
- * $Id: special.c,v 1.24 1998-09-01 18:38:02 fjoe Exp $
+ * $Id: special.c,v 1.25 1998-09-17 15:51:23 fjoe Exp $
  */
 
 /***************************************************************************
@@ -46,9 +46,7 @@
 #include <string.h>
 #include <time.h>
 #include "merc.h"
-#include "act_obj.h"
 #include "hometown.h"
-#include "act_move.h"
 #include "fight.h"
 
 void	say_spell	args((CHAR_DATA *ch, int sn));

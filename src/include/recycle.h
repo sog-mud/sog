@@ -1,8 +1,5 @@
-#ifndef _RECYCLE_H_
-#define _RECYCLE_H_
-
 /*
- * $Id: recycle.h,v 1.11 1998-09-01 18:38:01 fjoe Exp $
+ * $Id: recycle.h,v 1.12 1998-09-17 15:51:22 fjoe Exp $
  */
 
 /***************************************************************************
@@ -42,6 +39,9 @@
 *	By using this code, you have agreed to follow the terms of the	   *
 *	ROM license, in the file Rom24/doc/rom.license			   *
 ***************************************************************************/
+
+#ifndef _RECYCLE_H_
+#define _RECYCLE_H_
 
 /* externs */
 extern int mobile_count;

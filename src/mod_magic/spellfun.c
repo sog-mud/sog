@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.49 1998-09-15 15:17:15 fjoe Exp $
+ * $Id: spellfun.c,v 1.50 1998-09-17 15:51:19 fjoe Exp $
  */
 
 /***************************************************************************
@@ -47,10 +47,8 @@
 #include <time.h>
 #include "merc.h"
 #include "hometown.h"
-#include "act_comm.h"
 #include "update.h"
 #include "interp.h"
-#include "act_move.h"
 #include "fight.h"
 
 /*

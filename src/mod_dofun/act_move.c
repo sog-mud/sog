@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.88 1998-09-15 15:17:13 fjoe Exp $
+ * $Id: act_move.c,v 1.89 1998-09-17 15:51:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -47,7 +47,6 @@
 #include "merc.h"
 #include "hometown.h"
 #include "update.h"
-#include "act_move.h"
 #include "mob_prog.h"
 #include "obj_prog.h"
 #include "interp.h"

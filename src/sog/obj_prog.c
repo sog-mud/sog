@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.c,v 1.27 1998-09-17 11:13:28 fjoe Exp $
+ * $Id: obj_prog.c,v 1.28 1998-09-17 15:51:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -39,6 +39,7 @@
 *	By using this code, you have agreed to follow the terms of the	   *
 *	ROM license, in the file Rom24/doc/rom.license			   *
 ***************************************************************************/
+
 #include <sys/types.h>
 #include <stdio.h>
 #include <stdlib.h>

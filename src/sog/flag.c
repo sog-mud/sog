@@ -1,9 +1,8 @@
 /*
- * $Id: flag.c,v 1.11 1998-09-10 22:07:53 fjoe Exp $
+ * $Id: flag.c,v 1.12 1998-09-17 15:51:19 fjoe Exp $
  */
 
 /***************************************************************************
- *  File: bit.c                                                            *
  *                                                                         *
  *  Much time and thought has gone into this software and you are          *
  *  benefitting.  We hope that you share your changes too.  What goes      *
@@ -14,6 +13,7 @@
  *  all the previous coders who released their source code.                *
  *                                                                         *
  ***************************************************************************/
+
 /*
  The code below uses a table lookup system that is based on suggestions
  from Russ Taylor.  There are many routines in handler.c that would benefit

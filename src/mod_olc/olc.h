@@ -1,8 +1,5 @@
-#ifndef _OLC_H_
-#define _OLC_H_
-
 /*
- * $Id: olc.h,v 1.15 1998-09-15 02:52:14 fjoe Exp $
+ * $Id: olc.h,v 1.16 1998-09-17 15:51:29 fjoe Exp $
  */
 
 /***************************************************************************
@@ -22,6 +19,9 @@
  * merc.h if you wish.  Many of these routines may be handy elsewhere in
  * the code.  -Jason Dinkel
  */
+
+#ifndef _OLC_H_
+#define _OLC_H_
 
 bool		run_olc_editor	(DESCRIPTOR_DATA *d);
 const char	*olc_ed_name	(CHAR_DATA *ch);
