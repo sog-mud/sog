@@ -455,7 +455,7 @@ In order to create a role-playing and adventure atmosphere throughout the
 Shades of Gray, you must choose a name accordingly explained below:
  
 {cAcceptable{x:
-{x   -- Proper names, medieval or modern, i.e. (Takasi, Aurian)
+   -- Proper names, medieval or modern, i.e. (Takasi, Aurian)
    -- Created names with a medieval or fictional sound. (Priatros, Sansoles)
  
 {cUnacceptable{x:
@@ -466,21 +466,20 @@ Shades of Gray, you must choose a name accordingly explained below:
    -- Scientific phrases, words. (Proof, Logic, Electrics...)
    -- Object names. (Necklace, Staff, Sword etc)
    -- Compound names. (FarmerJoe, Maryjane etc.)
-{x   -- Attributes of objects or creatures (Fine, Common,...)
+   -- Attributes of objects or creatures (Fine, Common,...)
 
 {CRestricted{x:
-{x   -- Well-known names of the world epic Gods and Heroes,
-{x      as well as historical persons (Arjuna, Odin, Napoleon){x
-{x   -- Names of authors, characters and actors of the world literature,
-{x      theater and cinema (Pushkin, Kruger, Schwarzenneger)
+   -- Well-known names of the world epic Gods and Heroes,
+      as well as historical persons (Arjuna, Odin, Napoleon){x
+   -- Names of authors, characters and actors of the world literature,
+      theater and cinema (Pushkin, Kruger, Schwarzenneger)
  
 You can use some of the "restricted" names, but in this case you MUST
-roleplay this character IN FULL.
-Otherwise, you will be asked to rename.
+roleplay this character IN FULL. Otherwise, you will be asked to rename.
 All the above said concern to consonant names as well, and it does not
-matter, in what language.
-Anyway, immortals may ask you to choose another name if they consider
-your name inappropriate.
+matter, in what language. Anyway, immortals may ask you to choose another
+name if they consider your name inappropriate.
+
 If your name fits above restrictions, type Y. Otherwise choose another
 name. Last decision depend upon Immortals of Shades of Gray.
 @rus                            {cВыбор имени.{x
@@ -489,7 +488,7 @@ name. Last decision depend upon Immortals of Shades of Gray.
 указанным ниже правилам:
 
 {cПриемлемо:{x
-{x    -- имена, соответствующие средневековой эпохе (Takasi, Aurian){x
+    -- имена, соответствующие средневековой эпохе (Takasi, Aurian){x
     -- выдуманные имена с красивым звучанием (Priatros, Sansoles)
 
 {cНеприемлемо:{x
@@ -500,20 +499,19 @@ name. Last decision depend upon Immortals of Shades of Gray.
     -- наукообразные изречения (Proof, Logic, Electries...)
     -- названия предметов (Necklace, Staff, Sword)
     -- составные имена (FarmerJoe, Maryjane)
-{x    -- атрибуты объектов или существ (Fine, Common,...)
+    -- атрибуты объектов или существ (Fine, Common,...)
 
 {CОсобые:{x
-{x    -- хорошо известные имена богов и героев мирового эпоса,
-{x       а также исторических личностей (Arjuna, Odin, Napoleon)
-{x    -- имена авторов, персонажей и актеров мировой литературы,{x
-{x       театра и кино (Pushkin, Kruger, Schwarzenegger){x
+    -- хорошо известные имена богов и героев мирового эпоса,
+       а также исторических личностей (Arjuna, Odin, Napoleon)
+    -- имена авторов, персонажей и актеров мировой литературы,
+       театра и кино (Pushkin, Kruger, Schwarzenegger)
 
 Вы можете использовать некоторые имена из категории "особые", но
 в этом случае вы ОБЯЗАНЫ отыгрывать соответствующую роль ПОЛНОСТЬЮ.
-Иначе вас "попросят" о переименовании.
-{xВсе вышесказанное относится также и к именам, просто созвучным{x
-{xэтим, а также к словам на любом языке.{x
-В любом случае Боги могут "предложить" тебе сменить имя.
+Иначе вас "попросят" о переименовании. Все вышесказанное относится
+также и к именам, просто созвучным этим, а также к словам на любом
+языке.  В любом случае Боги могут "предложить" тебе сменить имя.
 
 Если твое имя удовлетворяет вышеуказанным требованиям, нажми Y,
 иначе выбери себе другое имя. Но окончательное решение за Богами
