@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.83 1999-11-24 07:22:23 fjoe Exp $
+ * $Id: olc.c,v 1.84 1999-11-24 12:01:32 fjoe Exp $
  */
 
 /***************************************************************************
@@ -813,7 +813,7 @@ bool olced_ival(CHAR_DATA *ch, const char *argument,
 
 #define CC_RULES_ERR					\
 	do {						\
-		dofun("help", ch, "'OLC CC_RULESET'");	\
+		dofun("help", ch, "'OLC CC_RULES'");	\
 		return FALSE;				\
 	} while (0);
 		
