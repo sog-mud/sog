@@ -15,6 +15,14 @@ Form 3 -ие~
 End
 
 #RULE
+Name -шелся~
+BaseLen -4
+Form 1 -лась~
+Form 2 -лось~
+Form 3 -лись~
+End
+
+#RULE
 Name -ой~
 BaseLen -2
 Form 1 -ая~

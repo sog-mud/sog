@@ -458,25 +458,4 @@ Form 5 -е~
 Form 6 -е~
 End
 
-#RULE
-Name -во~
-Form 1 -а~
-Form 2 -у~
-Form 3 -о~
-Form 4 -ом~
-Form 5 -е~
-Form 6 -о~
-End
-
-#RULE
-Name -мо~
-BaseLen -1
-Form 1 -а~
-Form 2 -у~
-Form 3 -о~
-Form 4 -ом~
-Form 5 -е~
-Form 6 -о~
-End
-
 #$

@@ -2486,6 +2486,38 @@ A
 A
 19 10
 g neutral~
+#47184
+talons sharp demon острые когти демона руки hands severed отрезанные~
+@eng sharp talons of a demon@rus ~~острые~~ ~~когти~~ демона~
+@eng Severed taloned hands of some creature lie here.@rus Отрезанные когтистые руки какого-то существа лежат здесь.~
+claw~
+armor CEGJMQZ AH
+15 15 15 20 0
+45 25 0 P
+A
+1 2
+A
+20 -7
+A
+34 -25
+A
+35 25
+A
+19 8
+E
+talons sharp demon острые когти демона~
+@eng Severed hands of some unimaginable creature seem to be burnt
+out from inside, now resembling gloves of scorched black skin
+with deadly talons on each finger's end. But even now, they
+seem to have saved a part of the demon's unholy strength and
+grasp the ground desperately, as if trying to creep.
+@rus Отрезанные лапы какого-то невообразимого существа словно выжжены
+изнутри и сейчас похожи на перчатки из обгоревшей черной кожи со
+смертоносным когтем на конце каждого пальца. Даже после смерти
+их владельца, они словно продолжают жить сами по себе, беспоря-
+дочно сжимаясь и разжимаясь.
+~
+g @eng neutral@rus plural~
 #47217
 river water~
 @eng River@rus ~~река~~~
@@ -5630,6 +5662,7 @@ O 47180 1	* Heart of the Storms
 O 47181 1	* the Hammer of Thunder
 O 47182 2	* a pait of mithril gauntlets, kote
 O 47183 1	* a ring of black obsidian
+O 47184 1	* sharp talons of a demon
 S
 
 #MOBPROGS
