@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.13 1998-07-25 15:02:40 fjoe Exp $
+ * $Id: recycle.c,v 1.14 1998-08-05 06:43:53 fjoe Exp $
  */
 
 /***************************************************************************
@@ -632,7 +632,6 @@ HELP_AREA * new_had(void)
 	}
 	else
 		had		= alloc_perm(sizeof(*had));
-
 	return had;
 }
 

@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.42 1998-08-04 07:58:32 fjoe Exp $
+ * $Id: spellfun.c,v 1.43 1998-08-05 06:43:52 fjoe Exp $
  */
 
 /***************************************************************************
@@ -439,8 +439,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		}
 
 		if (is_affected(victim, gsn_spellbane)
-		&&  (number_percent() < 2*victim->pcdata->learned[gsn_spellbane]/3) 
-		&&  sn != slot_lookup(524))  {
+		&&  (number_percent() < 2*victim->pcdata->learned[gsn_spellbane]/3)) {
 			if (ch == victim) {
 				act_nprintf(ch, NULL, NULL, TO_CHAR,
 					    POS_DEAD,

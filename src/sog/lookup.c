@@ -1,5 +1,5 @@
 /*
- * $Id: lookup.c,v 1.8 1998-07-09 13:41:32 fjoe Exp $
+ * $Id: lookup.c,v 1.9 1998-08-05 06:43:51 fjoe Exp $
  */
 
 /***************************************************************************
@@ -265,7 +265,6 @@ int skill_lookup(const char *name)
  */
 int slot_lookup(int slot)
 {
-	extern bool fBootDb;
 	int sn;
 
 	if (slot <= 0)
@@ -277,12 +276,7 @@ int slot_lookup(int slot)
 		    return sn;
 	}
 
-	if (fBootDb)
-	{
-		bug("Slot_lookup: bad slot %d.", slot);
-		abort();
-	}
-
+	db_error("slot_lookup", "bad slot %d.", slot);
 	return -1;
 }
 

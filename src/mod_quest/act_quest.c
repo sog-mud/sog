@@ -1,5 +1,5 @@
 /*
- * $Id: act_quest.c,v 1.56 1998-08-03 16:39:43 fjoe Exp $
+ * $Id: act_quest.c,v 1.57 1998-08-05 06:43:53 fjoe Exp $
  */
 
 /***************************************************************************
@@ -747,8 +747,8 @@ static void quest_complete(CHAR_DATA *ch, char *arg)
 
 				if (chance(15))
 					prac_reward = number_range(1, 6);
-				qp_reward = number_range(15, 40);
-				gold_reward = number_range(350, 20*ch->level);
+				qp_reward = number_range(20, 40);
+				gold_reward = 35 + number_range(0, 2*ch->level);
 
 				complete = TRUE;
 				break;
@@ -757,8 +757,8 @@ static void quest_complete(CHAR_DATA *ch, char *arg)
 	else if (ch->pcdata->questmob == -1) {
 		if (chance(2))
 			prac_reward = number_range(1, 6);
-		qp_reward = number_range(20, 40);
-		gold_reward = dice(ch->level, 30);
+		qp_reward = number_range(15, 35);
+		gold_reward = dice(ch->level/10 + 1, 30);
 		gold_reward = URANGE(0, gold_reward, 20*ch->level);
 		complete = TRUE;
 	}

@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.47 1998-07-26 01:32:21 efdi Exp $
+ * $Id: db.c,v 1.48 1998-08-05 06:43:50 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1048,7 +1048,7 @@ void load_old_obj(FILE *fp)
 	OBJ_INDEX_DATA *pObjIndex;
 
 	if (!area_last)
-		db_error("load_objects", "no #AREA seen yet.");
+		db_error("load_old_obj", "no #AREA seen yet.");
 
 	for (; ;) {
 		int i;
@@ -1058,7 +1058,7 @@ void load_old_obj(FILE *fp)
 
 		letter = fread_letter(fp);
 		if (letter != '#')
-			db_error("load_objects", "# not found.");
+			db_error("load_old_obj", "# not found.");
 
 		vnum = fread_number(fp);
 		if (vnum == 0)
@@ -1066,7 +1066,7 @@ void load_old_obj(FILE *fp)
 
 		fBootDb = FALSE;
 		if (get_obj_index(vnum) != NULL)
-			db_error("load_objects", "vnum %d duplicated.", vnum);
+			db_error("load_old_obj", "vnum %d duplicated.", vnum);
 		fBootDb = TRUE;
 
 		pObjIndex		= alloc_perm(sizeof(*pObjIndex));
@@ -1207,14 +1207,12 @@ void load_resets(FILE *fp)
 	int iLastRoom = 0;
 	int iLastObj  = 0;
 
-	if (area_last == NULL) {
-		log("load_resets: no #AREA seen yet.");
-		exit(1);
-	}
+	if (area_last == NULL)
+		db_error("load_resets", "no #AREA seen yet.");
 
 	for (; ;) {
 		ROOM_INDEX_DATA *pRoomIndex;
-		EXIT_DATA *pexit;
+		EXIT_DATA *pexit = NULL;
 		char letter;
 		OBJ_INDEX_DATA *temp_index;
 
@@ -1243,8 +1241,7 @@ void load_resets(FILE *fp)
 		 */
 		switch (letter) {
 		default:
-			log_printf("load_resets: bad command '%c'.", letter);
-			exit(1);
+			db_error("load_resets", "bad command '%c'.", letter);
 			break;
 
 		case 'M':
@@ -1288,15 +1285,13 @@ void load_resets(FILE *fp)
 			||  pReset->arg2 >= MAX_DIR
 			||  pRoomIndex == NULL
 			||  (pexit = pRoomIndex->exit[pReset->arg2]) == NULL
-			||  !IS_SET( pexit->rs_flags, EX_ISDOOR)) {
-				log_printf("load_resets: 'D': exit %d not door.",
+			||  !IS_SET( pexit->rs_flags, EX_ISDOOR))
+				db_error("load_resets", "'D': exit %d not door.",
 					pReset->arg2);
-				exit(1);
-			}
 
 			switch (pReset->arg3) {
 			default:
-				log_printf("load_resets: 'D': bad 'locks': %d.",
+				db_error("load_resets", "'D': bad 'locks': %d.",
 					pReset->arg3);
 			case 0:
 				break;
@@ -1315,11 +1310,9 @@ void load_resets(FILE *fp)
 		case 'R':
 			pRoomIndex = get_room_index(pReset->arg1);
 
-			if (pReset->arg2 < 0 || pReset->arg2 > MAX_DIR) {
-				log_printf("load_resets: 'R': bad exit %d.",
+			if (pReset->arg2 < 0 || pReset->arg2 > MAX_DIR)
+				db_error("load_resets", "'R': bad exit %d.",
 					pReset->arg2);
-				exit(1);
-			}
 
 			if (pRoomIndex != NULL)
 				new_reset(pRoomIndex, pReset);
@@ -1337,10 +1330,8 @@ void load_rooms(FILE *fp)
 {
 	ROOM_INDEX_DATA *pRoomIndex;
 
-	if (area_last == NULL) {
-		log("load_rooms: no #AREA seen yet.");
-		exit(1);
-	}
+	if (area_last == NULL) 
+		db_error("load_rooms", "no #AREA seen yet.");
 
 	for (; ;) {
 		int vnum;
@@ -1359,10 +1350,8 @@ void load_rooms(FILE *fp)
 			break;
 
 		fBootDb = FALSE;
-		if (get_room_index(vnum) != NULL) {
-			log_printf("load_rooms: vnum %d duplicated.", vnum);
-			exit(1);
-		}
+		if (get_room_index(vnum) != NULL)
+			db_error("load_rooms", "vnum %d duplicated.", vnum);
 		fBootDb = TRUE;
 
 		pRoomIndex		= alloc_perm(sizeof(*pRoomIndex));
@@ -3712,6 +3701,7 @@ char *fread_word(FILE *fp)
 	return NULL;
 }
 
+#ifdef OLD_MEM
 /*
  * Allocate some ordinary memory,
  *   with the expectation of freeing it someday.
@@ -3831,8 +3821,23 @@ void *alloc_perm(int sMem)
 	sAllocPerm += sMem;
 	return pMem;
 }
+#else
 
+void *alloc_mem(int sMem)
+{
+	return calloc(1, sMem);
+}
 
+void free_mem(void *p, int sMem)
+{
+	free(p);
+}
+
+void *alloc_perm(int sMem)
+{
+	return calloc(1, sMem);
+}
+#endif
 
 /*
  * Duplicate a string into dynamic memory.
