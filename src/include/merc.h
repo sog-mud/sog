@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.277 1999-12-17 11:04:13 fjoe Exp $
+ * $Id: merc.h,v 1.278 1999-12-17 12:40:34 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1207,6 +1207,10 @@ void	objval_destroy	(flag_t item_type, vo_t *v);
 
 void	fwrite_objval	(flag_t item_type, vo_t *v, FILE *fp);
 void	fread_objval	(flag_t item_type, vo_t *v, rfile_t *fp);
+
+void	objval_show	(BUFFER *output, flag_t item_type, vo_t *v);
+int	objval_set	(BUFFER *output, flag_t item_type, vo_t *v,
+			 int value_num, const char *argument);
 
 /*
  * Common data for both PC and NPC.

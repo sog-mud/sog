@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: strkey_hash.c,v 1.9 1999-12-16 19:08:03 avn Exp $
+ * $Id: strkey_hash.c,v 1.10 1999-12-17 12:40:36 fjoe Exp $
  */
 
 #include <limits.h>
@@ -164,6 +164,8 @@ void strkey_printall(hash_t *h, BUFFER *buf)
 {
 	int col = 0;
 	hash_foreach(h, print_name_cb, buf, &col);
+	if (col % 4)
+		buf_add(buf, "\n");
 }
 
 static void *
@@ -182,6 +184,8 @@ void mlstrkey_printall(hash_t *h, BUFFER *buf)
 {
 	int col = 0;
 	hash_foreach(h, print_mlname_cb, buf, &col);
+	if (col % 4)
+		buf_add(buf, "\n");
 }
 
 char *

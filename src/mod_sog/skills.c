@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.98 1999-12-16 11:38:41 kostik Exp $
+ * $Id: skills.c,v 1.99 1999-12-17 12:40:36 fjoe Exp $
  */
 
 /***************************************************************************
@@ -456,6 +456,36 @@ skill_noun(const char *sn)
 		return &sk->noun_damage;
 	else
 		return glob_lookup("hit");
+}
+
+static void *
+skills_dump_cb(void *p, va_list ap)
+{
+	skill_t *sk = (skill_t *) p;
+
+	BUFFER *output = va_arg(ap, BUFFER *);
+	int skill_type = va_arg(ap, int);
+	int *pcol = va_arg(ap, int *);
+
+	const char *sn = gmlstr_mval(&sk->sk_name);
+
+	if (!str_cmp(sn, "reserved")
+	||  (skill_type >= 0 && sk->skill_type != skill_type))
+		return NULL;
+
+	buf_printf(output, "%-19.18s", sn);
+	if (++(*pcol) % 4 == 0)
+		buf_add(output, "\n");
+	return 0;
+}
+
+void
+skills_dump(BUFFER *output, int skill_type)
+{
+	int col = 0;
+	hash_foreach(&skills, skills_dump_cb, output, skill_type, &col); 
+	if (col % 4)
+		buf_add(output, "\n");
 }
 
 /*

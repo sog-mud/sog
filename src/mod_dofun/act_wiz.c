@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.217 1999-12-17 11:04:12 fjoe Exp $
+ * $Id: act_wiz.c,v 1.218 1999-12-17 12:40:33 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1081,75 +1081,7 @@ void do_ostat(CHAR_DATA *ch, const char *argument)
 			obj->altar->room->vnum);
 	}
 
-
-	buf_printf(output, "Values: %d %d %d %d %d\n",
-		obj->value[0], obj->value[1], obj->value[2], obj->value[3],
-		obj->value[4]);
-	
-	/* now give out vital statistics as per identify */
-	
-	switch (obj->pObjIndex->item_type) {
-		int i;
-		liquid_t *lq;
-	case ITEM_SCROLL: 
-	case ITEM_POTION:
-	case ITEM_PILL:
-		buf_printf(output, "Level %d spells of:", INT(obj->value[0]));
-
-		for (i = 1; i < 5; i++)
-			if (!IS_NULLSTR(obj->value[i].s)) 
-				buf_printf(output, " '%s'", obj->value[i].s);
-		buf_add(output, ".\n");
-		break;
-
-	case ITEM_WAND: 
-	case ITEM_STAFF: 
-		buf_printf(output, "Has %d(%d) charges of level %d",
-			   INT(obj->value[1]), INT(obj->value[2]), INT(obj->value[0]));
-	  
-		if (!IS_NULLSTR(obj->value[3].s))
-			buf_printf(output, " '%s'", obj->value[3].s);
-		buf_add(output, ".\n");
-		break;
-
-	case ITEM_DRINK_CON:
-		if ((lq = liquid_lookup(STR(obj->value[2]))) == NULL)
-			break;
-		buf_printf(output, "It holds %s-colored %s.\n",
-			   mlstr_mval(&lq->lq_color),
-			   gmlstr_mval(&lq->lq_name));
-		break;
-	  
-	case ITEM_WEAPON:
-		buf_printf(output, "%s\n",
-			   flag_string(weapon_class, INT(obj->value[0])));
-		buf_printf(output,"Damage is %dd%d (average %d)\n",
-			   INT(obj->value[1]), INT(obj->value[2]),
-			   (1 + INT(obj->value[2])) * INT(obj->value[1]) / 2);
-		buf_printf(output, "Damage noun is %s.\n",
-			   damtype_noun(obj->value[3].s));
-		    
-		if (INT(obj->value[4]))  /* weapon flags */
-		        buf_printf(output,"Weapons flags: %s\n",
-				   flag_string(weapon_type2, INT(obj->value[4])));
-		break;
-
-	case ITEM_ARMOR:
-		buf_printf(output, 
-		    "Armor class is %d pierce, %d bash, %d slash, and %d vs. magic\n",
-		        INT(obj->value[0]), INT(obj->value[1]), INT(obj->value[2]),
-			INT(obj->value[3]));
-		break;
-
-	case ITEM_CONTAINER:
-	        buf_printf(output,"Capacity: %d#  Maximum weight: %d#  flags: %s\n",
-	        	   INT(obj->value[0]), INT(obj->value[3]),
-			   flag_string(cont_flags, INT(obj->value[1])));
-	        if (INT(obj->value[4]) != 100)
-	        	buf_printf(output,"Weight multiplier: %d%%\n",
-				   INT(obj->value[4]));
-		break;
-	}
+	objval_show(output, obj->pObjIndex->item_type, obj->value);
 
 	if (obj->ed) {
 		ED_DATA *ed;
@@ -2732,6 +2664,26 @@ void do_oset(CHAR_DATA *ch, const char *argument)
 	if (!str_prefix(arg2, "owner")) {
 		mlstr_destroy(&obj->owner);
 		mlstr_init(&obj->owner, arg3);
+		return;
+	}
+
+	if (!str_cmp(arg2, "v0")
+	||  !str_cmp(arg2, "v1")
+	||  !str_cmp(arg2, "v2")
+	||  !str_cmp(arg2, "v3")
+	||  !str_cmp(arg2, "v4")) {
+		int val_num = atoi(arg2 + 1);
+		BUFFER *output = buf_new(-1);
+
+		if (argument[0] == '\0'
+		||  objval_set(output, obj->pObjIndex->item_type, obj->value,
+			       val_num, argument) < 2) {
+			objval_show(output, obj->pObjIndex->item_type,
+				    obj->value);
+		}
+
+		page_to_char(buf_string(output), ch);
+		buf_free(output);
 		return;
 	}
 

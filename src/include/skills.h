@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: skills.h,v 1.31 1999-12-16 12:24:45 fjoe Exp $
+ * $Id: skills.h,v 1.32 1999-12-17 12:40:35 fjoe Exp $
  */
 
 #ifndef _SKILLS_H_
@@ -114,6 +114,8 @@ int		skill_level	(CHAR_DATA *ch, const char *sn);
 int		skill_beats	(const char *sn);
 int		skill_mana	(CHAR_DATA *ch, const char *sn);
 gmlstr_t *	skill_noun	(const char *sn);
+
+void		skills_dump	(BUFFER *output, int skill_type);
 
 const char *	skill_slot_lookup(int slot);
 
