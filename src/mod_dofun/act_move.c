@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.203 1999-10-06 09:55:46 fjoe Exp $
+ * $Id: act_move.c,v 1.204 1999-10-07 12:37:07 kostik Exp $
  */
 
 /***************************************************************************
@@ -2336,7 +2336,7 @@ void do_escape(CHAR_DATA *ch, const char *argument)
 	||  (IS_SET(pexit->exit_info, EX_CLOSED) &&
 	     (!IS_AFFECTED(ch, AFF_PASS_DOOR) ||
 	      IS_SET(pexit->exit_info, EX_NOPASS)) &&
-	     !IS_TRUSTED(ch, LEVEL_ANG))
+	     !IS_TRUSTED(ch, LEVEL_IMMORTAL))
 	||  IS_SET(pexit->exit_info, EX_NOFLEE)
 	||  (IS_NPC(ch) &&
 	     IS_SET(pexit->to_room.r->room_flags, ROOM_NOMOB))) {
@@ -3090,13 +3090,13 @@ void do_enter(CHAR_DATA *ch, const char *argument)
 
 	if (portal->pObjIndex->item_type != ITEM_PORTAL 
 	||  (IS_SET(INT_VAL(portal->value[1]), EX_CLOSED) &&
-	     !IS_TRUSTED(ch, LEVEL_ANG))) {
+	     !IS_TRUSTED(ch, LEVEL_IMMORTAL))) {
 		char_puts("You can't seem to find a way in.\n", ch);
 		return;
 	}
 
 	if (IS_SET(INT_VAL(portal->value[2]), GATE_NOCURSE)
-	&&  !IS_TRUSTED(ch, LEVEL_ANG)
+	&&  !IS_TRUSTED(ch, LEVEL_IMMORTAL)
 	&&  (IS_AFFECTED(ch, AFF_CURSE) ||
 	     IS_SET(old_room->room_flags, ROOM_NORECALL) ||
 	     IS_RAFFECTED(old_room, RAFF_CURSE))) {

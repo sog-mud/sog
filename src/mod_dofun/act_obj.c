@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.166 1999-10-06 09:55:49 fjoe Exp $
+ * $Id: act_obj.c,v 1.167 1999-10-07 12:37:11 kostik Exp $
  */
 
 /***************************************************************************
@@ -2835,7 +2835,7 @@ void do_second_wield(CHAR_DATA * ch, const char *argument)
 	int		skill;
 	int		wear_lev;
 
-	if (get_skill(ch, "second weapon") == 0) {
+	if (get_skill(ch, "dual wield") == 0) {
 		char_puts("You don't know how to wield a second weapon.\n", ch);
 		return;
 	}

@@ -139,7 +139,7 @@ Max 90
 End
 
 #SKILL
-Skill 'second weapon'
+Skill 'dual wield'
 Level 23
 Rating 1
 Min 1

@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.90 1999-10-06 09:56:11 fjoe Exp $
+ * $Id: tables.c,v 1.91 1999-10-07 12:37:22 kostik Exp $
  */
 
 /***************************************************************************
@@ -1260,13 +1260,9 @@ flag_t level_table[] =
 
 	{ "imp",		LEVEL_IMP,			},
 	{ "cre",		LEVEL_CRE,			},
-	{ "sup",		LEVEL_SUP,			},
 	{ "dei",		LEVEL_DEI,			},
 	{ "god",		LEVEL_GOD,			},
-	{ "imm",		LEVEL_IMM,			},
 	{ "immortal",		LEVEL_IMMORTAL,			},
-	{ "dem",		LEVEL_DEM,			},
-	{ "ang",		LEVEL_ANG,			},
 	{ "ava",		LEVEL_AVA,			},
 
 	{ "hero",		LEVEL_HERO,			},
@@ -1284,20 +1280,20 @@ const struct wiznet_type wiznet_table[] =
 	{ "ticks",		WIZ_TICKS,	LEVEL_IMMORTAL	},
 	{ "logins",		WIZ_LOGINS,	LEVEL_IMMORTAL	},
 	{ "sites",		WIZ_SITES,	LEVEL_GOD	},
-	{ "links",		WIZ_LINKS,	LEVEL_ANG	},
+	{ "links",		WIZ_LINKS,	LEVEL_GOD	},
 	{ "newbies",		WIZ_NEWBIE,	LEVEL_IMMORTAL	},
-	{ "spam",		WIZ_SPAM,	LEVEL_IMM	},
+	{ "spam",		WIZ_SPAM,	LEVEL_GOD	},
 	{ "deaths",		WIZ_DEATHS,	LEVEL_IMMORTAL	},
 	{ "resets",		WIZ_RESETS,	LEVEL_GOD	},
 	{ "mobdeaths",		WIZ_MOBDEATHS,	LEVEL_GOD	},
-	{ "flags",		WIZ_FLAGS,	LEVEL_IMM	},
-	{ "penalties",		WIZ_PENALTIES,	LEVEL_IMM	},
-	{ "saccing",		WIZ_SACCING,	LEVEL_IMM	},
+	{ "flags",		WIZ_FLAGS,	LEVEL_GOD	},
+	{ "penalties",		WIZ_PENALTIES,	LEVEL_GOD	},
+	{ "saccing",		WIZ_SACCING,	LEVEL_GOD	},
 	{ "levels",		WIZ_LEVELS,	LEVEL_IMMORTAL	},
-	{ "load",		WIZ_LOAD,	LEVEL_SUP	},
-	{ "restore",		WIZ_RESTORE,	LEVEL_SUP	},
-	{ "snoops",		WIZ_SNOOPS,	LEVEL_SUP	},
-	{ "switches",		WIZ_SWITCHES,	LEVEL_SUP	},
+	{ "load",		WIZ_LOAD,	LEVEL_CRE	},
+	{ "restore",		WIZ_RESTORE,	LEVEL_CRE	},
+	{ "snoops",		WIZ_SNOOPS,	LEVEL_CRE	},
+	{ "switches",		WIZ_SWITCHES,	LEVEL_CRE	},
 	{ "secure",		WIZ_SECURE,	LEVEL_CRE	},
 	{ "olc",		WIZ_OLC,	LEVEL_IMMORTAL	},
 	{ "wizlog",		WIZ_WIZLOG,	LEVEL_IMMORTAL	},

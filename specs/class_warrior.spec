@@ -112,24 +112,6 @@ Max 100
 End
 
 #SKILL
-Skill 'secondary attack'
-Level 57
-Rating 1
-Min 1
-Adept 75
-Max 100
-End
-
-#SKILL
-Skill 'second weapon'
-Level 23
-Rating 1
-Min 1
-Adept 75
-Max 100
-End
-
-#SKILL
 Skill 'second attack'
 Level 10
 Rating 1

@@ -130,7 +130,7 @@ Max 95
 End
 
 #SKILL
-Skill 'second weapon'
+Skill 'dual wield'
 Level 24
 Rating 1
 Min 1

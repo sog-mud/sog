@@ -4,15 +4,6 @@ Class class
 End
 
 #SKILL
-Skill 'weapon cleave'
-Level 37
-Rating 1
-Min 1
-Adept 75
-Max 100
-End
-
-#SKILL
 Skill 'trip'
 Level 3
 Rating 1
@@ -22,17 +13,8 @@ Max 100
 End
 
 #SKILL
-Skill 'throwing weapons'
-Level 29
-Rating 1
-Min 1
-Adept 75
-Max 100
-End
-
-#SKILL
 Skill 'third attack'
-Level 36
+Level 25
 Rating 1
 Min 1
 Adept 75
@@ -50,25 +32,7 @@ End
 
 #SKILL
 Skill 'steal'
-Level 12
-Rating 1
-Min 1
-Adept 75
-Max 100
-End
-
-#SKILL
-Skill 'staff'
-Level 1
-Rating 1
-Min 1
-Adept 75
-Max 100
-End
-
-#SKILL
-Skill 'spear'
-Level 1
+Level 10
 Rating 1
 Min 1
 Adept 75
@@ -77,34 +41,16 @@ End
 
 #SKILL
 Skill 'sneak'
-Level 4
+Level 6
 Rating 1
 Min 1
 Adept 75
 Max 100
-End
-
-#SKILL
-Skill 'shield cleave'
-Level 33
-Rating 1
-Min 1
-Adept 75
-Max 100
-End
-
-#SKILL
-Skill 'shield block'
-Level 7
-Rating 1
-Min 1
-Adept 75
-Max 85
 End
 
 #SKILL
 Skill 'settraps'
-Level 59
+Level 43
 Rating 1
 Min 1
 Adept 75
@@ -122,7 +68,7 @@ End
 
 #SKILL
 Skill 'scrolls'
-Level 1
+Level 5
 Rating 2
 Min 1
 Adept 75
@@ -131,7 +77,7 @@ End
 
 #SKILL
 Skill 'push'
-Level 53
+Level 40
 Rating 1
 Min 1
 Adept 75
@@ -149,7 +95,7 @@ End
 
 #SKILL
 Skill 'perception'
-Level 23
+Level 38
 Rating 1
 Min 1
 Adept 75
@@ -167,6 +113,15 @@ End
 
 #SKILL
 Skill 'parry'
+Level 19
+Rating 1
+Min 1
+Adept 75
+Max 100
+End
+
+#SKILL
+Skill 'dual wield'
 Level 19
 Rating 1
 Min 1
@@ -194,7 +149,7 @@ End
 
 #SKILL
 Skill 'lore'
-Level 13
+Level 5
 Rating 2
 Min 1
 Adept 75
@@ -212,7 +167,7 @@ End
 
 #SKILL
 Skill 'kick'
-Level 14
+Level 8
 Rating 1
 Min 1
 Adept 75
@@ -230,7 +185,7 @@ End
 
 #SKILL
 Skill 'hand to hand'
-Level 18
+Level 4
 Rating 1
 Min 1
 Adept 75
@@ -248,7 +203,7 @@ End
 
 #SKILL
 Skill 'fast healing'
-Level 16
+Level 10
 Rating 1
 Min 1
 Adept 75
@@ -257,7 +212,7 @@ End
 
 #SKILL
 Skill 'escape'
-Level 45
+Level 24
 Rating 1
 Min 1
 Adept 75
@@ -275,7 +230,7 @@ End
 
 #SKILL
 Skill 'enhanced damage'
-Level 25
+Level 20
 Rating 1
 Min 1
 Adept 75
@@ -302,7 +257,7 @@ End
 
 #SKILL
 Skill 'disarm'
-Level 28
+Level 22
 Rating 1
 Min 1
 Adept 75
@@ -320,7 +275,7 @@ End
 
 #SKILL
 Skill 'detect hide'
-Level 10
+Level 5
 Rating 1
 Min 1
 Adept 75
@@ -347,7 +302,7 @@ End
 
 #SKILL
 Skill 'blackjack'
-Level 30
+Level 21
 Rating 1
 Min 1
 Adept 75
@@ -356,7 +311,7 @@ End
 
 #SKILL
 Skill 'backstab'
-Level 11
+Level 1
 Rating 1
 Min 1
 Adept 75

@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.183 1999-10-06 09:56:05 fjoe Exp $
+ * $Id: handler.c,v 1.184 1999-10-07 12:37:19 kostik Exp $
  */
 
 /***************************************************************************
@@ -3100,12 +3100,8 @@ void do_who_raw(CHAR_DATA* ch, CHAR_DATA *wch, BUFFER* output)
 		switch (wch->level) {
 		case LEVEL_IMP:		buf_add(output, " IMP "); break;
 		case LEVEL_CRE:		buf_add(output, " CRE "); break;
-		case LEVEL_SUP:		buf_add(output, " SUP "); break;
 		case LEVEL_DEI:		buf_add(output, " DEI "); break;
 		case LEVEL_GOD:		buf_add(output, " GOD "); break;
-		case LEVEL_IMM:		buf_add(output, " IMM "); break;
-		case LEVEL_DEM:		buf_add(output, " DEM "); break;
-		case LEVEL_ANG:		buf_add(output, " ANG "); break;
 		case LEVEL_AVA:		buf_add(output, " AVA "); break;
 		case LEVEL_HERO:	buf_add(output, "HERO "); break;
 		}
@@ -3371,7 +3367,7 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 	if (IS_SET(pexit->exit_info, EX_CLOSED) 
 	&&  (!IS_AFFECTED(ch, AFF_PASS_DOOR) ||
 	     IS_SET(pexit->exit_info, EX_NOPASS))
-	&&  !IS_TRUSTED(ch, LEVEL_ANG)) {
+	&&  !IS_TRUSTED(ch, LEVEL_IMMORTAL)) {
 		if (IS_AFFECTED(ch, AFF_PASS_DOOR)
 		&&  IS_SET(pexit->exit_info, EX_NOPASS)) {
   			act_puts("You failed to pass through the $d.",

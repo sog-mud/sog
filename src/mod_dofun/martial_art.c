@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.115 1999-10-06 09:55:54 fjoe Exp $
+ * $Id: martial_art.c,v 1.116 1999-10-07 12:37:16 kostik Exp $
  */
 
 /***************************************************************************
@@ -248,7 +248,7 @@ void do_flee(CHAR_DATA *ch, const char *argument)
 		     || (IS_SET(pexit->exit_info, EX_CLOSED)
 		         && (!IS_AFFECTED(ch, AFF_PASS_DOOR)
 		             || IS_SET(pexit->exit_info,EX_NOPASS))
-		             && !IS_TRUSTED(ch, LEVEL_ANG))
+		             && !IS_TRUSTED(ch, LEVEL_IMMORTAL))
 		         || (IS_SET(pexit->exit_info , EX_NOFLEE))
 		         || (IS_NPC(ch)
 		             && IS_SET(pexit->to_room.r->room_flags, ROOM_NOMOB)))
@@ -3629,7 +3629,7 @@ void do_dishonor(CHAR_DATA *ch, const char *argument)
 		||  (IS_SET(pexit->exit_info, EX_CLOSED) &&
 		     (!IS_AFFECTED(ch, AFF_PASS_DOOR) ||
 		      IS_SET(pexit->exit_info,EX_NOPASS)) &&
-		     !IS_TRUSTED(ch, LEVEL_ANG))
+		     !IS_TRUSTED(ch, LEVEL_IMMORTAL))
 		|| IS_SET(pexit->exit_info, EX_NOFLEE)
 		|| (IS_NPC(ch) &&
 		    IS_SET(pexit->to_room.r->room_flags, ROOM_NOMOB)))

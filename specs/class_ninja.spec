@@ -148,15 +148,6 @@ Max 100
 End
 
 #SKILL
-Skill 'second weapon'
-Level 33
-Rating 1
-Min 1
-Adept 75
-Max 100
-End
-
-#SKILL
 Skill 'second attack'
 Level 15
 Rating 1

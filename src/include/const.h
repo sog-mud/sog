@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: const.h,v 1.46 1999-10-06 09:55:57 fjoe Exp $
+ * $Id: const.h,v 1.47 1999-10-07 12:37:18 kostik Exp $
  */
 
 #ifndef _CONST_H_
@@ -112,18 +112,14 @@ enum {
 #define MAX_DIR			6	/* number of exits */
 #define MAX_ALIAS		50	/* number of aliases char can have */
 
-#define MAX_LEVEL		100
+#define MAX_LEVEL		50
 
 #define LEVEL_IMP		MAX_LEVEL	/* implementor		*/
 #define LEVEL_CRE 		(MAX_LEVEL - 1)	/* creator		*/
-#define LEVEL_SUP 		(MAX_LEVEL - 2)	/* supreme being	*/
-#define LEVEL_DEI		(MAX_LEVEL - 3)	/* deity		*/
-#define LEVEL_GOD		(MAX_LEVEL - 4)	/* god			*/
-#define LEVEL_IMM		(MAX_LEVEL - 5)	/* immortal		*/
-#define LEVEL_DEM		(MAX_LEVEL - 6)	/* demigod		*/
-#define LEVEL_ANG		(MAX_LEVEL - 7)	/* angel		*/
-#define LEVEL_AVA		(MAX_LEVEL - 8)	/* avatar		*/
-#define LEVEL_HERO		(MAX_LEVEL - 9)	/* hero			*/
+#define LEVEL_DEI		(MAX_LEVEL - 2)	/* deity		*/
+#define LEVEL_GOD		(MAX_LEVEL - 3)	/* god			*/
+#define LEVEL_AVA		(MAX_LEVEL - 4)	/* avatar		*/
+#define LEVEL_HERO		(MAX_LEVEL - 5)	/* hero			*/
 
 #define LEVEL_IMMORTAL		LEVEL_AVA
 #define LEVEL_NEWBIE		5
