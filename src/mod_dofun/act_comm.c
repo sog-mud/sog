@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.187.2.34 2002-10-18 09:12:59 tatyana Exp $
+ * $Id: act_comm.c,v 1.187.2.35 2002-10-22 12:26:25 tatyana Exp $
  */
 
 /***************************************************************************
@@ -2299,7 +2299,7 @@ void do_ooc(CHAR_DATA *ch, const char *argument)
 	WAIT_STATE(ch, PULSE_VIOLENCE);
 
 	argument = garble(ch, argument);
-	act_puts("[Shades of Gray] $lu{$n}: {C$t{x",
+	act_puts("[Shades of Gray] $lu{$n}: {M$t{x",
 		 ch, argument, NULL,
 		 TO_CHAR | (ACT_SPEECH(ch) & ~ACT_STRANS), POS_DEAD);
 
@@ -2310,7 +2310,7 @@ void do_ooc(CHAR_DATA *ch, const char *argument)
 		&&  (d->character->in_room == NULL ||
 		     !IS_SET(d->character->in_room->room_flags, ROOM_SILENT) ||
 		     IS_IMMORTAL(d->character))) {
-			act_puts("[Shades of Gray] $lu{$n}: {C$t{x",
+			act_puts("[Shades of Gray] $lu{$n}: {M$t{x",
 				 ch, argument, d->character,
 				 TO_VICT | ACT_NOTWIT |
 				 (ACT_SPEECH(ch) & ~ACT_STRANS),
@@ -2345,7 +2345,7 @@ void do_oocme(CHAR_DATA *ch, const char *argument)
 	if (is_affected(ch, gsn_garble))
 		return;
 
-	act_puts("[Shades of Gray] {C$lu{$n} $t{x",
+	act_puts("[Shades of Gray] {M$lu{$n} $t{x",
 		 ch, argument, NULL,
 		 TO_CHAR | (ACT_SPEECH(ch) & ~ACT_STRANS), POS_DEAD);
 
@@ -2356,7 +2356,7 @@ void do_oocme(CHAR_DATA *ch, const char *argument)
 		&&  (d->character->in_room == NULL ||
 		     !IS_SET(d->character->in_room->room_flags, ROOM_SILENT) ||
 		     IS_IMMORTAL(d->character))) {
-			act_puts("[Shades of Gray] {C$lu{$n} $t{x",
+			act_puts("[Shades of Gray] {M$lu{$n} $t{x",
 				 ch, argument, d->character,
 				 TO_VICT | ACT_NOTWIT |
 				 (ACT_SPEECH(ch) & ~ACT_STRANS),
