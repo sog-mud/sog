@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.445 2004-02-27 19:29:41 tatyana Exp $
+ * $Id: act_info.c,v 1.446 2004-04-08 11:48:15 kets Exp $
  */
 
 /***************************************************************************
@@ -4071,6 +4071,10 @@ show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 			FLAG_SET(29, 'G', TRUE);
 		}
 		FLAG_SET(32, 'G', is_sn_affected(victim, "golden aura"));
+		if (is_sn_affected(victim, "unholy aura")) {
+			FLAG_SET(32, 'U', TRUE);
+			FLAG_SET(31, 'R', TRUE);
+		}
 		FLAG_SET(35, 'S', IS_AFFECTED(victim, AFF_SANCTUARY));
 
 		if (IS_AFFECTED(victim, AFF_BLACK_SHROUD)) {
