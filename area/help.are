@@ -7418,28 +7418,29 @@ event classes. <funname> is function name from module
 Use 'event <eventcl> none' to remove event.
 ~
 0 GREETING~
-This MUD is being tested. So, don't               ...  :``..':
-express any claims. Remember, the only         : ````.'   :''::'
-purpose this world was made available        ..:..  :     .'' :
-to everyone is playtesting.               ``.    `:    .'     :
-                                              :    :   :        :
-So, any bugreports sent by you will be         :   :   :         :
-appreciated. And, of course, we need           :    :   :        :
-help with area translation.                     :    :   :..''''``::.
-                                                 : ...:..'     .''
-Original DikuMUD by Hans Staerfeldt,             .'   .'  .::::'
-Katja Nyboe, Tom Madsen, Michael Seifert        :..'''``:::::::
-and Sebastian Hammer.                           '         `::::
-Merc 2.1 by Hatchet, Furey and Kahn.                        `::.
-ROM 2.4 (c) Russ Taylor, 1993-95                             `::
-Anatolia 2.1 (c) Serdar BULUT, Ibrahim                        :::.
-CANPUNAR, Murat BICER, Devrim Baris ACAR.          ,,:,:,::.   ::'`   .-:~~:-._
-SoG code by fjoe, kostik, avn.                   ..'      `:.: ::   :'       .
-                                                .:        .:``:::  :       .:
-HEED THESE WORDS AND STEP IN!                   .:    ..''     :::.'    :':
-                                                 : .''         .:: : : '
-                                                  :          .'`::
-                                                                ::
+.           ,   ,
+         ,-`{{-`/
+      ,-~~ , \ {-~~~~-,
+    ,~~  ,   ,`,-~~~~-,`,                                              }/
+  ,`   ,   {{ {{      } }          Welcome to                }/      /,/
+ ;     ,--/`\ \    / /                 Shades of Gray     /,;    ,/ ,/
+;  ,-./      \ \  {{ {{  (                                 / `,  ,/  `,/
+; /   `       } } `, `-`-.___                           / ,`,,/  ,`,;
+ \|         ,`,`    `~~.___,---}                    __  /  ,`/   ,`,;
+  `        {{ {{                                  _,`, `{{  `,{{   `,`;`
+        /   \ \        /~~\                     (--,   ;\ `,}  `,`;
+       {{     } }     /` , \                      `~~;   \},/  `,`;     ,-=-
+       \\._./ /     /. `  .\_                  __,{{     `/  `,`;     {{
+        `-..-`     / , ~~ . ^ `~~`\          <<~~>-,,`,    `-,  ``,_    }
+                /~~~~ . `  . ~~  , .`~~~~\           _-~~  ;__,        `,-`
+       /`\    /~~Original DikuMUD by '\         <<<~~```   ``-,,__   ;
+      /` .`\ /`Hans Staerfeldt, Katja~~\                        \\, `,__
+     / ` , ,`\.Nyboe, Michael Seifert,``~~~~~~`,                   `-`--, \
+    / , ~~ . ~~ \ Tom Madsen, Sebastian Hammer.`-,___,---,__
+  /`dan. ~~ . ` `\Based on MERC 2.1 code by Hatchet, Furey,~~---,____
+/` .hunt,  . ~~ , \Kahn. ROM 2.4 copyright (c) 1993-1995 Russ Taylor`-,,
+~~.  ` ` ,. ` , . ~~ ~~\ .~~ '`. '.Murat BICER, Devrim Baris ACAR.` . ~~` .' ~~\
+   Shades of Gray code by fjoe, Constantin Svintsoff, Alexey Neyman.
 ~
 immortal 'WIZ SETTICK' SETTICK~
 @eng Syntax: {csettick{x <type> <value>
