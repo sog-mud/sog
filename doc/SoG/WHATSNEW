@@ -5,6 +5,12 @@ This things are new to Anatolia 2.1b2
 - OLC 1.72 + mobprogs merged & slightly rewritten
 - new clan code
 - new quest code
-- new skills/classes code (with OLC)
+- new color code
+- new skills/classes/races code (with OLC in the future)
 - OLC for helps
-- a lot of bugs are fixed
+- a lot of bugfixes
+- win32 port by Tim Yunaev <tyunaev@usa.net>
+- changed exp/level system
+- translation (multilanguage support)
+- mobinvis, obj/roomprogs (merged from SMAUG)
+- no trust levels, granted commands list instead
