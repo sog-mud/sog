@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.212 2000-02-29 17:14:59 avn Exp $
+ * $Id: db.c,v 1.213 2000-03-02 17:14:13 avn Exp $
  */
 
 /***************************************************************************
@@ -1058,6 +1058,7 @@ CHAR_DATA *create_mob(MOB_INDEX_DATA *pMobIndex)
 {
 	CHAR_DATA *mob;
 	int i;
+	race_t *r;
 	AFFECT_DATA af;
 	AFFECT_DATA *paf;
 
@@ -1089,8 +1090,19 @@ CHAR_DATA *create_mob(MOB_INDEX_DATA *pMobIndex)
 	mob->alignment		= pMobIndex->alignment;
 	mob->level		= pMobIndex->level;
 	mob->position		= pMobIndex->start_pos;
+
+	for (i = 0; i < MAX_RESIST; i++) 
+		mob->resists[i] = pMobIndex->resists[i];
+
 	free_string(mob->race);
 	mob->race		= str_qdup(pMobIndex->race);
+	if ((r = race_lookup(pMobIndex->race)) != NULL)
+		for (i = 0; i < MAX_RESIST; i++)
+			if (mob->resists[i] == MOB_IMMUNE)
+				mob->resists[i] += r->resists[i];
+			else
+				mob->resists[i] = 100;
+
 	mob->form		= pMobIndex->form;
 	mob->parts		= pMobIndex->parts;
 	mob->size		= pMobIndex->size;
@@ -1132,9 +1144,6 @@ CHAR_DATA *create_mob(MOB_INDEX_DATA *pMobIndex)
 	} else {
 		mlstr_cpy(&mob->gender, &pMobIndex->gender);
 	}
-
-	for (i = 0; i < MAX_RESIST; i++) 
-		mob->resists[i] = pMobIndex->resists[i];
 
 	for (i = 0; i < MAX_STATS; i ++)
 		mob->perm_stat[i] = UMIN(25, 11 + mob->level/4);

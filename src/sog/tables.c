@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.133 2000-02-29 17:14:59 avn Exp $
+ * $Id: tables.c,v 1.134 2000-03-02 17:14:12 avn Exp $
  */
 
 /***************************************************************************
@@ -1381,10 +1381,6 @@ flaginfo_t dam_classes[] =
 	{ "harm",		DAM_HARM,			TRUE	},
 	{ "charm",		DAM_CHARM,			TRUE	},
 	{ "sound",		DAM_SOUND,			TRUE	},
-	{ "thirst",		DAM_THIRST,			TRUE	},
-	{ "hunger",		DAM_HUNGER,			TRUE	},
-	{ "light_v",		DAM_LIGHT_V,			TRUE	},
-	{ "trap_room",		DAM_TRAP_ROOM,			TRUE	},
 	{ "wood",		DAM_WOOD,			TRUE	},
 	{ "silver",		DAM_SILVER,			TRUE	},
 

@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.92 2000-02-20 10:36:42 avn Exp $
+ * $Id: db_area.c,v 1.93 2000-03-02 17:14:13 avn Exp $
  */
 
 /***************************************************************************
@@ -1143,11 +1143,11 @@ DBLOAD_FUN(load_mobiles)
 	free_string(pMobIndex->material);
 	pMobIndex->material		= fread_sword(fp);
  
-	/* Set race resists to pMobIndex.*/
-	if (r) {
-		for (i = 0; i < MAX_RESIST; i++)
-			pMobIndex->resists[i] = r->resists[i];
-	}
+	/* Set mob resists to 0, race resists will be added in create_mob() */
+	if (r)
+		for (i = 0; i < MAX_RESIST; i++) {
+			pMobIndex->resists[i] = 0;
+		}
 
 	for (; ;)
         {
@@ -1224,6 +1224,11 @@ DBLOAD_FUN(load_mobiles)
 	     } else if (letter == 'r') {   /* Resists */
 		int res = fread_fword(resist_flags, fp);
 		pMobIndex->resists[res] = fread_number(fp);
+
+		/* Needs to be removed later */
+		if (r && pMobIndex->resists[res] + r->resists[res] >= 100)
+			pMobIndex->resists[res] = MOB_IMMUNE;
+
 		found_res = TRUE;
 	     } else {
 		xungetc(fp);

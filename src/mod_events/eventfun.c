@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: eventfun.c,v 1.12 2000-02-19 14:28:29 avn Exp $
+ * $Id: eventfun.c,v 1.13 2000-03-02 17:14:11 avn Exp $
  */
 
 
@@ -76,7 +76,7 @@ EVENT_FUN(event_enter_lshield)
 		ROOM_INDEX_DATA *room = ch->in_room;
 
 		damage(af->owner, ch, dice(af->level, 4) + 12,
-		       af->type, DAM_LIGHTNING, DAMF_SHOW);
+		       af->type, DAM_LIGHTNING, DAMF_SHOW | DAMF_TRAP_ROOM);
 		affect_remove_room(room , af);
 	}
 }
@@ -94,7 +94,7 @@ EVENT_FUN(event_enter_shocking)
 		act("Shocking waves in this room shock you!",
 			ch, NULL, NULL, TO_CHAR);
 		damage(ch, ch, dice(af->level, 4) + 12,
-		       NULL, DAM_TRAP_ROOM, DAMF_SHOW | DAMF_HUNGER);
+		       NULL, DAM_LIGHTNING, DAMF_SHOW | DAMF_TRAP_ROOM);
 		show_owner(ch, af);
 		affect_remove_room(room , af);
 	}
@@ -111,7 +111,7 @@ EVENT_FUN(event_enter_thieftrap)
 		ROOM_INDEX_DATA *room = ch->in_room;
 
 		damage(ch, ch, dice(af->level, 5) + 12,
-		       NULL, DAM_TRAP_ROOM, DAMF_SHOW | DAMF_HUNGER);
+		       NULL, DAM_PIERCE, DAMF_SHOW | DAMF_TRAP_ROOM);
 		show_owner(ch, af);
 		affect_remove_room(room , af);
 	}
@@ -124,28 +124,32 @@ EVENT_FUN(event_enter_mist)
 
 EVENT_FUN(event_update_plague)
 {
-	if (af->level < 1) af->level = 2;
-	if (is_safe_rspell(af, ch)) return;
-	spellfun_call("plague", NULL, af->level - 1, af->owner, ch);
+	if (af->level < 1)
+		af->level = 2;
+	if (!is_safe_rspell(af, ch))
+		spellfun_call("plague", NULL, af->level - 1, af->owner, ch);
 }
 
 EVENT_FUN(event_update_poison)
 {
-	if (af->level < 1) af->level = 2;
+	if (af->level < 1)
+		af->level = 2;
 	if (!is_safe_rspell(af, ch))
 		spellfun_call("poison", NULL, af->level - 1, af->owner, ch);
 }
 
 EVENT_FUN(event_update_slow)
 {
-	if (af->level < 1) af->level = 2;
+	if (af->level < 1)
+		af->level = 2;
 	if (!is_safe_rspell(af, ch))
 		spellfun_call("slow", NULL, af->level - 1, af->owner, ch);
 }
 
 EVENT_FUN(event_update_sleep)
 {
-	if (af->level < 1) af->level = 2;
+	if (af->level < 1)
+		af->level = 2;
 	if (!is_safe_rspell(af, ch))
 		spellfun_call("sleep", NULL, af->level - 1, af->owner, ch);
 }
@@ -154,7 +158,8 @@ EVENT_FUN(event_update_espirit)
 {
 	AFFECT_DATA af2;
 
-	if (af->level < 1) af->level = 2;
+	if (af->level < 1)
+		af->level = 2;
 	if (!is_safe_rspell(af, ch)
 	&&  !IS_IMMORTAL(ch)
 	&&  !saves_spell(af->level + 2, ch, DAM_MENTAL)

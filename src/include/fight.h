@@ -1,5 +1,5 @@
 /*
- * $Id: fight.h,v 1.21 2000-02-20 10:39:37 avn Exp $
+ * $Id: fight.h,v 1.22 2000-03-02 17:14:11 avn Exp $
  */
 
 /***************************************************************************
@@ -76,5 +76,8 @@ const char *	vp_dam_alias	(int dam);
 #define DAMF_HIT	(C)	/* damage by hit */
 #define DAMF_HUNGER	(D)	/* damage by hunger */
 #define DAMF_NOREDUCE	(E)	/* damage should not be reduced */
+#define DAMF_THIRST	(F)	/* damage by thirst */
+#define DAMF_LIGHT_V	(G)	/* light in room */
+#define DAMF_TRAP_ROOM	(H)	/* room trap damage */
 
 #endif

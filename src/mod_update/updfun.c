@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: updfun.c,v 1.3 2000-02-29 17:14:58 avn Exp $
+ * $Id: updfun.c,v 1.4 2000-03-02 17:14:11 avn Exp $
  */
 
 #include <sys/types.h>
@@ -123,7 +123,7 @@ void gain_cond(CHAR_DATA *ch, int iCond, int value)
 			if (!damage_hunger)
 				damage_hunger = 1;
 			damage(ch, ch, damage_hunger, NULL,
-			       DAM_HUNGER, DAMF_SHOW | DAMF_HUNGER);
+			       DAM_NONE, DAMF_SHOW | DAMF_HUNGER);
 			if (ch->position == POS_SLEEPING) 
 				return;       
 			break;
@@ -135,7 +135,7 @@ void gain_cond(CHAR_DATA *ch, int iCond, int value)
 			if (!damage_hunger)
 				damage_hunger = 1;
 			damage(ch, ch, damage_hunger, NULL,
-				DAM_THIRST, DAMF_SHOW | DAMF_HUNGER);
+				DAM_NONE, DAMF_SHOW | DAMF_THIRST);
 			if (ch->position == POS_SLEEPING) 
 				return;       
 			break;
@@ -159,7 +159,7 @@ void gain_cond(CHAR_DATA *ch, int iCond, int value)
 			if (!damage_hunger)
 				damage_hunger = 1;
 			damage(ch, ch, damage_hunger, NULL,
-				DAM_THIRST, DAMF_SHOW | DAMF_HUNGER);
+				DAM_NONE, DAMF_SHOW | DAMF_THIRST);
 			if (ch->position == POS_SLEEPING) 
 				return;       		
 			break;
@@ -782,16 +782,16 @@ char_update_cb(void *vo, va_list ap)
 		}
 
 		if (!pc->was_in_room) {
-			gain_cond(ch, COND_DRUNK, -1);
+			gain_condition(ch, COND_DRUNK, -1);
 			if (IS_VAMPIRE(ch))
-				gain_cond(ch, COND_BLOODLUST, -1);
-			gain_cond(ch, COND_FULL, 
+				gain_condition(ch, COND_BLOODLUST, -1);
+			gain_condition(ch, COND_FULL, 
 				       ch->size > SIZE_MEDIUM ? -4 : -2);
 			if (ch->in_room->sector_type == SECT_DESERT)
-				gain_cond(ch, COND_THIRST, -3);
+				gain_condition(ch, COND_THIRST, -3);
 			else
-				gain_cond(ch, COND_THIRST, -1);
-			gain_cond(ch, COND_HUNGER, 
+				gain_condition(ch, COND_THIRST, -1);
+			gain_condition(ch, COND_HUNGER, 
 				       ch->size > SIZE_MEDIUM ? -2 : -1);
 			if (IS_EXTRACTED(ch))
 				return NULL;
@@ -1031,8 +1031,8 @@ light_update(void)
 			char_puts("Sun light disturbs you.\n",ch);
 
 		dam_light = 1 + (ch->max_hit * 4)/ 100;
-		damage(ch, ch, dam_light, NULL, DAM_LIGHT_V,
-			DAMF_SHOW | DAMF_HUNGER);
+		damage(ch, ch, dam_light, NULL, DAM_LIGHT,
+			DAMF_SHOW | DAMF_LIGHT_V);
 
 		if (ch->position == POS_STUNNED)
 			update_pos(ch);

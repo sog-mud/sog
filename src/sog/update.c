@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: update.c,v 1.188 2000-02-28 18:21:54 avn Exp $
+ * $Id: update.c,v 1.189 2000-03-02 17:14:12 avn Exp $
  */
 
 #include <stdarg.h>
@@ -39,7 +39,7 @@ void (*gain_cond)(CHAR_DATA *ch, int iCond, int value);
 void
 inline gain_condition(CHAR_DATA *ch, int iCond, int value)
 {
-	if (!gain_cond)
+	if (gain_cond)
 		gain_cond(ch, iCond, value);
 }
 
