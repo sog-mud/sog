@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.106 2000-02-01 05:35:13 fjoe Exp $
+ * $Id: skills.c,v 1.107 2000-02-01 05:57:45 fjoe Exp $
  */
 
 /***************************************************************************
@@ -119,7 +119,7 @@ void check_improve(CHAR_DATA *ch, const char *sn, bool success, int multiplier)
 		chance = URANGE(5, spec_sk.max - pc_sk->percent, 95);
 		if (number_percent() < chance) {
 			pc_sk->percent++;
-			gain_exp(ch, spec_sk.rating * ch->level);
+			gain_exp(ch, dice(spec_sk.rating, ch->level));
 			if (pc_sk->percent == spec_sk.max) {
 				act_puts("{gYou mastered {W$v{g!{x",
 					 ch, &sk->sk_name, NULL,
@@ -135,7 +135,7 @@ void check_improve(CHAR_DATA *ch, const char *sn, bool success, int multiplier)
 		if (number_percent() < chance) {
 			pc_sk->percent += number_range(1, 3);
 			pc_sk->percent = UMIN(pc_sk->percent, spec_sk.max);
-			gain_exp(ch, spec_sk.rating * ch->level);
+			gain_exp(ch, dice(spec_sk.rating, ch->level));
 			if (pc_sk->percent == spec_sk.max) {
 				act_puts("{gYou learn from your mistakes and you manage to master {W$v{g!{x",
 					 ch, &sk->sk_name, NULL,
