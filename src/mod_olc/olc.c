@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.56 1999-05-22 15:46:00 fjoe Exp $
+ * $Id: olc.c,v 1.57 1999-05-22 15:50:54 fjoe Exp $
  */
 
 /***************************************************************************
@@ -402,13 +402,8 @@ bool olced_exd(CHAR_DATA *ch, const char* argument,
 
 		num = number_argument(argument, arg, sizeof(arg));
 		for (ed = *ped; ed != NULL; prev = ed, ed = ed->next) {
-			if (arg[0] == '\0') {
-				if (!IS_NULLSTR(ed->keyword))
-					continue;
-			} else {
-				if (!is_name(arg, ed->keyword))
-					continue;
-			}
+			if (arg[0] && !is_name(arg, ed->keyword))
+				continue;
 			if (!--num)
 				break;
 		}

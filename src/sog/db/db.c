@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.140 1999-05-22 15:46:00 fjoe Exp $
+ * $Id: db.c,v 1.141 1999-05-22 15:50:53 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1327,13 +1327,8 @@ ED_DATA *ed_lookup(const char *name, ED_DATA *ed)
 
 	num = number_argument(name, arg, sizeof(arg));
 	for (; ed != NULL; ed = ed->next) {
-		if (arg[0] == '\0') {
-			if (!IS_NULLSTR(ed->keyword))
-				continue;
-		} else {
-			if (!is_name(arg, ed->keyword))
-				continue;
-		}
+		if (arg[0] && !is_name(arg, ed->keyword))
+			continue;
 		if (!--num)
 			return ed;
 	}
