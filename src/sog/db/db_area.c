@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.94 2000-03-03 04:09:12 avn Exp $
+ * $Id: db_area.c,v 1.95 2000-03-04 15:03:37 avn Exp $
  */
 
 /***************************************************************************
@@ -1144,10 +1144,9 @@ DBLOAD_FUN(load_mobiles)
 	pMobIndex->material		= fread_sword(fp);
  
 	/* Set mob resists to 0, race resists will be added in create_mob() */
-	if (r)
-		for (i = 0; i < MAX_RESIST; i++) {
-			pMobIndex->resists[i] = 0;
-		}
+	for (i = 0; i < MAX_RESIST; i++) {
+		pMobIndex->resists[i] = 0;
+	}
 
 	for (; ;)
         {
@@ -1228,17 +1227,20 @@ DBLOAD_FUN(load_mobiles)
 			fread_number(fp);
 		}
 		pMobIndex->resists[res] = fread_number(fp);
-
-		/* Needs to be removed later */
-		if (r && pMobIndex->resists[res] + r->resists[res] >= 100)
-			pMobIndex->resists[res] = MOB_IMMUNE;
-
 		found_res = TRUE;
 	     } else {
 		xungetc(fp);
 		break;
 	     }
 	}
+
+	if (area_current->ver < 3)
+		for (i = 0; i < MAX_RESIST; i++) {
+			if (pMobIndex->resists[i] >= 100)
+				pMobIndex->resists[i] = MOB_IMMUNE;
+			else if (r)
+				pMobIndex->resists[i] -= r->resists[i];
+		}
 
 	if (IS_SET(pMobIndex->affected_by, AFF_SANCTUARY)
 	&&  IS_EVIL(pMobIndex)) {

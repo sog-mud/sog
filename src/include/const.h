@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: const.h,v 1.57 2000-03-03 04:09:08 avn Exp $
+ * $Id: const.h,v 1.58 2000-03-04 15:03:37 avn Exp $
  */
 
 #ifndef _CONST_H_
@@ -50,7 +50,7 @@
 #endif
 
 #define PFILE_VERSION	11
-#define AREA_VERSION	2
+#define AREA_VERSION	3
 
 /*
  * sex or gender
