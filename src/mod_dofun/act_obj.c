@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.165.2.47 2002-12-03 17:37:55 tatyana Exp $
+ * $Id: act_obj.c,v 1.165.2.48 2002-12-09 21:40:24 tatyana Exp $
  */
 
 /***************************************************************************
@@ -216,7 +216,9 @@ void do_put(CHAR_DATA * ch, const char *argument)
 	argument = one_argument(argument, arg1, sizeof(arg1));
 	argument = one_argument(argument, arg2, sizeof(arg2));
 
-	if (!str_cmp(arg2, "in") || !str_cmp(arg2, "on"))
+	if (!str_cmp(arg2, "into")
+	||  !str_cmp(arg2, "on")
+	||  !str_cmp(arg2, "in"))
 		argument = one_argument(argument, arg2, sizeof(arg2));
 
 	if (arg1[0] == '\0' || arg2[0] == '\0') {

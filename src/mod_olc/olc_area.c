@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_area.c,v 1.49.2.3 2001-08-02 19:24:33 fjoe Exp $
+ * $Id: olc_area.c,v 1.49.2.4 2002-12-09 21:40:49 tatyana Exp $
  */
 
 #include "olc.h"
@@ -53,6 +53,8 @@ DECLARE_OLC_FUN(areaed_credits		);
 DECLARE_OLC_FUN(areaed_minlevel		);
 DECLARE_OLC_FUN(areaed_maxlevel		);
 DECLARE_OLC_FUN(areaed_clan		);
+DECLARE_OLC_FUN(areaed_markmagic	);
+DECLARE_OLC_FUN(areaed_removemagic	);
 
 DECLARE_VALIDATE_FUN(validate_security	);
 DECLARE_VALIDATE_FUN(validate_minvnum	);
@@ -85,6 +87,8 @@ olc_cmd_t olc_cmds_area[] =
 	{ "minlevel",	areaed_minlevel				},
 	{ "maxlevel",	areaed_maxlevel				},
 	{ "clan",	areaed_clan				},
+	{ "markmagic",  areaed_markmagic			},
+	{ "removemagic",  areaed_removemagic			},
 
 	{ "commands",	show_commands				},
 	{ "version",	show_version				},
@@ -96,6 +100,8 @@ static AREA_DATA *check_range(AREA_DATA *pArea, int ilower, int iupper);
 
 static void save_area_list(CHAR_DATA *ch);
 static void save_area(CHAR_DATA *ch, AREA_DATA *pArea);
+static void markmagic_area(CHAR_DATA *ch, AREA_DATA *pArea, bool nomessage);
+static void removemagic_area(CHAR_DATA *ch, AREA_DATA *pArea, bool nomessage);
 
 /*
  * Area Editor Functions.
@@ -397,6 +403,49 @@ OLC_FUN(areaed_clan)
 	return olced_clan(ch, argument, cmd, &pArea->clan);
 }
 
+OLC_FUN(areaed_markmagic)
+{
+	AREA_DATA *pArea;
+	char arg[MAX_STRING_LENGTH];
+
+	one_argument(argument, arg, sizeof(arg));
+
+	if (arg[0] == '\0') {
+		EDIT_AREA(ch, pArea);
+		markmagic_area(ch, pArea, FALSE);
+		TOUCH_AREA(pArea);
+	}
+
+	if (!str_cmp(arg, "all")) {
+		for (pArea = area_first; pArea; pArea = pArea->next) {
+			markmagic_area(ch, pArea, TRUE);
+			TOUCH_AREA(pArea);
+		}
+	}
+	return TRUE;
+}
+
+OLC_FUN(areaed_removemagic)
+{
+	AREA_DATA *pArea;
+	char arg[MAX_STRING_LENGTH];
+
+	one_argument(argument, arg, sizeof(arg));
+
+	if (arg[0] == '\0') {
+		EDIT_AREA(ch, pArea);
+		removemagic_area(ch, pArea, FALSE);
+		TOUCH_AREA(pArea);
+	}
+
+	if (!str_cmp(arg, "all")) {
+		for (pArea = area_first; pArea; pArea = pArea->next) {
+			removemagic_area(ch, pArea, TRUE);
+			TOUCH_AREA(pArea);
+		}
+	}
+	return TRUE;
+}
 /* Validators */
 
 VALIDATE_FUN(validate_security)
@@ -1641,3 +1690,97 @@ static void save_area(CHAR_DATA *ch, AREA_DATA *pArea)
 
 	fclose(fp);
 }
+
+/*
+ * Mark pill/potion/staff/wand/scroll/warp_stone and portals as magic
+ */
+static void
+markmagic_area(CHAR_DATA *ch, AREA_DATA *pArea, bool nomessage)
+{
+	OBJ_INDEX_DATA *pObjIndex;
+	int vnum;
+	int counter = 0;
+
+	for (vnum = pArea->min_vnum; vnum <= pArea->max_vnum; vnum++) {
+		if ((pObjIndex = get_obj_index(vnum)) == NULL) {
+	//		char_printf(ch, "Vnum: %d, object does not exist.\n",
+	//			    vnum);
+			continue;
+		}
+
+		if (pObjIndex->item_type == ITEM_POTION
+		||  pObjIndex->item_type == ITEM_WAND
+		||  pObjIndex->item_type == ITEM_STAFF
+		||  pObjIndex->item_type == ITEM_PILL
+		||  pObjIndex->item_type == ITEM_SCROLL
+		||  pObjIndex->item_type == ITEM_WARP_STONE
+		||  pObjIndex->item_type == ITEM_PORTAL) {
+			SET_BIT(pObjIndex->extra_flags, ITEM_MAGIC);
+			if (!nomessage) {
+				char_printf(ch, "Obj %s (vnum %d) marked "
+					    "as magic.\n",
+					    mlstr_mval(&pObjIndex->short_descr),
+					    vnum);
+			}
+			counter++;
+		} /*else {
+			if (!nomessage) {
+				char_printf(ch, "Obj %s (vnum %d) has type %s, "
+					    "does not marked.\n",
+					    mlstr_mval(&pObjIndex->short_descr),
+					    vnum, flag_string(item_types,
+				            pObjIndex->item_type));
+			}
+		} */
+	}
+	if (counter == 0)
+		char_printf(ch, "Area: %s. No object marked.\n", pArea->name);
+	else {
+		char_printf(ch, "Area: %s. %d object(s) marked as magic.\n",
+			    pArea->name, counter);
+	}
+
+	return;
+}
+
+static void
+removemagic_area(CHAR_DATA *ch, AREA_DATA *pArea, bool nomessage)
+{
+	OBJ_INDEX_DATA *pObjIndex;
+	int counter = 0;
+	int vnum;
+
+	for (vnum = pArea->min_vnum; vnum <= pArea->max_vnum; vnum++) {
+		if ((pObjIndex = get_obj_index(vnum)) == NULL) {
+//			char_printf(ch, "Vnum: %d, object does not exist.\n",
+//				    vnum);
+			continue;
+		}
+
+		if (!IS_SET(pObjIndex->extra_flags, ITEM_MAGIC)) {
+//			char_printf(ch, "Obj %s (vnum %d) has no magic flag.\n",
+//				    mlstr_mval(&pObjIndex->short_descr),
+//				    vnum);
+			continue;
+		}
+
+		REMOVE_BIT(pObjIndex->extra_flags, ITEM_MAGIC);
+		if (!nomessage) {
+			char_printf(ch, "Obj %s (vnum %d), flag magic "
+				    "removed.\n",
+				    mlstr_mval(&pObjIndex->short_descr),
+				    vnum);
+		}
+		counter++;
+	}
+	if (counter == 0) {
+		char_printf(ch, "Area: %s. No magic object found.\n",
+			    pArea->name);
+	} else {
+		char_printf(ch, "Area: %s. %d object(s) found. Flag removed.\n",
+			    pArea->name, counter);
+	}
+
+	return;
+}
+

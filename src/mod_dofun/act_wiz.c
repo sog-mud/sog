@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.186.2.35 2002-11-28 21:54:31 fjoe Exp $
+ * $Id: act_wiz.c,v 1.186.2.36 2002-12-09 21:40:28 tatyana Exp $
  */
 
 /***************************************************************************
@@ -94,6 +94,18 @@ DECLARE_DO_FUN(do_look	);
 DECLARE_DO_FUN(do_stand	);
 DECLARE_DO_FUN(do_help	);
 DECLARE_DO_FUN(do_replay);
+
+void
+do_markmagic(CHAR_DATA *ch, const char *argument)
+{
+	char arg[MAX_INPUT_LENGTH];
+
+	one_argument(argument, arg, sizeof(arg));
+	if (arg[0] == '\0')  {
+		act_char("What do you like to mark as magic.", ch);
+		return;
+	}
+}
 
 void do_objlist(CHAR_DATA *ch, const char *argument)
 {
@@ -1367,6 +1379,7 @@ void do_mstat(CHAR_DATA *ch, const char *argument)
 {
 	char buf[MAX_STRING_LENGTH];
 	char arg[MAX_INPUT_LENGTH];
+	int number;
 	AFFECT_DATA *paf;
 	CHAR_DATA *victim;
 	CHAR_DATA *pet;
@@ -1381,7 +1394,8 @@ void do_mstat(CHAR_DATA *ch, const char *argument)
 	}
 
 	if ((victim = get_char_world(ch, argument)) == NULL) {
-		if ((victim = char_load(argument, LOAD_F_NOCREATE)) == NULL) {
+		number = number_argument(argument, arg, sizeof(arg));
+		if ((victim = char_load(arg, LOAD_F_NOCREATE)) == NULL) {
 			char_puts("No such player.\n", ch);
 			return;
 		}

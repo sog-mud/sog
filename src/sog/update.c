@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.157.2.51 2002-11-28 21:54:41 fjoe Exp $
+ * $Id: update.c,v 1.157.2.52 2002-12-09 21:40:50 tatyana Exp $
  */
 
 /***************************************************************************
@@ -1727,7 +1727,18 @@ void update_one_obj(OBJ_DATA *obj)
 	     t_obj->carried_by->in_room->area->nplayer > 0))
 		oprog_call(OPROG_AREA, obj, NULL, NULL);
 
-	if (check_material(obj, "ice") 
+	if ((rch = t_obj->carried_by) != NULL
+	&&  IS_SET(obj->extra_flags, ITEM_MAGIC)
+	&&  HAS_SKILL(rch, gsn_spellbane)
+	&&  !IS_IMMORTAL(rch)) {
+		int dam;
+
+		dam = number_range(rch->max_hit / 6, rch->max_hit / 3);
+		act("{RMagic of $p hurts you!{x", rch, obj, NULL, TO_CHAR);
+		damage(rch, rch, dam, TYPE_UNDEFINED, DAM_OTHER, DAMF_NONE);
+	}
+
+	if (check_material(obj, "ice")
 	&&  update_ice_obj(obj))
 		return;
 

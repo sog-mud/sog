@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.271.2.74 2002-11-28 21:54:26 fjoe Exp $
+ * $Id: act_info.c,v 1.271.2.75 2002-12-09 21:40:19 tatyana Exp $
  */
 
 /***************************************************************************
@@ -5103,6 +5103,7 @@ void do_finger(CHAR_DATA *ch, const char *argument)
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
 	BUFFER *output;
+	int number;
 	bool loaded = FALSE;
 	bool inclan = TRUE;
 	bool same_clan = FALSE;
@@ -5115,7 +5116,8 @@ void do_finger(CHAR_DATA *ch, const char *argument)
 	}
 
 	if ((victim = get_char_world(ch, argument)) == NULL) {
-		if ((victim = char_load(argument, LOAD_F_NOCREATE)) == NULL) {
+		number = number_argument(argument, arg, sizeof(arg));
+		if ((victim = char_load(arg, LOAD_F_NOCREATE)) == NULL) {
 			char_puts("No such player.\n", ch);
 			return;
 		}
