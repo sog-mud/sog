@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: quest.c,v 1.123.2.9 2001-01-11 21:18:11 fjoe Exp $
+ * $Id: quest.c,v 1.123.2.10 2001-02-11 18:52:14 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -458,10 +458,11 @@ static void quest_time(CHAR_DATA *ch, char* arg)
 	if (!IS_ON_QUEST(ch)) {
 		char_puts("You aren't currently on a quest.\n", ch);
 		if (PC(ch)->questtime < -1) {
-			act("There are {W$j{x $qj{minutes} remaining until "
+			act_puts(
+			    "There are {W$j{x $qj{minutes} remaining until "
 			    "you can go on another quest.",
 			    ch, (const void*) -PC(ch)->questtime, NULL,
-			    TO_CHAR);
+			    TO_CHAR, POS_DEAD);
 	    	} else if (PC(ch)->questtime == -1) {
 			char_puts("There is less than a minute remaining until you can go on another quest.\n", ch);
 		}
