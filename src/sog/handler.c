@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.171 1999-06-30 20:11:10 fjoe Exp $
+ * $Id: handler.c,v 1.172 1999-07-01 04:00:44 kostik Exp $
  */
 
 /***************************************************************************
@@ -4863,7 +4863,7 @@ void wear_obj(CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace)
 			char_puts("Your hands are tied up with your weapon!\n", ch);
 			return;
 		}
-		if (weapon->value[0] == WEAPON_STAFF) {
+		if (weapon && (weapon->value[0] == WEAPON_STAFF)) {
 			char_puts("You need both hands for this type of "
 				"weapon.\n", ch);
 			return;
