@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.57.2.7 2001-11-14 15:27:52 avn Exp $
+ * $Id: olc_room.c,v 1.57.2.8 2001-11-14 16:41:57 avn Exp $
  */
 
 #include "olc.h"
@@ -1300,11 +1300,11 @@ void do_resets(CHAR_DATA *ch, const char *argument)
 		if (pRoom->reset_first) {
 			char_puts("Resets: M = mobile, R = room, O = object, "
 				"P = pet, S = shopkeeper\n", ch);
-		display_resets(ch);
-		return;
-	}
-	else
-		char_puts("No resets in this room.\n", ch);
+			display_resets(ch);
+		}
+		else
+			char_puts("No resets in this room.\n", ch);
+
 		return;
 	}
 
