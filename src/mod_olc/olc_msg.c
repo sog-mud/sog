@@ -23,13 +23,13 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_msg.c,v 1.39 1999-12-16 12:24:49 fjoe Exp $
+ * $Id: olc_msg.c,v 1.40 1999-12-20 08:31:20 fjoe Exp $
  */
 
 #include "olc.h"
 #include "lang.h"
 
-#define EDIT_MSG(ch, mp)	(mp = (msg_t*) ch->desc->pEdit)
+#define EDIT_MSG(ch, mp)	(mp = (mlstring *) ch->desc->pEdit)
 
 DECLARE_OLC_FUN(msged_create	);
 DECLARE_OLC_FUN(msged_edit	);
@@ -39,8 +39,11 @@ DECLARE_OLC_FUN(msged_show	);
 DECLARE_OLC_FUN(msged_list	);
 
 DECLARE_OLC_FUN(msged_msg	);
-DECLARE_OLC_FUN(msged_gender	);
 DECLARE_OLC_FUN(msged_del	);
+
+DECLARE_VALIDATE_FUN(validate_msg);
+
+olced_strkey_t strkey_msgdb = { &msgdb, NULL };
 
 olc_cmd_t olc_cmds_msg[] =
 {
@@ -51,8 +54,7 @@ olc_cmd_t olc_cmds_msg[] =
 	{ "show",	msged_show				},
 	{ "list",	msged_list				},
 
-	{ "msg",	msged_msg				},
-	{ "gender",	msged_gender,	NULL,	gender_table	},
+	{ "msg",	msged_msg, validate_msg, &strkey_msgdb	},
 	{ "delete_ms",	olced_spell_out				},
 	{ "delete_msg",	msged_del				},
 
@@ -61,16 +63,15 @@ olc_cmd_t olc_cmds_msg[] =
 };
 
 /* case-sensitive substring search with [num.]name syntax */
-static msg_t *		msg_search(const char *argument);
+static mlstring *	msg_search(const char *argument);
 
 static const char*	atomsg(const char *argument);
 static const char*	msgtoa(const char *argument);
 
-static void		msg_dump(BUFFER *buf, msg_t *mp);
-
 OLC_FUN(msged_create)
 {
-	msg_t m;
+	mlstring ml;
+	mlstring *mlp;
 
 	if (PC(ch)->security < SECURITY_MSGDB) {
 		char_puts("MsgEd: Insufficient security.\n", ch);
@@ -80,22 +81,22 @@ OLC_FUN(msged_create)
 	if (argument[0] == '\0')
 		OLC_ERROR("'OLC CREATE'");
 
+	argument = atomsg(argument);
 	if (!str_cmp(argument, "$")) {
-		char_puts("MsgEd: invalid value.\n", ch);
+		char_puts("MsgEd: invalid value\n", ch);
 		return FALSE;
 	}
 
-	if (msg_lookup(argument = atomsg(argument))) {
+	mlstr_init2(&ml, argument);
+	mlp = hash_insert(&msgdb, argument, &ml);
+	mlstr_destroy(&ml);
+
+	if (mlp == NULL) {
 		char_puts("MsgEd: msg already exists.\n", ch);
 		return FALSE;
 	}
 
-	if (olced_busy(ch, ED_MSG, NULL, NULL))
-		return FALSE;
-
-	mlstr_init(&m.ml, argument);
-	m.gender = 0;
-	ch->desc->pEdit	= (void*) msg_add(&m);
+	ch->desc->pEdit	= mlp;
 	OLCED(ch)	= olced_lookup(ED_MSG);
 	SET_BIT(changed_flags, CF_MSGDB);
 	char_puts("Msg created.\n", ch);
@@ -104,7 +105,7 @@ OLC_FUN(msged_create)
 
 OLC_FUN(msged_edit)
 {
-	msg_t *mp;
+	mlstring *mlp;
 
 	if (PC(ch)->security < SECURITY_MSGDB) {
 		char_puts("MsgEd: Insufficient security.\n", ch);
@@ -114,19 +115,30 @@ OLC_FUN(msged_edit)
 	if (argument[0] == '\0')
 		OLC_ERROR("'OLC EDIT'");
 
-	if ((mp = msg_search(atomsg(argument))) == NULL) {
+	if ((mlp = msg_search(atomsg(argument))) == NULL) {
 		char_puts("MsgEd: msg not found.\n", ch);
 		return FALSE;
 	}
 
-	ch->desc->pEdit	= (void *) mp;
+	ch->desc->pEdit	= (void *) mlp;
 	OLCED(ch)	= olced_lookup(ED_MSG);
 	return FALSE;
 }
 
+static void *
+msged_save_cb(void *p, va_list ap)
+{
+	FILE *fp = va_arg(ap, FILE *);
+
+	if (IS_NULLSTR(mlstr_mval((mlstring *) p)))
+		return NULL;
+
+	mlstr_fwrite(fp, NULL, (mlstring *) p);
+	return NULL;
+}
+
 OLC_FUN(msged_save)
 {
-	int i;
 	FILE *fp;
 
 	if (!IS_SET(changed_flags, CF_MSGDB)) {
@@ -134,34 +146,12 @@ OLC_FUN(msged_save)
 		return FALSE;
 	}
 
-	if ((fp = olc_fopen(ETC_PATH, MSGDB_CONF, ch, SECURITY_MSGDB)) == NULL)
+	if ((fp = olc_fopen(ETC_PATH, MSGDB_FILE, ch, SECURITY_MSGDB)) == NULL)
 		return FALSE;
 
-	for (i = 0; i < MAX_MSG_HASH; i++) {
-		varr *v = msg_hash_table+i;
-		int j;
-
-		for (j = 0; j < v->nused; j++) {
-			msg_t *mp = VARR_GET(v, j);
-
-			if (IS_NULLSTR(mlstr_mval(&mp->ml)))
-				continue;
-
-			fprintf(fp, "#MSG\n");
-
-			if (mp->gender) {
-				fprintf(fp, "Gender %s\n",
-					flag_string(gender_table, mp->gender));
-			}
-			
-			mlstr_fwrite(fp, "Text", &mp->ml);
-			fprintf(fp, "End\n\n");
-		}
-	}
-
-	fprintf(fp, "#$\n");
+	hash_foreach(&msgdb, msged_save_cb, fp);
+	fprintf(fp, "$~\n");
 	fclose(fp);
-
 	REMOVE_BIT(changed_flags, CF_MSGDB);
 	olc_printf(ch, "Msgdb saved.");
 	return FALSE;
@@ -173,136 +163,118 @@ OLC_FUN(msged_touch)
 	return FALSE;
 }
 
+static void
+msg_dump(BUFFER *buf, const char *name, const mlstring *mlp)
+{
+	char space[MAX_STRING_LENGTH];
+	size_t namelen;
+	int lang;
+	static char FORMAT[] = "%s[%s] [%s]\n";
+	lang_t *l;
+
+	if (mlp == NULL || mlp->nlang == 0) {
+		buf_printf(buf, FORMAT, name, "all",
+			   mlp == NULL ? "(null)" : msgtoa(mlp->u.str));
+		return;
+	}
+
+	if (langs.nused == 0)
+		return;
+
+	l = VARR_GET(&langs, 0);
+	buf_printf(buf, FORMAT, name, l->name, msgtoa(mlp->u.lstr[0]));
+
+	if (langs.nused < 1)
+		return;
+
+	namelen = strlen(name);
+	namelen = URANGE(0, namelen, sizeof(space)-1);
+	memset(space, ' ', namelen);
+	space[namelen] = '\0';
+
+	for (lang = 1; lang < mlp->nlang && lang < langs.nused; lang++) {
+		l = VARR_GET(&langs, lang);
+		buf_printf(buf, FORMAT,
+			   space, l->name, msgtoa(mlp->u.lstr[lang]));
+	}
+}
+
 OLC_FUN(msged_show)
 {
 	BUFFER *output;
-	msg_t *mp;
+	mlstring *mlp;
 
 	if (argument[0] == '\0') {
 		if (IS_EDIT(ch, ED_MSG))
-			EDIT_MSG(ch, mp);
+			EDIT_MSG(ch, mlp);
 		else
 			OLC_ERROR("'OLC ASHOW'");
-	}
-	else {
-		if ((mp = msg_search(atomsg(argument))) == NULL) {
+	} else {
+		if ((mlp = msg_search(atomsg(argument))) == NULL) {
 			char_puts("MsgEd: msg not found.\n", ch);
 			return FALSE;
 		}
 	}
 
 	output = buf_new(-1);
-	msg_dump(output, mp);
+	msg_dump(output, "Msg: ", mlp);
 	page_to_char(buf_string(output), ch);
 	buf_free(output);
 	return FALSE;
 }
 
+static void *
+msged_list_cb(void *p, va_list ap)
+{
+	const char *arg = va_arg(ap, const char *);
+	int *pnum = va_arg(ap, int *);
+	BUFFER *output = va_arg(ap, BUFFER *);
+
+	const char *name = mlstr_mval((mlstring *) p);
+
+	if (IS_NULLSTR(name))
+		return NULL;
+
+	if (strstr(name, arg)) 
+		buf_printf(output, "%2d. [%s]\n", ++(*pnum), msgtoa(name));
+	return NULL;
+}
+
 OLC_FUN(msged_list)
 {
-	int i;
-	int num;
-	BUFFER *output = NULL;
+	int num = 0;
+	BUFFER *output;
 
 	if (argument[0] == '\0')
 		OLC_ERROR("'OLC ALIST'");
 	
 	argument = atomsg(argument);
-	num = 0;
-	for (i = 0; i < MAX_MSG_HASH; i++) {
-		int j;
-		varr *v = msg_hash_table+i;
-
-		for (j = 0; j < v->nused; j++) {
-			msg_t *mp = VARR_GET(v, j);
-			const char *name = mlstr_mval(&mp->ml);
-
-			if (strstr(name, argument)) {
-				if (output == NULL)
-					output = buf_new(-1);
-				buf_printf(output, "%2d. [%s]\n",
-					   ++num, msgtoa(name));
-			}
-		}
-	}
-
-	if (output) {
+	output = buf_new(-1);
+	hash_foreach(&msgdb, msged_list_cb, atomsg(argument), &num, output);
+	if (num)
 		page_to_char(buf_string(output), ch);
-		buf_free(output);
-	}
 	else
 		char_puts("MsgEd: no messages found.\n", ch);
-
+	buf_free(output);
 	return FALSE;
 }
 
 OLC_FUN(msged_msg)
 {
-	char arg[MAX_STRING_LENGTH];
-	int lang;
-	const char **p;
-	msg_t m;
-
-	msg_t *mp;
-	EDIT_MSG(ch, mp);
-
-	argument = one_argument(argument, arg, sizeof(arg));
-	lang = lang_lookup(arg);
-	if (lang < 0)
-		OLC_ERROR("'OLC MSG'");
-
-	argument = atomsg(argument);
-	if (!lang) {
-		/* gonna change name */
-
-		if (!str_cmp(argument, "$")) {
-			char_puts("MsgEd: invalid value.\n", ch);
-			return FALSE;
-		}
-
-		if (msg_lookup(argument)) {
-			char_puts("MsgEd: duplicate name.\n", ch);
-			return FALSE;
-		}
-
-		if (olced_busy(ch, ED_MSG, NULL, NULL))
-			return FALSE;
-
-		m = msg_del(mlstr_mval(&mp->ml));
-		mp = &m;
-	}
-
-	p = mlstr_convert(&mp->ml, lang);
-	free_string(*p);
-	*p = str_dup(argument);
-
-	if (!lang) 
-		ch->desc->pEdit = (void*) msg_add(mp);
-
-	return TRUE;
-}
-
-OLC_FUN(msged_gender)
-{
-	msg_t *mp;
-	EDIT_MSG(ch, mp);
-	return olced_flag(ch, argument, cmd, &mp->gender);
+	return olced_mlstrkey(ch, atomsg(argument), cmd);
 }
 
 OLC_FUN(msged_del)
 {
-	msg_t *mp;
-	msg_t m;
+	mlstring *mlp;
 
 	if (olced_busy(ch, ED_MSG, NULL, NULL))
 		return FALSE;
 
-	EDIT_MSG(ch, mp);
-	m = msg_del(mlstr_mval(&mp->ml));
-	mlstr_destroy(&m.ml);
+	EDIT_MSG(ch, mlp);
+	hash_delete(&msgdb, mlstr_mval(mlp));
 	SET_BIT(changed_flags, CF_MSGDB);
 	edit_done(ch->desc);
-
 	return FALSE;
 }
 
@@ -311,29 +283,39 @@ OLC_FUN(msged_del)
  */
 
 /* case-sensitive substring search with [num.]name syntax */
-static msg_t *msg_search(const char *argument)
+
+static void *
+msg_search_cb(void *p, va_list ap)
+{
+	int *pnum = va_arg(ap, int *);
+	const char *arg = va_arg(ap, const char *);
+
+	const char *name = mlstr_mval((mlstring *) p);
+
+	if (IS_NULLSTR(name))
+		return NULL;
+
+	if (strstr(name, arg) && !--(*pnum))
+		return p;
+
+	return NULL;
+}
+
+static mlstring *
+msg_search(const char *argument)
 {
 	char name[MAX_INPUT_LENGTH];
-	int i;
 	int num;
+	mlstring *mlp;
 
 	num = number_argument(argument, name, sizeof(name));
 	if (name[0] == '\0' || num <= 0)
 		return NULL;
 
-	for (i = 0; i < MAX_MSG_HASH; i++) {
-		int j;
-		varr *v = msg_hash_table+i;
+	if ((mlp = msg_lookup(argument)) != NULL)
+		return mlp;
 
-		for (j = 0; j < v->nused; j++) {
-			msg_t *mp = VARR_GET(v, j);
-
-			if (strstr(mlstr_mval(&mp->ml), name) && !--num)
-				return mp;
-		}
-	}
-
-	return NULL;
+	return hash_foreach(&msgdb, msg_search_cb, &num, name);
 }
 
 static const char *atomsg(const char *argument)
@@ -401,24 +383,13 @@ static const char* msgtoa(const char *argument)
 	return buf;
 }
 
-static void msg_dump(BUFFER *buf, msg_t *mp)
+VALIDATE_FUN(validate_msg)
 {
-	int lang;
-	int nlang = mlstr_nlang(&mp->ml);
-	static char FORMAT[] = "[%s] [%s]\n";
-
-	buf_printf(buf, "Gender: [%s]\n",
-		   flag_string(gender_table, mp->gender));
-
-	if (!nlang) {
-		buf_printf(buf, FORMAT, "all", msgtoa(mlstr_mval(&mp->ml)));
-		return;
+	if (!strcmp(arg, "$")) {
+		char_puts("MsgEd: invalid value\n", ch);
+		return FALSE;
 	}
 
-	for (lang = 0; lang < nlang; lang++) {
-		lang_t *l = VARR_GET(&langs, lang);
-		buf_printf(buf, FORMAT,
-			   l->name, msgtoa(mlstr_val(&mp->ml, lang)));
-	}
+	return TRUE;
 }
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_rule.c,v 1.25 1999-12-16 12:24:50 fjoe Exp $
+ * $Id: olc_rule.c,v 1.26 1999-12-20 08:31:20 fjoe Exp $
  */
 
 #include "olc.h"
@@ -324,9 +324,12 @@ OLC_FUN(ruleed_show)
 		if (!IS_NULLSTR(*p)) {
 			if (rops->id == ED_IMPL)
 				char_printf(ch, "Form: [%d] [%s]\n", i, *p);
-			else
+			else {
 				char_printf(ch, "Form: [%d] [%s] %s\n",
-					i, *p, word_form(r->name, i2, l->vnum, rcl->rulecl));
+					i, *p, word_form(r->name, i2,
+						varr_index(&langs, l),
+						rcl->rulecl));
+			}
 		}
 	}
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: lang.c,v 1.22 1999-12-18 11:01:41 fjoe Exp $
+ * $Id: lang.c,v 1.23 1999-12-20 08:31:21 fjoe Exp $
  */
 
 #include <string.h>
@@ -212,7 +212,7 @@ void vform_del(vform_t *f, size_t fnum)
  * rule_t functions
  */
 
-#define rulehash(s) hashistr(s, 16, MAX_RULE_HASH)
+#define rulehash(s) hashcasestr(s, 16, MAX_RULE_HASH)
 
 /* reverse order (otherwise word_del will not work) */
 static int cmprule(const void *p1, const void *p2)
@@ -363,7 +363,6 @@ void lang_init(lang_t *l)
 	int i;
 
 	l->name = str_empty;
-	l->vnum = langs.nused-1;
 	l->file_name = str_empty;
 	l->lang_flags = 0;
 	l->slang_of = -1;

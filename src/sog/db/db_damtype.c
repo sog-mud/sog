@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_damtype.c,v 1.10 1999-12-18 16:08:38 avn Exp $
+ * $Id: db_damtype.c,v 1.11 1999-12-20 08:31:25 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -52,8 +52,8 @@ static hashdata_t h_damtypes =
 	(e_cpy_t) damtype_cpy,
 
 	STRKEY_HASH_SIZE,
-	strkey_hash,
-	strkey_struct_cmp
+	k_hash_str,
+	ke_cmp_str
 };
 
 DBINIT_FUN(init_damtype)

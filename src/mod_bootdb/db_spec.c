@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_spec.c,v 1.13 1999-12-18 11:01:44 fjoe Exp $
+ * $Id: db_spec.c,v 1.14 1999-12-20 08:31:25 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -56,8 +56,8 @@ static hashdata_t h_specs =
 	(e_cpy_t) spec_cpy,
 
 	STRKEY_HASH_SIZE,
-	strkey_hash,
-	strkey_struct_cmp
+	k_hash_str,
+	ke_cmp_str
 };
 
 DBINIT_FUN(init_specs)

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: strkey_hash.h,v 1.9 1999-12-18 11:01:39 fjoe Exp $
+ * $Id: strkey_hash.h,v 1.10 1999-12-20 08:31:20 fjoe Exp $
  */
 
 #ifndef _STRKEY_HASH_H_
@@ -38,9 +38,20 @@
 void		strkey_init(void *);
 void		strkey_destroy(void*);
 
-int		strkey_hash(const void *k, size_t hsize);
-int		strkey_struct_cmp(const void *k, const void *e);
-int		strkey_mlstruct_cmp(const void *k, const void *e);
+int		k_hash_str(const void *k, size_t hsize);
+int		ke_cmp_str(const void *k, const void *e);
+
+/*
+ * case sensitive hash and compare
+ */
+int		k_hash_csstr(const void *k, size_t hsize);
+int		ke_cmp_csstr(const void *k, const void *e);
+
+/*
+ * mlstring compare
+ */
+int		ke_cmp_mlstr(const void *k, const void *e);
+int		ke_cmp_csmlstr(const void *k, const void *e);
 
 void *		strkey_lookup(hash_t *h, const char *name);
 

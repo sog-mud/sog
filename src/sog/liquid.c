@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: liquid.c,v 1.5 1999-12-16 12:24:52 fjoe Exp $
+ * $Id: liquid.c,v 1.6 1999-12-20 08:31:21 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -37,7 +37,7 @@ void liquid_init(liquid_t *lq)
 	int i;
 
 	gmlstr_init(&lq->lq_name);
-	mlstr_init(&lq->lq_color, str_empty);
+	mlstr_init2(&lq->lq_color, str_empty);
 	for (i = 0; i < MAX_COND; i++)
 		lq->affect[i] = 0;
 	lq->sip = 0;

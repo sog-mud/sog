@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.103 1999-12-18 16:08:37 avn Exp $
+ * $Id: olc.c,v 1.104 1999-12-20 08:31:20 fjoe Exp $
  */
 
 /***************************************************************************
@@ -274,6 +274,9 @@ OLC_FUN(olced_strkey)
 		return FALSE;
 	}
 
+	if (cmd->validator && !cmd->validator(ch, arg))
+		return FALSE;
+
 	if (olced_busy(ch, OLCED(ch)->id, NULL, NULL))
 		return FALSE;
 
@@ -335,6 +338,9 @@ OLC_FUN(olced_mlstrkey)
 			    OLCED(ch)->name, arg);
 		return FALSE;
 	}
+
+	if (cmd->validator && !cmd->validator(ch, argument))
+		return FALSE;
 
 	q = ch->desc->pEdit;
 	old_key = mlstr_mval((mlstring *) q);

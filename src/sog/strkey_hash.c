@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: strkey_hash.c,v 1.11 1999-12-18 11:01:41 fjoe Exp $
+ * $Id: strkey_hash.c,v 1.12 1999-12-20 08:31:22 fjoe Exp $
  */
 
 #include <limits.h>
@@ -54,19 +54,34 @@ void strkey_destroy(void *p)
 	free_string(*(const char **) p);
 }
 
-int strkey_hash(const void *k, size_t hsize)
+int k_hash_str(const void *k, size_t hsize)
 {
-	return hashistr((const char *) k, 32, hsize);
+	return hashcasestr((const char *) k, 32, hsize);
 }
 
-int strkey_struct_cmp(const void *k, const void *e)
+int ke_cmp_str(const void *k, const void *e)
 {
 	return str_cmp((const char *) k, *(const char**) e);
 }
 
-int strkey_mlstruct_cmp(const void *k, const void *e)
+int k_hash_csstr(const void *k, size_t hsize)
+{
+	return hashstr((const char *) k, 32, hsize);
+}
+
+int ke_cmp_csstr(const void *k, const void *e)
+{
+	return str_cscmp((const char *) k, *(const char **) e);
+}
+
+int ke_cmp_mlstr(const void *k, const void *e)
 {
 	return str_cmp((const char *) k, mlstr_mval((mlstring *) e));
+}
+
+int ke_cmp_csmlstr(const void *k, const void *e)
+{
+	return str_cscmp((const char *) k, mlstr_mval((mlstring *) e));
 }
 
 void *

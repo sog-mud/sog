@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mlstring.c,v 1.48 1999-12-18 11:01:41 fjoe Exp $
+ * $Id: mlstring.c,v 1.49 1999-12-20 08:31:21 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -43,7 +43,13 @@
 static const char* smash_a(const char *s, int len);
 static char* fix_mlstring(const char* s);
 
-void mlstr_init(mlstring *mlp, const char *mval)
+void mlstr_init(mlstring *mlp)
+{
+	mlp->u.str = NULL;
+	mlp->nlang = 0;
+}
+
+void mlstr_init2(mlstring *mlp, const char *mval)
 {
 	mlp->u.str = str_dup(mval);
 	mlp->nlang = 0;
@@ -68,7 +74,7 @@ void mlstr_destroy(mlstring *mlp)
 void mlstr_clear(mlstring *mlp)
 {
 	mlstr_destroy(mlp);
-	mlstr_init(mlp, NULL);
+	mlstr_init(mlp);
 }
 
 void mlstr_fread(rfile_t *fp, mlstring *mlp)
@@ -77,13 +83,14 @@ void mlstr_fread(rfile_t *fp, mlstring *mlp)
 	const char *s;
 	int lang;
 
-	mlstr_clear(mlp);
-
 	p = fread_string(fp);
-	if (IS_NULLSTR(p))
+	if (IS_NULLSTR(p)) {
+		mlstr_init(mlp);
 		return;
+	}
 
 	if (*p != '@' || *(p+1) == '@') {
+		mlp->nlang = 0;
 		mlp->u.str = smash_a(p, -1);
 		free_string(p);
 		return;
@@ -162,12 +169,10 @@ void mlstr_fwrite(FILE *fp, const char* name, const mlstring *mlp)
 	fputs("~\n", fp);
 }
 
-void mlstr_cpy(mlstring *dst, const mlstring *src)
+mlstring *
+mlstr_cpy(mlstring *dst, const mlstring *src)
 {
 	mlstr_clear(dst);
-
-	if (src == NULL)
-		return;
 
 	dst->nlang = src->nlang;
 	if (src->nlang == 0)
@@ -182,6 +187,8 @@ void mlstr_cpy(mlstring *dst, const mlstring *src)
 			dst->u.lstr[lang] = str_dup(src->u.lstr[lang]);
 		}
 	}
+
+	return dst;
 }
 
 void mlstr_printf(mlstring *dst, const mlstring *format,...)
@@ -499,8 +506,8 @@ bool mlstr_stripnl(mlstring *mlp)
 void
 gmlstr_init(gmlstr_t *gml)
 {
-	mlstr_init(&gml->ml, str_empty);
-	mlstr_init(&gml->gender, str_empty);
+	mlstr_init2(&gml->ml, str_empty);
+	mlstr_init2(&gml->gender, str_empty);
 }
 
 gmlstr_t *

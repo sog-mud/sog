@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_skill.c,v 1.22 1999-12-18 11:01:43 fjoe Exp $
+ * $Id: db_skill.c,v 1.23 1999-12-20 08:31:25 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -52,8 +52,8 @@ static hashdata_t h_skills =
 	(e_cpy_t) skill_cpy,
 
 	STRKEY_HASH_SIZE,
-	strkey_hash,
-	strkey_mlstruct_cmp
+	k_hash_str,
+	ke_cmp_mlstr
 };
 
 DBINIT_FUN(init_skills)

@@ -1,5 +1,5 @@
 /*
- * $Id: buffer.c,v 1.19 1999-12-15 15:35:41 fjoe Exp $
+ * $Id: buffer.c,v 1.20 1999-12-20 08:31:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -40,6 +40,7 @@
 *	ROM license, in the file Rom24/doc/rom.license			   *
 ***************************************************************************/
 
+#include <limits.h>
 #include <stdarg.h>
 #include <stdio.h>
 #include <string.h>
@@ -50,10 +51,11 @@
 
 #include "mlstring.h"
 #include "varr.h"
+#include "hash.h"
 #include "buffer.h"
 #include "log.h"
-#include "msg.h"
 #include "comm_act.h"
+#include "db.h"
 
 struct buf_data
 {

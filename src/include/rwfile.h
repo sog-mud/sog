@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: rwfile.h,v 1.7 1999-12-16 12:24:45 fjoe Exp $
+ * $Id: rwfile.h,v 1.8 1999-12-20 08:31:20 fjoe Exp $
  */
 
 #ifndef _RFILE_H_
@@ -100,6 +100,7 @@ flag_t		fread_fstring	(const flaginfo_t *table, rfile_t *fp);
 
 #define MLSKEY(k, field)				\
 		if (IS_TOKEN(fp, (k))) {		\
+			mlstr_destroy(&(field));	\
 			mlstr_fread(fp, &(field));	\
 			fMatch = TRUE;			\
 			break;				\

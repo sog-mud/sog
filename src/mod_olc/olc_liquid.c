@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_liquid.c,v 1.9 1999-12-18 16:08:38 avn Exp $
+ * $Id: olc_liquid.c,v 1.10 1999-12-20 08:31:20 fjoe Exp $
  */
 
 #include "olc.h"
@@ -89,7 +89,7 @@ OLC_FUN(liqed_create)
 	 */
 
 	liquid_init(&lq);
-	mlstr_init(&lq.lq_name.ml, argument);
+	mlstr_init2(&lq.lq_name.ml, argument);
 	l = hash_insert(&liquids, argument, &lq);
 	liquid_destroy(&lq);
 

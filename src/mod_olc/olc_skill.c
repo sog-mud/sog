@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_skill.c,v 1.12 1999-12-16 12:24:50 fjoe Exp $
+ * $Id: olc_skill.c,v 1.13 1999-12-20 08:31:20 fjoe Exp $
  */
 
 #include "olc.h"
@@ -104,7 +104,7 @@ OLC_FUN(skilled_create)
 	 */
 
 	skill_init(&sk);
-	mlstr_init(&sk.sk_name.ml, argument);
+	mlstr_init2(&sk.sk_name.ml, argument);
 	s = hash_insert(&skills, argument, &sk);
 	skill_destroy(&sk);
 

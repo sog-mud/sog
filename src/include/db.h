@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db.h,v 1.67 1999-12-18 16:08:37 avn Exp $
+ * $Id: db.h,v 1.68 1999-12-20 08:31:19 fjoe Exp $
  */
 
 #ifndef _DB_H_
@@ -106,7 +106,6 @@ extern DBDATA db_hometowns;
 extern DBDATA db_langs;
 extern DBDATA db_liquids;
 extern DBDATA db_materials;
-extern DBDATA db_msg;
 extern DBDATA db_races;
 extern DBDATA db_skills;
 extern DBDATA db_events;
@@ -135,6 +134,10 @@ extern int changed_flags;
 
 extern hash_t glob_gmlstr;	/* gmlstr_t globals */
 #define	glob_lookup(gn)	((gmlstr_t *) strkey_lookup(&glob_gmlstr, (gn)))
+
+extern hash_t msgdb;		/* msgdb */
+#define msg_lookup(m)	((mlstring *) strkey_lookup(&msgdb, (m)))
+const char *GETMSG	(const char *txt, int lang);
 
 void	vnum_check	(AREA_DATA *area, int vnum);
 
@@ -224,12 +227,13 @@ extern const char SKILLS_CONF	[];
 extern const char SOCIALS_CONF	[];
 extern const char SYSTEM_CONF	[];
 extern const char LANG_CONF	[];
-extern const char MSGDB_CONF	[];
 extern const char CMD_CONF	[];
 extern const char DAMTYPE_CONF	[];
 extern const char MATERIALS_CONF[];
 extern const char LIQUIDS_CONF	[];
 extern const char CC_EXPR_CONF	[];
+
+extern const char MSGDB_FILE	[];
 
 extern const char AREA_LIST	[];
 extern const char LANG_LIST	[];

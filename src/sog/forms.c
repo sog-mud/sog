@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: forms.c,v 1.3 1999-12-18 11:01:40 fjoe Exp $
+ * $Id: forms.c,v 1.4 1999-12-20 08:31:21 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -37,9 +37,9 @@ void form_init(form_index_t *f)
 {
 	int i;
 	f->name 		= str_empty;
-	mlstr_init(&f->description, str_empty);
-	mlstr_init(&f->short_desc, str_empty);
-	mlstr_init(&f->long_desc, str_empty);
+	mlstr_init2(&f->description, str_empty);
+	mlstr_init2(&f->short_desc, str_empty);
+	mlstr_init2(&f->long_desc, str_empty);
 	f->damtype		= str_empty;
 	f->damage[DICE_TYPE] 	= 0;
 	f->damage[DICE_NUMBER]	= 0;

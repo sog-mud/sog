@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm_act.c,v 1.53 1999-12-18 11:01:42 fjoe Exp $
+ * $Id: comm_act.c,v 1.54 1999-12-20 08:31:23 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -782,25 +782,6 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 					case 'P':
 						CHECK_TYPE2(OBJ2, MT_OBJ);
 						tstack[sp].arg = GET_SEX(&OBJ2->pObjIndex->gender, opt->to_lang);
-						break;
-
-					case 't':
-					case 'u':
-						CHECK_STRING(arg1);
-						tstack[sp].arg =
-							msg_gender(arg1);
-						break;
-
-					case 'T':
-						CHECK_STRING(arg2);
-						tstack[sp].arg =
-							msg_gender(arg2);
-						break;
-
-					case 'U':
-						CHECK_STRING(arg3);
-						tstack[sp].arg =
-							msg_gender(arg3);
 						break;
 
 					case 'd':

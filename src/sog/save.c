@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.146 1999-12-17 12:59:02 fjoe Exp $
+ * $Id: save.c,v 1.147 1999-12-20 08:31:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -561,7 +561,7 @@ CHAR_DATA *char_load(const char *name, int flags)
 	ch = char_new(NULL);
 
 	ch->name = str_dup(capitalize(name));
-	mlstr_init(&ch->short_descr, ch->name);
+	mlstr_init2(&ch->short_descr, ch->name);
 
 	if (!found) {
 		PC(ch)->plr_flags |= PLR_NEW;
@@ -843,7 +843,7 @@ fread_char(CHAR_DATA * ch, rfile_t * fp, int flags)
 			KEY("Scro", PC(ch)->dvdata->pagelen, fread_number(fp));
 			if (IS_TOKEN(fp, "Sex")) {
 				mlstr_destroy(&ch->gender);
-				mlstr_init(&ch->gender,
+				mlstr_init2(&ch->gender,
 					   flag_string(gender_table, fread_number(fp)));
 				fMatch = TRUE;
 			}
@@ -999,7 +999,7 @@ fread_pet(CHAR_DATA * ch, rfile_t * fp, int flags)
 		case 'S':
 			if (IS_TOKEN(fp, "Sex")) {
 				mlstr_destroy(&pet->gender);
-				mlstr_init(&pet->gender,
+				mlstr_init2(&pet->gender,
 					   flag_string(gender_table, fread_number(fp)));
 				fMatch = TRUE;
 			}

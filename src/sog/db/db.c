@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.202 1999-12-19 00:21:38 avn Exp $
+ * $Id: db.c,v 1.203 1999-12-20 08:31:23 fjoe Exp $
  */
 
 /***************************************************************************
@@ -137,14 +137,14 @@ const char SKILLS_CONF		[] = "skills.conf";	/* skills */
 const char SOCIALS_CONF		[] = "socials.conf";	/* socials */
 const char SYSTEM_CONF		[] = "system.conf";	/* system conf */
 const char LANG_CONF		[] = "lang.conf";	/* lang definitions */
-const char MSGDB_CONF		[] = "msgdb.conf";	/* msgdb */
 const char CMD_CONF		[] = "cmd.conf";	/* commands */
 const char DAMTYPE_CONF		[] = "damtype.conf";	/* damtypes */
 const char MATERIALS_CONF	[] = "materials.conf";	/* materials */
 const char LIQUIDS_CONF		[] = "liquids.conf";	/* liquids */
 const char FORMS_CONF		[] = "forms.conf";	/* shapeforms */
 const char CC_EXPR_CONF		[] = "cc_expr.conf";	/* cc_exprs */
-const char GLOB_GMLSTR_FILE	[] = "gmlstr.conf";	/* global gmlstrs */
+const char GLOB_GMLSTR_FILE	[] = "glob_gmlstr";	/* global gmlstrs */
+const char MSGDB_FILE		[] = "msgdb";		/* msgdb */
 
 const char AREA_LIST		[] = "area.lst";	/* list of areas */
 const char LANG_LIST		[] = "lang.lst";	/* list of languages */
@@ -226,6 +226,9 @@ bool	fBootDb;
 char	filename[PATH_MAX];
 int	changed_flags;		/* changed object flags for OLC */
 hash_t	glob_gmlstr;
+hash_t	msgdb;
+
+static void load_msgdb(void);
 
 /*
  * Local booting procedures.
@@ -457,8 +460,8 @@ void boot_db(void)
 
 	db_load_list(&db_langs, LANG_PATH, LANG_LIST);
 	db_load_file(&db_glob_gmlstr, ETC_PATH, GLOB_GMLSTR_FILE);
+	load_msgdb();
 	db_load_file(&db_cmd, ETC_PATH, CMD_CONF);
-	db_load_file(&db_msg, ETC_PATH, MSGDB_CONF);
 	db_load_file(&db_socials, ETC_PATH, SOCIALS_CONF);
 	db_load_file(&db_cc_expr, ETC_PATH, CC_EXPR_CONF);
 
@@ -1176,7 +1179,7 @@ CHAR_DATA *create_mob(MOB_INDEX_DATA *pMobIndex)
 		int sex = number_range(SEX_MALE, SEX_FEMALE);
 
 		mlstr_destroy(&mob->gender);
-		mlstr_init(&mob->gender, flag_string(gender_table, sex));
+		mlstr_init2(&mob->gender, flag_string(gender_table, sex));
 
 		if (sex == SEX_FEMALE
 		&&  (fmob = get_mob_index(pMobIndex->fvnum))) {
@@ -2039,8 +2042,8 @@ static hashdata_t h_glob_gmlstr =
 	(e_cpy_t) gmlstr_cpy,
 
 	STRKEY_HASH_SIZE,
-	strkey_hash,
-	strkey_mlstruct_cmp
+	k_hash_str,
+	ke_cmp_mlstr
 };
 
 DBINIT_FUN(init_glob_gmlstr)
@@ -2089,3 +2092,64 @@ DBLOAD_FUN(load_glob_gmlstr)
 		}
 	}
 }
+
+static hashdata_t h_msgdb =
+{
+	sizeof(mlstring), 1,
+	(e_init_t) mlstr_init,
+	(e_destroy_t) mlstr_destroy,
+	(e_cpy_t) mlstr_cpy,
+
+	STRKEY_HASH_SIZE,
+	k_hash_csstr,
+	ke_cmp_csmlstr
+};
+
+static void
+load_msgdb(void)
+{
+	int msgcnt = 0;
+	rfile_t *fp;
+	mlstring ml;
+
+	hash_init(&msgdb, &h_msgdb);
+
+	line_number = 0;
+	snprintf(filename, sizeof(filename), "%s%c%s",
+		 ETC_PATH, PATH_SEPARATOR, MSGDB_FILE);
+	if ((fp = rfile_open(ETC_PATH, MSGDB_FILE)) == NULL) {
+		db_error("load_msgdb", strerror(errno));
+		return;
+	}
+
+	mlstr_init(&ml);
+	for (;;) {
+		const char *key;
+
+		mlstr_fread(fp, &ml);
+		key = mlstr_mval(&ml);
+
+		if (!strcmp(key, "$")) {
+			mlstr_destroy(&ml);
+			break;
+		}
+
+		if (!hash_insert(&msgdb, key, &ml))
+			db_error("load_msgdb", "%s: duplicate msg", key);
+		else  
+			msgcnt++;
+		mlstr_destroy(&ml);
+	}
+
+	log("load_msgdb: %d msgs loaded.", msgcnt);
+	rfile_close(fp);
+}
+
+const char *GETMSG(const char *msg, int lang)
+{
+	mlstring *ml = msg_lookup(msg);
+	if (ml == NULL)
+		return msg;
+	return mlstr_val(ml, lang);
+}
+

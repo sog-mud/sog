@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.215 1999-12-18 11:01:42 fjoe Exp $
+ * $Id: comm.c,v 1.216 1999-12-20 08:31:22 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2069,10 +2069,10 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 	case CON_GET_NEW_SEX: 
 		switch (argument[0]) {
 		case 'm': case 'M':
-			mlstr_init(&ch->gender, flag_string(gender_table, SEX_MALE));
+			mlstr_init2(&ch->gender, flag_string(gender_table, SEX_MALE));
 			break;
 		case 'f': case 'F':
-			mlstr_init(&ch->gender, flag_string(gender_table, SEX_FEMALE));
+			mlstr_init2(&ch->gender, flag_string(gender_table, SEX_FEMALE));
 			break;
 		default:
 	    		char_puts("That's not a sex.\n", ch);

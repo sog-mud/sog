@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.84 1999-12-17 13:42:46 fjoe Exp $
+ * $Id: db_area.c,v 1.85 1999-12-20 08:31:24 fjoe Exp $
  */
 
 /***************************************************************************
@@ -660,7 +660,7 @@ DBLOAD_FUN(load_rooms)
 					if (buf[0] != '\0') {
 						snprintf(buf2, sizeof(buf2),
 							 "the %s", buf);
-						mlstr_init(&pexit->short_descr.ml, buf2);
+						mlstr_init2(&pexit->short_descr.ml, buf2);
 					}
 				} else {
 					mlstr_fread(fp, &pexit->short_descr.ml);
@@ -1158,7 +1158,7 @@ DBLOAD_FUN(load_mobiles)
 
 	fread_word(fp);
 	mlstr_destroy(&pMobIndex->gender);
-	mlstr_init(&pMobIndex->gender, rfile_tok(fp));
+	mlstr_init2(&pMobIndex->gender, rfile_tok(fp));
 
 	pMobIndex->wealth		= fread_number(fp);
 
@@ -1659,7 +1659,7 @@ DBLOAD_FUN(load_objects)
 			case 'G':
 				fread_word(fp);
 				mlstr_destroy(&pObjIndex->gender);
-				mlstr_init(&pObjIndex->gender, rfile_tok(fp));
+				mlstr_init2(&pObjIndex->gender, rfile_tok(fp));
 				break;
 	
 			case 'R':

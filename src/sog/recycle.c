@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.93 1999-12-18 11:01:41 fjoe Exp $
+ * $Id: recycle.c,v 1.94 1999-12-20 08:31:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -640,7 +640,7 @@ OBJ_INDEX_DATA *new_obj_index(void)
 	pObj->condition		= 100;
 	pObj->limit		= -1;
 	cc_vexpr_init(&pObj->restrictions);
-	mlstr_init(&pObj->gender, flag_string(gender_table, SEX_NEUTRAL));
+	mlstr_init2(&pObj->gender, flag_string(gender_table, SEX_NEUTRAL));
         top_obj_index++;
 	return pObj;
 }
@@ -678,7 +678,7 @@ MOB_INDEX_DATA *new_mob_index(void)
 	pMob->start_pos		= POS_STANDING;
 	pMob->default_pos	= POS_STANDING;
 	pMob->damtype		= str_empty;
-	mlstr_init(&pMob->gender, flag_string(gender_table, SEX_NEUTRAL));
+	mlstr_init2(&pMob->gender, flag_string(gender_table, SEX_NEUTRAL));
 	top_mob_index++;
 	return pMob;
 }

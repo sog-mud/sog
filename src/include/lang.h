@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: lang.h,v 1.17 1999-12-18 11:01:39 fjoe Exp $
+ * $Id: lang.h,v 1.18 1999-12-20 08:31:19 fjoe Exp $
  */
 
 #ifndef _LANG_H_
@@ -118,7 +118,6 @@ enum {
 
 struct lang_t {
 	const char *	name;
-	int		vnum;
 	const char *	file_name;
 
 	flag_t		lang_flags;

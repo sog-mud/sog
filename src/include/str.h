@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: str.h,v 1.9 1999-12-16 12:24:46 fjoe Exp $
+ * $Id: str.h,v 1.10 1999-12-20 08:31:20 fjoe Exp $
  */
 
 #ifndef _STR_H_
@@ -51,13 +51,14 @@ char *	strlwr(const char *s);
 #endif
 
 int	str_cmp		(const char *astr, const char *bstr);
+int	str_cscmp	(const char *astr, const char *bstr);
 int	str_ncmp	(const char *astr, const char *bstr, size_t len);
 bool	str_prefix	(const char *astr, const char *bstr);
 bool	str_infix	(const char *astr, const char *bstr);
 bool	str_suffix	(const char *astr, const char *bstr);
 
 int hashstr(const char *s, int maxn, int hashs);
-int hashistr(const char *s, int maxn, int hashs);
+int hashcasestr(const char *s, int maxn, int hashs);
 
 int cmpstr(const void*, const void*);
 

@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.220 1999-12-18 06:55:44 avn Exp $
+ * $Id: act_wiz.c,v 1.221 1999-12-20 08:31:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -74,7 +74,6 @@ DECLARE_DO_FUN(do_rstat	);
 DECLARE_DO_FUN(do_mstat	);
 DECLARE_DO_FUN(do_dstat	);
 DECLARE_DO_FUN(do_ostat	);
-DECLARE_DO_FUN(do_msgstat);
 DECLARE_DO_FUN(do_mpstat);
 DECLARE_DO_FUN(do_rset	);
 DECLARE_DO_FUN(do_mset	);
@@ -887,13 +886,7 @@ void do_stat(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (!str_cmp(arg, "msg")) {
-		do_msgstat(ch, string);
-		return;
-	}
-
 	/* do it the old way */
-
 	obj = get_obj_world(ch, argument);
 	if (obj != NULL) {
 		do_ostat(ch, argument);
@@ -2663,7 +2656,7 @@ void do_oset(CHAR_DATA *ch, const char *argument)
 		
 	if (!str_prefix(arg2, "owner")) {
 		mlstr_destroy(&obj->owner);
-		mlstr_init(&obj->owner, arg3);
+		mlstr_init2(&obj->owner, arg3);
 		return;
 	}
 
@@ -3283,7 +3276,7 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 		}
 
 		mlstr_destroy(&victim->gender);
-		mlstr_init(&victim->gender, flag_string(gender_table, sex));
+		mlstr_init2(&victim->gender, flag_string(gender_table, sex));
 		return;
 	}
 
@@ -3807,7 +3800,7 @@ void do_rename(CHAR_DATA* ch, const char *argument)
 		for (obj = object_list; obj; obj = obj->next)
 			if (!str_cmp(mlstr_mval(&obj->owner), victim->name)) {
 				mlstr_destroy(&obj->owner);
-				mlstr_init(&obj->owner, new_name);
+				mlstr_init2(&obj->owner, new_name);
 			}
 
 		dunlink(PLAYER_PATH, capitalize(victim->name)); 
@@ -3819,7 +3812,7 @@ void do_rename(CHAR_DATA* ch, const char *argument)
 	free_string(victim->name);
 	victim->name = str_dup(new_name);
 	mlstr_destroy(&victim->short_descr);
-	mlstr_init(&victim->short_descr, new_name);
+	mlstr_init2(&victim->short_descr, new_name);
 	char_save(victim, 0);
 		
 	char_puts("Character renamed.\n", ch);
@@ -3914,45 +3907,6 @@ void do_affrooms(CHAR_DATA *ch, const char *argument)
 				    af->duration);
 		}
 	}
-}
-
-void do_msgstat(CHAR_DATA *ch, const char *argument)
-{
-	varr *v;
-	msg_t *mp;
-	int i;
-	BUFFER *output;
-
-	if (argument[0] == '\0') {
-		for (i = 0; i < MAX_MSG_HASH; i++) {
-			varr *v = msg_hash_table+i;
-			char_printf(ch, "%3d: %d msgs\n", i, v->nused);
-		}
-		return;
-	}
-
-	if (!is_number(argument)) {
-		do_help(ch, "'WIZ STAT'");
-		return;
-	}
-
-	i = atoi(argument);
-	if (i < 0 || i >= MAX_MSG_HASH) {
-		char_printf(ch, "Valid hash key range is 0..%d\n",
-			    MAX_KEY_HASH);
-		return;
-	}
-
-	v = msg_hash_table+i;
-	output = buf_new(-1);
-	buf_printf(output, "Dumping msgs with hash #%d\n", i);
-	for (i = 0; i < v->nused; i++) {
-		mp = VARR_GET(v, i);
-		mlstr_dump(output, str_empty, &mp->ml);
-		buf_add(output, "\n");
-	}
-	page_to_char(buf_string(output), ch);
-	buf_free(output);
 }
 
 void do_grant(CHAR_DATA *ch, const char *argument)

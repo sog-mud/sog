@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: str.c,v 1.17 1999-12-16 12:24:53 fjoe Exp $
+ * $Id: str.c,v 1.18 1999-12-20 08:31:22 fjoe Exp $
  */
 
 #include <ctype.h>
@@ -204,6 +204,18 @@ int str_cmp(const char *astr, const char *bstr)
 	return strcasecmp(astr, bstr);
 }
 
+/*
+ * NULL-safe case-sensitive string compare
+ */
+int str_cscmp(const char *astr, const char *bstr)
+{
+	if (astr == NULL)
+		return bstr == NULL ? 0 : -1;
+	if (bstr == NULL)
+		return 1;
+	return strcmp(astr, bstr);
+}
+
 int str_ncmp(const char *astr, const char *bstr, size_t len)
 {
 	if (astr == NULL)
@@ -327,7 +339,7 @@ int hashs;			/* hash table size. */
  * case insensitive version of hashstr, hashs must not be greater than 256
  */
 int
-hashistr(s, maxn, hashs)
+hashcasestr(s, maxn, hashs)
 const char *s;			/* string to hash */
 int maxn;			/* maximum number of chars to consider */
 int hashs;			/* hash table size. */

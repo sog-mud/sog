@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.100 1999-12-18 11:01:41 fjoe Exp $
+ * $Id: skills.c,v 1.101 1999-12-20 08:31:22 fjoe Exp $
  */
 
 /***************************************************************************
@@ -532,8 +532,8 @@ void skill_init(skill_t *sk)
 	sk->min_mana = 0;
 	sk->beats = 0;
 	gmlstr_init(&sk->noun_damage);
-	mlstr_init(&sk->msg_off, str_empty);
-	mlstr_init(&sk->msg_obj, str_empty);
+	mlstr_init2(&sk->msg_off, str_empty);
+	mlstr_init2(&sk->msg_obj, str_empty);
 	sk->skill_flags = 0;
 	sk->restrict_race = str_empty;
 	sk->group = 0;
