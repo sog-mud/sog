@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.43 1998-12-01 10:53:55 fjoe Exp $
+ * $Id: skills.c,v 1.44 1998-12-03 14:08:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -422,11 +422,11 @@ void set_skill(CHAR_DATA *ch, int sn, int percent)
 	set_skill_raw(ch, sn, percent, TRUE);
 }
 
-void do_glist(CHAR_DATA *ch , const char *argument)
+DO_FUN(do_glist)
 {
 	char arg[MAX_INPUT_LENGTH];
 	int col = 0;
-	flag_t group;
+	flag_t group = GROUP_NONE;
 	int sn;
 
 	one_argument(argument, arg);
@@ -442,8 +442,10 @@ void do_glist(CHAR_DATA *ch , const char *argument)
 		return;
 	}
 
-	if ((group = flag_value(skill_groups, arg)) < 0) {
+	if (str_prefix(arg, "none")
+	&&  (group = flag_value(skill_groups, arg)) == 0) {
 		char_puts("That is not a valid group.\n", ch);
+		do_glist(ch, str_empty);
 		return;
 	}
 

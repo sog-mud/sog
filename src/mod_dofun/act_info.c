@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.173 1998-12-01 12:44:35 fjoe Exp $
+ * $Id: act_info.c,v 1.174 1998-12-03 14:08:10 fjoe Exp $
  */
 
 /***************************************************************************
@@ -633,9 +633,9 @@ void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 	if (percent < 90 && HAS_SKILL(ch, gsn_vampire))
 		gain_condition(ch, COND_BLOODLUST, -1);
 
-	if (!IS_IMMORTAL(victim)) {
+	if (!IS_IMMORTAL(doppel)) {
 		char_printf(ch, "(%s) ", race_name(doppel->race));
-		if (!IS_NPC(victim)) 
+		if (!IS_NPC(doppel)) 
 			char_printf(ch, "(%s) ", class_name(doppel));
 	}
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.27 1998-12-01 10:55:10 fjoe Exp $
+ * $Id: olc_room.c,v 1.28 1998-12-03 14:08:23 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -566,8 +566,8 @@ int wear_bit(int loc)
 	int flag;
  
 	for (flag = 0; wear_table[flag].wear_loc != MAX_WEAR; flag++) {
-		 if (loc == wear_table[flag].wear_loc)
-		     return wear_table[flag].wear_bit;
+		if (loc == wear_table[flag].wear_loc)
+			return wear_table[flag].wear_bit;
 	}
  
 	return 0;
@@ -1413,24 +1413,27 @@ void do_resets(CHAR_DATA *ch, const char *argument)
 		    pReset->arg3     = pRoom->vnum;
 		    pReset->arg4     = 0;
 		}
-		else
+		else {
 		/*
 		 * Into a Mobile's inventory.
 		 * --------------------------
 		 */
-		{
-		    if (flag_value(wear_loc_flags, arg4) < 0)
-		    {
-			char_puts("Resets: '? wear-loc'\n", ch);
-			return;
+			int loc = WEAR_NONE;
+			int vnum;
+
+		    if (str_prefix(arg4, "none")
+		    &&  str_prefix(arg4, "inventory")
+		    &&  flag_value(wear_loc_flags, arg4) < 0) {
+				show_flags(ch, wear_loc_flags);
+				return;
 		    }
-		    if (get_obj_index(atoi(arg3)) == NULL)
+		    if (get_obj_index(vnum = atoi(arg3)) == NULL)
 		      {
 		         char_puts("Vnum no existe.\n",ch);
 		         return;
 		      }
-		    pReset->arg1 = atoi(arg3);
-		    pReset->arg3 = flag_value(wear_loc_flags, arg4);
+		    pReset->arg1 = vnum;
+		    pReset->arg3 = loc;
 		    if (pReset->arg3 == WEAR_NONE)
 			pReset->command = 'G';
 		    else

@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.28 1998-11-26 13:19:34 fjoe Exp $
+ * $Id: tables.c,v 1.29 1998-12-03 14:08:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -757,8 +757,8 @@ FLAG position_names[] =
 FLAG portal_flags[]=
 {
 	{ "normal_exit",	GATE_NORMAL_EXIT,	TRUE	},
-	{ "no_curse",		GATE_NOCURSE,		TRUE	},
-	{ "go_with",		GATE_GOWITH,		TRUE	},
+	{ "nocurse",		GATE_NOCURSE,		TRUE	},
+	{ "gowith",		GATE_GOWITH,		TRUE	},
 	{ "buggy",		GATE_BUGGY,		TRUE	},
 	{ "random",		GATE_RANDOM,		TRUE	},
 	{ NULL }

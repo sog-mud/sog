@@ -1,5 +1,5 @@
 /*
- * $Id: lookup.c,v 1.14 1998-10-30 06:56:33 fjoe Exp $
+ * $Id: lookup.c,v 1.15 1998-12-03 14:08:10 fjoe Exp $
  */
 
 /***************************************************************************
@@ -44,18 +44,19 @@
 #include <stdio.h>
 #include <time.h>
 #include "merc.h"
+#include "db/db.h"
 
 int position_lookup(const char *name)
 {
 	return flag_value(position_table, name);
 }
 
-int size_lookup (const char *name)
+int size_lookup(const char *name)
 {
 	return flag_value(size_table, name);
 }
 
-int weapon_lookup (const char *name)
+int weapon_lookup(const char *name)
 {
 	return flag_value(weapon_class, name);
 }
@@ -71,40 +72,74 @@ int material_lookup(const char *name)
 	return 0;
 }
 
-int liq_lookup (const char *name)
+int liq_lookup(const char *name)
 {
 	int liq;
 
-	for (liq = 0; liq_table[liq].liq_name != NULL; liq++)
-	{
+	for (liq = 0; liq_table[liq].liq_name; liq++) {
 		if (LOWER(name[0]) == LOWER(liq_table[liq].liq_name[0])
 		&& !str_prefix(name,liq_table[liq].liq_name))
 		    return liq;
 	}
 
-	return LIQ_WATER;
+	if (fBootDb)
+		db_error("liq_lookup", "%s: Unknown liquid name", name);
+	return -1;
 }
-int attack_lookup  (const char *name)
+
+void show_liq_types(BUFFER *output)
+{
+	int  liq;
+	int  col;
+ 
+	col = 0;
+	for (liq = 0; liq_table[liq].liq_name; liq++) {
+		buf_printf(output, "%-19.18s", liq_table[liq].liq_name);
+		if (++col % 4 == 0)
+			buf_add(output, "\n");
+	}
+ 
+	if (col % 4)
+		buf_add(output, "\n");
+}
+
+int attack_lookup(const char *name)
 {
 	int att;
 
-	for (att = 0; attack_table[att].name != NULL; att++)
-	{
+	for (att = 0; attack_table[att].name; att++) {
 		if (LOWER(name[0]) == LOWER(attack_table[att].name[0])
-		&&  !str_prefix(name,attack_table[att].name))
-		    return att;
+		&&  !str_prefix(name, attack_table[att].name))
+			return att;
 	}
 
-	return 0;
+	if (fBootDb)
+		db_error("attack_lookup", "%s: Unknown attack name", name);
+	return -1;
 }
 
+void show_attack_types(BUFFER *output)
+{
+	int  att;
+	int  col;
+ 
+	col = 0;
+	for (att = 0; attack_table[att].name; att++) {
+		buf_printf(output, "%-19.18s", attack_table[att].name);
+		if (++col % 4 == 0)
+			buf_add(output, "\n");
+	}
+ 
+	if (col % 4)
+		buf_add(output, "\n");
+}
 
 /* returns a flag for wiznet */
-long wiznet_lookup (const char *name)
+long wiznet_lookup(const char *name)
 {
 	int flag;
 
-	for (flag = 0; wiznet_table[flag].name != NULL; flag++)
+	for (flag = 0; wiznet_table[flag].name; flag++)
 	{
 		if (LOWER(name[0]) == LOWER(wiznet_table[flag].name[0])
 		&& !str_prefix(name,wiznet_table[flag].name))
@@ -113,5 +148,3 @@ long wiznet_lookup (const char *name)
 
 	return -1;
 }
-
-
