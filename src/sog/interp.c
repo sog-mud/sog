@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.31 1998-06-21 11:38:38 fjoe Exp $
+ * $Id: interp.c,v 1.32 1998-06-23 18:16:37 efdi Exp $
  */
 
 /***************************************************************************
@@ -761,16 +761,21 @@ bool check_social( CHAR_DATA *ch, char *command, char *argument )
 	if (arg[0] == '\0') {
 		act(social_table[cmd].others_no_arg, ch, NULL, victim, TO_ROOM);
 		act(social_table[cmd].char_no_arg, ch, NULL, victim, TO_CHAR);
-	} else if (( victim = get_char_room(ch, arg)) == NULL)
+	} else if (!(victim = get_char_world(ch, arg)) || IS_NPC(victim))
 		char_nputs(THEY_ARENT_HERE, ch);
 	else if (victim == ch) {
 		act(social_table[cmd].others_auto, ch, NULL, victim, TO_ROOM);
 		act(social_table[cmd].char_auto, ch, NULL, victim, TO_CHAR);
 	} else {
+		ROOM_INDEX_DATA *victim_room = victim->in_room;
+		char_from_room(victim);
+		char_to_room(victim, ch->in_room);
 		act(social_table[cmd].others_found, ch, NULL, victim, 
 		    TO_NOTVICT);
 		act(social_table[cmd].char_found, ch, NULL, victim, TO_CHAR);
 		act(social_table[cmd].vict_found, ch, NULL, victim, TO_VICT);
+		char_from_room(victim);
+		char_to_room(victim, victim_room);
 
 		if (!IS_NPC(ch) && IS_NPC(victim) 
 		&&  !IS_AFFECTED(victim, AFF_CHARM)

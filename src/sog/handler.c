@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.23 1998-06-22 08:52:30 efdi Exp $
+ * $Id: handler.c,v 1.24 1998-06-23 18:16:37 efdi Exp $
  */
 
 /***************************************************************************
@@ -1648,9 +1648,7 @@ void char_from_room(CHAR_DATA *ch)
 		--ch->in_room->light;
 
 	if (ch == ch->in_room->people)
-	{
 		ch->in_room->people = ch->next_in_room;
-	}
 	else
 	{
 		CHAR_DATA *prev;
