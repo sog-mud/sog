@@ -3061,13 +3061,18 @@ G none
 #ROOMS
 #201
 A Fog-Shrouded Trail~
-You are on a fog-shrouded trail which runs up the side of this dark
+@eng You are on a fog-shrouded trail which runs up the side of this dark
 mountain.  The ground is wet and muddy with melted snow, and the path
 which should lead to the Miden'nir disappears amongst the mist and the
 trees.  There is nothing for you to do but follow the trail that twists
 up towards the broken, snow-covered heights of the mountain range.
 An old stone tablet with inscriptions stands beside a bush in the
 corner.
+@rus   Ты стоишь на окутанной туманом тропинке, которая бежит вокруг горы. Земля
+мокра и грязна от тающего снега, и путь к Миден'ниру исчезает среди деревьев и
+тумана. У тебя нет выбора, кроме как идти по этой тропе к покрытым снегом 
+вершинам этой горной гряды. Старый каменный знак (tablet) стоит за кустом.
+"
 ~
 0 A mountain
 E

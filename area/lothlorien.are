@@ -1,0 +1,43 @@
+#AREADATA
+Name Lothlorien~
+VNUMs 95900 95910
+Credits All'erh'mog'h'ohol~
+Security 1
+LevelRange 0 0
+End
+
+#MOBILES
+#95900
+warderer guardian elf~
+Warderer~
+Strong Elf watch to you.
+~
+~
+elf~
+A DEFHNTVclm 10000 0
+70 500 1d1+20000 1d1+10000 1d1+200 pound
+-70 -70 -70 -70
+ADEFHIKNQ ABINPX CDE 0
+stand stand male 0
+0 0 medium unknown
+F aff JP
+F res B
+#0
+
+#ROOMS
+#95900
+@eng Borders ambush@rus Пограничная засада~
+~
+0 0 forest
+D1
+~
+~
+Z 0 95900
+D3
+~
+~
+Z 0 95900
+S
+#0
+
+#$
