@@ -1,5 +1,5 @@
 /*
- * $Id: comm.h,v 1.32.2.2 2002-11-28 20:31:35 fjoe Exp $
+ * $Id: comm.h,v 1.32.2.3 2004-02-22 20:37:43 fjoe Exp $
  */
 
 /***************************************************************************
@@ -51,6 +51,7 @@ void	close_descriptor(DESCRIPTOR_DATA *dclose, int save_flags);
 void	write_to_buffer	(DESCRIPTOR_DATA *d, const char *txt, size_t length);
 bool	write_to_descriptor	(DESCRIPTOR_DATA *d, const char *txt, size_t length);
 void	write_to_snoop	(DESCRIPTOR_DATA *d, const char *txt, size_t len);
+void	append_to_qbuf	(DESCRIPTOR_DATA *d, const char *txt);
 void	bust_a_prompt	(DESCRIPTOR_DATA *d);
 
 void	char_puts	(const char *txt, CHAR_DATA *ch);
