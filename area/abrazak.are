@@ -40,6 +40,38 @@ unknown~
 pill ABG AOQ
 66 'detect invis' 'detect hidden' 'acute vision' 'improved detect'
 1 1 100000 P
+#15100
+cheburator~
+@eng a dwarven golden ring@rus ~
+~
+unknown~
+armor HOTY B
+ABFG ABFG ABFG ABFG 0
+7 1 900000 P
+A
+18 500
+A
+18 500
+A
+19 100
+A
+19 100
+A
+19 100
+A
+19 100
+A
+19 100
+A
+19 100
+A
+19 100
+A
+19 100
+A
+20 -50
+A
+19 100
 #0
 
 
@@ -79,6 +111,7 @@ S
 
 #OLIMITS
 O 15000 0	* strange pill
+O 15100 1	* a dwarven golden ring
 S
 
 
