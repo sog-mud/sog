@@ -901,7 +901,7 @@ violet robe~
 a violet robe~
 A skimpy and somewhat ripped violet robe lays neglected on the floor.~
 silk~
-armor EIM AK
+armor IM AK
 11 11 11 11 0
 59 30 5999 P
 A
@@ -1325,7 +1325,7 @@ robe black warlock~
 the Robe of the Warlock~
 A black robe emanating an evil aura has been discarded here.~
 velvet~
-armor ACEGHIJMY AK
+armor ACEGHJMY AK
 15 15 15 15 0
 60 50 50000 P
 S 'mana transfer' 80 A

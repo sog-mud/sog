@@ -22,6 +22,7 @@ AGHS DF 100 0
 BEFJNU 0 0 0
 stand stand male 1
 0 0 medium unknown
+M death 101 100~
 #102
 smurf~
 a smurf~
@@ -36,6 +37,7 @@ ABHS DF 100 0
 BEFJNU 0 0 0
 stand stand male 1
 0 0 medium unknown
+M death 101 100~
 #103
 brainy smurf~
 Brainy Smurf~
@@ -51,6 +53,7 @@ AGHS DF 100 0
 BEFJNU 0 0 0
 stand stand male 1
 0 0 medium unknown
+M death 101 100~
 #104
 handy smurf~
 Handy Smurf~
@@ -66,6 +69,7 @@ AGHS DF 100 0
 BEFJNU 0 0 0
 stand stand male 1
 0 0 medium unknown
+M death 101 100~
 #105
 sleepy smurf~
 Sleepy Smurf~
@@ -81,6 +85,7 @@ AGHS DF 100 0
 BEFJNU 0 0 0
 stand stand male 1
 0 0 medium unknown
+M death 101 100~
 #106
 hefty smurf~
 Hefty Smurf~
@@ -96,6 +101,7 @@ AGHS DF 100 0
 BEFJNU 0 0 0
 stand stand male 1
 0 0 medium unknown
+M death 101 100~
 #107
 grumpy smurf~
 Grumpy Smurf~
@@ -110,6 +116,7 @@ AGHS DF 100 0
 BEFJNU 0 0 0
 stand stand male 1
 0 0 medium unknown
+M death 101 100~
 #108
 jokey smurf~
 Jokey Smurf~
@@ -125,6 +132,7 @@ AGHS DF 100 0
 BEFJNU 0 0 0
 stand stand male 1
 0 0 medium unknown
+M death 101 100~
 #109
 smurfette~
 Smurfette~
@@ -140,6 +148,8 @@ AGHS DF 100 0
 BEFJNU 0 0 0
 stand stand female 1
 0 0 medium unknown
+M death 101 100~
+M speech 102 gargamel~
 #110
 papa smurf~
 Papa Smurf~
@@ -156,6 +166,7 @@ AGHR 0 100 0
 FU 0 0 0
 stand stand male 2
 0 0 medium unknown
+M death 101 100~
 #111
 gargamel~
 Gargamel~
@@ -171,6 +182,8 @@ ABHQ 0 -100 0
 EIKU 0 0 0
 stand stand male 2
 0 0 medium unknown
+M random 104 2~
+M give 103 110~
 #112
 azreal cat~
 Azreal~
@@ -285,6 +298,40 @@ key 0 A
 B 0 0 0 0
 0 20 0 P
 G none
+#110
+hat шапочка~
+@eng the last smurf hat@rus ~~шапочка~~ последнего смурфа~
+@eng You see white hat in the ground.@rus Ты видишь лежащую на земле белую шапочку (hat).~
+magic~
+clothing 0 AE
+0 0 0 0 0
+1 1 1 P
+E
+hat шапочка~
+@eng This hat of last smurf is one of the dreams of Gargamel.
+@rus Получить эту шапочку последнего смурфа -- мечта Гаргамеля.
+~
+G female
+#111
+tulip тюльпан~
+@eng the black tulip@rus ~~черный~~ ~~тюльпан~~~
+@eng The pitch black tulip lies here.@rus Тюльпан (tulip) угольно-черного цвета лежит здесь.~
+tulip~
+treasure CJLT AO
+0 0 0 0 0
+5 1 20 P
+A
+19 2
+A
+18 1
+A
+13 10
+E
+tulip тюльпан~
+@eng You see the beautiful flower with dark evil aura.
+@rus Ты смотришь на прекрасный цветок, окруженный злой аурой.
+~
+G male
 #0
 
 #ROOMS
@@ -895,5 +942,65 @@ M 0 109 1 129 1	* Smurfette (Smurfette's House)
 E 0 104 0 3		*	a small necklace: around the neck (1)
 G 0 107 0		*	a tiny key
 S
+
+#MOBPROGS
+#101
+if mobexists 101
+else
+if mobexists 102
+else
+if mobexists 103
+else
+if mobexists 104
+else
+if mobexists 105
+else
+if mobexists 106
+else
+if mobexists 107
+else
+if mobexists 108
+else
+if mobexists 109
+else
+if mobexists 110
+else
+mob echo {rThe last smurf died...{x
+mob oload 110
+endif
+endif
+endif
+endif
+endif
+endif
+endif
+endif
+endif
+endif
+~
+#102
+if level $n <= 10
+if isevil $n
+mob echoat $n Smurfette tells you:
+mob echoat $n {w       Silly Gargamel from the castle? He dreams to kill us all and to{x
+mob echoat $n {w       destroy our village. We know it.{x
+endif
+endif
+~
+#103
+if isevil $n
+if level $n <= 10
+mob oload 111
+mob junk hat
+mob echoat $n Gargamel tells you:
+mob echoat $n {w       Today is the best day of my life!!{x
+give tulip to $n
+endif
+endif
+~
+#104
+Gargamel mutters the words: 'I hate, i hate smurfes...'
+~
+#0
 
 #$

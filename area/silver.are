@@ -63,7 +63,7 @@ ABCF B -1000 0
 20 0 3d9+333 199d1+1 2d8+5 punch
 -4 -4 -4 7
 0 A 0 X
-stand stand male 1000
+stand stand male 539
 FK 0 medium unknown
 #4505
 mob bodyguard orc~
@@ -92,7 +92,7 @@ ABCF 0 -1000 0
 19 0 3d9+308 189d1+1 2d7+5 punch
 -4 -4 -4 7
 EIJ A 0 X
-stand stand male 1200
+stand stand male 647
 0 0 medium unknown
 #4507
 mob shadow wolf~
@@ -122,7 +122,7 @@ ABCF B -1000 0
 23 0 5d10+450 229d1+1 3d6+6 punch
 -6 -6 -6 6
 FHK A 0 X
-stand stand male 2600
+stand stand male 935
 0 0 medium unknown
 #4509
 mob rat~
@@ -152,7 +152,7 @@ ABCF Bu -1000 0
 30 0 6d12+853 299d1+1 4d6+8 punch
 -9 -9 -9 6
 E A 0 X
-stand stand either 5000
+stand stand either 1349
 0 0 medium unknown
 #0
 

@@ -1372,7 +1372,7 @@ D3
 Z 0 5065
 S
 #5065
-The mysterious lair.~
+The mysterious lair~
 You have stumbled upon the home of something. From the treasure
 haphazardly strewn about and the rotting carcasses, you would guess that
 this is a dragon's lair. As to what type, you can't really say. The cave
@@ -1472,7 +1472,7 @@ M 5014 spec_cast_cleric	* The myconoid shaman
 S
 
 #RESETS
-D 0 5065 3 2	* The mysterious lair.: door to the west: closed and locked
+D 0 5065 3 2	* The mysterious lair: door to the west: closed and locked
 D 0 5066 1 2	* A wide tunnel: door to the east: closed and locked
 M 0 5011 3 5009 3	* The drider (At the foot of the rubble)
 E 0 3022 0 16		*	a long sword: wielded
@@ -1519,7 +1519,7 @@ P 0 5014 5 5008 1	* a small wicker basket: a thick padded turban
 O 0 5009 0 5061	* a small wicker basket (The main tent)
 O 0 5010 0 5061	* a small wicker basket (The main tent)
 P 0 5013 50 5010 1	* a small wicker basket: an old, tattered map
-M 0 5005 1 5065 1	* the brass dragon (The mysterious lair.)
+M 0 5005 1 5065 1	* the brass dragon (The mysterious lair)
 G 0 5024 0		*	a golden key
 G 0 5022 0		*	an encrypted scroll
 O 0 5023 0 5070	* an iron bound chest (A small shaft)

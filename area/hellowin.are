@@ -21,7 +21,7 @@ but same you can see than he is corking something in leaves.
 ~
 bear~
 AGVWZe DFGHZ 1000 0
-50 0 1d1+1 0d0+0 0d0+0 bite
+1 0 1d1+1 0d0+0 0d0+0 bite
 0 0 0 0
 0 ABCDEFGHIKLMNOPQRTXYZ 0 0
 stand stand male 0
@@ -76,12 +76,13 @@ can't even move...  All you are able to is to await your fate lamblikely.
 ничего иного, как молча, покорно ожидать своей участи.
 ~
 dracolich~
-AOTe 0 -1000 0
+AOTe u -1000 0
 100 1000 1d30000+0 10d3000+1 10d400+1 drain
 0 0 0 0
-D CD 0 0
-stand stand male 100
+CDEFHO 0 0 0
+stand stand male 2524
 0 0 gargantuan unknown
+F imm BIJ
 F vul I
 #34406
 dragon golden золотистый дракон~
@@ -229,23 +230,33 @@ wand CF AO
 10 1 5000 P
 G none
 #34412
-undead control~
+undead control wand~
 @eng Wand of the Authority@rus ~~Жезл~~ Власти~
 @eng Wand of the Authority (control undead) lies here filled with energy.@rus Жезл Власти (undead control), наполненный магической силой и энергией, ярко сверкает, лежа на земле у твоих ног.~
 energy~
-wand AT AO
+wand ATi AO
 150 1 1 'control undead' 0
-110 1 100 P
+1 1 100 P
 G male
 #34413
 vial life чаша~
 @eng Vial of Life@rus ~~Чаша~~ Жизни~
 @eng The golden vial lies here.@rus Золотая Чаша (Vial) сияет в солнечных лучах.~
 gold~
-staff AGI AO
-150 10 10 'abolish undead' 0
-1 1 100 P
-G none
+treasure A AO
+0 0 0 0 0
+74 1 100 P
+A
+8 2
+A
+20 -10
+A
+12 250
+A
+13 250
+F I 18 10 M
+F A 19 10 c
+G female
 #34449
 mace дубина~
 @eng wooden mace@rus ~~массивная~~ ~~дубина~~~
@@ -579,7 +590,7 @@ G female
 
 #ROOMS
 #34400
-@eng {GClearing in the woods{w@rus {GПоляна в лесу{w~
+@eng {GClearing in the woods{x@rus {GПоляна в лесу{w~
 @eng  {w
 @rus  
   Ты находишься на лесной полянке глубоко в девственном лесу, где
@@ -641,11 +652,11 @@ M 34406 spec_breath_any	* the golden dragon
 S
 
 #RESETS
-M 0 34400 1 34400 1	* {ysympathetic bear{w ({GClearing in the woods{w)
+M 0 34400 1 34400 1	* {ysympathetic bear{w ({GClearing in the woods{x)
 G 0 34406 0		*	{rHot and tasty bite of roasted meat{w
 G 0 34407 0		*	{WHeeled glass filled with {BKosoruloFF{W vodka{w
-O 0 34405 0 34400	* fallen tree ({GClearing in the woods{w)
-O 0 34404 0 34400	* {WSpring with crystal and clear water{w ({GClearing in the woods{w)
+O 0 34405 0 34400	* fallen tree ({GClearing in the woods{x)
+O 0 34404 0 34400	* {WSpring with crystal and clear water{w ({GClearing in the woods{x)
 M 0 34406 1 34402 1	* the golden dragon (In the cave)
 O 0 34462 0 34403	* altar (Heart of the mountain)
 P 0 34463 1 34462 1	* altar: the magic scroll
@@ -654,6 +665,19 @@ S
 #SHOPS
 34400 0 0 0 0 0 100 100 0 23
 0
+
+#MOBPROGS
+#34400
+mob vforce 34405 mob goto 34400
+mob vforce 34405 cast 'teleport'
+mob vforce 34405 yell Я уничтожу жизнь в этом мире!
+~
+#34401
+'Тебе хочется приобщится к величайшей мудрости тех, кто были до нас?
+'У меня есть лишь самая малая часть ключа, ведущего к тайнику...
+'И это все что я могу тебе дать. 
+~
+#0
 
 #OMPROGS
 O 34449 wear_prog wear_prog_excalibur	* `wooden mace'

@@ -20,7 +20,7 @@ ABCFST BDEFJOTZdu -1000 1500
 50 0 1d1+9999 1d1+499 5d8+19 blast
 -20 -20 -20 -2
 ADEFHJKP AB CDELQ 0
-stand stand male 15400
+stand stand male 5358
 0 0 small unknown
 #15401
 trusted henchman~
@@ -36,7 +36,7 @@ ACFGT BDFJT 0 1501
 38 0 10d10+1600 1d1+300 5d6+12 beating
 -15 -15 -15 -2
 CDEFIU AB DLP K
-stand stand either 4500
+stand stand either 2087
 0 0 large unknown
 #15402
 hand second right woman~
@@ -52,7 +52,7 @@ ABCFSTV BDFJNTu -650 1502
 45 0 25d10+3000 1d1+400 8d4+16 pierce
 -15 -15 -15 -5
 ADEFHJ AB DL KMN
-stand stand female 3100
+stand stand female 1438
 0 0 medium unknown
 #15403
 golorth captain thug~
@@ -67,7 +67,7 @@ ACGT DJT 100 1503
 41 0 25d10+2000 1d1+199 4d8+14 punch
 -10 -10 -10 -1
 CDEFKP AB DEI CH
-stand stand male 1120
+stand stand male 779
 0 0 huge unknown
 #15404
 Alengrot cleric priest~
@@ -83,7 +83,7 @@ ABFQT DENTdu -1000 1504
 45 0 25d10+3000 1d1+1200 8d4+15 wrath
 -20 -20 -20 -2
 ADEFHJ AB CNOP FLM
-stand stand male 2750
+stand stand male 1275
 0 0 medium unknown
 #15405
 masked thug guard~
@@ -97,7 +97,7 @@ ABCFT BCDFJTV -600 1500
 40 0 15d10+1850 1d1+299 4d8+13 stab
 -9 -8 -15 -5
 CDEFIP AB EQ HK
-stand stand either 540
+stand stand either 490
 0 0 medium unknown
 #15406
 advisor mage tolorian~
@@ -112,7 +112,7 @@ ABR DENTu -500 1504
 45 0 25d10+3549 1d1+1200 8d4+15 flame
 -15 -15 -15 -3
 AFH AB CP E
-stand stand male 3120
+stand stand male 1447
 0 0 medium unknown
 #15407
 mother woman~
@@ -128,7 +128,7 @@ ABCFQRSTUV DEFHNTZd 0 1505
 50 0 50d10+4500 1d1+1299 5d8+19 divine
 -20 -20 -20 3
 AFHK AB CDP 0
-stand stand female 5000
+stand stand female 1739
 0 0 medium unknown
 #15408
 guardian golem obsidian~
@@ -174,7 +174,7 @@ ACGHS BJQ -100 1506
 25 0 5d10+550 1d1+199 2d10+7 thrust
 -7 -7 -7 2
 BFJU A FL K
-stand stand either 530
+stand stand either 481
 0 0 medium unknown
 #15411
 thief~
@@ -188,7 +188,7 @@ ACFGHS BDFJQ -300 1506
 33 0 10d10+1100 1d1+299 6d4+10 stab
 -11 -11 -11 2
 BDEFU A BFL Q
-stand stand male 640
+stand stand male 581
 0 0 medium unknown
 #15412
 master thief~
@@ -203,7 +203,7 @@ ACGST BDEFJTV -500 1506
 38 0 10d10+1600 1d1+299 5d6+12 stab
 -13 -13 -13 2
 BEFHJKU AB FL 0
-stand stand male 1700
+stand stand male 1183
 0 0 medium unknown
 #15413
 shade guardian~
@@ -281,7 +281,7 @@ ACGT JV 0 1508
 43 0 25d10+2500 1d1+199 3d12+15 pound
 -15 -15 -15 3
 CDEFIK A BDEI CH
-stand stand male 1200
+stand stand male 835
 0 0 large unknown
 #15418
 beast kadrdw'ws~

@@ -283,7 +283,7 @@ ABC O 0 0
 12 0 2d10+150 2d10+150 1d10+3 punch
 10 10 10 30
 0 0 0 0
-stand stand male 817
+stand stand male 742
 0 0 medium unknown
 #4416
 thrower~
@@ -398,7 +398,7 @@ AB 0 0 0
 10 0 8d8+90 10d10+90 2d5+1 pound
 50 50 50 70
 0 0 0 0
-stand stand male 817
+stand stand male 742
 0 0 large unknown
 #4423
 bear~
@@ -464,7 +464,7 @@ ABCH 0 -1000 0
 10 0 2d7+121 2d7+127 2d4+2 punch
 30 30 30 50
 0 0 0 0
-stand stand male 735
+stand stand male 668
 0 0 medium unknown
 #4427
 vendor~
@@ -523,7 +523,7 @@ ABF 0 -1000 0
 8 0 2d7+96 2d7+96 1d7+2 pound
 30 30 30 40
 0 0 0 0
-stand stand male 660
+stand stand male 600
 0 0 medium unknown
 #4450
 chef~
@@ -536,7 +536,7 @@ AB 0 0 0
 18 0 3d9+283 3d9+283 2d7+4 punch
 0 0 0 20
 0 0 0 0
-stand stand none 1205
+stand stand none 1093
 0 0 medium unknown
 #4451
 midget thief~
@@ -551,7 +551,7 @@ AG 0 -900 0
 3 0 2d6+35 2d6+35 1d6+0 slice
 60 60 60 80
 0 0 0 0
-stand stand male 606
+stand stand male 550
 0 0 medium unknown
 #0
 

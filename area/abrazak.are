@@ -548,7 +548,7 @@ nut орех~
 @eng The gold nut.@rus Золотой орех (nut).~
 gold~
 pill G A
-100 'frenzy' 'sanctuary' 'heal' 'improved invis'
+100 'frenzy' 'sanctuary' 'heal' 'bless'
 1 10 1000 P
 G male
 #15033
@@ -558,10 +558,15 @@ cone шишка~
 gold~
 container G AO
 600 A 0 100 10
-1 10 10000 P
+75 1 10000 P
+A
+18 5
+A
+19 5
+A
+13 50
 A
 20 -10
-S 'blindness' 100 A
 G female
 #15034
 ribbon лента~
@@ -794,7 +799,7 @@ nut орех~
 @eng The gold nut.@rus Золотой орех (nut).~
 gold~
 pill G A
-100 'frenzy' 'black shroud' 'heal' 'improved invis'
+100 'frenzy' 'black shroud' 'heal' 'bless'
 1 10 1000 P
 G none
 #15101
@@ -816,6 +821,15 @@ container Yb AE
 1000 0 0 1000 10
 0 0 0 P
 G none
+#15189
+sandwich~
+@eng a sandwich@rus {BБУТЕРБРОД{x с {RКрасной Икрой{x~
+@eng Sandwich lies here...@rus Аппетитно пахнующий бутерброд лежит здесь.~
+food~
+food 0 A
+CE CE 0 0 0
+0 5 1 P
+G none
 #15190
 scarlet cloak~
 @eng {RScarlet Cloak {x@rus {RАлый Плащ {x~
@@ -824,6 +838,7 @@ gold~
 armor ABCGRTi AK
 500 500 500 500 0
 99 1 100000 P
+F A 0 0 V
 F I 8 5 CDE
 G none
 #15191
@@ -1119,8 +1134,6 @@ endif
 mob vforce 15005 mob oload 34411
 mob vforce 15005 mob goto 15000 
 mob vforce 15005 cast 'teleport'
-mob vforce 34405 mob goto 15000
-mob vforce 34405 cast 'teleport'
 ~
 #15001
 cast 'shadowlife' $n
@@ -1137,7 +1150,6 @@ say Ну вот. так просто ты от меня не избавишься.
 if ispc $n
 say Умер :(
 mob remember $n
-mob delay 1
 endif
 ~
 #15005

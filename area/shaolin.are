@@ -62,7 +62,7 @@ ABCT 0 201 0
 15 0 3d9+208 149d1+1 2d6+3 slap
 -2 -2 -2 7
 EFGHN 0 0 0
-stand stand male 840
+stand stand male 763
 0 0 medium unknown
 #20105
 monk guard~
@@ -76,7 +76,7 @@ ABCFT DFJ -100 0
 20 0 3d9+333 199d1+1 2d8+20 scratch
 -4 -4 -4 7
 EFGHN A D 0
-stand stand male 1140
+stand stand male 806
 0 0 medium unknown
 #20106
 demon~
@@ -106,7 +106,7 @@ ACFGT DFJ -700 0
 27 0 5d10+650 269d1+1 5d4+7 blast
 -8 -8 -8 6
 EFIN A 0 0
-stand stand male 1240
+stand stand male 877
 0 0 medium unknown
 #20108
 wood wooden monk man machine~
@@ -121,7 +121,7 @@ ABFT DFJ 0 0
 18 0 3d9+283 179d1+1 2d7+15 punch
 -3 -3 -3 7
 DEFGHIN A 0 0
-stand stand male 940
+stand stand male 854
 0 0 medium unknown
 #20109
 monk warrior~
@@ -136,7 +136,7 @@ ACGHT NVZ 201 0
 27 0 5d10+650 269d1+1 5d4+20 slap
 -8 -8 -8 6
 CDEIKN 0 0 0
-stand stand male 1150
+stand stand male 813
 0 0 medium unknown
 #20110
 luohan Luohan bronze monk~
@@ -151,7 +151,7 @@ ABCT GNVZ 500 0
 27 0 5d10+650 269d1+1 5d4+17 pierce
 -8 -8 -8 6
 AEFHIN B D 0
-stand stand male 3140
+stand stand male 1481
 0 0 medium unknown
 #20111
 Wuhua wuhua monk~
@@ -166,7 +166,7 @@ ACFGT DFJVu -500 0
 24 0 5d10+500 239d1+1 2d10+20 stab
 -6 -6 -6 6
 EFHIN A D 0
-stand stand male 3410
+stand stand male 1608
 0 0 medium unknown
 #20112
 master librarian monk~
@@ -181,7 +181,7 @@ AB HN 500 0
 27 0 5d10+650 269d1+1 5d4+7 punch
 -8 -8 -8 6
 CDFHN 0 C 0
-stand stand male 3710
+stand stand male 1749
 0 0 medium unknown
 #20113
 master monk drunken~
@@ -196,7 +196,7 @@ ACGHT HNVZ 250 0
 27 0 5d10+650 269d1+1 6d5+30 blast
 -8 -8 -8 6
 CDFHIKN B D 0
-stand stand male 1040
+stand stand male 735
 0 0 medium unknown
 #20114
 master monk trainer~
@@ -211,7 +211,7 @@ ACGHT BHNV 500 0
 26 0 5d10+600 259d1+1 3d7+30 chomp
 -7 -7 -7 6
 ACDEFIJKN AB D 0
-stand stand male 1070
+stand stand male 757
 0 0 medium unknown
 #20115
 abbot Abbot monk~
@@ -226,7 +226,7 @@ ACGH HNTV 800 0
 31 0 6d12+928 309d1+1 4d6+35 slap
 -10 -10 -10 5
 ACDEFIJN AB D 0
-stand stand male 2300
+stand stand male 1627
 0 0 medium unknown
 #20116
 Jinshen jinshen~
@@ -241,7 +241,7 @@ ABT BDHNQVZ 1000 0
 33 0 10d10+1100 329d1+1 7d5+50 punch
 -11 -11 -11 5
 ACDEFGIJKN B CD 0
-stand stand male 5340
+stand stand male 1889
 0 0 medium unknown
 #20117
 guest visitor~
@@ -255,7 +255,7 @@ ACGH 0 -150 0
 15 0 3d9+208 149d1+1 2d6+3 pierce
 -2 -2 -2 7
 CEFIN 0 0 0
-stand stand male 640
+stand stand male 581
 0 0 medium unknown
 #20118
 old man~

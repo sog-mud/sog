@@ -97,6 +97,8 @@ ABQ 0 550 0
 EIKU 0 0 0
 stand stand male 400
 0 0 medium unknown
+M grall 1501 100~
+M give 1502 1525~
 #1507
 troll small~
 a small troll~
@@ -287,6 +289,8 @@ ABR 0 -500 0
 FU 0 0 0
 sit stand male 300
 0 0 medium unknown
+F par D
+M death 1503 100~
 #1520
 miner hobgoblin~
 a hobgoblin miner~
@@ -487,7 +491,7 @@ A wicker basket sits here.~
 wood~
 container 0 A
 90 0 0 20 100
-0 50 0 P
+0 50 35 P
 G none
 #1512
 peanuts~
@@ -496,7 +500,7 @@ Peanuts lie here.~
 food~
 food 0 A
 E E 0 0 0
-0 90 0 P
+0 90 10 P
 G none
 #1513
 grain~
@@ -605,6 +609,45 @@ mace 2 3 pound 0
 A
 18 -1
 G none
+#1525
+heart сердце~
+@eng the heart of hobgoblins king@rus ~~сердце~~ короля хобгоблинов~
+@eng The torn-out heart of hobgoblins king is lying here.@rus Вырванное сердце (heart) короля хобгоблинов еще бьется на земле.~
+meat~
+food V A
+E E 0 0 0
+0 20 10 D
+E
+heart~
+@eng You see the palpitate heart of hobgoblins' king. The village chief will
+be glade to know about death of his main enemy. Bring this heart to the
+chief -- this is a good idea! Possibly, he decide to take the heart as
+trophy.
+@rus И вот уже ты глядишь на еще трепещущее сердце короля гоблинов. Надо
+сообщить старосте, что жителям деревни больше нечего опасаться. Пусть
+он возьмет себе это сердце его врага в качестве трофея.
+~
+G none
+#1526
+lilia лилия~
+@eng the white lilia@rus ~~белая~~ ~~лилия~~~
+@eng The white lilia is lying here.@rus Белая лилия (lilia) лежит на земле.~
+flower~
+treasure KLT AE
+0 0 0 0 0
+5 1 150 P
+A
+19 2
+A
+18 1
+A
+13 10
+E
+lilia лилия~
+@eng You see the beautiful white flower with sweet smell.
+@rus Ты глядишь на прекрасный белый цветок, источающий сладчайший аромат.
+~
+G female
 #0
 
 #ROOMS
@@ -2280,5 +2323,34 @@ M 0 1526 1 1587 1	* the cook (The Kitchen)
 M 0 1524 1 1589 1	* a hermit (Hermit's Lair)
 M 0 1520 6 1590 2	* a hobgoblin miner (A Hole)
 S
+
+#MOBPROGS
+#1501
+if mobexists 1519
+if level $n <= 15
+if isgood $n
+mob echoat $n The chief gnome tells you:
+mob echoat $n {w       Hello, welcome to our village! But, be careful, hobgoblins from{x
+mob echoat $n {w       abandoned mines are very dangerous. For long time we can't free{x
+mob echoat $n {w       out vallage of theirs raids. If only they lost leader and king...{x
+endif
+endif
+endif
+~
+#1502
+if isgood $n
+if level $n <= 15
+mob echoat $n The chief gnome tells you:
+mob echoat $n {w       This is very good news. Take this flower as reward for your help.{x
+mob oload 1526
+give lilia $n
+endif
+endif
+mob junk heart
+~
+#1503
+mob oload 1525
+~
+#0
 
 #$
