@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.7 1998-04-21 13:02:50 efdi Exp $
+ * $Id: update.c,v 1.8 1998-04-21 22:03:57 efdi Exp $
  */
 
 /***************************************************************************
@@ -877,22 +877,22 @@ void weather_update( void )
 	{
 	case  5:
 	weather_info.sunlight = SUN_LIGHT;
-	strcpy( buf, msg(UPDATE_WEATHER_DAY_BEGUN, ch->i_lang));
+	strcpy( buf, msg(UPDATE_WEATHER_DAY_BEGUN, ch));
 	break;
 
 	case  6:
 	weather_info.sunlight = SUN_RISE;
-	strcpy( buf, msg(UPDATE_WEATHER_SUN_IN_THE_EAST, ch->i_lang));
+	strcpy( buf, msg(UPDATE_WEATHER_SUN_IN_THE_EAST, ch));
 	break;
 
 	case 19:
 	weather_info.sunlight = SUN_SET;
-	strcpy( buf, msg(UPDATE_WEATHER_SUN_IN_THE_WEST, ch->i_lang));
+	strcpy( buf, msg(UPDATE_WEATHER_SUN_IN_THE_WEST, ch));
 	break;
 
 	case 20:
 	weather_info.sunlight = SUN_DARK;
-	strcpy( buf, msg(UPDATE_WEATHER_NIGHT_BEGUN, ch->i_lang));
+	strcpy( buf, msg(UPDATE_WEATHER_NIGHT_BEGUN, ch));
 	break;
 
 	}
@@ -908,7 +908,7 @@ void weather_update( void )
 	if ( weather_info.mmhg <  990
 	|| ( weather_info.mmhg < 1010 && number_bits( 2 ) == 0 ) )
 	{
-	    strcat( buf, msg(UPDATE_WEATHER_GETTING_CLOUDY, ch->i_lang));
+	    strcat( buf, msg(UPDATE_WEATHER_GETTING_CLOUDY, ch));
 	    weather_info.sky = SKY_CLOUDY;
 	}
 	break;
@@ -917,13 +917,13 @@ void weather_update( void )
 	if ( weather_info.mmhg <  970
 	|| ( weather_info.mmhg <  990 && number_bits( 2 ) == 0 ) )
 	{
-	    strcat( buf, msg(UPDATE_WEATHER_IT_STARTS_TO_RAIN, ch->i_lang));
+	    strcat( buf, msg(UPDATE_WEATHER_IT_STARTS_TO_RAIN, ch));
 	    weather_info.sky = SKY_RAINING;
 	}
 
 	if ( weather_info.mmhg > 1030 && number_bits( 2 ) == 0 )
 	{
-	    strcat( buf, msg(UPDATE_WEATHER_THE_CLOUDS_DISAPPEAR, ch->i_lang));
+	    strcat( buf, msg(UPDATE_WEATHER_THE_CLOUDS_DISAPPEAR, ch));
 	    weather_info.sky = SKY_CLOUDLESS;
 	}
 	break;
@@ -931,14 +931,14 @@ void weather_update( void )
 	case SKY_RAINING:
 	if ( weather_info.mmhg <  970 && number_bits( 2 ) == 0 )
 	{
-	    strcat( buf, msg(UPDATE_WEATHER_LIGHTNING_FLASHES, ch->i_lang));
+	    strcat( buf, msg(UPDATE_WEATHER_LIGHTNING_FLASHES, ch));
 	    weather_info.sky = SKY_LIGHTNING;
 	}
 
 	if ( weather_info.mmhg > 1030
 	|| ( weather_info.mmhg > 1010 && number_bits( 2 ) == 0 ) )
 	{
-	    strcat( buf, msg(UPDATE_WEATHER_THE_RAIN_STOPPED, ch->i_lang));
+	    strcat( buf, msg(UPDATE_WEATHER_THE_RAIN_STOPPED, ch));
 	    weather_info.sky = SKY_CLOUDY;
 	}
 	break;
@@ -947,7 +947,7 @@ void weather_update( void )
 	if ( weather_info.mmhg > 1010
 	|| ( weather_info.mmhg >  990 && number_bits( 2 ) == 0 ) )
 	{
-	    strcat( buf, msg(UPDATE_WEATHER_LIGHTNING_STOPPED, ch->i_lang));
+	    strcat( buf, msg(UPDATE_WEATHER_LIGHTNING_STOPPED, ch));
 	    weather_info.sky = SKY_RAINING;
 	    break;
 	}

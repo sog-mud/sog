@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.7 1998-04-21 11:36:36 fjoe Exp $
+ * $Id: act_comm.c,v 1.8 1998-04-21 22:03:49 efdi Exp $
  */
 
 /***************************************************************************
@@ -74,18 +74,18 @@ void do_i_lang( CHAR_DATA *ch, char *argument)
 {
 	if( *argument == '\0' ) {
 		act_printf(ch, NULL, NULL, TO_CHAR, 0, 
-			msg(COMM_SHOW_LANGUAGE, ch->i_lang),
+			COMM_SHOW_LANGUAGE, 
 			ch->i_lang ? "russian" : "english");
 		return;
 	}
 	if( !strncmp("russian", argument, strlen(argument)) ) {
 		ch->i_lang = 1;
-		act(msg(COMM_SWITCH_TO_RUSSIAN, ch->i_lang), ch, NULL, NULL, TO_CHAR);
+		act_printf(ch, NULL, NULL, TO_CHAR, 0, COMM_SWITCH_TO_RUSSIAN );
 	} else if( !strncmp("english", argument, strlen(argument)) ) {
 		ch->i_lang = 0;
-		act(msg(COMM_SWITCH_TO_ENGLISH, ch->i_lang), ch, NULL, NULL, TO_CHAR);
+		act_printf(ch, NULL, NULL, TO_CHAR, 0, COMM_SWITCH_TO_ENGLISH);
 	} else
-		act(msg(COMM_LANGUAGE_USAGE, ch->i_lang), ch, NULL, NULL, TO_CHAR);
+		act_printf(ch, NULL, NULL, TO_CHAR, 0, COMM_LANGUAGE_USAGE);
 }
 
 /* RT code to delete yourself */
@@ -1329,7 +1329,7 @@ void do_order( CHAR_DATA *ch, char *argument )
 	    if ( !proper_order( och, argument ) )
 		continue;
 	    act_printf(ch, NULL, och, TO_VICT, POS_RESTING,
-	    	       "$n orders you to '%s', you do.", argument);
+	    	       COMM_ORDERS_YOU_TO, argument);
 	    interpret(och, argument, TRUE);
 	}
     }

@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.3 1998-04-18 04:05:25 efdi Exp $
+ * $Id: act_move.c,v 1.4 1998-04-21 22:03:52 efdi Exp $
  */
 
 /***************************************************************************
@@ -102,7 +102,6 @@ void move_char( CHAR_DATA *ch, int door, bool follow )
     EXIT_DATA *pexit;
     bool room_has_pc;
     OBJ_DATA *obj;
-    char buf[MAX_STRING_LENGTH];
 
    if (RIDDEN(ch) && !IS_NPC(ch->mount)) 
    {
@@ -343,29 +342,22 @@ void move_char( CHAR_DATA *ch, int door, bool follow )
             number_percent() < get_skill(ch,gsn_quiet_movement) )
           {
 	    if (MOUNTED(ch))
-	        sprintf(buf, 
-			msg(ch->sex == SEX_FEMALE ? MOVE_LEAVES_RIDING_ON_F : 
-					MOVE_LEAVES_RIDING_ON_M, ch->i_lang), 
-			MOUNTED(ch)->short_descr );
-            else sprintf(buf, 
-			msg(ch->sex == SEX_FEMALE ? MOVE_LEAVES_F : 
-					MOVE_LEAVES_M, ch->i_lang)
-			);
+		act_printf(ch, NULL, dir_name[door], TO_ROOM, POS_RESTING, 
+			MOVE_LEAVES_RIDING_ON, MOUNTED(ch)->short_descr );
+            else
+		act_printf(ch, NULL, dir_name[door], TO_ROOM, POS_RESTING, 
+			MOVE_LEAVES);
             check_improve(ch,gsn_quiet_movement,TRUE,1);
           }
 	else 
 	  {
            if (MOUNTED(ch))
-		sprintf(buf, 
-			msg(ch->sex == SEX_FEMALE ? MOVE_LEAVES_T_RIDING_ON_F :
-					MOVE_LEAVES_T_RIDING_ON_M, ch->i_lang),
-			MOUNTED(ch)->short_descr );
-  	   else sprintf(buf, 
-			msg(ch->sex == SEX_FEMALE ? MOVE_LEAVES_T_F : 
-					MOVE_LEAVES_T_M, ch->i_lang)
-			);
+		act_printf(ch, NULL, dir_name[door], TO_ROOM, POS_RESTING, 
+			MOVE_LEAVES_T_RIDING_ON, MOUNTED(ch)->short_descr );
+  	   else
+		act_printf(ch, NULL, dir_name[door], TO_ROOM, POS_RESTING, 
+			MOVE_LEAVES_T);
 	  }
-  	  act( buf, ch, NULL, dir_name[door], TO_ROOM );
      }
 
     if ( IS_AFFECTED(ch, AFF_CAMOUFLAGE) && to_room->sector_type != SECT_FIELD
@@ -391,8 +383,8 @@ void move_char( CHAR_DATA *ch, int door, bool follow )
     &&   ch->invis_level < LEVEL_HERO)
       {
 	if (mount)
-	     act( msg(ch->sex == SEX_FEMALE ? MOVE_ARRIVED_RIDING_F : MOVE_ARRIVED_RIDING_M, ch->i_lang), ch, NULL, mount,TO_ROOM );
-	else act( msg(ch->sex == SEX_FEMALE ? MOVE_ARRIVED_F : MOVE_ARRIVED_M, ch->i_lang), ch, NULL, NULL, TO_ROOM );
+	     act_printf(ch, NULL, mount,TO_ROOM, POS_RESTING, MOVE_ARRIVED_RIDING);
+	else act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING, MOVE_ARRIVED );
       }
 
     do_look( ch, "auto" );
@@ -3034,12 +3026,12 @@ if ( ( door = find_exit( ch, arg2 ) ) >= 0 )
     }
 
 
-    act_printf(ch,NULL,victim,TO_CHAR,POS_SLEEPING,
-	       "You push $N to %s.",dir_name[door]);
-    act_printf(ch,NULL,victim,TO_VICT,POS_SLEEPING,
-	       "$n pushes you to %s.", dir_name[door]);
-    act_printf(ch,NULL,victim,TO_NOTVICT,POS_SLEEPING,
-    	       "$n pushes $N to %s.", dir_name[door]);
+    act_printf(ch, NULL, victim, TO_CHAR, POS_SLEEPING,
+	       COMM_YOU_PUSH, dir_name[door]);
+    act_printf(ch, NULL, victim, TO_VICT, POS_SLEEPING,
+	       COMM_PUSHES_YOU, dir_name[door]);
+    act_printf(ch, NULL, victim, TO_NOTVICT, POS_SLEEPING,
+    	       COMM_PUSHES_N_TO, dir_name[door]);
     move_char(victim, door, FALSE);
 
     check_improve(ch,gsn_push,TRUE,1);

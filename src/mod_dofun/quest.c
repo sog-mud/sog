@@ -1,5 +1,5 @@
 /*
- * $Id: quest.c,v 1.3 1998-04-21 13:02:49 efdi Exp $
+ * $Id: quest.c,v 1.4 1998-04-21 22:03:55 efdi Exp $
  */
 
 /***************************************************************************
@@ -511,7 +511,7 @@ To buy an item, type 'QUEST BUY <item>'.\n\r",
 	    return;
 	}
 
-	sprintf(buf, "Thank you, brave %s!",ch->name);
+	sprintf(buf, msg(QUEST_THANK_YOU_BRAVE, ch), ch->name);
 	do_tell_quest(ch,questman,buf);
 
 	generate_quest(ch, questman);
@@ -1005,7 +1005,7 @@ void quest_update(void)
 
 void do_tell_quest( CHAR_DATA *ch, CHAR_DATA *victim, char *argument )
 {
-	char_printf(ch, msg(QUEST_QUESTOR_TELLS_YOU, ch->i_lang),victim->name,argument);
+	char_printf(ch, msg(QUEST_QUESTOR_TELLS_YOU, ch),victim->name,argument);
         return;
 }
 

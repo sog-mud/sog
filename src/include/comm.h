@@ -2,7 +2,7 @@
 #define _COMM_H_
 
 /*
- * $Id: comm.h,v 1.1 1998-04-14 08:54:28 fjoe Exp $
+ * $Id: comm.h,v 1.2 1998-04-21 22:03:57 efdi Exp $
  */
 
 /* comm.c */
@@ -22,7 +22,7 @@ void	act_puts(const char *format, CHAR_DATA *ch,
 		 const void *arg1, const void *arg2, int type,
 		 int min_pos);
 void    act_printf(CHAR_DATA *ch, const void *arg1, const void *arg2,
-		   int type, int min_pos, const char* format, ...);
+		   int type, int min_pos, int msg_num, ...);
 
 void    dump_to_scr(char *text);
 

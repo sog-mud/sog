@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.11 1998-04-21 13:02:48 efdi Exp $
+ * $Id: act_info.c,v 1.12 1998-04-21 22:03:50 efdi Exp $
  */
 
 /***************************************************************************
@@ -101,32 +101,8 @@ int	const	where_name	[] =
 	EQ_STUCK_IN,
 };
 
-
-int const pos_name[18] = {
-	INFO_POS_NAME_DEAD_M,
-	INFO_POS_NAME_MORTALLY_WOUNDED_M,
-	INFO_POS_NAME_INCAPACITATED_M,
-	INFO_POS_NAME_STUNNED_M,
-	INFO_POS_NAME_SLEEPING_M,
-	INFO_POS_NAME_RESTING_M,
-	INFO_POS_NAME_SITTING_M,
-	INFO_POS_NAME_FIGHTING_M,
-	INFO_POS_NAME_STANDING_M,
-	INFO_POS_NAME_DEAD_F,
-	INFO_POS_NAME_MORTALLY_WOUNDED_F,
-	INFO_POS_NAME_INCAPACITATED_F,
-	INFO_POS_NAME_STUNNED_F,
-	INFO_POS_NAME_SLEEPING_F,
-	INFO_POS_NAME_RESTING_F,
-	INFO_POS_NAME_SITTING_F,
-	INFO_POS_NAME_FIGHTING_F,
-	INFO_POS_NAME_STANDING_F,
-};
-
 /* for do_count */
 int max_on = 0;
-
-
 
 /*
  * Local functions.
@@ -315,7 +291,7 @@ void show_list_to_char( OBJ_DATA *list, CHAR_DATA *ch, bool fShort, bool fShowNo
 	{
 	if ( IS_NPC(ch) || IS_SET(ch->comm, COMM_COMBINE) )
 	    send_to_char( "     ", ch );
-	send_to_char(msg(INFO_NOTHING, ch->i_lang), ch );
+	send_to_char(msg(INFO_NOTHING, ch), ch );
     }
     page_to_char(buf_string(output),ch);
 
@@ -422,94 +398,94 @@ void show_char_to_char_0( CHAR_DATA *victim, CHAR_DATA *ch )
 	{
 	    if (IS_SET(victim->on->value[2],SLEEP_AT))
   	    {
-		sprintf(message, msg(INFO_SLEEPING_AT, ch->i_lang),
+		sprintf(message, msg(INFO_SLEEPING_AT, ch),
 		    victim->on->short_descr);
 		strcat(buf,message);
 	    }
 	    else if (IS_SET(victim->on->value[2],SLEEP_ON))
 	    {
-		sprintf(message, msg(INFO_SLEEPING_ON, ch->i_lang),
+		sprintf(message, msg(INFO_SLEEPING_ON, ch),
 		    victim->on->short_descr); 
 		strcat(buf,message);
 	    }
 	    else
 	    {
-		sprintf(message, msg(INFO_SLEEPING_IN, ch->i_lang),
+		sprintf(message, msg(INFO_SLEEPING_IN, ch),
 		    victim->on->short_descr);
 		strcat(buf,message);
 	    }
 	}
 	else 
-	    strcat(buf, msg(INFO_SLEEPING, ch->i_lang));
+	    strcat(buf, msg(INFO_SLEEPING, ch));
 	break;
 	case POS_RESTING:  
 	    if (victim->on != NULL)
 	{
 	        if (IS_SET(victim->on->value[2],REST_AT))
 	        {
-	            sprintf(message, msg(INFO_RESTING_AT, ch->i_lang),
+	            sprintf(message, msg(INFO_RESTING_AT, ch),
 	                victim->on->short_descr);
 	            strcat(buf,message);
 	        }
 	        else if (IS_SET(victim->on->value[2],REST_ON))
 	        {
-	            sprintf(message, msg(INFO_RESTING_ON, ch->i_lang),
+	            sprintf(message, msg(INFO_RESTING_ON, ch),
 	                victim->on->short_descr);
 	            strcat(buf,message);
 	        }
 	        else 
 	        {
-	            sprintf(message, msg(INFO_RESTING_IN, ch->i_lang),
+	            sprintf(message, msg(INFO_RESTING_IN, ch),
 	                victim->on->short_descr);
 	            strcat(buf,message);
 	        }
 	}
 	    else
-	    strcat( buf, msg(INFO_RESTING, ch->i_lang));       
+	    strcat( buf, msg(INFO_RESTING, ch));       
 	break;
 	case POS_SITTING:  
 	    if (victim->on != NULL)
 	    {
 	        if (IS_SET(victim->on->value[2],SIT_AT))
 	        {
-	            sprintf(message, msg(INFO_SITTING_AT, ch->i_lang),
+	            sprintf(message, msg(INFO_SITTING_AT, ch),
 	                victim->on->short_descr);
 	            strcat(buf,message);
 	        }
 	        else if (IS_SET(victim->on->value[2],SIT_ON))
 	        {
-	            sprintf(message, msg(INFO_SITTING_ON, ch->i_lang),
+	            sprintf(message, msg(INFO_SITTING_ON, ch),
 	                victim->on->short_descr);
 	            strcat(buf,message);
 	        }
 	        else
 	        {
-	            sprintf(message, msg(INFO_SITTING_IN, ch->i_lang),
+	            sprintf(message, msg(INFO_SITTING_IN, ch),
 	                victim->on->short_descr);
 	            strcat(buf,message);
 	        }
 	    }
 	    else
-	    strcat(buf, msg(INFO_SITTING, ch->i_lang));
+	    strcat(buf, msg(INFO_SITTING, ch));
 	break;
 	case POS_STANDING: 
 	if (victim->on != NULL)
 	{
 	    if (IS_SET(victim->on->value[2],STAND_AT))
 	    {
-		sprintf(message, msg(INFO_STANDING_AT, ch->i_lang),
+		sprintf(message, msg(INFO_STANDING_AT, ch),
 		    victim->on->short_descr);
 		strcat(buf,message);
 	    }
 	    else if (IS_SET(victim->on->value[2],STAND_ON))
 	    {
-		sprintf(message, msg(INFO_STANDING_ON, ch->i_lang),
+		sprintf(message, msg(INFO_STANDING_ON, ch),
 		   victim->on->short_descr);
 		strcat(buf,message);
 	    }
 	    else
 	    {
-		sprintf(message, msg(INFO_STANDING, ch->i_lang),
+		sprintf(message, msg(INFO_STANDING, ch),
 		    victim->on->short_descr);
 		strcat(buf,message);
 	    }
@@ -519,10 +495,10 @@ void show_char_to_char_0( CHAR_DATA *victim, CHAR_DATA *ch )
 	  sprintf(message," is here, riding %s.",PERS(MOUNTED(victim),ch));
 	  strcat(buf, message);
 	}
-	else  strcat( buf, msg(INFO_IS_HERE, ch->i_lang));               
+	else  strcat( buf, msg(INFO_IS_HERE, ch));               
 	break;
 	case POS_FIGHTING:
-	strcat( buf, msg(INFO_FIGHTING, ch->i_lang));
+	strcat( buf, msg(INFO_FIGHTING, ch));
 	if ( victim->fighting == NULL )
 	    strcat( buf, "thin air??" );
 	else if ( victim->fighting == ch )
@@ -539,7 +515,7 @@ void show_char_to_char_0( CHAR_DATA *victim, CHAR_DATA *ch )
 
 	strcat( buf, "\n\r" );
 	buf[0] = UPPER(buf[0]);
-	act( buf, ch, NULL, NULL, TO_CHAR );
+	send_to_char(buf, ch);
 	return;
 }
 
@@ -598,21 +574,21 @@ void show_char_to_char_1( CHAR_DATA *victim, CHAR_DATA *ch )
 
 	strcat(buf, "  ");
             if (percent >= 100)
-                sprintf(buf, msg(INFO_IS_IN_PERFECT_HEALTH, ch->i_lang));
+                sprintf(buf, msg(INFO_IS_IN_PERFECT_HEALTH, ch));
             else if (percent >= 90)
-                sprintf(buf, msg(INFO_HAS_A_FEW_SCRATCHES, ch->i_lang));
+                sprintf(buf, msg(INFO_HAS_A_FEW_SCRATCHES, ch));
             else if (percent >= 75)
-                sprintf(buf, msg(INFO_HAS_SOME_SMALL_BUT_DISGUSTING_CUTS, ch->i_lang));
+                sprintf(buf, msg(INFO_HAS_SOME_SMALL_BUT_DISGUSTING_CUTS, ch));
             else if (percent >= 50)
-                sprintf(buf, msg(INFO_IS_COVERED_WITH_BLEEDING_WOUNDS, ch->i_lang));
+                sprintf(buf, msg(INFO_IS_COVERED_WITH_BLEEDING_WOUNDS, ch));
             else if (percent >= 30)
-                sprintf(buf, msg(ch->sex == SEX_FEMALE ? INFO_IS_GUSHING_BLOOD_F : INFO_IS_GUSHING_BLOOD_M, ch->i_lang));
+                sprintf(buf, msg(INFO_IS_GUSHING_BLOOD, ch));
             else if (percent >= 15)
-                sprintf(buf, msg(INFO_IS_WRITHING_IN_AGONY, ch->i_lang));
+                sprintf(buf, msg(INFO_IS_WRITHING_IN_AGONY, ch));
             else if (percent >= 0)
-                sprintf(buf, msg(INFO_IS_CONVULSING_ON_THE_GROUND, ch->i_lang));
+                sprintf(buf, msg(INFO_IS_CONVULSING_ON_THE_GROUND, ch));
             else
-                sprintf(buf, msg(INFO_IS_NEARLY_DEAD, ch->i_lang));
+                sprintf(buf, msg(INFO_IS_NEARLY_DEAD, ch));
 	strcat(buf, "\n\r");
 	/* vampire ... */
 	if (percent < 90 && ch->class == CLASS_VAMPIRE && ch->level > 10)
@@ -632,11 +608,11 @@ void show_char_to_char_1( CHAR_DATA *victim, CHAR_DATA *ch )
 	    if ( !found )
 	    {
 		send_to_char( "\n\r", ch );
-		act(msg(INFO_IS_USING, ch->i_lang), ch, NULL, victim, TO_CHAR );
+		act(msg(INFO_IS_USING, ch), ch, NULL, victim, TO_CHAR );
 		found = TRUE;
 	    }
-	    act_printf(ch, NULL, NULL, TO_CHAR, POS_RESTING, "%s%s", 
-				msg(where_name[iWear], ch->i_lang), 
+	    act_printf(ch, NULL, NULL, TO_CHAR, POS_RESTING, INFO_S_S, 
+				msg(where_name[iWear], ch), 
 				format_obj_to_char(obj, ch, TRUE));
 	}
 	}
@@ -649,11 +625,11 @@ void show_char_to_char_1( CHAR_DATA *victim, CHAR_DATA *ch )
 	    if ( !found )
 	    {
 		send_to_char( "\n\r", ch );
-		act(msg(INFO_IS_USING, ch->i_lang), ch, NULL, victim, TO_CHAR );
+		act(msg(INFO_IS_USING, ch), ch, NULL, victim, TO_CHAR );
 		found = TRUE;
 	    }
-	    act_printf(ch, NULL, NULL, TO_CHAR, POS_RESTING, "%s%s", 
-				msg(where_name[iWear], ch->i_lang), 
+	    act_printf(ch, NULL, NULL, TO_CHAR, POS_RESTING, INFO_S_S, 
+				msg(where_name[iWear], ch), 
 				format_obj_to_char(obj, ch, TRUE));
 	}
 
@@ -667,11 +643,11 @@ void show_char_to_char_1( CHAR_DATA *victim, CHAR_DATA *ch )
 	    if ( !found )
 	    {
 		send_to_char( "\n\r", ch );
-		act(msg(INFO_IS_USING, ch->i_lang), ch, NULL, victim, TO_CHAR );
+		act(msg(INFO_IS_USING, ch), ch, NULL, victim, TO_CHAR );
 		found = TRUE;
 	    }
-	    act_printf(ch, NULL, NULL, TO_CHAR, POS_RESTING, "%s%s", 
-				msg(where_name[iWear], ch->i_lang), 
+	    act_printf(ch, NULL, NULL, TO_CHAR, POS_RESTING, INFO_S_S, 
+				msg(where_name[iWear], ch), 
 				format_obj_to_char(obj, ch, TRUE));
 	}
 	}
@@ -686,11 +662,11 @@ void show_char_to_char_1( CHAR_DATA *victim, CHAR_DATA *ch )
 	    if ( !found )
 	    {
 		send_to_char( "\n\r", ch );
-		act(msg(INFO_IS_USING, ch->i_lang), ch, NULL, victim, TO_CHAR );
+		act(msg(INFO_IS_USING, ch), ch, NULL, victim, TO_CHAR );
 		found = TRUE;
 	    }
-	    act_printf(ch, NULL, NULL, TO_CHAR, POS_RESTING, "%s%s", 
-				msg(where_name[iWear], ch->i_lang), 
+	    act_printf(ch, NULL, NULL, TO_CHAR, POS_RESTING, INFO_S_S, 
+				msg(where_name[iWear], ch), 
 				format_obj_to_char(obj, ch, TRUE));
 	}
 	}
@@ -699,7 +675,7 @@ void show_char_to_char_1( CHAR_DATA *victim, CHAR_DATA *ch )
 	&&   !IS_NPC(ch)
 	&&   number_percent( ) < get_skill(ch,gsn_peek))
 	{
-	send_to_char( msg(INFO_YOU_PEEK_AT_THE_INVENTORY, ch->i_lang), ch );
+	send_to_char( msg(INFO_YOU_PEEK_AT_THE_INVENTORY, ch), ch );
 	check_improve(ch,gsn_peek,TRUE,4);
 	show_list_to_char( is_affected(victim,gsn_mirror) ?
 	                       vict->carrying : victim->carrying,
@@ -1712,12 +1688,12 @@ void do_time( CHAR_DATA *ch, char *argument )
 	if (!IS_SET(ch->in_room->room_flags,ROOM_INDOORS)
 	    || IS_IMMORTAL(ch)) {
 		act_printf(ch, NULL, NULL, TO_CHAR, POS_RESTING,
-			   "It's %s.",
-			   (time_info.hour>=5 && time_info.hour<9)? "dawn":
-			   (time_info.hour>=9 && time_info.hour<12)? "morning":
-			   (time_info.hour>=12 && time_info.hour<18)? "mid-day":
-			   (time_info.hour>=18 && time_info.hour<21)? "evening":
-			   "night");
+			   INFO_ITS_S,
+			   (time_info.hour>=5 && time_info.hour<9)? msg(INFO_TIME_DAWN, ch):
+			   (time_info.hour>=9 && time_info.hour<12)? msg(INFO_TIME_MORNING, ch):
+			   (time_info.hour>=12 && time_info.hour<18)? msg(INFO_TIME_MID_DAY, ch):
+			   (time_info.hour>=18 && time_info.hour<21)? msg(INFO_TIME_EVENING, ch):
+			   msg(INFO_TIME_NIGHT, ch));
 	}
 
 	if (!IS_IMMORTAL(ch)) 
@@ -2208,7 +2184,7 @@ void do_count ( CHAR_DATA *ch, char *argument )
 
 void do_inventory( CHAR_DATA *ch, char *argument )
 {
-	send_to_char( msg(INFO_YOU_ARE_CARRYING, ch->i_lang), ch );
+	send_to_char( msg(INFO_YOU_ARE_CARRYING, ch), ch );
 	show_list_to_char( ch->carrying, ch, TRUE, TRUE );
 	return;
 }
@@ -2222,14 +2198,14 @@ void do_equipment( CHAR_DATA *ch, char *argument )
 	bool found;
 	char buf[MAX_STRING_LENGTH];
 
-	send_to_char( msg(INFO_YOU_ARE_USING, ch->i_lang), ch );
+	send_to_char( msg(INFO_YOU_ARE_USING, ch), ch );
 	found = FALSE;
 	for ( iWear = 0; iWear < WEAR_HOLD; iWear++ )
 	{
 	if ( ( obj = get_eq_char( ch, iWear ) ) == NULL )
 	    continue;
 
-	send_to_char( msg(where_name[iWear], ch->i_lang), ch );
+	send_to_char( msg(where_name[iWear], ch), ch );
 	if ( can_see_obj( ch, obj ) )
 	{
 	    sprintf(buf,"%s\n\r", format_obj_to_char( obj, ch, TRUE ) );
@@ -2245,7 +2221,7 @@ void do_equipment( CHAR_DATA *ch, char *argument )
 	iWear = WEAR_SECOND_WIELD;
 	if ( ( obj = get_eq_char( ch, iWear ) ) != NULL )
 	 {
-	send_to_char( msg(where_name[iWear], ch->i_lang), ch );
+	send_to_char( msg(where_name[iWear], ch), ch );
 	if ( can_see_obj( ch, obj ) )
 	{
 	    sprintf(buf,"%s\n\r", format_obj_to_char( obj, ch, TRUE ) );
@@ -2263,7 +2239,7 @@ void do_equipment( CHAR_DATA *ch, char *argument )
 	if ( ( obj = get_eq_char( ch, iWear ) ) == NULL )
 	    continue;
 
-	send_to_char( msg(where_name[iWear], ch->i_lang), ch );
+	send_to_char( msg(where_name[iWear], ch), ch );
 	if ( can_see_obj( ch, obj ) )
 	{
 	    sprintf(buf,"%s\n\r", format_obj_to_char( obj, ch, TRUE ) );
@@ -2280,7 +2256,7 @@ void do_equipment( CHAR_DATA *ch, char *argument )
 	for( obj = ch->carrying; obj != NULL; obj = obj->next_content )
 	{
 	if ( obj->wear_loc != iWear ) continue;
-	send_to_char( msg(where_name[iWear], ch->i_lang), ch );
+	send_to_char( msg(where_name[iWear], ch), ch );
 	if ( can_see_obj( ch, obj ) )
 	{
 	    sprintf(buf,"%s\n\r", format_obj_to_char( obj, ch, TRUE ) );
@@ -2566,7 +2542,7 @@ void set_title(CHAR_DATA *ch, char *title, ...)
 	}
 
 	if (strchr(skip, title[0]))
-		title++;
+		title ++;
 
 	va_start(ap, title);
 	vsprintf(buf, title, ap);
@@ -3584,8 +3560,8 @@ void do_score( CHAR_DATA *ch, char *argument )
 
 	sprintf(buf, "     {G| {RAlign:  {x%-11s  {C|                |{x %-7s %-19s {G|{x\n\r",		
 		IS_GOOD(ch) ? "good" : IS_EVIL(ch) ? "evil" : "neutral",
-		msg(INFO_YOU_ARE, ch->i_lang ),
-		msg(pos_name[ch->sex == SEX_FEMALE ? ch->position+9 : ch->position], ch->i_lang));
+		msg(INFO_YOU_ARE, ch ),
+		msg(INFO_POS_NAME_DEAD + ch->position*3, ch));
 	send_to_char(buf, ch);
 
 	send_to_char("     {G|{C+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+{G|{x{x\n\r", ch);
@@ -3723,9 +3699,9 @@ void do_oscore( CHAR_DATA *ch, char *argument )
 	int i;
 
 	sprintf(buf,
-		"%s {W%s{x %s, level {W%d{x, {g%d{x years old "
+		"%s {W%s{x%s, level {W%d{x, {g%d{x years old "
 		"(%d hours).\n\r",
-		msg(INFO_YOU_ARE, ch->i_lang),
+		msg(INFO_YOU_ARE, ch),
 		ch->name,
 		IS_NPC(ch) ? "" : ch->pcdata->title, ch->level, get_age(ch),
 		(ch->played + (int) (current_time - ch->logon)) / 3600);
@@ -3855,8 +3831,8 @@ void do_oscore( CHAR_DATA *ch, char *argument )
 		send_to_char("You are {rdesiring your home{x.\n\r", ch);
 	
 	sprintf(buf, "%s %s.\n\r",
-		msg(INFO_YOU_ARE, ch->i_lang), 
-		msg(pos_name[ch->sex == SEX_FEMALE ? ch->position+9 : ch->position], ch->i_lang));
+		msg(INFO_YOU_ARE, ch), 
+		msg(INFO_POS_NAME_DEAD + ch->position*3, ch));
 	send_to_char(buf, ch);
 	
 	if ((ch->position == POS_SLEEPING || ch->position == POS_RESTING ||
@@ -4153,12 +4129,12 @@ char *get_cond_alias( OBJ_DATA *obj, CHAR_DATA *ch )
 
  istat = obj->condition;
 
- if      ( istat >  99 ) stat = msg(INFO_COND_EXCELLENT, ch->i_lang); 
- else if ( istat >= 80 ) stat = msg(INFO_COND_GOOD, ch->i_lang); 
- else if ( istat >= 60 ) stat = msg(INFO_COND_FINE, ch->i_lang);
- else if ( istat >= 40 ) stat = msg(INFO_COND_AVERAGE, ch->i_lang);
- else if ( istat >= 20 ) stat = msg(INFO_COND_POOR, ch->i_lang);
- else                    stat = msg(INFO_COND_FRAGILE, ch->i_lang);
+ if      ( istat >  99 ) stat = msg(INFO_COND_EXCELLENT, ch); 
+ else if ( istat >= 80 ) stat = msg(INFO_COND_GOOD, ch); 
+ else if ( istat >= 60 ) stat = msg(INFO_COND_FINE, ch);
+ else if ( istat >= 40 ) stat = msg(INFO_COND_AVERAGE, ch);
+ else if ( istat >= 20 ) stat = msg(INFO_COND_POOR, ch);
+ else                    stat = msg(INFO_COND_FRAGILE, ch);
 
  return stat;
 }

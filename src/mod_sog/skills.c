@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.2 1998-04-14 08:54:34 fjoe Exp $
+ * $Id: skills.c,v 1.3 1998-04-21 22:03:56 efdi Exp $
  */
 
 /***************************************************************************
@@ -54,6 +54,7 @@
 #include "magic.h"
 #include "db.h"
 #include "comm.h"
+#include "resource.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_help		);
@@ -333,7 +334,7 @@ void check_improve( CHAR_DATA *ch, int sn, bool success, int multiplier )
 	chance = URANGE(5,100 - ch->pcdata->learned[sn], 95);
 	if (number_percent() < chance) {
 	    act_printf(ch, NULL, NULL, TO_CHAR, POS_DEAD,
-	               "You have become better at %s!",
+	               SKILLS_HAVE_BECOME_BETTER,
 		       skill_table[sn].name);
 	    ch->pcdata->learned[sn]++;
 	    gain_exp(ch,2 * skill_table[sn].rating[ch->class]);
@@ -343,7 +344,7 @@ void check_improve( CHAR_DATA *ch, int sn, bool success, int multiplier )
 	chance = URANGE(5,ch->pcdata->learned[sn]/2,30);
 	if (number_percent() < chance) {
 	    act_printf(ch, NULL, NULL, TO_CHAR, POS_DEAD,
-		   "You learn from your mistakes, and your %s skill improves.",
+		   SKILLS_LEARN_FROM_MISTAKES,
 		skill_table[sn].name);
 	    ch->pcdata->learned[sn] += number_range(1,3);
 	    ch->pcdata->learned[sn] = UMIN(ch->pcdata->learned[sn],100);

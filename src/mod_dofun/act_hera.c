@@ -1,5 +1,5 @@
 /*
- * $Id: act_hera.c,v 1.4 1998-04-18 07:11:51 fjoe Exp $
+ * $Id: act_hera.c,v 1.5 1998-04-21 22:03:50 efdi Exp $
  */
 
 /***************************************************************************
@@ -47,7 +47,7 @@
 ***************************************************************************/
 
 /*
- * $Id: act_hera.c,v 1.4 1998-04-18 07:11:51 fjoe Exp $
+ * $Id: act_hera.c,v 1.5 1998-04-21 22:03:50 efdi Exp $
  */
 #if defined(macintosh)
 #include <types.h>
@@ -64,6 +64,7 @@
 #include "db.h"
 #include "comm.h"
 #include "interp.h"
+#include "resource.h"
 
 /* random room generation procedure */
 ROOM_INDEX_DATA  *get_random_room(CHAR_DATA *ch)
@@ -155,8 +156,8 @@ void do_enter( CHAR_DATA *ch, char *argument)
         }
 
 	act_printf(ch, portal, NULL, TO_ROOM, POS_RESTING,
-		   MOUNTED(ch) ? "$n steps into $p, riding on %s." :
-				 "$n steps into $p",
+		   MOUNTED(ch) ? HERA_STEPS_INTO_RIDING_ON :
+				 HERA_STEPS_INTO,
 		   MOUNTED(ch)->short_descr);
 	
 	act(IS_SET(portal->value[2], GATE_NORMAL_EXIT) ?
@@ -901,7 +902,7 @@ else {
    */
   }
 	act_printf(ch, NULL, victim, TO_CHAR, POS_RESTING,
-		   "$N is %s from here.", dir_name[direction]);
+		   HERA_IS_FROM_HERE, dir_name[direction]);
   return;
 }
 
@@ -1237,20 +1238,16 @@ void damage_to_obj(CHAR_DATA *ch,OBJ_DATA *wield, OBJ_DATA *worn, int damage)
 	&&  IS_SET(wield->extra_flags,ITEM_ANTI_NEUTRAL)
 	&&  IS_SET(worn->extra_flags,ITEM_ANTI_EVIL) 
 	&&  IS_SET(worn->extra_flags,ITEM_ANTI_NEUTRAL)) {
-		act_printf(ch, wield, worn, TO_ROOM, POS_RESTING,
-			   "$p doesn't want to fight against $P.");
-		act_printf(ch, wield, worn, TO_CHAR, POS_RESTING,
-			   "$p removes itself from you!.");
-		act_printf(ch, wield, worn, TO_ROOM, POS_RESTING,
-			   "$p removes itself from $n.");
+		act_puts("$p doesn't want to fight against $P.", ch, wield, worn, TO_ROOM, POS_RESTING);
+		act_puts("$p removes itself from you!", ch, wield, worn, TO_CHAR, POS_RESTING);
+		act_puts("$p removes itself from $n.", ch, wield, worn, TO_ROOM, POS_RESTING);
 		unequip_char( ch, wield );
 		return;
  	}
 
 	if (IS_SET(wield->extra_flags,ITEM_ANTI_EVIL) 
 	&&  IS_SET(worn->extra_flags,ITEM_ANTI_EVIL)) {
-		act_printf(ch, wield, worn, TO_ROOM, POS_RESTING,
-			   "The $p worries for the damage to $P.");
+		act_puts("The $p worries for the damage to $P.", ch, wield, worn, TO_ROOM, POS_RESTING);
 		return;
 	}
 }

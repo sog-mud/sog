@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.7 1998-04-21 15:57:41 efdi Exp $
+ * $Id: save.c,v 1.8 1998-04-21 22:03:56 efdi Exp $
  */
 
 /***************************************************************************
@@ -60,6 +60,7 @@
 #include "db.h"
 #include "comm.h"
 #include "const.h"
+#include "resource.h"
  
 #if !defined(macintosh)
 extern  int     _filbuf         args( (FILE *) );

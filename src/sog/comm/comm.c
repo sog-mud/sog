@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.11 1998-04-21 13:02:49 efdi Exp $
+ * $Id: comm.c,v 1.12 1998-04-21 22:03:53 efdi Exp $
  */
 
 /***************************************************************************
@@ -1383,27 +1383,27 @@ bool process_output( DESCRIPTOR_DATA *d, bool fPrompt )
                 percent = -1;
   
             if (percent >= 100)
-                sprintf(wound, msg(INFO_IS_IN_PERFECT_HEALTH, ch->i_lang));
+                sprintf(wound, msg(INFO_IS_IN_PERFECT_HEALTH, ch));
             else if (percent >= 90)
-                sprintf(wound, msg(INFO_HAS_A_FEW_SCRATCHES, ch->i_lang));
+                sprintf(wound, msg(INFO_HAS_A_FEW_SCRATCHES, ch));
             else if (percent >= 75)
-                sprintf(wound, msg(INFO_HAS_SOME_SMALL_BUT_DISGUSTING_CUTS, ch->i_lang));
+                sprintf(wound, msg(INFO_HAS_SOME_SMALL_BUT_DISGUSTING_CUTS, ch));
             else if (percent >= 50)
-                sprintf(wound, msg(INFO_IS_COVERED_WITH_BLEEDING_WOUNDS, ch->i_lang));
+                sprintf(wound, msg(INFO_IS_COVERED_WITH_BLEEDING_WOUNDS, ch));
             else if (percent >= 30)
-                sprintf(wound, msg(ch->sex == SEX_FEMALE ? INFO_IS_GUSHING_BLOOD_F : INFO_IS_GUSHING_BLOOD_M, ch->i_lang));
+                sprintf(wound, msg(INFO_IS_GUSHING_BLOOD, ch));
             else if (percent >= 15)
-                sprintf(wound, msg(INFO_IS_WRITHING_IN_AGONY, ch->i_lang));
+                sprintf(wound, msg(INFO_IS_WRITHING_IN_AGONY, ch));
             else if (percent >= 0)
-                sprintf(wound, msg(INFO_IS_CONVULSING_ON_THE_GROUND, ch->i_lang));
+                sprintf(wound, msg(INFO_IS_CONVULSING_ON_THE_GROUND, ch));
             else
-                sprintf(wound, msg(INFO_IS_NEARLY_DEAD, ch->i_lang));
+                sprintf(wound, msg(INFO_IS_NEARLY_DEAD, ch));
 
  
             sprintf(buf,"%s %s \n\r", 
 	            IS_NPC(victim) ? victim->short_descr : victim->name,wound);
 	    buf[0] = UPPER(buf[0]);
-            act( buf, ch, NULL, NULL, TO_CHAR );
+            send_to_char(buf, ch);
         }
 
 
@@ -2988,18 +2988,6 @@ void act (const char *format, CHAR_DATA *ch, const void *arg1,
     act_puts(format,ch,arg1,arg2,type,POS_RESTING);
 }
 
-void act_printf(CHAR_DATA *ch, const void *arg1, const void *arg2,
-		int type, int min_pos, const char* format, ...)
-{
-	char buf[MAX_STRING_LENGTH];
-	va_list ap;
-
-	va_start(ap, format);
-	vsprintf(buf, format, ap);
-	act_puts(buf, ch, arg1, arg2, type, min_pos);
-	va_end(ap);
-}
-
 /*
  * The colour version of the act( ) function, -Lope (taken from Rot)
  */
@@ -3259,6 +3247,268 @@ void act_puts(const char *format, CHAR_DATA *ch, const void *arg1,
 	if( to->desc )
 	    write_to_buffer( to->desc, buf, point - buf );
     }
+    return;
+}
+
+void act_printf(CHAR_DATA *ch, const void *arg1, 
+	      const void *arg2, int type, int min_pos, int msg_num, ...)
+{
+    static char * const he_she  [] = { "it",  "he",  "she" };
+    static char * const him_her [] = { "it",  "him", "her" };
+    static char * const his_her [] = { "its", "his", "her" };
+ 
+    CHAR_DATA	*to;
+    CHAR_DATA 	*vch = ( CHAR_DATA * ) arg2;
+    OBJ_DATA 	*obj1 = ( OBJ_DATA  * ) arg1;
+    OBJ_DATA 	*obj2 = ( OBJ_DATA  * ) arg2;
+    char 	strfoo[ MAX_STRING_LENGTH ];
+    char	*str = strfoo;
+    char 	*i;
+    char 	*point;
+    char 	*i2;
+    char 	fixed[ MAX_STRING_LENGTH ];
+    char 	buf[ MAX_STRING_LENGTH   ];
+    char 	fname[ MAX_INPUT_LENGTH  ];
+    bool	fColour = FALSE;
+    va_list 	ap;
+
+
+    if( !ch || !ch->in_room )
+	return;
+
+    to = ch->in_room->people;
+    if( type == TO_VICT )
+    {
+        if ( !vch )
+        {
+            bug( "Act: null vch with TO_VICT.", 0 );
+            return;
+        }
+
+	if ( !vch->in_room )
+	    return;
+
+        to = vch->in_room->people;
+    }
+ 
+    va_start(ap, msg_num);
+
+    for( ; to ; to = to->next_in_room )
+    {
+        if ( !to->desc || to->position < min_pos )
+            continue;
+ 
+        if( type == TO_CHAR && to != ch )
+            continue;
+        if( type == TO_VICT && ( to != vch || to == ch ) )
+            continue;
+        if( type == TO_ROOM && to == ch )
+            continue;
+        if( type == TO_NOTVICT && ( to == ch || to == vch ) )
+            continue;
+ 
+        point   = buf;
+        vsprintf(str, msg(msg_num, to), ap);
+        while( *str )
+        {
+            if( *str != '$' && *str != '{' )
+            {
+                *point++ = *str++;
+                continue;
+            }
+
+	    i = NULL;
+	    switch( *str )
+	    {
+		case '$':
+		    fColour = TRUE;
+		    ++str;
+		    i = " <@@@> ";
+		    if ( !arg2 && *str >= 'A' && *str <= 'Z' && *str != 'G' )
+		    {
+			bug( "Act: missing arg2 for code %d.", *str );
+			i = " <@@@> ";
+		    }
+		    else
+		    {
+			switch ( *str )
+			{
+			    default:  
+				bug( "Act: bad code %d.", *str );
+				i = " <@@@> ";                                
+				break;
+
+			    case 't': 
+				i = (char *) arg1;                            
+				break;
+
+			    case 'T': 
+				i = (char *) arg2;                            
+				break;
+
+                case 'n': i =  
+		  (is_affected(ch,gsn_doppelganger) && 
+		   !IS_SET(to->act,PLR_HOLYLIGHT)) ? 
+		    PERS(ch->doppel,to) : PERS( ch,  to );
+		  break;
+                case 'N': i =  
+		  (is_affected(vch,gsn_doppelganger) && 
+		   !IS_SET(to->act,PLR_HOLYLIGHT)) ? 
+		    PERS(vch->doppel,to):PERS(vch,  to );
+		  break;
+                case 'e': i = 
+		  (is_affected(ch, gsn_doppelganger) &&
+		    !IS_SET(to->act,PLR_HOLYLIGHT)) ?
+		    he_she [URANGE(0,ch->doppel->sex,2)] :
+		    he_she  [URANGE(0, ch  ->sex, 2)];    
+		  break;
+                case 'E': i = 
+		  (is_affected(vch, gsn_doppelganger) &&
+		    !IS_SET(to->act,PLR_HOLYLIGHT)) ?
+		    he_she  [URANGE(0, vch->doppel->sex, 2)] :
+		    he_she  [URANGE(0, vch->sex, 2)];
+		  break;
+                case 'm': i = 
+		  (is_affected(ch, gsn_doppelganger) &&
+		    !IS_SET(to->act,PLR_HOLYLIGHT)) ?
+		    him_her [URANGE(0,ch->doppel->sex,2)] :
+		    him_her [URANGE(0, ch->sex, 2)];    
+		  break;
+                case 'M': i = 
+		  (is_affected(vch, gsn_doppelganger) &&
+		    !IS_SET(to->act,PLR_HOLYLIGHT)) ?
+		    him_her  [URANGE(0, vch->doppel->sex, 2)] :
+		    him_her  [URANGE(0, vch->sex, 2)];
+		  break;
+                case 's': i = 
+		  (is_affected(ch, gsn_doppelganger) &&
+		    !IS_SET(to->act,PLR_HOLYLIGHT)) ?
+		    his_her [URANGE(0,ch->doppel->sex,2)] :
+		    his_her [URANGE(0, ch  ->sex, 2)];    
+		  break;
+                case 'S': i = 
+		  (is_affected(vch, gsn_doppelganger) &&
+		    !IS_SET(to->act,PLR_HOLYLIGHT)) ?
+		    his_her  [URANGE(0, vch->doppel->sex, 2)] :
+		    his_her  [URANGE(0, vch->sex, 2)];
+		  break;
+ 
+			    case 'p':
+				i = can_see_obj( to, obj1 )
+				  ? obj1->short_descr
+				  : "something";
+				break;
+ 
+			    case 'P':
+				i = can_see_obj( to, obj2 )
+				  ? obj2->short_descr
+				  : "something";
+				break;
+ 
+			    case 'd':
+				if ( !arg2 || ((char *) arg2)[0] == '\0' )
+				{
+				    i = "door";
+				}
+				else
+				{
+				    one_argument( (char *) arg2, fname );
+				    i = fname;
+				}
+				break;
+
+			    case 'G':
+				if ( ch->alignment < 0 )
+				{
+				    i = "Belan";
+				}
+				else
+				{
+				    i = "Thoth";
+				}
+				break;
+
+			}
+		    }
+		    break;
+
+		case '{':
+		    fColour = FALSE;
+		    ++str;
+		    i = NULL;
+		    if( IS_SET( to->act, PLR_COLOR ) )
+			i = color( *str, to );
+		    break;
+
+		default:
+		    fColour = FALSE;
+		    *point++ = *str++;
+		    break;
+	    }
+
+            ++str;
+	    if( fColour && i )
+	    {
+		fixed[0] = '\0';
+		i2 = fixed;
+
+		if( IS_SET( to->act, PLR_COLOR ) )
+		{
+		    for( i2 = fixed ; *i ; i++ )
+	            {
+			if( *i == '{' )
+			{
+			    i++;
+			    strcat( fixed, color( *i, to ) );
+			    for( i2 = fixed ; *i2 ; i2++ )
+				;
+			    continue;
+			}
+			*i2 = *i;
+			*++i2 = '\0';
+		    }			
+		    *i2 = '\0';
+		    i = &fixed[0];
+		}
+	        else
+		{
+		    for( i2 = fixed ; *i ; i++ )
+	            {
+			if( *i == '{' )
+			{
+			    i++;
+			    if( *i != '{' )
+			    {
+				continue;
+			    }
+			}
+			*i2 = *i;
+			*++i2 = '\0';
+		    }			
+		    *i2 = '\0';
+		    i = &fixed[0];
+		}
+	    }
+
+
+	    if( i )
+	    {
+		while( ( *point = *i ) != '\0' )
+		{
+		    ++point;
+		    ++i;
+		}
+	    }
+        }
+ 
+        *point++	= '\n';
+        *point++	= '\r';
+        *point		= '\0';
+	buf[0]		= UPPER( buf[0] );
+	if( to->desc )
+	    write_to_buffer( to->desc, buf, point - buf );
+    }
+    va_end(ap);
     return;
 }
 

@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.3 1998-04-17 11:27:04 efdi Exp $
+ * $Id: act_wiz.c,v 1.4 1998-04-21 22:03:52 efdi Exp $
  */
 
 /***************************************************************************
@@ -468,6 +468,7 @@ void wiznet_printf(CHAR_DATA *ch, OBJ_DATA *obj,
 {
 	va_list ap;
 	DESCRIPTOR_DATA *d;
+	char buf[MAX_STRING_LENGTH];
 
 	va_start(ap, format);
 	for (d = descriptor_list; d != NULL; d = d->next) {
@@ -480,8 +481,8 @@ void wiznet_printf(CHAR_DATA *ch, OBJ_DATA *obj,
 		    d->character != ch) {
 			if (IS_SET(d->character->wiznet,WIZ_PREFIX))
 				send_to_char("--> ",d->character);
-			act_printf(d->character, obj, ch, TO_CHAR, POS_DEAD,
-				   format, ap);
+			vsprintf(buf, format, ap);
+			act_puts(buf, d->character, obj, ch, TO_CHAR, POS_DEAD);
 		}
 	}
 	va_end(ap); 
