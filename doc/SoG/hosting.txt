@@ -1,5 +1,5 @@
 #
-# $Id: hosting.txt,v 1.6 2002-07-26 17:49:59 fjoe Exp $
+# $Id: hosting.txt,v 1.7 2002-08-02 07:03:43 fjoe Exp $
 #
 
 Common server setup
@@ -66,7 +66,7 @@ for Linux):
 User_Alias SOG=%sog
 
 # Cmnd alias specification
-Cmnd_Alias SUSOG=/usr/bin/su - sog,/usr/bin/su sog
+Cmnd_Alias SUSOG=/usr/bin/su - sog
 
 # User privilege specification
 SOG	ALL=NOPASSWD:SUSOG
