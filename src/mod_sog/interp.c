@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.204 2004-02-22 14:45:17 fjoe Exp $
+ * $Id: interp.c,v 1.205 2004-02-22 15:49:03 fjoe Exp $
  */
 
 /***************************************************************************
@@ -143,14 +143,6 @@ interpret(CHAR_DATA *ch, const char *argument, bool is_order)
 		&&  get_skill(vch, cmd->sn) == 0)
 			continue;
 
-		/*
-		 * Implement freeze command.
-		 */
-		if (!IS_NPC(ch)
-		&&  IS_SET(PC(ch)->plr_flags, PLR_FREEZE)
-		&&  !IS_SET(cmd->cmd_flags, CMD_FROZEN_OK))
-			continue;
-
 		if (cmd->min_level >= LEVEL_IMMORTAL) {
 			if (IS_NPC(vch))
 				continue;
@@ -219,6 +211,16 @@ interpret(CHAR_DATA *ch, const char *argument, bool is_order)
 		cmd_log = cmd->cmd_log;
 		cmd_name = cmd->name;
 		cmd_level = cmd->min_level;
+	}
+
+	/*
+	 * Implement freeze command.
+	 */
+	if (!IS_NPC(ch)
+	&&  IS_SET(PC(ch)->plr_flags, PLR_FREEZE)
+	&&  !IS_SET(cmd_flg, CMD_FROZEN_OK)) {
+		act_char("You're totally frozen!", ch);
+		return;
 	}
 
 	/*
