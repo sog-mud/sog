@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: gsn.c,v 1.12 1999-02-18 12:01:19 kostik Exp $
+ * $Id: gsn.c,v 1.13 1999-02-22 15:57:09 kostik Exp $
  */
 
 #include <stdio.h>
@@ -232,6 +232,7 @@ int gsn_frenzy;
 int gsn_riding;
 int gsn_thumbling;
 int gsn_pick;
+int gsn_forest_fighting;
 
 int gsn_doppelganger;
 int gsn_mirror;
@@ -430,6 +431,7 @@ NAMEDP gsn_table[] =
 	{ "gsn_frenzy",			&gsn_frenzy			},
 	{ "gsn_riding",			&gsn_riding			},
 	{ "gsn_thumbling",		&gsn_thumbling			},
+	{ "gsn_forest_fighting",	&gsn_forest_fighting		},
 	{ "gsn_pick",			&gsn_pick			},
 	{ "gsn_doppelganger",		&gsn_doppelganger		},
 	{ "gsn_mirror",			&gsn_mirror			},
