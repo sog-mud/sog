@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_msg.c,v 1.6 1998-10-06 13:20:14 fjoe Exp $
+ * $Id: olc_msg.c,v 1.7 1998-10-07 08:37:32 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -82,12 +82,12 @@ OLC_FUN(msged_create)
 		return FALSE;
 	}
 
-	if (msg_lookup(argument) != NULL) {
+	if (msg_lookup(argument = atomsg(argument))) {
 		char_puts("MsgEd: msg already exists.\n\r", ch);
 		return FALSE;
 	}
 
-	ch->desc->pEdit	= (void*) msg_add(mlstr_new(atomsg(argument)));
+	ch->desc->pEdit	= (void*) msg_add(mlstr_new(argument));
 	ch->desc->editor = ED_MSG;
 	char_puts("Msg created.\n\r", ch);
 	return FALSE;
