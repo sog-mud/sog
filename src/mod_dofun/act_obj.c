@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.54 1998-08-06 11:10:40 fjoe Exp $
+ * $Id: act_obj.c,v 1.55 1998-08-06 21:44:48 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2486,12 +2486,7 @@ do_buy_pet(CHAR_DATA * ch, const char *argument)
 	argument = one_argument(argument, arg);
 	smash_tilde(arg);
 
-	/* hack to make new thalos pets work */
-	if (ch->in_room->vnum == 9621)
-		pRoomIndexNext = get_room_index(9706);
-	else
-		pRoomIndexNext = get_room_index(ch->in_room->vnum + 1);
-
+	pRoomIndexNext = get_room_index(ch->in_room->vnum + 1);
 	if (pRoomIndexNext == NULL) {
 		bug("Do_buy: bad pet shop at vnum %d.", ch->in_room->vnum);
 		send_to_char("Sorry, you can't buy that here.\n\r", ch);
@@ -2554,7 +2549,6 @@ do_buy_pet(CHAR_DATA * ch, const char *argument)
 	}
 	deduct_cost(ch, cost);
 	pet = create_mobile(pet->pIndexData);
-	SET_BIT(pet->act, ACT_PET);
 	SET_BIT(pet->affected_by, AFF_CHARM);
 	pet->comm = COMM_NOTELL | COMM_NOSHOUT | COMM_NOCHANNELS;
 
@@ -2694,13 +2688,8 @@ do_list(CHAR_DATA * ch, const char *argument)
 		ROOM_INDEX_DATA *pRoomIndexNext;
 		CHAR_DATA      *pet;
 		bool            found;
-		/* hack to make new thalos pets work */
 
-		if (ch->in_room->vnum == 9621)
-			pRoomIndexNext = get_room_index(9706);
-		else
-			pRoomIndexNext = get_room_index(ch->in_room->vnum + 1);
-
+		pRoomIndexNext = get_room_index(ch->in_room->vnum + 1);
 		if (pRoomIndexNext == NULL) {
 			bug("Do_list: bad pet shop at vnum %d.", ch->in_room->vnum);
 			send_to_char("You can't do that here.\n\r", ch);

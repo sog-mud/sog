@@ -1,5 +1,5 @@
 /*
- * $Id: olc_save.c,v 1.11 1998-07-14 12:29:40 fjoe Exp $
+ * $Id: olc_save.c,v 1.12 1998-08-06 21:44:48 fjoe Exp $
  */
 
 /**************************************************************************
@@ -481,8 +481,17 @@ void save_objects(FILE *fp, AREA_DATA *pArea)
 }
  
 
+int exitcmp(const void *p1, const void *p2)
+{
+	EXIT_DATA *ed1 = *(EXIT_DATA**)p1;
+	EXIT_DATA *ed2 = *(EXIT_DATA**)p2;
 
-
+	if (ed1 == NULL)
+		return ed2 == NULL ? 0 : -1;
+	else if (ed2 == NULL)
+		return 1;
+	return ed1->orig_door - ed2->orig_door;
+}
 
 /*****************************************************************************
  Name:		save_rooms
@@ -518,6 +527,10 @@ void save_rooms(FILE *fp, AREA_DATA *pArea)
                     fprintf(fp, "E\n%s~\n", pEd->keyword);
 		    mlstr_fwrite(fp, NULL, pEd->description);
                 }
+
+		qsort(pRoomIndex->exit, MAX_DIR, sizeof(*pRoomIndex->exit),
+		      exitcmp);
+
                 for(door = 0; door < MAX_DIR; door++)	/* I hate this! */
                 {
                     if ((pExit = pRoomIndex->exit[door])

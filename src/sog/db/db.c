@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.50 1998-08-06 13:50:11 fjoe Exp $
+ * $Id: db.c,v 1.51 1998-08-06 21:44:48 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2245,31 +2245,7 @@ void reset_room( ROOM_INDEX_DATA *pRoom )
 	    if (count >= pReset->arg4)
 		break;
 
-/* */
-
             pMob = create_mobile( pMobIndex );
-
-#if 0
-	/* XXX was in ROM OLC /fjoe */
-
-            /*
-             * Some more hard coding.
-             */
-            if ( room_is_dark( pRoom ) )
-                SET_BIT(pMob->affected_by, AFF_INFRARED);
-#endif
-
-            /*
-             * Pet shop mobiles get ACT_PET set.
-             */
-            {
-                ROOM_INDEX_DATA *pRoomIndexPrev;
-
-                pRoomIndexPrev = get_room_index( pRoom->vnum - 1 );
-                if ( pRoomIndexPrev
-                    && IS_SET( pRoomIndexPrev->room_flags, ROOM_PET_SHOP ) )
-                    SET_BIT( pMob->act, ACT_PET);
-            }
 
 		pMob->zone = pRoom->area;
             char_to_room( pMob, pRoom );

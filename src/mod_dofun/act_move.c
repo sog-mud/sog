@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.76 1998-08-06 13:50:10 fjoe Exp $
+ * $Id: act_move.c,v 1.77 1998-08-06 21:44:47 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2766,54 +2766,54 @@ void do_vtouch(CHAR_DATA *ch, const char *argument)
 
 void do_fly(CHAR_DATA *ch, const char *argument)
 {
-  char arg[MAX_INPUT_LENGTH];
+	char arg[MAX_INPUT_LENGTH];
 
-	if (IS_NPC(ch)) return;
+	if (IS_NPC(ch))
+		return;
 
 	argument = one_argument(argument,arg);
-	if (!str_cmp(arg,"up"))
-	{
-	 if (IS_AFFECTED(ch,AFF_FLYING))
-		{		       
-		   char_nputs(YOU_ARE_ALREADY_FLYING, ch); 
-		 return;
+
+	if (!str_cmp(arg,"up")) {
+		if (is_affected(ch, gsn_thumbling)) {
+			char_puts("Stop jumping like a crazy rabbit first.\n\r",
+				  ch);
+			return;
 		}
-	 if (is_affected(ch,gsn_fly) 
-		 || (race_table[RACE(ch)].aff & AFF_FLYING) 
-		 || affect_check_obj(ch,AFF_FLYING))
-		{
-   	 SET_BIT(ch->affected_by,AFF_FLYING);
-		 REMOVE_BIT(ch->act,PLR_CHANGED_AFF);
-   	 char_nputs(YOU_START_TO_FLY, ch);
+
+		if (IS_AFFECTED(ch,AFF_FLYING)) {		       
+			char_nputs(YOU_ARE_ALREADY_FLYING, ch); 
+			return;
 		}
-   else 
-		{		       
-		   char_nputs(FIND_POTION_OR_WINGS, ch); 
+
+		if (is_affected(ch,gsn_fly) 
+		||  (race_table[RACE(ch)].aff & AFF_FLYING) 
+		||  affect_check_obj(ch, AFF_FLYING)) {
+			SET_BIT(ch->affected_by,AFF_FLYING);
+			REMOVE_BIT(ch->act,PLR_CHANGED_AFF);
+			char_nputs(YOU_START_TO_FLY, ch);
 		}
-	}
-	else if (!str_cmp(arg,"down"))
-	{
-   if (IS_AFFECTED(ch,AFF_FLYING))
-		{
-   	 REMOVE_BIT(ch->affected_by,AFF_FLYING);
-		 SET_BIT(ch->act,PLR_CHANGED_AFF);
-   	 char_nputs(YOU_SLOWLY_TOUCH_GROUND, ch);
-		}
-   else 
-		{		       
-		   char_nputs(YOU_ARE_ALREADY_ON_GROUND, ch); 
-		 return;
+		else {
+			char_nputs(FIND_POTION_OR_WINGS, ch); 
+			return;
 		}
 	}
-   else 
-	{
+	else if (!str_cmp(arg,"down")) {
+		if (IS_AFFECTED(ch,AFF_FLYING)) {
+			REMOVE_BIT(ch->affected_by,AFF_FLYING);
+			SET_BIT(ch->act,PLR_CHANGED_AFF);
+			char_nputs(YOU_SLOWLY_TOUCH_GROUND, ch);
+		}
+		else {		       
+			char_nputs(YOU_ARE_ALREADY_ON_GROUND, ch); 
+			return;
+		}
+	}
+ 	else {
 		char_nputs(TYPE_WITH_UP_OR_DOWN, ch);
 		return;
 	}
 
 	WAIT_STATE(ch, skill_table[gsn_fly].beats);   
-
-   return;
 }
 		 
 
