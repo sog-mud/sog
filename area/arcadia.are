@@ -5265,8 +5265,8 @@ E 0 12018 0 17		*	Pan pipes: held in the hands
 M 0 12044 12 12062 1	* an acorn faery (An Enchanted Forest)
 E 0 12000 0 6		*	An acorn hat: over the head
 M 0 12006 3 12066 1	* a sidhe noble (The Forest Edge)
-E 0 12047 0 11		*	A noble's rapier: as a shield
-E 0 12069 0 16		*	A crested shield: wielded
+E 0 12047 0 16		*	A noble's rapier: wielded
+E 0 12069 0 11		*	A crested shield: as a shield
 E 0 12046 0 6		*	A noble's circlet: over the head
 M 0 12036 13 12066 1	* a pixie (The Forest Edge)
 G 0 12007 0		*	A pixie bow
@@ -5296,8 +5296,8 @@ G 0 12001 0		*	A drop of nectar
 M 0 12043 25 12077 1	* a flower faery (The Flower Meadow)
 G 0 12001 0		*	A drop of nectar
 M 0 12007 3 12080 1	* a sidhe noble (The Flower Meadow)
-E 0 12047 0 11		*	A noble's rapier: as a shield
-E 0 12069 0 16		*	A crested shield: wielded
+E 0 12047 0 16		*	A noble's rapier: wielded
+E 0 12069 0 11		*	A crested shield: as a shield
 E 0 12046 0 6		*	A noble's circlet: over the head
 M 0 12036 13 12080 1	* a pixie (The Flower Meadow)
 G 0 12007 0		*	A pixie bow
@@ -5309,8 +5309,8 @@ E 0 12005 0 16		*	A small slender sword: wielded
 E 0 12006 0 8		*	A pair of grey boots: on the feet
 M 0 12023 3 12082 1	* a satyr drinker (On the Dirt Trod)
 M 0 12008 3 12083 1	* a sidhe noble (On the Dirt Trod)
-E 0 12047 0 11		*	A noble's rapier: as a shield
-E 0 12069 0 16		*	A crested shield: wielded
+E 0 12047 0 16		*	A noble's rapier: wielded
+E 0 12069 0 11		*	A crested shield: as a shield
 E 0 12046 0 6		*	A noble's circlet: over the head
 M 0 12040 5 12083 1	* a playful dryad (On the Dirt Trod)
 M 0 12023 3 12083 1	* a satyr drinker (On the Dirt Trod)
@@ -5482,8 +5482,8 @@ E 0 12045 0 15		*	An engraved sidhe bracer: on the right wrist
 E 0 12044 0 7		*	A pair of sidhe greaves: on the legs
 E 0 12043 0 10		*	A pair of sidhe armguards: on the arms
 M 0 12008 3 12143 1	* a sidhe noble (Top of the Western Guard Tower)
-E 0 12047 0 11		*	A noble's rapier: as a shield
-E 0 12069 0 16		*	A crested shield: wielded
+E 0 12047 0 16		*	A noble's rapier: wielded
+E 0 12069 0 11		*	A crested shield: as a shield
 E 0 12046 0 6		*	A noble's circlet: over the head
 M 0 12032 4 12143 1	* a savage redcap (Top of the Western Guard Tower)
 E 0 12011 0 16		*	A blood stained club: wielded
@@ -5494,12 +5494,12 @@ P 0 12068 0 12058 1	* A bag of tricks: Some glowing dust
 P 0 12059 0 12058 1	* A bag of tricks: An orange
 P 0 12060 0 12058 1	* A bag of tricks: A small pebble
 M 0 12006 3 12144 1	* a sidhe noble (The Court of the Fae)
-E 0 12047 0 11		*	A noble's rapier: as a shield
-E 0 12069 0 16		*	A crested shield: wielded
+E 0 12047 0 16		*	A noble's rapier: wielded
+E 0 12069 0 11		*	A crested shield: as a shield
 E 0 12046 0 6		*	A noble's circlet: over the head
 M 0 12009 3 12144 1	* a sidhe noble (The Court of the Fae)
-E 0 12047 0 11		*	A noble's rapier: as a shield
-E 0 12069 0 16		*	A crested shield: wielded
+E 0 12047 0 16		*	A noble's rapier: wielded
+E 0 12069 0 11		*	A crested shield: as a shield
 E 0 12046 0 6		*	A noble's circlet: over the head
 M 0 12016 2 12144 1	* a noble sidhe knight (The Court of the Fae)
 E 0 12042 0 5		*	A sidhe breastplate: on the body

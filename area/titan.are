@@ -1322,8 +1322,8 @@ Although retired from adventuring, the healer still lends a hand.
 Type 'heal' to see a listing of spells.
 ~
 giant~
-ABKQVae DFH 1000 0
-120 10 1d1+10999 1d1+999 2d4+30 divine
+ABKQVaef DFH 1000 0
+120 10 1d1+26999 1d1+999 2d4+30 divine
 -15 -15 -15 -15
 FHIK ABC D 0
 stand stand male 5000
@@ -1977,7 +1977,7 @@ a Wand of Druid Magic~
 A long wand is here on the ground.~
 wood~
 wand A AO
-55 10 10 'acid blast' 0
+25 10 10 'acid blast' 0
 25 200 49706 P
 #18070
 wand pixie magic~
@@ -4876,7 +4876,7 @@ S
 Store of the deadly beast~
 Store of the deadly beast
 ~
-0 CNS city
+0 CNSX city
 S
 #18126
 Temple of Titans Valley~

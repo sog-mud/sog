@@ -547,7 +547,7 @@ undead~
 ABFGO 0 -1000 0
 60 0 50d10+6750 10d10+1000 8d6+28 pierce
 -30 -30 -30 0
-EFNQ B 0 JX
+EFNQ B 0 X
 stand stand none 5000
 I 0 medium unknown
 #0
@@ -2011,7 +2011,7 @@ no-one has been here in centuries. A layer of dust ankle-deep makes progress
 difficult, as do the hanging cobwebs, with strands as thick as your wrist.
 You hope you don't run into the spinner of these webs.
 ~
-0 AHN inside
+0 AN inside
 D3
 ~
 ~
@@ -2028,7 +2028,7 @@ prominent urge you have right now as you glance about the hellish murals
 on the walls, and the rotting corpses hanging in metal frames from the 
 arched ceiling.
 ~
-0 AHN inside
+0 AN inside
 D0
 ~
 ~
@@ -2053,7 +2053,7 @@ identical- a raised stone sarcophagus with a bas-relief of the image of its
 occupant in life embossed on the lid. Other than that, the place is bare. Or
 is it...?
 ~
-0 AHN inside
+0 AN inside
 D2
 ~
 ~
@@ -2066,7 +2066,7 @@ identical- a raised stone sarcophagus with a bas-relief of the image of its
 occupant in life embossed on the lid. Other than that, the place is bare. Or
 is it...?
 ~
-0 AHN inside
+0 AN inside
 D0
 ~
 ~
@@ -2079,7 +2079,7 @@ identical- a raised stone sarcophagus with a bas-relief of the image of its
 occupant in life embossed on the lid. Other than that, the place is bare. Or
 is it...?
 ~
-0 AHN inside
+0 AN inside
 D3
 ~
 ~

@@ -4,6 +4,7 @@ VNUMs 95300 95309
 Credits Asena~
 Security 9
 LevelRange 90 100
+Clan Shalafi~
 End
 
 #MOBILES
@@ -17,7 +18,7 @@ that are against his lords. The creature is formed entirely of flames and
 some other magical materials. 
 ~
 elf~
-ABJKRef DFH 0 0
+ABJKRef DFHlmt 0 0
 92 30 2d500+25000 1d1+3999 10d25+90 slice
 -79 -79 -79 -40
 FIKN ABH C 0

@@ -1,0 +1,256 @@
+#AREADATA
+Name Sunny Field~
+Builders gelios~
+VNUMs 94100 94199
+Security 6
+LevelRange 0 0
+Flags under_construction~
+End
+
+#MOBILES
+#94100
+guardian dragon white~
+@eng Very HUGE {WWhite {xdragon@rus ОГРОМНЫЙ {WБелый {xдракон~
+@eng Very HUGE {WWhite {xdragon is flying around the {WHoly altar{x guarding it.
+@rus ОГРОМНЫЙ {WБелый {xдракон парит возле {WСвященного алтаря{x, охраняя его.
+~
+~
+human~
+ABR DFclmt 1000 0
+45 30 20d61+4000 100d3+150 10d3+20 none
+-20 -20 -20 -7
+AEKO ABHJNQ C KP
+stand stand male 0
+Z 0 huge unknown
+F for AHMV
+F par ABCDEFGHIJK
+#94101
+druid~
+@eng Druid@rus Друид~
+@eng Old druid prepair here his magical potions.
+@rus Величавый друид готовит здесь магические снадобья.
+~
+~
+elf~
+AB DFHlm 0 0
+70 60 300d5+7000 0d0+0 30d3+1 flbite
+-25 -15 -15 -10
+0 0 0 0
+stand stand male 0
+0 0 medium unknown
+M greet 94101 100~
+M act 94102 goes to sleep.~
+#94102
+man~
+@eng Tired man@rus Уставший узник~
+@eng The man seems to be very ill is dying of thirst.
+@rus Узник, умирающий от жажды и болезней.
+~
+~
+human~
+A 0 0 0
+35 45 10d70+700 0d0+0 10d4+5 punch
+15 15 15 5
+0 BF 0 0
+sit sit male 0
+0 0 medium unknown
+M random 94103 7~
+#0
+
+#OBJECTS
+#94100
+altar~
+@eng Altar of the {WGod of Sun{x@rus Алтарь {WБога Солнца{x~
+@eng Altar of the {WGod of Sun{x lighting with a magic power@rus Алтарь {WБога Солнца{x освещает комнату волшебным сиянием~
+air~
+container 0 0
+10000 ABCD 94101 10000 0
+0 0 0 P
+#94101
+key~
+@eng {WGlowing {xkey@rus {WСияющий {xключ~
+@eng {WGlowing {xkey flying in the air.@rus {WСияющий {xключ летает в воздухе.~
+light~
+key G APQ
+0 0 0 0 0
+25 10 10 P
+#94102
+statue~
+@eng Statue the God of Sun@rus Статуэтка Бога Солнца~
+@eng Statue the God of Sun @rus Статуэтка Бога Солнца~
+unknown~
+wand IT AO
+40 10 10 'lightning breath' 0
+25 0 0 P
+#94103
+resting place~
+@eng resting place@rus месте отдыха~
+@eng Resting place shadowed by beautiful trees is near the altar.@rus Деревья отбрасывают тень на место возле алтаря, где обычно отдыхают уставшие путники.~
+unknown~
+furniture 0 0
+AC FJKLO FIL BCEH DGH
+0 0 0 P
+#94104
+portal gate~
+@eng Portal@rus Портал~
+@eng There is portal behind the altar leading to the {WGod of Sun's{x palace.@rus Позади алтаря ты видишь {Wсияющие врата{x во дворец {WБога солнца{x.~
+unknown~
+portal RY 0
+0 0 A 94101 0
+0 0 0 P
+#94105
+dagger~
+@eng dagger@rus Ножичек~
+@eng dagger@rus Ножичек~
+light~
+weapon 0 AN
+dagger 300 30 pierce D
+0 0 0 P
+A
+18 500
+#94106
+kotel~
+@eng kotel@rus Котел~
+@eng kotel.@rus Огромный котел со {Rстранного цвета{x жидкостью стоит посреди обители отшельника.~
+unknown~
+fountain FIR 0
+0 0 'local specialty' 0 0
+0 0 0 P
+#94107
+disease potion~
+@eng potion of many cure possibilities@rus Снадобье от многих болезней~
+@eng potion of healing.@rus Мощьное снадобье от многих болезней излучает магическую силу.~
+glass~
+potion T AO
+50 'cure poison' 'cure disease' 'cure blindness' 'reserved'
+30 50 80 P
+#94108
+apple~
+@eng apple@rus яблоко~
+@eng Magic apple glowing brightly.@rus Волшебное яблоко ярко светиться.~
+meet~
+pill R AO
+30 'slow' 'sleep' 'sleep' 'sleep'
+0 0 0 P
+#94109
+barrel~
+@eng barrel@rus бочонок~
+@eng There is a barrel in the corner.@rus В углу комнаты стоит бочка с водой.~
+wood~
+drink R A
+1000 0 'water' 0 0
+0 0 0 P
+#0
+
+#ROOMS
+#94100
+@rus Поляна залитая солнечным светом@rusoff off~
+@rus Ты находишься в центре ярко освещенной поляны. В центре поляны стоит алтарь для подношений богу {WСолнца. {xВоистину это место внушает священный трепет.
+~
+0 0 inside
+D0
+~
+~
+Z 0 94101
+D3
+~
+~
+Z 0 94103
+S
+#94101
+@eng Near the Holy Altar@rus Около Священного алтаря~
+@rus Пыльная дорога проходит посреди леса. На юге лес расступается и виднеются какие-то здания, освещенные солнечным светом.
+Усталый путник, наконец-то ты сможешь отдохнуть от этого бесконечного леса.
+~
+0 A inside
+D2
+~
+~
+Z 0 94100
+D3
+~
+~
+ABDHZ 0 94102
+S
+#94102
+@eng Inside the mighty oak@rus Внутри могучего дуба~
+~
+0 J inside
+D1
+~
+~
+ABDHZ 0 94101
+S
+#94103
+@eng Dark underground place.@rus Подземелье пугающее непроглядным мраком.~
+~
+0 ACN inside
+D1
+~
+~
+Z 0 94100
+S
+#0
+
+#SPECIALS
+M 94100 spec_breath_any	* Very HUGE {WWhite {xdragon
+S
+
+#RESETS
+D 0 94101 3 1	* Near the Holy Altar: door to the west: closed
+D 0 94102 1 1	* Inside the mighty oak: door to the east: closed
+O 0 94100 0 94100	* Altar of the {WGod of Sun{x ()
+P 0 94102 1 94100 1	* Altar of the {WGod of Sun{x: Statue the God of Sun
+M 0 94100 1 94100 1	* Very HUGE {WWhite {xdragon ()
+E 0 94101 0 3		*	{WGlowing {xkey: around the neck (1)
+O 0 94103 0 94100	* resting place ()
+O 0 94104 0 94100	* Portal ()
+O 0 94106 0 94102	* kotel (Inside the mighty oak)
+M 0 94101 1 94102 1	* Druid (Inside the mighty oak)
+G 0 94107 0		*	potion of many cure possibilities
+M 0 94102 1 94103 1	* Tired man (Dark underground place.)
+O 0 94109 0 94103	* barrel (Dark underground place.)
+S
+
+#SHOPS
+94101 0 0 0 0 0 100 100 0 23
+0
+
+#OLIMITS
+O 94101 1	* {WGlowing {xkey
+O 94102 2	* Statue the God of Sun
+S
+
+#MOBPROGS
+#94100
+say {GДобро пожаловать усталый странник
+~
+#94101
+say Добро пожаловать усталый странник !
+mob oload 94108
+give apple $n
+say Когда захочешь отдохнуть съешь это яблоко.
+ 
+say А может ты хочешь купить мои волшебные снадобья?
+~
+#94102
+cast nowait refresh $n
+cast nowait refresh $n
+~
+#94103
+if rand 10
+say О господи! Как я хочу пить.
+endif
+if rand 15
+say Странник, помоги мне!
+endif
+if rand 10
+emote мучается от жажды.
+endif
+if rand 5
+emote корчиться в агонии.
+endif
+~
+#0
+
+#$

@@ -326,6 +326,36 @@ wood~
 weapon 0 AN
 bow 1 1 blast 0
 1 5 10 P
+#9
+elka christmas tree~
+@eng Christmas tree@rus Ёлка~
+@eng {gA christmas tree stands here.{x@rus {gНовогодняя ёлка стоит здесь, вся в украшениях.{x~
+wood~
+container ABRSY 0
+1000000 0 0 100000 5
+0 10000 0 P
+E
+elka christmas tree~
+{W     .      .        .    {R    .    {W     .        .
+    .         .        .    {R .+. {W   .      .           .
+        .        .      .   {g  # {W      .            .
+             .      .      {g  ### {W           .              .
+      .                {g "{BO{g. ##"## .{CO{g"{W    .     .       .
+             .          {g "##"###"##" {W
+          .      .  {g "{YO{g:. .:##"#{YO{g:. .:{RO{g"{W  .      .   .    .
+     .               . {g"####"###"####"{W  
+           .      {g"{RO{g:.   .:{MO{g"###"#:.   .:{BO{g"{W  .        .       .
+      .            {g "#########"#########" {W        .        .
+            .   {g"{BO{g:.   "{YO{g###"###"{CO{g###"   .:{YO{g"{W   .       .
+       .       . {g "#######""##"##""#######"{W                  .
+                  {g  ."##"#####"#####"#{BO{g".{W           .      .
+     .     {g  "{YO{g:..".  .:{RO{g#"###"###"##:.  ."..:{MO{g"{W     .
+          .    {g "#######"##"#####"{YO{g#"#######"{W      .     .
+      .      .    {g "{MO{g####""#######""####{CO{g"{W    .      .
+                .    {g " {y     ###  {g    "{W    .     .
+           .         .   . {y  ### {W    .        .       .
+    .. .. ..................{y#####{W................... ...... ...{x
+~
 #10
 corpse~
 the corpse of %s~
@@ -533,7 +563,7 @@ You hear the Song of Real Hero filling the room with its power.~
 energy~
 container IORYac APQ
 150 0 0 600 5
-21 5 10000 P
+120 5 10000 P
 A
 24 -15
 A
@@ -818,7 +848,7 @@ a golden sword~
 There is a shiny golden sword on the ground.~
 gold~
 weapon AIPTW AN
-sword 8 1 pierce D
+sword 10 1 pierce D
 20 80 0 P
 #84
 quest kio~
@@ -944,7 +974,7 @@ An enormous, huge GIRTH lies here, filling the room with its power.~
 energy~
 armor AGIOYc ALP
 12 12 12 9 2
-21 30 100000 G
+120 30 100000 G
 A
 1 2
 A
@@ -976,7 +1006,7 @@ An enormous, RING lies here, filling the room with its power.~
 energy~
 weapon AGIOYc ABP
 exotic 0 0 none 0
-21 30 100000 G
+120 30 100000 G
 A
 17 -30
 A

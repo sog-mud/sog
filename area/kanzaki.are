@@ -191,7 +191,7 @@ blessing~
 {Wa blessing{x~
 A feeling of righteousness enters you.~
 silver~
-jewelry AKL AQ
+jewelry AKLY AQ
 0 0 0 0 0
 96 0 0 P
 A
@@ -246,7 +246,7 @@ flamberge blaze sword~
 A huge wavy blade lies here, enshrouded in flames.~
 adamantite~
 weapon AHKLP AN
-sword 12 10 flame ADF
+sword 3 44 flame ADF
 91 500 10000 P
 A
 19 20
@@ -278,6 +278,99 @@ A
 18 6
 A
 13 50
+#47017
+thingie~
+@eng a thingie@rus фигнюшка~
+A thingie lies here.~
+plastic~
+jewelry AFGMPUZ AC
+0 0 0 0 0
+100 0 0 P
+F
+A 0 0 e
+F
+A 0 0 g
+#47018
+garland~
+@eng a garland@rus гирлянда~
+@eng A glittering garland lies on the floor.@rus Гирлянда валяется на полу.~
+plastic~
+staff ARY AO
+1 10 10 'continual light' 0
+0 0 0 P
+#47019
+petard~
+@eng a petard@rus петарда~
+@eng An unused petard lies here.@rus Еще целая петарда валяется тут.~
+unknown~
+pill GHRYZ A
+40 'haste' 'continual light' 'scream' 'fear'
+0 0 0 P
+E
+petard~
+Ого! Тут написана инструкция по применению :
+ 
+1) Съесть петарду.
+2) ... Ну ты сначала съешь ;)
+~
+#47020
+vodka glass paladinskaya~
+@eng A glass of "{WSpecial paladin's{x" vodka@rus Стопка "{WОсобой паладинской{x" водки~
+@eng A glass of vodka catches your eye, drink it!@rus Стопочка водки притягивает твой взгляд.~
+запотевшее стекло~
+potion HIRYZ A
+40 'garble' 'frenzy' 'slow' 'make arrow'
+10 0 0 P
+#47021
+jar banka cucumbers huge~
+@eng Jar of cucumbers@rus Банка с огурцами~
+@eng A HUGE jar full of {gcucumbers{x stands on the table.@rus ОГРОМНАЯ банка с солеными {gогурцами{x стоит на столе.~
+glass~
+container RY 0
+100000 A 0 1000000 50
+0 0 0 P
+#47022
+cucumber~
+@eng {gsalted cucumber{x@rus {gмалосольный огурчик{x~
+@eng Wow it's salted cucumber! Must be perfect with vodka!@rus Огурчик... соленый..!~
+огурятина~
+food 0 AN
+A A 0 0 0
+0 10 0 P
+#47023
+box petards garlands large~
+@eng a box@rus Картонная коробка~
+@eng A large box stands here.@rus Большая картонная коробка стоит тут. Сбоку видна этикетка.~
+paper~
+container Y 0
+1000000 A 0 10000000 100
+0 0 0 P
+E
+label box large etiketka~
+Тут написано :
+ 
+     Петарды, гирлянды и другие боеприпасы.
+        Веселого Нового Года!
+~
+#47024
+champautomat fountain champagne~
+@eng Champautomat@rus Шампомат?~
+@eng If you senses don't betray you, this must be.. Champagne!@rus Это фонтан.. вот только с чем?~
+unknown~
+fountain RY 0
+2147483647 2147483647 'champagne' 0 0
+0 0 0 P
+E
+champautomat fountain champagne~
+Сбоку написано :
+ 
+     Пробная модель шампомата(tm).
+     Все жалобы, предложения и благодарности
+     принимаются по адресу mud@@iclub.nsu.ru ;)
+ 
+NOTE: Отвественности за последствия компания
+      не несет - модель-то пробная ;))
+~
 #47100
 tablet wooden~
 @eng {xWooden tablet@rus Дереванная табличка~
@@ -2874,8 +2967,8 @@ D 0 47208 3 1	* End of the hallway: door to the west: closed
 D 0 47209 3 1	* Miyu's room: door to the west: closed
 D 0 47211 1 1	* Mori's room: door to the east: closed
 O 0 47000 0 47000	* Weapons cabinet (Lothar's residence)
-O 0 47002 0 47000	* A velvet covered armchair (Lothar's residence)
 O 0 47012 0 47000	* {xBarrel of ale (Lothar's residence)
+O 0 47002 0 47000	* A velvet covered armchair (Lothar's residence)
 O 0 47003 0 47001	* A small tree (The terrace)
 M 0 47000 1 47001 1	* The statue (The terrace)
 E 0 47004 0 16		*	Sword of Enforcement: wielded
@@ -2925,6 +3018,7 @@ O 47013 1	* {rUrukhay's battle axe{x
 O 47014 1	* {YFlamberge Blaze{x
 O 47015 1	* {Yflaming sword{x
 O 47016 1	* a -=+)> shroud
+O 47017 1	* a thingie
 S
 
 #MOBPROGS

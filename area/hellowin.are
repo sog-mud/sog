@@ -61,20 +61,6 @@ F par ABCDEFGHIJK
 #0
 
 #OBJECTS
-#34400
-sword~
-@eng {W0==][ {YHeliacal Fire {W>>{w@rus {W0==][ {YСолнечный Пламень{W >>{x~
-@eng {WSun ray in form of divine sword.{x@rus {WЛуч света, который принЯл форму необыкновенного меча.{x~
-unknown~
-weapon AIJKRSTYa ANP
-sword 40 15 divine ADEI
-96 100 2147483647 P
-A
-22 -200
-A
-20 -200
-A
-18 200
 #34401
 russia love tattoo~
 {Wfrom Russia with love{x~
@@ -117,14 +103,6 @@ kender's skin~
 drink RYa AP
 -1 2147483647 'cranberry juice' 0 0
 1 10 2147483647 P
-#34403
-armchair~
-@eng {DCosily armchair{w@rus {DУютное кресло-качалка{w~
-@eng {DVery cosily armchair fluently weaves here.{w@rus {DУютное кресло-качалка плавно покачивается здесь.{x~
-unknown~
-furniture RYa APQ
-A ABCDEFGHIJKLMNOPQRSTUVWXYZabcde FIL EHI EHI
-96 12000 2147483647 P
 #34404
 spring crystal~
 @eng {WSpring with crystal and clear water{w@rus {WРодник с кристально-чистой водой{w~

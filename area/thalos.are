@@ -1508,7 +1508,7 @@ strange tongue.
      Wind gusts through the four archways and howls and screams can be
 heard from all parts of the city.
 ~
-0 DH city
+0 D city
 D0
 A side street leads to the northern half of the city.
 ~
@@ -2123,6 +2123,10 @@ You see the trail leading north.
 ~
 ~
 Z 0 5279
+D3
+~
+~
+Z 0 95400
 S
 #0
 
@@ -2223,7 +2227,6 @@ M 0 5110 2 5270 2	* the drow guard (Down the path into a dead end)
 E 0 5100 0 16		*	a commoner's longsword: wielded
 M 0 5111 2 5272 1	* the drow scout (A dim trail in the dwarf forest)
 E 0 5100 0 16		*	a commoner's longsword: wielded
-O 0 5253 0 5281	* Waterfall (By the beautiful waterfall)
 S
 
 #OLIMITS

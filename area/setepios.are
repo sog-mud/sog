@@ -21,6 +21,24 @@ stand stand none 32000
 0 0 medium unknown
 F for AHMV
 F par ABCDEFGHIJK
+#38102
+ded moroz~
+@eng {CFather Frost{x@rus {CДед Мороз{x~
+@eng {CFather Frost{x sings his song and gives gifts to kids
+@rus {CДед Мороз{x поет песенку о ÷лочке и раздает подарки.
+~
+@rus С большой седой бородой, в красной шубе и валенках он улыбается своей 
+вечнопьяной улыбкой и поет песенки.
+~
+human~
+AGQR 0 1000 0
+90 400 1d1+2000 1d1+10000 1d500+10 divine
+99 99 99 99
+0 0 0 0
+stand stand male 0
+0 0 medium unknown
+F for AHMV
+F par ABCDEFGHIJK
 #38200
 barman~
 @eng barman@rus бармэн~
@@ -136,13 +154,21 @@ A
 A
 1 10
 #38006
-armor~
-@rus armor~
-@eng Armor@rus Халат~
-unknown~
-armor AIc AK
-1000 1000 1000 1000 0
-0 10 10000 P
+safira armor~
+@eng Safiras Armor@rus Латы Сафиры~
+@eng Armor Plate made by master Safira is waiting for its owner here.@rus Латы изготовленные великим мастером Сафира дожидаются владельца.~
+steal~
+armor CIRTY AK
+15 15 15 15 0
+40 5 10000 P
+A
+1 5
+A
+2 1
+A
+18 6
+A
+19 6
 #38007
 robe~
 @eng Black Robe of Setepios@rus Черная ряса Setepiosa~
@@ -675,6 +701,13 @@ D3
 ~
 Z 0 38528
 S
+#38600
+@rus Храм Великой Богини HERA~
+@rus Высокие сводные потолки изрисованы фресками на которых великая Богиня
+ 
+~
+0 CW inside
+S
 #0
 
 #SPECIALS
@@ -685,7 +718,6 @@ S
 O 0 38003 0 38101	* fountain (Coridor)
 O 0 38002 0 38101	* armchair (Coridor)
 O 0 38001 0 38102	* big bed (Bedroom)
-O 0 38011 0 38102	* Sword of Safira (Bedroom)
 O 0 38002 0 38103	* armchair (Cabinet)
 O 0 38004 0 38103	* table (Cabinet)
 O 0 38200 0 38200	* long wooden table (Budy's)

@@ -1,5 +1,5 @@
 #
-# $Id: english.lang,v 1.86 1998-11-02 06:59:21 fjoe Exp $
+# $Id: english.lang,v 1.87 1999-01-03 13:58:52 fjoe Exp $
 #
 
 MSG_YOU_TOO_EXHAUSTED "You are too exhausted.\n\r"
@@ -20,7 +20,7 @@ MSG_YOU_FAILED_TO_PASS "You failed to pass through the $d."
 MSG_N_TRIES_TO_PASS_FAILED "$n tries to pass through the $d, but $e failes"
 MSG_TOO_PUMPED_TO_PRAY "You are too pumped to pray now.\n\r"
 MSG_YOU_SUCCESSED_TO_OPEN_DOOR "You successed to open the door.\n\r"
-MSG_YOU_FALL_ON_FACE "You fall flat on your face!"
+MSG_YOU_FALL_ON_FACE "You fall flat on your face!\n\r"
 MSG_N_FALLS_ON_FACE "$n falls flat on $s face."
 MSG_N_THROWS_GLOBE "$n throws down a small globe."
 MSG_N_IS_GONE "$n is gone!"

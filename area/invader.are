@@ -4,6 +4,7 @@ VNUMs 95600 95609
 Credits Asena~
 Security 9
 LevelRange 90 100
+Clan Invader~
 End
 
 #MOBILES
@@ -16,7 +17,7 @@ This strong serves as the guardian of the Invader Cabal. His mission is
 to destroy anyone who dares to penatrate into the chamber.
 ~
 human~
-ABJKWef DFHJVZ -1000 0
+ABJKWef DFHJVZlmt -1000 0
 92 40 2d500+25000 1d200+600 10d40+40 slash
 -77 -77 -77 -42
 CEFKNU AB 0 S
@@ -226,7 +227,7 @@ D2
 It's too dark to tell anything.
 ~
 ~
-DZ -1 95609
+Z -1 95609
 D3
 It's dark to tell anything.
 ~
@@ -265,7 +266,7 @@ D0
 You see the dark corridor.
 ~
 ~
-DZ -1 95607
+Z -1 95607
 M 50 H 50
 S
 #0

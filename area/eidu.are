@@ -24,8 +24,15 @@ stand stand male 0
 Z LPQUX medium unknown
 F for AHMV
 F par CEFGHJ
-M speech 44000 Hi~
 M exall 44001 4~
+M speech 44003 поговорить~
+M speech 44003 talk~
+M speech 44003 nado~
+M speech 44003 need~
+M speech 44003 надо~
+M speech 44003 pogovorit'~
+M speech 44003 pogovorit~
+M speech 44000 hi~
 #44001
 sam~
 @eng sam@rus sam~
@@ -37,6 +44,20 @@ human~
 AZ 0 -1000 0
 20 0 0d0+0 0d0+0 0d0+0 none
 1000 1000 1000 1000
+0 0 0 0
+stand stand none 0
+0 0 medium unknown
+F for AHMV
+F par ABCDEFGHIJK
+#44002
+rivulet~
+{rrivulet{x~
+~
+~
+human~
+A 0 0 0
+0 0 0d0+0 0d0+0 0d0+0 none
+0 0 0 0
 0 0 0 0
 stand stand none 0
 0 0 medium unknown
@@ -108,7 +129,7 @@ A large axe is here, its blade stuck in the ground.~
 medicine steel~
 weapon 0 AN
 axe 40 20 chop DEI
-96 0 0 P
+110 0 0 P
 #44006
 hammer great sleep~
 {yGreat Hammer of Sleep{x~
@@ -125,6 +146,83 @@ plastic~
 container 0 AL
 1000000 A 0 100000 1
 0 0 0 P
+#44008
+elka christmas tree~
+@eng Christmas tree@rus Ёлка~
+@eng {gA christmas tree stands here.{x@rus {gНовогодняя ёлка стоит здесь, вся в украшениях.{x~
+wood~
+furniture ABRSY 0
+0 0 0 0 0
+0 0 0 P
+E
+elka~
+{W     .      .        .    {R    .    {W     .        .
+    .         .        .    {R .+. {W   .      .           .
+        .        .      .   {g  # {W      .            .
+             .      .      {g  ### {W           .              .
+      .                {g "{BO{g. ##"## .{CO{g"{W    .     .       .
+             .          {g "##"###"##" {W
+          .      .  {g "{YO{g:. .:##"#{YO{g:. .:{RO{g"{W  .      .   .    .
+     .               . {g"####"###"####"{W
+           .      {g"{RO{g:.   .:{MO{g"###"#:.   .:{BO{g"{W  .        .
+      .            {g "#########"#########" {W        .        .
+            .   {g"{BO{g:.   "{YO{g###"###"{CO{g###"   .:{YO{g"{W   .
+       .       . {g "#######""##"##""#######"{W                  .
+                  {g  ."##"#####"#####"#{BO{g".{W           .      .
+     .     {g  "{YO{g:..".  .:{RO{g#"###"###"##:.  ."..:{MO{g"{W     .
+          .    {g "#######"##"#####"{YO{g#"#######"{W      .     .
+      .      .    {g "{MO{g####""#######""####{CO{g"{W    .      .
+                .    {g " {y     ###  {g    "{W    .     .
+           .         .   . {y  ### {W    .        .       .
+    .. .. ..................{y#####{W................... ...... ...{x
+~
+#44009
+bottle vodka absolut~
+bottle of Absolut~
+bottle lies here~
+glass~
+drink 0 AO
+100 100 'vodka' 0 0
+0 0 0 P
+#44010
+ring black skull~
+@eng ring with little black skull@rus кольцо с маленьким черным черепом~
+small ring lies here~
+steal~
+armor PY AB
+0 0 0 0 0
+32 0 0 P
+A
+13 30
+A
+18 4
+A
+19 4
+#44011
+rivulet~
+{rrivulet{x~
+@eng {rA stream with crimson liquid flows here{x@rus {rБурный ручеек с красной жидкостью весело течет тута{x~
+water~
+fountain BIRSYb 0
+2147483647 2147483647 'amontillado' 0 0
+0 0 0 P
+E
+rivulet~
+Ручеек весело несет свои красные воды дальше на восток. Попробуй-ка его 
+понюхать.
+~
+#44012
+statue~
+the statue of Eidu~
+@eng the statue of the ancient samurais' god stands in the corner.@rus статуя древнего самурайского бога стоит в углу.~
+bronze~
+jukebox 0 0
+0 0 0 0 0
+0 0 0 P
+E
+statue~
+Under construction
+~
 #0
 
 #ROOMS
@@ -155,9 +253,9 @@ D3
 Z 0 44000
 S
 #44002
+Garden~
 ~
-~
-0 0 inside
+0 0 field
 D1
 ~
 painting~
@@ -184,14 +282,22 @@ S
 S
 #0
 
+#RESETS
+O 0 44008 0 44000	* Christmas tree (The grand samurai's house)
+O 0 44012 0 44000	* the statue of Eidu (The grand samurai's house)
+O 0 44011 0 44003	* {rrivulet{x (Path to the grand samurai's house)
+M 0 44000 1 44003 1	* Samurai (Path to the grand samurai's house)
+S
+
 #MOBPROGS
 #44000
 smile $n
 say Hi
 ~
 #44001
-echoat $n Ты, ничего не подозревая поднимаешься наверх, но вдруг что-то тебя останавливает. Не понимая в чем дело, ты опускаешь глаза и замечаешь стальной клинок готовый разрезать тебя пополам. $n тихо спрашивает тебя :'{GКуда это ты собрался ?{x'
-mob echoaround $n $n пытается пройти на up, но вдруг останавливается, почувствовав холодный японский металл чуть пониже своего живота.
+mob echoat $n Ты пытаешься пройти наверх но что-то вдруг тебя останавливает. Внимательно приглядевшись, ты замечаешь что это "что-то" чрезвычайно похоже на здорового бугая, до этого стоявшего в сторонке.
+mob echoaround $n $n спотыкается, пытаясь пройти наверх.
+mob echoat $n $i спрашивает тебя: '{Gа зачем тебе туда?{x'
 ~
 #44002
 mob echoat $n $i спрашивает тебя :'{Gа зачем тебе на up?{x'
@@ -201,6 +307,8 @@ mob echoaround $n $i спрашивает $n зачем ему на up
 mob echoat $n $i говорит тебе :'{Gну иди{x'
 mob echoaround $n $i пропускает $n.
 mob transfer $n 44000
+~
+#44004
 ~
 #0
 

@@ -844,7 +844,7 @@ She serves the Goddess of Magic by uttering magic spells which
 heal and help others.
 ~
 elf~
-ABGQVa DFH 0 0
+ABGQVaf DFH 0 0
 55 0 50d10+4500 1d1+400 5d8+14 divine
 -20 -20 -20 -20
 AFH ABCD 0 0
@@ -1295,7 +1295,7 @@ a sleeping bag~
 A quilted sleeping bag is here.~
 cloth~
 furniture N A
-B DFGHIJ HIKL DGH DGH
+B DFGHIJ HIKL ACDEFG ACDEFG
 30 200 200 P
 E
 sleeping bag sleepingbag~
@@ -3245,7 +3245,7 @@ services. You don't belong here. Magically remove yourself
 or pray that an Immortal mercifully transfers you to a
 safer place.
 ~
-0 CDN inside
+0 CDNX inside
 S
 #40186
 Necessities 'R' Us~

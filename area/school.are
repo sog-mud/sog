@@ -137,7 +137,7 @@ stand stand none 25
 0 0 medium unknown
 #3707
 adept cleric~
-the adept of ~
+the adept of Satin~
 @eng An adept of the mighty goddess Satin is here, contemplating your progress.
 @rus Последователь (adept) могучей богини Сатин стоит тут, созерцая твой прогресс.
 ~
@@ -725,20 +725,14 @@ Merc Industries
 #ROOMS
 #3700
 @eng Entrance to Mud School@rus Вход в МУД школу~
-@eng This is the entrance to the Merc Mud School.  Go north to go through mud
+This is the entrance to the Merc Mud School.  Go north to go through mud
 school.  If you have been here before and want to go directly to the arena,
 go south.
 
 A sign warns 'You may not pass these doors once you have passed level 5.'
 
 P.S. Use '{Rlang rus{x' command, if you want {Rrussian language{x
-P.P.S. Use '{Bcolor{x' to enable {Bfull ANSI color support{x.
-@rus Это вход в МУД школу. Иди на север (north), чтоб пройти курс обучения
-в школе. Если ты там уже был и хочешь попасть на арену, то иди на юг (south).
-На востоке (east) ты видишь вход в музей.
-
-Над дверью ты видишь знак:
-{R'Ты не можешь войти в эти двери, если ты достиг 6 уровня.'{x
+P.P.S. Use '{Btoggle color{x' to enable {Bfull ANSI color support{x.
 ~
 0 CDS inside
 D0
@@ -759,6 +753,10 @@ D2
 ~
 door~
 ABZ -1 3744
+D3
+~
+~
+Z 0 95800
 D5
 @eng You see the Temple of Midgaard.
 @rus Ты видишь храм Мидгарда.
@@ -2616,7 +2614,7 @@ S
 #0
 
 #SPECIALS
-M 3707 spec_cast_adept	* the adept of 
+M 3707 spec_cast_adept	* the adept of Satin
 M 3708 spec_cast_adept	* the adept of Alander
 M 3714 spec_fido	* the beast
 S
@@ -2631,7 +2629,7 @@ D 0 3734 5 1	* Center of Arena: door to the down: closed
 D 0 3748 4 1	* The Center of the Dungeon: door to the up: closed
 M 0 3700 1 3701 1	* the acolyte of Zump (A Room in Mud School)
 M 0 3701 1 3710 1	* the blob (The Blob Cage)
-M 0 3707 1 3712 1	* the adept of  (The Cage Room)
+M 0 3707 1 3712 1	* the adept of Satin (The Cage Room)
 M 0 3704 1 3713 1	* the aggressive monster (A Cage)
 E 0 3707 0 7		*	a pair of sub issue leggings: on the legs
 E 0 3712 0 13		*	a sub issue belt: around the waist

@@ -198,7 +198,7 @@ Although retired from adventuring, the healer still lends a hand.
 Type 'heal' to see a listing of spells.
 ~
 human~
-ABQVae DFH 1000 0
+ABQVaef DFH 1000 0
 120 10 1d1+29099 1d1+1999 10d20+50 divine
 -150 -150 -150 -100
 FHIK ABC D 0
@@ -1009,10 +1009,10 @@ Her white robes represend the purity of her soul.  She is standing behind
 the altar, and concentrating, to cure the others wounds.
 ~
 human~
-ABKQRVae DEFHZ 1000 0
+ABKQRVaef DEFHZ 1000 0
 120 0 1d1+1700 1d1+2000 7d4+50 divine
 0 0 0 0
-FG ABC ABCD 0
+FG ABCD ABCD 0
 stand stand female 0
 0 0 medium unknown
 #3167
@@ -2096,7 +2096,7 @@ a fountain~
 A small white fountain gushes forth here.~
 ~
 fountain 0 0
-0 0 'water' 0 0
+0 0 'champagne' 0 0
 0 0 0 G
 E
 fountain~
@@ -4199,11 +4199,11 @@ eg, say kassandra
 ~
 #3397
 quiver~
-a quiver~
-A small quiver left here.~
+@eng quiver@rus колчан~
+@eng A quiver has been carelessly left here.@rus Кто-то оставил здесь колчан для стрел.~
 leather~
-container 0 A
-50 F 0 5 75
+container 0 AK
+50 F 0 20 100
 1 10 9 G
 #3398
 map canyon elemental~
@@ -4550,6 +4550,10 @@ writing carving carvings symbols symbol~
 Although it is very hard to understand, you think it looks a lot like beer,
 poems about beer, and small beer-mugs.
 ~
+D1
+~
+~
+Z 0 95810
 D2
 You see the bar of Samurai's.
 ~
@@ -4712,6 +4716,16 @@ You are standing on the market square, the famous Square of Midgaard.
 A large, peculiar looking statue is standing in the middle of the square.
 Roads lead in every direction, north to the temple square, south to the
 road to common square, east and westbound is the main street.
+{R   С Новым годом!{x
+{R          *{x
+{G         /{y|{G\{B*{x
+{G        //{y|{G\\{x
+{Y       *{G//{y|{G\\\{x
+{G      /{C*{G//{y|{G\\{M*{G\{x
+{y          |{x
+ 
+{WПраздничная гулянка проводится в Grunting Boar Inn!{x
+Не опоздайте ;)
 ~
 0 S city
 E
@@ -5135,7 +5149,7 @@ Pet Shop Store~
 This is the small dark room in which the Pet Shop Boy keeps his pets.
 It is vital that this room be immediately after the pet shop.
 ~
-0 CDNS inside
+0 CDNSX inside
 S
 #3033
 The Magic Shop~
@@ -5692,7 +5706,7 @@ behind it is a ten foot tall sitting statue of Odin, the King of the Gods.
 The back of the altar opens into a a beautiful atrium, above which can be
 seen a rainbow.
 ~
-0 DKNS inside
+0 DKS inside
 E
 altar~
 Even though the altar is more than ten feet long it appears to be made from a
@@ -8056,6 +8070,7 @@ G 0 3000 0		*	a barrel of beer
 G 0 3001 0		*	a bottle of beer
 E 0 3022 0 16		*	a long sword: wielded
 M 0 3064 3 3007 3	* the drunk (The Grunting Boar)
+O 0 9 0 3007	* Christmas tree (The Grunting Boar)
 O 0 3139 0 3008	* the receptionist's letter of resignation (The Defunct Reception)
 O 0 3140 0 3008	* the bank's notice of liquidation (The Defunct Reception)
 M 0 3001 1 3009 1	* the baker (The Bakery)
@@ -8071,7 +8086,7 @@ G 0 3031 0		*	a hooded brass lantern
 G 0 3138 0		*	a buffalo water skin
 G 0 3032 0		*	a bag
 G 0 3033 0		*	a box
-G 0 3397 0		*	a quiver
+G 0 3397 0		*	quiver
 E 0 3022 0 16		*	a long sword: wielded
 M 0 3003 1 3011 1	* the weaponsmith (The Weapon Shop)
 G 0 3020 0		*	a dagger
@@ -8442,10 +8457,6 @@ S
 3160 0 0 0 0 0 100 100 0 23
 3164 0 0 0 0 0 100 100 7 21
 0
-
-#OLIMITS
-O 3170 0	* Map of the Smurf village
-S
 
 #MOBPROGS
 #3000

@@ -1,6 +1,5 @@
 #AREADATA
 Name Chaos~
-Builders root eidu maedhros~
 VNUMs 33100 33299
 Credits root~
 Security 9
@@ -340,19 +339,9 @@ chaos cloak~
 a cloak of hallucinations~
 @eng An invisible cloak is on the ground.@rus Невидимая мантия Хаося прикрывает как ширма его секреты.~
 chaos~
-weapon FGHIMOPTWZ AK
-exotic 8 6 kiss E
+weapon 0 0
+exotic 8 6 kiss 0
 31 0 0 P
-A
-18 45
-F
-A 6 1 B
-F
-A 6 1 Q
-A
-19 40
-A
-14 500
 C Chaos~
 #33169
 slot empty~

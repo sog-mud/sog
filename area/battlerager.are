@@ -1,9 +1,10 @@
 #AREADATA
 Name Battlerager~
-VNUMs 95400 95409
+VNUMs 95400 95499
 Credits Chronos~
 Security 9
 LevelRange 90 100
+Clan BattleRager~
 End
 
 #MOBILES
@@ -18,7 +19,7 @@ staffs. Even he had never used a magical item. Those shows how he
 hates magic.
 ~
 giant~
-ABJKTVef DFe 0 0
+ABJKTVef DFelmt 0 0
 92 70 2d500+25000 1d1+3999 10d40+90 slash
 -90 -90 -90 -70
 ACEFIK AB D 0
@@ -139,6 +140,10 @@ seek for the light but you couldn't find. But the light coming from the
 water fall still can light the enterance of the caven.
 ~
 0 WXY city
+D1
+~
+~
+Z 0 5281
 D3
 ~
 ~
@@ -298,7 +303,6 @@ S
 #0
 
 #RESETS
-O 0 95404 0 95400	* Waterfall (In the caven)
 M 0 95400 1 95401 1	* the Powerman (The entrance to the Caven of Battlerager)
 E 0 95400 0 17		*	a bone key: held in the hands
 O 0 95403 0 95404	* the pit for donations (The donation room)
@@ -392,7 +396,6 @@ S
 *   - Маги, не соответствующие определению, изложенному в предыдущем *
 * пункте, также должны быть уничтожены.                              *
 **********************************************************************
- 
 ~
 -1 $~
 

@@ -639,7 +639,7 @@ Although retired from adventuring, the healer still lends a hand.
 Type 'heal' to see a listing of spells.
 ~
 human~
-ABQVae DFH 1000 0
+ABQVaef DFH 1000 0
 120 10 1d1+26999 1d1+999 2d4+30 divine
 -45 -45 -45 -15
 FHIK ABC D 0
@@ -2401,7 +2401,7 @@ Z 0 5363
 D3
 ~
 The Path to the Keep
-~
+~
 Z 0 15700
 D5
 ~

@@ -16,7 +16,7 @@ You see a huge man. He looks very strong and wise. You'd better never mess with 
 ~
 dragon~
 ABGOVXac H 0 0
-200 0 5d5000+5000 1d1+666 5d300+1 none
+1000 0 5d5000+5000 1d1+666 5d300+1 none
 6 6 66 66
 0 ABDFGIJLMOPQRTXYZ 0 0
 stand stand male 2147483647
@@ -224,6 +224,14 @@ unknown~
 armor 0 AGP
 0 0 0 0 0
 0 0 0 P
+#15014
+mark beast~
+The Mark of the Beast~
+Mark of the Beast is here.~
+darkness~
+treasure ABCEG AS
+0 0 0 0 0
+100 0 0 P
 #15020
 box~
 {Dящик ворсинского пива{x~
@@ -240,6 +248,38 @@ bottle~
 drink CGRYa AOP
 20 20 'beer' 0 0
 1 0 0 P
+#15026
+no name~
+~
+~
+unknown~
+trash 0 0
+0 0 0 0 0
+0 0 0 P
+#15027
+elephant~
+@eng HUGE elephant@rus ОГРОМНЫЙ СЛОНЯРА~
+@eng HUGE elephant wanders around.@rus ОГРОМНЫЙ СЛОНЯРА бродит тут в поисках хозяина.~
+unknown~
+treasure 0 AO
+0 0 0 0 0
+0 0 0 P
+#15028
+bell~
+@eng {Wlittle magic bell{x@rus {Wмаленький глиняный колокольчик{x~
+@eng A small little magic bell lies here.@rus Самая прекрасная ведьмочка оставила здесь свой колокольчик.~
+unknown~
+treasure 0 AO
+0 0 0 0 0
+0 0 0 P
+#15029
+bear~
+@eng teddy bear@rus плюшевый медвежонок~
+@eng Teddy bear lies here, forgotten.@rus Уронили мишку на пол, оторвали мишке лапу...~
+unknown~
+treasure 0 AO
+0 0 0 0 0
+0 0 0 P
 #15030
 tron~
 {Gмаленькая удобная кроватка{x~
@@ -446,7 +486,6 @@ S
 S
 #15010
 @eng {DThe room of Death{x@rus {DКомната Смерти{x~
-@rus  
 ~
 0 CJNX inside
 S
@@ -472,6 +511,7 @@ S
 #OLIMITS
 O 15004 1	* a BIG barrel of beer for Mabutu
 O 15009 0	* Abrazak's mace
+O 15014 0	* The Mark of the Beast
 O 15042 1	* gabagaba ring
 O 15100 1	* a dwarven golden ring
 S

@@ -876,8 +876,7 @@ Syntax: scroll
 Syntax: scroll <number>
 
 This command changes the number of lines the mud sends you in a page (the 
-default is 24 lines).  Change this to a higher number for larger screen
-sizes, or to 0 to disabling paging.
+default is 24 lines).  Change this to a higher number for larger screen.
 ~
 0 BRANDISH QUAFF RECITE ZAP~
 Syntax: brandish
@@ -2589,7 +2588,7 @@ for deletion. For other matters, use common sense.
 
 ~
 0 LAWS LAW ~
-The laws of the land that shall be enforced by the Ruler Clan are as
+@eng The laws of the land that shall be enforced by the Ruler Clan are as
 follows :
  
     The areas that are defined as protected by the jurisdiction of the Law
@@ -2625,6 +2624,31 @@ are the entirety of Midgaard, New Thalos, Valley of Titans and  New Ofcol.
 New Thalos, Valley of Titans and New Ofcol are defined by the 'where protector'
 command. Old midgaard is not a holy town.
 
+@rus Законы, за выполнением которых должен следить клан Ruler:
+ 
+Области в которых действует Закон - Midgaard, New Thalos, Valley of Titans
+и New Ofcol.
+ 
+1. В вышеприведенных ариях запрещено нападение/воровство/грабеж игрока.
+Воровство запрещено полностью. Воровство включает попытку любой кражи у игрока,
+или вытаскивание вещей из трупа, или из алтаря в случае, если игрок ждет
+появления своих вещей в алтаре. Воровство также включает в себя взятие чужого
+обмундирования или оружия после разоружения в течение законного поединка.
+ 
+2. В любой защищенной области Запрещено использовать area spells или другие
+Это включает в себя area spells зачармленых, засуммоненых или атакующих 
+мобов.
+ 
+3. Запрещено помогать криминальному элементу, давать ему вещи, помогать
+избежать наказания, убивать стражников охотящихся за ним.
+ 
+4. Вторжение в Клан Ruler запрещено и рассматривается как нарушение закона.
+ 
+5. Перенос с помощью заклинаний группы transportations жертвы из защищенной
+области непосредственно в комнату с агрессивными мобами, который приведет к
+смерти рассматривается как нападение на игрока в защищенной области.
+ 
+6. Нападение на стражей закона - нарушение закона.
 ~
 1 WANTED ~
 Syntax: WANTED <player> <Y or N>
@@ -3150,8 +3174,8 @@ Here are the types of the damages, from small to...
 This help is only for russian win1251 (MS Windows) codepage players.
 
         Если от вас не приходит буква 'Я' маленькая, то попробуйте сказать
-{Cnotelnet{x. Для того, чтобы маленькая буква 'Я' транслировалась в большую,
-попробуйте {Cnoiac{x.
+{Ctoggle notelnet{x. Для того, чтобы маленькая буква 'Я' транслировалась в большую,
+попробуйте {Ctoggle noiac{x.
  
 ~
 0 AEDIT~
@@ -3964,6 +3988,13 @@ Syntax: grant victim level
 Grant command will grant wizard commands with specified names or
 all wizard commands of specified level to victim.
 Given no parameters this command will show current victim's grant list.
+ 
+~
+0 LABEL~
+Syntax : label <object> <label> 
+ 
+This command allows you to give an additional name to an object.
+Labeling an object costs 10 quest points.
  
 ~
 -1 $~
