@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.281 2002-11-23 15:27:29 fjoe Exp $
+ * $Id: act_obj.c,v 1.282 2003-03-16 20:26:48 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1180,7 +1180,8 @@ DO_FUN(do_eat, ch, argument)
 	if (!IS_IMMORTAL(ch)) {
 		if ((obj->item_type != ITEM_FOOD ||
 		     IS_OBJ_STAT(obj, ITEM_NOT_EDIBLE))
-		&& obj->item_type != ITEM_PILL) {
+		&& obj->item_type != ITEM_PILL
+		&& obj->item_type != ITEM_HERB) {
 			act_char("That's not edible.", ch);
 			return;
 		}
@@ -1190,14 +1191,14 @@ DO_FUN(do_eat, ch, argument)
 		}
 	}
 
-	if (obj->item_type == ITEM_FOOD
+	if ((obj->item_type == ITEM_FOOD || obj->item_type == ITEM_HERB)
 	&&  ch->fighting != NULL) {
 		act_puts("You can't eat while fighting.",
 			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		return;
 	}
 
-	if (obj->pObjIndex->item_type == ITEM_PILL
+	if ((obj->item_type == ITEM_PILL || obj->item_type == ITEM_HERB)
 	&&  ch->level < obj->level) {
 		act_puts("$p is too powerful for you to eat.",
 			 ch, obj, NULL, TO_CHAR, POS_DEAD);
@@ -1277,16 +1278,31 @@ DO_FUN(do_eat, ch, argument)
 			break;
 
 		obj_cast_spell(obj->value[4].s, INT(obj->value[0]), ch, ch);
-		break;
+		if (IS_EXTRACTED(ch))
+			break;
 
 		chance = (obj->level - LEVEL(ch)) * 5;
-		chance = (chance > 0) ? 
+		chance = (chance > 0) ?
 			chance + 18 - get_curr_stat(ch, STAT_INT) : 0;
 		if (number_percent() < chance && !IS_NPC(ch)) {
 			act("$P was too powerful for you.",
 			    ch, NULL, obj, TO_CHAR);
 			spellfun_call("hallucination", NULL, obj->level, ch,ch);
 		}
+
+	case ITEM_HERB:
+		obj_cast_spell(obj->value[0].s, MAX_LEVEL, ch, ch);
+		if (IS_EXTRACTED(ch))
+			break;
+
+		ch->hit = UMIN(ch->hit + INT(obj->value[1]), ch->max_hit);
+		update_pos(ch);
+		if (IS_EXTRACTED(ch))
+			break;
+
+		ch->mana = UMIN(ch->mana + INT(obj->value[2]), ch->max_mana);
+		ch->move = UMIN(ch->move + INT(obj->value[3]), ch->max_move);
+		break;
 	}
 
 	extract_obj(obj, 0);
