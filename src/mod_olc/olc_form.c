@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_form.c,v 1.3 1998-10-26 08:40:10 fjoe Exp $
+ * $Id: olc_form.c,v 1.4 1998-12-01 10:55:11 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -77,7 +77,7 @@ OLC_FUN(worded_create)
 	varr **hashp;
 
 	if (ch->pcdata->security < SECURITY_MSGDB) {
-		char_puts("WordEd: Insufficient security.\n\r", ch);
+		char_puts("WordEd: Insufficient security.\n", ch);
 		return FALSE;
 	}
 
@@ -95,7 +95,7 @@ OLC_FUN(worded_create)
 	}
 
 	if (l == NULL) {
-		char_puts("WordEd: You must be editing a language or another word.\n\r", ch);
+		char_puts("WordEd: You must be editing a language or another word.\n", ch);
 		return FALSE;
 	}
 
@@ -113,7 +113,7 @@ OLC_FUN(worded_create)
 	}
 
 	if (word_lookup(hashp, argument)) {
-		char_printf(ch, "WordEd: %s: duplicate name.\n\r", argument);
+		char_printf(ch, "WordEd: %s: duplicate name.\n", argument);
 		return FALSE;
 	}
 
@@ -122,7 +122,7 @@ OLC_FUN(worded_create)
 	word_add(hashp, w);
 	ch->desc->editor = type;
 	ch->desc->pEdit = w;
-	char_puts("WordEd: word created.\n\r", ch);
+	char_puts("WordEd: word created.\n", ch);
 	return FALSE;
 }
 
@@ -135,7 +135,7 @@ OLC_FUN(worded_edit)
 	varr **hashp;
 
 	if (ch->pcdata->security < SECURITY_MSGDB) {
-		char_puts("WordEd: Insufficient security.\n\r", ch);
+		char_puts("WordEd: Insufficient security.\n", ch);
 		return FALSE;
 	}
 
@@ -153,7 +153,7 @@ OLC_FUN(worded_edit)
 	}
 
 	if (l == NULL) {
-		char_puts("WordEd: You must be editing a language or another word.\n\r", ch);
+		char_puts("WordEd: You must be editing a language or another word.\n", ch);
 		return FALSE;
 	}
 
@@ -171,7 +171,7 @@ OLC_FUN(worded_edit)
 	}
 
 	if ((w = word_lookup(hashp, argument)) == NULL) {
-		char_printf(ch, "WordEd: %s: not found.\n\r", argument);
+		char_printf(ch, "WordEd: %s: not found.\n", argument);
 		return FALSE;
 	}
 
@@ -206,9 +206,9 @@ OLC_FUN(worded_show)
 	EDIT_WORD(ch, w);
 	l = varr_get(&langs, w->lang);
 
-	char_printf(ch, "Name: [%s]\n\r"
-			"Lang: [%s]\n\r"
-			"Type: [%s]\n\r",
+	char_printf(ch, "Name: [%s]\n"
+			"Lang: [%s]\n"
+			"Type: [%s]\n",
 		    w->name,
 		    l->name,
 		    ch->desc->editor == ED_GENDER ?	"gender" :
@@ -216,13 +216,13 @@ OLC_FUN(worded_show)
 							"unknown");
 
 	if (!IS_NULLSTR(w->base))
-		char_printf(ch, "Base: [%s]\n\r", w->base);
+		char_printf(ch, "Base: [%s]\n", w->base);
 
 	for (i = 0; i < w->f.nused; i++) {
 		char **p = VARR_GET(&w->f, i);
 
 		if (!IS_NULLSTR(*p))
-			char_printf(ch, "Form: [%d] [%s]\n\r", i, *p);
+			char_printf(ch, "Form: [%d] [%s]\n", i, *p);
 	}
 
 	return FALSE;
@@ -243,7 +243,7 @@ OLC_FUN(worded_list)
 	}
 	
 	if ((i = lang_lookup(arg)) < 0) {
-		char_printf(ch, "WordEd: %s: unknown language.\n\r", arg);
+		char_printf(ch, "WordEd: %s: unknown language.\n", arg);
 		return FALSE;
 	}
 
@@ -263,7 +263,7 @@ OLC_FUN(worded_list)
 			if (!str_prefix(argument, w->name)) {
 				if (output == NULL)
 					output = buf_new(-1);
-				buf_printf(output, "%s\n\r", w->name);
+				buf_printf(output, "%s\n", w->name);
 			}
 		}
 	}
@@ -273,7 +273,7 @@ OLC_FUN(worded_list)
 		buf_free(output);
 	}
 	else
-		char_puts("WordEd: no messages found.\n\r", ch);
+		char_puts("WordEd: no messages found.\n", ch);
 
 	return FALSE;
 }
@@ -296,7 +296,7 @@ OLC_FUN(worded_name)
 	EDIT_HASH(ch, l, hashp);
 
 	if (word_lookup(hashp, argument)) {
-		char_printf(ch, "WordEd: %s: duplicate name.\n\r", argument);
+		char_printf(ch, "WordEd: %s: duplicate name.\n", argument);
 		return FALSE;
 	}
 

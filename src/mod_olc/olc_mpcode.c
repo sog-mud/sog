@@ -1,5 +1,5 @@
 /*
- * $Id: olc_mpcode.c,v 1.20 1998-10-26 08:40:08 fjoe Exp $
+ * $Id: olc_mpcode.c,v 1.21 1998-12-01 10:55:10 fjoe Exp $
  */
 
 /* The following code is based on ILAB OLC by Jason Dinkel */
@@ -59,17 +59,17 @@ OLC_FUN(mped_create)
 
 	pArea = area_vnum_lookup(value);
 	if (!pArea) {
-		char_puts("MPEdit: That vnum is not assigned an area.\n\r", ch);
+		char_puts("MPEdit: That vnum is not assigned an area.\n", ch);
 		return FALSE;
 	}
 
 	if (!IS_BUILDER(ch, pArea)) {
-		char_puts("MPEdit: Insufficient security.\n\r", ch);
+		char_puts("MPEdit: Insufficient security.\n", ch);
 		return FALSE;
 	}
 
 	if (mpcode_lookup(value)) {
-		char_puts("MPEdit: vnum already exists.\n\r", ch);
+		char_puts("MPEdit: vnum already exists.\n", ch);
 		return FALSE;
 	}
 
@@ -80,7 +80,7 @@ OLC_FUN(mped_create)
 	ch->desc->pEdit		= (void *)mpcode;
 	ch->desc->editor	= ED_MPCODE;
 	touch_area(pArea);
-	char_puts("MPEdit: mpcode created.\n\r", ch);
+	char_puts("MPEdit: mpcode created.\n", ch);
 	return FALSE;
 }
 
@@ -100,13 +100,13 @@ OLC_FUN(mped_edit)
 	value = atoi(arg);
 	mpcode = mpcode_lookup(value);
 	if (!mpcode) {
-		char_puts("MPEdit: Vnum does not exist.\n\r", ch);
+		char_puts("MPEdit: Vnum does not exist.\n", ch);
 		return FALSE;
 	}
 
 	pArea = area_vnum_lookup(mpcode->vnum);
 	if (!IS_BUILDER(ch, pArea)) {
-		char_puts("MEdit: Insufficient security.\n\r", ch);
+		char_puts("MEdit: Insufficient security.\n", ch);
 	       	return FALSE;
 	}
 
@@ -140,13 +140,13 @@ OLC_FUN(mped_show)
 		int value = atoi(arg);
 		mpcode = mpcode_lookup(value);
 		if (!mpcode) {
-			char_puts("MPEdit: Vnum does not exist.\n\r", ch);
+			char_puts("MPEdit: Vnum does not exist.\n", ch);
 			return FALSE;
 		}
 	}
 
-	char_printf(ch, "Vnum:       [%d]\n\r"
-			"Code:\n\r%s\n\r",
+	char_printf(ch, "Vnum:       [%d]\n"
+			"Code:\n%s\n",
 		   mpcode->vnum, mpcode->code);
 
 	return FALSE;
@@ -175,15 +175,15 @@ OLC_FUN(mped_list)
 			else
 				blah = ' ';
 
-			buf_printf(buffer, "[%3d] (%c) %5d\n\r", count, blah, mpcode->vnum);
+			buf_printf(buffer, "[%3d] (%c) %5d\n", count, blah, mpcode->vnum);
 			count++;
 		}
 
 	if (count == 1) {
 		if (fAll)
-			buf_add(buffer, "No mobprogs found.\n\r");
+			buf_add(buffer, "No mobprogs found.\n");
 		else
-			buf_add(buffer, "No mobprogs found in this area.\n\r");
+			buf_add(buffer, "No mobprogs found in this area.\n");
 	}
 
 	page_to_char(buf_string(buffer), ch);

@@ -1,5 +1,5 @@
 /*
- * $Id: ban.c,v 1.23 1998-11-02 05:28:40 fjoe Exp $
+ * $Id: ban.c,v 1.24 1998-12-01 10:54:23 fjoe Exp $
  */
 
 /***************************************************************************
@@ -119,7 +119,7 @@ void save_bans(void)
 	if (IS_SET(pban->ban_flags,BAN_PERMANENT))
 	{
 	    found = TRUE;
-	    sprintf(buf, "%-20s %-2d %s\n\r", pban->name, pban->level,
+	    sprintf(buf, "%-20s %-2d %s\n", pban->name, pban->level,
 		    format_flags(pban->ban_flags));
 	    dump_to_scr(buf);
 	    fprintf(fp,"%-20s %-2d %s\n",pban->name,pban->level,
@@ -214,13 +214,13 @@ void ban_site(CHAR_DATA *ch, const char *argument, bool fPerm)
 
 	if (arg1[0] == '\0') {
 		if (ban_list == NULL) {
-			char_puts("No sites banned at this time.\n\r",ch);
+			char_puts("No sites banned at this time.\n",ch);
 			return;
   		}
 
 		buffer = buf_new(-1);
 
-        	buf_add(buffer, "Banned sites  level  type     status\n\r");
+        	buf_add(buffer, "Banned sites  level  type     status\n");
 		for (pban = ban_list;pban != NULL;pban = pban->next) {
 			char buf2[MAX_STRING_LENGTH];
 
@@ -229,7 +229,7 @@ void ban_site(CHAR_DATA *ch, const char *argument, bool fPerm)
 				pban->name,
 				IS_SET(pban->ban_flags,BAN_SUFFIX) ? "*" : str_empty);
 
-			buf_printf(buffer,"%-12s    %-3d  %-7s  %s\n\r",
+			buf_printf(buffer,"%-12s    %-3d  %-7s  %s\n",
 				buf2, pban->level,
 				IS_SET(pban->ban_flags,BAN_NEWBIES) ?
 					"newbies" :
@@ -259,7 +259,7 @@ void ban_site(CHAR_DATA *ch, const char *argument, bool fPerm)
 	type = BAN_PERMIT;
     else
     {
-	char_puts("Acceptable ban types are all, newbies, player, and permit.\n\r",
+	char_puts("Acceptable ban types are all, newbies, player, and permit.\n",
 	    ch); 
 	return;
     }
@@ -280,7 +280,7 @@ void ban_site(CHAR_DATA *ch, const char *argument, bool fPerm)
 
     if (strlen(name) == 0)
     {
-	char_puts("You have to ban SOMETHING.\n\r",ch);
+	char_puts("You have to ban SOMETHING.\n",ch);
 	return;
     }
 
@@ -291,7 +291,7 @@ void ban_site(CHAR_DATA *ch, const char *argument, bool fPerm)
         {
 	    if (pban->level > ch->level)
 	    {
-            	char_puts("That ban was set by a higher power.\n\r", ch);
+            	char_puts("That ban was set by a higher power.\n", ch);
             	return;
 	    }
 	    else
@@ -322,7 +322,7 @@ void ban_site(CHAR_DATA *ch, const char *argument, bool fPerm)
     pban->next  = ban_list;
     ban_list    = pban;
     save_bans();
-    char_printf(ch, "%s has been banned.\n\r",pban->name);
+    char_printf(ch, "%s has been banned.\n",pban->name);
     return;
 }
 
@@ -346,7 +346,7 @@ void do_allow(CHAR_DATA *ch, const char *argument)
 
     if (arg[0] == '\0')
     {
-        char_puts("Remove which site from the ban list?\n\r", ch);
+        char_puts("Remove which site from the ban list?\n", ch);
         return;
     }
 
@@ -358,7 +358,7 @@ void do_allow(CHAR_DATA *ch, const char *argument)
 	    if (curr->level > ch->level)
 	    {
 		char_puts(
-		   "You are not powerful enough to lift that ban.\n\r",ch);
+		   "You are not powerful enough to lift that ban.\n",ch);
 		return;
 	    }
             if (prev == NULL)
@@ -367,13 +367,13 @@ void do_allow(CHAR_DATA *ch, const char *argument)
                 prev->next = curr->next;
 
             free_ban(curr);
-	    char_printf(ch,"Ban on %s lifted.\n\r",arg);
+	    char_printf(ch,"Ban on %s lifted.\n",arg);
 	    save_bans();
             return;
         }
     }
 
-    char_puts("Site is not banned.\n\r", ch);
+    char_puts("Site is not banned.\n", ch);
     return;
 }
 

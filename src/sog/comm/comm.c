@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.129 1998-11-25 15:17:56 fjoe Exp $
+ * $Id: comm.c,v 1.130 1998-12-01 10:54:24 fjoe Exp $
  */
 
 /***************************************************************************
@@ -306,7 +306,7 @@ int main(int argc, char **argv)
 
 	boot_db();
 	log_printf("ready to rock on port %d.", port);
-	log_printf("who service started on port %d.", port+1);
+	log_printf("info service started on port %d.", port+1);
 	game_loop_unix(control, infofd);
 
 #if defined (WIN32)
@@ -1056,7 +1056,7 @@ void battle_prompt(CHAR_DATA *ch, CHAR_DATA *victim)
         else
 		msg = "{Ris nearly dead{x.";
 
-	snprintf(buf, sizeof(buf), "%s %s\n\r", 
+	snprintf(buf, sizeof(buf), "%s %s\n", 
 		 PERS(victim, ch), GETMSG(msg, ch->lang));
 	buf[0] = UPPER(buf[0]);
 	send_to_char(buf, ch);
@@ -1363,7 +1363,7 @@ void bust_a_prompt(CHAR_DATA *ch)
 	send_to_char(buf, ch);
 
 	if (ch->prefix[0] != '\0')
-		write_to_buffer(ch->desc,ch->prefix,0);
+		write_to_buffer(ch->desc, ch->prefix, 0);
 }
 
 /*
@@ -2194,7 +2194,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 	    ch->perm_stat[obj_count]--;
 
 	  save_char_obj(ch, FALSE);
-	  char_puts("The gods frown upon your actions.\n\r",ch);
+	  char_puts("The gods frown upon your actions.\n", ch);
 	}
 
 		/* FALL THRU */
@@ -2284,9 +2284,9 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 					      40, FALSE);
 
 			char_to_room(ch, get_room_index(ROOM_VNUM_SCHOOL));
-			char_puts("\n\r",ch);
+			char_puts("\n", ch);
 			do_help(ch, "NEWBIE INFO");
-			char_puts("\n\r", ch);
+			char_puts("\n", ch);
 		}
 		else {
 			if (ch->in_room
@@ -2481,7 +2481,7 @@ bool check_reconnect(DESCRIPTOR_DATA *d, const char *name, bool fConn)
 				d->character	= ch;
 				ch->desc	= d;
 				ch->timer	= 0;
-				char_puts("Reconnecting. Type replay to see missed tells.\n\r", ch);
+				char_puts("Reconnecting. Type replay to see missed tells.\n", ch);
 				act("$n has reconnected.",
 				    ch, NULL, NULL, TO_ROOM);
 
@@ -2579,7 +2579,7 @@ void page_to_char(const char *txt, CHAR_DATA *ch)
 		return; /* ben yazdim ibrahim */
 
 	if (ch->lines == 0) {
-		char_puts(txt,ch);
+		char_puts(txt, ch);
 		return;
 	}
 	
@@ -2889,7 +2889,6 @@ void act_raw(CHAR_DATA *ch, CHAR_DATA *to,
 	}
  
 	*point++	= '\n';
-	*point++	= '\r';
 	*point		= '\0';
 
 /* first non-control char is uppercased */

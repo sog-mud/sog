@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_obj.c,v 1.20 1998-10-26 08:40:09 fjoe Exp $
+ * $Id: olc_obj.c,v 1.21 1998-12-01 10:55:10 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -136,17 +136,17 @@ OLC_FUN(objed_create)
 
 	pArea = area_vnum_lookup(value);
 	if (!pArea) {
-		char_puts("OEdit: That vnum is not assigned an area.\n\r", ch);
+		char_puts("OEdit: That vnum is not assigned an area.\n", ch);
 		return FALSE;
 	}
 
 	if (!IS_BUILDER(ch, pArea)) {
-		char_puts("OEdit: Insufficient security.\n\r", ch);
+		char_puts("OEdit: Insufficient security.\n", ch);
 		return FALSE;
 	}
 
 	if (get_obj_index(value)) {
-		char_puts("OEdit: Object vnum already exists.\n\r", ch);
+		char_puts("OEdit: Object vnum already exists.\n", ch);
 		return FALSE;
 	}
 		 
@@ -163,7 +163,7 @@ OLC_FUN(objed_create)
 	ch->desc->pEdit		= (void *)pObj;
 	ch->desc->editor	= ED_OBJ;
 	touch_area(pArea);
-	char_puts("OEdit: Object created.\n\r", ch);
+	char_puts("OEdit: Object created.\n", ch);
 	return FALSE;
 }
 
@@ -183,13 +183,13 @@ OLC_FUN(objed_edit)
 	value = atoi(arg);
 	pObj = get_obj_index(value);
 	if (!pObj) {
-		char_puts("OEdit: Vnum does not exist.\n\r", ch);
+		char_puts("OEdit: Vnum does not exist.\n", ch);
 		return FALSE;
 	}
 
 	pArea = area_vnum_lookup(pObj->vnum);
 	if (!IS_BUILDER(ch, pArea)) {
-		char_puts("OEdit: Insufficient security.\n\r", ch);
+		char_puts("OEdit: Insufficient security.\n", ch);
 	       	return FALSE;
 	}
 
@@ -228,7 +228,7 @@ OLC_FUN(objed_show)
 		int value = atoi(arg);
 		pObj = get_obj_index(value);
 		if (!pObj) {
-			char_puts("OEdit: Vnum does not exist.\n\r", ch);
+			char_puts("OEdit: Vnum does not exist.\n", ch);
 			return FALSE;
 		}
 	}
@@ -236,36 +236,36 @@ OLC_FUN(objed_show)
 	pArea = area_vnum_lookup(pObj->vnum);
 
 	output = buf_new(-1);
-	buf_printf(output, "Name:        [%s]\n\rArea:        [%5d] %s\n\r",
+	buf_printf(output, "Name:        [%s]\nArea:        [%5d] %s\n",
 		pObj->name, pArea->vnum, pArea->name);
 
-	buf_printf(output, "Vnum:        [%5d]\n\rType:        [%s]\n\r",
+	buf_printf(output, "Vnum:        [%5d]\nType:        [%s]\n",
 		pObj->vnum,
 		flag_string(item_types, pObj->item_type));
 
 	if (pObj->clan && (clan = clan_lookup(pObj->clan))) 
-		buf_printf(output, "Clan      : [%s]\n\r", clan->name);
+		buf_printf(output, "Clan      : [%s]\n", clan->name);
 
 	if (pObj->limit != -1)
-		buf_printf(output, "Limit:       [%5d]\n\r", pObj->limit);
+		buf_printf(output, "Limit:       [%5d]\n", pObj->limit);
 	else
-		buf_add(output, "Limit:       [none]\n\r");
+		buf_add(output, "Limit:       [none]\n");
 
-	buf_printf(output, "Level:       [%5d]\n\r", pObj->level);
+	buf_printf(output, "Level:       [%5d]\n", pObj->level);
 
-	buf_printf(output, "Wear flags:  [%s]\n\r",
+	buf_printf(output, "Wear flags:  [%s]\n",
 		flag_string(wear_flags, pObj->wear_flags));
 
-	buf_printf(output, "Extra flags: [%s]\n\r",
+	buf_printf(output, "Extra flags: [%s]\n",
 		flag_string(extra_flags, pObj->extra_flags));
 
-	buf_printf(output, "Material:    [%s]\n\r",                /* ROM */
+	buf_printf(output, "Material:    [%s]\n",                /* ROM */
 		pObj->material);
 
-	buf_printf(output, "Condition:   [%5d]\n\r",               /* ROM */
+	buf_printf(output, "Condition:   [%5d]\n",               /* ROM */
 		pObj->condition);
 
-	buf_printf(output, "Weight:      [%5d]\n\rCost:        [%5d]\n\r",
+	buf_printf(output, "Weight:      [%5d]\nCost:        [%5d]\n",
 		pObj->weight, pObj->cost);
 
 	if (pObj->ed) {
@@ -276,7 +276,7 @@ OLC_FUN(objed_show)
 		for (ed = pObj->ed; ed; ed = ed->next)
 			buf_printf(output, "[%s]", ed->keyword);
 
-		buf_add(output, "\n\r");
+		buf_add(output, "\n");
 	}
 
 	mlstr_dump(output, "Short desc: ", pObj->short_descr);
@@ -286,11 +286,11 @@ OLC_FUN(objed_show)
 		WHERE_DATA *w = where_lookup(paf->where);
 
 		if (cnt == 0) {
-			buf_add(output, "Number      Affects Modifier Affects Bitvector\n\r");
-			buf_add(output, "------ ------------ -------- ------- -----------------------------------------\n\r");
+			buf_add(output, "Number      Affects Modifier Affects Bitvector\n");
+			buf_add(output, "------ ------------ -------- ------- -----------------------------------------\n");
 		}
 		buf_printf(output, "[%4d] %12.12s %8d %7.7s %s"
-				   "\n\r",
+				   "\n",
 			   cnt,
 			   flag_string(apply_flags, paf->location),
 			   paf->modifier,
@@ -338,16 +338,16 @@ OLC_FUN(objed_list)
 					   pObjIndex->vnum,
 					   mlstr_mval(pObjIndex->short_descr));
 				if (++col % 3 == 0)
-					buf_add(buffer, "\n\r");
+					buf_add(buffer, "\n");
 			}
 		}
 	}
 
 	if (!found)
-		char_puts("Object(s) not found in this area.\n\r", ch);
+		char_puts("Object(s) not found in this area.\n", ch);
 	else {
 		if (col % 3 != 0)
-			buf_add(buffer, "\n\r");
+			buf_add(buffer, "\n");
 
 		page_to_char(buf_string(buffer), ch);
 	}
@@ -388,7 +388,7 @@ OLC_FUN(objed_addaffect)
 	}
 	else {
 		if ((location = flag_value(apply_flags, loc)) < 0) {
-			char_puts("Valid locations are:\n\r", ch);
+			char_puts("Valid locations are:\n", ch);
 			show_flags(ch, apply_flags);
 			return FALSE;
 		}
@@ -408,19 +408,19 @@ OLC_FUN(objed_addaffect)
 		WHERE_DATA *w;
 
 		if ((where = flag_value(apply_types, wh)) < 0) {
-			char_puts("Valid bitaffect locations are:\n\r", ch);
+			char_puts("Valid bitaffect locations are:\n", ch);
 			show_flags(ch, apply_types);
 			return FALSE;
 		}
 
 		if ((w = where_lookup(where)) == NULL) {
-			char_printf(ch, "%s: not in where_table.\n\r",
+			char_printf(ch, "%s: not in where_table.\n",
 				    flag_string(apply_types, where));
 			return FALSE;
 		}
 
 		if ((bitvector = flag_value(w->table, argument)) == 0) {
-			char_printf(ch, "Valid '%s' bitaffect flags are:\n\r",
+			char_printf(ch, "Valid '%s' bitaffect flags are:\n",
 				    flag_string(apply_types, where));
 			show_flags(ch, w->table);
 			return FALSE;
@@ -438,7 +438,7 @@ OLC_FUN(objed_addaffect)
 	pAf->next       = pObj->affected;
 	pObj->affected  = pAf;
 
-	char_puts("Affect added.\n\r", ch);
+	char_puts("Affect added.\n", ch);
 	return TRUE;
 }
 
@@ -461,32 +461,32 @@ OLC_FUN(objed_addapply)
 	one_argument(argument, bvector);
 
 	if ((where = flag_value(apply_types, type)) < 0) {
-		char_puts("Invalid apply type. Valid apply types are:\n\r", ch);
+		char_puts("Invalid apply type. Valid apply types are:\n", ch);
 		show_flags(ch, apply_types);
 		return FALSE;
 	}
 
 	if ((location = flag_value(apply_flags, loc)) < 0) {
-		char_puts("Valid applies are:\n\r", ch);
+		char_puts("Valid applies are:\n", ch);
 		show_flags(ch, apply_flags);
 		return FALSE;
 	}
 
 	if ((wd = where_lookup(where)) == NULL) {
 		char_puts("OEdit: bit vector table undefined. "
-			  "Report it to implementors.\n\r", ch);
+			  "Report it to implementors.\n", ch);
 		return FALSE;
 	}
 
 	if ((bv = flag_value(wd->table, bvector)) == 0) {
-		char_puts("Valid bitvector types are:\n\r", ch);
+		char_puts("Valid bitvector types are:\n", ch);
 		show_flags(ch, wd->table);
 		return FALSE;
 	}
 
 	if (!is_number(mod)) {
 		char_puts("Syntax: addapply type location "
-			  "mod bitvector\n\r", ch);
+			  "mod bitvector\n", ch);
 		return FALSE;
 	}
 
@@ -501,7 +501,7 @@ OLC_FUN(objed_addapply)
 	pAf->next       = pObj->affected;
 	pObj->affected  = pAf;
 
-	char_puts("Apply added.\n\r", ch);
+	char_puts("Apply added.\n", ch);
 	return TRUE;
 }
 
@@ -524,7 +524,7 @@ OLC_FUN(objed_delaffect)
 
 	if (!is_number(affect) || affect[0] == '\0')
 	{
-		char_puts("Syntax:  delaffect [#xaffect]\n\r", ch);
+		char_puts("Syntax:  delaffect [#xaffect]\n", ch);
 		return FALSE;
 	}
 
@@ -532,13 +532,13 @@ OLC_FUN(objed_delaffect)
 
 	if (value < 0)
 	{
-		char_puts("Only non-negative affect-numbers allowed.\n\r", ch);
+		char_puts("Only non-negative affect-numbers allowed.\n", ch);
 		return FALSE;
 	}
 
 	if (!(pAf = pObj->affected))
 	{
-		char_puts("OEdit:  Non-existant affect.\n\r", ch);
+		char_puts("OEdit:  Non-existant affect.\n", ch);
 		return FALSE;
 	}
 
@@ -560,12 +560,12 @@ OLC_FUN(objed_delaffect)
 		}
 		else                                 /* Doesn't exist */
 		{
-			 char_puts("No such affect.\n\r", ch);
+			 char_puts("No such affect.\n", ch);
 			 return FALSE;
 		}
 	}
 
-	char_puts("Affect removed.\n\r", ch);
+	char_puts("Affect removed.\n", ch);
 	return TRUE;
 }
 
@@ -748,13 +748,13 @@ OLC_FUN(objed_clone)
 
 	one_argument(argument, arg);
 	if (!is_number(arg)) {
-		char_puts("Syntax: clone <vnum>\n\r", ch);
+		char_puts("Syntax: clone <vnum>\n", ch);
 		return FALSE;
 	}
 
 	i = atoi(arg);
 	if ((pFrom = get_obj_index(i)) == NULL) {
-		char_printf(ch, "ObjEd: %d: Vnum does not exist.\n\r", i);
+		char_printf(ch, "ObjEd: %d: Vnum does not exist.\n", i);
 		return FALSE;
 	}
 
@@ -819,18 +819,18 @@ void show_obj_values(BUFFER *output, OBJ_INDEX_DATA *obj)
 		     
 	case ITEM_LIGHT:
 		if (obj->value[2] == -1 || obj->value[2] == 999) /* ROM OLC */
-			buf_printf(output, "[v2] Light:  Infinite[-1]\n\r");
+			buf_printf(output, "[v2] Light:  Infinite[-1]\n");
 		else
-			buf_printf(output, "[v2] Light:  [%d]\n\r", obj->value[2]);
+			buf_printf(output, "[v2] Light:  [%d]\n", obj->value[2]);
 		break;
 
 	case ITEM_WAND:
 	case ITEM_STAFF:
 		buf_printf(output,
-			"[v0] Level:          [%d]\n\r"
-			"[v1] Charges Total:  [%d]\n\r"
-			"[v2] Charges Left:   [%d]\n\r"
-			"[v3] Spell:          %s\n\r",
+			"[v0] Level:          [%d]\n"
+			"[v1] Charges Total:  [%d]\n"
+			"[v2] Charges Left:   [%d]\n"
+			"[v3] Spell:          %s\n",
 			obj->value[0],
 			obj->value[1],
 			obj->value[2],
@@ -839,10 +839,10 @@ void show_obj_values(BUFFER *output, OBJ_INDEX_DATA *obj)
 
 	case ITEM_PORTAL:
 		buf_printf(output,
-			    "[v0] Charges:        [%d]\n\r"
-			    "[v1] Exit Flags:     %s\n\r"
-			    "[v2] Portal Flags:   %s\n\r"
-			    "[v3] Goes to (vnum): [%d]\n\r",
+			    "[v0] Charges:        [%d]\n"
+			    "[v1] Exit Flags:     %s\n"
+			    "[v2] Portal Flags:   %s\n"
+			    "[v3] Goes to (vnum): [%d]\n",
 			    obj->value[0],
 			    flag_string(exit_flags, obj->value[1]),
 			    flag_string(portal_flags , obj->value[2]),
@@ -851,11 +851,11 @@ void show_obj_values(BUFFER *output, OBJ_INDEX_DATA *obj)
 			
 	case ITEM_FURNITURE:          
 		buf_printf(output,
-			    "[v0] Max people:      [%d]\n\r"
-			    "[v1] Max weight:      [%d]\n\r"
-			    "[v2] Furniture Flags: %s\n\r"
-			    "[v3] Heal bonus:      [%d]\n\r"
-			    "[v4] Mana bonus:      [%d]\n\r",
+			    "[v0] Max people:      [%d]\n"
+			    "[v1] Max weight:      [%d]\n"
+			    "[v2] Furniture Flags: %s\n"
+			    "[v3] Heal bonus:      [%d]\n"
+			    "[v4] Mana bonus:      [%d]\n",
 			    obj->value[0],
 			    obj->value[1],
 			    flag_string(furniture_flags, obj->value[2]),
@@ -867,11 +867,11 @@ void show_obj_values(BUFFER *output, OBJ_INDEX_DATA *obj)
 	case ITEM_POTION:
 	case ITEM_PILL:
 		buf_printf(output,
-			"[v0] Level:  [%d]\n\r"
-			"[v1] Spell:  %s\n\r"
-			"[v2] Spell:  %s\n\r"
-			"[v3] Spell:  %s\n\r"
-			"[v4] Spell:  %s\n\r",
+			"[v0] Level:  [%d]\n"
+			"[v1] Spell:  %s\n"
+			"[v2] Spell:  %s\n"
+			"[v3] Spell:  %s\n"
+			"[v4] Spell:  %s\n",
 			obj->value[0],
 			skill_name(obj->value[1]),
 			skill_name(obj->value[2]),
@@ -883,10 +883,10 @@ void show_obj_values(BUFFER *output, OBJ_INDEX_DATA *obj)
 
 	case ITEM_ARMOR:
 		buf_printf(output,
-			"[v0] Ac pierce       [%d]\n\r"
-			"[v1] Ac bash         [%d]\n\r"
-			"[v2] Ac slash        [%d]\n\r"
-			"[v3] Ac exotic       [%d]\n\r",
+			"[v0] Ac pierce       [%d]\n"
+			"[v1] Ac bash         [%d]\n"
+			"[v2] Ac slash        [%d]\n"
+			"[v3] Ac exotic       [%d]\n",
 			obj->value[0],
 			obj->value[1],
 			obj->value[2],
@@ -897,23 +897,23 @@ void show_obj_values(BUFFER *output, OBJ_INDEX_DATA *obj)
 /* I had to split the output here, I have no idea why, but it helped -- Hugin */
 /* It somehow fixed a bug in showing scroll/pill/potions too ?! */
 	case ITEM_WEAPON:
-		buf_printf(output, "[v0] Weapon class:   %s\n\r",
+		buf_printf(output, "[v0] Weapon class:   %s\n",
 			    flag_string(weapon_class, obj->value[0]));
-		buf_printf(output, "[v1] Number of dice: [%d]\n\r", obj->value[1]);
-		buf_printf(output, "[v2] Type of dice:   [%d]\n\r", obj->value[2]);
-		buf_printf(output, "[v3] Type:           %s\n\r",
+		buf_printf(output, "[v1] Number of dice: [%d]\n", obj->value[1]);
+		buf_printf(output, "[v2] Type of dice:   [%d]\n", obj->value[2]);
+		buf_printf(output, "[v3] Type:           %s\n",
 			    attack_table[obj->value[3]].name);
-		buf_printf(output, "[v4] Special type:   %s\n\r",
+		buf_printf(output, "[v4] Special type:   %s\n",
 			    flag_string(weapon_type2,  obj->value[4]));
 		break;
 
 	case ITEM_CONTAINER:
 		buf_printf(output,
-			"[v0] Weight:     [%d kg]\n\r"
-			"[v1] Flags:      [%s]\n\r"
-			"[v2] Key:     %s [%d]\n\r"
-			"[v3] Capacity    [%d]\n\r"
-			"[v4] Weight Mult [%d]\n\r",
+			"[v0] Weight:     [%d kg]\n"
+			"[v1] Flags:      [%s]\n"
+			"[v2] Key:     %s [%d]\n"
+			"[v3] Capacity    [%d]\n"
+			"[v4] Weight Mult [%d]\n",
 			obj->value[0],
 			flag_string(cont_flags, obj->value[1]),
 		        get_obj_index(obj->value[2]) ?
@@ -926,10 +926,10 @@ void show_obj_values(BUFFER *output, OBJ_INDEX_DATA *obj)
 
 	case ITEM_DRINK_CON:
 		buf_printf(output,
-			    "[v0] Liquid Total: [%d]\n\r"
-			    "[v1] Liquid Left:  [%d]\n\r"
-			    "[v2] Liquid:       %s\n\r"
-			    "[v3] Poisoned:     %s\n\r",
+			    "[v0] Liquid Total: [%d]\n"
+			    "[v1] Liquid Left:  [%d]\n"
+			    "[v2] Liquid:       %s\n"
+			    "[v3] Poisoned:     %s\n",
 			    obj->value[0],
 			    obj->value[1],
 			    liq_table[obj->value[2]].liq_name,
@@ -938,9 +938,9 @@ void show_obj_values(BUFFER *output, OBJ_INDEX_DATA *obj)
 
 	case ITEM_FOUNTAIN:
 		buf_printf(output,
-			    "[v0] Liquid Total: [%d]\n\r"
-			    "[v1] Liquid Left:  [%d]\n\r"
-			    "[v2] Liquid:	    %s\n\r",
+			    "[v0] Liquid Total: [%d]\n"
+			    "[v1] Liquid Left:  [%d]\n"
+			    "[v2] Liquid:	    %s\n",
 			    obj->value[0],
 			    obj->value[1],
 			    liq_table[obj->value[2]].liq_name);
@@ -948,16 +948,16 @@ void show_obj_values(BUFFER *output, OBJ_INDEX_DATA *obj)
 			    
 	case ITEM_FOOD:
 		buf_printf(output,
-			"[v0] Food hours: [%d]\n\r"
-			"[v1] Full hours: [%d]\n\r"
-			"[v3] Poisoned:   %s\n\r",
+			"[v0] Food hours: [%d]\n"
+			"[v1] Full hours: [%d]\n"
+			"[v3] Poisoned:   %s\n",
 			obj->value[0],
 			obj->value[1],
 			obj->value[3] != 0 ? "Yes" : "No");
 		break;
 
 	case ITEM_MONEY:
-		buf_printf(output, "[v0] Gold:   [%d]\n\r", obj->value[0]);
+		buf_printf(output, "[v0] Gold:   [%d]\n", obj->value[0]);
 		break;
 	}
 }
@@ -980,7 +980,7 @@ bool set_obj_values(CHAR_DATA *ch, OBJ_INDEX_DATA *pObj,
 			do_help(ch, "ITEM_LIGHT");
 			return FALSE;
 		case 2:
-			buf_add(output, "HOURS OF LIGHT SET.\n\r\n\r");
+			buf_add(output, "HOURS OF LIGHT SET.\n\n");
 			pObj->value[2] = atoi(argument);
 			break;
 		}
@@ -993,19 +993,19 @@ bool set_obj_values(CHAR_DATA *ch, OBJ_INDEX_DATA *pObj,
 			do_help(ch, "ITEM_STAFF_WAND");
 			return FALSE;
 		case 0:
-			buf_add(output, "SPELL LEVEL SET.\n\r\n\r");
+			buf_add(output, "SPELL LEVEL SET.\n\n");
 			pObj->value[0] = atoi(argument);
 			break;
 		case 1:
-			buf_add(output, "TOTAL NUMBER OF CHARGES SET.\n\r\n\r");
+			buf_add(output, "TOTAL NUMBER OF CHARGES SET.\n\n");
 			pObj->value[1] = atoi(argument);
 			break;
 		case 2:
-			buf_add(output, "CURRENT NUMBER OF CHARGES SET.\n\r\n\r");
+			buf_add(output, "CURRENT NUMBER OF CHARGES SET.\n\n");
 			pObj->value[2] = atoi(argument);
 			break;
 		case 3:
-			buf_add(output, "SPELL TYPE SET.\n\r");
+			buf_add(output, "SPELL TYPE SET.\n");
 			pObj->value[3] = sn_lookup(argument);
 			break;
 		}
@@ -1019,23 +1019,23 @@ bool set_obj_values(CHAR_DATA *ch, OBJ_INDEX_DATA *pObj,
 			do_help(ch, "ITEM_SCROLL_POTION_PILL");
 			return FALSE;
 		case 0:
-			buf_add(output, "SPELL LEVEL SET.\n\r\n\r");
+			buf_add(output, "SPELL LEVEL SET.\n\n");
 			pObj->value[0] = atoi(argument);
 			break;
 		case 1:
-			buf_add(output, "SPELL TYPE 1 SET.\n\r\n\r");
+			buf_add(output, "SPELL TYPE 1 SET.\n\n");
 			pObj->value[1] = sn_lookup(argument);
 			break;
 		case 2:
-			buf_add(output, "SPELL TYPE 2 SET.\n\r\n\r");
+			buf_add(output, "SPELL TYPE 2 SET.\n\n");
 			pObj->value[2] = sn_lookup(argument);
 			break;
 		case 3:
-			buf_add(output, "SPELL TYPE 3 SET.\n\r\n\r");
+			buf_add(output, "SPELL TYPE 3 SET.\n\n");
 			pObj->value[3] = sn_lookup(argument);
 			break;
 		case 4:
-			buf_add(output, "SPELL TYPE 4 SET.\n\r\n\r");
+			buf_add(output, "SPELL TYPE 4 SET.\n\n");
 			pObj->value[4] = sn_lookup(argument);
 			break;
  		}
@@ -1049,19 +1049,19 @@ bool set_obj_values(CHAR_DATA *ch, OBJ_INDEX_DATA *pObj,
 			do_help(ch, "ITEM_ARMOR");
 			return FALSE;
 		case 0:
-			buf_add(output, "AC PIERCE SET.\n\r\n\r");
+			buf_add(output, "AC PIERCE SET.\n\n");
 			pObj->value[0] = atoi(argument);
 			break;
 		case 1:
-			buf_add(output, "AC BASH SET.\n\r\n\r");
+			buf_add(output, "AC BASH SET.\n\n");
 			pObj->value[1] = atoi(argument);
 			break;
 		case 2:
-			buf_add(output, "AC SLASH SET.\n\r\n\r");
+			buf_add(output, "AC SLASH SET.\n\n");
 			pObj->value[2] = atoi(argument);
 			break;
 		case 3:
-			buf_add(output, "AC EXOTIC SET.\n\r\n\r");
+			buf_add(output, "AC EXOTIC SET.\n\n");
 			pObj->value[3] = atoi(argument);
 			break;
 		}
@@ -1075,23 +1075,23 @@ bool set_obj_values(CHAR_DATA *ch, OBJ_INDEX_DATA *pObj,
 			do_help(ch, "ITEM_WEAPON");
 			return FALSE;
 		case 0:
-			buf_add(output, "WEAPON CLASS SET.\n\r\n\r");
+			buf_add(output, "WEAPON CLASS SET.\n\n");
 			pObj->value[0] = flag_value(weapon_class, argument);
 			break;
 		case 1:
-			buf_add(output, "NUMBER OF DICE SET.\n\r\n\r");
+			buf_add(output, "NUMBER OF DICE SET.\n\n");
 			pObj->value[1] = atoi(argument);
 			break;
 		case 2:
-			buf_add(output, "TYPE OF DICE SET.\n\r\n\r");
+			buf_add(output, "TYPE OF DICE SET.\n\n");
 			pObj->value[2] = atoi(argument);
 			break;
 		case 3:
-			buf_add(output, "WEAPON TYPE SET.\n\r\n\r");
+			buf_add(output, "WEAPON TYPE SET.\n\n");
 			pObj->value[3] = attack_lookup(argument);
 			break;
 		case 4:
-			buf_add(output, "SPECIAL WEAPON TYPE TOGGLED.\n\r\n\r");
+			buf_add(output, "SPECIAL WEAPON TYPE TOGGLED.\n\n");
 			pObj->value[4] ^= (flag_value(weapon_type2, argument) ?
 			flag_value(weapon_type2, argument) : 0);
 			break;
@@ -1105,19 +1105,19 @@ bool set_obj_values(CHAR_DATA *ch, OBJ_INDEX_DATA *pObj,
 			return FALSE;
 			        
 		case 0:
-			buf_add(output, "CHARGES SET.\n\r\n\r");
+			buf_add(output, "CHARGES SET.\n\n");
 				     pObj->value[0] = atoi (argument);
 			break;
 		case 1:
-			buf_add(output, "EXIT FLAGS SET.\n\r\n\r");
+			buf_add(output, "EXIT FLAGS SET.\n\n");
 			pObj->value[1] = flag_value(exit_flags, argument);
 			break;
 		case 2:
-			buf_add(output, "PORTAL FLAGS SET.\n\r\n\r");
+			buf_add(output, "PORTAL FLAGS SET.\n\n");
 			pObj->value[2] = flag_value(portal_flags, argument);
 			break;
 		case 3:
-			buf_add(output, "EXIT VNUM SET.\n\r\n\r");
+			buf_add(output, "EXIT VNUM SET.\n\n");
 			pObj->value[3] = atoi (argument);
 			break;
 		}
@@ -1130,24 +1130,24 @@ bool set_obj_values(CHAR_DATA *ch, OBJ_INDEX_DATA *pObj,
 			return FALSE;
 			        
 		case 0:
-			buf_add(output, "NUMBER OF PEOPLE SET.\n\r\n\r");
+			buf_add(output, "NUMBER OF PEOPLE SET.\n\n");
 			pObj->value[0] = atoi (argument);
 			break;
 		case 1:
-			buf_add(output, "MAX WEIGHT SET.\n\r\n\r");
+			buf_add(output, "MAX WEIGHT SET.\n\n");
 			pObj->value[1] = atoi (argument);
 			break;
 		case 2:
-		        buf_add(output, "FURNITURE FLAGS TOGGLED.\n\r\n\r");
+		        buf_add(output, "FURNITURE FLAGS TOGGLED.\n\n");
 			pObj->value[2] ^= (flag_value(furniture_flags, argument) ?
 			flag_value(furniture_flags, argument) : 0);
 			break;
 		case 3:
-			buf_add(output, "HEAL BONUS SET.\n\r\n\r");
+			buf_add(output, "HEAL BONUS SET.\n\n");
 			pObj->value[3] = atoi (argument);
 			break;
 		case 4:
-			buf_add(output, "MANA BONUS SET.\n\r\n\r");
+			buf_add(output, "MANA BONUS SET.\n\n");
 			pObj->value[4] = atoi (argument);
 			break;
 		}
@@ -1161,7 +1161,7 @@ bool set_obj_values(CHAR_DATA *ch, OBJ_INDEX_DATA *pObj,
 			do_help(ch, "ITEM_CONTAINER");
 			return FALSE;
 		case 0:
-			buf_add(output, "WEIGHT CAPACITY SET.\n\r\n\r");
+			buf_add(output, "WEIGHT CAPACITY SET.\n\n");
 			pObj->value[0] = atoi(argument);
 			break;
 		case 1:
@@ -1171,29 +1171,29 @@ bool set_obj_values(CHAR_DATA *ch, OBJ_INDEX_DATA *pObj,
 				do_help (ch, "ITEM_CONTAINER");
 				return FALSE;
 			}
-			buf_add(output, "CONTAINER TYPE SET.\n\r\n\r");
+			buf_add(output, "CONTAINER TYPE SET.\n\n");
 			break;
 		case 2:
 			if (atoi(argument) != 0) {
 				if (!get_obj_index(atoi(argument))) {
-					buf_add(output, "THERE IS NO SUCH ITEM.\n\r\n\r");
+					buf_add(output, "THERE IS NO SUCH ITEM.\n\n");
 					return FALSE;
 				}
 
 				if (get_obj_index(atoi(argument))->item_type != ITEM_KEY) {
-					buf_add(output, "THAT ITEM IS NOT A KEY.\n\r\n\r");
+					buf_add(output, "THAT ITEM IS NOT A KEY.\n\n");
 					return FALSE;
 				}
 			}
-			buf_add(output, "CONTAINER KEY SET.\n\r\n\r");
+			buf_add(output, "CONTAINER KEY SET.\n\n");
 			pObj->value[2] = atoi(argument);
 			break;
 		case 3:
-			buf_add(output, "CONTAINER MAX WEIGHT SET.\n\r");
+			buf_add(output, "CONTAINER MAX WEIGHT SET.\n");
 			pObj->value[3] = atoi(argument);
 			break;
 		case 4:
-			buf_add(output, "WEIGHT MULTIPLIER SET.\n\r\n\r");
+			buf_add(output, "WEIGHT MULTIPLIER SET.\n\n");
 			pObj->value[4] = atoi (argument);
 			break;
 		}
@@ -1206,20 +1206,20 @@ bool set_obj_values(CHAR_DATA *ch, OBJ_INDEX_DATA *pObj,
 /* OLC		    do_help(ch, "liquids");    */
 			return FALSE;
 		case 0:
-			buf_add(output, "MAXIMUM AMOUT OF LIQUID HOURS SET.\n\r\n\r");
+			buf_add(output, "MAXIMUM AMOUT OF LIQUID HOURS SET.\n\n");
 			pObj->value[0] = atoi(argument);
 			break;
 		case 1:
-			buf_add(output, "CURRENT AMOUNT OF LIQUID HOURS SET.\n\r\n\r");
+			buf_add(output, "CURRENT AMOUNT OF LIQUID HOURS SET.\n\n");
 			pObj->value[1] = atoi(argument);
 			break;
 		case 2:
-			buf_add(output, "LIQUID TYPE SET.\n\r\n\r");
+			buf_add(output, "LIQUID TYPE SET.\n\n");
 			pObj->value[2] = (liq_lookup(argument) != -1 ?
 			        		       liq_lookup(argument) : 0);
 			break;
 		case 3:
-			buf_add(output, "POISON VALUE TOGGLED.\n\r\n\r");
+			buf_add(output, "POISON VALUE TOGGLED.\n\n");
 			pObj->value[3] = (pObj->value[3] == 0) ? 1 : 0;
 			break;
 		}
@@ -1232,15 +1232,15 @@ bool set_obj_values(CHAR_DATA *ch, OBJ_INDEX_DATA *pObj,
 /* OLC		    do_help(ch, "liquids");    */
 			return FALSE;
 		case 0:
-			buf_add(output, "MAXIMUM AMOUT OF LIQUID HOURS SET.\n\r\n\r");
+			buf_add(output, "MAXIMUM AMOUT OF LIQUID HOURS SET.\n\n");
 			pObj->value[0] = atoi(argument);
 			break;
 		case 1:
-			buf_add(output, "CURRENT AMOUNT OF LIQUID HOURS SET.\n\r\n\r");
+			buf_add(output, "CURRENT AMOUNT OF LIQUID HOURS SET.\n\n");
 			pObj->value[1] = atoi(argument);
 			break;
 		case 2:
-			buf_add(output, "LIQUID TYPE SET.\n\r\n\r");
+			buf_add(output, "LIQUID TYPE SET.\n\n");
 			pObj->value[2] = (liq_lookup(argument) != -1 ?
 						liq_lookup(argument) : 0);
 			break;
@@ -1253,15 +1253,15 @@ bool set_obj_values(CHAR_DATA *ch, OBJ_INDEX_DATA *pObj,
 			do_help(ch, "ITEM_FOOD");
 			return FALSE;
 		case 0:
-			buf_add(output, "HOURS OF FOOD SET.\n\r\n\r");
+			buf_add(output, "HOURS OF FOOD SET.\n\n");
 			pObj->value[0] = atoi(argument);
 			break;
 		case 1:
-			buf_add(output, "HOURS OF FULL SET.\n\r\n\r");
+			buf_add(output, "HOURS OF FULL SET.\n\n");
 			pObj->value[1] = atoi(argument);
 			break;
 		case 3:
-			buf_add(output, "POISON VALUE TOGGLED.\n\r\n\r");
+			buf_add(output, "POISON VALUE TOGGLED.\n\n");
 			pObj->value[3] = (pObj->value[3] == 0) ? 1 : 0;
 			break;
 		}
@@ -1273,11 +1273,11 @@ bool set_obj_values(CHAR_DATA *ch, OBJ_INDEX_DATA *pObj,
 			do_help(ch, "ITEM_MONEY");
 			return FALSE;
 		case 0:
-			buf_add(output, "GOLD AMOUNT SET.\n\r\n\r");
+			buf_add(output, "GOLD AMOUNT SET.\n\n");
 			pObj->value[0] = atoi(argument);
 			break;
 		case 1:
-			buf_add(output, "SILVER AMOUNT SET.\n\r\n\r");
+			buf_add(output, "SILVER AMOUNT SET.\n\n");
 			pObj->value[1] = atoi(argument);
 			break;
 		}
@@ -1317,12 +1317,12 @@ static void show_skill_cmds(CHAR_DATA *ch, int tar)
 		if (tar == -1 || sk->target == tar) {
 			buf_printf(output, "%-19.18s", sk->name);
 			if (++col % 4 == 0)
-				buf_add(output, "\n\r");
+				buf_add(output, "\n");
 		}
 	}
  
 	if (col % 4 != 0)
-		buf_add(output, "\n\r");
+		buf_add(output, "\n");
 
 	char_puts(buf_string(output), ch);
 	buf_free(output);
@@ -1337,9 +1337,9 @@ void show_liqlist(CHAR_DATA *ch)
 	
 	for (liq = 0; liq_table[liq].liq_name != NULL; liq++) {
 		if ((liq % 21) == 0)
-			buf_add(buffer,"Name                 Color          Proof Full Thirst Food Ssize\n\r");
+			buf_add(buffer,"Name                 Color          Proof Full Thirst Food Ssize\n");
 
-		buf_printf(buffer, "%-20s %-14s %5d %4d %6d %4d %5d\n\r",
+		buf_printf(buffer, "%-20s %-14s %5d %4d %6d %4d %5d\n",
 			liq_table[liq].liq_name,liq_table[liq].liq_color,
 			liq_table[liq].liq_affect[0],liq_table[liq].liq_affect[1],
 			liq_table[liq].liq_affect[2],liq_table[liq].liq_affect[3],
@@ -1359,9 +1359,9 @@ void show_damlist(CHAR_DATA *ch)
 	
 	for (att = 0; attack_table[att].name != NULL; att++) {
 		if ((att % 21) == 0)
-			buf_add(buffer,"Name                 Noun\n\r");
+			buf_add(buffer,"Name                 Noun\n");
 
-		buf_printf(buffer, "%-20s %-20s\n\r",
+		buf_printf(buffer, "%-20s %-20s\n",
 			attack_table[att].name,attack_table[att].noun);
 	}
 
@@ -1397,7 +1397,7 @@ VALIDATE_FUN(validate_condition)
 
 	if (val < 0 || val > 100) {
 		char_puts("OEdit: condition can range from 0 (ruined) "
-			  "to 100 (perfect).\n\r", ch);
+			  "to 100 (perfect).\n", ch);
 		return FALSE;
 	}
 	return TRUE;

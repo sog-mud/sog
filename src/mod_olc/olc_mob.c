@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_mob.c,v 1.24 1998-11-07 09:09:15 fjoe Exp $
+ * $Id: olc_mob.c,v 1.25 1998-12-01 10:55:10 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -155,17 +155,17 @@ OLC_FUN(mobed_create)
 
 	pArea = area_vnum_lookup(value);
 	if (!pArea) {
-		char_puts("MEdit: That vnum is not assigned an area.\n\r", ch);
+		char_puts("MEdit: That vnum is not assigned an area.\n", ch);
 		return FALSE;
 	}
 
 	if (!IS_BUILDER(ch, pArea)) {
-		char_puts("MEdit: Insufficient security.\n\r", ch);
+		char_puts("MEdit: Insufficient security.\n", ch);
 		return FALSE;
 	}
 
 	if (get_mob_index(value)) {
-		char_puts("MEdit: Mobile vnum already exists.\n\r", ch);
+		char_puts("MEdit: Mobile vnum already exists.\n", ch);
 		return FALSE;
 	}
 
@@ -183,7 +183,7 @@ OLC_FUN(mobed_create)
 	ch->desc->pEdit		= (void *)pMob;
 	ch->desc->editor	= ED_MOB;
 	touch_area(pArea);
-	char_puts("MEdit: Mobile created.\n\r", ch);
+	char_puts("MEdit: Mobile created.\n", ch);
 	return FALSE;
 }
 
@@ -202,13 +202,13 @@ OLC_FUN(mobed_edit)
 
 	value = atoi(arg);
 	if ((pMob = get_mob_index(value)) == NULL) {
-		char_puts("MEdit: Vnum does not exist.\n\r", ch);
+		char_puts("MEdit: Vnum does not exist.\n", ch);
 		return FALSE;
 	}
 
 	pArea = area_vnum_lookup(pMob->vnum);
 	if (!IS_BUILDER(ch, pArea)) {
-		char_puts("MEdit: Insufficient security.\n\r", ch);
+		char_puts("MEdit: Insufficient security.\n", ch);
 	       	return FALSE;
 	}
 
@@ -245,7 +245,7 @@ OLC_FUN(mobed_show)
 	else {
 		int value = atoi(arg);
 		if ((pMob = get_mob_index(value)) == NULL) {
-			char_puts("MEdit: Vnum does not exist.\n\r", ch);
+			char_puts("MEdit: Vnum does not exist.\n", ch);
 			return FALSE;
 		}
 	}
@@ -253,26 +253,26 @@ OLC_FUN(mobed_show)
 	buf = buf_new(-1);
 
 	pArea = area_vnum_lookup(pMob->vnum);
-	buf_printf(buf, "Name:        [%s]\n\rArea:        [%5d] %s\n\r",
+	buf_printf(buf, "Name:        [%s]\nArea:        [%5d] %s\n",
 		pMob->name, pArea->vnum, pArea->name);
 
-	buf_printf(buf, "Act:         [%s]\n\r",
+	buf_printf(buf, "Act:         [%s]\n",
 		flag_string(act_flags, pMob->act));
 
-	buf_printf(buf, "Vnum:        [%5d] Sex:   [%s]   Race: [%s]\n\r",
+	buf_printf(buf, "Vnum:        [%5d] Sex:   [%s]   Race: [%s]\n",
 		pMob->vnum,
 		flag_string(sex_table, pMob->sex),
 		race_name(pMob->race));
 
 	if (pMob->clan && (clan = clan_lookup(pMob->clan))) 
-		buf_printf(buf, "Clan:        [%s]\n\r", clan->name);
+		buf_printf(buf, "Clan:        [%s]\n", clan->name);
 
-	buf_printf(buf, "Level:       [%2d]    Align: [%4d]      Hitroll: [%2d] Dam Type:    [%s]\n\r",
+	buf_printf(buf, "Level:       [%2d]    Align: [%4d]      Hitroll: [%2d] Dam Type:    [%s]\n",
 		pMob->level,	pMob->alignment,
 		pMob->hitroll,	attack_table[pMob->dam_type].name);
 
 	if (pMob->group)
-		buf_printf(buf, "Group:       [%5d]\n\r", pMob->group);
+		buf_printf(buf, "Group:       [%5d]\n", pMob->group);
 
 	buf_printf(buf, "Hit dice:    [%2dd%-3d+%4d] ",
 			 pMob->hit[DICE_NUMBER],
@@ -284,63 +284,63 @@ OLC_FUN(mobed_show)
 			 pMob->damage[DICE_TYPE],
 			 pMob->damage[DICE_BONUS]);
 
-	buf_printf(buf, "Mana dice:   [%2dd%-3d+%4d]\n\r",
+	buf_printf(buf, "Mana dice:   [%2dd%-3d+%4d]\n",
 			 pMob->mana[DICE_NUMBER],
 			 pMob->mana[DICE_TYPE],
 			 pMob->mana[DICE_BONUS]);
 
 /* ROM values end */
 
-	buf_printf(buf, "Affected by: [%s]\n\r",
+	buf_printf(buf, "Affected by: [%s]\n",
 		flag_string(affect_flags, pMob->affected_by));
 
 /* ROM values: */
 
-	buf_printf(buf, "Armor:       [pierce: %d  bash: %d  slash: %d  magic: %d]\n\r",
+	buf_printf(buf, "Armor:       [pierce: %d  bash: %d  slash: %d  magic: %d]\n",
 		pMob->ac[AC_PIERCE], pMob->ac[AC_BASH],
 		pMob->ac[AC_SLASH], pMob->ac[AC_EXOTIC]);
 
-	buf_printf(buf, "Form:        [%s]\n\r",
+	buf_printf(buf, "Form:        [%s]\n",
 		flag_string(form_flags, pMob->form));
 
-	buf_printf(buf, "Parts:       [%s]\n\r",
+	buf_printf(buf, "Parts:       [%s]\n",
 		flag_string(part_flags, pMob->parts));
 
-	buf_printf(buf, "Imm:         [%s]\n\r",
+	buf_printf(buf, "Imm:         [%s]\n",
 		flag_string(imm_flags, pMob->imm_flags));
 
-	buf_printf(buf, "Res:         [%s]\n\r",
+	buf_printf(buf, "Res:         [%s]\n",
 		flag_string(res_flags, pMob->res_flags));
 
-	buf_printf(buf, "Vuln:        [%s]\n\r",
+	buf_printf(buf, "Vuln:        [%s]\n",
 		flag_string(vuln_flags, pMob->vuln_flags));
 
-	buf_printf(buf, "Off:         [%s]\n\r",
+	buf_printf(buf, "Off:         [%s]\n",
 		flag_string(off_flags,  pMob->off_flags));
 
-	buf_printf(buf, "Size:        [%s]\n\r",
+	buf_printf(buf, "Size:        [%s]\n",
 		flag_string(size_table, pMob->size));
 
-	buf_printf(buf, "Material:    [%s]\n\r",
+	buf_printf(buf, "Material:    [%s]\n",
 		 pMob->material);
 
-	buf_printf(buf, "Start pos:   [%s]\n\r",
+	buf_printf(buf, "Start pos:   [%s]\n",
 		flag_string(position_table, pMob->start_pos));
 
-	buf_printf(buf, "Default pos: [%s]\n\r",
+	buf_printf(buf, "Default pos: [%s]\n",
 		flag_string(position_table, pMob->default_pos));
 
-	buf_printf(buf, "Wealth:      [%5d]\n\r", pMob->wealth);
+	buf_printf(buf, "Wealth:      [%5d]\n", pMob->wealth);
 
 	if (pMob->invis_level)
-		buf_printf(buf, "Invis level: [%d]\n\r", pMob->invis_level);
+		buf_printf(buf, "Invis level: [%d]\n", pMob->invis_level);
 
 /* ROM values end */
 
 	if (pMob->spec_fun)
-		buf_printf(buf, "Spec fun:    [%s]\n\r",  spec_name(pMob->spec_fun));
+		buf_printf(buf, "Spec fun:    [%s]\n",  spec_name(pMob->spec_fun));
 	if (pMob->practicer)
-		buf_printf(buf, "Practicer:   [%s]\n\r",
+		buf_printf(buf, "Practicer:   [%s]\n",
 			flag_string(skill_groups, pMob->practicer));
 
 	mlstr_dump(buf, "Short descr: ", pMob->short_descr);
@@ -353,20 +353,20 @@ OLC_FUN(mobed_show)
 
 		pShop = pMob->pShop;
 
-		buf_printf(buf, "Shop data for [%5d]:\n\r"
-				"  Markup for purchaser: %d%%\n\r"
-				"  Markdown for seller:  %d%%\n\r",
+		buf_printf(buf, "Shop data for [%5d]:\n"
+				"  Markup for purchaser: %d%%\n"
+				"  Markdown for seller:  %d%%\n",
 			pShop->keeper, pShop->profit_buy, pShop->profit_sell);
-		buf_printf(buf, "  Hours: %d to %d.\n\r",
+		buf_printf(buf, "  Hours: %d to %d.\n",
 			pShop->open_hour, pShop->close_hour);
 
 		for (iTrade = 0; iTrade < MAX_TRADE; iTrade++) {
 			if (pShop->buy_type[iTrade] != 0) {
 			if (iTrade == 0) {
-				buf_add(buf, "  Number Trades Type\n\r");
-				buf_add(buf, "  ------ -----------\n\r");
+				buf_add(buf, "  Number Trades Type\n");
+				buf_add(buf, "  ------ -----------\n");
 			}
-			buf_printf(buf, "  [%4d] %s\n\r", iTrade,
+			buf_printf(buf, "  [%4d] %s\n", iTrade,
 				flag_string(item_types, pShop->buy_type[iTrade]));
 			}
 		}
@@ -375,15 +375,15 @@ OLC_FUN(mobed_show)
 	if (pMob->mptrig_list) {
 		int cnt = 0;
 
-		buf_printf(buf, "\n\rMOBPrograms for [%5d]:\n\r", pMob->vnum);
+		buf_printf(buf, "\nMOBPrograms for [%5d]:\n", pMob->vnum);
 
 		for (mptrig = pMob->mptrig_list; mptrig; mptrig = mptrig->next) {
 			if (cnt ==0) {
-				buf_add(buf, " Number Vnum Trigger Phrase [Flags]\n\r");
-				buf_add(buf, " ------ ---- ------- ----------------------------------------------------------\n\r");
+				buf_add(buf, " Number Vnum Trigger Phrase [Flags]\n");
+				buf_add(buf, " ------ ---- ------- ----------------------------------------------------------\n");
 			}
 
-			buf_printf(buf, "[%5d] %4d %7s %s [%s]\n\r", cnt,
+			buf_printf(buf, "[%5d] %4d %7s %s [%s]\n", cnt,
 			mptrig->vnum, flag_string(mptrig_types, mptrig->type),
 			mptrig->phrase,
 			flag_string(mptrig_flags, mptrig->flags));
@@ -428,16 +428,16 @@ OLC_FUN(mobed_list)
 					   pMobIndex->vnum,
 					   mlstr_mval(pMobIndex->short_descr));
 				if (++col % 3 == 0)
-					buf_add(buffer, "\n\r");
+					buf_add(buffer, "\n");
 			}
 		}
 	}
 
 	if (!found) 
-		char_puts("MEdit: No mobiles in this area.\n\r", ch);
+		char_puts("MEdit: No mobiles in this area.\n", ch);
 	else {
 		if (col % 3 != 0)
-			buf_add(buffer, "\n\r");
+			buf_add(buffer, "\n");
 
 		page_to_char(buf_string(buffer), ch);
 	}
@@ -452,7 +452,7 @@ OLC_FUN(mobed_spec)
 	EDIT_MOB(ch, pMob);
 
 	if (argument[0] == '\0') {
-		char_puts("Syntax:  spec [special function]\n\r", ch);
+		char_puts("Syntax:  spec [special function]\n", ch);
 		return FALSE;
 	}
 
@@ -464,17 +464,17 @@ OLC_FUN(mobed_spec)
 	if (!str_cmp(argument, "none")) {
 		 pMob->spec_fun = NULL;
 
-		 char_puts("Spec removed.\n\r", ch);
+		 char_puts("Spec removed.\n", ch);
 		 return TRUE;
 	}
 
 	if (spec_lookup(argument)) {
 		pMob->spec_fun = spec_lookup(argument);
-		char_puts("Spec set.\n\r", ch);
+		char_puts("Spec set.\n", ch);
 		return TRUE;
 	}
 
-	char_puts("MEdit: No such special function.\n\r", ch);
+	char_puts("MEdit: No such special function.\n", ch);
 	return FALSE;
 }
 
@@ -486,13 +486,13 @@ OLC_FUN(mobed_damtype)
 
 	if (argument[0] == '\0')
 	{
-		char_puts("Syntax:  damtype [damage message]\n\r", ch);
-		char_puts("Para ver una lista de tipos de mensajes, pon '? weapon'.\n\r", ch);
+		char_puts("Syntax:  damtype [damage message]\n", ch);
+		char_puts("Para ver una lista de tipos de mensajes, pon '? weapon'.\n", ch);
 		return FALSE;
 	}
 
 	pMob->dam_type = attack_lookup(argument);
-	char_puts("Damage type set.\n\r", ch);
+	char_puts("Damage type set.\n", ch);
 	return TRUE;
 }
 
@@ -551,11 +551,11 @@ OLC_FUN(mobed_shop)
 
 	if (command[0] == '\0')
 	{
-		char_puts("Syntax:  shop hours [#xopening] [#xclosing]\n\r", ch);
-		char_puts("         shop profit [#xbuying%] [#xselling%]\n\r", ch);
-		char_puts("         shop type [#x0-4] [item type]\n\r", ch);
-		char_puts("         shop assign\n\r", ch);
-		char_puts("         shop remove\n\r", ch);
+		char_puts("Syntax:  shop hours [#xopening] [#xclosing]\n", ch);
+		char_puts("         shop profit [#xbuying%] [#xselling%]\n", ch);
+		char_puts("         shop type [#x0-4] [item type]\n", ch);
+		char_puts("         shop assign\n", ch);
+		char_puts("         shop remove\n", ch);
 		return FALSE;
 	}
 
@@ -565,20 +565,20 @@ OLC_FUN(mobed_shop)
 		if (arg1[0] == '\0' || !is_number(arg1)
 		|| argument[0] == '\0' || !is_number(argument))
 		{
-			char_puts("Syntax:  shop hours [#xopening] [#xclosing]\n\r", ch);
+			char_puts("Syntax:  shop hours [#xopening] [#xclosing]\n", ch);
 			return FALSE;
 		}
 
 		if (!pMob->pShop)
 		{
-			char_puts("MEdit:  Debes crear un shop primero (shop assign).\n\r", ch);
+			char_puts("MEdit:  Debes crear un shop primero (shop assign).\n", ch);
 			return FALSE;
 		}
 
 		pMob->pShop->open_hour = atoi(arg1);
 		pMob->pShop->close_hour = atoi(argument);
 
-		char_puts("Shop hours set.\n\r", ch);
+		char_puts("Shop hours set.\n", ch);
 		return TRUE;
 	}
 
@@ -588,20 +588,20 @@ OLC_FUN(mobed_shop)
 		if (arg1[0] == '\0' || !is_number(arg1)
 		|| argument[0] == '\0' || !is_number(argument))
 		{
-			char_puts("Syntax:  shop profit [#xbuying%] [#xselling%]\n\r", ch);
+			char_puts("Syntax:  shop profit [#xbuying%] [#xselling%]\n", ch);
 			return FALSE;
 		}
 
 		if (!pMob->pShop)
 		{
-			char_puts("MEdit:  Debes crear un shop primero (shop assign).\n\r", ch);
+			char_puts("MEdit:  Debes crear un shop primero (shop assign).\n", ch);
 			return FALSE;
 		}
 
 		pMob->pShop->profit_buy     = atoi(arg1);
 		pMob->pShop->profit_sell    = atoi(argument);
 
-		char_puts("Shop profit set.\n\r", ch);
+		char_puts("Shop profit set.\n", ch);
 		return TRUE;
 	}
 
@@ -613,31 +613,31 @@ OLC_FUN(mobed_shop)
 		if (arg1[0] == '\0' || !is_number(arg1)
 		|| argument[0] == '\0')
 		{
-			char_puts("Syntax:  shop type [#x0-4] [item type]\n\r", ch);
+			char_puts("Syntax:  shop type [#x0-4] [item type]\n", ch);
 			return FALSE;
 		}
 
 		if (atoi(arg1) >= MAX_TRADE)
 		{
-			char_printf(ch, "MEdit:  May sell %d items max.\n\r", MAX_TRADE);
+			char_printf(ch, "MEdit:  May sell %d items max.\n", MAX_TRADE);
 			return FALSE;
 		}
 
 		if (!pMob->pShop)
 		{
-			char_puts("MEdit:  Debes crear un shop primero (shop assign).\n\r", ch);
+			char_puts("MEdit:  Debes crear un shop primero (shop assign).\n", ch);
 			return FALSE;
 		}
 
 		if ((value = flag_value(item_types, argument)) == 0)
 		{
-			char_puts("MEdit:  That type of item is not known.\n\r", ch);
+			char_puts("MEdit:  That type of item is not known.\n", ch);
 			return FALSE;
 		}
 
 		pMob->pShop->buy_type[atoi(arg1)] = value;
 
-		char_puts("Shop type set.\n\r", ch);
+		char_puts("Shop type set.\n", ch);
 		return TRUE;
 	}
 
@@ -647,7 +647,7 @@ OLC_FUN(mobed_shop)
 	{
 		if (pMob->pShop)
 		{
-		 	char_puts("Mob already has a shop assigned to it.\n\r", ch);
+		 	char_puts("Mob already has a shop assigned to it.\n", ch);
 		 	return FALSE;
 		}
 
@@ -660,7 +660,7 @@ OLC_FUN(mobed_shop)
 
 		pMob->pShop->keeper	= pMob->vnum;
 
-		char_puts("New shop assigned to mobile.\n\r", ch);
+		char_puts("New shop assigned to mobile.\n", ch);
 		return TRUE;
 	}
 
@@ -702,7 +702,7 @@ OLC_FUN(mobed_shop)
 
 		free_shop(pShop);
 
-		char_puts("Mobile is no longer a shopkeeper.\n\r", ch);
+		char_puts("Mobile is no longer a shopkeeper.\n", ch);
 		return TRUE;
 	}
 
@@ -786,12 +786,12 @@ OLC_FUN(mobed_ac)
 		pMob->ac[AC_SLASH]  = slash;
 		pMob->ac[AC_EXOTIC] = exotic;
 		
-		char_puts("Ac set.\n\r", ch);
+		char_puts("Ac set.\n", ch);
 		return TRUE;
 	} while (FALSE);    /* Just do it once.. */
 
-	char_puts("Syntax:  ac [ac-pierce [ac-bash [ac-slash [ac-exotic]]]]\n\r"
-			  "help MOB_AC  gives a list of reasonable ac-values.\n\r", ch);
+	char_puts("Syntax:  ac [ac-pierce [ac-bash [ac-slash [ac-exotic]]]]\n"
+			  "help MOB_AC  gives a list of reasonable ac-values.\n", ch);
 	return FALSE;
 }
 
@@ -893,7 +893,7 @@ OLC_FUN(mobed_race)
 		pMob->form        |= r->form;
 		pMob->parts       |= r->parts;
 
-		char_puts("Race set.\n\r", ch);
+		char_puts("Race set.\n", ch);
 		return TRUE;
 	}
 
@@ -902,16 +902,16 @@ OLC_FUN(mobed_race)
 
 		for (race = 0; race < races.nused; race++) {
 			if ((race % 3) == 0)
-				char_puts("\n\r", ch);
+				char_puts("\n", ch);
 			char_printf(ch, " %-15s", RACE(race)->name);
 		}
 
-		char_puts("\n\r", ch);
+		char_puts("\n", ch);
 		return FALSE;
 	}
 
-	char_puts("Syntax:  race [race]\n\r"
-		  "Type 'race ?' for a list of races.\n\r", ch);
+	char_puts("Syntax:  race [race]\n"
+		  "Type 'race ?' for a list of races.\n", ch);
 	return FALSE;
 }
 
@@ -955,15 +955,15 @@ OLC_FUN(mobed_group)
 	EDIT_MOB(ch, pMob);
 	
 	if (argument[0] == '\0') {
-		char_puts("Syntax: group [number]\n\r", ch);
-		char_puts("        group show [number]\n\r", ch);
+		char_puts("Syntax: group [number]\n", ch);
+		char_puts("        group show [number]\n", ch);
 		return FALSE;
 	}
 	
 	if (is_number(argument))
 	{
 		pMob->group = atoi(argument);
-		char_puts("Group set.\n\r", ch);
+		char_puts("Group set.\n", ch);
 		return TRUE;
 	}
 	
@@ -971,7 +971,7 @@ OLC_FUN(mobed_group)
 	
 	if (!strcmp(arg, "show") && is_number(argument)) {
 		if (atoi(argument) == 0) {
-			char_puts("Are you crazy?\n\r", ch);
+			char_puts("Are you crazy?\n", ch);
 			return FALSE;
 		}
 
@@ -981,7 +981,7 @@ OLC_FUN(mobed_group)
 			pMTemp = get_mob_index(temp);
 			if (pMTemp && (pMTemp->group == atoi(argument))) {
 				found = TRUE;
-				buf_printf(buffer, "[%5d] %s\n\r",
+				buf_printf(buffer, "[%5d] %s\n",
 					   pMTemp->vnum, pMTemp->name);
 			}
 		}
@@ -989,7 +989,7 @@ OLC_FUN(mobed_group)
 		if (found)
 			page_to_char(buf_string(buffer), ch);
 		else
-			char_puts("No mobs in that group.\n\r", ch);
+			char_puts("No mobs in that group.\n", ch);
 
 		buf_free(buffer);
 		return FALSE;
@@ -1024,24 +1024,24 @@ OLC_FUN(mobed_trigadd)
 	}
 
 	if (!is_number(num) || trigger[0] =='\0' || argument[0] =='\0') {
-		 char_puts("Syntax: trigadd [vnum] [trigger] [phrase]\n\r",ch);
+		 char_puts("Syntax: trigadd [vnum] [trigger] [phrase]\n",ch);
 		 return FALSE;
 	}
 
 	if ((value = flag_value(mptrig_types, trigger)) < 0) {
-		char_puts("Invalid trigger type.\n\r"
-			  "Use 'trigadd ?' for list of triggers.\n\r", ch);
+		char_puts("Invalid trigger type.\n"
+			  "Use 'trigadd ?' for list of triggers.\n", ch);
 		return FALSE;
 	}
 
 	if ((mpcode = mpcode_lookup(atoi(num))) == NULL) {
-		 char_puts("No such MOBProgram.\n\r", ch);
+		 char_puts("No such MOBProgram.\n", ch);
 		 return FALSE;
 	}
 
 	mptrig = mptrig_new(value, argument, atoi(num));
 	mptrig_add(pMob, mptrig);
-	char_puts("Trigger added.\n\r",ch);
+	char_puts("Trigger added.\n",ch);
 	return TRUE;
 }
 
@@ -1058,19 +1058,19 @@ OLC_FUN(mobed_trigdel)
 
 	one_argument(argument, mprog);
 	if (!is_number(mprog) || mprog[0] == '\0') {
-		char_puts("Syntax:  trigdel [#mprog]\n\r",ch);
+		char_puts("Syntax:  trigdel [#mprog]\n",ch);
 		return FALSE;
 	}
 
 	value = atoi (mprog);
 
 	if (value < 0) {
-		 char_puts("Only non-negative mprog-numbers allowed.\n\r",ch);
+		 char_puts("Only non-negative mprog-numbers allowed.\n",ch);
 		 return FALSE;
 	}
 
 	if (!(mptrig = pMob->mptrig_list)) {
-		 char_puts("MEdit:  Nonexistent trigger.\n\r",ch);
+		 char_puts("MEdit:  Nonexistent trigger.\n",ch);
 		 return FALSE;
 	}
 
@@ -1090,13 +1090,13 @@ OLC_FUN(mobed_trigdel)
 			mptrig_free(mptrig_next);
 		}
 		else {
-		        char_puts("No such trigger.\n\r",ch);
+		        char_puts("No such trigger.\n",ch);
 		        return FALSE;
 		}
 	}
 	mptrig_fix(pMob);
 
-	char_puts("Trigger removed.\n\r", ch);
+	char_puts("Trigger removed.\n", ch);
 	return TRUE;
 }
 
@@ -1109,13 +1109,13 @@ OLC_FUN(mobed_clone)
 
 	one_argument(argument, arg);
 	if (!is_number(arg)) {
-		char_puts("Syntax: clone <vnum>\n\r", ch);
+		char_puts("Syntax: clone <vnum>\n", ch);
 		return FALSE;
 	}
 
 	i = atoi(arg);
 	if ((pFrom = get_mob_index(i)) == NULL) {
-		char_printf(ch, "MobEd: %d: Vnum does not exist.\n\r", i);
+		char_printf(ch, "MobEd: %d: Vnum does not exist.\n", i);
 		return FALSE;
 	}
 
@@ -1186,15 +1186,15 @@ static void show_spec_cmds(CHAR_DATA *ch)
 
 	output = buf_new(-1);
 	col = 0;
-	buf_add(output, "Preceed special functions with 'spec_'\n\r\n\r");
+	buf_add(output, "Preceed special functions with 'spec_'\n\n");
 	for (spec = 0; spec_table[spec].function != NULL; spec++) {
 		buf_printf(output, "%-19.18s", &spec_table[spec].name[5]);
 		if (++col % 4 == 0)
-			buf_add(output, "\n\r");
+			buf_add(output, "\n");
 	}
  
 	if (col % 4 != 0)
-		buf_add(output, "\n\r");
+		buf_add(output, "\n");
 
 	char_puts(buf_string(output), ch);
 	buf_free(output);

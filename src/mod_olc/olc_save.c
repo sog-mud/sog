@@ -1,5 +1,5 @@
 /*
- * $Id: olc_save.c,v 1.43 1998-11-07 09:09:15 fjoe Exp $
+ * $Id: olc_save.c,v 1.44 1998-12-01 10:55:11 fjoe Exp $
  */
 
 /**************************************************************************
@@ -1189,7 +1189,7 @@ void do_asave_raw(CHAR_DATA *ch, int flags)
     		sec = 0;
 
 	if (ch)
-		char_puts("Saved zones:\n\r", ch);
+		char_puts("Saved zones:\n", ch);
 	else
 		log("Saved zones:");
 
@@ -1205,7 +1205,7 @@ void do_asave_raw(CHAR_DATA *ch, int flags)
 		save_area(pArea);
 
 		if (ch)
-			char_printf(ch, "    %s (%s)\n\r",
+			char_printf(ch, "    %s (%s)\n",
 				    pArea->name, pArea->file_name);
 		else
 			log_printf("    %s (%s)",
@@ -1215,7 +1215,7 @@ void do_asave_raw(CHAR_DATA *ch, int flags)
 
 	if (!found) {
 		if (ch)
-			char_puts("    None.\n\r", ch);
+			char_puts("    None.\n", ch);
 		else
 			log("    None.");
 	}
@@ -1241,7 +1241,7 @@ void do_asave(CHAR_DATA *ch, const char *argument)
 	if (!str_cmp("world", argument)) {
 		do_asave_raw(ch, 0);
 		if (ch)
-			char_puts("You saved the world.\n\r", ch);
+			char_puts("You saved the world.\n", ch);
 		else
 			log("Saved the world");
 		return;
@@ -1252,7 +1252,7 @@ void do_asave(CHAR_DATA *ch, const char *argument)
 	if (!str_cmp("changed", argument)) {
 		do_asave_raw(ch, AREA_CHANGED);
 		if (ch)
-			char_puts("You saved changed areas.\n\r", ch);
+			char_puts("You saved changed areas.\n", ch);
 		else
 			log("Saved changed areas");
 		return;
@@ -1261,7 +1261,7 @@ void do_asave(CHAR_DATA *ch, const char *argument)
 	if (!str_cmp("skills", argument)) {
 		save_skills(ch);
 		if (ch)
-			char_puts("You saved skills table.\n\r", ch);
+			char_puts("You saved skills table.\n", ch);
 		else
 			log("Saved skills table");
 		return;
@@ -1298,7 +1298,7 @@ static void save_print(CHAR_DATA *ch, const char *format, ...)
 	va_end(ap);
 
 	if (ch)
-		char_printf(ch, "%s\n\r", buf);
+		char_printf(ch, "%s\n", buf);
 	else
 		log(buf);
 }

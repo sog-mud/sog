@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.34 1998-10-26 08:40:05 fjoe Exp $
+ * $Id: olc.c,v 1.35 1998-12-01 10:55:10 fjoe Exp $
  */
 
 /***************************************************************************
@@ -53,18 +53,18 @@
  * It is displayed in the game by typing 'version' while editing.
  * Do not remove these from the code - by request of Jason Dinkel
  */
-#define VERSION	"ILAB Online Creation [Beta 1.0, ROM 2.3 modified]\n\r" \
-		"     Port a ROM 2.4 v1.7\n\r"
-#define AUTHOR	"     By Jason(jdinkel@mines.colorado.edu)\n\r" \
-                "     Modified for use with ROM 2.3\n\r"        \
-                "     By Hans Birkeland (hansbi@ifi.uio.no)\n\r" \
-                "     Modificado para uso en ROM 2.4b4a\n\r"	\
-                "     Por Ivan Toledo (pvillanu@choapa.cic.userena.cl)\n\r" \
-		"     Modified for use with Muddy\n\r" \
-		"     Farmer Joe (fjoe@iclub.nsu.ru)\n\r"
-#define DATE	"     (Apr. 7, 1995 - ROM mod, Apr 16, 1995)\n\r" \
-		"     (Port a ROM 2.4 - Nov 2, 1996)\n\r" \
-		"     Version actual : 1.71 - Mar 22, 1998\n\r"
+#define VERSION	"ILAB Online Creation [Beta 1.0, ROM 2.3 modified]\n" \
+		"     Port a ROM 2.4 v1.7\n"
+#define AUTHOR	"     By Jason(jdinkel@mines.colorado.edu)\n" \
+                "     Modified for use with ROM 2.3\n"        \
+                "     By Hans Birkeland (hansbi@ifi.uio.no)\n" \
+                "     Modificado para uso en ROM 2.4b4a\n"	\
+                "     Por Ivan Toledo (pvillanu@choapa.cic.userena.cl)\n" \
+		"     Modified for use with Muddy\n" \
+		"     Farmer Joe (fjoe@iclub.nsu.ru)\n"
+#define DATE	"     (Apr. 7, 1995 - ROM mod, Apr 16, 1995)\n" \
+		"     (Port a ROM 2.4 - Nov 2, 1996)\n" \
+		"     Version actual : 1.71 - Mar 22, 1998\n"
 #define CREDITS "     Original by Surreality(cxw197@psu.edu) and Locke(locke@lm.com)"
 
 struct olced_data {
@@ -200,7 +200,7 @@ bool olced_number(CHAR_DATA *ch, const char *argument, OLC_FUN* fun, int *pInt)
 	one_argument(argument, arg);
 	val = strtol(arg, &endptr, 0);
 	if (*arg == '\0' || *endptr != '\0') {
-		char_printf(ch, "Syntax: %s number\n\r", cmd->name);
+		char_printf(ch, "Syntax: %s number\n", cmd->name);
 		return FALSE;
 	}
 
@@ -208,7 +208,7 @@ bool olced_number(CHAR_DATA *ch, const char *argument, OLC_FUN* fun, int *pInt)
 		return FALSE;
 
 	*pInt = val;
-	char_puts("Ok.\n\r", ch);
+	char_puts("Ok.\n", ch);
 	return TRUE;
 }
 
@@ -222,7 +222,7 @@ bool olced_str(CHAR_DATA *ch, const char *argument,
 		return FALSE;
 
 	if (IS_NULLSTR(argument)) {
-		char_printf(ch, "Syntax: %s string\n\r", cmd->name);
+		char_printf(ch, "Syntax: %s string\n", cmd->name);
 		return FALSE;
 	}
 
@@ -231,7 +231,7 @@ bool olced_str(CHAR_DATA *ch, const char *argument,
 
 	free_string(*pStr);
 	*pStr = str_dup(argument);
-	char_puts("Ok.\n\r", ch);
+	char_puts("Ok.\n", ch);
 	return TRUE;
 }
 
@@ -248,7 +248,7 @@ bool olced_str_text(CHAR_DATA *ch, const char *argument,
 		return TRUE;
 	}
 
-	char_printf(ch, "Syntax: %s\n\r", cmd->name);
+	char_printf(ch, "Syntax: %s\n", cmd->name);
 	return FALSE;
 }
 
@@ -261,10 +261,10 @@ bool olced_mlstr(CHAR_DATA *ch, const char *argument,
 		return FALSE;
 
 	if (!mlstr_edit(pmlstr, argument)) {
-		char_printf(ch, "Syntax: %s lang string\n\r", cmd->name);
+		char_printf(ch, "Syntax: %s lang string\n", cmd->name);
 		return FALSE;
 	}
-	char_puts("Ok.\n\r", ch);
+	char_puts("Ok.\n", ch);
 	return TRUE;
 }
 
@@ -277,10 +277,10 @@ bool olced_mlstrnl(CHAR_DATA *ch, const char *argument,
 		return FALSE;
 
 	if (!mlstr_editnl(pmlstr, argument)) {
-		char_printf(ch, "Syntax: %s lang string\n\r", cmd->name);
+		char_printf(ch, "Syntax: %s lang string\n", cmd->name);
 		return FALSE;
 	}
-	char_puts("Ok.\n\r", ch);
+	char_puts("Ok.\n", ch);
 	return TRUE;
 }
 
@@ -293,7 +293,7 @@ bool olced_mlstr_text(CHAR_DATA *ch, const char *argument,
 		return FALSE;
 
 	if (!mlstr_append(ch, pmlstr, argument)) {
-		char_printf(ch, "Syntax: %s lang\n\r", cmd->name);
+		char_printf(ch, "Syntax: %s lang\n", cmd->name);
 		return FALSE;
 	}
 	return TRUE;
@@ -331,14 +331,14 @@ bool olced_exd(CHAR_DATA *ch, const char* argument, ED_DATA **ped)
 
 		ed->next	= *ped;
 		*ped		= ed;
-		char_puts("Extra description added.\n\r", ch);
+		char_puts("Extra description added.\n", ch);
 		return TRUE;
 	}
 
 	if (!str_cmp(command, "edit")) {
 		ed = ed_lookup(keyword, *ped);
 		if (ed == NULL) {
-			char_printf(ch, "%s: Extra description keyword not found.\n\r", olced->name);
+			char_printf(ch, "%s: Extra description keyword not found.\n", olced->name);
 			return FALSE;
 		}
 
@@ -359,7 +359,7 @@ bool olced_exd(CHAR_DATA *ch, const char* argument, ED_DATA **ped)
 		}
 
 		if (ed == NULL) {
-			char_printf(ch, "%s: Extra description keyword not found.\n\r", olced->name);
+			char_printf(ch, "%s: Extra description keyword not found.\n", olced->name);
 			return FALSE;
 		}
 
@@ -370,7 +370,7 @@ bool olced_exd(CHAR_DATA *ch, const char* argument, ED_DATA **ped)
 
 		ed_free(ed);
 
-		char_puts("Extra description deleted.\n\r", ch);
+		char_puts("Extra description deleted.\n", ch);
 		return TRUE;
 	}
 
@@ -379,12 +379,12 @@ bool olced_exd(CHAR_DATA *ch, const char* argument, ED_DATA **ped)
 
 		ed = ed_lookup(keyword, *ped);
 		if (ed == NULL) {
-			char_printf(ch, "%s: Extra description keyword not found.\n\r", olced->name);
+			char_printf(ch, "%s: Extra description keyword not found.\n", olced->name);
 			return FALSE;
 		}
 
 		output = buf_new(-1);
-		buf_printf(output, "Keyword:     [%s]\n\r", ed->keyword);
+		buf_printf(output, "Keyword:     [%s]\n", ed->keyword);
 		mlstr_dump(output, "Description: ", ed->description);
 		page_to_char(buf_string(output), ch);
 		buf_free(output);
@@ -394,12 +394,12 @@ bool olced_exd(CHAR_DATA *ch, const char* argument, ED_DATA **ped)
 	if (!str_cmp(command, "format")) {
 		ed = ed_lookup(keyword, *ped);
 		if (ed == NULL) {
-			char_printf(ch, "%s: Extra description keyword not found.\n\r", olced->name);
+			char_printf(ch, "%s: Extra description keyword not found.\n", olced->name);
 			return FALSE;
 		}
 
 		mlstr_format(&ed->description);
-		char_puts("Extra description formatted.\n\r", ch);
+		char_puts("Extra description formatted.\n", ch);
 		return TRUE;
 	}
 
@@ -421,12 +421,12 @@ bool olced_flag(CHAR_DATA *ch, const char *argument,
 		return FALSE;
 
 	if (!cmd->arg1) {
-		char_printf(ch, "%s: %s: Table of values undefined (report it to implementors).\n\r", olced->name, cmd->name);
+		char_printf(ch, "%s: %s: Table of values undefined (report it to implementors).\n", olced->name, cmd->name);
 		return FALSE;
 	}
 
 	if ((stat = is_stat(cmd->arg1)) < 0) {
-		char_printf(ch, "%s: %s: Unknown table of values (report it to implementors).\n\r", olced->name, cmd->name);
+		char_printf(ch, "%s: %s: Unknown table of values (report it to implementors).\n", olced->name, cmd->name);
 		return FALSE;
 	}
 
@@ -437,19 +437,19 @@ bool olced_flag(CHAR_DATA *ch, const char *argument,
 
 	if (stat) {
 		if ((f = flag_lookup(cmd->arg1, argument)) == NULL) {
-			char_printf(ch, "Syntax: %s value\n\r"
+			char_printf(ch, "Syntax: %s value\n"
 					"Type '%s ?' for a list of "
-					"acceptable values.\n\r",
+					"acceptable values.\n",
 					cmd->name, cmd->name);
 			return FALSE;
 		}
 		if (!f->settable) {
-			char_printf(ch, "%s: %s: '%s': value is not settable.\n\r",
+			char_printf(ch, "%s: %s: '%s': value is not settable.\n",
 				    olced->name, cmd->name, f->name);
 			return FALSE;
 		}
 		*pflag = f->bit;
-		char_printf(ch, "%s: %s: '%s': Ok.\n\r",
+		char_printf(ch, "%s: %s: '%s': Ok.\n",
 			    olced->name, cmd->name, f->name);
 		return TRUE;
 	}
@@ -468,14 +468,14 @@ bool olced_flag(CHAR_DATA *ch, const char *argument,
 			break;
 
 		if ((f = flag_lookup(cmd->arg1, word)) == NULL) {
-			char_printf(ch, "Syntax: %s flag...\n\r"
+			char_printf(ch, "Syntax: %s flag...\n"
 					"Type '%s ?' for a list of "
-					"acceptable flags.\n\r",
+					"acceptable flags.\n",
 					cmd->name, cmd->name);
 			return FALSE;
 		}
 		if (!f->settable) {
-			char_printf(ch, "%s: %s: '%s': flag is not settable.\n\r",
+			char_printf(ch, "%s: %s: '%s': flag is not settable.\n",
 				    olced->name, cmd->name, f->name);
 			continue;
 		}
@@ -484,7 +484,7 @@ bool olced_flag(CHAR_DATA *ch, const char *argument,
 
 	if (marked) {
 		TOGGLE_BIT(*pflag, marked);
-		char_printf(ch, "%s: %s: '%s': flag(s) toggled.\n\r",
+		char_printf(ch, "%s: %s: '%s': flag(s) toggled.\n",
 			    olced->name, cmd->name,
 			    flag_string(cmd->arg1, marked));
 		return TRUE;
@@ -520,11 +520,11 @@ bool olced_dice(CHAR_DATA *ch, const char *argument, OLC_FUN *fun, int *dice)
 	dice[DICE_TYPE]   = type;
 	dice[DICE_BONUS]  = bonus;
 
-	char_printf(ch, "%s set to %dd%d+%d.\n\r", cmd->name, num, type, bonus);
+	char_printf(ch, "%s set to %dd%d+%d.\n", cmd->name, num, type, bonus);
 	return TRUE;
 
 bail_out:
-	char_printf(ch, "Syntax: %s <number>d<type>+<bonus>\n\r", cmd->name);
+	char_printf(ch, "Syntax: %s <number>d<type>+<bonus>\n", cmd->name);
 	return FALSE;
 }
 
@@ -537,9 +537,9 @@ bool olced_clan(CHAR_DATA *ch, const char *argument, OLC_FUN *fun, int *vnum)
 		return FALSE;
 
 	if (IS_NULLSTR(argument)) {
-		char_printf(ch, "Syntax: %s clan\n\r"
-				"Use 'clan ?' for list of valid clans.\n\r"
-				"Use 'clan none' to reset clan.\n\r",
+		char_printf(ch, "Syntax: %s clan\n"
+				"Use 'clan ?' for list of valid clans.\n"
+				"Use 'clan none' to reset clan.\n",
 			    cmd->name);
 		return FALSE;
 	}
@@ -550,7 +550,7 @@ bool olced_clan(CHAR_DATA *ch, const char *argument, OLC_FUN *fun, int *vnum)
 	}
 
 	if ((cn = cn_lookup(argument)) < 0) {
-		char_printf(ch, "'%s': unknown clan.\n\r", argument);
+		char_printf(ch, "'%s': unknown clan.\n", argument);
 		return FALSE;
 	}
 
@@ -561,7 +561,7 @@ bool olced_clan(CHAR_DATA *ch, const char *argument, OLC_FUN *fun, int *vnum)
 VALIDATE_FUN(validate_filename)
 {
 	if (strpbrk(arg, "/")) {
-		char_printf(ch, "%s: Invalid characters in file name.\n\r",
+		char_printf(ch, "%s: Invalid characters in file name.\n",
 			    olc_ed_name(ch));
 		return FALSE;
 	}
@@ -573,7 +573,7 @@ VALIDATE_FUN(validate_room_vnum)
 	int vnum = *(int*) arg;
 
 	if (vnum && get_room_index(vnum) == NULL) {
-		char_printf(ch, "OLC: %d: no such room.\n\r", vnum);
+		char_printf(ch, "OLC: %d: no such room.\n", vnum);
 		return FALSE;
 	}
 
@@ -601,10 +601,10 @@ bool show_commands(CHAR_DATA *ch, const char *argument)
 	for (col = 0, cmd = olced->cmd_table+FUN_FIRST; cmd->name; cmd++) {
 		buf_printf(output, "%-15.15s", cmd->name);
 		if (++col % 5 == 0)
-			buf_add(output, "\n\r");
+			buf_add(output, "\n");
 	}
 	if (col % 5 != 0)
-		buf_add(output, "\n\r");
+		buf_add(output, "\n");
 
 	page_to_char(buf_string(output), ch);
 	buf_free(output);
@@ -614,10 +614,10 @@ bool show_commands(CHAR_DATA *ch, const char *argument)
 
 bool show_version(CHAR_DATA *ch, const char *argument)
 {
-	char_puts(VERSION	"\n\r"
-		  AUTHOR	"\n\r"
-		  DATE		"\n\r"
-		  CREDITS	"\n\r", ch);
+	char_puts(VERSION	"\n"
+		  AUTHOR	"\n"
+		  DATE		"\n"
+		  CREDITS	"\n", ch);
 
 	return FALSE;
 }    

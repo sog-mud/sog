@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_msg.c,v 1.13 1998-11-02 05:28:56 fjoe Exp $
+ * $Id: olc_msg.c,v 1.14 1998-12-01 10:55:10 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -68,7 +68,7 @@ static void		msg_dump(BUFFER *buf, mlstring *ml);
 OLC_FUN(msged_create)
 {
 	if (ch->pcdata->security < SECURITY_MSGDB) {
-		char_puts("MsgEd: Insufficient security.\n\r", ch);
+		char_puts("MsgEd: Insufficient security.\n", ch);
 		return FALSE;
 	}
 
@@ -78,18 +78,18 @@ OLC_FUN(msged_create)
 	}
 
 	if (!str_cmp(argument, "$")) {
-		char_puts("MsgEd: invalid value.\n\r", ch);
+		char_puts("MsgEd: invalid value.\n", ch);
 		return FALSE;
 	}
 
 	if (msg_lookup(argument = atomsg(argument))) {
-		char_puts("MsgEd: msg already exists.\n\r", ch);
+		char_puts("MsgEd: msg already exists.\n", ch);
 		return FALSE;
 	}
 
 	ch->desc->pEdit	= (void*) msg_add(mlstr_new(argument));
 	ch->desc->editor = ED_MSG;
-	char_puts("Msg created.\n\r", ch);
+	char_puts("Msg created.\n", ch);
 	return FALSE;
 }
 
@@ -98,7 +98,7 @@ OLC_FUN(msged_edit)
 	mlstring **mlp;
 
 	if (ch->pcdata->security < SECURITY_MSGDB) {
-		char_puts("MsgEd: Insufficient security.\n\r", ch);
+		char_puts("MsgEd: Insufficient security.\n", ch);
 		return FALSE;
 	}
 
@@ -108,7 +108,7 @@ OLC_FUN(msged_edit)
 	}
 
 	if ((mlp = msg_search(argument)) == NULL) {
-		char_puts("MsgEd: msg not found.\n\r", ch);
+		char_puts("MsgEd: msg not found.\n", ch);
 		return FALSE;
 	}
 
@@ -132,7 +132,7 @@ OLC_FUN(msged_show)
 	}
 	else {
 		if ((mlp = msg_search(argument)) == NULL) {
-			char_puts("MsgEd: msg not found.\n\r", ch);
+			char_puts("MsgEd: msg not found.\n", ch);
 			return FALSE;
 		}
 	}
@@ -170,7 +170,7 @@ OLC_FUN(msged_list)
 					output = buf_new(-1);
 				buf_add(output, name);
 				if (name[strlen(name)-1] != '\r')
-					buf_add(output, "\n\r");
+					buf_add(output, "\n");
 			}
 		}
 	}
@@ -180,7 +180,7 @@ OLC_FUN(msged_list)
 		buf_free(output);
 	}
 	else
-		char_puts("MsgEd: no messages found.\n\r", ch);
+		char_puts("MsgEd: no messages found.\n", ch);
 
 	return FALSE;
 }
@@ -207,13 +207,13 @@ OLC_FUN(msged_msg)
 		mlstring **mlp2;
 
 		if (!str_cmp(argument, "$")) {
-			char_puts("MsgEd: invalid value.\n\r", ch);
+			char_puts("MsgEd: invalid value.\n", ch);
 			return FALSE;
 		}
 
 		mlp2 = msg_lookup(argument);
 		if (mlp2) {
-			char_puts("MsgEd: duplicate name.\n\r", ch);
+			char_puts("MsgEd: duplicate name.\n", ch);
 			return FALSE;
 		}
 		ml = msg_del(mlstr_mval(*mlp));
@@ -339,7 +339,7 @@ static void msg_dump(BUFFER *buf, mlstring *ml)
 {
 	int lang;
 	int nlang = mlstr_nlang(ml);
-	static char FORMAT[] = "[%s] [%s]\n\r";
+	static char FORMAT[] = "[%s] [%s]\n";
 
 	if (!nlang) {
 		buf_printf(buf, FORMAT, "all", mlstr_mval(ml));

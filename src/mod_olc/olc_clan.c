@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_clan.c,v 1.13 1998-10-26 08:40:06 fjoe Exp $
+ * $Id: olc_clan.c,v 1.14 1998-12-01 10:55:10 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -82,7 +82,7 @@ OLC_FUN(claned_create)
 	char arg[MAX_STRING_LENGTH];
 
 	if (ch->pcdata->security < SECURITY_CLAN) {
-		char_puts("CEdit: Insufficient security for editing clans\n\r", ch);
+		char_puts("CEdit: Insufficient security for editing clans\n", ch);
 		return FALSE;
 	}
 
@@ -93,7 +93,7 @@ OLC_FUN(claned_create)
 	}
 
 	if ((cn = cn_lookup(arg)) >= 0) {
-		char_printf(ch, "CEdit: %s: already exists.\n\r",
+		char_printf(ch, "CEdit: %s: already exists.\n",
 			    CLAN(cn)->name);
 		return FALSE;
 	}
@@ -105,7 +105,7 @@ OLC_FUN(claned_create)
 	ch->desc->pEdit		= (void *)clan;
 	ch->desc->editor	= ED_CLAN;
 	touch_clan(clan);
-	char_puts("Clan created.\n\r",ch);
+	char_puts("Clan created.\n",ch);
 	return FALSE;
 }
 
@@ -115,7 +115,7 @@ OLC_FUN(claned_edit)
 	char arg[MAX_STRING_LENGTH];
 
 	if (ch->pcdata->security < SECURITY_CLAN) {
-		char_puts("CEdit: Insufficient security.\n\r", ch);
+		char_puts("CEdit: Insufficient security.\n", ch);
 		return FALSE;
 	}
 
@@ -126,7 +126,7 @@ OLC_FUN(claned_edit)
 	}
 
 	if ((cn = cn_lookup(arg)) < 0) {
-		char_printf(ch, "CEdit: %s: No such clan.\n\r", argument);
+		char_printf(ch, "CEdit: %s: No such clan.\n", argument);
 		return FALSE;
 	}
 
@@ -160,7 +160,7 @@ OLC_FUN(claned_show)
 	}
 	else {
 		if ((i = cn_lookup(arg)) < 0) {
-			char_printf(ch, "CEdit: %s: No such clan.\n\r",
+			char_printf(ch, "CEdit: %s: No such clan.\n",
 				    argument);
 			return FALSE;
 		}
@@ -169,20 +169,20 @@ OLC_FUN(claned_show)
 
 	output = buf_new(-1);
 	buf_printf(output,
-		   "Name:        [%s]\n\r"
-		   "Filename:    [%s]\n\r",
+		   "Name:        [%s]\n"
+		   "Filename:    [%s]\n",
 		   clan->name,
 		   clan->file_name);
 	if (clan->flags)
-		buf_printf(output, "Flags:       [%s]\n\r",
+		buf_printf(output, "Flags:       [%s]\n",
 			   flag_string(clan_flags, clan->flags));
 	if (clan->recall_vnum)
-		buf_printf(output, "Recall:      [%d]\n\r",
+		buf_printf(output, "Recall:      [%d]\n",
 			   clan->recall_vnum);
 	if (!IS_NULLSTR(clan->msg_prays))
-		buf_printf(output, "MsgPrays:    [%s]\n\r", clan->msg_prays);
+		buf_printf(output, "MsgPrays:    [%s]\n", clan->msg_prays);
 	if (!IS_NULLSTR(clan->msg_vanishes))
-		buf_printf(output, "MsgVanishes: [%s]\n\r", clan->msg_vanishes);
+		buf_printf(output, "MsgVanishes: [%s]\n", clan->msg_vanishes);
 
 	for (i = 0; i < clan->skills.nused; i++) {
 		CLAN_SKILL *cs = VARR_GET(&clan->skills, i);
@@ -191,7 +191,7 @@ OLC_FUN(claned_show)
 		if (cs->sn <= 0
 		||  (skill = skill_lookup(cs->sn)) == NULL)
 			continue;
-		buf_printf(output, "Skill:       '%s' (level %d)\n\r",
+		buf_printf(output, "Skill:       '%s' (level %d)\n",
 			   skill->name, cs->level);
 	}
 
@@ -206,7 +206,7 @@ OLC_FUN(claned_list)
 	int i;
 
 	for (i = 0; i < clans.nused; i++)
-		char_printf(ch, "[%d] %s\n\r", i, CLAN(i)->name);
+		char_printf(ch, "[%d] %s\n", i, CLAN(i)->name);
 	return FALSE;
 }
 
@@ -284,18 +284,18 @@ OLC_FUN(claned_skill_add)
 	}
 
 	if ((sn = sn_lookup(arg1)) <= 0) {
-		char_printf(ch, "CEdit: %s: unknown skill.\n\r", arg1);
+		char_printf(ch, "CEdit: %s: unknown skill.\n", arg1);
 		return FALSE;
 	}
 
 	if (!IS_SET(SKILL(sn)->flags, SKILL_CLAN)) {
-		char_printf(ch, "CEdit: %s: not a clan skill.\n\r",
+		char_printf(ch, "CEdit: %s: not a clan skill.\n",
 			    SKILL(sn)->name);
 		return FALSE;
 	}
 
 	if ((clan_skill = clan_skill_lookup(clan, sn))) {
-		char_printf(ch, "Cedit: %s: already there.\n\r",
+		char_printf(ch, "Cedit: %s: already there.\n",
 			    SKILL(sn)->name);
 		return FALSE;
 	}
@@ -317,7 +317,7 @@ OLC_FUN(claned_skill_del)
 
 	one_argument(argument, arg);
 	if ((clan_skill = skill_vlookup(&clan->skills, arg)) == NULL) {
-		char_printf(ch, "CEdit: %s: not found in clan skill list.\n\r",
+		char_printf(ch, "CEdit: %s: not found in clan skill list.\n",
 			    arg);
 		return FALSE;
 	}
@@ -335,7 +335,7 @@ VALIDATE_FUN(validate_name)
 	for (i = 0; i < clans.nused; i++)
 		if (CLAN(i) != clan
 		&&  !str_cmp(CLAN(i)->name, arg)) {
-			char_printf(ch, "CEdit: %s: duplicate clan name.\n\r",
+			char_printf(ch, "CEdit: %s: duplicate clan name.\n",
 				    arg);
 			return FALSE;
 		}
