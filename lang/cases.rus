@@ -905,6 +905,17 @@ Form 6 -у~
 End
 
 #RULE
+Name Городской~
+BaseLen 7
+Form 1 -ого~
+Form 2 -ому~
+Form 3 -ой~
+Form 4 -ым~
+Form 5 -ом~
+Form 6 -ого~
+End
+
+#RULE
 Name нарукавники~
 BaseLen 10
 Form 1 -ов~
@@ -2012,6 +2023,17 @@ Form 1 -и~
 Form 2 -е~
 Form 3 -у~
 Form 4 -ой~
+Form 5 -е~
+Form 6 -у~
+End
+
+#RULE
+Name яичница~
+BaseLen 6
+Form 1 -ы~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ей~
 Form 5 -е~
 Form 6 -у~
 End

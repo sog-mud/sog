@@ -411,6 +411,19 @@ A
 A
 18 10
 G none
+#36118
+mithras axe~
+huge axe called "{RMithras{W"~
+Blood-red axe lies on the ground.~
+mithril~
+weapon BRTa ANP
+axe 5 19 chop EF
+50 50 200000 P
+A
+18 10
+F
+A 19 25 a
+G male
 #0
 
 #ROOMS

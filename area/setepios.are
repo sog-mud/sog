@@ -848,6 +848,15 @@ furniture 0 0
 BD EIJKN KN CFG CFG
 0 100000 0 P
 G none
+#38201
+armchair~
+@eng {Wstrange armchair.{x@rus {Wстранное кресло.{x~
+@eng {W Torture armchair is in the center of room.{x@rus {WКресло для пыток стоит посреди комнаты. {x~
+unknown~
+furniture R 0
+A 0 D 0 0
+0 1 1 P
+G none
 #38500
 club spiked skullsmasher~
 the spiked club named 'Skullsmasher'~
@@ -894,9 +903,14 @@ On the wall you can see Setepios Photo.
 0 CK inside
 S
 #38002
-@eng !@rus Приемная~
+@eng Torture room@rus Камера пыток~
+@eng You are in a clean room. Strange armchair is in the center of it.
+You can see small table with lots of strange and fearing equipment near.
+@rus Вс÷ очень стерильно. Странное кресло из блестящего метала стоит
+посреди хорошо освещенной комнаты. Рядом столик с различными,
+непонятными, но пугающими инстркментами.
 ~
-0 CJW inside
+0 NW inside
 S
 #38100
 @eng Sit & wait@rus Приемная~
@@ -1303,6 +1317,7 @@ M 38510 spec_cast_mage	* Ga-nocry
 S
 
 #RESETS
+O 0 38201 0 38002	* {Wstrange armchair.{x (Torture room)
 O 0 38003 0 38101	* fountain (Coridor)
 O 0 38002 0 38101	* armchair (Coridor)
 O 0 38001 0 38102	* big bed (Bedroom)

@@ -1,0 +1,1158 @@
+#AREADATA
+Name Hellfire~
+Builders orrin~
+VNUMs 18700 18799
+Credits Orrin~
+Security 1
+LevelRange 0 0
+Flags closed noquest~
+End
+
+#MOBILES
+#18700
+urukhay урукхай troll~
+@eng Urukhay@rus Урукхай~
+@eng Urukhay stands here.
+@rus Большой угрюмый троль (troll) стоит тут.
+~
+~
+troll~
+AGJKTbef DFOPUVlmrtu -1000 0
+200 100 1d1+29999 0d0+0 1d1+200 none
+-200 -200 -200 -200
+ACEFIJKLN C D 0
+stand stand male 100000000
+0 0 huge unknown
+M speech 18799 Urukhay!~
+M speech 18798 Как тебя зовут?~
+M speech 18797 А что ты можешь?~
+M speech 44000 hi~
+#18701
+griswold грисвольд~
+@eng Griswold@rus кузнец Гризвольд~
+@eng Griswold is here to sell his fine works.
+@rus Кузнец Гризвольд (Griswold) продает здесь оружие и доспехи.
+~
+~
+human~
+ABTce CDEFHNTVlmt 584 0
+70 15 25d15+25000 1d1+999 8d8+60 slash
+-80 -80 -80 -80
+ACEFHJK ABQU CDL 0
+stand stand male 1000000
+0 0 medium unknown
+F for AHMV
+F par ABCDEFGHIJK
+#18702
+ogden огден~
+@eng innkeeper Ogden@rus ~~Трактирщик~~ ~~Огден~~~
+@eng innkeeper Ogden ivite in the tavern
+@rus Трактирщик Огден (Ogden) приглашает тебя в свою таверу.
+~
+~
+human~
+AB 0 0 0
+0 0 0d0+0 0d0+0 0d0+0 none
+0 0 0 0
+0 0 0 0
+stand stand none 0
+0 0 medium unknown
+F for AHMV
+F par ABCDEFGHIJK
+#18703
+cain кейн~
+~~староста~~ ~~Кейн~~~
+Староста Кейн (Cain) стоит тут.
+~
+~
+human~
+ABJKRbdef DFHV 367 0
+70 50 1d1+29999 1d1+499 6d14+100 chill
+-100 -100 -100 -100
+EFKT ABEQ CDL 0
+stand stand male 1000
+0 0 medium unknown
+F for AHMV
+F par ABCDEFGHIJK
+M act 18701 disarm~
+#18704
+healer лекарь пепин pepin~
+@eng healer Pepin@rus ~~лекарь~~ ~~Пепин~~~
+@eng A healer is here, selling drug.
+@rus Знахарь Пепин (Pepin) продает здесь свои лекарства.
+~
+~
+human~
+ABQaef DFHNTVlmt 1000 0
+120 300 1d1+29999 12d42+10000 20d10+100 divine
+-100 -100 -100 -100
+AN ABCMNQU DL 0
+stand stand male 1000
+0 0 medium unknown
+F for AHMV
+F par ABCDEFGHIJK
+M speech 18700 aid me~
+M speech 18701 haste~
+#18705
+witch adria ведьма адрия~
+~
+~
+~
+human~
+ABRe 0 0 0
+0 0 0d0+0 0d0+0 0d0+0 none
+0 0 0 0
+0 0 0 0
+stand stand none 0
+0 0 medium unknown
+F for AHMV
+F par ABCDEFGHIJK
+#18706
+drunk алкаш~
+@eng drunk@rus ~~алкаш~~~
+@eng Drunk resting here and singing.
+@rus Пьяница (drunk) сидит здесь и поет песни.
+~
+~
+human~
+ABUe Yd 0 0
+15 0 15d15+200 1d1+149 2d4+5 punch
+10 10 10 10
+DFK 0 CI BPR
+stand rest male 0
+0 0 medium unknown
+F for AHMV
+F par ABCDEFGHIJK
+#0
+
+#OBJECTS
+#18700
+big axe топор~
+@eng BattleRager's Axe@rus Огромный тапор@rusoff BattleRager's axe~
+@eng Huge Battlerager axe has been left here.~
+adamantit~
+weapon 0 AN
+sword 100 99 crush CD
+95 0 0 P
+A
+17 100
+A
+19 100
+A
+18 100
+A
+8 10
+G none
+#18701
+ring power кольцо силы~
+@eng ring of power@rus Кольцо силы~
+@eng Ring of power lies here.@rus Кольцо силы(ring) валяется здесь.~
+energy~
+treasure BRSTYa AB
+0 0 0 0 0
+103 0 0 P
+F
+A 0 0 V
+A
+13 20000
+A
+18 10
+A
+19 10
+F
+A 0 0 V
+F
+A 0 0 H
+G none
+#18702
+troll skin кожа троля~
+@eng tanned troll skin@rus дубленая кожа троля~
+@eng Tanned troll skin lies here.@rus Дубленка (skin) лежит здесь.~
+skin~
+armor CEJRSa AD
+92 92 92 92 0
+92 0 0 P
+A
+17 -100
+A
+13 100
+F
+A 0 0 c
+G none
+#18703
+potion healing~
+@eng potion of healing@rus ~~лечебное~~ ~~снадобье~~~
+@eng Potion of healing lies here.@rus Какой-то пузырек (potion) валяется на полу.~
+glass~
+potion ABGIN A
+100 'restoring light' 'disperse' 'teleport' 'terangreal'
+50 0 20000 P
+G none
+#18704
+pill~
+pill~
+pill~
+unknown~
+pill 0 0
+1000 'cancellation' 'cancellation' 'cancellation' 'cure disease'
+0 0 10 P
+G none
+#18705
+pill~
+pill~
+pill~
+unknown~
+pill 0 A
+1000 'plague' 'adamantite golem' 'adamantite golem' 'adamantite golem'
+0 0 100 P
+G none
+#18706
+stake silver~
+silver stake~
+Brilliant stake lies here.~
+silver~
+weapon AGIK AN
+exotic 6 7 sting DI
+40 245 16230 P
+A
+18 8
+G none
+#18707
+bandage повязка~
+bandage~
+bandage~
+unknown~
+armor A AS
+0 0 0 0 0
+0 0 0 P
+F
+A 0 0 X
+G none
+#18708
+dagger knight~
+knight's dagger of burning~
+Strange dagger lies here~
+steel~
+weapon AHINY AN
+dagger 10 8 thrust AD
+70 300 135457 P
+A
+19 7
+A
+18 10
+G none
+#18709
+spellbane aura~
+spellbane~
+Mistical aura lies here.~
+energy~
+armor BFIRST AQ
+100 100 100 100 0
+37 1500 1000 P
+F
+I 0 0 C
+F
+A 0 0 V
+A
+19 10
+A
+18 10
+A
+12 1000
+A
+13 1000
+G none
+#18710
+fountain фонтан~
+@eng town fountain@rus ~~городской~~ ~~фонтан~~~
+@eng A small white fountain gushes forth here.@rus В центре площади стоит фонтан (fountain) наполненый кристально чистой водой.~
+marble~
+fountain A 0
+1000000 1000000 'water' 0 0
+0 1000000 0 P
+G none
+#18750
+thron трон~
+@eng Orrin's throne@rus ~~Золотой~~ ~~трон~~ ~~Орина~~~
+@eng Orrin's throne is here, waiting his master.@rus Золотой трон Орина стоит здесь ожидая своего хозяина.~
+unknown~
+furniture A 0
+A CFG HK EIJKN EIJKN
+0 0 0 P
+G none
+#18751
+portal~
+@eng portal@rus ~~портал~~~
+@eng Mistical portal humming here.@rus Таинственный портал мерцает в углу комнаты.~
+unknown~
+portal B 0
+0 I A 3001 0
+0 2147483647 0 P
+G none
+#18798
+~
+~
+~
+unknown~
+trash 0 0
+0 0 0 0 0
+0 0 0 P
+G none
+#18799
+aura shadow white~
+dark aura~
+Shadow lies hhere.~
+shadow~
+container BCGST AQ
+2147483647 0 0 2147483647 2147483647
+1 0 0 P
+A
+6 1000
+A
+5 1000
+A
+2 1000
+A
+4 1000
+A
+3 1000
+A
+1 1000
+F
+A 0 0 P
+F
+I 0 0 D
+F
+I 0 0 C
+F
+A 0 0 s
+F
+A 0 0 q
+F
+A 0 0 p
+F
+A 0 0 e
+F
+A 0 0 f
+F
+A 0 0 B
+F
+A 0 0 Q
+F
+A 0 0 t
+F
+A 0 0 n
+F
+A 0 0 F
+F
+A 0 0 l
+F
+A 0 0 E
+F
+A 0 0 C
+F
+A 0 0 G
+F
+A 0 0 D
+F
+A 0 0 m
+F
+A 0 0 g
+G none
+#0
+
+#ROOMS
+#18700
+@eng Entrance to Hellfire@rus Вход в Арию~
+~
+0 W inside
+D0
+~
+~
+Z 0 18734
+D2
+~
+~
+Z 0 18733
+S
+#18701
+@eng Town square@rus Городская площадь~
+~
+0 0 inside
+D0
+~
+~
+Z 0 18710
+D1
+~
+~
+Z 0 18712
+D2
+~
+~
+Z 0 18704
+D3
+~
+~
+Z 0 18702
+S
+#18702
+@eng Town square@rus Городская площадь~
+~
+0 0 inside
+D0
+~
+~
+Z 0 18721
+D1
+~
+~
+Z 0 18701
+D2
+~
+~
+Z 0 18703
+D3
+~
+~
+Z 0 18706
+S
+#18703
+@eng Town square@rus Городская площадь~
+~
+0 0 inside
+D0
+~
+~
+Z 0 18702
+D1
+~
+~
+Z 0 18704
+D2
+~
+~
+Z 0 18708
+D3
+~
+~
+Z 0 18705
+S
+#18704
+@eng Town square@rus Городская площадь~
+~
+0 0 inside
+D0
+~
+~
+Z 0 18701
+D1
+~
+~
+Z 0 18711
+D2
+~
+~
+Z 0 18709
+D3
+~
+~
+Z 0 18703
+S
+#18705
+@eng Drugstone@rus Аптека~
+~
+0 NS inside
+D1
+~
+~
+Z 0 18703
+S
+#18706
+@eng Trail@rus Тропинка~
+~
+0 0 inside
+D0
+~
+~
+Z 0 18707
+D1
+~
+~
+Z 0 18702
+D3
+~
+~
+Z 0 18713
+S
+#18707
+@eng Tavern@rus Таверна~
+~
+0 0 inside
+D2
+~
+~
+Z 0 18706
+S
+#18708
+@eng Town square@rus Городская площадь~
+~
+0 0 inside
+D0
+~
+~
+Z 0 18703
+D1
+~
+~
+Z 0 18709
+D3
+~
+~
+Z 0 18725
+S
+#18709
+@eng Town square@rus Городская площадь~
+~
+0 0 inside
+D0
+~
+~
+Z 0 18704
+D1
+~
+~
+Z 0 18731
+D2
+~
+~
+Z 0 18746
+D3
+~
+~
+Z 0 18708
+S
+#18710
+@eng Forge@rus Кузница~
+~
+0 C inside
+D2
+~
+~
+Z 0 18701
+S
+#18711
+@eng Town square@rus Городская площадь~
+~
+0 0 inside
+D0
+~
+~
+Z 0 18712
+D2
+~
+~
+Z 0 18731
+D3
+~
+~
+Z 0 18704
+S
+#18712
+@eng Town square@rus Городская площадь~
+~
+0 0 inside
+D1
+~
+~
+Z 0 18735
+D2
+~
+~
+Z 0 18711
+D3
+~
+~
+Z 0 18701
+S
+#18713
+@eng Trail@rus Тропинка~
+~
+0 0 inside
+D0
+~
+~
+Z 0 18714
+D1
+~
+~
+Z 0 18706
+D2
+~
+~
+Z 0 18724
+D3
+~
+~
+Z 0 18716
+S
+#18714
+@eng Trail@rus Тропинка~
+~
+0 0 inside
+D0
+~
+~
+Z 0 18715
+D2
+~
+~
+Z 0 18713
+S
+#18715
+@eng Trail@rus Тропинка~
+~
+0 0 inside
+D1
+~
+~
+Z 0 18723
+D2
+~
+~
+Z 0 18714
+D3
+~
+~
+Z 0 18717
+S
+#18716
+~
+~
+0 0 inside
+D1
+~
+~
+Z 0 18713
+S
+#18717
+@eng Trail@rus Тропинка~
+~
+0 0 inside
+D0
+~
+~
+Z 0 18718
+D1
+~
+~
+Z 0 18715
+S
+#18718
+@eng Trail@rus Тропинка~
+~
+0 0 inside
+D0
+~
+~
+Z 0 18719
+D2
+~
+~
+Z 0 18717
+S
+#18719
+@eng Church courtyard@rus Церковный двор~
+~
+0 0 inside
+D0
+~
+~
+Z 0 18720
+D2
+~
+~
+Z 0 18718
+S
+#18720
+@eng Church@rus Заброшеная церковь~
+~
+0 0 inside
+D2
+~
+~
+Z 0 18719
+S
+#18721
+@eng Trail@rus Тропинка~
+~
+0 0 inside
+D0
+~
+~
+Z 0 18722
+D2
+~
+~
+Z 0 18702
+S
+#18722
+@eng Trail@rus Тропинка~
+~
+0 0 inside
+D1
+~
+~
+Z 0 18739
+D2
+~
+~
+Z 0 18721
+D3
+~
+~
+Z 0 18723
+S
+#18723
+@eng Trail@rus Тропинка~
+~
+0 0 inside
+D1
+~
+~
+Z 0 18722
+D3
+~
+~
+Z 0 18715
+S
+#18724
+@eng Trail@rus Тропинка~
+~
+0 0 inside
+D0
+~
+~
+Z 0 18713
+D2
+~
+~
+Z 0 18725
+S
+#18725
+@eng Trail@rus Тропинка~
+~
+0 0 inside
+D0
+~
+~
+Z 0 18724
+D1
+~
+~
+Z 0 18708
+D3
+~
+~
+Z 0 18726
+S
+#18726
+@eng Trail@rus Тропинка~
+~
+0 0 inside
+D1
+~
+~
+Z 0 18725
+D3
+~
+~
+Z 0 18727
+D5
+~
+~
+Z 0 18730
+S
+#18727
+@eng On the bridge@rus На мосту~
+~
+0 0 inside
+D1
+~
+~
+Z 0 18726
+D3
+~
+~
+Z 0 18728
+S
+#18728
+@eng Burfication@rus Развилка~
+~
+0 0 inside
+D0
+~
+~
+Z 0 18729
+D1
+~
+~
+Z 0 18727
+D3
+~
+~
+Z 0 18740
+S
+#18729
+@eng Hut@rus Шалаш~
+~
+0 0 inside
+D2
+~
+~
+Z 0 18728
+S
+#18730
+@eng Entrance to {RHell{x@rus Вход в {RАД{x~
+~
+0 0 inside
+D4
+~
+~
+Z 0 18726
+S
+#18731
+@eng Town square@rus Городская площадь~
+~
+0 0 inside
+D0
+~
+~
+Z 0 18711
+D1
+~
+~
+Z 0 18732
+D3
+~
+~
+Z 0 18709
+S
+#18732
+@eng Trail@rus Тропинка~
+~
+0 0 inside
+D1
+~
+~
+Z 0 18733
+D3
+~
+~
+Z 0 18731
+S
+#18733
+@eng Trail@rus Тропинка~
+~
+0 0 inside
+D0
+~
+~
+Z 0 18700
+D2
+~
+~
+Z 0 18748
+D3
+~
+~
+Z 0 18732
+S
+#18734
+@eng Trail@rus Тропинка~
+~
+0 0 inside
+D2
+~
+~
+Z 0 18700
+D3
+~
+~
+Z 0 18735
+S
+#18735
+@eng Trail@rus Тропинка~
+~
+0 0 inside
+D0
+~
+~
+Z 0 18736
+D1
+~
+~
+Z 0 18734
+D3
+~
+~
+Z 0 18712
+S
+#18736
+@eng Trail@rus Тропинка~
+~
+0 0 inside
+D0
+~
+~
+Z 0 18737
+D2
+~
+~
+Z 0 18735
+S
+#18737
+@eng Trail@rus Тропинка~
+~
+0 0 inside
+D0
+~
+~
+Z 0 18741
+D2
+~
+~
+Z 0 18736
+D3
+~
+~
+Z 0 18738
+S
+#18738
+@eng Trail@rus Тропинка~
+~
+0 0 inside
+D1
+~
+~
+Z 0 18737
+D3
+~
+~
+Z 0 18739
+S
+#18739
+@eng Trail@rus Тропинка~
+~
+0 0 inside
+D1
+~
+~
+Z 0 18738
+D3
+~
+~
+Z 0 18722
+S
+#18740
+@eng Entrance to cave@rus Вход в пещеру~
+~
+0 0 inside
+D0
+~
+~
+Z 0 18739
+D1
+~
+~
+Z 0 18728
+S
+#18741
+@eng Trail@rus Тропинка~
+~
+0 0 inside
+D0
+~
+~
+Z 0 18742
+D2
+~
+~
+Z 0 18737
+S
+#18742
+@eng Trail@rus Тропинка~
+~
+0 0 inside
+D1
+~
+~
+Z 0 18743
+D2
+~
+~
+Z 0 18741
+S
+#18743
+@eng On the bridge@rus Мост~
+~
+0 0 inside
+D1
+~
+~
+Z 0 18744
+D3
+~
+~
+Z 0 18742
+S
+#18744
+@eng Trail@rus Тропинка~
+~
+0 0 inside
+D0
+~
+~
+Z 0 18745
+D3
+~
+~
+Z 0 18743
+S
+#18745
+@eng Trail@rus Тропинка~
+~
+0 0 inside
+D0
+~
+~
+Z 0 18750
+D2
+~
+~
+Z 0 18744
+S
+#18746
+@eng Trail@rus Тропинка~
+~
+0 0 inside
+D0
+~
+~
+Z 0 18709
+D1
+~
+~
+Z 0 18747
+S
+#18747
+@eng Trail@rus Тропинка~
+~
+0 0 inside
+D1
+~
+~
+Z 0 18748
+D3
+~
+~
+Z 0 18746
+S
+#18748
+@eng Trail@rus Тропинка~
+~
+0 0 inside
+D0
+~
+~
+Z 0 18733
+D3
+~
+~
+Z 0 18747
+S
+#18750
+@eng Adria's witch hut@rus Домик ведьмы Адрии~
+~
+0 0 inside
+D2
+~
+~
+Z 0 18745
+S
+#18799
+@eng Armory chamber@rus Оружейная палата~
+~
+0 NUWZ inside
+S
+#0
+
+#SPECIALS
+M 18703 spec_cast_seneschal	* ~староста~ ~Кейн~
+M 18704 spec_cast_adept	* healer Pepin
+S
+
+#RESETS
+O 0 18710 0 18704	* town fountain (Town square)
+M 0 18703 1 18704 1	* ~староста~ ~Кейн~ (Town square)
+M 0 18704 1 18705 1	* healer Pepin (Drugstone)
+G 0 18703 0		*	potion of healing
+M 0 18702 1 18707 1	* innkeeper Ogden (Tavern)
+M 0 18701 1 18710 1	* Griswold (Forge)
+G 0 18708 0		*	knight's dagger of burning
+G 0 18706 0		*	silver stake
+G 0 18709 0		*	spellbane
+M 0 18706 1 18747 1	* drunk (Trail)
+O 0 18750 0 18799	* Orrin's throne (Armory chamber)
+O 0 18751 0 18799	* portal (Armory chamber)
+M 0 18700 1 18799 1	* Urukhay (Armory chamber)
+E 0 18700 0 16		*	BattleRager's Axe: wielded
+E 0 18701 0 2		*	ring of power: on the right finger
+E 0 18702 0 12		*	tanned troll skin: about the shoulders
+E 0 18701 0 1		*	ring of power: on the left finger
+O 0 18750 0 18799	* Orrin's throne (Armory chamber)
+O 0 18751 0 18799	* portal (Armory chamber)
+O 0 18750 0 18799	* Orrin's throne (Armory chamber)
+O 0 18751 0 18799	* portal (Armory chamber)
+O 0 18750 0 18799	* Orrin's throne (Armory chamber)
+S
+
+#SHOPS
+18701 0 0 0 0 5 100 70 0 23
+18704 0 0 0 0 0 100 0 0 23
+0
+
+#OLIMITS
+O 18700 2	* BattleRager's Axe
+O 18701 2	* ring of power
+O 18702 2	* tanned troll skin
+O 18709 1	* spellbane
+S
+
+#MOBPROGS
+#18700
+mob oload 18707
+give bandage $n
+mob force $n wear bandage
+~
+#18701
+take all
+~
+#18796
+tell $n Не пиздеть!
+~
+#18797
+tell $n Убить тебя $n!
+ 
+yell $n! Now you die!!!
+mob attack $n
+~
+#18798
+tell $n Урукхай
+~
+#18799
+tell $n Чего тебе?
+~
+#0
+
+#$

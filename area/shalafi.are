@@ -79,10 +79,10 @@ vampire old старый вампир~
 ~
 ~
 undead~
-BGO R -1000 0
+ABGO R -1000 0
 92 30 2d500+25000 1d1+3999 10d25+90 bite
 -79 -79 -79 -40
-CFR 0 0 0
+CF 0 0 0
 stand stand male 0
 0 0 huge unknown
 M bribe 95301 5000~
@@ -393,7 +393,7 @@ S
 D0
 ~
 ~
-DZ 0 95311
+Z 0 95311
 D4
 ~
 ~
@@ -413,7 +413,7 @@ S
 D2
 ~
 ~
-DZ 0 95310
+Z 0 95310
 S
 #0
 

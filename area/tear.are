@@ -359,23 +359,15 @@ armor AJLPTUa AEN
 100 100 100 100 0
 60 50 100000 P
 F
-A 20 -5 B
+A 20 -5 Z
 F
 A 20 -5 P
 F
-A 20 -5 C
-F
 A 20 -5 m
-F
-A 20 -5 t
 F
 A 20 -5 l
 F
-A 20 -5 Z
-F
 A 20 -5 F
-F
-A 20 -5 E
 F
 I 20 -5 B
 F

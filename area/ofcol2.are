@@ -1458,8 +1458,8 @@ of people walk past you as they go on their daily tasks.  Raff Way continues
 east and west, and Impy Way runs north and south.
 @rus  Ты находишься на большом перекрестке между чертовой дорогой (Impy Way),
 которая тянется с севера (north) на юг (south) и улицей красных фонарей
-(Raff Way),пролегающей с запада (west) на восток (east).  
-Здесь многолюдно, и каждый спешит куда-то по своим делам.
+(Raff Way), пролегающей с запада (west) на восток (east).  
+Здесь многолюдно, каждый спешит куда-то по делам.
 ~
 0 S city
 D0
@@ -1490,7 +1490,7 @@ west.  To the north you see a big intersection, and Impy Way continues south.
 @rus  Ты находишься на чертовой дороге (Impy Way). Магазин кожаных 
 изделий (Leather Shop) находится на востоке (east), а кузница (Blacksmith)
 на западе (west). К северу (north) отсюда виден большой перекресток
-(Big Interseption), улица Путь Чертят (Impy Way) тянется на юг (south).
+(Big Interseption), чертова дорога тянется на юг (south).
 ~
 0 S city
 D0
@@ -1542,14 +1542,14 @@ You see Impy Way.
 Z 0 602
 S
 #605
-@eng Impy Way@rus Улица Путь Чертят~
+@eng Impy Way@rus Чертова дорога~
 @eng You are on Impy Way.  To the east is a meat store, and to the west is a
 pawn shop.  Impy Way continues north and south.  People are rushing around you
 to go to these stores.
-@rus  Вы на улице Путь Чертят. К востоку(east) от Вас стоит мясной павильон
-(Meat store), а к западу(west) - ломбард (Pawn shop). Улица тянется на 
-север(north) и на юг(south). Многие из горожан, окружающих Вас, спешат 
-попасть в эти магазины.
+@rus  Ты на чертовой дороге.  К востоку (east) от тебя стоит мясной павильон
+(Meat store), а к западу (west) - ломбард (Pawn shop).  Улица тянется на
+север (north) и на юг (south).  Многие из горожан, окружающих тебя, спешат
+попасть в эти магазины.  
 ~
 0 S city
 D0
@@ -1600,14 +1600,14 @@ You see Impy Way.
 Z 0 605
 S
 #608
-@eng Impy Way@rus Улица Путь Чертят~
+@eng Impy Way@rus Чертова дорога~
 @eng You are on Impy Way.  To the east is Farmer's Market, and to the west is
 Nyles' House of Ale.  Impy Way runs north and ends south of here.  You can hear
 the sound of housewives gossiping at the market.
-@rus  Вы на улице Путь Чертят (Impy Way). К востоку(east) от вас стоит Фермерский
-рынок (Farmers Market), а к западу(west) пивная Нила - Дом Эля (Nyles'
-House of Ale). Улица тянется с севера(north) и заканчивается на юге(south).
-По всей улице слышен гвалт торговок с рынка.
+@rus  Ты на чертовой дороге (Impy Way).  К востоку (east) от тебя стоит
+Фермерский рынок (Farmers Market), а к западу (west) пивная Нила (Nyles'
+House of Ale).  Улица тянется с севера (north) и заканчивается на юге
+(south).  По всей улице слышен гвалт торговок с рынка.  
 ~
 0 S city
 D0
@@ -1649,9 +1649,9 @@ S
 @eng You see many carts filled with fruits and vegetables.  Many farmers are
 all trying to sell you their produce, each saying their's is better.  The exit
 is west.
-@rus Вокруг себя Вы видите множество телег, заполненных овощами и фруктами.
-Много фермеров, если не все сразу, стараются продать Вам свои продукты,
-говоря что ее товар лучше. Выход отсюда на западе(west).
+@rus Вокруг себя ты видишь множество телег, заполненных овощами и фруктами.
+Много фермеров, если не все сразу, стараются продать тебе свои продукты,
+говоря что ее товар лучше. Выход отсюда на западе (west).
 ~
 0 DS inside
 D3
@@ -1661,14 +1661,14 @@ You see Impy Way.
 Z 0 608
 S
 #611
-@eng The End of Impy Way@rus Окраина улицы Путь Чертят~
+@eng The End of Impy Way@rus Окраина чертовой дороги~
 @eng You are at the end of Impy and of the city part of Ofcol.  To the east is
 a dirt road leading toward the farm animals.  West from here are fields.  Impy
 Way continues north.
-@rus Вы находитесь на окраине городской части Офкола (Ofcol) в конце
-улицы Путь Чертят (Impy Way). На восток(east) тянется дорога, ведущая к
-животноводческой ферме (Farm animals). На запад(west) простираются
-поля (fields). Улица Путь Чертят ведет на север(north).
+@rus Ты находишься на окраине городской части Офкола (Ofcol) в конце
+чертовой дороги (Impy Way). На восток (east) тянется дорога, ведущая к
+животноводческой ферме (Farm animals). На запад (west) простираются
+поля (fields). Чертова дорога ведет на север (north).
 ~
 0 S city
 D0
@@ -1925,14 +1925,14 @@ You see the dry dirt road.
 Z 0 621
 S
 #625
-@eng Impy Way@rus Улица Путь Чертят~
+@eng Impy Way@rus Чертова дорога~
 @eng You are on Impy Way.  East and west of you are big houses.  Impy Way
 continues north and reaches a big intersection south.  Children are running to
 from home to home.
-@rus  Вы на улице Путь Чертят (Impy Way).  К востоку(east) и западу(west) от
+@rus  Ты на чертовой дороге (Impy Way).  К востоку (east) и западу (west) от
 вас стоят огромные дома, меж которыми снуют детишки.  Улица продолжается на
-север(north) и проходит через большой перекресток(Big Imterseption) на
-юге(south).  
+север (north) и проходит через большой перекресток (Big Imterseption) на
+юге (south).  
 ~
 0 S city
 D0

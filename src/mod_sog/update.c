@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.115 1999-03-25 13:12:28 kostik Exp $
+ * $Id: update.c,v 1.116 1999-04-05 11:40:41 fjoe Exp $
  */
 
 /***************************************************************************
@@ -997,11 +997,8 @@ void char_update(void)
 {   
 	CHAR_DATA *ch;
 	CHAR_DATA *ch_next;
-	CHAR_DATA *ch_quit;
 
 	static time_t last_save_time = -1;
-
-	ch_quit = NULL; 
 
 	/* update save counter */
 	save_number++;
@@ -1068,9 +1065,6 @@ void char_update(void)
 				affect_strip(ch, gsn_thumbling);
 			}
 		}
-
-		if (ch->timer > 20 && !IS_NPC(ch))
-	        	ch_quit = ch;
 
 		if (ch->position >= POS_STUNNED) {
 			int old_hit = ch->hit;
@@ -1330,9 +1324,10 @@ void char_update(void)
 		last_save_time = current_time;
 		for (ch = char_list; ch && !IS_NPC(ch); ch = ch_next) {
 			ch_next = ch->next;
-			save_char_obj(ch, FALSE);
-			if (ch == ch_quit || ch->timer > 20)
+			if (ch->timer > 20)
 				do_quit(ch, str_empty);
+			else
+				save_char_obj(ch, FALSE);
 		}
 	}
 }
