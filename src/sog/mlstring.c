@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mlstring.c,v 1.73 2003-09-30 00:31:38 fjoe Exp $
+ * $Id: mlstring.c,v 1.74 2004-02-19 21:14:14 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -396,9 +396,16 @@ mlstr_edit(mlstring *mlp, const char *argument)
 	const char **p;
 
 	argument = one_argument(argument, arg, sizeof(arg));
-	if (!str_cmp(arg, "all"))
+	if (!str_cmp(arg, "reset")) {
+		mlstr_convert(mlp, NULL);
+		return TRUE;
+	}
+
+	if (!str_cmp(arg, "all")) {
+		if (mlstr_nlang(mlp) > 0)
+			return FALSE;
 		lang = NULL;
-	else if ((lang = lang_lookup(arg)) == NULL)
+	} else if ((lang = lang_lookup(arg)) == NULL)
 		return FALSE;
 
 	p = mlstr_convert(mlp, lang);
@@ -418,9 +425,16 @@ mlstr_editnl(mlstring *mlp, const char *argument)
 	const char **p;
 
 	argument = one_argument(argument, arg, sizeof(arg));
-	if (!str_cmp(arg, "all"))
+	if (!str_cmp(arg, "reset")) {
+		mlstr_convert(mlp, NULL);
+		return TRUE;
+	}
+
+	if (!str_cmp(arg, "all")) {
+		if (mlstr_nlang(mlp) > 0)
+			return FALSE;
 		lang = NULL;
-	else if ((lang = lang_lookup(arg)) == NULL)
+	} else if ((lang = lang_lookup(arg)) == NULL)
 		return FALSE;
 
 	p = mlstr_convert(mlp, lang);

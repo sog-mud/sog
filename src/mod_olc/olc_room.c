@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.110 2004-02-19 20:55:52 fjoe Exp $
+ * $Id: olc_room.c,v 1.111 2004-02-19 21:14:13 fjoe Exp $
  */
 
 #include "olc.h"
@@ -815,6 +815,9 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 
 		if (!mlstr_append(ch, &pRoom->exit[door]->description, arg)) {
 			act_puts("Usage: $t desc <lang>",
+				 ch, cmd->name, NULL,
+				 TO_CHAR | ACT_NOTRANS, POS_DEAD);
+			act_puts("Usage: $t desc reset",
 				 ch, cmd->name, NULL,
 				 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 			return FALSE;

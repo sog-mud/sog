@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.165 2004-02-19 20:55:51 fjoe Exp $
+ * $Id: olc.c,v 1.166 2004-02-19 21:14:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -612,6 +612,8 @@ olced_mlstr(CHAR_DATA *ch, const char *argument,
 	if (!mlstr_edit(mlp, argument)) {
 		act_puts("Usage: $t <lang> <string>",
 			 ch, cmd->name, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
+		act_puts("Usage: $t reset",
+			 ch, cmd->name, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return FALSE;
 	}
 	act_char("Ok.", ch);
@@ -1069,6 +1071,8 @@ olced_gender(CHAR_DATA *ch, const char *argument, olc_cmd_t *cmd, mlstring *g)
 
 	if (!mlstr_edit(g, argument)) {
 		act_puts("Usage: $t <lang> <value>",
+			 ch, cmd->name, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
+		act_puts("Usage: $t reset",
 			 ch, cmd->name, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return FALSE;
 	}
