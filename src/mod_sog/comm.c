@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm.c,v 1.14 2002-11-28 20:16:29 fjoe Exp $
+ * $Id: comm.c,v 1.15 2002-11-28 20:25:42 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -572,46 +572,34 @@ write_to_snoop(DESCRIPTOR_DATA *d, const char *txt, size_t len)
  *   try lowering the max block size.
  */
 bool
-write_to_descriptor_2(int desc, const char *txt, size_t length)
+write_to_descriptor(DESCRIPTOR_DATA *d, const char *txt, size_t length)
 {
 	size_t	iStart;
 	ssize_t	nWrite;
 	size_t	nBlock;
-	DESCRIPTOR_DATA *d;
+
+	if (d->out_compress)
+		return writeCompressed(d, txt, length);
 
 	if (!length)
 		length = strlen(txt);
 
-	for (d = descriptor_list; d; d = d->next) {
-		if (d->descriptor == desc) {
-			d->bytes_income += length;
-			d->bytes_sent += length;
-			break;
-		}
-	}
+	d->bytes_income += length;
+	d->bytes_sent += length;
 
 	for (iStart = 0; iStart < length; iStart += nWrite) {
 		nBlock = UMIN(length - iStart, 4096);
 #if !defined( WIN32 )
-		if ((nWrite = write(desc, txt + iStart, nBlock)) < 0) {
+		if ((nWrite = write(d->descriptor, txt + iStart, nBlock)) < 0) {
 #else
-		if ((nWrite = send(desc, txt + iStart, nBlock, 0)) < 0) {
+		if ((nWrite = send(d->descriptor, txt + iStart, nBlock, 0)) < 0) {
 #endif
 			log(LOG_INFO, "write_to_descriptor: %s", strerror(errno));
 			return FALSE;
 		}
 	}
-	return TRUE;
-}
 
-/* mccp: write_to_descriptor wrapper */
-bool
-write_to_descriptor(DESCRIPTOR_DATA *d, const char *txt, size_t length)
-{
-	if (d->out_compress)
-		return writeCompressed(d, txt, length);
-	else
-		return write_to_descriptor_2(d->descriptor, txt, length);
+	return TRUE;
 }
 
 void

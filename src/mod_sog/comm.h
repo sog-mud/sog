@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm.h,v 1.3 2001-12-15 13:47:52 matrim Exp $
+ * $Id: comm.h,v 1.4 2002-11-28 20:25:42 fjoe Exp $
  */
 
 #ifndef _COMM_H_
@@ -40,10 +40,7 @@ extern size_t codepages_sz;
 
 void write_to_buffer(DESCRIPTOR_DATA *d, const char *txt, size_t len);
 void write_to_snoop(DESCRIPTOR_DATA *d, const char *txt, size_t len);
-/* mccp */
 bool write_to_descriptor(DESCRIPTOR_DATA *d, const char *txt, size_t length);
-bool write_to_descriptor_2(int desc, const char *txt, size_t length);
-
 
 void charset_print(DESCRIPTOR_DATA *d);
 
