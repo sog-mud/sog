@@ -28,7 +28,7 @@
  * along with this program (see the file COPYING); if not, write to the
  * Free Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  *
- * $Id: imc.c,v 1.1.2.8 2003-10-02 07:24:29 matrim Exp $
+ * $Id: imc.c,v 1.1.2.9 2004-02-19 21:34:56 fjoe Exp $
  */
 
 #include <stdlib.h>
@@ -4794,7 +4794,7 @@ run_imccadmin(CHAR_DATA * ch, const char *argument)
 	strlcpy(data, p, IMC_DATA_LENGTH);
 
 	if (!cmd[0] || !chan[0]) {
-		imc_to_char("Syntax: imccadmin <command> <hub:channelname> "
+		imc_to_char("Usage: imccadmin <command> <hub:channelname> "
 			    "[<data..>]\n", ch);
 		return;
 	}
@@ -4836,7 +4836,7 @@ run_imccsettings(CHAR_DATA * ch, const char *argument)
 
 	if (!channame || channame[0] == '\0' || !field || field[0] == '\0') {
 		imc_to_char(color_itom(
-		    "~GSyntax: ~cimccsettings  <channel name> <field>"
+		    "~GUsage: ~cimccsettings  <channel name> <field>"
 		    " [value]\n\n"
 		    "~cWhere the field may be one of the following:\n"
 		    "~C  localize unlocalize rename permlevel regformat"
@@ -5690,7 +5690,7 @@ run_imcmsettings(CHAR_DATA * ch, const char *argument)
 
 	if (!argument || argument[0] == '\0') {
 		imc_to_char(color_itom(
-		    "~GSyntax: ~cimcmsettings  <field> [value]\n\n"
+		    "~GUsage: ~cimcmsettings  <field> [value]\n\n"
 		    "~cWhere the field may be one of the following:\n"
 		    "~G--Connection Related Fields --\n"
 		    "~C  connected imcname hubname hubaddr hubport clientpwd"
@@ -6444,7 +6444,7 @@ run_imcmblacklist(CHAR_DATA * ch, const char *argument)
 
 	if (!argument || argument[0] == '\0') {
 		imc_to_char(color_itom(
-		    "~GSyntax: ~cimcmblacklist list         - ~Clists"
+		    "~GUsage: ~cimcmblacklist list         - ~Clists"
 		    " blacklisted muds\n"
 		    "~c        imcmblacklist add <mud>    - ~Cadds a"
 		    " new mud to the blacklist\n"
@@ -6536,7 +6536,7 @@ run_imcmstat(CHAR_DATA * ch, const char *argument)
 
 	if (!argument || argument[0] == '\0') {
 		imc_to_char(color_itom(
-		    "~GSyntax: ~cimcmstat general - ~Cdisplays general"
+		    "~GUsage: ~cimcmstat general - ~Cdisplays general"
 		    " information on the mud\n"
 		    "~c        imcmstat network - ~Cdisplays network"
 		    " statistical information for the mud\n"), ch);
@@ -6567,7 +6567,7 @@ run_imcpsettings(CHAR_DATA * ch, const char *argument)
 
 	if (!argument || argument[0] == '\0') {
 		imc_to_char(color_itom
-		    ("~GSyntax: ~cimcpsettings show   - ~Clists IMC network"
+		    ("~GUsage: ~cimcpsettings show   - ~Clists IMC network"
 		     " functions and IMC channels\n"
 		    "~c        imcpsettings subscribe +channel - ~Ccreates"
 		    " a subscription to a channel\n"
@@ -6920,7 +6920,7 @@ run_imcpflags(CHAR_DATA * ch, const char *argument)
 
 	if (!arg || arg[0] == '\0') {
 		imc_to_char(color_itom(
-		    "~GSyntax: ~cimcpflags <char>                     - ~Ccheck"
+		    "~GUsage: ~cimcpflags <char>                     - ~Ccheck"
 		    " flag settings\n"
 		    "        ~cimcpflags <char> +<network function> - ~Cset"
 		    " allow flag\n"

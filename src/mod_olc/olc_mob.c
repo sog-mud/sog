@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_mob.c,v 1.43.2.4 2001-12-25 19:20:30 tatyana Exp $
+ * $Id: olc_mob.c,v 1.43.2.5 2004-02-19 21:34:54 fjoe Exp $
  */
 
 #include "olc.h"
@@ -460,7 +460,7 @@ OLC_FUN(mobed_spec)
 	EDIT_MOB(ch, pMob);
 
 	if (argument[0] == '\0') {
-		char_puts("Syntax:  spec [special function]\n", ch);
+		char_puts("Usage:  spec [special function]\n", ch);
 		return FALSE;
 	}
 
@@ -495,8 +495,8 @@ OLC_FUN(mobed_damtype)
 
 	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
-		char_puts("Syntax: damtype [damage message]\n", ch);
-		char_puts("Syntax: damtype ?\n", ch);
+		char_puts("Usage: damtype [damage message]\n", ch);
+		char_puts("Usage: damtype ?\n", ch);
 		return FALSE;
 	}
 
@@ -573,7 +573,7 @@ OLC_FUN(mobed_shop)
 
 	if (command[0] == '\0')
 	{
-		char_puts("Syntax:  shop hours [#xopening] [#xclosing]\n", ch);
+		char_puts("Usage:  shop hours [#xopening] [#xclosing]\n", ch);
 		char_puts("         shop profit [#xbuying%] [#xselling%]\n", ch);
 		char_puts("         shop type [#x0-4] [item type]\n", ch);
 		char_puts("         shop assign\n", ch);
@@ -587,7 +587,7 @@ OLC_FUN(mobed_shop)
 		if (arg1[0] == '\0' || !is_number(arg1)
 		|| argument[0] == '\0' || !is_number(argument))
 		{
-			char_puts("Syntax:  shop hours [#xopening] [#xclosing]\n", ch);
+			char_puts("Usage:  shop hours [#xopening] [#xclosing]\n", ch);
 			return FALSE;
 		}
 
@@ -610,7 +610,7 @@ OLC_FUN(mobed_shop)
 		if (arg1[0] == '\0' || !is_number(arg1)
 		|| argument[0] == '\0' || !is_number(argument))
 		{
-			char_puts("Syntax:  shop profit [#xbuying%] [#xselling%]\n", ch);
+			char_puts("Usage:  shop profit [#xbuying%] [#xselling%]\n", ch);
 			return FALSE;
 		}
 
@@ -635,7 +635,7 @@ OLC_FUN(mobed_shop)
 		if (arg1[0] == '\0' || !is_number(arg1)
 		|| argument[0] == '\0')
 		{
-			char_puts("Syntax:  shop type [#x0-4] [item type]\n", ch);
+			char_puts("Usage:  shop type [#x0-4] [item type]\n", ch);
 			return FALSE;
 		}
 
@@ -812,7 +812,7 @@ OLC_FUN(mobed_ac)
 		return TRUE;
 	} while (FALSE);    /* Just do it once.. */
 
-	char_puts("Syntax:  ac [ac-pierce [ac-bash [ac-slash [ac-exotic]]]]\n"
+	char_puts("Usage:  ac [ac-pierce [ac-bash [ac-slash [ac-exotic]]]]\n"
 			  "help MOB_AC  gives a list of reasonable ac-values.\n", ch);
 	return FALSE;
 }
@@ -954,7 +954,7 @@ OLC_FUN(mobed_race)
 		return FALSE;
 	}
 
-	char_puts("Syntax:  race [race]\n"
+	char_puts("Usage:  race [race]\n"
 		  "Type 'race ?' for a list of races.\n", ch);
 	return FALSE;
 }
@@ -999,7 +999,7 @@ OLC_FUN(mobed_group)
 	EDIT_MOB(ch, pMob);
 	
 	if (argument[0] == '\0') {
-		char_puts("Syntax: group [number]\n", ch);
+		char_puts("Usage: group [number]\n", ch);
 		char_puts("        group show [number]\n", ch);
 		return FALSE;
 	}
@@ -1068,7 +1068,7 @@ OLC_FUN(mobed_trigadd)
 	}
 
 	if (!is_number(num) || trigger[0] =='\0' || argument[0] =='\0') {
-		 char_puts("Syntax: trigadd [vnum] [trigger] [phrase]\n",ch);
+		 char_puts("Usage: trigadd [vnum] [trigger] [phrase]\n",ch);
 		 return FALSE;
 	}
 
@@ -1102,7 +1102,7 @@ OLC_FUN(mobed_trigdel)
 
 	one_argument(argument, mprog, sizeof(mprog));
 	if (!is_number(mprog) || mprog[0] == '\0') {
-		char_puts("Syntax:  trigdel [#mprog]\n",ch);
+		char_puts("Usage:  trigdel [#mprog]\n",ch);
 		return FALSE;
 	}
 
@@ -1153,7 +1153,7 @@ OLC_FUN(mobed_clone)
 
 	one_argument(argument, arg, sizeof(arg));
 	if (!is_number(arg)) {
-		char_puts("Syntax: clone <vnum>\n", ch);
+		char_puts("Usage: clone <vnum>\n", ch);
 		return FALSE;
 	}
 

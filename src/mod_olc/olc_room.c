@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.57.2.13 2004-02-19 21:33:55 fjoe Exp $
+ * $Id: olc_room.c,v 1.57.2.14 2004-02-19 21:34:55 fjoe Exp $
  */
 
 #include "olc.h"
@@ -664,7 +664,7 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 		char buf[MAX_STRING_LENGTH];
 		
 		if (arg[0] == '\0' || !is_number(arg)) {
-			char_printf(ch, "Syntax: %s dig <vnum>\n",
+			char_printf(ch, "Usage: %s dig <vnum>\n",
 				    cmd->name);
 			return FALSE;
 		}
@@ -680,7 +680,7 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 
 	if (!str_cmp(command, "room")) {
 		if (arg[0] == '\0' || !is_number(arg)) {
-			char_printf(ch, "Syntax: %s room [vnum]\n",
+			char_printf(ch, "Usage: %s room [vnum]\n",
 				    cmd->name);
 			return FALSE;
 		}
@@ -706,7 +706,7 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 		OBJ_INDEX_DATA *key;
 
 		if (arg[0] == '\0' || !is_number(arg)) {
-			char_printf(ch, "Syntax: %s key [vnum]\n",
+			char_printf(ch, "Usage: %s key [vnum]\n",
 				    cmd->name);
 			return FALSE;
 		}
@@ -736,7 +736,7 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 
 	if (!str_cmp(command, "name")) {
 		if (arg[0] == '\0') {
-			char_printf(ch, "Syntax: %s name [string]\n"
+			char_printf(ch, "Usage: %s name [string]\n"
 					"        %s name none\n",
 				    cmd->name, cmd->name);
 			return FALSE;
@@ -764,8 +764,8 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 		}
 
 		if (!mlstr_append(ch, &pRoom->exit[door]->description, arg)) {
-			char_printf(ch, "Syntax: %s desc <lang>\n", cmd->name);
-			char_printf(ch, "Syntax: %s desc reset\n", cmd->name);
+			char_printf(ch, "Usage: %s desc <lang>\n", cmd->name);
+			char_printf(ch, "Usage: %s desc reset\n", cmd->name);
 			return FALSE;
 		}
 		return TRUE;

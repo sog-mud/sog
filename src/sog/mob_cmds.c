@@ -1,5 +1,5 @@
 /*
- * $Id: mob_cmds.c,v 1.42.2.9 2004-02-19 18:55:33 fjoe Exp $
+ * $Id: mob_cmds.c,v 1.42.2.10 2004-02-19 21:34:57 fjoe Exp $
  */
 
 /***************************************************************************
@@ -117,7 +117,7 @@ void mob_interpret(CHAR_DATA *ch, const char *argument)
 /*
  * Prints the argument to all active players in the game
  *
- * Syntax: mob gecho [string]
+ * Usage: mob gecho [string]
  */
 void do_mpgecho(CHAR_DATA *ch, const char *argument)
 {
@@ -145,7 +145,7 @@ void do_mpgecho(CHAR_DATA *ch, const char *argument)
 /*
  * Prints the argument to all players in the same area as the mob
  *
- * Syntax: mob zecho [string]
+ * Usage: mob zecho [string]
  */
 void do_mpzecho(CHAR_DATA *ch, const char *argument)
 {
@@ -178,7 +178,7 @@ void do_mpzecho(CHAR_DATA *ch, const char *argument)
 /*
  * Prints the argument to all the rooms aroud the mobile
  *
- * Syntax: mob asound [string]
+ * Usage: mob asound [string]
  */
 void do_mpasound(CHAR_DATA *ch, const char *argument)
 {
@@ -210,7 +210,7 @@ void do_mpasound(CHAR_DATA *ch, const char *argument)
 /*
  * Lets the mobile kill any player or mobile without murder
  *
- * Syntax: mob kill [victim]
+ * Usage: mob kill [victim]
  */
 void do_mpkill(CHAR_DATA *ch, const char *argument)
 {
@@ -264,7 +264,7 @@ void do_mpattack(CHAR_DATA *ch, const char *argument)
 /*
  * Lets the mobile assist another mob or player
  *
- * Syntax: mob assist [character]
+ * Usage: mob assist [character]
  */
 void do_mpassist(CHAR_DATA *ch, const char *argument)
 {
@@ -292,7 +292,7 @@ void do_mpassist(CHAR_DATA *ch, const char *argument)
  * it can also destroy a worn object and it can destroy 
  * items using all.xxxxx or just plain all of them 
  *
- * Syntax: mob junk [item]
+ * Usage: mob junk [item]
  */
 
 void do_mpjunk(CHAR_DATA *ch, const char *argument)
@@ -337,7 +337,7 @@ void do_mpjunk(CHAR_DATA *ch, const char *argument)
 /*
  * Prints the message to everyone in the room other than the mob and victim
  *
- * Syntax: mob echoaround [victim] [string]
+ * Usage: mob echoaround [victim] [string]
  */
 
 void do_mpechoaround(CHAR_DATA *ch, const char *argument)
@@ -359,7 +359,7 @@ void do_mpechoaround(CHAR_DATA *ch, const char *argument)
 /*
  * Prints the message to only the victim
  *
- * Syntax: mob echoat [victim] [string]
+ * Usage: mob echoat [victim] [string]
  */
 void do_mpechoat(CHAR_DATA *ch, const char *argument)
 {
@@ -380,7 +380,7 @@ void do_mpechoat(CHAR_DATA *ch, const char *argument)
 /*
  * Prints the message to only the victim in any position
  *
- * Syntax: mob sechoat [victim] [string]
+ * Usage: mob sechoat [victim] [string]
  */
 void do_mpsechoat(CHAR_DATA *ch, const char *argument)
 {
@@ -420,7 +420,7 @@ void do_mpsechoat(CHAR_DATA *ch, const char *argument)
 /*
  * Prints the message to the room at large
  *
- * Syntax: mpecho [string]
+ * Usage: mpecho [string]
  */
 void do_mpecho(CHAR_DATA *ch, const char *argument)
 {
@@ -432,7 +432,7 @@ void do_mpecho(CHAR_DATA *ch, const char *argument)
 /*
  * Lets the mobile load another mobile.
  *
- * Syntax: mob mload [vnum]
+ * Usage: mob mload [vnum]
  */
 void do_mpmload(CHAR_DATA *ch, const char *argument)
 {
@@ -460,7 +460,7 @@ void do_mpmload(CHAR_DATA *ch, const char *argument)
 /*
  * Lets the mobile load an object
  *
- * Syntax: mob oload [vnum] {R}
+ * Usage: mob oload [vnum] {R}
  */
 void do_mpoload(CHAR_DATA *ch, const char *argument)
 {
@@ -573,7 +573,7 @@ void do_mppurge(CHAR_DATA *ch, const char *argument)
 /*
  * Lets the mobile goto any location it wishes that is not private.
  *
- * Syntax: mob goto [location]
+ * Usage: mob goto [location]
  */
 void do_mpgoto(CHAR_DATA *ch, const char *argument)
 {
@@ -605,7 +605,7 @@ void do_mpgoto(CHAR_DATA *ch, const char *argument)
 /* 
  * Lets the mobile do a command at another location.
  *
- * Syntax: mob at [location] [commands]
+ * Usage: mob at [location] [commands]
  */
 void do_mpat(CHAR_DATA *ch, const char *argument)
 {
@@ -682,7 +682,7 @@ mptransfer_char(CHAR_DATA *ch, ROOM_INDEX_DATA *location, CHAR_DATA *ch_next)
  * Lets the mobile transfer people.  The 'all' argument transfers
  *  everyone in the current room to the specified location
  *
- * Syntax: mob transfer [target|'all'] [location]
+ * Usage: mob transfer [target|'all'] [location]
  */
 void do_mptransfer(CHAR_DATA *ch, const char *argument)
 {
@@ -737,7 +737,7 @@ void do_mptransfer(CHAR_DATA *ch, const char *argument)
 /*
  * Lets the mobile transfer all chars in same group as the victim.
  *
- * Syntax: mob gtransfer [victim] [location]
+ * Usage: mob gtransfer [victim] [location]
  */
 void do_mpgtransfer(CHAR_DATA *ch, const char *argument)
 {
@@ -786,7 +786,7 @@ void do_mpgtransfer(CHAR_DATA *ch, const char *argument)
  * Lets the mobile force someone to do something. Must be mortal level
  * and the all argument only affects those in the room with the mobile.
  *
- * Syntax: mob force [victim] [commands]
+ * Usage: mob force [victim] [commands]
  */
 void do_mpforce(CHAR_DATA *ch, const char *argument)
 {
@@ -835,7 +835,7 @@ void do_mpforce(CHAR_DATA *ch, const char *argument)
 /*
  * Lets the mobile force a group something. Must be mortal level.
  *
- * Syntax: mob gforce [victim] [commands]
+ * Usage: mob gforce [victim] [commands]
  */
 void do_mpgforce(CHAR_DATA *ch, const char *argument)
 {
@@ -872,7 +872,7 @@ void do_mpgforce(CHAR_DATA *ch, const char *argument)
 /*
  * Forces all mobiles of certain vnum to do something (except ch)
  *
- * Syntax: mob vforce [vnum] [commands]
+ * Usage: mob vforce [vnum] [commands]
  */
 void do_mpvforce(CHAR_DATA *ch, const char *argument)
 {
@@ -912,7 +912,7 @@ void do_mpvforce(CHAR_DATA *ch, const char *argument)
  * Lets mob cause unconditional damage to someone. Nasty, use with caution.
  * Also, this is silent, you must show your own damage message...
  *
- * Syntax: mob damage [victim] [min] [max] {kill}
+ * Usage: mob damage [victim] [min] [max] {kill}
  */
 void do_mpdamage(CHAR_DATA *ch, const char *argument)
 {
@@ -987,7 +987,7 @@ void do_mpdamage(CHAR_DATA *ch, const char *argument)
  * Lets the mobile to remember a target. The target can be referred to
  * with $q and $Q codes in MOBprograms. See also "mob forget".
  *
- * Syntax: mob remember [victim]
+ * Usage: mob remember [victim]
  */
 void do_mpremember(CHAR_DATA *ch, const char *argument)
 {
@@ -1005,7 +1005,7 @@ void do_mpremember(CHAR_DATA *ch, const char *argument)
 /*
  * Reverse of "mob remember".
  *
- * Syntax: mob forget
+ * Usage: mob forget
  */
 void do_mpforget(CHAR_DATA *ch, const char *argument)
 {
@@ -1017,7 +1017,7 @@ void do_mpforget(CHAR_DATA *ch, const char *argument)
  * the mobile is checked for a MObprogram with DELAY trigger, and if
  * one is found, it is executed. Delay is counted in PULSE_MOBILE
  *
- * Syntax: mob delay [pulses]
+ * Usage: mob delay [pulses]
  */
 void do_mpdelay(CHAR_DATA *ch, const char *argument)
 {
@@ -1035,7 +1035,7 @@ void do_mpdelay(CHAR_DATA *ch, const char *argument)
 /*
  * Reverse of "mob delay", deactivates the timer.
  *
- * Syntax: mob cancel
+ * Usage: mob cancel
  */
 void do_mpcancel(CHAR_DATA *ch, const char *argument)
 {
@@ -1048,7 +1048,7 @@ void do_mpcancel(CHAR_DATA *ch, const char *argument)
  * Characters and objects referred to must be in the same room with the
  * mobile.
  *
- * Syntax: mob call [vnum] [victim|'null'] [object1|'null'] [object2|'null']
+ * Usage: mob call [vnum] [victim|'null'] [object1|'null'] [object2|'null']
  *
  */
 void do_mpcall(CHAR_DATA *ch, const char *argument)
@@ -1084,7 +1084,7 @@ void do_mpcall(CHAR_DATA *ch, const char *argument)
 /*
  * Forces the mobile to flee.
  *
- * Syntax: mob flee
+ * Usage: mob flee
  *
  */
 void do_mpflee(CHAR_DATA *ch, const char *argument)
@@ -1119,7 +1119,7 @@ void do_mpflee(CHAR_DATA *ch, const char *argument)
  * Lets the mobile to transfer an object. The object must be in the same
  * room with the mobile.
  *
- * Syntax: mob otransfer [item name] [location]
+ * Usage: mob otransfer [item name] [location]
  */
 void do_mpotransfer(CHAR_DATA *ch, const char *argument)
 {
@@ -1159,7 +1159,7 @@ void do_mpotransfer(CHAR_DATA *ch, const char *argument)
  * Lets the mobile to strip an object or all objects from the victim.
  * Useful for removing e.g. quest objects from a character.
  *
- * Syntax: mob remove [victim] [object vnum|'all']
+ * Usage: mob remove [victim] [object vnum|'all']
  */
 void do_mpremove(CHAR_DATA *ch, const char *argument)
 {

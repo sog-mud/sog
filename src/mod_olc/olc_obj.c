@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_obj.c,v 1.55.2.4 2004-02-17 22:27:56 fjoe Exp $
+ * $Id: olc_obj.c,v 1.55.2.5 2004-02-19 21:34:55 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -594,7 +594,7 @@ OLC_FUN(objed_addapply)
 	}
 
 	if (!is_number(mod)) {
-		char_puts("Syntax: addapply type location "
+		char_puts("Usage: addapply type location "
 			  "mod bitvector\n", ch);
 		return FALSE;
 	}
@@ -633,7 +633,7 @@ OLC_FUN(objed_delaffect)
 
 	if (!is_number(affect) || affect[0] == '\0')
 	{
-		char_puts("Syntax:  delaffect [#xaffect]\n", ch);
+		char_puts("Usage:  delaffect [#xaffect]\n", ch);
 		return FALSE;
 	}
 
@@ -843,7 +843,7 @@ OLC_FUN(objed_clone)
 
 	one_argument(argument, arg, sizeof(arg));
 	if (!is_number(arg)) {
-		char_puts("Syntax: clone <vnum>\n", ch);
+		char_puts("Usage: clone <vnum>\n", ch);
 		return FALSE;
 	}
 

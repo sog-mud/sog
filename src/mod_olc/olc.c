@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.70.2.10 2004-02-19 21:33:55 fjoe Exp $
+ * $Id: olc.c,v 1.70.2.11 2004-02-19 21:34:54 fjoe Exp $
  */
 
 /***************************************************************************
@@ -263,7 +263,7 @@ bool olced_number(CHAR_DATA *ch, const char *argument,
 	one_argument(argument, arg, sizeof(arg));
 	val = strtol(arg, &endptr, 0);
 	if (*arg == '\0' || *endptr != '\0') {
-		char_printf(ch, "Syntax: %s number\n", cmd->name);
+		char_printf(ch, "Usage: %s number\n", cmd->name);
 		return FALSE;
 	}
 
@@ -284,7 +284,7 @@ bool olced_name(CHAR_DATA *ch, const char *argument,
 
 	argument = one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
-		char_printf(ch, "Syntax: %s string\n", cmd->name);
+		char_printf(ch, "Usage: %s string\n", cmd->name);
 		return FALSE;
 	}
 
@@ -316,7 +316,7 @@ bool olced_str(CHAR_DATA *ch, const char *argument,
 	VALIDATE_FUN *validator;
 
 	if (IS_NULLSTR(argument)) {
-		char_printf(ch, "Syntax: %s string\n", cmd->name);
+		char_printf(ch, "Usage: %s string\n", cmd->name);
 		return FALSE;
 	}
 
@@ -337,7 +337,7 @@ bool olced_str_text(CHAR_DATA *ch, const char *argument,
 		return FALSE;
 	}
 
-	char_printf(ch, "Syntax: %s\n", cmd->name);
+	char_printf(ch, "Usage: %s\n", cmd->name);
 	return FALSE;
 }
 
@@ -345,8 +345,8 @@ bool olced_mlstr(CHAR_DATA *ch, const char *argument,
 		 olc_cmd_t *cmd, mlstring *mlp)
 {
 	if (!mlstr_edit(mlp, argument)) {
-		char_printf(ch, "Syntax: %s <lang> <string>\n", cmd->name);
-		char_printf(ch, "Syntax: %s reset\n", cmd->name);
+		char_printf(ch, "Usage: %s <lang> <string>\n", cmd->name);
+		char_printf(ch, "Usage: %s reset\n", cmd->name);
 		return FALSE;
 	}
 	char_puts("Ok.\n", ch);
@@ -357,8 +357,8 @@ bool olced_mlstrnl(CHAR_DATA *ch, const char *argument,
 		   olc_cmd_t *cmd, mlstring *mlp)
 {
 	if (!mlstr_editnl(mlp, argument)) {
-		char_printf(ch, "Syntax: %s <lang> <string>\n", cmd->name);
-		char_printf(ch, "Syntax: %s reset\n", cmd->name);
+		char_printf(ch, "Usage: %s <lang> <string>\n", cmd->name);
+		char_printf(ch, "Usage: %s reset\n", cmd->name);
 		return FALSE;
 	}
 	char_puts("Ok.\n", ch);
@@ -369,8 +369,8 @@ bool olced_mlstr_text(CHAR_DATA *ch, const char *argument,
 		      olc_cmd_t *cmd, mlstring *mlp)
 {
 	if (!mlstr_append(ch, mlp, argument)) {
-		char_printf(ch, "Syntax: %s <lang>\n", cmd->name);
-		char_printf(ch, "Syntax: %s reset\n", cmd->name);
+		char_printf(ch, "Usage: %s <lang>\n", cmd->name);
+		char_printf(ch, "Usage: %s reset\n", cmd->name);
 		return FALSE;
 	}
 	return FALSE;
@@ -558,7 +558,7 @@ bool olced_flag64(CHAR_DATA *ch, const char *argument,
 				break;
 	
 			if ((f = flag_lookup(cmd->arg1, word)) == NULL) {
-				char_printf(ch, "Syntax: %s flag...\n"
+				char_printf(ch, "Usage: %s flag...\n"
 						"Type '%s ?' for a list of "
 						"acceptable flags.\n",
 						cmd->name, cmd->name);
@@ -588,7 +588,7 @@ bool olced_flag64(CHAR_DATA *ch, const char *argument,
 
 	case TABLE_INTVAL:
 		if ((f = flag_lookup(cmd->arg1, argument)) == NULL) {
-			char_printf(ch, "Syntax: %s value\n"
+			char_printf(ch, "Usage: %s value\n"
 					"Type '%s ?' for a list of "
 					"acceptable values.\n",
 					cmd->name, cmd->name);
@@ -651,7 +651,7 @@ bool olced_dice(CHAR_DATA *ch, const char *argument,
 	return TRUE;
 
 bail_out:
-	char_printf(ch, "Syntax: %s <number>d<type>+<bonus>\n", cmd->name);
+	char_printf(ch, "Usage: %s <number>d<type>+<bonus>\n", cmd->name);
 	return FALSE;
 }
 
@@ -661,7 +661,7 @@ bool olced_clan(CHAR_DATA *ch, const char *argument,
 	int cln;
 
 	if (IS_NULLSTR(argument)) {
-		char_printf(ch, "Syntax: %s clan\n"
+		char_printf(ch, "Usage: %s clan\n"
 				"Use 'clan ?' for list of valid clans.\n"
 				"Use 'clan none' to reset clan.\n",
 			    cmd->name);

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_class.c,v 1.4.2.4 2001-11-21 07:46:36 avn Exp $
+ * $Id: olc_class.c,v 1.4.2.5 2004-02-19 21:34:54 fjoe Exp $
  */
 
 #include "olc.h"
@@ -424,7 +424,7 @@ OLC_FUN(classed_stats)
 		st = TRUE;
 	}
 	
-	if (!st) char_printf(ch, "Syntax: %s attr1 attr2 ...\n", cmd->name);
+	if (!st) char_printf(ch, "Usage: %s attr1 attr2 ...\n", cmd->name);
 		else char_puts("Ok.\n", ch);
 	return st;
 }

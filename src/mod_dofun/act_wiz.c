@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.186.2.42 2004-02-19 21:33:53 fjoe Exp $
+ * $Id: act_wiz.c,v 1.186.2.43 2004-02-19 21:34:52 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2726,7 +2726,7 @@ void do_sset(CHAR_DATA *ch, const char *argument)
 	argument = one_argument(argument, arg3, sizeof(arg3));
 
 	if (arg1[0] == '\0' || arg2[0] == '\0' || arg3[0] == '\0') {
-		char_puts("Syntax:\n",ch);
+		char_puts("Usage:\n",ch);
 		char_puts("  set skill <name> <spell or skill> <value>\n", ch);
 		char_puts("  set skill <name> all <value>\n",ch);  
 		char_puts("(use the name of the skill, not the number)\n",ch);
@@ -2886,8 +2886,8 @@ void do_string(CHAR_DATA *ch, const char *argument)
 
 			argument = one_argument(argument, arg3, sizeof(arg3));
 			if (argument == NULL) {
-				char_puts("Syntax: oset <object> ed <keyword> <lang>\n", ch);
-				char_puts("Syntax: oset <object> ed <keyword> reset\n", ch);
+				char_puts("Usage: oset <object> ed <keyword> <lang>\n", ch);
+				char_puts("Usage: oset <object> ed <keyword> reset\n", ch);
 				return;
 			}
 
@@ -4925,7 +4925,7 @@ void do_mob(CHAR_DATA *ch, const char *argument)
 /* 
  * Displays MOBprogram triggers of a mobile
  *
- * Syntax: mpstat [name]
+ * Usage: mpstat [name]
  */
 void do_mpstat(CHAR_DATA *ch, const char *argument)
 {

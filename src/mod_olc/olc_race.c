@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_race.c,v 1.8.2.5 2001-12-25 19:20:31 tatyana Exp $
+ * $Id: olc_race.c,v 1.8.2.6 2004-02-19 21:34:55 fjoe Exp $
  */
 
 #include "olc.h"
@@ -467,8 +467,8 @@ OLC_FUN(raceed_damtype)
 
 	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
-		char_puts("Syntax: damtype <damage type>\n", ch);
-		char_puts("Syntax: damtype ?\n", ch);
+		char_puts("Usage: damtype <damage type>\n", ch);
+		char_puts("Usage: damtype ?\n", ch);
 		return FALSE;
 	}
 
@@ -596,7 +596,7 @@ OLC_FUN(raceed_stats)
 		st = TRUE;
 	}
 	
-	if (!st) char_printf(ch, "Syntax: %s attr1 attr2 ...\n", cmd->name);
+	if (!st) char_printf(ch, "Usage: %s attr1 attr2 ...\n", cmd->name);
 		else char_puts("Ok.\n", ch);
 	return st;
 }
@@ -619,7 +619,7 @@ OLC_FUN(raceed_maxstats)
 		st = TRUE;
 	}
 	
-	if (!st) char_printf(ch, "Syntax: %s attr1 attr2 ...\n", cmd->name);
+	if (!st) char_printf(ch, "Usage: %s attr1 attr2 ...\n", cmd->name);
 		else char_puts("Ok.\n", ch);
 	return st;
 }

@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.165.2.55 2004-02-19 17:23:06 fjoe Exp $
+ * $Id: act_obj.c,v 1.165.2.56 2004-02-19 21:34:51 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3352,7 +3352,7 @@ void do_restring(CHAR_DATA *ch, const char *argument)
 
 	if (arg[0] == '\0' || arg1[0] == '\0' || argument[0] == '\0')
 	{
-		char_puts("Syntax:\n",ch);
+		char_puts("Usage:\n",ch);
 		char_puts("  restring <obj> <field> <string>\n",ch);
 		char_puts("    fields: name short long\n",ch);
 		return;

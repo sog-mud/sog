@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.271.2.83 2004-02-19 17:23:05 fjoe Exp $
+ * $Id: act_info.c,v 1.271.2.84 2004-02-19 21:34:50 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1611,7 +1611,7 @@ void do_password(CHAR_DATA *ch, const char *argument)
 	argument = first_arg(argument, arg2, sizeof(arg2), FALSE);
 
 	if (arg1[0] == '\0' || arg2[0] == '\0') {
-		char_puts("Syntax: password <old> <new>.\n", ch);
+		char_puts("Usage: password <old> <new>.\n", ch);
 		return;
 	}
 
@@ -3183,7 +3183,7 @@ void do_glist(CHAR_DATA *ch, const char *argument)
 	one_argument(argument, arg, sizeof(arg));
 	
 	if (arg[0] == '\0') {
-		char_puts("Syntax: glist group\n"
+		char_puts("Usage: glist group\n"
 			  "Use 'glist ?' to get the list of groups.\n", ch);
 		return;
 	}
@@ -3274,7 +3274,7 @@ void do_learn(CHAR_DATA *ch, const char *argument)
 	}	
 
 	if (argument[0] == '\0') {
-		char_puts("Syntax: learn <skill | spell> <player>\n", ch);
+		char_puts("Usage: learn <skill | spell> <player>\n", ch);
 		return;
 	}
 
