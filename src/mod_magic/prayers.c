@@ -1,5 +1,5 @@
 /*
- * $Id: prayers.c,v 1.35 2002-08-02 11:14:20 tatyana Exp $
+ * $Id: prayers.c,v 1.36 2002-08-02 12:23:06 tatyana Exp $
  */
 
 /***************************************************************************
@@ -45,6 +45,7 @@
 #include <merc.h>
 
 #include <sog.h>
+#include <quest.h>
 
 #include <magic.h>
 #include "magic_impl.h"
@@ -138,6 +139,7 @@ DECLARE_SPELL_FUN(prayer_fly);
 DECLARE_SPELL_FUN(prayer_mist_walk);
 DECLARE_SPELL_FUN(prayer_air_walk);
 DECLARE_SPELL_FUN(prayer_nightmare);
+DECLARE_SPELL_FUN(prayer_abolish_undead);
 
 static void
 hold(CHAR_DATA *ch, CHAR_DATA *victim, int duration, int dex_modifier, int
@@ -2846,5 +2848,111 @@ SPELL_FUN(prayer_nightmare, sn, level, ch, vo)
 		act("You put $N into nightmares.", ch, NULL, victim, TO_CHAR);
 		victim->position = POS_SLEEPING;
 	}
+}
+
+SPELL_FUN(prayer_abolish_undead, sn, level, ch, vo)
+{
+        CHAR_DATA *victim = (CHAR_DATA *) vo;
+        CHAR_DATA *tmp_ch;
+        OBJ_DATA *obj;
+        OBJ_DATA *obj_next;
+        int i, dam = 0;
+        OBJ_DATA *tattoo, *clanmark;
+        PC_DATA *vpc;
+
+	if  (IS_EVIL(ch)) {
+                act("You are not of the Light.", ch, NULL, victim, TO_CHAR);
+                return;
+	}
+
+        if (!IS_SET(victim->form, FORM_UNDEAD) && !IS_VAMPIRE(victim)) {
+                act("$N doesn't seem to be an undead.",
+		    ch, NULL, victim, TO_CHAR);
+                return;
+        }
+
+	if (saves_spell(level + 2, victim, DAM_HOLY)
+	||  dice_wlb(1, 3, victim, NULL) == 1
+	||  IS_IMMORTAL(victim)
+	||  IS_CLAN_GUARD(victim)
+	||  IS_SET(victim->in_room->room_flags, ROOM_BATTLE_ARENA)) {
+		dam = calc_spell_damage(ch, level, sn);
+		damage(ch, victim, dam, sn, DAM_F_SHOW);
+		return;
+	}
+
+        act("$n's holy light burns you! Your flesh decays into dust.",
+	    ch, NULL, victim, TO_VICT);
+        act("$n's holy light burns $N! $lu{$N}'s flesh decays into dust.",
+	    ch, NULL, victim, TO_NOTVICT);
+        act("Your holy light burns $N! $lu{$N}'s flesh decays into dust.",
+	    ch, NULL, victim, TO_CHAR);
+        act_char("You have been KILLED!", victim);
+
+	act("$N does not exist anymore!", ch, NULL, victim, TO_NOTVICT);
+
+        act_char("You turn into an invincible ghost for a few minutes.",
+                     victim);
+        act_char("As long as you don't attack anything.", victim);
+
+        /*  disintegrate the objects... */
+        tattoo = get_eq_char(victim, WEAR_TATTOO); /* keep tattoos for later */
+        if (tattoo != NULL)
+                obj_from_char(tattoo);
+        if ((clanmark = get_eq_char(victim, WEAR_CLANMARK)) != NULL)
+                obj_from_char(clanmark);
+
+        victim->gold = 0;
+        victim->silver = 0;
+
+        for (obj = victim->carrying; obj != NULL; obj = obj_next) {
+                obj_next = obj->next_content;
+                extract_obj(obj, 0);
+        }
+
+        if (IS_NPC(victim)) {
+                quest_handle_death(ch, victim);
+                victim->pMobIndex->killed++;
+                extract_char(victim, 0);
+                return;
+        }
+
+	rating_update(ch, victim);
+        extract_char(victim, XC_F_INCOMPLETE);
+
+        while (victim->affected)
+                affect_remove(victim, victim->affected);
+        victim->affected_by	= 0;
+	victim->has_invis	= 0;
+	victim->has_detect	= 0;
+        for (i = 0; i < 4; i++)
+                victim->armor[i]= 100;
+        victim->position	= POS_RESTING;
+        victim->hit		= 1;
+        victim->mana		= 1;
+
+        vpc = PC(victim);
+        REMOVE_BIT(vpc->plr_flags, PLR_BOUGHT_PET);
+        SET_WANTED(victim, NULL);
+
+        vpc->condition[COND_THIRST] = 40;
+        vpc->condition[COND_HUNGER] = 40;
+        vpc->condition[COND_FULL] = 40;
+        vpc->condition[COND_BLOODLUST] = 40;
+        vpc->condition[COND_DESIRE] = 40;
+
+        if (tattoo != NULL) {
+                obj_to_char(tattoo, victim);
+                equip_char(victim, tattoo, WEAR_TATTOO);
+        }
+
+        if (clanmark != NULL) {
+                obj_to_char(clanmark, victim);
+                equip_char(victim, clanmark, WEAR_CLANMARK);
+        }
+
+        for (tmp_ch = npc_list; tmp_ch; tmp_ch = tmp_ch->next)
+                if (NPC(tmp_ch)->last_fought == victim)
+                        NPC(tmp_ch)->last_fought = NULL;
 }
 
