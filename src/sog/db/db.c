@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.112 1999-02-21 19:19:28 fjoe Exp $
+ * $Id: db.c,v 1.113 1999-02-22 13:33:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -336,7 +336,7 @@ void boot_db(void)
 	top_affected_room = NULL;
 		
 	/* reboot counter */
-	reboot_counter = 1440;	/* 12 hours */
+	reboot_counter = 1440;	/* 24 hours */
 
 	fBootDb = TRUE;
 
