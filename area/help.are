@@ -1409,7 +1409,7 @@ easily.  Without holy light, you can see what mortal players see.
 
 Wizinvis takes a level argument, and will mke you invisible to all players of
 a lower level than your invisibility level.  It defaults to the maximum
-(your level) if no argument is given.  Wizi 60 characters are totally 
+(your level) if no argument is given.  Wizi 100 characters are totally 
 invisible.
 ~
 
@@ -3761,14 +3761,16 @@ by Askold
           тк муд не позволяет ее показывать.
 
 Если строка, описывающая что-то (long description,short description
-объекта) начинается с символа '@',  то она считается multi-language
-string.
+объекта) начинается с символа '@@',  то она считается multi-language
+string. 
 
 В общем виде формат выглядит так:
-<mtl_string> ::= <string> | <mtl_string> <string>.
-<string>     ::= '@'<lang> 'текст' | '&'.
-<lang>       ::= 'eng' | 'rus'.
+<mlstring>   ::= <lstring> [<lstring>...]
+<lstring>    ::= @@<langid> <текст>
+<langid>     ::= 'eng' | 'rus'
 
+вхождения символа '@@' в <текст> должны дублироваться
+<текст> заканчивается на первой недублированной собачке ('@@') или тильде.
 
 Переводятся следущие поля:
 -> для мобов: long description, look description, 
@@ -3792,17 +3794,17 @@ string.
 
 
 Примеры - как должно стать:
-(Обратите снимание, где можно ставить Enter в сроке, а где нет)
+(Обратите снимание, где можно ставить Enter в строке, а где нет)
 
 #MOBILES
 #3700
 acolyte cleric&
 the acolyte of Zump&
-@eng An acolyte of Zump welcomes you to mud school.
-@rus Служитель (acolyte) Зуки приглашает тебя в МУД школу.
+@@eng An acolyte of Zump welcomes you to mud school.
+@@rus Служитель (acolyte) Зуки приглашает тебя в МУД школу.
 &
-@eng He's big and bad.  Don't mess with him.
-@rus Он большой и вредный. Не доставляй ему неприятностей!
+@@eng He's big and bad.  Don't mess with him.
+@@rus Он большой и вредный. Не доставляй ему неприятностей!
 Он произносит: танцы-шманцы-обжиманцы-фантики-бантики-лимпопо!
 К чему бы это????
 &
@@ -3812,17 +3814,17 @@ human&
 #OBJECTS
 #3700
 mace sub merc&
-@eng a sub issue mace@rus Картонная дубина&
-@eng You see a sub issue mace here.
-@rus Ты видишь картонную дубину (mace) здесь.
+@@eng a sub issue mace@@rus Картонная дубина&
+@@eng You see a sub issue mace here.
+@@rus Ты видишь картонную дубину (mace) здесь.
 &
 bronze&
 <кут до хере>
 
 #ROOMS
 #3700
-@eng Entrance to Mud School@rus Вход в МУД школу&
-@eng This is the entrance to the Merc Mud School.  Go north to go through mud
+@@eng Entrance to Mud School@@rus Вход в МУД школу&
+@@eng This is the entrance to the Merc Mud School.  Go north to go through mud
 school.  If you have been here before and want to go directly to the arena,
 go south.
 
@@ -3830,7 +3832,7 @@ A sign warns 'You may not pass these doors once you have passed level 5.'
 
 P.S. Use '{Rlang rus{x' command, if you want {Rrussian language{x
 P.P.S. Use '{Bcolor{x' to enable {Bfull ANSI color support{x.
-@rus Это вход в МУД школу. Иди на север (north), чтоб пройти курс обучения
+@@rus Это вход в МУД школу. Иди на север (north), чтоб пройти курс обучения
 в школе. Если ты там уже был и хочешь попасть на арену, то иди на юг (south).
 На востоке (east) ты видишь вход в музей.
 
@@ -3839,26 +3841,26 @@ P.P.S. Use '{Bcolor{x' to enable {Bfull ANSI color support{x.
 &
 0 CD 0
 D0
-@eng You see the doorway into the Mud School Building.
-@rus Ты видишь проход ведущий в МУД школу.
+@@eng You see the doorway into the Mud School Building.
+@@rus Ты видишь проход ведущий в МУД школу.
 &
 &
 0 0 3757
 D1
-@eng You see the entrance to the museum.
-@rus Ты видишь вход в музей.
+@@eng You see the entrance to the museum.
+@@rus Ты видишь вход в музей.
 &
 &
 0 -1 400
 D2
-@eng You see the one way door into the Arena of Mud School.
-@rus Ты видишь дверь в одну сторону на арену.
+@@eng You see the one way door into the Arena of Mud School.
+@@rus Ты видишь дверь в одну сторону на арену.
 &
 door&
 1 -1 3744
 D5
-@eng You see the Temple of Midgaard.
-@rus Ты видишь храм Мидгарда.
+@@eng You see the Temple of Midgaard.
+@@rus Ты видишь храм Мидгарда.
 &
 &
 0 0 3001

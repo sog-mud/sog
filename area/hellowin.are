@@ -2,7 +2,7 @@
 Name Небольшой изврат~
 Builders Askold~
 VNUMs 34000 34499
-Credits (null)~
+Credits Askold~
 Security 9
 LevelRange 0 0
 End
@@ -10,6 +10,24 @@ End
 
 
 #MOBILES
+#34400
+bear~
+@eng {ysympathetic bear{w@rus {yсимпатичный педвежонок{w~
+@eng {ySmall sympathetic bear is munching raspberry here.{w
+@rus {yМаленький и симпатичный педвежонок жует малину.{w
+~
+@eng Very sympathetic bear is munching raspberry which grows on bush,
+but same you can see than he is corking something in leaves.
+@rus Смешной, симпатичный и маленький медвежонок жует малину,
+которая растет тут. Но ты замечаешь, что он что-то заныкивает в кустах...
+~
+bear~
+AGW ADFGHQRSTYZe 1000 0
+1 0 1d1+1 0d0+0 0d0+0 bite
+0 0 0 0
+N ABCDEFGHIKLMNOPQRTXYZ 0 0
+stand stand male 2147483647
+H 0 small unknown
 #0
 
 
@@ -56,14 +74,59 @@ abysmality~
 {Babysmality{w~
 Canteen without bottom lies here.~
 kender's skin~
-drink Ra AP
+drink RYa AP
 -1 2147483647 'cranberry juice' 0 0
 1 10 2147483647 P
+#34403
+armchair~
+@eng {DCosily armchair{w@rus {DУютное кресло-качалка{w~
+@eng {DVery cosily armchair fluently weaves here.{w@rus {DУютное кресло-качалка плавно покачивается здесь.{x~
+unknown~
+furniture RYa APQ
+A ABCDEFGHIJKLMNOPQRSTUVWXYZabcde FIL EHI EHI
+96 12000 2147483647 P
+#34404
+spring crystal~
+@eng {WSpring with crystal and clear water{w@rus {WРодник с кристально-чистой водой{w~
+@eng {WSpring with crystal and clear water flushes from ground.{w@rus {WРодник с кристально-чистой водой бьет из под земли.{w~
+unknown~
+fountain AIORTY P
+-1 -1 'water' 0 0
+1 0 0 P
+#34405
+trunk fallen tree~
+@eng {cFallen tree{w@rus {cСтвол упавшего дерева{w~
+@eng {cCovered with soft moss trunk of a fallen tree.{w@rus {cПокрытый мягким мхом ствол упавшего дерева.{w~
+tree~
+furniture AIORSTYZa P
+BD ABCDEFGHIJKLMNOPQRSTUVWXYZabcde AEHKN EHI EHI
+1 0 0 P
+#34406
+food~
+~
+~
+баранина~
+food 0 0
+CFG 0 0 0 0
+1 0 1 P
 #0
 
 
 
 #ROOMS
+#34400
+@eng {GClearing in the woods{w@rus {GПоляна в лесу{w~
+@eng  {w
+@rus  
+  Ты находишься на лесной полянке глубоко в девственном лесу, где
+еще не ступала нога человека.Солнышко светит сквозь кроны высоких
+деревьев,ты слышишь пение неведомых птиц - оно тебя завораживает.
+Полянка окружена кустами малины,   на которых уже поспели вкусные
+ягоды, по середине  -  журчит родник с кристальной чистой водой и
+маленький ручеек скрывается в глубине леса.
+~
+0 K 3
+S
 #0
 
 
@@ -74,11 +137,15 @@ S
 
 
 #RESETS
+M 0 34400 1 34400 1	* {ysympathetic bear{w ({GClearing in the woods{w)
+O 0 34405 0 34400		* {cFallen tree{w ({GClearing in the woods{w)
+O 0 34404 0 34400		* {WSpring with crystal and clear water{w ({GClearing in the woods{w)
 S
 
 
 
 #SHOPS
+34400 0 19 17 26 0 100 100 0 23
 0
 
 
@@ -86,6 +153,7 @@ S
 #OLIMITS
 O 34400 1	* {W0==][ {YHeliacal Fire {W>>{w
 O 34401 1	* {Wfrom Russia with love{x
+O 34403 1	* {DCosily armchair{w
 S
 
 

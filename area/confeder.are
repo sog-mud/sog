@@ -220,6 +220,10 @@ S
 
 #MOBPROGS
 #33000
+if isghost $n
+mob transfer $n 33000
+end
+endif
 if clan $n Confederacy
 else
 if sex $n == 1
@@ -229,6 +233,7 @@ yell Die, $n, you dirty bitch!!!
 endif
 mob kill $n
 endif
+ 
 ~
 #0
 

@@ -33,13 +33,21 @@ M BRIBE 15000 1~
 
 #OBJECTS
 #15000
-strange pill detection~
+pill~
 strange pill~
 Someone has left a strange pill here.~
 unknown~
 pill ABG AOQ
 66 'detect invis' 'detect hidden' 'acute vision' 'improved detect'
 1 1 100000 P
+#15001
+pill detectction truesight~
+Pill of detection.~
+~
+unknown~
+pill 0 A
+0 'reserved' 'reserved' 'reserved' 'reserved'
+0 0 0 P
 #15100
 cheburator~
 @eng a dwarven golden ring@rus ~
@@ -122,7 +130,6 @@ S
 
 
 #OLIMITS
-O 15000 0	* strange pill
 O 15100 1	* a dwarven golden ring
 O 15112 1	* {W'{CAenis + Leo{W' ring{w
 S
@@ -147,6 +154,8 @@ mob vforce 50 mob goto 15000
 mob vforce 50 mob cast 'teleport'
 mob vforce 50 yell Hey! I have some funny junk for you !
 endif
+ 
+.ld 17
 ~
 #15100
 ~

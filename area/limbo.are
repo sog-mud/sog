@@ -263,7 +263,7 @@ A HUGE dragon is here, selling junk.
 This mighty dragon wants to sell some junk to you.
 ~
 dragon~
-A ADEFHNOUVYce 0 0
+A DEFHNOUVYce 0 0
 150 250 1d1+28000 1d1+1 50d60+100 divine
 -66 -66 -66 -66
 CDEFHIKNO AB 0 0
@@ -1089,7 +1089,7 @@ S
 
 
 #SHOPS
-50 0 0 0 0 0 100 100 0 23
+50 0 26 0 0 0 100 100 0 23
 0
 
 
