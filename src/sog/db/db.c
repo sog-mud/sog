@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.227 2000-08-04 14:12:50 cs Exp $
+ * $Id: db.c,v 1.228 2000-08-21 07:50:57 fjoe Exp $
  */
 
 /***************************************************************************
@@ -242,9 +242,11 @@ static void load_tips(void);
 
 /*
  * Local booting procedures.
-*/
+ */
+#ifdef OLD_RAND
 static void	init_mm         (void);
- 
+#endif
+
 static void	fix_resets	(void);
 static void	fix_exits	(void);
 
@@ -446,10 +448,12 @@ void boot_db(void)
 	malloc_options = "X";
 #endif
 
+#ifdef OLD_RAND
 	/*
 	 * Init random number generator.
 	 */
 	init_mm();
+#endif
 
 	init_dynafuns();
 
@@ -1661,6 +1665,8 @@ int number_fuzzy(int number)
 	return UMAX(1, number);
 }
 
+static long number_mm(void);
+
 /*
  * Generate a random number.
  */
@@ -1750,12 +1756,19 @@ init_mm()
 		                & ((1 << 30) - 1);
 	}
 #else
-	srandom(time(NULL)^getpid());
+//	srandom(time(NULL)^getpid());
+	srandomdev();
 #endif
 	return;
 }
  
-long number_mm(void)
+#define MAX_RND_CNT	128
+
+int max_rnd_cnt	= MAX_RND_CNT;
+int rnd_cnt;
+
+static long
+number_mm(void)
 {
 #if defined (OLD_RAND)
 	int *piState;
@@ -1777,6 +1790,8 @@ long number_mm(void)
 	piState[-1]         = iState2;
 	return iRand >> 6;
 #else
+	if (max_rnd_cnt > 0 && (rnd_cnt++ % max_rnd_cnt) == 0)
+		init_mm();
 	return random() >> 6;
 #endif
 }
