@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.139.2.5 2000-03-16 08:57:12 fjoe Exp $
+ * $Id: spellfun2.c,v 1.139.2.6 2000-03-25 17:54:44 avn Exp $
  */
 
 /***************************************************************************
@@ -2768,7 +2768,7 @@ void spell_animate_dead(int sn, int level, CHAR_DATA *ch, void *vo)
 
 void spell_bone_dragon(int sn, int level, CHAR_DATA *ch, void *vo)
 {
-	CHAR_DATA *gch, *coc;
+	CHAR_DATA *coc;
 	AFFECT_DATA af;
 	int i;
 
@@ -2778,14 +2778,9 @@ void spell_bone_dragon(int sn, int level, CHAR_DATA *ch, void *vo)
 		return;
 	}
 
-	for (gch = npc_list; gch; gch = gch->next) {
-		if (gch->master == ch
-		&&  (gch->pMobIndex->vnum == MOB_VNUM_COCOON ||
-		     gch->pMobIndex->vnum == MOB_VNUM_BONE_DRAGON)) {
-			char_puts("You cannot control two or more dragons.\n",
-				  ch);
-			return;
-		}
+	if (PC(ch)->pet) {
+		act("But you already have a pet.", ch, NULL, NULL, TO_CHAR);
+		return;
 	}
 
 	coc = create_mob(get_mob_index(MOB_VNUM_COCOON));

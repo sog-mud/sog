@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.157.2.9 2000-03-23 14:29:47 fjoe Exp $
+ * $Id: update.c,v 1.157.2.10 2000-03-25 17:54:49 avn Exp $
  */
 
 /***************************************************************************
@@ -2238,8 +2238,9 @@ void hatchout_dragon(CHAR_DATA *coc, AFFECT_DATA *paf)
 	||  coc->pMobIndex->vnum != MOB_VNUM_COCOON)
 		return;
 
-	if ((ch = coc->master) == NULL) {
-		bug("hatchout_dragon: no master set!");
+	if ((ch = coc->master) == NULL || ch->in_room != coc->in_room) {
+		act("Cocoon explodes, revealing stinking flesh.",
+			coc, NULL, NULL, TO_ROOM);
 		extract_char(coc, 0);
 		return;
 	}
@@ -2256,9 +2257,9 @@ void hatchout_dragon(CHAR_DATA *coc, AFFECT_DATA *paf)
 	drag->perm_stat[STAT_DEX] += 1;
 	drag->perm_stat[STAT_CON] += 1;
 	drag->max_hit = UMIN(30000, number_range(100*dlev, 200*dlev));
-	drag->hit = drag->max_hit;
+	drag->perm_hit = drag->hit = drag->max_hit;
 	drag->max_mana = dice(dlev, 30);
-	drag->mana = drag->max_mana;
+	drag->perm_mana = drag->mana = drag->max_mana;
 	drag->level = dlev;
 	for (i = 0; i < 3; i++)
 		drag->armor[i] = interpolate(dlev, 100, -120);
@@ -2267,14 +2268,15 @@ void hatchout_dragon(CHAR_DATA *coc, AFFECT_DATA *paf)
 	NPC(drag)->dam.dice_number = number_fuzzy(13);
 	NPC(drag)->dam.dice_type = number_fuzzy(9);
 	drag->damroll = dlev/2 + dice(3, 11);
+	coc->master = NULL;
 
         if (GET_PET(ch) == NULL) {
 	        add_follower(drag, ch);
 	        drag->leader = ch;
 	        PC(ch)->pet = drag;
-	} else {
-        drag->master = drag->leader = ch;	
-	}
+	} else
+		act("But you already have a pet.", ch, NULL, NULL, TO_CHAR);
+
 	char_to_room(drag, coc->in_room);
 	extract_char(coc, 0);
 }
