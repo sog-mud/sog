@@ -1,5 +1,5 @@
 #
-# $Id: Makefile.dist,v 1.10 1999-05-15 10:56:22 fjoe Exp $
+# $Id: Makefile.dist,v 1.11 1999-05-20 07:28:40 fjoe Exp $
 #
 CC		= gcc
 LD		= gcc
@@ -83,6 +83,8 @@ OFILES = act_comm.o act_info.o act_move.o act_obj.o act_wiz.o auction.o\
 	 save.o skills.o special.o str.o string_edit.o\
 	 tables.o update.o util.o varr.o\
 	 $(COMM_OFILES) $(DB_OFILES) $(OLC_OFILES) $(COMPAT_OFILES)
+
+all: sog
 
 sog: $(OFILES)
 	rm -f sog
