@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: avltree.c,v 1.14 2003-04-24 13:36:59 fjoe Exp $
+ * $Id: avltree.c,v 1.15 2003-05-08 14:00:19 fjoe Exp $
  */
 
 #include <assert.h>
@@ -31,6 +31,7 @@
 
 #include <typedef.h>
 #include <container.h>
+#include <varr.h>
 #include <avltree.h>
 #include <memalloc.h>
 
@@ -183,6 +184,28 @@ avltree_move(void *c, const void *k, const void *k_new)
 
 	if (avlnode_add(c, k_new, CA_F_NOUPDATE, node) == NULL)
 		avlnode_free(c, node);
+}
+
+void
+avltree_move_prepare(void *c, varr *v)
+{
+	void **p;
+
+	C_FOREACH (p, v)
+		avlnode_delete(c, *p, FALSE);
+}
+
+void
+avltree_move_fixate(void *c, varr *v)
+{
+	void **p;
+
+	C_FOREACH (p, v) {
+		avlnode_t *node = GET_AVLNODE(*p);
+
+		if (avlnode_add(c, *p, CA_F_NOUPDATE, node) == NULL)
+			avlnode_free(c, node);
+	}
 }
 
 static void *

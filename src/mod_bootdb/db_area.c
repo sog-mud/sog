@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.146 2003-04-19 16:12:26 fjoe Exp $
+ * $Id: db_area.c,v 1.147 2003-05-08 14:00:05 fjoe Exp $
  */
 
 /***************************************************************************
@@ -235,6 +235,10 @@ DBINIT_FUN(init_area)
 			}
 			area_current = NULL;
 		}
+	} else {
+		c_init(&mobiles, &c_info_mobiles);
+		c_init(&objects, &c_info_objects);
+		c_init(&rooms, &c_info_rooms);
 	}
 }
 
@@ -510,7 +514,6 @@ DBLOAD_FUN(load_rooms)
 		int vnum;
 		char letter;
 		int door;
-		int iHash;
 
 		letter = fread_letter(fp);
 		if (letter != '#') {
@@ -527,10 +530,9 @@ DBLOAD_FUN(load_rooms)
 			return;
 		}
 
-		pRoomIndex		= new_room_index();
-
-		pRoomIndex->area	= area_current;
+		pRoomIndex = c_insert(&rooms, &vnum);
 		pRoomIndex->vnum	= vnum;
+		pRoomIndex->area	= area_current;
 		mlstr_fread(fp, &pRoomIndex->name);
 		mlstr_fread(fp, &pRoomIndex->description);
 		/* Area number */	  fread_number(fp);
@@ -649,9 +651,6 @@ DBLOAD_FUN(load_rooms)
 			}
 		}
 
-		iHash			= vnum % MAX_KEY_HASH;
-		pRoomIndex->next	= room_index_hash[iHash];
-		room_index_hash[iHash]	= pRoomIndex;
 		vnum_check(area_current, vnum);			/* OLC */
 		if (vnum > top_vnum_room)
 			top_vnum_room = vnum;
@@ -1160,7 +1159,6 @@ DBLOAD_FUN(load_mobiles)
 		race_t *r;
 		int vnum;
 		char letter;
-		int iHash;
 		flag_t imm = 0;
 		flag_t res = 0;
 		flag_t vul = 0;
@@ -1181,8 +1179,7 @@ DBLOAD_FUN(load_mobiles)
 			return;
 		}
 
-		pMobIndex                       = new_mob_index();
-
+		pMobIndex = c_insert(&mobiles, &vnum);
 		pMobIndex->vnum                 = vnum;
 		pMobIndex->name			= fread_string(fp);
 		mlstr_fread(fp, &pMobIndex->short_descr);
@@ -1423,9 +1420,6 @@ DBLOAD_FUN(load_mobiles)
 			    imm, res, vul, pMobIndex->resists);
 		}
 
-		iHash                   = vnum % MAX_KEY_HASH;
-		pMobIndex->next         = mob_index_hash[iHash];
-		mob_index_hash[iHash]   = pMobIndex;
 		vnum_check(area_current, vnum);
 		if (vnum > top_vnum_mob)
 			top_vnum_mob = vnum;
@@ -1506,7 +1500,6 @@ DBLOAD_FUN(load_objects)
 	for (;;) {
 		int vnum;
 		char letter;
-		int iHash;
 
 		letter = fread_letter(fp);
 		if (letter != '#') {
@@ -1523,8 +1516,7 @@ DBLOAD_FUN(load_objects)
 			return;
 		}
 
-		pObjIndex                       = new_obj_index();
-
+		pObjIndex = c_insert(&objects, &vnum);
 		pObjIndex->vnum                 = vnum;
 		pObjIndex->reset_num		= 0;
 		pObjIndex->name                 = fread_string(fp);
@@ -1856,9 +1848,6 @@ DBLOAD_FUN(load_objects)
 			}
 		}
 
-		iHash                   = vnum % MAX_KEY_HASH;
-		pObjIndex->next         = obj_index_hash[iHash];
-		obj_index_hash[iHash]   = pObjIndex;
 		vnum_check(area_current, vnum);
 		if (vnum > top_vnum_obj)
 			top_vnum_obj = vnum;

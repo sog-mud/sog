@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_bootdb.c,v 1.21 2003-04-22 07:34:45 fjoe Exp $
+ * $Id: init_bootdb.c,v 1.22 2003-05-08 14:00:05 fjoe Exp $
  */
 
 #include <sys/stat.h>
@@ -279,34 +279,27 @@ load_mprogs()
 	closedir(dirp);
 }
 
-static void
-fix_exits_room(ROOM_INDEX_DATA *room)
-{
-	int door;
-
-	for (door = 0; door < MAX_DIR; door++) {
-		EXIT_DATA *pexit;
-
-		if ((pexit = room->exit[door]) == NULL)
-			continue;
-
-		pexit->to_room.r = get_room_index(pexit->to_room.vnum);
-	}
-}
-
 /*
  * Translate all room exits from virtual to real.
  * Has to be done after all rooms are read in.
  */
 static void
-fix_exits(void)
+fix_exits()
 {
 	ROOM_INDEX_DATA *room;
-	int iHash;
 
-	for (iHash = 0; iHash < MAX_KEY_HASH; iHash++)
-		for (room = room_index_hash[iHash]; room; room = room->next)
-			fix_exits_room(room);
+	C_FOREACH (room, &rooms) {
+		int door;
+
+		for (door = 0; door < MAX_DIR; door++) {
+			EXIT_DATA *pexit;
+
+			if ((pexit = room->exit[door]) == NULL)
+				continue;
+
+			pexit->to_room.r = get_room_index(pexit->to_room.vnum);
+		}
+	}
 }
 
 /*
@@ -500,23 +493,19 @@ trig_lookup_obj(const char *name, int *pvnum, int *ptrigvnum)
 static trig_t *
 trig_lookup_room(const char *name, int *pvnum, int *ptrigvnum)
 {
-	int i;
+	ROOM_INDEX_DATA *room;
 	trig_t *rv = NULL;
 
-	for (i = 0; i < MAX_KEY_HASH; i++) {
-		ROOM_INDEX_DATA *room;
+	C_FOREACH (room, &rooms) {
+		trig_t *trig;
 
-		for (room = room_index_hash[i]; room != NULL; room = room->next) {
-			trig_t *trig;
+		trig = trig_lookup_v(&room->mp_trigs, name, ptrigvnum);
+		if (trig != NULL) {
+			if (rv != NULL)
+				return NULL;
 
-			trig = trig_lookup_v(&room->mp_trigs, name, ptrigvnum);
-			if (trig != NULL) {
-				if (rv != NULL)
-					return NULL;
-
-				*pvnum = room->vnum;
-				rv = trig;
-			}
+			*pvnum = room->vnum;
+			rv = trig;
 		}
 	}
 

@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.402 2003-04-27 14:01:02 fjoe Exp $
+ * $Id: merc.h,v 1.403 2003-05-08 14:00:02 fjoe Exp $
  */
 
 /***************************************************************************
@@ -155,12 +155,12 @@ enum {
 #define RES_UNDEF	666
 
 /* basic types */
+#include <varr.h>
 #include <avltree.h>
 #include <buffer.h>
 #include <str.h>
 #include <mlstring.h>
 #include <container.h>
-#include <varr.h>
 #include <flag.h>
 #include <cmd.h>
 
@@ -1414,9 +1414,8 @@ void	fwrite_vars(avltree_t *vars, FILE *fp);
  */
 struct mob_index_data
 {
-	MOB_INDEX_DATA *	next;
-	SHOP_DATA *		pShop;
 	int			vnum;
+	SHOP_DATA *		pShop;
 	int			fvnum;
 	int			group;
 	int			count;
@@ -1722,13 +1721,12 @@ struct ed_data
  */
 struct obj_index_data
 {
-	OBJ_INDEX_DATA *	next;
+	int			vnum;
 	ED_DATA *		ed;
 	AFFECT_DATA *		affected;
 	const char *		name;
 	mlstring		short_descr;
 	mlstring		description;
-	int			vnum;
 	int			reset_num;
 	const char *		material;
 	flag_t			stat_flags;
@@ -1870,7 +1868,7 @@ struct room_history_data
  */
 struct room_index_data
 {
-	ROOM_INDEX_DATA *	next;
+	int			vnum;
 	ROOM_INDEX_DATA *	x_next;
 	CHAR_DATA *		people;
 	OBJ_DATA *		contents;
@@ -1881,7 +1879,6 @@ struct room_index_data
 	RESET_DATA *		reset_last;	/* OLC */
 	mlstring		name;
 	mlstring		description;
-	int			vnum;
 	flag_t			room_flags;
 	int			light;
 	flag_t			sector_type;
@@ -2092,17 +2089,11 @@ void		free_area		(AREA_DATA *pArea);
 EXIT_DATA	*new_exit		(void);
 void		free_exit		(EXIT_DATA *pExit);
 
-ROOM_INDEX_DATA *new_room_index		(void);
-void		free_room_index		(ROOM_INDEX_DATA *pRoom);
 void		x_room_add		(ROOM_INDEX_DATA *pRoom);
 void		x_room_del		(ROOM_INDEX_DATA *pRoom);
 
 SHOP_DATA	*new_shop		(void);
 void		free_shop		(SHOP_DATA *pShop);
-OBJ_INDEX_DATA	*new_obj_index		(void);
-void		free_obj_index		(OBJ_INDEX_DATA *pObj);
-MOB_INDEX_DATA	*new_mob_index		(void);
-void		free_mob_index		(MOB_INDEX_DATA *pMob);
 bool		mob_add_practicer	(MOB_INDEX_DATA *pMob, int group);
 bool		mob_del_practicer	(MOB_INDEX_DATA *pMob, int group);
 void		show_liqlist		(CHAR_DATA *ch);
@@ -2136,10 +2127,6 @@ void		boot_db_system	(void);
 void		boot_db		(void);
 
 ED_DATA * ed_lookup(const char *name, ED_DATA *ed);
-
-MOB_INDEX_DATA *	get_mob_index	(int vnum);
-OBJ_INDEX_DATA *	get_obj_index	(int vnum);
-ROOM_INDEX_DATA *	get_room_index	(int vnum);
 
 /*
  * Global Constants
@@ -2535,18 +2522,24 @@ extern int changed_flags;
 		(item)->next = NULL;					\
 	}
 
-extern MOB_INDEX_DATA *	mob_index_hash	[MAX_KEY_HASH];
-extern OBJ_INDEX_DATA *	obj_index_hash	[MAX_KEY_HASH];
-extern ROOM_INDEX_DATA *room_index_hash [MAX_KEY_HASH];
-extern int		mob_index_count;
-extern int		obj_index_count;
+extern avltree_t	mobiles;
+extern avltree_t	objects;
+extern avltree_t	rooms;
+
+extern avltree_info_t	c_info_mobiles;
+extern avltree_info_t	c_info_objects;
+extern avltree_info_t	c_info_rooms;
+
+MOB_INDEX_DATA *	get_mob_index	(int vnum);
+OBJ_INDEX_DATA *	get_obj_index	(int vnum);
+ROOM_INDEX_DATA *	get_room_index	(int vnum);
+
 extern int		affect_count;
 extern int		ed_count;
 extern int		area_count;
 extern int		exit_count;
 extern int		help_count;
 extern int		reset_count;
-extern int		room_count;
 extern int		shop_count;
 extern int		str_count;
 extern int		str_real_count;

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: avltree.h,v 1.4 2001-12-10 22:18:11 fjoe Exp $
+ * $Id: avltree.h,v 1.5 2003-05-08 14:00:02 fjoe Exp $
  */
 
 #ifndef _AVLTREE_H_
@@ -57,5 +57,8 @@ struct avltree_t {
 	avlnode_t root;		/**< tree root				*/
 	int count;		/**< number of elems			*/
 };
+
+void avltree_move_prepare(void *c, varr *v);
+void avltree_move_fixate(void *c, varr *v);
 
 #endif /* _AVLTREE_H_ */

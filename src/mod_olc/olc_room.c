@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.107 2001-12-08 10:22:50 fjoe Exp $
+ * $Id: olc_room.c,v 1.108 2003-05-08 14:00:10 fjoe Exp $
  */
 
 #include "olc.h"
@@ -474,8 +474,7 @@ OLC_FUN(roomed_trig)
 OLC_FUN(roomed_del)
 {
 	ROOM_INDEX_DATA *pRoom;
-	ROOM_INDEX_DATA *r, *r_prev;
-	int i;
+	ROOM_INDEX_DATA *r;
 	AFFECT_DATA *paf, *paf_next;
 
 	EDIT_ROOM(ch, pRoom);
@@ -505,38 +504,15 @@ OLC_FUN(roomed_del)
 		affect_remove_room(pRoom, paf);
 	}
 
-/* remove from room index hash and remove from exits */
-	for (i = 0; i < MAX_KEY_HASH; i++) {
-		bool found = FALSE;
+/* remove from exits */
+	C_FOREACH (r, &rooms) {
+		int door;
 
-		r_prev = NULL;
-		for (r = room_index_hash[i]; r != NULL; r = r->next) {
-			int door;
+		for (door = 0; door < MAX_DIR; door++) {
+			EXIT_DATA *pExit = r->exit[door];
 
-			if (!found) {
-				if (r == pRoom) {
-					found = TRUE;
-					continue;
-				}
-				r_prev = r;
-			}
-
-			for (door = 0; door < MAX_DIR; door++) {
-				EXIT_DATA *pExit = r->exit[door];
-
-				if (pExit == NULL
-				||  pExit->to_room.r != pRoom)
-					continue;
-
+			if (pExit != NULL && pExit->to_room.r == pRoom)
 				pExit->to_room.r = NULL;
-			}
-		}
-
-		if (found) {
-			if (r_prev)
-				r_prev->next = pRoom->next;
-			else
-				room_index_hash[i] = pRoom->next;
 		}
 	}
 
@@ -547,7 +523,7 @@ OLC_FUN(roomed_del)
 	dofun("look", ch, str_empty);
 
 	TOUCH_VNUM(pRoom->vnum);
-	free_room_index(pRoom);
+	c_delete(&rooms, pRoom);
 	return FALSE;
 }
 
@@ -1415,7 +1391,6 @@ roomed_create_room(CHAR_DATA *ch, const char *arg)
 	AREA_DATA *pArea;
 	ROOM_INDEX_DATA *pRoom;
 	int value;
-	int iHash;
 
 	value = atoi(arg);
 	if (!value) {
@@ -1439,16 +1414,12 @@ roomed_create_room(CHAR_DATA *ch, const char *arg)
 		return NULL;
 	}
 
-	pRoom			= new_room_index();
-	pRoom->area		= pArea;
-	pRoom->vnum		= value;
-
+	pRoom = c_insert(&rooms, &value);
+	pRoom->vnum = value;
 	if (value > top_vnum_room)
 		 top_vnum_room	= value;
 
-	iHash			= value % MAX_KEY_HASH;
-	pRoom->next		= room_index_hash[iHash];
-	room_index_hash[iHash]	= pRoom;
+	pRoom->area = pArea;
 
 	TOUCH_AREA(pArea);
 	return pRoom;

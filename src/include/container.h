@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: container.h,v 1.7 2001-12-10 22:20:44 fjoe Exp $
+ * $Id: container.h,v 1.8 2003-05-08 14:00:02 fjoe Exp $
  */
 
 #ifndef _CONTAINER_H_
@@ -78,7 +78,7 @@ struct c_ops_t {
 #define c_random_elem(c)	(C_OPS(c)->c_random_elem(c))
 void *	c_random_elem_foreach(void *c);
 
-int	vnum_ke_cmp(const void *k, const void *e);
+int	ke_cmp_int(const void *k, const void *e);
 
 void	strkey_init(void *);
 void	strkey_destroy(void *);

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_mob.c,v 1.94 2003-04-19 16:30:05 fjoe Exp $
+ * $Id: olc_mob.c,v 1.95 2003-05-08 14:00:10 fjoe Exp $
  */
 
 #include "olc.h"
@@ -153,7 +153,6 @@ OLC_FUN(mobed_create)
 	MOB_INDEX_DATA *pMob;
 	AREA_DATA *pArea;
 	int  value;
-	int  iHash;
 	char arg[MAX_STRING_LENGTH];
 
 	one_argument(argument, arg, sizeof(arg));
@@ -177,15 +176,10 @@ OLC_FUN(mobed_create)
 		return FALSE;
 	}
 
-	pMob			= new_mob_index();
-	pMob->vnum		= value;
-
+	pMob = c_insert(&mobiles, &value);
+	pMob->vnum = value;
 	if (value > top_vnum_mob)
 		top_vnum_mob = value;
-
-	iHash			= value % MAX_KEY_HASH;
-	pMob->next		= mob_index_hash[iHash];
-	mob_index_hash[iHash]	= pMob;
 
 	ch->desc->pEdit		= (void*) pMob;
 	OLCED(ch)		= olced_lookup(ED_MOB);
@@ -1154,7 +1148,6 @@ OLC_FUN(mobed_del)
 {
 	MOB_INDEX_DATA *pMob;
 	CHAR_DATA *mob, *mob_next;
-	int i;
 	BUFFER *buf;
 
 	EDIT_MOB(ch, pMob);
@@ -1182,21 +1175,7 @@ OLC_FUN(mobed_del)
 	TOUCH_VNUM(pMob->vnum);
 
 /* delete mob index itself */
-	i = pMob->vnum % MAX_KEY_HASH;
-	if (pMob == mob_index_hash[i])
-		mob_index_hash[i] = pMob->next;
-	else {
-		MOB_INDEX_DATA *prev;
-
-		for (prev = mob_index_hash[i]; prev; prev = prev->next)
-			if (prev->next == pMob)
-				break;
-
-		if (prev)
-			prev->next = pMob->next;
-	}
-
-	free_mob_index(pMob);
+	c_delete(&mobiles, pMob);
 	act_char("MobEd: Mob index deleted.", ch);
 	edit_done(ch->desc);
 	return FALSE;

@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.157 2003-04-19 16:12:44 fjoe Exp $
+ * $Id: recycle.c,v 1.158 2003-05-08 14:00:20 fjoe Exp $
  */
 
 /***************************************************************************
@@ -996,33 +996,21 @@ free_exit(EXIT_DATA *pExit)
  * ROOM_INDEX_DATA
  */
 
-int room_count;
-ROOM_INDEX_DATA *room_index_hash[MAX_KEY_HASH];
-
-ROOM_INDEX_DATA *
-new_room_index(void)
+static void
+room_index_init(ROOM_INDEX_DATA *pRoom)
 {
-	ROOM_INDEX_DATA *pRoom;
-
-        pRoom = mem_alloc(MT_ROOM, sizeof(*pRoom));
 	memset(pRoom, 0, sizeof(*pRoom));
 	pRoom->heal_rate = 100;
 	pRoom->mana_rate = 100;
 	trig_init_list(&pRoom->mp_trigs);
 	c_init(&pRoom->vars, &c_info_vars);
-
-        room_count++;
-	return pRoom;
 }
 
-void
-free_room_index(ROOM_INDEX_DATA *pRoom)
+static void
+room_index_destroy(ROOM_INDEX_DATA *pRoom)
 {
 	int door;
 	RESET_DATA *pReset;
-
-	if (!mem_is(pRoom, MT_ROOM))
-		return;
 
 	mlstr_destroy(&pRoom->name);
 	mlstr_destroy(&pRoom->description);
@@ -1041,9 +1029,24 @@ free_room_index(ROOM_INDEX_DATA *pRoom)
 	x_room_del(pRoom);
 
 	c_destroy(&pRoom->vars);
+}
 
-	room_count--;
-	mem_free(pRoom);
+avltree_info_t c_info_rooms =
+{
+	&avltree_ops,
+
+	(e_init_t) room_index_init,
+	(e_destroy_t) room_index_destroy,
+
+	MT_ROOM, sizeof(ROOM_INDEX_DATA), ke_cmp_int
+};
+
+avltree_t rooms;
+
+ROOM_INDEX_DATA *
+get_room_index(int vnum)
+{
+	return c_lookup(&rooms, &vnum);
 }
 
 void
@@ -1091,26 +1094,6 @@ x_room_del(ROOM_INDEX_DATA *room)
 	room->x_next = NULL;
 }
 
-/*
- * Translates mob virtual number to its room index struct.
- * Hash table lookup.
- */
-ROOM_INDEX_DATA *
-get_room_index(int vnum)
-{
-	ROOM_INDEX_DATA *pRoomIndex;
-
-	if (vnum <= 0)
-		return NULL;
-
-	for (pRoomIndex = room_index_hash[vnum % MAX_KEY_HASH];
-	     pRoomIndex; pRoomIndex = pRoomIndex->next)
-		if (pRoomIndex->vnum == vnum)
-			return pRoomIndex;
-
-	return NULL;
-}
-
 /*--------------------------------------------------------------------
  * SHOP_DATA
  */
@@ -1146,17 +1129,10 @@ free_shop(SHOP_DATA *pShop)
  * OBJ_INDEX_DATA
  */
 
-int obj_index_count;
-OBJ_INDEX_DATA *obj_index_hash[MAX_KEY_HASH];
-
-OBJ_INDEX_DATA *
-new_obj_index(void)
+static void
+obj_index_init(OBJ_INDEX_DATA *pObj)
 {
-	OBJ_INDEX_DATA *pObj;
-
-        pObj = mem_alloc(MT_OBJ_INDEX, sizeof(*pObj));
 	memset(pObj, 0, sizeof(*pObj));
-
 	pObj->name		= str_dup(str_empty);
 	pObj->item_type		= ITEM_TRASH;
 	objval_init(pObj->item_type, pObj->value);
@@ -1165,58 +1141,43 @@ new_obj_index(void)
 	pObj->limit		= -1;
 	mlstr_init2(&pObj->gender, flag_string(gender_table, SEX_NEUTRAL));
 	trig_init_list(&pObj->mp_trigs);
-
-        obj_index_count++;
-	return pObj;
 }
 
-void
-free_obj_index(OBJ_INDEX_DATA *pObj)
+static void
+obj_index_destroy(OBJ_INDEX_DATA *pObj)
 {
-	if (!mem_is(pObj, MT_OBJ_INDEX))
-		return;
-
 	free_string(pObj->name);
 	free_string(pObj->material);
 	mlstr_destroy(&pObj->gender);
 	mlstr_destroy(&pObj->short_descr);
 	mlstr_destroy(&pObj->description);
-
 	aff_free_list(pObj->affected);
 	ed_free(pObj->ed);
 	objval_destroy(pObj->item_type, pObj->value);
 	trig_destroy_list(&pObj->mp_trigs);
-
-	obj_index_count--;
-	mem_free(pObj);
 }
 
-/*
- * Translates mob virtual number to its obj index struct.
- * Hash table lookup.
- */
+avltree_info_t c_info_objects =
+{
+	&avltree_ops,
+
+	(e_init_t) obj_index_init,
+	(e_destroy_t) obj_index_destroy,
+
+	MT_OBJ_INDEX, sizeof(OBJ_INDEX_DATA), ke_cmp_int
+};
+
+avltree_t objects;
+
 OBJ_INDEX_DATA *
 get_obj_index(int vnum)
 {
-	OBJ_INDEX_DATA *pObjIndex;
-
-	if (vnum <= 0)
-		return NULL;
-
-	for (pObjIndex = obj_index_hash[vnum % MAX_KEY_HASH];
-	     pObjIndex; pObjIndex = pObjIndex->next)
-		if (pObjIndex->vnum == vnum)
-			return pObjIndex;
-
-	return NULL;
+	return c_lookup(&objects, &vnum);
 }
 
 /*--------------------------------------------------------------------
  * MOB_INDEX_DATA
  */
-
-int mob_index_count;
-MOB_INDEX_DATA *mob_index_hash[MAX_KEY_HASH];
 
 static varr_info_t c_info_practicer =
 {
@@ -1224,15 +1185,12 @@ static varr_info_t c_info_practicer =
 	sizeof(int), 1
 };
 
-MOB_INDEX_DATA *
-new_mob_index(void)
+static void
+mob_index_init(MOB_INDEX_DATA *pMob)
 {
-	MOB_INDEX_DATA *pMob;
 	int i;
 
-        pMob = mem_alloc(MT_MOB_INDEX, sizeof(*pMob));
 	memset(pMob, 0, sizeof(*pMob));
-
 	pMob->pShop		= NULL;
 	pMob->name		= str_dup(str_empty);
 	pMob->race		= str_dup("human");
@@ -1247,17 +1205,11 @@ new_mob_index(void)
 		pMob->resists[i] = RES_UNDEF;
 	c_init(&pMob->practicer, &c_info_practicer);
 	trig_init_list(&pMob->mp_trigs);
-
-	mob_index_count++;
-	return pMob;
 }
 
-void
-free_mob_index(MOB_INDEX_DATA *pMob)
+static void
+mob_index_destroy(MOB_INDEX_DATA *pMob)
 {
-	if (!mem_is(pMob, MT_MOB_INDEX))
-		return;
-
 	free_string(pMob->name);
 	free_string(pMob->material);
 	free_string(pMob->damtype);
@@ -1271,9 +1223,24 @@ free_mob_index(MOB_INDEX_DATA *pMob)
 	c_destroy(&pMob->practicer);
 	aff_free_list(pMob->affected);
 	trig_destroy_list(&pMob->mp_trigs);
+}
 
-	mob_index_count--;
-	mem_free(pMob);
+avltree_info_t c_info_mobiles =
+{
+	&avltree_ops,
+
+	(e_init_t) mob_index_init,
+	(e_destroy_t) mob_index_destroy,
+
+	MT_MOB_INDEX, sizeof(MOB_INDEX_DATA), ke_cmp_int
+};
+
+avltree_t mobiles;
+
+MOB_INDEX_DATA *
+get_mob_index(int vnum)
+{
+	return c_lookup(&mobiles, &vnum);
 }
 
 bool
@@ -1301,26 +1268,6 @@ mob_del_practicer(MOB_INDEX_DATA *pMob, int group)
 	varr_edelete(&pMob->practicer, gr);
 	varr_qsort(&pMob->practicer, cmpint);
 	return TRUE;
-}
-
-/*
- * Translates mob virtual number to its mob index struct.
- * Hash table lookup.
- */
-MOB_INDEX_DATA *
-get_mob_index(int vnum)
-{
-	MOB_INDEX_DATA *pMobIndex;
-
-	if (vnum <= 0)
-		return NULL;
-
-	for (pMobIndex = mob_index_hash[vnum % MAX_KEY_HASH];
-	     pMobIndex; pMobIndex = pMobIndex->next)
-		if (pMobIndex->vnum == vnum)
-			return pMobIndex;
-
-	return NULL;
 }
 
 /*--------------------------------------------------------------------

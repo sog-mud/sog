@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.157 2003-04-27 14:01:05 fjoe Exp $
+ * $Id: olc.c,v 1.158 2003-05-08 14:00:10 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1696,30 +1696,25 @@ olc_fopen(const char *path, const char *file, CHAR_DATA *ch, int min_sec)
 BUFFER *
 show_mob_resets(int vnum)
 {
-	int i;
 	BUFFER *buf = NULL;
+	ROOM_INDEX_DATA *room;
 
-	for (i = 0; i < MAX_KEY_HASH; i++) {
-		ROOM_INDEX_DATA *room;
+	C_FOREACH (room, &rooms) {
+		int j = 0;
+		RESET_DATA *reset;
 
-		for (room = room_index_hash[i]; room; room = room->next) {
-			int j = 0;
-			RESET_DATA *reset;
+		for (reset = room->reset_first; reset != NULL; reset = reset->next) {
+			j++;
 
-			for (reset = room->reset_first; reset != NULL;
-							reset = reset->next) {
-				j++;
+			if (reset->command != 'M'
+			||  reset->arg1 != vnum)
+				continue;
 
-				if (reset->command != 'M'
-				||  reset->arg1 != vnum)
-					continue;
+			if (!buf)
+				buf = buf_new(0);
 
-				if (!buf)
-					buf = buf_new(0);
-
-				buf_printf(buf, BUF_END, "        room %d, reset %d\n",
-					   room->vnum, j);
-			}
+			buf_printf(buf, BUF_END, "        room %d, reset %d\n",
+			    room->vnum, j);
 		}
 	}
 
@@ -1729,45 +1724,40 @@ show_mob_resets(int vnum)
 BUFFER *
 show_obj_resets(int vnum)
 {
-	int i;
 	BUFFER *buf = NULL;
+	ROOM_INDEX_DATA *room;
 
-	for (i = 0; i < MAX_KEY_HASH; i++) {
-		ROOM_INDEX_DATA *room;
+	C_FOREACH (room, &rooms) {
+		int j = 0;
+		RESET_DATA *reset;
 
-		for (room = room_index_hash[i]; room; room = room->next) {
-			int j = 0;
-			RESET_DATA *reset;
+		for (reset = room->reset_first; reset != NULL; reset = reset->next) {
+			bool found = FALSE;
 
-			for (reset = room->reset_first; reset != NULL;
-							reset = reset->next) {
-				bool found = FALSE;
+			j++;
+			switch (reset->command) {
+			case 'P':
+				if (reset->arg3 == vnum)
+					found = TRUE;
 
-				j++;
-				switch (reset->command) {
-				case 'P':
-					if (reset->arg3 == vnum)
-						found = TRUE;
+				/* FALLTHRU */
 
-					/* FALLTHRU */
-
-				case 'O':
-				case 'G':
-				case 'E':
-					if (reset->arg1 == vnum)
-						found = TRUE;
-					break;
-				}
-
-				if (!found)
-					continue;
-
-				if (!buf)
-					buf = buf_new(0);
-
-				buf_printf(buf, BUF_END, "        room %d, reset %d\n",
-					   room->vnum, j);
+			case 'O':
+			case 'G':
+			case 'E':
+				if (reset->arg1 == vnum)
+					found = TRUE;
+				break;
 			}
+
+			if (!found)
+				continue;
+
+			if (!buf)
+				buf = buf_new(0);
+
+			buf_printf(buf, BUF_END, "        room %d, reset %d\n",
+			    room->vnum, j);
 		}
 	}
 

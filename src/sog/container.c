@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: container.c,v 1.6 2003-04-24 13:36:59 fjoe Exp $
+ * $Id: container.c,v 1.7 2003-05-08 14:00:19 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -60,7 +60,7 @@ c_random_elem_foreach(void *c)
 #endif
 
 int
-vnum_ke_cmp(const void *k, const void *e)
+ke_cmp_int(const void *k, const void *e)
 {
 	return *(const int *) k - *(const int *) e;
 }

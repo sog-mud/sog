@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_area.c,v 1.113 2003-04-19 16:12:37 fjoe Exp $
+ * $Id: olc_area.c,v 1.114 2003-05-08 14:00:10 fjoe Exp $
  */
 
 #include "olc.h"
@@ -476,18 +476,46 @@ VALIDATE_FUN(validate_maxvnum)
 		}							\
 	} while (0)
 
-static void move_mob(MOB_INDEX_DATA *mob, AREA_DATA *pArea, int delta);
-static void move_obj(OBJ_INDEX_DATA *obj, AREA_DATA *pArea, int delta);
-static void move_room(ROOM_INDEX_DATA *room, AREA_DATA *pArea, int delta);
+static void move_mob(varr *v, MOB_INDEX_DATA *mob, AREA_DATA *pArea, int delta);
+static void move_obj(varr *v, OBJ_INDEX_DATA *obj, AREA_DATA *pArea, int delta);
+static void move_room(varr *v, ROOM_INDEX_DATA *room, AREA_DATA *pArea, int delta);
+
+varr_info_t c_info_p =
+{
+	&varr_ops, NULL, NULL,
+	sizeof(void *), 1024
+};
+
+#define MOVE_OBJECTS(c, o)						\
+	do {								\
+		c_init(&v_##c, &c_info_p);				\
+		C_FOREACH (o, &c)					\
+			move_##o(&v_##c, o, pArea, delta);		\
+		avltree_move_prepare(&c, &v_##c);			\
+		C_FOREACH (o, &v_##c) {					\
+			o->vnum += delta;				\
+			if (top_vnum_##o < o->vnum)			\
+				top_vnum_##o = o->vnum;			\
+		}							\
+		avltree_move_fixate(&c, &v_##c);			\
+		c_destroy(&v_##c);					\
+	} while (0)
 
 VALIDATE_FUN(validate_move)
 {
-	int i;
 	int new_min = *(const int *) arg;
 	int delta, oldmin, oldmax;
 	bool touched = FALSE;
 	BUFFER *buf;
 	clan_t *clan;
+
+	MOB_INDEX_DATA *mob;
+	OBJ_INDEX_DATA *obj;
+	ROOM_INDEX_DATA *room;
+
+	varr v_mobiles;
+	varr v_objects;
+	varr v_rooms;
 
 	AREA_DATA *pArea;
 	EDIT_AREA(ch, pArea);
@@ -540,104 +568,10 @@ VALIDATE_FUN(validate_move)
 		}
 	}
 
-/* fix mobs */
-	for (i = 0; i < MAX_KEY_HASH; i++) {
-		MOB_INDEX_DATA *mob;
-
-		for (mob = mob_index_hash[i]; mob; mob = mob->next)
-			move_mob(mob, pArea, delta);
-	}
-
-/* fix objs */
-	for (i = 0; i < MAX_KEY_HASH; i++) {
-		OBJ_INDEX_DATA *obj;
-
-		for (obj = obj_index_hash[i]; obj; obj = obj->next)
-			move_obj(obj, pArea, delta);
-	}
-
-/* fix rooms */
-	for (i = 0; i < MAX_KEY_HASH; i++) {
-		ROOM_INDEX_DATA *room;
-
-		for (room = room_index_hash[i]; room; room = room->next)
-			move_room(room, pArea, delta);
-	}
-
-/* rebuild mob index hash */
-	top_vnum_mob = 0;
-	for (i = 0; i < MAX_KEY_HASH; i++) {
-		MOB_INDEX_DATA *mob, *mob_next, *mob_prev = NULL;
-
-		for (mob = mob_index_hash[i]; mob; mob = mob_next) {
-			int mob_hash = mob->vnum % MAX_KEY_HASH;
-			mob_next = mob->next;
-
-			if (top_vnum_mob < mob->vnum)
-				top_vnum_mob = mob->vnum;
-
-			if (mob_hash != i) {
-				if (!mob_prev)
-					mob_index_hash[i] = mob->next;
-				else
-					mob_prev->next = mob->next;
-				mob->next = mob_index_hash[mob_hash];
-				mob_index_hash[mob_hash] = mob;
-			}
-			else
-				mob_prev = mob;
-		}
-	}
-
-/* rebuild obj index hash */
-	top_vnum_obj = 0;
-	for (i = 0; i < MAX_KEY_HASH; i++) {
-		OBJ_INDEX_DATA *obj, *obj_next, *obj_prev = NULL;
-
-		for (obj = obj_index_hash[i]; obj; obj = obj_next) {
-			int obj_hash = obj->vnum % MAX_KEY_HASH;
-			obj_next = obj->next;
-
-			if (top_vnum_obj < obj->vnum)
-				top_vnum_obj = obj->vnum;
-
-			if (obj_hash != i) {
-				if (!obj_prev)
-					obj_index_hash[i] = obj->next;
-				else
-					obj_prev->next = obj->next;
-				obj->next = obj_index_hash[obj_hash];
-				obj_index_hash[obj_hash] = obj;
-			}
-			else
-				obj_prev = obj;
-		}
-	}
-
-/* rebuild room index hash */
-	top_vnum_room = 0;
-	for (i = 0; i < MAX_KEY_HASH; i++) {
-		ROOM_INDEX_DATA *room, *room_next, *room_prev = NULL;
-
-		for (room = room_index_hash[i]; room; room = room_next) {
-			int room_hash = room->vnum % MAX_KEY_HASH;
-			room_next = room->next;
-
-			if (top_vnum_room < room->vnum)
-				top_vnum_room = room->vnum;
-
-			if (room_hash != i) {
-				if (!room_prev)
-					room_index_hash[i] = room->next;
-				else
-					room_prev->next = room->next;
-				room->next = room_index_hash[room_hash];
-				room_index_hash[room_hash] = room;
-			}
-			else
-				room_prev = room;
-		}
-	}
+/* fix mobiles, objects and rooms */
+	MOVE_OBJECTS(mobiles, mob);
+	MOVE_OBJECTS(objects, obj);
+	MOVE_OBJECTS(rooms, room);
 
 	pArea->max_vnum += delta;
 	TOUCH_AREA(pArea);
@@ -682,29 +616,27 @@ check_range(AREA_DATA *this, int ilower, int iupper)
 }
 
 static void
-move_mob(MOB_INDEX_DATA *mob, AREA_DATA *pArea, int delta)
+move_mob(varr *v, MOB_INDEX_DATA *mob, AREA_DATA *pArea, int delta)
 {
 	bool touched = FALSE;
-	int old_vnum = mob->vnum;
-
-	MOVE(mob->vnum);
 
 	if (mob->pShop)
 		MOVE(mob->pShop->keeper);
-
 	MOVE(mob->fvnum);
 
 /* touch area if it is not area being moved */
-	if (touched && !IN_RANGE(old_vnum, pArea->min_vnum, pArea->max_vnum))
-		TOUCH_VNUM(old_vnum);
+	if (IN_RANGE(mob->vnum, pArea->min_vnum, pArea->max_vnum)) {
+		void **p = varr_enew(v);
+		*p = mob;
+	} else if (touched)
+		TOUCH_VNUM(mob->vnum);
 }
 
 static void
-move_obj(OBJ_INDEX_DATA *obj, AREA_DATA *pArea, int delta)
+move_obj(varr *v, OBJ_INDEX_DATA *obj, AREA_DATA *pArea, int delta)
 {
 	OBJ_DATA *o;
 	bool touched = FALSE;
-	int old_vnum = obj->vnum;
 
 	switch (obj->item_type) {
 	case ITEM_CONTAINER:
@@ -728,22 +660,20 @@ move_obj(OBJ_INDEX_DATA *obj, AREA_DATA *pArea, int delta)
 		break;
 	}
 
-	MOVE(obj->vnum);
-
 /* touch area if it is not area being moved */
-	if (touched && !IN_RANGE(old_vnum, pArea->min_vnum, pArea->max_vnum))
-		TOUCH_VNUM(old_vnum);
+	if (IN_RANGE(obj->vnum, pArea->min_vnum, pArea->max_vnum)) {
+		void **p = varr_enew(v);
+		*p = obj;
+	} else if (touched)
+		TOUCH_VNUM(obj->vnum);
 }
 
 static void
-move_room(ROOM_INDEX_DATA *room, AREA_DATA *pArea, int delta)
+move_room(varr *v, ROOM_INDEX_DATA *room, AREA_DATA *pArea, int delta)
 {
 	int i;
 	bool touched = FALSE;
-	int old_vnum = room->vnum;
 	RESET_DATA *r;
-
-	MOVE(room->vnum);
 
 	for (i = 0; i < MAX_DIR; i++) {
 		EXIT_DATA *pExit = room->exit[i];
@@ -778,8 +708,11 @@ move_room(ROOM_INDEX_DATA *room, AREA_DATA *pArea, int delta)
 	}
 
 /* touch area if it is not area being moved */
-	if (touched && !IN_RANGE(old_vnum, pArea->min_vnum, pArea->max_vnum))
-		TOUCH_VNUM(old_vnum);
+	if (IN_RANGE(room->vnum, pArea->min_vnum, pArea->max_vnum)) {
+		void **p = varr_enew(v);
+		*p = room;
+	} else if (touched)
+		TOUCH_VNUM(room->vnum);
 }
 
 /*

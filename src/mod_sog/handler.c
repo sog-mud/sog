@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.370 2003-04-27 14:01:07 fjoe Exp $
+ * $Id: handler.c,v 1.371 2003-05-08 14:00:14 fjoe Exp $
  */
 
 /***************************************************************************
@@ -5140,8 +5140,9 @@ bool
 pc_name_ok(const char *name)
 {
 	const u_char *pc;
-	bool fIll,adjcaps = FALSE,cleancaps = FALSE;
+	bool fIll, adjcaps = FALSE, cleancaps = FALSE;
 	uint total_caps = 0;
+	MOB_INDEX_DATA *pMobIndex;
 
 	/*
 	 * Reserved words.
@@ -5196,16 +5197,9 @@ pc_name_ok(const char *name)
 	/*
 	 * Prevent players from naming themselves after mobs.
 	 */
-	{
-		MOB_INDEX_DATA *pMobIndex;
-		int iHash;
-
-		for (iHash = 0; iHash < MAX_KEY_HASH; iHash++) {
-			for (pMobIndex  = mob_index_hash[iHash];
-			     pMobIndex != NULL; pMobIndex  = pMobIndex->next)
-				if (is_name(name, pMobIndex->name))
-					return FALSE;
-		}
+	C_FOREACH (pMobIndex, &mobiles) {
+		if (is_name(name, pMobIndex->name))
+			return FALSE;
 	}
 
 	if (clan_lookup(name) != NULL)

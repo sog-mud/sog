@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.320 2003-04-24 12:41:56 fjoe Exp $
+ * $Id: act_wiz.c,v 1.321 2003-05-08 14:00:07 fjoe Exp $
  */
 
 /***************************************************************************
@@ -245,28 +245,24 @@ DO_FUN(do_limited, ch, argument)
 		return;
 	} else {
 		OBJ_INDEX_DATA *obj_index;
-		int i;
 		nMatch = 0;
 
 		buf = buf_new(0);
-		for (i = 0; i < MAX_KEY_HASH; i++) {
-			for (obj_index = obj_index_hash[i]; obj_index; obj_index = obj_index->next) {
-				nMatch++;
-				if (obj_index->limit == -1)
-					continue;
+		C_FOREACH (obj_index, &objects) {
+			nMatch++;
+			if (obj_index->limit == -1)
+				continue;
 
-				lCount++;
-				buf_printf(buf, BUF_END,
-					   "%-37s [%5d]  Limit: %3d  Current: %3d\n", // notrans
-					   mlstr_mval(&obj_index->short_descr), 
-					   obj_index->vnum,
-					   obj_index->limit,
-					   obj_index->count);
-			}
+			lCount++;
+			buf_printf(buf, BUF_END,
+			    "%-37s [%5d]  Limit: %3d  Current: %3d\n", // notrans
+			    mlstr_mval(&obj_index->short_descr),
+			    obj_index->vnum,
+			    obj_index->limit, obj_index->count);
 		}
-
 		buf_printf(buf, BUF_END,
-			   "\n%d of %d objects are limited.\n", lCount, nMatch);// notrans
+		    "\n%d of %d objects are limited.\n",	// notrans
+		    lCount, nMatch);
 	}
 
 	page_to_char(buf_string(buf), ch);
@@ -1615,7 +1611,7 @@ DO_FUN(do_vnum, ch, argument)
 DO_FUN(do_mfind, ch, argument)
 {
 	char arg[MAX_INPUT_LENGTH];
-	int i;
+	MOB_INDEX_DATA *mob_index;
 	BUFFER *buf = NULL;
 
 	one_argument(argument, arg, sizeof(arg));
@@ -1624,20 +1620,16 @@ DO_FUN(do_mfind, ch, argument)
 		return;
 	}
 
-	for (i = 0; i < MAX_KEY_HASH; i++) {
-		MOB_INDEX_DATA *mob_index;
+	C_FOREACH (mob_index, &mobiles) {
+		if (!is_name(argument, mob_index->name))
+			continue;
 
-		for (mob_index = mob_index_hash[i]; mob_index; mob_index = mob_index->next) {
-			if (!is_name(argument, mob_index->name))
-				continue;
+		if (buf == NULL)
+			buf = buf_new(0);
 
-			if (buf == NULL)
-				buf = buf_new(0);
-
-			buf_printf(buf, BUF_END, "[%5d] %s\n",	// notrans
-				   mob_index->vnum,
-				   mlstr_mval(&mob_index->short_descr));
-		}
+		buf_printf(buf, BUF_END, "[%5d] %s\n",	// notrans
+			   mob_index->vnum,
+			   mlstr_mval(&mob_index->short_descr));
 	}
 
 	if (!buf)
@@ -1651,7 +1643,7 @@ DO_FUN(do_mfind, ch, argument)
 DO_FUN(do_ofind, ch, argument)
 {
 	char arg[MAX_INPUT_LENGTH];
-	int i;
+	OBJ_INDEX_DATA *obj_index;
 	BUFFER *buf = NULL;
 
 	one_argument(argument, arg, sizeof(arg));
@@ -1660,20 +1652,16 @@ DO_FUN(do_ofind, ch, argument)
 		return;
 	}
 
-	for (i = 0; i < MAX_KEY_HASH; i++) {
-		OBJ_INDEX_DATA *obj_index;
+	C_FOREACH (obj_index, &objects) {
+		if (!is_name(argument, obj_index->name))
+			continue;
 
-		for (obj_index = obj_index_hash[i]; obj_index; obj_index = obj_index->next) {
-			if (!is_name(argument, obj_index->name))
-				continue;
+		if (buf == NULL)
+			buf = buf_new(0);
 
-			if (buf == NULL)
-				buf = buf_new(0);
-
-			buf_printf(buf, BUF_END, "[%5d] %s\n",	// notrans
-				   obj_index->vnum,
-				   mlstr_mval(&obj_index->short_descr));
-		}
+		buf_printf(buf, BUF_END, "[%5d] %s\n",	// notrans
+		    obj_index->vnum,
+		    mlstr_mval(&obj_index->short_descr));
 	}
 
 	if (!buf)
@@ -4453,8 +4441,11 @@ DO_FUN(do_memory, ch, argument)
 		   help_count, help_count * sizeof(HELP_DATA));
 	buf_printf(buf, BUF_END, "Socials  : %d (%d bytes)\n",	// notrans
 		   c_size(&socials), c_size(&socials) * sizeof(social_t));
-	buf_printf(buf, BUF_END, "Mob idx  : %d (%d bytes)\n",  // notrans
-		   mob_index_count, mob_index_count * sizeof(MOB_INDEX_DATA));
+	buf_printf(buf, BUF_END, "Mob idx  : %d (%d (%d) bytes)\n", // notrans
+		   c_size(&mobiles),
+		   c_size(&mobiles) * sizeof(MOB_INDEX_DATA),
+		   c_size(&mobiles) * (sizeof(MOB_INDEX_DATA) +
+				       sizeof(avlnode_t) + sizeof(memchunk_t)));
 	buf_printf(buf, BUF_END, "Mobs     : %d (%d (%d) bytes), "  // notrans
 			"%d free (%d (%d) bytes), max vnum %d\n", // notrans
 		    npc_count,
@@ -4477,8 +4468,11 @@ DO_FUN(do_memory, ch, argument)
 		    pc_free_count * (sizeof(CHAR_DATA) + sizeof(PC_DATA) +
 				      sizeof(memchunk_t)));
 	buf_printf(buf, BUF_END,
-		   "Obj idx  : %d (%d bytes), max vnum %d\n",	// notrans
-		    obj_index_count, obj_index_count * sizeof(OBJ_INDEX_DATA),
+		   "Obj idx  : %d (%d (%d) bytes), max vnum %d\n",// notrans
+		    c_size(&objects),
+		    c_size(&objects) * sizeof(OBJ_INDEX_DATA),
+		    c_size(&objects) * (sizeof(OBJ_INDEX_DATA) +
+					sizeof(avlnode_t) + sizeof(memchunk_t)),
 		    top_vnum_obj);
 	buf_printf(buf, BUF_END,
 		   "Objs     : %d (%d (%d) bytes, %d free)\n",	// notrans
@@ -4490,9 +4484,10 @@ DO_FUN(do_memory, ch, argument)
 		   reset_count, reset_count * sizeof(RESET_DATA));
 	buf_printf(buf, BUF_END,
 		   "Rooms    : %d (%d (%d) bytes, max vnum %d)\n", // notrans
-		   room_count,
-		   room_count * sizeof(ROOM_INDEX_DATA),
-		   room_count * (sizeof(ROOM_INDEX_DATA) + sizeof(memchunk_t)),
+		   c_size(&rooms),
+		   c_size(&rooms) * sizeof(ROOM_INDEX_DATA),
+		   c_size(&rooms) * (sizeof(ROOM_INDEX_DATA) +
+				     sizeof(avlnode_t) + sizeof(memchunk_t)),
 		   top_vnum_room);
 	buf_printf(buf, BUF_END, "Shops    : %d (%d bytes)\n",	// notrans
 		   shop_count, shop_count * sizeof(SHOP_DATA));
@@ -4519,8 +4514,9 @@ DO_FUN(do_memory, ch, argument)
 
 DO_FUN(do_dump, ch, argument)
 {
-	int i;
 	FILE *fp;
+	MOB_INDEX_DATA *pMobIndex;
+	OBJ_INDEX_DATA *pObjIndex;
 
 	if ((fp = dfopen(TMP_PATH, "mem.dmp", "w")) == NULL)	// notrans
 		return;
@@ -4535,8 +4531,11 @@ DO_FUN(do_dump, ch, argument)
 		reset_count, reset_count * sizeof(RESET_DATA));
 
 	/* mobile prototypes */
-	fprintf(fp, "MobProt    %d (%d bytes)\n",		// notrans
-		mob_index_count, mob_index_count * sizeof(MOB_INDEX_DATA));
+	fprintf(fp, "MobProt    %d (%d (%d) bytes)\n",		// notrans
+		c_size(&mobiles),
+		c_size(&mobiles) * sizeof(MOB_INDEX_DATA),
+		c_size(&mobiles) * (sizeof(MOB_INDEX_DATA) +
+				    sizeof(avlnode_t) + sizeof(memchunk_t)));
 	fprintf(fp, "Mobs       %d (%d bytes), %d free (%d bytes)\n", // notrans
 		npc_count,
 		npc_count * (sizeof(CHAR_DATA) + sizeof(NPC_DATA)),
@@ -4554,14 +4553,20 @@ DO_FUN(do_dump, ch, argument)
 	fprintf(fp, "Dvdata     %d (%d bytes)\n",
 		dvdata_real_count, dvdata_real_count * sizeof(dvdata_t));
 
-	fprintf(fp, "ObjProt    %d (%d bytes)\n",		// notrans
-		obj_index_count, obj_index_count * (sizeof(OBJ_INDEX_DATA)));
+	fprintf(fp, "ObjProt    %d (%d (%d) bytes)\n",		// notrans
+		c_size(&objects),
+		c_size(&objects) * sizeof(OBJ_INDEX_DATA),
+		c_size(&objects) * (sizeof(OBJ_INDEX_DATA) +
+				    sizeof(avlnode_t) + sizeof(memchunk_t)));
 	fprintf(fp, "Objs       %d (%d bytes)\n",		// notrans
 		obj_count, obj_count * sizeof(OBJ_DATA));
 
 	/* rooms */
-	fprintf(fp,"Rooms       %d (%d bytes)\n",		// notrans
-		room_count, room_count * (sizeof(ROOM_INDEX_DATA)));
+	fprintf(fp,"Rooms       %d (%d (%d) bytes)\n",		// notrans
+		c_size(&rooms),
+		c_size(&rooms) * sizeof(ROOM_INDEX_DATA),
+		c_size(&rooms) * (sizeof(ROOM_INDEX_DATA) +
+				  sizeof(avlnode_t) + sizeof(memchunk_t)));
 	 /* exits */
 	fprintf(fp,"Exits	%d (%d bytes)\n",		// notrans
 		exit_count, exit_count * (sizeof(EXIT_DATA)));
@@ -4585,17 +4590,12 @@ DO_FUN(do_dump, ch, argument)
 	fprintf(fp,"\nMobile Analysis\n");			// notrans
 	fprintf(fp,  "---------------\n");			// notrans
 
-	for (i = 0; i < MAX_KEY_HASH; i++) {
-		MOB_INDEX_DATA *pMobIndex;
-
-		for (pMobIndex = mob_index_hash[i]; pMobIndex != NULL;
-		     pMobIndex = pMobIndex->next) {
-			fprintf(fp, "#%d %d active %d killed     %s\n", // notrans
-				pMobIndex->vnum,
-				pMobIndex->count,
-				pMobIndex->killed,
-				mlstr_mval(&pMobIndex->short_descr));
-		}
+	C_FOREACH (pMobIndex, &mobiles) {
+		fprintf(fp, "#%d %d active %d killed     %s\n", // notrans
+			pMobIndex->vnum,
+			pMobIndex->count,
+			pMobIndex->killed,
+			mlstr_mval(&pMobIndex->short_descr));
 	}
 	fclose(fp);
 
@@ -4606,17 +4606,12 @@ DO_FUN(do_dump, ch, argument)
 	fprintf(fp,"\nObject Analysis\n");			// notrans
 	fprintf(fp,  "---------------\n");			// notrans
 
-	for (i = 0; i < MAX_KEY_HASH; i++) {
-		OBJ_INDEX_DATA *pObjIndex;
-
-		for (pObjIndex = obj_index_hash[i]; pObjIndex != NULL;
-		     pObjIndex = pObjIndex->next) {
-			fprintf(fp, "#%-4d %3d active %3d reset      %s\n", // notrans
-				pObjIndex->vnum,
-				pObjIndex->count,
-				pObjIndex->reset_num,
-				mlstr_mval(&pObjIndex->short_descr));
-		}
+	C_FOREACH (pObjIndex, &objects) {
+		fprintf(fp, "#%-4d %3d active %3d reset      %s\n", // notrans
+			pObjIndex->vnum,
+			pObjIndex->count,
+			pObjIndex->reset_num,
+			mlstr_mval(&pObjIndex->short_descr));
 	}
 
 	fclose(fp);

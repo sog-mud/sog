@@ -1,5 +1,5 @@
 /*
- * $Id: hunt.c,v 1.48 2002-11-28 21:40:19 fjoe Exp $
+ * $Id: hunt.c,v 1.49 2003-05-08 14:00:07 fjoe Exp $
  */
 
 /* Kak zovut sobaku Gejtsa?
@@ -188,7 +188,7 @@ struct room_d
 static avltree_info_t c_info_room = {
 	&avltree_ops, NULL, NULL,
 
-	MT_PVOID, sizeof(room_d), vnum_ke_cmp,
+	MT_PVOID, sizeof(room_d), ke_cmp_int,
 };
 
 static int

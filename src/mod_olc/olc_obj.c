@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_obj.c,v 1.101 2001-12-08 10:22:49 fjoe Exp $
+ * $Id: olc_obj.c,v 1.102 2003-05-08 14:00:10 fjoe Exp $
  */
 
 #include <ctype.h>
@@ -125,7 +125,6 @@ OLC_FUN(objed_create)
 	OBJ_INDEX_DATA *pObj;
 	AREA_DATA *pArea;
 	int  value;
-	int  iHash;
 	char arg[MAX_STRING_LENGTH];
 
 	one_argument(argument, arg, sizeof(arg));
@@ -149,15 +148,10 @@ OLC_FUN(objed_create)
 		return FALSE;
 	}
 
-	pObj			= new_obj_index();
-	pObj->vnum		= value;
-
+	pObj = c_insert(&objects, &value);
+	pObj->vnum = value;
 	if (value > top_vnum_obj)
 		top_vnum_obj = value;
-
-	iHash			= value % MAX_KEY_HASH;
-	pObj->next		= obj_index_hash[iHash];
-	obj_index_hash[iHash]	= pObj;
 
 	ch->desc->pEdit		= (void *)pObj;
 	OLCED(ch)		= olced_lookup(ED_OBJ);
@@ -352,7 +346,6 @@ OLC_FUN(objed_del)
 {
 	OBJ_INDEX_DATA *pObj;
 	OBJ_DATA *obj, *obj_next;
-	int i;
 	BUFFER *buf;
 
 	EDIT_OBJ(ch, pObj);
@@ -387,21 +380,7 @@ OLC_FUN(objed_del)
 	TOUCH_VNUM(pObj->vnum);
 
 /* delete obj index itself */
-	i = pObj->vnum % MAX_KEY_HASH;
-	if (pObj == obj_index_hash[i])
-		obj_index_hash[i] = pObj->next;
-	else {
-		OBJ_INDEX_DATA *prev;
-
-		for (prev = obj_index_hash[i]; prev; prev = prev->next)
-			if (prev->next == pObj)
-				break;
-
-		if (prev)
-			prev->next = pObj->next;
-	}
-
-	free_obj_index(pObj);
+	c_delete(&objects, pObj);
 	act_char("ObjEd: Obj index deleted.", ch);
 	edit_done(ch->desc);
 	return FALSE;

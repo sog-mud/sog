@@ -1,5 +1,5 @@
 /*
- * $Id: olc_mprog.c,v 1.14 2003-05-08 10:39:44 fjoe Exp $
+ * $Id: olc_mprog.c,v 1.15 2003-05-08 14:00:10 fjoe Exp $
  */
 
 #include <ctype.h>
@@ -280,36 +280,25 @@ OLC_FUN(mped_dump)
 OLC_FUN(mped_where)
 {
 	BUFFER *buf;
-	int i;
-
+	MOB_INDEX_DATA *pMob;
+	OBJ_INDEX_DATA *pObj;
+	ROOM_INDEX_DATA *pRoom;
 	mprog_t *mp;
 	EDIT_MPROG(ch, mp);
 
 	buf = buf_new(-1);
 	switch (mp->type) {
 	case MP_T_MOB:
-		for (i = 0; i < MAX_KEY_HASH; i++) {
-			MOB_INDEX_DATA *pMob;
-
-			for (pMob = mob_index_hash[i]; pMob != NULL; pMob = pMob->next)
-				mptrig_dump(buf, mp, &pMob->mp_trigs, pMob);
-		}
+		C_FOREACH (pMob, &mobiles)
+			mptrig_dump(buf, mp, &pMob->mp_trigs, pMob);
 		break;
 	case MP_T_OBJ:
-		for (i = 0; i < MAX_KEY_HASH; i++) {
-			OBJ_INDEX_DATA *pObj;
-
-			for (pObj = obj_index_hash[i]; pObj != NULL; pObj = pObj->next)
-				mptrig_dump(buf, mp, &pObj->mp_trigs, pObj);
-		}
+		C_FOREACH (pObj, &objects)
+			mptrig_dump(buf, mp, &pObj->mp_trigs, pObj);
 		break;
 	case MP_T_ROOM:
-		for (i = 0; i < MAX_KEY_HASH; i++) {
-			ROOM_INDEX_DATA *pRoom;
-
-			for (pRoom = room_index_hash[i]; pRoom != NULL; pRoom = pRoom->next)
-				mptrig_dump(buf, mp, &pRoom->mp_trigs, pRoom);
-		}
+		C_FOREACH (pRoom, &rooms)
+			mptrig_dump(buf, mp, &pRoom->mp_trigs, pRoom);
 		break;
 
 	default:

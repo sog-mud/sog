@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: chquest_impl.c,v 1.9 2003-04-23 08:13:17 fjoe Exp $
+ * $Id: chquest_impl.c,v 1.10 2003-05-08 14:00:13 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -42,16 +42,11 @@ chquest_t *chquest_list;		/* global list of chquests	     */
 void
 chquest_init(void)
 {
-	int i;
+	OBJ_INDEX_DATA *pObjIndex;
 
-	for (i = 0; i < MAX_KEY_HASH; i++) {
-		OBJ_INDEX_DATA *pObjIndex;
-
-		for (pObjIndex = obj_index_hash[i]; pObjIndex != NULL;
-		     pObjIndex = pObjIndex->next) {
-			if (IS_SET(pObjIndex->obj_flags, OBJ_CHQUEST))
-				chquest_add(pObjIndex);
-		}
+	C_FOREACH (pObjIndex, &objects) {
+		if (IS_SET(pObjIndex->obj_flags, OBJ_CHQUEST))
+			chquest_add(pObjIndex);
 	}
 }
 
