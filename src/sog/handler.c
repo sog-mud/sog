@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.55 1998-09-11 06:50:45 fjoe Exp $
+ * $Id: handler.c,v 1.56 1998-09-11 07:53:54 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1356,8 +1356,9 @@ void obj_from_char(OBJ_DATA *obj)
 /* XXX */
 	if (!IS_NPC(ch)) {
 		int vnum = obj->pIndexData->vnum;
+		char *p = mlstr_mval(obj->short_descr);
 
-		if (strstr(mlstr_mval(obj->short_descr), ch->name)
+		if (p && strstr(p, ch->name)
 		&&  get_wear_level(ch, obj) < obj->level
 		&&  ((94 <= vnum && vnum <= 96) ||
 		     (31 <= vnum && vnum <= 33))) {
