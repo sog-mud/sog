@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.12 1998-05-18 12:56:32 efdi Exp $
+ * $Id: fight.c,v 1.13 1998-05-19 00:28:49 efdi Exp $
  */
 
 /***************************************************************************
@@ -52,6 +52,7 @@
 #include "hometown.h"
 #include "act_comm.h"
 #include "magic.h"
+#include "resource.h"
 
 #define MAX_DAMAGE_MESSAGE 34
 
@@ -952,7 +953,7 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt ,bool secondary)
 			    corpse && corpse->contains	&& /* exists and not empty */
 			    !IS_SET(ch->act,PLR_AUTOLOOT))  {
 			  do_get(ch, "gold corpse");
-			  do_get(ch, "silver corpse");
+			  do_get(ch, "coins corpse");
 			}
 
 			if (IS_SET(ch->act, PLR_AUTOSAC))
@@ -2266,12 +2267,12 @@ void group_gain(CHAR_DATA *ch, CHAR_DATA *victim)
 	if (!IS_NPC(gch) && IS_QUESTOR(gch) && IS_NPC(victim))
 	{
 		if (victim->hunter == gch) {
-			send_to_char("You have almost completed your QUEST!\n\r",victim->hunter);
-			send_to_char("Return to questmaster before your time runs out!\n\r",victim->hunter);
+			send_to_char(msg(FIGHT_ALMOST_COMPLETE_QUEST, gch),gch);
+			send_to_char(msg(FIGHT_RETURN_TO_QUESTER, gch), gch);
 			victim->hunter->pcdata->questmob = -1;
 		} else if (victim->hunter) {
-			send_to_char("You have completed someone's quest.\n\r", gch);
-			send_to_char("Someone has completed your quest.\n\r", victim->hunter);
+			send_to_char(msg(FIGHT_YOU_COMPLETED_SOMEONES_QUEST, gch), gch);
+			send_to_char(msg(FIGHT_SOMEONE_COMPLETED_YOUR_QUEST, victim->hunter), victim->hunter);
 			REMOVE_BIT(victim->hunter->act, PLR_QUESTOR);
 			victim->hunter->pcdata->questgiver = 0;
 			victim->hunter->pcdata->countdown = 0;
