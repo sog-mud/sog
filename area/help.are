@@ -7502,6 +7502,15 @@ Syntax: {cprac add{x name...
 Syntax: {cprac delete{x name...
 Syntax: {cprac remove{x name...
 ~
+0 'OLC SPEC CHECK'~
+Syntax: {ccheck show{x
+Syntax: {ccheck edit{x
+Syntax: {ccheck compile{x
+Syntax: {ccheck flags{x <flags>
+Syntax: {ccheck delete{x
+
+<flags> are mprog flags, Use '?' to get list of valid mprog flags.
+~
 -1 $~
 
 #$
