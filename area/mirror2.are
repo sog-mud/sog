@@ -1947,7 +1947,7 @@ a kendo~
 A long wooden staff lies here.~
 wood~
 weapon GH AN
-spear 5 9 crush DK
+staff 5 9 crush D
 45 10 100 P
 A
 2 1
@@ -2089,7 +2089,7 @@ a thick wooden staff~
 A rough wooden staff lies here.~
 wood~
 weapon 0 AN
-spear 4 4 crush K
+staff 4 4 crush 0
 19 10 0 P
 G none
 #19086

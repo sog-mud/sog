@@ -990,8 +990,8 @@ M fight 36302 100~
 #OBJECTS
 #36300
 bracer feathery~
-feathery bracer~
-Beautiful color feathers lie here.~
+@eng feathery bracer@rus браслет из перьев~
+@eng Beautiful color feathers lie here.@rus Красивые цветные перья лежат здесь.~
 feathers~
 armor A AM
 25 25 25 10 0
@@ -1009,8 +1009,8 @@ A
 G none
 #36301
 tomahawk axe~
-tomahawk~
-A small throwing axe lies on the ground.~
+@eng tomahawk@rus томогавк~
+@eng A small throwing axe lies on the ground.@rus Небольшой метательный топорик валяется на земле.~
 steel~
 weapon BY AN
 axe 15 7 slash DEK
@@ -1022,8 +1022,8 @@ A
 G none
 #36302
 necklace tooth~
-tooth necklace~
-A set of teeth lies here.~
+@eng tooth necklace@rus ожерелье из зубов~
+@eng A set of teeth lies here.@rus Коллекция всевозможных зубов лежит здесь.~
 horn~
 armor BG AC
 26 28 26 20 0
@@ -1039,8 +1039,8 @@ A
 G none
 #36303
 skirt palm~
-short palm skirt~
-A bunch of palm leaves lies on the ground.~
+@eng short palm skirt@rus короткая юбка из пальмовых листьев~
+@eng A bunch of palm leaves lies on the ground.@rus Связка пальмовых листьев лежит тут.~
 bamboo~
 armor I AF
 20 20 20 10 0
@@ -1058,8 +1058,8 @@ A
 G none
 #36304
 bracer charisma feathery~
-bracer of charisma~
-A feathery bracer is hanging here.~
+@eng bracer of charisma@rus Браслет удачи~
+@eng A feathery bracer is hanging here.@rus Пушистый браслет весит здесь.~
 feathers~
 armor AGI AI
 25 25 25 19 0
@@ -1075,8 +1075,8 @@ A
 G none
 #36305
 shield ebony~
-ebony shield~
-An ebony shield lies neglected.~
+@eng ebony shield@rus Эбеновый щит~
+@eng An ebony shield lies neglected.@rus Щит из темного дерева лежит неподалеку.~
 ebony~
 armor CE AJ
 35 35 35 15 0
@@ -1094,7 +1094,7 @@ A
 G none
 #36306
 skin leo~
-leo skin~
+@eng leo skin@rus львиная шкура~
 A sneaking lion tries to bite you.~
 hard leather~
 armor H AK
@@ -3937,7 +3937,7 @@ D3
 Z -1 36334
 S
 #36352
-@eng Entrance Hall@rus Холл@rusoff Холл~
+@eng Entrance Hall@rus Холл~
 @eng You enter the Mayor's Residence. Marble stairs lead to the
 Great Hall north and the Mayor's Office south. Up ahead you
 see a great Dining Hall. West you can get back outdoors.

@@ -1421,7 +1421,7 @@ staff посох~
 @eng A stout wooden staff lies on the floor.@rus Прочный деревянный посох (staff) лежит на полу.~
 wood~
 weapon 0 AN
-spear 1 8 pound FK
+staff 1 8 pound F
 9 40 580 G
 A
 17 -2

@@ -812,7 +812,7 @@ an iron-shod staff~
 A long staff capped with iron leans against a wall.~
 iron~
 weapon 0 AN
-spear 2 5 pound FK
+staff 2 5 pound F
 10 60 630 G
 A
 17 -2

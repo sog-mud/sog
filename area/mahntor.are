@@ -773,7 +773,7 @@ a gnarled magius staff~
 A gnarled staff lies here.~
 platinium~
 weapon G AN
-spear 6 5 pound FK
+staff 6 5 pound F
 27 100 2900 P
 A
 20 -2
@@ -912,7 +912,7 @@ an ice staff~
 A staff made of ice rests here.~
 ice~
 weapon G AN
-spear 7 4 pound BFK
+staff 7 4 pound BF
 28 130 1470 P
 A
 12 20

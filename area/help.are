@@ -1779,11 +1779,13 @@ DISCONNECT с числовым аргументом служит для закрытия соединения еще не полнос-
 Смотри также {CHELP SOCKETS{x
 ~
 92 'WIZ FREEZE' FREEZE~
-Syntax: freeze <name>
-
-FREEZE <character> is a toggle which prevents a character from issuing any
-commands at all. It can be removed from within the game, so freezing a 
-troublemaker is usually a better option than they deny command.
+@eng Syntax: {cfreeze{x <char>
+ 
+FREEZE prevents characters from issuing any commands save for PRAY, DELETE and
+QUIT.
+@rus Синтаксис: {cfreeze{x <персонаж>
+ 
+FREEZE запрещает персонажу ввод любых команд, кроме PRAY, QUIT и DELETE.
 ~
 92 'WIZ FORCE' FORCE~
 Syntax: force <character> <command>
@@ -2101,15 +2103,19 @@ STAT MP выводит информацию об выполении программы монстром. STAT MSG без аргу-
 ~
 92 'WIZ MWHERE' MWHERE 'WIZ OWHERE' OWHERE~
 @eng Syntax: {cmwhere{x <name>
+Syntax: {cmwhere{x <vnum>
 Syntax: {cowhere{x <name>
+Syntax: {cowhere{x <vnum>
  
-MWHERE shows you the locations of all the mobiles with specified name.
-OWHERE shows you thr locations of all objects with specified name.
+MWHERE shows you locations of all mobiles with specified name or vnum.
+OWHERE shows you locations of all objects with specified name or vnum.
 @rus Синтаксис: {cmwhere{x <имя>
+Синтаксис: {cmwhere{x <номер>
 Синтаксис: {cowhere{x <имя>
+Синтаксис: {cowhere{x <номер>
  
-MWHERE покажет тебе местоположение всех монстров с указанным именем.
-OWHERE покажет тебе местоположение всех обьектов с указанным именем.
+MWHERE покажет тебе расположение всех монстров с указанным именем или номером.
+OWHERE покажет тебе расположение всех обьектов с указанным именем или номером.
 ~
 92 'WIZ PEACE' PEACE~
 Syntax: peace
@@ -4174,7 +4180,7 @@ An up-to-date list of liquid types can be obtained by typing
    value 3    unused
    value 4    unused
 ~
-99 PRICE 'CLAN PRICE'~
+92 PRICE 'CLAN PRICE'~
 Прайс-лист на клан и все прилагающиеся услуги:
 ver 2.0
  
@@ -5917,6 +5923,14 @@ object ownership etc.
  
 Эта команда служит для смены имени персонажа. Она корректно обрабатывает
 состояние в клане, владение именными обьектами и т.д.
+~
+92 'WIZ SMITE' SMITE~
+@eng Syntax: {csmite{x <char>
+ 
+SMITE is used for punishment. It almost kills target character.
+@rus Синтаксис: {csmite{x <персонаж>
+ 
+SMITE служит для показательного наказания. Это почти убивает жертву.
 ~
 -1 $~
 

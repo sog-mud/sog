@@ -73,7 +73,7 @@ Tikashu is here.
 ~
 ~
 human~
-0 0 0 0
+A 0 0 0
 50 200 1d1+10000 1d1+5000 10d10+250 cleave
 40 40 40 30
 0 0 0 0
@@ -1004,9 +1004,31 @@ star of justice~
 @eng {Y***{W Power of Justice{Y ***{x@rus {Y***{W Сила Правосудия{Y ***{x~
 @eng Star of Justice lies here.@rus Что-то невзрачное поблескивает на земле. (star of justice)~
 unknown~
-treasure ACGMRSTZa AO
+armor ACGMRSTZa AO
 0 0 0 0 0
 54 1 1 P
+A
+2 2
+A
+5 2
+A
+6 2
+A
+4 2
+A
+3 2
+A
+1 2
+A
+14 130
+A
+18 20
+A
+19 25
+A
+12 250
+A
+13 200
 G none
 #38603
 diamond ring power~

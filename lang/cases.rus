@@ -1928,6 +1928,16 @@ Form 6 -~
 End
 
 #RULE
+Name охотничий~
+BaseLen 7
+Form 1 -ьего~
+Form 2 -ьему~
+Form 3 -ий~
+Form 4 -ьим~
+Form 5 -ьем~
+End
+
+#RULE
 Name дриада~
 BaseLen 5
 Form 1 -ы~

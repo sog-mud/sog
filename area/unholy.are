@@ -693,7 +693,7 @@ a quarterstaff~
 A quarterstaff is lying on the floor here.~
 ~
 weapon 0 AN
-spear 6 8 crush K
+staff 6 8 crush 0
 59 5 2500 P
 G none
 #30841

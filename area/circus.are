@@ -150,8 +150,9 @@ stand stand male 300
 0 0 medium unknown
 #4408
 midget~
-the Midget~
-A Midget is here, doing acrobatics to amuse the crowd.
+@eng the Midget@rus карлик~
+@eng A Midget is here, doing acrobatics to amuse the crowd.
+@rus Карлик (midget), проделывает акробатические трюки.
 ~
 The Midget acts very silly, but you see a cunning gleam in his eye.  This is 
 one to watch out for.
@@ -202,7 +203,8 @@ stand stand male 9
 #4411
 member audience~
 a member of the audience~
-A member of the audience goes "Ooooh!   Ahhhhh!" 
+@eng A member of the audience goes "Ooooh!   Ahhhhh!" 
+@rus Восторженный зритель (member) громко кричит:" Браво !!!"
 ~
 This person is so interested in the show, he doesn't even realize you are here.
 ~
@@ -648,7 +650,7 @@ a pointy translucent staff~
 A long, thin, shimmering object lies here.~
 ~
 weapon 0 AN
-spear 3 4 pound K
+staff 3 4 pound 0
 5 0 144 P
 A
 18 2
@@ -706,8 +708,8 @@ A CDFI EHK BCEH CFG
 G none
 #4415
 sign~
-a letter~
-A letter is posted on the games booths.~
+@eng a letter@rus записка~
+@eng A letter is posted on the games booths.@rus Какая-то записка приклеена к палатке~
 ~
 furniture 0 0
 0 0 0 0 0
@@ -1155,7 +1157,7 @@ D3
 Z 0 4404
 S
 #4404
-The Game Booths~
+@eng The Game Booths@rus Игровая палатка~
 @eng This area seems deserted.  The booths are boarded up, and the only
 Circus employee you see is sitting on a counter, muttering obscenities at the
 Mayor and City council.  He makes it a point to let you know that he knows 
@@ -1287,13 +1289,18 @@ Z 0 4408
 S
 #4410
 @eng The Tent of the Illusionist@rus Шатер Фокусника~
-This tent is darkened at first.  Then it gradually lightens, although
+@eng This tent is darkened at first.  Then it gradually lightens, although
 you do not see the source of the light.  You do hear a loud breathing sound
 though.  You think it may be coming from right behind you.  You think this 
 because you can feel very warm breath on the back of your neck.  You turn,
 and see a very large, very evil looking creature.  It's a Dragon.  It opens 
 its mouth, but does not attack.  Instead it just laughs at you mercilessly.
 The Dragon snorts a cloud of smoke at you.
+@rus Эта палатка затемнена, но с твоим приходом мягкий свет начал наполнять
+это место, хотя светильника не видно. Звуки дыхания и ветра наполняют твой
+слух. Кажеться, что кто-то дышит тебе в спину. Ты обернулся и увидил огромное
+чудовище !!! Это ДРАКОН. Он слегка приоткрыл свою пасть но не спалил тебя, а
+только выпустил облако пара и рассмеялся.
 ~
 0 D inside
 E
@@ -1315,12 +1322,16 @@ You see the Bearded Lady's tent.
 Z 0 4409
 S
 #4411
-The Midget's Tent~
-This tent has a mat laid out, no doubt where the Midget performs his
+@eng The Midget's Tent@rus Палатка Карлика~
+@eng This tent has a mat laid out, no doubt where the Midget performs his
 acrobatics.  You overhear another member of the audience telling his friend,
 'I'd watch out for that Midget.  I hear that a new rash of robberies broke out
 right after the Circus came to town.  Wouldn't surprise me if he is the one
 responsible.'
+@rus В этой палатке подвешан маленький коврик. Наверное тут и проходят акр
+рабатические шоу. Ты услышал, как один из зрителей сказал своему 
+другу:Я бы с удовольствием посмотрел на карликов. говорят, что их шоу
+самое лучшее в цирке."
 ~
 0 D inside
 D0

@@ -313,7 +313,7 @@ a quarterstaff~
 A quarterstaff is on the floor.~
 wood~
 weapon G AN
-spear 5 5 pound FK
+staff 5 5 pound F
 21 50 670 P
 A
 19 2
@@ -468,7 +468,7 @@ a quarterstaff~
 A quarterstaff is on the floor.~
 wood~
 weapon G AN
-spear 3 7 pound FK
+staff 3 7 pound F
 14 50 310 P
 A
 19 1

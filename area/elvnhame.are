@@ -1645,7 +1645,7 @@ a sturdy staff~
 A sturdy staff waits to be taken.~
 wood~
 weapon N AN
-spear 4 4 thwack K
+staff 4 4 thwack 0
 11 120 300 P
 G none
 #0

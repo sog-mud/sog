@@ -339,7 +339,7 @@ G none
 @eng A strange staff is lying here.@rus Странного вида посох (staff) оставлен кем-то.~
 wood~
 weapon GI AN
-spear 10 20 none K
+staff 10 20 none 0
 95 0 0 P
 G none
 #15018
