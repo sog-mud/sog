@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.271.2.36 2001-06-27 08:34:47 fjoe Exp $
+ * $Id: act_info.c,v 1.271.2.37 2001-07-11 04:40:25 kostik Exp $
  */
 
 /***************************************************************************
@@ -3480,9 +3480,26 @@ void do_demand(CHAR_DATA *ch, const char *argument)
 
 	chance = IS_EVIL(victim) ? 10 : IS_GOOD(victim) ? -5 : 0;
 	chance += (get_curr_stat(ch,STAT_CHA) - 15) * 10;
-	chance += LEVEL(ch) - LEVEL(victim);
+	chance += (LEVEL(ch) - LEVEL(victim)) * 2;
 
 	chance = (get_skill(ch, gsn_demand))*chance/100;
+
+	if (victim->position == POS_SLEEPING) {
+		act("You should wake $N first.", ch, NULL, victim, TO_CHAR);
+		return;
+	}
+
+	if (!can_see(victim, ch)) {
+		do_say(victim,
+		    "If you want something from me, stop hiding from me!");
+		return;
+	}
+
+	if (victim->position == POS_FIGHTING) {
+		do_say(victim,
+		    "Let me finish my fight, and then we'll talk.");
+		return;
+	}
 
 	if (number_percent() > chance) {
 		do_say(victim, "I'm not about to give you anything!");
