@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.149 2000-01-05 08:55:51 fjoe Exp $
+ * $Id: martial_art.c,v 1.150 2000-01-12 15:39:34 fjoe Exp $
  */
 
 /***************************************************************************
@@ -872,7 +872,7 @@ void do_cut(CHAR_DATA *ch, const char *argument)
 			act("$n attempts to cut you with $s weapon.",
 				ch, NULL, victim, TO_VICT);
 		
-			one_hit(ch, victim, "cut", WEAR_WIELD);
+			one_hit(ch, victim, "cut", WEAR_SECOND_WIELD);
 			check_improve(ch, "cut", TRUE, 3);
 		}
 	}
