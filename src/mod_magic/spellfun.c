@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.132 1999-02-26 13:26:54 fjoe Exp $
+ * $Id: spellfun.c,v 1.133 1999-03-09 09:49:57 kostik Exp $
  */
 
 /***************************************************************************
@@ -4069,8 +4069,8 @@ void spell_black_shroud(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	af.type      = sn;
 	af.level     = level;
 	af.duration  = level/6;
-	af.location  = APPLY_SAVING_SPELL;
-	af.modifier  = -1;
+	af.location  = APPLY_NONE;
+	af.modifier  = 0;
 	af.bitvector = AFF_BLACK_SHROUD;
 	affect_to_char(victim, &af);
 	act ("$n is surrounded by black aura.", victim, NULL, NULL, TO_ROOM);

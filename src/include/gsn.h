@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: gsn.h,v 1.13 1999-02-22 15:57:09 kostik Exp $
+ * $Id: gsn.h,v 1.14 1999-03-09 09:50:02 kostik Exp $
  */
 
 #ifndef _GSN_H_
@@ -238,5 +238,6 @@ extern int gsn_forest_fighting;
 
 extern int gsn_doppelganger;
 extern int gsn_mirror;
+extern int gsn_hand_block;
 
 #endif

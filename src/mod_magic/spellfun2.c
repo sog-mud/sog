@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.90 1999-02-26 13:26:56 fjoe Exp $
+ * $Id: spellfun2.c,v 1.91 1999-03-09 09:49:59 kostik Exp $
  */
 
 /***************************************************************************
@@ -1520,7 +1520,6 @@ void spell_shadowlife(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	shadow->gold = 0;
 
 	shadow->target  = victim;
-	do_murder(shadow, victim->name);
 	
 	af.where	= TO_AFFECTS;
 	af.type         = sn;
@@ -1532,6 +1531,7 @@ void spell_shadowlife(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	affect_to_char(ch, &af);  
 
 	char_to_room(shadow, ch->in_room);
+	do_murder(shadow, victim->name);
 }  
 
 void spell_ruler_badge(int sn, int level, CHAR_DATA *ch, void *vo, int target)

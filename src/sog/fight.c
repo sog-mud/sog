@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.148 1999-03-01 13:43:57 fjoe Exp $
+ * $Id: fight.c,v 1.149 1999-03-09 09:49:56 kostik Exp $
  */
 
 /***************************************************************************
@@ -87,6 +87,7 @@ bool	check_dodge		(CHAR_DATA *ch, CHAR_DATA *victim);
 bool	check_parry		(CHAR_DATA *ch, CHAR_DATA *victim, int loc);
 bool	check_block		(CHAR_DATA *ch, CHAR_DATA *victim, int loc);
 bool	check_blink		(CHAR_DATA *ch, CHAR_DATA *victim);
+bool	check_hand_block	(CHAR_DATA *ch, CHAR_DATA *victim);
 void	dam_message		(CHAR_DATA *ch, CHAR_DATA *victim, int dam,
 				 int dt, bool immune, int dam_type);
 void	death_cry		(CHAR_DATA *ch);
@@ -1262,12 +1263,9 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim,
 	/*
 	 * Damage modifiers.
 	 */
-	if (IS_AFFECTED(victim, AFF_SANCTUARY)
+	if (IS_AFFECTED(victim, AFF_SANCTUARY|AFF_BLACK_SHROUD)
 	&&  !((dt == gsn_cleave) && (number_percent() < 50)))
 		dam /= 2;
-
-	if (IS_AFFECTED(victim, AFF_BLACK_SHROUD))
-		dam = (7*dam)/15;
 
 	if (IS_AFFECTED(victim, AFF_PROTECT_EVIL) && IS_EVIL(ch))
 		dam -= dam / 4;
@@ -1307,6 +1305,8 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim,
 		if (check_dodge(ch, victim))
 			return FALSE;
 		if (check_blink(ch, victim))
+			return FALSE;
+		if (check_hand_block(ch, victim))
 			return FALSE;
 	}
 
@@ -1566,10 +1566,10 @@ bool check_parry(CHAR_DATA *ch, CHAR_DATA *victim, int loc)
 			chance *= 1.2;
 	}
 
-	if (check_forest(ch) == FOREST_DEFENCE
-	 && (number_percent() < get_skill(ch, gsn_forest_fighting))) {
+	if (check_forest(victim) == FOREST_DEFENCE
+	 && (number_percent() < get_skill(victim, gsn_forest_fighting))) {
 		chance *= 1.2;
-		check_improve (ch, gsn_forest_fighting, TRUE, 7);
+		check_improve (victim, gsn_forest_fighting, TRUE, 7);
 	}
 
 
@@ -1680,11 +1680,14 @@ bool check_block(CHAR_DATA *ch, CHAR_DATA *victim, int loc)
 		chance -= (victim->class == CLASS_WARRIOR) ? 0 : 10;
 	}	
 
-	if (check_forest(ch) == FOREST_DEFENCE 
-	&& (number_percent() < get_skill(ch, gsn_forest_fighting))) {
+	if (check_forest(victim) == FOREST_DEFENCE 
+	&& (number_percent() < get_skill(victim, gsn_forest_fighting))) {
 		chance *= 1.2;
-		check_improve (ch, gsn_forest_fighting, TRUE, 7);
+		check_improve (victim, gsn_forest_fighting, TRUE, 7);
 	}
+
+	if (MOUNTED(victim))
+		chance *= 1.2;
 
 
 	if (number_percent() >= chance + victim->level - ch->level)
@@ -1698,6 +1701,36 @@ bool check_block(CHAR_DATA *ch, CHAR_DATA *victim, int loc)
 	check_improve(victim, gsn_shield_block, TRUE, 6);
 	return TRUE;
 }
+
+/* 
+ * Check for hand block
+ */
+
+bool check_hand_block(CHAR_DATA *ch, CHAR_DATA *victim)
+{
+	int chance;
+
+	if (!IS_AWAKE(victim) 
+	|| IS_NPC(victim) 
+	|| get_eq_char(victim, WEAR_WIELD)
+	|| get_eq_char(victim, WEAR_SECOND_WIELD)
+	|| (chance=get_skill(victim, gsn_hand_block)<=0)) 
+		return FALSE;
+
+	chance = URANGE(5, chance*2/5 + victim->level - ch->level, 55);
+
+	if (number_percent() < chance) {
+		act("Your hand blocks $n's attack.", 
+			ch, NULL, victim, TO_VICT|ACT_VERBOSE);
+		act("$N blocks your attack with $S hand.",
+			ch, NULL, victim, TO_CHAR|ACT_VERBOSE);
+		check_improve(victim, gsn_hand_block, TRUE, 5);
+		return TRUE;
+	}
+	return FALSE;
+}
+
+
 
 /*
  * Check for dodge.
@@ -1724,10 +1757,10 @@ bool check_dodge(CHAR_DATA *ch, CHAR_DATA *victim)
 		    chance *= 1.1;
 	}
 	
-	if (check_forest(ch) == FOREST_DEFENCE 
-	  && (get_skill(ch, gsn_forest_fighting) > number_percent())) {
+	if (check_forest(victim) == FOREST_DEFENCE 
+	  && (get_skill(victim, gsn_forest_fighting) > number_percent())) {
 		chance *= 1.2;
-		check_improve (ch, gsn_forest_fighting, TRUE, 7);
+		check_improve (victim, gsn_forest_fighting, TRUE, 7);
 	}
 
 	if (number_percent() >= chance + (victim->level - ch->level) / 2)
