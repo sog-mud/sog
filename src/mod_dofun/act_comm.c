@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.220 2000-10-22 17:53:39 fjoe Exp $
+ * $Id: act_comm.c,v 1.221 2000-12-01 05:52:39 avn Exp $
  */
 
 /***************************************************************************
@@ -1470,7 +1470,8 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 
 	if (IS_NULLSTR(arg1)) {
 		if (pc->clan_status == CLAN_LEADER
-		||  pc->clan_status == CLAN_SECOND) {
+		||  pc->clan_status == CLAN_SECOND
+		||  IS_IMMORTAL(ch)) {
 			if (IS_IMMORTAL(ch)) {
 				act_char("Usage: petition <clan name> <accept | reject> <char name>", ch);
 			} else {

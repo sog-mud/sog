@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: healer.c,v 1.43 2000-10-09 19:16:06 fjoe Exp $
+ * $Id: healer.c,v 1.44 2000-12-01 05:52:39 avn Exp $
  */
 
 #include <sys/types.h>
@@ -110,12 +110,14 @@ void do_heal(CHAR_DATA *ch, const char *argument)
 		buf_act(buf, BUF_END, "$N offers the following spells.",
 			ch, NULL, mob, NULL, TO_CHAR);
 		for (h = heal_table; h->keyword; h++) {
+			if (has_spec(ch, "clan_battleragers") && (h->price > 0))
+				continue;
 			buf_printf(buf, BUF_END,
 				   "%-10.9s : %-20.19s : %3d gold\n",
 				   h->keyword, h->name,
 				   get_heal_cost(h, mob, ch) / 100);
 		}
-		buf_append(buf, "Type heal <spell> to be healed.");
+		buf_append(buf, "Type heal <spell> to be healed.\n");
 		page_to_char(buf_string(buf), ch);
 		buf_free(buf);
 		return;
@@ -145,8 +147,8 @@ void do_heal(CHAR_DATA *ch, const char *argument)
 
 	WAIT_STATE(ch, get_pulse("violence"));
 
-	if (cost < 0) {
-		deduct_cost(ch, -cost);
+	if (h->price < 0) {
+		deduct_cost(ch, cost);
 		dofun(h->spellname, mob, ch->name);
 		return;
 	}
