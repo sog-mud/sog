@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.157.2.47 2002-10-22 21:15:04 tatyana Exp $
+ * $Id: update.c,v 1.157.2.48 2002-10-24 07:59:36 tatyana Exp $
  */
 
 /***************************************************************************
@@ -1697,7 +1697,8 @@ void update_one_obj(OBJ_DATA *obj)
 	CHAR_DATA *rch;
 	char *message;
 
-	if (IS_AUCTIONED(obj))
+	if (IS_AUCTIONED(obj)
+	||  is_on_black_market(obj))
 		return;
 
 	/* find the uppest obj container */
@@ -2484,6 +2485,8 @@ sell_item(bmitem_t *item)
 		if (!no_seller && !IS_NPC(seller))
 			send_notice(seller, item, NOTICE_SELLER);
 		extract_obj(item->obj, 0);
+		if (loaded_seller)
+			char_nuke(seller);
 	} else {
 		if ((seller = get_char_world(NULL, item->seller)) == NULL) {
 			if ((seller = char_load(item->seller, LOAD_F_NOCREATE)) == NULL)

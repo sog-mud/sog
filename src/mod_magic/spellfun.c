@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.181.2.38 2002-10-23 07:05:23 tatyana Exp $
+ * $Id: spellfun.c,v 1.181.2.39 2002-10-24 07:59:26 tatyana Exp $
  */
 
 /***************************************************************************
@@ -48,6 +48,7 @@
 #include "merc.h"
 #include "chquest.h"
 #include "fight.h"
+#include "auction.h"
 
 void spell_acid_blast(int sn, int level, CHAR_DATA *ch, void *vo)
 {
@@ -3043,20 +3044,23 @@ void spell_locate_object(int sn, int level, CHAR_DATA *ch, void *vo)
 			buf_printf(buffer, "One is carried by %s\n",
 				   PERS(in_obj->carried_by, ch));
 			number++;
-		}
-		else {
-			if (in_obj->in_room == NULL)
+		} else {
+			if (in_obj->in_room == NULL) {
+				if (IS_AUCTIONED(obj)) {
+					buf_printf(buffer, "One is on auction "
+						   "right now.\n");
+					number++;
+				}
 				continue;
+			}
 
-			if (IS_IMMORTAL(ch) && in_obj->in_room != NULL) {
+			if (IS_IMMORTAL(ch)) {
 				buf_printf(buffer, "One is in %s [Room %d]\n",
 					   mlstr_cval(&in_obj->in_room->name, ch),
 					   in_obj->in_room->vnum);
 				number++;
 			} else {
 				buf_printf(buffer, "One is in %s\n",
-					   in_obj->in_room == NULL ?
-					   "somewhere" :
 					   mlstr_cval(&in_obj->in_room->name, ch));
 				number++;
 			}

@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.182.2.62 2002-10-22 21:14:56 tatyana Exp $
+ * $Id: handler.c,v 1.182.2.63 2002-10-24 07:59:33 tatyana Exp $
  */
 
 /***************************************************************************
@@ -54,6 +54,7 @@
 #include "lang.h"
 #include "mob_prog.h"
 #include "auction.h"
+#include "bm.h"
 
 /*
  * Local functions.
@@ -1896,21 +1897,8 @@ CHAR_DATA *get_char_world(CHAR_DATA *ch, const char *argument)
 	if (!number)
 		return NULL;
 
-	if (ch == NULL) {
-		if (arg[0] == '\0')
-			return NULL;
-		for (wch = char_list; wch; wch = wch->next) {
-			if (!wch->in_room
-			||  !is_name(arg, wch->name))
-				continue;
-
-			if (!--number)
-				return wch;
-		}
-		return NULL;
-	}
-
-	if ((wch = get_char_room_raw(ch, arg, &number, ch->in_room)))
+	if (ch != NULL
+	&& (wch = get_char_room_raw(ch, arg, &number, ch->in_room)))
 		return wch;
 
 	if (arg[0] == '\0')
@@ -1918,8 +1906,8 @@ CHAR_DATA *get_char_world(CHAR_DATA *ch, const char *argument)
 
 	for (wch = char_list; wch; wch = wch->next) {
 		if (!wch->in_room
-		||  wch->in_room == ch->in_room
-		||  !can_see(ch, wch) 
+		||  (ch != NULL && wch->in_room == ch->in_room)
+		||  (ch != NULL && !can_see(ch, wch))
 		||  !is_name(arg, wch->name))
 			continue;
 
@@ -5499,3 +5487,15 @@ int trust_level(CHAR_DATA *ch)
 	return IS_NPC(ch) ? UMIN((ch)->level, LEVEL_HERO - 1) : ch->level;
 }
 
+bool
+is_on_black_market(OBJ_DATA *obj)
+{
+	bmitem_t *item;
+
+	for (item = bmitem_list; item != NULL; item = item->next) {
+		if (item->obj == obj)
+			return TRUE;
+	}
+
+	return FALSE;
+}

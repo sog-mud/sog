@@ -31,7 +31,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: bm.h,v 1.1.2.2 2002-10-22 21:14:44 tatyana Exp $
+ * $Id: bm.h,v 1.1.2.3 2002-10-24 07:59:25 tatyana Exp $
  */
 
 #ifndef _BM_H_
@@ -52,6 +52,7 @@ bmitem_t *bmitem_new(void);
 void bmitem_free(bmitem_t *item);
 void save_black_market(void);
 void send_notice(CHAR_DATA *victim, bmitem_t *item, int type);
+bool is_on_black_market(OBJ_DATA *obj);
 
 extern bmitem_t *bmitem_list;
 
