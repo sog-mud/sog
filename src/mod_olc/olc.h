@@ -2,7 +2,7 @@
 #define _OLC_H_
 
 /*
- * $Id: olc.h,v 1.13 1998-09-01 18:38:09 fjoe Exp $
+ * $Id: olc.h,v 1.14 1998-09-10 22:08:00 fjoe Exp $
  */
 
 /***************************************************************************
@@ -29,9 +29,21 @@ const char	*olc_ed_name	(CHAR_DATA *ch);
 typedef	bool OLC_FUN		(CHAR_DATA *ch, const char *argument);
 typedef bool VALIDATE_FUN	(CHAR_DATA *ch, const void *arg);
 
-#define DECLARE_OLC_FUN(fun)		OLC_FUN    fun
-#define DECLARE_VALIDATE_FUN(fun)	VALIDATE_FUN fun
-#define VALIDATOR(fun)			bool fun(CHAR_DATA *ch, const void *arg)
+#define DECLARE_OLC_FUN(fun)		OLC_FUN		fun
+#define DECLARE_VALIDATE_FUN(fun)	VALIDATE_FUN	fun
+
+#define OLC_FUN(fun)		bool fun(CHAR_DATA *ch, const char *argument)
+#define VALIDATE_FUN(fun)	bool fun(CHAR_DATA *ch, const void *arg)
+
+/* functions all cmd tables must have */
+enum {
+	FUN_CREATE,
+	FUN_EDIT,
+	FUN_TOUCH,
+	FUN_SHOW
+};
+
+#define FUN_FIRST FUN_TOUCH
 
 /*
  * Structure for an OLC editor command.
@@ -44,17 +56,13 @@ struct olc_cmd_data
 };
 typedef struct olc_cmd_data OLC_CMD_DATA;
 
-/*
- * Connected states for editor.
- */
-#define ED_NONE		0
-#define ED_AREA		1
-#define ED_ROOM		2
-#define ED_OBJECT	3
-#define ED_MOBILE	4
-#define ED_MPCODE	5
-#define ED_HELP		6
-#define ED_CLAN		7
+extern const char ED_AREA	[];
+extern const char ED_ROOM	[];
+extern const char ED_OBJ	[];
+extern const char ED_MOB	[];
+extern const char ED_MPCODE	[];
+extern const char ED_HELP	[];
+extern const char ED_CLAN	[];
 
 /*
  * Interpreter Table Prototypes
@@ -68,31 +76,14 @@ extern OLC_CMD_DATA	hedit_table[];
 extern OLC_CMD_DATA	cedit_table[];
 
 /*
- * Interpreter Prototypes
- */
-void    aedit           (CHAR_DATA *ch, const char *argument);
-void    redit           (CHAR_DATA *ch, const char *argument);
-void    medit           (CHAR_DATA *ch, const char *argument);
-void    oedit           (CHAR_DATA *ch, const char *argument);
-void	mpedit		(CHAR_DATA *ch, const char *argument);
-void	hedit		(CHAR_DATA *ch, const char *argument);
-void	cedit		(CHAR_DATA *ch, const char *argument);
-
-/*
  * Editor Commands.
  */
 DECLARE_DO_FUN(do_alist		);
 DECLARE_DO_FUN(do_clist		);
 DECLARE_DO_FUN(do_asave		);
-DECLARE_DO_FUN(do_olc		);
 DECLARE_DO_FUN(do_resets	);
-DECLARE_DO_FUN(do_aedit		);
-DECLARE_DO_FUN(do_redit		);
-DECLARE_DO_FUN(do_oedit		);
-DECLARE_DO_FUN(do_medit		);
-DECLARE_DO_FUN(do_mpedit	);
-DECLARE_DO_FUN(do_hedit		);
-DECLARE_DO_FUN(do_cedit		);
+DECLARE_DO_FUN(do_edit		);
+DECLARE_DO_FUN(do_create	);
 
 /*
  * Generic data edit functions
@@ -119,14 +110,21 @@ bool olced_clan		(CHAR_DATA *ch, const char *argument,
 
 DECLARE_VALIDATE_FUN(validate_filename);
 
-bool show_commands	(CHAR_DATA *ch, const char *argument);
-bool show_version	(CHAR_DATA *ch, const char *argument);
-bool edit_done		(CHAR_DATA *ch);
+bool	show_commands	(CHAR_DATA *ch, const char *argument);
+bool	show_version	(CHAR_DATA *ch, const char *argument);
 
-OLC_CMD_DATA *olc_cmd_lookup(CHAR_DATA *ch, OLC_FUN *fun);
+bool	show_mob	(CHAR_DATA *ch, MOB_INDEX_DATA *pMob);
+bool	show_obj	(CHAR_DATA *ch, OBJ_INDEX_DATA *pObj);
 
-#define SECURITY_HELP	9
-#define SECURITY_CLAN	5
+bool	touch_area	(AREA_DATA*);
+bool	touch_vnum	(int vnum);
+
+void		edit_done	(DESCRIPTOR_DATA *d);
+OLC_CMD_DATA *	olc_cmd_lookup	(CHAR_DATA *ch, OLC_FUN *fun);
+
+#define	SECURITY_CLAN		5
+#define SECURITY_HELP		9
+#define SECURITY_AREA_CREATE	9
 
 #endif
 

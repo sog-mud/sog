@@ -1,5 +1,5 @@
 /*
- * $Id: olc_room.c,v 1.4 1998-09-01 18:38:09 fjoe Exp $
+ * $Id: olc_room.c,v 1.5 1998-09-10 22:08:01 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -10,14 +10,16 @@
 #include "act_move.h"
 #include "interp.h"
 
-#define REDIT(fun)		bool fun(CHAR_DATA *ch, const char *argument)
 #define EDIT_ROOM(Ch, Room)	(Room = Ch->in_room)
 
 /*
  * Room Editor Prototypes
  */
-DECLARE_OLC_FUN(redit_show		);
 DECLARE_OLC_FUN(redit_create		);
+DECLARE_OLC_FUN(redit_edit		);
+DECLARE_OLC_FUN(redit_touch		);
+DECLARE_OLC_FUN(redit_show		);
+
 DECLARE_OLC_FUN(redit_name		);
 DECLARE_OLC_FUN(redit_desc		);
 DECLARE_OLC_FUN(redit_ed		);
@@ -40,174 +42,132 @@ DECLARE_OLC_FUN(redit_clan		);
 DECLARE_OLC_FUN(redit_owner		);
 DECLARE_OLC_FUN(redit_room		);
 DECLARE_OLC_FUN(redit_sector		);
+DECLARE_OLC_FUN(redit_reset		);
 
 OLC_CMD_DATA redit_table[] =
 {
-/*  {   command		function	}, */
+/*	{ command	function			}, */
 
-    {   "commands",	show_commands	},
-    {   "create",	redit_create	},
-    {   "desc",		redit_desc	},
-    {   "ed",		redit_ed	},
-    {   "name",		redit_name	},
-    {	"show",		redit_show	},
-    {   "heal",		redit_heal	},
-    {	"mana",		redit_mana	},
-    {   "clan",		redit_clan	},
+	{ "create",	redit_create			},
+	{ "edit",	redit_edit			},
+	{ "touch",	redit_touch			},
+	{ "show",	redit_show			},
 
-    {   "north",	redit_north	},
-    {   "south",	redit_south	},
-    {   "east",		redit_east	},
-    {   "west",		redit_west	},
-    {   "up",		redit_up	},
-    {   "down",		redit_down	},
+	{ "desc",	redit_desc			},
+	{ "ed",		redit_ed			},
+	{ "name",	redit_name			},
+	{ "heal",	redit_heal			},
+	{ "mana",	redit_mana			},
+	{ "clan",	redit_clan			},
 
-    /* New reset commands. */
-    {	"mreset",	redit_mreset	},
-    {	"oreset",	redit_oreset	},
-    {	"mlist",	redit_mlist	},
-    {	"rlist",	redit_rlist	},
-    {	"olist",	redit_olist	},
-    {	"mshow",	redit_mshow	},
-    {	"oshow",	redit_oshow	},
-    {   "owner",	redit_owner	},
-    {	"room",		redit_room,	room_flags	},
-    {	"sector",	redit_sector,	sector_types	},
+	{ "north",	redit_north			},
+	{ "south",	redit_south			},
+	{ "east",	redit_east			},
+	{ "west",	redit_west			},
+	{ "up",		redit_up			},
+	{ "down",	redit_down			},
 
-    {   "version",	show_version	},
+/* New reset commands. */
+	{ "mreset",	redit_mreset			},
+	{ "oreset",	redit_oreset			},
+	{ "mlist",	redit_mlist			},
+	{ "rlist",	redit_rlist			},
+	{ "olist",	redit_olist			},
+	{ "mshow",	redit_mshow			},
+	{ "oshow",	redit_oshow			},
+	{ "owner",	redit_owner			},
+	{ "room",	redit_room,	room_flags	},
+	{ "sector",	redit_sector,	sector_types	},
+	{ "reset",	redit_reset			},
 
-    {	NULL,		0,		}
+	{ "commands",	show_commands			},
+	{ "version",	show_version			},
+
+	{ NULL }
 };
 
-DECLARE_OLC_FUN(medit_show);
-DECLARE_OLC_FUN(oedit_show);
 static bool olced_exit(CHAR_DATA *ch, const char *argument,
 		       OLC_FUN *fun, int door);
 static void add_reset(ROOM_INDEX_DATA *room, RESET_DATA *pReset, int index);
 
-void do_redit(CHAR_DATA *ch, const char *argument)
+OLC_FUN(redit_create)
 {
-    ROOM_INDEX_DATA *pRoom;
-    char arg1[MAX_STRING_LENGTH];
+	AREA_DATA *pArea;
+	ROOM_INDEX_DATA *pRoom;
+	int value;
+	int iHash;
+	char arg[MAX_STRING_LENGTH];
+	
+	one_argument(argument, arg);
+	value = atoi(arg);
+	pArea = area_vnum_lookup(value);
 
-    if (IS_NPC(ch))
-    	return;
-
-    argument = one_argument(argument, arg1);
-
-    pRoom = ch->in_room;
-
-    if (!str_cmp(arg1, "reset"))	/* redit reset */
-    {
-	if (!IS_BUILDER(ch, pRoom->area))
-	{
-		send_to_char("Insufficient security to modify rooms.\n\r" , ch);
-        	return;
+	if (!pArea) {
+		send_to_char("REdit: Vnum is not assigned an area.\n\r", ch);
+		return FALSE;
 	}
 
-	reset_room(pRoom);
-	send_to_char("Room reset.\n\r", ch);
-
-	return;
-    }
-    else
-    if (!str_cmp(arg1, "create")) {	/* redit create <vnum> */
-	if (argument[0] == '\0' || atoi(argument) == 0) {
-	    send_to_char("Syntax:  edit room create [vnum]\n\r", ch);
-	    return;
+	if (!IS_BUILDER(ch, pArea)) {
+        	send_to_char("REdit: Insufficient security.\n\r", ch);
+		return FALSE;
 	}
 
-	if (redit_create(ch, argument)) { /* pEdit == nuevo cuarto */
-	    ch->desc->editor = ED_ROOM;
-	    char_from_room(ch);
-	    char_to_room(ch, ch->desc->pEdit);
-	    SET_BIT(((ROOM_INDEX_DATA *)ch->desc->pEdit)->area->flags, AREA_CHANGED);
+	if (get_room_index(value)) {
+		send_to_char("REdit: Vnum already exists.\n\r", ch);
+		return FALSE;
 	}
 
-	return;
-    }
-    else if (!IS_NULLSTR(arg1))	{ /* redit <vnum> */
-	pRoom = get_room_index(atoi(arg1));
+	pRoom			= new_room_index();
+	pRoom->area		= pArea;
+	pRoom->vnum		= value;
 
-	if (!pRoom) {
-		send_to_char("REdit: vnum not found.\n\r", ch);
-		return;
-	}
+	if (value > top_vnum_room)
+		 top_vnum_room	= value;
 
-	if (!IS_BUILDER(ch, pRoom->area)) {
-		send_to_char("REdit: insufficient security for editing rooms.\n\r", ch);
-		return;
-	}
+	iHash			= value % MAX_KEY_HASH;
+	pRoom->next		= room_index_hash[iHash];
+	room_index_hash[iHash]	= pRoom;
 
-	char_from_room(ch);
-	char_to_room(ch, pRoom);
-    }
-
-    if (!IS_BUILDER(ch, pRoom->area)) {
-	send_to_char("REdit: insufficient security for editing rooms.\n\r", ch);
-    	return;
-    }
-
-    ch->desc->pEdit	= (void *) pRoom;
-    ch->desc->editor	= ED_ROOM;
+	ch->desc->pEdit		= (void *)pRoom;
+	ch->desc->editor	= ED_ROOM;
+	touch_area(pArea);
+	char_puts("REdit: Room created.\n\r", ch);
+	return FALSE;
 }
 
-/* Room Interpreter, called by do_redit. */
-void redit(CHAR_DATA *ch, const char *argument)
+OLC_FUN(redit_edit)
 {
-    AREA_DATA *pArea;
-    ROOM_INDEX_DATA *pRoom;
-    char arg[MAX_STRING_LENGTH];
-    char command[MAX_INPUT_LENGTH];
-    int  cmd;
+	char arg[MAX_STRING_LENGTH];
+	ROOM_INDEX_DATA *pRoom;
+	AREA_DATA *pArea;
 
-    EDIT_ROOM(ch, pRoom);
-    pArea = pRoom->area;
-
-    strcpy(arg, argument);
-    smash_tilde(arg);
-    argument = one_argument(arg, command);
-
-    if (!IS_BUILDER(ch, pArea))
-    {
-        send_to_char("REdit: Insufficient security for editing rooms.\n\r", ch);
-	edit_done(ch);
-	return;
-    }
-
-    if (!str_cmp(command, "done"))
-    {
-	edit_done(ch);
-	return;
-    }
-
-    if (command[0] == '\0')
-    {
-	redit_show(ch, argument);
-	return;
-    }
-
-    /* Search Table and Dispatch Command. */
-    for (cmd = 0; redit_table[cmd].name != NULL; cmd++)
-    {
-	if (!str_prefix(command, redit_table[cmd].name))
-	{
-	    if ((*redit_table[cmd].olc_fun) (ch, argument))
-	    {
-		SET_BIT(pArea->flags, AREA_CHANGED);
-		return;
-	    }
-	    else
-		return;
+	one_argument(argument, arg);
+	if (arg[0] == '\0')
+		pRoom = ch->in_room;
+	else if (!is_number(arg) || (pRoom = get_room_index(atoi(arg))) == NULL) {
+		char_puts("REdit: Vnum does not exist.\n\r", ch);
+		return FALSE;
 	}
-    }
 
-    /* Default to Standard Interpreter. */
-    interpret(ch, arg);
-    return;
+	pArea = area_vnum_lookup(pRoom->vnum);
+	if (!IS_BUILDER(ch, pArea)) {
+		char_puts("REdit: Insufficient security.\n\r", ch);
+	       	return FALSE;
+	}
+
+	ch->desc->pEdit = (void*) pRoom;
+	ch->desc->editor = ED_ROOM;
+	return FALSE;
 }
 
-REDIT(redit_show)
+OLC_FUN(redit_touch)
+{
+	ROOM_INDEX_DATA *pRoom;
+	EDIT_ROOM(ch, pRoom);
+	return touch_vnum(pRoom->vnum);
+}
+
+OLC_FUN(redit_show)
 {
 	char buf[MAX_STRING_LENGTH];
 	ROOM_INDEX_DATA	*pRoom;
@@ -336,121 +296,72 @@ REDIT(redit_show)
 	return FALSE;
 }
 
-REDIT(redit_north)
+OLC_FUN(redit_north)
 {
 	return olced_exit(ch, argument, redit_north, DIR_NORTH);
 }
 
-REDIT(redit_south)
+OLC_FUN(redit_south)
 {
 	return olced_exit(ch, argument, redit_south, DIR_SOUTH);
 }
 
-REDIT(redit_east)
+OLC_FUN(redit_east)
 {
 	return olced_exit(ch, argument, redit_east, DIR_EAST);
 }
 
-REDIT(redit_west)
+OLC_FUN(redit_west)
 {
 	return olced_exit(ch, argument, redit_west, DIR_WEST);
 }
 
-REDIT(redit_up)
+OLC_FUN(redit_up)
 {
 	return olced_exit(ch, argument, redit_up, DIR_UP);
 }
 
-REDIT(redit_down)
+OLC_FUN(redit_down)
 {
 	return olced_exit(ch, argument, redit_down, DIR_DOWN);
 }
 
-REDIT(redit_ed)
+OLC_FUN(redit_ed)
 {
 	ROOM_INDEX_DATA *pRoom;
 	EDIT_ROOM(ch, pRoom);
 	return olced_ed(ch, argument, &pRoom->ed);
 }
 
-REDIT(redit_create)
-{
-	AREA_DATA *pArea;
-	ROOM_INDEX_DATA *pRoom;
-	int value;
-	int iHash;
-	
-	EDIT_ROOM(ch, pRoom);
-
-	value = atoi(argument);
-
-	if (argument[0] == '\0' || value <= 0)
-	{
-		send_to_char("Syntax:  create [vnum > 0]\n\r", ch);
-		return FALSE;
-	}
-
-	pArea = area_vnum_lookup(value);
-	if (!pArea) {
-		send_to_char("REdit: vnum is not assigned an area.\n\r", ch);
-		return FALSE;
-	}
-
-	if (!IS_BUILDER(ch, pArea)) {
-        	send_to_char("REdit: Insufficient security for editing rooms.\n\r", ch);
-		return FALSE;
-	}
-
-	if (get_room_index(value)) {
-		send_to_char("REdit: Room vnum already exists.\n\r", ch);
-		return FALSE;
-	}
-
-	pRoom			= new_room_index();
-	pRoom->area			= pArea;
-	pRoom->vnum			= value;
-
-	if (value > top_vnum_room)
-		 top_vnum_room = value;
-
-	iHash			= value % MAX_KEY_HASH;
-	pRoom->next			= room_index_hash[iHash];
-	room_index_hash[iHash]	= pRoom;
-	ch->desc->pEdit		= (void *)pRoom;
-
-	send_to_char("Room created.\n\r", ch);
-	return TRUE;
-}
-
-REDIT(redit_name)
+OLC_FUN(redit_name)
 {
 	ROOM_INDEX_DATA *pRoom;
 	EDIT_ROOM(ch, pRoom);
 	return olced_mlstr(ch, argument, redit_name, &pRoom->name);
 }
 
-REDIT(redit_desc)
+OLC_FUN(redit_desc)
 {
 	ROOM_INDEX_DATA *pRoom;
 	EDIT_ROOM(ch, pRoom);
 	return olced_mlstr_text(ch, argument, redit_desc, &pRoom->description);
 }
 
-REDIT(redit_heal)
+OLC_FUN(redit_heal)
 {
 	ROOM_INDEX_DATA *pRoom;
 	EDIT_ROOM(ch, pRoom);
 	return olced_number(ch, argument, redit_heal, &pRoom->heal_rate);
 }       
 
-REDIT(redit_mana)
+OLC_FUN(redit_mana)
 {
 	ROOM_INDEX_DATA *pRoom;
 	EDIT_ROOM(ch, pRoom);
 	return olced_number(ch, argument, redit_mana, &pRoom->mana_rate);
 }       
 
-REDIT(redit_clan)
+OLC_FUN(redit_clan)
 {
 	send_to_char("This option temporarily disabled.\n\r", ch);
 	return FALSE;
@@ -465,7 +376,7 @@ REDIT(redit_clan)
 	  
 #define MAX_MOB	1		/* Default maximum number for resetting mobs */
 
-REDIT(redit_mreset)
+OLC_FUN(redit_mreset)
 {
 	ROOM_INDEX_DATA	*pRoom;
 	MOB_INDEX_DATA	*pMobIndex;
@@ -523,7 +434,7 @@ REDIT(redit_mreset)
 	return TRUE;
 }
 
-REDIT(redit_rlist)
+OLC_FUN(redit_rlist)
 {
 	ROOM_INDEX_DATA	*pRoomIndex;
 	AREA_DATA		*pArea;
@@ -563,7 +474,7 @@ REDIT(redit_rlist)
 	return FALSE;
 }
 
-REDIT(redit_mlist)
+OLC_FUN(redit_mlist)
 {
 	MOB_INDEX_DATA	*pMobIndex;
 	AREA_DATA	*pArea;
@@ -610,7 +521,7 @@ REDIT(redit_mlist)
 	return FALSE;
 }
 
-REDIT(redit_olist)
+OLC_FUN(redit_olist)
 {
 	OBJ_INDEX_DATA	*pObjIndex;
 	AREA_DATA	*pArea;
@@ -658,7 +569,7 @@ REDIT(redit_olist)
 	return FALSE;
 }
 
-REDIT(redit_mshow)
+OLC_FUN(redit_mshow)
 {
 	MOB_INDEX_DATA *pMob;
 	int value;
@@ -673,13 +584,11 @@ REDIT(redit_mshow)
 		send_to_char("REdit: vnum not found.\n\r", ch);
 		return FALSE;
 	}
-	ch->desc->pEdit = (void *)pMob;
-	medit_show(ch, argument);
-	ch->desc->pEdit = (void *)ch->in_room;
+	show_mob(ch, pMob);
 	return FALSE; 
 }
 
-REDIT(redit_oshow)
+OLC_FUN(redit_oshow)
 {
 	OBJ_INDEX_DATA *pObj;
 	int value;
@@ -694,9 +603,7 @@ REDIT(redit_oshow)
 		send_to_char("REdit:  That object does not exist.\n\r", ch);
 		return FALSE;
 	}
-	ch->desc->pEdit = (void *)pObj;
-	oedit_show(ch, argument);
-	ch->desc->pEdit = (void *)ch->in_room;
+	show_obj(ch, pObj);
 	return FALSE; 
 }
 
@@ -765,7 +672,7 @@ int wear_bit(int loc)
 	return 0;
 }
 
-REDIT(redit_oreset)
+OLC_FUN(redit_oreset)
 {
 	ROOM_INDEX_DATA	*pRoom;
 	OBJ_INDEX_DATA	*pObjIndex;
@@ -951,21 +858,21 @@ REDIT(redit_oreset)
 	return TRUE;
 }
 
-REDIT(redit_room)
+OLC_FUN(redit_room)
 {
 	ROOM_INDEX_DATA *room;
 	EDIT_ROOM(ch, room);
 	return olced_flag(ch, argument, redit_room, &room->room_flags);
 }
 
-REDIT(redit_sector)
+OLC_FUN(redit_sector)
 {
 	ROOM_INDEX_DATA *room;
 	EDIT_ROOM(ch, room);
 	return olced_flag(ch, argument, redit_sector, &room->sector_type);
 }
 
-REDIT(redit_owner)
+OLC_FUN(redit_owner)
 {
 	ROOM_INDEX_DATA *pRoom;
 	EDIT_ROOM(ch, pRoom);
@@ -984,6 +891,15 @@ REDIT(redit_owner)
 
 	send_to_char("Owner set.\n\r", ch);
 	return TRUE;
+}
+
+OLC_FUN(redit_reset)
+{
+	ROOM_INDEX_DATA *pRoom;
+	EDIT_ROOM(ch, pRoom);
+	reset_room(pRoom);
+	char_puts("REdit: Room reset.\n\r", ch);
+	return FALSE;
 }
 
 static bool olced_exit(CHAR_DATA *ch, const char *argument,
@@ -1664,7 +1580,7 @@ void do_resets(CHAR_DATA *ch, const char *argument)
 		}
 	    }
 	    add_reset(ch->in_room, pReset, atoi(arg1));
-	    SET_BIT(ch->in_room->area->flags, AREA_CHANGED);
+	    touch_area(ch->in_room->area);
 	    send_to_char("Reset added.\n\r", ch);
 	}
 	else
@@ -1680,7 +1596,7 @@ void do_resets(CHAR_DATA *ch, const char *argument)
 		pReset->arg1 = ch->in_room->vnum;
 		pReset->arg2 = atoi(arg3);
 		add_reset(ch->in_room, pReset, atoi(arg1));
-		SET_BIT(ch->in_room->area->flags, AREA_CHANGED);
+		touch_area(ch->in_room->area);
 		send_to_char("Random exits reset added.\n\r", ch);
 	}
 	else

@@ -1,5 +1,5 @@
 /*
- * $Id: olc_obj.c,v 1.4 1998-09-01 18:38:09 fjoe Exp $
+ * $Id: olc_obj.c,v 1.5 1998-09-10 22:08:01 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -12,11 +12,13 @@
 #include "olc.h"
 #include "interp.h"
 
-#define OEDIT(fun)		bool fun(CHAR_DATA *ch, const char *argument)
-#define EDIT_OBJ(Ch, Obj)	(Obj = (OBJ_INDEX_DATA *)Ch->desc->pEdit)
+#define EDIT_OBJ(ch, obj)	(obj = (OBJ_INDEX_DATA*) ch->desc->pEdit)
 
-DECLARE_OLC_FUN(oedit_show		);
 DECLARE_OLC_FUN(oedit_create		);
+DECLARE_OLC_FUN(oedit_edit		);
+DECLARE_OLC_FUN(oedit_touch		);
+DECLARE_OLC_FUN(oedit_show		);
+
 DECLARE_OLC_FUN(oedit_name		);
 DECLARE_OLC_FUN(oedit_short		);
 DECLARE_OLC_FUN(oedit_long		);
@@ -48,16 +50,19 @@ OLC_CMD_DATA oedit_table[] =
 {
 /*	{ command	function		arg			}, */
 
+	{ "create",	oedit_create					},
+	{ "edit",	oedit_edit					},
+	{ "touch",	oedit_touch					},
+	{ "show",	oedit_show					},
+
 	{ "addaffect",	oedit_addaffect					},
 	{ "addapply",	oedit_addapply					},
 	{ "cost",	oedit_cost					},
-	{ "create",	oedit_create					},
 	{ "delaffect",	oedit_delaffect					},
 	{ "ed",		oedit_ed					},
 	{ "long",	oedit_long					},
 	{ "name",	oedit_name					},
 	{ "short",	oedit_short					},
-	{ "show",	oedit_show					},
 	{ "v0",		oedit_value0					},
 	{ "v1",		oedit_value1					},
 	{ "v2",		oedit_value2					},
@@ -85,212 +90,93 @@ static bool set_obj_values(CHAR_DATA *ch, OBJ_INDEX_DATA *pObj,
 			   int value_num, const char *argument);
 static void show_skill_cmds(CHAR_DATA *ch, int tar);
 
-/* Entry point for editing obj_index_data. */
-void do_oedit(CHAR_DATA *ch, const char *argument)
+OLC_FUN(oedit_create)
 {
-    OBJ_INDEX_DATA *pObj;
-    AREA_DATA *pArea;
-    char arg1[MAX_STRING_LENGTH];
-    int value;
+	OBJ_INDEX_DATA *pObj;
+	AREA_DATA *pArea;
+	int  value;
+	int  iHash;
 
-    if (IS_NPC(ch))
-	return;
+	value = atoi(argument);
+	pArea = area_vnum_lookup(value);
 
-    argument = one_argument(argument, arg1);
-
-    if (is_number(arg1))
-    {
-	value = atoi(arg1);
-	if (!(pObj = get_obj_index(value)))
-	{
-	    send_to_char("OEdit:  That vnum does not exist.\n\r", ch);
-	    return;
+	if (!pArea) {
+		char_puts("OEdit: That vnum is not assigned an area.\n\r", ch);
+		return FALSE;
 	}
 
-	pArea = area_vnum_lookup(pObj->vnum);
-	if (!IS_BUILDER(ch, pArea))
-	{
-		send_to_char("Insuficiente seguridad para modificar objetos.\n\r" , ch);
-	        return;
+	if (!IS_BUILDER(ch, pArea)) {
+		send_to_char("OEdit: Insufficient security.\n\r", ch);
+		return FALSE;
 	}
 
-	ch->desc->pEdit = (void *)pObj;
-	ch->desc->editor = ED_OBJECT;
-	return;
-    }
-    else
-    {
-	if (!str_cmp(arg1, "create"))
-	{
-	    value = atoi(argument);
-	    if (argument[0] == '\0' || value == 0)
-	    {
-		send_to_char("Syntax:  edit object create [vnum]\n\r", ch);
-		return;
-	    }
-
-	    pArea = area_vnum_lookup(value);
-
-	    if (!pArea)
-	    {
-		send_to_char("OEdit:  That vnum is not assigned an area.\n\r", ch);
-		return;
-	    }
-
-	    if (!IS_BUILDER(ch, pArea))
-	    {
-		send_to_char("Insuficiente seguridad para modificar objetos.\n\r" , ch);
-	        return;
-	    }
-
-	    if (oedit_create(ch, argument))
-	    {
-		SET_BIT(pArea->flags, AREA_CHANGED);
-		ch->desc->editor = ED_OBJECT;
-	    }
-	    return;
+	if (get_obj_index(value)) {
+		send_to_char("OEdit: Object vnum already exists.\n\r", ch);
+		return FALSE;
 	}
-    }
+		 
+	pObj			= new_obj_index();
+	pObj->vnum		= value;
+		 
+	if (value > top_vnum_obj)
+		top_vnum_obj = value;
 
-    send_to_char("OEdit:  There is no default object to edit.\n\r", ch);
-    return;
-}
+	iHash			= value % MAX_KEY_HASH;
+	pObj->next		= obj_index_hash[iHash];
+	obj_index_hash[iHash]	= pObj;
 
-
-/* Object Interpreter, called by do_oedit. */
-void oedit(CHAR_DATA *ch, const char *argument)
-{
-    AREA_DATA *pArea;
-    OBJ_INDEX_DATA *pObj;
-    char arg[MAX_STRING_LENGTH];
-    char command[MAX_INPUT_LENGTH];
-    int  cmd;
-
-    strcpy(arg, argument);
-    smash_tilde(arg);
-    argument = one_argument(arg, command);
-
-    EDIT_OBJ(ch, pObj);
-    pArea = area_vnum_lookup(pObj->vnum);
-
-    if (!IS_BUILDER(ch, pArea))
-    {
-	send_to_char("OEdit: Insufficient security to modify area.\n\r", ch);
-	edit_done(ch);
-	return;
-    }
-
-    if (!str_cmp(command, "done"))
-    {
-	edit_done(ch);
-	return;
-    }
-
-    if (command[0] == '\0')
-    {
-	oedit_show(ch, argument);
-	return;
-    }
-
-    /* Search Table and Dispatch Command. */
-    for (cmd = 0; oedit_table[cmd].name != NULL; cmd++) {
-	if (!str_prefix(command, oedit_table[cmd].name)) {
-	    if ((*oedit_table[cmd].olc_fun) (ch, argument))
-		SET_BIT(pArea->flags, AREA_CHANGED);
-	    return;
-	}
-    }
-
-    /* Default to Standard Interpreter. */
-    interpret(ch, arg);
-    return;
-}
-
-
-
-
-OEDIT(oedit_show)
-{
-	OBJ_INDEX_DATA	*pObj;
-	AREA_DATA	*pArea;
-	AFFECT_DATA *paf;
-	int cnt;
-	BUFFER *output;
-	CLAN_DATA *clan;
-
-	EDIT_OBJ(ch, pObj);
-	pArea = area_vnum_lookup(pObj->vnum);
-
-	output = buf_new(0);
-	buf_printf(output, "Name:        [%s]\n\rArea:        [%5d] %s\n\r",
-		pObj->name, pArea->vnum, pArea->name);
-
-	buf_printf(output, "Vnum:        [%5d]\n\rType:        [%s]\n\r",
-		pObj->vnum,
-		flag_string(item_types, pObj->item_type));
-
-	if (pObj->clan && (clan = clan_lookup(pObj->clan))) 
-		buf_printf(output, "Clan      : [%s]\n\r", clan->name);
-
-	if (pObj->limit != -1)
-		buf_printf(output, "Limit:       [%5d]\n\r", pObj->limit);
-	else
-		buf_add(output, "Limit:       [none]\n\r");
-
-	buf_printf(output, "Level:       [%5d]\n\r", pObj->level);
-
-	buf_printf(output, "Wear flags:  [%s]\n\r",
-		flag_string(wear_flags, pObj->wear_flags));
-
-	buf_printf(output, "Extra flags: [%s]\n\r",
-		flag_string(extra_flags, pObj->extra_flags));
-
-	buf_printf(output, "Material:    [%s]\n\r",                /* ROM */
-		pObj->material);
-
-	buf_printf(output, "Condition:   [%5d]\n\r",               /* ROM */
-		pObj->condition);
-
-	buf_printf(output, "Weight:      [%5d]\n\rCost:        [%5d]\n\r",
-		pObj->weight, pObj->cost);
-
-	if (pObj->ed) {
-		ED_DATA *ed;
-
-		buf_add(output, "Ex desc kwd: ");
-
-		for (ed = pObj->ed; ed; ed = ed->next)
-			buf_printf(output, "[%s]", ed->keyword);
-
-		buf_add(output, "\n\r");
-	}
-
-	mlstr_dump(output, "Short desc: ", pObj->short_descr);
-	mlstr_dump(output, "Long desc: ", pObj->description);
-
-	for (cnt = 0, paf = pObj->affected; paf; paf = paf->next) {
-		if (cnt == 0) {
-			buf_add(output, "Number Modifier Affects\n\r");
-			buf_add(output, "------ -------- -------\n\r");
-		}
-		buf_printf(output, "[%4d] %-8d %s\n\r", cnt,
-			paf->modifier,
-			flag_string(apply_flags, paf->location));
-		cnt++;
-	}
-
-	show_obj_values(output, pObj);
-	char_puts(buf_string(output), ch);
-	buf_free(output);
-
+	ch->desc->pEdit		= (void *)pObj;
+	ch->desc->editor	= ED_OBJ;
+	touch_area(pArea);
+	send_to_char("OEdit: Object created.\n\r", ch);
 	return FALSE;
 }
 
+OLC_FUN(oedit_edit)
+{
+	char arg[MAX_STRING_LENGTH];
+	int value;
+	OBJ_INDEX_DATA *pObj;
+	AREA_DATA *pArea;
+
+	one_argument(argument, arg);
+	value = atoi(arg);
+	pObj = get_obj_index(value);
+
+	if (!pObj) {
+		char_puts("OEdit: Vnum does not exist.\n\r", ch);
+		return FALSE;
+	}
+
+	pArea = area_vnum_lookup(pObj->vnum);
+	if (!IS_BUILDER(ch, pArea)) {
+		char_puts("OEdit: Insufficient security.\n\r", ch);
+	       	return FALSE;
+	}
+
+	ch->desc->pEdit = (void*) pObj;
+	ch->desc->editor = ED_OBJ;
+	return FALSE;
+}
+
+OLC_FUN(oedit_touch)
+{
+	OBJ_INDEX_DATA *pObj;
+	EDIT_OBJ(ch, pObj);
+	return touch_vnum(pObj->vnum);
+}
+
+OLC_FUN(oedit_show)
+{
+	OBJ_INDEX_DATA	*pObj;
+	EDIT_OBJ(ch, pObj);
+	return show_obj(ch, pObj);
+}
 
 /*
  * Need to issue warning if flag isn't valid. -- does so now -- Hugin.
  */
-OEDIT(oedit_addaffect)
+OLC_FUN(oedit_addaffect)
 {
 	int value;
 	OBJ_INDEX_DATA *pObj;
@@ -329,7 +215,7 @@ OEDIT(oedit_addaffect)
 	return TRUE;
 }
 
-OEDIT(oedit_addapply)
+OLC_FUN(oedit_addapply)
 {
 	int location, bv, where;
 	OBJ_INDEX_DATA *pObj;
@@ -396,7 +282,7 @@ OEDIT(oedit_addapply)
  * My thanks to Hans Hvidsten Birkeland and Noam Krendel(Walker)
  * for really teaching me how to manipulate pointers.
  */
-OEDIT(oedit_delaffect)
+OLC_FUN(oedit_delaffect)
 {
 	OBJ_INDEX_DATA *pObj;
 	AFFECT_DATA *pAf;
@@ -456,21 +342,21 @@ OEDIT(oedit_delaffect)
 	return TRUE;
 }
 
-OEDIT(oedit_name)
+OLC_FUN(oedit_name)
 {
 	OBJ_INDEX_DATA *pObj;
 	EDIT_OBJ(ch, pObj);
 	return olced_str(ch, argument, oedit_name, &pObj->name);
 }
 
-OEDIT(oedit_short)
+OLC_FUN(oedit_short)
 {
 	OBJ_INDEX_DATA *pObj;
 	EDIT_OBJ(ch, pObj);
 	return olced_mlstr(ch, argument, oedit_short, &pObj->short_descr);
 }
 
-OEDIT(oedit_long)
+OLC_FUN(oedit_long)
 {
 	OBJ_INDEX_DATA *pObj;
 	EDIT_OBJ(ch, pObj);
@@ -509,118 +395,74 @@ bool oedit_values(CHAR_DATA *ch, const char *argument, int value)
 	return FALSE;
 }
 
-OEDIT(oedit_value0)
+OLC_FUN(oedit_value0)
 {
 	return oedit_values(ch, argument, 0);
 }
 
-OEDIT(oedit_value1)
+OLC_FUN(oedit_value1)
 {
 	return oedit_values(ch, argument, 1);
 }
 
-OEDIT(oedit_value2)
+OLC_FUN(oedit_value2)
 {
 	return oedit_values(ch, argument, 2);
 }
 
-OEDIT(oedit_value3)
+OLC_FUN(oedit_value3)
 {
 	return oedit_values(ch, argument, 3);
 }
 
-OEDIT(oedit_value4)
+OLC_FUN(oedit_value4)
 {
 	return oedit_values(ch, argument, 4);
 }
 
-OEDIT(oedit_weight)
+OLC_FUN(oedit_weight)
 {
 	OBJ_INDEX_DATA *pObj;
 	EDIT_OBJ(ch, pObj);
 	return olced_number(ch, argument, oedit_weight, &pObj->weight);
 }
 
-OEDIT(oedit_limit)
+OLC_FUN(oedit_limit)
 {
 	OBJ_INDEX_DATA *pObj;
 	EDIT_OBJ(ch, pObj);
 	return olced_number(ch, argument, oedit_limit, &pObj->limit);
 }
 
-OEDIT(oedit_cost)
+OLC_FUN(oedit_cost)
 {
 	OBJ_INDEX_DATA *pObj;
 	EDIT_OBJ(ch, pObj);
 	return olced_number(ch, argument, oedit_cost, &pObj->cost);
 }
 
-OEDIT(oedit_create)
-{
-	OBJ_INDEX_DATA *pObj;
-	AREA_DATA *pArea;
-	int  value;
-	int  iHash;
-
-	value = atoi(argument);
-	if (argument[0] == '\0' || value == 0) {
-		send_to_char("Syntax: oedit create [vnum]\n\r", ch);
-		return FALSE;
-	}
-
-	pArea = area_vnum_lookup(value);
-	if (!pArea) {
-		send_to_char("OEdit: That vnum is not assigned an area.\n\r", ch);
-		return FALSE;
-	}
-
-	if (!IS_BUILDER(ch, pArea)) {
-		send_to_char("OEdit: Vnum in an area you cannot build in.\n\r", ch);
-		return FALSE;
-	}
-
-	if (get_obj_index(value)) {
-		send_to_char("OEdit: Object vnum already exists.\n\r", ch);
-		return FALSE;
-	}
-		 
-	pObj			= new_obj_index();
-	pObj->vnum		= value;
-		 
-	if (value > top_vnum_obj)
-		top_vnum_obj = value;
-
-	iHash			= value % MAX_KEY_HASH;
-	pObj->next		= obj_index_hash[iHash];
-	obj_index_hash[iHash]	= pObj;
-	ch->desc->pEdit		= (void *)pObj;
-
-	send_to_char("Object Created.\n\r", ch);
-	return TRUE;
-}
-
-OEDIT(oedit_ed)
+OLC_FUN(oedit_ed)
 {
 	OBJ_INDEX_DATA *pObj;
 	EDIT_OBJ(ch, pObj);
 	return olced_ed(ch, argument, &pObj->ed);
 }
 
-OEDIT(oedit_extra)
+OLC_FUN(oedit_extra)
 {
 	OBJ_INDEX_DATA *pObj;
 	EDIT_OBJ(ch, pObj);
 	return olced_flag(ch, argument, oedit_extra, &pObj->extra_flags);
 }
 
-OEDIT(oedit_wear)
+OLC_FUN(oedit_wear)
 {
 	OBJ_INDEX_DATA *pObj;
 	EDIT_OBJ(ch, pObj);
 	return olced_flag(ch, argument, oedit_wear, &pObj->wear_flags);
 }
 
-OEDIT(oedit_type)
+OLC_FUN(oedit_type)
 {
 	bool changed;
 	OBJ_INDEX_DATA *pObj;
@@ -636,28 +478,28 @@ OEDIT(oedit_type)
 	return changed;
 }
 
-OEDIT(oedit_material)
+OLC_FUN(oedit_material)
 {
 	OBJ_INDEX_DATA *pObj;
 	EDIT_OBJ(ch, pObj);
 	return olced_str(ch, argument, oedit_material, &pObj->material);
 }
 
-OEDIT(oedit_level)
+OLC_FUN(oedit_level)
 {
 	OBJ_INDEX_DATA *pObj;
 	EDIT_OBJ(ch, pObj);
 	return olced_number(ch, argument, oedit_level, &pObj->level);
 }
 
-OEDIT(oedit_condition)
+OLC_FUN(oedit_condition)
 {
 	OBJ_INDEX_DATA *pObj;
 	EDIT_OBJ(ch, pObj);
 	return olced_number(ch, argument, oedit_condition, &pObj->condition);
 }
 
-OEDIT(oedit_clan)
+OLC_FUN(oedit_clan)
 {
 	OBJ_INDEX_DATA *pObj;
 	EDIT_OBJ(ch, pObj);
@@ -1244,7 +1086,7 @@ void show_damlist(CHAR_DATA *ch)
 };
 #endif
 
-VALIDATOR(validate_condition)
+VALIDATE_FUN(validate_condition)
 {
 	int val = *(int*) arg;
 
@@ -1256,3 +1098,77 @@ VALIDATOR(validate_condition)
 	return TRUE;
 }
 
+bool show_obj(CHAR_DATA *ch, OBJ_INDEX_DATA *pObj)
+{
+	AREA_DATA	*pArea;
+	AFFECT_DATA *paf;
+	int cnt;
+	BUFFER *output;
+	CLAN_DATA *clan;
+
+	pArea = area_vnum_lookup(pObj->vnum);
+
+	output = buf_new(0);
+	buf_printf(output, "Name:        [%s]\n\rArea:        [%5d] %s\n\r",
+		pObj->name, pArea->vnum, pArea->name);
+
+	buf_printf(output, "Vnum:        [%5d]\n\rType:        [%s]\n\r",
+		pObj->vnum,
+		flag_string(item_types, pObj->item_type));
+
+	if (pObj->clan && (clan = clan_lookup(pObj->clan))) 
+		buf_printf(output, "Clan      : [%s]\n\r", clan->name);
+
+	if (pObj->limit != -1)
+		buf_printf(output, "Limit:       [%5d]\n\r", pObj->limit);
+	else
+		buf_add(output, "Limit:       [none]\n\r");
+
+	buf_printf(output, "Level:       [%5d]\n\r", pObj->level);
+
+	buf_printf(output, "Wear flags:  [%s]\n\r",
+		flag_string(wear_flags, pObj->wear_flags));
+
+	buf_printf(output, "Extra flags: [%s]\n\r",
+		flag_string(extra_flags, pObj->extra_flags));
+
+	buf_printf(output, "Material:    [%s]\n\r",                /* ROM */
+		pObj->material);
+
+	buf_printf(output, "Condition:   [%5d]\n\r",               /* ROM */
+		pObj->condition);
+
+	buf_printf(output, "Weight:      [%5d]\n\rCost:        [%5d]\n\r",
+		pObj->weight, pObj->cost);
+
+	if (pObj->ed) {
+		ED_DATA *ed;
+
+		buf_add(output, "Ex desc kwd: ");
+
+		for (ed = pObj->ed; ed; ed = ed->next)
+			buf_printf(output, "[%s]", ed->keyword);
+
+		buf_add(output, "\n\r");
+	}
+
+	mlstr_dump(output, "Short desc: ", pObj->short_descr);
+	mlstr_dump(output, "Long desc: ", pObj->description);
+
+	for (cnt = 0, paf = pObj->affected; paf; paf = paf->next) {
+		if (cnt == 0) {
+			buf_add(output, "Number Modifier Affects\n\r");
+			buf_add(output, "------ -------- -------\n\r");
+		}
+		buf_printf(output, "[%4d] %-8d %s\n\r", cnt,
+			paf->modifier,
+			flag_string(apply_flags, paf->location));
+		cnt++;
+	}
+
+	show_obj_values(output, pObj);
+	page_to_char(buf_string(output), ch);
+	buf_free(output);
+
+	return FALSE;
+}

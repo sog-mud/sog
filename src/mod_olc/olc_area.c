@@ -1,5 +1,5 @@
 /*
- * $Id: olc_area.c,v 1.5 1998-09-01 18:38:09 fjoe Exp $
+ * $Id: olc_area.c,v 1.6 1998-09-10 22:08:01 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -8,11 +8,13 @@
 #include "merc.h"
 #include "olc.h"
 
-#define AEDIT(fun)		bool fun(CHAR_DATA *ch, const char *argument)
-#define EDIT_AREA(Ch, Area)	(Area = (AREA_DATA *)Ch->desc->pEdit)
+#define EDIT_AREA(ch, area)	(area = (AREA_DATA*) ch->desc->pEdit)
 
-DECLARE_OLC_FUN(aedit_show		);
 DECLARE_OLC_FUN(aedit_create		);
+DECLARE_OLC_FUN(aedit_edit		);
+DECLARE_OLC_FUN(aedit_touch		);
+DECLARE_OLC_FUN(aedit_show		);
+
 DECLARE_OLC_FUN(aedit_name		);
 DECLARE_OLC_FUN(aedit_file		);
 DECLARE_OLC_FUN(aedit_flags		);
@@ -34,15 +36,18 @@ OLC_CMD_DATA aedit_table[] =
 {
 /*	{   command	function	arg			}, */
 
+	{ "create",	aedit_create				},
+	{ "edit",	aedit_edit				},
+	{ "touch",	aedit_touch				},
+	{ "show",	aedit_show				},
+
 	{ "age",	aedit_age				},
 	{ "area",	aedit_flags,	area_flags		},
 	{ "builder",	aedit_builder				},
-	{ "create",	aedit_create				},
 	{ "filename",	aedit_file,	validate_filename	},
 	{ "name",	aedit_name				},
 	{ "reset",	aedit_reset				},
 	{ "security",	aedit_security, validate_security	},
-	{ "show",	aedit_show				},
 	{ "minlevel",	aedit_minlevel				},
 	{ "maxlevel",	aedit_maxlevel				},
 	{ "minvnum",	aedit_minvnum,	validate_minvnum	},
@@ -57,97 +62,61 @@ OLC_CMD_DATA aedit_table[] =
 
 static AREA_DATA *check_range(AREA_DATA *pArea, int ilower, int iupper);
 
-/* Entry point for editing area_data. */
-void do_aedit(CHAR_DATA *ch, const char *argument)
-{
-    AREA_DATA *pArea;
-    int value;
-    char arg[MAX_STRING_LENGTH];
-
-    if (IS_NPC(ch))
-    	return;
-
-    pArea	= ch->in_room->area;
-
-    argument	= one_argument(argument,arg);
-
-    if (is_number(arg)) {
-	value = atoi(arg);
-	if (!(pArea = area_lookup(value))) {
-	    send_to_char("That area vnum does not exist.\n\r", ch);
-	    return;
-	}
-    } else if (!str_cmp(arg, "create")) {
-	if (ch->pcdata->security < 9) {
-		send_to_char("AEdit: Insufficient security for creating areas.\n\r", ch);
-		return;
-	}
-
-	aedit_create(ch, "");
-	ch->desc->editor = ED_AREA;
-	return;
-    }
-
-    if (!IS_BUILDER(ch,pArea)) {
-	send_to_char("Insufficient security for editing areas.\n\r",ch);
-	return;
-    }
-
-    ch->desc->pEdit = (void *)pArea;
-    ch->desc->editor = ED_AREA;
-    return;
-}
-
-/* Area Interpreter, called by do_aedit. */
-void aedit(CHAR_DATA *ch, const char *argument)
-{
-    AREA_DATA *pArea;
-    char command[MAX_INPUT_LENGTH];
-    char arg[MAX_INPUT_LENGTH];
-    int  cmd;
-
-    EDIT_AREA(ch, pArea);
-    strcpy(arg, argument);
-    smash_tilde(arg);
-    argument = one_argument(arg, command);
-
-    if (!IS_BUILDER(ch, pArea)) {
-	send_to_char("AEdit: Insufficient security to modify area.\n\r", ch);
-	edit_done(ch);
-	return;
-    }
-
-    if (!str_cmp(command, "done")) {
-	edit_done(ch);
-	return;
-    }
-
-    if (command[0] == '\0') {
-	aedit_show(ch, argument);
-	return;
-    }
-
-    /* Search Table and Dispatch Command. */
-    for (cmd = 0; aedit_table[cmd].name != NULL; cmd++) {
-	if (!str_prefix(command, aedit_table[cmd].name)) {
-	    if ((*aedit_table[cmd].olc_fun) (ch, argument)) {
-		SET_BIT(pArea->flags, AREA_CHANGED);
-		return;
-	    }
-	    else
-		return;
-	}
-    }
-
-    /* Default to Standard Interpreter. */
-    interpret(ch, arg);
-    return;
-}
-
 /*
  * Area Editor Functions.
  */
-AEDIT(aedit_show)
+OLC_FUN(aedit_create)
+{
+	AREA_DATA *pArea;
+
+	if (ch->pcdata->security < SECURITY_AREA_CREATE) {
+		char_puts("AEdit: Insufficient security.\n\r", ch);
+		return FALSE;
+	}
+
+	pArea			= new_area();
+	area_last->next		= pArea;
+	area_last		= pArea;	/* Thanks, Walker. */
+
+	ch->desc->pEdit		= (void*) pArea;
+	ch->desc->editor	= ED_AREA;
+	touch_area(pArea);
+	char_puts("AEdit: Area created.\n\r", ch);
+	return FALSE;
+}
+
+OLC_FUN(aedit_edit)
+{
+	AREA_DATA *pArea;
+	char arg[MAX_STRING_LENGTH];
+
+	argument = one_argument(argument, arg);
+
+	if (arg[0] == '\0')
+		pArea = ch->in_room->area;
+	else if (!is_number(arg) || (pArea = area_lookup(atoi(arg))) == NULL) {
+		send_to_char("AEdit: That area vnum does not exist.\n\r", ch);
+		return FALSE;
+	}
+
+	if (!IS_BUILDER(ch, pArea)) {
+		char_puts("AEdit: Insufficient security.\n\r", ch);
+		return FALSE;
+	}
+
+	ch->desc->pEdit		= (void *) pArea;
+	ch->desc->editor	= ED_AREA;
+	return FALSE;
+}
+
+OLC_FUN(aedit_touch)
+{
+	AREA_DATA *pArea;
+	EDIT_AREA(ch, pArea);
+	return touch_area(pArea);
+}
+
+OLC_FUN(aedit_show)
 {
 	AREA_DATA *pArea;
 	EDIT_AREA(ch, pArea);
@@ -167,7 +136,7 @@ AEDIT(aedit_show)
 	return FALSE;
 }
 
-AEDIT(aedit_reset)
+OLC_FUN(aedit_reset)
 {
 	AREA_DATA *pArea;
 	EDIT_AREA(ch, pArea);
@@ -176,76 +145,63 @@ AEDIT(aedit_reset)
 	return FALSE;
 }
 
-AEDIT(aedit_create)
-{
-	AREA_DATA *pArea;
-
-	pArea           =   new_area();
-	area_last->next =   pArea;
-	area_last	=   pArea;	/* Thanks, Walker. */
-	ch->desc->pEdit =   (void *)pArea;
-
-	send_to_char("Area Created.\n\r", ch);
-	return FALSE;
-}
-
-AEDIT(aedit_name)
+OLC_FUN(aedit_name)
 {
 	AREA_DATA *pArea;
 	EDIT_AREA(ch, pArea);
 	return olced_str(ch, argument, aedit_name, &pArea->name);
 }
 
-AEDIT(aedit_credits)
+OLC_FUN(aedit_credits)
 {
 	AREA_DATA *pArea;
 	EDIT_AREA(ch, pArea);
 	return olced_str(ch, argument, aedit_credits, &pArea->credits);
 }
 
-AEDIT(aedit_file)
+OLC_FUN(aedit_file)
 {
 	AREA_DATA *pArea;
 	EDIT_AREA(ch, pArea);
 	return olced_str(ch, argument, aedit_file, &pArea->file_name);
 }
 
-AEDIT(aedit_age)
+OLC_FUN(aedit_age)
 {
 	AREA_DATA *pArea;
 	EDIT_AREA(ch, pArea);
 	return olced_number(ch, argument, aedit_age, &pArea->age);
 }
 
-AEDIT(aedit_flags)
+OLC_FUN(aedit_flags)
 {
 	AREA_DATA *pArea;
 	EDIT_AREA(ch, pArea);
 	return olced_flag(ch, argument, aedit_flags, &pArea->flags);
 }
 
-AEDIT(aedit_security)
+OLC_FUN(aedit_security)
 {
 	AREA_DATA *pArea;
 	EDIT_AREA(ch, pArea);
 	return olced_number(ch, argument, aedit_security, &pArea->security);
 }
 
-AEDIT(aedit_minlevel)
+OLC_FUN(aedit_minlevel)
 {
 	AREA_DATA *pArea;
 	EDIT_AREA(ch, pArea);
 	return olced_number(ch, argument, aedit_minlevel, &pArea->min_level);
 }
 
-AEDIT(aedit_maxlevel)
+OLC_FUN(aedit_maxlevel)
 {
 	AREA_DATA *pArea;
 	EDIT_AREA(ch, pArea);
 	return olced_number(ch, argument, aedit_maxlevel, &pArea->max_level);
 }
 
-AEDIT(aedit_builder)
+OLC_FUN(aedit_builder)
 {
 	AREA_DATA *pArea;
 	char name[MAX_STRING_LENGTH];
@@ -298,14 +254,14 @@ AEDIT(aedit_builder)
 	return FALSE;
 }
 
-AEDIT(aedit_minvnum)
+OLC_FUN(aedit_minvnum)
 {
 	AREA_DATA *pArea;
 	EDIT_AREA(ch, pArea);
 	return olced_number(ch, argument, aedit_minvnum, &pArea->min_vnum);
 }
 
-AEDIT(aedit_maxvnum)
+OLC_FUN(aedit_maxvnum)
 {
 	AREA_DATA *pArea;
 	EDIT_AREA(ch, pArea);
@@ -314,7 +270,7 @@ AEDIT(aedit_maxvnum)
 
 /* Validators */
 
-VALIDATOR(validate_security)
+VALIDATE_FUN(validate_security)
 {
 	int sec = *(int*) arg;
 	if (sec > ch->pcdata->security || sec < 0) {
@@ -327,7 +283,7 @@ VALIDATOR(validate_security)
 	return TRUE;
 }
 
-VALIDATOR(validate_minvnum)
+VALIDATE_FUN(validate_minvnum)
 {
 	int min_vnum = *(int*) arg;
 	AREA_DATA *pArea;
@@ -347,7 +303,7 @@ VALIDATOR(validate_minvnum)
 	return TRUE;
 }
 
-VALIDATOR(validate_maxvnum)
+VALIDATE_FUN(validate_maxvnum)
 {
 	int max_vnum = *(int*) arg;
 	AREA_DATA *pArea;

@@ -1,5 +1,5 @@
 /*
- * $Id: olc_clan.c,v 1.1 1998-09-01 18:38:09 fjoe Exp $
+ * $Id: olc_clan.c,v 1.2 1998-09-10 22:08:01 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -9,12 +9,13 @@
 #include "olc.h"
 #include "interp.h"
 
-#define CEDIT(fun)		bool fun(CHAR_DATA *ch, const char *argument)
 #define EDIT_CLAN(ch, clan)	(clan = (CLAN_DATA*) ch->desc->pEdit)
 
 DECLARE_OLC_FUN(cedit_create		);
 DECLARE_OLC_FUN(cedit_edit		);
+DECLARE_OLC_FUN(cedit_touch		);
 DECLARE_OLC_FUN(cedit_show		);
+
 DECLARE_OLC_FUN(cedit_name		);
 DECLARE_OLC_FUN(cedit_filename		);
 DECLARE_OLC_FUN(cedit_recall		);
@@ -27,11 +28,15 @@ DECLARE_OLC_FUN(cedit_skdel		);
 DECLARE_VALIDATE_FUN(validate_name	);
 DECLARE_VALIDATE_FUN(validate_recall	);
 
+static bool touch_clan(CLAN_DATA *clan);
+
 OLC_CMD_DATA cedit_table[] =
 {
 	{ "create",	cedit_create				},
 	{ "edit",	cedit_edit				},
+	{ "touch",	cedit_touch				},
 	{ "show",	cedit_show				},
+
 	{ "name",	cedit_name,	validate_name	 	},
 	{ "filename",	cedit_filename,	validate_filename	},
 	{ "recall",	cedit_recall,	validate_recall		},
@@ -45,74 +50,18 @@ OLC_CMD_DATA cedit_table[] =
 	{ NULL }
 };
 
-void cedit(CHAR_DATA *ch, const char *argument)
-{
-	char arg[MAX_INPUT_LENGTH];
-	char command[MAX_INPUT_LENGTH];
-	int cmd;
-
-	strnzcpy(arg, argument, MAX_INPUT_LENGTH);
-	argument = one_argument(argument, command);
-
-	if (command[0] == '\0') {
-		cedit_show(ch, argument);
-		return;
-	}
-
-	if (!str_cmp(command, "done")) {
-		edit_done(ch);
-		return;
-	}
-
-	for (cmd = 0; cedit_table[cmd].name != NULL; cmd++)
-		if (!str_prefix(command, cedit_table[cmd].name)) {
-			if (cedit_table[cmd].olc_fun(ch, argument)) {
-				CLAN_DATA *clan;
-				EDIT_CLAN(ch, clan);
-				SET_BIT(clan->flags, CLAN_CHANGED);
-			}
-			return;
-		}
-
-	interpret(ch, arg);
-}
-
-void do_cedit(CHAR_DATA *ch, const char *argument)
-{
-	char command[MAX_INPUT_LENGTH];
-
-	if (IS_NPC(ch)) {
-		char_nputs(MSG_HUH, ch);
-		return;
-	}
-		
-	if (ch->pcdata->security < SECURITY_CLAN) {
-		char_puts("CEdit: Insufficient security for editing clans\n\r", ch);
-		return;
-	}
-
-	argument = one_argument(argument, command);
-
-	if (!str_cmp(command, "create")) {
-		cedit_create(ch, argument);
-		return;
-	}
-
-	if (!str_cmp(command, "edit")) {
-		cedit_edit(ch, argument);
-		return;
-	}
-
-	do_help(ch, "'OLC CEDIT'");
-}
-
-CEDIT(cedit_create)
+OLC_FUN(cedit_create)
 {
 	int cn;
 	CLAN_DATA *clan;
 
+	if (ch->pcdata->security < SECURITY_CLAN) {
+		char_puts("CEdit: Insufficient security for editing clans\n\r", ch);
+		return FALSE;
+	}
+
 	if (argument[0] == '\0') {
-		do_help(ch, "'OLC CEDIT'");
+		do_help(ch, "'OLC OLC_FUN'");
 		return FALSE;
 	}
 
@@ -129,27 +78,38 @@ CEDIT(cedit_create)
 
 	ch->desc->pEdit		= (void *)clan;
 	ch->desc->editor	= ED_CLAN;
-
+	touch_clan(clan);
 	send_to_char("Clan created.\n\r",ch);
-
 	return FALSE;
 }
 
-CEDIT(cedit_edit)
+OLC_FUN(cedit_edit)
 {
 	int cn;
 
-	if ((cn = cn_lookup(argument)) < 0)
-		do_help(ch, "'OLC CEDIT'");
-	else {
-		ch->desc->pEdit		= CLAN(cn);
-		ch->desc->editor	= ED_CLAN;
+	if (ch->pcdata->security < SECURITY_CLAN) {
+		char_puts("CEdit: Insufficient security.\n\r", ch);
+		return FALSE;
 	}
 
+	if ((cn = cn_lookup(argument)) < 0) {
+		char_printf(ch, "CEdit: %s: No such clan.\n\r", argument);
+		return FALSE;
+	}
+
+	ch->desc->pEdit		= CLAN(cn);
+	ch->desc->editor	= ED_CLAN;
 	return FALSE;
 }
 
-CEDIT(cedit_show)
+OLC_FUN(cedit_touch)
+{
+	CLAN_DATA *clan;
+	EDIT_CLAN(ch, clan);
+	return touch_clan(clan);
+}
+
+OLC_FUN(cedit_show)
 {
 	int i;
 	BUFFER *output;
@@ -190,49 +150,49 @@ CEDIT(cedit_show)
 	return FALSE;
 }
 
-CEDIT(cedit_name)
+OLC_FUN(cedit_name)
 {
 	CLAN_DATA *clan;
 	EDIT_CLAN(ch, clan);
 	return olced_str(ch, argument, cedit_name, &clan->name);
 }
 
-CEDIT(cedit_filename)
+OLC_FUN(cedit_filename)
 {
 	CLAN_DATA *clan;
 	EDIT_CLAN(ch, clan);
 	return olced_str(ch, argument, cedit_filename, &clan->file_name);
 }
 
-CEDIT(cedit_recall)
+OLC_FUN(cedit_recall)
 {
 	CLAN_DATA *clan;
 	EDIT_CLAN(ch, clan);
 	return olced_number(ch, argument, cedit_recall, &clan->recall_vnum);
 }
 
-CEDIT(cedit_msg_prays)
+OLC_FUN(cedit_msg_prays)
 {
 	CLAN_DATA *clan;
 	EDIT_CLAN(ch, clan);
 	return olced_mlstr(ch, argument, cedit_msg_prays, &clan->msg_prays);
 }
 
-CEDIT(cedit_msg_vanishes)
+OLC_FUN(cedit_msg_vanishes)
 {
 	CLAN_DATA *clan;
 	EDIT_CLAN(ch, clan);
 	return olced_mlstr(ch, argument, cedit_msg_vanishes, &clan->msg_vanishes);
 }
 
-CEDIT(cedit_flags)
+OLC_FUN(cedit_flags)
 {
 	CLAN_DATA *clan;
 	EDIT_CLAN(ch, clan);
 	return olced_flag(ch, argument, cedit_flags, &clan->flags);
 }
 
-CEDIT(cedit_skadd)
+OLC_FUN(cedit_skadd)
 {
 	int sn;
 	CLAN_SKILL *clan_skill;
@@ -274,7 +234,7 @@ CEDIT(cedit_skadd)
 	return TRUE;
 }
 
-CEDIT(cedit_skdel)
+OLC_FUN(cedit_skdel)
 {
 	char	arg[MAX_STRING_LENGTH];
 	CLAN_SKILL *clan_skill;
@@ -292,7 +252,7 @@ CEDIT(cedit_skdel)
 	return TRUE;
 }
 
-VALIDATOR(validate_name)
+VALIDATE_FUN(validate_name)
 {
 	int i;
 	CLAN_DATA *clan;
@@ -309,7 +269,7 @@ VALIDATOR(validate_name)
 	return TRUE;
 }
 
-VALIDATOR(validate_recall)
+VALIDATE_FUN(validate_recall)
 {
 	int vnum = *(int*) arg;
 
@@ -319,4 +279,10 @@ VALIDATOR(validate_recall)
 	}
 
 	return TRUE;
+}
+
+static bool touch_clan(CLAN_DATA *clan)
+{
+	SET_BIT(clan->flags, CLAN_CHANGED);
+	return FALSE;
 }

@@ -1,5 +1,5 @@
 /*
- * $Id: olc_mpcode.c,v 1.10 1998-09-01 18:38:09 fjoe Exp $
+ * $Id: olc_mpcode.c,v 1.11 1998-09-10 22:08:01 fjoe Exp $
  */
 
 /* The following code is based on ILAB OLC by Jason Dinkel */
@@ -14,174 +14,107 @@
 #include "merc.h"
 #include "olc.h"
 
-#define MPEDIT(fun)           bool fun(CHAR_DATA *ch, const char *argument)
-#define EDIT_MPCODE(Ch, Code)   (Code = (MPCODE*)Ch->desc->pEdit)
+#define EDIT_MPCODE(ch, mpcode)   (mpcode = (MPCODE*) ch->desc->pEdit)
 
 /* Mobprog editor */
 DECLARE_OLC_FUN(mpedit_create		);
-DECLARE_OLC_FUN(mpedit_code		);
+DECLARE_OLC_FUN(mpedit_edit		);
+DECLARE_OLC_FUN(mpedit_touch		);
 DECLARE_OLC_FUN(mpedit_show		);
+
+DECLARE_OLC_FUN(mpedit_code		);
 DECLARE_OLC_FUN(mpedit_list		);
 
 OLC_CMD_DATA mpedit_table[] =
 {
 /*	{ command	function	}, */
 
-	{ "commands",	show_commands	},
 	{ "create",	mpedit_create	},
-	{ "code",	mpedit_code	},
+	{ "edit",	mpedit_edit	},
+	{ "touch",	mpedit_touch	},
 	{ "show",	mpedit_show	},
+
+	{ "code",	mpedit_code	},
 	{ "list",	mpedit_list	},
+
+	{ "commands",	show_commands	},
 
 	{ NULL }
 };
 
-void mpedit(CHAR_DATA *ch, const char *argument)
+OLC_FUN(mpedit_create)
 {
 	MPCODE *mpcode;
-	char arg[MAX_INPUT_LENGTH];
-	char command[MAX_INPUT_LENGTH];
-	int cmd;
-	AREA_DATA *ad;
+	int value;
+	AREA_DATA *pArea;
 
-	strcpy(arg, argument);
-	smash_tilde(arg);
-	argument = one_argument(arg, command);
+	value = atoi(argument);
+	pArea = area_vnum_lookup(value);
 
-	EDIT_MPCODE(ch, mpcode);
-
-	if (mpcode) {
-		ad = area_vnum_lookup(mpcode->vnum);
-
-		if (ad == NULL) { /* ??? */
-			edit_done(ch);
-			return;
-		}
-
-		if (!IS_BUILDER(ch, ad)) {
-			send_to_char("MPEdit: Insufficient security to modify code.\n\r", ch);
-			edit_done(ch);
-			return;
-		}
-	}
-
-	if (command[0] == '\0') {
-		mpedit_show(ch, argument);
-		return;
-	}
-
-	if (!str_cmp(command, "done")) {
-		edit_done(ch);
-		return;
-	}
-
-	for (cmd = 0; mpedit_table[cmd].name != NULL; cmd++) {
-		if (!str_prefix(command, mpedit_table[cmd].name)) {
-			if ((*mpedit_table[cmd].olc_fun) (ch, argument) && mpcode)
-				if ((ad = area_vnum_lookup(mpcode->vnum)) != NULL)
-					SET_BIT(ad->flags, AREA_CHANGED);
-			return;
-		}
-	}
-
-	interpret(ch, arg);
-}
-
-void do_mpedit(CHAR_DATA *ch, const char *argument)
-{
-	MPCODE *mpcode;
-	char command[MAX_INPUT_LENGTH];
-
-	if (IS_NPC(ch))
-		return;
-
-	argument = one_argument(argument, command);
-
-	if(is_number(command)) {
-		int vnum = atoi(command);
-		AREA_DATA *ad;
-
-		if ((mpcode = mpcode_lookup(vnum)) == NULL) {
-			send_to_char("MPEdit : That vnum does not exist.\n\r",ch);
-			return;
-		}
-
-		ad = area_vnum_lookup(vnum);
-
-		if (ad == NULL) {
-			send_to_char("MPEdit : VNUM no asignado a ningun area.\n\r", ch);
-			return;
-		}
-
-		if (!IS_BUILDER(ch, ad)) {
-			send_to_char("MPEdit : Insuficiente seguridad para editar area.\n\r", ch);
-			return;
-		}
-
-		ch->desc->pEdit		= (void *)mpcode;
-		ch->desc->editor	= ED_MPCODE;
-
-		return;
-	}
-
-	if (!str_cmp(command, "create")) {
-		if (argument[0] == '\0') {
-			send_to_char("Syntax: mpedit create [vnum]\n\r", ch);
-			return;
-		}
-
-		mpedit_create(ch, argument);
-		return;
-	}
-
-	send_to_char("Syntax : mpedit [vnum]\n\r", ch);
-	send_to_char("         mpedit create [vnum]\n\r", ch);
-}
-
-MPEDIT (mpedit_create)
-{
-	MPCODE *mpcode;
-	int value = atoi(argument);
-	AREA_DATA *ad;
-
-	if (IS_NULLSTR(argument) || value < 1) {
-		send_to_char("Syntax: mpedit create [vnum]\n\r", ch);
+	if (!pArea) {
+		char_puts("MPEdit: That vnum is not assigned an area.\n\r", ch);
 		return FALSE;
 	}
 
-	ad = area_vnum_lookup(value);
-
-	if (ad == NULL) {
-		send_to_char("MPEdit : VNUM no asignado a ningun area.\n\r", ch);
-		return FALSE;
-	}
-	
-	if (!IS_BUILDER(ch, ad)) {
-		send_to_char("MPEdit : Insuficiente seguridad para crear MobProgs.\n\r", ch);
+	if (!IS_BUILDER(ch, pArea)) {
+		char_puts("MPEdit: Insufficient security.\n\r", ch);
 		return FALSE;
 	}
 
-	if (mpcode_lookup(value)) {
-		send_to_char("MPEdit: Code vnum already exists.\n\r",ch);
+	if (get_mob_index(value)) {
+		char_puts("MPEdit: vnum already exists.\n\r", ch);
 		return FALSE;
 	}
 
 	mpcode			= mpcode_new();
 	mpcode->vnum		= value;
-		mpcode_add(mpcode);
-		ch->desc->pEdit		= (void *)mpcode;
-		ch->desc->editor	= ED_MPCODE;
+	mpcode_add(mpcode);
 
-	send_to_char("MobProgram code created.\n\r",ch);
-
-	return TRUE;
+	ch->desc->pEdit		= (void *)mpcode;
+	ch->desc->editor	= ED_MPCODE;
+	touch_area(pArea);
+	char_puts("MPEdit: mpcode created.\n\r", ch);
+	return FALSE;
 }
 
-MPEDIT(mpedit_show)
+OLC_FUN(mpedit_edit)
 {
 	MPCODE *mpcode;
+	AREA_DATA *pArea;
+	int value;
+	char arg[MAX_STRING_LENGTH];
 
-	EDIT_MPCODE(ch,mpcode);
+	argument = one_argument(argument, arg);
+	value = atoi(argument);
+	mpcode = mpcode_lookup(value);
+
+	if (!mpcode) {
+		char_puts("MPEdit: Vnum does not exist.\n\r", ch);
+		return FALSE;
+	}
+
+	pArea = area_vnum_lookup(mpcode->vnum);
+	if (!IS_BUILDER(ch, pArea)) {
+		char_puts("MEdit: Insufficient security.\n\r", ch);
+	       	return FALSE;
+	}
+
+	ch->desc->pEdit = (void*) mpcode;
+	ch->desc->editor = ED_MPCODE;
+	return FALSE;
+}
+
+OLC_FUN(mpedit_touch)
+{
+	MPCODE *mpcode;
+	EDIT_MPCODE(ch, mpcode);
+	return touch_vnum(mpcode->vnum);
+}
+
+OLC_FUN(mpedit_show)
+{
+	MPCODE *mpcode;
+	EDIT_MPCODE(ch, mpcode);
 
 	char_printf(ch, "Vnum:       [%d]\n\rCode:\n\r%s\n\r",
 		   mpcode->vnum, mpcode->code);
@@ -189,14 +122,14 @@ MPEDIT(mpedit_show)
 	return FALSE;
 }
 
-MPEDIT(mpedit_code)
+OLC_FUN(mpedit_code)
 {
 	MPCODE *mpcode;
 	EDIT_MPCODE(ch, mpcode);
 	return olced_str_text(ch, argument, mpedit_code, &mpcode->code);
 }
 
-MPEDIT(mpedit_list)
+OLC_FUN(mpedit_list)
 {
 	int count = 1;
 	MPCODE *mpcode;

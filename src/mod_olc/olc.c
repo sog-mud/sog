@@ -1,5 +1,5 @@
 /*
- * $Id: olc.c,v 1.15 1998-09-01 18:38:09 fjoe Exp $
+ * $Id: olc.c,v 1.16 1998-09-10 22:08:00 fjoe Exp $
  */
 
 /***************************************************************************
@@ -45,46 +45,78 @@
 #define CREDITS "     Original by Surreality(cxw197@psu.edu) and Locke(locke@lm.com)"
 
 struct olced_data {
-	int		id;
-	char *		name;
-	DO_FUN *	edit;
+	const char *	id;
+	const char *	name;
 	OLC_CMD_DATA *	cmd_table;
-	char *		do_name;
-	DO_FUN *	do_fun;
 };
 typedef struct olced_data OLCED_DATA;	
 
+const char ED_AREA[]	= "area";
+const char ED_ROOM[]	= "room";
+const char ED_OBJ[]	= "object";
+const char ED_MOB[]	= "mobile";
+const char ED_MPCODE[]	= "mpcode";
+const char ED_HELP[]	= "help";
+const char ED_CLAN[]	= "clan";
+
 OLCED_DATA olced_table[] = {
-	{	ED_AREA,	"AEdit",	aedit,
-		aedit_table,	"area",		do_aedit	},
-	{	ED_ROOM,	"REdit",	redit,
-		redit_table,	"room",		do_redit	},
-	{	ED_OBJECT,	"OEdit",	oedit,
-		oedit_table,	"object",	do_oedit	},
-	{	ED_MOBILE,	"MEdit",	medit,
-		medit_table,	"mobile",	do_medit	},
-	{	ED_MPCODE,	"MPEdit",	mpedit,
-		mpedit_table,	"mpcode",	do_mpedit	},
-	{	ED_HELP,	"HEdit",	hedit,
-		hedit_table,	"help",		do_hedit	},
-	{	ED_CLAN,	"CEdit",	cedit,
-		cedit_table,	"clan",		do_cedit	},
-	{ -1 }
+	{ ED_AREA,	"AEdit",	aedit_table	},
+	{ ED_ROOM,	"REdit",	redit_table	},
+	{ ED_OBJ,	"OEdit",	oedit_table	},
+	{ ED_MOB,	"MEdit",	medit_table	},
+	{ ED_MPCODE,	"MPEdit",	mpedit_table	},
+	{ ED_HELP,	"HEdit",	hedit_table	},
+	{ ED_CLAN,	"CEdit",	cedit_table	},
+	{ NULL }
 };
 
-static OLCED_DATA *	olced_lookup(int id);
-static OLC_CMD_DATA *olced_cmd_lookup(CHAR_DATA *ch, OLC_FUN *fun,
-				      OLCED_DATA *olced);
-static void show_olc_cmds(CHAR_DATA *ch, OLC_CMD_DATA *olc_table);
+static OLCED_DATA *	olced_lookup	(const char * id);
+static OLC_CMD_DATA *	cmd_lookup	(OLC_CMD_DATA *cmd_table, OLC_FUN *fun);
+static OLC_CMD_DATA *	cmd_name_lookup	(OLC_CMD_DATA *cmd_table,
+					 const char *name);
+
+static void do_olc(CHAR_DATA *ch, const char *argument, int fun);
 
 /* Executed from comm.c.  Minimizes compiling when changes are made. */
 bool run_olc_editor(DESCRIPTOR_DATA *d)
 {
+	char command[MAX_INPUT_LENGTH];
+	OLC_CMD_DATA *cmd;
+	const char *argument;
 	OLCED_DATA *olced = olced_lookup(d->editor);
-	if (olced == NULL)
+
+	if ((olced = olced_lookup(d->editor)) == NULL)
 		return FALSE;
-	olced->edit(d->character, d->incomm);
+
+	argument = one_argument(d->incomm, command);
+
+	if (command[0] == '\0') {
+		olced->cmd_table[FUN_SHOW].olc_fun(d->character, argument);
+		return TRUE;
+	}
+
+	if (!str_cmp(command, "done")) {
+		edit_done(d);
+		return TRUE;
+	}
+
+	if ((cmd = cmd_name_lookup(olced->cmd_table+FUN_FIRST, command)) == NULL)
+		return FALSE;
+
+	if (cmd->olc_fun(d->character, argument))
+		olced->cmd_table[FUN_TOUCH].olc_fun(d->character, NULL);
+
 	return TRUE;
+}
+
+void do_create(CHAR_DATA *ch, const char *argument)
+{
+	do_olc(ch, argument, FUN_CREATE);
+}
+
+void do_edit(CHAR_DATA *ch, const char *argument)
+{
+	do_olc(ch, argument, FUN_EDIT);
 }
 
 /*
@@ -319,7 +351,7 @@ bool olced_flag(CHAR_DATA *ch, const char *argument,
 	flag_t marked;
 
 	if ((olced = olced_lookup(ch->desc->editor)) == NULL
-	||  (cmd = olced_cmd_lookup(ch, fun, olced)) == NULL)
+	||  (cmd = cmd_lookup(olced->cmd_table, fun)) == NULL)
 		return FALSE;
 
 	if (!cmd->arg1) {
@@ -460,6 +492,15 @@ bool olced_clan(CHAR_DATA *ch, const char *argument, OLC_FUN *fun, int *vnum)
 	return TRUE;
 }
 
+VALIDATE_FUN(validate_filename)
+{
+	if (strpbrk(arg, "/")) {
+		char_puts("AEdit: Invalid characters in file name.\n\r", ch);
+		return FALSE;
+	}
+	return TRUE;
+}
+
 /*****************************************************************************
  Name:		show_commands
  Purpose:	Display all olc commands.
@@ -467,68 +508,57 @@ bool olced_clan(CHAR_DATA *ch, const char *argument, OLC_FUN *fun, int *vnum)
  ****************************************************************************/
 bool show_commands(CHAR_DATA *ch, const char *argument)
 {
-	OLCED_DATA *olced;
+	OLCED_DATA *	olced;
+	OLC_CMD_DATA *	cmd;
+	BUFFER *	output;
+	int		col;
 
 	olced = olced_lookup(ch->desc->editor);
 	if (olced == NULL)
 		return FALSE;
 
-	show_olc_cmds(ch, olced->cmd_table);
+	output = buf_new(0); 
+
+	for (col = 0, cmd = olced->cmd_table+FUN_FIRST; cmd->name; cmd++) {
+		buf_printf(output, "%-15.15s", cmd->name);
+		if (++col % 5 == 0)
+			buf_add(output, "\n\r");
+	}
+	if (col % 5 != 0)
+		buf_add(output, "\n\r");
+
+	page_to_char(buf_string(output), ch);
+	buf_free(output);
+
 	return FALSE;
 }
 
 bool show_version(CHAR_DATA *ch, const char *argument)
 {
-	send_to_char(VERSION, ch);
-	send_to_char("\n\r", ch);
-	send_to_char(AUTHOR, ch);
-	send_to_char("\n\r", ch);
-	send_to_char(DATE, ch);
-	send_to_char("\n\r", ch);
-	send_to_char(CREDITS, ch);
-	send_to_char("\n\r", ch);
+	char_puts(VERSION	"\n\r"
+		  AUTHOR	"\n\r"
+		  DATE		"\n\r"
+		  CREDITS	"\n\r", ch);
 
 	return FALSE;
 }    
 
-/*****************************************************************************
- Name:		edit_done
- Purpose:	Resets builder information on completion.
- Called by:	aedit, redit, oedit, medit(olc.c)
- ****************************************************************************/
-bool edit_done(CHAR_DATA *ch)
+bool touch_area(AREA_DATA *pArea)
 {
-	ch->desc->pEdit = NULL;
-	ch->desc->editor = 0;
+	if (pArea)
+		SET_BIT(pArea->flags, AREA_CHANGED);
 	return FALSE;
 }
 
-/* Entry point for all editors. */
-void do_olc(CHAR_DATA *ch, const char *argument)
+bool touch_vnum(int vnum)
 {
-	char command[MAX_INPUT_LENGTH];
-	int i;
+	return touch_area(area_vnum_lookup(vnum));
+}
 
-	if (IS_NPC(ch))
-		return;
-
-	argument = one_argument(argument, command);
-
-	if (command[0] == '\0') {
-        	do_help(ch, "'OLC INTRO'");
-        	return;
-	}
- 
- 	/* Search Table and Dispatch Command. */
-	for (i = 0; olced_table[i].name != NULL; i++) {
-		if (!str_prefix(command, olced_table[i].do_name)) {
-			olced_table[i].do_fun(ch, argument);
-			return;
-		}
-	}
-
-	/* Invalid command, send help. */
-	do_help(ch, "'OLC INTRO'");
+void edit_done(DESCRIPTOR_DATA *d)
+{
+	d->pEdit = NULL;
+	d->editor = NULL;
 }
 
 /*****************************************************************************
@@ -594,65 +624,57 @@ OLC_CMD_DATA *olc_cmd_lookup(CHAR_DATA *ch, OLC_FUN *fun)
 	if ((olced = olced_lookup(ch->desc->editor)) == NULL)
 		return NULL;
 
-	return olced_cmd_lookup(ch, fun, olced);
+	return cmd_lookup(olced->cmd_table, fun);
 }
 
 /* Local functions */
 
-static OLCED_DATA *olced_lookup(int id)
+/* lookup OLC editor by id */
+static OLCED_DATA *olced_lookup(const char * id)
 {
-	int i;
-	for (i = 0; olced_table[i].id != -1; i++)
-		if (olced_table[i].id == id)
-			return olced_table+i;
+	OLCED_DATA *olced;
+
+	if (IS_NULLSTR(id))
+		return NULL;
+
+	for (olced = olced_table; olced->id; olced++)
+		if (!str_prefix(id, olced->id))
+			return olced;
 	return NULL;
 }
 
-static OLC_CMD_DATA *olced_cmd_lookup(CHAR_DATA *ch, OLC_FUN *fun,
-				      OLCED_DATA *olced)
+/* lookup cmd function by pointer */
+static OLC_CMD_DATA *cmd_lookup(OLC_CMD_DATA *cmd_table, OLC_FUN *fun)
 {
-	OLC_CMD_DATA *cmd;
-	for (cmd = olced->cmd_table; cmd->name; cmd++)
-		if (cmd->olc_fun == fun)
-			return cmd;
+	for (; cmd_table->name; cmd_table++)
+		if (cmd_table->olc_fun == fun)
+			return cmd_table;
 	return NULL;
 }
 
-/*****************************************************************************
- Name:		show_olc_cmds
- Purpose:	Format up the commands from given table.
- Called by:	show_commands(olc_act.c).
- ****************************************************************************/
-void show_olc_cmds(CHAR_DATA *ch, OLC_CMD_DATA *olc_table)
+/* lookup cmd function by name */
+static OLC_CMD_DATA *cmd_name_lookup(OLC_CMD_DATA *cmd_table, const char *name)
 {
-    char buf  [ MAX_STRING_LENGTH ];
-    char buf1 [ MAX_STRING_LENGTH ];
-    int  cmd;
-    int  col;
- 
-    buf1[0] = '\0';
-    col = 0;
-    for (cmd = 0; olc_table[cmd].name != NULL; cmd++)
-    {
-	sprintf(buf, "%-15.15s", olc_table[cmd].name);
-	strcat(buf1, buf);
-	if (++col % 5 == 0)
-	    strcat(buf1, "\n\r");
-    }
- 
-    if (col % 5 != 0)
-	strcat(buf1, "\n\r");
-
-    send_to_char(buf1, ch);
-    return;
+	for (; cmd_table->name; cmd_table++)
+		if (!str_prefix(name, cmd_table->name))
+			return cmd_table;
+	return NULL;
 }
 
-VALIDATOR(validate_filename)
+static void do_olc(CHAR_DATA *ch, const char *argument, int fun)
 {
-	if (strpbrk(arg, "/")) {
-		char_puts("AEdit: Invalid characters in file name.\n\r", ch);
-		return FALSE;
+	char command[MAX_INPUT_LENGTH];
+	OLCED_DATA *olced;
+
+	if (IS_NPC(ch))
+		return;
+
+	argument = one_argument(argument, command);
+	if ((olced = olced_lookup(command)) == NULL) {
+        	do_help(ch, "'OLC EDIT'");
+        	return;
 	}
-	return TRUE;
+
+	olced->cmd_table[fun].olc_fun(ch, argument);
 }
 
