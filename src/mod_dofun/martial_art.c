@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.81 1999-04-15 11:36:57 fjoe Exp $
+ * $Id: martial_art.c,v 1.82 1999-04-16 09:55:10 fjoe Exp $
  */
 
 /***************************************************************************
@@ -971,6 +971,7 @@ void do_rescue(CHAR_DATA *ch, const char *argument)
 	act("$n rescues $N!",  ch, NULL, victim, TO_NOTVICT);
 	check_improve(ch, gsn_rescue, TRUE, 1);
 
+	stop_fighting(ch, FALSE);
 	stop_fighting(fch, FALSE);
 	stop_fighting(victim, FALSE);
 

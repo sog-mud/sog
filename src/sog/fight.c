@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.158 1999-04-15 09:14:13 fjoe Exp $
+ * $Id: fight.c,v 1.159 1999-04-16 09:55:09 fjoe Exp $
  */
 
 /***************************************************************************
@@ -462,9 +462,11 @@ void mob_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 
 	/* no attack by ridden mobiles except spec_casts */
 	if (RIDDEN(ch)) {
-		 if (ch->fighting != victim)
+		if (ch->fighting != victim) {
+			stop_fighting(ch, FALSE);
 			set_fighting(ch, victim);
-		 return;
+		}
+		return;
 	}
 
 	one_hit(ch, victim, dt, WEAR_WIELD);
