@@ -1,5 +1,5 @@
 /*
- * $Id: olc_save.c,v 1.35 1998-10-10 04:37:44 fjoe Exp $
+ * $Id: olc_save.c,v 1.36 1998-10-12 04:58:18 fjoe Exp $
  */
 
 /**************************************************************************
@@ -844,20 +844,6 @@ void save_omprogs(FILE *fp, AREA_DATA *pArea)
 		fprintf(fp, "S\n\n");
 }
 
-
-void save_practicer(FILE *fp, MOB_INDEX_DATA *pMobIndex)
-{
-	const FLAG *f;
-
-	for (f = skill_groups; f->name != NULL; f++)
-		if (IS_SET(pMobIndex->practicer, f->bit))
-    			fprintf(fp, "M %d %s\t* %s\n",
-				pMobIndex->vnum,
-				f->name,
-				mlstr_mval(pMobIndex->short_descr));
-}
-
-
 void save_practicers(FILE *fp, AREA_DATA *pArea)
 {
 	int i;
@@ -871,7 +857,10 @@ void save_practicers(FILE *fp, AREA_DATA *pArea)
 				fprintf(fp, "#PRACTICERS\n");
 				found = TRUE;
 			}
-			save_practicer(fp, pMobIndex);
+    			fprintf(fp, "M %d %s~\t* %s\n",
+				pMobIndex->vnum,
+				flag_string(skill_groups, pMobIndex->practicer),
+				mlstr_mval(pMobIndex->short_descr));
 		}
 
 	if (found)
@@ -924,7 +913,7 @@ void save_area(AREA_DATA *pArea)
 		mlstr_fwrite(fp, "ResetMessage", pArea->resetmsg);
 	flags = pArea->flags & ~AREA_CHANGED;
 	if (flags)
-		fprintf(fp, "Flags %s\n", flag_string(area_flags, flags));
+		fprintf(fp, "Flags %s~\n", flag_string(area_flags, flags));
 	fprintf(fp, "End\n\n");
 
 	if (pArea->min_vnum && pArea->max_vnum) {

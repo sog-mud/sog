@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_mob.c,v 1.13 1998-10-09 13:43:14 fjoe Exp $
+ * $Id: olc_mob.c,v 1.14 1998-10-12 04:58:17 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -822,7 +822,7 @@ OLC_FUN(mobed_trigadd)
 
 	mptrig = mptrig_new(value, phrase, atoi(num));
 	mptrig_add(pMob, mptrig);
-	char_puts("Trigger.\n\r",ch);
+	char_puts("Trigger added.\n\r",ch);
 	return TRUE;
 }
 
@@ -875,6 +875,7 @@ OLC_FUN(mobed_trigdel)
 		        return FALSE;
 		}
 	}
+	mptrig_fix(pMob);
 
 	char_puts("Trigger removed.\n\r", ch);
 	return TRUE;
