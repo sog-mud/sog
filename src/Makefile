@@ -1,5 +1,5 @@
 #
-# $Id: Makefile,v 1.60.2.5 2004-02-22 16:48:21 fjoe Exp $
+# $Id: Makefile,v 1.60.2.6 2004-02-24 11:43:14 fjoe Exp $
 #
 
 .include "${.CURDIR}/Makefile.modules"
@@ -31,8 +31,12 @@ gtags:
 #	egrep -v '^mod_olc/|^mod_mpc/|^sog/objval.c$$' |\
 #	egrep -v '^sog/special.c$$'
 
-#checktrans: .PHONY
+#checktrans:
 #	./checktrans.pl -u ${CHECKTRANS_FILES}
+
+build:	depend all install
+
+.PHONY: depend cleandepend all install ctags gtags
 
 .include "Makefile.osdep"
 .include <bsd.subdir.mk>
