@@ -465,7 +465,6 @@ BFTVe 0 T 0 ABCD -1000 0
 ACGIK
 stand stand male 25000
 0 0 huge unknown
-M exall 22304 1~
 r bash 30
 r pierce 50
 r slash 40
@@ -848,9 +847,6 @@ BCTU 0 H 0 ABCD 0 0
 AGK
 stand stand male 0
 0 0 gargantuan unknown
-M give 22300 22352~
-M grall 22301 100~
-M bribe 22302 10000~
 r bash 999
 r pierce 50
 r slash 33
@@ -910,7 +906,6 @@ ORT 0 V G CDG -1000 0
 AFGHKP
 stand stand random 1000
 0 0 large unknown
-M act 22303 open chest~
 r bash 20
 r pierce 20
 r slash 30
@@ -943,7 +938,6 @@ ORT 0 Vc G CD -1000 0
 FGHJKP
 stand stand none 500
 0 0 large unknown
-M act 22303 opens chest~
 r pierce 20
 r slash 10
 r fire -30

@@ -24,9 +24,6 @@ GHT 0 HN 0 0 400 0
 EFNU
 stand stand female 0
 0 0 medium unknown
-M act 21002 looks at you.~
-M kill 21001 100~
-M greet 21000 100~
 #21001
 white rabbit~
 a white rabbit~
@@ -43,14 +40,6 @@ GHT 0 HNT G H 400 0
 ENR
 stand stand male 0
 HM BGI medium unknown
-M greet 21003 100~
-M act 21024 leaves up.~
-M act 21024 leaves down.~
-M act 21024 leaves east.~
-M act 21024 leaves west.~
-M act 21024 leaves north.~
-M act 21024 leaves south.~
-M act 21024 leaves.~
 r bash 33
 r pierce -50
 r cold 33
@@ -70,14 +59,6 @@ GHT 0 0 0 H 400 0
 ENU
 stand stand male 0
 HM B medium unknown
-M greet 21004 100~
-M act 21025 leaves north.~
-M act 21025 leaves south.~
-M act 21025 leaves up.~
-M act 21025 leaves down.~
-M act 21025 leaves east.~
-M act 21025 leaves west.~
-M act 21025 leaves.~
 #21003
 duck~
 a duck~
@@ -92,14 +73,6 @@ GHT 0 0 0 0 400 0
 EFNU
 stand stand female 0
 HMV B medium unknown
-M greet 21005 100~
-M act 21026 leaves north.~
-M act 21026 leaves south.~
-M act 21026 leaves up.~
-M act 21026 leaves down.~
-M act 21026 leaves east.~
-M act 21026 leaves west.~
-M act 21026 leaves.~
 #21004
 dodo~
 a dodo~
@@ -115,15 +88,6 @@ BGT 0 N 0 0 400 0
 EFNU
 stand stand male 0
 0 0 medium unknown
-M act 21007 looks at you.~
-M greet 21006 100~
-M act 21027 leaves north.~
-M act 21027 leaves south.~
-M act 21027 leaves up.~
-M act 21027 leaves down.~
-M act 21027 leaves east.~
-M act 21027 leaves west.~
-M act 21027 leaves.~
 #21005
 lory~
 a lory~
@@ -138,16 +102,6 @@ GHT 0 T 0 0 400 0
 EFNU
 stand stand male 0
 0 0 medium unknown
-M act 21010 looks at you.~
-M greet 21009 100~
-M act 21008 tells you~
-M act 21028 leaves north.~
-M act 21028 leaves south.~
-M act 21028 leaves up.~
-M act 21028 leaves down.~
-M act 21028 leaves east.~
-M act 21028 leaves west.~
-M act 21028 leaves.~
 #21006
 eaglet~
 an eaglet~
@@ -162,14 +116,6 @@ BGT 0 T 0 0 400 0
 EFNU
 stand stand male 0
 0 0 medium unknown
-M greet 21011 100~
-M act 21029 leaves north.~
-M act 21029 leaves south.~
-M act 21029 leaves up.~
-M act 21029 leaves down.~
-M act 21029 leaves east.~
-M act 21029 leaves west.~
-M act 21029 leaves.~
 #21007
 magpie~
 an elderly magpie~
@@ -184,14 +130,6 @@ BGHT 0 T 0 0 400 0
 EFNU
 stand stand female 0
 0 0 medium unknown
-M greet 21012 100~
-M act 21030 leaves north.~
-M act 21030 leaves south.~
-M act 21030 leaves up.~
-M act 21030 leaves down.~
-M act 21030 leaves east.~
-M act 21030 leaves west.~
-M act 21030 leaves.~
 #21008
 owl~
 an owl~
@@ -206,7 +144,6 @@ BGT 0 T 0 0 400 0
 EFNU
 stand stand male 0
 0 0 medium unknown
-M greet 21013 100~
 #21009
 old crab~
 an old crab~
@@ -220,7 +157,6 @@ BGT 0 N 0 0 400 0
 EFNU
 stand stand female 0
 0 0 medium unknown
-M greet 21015 100~
 #21010
 young crab~
 a young crab~
@@ -234,7 +170,6 @@ BGHT 0 N 0 0 400 0
 EFNU
 stand stand female 0
 0 0 medium unknown
-M greet 21014 100~
 #21011
 bill lizard~
 Bill the lizard~
@@ -249,9 +184,6 @@ BGHT 0 0 0 0 400 0
 EFNU
 stand stand male 0
 HMV B medium unknown
-M greet 21016 100~
-M kill 21017 100~
-M death 21018 100~
 r cold 50
 r poison -33
 #21012
@@ -268,8 +200,6 @@ BGHT 0 0 0 0 400 0
 EFNU
 stand stand male 0
 HM B medium unknown
-M greet 21019 100~
-M act 21020 looks at you.~
 #21013
 puppy~
 a puppy dog~
@@ -284,15 +214,6 @@ BGHT 0 0 0 H 400 0
 EFNU
 stand stand male 0
 HM B medium unknown
-M greet 21021 100~
-M act 21022 tells you~
-M act 21023 leaves north.~
-M act 21023 leaves south.~
-M act 21023 leaves east.~
-M act 21023 leaves west.~
-M act 21023 leaves up.~
-M act 21023 leaves down.~
-M act 21023 leaves.~
 #21014
 caterpillar~
 the caterpillar~
@@ -307,15 +228,6 @@ BGHT 0 HN 0 H 400 0
 EFNU
 stand stand male 0
 0 0 medium unknown
-M greet 21031 100~
-M act 21032 looks at you.~
-M act 21033 leaves north.~
-M act 21033 leaves south.~
-M act 21033 leaves up.~
-M act 21033 leaves down.~
-M act 21033 leaves east.~
-M act 21033 leaves west.~
-M act 21033 leaves.~
 #21015
 pigeon~
 a pigeon~
@@ -331,15 +243,6 @@ BFGT 0 T 0 0 400 0
 EFNU
 stand stand female 0
 0 0 medium unknown
-M greet 21034 100~
-M act 21035 looks at you.~
-M act 21036 leaves north.~
-M act 21036 leaves south.~
-M act 21036 leaves up.~
-M act 21036 leaves down.~
-M act 21036 leaves east.~
-M act 21036 leaves west.~
-M act 21036 leaves.~
 #21016
 fish footman~
 a fish-footman~
@@ -355,8 +258,6 @@ BGT 0 0 0 0 400 0
 EFNR
 stand stand male 0
 0 0 medium unknown
-M greet 21037 100~
-M act 21038 looks at you.~
 r fire 50
 r cold 50
 #21017
@@ -374,7 +275,6 @@ BGT 0 0 0 0 400 0
 EFNU
 stand stand male 0
 0 0 medium unknown
-M act 21039 tells you~
 #21018
 duchess~
 the Duchess~
@@ -390,9 +290,6 @@ BGT 0 N 0 0 400 0
 EFNU
 stand stand female 0
 0 0 medium unknown
-M greet 21040 100~
-M random 21041 5~
-M act 21041 tells you~
 #21019
 pig baby~
 the Duchess' baby~
@@ -408,7 +305,6 @@ BGT 0 0 0 0 0 0
 EFNR
 stand stand male 0
 0 0 medium unknown
-M greet 21042 100~
 #21020
 cook~
 the cook~
@@ -424,15 +320,6 @@ BGT 0 0 0 0 0 0
 EFNU
 stand stand female 0
 0 0 medium unknown
-M greet 21043 100~
-M act 21044 says ~
-M act 21045 leaves north.~
-M act 21045 leaves south.~
-M act 21045 leaves up.~
-M act 21045 leaves down.~
-M act 21045 leaves east.~
-M act 21045 leaves west.~
-M act 21045 leaves.~
 #21021
 cheshire cat~
 a Cheshire Cat~
@@ -450,16 +337,6 @@ GHT 0 HNU 0 H 1000 0
 EFNU
 stand stand male 0
 0 0 medium unknown
-M greet 21046 100~
-M random 21047 5~
-M act 21048 looks at you.~
-M act 21049 leaves north.~
-M act 21049 leaves south.~
-M act 21049 leaves up.~
-M act 21049 leaves down.~
-M act 21049 leaves east.~
-M act 21049 leaves west.~
-M act 21049 leaves.~
 #21022
 mad hatter~
 the Mad Hatter~
@@ -484,16 +361,6 @@ BGT 0 H 0 0 400 0
 EFNU
 stand stand male 0
 0 0 medium unknown
-M greet 21050 100~
-M act 21051 looks at you.~
-M act 21052 tells you ~
-M act 21054 leaves north.~
-M act 21054 leaves south.~
-M act 21054 leaves up.~
-M act 21054 leaves down.~
-M act 21054 leaves east.~
-M act 21054 leaves west.~
-M act 21054 leaves.~
 #21023
 march hare~
 the March Hare~
@@ -509,14 +376,6 @@ BGT 0 H 0 0 400 0
 EFNU
 stand stand male 0
 0 0 medium unknown
-M greet 21050 100~
-M act 21054 leaves north.~
-M act 21054 leaves south.~
-M act 21054 leaves up.~
-M act 21054 leaves down.~
-M act 21054 leaves east.~
-M act 21054 leaves west.~
-M act 21054 leaves.~
 #21024
 dormouse~
 the Dormouse~
@@ -533,8 +392,6 @@ BGT 0 R G 0 400 0
 EFNU
 stand stand male 0
 0 0 medium unknown
-M greet 21055 100~
-M random 21056 5~
 #21027
 gardener heart five card~
 a gardener~
@@ -549,12 +406,6 @@ BGHT 0 0 0 0 400 0
 EFNU
 stand stand male 0
 0 0 medium unknown
-M greet 21057 100~
-M act 21058 tells you~
-M act 21058 says~
-M act 21058 tells you~
-M act 21058 says~
-M greet 21059 100~
 #21028
 gardener heart seven card~
 a gardener~
@@ -569,9 +420,6 @@ BGHT 0 0 0 0 400 0
 EFNU
 stand stand male 0
 0 0 medium unknown
-M greet 21059 100~
-M act 21058 says~
-M act 21058 tells you~
 #21029
 gardener heart two card~
 a gardener~
@@ -586,15 +434,6 @@ BGHT 0 0 0 0 400 0
 EFNU
 stand stand male 0
 0 0 medium unknown
-M greet 21060 100~
-M random 21061 4~
-M act 21062 leaves north.~
-M act 21062 leaves south.~
-M act 21062 leaves up.~
-M act 21062 leaves down.~
-M act 21062 leaves east.~
-M act 21062 leaves west.~
-M act 21062 leaves.~
 #21030
 soldier club card~
 a soldier~
@@ -608,8 +447,6 @@ GT 0 N 0 0 400 0
 EFNU
 stand stand male 0
 0 0 medium unknown
-M greet 21063 100~
-M act 21064 looks at you.~
 #21031
 courtier diamond card~
 a courtier~
@@ -623,15 +460,6 @@ GT 0 0 0 0 400 0
 EFNU
 stand stand male 0
 0 0 medium unknown
-M greet 21065 100~
-M act 21066 looks at you.~
-M act 21067 leaves north.~
-M act 21067 leaves south.~
-M act 21067 leaves up.~
-M act 21067 leaves down.~
-M act 21067 leaves east.~
-M act 21067 leaves west.~
-M act 21067 leaves.~
 #21032
 child card hearts~
 a child of the Queen~
@@ -645,7 +473,6 @@ GHT 0 0 0 0 400 0
 EFNU
 stand stand male 0
 0 0 medium unknown
-M greet 21068 100~
 #21033
 king hearts~
 the King of Hearts~
@@ -661,15 +488,6 @@ GT 0 H 0 H 400 0
 EFNU
 stand stand male 0
 0 0 medium unknown
-M greet 21069 100~
-M act 21070 looks at you.~
-M act 21071 leaves north.~
-M act 21071 leaves south.~
-M act 21071 leaves up.~
-M act 21071 leaves down.~
-M act 21071 leaves east.~
-M act 21071 leaves west.~
-M act 21071 leaves.~
 #21034
 queen hearts~
 @eng the Queen of Hearts@rus ~~Червовая~~ ~~Королева~~~
@@ -685,17 +503,6 @@ GLQRSTY CH N 0 H -400 0
 EFNU
 stand stand female 0
 0 0 medium unknown
-M greet 21072 100~
-M act 21072 leaves north.~
-M act 21072 leaves south.~
-M act 21072 leaves up.~
-M act 21072 leaves down.~
-M act 21072 leaves east.~
-M act 21072 leaves west.~
-M act 21072 leaves.~
-M act 21073 looks at you.~
-M kill 21074 100~
-M act 21075 tells you~
 #21035
 knave hearts~
 the Knave of Hearts~
@@ -711,9 +518,6 @@ GHT 0 0 0 0 0 0
 EFNU
 stand stand male 0
 0 0 medium unknown
-M act 21048 looks at you.~
-M greet 21076 100~
-M act 21077 tells you ~
 #21036
 flamingo~
 a flamingo~
@@ -728,7 +532,6 @@ GHT 0 0 0 0 0 0
 EFNU
 stand stand male 0
 0 0 medium unknown
-M greet 21078 100~
 #21037
 hedgehog~
 a hedgehog~
@@ -760,15 +563,6 @@ GT 0 HN 0 0 0 0
 EFNU
 stand stand male 0
 0 0 medium unknown
-M greet 21079 100~
-M act 21080 tells you ~
-M act 21081 leaves north.~
-M act 21081 leaves south.~
-M act 21081 leaves up.~
-M act 21081 leaves down.~
-M act 21081 leaves east.~
-M act 21081 leaves west.~
-M act 21081 leaves.~
 #21039
 mock turtle~
 the Mock Turtle~
@@ -785,7 +579,6 @@ BGT 0 H 0 0 500 0
 EFNU
 stand stand male 0
 0 0 medium unknown
-M greet 21083 100~
 #21040
 gryphon~
 a Gryphon~
@@ -802,11 +595,6 @@ BGT 0 HRT 0 H 500 0
 EFNU
 stand stand male 0
 0 0 medium unknown
-M greet 21084 100~
-M act 21085 tells you~
-M act 21086 looks at you.~
-M kill 21087 100~
-M death 21088 100~
 #21041
 juror~
 a juror~
@@ -822,8 +610,6 @@ BGHT 0 0 0 0 400 0
 EFNU
 stand stand male 0
 0 0 medium unknown
-M greet 21089 100~
-M act 21090 tells you~
 #21042
 court officer~
 a court officer~
@@ -838,8 +624,6 @@ BGT 0 N 0 0 400 0
 EFNU
 stand stand male 0
 0 0 medium unknown
-M greet 21091 100~
-M kill 21092 100~
 #0
 
 #OBJECTS

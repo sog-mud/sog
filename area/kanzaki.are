@@ -33,12 +33,6 @@ BGJTe 0 HV 0 ABH 0 0
 ACDEFHKOPQT
 stand stand none 0
 0 0 gargantuan unknown
-M grall 47000 100~
-M exall 47001 3~
-M speech 47002 I'm your man~
-M act 47004 removes his shoes.~
-M act 47004 removes her shoes.~
-M speech 47003 password~
 r bash 999
 r pierce 999
 r slash 999

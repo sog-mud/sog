@@ -25,8 +25,6 @@ YZ
 stand stand female 2147483647
 0 0 huge unknown
 g @eng female@rus male~
-M bribe 15000 1~
-M speech 15002 demon~
 r bash 999
 r pierce 999
 r slash 999
@@ -52,11 +50,6 @@ J 0 0 0 0 0 0
 0
 stand stand male 0
 0 0 huge unknown
-M act 15004 is dead!!~
-M delay 15003 100~
-M random 15005 5~
-M bribe 15005 1~
-M fight 1 100~
 r disease 999
 r charm 999
 #15002

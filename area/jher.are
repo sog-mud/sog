@@ -268,7 +268,6 @@ J 0 HIMNOTX AG ABDH 1000 0
 stand stand none 0
 K 0 small unknown
 F for AHMV
-M bribe 32700 100000~
 r bash 999
 r pierce 999
 r slash 999

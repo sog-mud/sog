@@ -1892,7 +1892,6 @@ BGJe 0 0 0 AB 0 0
 EFK
 stand stand female 5000
 0 0 medium unknown
-M greet 11600 100~
 r negative 10
 r charm -33
 #11696

@@ -315,9 +315,6 @@ BHS 0 J G AHL -500 2402
 FHKN
 stand stand male 1499
 0 0 medium unknown
-M give 2400 90~
-M give 2401 all~
-M greet 2402 100~
 r bash -50
 r pierce -50
 r slash -50
@@ -335,9 +332,6 @@ HS 0 0 G AL 1000 2402
 FHKN
 stand stand male 1499
 0 0 small unknown
-M give 2404 91~
-M give 2403 all~
-M greet 2405 100~
 r bash -33
 r pierce 50
 r slash -50

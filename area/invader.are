@@ -26,9 +26,6 @@ BJWe CDI JNOTVc 0 ABCDFH -1000 0
 ACEFKNU
 stand stand male 5000
 0 0 gargantuan unknown
-M grall 95600 100~
-M exall 95603 0~
-M fight 95605 30~
 C Invaders
 r bash 33
 r pierce 33
@@ -67,7 +64,6 @@ BJQVce H J 0 ABC -1000 0
 AFHIKQ
 stand stand male 1000
 0 0 medium unknown
-M act 95601 tells you 'great night'~
 C Invaders
 r bash 999
 r pierce 33
@@ -98,7 +94,6 @@ BJ 0 0 C 0 -1000 0
 G
 stand stand female 0
 0 0 medium unknown
-M bribe 95602 5000~
 r bash 999
 r pierce 999
 r slash 999
@@ -186,7 +181,6 @@ COc 0 CJc 0 0 -1000 0
 0
 stand stand none 0
 0 0 gargantuan unknown
-M random 95604 10~
 r bash 999
 r pierce 999
 r slash 999
@@ -216,7 +210,6 @@ BOc F 0 C D -1000 0
 0
 stand stand none 0
 0 0 gargantuan unknown
-M grall 95606 100~
 C Invaders
 W 92
 r bash 999

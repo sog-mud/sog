@@ -28,8 +28,6 @@ JT I 0 A AB 0 0
 DEHKO
 stand stand male 0
 D 0 medium unknown
-M death 36301 100~
-M fight 36300 40~
 r bash -33
 r pierce -33
 r slash -33
@@ -1344,7 +1342,6 @@ human~
 stand stand none 0
 0 0 medium unknown
 F for AHMV
-M fight 36302 100~
 r bash 999
 #0
 

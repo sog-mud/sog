@@ -22,15 +22,6 @@ Z 0 H 0 ABDF 1000 0
 stand stand male 0
 Z LPQUX medium unknown
 F for AHMV
-M exall 44001 4~
-M speech 44003 поговорить~
-M speech 44003 talk~
-M speech 44003 nado~
-M speech 44003 need~
-M speech 44003 надо~
-M speech 44003 pogovorit'~
-M speech 44003 pogovorit~
-M speech 44000 hi~
 #44001
 sam~
 @eng sam@rus sam~
