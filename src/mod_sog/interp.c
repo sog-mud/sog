@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.191 2001-09-16 18:14:26 fjoe Exp $
+ * $Id: interp.c,v 1.192 2001-10-21 21:34:03 fjoe Exp $
  */
 
 /***************************************************************************
@@ -82,6 +82,21 @@ FOREACH_CB_FUN(pull_mob_cmd_cb, p, ap)
 	char *argument = va_arg(ap, char *);
 
 	if (pull_mob_trigger(TRIG_MOB_CMD, vch, ch, argument) >= 0
+	||  IS_EXTRACTED(ch))
+		return p;
+
+	return NULL;
+}
+
+static
+FOREACH_CB_FUN(pull_obj_cmd_cb, p, ap)
+{
+	OBJ_DATA *obj = (OBJ_DATA *) p;
+
+	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
+	char *argument = va_arg(ap, char *);
+
+	if (pull_obj_trigger(TRIG_OBJ_CMD, obj, ch, argument) >= 0
 	||  IS_EXTRACTED(ch))
 		return p;
 
@@ -326,15 +341,24 @@ interpret(CHAR_DATA *ch, const char *argument, bool is_order)
 		/*
 		 * pull mob 'cmd' triggers
 		 */
-		if (!IS_NPC(ch)) {
+		if (!IS_NPC(ch)
+		&&  (!IS_AFFECTED(ch, AFF_CHARM) || is_order)) {
+			if (pull_room_trigger(TRIG_ROOM_CMD,
+				ch->in_room, ch,
+				(void *) (uintptr_t) save_argument) >= 0
+			||  IS_EXTRACTED(ch))
+				return;
+
 			if (vo_foreach(ch->in_room, &iter_char_room,
 				       pull_mob_cmd_cb, ch, save_argument))
 				return;
 
-			if (pull_room_trigger(TRIG_ROOM_CMD,
-				ch->in_room, ch,
-				(void *) (uintptr_t) save_argument) > 0
-			||  IS_EXTRACTED(ch))
+			if (vo_foreach(ch, &iter_obj_char,
+				       pull_obj_cmd_cb, ch, save_argument))
+				return;
+
+			if (vo_foreach(ch->in_room, &iter_obj_room,
+				       pull_obj_cmd_cb, ch, save_argument))
 				return;
 		}
 

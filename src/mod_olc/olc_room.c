@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.98 2001-09-23 16:24:19 fjoe Exp $
+ * $Id: olc_room.c,v 1.99 2001-10-21 21:34:01 fjoe Exp $
  */
 
 #include "olc.h"
@@ -267,6 +267,7 @@ OLC_FUN(roomed_show)
 					   DUMP_LEVEL(ch));
 			}
 
+			buf_append(output, "Exit Description:\n");
 			mlstr_dump(output, str_empty, &pexit->description,
 				   DUMP_LEVEL(ch));
 		}

@@ -1,5 +1,5 @@
 /*
- * $Id: affects.c,v 1.72 2001-09-16 18:14:24 fjoe Exp $
+ * $Id: affects.c,v 1.73 2001-10-21 21:34:02 fjoe Exp $
  */
 
 /***************************************************************************
@@ -49,12 +49,12 @@
 
 #include <sog.h>
 
-static void show_name(CHAR_DATA *ch, BUFFER *output,
+static bool show_name(CHAR_DATA *ch, BUFFER *output,
 		      AFFECT_DATA *paf, AFFECT_DATA *paf_last);
 static void show_duration(BUFFER *output, AFFECT_DATA *paf);
 static void show_loc_affect(CHAR_DATA *ch, BUFFER *output,
 			    AFFECT_DATA *paf, AFFECT_DATA **ppaf);
-static void show_bit_affect(BUFFER *output,
+static void show_bit_affect(CHAR_DATA *ch, BUFFER *output,
 		            AFFECT_DATA *paf, AFFECT_DATA **ppaf);
 static void show_obj_affects(BUFFER *output, AFFECT_DATA *paf);
 
@@ -854,10 +854,11 @@ show_affects(CHAR_DATA *ch, CHAR_DATA *vch, BUFFER *output)
 				buf_act(output, BUF_END, "$N is affected by:",
 					ch, NULL, vch, 0);
 			}
+
+			found = TRUE;
 		}
 
-		found = TRUE;
-		if (ch->level < 20) {
+		if (ch->level < MAX_LEVEL / 3) {
 			show_name(ch, output, paf, paf_last);
 			if (paf_last && paf_last->type == paf->type)
 				continue;
@@ -866,7 +867,7 @@ show_affects(CHAR_DATA *ch, CHAR_DATA *vch, BUFFER *output)
 			continue;
 		}
 		show_loc_affect(ch, output, paf, &paf_last);
-		show_bit_affect(output, paf, &paf_last);
+		show_bit_affect(ch, output, paf, &paf_last);
 	}
 
 	if (!found) {
@@ -885,9 +886,10 @@ show_affects(CHAR_DATA *ch, CHAR_DATA *vch, BUFFER *output)
 
 	for (obj = vch->carrying; obj; obj = obj->next_content) {
 		if (obj->wear_loc != WEAR_NONE) {
-			if (!IS_OBJ_STAT(obj, ITEM_ENCHANTED))
+			if (!IS_OBJ_STAT(obj, ITEM_ENCHANTED)) {
 				show_obj_affects(output,
 						 obj->pObjIndex->affected);
+			}
 			show_obj_affects(output, obj->affected);
 		}
 	}
@@ -965,12 +967,18 @@ format_obj_affects(BUFFER *output, AFFECT_DATA *paf, int flags)
  * show affects stuff - local functions
  */
 
-static void
+static bool
 show_name(CHAR_DATA *ch, BUFFER *output,
 	  AFFECT_DATA *paf, AFFECT_DATA *paf_last)
 {
 	skill_t *aff;
 	const char *aff_type;
+
+	if (ch != NULL
+	&&  (ch->level < MAX_LEVEL / 3 || IS_SET(ch->comm, COMM_SHORT_AFFECTS))
+	&&  paf_last != NULL
+	&&  IS_SKILL(paf->type, paf_last->type))
+		return FALSE;
 
 	if (IS_NULLSTR(paf->type))
 		aff_type = "Item:";
@@ -992,14 +1000,13 @@ show_name(CHAR_DATA *ch, BUFFER *output,
 		aff_type = "???:";				// notrans
 
 	if (paf_last && IS_SKILL(paf->type, paf_last->type)) {
-		if (ch && ch->level < MAX_LEVEL / 3)
-			return;
-		else
-			buf_append(output, "                        ");
+		buf_append(output, "                        ");
 	} else {
 		buf_printf(output, BUF_END, "%-7s {c%-16s{x",
 			   GETMSG(aff_type, buf_lang(output)), paf->type);
 	}
+
+	return TRUE;
 }
 
 static void
@@ -1027,19 +1034,26 @@ show_loc_affect(CHAR_DATA *ch, BUFFER *output,
 	&&  paf->bitvector)
 		return;
 
-	show_name(ch, output, paf, *ppaf);
-	buf_append(output, ": ");				// notrans
-	buf_printf(output, BUF_END, w->loc_format,
+	if (!show_name(ch, output, paf, *ppaf))
+		return;
+
+	if (IS_SET(ch->comm, COMM_SHORT_AFFECTS))
+		buf_append(output, ":");			// notrans
+	else {
+		buf_append(output, ": ");			// notrans
+		buf_printf(output, BUF_END, w->loc_format,
 		   w->loc_table ?
 			SFLAGS(w->loc_table, paf->location) :
 			STR(paf->location),
 		   paf->modifier);
+	}
 	show_duration(output, paf);
 	*ppaf = paf;
 }
 
 static void
-show_bit_affect(BUFFER *output, AFFECT_DATA *paf, AFFECT_DATA **ppaf)
+show_bit_affect(CHAR_DATA *ch, BUFFER *output,
+		AFFECT_DATA *paf, AFFECT_DATA **ppaf)
 {
 	where_t *w;
 
@@ -1048,10 +1062,16 @@ show_bit_affect(BUFFER *output, AFFECT_DATA *paf, AFFECT_DATA **ppaf)
 	||  IS_NULLSTR(w->bit_format))
 		return;
 
-	show_name(NULL, output, paf, *ppaf);
-	buf_append(output, ": ");				// notrans
-	buf_printf(output, BUF_END, w->bit_format,
-		flag_string(w->bit_table, paf->bitvector));
+	if (!show_name(NULL, output, paf, *ppaf))
+		return;
+
+	if (ch != NULL && IS_SET(ch->comm, COMM_SHORT_AFFECTS))
+		buf_append(output, ":");			// notrans
+	else {
+		buf_append(output, ": ");			// notrans
+		buf_printf(output, BUF_END, w->bit_format,
+			flag_string(w->bit_table, paf->bitvector));
+	}
 	show_duration(output, paf);
 	*ppaf = paf;
 }
@@ -1062,5 +1082,5 @@ show_obj_affects(BUFFER *output, AFFECT_DATA *paf)
 	AFFECT_DATA *paf_last = NULL;
 
 	for (; paf; paf = paf->next)
-		show_bit_affect(output, paf, &paf_last);
+		show_bit_affect(NULL, output, paf, &paf_last);
 }

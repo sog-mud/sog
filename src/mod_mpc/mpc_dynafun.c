@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_dynafun.c,v 1.23 2001-09-23 16:24:17 fjoe Exp $
+ * $Id: mpc_dynafun.c,v 1.24 2001-10-21 21:33:58 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -176,7 +176,7 @@ set_obj_level(OBJ_DATA *obj, int level)
 }
 
 bool
-is_owner(CHAR_DATA *ch, OBJ_DATA *obj)
+is_owner(OBJ_DATA *obj, CHAR_DATA *ch)
 {
 	return !mlstr_cmp(&ch->short_descr, &obj->owner);
 }
@@ -509,6 +509,60 @@ bool
 is_act(CHAR_DATA *ch, int act_flags)
 {
 	return IS_NPC(ch) && IS_SET(ch->pMobIndex->act, act_flags);
+}
+
+int
+char_str(CHAR_DATA *ch)
+{
+	return get_curr_stat(ch, STAT_STR);
+}
+
+int
+char_int(CHAR_DATA *ch)
+{
+	return get_curr_stat(ch, STAT_INT);
+}
+
+int
+char_wis(CHAR_DATA *ch)
+{
+	return get_curr_stat(ch, STAT_WIS);
+}
+
+int
+char_dex(CHAR_DATA *ch)
+{
+	return get_curr_stat(ch, STAT_DEX);
+}
+
+int
+char_con(CHAR_DATA *ch)
+{
+	return get_curr_stat(ch, STAT_CON);
+}
+
+int
+char_cha(CHAR_DATA *ch)
+{
+	return get_curr_stat(ch, STAT_CHA);
+}
+
+int
+char_luck(CHAR_DATA *ch)
+{
+	return GET_LUCK(ch);
+}
+
+bool
+char_name_is(CHAR_DATA *ch, const char *nl)
+{
+	return is_name(ch->name, nl);
+}
+
+void
+set_obj_owner(OBJ_DATA *obj, CHAR_DATA *ch)
+{
+	mlstr_cpy(&obj->owner, &ch->short_descr);
 }
 
 #else /* !defined(MPC) */

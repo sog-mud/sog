@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_mpc.c,v 1.39 2001-09-30 20:58:42 fjoe Exp $
+ * $Id: init_mpc.c,v 1.40 2001-10-21 21:33:56 fjoe Exp $
  */
 
 #include <dlfcn.h>
@@ -262,7 +262,10 @@ const char *mpc_dynafuns[] = {
 	"cast",
 	"cast_char",
 	"cast_obj",
+	"char_cha",
 	"char_clan",
+	"char_con",
+	"char_dex",
 	"char_ethos",
 	"char_fighting",
 	"char_gold",
@@ -270,10 +273,13 @@ const char *mpc_dynafuns[] = {
 	"char_mana",
 	"char_moves",
 	"char_hometown",
+	"char_int",
 	"char_level",
+	"char_luck",
 	"char_max_hit",
 	"char_max_mana",
 	"char_max_moves",
+	"char_name_is",
 	"char_position",
 	"char_quest_time",
 	"char_race",
@@ -281,7 +287,9 @@ const char *mpc_dynafuns[] = {
 	"char_sex",
 	"char_silver",
 	"char_size",
+	"char_str",
 	"char_vnum",
+	"char_wis",
 	"close_door",
 	"close_obj",
 	"cold_effect",
@@ -307,6 +315,7 @@ const char *mpc_dynafuns[] = {
 	"get_random_fighting",
 	"get_pulse",
 	"get_room_index",
+	"get_skill",
 	"give_obj",
 	"handle_death",
 	"has_sp",
@@ -369,6 +378,7 @@ const char *mpc_dynafuns[] = {
 	"set_char_moves",
 	"set_char_silver",
 	"set_obj_level",
+	"set_obj_owner",
 	"set_obj_timer",
 	"set_weapon_dice_type",
 	"shock_effect",

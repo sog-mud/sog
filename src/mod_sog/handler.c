@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.336 2001-09-25 11:49:14 kostik Exp $
+ * $Id: handler.c,v 1.337 2001-10-21 21:34:03 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1648,8 +1648,9 @@ pull_greet_entry_triggers(CHAR_DATA *ch, ROOM_INDEX_DATA *to_room, int door)
 			       TRIG_OBJ_ENTRY, ch, NULL))
 			return FALSE;
 
-		pull_room_trigger(TRIG_ROOM_GREET, to_room, ch, NULL);
-		if (IS_EXTRACTED(ch))
+		if (pull_room_trigger(TRIG_ROOM_GREET, to_room,
+				      ch, (char *) (uintptr_t) dir) > 0
+		||  IS_EXTRACTED(ch))
 			return FALSE;
 	}
 
@@ -2838,6 +2839,10 @@ quaff_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 {
 	OBJ_DATA *vial;
 
+	if (pull_obj_trigger(TRIG_OBJ_USE, obj, ch, NULL) > 0
+	||  IS_EXTRACTED(ch) || !mem_is(obj, MT_OBJ))
+		return;
+
 	act("$n quaffs $p.", ch, obj, NULL, TO_ROOM);
 	act_puts("You quaff $p.", ch, obj, NULL, TO_CHAR, POS_DEAD);
 
@@ -3733,6 +3738,10 @@ open_door(CHAR_DATA *ch, const char *name)
 		return FALSE;
 	}
 
+	if (pull_room_trigger(TRIG_ROOM_DOPEN, ch->in_room, ch, NULL) > 0
+	||  IS_EXTRACTED(ch))
+		return FALSE;
+
 	REMOVE_BIT(pexit->exit_info, EX_CLOSED);
 	act("$n opens $d.", ch, &pexit->short_descr, NULL, TO_ROOM);
 	act_char("Ok.", ch);
@@ -3771,6 +3780,10 @@ close_door(CHAR_DATA *ch, const char *name)
 		    ch, &pexit->short_descr, NULL, TO_CHAR);
 		return FALSE;
 	}
+
+	if (pull_room_trigger(TRIG_ROOM_DCLOSE, ch->in_room, ch, NULL) > 0
+	||  IS_EXTRACTED(ch))
+		return FALSE;
 
 	SET_BIT(pexit->exit_info, EX_CLOSED);
 	act("$n closes $d.", ch, &pexit->short_descr, NULL, TO_ROOM);
@@ -3827,6 +3840,10 @@ lock_door(CHAR_DATA *ch, const char *name)
 		    ch, &pexit->short_descr, NULL, TO_ROOM);
 		return FALSE;
 	}
+
+	if (pull_room_trigger(TRIG_ROOM_DLOCK, ch->in_room, ch, NULL) > 0
+	||  IS_EXTRACTED(ch))
+		return FALSE;
 
 	SET_BIT(pexit->exit_info, EX_LOCKED);
 	act_char("*Click*", ch);
@@ -3885,6 +3902,10 @@ unlock_door(CHAR_DATA *ch, const char *name)
 		    ch, &pexit->short_descr, NULL, TO_CHAR);
 		return FALSE;
 	}
+
+	if (pull_room_trigger(TRIG_ROOM_DUNLOCK, ch->in_room, ch, NULL) > 0
+	||  IS_EXTRACTED(ch))
+		return FALSE;
 
 	REMOVE_BIT(pexit->exit_info, EX_LOCKED);
 	act_char("*Click*", ch);
@@ -4089,12 +4110,29 @@ look_char(CHAR_DATA *ch, CHAR_DATA *victim)
 bool
 transfer_char(CHAR_DATA *ch, ROOM_INDEX_DATA *room)
 {
+	bool riding = FALSE;
+
 	if (room_is_private(room))
 		return FALSE;
+
+	if (ch->mount != NULL)
+		riding = ch->riding;
 
 	char_to_room(ch, room);
 	if (!IS_EXTRACTED(ch))
 		dofun("look", ch, "auto");
+
+	if (ch->mount != NULL) {
+		char_to_room(ch->mount, room);
+		if (!IS_EXTRACTED(ch->mount))
+			dofun("look", ch->mount, "auto");
+
+		if (riding) {
+			ch->riding = TRUE;
+			ch->mount->riding = TRUE;
+		}
+	}
+
 	return TRUE;
 }
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: typedef.h,v 1.62 2001-09-15 17:12:33 fjoe Exp $
+ * $Id: typedef.h,v 1.63 2001-10-21 21:33:51 fjoe Exp $
  */
 
 #ifndef _TYPEDEF_H_
@@ -142,14 +142,12 @@ union vo_t {
 	} while(0);
 
 typedef void	DO_FUN		(CHAR_DATA *, const char *);
-typedef bool	SPEC_FUN	(CHAR_DATA *);
 typedef void	SPELL_FUN	(const char *, int, CHAR_DATA *, void *);
 typedef void	EVENT_FUN	(CHAR_DATA *, AFFECT_DATA *);
 typedef void	UPDATE_FUN	(void);
 typedef int	MODINIT_FUN	(module_t *);
 typedef void	RUNGAME_FUN	(fd_set *, fd_set *, fd_set *);
 
-#define DECLARE_SPEC_FUN(fun)		SPEC_FUN  fun
 #define DECLARE_DO_FUN(fun)		DO_FUN fun
 #define DECLARE_EVENT_FUN(fun)		EVENT_FUN fun
 #define DECLARE_SPELL_FUN(fun)		SPELL_FUN fun
@@ -160,8 +158,6 @@ typedef void	RUNGAME_FUN	(fd_set *, fd_set *, fd_set *);
 #define DO_FUN(fun, ch, argument)					\
 	void fun(CHAR_DATA *ch __attribute__((unused)),			\
 		 const char *argument __attribute__((unused)))
-#define SPEC_FUN(fun, ch)						\
-	bool fun(CHAR_DATA *ch)
 #define EVENT_FUN(fun, ch, af)						\
 	void fun(CHAR_DATA *ch, AFFECT_DATA *af __attribute__((unused)))
 #define SPELL_FUN(fun, sn, level, ch, vo)				\

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_dynafun.h,v 1.15 2001-09-23 16:24:17 fjoe Exp $
+ * $Id: mpc_dynafun.h,v 1.16 2001-10-21 21:33:58 fjoe Exp $
  */
 
 #ifndef _MPC_DYNAFUN_H_
@@ -66,7 +66,7 @@ DECLARE_FUN1(CHAR_DATA, char_fighting,
 DECLARE_PROC2(set_obj_level,
 	      ARG(OBJ_DATA), obj, ARG(int), level)
 DECLARE_FUN2(bool, is_owner,
-	     ARG(CHAR_DATA), ch, ARG(OBJ_DATA), obj)
+	     ARG(OBJ_DATA), obj, ARG(CHAR_DATA), ch)
 DECLARE_FUN2(bool, is_class,
 	     ARG(CHAR_DATA), ch, ARG(cchar_t), cl)
 DECLARE_FUN1(int, obj_level,
@@ -162,6 +162,24 @@ DECLARE_FUN2(bool, is_mount,
 	     ARG(CHAR_DATA), ch, ARG(CHAR_DATA), mob)
 DECLARE_FUN2(bool, is_act,
 	     ARG(CHAR_DATA), ch, ARG(int), act_flags)
+DECLARE_FUN1(int, char_str,
+	     ARG(CHAR_DATA), ch)
+DECLARE_FUN1(int, char_int,
+	     ARG(CHAR_DATA), ch)
+DECLARE_FUN1(int, char_wis,
+	     ARG(CHAR_DATA), ch)
+DECLARE_FUN1(int, char_dex,
+	     ARG(CHAR_DATA), ch)
+DECLARE_FUN1(int, char_con,
+	     ARG(CHAR_DATA), ch)
+DECLARE_FUN1(int, char_cha,
+	     ARG(CHAR_DATA), ch)
+DECLARE_FUN1(int, char_luck,
+	     ARG(CHAR_DATA), ch)
+DECLARE_FUN2(bool, char_name_is,
+	     ARG(CHAR_DATA), ch, ARG(cchar_t), nl)
+DECLARE_PROC2(set_obj_owner,
+	      ARG(OBJ_DATA), obj, ARG(CHAR_DATA), ch)
 
 __MODULE_END_DECL
 

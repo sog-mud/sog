@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.173 2001-09-23 16:24:24 fjoe Exp $
+ * $Id: tables.c,v 1.174 2001-10-21 21:34:04 fjoe Exp $
  */
 
 /***************************************************************************
@@ -325,6 +325,7 @@ flaginfo_t comm_flags[] =
 	{ "nonote",		COMM_NONOTE,		TRUE	},
 	{ "showrace",		COMM_SHOWRACE,		TRUE	},
 	{ "short_eq",		COMM_SHORT_EQ,		TRUE	},
+	{ "short_affects",	COMM_SHORT_AFFECTS,	TRUE	},
 	{ "quiet_editor",	COMM_QUIET_EDITOR,	TRUE	},
 	{ "compact",		COMM_COMPACT,		TRUE	},
 	{ "brief",		COMM_BRIEF,		TRUE	},
@@ -382,7 +383,7 @@ flaginfo_t area_flags[] =
 	{ "noquest",		AREA_NOQUEST,		TRUE	},
 	{ "update_always",	AREA_UPDATE_ALWAYS,	TRUE	},
 	{ "update_frequently",	AREA_UPDATE_FREQUENTLY,	TRUE	},
-	{ "tagged",		AREA_TAGGED,		TRUE	},
+	{ "tagged",		AREA_TAGGED,		FALSE	},
 	{ "changed",		AREA_CHANGED,		FALSE	},
 
 	{ NULL, 0, FALSE }
@@ -1558,10 +1559,16 @@ flaginfo_t mptrig_types[] =
 	{ "obj_unlock",		TRIG_OBJ_UNLOCK,	TRUE	},
 	{ "obj_damage",		TRIG_OBJ_DAMAGE,	TRUE	},
 	{ "obj_repair",		TRIG_OBJ_REPAIR,	TRUE	},
+	{ "obj_cmd",		TRIG_OBJ_CMD,		TRUE	},
+	{ "obj_use",		TRIG_OBJ_USE,		TRUE	},
 
 	{ "room_random",	TRIG_ROOM_RANDOM,	TRUE	},
 	{ "room_cmd",		TRIG_ROOM_CMD,		TRUE	},
 	{ "room_greet",		TRIG_ROOM_GREET,	TRUE	},
+	{ "room_dopen",		TRIG_ROOM_DOPEN,	TRUE	},
+	{ "room_dclose",	TRIG_ROOM_DCLOSE,	TRUE	},
+	{ "room_dlock",		TRIG_ROOM_DLOCK,	TRUE	},
+	{ "room_dunlock",	TRIG_ROOM_DUNLOCK,	TRUE	},
 
 	{ "spec",		TRIG_SPEC,		TRUE	},
 

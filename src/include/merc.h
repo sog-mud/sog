@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.370 2001-09-17 18:42:18 fjoe Exp $
+ * $Id: merc.h,v 1.371 2001-10-21 21:33:50 fjoe Exp $
  */
 
 /***************************************************************************
@@ -450,12 +450,6 @@ struct wiznet_type
 	const char *	name;
 	flag_t		flag;
 	int		level;
-};
-
-struct spec_type
-{
-	const char *		name;		/* special function name */
-	SPEC_FUN *	function;		/* the function */
 };
 
 /***************************************************************************
@@ -1223,6 +1217,7 @@ enum {
 #define COMM_NONOTE		(D)
 #define COMM_SHOWRACE		(E)
 #define COMM_SHORT_EQ		(F)
+#define COMM_SHORT_AFFECTS	(G)
 #define COMM_QUIET_EDITOR	(K)
 #define COMM_COMPACT		(L)
 #define COMM_BRIEF		(M)
@@ -1242,7 +1237,6 @@ enum {
 #define COMM_NOVERBOSE		(dd)
 #define COMM_NOBUST		(ee)
 
-#define OLC_
 /* IAC replacement if COMM_NOIAC is set */
 /* COMM_NOIAC is used to map 'Ñ' (IAC) to 'ñ' when using win1251 codepage */
 #define IAC_REPL	223

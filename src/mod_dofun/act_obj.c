@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.268 2001-09-23 16:24:12 fjoe Exp $
+ * $Id: act_obj.c,v 1.269 2001-10-21 21:33:53 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1416,6 +1416,7 @@ DO_FUN(do_quaff, ch, argument)
 		spellfun_call("hallucination", NULL, obj->level, ch, ch);
 		return;
 	}
+
 	quaff_obj(ch, obj);
 }
 
@@ -1458,6 +1459,10 @@ DO_FUN(do_recite, ch, argument)
 		return;
 	}
 
+	if (pull_obj_trigger(TRIG_OBJ_USE, scroll, ch, NULL) > 0
+	||  IS_EXTRACTED(ch) || !mem_is(scroll, MT_OBJ))
+		return;
+
 	act("$n recites $p.", ch, scroll, NULL, TO_ROOM);
 	act_puts("You recite $p.", ch, scroll, NULL, TO_CHAR, POS_DEAD);
 
@@ -1479,7 +1484,7 @@ DO_FUN(do_recite, ch, argument)
 			obj_cast_spell(scroll->value[2].s, INT(scroll->value[0]), ch, vo);
 			if (IS_EXTRACTED(ch))
 				break;
-				
+
 			obj_cast_spell(scroll->value[3].s, INT(scroll->value[0]), ch, vo);
 			if (IS_EXTRACTED(ch))
 				break;
@@ -1555,6 +1560,10 @@ DO_FUN(do_brandish, ch, argument)
 	if ((sk = skill_lookup(staff->value[3].s)) == NULL)
 		return;
 
+	if (pull_obj_trigger(TRIG_OBJ_USE, staff, ch, NULL) > 0
+	||  IS_EXTRACTED(ch) || !mem_is(staff, MT_OBJ))
+		return;
+
 	WAIT_STATE(ch, 2 * get_pulse("violence"));
 
 	if (INT(staff->value[2]) > 0) {
@@ -1586,7 +1595,7 @@ DO_FUN(do_zap, ch, argument)
 	char arg[MAX_INPUT_LENGTH];
 	OBJ_DATA *wand;
 	void *vo;
-	
+
 	if (has_spec(ch, "clan_battleragers")) {
 		act_char("You'd destroy magic, not use it!", ch);
 		return;
@@ -1619,6 +1628,10 @@ DO_FUN(do_zap, ch, argument)
 	WAIT_STATE(ch, 2 * get_pulse("violence"));
 
 	if (INT(wand->value[2]) > 0) {
+		if (pull_obj_trigger(TRIG_OBJ_USE, wand, ch, NULL) > 0
+		||  IS_EXTRACTED(ch) || !mem_is(wand, MT_OBJ))
+			return;
+
 		if (mem_is(vo, MT_CHAR)) {
 			if (vo == ch) {
 				act("$n zaps $mself with $p.",
@@ -3555,18 +3568,21 @@ sac_obj(CHAR_DATA * ch, OBJ_DATA *obj)
 			 ch, obj, NULL, TO_CHAR, POS_DEAD);
 		return;
 	}
-	silver = UMAX(1, number_fuzzy(obj->level));
 
+	if (pull_obj_trigger(TRIG_OBJ_SAC, obj, ch, NULL) > 0
+	||  !mem_is(obj, MT_OBJ)
+	||  IS_EXTRACTED(ch))
+		return;
+
+	silver = UMAX(1, number_fuzzy(obj->level));
 	if (obj->item_type != ITEM_CORPSE_NPC
 	&&  obj->item_type != ITEM_CORPSE_PC)
 		silver = UMIN(silver, obj->cost);
 
+	act("$n sacrifices $p to gods.", ch, obj, NULL, TO_ROOM);
 	act_puts("Gods give you $j silver $qj{coins} for your sacrifice.",
 		 ch, (const void *) silver, NULL, TO_CHAR, POS_DEAD);
-
 	ch->silver += silver;
-
-	act("$n sacrifices $p to gods.", ch, obj, NULL, TO_ROOM);
 
 	if (!IS_NPC(ch) && IS_SET(PC(ch)->plr_flags, PLR_AUTOSPLIT)) {
 		/* AUTOSPLIT code */
@@ -3583,11 +3599,6 @@ sac_obj(CHAR_DATA * ch, OBJ_DATA *obj)
 			dofun("split", ch, buf);
 		}
 	}
-
-	if (pull_obj_trigger(TRIG_OBJ_SAC, obj, ch, NULL) > 0
-	||  !mem_is(obj, MT_OBJ)
-	||  IS_EXTRACTED(ch))
-		return;
 
 	wiznet("$N sends up $p as a burnt offering.",
 	       ch, obj, WIZ_SACCING, 0, 0);

@@ -23,13 +23,14 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: adjust.c,v 1.1 2001-09-25 11:49:11 kostik Exp $
+ * $Id: adjust.c,v 1.2 2001-10-21 21:34:00 fjoe Exp $
  */
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
 #include <string.h>
-#include "merc.h"
+
+#include <merc.h>
 #include "adjust.h"
 
 #define TOO_MUCH (MAX_LEVEL * 666)

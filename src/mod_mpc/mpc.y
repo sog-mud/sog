@@ -25,7 +25,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc.y,v 1.41 2001-09-16 18:14:20 fjoe Exp $
+ * $Id: mpc.y,v 1.42 2001-10-21 21:33:57 fjoe Exp $
  */
 
 /*
@@ -337,7 +337,7 @@ stmt:	';'
 		code3(mpc, c_declare, s->name, (void *) s->s.var.type_tag);
 		code(mpc, (void *) s->s.var.block);
 	}
-	| L_TYPE L_IDENT '=' comma_expr ';' {
+	| L_TYPE L_IDENT '=' expr ';' {
 		sym_t *s;
 
 		if ($1 != $4) {

@@ -23,9 +23,8 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: adjust.h,v 1.1 2001-09-25 11:49:11 kostik Exp $
+ * $Id: adjust.h,v 1.2 2001-10-21 21:34:01 fjoe Exp $
  */
-#include "merc.h"
 
 struct mob_characteristics {
 	int	level;

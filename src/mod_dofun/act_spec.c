@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_spec.c,v 1.27 2001-09-12 12:32:25 fjoe Exp $
+ * $Id: act_spec.c,v 1.28 2001-10-21 21:33:53 fjoe Exp $
  */
 
 #include <sys/time.h>
@@ -76,6 +76,10 @@ DO_FUN(do_read, ch, argument)
 			NULL, TO_CHAR);
 		return;
 	}
+
+	if (pull_obj_trigger(TRIG_OBJ_USE, book, ch, NULL) > 0
+	||  IS_EXTRACTED(ch) || !mem_is(book, MT_OBJ))
+		return;
 
 	chance = INT(book->value[2]);
 	chance = (chance * get_curr_stat(ch, STAT_INT)) / 18;
