@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: dynafun.c,v 1.20 2002-01-16 13:22:57 fjoe Exp $
+ * $Id: dynafun.c,v 1.21 2002-03-20 19:49:21 fjoe Exp $
  */
 
 #include <stdlib.h>
@@ -190,7 +190,7 @@ dynafun_check_arg(dynafun_data_t *d, int i, const void *arg)
 	} else if (d->argtype[i].type_tag != MT_STR
 	       &&  d->argtype[i].type_tag != MT_MLSTR
 	       &&  !mem_is(arg, d->argtype[i].type_tag)) {
-		log(LOG_BUG, "%s: %s: invalid arg[%d] type '%s' ('%s expected)",
+		log(LOG_BUG, "%s: %s: invalid arg[%d] type '%s' ('%s' expected)",
 		    __FUNCTION__,
 		    d->name, i+1,
 		    flag_string(mt_types, mem_type(arg)),
