@@ -23,12 +23,8 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_system.c,v 1.5 1999-07-02 12:54:58 fjoe Exp $
+ * $Id: db_system.c,v 1.6 1999-09-11 13:09:12 fjoe Exp $
  */
-
-#ifndef ABI_VERSION
-#error "ABI_VERSION must be defined. check your Makefile.rules"
-#endif
 
 #include <sys/types.h>
 #if !defined(WIN32)
@@ -45,6 +41,7 @@
 #include "merc.h"
 #include "db.h"
 #include "module.h"
+#include "abi_version.h"
 
 DECLARE_DBLOAD_FUN(load_system);
 DECLARE_DBLOAD_FUN(load_info);

@@ -1,10 +1,10 @@
 #
-# $Id: Makefile.inc.dist,v 1.6 1999-07-11 03:58:39 osya Exp $
+# $Id: Makefile.inc.dist,v 1.7 1999-09-11 13:12:10 fjoe Exp $
 #
 
 CC		= gcc
 LD		= gcc
-INCLUDES	= -I ../include
+INCLUDES	= -I ../include -I ..
 
 CFLAGS		= -g -Wall -O -pipe $(INCLUDES)
 LFLAGS		= -g -export-dynamic
@@ -22,11 +22,11 @@ MAKE		= make
 
 #
 # for Linux
-CFLAGS	+= -DLINUX 
-LIBS	+= -lcrypt -ldl
-SO_LFLAGS += -rdynamic
-COMPAT_CFILES = ../compat/fnmatch.c
-MAKE = pmake
+#CFLAGS	+= -DLINUX 
+#LIBS	+= -lcrypt -ldl
+#SO_LFLAGS += -rdynamic
+#COMPAT_CFILES = ../compat/fnmatch.c
+#MAKE = pmake
 
 #
 # for SunOS 5 (Solaris)
