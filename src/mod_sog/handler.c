@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.311 2001-08-21 11:39:05 fjoe Exp $
+ * $Id: handler.c,v 1.312 2001-08-21 13:48:50 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2250,20 +2250,20 @@ get_resist(CHAR_DATA *ch, int dam_class, bool default_mod)
 		return 0;
 
 	/*
-	 * immune to DAM_NONE and invalid damtypes
+	 * handle DAM_NONE and invalid damtypes
 	 */
 	if (dam_class == DAM_NONE)
-		return 100;
+		return 0;
 
 	if (dam_class < 0) {
 		log(LOG_BUG, "get_resist: dam_class %d < 0", dam_class);
-		return 100;
+		return 0;
 	}
 
 	if (dam_class >= MAX_RESIST) {
 		log(LOG_BUG, "get_resist: dam_class %d >= MAX_RESIST",
 		    dam_class);
-		return 100;
+		return 0;
 	}
 
 	/*
