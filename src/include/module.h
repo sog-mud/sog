@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: module.h,v 1.8 2000-06-02 16:40:40 fjoe Exp $
+ * $Id: module.h,v 1.9 2000-06-06 09:43:44 fjoe Exp $
  */
 
 #ifndef _MODULE_H_
@@ -46,7 +46,7 @@ struct module_t {
 				/* a.mod_prio > b.mod_prio		*/
 
 	void *dlh;		/* module handle			*/
-	time_t load_time;	/* module load time			*/
+	time_t last_reload;	/* last [re]load time			*/
 };
 
 int		mod_load	(module_t *m);

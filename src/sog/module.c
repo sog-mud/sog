@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: module.c,v 1.14 2000-02-10 14:08:50 fjoe Exp $
+ * $Id: module.c,v 1.15 2000-06-06 09:43:50 fjoe Exp $
  */
 
 /*
@@ -110,7 +110,7 @@ int mod_load(module_t* m)
 		return -1;
 	}
 
-	time(&m->load_time);
+	time(&m->last_reload);
 	log(LOG_INFO, "mod_load: loaded module `%s' (%s)", m->name, m->file_name);
 	return 0;
 }

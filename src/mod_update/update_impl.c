@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: update_impl.c,v 1.3 2000-06-05 12:06:25 fjoe Exp $
+ * $Id: update_impl.c,v 1.4 2000-06-06 09:43:48 fjoe Exp $
  */
 
 #include <stdlib.h>
@@ -88,7 +88,7 @@ void
 uhandler_update(uhandler_t *hdlr)
 {
         if (hdlr->fun == NULL) {
-		log(LOG_INFO, "update_check: %s: NULL update fun",
+		log(LOG_INFO, "uhandler_update: %s: NULL update fun",
 		    hdlr->name);
 		return;
 	}

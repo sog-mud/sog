@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: core.c,v 1.10 2000-06-01 17:57:28 fjoe Exp $
+ * $Id: core.c,v 1.11 2000-06-06 09:43:47 fjoe Exp $
  */
 
 #include <errno.h>
@@ -91,8 +91,8 @@ void do_modules(CHAR_DATA *ch, const char *argument)
 		for (i = 0; i < modules.nused; i++) {
 			module_t *m = VARR_GET(&modules, i);
 			char_printf(ch, "Module: %s, Loaded: %s\n",
-				    m->name, m->load_time ?
-					strtime(m->load_time) : "never");
+				    m->name, m->last_reload ?
+					strtime(m->last_reload) : "never");
 		}
 		return;
 	}
