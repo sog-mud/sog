@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.169.2.4 2000-03-28 07:22:20 fjoe Exp $
+ * $Id: db.c,v 1.169.2.5 2000-03-31 13:57:03 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1923,6 +1923,8 @@ void tail_chain(void)
 	return;
 }
 
+#define V10_PLR_NOTITLE (K)
+
 /*
  * Count all objects in pfiles
  * Remove limited objects (with probability 1/10)
@@ -1996,6 +1998,11 @@ void scan_pfiles()
 			extract_obj(obj, XO_F_NORECURSE);
 		}
 
+		if (PC(ch)->version < 11) {
+			REMOVE_BIT(PC(ch)->plr_flags, V10_PLR_NOTITLE);
+			set_title(ch, str_empty);
+		}
+
 		if (!IS_IMMORTAL(ch))
 			rating_add(ch);
 
@@ -2008,7 +2015,7 @@ void scan_pfiles()
 	}
 	closedir(dirp);
 
-	log("scan_pfiles: end (eqcheck: %s, eqcheck_save_all: %s)",
+	log("scan_pfiles: end (eqcheck: %s, save all: %s)",
 	    dfexist(TMP_PATH, EQCHECK_FILE) ? "active" : "inactive",
 	    dfexist(TMP_PATH, EQCHECK_SAVE_ALL_FILE) ? "on" : "off");
 }

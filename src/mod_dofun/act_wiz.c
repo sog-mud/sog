@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.186.2.13 2000-03-31 11:57:44 osya Exp $
+ * $Id: act_wiz.c,v 1.186.2.14 2000-03-31 13:56:47 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2776,16 +2776,6 @@ void do_string(CHAR_DATA *ch, const char *argument)
 			mlstr_editnl(&victim->long_descr, arg3);
 			return;
 		}
-
-		if (!str_prefix(arg2, "title")) {
-			if (IS_NPC(victim)) {
-				char_puts("Not on NPC's.\n", ch);
-				return;
-			}
-
-			set_title(victim, arg3);
-			return;
-		}
 	}
 	
 	if (!str_prefix(type,"object")) {
@@ -3990,15 +3980,26 @@ void do_popularity(CHAR_DATA *ch, const char *argument)
 	buf_free(output);
 }
 
-void do_ititle(CHAR_DATA *ch, const char *argument)
+void do_title(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
 	bool loaded = FALSE;
 
+	if (IS_NPC(ch))
+		return;
+
 	argument = one_argument(argument, arg, sizeof(arg));
 	if (argument[0] == '\0')  {
-		do_help(ch, "'WIZ ITITLE'");
+		do_help(ch, "'TITLE'");
+		return;
+	}
+
+	if (!IS_IMMORTAL(ch)
+	&&  (!ch->clan ||
+	     clan_lookup(ch->clan) == NULL ||
+	     PC(ch)->clan_status != CLAN_LEADER)) {
+		char_puts("Huh?\n", ch);
 		return;
 	}
 
@@ -4013,9 +4014,20 @@ void do_ititle(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	if (IS_IMMORTAL(victim)) {
+		if (!IS_TRUSTED(ch, trust_level(victim))) {
+			char_puts("You failed.\n", ch);
+			goto cleanup;
+		}
+	} else if (!IS_IMMORTAL(ch) && ch->clan != victim->clan) {
+		char_puts("You failed.\n", ch);
+		goto cleanup;
+	}
+
 	set_title(victim, argument);
 	char_puts("Ok.\n", ch);
 
+cleanup:
 	if (loaded) {
 		char_save(victim, SAVE_F_PSCAN);
 		char_nuke(victim);
@@ -4156,43 +4168,6 @@ cleanup:
 		char_save(victim, 0);
 } 
 
-void do_notitle(CHAR_DATA *ch, const char *argument)
-{
-	char arg[MAX_INPUT_LENGTH];
-	CHAR_DATA *victim;
-	bool loaded = FALSE;
-
-	if (argument[0] == '\0') {
-		do_help(ch, "'WIZ NOTITLE'");
-		return;
-	}
-
-	argument = one_argument(argument, arg, sizeof(arg));
-	if ((victim = get_char_world(ch ,arg)) == NULL) {
-		if ((victim = char_load(arg, LOAD_F_NOCREATE)) == NULL) {
-			char_puts("He is not currently playing.\n", ch);
-			return;
-		}
-		loaded = TRUE;
-	} else if (IS_NPC(victim)) {
-		char_puts("Not on NPC's.\n", ch);
-		return;
-	}
-
-	TOGGLE_BIT(PC(victim)->plr_flags, PLR_NOTITLE);
-	if (!IS_SET(PC(victim)->plr_flags, PLR_NOTITLE))
-	 	char_puts("You can change your title again.\n", victim);
-	else 
-		char_puts("You won't be able to change your title anymore.\n",
-			  victim);
-	char_puts("Ok.\n", ch);
-
-	if (loaded) {
-		char_save(victim, SAVE_F_PSCAN);
-		char_nuke(victim);
-	}
-}
-   
 void do_wizpass(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH]; 

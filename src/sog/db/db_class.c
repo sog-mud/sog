@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_class.c,v 1.20.2.1 1999-12-16 12:40:07 fjoe Exp $
+ * $Id: db_class.c,v 1.20.2.2 2000-03-31 13:57:04 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -149,22 +149,8 @@ DBLOAD_FUN(load_class)
 			KEY("Thac0_00", class->thac0_00, fread_number(fp));
 			KEY("Thac0_32", class->thac0_32, fread_number(fp));
 			if (!str_cmp(word, "Title")) {
-				int level;
-				int sex;
-
-				level = fread_number(fp);
-				if (level < 0 || level > MAX_LEVEL) {
-					db_error("load_class",
-						 "invalid level %d", level);
-					continue;
-				}
-				sex = fread_fword(sex_table, fp);
-				if (sex != SEX_MALE && sex != SEX_FEMALE) {
-					db_error("load_class", "invalid sex");
-					continue;
-				}
-				class->titles[level][sex-1] =
-							fread_string(fp);
+				fread_to_eol(fp);
+				SET_BIT(class->class_flags, CLASS_CHANGED);
 				fMatch = TRUE;
 			}
 			break;

@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.157.2.16 2000-03-28 12:45:54 osya Exp $
+ * $Id: update.c,v 1.157.2.17 2000-03-31 13:56:58 fjoe Exp $
  */
 
 /***************************************************************************
@@ -105,9 +105,6 @@ void advance_level(CHAR_DATA *ch)
 			   ch->name, ch->class);
 		return;
 	}
-
-	if (!IS_SET(PC(ch)->plr_flags, PLR_NOTITLE))
-		set_title(ch, title_lookup(ch));
 
 	if (PC(ch)->plevels > 0) {
 		PC(ch)->plevels--;

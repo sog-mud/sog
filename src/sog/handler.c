@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.182.2.17 2000-03-30 16:22:00 fjoe Exp $
+ * $Id: handler.c,v 1.182.2.18 2000-03-31 13:56:54 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3437,14 +3437,11 @@ void set_title(CHAR_DATA *ch, const char *title)
 
 	buf[0] = '\0';
 
-	if (title) {
-		if (strchr(nospace, *cstrfirst(title)) == NULL) {
-			buf[0] = ' ';
-			buf[1] = '\0';
-		}
-
-		strnzcat(buf, sizeof(buf), title);
+	if (strchr(nospace, *cstrfirst(title)) == NULL) {
+		buf[0] = ' ';
+		buf[1] = '\0';
 	}
+	strnzcat(buf, sizeof(buf), title);
 
 	free_string(PC(ch)->title);
 	PC(ch)->title = str_dup(buf);

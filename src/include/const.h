@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: const.h,v 1.45.2.6 2000-03-30 16:21:46 fjoe Exp $
+ * $Id: const.h,v 1.45.2.7 2000-03-31 13:56:41 fjoe Exp $
  */
 
 #ifndef _CONST_H_
@@ -49,7 +49,7 @@
 #	define PATH_SEPARATOR '/'
 #endif
 
-#define PFILE_VERSION	10
+#define PFILE_VERSION	11
 
 /*
  * the following path/file name consts are defined in db.c

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_class.c,v 1.4.2.1 1999-12-16 12:39:54 fjoe Exp $
+ * $Id: olc_class.c,v 1.4.2.2 2000-03-31 13:56:53 fjoe Exp $
  */
 
 #include "olc.h"
@@ -839,10 +839,15 @@ static void save_class(CHAR_DATA *ch, class_t *class)
 			csk->level, csk->rating, csk->mod);
 	}
 	for (i = 0; i < MAX_LEVEL + 1; i++) {
-		fprintf(fp, "Title %d male %s~\n",
-			i, PROC_STR(class->titles[i][0]));
-		fprintf(fp, "Title %d female %s~\n",
-			i, PROC_STR(class->titles[i][1]));
+		const char *p;
+
+		p = PROC_STR(class->titles[i][0]);
+		if (!IS_NULLSTR(p))
+			fprintf(fp, "Title %d male %s~\n", i, p);
+
+		p = PROC_STR(class->titles[i][1]);
+		if (!IS_NULLSTR(p))
+			fprintf(fp, "Title %d female %s~\n", i, p);
 	}
 	fprintf(fp, "End\n\n");
 

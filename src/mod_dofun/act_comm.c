@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.187.2.6 2000-03-30 21:17:00 avn Exp $
+ * $Id: act_comm.c,v 1.187.2.7 2000-03-31 13:56:44 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1544,6 +1544,7 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 			victim->clan = CLAN_NONE;
 			REMOVE_BIT(vpc->trust, TRUST_CLAN);
 			update_skills(victim);
+			set_title(victim, str_empty);
 
 			act("They are not a member of $t anymore.",
 			    ch, clan->name, NULL, TO_CHAR);

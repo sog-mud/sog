@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.70.2.2 1999-12-17 09:06:30 fjoe Exp $
+ * $Id: olc.c,v 1.70.2.3 2000-03-31 13:56:52 fjoe Exp $
  */
 
 /***************************************************************************
@@ -85,8 +85,8 @@ const char ED_EXPL[]	= "explicit";
 const char ED_SOCIAL[]	= "socials";
 const char ED_CMD[]	= "cmds";
 const char ED_SKILL[]	= "skills";
-const char ED_RACE[]	= "race";
-const char ED_CLASS[]	= "class";
+const char ED_RACE[]	= "races";
+const char ED_CLASS[]	= "classes";
 
 olced_t olced_table[] = {
 	{ ED_AREA,	"AreaEd",	olc_cmds_area	},

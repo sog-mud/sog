@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.200.2.9 2000-03-28 06:30:12 fjoe Exp $
+ * $Id: comm.c,v 1.200.2.10 2000-03-31 13:57:00 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2380,8 +2380,6 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 			PC(ch)->train	= 3;
 			PC(ch)->practice   += 5;
 			PC(ch)->death	= 0;
-
-			set_title(ch, title_lookup(ch));
 
 			dofun("outfit", ch, str_empty);
 

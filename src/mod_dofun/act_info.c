@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.271.2.8 2000-03-31 05:50:24 fjoe Exp $
+ * $Id: act_info.c,v 1.271.2.9 2000-03-31 13:56:45 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1527,30 +1527,6 @@ void do_consider(CHAR_DATA *ch, const char *argument)
 
 	act(cmsg, ch, NULL, victim, TO_CHAR);
 	act(align, ch, NULL, victim, TO_CHAR);
-}
-
-void do_title(CHAR_DATA *ch, const char *argument)
-{
-	if (IS_NPC(ch))
-		return;
-
-	if (IS_SET(PC(ch)->plr_flags, PLR_NOTITLE)) {
-		char_puts("You can't change your title.\n", ch);
-		return;
-	}
-
-	if (argument[0] == '\0') {
-		char_puts("Change your title to what?\n", ch);
-		return;
-	}
-
-	if (strstr(argument, "{/")) {
-		char_puts("Illegal characters in title.\n", ch);
-		return;
-	}
-		
-	set_title(ch, argument);
-	char_puts("Ok.\n", ch);
 }
 
 void do_description(CHAR_DATA *ch, const char *argument)

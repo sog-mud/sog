@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.234.2.7 2000-03-29 07:22:55 fjoe Exp $
+ * $Id: merc.h,v 1.234.2.8 2000-03-31 13:56:41 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1140,7 +1140,6 @@ enum {
 #define PLR_AUTOSAC		(F)
 #define PLR_AUTOGOLD		(G)
 #define PLR_AUTOSPLIT		(H)
-#define PLR_NOTITLE		(K)
 /* RT personal flags */
 #define PLR_NOEXP		(L)
 #define PLR_AUTOLOOK		(M)
