@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.c,v 1.76 2000-02-10 14:08:50 fjoe Exp $
+ * $Id: obj_prog.c,v 1.77 2000-02-19 14:45:29 avn Exp $
  */
 
 /***************************************************************************
@@ -352,6 +352,7 @@ int wear_prog_bracer(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 	  af.bitvector = AFF_HASTE;
 	  INT(af.location) = APPLY_DEX;
 	  af.modifier = 1 + (LEVEL(ch) >= 18) + (LEVEL(ch) >= 30) + (LEVEL(ch) >= 45);
+	  af.owner = NULL;
 	  affect_to_char(ch, &af);
 	}
 	return 0;
@@ -825,6 +826,7 @@ int fight_prog_tattoo_ares(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 			af.duration = LEVEL(ch) / 3;
 			af.modifier = LEVEL(ch) / 5;
 			af.bitvector = AFF_BERSERK;
+			af.owner = NULL;
 
 			INT(af.location) = APPLY_HITROLL;
 			affect_to_char(ch, &af);
@@ -1277,6 +1279,7 @@ int wear_prog_wind_boots(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 	  af.bitvector = AFF_FLYING;
 	  INT(af.location) = 0;
 	  af.modifier = 0;
+	  af.owner = NULL;
 	  affect_to_char(ch, &af);
 	}
 	return 0;
@@ -1309,6 +1312,7 @@ int wear_prog_boots_flying(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 	  af.bitvector = AFF_FLYING;
 	  INT(af.location) = 0;
 	  af.modifier = 0;
+	  af.owner = NULL;
 	  affect_to_char(ch, &af);
 	}
 	return 0;
@@ -1341,6 +1345,7 @@ int wear_prog_arm_hercules(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 	  af.bitvector = 0;
 	  INT(af.location) = APPLY_STR;
 	  af.modifier = 1 + (LEVEL(ch) >= 18) + (LEVEL(ch) >= 30) + (LEVEL(ch) >= 45);
+	  af.owner = NULL;
 	  affect_to_char(ch, &af);
 	}
 	return 0;
@@ -1372,6 +1377,7 @@ int wear_prog_girdle_giant(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 	  af.bitvector = 0;
 	  INT(af.location) = APPLY_STR;
 	  af.modifier = 1 + (LEVEL(ch) >= 18) + (LEVEL(ch) >= 30) + (LEVEL(ch) >= 45);
+	  af.owner = NULL;
 	  affect_to_char(ch, &af);
 	}
 	return 0;
@@ -1403,6 +1409,7 @@ int wear_prog_breastplate_strength(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg
 	  af.bitvector = 0;
 	  INT(af.location) = APPLY_STR;
 	  af.modifier = 1 + (LEVEL(ch) >= 18) + (LEVEL(ch) >= 30) + (LEVEL(ch) >= 45);
+	  af.owner = NULL;
 	  affect_to_char(ch, &af);
 	}
 	return 0;
@@ -1610,6 +1617,7 @@ int wear_prog_fire_shield(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 	  af.bitvector = 0;
 	  INT(af.location) = APPLY_RESIST_COLD;
 	  af.modifier = 50;
+	  af.owner = NULL;
 	  affect_to_char(ch, &af);
 	}
 	}
@@ -1626,6 +1634,7 @@ int wear_prog_fire_shield(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 	  af.bitvector = 0;
 	  INT(af.location) = APPLY_RESIST_FIRE;
 	  af.modifier = 50;
+	  af.owner = NULL;
 	  affect_to_char(ch, &af);
 	}
 	}  

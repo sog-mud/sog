@@ -1,5 +1,5 @@
 /*
- * $Id: effects.c,v 1.28 2000-01-04 19:27:57 fjoe Exp $
+ * $Id: effects.c,v 1.29 2000-02-19 14:45:29 avn Exp $
  */
 
 /***************************************************************************
@@ -235,6 +235,7 @@ void cold_effect(void *vo, int level, int dam)
             INT(af.location) = APPLY_STR;
             af.modifier  = -1;
             af.bitvector = 0;
+	    af.owner = NULL;
             affect_join( victim, &af );
 	}
 
@@ -336,6 +337,7 @@ void fire_effect(void *vo, int level, int dam)
             INT(af.location) = APPLY_HITROLL;
             af.modifier     = -4;
             af.bitvector    = AFF_BLIND;
+	    af.owner = NULL;
  
             affect_to_char(victim,&af);
 	}
@@ -472,6 +474,7 @@ void poison_effect(void *vo,int level, int dam)
             INT(af.location) = APPLY_STR;
             af.modifier  = -1;
             af.bitvector = AFF_POISON;
+	    af.owner = NULL;
             affect_join( victim, &af );
         }
 
@@ -641,6 +644,7 @@ void sand_effect(void *vo, int level, int dam)
             INT(af.location) = APPLY_HITROLL;
             af.modifier     = -4;
             af.bitvector    = AFF_BLIND;
+	    af.owner = NULL;
  
             affect_to_char(victim,&af);
 	}
@@ -819,6 +823,7 @@ void scream_effect(void *vo, int level, int dam)
             INT(af.location) = APPLY_NONE;
             af.modifier     = 0;
             af.bitvector    = AFF_SCREAM;
+	    af.owner = NULL;
  
             affect_to_char(victim,&af);
 	}

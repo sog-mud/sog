@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.209 2000-02-10 14:08:57 fjoe Exp $
+ * $Id: db.c,v 1.210 2000-02-19 14:45:30 avn Exp $
  */
 
 /***************************************************************************
@@ -175,7 +175,10 @@ OBJ_DATA *		object_list;
 TIME_INFO_DATA		time_info;
 WEATHER_DATA		weather_info;
 
-ROOM_INDEX_DATA	*	top_affected_room;
+ROOM_INDEX_DATA	*	top_affected_room = NULL;
+CHAR_DATA	*	top_affected_char = NULL;
+OBJ_DATA	*	top_affected_obj = NULL;
+
 int			reboot_counter = 1440;
 
 /*
@@ -1275,6 +1278,7 @@ CHAR_DATA *create_mob(MOB_INDEX_DATA *pMobIndex)
 		INT(af.location)= APPLY_NONE;
 		af.modifier	= 0;
 		af.bitvector	= AFF_SANCTUARY;
+		af.owner = NULL;
 		affect_to_char(mob, &af);
 	}
 
@@ -1287,6 +1291,7 @@ CHAR_DATA *create_mob(MOB_INDEX_DATA *pMobIndex)
 		af.modifier	= 1 + (mob->level >= 18) + (mob->level >= 25) + 
 				  (mob->level >= 32);
 		af.bitvector	= AFF_HASTE;
+		af.owner = NULL;
 		affect_to_char(mob, &af);
 	}
 
@@ -1298,6 +1303,7 @@ CHAR_DATA *create_mob(MOB_INDEX_DATA *pMobIndex)
 		INT(af.location)= APPLY_SAVES;
 		af.modifier	= -1;
 		af.bitvector	= AFF_PROTECT_EVIL;
+		af.owner = NULL;
 		affect_to_char(mob, &af);
 	}
 
@@ -1309,6 +1315,7 @@ CHAR_DATA *create_mob(MOB_INDEX_DATA *pMobIndex)
 		INT(af.location)= APPLY_SAVES;
 		af.modifier	= -1;
 		af.bitvector	= AFF_PROTECT_GOOD;
+		af.owner = NULL;
 		affect_to_char(mob, &af);
 	}  
 

@@ -1,5 +1,5 @@
 /*
- * $Id: affect.c,v 1.32 2000-02-11 16:40:44 avn Exp $
+ * $Id: affect.c,v 1.33 2000-02-19 14:45:29 avn Exp $
  */
 
 /***************************************************************************
@@ -47,8 +47,12 @@
 
 AFFECT_DATA *aff_new(void)
 {
+	AFFECT_DATA *paf;
+
 	top_affect++;
-	return calloc(1, sizeof(AFFECT_DATA));
+	paf = calloc(1, sizeof(AFFECT_DATA));
+	paf->owner = NULL;
+	return paf;
 }
 
 AFFECT_DATA *aff_dup(const AFFECT_DATA *paf)
@@ -438,21 +442,44 @@ void affect_check(CHAR_DATA *ch, int where, flag_t vector)
  */
 void affect_to_char(CHAR_DATA *ch, AFFECT_DATA *paf)
 {
-	AFFECT_DATA *paf_new = aff_dup(paf);
+	AFFECT_DATA *paf_new = aff_dup(paf), *paf2;
 
 	STRKEY_CHECK(&skills, paf->type, "affect_to_char");
 
+	if (paf->owner != NULL) {
+		for (paf2 = ch->affected; paf2; paf2 = paf2->next)
+			if (paf2->owner)
+				break;
+
+		if (!paf2) {
+			ch->aff_next = top_affected_char;
+			top_affected_char = ch;
+		}
+	}
+
 	paf_new->next = ch->affected;
 	ch->affected = paf_new;
+
 	affect_modify(ch, paf_new, TRUE);
 }
 
 /* give an affect to an object */
 void affect_to_obj(OBJ_DATA *obj, AFFECT_DATA *paf)
 {
-	AFFECT_DATA *paf_new = aff_dup(paf);
+	AFFECT_DATA *paf_new = aff_dup(paf), *paf2;
 
 	STRKEY_CHECK(&skills, paf->type, "affect_to_obj");
+
+	if (paf->owner != NULL) {
+		for (paf2 = obj->affected; paf2; paf2 = paf2->next)
+			if (paf2->owner)
+				break;
+
+		if (!paf2) {
+			obj->aff_next = top_affected_obj;
+			top_affected_obj = obj;
+		}
+	}
 
 	paf_new->next	= obj->affected;
 	obj->affected	= paf_new;
@@ -477,6 +504,8 @@ void affect_remove(CHAR_DATA *ch, AFFECT_DATA *paf)
 {
 	int where;
 	int vector;
+	AFFECT_DATA *paf2;
+	bool hadowner;
 
 	if (ch->affected == NULL) {
 		log(LOG_ERROR, "affect_remove: no affect");
@@ -486,6 +515,7 @@ void affect_remove(CHAR_DATA *ch, AFFECT_DATA *paf)
 	affect_modify(ch, paf, FALSE);
 	where = paf->where;
 	vector = paf->bitvector;
+	hadowner = (paf->owner != NULL);
 
 	if (paf == ch->affected)
 		ch->affected	= paf->next;
@@ -505,6 +535,30 @@ void affect_remove(CHAR_DATA *ch, AFFECT_DATA *paf)
 		}
 	}
 
+	if (hadowner) {
+		for (paf2 = ch->affected; paf2; paf2 = paf2->next)
+			if (paf2->owner)
+				break;
+
+		if (!paf2) {
+			CHAR_DATA *prev;
+
+			if (top_affected_char  == ch)
+				top_affected_char = ch->aff_next;
+			else {
+				for(prev = top_affected_char;
+					prev->aff_next && prev->aff_next != ch;
+					prev = prev->aff_next);
+				if (prev == NULL) {
+					log(LOG_ERROR, "affect_remove: cannot find char");
+					return;
+				}
+				prev->aff_next = ch->aff_next;
+			}
+			ch->aff_next = NULL;
+		}
+	}
+
 	aff_free(paf);
 	affect_check(ch, where, vector);
 }
@@ -512,6 +566,8 @@ void affect_remove(CHAR_DATA *ch, AFFECT_DATA *paf)
 void affect_remove_obj(OBJ_DATA *obj, AFFECT_DATA *paf)
 {
 	int where, vector;
+	AFFECT_DATA *paf2;
+	bool hadowner;
 
 	if (obj->affected == NULL)
 		return;
@@ -521,6 +577,7 @@ void affect_remove_obj(OBJ_DATA *obj, AFFECT_DATA *paf)
 
 	where = paf->where;
 	vector = paf->bitvector;
+	hadowner = (paf->owner != NULL);
 
 	/* remove flags from the object if needed */
 	if (paf->bitvector)
@@ -555,6 +612,30 @@ void affect_remove_obj(OBJ_DATA *obj, AFFECT_DATA *paf)
 	        log(LOG_ERROR, "affect_remove_obj: cannot find paf");
 	        return;
 	    }
+	}
+
+	if (hadowner) {
+		for (paf2 = obj->affected; paf2; paf2 = paf2->next)
+			if (paf2->owner)
+				break;
+
+		if (!paf2) {
+			OBJ_DATA *prev;
+
+			if (top_affected_obj  == obj)
+				top_affected_obj = obj->aff_next;
+			else {
+				for(prev = top_affected_obj;
+					prev->aff_next && prev->aff_next != obj;
+					prev = prev->aff_next);
+				if (prev == NULL) {
+					log(LOG_ERROR, "affect_remove_obj: cannot find obj");
+					return;
+				}
+				prev->aff_next = obj->aff_next;
+			}
+			obj->aff_next = NULL;
+		}
 	}
 
 	aff_free(paf);
@@ -854,6 +935,8 @@ bool is_affected_room(ROOM_INDEX_DATA *room, const char *sn)
 void strip_raff_owner(CHAR_DATA *ch)
 {
 	ROOM_INDEX_DATA *room, *room_next;
+	CHAR_DATA *rch, *rch_next;
+	OBJ_DATA *obj, *obj_next;
 	AFFECT_DATA *af, *af_next;
 
 	for (room = top_affected_room; room; room = room_next) {
@@ -862,6 +945,24 @@ void strip_raff_owner(CHAR_DATA *ch)
 		for (af = room->affected; af; af = af_next) {
 			af_next = af->next;
 			if (af->owner == ch) affect_remove_room(room, af);
+		}
+	}
+
+	for (rch = top_affected_char; rch; rch = rch_next) {
+		rch_next = rch->aff_next;
+
+		for (af = rch->affected; af; af = af_next) {
+			af_next = af->next;
+			if (af->owner == ch) affect_remove(rch, af);
+		}
+	}
+
+	for (obj = top_affected_obj; obj; obj = obj_next) {
+		obj_next = obj->aff_next;
+
+		for (af = obj->affected; af; af = af_next) {
+			af_next = af->next;
+			if (af->owner == ch) affect_remove_obj(obj, af);
 		}
 	}
 }

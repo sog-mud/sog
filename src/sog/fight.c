@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.258 2000-02-10 14:08:45 fjoe Exp $
+ * $Id: fight.c,v 1.259 2000-02-19 14:45:29 avn Exp $
  */
 
 /***************************************************************************
@@ -1010,6 +1010,7 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 				INT(af.location) = APPLY_STR;
 				af.modifier  = -1;
 				af.bitvector = AFF_POISON;
+				af.owner = NULL;
 				affect_join(victim, &af);
 			}
 
@@ -1640,7 +1641,8 @@ bool is_safe_spell(CHAR_DATA *ch, CHAR_DATA *victim, bool area)
 
 bool is_safe_rspell_nom(AFFECT_DATA *af, CHAR_DATA *victim)
 {
-	if (af->owner) return is_safe_nomessage(victim, af->owner);
+	if (af->owner)
+		return is_safe_nomessage(victim, af->owner);
 	log(LOG_ERROR, "is_safe_rspell_nom: no affect owner");
 	affect_remove_room(victim->in_room, af);
 	return TRUE; /* protected from broken room affects */ 
@@ -2957,6 +2959,7 @@ int critical_strike(CHAR_DATA *ch, CHAR_DATA *victim, int dam)
 			baf.modifier = -4;
 			baf.duration = number_range(1, 3); 
 			baf.bitvector = AFF_BLIND;
+			baf.owner = NULL;
 			affect_to_char(victim, &baf);
 		}  
 		dam += dam * number_range(1, 2);			
