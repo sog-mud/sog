@@ -15,7 +15,7 @@ End
                      Original idea, concept and coding:
         Max Khon                         [{cTyan{x] (fjoe@@iclub.nsu.ru)
         Constantin Svintsoff           [{cNergal{x] (kostik@@iclub.nsu.ru)
-        Alexey Neyman                  [{cArborn{x] (avn@@org.chem.msu.su)
+        Alexey Neyman                  [{cArborn{x] (avn@@any.ru)
 
                      Web page design:
         Denis Petrakov                          (den@@oapmg.sscc.ru)
@@ -27,11 +27,11 @@ End
         Kirill Rodionov                         (kir@@iclub.nsu.ru)
 
                     Help translation:
-        Alexey Neyman                  [{cArborn{x] (avn@@org.chem.msu.su)
+        Alexey Neyman                  [{cArborn{x] (avn@@any.ru)
         Andrey Eliseev                 [{cRondor{x] (eliseev@@inorg.chem.msu.ru)
  
                      Area translation:
-        Alexey Neyman                  [{cArborn{x] (avn@@org.chem.msu.su)
+        Alexey Neyman                  [{cArborn{x] (avn@@any.ru)
         Constantin Svintsoff           [{cNergal{x] (kostik@@iclub.nsu.ru)
         Kirill Rodionov                         (kir@@iclub.nsu.ru)
         Tatyana Novikova                [{cArwen{x] (tatyana@@iclub.nsu.ru)
@@ -46,7 +46,7 @@ End
                    Первоначальная идея, концепция и кодирование:
           Максим Хон                     [{cTyan{x]   (fjoe@@iclub.nsu.ru)
           Константин Свинцов             [{cNergal{x] (kostik@@iclub.nsu.ru)
-          Алексей Нейман                 [{cArborn{x] (avn@@org.chem.msu.su)
+          Алексей Нейман                 [{cArborn{x] (avn@@any.ru)
  
                                Дизайн Web-страницы:
           Денис Петраков                          (den@@oapmg.sscc.ru)
@@ -58,12 +58,12 @@ End
           Кирилл Родионов                         (kir@@iclub.nsu.ru)
  
                            Перевод помощи:
-          Алексей Нейман                 [{cArborn{x] (avn@@org.chem.msu.su)
+          Алексей Нейман                 [{cArborn{x] (avn@@any.ru)
           Андрей Елисеев                 [{cRondor{x] (eliseev@@inorg.chem.msu.su)
  
                              Перевод арий:
           Ринат Хамидов                  [{cStark{x]  (rony@@dzs.nnn.tstu.ru)
-          Алексей Нейман                 [{cArborn{x] (avn@@org.chem.msu.su)
+          Алексей Нейман                 [{cArborn{x] (avn@@any.ru)
           Кирилл Родионов                         (kir@@iclub.nsu.ru)
           Виктор Глухов                  [{cKami{x]   (mibus@@mail.ru)
           Игорь Олехнович                [{cAgrael{x]
@@ -3576,7 +3576,7 @@ spells.
 Rockseers are a race of renegade elves who lives underworld in rock caves.
 They are inherently intelligent but have neglected intellectualstudies 
 and become very translucent from years of generations of trying to pass 
-rocks.  Like elves, rockseers have infravision and can walk innocent and
+rocks.  Like elves, rockseers have infravision and can walk unnoticed and
 can pass doors easily.Rockseers must stay neutral to cast any spells they 
 might know. And because of their organism they are vulnerable to woods.
 They have a specific spell called 'meld into stone'.
