@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.182.2.27 2000-04-24 09:18:03 osya Exp $
+ * $Id: handler.c,v 1.182.2.28 2000-05-23 12:41:58 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1095,19 +1095,10 @@ void char_from_room(CHAR_DATA *ch)
 	ch->next_in_room = NULL;
 	ch->on 	     = NULL;  /* sanity check! */
 
-	if (MOUNTED(ch))
-	{
-	 ch->mount->riding	= FALSE;
-	 ch->riding		= FALSE;
+	if (ch->mount != NULL) {
+		ch->riding = FALSE;
+		ch->mount->riding = FALSE;
 	}
-
-	if (RIDDEN(ch))
-	{
-	 ch->mount->riding	= FALSE;
-	 ch->riding		= FALSE;
-	}
-
-	return;
 }
 
 /*
@@ -1730,40 +1721,44 @@ void extract_char(CHAR_DATA *ch, int flags)
 		extract_obj(obj, extract_obj_flags);
 	}
 	
-	if (ch->in_room)
-		char_from_room(ch);
+	for (wch = char_list; wch && !IS_NPC(wch); wch = wch->next) {
+		if (PC(wch)->reply == ch)
+			PC(wch)->reply = NULL;
+	}
 
 	if (IS_SET(flags, XC_F_INCOMPLETE)) {
+		char_from_room(ch);
 		char_to_room(ch, get_altar(ch)->room);
 		return;
 	}
-
-	if (IS_NPC(ch))
-		--ch->pMobIndex->count;
 
 	if (ch->desc != NULL && ch->desc->original != NULL) {
 		dofun("return", ch, str_empty);
 		ch->desc = NULL;
 	}
 
-	for (wch = char_list; wch && !IS_NPC(wch); wch = wch->next) {
-		if (PC(wch)->reply == ch)
-			PC(wch)->reply = NULL;
+	char_from_room(ch);
+
+	if (ch->mount != NULL) {
+		ch->mount->mount = NULL;
+		ch->mount = NULL;
 	}
+
+	if (IS_NPC(ch))
+		--ch->pMobIndex->count;
 
 	for (wch = npc_list; wch; wch = wch->next) {
 		if (NPC(wch)->mprog_target == ch)
 			NPC(wch)->mprog_target = NULL;
-	if (wch->pMobIndex->vnum == MOB_VNUM_CRYPT_THING)
-		NPC(wch)->timer = 1; 
+		if (wch->pMobIndex->vnum == MOB_VNUM_CRYPT_THING)
+			NPC(wch)->timer = 1; 
 	}
 
 	if (ch == char_list) {
 		char_list = ch->next;
 		if (ch == char_list_lastpc)
 			char_list_lastpc = NULL;
-	}
-	else {
+	} else {
 		CHAR_DATA *prev;
 
 		for (prev = char_list; prev; prev = prev->next) {
@@ -3627,13 +3622,13 @@ void quit_char(CHAR_DATA *ch, int flags)
 		return;
 	}
 
-	for (vch=npc_list; vch; vch=vch->next) {
+	for (vch = npc_list; vch; vch=vch->next) {
 		if (IS_AFFECTED(vch, AFF_CHARM)
-		&& IS_NPC(vch)
-		&& IS_SET(vch->pMobIndex->act, ACT_FAMILIAR)
-		&& vch->master == ch
-		&& vch->in_room != ch->in_room) {
-			act("You cannot quit and leave your $N alone.\n", 
+		&&  IS_NPC(vch)
+		&&  IS_SET(vch->pMobIndex->act, ACT_FAMILIAR)
+		&&  vch->master == ch
+		&&  vch->in_room != ch->in_room) {
+			act("You cannot quit and leave your $N alone.", 
 				ch, NULL, vch, TO_CHAR);
 			return;
 		}
@@ -3675,14 +3670,49 @@ void quit_char(CHAR_DATA *ch, int flags)
 		}
 	}
 
+	drop_objs(ch, ch->carrying);
+
+	if (!IS_NPC(ch)) {
+		if (ch->mount != NULL)
+			dofun("dismount", ch, str_empty);
+
+		if ((vch = PC(ch)->guarding) != NULL) {
+			PC(ch)->guarding = NULL;
+			PC(vch)->guarded_by = NULL;
+			act("You stop guarding $N.",
+			    ch, NULL, vch, TO_CHAR);
+			act("$n stops guarding you.",
+			    ch, NULL, vch, TO_VICT);
+			act("$n stops guarding $N.",
+			    ch, NULL, vch, TO_NOTVICT);
+			if (ch->in_room != vch->in_room) {
+				act("$N stops guarding $n.",
+				    vch, NULL, ch, TO_NOTVICT);
+			}
+		}
+
+		if ((vch = PC(ch)->guarded_by) != NULL) {
+			PC(vch)->guarding = NULL;
+			PC(ch)->guarded_by = NULL;
+			act("You stop guarding $N.",
+			    vch, NULL, ch, TO_CHAR);
+			act("$n stops guarding you.",
+			    vch, NULL, ch, TO_VICT);
+			act("$n stops guarding $N.",
+			    vch, NULL, ch, TO_NOTVICT);
+			if (ch->in_room != vch->in_room) {
+				act("$N stops guarding $n.",
+				    ch, NULL, vch, TO_NOTVICT);
+			}
+		}
+	}
+
 	char_puts("Alas, all good things must come to an end.\n", ch);
 	char_puts("You hit reality hard. Reality truth does unspeakable things to you.\n", ch);
 	act_puts("$n has left the game.", ch, NULL, NULL, TO_ROOM, POS_RESTING);
 	log("%s has quit.", ch->name);
 	wiznet("{W$N{x rejoins the real world.",
 		ch, NULL, WIZ_LOGINS, 0, ch->level);
-
-	drop_objs(ch, ch->carrying);
 
 	for (vch = char_list; vch; vch = vch_next) {
 		NPC_DATA *vnpc;
@@ -3724,38 +3754,6 @@ void quit_char(CHAR_DATA *ch, int flags)
 
 		if (vnpc->last_fought == ch)
 			vnpc->last_fought = NULL;
-	}
-
-	if (!IS_NPC(ch)) {
-		if ((vch = PC(ch)->guarding) != NULL) {
-			PC(ch)->guarding = NULL;
-			PC(vch)->guarded_by = NULL;
-			act("You stop guarding $N.",
-			    ch, NULL, vch, TO_CHAR);
-			act("$n stops guarding you.",
-			    ch, NULL, vch, TO_VICT);
-			act("$n stops guarding $N.",
-			    ch, NULL, vch, TO_NOTVICT);
-			if (ch->in_room != vch->in_room) {
-				act("$N stops guarding $n.",
-				    vch, NULL, ch, TO_NOTVICT);
-			}
-		}
-
-		if ((vch = PC(ch)->guarded_by) != NULL) {
-			PC(vch)->guarding = NULL;
-			PC(ch)->guarded_by = NULL;
-			act("You stop guarding $N.",
-			    vch, NULL, ch, TO_CHAR);
-			act("$n stops guarding you.",
-			    vch, NULL, ch, TO_VICT);
-			act("$n stops guarding $N.",
-			    vch, NULL, ch, TO_NOTVICT);
-			if (ch->in_room != vch->in_room) {
-				act("$N stops guarding $n.",
-				    ch, NULL, vch, TO_NOTVICT);
-			}
-		}
 	}
 
 	/*
