@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mprog.c,v 1.1 2001-08-25 04:53:59 fjoe Exp $
+ * $Id: mprog.c,v 1.2 2001-08-26 05:49:16 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -46,7 +46,7 @@ hashdata_t h_mprogs = {
 	sizeof(mprog_t), 8,
 	(e_init_t) mprog_init,
 	(e_destroy_t) mprog_destroy,
-	NULL,
+	(e_cpy_t) mprog_cpy,
 
 	STRKEY_HASH_SIZE,
 	k_hash_str,
@@ -57,8 +57,9 @@ void
 mprog_init(mprog_t *mp)
 {
 	mp->name = str_empty;
-	mp->type = MP_T_MOB;
+	mp->type = MP_T_NONE;
 	mp->status = MP_S_DIRTY;
+	mp->flags = 0;
 	mp->text = str_empty;
 	mp->errbuf = NULL;
 }
@@ -70,4 +71,17 @@ mprog_destroy(mprog_t *mp)
 	free_string(mp->text);
 	if (mp->errbuf != NULL)
 		buf_free(mp->errbuf);
+}
+
+mprog_t *
+mprog_cpy(mprog_t *dst, const mprog_t *src)
+{
+	dst->name = str_qdup(src->name);
+	dst->type = src->type;
+	dst->status = src->status;
+	dst->flags = src->flags;
+	dst->text = str_qdup(src->text);
+	dst->errbuf = NULL;
+
+	return dst;
 }

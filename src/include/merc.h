@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.353 2001-08-22 20:45:43 fjoe Exp $
+ * $Id: merc.h,v 1.354 2001-08-26 05:49:05 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2190,7 +2190,6 @@ enum {
 
 #define	SPF_CHANGED	(Z)
 
-typedef struct spec_t spec_t;
 struct spec_t {
 	const char *spec_name;	/* spec name, also used as file name	*/
 	flag_t spec_class;	/* spec class				*/

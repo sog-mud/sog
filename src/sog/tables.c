@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.160 2001-08-25 04:54:00 fjoe Exp $
+ * $Id: tables.c,v 1.161 2001-08-26 05:49:16 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1516,27 +1516,37 @@ flaginfo_t mptrig_types[] =
 {
 	{ "",			TABLE_INTVAL,		FALSE	},
 
-	{ "spec",		TRIG_SPEC,		TRUE	},
+	{ "mob_act",		TRIG_MOB_ACT,		TRUE	},
+	{ "mob_bribe",		TRIG_MOB_BRIBE,		TRUE	},
+	{ "mob_death",		TRIG_MOB_DEATH,		TRUE	},
+	{ "mob_entry",		TRIG_MOB_ENTRY,		TRUE	},
+	{ "mob_fight",		TRIG_MOB_FIGHT,		TRUE	},
+	{ "mob_give",		TRIG_MOB_GIVE,		TRUE	},
+	{ "mob_greet",		TRIG_MOB_GREET,		TRUE    },
+	{ "mob_grall",		TRIG_MOB_GRALL,		TRUE	},
+	{ "mob_kill",		TRIG_MOB_KILL,		TRUE	},
+	{ "mob_hpcnt",		TRIG_MOB_HPCNT,		TRUE    },
+	{ "mob_random",		TRIG_MOB_RANDOM,	TRUE	},
+	{ "mob_speech",		TRIG_MOB_SPEECH,	TRUE	},
+	{ "mob_exit",		TRIG_MOB_EXIT,		TRUE    },
+	{ "mob_exall",		TRIG_MOB_EXALL,		TRUE    },
+	{ "mob_delay",		TRIG_MOB_DELAY,		TRUE    },
+	{ "mob_surr",		TRIG_MOB_SURR,		TRUE    },
 
-#if 0
-	XXX MPC
-	{ "act",		TRIG_ACT,		TRUE	},
-	{ "bribe",		TRIG_BRIBE,		TRUE	},
-	{ "death",		TRIG_DEATH,		TRUE    },
-	{ "entry",		TRIG_ENTRY,		TRUE	},
-	{ "fight",		TRIG_FIGHT,		TRUE	},
-	{ "give",		TRIG_GIVE,		TRUE	},
-	{ "greet",		TRIG_GREET,		TRUE    },
-	{ "grall",		TRIG_GRALL,		TRUE	},
-	{ "kill",		TRIG_KILL,		TRUE	},
-	{ "hpcnt",		TRIG_HPCNT,		TRUE    },
-	{ "random",		TRIG_RANDOM,		TRUE	},
-	{ "speech",		TRIG_SPEECH,		TRUE	},
-	{ "exit",		TRIG_EXIT,		TRUE    },
-	{ "exall",		TRIG_EXALL,		TRUE    },
-	{ "delay",		TRIG_DELAY,		TRUE    },
-	{ "surr",		TRIG_SURR,		TRUE    },
-#endif
+	{ "obj_wear",		TRIG_OBJ_WEAR,		TRUE	},
+	{ "obj_remove",		TRIG_OBJ_REMOVE,	TRUE	},
+	{ "obj_drop",		TRIG_OBJ_DROP,		TRUE	},
+	{ "obj_sac",		TRIG_OBJ_SAC,		TRUE	},
+	{ "obj_give",		TRIG_OBJ_GIVE,		TRUE	},
+	{ "obj_greet",		TRIG_OBJ_GREET,		TRUE	},
+	{ "obj_fight",		TRIG_OBJ_FIGHT,		TRUE	},
+	{ "obj_death",		TRIG_OBJ_DEATH,		TRUE	},
+	{ "obj_speech",		TRIG_OBJ_SPEECH,	TRUE	},
+	{ "obj_entry",		TRIG_OBJ_ENTRY,		TRUE	},
+	{ "obj_get",		TRIG_OBJ_GET,		TRUE	},
+	{ "obj_random",		TRIG_OBJ_RANDOM,	TRUE	},
+
+	{ "spec",		TRIG_SPEC,		TRUE	},
 
 	{ NULL, 0, FALSE }
 };
@@ -1559,6 +1569,25 @@ flaginfo_t mprog_types[] =
 	{ "obj",		MP_T_OBJ,		TRUE	},
 	{ "room",		MP_T_ROOM,		TRUE	},
 	{ "spec",		MP_T_SPEC,		TRUE	},
+
+	{ NULL, 0, FALSE }
+};
+
+flaginfo_t mprog_flags[] =
+{
+	{ "",			TABLE_BITVAL,		FALSE	},
+
+	{ "changed",		MP_F_CHANGED,		FALSE	},
+
+	{ NULL, 0, FALSE }
+};
+
+flaginfo_t mprog_states[] =
+{
+	{ "",			TABLE_INTVAL,		FALSE	},
+
+	{ "dirty",		MP_S_DIRTY,		FALSE	},
+	{ "ready",		MP_S_READY,		FALSE	},
 
 	{ NULL, 0, FALSE }
 };

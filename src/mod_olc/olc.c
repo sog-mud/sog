@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.139 2001-08-25 04:53:56 fjoe Exp $
+ * $Id: olc.c,v 1.140 2001-08-26 05:49:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -83,7 +83,7 @@ const char ED_AREA[]	= "areas";
 const char ED_ROOM[]	= "rooms";
 const char ED_OBJ[]	= "objects";
 const char ED_MOB[]	= "mobiles";
-const char ED_MPCODE[]	= "mpcodes";
+const char ED_MPROG[]	= "mprogs";
 const char ED_HELP[]	= "helps";
 const char ED_CLAN[]	= "clans";
 const char ED_MSG[]	= "msgdb";
@@ -106,10 +106,7 @@ olced_t olced_table[] = {
 	{ ED_ROOM,	"RoomEd",	olc_cmds_room	},
 	{ ED_OBJ,	"ObjEd",	olc_cmds_obj	},
 	{ ED_MOB,	"MobEd",	olc_cmds_mob	},
-#if 0
-	XXX MPC
-	{ ED_MPCODE,	"MProgEd",	olc_cmds_mprog	},
-#endif
+	{ ED_MPROG,	"MProgEd",	olc_cmds_mprog	},
 	{ ED_HELP,	"HelpEd",	olc_cmds_help	},
 	{ ED_MSG,	"MsgEd",	olc_cmds_msg	},
 	{ ED_CLAN,	"ClanEd",	olc_cmds_clan	},

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mprog.h,v 1.1 2001-08-25 04:53:50 fjoe Exp $
+ * $Id: mprog.h,v 1.2 2001-08-26 05:49:07 fjoe Exp $
  */
 
 #ifndef _MPROG_H_
@@ -33,6 +33,7 @@
  * Program types
  */
 enum {
+	MP_T_NONE = -1,
 	MP_T_MOB,
 	MP_T_OBJ,
 	MP_T_ROOM,
@@ -47,6 +48,8 @@ enum {
 	MP_S_READY,		/**< program compiled ok */
 };
 
+#define MP_F_CHANGED		(Z)
+
 /**
  * Program
  */
@@ -54,6 +57,7 @@ struct mprog_t {
 	const char *name;	/**< program name			*/
 	int type;		/**< program type			*/
 	int status;		/**< program status			*/
+	int flags;		/**< program flags			*/
 	const char *text;	/**< program text			*/
 	BUFFER *errbuf;		/**< buffer for error messages		*/
 };
@@ -63,8 +67,10 @@ extern hashdata_t h_mprogs;
 
 void mprog_init(mprog_t *);
 void mprog_destroy(mprog_t *);
+mprog_t *mprog_cpy(mprog_t *dst, const mprog_t *src);
 
 #define mprog_lookup(name)	((mprog_t *) hash_lookup(&mprogs, (name)))
+#define mprog_search(name)	((mprog_t *) strkey_search(&mprogs, (name)))
 
 extern int (*mprog_compile)(mprog_t *mp);
 extern int (*mprog_execute)(mprog_t *mp, va_list ap);

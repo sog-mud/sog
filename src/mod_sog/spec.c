@@ -23,13 +23,12 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: spec.c,v 1.30 2001-08-25 04:49:55 fjoe Exp $
+ * $Id: spec.c,v 1.31 2001-08-26 05:49:15 fjoe Exp $
  */
 
 #include <stdio.h>
 
 #include <merc.h>
-#include <mprog.h>
 
 #include <sog.h>
 
@@ -381,7 +380,7 @@ FOREACH_CB_FUN(replace_cb, p, ap)
 		return NULL;
 
 	if ((spec = spec_lookup(*pspn)) != NULL
-	&&  pull_trigger(&spec->mp_trig, MP_T_SPEC, ch, spn_rm, spn_add) > 0)
+	&&  pull_spec_trigger(spec, ch, spn_rm, spn_add) > 0)
 		return p;
 
 	return NULL;
@@ -452,7 +451,7 @@ spec_replace(CHAR_DATA *ch, const char *spn_rm, const char *spn_add)
 		return FALSE;
 
 	if ((spec = spec_lookup(spn_add)) != NULL
-	&&  pull_trigger(&spec->mp_trig, MP_T_SPEC, ch, spn_rm, spn_add) > 0)
+	&&  pull_spec_trigger(spec, ch, spn_rm, spn_add) > 0)
 		return FALSE;
 
 	if ((rv = varr_foreach(&PC(ch)->specs, replace_cb, ch,

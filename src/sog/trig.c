@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: trig.c,v 1.2 2001-08-25 04:54:00 fjoe Exp $
+ * $Id: trig.c,v 1.3 2001-08-26 05:49:17 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -35,8 +35,9 @@
 #include <mprog.h>
 #include <rwfile.h>
 
-static int pull_one_trigger(trig_t *trig, int mp_type, va_list ap);
-static int pull_trigger_list(int trig_type, varr *v, int mp_type, va_list ap);
+static int vpull_one_trigger(trig_t *trig, int mp_type, va_list ap);
+static int pull_one_trigger(trig_t *trig, int mp_type, ...);
+static int pull_trigger_list(int trig_type, varr *v, int mp_type, ...);
 
 void
 trig_init(trig_t *trig)
@@ -213,7 +214,8 @@ trig_set_arg(trig_t *trig, const char *arg)
 		cflags |= REG_ICASE;
 
 	trig->trig_extra = malloc(sizeof(regex_t));
-	if (!regcomp(trig->trig_extra, trig->trig_arg+1, cflags))
+	errcode = regcomp(trig->trig_extra, trig->trig_arg+1, cflags);
+	if (!errcode)
 		return;
 
 	regerror(errcode, trig->trig_extra, buf, sizeof(buf));
@@ -222,50 +224,32 @@ trig_set_arg(trig_t *trig, const char *arg)
 }
 
 int
-pull_trigger(trig_t *trig, int mp_type, ...)
+pull_mob_trigger(int trig_type, CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *obj)
 {
-	int rv;
-	va_list ap;
-
-	if (trig->trig_type == TRIG_NONE)
-		return MPC_ERR_NOTFOUND;
-
-	va_start(ap, mp_type);
-	rv = pull_one_trigger(trig, mp_type, ap);
-	va_end(ap);
-
-	return rv;
-}
-
-int
-pull_mob_trigger(int trig_type, CHAR_DATA *ch, ...)
-{
-	int rv;
-	va_list ap;
-
 	if (!IS_NPC(ch))
 		return MPC_ERR_NOTFOUND;
 
-	va_start(ap, ch);
-	rv = pull_trigger_list(
-	    trig_type, &ch->pMobIndex->mp_trigs, MP_T_MOB, ap);
-	va_end(ap);
-
-	return rv;
+	return pull_trigger_list(
+	    trig_type, &ch->pMobIndex->mp_trigs, MP_T_MOB,
+	    ch, victim, obj);
 }
 
 int
-pull_obj_trigger(int trig_type, OBJ_DATA *obj, ...)
+pull_obj_trigger(int trig_type, OBJ_DATA *obj, CHAR_DATA *victim)
 {
-	int rv;
-	va_list ap;
+	return pull_trigger_list(
+	    trig_type, &obj->pObjIndex->mp_trigs, MP_T_OBJ,
+	    obj, victim);
+}
 
-	va_start(ap, obj);
-	rv = pull_trigger_list(
-	    trig_type, &obj->pObjIndex->mp_trigs, MP_T_OBJ, ap);
-	va_end(ap);
+int
+pull_spec_trigger(spec_t *spec, CHAR_DATA *ch,
+		  const char *spn_rm, const char *spn_add)
+{
+	if (spec->mp_trig.trig_type == TRIG_NONE)
+		return MPC_ERR_NOTFOUND;
 
-	return rv;
+	return pull_one_trigger(&spec->mp_trig, MP_T_SPEC, ch, spn_rm, spn_add);
 }
 
 /*--------------------------------------------------------------------
@@ -273,7 +257,7 @@ pull_obj_trigger(int trig_type, OBJ_DATA *obj, ...)
  */
 
 static int
-pull_one_trigger(trig_t *trig, int mp_type, va_list ap)
+vpull_one_trigger(trig_t *trig, int mp_type, va_list ap)
 {
 	mprog_t *mp;
 
@@ -290,13 +274,32 @@ pull_one_trigger(trig_t *trig, int mp_type, va_list ap)
 }
 
 static int
-pull_trigger_list(int trig_type, varr *v, int mp_type, va_list ap)
+pull_one_trigger(trig_t *trig, int mp_type, ...)
+{
+	int rv;
+	va_list ap;
+
+	va_start(ap, mp_type);
+	rv = vpull_one_trigger(trig, mp_type, ap);
+	va_end(ap);
+
+	return rv;
+}
+
+static int
+pull_trigger_list(int trig_type, varr *v, int mp_type, ...)
 {
 	trig_t *trig;
+	int rv;
+	va_list ap;
 
 	trig = varr_bsearch(v, &trig_type, cmpint);
 	if (trig == NULL)
 		return MPC_ERR_NOTFOUND;
 
-	return pull_one_trigger(trig, mp_type, ap);
+	va_start(ap, mp_type);
+	rv = vpull_one_trigger(trig, mp_type, ap);
+	va_end(ap);
+
+	return rv;
 }

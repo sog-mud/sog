@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_bootdb.c,v 1.4 2001-08-25 04:53:53 fjoe Exp $
+ * $Id: init_bootdb.c,v 1.5 2001-08-26 05:49:10 fjoe Exp $
  */
 
 #include <sys/stat.h>
@@ -177,17 +177,11 @@ load_hints(void)
 static void
 load_mprog(const char *name)
 {
+	char buf[MAX_INPUT_LENGTH];
 	char *q;
 	rfile_t *fp;
-	mprog_t mp;
-	mprog_t *p;
-	struct stat s;
-
-	if (dstat(MPC_PATH, name, &s) < 0) {
-		log(LOG_ERROR, "load_mprog: stat: %s: %s",
-		    name, strerror(errno));
-		return;
-	}
+	mprog_t mprog;
+	mprog_t *mp;
 
 	fp = rfile_open(MPC_PATH, name);
 	if (fp == NULL) {
@@ -203,29 +197,29 @@ load_mprog(const char *name)
 	if (q == NULL)
 		q = strchr(name, '\0');
 
-	mprog_init(&mp);
-	mp.name = str_ndup(name, q - name);
+	mprog_init(&mprog);
+	mprog.name = str_ndup(name, q - name);
 
-	/*
-	 * try to find '#type'
-	 */
-	fread_word(fp);
-	if (!!strcmp(rfile_tok(fp), "#type")) {
-		log(LOG_ERROR, "load_mprog: %s: missing #type directive", name);
-		mprog_destroy(&mp);
+	if ((q = strchr(name, '_')) == NULL) {
+		log(LOG_ERROR, "load_mprog: %s: unable to determine mprog type (no underscores in name)", name);
+		mprog_destroy(&mprog);
+		goto bailout;
+	}
+	strnzncpy(buf, sizeof(buf), name, (size_t) (q - name));
+
+	if ((mprog.type = flag_svalue(mprog_types, buf)) < 0) {
+		log(LOG_ERROR, "load_mprog: %s: unknown type", buf);
+		mprog_destroy(&mprog);
 		goto bailout;
 	}
 
-	mp.type = fread_fword(mprog_types, fp);
-	fread_to_eol(fp);
-
-	if ((p = (mprog_t *) hash_insert(&mprogs, mp.name, &mp)) == NULL) {
-		fprintf(stderr, "load_mprog: %s: duplicate mprog", mp.name);
-		mprog_destroy(&mp);
+	if ((mp = (mprog_t *) hash_insert(&mprogs, mprog.name, &mprog)) == NULL) {
+		fprintf(stderr, "load_mprog: %s: duplicate mprog", mprog.name);
+		mprog_destroy(&mprog);
 		goto bailout;
 	}
 
-	p->text = str_ndup(fp->p + fp->pos, fp->len - fp->pos);
+	mp->text = str_ndup(fp->p, fp->len);
 
 bailout:
 	rfile_close(fp);

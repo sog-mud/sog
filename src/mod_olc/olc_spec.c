@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_spec.c,v 1.14 2001-08-25 04:46:57 fjoe Exp $
+ * $Id: olc_spec.c,v 1.15 2001-08-26 05:49:14 fjoe Exp $
  */
 
 #include "olc.h"
@@ -39,10 +39,7 @@ DECLARE_OLC_FUN(speced_list		);
 
 DECLARE_OLC_FUN(speced_class		);
 DECLARE_OLC_FUN(speced_skill		);
-#if 0
-XXX MPC
-DECLARE_OLC_FUN(speced_depend		);
-#endif
+DECLARE_OLC_FUN(speced_trigger		);
 DECLARE_OLC_FUN(speced_flags		);
 
 DECLARE_OLC_FUN(olc_skill_update	);
@@ -61,10 +58,7 @@ olc_cmd_t olc_cmds_spec[] =
 	{ "name",	olced_strkey,	NULL,		&strkey_specs	},
 	{ "class",	speced_class,	NULL,		spec_classes	},
 	{ "skill",	speced_skill,	NULL,		&skills		},
-#if 0
-	XXX MPC
-	{ "depend",	speced_depend,	NULL,		NULL		},
-#endif
+	{ "trigger",	speced_trigger,	NULL,		NULL		},
 	{ "flags",	speced_flags,	NULL,		spec_flags	},
 
 	{ "update",	olc_skill_update, NULL,		NULL		},
@@ -75,8 +69,8 @@ olc_cmd_t olc_cmds_spec[] =
 	{ NULL, NULL, NULL, NULL }
 };
 
-static void * save_spec_cb(void *p, va_list ap);
-static void * show_spec_skill_cb(void *p, va_list ap);
+static void *save_spec_cb(void *p, va_list ap);
+static void *show_spec_skill_cb(void *p, va_list ap);
 
 OLC_FUN(speced_create)
 {
@@ -183,10 +177,11 @@ OLC_FUN(speced_show)
 	buf_printf(output, BUF_END, "Class:         [%s]   Flags: [%s]\n",
 			flag_string(spec_classes, s->spec_class),
 			flag_string(spec_flags, s->spec_flags));
-#if 0
-	XXX MPC
-	print_cc_vexpr(&s->spec_deps, "Dependencies:", output);
-#endif
+	if (s->mp_trig.trig_type != TRIG_NONE) {
+		buf_printf(output, BUF_END, "Trigger:       [%s]\n",
+			   s->mp_trig.trig_prog);
+	}
+
 	if (s->spec_skills.nused == 0)
 		buf_printf(output, BUF_END, "No skills defined for this spec.\n");
 	else {
@@ -286,15 +281,16 @@ OLC_FUN(speced_skill)
 	return FALSE;
 }
 
-#if 0
-XXX MPC
-OLC_FUN(speced_depend)
+OLC_FUN(speced_trigger)
 {
 	spec_t *s;
 	EDIT_SPEC(ch, s);
+#if 0
+	XXX MPC
 	return olced_cc_vexpr(ch, argument, cmd, &s->spec_deps, "spec");
-}
 #endif
+	return FALSE;
+}
 
 OLC_FUN(speced_flags)
 {

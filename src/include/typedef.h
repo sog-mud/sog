@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: typedef.h,v 1.55 2001-08-25 04:53:51 fjoe Exp $
+ * $Id: typedef.h,v 1.56 2001-08-26 05:49:08 fjoe Exp $
  */
 
 #ifndef _TYPEDEF_H_
@@ -98,6 +98,7 @@ typedef struct rating_t			rating_t;
 typedef struct ban_t			ban_t;
 typedef struct trig_t			trig_t;
 typedef struct mprog_t			mprog_t;
+typedef struct spec_t			spec_t;
 
 #if !defined(NO_MMAP)
 typedef struct rfile_t			rfile_t;

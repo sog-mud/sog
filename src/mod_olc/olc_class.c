@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_class.c,v 1.30 2001-08-25 04:46:52 fjoe Exp $
+ * $Id: olc_class.c,v 1.31 2001-08-26 05:49:13 fjoe Exp $
  */
 
 #include "olc.h"
@@ -99,7 +99,7 @@ olc_cmd_t olc_cmds_class[] =
 	{ NULL, NULL, NULL, NULL }
 };
 
-static void * save_class_cb(void *p, va_list ap);
+static DECLARE_FOREACH_CB_FUN(save_class_cb);
 
 OLC_FUN(classed_create)
 {
@@ -108,7 +108,7 @@ OLC_FUN(classed_create)
 	char arg[MAX_INPUT_LENGTH];
 
 	if (PC(ch)->security < SECURITY_CLASS) {
-		act_char("ClassEd: Insufficient security for creating classes", ch);
+		act_char("ClassEd: Insufficient security for creating classes.", ch);
 		return FALSE;
 	}
 
@@ -220,13 +220,13 @@ OLC_FUN(classed_show)
 			   flag_string(class_flags, class->class_flags));
 	if (class->points)
 		buf_printf(output, BUF_END, "Exp points:     [%d]\n", class->points);
-	
+
 	buf_printf(output, BUF_END, "Luck bonus:     [%d]\n", class->luck_bonus);
-	
 
-
-	for (i = 0, found = FALSE; i < MAX_STAT; i++)
-		if (class->mod_stat[i]) found = TRUE;
+	for (i = 0, found = FALSE; i < MAX_STAT; i++) {
+		if (class->mod_stat[i])
+			found = TRUE;
+	}
 	if (found) {
 		buf_append(output, "Stats mod:      [");
 		for (i = 0; i < MAX_STAT; i++)
@@ -638,8 +638,8 @@ static VALIDATE_FUN(validate_whoname)
 
 #define PROC_STR(s)	((s) ? (s) : (str_empty))
 
-static void *
-save_class_cb(void *p, va_list ap)
+static
+FOREACH_CB_FUN(save_class_cb, p, ap)
 {
 	class_t *cl = (class_t *) p;
 

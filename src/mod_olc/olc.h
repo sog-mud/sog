@@ -1,5 +1,5 @@
 /*
- * $Id: olc.h,v 1.84 2001-08-25 04:53:57 fjoe Exp $
+ * $Id: olc.h,v 1.85 2001-08-26 05:49:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -65,7 +65,7 @@ extern const char ED_AREA	[];
 extern const char ED_ROOM	[];
 extern const char ED_OBJ	[];
 extern const char ED_MOB	[];
-extern const char ED_MPCODE	[];
+extern const char ED_MPROG	[];
 extern const char ED_HELP	[];
 extern const char ED_CLAN	[];
 extern const char ED_MSG	[];
@@ -196,6 +196,7 @@ bool	touch_clan	(clan_t *clan);
 bool	touch_race	(race_t *race);
 bool	touch_class	(class_t *class);
 bool	touch_spec	(spec_t *spec);
+bool	touch_mprog	(mprog_t *mprog);
 
 void		edit_done	(DESCRIPTOR_DATA *d);
 olced_t *	olced_lookup	(const char * id);
@@ -225,6 +226,7 @@ void		dump_resists(BUFFER *output, int16_t *resets);
 #define SECURITY_SKILL		8
 #define SECURITY_SPEC		8
 #define	SECURITY_CLAN_PLIST	8
+#define SECURITY_MPROG		8
 #define SECURITY_AREA_CREATE	9
 #define SECURITY_CMDS		9
 #define SECURITY_LANG		9

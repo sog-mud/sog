@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_mpc.c,v 1.13 2001-08-25 04:53:54 fjoe Exp $
+ * $Id: init_mpc.c,v 1.14 2001-08-26 05:49:11 fjoe Exp $
  */
 
 #include <dlfcn.h>
@@ -62,6 +62,8 @@ static dynafun_data_t local_dynafun_tab[] = {
 	DECLARE_FUN4(int, spclass_count,
 		     ARG(CHAR_DATA), ch, ARG(cchar_t), spn,
 		     ARG(cchar_t), spn_add, ARG(cchar_t), spn_rm)
+	DECLARE_PROC2(mob_interpret,
+		      ARG(CHAR_DATA), ch, ARG(cchar_t), argument)
 	NULL_DYNAFUN_DATA
 };
 #endif
@@ -161,6 +163,7 @@ const char *mpc_dynafuns[] = {
 	"level",
 	"number_range",
 	"spclass_count",
+	"mob_interpret",
 #else
 	"nonexistent",
 	"number_range",

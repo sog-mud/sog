@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_dynafun.c,v 1.6 2001-08-25 04:53:55 fjoe Exp $
+ * $Id: mpc_dynafun.c,v 1.7 2001-08-26 05:49:12 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -32,11 +32,14 @@
 
 #include <merc.h>
 
+#include <sog.h>
+
 int has_sp(CHAR_DATA *ch, const char *spn,
 	   const char *spn_rm, const char *spn_add);
 int level(CHAR_DATA *ch);
 int spclass_count(CHAR_DATA *ch, const char *spclass_name,
 		  const char *spn_rm, const char *spn_add);
+void mob_interpret(CHAR_DATA *ch, const char *argument);
 
 static
 FOREACH_CB_FUN(has_sp_cb, p, ap)
@@ -107,9 +110,13 @@ spclass_count(CHAR_DATA *ch, const char *spclass_name,
 		count++;
 
 	varr_foreach(&PC(ch)->specs, spclass_count_cb, spclass, spn_rm, &count);
-	log(LOG_INFO, "spclass_count: %s (%s): %d",
-	    spclass_name, flag_string(spec_classes, spclass), count);
 	return count;
+}
+
+void
+mob_interpret(CHAR_DATA *ch, const char *argument)
+{
+	interpret(ch, argument, FALSE);
 }
 
 #else /* !defined(MPC) */

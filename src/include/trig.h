@@ -23,74 +23,62 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: trig.h,v 1.2 2001-08-25 04:53:51 fjoe Exp $
+ * $Id: trig.h,v 1.3 2001-08-26 05:49:07 fjoe Exp $
  */
 
 #ifndef _TRIG_H_
 #define _TRIG_H_
 
-#if 0
-/*
- * MOBprog definitions
- */
-#define TRIG_ACT	(A)
-#define TRIG_BRIBE	(B)
-#define TRIG_DEATH	(C)
-#define TRIG_ENTRY	(D)
-#define TRIG_FIGHT	(E)
-#define TRIG_GIVE	(F)
-#define TRIG_GREET	(G)
-#define TRIG_GRALL	(H)
-#define TRIG_KILL	(I)
-#define TRIG_HPCNT	(J)
-#define TRIG_RANDOM	(K)
-#define TRIG_SPEECH	(L)
-#define TRIG_EXIT	(M)
-#define TRIG_EXALL	(N)
-#define TRIG_DELAY	(O)
-#define TRIG_SURR	(P)
-
-enum {
-	OPROG_WEAR,
-	OPROG_REMOVE,
-	OPROG_DROP,
-	OPROG_SAC,
-	OPROG_GIVE,
-	OPROG_GREET,
-	OPROG_FIGHT,
-	OPROG_DEATH,
-	OPROG_SPEECH,
-	OPROG_ENTRY,
-	OPROG_GET,
-	OPROG_AREA,
-
-	OPROG_MAX
-};
-#endif
-
-#define TRIG_NONE	-1
-
-/* spec triggers */
-#define TRIG_SPEC	0
+#define TRIG_NONE		-1
 
 /* mob triggers */
-#define TRIG_MOB_FIGHT	1
-#define TRIG_MOB_DEATH	2
+#define TRIG_MOB_ACT		0		/* arg: text		*/
+#define TRIG_MOB_BRIBE		1		/* arg: silver		*/
+#define TRIG_MOB_DEATH		2		/* arg: probability	*/
+#define TRIG_MOB_ENTRY		3		/* arg: probability	*/
+#define TRIG_MOB_FIGHT		4		/* arg: probability	*/
+#define TRIG_MOB_GIVE		5		/* arg: probability	*/
+#define TRIG_MOB_GREET		6		/* arg: probability	*/
+#define TRIG_MOB_GRALL		7		/* arg: probability	*/
+#define TRIG_MOB_KILL		8		/* arg: probability	*/
+#define TRIG_MOB_HPCNT		9		/* arg: probability	*/
+#define TRIG_MOB_RANDOM		0		/* arg: probability	*/
+#define TRIG_MOB_SPEECH		11		/* arg: text		*/
+#define TRIG_MOB_EXIT		12		/* arg: probability	*/
+#define TRIG_MOB_EXALL		13		/* arg: probability	*/
+#define TRIG_MOB_DELAY		14		/* arg: probability	*/
+#define TRIG_MOB_SURR		15		/* arg: probability	*/
 
 /* obj triggers */
-#define TRIG_OBJ_FIGHT	101
+#define TRIG_OBJ_WEAR		100		/* arg: probability	*/
+#define TRIG_OBJ_REMOVE		101		/* arg: probability	*/
+#define TRIG_OBJ_DROP		102		/* arg: probability	*/
+#define TRIG_OBJ_SAC		103		/* arg: probability	*/
+#define TRIG_OBJ_GIVE		104		/* arg: probability	*/
+#define TRIG_OBJ_GREET		105		/* arg: probability	*/
+#define TRIG_OBJ_FIGHT		106		/* arg: probability	*/
+#define TRIG_OBJ_DEATH		107		/* arg: probability	*/
+#define TRIG_OBJ_SPEECH		108		/* arg: text		*/
+#define TRIG_OBJ_ENTRY		109		/* arg: probability	*/
+#define TRIG_OBJ_GET		110		/* arg: probability	*/
+#define TRIG_OBJ_RANDOM		111		/* arg: probability	*/
 
-#define HAS_TEXT_ARG(trig)	FALSE
+/* spec triggers */
+#define TRIG_SPEC		300
 
-#define TRIG_F_CASEDEP	(A)
-#define TRIG_F_REGEXP	(B)
+#define HAS_TEXT_ARG(trig)	(trig->trig_type == TRIG_MOB_ACT ||	\
+				 trig->trig_type == TRIG_MOB_SPEECH ||	\
+				 trig->trig_type == TRIG_OBJ_SPEECH)
+
+#define TRIG_F_CASEDEP	(A)	/* text arg case-dependent	*/
+#define TRIG_F_REGEXP	(B)	/* text arg is regexp		*/
 
 struct trig_t {
-	int		trig_type;	/**< trigger type */
-	const char *	trig_prog;	/**< program to execute */
-	const char *	trig_arg;	/**< trigger argument */
-	flag_t		trig_flags;	/**< trigger flags */
-	void *		trig_extra;	/**< trigger extra data */
+	int		trig_type;	/**< trigger type	*/
+	const char *	trig_prog;	/**< program to execute	*/
+	const char *	trig_arg;	/**< trigger argument	*/
+	flag_t		trig_flags;	/**< trigger flags	*/
+	void *		trig_extra;	/**< trigger extra data	*/
 };
 
 /**
@@ -151,18 +139,20 @@ void trig_dump_list(varr *v, BUFFER *buf);
 void trig_set_arg(trig_t *trig, const char *arg);
 
 /**
- * Pull trigger
- */
-int pull_trigger(trig_t *trig, int mp_type, ...);
-
-/**
  * Pull mob trigger of specified type
  */
-int pull_mob_trigger(int trig_type, CHAR_DATA *ch, ...);
+int pull_mob_trigger(int trig_type,
+		     CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *obj);
 
 /**
  * Pull obj trigger of specified type
  */
-int pull_obj_trigger(int trig_type, OBJ_DATA *obj, ...);
+int pull_obj_trigger(int trig_type, OBJ_DATA *obj, CHAR_DATA *victim);
+
+/**
+ * Pull trigger
+ */
+int pull_spec_trigger(spec_t *spec, CHAR_DATA *ch,
+		      const char *spn_rm, const char *spn_add);
 
 #endif /* _TRIG_H_ */
