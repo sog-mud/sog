@@ -1,5 +1,5 @@
 /*
- * $Id: quest.c,v 1.15 1998-05-19 00:28:49 efdi Exp $
+ * $Id: quest.c,v 1.16 1998-05-19 10:11:57 efdi Exp $
  */
 
 /***************************************************************************
@@ -893,7 +893,7 @@ void generate_quest(CHAR_DATA *ch, CHAR_DATA *questman)
 	   and none of the level stuff. You may want to comment these next two
 	   lines. - Vassago */
 
-	sprintf(buf, msg(QUEST_LOCATION_IS_IN_AREA, ch), room->area->name);
+	sprintf(buf, msg(QUEST_LOCATION_IS_IN_AREA, ch), room->area->name, room->name);
 	do_tell_quest(ch,questman,buf);
      }
      ch->pcdata->questmob = victim->pIndexData->vnum;
