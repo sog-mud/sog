@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.217 2000-10-04 20:28:45 fjoe Exp $
+ * $Id: act_obj.c,v 1.218 2000-10-05 14:54:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2639,7 +2639,7 @@ void do_lore(CHAR_DATA *ch, const char *argument)
 	BUFFER *	output;
 	OBJ_DATA *	obj;
 
-	if (ch->fighting != 0) {
+	if (ch->fighting != NULL) {
 		act_puts("Concentrate on your fighting!",
 			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		return;
