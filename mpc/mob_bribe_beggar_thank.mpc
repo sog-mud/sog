@@ -1,5 +1,6 @@
 /*
- * $Id: mob_bribe_beggar_thank.mpc,v 1.1 2001-09-02 16:05:16 fjoe Exp $
+ * $Id: mob_bribe_beggar_thank.mpc,v 1.2 2001-09-05 11:02:54 fjoe Exp $
  */
 
 act_say($n, "Thank you for your kindness, $N.", $N);
+return 0;
