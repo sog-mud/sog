@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.186 2000-04-17 07:12:59 fjoe Exp $
+ * $Id: spellfun2.c,v 1.187 2000-04-26 14:24:35 fjoe Exp $
  */
 
 /***************************************************************************
@@ -5177,7 +5177,7 @@ void spell_doppelganger(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	}
 
 	if (IS_NPC(victim)) {
-		act("$N is too different from yourself to mimic.",
+		act("$N is too different from you to mimic.",
 		    ch, NULL, victim, TO_CHAR);
 		return;
 	}
