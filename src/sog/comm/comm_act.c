@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm_act.c,v 1.40.2.8 2002-01-03 21:33:45 tatyana Exp $
+ * $Id: comm_act.c,v 1.40.2.9 2002-01-11 19:57:07 tatyana Exp $
  */
 
 #include <stdarg.h>
@@ -852,8 +852,13 @@ act_skip(CHAR_DATA *ch, CHAR_DATA *vch, CHAR_DATA *to,
 /* twitlist handling */
 	if (IS_SET(act_flags, ACT_NOTWIT)
 	&&  !IS_NPC(to) && !IS_IMMORTAL(to)
-	&&  !IS_NPC(ch) && !IS_IMMORTAL(ch)
-	&&  is_name(ch->name, PC(to)->twitlist))
+	&&  !IS_IMMORTAL(ch)
+	&&  ((!IS_NPC(ch) &&
+	      is_name(ch->name, PC(to)->twitlist)) ||
+	     (IS_NPC(ch) &&
+	      IS_AFFECTED(ch, AFF_CHARM) &&
+	      ch->master != NULL &&
+	      is_name(ch->master->name, PC(to)->twitlist))))
 		return TRUE;
 
 /* check "deaf dumb blind" chars */
