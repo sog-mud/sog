@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.74.2.8 2001-02-12 19:12:14 fjoe Exp $
+ * $Id: skills.c,v 1.74.2.9 2002-10-23 15:00:12 tatyana Exp $
  */
 
 /***************************************************************************
@@ -91,6 +91,7 @@ void check_improve(CHAR_DATA *ch, int sn, bool success, int multiplier)
 	cskill_t *cs;
 	int chance;
 	int rating;
+	int exp;
 
 	if (IS_NPC(ch)
 	||  (cl = class_lookup(ch->class)) == NULL
@@ -112,13 +113,13 @@ void check_improve(CHAR_DATA *ch, int sn, bool success, int multiplier)
 	if (number_range(1, 1000) > chance)
 		return;
 
-/* now that the character has a CHANCE to learn, see if they really have */	
+/* now that the character has a CHANCE to learn, see if they really have */
 
 	if (success) {
 		chance = URANGE(5, 100 - ps->percent, 95);
 		if (number_percent() < chance) {
-			ps->percent++;
-			gain_exp(ch, dice(rating, ch->level));
+			exp = (++ps->percent > 75 ? (skill_level(ch, sn) + 9) * get_curr_stat(ch, STAT_WIS) / 25 : dice(rating, ch->level));
+			gain_exp(ch, exp);
 			if (ps->percent == 100) {
 				act_puts("{gYou mastered {W$t{g!{x",
 					 ch, skill_name(sn), NULL,
@@ -129,13 +130,13 @@ void check_improve(CHAR_DATA *ch, int sn, bool success, int multiplier)
 					 TO_CHAR, POS_DEAD);
 			}
 		}
-	}
-	else {
+	} else {
 		chance = URANGE(5, ps->percent / 2, 30);
 		if (number_percent() < chance) {
 			if ((ps->percent += number_range(1, 3)) > 100)
 				ps->percent = 100;
-			gain_exp(ch, dice(rating, ch->level));
+			exp = (++ps->percent > 75 ? (skill_level(ch, sn) + 9) * get_curr_stat(ch, STAT_WIS) / 100 : dice(rating, ch->level));
+			gain_exp(ch, exp);
 			if (ps->percent == 100) {
 				act_puts("{gYou learn from your mistakes and you manage to master {W$t{g!{x",
 					 ch, skill_name(sn), NULL,
