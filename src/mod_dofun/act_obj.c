@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.300 2004-02-19 15:15:41 fjoe Exp $
+ * $Id: act_obj.c,v 1.301 2004-02-19 16:56:02 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1502,7 +1502,7 @@ DO_FUN(do_dip, ch, argument)
 
 	if ((vial = create_obj(OBJ_VNUM_POTION_VIAL, 0)) != NULL) {
 		vial->label = str_qdup(obj->label);
-		obj_to_char(vial, ch);
+		obj_to_char_check(vial, ch);
 	}
 	extract_obj(potion, 0);
 }
