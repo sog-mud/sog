@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.19 1998-06-20 20:53:26 fjoe Exp $
+ * $Id: handler.c,v 1.20 1998-06-20 21:26:35 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2473,6 +2473,9 @@ CHAR_DATA *get_char_room(CHAR_DATA *ch, char *argument)
 		if (ugly && (count + 1) == number && IS_VAMPIRE(rch))
 		   return rch;
 
+		if (!is_name(arg, rch->name))
+			continue;
+
 		if (++count == number)
 		    return rch;
 	}
@@ -2505,6 +2508,9 @@ CHAR_DATA *get_char_room2(CHAR_DATA *ch, ROOM_INDEX_DATA *room, char *argument, 
 
 		if (ugly && (count + 1) == *number && IS_VAMPIRE(rch))
 		   return rch;
+
+		if (!is_name(argument, rch->name))
+			continue;
 
 		if (++count == *number)
 		    return rch;

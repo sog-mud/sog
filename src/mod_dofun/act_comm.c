@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.48 1998-06-20 20:53:24 fjoe Exp $
+ * $Id: act_comm.c,v 1.49 1998-06-20 21:26:34 fjoe Exp $
  */
 
 /***************************************************************************
@@ -557,7 +557,7 @@ void do_tell(CHAR_DATA *ch, char *argument)
 	if (arg[0] == '\0' || argument[0] == '\0') {
 		send_to_char("Tell whom what?\n\r", ch);
 		return;
-		}
+	}
 
 	do_tell_raw(ch, argument, get_char_world(ch, arg));
 }
