@@ -1,5 +1,5 @@
 /*
- * $Id: olc_save.c,v 1.4 1998-07-06 04:56:21 fjoe Exp $
+ * $Id: olc_save.c,v 1.5 1998-07-06 07:32:57 fjoe Exp $
  */
 
 /**************************************************************************
@@ -231,7 +231,7 @@ void save_mobile(FILE *fp, MOB_INDEX_DATA *pMobIndex)
     fprintf(fp, "%s %s %s %d\n",
 				position_table[pMobIndex->start_pos].short_name,
 				position_table[pMobIndex->default_pos].short_name,
-				sex_table[pMobIndex->sex].name,
+				sex_flags[pMobIndex->sex].name,
 				pMobIndex->wealth);
     fprintf(fp, "%s ",		fwrite_flag(pMobIndex->form &
 					    ~race_table[pMobIndex->race].form,

@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.39 1998-07-05 16:30:55 fjoe Exp $
+ * $Id: act_obj.c,v 1.40 1998-07-06 07:32:54 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2245,7 +2245,10 @@ do_steal(CHAR_DATA * ch, char *argument)
 				break;
 			case 1:
 				doprintf(do_yell, victim, "%s couldn't rob %s way out of a paper bag!",
-				   ch->name, (ch->sex == 2) ? "her" : "his");
+					ch->name,
+					(ch->sex == SEX_FEMALE) ? "her" :
+					(ch->sex == SEX_MALE) ? "his" :
+					"its");
 				break;
 			case 2:
 				doprintf(do_yell, victim, "%s tried to rob me!", ch->name);

@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.60 1998-07-05 16:30:55 fjoe Exp $
+ * $Id: comm.c,v 1.61 1998-07-06 07:32:54 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2742,14 +2742,6 @@ void show_string(struct descriptor_data *d, char *input)
 	return;
 }
 	
-
-/* quick sex fixer */
-void fix_sex(CHAR_DATA *ch)
-{
-	if (ch->sex < 0 || ch->sex > 2)
-		ch->sex = IS_NPC(ch) ? 0 : ch->pcdata->true_sex;
-}
-
 static char * const he_she  [] = { "it",  "he",  "she" };
 static char * const him_her [] = { "it",  "him", "her" };
 static char * const his_her [] = { "its", "his", "her" };
@@ -2813,27 +2805,27 @@ void act_raw(CHAR_DATA *ch, CHAR_DATA *to,
 				break;
 
 			case 'e':
-				i = he_she[URANGE(0, ch->sex, 2)];    
+				i = he_she[URANGE(0, ch->sex, SEX_MAX-1)];    
 				break;
 
 			case 'E':
-				i = he_she[URANGE(0, vch->sex, 2)];
+				i = he_she[URANGE(0, vch->sex, SEX_MAX-1)];
 				break;
 
 			case 'm':
-				i = him_her[URANGE(0, ch->sex, 2)];    
+				i = him_her[URANGE(0, ch->sex, SEX_MAX-1)];
 				break;
 
 			case 'M':
-				i = him_her  [URANGE(0, vch->sex, 2)];
+				i = him_her  [URANGE(0, vch->sex, SEX_MAX-1)];
 				break;
 
 			case 's':
-				i = his_her [URANGE(0, ch->sex, 2)];
+				i = his_her [URANGE(0, ch->sex, SEX_MAX-1)];
 				break;
 
 			case 'S':
-				i = his_her  [URANGE(0, vch->sex, 2)];
+				i = his_her  [URANGE(0, vch->sex, SEX_MAX-1)];
 				break;
  
 			case 'p':

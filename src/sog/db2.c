@@ -1,5 +1,5 @@
 /*
- * $Id: db2.c,v 1.12 1998-07-03 15:18:41 fjoe Exp $
+ * $Id: db2.c,v 1.13 1998-07-06 07:32:55 fjoe Exp $
  */
 
 /***************************************************************************
@@ -319,7 +319,7 @@ void load_mobiles(FILE *fp)
 	/* vital statistics */
 	pMobIndex->start_pos		= position_lookup(fread_word(fp));
 	pMobIndex->default_pos		= position_lookup(fread_word(fp));
-	pMobIndex->sex			= sex_lookup(fread_word(fp));
+	pMobIndex->sex			= flag_lookup(fread_word(fp), sex_flags);
 
 	pMobIndex->wealth		= fread_number(fp);
 

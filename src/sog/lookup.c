@@ -1,5 +1,5 @@
 /*
- * $Id: lookup.c,v 1.5 1998-07-03 15:18:41 fjoe Exp $
+ * $Id: lookup.c,v 1.6 1998-07-06 07:32:55 fjoe Exp $
  */
 
 /***************************************************************************
@@ -74,19 +74,6 @@ int position_lookup (const char *name)
    return -1;
 }
 
-int sex_lookup (const char *name)
-{
-   int sex;
-   
-   for (sex = 0; sex_table[sex].name != NULL; sex++)
-   {
-	if (LOWER(name[0]) == LOWER(sex_table[sex].name[0])
-	&&  !str_prefix(name,sex_table[sex].name))
-	    return sex;
-   }
-
-   return -1;
-}
 
 int size_lookup (const char *name)
 {

@@ -1,5 +1,5 @@
 /*
- * $Id: olc_act.c,v 1.3 1998-07-03 15:18:46 fjoe Exp $
+ * $Id: olc_act.c,v 1.4 1998-07-06 07:32:55 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3389,7 +3389,7 @@ MEDIT(medit_show)
 		pMob->vnum,
 		pMob->sex == SEX_MALE    ? "male   " :
 		pMob->sex == SEX_FEMALE  ? "female " : 
-		pMob->sex == 3           ? "random " : "neutral",
+		pMob->sex == SEX_EITHER  ? "random " : "neutral",
 		race_table[pMob->race].name);
 
 	char_printf(ch,

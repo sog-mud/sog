@@ -1,5 +1,5 @@
 /*
- * $Id: resource.c,v 1.20 1998-06-21 19:34:25 fjoe Exp $
+ * $Id: resource.c,v 1.21 1998-07-06 07:32:57 fjoe Exp $
  */
 
 #include <limits.h>
@@ -312,8 +312,8 @@ lang_load(int langnum, char* fname)
 				}
 
 				ncurr = 0;
-				curr->p = alloc_perm((SEX_MAX+1)*sizeof(char*));
-				for (i = 0; i <= SEX_MAX; i++)
+				curr->p = alloc_perm(SEX_MAX*sizeof(char*));
+				for (i = 0; i < SEX_MAX; i++)
 					curr->p[i] = NULL;
 
 			}
@@ -326,7 +326,7 @@ lang_load(int langnum, char* fname)
 
 			if (curr == NULL
 			||  (curr->sexdep == 0 && curr->p)
-			||  (curr->sexdep && ncurr > SEX_MAX)) {
+			||  (curr->sexdep && ncurr >= SEX_MAX)) {
 				fprintf(stderr, "%s:%d: unexpected msg\n",
 					fname, line);
 				exit(EX_DATAERR);
@@ -390,7 +390,7 @@ lang_load(int langnum, char* fname)
 		if (m->sexdep) {
 			int j;
 
-			for (j = 0; j <= SEX_MAX; j++)
+			for (j = 0; j < SEX_MAX; j++)
 				if (m->p[j] == NULL) {
 					undefined = 1;
 					break;

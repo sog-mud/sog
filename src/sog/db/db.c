@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.33 1998-07-05 16:30:56 fjoe Exp $
+ * $Id: db.c,v 1.34 1998-07-06 07:32:54 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2699,7 +2699,7 @@ CHAR_DATA *create_mobile(MOB_INDEX_DATA *pMobIndex)
 		mob->start_pos		= pMobIndex->start_pos;
 		mob->default_pos	= pMobIndex->default_pos;
 		mob->sex		= pMobIndex->sex;
-		if (mob->sex == 3) /* random sex */
+		if (mob->sex == SEX_EITHER) /* random sex */
 		    mob->sex = number_range(1,2);
 		mob->race		= pMobIndex->race;
 		mob->form		= pMobIndex->form;

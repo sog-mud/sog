@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.32 1998-07-04 13:39:15 fjoe Exp $
+ * $Id: act_wiz.c,v 1.33 1998-07-06 07:32:54 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1727,7 +1727,7 @@ void do_mstat(CHAR_DATA *ch, char *argument)
 		IS_NPC(victim) ? victim->pIndexData->vnum : 0,
 		IS_NPC(victim) ? victim->pIndexData->new_format ? "new" : "old" : "pc",
 		race_table[RACE(victim)].name,race_table[ORG_RACE(victim)].name,
-		IS_NPC(victim) ? victim->group : 0, sex_table[victim->sex].name,
+		IS_NPC(victim) ? victim->group : 0, sex_flags[victim->sex].name,
 		victim->in_room == NULL    ?        0 : victim->in_room->vnum
 		);
 

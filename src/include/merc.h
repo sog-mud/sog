@@ -2,7 +2,7 @@
 #define _MERC_H_
 
 /*
- * $Id: merc.h,v 1.42 1998-07-05 16:30:56 fjoe Exp $
+ * $Id: merc.h,v 1.43 1998-07-06 07:32:55 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1099,10 +1099,14 @@ struct	kill_data
  * Sex.
  * Used in #MOBILES.
  */
-#define SEX_NEUTRAL		      0
-#define SEX_MALE		      1
-#define SEX_FEMALE		      2
-#define SEX_MAX			SEX_FEMALE
+enum {
+	SEX_NEUTRAL,
+	SEX_MALE,
+	SEX_FEMALE,
+	SEX_EITHER,		/* used only for NPC, means random sex
+				   in create_mobile */
+	SEX_MAX = SEX_EITHER
+};
 
 /* AC types */
 #define AC_PIERCE			0
