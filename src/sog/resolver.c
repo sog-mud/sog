@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: resolver.c,v 1.17 2001-08-13 18:24:03 fjoe Exp $
+ * $Id: resolver.c,v 1.18 2001-08-20 17:09:55 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -55,7 +55,7 @@ void
 resolver_init(void)
 {
 	if (pipe(fildes) < 0 || pipe(fildes+2) < 0) {
-		log(LOG_INFO, "resolver_init: pipe: %s", strerror(errno));
+		log(LOG_ERROR, "resolver_init: pipe: %s", strerror(errno));
 		exit(1);
 	}
 
@@ -63,12 +63,27 @@ resolver_init(void)
 
 	rpid = fork();
 	if (rpid < 0) {
-		log(LOG_INFO, "resolver_init: fork: %s", strerror(errno));
+		log(LOG_ERROR, "resolver_init: fork: %s", strerror(errno));
 		exit(1);
 	}
 
-	if (rpid == 0)
+	if (rpid == 0) {
+		/*
+		 * disconnect from controlling terminal
+		 */
+		if (setsid() < 0) {
+			log(LOG_ERROR, "resolver_init: setsid: %s",
+			    strerror(errno));
+			exit(1);
+		}
+
+		setproctitle("resolver");			// notrans
+
+		signal(SIGINT, SIG_IGN);
+		signal(SIGTRAP, SIG_IGN);
+
 		resolver_loop();
+	}
 
 	signal(SIGHUP, cleanup);
 	signal(SIGQUIT, cleanup);
@@ -89,7 +104,7 @@ resolver_init(void)
 	rfin = fdopen(fildes[0], "r");
 	rfout = fdopen(fildes[3], "w");
 	if (rfin == NULL || rfout == NULL) {
-		log(LOG_INFO, "resolver_init: fdopen: %s", strerror(errno));
+		log(LOG_ERROR, "resolver_init: fdopen: %s", strerror(errno));
 		exit(1);
 	}
 
@@ -119,7 +134,7 @@ resolv_done(void)
 	while (fgets(buf, sizeof(buf), rfin)) {
 		if ((p = strchr(buf, '\n')) == NULL) {
 			log(LOG_INFO, "rfin: line too long, skipping to '\\n'");
-			while(fgetc(rfin) != '\n')
+			while (fgetc(rfin) != '\n')
 				;
 			continue;
 		}
@@ -158,24 +173,19 @@ resolver_loop(void)
 	FILE *fout;
 	char buf[128];
 
-	setproctitle("resolver");			// notrans
-
-	signal(SIGINT, SIG_IGN);
-	signal(SIGTRAP, SIG_IGN);
-
 	close(fildes[0]);
 	close(fildes[3]);
 	fin = fdopen(fildes[2], "r");
 	fout = fdopen(fildes[1], "w");
 	if (fin == NULL || fout == NULL) {
-		log(LOG_INFO, "resolver_loop: fdopen: %s", strerror(errno));
+		log(LOG_ERROR, "resolver_loop: fdopen: %s", strerror(errno));
 		exit(1);
 	}
 
 	setvbuf(fin, NULL, _IOLBF, 0);
 	setvbuf(fout, NULL, _IOLBF, 0);
 
-	while(fgets(buf, sizeof(buf), fin)) {
+	while (fgets(buf, sizeof(buf), fin)) {
 		struct in_addr addr;
 		struct hostent *hostent;
 		char *p;
@@ -200,7 +210,7 @@ resolver_loop(void)
 	}
 
 	if (errno)
-		log(LOG_INFO, "resolver_loop: %s", strerror(errno));
+		log(LOG_ERROR, "resolver_loop: %s", strerror(errno));
 	fclose(fin);
 	fclose(fout);
 	exit(0);
