@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.102 1998-07-25 15:02:37 fjoe Exp $
+ * $Id: act_info.c,v 1.103 1998-07-25 15:12:43 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3248,7 +3248,7 @@ void do_oscore(CHAR_DATA *ch, const char *argument)
 		if (ch->pcdata->condition[COND_DESIRE] <= 0)
 			send_to_char("You are {rdesiring your home{x.\n\r", ch);
 		if (IS_SET(ch->act, PLR_GHOST))
-			char_puts("You are {gghost{x.\n\r", ch);
+			char_puts("You are {cghost{x.\n\r", ch);
 	}
 
 	char_printf(ch, "%s %s.\n\r",

@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.42 1998-07-25 15:02:40 fjoe Exp $
+ * $Id: save.c,v 1.43 1998-07-25 15:12:43 fjoe Exp $
  */
 
 /***************************************************************************
@@ -703,23 +703,6 @@ load_char_obj(DESCRIPTOR_DATA * d, const char *name)
 	if (ch->pcdata->condition[COND_BLOODLUST] < 48
 	    && ch->class != CLASS_VAMPIRE)
 		ch->pcdata->condition[COND_BLOODLUST] = 48;
-
-	/* fix levels */
-	if (found && ch->version < 3 && (ch->level > 35 || ch->trust > 35)) {
-		switch (ch->level) {
-		case (40):
-			ch->level = MAX_LEVEL;
-			break;	/* imp -> imp */
-		case (39):
-			ch->level = MAX_LEVEL - 2;
-			break;	/* god -> supreme */
-		case (38):
-			ch->level = MAX_LEVEL - 4;
-			break;	/* deity -> god */
-		case (37):
-			ch->level = MAX_LEVEL - 7;
-			break;	/* angel -> demigod */
-		}
 
 	if (found && ch->version < 6)
 		ch->pcdata->learned[gsn_spell_craft] = 1;
