@@ -1,5 +1,5 @@
 /*
- * $Id: special.c,v 1.54.2.4 2001-05-21 18:54:00 fjoe Exp $
+ * $Id: special.c,v 1.54.2.5 2001-05-27 20:56:43 fjoe Exp $
  */
 
 /***************************************************************************
@@ -593,14 +593,14 @@ bool spec_cast_seneschal(CHAR_DATA *ch)
 	case  4: spell = "acid arrow";		break;
 	case  5: spell = "fireball";		break;
 	case  6: spell = "energy drain";	break;
-	case  7:
-	case  8:
+	case  7: spell = "mental knife";	break;
+	case  8: spell = "poison";		break;
 	case  9: spell = "acid blast";		break;
 	case 10: spell = "plague";		break;
 	case 11: spell = "acid blast";		break;
-	case 12:  
-	case 13: spell = "lightning breath";	break;
-	case 14:
+	case 12: spell = "poison";		break;
+	case 13: spell = "mental knife";	break;
+	case 14: spell = "dispel magic";	break;
 	case 15: spell = "acid blast";		break;
 	default: return FALSE;
 	}
