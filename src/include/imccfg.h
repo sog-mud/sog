@@ -28,10 +28,10 @@
  * along with this program (see the file COPYING); if not, write to the
  * Free Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  *
- * $Id: imccfg.h,v 1.1.2.2 2003-09-19 13:34:20 tatyana Exp $
+ * $Id: imccfg.h,v 1.1.2.3 2003-10-02 07:24:28 matrim Exp $
  */
 
-#define SOCIALSTRUCT	// We have olc for socials
+#define SOCIALSTRUCT		// We have olc for socials
 #define first_descriptor	descriptor_list
 #define IMCMAX_LEVEL	MAX_LEVEL
 #define IMCSTRALLOC	str_dup
