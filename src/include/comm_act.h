@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm_act.h,v 1.4 1999-02-16 20:25:58 fjoe Exp $
+ * $Id: comm_act.h,v 1.5 1999-03-03 13:50:43 fjoe Exp $
  */
 
 #ifndef _COMM_ACT_H_
@@ -45,6 +45,8 @@
 #define ACT_NOMORTAL	(L)	/* skip mortals */
 #define ACT_VERBOSE	(M)	/* skip if (!IS_SET(ch->comm, COMM_VERBOSE)) */
 #define ACT_NOLF	(N)	/* do not append lf */
+#define ACT_FORMSH	(O)	/* call format_short for short descrs */
+#define ACT_FIXSH	(P)	/* call fix_short (used only in PERS2) */
 
 #define act(format, ch, arg1, arg2, type) \
 		act_puts((format), (ch), (arg1), (arg2), (type), POS_RESTING)

@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.117 1999-02-26 13:27:02 fjoe Exp $
+ * $Id: db.c,v 1.118 1999-03-03 13:50:43 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1467,27 +1467,6 @@ char *fix_string(const char *s)
 			*p++ = *s;
 			break;
 		}
-
-	*p = '\0';
-	return buf;
-}
-
-/*
- * smash '~'
- */
-const char *fix_short(const char *s)
-{
-	char *p;
-	static char buf[MAX_STRING_LENGTH];
-
-	if (!strchr(s, '~'))
-		return s;
-
-	for (p = buf; *s && p-buf < sizeof(buf)-1; s++) {
-		if (*s == '~')
-			continue;
-		*p++ = *s;
-	}
 
 	*p = '\0';
 	return buf;

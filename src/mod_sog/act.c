@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act.c,v 1.15 1999-02-27 04:44:12 fjoe Exp $
+ * $Id: act.c,v 1.16 1999-03-03 13:50:43 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -202,6 +202,34 @@ static int SEX(CHAR_DATA *ch, CHAR_DATA *looker)
 	return URANGE(0, ch->sex, SEX_MAX-1);
 }
 
+static const char *
+act_format_text(const char *text, CHAR_DATA *ch, CHAR_DATA *to, flag32_t flags)
+{
+	if (IS_SET(flags, ACT_TRANS))
+		text = GETMSG(text, to->lang);
+	if (IS_SET(flags, ACT_STRANS))
+		text = translate(ch, to, text);
+	return text;
+}
+	
+static inline const char *
+act_format_obj(OBJ_DATA *obj, CHAR_DATA *to, int sp, flag32_t flags)
+{
+	const char *descr;
+
+	if (!can_see_obj(to, obj))
+		return GETMSG("something", to->lang);
+
+	if (sp < 0) {
+		if (IS_SET(flags, ACT_FORMSH))
+			return format_short(obj->short_descr, obj->name, to);
+
+		return fix_short(mlstr_cval(obj->short_descr, to));
+	}
+
+	return descr = mlstr_cval(obj->short_descr, to);
+}
+
 /*
  * vch is (CHAR_DATA*) arg2
  * vch1 is (CHAR_DATA*) arg1
@@ -353,19 +381,21 @@ static void act_raw(CHAR_DATA *ch, CHAR_DATA *to,
 				log_printf("act_raw: '%s': bad code $%c",
 					   str, code);
 				continue;
-	
+/* text arguments */
 			case 't': 
-			case 'T':
 			case 'u':
-			case 'U':
-				i = (code == 'U') ? arg3 :
-				    (code == 'T') ? arg2 : arg1;
-				if (IS_SET(flags, ACT_TRANS))
-					i = GETMSG(i, to->lang);
-				if (IS_SET(flags, ACT_STRANS))
-					i = translate(ch, to, i);
+				i = act_format_text(arg1, ch, to, flags);
 				break;
-	
+
+			case 'T':
+				i = act_format_text(arg2, ch, to, flags);
+				break;
+
+			case 'U':
+				i = act_format_text(arg3, ch, to, flags);
+				break;
+
+/* room arguments */
 			case 'r':
 				i = mlstr_mval(room1->name);
 				break;
@@ -374,30 +404,28 @@ static void act_raw(CHAR_DATA *ch, CHAR_DATA *to,
 				i = mlstr_mval(room3->name);
 				break;
 
+/* char arguments */
 			case 'n':
-				i = PERS(ch, to);
-				if (sp < 0)
-					i = fix_short(i);
+				i = PERS2(ch, to,
+					  (sp < 0) ? (flags | ACT_FIXSH) : 0);
 				break;
-	
+
 			case 'N':
-				i = PERS(vch, to);
-				if (sp < 0)
-					i = fix_short(i);
+				i = PERS2(vch, to,
+					  (sp < 0) ? (flags | ACT_FIXSH) : 0);
 				break;
 
 			case 'i':
-				i = PERS(vch1, to);
-				if (sp < 0)
-					i = fix_short(i);
+				i = PERS2(vch1, to,
+					  (sp < 0) ? (flags | ACT_FIXSH) : 0);
 				break;
 
 			case 'I':
-				i = PERS(vch3, to);
-				if (sp < 0)
-					i = fix_short(i);
+				i = PERS2(vch3, to,
+					  (sp < 0) ? (flags | ACT_FIXSH) : 0);
 				break;
 
+/* numeric arguments */
 			case 'j':
 				snprintf(tmp, sizeof(tmp), "%d", num1);
 				i = tmp;
@@ -408,6 +436,7 @@ static void act_raw(CHAR_DATA *ch, CHAR_DATA *to,
 				i = tmp;
 				break;
 
+/* him/her arguments. obsolete. $gx{...} should be used instead */
 			case 'e':
 				i = he_she[SEX(ch, to)];
 				break;
@@ -431,23 +460,17 @@ static void act_raw(CHAR_DATA *ch, CHAR_DATA *to,
 			case 'S':
 				i = his_her[SEX(vch, to)];
 				break;
-	
+
+/* obj arguments */
 			case 'p':
-				i = can_see_obj(to, obj1) ?
-					mlstr_cval(obj1->short_descr, to) :
-					GETMSG("something", to->lang);
-				if (sp < 0)
-					i = fix_short(i);
+				i = act_format_obj(obj1, to, sp, flags);
 				break;
-	
+
 			case 'P':
-				i = can_see_obj(to, obj2) ?
-					mlstr_cval(obj2->short_descr, to) :
-					GETMSG("something", to->lang);
-				if (sp < 0)
-					i = fix_short(i);
+				i = act_format_obj(obj2, to, sp, flags);
 				break;
-	
+
+/* door arguments */
 			case 'd':
 				if (IS_NULLSTR(arg2))
 					i = GETMSG("door", to->lang);
@@ -457,6 +480,7 @@ static void act_raw(CHAR_DATA *ch, CHAR_DATA *to,
 				}
 				break;
 
+/* $gx{...}, $cx{...}, $qx{...} arguments */
 			case 'g':
 			case 'c':
 			case 'q':
@@ -551,8 +575,8 @@ static void act_raw(CHAR_DATA *ch, CHAR_DATA *to,
 	}
  
 	if (!IS_SET(flags, ACT_NOLF))
-		*point++	= '\n';
-	*point		= '\0';
+		*point++ = '\n';
+	*point = '\0';
 
 /* first non-control char is uppercased */
 	point = (char*) cstrfirst(buf);

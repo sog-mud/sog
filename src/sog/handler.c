@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.124 1999-02-26 13:26:52 fjoe Exp $
+ * $Id: handler.c,v 1.125 1999-03-03 13:50:42 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3132,15 +3132,27 @@ ROOM_INDEX_DATA  *get_random_room(CHAR_DATA *ch, AREA_DATA *area)
 	return room;
 }
 
-const char *PERS(CHAR_DATA *ch, CHAR_DATA *looker)
+const char *PERS2(CHAR_DATA *ch, CHAR_DATA *looker, flag32_t flags)
 {
 	if (is_affected(ch, gsn_doppelganger)
 	&&  (IS_NPC(looker) || !IS_SET(looker->plr_flags, PLR_HOLYLIGHT)))
 		ch = ch->doppel;
 
 	if (can_see(looker, ch)) {
-		if (IS_NPC(ch))
-			return mlstr_cval(ch->short_descr, looker);
+		if (IS_NPC(ch)) {
+			const char *descr;
+
+			if (IS_SET(flags, ACT_FORMSH)) {
+				return format_short(ch->short_descr, ch->name,
+						    looker);
+			}
+
+			descr = mlstr_cval(ch->short_descr, looker);
+			if (IS_SET(flags, ACT_FIXSH))
+				return fix_short(descr);
+
+			return descr;
+		}
 		else if (is_affected(ch, gsn_vampire) && !IS_IMMORTAL(looker)) {
 			return word_gender(looker->lang,
 					   GETMSG("an ugly creature",
@@ -3616,7 +3628,81 @@ const char *get_stat_alias(CHAR_DATA *ch, int stat)
 	else			i = 5;
 	return stat_aliases[stat][i];
 }
-	
+
+/*****************************************************************************
+ * some formatting stuff
+ *
+ */
+
+/*
+ * smash '~'
+ */
+const char *fix_short(const char *s)
+{
+	char *p;
+	static char buf[MAX_STRING_LENGTH];
+
+	if (!strchr(s, '~'))
+		return s;
+
+	for (p = buf; *s && p-buf < sizeof(buf)-1; s++) {
+		if (*s == '~')
+			continue;
+		*p++ = *s;
+	}
+
+	*p = '\0';
+	return buf;
+}
+
+const char *format_short(mlstring *mlshort, const char *name, CHAR_DATA *looker)
+{
+        static char buf[MAX_STRING_LENGTH];
+        const char *sshort;
+
+        sshort = fix_short(mlstr_cval(mlshort, looker));
+	strnzcpy(buf, sizeof(buf), sshort);
+
+        if (!IS_SET(looker->comm, COMM_NOENG)
+	&&  sshort != mlstr_mval(mlshort)) {
+		char buf2[MAX_STRING_LENGTH];
+        	char buf3[MAX_STRING_LENGTH];
+
+        	one_argument(name, buf3, sizeof(buf3));
+		snprintf(buf2, sizeof(buf2), " (%s)", buf3);
+		strnzcat(buf, sizeof(buf), buf2);
+	}
+
+        return buf;
+}
+
+/*
+ * format description (long descr for mobs, description for objs)
+ *
+ * eng name expected to be in form " (foo)" and is stripped
+ * if COMM_NOENG is set
+ */
+const char *format_descr(mlstring *ml, CHAR_DATA *looker)
+{
+	const char *s;
+	const char *p, *q;
+	static char buf[MAX_STRING_LENGTH];
+
+	s = mlstr_cval(ml, looker);
+	if (IS_NULLSTR(s)
+	||  !IS_SET(looker->comm, COMM_NOENG)
+	||  (p = strchr(s, '(')) == NULL
+	||  (q = strchr(p+1, ')')) == NULL)
+		return s;
+
+	if (p != s && *(p-1) == ' ')
+		p--;
+
+	strnzncpy(buf, sizeof(buf), s, p-s);
+	strnzcat(buf, sizeof(buf), q+1);
+	return buf;
+}
+
 #ifdef WIN32
 void SET_ORG_RACE(CHAR_DATA *ch, int race)
 {

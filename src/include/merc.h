@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.164 1999-03-02 09:37:39 kostik Exp $
+ * $Id: merc.h,v 1.165 1999-03-03 13:50:43 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2010,7 +2010,8 @@ uint	mult_argument	(const char *argument, char *arg, size_t len);
 const char *	one_argument	(const char *argument, char *arg_first, size_t);
 const char *	first_arg	(const char *argument, char *arg_first, size_t,
 				 bool fCase);
-const char* PERS(CHAR_DATA *ch, CHAR_DATA *looker);
+#define PERS(ch, looker) PERS2(ch, looker, 0)
+const char* PERS2(CHAR_DATA *ch, CHAR_DATA *looker, flag32_t flags);
 
 /* save.c */
 void	delete_player	(CHAR_DATA *victim, char* msg);
