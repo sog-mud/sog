@@ -1,5 +1,5 @@
 /*
- * $Id: act_hera.c,v 1.18 1998-06-13 11:55:08 fjoe Exp $
+ * $Id: act_hera.c,v 1.19 1998-06-13 19:14:05 fjoe Exp $
  */
 
 /***************************************************************************
@@ -47,7 +47,7 @@
 ***************************************************************************/
 
 /*
- * $Id: act_hera.c,v 1.18 1998-06-13 11:55:08 fjoe Exp $
+ * $Id: act_hera.c,v 1.19 1998-06-13 19:14:05 fjoe Exp $
  */
 #include <sys/types.h>
 #include <sys/time.h>
@@ -2086,7 +2086,7 @@ void do_auction (CHAR_DATA *ch, char *argument)
 			return;
 		}
 		else {	
-			send_to_char("Auction WHAT?%s\n\r", ch);
+			send_to_char("Auction WHAT?\n\r", ch);
 			return;
 		}
 
