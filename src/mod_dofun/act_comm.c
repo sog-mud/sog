@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.84 1998-09-22 18:07:13 fjoe Exp $
+ * $Id: act_comm.c,v 1.85 1998-09-23 06:09:27 fjoe Exp $
  */
 
 /***************************************************************************
@@ -477,7 +477,6 @@ void do_shout(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-
 void do_tell_raw(CHAR_DATA *ch, CHAR_DATA *victim, const char *msg)
 {
 	char buf[MAX_STRING_LENGTH];
@@ -506,11 +505,24 @@ void do_tell_raw(CHAR_DATA *ch, CHAR_DATA *victim, const char *msg)
 	}
 
 	if (!is_affected(ch, gsn_deafen))
-		act_puts("You tell $N '{G$t{x'", ch, buf, victim, TO_CHAR, POS_SLEEPING);
+		act_puts("You tell $N '{G$t{x'",
+			 ch, buf, victim, TO_CHAR, POS_SLEEPING);
 	act_puts("$n tells you '{G$t{x'",
 		 ch, buf, victim, TO_VICT | TO_BUF | CHECK_TWIT, POS_SLEEPING);
 
-	if (!IS_NPC(victim)) {
+	if (IS_NPC(ch))
+		return;
+
+	if (IS_NPC(victim)) {
+		if (HAS_TRIGGER(victim, TRIG_SPEECH))
+			mp_act_trigger(msg, victim, ch, NULL, NULL, TRIG_SPEECH);
+	}
+	else {
+		if (!IS_IMMORTAL(victim)
+		&&  !IS_IMMORTAL(ch)
+		&&  is_name(ch->name, victim->pcdata->twitlist))
+			return;
+
 		if (victim->desc == NULL)
 			act_puts("$N seems to have misplaced $S link but "
 				 "your tell will go through if $E returns.",
@@ -519,14 +531,9 @@ void do_tell_raw(CHAR_DATA *ch, CHAR_DATA *victim, const char *msg)
 			act_puts("$E is AFK, but your tell will go through "
 				 "when $E returns.",
 				 ch, NULL, victim, TO_CHAR, POS_DEAD);
+		victim->reply = ch;
 	}
-
-
-	victim->reply = ch;
-	if (!IS_NPC(ch) && IS_NPC(victim) && HAS_TRIGGER(victim,TRIG_SPEECH))
-		mp_act_trigger(msg, victim, ch, NULL, NULL, TRIG_SPEECH);
 }
-
 
 void do_tell(CHAR_DATA *ch, const char *argument)
 {
@@ -540,7 +547,6 @@ void do_tell(CHAR_DATA *ch, const char *argument)
 
 	do_tell_raw(ch, get_char_world(ch, arg), argument);
 }
-
 
 void do_reply(CHAR_DATA *ch, const char *argument)
 {
