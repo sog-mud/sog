@@ -3480,6 +3480,17 @@ Form 6 -х~
 End
 
 #RULE
+Name орка~
+BaseLen 3
+Form 1 -и~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ой~
+Form 5 -е~
+Form 6 -у~
+End
+
+#RULE
 Name лев~
 Form 1 льва~
 Form 2 льву~

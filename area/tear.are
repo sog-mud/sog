@@ -72,7 +72,7 @@ innkeeper трактирщик~
 ~
 human~
 AB HNO 0 0
-50 100 2d6+3000 1d6+1000 2d6+50 slap
+50 100 1d1+10000 1d6+1000 2d6+50 slap
 -27 -27 -27 -9
 CEFHK AB 0 0
 stand stand male 0
@@ -86,7 +86,7 @@ Lanfear Mierin Forsaken ланфир~
 ~
 human~
 ABGRVe BCDEFGOUVZclmopst -1000 0
-80 300 7d12+50000 8d10+100000 5d15+120 magic
+80 300 1d1+1 8d10+100000 5d15+120 magic
 -50 -50 -50 -50
 AEF ABMUY CEIJP N
 stand stand female 0

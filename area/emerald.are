@@ -4068,75 +4068,98 @@ D3
 Z 0 229
 S
 #231
-The Emerald Forest~
-All the lingering beauty of these green woods conspire to charm you into
+@eng The Emerald Forest@rus Изумрудный лес~
+@eng All the lingering beauty of these green woods conspire to charm you into
 staying here forever.  Woodlarks are singing high in the boughs of trees
 while shafts of sunlight turn the forest floor into a carpet of gold and
 green.  The woodland trails running through this area of the forest seem
 well-kept, yet untravelled.
+@rus Красота этих зеленых лесов очаровывает тебя, и ты уже готов остаться здесь
+навсегда. Ласточки поют высоко, над кронами деревьев, сквозь которые проби-
+вается яркий солнечный свет, превращая землю под ногами в волшебный ковер из
+зеленых и золотых листьев. Тропинки, вьющиеся между деревьями, ухожены, хотя
+по ним, похоже, нечасто ходят.
 ~
 0 A forest
 D0
-A sign post lies ahead.
+@eng A sign post lies ahead.
+@rus Впереди ты видишь указатель.
 ~
 ~
 Z 0 207
 D1
-The Emerald Forest!
+@eng The Emerald Forest!
+@rus Изумрудный лес во всей красе стоит перед тобою.
 ~
 ~
 Z 0 232
 D2
-The Emerald Forest!
+@eng The Emerald Forest!
+@rus Изумрудный лес во всей красе стоит перед тобою.
 ~
 ~
 Z 0 247
 S
 #232
-The Emerald Forest~
-All the lingering beauty of these green woods conspire to charm you into
+@eng The Emerald Forest@rus Изумрудный лес~
+@eng All the lingering beauty of these green woods conspire to charm you into
 staying here forever.  Woodlarks are singing high in the boughs of trees
 while shafts of sunlight turn the forest floor into a carpet of gold and
 green.  The woodland trails running through this area of the forest seem
 well-kept, yet untravelled.
+@rus Красота этих зеленых лесов очаровывает тебя, и ты уже готов остаться здесь
+навсегда. Ласточки поют высоко, над кронами деревьев, сквозь которые проби-
+вается яркий солнечный свет, превращая землю под ногами в волшебный ковер из
+зеленых и золотых листьев. Тропинки, вьющиеся между деревьями, ухожены, хотя
+по ним, похоже, нечасто ходят.
 ~
 0 A forest
 D0
-A well-used trail through the forest lies to there.
+@eng A well-used trail through the forest lies to there.
+@rus Ухоженная тропка уходит на север.
 ~
 ~
 Z 0 233
 D2
-The Emerald Forest!
+@eng The Emerald Forest!
+@rus Изумрудный лес во всей красе стоит перед тобою.
 ~
 ~
 Z 0 237
 D3
-The Emerald Forest!
+@eng The Emerald Forest!
+@rus Изумрудный лес во всей красе стоит перед тобою.
 ~
 ~
 Z 0 231
 S
 #233
-A Well-Used Trail Through The Forest~
-You are on a forest trail that runs in all directions but north, where
+@eng A Well-Used Trail Through The Forest@rus Тропинка в лесу~
+@eng You are on a forest trail that runs in all directions but north, where
 the forest skirts the sheer mountain face.  Dew-covered hawthorn bushes
 flank the east trail, along which several rangers are walking.  It seems
 to be the woodkeepers' outpost.
+@rus Ты стоишь на перекрестке тропинок, ведущих на юг, запад и восток. На севере
+лес упирается в почти отвесный склон горы. Дорожка на восток уходит в покры-
+тый росой колючий кустарник, вдалеке ты видишь нескольких хранителей леса.
+Похоже, ты почти пришел на их заставу.
 ~
 0 A forest
 D1
-The Woodkeepers' Outpost is to the east.
+@eng The Woodkeepers' Outpost is to the east.
+@rus Застава хранителей леса видна на востоке.
 ~
 ~
 Z 0 234
 D2
-The Emerald Forest!
+@eng The Emerald Forest!
+@rus Изумрудный лес во всей красе стоит перед тобою.
 ~
 ~
 Z 0 232
 D3
-A sigh post lies there.
+@eng A sigh post lies there.
+@rus Ты видишь указатель.
 ~
 ~
 Z 0 207
