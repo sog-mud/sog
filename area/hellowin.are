@@ -499,6 +499,29 @@ A
 A
 13 10
 G male
+#34430
+bouquet rose букет роз~
+@eng a rose bouquet@rus ~~букет~~ роз~
+@eng A rose bouquet is lying on the ground.@rus Букет (bouquet) роз лежит на земле.~
+flower~
+treasure 0 A
+0 0 0 0 0
+0 150 0 P
+E
+rose bouquet розы букет~
+@eng Aroma of these scarlet flowers is very strong and mysterious.
+@rus Алые цветы источают сильный и таинственный аромат.
+~
+G male
+#34431
+basket rose корзина роз~
+@eng a basket filled with scarlet roses@rus ~~корзина~~ алых роз~
+@eng Someone lost basket filled with many scarlet roses.@rus Кто-то забыл здесь корзину (basket) полную алых роз.~
+flower~
+treasure 0 A
+0 0 0 0 0
+0 200 0 P
+G female
 #34439
 amulet амулет~
 @eng golden amulet@rus ~~золотой~~ ~~амулет~~~

@@ -17,7 +17,7 @@ End
         Alexey Neyman                  [{cArborn{x] (avn@@any.ru)
 
                         Web page design:
-        Denis Petrakov                          (den@@oapmg.sscc.ru)
+        Maxim Sokolov                  [{cHolse{x]  (holse@@yandex.ru)
  
                         Message translation:
         Alexander Morokhovets                   (efdi@@iclub.nsu.ru)
@@ -41,7 +41,7 @@ End
         Алексей Нейман                 [{cArborn{x] (avn@@org.chem.msu.su{x)
  
                       Дизайн Web-страницы:
-        Денис Петраков                          (den@@oapmg.sscc.ru{x)
+        Максим Соколов                 [{cHolse{x]  (holse@@yndex.ru)
 
                           Перевод сообщений:
         Александр Мороховец                     (efdi@@iclub.nsu.ru)
@@ -5762,7 +5762,7 @@ Thanks to ...
 * Added multi-language support command. See '{Clanguage{x' command.
 * Mail to {Csog@@any.ru{x for bug reports and suggestions.
 * Players who use russian codepages, see '{CHELP RUSSIAN{x'.
-* Check out our homepage at {Chttp://sog.any.ru/{x.
+* Check out our homepage at {Chttp://iclub.nsu.ru/mud/{x.
 ~
 92 IMOTD~
 @eng Welcome Immortal!
@@ -6445,10 +6445,14 @@ death.  It is a risky spell to use, as the contagion can spread like
 wildfire if the victim makes it to a populated area.
 ~
 -1 'CREATE ROSE'~
-Syntax: cast 'create rose'
+@eng Syntax: {ccast 'create rose'{x <single/bouquet/basket>
 
-A romantic spell that creates a fragrant red rose, with utterly no game
-use whatsoever.
+A romantic spell that creates a fragrant red rose or rose bouquet or
+basket filled with many roses.
+@rus Синтаксис: {ccast 'create rose'{x <single/bouquet/basket>
+ 
+Это романтическое заклинание позволяет создать благоухающую красную
+розу, букет роз или целую корзину, наполненную алыми розами.
 ~
 60 'PROTECTION GOOD' 'PROTECTION EVIL'~
 @eng Syntax: {x{c{ccast 'protection evil'{x 
@@ -8137,12 +8141,12 @@ can fly.
 ~
 -1 CLAWS~
 @eng `Claws' is autoskill for creatures which have claws: felars
-and wyrms. If felar or wyrm fight without any weapon it have
-a change to make higher damage on its opponent whith sharp
+and wyrms. If felar or wyrm fights without any weapon it have
+a change to make higher damage on its opponent with sharp
 claws.
-@rus `Claws' -- это умение работающее автоматически. Им обладают
-существа у когорых есть когти: фелары и вырмы. Если вырм или
-фелар сражается без оружия у него есть шанс нанести противнику
+@rus `Claws' -- это умение, работающее автоматически. Им обладают
+существа, у которых есть когти: фелары и вырмы. Если вырм или
+фелар сражается без оружия, у него есть шанс нанести противнику
 более сильный урон своими когтями.
 ~
 0 COMPRESS~
