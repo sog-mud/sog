@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: clan.h,v 1.10 1999-02-09 14:28:14 fjoe Exp $
+ * $Id: clan.h,v 1.11 1999-02-09 19:31:04 fjoe Exp $
  */
 
 #ifndef _CLAN_H_
@@ -59,18 +59,21 @@ struct clan_data
 	int 		altar_vnum;	/* vnum of room with clan item */
 	int	 	obj_vnum;	/* unused (for a while) */
 	OBJ_DATA *	obj_ptr;
-	char *		member_list;
+	const char *	leader_list;	/* list of leaders */
+	const char *	member_list;	/* list of members */
+	const char *	second_list;	/* list of secondaries */
 };
 
 /* clan flags */
 #define CLAN_HIDDEN	(A)		/* clan will not appear in who */
 #define CLAN_CHANGED	(Z)
 
-CLAN_DATA *	clan_new	(void);
-void		clan_free	(CLAN_DATA*);
-int		cn_lookup	(const char* name);
-const char*	clan_name	(int cn);
-bool		clan_item_ok	(int cn);
+CLAN_DATA *	clan_new	(void);		/* allocate new clan data */
+void		clan_free	(CLAN_DATA*);	/* free clan data */
+void		clan_save	(CLAN_DATA*);	/* save clan to disk */
+int		cn_lookup	(const char* name); /* clan number lookup */
+const char*	clan_name	(int cn);	/* clan name lookup */
+bool		clan_item_ok	(int cn);	/* check clan item */
 
 extern varr	clans;
 

@@ -1,5 +1,5 @@
 /*
- * $Id: olc_save.c,v 1.48 1999-02-09 14:28:33 fjoe Exp $
+ * $Id: olc_save.c,v 1.49 1999-02-09 19:31:05 fjoe Exp $
  */
 
 /**************************************************************************
@@ -960,6 +960,10 @@ void save_clan(CHAR_DATA *ch, CLAN_DATA *clan)
 			fprintf(fp, "Skill '%s' %d %d\n",
 				skill_name(cs->sn), cs->level, cs->percent);
 	}
+
+	fwrite_string(fp, "Leaders", clan->leader_list);
+	fwrite_string(fp, "Seconds", clan->second_list);
+	fwrite_string(fp, "Members", clan->member_list);
 
 	fprintf(fp, "End\n\n"
 		    "#$\n");

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: clan.c,v 1.28 1999-02-09 14:28:14 fjoe Exp $
+ * $Id: clan.c,v 1.29 1999-02-09 19:31:04 fjoe Exp $
  */
 
 #include <sys/time.h>
@@ -38,6 +38,7 @@
 #endif
 
 #include "merc.h"
+#include "olc/olc.h"		/* do_asave */
 
 varr clans = { sizeof(CLAN_DATA), 4 };
 
@@ -55,6 +56,12 @@ CLAN_DATA *clan_new(void)
 void clan_free(CLAN_DATA *clan)
 {
 	varr_free(&clan->skills);
+}
+
+void clan_save(CLAN_DATA *clan)
+{
+	SET_BIT(clan->flags, CLAN_CHANGED);
+	do_asave(NULL, "clans");
 }
 
 int cn_lookup(const char *name)
@@ -82,6 +89,26 @@ const char *clan_name(int cn)
 void do_petitio(CHAR_DATA *ch, const char *argument)
 {
 	char_puts("You must enter full command to petition.\n",ch);
+}
+
+/*
+ * update_lists - remove 'victim' from leader and second lists of 'clan'
+ */
+static void update_lists(CLAN_DATA *clan, CHAR_DATA *victim)
+{
+	const char **nl = NULL;
+
+	switch (victim->pcdata->clan_status) {
+	case CLAN_SECOND:
+		nl = &clan->second_list;
+		break;
+
+	case CLAN_LEADER:
+		nl = &clan->leader_list;
+		break;
+	}
+	if (nl)
+		name_delete(nl, victim->name, NULL, NULL);
 }
 
 void do_petition(CHAR_DATA *ch, const char *argument)
@@ -163,9 +190,14 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 				char_puts("They didn't petition.\n", ch);
 				return;
 			}
+
 			victim->clan = cn;
 			victim->pcdata->clan_status = CLAN_COMMONER;
 			update_skills(victim);
+
+			name_add(&clan->member_list, victim->name, NULL, NULL);
+			clan_save(clan);
+
 			char_puts("Greet new member!\n", ch);
 			char_printf(victim, "Your petition to %s has been "
 				    "accepted.\n",
@@ -183,9 +215,16 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 					  "to do that.\n", ch);
 				return;
 			}
+
+			update_lists(clan, victim);
+			name_delete(&clan->member_list, victim->name,
+				    NULL, NULL);
+			clan_save(clan);
+
 			victim->clan = CLAN_NONE;
 			REMOVE_BIT(victim->pcdata->trust, TRUST_CLAN);
 			update_skills(victim);
+
 			char_printf(ch, "They are not a member of %s "
 					"anymore.\n", clan->name);
 			char_printf(victim, "You are not a member of %s "
@@ -301,6 +340,16 @@ void do_promote(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (!str_prefix(arg2, "leader") && IS_IMMORTAL(ch)) {
+		if (victim->pcdata->clan_status == CLAN_LEADER) {
+			char_puts("They are already leader in a clan.\n",
+				  ch);
+			return;
+		}
+
+		update_lists(clan, victim);
+		name_add(&clan->leader_list, victim->name, NULL, NULL);
+		clan_save(clan);
+
 		victim->pcdata->clan_status = CLAN_LEADER;
 		char_puts("Ok.\n", ch);
 		char_puts("They are now leader in their clan.\n", ch);
@@ -315,6 +364,10 @@ void do_promote(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
+		update_lists(clan, victim);
+		name_add(&clan->second_list, victim->name, NULL, NULL);
+		clan_save(clan);
+
 		victim->pcdata->clan_status = CLAN_SECOND;
 		char_puts("They are now second in the clan.\n", ch);
 		char_puts("You are now second in the clan.\n", victim);
@@ -327,6 +380,9 @@ void do_promote(CHAR_DATA *ch, const char *argument)
 				  ch);
 			return;
 		}
+
+		update_lists(clan, victim);
+		clan_save(clan);
 
 		victim->pcdata->clan_status = CLAN_COMMONER;
 		char_puts("They are now commoner in the clan.\n", ch);
@@ -350,87 +406,92 @@ char *get_status_alias(int status)
 	return "commoner";
 }
 
+void show_clanlist(CHAR_DATA *ch, CLAN_DATA *clan,
+		   const char *list, const char *name_list)
+{
+	BUFFER *output;
+	char name[MAX_STRING_LENGTH];
+
+	output = buf_new(-1);
+	buf_printf(output, "List of %s of %s:\n", name_list, clan->name);
+	list = first_arg(list, name, FALSE);
+	if (name[0]) {
+		for (; name[0]; list = first_arg(list, name, FALSE))
+			buf_printf(output, "- %s\n", name);
+	}
+	else
+		buf_add(output, "None.\n");
+	page_to_char(buf_string(output), ch);
+	buf_free(output);
+}
+
 void do_clanlist(CHAR_DATA *ch, const char *argument)
 {
-	char_puts("clanlist: temporarily disabled.\n", ch);
-#if 0
-	DESCRIPTOR_DATA *d;
-	FILE *pfile;
-	DIR *dirp;
-	char buf[PATH_MAX];
-	struct dirent *dp;
-	char letter;
+	char arg1[MAX_INPUT_LENGTH];
+	char arg2[MAX_INPUT_LENGTH];
+	CLAN_DATA *clan = NULL;
 
-	if (IS_NPC(ch))
-		return;
+	argument = one_argument(argument, arg1);
+		   one_argument(argument, arg2);
 
-	if (ch->clan == CLAN_NONE || ch->pcdata->clan_status == CLAN_COMMONER) {
-		char_puts("Huh?\n", ch);
-		return;
-	}
+	if (IS_IMMORTAL(ch) && arg2[0]) {
+		int cn;
 
-                                                                                
-	if ((dirp = opendir(PLAYER_DIR)) == NULL) {
-		bug("Clan_list: unable to open player directory.", 0);
-		exit(1);
-	}
-
-	for (d = descriptor_list; d; d = d->next)
-		if (d->character)
-			do_save(d->character, str_empty);
-
-	char_puts("Now listing members of your clan:\n", ch);
-	for (dp = readdir(dirp); dp != NULL; dp = readdir(dirp)) {
-		char *name = NULL;
-		int clan = -1, status = -1;
-
-		if (dp->d_namlen < 3)
-			continue;
-
-		snprintf(buf, sizeof(buf), "%s%s", PLAYER_DIR, dp->d_name);
-
-		if ((pfile = fopen(buf, "r")) == NULL) {
-			bug("Clan_list: Can't open player file.", 0);
-			continue;
+		if ((cn = cn_lookup(arg2)) < 0) {
+			char_printf(ch, "%s: no such clan.\n", arg2);
+			return;
 		}
-
-		for (letter = fread_letter(pfile); letter != EOF;
-						letter = fread_letter(pfile)) {
-			char *word;
-
-			if (letter == 'N'
-			&&  !strcmp(word = fread_word(pfile), "ame")) {
-				if (name)
-					continue;
-				name = fread_string(pfile);
-				continue;
-			}
-
-			if (letter == 'C'
-			&&  !strcmp(word = fread_word(pfile), "lan")) {
-				char *p = fread_string(pfile);
-				clan = clan_lookup(p);
-				free_string(p);
-			}
-			else if (letter == 'C'
-			&&  !strcmp(word, "lanStatus"))
-				status = fread_number(pfile);
-		}
-
-		if (name && clan == ch->clan)
-			char_printf(ch, "%s -- %s\n", name,
-				    get_status_alias(status));
-		fclose(pfile);
+		clan = CLAN(cn);
 	}
-#endif
+
+	if (!clan
+	&&  (!ch->clan || (clan = clan_lookup(ch->clan)) == NULL)) {
+		char_puts("You are not in a clan.\n", ch);
+		return;
+	}
+
+	if (arg1[0] == '\0') {
+		do_help(ch, "CLANLIST");
+		return;
+	}
+
+	if (!str_prefix(arg1, "member")) {
+		show_clanlist(ch, clan, clan->member_list, "members");
+		return;
+	}
+
+	if (!str_prefix(arg1, "leader")) {
+		show_clanlist(ch, clan, clan->leader_list, "leaders");
+		return;
+	}
+
+	if (!str_prefix(arg1, "second")) {
+		show_clanlist(ch, clan, clan->second_list, "secondaries");
+		return;
+	}
+
+	do_clanlist(ch, str_empty);
 }
+
 void do_item(CHAR_DATA* ch, const char* argument)
 {
-	CLAN_DATA* clan;
+	CLAN_DATA* clan = NULL;
 	OBJ_DATA* in_obj;
 	int cn;
-	if(ch->clan==0||(clan=clan_lookup(ch->clan))==NULL) {
-		char_puts("You are not in clan, you should not worry about your clan item.\n",ch);
+	char arg[MAX_STRING_LENGTH];
+
+	one_argument(argument, arg);
+	if (IS_IMMORTAL(ch) && arg[0]) {
+		if ((cn = cn_lookup(arg)) < 0) {
+			char_printf(ch, "%s: no such clan.\n", arg);
+			return;
+		}
+		clan = CLAN(cn);
+	}
+
+	if (!clan
+	&&  (!ch->clan || (clan = clan_lookup(ch->clan)) == NULL)) {
+		char_puts("You are not in clan, you should not worry about your clan item.\n", ch);
 		return;
 	}
 
@@ -439,9 +500,11 @@ void do_item(CHAR_DATA* ch, const char* argument)
 		return;
 	}
 
-	for (in_obj=clan->obj_ptr; in_obj->in_obj!=NULL; in_obj=in_obj->in_obj);
-	if (in_obj->carried_by !=NULL)
-		char_printf(ch, "%s is in %s, carried by %s\n",
+	for (in_obj = clan->obj_ptr; in_obj->in_obj; in_obj = in_obj->in_obj)
+		;
+
+	if (in_obj->carried_by)
+		char_printf(ch, "%s is in %s, carried by %s.\n",
 			mlstr_mval(clan->obj_ptr->short_descr),
 			mlstr_mval(in_obj->carried_by->in_room->name),
 			PERS(in_obj->carried_by, ch));
@@ -449,12 +512,11 @@ void do_item(CHAR_DATA* ch, const char* argument)
 		char_printf(ch, "%s is in %s.\n",
 			mlstr_mval(clan->obj_ptr->short_descr),
 			mlstr_mval(in_obj->in_room->name));
-		for (cn=0; cn < clans.nused; cn++) 
-			if (in_obj->in_room->vnum==clan_lookup(cn)->altar_vnum)
-			char_printf(ch,"It is altar of %s.\n",
-			 clan_lookup(cn)->name);
+		for (cn = 0; cn < clans.nused; cn++) 
+			if (in_obj->in_room->vnum == CLAN(cn)->altar_vnum)
+				char_printf(ch, "It is altar of %s.\n",
+					    CLAN(cn)->name);
 	}
-	return;
 }
 
 bool clan_item_ok(int cn)

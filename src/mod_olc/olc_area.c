@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_area.c,v 1.28 1998-12-23 16:11:20 fjoe Exp $
+ * $Id: olc_area.c,v 1.29 1999-02-09 19:31:05 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -300,7 +300,7 @@ OLC_FUN(areaed_builders)
 		do_help(ch, "'OLC AREA BUILDER'");
 		return FALSE;
 	}
-	name_toggle(ch, name, "AreaEd", &pArea->builders);
+	name_toggle(&pArea->builders, name, ch, "AreaEd");
 	return TRUE;
 }
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_clan.c,v 1.11 1999-02-09 14:28:28 fjoe Exp $
+ * $Id: db_clan.c,v 1.12 1999-02-09 19:31:05 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -52,6 +52,9 @@ DBLOAD_FUN(load_clan)
 		bool fMatch = FALSE;
 
 		switch (UPPER(word[0])) {
+		case 'A':
+			KEY("Altar", clan->altar_vnum, fread_number(fp));
+			break;
 		case 'E':
 			if (!str_cmp(word, "End")) {
 				if (IS_NULLSTR(clan->name)) {
@@ -68,21 +71,22 @@ DBLOAD_FUN(load_clan)
 			KEY("Flags", clan->flags,
 			    fread_fstring(clan_flags, fp));
 			break;
+		case 'I':
+			KEY("Item", clan->obj_vnum, fread_number(fp));
+			break;
+		case 'L':
+			SKEY("Leaders", clan->leader_list);
+			break;
 		case 'M':
 			SKEY("MsgPrays", clan->msg_prays);
 			SKEY("MsgVanishes", clan->msg_vanishes);
+			SKEY("Members", clan->member_list);
 			break;
 		case 'N':
 			SKEY("Name", clan->name);
 			break;
 		case 'R':
 			KEY("Recall", clan->recall_vnum, fread_number(fp));
-			break;
-		case 'I':
-			KEY("Item", clan->obj_vnum, fread_number(fp));
-			break;
-		case 'A':
-			KEY("Altar", clan->altar_vnum, fread_number(fp));
 			break;
 		case 'S':
 			if (!str_cmp(word, "Skill")) {
@@ -92,6 +96,7 @@ DBLOAD_FUN(load_clan)
 				sk->percent = fread_number(fp);
 				fMatch = TRUE;
 			}
+			SKEY("Seconds", clan->second_list);
 			break;
 		}
 

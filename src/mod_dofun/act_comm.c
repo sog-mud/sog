@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.132 1999-02-09 14:28:12 fjoe Exp $
+ * $Id: act_comm.c,v 1.133 1999-02-09 19:31:02 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1718,7 +1718,7 @@ DO_FUN(do_twit)
 		return;
 	}
 
-	name_toggle(ch, arg, "Twitlist", &ch->pcdata->twitlist);
+	name_toggle(&ch->pcdata->twitlist, arg, ch, "Twitlist");
 }
 
 DO_FUN(do_lang)

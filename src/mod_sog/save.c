@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.95 1999-02-09 14:28:17 fjoe Exp $
+ * $Id: save.c,v 1.96 1999-02-09 19:31:05 fjoe Exp $
  */
 
 /***************************************************************************
@@ -816,6 +816,10 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 
 		case 'E':
 			if (!str_cmp(word, "End")) {
+				CLAN_DATA *clan;
+				const char **nl = NULL;
+				bool touched = FALSE;
+
 				/*
 				 * adjust hp mana move up  -- here for speed's
 				 * sake
@@ -842,6 +846,25 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 				ch->played = ch->pcdata->played;
 				if (ch->lines < SCROLL_MIN-2)
 					ch->lines = SCROLL_MAX-2;
+
+				/* XXX update clan lists */
+				if (!ch->clan
+				||  (clan = clan_lookup(ch->clan)) == NULL)
+					return;
+				
+				touched = !name_add(&clan->member_list, ch->name, NULL, NULL);
+				switch (ch->pcdata->clan_status) {
+				case CLAN_LEADER:
+					nl = &clan->leader_list;
+					break;
+				case CLAN_SECOND:
+					nl = &clan->second_list;
+					break;
+				}
+				if (nl)
+					touched = !name_add(nl, ch->name, NULL, NULL) || touched;
+				if (touched)
+					clan_save(clan);
 				return;
 			}
 			KEY("Exp", ch->exp, fread_number(fp));

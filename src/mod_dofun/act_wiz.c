@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.109 1999-02-09 14:28:14 fjoe Exp $
+ * $Id: act_wiz.c,v 1.110 1999-02-09 19:31:03 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3995,6 +3995,7 @@ void do_rename(CHAR_DATA* ch, const char *argument)
 	char *file_name;
 
 	CHAR_DATA *victim;
+	CLAN_DATA *clan;
 	FILE* file;
 		
 	argument = first_arg(argument, old_name, FALSE); 
@@ -4035,6 +4036,25 @@ void do_rename(CHAR_DATA* ch, const char *argument)
 	if (!check_parse_name(new_name)) {
 		char_puts("The new name is illegal.\n",ch);
 		return;
+	}
+
+	if (victim->clan && (clan = clan_lookup(victim->clan))) {
+		bool touched = FALSE;
+
+		if (name_delete(&clan->member_list, old_name, NULL, NULL)) {
+			touched = TRUE;
+			name_add(&clan->member_list, new_name, NULL, NULL);
+		}
+		if (name_delete(&clan->leader_list, old_name, NULL, NULL)) {
+			touched = TRUE;
+			name_add(&clan->leader_list, new_name, NULL, NULL);
+		}
+		if (name_delete(&clan->second_list, old_name, NULL, NULL)) {
+			touched = TRUE;
+			name_add(&clan->second_list, new_name, NULL, NULL);
+		}
+		if (touched)
+			clan_save(clan);
 	}
 
 /* delete old pfile */
@@ -4351,8 +4371,8 @@ DO_FUN(do_grant)
 			||  cmd->level > lev)
 				continue;
 
-			name_add(ch, cmd->name, "grant",
-				 &victim->pcdata->granted);
+			name_add(&victim->pcdata->granted, cmd->name,
+				 ch, "grant");
 		}
 
 		return;
@@ -4370,7 +4390,7 @@ DO_FUN(do_grant)
 			char_printf(ch, "%s: not a wizard command.\n", arg2);
 			continue;
 		}
-		name_toggle(ch, arg2, "grant", &victim->pcdata->granted);
+		name_toggle(&victim->pcdata->granted, arg2, ch, "grant");
 	}
 }
 

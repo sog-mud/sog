@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.187 1999-02-09 14:28:12 fjoe Exp $
+ * $Id: act_info.c,v 1.188 1999-02-09 19:31:02 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1657,13 +1657,13 @@ DO_FUN(do_who)
 		}
 
 		if ((i = cn_lookup(arg)) > 0) {
-			name_add(ch, CLAN(i)->name, NULL, &clan_names);
+			name_add(&clan_names, CLAN(i)->name, NULL, NULL);
 			SET_BIT(flags, WHO_F_RCLAN);
 			continue;
 		}
 
 		if ((i = rn_lookup(arg)) > 0 && RACE(i)->pcdata) {
-			name_add(ch, RACE(i)->name, NULL, &race_names);
+			name_add(&race_names, RACE(i)->name, NULL, NULL);
 			SET_BIT(flags, WHO_F_RRACE);
 			continue;
 		}
@@ -1672,7 +1672,7 @@ DO_FUN(do_who)
 			continue;
 
 		if ((i = cln_lookup(arg)) >= 0) {
-			name_add(ch, CLASS(i)->name, NULL, &class_names);
+			name_add(&class_names, CLASS(i)->name, NULL, NULL);
 			SET_BIT(flags, WHO_F_RCLASS);
 			continue;
 		}

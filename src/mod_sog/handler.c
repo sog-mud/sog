@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.105 1999-02-08 16:33:59 fjoe Exp $
+ * $Id: handler.c,v 1.106 1999-02-09 19:31:04 fjoe Exp $
  */
 
 /***************************************************************************
@@ -583,6 +583,15 @@ int can_carry_w(CHAR_DATA *ch)
 	return str_app[get_curr_stat(ch,STAT_STR)].carry * 10 + ch->level * 25;
 }
 
+/*---------------------------------------------------------------------------
+ * name list stuff
+ *
+ * name list is simply string of names
+ * separated by spaces. if name contains spaces itself it is enclosed
+ * in single quotes
+ *
+ */
+
 /*
  * See if a string is one of the names of an object.
  */
@@ -640,37 +649,27 @@ void cat_name(char *buf, const char *name, size_t len)
 		strnzcat(buf, "'", len);
 }
 
+/* 
+ * name_edit flags
+ */
 #define NE_F_DELETE	(A)	/* delete name if found		*/
 #define NE_F_ADD	(B)	/* add name if not found	*/
 
-void name_edit(CHAR_DATA *ch, const char *name,
-	       const char *editor_name, const char **nl, int flags)
+/*
+ * name_edit - edit 'name' according to 'flags' in name list pointed by 'nl'
+ *             if ch == NULL name_edit will be silent
+ *	       (and 'editor_name' is not used)
+ * Return values: TRUE  - name was found in namelist
+ *		  FALSE - name was not found
+ *
+ */
+bool name_edit(const char **nl, const char *name, int flags,
+	       CHAR_DATA *ch, const char *editor_name)
 {
-	bool found;
-	const char *p;
+	bool found = FALSE;
+	const char *p = *nl;
 	char buf[MAX_STRING_LENGTH];
 
-	if (!str_cmp(name, "all")) {
-		free_string(*nl);
-		*nl = str_dup(name);
-		char_printf(ch, "%s: name list set to ALL.\n", editor_name);
-		return;
-	}
-
-	if (!str_cmp(name, "none")) {
-		free_string(*nl);
-		*nl = str_empty;
-		char_printf(ch, "%s: name list reset.\n", editor_name);
-		return;
-	}
-
-	if (!str_cmp(*nl, "all")) {
-		free_string(*nl);
-		*nl = str_empty;
-	}
-
-	found = FALSE;
-	p = *nl;
 	buf[0] = '\0';
 	for (;;) {
 		char arg[MAX_STRING_LENGTH];
@@ -691,48 +690,71 @@ void name_edit(CHAR_DATA *ch, const char *name,
 
 	if (!found) {
 		if (!IS_SET(flags, NE_F_ADD))
-			return;
+			return found;
 
 		if (strlen(buf) + strlen(name) + 4 > MAX_STRING_LENGTH) {
-			if (editor_name)
+			if (ch)
 				char_printf(ch, "%s: name list too long\n",
 					    editor_name);
-			return;
+			return found;
 		}
 		cat_name(buf, name, sizeof(buf));
-		if (editor_name)
+		if (ch)
 			char_printf(ch, "%s: %s: name added.\n",
 				    editor_name, name);
 	}
 	else {
 		if (!IS_SET(flags, NE_F_DELETE))
-			return;
+			return found;
 
-		if (editor_name)
+		if (ch)
 			char_printf(ch, "%s: %s: name removed.\n",
 				    editor_name, name);
 	}
 
 	free_string(*nl);
 	*nl = str_dup(buf);
+	return found;
 }
 
-void name_add(CHAR_DATA *ch, const char *name,
-	      const char *editor_name, const char **nl)
+bool name_add(const char **nl, const char *name,
+	      CHAR_DATA *ch, const char *editor_name)
 {
-	name_edit(ch, name, editor_name, nl, NE_F_ADD);
+	return name_edit(nl, name, NE_F_ADD, ch, editor_name);
 }
 
-void name_delete(CHAR_DATA *ch, const char *name,
-		 const char *editor_name, const char **nl)
+bool name_delete(const char **nl, const char *name,
+		 CHAR_DATA *ch, const char *editor_name)
 {
-	name_edit(ch, name, editor_name, nl, NE_F_DELETE);
+	return name_edit(nl, name, NE_F_DELETE, ch, editor_name);
 }
 
-void name_toggle(CHAR_DATA *ch, const char *name,
-		 const char *editor_name, const char **nl)
+bool name_toggle(const char **nl, const char *name,
+		 CHAR_DATA *ch, const char *editor_name)
 {
-	name_edit(ch, name, editor_name, nl, NE_F_ADD | NE_F_DELETE);
+	if (!str_cmp(name, "all")) {
+		free_string(*nl);
+		*nl = str_dup(name);
+		if (ch)
+			char_printf(ch, "%s: name list set to ALL.\n",
+				    editor_name);
+		return TRUE;
+	}
+
+	if (!str_cmp(name, "none")) {
+		free_string(*nl);
+		*nl = str_empty;
+		if (ch)
+			char_printf(ch, "%s: name list reset.\n", editor_name);
+		return TRUE;
+	}
+
+	if (!str_cmp(*nl, "all")) {
+		free_string(*nl);
+		*nl = str_empty;
+	}
+
+	return name_edit(nl, name, NE_F_ADD | NE_F_DELETE, ch, editor_name);
 }
 
 /* enchanted stuff for eq */

@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.139 1999-02-09 14:28:16 fjoe Exp $
+ * $Id: merc.h,v 1.140 1999-02-09 19:31:04 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1894,12 +1894,12 @@ int	can_carry_w	(CHAR_DATA *ch);
 bool	is_name 	(const char *str, const char *namelist);
 bool	is_name_raw	(const char *str, const char *namelist,
 			 int (*cmpfun)(const char*, const char*));
-void	name_add	(CHAR_DATA *ch, const char *name,
-			 const char *editor_name, const char **namelist);
-void	name_delete	(CHAR_DATA *ch, const char *name,
-			 const char *editor_name, const char **namelist);
-void	name_toggle	(CHAR_DATA *ch, const char *name,
-			 const char *editor_name, const char **namelist);
+bool	name_add	(const char **namelist, const char *name,
+			 CHAR_DATA *CH, const char *editor_name);
+bool	name_delete	(const char **namelist, const char *name,
+			 CHAR_DATA *CH, const char *editor_name);
+bool	name_toggle	(const char **namelist, const char *name,
+			 CHAR_DATA *CH, const char *editor_name);
 
 void	affect_to_char	(CHAR_DATA *ch, AFFECT_DATA *paf);
 void	affect_to_obj	(OBJ_DATA *obj, AFFECT_DATA *paf);
