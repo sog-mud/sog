@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.78 1999-04-13 02:48:35 kostik Exp $
+ * $Id: martial_art.c,v 1.79 1999-04-13 04:17:34 kostik Exp $
  */
 
 /***************************************************************************
@@ -760,6 +760,9 @@ void do_knife(CHAR_DATA *ch, const char *argument)
 		act("$N is fighting.", ch, NULL, victim, TO_CHAR);
 		return;
 	}
+
+	if (is_safe(ch, victim))
+		return;
 
 	WAIT_STATE(ch, SKILL(gsn_knife)->beats);
 
