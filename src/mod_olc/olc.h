@@ -1,5 +1,5 @@
 /*
- * $Id: olc.h,v 1.49 1999-10-19 19:22:56 avn Exp $
+ * $Id: olc.h,v 1.50 1999-10-20 05:49:44 avn Exp $
  */
 
 /***************************************************************************
@@ -62,6 +62,8 @@ enum {
 #define CF_SOCIAL	(B)
 #define CF_CMD		(C)
 #define CF_SKILL	(D)
+#define CF_MATERIAL	(D)
+#define CF_LIQUID	(D)
 
 extern int changed_flags;
 
@@ -83,6 +85,7 @@ extern const char ED_SKILL	[];
 extern const char ED_RACE	[];
 extern const char ED_CLASS	[];
 extern const char ED_MATERIAL	[];
+extern const char ED_LIQUID	[];
 
 struct olc_cmd_t
 {
@@ -113,6 +116,7 @@ extern olc_cmd_t	olc_cmds_skill[];
 extern olc_cmd_t	olc_cmds_race[];
 extern olc_cmd_t	olc_cmds_class[];
 extern olc_cmd_t	olc_cmds_mat[];
+extern olc_cmd_t	olc_cmds_liq[];
 
 bool olced_obj_busy(CHAR_DATA *ch);
 bool olced_busy(CHAR_DATA *ch, const char *id, void *edit, void *edit2);

@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.185 1999-10-18 18:08:13 avn Exp $
+ * $Id: spellfun.c,v 1.186 1999-10-20 05:49:54 avn Exp $
  */
 
 /***************************************************************************
@@ -740,7 +740,7 @@ void spell_create_water(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		return;
 	}
 
-	if (INT_VAL(obj->value[2]) != LIQ_WATER
+	if (str_cmp(STR_VAL(obj->value[2]), "water")
 	&&  INT_VAL(obj->value[1]) != 0) {
 		char_puts("It contains some other liquid.\n", ch);
 		return;
@@ -750,7 +750,7 @@ void spell_create_water(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		     INT_VAL(obj->value[0]) - INT_VAL(obj->value[1]));
 
 	if (water > 0) {
-		INT_VAL(obj->value[2]) = LIQ_WATER;
+		STR_VAL_ASSIGN(obj->value[2], "water");
 		INT_VAL(obj->value[1]) += water;
 
 		if (!is_name("water", obj->name)) {

@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.96 1999-10-19 14:45:00 kostik Exp $
+ * $Id: tables.c,v 1.97 1999-10-20 05:49:50 avn Exp $
  */
 
 /***************************************************************************
@@ -1400,6 +1400,21 @@ flag_t spec_classes[] =
 	{ NULL }
 };
 
+flag_t cond_table[] =
+{
+	{ "",			TABLE_INTVAL				},
+
+	{ "drunkness",		COND_DRUNK,			TRUE	},
+	{ "fullness",		COND_FULL,			TRUE	},
+	{ "thirst",		COND_THIRST,			TRUE	},
+	{ "hunger",		COND_HUNGER,			TRUE	},
+	{ "bloodlust",		COND_BLOODLUST,			TRUE	},
+	{ "desire",		COND_DESIRE,			TRUE	},
+
+
+	{ NULL }
+};
+
 /*
  * Attribute bonus tables.
  */
@@ -1560,57 +1575,4 @@ const	struct	con_app_type	con_app		[26]		=
     { 24, 99 }    /* 25 */
 };
 
-
-/*
- * Liquid properties.
- * Used in world.obj.
- */
-const	struct	liq_type	liq_table	[]	=
-{
-/*    name			color	proof, full, thirst, food, ssize */
-    { "water",			"clear",	{   0, 1, 10, 0, 16 }	},
-    { "beer",			"amber",	{  12, 1,  8, 1, 12 }	},
-    { "red wine",		"burgundy",	{  30, 1,  8, 1,  5 }	},
-    { "ale",			"brown",	{  15, 1,  8, 1, 12 }	},
-    { "dark ale",		"dark",		{  16, 1,  8, 1, 12 }	},
-
-    { "whisky",			"golden",	{ 120, 1,  5, 0,  2 }	},
-    { "lemonade",		"pink",		{   0, 1,  9, 2, 12 }	},
-    { "firebreather",		"boiling",	{ 190, 0,  4, 0,  2 }	},
-    { "local specialty",	"clear",	{ 151, 1,  3, 0,  2 }	},
-    { "slime mold juice",	"green",	{   0, 2, -8, 1,  2 }	},
-
-    { "milk",			"white",	{   0, 2,  9, 3, 12 }	},
-    { "tea",			"tan",		{   0, 1,  8, 0,  6 }	},
-    { "coffee",			"black",	{   0, 1,  8, 0,  6 }	},
-    { "blood",			"red",		{   0, 2, -1, 2,  6 }	},
-    { "salt water",		"clear",	{   0, 1, -2, 0,  1 }	},
-
-    { "coke",			"brown",	{   0, 2,  9, 2, 12 }	}, 
-    { "root beer",		"brown",	{   0, 2,  9, 2, 12 }   },
-    { "elvish wine",		"green",	{  35, 2,  8, 1,  5 }   },
-    { "white wine",		"golden",	{  28, 1,  8, 1,  5 }   },
-    { "champagne",		"golden",	{  32, 1,  8, 1,  5 }   },
-
-    { "mead",			"honey-colored",{  34, 2,  8, 2, 12 }   },
-    { "rose wine",		"pink",		{  26, 1,  8, 1,  5 }	},
-    { "benedictine wine",	"burgundy",	{  40, 1,  8, 1,  5 }   },
-    { "vodka",			"clear",	{ 130, 1,  5, 0,  2 }   },
-    { "cranberry juice",	"red",		{   0, 1,  9, 2, 12 }	},
-
-    { "orange juice",		"orange",	{   0, 2,  9, 3, 12 }   }, 
-    { "absinthe",		"green",	{ 200, 1,  4, 0,  2 }	},
-    { "brandy",			"golden",	{  80, 1,  5, 0,  4 }	},
-    { "aquavit",		"clear",	{ 140, 1,  5, 0,  2 }	},
-    { "schnapps",		"clear",	{  90, 1,  5, 0,  2 }   },
-
-    { "icewine",		"purple",	{  50, 2,  6, 1,  5 }	},
-    { "amontillado",		"burgundy",	{  35, 2,  8, 1,  5 }	},
-    { "sherry",			"red",		{  38, 2,  7, 1,  5 }   },	
-    { "framboise",		"red",		{  50, 1,  7, 1,  5 }   },
-    { "rum",			"amber",	{ 151, 1,  4, 0,  2 }	},
-
-    { "cordial",		"clear",	{ 100, 1,  5, 0,  2 }   },
-    { NULL,			NULL,		{   0, 0,  0, 0,  0 }	}
-};
 

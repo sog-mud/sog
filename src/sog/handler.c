@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.188 1999-10-18 18:08:08 avn Exp $
+ * $Id: handler.c,v 1.189 1999-10-20 05:49:46 avn Exp $
  */
 
 /***************************************************************************
@@ -2107,6 +2107,7 @@ ROOM_INDEX_DATA  *get_random_room(CHAR_DATA *ch, AREA_DATA *area)
 void format_obj(BUFFER *output, OBJ_DATA *obj)
 {
 	int i;
+	liquid_t *lq;
 
 	buf_printf(output,
 		"Object '%s' is type %s, extra flags %s.\n"
@@ -2149,9 +2150,10 @@ void format_obj(BUFFER *output, OBJ_DATA *obj)
 		break;
 
 	case ITEM_DRINK_CON:
+		if ((lq = liquid_lookup(STR_VAL(obj->value[2]))) == NULL)
+			break;
 		buf_printf(output, "It holds %s-colored %s.\n",
-			   liq_table[INT_VAL(obj->value[2])].liq_color,
-	        	   liq_table[INT_VAL(obj->value[2])].liq_name);
+			   lq->color, lq->name);
 		break;
 
 	case ITEM_CONTAINER:
@@ -4384,3 +4386,17 @@ int trust_level(CHAR_DATA *ch)
 	return IS_NPC(ch) ? UMIN((ch)->level, LEVEL_HERO - 1) : ch->level;
 }
 
+/* returns a flag for wiznet */
+flag32_t wiznet_lookup(const char *name)
+{
+	int flag;
+
+	for (flag = 0; wiznet_table[flag].name; flag++)
+	{
+		if (LOWER(name[0]) == LOWER(wiznet_table[flag].name[0])
+		&& !str_prefix(name,wiznet_table[flag].name))
+		    return flag;
+	}
+
+	return -1;
+}

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_material.c,v 1.1 1999-10-18 18:08:13 avn Exp $
+ * $Id: db_material.c,v 1.2 1999-10-20 05:49:54 avn Exp $
  */
 
 #include <stdio.h>
@@ -97,3 +97,4 @@ DBLOAD_FUN(load_material)
 			db_error("load_material", "%s: Unknown keyword", word);
 	}
 }
+

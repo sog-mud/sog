@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_material.c,v 1.4 1999-10-19 19:22:56 avn Exp $
+ * $Id: olc_material.c,v 1.5 1999-10-20 05:49:45 avn Exp $
  */
 
 #include "olc.h"
@@ -98,6 +98,7 @@ OLC_FUN(mated_create)
 	}
 
 	OLCED(ch)	= olced_lookup(ED_MATERIAL);
+	SET_BIT(changed_flags, CF_MATERIAL);
 	ch->desc->pEdit = m;
 	char_puts("Material created.\n",ch);
 	return FALSE;
@@ -148,6 +149,10 @@ OLC_FUN(mated_save)
 {
 	FILE *fp;
 
+	if (!IS_SET(changed_flags, CF_MATERIAL)) {
+		char_puts("Materials are not changed.\n", ch);
+		return FALSE;
+	}
 	fp = olc_fopen(ETC_PATH, MATERIALS_CONF, ch, SECURITY_MATERIAL);
 	if (fp == NULL)
 		return FALSE;
@@ -157,11 +162,13 @@ OLC_FUN(mated_save)
 	fprintf(fp, "#$\n");
 	fclose(fp);
 	olc_printf(ch, "Materials saved");
+	REMOVE_BIT(changed_flags, CF_MATERIAL);
 	return FALSE;
 }
 
 OLC_FUN(mated_touch)
 {
+	SET_BIT(changed_flags, CF_MATERIAL);
 	return FALSE;
 }
 
@@ -233,6 +240,7 @@ OLC_FUN(mated_delete)
 
 	EDIT_MAT(ch, mat);
 	hash_delete(&materials, mat);
+	edit_done(ch->desc);
 	return TRUE;
 }
 

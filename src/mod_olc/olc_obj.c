@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_obj.c,v 1.58 1999-10-17 08:55:45 fjoe Exp $
+ * $Id: olc_obj.c,v 1.59 1999-10-20 05:49:45 avn Exp $
  */
 
 #include <sys/types.h>
@@ -844,8 +844,15 @@ OLC_FUN(objed_type)
 OLC_FUN(objed_material)
 {
 	OBJ_INDEX_DATA *pObj;
+	material_t *mat;
 	EDIT_OBJ(ch, pObj);
-	return olced_str(ch, argument, cmd, &pObj->material);
+
+	if (!(mat = material_search(argument))) {
+		char_puts("ObjEd: Unknown material.\n", ch);
+		return FALSE;
+	}
+	char_printf(ch, "ObjEd: %s: material ok.\n", mat->name);
+	return olced_str(ch, mat->name, cmd, &pObj->material);
 }
 
 OLC_FUN(objed_level)
@@ -1084,7 +1091,7 @@ void show_obj_values(BUFFER *output, OBJ_INDEX_DATA *pObj)
 			    "[v3] Poisoned:     %s\n",
 			    INT_VAL(pObj->value[0]),
 			    INT_VAL(pObj->value[1]),
-			    liq_table[INT_VAL(pObj->value[2])].liq_name,
+			    STR_VAL(pObj->value[2]),
 			    INT_VAL(pObj->value[3]) ? "Yes" : "No");
 		break;
 
@@ -1095,7 +1102,7 @@ void show_obj_values(BUFFER *output, OBJ_INDEX_DATA *pObj)
 			    "[v2] Liquid:	    %s\n",
 			    INT_VAL(pObj->value[0]),
 			    INT_VAL(pObj->value[1]),
-			    liq_table[INT_VAL(pObj->value[2])].liq_name);
+			    STR_VAL(pObj->value[2]));
 		break;
 			    
 	case ITEM_FOOD:
@@ -1394,12 +1401,12 @@ int set_obj_values(BUFFER *output, OBJ_INDEX_DATA *pObj,
 			break;
 		case 2:
 			if (!str_cmp(argument, "?")
-			||  (val = liq_lookup(argument)) < 0) {
-				show_liq_types(output);
+			|| liquid_search(argument) == NULL) {
+				hash_print_names(&liquids, output);
 				return 2;
 			}
 			buf_add(output, "LIQUID TYPE SET.\n\n");
-			INT_VAL(pObj->value[2]) = val;
+			STR_VAL_ASSIGN(pObj->value[2], liquid_lookup(argument)->name);
 			break;
 		case 3:
 			buf_add(output, "POISON VALUE TOGGLED.\n\n");
@@ -1422,12 +1429,12 @@ int set_obj_values(BUFFER *output, OBJ_INDEX_DATA *pObj,
 			break;
 		case 2:
 			if (!str_cmp(argument, "?")
-			||  (val = liq_lookup(argument)) < 0) {
-				show_liq_types(output);
+			|| liquid_search(argument) == NULL) {
+				hash_print_names(&liquids, output);
 				return 2;
 			}
 			buf_add(output, "LIQUID TYPE SET.\n\n");
-			INT_VAL(pObj->value[2]) = val;
+			STR_VAL_ASSIGN(pObj->value[2], liquid_lookup(argument)->name);
 			break;
 		}
 		break;
@@ -1501,49 +1508,6 @@ static void show_skills(BUFFER *output, int skill_type)
 		buf_add(output, "\n");
 }
 
-void show_liqlist(CHAR_DATA *ch)
-{
-	int liq;
-	BUFFER *buffer;
-	
-	buffer = buf_new(-1);
-	
-	for (liq = 0; liq_table[liq].liq_name != NULL; liq++) {
-		if ((liq % 21) == 0)
-			buf_add(buffer,"Name                 Color          Proof Full Thirst Food Ssize\n");
-
-		buf_printf(buffer, "%-20s %-14s %5d %4d %6d %4d %5d\n",
-			liq_table[liq].liq_name,liq_table[liq].liq_color,
-			liq_table[liq].liq_affect[0],liq_table[liq].liq_affect[1],
-			liq_table[liq].liq_affect[2],liq_table[liq].liq_affect[3],
-			liq_table[liq].liq_affect[4]);
-	}
-
-	page_to_char(buf_string(buffer), ch);
-	buf_free(buffer);
-}
-
-#if 0
-	{ "type",	item_types,	"Types of objects."		},
-	{ "extra",	extra_flags,	"Object attributes."		},
-	{ "wear",	wear_flags,	"Where to wear object."		},
-	{ "wear-loc",	wear_loc_flags,	"Where mobile wears object."	},
-	{ "container",	cont_flags,"Container status."		},
-
-/* ROM specific bits: */
-
-	{ "armor",	ac_type,	"Ac for different attacks."	},
-	{ "apply",	apply_flags,	"Apply flags"			},
-	{ "wclass",     weapon_class,   "Weapon class."                }, 
-	{ "wtype",      weapon_type2,   "Special weapon type."         },
-	{ "portal",	portal_flags,	"Portal types."		},
-	{ "furniture",	furniture_flags,"Furniture types."		},
-	{ "liquid",	liq_table,	"Liquid types."		},
-	{ "apptype",	apply_types,	"Apply types."			},
-	{ "weapon",	attack_table,	"Weapon types."		},
-	{ NULL,		NULL,		 NULL				}
-};
-#endif
 
 VALIDATE_FUN(validate_condition)
 {
@@ -1556,4 +1520,3 @@ VALIDATE_FUN(validate_condition)
 	}
 	return TRUE;
 }
-

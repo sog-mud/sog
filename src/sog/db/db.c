@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.173 1999-10-18 18:08:12 avn Exp $
+ * $Id: db.c,v 1.174 1999-10-20 05:49:51 avn Exp $
  */
 
 /***************************************************************************
@@ -138,6 +138,7 @@ const char MSGDB_CONF		[] = "msgdb.conf";	/* msgdb */
 const char CMD_CONF		[] = "cmd.conf";	/* commands */
 const char DAMTYPE_CONF		[] = "damtype.conf";	/* damtypes */
 const char MATERIALS_CONF	[] = "materials.conf";	/* materials */
+const char LIQUIDS_CONF		[] = "liquids.conf";	/* liquids */
 
 const char AREA_LIST		[] = "area.lst";	/* list of areas */
 const char CLAN_LIST		[] = "clan.lst";	/* list of clans */
@@ -448,6 +449,7 @@ void boot_db(void)
 	db_load_dir(&db_spec, SPEC_PATH, SPEC_EXT);
 	db_load_file(&db_damtype, ETC_PATH, DAMTYPE_CONF);
 	db_load_file(&db_materials, ETC_PATH, MATERIALS_CONF);
+	db_load_file(&db_liquids, ETC_PATH, LIQUIDS_CONF);
 
 	db_load_dir(&db_races, RACES_PATH, RACE_EXT);
 	db_load_dir(&db_classes, CLASSES_PATH, CLASS_EXT);

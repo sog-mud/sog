@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.67 1999-10-17 08:55:49 fjoe Exp $
+ * $Id: recycle.c,v 1.68 1999-10-20 05:49:49 avn Exp $
  */
 
 /***************************************************************************
@@ -849,7 +849,7 @@ void fwrite_objval(flag32_t item_type, vo_t *v, FILE *fp)
 		fprintf(fp, "%d %d '%s' %d %d\n",
 			INT_VAL(v[0]),
 			INT_VAL(v[1]),
-			liq_table[INT_VAL(v[2])].liq_name,
+			STR_VAL(v[2]),
 			INT_VAL(v[3]),
 			INT_VAL(v[4]));
 		break;
@@ -933,7 +933,7 @@ void fread_objval(flag32_t item_type, vo_t *v, FILE *fp)
 	case ITEM_FOUNTAIN:
 		INT_VAL(v[0]) = fread_number(fp);
 		INT_VAL(v[1]) = fread_number(fp);
-		INT_VAL(v[2]) = liq_lookup(fread_word(fp));
+		STR_VAL_ASSIGN(v[2], fread_word(fp));
 		INT_VAL(v[3]) = fread_number(fp);
 		INT_VAL(v[4]) = fread_number(fp);
 		break;
