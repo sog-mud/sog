@@ -1,12 +1,11 @@
 /*
- * $Id: hunt.c,v 1.49 2003-05-08 14:00:07 fjoe Exp $
+ * $Id: hunt.c,v 1.50 2003-09-29 23:11:30 fjoe Exp $
  */
 
-/* Kak zovut sobaku Gejtsa?
-			Sobaku Gejtsa zovut BILL! */
-#if defined (WIN32)
-#include "compat.h"
-#endif
+/*
+ * Kak zovut sobaku Gejtsa?
+ * Sobaku Gejtsa zovut BILL!
+ */
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -412,24 +411,23 @@ find_way(CHAR_DATA *ch, ROOM_INDEX_DATA *rstart, ROOM_INDEX_DATA *rend)
 
 		if ((direction = find_path(rstart->vnum, rend->vnum,
 					   ch, DEFAULT_DEPTH, 0)) == -1) {
-			strnzcat(buf, sizeof(buf), " BUGGY"); // notrans
+			strlcat(buf, " BUGGY", sizeof(buf)); // notrans
 			return buf;
 		}
 
 		if (direction < 0 || direction > 5) {
-			strnzcat(buf, sizeof(buf), " VERY BUGGY"); // notrans
+			strlcat(buf, " VERY BUGGY", sizeof(buf)); // notrans
 			return buf;
 		}
 
 		buf2[0] = dir_name[direction][0];
 		buf2[1] = '\0';
-		strnzcat(buf, sizeof(buf), buf2);
+		strlcat(buf, buf2, sizeof(buf));
 
 		/* find target room */
 		pExit = rstart->exit[direction];
 		if (!pExit)  {
-			strnzcat(buf, sizeof(buf),
-				 " VERY VERY BUGGY"); // notrans
+			strlcat(buf, " VERY VERY BUGGY", sizeof(buf)); // notrans
 			return buf;
 		} else
 			rstart = pExit->to_room.r;

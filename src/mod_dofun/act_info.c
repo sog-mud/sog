@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.433 2003-04-25 12:49:12 fjoe Exp $
+ * $Id: act_info.c,v 1.434 2003-09-29 23:11:28 fjoe Exp $
  */
 
 /***************************************************************************
@@ -47,7 +47,7 @@
 #include <time.h>
 
 #if !defined(WIN32)
-#	include <unistd.h>
+#include <unistd.h>
 #endif
 #include <ctype.h>
 
@@ -60,7 +60,7 @@
 #include <quest.h>
 
 #if defined(SUNOS) || defined(SVR4) || defined(LINUX)
-#	include <crypt.h>
+#include <crypt.h>
 #endif
 
 #include "toggle.h"
@@ -2208,7 +2208,7 @@ DO_FUN(do_identify, ch, argument)
 static void format_stat(char *buf, size_t len, CHAR_DATA *ch, int stat)
 {
 	if (ch->level < 20 && !IS_NPC(ch))
-		strnzcpy(buf, len, get_stat_alias(ch, stat));
+		strlcpy(buf, get_stat_alias(ch, stat), len);
 	else {
 		snprintf(buf, len, "%2d (%2d)",		// notrans
 			 ch->perm_stat[stat],
@@ -2229,8 +2229,8 @@ DO_FUN(do_score, ch, argument)
 	output = buf_new(GET_LANG(ch));
 	buf_append(output, "\n      {G/~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~/~~\\{x\n");	// notrans
 
-	strnzcpy(title, sizeof(title),
-		 IS_NPC(ch) ? " Believer of Chronos." : PC(ch)->title);
+	strlcpy(title, IS_NPC(ch) ? " Believer of Chronos." : PC(ch)->title,
+	    sizeof(title));
 	name = IS_NPC(ch) ? capitalize(mlstr_val(&ch->short_descr, GET_LANG(ch))) :
 			    ch->name;
 	delta = strlen(title) - cstrlen(title) + MAX_CHAR_NAME - strlen(name);
@@ -4056,7 +4056,7 @@ show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 		char buf[sizeof(FLAGS)];
 		bool diff;
 
-		strnzcpy(buf, sizeof(buf), FLAGS);
+		strlcpy(buf, FLAGS, sizeof(buf));
 		FLAG_SET( 5, 'I', HAS_INVIS(victim, ID_INVIS)
 		|| HAS_INVIS(victim, ID_IMP_INVIS));
 		FLAG_SET( 8, 'H', HAS_INVIS(victim, ID_HIDDEN));

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: skills.c,v 1.136 2003-04-19 16:12:41 fjoe Exp $
+ * $Id: skills.c,v 1.137 2003-09-29 23:11:50 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -405,7 +405,7 @@ say_spell(CHAR_DATA *ch, const char *sn)
 	for (; *pName != '\0'; pName += length) {
 		for (iSyl = 0; (length = strlen(syl_table[iSyl].old)); iSyl++) {
 			if (!str_prefix(syl_table[iSyl].old, pName)) {
-				strnzcat(buf, sizeof(buf), syl_table[iSyl].new);
+				strlcat(buf, syl_table[iSyl].new, sizeof(buf));
 				break;
 			}
 		}

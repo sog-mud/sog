@@ -1,5 +1,5 @@
 /*
- * $Id: auction_impl.c,v 1.58 2002-11-28 21:40:14 fjoe Exp $
+ * $Id: auction_impl.c,v 1.59 2003-09-29 23:11:24 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -55,7 +55,7 @@ parsebet(const int currentbet, const char *argument)
   char *stringptr = string;     /* a pointer we can move around */
 
 				/* make a work copy of argument */
-  strnzcpy(string, sizeof(string), argument);
+  strlcpy(string, argument, sizeof(string));
 
   if (*stringptr)               /* check for an empty string */
   {
@@ -246,7 +246,7 @@ advatoi(const char *s)
   int multiplier = 0;       /* multiplier used to get the extra digits right */
 
 
-  strnzcpy(string, sizeof(string), s);        /* working copy */
+  strlcpy(string, s, sizeof(string));        /* working copy */
 
   while (isdigit (*stringptr)) /* as long as the current character is a digit */
   {

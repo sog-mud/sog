@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: trig.c,v 1.32 2003-07-21 22:17:43 fjoe Exp $
+ * $Id: trig.c,v 1.33 2003-09-29 23:11:54 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -377,11 +377,11 @@ format_mpname(mprog_t *mp)
 	p = mp->name + 1;
 	if ((q = strchr(p, '#')) == NULL && (q = strchr(p, '$')) == NULL)
 		return mp->name;
-	strnzncpy(buf, sizeof(buf), p, q - p);
-	strnzcat(buf, sizeof(buf), " ");
+	strlncpy(buf, p, sizeof(buf), q - p);
+	strlcat(buf, " ", sizeof(buf));
 	if (*q == '$') {
 		/* spec mprog */
-		strnzcat(buf, sizeof(buf), q + 1);
+		strlcat(buf, q + 1, sizeof(buf));
 		return buf;
 	}
 
@@ -389,16 +389,16 @@ format_mpname(mprog_t *mp)
 	if ((q = strchr(p + 1, '#')) == NULL)
 		return mp->name;
 	r = strchr(buf, '\0');
-	strnzncat(buf, sizeof(buf), p, q - p);
+	strlncat(buf, p, sizeof(buf), q - p);
 	if ((vnum = atoi(r + 1)) == 0)
 		return mp->name;
 	if ((a = area_vnum_lookup(vnum)) != NULL) {
-		strnzcat(buf, sizeof(buf), " (");
-		strnzcat(buf, sizeof(buf), a->file_name);
-		strnzcat(buf, sizeof(buf), ")");
+		strlcat(buf, " (", sizeof(buf));
+		strlcat(buf, a->file_name, sizeof(buf));
+		strlcat(buf, ")", sizeof(buf));
 	}
-	strnzcat(buf, sizeof(buf), " trig ");
-	strnzcat(buf, sizeof(buf), q);
+	strlcat(buf, " trig ", sizeof(buf));
+	strlcat(buf, q, sizeof(buf));
 	return buf;
 }
 

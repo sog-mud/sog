@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_quest.c,v 1.168 2003-04-24 12:42:09 fjoe Exp $
+ * $Id: act_quest.c,v 1.169 2003-09-29 23:11:44 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -38,10 +38,6 @@
 #include <quest.h>
 #include "quest_impl.h"
 #include "chquest_impl.h"
-
-#ifdef SUNOS
-#	include <compat/compat.h>
-#endif
 
 DECLARE_DO_FUN(do_quest);
 DECLARE_DO_FUN(do_chquest);

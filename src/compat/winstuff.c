@@ -1,79 +1,79 @@
-/* $Id: winstuff.c,v 1.3 2001-01-18 12:15:08 avn Exp $ */
-#if defined (WIN32)
+/*
+ * $Id: winstuff.c,v 1.4 2003-09-29 23:11:19 fjoe Exp $
+ */
 
 #include <string.h>
-#include "compat.h"
+#include <compat/compat.h>
 
-void *bzero		(void *block, size_t size)
-{ return memset (block, 0, size); }
-
-void *bcopy		(void *to, const void *from, size_t size)
-{ return memcpy (to, from, size); }
-
-DIR* opendir	(const char *dirname)
+DIR *
+opendir(const char *dirname)
 {
-	char fullpath [MAX_PATH];
-	int	 iCnt, iTmp = strlen (dirname);
+	char fullpath[MAX_PATH];
+	int iCnt, iTmp = strlen (dirname);
 	DIR *dirstr;
 
-	if (dirname==NULL || iTmp ==0)
+	if (dirname == NULL || iTmp == 0)
 		return NULL;
 
 	dirstr = (DIR *) malloc (sizeof (DIR));
-
-	if (dirstr==NULL)
+	if (dirstr == NULL)
 		return NULL;
 
-	strcpy (fullpath, dirname);
-	
-	for (iCnt=0; iCnt<iTmp; iCnt++)
-		if (fullpath[iCnt]=='/')
-			fullpath[iCnt]='\\';
-
-	if (fullpath[iTmp-1]=='\\')
-		strcat (fullpath, "*.*");
+	strlcpy(fullpath, dirname, sizeof(fullpath));
+	for (iCnt = 0; iCnt < iTmp; iCnt++) {
+		if (fullpath[iCnt] == '/')
+			fullpath[iCnt] = '\\';
+	}
+	if (fullpath[iTmp - 1] == '\\')
+		strlcat(fullpath, "*.*", sizeof(fullpath));
 	else
-		strcat (fullpath, "\\*.*");
-
-	dirstr->d_firstread=TRUE;
-	dirstr->Data = FindFirstFile ((LPCTSTR) (fullpath), &(dirstr->FindData));
-
-	// This may be don't correct...
-	if (dirstr->Data == INVALID_HANDLE_VALUE) 
-	{
+		strlcat(fullpath, "\\*.*", sizeof(fullpath));
+	dirstr->d_firstread = TRUE;
+	dirstr->Data = FindFirstFile((LPCTSTR) fullpath, &dirstr->FindData);
+	if (dirstr->Data == INVALID_HANDLE_VALUE) {
+		/* This may be incorrect... */
 		free (dirstr);
 		return NULL;
 	}
-
 	return dirstr;
 }
 
-struct dirent* readdir	(DIR *dirstream)
+struct dirent *
+readdir(DIR *dirstream)
 {
-	if (dirstream==NULL)
+	if (dirstream == NULL)
 		return NULL;
 
-	// First read
+	/* First read */
 	if (dirstream->d_firstread)
-		dirstream->d_firstread=FALSE; // We already have readed name
-	else
-	{
-		if (!FindNextFile (dirstream->Data, &(dirstream->FindData)))
+		dirstream->d_firstread = FALSE; /* We already have read name */
+	else {
+		if (!FindNextFile (dirstream->Data, &dirstream->FindData))
 			return NULL;
 	}
 
-	// copy and return
-	strcpy (dirstream->d_name, dirstream->FindData.cFileName);
+	/* copy and return */
+	strlcpy (dirstream->d_name, dirstream->FindData.cFileName,
+	    sizeof(dirstream->d_name));
 	return (struct dirent *) dirstream;
 }
 
-int closedir	(DIR *dirstream)
+int
+closedir(DIR *dirstream)
 {
-	if (dirstream==NULL)
+	if (dirstream == NULL)
 		return -1;
-	FindClose (dirstream->Data);
-	free (dirstream);
+	FindClose(dirstream->Data);
+	free(dirstream);
 	return 0;
 }
 
-#endif
+/*
+ * Copied from Envy
+ */
+void
+gettimeofday(struct timeval *tp, void *tzp)
+{
+	tp->tv_sec = time(NULL);
+	tp->tv_usec = 0;
+}

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: str.c,v 1.36 2003-04-24 13:37:01 fjoe Exp $
+ * $Id: str.c,v 1.37 2003-09-29 23:11:54 fjoe Exp $
  */
 
 #include <ctype.h>
@@ -35,11 +35,7 @@
 #include <str.h>
 #include <memalloc.h>
 
-#if defined (WIN32)
-#	define vsnprintf	_vsnprintf
-int strncasecmp(const char *s1, const char *s2, size_t n);
-int strcasecmp(const char *s1, const char *s2);
-#endif
+#include <compat/compat.h>
 
 char str_empty[1];
 
@@ -163,44 +159,6 @@ str_printf(const char *format,...)
 	va_end(ap);
 
 	return str_dup(buf);
-}
-
-/*
- * strnzcpy - copy from dest to src and always append terminating '\0'.
- *            len MUST BE > 0
- */
-char *
-strnzcpy(char *dest, size_t len, const char *src)
-{
-	strncpy(dest, src, len);
-	dest[len-1] = '\0';
-	return dest;
-}
-
-char *
-strnzcat(char *dest, size_t len, const char *src)
-{
-	size_t old_len;
-
-	old_len = strlen(dest);
-	if (old_len >= len - 1)
-		return dest;
-
-	strncat(dest, src, len - old_len - 1);
-	return dest;
-}
-
-char *
-strnzncat(char *dest, size_t len, const char *src, size_t count)
-{
-	size_t old_len;
-
-	old_len = strlen(dest);
-	if (old_len >= len - 1)
-		return dest;
-
-	strncat(dest, src, UMIN(len - old_len - 1, count));
-	return dest;
 }
 
 char *

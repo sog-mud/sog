@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_class.c,v 1.43 2002-03-21 13:54:00 fjoe Exp $
+ * $Id: db_class.c,v 1.44 2003-09-29 23:11:25 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -155,8 +155,7 @@ DBLOAD_FUN(load_class)
 			     fread_strkey(fp, &specs));
 			if (IS_TOKEN(fp, "ShortName")) {
 				const char *p = fread_string(fp);
-				strnzcpy(cl->who_name,
-					 sizeof(cl->who_name), p);
+				strlcpy(cl->who_name, p, sizeof(cl->who_name));
 				free_string(p);
 				fMatch = TRUE;
 			}

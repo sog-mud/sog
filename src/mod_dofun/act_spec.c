@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_spec.c,v 1.29 2003-04-19 16:12:32 fjoe Exp $
+ * $Id: act_spec.c,v 1.30 2003-09-29 23:11:29 fjoe Exp $
  */
 
 #include <sys/time.h>
@@ -33,7 +33,7 @@
 #include <time.h>
 
 #if !defined(WIN32)
-#	include <unistd.h>
+#include <unistd.h>
 #endif
 #include <ctype.h>
 

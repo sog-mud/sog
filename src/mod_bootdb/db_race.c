@@ -23,10 +23,11 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_race.c,v 1.43 2002-03-20 19:39:30 fjoe Exp $
+ * $Id: db_race.c,v 1.44 2003-09-29 23:11:26 fjoe Exp $
  */
 
 #include <stdio.h>
+#include <string.h>
 
 #include <merc.h>
 #include <db.h>
@@ -237,8 +238,7 @@ DBLOAD_FUN(load_pcrace)
 			     fread_strkey(fp, &specs));
 			if (IS_TOKEN(fp, "ShortName")) {
 				const char *p = fread_string(fp);
-				strnzcpy(pcr->who_name, sizeof(pcr->who_name),
-					 p);
+				strlcpy(pcr->who_name, p, sizeof(pcr->who_name));
 				free_string(p);
 				fMatch = TRUE;
 				break;

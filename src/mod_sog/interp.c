@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.200 2003-04-24 12:42:13 fjoe Exp $
+ * $Id: interp.c,v 1.201 2003-09-29 23:11:49 fjoe Exp $
  */
 
 /***************************************************************************
@@ -428,8 +428,8 @@ substitute_alias(DESCRIPTOR_DATA *d, const char *argument)
 					 "%s %s",		// notrans
 					 d->dvdata->alias_sub[i], point);
 			} else {
-				strnzcpy(buf, sizeof(buf),
-					 d->dvdata->alias_sub[i]);
+				strlcpy(buf, d->dvdata->alias_sub[i],
+				    sizeof(buf));
 			}
 
 			if (strlen(buf) > MAX_INPUT_LENGTH) {

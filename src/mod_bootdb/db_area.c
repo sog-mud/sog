@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.148 2003-05-14 17:41:59 fjoe Exp $
+ * $Id: db_area.c,v 1.149 2003-09-29 23:11:25 fjoe Exp $
  */
 
 /***************************************************************************
@@ -789,7 +789,7 @@ DBLOAD_FUN(load_specials)
 				break;
 			}
 
-			while (ssubst - spec_substs < (int) SPEC_SUBSTS_SZ &&
+			while ((size_t) (ssubst - spec_substs) < SPEC_SUBSTS_SZ &&
 			       !str_cmp(spec, ssubst->spec)) {
 				trig = trig_new(
 				    &pMobIndex->mp_trigs, ssubst->trig);

@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.287 2003-04-25 12:49:14 fjoe Exp $
+ * $Id: act_obj.c,v 1.288 2003-09-29 23:11:29 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2132,7 +2132,7 @@ DO_FUN(do_buy, ch, argument)
 		}
 	}
 
-	if ((ch->silver + ch->gold * 100) < (int) (cost * number)) {
+	if (ch->silver + ch->gold * 100 < (int) (cost * number)) {
 		if (number > 1) {
 			tell_char(keeper, ch,
 				    "You can't afford to buy that many.");
@@ -2353,7 +2353,7 @@ DO_FUN(do_sell, ch, argument)
 		act_char("You haggle with the shopkeeper.", ch);
 		cost += obj->cost / 2 * roll / 100;
 		cost = UMIN(cost, 95 * get_cost(keeper, obj, TRUE) / 100);
-		cost = UMIN((int) cost, (keeper->silver + 100 * keeper->gold));
+		cost = UMIN((int) cost, keeper->silver + 100 * keeper->gold);
 		check_improve(ch, "haggle", TRUE, 4);
 	}
 	silver = cost - (cost / 100) * 100;

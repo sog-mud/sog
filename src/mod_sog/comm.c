@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm.c,v 1.21 2003-09-08 16:13:20 fjoe Exp $
+ * $Id: comm.c,v 1.22 2003-09-29 23:11:48 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -134,7 +134,7 @@ percent_hp(CHAR_DATA *ch, char *buf, size_t len)
 		snprintf(buf, len, "%d%%",		// notrans
 			 ((100 * ch->hit) / UMAX(1, ch->max_hit)));
 	} else
-		strnzcpy(buf, len, "BAD!");		// notrans
+		strlcpy(buf, "BAD!", len);		// notrans
 }
 
 /*
@@ -205,14 +205,15 @@ bust_a_prompt(DESCRIPTOR_DATA *d)
 				     IS_IMMORTAL(ch) ||
 				     (chance && number_percent() < chance))) {
 					found = TRUE;
-					strnzcat(buf2, sizeof(buf2),
-						 sdir_name[door]);
-					if (IS_SET(pexit->exit_info, EX_CLOSED))
-						strnzcat(buf2, sizeof(buf2),
-							 "*");	// notrans
+					strlcat(buf2, sdir_name[door],
+					    sizeof(buf2));
+					if (IS_SET(pexit->exit_info, EX_CLOSED)) {
+						strlcat(buf2, "*", // notrans
+						    sizeof(buf2));
+					}
 				}
 			if (buf2[0])
-				strnzcat(buf2, sizeof(buf2), " ");
+				strlcat(buf2, " ", sizeof(buf2));
 			i = buf2;
 			break;
 
@@ -479,7 +480,7 @@ close_descriptor(DESCRIPTOR_DATA *dclose, int save_flags)
 			log(LOG_BUG, "close_socket: dclose not found.");
 	}
 
-#if !defined( WIN32 )
+#if !defined(WIN32)
 	close(dclose->descriptor);
 #else
 	closesocket(dclose->descriptor);
@@ -576,8 +577,8 @@ write_to_snoop(DESCRIPTOR_DATA *d, const char *txt, size_t len)
 	}
 
 	/* copy */
-	strnzncpy(d->snoop_buf.buf + d->snoop_buf.top, d->snoop_buf.size,
-		  txt, len);
+	strlncpy(d->snoop_buf.buf + d->snoop_buf.top, txt,
+	    d->snoop_buf.size, len);
 	d->snoop_buf.top += len;
 }
 
@@ -1138,7 +1139,7 @@ read_from_buffer(DESCRIPTOR_DATA *d)
 					*d->pString = d->backup;
 					d->pString = NULL;
 				}
-				strnzcpy(d->incomm, sizeof(d->incomm), "quit");
+				strlcpy(d->incomm, "quit", sizeof(d->incomm));
 			}
 		}
 	}
@@ -1147,9 +1148,9 @@ read_from_buffer(DESCRIPTOR_DATA *d)
 	 * Do '!' substitution.
 	 */
 	if (repeat && !D_IS_SERVICE(d))
-		strnzcpy(d->incomm, sizeof(d->incomm), d->inlast);
+		strlcpy(d->incomm, d->inlast, sizeof(d->incomm));
 	else
-		strnzcpy(d->inlast, sizeof(d->inlast), d->incomm);
+		strlcpy(d->inlast, d->incomm, sizeof(d->inlast));
 
 	/*
 	 * Shift the input buffer.

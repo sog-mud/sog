@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: str.h,v 1.20 2003-05-14 17:38:57 fjoe Exp $
+ * $Id: str.h,v 1.21 2003-09-29 23:11:22 fjoe Exp $
  */
 
 #ifndef _STR_H_
@@ -46,13 +46,11 @@ const char *	str_printf	(const char *format,...)
 
 extern char	str_empty[1];
 
-#define IS_NULLSTR(str)		(!(str) || *(const char*)(str) == '\0')
-
-char *	strnzcpy(char *dest, size_t len, const char *src);
-#define strnzncpy(dest, len, src, count) \
-		strnzcpy((dest), UMIN((len), (size_t) (count) + 1), (src))
-char *	strnzcat(char *dest, size_t len, const char *src);
-char *	strnzncat(char *dest, size_t len, const char *src, size_t count);
+#define IS_NULLSTR(str)		(!(str) || (str)[0] == '\0')
+#define strlncpy(dst, src, len, cnt) \
+		strlcpy((dst), (src), UMIN((size_t) (len), (size_t) (cnt)+1))
+#define strlncat(dst, src, len, cnt)	\
+		strlcat((dst), (src), UMIN((size_t) (len), strlen(dst)+(cnt)+1))
 #if !defined (WIN32)
 char *	strlwr(const char *s);
 char *	strupr(const char *s);

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_class.c,v 1.37 2001-12-03 22:28:33 fjoe Exp $
+ * $Id: olc_class.c,v 1.38 2003-09-29 23:11:41 fjoe Exp $
  */
 
 #include "olc.h"
@@ -337,7 +337,7 @@ OLC_FUN(classed_whoname)
 
 	str = str_dup(class->who_name);
 	if (olced_str(ch, argument, cmd, &str)) {
-		strnzcpy(class->who_name, sizeof(class->who_name), str);
+		strlcpy(class->who_name, str, sizeof(class->who_name));
 		free_string(str);
 		return TRUE;
 	}

@@ -1,5 +1,5 @@
 /*
- * $Id: nanny.c,v 1.14 2003-09-08 16:13:22 fjoe Exp $
+ * $Id: nanny.c,v 1.15 2003-09-29 23:11:50 fjoe Exp $
  */
 
 /***************************************************************************
@@ -53,7 +53,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#if defined(LINUX)
+#if defined(SUNOS) || defined(SVR4) || defined(LINUX)
 #include <crypt.h>
 #endif
 
@@ -172,7 +172,6 @@ nanny(DESCRIPTOR_DATA *d, const char *argument)
 		 *
 		 * Furey: added suffix check by request of Nickel of
 		 *	HiddenWorlds.
-		 * fjoe: replaced suffix/prefix checks with fnmatch check
 		 */
 		if (check_ban(d, BCL_ALL) == BAN_DENY)
 			return;

@@ -1,5 +1,5 @@
 /*
- * $Id: olc_mprog.c,v 1.16 2003-05-14 19:20:05 fjoe Exp $
+ * $Id: olc_mprog.c,v 1.17 2003-09-29 23:11:41 fjoe Exp $
  */
 
 #include <ctype.h>
@@ -357,7 +357,7 @@ mprog_update_type(CHAR_DATA *ch, mprog_t *mp)
 		return;
 	}
 
-	strnzncpy(buf, sizeof(buf), mp->name, (size_t) (p - mp->name));
+	strlncpy(buf, mp->name, sizeof(buf), p - mp->name);
 
 	if ((mp->type = flag_svalue(mprog_types, buf)) < 0) {
 		act_puts("MprogEd: $t: unknown type.",

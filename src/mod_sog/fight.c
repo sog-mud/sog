@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.359 2003-04-24 12:42:11 fjoe Exp $
+ * $Id: fight.c,v 1.360 2003-09-29 23:11:48 fjoe Exp $
  */
 
 /***************************************************************************
@@ -48,7 +48,7 @@
 #include <time.h>
 
 #if !defined (WIN32)
-#	include <unistd.h>
+#include <unistd.h>
 #endif
 
 #include <merc.h>

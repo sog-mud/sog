@@ -1,5 +1,5 @@
 /*
- * $Id: note.c,v 1.30 2002-11-28 21:40:19 fjoe Exp $
+ * $Id: note.c,v 1.31 2003-09-29 23:11:30 fjoe Exp $
  */
 
 /***************************************************************************
@@ -342,8 +342,8 @@ note_remove(CHAR_DATA *ch, note_t *pnote, bool delete)
 		while (*to_list != '\0') {
 			to_list	= one_argument(to_list, to_one, sizeof(to_one));
 			if (to_one[0] != '\0' && str_cmp(ch->name, to_one)) {
-				strnzcat(to_new, sizeof(to_new), " ");
-				strnzcat(to_new, sizeof(to_new), to_one);
+				strlcat(to_new, " ", sizeof(to_new));
+				strlcat(to_new, to_one, sizeof(to_new));
 			}
 		}
 
@@ -724,7 +724,7 @@ parse_note(CHAR_DATA *ch, const char *argument, int type)
 			return;
 		}
 
-		strnzcpy(buf, sizeof(buf), pc->pnote->text);
+		strlcpy(buf, pc->pnote->text, sizeof(buf));
 		for (len = strlen(buf); len > 0; len--) {
 			if (buf[len] != '\n')
 				continue;

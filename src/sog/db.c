@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db.c,v 1.4 2001-12-10 15:34:36 fjoe Exp $
+ * $Id: db.c,v 1.5 2003-09-29 23:11:54 fjoe Exp $
  */
 
 #include <errno.h>
@@ -32,21 +32,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
-#if defined(BSD44)
-#	include <fnmatch.h>
-#else
-#	include <compat/fnmatch.h>
-#endif
-
-#ifdef SUNOS
-#	include <compat/compat.h>
-#	define d_namlen d_reclen
-#endif
-
-#ifdef SVR4
-#	define d_namlen d_reclen
-#endif
+#include <compat/fnmatch.h>
 
 #include <typedef.h>
 #include <log.h>
@@ -180,7 +166,7 @@ db_parse_file(DBDATA *dbdata, const char *path, const char *file)
 	rfile_t *fp;
 	logger_t logger_old;
 
-	strnzcpy(buf, sizeof(buf), bootdb_filename);
+	strlcpy(buf, bootdb_filename, sizeof(buf));
 	linenum = line_number;
 	line_number = 1;
 	snprintf(bootdb_filename, sizeof(bootdb_filename), "%s%c%s",
@@ -217,7 +203,7 @@ db_parse_file(DBDATA *dbdata, const char *path, const char *file)
 	rfile_close(fp);
 
 bail_out:
-	strnzcpy(bootdb_filename, sizeof(bootdb_filename), buf);
+	strlcpy(bootdb_filename, buf, sizeof(bootdb_filename));
 	line_number = linenum;
 }
 

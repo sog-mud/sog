@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mlstring.c,v 1.71 2003-04-17 11:25:59 tatyana Exp $
+ * $Id: mlstring.c,v 1.72 2003-09-29 23:11:54 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -114,7 +114,7 @@ mlstr_fread(rfile_t *fp, mlstring *mlp)
 			return;
 		}
 
-		if ((l = lang_nlookup(s, (size_t) (q-s))) == NULL) {
+		if ((l = lang_nlookup(s, q-s)) == NULL) {
 			log(LOG_ERROR, "mlstr_fread: %s: unknown language", s);
 			return;
 		}
@@ -373,7 +373,7 @@ mlstr_next(const mlstring *mlp, const char **p)
 	if (mlp->nlang == 0)
 		return NULL;
 
-	if (p - mlp->u.lstr < (int) mlp->nlang - 1)
+	if ((size_t) (p - mlp->u.lstr) < mlp->nlang - 1)
 		return p + 1;
 
 	return NULL;
@@ -517,7 +517,7 @@ mlstr_stripnl(mlstring *mlp, size_t trailing_nls)
 		}
 
 		if (oldlen != len) {
-			strnzncpy(buf, sizeof(buf), *p, len);
+			strlncpy(buf, *p, sizeof(buf), len);
 			free_string(*p);
 			*p = str_dup(buf);
 
@@ -586,10 +586,10 @@ fix_mlstring(const char *s)
 	s = fix_string(s);
 	while((p = strchr(s, '@')) != NULL) {
 		*p = '\0';
-		strnzcat(buf, sizeof(buf), s);
-		strnzcat(buf, sizeof(buf), "@@");		// notrans
+		strlcat(buf, s, sizeof(buf));
+		strlcat(buf, "@@", sizeof(buf));		// notrans
 		s = p+1;
 	}
-	strnzcat(buf, sizeof(buf), s);
+	strlcat(buf, s, sizeof(buf));
 	return buf;
 }

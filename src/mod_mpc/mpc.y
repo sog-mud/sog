@@ -25,7 +25,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc.y,v 1.51 2003-07-21 22:17:41 fjoe Exp $
+ * $Id: mpc.y,v 1.52 2003-09-29 23:11:36 fjoe Exp $
  */
 
 /*
@@ -1281,7 +1281,7 @@ mpcode_dump(mpcode_t *mpc)
 		codeinfo_t *ci;
 
 		if ((ci = codeinfo_lookup(p)) == NULL) {
-			fprintf(stderr, "0x%08x: 0x%08x\n", ip, (int) p);
+			fprintf(stderr, "0x%08x: %p\n", ip, p);
 			continue;
 		}
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: typedef.h,v 1.71 2003-04-24 13:36:56 fjoe Exp $
+ * $Id: typedef.h,v 1.72 2003-09-29 23:11:22 fjoe Exp $
  */
 
 #ifndef _TYPEDEF_H_
@@ -187,15 +187,6 @@ typedef void	EFFECT_FUN	(void *vo, int level, int dam);
 		 fd_set *exc_set __attribute__((unused)))
 #define EFFECT_FUN(fun)							\
 	static void fun(void *vo, int level, int dam)
-
-
-/* WIN32 Microsoft specific definitions */
-#if defined (WIN32)
-#	define vsnprintf	_vsnprintf
-#	define snprintf		_snprintf
-#	define vsnprintf	_vsnprintf
-#	define inline
-#endif
 
 typedef void (*e_init_t)(void *);
 typedef void (*e_destroy_t)(void *);

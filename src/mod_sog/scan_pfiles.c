@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: scan_pfiles.c,v 1.6 2002-11-20 14:39:43 fjoe Exp $
+ * $Id: scan_pfiles.c,v 1.7 2003-09-29 23:11:50 fjoe Exp $
  */
 
 #include <sys/stat.h>
@@ -31,12 +31,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
-#if	defined (WIN32)
-#	include <compat/compat.h>
-#else
-#	include <dirent.h>
-#endif
+#include <dirent.h>
 
 #include <merc.h>
 

@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.306 2003-04-25 12:49:26 fjoe Exp $
+ * $Id: spellfun.c,v 1.307 2003-09-29 23:11:34 fjoe Exp $
  */
 
 /***************************************************************************
@@ -5254,7 +5254,7 @@ SPELL_FUN(spell_animate_dead, sn, level, ch, vo)
 			||  (q = strstr(r, "%s")) == NULL)
 				continue;
 
-			strnzncpy(buf, sizeof(buf), r, (size_t) (q-r));
+			strlncpy(buf, r, sizeof(buf), q - r);
 			if (!str_prefix(buf, *p)) {
 				const char *s = strdup(*p + strlen(buf));
 				free_string(*p);

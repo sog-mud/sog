@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.405 2003-09-08 16:13:10 fjoe Exp $
+ * $Id: merc.h,v 1.406 2003-09-29 23:11:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -56,13 +56,14 @@
 #endif
 
 #if defined (WIN32)
-#	undef  NOCRYPT
-#	define NOCRYPT
-#	pragma warning (disable : 4244 4018 4761)
+#undef NOCRYPT
+#define NOCRYPT
+#pragma warning (disable : 4244 4018 4761)
 #endif
 
 #include <limits.h>
 #include <ctype.h>
+#include <compat/compat.h>
 
 #include <typedef.h>
 

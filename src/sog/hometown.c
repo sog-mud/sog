@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: hometown.c,v 1.24 2001-12-03 22:28:47 fjoe Exp $
+ * $Id: hometown.c,v 1.25 2003-09-29 23:11:54 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -163,7 +163,7 @@ get_hometown(int htn)
 
 	if (htn < 0)
 		htn = 0;
-	h = varr_get(&hometowns, (size_t) htn);
+	h = varr_get(&hometowns, htn);
 	if (!h)
 		h = VARR_GET(&hometowns, 0);
 	return h;

@@ -33,6 +33,9 @@
  *	@(#)fnmatch.h	8.1 (Berkeley) 6/2/93
  */
 
+#if defined(BSD44)
+#include <fnmatch.h>
+#else /* BSD44 */
 #ifndef	_FNMATCH_H_
 #define	_FNMATCH_H_
 
@@ -52,3 +55,4 @@ int	 fnmatch __P((const char *, const char *, int));
 __END_DECLS
 
 #endif /* !_FNMATCH_H_ */
+#endif /* !BSD44 */

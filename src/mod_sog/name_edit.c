@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: name_edit.c,v 1.10 2001-08-20 16:47:43 fjoe Exp $
+ * $Id: name_edit.c,v 1.11 2003-09-29 23:11:50 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -50,12 +50,12 @@ void cat_name(char *buf, const char *name, size_t len)
 	bool have_spaces = strpbrk(name, " \t") != NULL;	// notrans
 
 	if (buf[0])
-		strnzcat(buf, len, " ");
+		strlcat(buf, " ", len);
 	if (have_spaces)
-		strnzcat(buf, len, "'");
-	strnzcat(buf, len, name);
+		strlcat(buf, "'", len);
+	strlcat(buf, name, len);
 	if (have_spaces)
-		strnzcat(buf, len, "'");
+		strlcat(buf, "'", len);
 }
 
 /*

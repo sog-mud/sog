@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_lex.c,v 1.25 2003-07-21 22:17:41 fjoe Exp $
+ * $Id: mpc_lex.c,v 1.26 2003-09-29 23:11:36 fjoe Exp $
  */
 
 #include <ctype.h>
@@ -123,7 +123,7 @@ skip_line(mpcode_t *mpc)
 
 #define STORE(c)							\
 	do {								\
-		if (yyp - yytext >= (int) sizeof(yytext)) {		\
+		if ((size_t) (yyp - yytext) >= sizeof(yytext)) {	\
 			compile_error(mpc, "Line too long");		\
 			goto nextch;					\
 		}							\

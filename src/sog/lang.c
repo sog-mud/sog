@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: lang.c,v 1.41 2003-06-18 07:41:03 fjoe Exp $
+ * $Id: lang.c,v 1.42 2003-09-29 23:11:54 fjoe Exp $
  */
 
 #include <string.h>
@@ -59,7 +59,7 @@ word_form_lookup(lang_t *l, rulecl_t *rcl, const char *word, uint fnum)
 		char *r;
 
 		/* copy prefix */
-		strnzncpy(buf2, sizeof(buf2), word, (size_t) (q-word));
+		strlncpy(buf2, word, sizeof(buf2), q-word);
 
 		/*
 		 * translate infix, translation must be done
@@ -69,26 +69,26 @@ word_form_lookup(lang_t *l, rulecl_t *rcl, const char *word, uint fnum)
 		r = strchr(q+1, '~');
 		if (!r)
 			r = strchr(q+1, '\0');
-		strnzncpy(buf3, sizeof(buf3), q+1, (size_t) (*r ? r-q-1 : r-q));
-		strnzcat(buf2, sizeof(buf2),
-			 word_form_lookup(l, rcl, buf3, fnum));
+		strlncpy(buf3, q+1, sizeof(buf3), *r ? r-q-1 : r-q);
+		strlcat(buf2, word_form_lookup(l, rcl, buf3, fnum),
+		    sizeof(buf2));
 
 		/* translate the rest */
 		if (!*r) {
-			strnzcpy(buf, sizeof(buf), buf2);
+			strlcpy(buf, buf2, sizeof(buf));
 			return buf;
 		}
 
 		if (strchr(r+1, '~')) {
-			strnzcpy(buf3, sizeof(buf3),
-				 word_form_lookup(l, rcl, r+1, fnum));
+			strlcpy(buf3, word_form_lookup(l, rcl, r+1, fnum),
+			    sizeof(buf3));
 			q = buf3;
 		}
 		else
 			q = r+1;
 
-		strnzcpy(buf, sizeof(buf), buf2);
-		strnzcat(buf, sizeof(buf), q);
+		strlcpy(buf, buf2, sizeof(buf));
+		strlcat(buf, q, sizeof(buf));
 
 		return buf;
 	}
@@ -104,8 +104,8 @@ word_form_lookup(lang_t *l, rulecl_t *rcl, const char *word, uint fnum)
 	if (rule->arg <= 0 || **p != '-')
 		return *p;
 
-	strnzcpy(buf, sizeof(buf), word);
-	strnzcpy(buf + rule->arg, sizeof(buf) - rule->arg, *p + 1);
+	strlcpy(buf, word, sizeof(buf));
+	strlcpy(buf + rule->arg, *p + 1, sizeof(buf) - rule->arg);
 	return buf;
 }
 

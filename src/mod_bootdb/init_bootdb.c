@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_bootdb.c,v 1.25 2003-05-14 19:19:54 fjoe Exp $
+ * $Id: init_bootdb.c,v 1.26 2003-09-29 23:11:26 fjoe Exp $
  */
 
 #include <sys/stat.h>
@@ -32,12 +32,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
-#if defined(BSD44)
-#	include <fnmatch.h>
-#else
-#	include <compat/fnmatch.h>
-#endif
+#include <compat/fnmatch.h>
 
 #include <merc.h>
 #include <db.h>
@@ -223,7 +218,7 @@ load_mprog(const char *name)
 		free_string(mp_name);
 		goto bailout;
 	}
-	strnzncpy(buf, sizeof(buf), name, (size_t) (q - name));
+	strlncpy(buf, name, sizeof(buf), q - name);
 
 	if ((mp_type = flag_svalue(mprog_types, buf)) < 0) {
 		log(LOG_ERROR, "load_mprog: %s: unknown type", buf);

@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.222 2003-04-25 12:49:15 fjoe Exp $
+ * $Id: martial_art.c,v 1.223 2003-09-29 23:11:30 fjoe Exp $
  */
 
 /***************************************************************************
@@ -47,10 +47,6 @@
 #include <sog.h>
 #include <magic.h>
 #include <update.h>
-
-#ifdef SUNOS
-#	include <compat/compat.h>
-#endif
 
 DECLARE_DO_FUN(do_kill);
 DECLARE_DO_FUN(do_murder);

@@ -1,5 +1,5 @@
 /*
- * $Id: flag.c,v 1.42 2003-07-21 22:17:42 fjoe Exp $
+ * $Id: flag.c,v 1.43 2003-09-29 23:11:54 fjoe Exp $
  */
 
 /***************************************************************************
@@ -153,7 +153,7 @@ flag_istring(const flaginfo_t *f, flag_t val)
 	if ((f = flag_ilookup(f, val)) != NULL)
 		return f->name;
 
-	snprintf(buf, sizeof(buf), "%d", (int) val);
+	snprintf(buf, sizeof(buf), "%d", val);
 	return buf;
 }
 
@@ -181,16 +181,14 @@ flag_string(const flaginfo_t *flag_table, flag_t bits)
 		switch (ttype) {
 		case TABLE_BITVAL:
 			if (IS_SET(bits, flag_table[flag].bit)) {
-				strnzcat(buf[cnt], BUFSZ, " ");
-				strnzcat(buf[cnt], BUFSZ,
-					 flag_table[flag].name);
+				strlcat(buf[cnt], " ", BUFSZ);
+				strlcat(buf[cnt], flag_table[flag].name, BUFSZ);
 			}
 			break;
 
 		case TABLE_INTVAL:
 			if (flag_table[flag].bit == bits) {
-				strnzcpy(buf[cnt], BUFSZ,
-					 flag_table[flag].name);
+				strlcpy(buf[cnt], flag_table[flag].name, BUFSZ);
 				return buf[cnt];
 			}
 			break;

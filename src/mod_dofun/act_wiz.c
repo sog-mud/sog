@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.322 2003-05-14 16:16:34 fjoe Exp $
+ * $Id: act_wiz.c,v 1.323 2003-09-29 23:11:29 fjoe Exp $
  */
 
 /***************************************************************************
@@ -50,16 +50,10 @@
 #include <unistd.h>
 #endif
 #include <limits.h>
-
 #if defined(SUNOS) || defined(SVR4) || defined(LINUX)
-#	include <crypt.h>
+#include <crypt.h>
 #endif
-
-#if defined(BSD44)
-#	include <fnmatch.h>
-#else
-#	include <compat/fnmatch.h>
-#endif
+#include <compat/fnmatch.h>
 
 #include <merc.h>
 #include <cmd.h>
@@ -479,14 +473,14 @@ DO_FUN(do_smote, ch, argument)
 			continue;
 		}
 
-		strnzcpy(temp, sizeof(temp), argument);
+		strlcpy(temp, argument, sizeof(temp));
 		temp[strlen(argument) - strlen(letter)] = '\0';
 		last[0] = '\0';
 		name = vch->name;
 
 		for (; *letter != '\0'; letter++) {
 			if (*letter == '\'' && matches == strlen(vch->name)) {
-				strnzcat(temp, sizeof(temp), "r");
+				strlcat(temp, "r", sizeof(temp));
 				continue;
 			}
 
@@ -502,18 +496,18 @@ DO_FUN(do_smote, ch, argument)
 				matches++;
 				name++;
 				if (matches == strlen(vch->name)) {
-					strnzcat(temp, sizeof(temp), "you");
+					strlcat(temp, "you", sizeof(temp));
 					last[0] = '\0';
 					name = vch->name;
 					continue;
 				}
-				strnzncat(last, sizeof(last), letter, 1);
+				strlncat(last, letter, sizeof(last), 1);
 				continue;
 			}
 
 			matches = 0;
-			strnzcat(temp, sizeof(temp), last);
-			strnzncat(temp, sizeof(temp), letter, 1);
+			strlcat(temp, last, sizeof(temp));
+			strlncat(temp, letter, sizeof(temp), 1);
 			last[0] = '\0';
 			name = vch->name;
 		}
@@ -2674,7 +2668,7 @@ DO_FUN(do_string, ch, argument)
 	argument = one_argument(argument, type, sizeof(type));
 	argument = one_argument(argument, arg1, sizeof(arg1));
 	argument = one_argument(argument, arg2, sizeof(arg2));
-	strnzcpy(arg3, sizeof(arg3), argument);
+	strlcpy(arg3, argument, sizeof(arg3));
 
 	if (type[0] == '\0' || arg1[0] == '\0'
 	||  arg2[0] == '\0' || arg3[0] == '\0') {
@@ -2899,7 +2893,7 @@ DO_FUN(do_sockets, ch, argument)
 
 	one_argument(argument, arg, sizeof(arg));
 	if (strchr(arg, '@') == NULL)
-		strnzcat(arg, sizeof(arg), "*@*");		// notrans
+		strlcat(arg, "*@*", sizeof(arg));		// notrans
 
 	for (d = descriptor_list; d; d = d->next) {
 		char buf[MAX_STRING_LENGTH];
@@ -2918,8 +2912,9 @@ DO_FUN(do_sockets, ch, argument)
 
 		count++;
 		if (d->d_type == D_NORMAL) {
-			strnzcpy(tbuf, sizeof(tbuf),
-			    flag_string(desc_con_table, d->connected));
+			strlcpy(tbuf,
+			    flag_string(desc_con_table, d->connected),
+			    sizeof(tbuf));
 		} else {
 			snprintf(tbuf, sizeof(tbuf), "%s#%s",
 			    flag_string(descriptor_types, d->d_type),

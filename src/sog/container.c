@@ -23,10 +23,12 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: container.c,v 1.7 2003-05-08 14:00:19 fjoe Exp $
+ * $Id: container.c,v 1.8 2003-09-29 23:11:54 fjoe Exp $
  */
 
 #include <stdio.h>
+#include <string.h>
+#include <compat/compat.h>
 
 #include <ctype.h>
 #include <typedef.h>
@@ -232,6 +234,6 @@ strkey_filename(const char *name, const char *ext)
 
 	*p = '\0';
 	if (!IS_NULLSTR(ext))
-		strnzcat(buf[ind], sizeof(buf[ind]), ext);
+		strlcat(buf[ind], ext, sizeof(buf[ind]));
 	return buf[ind];
 }

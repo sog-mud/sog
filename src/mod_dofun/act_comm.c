@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.277 2003-04-24 12:41:53 fjoe Exp $
+ * $Id: act_comm.c,v 1.278 2003-09-29 23:11:27 fjoe Exp $
  */
 
 /***************************************************************************
@@ -46,7 +46,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-#if	!defined (WIN32)
+#if !defined (WIN32)
 #include <unistd.h>
 #endif
 
@@ -454,14 +454,14 @@ DO_FUN(do_pmote, ch, argument)
 			continue;
 		}
 
-		strnzcpy(temp, sizeof(temp), argument);
+		strlcpy(temp, argument, sizeof(temp));
 		temp[strlen(argument) - strlen(letter)] = '\0';
 		last[0] = '\0';
 		name = vch->name;
 
 		for (; *letter != '\0'; letter++) {
 			if (*letter == '\'' && matches == strlen(vch->name)) {
-				strnzcat(temp, sizeof(temp), "r");
+				strlcat(temp, "r", sizeof(temp));
 				continue;
 			}
 
@@ -477,18 +477,18 @@ DO_FUN(do_pmote, ch, argument)
 				matches++;
 				name++;
 				if (matches == strlen(vch->name)) {
-					strnzcat(temp, sizeof(temp), "you");
+					strlcat(temp, "you", sizeof(temp));
 					last[0] = '\0';
 					name = vch->name;
 					continue;
 				}
-				strnzncat(last, sizeof(last), letter, 1);
+				strlncat(last, letter, sizeof(last), 1);
 				continue;
 			}
 
 			matches = 0;
-			strnzcat(temp, sizeof(temp), last);
-			strnzncat(temp, sizeof(temp), letter, 1);
+			strlcat(temp, last, sizeof(temp));
+			strlncat(temp, letter, sizeof(temp), 1);
 			last[0] = '\0';
 			name = vch->name;
 		}

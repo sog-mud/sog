@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act.c,v 1.100 2003-04-17 17:20:41 fjoe Exp $
+ * $Id: act.c,v 1.101 2003-09-29 23:11:46 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -147,8 +147,8 @@ format_long(mlstring *ml, CHAR_DATA *to)
 	if (p != s && *(p-1) == ' ')
 		p--;
 
-	strnzncpy(buf, sizeof(buf), s, (size_t) (p-s));
-	strnzcat(buf, sizeof(buf), q+1);
+	strlncpy(buf, s, sizeof(buf), p-s);
+	strlcat(buf, q+1, sizeof(buf));
 	return buf;
 }
 
@@ -238,7 +238,7 @@ translate(const CHAR_DATA *ch, CHAR_DATA *victim, const char *i)
 			snprintf(trans, sizeof(trans), "[%s] %s", // notrans
 				 flag_string(slang_table, ch->slang), i);
 		} else
-			strnzcpy(trans, sizeof(trans), i);
+			strlcpy(trans, i, sizeof(trans));
 		return trans;
 	}
 
@@ -549,11 +549,11 @@ act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 					rulecl = RULES_QTY;
 
 				*point = '\0';
-				strnzcpy(tstack[sp].p,
-					 buf_len - 3 - (tstack[sp].p - buf),
-					 word_form(tstack[sp].p,
-						   (size_t) tstack[sp].arg,
-						   opt->to_lang, rulecl));
+				strlcpy(tstack[sp].p,
+				    word_form(tstack[sp].p,
+					tstack[sp].arg,
+					opt->to_lang, rulecl),
+				    buf_len - 3 - (tstack[sp].p - buf));
 				point = strchr(tstack[sp].p, '\0');
 				inside_wform--;
 				break;
@@ -567,9 +567,8 @@ act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 					"%%%ds" : "%%%d.%ds",	// notrans
 				    tstack[sp].arg, abs(tstack[sp].arg));
 				snprintf(tmp, sizeof(tmp), tmp2, tstack[sp].p);
-				strnzcpy(tstack[sp].p,
-					 buf_len - 3 - (tstack[sp].p - buf),
-					 tmp);
+				strlcpy(tstack[sp].p, tmp,
+				    buf_len - 3 - (tstack[sp].p - buf));
 				point = strchr(tstack[sp].p, '\0');
 				break;
 

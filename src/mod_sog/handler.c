@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.371 2003-05-08 14:00:14 fjoe Exp $
+ * $Id: handler.c,v 1.372 2003-09-29 23:11:48 fjoe Exp $
  */
 
 /***************************************************************************
@@ -4129,7 +4129,7 @@ look_char(CHAR_DATA *ch, CHAR_DATA *victim)
 		}
 	}
 
-	strnzcpy(buf, sizeof(buf), PERS(victim, ch, GET_LANG(ch), ACT_FORMSH));
+	strlcpy(buf, PERS(victim, ch, GET_LANG(ch), ACT_FORMSH), sizeof(buf));
 	cstrtoupper(buf);
 	if (IS_IMMORTAL(victim))
 		send_to_char("{W", ch);				// notrans
@@ -5448,9 +5448,9 @@ money_form(size_t lang, char *buf, size_t len, int num, const char *name)
 	if (num < 0)
 		return;
 
-	strnzcpy(tmp, sizeof(tmp),
-		 word_form(GETMSG(name, lang), 1, lang, RULES_CASE));
-	strnzcpy(buf, len, word_form(tmp, (size_t) num, lang, RULES_QTY));
+	strlcpy(tmp, word_form(GETMSG(name, lang), 1, lang, RULES_CASE),
+	    sizeof(tmp));
+	strlcpy(buf, word_form(tmp, num, lang, RULES_QTY), len);
 }
 
 static void
@@ -5727,7 +5727,7 @@ set_title(CHAR_DATA *ch, const char *title)
 			buf[1] = '\0';
 		}
 
-		strnzcat(buf, sizeof(buf), title);
+		strlcat(buf, title, sizeof(buf));
 	}
 
 	free_string(PC(ch)->title);
@@ -6059,7 +6059,7 @@ get_char_spell(CHAR_DATA *ch, const char *argument, int *door, int range)
 		return get_char_here(ch, argument);
 	}
 
-	strnzncpy(buf, sizeof(buf), argument, (size_t) (p-argument));
+	strlncpy(buf, argument, sizeof(buf), p - argument);
 	if ((*door = exit_lookup(buf)) < 0)
 		return get_char_here(ch, argument);
 
@@ -6165,7 +6165,7 @@ show_list_to_char(OBJ_DATA *list, CHAR_DATA *ch, int flags)
 	for (obj = list; obj != NULL; obj = obj->next_content)
 		count++;
 	prgpstrShow = malloc(count * sizeof(char *));
-	prgnShow    = malloc(count * sizeof(int)  );
+	prgnShow    = malloc(count * sizeof(int));
 	nShow	= 0;
 
 	/*
@@ -6635,33 +6635,40 @@ format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, int flags)
 		return str_empty;
 
 	if (IS_SET(ch->comm, COMM_LONG)) {
-		if (IS_OBJ_STAT(obj, ITEM_INVIS))
-			strnzcat(buf, sizeof(buf),
-				 GETMSG("({yInvis{x) ", GET_LANG(ch)));
-		if (IS_OBJ_STAT(obj, ITEM_DARK))
-			strnzcat(buf, sizeof(buf),
-				 GETMSG("({DDark{x) ", GET_LANG(ch)));
+		if (IS_OBJ_STAT(obj, ITEM_INVIS)) {
+			strlcat(buf, GETMSG("({yInvis{x) ", GET_LANG(ch)),
+			    sizeof(buf));
+		}
+		if (IS_OBJ_STAT(obj, ITEM_DARK)) {
+			strlcat(buf, GETMSG("({DDark{x) ", GET_LANG(ch)),
+			    sizeof(buf));
+		}
 		if (HAS_DETECT(ch, ID_EVIL)
-		&&  IS_OBJ_STAT(obj, ITEM_EVIL))
-			strnzcat(buf, sizeof(buf),
-				 GETMSG("({RRed Aura{x) ", GET_LANG(ch)));
+		&&  IS_OBJ_STAT(obj, ITEM_EVIL)) {
+			strlcat(buf, GETMSG("({RRed Aura{x) ", GET_LANG(ch)),
+			    sizeof(buf));
+		}
 		if (HAS_DETECT(ch, ID_GOOD)
-		&&  IS_OBJ_STAT(obj, ITEM_BLESS))
-			strnzcat(buf, sizeof(buf),
-				 GETMSG("({BBlue Aura{x) ", GET_LANG(ch)));
+		&&  IS_OBJ_STAT(obj, ITEM_BLESS)) {
+			strlcat(buf, GETMSG("({BBlue Aura{x) ", GET_LANG(ch)),
+			    sizeof(buf));
+		}
 		if (HAS_DETECT(ch, ID_MAGIC)
-		&&  IS_OBJ_STAT(obj, ITEM_MAGIC))
-			strnzcat(buf, sizeof(buf),
-				 GETMSG("({MMagical{x) ", GET_LANG(ch)));
-		if (IS_OBJ_STAT(obj, ITEM_GLOW))
-			strnzcat(buf, sizeof(buf),
-				 GETMSG("({WGlowing{x) ", GET_LANG(ch)));
-		if (IS_OBJ_STAT(obj, ITEM_HUM))
-			strnzcat(buf, sizeof(buf),
-				 GETMSG("({YHumming{x) ", GET_LANG(ch)));
+		&&  IS_OBJ_STAT(obj, ITEM_MAGIC)) {
+			strlcat(buf, GETMSG("({MMagical{x) ", GET_LANG(ch)),
+			    sizeof(buf));
+		}
+		if (IS_OBJ_STAT(obj, ITEM_GLOW)) {
+			strlcat(buf, GETMSG("({WGlowing{x) ", GET_LANG(ch)),
+			    sizeof(buf));
+		}
+		if (IS_OBJ_STAT(obj, ITEM_HUM)) {
+			strlcat(buf, GETMSG("({YHumming{x) ", GET_LANG(ch)),
+			    sizeof(buf));
+		}
 	} else {
 		static char FLAGS[] = "{x[{y.{D.{R.{B.{M.{W.{Y.{x] "; // notrans
-		strnzcpy(buf, sizeof(buf), FLAGS);
+		strlcpy(buf, FLAGS, sizeof(buf));
 		if (IS_OBJ_STAT(obj, ITEM_INVIS))
 			buf[5] = 'I';
 		if (IS_OBJ_STAT(obj, ITEM_DARK))
@@ -6685,18 +6692,19 @@ format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, int flags)
 
 	if (IS_SET(flags, FO_F_SHORT)) {
 		if (IS_SET(obj->stat_flags, ITEM_KEEP))
-			strnzcat(buf, sizeof(buf), "* ");
+			strlcat(buf, "* ", sizeof(buf));
 
-		strnzcat(buf, sizeof(buf),
-			 format_short(&obj->short_descr, obj->pObjIndex->name,
-				      ch, GET_LANG(ch), 0));
+		strlcat(buf,
+		    format_short(&obj->short_descr, obj->pObjIndex->name,
+			ch, GET_LANG(ch), 0),
+		    sizeof(buf));
 		if (obj->pObjIndex->vnum > 5 /* not money, gold, etc */
 		&&  (obj->condition < COND_EXCELLENT ||
 		     !IS_SET(ch->comm, COMM_NOVERBOSE))) {
 			char buf2[MAX_STRING_LENGTH];
 			snprintf(buf2, sizeof(buf2), " [{g%s{x]",  // notrans
 				 GETMSG(get_cond_alias(obj), GET_LANG(ch)));
-			strnzcat(buf, sizeof(buf), buf2);
+			strlcat(buf, buf2, sizeof(buf));
 		}
 		return buf;
 	}
@@ -6705,22 +6713,23 @@ format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, int flags)
 		char *p;
 
 		p = strchr(buf, '\0');
-		strnzcat(buf, sizeof(buf),
-			 format_short(&obj->short_descr, obj->pObjIndex->name,
-				      ch, GET_LANG(ch), 0));
+		strlcat(buf,
+		    format_short(&obj->short_descr, obj->pObjIndex->name,
+			ch, GET_LANG(ch), 0),
+		    sizeof(buf));
 		cstrtoupper(p);
-		switch(number_range(1, 3)) {
+		switch (number_range(1, 3)) {
 		case 1:
-			strnzcat(buf, sizeof(buf),
-				 " is floating gently on the water.");
+			strlcat(buf, " is floating gently on the water.",
+			    sizeof(buf));
 			break;
 		case 2:
-			strnzcat(buf, sizeof(buf),
-				 " is making it's way on the water.");
+			strlcat(buf, " is making it's way on the water.",
+			    sizeof(buf));
 			break;
 		case 3:
-			strnzcat(buf, sizeof(buf),
-				 " is getting wet by the water.");
+			strlcat(buf, " is getting wet by the water.",
+			    sizeof(buf));
 			break;
 		}
 	} else {
@@ -6732,7 +6741,7 @@ format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, int flags)
 
 		act_buf(format_long(&obj->description, ch), ch, ch,
 			NULL, NULL, NULL, &opt, tmp, sizeof(tmp));
-		strnzcat(buf, sizeof(buf), tmp);
+		strlcat(buf, tmp, sizeof(buf));
 	}
 	return buf;
 }

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_rule.c,v 1.43 2003-06-18 07:41:01 fjoe Exp $
+ * $Id: olc_rule.c,v 1.44 2003-09-29 23:11:42 fjoe Exp $
  */
 
 #include "olc.h"
@@ -320,7 +320,7 @@ OLC_FUN(ruleed_show)
 	} else {
 		char buf[MAX_STRING_LENGTH];
 
-		strnzncpy(buf, sizeof(buf), r->name, (size_t) r->arg);
+		strlncpy(buf, r->name, sizeof(buf), r->arg);
 		act_puts("Base: [$T] ($j)",
 			 ch, (const void *) r->arg, buf,
 			 TO_CHAR | ACT_NOTRANS, POS_DEAD);

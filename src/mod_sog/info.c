@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: info.c,v 1.36 2003-04-19 00:26:46 fjoe Exp $
+ * $Id: info.c,v 1.37 2003-09-29 23:11:49 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -32,7 +32,7 @@
 #include <unistd.h>
 
 #if defined(SUNOS) || defined(SVR4) || defined(LINUX)
-#	include <crypt.h>
+#include <crypt.h>
 #endif
 
 #include <merc.h>

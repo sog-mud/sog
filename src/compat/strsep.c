@@ -1,5 +1,5 @@
 /*
- * $Id: strsep.c,v 1.5 1998-08-16 11:21:13 fjoe Exp $
+ * $Id: strsep.c,v 1.6 2003-09-29 23:11:19 fjoe Exp $
  */
 
 /*-
@@ -38,7 +38,7 @@
 #include <string.h>
 #include <stdio.h>
 
-#include "compat.h"
+#include <compat/compat.h>
 
 #if defined(LIBC_SCCS) && !defined(lint)
 static char sccsid[] = "@(#)strsep.c	8.1 (Berkeley) 6/4/93";

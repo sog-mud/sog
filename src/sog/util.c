@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: util.c,v 1.44 2003-06-19 07:56:45 fjoe Exp $
+ * $Id: util.c,v 1.45 2003-09-29 23:11:55 fjoe Exp $
  */
 
 #include <sys/stat.h>
@@ -37,14 +37,6 @@
 #endif
 
 #include <merc.h>
-
-#ifdef SUNOS
-#	include <compat/compat.h>
-#endif
-
-#if defined(WIN32)
-#define unlink	_unlink
-#endif
 
 static int number_mm(void);
 
@@ -286,7 +278,7 @@ x_argument(const char *argument, int c, char *arg, size_t len)
 
 	p = strchr(argument, c);
 	if (p == NULL) {
-		strnzcpy(arg, len, argument);
+		strlcpy(arg, argument, len);
 		return 1;
 	}
 
@@ -295,7 +287,7 @@ x_argument(const char *argument, int c, char *arg, size_t len)
 		argument = p+1;
 	else
 		number = 1;
-	strnzcpy(arg, len, argument);
+	strlcpy(arg, argument, len);
 	return number;
 }
 
@@ -600,7 +592,7 @@ init_mm(void)
 	piState[-2] = 55 - 55;
 	piState[-1] = 55 - 24;
 
-	piState[0]  = ((int) current_time) & ((1 << 30) - 1);
+	piState[0]  = current_time & ((1 << 30) - 1);
 	piState[1]  = 1;
 	for (iState = 2; iState < 55; iState++)
 	{

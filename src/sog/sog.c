@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: sog.c,v 1.10 2003-04-24 12:42:20 fjoe Exp $
+ * $Id: sog.c,v 1.11 2003-09-29 23:11:54 fjoe Exp $
  */
 
 #include <sys/time.h>
@@ -52,10 +52,6 @@ static void	close_sockets(varr *v);
 static void	game_loop(void);
 
 static void	log_area_popularity(void);
-
-#if defined(WIN32)
-static void	gettimeofday(struct timeval *tp, void *tzp);
-#endif
 
 static varr_info_t c_info_sockets = {
 	&varr_ops, NULL, NULL,
@@ -376,9 +372,9 @@ game_loop(void)
 #if !defined(WIN32)
 		gettimeofday(&now_time, NULL);
 		usecDelta =
-		    ((int) last_time.tv_usec) - ((int) now_time.tv_usec) +
+		    last_time.tv_usec - now_time.tv_usec +
 		    1000000 / PULSE_PER_SCD;
-		secDelta = ((int) last_time.tv_sec) - ((int) now_time.tv_sec);
+		secDelta = last_time.tv_sec - now_time.tv_sec;
 
 		while (usecDelta < 0) {
 			usecDelta += 1000000;
@@ -444,15 +440,3 @@ log_area_popularity(void)
 
 	fclose(fp);
 }
-
-#if defined (WIN32)
-
-/*
- * Windows 95 and Windows NT support functions (copied from Envy)
- */
-void gettimeofday(struct timeval *tp, void *tzp)
-{
-	tp->tv_sec	= time(NULL);
-	tp->tv_usec	= 0;
-}
-#endif

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: log.c,v 1.34 2001-09-12 12:32:50 fjoe Exp $
+ * $Id: log.c,v 1.35 2003-09-29 23:11:54 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -34,14 +34,6 @@
 #include <log.h>
 #include <util.h>
 #include <str.h>
-
-#ifdef SUNOS
-#	include <compat/compat.h>
-#endif
-#ifdef WIN32
-#	include <string.h>
-#	define vsnprintf	_vsnprintf
-#endif
 
 typedef struct logdata_t {
 	int llevel;

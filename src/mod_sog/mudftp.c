@@ -1,5 +1,5 @@
 /*
- * $Id: mudftp.c,v 1.2 2003-04-25 13:38:11 fjoe Exp $
+ * $Id: mudftp.c,v 1.3 2003-09-29 23:11:50 fjoe Exp $
  *
  * MUDftp module
  * (c) Copyright 1997, 1998 Erwin S. Andreasen and Oliver Jowett
@@ -21,7 +21,7 @@
 #include <unistd.h>
 
 #if defined(SUNOS) || defined(SVR4) || defined(LINUX)
-#	include <crypt.h>
+#include <crypt.h>
 #endif
 
 #include <merc.h>

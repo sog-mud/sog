@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_race.c,v 1.64 2003-06-18 07:58:57 fjoe Exp $
+ * $Id: olc_race.c,v 1.65 2003-09-29 23:11:41 fjoe Exp $
  */
 
 #include "olc.h"
@@ -540,8 +540,8 @@ OLC_FUN(raceed_addpcdata)
 	race->race_pcdata = pcrace_new();
 	str = str_dup(race->race_pcdata->who_name);
 	if (olced_str(ch, argument, cmd, &str)) {
-		strnzcpy(race->race_pcdata->who_name,
-			 sizeof(race->race_pcdata->who_name), str);
+		strlcpy(race->race_pcdata->who_name, str,
+		    sizeof(race->race_pcdata->who_name));
 		free_string(str);
 		act_char("Race PC data created.", ch);
 		return TRUE;
@@ -582,8 +582,8 @@ OLC_FUN(raceed_whoname)
 
 	str = str_qdup(race->race_pcdata->who_name);
 	if (olced_str(ch, argument, cmd, &str)) {
-		strnzcpy(race->race_pcdata->who_name,
-			 sizeof(race->race_pcdata->who_name), str);
+		strlcpy(race->race_pcdata->who_name, str,
+		    sizeof(race->race_pcdata->who_name));
 		free_string(str);
 		return TRUE;
 	}

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_lang.c,v 1.37 2002-03-21 13:54:00 fjoe Exp $
+ * $Id: db_lang.c,v 1.38 2003-09-29 23:11:25 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -71,7 +71,7 @@ fread_lang(rfile_t *fp)
 {
 	fread_word(fp);
 #if !defined(NO_MMAP)
-	return lang_nlookup(fp->tok, (size_t)fp->tok_len);
+	return lang_nlookup(fp->tok, fp->tok_len);
 #else
 	return lang_lookup(rfile_tok(fp));
 #endif
@@ -164,9 +164,8 @@ DBLOAD_FUN(load_rulecl)
 
 				s = strrchr(bootdb_filename, PATH_SEPARATOR);
 				if (s) {
-					strnzncpy(path, sizeof(path),
-					    bootdb_filename,
-					    (size_t) (s - bootdb_filename));
+					strlncpy(path, bootdb_filename,
+					    sizeof(path), s - bootdb_filename);
 				} else
 					path[0] = '\0';
 
