@@ -1,5 +1,5 @@
 /*
- * $Id: olc_save.c,v 1.3 1998-07-04 08:54:13 fjoe Exp $
+ * $Id: olc_save.c,v 1.4 1998-07-06 04:56:21 fjoe Exp $
  */
 
 /**************************************************************************
@@ -545,6 +545,24 @@ void save_rooms(FILE *fp, AREA_DATA *pArea)
                           && pExit->u1.to_room)
                     {
 			int locks = 0;
+ 
+ 			/* HACK : TO PREVENT EX_LOCKED etc without EX_ISDOOR
+ 			   to stop booting the mud */
+ 			if ( IS_SET(pExit->rs_flags, EX_CLOSED)
+ 			||   IS_SET(pExit->rs_flags, EX_LOCKED)
+ 			||   IS_SET(pExit->rs_flags, EX_PICKPROOF)
+ 			||   IS_SET(pExit->rs_flags, EX_NOPASS)
+ 			||   IS_SET(pExit->rs_flags, EX_EASY)
+ 			||   IS_SET(pExit->rs_flags, EX_HARD)
+ 			||   IS_SET(pExit->rs_flags, EX_INFURIATING)
+ 			||   IS_SET(pExit->rs_flags, EX_NOCLOSE)
+ 			||   IS_SET(pExit->rs_flags, EX_NOLOCK) )
+ 				SET_BIT(pExit->rs_flags, EX_ISDOOR);
+ 			else
+ 				REMOVE_BIT(pExit->rs_flags, EX_ISDOOR);
+ 
+ 			/* THIS SUCKS but it's backwards compatible */
+ 			/* NOTE THAT EX_NOCLOSE NOLOCK etc aren't being saved */
 			if (IS_SET(pExit->rs_flags, EX_ISDOOR) 
 			&& (!IS_SET(pExit->rs_flags, EX_PICKPROOF)) 
 		    	&& (!IS_SET(pExit->rs_flags, EX_NOPASS)))
