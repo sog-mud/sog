@@ -1,5 +1,5 @@
 /*
- * $Id: mem.c,v 1.27 1999-03-29 15:01:02 fjoe Exp $
+ * $Id: mem.c,v 1.28 1999-03-31 17:39:25 fjoe Exp $
  */
 
 /***************************************************************************
@@ -206,7 +206,7 @@ OBJ_INDEX_DATA *new_obj_index(void)
 
 void free_obj_index(OBJ_INDEX_DATA *pObj)
 {
-	AFFECT_DATA *paf, paf_next;
+	AFFECT_DATA *paf, *paf_next;
 
 	if (!pObj)
 		return;
