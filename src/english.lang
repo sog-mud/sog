@@ -1,5 +1,5 @@
 #
-# $Id: english.lang,v 1.17 1998-05-20 11:01:30 efdi Exp $
+# $Id: english.lang,v 1.18 1998-05-20 12:27:40 efdi Exp $
 #
 
 INFO_NOTHING		"Nothing.\n\r"
@@ -116,10 +116,6 @@ MOVE_I_SEE_NO_EXIT_T_HERE 	"I see no exit $T here."
 MOVE_I_SEE_NO_T_HERE 	"I see no $T here."
 MOVE_I_SEE_NO_DOOR_T_HERE 	"I see no door $T here."
 MOVE_YOU_CANT_DO_THAT 	"You can't do that.\n\r"
-MOVE_DISTANCE_HERE 	"right here."
-MOVE_DISTANCE_NEARBY 	"nearby to the %s."
-MOVE_DISTANCE_NOT_FAR 	"not far %s."
-MOVE_DISTANCE_OFF_IN 	"off in the distance %s."
 MOVE_N_LOOKS_ALL_AROUND 	"$n looks all around."
 MOVE_LOOKING_AROUND_YOU_SEE "Looking around you see:\n\r"
 MOVE_OPEN_WHAT 		"Open what?\n\r"
@@ -486,3 +482,5 @@ INFO_GRINS_EVILLY	"{W$N{X grins evilly."
 INFO_SMILES_HAPPILY	"{W$N{x smiles happily."
 INFO_LOOKS_AS_YOU	"{W$N{x looks just as disinterested as you."
 INFO_LOOKS_VERY_DISINTERESTED	"{W$N{x looks very disinterested."
+MOVE_SCAN_HERE		"{Chere{x:\n\r"
+MOVE_SCAN_DOOR_CLOSED	"	You see closed door.\n\r"
