@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: msg.c,v 1.2 1998-09-22 18:07:26 fjoe Exp $
+ * $Id: msg.c,v 1.3 1998-09-23 05:18:45 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -93,7 +93,7 @@ mlstring **msg_add(mlstring *ml)
 	mlp = varr_enew(v);
 	*mlp = ml;
 	varr_qsort(v, cmpmlstr);
-	return mlp;
+	return varr_bsearch(v, name, cmpmsg);
 }
 
 mlstring **msg_lookup(const char *name)
