@@ -209,6 +209,14 @@ void do_promote(CHAR_DATA *ch, const char *argument)
 				  ch);
 			return;
 		}
+
+		if (victim->pcdata->clan_status == CLAN_LEADER
+		&&  !IS_IMMORTAL(ch)) {
+			char_puts("You don't have enough power to promote "
+				  "them to be commoner.\n\r", ch);
+			return;
+		}
+
 		victim->pcdata->clan_status = CLAN_COMMON;
 		char_nputs(OK, ch);
 		char_puts("They are now common in your clan.\n\r", ch);
