@@ -1,0 +1,13 @@
+/*
+ * $Id: room_cmd_room.mpc,v 1.1 2003-04-19 13:21:01 tatyana Exp $
+ */
+
+act("Players in this room:", $n, NULL, NULL, TO_CHAR);
+char victim;
+room here = char_room($n);
+foreach (victim, char_in_room(here))
+if (is_npc(victim)){
+act("  [{cnpc{x]$N", $n, NULL, victim, TO_CHAR);}
+else {
+act("  [{c pc{x]$N", $n, NULL, victim, TO_CHAR);}
+return 0;

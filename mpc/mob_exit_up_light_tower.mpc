@@ -1,0 +1,15 @@
+obj key1 = load_obj($n, 19159);
+obj key2 = load_obj($n, 19160);
+obj key3 = load_obj($n, 19161);
+obj key4 = load_obj($n, 19162);
+obj key5 = load_obj($n, 19163);
+obj key6 = load_obj($n, 19164);
+close_door($n, "up");
+lock_door($n, "up");
+extract_obj(key1, 0);
+extract_obj(key2, 0);
+extract_obj(key3, 0);
+extract_obj(key4, 0);
+extract_obj(key5, 0);
+extract_obj(key6, 0);
+return 0;

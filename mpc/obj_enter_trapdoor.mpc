@@ -1,0 +1,2 @@
+act("You peek in manhole.", $n, NULL, NULL, TO_CHAR);
+return 0;
