@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm_info.c,v 1.12 2000-01-04 11:53:40 avn Exp $
+ * $Id: comm_info.c,v 1.13 2000-01-04 20:06:22 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -279,7 +279,7 @@ void	cmd_auth(const char *argument)
 		return;
 	}
 	strncpy(buf, "AUTH OK.\n", sizeof(buf));
-	char_free(ch);
+	char_nuke(ch);
 }
 
 void	cmd_help(const char *argument)
