@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.124 1998-12-09 14:06:44 fjoe Exp $
+ * $Id: act_comm.c,v 1.125 1998-12-10 10:16:08 fjoe Exp $
  */
 
 /***************************************************************************
@@ -707,7 +707,9 @@ void do_clan(CHAR_DATA *ch, const char *argument)
 	flags = TO_VICT | ACT_TOBUF | ACT_NODEAF |
 		(IS_NPC(ch) && !IS_AFFECTED(ch, AFF_CHARM) ? ACT_TRANS : 0);
 	for (vch = char_list; vch; vch = vch->next)
-		if (vch->clan == ch->clan)
+		if (vch->clan == ch->clan
+		&&  vch != ch
+		&&  !IS_SET(vch->comm, COMM_NOCLAN))
 			act_puts("[CLAN] $n: {C$t{x",
 				 ch, argument, vch, flags, POS_DEAD);
 }
