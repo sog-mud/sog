@@ -1404,7 +1404,8 @@ stacks and yellow light coming from the shuttered windows.
 0 0 city
 D0
 This wooden door has a circle with a large
-letter M in the middle of it.~
+letter M in the middle of it.
+~
 door~
 ABZ -1 14540
 D1
@@ -1430,7 +1431,8 @@ of value in it.
 0 DS inside
 D2
 The door is solid as a rock.  It has triple
-locks and should give you safety to the world.~
+locks and should give you safety to the world.
+~
 door~
 ABZ -1 14539
 S
@@ -1442,7 +1444,8 @@ to all wooden items and the furniture was made by a master.
 0 DS inside
 D0
 This wooden door has a circle with a large
-letter M in the middle of it.~
+letter M in the middle of it.
+~
 door~
 ABZ -1 14539
 S
@@ -1808,7 +1811,8 @@ for both air and light.
 ~
 0 DS inside
 D1
-A very large tapestry covers a hole in the wall.~
+A very large tapestry covers a hole in the wall.
+~
 tapestry~
 ABZ -1 14596
 D3
@@ -1849,7 +1853,8 @@ D0
 ~
 Z -1 14564
 D2
-This massive steel gate has spears along it's top.~
+This massive steel gate has spears along it's top.
+~
 gate~
 ABZ -1 14566
 S
@@ -1863,7 +1868,8 @@ The stakes are obviously meant to keep travellers on the road.
 ~
 0 0 city
 D0
-This massive steel gate has sharpened spears along it's summit.~
+This massive steel gate has sharpened spears along it's summit.
+~
 gate~
 ABZ -1 14565
 D2
@@ -2346,7 +2352,8 @@ D0
 ~
 Z -1 14597
 D3
-A very large tapestry covers a hole in the wall.~
+A very large tapestry covers a hole in the wall.
+~
 tapestry~
 ABZ -1 14563
 S

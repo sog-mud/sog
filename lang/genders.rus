@@ -54,6 +54,14 @@ Form 3 -ые~
 End
 
 #RULE
+Name вышел~
+BaseLen 3
+Form 1 -лa~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
 Name погас~
 BaseLen 5
 Form 1 -ла~
@@ -64,6 +72,14 @@ End
 #RULE
 Name вспыхнул~
 BaseLen 7
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name отпер~
+BaseLen 5
 Form 1 -ла~
 Form 2 -ло~
 Form 3 -ли~
@@ -118,6 +134,14 @@ Name самим~
 BaseLen 3
 Form 1 -ой~
 Form 3 -ими~
+End
+
+#RULE
+Name попытался~
+BaseLen 7
+Form 1 -ась~
+Form 2 -ось~
+Form 3 -ись~
 End
 
 #RULE
@@ -247,6 +271,14 @@ BaseLen 9
 Form 1 -ла~
 Form 2 -ло~
 Form 3 -ли~
+End
+
+#RULE
+Name постучал~
+BaseLen 8
+Form 1 -а~
+Form 2 -о~
+Form 3 -и~
 End
 
 #RULE

@@ -374,7 +374,8 @@ D3
 ~
 Z -1 3513
 D5
-@eng A small trap door.@rus Маленькая дверца.
+@eng A small trap door.
+@rus Маленькая дверца.
 ~
 door trap~
 ABZ -1 29102
@@ -393,27 +394,32 @@ hear sounds of a raucous celebration to the east.
 ~
 0 D inside
 D0
-@eng A tiny door@rus Маленькая дверца.
+@eng A tiny door
+@rus Маленькая дверца.
 ~
 door tiny~
 ABZ -1 29103
 D1
-@eng A smoky hallway@rus Прокуренный коридор.
+@eng A smoky hallway
+@rus Прокуренный коридор.
 ~
 ~
 Z -1 29104
 D2
-@eng A tiny door@rus Маленькая дверца.
+@eng A tiny door
+@rus Маленькая дверца.
 ~
 door tiny~
 ABZ -1 29105
 D3
-@eng A tiny door@rus Маленькая дверца.
+@eng A tiny door
+@rus Маленькая дверца.
 ~
 door tiny~
 ABZ -1 29106
 D4
-@eng A small trap door@rus Небольшая дверь.
+@eng A small trap door
+@rus Небольшая дверь.
 ~
 door trap~
 ABZ -1 29101
@@ -437,7 +443,8 @@ sign~
 The sign says: "Puck's stuff- keep your grubby hands off" 
 ~
 D2
-@eng A tiny door@rus Маленькая дверца.
+@eng A tiny door
+@rus Маленькая дверца.
 ~
 door tiny~
 ABZ -1 29102
@@ -460,12 +467,14 @@ heads west, and you hear a thunderous racket coming from the east.
 ~
 0 D inside
 D1
-@eng Towards the racket@rus В направлении шума.
+@eng Towards the racket
+@rus В направлении шума.
 ~
 ~
 Z -1 29107
 D3
-@eng A smoky hallway@rus Прокуренный коридор.
+@eng A smoky hallway
+@rus Прокуренный коридор.
 ~
 ~
 Z -1 29102
@@ -485,7 +494,8 @@ sign записка~
 @eng The sign says 'Close the door, stupid'@rus Закрой дверь, тупица.
 ~
 D0
-@eng A tiny door@rus Маленькая дверца.
+@eng A tiny door
+@rus Маленькая дверца.
 ~
 door tiny~
 ABZ -1 29102
@@ -504,12 +514,14 @@ lies a door, and to the south is a normal sized door.
 ~
 0 D inside
 D1
-@eng A tiny door@rus Маленькая дверца.
+@eng A tiny door
+@rus Маленькая дверца.
 ~
 door tiny~
 ABZ -1 29102
 D2
-@eng A normal sized door@rus Самая обыкновенная дверь.
+@eng A normal sized door
+@rus Самая обыкновенная дверь.
 ~
 door normal~
 ABCZ 29110 29108
@@ -537,7 +549,8 @@ targets white~
 You look carefully at the white targets and discover they are human bones! 
 ~
 D3
-@eng Little People's Bar and Grill@rus Забегаловка.
+@eng Little People's Bar and Grill
+@rus Забегаловка.
 ~
 ~
 Z -1 29104
@@ -557,7 +570,8 @@ E
 forge fires~
 They are being fanned furiously by fluttering faerie folk.~
 D0
-@eng A normal sized door@rus Самая обыкновенная дверь.
+@eng A normal sized door
+@rus Самая обыкновенная дверь.
 ~
 door normal~
 ABCZ 29110 29106

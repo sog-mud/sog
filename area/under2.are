@@ -4269,11 +4269,13 @@ Ruby street
 ~
 Z -1 16041
 D2
-Sunset~
+Sunset
+~
 ~
 Z -1 16061
 D3
-Sunset~
+Sunset
+~
 ~
 Z -1 16039
 S
@@ -10001,7 +10003,8 @@ The corridor continues on it's merry course
 Z -1 16270
 D2
 A door blocks your way
-door~
+door
+~
 ~
 ABZ -1 16269
 S
@@ -11477,7 +11480,8 @@ The prison hall
 ~
 Z -1 16333
 D3
-A prison door~
+A prison door
+~
 door~
 ABZ -1 16332
 S

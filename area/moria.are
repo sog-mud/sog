@@ -560,7 +560,7 @@ a bullwhip~
 A coiled length of leather is here...looks like a nasty whip!~
 leather~
 weapon 0 AN
-whip 1 7 whip 0
+whip 1 3 whip 0
 3 30 240 G
 A
 18 1
@@ -659,7 +659,7 @@ a war axe~
 A razor-sharp war axe rests on the ground.~
 steel~
 weapon G AN
-axe 3 4 chop 0
+axe 3 2 chop 0
 12 70 930 P
 A
 19 1

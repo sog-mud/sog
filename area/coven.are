@@ -536,7 +536,8 @@ There is a mystery here with clues scattered throughout mobs and
 object. Play with brief off and look at just about everything.
 ~
 D0
-The Murkmire~
+The Murkmire
+~
 ~
 Z -1 29121
 D2
@@ -558,11 +559,13 @@ road broad~
 The road has been heavily traveled, mainly by wagons.
 ~
 D2
-The Murkmire~
+The Murkmire
+~
 ~
 Z -1 29120
 D3
-The Murkmire~
+The Murkmire
+~
 ~
 Z -1 29122
 S
@@ -579,11 +582,13 @@ road broad~
 The road has been heavily traveled, mainly by wagons.
 ~
 D0
-The Murkmire~
+The Murkmire
+~
 ~
 Z -1 29123
 D1
-The Murkmire~
+The Murkmire
+~
 ~
 Z -1 29121
 S
@@ -608,15 +613,18 @@ sign~
 *******************
 ~
 D0
-The Murkmire~
+The Murkmire
+~
 ~
 Z -1 29124
 D2
-The Murkmire~
+The Murkmire
+~
 ~
 Z -1 29122
 D3
-The western road~
+The western road
+~
 ~
 Z -1 29138
 S
@@ -645,15 +653,18 @@ You look closely at the brush pile, and notice a stirring in it.
 Squinting, you make out the face and forepaws of a raccoon.
 ~
 D1
-The Murkmire~
+The Murkmire
+~
 ~
 Z -1 29125
 D2
-The Murkmire~
+The Murkmire
+~
 ~
 Z -1 29123
 D3
-The Murkmire~
+The Murkmire
+~
 ~
 Z -1 29137
 S
@@ -672,11 +683,13 @@ The bird has flown off to the northeast, at least you think its
 northeast.
 ~
 D2
-The Murkmire~
+The Murkmire
+~
 ~
 Z -1 29126
 D3
-The Murkmire~
+The Murkmire
+~
 ~
 Z -1 29124
 S
@@ -702,11 +715,13 @@ marks on his neck. His chest has been cut open, and his heart removed.
 Most of his right haunch has been consumed by some animal.
 ~
 D0
-The Murkmire~
+The Murkmire
+~
 ~
 Z -1 29125
 D1
-The Murkmire~
+The Murkmire
+~
 ~
 Z -1 29127
 S
@@ -726,15 +741,18 @@ You quickly turn around, staring hard into the gloom, but there is
 nothing there.
 ~
 D0
-The Murkmire~
+The Murkmire
+~
 ~
 Z -1 29130
 D1
-The Murkmire~
+The Murkmire
+~
 ~
 Z -1 29128
 D3
-The Murkmire~
+The Murkmire
+~
 ~
 Z -1 29126
 S
@@ -754,11 +772,13 @@ You quickly turn around, staring hard into the gloom, but there is
 nothing there.
 ~
 D0
-The Murkmire~
+The Murkmire
+~
 ~
 Z -1 29129
 D3
-The Murkmire~
+The Murkmire
+~
 ~
 Z -1 29127
 S
@@ -778,11 +798,13 @@ You quickly turn around, staring hard into the gloom, and see a dark
 animal run off into the forest!
 ~
 D2
-The Murkmire~
+The Murkmire
+~
 ~
 Z -1 29128
 D3
-The Murkmire~
+The Murkmire
+~
 ~
 Z -1 29130
 S
@@ -802,15 +824,18 @@ You quickly turn around, staring hard into the gloom, but there is
 nothing there.
 ~
 D0
-The Murkmire~
+The Murkmire
+~
 ~
 Z -1 29131
 D1
-The Murkmire~
+The Murkmire
+~
 ~
 Z -1 29129
 D2
-The Murkmire~
+The Murkmire
+~
 ~
 Z -1 29127
 S
@@ -830,15 +855,18 @@ bird raven black~
 You scowl at the raven, but it still sits there laughing at you.
 ~
 D1
-The Murkmire~
+The Murkmire
+~
 underbrush brush~
 ABCFZ 29120 29162
 D2
-The Murkmire~
+The Murkmire
+~
 ~
 Z -1 29130
 D3
-The Murkmire~
+The Murkmire
+~
 ~
 Z -1 29132
 S
@@ -858,15 +886,18 @@ look as if they have been severely burned. Their chests have been cut
 open, and their hearts have been removed.
 ~
 D0
-The Murkmire~
+The Murkmire
+~
 ~
 Z -1 29133
 D1
-The Murkmire~
+The Murkmire
+~
 ~
 Z -1 29131
 D3
-The Murkmire~
+The Murkmire
+~
 ~
 Z -1 29135
 S
@@ -892,11 +923,13 @@ The symbol is etched into the chest of the body, and is a 5 pointed
 star inside a circle.
 ~
 D2
-The Murkmire~
+The Murkmire
+~
 ~
 Z -1 29132
 D3
-The Murkmire~
+The Murkmire
+~
 ~
 Z -1 29134
 S
@@ -916,11 +949,13 @@ look as if they have been severely burned. Their chests have been cut
 open, and their hearts have been removed.
 ~
 D1
-The Murkmire~
+The Murkmire
+~
 ~
 Z -1 29133
 D2
-The Murkmire~
+The Murkmire
+~
 ~
 Z -1 29135
 S
@@ -940,15 +975,18 @@ look as if they have been severely burned. Their chests have been cut
 open, and their hearts have been removed.
 ~
 D0
-The Murkmire~
+The Murkmire
+~
 ~
 Z -1 29134
 D1
-The Murkmire~
+The Murkmire
+~
 ~
 Z -1 29132
 D3
-The Murkmire~
+The Murkmire
+~
 ~
 Z -1 29136
 S
@@ -972,15 +1010,18 @@ The trail is well traveled here, with most of the traffic being that of
 a cart variety.
 ~
 D1
-The Murkmire~
+The Murkmire
+~
 ~
 Z -1 29135
 D2
-The Murkmire~
+The Murkmire
+~
 ~
 Z -1 29137
 D3
-The Cave~
+The Cave
+~
 rubble stones pile~
 ABCFZ 29121 29156
 S
@@ -1003,11 +1044,13 @@ The trail is well traveled here, with most of the traffic being that of
 a cart variety.
 ~
 D0
-The Murkmire~
+The Murkmire
+~
 ~
 Z -1 29136
 D1
-The Murkmire~
+The Murkmire
+~
 ~
 Z -1 29124
 S
@@ -1027,19 +1070,23 @@ The log houses are simple one story houses made from a notch and stack
 technique and chinked with some kind of mud compound.
 ~
 D0
-A log house~
+A log house
+~
 door~
 ABZ -1 29139
 D1
-The Murkmire~
+The Murkmire
+~
 ~
 Z -1 29123
 D2
-A log house~
+A log house
+~
 door~
 ABZ -1 29140
 D3
-Main Street~
+Main Street
+~
 ~
 Z -1 29141
 S
@@ -1058,7 +1105,8 @@ display of colored clay pots, a doll, a chest in which clothes are
 kept, and yes, you find a bedpan under one of the cots.
 ~
 D2
-Main Street~
+Main Street
+~
 door~
 ABZ -1 29138
 S
@@ -1084,7 +1132,8 @@ of tears. You comfort her, and ask her why she is crying. She relates a
 sad tale of how her daddy is gone forever.
 ~
 D0
-Main Street~
+Main Street
+~
 door~
 ABZ -1 29138
 S
@@ -1104,19 +1153,23 @@ The log houses are simple one story houses made from a notch and stack
 technique and chinked with some kind of mud compound.
 ~
 D0
-A log house~
+A log house
+~
 door~
 ABZ -1 29142
 D1
-Main Street~
+Main Street
+~
 ~
 Z -1 29138
 D2
-A log house~
+A log house
+~
 door~
 ABZ -1 29143
 D3
-Main Street~
+Main Street
+~
 ~
 Z -1 29144
 S
@@ -1142,7 +1195,8 @@ and soothing tones. She tells you of her fear of the long absence of
 her husband.
 ~
 D2
-Main Street~
+Main Street
+~
 door~
 ABZ -1 29141
 S
@@ -1168,7 +1222,8 @@ of tears. You comfort her, and ask her why she is crying. She relates a
 sad tale of how her daddy is gone forever.
 ~
 D0
-Main Street~
+Main Street
+~
 door~
 ABZ -1 29141
 S
@@ -1198,19 +1253,23 @@ sign mug~
 ******
 ~
 D0
-The two story building~
+The two story building
+~
 door~
 Z -1 29146
 D1
-Main Street~
+Main Street
+~
 ~
 Z -1 29141
 D2
-Main Street~
+Main Street
+~
 ~
 Z -1 29152
 D3
-The saw mill~
+The saw mill
+~
 ~
 Z -1 29145
 S
@@ -1232,7 +1291,8 @@ sign~
 *******************
 ~
 D1
-Main Street~
+Main Street
+~
 ~
 Z -1 29144
 S
@@ -1253,11 +1313,13 @@ Grub            3
 Room            25
 ~
 D2
-Main Street~
+Main Street
+~
 ~
 Z -1 29144
 D4
-Up the stairs~
+Up the stairs
+~
 ~
 Z -1 29147
 S
@@ -1273,23 +1335,28 @@ lamp flickering~
 It is just an ordinary oil lamp.
 ~
 D0
-A room~
+A room
+~
 door~
 ABCZ 29126 29150
 D1
-A room~
+A room
+~
 door~
 ABCZ 29126 29151
 D2
-A room~
+A room
+~
 door~
 ABCZ 29126 29148
 D3
-A room~
+A room
+~
 door~
 ABCZ 29126 29149
 D5
-Down the stairs~
+Down the stairs
+~
 ~
 Z -1 29146
 S
@@ -1314,7 +1381,8 @@ armoire~
 You open the armoire. It is empty except for an extra blanket.
 ~
 D0
-The landing~
+The landing
+~
 door~
 ABCZ 29126 29147
 S
@@ -1339,7 +1407,8 @@ armoire~
 You open the armoire. It is empty except for an extra blanket.
 ~
 D1
-The landing~
+The landing
+~
 door~
 ABCZ 29126 29147
 S
@@ -1364,7 +1433,8 @@ armoire~
 You open the armoire. It is empty except for an extra blanket.
 ~
 D2
-The landing~
+The landing
+~
 door~
 ABCZ 29126 29147
 S
@@ -1389,7 +1459,8 @@ armoire~
 You open the armoire. It is empty except for an extra blanket.
 ~
 D3
-The landing~
+The landing
+~
 door~
 ABCZ 29126 29147
 S
@@ -1403,19 +1474,23 @@ village smith.
 ~
 0 0 city
 D0
-Main Street~
+Main Street
+~
 ~
 Z -1 29144
 D1
-The stables~
+The stables
+~
 ~
 Z -1 29154
 D2
-The village smith~
+The village smith
+~
 ~
 Z -1 29155
 D3
-The store~
+The store
+~
 ~
 Z -1 29153
 S
@@ -1427,7 +1502,8 @@ You probably own more than this store does.
 ~
 0 0 inside
 D1
-Main Street~
+Main Street
+~
 ~
 Z -1 29152
 S
@@ -1444,7 +1520,8 @@ mud mules floor muddy~
 The mud looks exactly like the mud on your boots.
 ~
 D3
-Main Street~
+Main Street
+~
 ~
 Z -1 29152
 S
@@ -1460,7 +1537,8 @@ sign~
 The sign says type list to see what I have today.
 ~
 D0
-Main Street~
+Main Street
+~
 ~
 Z -1 29152
 S
@@ -1490,11 +1568,13 @@ rubble~
 It looks like if you had a good shovel, you could move it.
 ~
 D0
-The dark cave~
+The dark cave
+~
 ~
 Z -1 29157
 D1
-The cave mouth~
+The cave mouth
+~
 rubble~
 ABCFZ 29121 29136
 S
@@ -1514,11 +1594,13 @@ The walls have red colored veins of iron ore in them, and appear to
 have been dug by man.
 ~
 D0
-The dark cave~
+The dark cave
+~
 ~
 Z -1 29158
 D2
-The dark cave~
+The dark cave
+~
 ~
 Z -1 29156
 S
@@ -1538,11 +1620,13 @@ The walls have red colored veins of iron ore in them, and appear to
 have been dug by man.
 ~
 D1
-The dark cave~
+The dark cave
+~
 ~
 Z -1 29159
 D2
-The dark cave~
+The dark cave
+~
 ~
 Z -1 29157
 S
@@ -1568,11 +1652,13 @@ HE WHO IS OF PURE HEART AND STRONG BLADE
 SHALL BEST THE GUARDIAN AND REMOVE THE SCOURGE
 ~
 D1
-The dark cave~
+The dark cave
+~
 ~
 Z -1 29160
 D3
-The dark cave~
+The dark cave
+~
 ~
 Z -1 29158
 S
@@ -1584,11 +1670,13 @@ the thought of getting out of the cave.
 ~
 0 0 inside
 D0
-The green meadow~
+The green meadow
+~
 ~
 Z -1 29161
 D3
-The dark cave~
+The dark cave
+~
 ~
 Z -1 29159
 S
@@ -1603,7 +1691,8 @@ keening sound.
 ~
 0 N field
 D2
-The dark cave~
+The dark cave
+~
 ~
 Z -1 29160
 S
@@ -1638,19 +1727,23 @@ up and see a white dove pin wheeling higher into the sky, through the
 treetops. Gratefully you wipe the guano from you eye.
 ~
 D0
-The outer circle~
+The outer circle
+~
 ~
 Z -1 29163
 D1
-The inner circle~
+The inner circle
+~
 ~
 Z -1 29169
 D2
-The outer circle~
+The outer circle
+~
 ~
 Z -1 29178
 D3
-The underbrush~
+The underbrush
+~
 brush underbrush~
 ABCFZ 29120 29131
 S
@@ -1684,15 +1777,18 @@ up and see a white dove pin wheeling higher into the sky, through the
 treetops. Gratefully you wipe the guano from you eye.
 ~
 D0
-The outer circle~
+The outer circle
+~
 ~
 Z -1 29175
 D1
-The inner circle~
+The inner circle
+~
 ~
 Z -1 29166
 D2
-The outer circle~
+The outer circle
+~
 ~
 Z -1 29162
 S
@@ -1727,15 +1823,18 @@ up and see a white dove pin wheeling higher into the sky, through the
 treetops. Gratefully you wipe the guano from you eye.
 ~
 D1
-The outer circle~
+The outer circle
+~
 ~
 Z -1 29165
 D2
-The inner circle~
+The inner circle
+~
 ~
 Z -1 29166
 D3
-The outer circle~
+The outer circle
+~
 ~
 Z -1 29175
 S
@@ -1769,15 +1868,18 @@ up and see a white dove pin wheeling higher into the sky, through the
 treetops. Gratefully you wipe the guano from you eye.
 ~
 D1
-The outer circle~
+The outer circle
+~
 ~
 Z -1 29176
 D2
-The inner circle~
+The inner circle
+~
 ~
 Z -1 29167
 D3
-The outer circle~
+The outer circle
+~
 ~
 Z -1 29164
 S
@@ -1812,19 +1914,23 @@ up and see a white dove pin wheeling higher into the sky, through the
 treetops. Gratefully you wipe the guano from you eye.
 ~
 D0
-The outer circle~
+The outer circle
+~
 ~
 Z -1 29164
 D1
-The inner circle~
+The inner circle
+~
 ~
 Z -1 29167
 D2
-The inner circle~
+The inner circle
+~
 ~
 Z -1 29169
 D3
-The outer circle~
+The outer circle
+~
 ~
 Z -1 29163
 S
@@ -1859,19 +1965,23 @@ up and see a white dove pin wheeling higher into the sky, through the
 treetops. Gratefully you wipe the guano from you eye.
 ~
 D0
-The outer circle~
+The outer circle
+~
 ~
 Z -1 29165
 D1
-The outer circle~
+The outer circle
+~
 ~
 Z -1 29168
 D2
-The inner circle~
+The inner circle
+~
 ~
 Z -1 29170
 D3
-The inner circle~
+The inner circle
+~
 ~
 Z -1 29166
 S
@@ -1905,15 +2015,18 @@ up and see a white dove pin wheeling higher into the sky, through the
 treetops. Gratefully you wipe the guano from you eye.
 ~
 D0
-The outer circle~
+The outer circle
+~
 ~
 Z -1 29176
 D2
-The outer circle~
+The outer circle
+~
 ~
 Z -1 29171
 D3
-The inner circle~
+The inner circle
+~
 ~
 Z -1 29167
 S
@@ -1948,23 +2061,28 @@ up and see a white dove pin wheeling higher into the sky, through the
 treetops. Gratefully you wipe the guano from you eye.
 ~
 D0
-The inner circle~
+The inner circle
+~
 ~
 Z -1 29166
 D1
-The inner circle~
+The inner circle
+~
 ~
 Z -1 29170
 D2
-The outer circle~
+The outer circle
+~
 ~
 Z -1 29172
 D3
-The outer circle~
+The outer circle
+~
 ~
 Z -1 29162
 D5
-Into the fire~
+Into the fire
+~
 ~
 Z -1 29174
 S
@@ -1999,19 +2117,23 @@ up and see a white dove pin wheeling higher into the sky, through the
 treetops. Gratefully you wipe the guano from you eye.
 ~
 D0
-The inner circle~
+The inner circle
+~
 ~
 Z -1 29167
 D1
-The outer circle~
+The outer circle
+~
 ~
 Z -1 29171
 D2
-The outer circle~
+The outer circle
+~
 ~
 Z -1 29173
 D3
-The inner circle~
+The inner circle
+~
 ~
 Z -1 29169
 S
@@ -2045,15 +2167,18 @@ up and see a white dove pin wheeling higher into the sky, through the
 treetops. Gratefully you wipe the guano from you eye.
 ~
 D0
-The outer circle~
+The outer circle
+~
 ~
 Z -1 29168
 D2
-The outer circle~
+The outer circle
+~
 ~
 Z -1 29177
 D3
-The inner circle~
+The inner circle
+~
 ~
 Z -1 29170
 S
@@ -2087,15 +2212,18 @@ up and see a white dove pin wheeling higher into the sky, through the
 treetops. Gratefully you wipe the guano from you eye.
 ~
 D0
-The inner circle~
+The inner circle
+~
 ~
 Z -1 29169
 D1
-The outer circle~
+The outer circle
+~
 ~
 Z -1 29173
 D3
-The outer circle~
+The outer circle
+~
 ~
 Z -1 29178
 S
@@ -2129,15 +2257,18 @@ up and see a white dove pin wheeling higher into the sky, through the
 treetops. Gratefully you wipe the guano from you eye.
 ~
 D0
-The inner circle~
+The inner circle
+~
 ~
 Z -1 29170
 D1
-The outer circle~
+The outer circle
+~
 ~
 Z -1 29177
 D3
-The outer circle~
+The outer circle
+~
 ~
 Z -1 29172
 S
@@ -2154,7 +2285,8 @@ and warmth vanish.
 ~
 0 ADN inside
 D4
-The inner circle~
+The inner circle
+~
 barrier flame~
 ABCFZ 29127 29169
 S
@@ -2184,11 +2316,13 @@ up and see a white dove pin wheeling higher into the sky, through the
 treetops. Gratefully you wipe the guano from you eye.
 ~
 D1
-The outer circle~
+The outer circle
+~
 ~
 Z -1 29164
 D2
-The outer circle~
+The outer circle
+~
 ~
 Z -1 29163
 S
@@ -2218,11 +2352,13 @@ up and see a white dove pin wheeling higher into the sky, through the
 treetops. Gratefully you wipe the guano from you eye.
 ~
 D2
-The outer circle~
+The outer circle
+~
 ~
 Z -1 29168
 D3
-The outer circle~
+The outer circle
+~
 ~
 Z -1 29165
 S
@@ -2252,11 +2388,13 @@ up and see a white dove pin wheeling higher into the sky, through the
 treetops. Gratefully you wipe the guano from you eye.
 ~
 D0
-The outer circle~
+The outer circle
+~
 ~
 Z -1 29171
 D3
-The outer circle~
+The outer circle
+~
 ~
 Z -1 29173
 S
@@ -2286,11 +2424,13 @@ up and see a white dove pin wheeling higher into the sky, through the
 treetops. Gratefully you wipe the guano from you eye.
 ~
 D0
-The outer circle~
+The outer circle
+~
 ~
 Z -1 29162
 D1
-The outer circle~
+The outer circle
+~
 ~
 Z -1 29172
 S

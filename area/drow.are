@@ -388,11 +388,13 @@ gate~
 A large adamantite gate with giant spider shaped emblems stands here.
 ~
 D3
-A huge gate opens to the west allowing entrance into the city.~
+A huge gate opens to the west allowing entrance into the city.
+~
 gate~
 Z 0 5101
 D4
-A small hole in the ceiling leads up into darkness.~
+A small hole in the ceiling leads up into darkness.
+~
 door~
 ABZ -1 5270
 S
@@ -558,7 +560,8 @@ D2
 ~
 Z 0 5107
 D3
-A large gate lies to the west.~
+A large gate lies to the west.
+~
 gate~
 Z -1 5111
 S
@@ -654,7 +657,8 @@ is a giant temple.
 ~
 0 AD inside
 D0
-The entrance to the temple of Lloth.~
+The entrance to the temple of Lloth.
+~
 ~
 Z -1 5119
 D1

@@ -374,7 +374,7 @@ br~
 G none
 #24306
 circlet centaur hair клочок~
-@eng a circlet of braided centaur hair@rus ~~клочок~~ волос кентавра~
+@eng a circlet of braided centaur hair@rus ~~повязка~~ для волос~
 @eng Some hair woven into a circlet has been left here.@rus Небольшой клочок волос (circlet) оставлен здесь.~
 hair~
 armor AI AE
@@ -391,8 +391,8 @@ A
 G none
 #24308
 black bastard sword меч~
-@eng a blackened bastard sword@rus ~~черный~~ ~~меч~~ преступника~
-@eng A charred and etched bastard sword lies here.@rus Выгравированный меч преступника (black) лежит здесь.~
+@eng a blackened bastard sword@rus ~~черный~~ ~~острый~~ ~~меч~~~
+@eng A charred and etched bastard sword lies here.@rus Выгравированный черный меч (black) лежит здесь.~
 steel~
 weapon CEJY AN
 sword 7 7 pierce DH
@@ -417,8 +417,8 @@ A
 G none
 #24312
 bark ebon ebonwood~
-@eng a casing of ebonwood bark@rus обшивочная кора~
-@eng A pile of darkened bark lies on the ground.@rus Кучка тёмной обшивочной коры (casing) лежит здесь.~
+@eng a casing of ebonwood bark@rus ~~древесная~~ ~~кора~~~
+@eng A pile of darkened bark lies on the ground.@rus Кучка тёмной древесной коры (casing) лежит здесь.~
 wood~
 armor CEHJ AD
 100 6 7 0 0

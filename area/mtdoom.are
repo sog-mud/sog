@@ -1930,7 +1930,8 @@ The fortress lies directly north of here.
 ~
 0 0 mountain
 D0
-THE FORTRESS~
+THE FORTRESS
+~
 ~
 Z -1 14725
 D1
@@ -2090,7 +2091,8 @@ D0
 ~
 Z -1 14731
 D1
-THE FORTRESSS~
+THE FORTRESSS
+~
 ~
 Z -1 14725
 D2
@@ -2308,7 +2310,8 @@ D1
 ~
 Z -1 14733
 D2
-THE FORTRESS~
+THE FORTRESS
+~
 ~
 Z -1 14725
 D3
@@ -3039,7 +3042,8 @@ D2
 ~
 ABZ 0 14769
 D3
-This door reads- "Upper level access. Authorised personnel only!~
+This door reads- "Upper level access. Authorised personnel only!
+~
 door~
 ABCZ 14758 14779
 D5
@@ -3354,7 +3358,8 @@ lurk and evil priests engage in foul ceremonies to their demonic deities.
 ~
 0 AD inside
 D1
-You see an ancient crypt~
+You see an ancient crypt
+~
 crypt door~
 ABCZ 0 14788
 D2

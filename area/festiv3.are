@@ -1,6 +1,6 @@
 #AREADATA
 Name Festival Town~
-Builders agrael kami~
+Builders agrael kami thorn~
 VNUMs 36300 36499
 Credits Agrael Kami~
 Security 9
@@ -17,13 +17,16 @@ You see here a majestic old man with a gray hair and a long beard
 lowered on his cape. He looks as a person, who past throu a lot of 
 trials and knew the reality of life.
 ~
-human~
-AGRT BCDEFGHNO 0 0
-110 0 100d40+30000 100d10+15000 19d16+80 wrath
+ghost~
+ATf BDFU 0 0
+100 0 100d40+30000 100d10+15000 19d16+80 wrath
 -80 -80 -80 -70
-EFIJKN ABJKQ IO NPZ
-stand stand male 9000
-L 0 medium unknown
+EFHKO ABP HIK J
+stand stand male 0
+0 0 medium unknown
+F act O
+M death 36301 100~
+M fight 36300 10~
 #36301
 Green Bowman man~
 green bowman~
@@ -558,7 +561,7 @@ sit sit male 14000
 #36336
 mage grey neutral~
 True Neutrality~
-a mage clad in grey stands here
+A mage clad in gray stands here.
 ~
 A powerful mage clad in grey stands here.
 ~
@@ -1550,7 +1553,7 @@ old veteran's sword~
 A rusted sword lies here.~
 steel~
 weapon BMTY AN
-sword 11 9 slash D
+sword 8 14 slash D
 90 100 10000 A
 G none
 #36335
@@ -1613,7 +1616,7 @@ hat cowboy dusty~
 cowboy's hat~
 A dusty piece of leather dropped here.~
 kid leather~
-armor M E
+armor M AE
 24 20 27 17 0
 75 35 1200 A
 A
@@ -1661,8 +1664,8 @@ key A A
 0 0 0 P
 G none
 #36344
-pris grand~
-Grand Pris~
+grand prize medal~
+Grand Prize~
 A brightly glowing medal is waiting to be worn.~
 gold~
 armor AGIORY AC
@@ -2419,11 +2422,11 @@ G none
 #36415
 ball crystall quartz~
 quartz crystall~
-A strange glowing ball shimmers on the dirt.~
+A strange glowing ball shimmers in the dirt.~
 quartz~
 light AG A
 0 0 -1 0 0
-98 10 4560 P
+91 10 4560 P
 A
 1 5
 A
@@ -2510,7 +2513,7 @@ titanium arrow~
 A heavy looking arrow lies in the dirt.~
 titanium~
 weapon 0 AO
-arrow 10 10 pierce 0
+arrow 11 11 pierce 0
 82 10 1500 P
 G none
 #36424
@@ -2535,9 +2538,9 @@ G none
 ring holy silver~
 holy ring~
 A silver ring lies here.~
-unknown~
+silver~
 armor I AB
-0 0 0 0 0
+2 2 2 1 0
 15 0 5600 P
 G none
 #36427
@@ -2546,7 +2549,7 @@ holy amulet~
 Shiny silver amulet glows in the dirt.~
 silver~
 armor AI AC
-0 0 0 0 0
+2 2 2 2 0
 25 10 12900 P
 G none
 #36428
@@ -2866,7 +2869,7 @@ food and drink.
 0 0 field
 D0
 ~
-~
+grate~
 ABZ -1 36326
 D1
 ~
@@ -2954,7 +2957,7 @@ D0
 Z -1 36314
 D1
 ~
-~
+grate~
 ABZ -1 36327
 D2
 ~
@@ -3130,7 +3133,7 @@ D2
 Z -1 36322
 D3
 ~
-~
+grate~
 ABZ -1 36329
 S
 #36324
@@ -3191,7 +3194,7 @@ Small Path~
 A small path leads to the hills where magic users can
 show their abilities.
 ~
-0 0 forest
+0 C forest
 D1
 ~
 ~
@@ -3207,7 +3210,7 @@ You are on a small path. A wide lawn lies to the north. There
 are people everywhere on the lawn, and everyone is celebrating.
 South you can return back to the streets.
 ~
-0 0 forest
+0 C forest
 D0
 ~
 ~
@@ -3224,10 +3227,10 @@ where you can see many warrior compete with each other
 for the right to be awarded by the Grand Pris and for
 the title of a champion.
 ~
-0 0 forest
+0 C forest
 D1
 ~
-~
+grate~
 ABZ -1 36323
 D3
 ~
@@ -4089,7 +4092,7 @@ S
 #36380
 Deserted Lawn~
 Earlier it was a lawn. But mage's casts deserted it and you
-can see only a sand.
+can see only the sands.
 ~
 0 0 desert
 D0
@@ -4104,7 +4107,7 @@ S
 #36381
 Deserted Lawn~
 Earlier it was a lawn. But mage's casts deserted it and you
-can see only a sand.
+can see only the sands.
 ~
 0 0 desert
 D0
@@ -4119,7 +4122,7 @@ S
 #36382
 Deserted Lawn~
 Earlier it was a lawn. But mage's casts deserted it and you
-can see only a sand.
+can see only the sands.
 ~
 0 0 desert
 D0
@@ -4138,7 +4141,7 @@ S
 #36383
 Deserted Lawn~
 Earlier it was a lawn. But mage's casts deserted it and you
-can see only a sand.
+can see only the sands.
 ~
 0 0 desert
 D0
@@ -4157,7 +4160,7 @@ S
 #36384
 Deserted Lawn~
 Earlier it was a lawn. But mage's casts deserted it and you
-can see only a sand.
+can see only the sands.
 ~
 0 0 desert
 D0
@@ -4176,7 +4179,7 @@ S
 #36385
 Deserted Lawn~
 Earlier it was a lawn. But mage's casts deserted it and you
-can see only a sand.
+can see only the sands.
 ~
 0 0 desert
 D0
@@ -4191,7 +4194,7 @@ S
 #36386
 Deserted Lawn~
 Earlier it was a lawn. But mage's casts deserted it and you
-can see only a sand.
+can see only the sands.
 ~
 0 0 desert
 D0
@@ -5613,7 +5616,6 @@ S
 #0
 
 #SPECIALS
-M 36300 spec_breath_any	* Grandfather
 M 36306 spec_cast_cleric	* Monk
 M 36310 spec_mayor	* Mayor
 M 36312 spec_cast_mage	* Archivarius
@@ -5695,11 +5697,11 @@ M 0 36329 0 36312 1	* pickpocket (Walkway)
 E 0 36342 0 5		*	festival suit: on the body
 E 0 36338 0 17		*	a match box: held in the hands
 M 0 36326 1 36313 1	* vendor (Walkway)
+G 0 36418 0		*	great battle pill
+G 0 36416 0		*	healing pill
 G 0 36364 0		*	battle pill
 G 0 36365 0		*	magic pill
-G 0 36416 0		*	healing pill
 G 0 36417 0		*	an energize pill
-G 0 36418 0		*	great battle pill
 M 0 36345 1 36317 1	* vendor (Walkway)
 G 0 36337 0		*	a match
 G 0 36338 0		*	a match box
@@ -5808,7 +5810,7 @@ M 0 36300 1 36358 1	* Grandfather (Lost in time)
 E 0 36318 0 12		*	illusory cloak: about the shoulders
 E 0 36319 0 16		*	illusory longsword: wielded
 O 0 36381 0 36359	* secret cell (Mayor's Office)
-P 0 36344 1 36381 1	* secret cell: Grand Pris
+P 0 36344 1 36381 1	* secret cell: Grand Prize
 M 0 36312 1 36360 1	* Archivarius (Archives)
 E 0 36314 0 13		*	ink-pot: around the waist
 E 0 36345 0 5		*	dark gray robe: on the body
@@ -6026,8 +6028,51 @@ O 36318 1	* illusory cloak
 O 36319 1	* illusory longsword
 O 36320 3	* silver arrow
 O 36330 3	* some moccasins
-O 36344 1	* Grand Pris
+O 36344 1	* Grand Prize
 S
+
+#MOBPROGS
+#36300
+mob remember $r
+if rand 50
+mob echoat $q Grandfather swiftly pounds you in the jaw!
+mob echoaround $q Grandfather swiftly pounds $q in the jaw!
+else
+mob echo Grandfather jumps high in the air, gracefully avoiding your blow
+mob echo and lands behind your back!
+endif
+if rand 50
+if carries self 'sword long illusory mist'
+mob echoat $q {r    Grandfather makes a few steps back, artfully deflecting your
+mob echoat $q {rblows, then suddenly leaps forth and slashes you between the ribs
+mob echoat $q {rwith his sword! You double over in pain as the blood spews from
+mob echoat $q {rthe wound!{x
+echoaround $q {rGrandfather slashes $q deeply with his sword!{x
+mob damage $q 200 400
+else
+mob echoat $q {r  Grandfather performs a flurry of brutal blows, pounding you with his
+mob echoat $q {rfists painfully! God, your guts must be a mess now..{x
+mob echoaround $q {rGrandfather pummels $q painfully with his fists!{x
+mob damage $q 150 300
+endif
+else
+mob echo {W    Grandfather's ghostly form shimmers for a moment and you are blinded
+mob echo {Wby the flash of blazing white light coming from inside him. He calls out
+mob echo {Wa ferocious cry and charges you with renewed strength and vigor!{x
+cast nowait assist self
+cast nowait frenzy self
+cast nowait haste self
+cast nowait fear $q
+endif
+~
+#36301
+mob echo {cAn unearthen wail shatters the air as Grandfather's form is dusrupted.
+mob echo {cHe shimmers one last time and dissolves into a cloud of grey mist.{x
+remove all
+drop all
+mob goto 15000
+~
+#0
 
 #HELPS
 1 festival~

@@ -706,7 +706,8 @@ D2
 ~
 Z 0 5002
 D5
-You can easily slide down the rocks without getting hurt.~
+You can easily slide down the rocks without getting hurt.
+~
 ~
 Z 0 5009
 S
@@ -740,7 +741,8 @@ D2
 ~
 Z 0 5009
 D5
-You look down into the cave. Bones are strewn about everywhere.~
+You look down into the cave. Bones are strewn about everywhere.
+~
 ~
 Z 0 5011
 S
@@ -789,7 +791,8 @@ The walls here are extremely damp, as well as the floor.
 ~
 0 AD mountain
 D1
-You hear drops of water.~
+You hear drops of water.
+~
 ~
 Z 0 5015
 D3
@@ -818,7 +821,8 @@ sound of running water to the south.
 ~
 0 AD mountain
 D0
-You hear drops of water.~
+You hear drops of water.
+~
 ~
 Z 0 5015
 D2
@@ -841,7 +845,8 @@ D1
 ~
 Z 0 5018
 D2
-You smell the fragrant odor of fungus.~
+You smell the fragrant odor of fungus.
+~
 ~
 Z 0 5019
 S
@@ -871,7 +876,8 @@ D0
 ~
 Z 0 5017
 D1
-The fragrant smell of fungus spores continues to the east~
+The fragrant smell of fungus spores continues to the east
+~
 ~
 Z 0 5020
 S
@@ -882,11 +888,13 @@ hardly breathe.
 ~
 0 AD mountain
 D2
-A giant mushroom temple stands to the south.~
+A giant mushroom temple stands to the south.
+~
 ~
 Z 0 5021
 D3
-The fragrant smell of spores continues to the west.~
+The fragrant smell of spores continues to the west.
+~
 ~
 Z 0 5019
 S
@@ -925,7 +933,8 @@ You are on a path that gently slopes up from the underground pool.
 ~
 0 AD mountain
 D0
-You hear sounds of trickling water.~
+You hear sounds of trickling water.
+~
 ~
 Z 0 5005
 D4
@@ -1233,7 +1242,8 @@ larger, fancier tent.
 0 0 field
 D0
 This tent seems to be the temporary abode of the nomad leader. You make a
-mental note to visit it before you leave.~
+mental note to visit it before you leave.
+~
 ~
 Z 0 5060
 D1
@@ -1333,7 +1343,8 @@ darkness.
 ~
 0 AD mountain
 D1
-Outside is lighter and very windy.~
+Outside is lighter and very windy.
+~
 ~
 Z 0 5063
 D3

@@ -850,14 +850,14 @@ AHMV ABCDEFGHIJKPU small unknown
 
 #OBJECTS
 #12000
-acorn hat~
-An acorn hat~
-A small brown cap lies here.~
+hat acorn шляпка~
+@eng An acorn hat@rus ~~желудевая~~ ~~шляпка~~~
+@eng A small brown cap lies here.@rus Маленькая коричневая шляпка (hat) лежит здесь.~
 wood~
 armor G AE
 5 6 5 3 0
 22 3 30 P
-G none
+G female
 #12001
 nectar нектар~
 @eng A drop of nectar@rus ~~капелька~~ нектара~
@@ -866,7 +866,7 @@ cloth~
 potion Q A
 25 'refresh' 'cure critical' 'cure poison' 'cure blindness'
 22 1 0 P
-G none
+G male
 #12002
 trident трезубец~
 @eng A silver trident@rus ~~серебряный~~ ~~трезубец~~~
@@ -875,7 +875,7 @@ silver~
 weapon AG AN
 spear 6 6 pierce 0
 28 30 800 P
-G none
+G male
 #12003
 opal bracelet браслет~
 @eng an opal bracelet@rus ~~опаловый~~ ~~браслет~~~
@@ -886,11 +886,11 @@ armor AG AM
 30 5 400 P
 A
 19 3
-G none
+G male
 #12004
-gossamer gown~
-A light gossamer gown~
-This see through gossamer gown leaves little to the imagination.~
+gown gossamer платье~
+@eng A light gossamer gown@rus ~~газовое~~ ~~платье~~~
+@eng This see through gossamer gown leaves little to the imagination.@rus Это газовое платье (gown) оставляет очень мало твоему воображению.~
 cloth~
 armor AFG AD
 10 10 10 0 0
@@ -901,20 +901,20 @@ A
 2 2
 G none
 #12005
-slender sword~
-A small slender sword~
-A small slender blade of good craftsmanship.~
+sword slender меч клинок~
+@eng A small slender sword@rus ~~маленький~~ ~~тонкий~~ ~~клинок~~~
+@eng A small slender blade of good craftsmanship.@rus Маленький тонкий клинок (sword), выкованный с необыкновенным мастерством.~
 silver~
 weapon G AN
 sword 4 9 slash 0
 32 10 800 P
 A
 18 3
-G none
+G male
 #12006
-boots~
-A pair of grey boots~
-A pair boots made of some grey material you haven't seen before.~
+boots grey ботинки~
+@eng A pair of grey boots@rus ~~пара~~ ~~серых~~ ~~ботинок~~~
+@eng A pair boots made of some grey material you haven't seen before.@rus Пара ботинок (boots), сделанных из серого, невиданного тобой ранее материала.~
 leather~
 armor G AG
 10 11 8 8 0
@@ -923,33 +923,33 @@ A
 2 2
 A
 14 110
-G none
+G plural
 #12007
-pixie bow~
-A pixie bow~
-A small elegantly crafted bow with tiny arrows.~
+bow pixie лук~
+@eng A pixie bow@rus ~~эльфийский~~ ~~лук~~~
+@eng A small elegantly crafted bow with tiny arrows.@rus Небольшой, изящно сделанный лук (bow) с маленькими стрелами.~
 silver~
 wand ABC AO
 30 18 18 'curse' 0
 30 2 1000 P
 A
 20 1
-G none
+G male
 #12008
-wavy kris blade~
-A dull kris blade~
-A dull kris blade with a broken handle and a few chips.~
+kris blade wavy~
+@eng A dull kris blade@rus ~~кривой~~ ~~нож~~ с тупым лезвием~
+@eng A dull kris blade with a broken handle and a few chips.@rus Кривой нож (kris) с тупым лезвием и сломанной рукоятью валяется здесь.~
 iron~
 weapon CG AN
 dagger 4 10 pierce D
 40 9 30 W
 A
 19 4
-G none
+G male
 #12009
-jagged blade~
-A jagged blade~
-A jagged, broken and chipped blade.~
+blade jagged кинжал~
+@eng A jagged blade@rus ~~зазубренный~~ ~~кинжал~~~
+@eng A jagged, broken and chipped blade.@rus Кинжал (blade) со сломанным зазубренным лезвием.~
 unknown~
 weapon G AN
 sword 4 11 cleave 0
@@ -962,11 +962,11 @@ A
 4 -2
 A
 1 2
-G none
+G male
 #12010
-red cap~
-A red cap~
-This hat looks as if it were dyed with the blood of several animals.~
+cap red кепка~
+@eng A red cap@rus ~~красная~~ ~~кепка~~~
+@eng This hat looks as if it were dyed with the blood of several animals.@rus Эта кепка (hat) выглядит так, будто ее качественно измазали в чьей-то крови.~
 cloth~
 armor EGJ AE
 12 12 13 4 0
@@ -975,24 +975,24 @@ A
 19 3
 A
 3 -3
-G none
+G female
 #12011
-club~
-A blood stained club~
-This heavy club is marred by several blood stains.~
+club дубинка дубина~
+@eng A blood stained club@rus ~~дубинка~~, ~~испачканная~~ кровью~
+@eng This heavy club is marred by several blood stains.@rus Большая дубина (club), густо измазанная кровью валяется здесь.~
 wood~
 weapon EJ AN
-mace 6 6 pound D
+mace 7 7 pound D
 38 7 20 A
 A
 19 7
 A
 12 -50
-G none
+G female
 #12012
-book~
-A book of Tales~
-This book contains the adventures of a wandering Eshu.~
+book книга tales~
+@eng A book of Tales@rus ~~книга~~ сказок~
+@eng This book contains the adventures of a wandering Eshu.@rus Эта книга (book), в которой собраны рассказы странствующего эшу.~
 paper~
 treasure G AO
 0 0 0 0 0
@@ -1001,7 +1001,7 @@ A
 14 100
 A
 4 3
-G none
+G female
 #12013
 khopesh~
 A gleaming khopesh~
@@ -1012,19 +1012,19 @@ sword 8 7 slash 0
 56 30 1200 P
 G none
 #12014
-unfinished helmet~
-An unfinished helmet~
-This helmet looks to be of unparalleled craftsmanship, too bad it was never finished.~
+helmet unfinished шлем~
+@eng An unfinished helmet@rus ~~незаконченный~~ ~~шлем~~~
+@eng This helmet looks to be of unparalleled craftsmanship, too bad it was never finished.@rus Этот шлем (helm) никогда не будет закончен мастером, слишком плохой уж материал попался.~
 unknown~
 armor G AEO
 14 14 12 12 0
 51 15 800 G
 G none
 #12015
-unfinished boots~
-An unfinished pair of boots~
-These boots would be the best pair you had ever seen if their maker had 
-ever finished them.~
+boots unfinished ботинки~
+@eng An unfinished pair of boots@rus ~~незаконченные~~ ~~ботинки~~~
+@eng These boots would be the best pair you had ever seen if their maker had 
+ever finished them.@rus Эти ботинки (boots) будут лучшими из виденных тобой, если мастер их закончит.~
 leather~
 armor G AGO
 14 14 12 10 0
@@ -1044,42 +1044,42 @@ dagger 6 9 pierce 0
 51 1 200 P
 G none
 #12017
-leather apron~
-A scorched leather apron~
-A thick leather apron marked by many burns lies here.~
+apron leather передник~
+@eng A scorched leather apron@rus ~~кожаный~~ ~~передник~~~
+@eng A thick leather apron marked by many burns lies here.@rus Толстый кожаный передник (apron) с многочисленными пятнами лежит здесь.~
 leather~
 armor 0 AK
 14 14 14 8 0
 51 20 100 A
 A
 13 30
-G none
+G male
 #12018
-pan pipes~
-Pan pipes~
-A small set of playing pipes of varying lengths.~
+pan pipes свирель~
+@eng Pan pipes@rus ~~свирель~~~
+@eng A small set of playing pipes of varying lengths.@rus Маленькая свирель (pan pipes) валяется здесь.~
 wood~
 wand G AO
 50 20 20 'charm person' 0
 60 3 400 P
-G none
+G female
 #12019
-flagon~
-A flagon of dark ale~
-A large wooden flagon of almost endless capacity.~
+flagon графин~
+@eng A flagon of dark ale@rus ~~графин~~ темного эля~
+@eng A large wooden flagon of almost endless capacity.@rus Большой деревянный графин (flagon) уже практически пустой стоит здесь.~
 wood~
 drink G AO
-200 100 'water' 0 0
+200 100 'dark ale' 0 0
 30 10 120 W
 A
 18 -2
 A
 5 3
-G none
+G male
 #12020
-jester cap~
-A jester's cap~
-A multi-colored cap with four parts, each ending in a large silver bell.~
+cap jester колпак~
+@eng A jester's cap@rus ~~шутовской~~ ~~колпак~~~
+@eng A multi-colored cap with four parts, each ending in a large silver bell.@rus Разноцветный колпак (cap) с четырьмя серебрянными бубенчиками лежит здесь.~
 cloth~
 armor BGHI AE
 17 17 18 10 0
@@ -1090,11 +1090,11 @@ A
 2 1
 A
 3 -3
-G none
+G male
 #12021
-unfinished axe~
-An unfinished axe~
-A large, impressive axe that seems just a little unbalanced.~
+axe unfinished секира~
+@eng An unfinished axe@rus ~~незаконченная~~ ~~секира~~~
+@eng A large, impressive axe that seems just a little unbalanced.@rus Большая, острая секира (axe), которая лишь слегка незбалансирована, лежит здесь.~
 unknown~
 weapon 0 AN
 axe 5 10 chop 0
@@ -1107,9 +1107,9 @@ A
 1 1
 G none
 #12022
-ember~
-A fiery ember~
-A glowing ember from a forge.~
+ember уголек~
+@eng A fiery ember@rus ~~пылающий~~ ~~уголек~~~
+@eng A glowing ember from a forge.@rus Светящийся пылающий уголек (ember) выкатился из горна.~
 stone~
 light A A
 0 0 30 0 0
@@ -1118,27 +1118,27 @@ A
 1 4
 G none
 #12023
-pile coals~
-A pile of coals~
-A small pile of coals lies beside the forge.~
+coals pile куча уголь~
+@eng A pile of coals@rus ~~куча~~ угля~
+@eng A small pile of coals lies beside the forge.@rus Небольшая куча угля (coals) лежит рядом с кузнечным горном.~
 stone~
 container A 0
 100 0 0 50 100
 100 1 0 P
 G none
 #12024
-forge~
-A HUGE stone forge~
-A HUGE stone forge is built into the mountain wall.~
+forge горн~
+@eng A HUGE stone forge@rus ~~Огромный~~ ~~кузнечный~~ ~~горн~~~
+@eng A HUGE stone forge is built into the mountain wall.@rus Огромный кузнечный горн (forge) встроен в стену.~
 stone~
 container 0 0
 100 0 0 50 100
 100 1 0 W
 G none
 #12025
-dark sword~
-A crude, dark sword~
-A crudely made sword of some dark metal that is obviously not fit for use.~
+sword меч dark~
+@eng A crude, dark sword@rus ~~недоделанный~~ ~~темный~~ ~~меч~~~
+@eng A crudely made sword of some dark metal that is obviously not fit for use.@rus Меч (sword) темного металла, еще не сделанный до конца, лежит здесь.~
 mithril~
 weapon CFHJKM AN
 exotic 6 6 slice 0
@@ -1161,17 +1161,19 @@ A
 12 -50
 G none
 #12026
-fountain~
-A beautiful crystal fountain~
-A fountain of crystal reflects light from a thousand facets.~
+fountain фонтан~
+@eng A beautiful crystal fountain@rus ~~прекрасный~~ ~~кристальный~~ ~~фонтан~~~
+@eng A fountain of crystal reflects light from a thousand facets.@rus Фонтан (fountain), сделанный из кристалла, отражает свет, образуя тысячи бликов.~
 glass~
 fountain A 0
 1000 1000 'water' 0 0
 0 0 0 P
 E
-fountain~
-A beautiful fountain of some light and dark crystal reflects light from a 
+fountain фонтан~
+@eng A beautiful fountain of some light and dark crystal reflects light from a 
 thousand different facets inviting you to watch as much as it does to drink.
+@rus Фонтанчик кристальной воды, в обрамлении кристаллов отражает солнечный 
+свет, образуя тысячи бликов.
 ~
 G none
 #12027

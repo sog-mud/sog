@@ -460,13 +460,15 @@ A 0 FI DFGHIJ DFGHIJ
 10 1 1 P
 G none
 #38015
-tattoo~
-@eng {rHeras Angel Tattoo{x@rus {rТатуировка Ангела Геры{x~
-tattoo~
+ring~
+Ring of Stars.~
+!!!~
 unknown~
-armor CHIM AR
+armor CI AB
 0 0 0 0 0
 0 0 0 P
+S 'enchant weapon' 10000 A
+S 'enchant weapon' 1000 A
 A
 14 28000
 G none

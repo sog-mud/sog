@@ -3750,7 +3750,8 @@ D0
 ~
 Z -1 19029
 D1
-The tapestry is somewhat translucent to the east.~
+The tapestry is somewhat translucent to the east.
+~
 tapestry~
 ABZ -1 19043
 D2
@@ -4689,7 +4690,8 @@ D3
 ~
 Z -1 19063
 D4
-Ivy nearly covers a small panel set into the gazebo's roof.~
+Ivy nearly covers a small panel set into the gazebo's roof.
+~
 panel~
 ABFZ -1 19152
 S
@@ -6168,7 +6170,8 @@ bee hive beehive bees~
 ~
 D4
 The space in the ceiling looks large enough to pass through, but you'd have to
-move the netting.~
+move the netting.
+~
 netting door~
 ABZ -1 19153
 D5

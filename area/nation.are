@@ -527,7 +527,8 @@ north, matted grasses have been woven together into a natural wall.
 ~
 0 0 noswim
 D0
-A grass wall circles this area.~
+A grass wall circles this area.
+~
 grass~
 ABZ -1 9916
 D1
@@ -598,7 +599,8 @@ D0
 ~
 Z -1 9917
 D2
-A grass wall surrounds the area.~
+A grass wall surrounds the area.
+~
 grass~
 ABZ -1 9912
 S
@@ -611,7 +613,8 @@ through the sea of grass surrounding you.
 ~
 0 0 field
 D2
-A grass wall surrounds the area.~
+A grass wall surrounds the area.
+~
 grass~
 Z -1 9916
 D3

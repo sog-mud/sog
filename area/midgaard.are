@@ -5800,7 +5800,8 @@ D2
 ~
 Z 0 3250
 D3
-@eng You see Main Street.@rus Ты видишь Главную улицу.
+@eng You see Main Street.
+@rus Ты видишь Главную улицу.
 ~
 ~
 Z -1 3016
@@ -6187,7 +6188,8 @@ D0
 ~
 Z -1 3908
 D1
-@eng You see the plains.@rus Ты видишь равнины.
+@eng You see the plains.
+@rus Ты видишь равнины.
 ~
 ~
 Z -1 3503
@@ -7199,7 +7201,8 @@ D3
 ~
 Z -1 3135
 D4
-The chain disappears in the clouds.~
+The chain disappears in the clouds.
+~
 ~
 Z -1 7914
 S
@@ -7781,7 +7784,8 @@ D1
 ~
 Z -1 3201
 D3
-You see the river flowing west into the Forest of Haon-Dor.~
+You see the river flowing west into the Forest of Haon-Dor.
+~
 ~
 Z -1 9772
 S
@@ -7866,7 +7870,8 @@ you can see the stone buttresses of the eastern bridge.
 D1
 The iron bars are broken, allowing passage through the hole in the wall.
 Beyond the bars you see a dark tunnel.
-bars~
+bars
+~
 ~
 Z -1 5001
 D3

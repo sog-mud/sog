@@ -2491,7 +2491,7 @@ You see the Southwest Guardpost.
 Z -1 10220
 S
 #10222
-Harvest Road.~
+Harvest Road~
 You are walking down Harvest Road.
 It is quiet and peacefull here. The smell of baked goods and other foods
 fill the air.
@@ -4449,7 +4449,7 @@ D 0 10211 3 1	* Ketra Road.: door to the west: closed
 D 0 10212 3 1	* Ketra Road.: door to the west: closed
 D 0 10215 0 1	* Small Alleyway.: door to the north: closed
 D 0 10218 0 1	* Small Alleyway.: door to the north: closed
-D 0 10222 1 1	* Harvest Road.: door to the east: closed
+D 0 10222 1 1	* Harvest Road: door to the east: closed
 D 0 10226 2 1	* West Gullen Way: door to the south: closed
 D 0 10227 2 1	* West Gullen Way: door to the south: closed
 D 0 10243 0 1	* a House.: door to the north: closed
@@ -4559,8 +4559,8 @@ E 0 10237 0 16		*	enchanted longsword: wielded
 M 0 10204 1 10220 1	* Townguard (Southwest Guardpost and Watchtower.)
 E 0 10236 0 5		*	black platemail: on the body
 E 0 10238 0 16		*	enchanted hammer: wielded
-M 0 10216 3 10222 1	* field rat (Harvest Road.)
-M 0 10241 1 10222 1	* old lady (Harvest Road.)
+M 0 10216 3 10222 1	* field rat (Harvest Road)
+M 0 10241 1 10222 1	* old lady (Harvest Road)
 M 0 10215 1 10224 1	* Townguard (Corner of West Gullen Way and Harvest Road.)
 E 0 10236 0 5		*	black platemail: on the body
 E 0 10237 0 16		*	enchanted longsword: wielded

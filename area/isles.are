@@ -1667,15 +1667,18 @@ a rope winch system whereby they have been hoisted up the beach. Roller
 logs are piled near the winch for future use.
 ~
 D0
-The jungle~
+The jungle
+~
 ~
 Z -1 17175
 D1
-The plains~
+The plains
+~
 ~
 Z -1 335
 D3
-The jungle~
+The jungle
+~
 ~
 Z -1 17172
 S
@@ -1693,11 +1696,13 @@ fairly recently there was a large cutting of lumber. Mostly hardwoods
 are gone.
 ~
 D0
-The jungle~
+The jungle
+~
 ~
 Z -1 17174
 D1
-The beach~
+The beach
+~
 ~
 Z -1 17171
 S
@@ -1715,7 +1720,8 @@ deep into the tree. The sap which is in the bucket is black and very
 sticky. You think it might make a good pitch for an ocean going vessel.
 ~
 D1
-The jungle~
+The jungle
+~
 ~
 Z -1 17174
 D5
@@ -1731,15 +1737,18 @@ The heavy humidity of the jungle is making you sweat profusely.
 ~
 0 0 forest
 D1
-The jungle~
+The jungle
+~
 ~
 Z -1 17175
 D2
-The jungle~
+The jungle
+~
 ~
 Z -1 17172
 D3
-The jungle~
+The jungle
+~
 ~
 Z -1 17173
 S
@@ -1755,15 +1764,18 @@ You stop and listen to the parrot. It says '*caw* Come along little
 princess *caw*, we have a nice little brig for ya *caw*'
 ~
 D0
-The jungle~
+The jungle
+~
 ~
 Z -1 17176
 D2
-The jungle~
+The jungle
+~
 ~
 Z -1 17171
 D3
-The jungle~
+The jungle
+~
 ~
 Z -1 17174
 S
@@ -1780,15 +1792,18 @@ You notice on closer inspection that the thorn thicket is nothing
 more than a barricade of thorns, cleverly camouflaged.
 ~
 D0
-The jungle~
+The jungle
+~
 ~
 Z -1 17178
 D1
-The thorn thicket~
+The thorn thicket
+~
 barricade thicket~
 ABZ 0 17177
 D2
-The jungle~
+The jungle
+~
 ~
 Z -1 17175
 S
@@ -1804,11 +1819,13 @@ You stare intently at the cave for a while. There is smoke coming out
 of a hole in the rock above the cave, indicating inhabitation.
 ~
 D3
-The jungle~
+The jungle
+~
 barricade thorn thicket~
 ABZ 0 17176
 D4
-The cave~
+The cave
+~
 ~
 Z -1 17183
 S
@@ -1824,11 +1841,13 @@ The skull upon closer inspection, is too small for a man, and has
 the sloping brow ridge of a monkey.
 ~
 D2
-The jungle~
+The jungle
+~
 ~
 Z -1 17176
 D3
-The jungle~
+The jungle
+~
 ~
 Z -1 17179
 S
@@ -1844,15 +1863,18 @@ animal fire~
 There is a monkey roasting on the fire.
 ~
 D1
-The Jungle~
+The Jungle
+~
 ~
 Z -1 17178
 D2
-The savage camp~
+The savage camp
+~
 ~
 Z -1 17180
 D3
-The savage camp~
+The savage camp
+~
 ~
 Z -1 17182
 S
@@ -1868,11 +1890,13 @@ canoe tree~
 The canoe has a long way to go.
 ~
 D0
-The savage camp~
+The savage camp
+~
 ~
 Z -1 17179
 D3
-The savage camp~
+The savage camp
+~
 ~
 Z -1 17181
 S
@@ -1887,11 +1911,13 @@ smoky pit fish~
 The fish looks like its tarpon.
 ~
 D0
-The savage camp~
+The savage camp
+~
 ~
 Z -1 17182
 D1
-The savage camp~
+The savage camp
+~
 ~
 Z -1 17180
 S
@@ -1906,11 +1932,13 @@ women baskets~
 Several fat, toothless, naked women are twisting palm fronds into baskets.
 ~
 D1
-The savage camp~
+The savage camp
+~
 ~
 Z -1 17179
 D2
-The savage camp~
+The savage camp
+~
 ~
 Z -1 17181
 S
@@ -1923,15 +1951,18 @@ into the cave.
 ~
 0 0 field
 D0
-The entryway~
+The entryway
+~
 ~
 Z -1 17184
 D1
-Inside the cave~
+Inside the cave
+~
 ~
 Z -1 17187
 D2
-The entryway~
+The entryway
+~
 ~
 Z -1 17185
 D4
@@ -1939,7 +1970,8 @@ D4
 ~
 Z -1 17173
 D5
-Down the trail~
+Down the trail
+~
 ~
 Z -1 17177
 S
@@ -1951,11 +1983,13 @@ own little area.
 ~
 0 0 field
 D1
-Inside the cave~
+Inside the cave
+~
 ~
 Z -1 17186
 D2
-The entryway~
+The entryway
+~
 ~
 Z -1 17183
 S
@@ -1967,11 +2001,13 @@ own little area.
 ~
 0 0 field
 D0
-The entryway~
+The entryway
+~
 ~
 Z -1 17183
 D1
-Inside the cave~
+Inside the cave
+~
 ~
 Z -1 17188
 S
@@ -1983,15 +2019,18 @@ cast menacing shadows on the ceiling.
 ~
 0 D inside
 D1
-Inside the cave~
+Inside the cave
+~
 ~
 Z -1 17189
 D2
-Inside the cave~
+Inside the cave
+~
 ~
 Z -1 17187
 D3
-The entryway~
+The entryway
+~
 ~
 Z -1 17184
 S
@@ -2003,19 +2042,23 @@ sunken fire pit roars here.
 ~
 0 D inside
 D0
-Inside the cave~
+Inside the cave
+~
 ~
 Z -1 17186
 D1
-Inside the cave~
+Inside the cave
+~
 ~
 Z -1 17190
 D2
-Inside the cave~
+Inside the cave
+~
 ~
 Z -1 17188
 D3
-The entryway~
+The entryway
+~
 ~
 Z -1 17183
 S
@@ -2027,15 +2070,18 @@ cast menacing shadows on the ceiling.
 ~
 0 D inside
 D0
-Inside the cave~
+Inside the cave
+~
 ~
 Z -1 17187
 D1
-Inside the cave~
+Inside the cave
+~
 ~
 Z -1 17191
 D3
-The entryway~
+The entryway
+~
 ~
 Z -1 17185
 S
@@ -2047,11 +2093,13 @@ cast menacing shadows on the ceiling.
 ~
 0 D inside
 D2
-Inside the cave~
+Inside the cave
+~
 ~
 Z -1 17190
 D3
-Inside the cave~
+Inside the cave
+~
 ~
 Z -1 17186
 S
@@ -2068,23 +2116,28 @@ carpet oriental~
 As you examine the carpet, you discover a secret trap door!
 ~
 D0
-Inside the cave~
+Inside the cave
+~
 ~
 Z -1 17189
 D2
-Inside the cave~
+Inside the cave
+~
 ~
 Z -1 17191
 D3
-Inside the cave~
+Inside the cave
+~
 ~
 Z -1 17187
 D4
-Up the iron rungs~
+Up the iron rungs
+~
 ~
 Z -1 17193
 D5
-Into the dark hole~
+Into the dark hole
+~
 carpet oriental rug secret trap door~
 ABZ 0 17192
 S
@@ -2096,7 +2149,8 @@ cast menacing shadows on the ceiling.
 ~
 0 D inside
 D0
-Inside the cave~
+Inside the cave
+~
 ~
 Z -1 17190
 D2
@@ -2116,7 +2170,8 @@ enough to stay out of the sewage.
 ~
 0 AD inside
 D4
-Out of the hole~
+Out of the hole
+~
 trapdoor trap door rug oriental carpet~
 ABZ 0 17190
 S
@@ -2130,7 +2185,8 @@ the fires.
 ~
 0 0 mountain
 D5
-Down the iron rungs~
+Down the iron rungs
+~
 ~
 Z -1 17190
 S
@@ -2151,7 +2207,8 @@ D0
 ~
 Z 0 17235
 D2
-Into the cave~
+Into the cave
+~
 ~
 Z -1 17211
 S
@@ -2167,11 +2224,13 @@ D0
 ~
 Z -1 17191
 D2
-The mountain~
+The mountain
+~
 ~
 Z -1 17197
 D3
-The beach~
+The beach
+~
 ~
 Z -1 17196
 S
@@ -2184,11 +2243,13 @@ roll in to crash at your feet.
 ~
 0 0 field
 D1
-The beach~
+The beach
+~
 ~
 Z -1 17195
 D2
-The beach~
+The beach
+~
 ~
 Z -1 17203
 S
@@ -2207,19 +2268,23 @@ trundling their prize aboard, and leave the galley to sink in flaming
 ruin.
 ~
 D0
-The beach~
+The beach
+~
 ~
 Z -1 17195
 D1
-The mountain~
+The mountain
+~
 ~
 Z -1 17198
 D2
-The mountain~
+The mountain
+~
 ~
 Z -1 17205
 D3
-The beach~
+The beach
+~
 ~
 Z -1 17203
 S
@@ -2231,15 +2296,18 @@ over the rim of the black mountain. To the north stretches a calm cove.
 ~
 0 0 mountain
 D1
-The mountain~
+The mountain
+~
 ~
 Z -1 17199
 D2
-Over the rim~
+Over the rim
+~
 ~
 Z -1 17210
 D3
-The mountain~
+The mountain
+~
 ~
 Z -1 17197
 S
@@ -2252,19 +2320,23 @@ two main fissures, and winds its way to the sea to cool in a roaring hiss.
 ~
 0 0 mountain
 D0
-The lava flows~
+The lava flows
+~
 ~
 Z -1 17200
 D1
-The lava flows~
+The lava flows
+~
 ~
 Z -1 17202
 D2
-The mountain~
+The mountain
+~
 ~
 Z -1 17209
 D3
-The mountain~
+The mountain
+~
 ~
 Z -1 17198
 S
@@ -2280,11 +2352,13 @@ exits~
 You look into one of the fissures, and watch two lava worms mating.
 ~
 D1
-The lava flows~
+The lava flows
+~
 ~
 Z -1 17201
 D2
-Up the mountain~
+Up the mountain
+~
 ~
 Z -1 17199
 S
@@ -2302,11 +2376,13 @@ D1
 ~
 Z 0 17247
 D2
-The lava flows~
+The lava flows
+~
 ~
 Z -1 17202
 D3
-The lava flows~
+The lava flows
+~
 ~
 Z -1 17200
 S
@@ -2323,11 +2399,13 @@ You stand for a while and watch a gas vent. Gas seems to steadily emit
 in a low hiss, and occasionally bursts out in a deadly jet.
 ~
 D0
-The lava flows~
+The lava flows
+~
 ~
 Z -1 17201
 D3
-Up the mountain~
+Up the mountain
+~
 ~
 Z -1 17199
 S
@@ -2341,15 +2419,18 @@ in a far off city, and wish they could have been here now.
 ~
 0 0 field
 D0
-The beach~
+The beach
+~
 ~
 Z -1 17196
 D1
-The mountain~
+The mountain
+~
 ~
 Z -1 17197
 D2
-The beach~
+The beach
+~
 ~
 Z -1 17204
 S
@@ -2361,15 +2442,18 @@ looms. To the west you see a sea that there may be sharks.
 ~
 0 0 field
 D0
-The beach~
+The beach
+~
 ~
 Z -1 17203
 D1
-The mountain~
+The mountain
+~
 ~
 Z -1 17205
 D3
-On the seas surrounding an atoll~
+On the seas surrounding an atoll
+~
 ~
 Z -1 17221
 S
@@ -2382,19 +2466,23 @@ don't know if you will be able to come back though.
 ~
 0 0 mountain
 D0
-The mountain~
+The mountain
+~
 ~
 Z -1 17197
 D1
-Over the rim~
+Over the rim
+~
 ~
 Z -1 17210
 D2
-The mountain~
+The mountain
+~
 ~
 Z -1 17206
 D3
-The beach~
+The beach
+~
 ~
 Z -1 17204
 S
@@ -2408,11 +2496,13 @@ could fly away, across the sea.
 ~
 0 0 mountain
 D0
-The mountain~
+The mountain
+~
 ~
 Z -1 17205
 D1
-The mountain~
+The mountain
+~
 ~
 Z -1 17207
 S
@@ -2426,15 +2516,18 @@ You see a path going downward.
 ~
 0 0 mountain
 D0
-The crater~
+The crater
+~
 ~
 Z -1 17210
 D1
-The mountain~
+The mountain
+~
 ~
 Z -1 17208
 D3
-The mountain~
+The mountain
+~
 ~
 Z -1 17206
 S
@@ -2447,11 +2540,13 @@ and over with the rhythm of the sea.
 ~
 0 0 mountain
 D0
-The mountain~
+The mountain
+~
 ~
 Z -1 17209
 D3
-The mountain~
+The mountain
+~
 ~
 Z -1 17207
 S
@@ -2465,15 +2560,18 @@ gliding on the hot updraft of the mountain.
 ~
 0 0 mountain
 D0
-The mountain~
+The mountain
+~
 ~
 Z -1 17199
 D2
-The mountain~
+The mountain
+~
 ~
 Z -1 17208
 D3
-Over the rim~
+Over the rim
+~
 ~
 Z -1 17210
 S
@@ -2486,11 +2584,13 @@ here in the noxious gasses of the volcano.
 ~
 0 0 field
 D2
-Up the southern path~
+Up the southern path
+~
 ~
 Z -1 17207
 D5
-Down a shaft~
+Down a shaft
+~
 hatch~
 Z 0 17218
 S
@@ -2508,11 +2608,13 @@ The vessels are well guarded by a force of some 30 odd men. You think
 better of it, and leave well enough alone.
 ~
 D0
-The cove~
+The cove
+~
 ~
 Z -1 17194
 D4
-Up the stairs~
+Up the stairs
+~
 ~
 Z -1 17212
 S
@@ -2526,19 +2628,23 @@ braced with wooden timbers.
 ~
 0 D inside
 D1
-Caverns~
+Caverns
+~
 ~
 Z -1 17213
 D2
-In the Pirates Cavern~
+In the Pirates Cavern
+~
 ~
 Z -1 17215
 D3
-Caverns~
+Caverns
+~
 gate~
 ABCZ 17021 17214
 D5
-Down the winding stone staircase~
+Down the winding stone staircase
+~
 ~
 Z -1 17211
 S
@@ -2556,7 +2662,8 @@ You read the dwarven markings of one box. It reads 'Deliver to
 Thraxton of Urnst'. You pry it open and find a small barrel of beer.
 ~
 D3
-Caverns~
+Caverns
+~
 ~
 Z -1 17212
 S
@@ -2569,7 +2676,8 @@ of poor quality, except for a few which stand out.
 ~
 0 D field
 D1
-Caverns~
+Caverns
+~
 gate~
 ABCZ 17021 17212
 S
@@ -2589,11 +2697,13 @@ the limbs, and swing from long rope platforms from tree to tree. The
 painting is titled 'Ellnallhalla by Lalila'
 ~
 D0
-Caverns~
+Caverns
+~
 ~
 Z -1 17212
 D2
-Caverns~
+Caverns
+~
 ~
 Z -1 17216
 S
@@ -2606,11 +2716,13 @@ been widened with mining tools, and braced with wooden timbers.
 ~
 0 D inside
 D0
-Caverns~
+Caverns
+~
 ~
 Z -1 17215
 D1
-Caverns~
+Caverns
+~
 ~
 Z -1 17217
 S
@@ -2624,11 +2736,13 @@ hear the sounds of laughter.
 ~
 0 D inside
 D2
-Caverns~
+Caverns
+~
 ~
 Z -1 17218
 D3
-Caverns~
+Caverns
+~
 ~
 Z -1 17216
 S
@@ -2647,15 +2761,18 @@ D0
 ~
 Z 0 17217
 D1
-The barracks~
+The barracks
+~
 ~
 Z -1 17219
 D3
-A dark cavern~
+A dark cavern
+~
 gate~
 ABCZ 17021 17220
 D4
-A winding staircase~
+A winding staircase
+~
 ~
 Z -1 17210
 S
@@ -2668,7 +2785,8 @@ fresh and free of insects.
 ~
 0 D inside
 D3
-The hall~
+The hall
+~
 ~
 Z -1 17218
 S
@@ -2685,7 +2803,8 @@ The scratches upon closer examination under a light, actually are a sketch
 of an old growth forest.
 ~
 D1
-The hall~
+The hall
+~
 gate~
 ABCZ 17021 17218
 S
@@ -2704,11 +2823,13 @@ can easily recognize the masts of several docked ships, and you see
 houses on stilts.
 ~
 D1
-On the black sand beach~
+On the black sand beach
+~
 ~
 Z -1 17204
 D2
-Sailing around the atoll~
+Sailing around the atoll
+~
 ~
 Z -1 17222
 S
@@ -2728,11 +2849,13 @@ can easily recognize the masts of several docked ships, and you see
 houses on stilts.
 ~
 D0
-Sailing around the atoll~
+Sailing around the atoll
+~
 ~
 Z -1 17221
 D3
-Sailing around the atoll~
+Sailing around the atoll
+~
 ~
 Z -1 17223
 S
@@ -2752,11 +2875,13 @@ can easily recognize the masts of several docked ships, and you see
 houses on stilts.
 ~
 D1
-Sailing around the atoll~
+Sailing around the atoll
+~
 ~
 Z -1 17222
 D3
-Sailing around the atoll~
+Sailing around the atoll
+~
 ~
 Z -1 17224
 S
@@ -2776,11 +2901,13 @@ can easily recognize the masts of several docked ships, and you see
 houses on stilts.
 ~
 D0
-Sailing around the atoll~
+Sailing around the atoll
+~
 ~
 Z -1 17225
 D1
-Sailing around the atoll~
+Sailing around the atoll
+~
 ~
 Z -1 17223
 S
@@ -2800,11 +2927,13 @@ can easily recognize the masts of several docked ships, and you see
 houses on stilts.
 ~
 D2
-Sailing around the atoll~
+Sailing around the atoll
+~
 ~
 Z -1 17224
 D3
-Sailing around the atoll~
+Sailing around the atoll
+~
 ~
 Z -1 17226
 S
@@ -2824,11 +2953,13 @@ can easily recognize the masts of several docked ships, and you see
 houses on stilts.
 ~
 D0
-Sailing around the atoll~
+Sailing around the atoll
+~
 ~
 Z -1 17227
 D1
-Sailing around the atoll~
+Sailing around the atoll
+~
 ~
 Z -1 17225
 S
@@ -2848,11 +2979,13 @@ can easily recognize the masts of several docked ships, and you see
 houses on stilts.
 ~
 D0
-Sailing around the atoll~
+Sailing around the atoll
+~
 ~
 Z -1 17228
 D2
-Sailing around the atoll~
+Sailing around the atoll
+~
 ~
 Z -1 17226
 S
@@ -2872,11 +3005,13 @@ can easily recognize the masts of several docked ships, and you see
 houses on stilts.
 ~
 D1
-Sailing around the atoll~
+Sailing around the atoll
+~
 ~
 Z -1 17229
 D2
-Sailing around the atoll~
+Sailing around the atoll
+~
 ~
 Z -1 17227
 S
@@ -2903,11 +3038,13 @@ you can read. It says '......and it is rumored she went down fully laden on
 thunder reef....'
 ~
 D0
-Sailing around the atoll~
+Sailing around the atoll
+~
 ~
 Z -1 17230
 D3
-Sailing around the atoll~
+Sailing around the atoll
+~
 ~
 Z -1 17228
 S
@@ -2927,11 +3064,13 @@ can easily recognize the masts of several docked ships, and you see
 houses on stilts.
 ~
 D1
-The lagoon entrance~
+The lagoon entrance
+~
 ~
 Z -1 17231
 D2
-Sailing around the atoll~
+Sailing around the atoll
+~
 ~
 Z -1 17229
 S
@@ -2951,15 +3090,18 @@ can easily recognize the masts of several docked ships, and you see
 houses on stilts.
 ~
 D1
-Sailing around the atoll~
+Sailing around the atoll
+~
 ~
 Z -1 17232
 D2
-Into the lagoon~
+Into the lagoon
+~
 ~
 Z -1 17236
 D3
-Sailing around the atoll~
+Sailing around the atoll
+~
 ~
 Z -1 17230
 S
@@ -2979,11 +3121,13 @@ can easily recognize the masts of several docked ships, and you see
 houses on stilts.
 ~
 D2
-Sailing around the atoll~
+Sailing around the atoll
+~
 ~
 Z -1 17233
 D3
-Sailing around the atoll~
+Sailing around the atoll
+~
 ~
 Z -1 17231
 S
@@ -3003,11 +3147,13 @@ can easily recognize the masts of several docked ships, and you see
 houses on stilts.
 ~
 D0
-Sailing around the atoll~
+Sailing around the atoll
+~
 ~
 Z -1 17232
 D1
-Sailing around the atoll~
+Sailing around the atoll
+~
 ~
 Z -1 17234
 S
@@ -3027,11 +3173,13 @@ can easily recognize the masts of several docked ships, and you see
 houses on stilts.
 ~
 D2
-Sailing around the atoll~
+Sailing around the atoll
+~
 ~
 Z -1 17235
 D3
-Sailing around the atoll~
+Sailing around the atoll
+~
 ~
 Z -1 17233
 S
@@ -3051,7 +3199,8 @@ can easily recognize the masts of several docked ships, and you see
 houses on stilts.
 ~
 D0
-Sailing around the atoll~
+Sailing around the atoll
+~
 ~
 Z -1 17234
 D2
@@ -3069,11 +3218,13 @@ by rope bridges. The waters are calm enough to swim in here.
 ~
 0 R swim
 D0
-Out of the lagoon~
+Out of the lagoon
+~
 ~
 Z -1 17231
 D2
-The shacks on stilts~
+The shacks on stilts
+~
 ~
 Z -1 17237
 S
@@ -3088,19 +3239,23 @@ on stilts.
 ~
 0 0 inside
 D0
-The docks~
+The docks
+~
 ~
 Z -1 17236
 D1
-The barracks~
+The barracks
+~
 ~
 Z -1 17238
 D2
-The house on stilts~
+The house on stilts
+~
 ~
 ABZ -1 17240
 D3
-The barred shack~
+The barred shack
+~
 ~
 ABZ -1 17239
 S
@@ -3113,7 +3268,8 @@ surf pounding against the piles.
 ~
 0 0 inside
 D3
-The central shack~
+The central shack
+~
 ~
 Z -1 17237
 S
@@ -3126,7 +3282,8 @@ to the wooden frame of the hut. Flies buzz around in lazy circles.
 ~
 0 0 inside
 D1
-The central shack~
+The central shack
+~
 ~
 ABZ -1 17237
 S
@@ -3143,7 +3300,8 @@ flag~
 The flag is that of Antharia.
 ~
 D0
-The central shack~
+The central shack
+~
 ~
 ABZ -1 17237
 S
@@ -3155,27 +3313,33 @@ directions.
 ~
 0 P air
 D0
-In the air~
+In the air
+~
 ~
 Z -1 17244
 D1
-In the air~
+In the air
+~
 ~
 Z -1 17242
 D2
-In the air~
+In the air
+~
 ~
 Z -1 17244
 D3
-In the air~
+In the air
+~
 ~
 Z -1 17243
 D4
-In the air~
+In the air
+~
 ~
 Z -1 17245
 D5
-On the water~
+On the water
+~
 ~
 Z -1 6114
 S
@@ -3187,27 +3351,33 @@ directions.
 ~
 0 Q air
 D0
-In the air~
+In the air
+~
 ~
 Z -1 17245
 D1
-In the air~
+In the air
+~
 ~
 Z -1 17243
 D2
-In the air~
+In the air
+~
 ~
 Z -1 17245
 D3
-In the air~
+In the air
+~
 ~
 Z -1 17241
 D4
-In the air~
+In the air
+~
 ~
 Z -1 17246
 D5
-In the air~
+In the air
+~
 ~
 Z -1 17244
 S
@@ -3219,27 +3389,33 @@ directions.
 ~
 0 T air
 D0
-In the air~
+In the air
+~
 ~
 Z -1 17246
 D1
-In the air~
+In the air
+~
 ~
 Z -1 17241
 D2
-In the air~
+In the air
+~
 ~
 Z -1 17246
 D3
-In the air~
+In the air
+~
 ~
 Z -1 17242
 D4
-In the air~
+In the air
+~
 ~
 Z -1 17244
 D5
-In the air~
+In the air
+~
 ~
 Z -1 17245
 S
@@ -3251,27 +3427,33 @@ directions.
 ~
 0 R air
 D0
-In the air~
+In the air
+~
 ~
 Z -1 17241
 D1
-In the air~
+In the air
+~
 ~
 Z -1 17245
 D2
-In the air~
+In the air
+~
 ~
 Z -1 17241
 D3
-In the air~
+In the air
+~
 ~
 Z -1 17246
 D4
-In the air~
+In the air
+~
 ~
 Z -1 17242
 D5
-In the air~
+In the air
+~
 ~
 Z -1 17243
 S
@@ -3283,27 +3465,33 @@ directions.
 ~
 0 S air
 D0
-In the air~
+In the air
+~
 ~
 Z -1 17242
 D1
-In the air~
+In the air
+~
 ~
 Z -1 17246
 D2
-In the air~
+In the air
+~
 ~
 Z -1 17242
 D3
-In the air~
+In the air
+~
 ~
 Z -1 17244
 D4
-In the air~
+In the air
+~
 ~
 Z -1 17243
 D5
-In the air~
+In the air
+~
 ~
 Z -1 17241
 S
@@ -3315,27 +3503,33 @@ directions.
 ~
 0 U air
 D0
-In the air~
+In the air
+~
 ~
 Z -1 17243
 D1
-In the air~
+In the air
+~
 ~
 Z -1 17244
 D2
-In the air~
+In the air
+~
 ~
 Z -1 17243
 D3
-In the air~
+In the air
+~
 ~
 Z -1 17245
 D4
-In the calm air~
+In the calm air
+~
 ~
 Z -1 17247
 D5
-In the air~
+In the air
+~
 ~
 Z -1 17242
 S
@@ -3348,11 +3542,13 @@ the hawkmen which terrorize the area.
 ~
 0 0 air
 D0
-In the calm air~
+In the calm air
+~
 ~
 Z -1 17248
 D1
-In the calm air~
+In the calm air
+~
 ~
 Z -1 17250
 D3
@@ -3360,7 +3556,8 @@ D3
 ~
 Z 0 17201
 D5
-In the turbulent air~
+In the turbulent air
+~
 ~
 Z -1 17246
 S
@@ -3389,11 +3586,13 @@ which impart the ability of flying to the recipient. Beware
 for I know not how long this enchantment will last. - MERLIN'
 ~
 D1
-In the calm air~
+In the calm air
+~
 ~
 Z -1 17249
 D2
-In the calm air~
+In the calm air
+~
 ~
 Z -1 17247
 S
@@ -3405,15 +3604,18 @@ your irritation, hangs the dangling end of the rope ladder.
 ~
 0 0 air
 D2
-In the calm air~
+In the calm air
+~
 ~
 Z -1 17250
 D3
-In the calm air~
+In the calm air
+~
 ~
 Z -1 17248
 D4
-Up the rope ladder~
+Up the rope ladder
+~
 ~
 Z -1 17251
 S
@@ -3426,11 +3628,13 @@ three triremes.
 ~
 0 0 air
 D0
-In the calm air~
+In the calm air
+~
 ~
 Z -1 17249
 D3
-In the calm air~
+In the calm air
+~
 ~
 Z -1 17247
 S
@@ -3443,11 +3647,13 @@ stands a granite keep. A winch with a rope ladder offers passage downward.
 ~
 0 0 field
 D0
-On the flying island~
+On the flying island
+~
 ~
 Z -1 17252
 D2
-Taking the winch all the way down to the sea~
+Taking the winch all the way down to the sea
+~
 winch ladder rope~
 Z -1 6118
 D5
@@ -3464,19 +3670,23 @@ winch.
 ~
 0 0 field
 D0
-On the flying island~
+On the flying island
+~
 ~
 Z -1 17256
 D1
-On the flying island~
+On the flying island
+~
 ~
 Z -1 17253
 D2
-On the flying island~
+On the flying island
+~
 ~
 Z -1 17251
 D3
-On the flying island~
+On the flying island
+~
 ~
 Z -1 17254
 S
@@ -3490,11 +3700,13 @@ very large bird.
 ~
 0 0 field
 D0
-On the flying island~
+On the flying island
+~
 ~
 Z -1 17258
 D3
-On the flying island~
+On the flying island
+~
 ~
 Z -1 17252
 S
@@ -3508,11 +3720,13 @@ very large bird.
 ~
 0 0 field
 D0
-On the flying island~
+On the flying island
+~
 ~
 Z -1 17255
 D1
-On the flying island~
+On the flying island
+~
 ~
 Z -1 17252
 S
@@ -3526,11 +3740,13 @@ very large bird.
 ~
 0 0 field
 D1
-On the flying island~
+On the flying island
+~
 ~
 Z -1 17256
 D2
-On the flying island~
+On the flying island
+~
 ~
 Z -1 17254
 S
@@ -3542,23 +3758,28 @@ paved ramp stands the looming hold of the 4th Pirate Lord.
 ~
 0 0 field
 D0
-On the flying island~
+On the flying island
+~
 ~
 Z -1 17257
 D1
-On the flying island~
+On the flying island
+~
 ~
 Z -1 17258
 D2
-On the flying island~
+On the flying island
+~
 ~
 Z -1 17252
 D3
-On the flying island~
+On the flying island
+~
 ~
 Z -1 17255
 D4
-Up the ramp to the keep~
+Up the ramp to the keep
+~
 ~
 Z -1 17259
 S
@@ -3572,7 +3793,8 @@ very large bird.
 ~
 0 0 field
 D2
-On the flying island~
+On the flying island
+~
 ~
 Z -1 17256
 S
@@ -3586,11 +3808,13 @@ very large bird.
 ~
 0 0 field
 D2
-On the flying island~
+On the flying island
+~
 ~
 Z -1 17253
 D3
-On the flying island~
+On the flying island
+~
 ~
 Z -1 17256
 S
@@ -3609,11 +3833,13 @@ The keep is a simple block design, with four walls and iron barred windows.
 Above you is a second floor.
 ~
 D2
-Inside the keep~
+Inside the keep
+~
 door~
 ABZ 0 17260
 D5
-Down the ramp~
+Down the ramp
+~
 ~
 Z -1 17256
 S
@@ -3625,19 +3851,23 @@ to your south is a massive double door. To your north is the keep entrance.
 ~
 0 D inside
 D0
-Outside the keep~
+Outside the keep
+~
 door~
 ABZ -1 17259
 D1
-A room~
+A room
+~
 door~
 ABZ -1 17261
 D2
-Down the hall~
+Down the hall
+~
 ~
 Z -1 17263
 D3
-A room~
+A room
+~
 door~
 ABZ -1 17262
 S
@@ -3651,7 +3881,8 @@ an archer could stand and fire.
 ~
 0 D inside
 D3
-A door~
+A door
+~
 door~
 ABZ -1 17260
 S
@@ -3665,7 +3896,8 @@ an archer could stand and fire.
 ~
 0 D inside
 D1
-A door~
+A door
+~
 door~
 ABZ -1 17260
 S
@@ -3677,19 +3909,23 @@ your south is a massive double door. To your north is the keep entrance.
 ~
 0 D inside
 D0
-Up the hall~
+Up the hall
+~
 ~
 Z -1 17260
 D1
-A room~
+A room
+~
 door~
 ABZ -1 17264
 D2
-Down the hall~
+Down the hall
+~
 ~
 Z -1 17266
 D3
-A room~
+A room
+~
 door~
 ABZ -1 17265
 S
@@ -3703,7 +3939,8 @@ an archer could stand and fire.
 ~
 0 D inside
 D3
-A door~
+A door
+~
 door~
 ABZ -1 17263
 S
@@ -3717,7 +3954,8 @@ an archer could stand and fire.
 ~
 0 D inside
 D1
-A door~
+A door
+~
 door~
 ABZ -1 17263
 S
@@ -3730,19 +3968,23 @@ doors.
 ~
 0 D inside
 D0
-Up the hall~
+Up the hall
+~
 ~
 Z -1 17263
 D1
-A room~
+A room
+~
 door~
 ABZ -1 17267
 D2
-Through the double doors~
+Through the double doors
+~
 doors double~
 ABCZ 17041 17269
 D3
-A room~
+A room
+~
 door~
 ABZ -1 17268
 S
@@ -3756,7 +3998,8 @@ an archer could stand and fire.
 ~
 0 D inside
 D3
-A door~
+A door
+~
 door~
 ABZ -1 17266
 S
@@ -3770,7 +4013,8 @@ an archer could stand and fire.
 ~
 0 D inside
 D1
-A door~
+A door
+~
 door~
 Z -1 17266
 S
@@ -3785,11 +4029,13 @@ is accessible through the south end of the hall.
 ~
 0 D inside
 D0
-Into the hallway~
+Into the hallway
+~
 door double~
 ABCZ 17261 17266
 D4
-Up the stairs~
+Up the stairs
+~
 ~
 Z -1 17270
 S
@@ -3803,7 +4049,8 @@ Articles of conquest fill the room, and the floor is of polished stone.
 ~
 0 D inside
 D5
-Down the stairs~
+Down the stairs
+~
 ~
 Z -1 17269
 S
@@ -3816,11 +4063,13 @@ to the core.
 ~
 0 R noswim
 D0
-The sea of ice~
+The sea of ice
+~
 ~
 Z -1 17272
 D2
-The sea of ice~
+The sea of ice
+~
 ~
 Z -1 3201
 S
@@ -3833,11 +4082,13 @@ chilling you to the core.
 ~
 0 R noswim
 D1
-The sea of ice~
+The sea of ice
+~
 ~
 Z -1 17273
 D2
-The sea of ice~
+The sea of ice
+~
 ~
 Z -1 17271
 S
@@ -3850,11 +4101,13 @@ to the core.
 ~
 0 S noswim
 D1
-The sea of ice~
+The sea of ice
+~
 ~
 Z -1 17274
 D3
-The sea of ice~
+The sea of ice
+~
 ~
 Z -1 17272
 S
@@ -3867,11 +4120,13 @@ to the core.
 ~
 0 S noswim
 D2
-The sea of ice~
+The sea of ice
+~
 ~
 Z -1 17275
 D3
-The sea of ice~
+The sea of ice
+~
 ~
 Z -1 17273
 S
@@ -3884,11 +4139,13 @@ to the core.
 ~
 0 P noswim
 D0
-The sea of ice~
+The sea of ice
+~
 ~
 Z -1 17274
 D2
-The sea of ice~
+The sea of ice
+~
 ~
 Z -1 17276
 S
@@ -3901,11 +4158,13 @@ to the core.
 ~
 0 P noswim
 D0
-The sea of ice~
+The sea of ice
+~
 ~
 Z -1 17275
 D3
-The sea of ice~
+The sea of ice
+~
 ~
 Z -1 17277
 S
@@ -3918,11 +4177,13 @@ a dark watery cave leading into the iceberg.
 ~
 0 Q noswim
 D0
-Into the cave~
+Into the cave
+~
 ~
 Z -1 17278
 D1
-The sea of ice~
+The sea of ice
+~
 ~
 Z -1 17276
 S
@@ -3937,11 +4198,13 @@ your hands and knees, and feel the outline of an ice trap door beneath you.
 ~
 0 R noswim
 D2
-The sea of ice~
+The sea of ice
+~
 ~
 Z -1 17277
 D5
-Through the trap door~
+Through the trap door
+~
 ice trap door~
 ABZ -1 17279
 S
@@ -3953,7 +4216,8 @@ around.
 ~
 0 ADS inside
 D3
-The icy shoot~
+The icy shoot
+~
 ~
 Z -1 17280
 S
@@ -3965,7 +4229,8 @@ around.
 ~
 0 ADR inside
 D2
-The icy shoot~
+The icy shoot
+~
 ~
 Z -1 17281
 S
@@ -3977,7 +4242,8 @@ around.
 ~
 0 ADQ inside
 D1
-The icy shoot~
+The icy shoot
+~
 ~
 Z -1 17282
 S
@@ -3989,7 +4255,8 @@ around.
 ~
 0 ADFHIMPQ inside
 D5
-The icy shoot~
+The icy shoot
+~
 ~
 Z -1 17283
 S
@@ -4001,7 +4268,8 @@ around.
 ~
 0 ADR inside
 D2
-The icy shoot~
+The icy shoot
+~
 ~
 Z -1 17284
 S
@@ -4013,7 +4281,8 @@ around.
 ~
 0 ADQ inside
 D1
-The icy shoot~
+The icy shoot
+~
 ~
 Z -1 17285
 S
@@ -4025,7 +4294,8 @@ around.
 ~
 0 ADP inside
 D0
-The icy shoot~
+The icy shoot
+~
 ~
 Z -1 17286
 S
@@ -4037,7 +4307,8 @@ around.
 ~
 0 ADU inside
 D5
-The icy shoot~
+The icy shoot
+~
 ~
 Z -1 17287
 S
@@ -4049,7 +4320,8 @@ around.
 ~
 0 ADR inside
 D2
-The icy shoot~
+The icy shoot
+~
 ~
 Z -1 17288
 S
@@ -4061,7 +4333,8 @@ around.
 ~
 0 ADQ inside
 D1
-The icy shoot~
+The icy shoot
+~
 ~
 Z -1 17289
 S
@@ -4073,7 +4346,8 @@ around.
 ~
 0 ADP inside
 D0
-The icy shoot~
+The icy shoot
+~
 ~
 Z -1 17290
 S
@@ -4085,11 +4359,13 @@ leap and lurch as if the entire cavern were a demons mouth laughing at you.
 ~
 0 D forest
 D0
-In the great ice cavern~
+In the great ice cavern
+~
 ~
 Z -1 17291
 D1
-In the great ice cavern~
+In the great ice cavern
+~
 ~
 Z -1 17295
 S
@@ -4101,15 +4377,18 @@ leap and lurch as if the entire cavern were a demons mouth laughing at you.
 ~
 0 D forest
 D0
-In the great ice cavern~
+In the great ice cavern
+~
 ~
 Z -1 17292
 D1
-In the great ice cavern~
+In the great ice cavern
+~
 ~
 Z -1 17294
 D2
-In the great ice cavern~
+In the great ice cavern
+~
 ~
 Z -1 17290
 S
@@ -4121,11 +4400,13 @@ leap and lurch as if the entire cavern were a demons mouth laughing at you.
 ~
 0 D forest
 D1
-In the great ice cavern~
+In the great ice cavern
+~
 ~
 Z -1 17293
 D2
-In the great ice cavern~
+In the great ice cavern
+~
 ~
 Z -1 17291
 S
@@ -4137,15 +4418,18 @@ leap and lurch as if the entire cavern were a demons mouth laughing at you.
 ~
 0 D forest
 D1
-In the great ice cavern~
+In the great ice cavern
+~
 ~
 Z -1 17296
 D2
-In the great ice cavern~
+In the great ice cavern
+~
 ~
 Z -1 17294
 D3
-In the great ice cavern~
+In the great ice cavern
+~
 ~
 Z -1 17292
 S
@@ -4160,19 +4444,23 @@ a pool of water.
 ~
 0 D forest
 D0
-In the great ice cavern~
+In the great ice cavern
+~
 ~
 Z -1 17293
 D1
-In the great ice cavern~
+In the great ice cavern
+~
 ~
 Z -1 17297
 D2
-In the great ice cavern~
+In the great ice cavern
+~
 ~
 Z -1 17295
 D3
-In the great ice cavern~
+In the great ice cavern
+~
 ~
 Z -1 17291
 S
@@ -4184,15 +4472,18 @@ leap and lurch as if the entire cavern were a demons mouth laughing at you.
 ~
 0 D forest
 D0
-In the great ice cavern~
+In the great ice cavern
+~
 ~
 Z -1 17294
 D1
-In the great ice cavern~
+In the great ice cavern
+~
 ~
 Z -1 17298
 D3
-In the great ice cavern~
+In the great ice cavern
+~
 ~
 Z -1 17290
 S
@@ -4204,11 +4495,13 @@ leap and lurch as if the entire cavern were a demons mouth laughing at you.
 ~
 0 D forest
 D2
-In the great ice cavern~
+In the great ice cavern
+~
 ~
 Z -1 17297
 D3
-In the great ice cavern~
+In the great ice cavern
+~
 ~
 Z -1 17293
 S
@@ -4220,19 +4513,23 @@ blaze on either side of the bench.
 ~
 0 D forest
 D0
-In the great ice cavern~
+In the great ice cavern
+~
 ~
 Z -1 17296
 D1
-A thin sheet of ice~
+A thin sheet of ice
+~
 ice~
 ABCFZ -1 17299
 D2
-In the great ice cavern~
+In the great ice cavern
+~
 ~
 Z -1 17298
 D3
-In the great ice cavern~
+In the great ice cavern
+~
 ~
 Z -1 17294
 S
@@ -4248,11 +4545,13 @@ runes wall~
 Thraxton was here.
 ~
 D0
-In the great ice cavern~
+In the great ice cavern
+~
 ~
 Z -1 17297
 D3
-In the great ice cavern~
+In the great ice cavern
+~
 ~
 Z -1 17295
 S
@@ -4271,11 +4570,13 @@ ladder rope~
 You will kick yourself when you climb this ladder.
 ~
 D1
-Inside the iceberg~
+Inside the iceberg
+~
 ~
 Z -1 17278
 D3
-A thin sheet of ice~
+A thin sheet of ice
+~
 ice~
 ABCFZ -1 17297
 S
