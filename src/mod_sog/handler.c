@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.329 2001-09-16 18:14:24 fjoe Exp $
+ * $Id: handler.c,v 1.330 2001-09-16 19:41:07 fjoe Exp $
  */
 
 /***************************************************************************
@@ -5988,12 +5988,13 @@ format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, int flags)
 	}
 
 	if (obj->in_room && IS_WATER(obj->in_room)) {
-		char* p;
+		char *p;
 
 		p = strchr(buf, '\0');
 		strnzcat(buf, sizeof(buf),
 			 format_short(&obj->short_descr, obj->pObjIndex->name,
 				      ch, GET_LANG(ch), 0));
+		p = (char *) (uintptr_t) (const void *) cstrfirst(p);
 		p[0] = UPPER(p[0]);
 		switch(number_range(1, 3)) {
 		case 1:
