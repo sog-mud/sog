@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.171 2000-01-18 13:25:51 kostik Exp $
+ * $Id: spellfun2.c,v 1.172 2000-01-18 13:54:16 avn Exp $
  */
 
 /***************************************************************************
@@ -5347,7 +5347,7 @@ void spell_free_action(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	AFFECT_DATA af;
 
 	if (is_affected(ch, sn)) {
-		char_puts("Your movements are already free.\n", ch);
+		act("Your movements are already free.", ch, NULL, NULL, TO_CHAR);
 		return;
 	}
 
@@ -5355,11 +5355,13 @@ void spell_free_action(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	af.type		= "free action";
 	af.level	= level; 
 	af.duration	= level / 12;
-	af.location.s	= str_dup("swimming");;
-	af.modifier	= 0;
-	af.bitvector	= 0;
+	af.location.s	= str_dup("swimming");
+	af.modifier	= 100;
+	af.bitvector	= SK_AFF_TEACH;
 	affect_to_char(vch, &af); 
-	char_puts("You can move easier.\n", vch);
+	act("You can move easier.", vch, NULL, NULL, TO_CHAR);
+	if (ch != vch)
+		act("You help $N to move easier.", ch, NULL, vch, TO_CHAR);
 }
 
 void spell_blur(const char *sn, int level, CHAR_DATA *ch, void *vo)

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act.c,v 1.58 2000-01-17 09:31:50 fjoe Exp $
+ * $Id: act.c,v 1.59 2000-01-18 13:54:15 avn Exp $
  */
 
 #include <stdio.h>
@@ -629,12 +629,12 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 
 			case 'w':
 				gml = glob_lookup(arg1);
-				GMLTEXT_ARG(GML1, opt->act_flags & ~ACT_STRANS);
+				GMLTEXT_ARG(gml, opt->act_flags & ~ACT_STRANS);
 				break;
 			
 			case 'W':
 				gml = glob_lookup(arg3);
-				GMLTEXT_ARG(GML1, opt->act_flags & ~ACT_STRANS);
+				GMLTEXT_ARG(gml, opt->act_flags & ~ACT_STRANS);
 				break;
 			
 /* room arguments */
