@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.403 2003-05-08 14:00:02 fjoe Exp $
+ * $Id: merc.h,v 1.404 2003-05-08 15:24:36 fjoe Exp $
  */
 
 /***************************************************************************
@@ -202,7 +202,6 @@ enum {
 #define MAX_TRADE		5	/* number of trade types for shops */
 #define MAX_DIR			6	/* number of exits */
 #define MAX_ALIAS		50	/* number of aliases char can have */
-#define MAX_KEY_HASH		1024
 
 /*
  * level consts

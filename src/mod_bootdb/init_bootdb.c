@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_bootdb.c,v 1.22 2003-05-08 14:00:05 fjoe Exp $
+ * $Id: init_bootdb.c,v 1.23 2003-05-08 15:24:38 fjoe Exp $
  */
 
 #include <sys/stat.h>
@@ -443,21 +443,18 @@ trig_lookup_mob(const char *name, int *pvnum, int *ptrigvnum)
 {
 	int i;
 	trig_t *rv = NULL;
+	MOB_INDEX_DATA *mob;
 
-	for (i = 0; i < MAX_KEY_HASH; i++) {
-		MOB_INDEX_DATA *mob;
+	C_FOREACH (mob, &mobiles) {
+		trig_t *trig;
 
-		for (mob = mob_index_hash[i]; mob != NULL; mob = mob->next) {
-			trig_t *trig;
+		trig = trig_lookup_v(&mob->mp_trigs, name, ptrigvnum);
+		if (trig != NULL) {
+			if (rv != NULL)
+				return NULL;
 
-			trig = trig_lookup_v(&mob->mp_trigs, name, ptrigvnum);
-			if (trig != NULL) {
-				if (rv != NULL)
-					return NULL;
-
-				*pvnum = mob->vnum;
-				rv = trig;
-			}
+			*pvnum = mob->vnum;
+			rv = trig;
 		}
 	}
 
@@ -469,21 +466,18 @@ trig_lookup_obj(const char *name, int *pvnum, int *ptrigvnum)
 {
 	int i;
 	trig_t *rv = NULL;
+	OBJ_INDEX_DATA *obj;
 
-	for (i = 0; i < MAX_KEY_HASH; i++) {
-		OBJ_INDEX_DATA *obj;
+	C_FOREACH (obj, &objects) {
+		trig_t *trig;
 
-		for (obj = obj_index_hash[i]; obj != NULL; obj = obj->next) {
-			trig_t *trig;
+		trig = trig_lookup_v(&obj->mp_trigs, name, ptrigvnum);
+		if (trig != NULL) {
+			if (rv != NULL)
+				return NULL;
 
-			trig = trig_lookup_v(&obj->mp_trigs, name, ptrigvnum);
-			if (trig != NULL) {
-				if (rv != NULL)
-					return NULL;
-
-				*pvnum = obj->vnum;
-				rv = trig;
-			}
+			*pvnum = obj->vnum;
+			rv = trig;
 		}
 	}
 
