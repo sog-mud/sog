@@ -4007,6 +4007,16 @@ at which skill will be available for clan members and 'percent' is
 initial percent of the skill when it is added to character.
  
 ~
+0 CLANLIST~
+Syntax: clanlist {{ member | second | leader } [clan]
+ 
+clanlist command will list members, leaders or secondaries
+in your clan (or the specified clan -- imms only).
+ 
+These lists are updated automagically when the player is
+accepted/rejected to/from clan, promoted or renamed.
+ 
+~
 -1 $~
 
 #$
